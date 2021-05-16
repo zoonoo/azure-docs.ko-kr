@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: e32f18e7ff9e222586b1c9ca328e0f6c4eb3ba51
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92900929"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055555"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>C#에서 사용자 지정 단어 목록에 대해 텍스트 확인
 
 Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐츠 조정 요구에 적합합니다. 그러나 조직에 관련된 용어에 대해 차단해야 할 수 있습니다. 예를 들어 추가 검토를 위해 경쟁 업체 이름에 태그를 지정할 수 있습니다. 
 
-[.Net 용 CONTENT MODERATOR SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 를 사용 하 여 텍스트 조정 API와 함께 사용할 사용자 지정 약관 목록을 만들 수 있습니다.
+[.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 텍스트 조정 API와 함께 사용할 사용자 지정 용어 목록을 만들 수 있습니다.
 
 이 문서에서는 .NET용 Content Moderator SDK를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
 - 목록을 만듭니다.
@@ -33,7 +33,7 @@ Azure Content Moderator에서 기본 전역 용어 목록은 대부분의 콘텐
 - 목록 정보를 편집합니다.
 - 목록에 대한 변경 내용이 새 검색에 포함되도록 인덱스를 새로 고칩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Content Moderator 서비스 등록
 
@@ -70,7 +70,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
-다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. `AzureEndpoint`및 필드를 `CMSubscriptionKey` 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. `AzureEndpoint` 및 `CMSubscriptionKey` 필드를 엔드포인트 URL 및 구독 키 값으로 업데이트합니다. Azure Portal에 있는 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 /// <summary>
@@ -134,7 +134,7 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>용어 목록 만들기
 
-**ContentModeratorClient.ListManagementTermLists.Create** 를 사용하여 용어 목록을 만듭니다. **Create** 에 대한 첫 번째 매개 변수는 MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 참조 하세요. 두 번째 매개 변수는 새 용어 목록에 대한 이름 및 설명을 포함하는 **Body** 개체입니다.
+**ContentModeratorClient.ListManagementTermLists.Create** 를 사용하여 용어 목록을 만듭니다. **Create** 에 대한 첫 번째 매개 변수는 MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f)를 참조하세요. 두 번째 매개 변수는 새 용어 목록에 대한 이름 및 설명을 포함하는 **Body** 개체입니다.
 
 > [!NOTE]
 > 최대 **5개 용어 목록** 으로 제한되고, 각 목록은 **10,000개 용어를 초과하지 않아야** 합니다.
@@ -172,7 +172,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>용어 목록 이름 및 설명 업데이트
 
-**ContentModeratorClient.ListManagementTermLists.Update** 를 사용하여 용어 목록 정보를 업데이트합니다. **Update** 에 대한 첫 번째 매개 변수는 용어 목록 ID입니다. 두 번째 매개 변수는 MIME 형식으로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685)를 참조 하세요. 세 번째 매개 변수는 새 이름 및 설명을 포함하는 **Body** 개체입니다.
+**ContentModeratorClient.ListManagementTermLists.Update** 를 사용하여 용어 목록 정보를 업데이트합니다. **Update** 에 대한 첫 번째 매개 변수는 용어 목록 ID입니다. 두 번째 매개 변수는 MIME 형식으로, “application/json”이어야 합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685)를 참조하세요. 세 번째 매개 변수는 새 이름 및 설명을 포함하는 **Body** 개체입니다.
 
 TermLists 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -265,10 +265,10 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 - "text/html", "text/xml", "text/markdown" 또는 "text/plain"일 수 있는 MIME 형식입니다.
 - 차단할 텍스트입니다.
 - 부울 값입니다. 이 필드를 **true** 로 설정하여 차단하기 전에 텍스트를 자동으로 고칩니다.
-- 부울 값입니다. 텍스트의 개인 데이터를 검색 하려면이 필드를 **true** 로 설정 합니다.
+- 부울 값입니다. 텍스트에서 개인 데이터를 검색하려면 이 필드를 **true** 로 설정합니다.
 - 용어 목록 ID입니다.
 
-자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 참조 하세요.
+자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 참조하세요.
 
 **ScreenText** 는 Content Moderator가 차단에서 검색한 모든 용어를 나열하는 **Terms** 속성이 있는 **Screen** 개체를 반환합니다. Content Moderator가 차단하는 동안 용어를 검색하지 않는 경우 **Terms** 속성은 **Null** 값을 갖습니다.
 
@@ -363,7 +363,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## <a name="compose-the-main-method"></a>Main 메서드 작성
+## <a name="compose-the-main-method"></a>Main 메서드 구성
 
 **TermLists** 네임스페이스, **Program** 클래스에 **Main** 메서드 정의를 추가합니다. 마지막으로, **Program** 클래스 및 **TermLists** 네임스페이스를 닫습니다.
 
@@ -405,7 +405,7 @@ static void Main(string[] args)
 
 ## <a name="run-the-application-to-see-the-output"></a>애플리케이션을 실행하여 출력 확인
 
-콘솔 출력은 다음과 같습니다.
+콘솔 출력은 다음과 같이 표시됩니다.
 
 ```console
 Creating term list.

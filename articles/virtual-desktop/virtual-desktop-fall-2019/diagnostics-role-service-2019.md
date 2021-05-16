@@ -1,19 +1,19 @@
 ---
-title: Windows 가상 데스크톱 (클래식) 문제 진단-Azure
-description: Windows 가상 데스크톱 (클래식) 진단 기능을 사용 하 여 문제를 진단 하는 방법입니다.
+title: Windows Virtual Desktop(클래식) 진단 문제 - Azure
+description: Windows Virtual Desktop(클래식) 진단 기능을 사용하여 문제를 진단하는 방법.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 7e652f04b42b132e7c1307503b1764dda7b2036b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: e23a1e9a2a0118402df0d9b8869f170762a52284
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88009344"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444958"
 ---
-# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱 (클래식)의 문제를 식별 하 고 진단 합니다.
+# <a name="identify-and-diagnose-issues-in-windows-virtual-desktop-classic"></a>Windows 가상 데스크톱(클래식)의 문제 식별 및 진단
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다. Azure Resource Manager Windows Virtual Desktop 개체를 관리하려는 경우 [이 문서](../diagnostics-role-service.md)를 참조하세요.
@@ -159,7 +159,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 
 |숫자 코드|오류 코드|추천 솔루션|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|사용자가 Active Directory의 멤버가 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|사용자가 Active Directory의 구성원이 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|세션 호스트가 Active Directory에 올바르게 가입되어 있지 않습니다.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|세션 호스트를 사용할 수 없기 때문에 연결이 실패했습니다. 세션 호스트의 상태를 확인하세요.|
 |-2146233088|ConnectionFailedClientDisconnect|이 오류가 자주 발생하면 사용자의 컴퓨터가 네트워크에 연결되어 있는지 확인하세요.|
@@ -170,7 +170,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -ActivityId <ActivityGuid> 
 |8|ConnectionBroken|클라이언트와 게이트웨이 또는 서버 사이의 연결이 끊어졌습니다. 예기치 않게 발생한 경우가 아닌 이상 조치가 필요하지 않습니다.|
 |14|UnexpectedNetworkDisconnect|네트워크 연결이 끊어졌습니다. 사용자에게 다시 연결하라고 요청하세요.|
 |24|ReverseConnectFailed|호스트 가상 머신에 RD 게이트웨이에 대한 직접적인 시야가 없습니다. 게이트웨이 IP 주소를 확인할 수 있는지 확인하세요.|
-|1322|ConnectionFailedNoMappingOfSIDinAD|사용자가 Active Directory의 멤버가 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|사용자가 Active Directory의 구성원이 아닙니다. [Active Directory 관리 센터](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center)의 지침에 따라 사용자를 추가하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,17 +5,17 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.openlocfilehash: a055a323001e0291d3cb5c1716e640b3c8b21dbf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100573741"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
 [Application Insights](./app-insights-overview.md)는 웹 애플리케이션의 성능을 자동으로 분석하고 잠재적 문제에 대해 경고할 수 있습니다. 스마트 검색 알림 중 하나를 수신했으므로 읽어볼 수 있습니다.
 
-이 기능을 사용 하려면 [지원 되는 언어](./platforms.md)에 대 한 Application Insights 앱을 구성 하는 것 외에 특별 한 설정이 필요 하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
+이 기능은 [지원되는 언어](./platforms.md)에 맞게 Application Insights용 앱을 구성하는 것 외에 특별한 설정이 필요하지 않습니다. 앱이 충분한 원격 분석을 생성하면 활성화됩니다.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>스마트 검색 알림은 언제 제공되나요?
 
@@ -174,7 +174,7 @@ Application Insights는 일부 사용자에게만 영향을 주거나 일부 경
 이러한 진단 도구를 사용하면 앱에서 원격 분석을 검사할 수 있습니다.
 
 * [프로파일러](profiler.md) 
-* [스냅숏 디버거](./snapshot-debugger.md)
+* [스냅샷 디버거](./snapshot-debugger.md)
 * [분석](../logs/log-analytics-tutorial.md)
 * [분석 스마트 진단](../logs/log-query-overview.md)
 

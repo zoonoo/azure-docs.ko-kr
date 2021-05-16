@@ -7,19 +7,19 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 473ba69fa30542dfa41dfc5f19002ac36b56b482
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674957"
 ---
-# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 소스를 프로 파일링 하는 방법
+# <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 데이터 프로파일링하는 방법
 
 [!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>소개
 
-**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. **Azure Data Catalog** 를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그** 는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. **Azure Data Catalog** 를 사용하여 데이터 원본을 등록하면 해당 메타데이터를 복사하고 서비스로 인덱싱하지만 여기서 끝이 아닙니다.
 
 **Azure Data Catalog** 의 **데이터 프로파일링** 기능은 카탈로그에서 지원되는 데이터 원본에서 데이터를 검사하고 해당 데이터에 대한 통계 및 정보를 수집합니다. 데이터 자산의 프로필을 포함하는 것은 쉽습니다. 데이터 자산을 등록하면 데이터 원본 등록 도구에서 **데이터 프로필 포함** 을 선택합니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "104674957"
 
 다음 데이터 원본은 데이터 프로파일링을 지원합니다.
 
-* SQL Server (Azure SQL DB 및 Azure Synapse Analytics 포함) 테이블 및 뷰
+* SQL Server(Azure SQL DB 및 Azure Synapse Analytics 포함) 테이블 및 뷰
 * Oracle 테이블 및 뷰
 * Teradata 테이블 및 뷰
 * Hive 테이블

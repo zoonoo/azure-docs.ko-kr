@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 21168e403ffa8fb1472a5bfcac1fcd2079a52e2d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674923"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Azure Data Catalog에서 데이터 원본을 문서화하는 방법
@@ -35,7 +35,7 @@ ms.locfileid: "104674923"
 > 설명서는 검색 인덱스에 포함되지 않습니다.
 >
 
-![웹 링크에 대 한 설명서 탭 및 하이퍼링크](media/data-catalog-documentation/data-catalog-documentation2.png)
+![웹 링크에 대한 설명서 탭 및 하이퍼링크](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 설명서의 수준은 데이터 자산 컨테이너의 특성 및 값을 설명하는 정도에서 컨테이너 내의 테이블 스키마에 대한 자세한 설명의 범위까지 다양합니다. 제공된 설명서의 수준은 비즈니스 요구 사항에 따라 결정되어야 합니다. 하지만 데이터 자산을 문서화하는 일반적인 몇 가지 장단점은 다음과 같습니다.
 

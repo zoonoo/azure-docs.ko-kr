@@ -7,10 +7,10 @@ ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: df04b767035dffb62fde89d1e74b808d62fcc943
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594487"
 ---
 # <a name="object-bounds"></a>개체 경계
@@ -19,7 +19,7 @@ ms.locfileid: "99594487"
 
 ## <a name="querying-object-bounds"></a>개체 경계 쿼리
 
-[메시](meshes.md) 의 로컬 축에 맞춰진 경계 상자는 메시 리소스에서 직접 쿼리할 수 있습니다. 이러한 경계는 엔터티의 변형을 사용하여 엔터티의 로컬 공간 또는 월드 공간으로 변환될 수 있습니다.
+[메시](meshes.md)의 로컬 축 정렬 경계 상자는 메시 리소스에서 직접 쿼리할 수 있습니다. 이러한 경계는 엔터티의 변형을 사용하여 엔터티의 로컬 공간 또는 월드 공간으로 변환될 수 있습니다.
 
 이 방식으로 전체 개체 계층의 경계를 컴퓨팅할 수 있지만 계층 구조를 트래버스하고 각 메시의 경계를 쿼리한 다음, 수동으로 결합해야 합니다. 이 작업은 번거롭고 비효율적입니다.
 
@@ -63,8 +63,8 @@ void GetBounds(ApiHandle<Entity> entity)
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # QueryLocalBoundsAsync](/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
-* [C + + Entity:: QueryLocalBoundsAsync](/cpp/api/remote-rendering/entity#querylocalboundsasync)
+* [C# Entity.QueryLocalBoundsAsync](/dotnet/api/microsoft.azure.remoterendering.entity.querylocalboundsasync)
+* [C++ Entity::QueryLocalBoundsAsync](/cpp/api/remote-rendering/entity#querylocalboundsasync)
 
 ## <a name="next-steps"></a>다음 단계
 

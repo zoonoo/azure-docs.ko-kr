@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 8946f6e94dd26db45622bc7609fb2375d59bb57e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: e4d1ed0c015b75cc058c7d6136069a8858d835e2
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455385"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492531"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API에 연결 - .NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "102455385"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](./create-account-howto.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다.
+- [Media Services 계정 만들기](./account-create-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다.
 - .NET 개발에 사용하려는 도구를 설치합니다. 이 문서의 단계에서는 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 사용하는 방법을 보여 줍니다. Visual Studio Code를 사용할 수 있습니다. [C# 작업](https://code.visualstudio.com/docs/languages/csharp)을 참조하세요. 또는 다른 코드 편집기를 사용할 수 있습니다.
 
 > [!IMPORTANT]
@@ -54,9 +54,9 @@ ms.locfileid: "102455385"
 
 ### <a name="other-required-assemblies"></a>기타 필수 어셈블리
 
-- Azure. Storage. Blob
+- Azure.Storage.Blobs
 - Microsoft.Extensions.Configuration
-- Uration를 Microsoft.Extensions.Config합니다. EnvironmentVariables
+- Microsoft.Extensions.Configuration.EnvironmentVariables
 - Microsoft.Extensions.Configuration.Json
 - Microsoft.Rest.ClientRuntime.Azure.Authentication
 
@@ -237,14 +237,14 @@ namespace ConsoleApp1
 
 - [자습서: 비디오 업로드, 인코딩 및 스트리밍 - .NET](stream-files-tutorial-with-api.md) 
 - [자습서: Media Services v3으로 라이브 스트리밍 - .NET](stream-live-tutorial-with-api.md)
-- [자습서: Media Services v3으로 비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
+- [자습서: Media Services v3으로 비디오 분석 - .NET](analyze-videos-tutorial.md)
 - [로컬 파일에서 작업 입력 만들기 - .NET](job-input-from-local-file-how-to.md)
 - [HTTPS URL에서 작업 입력 만들기 - .NET](job-input-from-http-how-to.md)
-- [사용자 지정 변환으로 인코딩 - .NET](customize-encoder-presets-how-to.md)
-- [AES-128 동적 암호화 및 키 전달 서비스 사용 - .NET](protect-with-aes128.md)
-- [DRM 동적 암호화 및 라이선스 배달 서비스 사용 - .NET](protect-with-drm.md)
-- [기존 정책에서 서명 키 가져오기 - .NET](get-content-key-policy-dotnet-howto.md)
-- [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [사용자 지정 변환으로 인코딩 - .NET](transform-custom-presets-how-to.md)
+- [AES-128 동적 암호화 및 키 전달 서비스 사용 - .NET](drm-playready-license-template-concept.md)
+- [DRM 동적 암호화 및 라이선스 배달 서비스 사용 - .NET](drm-protect-with-drm-tutorial.md)
+- [기존 정책에서 서명 키 가져오기 - .NET](drm-get-content-key-policy-dotnet-how-to.md)
+- [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-how-to.md)
 - [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>참고 항목

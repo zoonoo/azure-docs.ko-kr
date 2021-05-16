@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 89f7be31514f0b78c3bfb3efd6e6aca14658d5cd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376045"
 ---
 #### <a name="to-create-a-manual-backup"></a>수동 백업을 만들려면
@@ -27,7 +27,7 @@ ms.locfileid: "93376045"
 
     2. **확인** 을 클릭하면 스냅샷을 만들기 위한 작업이 시작됩니다. 작업이 성공적으로 만들어지면 페이지 맨 아래에 알림이 표시됩니다.
 
-        ![수동 백업 만들기 3](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
+        ![수동 백업 3 만들기](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
     3. 작업을 모니터링하려면 알림을 클릭합니다. 작업 진행 상태를 볼 수 있는 **작업** 블레이드로 이동합니다.
 

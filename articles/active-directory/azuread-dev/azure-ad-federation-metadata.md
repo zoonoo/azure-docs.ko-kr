@@ -14,10 +14,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7f3bd8851fe723461c618499e539c987d79c0d68
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101650144"
 ---
 # <a name="federation-metadata"></a>페더레이션 메타데이터
@@ -43,7 +43,7 @@ Azure AD는 페더레이션 메타데이터를 `https://login.microsoftonline.co
 
 **테넌트에 독립적인 엔드포인트** 의 경우 `TenantDomainName`은(는) `common`입니다. 이 문서는 login.microsoftonline.com에서 호스트되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나열합니다.
 
-예를 들어, 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테 넌 트 독립적 끝점은 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml) 입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
+예를 들어, 테넌트별 엔드포인트는 `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`일 수 있습니다. 테넌트 독립적 엔드포인트는 [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml)입니다. 브라우저에서 이 URL을 입력하여 페더레이션 메타데이터 문서를 볼 수 있습니다.
 
 ## <a name="contents-of-federation-metadata"></a>페더레이션 메타데이터의 내용
 다음 섹션에는 Azure AD에서 발급한 토큰을 사용하는 서비스에 필요한 정보를 제공합니다.
@@ -71,7 +71,7 @@ entityID="https://sts.windows.net/{tenant}/">
 ```
 
 ### <a name="token-signing-certificates"></a>토큰 서명 인증서
-서비스에서 Azure AD 테 넌 트에서 발급 한 토큰을 받으면 페더레이션 메타 데이터 문서에 게시 된 서명 키를 사용 하 여 토큰의 서명 유효성을 검사 해야 합니다. 페더레이션 메타데이터는 테넌트를 토큰 서명에 사용하는 인증서의 공개 부분을 포함합니다. 인증서 원시 바이트는 `KeyDescriptor` 요소에 표시됩니다. 토큰 서명 인증서는 `use` 특성의 값이 `signing`인 경우의 서명에만 유효합니다.
+서비스는 Azure AD 테넌트에서 발급한 토큰을 받으면 페더레이션 메타데이터 문서에 게시된 서명 키로 토큰 서명의 유효성을 검사해야 합니다. 페더레이션 메타데이터는 테넌트를 토큰 서명에 사용하는 인증서의 공개 부분을 포함합니다. 인증서 원시 바이트는 `KeyDescriptor` 요소에 표시됩니다. 토큰 서명 인증서는 `use` 특성의 값이 `signing`인 경우의 서명에만 유효합니다.
 
 Azure AD를 통해 게시된 페더레이션 메타데이터 문서에는 Azure AD가 서명 인증서 업데이트를 준비하는 경우와 같은 여러 서명 키가 있을 수 있습니다. 페더레이션 메타데이터 문서가 둘 이상의 인증서를 포함하는 경우, 토큰의 유효성을 검사하는 서비스는 문서에서 모든 인증서를 지원해야 합니다.
 

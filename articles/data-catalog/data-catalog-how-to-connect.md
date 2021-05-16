@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: da3302ac25aaac6202f42cee400b307fc701fe50
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "104674974"
 ---
 # <a name="how-to-connect-to-data-sources"></a>데이터 원본에 연결하는 방법
@@ -18,7 +18,7 @@ ms.locfileid: "104674974"
 [!INCLUDE [Azure Purview redirect](../../includes/data-catalog-use-purview.md)]
 
 ## <a name="introduction"></a>소개
-**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 즉, **Azure Data Catalog** 은 사용자가 데이터 원본을 검색 하 고 이해 하 고 사용 하는 데 도움이 되 고 조직이 기존 데이터에서 더 많은 가치를 얻을 수 있도록 지원 합니다. 이 시나리오의 중요한 측면은 데이터를 사용하는 것입니다. 사용자가 데이터 원본을 검색하고 용도를 이해하면 다음 단계는 해당 데이터를 사용할 수 있도록 데이터 원본에 연결하는 것입니다.
+**Microsoft Azure 데이터 카탈로그** 는 등록 시스템 및 기업 데이터 원본을 위한 검색 시스템 역할을 하는 완전히 관리되는 클라우드 서비스입니다. 다시 말해서 **Azure 데이터 카탈로그** 는 사람들이 데이터 원본을 검색하고 이해하고 사용하도록 도우면서 조직의 기존 데이터로부터 더 많은 가치를 얻어내도록 돕는 역할을 합니다. 이 시나리오의 중요한 측면은 데이터를 사용하는 것입니다. 사용자가 데이터 원본을 검색하고 용도를 이해하면 다음 단계는 해당 데이터를 사용할 수 있도록 데이터 원본에 연결하는 것입니다.
 
 ## <a name="data-source-locations"></a>데이터 원본 위치
 데이터 원본을 등록하는 동안 **Azure 데이터 카탈로그** 는 데이터 원본에 대한 메타데이터를 받습니다. 이 메타데이터는 데이터 원본 위치에 대한 세부 정보를 포함합니다. 위치에 대한 세부 정보는 데이터 원본에 따라 달라지지만 연결에 필요한 정보를 항상 포함합니다. 예를 들어 SQL Server Reporting Services 보고서에 대한 위치는 서버 이름 및 보고서에 대한 경로를 포함하는 한편 SQL Server 테이블에 대한 위치는 서버 이름, 데이터베이스 이름, 스키마 이름 및 테이블 이름을 포함합니다. 다른 데이터 원본 유형에는 원본 시스템의 구조 및 기능을 반영하는 위치가 있습니다.

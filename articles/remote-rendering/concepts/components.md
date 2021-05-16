@@ -7,17 +7,17 @@ ms.date: 02/04/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9679be03c69090a0c11d007cfc542bae70bd3cbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99592197"
 ---
 # <a name="components"></a>구성 요소
 
 Azure Remote Rendering은 [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) 패턴을 사용합니다. [엔터티](entities.md)가 개체의 위치 및 계층적 컴퍼지션을 나타낸다면 구성 요소는 동작 구현을 담당합니다.
 
-가장 자주 사용 되는 구성 요소 형식은 [:::no-loc text="mesh components":::](meshes.md) 메시를 렌더링 파이프라인에 추가 하는입니다. 이와 유사하게 [광원 구성 요소](../overview/features/lights.md)는 광원을 추가하는 데, [절단면 구성 요소](../overview/features/cut-planes.md)는 열린 메시를 잘라내는 데 사용합니다.
+가장 자주 사용되는 구성 요소 형식은 메시를 렌더링 파이프라인에 추가하는 [:::no-loc text="mesh components":::](meshes.md)입니다. 이와 유사하게 [광원 구성 요소](../overview/features/lights.md)는 광원을 추가하는 데, [절단면 구성 요소](../overview/features/cut-planes.md)는 열린 메시를 잘라내는 데 사용합니다.
 
 이러한 모든 구성 요소는 참조 지점으로 연결된 엔터티의 변환(위치, 회전, 배율)을 사용합니다.
 
@@ -63,12 +63,12 @@ Unity 통합에는 구성 요소와의 상호 작용에 필요한 추가 확장 
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # Componentbase](/dotnet/api/microsoft.azure.remoterendering.componentbase)
-* [C # RenderingConnection CreateComponent ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createcomponent)
-* [C # Entity. FindComponentOfType ()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
-* [C + + ComponentBase](/cpp/api/remote-rendering/componentbase)
-* [C + + RenderingConnection:: CreateComponent ()](/cpp/api/remote-rendering/renderingconnection#createcomponent)
-* [C + + Entity:: FindComponentOfType ()](/cpp/api/remote-rendering/entity#findcomponentoftype)
+* [C# ComponentBase](/dotnet/api/microsoft.azure.remoterendering.componentbase)
+* [C# RenderingConnection.CreateComponent()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createcomponent)
+* [C# Entity.FindComponentOfType()](/dotnet/api/microsoft.azure.remoterendering.entity.findcomponentoftype)
+* [C++ ComponentBase](/cpp/api/remote-rendering/componentbase)
+* [C++ RenderingConnection::CreateComponent()](/cpp/api/remote-rendering/renderingconnection#createcomponent)
+* [C++ Entity::FindComponentOfType()](/cpp/api/remote-rendering/entity#findcomponentoftype)
 
 ## <a name="next-steps"></a>다음 단계
 

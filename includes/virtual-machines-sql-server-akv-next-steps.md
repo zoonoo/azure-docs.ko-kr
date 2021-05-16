@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 6195b949cc71043dfa7a12bdece7a311dbde5e21
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95554629"
 ---
 ## <a name="next-steps"></a>다음 단계
@@ -25,7 +25,7 @@ Azure Key Vault 통합을 설정한 후에는 SQL VM에서 SQL Server 암호화�
 
 ### <a name="prerequisites-for-examples"></a>예에 대한 필수 조건
 
-각 예제는 **CONTOSO_KEY** 이라는 주요 자격 증명 모음의 비대칭 키와 **Azure_EKM_cred** 라는 AKV 통합 기능으로 만든 자격 증명 이라는 두 가지 필수 조건을 기반으로 합니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
+각 예제는 두 가지 필수 조건을 기반으로 합니다. 하나는 주요 자격 증명 모음의 비대칭 키인 **CONTOSO_KEY** 이고, 다른 하나는 AKV 통합 기능을 통해 생성되는 자격 증명인 **Azure_EKM_cred** 입니다. 다음 Transact-SQL 명령은 예를 실행하기 위한 필수 구성 요소를 설치합니다.
 
 ``` sql
 USE master;

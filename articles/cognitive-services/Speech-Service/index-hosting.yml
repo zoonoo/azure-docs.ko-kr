@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: 호스팅 설명서
-summary: 음성 서비스 컨테이너는 표준 또는 사용자 지정 모델을 포괄 하는 음성 텍스트 및 텍스트 음성 변환 시나리오 모두에 사용할 수 있습니다.
+summary: Speech Service 컨테이너는 표준 또는 사용자 지정 모델을 포괄하는 음성 텍스트 변환 및 텍스트 음성 변환 시나리오 모두에 사용할 수 있습니다.
 metadata:
-  title: 호스팅 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  title: 호스팅 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/23/2020
   ms.author: trbye
-  ms.openlocfilehash: 640c1b8e9c51059bc4c296ef93a4e6dd54ea7a42
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-  ms.translationtype: MT
+  ms.openlocfilehash: 7ea71d7a65970e1a3b666cb46567f1d3e7bdca18
+  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401503"
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105746244"
 landingContent:
 - title: 호스팅 정보
   linkLists:
@@ -27,13 +27,13 @@ landingContent:
     - text: Kubernetes 및 Helm이 있는 음성 컨테이너
       url: speech-container-howto-on-premises.md
     - text: Azure 컨테이너 인스턴스의 음성 컨테이너
-      url: deploy-speech-on-container-instances.md
+      url: ../containers/azure-container-instance-recipe.md
 - title: 만들기 및 구성
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure 음성 리소스 만들기
-      url: get-started.md#new-resource
+    - text: Azure Speech 리소스 만들기
+      url: ./overview.md#try-the-speech-service-for-free
     - text: 음성 초기화 구성
       url: speech-container-configuration.md
 - title: 참조
@@ -45,4 +45,10 @@ landingContent:
     - text: 소버린 클라우드
       url: sovereign-clouds.md
     - text: 컨테이너 FAQ
-      url: speech-container-faq.md
+      url: ./speech-container-howto.md
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

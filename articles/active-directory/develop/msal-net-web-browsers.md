@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99583742"
 ---
 # <a name="using-web-browsers-msalnet"></a>웹 브라우저 사용(MSAL.NET)
@@ -41,7 +41,7 @@ ms.locfileid: "99583742"
 
 MSAL.NET은 다중 프레임워크 라이브러리이며 UI 컨트롤에서 브라우저를 호스트하는 프레임워크 관련 코드가 있습니다. 예를 들어 .NET 클래식에서는 WinForms를 사용하고, Xamarin에서는 네이티브 모바일 컨트롤을 사용합니다. 이 컨트롤을 `embedded` 웹 UI라고 합니다. 또는 MSAL.NET이 시스템 OS 브라우저를 시작할 수도 있습니다.
 
-일반적으로 플랫폼 기본값을 사용하는 것이 좋으며, 보통은 시스템 브라우저가 기본값입니다. 시스템 브라우저는 이전에 로그인한 사용자를 기억하는 데 더 뛰어납니다. 이 동작을 변경 하려면 다음을 사용 합니다. `WithUseEmbeddedWebView(bool)`
+일반적으로 플랫폼 기본값을 사용하는 것이 좋으며, 보통은 시스템 브라우저가 기본값입니다. 시스템 브라우저는 이전에 로그인한 사용자를 기억하는 데 더 뛰어납니다. 이 동작을 변경하려면 `WithUseEmbeddedWebView(bool)`를 사용합니다.
 
 ### <a name="at-a-glance"></a>개요
 
@@ -141,7 +141,7 @@ Xamarin.iOS 및 Xamarin.Android 앱에서 포함된 웹 보기를 사용하도�
 
 Xamarin을 대상으로 하는 MSAL.NET을 사용하는 개발자는 포함된 웹 보기 또는 시스템 브라우저 중 하나를 사용하도록 선택할 수 있습니다. 대상으로 지정할 사용자 환경 및 보안 문제에 따라 선택하면 됩니다.
 
-현재 MSAL.NET은 Android 및 iOS 브로커를 아직 지원하지 않습니다. 따라서 SSO (Single Sign-On)를 제공 하려면 시스템 브라우저가 더 나은 옵션 일 수 있습니다. 포함된 웹 브라우저를 사용하여 브로커를 지원하는 작업은 MSAL.NET 백로그에 있습니다.
+현재 MSAL.NET은 Android 및 iOS 브로커를 아직 지원하지 않습니다. 따라서 SSO(Single Sign-On)를 제공하는 경우 시스템 브라우저가 더 나은 옵션일 수 있습니다. 포함된 웹 브라우저를 사용하여 브로커를 지원하는 작업은 MSAL.NET 백로그에 있습니다.
 
 ### <a name="differences-between-embedded-webview-and-system-browser"></a>포함된 웹 보기와 시스템 브라우저의 차이점
 MSAL.NET에서 포함된 웹 보기와 시스템 브라우저 간에는 몇 가지 시각적 차이점이 있습니다.

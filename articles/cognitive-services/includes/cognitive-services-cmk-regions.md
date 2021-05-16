@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: cognitive-services
 author: erindormier
 ms.service: cognitive-services
@@ -9,15 +9,15 @@ ms.date: 05/11/2020
 ms.author: egeaney
 ms.custom: include
 ms.openlocfilehash: 409f8d602432f0ed0363e45790c47497450c5e6c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "84307827"
 ---
-### <a name="regional-availability"></a>지역별 가용성
+### <a name="regional-availability"></a>국가별 가용성
 
-고객 관리 키는 현재 다음 지역에서 사용할 수 있습니다.
+고객 관리형 키는 현재 다음 지역에서 사용할 수 있습니다.
 
 * 미국 중남부
 * 미국 서부 2

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 12/10/2020
 ms.author: wolfma
 ms.openlocfilehash: 329241c2660ff7828f57fb21daeb6de20caedc43
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97504460"
 ---
-| Geography | 지역 | 영역 식별자 |
+| Geography | 지역 | 지역 식별자 |
 | ----- | ----- | ----- |
 | 아메리카 | 미국 중부 | `centralus` |
 | 아메리카 | 미국 동부 | `eastus` |

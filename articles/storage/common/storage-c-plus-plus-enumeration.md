@@ -1,19 +1,19 @@
 ---
-title: C + + 클라이언트 라이브러리를 사용 하 여 Azure Storage 리소스 나열
+title: C++ 클라이언트 라이브러리를 사용하여 Azure Storage 리소스 나열
 description: Microsoft Azure Storage Client Library for C++에서 목록 API를 사용하여 컨테이너, Blob, 큐, 테이블 및 엔터티를 열거하는 방법에 대해 배웁니다.
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 01/23/2017
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 72b08a79ead90207c48c4fa682b708a0627b5df3
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92784101"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279632"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++에서 Azure Storage 리소스 나열
 
@@ -34,7 +34,7 @@ Storage Client Library는 Azure 스토리지에서 개체를 나열 또는 쿼�
 
 ## <a name="asynchronous-versus-synchronous"></a>비동기 및 동기
 
-Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예를 들면 다음과 같습니다.
+Storage Client Library for C++는 [C++ REST 라이브러리](https://github.com/Microsoft/cpprestsdk) 상단에 기본 제공되어 있기 때문에 [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html)를 사용하여 기본적으로 비동기 작업을 지원합니다. 예:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -196,7 +196,7 @@ lazy 목록 API는 Storage Client Library for C++ 버전 2.2.0에 포함됩니�
 
 Azure 스토리지 및 Storage Client Library for C++에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [C + +에서 Blob Storage를 사용 하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [C++에서 Blob Storage를 사용하는 방법](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [C++에서 Table Storage를 사용하는 방법](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [C++에서 Queue Storage를 사용하는 방법](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Azure Storage Client Library for C++ API 설명서](https://azure.github.io/azure-storage-cpp/)

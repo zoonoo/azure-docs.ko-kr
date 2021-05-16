@@ -7,10 +7,10 @@ ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: e01ddf0690f11d41021e0a5ae5958c7c80646743
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594420"
 ---
 # <a name="textures"></a>질감
@@ -38,7 +38,7 @@ ARR에 지정된 모든 텍스처는 [DDS 형식](https://en.wikipedia.org/wiki/
 * [Blob 스토리지가 계정에 연결](../how-tos/create-an-account.md#link-storage-accounts)된 경우 Blob 스토리지 매개 변수를 통해 텍스처를 직접 처리합니다. 이 경우 매개 변수 `LoadTextureOptions`와 관련된 로딩 함수는 `LoadTextureAsync`입니다.
 * 텍스처 자산은 SAS URI로 처리할 수 있습니다. 매개 변수 `LoadTextureFromSasOptions`와 관련된 로딩 함수는 `LoadTextureFromSasAsync`입니다. [기본 제공 텍스처](../overview/features/sky.md#built-in-environment-maps)를 로드하는 경우에도 이 변형을 사용합니다.
 
-다음 샘플 코드에서는 질감을 로드 하는 방법을 보여 줍니다.
+다음 샘플 코드에서는 텍스처를 로드하는 방법을 보여줍니다.
 
 ```cs
 async void LoadMyTexture(RenderingSession session, string storageContainer, string blobName, string assetPath)
@@ -71,18 +71,18 @@ void LoadMyTexture(ApiHandle<RenderingSession> session, std::string storageConta
 }
 ```
 
-SAS variant를 사용 하는 경우에는 로딩 함수/매개 변수만 다릅니다.
+SAS 변형을 사용하는 경우 로딩 함수/매개 변수만 다릅니다.
 
 텍스처가 사용될 것으로 예상되는 항목에 따라 텍스처 형식 및 콘텐츠에 제한이 있을 수 있습니다. 예를 들어 [PBR 재질](../overview/features/pbr-materials.md)의 초고 맵은 회색조여야 합니다.
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # 질감 클래스](/dotnet/api/microsoft.azure.remoterendering.texture)
-* [C # RenderingConnection LoadTextureAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtextureasync)
-* [C # RenderingConnection LoadTextureFromSasAsync ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtexturefromsasasync)
-* [C + + 질감 클래스](/cpp/api/remote-rendering/texture)
-* [C + + RenderingConnection:: LoadTextureAsync ()](/cpp/api/remote-rendering/renderingconnection#loadtextureasync)
-* [C + + RenderingConnection:: LoadTextureFromSasAsync ()](/cpp/api/remote-rendering/renderingconnection#loadtexturefromsasasync)
+* [C# 텍스처 클래스](/dotnet/api/microsoft.azure.remoterendering.texture)
+* [C# RenderingConnection.LoadTextureAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtextureasync)
+* [C# RenderingConnection.LoadTextureFromSasAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadtexturefromsasasync)
+* [C++ 텍스처 클래스](/cpp/api/remote-rendering/texture)
+* [C++ RenderingConnection::LoadTextureAsync()](/cpp/api/remote-rendering/renderingconnection#loadtextureasync)
+* [C++ RenderingConnection::LoadTextureFromSasAsync()](/cpp/api/remote-rendering/renderingconnection#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,15 +1,14 @@
 ---
 title: Backup 탐색기를 사용하여 백업 모니터링
 description: 이 문서에서는 Backup 탐색기를 사용하여 자격 증명 모음, 구독, 지역 및 테넌트 간 백업에 대한 실시간 모니터링을 수행하는 방법을 설명합니다.
-ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: a50b9ee05be48113221f2a12f968540bd3a00b3b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 78d3117d363059b6a298740f7b5daa31e10751c8
+ms.sourcegitcommit: af6eba1485e6fd99eed39e507896472fa930df4d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88824415"
+ms.lasthandoff: 04/04/2021
+ms.locfileid: "106294062"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Backup 탐색기를 사용하여 백업 모니터링
 
@@ -28,8 +27,8 @@ Backup 탐색기는 Azure Backup 고객에게 이 단일 중앙 위치를 제공
 > * Backup 탐색기는 현재 Azure VM(가상 머신) 데이터에만 사용할 수 있습니다.
 > * Backup 탐색기는 지난 7일(최대) 동안의 백업에 대한 정보를 볼 수 있는 운영 대시보드입니다.
 > * Backup 탐색기는 현재 국가별 클라우드에서 지원되지 않습니다.
-> * 현재 백업 탐색기 템플릿 사용자 지정은 지원 되지 않습니다.
-> * Azure 리소스 그래프 데이터에 사용자 지정 자동화을 작성 하지 않는 것이 좋습니다.
+> * 현재 Backup 탐색기 템플릿 사용자 지정은 지원되지 않습니다.
+> * Azure Resource Graph 데이터에 사용자 지정 자동화를 작성하지 않는 것이 좋습니다.
 > * 현재 Backup 탐색기를 사용하면 최대 1000개의 구독(테넌트 전체)에서 백업을 모니터링할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
@@ -78,7 +77,7 @@ Backup 탐색기에는 여러 탭이 표시되며, 각 탭은 백업 아티팩�
 
 ### <a name="the-backup-not-enabled-tab"></a>백업 사용 안 함 탭
 
-보호가 필요한 모든 머신에 대해 백업을 활성화해야 합니다. 백업 관리자는 백업 탐색기를 사용 하 여 조직에서 아직 백업으로 보호 되지 않은 컴퓨터를 신속 하 게 식별할 수 있습니다. 이 정보를 보려면 **백업 사용 안 함** 탭을 선택합니다.
+보호가 필요한 모든 머신에 대해 백업을 활성화해야 합니다. 백업 관리자는 Backup 탐색기를 사용하여 조직에서 아직 백업으로 보호되지 않은 머신을 신속하게 식별할 수 있습니다. 이 정보를 보려면 **백업 사용 안 함** 탭을 선택합니다.
 
 **백업 사용 안 함** 창에는 보호되지 않은 머신 목록이 있는 테이블이 표시됩니다. 조직에서는 프로덕션 머신과 테스트 머신 또는 다양한 기능을 제공하는 머신에 서로 다른 태그를 할당할 수 있습니다. 각 머신 클래스는 별도의 백업 정책이 필요하기 때문에 태그별로 필터링하면 각각에 해당하는 정보를 볼 수 있습니다. 머신 이름을 선택하면 해당 머신의 **백업 구성** 창으로 리디렉션되어 적절한 백업 정책을 적용하도록 선택할 수 있습니다.
 

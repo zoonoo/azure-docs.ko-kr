@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4be5cbeaa1654eb09a32624e482092b1c7a2015c
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 361150d8777f377a9e463a92649e49b38eedbf15
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105037644"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106095676"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |설명 |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[암호 없이 계정에서 원격 연결을 허용하는 Linux 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fea53dbee-c6c9-4f0e-9f9e-de0039b78023) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. 암호 없이 계정에서 원격 연결을 허용하는 Linux 머신의 경우 머신은 비규격입니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword110_AINE.json) |
 |[passwd 파일 권한이 0644로 설정되지 않은 Linux 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe6955644-301c-44b5-a4c4-528577de6861) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. passwd 파일 권한이 0644로 설정되지 않은 Linux 머신의 경우 머신은 비규격입니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword121_AINE.json) |
@@ -45,7 +45,7 @@ ms.locfileid: "105037644"
 |[재부팅을 대기 중인 Windows VM 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4221adbc-5c0f-474f-88b7-037a99e6114c) |필수 구성 요소가 정책 할당 범위에 배포되어야 합니다. 자세한 내용은 [https://aka.ms/gcpol](https://aka.ms/gcpol)을 방문하세요. 구성 요소 기반 서비스, Windows 업데이트, 보류 중인 파일 이름 바꾸기, 보류 중인 컴퓨터 이름 바꾸기, 구성 관리자의 다시 부팅 보류 중 등의 이유로 머신이 다시 부팅을 보류 중인 경우 머신은 비규격입니다. 각 검색에는 고유한 레지스트리 경로가 있습니다. |auditIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsPendingReboot_AINE.json) |
 |[Linux 머신에 대한 인증에 SSH 키가 필요함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F630c64f9-8b6b-4c64-b511-6544ceff6fd6) |SSH 자체에서 암호화된 연결을 제공하지만 SSH와 함께 암호를 사용하면 VM은 여전히 무차별 암호 대입 공격에 취약합니다. SSH를 통해 Azure Linux 가상 머신에 인증하는 가장 안전한 옵션은 SSH 키라고도 하는 퍼블릭-프라이빗 키 쌍을 사용하는 것입니다. 자세한 정보: [https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed](https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed). |AuditIfNotExists, 사용 안 함 |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxNoPasswordForSSH_AINE.json) |
 |[Windows Azure Arc 머신에서 Dependency Agent를 사용하도록 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F91cb9edd-cd92-4d2f-b2f2-bdd8d065a3d4) |Azure Arc 머신 이미지가 정의된 목록에 있고 에이전트가 설치되지 않은 경우 Windows Azure Arc 시스템용 Dependency 에이전트를 배포합니다. |DeployIfNotExists, 사용 안 함 |[1.2.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Windows_HybridVM_Deploy.json) |
-|[Qualys 취약성 평가 에이전트를 받도록 컴퓨터 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13ce0167-8ca6-4048-8e6b-f996402e3c1b) |Azure Defender는 추가 비용 없이 머신의 취약성을 검사합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다. Qualys 취약성 평가 에이전트가 배포되지 않은 머신은 이 정책이 활성화된 경우 자동으로 에이전트를 수신합니다. |DeployIfNotExists, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VulnerabilityAssessment_ProvisionQualysAgent_Deploy.json) |
+|[Qualys 취약성 평가 에이전트를 수신하도록 머신 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F13ce0167-8ca6-4048-8e6b-f996402e3c1b) |Azure Defender는 추가 비용 없이 머신의 취약성을 검사합니다. Qualys 라이선스 또는 Qualys 계정이 필요하지 않습니다. 모든 항목이 Security Center 내에서 원활하게 처리됩니다. Qualys 취약성 평가 에이전트가 배포되지 않은 머신은 이 정책이 활성화된 경우 자동으로 에이전트를 수신합니다. |DeployIfNotExists, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_VulnerabilityAssessment_ProvisionQualysAgent_Deploy.json) |
 |[Windows 머신에서 표준 시간대를 구성합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6141c932-9384-44c6-a395-59e4c057d7c9) |이 정책은 Windows 가상 머신에서 지정된 표준 시간대를 설정하기 위한 게스트 구성 할당을 만듭니다. |deployIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SetWindowsTimeZone_Deploy.json) |
 |[하이브리드 Linux Azure Arc 머신에 종속성 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdeacecc0-9f84-44d2-bb82-46f32d766d43) |이 정책은 에이전트가 설치되어 있지 않은 경우 Linux Azure Arc 머신에 종속성 에이전트를 배포합니다. |deployIfNotExists |[1.1.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DependencyAgentExtension_Linux_HybridVM_Deploy.json) |
 |[Linux Azure Arc 머신에 Log Analytics 에이전트 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d2b61b4-1d14-4a63-be30-d4498e7ad2cf) |이 정책은 에이전트가 설치되어 있지 않은 경우 Linux Azure Arc 머신에 Log Analytics 에이전트를 배포합니다. |deployIfNotExists |[1.1.0 - 미리 보기](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogAnalyticsExtension_Linux_HybridVM_Deploy.json) |

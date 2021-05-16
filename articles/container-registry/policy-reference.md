@@ -1,18 +1,18 @@
 ---
 title: Azure Container Registry에 대한 기본 제공 정책 정의
 description: Azure Container Registry에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 54fa2655dea79d129e773478b4097f41fbc878a4
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 11197c04af9bb1fa3c2ea9367001054527643fe9
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105034687"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092307"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Azure Container Registry에 대한 Azure Policy 기본 제공 정의
 
@@ -26,7 +26,7 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [정책 할당 및 준수 검토](container-registry-azure-policy.md)에 대 한 지침을 참조 하세요.
+- [정책 할당 및 규정 준수 검토](container-registry-azure-policy.md)에 대한 지침을 참조하세요.
 - [Azure Policy GitHub 리포지토리](https://github.com/Azure/azure-policy)의 기본 제공 기능을 참조하세요.
 - [Azure Policy 정의 구조](../governance/policy/concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../governance/policy/concepts/effects.md)를 검토합니다.

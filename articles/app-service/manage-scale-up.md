@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
 ms.openlocfilehash: eb0ce5cfadbab247299cd3c22bf6ee618bf19731
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100582485"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Azure App Service에서 앱 강화
@@ -36,7 +36,7 @@ ms.locfileid: "100582485"
 ## <a name="scale-up-your-pricing-tier"></a>가격 책정 계층 강화
 
 > [!NOTE]
-> **PremiumV3** 계층으로 확장 하려면 [App Service PremiumV3 계층 구성](app-service-configure-premium-tier.md)을 참조 하세요.
+> **PremiumV3** 계층으로 확장하려면 [App Service에 대한 PremiumV3 계층 구성](app-service-configure-premium-tier.md)을 참조하세요.
 >
 
 1. 브라우저에서 [Azure Portal][portal]을 엽니다.
@@ -78,7 +78,7 @@ ms.locfileid: "100582485"
 ## <a name="more-resources"></a>추가 리소스
 
 [수동 또는 자동으로 인스턴스 개수 조정](../azure-monitor/autoscale/autoscale-get-started.md)  
-[App Service에 대 한 PremiumV3 계층 구성](app-service-configure-premium-tier.md)
+[App Service에 대한 PremiumV3 계층 구성](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/

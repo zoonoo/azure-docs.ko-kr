@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: gaursa
 ms.reviewer: igorstan
-ms.openlocfilehash: ab70ec4f7f2c313c2ae4efcc6d1ad994fbec8b03
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 6891176ff648e0f07b0f4921c3558df51f55388e
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585573"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279751"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Visual Studio 2019 시작
 
@@ -40,12 +40,11 @@ Synapse SQL의 기능 릴리스에 SSDT에 대한 지원이 포함되지 않는 
 
 
 - [워크로드 관리](sql-data-warehouse-workload-management.md) - 워크로드 그룹 및 분류자
-- [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (테이블 반환 함수 포함)
+- [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)(테이블 반환 함수 포함)
   - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security)를 제출합니다.
   - 지원되는 기능을 가져오려면 [지원 티켓 또는 투표](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking)를 제출합니다.
-- [Id 열](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest&preserve-view=true) 이 있는 테이블
-- 특정 T-sql 기능 (예:
-   - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) STRING 함수의 *GROUP 절 내* 에 있습니다.
+- 다음과 같은 특정 T-SQL 기능:
+   - [STRING_AGG](/sql/t-sql/functions/string-agg-transact-sql) 문자열 함수의 *WITHIN GROUP* 절.
 
 ## <a name="next-steps"></a>다음 단계
 

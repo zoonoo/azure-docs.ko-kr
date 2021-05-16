@@ -1,6 +1,6 @@
 ---
 title: 클라이언트 쪽에 광고 삽입 | Microsoft 문서
-description: 이 문서에서는 클라이언트 쪽의 미디어에 광고를 삽입 하는 방법을 보여 줍니다.
+description: 이 문서에서는 클라이언트 쪽의 미디어에 광고를 삽입하는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d942099d0abbdfc4ddfa0276184500166250728
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: d4ed0f075aad09b77a0c50682bad92522f4e5472
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103014964"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106280278"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 
@@ -164,7 +164,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </Creative>
 ```
 
-<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResource**>, <**IFrameResource**> 또는 <**HTMLResource**>일 수 있습니다. \<**StaticResource**> 비 HTML 리소스를 설명 하 고 리소스가 표시 되는 방법을 지정 하는 creativeType 특성을 정의 합니다.
+<**NonLinearAds**> 요소에는 각각 비선형 광고를 설명할 수 있는 <**NonLinear**> 요소가 둘 이상 포함될 수 있습니다. <**NonLinear**> 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 <**StaticResource**>, <**IFrameResource**> 또는 <**HTMLResource**>일 수 있습니다. \<**StaticResource**>는 비 HTML 리소스를 설명하고 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
 
 Image/gif, image/jpeg, image/png – 리소스가 HTML <**img**> 태그에 표시됩니다.
 
@@ -590,7 +590,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>광고 지원이 포함된 iOS 비디오 플레이어 구현
-Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/CloudMetal/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임 워크에 대 한 추가 정보를 포함 하는 Wiki에 대 한 링크와 플레이어 샘플에 대 한 소개 인 [Azure Media Player wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
+Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/CloudMetal/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임워크에 대한 추가 정보와 플레이어 샘플([Azure Media Player Wiki](https://github.com/CloudMetal/azure-media-player-framework/wiki/How-to-player-use-azure-media-player-how-to-framework))에 대한 소개가 포함된 Wiki 링크가 있습니다.
 
 ### <a name="scheduling-ads-with-vmap"></a>VMAP를 사용하여 광고 예약
 다음 예제에서는 VMAP 파일을 사용하여 광고를 예약하는 방법을 보여 줍니다.

@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c04f2312926d3b6d668dff712eedb57d816c8bf3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99592010"
 ---
 # <a name="outline-rendering"></a>윤곽 렌더링
@@ -29,7 +29,7 @@ ms.locfileid: "99592010"
 | `PulseRateHz`    | float   | 초당 윤곽 진동 속도입니다.|
 | `PulseIntensity` | float   | 윤곽 펄스 효과의 강도입니다. 펄스가 없는 경우의 0.0과 전체 펄스인 경우의 1.0 사이여야 합니다. 강도는 암시적으로 윤곽의 최소 불투명도를 `MinOpacity = 1.0 - PulseIntensity`로 설정합니다. |
 
-![다른 윤곽선 매개 변수를 사용 하 여 세 번 렌더링 된 개체는 ](./media/outlines.png) `color` 매개 변수를 노랑 (왼쪽)에서 마젠타 (가운데)로, `pulseIntensity` 0에서 0.8 (오른쪽)으로 변경 하는 효과를 의미 합니다.
+![다른 윤곽선 매개 변수를 사용하여 세 번 렌더링된 개체](./media/outlines.png) `color` 매개 변수를 노란색(왼쪽)에서 자홍색(가운데)으로, `pulseIntensity`를 0에서 0.8(오른쪽)로 변경하는 효과를 의미합니다.
 
 ## <a name="example"></a>예제
 
@@ -63,8 +63,8 @@ void SetOutlineParameters(ApiHandle<RenderingSession> session)
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RenderingConnection OutlineSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.outlinesettings)
-* [C + + RenderingConnection:: OutlineSettings ()](/cpp/api/remote-rendering/renderingconnection#outlinesettings)
+* [C# RenderingConnection.OutlineSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.outlinesettings)
+* [C++ RenderingConnection::OutlineSettings()](/cpp/api/remote-rendering/renderingconnection#outlinesettings)
 
 ## <a name="next-steps"></a>다음 단계
 

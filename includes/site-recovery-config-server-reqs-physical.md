@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -10,10 +10,10 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 3a8a7be6f437687a4de31ce8e0ac62588f64e2eb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96016909"
 ---
 **물리적 서버 복제에 대한 구성/프로세스 서버 요구 사항**
@@ -32,12 +32,12 @@ RAM | 16GB
 운영 체제 로케일 | 미국 영어(en-us)
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V 
 그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
-IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정을 사용 하도록 설정 합니다.
+IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) 사용 <br> - [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) 설정 사용
 IP 주소 유형 | 정적 
 | 
 **액세스 설정** | 
 MYSQL | MySQL은 구성 서버에 설치해야 합니다. 수동으로 설치할 수도 있고 Site Recovery를 통해 배포하는 동안 설치할 수도 있습니다. Site Recovery가 설치하도록 하려면 머신이 http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi에 도달할 수 있는지 확인합니다.
-URL | 구성 서버가 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해).<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> 복제 데이터 전송: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> 복제 관리: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> 스토리지 액세스: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> 시간 동기화: `time.nist.gov` ; `time.windows.com`<br/><br/> 원격 분석 (옵션): `dc.services.visualstudio.com`
+URL | 구성 서버가 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해).<br/><br/> Azure AD: `login.microsoftonline.com`; `login.microsoftonline.us`; `*.accesscontrol.windows.net`<br/><br/> 복제 데이터 전송: `*.backup.windowsazure.com`; `*.backup.windowsazure.us`<br/><br/> 복제 관리: `*.hypervrecoverymanager.windowsazure.com`; `*.hypervrecoverymanager.windowsazure.us`; `https://management.azure.com`; `*.services.visualstudio.com`<br/><br/> 스토리지 액세스: `*.blob.core.windows.net`; `*.blob.core.usgovcloudapi.net`<br/><br/> 시간 동기화: `time.nist.gov`; `time.windows.com`<br/><br/> 원격 분석(선택 사항): `dc.services.visualstudio.com`
 방화벽 | IP 주소 기반 방화벽 규칙은 Azure URL과의 통신을 허용해야 합니다. IP 범위를 간소화하고 제한하려면 URL 필터링을 사용하는 것이 좋습니다.<br/><br/>**상용 IP의 경우:**<br/><br/>- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.<br/><br/> - 미국 서부에 해당하는 IP 주소 범위를 허용합니다(액세스 제어 및 ID 관리에 사용됨).<br/><br/> - Azure Active Directory, 백업, 복제 및 저장소에 필요한 URL을 지원하기 위해 구독의 Azure 지역에 대한 IP 주소 범위를 허용합니다.<br/><br/> **정부를 위한 IP의 경우:**<br/><br/> - Azure Government 데이터 센터 IP 범위 및 HTTPS(443) 포트를 허용합니다.<br/><br/> - Azure Active Directory, 백업, 복제 및 스토리지에 필요한 URL을 지원하기 위해 모든 US Gov 지역(버지니아, 텍사스, 아리조나 및 아이오와)에 대한 IP 주소 범위를 허용합니다.
 포트 | 443 허용(컨트롤 채널 오케스트레이션)<br/><br/> 9443 허용(데이터 전송) 
 

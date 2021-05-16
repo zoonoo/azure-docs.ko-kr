@@ -4,20 +4,17 @@ description: Azure Key Vault를 사용하여 Azure Cosmos DB 계정에 대한 �
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/19/2021
+ms.date: 04/01/2021
 ms.author: thweiss
-ms.openlocfilehash: 3ee566a598ea7fdf060712c934305ef63467e548
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 1b1fc0b51c1cd2a99ec97bec9f588699a893ceca
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101656519"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106222625"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 계정에 대한 고객 관리형 키 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
-
-> [!NOTE]
-> 현재 Azure Cosmos DB [분석 저장소](analytical-store-introduction.md) 에서 고객 관리 키를 사용 하려면 계정에 대 한 추가 구성이 필요 합니다. 자세한 내용은에 문의 하세요 [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) .
 
 Azure Cosmos 계정에 저장된 데이터는 Microsoft 에서 관리하는 키(**서비스 관리형 키**)를 통해 원활하게 자동 암호화됩니다. 필요에 따라 직접 관리하는 키(**고객 관리형 키**)를 사용하여 두 번째 암호화 계층을 추가하도록 선택할 수 있습니다.
 
@@ -51,11 +48,11 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
 - [PowerShell에서 일시 삭제를 사용하는 방법](../key-vault/general/key-vault-recovery.md)
 - [Azure CLI에서 일시 삭제를 사용하는 방법](../key-vault/general/key-vault-recovery.md)
 
-## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a>Azure Key Vault 인스턴스에 액세스 정책 추가
+## <a name="add-an-access-policy-to-your-azure-key-vault-instance"></a><a id="add-access-policy"></a>Azure Key Vault 인스턴스에 액세스 정책 추가
 
 1. Azure Portal에서 암호화 키를 호스트하는 데 사용할 Azure Key Vault 인스턴스로 이동합니다. 왼쪽 메뉴에서 **액세스 정책** 을 선택합니다.
 
-   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="왼쪽 메뉴에서 액세스 정책":::
+   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="왼쪽 메뉴의 액세스 정책":::
 
 1. **+ 액세스 정책 추가** 를 선택합니다.
 
@@ -63,13 +60,20 @@ Azure Cosmos DB에 고객 관리형 키를 사용하려면 암호화 키를 호�
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="올바른 권한 선택":::
 
-1. **주체 선택** 에서 **선택된 항목 없음** 을 선택합니다. 그런 다음, **Azure Cosmos DB** 보안 주체를 검색하여 선택합니다. (쉽게 찾을 수 있도록 보안 주체 ID가 `57506a73-e302-42a9-b869-6f12d9ec29e9`인 Azure Government 지역을 제외하고 보안 주체 ID: `a232010e-820c-4083-83bb-3ace5fc29d0b`로 검색할 수도 있습니다.) 마지막으로 아래쪽에서 **선택** 을 선택합니다. **Azure Cosmos DB** 보안 주체가 목록에 없으면, 이 문서에서 [리소스 공급자 등록](#register-resource-provider) 섹션의 설명을 참고하여 **Microsoft.DocumentDB** 리소스 공급자를 다시 등록해야 할 수도 있습니다.
+1. **주체 선택** 에서 **선택된 항목 없음** 을 선택합니다.
+
+1. **Azure Cosmos DB** 보안 주체를 검색하여 선택합니다.(쉽게 찾을 수 있도록 보안 주체 ID가 `57506a73-e302-42a9-b869-6f12d9ec29e9`인 Azure Government 지역을 제외한 모든 Azure 지역에 대해 보안 주체 ID: `a232010e-820c-4083-83bb-3ace5fc29d0b`로 검색할 수도 있습니다.) **Azure Cosmos DB** 보안 주체가 목록에 없으면, 이 문서에서 [리소스 공급자 등록](#register-resource-provider) 섹션의 설명을 참고하여 **Microsoft.DocumentDB** 리소스 공급자를 다시 등록해야 할 수도 있습니다.
+
+   > [!NOTE]
+   > 그러면 Azure Key Vault 액세스 정책에 Azure Cosmos DB 자사 ID가 등록됩니다. 이 자사 ID를 Azure Cosmos DB 계정 관리 ID로 바꾸려면 [Azure Key Vault 액세스 정책에서 관리 ID 사용](#using-managed-identity)을 참조하세요.
+
+1. 아래쪽에서 **선택** 을 선택합니다. 
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Azure Cosmos DB 보안 주체 선택":::
 
 1. **추가** 를 선택하여 새로운 액세스 정책을 추가합니다.
 
-1. Key Vault 인스턴스에서 **저장** 을 선택 하 여 모든 변경 내용을 저장 합니다.
+1. Key Vault 인스턴스에서 **저장** 을 선택하여 모든 변경 내용을 저장합니다.
 
 ## <a name="generate-a-key-in-azure-key-vault"></a>Azure Key Vault에서 새 키 생성
 
@@ -226,23 +230,51 @@ az cosmosdb show \
     --query keyVaultKeyUri
 ```
 
+## <a name="using-a-managed-identity-in-the-azure-key-vault-access-policy"></a><a id="using-managed-identity"></a> Azure Key Vault 액세스 정책에서 관리 ID 사용
+
+이 액세스 정책을 사용하면 Azure Cosmos DB 계정에서 암호화 키에 액세스할 수 있습니다. 이 작업은 특정 AD(Azure Active Directory) ID에 대한 액세스 권한을 부여하여 수행됩니다. 지원되는 두 가지 유형의 ID는 다음과 같습니다.
+
+- Azure Cosmos DB의 자사 ID를 사용하여 Azure Cosmos DB 서비스에 대한 액세스 권한을 부여할 수 있습니다.
+- 계정에 대한 액세스 권한을 부여하는 데에는 Azure Cosmos DB 계정의 [관리 ID](how-to-setup-managed-identity.md)를 사용할 수 있습니다.
+
+시스템 할당 관리 ID는 계정을 만든 후에만 검색할 수 있으므로 [위에](#add-access-policy)설명된 대로 먼저 자사 ID를 사용하여 계정을 만들어야 합니다. 그렇다면
+
+1. 계정을 만드는 동안 이 작업을 수행하지 않은 경우 사용자 계정에서 [시스템 할당 관리 ID를 사용하도록 설정](how-to-setup-managed-identity.md)하고 할당된 `principalId`를 복사합니다.
+
+1. [위에](#add-access-policy)설명된 것처럼 Azure Key Vault 계정에 새 액세스 정책을 추가하고, Azure Cosmos DB의 자사 ID 대신 이전 단계에서 복사한 `principalId`를 사용합니다.
+
+1. Azure Key Vault의 암호화 키에 액세스할 때 시스템 할당 관리 ID를 사용하도록 지정하려면 Azure Cosmos DB 계정을 업데이트합니다. 계정의 Azure Resource Manager 템플릿에서 이 속성을 지정하여 이 작업을 수행할 수 있습니다.
+
+   ```json
+   {
+       "type": " Microsoft.DocumentDB/databaseAccounts",
+       "properties": {
+           "defaultIdentity": "SystemAssignedIdentity",
+           // ...
+       },
+       // ...
+   }
+   ```
+
+1. 필요에 따라 Azure Key Vault 액세스 정책에서 Azure Cosmos DB 자사 ID를 제거할 수 있습니다.
+
 ## <a name="key-rotation"></a>키 회전
 
-Azure Cosmos 계정에서 사용 하는 고객 관리 키 회전은 두 가지 방법으로 수행할 수 있습니다.
+Azure Cosmos 계정에서 사용하는 고객 관리형 키 회전은 두 가지 방법으로 수행할 수 있습니다.
 
-- Azure Key Vault에서 현재 사용 되는 키의 새 버전을 만듭니다.
+- Azure Key Vault에서 현재 사용되는 키의 새 버전을 만듭니다.
 
   :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="새로운 키 버전 만들기":::
 
-- 계정에 대 한 키 URI를 업데이트 하 여 현재 사용 되는 키를 완전히 다른 키로 바꿉니다. Azure Portal에서 Azure Cosmos 계정으로 이동 하 고 왼쪽 메뉴에서 **데이터 암호화** 를 선택 합니다.
+- 계정에 대한 키 URI를 업데이트하여 현재 사용되는 키를 완전히 다른 키로 바꿉니다. Azure Portal에서 Azure Cosmos 계정으로 이동하고 왼쪽 메뉴에서 **데이터 암호화** 를 선택합니다.
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="데이터 암호화 메뉴 항목":::
 
-    그런 다음 **키 URI** 를 사용 하려는 새 키로 바꾸고 **저장** 을 선택 합니다.
+    그런 다음, **키 URI** 를 사용하려는 새 키로 바꾸고 **저장** 을 선택합니다.
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="키 URI 업데이트":::
 
-    PowerShell에서 동일한 결과를 얻기 위해 수행 하는 방법은 다음과 같습니다.
+    PowerShell에서 동일한 결과를 얻기 위해 수행하는 방법은 다음과 같습니다.
 
     ```powershell
     $resourceGroupName = "myResourceGroup"
@@ -257,11 +289,11 @@ Azure Cosmos 계정에서 사용 하는 고객 관리 키 회전은 두 가지 �
     $account | Set-AzResource -Force
     ```
 
-이전 키 또는 키 버전은 24 시간 후에 사용 하지 않도록 설정할 수 있으며, [Azure Key Vault 감사 로그](../key-vault/general/logging.md) 에는 더 이상 해당 키 또는 키 버전에서 Azure Cosmos DB의 활동이 표시 되지 않습니다.
+이전 키 또는 키 버전은 24시간이 지나거나 해당 키 또는 키 버전의 Azure Cosmos DB 활동이 [Azure Key Vault 감사 로그](../key-vault/general/logging.md)에 더 이상 표시되지 않으면 사용하지 않도록 설정될 수 있습니다.
     
 ## <a name="error-handling"></a>오류 처리
 
-Azure Cosmos DB에서 CMK (Customer-Managed 키)를 사용 하는 경우 오류가 발생 하면 Azure Cosmos DB 응답에 HTTP 하위 상태 코드와 함께 오류 정보를 반환 합니다. 이 하위 상태 코드를 사용 하 여 문제의 근본 원인을 디버그할 수 있습니다. 지원 되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대 한 Http 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조 하세요.
+Azure Cosmos DB에서 CMK(고객 관리형 키)를 사용하는 경우 오류가 발생하면 Azure Cosmos DB 응답에 HTTP 하위 상태 코드와 함께 오류 정보를 반환합니다. 이 하위 상태 코드를 사용하여 문제의 근본 원인을 디버그할 수 있습니다. 지원되는 HTTP 하위 상태 코드 목록을 가져오려면 [Azure Cosmos DB에 대한 HTTP 상태 코드](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 문서를 참조하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -295,9 +327,9 @@ Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암
 
 이 기능은 현재 새 계정에서만 사용할 수 있습니다.
 
-### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>고객 관리 키를 Azure Cosmos DB [분석 스토어](analytical-store-introduction.md)와 함께 사용할 수 있나요?
+### <a name="is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store"></a>고객 관리형 키를 Azure Cosmos DB [분석 저장소](analytical-store-introduction.md)와 함께 사용할 수 있나요?
 
-예, 하지만 현재 계정에 대 한 추가 구성이 필요 합니다. 자세한 내용은에 문의 하세요 [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com) .
+예, 하지만 분석 저장소를 사용하도록 설정하기 전에 Azure Key Vault 액세스 정책에서 [Azure Cosmos DB 계정의 관리 ID를 사용](#using-managed-identity)해야 합니다.
 
 ### <a name="is-there-a-plan-to-support-finer-granularity-than-account-level-keys"></a>계정 수준 키보다 세부적인 수준을 지원할 계획이 있나요?
 
@@ -305,11 +337,11 @@ Azure Cosmos 계정에 저장된 모든 데이터는 고객 관리형 키로 암
 
 ### <a name="how-can-i-tell-if-customer-managed-keys-are-enabled-on-my-azure-cosmos-account"></a>Azure Cosmos 계정에서 고객 관리형 키를 사용하도록 설정되어 있는지 어떻게 알 수 있나요?
 
-Azure Portal에서 Azure Cosmos 계정으로 이동 하 고 왼쪽 메뉴에서 **데이터 암호화** 항목을 시청 합니다. 이 항목이 있으면 계정에서 고객 관리 키를 사용할 수 있습니다.
+Azure Portal에서 Azure Cosmos 계정으로 이동하고 왼쪽 메뉴에서 **데이터 암호화** 항목을 확인합니다. 이 항목이 있으면 계정에서 고객 관리형 키를 사용할 수 있습니다.
 
 :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="데이터 암호화 메뉴 항목":::
 
-Azure Cosmos 계정에 대 한 세부 정보를 프로그래밍 방식으로 가져오고 속성이 있는지 확인할 수도 있습니다 `keyVaultKeyUri` . [PowerShell에서](#using-powershell) 그리고 [Azure CLI를 사용하여](#using-azure-cli) 수행하는 방법은 위를 참조하십시오.
+또한 Azure Cosmos 계정에 대한 세부 정보를 프로그래밍 방식으로 가져와서 `keyVaultKeyUri` 속성이 있는지 확인할 수 있습니다. [PowerShell에서](#using-powershell) 그리고 [Azure CLI를 사용하여](#using-azure-cli) 수행하는 방법은 위를 참조하십시오.
 
 ### <a name="how-do-customer-managed-keys-affect-a-backup"></a>고객 관리형 키는 백업에 어떤 영향을 주나요?
 

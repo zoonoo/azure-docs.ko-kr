@@ -6,17 +6,17 @@ ms.date: 2/17/2020
 ms.author: inhenkel
 ms.custom: REST
 ms.openlocfilehash: d34cfd31f9648ce6f401c3936a0a28be4729f8e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101705469"
 ---
 <!--Create a thumbnail sprites REST-->
 
-다음 Azure REST 명령은 미리 보기 sprite transform을 만듭니다. `subscriptionID`, 및 값을 `resourceGroup` `accountName` 현재 작업 중인 값으로 바꿉니다. 
+다음 Azure REST 명령은 썸네일 스프라이트 변환을 만듭니다. `subscriptionID`, `resourceGroup` 및 `accountName` 값을 현재 작업 중인 값으로 바꿉니다. 
 
-을 설정 하 여 변환 이름을 지정 `transformName` 합니다.
+`transformName`을 설정하여 변환 이름을 지정합니다.
 
 ```REST
 

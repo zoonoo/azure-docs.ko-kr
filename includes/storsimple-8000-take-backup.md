@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 5e923fdf560692c645c8a69e7e26d13f69d6920c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376126"
 ---
 ### <a name="to-take-a-backup"></a>백업을 수행하려면
@@ -19,13 +19,13 @@ ms.locfileid: "93376126"
 
 2. **Backup 정책** 블레이드에서 **+ 정책 추가** 를 클릭합니다.
 
-    ![-백업-정책 2](./media/storsimple-8000-take-backup/step8takebu2.png)
+    ![Add-backup-policy 2](./media/storsimple-8000-take-backup/step8takebu2.png)
 
 3. **백업 정책 만들기** 블레이드에서 백업 정책 이름을 3~150자 사이로 입력합니다.
 
 4. 백업할 볼륨을 선택합니다. 볼륨을 두 개 이상 선택하면 충돌에 일관성이 있는 백업을 만들기 위해 볼륨이 그룹화됩니다.
 
-    ![백업 추가-정책 3](./media/storsimple-8000-take-backup/step8takebu4.png)
+    ![Add-backup-policy 3](./media/storsimple-8000-take-backup/step8takebu4.png)
 
 5. **첫 번째 일정 추가** 블레이드에서:
 
@@ -35,11 +35,11 @@ ms.locfileid: "93376126"
     4. 백업 정책의 시작 시간과 날짜를 선택합니다.
     5. **확인** 을 클릭하여 백업 정책을 만듭니다.
 
-        ![-백업-정책 4 추가](./media/storsimple-8000-take-backup/step8takebu5.png) 
+        ![Add-backup-policy 4](./media/storsimple-8000-take-backup/step8takebu5.png) 
 
 6. **만들기** 를 클릭하면 백업 정책 만들기가 시작됩니다. 백업 정책이 성공적으로 만들어지면 알림이 표시됩니다. 백업 정책 목록도 업데이트 됩니다.
       
-      ![백업 추가-정책 5](./media/storsimple-8000-take-backup/step8takebu9.png)
+      ![Add-backup-policy 5](./media/storsimple-8000-take-backup/step8takebu9.png)
       
       이제 볼륨 데이터의 예약된 백업을 만드는 백업 정책이 생성되었습니다.
 

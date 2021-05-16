@@ -4,15 +4,15 @@ description: Azure 방화벽과 통합하여 App Service 환경 내에서 아웃
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 03/25/2021
 ms.author: ccompy
 ms.custom: seodec18, references_regions
-ms.openlocfilehash: ec506546b52a2d137d448f07f4b7a6827c01b4d2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: b930412508753ba2025e8126b9720d9a519d9281
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100594124"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220065"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -61,7 +61,7 @@ Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다�
    
    ![애플리케이션 규칙 추가][1]
    
-1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 IP 주소에서 이름을 제공 하 고, 프로토콜을 선택 하 고 **, 원본** 및 대상 주소를 설정 하 고, 포트를 123으로 설정 합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
+1. [Azure Firewall UI] > [규칙] > [애플리케이션 규칙 컬렉션]에서 [네트워크 규칙 컬렉션 추가]를 선택합니다. 이름, 우선 순위를 제공하고 허용을 설정합니다. 규칙 섹션의 IP 주소에서 이름을 입력하고, **임의** 의 프로토콜을 선택하고, 원본 및 대상 주소에 *를 설정하고, 포트를 123으로 설정합니다. 이 규칙은 시스템이 NTP를 사용하여 클록 동기화를 수행할 수 있게 합니다. 시스템 문제를 분류하기 위해 포트 12000과 동일한 방식으로 다른 규칙을 만듭니다. 
 
    ![NTP 네트워크 규칙 추가][3]
    
@@ -146,6 +146,8 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |login.windows.com:443 |
 |login.windows.net:443 |
 |login.microsoftonline.com:443 |
+|\*.login.microsoftonline.com:443|
+|\*.login.microsoft.com:443|
 |client.wns.windows.com:443 |
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |
@@ -255,9 +257,9 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |security.ubuntu.com:80 |
 |oryx-cdn.microsoft.io:443 |
 | \*.cdn.mscr.io:443 |
-| \*. data.mcr.microsoft.com:443 |
+| \*.data.mcr.microsoft.com:443 |
 |mcr.microsoft.com:443 |
-|\*. data.mcr.microsoft.com:443 |
+|\*.data.mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
 |apt-mo.trafficmanager.net:80 |

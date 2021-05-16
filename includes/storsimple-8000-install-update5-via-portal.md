@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 9832a961562930e61e94b28ed78976fd9f8c6f78
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93376231"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Azure 포털에서 업데이트를 설치하려면
@@ -17,17 +17,17 @@ ms.locfileid: "93376231"
 
     ![디바이스 선택](./media/storsimple-8000-install-update5-via-portal/update1.png)
 
-2. **장치 설정**  >  **장치 업데이트** 로 이동 합니다.
+2. **디바이스 설정** > **디바이스 업데이트** 로 이동합니다.
 
     ![디바이스 업데이트 클릭](./media/storsimple-8000-install-update5-via-portal/update2.png)
 
 2. 새 업데이트를 사용할 수 있는 경우 알림이 나타납니다. 또는 **디바이스 업데이트** 블레이드에서 **업데이트 검색** 을 클릭합니다. 사용 가능한 업데이트를 검색하는 작업이 만들어집니다. 작업이 성공적으로 완료되면 알림이 표시됩니다.
 
-    ![장치 업데이트 2를 클릭 합니다.](./media/storsimple-8000-install-update5-via-portal/update3.png)
+    ![디바이스 업데이트 2 클릭](./media/storsimple-8000-install-update5-via-portal/update3.png)
 
 3. 디바이스에 업데이트를 적용하기 전에 릴리스 정보를 검토하는 것이 좋습니다. 업데이트를 적용하려면 **업데이트 설치** 를 클릭합니다. **Confirm regular updates(정기 업데이트 확인)** 블레이드에서 업데이트를 적용하기 전에 완료할 필수 구성 요소를 검토합니다. 디바이스를 업데이트할 준비가 되었음을 나타내는 확인란을 선택한 후 **설치** 를 클릭합니다.
 
-    ![장치 업데이트 3 클릭](./media/storsimple-8000-install-update5-via-portal/update4.png)
+    ![디바이스 업데이트 3 클릭](./media/storsimple-8000-install-update5-via-portal/update4.png)
 
 6. 일련의 필수 조건 검사가 시작됩니다. 이들 검사는 다음과 같습니다.
    

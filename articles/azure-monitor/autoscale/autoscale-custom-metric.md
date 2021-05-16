@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 8e744e6a91eb6fbe23a6b45f95c39b1acfdcb61f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100617709"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Azure에서 사용자 지정 메트릭을 기준으로 자동 크기 조정 시작
 이 문서에서는 Azure Portal에서 사용자 지정 메트릭을 기준으로 리소스 크기를 조정하는 방법에 대해 설명합니다.
 
-Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure 데이터 탐색기 클러스터](https://azure.microsoft.com/services/data-explorer/) 에만 적용 됩니다.   
+Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), [Azure Data Explorer 클러스터](https://azure.microsoft.com/services/data-explorer/)에만 적용됩니다.   
 통합 서비스 환경 및 [API Management 서비스](../../api-management/api-management-key-concepts.md).
 
 ## <a name="lets-get-started"></a>시작
@@ -32,7 +32,7 @@ Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure
   ![사용자 지정 메트릭 기준 크기 조정][6]
 - 위의 단계와 마찬가지로 규모 축소하고, 사용자 지정 메트릭이 임계값 아래이면 크기 조정 수를 하나씩 줄이는 크기 조정 규칙을 추가합니다.
   ![CPU 기준 크기 조정][7]
-- 인스턴스 제한을 설정 합니다. 예를 들어 사용자 지정 메트릭 변동에 따라 2-5개 인스턴스 간에 크기를 조정하려면 '최소'를 '2'로, '최대'를 '5'로, '기본값'을 '2'로 설정합니다.
+- 인스턴스 제한을 설정합니다. 예를 들어 사용자 지정 메트릭 변동에 따라 2-5개 인스턴스 간에 크기를 조정하려면 '최소'를 '2'로, '최대'를 '5'로, '기본값'을 '2'로 설정합니다.
   > 참고: 리소스 메트릭을 읽는 데 문제가 있고 현재 용량이 기본 용량보다 적으면, 리소스의 가용성을 보장하기 위해 자동 크기 조정이 기본값으로 확장됩니다. 이미 현재 용량이 기본 용량보다 많은 경우에는 자동 크기 조정이 축소되지 않습니다.
 - '저장'을 클릭합니다.
 

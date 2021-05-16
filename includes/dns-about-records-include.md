@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: victorh
 ms.openlocfilehash: 8ca054b3a3d5147b7d98a021ce1e26d02d5581b0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96011570"
 ---
 ### <a name="record-names"></a>레코드 이름
 
-Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다. FQDN (정규화 *된 도메인 이름)에는* 영역 이름이 포함 되지만 *상대* 이름은 포함 되지 않습니다. 예를 들어 영역의 상대 레코드 이름은 정규화 `www` `contoso.com` 된 레코드 이름을 제공 합니다 `www.contoso.com` .
+Azure DNS에서는 상대 이름을 사용하여 레코드를 지정합니다. FQDN(*정규화된* 도메인 이름)은 영역 이름을 포함하는 반면 *상대* 이름은 영역 이름을 포함하지 않습니다. 예를 들어 영역 `contoso.com`의 상대 레코드 이름 `www`는 정규화된 레코드 이름 `www.contoso.com`을 제공합니다.
 
-*apex* 레코드는 DNS 영역의 루트(또는 *apex*)에 있는 DNS 레코드입니다. 예를 들어, DNS 영역에서 `contoso.com` apex 레코드는 정규화 된 이름 `contoso.com` (이를 *naked* 도메인이 라고도 함)을 포함 합니다.  규칙에 따라 루트 레코드를 나타내는 데 '\@' 상대 이름을 사용합니다.
+*apex* 레코드는 DNS 영역의 루트(또는 *apex*)에 있는 DNS 레코드입니다. 예를 들어 DNS 영역 `contoso.com`에서 루트 레코드는 정규화된 이름 `contoso.com`도 가집니다(*naked* 도메인이라고도 함).  규칙에 따라 루트 레코드를 나타내는 데 '\@' 상대 이름을 사용합니다.
 
 ### <a name="record-types"></a>레코드 유형
 

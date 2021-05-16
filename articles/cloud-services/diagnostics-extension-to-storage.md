@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: bwren
-ms.subservice: diagnostic-extension
-ms.openlocfilehash: 4962d5f048cf41eca50a77a0dedad3cef48ac1f0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.subservice: application-insights
+ms.openlocfilehash: b58249dac5b98bb86c35fae9ac574b6100fa9fd5
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98740077"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383102"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage에서 진단 데이터 저장 및 보기
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다. 이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
-진단 데이터를 Microsoft Azure Storage 에뮬레이터으로 전송 하거나 Azure Storage 하지 않는 한 진단 데이터는 영구적으로 저장 되지 않습니다. 스토리지에서 사용할 수 있는 여러 도구 중 하나로 한 번 볼 수 있습니다.
+진단 데이터를 Microsoft Azure Storage 에뮬레이터 또는 Azure Storage에 전송하지 않는 한 진단 데이터는 영구적으로 저장되지 않습니다. 스토리지에서 사용할 수 있는 여러 도구 중 하나로 한 번 볼 수 있습니다.
 
 ## <a name="specify-a-storage-account"></a>스토리지 계정 지정
 ServiceConfiguration.cscfg 파일에서 사용하려는 스토리지 계정을 지정합니다. 계정 정보는 구성 설정에서 연결 문자열로 정의됩니다. 다음 예제에서는 Visual Studio에서 새 클라우드 서비스 프로젝트에 대해 생성된 기본 연결 문자열을 보여 줍니다.

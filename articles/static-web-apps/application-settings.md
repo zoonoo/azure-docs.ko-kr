@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
-ms.openlocfilehash: 2886cb6433c4f8a65eb0661eded0ddd08248e137
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 152b96bee63b6d2280a807ca53842ed3a67ab67d
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102219185"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279768"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 애플리케이션 설정 구성 미리 보기
 
@@ -106,7 +106,7 @@ Azure Portal은 애플리케이션 설정을 만들고 업데이트하고 삭제
 
     :::image type="content" source="media/application-settings/configuration.png" alt-text="Azure Static Web Apps 구성 보기":::
 
-1. **이름** 및 **값** 을 입력 합니다.
+1. **이름** 및 **값** 을 입력합니다.
 
 1. **확인** 을 클릭합니다.
 
@@ -168,4 +168,4 @@ Azure CLI 명령을 사용하려면 업로드를 실행하기 위해 계정과 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [로컬 개발 설정](local-development.md)
+> [프런트 엔드 프레임워크 구성](front-end-frameworks.md)

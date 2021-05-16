@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: craigshoemaker
@@ -10,15 +10,15 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e375a12be73c280f2778e6e28efb709b9116a4cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100381660"
 ---
 ### <a name="default"></a>기본값
 
-다음 형식에 바인딩하여 blob을 쓸 수 있습니다.
+다음 형식에 바인딩하여 Blob을 쓸 수 있습니다.
 
 * `TextWriter`
 * `out string`
@@ -27,10 +27,10 @@ ms.locfileid: "100381660"
 * `Stream`
 * `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob`<sup>sr-2</sup>
-* `CloudBlockBlob`<sup>sr-2</sup>
-* `CloudPageBlob`<sup>sr-2</sup>
-* `CloudAppendBlob`<sup>sr-2</sup>
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
 <sup>1</sup>*function.json* 에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.Read`의 “in” 바인딩이 필요합니다. 그러나 런타임에서 제공하는 컨테이너를 사용하여 컨테이너에 BLOB 업로드 등의 쓰기 작업을 수행할 수 있습니다.
 
@@ -42,13 +42,13 @@ ms.locfileid: "100381660"
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상 버전의 스토리지 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.blobs-readme)의 형식을 사용할 수도 있습니다. 이 버전은 `CloudBlobContainer` `CloudBlobDirectory` `ICloudBlob` `CloudBlockBlob` `CloudPageBlob` `CloudAppendBlob` 다음과 같은 형식으로 레거시,,,, 및 형식에 대 한 지원을 삭제 합니다.
+[5.0.0 이상 버전의 스토리지 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.blobs-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 `CloudBlobContainer`, `CloudBlobDirectory`, `ICloudBlob`, `CloudBlockBlob`, `CloudPageBlob` 및 `CloudAppendBlob` 형식에 대한 지원을 중단합니다.
 
 - [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient)<sup>1</sup>
-- [Blobclient](/dotnet/api/azure.storage.blobs.blobclient)<sup>2</sup>
-- [Blockblobclient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<sup>2</sup>
-- [Pageblobclient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)<sup>2</sup>
-- [Appendblobclient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)<sup>2</sup>
+- [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<sup>2</sup>
+- [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<sup>2</sup>
+- [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)<sup>2</sup>
+- [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)<sup>2</sup>
 - [BlobBaseClient](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient)<sup>2</sup>
 
 <sup>1</sup>*function.json* 에서 `direction` 또는 C# 클래스 라이브러리에서 `FileAccess.Read`의 “in” 바인딩이 필요합니다. 그러나 런타임에서 제공하는 컨테이너를 사용하여 컨테이너에 BLOB 업로드 등의 쓰기 작업을 수행할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: functions
 author: craigshoemaker
@@ -10,10 +10,10 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: 938f55ae0ba911ea3a97cd49e6424bf8aaefdc76
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100381694"
 ---
 ### <a name="default"></a>기본값
@@ -39,7 +39,7 @@ Blob 입력 바인딩에 대해 다음 매개 변수 형식을 사용할 수 있
 
 ### <a name="additional-types"></a>추가 형식
 
-[5.0.0 이상 버전의 스토리지 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.blobs-readme)의 형식을 사용할 수도 있습니다. 이 버전은 `CloudBlobContainer` `CloudBlobDirectory` `ICloudBlob` `CloudBlockBlob` `CloudPageBlob` `CloudAppendBlob` 다음과 같은 형식으로 레거시,,,, 및 형식에 대 한 지원을 삭제 합니다.
+[5.0.0 이상 버전의 스토리지 확장](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher)을 사용하는 앱은 [.NET용 Azure SDK](/dotnet/api/overview/azure/storage.blobs-readme)의 형식을 사용할 수도 있습니다. 이 버전은 다음 형식을 위해 레거시 `CloudBlobContainer`, `CloudBlobDirectory`, `ICloudBlob`, `CloudBlockBlob`, `CloudPageBlob` 및 `CloudAppendBlob` 형식에 대한 지원을 중단합니다.
 
 - [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient)
 - [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<sup>1</sup>

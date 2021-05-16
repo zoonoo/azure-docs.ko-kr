@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4406e3875bd2d56a33bcc9a94a24ad874fecf8da
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99592180"
 ---
 # <a name="materials"></a>재질
@@ -84,14 +84,14 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # 재질 클래스](/dotnet/api/microsoft.azure.remoterendering.material)
-* [C # Colormaterial 클래스](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [C # PbrMaterial 클래스](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C # RenderingConnection CreateMaterial ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
-* [C + + 재질 클래스](/cpp/api/remote-rendering/material)
-* [C + + ColorMaterial 클래스](/cpp/api/remote-rendering/colormaterial)
-* [C + + PbrMaterial 클래스](/cpp/api/remote-rendering/pbrmaterial)
-* [C + + RenderingConnection:: CreateMaterial ()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
+* [C# Material 클래스](/dotnet/api/microsoft.azure.remoterendering.material)
+* [C# ColorMaterial 클래스](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# PbrMaterial 클래스](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RenderingConnection.CreateMaterial()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.creatematerial)
+* [C++ Material 클래스](/cpp/api/remote-rendering/material)
+* [C++ ColorMaterial 클래스](/cpp/api/remote-rendering/colormaterial)
+* [C++ PbrMaterial 클래스](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RenderingConnection::CreateMaterial()](/cpp/api/remote-rendering/renderingconnection#creatematerial)
 
 ## <a name="next-steps"></a>다음 단계
 

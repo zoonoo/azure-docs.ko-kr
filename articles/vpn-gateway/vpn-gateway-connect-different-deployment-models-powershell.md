@@ -1,5 +1,5 @@
 ---
-title: 'Azure Resource Manager Vnet에 클래식 가상 네트워크 연결: PowerShell'
+title: 'Azure Resource Manager VNet에 클래식 가상 네트워크 연결: PowerShell'
 description: VPN Gateway 및 PowerShell을 사용하여 클래식 VNet 및 Resource Manager VNet 간에 VPN 연결을 만듭니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: cherylmc
 ms.openlocfilehash: 7012a696684a4e7bc1d3b52943b11ba413c43037
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100376491"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
@@ -39,7 +39,7 @@ ms.locfileid: "100376491"
 * VNet에 대한 주소 범위는 서로 겹치거나 게이트웨이가 연결되어 있는 다른 연결의 범위와 겹치지 않습니다.
 * 최신 PowerShell cmdlet을 설치했습니다. 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/) 을 참조하세요. SM(서비스 관리)와 RM(Resource Manager) cmdlet을 모두 설치해야 합니다. 
 
-### <a name="example-settings"></a><a name="exampleref"></a>설정 예
+### <a name="example-settings"></a><a name="exampleref"></a>예제 설정
 
 이러한 값을 사용하여 테스트 환경을 만들거나 이 값을 참조하여 이 문서의 예제를 보다 정확하게 이해할 수 있습니다.
 
@@ -67,7 +67,7 @@ Virtual Network Gateway name = RMGateway <br>
  게이트웨이 IP 주소 구성 = gwipconfig
 
 ## <a name="section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>섹션 1 - 클래식 VNet 구성
-### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일을 다운로드 합니다.
+### <a name="1-download-your-network-configuration-file"></a>1. 네트워크 구성 파일 다운로드
 1. 관리자 권한으로 PowerShell 콘솔에서 Azure 계정에 로그인합니다. 다음 cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다. 이 섹션에서는 클래식 SM(Service Management) Azure PowerShell cmdlet이 사용됩니다.
 
    ```azurepowershell
@@ -97,7 +97,7 @@ Virtual Network Gateway name = RMGateway <br>
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-**예제:**
+**예:**
 
 ```xml
 <VirtualNetworkSites>
@@ -131,7 +131,7 @@ Virtual Network Gateway name = RMGateway <br>
 </LocalNetworkSites>
 ```
 
-### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. VNet을 로컬 네트워크 사이트에 연결
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4. 로컬 네트워크 사이트와 VNet 연결
 이 섹션에서는 VNet을 연결하려는 로컬 네트워크 사이트를 지정합니다. 이 경우에 앞서 참조한 Resource Manager VNet입니다. 이름이 일치해야 합니다. 이 단계에서는 게이트웨이를 만들지 않습니다. 게이트웨이를 연결할 로컬 네트워크를 지정합니다.
 
 ```xml
@@ -144,7 +144,7 @@ Virtual Network Gateway name = RMGateway <br>
 </Gateway>
 ```
 
-### <a name="5-save-the-file-and-upload"></a>5. 파일을 저장 하 고 업로드 합니다.
+### <a name="5-save-the-file-and-upload"></a>5. 파일 저장 및 업로드
 파일을 저장하고 다음 명령을 실행하여 Azure에 가져옵니다. 사용자 환경에 필요한 대로 파일 경로를 변경해야 합니다.
 
 ```azurepowershell
@@ -274,7 +274,7 @@ RM VNet을 이미 만들었다고 가정합니다. 이 단계에서는 RM VNet�
 ## <a name="section-4---create-a-connection-between-the-gateways"></a><a name="connect"></a>섹션 4 - 게이트웨이 간의 연결 만들기
 게이트웨이 간의 연결을 만들려면 PowerShell이 필요합니다. 클래식 버전의 PowerShell cmdlet을 사용하려면 Azure 계정을 추가해야 합니다. 이 작업에는 **Add-AzureAccount** 를 사용합니다.
 
-1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName** 은 클래식 VNet의 이름이고 **-LocalNetworkSiteName** 은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-Sharedkey** 는 생성 하 고 지정 하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태:성공** 이 표시됩니다.
+1. PowerShell 콘솔에서 공유 키를 설정합니다. 이러한 cmdlet을 실행하기 전에 Azure에 필요한 정확한 이름에 대해서는 다운로드한 네트워크 구성 파일을 참조하세요. 공백이 포함된 VNet의 이름을 지정할 때는 값을 작은따옴표로 묶습니다.<br><br>다음 예제에서 **-VNetName** 은 클래식 VNet의 이름이고 **-LocalNetworkSiteName** 은 로컬 네트워크 사이트에 대해 지정한 이름입니다. **-SharedKey** 는 사용자가 생성하고 지정하는 값입니다. 이 예제에서는 'abc123'을 사용했으나 좀 더 복잡한 항목을 생성하여 사용할 수 있습니다. 중요한 점은 여기에서 지정한 값이 연결을 만드는 다음 단계에서 지정한 것과 동일한 값이어야 한다는 것입니다. 반환 값에는 **상태:성공** 이 표시됩니다.
 
    ```azurepowershell
    Set-AzureVNetGatewayKey -VNetName ClassicVNet `

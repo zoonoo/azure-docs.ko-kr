@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 45b2ac73ffcb4b777572f9ad62d8aae0e8277e1c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95558542"
 ---
 > [!NOTE]
@@ -45,7 +45,7 @@ ms.locfileid: "95558542"
       ![어댑터 구성 메시지](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > 매우 많은 데이터베이스 (200 이상)를 사용 하 여 SharePoint 팜에 대 한 RBS를 구성 하는 경우 SharePoint 중앙 관리 웹 페이지의 시간이 초과 될 수 있습니다. 이 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
+      > 매우 많은(200개 초과) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우 SharePoint 중앙 관리 페이지가 시간을 초과할 수 있습니다. 이 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
 
 4. 구성 확인:
    
