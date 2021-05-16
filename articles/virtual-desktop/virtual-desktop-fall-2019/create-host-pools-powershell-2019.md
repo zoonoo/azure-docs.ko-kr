@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 9776d5f52bda56704c4839cb9edd420beec72a71
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 9835a736dfd1c2ccec41eb27472f76d53b07696e
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445230"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754392"
 ---
 # <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>PowerShell을 사용하여 Windows Virtual Desktop(클래식)에서 호스트 풀 만들기
 
@@ -64,7 +64,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 - [Azure Gallery 이미지에서 가상 머신 만들기](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [관리 이미지에서 가상 머신 만들기](../../virtual-machines/windows/create-vm-generalized-managed.md)
-- [관리되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [관리되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image)
 
 >[!NOTE]
 >Windows 7을 사용하여 호스트 OS로 가상 머신을 배포하는 경우에는 만들기 및 배포 프로세스가 약간 다릅니다. 자세한 내용은 [Windows Virtual Desktop에서 Windows 7 가상 머신 배포](deploy-windows-7-virtual-machine.md)를 참조하세요.

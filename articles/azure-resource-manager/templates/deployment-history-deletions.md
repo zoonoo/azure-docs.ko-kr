@@ -3,12 +3,13 @@ title: 배포 기록 삭제
 description: Azure Resource Manager가 배포 기록에서 배포를 자동으로 삭제하는 방법을 설명합니다. 기록이 800개 제한을 초과하는 경우 배포가 삭제됩니다.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 83383411ec317e228dabb14273e2b566792c774c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2920eb1daa626b6a817b2fe3b388e8c531f12e4
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105732468"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751621"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>배포 기록에서 자동 삭제
 
@@ -84,7 +85,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName Disabl
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI의 경우 [az feature register](/cli/azure/feature#az-feature-register)를 사용합니다.
+Azure CLI의 경우 [az feature register](/cli/azure/feature#az_feature_register)를 사용합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -96,7 +97,7 @@ az feature register --namespace Microsoft.Resources --name DisableDeploymentGroo
 az feature show --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-자동 삭제를 다시 사용하도록 설정하려면 [az feature unregister](/cli/azure/feature#az-feature-unregister)를 사용합니다.
+자동 삭제를 다시 사용하도록 설정하려면 [az feature unregister](/cli/azure/feature#az_feature_unregister)를 사용합니다.
 
 ```azurecli-interactive
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
@@ -104,7 +105,7 @@ az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGr
 
 # <a name="rest"></a>[REST (영문)](#tab/rest)
 
-REST API의 경우 [Features - Register](/rest/api/resources/features/features/register)를 사용합니다.
+REST API의 경우 [Features - Register](/rest/api/resources/features/register)를 사용합니다.
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
@@ -116,7 +117,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Micro
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/register?api-version=2015-12-01
 ```
 
-자동 삭제를 다시 사용하도록 설정하려면 [Features - Unregister](/rest/api/resources/features/features/unregister)를 사용합니다.
+자동 삭제를 다시 사용하도록 설정하려면 [Features - Unregister](/rest/api/resources/features/unregister)를 사용합니다.
 
 ```rest
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Features/providers/Microsoft.Resources/features/DisableDeploymentGrooming/unregister?api-version=2015-12-01

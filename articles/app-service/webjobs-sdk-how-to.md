@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 063924dccb7d7b95b962b24ecc1af1870a855194
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4bff929346a1f452ecd574eccccd1ba8c95788db
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102617134"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226321"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -67,7 +67,7 @@ static void Main(string[] args)
 ```
 
 > [!NOTE]
-> 3\.*x* 버전은 기본 .NET Core 구성 API를 사용하므로 연결 문자열 이름을 변경하는 API가 없습니다. [Visual Studio를 사용 하 여 WebJobs 개발 및 배포를](webjobs-dotnet-deploy-vs.md) 참조 하세요.
+> 3\.*x* 버전은 기본 .NET Core 구성 API를 사용하므로 연결 문자열 이름을 변경하는 API가 없습니다. [Visual Studio를 사용하여 WebJobs 개발 및 배포](webjobs-dotnet-deploy-vs.md) 보기
 
 ### <a name="host-development-settings"></a>호스트 개발 설정
 
@@ -526,7 +526,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) 문서를 참조하세요.
+자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) 문서를 참조하세요.
 
 ### <a name="configuration-for-other-bindings"></a>다른 바인딩의 구성
 
@@ -752,7 +752,7 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹앱이 여러 인스턴스로 규모 확장될 때 함수의 단일 인스턴스만 실행되게 하려면 함수에서 수신기 수준 싱글톤 잠금을 적용합니다(`[Singleton(Mode = SingletonMode.Listener)]`). 수신기 잠금은 JobHost가 시작될 때 획득합니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
 
 > [!NOTE]
-> SingletonMode 작동 방식에 대해 자세히 알아보려면이 [GitHub 리포지토리](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs) 를 참조 하세요.
+> SingletonMode.Function의 작동 원리에 대한 자세한 내용은 이 [Github 리포지토리](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/SingletonMode.cs)를 참조하세요.
 
 ### <a name="scope-values"></a>범위 값
 

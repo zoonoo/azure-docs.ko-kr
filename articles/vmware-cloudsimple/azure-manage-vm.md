@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Azure에서 프라이빗 클라우드 VM 관리
 description: 디스크 추가, VM 용량 변경, 네트워크 인터페이스 추가 등 Azure Portal에서 CloudSimple 프라이빗 클라우드 VM을 관리하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 090b7711ab061b989eae13113fe7048e8dd875ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c505ad4edb6ee13a81e3d575ad11e1bf526166df
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97895192"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182555"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Azure에서 CloudSimple 프라이빗 클라우드 가상 머신 관리
 

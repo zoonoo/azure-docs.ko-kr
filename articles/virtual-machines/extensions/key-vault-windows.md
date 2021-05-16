@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure Key Vault VM 확장
+title: Windows용 Azure Key Vault VM 확장
 description: 가상 머신 확장을 사용하여 가상 머신에 Key Vault 비밀의 자동 새로 고침을 수행하는 에이전트를 배포합니다.
 services: virtual-machines
 author: msmbaldwin
@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a984d044134dbd775bacb653f8590ee78724f15b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102563560"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
@@ -23,25 +23,25 @@ Key Vault VM 확장은 Azure Key Vault에 저장된 인증서의 자동 새로 �
 
 ### <a name="operating-system"></a>운영 체제
 
-Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
+Key Vault VM 확장은 다음 Windows 버전을 지원합니다.
 
 - Windows Server 2019
 - Windows Server 2016
 - Windows Server 2012
 
-Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure에서 사용 하기 위해 업로드 하 고 특수 이미지로 변환 되는 사용자 지정 로컬 VM 에서도 지원 됩니다.
+Key Vault VM 확장은 Windows Server 2019 core 설치를 사용하여 Azure에서 사용하기 위해 업로드되고 특수 이미지로 변환되는 사용자 지정 로컬 VM에서도 지원됩니다.
 
 ### <a name="supported-certificate-content-types"></a>지원되는 인증서 콘텐츠 형식
 
 - PKCS #12
 - PEM
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-  - 인증서를 사용 하 여 인스턴스를 Key Vault 합니다. [Key Vault 만들기를](../../key-vault/general/quick-create-portal.md) 참조 하세요.
-  - VM에서 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 할당 해야 함
-  - `get` `list` 암호의 인증서 부분을 검색 하려면 VM/vmss 관리 id에 대 한 암호 및 사용 권한을 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](../../key-vault/general/authentication.md) 하 고 [Key Vault 액세스 정책을 할당](../../key-vault/general/assign-access-policy-cli.md)하는 방법을 참조 하세요.
-  -  Virtual Machine Scale Sets에는 다음과 같은 id 설정이 있어야 합니다.
+  - 인증서를 사용하는 Key Vault 인스턴스. [키 자격 증명 모음](../../key-vault/general/quick-create-portal.md) 참조
+  - VM에서 [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 할당해야 함
+  - Key Vault 액세스 정책은 암호의 인증서 부분을 검색하기 위해 VM/VMSS 관리 ID에 대한 비밀 `get` 및 `list` 권한으로 설정해야 합니다. [Key Vault 인증](../../key-vault/general/authentication.md) 및 [Key Vault 액세스 정책 할당 방법](../../key-vault/general/assign-access-policy-cli.md)을 참조하세요.
+  -  Virtual Machine Scale Sets에는 다음과 같은 ID 설정이 있어야 합니다.
 
   ``` 
   "identity": {
@@ -63,7 +63,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure�
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 보호 된 설정이 필요 하지 않습니다. 모든 설정이 공용 정보로 간주 됩니다. 확장에는 모니터링 되는 인증서의 목록, 폴링 빈도 및 대상 인증서 저장소가 필요 합니다. 특히 다음에 대한 내용을 설명합니다.  
+다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 해당 확장에는 보호됨 설정이 필요 없습니다. 모든 설정이 공개 정보로 간주됩니다. 해당 확장에는 모니터링되는 인증서, 폴링 빈도, 대상 인증서 저장소 목록이 필요합니다. 특히 다음에 대한 내용을 설명합니다.  
 
 ```json
     {
@@ -103,8 +103,8 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure�
 > `/secrets` 경로가 프라이빗 키를 포함하여 전체 인증서를 반환하지만 `/certificates` 경로에서는 반환하지 않기 때문입니다. 인증서에 대한 자세한 내용은 여기에서 찾을 수 있습니다. [Key Vault 인증서](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> ' AuthenticationSettings ' 속성은 **사용자가 할당 한 id** 를 가진 vm에만 **필요** 합니다.
-> Key Vault에 대 한 인증에 사용할 id를 지정 합니다.
+> 'authenticationSettings' 속성은 **사용자 할당 ID** 가 있는 VM에만 **필요** 합니다.
+> 이 속성은 Key Vault에 대한 인증에 사용할 ID를 지정합니다.
 
 
 ### <a name="property-values"></a>속성 값
@@ -118,7 +118,7 @@ Key Vault VM 확장은 Windows Server 2019 core 설치를 사용 하 여 Azure�
 | pollingIntervalInS | 3600 | 문자열 |
 | certificateStoreName | MY | 문자열 |
 | linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine 또는 CurrentUser (대/소문자 구분) | 문자열 |
+| certificateStoreLocation  | LocalMachine 또는 CurrentUser(대/소문자 구분) | 문자열 |
 | requireInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate","https://myvault.vault.azure.net/secrets/mycertificate2"] | 문자열 배열
 | msiEndpoint | http://169.254.169.254/metadata/identity | 문자열 |
@@ -132,7 +132,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 가상 머신 확장에 대한 JSON 구성은 템플릿의 가상 머신 리소스 조각, 특히 가상 머신 템플릿의 `"resources": []` 개체 및 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 개체의 가상 머신 확장 집합 내에 중첩되어야 합니다.
 
  > [!NOTE]
-> VM 확장을 사용 하려면 키 자격 증명 모음에 인증 하기 위해 시스템 또는 사용자 관리 id를 할당 해야 합니다.  [Key Vault에 인증 하 고 Key Vault 액세스 정책을 할당 하는 방법](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) 을 참조 하세요.
+> VM 확장에는 Key Vault를 인증하기 위해 할당되는 시스템 또는 사용자 관리 ID가 필요합니다.  [Key Vault 인증 및 Key Vault 액세스 정책 할당 방법](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)을 참조하세요.
 > 
 
 ```json
@@ -162,9 +162,9 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 ```
 
 ### <a name="extension-dependency-ordering"></a>확장 종속성 순서 지정
-Key Vault VM 확장은 구성 된 경우 확장 순서를 지원 합니다. 기본적으로 확장은 폴링을 시작한 직후에 성공적으로 시작 되었음을 보고 합니다. 그러나 성공적인 시작을 보고 하기 전에 인증서의 전체 목록이 성공적으로 다운로드 될 때까지 대기 하도록 구성할 수 있습니다. 다른 확장이 시작 하기 전에 전체 인증서 집합을 설치 해야 하는 경우이 설정을 사용 하도록 설정 하면 해당 확장이 Key Vault 확장에 대 한 종속성을 선언할 수 있습니다. 이렇게 하면 해당 확장이 종속 된 모든 인증서가 설치 될 때까지 해당 확장을 시작할 수 없습니다. 확장은 초기 다운로드를 무기한으로 다시 시도 하 고 상태로 유지 됩니다 `Transitioning` .
+Key Vault VM 확장은 구성된 경우 확장 순서 지정을 지원합니다. 기본적으로 확장은 폴링을 시작하자마자 성공적으로 시작되었음을 보고합니다. 그러나 성공적인 시작을 보고하기 전에 인증서의 전체 목록이 성공적으로 다운로드될 때까지 기다리도록 구성할 수 있습니다. 다른 확장이 시작 전에 전체 인증서 집합이 설치되었는지에 의존하는 경우 이 설정을 사용하도록 설정하면 해당 확장이 Key Vault 확장에 대한 종속성을 선언할 수 있습니다. 이렇게 하면 해당 확장이 의존하는 모든 인증서가 설치될 때까지 해당 확장을 시작할 수 없습니다. 확장은 초기 다운로드를 무기한 다시 시도하고 `Transitioning` 상태로 유지됩니다.
 
-이를 설정 하려면 다음을 설정 합니다.
+이를 설정하려면 다음을 설정합니다.
 ```
 "secretsManagementSettings": {
     "requireInitialSync": true,
@@ -173,11 +173,11 @@ Key Vault VM 확장은 구성 된 경우 확장 순서를 지원 합니다. 기�
 ```
 
 > [!Note] 
-> 이 기능을 사용 하는 것은 시스템 할당 id를 만들고 해당 id를 사용 하 여 Key Vault 액세스 정책을 업데이트 하는 ARM 템플릿과 호환 되지 않습니다. 이렇게 하면 모든 확장이 시작 될 때까지 자격 증명 모음 액세스 정책을 업데이트할 수 없으므로 교착 상태가 발생 합니다. 대신 *단일 사용자 할당 MSI id* 를 사용 하 고 배포 하기 전에 해당 id를 사용 하 여 자격 증명 모음에 사전 ACL을 사용 해야 합니다.
+> 이 기능의 사용은 시스템 할당 ID를 만들고 해당 ID를 사용하여 Key Vault 액세스 정책을 업데이트하는 ARM 템플릿과 호환되지 않습니다. 이렇게 하면 모든 확장이 시작될 때까지 자격 증명 모음 액세스 정책을 업데이트할 수 없으므로 교착 상태가 발생합니다. 대신 *단일 사용자 할당 MSI ID* 를 사용하고 배포하기 전에 해당 ID를 사용하여 자격 증명 모음을 사전 ACL해야 합니다.
 
 ## <a name="azure-powershell-deployment"></a>Azure PowerShell 배포
 > [!WARNING]
-> PowerShell 클라이언트는 `\` settings.js에를 추가 하 여 `"` akvvm_service 오류로 인해 실패 하는 경우가 많습니다. `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+> PowerShell 클라이언트는 오류와 함께 akvvm_service에 실패를 일으키는 settings.json에서 `"`에 `\`를 추가하는 경우가 많습니다.`[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
 
 Azure PowerShell은 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vault VM 확장을 배포하는 데 사용할 수 있습니다. 
 
@@ -252,7 +252,7 @@ Azure CLI는 기존 가상 머신 또는 가상 머신 확장 집합에 Key Vaul
 다음 제한 사항/요구 사항에 주의하세요.
 - Key Vault 제한 사항:
   - 배포 시점에 있어야 합니다. 
-  - 관리 Id를 사용 하 여 VM/VMSS Id에 대 한 Key Vault 액세스 정책을 설정 해야 합니다. [Key Vault에 인증](../../key-vault/general/authentication.md) 하 고 [Key Vault 액세스 정책을 할당](../../key-vault/general/assign-access-policy-cli.md)하는 방법을 참조 하세요.
+  - 관리 ID를 사용하여 VM/VMSS ID에 대한 Key Vault 액세스 정책을 설정해야 합니다. [Key Vault 인증](../../key-vault/general/authentication.md) 및 [Key Vault 액세스 정책 할당 방법](../../key-vault/general/assign-access-policy-cli.md)을 참조하세요.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 

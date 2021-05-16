@@ -12,20 +12,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/21/2021
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: fa028d8fffd2a4097b5bf7d7326d355ae56aebd7
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 46e84814e27562097a4c5dc4e3daa1e5b36669f7
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107862816"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108287835"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
 
 ## <a name="april-2021"></a>2021년 4월
+
+* [수동 볼륨 및 용량 풀 관리](volume-quota-introduction.md)(하드 할당량) 
+
+    Azure NetApp Files 볼륨 및 용량 풀 프로비저닝의 동작은 수동 및 제어 가능한 메커니즘으로 변경되었습니다. 볼륨의 스토리지 용량은 볼륨의 집합 크기(할당량)로 제한됩니다. 볼륨 소비가 최대를 초과하면 볼륨과 기본 용량 풀이 자동으로 증가하지 않습니다. 대신 볼륨이 "공간 부족" 상태로 됩니다. 그러나 필요에 따라 [용량 풀 또는 볼륨의 크기를 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)할 수 있습니다. 적극적으로 기본 용량 풀 및 [볼륨의 용량을 모니터링](monitor-volume-capacity.md)해야 합니다.
+
+    이 동작 변경은 여러 사용자가 제기한 다음과 같은 주요 요청의 결과입니다.
+
+    * 이전에는 VM 클라이언트가 OS 공간 또는 용량 모니터링 도구를 사용할 때 지정된 볼륨의 씬 프로비전(100TiB) 용량을 확인했습니다.  이러한 상황으로 인해 클라이언트 또는 애플리케이션 측에 대한 부정확한 용량 가시성이 제공될 수 있습니다. 이 동작이 이제 수정되었습니다.  
+    * 용량 풀의 이전 자동 증가 동작은 애플리케이션 소유자에게 프로비전된 용량 풀 공간(및 관련 비용)에 대한 제어력을 제공하지 않습니다. 이 동작은 특히 "런어웨이 프로세스"가 프로비전된 용량을 빠르게 채우고 증가시킬 수 있는 환경에서는 번거롭습니다. 이 동작이 수정되었습니다.  
+    * 사용자는 볼륨 크기(할당량)와 성능 간의 직접적인 상관 관계를 확인하고 유지하기를 원합니다. 이전 동작에서는 볼륨(용량) 및 용량 풀 자동 증가에 대한 (암시적) 초과 구독이 허용되었습니다. 따라서 볼륨 할당량이 적극적으로 설정되거나 다시 설정될 때까지 사용자가 직접 상관 관계를 만들 수 없습니다. 이 동작이 이제 수정되었습니다.
+
+    사용자가 프로비전된 용량에 대한 직접 제어를 요청했습니다. 사용자는 스토리지 용량 및 사용률을 제어하고 균형을 조정하고자 합니다. 또한 애플리케이션 볼륨의 가용, 사용 및 프로비전된 용량 및 성능에 대한 애플리케이션 측 및 클라이언트 측 가시성과 함께 비용을 제어하고자 합니다. 이제 이 새로운 동작으로 이러한 기능이 모두 지원됩니다.
 
 * [FSLogix 사용자 프로필 컨테이너의 SMB CA(지속적인 가용성) 공유 지원](azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)(미리 보기)  
 

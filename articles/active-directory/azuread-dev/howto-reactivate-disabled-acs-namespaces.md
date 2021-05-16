@@ -1,6 +1,6 @@
 ---
-title: 사용 하지 않도록 설정 된 ACS (Azure Access Control Service) 네임 스페이스 다시 활성화
-description: ACS (Azure Access Control Service) 네임 스페이스를 찾아서 사용 하도록 설정 하 고 2019 년 2 월 4 일까 지 사용할 수 있도록 확장을 요청 합니다.
+title: 사용할 수 없는 Azure ACS(Access Control Service) 네임스페이스 다시 활성화
+description: Azure ACS(Access Control Service)를 검색하여 사용하도록 설정하고 2019년 2월 4일까지 사용 상태를 유지하는 연장을 요청합니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,10 +14,10 @@ ms.reviewer: jlu
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 7bb572e9e22519491290e54417f5ca350d6c0b5c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85383720"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
@@ -26,7 +26,7 @@ ms.locfileid: "85383720"
 
 2017년 11월에 Microsoft Azure AD(Azure Active Directory) 서비스의 하나인 Azure ACS(Access Control Service)는 2018년 11월 7일부터 사용 중지된다고 발표했습니다.
 
-이후부터 acs 구독 관리자에 대 한 전자 메일을 acs 구독 관리자에 게 전송 합니다 .이 전자 메일에는 2018 년 11 월 7 일 이전에 ACS 사용 중지 시간 12 개월, 9 개월, 6 개월, 3 개월, 1 개월, 2 주, 1 주, 1 일이 만료 됩니다.
+이후 사용 중지일인 2018년 11월 7일로부터 12개월, 9개월, 6개월, 3개월, 1개월, 2주, 1주 및 1일 전에 ACS 사용 중지에 관한 ACS 구독 관리자 이메일로 여러 차례 이메일을 보냈습니다.
 
 2018년 10월 3일에 (이메일과 [블로그 게시물](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)을 통해) 2018년 11월 7일까지 마이그레이션을 완료할 수 없는 고객에게 연장을 제공한다고 발표했습니다. 또한 이 공지에는 연장 요청을 위한 지침이 포함되었습니다.
 
@@ -69,7 +69,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
 1. `State`가 `Disabled`인지 확인하여 네임스페이스가 사용하도록 설정되었는지 확인합니다.
 
-    [![네임 스페이스를 사용 하지 않도록 설정 되었는지 확인](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
+    [![네임스페이스가 사용하도록 설정되었는지 확인](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
     `nslookup {your-namespace}.accesscontrol.windows.net`을 사용하여 도메인이 여전히 활성화된 상태인지 확인할 수도 있습니다.
 
@@ -89,7 +89,7 @@ ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열�
 
 ### <a name="to-request-an-extension"></a>연장을 요청하려면
 
-1. Azure Portal에 로그인 하 고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
+1. Azure Portal에 로그인하고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
 1. 다음 예제와 같이 새 지원 요청 양식을 입력합니다.
 
     | 지원 요청 필드 | 값 |

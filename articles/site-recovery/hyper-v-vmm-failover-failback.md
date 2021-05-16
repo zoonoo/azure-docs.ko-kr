@@ -2,18 +2,15 @@
 title: Azure Site Recovery를 사용하여 보조 Hyper-V 사이트로 장애 조치(failover)/장애 복구(failback) 설정
 description: Azure Site Recovery를 사용하여 재해 복구하는 동안 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover)하고, 주 사이트로 장애 복구(failback)하는 방법에 대해 알아봅니다.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: d31355bcb0ce42874c19988738ba06138c7a0b7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72b23e37a365287cc8a850f960137fdb7ec08497
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74082594"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581114"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>복제된 Hyper-V VM을 보조 온-프레미스 사이트로 장애 조치(Failover) 및 장애 복구(failback)
 
@@ -35,7 +32,7 @@ ms.locfileid: "74082594"
 3. 예정된 장애 조치(Failover) 후에는 선택적으로 주 사이트에서 보조 사이트로 복제가 다시 시작됩니다.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [재해 복구 드릴](hyper-v-vmm-test-failover.md)을 완료하여 모든 항목이 예상대로 작동하는지 확인합니다.
 - 장애 복구(Failback)를 완료하려면 주 및 보조 VMM 서버가 Site Recovery에 연결되어 있는지 확인합니다.

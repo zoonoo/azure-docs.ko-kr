@@ -1,6 +1,6 @@
 ---
-title: 개발자 용 Azure AD (v1.0) | Microsoft
-description: 앱 모델, API, 프로 비전 및 가장 일반적인 인증 시나리오와 같은 개발자 용 Azure AD 용 Azure AD의 인증 기본 사항에 대해 알아봅니다.
+title: 개발자용 Azure AD(v1.0) | Azure
+description: 앱 모델, API, 프로비저닝, 가장 일반적인 인증 시나리오와 같은 개발자용 Azure AD(v1.0)에 대한 인증 기본 사항을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -15,10 +15,10 @@ ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 36b39f3706db615e40ebfadebf36be4d8b29c33e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80154732"
 ---
 # <a name="what-is-authentication"></a>인증이란?
@@ -29,7 +29,7 @@ ms.locfileid: "80154732"
 
 *권한 부여* 란 인증된 보안 주체에게 작업을 수행할 수 있게 사용 권한을 부여하는 작업입니다. 액세스가 허용된 데이터 및 해당 데이터로 할 수 있는 작업을 지정합니다. Authorization(권한 부여)는 종종 AuthZ로 축약됩니다.
 
-V1.0 (Azure Active Directory for 개발자) (Azure AD)는 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜과 코딩을 신속 하 게 시작 하는 데 도움이 되는 다양 한 플랫폼에 대 한 오픈 소스 라이브러리를 지원 하 여 응용 프로그램 개발자에 대 한 인증을 간소화 합니다.
+개발자용 Azure AD(Azure Active Directory)(v1.0)는 빠르게 코딩을 시작하는 데 도움이 되는 업계 표준 프로토콜(예: OAuth 2.0 및 OpenID Connect) 및 다양한 플랫폼용 오픈 소스 라이브러리를 지원하여 ID를 서비스로 제공함으로써 애플리케이션 개발자를 위한 인증을 간소화합니다.
 
 Azure AD 프로그래밍 모델의 기본 사용 사례가 두 가지 있습니다.
 
@@ -42,16 +42,16 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 
 ![웹 애플리케이션에 대한 로그온 개요](./media/v1-authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
-다이어그램에 표시 된 다양 한 구성 요소에 대해 알아야 할 사항은 다음과 같습니다.
+다이어그램에 나온 다양한 구성 요소에 대해 알아야 할 사항은 다음과 같습니다.
 
-* Azure AD는 ID 공급자입니다. Id 공급자는 조직의 디렉터리에 존재 하는 사용자 및 응용 프로그램의 id를 확인 하 고, 해당 사용자 및 응용 프로그램을 성공적으로 인증 한 후 보안 토큰을 발급 합니다.
-* Azure AD에 대 한 인증을 아웃소싱 하려는 응용 프로그램은 Azure Active Directory (Azure AD)에 등록 되어야 합니다. Azure AD는 앱을 디렉터리에 등록하고 고유하게 식별합니다.
+* Azure AD는 ID 공급자입니다. ID 공급자는 조직의 디렉터리에 존재하는 사용자 및 애플리케이션의 ID를 확인하고 해당 사용자 및 애플리케이션을 성공적으로 인증하면 보안 토큰을 발급할 책임이 있습니다.
+* Azure AD(Azure Active Directory)로 인증을 아웃소싱하려는 애플리케이션은 Azure AD에 등록해야 합니다. Azure AD는 앱을 디렉터리에 등록하고 고유하게 식별합니다.
 * 개발자는 오픈 소스 Azure AD 인증 라이브러리를 사용하여 프로토콜 세부 정보를 처리함으로써 인증을 쉽게 수행할 수 있습니다. 자세한 내용은 Microsoft ID 플랫폼 [v2.0 인증 라이브러리](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 및 [v1.0 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
-* 사용자가 인증 되 면 응용 프로그램은 사용자의 보안 토큰의 유효성을 검사 하 여 인증에 성공 했는지 확인 해야 합니다. 애플리케이션이 수행해야 하는 것을 보여주는 빠른 시작, 자습서 및 코드 샘플을 다양한 언어 및 프레임워크에서 찾을 수 있습니다.
+* 사용자가 인증되면 애플리케이션에서 해당 사용자의 보안 토큰에 대한 유효성을 검사하여 인증에 성공했는지 확인해야 합니다. 애플리케이션이 수행해야 하는 것을 보여주는 빠른 시작, 자습서 및 코드 샘플을 다양한 언어 및 프레임워크에서 찾을 수 있습니다.
   * 신속하게 앱을 빌드하고 토큰 가져오기, 토큰 새로 고치기, 사용자 로그인, 사용자 정보 표시 등의 기능을 추가하려면 문서의 **빠른 시작** 섹션을 참조하세요.
   * 액세스 토큰 가져오기와 이를 Microsoft Graph API 및 다른 API에 대한 호출에서 사용하기처럼 상위 인증 개발자 작업을 위한 시나리오 기반 프로시저, OpenID Connect를 사용하여 기존의 웹 브라우저 기반 앱으로 Microsoft에 로그인 구현 등을 자세히 알아보려면 문서의 **자습서** 섹션을 참조하세요.
   * 코드 샘플을 다운로드하려면 [GitHub](https://github.com/Azure-Samples?q=active-directory)로 이동하세요.
-* 인증 프로세스에 대한 요청의 흐름 및 응답은 OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0과 같이 사용하는 인증 프로토콜에 의해 결정됩니다. 프로토콜에 대 한 자세한 내용은 설명서의 **> 인증 프로토콜 개념** 섹션을 참조 하십시오.
+* 인증 프로세스에 대한 요청의 흐름 및 응답은 OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0과 같이 사용하는 인증 프로토콜에 의해 결정됩니다. 프로토콜에 대한 자세한 내용은 문서의 **개념 > 인증 프로토콜** 섹션을 참조하세요.
 
 위에 나온 예제 시나리오에서는 이러한 두 역할에 따라 앱을 분류할 수 있습니다.
 
@@ -60,7 +60,7 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 
 ### <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
 
-클라이언트를 구축 하는 방법에 따라 Azure AD에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다. 이러한 흐름은 다양한 토큰(id_token, 새로 고침 토큰, 액세스 토큰) 및 인증 코드를 생성하고 작동하는 데 다른 토큰을 요구할 수 있습니다. 이 차트에서는 다음 개요를 제공합니다.
+클라이언트를 빌드하는 방법에 따라 Azure AD에서 지원되는 인증 흐름 중 하나(또는 여러 개)를 사용할 수 있습니다. 이러한 흐름은 다양한 토큰(id_token, 새로 고침 토큰, 액세스 토큰) 및 인증 코드를 생성하고 작동하는 데 다른 토큰을 요구할 수 있습니다. 이 차트에서는 다음 개요를 제공합니다.
 
 |흐름 | 필수 사항 | id_token | 액세스 토큰 | 새로 고침 토큰 | 인증 코드 | 
 |-----|----------|----------|--------------|---------------|--------------------|
@@ -101,7 +101,7 @@ Azure AD에서 **애플리케이션 개체** 는 추상 엔터티로 애플리�
 1. 테넌트 B의 사용자가 앱에 로그인하려고 시도하면 권한 부여 엔드포인트에서 애플리케이션의 토큰을 요청합니다.
 1. 인증에 필요한 사용자 자격 증명을 획득하여 확인
 1. 테넌트 B에 대한 액세스 권한을 얻으려면 앱에 동의하라는 메시지가 사용자에게 표시됨
-1. Azure AD는 테 넌 트 B에서 서비스 주체를 만들기 위한 청사진으로 테 넌 트 A의 응용 프로그램 개체를 사용 합니다.
+1. Azure AD에서 테넌트 A의 애플리케이션 개체를 테넌트 B의 서비스 주체를 만들기 위한 청사진으로 사용
 1. 사용자가 요청된 토큰 수신
 
 다른 테넌트(C, D 등)에서 원하는 횟수만큼 이 프로세스를 반복할 수 있습니다. 테넌트 A에서 앱(애플리케이션 개체)에 대한 청사진을 유지합니다. 앱에 동의한 다른 모든 테넌트의 사용자 및 관리자는 각 테넌트에서 해당하는 서비스 주체 개체를 통해 애플리케이션이 수행할 수 있는 작업에 대한 컨트롤을 유지합니다. 자세한 내용은 [Microsoft ID 플랫폼의 애플리케이션 및 서비스 주체 개체](../develop/app-objects-and-service-principals.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)를 참조하세요.
@@ -117,7 +117,7 @@ Azure AD에서 발급하는 보안 토큰(액세스 및 ID 토큰)에는 인증�
 
 임의의 지정된 보안 토큰에 있는 클레임은 토큰 형식, 사용자 인증에 사용되는 자격 증명 유형, 애플리케이션 구성 등에 따라 다릅니다.
 
-아래 표에서는 Azure AD에서 내보내는 각 클레임 유형에 대해 간략하게 설명합니다. 자세한 내용은 Azure AD에서 발급 한 [액세스 토큰](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 및 [ID 토큰](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 을 참조 하세요.
+아래 표에서는 Azure AD에서 내보내는 각 클레임 유형에 대해 간략하게 설명합니다. 자세한 내용은 Azure AD에서 발급한 [액세스 토큰](../develop/access-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) 및 [ID 토큰](../develop/id-tokens.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)을 참조하세요.
 
 | 클레임 | 설명 |
 | --- | --- |
@@ -132,11 +132,11 @@ Azure AD에서 발급하는 보안 토큰(액세스 및 ID 토큰)에는 인증�
 | 발급 시간 | 토큰이 발급된 시간을 기록합니다. 종종 토큰 새로 고침에 사용됩니다. |
 | 발급자 | 토큰을 내보낸 STS 및 Azure AD 테넌트를 식별합니다. |
 | 성 | Azure AD에서 설정된 사용자 성을 제공합니다. |
-| Name | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
+| 이름 | 토큰의 주체를 식별하는, 사람이 인식할 수 있는 값을 제공합니다. |
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 애플리케이션 역할의 이름을 포함합니다. |
 | 범위 | 클라이언트 애플리케이션에 부여된 권한을 나타냅니다. |
-| 주체 | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
+| 제목 | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
 | 테넌트 ID | 토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 토큰 수명 | 토큰이 유효한 시간 간격을 정의합니다. |
 | 사용자 계정 이름 | 주체의 사용자 계정 이름을 포함합니다. |

@@ -1,19 +1,19 @@
 ---
 title: VMware 가상 머신과 함께 Azure Application Gateway 사용
 description: Azure Application Gateway를 사용하여 CloudSimple 프라이빗 클라우드 환경에서 VMware 가상 머신에서 실행되는 웹 서버에 대한 들어오는 웹 트래픽을 관리하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d14fdc4e2b2b1dfca8194077acc0453808611946
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6a189aad8766d5e4a5e5d603c4e43eb685dacc0
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97897946"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177857"
 ---
 # <a name="use-azure-application-gateway-with-vmware-virtual-machines-in-the-cloudsimple-private-cloud-environment"></a>CloudSimple 프라이빗 클라우드 환경에서 VMware 가상 머신과 함께 Azure Application Gateway 사용
 

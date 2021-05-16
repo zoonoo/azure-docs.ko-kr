@@ -1,18 +1,18 @@
 ---
 title: Azure Container Registry에 대한 기본 제공 정책 정의
 description: Azure Container Registry에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/31/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 11197c04af9bb1fa3c2ea9367001054527643fe9
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: f637a1a3925e49f3b51eacbfdc2731141b0a6484
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092307"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771502"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-container-registry"></a>Azure Container Registry에 대한 Azure Policy 기본 제공 정의
 

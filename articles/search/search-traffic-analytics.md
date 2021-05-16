@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 1/29/2021
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 89d067162dacb7a0ca25de826630e1986f1035e1
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102485472"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>검색 트래픽 분석을 위한 원격 분석 데이터 수집
 
 검색 트래픽 분석은 사용자가 시작한 클릭 이벤트 및 키보드 입력과 같이 Azure Cognitive Search 애플리케이션과의 사용자 상호 작용에 대한 원격 분석을 수집하기 위한 패턴입니다. 이 정보를 사용하면 인기 있는 검색어, 클릭 광고 비율 및 결과가 0인 쿼리 입력을 비롯한 검색 솔루션의 효율성을 확인할 수 있습니다.
 
-이 패턴은 사용자 데이터를 수집하는 [Application Insights](../azure-monitor/app/app-insights-overview.md)([Azure Monitor](../azure-monitor/index.yml)의 기능)에 의존합니다. 이 문서에 설명된 대로 클라이언트 코드에 계측을 추가해야 합니다. 마지막으로 데이터를 분석하는 보고 메커니즘이 필요합니다. Power BI 하는 것이 좋지만 Application Insights에 연결 되는 응용 프로그램 대시보드 또는 도구를 사용할 수 있습니다.
+이 패턴은 사용자 데이터를 수집하는 [Application Insights](../azure-monitor/app/app-insights-overview.md)([Azure Monitor](../azure-monitor/index.yml)의 기능)에 의존합니다. 이 문서에 설명된 대로 클라이언트 코드에 계측을 추가해야 합니다. 마지막으로 데이터를 분석하는 보고 메커니즘이 필요합니다. Power BI를 권장하지만, Application Insights에 연결되는 도구 또는 Application Dashboard를 사용할 수 있습니다.
 
 > [!NOTE]
 > 이 문서에 설명된 패턴은 고급 시나리오 및 클라이언트에 추가하는 코드에서 생성된 클릭 동향 데이터를 위한 것입니다. 이와 대조적으로 서비스 로그는 설정하기 쉬우며, 다양한 메트릭을 제공하고, 포털에서 코드 없이 수행할 수 있습니다. 모든 시나리오에 대해 로깅을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [로그 데이터 수집 및 분석](search-monitor-logs.md)을 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "102485472"
 
 검색 트래픽 검색의 유용한 메트릭을 확보하려면 검색 애플리케이션의 사용자로부터 일부 신호를 기록해야 합니다. 이러한 신호는 사용자가 관심을 보이고 관련이 있다고 생각하는 콘텐츠를 나타냅니다. 검색 트래픽 분석의 경우에는 다음이 포함됩니다.
 
-+ 사용자 생성 검색 이벤트: 사용자가 시작한 검색 쿼리에만 주목합니다. 패싯을 채우거 나 내부 정보를 검색 하는 데 사용 되는 것과 같은 다른 검색 요청은 중요 하지 않습니다. 사용자가 시작한 이벤트를 계측 하 여 결과의 기울기 나 바이어스를 방지 해야 합니다.
++ 사용자 생성 검색 이벤트: 사용자가 시작한 검색 쿼리에만 주목합니다. 패싯을 채우거나 내부 정보를 검색하는 데 사용되는 것과 같은 다른 검색 요청은 중요하지 않습니다. 결과가 왜곡되거나 치우치지 않도록 사용자가 시작한 이벤트만 계측해야 합니다.
 
 + 사용자 생성 클릭 이벤트: 검색 결과 페이지에서 클릭 이벤트는 일반적으로 문서가 특정 검색 쿼리와 관련된 결과라는 의미입니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "102485472"
 
 ## <a name="add-search-traffic-analytics"></a>트래픽 분석 검색 추가
 
-Azure Cognitive Search 서비스에 대 한 [포털](https://portal.azure.com) 페이지에서 트래픽 분석 검색 페이지를 열어이 원격 분석 패턴에 따라 참고 자료 시트에 액세스 합니다. 이 페이지에서 Application Insights 리소스를 선택하거나 만들고, 계측 키를 가져오고, 솔루션에 맞게 조정할 수 있는 코드 조각을 복사하고, 패턴에 반영된 스키마를 통해 빌드된 Power BI 보고서를 다운로드할 수 있습니다.
+Azure Cognitive Search 서비스의 [포털](https://portal.azure.com) 페이지에서 검색 트래픽 분석 페이지를 열어 이 원격 분석 패턴을 따르는 치트 시트에 액세스합니다. 이 페이지에서 Application Insights 리소스를 선택하거나 만들고, 계측 키를 가져오고, 솔루션에 맞게 조정할 수 있는 코드 조각을 복사하고, 패턴에 반영된 스키마를 통해 빌드된 Power BI 보고서를 다운로드할 수 있습니다.
 
 ![포털의 검색 트래픽 분석 페이지](media/search-traffic-analytics/azuresearch-trafficanalytics.png "포털의 검색 트래픽 분석 페이지")
 
@@ -71,7 +71,7 @@ Application Insights에 이벤트를 보내는 개체를 만듭니다. 브라우
 
 **C# 사용**
 
-C #의 경우 프로젝트가 ASP.NET 경우 appsettings.js와 같은 응용 프로그램 구성에서 **InstrumentationKey** 를 정의 해야 합니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
+C#에서는 프로젝트가 ASP.NET인 경우 appsettings.json과 같은 애플리케이션 구성에서 **InstrumentationKey** 를 정의해야 합니다. 키 위치를 잘 모르는 경우 등록 지침을 다시 참조하세요.
 
 ```csharp
 private static TelemetryClient _telemetryClient;
@@ -85,7 +85,7 @@ public HomeController(TelemetryClient telemetry)
 
 **JavaScript 사용**
 
-현재 코드 조각 (아래에 나열 됨)은 버전 "5"이 고, 버전은 sv: "#" 이며 [현재 버전은 GitHub 에서도 사용할 수](https://go.microsoft.com/fwlink/?linkid=2156318)있습니다.
+현재 코드 조각(아래에 나열됨)은 버전 '5'이며 이 버전은 코드 조각에서 sv:"#"으로 인코딩됩니다. [현재 버전은 GitHub에서도 이용할 수 있습니다](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -103,7 +103,7 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> 가독성을 높이고 가능한 JavaScript 오류를 줄이기 위해 가능한 모든 구성 옵션은 위의 코드 조각 코드에서 새 줄에 나열 됩니다. 주석 처리 된 줄의 값을 변경 하지 않으려는 경우 제거할 수 있습니다.
+> 가독성을 높이고 가능한 JavaScript 오류를 줄이기 위해 가능한 모든 구성 옵션이 위의 코드 조각 코드에서 새 줄에 나열됩니다. 주석 처리된 줄의 값을 변경하지 않으려는 경우 이를 제거할 수 있습니다.
 
 
 ### <a name="step-2-request-a-search-id-for-correlation"></a>2단계: 상관 관계에 대한 검색 ID 요청
@@ -112,9 +112,9 @@ cfg: { // Application Insights Configuration
 
 검색 ID는 요청 자체에 대해 Azure Cognitive Search에서 내보낸 메트릭과 Application Insights에 로깅하는 사용자 지정 메트릭의 상관 관계를 허용합니다.
 
-**C # 사용 (최신 v11 SDK)**
+**C# 사용(최신 v11 SDK)**
 
-최신 SDK를 사용 하려면 Http 파이프라인을 사용 하 여이 [샘플](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Pipeline.md#implementing-a-syncronous-policy)에 설명 된 대로 헤더를 설정 해야 합니다.
+최신 SDK를 사용하려면 HTTP 파이프라인을 사용하여 이 [샘플](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/samples/Pipeline.md#implementing-a-syncronous-policy)에 자세히 설명된 대로 헤더를 설정해야 합니다.
 
 ```csharp
 // Create a custom policy to add the correct headers
@@ -143,7 +143,7 @@ if (response.GetRawResponse().Headers.TryGetValues("x-ms-azs-searchid", out IEnu
 }
 ```
 
-**C # 사용 (이전 v10 SDK)**
+**C# 사용(이전 v10 SDK)**
 
 ```csharp
 // This sample uses the .NET SDK https://www.nuget.org/packages/Microsoft.Azure.Search

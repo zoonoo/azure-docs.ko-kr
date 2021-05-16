@@ -1,18 +1,18 @@
 ---
 title: Azure SQL Database에 대한 기본 제공 정책 정의
 description: Azure SQL Database 및 SQL Managed Instance에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 03/24/2021
+ms.date: 05/04/2021
 ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 058105eee2aa15baa6deb44986f7f8d68842eb81
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 550a5aefbd4cd456708ff3a01318772b1d77ff99
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105035724"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753872"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance에 대한 Azure Policy 기본 제공 정의
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -26,7 +26,7 @@ Azure Portal의 정책 정의에 대한 각 기본 제공 정책 정의 링크�
 [!INCLUDE [azure-policy-reference-service-sqldatabase](../../../includes/policy/reference/byrp/microsoft.sql.md)]
 
 ## <a name="limitations"></a>제한 사항
-- T-sql 또는 SSMS를 사용 하는 경우 Azure SQL Database 만들기에 적용 되는 Azure Policy 적용 되지 않습니다. 
+- T-SQL 또는 SSMS를 사용하는 경우 Azure SQL Database 만들기에 적용할 수 있는 Azure Policy가 적용되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

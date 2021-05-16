@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2eb0e3ce2ac20c89d9c0176ca3e7b33dc839c923
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: fca83b895596568fba7b9641956dba8e4843d2ca
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718830"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108206820"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가
 
@@ -124,7 +124,7 @@ ms.locfileid: "107718830"
 
 ## <a name="add-a-simulated-device"></a>시뮬레이트된 디바이스 추가
 
-시뮬레이션된 디바이스를 추가하려면 애플리케이션에 만든 **ESP32** 디바이스 템플릿을 사용합니다.
+시뮬레이션된 디바이스를 애플리케이션에 추가하려면 사용자가 만든 **ESP32** 디바이스 템플릿을 사용합니다.
 
 1. 새 디바이스를 추가하려면 왼쪽 창에서 **디바이스** 를 선택합니다. **디바이스** 탭에는 ESP32 디바이스에 대한 **모든 디바이스** 및 **센서 조절기** 디바이스 템플릿이 표시됩니다. **센서 조절기** 를 선택합니다.
 

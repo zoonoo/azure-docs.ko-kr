@@ -3,12 +3,12 @@ title: MARS(Microsoft Azure Recovery Services) 에이전트 설치
 description: MARS(Microsoft Azure Recovery Services) 에이전트를 설치하여 Windows 머신을 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: acf38fdf338fcdd0cd7902d4295f0f03310543a8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ea48aaa6aad4a51463c4c028ead22f31163f810
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98986873"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519224"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Azure Backup MARS 에이전트 설치
 
@@ -158,7 +158,7 @@ MARS 에이전트를 다운로드하여 백업하려는 머신에 설치할 수 
 
     ![서버 등록 마법사를 사용하여 자격 증명 모음 자격 증명 추가](./media/backup-configure-vault/register1.png)
 
-1. **암호화 설정** 페이지에서 머신 백업을 암호화하고 암호 해독 시 사용할 암호를 지정합니다. 허용되는 암호 문자에 대한 자세한 내용은 [여기를 참조](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase)하세요.
+1. **암호화 설정** 페이지에서 머신 백업을 암호화하고 암호 해독 시 사용할 암호를 지정합니다. 허용되는 암호 문자에 대한 자세한 내용은 [여기를 참조](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-)하세요.
 
     * 안전한 위치에 암호를 저장합니다. 이 암호는 백업을 복원할 때 필요합니다.
     * 암호를 분실하거나 잊어버린 경우, Microsoft에서는 백업 데이터 복구를 지원할 수 없습니다.

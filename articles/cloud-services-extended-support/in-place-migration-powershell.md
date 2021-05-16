@@ -8,12 +8,12 @@ ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: aab67914b1317bc0cc443f333932ecef924176b6
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: eea49a41e81e7e580becce815ff91aff6aa430d6
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293029"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286799"
 ---
 # <a name="migrate-to-azure-cloud-services-extended-support-using-powershell"></a>PowerShell을 사용하여 Cloud Services(확장 지원)로 마이그레이션
 
@@ -28,7 +28,7 @@ ms.locfileid: "108293029"
 ## <a name="2-install-the-latest-version-of-powershell"></a>2) 최신 버전의 PowerShell 설치
 Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/) 또는 [WebPI(웹 플랫폼 설치 관리자)](https://aka.ms/webpi-azps)가 있습니다. WebPI는 매월 업데이트를 수신합니다. PowerShell 갤러리는 지속적으로 업데이트를 수신합니다. 이 문서는 Azure PowerShell 버전 2.1.0을 기반으로 합니다.
 
-설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/servicemanagement/install-azure-ps?preserve-view=true&view=azuresmps-4.0.0)을 참조하세요.
+설치 지침은 [Azure PowerShell 설치 및 구성 방법](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0&preserve-view=true)을 참조하세요.
 
 ## <a name="3-ensure-admin-permissions"></a>3) 관리자 권한 확인
 이 마이그레이션을 수행하려면, 해당 구독에 대해 [Azure Portal](https://portal.azure.com)에 공동 관리자로 추가되어야 합니다.
@@ -193,4 +193,4 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## <a name="next-steps"></a>다음 단계
-[마이그레이션 후 변경 내용](in-place-migration-overview.md#post-migration-changes) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다.
+[마이그레이션 후 변경 내용](in-place-migration-overview.md#post-migration-changes) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다. 

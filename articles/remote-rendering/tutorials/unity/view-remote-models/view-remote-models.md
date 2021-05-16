@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43e5b77580b7071ce48b39190c26a53f99f8cf5
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: ae84d62f8f028158450b1127abc81c5dc4416502
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107740165"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315384"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>자습서: 원격으로 렌더링된 모델 보기
 
@@ -125,6 +125,9 @@ Unity 프로젝트에 Azure Remote Rendering 패키지를 추가하는 방법에
 1. **ValidateProject** 창에서 오류를 검토하고 필요한 경우 프로젝트 설정을 수정합니다.
 
     ![Unity 편집기 프로젝트 유효성 검사](./media/remote-render-unity-validation.png)
+
+> [!NOTE]
+> 프로젝트에서 MRTK를 사용하고 카메라 하위 시스템을 활성화하면 MRTK가 카메라에 적용하는 수동 변경 사항을 재정의합니다. 여기에는 ValidateProject 도구의 수정 사항이 포함됩니다.
 
 ## <a name="create-a-script-to-coordinate-azure-remote-rendering-connection-and-state"></a>Azure Remote Rendering 연결 및 상태를 조정하는 스크립트 만들기
 

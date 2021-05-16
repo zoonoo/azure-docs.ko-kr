@@ -3,14 +3,15 @@ title: Azure Automation의 변수 관리
 description: 이 문서에서는 Runbook 및 DSC 구성에서 변수를 사용하는 방법을 설명합니다.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 12/01/2020
+ms.date: 03/28/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6db0c82c034aab97deee1be4aa8bdc54368521bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9f1ace00356583dbb6102317e3d157fb58682710
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98131528"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832582"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Azure Automation의 변수 관리
 
@@ -26,7 +27,7 @@ Automation 변수는 다음과 같은 시나리오에 유용합니다.
 
 Azure Automation은 변수를 유지하고 Runbook 또는 DSC 구성이 실패한 경우에도 변수를 사용할 수 있도록 합니다. 이 동작 덕분에 하나의 Runbook 또는 DSC 구성이 설정한 값을 다른 Runbook이 사용하거나 동일한 Runbook이나 DSC 구성이 다음에 실행될 때 다시 사용할 수 있습니다.
 
-Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 보안 자산으로 Azure Automation 여 해당 암호화 및 저장소를 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고는 암호화 상태를 변경할 수 없습니다. 아직 암호화되지 않은 중요한 데이터를 저장하는 Automation 계정 변수가 있는 경우 이를 삭제하고 암호화된 변수로 다시 만들어야 합니다. Azure Security Center 권장 사항은 [Automation 계정 변수를 암호화해야 함](../../security-center/recommendations-reference.md#recs-compute)에 설명된 대로 모든 Azure Automation 변수를 암호화하는 것입니다. 이 보안 권장 사항에서 제외하려는 암호화되지 않은 변수가 있는 경우 [권장 사항 및 보안 점수에서 리소스 제외](../../security-center/exempt-resource.md)를 참조하여 예외 규칙을 만듭니다.
+Azure Automation은 암호화된 각 변수를 안전하게 저장합니다. 변수를 만들 때 Azure Automation을 사용하여 해당 암호화 및 스토리지를 보안 자산으로 지정할 수 있습니다. 변수를 만든 후에는 변수를 다시 만들지 않고는 암호화 상태를 변경할 수 없습니다. 아직 암호화되지 않은 중요한 데이터를 저장하는 Automation 계정 변수가 있는 경우 이를 삭제하고 암호화된 변수로 다시 만들어야 합니다. Azure Security Center 권장 사항은 [Automation 계정 변수를 암호화해야 함](../../security-center/recommendations-reference.md#recs-compute)에 설명된 대로 모든 Azure Automation 변수를 암호화하는 것입니다. 이 보안 권장 사항에서 제외하려는 암호화되지 않은 변수가 있는 경우 [권장 사항 및 보안 점수에서 리소스 제외](../../security-center/exempt-resource.md)를 참조하여 예외 규칙을 만듭니다.
 
 >[!NOTE]
 >Azure Automation의 안전한 자산에는 자격 증명, 인증서, 연결, 암호화된 변수 등이 있습니다. 이러한 자산은 각 Automation 계정에 대해 생성되는 고유 키를 사용하여 암호화되고 Azure Automation에 저장됩니다. Azure Automation은 시스템 관리 키 자격 증명 모음에 키를 저장합니다. 보안 자산을 저장하기 전에 Automation이 Key Vault에서 키를 로드한 다음, 자산을 암호화하는 데 사용합니다.
@@ -41,9 +42,9 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 * 부울
 * Null
 
-변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다.
+변수가 지정된 데이터 형식으로 제한되지 않습니다. 다른 형식의 값을 지정하려면 Windows PowerShell을 사용하여 변수를 설정해야 합니다. `Not defined`를 지정하면 변수 값이 Null로 설정됩니다. [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) cmdlet 또는 내부 `Set-AutomationVariable` cmdlet을 사용하여 값을 설정해야 합니다. Runbook에서 Azure 샌드박스 환경 또는 Windows Hybrid Runbook Worker에서 실행하려는 `Set-AutomationVariable`를 사용합니다.
 
-Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복합 형식은Newtonsoft.Js로 검색 됩니다 [ . ](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm) PSObject 형식 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject)대신 복합 개체 형식에 대 한 Linq. j 속성입니다.
+Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변경할 수 없습니다. 그러나 Windows PowerShell을 사용하여 모든 형식의 값을 제공할 수 있습니다. 복합 개체 유형의 경우 복합 형식은 PSObject 유형인 [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject) 대신 [Newtonsoft.Json.Linq.JProperty](https://www.newtonsoft.com/json/help/html/N_Newtonsoft_Json_Linq.htm)로 검색됩니다.
 
 배열 또는 해시 테이블을 만들어 변수에 저장하여 여러 값을 단일 변수에 저장할 수 있습니다.
 
@@ -56,10 +57,17 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 
 | Cmdlet | Description |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <br>**참고:** 이 cmdlet을 사용 하 여 암호화 된 변수의 값을 검색할 수 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. [변수에 액세스하는 데 사용되는 내부 cmdlet](#internal-cmdlets-to-access-variables)을 참조하세요. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | 기존 변수의 값을 검색합니다. 값이 단순 형식이면 동일한 해당 형식이 검색되고, 복합 형식이면 `PSCustomObject` 형식이 검색됩니다. <sup>1</sup>|
 |[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | 새 변수를 만들고 해당 값을 설정합니다.|
 |[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| 기존 변수를 제거합니다.|
 |[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| 기존 변수의 값을 설정합니다. |
+
+<sup>1</sup> 해당 cmdlet을 사용하여 암호화된 변수의 값을 검색할 수는 없습니다. 이 작업을 수행하는 유일한 방법은 Runbook 또는 DSC 구성에서 내부 `Get-AutomationVariable` cmdlet을 사용하는 것입니다. 예를 들어 암호화된 변수의 값을 보려면 Runbook을 만들어 변수를 가져온 다음, 출력 스트림에 쓸 수 있습니다.
+
+```powershell
+$encryptvar = Get-AutomationVariable -Name TestVariable
+Write-output "The encrypted value of the variable is: $encryptvar"
+```
 
 ## <a name="internal-cmdlets-to-access-variables"></a>변수에 액세스하는 데 사용되는 내부 cmdlet
 
@@ -71,18 +79,11 @@ Azure Portal을 사용하여 복잡한 변수 형식의 값을 만들거나 변�
 |`Set-AutomationVariable`|기존 변수의 값을 설정합니다.|
 
 > [!NOTE]
-> Runbook 또는 DSC 구성에서 `Get-AutomationVariable`의 `Name` 매개 변수에 변수를 사용하지 마세요. 변수를 사용하면 디자인 타임에 Runbook과 Automation 변수 간의 종속성 검색이 복잡해질 수 있습니다.
+> Runbook 또는 DSC 구성에서 `Get-AutomationVariable` cmdlet의 `Name` 매개 변수에 변수를 사용하지 마세요. 변수를 사용하면 디자인 타임에 Runbook과 Automation 변수 간의 종속성 검색이 복잡해질 수 있습니다.
 
-`Get-AutomationVariable`은 PowerShell에서 작동하지 않으며 Runbook 또는 DSC 구성에서만 작동합니다. 예를 들어 암호화된 변수의 값을 보려면 Runbook을 만들어 변수를 가져온 다음, 출력 스트림에 쓸 수 있습니다.
+## <a name="python-functions-to-access-variables"></a>변수에 액세스하는 Python 함수
 
-```powershell
-$mytestencryptvar = Get-AutomationVariable -Name TestVariable
-Write-output "The encrypted value of the variable is: $mytestencryptvar"
-```
-
-## <a name="python-functions-to-access-variables"></a>변수에 액세스 하는 Python 함수
-
-다음 표의 함수는 Python 2 및 3 runbook의 변수에 액세스 하는 데 사용 됩니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
+다음 테이블의 함수는 Python 2 및 3 Runbook의 변수에 액세스하는 데 사용됩니다. Python 3 Runbook은 현재 미리 보기로 제공됩니다.
 
 |Python 함수|Description|
 |:---|:---|
@@ -99,9 +100,9 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Azure Portal을 사용하여 변수를 만들고 가져오기
 
-1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **변수** 를 선택 합니다.
-2. **변수** 페이지에서 **변수 추가** 를 선택 합니다.
-3. **새** 변수 페이지에서 옵션을 완료 하 고 **만들기** 를 선택 하 여 새 변수를 저장 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **변수** 를 선택합니다.
+2. **변수** 페이지에서 **변수 추가** 를 선택합니다.
+3. **새 변수** 페이지에서 옵션을 완료한 후 **만들기** 를 선택하여 새 변수를 저장합니다.
 
 > [!NOTE]
 > 암호화된 변수를 저장하면 포털에서 해당 변수를 볼 수 없습니다. 업데이트할 수만 있습니다.
@@ -116,43 +117,53 @@ Runbook 또는 DSC 구성은 `New-AzAutomationVariable` cmdlet을 사용하여 �
 다음 예제에서는 문자열 변수를 만든 다음, 해당 값을 반환하는 방법을 보여 줍니다.
 
 ```powershell
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
+$variableValue = "My String"
+
 New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" 
-–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
-–Encrypted $false –Value 'My String'
+-AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable' `
+-Encrypted $false -Value 'My String'
 $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
+-AutomationAccountName "MyAutomationAccount" -Name 'MyStringVariable').Value
 ```
 
-다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 경우 [new-azvm](/powershell/module/Az.Compute/Get-AzVM) 의 가상 컴퓨터 개체가 해당 속성의 하위 집합을 지정 하는 데 사용 됩니다.
+다음 예제에서는 복잡한 형식의 변수를 만들고 해당 속성을 검색하는 방법을 보여 줍니다. 이 경우 [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM)의 가상 머신 개체가 해당 속성의 하위 집합을 지정하는 데 사용됩니다.
 
 ```powershell
-$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01" | Select Name, Location, Extensions
-New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
+
+$vm = Get-AzVM -ResourceGroupName "ResourceGroup01" -Name "VM01" | Select Name, Location, Extensions
+New-AzAutomationVariable -ResourceGroupName "ResourceGroup01" -AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable" -Encrypted $false -Value $vm
 
 $vmValue = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable"
+-AutomationAccountName "MyAutomationAccount" -Name "MyComplexVariable"
 
-$vmName = $vmValue.Name
-$vmExtensions = $vmValue.Extensions
+$vmName = $vmValue.Value.Name
+$vmTags = $vmValue.Value.Tags
 ```
 
 ## <a name="textual-runbook-examples"></a>텍스트 Runbook 예제
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-다음 예제에서는 텍스트 Runbook에서 변수를 설정 및 검색하는 방법을 보여 줍니다. 이 예제에서는 `NumberOfIterations` 및 `NumberOfRunnings`라는 정수 변수를 만들고 `SampleMessage`라는 문자열 변수를 만든다고 가정합니다.
+다음 예제에서는 텍스트 Runbook에서 변수를 설정 및 검색하는 방법을 보여 줍니다. 이 예제에서는 **numberOfIterations** 및 **numberOfRunnings** 라는 정수 변수를 만들고 **sampleMessage** 라는 문자열 변수를 만든다고 가정합니다.
 
 ```powershell
-$NumberOfIterations = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-$NumberOfRunnings = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
-$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+$rgName = "ResourceGroup01"
+$accountName = "MyAutomationAccount"
 
-Write-Output "Runbook has been run $NumberOfRunnings times."
+$numberOfIterations = Get-AutomationVariable -Name "numberOfIterations"
+$numberOfRunnings = Get-AutomationVariable -Name "numberOfRunnings"
+$sampleMessage = Get-AutomationVariable -Name "sampleMessage"
 
-for ($i = 1; $i -le $NumberOfIterations; $i++) {
-    Write-Output "$i`: $SampleMessage"
+Write-Output "Runbook has been run $numberOfRunnings times."
+
+for ($i = 1; $i -le $numberOfIterations; $i++) {
+    Write-Output "$i`: $sampleMessage"
 }
-Set-AzAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+Set-AutomationVariable -Name numberOfRunnings -Value ($numberOfRunnings += 1)
 ```
 
 # <a name="python-2"></a>[Python 2](#tab/python2)
@@ -181,7 +192,7 @@ except AutomationAssetNotFound:
 
 # <a name="python-3"></a>[Python 3](#tab/python3)
 
-다음 샘플에서는 변수를 가져오고, 변수를 설정 하 고, Python 3 runbook (미리 보기)에서 존재 하지 않는 변수에 대 한 예외를 처리 하는 방법을 보여 줍니다.
+다음 샘플은 Python 3 Runbook에서 변수를 가져오고 변수를 설정하고 없는 변수에 대한 예외를 처리하는 방법을 보여 줍니다(미리 보기).
 
 ```python
 import automationassets
@@ -205,9 +216,9 @@ except AutomationAssetNotFound:
 
 ---
 
-## <a name="graphical-runbook-examples"></a>그래픽 Runbook 예제
+## <a name="graphical-runbook-examples"></a>그래픽 Runbook 예
 
-그래픽 Runbook에서 내부 cmdlet `Get-AutomationVariable` 또는 `Set-AutomationVariable`에 대한 작업을 추가할 수 있습니다. 그래픽 편집기의 라이브러리 창에서 각 변수를 마우스 오른쪽 단추로 클릭하고 원하는 작업을 선택하면 됩니다.
+그래픽 Runbook에서 내부 cmdlet **Get-AutomationVariable** 또는 **Set-AutomationVariable** 에 대한 작업을 추가할 수 있습니다. 그래픽 편집기의 라이브러리 창에서 각 변수를 마우스 오른쪽 단추로 클릭하고 원하는 작업을 선택하면 됩니다.
 
 ![캔버스에 변수 추가](../media/variables/runbook-variable-add-canvas.png)
 
@@ -217,6 +228,8 @@ except AutomationAssetNotFound:
 
 ## <a name="next-steps"></a>다음 단계
 
-* 변수에 액세스하는 데 사용되는 cmdlet에 대해 자세히 알아보려면 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
-* Runbook에 대한 일반적인 정보는 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
-* DSC 구성에 대한 자세한 내용은 [Azure Automation State Configuration 개요](../automation-dsc-overview.md)를 참조하세요.
+- 변수에 액세스하는 데 사용되는 cmdlet에 대해 자세히 알아보려면 [Azure Automation에서 모듈 관리](modules.md)를 참조하세요.
+
+- Runbook에 대한 일반적인 정보는 [Azure Automation에서 Runbook 실행](../automation-runbook-execution.md)을 참조하세요.
+
+- DSC 구성에 대한 자세한 내용은 [Azure Automation State Configuration 개요](../automation-dsc-overview.md)를 참조하세요.

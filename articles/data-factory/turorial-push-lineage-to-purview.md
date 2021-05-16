@@ -1,20 +1,20 @@
 ---
 title: Data Factory 계보 데이터를 Azure Purview에 푸시
 description: Data Factory 계보 데이터를 Azure Purview에 푸시하는 방법을 알아봅니다.
-ms.author: lle
-author: lrtoyou1223
+ms.author: jingwang
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: 3f2297ae619145ec19b53ba79d70b7c085cbcaab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1b6f8856d7cff88abd59661d06422cdb0fbe271
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361454"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481033"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Data Factory 계보 데이터를 Azure Purview에 푸시(미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100361454"
 
 이 자습서에서는 Data Factory UI(사용자 인터페이스)를 사용하여 작업을 실행하고 계보 데이터를 Azure Purview 계정에 보고하는 파이프라인을 만듭니다. 그러면, 모든 계보 정보를 Azure Purview 계정에서 볼 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure Data Factory**. Azure Data Factory가 없는 경우 [Azure Data Factory 만들기](./quickstart-create-data-factory-portal.md)를 참조하세요.
 * **Azure  Purview 계정** Purview 계정은 Data Factory에서 생성된 모든 계보 데이터를 캡처합니다. Azure Purview 계정이 없는 경우 [Azure Purview 만들기](../purview/create-catalog-portal.md)를 참조하세요.

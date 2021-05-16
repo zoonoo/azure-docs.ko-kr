@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 앱에서 오류 시뮬레이션
-description: 정상 및 비정상적 오류 로부터 Azure Service Fabric 서비스를 강화 하는 방법에 대해 알아봅니다.
+title: Azure Service Fabric 앱의 오류 시뮬레이션
+description: 정상 및 비정상적 오류로부터 Azure Service Fabric 서비스를 강화하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: c714ae30c64ea073cbac521eac5e15a8d968b7ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91531313"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>서비스 워크로드 중 오류를 시뮬레이션합니다.

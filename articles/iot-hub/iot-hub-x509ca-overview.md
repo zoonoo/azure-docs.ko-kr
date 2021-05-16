@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 7b0cf04adbf3da1f02e9f18b5e3c20760f9dbf53
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 455f1f3e1c8181646fbe165d0f1aea6a2fb2fb13
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147196"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92150699"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 디바이스 인증
 
@@ -34,7 +34,7 @@ ms.locfileid: "108147196"
 
 X.509 CA 기능에서는 CA(인증 기관)를 사용하여 IoT Hub에 대한 디바이스 인증을 허용합니다. 이 경우 초기 디바이스 등록 프로세스와 디바이스 제조 동안의 공급망 물류 처리가 간편해집니다. 디바이스 인증에 [X.509 CA 인증서를 사용할 때 얻을 수 있는 가치에 대해서는 이 시나리오 문서를 참조하세요](iot-hub-x509ca-concept.md).  이 시나리오의 문서는 이어지는 단계의 필요성을 잘 설명하므로 먼저 읽는 것이 좋습니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
 X.509 CA 기능을 사용하려면 IoT Hub 계정이 필요합니다.  IoT Hub 인스턴스가 아직 없는 경우 [IoT Hub 인스턴스를 만드는 방법을 알아봅니다](quickstart-send-telemetry-dotnet.md).
 
@@ -68,13 +68,13 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 소유 증명 단계에서는 사용자와 IoT Hub 간의 암호화 챌린지 및 응답 프로세스가 진행됩니다.  디지털 인증서 콘텐츠가 공용이어서 도청에 취약하다고 가정할 경우 IoT Hub는 사용자가 실제로 해당 CA 인증서를 소유하는지 확인하려고 할 것입니다.  이 작업은 CA 인증서의 해당 프라이빗 키로 서명해야 하는 임의 챌린지를 생성하여 수행할 수 있습니다.  앞서 권장한 것처럼 프라이빗 키를 기밀로 유지하고 보호한 경우 이 단계를 완료했다는 사실은 사용자만 알 수 있습니다. 프라이빗 키를 비밀로 유지하는 것이 이 방법에서 신뢰를 유지하는 기반입니다.  챌린지에 서명한 후에 결과를 포함하는 파일을 업로드하여 이 단계를 완료합니다.
 
-여기에서는 [CA 인증서를 등록](./tutorial-x509-scripts.md)하는 방법을 알아봅니다.
+여기에서는 [CA 인증서를 등록](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)하는 방법을 알아봅니다.
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>IoT Hub에서 디바이스를 만드는 방법
 
 디바이스 가장을 차단하기 위해 IoT Hub 허브는 예상되는 디바이스를 알려줄 것을 요구합니다.  이를 위해 IoT Hub 디바이스 레지스트리에서 디바이스 항목을 만듭니다.  이 프로세스는 IoT Hub [Device Provisioning 서비스](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/)를 사용하면 자동화됩니다. 
 
-여기에서는 [IoT Hub에서 수동으로 디바이스를 만드는](./tutorial-x509-scripts.md) 방법을 알아봅니다.
+여기에서는 [IoT Hub에서 수동으로 디바이스를 만드는](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) 방법을 알아봅니다.
 
 IoT Hub용 X.509 디바이스 만들기
 
@@ -84,7 +84,7 @@ X.509 CA 인증서가 등록되고 신뢰할 수 있는 인증서 체인에 디�
 
 IoT Hub에 디바이스가 성공적으로 연결되면 인증 프로세스가 완료되며, 제대로 설정된 것입니다.
 
-여기에서는 [이 디바이스 연결 단계를 완료](./tutorial-x509-scripts.md)하는 방법을 알아봅니다.
+여기에서는 [이 디바이스 연결 단계를 완료](iot-hub-security-x509-get-started.md#authenticate-your-x509-device-with-the-x509-certificates)하는 방법을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
