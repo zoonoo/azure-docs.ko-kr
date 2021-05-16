@@ -3,20 +3,20 @@ title: 템플릿이 있는 Key Vault 비밀
 description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 변수로 전달하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 04/23/2021
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 584d48fb91173adb4c1c08665c6a05e373fc79d0
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: f91c45792843ab62361bf47628a45529758b4029
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316428"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109754194"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
 템플릿 또는 매개 변수 파일에 암호 등의 보안 값을 넣는 대신에 배포 중에 [Azure Key Vault](../../key-vault/general/overview.md)에서 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. Key Vault는 배포하는 리소스 그룹과는 다른 구독에 있을 수 있습니다.
 
 이 문서에서는 중요한 값을 템플릿 매개 변수로 전달하는 방법을 중점적으로 알아봅니다. 가상 머신 속성을 키 자격 증명 모음의 인증서 URL로 설정하는 방법은 이 문서에서 다루지 않습니다.
-해당 시나리오의 빠른 시작 템플릿은 [가상 컴퓨터에 Azure Key Vault에서 인증서 설치](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-winrm-keyvault-windows)를 참조하세요.
+해당 시나리오의 빠른 시작 템플릿은 [가상 컴퓨터에 Azure Key Vault에서 인증서 설치](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/vm-winrm-keyvault-windows)를 참조하세요.
 
 ## <a name="deploy-key-vaults-and-secrets"></a>키 자격 증명 모음 및 비밀 배포
 

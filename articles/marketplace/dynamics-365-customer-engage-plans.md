@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 04/30/2021
-ms.openlocfilehash: 6c6863c8f044d1354fa1ed6ebea8b679994fc6d2
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 460a2c071fa07e5f7374409f965f0074182c1722
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322311"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751142"
 ---
 # <a name="create-dynamics-365-for-customer-engagement--power-apps-plans"></a>Dynamics 365 for Customer Engagement & Power Apps 플랜 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "108322311"
 
 **플랜 목록** 탭에서 상업용 Marketplace에 표시할 플랜 이름과 설명을 정의할 수 있습니다. 이 정보는 Microsoft AppSource 목록 페이지에 표시됩니다.
 
-1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 이는 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
+1. **플랜 이름** 상자에는 이 플랜에 대해 이전에 제공한 이름이 표시됩니다. 언제든지 변경할 수 있습니다. 이 이름은 상업용 Marketplace에서 제품 소프트웨어 플랜의 제목으로 표시됩니다.
 1. **플랜 설명** 상자에 이 소프트웨어 플랜의 고유한 특징과 제품 내 다른 소프트웨어 플랜과의 차이점을 설명합니다. 이 설명에는 최대 500자까지 포함할 수 있습니다.
 1. **초안 저장** 을 선택한 다음, 왼쪽 상단에서 **플랜 개요** 를 선택합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "108322311"
 
 ## <a name="add-service-ids-to-your-solution-package"></a>솔루션 패키지에 서비스 ID 추가
 
-1. 이전 단계에서 복사한 서비스 ID를 솔루션 패키지에 추가합니다. 방법을 알아보려면 [솔루션에 라이선스 메타데이터 추가](https://go.microsoft.com/fwlink/?linkid=2162161&clcid=0x409) 및 [앱의 AppSource 패키지 만들기](/powerapps/developer/data-platform/create-package-app-appsource)를 참조하세요.
+1. 이전 단계에서 복사한 서비스 ID를 솔루션 패키지에 추가합니다. 방법을 알아보려면 [솔루션에 라이선스 메타데이터 추가](/powerapps/developer/data-platform/appendix-add-license-information-to-your-solution) 및 [앱의 AppSource 패키지 만들기](/powerapps/developer/data-platform/create-package-app-appsource)를 참조하세요.
 1. CRM 패키지 .zip 파일을 만든 후 Azure Blob Storage에 업로드합니다. 업로드된 CRM 패키지 .zip 파일을 포함하는 Azure Blob Storage 계정의 SAS URL을 제공해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
