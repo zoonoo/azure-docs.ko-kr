@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 06/02/2020
+ms.date: 04/01/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4b6835b22e5cfa4ca703b95d70e20112b8723def
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f897df5be819838d824da1170d92c18ff42a354
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93339175"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161144"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTAINS(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,23 +62,7 @@ SELECT CONTAINS("abc", "ab", false) AS c1, CONTAINS("abc", "A", false) AS c2, CO
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
-
-시스템 함수 내 속성의 카디널리티가 증가함에 따라 Contains의 RU 소비량이 증가합니다. 즉, 속성 값에 특정 문자열이 포함되어 있는지 여부를 확인하는 경우 쿼리 RU 요금은 해당 속성에 사용할 수 있는 값의 수에 따라 달라집니다.
-
-예를 들어, 도시와 국가라는 두 가지 속성을 고려합니다. 도시의 카디널리티는 5,000이고 국가의 카디널리티는 200입니다. 다음은 두 가지 예제 쿼리입니다.
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.town, "Red", false)
-```
-
-```sql
-    SELECT * FROM c WHERE CONTAINS(c.country, "States", false)
-```
-
-도시의 카디널리티가 국가보다 높기 때문에 첫 번째 쿼리가 두 번째 쿼리보다 더 많은 RU를 사용할 것입니다.
-
-Contains의 속성 크기가 일부 문서에 대해 1KB보다 큰 경우 쿼리 엔진은 해당 문서를 로드해야 합니다. 이 경우 쿼리 엔진은 인덱스로 Contains를 완전히 평가할 수 없습니다. Contains에 대한 RU 요금은 속성 크기가 1KB를 초과하는 문서가 많은 경우 높습니다.
+이 [문자열 시스템 함수에서 인덱스를 사용하는 방법](sql-query-string-functions.md)을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

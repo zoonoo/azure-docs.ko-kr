@@ -1,16 +1,16 @@
 ---
-title: Azure에 함수 앱 리소스 배포 자동화
+title: Azure에 대한 함수 앱 리소스 배포 자동화
 description: 함수 앱을 배포하는 Azure Resource Manager 템플릿을 빌드하는 방법을 알아봅니다.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 9df4c62a65fd133c6ea8dc84e33d7c7b02d94cbf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: fasttrack-edit, devx-track-azurepowershell
+ms.openlocfilehash: e5de54384d59423ac5e4b8ab851faf98070d027d
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99494042"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278851"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -24,19 +24,19 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 
 ## <a name="required-resources"></a>필요한 리소스
 
-Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
+Azure Functions 배포는 일반적으로 다음 리소스로 구성됩니다.
 
 | 리소스                                                                           | 요구 사항 | 구문 및 속성 참조                                                         |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|
 | 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |
 | [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |
 | [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |
 
-<sup>1</sup> 호스팅 계획은 [프리미엄 계획이](./functions-premium-plan.md) 나 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행 하도록 선택 하는 경우에만 필요 합니다.
+<sup>1</sup>호스팅 계획은 [프리미엄 계획](./functions-premium-plan.md) 또는 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행하도록 선택하는 경우에만 필요합니다.
 
 > [!TIP]
-> 필수는 아니지만 앱에 대 한 Application Insights를 구성 하는 것이 좋습니다.
+> 필수는 아니지만 앱에 대한 Application Insights를 구성하는 것이 좋습니다.
 
 <a name="storage"></a>
 ### <a name="storage-account"></a>스토리지 계정
@@ -77,7 +77,7 @@ Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights 함수 앱 모니터링에 권장 됩니다. Application Insights 리소스 **는 다음과 같은** 형식으로 지정 됩니다 **.**
+Application Insights는 함수 앱 모니터링에 권장됩니다. Application Insights 리소스는 **Microsoft.Insights/components** 유형과 **web** 종류를 사용하여 정의됩니다.
 
 ```json
         {
@@ -96,7 +96,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
         },
 ```
 
-또한 응용 프로그램 설정을 사용 하 여 함수 앱에 계측 키를 제공 해야 합니다 `APPINSIGHTS_INSTRUMENTATIONKEY` . 이 속성은 `appSettings` 개체의 컬렉션에서 지정 됩니다 `siteConfig` .
+또한 `APPINSIGHTS_INSTRUMENTATIONKEY` 애플리케이션 설정을 사용하여 함수 앱에 계측 키를 제공해야 합니다. 이러한 속성은 `siteConfig` 개체의 `appSettings` 컬렉션에 지정됩니다.
 
 ```json
 "appSettings": [
@@ -109,14 +109,14 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ### <a name="hosting-plan"></a>호스팅 계획
 
-호스팅 계획의 정의는 다양 하며 다음 중 하나일 수 있습니다.
-* [소비 계획](#consumption) (기본값)
+호스팅 계획의 정의는 다양하며 다음 중 하나일 수 있습니다.
+* [소비 계획](#consumption)(기본값)
 * [프리미엄 계획](#premium)
 * [App Service 계획](#app-service-plan)
 
 ### <a name="function-app"></a>함수 앱
 
-함수 앱 리소스 **는 다음과 같은** 형식의 리소스를 사용 하 여 정의 됩니다 **.**
+함수 앱 리소스는 다음과 같이 **Microsoft.Web/sites** 유형과 **functionapp** 종류의 리소스를 사용하여 정의됩니다.
 
 ```json
 {
@@ -133,18 +133,18 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 ```
 
 > [!IMPORTANT]
-> 호스팅 계획을 명시적으로 정의 하는 경우 dependsOn 배열에 추가 항목이 필요 합니다. `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> 호스팅 계획을 명시적으로 정의하는 경우 dependsOn 배열 `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`에 추가 항목이 필요합니다.
 
-함수 앱에는 다음과 같은 응용 프로그램 설정이 포함 되어야 합니다.
+함수 앱에는 다음과 같은 애플리케이션 설정이 포함되어야 합니다.
 
 | 설정 이름                 | 설명                                                                               | 예제 값                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | 함수 런타임에서 내부 큐에 사용 하는 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
-| FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전입니다.                                                | `~3`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | 이 앱의 함수에 사용할 언어 스택입니다.                                   | `dotnet`, `node`, `java`, `python` 또는 `powershell` |
-| WEBSITE_NODE_DEFAULT_VERSION | 언어 스택을 사용 하는 경우에만 `node` 사용할 버전을 지정 합니다.              | `10.14.1`                             |
+| AzureWebJobsStorage          | Functions 런타임에서 내부 큐에 사용하는 스토리지 계정에 대한 연결 문자열 | [스토리지 계정](#storage) 참조       |
+| FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전                                                | `~3`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | 이 앱에서 함수에 사용할 언어 스택                                   | `dotnet`, `node`, `java`, `python` 또는 `powershell` |
+| WEBSITE_NODE_DEFAULT_VERSION | `node` 언어 스택을 사용하는 경우에만 필요하며 사용할 버전을 지정              | `10.14.1`                             |
 
-이러한 속성은 `appSettings` 속성의 컬렉션에서 지정 됩니다 `siteConfig` .
+이러한 속성은 `siteConfig` 속성의 `appSettings` 컬렉션에 지정됩니다.
 
 ```json
 "properties": {
@@ -175,15 +175,15 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 ## <a name="deploy-on-consumption-plan"></a>소비 계획에 배포
 
-소비 계획은 코드가 실행 중일 때 계산 능력을 자동으로 할당 하 고, 로드를 처리 하는 데 필요한 만큼 확장 한 다음 코드가 실행 되지 않을 때 확장 됩니다. 유휴 Vm에 대 한 비용을 지불할 필요가 없으며, 용량을 미리 예약할 필요가 없습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](consumption-plan.md)을 참조하세요.
+소비 계획은 코드가 실행 중일 때 컴퓨팅 용량을 자동으로 할당하고, 로드를 처리하는 데 필요한 만큼 확장한 다음, 코드가 실행되지 않을 때 축소합니다. 유휴 VM에 대한 요금을 지불하고 용량을 미리 예약할 필요가 없습니다. 자세한 내용은 [Azure Functions 크기 조정 및 호스팅](consumption-plan.md)을 참조하세요.
 
 샘플 Azure Resource Manager 템플릿은 [소비 계획의 함수 앱]을 참조하세요.
 
 ### <a name="create-a-consumption-plan"></a>소비 계획 만들기
 
-소비 계획을 정의할 필요가 없습니다. 함수 앱 리소스 자체를 만들 때 지역 별로 자동으로 만들어지거나 선택 됩니다.
+소비 계획은 정의할 필요가 없습니다. 함수 앱 리소스 자체를 만들 때 지역별로 자동으로 생성되거나 선택됩니다.
 
-소비 계획은 특수 한 유형의 "서버 팜" 리소스입니다. Windows의 경우 `Dynamic` 및 속성에 대 한 값을 사용 하 여 지정할 수 있습니다 `computeMode` `sku` .
+소비 계획은 특수한 유형의 "서버 팜" 리소스입니다. Windows의 경우 `computeMode` 및 `sku` 속성에 `Dynamic` 값을 사용하여 지정할 수 있습니다.
 
 ```json
 {  
@@ -206,17 +206,17 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 ```
 
 > [!NOTE]
-> Linux에 대해 소비 계획을 명시적으로 정의할 수 없습니다. 자동으로 생성 됩니다.
+> Linux의 경우 소비 계획을 명시적으로 정의할 수 없습니다. 자동으로 생성됩니다.
 
-소비 계획을 명시적으로 정의 하는 경우 `serverFarmId` 계획의 리소스 ID를 가리키도록 앱에 대 한 속성을 설정 해야 합니다. 함수 앱에 `dependsOn` 계획에 대 한 설정도 있는지 확인 해야 합니다.
+소비 계획을 명시적으로 정의하는 경우 앱이 계획의 리소스 ID를 가리키도록 앱에 `serverFarmId` 속성을 설정해야 합니다. 함수 앱에 계획에 대한 `dependsOn` 설정이 있는지도 확인해야 합니다.
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-소비 계획에서 실행 되는 함수 앱에 필요한 설정은 Windows와 Linux 사이에서 지연 됩니다. 
+소비 계획에서 실행되는 함수 앱에 필요한 설정은 Windows와 Linux 간에 다릅니다. 
 
 #### <a name="windows"></a>Windows
 
-Windows에서 소비 계획의 경우 사이트 구성에 추가 설정이 필요 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) 합니다. 이 속성은 함수 앱 코드와 구성이 저장 되는 저장소 계정을 구성 합니다.
+Windows에서 소비 계획을 사용하려면 사이트 구성에 추가 설정 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)이 필요합니다. 이 속성은 함수 앱 코드 및 구성이 저장되는 스토리지 계정을 구성합니다.
 
 ```json
 {
@@ -258,11 +258,11 @@ Windows에서 소비 계획의 경우 사이트 구성에 추가 설정이 필�
 ```
 
 > [!IMPORTANT]
-> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)사이트를 처음 만들 때 생성 되는 설정으로 설정 하지 마세요.  
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 사이트를 처음 만들 때 자동으로 생성되므로 지정하지 마세요.  
 
 #### <a name="linux"></a>Linux
 
-Linux에서 함수 앱은를 `kind` 로 설정 하 `functionapp,linux` 고 `reserved` 속성을로 설정 해야 합니다 `true` . 
+Linux에서 함수 앱의 `kind`는 `functionapp,linux`로 설정되어 있어야 하며 `reserved` 속성은 `true`로 설정되어 있어야 합니다. 
 
 ```json
 {
@@ -300,16 +300,16 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 `functionapp,linux` 고 `rese
 }
 ```
 
-[`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)및 [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 Linux에서 지원 되지 않습니다.
+[`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) 및 [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 Linux에서 지원되지 않습니다.
 
 <a name="premium"></a>
 ## <a name="deploy-on-premium-plan"></a>프리미엄 계획에 배포
 
-프리미엄 요금제는 소비 계획과 동일한 크기 조정을 제공 하지만 전용 리소스 및 추가 기능을 포함 합니다. 자세한 내용은 [Azure Functions Premium 요금제](./functions-premium-plan.md)를 참조 하세요.
+프리미엄 계획은 소비 계획과 동일한 크기 조정을 제공하지만 전용 리소스 및 추가 기능을 포함합니다. 자세한 정보는 [Azure Functions 프리미엄 계획](./functions-premium-plan.md)을 참조하세요.
 
 ### <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
-프리미엄 요금제는 특수 한 유형의 "서버 팜" 리소스입니다. `EP1` `EP2` `EP3` `Name` `sku` [설명 개체](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)의 속성 값에, 또는 중 하나를 사용 하 여 지정할 수 있습니다.
+프리미엄 계획은 특수한 유형의 "서버 팜" 리소스입니다. `sku` [설명 개체](/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)의 `Name` 속성 값에 `EP1`, `EP2` 또는 `EP3`을 사용하여 지정할 수 있습니다.
 
 ```json
 {
@@ -334,7 +334,7 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 `functionapp,linux` 고 `rese
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-프리미엄 계획의 함수 앱은 속성을 앞에서 `serverFarmId` 만든 계획의 리소스 ID로 설정 해야 합니다. 또한 프리미엄 계획의 경우 사이트 구성에 추가 설정이 필요 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring) 합니다. 이 속성은 함수 앱 코드와 구성이 저장 되는 저장소 계정을 구성 합니다.
+프리미엄 계획의 함수 앱에는 `serverFarmId` 속성이 이전에 만든 계획의 리소스 ID로 설정되어 있어야 합니다. 또한 프리미엄 계획을 사용하려면 사이트 구성에 추가 설정 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)이 필요합니다. 이 속성은 함수 앱 코드 및 구성이 저장되는 스토리지 계정을 구성합니다.
 
 ```json
 {
@@ -377,7 +377,7 @@ Linux에서 함수 앱은를 `kind` 로 설정 하 `functionapp,linux` 고 `rese
 }
 ```
 > [!IMPORTANT]
-> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare)사이트를 처음 만들 때 생성 되는 설정으로 설정 하지 마세요.  
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 사이트를 처음 만들 때 자동으로 생성되므로 지정하지 마세요.  
 
 <a name="app-service-plan"></a>
 
@@ -389,7 +389,7 @@ App Service 계획에서 함수 앱은 웹앱과 유사하게 기본, 표준, �
 
 ### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
-App Service 계획은 "서버 팜" 리소스에 의해 정의 됩니다.
+App Service 계획은 "서버 팜" 리소스로 정의됩니다.
 
 ```json
 {
@@ -407,7 +407,7 @@ App Service 계획은 "서버 팜" 리소스에 의해 정의 됩니다.
 }
 ```
 
-Linux에서 앱을 실행 하려면도로 설정 해야 합니다 `kind` `Linux` .
+Linux에서 앱을 실행하려면 `kind`도 `Linux`로 설정해야 합니다.
 
 ```json
 {
@@ -428,7 +428,7 @@ Linux에서 앱을 실행 하려면도로 설정 해야 합니다 `kind` `Linux`
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의 리소스 ID로 설정 된 속성이 있어야 합니다.
+App Service 계획의 함수 앱에는 `serverFarmId` 속성이 이전에 만든 계획의 리소스 ID로 설정되어 있어야 합니다.
 
 ```json
 {
@@ -467,7 +467,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 }
 ```
 
-또한 Linux 앱에는에 속성이 포함 되어야 합니다 `linuxFxVersion` `siteConfig` . 코드를 배포 하는 경우이 값은 다음과 같은 형식으로 원하는 런타임 스택에 의해 결정 됩니다 ```runtime|runtimeVersion``` .
+또한 Linux 앱은 `siteConfig` 아래에 `linuxFxVersion` 속성도 포함되어야 합니다. 코드를 배포하기만 하는 경우 이 값은 원하는 런타임 스택에 따라 ```runtime|runtimeVersion``` 형식으로 결정됩니다.
 
 | 스택            | 예제 값                                         |
 |------------------|-------------------------------------------------------|
@@ -513,7 +513,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 }
 ```
 
-[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우에는를 사용 하 여 지정 해야 `linuxFxVersion` 하며, [Web App for Containers](../app-service/index.yml)처럼 이미지를 끌어올 수 있도록 하는 구성을 포함 해야 합니다. 또한 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` `false` 앱 콘텐츠는 컨테이너 자체에 제공 되므로를로 설정 합니다.
+[사용자 지정 컨테이너 이미지를 배포](./functions-create-function-linux-custom-image.md)하는 경우, `linuxFxVersion`을 사용하여 지정하고 [Web App for Containers](../app-service/index.yml) 같이 이미지를 끌어올 수 있는 구성을 포함해야 합니다. 또한 앱 콘텐츠가 컨테이너 자체에 제공되므로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE`를 `false`로 설정합니다.
 
 ```json
 {
@@ -571,10 +571,10 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 
 ## <a name="customizing-a-deployment"></a>배포 사용자 지정
 
-함수 앱에는 앱 설정 및 소스 제어 옵션을 포함하여 배포에 사용할 수 있는 자식 리소스가 많이 있습니다. **Sourcecontrols** 자식 리소스를 제거 하 고 대신 다른 [배포 옵션](functions-continuous-deployment.md) 을 사용 하도록 선택할 수도 있습니다.
+함수 앱에는 앱 설정 및 소스 제어 옵션을 포함하여 배포에 사용할 수 있는 자식 리소스가 많이 있습니다. 또한 **sourcecontrols** 자식 리소스를 제거하고 대신에 다른 [배포 옵션](functions-continuous-deployment.md)을 사용하도록 선택할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Resource Manager를 사용하여 애플리케이션을 성공적으로 배포하려면 Azure에서 리소스가 배포되는 방식을 이해하는 것이 중요합니다. 다음 예제에서는 **siteConfig** 를 사용하여 최상위 수준 구성을 적용합니다. Functions 런타임 및 배포 엔진에 정보를 전달하기 때문에 최상위 수준에서 이러한 구성을 설정하는 것이 중요합니다. **sourcecontrols/web** 자식 리소스를 적용하기 전에 최상위 수준 정보가 필요합니다. 자식 수준 **구성/appsettings** 리소스에서 이러한 설정을 구성할 수 있지만, 경우에 따라 **config/appsettings** 를 적용 *하기 전에* 함수 앱을 배포 해야 합니다. 예를 들어 [Logic Apps](../logic-apps/index.yml)에서 함수를 사용하는 경우 함수는 다른 리소스의 종속성입니다.
+> Azure Resource Manager를 사용하여 애플리케이션을 성공적으로 배포하려면 Azure에서 리소스가 배포되는 방식을 이해하는 것이 중요합니다. 다음 예제에서는 **siteConfig** 를 사용하여 최상위 수준 구성을 적용합니다. Functions 런타임 및 배포 엔진에 정보를 전달하기 때문에 최상위 수준에서 이러한 구성을 설정하는 것이 중요합니다. **sourcecontrols/web** 자식 리소스를 적용하기 전에 최상위 수준 정보가 필요합니다. 자식 수준 **config/appSettings** 리소스에 이러한 설정을 구성할 수 있지만 **config/appSettings** 가 적용되기 *전에* 함수 앱이 배포되어야 하는 경우도 있습니다. 예를 들어 [Logic Apps](../logic-apps/index.yml)에서 함수를 사용하는 경우 함수는 다른 리소스의 종속성입니다.
 
 ```json
 {
@@ -638,7 +638,7 @@ App Service 계획의 함수 앱에는 `serverFarmId` 앞에서 만든 계획의
 }
 ```
 > [!TIP]
-> 이 템플릿에서는 [프로젝트](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) 앱 설정 값을 사용 하며,이 값은 Kudu (함수 배포 엔진)에서 배포 가능한 코드를 검색 하는 기본 디렉터리를 설정 합니다. 리포지토리에서 함수는 **src** 폴더의 하위 폴더에 있습니다. 따라서 앞의 예제에서 앱 설정 값은 `src`로 설정합니다. 함수가 리포지토리의 루트에 있거나 소스 제어에서 배포하지 않는 경우 이 앱 설정 값을 제거할 수 있습니다.
+> 이 템플릿은 Functions 배포 엔진(Kudu)에서 배치할 수 있는 코드를 검색할 기본 디렉터리를 설정하는 [프로젝트](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) 앱 설정 값을 사용합니다. 리포지토리에서 함수는 **src** 폴더의 하위 폴더에 있습니다. 따라서 앞의 예제에서 앱 설정 값은 `src`로 설정합니다. 함수가 리포지토리의 루트에 있거나 소스 제어에서 배포하지 않는 경우 이 앱 설정 값을 제거할 수 있습니다.
 
 ## <a name="deploy-your-template"></a>템플릿 배포
 
@@ -667,7 +667,7 @@ HTML을 사용하는 예는 다음과 같습니다.
 
 ### <a name="deploy-using-powershell"></a>PowerShell을 사용하여 배포
 
-다음 PowerShell 명령은 리소스 그룹을 만들고 필요한 리소스를 사용 하 여 함수 앱을 만드는 템플릿을 배포 합니다. 로컬로 실행 하려면 [Azure PowerShell](/powershell/azure/install-az-ps) 설치 되어 있어야 합니다. [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount)을 실행 하 여 로그인 합니다.
+다음 PowerShell 명령은 리소스 그룹을 만들고 필요한 리소스를 사용하여 함수 앱을 만드는 템플릿을 배포합니다. 로컬에서 실행하려면 [Azure PowerShell](/powershell/azure/install-az-ps)이 설치되어 있어야 합니다. 로그인하려면 [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount)를 실행합니다.
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -684,17 +684,17 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-이 배포를 테스트 하려면 소비 계획의 Windows에서 함수 앱을 만드는 것 [과 같은 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) 사용할 수 있습니다. `<function-app-name>`함수 앱에 대 한 고유한 이름으로 대체 합니다.
+이 배포를 테스트하려면 Windows에서 소비 계획에 함수 앱을 만드는 [이와 같은 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json)을 사용하면 됩니다. `<function-app-name>`을 함수 앱의 고유한 이름으로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Functions를 개발하고 구성하는 방법에 대해 자세히 알아봅니다.
 
 * [Azure Functions 개발자 참조](functions-reference.md)
-* [Azure 함수 앱 설정을 구성 하는 방법](functions-how-to-use-azure-function-app-settings.md)
+* [Azure 함수 앱 설정을 구성하는 방법](functions-how-to-use-azure-function-app-settings.md)
 * [첫 번째 Azure Function 만들기](./functions-get-started.md)
 
 <!-- LINKS -->
 
-[소비 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[소비 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
 [Azure App Service 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

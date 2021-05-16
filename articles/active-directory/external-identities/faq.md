@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3308c2263f80a0772a389900e08c81cfe8da32a2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0cb886209230b0791da05632c950e58bbbf18b80
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104952629"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315654"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
 Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질문과 대답(FAQ)은 새 항목을 포함하도록 정기적으로 업데이트됩니다.
 
 > [!IMPORTANT]
-> - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+> - **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
 > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>B2B 협업 게스트 사용자에게 더 직관적인 환경이 되도록 로그인 페이지를 사용자 지정할 수 있나요?

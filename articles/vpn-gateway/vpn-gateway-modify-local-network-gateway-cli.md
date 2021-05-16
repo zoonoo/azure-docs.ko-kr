@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway: 게이트웨이 IP 주소 설정 수정: Azure CLI'
-description: 이 문서에서는 Azure CLI를 사용하여 로컬 네트워크 게이트웨이에 대한 IP 주소 접두사를 변경하는 방법을 안내합니다.
+title: '게이트웨이 IP 주소 설정 수정: Azure CLI'
+titleSuffix: Azure VPN Gateway
+description: Azure CLI를 사용하여 로컬 네트워크 게이트웨이의 IP 주소 접두사를 변경하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: aadb2107cd009ac58cf8edb12853b10a5a0e3677
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 5e03da37a727c87995496878b191cbf48cfe0347
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94660001"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229615"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-cli"></a>Azure CLI를 사용하여 로컬 네트워크 게이트웨이 설정 수정
 
