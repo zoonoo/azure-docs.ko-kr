@@ -1,27 +1,27 @@
 ---
 title: 크기 자동 조정을 사용하여 이메일 및 웹후크 경고 알림 보내기
-description: 자동 크기 조정 작업을 사용 하 여 웹 Url을 호출 하거나 Azure Monitor에서 전자 메일 알림을 보내는 방법에 대해 알아봅니다.
+description: Azure Monitor에서 크기 자동 조정 작업을 사용하여 웹 URL을 호출하거나 이메일을 보내는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 3b1f13fd1ce8bedcbe58385d4cee321f1d1405df
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100617559"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>크기 자동 조정 작업을 사용하여 Azure Monitor에서 전자 메일 및 webhook 경고 알림 보내기
 이 문서에서는 Azure에서 크기 자동 조정 작업을 기준으로 특정 웹 URL을 호출하거나 전자 메일을 보낼 수 있도록 트리거를 설정하는 방법을 설명합니다.  
 
 ## <a name="webhooks"></a>Webhook
-Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. 예를 들어, 들어오는 웹 Request to Send SMS를 처리 하 고, 버그를 기록 하거나, 채팅 또는 메시징 서비스를 사용 하 여 팀에 알릴 수 있는 서비스로 경고를 라우팅합니다. Webhook URI는 올바른 HTTP 또는 HTTPS 끝점 이어야 합니다.
+Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. 예를 들어 수신 웹 요청을 처리할 수 있는 서비스로 경고를 라우팅하여 SMS를 보내거나 버그를 기록하거나 채팅 또는 메시징 서비스를 사용해 팀에게 알리는 등의 작업을 수행할 수 있습니다. 웹후크 URI는 유효한 HTTP 또는 HTTPS 엔드포인트여야 합니다.
 
-## <a name="email"></a>메일
+## <a name="email"></a>Email
 모든 유효한 전자 메일 주소로 전자 메일을 보낼 수 있습니다. 규칙이 실행되고 있는 구독의 관리자와 공동 관리자도 알림을 받습니다.
 
 ## <a name="cloud-services-and-app-services"></a>Cloud Services 및 App Services
-Cloud Services 및 서버 팜을 위한 Azure Portal (App Services)를 옵트인 (opt in) 할 수 있습니다.
+Azure Portal에서 Cloud Services 및 서버 팜(App Services)에 옵트인할 수 있습니다.
 
 * **배율 기준** 메트릭을 선택합니다.
 
@@ -29,7 +29,7 @@ Cloud Services 및 서버 팜을 위한 Azure Portal (App Services)를 옵트인
 
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine 확장 집합
 Resource Manager(Virtual Machine 확장 집합)로 만든 새 Virtual Machines의 경우 REST API, Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 구성할 수 있습니다. 포털 인터페이스는 아직 제공되지 않습니다.
-REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵션을 사용 하 여 [autoscalesettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) 에 notification 요소를 포함 합니다.
+REST API 또는 Resource Manager 템플릿을 사용하는 경우 다음 옵션으로 [autoscalingsettings](/azure/templates/microsoft.insights/2015-04-01/autoscalesettings)에 알림 요소를 포함합니다.
 
 ```
 "notifications": [
@@ -67,7 +67,7 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 | properties |예 |값은 비어 있는 {}이거나 키-값 쌍을 포함할 수 있습니다. |
 
 ## <a name="authentication-in-webhooks"></a>Webhook의 인증
-웹후크는 토큰 ID를 쿼리 매개 변수로 사용해서 웹후크 URI를 저장하는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 예: https: \/ /mysamplealert/webcallback? tokenid = sometokenid&someparameter = somevalue
+웹후크는 토큰 ID를 쿼리 매개 변수로 사용해서 웹후크 URI를 저장하는 토큰 기반 인증을 사용하여 인증할 수 있습니다. 예를 들어 https:\//mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue입니다.
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>크기 자동 조정 알림 Webhook 페이로드 스키마
 크기 자동 조정 알림이 생성될 때는 다음 메타데이터가 Webhook 페이로드에 포함됩니다.
@@ -116,4 +116,4 @@ REST API 또는 리소스 관리자 템플릿을 사용 하는 경우 다음 옵
 | portalLink |예 |대상 리소스의 요약 페이지에 대한 Azure 포털 링크입니다. |
 | oldCapacity |예 |크기 자동 조정에서 크기 조정 작업을 수행한 현재(이전) 인스턴스 수입니다. |
 | newCapacity |예 |크기 자동 조정에서 리소스 크기를 조정한 새 인스턴스 수입니다. |
-| properties |아니요 |선택 사항입니다. <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다. |
+| properties |예 |선택 사항입니다. <키, 값> 쌍 집합(예: Dictionary <문자열, 문자열>). 속성 필드는 선택 사항입니다. 사용자 지정 사용자 인터페이스 또는 논리 앱 기반 워크플로에서는 페이로드를 사용하여 전달할 수 있는 키와 값을 입력할 수 있습니다. Webhook URI 자체를 쿼리 매개 변수로 사용하여 발신 Webhook 호출로 사용자 지정 속성을 다시 전달할 수도 있습니다. |

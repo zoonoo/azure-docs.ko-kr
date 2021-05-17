@@ -1,6 +1,6 @@
 ---
 title: 데이터 전송을 위한 Azure 솔루션 선택 | Microsoft Docs
-description: 사용자 환경에서 데이터 크기 및 사용 가능한 네트워크 대역폭을 기반으로 데이터를 전송 하기 위한 Azure 솔루션을 선택 하는 방법에 대해 알아봅니다.
+description: 사용자 환경에서 사용 가능한 네트워크 대역폭 및 데이터 크기에 따라 데이터 전송을 위한 Azure 솔루션을 선택하는 방법을 알아봅니다.
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92784051"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>데이터 전송을 위한 Azure 솔루션 선택
@@ -35,7 +35,7 @@ ms.locfileid: "92784051"
 
     - **그래픽 인터페이스** - 때때로 몇 개의 파일만 전송하며 데이터 전송을 자동화하지 않아도 되는 경우 Azure Portal에서 Azure Storage Explorer, 웹 기반 탐색 도구 등의 그래픽 인터페이스 도구를 선택할 수 있습니다.
     - **스크립팅 또는 프로그래밍 방식 전송** - Microsoft에서 제공하는 최적화된 소프트웨어 도구를 사용하거나 REST API/SDK를 직접 호출할 수 있습니다. 사용 가능한 스크립팅 가능 도구는 AzCopy, Azure PowerShell 및 Azure CLI입니다. 프로그래밍 인터페이스의 경우 .NET, Java, Python, Node/JS, C++, Go, PHP 또는 Ruby용 SDK 중 하나를 사용합니다.
-    - **온-프레미스 디바이스** - 데이터 센터에 상주하며 네트워크를 통해 데이터 전송을 최적화하는 물리적 또는 가상 디바이스를 제공합니다. 이 디바이스는 자주 사용하는 파일의 로컬 캐시도 제공합니다. 물리적 장치는 Azure Stack Edge이 고 가상 장치는 Data Box Gateway입니다. 둘 다 온-프레미스에서 영구적으로 실행되며, 네트워크를 통해 Azure에 연결됩니다.
+    - **온-프레미스 디바이스** - 데이터 센터에 상주하며 네트워크를 통해 데이터 전송을 최적화하는 물리적 또는 가상 디바이스를 제공합니다. 이 디바이스는 자주 사용하는 파일의 로컬 캐시도 제공합니다. 물리적 디바이스는 Azure Stack Edge이고, 가상 디바이스는 Data Box Gateway입니다. 둘 다 온-프레미스에서 영구적으로 실행되며, 네트워크를 통해 Azure에 연결됩니다.
     - **관리되는 데이터 파이프라인** - 여러 Azure 서비스, 온-프레미스 또는 둘 다의 조합 간에 정기적으로 파일을 전송하려면 클라우드 파이프라인을 설정할 수 있습니다. Azure Data Factory를 사용하여 데이터 파이프라인을 설정 및 관리하고, 분석을 위해 데이터를 이동 및 변환합니다.
 
 다음 시각적 개체는 전송에 사용 가능한 네트워크 대역폭, 전송하려는 데이터 크기 및 전송 빈도에 따라 다양한 Azure 데이터 전송 도구를 선택하는 지침을 보여 줍니다.
@@ -50,23 +50,23 @@ ms.locfileid: "92784051"
 
 - 사용 가능한 네트워크 대역폭이 제한적이거나 없으며 대용량 데이터 세트를 전송하려고 하나요?
   
-    그렇다면 [시나리오 1: 네트워크 대역폭이 없거나 낮은 네트워크 대역폭을 사용 하 여 대량 데이터 집합 전송](storage-solution-large-dataset-low-network.md)을 참조 하세요.
+    그렇다면 [시나리오 1: 네트워크 대역폭이 없거나 제한적인 경우 대용량 데이터 세트 전송](storage-solution-large-dataset-low-network.md)을 참조하세요.
 - 보통-높은 네트워크 대역폭이 있으며 네트워크를 통해 대용량 데이터 세트를 전송하려고 하나요?
 
-    그렇다면 [시나리오 2: 중간 규모에서 높은 네트워크 대역폭으로 큰 데이터 집합 전송](storage-solution-large-dataset-moderate-high-network.md)을 참조 하세요.
+    그렇다면 [시나리오 2: 보통-높은 네트워크 대역폭에서 대용량 데이터 세트 전송](storage-solution-large-dataset-moderate-high-network.md)을 참조하세요.
 - 네트워크를 통해 몇 개의 파일만 때때로 전송하려고 하나요?
 
-    그렇다면 [시나리오 3: 중간 네트워크 대역폭으로 제한 된 작은 데이터 집합 전송](storage-solution-small-dataset-low-moderate-network.md)을 참조 하세요.
+    그렇다면 [시나리오 3: 제한적-보통 네트워크 대역폭에서 작은 데이터 세트 전송](storage-solution-small-dataset-low-moderate-network.md)을 참조하세요.
 - 일정한 간격마다 수행되는 지정 시간 데이터 전송을 원하시나요?
 
-    그렇다면 [시나리오 4: 주기적인 데이터 전송](storage-solution-periodic-data-transfer.md)에 설명 된 스크립팅된/프로그래밍 방식의 옵션을 사용 합니다.
+    그렇다면 [시나리오 4: 정기적 데이터 전송](storage-solution-periodic-data-transfer.md)에 요약된 스크립팅/프로그래밍 방식 옵션을 사용하세요.
 - 지속적인 데이터 전송을 원하시나요?
 
-    그렇다면 [시나리오 4: 주기적인 데이터 전송](storage-solution-periodic-data-transfer.md)의 옵션을 사용 합니다.
+    그렇다면 [시나리오 4: 정기적 데이터 전송](storage-solution-periodic-data-transfer.md)의 옵션을 사용하세요.
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Azure Portal의 데이터 전송 기능
 
-Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송** 기능을 선택할 수도 있습니다. 환경에서 네트워크 대역폭, 전송할 데이터의 크기 및 데이터 전송 빈도를 제공 합니다. 제공 된 정보에 해당 하는 최적의 데이터 전송 솔루션이 표시 됩니다. 
+Azure Portal에서 Azure Storage 계정으로 이동하여 **데이터 전송** 기능을 선택할 수도 있습니다. 환경에서 네트워크 대역폭, 전송할 데이터의 크기, 데이터 전송 빈도를 제공합니다. 제공된 정보에 해당하는 최적의 데이터 전송 솔루션이 표시됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -77,7 +77,7 @@ Azure Portal에서 Azure Storage 계정으로 이동 하 여 **데이터 전송*
 - 자세한 정보:
 
     - [오프라인 전송을 위한 Azure Data Box, Azure Data Box Disk 및 Azure Data Box Heavy](../../databox/index.yml)
-    - [온라인 전송에 대해 Edge를 Azure Data Box Gateway 하 고 Azure Stack](../../databox-online/index.yml)합니다.
+    - [온라인 전송을 위한 Azure Data Box Gateway와 Azure Stack Edge](../../databox-online/index.yml)
 - [Azure Data Factory 알아보기](../../data-factory/copy-activity-overview.md).
 - REST API를 사용하여 데이터 전송
 

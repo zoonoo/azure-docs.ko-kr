@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46cc8ef1158c02190f905cbe8eb1d12ea7be50a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101644938"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>주 새로 고침 토큰이란?
 
-PRT (주 새로 고침 토큰)는 Windows 10, Windows Server 2016 이상 버전, iOS 및 Android 장치에서 Azure AD 인증의 핵심 아티팩트입니다. 이러한 디바이스에 사용되는 애플리케이션 전체에서 SSO(Single Sign-On)를 사용하도록 설정하기 위해 Microsoft의 자사 토큰 브로커에 특별히 발급된 JWT(JSON Web Token)입니다. 이 문서에서는 Windows 10 디바이스에서 PRT를 발급, 사용 및 보호하는 방법에 대한 세부 정보를 제공합니다.
+PRT(주 새로 고침 토큰)는 Windows 10, Windows Server 2016 이상 버전, iOS 및 Android 디바이스에서 Azure AD 인증의 핵심 아티팩트입니다. 이러한 디바이스에 사용되는 애플리케이션 전체에서 SSO(Single Sign-On)를 사용하도록 설정하기 위해 Microsoft의 자사 토큰 브로커에 특별히 발급된 JWT(JSON Web Token)입니다. 이 문서에서는 Windows 10 디바이스에서 PRT를 발급, 사용 및 보호하는 방법에 대한 세부 정보를 제공합니다.
 
 이 문서에서는 사용자가 Azure AD에서 사용할 수 있는 여러 디바이스 상태와 Windows 10에서 Single Sign-On의 작동 방식을 이미 잘 알고 있다고 가정합니다. Azure AD의 디바이스에 대한 자세한 내용은 [Azure Active Directory의 디바이스 관리란?](overview.md) 문서를 참조하세요.
 
@@ -65,7 +65,7 @@ PRT는 Windows 10 디바이스에서 사용자 인증을 수행하는 동안 다
 Azure AD 등록 디바이스 시나리오에서 Azure AD WAM 플러그 인은 이 Azure AD 계정으로 Windows 로그온이 발생하지 않기 때문에 PRT의 기본 인증 기관입니다.
 
 > [!NOTE]
-> 타사 ID 공급자는 Windows 10 디바이스에서 PRT 발급이 이루어지도록 WS-Trust 프로토콜을 지원해야 합니다. WS-TRUST를 사용 하지 않으면 하이브리드 Azure AD 조인 또는 Azure AD 조인 장치에서 사용자에 게 PRT를 발급할 수 없습니다. ADFS에서는 usernamemixed 끝점만 필요 합니다. Adfs/services/trust/2005/windowstransport 및 adfs/services/trust/13/windowstransport 모두 인트라넷 연결 끝점 으로만 사용 하도록 설정 해야 하며 웹 응용 프로그램 프록시를 통해 엑스트라넷 연결 끝점으로 **노출** 되어서는 안 됩니다.
+> 타사 ID 공급자는 Windows 10 디바이스에서 PRT 발급이 이루어지도록 WS-Trust 프로토콜을 지원해야 합니다. WS-Trust를 사용하지 않으면 하이브리드 Azure AD 조인 또는 Azure AD 조인 디바이스에서 사용자에게 PRT를 발급할 수 없습니다. ADFS에서는 usernamemixed 엔드포인트만 필요합니다. adfs/services/trust/2005/windowstransport 및 adfs/services/trust/13/windowstransport는 모두 인트라넷 연결 엔드포인트로만 사용하도록 설정해야 하며, 웹 애플리케이션 프록시를 통해 엑스트라넷 연결 엔드포인트로 **노출되어서는 안됩니다**.
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>PRT의 수명은 얼마나 되나요?
 
@@ -85,11 +85,11 @@ PRT는 다음 두 가지 방법으로 갱신됩니다.
 * **4시간마다 Azure AD CloudAP 플러그 인**: CloudAP 플러그 인은 Windows 로그인 동안 4시간마다 PRT를 갱신합니다. 사용자가 해당 시간 동안 인터넷에 연결되지 않은 경우 CloudAP 플러그 인은 디바이스가 인터넷에 연결된 후에 PRT를 갱신합니다.
 * **앱 토큰 요청 동안 Azure AD WAM 플러그 인**: WAM 플러그 인은 애플리케이션에 대한 자동 토큰 요청을 사용하도록 설정하여 Windows 10 디바이스에서 SSO를 사용하도록 설정합니다. WAM 플러그 인은 다음 두 가지 방법으로 이러한 토큰 요청 동안 PRT를 갱신할 수 있습니다.
    * 앱은 WAM에 자동으로 액세스 토큰을 요청하지만 해당 앱에 사용할 수 있는 새로 고침 토큰이 없습니다. 이 경우 WAM은 PRT를 사용하여 앱에 대한 토큰을 요청하고 응답에서 새 PRT를 다시 가져옵니다.
-   * 앱이 액세스 토큰에 대해 WAM를 요청 하지만 PRT가 잘못 되었거나 azure AD에 추가 권한 부여가 필요 합니다 (예: Azure AD Multi-Factor Authentication). 이 시나리오에서 WAM은 사용자에게 다시 인증하거나 추가 확인을 제공하도록 요구하는 대화형 로그온을 시작하고, 인증이 성공하면 새 PRT를 발급합니다.
+   * 앱은 WAM에 액세스 토큰을 요청하지만 PRT가 유효하지 않거나 Azure AD가 추가 인증을 요구합니다(예: Azure AD Multi-Factor Authentication). 이 시나리오에서 WAM은 사용자에게 다시 인증하거나 추가 확인을 제공하도록 요구하는 대화형 로그온을 시작하고, 인증이 성공하면 새 PRT를 발급합니다.
 
-ADFS 환경에서 도메인 컨트롤러에 대 한 직접적인 시야는 PRT를 갱신 하는 데 필요 하지 않습니다. PRT 갱신에는 WS-Trust 프로토콜을 사용 하 여 프록시에서 사용 하도록 설정 된/adfs/services/trust/2005/usernamemixed 및/adfs/services/trust/13/usernamemixed 끝점만 필요 합니다.
+ADFS 환경에서는 도메인 컨트롤러를 직접 보지 않고도 PRT를 갱신할 수 있습니다. PRT를 갱신하려면 WS-Trust를 사용하여 프록시에서 /adfs/services/trust/2005/usernamemixed 및 /adfs/services/trust/13/usernamemixed 엔드포인트만 사용하도록 설정하면 됩니다.
 
-Windows 전송 끝점은 암호를 변경 하는 경우에만 암호 인증을 위해 필요 하며, PRT 갱신에는 필요 하지 않습니다.
+Windows 전송 엔드포인트는 암호를 변경하는 경우에만 암호 인증을 위해 필요하며, PRT 갱신에는 필요하지 않습니다.
 
 ### <a name="key-considerations"></a>주요 고려 사항
 
@@ -103,7 +103,7 @@ PRT는 사용자가 로그인한 디바이스에 바인딩하여 보호됩니다
 * **처음 로그인하는 동안**: 처음 로그인하는 동안 디바이스를 등록하는 동안 암호화 생성 암호 키를 사용하여 요청에 서명하여 PRT가 발급됩니다. 유효하고 작동하는 TPM이 있는 디바이스에서 디바이스 키는 악의적인 액세스를 방지하는 TPM에 의해 보호됩니다. 해당하는 디바이스 키 서명의 유효성을 검사할 수 없는 경우에는 PRT가 발급되지 않습니다.
 * **토큰 요청 및 갱신 동안**: PRT가 발급되면 Azure AD는 디바이스에 암호화된 세션 키도 발급합니다. 생성된 퍼블릭 전송 키(tkpub)로 암호화된 후 디바이스 등록의 일부로 Azure AD로 전송됩니다. 이 세션 키는 TPM으로 보호되는 프라이빗 전송 키(tkpriv)로만 암호를 해독할 수 있습니다. 세션 키는 Azure AD로 전송된 모든 요청에 대한 POP(소유 증명) 키입니다.  세션 키는 TPM에 의해 보호되며 다른 OS 구성 요소는 이 키에 액세스할 수 없습니다. 토큰 요청 또는 PRT 갱신 요청은 TPM을 통해 이 세션 키로 안전하게 서명되므로 변조할 수 없습니다. Azure AD는 해당 세션 키로 서명되지 않은 디바이스의 모든 요청을 무효화합니다.
 
-이러한 키를 TPM으로 보호 하면 키를 도용 하거나 PRT를 재생 하려고 하는 악의적인 행위자의 PRT 보안을 향상 시킵니다.  따라서 TPM을 사용 하면 자격 증명 도난에 대 한 Azure AD 조인, 하이브리드 Azure AD 조인 및 Azure AD 등록 장치의 보안이 크게 향상 됩니다. 성능 및 안정성을 위해 TPM 2.0은 Windows 10의 모든 Azure AD 디바이스 등록 시나리오에 권장되는 버전입니다. Windows 10, 1903 업데이트를 시작 하면 안정성 문제로 인해 위의 키에 대해 TPM 1.2을 사용 하지 않습니다. 
+이러한 키를 TPM으로 보호하여 키를 도용하거나 PRT를 재생하려고 하는 악의적인 행위자로부터 PRT 보안이 강화됩니다.  따라서 TPM을 사용하면 자격 증명 도난에 대비해서 Azure AD 조인, 하이브리드 Azure AD 조인 및 Azure AD 등록 디바이스의 보안이 크게 향상됩니다. 성능 및 안정성을 위해 TPM 2.0은 Windows 10의 모든 Azure AD 디바이스 등록 시나리오에 권장되는 버전입니다. Windows 10, 1903 업데이트부터 Azure AD는 안정성 문제로 인해 위의 키에 TPM 1.2을 사용하지 않습니다. 
 
 ### <a name="how-are-app-tokens-and-browser-cookies-protected"></a>앱 토큰 및 브라우저 쿠키는 어떻게 보호되나요?
 
@@ -111,7 +111,7 @@ PRT는 사용자가 로그인한 디바이스에 바인딩하여 보호됩니다
 
 **브라우저 쿠키**: Windows 10에서 Azure AD는 Internet Explorer 및 Microsoft Edge에서 기본적으로 또는 Windows 10 계정 확장을 통해 Google Chrome에서 브라우저 SSO를 지원합니다. 보안은 쿠키를 보호하는 것 뿐만 아니라 쿠키가 전송되는 엔드포인트도 보호하도록 구축됩니다. 브라우저 쿠키는 세션 키를 활용하여 쿠키를 서명 및 보호함으로써 PRT와 동일한 방식으로 보호됩니다.
 
-사용자가 브라우저 상호 작용을 시작하면 브라우저(또는 확장)가 COM 네이티브 클라이언트 호스트를 호출합니다. 네이티브 클라이언트 호스트는 페이지가 허용 도메인 중 하나에 있는지 확인합니다. 브라우저는 nonce를 비롯한 다른 매개 변수를 네이티브 클라이언트 호스트로 보낼 수 있지만 네이티브 클라이언트 호스트는 호스트 이름의 유효성을 보장합니다. CloudAP 플러그 인에서 PRT 쿠키를 만들고 TPM 보호 세션 키로 서명하면 네이티브 클라이언트 호스트에서 PRT 쿠키를 요청합니다. PRT 쿠키는 세션 키로 서명 되므로 변조 하기가 매우 어렵습니다. 이 PRT 쿠키는 Azure AD에 대한 요청 헤더에 포함되어 원본 디바이스가 유효한지 검사합니다. Chrome 브라우저를 사용하는 경우 네이티브 클라이언트 호스트의 매니페스트에 명시적으로 정의된 확장에서만 이 쿠키를 호출할 수 있으므로 임의 확장이 이러한 요청을 수행할 수 없게 됩니다. Azure AD는 PRT 쿠키가 유효한지 검사한 후에는 브라우저에 세션 쿠키를 발급합니다. 이 세션 쿠키에는 PRT와 함께 발급된 것과 동일한 세션 키도 포함되어 있습니다. 후속 요청 중에 세션 키의 유효성이 검사되고 쿠키를 디바이스에 효과적으로 바인딩하며 다른 곳에서 다시 재생되지 못하게 합니다.
+사용자가 브라우저 상호 작용을 시작하면 브라우저(또는 확장)가 COM 네이티브 클라이언트 호스트를 호출합니다. 네이티브 클라이언트 호스트는 페이지가 허용 도메인 중 하나에 있는지 확인합니다. 브라우저는 nonce를 비롯한 다른 매개 변수를 네이티브 클라이언트 호스트로 보낼 수 있지만 네이티브 클라이언트 호스트는 호스트 이름의 유효성을 보장합니다. CloudAP 플러그 인에서 PRT 쿠키를 만들고 TPM 보호 세션 키로 서명하면 네이티브 클라이언트 호스트에서 PRT 쿠키를 요청합니다. PRT 쿠키는 세션 키로 서명되므로 변조하기가 매우 어렵습니다. 이 PRT 쿠키는 Azure AD에 대한 요청 헤더에 포함되어 원본 디바이스가 유효한지 검사합니다. Chrome 브라우저를 사용하는 경우 네이티브 클라이언트 호스트의 매니페스트에 명시적으로 정의된 확장에서만 이 쿠키를 호출할 수 있으므로 임의 확장이 이러한 요청을 수행할 수 없게 됩니다. Azure AD는 PRT 쿠키가 유효한지 검사한 후에는 브라우저에 세션 쿠키를 발급합니다. 이 세션 쿠키에는 PRT와 함께 발급된 것과 동일한 세션 키도 포함되어 있습니다. 후속 요청 중에 세션 키의 유효성이 검사되고 쿠키를 디바이스에 효과적으로 바인딩하며 다른 곳에서 다시 재생되지 못하게 합니다.
 
 ## <a name="when-does-a-prt-get-an-mfa-claim"></a>PRT는 언제 MFA 클레임을 얻나요?
 
@@ -173,7 +173,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 | G | CloudAP 플러그 인은 암호화된 PRT 및 세션 키를 CloudAP에 전달합니다. CloudAP는 전송 키(tkpriv)를 사용하여 세션 키의 암호를 해독하고 TPM의 자체 키를 사용해서 다시 암호화하도록 TPM에 요청합니다. CloudAP는 암호화된 세션 키를 PRT와 함께 캐시에 저장합니다. |
 
 > [!NOTE]
-> 외부에서 usernamemixed 끝점을 사용 하는 경우 VPN 연결이 필요 하지 않고 PRT를 외부에서 갱신할 수 있습니다.
+> usernamemixed 엔드포인트가 외부에서 사용하도록 설정되면 VPN 연결 없이 PRT를 외부에서 갱신할 수 있습니다.
 
 ### <a name="prt-usage-during-app-token-requests"></a>앱 토큰 요청 중에 PRT 사용
 
@@ -201,7 +201,7 @@ Windows 10은 각 자격 증명에 대해 분할된 PRT 목록을 유지 관리�
 | F | Azure AD는 PRT 쿠키에서 세션 키 서명이 유효한지 검사하고, nonce가 유효한지 검사하고, 디바이스가 테넌트에서 유효한지 확인하고, 웹 페이지를 위한 ID 토큰과 브라우저를 위한 암호화된 세션 쿠키를 발급합니다. |
 
 > [!NOTE]
-> 위의 단계에서 설명 하는 브라우저 SSO 흐름은 Microsoft Edge의 InPrivate와 같은 개인 모드의 세션 또는 Google Chrome (Microsoft 계정 확장을 사용 하는 경우)에서 Incognito 적용 되지 않습니다.
+> 위의 단계에서 설명한 브라우저 SSO 흐름은 Microsoft Edge의 InPrivate 또는 Google Chrome의 시크릿 모드(Microsoft 계정 확장을 사용하는 경우)와 같은 비공개 모드의 세션에는 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

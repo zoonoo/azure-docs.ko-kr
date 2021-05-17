@@ -1,31 +1,31 @@
 ---
-title: Event Grid 원본으로 Azure Machine Learning
-description: 를 사용 하 여 Machine Learning 작업 영역 이벤트에 제공 되는 속성을 설명 Azure Event Grid
+title: Event Grid 원본으로서 Azure Machine Learning
+description: Azure Event Grid를 사용하여 Machine Learning 작업 영역 이벤트에 제공되는 속성을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: e47c2137840e21eab73906d42b1e1536422f872d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100363392"
 ---
-# <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로 Azure Machine Learning
+# <a name="azure-machine-learning-as-an-event-grid-source"></a>Event Grid 원본으로서 Azure Machine Learning
 
-이 문서에서는 machine learning 작업 영역 이벤트의 속성과 스키마를 제공 합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
+이 문서에서는 기계 학습 작업 영역 이벤트의 속성과 스키마를 제공합니다. 이벤트 스키마에 대한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요.
 
 
 ## <a name="available-event-types"></a>사용할 수 있는 이벤트 유형
 
-Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
+Azure Machine Learning은 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 이벤트 유형 | 설명 |
 | ---------- | ----------- |
-| MachineLearningServices가 등록 되었습니다. | 새 모델 또는 모델 버전이 성공적으로 등록 되 면 발생 합니다. |
-| MachineLearningServices 배포 | 모델이 끝점에 성공적으로 배포 되 면 발생 합니다. |
-| MachineLearningServices | 실행이 성공적으로 완료 되 면 발생 합니다. |
-| MachineLearningServices. DatasetDriftDetected | 데이터 집합 드리프트 모니터가 드리프트를 검색 하는 경우 발생 합니다. |
-| MachineLearningServices. RunStatusChanged | 실행 상태가 변경 될 때 발생 합니다. |
+| Microsoft.MachineLearningServices.ModelRegistered | 새 모델 또는 모델 버전이 성공적으로 등록되면 발생합니다. |
+| Microsoft.MachineLearningServices.ModelDeployed | 모델이 엔드포인트에 성공적으로 배포되면 발생합니다. |
+| Microsoft.MachineLearningServices.RunCompleted | 실행이 성공적으로 완료되면 발생합니다. |
+| Microsoft.MachineLearningServices.DatasetDriftDetected | 데이터 세트 드리프트 모니터가 드리프트를 검색하면 발생합니다. |
+| Microsoft.MachineLearningServices.RunStatusChanged | 실행 상태가 변경되면 발생합니다. |
 
 ## <a name="example-events"></a>예제 이벤트
 
@@ -33,7 +33,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 
-### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>MachineLearningServices에 등록 된 이벤트
+### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Microsoft.MachineLearningServices.ModelRegistered 이벤트
 
 ```json
 [{
@@ -58,7 +58,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>MachineLearningServices 배포 된 이벤트
+### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>Microsoft.MachineLearningServices.ModelDeployed 이벤트
 
 ```json
 [{
@@ -84,7 +84,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesruncompleted-event"></a>MachineLearningServices 이벤트
+### <a name="microsoftmachinelearningservicesruncompleted-event"></a>Microsoft.MachineLearningServices.RunCompleted 이벤트
 
 ```json
 [{
@@ -120,7 +120,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>MachineLearningServices. DatasetDriftDetected 이벤트
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>Microsoft.MachineLearningServices.DatasetDriftDetected 이벤트
 
 ```json
 [{
@@ -144,7 +144,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>MachineLearningServices 이벤트입니다.
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Microsoft.MachineLearningServices.RunStatusChanged 이벤트
 
 ```json
 [{
@@ -183,7 +183,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 # <a name="cloud-event-schema"></a>[클라우드 이벤트 스키마](#tab/cloud-event-schema)
 
-### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>MachineLearningServices에 등록 된 이벤트
+### <a name="microsoftmachinelearningservicesmodelregistered-event"></a>Microsoft.MachineLearningServices.ModelRegistered 이벤트
 
 ```json
 [{
@@ -207,7 +207,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>MachineLearningServices 배포 된 이벤트
+### <a name="microsoftmachinelearningservicesmodeldeployed-event"></a>Microsoft.MachineLearningServices.ModelDeployed 이벤트
 
 ```json
 [{
@@ -232,7 +232,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesruncompleted-event"></a>MachineLearningServices 이벤트
+### <a name="microsoftmachinelearningservicesruncompleted-event"></a>Microsoft.MachineLearningServices.RunCompleted 이벤트
 
 ```json
 [{
@@ -267,7 +267,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>MachineLearningServices. DatasetDriftDetected 이벤트
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected-event"></a>Microsoft.MachineLearningServices.DatasetDriftDetected 이벤트
 
 ```json
 [{
@@ -290,7 +290,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 }]
 ```
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>MachineLearningServices 이벤트입니다.
+### <a name="microsoftmachinelearningservicesrunstatuschanged-event"></a>Microsoft.MachineLearningServices.RunStatusChanged 이벤트
 
 ```json
 [{
@@ -334,7 +334,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -349,7 +349,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -362,71 +362,71 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 ---
 
 
-데이터 개체에는 각 이벤트 유형에 대 한 다음 속성이 있습니다.
+데이터 개체에는 각 이벤트 유형의 다음 속성이 있습니다.
 
-### <a name="microsoftmachinelearningservicesmodelregistered"></a>MachineLearningServices가 등록 되었습니다.
+### <a name="microsoftmachinelearningservicesmodelregistered"></a>Microsoft.MachineLearningServices.ModelRegistered
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| `ModelName` | 문자열 | 등록 된 모델의 이름입니다. |
-| `ModelVersion` | 문자열 | 등록 된 모델의 버전입니다. |
-| `ModelTags` | 개체 | 등록 된 모델의 태그입니다. |
-| `ModelProperties` | 개체 | 등록 된 모델의 속성입니다. |
+| `ModelName` | 문자열 | 등록된 모델의 이름입니다. |
+| `ModelVersion` | 문자열 | 등록된 모델의 버전입니다. |
+| `ModelTags` | object | 등록된 모델의 태그입니다. |
+| `ModelProperties` | object | 등록된 모델의 속성입니다. |
 
-### <a name="microsoftmachinelearningservicesmodeldeployed"></a>MachineLearningServices 배포
+### <a name="microsoftmachinelearningservicesmodeldeployed"></a>Microsoft.MachineLearningServices.ModelDeployed
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| `ServiceName` | 문자열 | 배포 된 서비스의 이름입니다. |
-| `ServiceComputeType` | 문자열 | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
-  | `ModelIds` | 문자열 | 쉼표로 구분 된 모델 Id 목록입니다. 서비스에 배포 된 모델의 Id입니다. |
-| `ServiceTags` | 개체 | 배포 된 서비스의 태그입니다. |
-| `ServiceProperties` | 개체 | 배포 된 서비스의 속성입니다. |
+| `ServiceName` | 문자열 | 배포된 서비스의 이름입니다. |
+| `ServiceComputeType` | 문자열 | 배포된 서비스의 계산 형식(예: ACI, AKS)입니다. |
+  | `ModelIds` | 문자열 | 쉼표로 구분된 모델 ID 목록입니다. 서비스에 배포된 모델의 ID입니다. |
+| `ServiceTags` | object | 배포된 서비스의 태그입니다. |
+| `ServiceProperties` | object | 배포된 서비스의 속성입니다. |
 
-### <a name="microsoftmachinelearningservicesruncompleted"></a>MachineLearningServices
+### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft.MachineLearningServices.RunCompleted
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `experimentId` | 문자열 | 실행이 속한 실험의 ID입니다. |
 | `experimentName` | 문자열 | 실행이 속한 실험의 이름입니다. |
-| `runId` | 문자열 | 완료 된 실행의 ID입니다. |
-| `runType` | 문자열 | 완료 된 실행의 실행 형식입니다. |
-| `runTags` | 개체 | 완료 된 실행의 태그입니다. |
-| `runProperties` | 개체 | 완료 된 실행의 속성입니다. |
+| `runId` | 문자열 | 완료된 실행의 ID입니다. |
+| `runType` | 문자열 | 완료된 실행의 실행 형식입니다. |
+| `runTags` | object | 완료된 실행의 태그입니다. |
+| `runProperties` | object | 완료된 실행의 속성입니다. |
 
-### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>MachineLearningServices. DatasetDriftDetected
+### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft.MachineLearningServices.DatasetDriftDetected
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `DataDriftId` | 문자열 | 이벤트를 트리거한 데이터 드리프트 모니터의 ID입니다. |
 | `DataDriftName` | 문자열 | 이벤트를 트리거한 데이터 드리프트 모니터의 이름입니다. |
-| `RunId` | 문자열 | 데이터 드리프트를 검색 한 실행의 ID입니다. |
-| `BaseDatasetId` | 문자열 | 드리프트를 검색 하는 데 사용 되는 기본 데이터 집합의 ID입니다. |
-| `TargetDatasetId` | 문자열 | 드리프트를 검색 하는 데 사용 되는 대상 데이터 집합의 ID입니다. |
+| `RunId` | 문자열 | 데이터 드리프트를 검색한 실행의 ID입니다. |
+| `BaseDatasetId` | 문자열 | 드리프트를 검색하는 데 사용되는 기본 데이터 세트의 ID입니다. |
+| `TargetDatasetId` | 문자열 | 드리프트를 검색하는 데 사용되는 대상 데이터 세트의 ID입니다. |
 | `DriftCoefficient` | double | 이벤트를 트리거한 계수 결과입니다. |
-| `StartTime` | Datetime | 드리프트 검색을 일으킨 대상 데이터 집합 시계열의 시작 시간입니다.  |
-| `EndTime` | Datetime | 드리프트 검색을 일으킨 대상 데이터 집합 시계열의 종료 시간입니다. |
+| `StartTime` | Datetime | 드리프트 검색을 발생시킨 대상 데이터 세트 시계열의 시작 시간입니다.  |
+| `EndTime` | Datetime | 드리프트 검색을 발생시킨 대상 데이터 세트 시계열의 종료 시간입니다. |
 
-### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>MachineLearningServices. RunStatusChanged
+### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft.MachineLearningServices.RunStatusChanged
 
-| 속성 | Type | Description |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
 | `experimentId` | 문자열 | 실행이 속한 실험의 ID입니다. |
 | `experimentName` | 문자열 | 실행이 속한 실험의 이름입니다. |
-| `runId` | 문자열 | 완료 된 실행의 ID입니다. |
-| `runType` | 문자열 | 완료 된 실행의 실행 형식입니다. |
-| `runTags` | 개체 | 완료 된 실행의 태그입니다. |
-| `runProperties` | 개체 | 완료 된 실행의 속성입니다. |
+| `runId` | 문자열 | 완료된 실행의 ID입니다. |
+| `runType` | 문자열 | 완료된 실행의 실행 형식입니다. |
+| `runTags` | object | 완료된 실행의 태그입니다. |
+| `runProperties` | object | 완료된 실행의 속성입니다. |
 | `runStatus` | 문자열 | 실행의 상태입니다. |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 | 제목 | 설명 |
 | ----- | ----- |
-| [Azure Machine Learning 이벤트 사용](../machine-learning/how-to-use-event-grid.md) | Event Grid와 Azure Machine Learning 통합에 대 한 개요입니다. |
+| [Azure Machine Learning 이벤트 사용](../machine-learning/how-to-use-event-grid.md) | Azure Machine Learning과 Event Grid의 통합에 대한 개요입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
-* Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md) 를 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 방법에 대 한 소개는 [Azure Machine Learning 이벤트](../machine-learning/how-to-use-event-grid.md) 사용을 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](../machine-learning/how-to-use-event-grid.md) 를 참조 하세요.
+* Azure Event Grid 구독을 만드는 방법에 대한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md)를 참조하세요.
+* Azure Machine Learning과 함께 Azure Event Grid를 사용하는 방법에 대한 소개는 [Azure Machine Learning 이벤트 사용](../machine-learning/how-to-use-event-grid.md)을 참조하세요.
+* Azure Machine Learning과 함께 Azure Event Grid를 사용하는 예제는 [이벤트 구동 기계 학습 워크플로 만들기](../machine-learning/how-to-use-event-grid.md)를 참조하세요.

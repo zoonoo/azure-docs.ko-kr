@@ -18,10 +18,10 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92677060"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Azure AD 연결 문제 해결
@@ -32,8 +32,8 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 이 문서에서는 Fabrikam이 해당 프록시를 통해 Azure AD에 연결되는 방법을 보여 줍니다. 프록시 서버의 이름은 fabrikamproxy이고 포트 8080을 사용하고 있습니다.
 
-먼저 [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) 올바르게 구성 되었는지 확인 하 고 machine.config 파일 업데이트 후 **동기화 서비스 Microsoft Azure AD 동기화 서비스** 를 다시 시작 해야 합니다.
-![스크린샷 컴퓨터 점 구성 파일의 일부를 표시 합니다.](./media/tshoot-connect-connectivity/machineconfig.png)
+먼저, [**machine.config**](how-to-connect-install-prerequisites.md#connectivity)가 올바르게 구성되어 있고, **Microsoft Azure AD 동기화 서비스** 가 machine.config 파일 업데이트 이후 한 번 다시 시작되었는지 확인합니다.
+![머신 마침표 구성 파일의 일부를 보여 주는 스크린샷](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > Microsoft가 아닌 타사 일부 블로그에 miiserver.exe.config를 대신 변경하는 것에 대한 내용이 나와 있습니다. 그러나 업그레이드할 때마다 이 파일을 덮어쓰기 때문에 초기 설치 중에는 작동한다 해도 첫 번째 업그레이드에서 시스템이 작동을 멈춥니다. 이런 이유로 인해 machine.config를 업데이트하는 것이 좋습니다.
@@ -52,14 +52,14 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 | \*.windows.net |HTTPS/443 |Azure AD에 로그인하는 데 사용됩니다. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |MFA에 사용됩니다. |
 | \*.microsoftonline.com |HTTPS/443 |Azure AD 디렉터리를 구성하고 데이터 가져오거나 내보내는 데 사용됩니다. |
-| \*. crl3.digicert.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. crl4.digicert.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. ocsp.digicert.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. www.d-trust.net |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. crl.microsoft.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. oneocsp.microsoft.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
-| \*. ocsp.msocsp.com |HTTP/80 |인증서를 확인 하는 데 사용 됩니다. |
+| \*.crl3.digicert.com |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*.crl4.digicert.com |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*.ocsp.digicert.com |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*. www.d-trust.net |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*.root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*.crl.microsoft.com |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*.oneocsp.microsoft.com |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
+| \*.ocsp.msocsp.com |HTTP/80 |인증서를 확인하는 데 사용됩니다. |
 
 ## <a name="errors-in-the-wizard"></a>마법사 오류
 설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](reference-connect-accounts-permissions.md#adsync-service-account)으로 변경합니다. 프록시 구성은 전역으로 적용되므로 문제가 있는 경우 해당 내용이 마법사의 **Azure AD에 연결** 페이지에 나올 것입니다.
@@ -68,7 +68,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>설치 마법사가 올바르게 구성되지 않음
 마법사 자체가 프록시에 연결할 수 없는 경우 이 오류가 표시됩니다.
-![스크린샷: 자격 증명의 유효성을 검사할 수 없음 오류가 표시 됩니다.](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![인증서를 확인할 수 없음 오류를 보여 주는 스크린샷.](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * 이 오류가 표시되면 [machine.config](how-to-connect-install-prerequisites.md#connectivity)가 올바르게 구성되었는지 확인합니다.
 * 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity) 의 단계를 수행합니다.
@@ -78,13 +78,13 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 ![Microsoft 계정이 사용됨](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>MFA 엔드포인트에 연결할 수 없음
-이 오류는 끝점에 **https://secure.aadcdn.microsoftonline-p.com** 연결할 수 없고 전역 관리자가 MFA를 사용 하도록 설정한 경우에 나타납니다.
+엔드포인트 **https://secure.aadcdn.microsoftonline-p.com** 에 연결할 수 없고 전역 관리자가 MFA를 사용하도록 설정한 경우 이 오류가 표시됩니다.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * 이 오류가 표시되는 경우 엔드포인트 **secure.aadcdn.microsoftonline-p.com** 이 프록시에 추가되어 있는지 확인합니다.
 
 ### <a name="the-password-cannot-be-verified"></a>암호를 확인할 수 없음
-설치 마법사가 Azure AD에 연결 하는 데 성공 했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시 됩니다. ![ 잘못 된 암호입니다.](./media/tshoot-connect-connectivity/badpassword.png)
+설치 마법사가 Azure AD 연결에 성공했지만 암호 자체를 확인할 수 없는 경우 다음 오류가 표시됩니다. ![잘못된 암호.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * 암호가 임시 암호라서 변경해야 하나요? 실제로 올바른 암호인가요? Azure AD Connect 서버 이외의 컴퓨터에서 `https://login.microsoftonline.com`에 로그인하여 계정이 사용 가능한지 확인합니다.
 
@@ -93,18 +93,18 @@ Azure AD Connect 서버가 프록시 및 인터넷에 실제로 연결되었는�
 
 PowerShell은 프록시에 연결하기 위해 machine.config의 구성을 사용합니다. winhttp/netsh 설정이 이러한 cmdlet에 영향을 주지 않아야 합니다.
 
-프록시가 올바르게 구성 되 면 성공 상태 ( ![ 스크린샷)가 올바르게 구성 된 경우 성공 상태를 표시 하는 스크린샷을 받아야 합니다.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
+프록시가 올바르게 구성되면 성공 상태를 가져와야 합니다. ![ 프록시가 올바르게 구성된 경우 성공 상태를 표시하는 스크린샷](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-**원격 서버에 연결할 수 없는** 경우 PowerShell에서 프록시를 사용 하지 않고 직접 호출을 수행 하려고 하거나 DNS가 올바르게 구성 되지 않은 것입니다. **machine.config** 파일이 올바르게 구성 되어 있는지 확인 합니다.
+**원격 서버에 연결할 수 없습니다.** 라는 메시지가 표시되면 PowerShell이 프록시를 사용하지 않고 직접 호출을 수행하려고 하거나 DNS가 올바르게 구성되지 않습니다. **machine.config** 파일이 올바르게 구성되었는지 확인합니다.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 프록시가 올바르게 구성되지 않으면 ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
 ![proxy407](./media/tshoot-connect-connectivity/invokewebrequest407.png)과 같은 오류가 표시됩니다.
 
-| 오류 | 오류 텍스트 | 의견 |
+| Error | 오류 텍스트 | 의견 |
 | --- | --- | --- |
 | 403 |사용할 수 없음 |요청된 URL에 대해 프록시가 열려 있지 않습니다. 프록시 구성을 다시 확인하고 [URL](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) 이 열려 있는지 확인합니다. |
-| 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우이 설정이 machine.config에 구성 되어 있는지 확인 합니다. 또한 마법사를 실행 하는 사용자와 서비스 계정에 도메인 계정을 사용 하 고 있는지 확인 합니다. |
+| 407 |프록시 인증 필요 |프록시 서버에 로그인이 필요한데 아무 것도 제공되지 않았습니다. 프록시 서버에 인증이 필요한 경우 이 설정이 machine.config에 구성되어 있는지 확인합니다. 또한 마법사를 실행하는 사용자와 서비스 계정에 도메인 계정을 사용하고 있는지 확인합니다. |
 
 ### <a name="proxy-idle-timeout-setting"></a>프록시 유휴 시간 제한 설정
 Azure AD Connect가 Azure AD로 내보내기 요청을 전송하면 Azure AD는 응답을 생성하기 전에 요청을 처리하는 데 최대 5분이 소요될 수 있습니다. 대규모 그룹 구성원이 동일한 내보내기 요청에 포함되어 있는 그룹 개체가 많이 있을 때 특히 이러한 처리 시간이 오래 걸릴 수 있습니다. 프록시 유휴 시간 제한을 5분보다 크게 구성해야 합니다. 그렇지 않은 경우 Azure AD Connect 서버에서 Azure AD와의 간헐적 연결 문제가 확인될 수 있습니다.
@@ -173,8 +173,8 @@ Azure AD 디렉터리를 찾거나 해결할 수 없습니다. 확인되지 않�
 ### <a name="authorization-failure"></a>권한 부여 실패
 Azure AD에서 사용자에게 작업을 수행하도록 권한을 부여하지 못했습니다.
 
-### <a name="authentication-canceled"></a>인증 취소 됨
-MFA (multi-factor authentication) 챌린지를 취소 했습니다.
+### <a name="authentication-canceled"></a>인증 취소됨
+MFA(다단계 인증) 시도를 취소했습니다.
 
 <div id="connect-msolservice-failed">
 <!--
@@ -233,14 +233,14 @@ MFA (multi-factor authentication) 챌린지를 취소 했습니다.
 빌드 번호 1.1.105.0(2016년 2월에 발표됨)으로 시작하는 릴리스에서 로그인 도우미 사용이 중지되었습니다. 이 섹션 및 구성은 더 이상 필요하지 않지만 참조로 유지됩니다.
 
 단일 로그인 도우미를 작동하려면 winhttp가 구성되어야 합니다. 이 구성은 [**netsh**](how-to-connect-install-prerequisites.md#connectivity)를 사용하여 수행할 수 있습니다.
-![스크린샷 netsh 도구를 실행 하 여 프록시를 설정 하는 명령 프롬프트 창을 보여 줍니다.](./media/tshoot-connect-connectivity/netsh.png)
+![프록시를 설정하기 위해 netsh 도구를 실행하는 명령 프롬프트 창이 표시된 스크린샷](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>로그인 도우미가 올바르게 구성되지 않음
 이 오류는 로그인 도우미가 프록시를 연결할 수 없거나 프록시가 요청을 허용하지 않을 때 표시됩니다.
-![스크린샷: 자격 증명의 유효성을 검사할 수 없음, 네트워크 연결 및 방화벽 또는 프록시 설정 확인 오류를 표시 합니다.](./media/tshoot-connect-connectivity/nonetsh.png)
+![다음 오류가 표시된 스크린샷: 자격 증명의 유효성을 검사할 수 없습니다. 네트워크 연결과 방화벽 또는 프록시 설정을 확인하세요.](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * 이 오류가 표시되면 [netsh](how-to-connect-install-prerequisites.md#connectivity)에서 프록시 구성을 살펴보고 구성이 올바른지 확인합니다.
-  ![스크린샷 프록시 구성을 표시 하기 위해 netsh 도구를 실행 하는 명령 프롬프트 창을 보여 줍니다.](./media/tshoot-connect-connectivity/netshshow.png)
+  ![프록시 구성을 표시하기 위해 netsh 도구를 실행하는 명령 프롬프트 창이 표시된 스크린샷](./media/tshoot-connect-connectivity/netshshow.png)
 * 올바르게 구성된 경우 문제가 마법사 외부에 있는지 확인하기 위해 [프록시 연결 확인](#verify-proxy-connectivity) 의 단계를 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계

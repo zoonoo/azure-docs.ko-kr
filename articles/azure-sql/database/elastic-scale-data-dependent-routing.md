@@ -1,6 +1,6 @@
 ---
 title: 데이터 종속 라우팅
-description: 에서 분할 된 데이터베이스의 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용 하는 방법 Azure SQL Database
+description: Azure SQL Database의 분할된 데이터베이스 기능인 데이터 종속 라우팅을 위해 .NET 앱에서 ShardMapManager 클래스를 사용하는 방법
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 60e8b4b21a9e62279cd0eccfabbbed680183e2a9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92787026"
 ---
-# <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>데이터 종속 라우팅을 사용 하 여 쿼리를 적절 한 데이터베이스로 라우팅합니다.
+# <a name="use-data-dependent-routing-to-route-a-query-to-an-appropriate-database"></a>데이터 의존 라우팅을 사용하여 적절한 데이터베이스로 쿼리 라우팅
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-**데이터 종속 라우팅** 은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 데이터 종속 라우팅은 분할 된 데이터베이스를 사용할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 애플리케이션의 각 특정 쿼리 또는 트랜잭션은 요청당 하나의 데이터베이스에 액세스하는 것으로 제한됩니다. Azure SQL Database 탄력적 도구의 경우이 라우팅은 **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.net](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 클래스를 사용 하 여 수행 됩니다.
+**데이터 종속 라우팅** 은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 데이터 종속 라우팅은 분할된 데이터베이스를 사용할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 애플리케이션의 각 특정 쿼리 또는 트랜잭션은 요청당 하나의 데이터베이스에 액세스하는 것으로 제한됩니다. Azure SQL Database 탄력적 도구의 경우 이 라우팅은 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 클래스를 통해 수행됩니다.
 
-애플리케이션에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](elastic-scale-shard-map-management.md)에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 다른 특정 식별자입니다.
+애플리케이션에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](elastic-scale-shard-map-management.md)에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 별도의 특정 식별자입니다.
 
 자세한 내용은 [Scaling Out SQL Server with Data Dependent Routing](/previous-versions/sql/sql-server-2005/administrator/cc966448(v=technet.10))(데이터 종속 라우팅을 사용하여 SQL Server 크기 조정)을 참조하세요.
 
@@ -177,6 +177,6 @@ Configuration.SqlRetryPolicy.ExecuteAction(() -> {
 
 ## <a name="next-steps"></a>다음 단계
 
-분할 된 항목을 분리 하거나 분할 된 항목을 다시 연결 하려면 [RecoveryManager 클래스를 사용 하 여 분할 된 맵 문제 해결](elastic-database-recovery-manager.md)을 참조 하세요.
+분할된 데이터베이스를 분리하거나 다시 연결하려면 [RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결](elastic-database-recovery-manager.md)을 참조하세요.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

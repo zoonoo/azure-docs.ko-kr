@@ -1,35 +1,35 @@
 ---
 title: 위임에 대한 액세스 권한 제거
-description: Azure Lighthouse의 서비스 공급자에 게 위임 된 리소스에 대 한 액세스를 제거 하는 방법에 대해 알아봅니다.
+description: Azure Lighthouse의 서비스 공급자에게 위임된 리소스에 대한 액세스 권한을 제거하는 방법을 알아봅니다.
 ms.date: 02/16/2021
 ms.topic: how-to
 ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100555782"
 ---
 # <a name="remove-access-to-a-delegation"></a>위임에 대한 액세스 권한 제거
 
-고객의 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)의 서비스 공급자에 게 위임 된 후 필요한 경우 위임이 제거 될 수 있습니다. 위임이 제거 되 면 서비스 공급자 테 넌 트의 사용자에 게 이전에 부여 된 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md) 액세스가 더 이상 적용 되지 않습니다.
+고객의 구독 또는 리소스 그룹이 [Azure Lighthouse](../overview.md)의 서비스 공급자에게 위임된 후 필요한 경우 위임이 제거될 수 있습니다. 위임이 제거되면 서비스 공급자 테넌트의 사용자에게 이전에 부여되었던 [Azure 위임된 리소스 관리](../concepts/azure-delegated-resource-management.md) 액세스 권한이 더 이상 적용되지 않습니다.
 
-사용자에 게 적절 한 권한이 있는 한 고객 테 넌 트 또는 서비스 공급자 테 넌 트의 사용자가 위임 제거를 수행할 수 있습니다.
+사용자에게 적절한 권한이 있는 경우 고객 테넌트 또는 서비스 공급자 테넌트의 사용자가 위임 제거를 수행할 수 있습니다.
 
 > [!TIP]
-> 이 항목의 서비스 공급자 및 고객을 참조 하지만 [여러 테 넌 트를 관리](../concepts/enterprise.md) 하는 기업은 동일한 프로세스를 사용할 수 있습니다.
+> 이 항목에서는 서비스 공급자 및 고객만 언급하지만 [여러 테넌트를 관리하는 기업](../concepts/enterprise.md)에서도 동일한 프로세스를 사용할 수 있습니다.
 
 ## <a name="customers"></a>고객
 
-소유자와 같이 권한이 있는 역할이 있는 고객 테 넌 트의 사용자는 `Microsoft.Authorization/roleAssignments/write` 해당 구독 [](../../role-based-access-control/built-in-roles.md#owner)에 대 한 서비스 공급자 액세스 또는 해당 구독의 리소스 그룹을 제거할 수 있습니다. 이렇게 하려면 사용자가 Azure Portal의 [서비스 공급자 페이지로](view-manage-service-providers.md#add-or-remove-service-provider-offers) 이동 하 여 **서비스 공급자가 제공** 하는 화면에서 제품을 찾고 해당 제품에 대 한 행에서 휴지통 아이콘을 선택할 수 있습니다.
+[소유자](../../role-based-access-control/built-in-roles.md#owner)와 같이 `Microsoft.Authorization/roleAssignments/write` 권한이 포함된 역할이 있는 고객 테넌트의 사용자는 해당 구독(또는 해당 구독의 리소스 그룹)에 대한 서비스 공급자 액세스 권한을 제거할 수 있습니다. 이렇게 하기 위해 사용자는 Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md#add-or-remove-service-provider-offers)로 이동하여 **서비스 공급자 제품** 화면에서 제품을 찾고 해당 제품의 행에서 휴지통 아이콘을 선택할 수 있습니다.
 
-삭제를 확인 한 후에는 서비스 공급자의 테 넌 트에 있는 사용자가 이전에 위임 된 리소스에 액세스할 수 없게 됩니다.
+삭제를 확인한 후에는 서비스 공급자 테넌트에 있는 사용자가 이전에 위임된 리소스에 액세스할 수 없게 됩니다.
 
 ## <a name="service-providers"></a>서비스 공급자
 
-관리 테 넌 트의 사용자는 고객의 리소스에 대 한 [관리 되는 서비스 등록 할당 삭제 역할이](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 부여 된 경우 위임 된 리소스에 대 한 액세스 권한을 제거할 수 있습니다. 서비스 공급자 사용자에 게이 역할을 할당 하지 않은 경우 고객 테 넌 트의 사용자만이 위임을 제거할 수 있습니다.
+관리 테넌트의 사용자는 고객의 리소스에 대한 [관리되는 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role)이 부여된 경우 위임된 리소스에 대한 액세스 권한을 제거할 수 있습니다. 서비스 공급자 사용자에게 이 역할이 할당되지 않은 경우 고객 테넌트의 사용자만이 위임을 제거할 수 있습니다.
 
-아래 예제에서는 [온 보 딩 프로세스](onboard-customer.md)중에 매개 변수 파일에 포함할 수 있는 **관리 되는 서비스 등록 할당 삭제 역할** 을 부여 하는 할당을 보여 줍니다.
+아래 예제는 [온보딩 프로세스](onboard-customer.md) 중에 매개 변수 파일에 포함될 수 있는 **관리되는 서비스 등록 할당 삭제 역할** 을 부여하는 할당을 보여 줍니다.
 
 ```json
     "authorizations": [ 
@@ -41,15 +41,15 @@ ms.locfileid: "100555782"
     ] 
 ```
 
-Azure Marketplace에 게시할 [관리 서비스 제품을 만들](../../marketplace/plan-managed-service-offer.md) 때 **권한 부여** 에서이 역할을 선택할 수도 있습니다.
+이 역할은 Azure Marketplace에 게시할 [관리되는 서비스 제품을 만들](../../marketplace/plan-managed-service-offer.md) 때 **권한 부여** 에서 선택할 수도 있습니다.
 
 이 권한이 있는 사용자는 다음 방법 중 하나를 사용하여 위임을 제거할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
 1. [내 고객 페이지](view-manage-customers.md)로 이동합니다.
-2. **위임** 을 선택 합니다.
-3. 제거 하려는 위임을 찾은 다음 해당 행에 표시 되는 휴지통 아이콘을 선택 합니다.
+2. **위임** 을 선택합니다.
+3. 제거하려는 위임을 찾은 다음 해당 행에 표시 되는 휴지통 아이콘을 선택합니다.
 
 ### <a name="powershell"></a>PowerShell
 

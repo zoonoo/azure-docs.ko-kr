@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: e7114dae2a9cfef4a9b710831beb63a65c862643
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785379"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>자습서: Hadoop 클러스터를 사용하여 데이터를 변환하는 첫 번째 파이프라인 빌드
@@ -28,7 +28,7 @@ ms.locfileid: "104785379"
 
 이 자습서에서는 데이터 파이프라인을 사용하여 첫 번째 Azure Data Factory를 빌드합니다. 이 파이프라인은 Azure HDInsight(Hadoop) 클러스터에서 Hive 스크립트를 실행하여 입력 데이터를 변환하고 출력 데이터를 생성합니다.  
 
-이 문서에서는 자습서에 대한 개요와 필수 구성 요소를 제공합니다. 필수 구성 요소를 완료 한 후에는 Visual Studio, PowerShell, 리소스 관리자 템플릿 REST API 중 하나를 사용 하 여 자습서를 수행할 수 있습니다. 이러한 옵션 중 하나를 사용하여 자습서를 수행하려면 이 문서의 시작에 있는 드롭다운 목록이나 끝에 있는 링크에서 옵션 중 하나를 선택합니다.    
+이 문서에서는 자습서에 대한 개요와 필수 구성 요소를 제공합니다. 필수 구성 요소를 완료한 후에는 Visual Studio, PowerShell, Resource Manager 템플릿, REST API 중 하나를 사용하여 자습서를 수행할 수 있습니다. 이러한 옵션 중 하나를 사용하여 자습서를 수행하려면 이 문서의 시작에 있는 드롭다운 목록이나 끝에 있는 링크에서 옵션 중 하나를 선택합니다.    
 
 ## <a name="tutorial-overview"></a>자습서 개요
 이 자습서에서는 다음 단계를 수행합니다.
@@ -39,10 +39,10 @@ ms.locfileid: "104785379"
 2. **파이프라인** 을 만듭니다. 파이프라인에는 하나 이상의 활동(예: 복사 활동, HDInsight Hive 활동)이 포함될 수 있습니다. 이 샘플에서는 HDInsight Hadoop 클러스터에서 Hive 스크립트를 실행하는 HDInsight Hive 작업을 사용합니다. 스크립트는 먼저 Azure Blob Storage에 저장된 원시 웹 로그 데이터를 참조하는 테이블을 만든 다음 원시 데이터를 연도별 및 월별로 분할합니다.
 
     이 자습서에서 파이프라인은 Azure HDInsight Hadoop 클러스터에서 Hive 쿼리를 실행하여 데이터를 변환하기 위해 Hive 작업을 사용합니다.
-3. **연결 된 서비스** 를 만듭니다. 연결된 서비스를 만들어서 데이터 저장소 또는 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. Azure Storage와 같은 데이터 저장소는 파이프라인에서 활동의 입/출력 데이터를 저장합니다. HDInsight Hadoop cluster 클러스터와 같은 컴퓨팅 서비스는 데이터를 처리/변환합니다.
+3. **연결된 서비스** 만들기. 연결된 서비스를 만들어서 데이터 저장소 또는 컴퓨팅 서비스를 데이터 팩터리에 연결합니다. Azure Storage와 같은 데이터 저장소는 파이프라인에서 활동의 입/출력 데이터를 저장합니다. HDInsight Hadoop cluster 클러스터와 같은 컴퓨팅 서비스는 데이터를 처리/변환합니다.
 
     이 자습서에는 두 가지 연결된 서비스 **Azure Storage** 및 **Azure HDInsight** 를 만듭니다. Azure Storage 연결된 서비스는 데이터 팩터리에 대한 입력/출력 데이터를 보유하는 Azure Storage 계정을 연결합니다. Azure HDInsight 연결된 서비스는 데이터 팩터리에 대한 데이터를 변환하는 데 사용된 Azure HDInsight 클러스터를 연결합니다.
-3. 입력 및 출력 **데이터 집합** 을 만듭니다. 입력 데이터 세트는 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 세트는 작업에 대한 출력을 나타냅니다.
+3. 입력 및 출력 **데이터 세트** 를 만듭니다. 입력 데이터 세트는 파이프라인의 작업에 대한 입력을 나타내고 출력 데이터 세트는 작업에 대한 출력을 나타냅니다.
 
     이 자습서에서 입력 및 출력 데이터 세트는 Azure Blob Storage에서 입력 및 출력 데이터의 위치를 지정합니다. Azure Storage 연결된 서비스는 어떤 Azure Storage 계정이 사용되는지를 지정합니다. 입력 데이터 세트는 입력 파일의 위치를 지정하고 출력 데이터 세트는 출력 파일이 있는 위치를 지정합니다.
 
@@ -90,7 +90,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 - [Resource Manager 템플릿](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Visual Studio는 데이터 팩터리를 빌드하는 GUI를 제공 합니다. 반면, PowerShell, Resource Manager 템플릿 및 REST API 옵션은 데이터 팩터리를 빌드하는 스크립팅/프로그래밍 방식을 제공합니다.
+Visual Studio에서는 GUI 방식으로 데이터 팩터리를 빌드할 수 있습니다. 반면, PowerShell, Resource Manager 템플릿 및 REST API 옵션은 데이터 팩터리를 빌드하는 스크립팅/프로그래밍 방식을 제공합니다.
 
 > [!NOTE]
 > 이 자습서의 데이터 파이프라인은 출력 데이터를 생성하는 입력 데이터를 변환합니다. 원본 데이터 저장소의 데이터를 대상 데이터 저장소로 복사하지 않습니다. Azure Data Factory를 사용하여 데이터를 복사하는 방법에 대한 자습서는 [자습서: Blob Storage에서 SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.

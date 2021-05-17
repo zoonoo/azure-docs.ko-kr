@@ -1,5 +1,5 @@
 ---
-title: 분할 된 데이터베이스 쿼리
+title: 분할된 데이터베이스 쿼리
 description: 분할된 데이터베이스간의 쿼리를 실행할 때는 탄력적 데이터베이스 클라이언트 라이브러리를 사용합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 5a0dd12efb9d94bda264b3bd04b05cdc3df917e5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92786635"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Elastic Database 도구를 사용하여 쿼리 다중 분할
@@ -57,7 +57,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-주요 차이점은 다중 분할된 데이터베이스 연결을 생성한다는 것입니다. **SqlConnection** 가 개별 데이터베이스에서 작동 하는 경우 **MultiShardConnection** 는 **_분할 _의 컬렉션_ 을 *입력으로 사용 합니다. 분할 된 맵에서 분할의 컬렉션을 채웁니다. 그런 다음 분할의 컬렉션에서 _* UNION ALL** 의미 체계를 사용 하 여 단일 전체 결과를 조합 하 여 쿼리를 실행 합니다. 필요에 따라 행이 속한 분할된 데이터베이스의 이름을 명령에서 **ExecutionOptions** 속성을 사용하여 출력에 추가할 수 있습니다.
+주요 차이점은 다중 분할된 데이터베이스 연결을 생성한다는 것입니다. **SqlConnection** 이 개별 데이터베이스에서 작동하는 경우 **MultiShardConnection** 은 **_분할된 데이터베이스 컬렉션_ *_을 입력값으로 사용합니다. 분할된 데이터베이스 맵에서 분할된 데이터베이스 컬렉션을 채웁니다. 그런 다음 _* UNION ALL** 의미 체계를 사용하여 분할된 데이터베이스 컬렉션에 대해 쿼리를 실행해 단일 전체 결과를 어셈블합니다. 필요에 따라 행이 속한 분할된 데이터베이스의 이름을 명령에서 **ExecutionOptions** 속성을 사용하여 출력에 추가할 수 있습니다.
 
 **myShardMap.GetShards()** 호출을 살펴보세요. 이 메서드는 분할된 데이터베이스 맵에서 모든 분할된 데이터베이스를 검색하고 모든 관련된 데이터베이스간에 쿼리를 실행하는 간편한 방법을 제공합니다. 다중 분할된 데이터베이스 쿼리에 대한 분할된 데이터베이스의 컬렉션은 **myShardMap.GetShards()** 호출에서 반환된 컬렉션에 대해 LINQ 쿼리를 수행하여 구체화할 수 있습니다. 부분 결과 정책과 함께, 다중 분할된 데이터베이스 쿼리의 현재 기능은 수십에서 수백 개의 분할된 데이터베이스에 대해 원활하게 작동하도록 설계되었습니다.
 
@@ -65,6 +65,6 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>다중 분할된 데이터베이스 쿼리 및 분할/병합 작업
 
-다중 분할된 데이터베이스 쿼리는 쿼리되는 데이터베이스의 shardlet이 지속적인 분할/병합 작업에 참여하는지 여부를 확인하지 않습니다. [Elastic Database 분할/병합 도구를 사용 하 여 크기 조정](elastic-scale-overview-split-and-merge.md)을 참조 하세요. 이로 인해 동일한 shardlet의 행이 동일한 다중 분할 된 데이터베이스 쿼리의 여러 데이터베이스에 대해 표시 되는 불일치 문제가 발생할 수 있습니다. 이러한 제한 사항에 유의하고 다중 분할된 데이터베이스 쿼리를 수행하는 동안 사용되는 지속적인 분할-병합 작업과 분할된 데이터베이스 맵 변경 사항을 고려해야 합니다.
+다중 분할된 데이터베이스 쿼리는 쿼리되는 데이터베이스의 shardlet이 지속적인 분할/병합 작업에 참여하는지 여부를 확인하지 않습니다. ([탄력적 데이터베이스 분할/병합 도구를 사용하여 스케일링](elastic-scale-overview-split-and-merge.md)을 참조하세요.) 따라서 동일한 shardlet의 행이 동일한 다중 분할된 데이터베이스 쿼리의 여러 데이터베이스에 대해 표시하는 경우 불일치가 발생할 수 있습니다. 이러한 제한 사항에 유의하고 다중 분할된 데이터베이스 쿼리를 수행하는 동안 사용되는 지속적인 분할-병합 작업과 분할된 데이터베이스 맵 변경 사항을 고려해야 합니다.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

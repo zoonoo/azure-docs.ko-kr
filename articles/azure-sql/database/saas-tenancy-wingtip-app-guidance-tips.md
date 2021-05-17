@@ -1,5 +1,5 @@
 ---
-title: 다중 테 넌 트 앱 예제-정문 SaaS
+title: 다중 테넌트 앱 예제 - Wingtip SaaS
 description: Azure SQL Database를 사용하는 샘플 다중 테넌트 애플리케이션인 Wingtip Tickets SaaS 예제를 설치 및 실행하기 위한 단계와 지침을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
 ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92780328"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
@@ -25,20 +25,20 @@ ms.locfileid: "92780328"
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Wingtip Tickets SaaS 스크립트 다운로드 및 차단 해제
 
-zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, dll)를 차단할 수 있습니다. Zip 파일에서 스크립트를 추출할 때 압축을 **풀기 전에 다음 단계에 따라 .zip 파일의 차단을 해제** 합니다. 이렇게 하면 스크립트를 실행할 수 있습니다.
+zip 파일이 외부 원본에서 다운로드되고 추출될 때 Windows에서 실행 가능한 콘텐츠(스크립트, dll)를 차단할 수 있습니다. Zip 파일에서 스크립트를 추출할 경우 **아래 단계에 따라 추출하기 전에 .zip 파일을 차단 해제** 하세요. 이렇게 하면 스크립트를 실행할 수 있습니다.
 
 1. 탐색하려는 데이터베이스 테넌트 패턴에 대해서는 Wingtip Tickets SaaS GitHub 리포지토리로 이동하세요.
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
 2. **복제 또는 다운로드** 를 클릭합니다.
-3. **Zip 다운로드** 를 클릭 하 고 파일을 저장 합니다.
+3. **zip 다운로드** 를 클릭하고 파일을 저장합니다.
 4. 해당 zip 파일을 마우스 오른쪽 단추로 클릭하고 **속성** 을 선택합니다. zip 파일 이름은 리포지토리 이름에 해당합니다. 예: _WingtipTicketsSaaS-DbPerTenant-master.zip_)
 5. **일반** 탭에서 **차단 해제** 를 선택합니다.
 6. **확인** 을 클릭합니다.
 7. 파일을 추출합니다.
 
-스크립트는에 있습니다 *. \\ 학습 모듈* 폴더입니다.
+스크립트는 *..\\Learning Modules* 폴더에 있습니다.
 
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Wingtip Tickets PowerShell 스크립트 작업
@@ -77,7 +77,7 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
 
 [SSMS(SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms)를 사용하여 애플리케이션 서버 및 데이터베이스에 연결하고 탐색합니다.
 
-배포에는 처음에 연결할 테 넌 트 및 카탈로그 서버가 있습니다. 서버 이름 지정은 데이터베이스 테넌트 패턴에 따라 다릅니다(구체적인 내용은 아래 참조).
+처음에 배포에는 연결할 테넌트와 카탈로그 서버가 있습니다. 서버 이름 지정은 데이터베이스 테넌트 패턴에 따라 다릅니다(구체적인 내용은 아래 참조).
 
    - **독립 실행형 애플리케이션:** 각 테넌트에 대한 서버(예: *contosoconcerthall-&lt;User&gt;* 서버) 및 *catalog-sa-&lt;User&gt;*
    - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;* 및 *catalog-dpt-&lt;User&gt;* 서버
@@ -90,11 +90,11 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
     - **독립 실행형 애플리케이션:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net*)
     - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *tenants1-mt-&lt;User&gt;.database.windows.net*
-2. **연결**  >  **데이터베이스 엔진 ...** 를 클릭 합니다.
+2. **연결** > **데이터베이스 엔진...** 을 클릭합니다.
 
    ![카탈로그 서버](./media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. 데모 자격 증명: Login = *developer*, Password = *P \@ ssword1*
+3. 데모 자격 증명: 로그인 = *developer*, 암호 = *P\@ssword1*
 
     아래 이미지는 *테넌트당 데이터베이스* 패턴의 로그인을 보여줍니다.
     ![연결](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

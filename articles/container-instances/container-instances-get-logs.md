@@ -1,25 +1,25 @@
 ---
-title: 컨테이너 인스턴스 로그 & 이벤트 가져오기
-description: 컨테이너 문제 해결에 도움이 되는 Azure Container Instances에서 컨테이너 로그 및 이벤트를 검색 하는 방법을 알아봅니다.
+title: 컨테이너 인스턴스 로그 및 이벤트 가져오기
+description: 컨테이너 문제 해결에 도움을 받기 위해 Azure Container Instances에서 컨테이너 로그 및 이벤트를 검색하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 12/30/2019
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92746970"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 로그 및 이벤트 검색
 
-Azure Container Instances에 오동작 컨테이너가 있는 경우 [az container logs][az-container-logs]를 사용 하 여 로그를 확인 하 고 [az container attach][az-container-attach]를 사용 하 여 표준 출력 및 표준 오류를 스트리밍하는 것부터 시작 합니다. Azure Portal의 컨테이너 인스턴스에 대 한 로그 및 이벤트를 확인 하거나 컨테이너 그룹에 대 한 로그 및 이벤트 데이터를 [Azure Monitor 로그](container-instances-log-analytics.md)에 보낼 수도 있습니다.
+Azure Container Instances에서 오동작 컨테이너를 사용하는 경우 [az container logs][az-container-logs]에서 해당 로그를 확인하고 [az container attach][az-container-attach]에서 표준 출력과 표준 오류를 스트리밍하기 시작합니다. Azure Portal에서 컨테이너 인스턴스에 대한 로그 및 이벤트를 확인하거나 컨테이너 그룹에 대한 로그 및 이벤트 데이터를 [Azure Monitor 로그](container-instances-log-analytics.md)로 보낼 수도 있습니다.
 
 ## <a name="view-logs"></a>로그 보기
 
 컨테이너 내에서 애플리케이션 코드에서 로그를 보려면 [az 컨테이너 로그][az-container-logs] 명령을 사용할 수 있습니다.
 
-다음은 명령줄 재정의를 사용 하 여 잘못 된 URL을 제공한 후 [컨테이너 인스턴스에서 명령줄 설정](container-instances-start-command.md#azure-cli-example)의 예제 작업 기반 컨테이너의 로그 출력입니다.
+다음은 명령줄 재정의를 사용하여 잘못된 URL을 제공한 후 [컨테이너 인스턴스에서 명령줄 설정](container-instances-start-command.md#azure-cli-example)에서 작업 기반 컨테이너 예제의 로그 출력입니다.
 
 ```azurecli
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -50,7 +50,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 [az container attach][az-container-attach] 명령은 컨테이너를 시작하는 동안 진단 정보를 제공합니다. 컨테이너가 시작되면 로컬 콘솔에 STDOUT 및 STDERR을 스트리밍합니다.
 
-예를 들어, 처리할 많은 텍스트 파일의 올바른 URL을 제공한 후에는 [컨테이너 인스턴스의 명령줄 설정](container-instances-start-command.md#azure-cli-example)에서 작업 기반 컨테이너의 출력을 출력 합니다.
+예를 들어 처리할 대규모 텍스트 파일의 잘못된 URL을 입력한 후에 [컨테이너 인스턴스에서 명령줄 설정](container-instances-start-command.md#azure-cli-example)에서 작업 기반 컨테이너의 출력은 다음과 같습니다.
 
 ```azurecli
 az container attach --resource-group myResourceGroup --name mycontainer
@@ -82,7 +82,7 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>진단 이벤트 가져오기
 
-컨테이너가 성공적으로 배포 되지 않으면 Azure Container Instances 리소스 공급자에서 제공 하는 진단 정보를 검토 합니다. 컨테이너에 대한 이벤트를 보려면 [az container show][az-container-show] 명령을 실행합니다.
+컨테이너가 성공적으로 배포되지 않을 경우 Azure Container Instances 리소스 공급자가 제공하는 진단 정보를 검토합니다. 컨테이너에 대한 이벤트를 보려면 [az container show][az-container-show] 명령을 실행합니다.
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -151,7 +151,7 @@ az container show --resource-group myResourceGroup --name mycontainer
 ## <a name="next-steps"></a>다음 단계
 Azure Container Instances의 [컨테이너 및 배포 문제를 해결](container-instances-troubleshooting.md)하는 방법을 알아봅니다.
 
-컨테이너 그룹에 대 한 로그 및 이벤트 데이터를 [Azure Monitor 로그](container-instances-log-analytics.md)에 보내는 방법에 대해 알아봅니다.
+컨테이너 그룹에 대한 로그 및 이벤트 데이터를 [Azure Monitor 로그](container-instances-log-analytics.md)에 보내는 방법에 대해 알아봅니다.
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

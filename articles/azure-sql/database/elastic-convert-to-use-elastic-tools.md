@@ -1,6 +1,6 @@
 ---
 title: 확장하기 위해 기존 데이터베이스 마이그레이션
-description: 분할 된 데이터베이스 맵 관리자를 만들어 Elastic Database 도구를 사용 하도록 분할 된 데이터베이스 변환
+description: 분할된 데이터베이스 맵 관리자를 만들어 탄력적 데이터베이스 도구를 사용하기 위해 분할된 데이터베이스 변환
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92787145"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>확장하기 위해 기존 데이터베이스 마이그레이션
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-도구 (예: [Elastic Database 클라이언트 라이브러리](elastic-database-client-library.md))를 사용 하 여 기존의 확장 된 분할 된 데이터베이스를 쉽게 관리 합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](elastic-scale-shard-map-management.md)를 사용합니다.
+도구(예: [탄력적 데이터베이스 클라이언트 라이브러리](elastic-database-client-library.md))를 사용하여 기존의 확장된 분할된 데이터베이스를 쉽게 관리합니다. 기존의 데이터베이스 집합을 먼저 변환하여 [분할된 데이터베이스 맵 관리자](elastic-scale-shard-map-management.md)를 사용합니다.
 
 ## <a name="overview"></a>개요
 
@@ -32,15 +32,15 @@ ms.locfileid: "92787145"
 3. 개별 분할된 데이터베이스를 준비합니다.  
 4. 분할된 데이터베이스 맵에 매핑을 추가합니다.
 
-이러한 기술은 [.NET Framework 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)를 사용 하거나 [Azure SQL Database Elastic Database tools 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트를 사용 하 여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
+이러한 기술은 [.NET Framework 클라이언트 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) 또는 [Azure SQL Database - 탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 있는 PowerShell 스크립트 중 하나를 사용하여 구현할 수 있습니다. 여기에 있는 예제에서는 PowerShell 스크립트를 사용합니다.
 
-ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](elastic-scale-shard-map-management.md)를 참조하세요. Elastic Database 도구의 개요는 [Elastic Database 기능 개요](elastic-scale-introduction.md)를 참조 하세요.
+ShardMapManager에 대한 자세한 내용은 [분할된 데이터베이스 맵 관리](elastic-scale-shard-map-management.md)를 참조하세요. 탄력적 데이터베이스 도구에 대한 개요는 [ 기능 개요](elastic-scale-introduction.md)를 참조하세요.
 
 ## <a name="prepare-the-shard-map-manager-database"></a>분할된 데이터베이스 맵 관리자 데이터베이스를 준비합니다.
 
 분할된 데이터베이스 맵 관리자는 확장된 데이터베이스를 관리하는 데이터를 포함하는 특별한 데이터베이스입니다. 기존 데이터베이스를 사용하거나 새 데이터베이스를 만들 수 있습니다. 분할된 데이터베이스 맵 관리자의 역할을 하는 데이터베이스는 분할된 데이터베이스와 같은 데이터베이스가 아니어야 합니다. PowerShell 스크립트는 데이터베이스를 만들지 않습니다.
 
-## <a name="step-1-create-a-shard-map-manager"></a>1 단계: 분할 된 맵 관리자 만들기
+## <a name="step-1-create-a-shard-map-manager"></a>1단계: 분할된 데이터베이스 맵 관리자 만들기
 
 ```powershell
 # Create a shard map manager
@@ -59,7 +59,7 @@ New-ShardMapManager -UserName '<user_name>' -Password '<password>' -SqlServerNam
 $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<password>' -SqlServerName '<server_name>' -SqlDatabaseName '<smm_db_name>'
 ```
 
-## <a name="step-2-create-the-shard-map"></a>2 단계: 분할 된 맵 만들기
+## <a name="step-2-create-the-shard-map"></a>2단계: 분할된 데이터베이스 맵 만들기
 
 만들 분할된 데이터베이스 맵의 종류를 선택합니다. 데이터베이스 아키텍처에 따라 선택합니다.
 
@@ -82,7 +82,7 @@ $ShardMapManager = Get-ShardMapManager -UserName '<user_name>' -Password '<passw
 
 **다음 옵션 중 하나를 선택합니다.**
 
-### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>옵션 1: 목록 매핑에 대 한 분할 된 맵 만들기
+### <a name="option-1-create-a-shard-map-for-a-list-mapping"></a>옵션1: 목록 매핑에 대한 분할된 데이터베이스 맵 만들기
 
 ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만듭니다.
 
@@ -91,7 +91,7 @@ ShardMapManager 개체를 사용하여 분할된 데이터베이스 맵을 만�
 $ShardMap = New-ListShardMap -KeyType $([int]) -ListShardMapName 'ListShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>옵션 2: 범위 매핑에 대 한 분할 된 맵 만들기
+### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>옵션 2: 범위 매핑에 대한 분할된 데이터베이스 맵 만들기
 
 이 매핑 패턴을 활용하려면 테넌트 ID 값이 연속 범위여야 합니다. 또한 데이터베이스를 만들 때 범위를 건너뛰어 범위에 갭이 있을 수 있습니다.
 
@@ -101,7 +101,7 @@ $ShardMap = New-ListShardMap -KeyType $([int]) -ListShardMapName 'ListShardMap' 
 $ShardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $ShardMapManager
 ```
 
-### <a name="option-3-list-mappings-on-an-individual-database"></a>옵션 3: 개별 데이터베이스에 대 한 매핑 나열
+### <a name="option-3-list-mappings-on-an-individual-database"></a>옵션 3: 개별 데이터베이스의 매핑 나열
 
 2단계 옵션 1과 같이 이 패턴을 설정할 때도 목록 맵을 만들어야 합니다.
 
@@ -118,7 +118,7 @@ Add-Shard -ShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseN
 
 매핑 추가는 만든 분할된 데이터베이스 맵의 종류에 따라 달라집니다. 목록 맵을 만든 경우 목록 매핑을 추가합니다. 범위 맵을 만든 경우 범위 매핑을 추가합니다.
 
-### <a name="option-1-map-the-data-for-a-list-mapping"></a>옵션 1: 목록 매핑의 데이터 매핑
+### <a name="option-1-map-the-data-for-a-list-mapping"></a>옵션 1: 목록 매핑을 위한 데이터 매핑
 
 각 테넌트에 대한 목록 매핑을 추가하여 데이터를 매핑합니다.  
 
@@ -127,7 +127,7 @@ Add-Shard -ShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseN
 Add-ListMapping -KeyType $([int]) -ListPoint '<tenant_id>' -ListShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseName '<shard_database_name>'
 ```
 
-### <a name="option-2-map-the-data-for-a-range-mapping"></a>옵션 2: 범위 매핑에 대 한 데이터 매핑
+### <a name="option-2-map-the-data-for-a-range-mapping"></a>옵션 2: 범위 매핑을 위한 데이터 매핑
 
 모든 테넌트 ID 범위에 대한 범위 매핑 추가 - 데이터베이스 연결:
 
@@ -136,7 +136,7 @@ Add-ListMapping -KeyType $([int]) -ListPoint '<tenant_id>' -ListShardMap $ShardM
 Add-RangeMapping -KeyType $([int]) -RangeHigh '5' -RangeLow '1' -RangeShardMap $ShardMap -SqlServerName '<shard_server_name>' -SqlDatabaseName '<shard_database_name>'
 ```
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>4 단계 옵션 3: 개별 데이터베이스에서 여러 테 넌 트의 데이터 매핑
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>4단계 옵션 3: 개별 데이터베이스의 여러 테넌트에 대한 데이터 매핑
 
 각 테넌트에 대해 ListMapping 추가를 실행합니다(옵션 1).
 
@@ -156,7 +156,7 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="next-steps"></a>다음 단계
 
-[AZURE SQL Database-Elastic Database tools 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에서 PowerShell 스크립트를 가져옵니다.
+[Azure SQL Database-탄력적 데이터베이스 도구 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에서 PowerShell 스크립트를 가져옵니다.
 
 도구는 GitHub( [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools))에도 있습니다.
 
@@ -168,7 +168,7 @@ Get-Mappings -ShardMap $ShardMap
 
 ## <a name="questions-and-feature-requests"></a>질문 및 기능 요청
 
-질문에 대해서 [는 Microsoft Q&SQL Database](/answers/topics/azure-sql-database.html) 및 기능 요청에 대 한 질문 페이지를 사용 하 여 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가 하세요.
+질문이 있으면 [SQL Database에 대한 Microsoft Q&A 질문 페이지](/answers/topics/azure-sql-database.html)를 사용하고, 기능 요청이 있는 경우 해당 기능을 [SQL Database 피드백 포럼](https://feedback.azure.com/forums/217321-sql-database/)에 추가하세요.
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

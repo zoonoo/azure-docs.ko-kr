@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 51e15a8dc5e9f918c630397d6d6593f5bf561755
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92786907"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Elastic Database 도구 관련 FAQ(질문과 대답)
@@ -31,7 +31,7 @@ ms.locfileid: "92786907"
 
 ## <a name="how-much-do-elastic-database-tools-cost"></a>탄력적 데이터베이스 도구의 비용은 얼마인가요?
 
-탄력적 데이터베이스 클라이언트 라이브러리 사용에는 비용이 발생하지 않습니다. 분할 및 분할 된 데이터베이스 맵 관리자에 사용 하는 Azure SQL Database의 데이터베이스와 분할 병합 도구에 대해 프로 비전 하는 웹/작업자 역할에 대해서만 비용이 발생 합니다.
+탄력적 데이터베이스 클라이언트 라이브러리 사용에는 비용이 발생하지 않습니다. 분할된 데이터베이스 및 분할된 데이터베이스 맵 관리자에 사용하는 Azure SQL Database의 데이터베이스와 분할 병합 도구에 대해 프로비저닝하는 웹/작업자 역할과 관련된 비용만 발생합니다.
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>다른 서버에서 분할을 추가할 경우 내 자격 증명이 작동하지 않는 것은 무엇 때문인가요?
 
@@ -39,7 +39,7 @@ ms.locfileid: "92786907"
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>내 애플리케이션을 시작할 때마다 분할된 데이터베이스 맵 관리자를 만들고 분할을 채워야 하나요?
 
-아니요. 분할된 데이터베이스 맵 관리자(예: [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager))는 한 번만 만들면 됩니다.  애플리케이션 시작 시 애플리케이션에서 [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) 호출을 사용해야 합니다.  응용 프로그램 도메인당 이러한 호출이 하나만 있어야 합니다.
+아니요. 분할된 데이터베이스 맵 관리자(예: [ShardMapManagerFactory.CreateSqlShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager))는 한 번만 만들면 됩니다.  애플리케이션 시작 시 애플리케이션에서 [ShardMapManagerFactory.TryGetSqlShardMapManager()](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager) 호출을 사용해야 합니다.  이러한 호출은 애플리케이션 도메인당 하나만 있어야 합니다.
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>탄력적 데이터베이스 도구 사용과 관련된 질문이 있는 경우 답변을 받으려면 어떻게 해야 하나요?
 

@@ -1,30 +1,30 @@
 ---
-title: Azure Service Bus에 대 한 문제 해결 가이드 | Microsoft Docs
-description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대 한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
+title: Azure Service Bus 문제 해결 가이드| Microsoft Docs
+description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/03/2021
 ms.openlocfilehash: b44587747a59acb3c0124c0a76b63de68d6d8ae7
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105031293"
 ---
-# <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus에 대 한 문제 해결 가이드
-이 문서에서는 Azure Service Bus를 사용할 때 표시 될 수 있는 몇 가지 문제에 대 한 문제 해결 팁과 권장 사항을 제공 합니다. 
+# <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus 문제 해결 가이드
+이 문서에서는 Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대한 문제 해결 팁 및 권장 사항을 제공합니다. 
 
-## <a name="connectivity-certificate-or-timeout-issues"></a>연결, 인증서 또는 시간 제한 문제
-다음 단계는 *. servicebus.windows.net의 모든 서비스에 대 한 연결/인증서/시간 제한 문제를 해결 하는 데 도움이 될 수 있습니다. 
+## <a name="connectivity-certificate-or-timeout-issues"></a>연결, 인증서 또는 시간 초과 문제
+다음 단계는 *.servicebus.windows.net에 있는 모든 서비스의 연결/인증서/시간 초과 문제를 해결하는 데 도움이 될 수 있습니다. 
 
-- 또는 [wget](https://www.gnu.org/software/wget/) 으로 이동 `https://<yournamespace>.servicebus.windows.net/` 합니다. Java SDK를 사용 하는 경우 일반적으로 사용 되는 IP 필터링 또는 가상 네트워크 또는 인증서 체인 문제가 있는지 여부를 확인 하는 데 도움이 됩니다.
+- `https://<yournamespace>.servicebus.windows.net/`으로 이동하거나 [wget](https://www.gnu.org/software/wget/)합니다. java SDK를 사용할 때 일반적인 IP 필터링, 가상 네트워크 또는 인증서 체인 문제가 있는지 여부를 확인하는 데 도움이 됩니다.
 
-    성공적인 메시지의 예:
+    성공 메시지의 예:
     
     ```xml
     <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
     ```
     
-    오류 메시지의 예는 다음과 같습니다.
+    실패 오류 메시지의 예:
 
     ```xml
     <Error>
@@ -34,7 +34,7 @@ ms.locfileid: "105031293"
         </Detail>
     </Error>
     ```
-- 다음 명령을 실행 하 여 방화벽에서 차단 된 포트가 있는지 확인 합니다. 사용 되는 포트는 443 (HTTPS), 5671 (AMQP) 및 9354 (Net Messaging/SBMP)입니다. 사용 하는 라이브러리에 따라 다른 포트도 사용 됩니다. 다음은 5671 포트가 차단 되었는지 여부를 확인 하는 샘플 명령입니다. 
+- 다음 명령을 실행하여 방화벽에서 차단된 포트가 있는지 확인합니다. 사용되는 포트는 443(HTTPS), 5671(AMQP), 9354(Net Messaging/SBMP)입니다. 사용하는 라이브러리에 따라 다른 포트도 사용됩니다. 다음은 5671 포트가 차단되었는지 여부를 확인하는 샘플 명령입니다. 
 
     ```powershell
     tnc <yournamespacename>.servicebus.windows.net -port 5671
@@ -45,74 +45,74 @@ ms.locfileid: "105031293"
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- 간헐적 연결 문제가 있는 경우 다음 명령을 실행 하 여 삭제 된 패킷이 있는지 확인 합니다. 이 명령은 서비스와 1 초 마다 25 가지 TCP 연결을 설정 하려고 시도 합니다. 그런 다음 성공/실패 횟수를 확인 하 고 TCP 연결 대기 시간도 확인할 수 있습니다. 이 `psping` 도구는 [여기](/sysinternals/downloads/psping)에서 다운로드할 수 있습니다.
+- 일시적 연결 문제가 있는 경우 다음 명령을 실행하여 삭제된 패킷이 있는지 확인합니다. 이 명령은 1초마다 서비스와 25개의 서로 다른 TCP 연결을 설정하려고 시도합니다. 그런 다음 성공/실패 횟수를 확인하고 TCP 연결 대기 시간을 확인할 수도 있습니다. [여기](/sysinternals/downloads/psping)에서 `psping` 도구를 다운로드할 수 있습니다.
 
     ```shell
     .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
     ```
-    , 등의 다른 도구를 사용 하는 경우에는 동일한 명령을 사용할 수 있습니다 `tnc` `ping` . 
-- 이전 단계에서 [Wireshark](https://www.wireshark.org/)와 같은 도구를 사용 하 여 도움을 주지 않고 분석 하는 경우 네트워크 추적을 가져옵니다. 필요한 경우 [Microsoft 지원](https://support.microsoft.com/) 에 문의 하세요. 
-- 연결에 대 한 allowlist에 추가할 올바른 IP 주소를 찾으려면 [allowlist에 추가 해야 하는 ip 주소](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list)를 참조 하세요. 
+    `tnc`, `ping` 등과 같은 다른 도구를 사용하는 경우 동등한 명령을 사용할 수 있습니다. 
+- 이전 단계가 도움이 되지 않는 경우 네트워크 추적을 가져와서 [Wireshark](https://www.wireshark.org/)와 같은 도구를 사용하여 분석합니다. 필요한 경우 [Microsoft 지원](https://support.microsoft.com/)에 문의하세요. 
+- 연결 허용 목록에 추가할 올바른 IP 주소를 찾으려면 [허용 목록에 추가해야 하는 IP 주소](service-bus-faq.md#what-ip-addresses-do-i-need-to-add-to-allow-list)를 참조하세요. 
 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>서비스 업그레이드/다시 시작 시 발생할 수 있는 문제
 
 ### <a name="symptoms"></a>증상
-- 요청이 일시적으로 제한 될 수 있습니다.
-- 들어오는 메시지/요청이 삭제 될 수 있습니다.
-- 로그 파일에는 오류 메시지가 포함 될 수 있습니다.
-- 몇 초 동안 응용 프로그램의 서비스에서 연결을 끊을 수 있습니다.
+- 요청이 일시적으로 제한될 수 있습니다.
+- 들어오는 메시지/요청이 삭제될 수 있습니다.
+- 로그 파일에 오류 메시지가 포함될 수 있습니다.
+- 몇 초 동안 서비스에서 애플리케이션의 연결이 끊어질 수 있습니다.
 
 ### <a name="cause"></a>원인
-백 엔드 서비스 업그레이드 및 다시 시작으로 인해 응용 프로그램에서 이러한 문제가 발생할 수 있습니다.
+백 엔드 서비스 업그레이드 및 다시 시작으로 인해 애플리케이션에서 이러한 문제가 발생할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
-응용 프로그램 코드에서 SDK를 사용 하는 경우 다시 시도 정책이 이미 내장 되어 있고 활성 상태입니다. 응용 프로그램/워크플로에 상당한 영향 없이 응용 프로그램이 다시 연결 됩니다.
+애플리케이션 코드에서 SDK를 사용하는 경우 재시도 정책이 이미 기본 제공되며 활성 상태입니다. 애플리케이션/워크플로에 큰 영향 없이 애플리케이션이 다시 연결됩니다.
 
-## <a name="unauthorized-access-send-claims-are-required"></a>무단 액세스: 클레임 보내기가 필요 합니다.
+## <a name="unauthorized-access-send-claims-are-required"></a>무단 액세스: 클레임 보내기가 필요합니다.
 
 ### <a name="symptoms"></a>증상 
-전송 권한이 있는 사용자 할당 관리 id를 사용 하 여 온-프레미스 컴퓨터의 Visual Studio에서 Service Bus 항목에 액세스 하려고 하면이 오류가 표시 될 수 있습니다.
+보내기 권한이 있는 사용자 할당 관리 ID를 사용하여 온-프레미스 컴퓨터의 Visual Studio에서 Service Bus 토픽에 액세스하려고 할 때 이 오류가 표시될 수 있습니다.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
 ### <a name="cause"></a>원인
-Id에 Service Bus 항목에 액세스할 수 있는 권한이 없습니다. 
+ID에 Service Bus 토픽에 액세스할 수 있는 권한이 없습니다. 
 
 ### <a name="resolution"></a>해결 방법
-이 오류를 해결 하려면 [Microsoft. Azure](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  자세한 내용은 [로컬 개발 인증](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication)을 참조 하세요. 
+이 오류를 해결하려면 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) 라이브러리를 설치하세요.  자세한 내용은 [로컬 개발 인증](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication)을 참조하세요. 
 
-역할에 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 관리 Id 인증을 참조 하 여 Azure Service Bus 리소스에 액세스](service-bus-managed-service-identity.md)합니다.
+역할에 권한을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에 관리 ID를 인증하여 Azure Service Bus 리소스에 액세스](service-bus-managed-service-identity.md)를 참조하세요.
 
-## <a name="service-bus-exception-put-token-failed"></a>Service Bus 예외: Put 토큰이 실패 했습니다.
+## <a name="service-bus-exception-put-token-failed"></a>Service Bus 예외: Put 토큰이 실패했습니다.
 
 ### <a name="symptoms"></a>증상
-동일한 Service Bus 연결을 사용 하 여 1000 개 이상의 메시지를 전송 하려고 하면 다음과 같은 오류 메시지가 표시 됩니다. 
+동일한 Service Bus 연결을 사용하여 1,000개 이상의 메시지를 보내려고 하면 다음과 같은 오류 메시지가 표시됩니다. 
 
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
 
 ### <a name="cause"></a>원인
-Service Bus 네임 스페이스에 대 한 단일 연결을 사용 하 여 메시지를 보내고 받는 데 사용 되는 토큰 수에 제한이 있습니다. 1000입니다. 
+Service Bus 네임스페이스에 대한 단일 연결을 사용하여 메시지를 보내고 받는 데 사용되는 토큰 수에는 한도가 있습니다. 한도는 1,000개입니다. 
 
 ### <a name="resolution"></a>해결 방법
-더 많은 메시지를 전송 하려면 Service Bus 네임 스페이스에 대 한 새 연결을 엽니다.
+더 많은 메시지를 보내려면 Service Bus 네임스페이스에 대한 새 연결을 엽니다.
 
-## <a name="adding-virtual-network-rule-using-powershell-fails"></a>PowerShell을 사용 하 여 가상 네트워크 규칙을 추가 하지 못함
+## <a name="adding-virtual-network-rule-using-powershell-fails"></a>PowerShell을 사용하여 가상 네트워크 규칙을 추가하지 못함
 
 ### <a name="symptoms"></a>증상
-가상 네트워크 규칙의 단일 가상 네트워크에서 두 개의 서브넷을 구성 했습니다. [AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet을 사용 하 여 한 서브넷을 제거 하려고 하면 가상 네트워크 규칙에서 서브넷이 제거 되지 않습니다. 
+가상 네트워크 규칙에서 단일 가상 네트워크에 두 개의 서브넷을 구성했습니다. [Remove-AzServiceBusVirtualNetworkRule](/powershell/module/az.servicebus/remove-azservicebusvirtualnetworkrule) cmdlet을 사용하여 한 서브넷을 제거하려고 하면 가상 네트워크 규칙에서 해당 서브넷이 제거되지 않습니다. 
 
 ```azurepowershell-interactive
 Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Namespace $serviceBusName -SubnetId $subnetId
 ```
 
 ### <a name="cause"></a>원인
-서브넷에 대해 지정한 Azure Resource Manager ID가 잘못 되었을 수 있습니다. 가상 네트워크가 Service Bus 네임 스페이스가 있는 다른 리소스 그룹에 있는 경우이 문제가 발생할 수 있습니다. 가상 네트워크의 리소스 그룹을 명시적으로 지정 하지 않으면 CLI 명령은 Service Bus 네임 스페이스의 리소스 그룹을 사용 하 여 Azure Resource Manager ID를 생성 합니다. 따라서 네트워크 규칙에서 서브넷을 제거 하지 못합니다. 
+서브넷에 대해 지정한 Azure Resource Manager ID가 잘못되었을 수 있습니다. 이 문제는 Service Bus 네임스페이스가 있는 리소스 그룹과 다른 리소스 그룹에 가상 네트워크가 있는 경우 발생할 수 있습니다. 가상 네트워크의 리소스 그룹을 명시적으로 지정하지 않으면 CLI 명령은 Service Bus 네임스페이스의 리소스 그룹을 사용하여 Azure Resource Manager ID를 생성합니다. 따라서 네트워크 규칙에서 서브넷을 제거하지 못합니다. 
 
 ### <a name="resolution"></a>해결 방법
-가상 네트워크가 있는 리소스 그룹의 이름을 포함 하는 서브넷의 전체 Azure Resource Manager ID를 지정 합니다. 예를 들면 다음과 같습니다.
+가상 네트워크가 있는 리소스 그룹의 이름이 포함된 서브넷의 전체 Azure Resource Manager ID를 지정합니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive
 Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNamespace -SubnetId "/subscriptions/SubscriptionId/resourcegroups/ResourceGroup/myOtherRG/providers/Microsoft.Network/virtualNetworks/myVNet/subnets/mySubnet"
@@ -121,5 +121,5 @@ Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName myRG -Namespace myNames
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 
 
-- [예외를 Azure Resource Manager](service-bus-resource-manager-exceptions.md)합니다. Azure Resource Manager (템플릿 또는 직접 호출을 통해)를 사용 하 여 Azure Service Bus와 상호 작용할 때 생성 되는 예외를 나열 합니다.
-- [메시징 예외](service-bus-messaging-exceptions.md). Azure Service Bus에 대해 .NET Framework에서 생성 된 예외 목록을 제공 합니다.
+- [Azure Resource Manager 예외](service-bus-resource-manager-exceptions.md). 템플릿 또는 직접 호출을 통해 Azure Resource Manager를 사용하여 Azure Service Bus와 상호 작용할 때 생성되는 예외가 나열되어 있습니다.
+- [메시징 예외](service-bus-messaging-exceptions.md) Azure Service Bus용 .NET Framework에서 생성된 예외 목록을 제공합니다.

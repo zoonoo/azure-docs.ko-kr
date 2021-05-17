@@ -1,6 +1,6 @@
 ---
-title: Data Factory-.NET API 변경 로그
-description: Azure Data Factory에 대 한 특정 버전의 .NET API에 대 한 주요 변경 내용, 기능 추가 내용, 버그 수정 등을 설명 합니다.
+title: Azure Data Factory - .NET API 변경 로그
+description: Azure Data Factory용 특정 .NET API 버전의 호환성이 손상되는 변경, 기능 추가, 버그 수정 등을 설명합니다.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jonburchel
@@ -9,10 +9,10 @@ ms.topic: conceptual
 robots: noindex
 ms.date: 01/22/2018
 ms.openlocfilehash: 2d292bbc820574d4360be51e93588f8f908f468d
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104785600"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure 데이터 팩터리 - .NET API 변경 로그
@@ -71,10 +71,10 @@ ms.locfileid: "104785600"
 ### <a name="feature-additions"></a>기능 추가 사항
 * 파일을 ORC(Optimized Row Columnar) 형식으로 복사하기 위해 새 StorageFormat 형식 [OrcFormat](/dotnet/api/microsoft.azure.management.datafactories.models.orcformat) 형식이 추가되었습니다.
 * [AllowPolyBase](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) 및 PolyBaseSettings 속성을 SqlDWSink에 추가합니다.
-  * PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 복사할 수 있도록 합니다.
+  * PolyBase를 사용하여 Azure Synapse Analytics로 데이터를 복사할 수 있습니다.
 
 ## <a name="version-461"></a>버전 4.6.1
-### <a name="bug-fixes"></a>버그 수정
+### <a name="bug-fixes"></a>버그 픽스
 * 작업 창을 나열하기 위한 HTTP 요청을 해결합니다.
   * 요청 페이로드에서 리소스 그룹 이름 및 데이터 팩터리 이름을 제거합니다.
 
@@ -177,5 +177,5 @@ ms.locfileid: "104785600"
 * **List** 파이프라인 API는 전체 세부 정보 대신 파이프라인의 요약만 반환합니다. 예를 들어 파이프라인 요약의 작업에는 이름과 형식만 포함됩니다.
 
 ### <a name="feature-additions"></a>기능 추가 사항
-* [SqlDWSink](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) 클래스는 Azure Azure Synapse Analytics에 대 한 idempotent 복사를 지원 하기 위해 **SliceIdentifierColumnName** 및 **sql cleanupscript** 라는 두 개의 새로운 속성을 지원 합니다. 이러한 속성에 대 한 자세한 내용은 [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조 하세요.
-* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure Synapse 분석 소스에 대 한 저장 프로시저 실행을 지원 합니다. [SqlSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqlsource)와 [SqlDWSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsource) 클래스에는 **SqlReaderStoredProcedureName** 과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대 한 자세한 내용은 Azure.com의 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure Synapse 분석](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조 하세요.
+* [SqlDWSink](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsink) 클래스는 두 가지 새로운 속성인 **SliceIdentifierColumnName** 및 **SqlWriterCleanupScript** 를 지원하여 Azure Synapase Analytics로의 idempotent 복사를 지원합니다. 이러한 속성에 대한 자세한 내용은 [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
+* 이제 복사 작업의 일부로 Azure SQL Database 및 Azure Synapse Analytics 소스에 대한 저장 프로시저 실행을 지원합니다. [SqlSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqlsource)와 [SqlDWSource](/dotnet/api/microsoft.azure.management.datafactories.models.sqldwsource) 클래스에는 **SqlReaderStoredProcedureName** 과 **StoredProcedureParameters** 속성이 있습니다. 이러한 속성에 대한 자세한 내용은 Azure.com에서 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 및 [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) 문서를 참조하세요.

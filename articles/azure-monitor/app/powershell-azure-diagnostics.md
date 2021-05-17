@@ -1,16 +1,16 @@
 ---
 title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Microsoft Docs
-description: Application Insights에 데이터를 파이프 하는 Azure 진단 구성을 자동화 합니다.
+description: Application Insights에 데이터를 파이핑하는 Azure Diagnostics 구성을 자동화합니다.
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.openlocfilehash: c7c385888d7322b212cdd62497c9bbbabb970d65
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100583836"
 ---
-# <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용 하 여 Azure Cloud Services에 대 한 Application Insights 설정
+# <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용하여 Azure Cloud Services를 위한 Application Insights 설정
 
 [Microsoft Azure](https://azure.com)는 [Azure Application Insights](./app-insights-overview.md)에 [Azure Diagnostics를 보내도록 구성](../agents/diagnostics-extension-to-application-insights.md)할 수 있습니다. 진단은 Azure Cloud Services 및 Azure VM과 연관됩니다. 이들 항목은 Application Insights SDK를 사용하여 앱 내부에서 보내는 원격 분석을 보완합니다. Azure에서 새 리소스 생성 과정에 대한 자동화의 일환으로 PowerShell을 사용하여 진단을 구성할 수 있습니다.
 

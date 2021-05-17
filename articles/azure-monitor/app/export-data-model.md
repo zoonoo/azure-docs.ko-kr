@@ -4,10 +4,10 @@ description: JSON의 연속 내보내기에서 내보내고 필터로 사용하�
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584227"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
@@ -113,8 +113,8 @@ ms.locfileid: "100584227"
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
 | context.data.eventTime |문자열 |UTC |
 | context.data.isSynthetic |boolean |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
-| context.data.samplingRate |숫자 |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
-| context.device |개체 |클라이언트 디바이스 |
+| context.data.samplingRate |number |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
+| context.device |object |클라이언트 디바이스 |
 | context.device.browser |문자열 |IE, Chrome, ... |
 | context.device.browserVersion |문자열 |Chrome 48.0, ... |
 | context.device.deviceModel |문자열 | |
@@ -129,16 +129,16 @@ ms.locfileid: "100584227"
 | context.device.roleName |문자열 | |
 | context.device.screenResolution |문자열 | |
 | context.device.type |문자열 |PC, 브라우저... |
-| context.location |개체 |`clientip`에서 파생됩니다. |
-| context.location.city |문자열 |알려진 경우에서 파생 됩니다. `clientip` |
+| context.location |object |`clientip`에서 파생됩니다. |
+| context.location.city |문자열 |알려진 경우 `clientip`에서 파생됩니다. |
 | context.location.clientip |문자열 |마지막 팔각형이 0으로 익명 처리됩니다. |
 | context.location.continent |문자열 | |
 | context.location.country |문자열 | |
 | context.location.province |문자열 |시/도 |
-| context.operation.id |문자열 |항목이 동일한 항목 `operation id` 은 포털에서 관련 항목으로 표시 됩니다. 일반적으로 `request id` 입니다. |
+| context.operation.id |문자열 |`operation id`가 동일한 항목은 포털에서 관련 항목으로 표시됩니다. 일반적으로 `request id`입니다. |
 | context.operation.name |문자열 |URL 또는 요청 이름 |
 | context.operation.parentId |문자열 |중첩된 관련 항목을 허용합니다. |
-| context.session.id |문자열 |`Id` 동일한 원본의 작업 그룹입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
+| context.session.id |문자열 |동일한 원본의 작업 그룹 `Id`입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
 | context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |문자열 | |
 | context.user.accountId |문자열 | |
@@ -149,7 +149,7 @@ ms.locfileid: "100584227"
 | context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |문자열 | |
 | internal.data.documentVersion |문자열 | |
-| internal.data.id |문자열 | `Unique id` 항목이 수집 될 때 할당 됩니다 Application Insights |
+| internal.data.id |문자열 | 항목이 Application Insights로 수집되는 경우 할당되는 `Unique id`입니다. |
 
 ## <a name="events"></a>이벤트
 [TrackEvent()](./api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
@@ -211,7 +211,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./
 | remoteDependency [0] commandName |문자열 |예를 들어 "홈/인덱스" |
 | remoteDependency [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |문자열 |HTTP, SQL, ... |
-| remoteDependency [0] durationMetric.value |숫자 |호출부터 종속성의 응답 완료까지 걸리는 시간 |
+| remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0] `id` |문자열 | |
 | remoteDependency [0] name |문자열 |Url. 최대 길이 250 |
 | remoteDependency [0] resultCode |문자열 |HTTP 종속성에서 |
@@ -228,8 +228,8 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](./
 | 경로 | Type | 참고 |
 | --- | --- | --- |
 | request [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
-| request [0] durationMetric.value |숫자 |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
-| 요청 [0] `id` |문자열 |`Operation id` |
+| request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
+| request [0] `id` |문자열 |`Operation id` |
 | request [0] name |문자열 |GET/POST + url 기본입니다.  최대 길이 250 |
 | request [0] responseCode |정수 |클라이언트에 보낸 HTTP 응답 |
 | request [0] success |boolean |기본값 == (responseCode &lt; 400) |
@@ -276,12 +276,12 @@ trackPageView() 또는 [stopTrackPage](./api-custom-events-metrics.md#page-views
 | 경로 | Type | 참고 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |문자열 |availability |
-| availability [0] availabilityMetric.value |숫자 |1.0 또는 0.0 |
+| availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
 | availability [0] count |정수 |100/([샘플링](./sampling.md) 속도) 예: 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |문자열 | |
 | availability [0] dataSizeMetric.value |정수 | |
 | availability [0] durationMetric.name |문자열 | |
-| availability [0] durationMetric.value |숫자 |테스트 기간 1e7==1s |
+| availability [0] durationMetric.value |number |테스트 기간 1e7==1s |
 | availability [0] message |문자열 |오류 진단 |
 | availability [0] result |문자열 |성공/실패 |
 | availability [0] runLocation |문자열 |Http 요청의 지역 소스 |
@@ -343,7 +343,7 @@ TrackMetric()에서 생성합니다.
 
 다른 필드의 목적은 포털로 가는 트래픽을 줄이기 위해 SDK에 메트릭이 집계되도록 허용하는 것입니다. 예를 들어 각 메트릭 보고서를 보내기 전에 여러 연속 판독값의 평균을 낼 수 있습니다. 그런 다음 최소값, 최대값, 표준 편차 및 집계 값(합계 또는 평균)을 계산하고 개수를 보고서에서 표시한 판독값 수로 설정합니다.
 
-위의 표에서는 자주 사용 되지 않는 필드 count, min, max, stdDev 및 sampledValue를 생략 했습니다.
+위의 테이블에서는 거의 사용되지 않는 필드인 count, min, max, stdDev 및 sampledValue가 생략되었습니다.
 
 원격 분석의 양을 줄여야 하는 경우 사전 집계 메트릭 대신 [샘플링](./sampling.md) 을 사용할 수 있습니다
 

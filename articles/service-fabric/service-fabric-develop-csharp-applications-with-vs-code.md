@@ -1,15 +1,15 @@
 ---
-title: Visual Studio Code를 사용 하 여 .NET Core 응용 프로그램 개발
+title: Visual Studio Code를 사용한 .NET Core 애플리케이션 개발
 description: 이 문서에서는 Visual Studio Code를 사용하여 .NET Core Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 5fbd523a38b3c4860316e45b8b7c03a17de19499
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92678331"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 C# Service Fabric 애플리케이션 개발
@@ -18,7 +18,7 @@ ms.locfileid: "92678331"
 
 이 문서에서는 Visual Studio Code를 사용하여 .NET Core Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 VS Code, VS Code용 Service Fabric Reliable Services 확장 및 개발 환경에 필요한 모든 종속성을 설치했다고 가정합니다. 자세한 내용은 [시작](./service-fabric-get-started-vs-code.md#prerequisites)을 참조하세요.
 
@@ -61,22 +61,22 @@ sudo code . --user-data-dir='.'
 
    ![VS Code의 Deploy Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. 배포가 완료 되 면 브라우저를 시작 하 고 Service Fabric Explorer: http: \/ /localhost: 19080/Explorer를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
+4. 배포가 완료되면 브라우저를 시작하고 Service Fabric Explorer(http:\//localhost:19080/Explorer)를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
 
    ![Service Fabric Explorer의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. 응용 프로그램이 실행 되 고 있는지 확인 한 후 브라우저를 시작 하 고 http: \/ /shosts: 31002 페이지를 엽니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
+4. 애플리케이션이 실행되고 있는지 확인한 후 브라우저를 시작하고 http:\//localhost:31002 페이지를 엽니다. 애플리케이션의 웹 프런트 엔드입니다. 증가하는 카운터의 현재 값을 확인하려면 페이지를 새로 고칩니다.
 
    ![브라우저의 Counter Service 애플리케이션](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
-## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에 응용 프로그램 게시
-로컬 클러스터에 응용 프로그램을 배포 하는 것과 함께 원격 Azure Service Fabric 클러스터에 응용 프로그램을 게시할 수도 있습니다. 
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에 애플리케이션 게시
+로컬 클러스터에 애플리케이션을 배포하는 것과 함께 원격 Azure Service Fabric 클러스터에 애플리케이션을 게시할 수도 있습니다. 
 
-1. 위의 지침을 사용 하 여 응용 프로그램을 빌드 했는지 확인 합니다. `Cloud.json`게시 하려는 원격 클러스터의 세부 정보를 사용 하 여 생성 된 구성 파일을 업데이트 합니다.
+1. 위의 지침을 사용하여 애플리케이션을 빌드했는지 확인합니다. 게시하려는 원격 클러스터의 세부 정보를 사용하여 생성된 구성 파일 `Cloud.json`을 업데이트합니다.
 
-2. **명령 팔레트** 에서 **Service Fabric: 게시 응용 프로그램 명령을** 선택 합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
+2. **명령 팔레트** 에서 **Service Fabric: Publish Application 명령** 을 선택합니다. 설치 프로세스의 출력이 통합된 터미널로 전송됩니다.
 
-   ![VS Code에서 응용 프로그램 게시 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+   ![VS Code의 Publish Application 명령](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
 
 3. 배포가 완료되면 브라우저를 시작하고 `https:<clusterurl>:19080/Explorer`의 Service Fabric Explorer를 엽니다. 애플리케이션이 실행되고 있는 것을 확인할 수 있습니다. 다소 시간이 소요되니 기다려 주세요. 
 
@@ -91,9 +91,9 @@ VS Code에서 애플리케이션을 디버그할 때 애플리케이션은 로�
 
 2. 디버그 구성 메뉴에서 **.NET Core 연결** 을 선택합니다.
 
-   ![디버그 구성 메뉴에서 선택한 .NET Core 연결을 보여 주는 스크린샷](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
+   ![디버그 구성 메뉴에서 선택한 .NET Core Attach를 보여 주는 스크린샷](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. 브라우저에서 Service Fabric Explorer를 엽니다. http: \/ /shosts: 19080/Explorer. **애플리케이션** 을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
+3. 브라우저에서 http: \/ /shosts: 19080/Explorer를 입력하여 Service Fabric Explorer를 엽니다. **애플리케이션** 을 클릭하고 드릴다운하여 CounterService가 실행되고 있는 주 노드를 확인합니다. 아래 이미지에서 CounterService의 주 노드는 노드 0입니다.
 
    ![CounterService의 주 노드](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

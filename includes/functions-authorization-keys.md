@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 05/06/2020
 ms.author: glenga
 ms.openlocfilehash: 617608f382d3331e59ae92c9eb272347c736b768
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91828983"
 ---
 함수에서는 키를 사용해 개발 중에 HTTP 함수 엔드포인트 액세스를 더 어렵게 만들 수 있습니다. HTTP 트리거 함수의 HTTP 액세스 수준이 `anonymous`로 설정되지 않는 경우 요청에는 API 액세스 키가 포함되어야 합니다. 
 
-키가 기본 보안 메커니즘을 제공 하는 반면, 프로덕션 환경에서 HTTP 끝점을 보호 하기 위한 추가 옵션을 고려해 야 할 수 있습니다. 예를 들어 공용 앱에 공유 암호를 배포 하는 것은 일반적이 지 않습니다. Public 클라이언트에서 함수를 호출 하는 경우 다른 보안 메커니즘을 구현 하는 것을 고려해 볼 수 있습니다. 자세히 알아보려면 [프로덕션 환경에서 HTTP 엔드포인트 보호](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production)를 참조하세요.
+키가 기본 보안 메커니즘을 제공하지만 프로덕션에서 HTTP 엔드포인트를 보호하기 위한 추가 옵션을 고려할 수 있습니다. 예를 들어 공용 앱에 공유 비밀을 배포하는 것은 일반적으로 좋지 않습니다. 공용 클라이언트에서 함수가 호출되는 경우 다른 보안 메커니즘 구현을 고려하는 것이 좋습니다. 자세히 알아보려면 [프로덕션 환경에서 HTTP 엔드포인트 보호](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production)를 참조하세요.
 
-함수 키 값을 갱신 하는 경우 함수를 호출 하는 모든 클라이언트에 업데이트 된 키 값을 수동으로 다시 배포 해야 합니다.  
+함수 키 값을 갱신하는 경우 함수를 호출하는 모든 클라이언트에 업데이트된 키 값을 수동으로 다시 배포해야 합니다.  
 
 #### <a name="authorization-scopes-function-level"></a>권한 부여 범위(함수 수준)
 

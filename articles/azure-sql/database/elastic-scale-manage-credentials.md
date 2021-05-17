@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
 ms.openlocfilehash: 5b91986d4f94861b87e413c9ff781107c3ed04a3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92786601"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명
@@ -65,7 +65,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate))
 ```
 
-이 예제에서 **smmUserConnectionString** 에는 사용자 자격 증명의 연결 문자열이 저장됩니다. Azure SQL Database의 경우 사용자 자격 증명에 대 한 일반적인 연결 문자열은 다음과 같습니다.
+이 예제에서 **smmUserConnectionString** 에는 사용자 자격 증명의 연결 문자열이 저장됩니다. Azure SQL Database의 경우 사용자 자격 증명에 대한 일반적인 연결 문자열은 다음과 같습니다.
 
 ```java
 "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
@@ -79,6 +79,6 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 [SQL Database 보안 설정](security-overview.md)
 
-[Elastic Database 작업](elastic-jobs-overview.md)
+[탄력적 데이터베이스 작업](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92747809"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>대규모 가상 머신 확장 집합과 작동
@@ -33,7 +33,7 @@ _대규모_ 확장 집합을 특별하게 만드는 것은 VM의 수가 아닌 �
 - Azure Marketplace 이미지에서 만든 확장 집합은 최대 1,000대의 VM까지 확장할 수 있습니다.
 - 사용자 지정 이미지(직접 작성하여 업로드한 VM 이미지)에서 만든 확장 집합은 현재 최대 600대의 VM까지 확장할 수 있습니다.
 - 대규모 확장 집합은 Azure Managed Disks가 필요합니다. Managed Disks로 만들어지지 않은 확장 집합은 여러 스토리지 계정이 필요합니다(20대의 VM에 대해 하나씩). 대규모 확장 집합은 스토리지 관리 오버헤드를 줄이고 스토리지 계정에 대해 구독 제한에 실행되지 않도록 오직 Managed Disks와 작동하도록 설계되어 있습니다. 
-- InfiniBand 네트워킹을 지원 하지 않는 대규모 (SPG = false)
+- 대규모(SPG=false)가 InfiniBand 네트워킹을 지원하지 않음
 - 여러 배치 그룹으로 구성된 확장 집합에 레이어-4 부하 분산을 사용하려면 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-overview.md)가 필요합니다. Load Balancer 표준 SKU는 여러 확장 집합 간에 부하를 분산하는 기능 같은 추가 이점을 제공합니다. 또한 표준 SKU는 확장 집합에 네트워크 보안 그룹이 연결되어야 합니다. 그렇지 않으면 NAT 풀이 제대로 작동하지 않습니다. Azure Load Balancer 기본 SKU를 사용해야 하는 경우 확장 집합이 기본 설정인 단일 배치 그룹을 사용하도록 구성되었는지 확인합니다.
 - Azure Application Gateway의 계층 7 부하 분산은 모든 확장 세트에 대해 지원됩니다.
 - 확장 집합은 단일 서브넷으로 정의됩니다. 필요한 모든 VM에 대해 서브넷의 주소 공간이 충분한지 확인합니다. 기본적으로 확장 집합은 오버프로비전하여(배포 또는 확장 시 VM을 추가로 생성하며 요금은 부과되지 않음) 배포 안정성 및 성능을 향상시킵니다. 주소 공간을 확장하려는 VM의 수보다 20% 크게 설정합니다.
@@ -43,7 +43,7 @@ _대규모_ 확장 집합을 특별하게 만드는 것은 VM의 수가 아닌 �
 ## <a name="creating-a-large-scale-set"></a>대규모 확장 집합 만들기
 Azure Portal에서 확장 집합을 만들 때 *인스턴스 수* 값을 최대 1,000까지 지정할 수 있습니다. 인스턴스 수가 100개를 초과하는 경우 *100개 이상의 인스턴스로 확장 사용* 이 *예* 로 설정되고, 여러 배치 그룹으로 확장할 수 있게 됩니다. 
 
-![이 이미지는 Azure Portal의 인스턴스 블레이드를 표시 합니다. 인스턴스 수 및 인스턴스 크기를 선택 하는 옵션을 사용할 수 있습니다.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
+![이 이미지는 Azure Portal의 인스턴스 블레이드를 보여 줍니다. 인스턴스 수와 인스턴스 크기를 선택하는 옵션을 사용할 수 있습니다.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
 [Azure CLI](https://github.com/Azure/azure-cli) _az vmss create_ 명령을 사용하여 대규모 가상 머신 확장 집합을 만들 수 있습니다. 이 명령은 _instance-count_ 인수를 기반으로 한 서브넷 크기와 같은 지능형 기본값을 설정합니다.
 

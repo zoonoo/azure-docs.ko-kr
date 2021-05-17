@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: 318b5498c826b1e29baa35850594cebca72c4f3f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100575931"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>업데이트 관리에서 동적 그룹 사용
@@ -19,7 +19,7 @@ ms.locfileid: "100575931"
 > [!NOTE]
 > 동적 그룹은 클래식 VM에서 작동하지 않습니다.
 
-Azure Portal의 **업데이트 관리** 에서 Azure 또는 Azure가 아닌 머신의 동적 그룹을 정의할 수 있습니다. [Vm에 대 한 업데이트 관리](manage-updates-for-vm.md)를 참조 하세요.
+Azure Portal의 **업데이트 관리** 에서 Azure 또는 Azure가 아닌 머신의 동적 그룹을 정의할 수 있습니다. [VM에 대한 업데이트 관리](manage-updates-for-vm.md)를 참조하세요.
 
 동적 그룹은 배포 시 Azure Automation이 평가하는 쿼리를 통해 정의됩니다. 동적 그룹 쿼리가 수많은 머신을 검색하는 경우에도 Azure Automation은 한 번에 최대 1000대의 머신을 처리할 수 있습니다. [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management)을 참조하세요.
 
@@ -45,8 +45,8 @@ Azure 머신에 대한 동적 그룹 쿼리를 정의할 때 다음 항목을 �
 
 Azure가 아닌 머신에 대한 동적 그룹은 컴퓨터 그룹이라고도 하는 저장된 검색을 사용합니다. 저장된 검색을 만드는 방법에 대한 자세한 내용은 [컴퓨터 그룹 만들기](../../azure-monitor/logs/computer-groups.md#creating-a-computer-group)를 참조하세요. 저장된 검색을 만든 후에는 Azure Portal의 **업데이트 관리** 에 있는 저장된 검색 목록에서 선택할 수 있습니다. 저장된 검색의 컴퓨터를 미리 보려면 **미리 보기** 를 클릭합니다.
 
-![스크린샷-비 Azure (미리 보기)에 대 한 그룹 선택 페이지 및 오른쪽의 미리 보기 창을 보여 줍니다.](./media/configure-groups/select-groups-2.png)
+![Azure가 아닌 그룹 선택 페이지(미리 보기)와 오른쪽의 미리 보기 창을 보여 주는 스크린샷.](./media/configure-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Monitor 로그를 쿼리하여](query-logs.md) 업데이트 평가, 배포 및 기타 관련 관리 작업을 분석할 수 있습니다. 시작 하는 데 도움이 되는 미리 정의 된 쿼리를 포함 합니다.
+[Azure Monitor 로그를 쿼리](query-logs.md)하여 업데이트 평가, 배포 및 기타 관련 관리 작업을 분석할 수 있습니다. 시작하는 데 도움이 되는 미리 정의된 쿼리를 포함합니다.

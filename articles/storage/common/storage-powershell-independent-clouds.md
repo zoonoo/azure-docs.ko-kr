@@ -1,7 +1,7 @@
 ---
-title: PowerShell을 사용 하 여 Azure 독립 클라우드의 데이터 관리
+title: PowerShell을 사용하여 Azure 독립 클라우드에서 데이터 관리
 titleSuffix: Azure Storage
-description: Azure PowerShell를 사용 하 여 중국 클라우드, 정부 클라우드 및 독일어 클라우드에서 저장소를 관리 합니다.
+description: Azure PowerShell을 사용하여 중국 클라우드, 정부 클라우드, 독일 클라우드에서 스토리지를 관리합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92783575"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
@@ -22,7 +22,7 @@ ms.locfileid: "92783575"
 대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음 목록에서는 현재 사용할 수 있는 독립 클라우드에 대해 자세히 설명합니다.
 
 * [Azure Government 클라우드](https://azure.microsoft.com/features/gov/)
-* [중국의 21Vianet에서 운영 하는 Azure 중국 21Vianet 클라우드](http://www.windowsazure.cn/)
+* [중국 21Vianet이 운영하는 Azure China 21Vianet Cloud](http://www.windowsazure.cn/)
 * [Azure German Cloud](../../germany/germany-welcome.md)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -61,7 +61,7 @@ Get-AzLocation | select Location, DisplayName
 
 다음 표에서는 독일 클라우드에 대해 반환되는 위치를 보여 줍니다.
 
-|위치 | 표시 이름 |
+|Location | 표시 이름 |
 |----|----|
 | `germanycentral` | 독일 중부|
 | `germanynortheast` | 독일 북동부 |
@@ -75,7 +75,7 @@ Get-AzLocation | select Location, DisplayName
 
 [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment)를 사용하여 엔드포인트 접미사를 검색합니다. 엔드포인트는 환경의 *StorageEndpointSuffix* 속성입니다.
 
-다음 코드 조각에서는 끝점 접미사를 검색 하는 방법을 보여 줍니다. 이러한 모든 명령은 "core.cloudapp.net" 또는 "core.cloudapi.de" 등과 같은 항목을 반환 합니다. 저장소 서비스에 접미사를 추가 하 여 해당 서비스에 액세스 합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
+다음 코드 조각은 엔드포인트 접미사를 검색하는 방법을 보여 줍니다. 이러한 모든 명령은 “core.cloudapp.net” 또는 “core.cloudapi.de” 등과 같은 항목을 반환합니다. 스토리지 서비스에 접미사를 추가하여 해당 서비스에 액세스합니다. 예를 들어 "queue.core.cloudapi.de"는 독일 클라우드의 큐 서비스에 액세스하게 됩니다.
 
 이 코드 조각은 각각에 대한 모든 환경과 엔드포인트 접미사를 검색합니다.
 
@@ -85,7 +85,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 이 명령은 다음 결과를 반환합니다.
 
-| Name| StorageEndpointSuffix|
+| 이름| StorageEndpointSuffix|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -98,11 +98,11 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 Get-AzEnvironment -Name AzureGermanCloud
 ```
 
-결과는 다음 값과 유사 합니다.
+결과는 다음 값과 유사합니다.
 
 |속성 이름|값|
 |----|----|
-| Name | `AzureGermanCloud` |
+| 이름 | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |
 | ActiveDirectoryServiceEndpointResourceI | `http://management.core.cloudapi.de/` |
 | GalleryURL | `https://gallery.cloudapi.de/` |
@@ -127,7 +127,7 @@ Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix
 
 ### <a name="get-endpoint-from-a-storage-account"></a>스토리지 계정에서 엔드포인트를 가져오기
 
-저장소 계정의 속성을 검토 하 여 끝점을 검색할 수도 있습니다.
+엔드포인트를 가져오기 위해 스토리지 계정의 속성을 조사할 수도 있습니다.
 
 ```powershell
 # Get a reference to the storage account.
@@ -143,7 +143,7 @@ Write-Host "queue endpoint = " $storageAccount.PrimaryEndPoints.Queue
 Write-Host "table endpoint = " $storageAccount.PrimaryEndPoints.Table
 ```
 
-정부 클라우드의 저장소 계정의 경우이 명령은 다음 출력을 반환 합니다.
+정부 클라우드의 스토리지 계정의 경우 이 명령은 다음 출력을 반환합니다.
 
 ```
 blob endpoint = http://myexistingstorageaccount.blob.core.usgovcloudapi.net/
@@ -154,11 +154,11 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 ## <a name="after-setting-the-environment"></a>환경 설정 후
 
-이제 PowerShell을 사용 하 여 저장소 계정을 관리 하 고 blob, 큐, 파일 및 테이블 데이터에 액세스할 수 있습니다. 자세한 내용은 [Az. Storage](/powershell/module/az.storage)를 참조 하세요.
+이제 PowerShell을 사용하여 스토리지 계정을 관리하고 Blob, 큐, 파일, 테이블 데이터에 액세스할 수 있습니다. 자세한 내용은 [Az.Storage](/powershell/module/az.storage)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 연습에 대 한 새 리소스 그룹 및 저장소 계정을 만든 경우 리소스 그룹을 삭제 하 여 두 자산을 모두 제거할 수 있습니다. 리소스 그룹을 삭제하면 그룹 안에 포함된 모든 리소스가 삭제됩니다.
+이 연습에 대해 새 리소스 그룹과 스토리지 계정을 만든 후에는 리소스 그룹을 제거하여 자산을 둘 다 제거할 수 있습니다. 리소스 그룹을 삭제하면 그룹 안에 포함된 모든 리소스가 삭제됩니다.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -167,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 * [PowerShell 세션 간 사용자 로그인 유지](/powershell/azure/context-persistence)
-* [Azure Government 저장소](../../azure-government/compare-azure-government-global-azure.md)
+* [Azure Government 스토리지](../../azure-government/compare-azure-government-global-azure.md)
 * [Microsoft Azure Government 개발자 가이드](../../azure-government/documentation-government-developer-guide.md)
-* [Azure 중국 21Vianet 응용 프로그램 개발자 노트](https://msdn.microsoft.com/library/azure/dn578439.aspx)
+* [Azure China 21Vianet 애플리케이션 개발자 노트](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Azure Germany 설명서](../../germany/germany-welcome.md)

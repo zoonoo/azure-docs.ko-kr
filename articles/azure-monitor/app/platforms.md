@@ -1,14 +1,14 @@
 ---
 title: 'Application Insights: 언어, 플랫폼 및 통합 | Microsoft Docs'
-description: Application Insights 사용할 수 있는 언어, 플랫폼 및 통합
+description: Application Insights에 사용할 수 있는 언어, 플랫폼 및 통합
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
 ms.openlocfilehash: 399e57377a779622aa3073dfd3313cee1db345f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100583854"
 ---
 # <a name="supported-languages"></a>지원되는 언어
@@ -21,13 +21,13 @@ ms.locfileid: "100583854"
 
 ## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
 
-### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>이미 배포 된 응용 프로그램에 대 한 계측 (코드 없는, 에이전트 기반)
+### <a name="instrumentation-for-already-deployed-applications-codeless-agent-based"></a>이미 배포된 애플리케이션에 대한 계측(코드리스, 에이전트 기반)
 * [Azure VM 및 Azure 가상 머신 확장 집합](./azure-vm-vmss-apps.md)
 * [Azure App Service](./azure-web-apps.md)
 * [ASP.NET - 이미 운영 중인 앱용](./monitor-performance-live-website-now.md)
-* 웹 및 작업자 역할을 모두 포함 하는 [Azure Cloud Services](./cloudservices.md)
+* 웹 역할과 작업자 역할을 모두 포함하는 [Azure Cloud Services](./cloudservices.md)
 * [Azure Functions](../../azure-functions/functions-monitoring.md)
-### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측 (Sdk)
+### <a name="instrumentation-through-code-sdks"></a>코드를 통한 계측(SDK)
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
 * [Android](../app/mobile-center-quickstart.md)(App Center)
@@ -52,5 +52,5 @@ ms.locfileid: "100583854"
 * [Stream Analytics](./export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>지원되지 않는 SDK
-커뮤니티에서 지 원하는 여러 Sdk가 있습니다. 그러나 Azure Monitor은이 페이지에 나열 된 지원 되는 Sdk를 사용할 때만 지원 합니다. 다른 언어에 대 한 지원을 확장 하는 기회를 지속적으로 평가 하 고 있으므로 [GitHub 발표](https://github.com/microsoft/ApplicationInsights-Announcements/issues) 페이지에 따라 최신 SDK 뉴스를 받을 수 있습니다. 
+다른 커뮤니티 지원 SDK가 있다는 사실을 알고 있습니다. 하지만 Azure Monitor는 이 페이지에 나열된 지원되는 SDK를 사용하는 경우에만 지원을 제공합니다. 다른 언어에 대한 지원을 확장할 기회를 지속적으로 평가하고 있으므로 [GitHub 발표](https://github.com/microsoft/ApplicationInsights-Announcements/issues) 페이지를 자주 확인하여 최신 SDK 뉴스를 받으세요. 
 

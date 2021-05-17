@@ -1,23 +1,23 @@
 ---
 title: AKS(Azure Kubernetes Service)에서 OpenFaaS 사용
-description: AKS (Azure Kubernetes Service) 클러스터에서 OpenFaaS를 배포 하 고 사용 하 여 컨테이너에서 서버를 사용 하지 않는 기능을 빌드하는 방법에 대해 알아봅니다.
+description: AKS(Azure Kubernetes Service) 클러스터에서 OpenFaaS를 배포한 후 사용하여 컨테이너로 서버리스 Functions를 빌드하는 방법에 대해 알아봅니다
 author: justindavies
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc, devx-track-azurecli
 ms.openlocfilehash: 319107127b79383fc3b49f0eeb856a0e6c5b09f8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92747774"
 ---
 # <a name="using-openfaas-on-aks"></a>AKS에서 OpenFaaS 사용
 
-[Openfaas][open-faas] 는 컨테이너를 사용 하 여 서버 리스 함수를 빌드하기 위한 프레임 워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
+[OpenFaaS][open-faas]는 컨테이너 사용을 통해 서버리스 Functions를 빌드하기 위한 프레임워크입니다. 오픈 소스 프로젝트로써 커뮤니티 내에서 대규모로 채택되었습니다. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 OpenFaas를 설치하고 사용하는 방법을 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 아티클 내의 단계를 완료하기 위해 다음 항목이 필요합니다.
 
@@ -26,11 +26,11 @@ ms.locfileid: "92747774"
 * 개발 시스템에 설치된 Azure CLI.
 * 시스템에 설치된 Git 명령줄 도구
 
-## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS 투구 차트 리포지토리 추가
+## <a name="add-the-openfaas-helm-chart-repo"></a>OpenFaaS helm 차트 리포지토리 추가
 
 브라우저에서 [https://shell.azure.com](https://shell.azure.com)으로 이동하여 Azure Cloud Shell을 엽니다.
 
-OpenFaaS는 모든 최신 변경 내용으로 최신 상태를 유지 하기 위해 자체 투구 차트를 유지 관리 합니다.
+OpenFaaS는 모든 최신 변경 내용으로 최신 상태를 유지하기 위해 자체 helm 차트를 유지 관리합니다.
 
 ```console
 helm repo add openfaas https://openfaas.github.io/faas-netes/
@@ -41,13 +41,13 @@ helm repo update
 
 좋은 방법은 OpenFaaS 및 OpenFaaS 함수를 고유한 Kubernetes 네임스페이스에 저장하는 것입니다.
 
-OpenFaaS 시스템 및 함수에 대 한 네임 스페이스를 만듭니다.
+OpenFaaS 시스템과 함수에 대한 네임스페이스를 만듭니다.
 
 ```console
 kubectl apply -f https://raw.githubusercontent.com/openfaas/faas-netes/master/namespaces.yml
 ```
 
-OpenFaaS UI 포털에 대 한 암호를 생성 하 고 REST API 합니다.
+OpenFaaS UI 포털과 REST API에 대한 암호를 생성합니다.
 
 ```console
 # generate a random password
@@ -58,9 +58,9 @@ kubectl -n openfaas create secret generic basic-auth \
 --from-literal=basic-auth-password="$PASSWORD"
 ```
 
-를 사용 하 여 암호 값을 가져올 수 있습니다 `echo $PASSWORD` .
+`echo $PASSWORD`를 사용하여 비밀의 값을 가져올 수 있습니다.
 
-여기에서 만든 암호는 고객 지원 장치를 통해 인터넷에 노출 되는 OpenFaaS 게이트웨이에서 기본 인증을 사용 하도록 설정 하기 위해 투구 차트에서 사용 됩니다.
+여기에서 만든 암호는 클라우드 부하 분산 장치를 통해 인터넷에 노출되는 OpenFaaS Gateway에서 기본 인증을 사용하도록 설정하기 위해 helm 차트에서 사용됩니다.
 
 OpenFaaS에 대한 Helm 차트는 복제된 리포지토리에 포함됩니다. 이 차트를 사용하여 OpenFaaS를 AKS 클러스터에 배포합니다.
 
@@ -109,7 +109,7 @@ gateway            ClusterIP      10.0.156.194   <none>         8080/TCP        
 gateway-external   LoadBalancer   10.0.28.18     52.186.64.52   8080:30800/TCP   7m
 ```
 
-OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인 하 라는 메시지가 표시 됩니다. 암호를 페치 하려면를 입력 `echo $PASSWORD` 합니다.
+OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이동합니다(이 예제에서 `http://52.186.64.52:8080`). 로그인하라는 메시지가 표시됩니다. 암호를 가져오려면 `echo $PASSWORD`를 입력합니다.
 
 ![OpenFaaS UI](media/container-service-serverless/openfaas.png)
 
@@ -119,9 +119,9 @@ OpenFaaS 시스템을 테스트하려면 포트 8080의 외부 IP 주소로 이�
 brew install faas-cli
 ```
 
-`$OPENFAAS_URL`을 위에서 찾은 공용 IP로 설정 합니다.
+`$OPENFAAS_URL`을 위에서 찾은 공용 IP로 설정합니다.
 
-Azure CLI를 사용 하 여 로그인 합니다.
+Azure CLI로 로그인합니다.
 
 ```console
 export OPENFAAS_URL=http://52.186.64.52:8080
@@ -134,7 +134,7 @@ echo -n $PASSWORD | ./faas-cli login -g $OPENFAAS_URL -u admin --password-stdin
 
 **새 함수 배포** 를 클릭하고 **Figlet** 을 검색합니다. Figlet 함수를 선택하고 **배포** 를 클릭합니다.
 
-![검색 줄에 텍스트가 표시 되는 새 함수 배포 대화 상자가 표시 됩니다.](media/container-service-serverless/figlet.png)
+![검색 줄에 텍스트 figlet이 입력된 새 기능 배포 대화 상자를 보여 주는 스크린샷](media/container-service-serverless/figlet.png)
 
 Curl을 사용하여 함수를 호출합니다. 다음 예제의 IP 주소를 OpenFaas 게이트웨이의 IP 주소로 바꿉니다.
 
@@ -247,7 +247,7 @@ OpenFaaS UI 내에서 함수를 테스트할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 고유의 GitHub 봇을 만들고, 비밀을 사용 하 고, 메트릭을 표시 하 고, 자동으로 크기를 조정 하는 방법과 같은 주제를 다루는 실습 교육 집합을 통해 OpenFaaS 워크샵을 계속 익힐 수 있습니다.
+고유한 GitHub 봇 만들기, 비밀 사용, 메트릭 보기, 자동 스케일링 방법과 같은 주제를 다루는 실습 랩 집합을 통해 OpenFaaS 워크샵으로 계속 배울 수 있습니다.
 
 <!-- LINKS - external -->
 [install-mongo]: https://docs.mongodb.com/manual/installation/

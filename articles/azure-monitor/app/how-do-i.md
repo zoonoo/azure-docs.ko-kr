@@ -4,10 +4,10 @@ description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100584163"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
@@ -18,7 +18,7 @@ ms.locfileid: "100584163"
 ### <a name="email-if-my-site-is-overloaded"></a>내 사이트가 과부하되면 전자 메일로 알림
 [서버 응답 시간](../alerts/alerts-log.md) 에서 **경고** 를 설정합니다. 1-2초 임계값이 적용됩니다.
 
-![서버 응답 시간에 대 한 경고를 설정 하는 방법을 보여 주는 스크린샷](./media/how-do-i/030-server.png)
+![서버 응답 시간에 대한 경고를 설정하는 방법을 보여 주는 스크린샷.](./media/how-do-i/030-server.png)
 
 응용 프로그램이 오류 코드를 반환하여 부하의 흔적을 표시할 수도 있습니다. **실패한 요청** 에 대한 경고를 설정합니다.
 
@@ -53,11 +53,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 [메트릭 탐색기](../essentials/metrics-charts.md) 에서 차트를 만들어 경고를 확인합니다.
 
-![경보를 표시 하기 위해 메트릭 탐색기에서 차트를 만드는 방법을 보여 주는 스크린샷](./media/how-do-i/010-alarm.png)
+![메트릭 탐색기에서 차트를 만들어 경고를 보는 방법을 보여 주는 스크린샷.](./media/how-do-i/010-alarm.png)
 
 이제 메트릭이 짧은 기간 동안 중간 값 위로 상승하면 발생하는 경고를 설정합니다.
 
-![메트릭이 짧은 기간 동안 중간 값을 초과 하는 경우 발생 하는 경고를 설정 하는 방법을 보여 주는 스크린샷](./media/how-do-i/020-threshold.png)
+![짧은 기간 동안 메트릭이 중간 값 이상으로 상승할 때 경고를 설정하는 방법을 보여 주는 스크린샷.](./media/how-do-i/020-threshold.png)
 
 평균 기간을 최소로 설정합니다.
 
@@ -88,7 +88,7 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 ## <a name="visualize-data"></a>데이터 시각화
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>여러 앱의 메트릭이 있는 대시보드
-* [메트릭 탐색기](../essentials/metrics-charts.md)에서 차트를 사용자 지정 하 고 즐겨찾기로 저장 합니다. Azure 대시보드에 고정합니다.
+* [메트릭 탐색기](../essentials/metrics-charts.md)에서 차트를 사용자 지정하고 즐겨찾기에 저장합니다. Azure 대시보드에 고정합니다.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
 * [Power BI에 원격 분석을 내보냅니다](./export-power-bi.md).
@@ -106,11 +106,11 @@ telemetry.TrackMetric("Alarm", 0.5);
 
 * 특정 사용자 ID 검색
 
-![특정 사용자 Id에 대 한 searchin 옵션을 보여 주는 스크린샷](./media/how-do-i/110-search.png)
+![특정 사용자 ID 검색 옵션을 보여 주는 스크린샷.](./media/how-do-i/110-search.png)
 
 * 익명 또는 인증된 사용자에 대해 메트릭 필터링
 
-![익명 또는 인증 된 사용자에 게 metrixs 필터링을 보여 주는 스크린샷](./media/how-do-i/115-metrics.png)
+![익명 또는 인증된 사용자로 메트릭을 필터링하는 방법을 보여 주는 스크린샷.](./media/how-do-i/115-metrics.png)
 
 ## <a name="modify-property-names-or-values"></a>속성 이름 또는 값 수정
 [필터](./api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.

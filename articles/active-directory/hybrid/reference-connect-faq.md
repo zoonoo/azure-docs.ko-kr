@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 29c0ae8ec210356f6027a46ed01f2a7126ea4a49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101644734"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
@@ -139,10 +139,10 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 아니요. NAT를 통한 Azure AD Connect 사용은 지원되지 않습니다. 
 
 ## <a name="federation"></a>페더레이션
-**Q: Microsoft 365 인증서를 갱신 하도록 요청 하는 전자 메일을 받으면 어떻게 해야 하나요?**  
+**Q: 내 Microsoft 365 인증서를 갱신하도록 요청하는 메일을 받으면 어떻게 해야 하나요?**  
 인증서 갱신에 대한 지침은 [인증서 갱신](how-to-connect-fed-o365-certs.md)을 참조하세요.
 
-**Q: Microsoft 365 신뢰 당사자에 대해 "신뢰 당사자 자동 업데이트"를 설정 했습니다. 토큰 서명 인증서가 자동으로 롤오버 될 때 어떤 조치를 취해야 하나요?**  
+**Q: Microsoft 365 신뢰 당사자에 대해 ‘신뢰 당사자 자동 업데이트’를 설정했습니다. 토큰 서명 인증서가 자동으로 롤오버될 때 어떤 조치를 취해야 하나요?**  
 [인증서 갱신](how-to-connect-fed-o365-certs.md) 문서에 설명된 지침을 사용하세요.
 
 ## <a name="environment"></a>Environment
@@ -155,14 +155,14 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q. Azure Portal에서 동기화된 디바이스를 사용하지 않도록 설정한 경우(예: HAADJ) 다시 사용하도록 설정되는 이유는 무엇인가요?**<br>
 동기화된 디바이스는 온-프레미스에서 작성 또는 마스터될 수 있습니다. 동기화된 디바이스가 온-프레미스에서 사용하도록 설정된 경우 이전에 관리자가 사용하지 않도록 설정한 경우에도 Azure Portal에서 다시 사용하도록 설정될 수 있습니다. 동기화된 디바이스를 사용하지 않도록 설정하려면 온-프레미스 Active Directory를 사용하여 컴퓨터 계정을 사용하지 않도록 설정합니다.
 
-**대답. 동기화 된 사용자에 대 한 Microsoft 365 또는 Azure AD 포털에서 사용자 로그인을 차단 하는 경우 다시 로그인 할 때 차단이 해제 되는 이유는 무엇 인가요?**<br>
+**Q. 동기화된 사용자를 위해 Microsoft 365 또는 Azure AD 포털에서 사용자 로그인을 차단하는 경우 다시 로그인할 때 차단이 해제되는 이유는 무엇인가요?**<br>
 동기화된 사용자는 온-프레미스에서 작성 또는 마스터될 수 있습니다. 계정이 온-프레미스에서 사용하도록 설정된 경우 관리자가 설정한 로그인 블록의 차단을 해제할 수 있습니다.
 
 ## <a name="identity-data"></a>ID 데이터
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Microsoft 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치 하지 않습니다.](https://mskb.pkisolutions.com/kb/2523192)
+* [Microsoft 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다.](https://mskb.pkisolutions.com/kb/2523192)
 * [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 내용이 동기화되지 않습니다.](https://mskb.pkisolutions.com/kb/2669550)
 
 [Azure AD Connect 동기화 서비스 기능](how-to-connect-syncservice-features.md)에서 설명한 대로 동기화 엔진에서 UPN을 업그레이드할 수 있도록 Azure AD를 구성할 수도 있습니다.
@@ -253,19 +253,19 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 예, 준비 모드인 Azure AD Connect 서버를 자동 업그레이드할 수 있습니다.
 
 **Q: 자동 업그레이드가 실패하고 Azure AD Connect 서버가 시작되지 않으면 어떻게 해야 하나요?**  
-드문 경우이지만 업그레이드를 수행한 후에 Azure AD Connect 서비스가 시작되지 않습니다. 이러한 경우 일반적으로 서버를 다시 부팅하면 문제가 해결됩니다. 그래도 Azure AD Connect 서비스가 시작되지 않으면 지원 티켓을 여세요. 자세한 내용은 [Microsoft 365 지원 담당자에 게 문의 하는 서비스 요청 만들기](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support)를 참조 하세요. 
+드문 경우이지만 업그레이드를 수행한 후에 Azure AD Connect 서비스가 시작되지 않습니다. 이러한 경우 일반적으로 서버를 다시 부팅하면 문제가 해결됩니다. 그래도 Azure AD Connect 서비스가 시작되지 않으면 지원 티켓을 여세요. 자세한 내용은 [Microsoft 365 지원에 문의할 서비스 요청 만들기](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support)를 참조하세요. 
 
 **Q: 최신 버전의 Azure AD Connect로 업그레이드할 때 어떤 위험이 있는지 확신할 수 없습니다. 업그레이드에서 도움을 받기 위해 통화할 수 있나요?**  
-최신 버전의 Azure AD Connect로 업그레이드 하는 데 도움이 필요한 경우 서비스 만들기 요청에서 지원 티켓을 열어 [Microsoft 365 지원 담당자에 게 문의 하세요](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support).
+최신 버전의 Azure AD Connect로 업그레이드하는 데 도움이 필요한 경우 [Microsoft 365 지원에 문의할 서비스 요청 만들기](/archive/blogs/praveenkumar/how-to-create-service-requests-to-contact-office-365-support)에서 지원 티켓을 여세요.
 
 ## <a name="operational-best-practice"></a>운영 모범 사례    
-다음은 Windows Server Active Directory와 Azure Active Directory 간에 동기화 할 때 구현 해야 하는 몇 가지 모범 사례입니다.
+다음은 Windows Server Active Directory와 Azure Active Directory 간에 동기화할 때 구현해야 하는 몇 가지 모범 사례입니다.
 
-**동기화 된 모든 계정에 대 한 Multi-Factor Authentication 적용** Azure AD Multi-Factor Authentication는 사용자의 편의를 유지 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대 한 자세한 내용은 다음을 참조 하세요. https://www.microsoft.com/security/business/identity/mfa?rtc=1
+**동기화된 모든 계정에 MFA(다단계 인증)를 적용합니다.** Azure AD MFA(다단계 인증)는 사용자의 편의를 유지하면서 데이터와 애플리케이션에 대한 액세스를 보호합니다. 두 번째 형식의 인증을 요구하여 추가 보안을 제공하고 사용하기 쉬운 다양한 인증 방법을 통해 강력한 인증을 제공합니다. 관리자가 결정한 구성에 따라 사용자에게 MFA 챌린지가 표시될 수도 있고 그렇지 않을 수도 있습니다. MFA에 대한 자세한 내용은 https://www.microsoft.com/security/business/identity/mfa?rtc=1 에서 확인할 수 있습니다.
 
-**Azure AD Connect 서버 보안 지침을 따릅니다** . Azure AD Connect 서버는 중요 한 id 데이터를 포함 하며, [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다. 또한 [AADConnect 서버를 보호 하기 위한 지침](./how-to-connect-install-prerequisites.md#azure-ad-connect-server)을 참조 하세요.
+**Azure AD Connect 서버 보안 지침을 따릅니다.** Azure AD Connect 서버는 중요한 ID 데이터를 포함하며, [Active Directory 관리 계층 모델](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)에 설명된 대로 계층 0 구성 요소로 처리되어야 합니다. [AADConnect 서버 보호 지침](./how-to-connect-install-prerequisites.md#azure-ad-connect-server)도 참조하세요.
 
-**누출 된 자격 증명 검색에 대해 Phs** 암호 해시 동기화를 사용 하면 하이브리드 계정에 대해 유출 되는 [자격 증명 검색](../identity-protection/concept-identity-protection-risks.md) 도 가능 합니다. Microsoft는 다크 웹 연구원 및 법 집행 기관과 협력하여 공개적으로 사용 가능한 사용자 이름/암호 쌍을 찾습니다. 이러한 쌍 중 사용자와 일치 하는 쌍이 있으면 연결 된 계정이 높은 위험으로 이동 됩니다. 
+**누출된 자격 증명 검색을 위해 PHS를 사용합니다.** 암호 해시 동기화를 사용하면 하이브리드 계정의 [유출된 자격 증명 검색](../identity-protection/concept-identity-protection-risks.md)도 가능합니다. Microsoft는 다크 웹 연구원 및 법 집행 기관과 협력하여 공개적으로 사용 가능한 사용자 이름/암호 쌍을 찾습니다. 이러한 쌍 중 하나라도 사용자와 일치하는 쌍이 있으면 관련 계정이 높은 위험으로 이동됩니다. 
 
 
 ## <a name="troubleshooting"></a>문제 해결

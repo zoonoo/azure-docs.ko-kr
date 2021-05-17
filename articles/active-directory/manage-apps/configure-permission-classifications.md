@@ -1,23 +1,23 @@
 ---
-title: Azure AD를 사용 하 여 권한 분류 구성
-description: 위임 된 권한 분류를 관리 하는 방법을 알아봅니다.
+title: Azure AD를 사용하여 권한 분류 구성
+description: 위임된 권한 분류를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: phsignor
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 12a4ffb311e01ebb78b1ae392d1243c5d67eff6b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: be58f5cd18d32302d1e92f00afb7d7e0aae09410
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644567"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374474"
 ---
 # <a name="configure-permission-classifications"></a>권한 분류 구성
 
@@ -28,13 +28,13 @@ ms.locfileid: "101644567"
 현재는 "낮은 영향" 권한 분류만 지원됩니다. 관리자 동의가 필요하지 않은 위임된 권한만 "낮은 영향"으로 분류할 수 있습니다.
 
 > [!TIP]
-> 기본 로그인을 수행 하는 데 필요한 최소 권한은 `openid` `profile` `email` `User.Read` `offline_access` Microsoft Graph에 대 한 모든 위임 된 권한으로,, 및입니다. 이러한 권한을 사용 하면 앱에서 로그인 한 사용자의 전체 프로필 정보를 읽고 사용자가 더 이상 앱을 사용 하지 않는 경우에도이 액세스를 유지할 수 있습니다.
+> 기본 로그인을 수행하는 데 필요한 최소 권한인 `openid`, `profile`, `email`, `User.Read`, `offline_access`는 모두 Microsoft Graph에 대한 위임된 권한입니다. 이러한 권한이 있으면 앱은 로그인한 사용자의 프로필 세부 정보를 읽을 수 있으며, 사용자가 더 이상 앱을 사용하지 않는 경우에도 이 액세스 권한을 유지할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
-Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계를 따르세요.
+Azure Portal을 사용하여 권한을 분류하려면 다음 단계를 따르세요.
 
-1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [응용 프로그램 관리자](../roles/permissions-reference.md#application-administrator)또는 [클라우드 응용 프로그램 관리자 권한](../roles/permissions-reference.md#cloud-application-administrator) 으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1. [전역 관리자](../roles/permissions-reference.md#global-administrator), [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 또는 [클라우드 애플리케이션 관리자](../roles/permissions-reference.md#cloud-application-administrator)로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** > **엔터프라이즈 애플리케이션** > **동의 및 권한** > **권한 분류** 를 선택합니다.
 1. 다른 권한을 "낮은 영향"으로 분류하려면 **권한 추가** 를 선택합니다.
 1. API를 선택한 후 위임된 권한을 선택합니다.
@@ -47,7 +47,7 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
 
 최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azuread/?preserve-view=true&view=azureadps-2.0-preview)를 사용하여 권한을 분류할 수 있습니다. 권한 분류는 권한을 게시하는 API의 **ServicePrincipal** 개체에 구성됩니다.
 
-#### <a name="list-the-current-permission-classifications-for-an-api"></a>API에 대 한 현재 사용 권한 분류를 나열 합니다.
+#### <a name="list-the-current-permission-classifications-for-an-api"></a>API의 현재 권한 분류 나열
 
 1. API의 **ServicePrincipal** 개체를 검색합니다. 여기서는 Microsoft Graph API의 ServicePrincipal 개체를 검색합니다.
 
@@ -63,7 +63,7 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
        -ServicePrincipalId $api.ObjectId | Format-Table Id, PermissionName, Classification
    ```
 
-#### <a name="classify-a-permission-as-low-impact"></a>사용 권한을 "낮은 영향"으로 분류
+#### <a name="classify-a-permission-as-low-impact"></a>권한을 ‘낮은 영향’으로 분류
 
 1. API의 **ServicePrincipal** 개체를 검색합니다. 여기서는 Microsoft Graph API의 ServicePrincipal 개체를 검색합니다.
 
@@ -88,7 +88,7 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
       -Classification "low"
    ```
 
-#### <a name="remove-a-delegated-permission-classification"></a>위임 된 권한 분류 제거
+#### <a name="remove-a-delegated-permission-classification"></a>위임된 권한 분류 제거
 
 1. API의 **ServicePrincipal** 개체를 검색합니다. 여기서는 Microsoft Graph API의 ServicePrincipal 개체를 검색합니다.
 
@@ -119,11 +119,11 @@ Azure Portal를 사용 하 여 사용 권한을 분류 하려면 다음 단계�
 
 자세히 알아보려면 다음을 수행합니다.
 
-* [사용자 승인 설정 구성](configure-user-consent.md)
+* [사용자 동의 설정 구성](configure-user-consent.md)
 * [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 * [애플리케이션에 대한 동의를 관리하고 동의 요청을 평가하는 방법 알아보기](manage-consent-requests.md)
 * [애플리케이션에 대한 테넌트 전체 관리자 동의 부여](grant-admin-consent.md)
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [Microsoft Q의 Azure AD&A](/answers/topics/azure-active-directory.html)
+* [Microsoft Azure AD Q&A](/answers/topics/azure-active-directory.html)
