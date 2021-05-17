@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa364ec434db980bf226008537ca928628fcac1b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e46d4c07f3de2441f53648b228ab7a9d2a41ab61
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392088"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753368"
 ---
 # <a name="copy-data-to-and-from-azure-synapse-analytics-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Synapse Analytics에(서) 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -30,11 +30,11 @@ ms.locfileid: "100392088"
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **Azure Synapse Analytics** 에서 다음 데이터 저장소로 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
+[!INCLUDE [data-factory-supported-sinks](includes/data-factory-supported-sinks.md)]
 
 다음 데이터 저장소에서 **Azure Synapse Analytics** 로 데이터를 복사할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
+[!INCLUDE [data-factory-supported-sources](includes/data-factory-supported-sources.md)]
 
 > [!TIP]
 > SQL Server 또는 Azure SQL Database에서 Azure Synapse Analytics로 데이터를 복사할 때 대상 저장소에 테이블이 없으면 Data Factory가 원본 데이터 저장소에 있는 테이블의 스키마를 사용하여 자동으로 Azure Synapse Analytics에 테이블을 만들 수 있습니다. 자세한 내용은 [자동 테이블 만들기](#auto-table-creation)를 참조하세요.
@@ -252,7 +252,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob 및 Azure Data Lake Storage(서�
 ```
 
 ## <a name="best-practices-when-using-polybase"></a>PolyBase를 사용하는 경우 모범 사례
-다음 섹션에서는 [Azure Synapse Analytics 모범 사례](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md)에 나와 있는 추가 모범 사례를 제공합니다.
+다음 섹션에서는 [Azure Synapse Analytics 모범 사례](../../synapse-analytics/sql/best-practices-dedicated-sql-pool.md)에 나와 있는 추가 모범 사례를 제공합니다.
 
 ### <a name="required-database-permission"></a>필수 데이터베이스 권한
 PolyBase를 사용하려면 Azure Synapse Analytics에 데이터를 로드하는 데 사용되는 사용자에게 대상 데이터베이스에 대한 ['CONTROL' 권한](/sql/relational-databases/security/permissions-database-engine)이 필요합니다. 이를 달성하기 위한 한 가지 방법으로 해당 사용자를 "db_owner" 역할의 구성원으로 추가합니다. 이를 수행하는 방법에 대해서는 [이 섹션](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization)을 참조하세요.
@@ -325,7 +325,7 @@ Data Factory는 원본 데이터 저장소와 동일한 테이블 이름으로 �
 | NVarChar | NVarChar(최대 4000) |
 | Xml | Varchar(최대 8000) |
 
-[!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
+[!INCLUDE [data-factory-type-repeatability-for-sql-sources](includes/data-factory-type-repeatability-for-sql-sources.md)]
 
 ## <a name="type-mapping-for-azure-synapse-analytics"></a>Azure Synapse Analytics에 대한 형식 매핑
 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.

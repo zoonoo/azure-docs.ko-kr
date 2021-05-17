@@ -2,22 +2,22 @@
 title: Azure AD를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
 description: 사용자가 조직의 데이터에 액세스할 수 있는 애플리케이션에 동의하는 방법 및 시기를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: iangithinji
+ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 95a651f6201c9f60500c9191821edb7eb76b8535
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374440"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101643612"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -81,7 +81,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 `{consent-policy-id}`를 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책](manage-app-consent-policies.md#create-a-custom-app-consent-policy)을 선택하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
-| ID | Description |
+| ID | 설명 |
 |:---|:------------|
 | microsoft-user-default-low | **선택한 권한에 대해 확인된 게시자의 앱에 대한 사용자 동의를 허용**<br /> 확인된 게시자의 앱 및 테넌트에 등록된 앱에 대한 제한적 사용자 동의를 '낮은 영향'으로 분류한 권한에 한해 허용합니다. (사용자가 동의할 수 있는 권한을 선택하려면 [권한을 분류](configure-permission-classifications.md)해야 합니다.) |
 | microsoft-user-default-legacy | **앱에 대한 사용자 동의 허용**<br /> 이 옵션을 사용하면 모든 사용자가 모든 애플리케이션에 대해 관리자 동의가 필요하지 않은 모든 권한에 동의할 수 있습니다. |

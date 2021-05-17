@@ -3,17 +3,17 @@ title: Azure DDoS Protection 표준 파트너 제휴
 description: Azure DDoS Protection 표준에서 구현되는 파트너 제휴 기회를 이해합니다.
 ms.service: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: yitoh
 mms.devlang: na
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: kumud
-ms.openlocfilehash: 625f77a6d9dbeaf612df884434ab39b943587791
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: a7a21dcaea22ed0d1c077d0c42ddb5b4bd50d24f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103201"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99539335"
 ---
 # <a name="partnering-with-azure-ddos-protection-standard"></a>Azure DDoS Protection 표준 파트너 제휴
 이 문서에서는 Azure DDoS Protection 표준에서 구현되는 파트너 제휴 기회에 대해 설명합니다. 이 문서는 제품 관리자 및 비즈니스 개발 역할이 투자 경로를 이해하도록 돕고 파트너 제휴 가치 제안에 대한 통찰을 제공하기 위해 작성되었습니다.

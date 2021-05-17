@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
-ms.openlocfilehash: 429377cd50e83195cb1c3a422416fdb35644a28e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773482"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102244842"
 ---
 ## <a name="create-a-docker-enabled-virtual-machine"></a>Docker 지원 가상 머신 만들기
 
@@ -67,7 +67,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>Azure CLI 설치
 
-[apt를 사용하여 Azure CLI 설치](/cli/azure/install-azure-cli-apt)의 단계를 따라 Ubuntu 가상 머신에 Azure CLI를 설치합니다. 예를 들면 다음과 같습니다.
+[apt를 사용하여 Azure CLI 설치](/cli/azure/install-azure-cli-apt)의 단계를 따라 Ubuntu 가상 머신에 Azure CLI를 설치합니다. 예:
 
 ```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
@@ -76,5 +76,5 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 SSH 연결을 종료합니다.
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-vm-create]: /cli/azure/vm#az_vm_create
+[az-vm-create]: /cli/azure/vm#az-vm-create
 [az-group-create]: /cli/azure/group

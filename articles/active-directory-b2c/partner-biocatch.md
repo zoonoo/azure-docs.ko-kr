@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: f9518466aacddee9e31d8bc15f3b89c1f214ab58
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 2462b585bb37db769aafafbb0d224557c53ee81d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738002"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127086"
 ---
 # <a name="tutorial-configure-biocatch-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 BioCatch 구성하기
 
@@ -24,7 +24,7 @@ ms.locfileid: "108738002"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-시작을 위해 필요한 사항:
+시작하려면 다음이 필요합니다.
 
 - Azure 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 
@@ -74,7 +74,7 @@ BioCatch 통합에는 다음 구성 요소가 포함됩니다.
 
 클라이언트 세션 ID 필드를 숨기는 것이 좋습니다. CSS, JavaScript 또는 기타 메서드를 사용하여 필드를 숨깁니다. 테스트를 위해 필드를 표시하지 않을 수 있습니다. 예를 들어 JavaScript는 다음과 같이 입력 필드를 숨기는 데 사용됩니다.
 
-```JavaScript
+```
 document.getElementById("clientSessionId").style.display = 'none';
 ```
 
@@ -84,7 +84,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. 확장 파일에서 상속되는 새 파일을 만듭니다.
 
-    ```XML
+    ```
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -96,7 +96,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. BuildingBlocks 리소스 아래에서 입력 상자를 숨기도록 사용자 지정 UI에 대한 참조를 만듭니다.
 
-    ```XML
+    ```
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -112,7 +112,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. BuildingBlocks 리소스 아래에 다음 클레임을 추가합니다.
 
-    ```XML
+    ```
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -146,7 +146,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. 클라이언트 세션 ID 필드에 대해 자체 어설션된 클레임 공급자를 구성합니다.
 
-    ```XML
+    ```
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -190,7 +190,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. BioCatch에 대한 REST API 클레임 공급자를 구성합니다. 
 
-    ```XML
+    ```
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -247,7 +247,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. 반환된 클레임 ‘위험’이 ‘낮은’ 경우 MFA를 위한 단계를 건너뛰고, 그렇지 않으면 사용자 MFA를 강제합니다. 
 
-    ```XML
+    ```
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
               <ClaimsExchanges> 
@@ -296,7 +296,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     반환된 BioCatch 정보를 토큰의 클레임(특히 *risklevel* 및 ‘점수’)으로 애플리케이션에 전달하는 것이 유용합니다.
 
-    ```XML
+    ```
     <RelyingParty> 
 
         <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 
@@ -373,7 +373,7 @@ Azure AD B2C에 정책 파일을 추가하려면 다음 단계를 수행합니�
 
 4. 등록 흐름을 따라 계정 만들기 JWT.MS로 반환된 토큰에는 riskLevel 및 점수에 대한 2배의 클레임이 있어야 합니다. 예제를 따릅니다.  
 
-    ```JavaScript
+    ```
     { 
 
       "typ": "JWT", 
@@ -422,7 +422,7 @@ Azure AD B2C에 정책 파일을 추가하려면 다음 단계를 수행합니�
 
     ```
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 

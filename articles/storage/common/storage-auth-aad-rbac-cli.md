@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 93d9a81ab75efe4ea38189a7280e041e545a2b7d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785328"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100375989"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Azure CLI를 사용하여 Blob 및 큐 데이터에 액세스하기 위한 Azure 역할 할당
 
@@ -36,7 +36,7 @@ Azure AD 보안 주체에 Azure 역할을 할당하면 Azure는 해당 보안 �
 
 ## <a name="list-available-azure-roles"></a>사용 가능한 Azure 역할 목록
 
-Azure CLI에서 사용 가능한 Azure 기본 제공 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list) 명령을 사용합니다.
+Azure CLI에서 사용 가능한 Azure 기본 제공 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list) 명령을 사용합니다.
 
 ```azurecli-interactive
 az role definition list --out table
@@ -56,7 +56,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-azure-role-to-a-security-principal"></a>보안 주체에 Azure 역할 할당
 
-Azure 역할을 보안 주체에 할당하려면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 다음 예제에서는 다양한 범위에서 사용자에게 역할을 할당하는 방법을 보여 주지만, 동일한 명령을 사용하여 보안 주체에 역할을 할당할 수도 있습니다.
+Azure 역할을 보안 주체에 할당하려면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 명령을 사용합니다. 명령의 형식은 할당 범위에 따라 다를 수 있습니다. 다음 예제에서는 다양한 범위에서 사용자에게 역할을 할당하는 방법을 보여 주지만, 동일한 명령을 사용하여 보안 주체에 역할을 할당할 수도 있습니다.
 
 > [!IMPORTANT]
 > Azure Storage 계정을 만들어도 Azure AD를 통해 데이터에 액세스할 수 있는 권한이 자동으로 할당되지는 않습니다. 사용자는 데이터에 액세스할 수 있는 권한을 위해 Azure RBAC 역할을 직접 명시적으로 할당해야 합니다. 구독, 리소스 그룹, 스토리지 계정 또는 컨테이너나 큐 수준으로 지정할 수 있습니다.

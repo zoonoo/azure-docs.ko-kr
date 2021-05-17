@@ -1,18 +1,18 @@
 ---
 title: SAP ECC에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 활동을 사용하여 데이터를 SAP ECC에서 지원되는 싱크 데이터 저장소로 복사하는 방법을 알아봅니다.
-ms.author: jingwang
 author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020
-ms.openlocfilehash: a3e701f3d433b5b52d8992035ac4ad75b78cb795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd51dee9451b828bcefe1fdb4c4cf2a1f724bc68
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100386699"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788106"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,7 +20,7 @@ ms.locfileid: "100386699"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP ECC(Enterprise Central Component)에서 데이터를 복사하는 방법을 설명합니다. 자세한 내용은 [작업 복사 개요](copy-activity-overview.md)를 참조하세요.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory를 사용한 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에 설명된 각 SAP 커넥터의 자세한 소개, 비교 및 지침을 참조하세요.
+>SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory 백서를 사용한 SAP 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에 설명된 각 SAP 커넥터의 자세한 소개, 비교 및 지침을 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -43,11 +43,11 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 - 기본 인증을 사용하여 데이터 복사
 
-버전 7.0 이상에서는 SAP ECC 버전 대신 SAP NetWeaver 버전을 참조합니다. 예를 들어 SAP ECC 6.0 EHP 7은 일반적으로 NetWeaver 버전 7.4 이상입니다. 현재 환경에 대해 잘 모르는 경우 SAP 시스템에서 다음 단계를 따라 버전을 확인합니다.
+버전 7.0 이상에서는 SAP ECC 버전 대신 SAP NetWeaver 버전을 참조합니다. 예를 들어 SAP ECC 6.0 EHP 7은 일반적으로 NetWeaver 버전 >=7.4입니다. 현재 환경에 대해 잘 모르는 경우 SAP 시스템에서 다음 단계를 따라 버전을 확인합니다.
 
 1. SAP GUI를 사용하여 SAP 시스템에 연결합니다. 
 2. **시스템** -> **상태** 로 이동합니다. 
-3. SAP_BASIS의 릴리스를 확인하여 701 이상인지 확인합니다.  
+3. SAP_BASIS의 릴리스를 확인하여 701보다 크거나 같은지 확인합니다.  
       ![SAP_BASIS 확인](./media/connector-sap-table/sap-basis.png)
 
 >[!TIP]
@@ -61,11 +61,11 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 - **SAP OData 서비스 활성화 및 구성**. 수초 내에 TCODE SICF를 통해 OData 서비스를 활성화할 수 있습니다. 공개해야 하는 개체를 구성할 수도 있습니다. 자세한 내용은 [단계별 가이드](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)를 참조하세요.
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 SAP ECC 커넥터와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

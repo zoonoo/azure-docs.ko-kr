@@ -3,12 +3,13 @@ title: 오류 발생 시 성공적인 배포로 롤백
 description: 실패한 배포가 성공적인 배포로 롤백되도록 지정합니다.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 742a8f16a2dce3204b48085759091540586a4522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7a0c4deef5956804aa74ad24f072bc46e5c2a8cd
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492215"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321504"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>오류 발생 시 성공적인 배포로 롤백
 

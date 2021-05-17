@@ -3,15 +3,15 @@ title: 시각적 개체 작성
 description: Azure Data Factory에서 시각적 작성을 사용하는 방법에 알아봅니다.
 ms.service: data-factory
 ms.topic: conceptual
-author: nabhishek
-ms.author: abnarain
+author: dcstwh
+ms.author: weetok
 ms.date: 09/08/2020
-ms.openlocfilehash: 3c5bbe128b03e1d4bfe562132656fee0df51423e
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905387"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100371484"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 

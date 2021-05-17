@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 04/02/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f30cd528a329708a7478b1a4a343f7be3b9eac04
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 9a22700782c584015add2c83ecc96ccc610b8509
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877789"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219623"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning용 CLI 확장 설치 및 사용
 
@@ -39,7 +39,7 @@ CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화
 
 ## <a name="full-reference-docs"></a>전체 참조 문서
 
-[Azure CLI의 azure-cli-ml 확장에 대한 전체 참조 문서](/cli/azure/ml/)를 찾습니다.
+[Azure CLI의 azure-cli-ml 확장에 대한 전체 참조 문서](/cli/azure/ext/azure-cli-ml/)를 찾습니다.
 
 ## <a name="connect-the-cli-to-your-azure-subscription"></a>Azure 구독에 CLI 연결
 
@@ -94,7 +94,7 @@ az extension remove -n azure-cli-ml
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
 
-    자세한 내용은 [az ml workspace create](/cli/azure/ml/workspace#az_ml_workspace_create)를 참조하세요.
+    자세한 내용은 [az ml workspace create](/cli/azure/ext/azure-cli-ml/ml/workspace#ext-azure-cli-ml-az-ml-workspace-create)를 참조하세요.
 
 + 작업 영역 구성을 폴더에 연결하여 CLI 상황별 인식을 사용하도록 설정합니다.
 
@@ -104,7 +104,7 @@ az extension remove -n azure-cli-ml
 
     이 명령은 예제 runconfig 및 conda 환경 파일을 포함하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신하는 데 사용되는 `config.json` 파일을 포함합니다.
 
-    자세한 내용은 [az ml folder attach](/cli/azure/ml/folder#az_ml_folder_attach)를 참조하세요.
+    자세한 내용은 [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder#ext-azure-cli-ml-az-ml-folder-attach)를 참조하세요.
 
 + Azure Blob 컨테이너를 데이터 저장소로 연결합니다.
 
@@ -112,7 +112,7 @@ az extension remove -n azure-cli-ml
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
 
-    자세한 내용은 [az ml datastore attach-blob](/cli/azure/ml/datastore#az_ml_datastore_attach-blob)을 참조하세요.
+    자세한 내용은 [az ml datastore attach-blob](/cli/azure/ext/azure-cli-ml/ml/datastore#ext-azure-cli-ml-az-ml-datastore-attach-blob)을 참조하세요.
 
 + 데이터 저장소에 파일을 업로드합니다.
 
@@ -120,7 +120,7 @@ az extension remove -n azure-cli-ml
     az ml datastore upload  -n datastorename -p sourcepath
     ```
 
-    자세한 내용은 [az ml datastore upload](/cli/azure/ml/datastore#az_ml_datastore_upload)를 참조하세요.
+    자세한 내용은 [az ml datastore upload](/cli/azure/ext/azure-cli-ml/ml/datastore#ext-azure-cli-ml-az-ml-datastore-upload)를 참조하세요.
 
 + AKS 클러스터를 컴퓨팅 대상으로 연결합니다.
 
@@ -128,7 +128,7 @@ az extension remove -n azure-cli-ml
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myresourcegroup -w myworkspace
     ```
 
-    자세한 내용은 [az ml computetarget attach aks](/cli/azure/ml/computetarget/attach#az_ml_computetarget_attach-aks)를 참조하세요.
+    자세한 내용은 [az ml computetarget attach aks](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach#ext-azure-cli-ml-az-ml-computetarget-attach-aks)를 참조하세요.
 
 ### <a name="compute-clusters"></a>컴퓨팅 클러스터
 
@@ -153,7 +153,7 @@ az extension remove -n azure-cli-ml
     ```azurecli
     az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '[system]'
     ```
-+ 기존 클러스터에 관리 ID를 추가:
++ 기존 클러스터에 관리 ID를 추가합니다.
 
     + 사용자 할당 관리 ID
         ```azurecli
@@ -165,7 +165,7 @@ az extension remove -n azure-cli-ml
         az ml computetarget amlcompute identity assign --name cpu-cluster '[system]'
         ```
 
-자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute)를 참조하세요.
+자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)를 참조하세요.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
 
@@ -180,7 +180,7 @@ az extension remove -n azure-cli-ml
     az ml computetarget create computeinstance -n cpu -s "STANDARD_D3_V2" -v
     ```
 
-    자세한 내용은 [az ml computetarget create computeinstance](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_computeinstance)를 참조하세요.
+    자세한 내용은 [az ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-computeinstance)를 참조하세요.
 
 + 컴퓨팅 인스턴스를 중지합니다.
 
@@ -188,7 +188,7 @@ az extension remove -n azure-cli-ml
     az ml computetarget computeinstance stop -n cpu -v
     ```
 
-    자세한 내용은 [az ml computetarget computeinstance stop](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_stop)을 참조하세요.
+    자세한 내용은 [az ml computetarget computeinstance stop](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop)을 참조하세요.
 
 + 컴퓨팅 인스턴스를 시작합니다.
 
@@ -196,7 +196,7 @@ az extension remove -n azure-cli-ml
     az ml computetarget computeinstance start -n cpu -v
     ```
 
-    자세한 내용은 [az ml computetarget computeinstance start](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_start)를 참조하세요.
+    자세한 내용은 [az ml computetarget computeinstance start](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start)를 참조하세요.
 
 + 컴퓨팅 인스턴스를 다시 시작합니다.
 
@@ -204,7 +204,7 @@ az extension remove -n azure-cli-ml
     az ml computetarget computeinstance restart -n cpu -v
     ```
 
-    자세한 내용은 [az ml computetarget computeinstance restart](/cli/azure/ml/computetarget/computeinstance#az_ml_computetarget_computeinstance_restart)를 참조하세요.
+    자세한 내용은 [az ml computetarget computeinstance restart](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart)를 참조하세요.
 
 + 컴퓨팅 인스턴스를 삭제합니다.
 
@@ -212,7 +212,7 @@ az extension remove -n azure-cli-ml
     az ml computetarget delete -n cpu -v
     ```
 
-    자세한 내용은 [az ml computetarget delete computeinstance](/cli/azure/ml/computetarget#az_ml_computetarget_delete)를 참조하세요.
+    자세한 내용은 [az ml computetarget delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete)를 참조하세요.
 
 
 ## <a name="run-experiments"></a><a id="experiments"></a>실험 실행
@@ -230,7 +230,7 @@ az extension remove -n azure-cli-ml
     >
     > 전체 runconfig 스키마는 이 [JSON 파일](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)에서 찾을 수 있습니다. 스키마는 각 개체의 `description` 키를 통해 자동으로 문서화합니다. 또한 가능한 값의 열거형과 끝 부분에 템플릿 코드 조각이 있습니다.
 
-    자세한 내용은 [az ml run submit-script](/cli/azure/ml/run#az_ml_run_submit_script)를 참조하세요.
+    자세한 내용은 [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-script)를 참조하세요.
 
 * 실험 목록을 확인합니다.
 
@@ -238,7 +238,7 @@ az extension remove -n azure-cli-ml
     az ml experiment list
     ```
 
-    자세한 내용은 [az ml experiment list](/cli/azure/ml/experiment#az_ml_experiment_list)를 참조하세요.
+    자세한 내용은 [az ml experiment list](/cli/azure/ext/azure-cli-ml/ml/experiment#ext-azure-cli-ml-az-ml-experiment-list)를 참조하세요.
 
 ### <a name="hyperdrive-run"></a>HyperDrive 실행
 
@@ -282,7 +282,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
 
     데이터 세트를 정의하는 데 사용되는 JSON 파일의 형식을 알아보려면 `az ml dataset register --show-template`을 사용합니다.
 
-    자세한 내용은 [az ml dataset register](/cli/azure/ml/dataset#az_ml_dataset_register)를 참조하세요.
+    자세한 내용은 [az ml dataset register](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-register)를 참조하세요.
 
 + 작업 영역의 모든 데이터 세트를 나열합니다.
 
@@ -290,7 +290,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml dataset list
     ```
 
-    자세한 내용은 [az ml dataset list](/cli/azure/ml/dataset#az_ml_dataset_list)를 참조하세요.
+    자세한 내용은 [az ml dataset list](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-list)를 참조하세요.
 
 + 데이터 세트의 세부 정보를 가져옵니다.
 
@@ -298,7 +298,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml dataset show -n dataset-name
     ```
 
-    자세한 내용은 [az ml dataset show](/cli/azure/ml/dataset#az_ml_dataset_show)를 참조하세요.
+    자세한 내용은 [az ml dataset show](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-show)를 참조하세요.
 
 + 데이터베이스 등록을 취소합니다.
 
@@ -306,7 +306,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml dataset unregister -n dataset-name
     ```
 
-    자세한 내용은 [az ml dataset unregister](/cli/azure/ml/dataset#az_ml_dataset_archive)를 참조하세요.
+    자세한 내용은 [az ml dataset unregister](/cli/azure/ext/azure-cli-ml/ml/dataset#ext-azure-cli-ml-az-ml-dataset-archive)를 참조하세요.
 
 ## <a name="environment-management"></a>환경 관리
 
@@ -318,7 +318,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml environment scaffold -n myenv -d myenvdirectory
     ```
 
-    자세한 내용은 [az ml environment scaffold](/cli/azure/ml/environment#az_ml_environment_scaffold)를 참조하세요.
+    자세한 내용은 [az ml environment scaffold](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-scaffold)를 참조하세요.
 
 + 환경을 등록합니다.
 
@@ -326,7 +326,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml environment register -d myenvdirectory
     ```
 
-    자세한 내용은 [az ml environment register](/cli/azure/ml/environment#az_ml_environment_register)를 참조하세요.
+    자세한 내용은 [az ml environment register](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-register)를 참조하세요.
 
 + 등록된 환경을 나열합니다.
 
@@ -334,7 +334,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml environment list
     ```
 
-    자세한 내용은 [az ml environment list](/cli/azure/ml/environment#az_ml_environment_list)를 참조하세요.
+    자세한 내용은 [az ml environment list](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-list)를 참조하세요.
 
 + 등록된 환경을 다운로드합니다.
 
@@ -342,7 +342,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml environment download -n myenv -d downloaddirectory
     ```
 
-    자세한 내용은 [az ml environment download](/cli/azure/ml/environment#az_ml_environment_download)를 참조하세요.
+    자세한 내용은 [az ml environment download](/cli/azure/ext/azure-cli-ml/ml/environment#ext-azure-cli-ml-az-ml-environment-download)를 참조하세요.
 
 ### <a name="environment-configuration-schema"></a>환경 구성 스키마
 
@@ -413,7 +413,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml pipeline create -n mypipeline -y mypipeline.yml
     ```
 
-    자세한 내용은 [az ml pipeline create](/cli/azure/ml/pipeline#az_ml_pipeline_create)를 참조하세요.
+    자세한 내용은 [az ml pipeline create](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext-azure-cli-ml-az-ml-pipeline-create)를 참조하세요.
 
     파이프라인 YAML 파일에 관한 자세한 내용은 [YAML의 기계 학습 파이프라인 정의](reference-pipeline-yaml.md)를 참조하세요.
 
@@ -423,7 +423,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml run submit-pipeline -n myexperiment -y mypipeline.yml
     ```
 
-    자세한 내용은 [az ml run submit-pipeline](/cli/azure/ml/run#az_ml_run_submit_pipeline)을 참조하세요.
+    자세한 내용은 [az ml run submit-pipeline](/cli/azure/ext/azure-cli-ml/ml/run#ext-azure-cli-ml-az-ml-run-submit-pipeline)을 참조하세요.
 
     파이프라인 YAML 파일에 관한 자세한 내용은 [YAML의 기계 학습 파이프라인 정의](reference-pipeline-yaml.md)를 참조하세요.
 
@@ -433,7 +433,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
     ```
 
-    자세한 내용은 [az ml pipeline create-schedule](/cli/azure/ml/pipeline#az_ml_pipeline_create-schedule)을 참조하세요.
+    자세한 내용은 [az ml pipeline create-schedule](/cli/azure/ext/azure-cli-ml/ml/pipeline#ext-azure-cli-ml-az-ml-pipeline-create-schedule)을 참조하세요.
 
     파이프라인 일정 YAML 파일에 관한 자세한 내용은 [YAML의 기계 학습 파이프라인 정의](reference-pipeline-yaml.md#schedules)를 참조하세요.
 
@@ -447,14 +447,14 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     az ml model register -n mymodel -p sklearn_regression_model.pkl
     ```
 
-    자세한 내용은 [az ml model register](/cli/azure/ml/model#az_ml_model_register)를 참조하세요.
+    자세한 내용은 [az ml model register](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register)를 참조하세요.
 
 + **선택 사항** 배포를 위한 최적의 CPU 및 메모리 값을 얻으려면 모델을 프로파일링합니다.
     ```azurecli-interactive
     az ml model profile -n myprofile -m mymodel:1 --ic inferenceconfig.json -d "{\"data\": [[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]]}" -t myprofileresult.json
     ```
 
-    자세한 내용은 [az ml model profile](/cli/azure/ml/model#az_ml_model_profile)을 참조하세요.
+    자세한 내용은 [az ml model profile](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-profile)을 참조하세요.
 
 + AKS에 모델 배포
     ```azurecli-interactive
@@ -465,7 +465,7 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
     
     배포 구성 파일 스키마에 관한 자세한 내용은 [배포 구성 스키마](#deploymentconfig)를 참조하세요.
 
-    자세한 내용은 [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy)를 참조하세요.
+    자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy)를 참조하세요.
 
 <a id="inferenceconfig"></a>
 
@@ -491,6 +491,6 @@ runconfig의 *인수* 섹션과 HyperDrive 구성의 *매개 변수 공간* 을 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Machine Learning CLI 확장의 명령 참조](/cli/azure/ml).
+* [Machine Learning CLI 확장의 명령 참조](/cli/azure/ext/azure-cli-ml/ml).
 
 * [Azure Pipelines를 사용하여 기계 학습 모델 학습 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)

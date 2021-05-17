@@ -3,12 +3,13 @@ title: 확장 리소스 종류에 대한 범위
 description: 확장 리소스 종류를 배포할 때 scope 속성을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 0f24c37c69394358e87407245f5db41ce8b6de80
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99492164"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752052"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>ARM 템플릿에서 확장 리소스 범위 설정
 

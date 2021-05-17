@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory에서 지원되는 파일 형식(레거시)
 description: 이 항목에서는 Azure Data Factory에서 파일 기반 커넥터가 지원하는 파일 형식 및 압축 코드를 설명합니다.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: d95927a9ea7d3084387a9aedb0dcdd86f84b8e7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 960c2a995a6e68b2f15e553121bc860f9ac29890
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100384829"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488522"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱(레거시)
 
@@ -442,7 +442,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 | Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
-| Boolean | Boolean | 해당 없음 | 해당 없음 |
+| Boolean | 부울 | 해당 없음 | 해당 없음 |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -459,7 +459,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 | TimeSpan | Int96 | 해당 없음 | 해당 없음 |
 | DateTimeOffset | Int96 | 해당 없음 | 해당 없음 |
 | ByteArray | 이진 | 해당 없음 | 해당 없음 |
-| GUID | 이진 | Utf8 | Utf8 |
+| Guid | 이진 | Utf8 | Utf8 |
 | Char | 이진 | Utf8 | Utf8 |
 | CharArray | 지원되지 않음 | 해당 없음 | 해당 없음 |
 
@@ -495,7 +495,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 
 | Data Factory 중간 데이터 형식 | ORC 형식 |
 |:--- |:--- |
-| Boolean | Boolean |
+| Boolean | 부울 |
 | SByte | Byte |
 | Byte | Short |
 | Int16 | Short |
@@ -512,7 +512,7 @@ ORC 파일을 구문 분석하거나 데이터를 ORC 형식으로 쓰려면 `fo
 | DateTimeOffset | 타임스탬프 |
 | TimeSpan | 타임스탬프 |
 | ByteArray | 이진 |
-| GUID | String |
+| Guid | String |
 | Char | Char(1) |
 
 ## <a name="avro-format-legacy"></a><a name="avro-format"></a> AVRO 형식(레거시)
@@ -576,7 +576,7 @@ Azure Data Factory에서는 복사하는 동안 압축/압축 풀기 데이터�
 * **수준:****최적** 또는 **가장 빠름** 이 될 수 있는 압축 비율입니다.
 
   * **가장 빠름:** 결과 파일이 최적으로 압축되지 않은 경우에도 압축 작업을 최대한 빨리 완료해야 합니다.
-  * **최적**: 작업이 완료되는데 시간이 오래 걸리더라도 압축 작업이 최적으로 압축되어야 합니다.
+  * **최적**: 작업이 완료되는 데 시간이 오래 걸리더라도 최적으로 압축해야 합니다.
 
     자세한 내용은 [압축 수준](/dotnet/api/system.io.compression.compressionlevel) 항목을 참조하세요.
 

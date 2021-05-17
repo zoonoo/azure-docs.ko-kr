@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 공용 IP 주소 할당
 description: 프라이빗 클라우드 환경에서 가상 머신에 대한 공용 IP 주소를 할당하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bb46ad726cd3b99324e9bb96b998ed1b4da885de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 75378ba712a1e71dcd0e16af661672df76c6a9e3
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899187"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108185309"
 ---
 # <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>프라이빗 클라우드 환경에 공용 IP 주소 할당
 
