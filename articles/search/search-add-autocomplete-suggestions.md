@@ -1,7 +1,7 @@
 ---
 title: 검색 상자에 자동 완성 추가
 titleSuffix: Azure Cognitive Search
-description: 완성 된 용어나 구를 사용 하 여 검색 상자를 자동으로 자동 완성 하는 요청을 확인 기 하 고 작성 하 여 Azure Cognitive Search에서 검색 형식 쿼리 작업을 사용 하도록 설정 합니다. 제안 된 일치 항목을 반환할 수도 있습니다.
+description: 제안기를 만들고 완성된 용어 또는 구로 검색 상자를 자동 완성하는 요청을 작성하여 Azure Cognitive Search에서 입력과 동시에 검색(search-as-you-type) 쿼리 작업을 사용하도록 설정합니다. 제안된 일치 항목을 반환할 수도 있습니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,30 +9,30 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.openlocfilehash: b260793cc3c0b5ac3ffce8fac909e2db8991c713
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626710"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307812"
 ---
-# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 클라이언트 앱에 자동 완성 및 제안 추가
+# <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Azure Cognitive Search를 사용하여 클라이언트 앱에 자동 완성 및 제안 추가
 
-검색 형식은 쿼리 생산성을 개선 하기 위한 일반적인 기술입니다. Azure Cognitive Search에서는이 환경이 *자동 완성* 을 통해 지원 되며,이는 부분 입력 ("microsoft"로 "마이크로" 완료)을 기반으로 용어 또는 구를 완료 합니다. 두 번째 사용자 환경에는 *제안 사항이* 나 일치 하는 문서의 짧은 목록 (해당 책에 대 한 세부 정보 페이지에 연결할 수 있도록 책 제목을 ID로 반환)이 있습니다. 인덱스의 일치 항목에 대 한 자동 완성 및 제안이 모두 예측 됩니다. 서비스는 결과를 0으로 반환 하는 쿼리를 제공 하지 않습니다.
+입력과 동시에 검색은 쿼리 생산성을 개선하기 위한 일반적인 기술입니다. Azure Cognitive Search에서 이 환경은 부분 입력을 기반으로 용어 또는 구를 완성하는 *자동 완성* 을 통해 지원됩니다(‘micro’를 입력하면 ‘microsoft’ 완성). 두 번째 사용자 환경은 *제안* 또는 일치하는 문서의 짧은 목록입니다(책에 대한 세부 정보 페이지에 연결할 수 있도록 ID와 함께 책 제목을 반환). 자동 완성과 제안 모두 인덱스의 일치 항목에 기반합니다. 이 서비스는 0의 결과를 반환하는 쿼리를 제공하지 않습니다.
 
-Azure Cognitive Search에서 이러한 환경을 구현 하려면 다음이 필요 합니다.
+Azure Cognitive Search에서 이러한 환경을 구현하려면 다음이 필요합니다.
 
-+ 인덱스 스키마에 포함 된 *확인 기* 정의입니다.
-+ 요청에 대 한 [자동 완성](/rest/api/searchservice/autocomplete) 또는 [제안](/rest/api/searchservice/suggestions) API를 지정 하는 *쿼리입니다* .
-+ 클라이언트 앱에서 검색 형식 상호 작용을 처리 하는 *UI 컨트롤* 입니다. 이 목적을 위해 기존 JavaScript 라이브러리를 사용 하는 것이 좋습니다.
++ 인덱스 스키마에 포함된 *제안기* 정의.
++ 요청에 대한 [자동 완성](/rest/api/searchservice/autocomplete) 또는 [제안](/rest/api/searchservice/suggestions) API를 지정하는 *쿼리*.
++ 클라이언트 앱에서 입력과 동시에 검색 상호 작용을 처리하는 *UI 컨트롤*. 기존 JavaScript 라이브러리를 이 용도로 사용하는 것이 좋습니다.
 
-Azure Cognitive Search에서 자동 완성 쿼리와 제안 된 결과가 검색 인덱스에서 검색 되 고 확인 기에 등록 한 선택한 필드에서 검색 됩니다. 확인 기는 인덱스의 일부 이며 쿼리를 완료 하거나 결과를 제안 하거나 둘 다 수행 하는 내용을 제공 하는 필드를 지정 합니다. 인덱스를 만들고 로드할 때 확인 기 데이터 구조는 내부적으로 생성 되어 부분 쿼리를 일치 시키는 데 사용 되는 접두사를 저장 합니다. 제안에 대해 고유한 필드를 선택 하거나 최소한의 반복을 선택 하지 않는 것이 좋습니다. 자세한 내용은 [Create a 확인 기](index-add-suggesters.md)을 참조 하세요.
+Azure Cognitive Search에서는 자동 완성된 쿼리와 제안된 결과가 검색 인덱스 및 제안기에 등록한 선택된 필드에서 검색됩니다. 제안기는 인덱스의 일부이며, 쿼리를 완료하거나 결과를 제안하거나 둘 다 수행하는 내용을 제공할 필드를 지정합니다. 인덱스가 만들어지고 로드되면 부분 쿼리에서 일치에 사용되는 접두사를 저장하는 제안기 데이터 구조가 내부에서 만들어집니다. 제안의 경우 고유하거나 적어도 반복적이지 않은 적절한 필드를 선택하는 것이 환경에 필수적입니다. 자세한 내용은 [제안기 만들기](index-add-suggesters.md)를 참조하세요.
 
-이 문서의 나머지 부분에서는 쿼리와 클라이언트 코드에 대해 집중적으로 설명 합니다. JavaScript 및 c #을 사용 하 여 핵심 사항을 설명 합니다. REST API 예제는 각 작업을 간결 하 게 표시 하는 데 사용 됩니다. 종단 간 코드 샘플에 대 한 링크는 [다음 단계](#next-steps)를 참조 하세요.
+이 문서의 나머지 부분에서는 쿼리와 클라이언트 코드에 대해 집중적으로 설명합니다. 핵심 사항을 설명하기 위해 JavaScript와 C#을 사용합니다. 각 작업을 간결하게 표시하기 위해 REST API 예제가 사용됩니다. 엔드투엔드 코드 샘플에 대한 링크는 [다음 단계](#next-steps)를 참조하세요.
 
 ## <a name="set-up-a-request"></a>요청 설정
 
-요청 요소에는 검색 형식 Api, 부분 쿼리 및 확인 기 중 하나가 포함 됩니다. 다음 스크립트는 REST API 자동 완성을 사용 하 여 요청의 구성 요소를 보여 줍니다.
+요청 요소에는 입력과 동시에 검색 API, 부분 쿼리, 제안기 중 하나가 포함됩니다. 다음 스크립트는 자동 완성 REST API를 예제로 사용하여 요청의 구성 요소를 보여 줍니다.
 
 ```http
 POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
@@ -42,17 +42,17 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 }
 ```
 
-"SuggesterName"는 용어 또는 제안을 완료 하는 데 사용 되는 확인 기 인식 필드를 제공 합니다. 특히, 필드 목록은 일치 결과 중에서 명확한 선택 항목을 제공 하는 항목으로 구성 되어야 합니다. 컴퓨터 게임을 판매 하는 사이트에서이 필드는 게임 타이틀이 될 수 있습니다.
+"suggesterName"은 용어 또는 제안을 완성하는 데 사용되는 제안기 인식 필드를 제공합니다. 특히 제안의 경우 필드 목록은 일치하는 결과 중에서 명확한 선택을 제공하는 결과로 구성되어야 합니다. 컴퓨터 게임을 판매하는 사이트에서 이 필드는 게임 타이틀이 될 수 있습니다.
 
-"Search" 매개 변수는 jQuery 자동 완성 컨트롤을 통해 쿼리 요청에 문자를 공급 하는 부분 쿼리를 제공 합니다. 위의 예제에서 "minecraf"는 컨트롤이 전달 했을 수 있는 항목에 대 한 정적 그림입니다.
+"search" 매개 변수는 jQuery 자동 완성 컨트롤을 통해 쿼리 요청에 문자가 공급되는 부분 쿼리를 제공합니다. 위의 예제에서 "minecraf"는 컨트롤이 전달했을 수 있는 항목의 정적 예시입니다.
 
-Api는 부분 쿼리에 최소 길이 요구 사항을 적용 하지 않습니다. 문자는 한 문자이 하 여야 합니다. 그러나 jQuery 자동 완성은 최소 길이를 제공 합니다. 일반적으로 2 ~ 3 자 이상입니다.
+API는 부분 쿼리에 최소 길이 요구 사항을 적용하지 않습니다. 문자 하나여도 됩니다. 그러나 jQuery 자동 완성은 최소 길이를 제공합니다. 최소 2~3자가 일반적입니다.
 
-일치 항목은 입력 문자열의 모든 위치에서 시작 됩니다. "빠른 갈색 fox"를 고려 하 여 "the", "quick", "갈색" 또는 "fox"의 부분 버전에서는 "rown" 또는 "황소"와 같은 부분 사용 약관이 일치 하지 않습니다. 또한 각 일치 항목은 다운스트림 확장의 범위를 설정 합니다. "빠른 br"의 부분 쿼리는 "빠른 갈색" 또는 "빠른 이동 (quick)"에서 일치 하지만 "" 갈색 "또는" 이동 "은" 빠른 "앞에 오는 경우를 제외 하 고 모두 일치 합니다.
+일치 항목은 입력 문자열에서 용어의 시작 부분에 있습니다. ‘the quick brown fox’를 예로 들면 자동 완성과 제안 모두 부분 버전 ‘the’, ‘quick’, ‘brown’ 또는 ‘fox’에서는 비교하지만 ‘rown’ 또는 ‘ox’ 같은 부분 삽입사 용어에서는 비교하지 않습니다. 또한 각 일치 항목은 다운스트림 확장의 범위를 설정합니다. 부분 쿼리 ‘quick br’은 ‘quick brown’ 또는 ‘quick bread’와 비교되지만 ‘quick’이 앞에 오지 않는 한 ‘brown’ 또는 ‘bread’ 자체와는 비교되지 않습니다.
 
-### <a name="apis-for-search-as-you-type"></a>검색을 위한 Api (입력 형식)
+### <a name="apis-for-search-as-you-type"></a>입력과 동시에 검색을 위한 API
 
-REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
+REST 및 .NET SDK 참조 페이지에 대한 다음 링크를 따라가세요.
 
 + [제안 REST API](/rest/api/searchservice/suggestions) 
 + [자동 완성 REST API](/rest/api/searchservice/autocomplete) 
@@ -61,45 +61,45 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 ## <a name="structure-a-response"></a>응답 구성
 
-자동 완성 및 제안에 대 한 응답은 패턴에 대해 예측할 수 있습니다. [자동 완성](/rest/api/searchservice/autocomplete#response) 은 단어를 인출할 수 있도록 용어와 문서 ID [를 반환 합니다](/rest/api/searchservice/suggestions#response) . 그러면 문서를 인출할 수 있습니다 ( [조회 문서](/rest/api/searchservice/lookup-document) API를 사용 하 여 세부 정보 페이지에 대 한 특정 문서 페치).
+자동 완성 및 제안에 대한 응답은 패턴을 통해 예상할 수 있습니다. [자동 완성](/rest/api/searchservice/autocomplete#response)은 용어 목록을 반환하고, [제안](/rest/api/searchservice/suggestions#response)은 용어 외에도 문서를 가져올 수 있도록 문서 ID도 반환합니다(특정 문서의 상세 페이지를 가져오려면 [문서 조회](/rest/api/searchservice/lookup-document) API를 사용하세요).
 
-응답은 요청에 대 한 매개 변수에 따라 다음과 같이 지정 됩니다.
+응답은 요청에서의 매개 변수에 따라 다음과 같이 구성됩니다.
 
-+ 자동 완성을 위해 [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters) 를 설정 하 여 텍스트 완성이 한 두 항에서 발생 하는지 여부를 확인 합니다. 
++ 자동 완성의 경우 [autocompleteMode](/rest/api/searchservice/autocomplete#query-parameters)를 설정하여 텍스트 완성이 하나의 용어에서 발생하는지 두 용어에서 발생하는지 여부를 결정합니다. 
 
-+ 제안에 대해 이름, 설명 등 고유 하거나 차별화 된 값이 포함 된 필드를 반환 하도록 [$select](/rest/api/searchservice/suggestionse#query-parameters) 를 설정 합니다. 중복 값을 포함 하는 필드 (예: 범주 또는 도시)를 사용 하지 않습니다.
++ 제안의 경우 [$select](/rest/api/searchservice/suggestions#query-parameters)를 선택하여 이름과 설명처럼 고유하거나 구별되는 값이 포함된 필드를 반환합니다. 중복 값(예: 범주 또는 도시)을 포함하는 필드는 사용하지 않는 것이 좋습니다.
 
-다음 추가 매개 변수는 자동 완성 및 제안에 모두 적용 되지만 특히 확인 기에 여러 필드가 포함 된 경우 제안에 더 필요할 수 있습니다.
+다음 추가 매개 변수는 자동 완성과 제안에 모두 적용되지만 특히 제안기에 여러 필드가 포함된 경우 제안에 더 필요할 수 있습니다.
 
 | 매개 변수 | 사용량 |
 |-----------|-------|
-| searchFields | 특정 필드에 대 한 쿼리를 제한 합니다. |
-| $filter | 결과 집합에 일치 조건 ()을 적용 `$filter=Category eq 'ActionAdventure'` 합니다. |
-| $top | 결과를 특정 숫자 ()로 제한 `$top=5` 합니다.|
+| searchFields | 쿼리를 특정 필드로 제한합니다. |
+| $filter | 결과 집합에서 일치 조건을 적용합니다(`$filter=Category eq 'ActionAdventure'`). |
+| $top | 결과를 특정 숫자로 제한합니다(`$top=5`).|
 
 ## <a name="add-user-interaction-code"></a>사용자 상호 작용 코드 추가
 
-쿼리 용어를 자동으로 채우거 나 일치 하는 링크 목록을 삭제 하려면 사용자 상호 작용 코드 (일반적으로 JavaScript)를 사용 해야 합니다 .이 코드는 자동 완성 또는 Azure Search 인식 인덱스에 대 한 제안 쿼리와 같은 외부 소스의 요청을 사용할 수 있습니다.
+쿼리 용어를 자동으로 채우거나 일치하는 링크 목록을 드롭다운하려면 사용자 상호 작용 코드(일반적으로 JavaScript)가 필요합니다. 이 코드는 Azure Cognitive Search 인덱스에 대한 자동 완성 또는 제안 쿼리와 같은 외부 원본의 요청을 사용할 수 있습니다.
 
-이 코드를 기본적으로 작성할 수 있지만 다음 중 하 나와 같은 기존 JavaScript 라이브러리의 함수를 사용 하는 것이 훨씬 쉽습니다. 
+이 코드를 고유하게 작성할 수도 있지만 다음 중 하나와 같은 기존 JavaScript 라이브러리의 함수를 사용하는 것이 훨씬 쉽습니다. 
 
-+ [자동 완성 위젯 (JQUERY UI)](https://jqueryui.com/autocomplete/) 이 제안 코드 조각에 나타납니다. 검색 상자를 만든 다음 자동 완성 위젯을 사용 하는 JavaScript 함수에서 검색 상자를 참조할 수 있습니다. 위젯의 속성은 원본 (자동 완성 또는 제안 함수), 작업을 수행 하기 전의 최소 입력 문자 길이 및 위치 지정을 설정 합니다.
++ [자동 완성 위젯(jQuery UI)](https://jqueryui.com/autocomplete/)이 제안 코드 조각에 나타납니다. 검색 상자를 만든 다음 자동 완성 위젯을 사용하는 JavaScript 함수에서 검색 상자를 참조할 수 있습니다. 위젯의 속성은 원본(자동 완성 또는 제안 함수), 작업을 수행하기 전의 최소 입력 문자 길이, 위치 지정을 설정합니다.
 
-+ [XDSoft 자동 완성 플러그](https://xdsoft.net/jqplugins/autocomplete/) 인이 자동 완성 코드 조각에 표시 됩니다.
++ [XDSoft 자동 완성 플러그 인](https://xdsoft.net/jqplugins/autocomplete/)이 자동 완성 코드 조각에 나타납니다.
 
-+ [제안 사항은](https://www.npmjs.com/package/suggestions) [JavaScript 자습서](tutorial-javascript-overview.md) 및 코드 샘플에 표시 됩니다.
++ [제안](https://www.npmjs.com/package/suggestions)이 [JavaScript 자습서](tutorial-javascript-overview.md) 및 코드 샘플에 나타납니다.
 
-클라이언트에서 이러한 라이브러리를 사용 하 여 제안과 자동 완성을 모두 지 원하는 검색 상자를 만듭니다. 검색 상자에 수집 된 입력은 검색 서비스의 제안 및 자동 완성 작업과 함께 사용할 수 있습니다.
+클라이언트에서 이러한 라이브러리를 사용하여 제안과 자동 완성을 모두 지원하는 검색 상자를 만듭니다. 검색 상자에 수집된 입력은 검색 서비스에서의 제안 및 자동 완성 작업에 쌍으로 연결할 수 있습니다.
 
 ## <a name="suggestions"></a>제안
 
-이 섹션에서는 검색 상자 정의부터 시작 하 여 제안 된 결과를 구현 하는 과정을 안내 합니다. 또한이 문서에서 참조 하는 첫 번째 JavaScript 자동 완성 라이브러리를 호출 하는 방법과 스크립트를 보여 줍니다.
+이 섹션에서는 검색 상자 정의부터 시작하여 제안된 결과를 구현하는 과정을 안내합니다. 또한 이 문서에서 참조하는 첫 번째 JavaScript 자동 완성 라이브러리를 호출하는 스크립트를 작성하는 방법을 보여 줍니다.
 
 ### <a name="create-a-search-box"></a>검색 상자 만들기
 
-[JQUERY UI 자동 완성 라이브러리](https://jqueryui.com/autocomplete/) 및 c #의 MVC 프로젝트를 가정 하 고, **Index. Cshtml** 파일에서 JavaScript를 사용 하 여 검색 상자를 정의할 수 있습니다. 라이브러리는 MVC 컨트롤러에 대 한 비동기 호출을 수행 하 여 제안을 검색 하 고 검색 상자에 검색 형식 상호 작용을 추가 합니다.
+[jQuery UI 자동 완성 라이브러리](https://jqueryui.com/autocomplete/) 및 C#의 MVC 프로젝트가 있다면 **Index. cshtml** 파일에서 JavaScript를 사용하여 검색 상자를 정의할 수 있습니다. 이 라이브러리는 제안을 검색하는 MVC 컨트롤러를 비동기 방식으로 호출하여 입력과 동시에 검색 상호 작용을 검색 상자에 추가합니다.
 
-\Views\Home 폴더 아래의 **Index. cshtml** 에서 검색 상자를 만드는 줄은 다음과 같을 수 있습니다.
+\Views\Home 폴더 아래의 **Index.cshtml** 에서 검색 상자를 만드는 줄은 다음과 같습니다.
 
 ```html
 <input class="searchBox" type="text" id="searchbox1" placeholder="search">
@@ -107,7 +107,7 @@ REST 및 .NET SDK 참조 페이지에 대 한 다음 링크를 따르세요.
 
 이 예제는 스타일 지정에 대한 클래스, JavaScript에서 참조할 ID 및 자리 표시자 텍스트가 있는 간단한 입력 텍스트 상자입니다.  
 
-동일한 파일 내에서 검색 상자를 참조 하는 JavaScript를 포함 합니다. 다음 함수는 부분 용어 입력에 따라 제안 된 일치 문서를 요청 하는 제안 API를 호출 합니다.
+동일한 파일 내에서 검색 상자를 참조하는 JavaScript를 포함합니다. 다음 함수는 부분 용어 입력을 기반으로 제안된 일치 문서를 요청하는 제안 API를 호출합니다.
 
 ```javascript
 $(function () {
@@ -122,13 +122,13 @@ $(function () {
 });
 ```
 
-는 `source` 검색 상자 아래에 표시할 항목 목록을 가져오는 JQUERY UI 자동 완성 기능을 제공 합니다. 이 프로젝트는 MVC 프로젝트 이므로 쿼리 제안을 반환 하는 논리를 포함 하는 **HomeController** 에서 **제안** 함수를 호출 합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
+`source`는 검색 상자 아래에 표시할 항목 목록을 가져올 위치를 jQuery UI Autocomplete 함수에 알려 줍니다. 이 프로젝트는 MVC 프로젝트이므로 쿼리 제안을 반환하는 논리가 포함된 **HomeController.cs** 의 **Suggest** 함수를 호출합니다. 또한 이 함수는 강조 표시, 유사 일치, 용어를 제어하는 몇 가지 매개 변수도 전달합니다. 자동 완성 JavaScript API는 용어 매개 변수를 추가합니다.
 
-는 `minLength: 3` 검색 상자에 세 개 이상의 문자가 있는 경우에만 권장 사항이 표시 되도록 합니다.
+`minLength: 3`은 검색 상자에 3자 이상이 입력되었을 때만 권장 사항을 표시하도록 합니다.
 
-### <a name="enable-fuzzy-matching"></a>유사 항목 일치 사용
+### <a name="enable-fuzzy-matching"></a>유사 일치 사용
 
-유사 항목 검색을 사용하면 사용자가 검색 상자에 단어 철자를 틀리게 입력하더라도 가까운 일치를 기준으로 결과를 가져올 수 있습니다. 편집 거리는 1입니다. 즉, 사용자 입력과 일치 하는 문자 사이에는 한 문자의 최대 차이가 있을 수 있습니다. 
+유사 항목 검색을 사용하면 사용자가 검색 상자에 단어 철자를 틀리게 입력하더라도 가까운 일치를 기준으로 결과를 가져올 수 있습니다. 편집 거리는 1입니다. 즉, 사용자 입력과 일치 사이에는 최대한 문자의 불일치가 있을 수 있습니다. 
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=true&",
@@ -136,19 +136,19 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>강조 표시 사용
 
-강조 표시는 입력에 해당 하는 결과의 문자에 글꼴 스타일을 적용 합니다. 예를 들어 부분 입력이 "마이크로" 이면 결과는 **마이크로** 소프트, **마이크로** 범위 등으로 표시 됩니다. 강조 표시는 제안 함수를 사용 하 여 인라인으로 정의 된 HighlightPreTag 및 HighlightPostTag 매개 변수를 기반으로 합니다.
+강조 표시는 결과에서 입력과 일치하는 문자에 글꼴 스타일을 적용합니다. 예를 들어 부분 입력이 ‘micro’이면 결과는 **micro** soft, **micro** scope 등으로 표시됩니다. 강조 표시는 Suggestion 함수를 사용하여 인라인으로 정의된 HighlightPreTag 및 HighlightPostTag 매개 변수를 기반으로 합니다.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
 ```
 
-### <a name="suggest-function"></a>제안 함수
+### <a name="suggest-function"></a>Suggest 함수
 
-C # 및 MVC 응용 프로그램을 사용 하는 경우 Controller 디렉터리 아래의 **HomeController** 파일은 제안 된 결과에 대 한 클래스를 만들 수 있습니다. .NET에서 제안 함수는 [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)를 기반으로 합니다. .NET SDK에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
+C# 및 MVC 애플리케이션을 사용하는 경우 Controllers 디렉터리 아래의 **HomeController.cs** 파일에서 제안된 결과의 클래스를 만들 수 있습니다. .NET에서 Suggest 함수는 [SuggestAsync 메서드](/dotnet/api/azure.search.documents.searchclient.suggestasync)를 기반으로 합니다. .NET SDK에 대한 자세한 내용은 [.NET 애플리케이션에서 Azure Cognitive Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
 
-`InitSearch`메서드는 Azure Cognitive Search 서비스에 대 한 인증 된 HTTP 인덱스 클라이언트를 만듭니다. [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) 클래스의 속성은 결과에서 검색 되 고 반환 되는 필드, 일치 항목 수 및 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 
+`InitSearch` 메서드는 인증된 HTTP 인덱스 클라이언트를 Azure Cognitive Search 서비스에 만듭니다. [SuggestOptions](/dotnet/api/azure.search.documents.suggestoptions) 클래스의 속성은 결과에서 검색되고 반환되는 필드, 일치 항목 수, 유사 일치가 사용되는지 여부를 결정합니다. 
 
-자동 완성의 경우 유사 항목 일치는 단일 편집 거리 (생략 되거나 잘못 된 문자 하나)로 제한 됩니다. 자동 완성 쿼리의 유사 항목 일치는 인덱스 크기 및 분할 된 방식에 따라 예기치 않은 결과를 생성 하는 경우도 있습니다. 자세한 내용은 [partition and 분할 개념](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)을 참조 하세요.
+자동 완성의 경우 유사 일치는 1 편집 거리(생략되거나 잘못된 문자 하나)로 제한됩니다. 자동 완성 쿼리의 유사 일치는 인덱스 크기 및 분할된 방식에 따라 예기치 않은 결과를 생성하는 경우도 있습니다. 자세한 내용은 [파티션 및 분할 개념](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)을 참조하세요.
 
 ```csharp
 public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
@@ -180,11 +180,11 @@ public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string
 }
 ```
 
-SuggestAsync 함수는 적중 항목이 반환 되는지 여부를 결정 하는 두 개의 매개 변수를 사용 하 고 검색 용어 입력 외에 유사 항목 일치가 사용 되는지 여부를 결정 합니다. 제안 된 결과에 최대 8 개의 일치 항목을 포함할 수 있습니다. 메서드는 제안 API에 전달 되는 [SuggestOptions 개체](/dotnet/api/azure.search.documents.suggestoptions)를 만듭니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
+SuggestAsync 함수는 적중 강조 표시를 반환할지 또는 검색어 입력 외에 유사 일치를 사용할지 결정하는 두 매개 변수를 사용합니다. 제안된 결과에는 최대 8개의 일치 항목이 포함될 수 있습니다. 이 메서드는 [SuggestOptions 개체](/dotnet/api/azure.search.documents.suggestoptions)를 만든 다음 Suggest API로 전달합니다. 그러면 클라이언트에 표시될 수 있게 결과가 JSON으로 변환됩니다.
 
 ## <a name="autocomplete"></a>자동 완성
 
-지금까지 검색 UX 코드는 제안을 중심으로 합니다. 다음 코드 블록은 XDSoft jQuery UI 자동 완성 함수를 사용 하 여 Azure Cognitive Search 자동 완성에 대 한 요청을 전달 하는 자동 완성 기능을 보여 줍니다. 제안과 마찬가지로 c # 응용 프로그램에서는 사용자 상호 작용을 지 원하는 코드가 **인덱스 cshtml** 로 이동 합니다.
+지금까지 검색 UX 코드는 제안에 중점을 두었습니다. 다음 코드 블록에서는 XDSoft jQuery UI Autocomplete 함수를 사용하여 Azure Cognitive Search 자동 완성 요청을 전달하는 자동 완성을 보여 줍니다. 제안과 마찬가지로 C# 애플리케이션에서는 사용자 상호 작용을 지원하는 코드가 **index.cshtml** 에 들어갑니다.
 
 ```javascript
 $(function () {
@@ -221,9 +221,9 @@ $(function () {
 });
 ```
 
-### <a name="autocomplete-function"></a>자동 완성 함수
+### <a name="autocomplete-function"></a>Autocomplete 함수
 
-자동 완성은 [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)를 기반으로 합니다. 제안과 마찬가지로이 코드 블록은 **HomeController** 파일로 이동 합니다.
+자동 완성은 [AutocompleteAsync 메서드](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)를 기반으로 합니다. 제안과 마찬가지로 이 코드 블록은 **HomeController.cs** 파일에 들어갑니다.
 
 ```csharp
 public async Task<ActionResult> AutoCompleteAsync(string term)
@@ -249,7 +249,7 @@ Autocomplete 함수는 검색 용어 입력을 사용합니다. 이 메서드는
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 링크를 따라 포괄적인 검색 환경을 보여 주는 종단 간 지침 또는 코드를 참조 하세요. 이 샘플에서는 제안 및 자동 완성의 하이브리드 구현을 보여 줍니다.
+입력과 동시에 검색 환경의 엔드투엔드 지침 또는 코드 데모를 보려면 다음 링크를 따라가세요. 샘플은 제안과 자동 완성의 하이브리드 구현을 보여 줍니다.
 
-+ [웹 사이트에 검색 추가 (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) 는 클라이언트 앱의 부분 용어 완성을 위해 오픈 소스 제안 패키지를 사용 합니다.
-+ 자습서: 연결 된 c # 코드 샘플을 사용 하 여 [c #에서 첫 번째 앱 만들기 (3 단원)](tutorial-csharp-type-ahead-and-suggestions.md) [: azure-검색-dotnet-samples/Create-first-app/3-추가 유형 미리/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) 시연 형식에 대 한 기본 지원
++ [웹 사이트에 검색 추가(JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog)는 클라이언트 앱에서 부분 용어 완성을 위해 오픈 소스 제안 패키지를 사용합니다.
++ [자습서: C#으로 첫 번째 앱 만들기(단원 3)](tutorial-csharp-type-ahead-and-suggestions.md) 및 연결된 [C# 코드 샘플: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)는 자동 완성 안료에 대한 네이티브 지원을 보여 줍니다.

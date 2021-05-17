@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7919d32326e7cb82720714a2bff574ad21f0d5d9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f60ff3c8511472ee456d392257b815c0ab64f69c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753242"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104779803"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -45,7 +45,7 @@ Data Factory는 데이터 이동 활동 및 데이터 변환 활동이라는 두
 ### <a name="data-movement-activities"></a>데이터 이동 활동
 데이터 팩터리의 복사 활동은 원본 데이터 저장소의 데이터를 싱크 데이터 저장소로 복사합니다. Data Factory는 다음과 같은 데이터 저장소를 지원합니다. 모든 소스의 데이터를 모든 싱크에 쓸 수 있습니다. 데이터 저장소를 클릭하면 해당 저장소에서/저장소로 데이터를 복사하는 방법을 확인할 수 있습니다.
 
-[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
 > *가 있는 데이터 저장소는 온-프레미스 또는 Azure IaaS에 있을 수 있으며 온-프레미스/Azure IaaS 컴퓨터에 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 를 설치해야 합니다.
@@ -53,7 +53,7 @@ Data Factory는 데이터 이동 활동 및 데이터 변환 활동이라는 두
 자세한 내용은 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 참조하세요.
 
 ### <a name="data-transformation-activities"></a>데이터 변환 활동
-[!INCLUDE [data-factory-transformation-activities](includes/data-factory-transformation-activities.md)]
+[!INCLUDE [data-factory-transformation-activities](../../../includes/data-factory-transformation-activities.md)]
 
 자세한 내용은 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서를 참조하세요.
 

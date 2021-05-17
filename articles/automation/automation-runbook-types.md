@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3e4f90372c2da22e8df3430ce340477352e5033b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100634892"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830451"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -20,9 +21,9 @@ Azure Automation 프로세스 자동화 기능은 다음 표에 정의된 대로
 |:--- |:--- |
 | [그래픽](#graphical-runbooks)|Windows PowerShell을 기반으로 하며 Azure Portal의 그래픽 편집기로 완전하게 생성 및 편집된 그래픽 Runbook입니다. |
 | [그래픽 PowerShell 워크플로](#graphical-runbooks)|Windows PowerShell 워크플로를 기반으로 하며 Azure Portal의 그래픽 편집기로 완전하게 생성 및 편집된 그래픽 Runbook입니다. |
-| [PowerShell](#powershell-runbooks) |Windows PowerShell 스크립팅을 기반으로 하는 텍스트 runbook입니다. |
-| [PowerShell 워크플로](#powershell-workflow-runbooks)|Windows PowerShell 워크플로 스크립팅을 기반으로 하는 텍스트 runbook입니다. |
-| [Python](#python-runbooks) |Python 스크립팅을 기반으로 하는 텍스트 runbook입니다. |
+| [PowerShell](#powershell-runbooks) |Windows PowerShell 스크립팅을 기반으로 하는 텍스트 Runbook입니다. |
+| [PowerShell 워크플로](#powershell-workflow-runbooks)|Windows PowerShell 워크플로 스크립팅을 기반으로 하는 텍스트 Runbook입니다. |
+| [Python](#python-runbooks) |Python 스크립팅을 기반으로 하는 텍스트 Runbook입니다. |
 
 특정 Runbook에 사용할 형식을 결정할 때 다음과 같은 사항을 고려합니다.
 
@@ -35,7 +36,7 @@ Azure Portal에서 그래픽 편집기를 사용하여 그래픽 및 그래픽 P
 
 * Automation 계정의 파일로 내보낸 다음 다른 Automation 계정으로 가져옵니다.
 * PowerShell 코드를 생성합니다.
-* 가져오는 동안 그래픽 PowerShell 워크플로 runbook으로 변환 됩니다.
+* 가져오는 동안 그래픽 PowerShell 워크플로 Runbook으로 변환되거나 그 반대로 변환됩니다.
 
 ### <a name="advantages"></a>장점
 
@@ -59,7 +60,7 @@ PowerShell Runbook은 Windows PowerShell을 기반으로 합니다. Azure 포털
 
 ### <a name="advantages"></a>장점
 
-* Powershell 워크플로의 다른 복잡성 없이 PowerShell 코드로 모든 복잡 한 논리를 구현 합니다.
+* PowerShell 워크플로의 다른 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다.
 * 실행 전에 컴파일이 필요 없기 때문에 PowerShell 워크플로 Runbook보다 빨리 시작됩니다.
 * Windows 및 Linux 둘 다 Azure 및 Hybrid Runbook Worker에서 실행합니다.
 
@@ -100,9 +101,9 @@ PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-
 
 ## <a name="python-runbooks"></a>Python Runbook
 
-Python runbook은 Python 2 및 Python 3에서 컴파일합니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다. Azure Portal의 텍스트 편집기를 사용하여 Runbook의 코드를 직접 편집할 수 있습니다. 또한 오프라인 텍스트 편집기를 사용할 수 있고 Azure Automation으로 [Runbook을 가져올 수](manage-runbooks.md) 있습니다.
+Python Runbook은 Python 2 및 Python 3에서 컴파일됩니다. Python 3 Runbook은 현재 미리 보기로 제공됩니다. Azure Portal의 텍스트 편집기를 사용하여 Runbook의 코드를 직접 편집할 수 있습니다. 또한 오프라인 텍스트 편집기를 사용할 수 있고 Azure Automation으로 [Runbook을 가져올 수](manage-runbooks.md) 있습니다.
 
-Python 3 runbook은 다음과 같은 Azure 글로벌 인프라에서 지원 됩니다.
+Python 3 Runbook은 다음과 같은 Azure 글로벌 인프라에서 지원됩니다.
 
 * Azure 글로벌
 * Azure Government
@@ -111,22 +112,22 @@ Python 3 runbook은 다음과 같은 Azure 글로벌 인프라에서 지원 됩�
 
 * 강력한 Python 라이브러리를 사용합니다.
 * Azure 또는 Hybrid Runbook Worker에서 실행할 수 있습니다.
-* Python 2의 경우 [python 2.7](https://www.python.org/downloads/release/latest/python2) 이 설치 된 Windows Hybrid Runbook worker가 지원 됩니다.
-* Python 3 클라우드 작업의 경우 Python 3.8 버전이 지원 됩니다. 코드가 서로 다른 버전에서 호환 되는 경우에는 모든 2.x 버전의 스크립트 및 패키지가 작동할 수 있습니다.  
-* Windows 컴퓨터에서 Python 3 하이브리드 작업의 경우 사용할 수 있는 3. x 버전을 설치 하도록 선택할 수 있습니다.  
-* Linux 컴퓨터에서 Python 3 하이브리드 작업의 경우 컴퓨터에 설치 된 Python 3 버전에 따라 DSC OMSConfig 및 Linux Hybrid Worker를 실행 합니다. Linux 컴퓨터에 3.6을 설치 하는 것이 좋습니다. 그러나 Python 3 버전 사이에 메서드 서명 또는 계약의 주요 변경 내용이 없는 경우에도 서로 다른 버전을 사용 해야 합니다.
+* Python 2의 경우 [Python 2.7](https://www.python.org/downloads/release/latest/python2)이 설치되어 있어야 Windows Hybrid Runbook Worker가 지원됩니다.
+* Python 3 Cloud Jobs의 경우 Python 3.8 버전이 지원됩니다. 서로 다른 버전에서 코드가 호환되는 경우에는 3.x 버전의 스크립트 및 패키지가 작동할 수 있습니다.  
+* Windows 컴퓨터의 Python 3 하이브리드 작업의 경우 사용하려는 어떤 3.x 버전도 설치하도록 선택할 수 있습니다.  
+* Linux 컴퓨터의 Python 3 하이브리드 작업의 경우 컴퓨터에 설치된 Python 3 버전에 따라 DSC OMSConfig 및 Linux Hybrid Worker를 실행할 수 있습니다. Linux 컴퓨터에는 3.6을 설치하는 것이 좋습니다. 하지만 Python 3 버전 간에 호환성이 손상되는 메서드 서명 또는 계약 변경이 없다면 다른 버전도 사용할 수 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 
 * Python 스크립팅에 대해 잘 알아야 합니다.
 * 타사 라이브러리를 사용하려면 Automation 계정으로 [패키지를 가져와야](python-packages.md) 합니다.
-* PowerShell/PowerShell 워크플로에서 **시작-automationrunbook** cmdlet을 사용 하 여   Python 3 runbook (미리 보기)을 시작 하는 작업은 작동 하지 않습니다. 이 제한 사항을 해결 하기 위해 Az. Automation 모듈 또는 AzureRm의 **start-azurermautomationrunbook** Cmdlet에서 **AzAutomationRunbook** cmdlet을 사용할 수 있습니다.  
-* Python 3 runbook (미리 보기) 및 패키지는 PowerShell에서 작동 하지 않습니다.
-* Azure Automation는 **sys.debug** 를 지원 하지 않습니다.
+* PowerShell/PowerShell Workflow에서 **Start-AutomationRunbook** cmdlet을 사용하여 Python 3 Runbook(미리 보기)을 시작할 수 없습니다. 이 제한 사항을 해결하려면 Az.Automation 모듈의  **Start-AzAutomationRunbook** cmdlet 또는 AzureRm.Automation 모듈의  **Start-AzureRmAutomationRunbook** cmdlet을 사용하면 됩니다.  
+* Python 3 Runbook(미리 보기) 및 패키지는 PowerShell에서 작동하지 않습니다.
+* Azure Automation은  **sys.stderr** 를 지원하지 않습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
-Python 3 작업은 경우에 따라 잘못 된 *인터프리터 실행 가능 경로* 예외 메시지와 함께 실패 합니다. 작업이 지연 되는 경우 10 분 넘게 시작 하거나 **시작 AutomationRunbook** 을 사용 하 여 Python 3 runbook을 시작 하는 경우이 예외가 나타날 수 있습니다. 작업이 지연 되 면 runbook을 다시 시작 하는 것으로 충분 합니다.
+Python 3 작업이 *잘못된 인터프리터 실행 가능 경로* 예외 메시지와 함께 실패하는 경우가 있습니다. 작업이 지연되거나 시작에 10분 이상 걸리거나 **Start-AutomationRunbook** 을 사용하여 Python 3 Runbook을 시작하는 경우 이 예외가 표시될 수 있습니다. 작업이 지연되는 경우 Runbook을 다시 시작하는 것으로 충분합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

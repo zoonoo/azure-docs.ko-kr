@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: kumud
-ms.openlocfilehash: dced3cde1aae082bd64d785212b40e100013e0bf
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 09366dea1a0d77052b6f99e9f5ab52c270e341b4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107312895"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "87047018"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 개인 모델 사용자 지정
 
@@ -35,7 +35,7 @@ Video Indexer는 계정당 여러 개의 개인 모델을 지원합니다. 이 �
 
 ## <a name="create-a-new-person-model"></a>새 개인 모델 만들기
 
-지정된 계정에 새 개인 모델을 만들려면 [개인 모델 만들기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Create-Person-Model) API를 사용합니다.
+지정된 계정에 새 개인 모델을 만들려면 [개인 모델 만들기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) API를 사용합니다.
 
 응답은 방금 만든 개인 모델의 이름 및 생성된 모델 ID를 아래 예제 형식으로 제공합니다.
 
@@ -46,11 +46,11 @@ Video Indexer는 계정당 여러 개의 개인 모델을 지원합니다. 이 �
 }
 ```
 
-그런 다음, [인덱싱할 비디오를 업로드](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)하거나 [비디오를 다시 인덱싱](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video)할 때 **personModelId** 매개 변수의 **ID** 값을 사용합니다.
+그런 다음, [인덱싱할 비디오를 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)하거나 [비디오를 다시 인덱싱](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?)할 때 **personModelId** 매개 변수의 **ID** 값을 사용합니다.
 
 ## <a name="delete-a-person-model"></a>개인 모델 삭제
 
-지정된 계정에서 사용자 지정 개인 모델을 삭제하려면 [개인 모델 삭제](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Delete-Person-Model) API를 사용합니다.
+지정된 계정에서 사용자 지정 개인 모델을 삭제하려면 [개인 모델 삭제](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) API를 사용합니다.
 
 개인 모델을 성공적으로 삭제한 후에도 삭제된 모델을 사용 중인 현재 비디오의 인덱스는 다시 인덱싱할 때까지 변경되지 않습니다. 다시 인덱싱하면 Video Indexer는 해당 모델을 사용하여 인덱싱된 현재 비디오에서 삭제된 모델에 이름이 지정된 얼굴을 인식하지 못하지만 이러한 얼굴은 계속 감지됩니다. 삭제된 모델을 사용하여 인덱싱된 현재 비디오는 이제 계정의 기본 개인 모델을 사용합니다. 삭제된 모델의 얼굴이 계정의 기본 모델에서도 이름이 지정된 경우에는 해당 얼굴이 비디오에서 계속 인식됩니다.
 
@@ -58,7 +58,7 @@ Video Indexer는 계정당 여러 개의 개인 모델을 지원합니다. 이 �
 
 ## <a name="get-all-person-models"></a>모든 개인 모델 가져오기
 
-지정된 계정의 모든 개인 모델을 얻으려면 [개인 모델 가져오기](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Person-Models) API를 사용합니다.
+지정된 계정의 모든 개인 모델을 얻으려면 [개인 모델 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) API를 사용합니다.
 
 응답은 사용자 계정에 있는 모든 개인 모델(지정된 계정의 기본 개인 모델 포함)의 목록과 각 이름 및 ID를 아래 예제의 형식으로 제공합니다.
 
@@ -75,7 +75,7 @@ Video Indexer는 계정당 여러 개의 개인 모델을 지원합니다. 이 �
 ]
 ```
 
-[인덱싱할 비디오를 업로드](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video)하거나 [비디오를 다시 인덱싱](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video)할 때 `personModelId` 매개 변수에 대한 개인 모델의 `id` 값을 사용하여 비디오에 사용할 모델을 선택할 수 있습니다.
+[인덱싱할 비디오를 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)하거나 [비디오를 다시 인덱싱](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?)할 때 `personModelId` 매개 변수에 대한 개인 모델의 `id` 값을 사용하여 비디오에 사용할 모델을 선택할 수 있습니다.
 
 ## <a name="update-a-face"></a>얼굴 업데이트
 
@@ -85,7 +85,7 @@ Video Indexer는 계정당 여러 개의 개인 모델을 지원합니다. 이 �
 
 Video Indexer에서 유명인으로 인식된 얼굴을 새 이름으로 업데이트할 수 있습니다. 사용자가 지정한 새 이름이 기본 제공 유명인 인식보다 우선 적용됩니다.
 
-얼굴을 업데이트하려면 [비디오 얼굴 업데이트](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Update-Video-Face) API를 사용합니다.
+얼굴을 업데이트하려면 [비디오 얼굴 업데이트](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) API를 사용합니다.
 
 이름은 개인 모델에서 고유하므로 동일한 개인 모델에 있는 두 개의 다른 얼굴에 동일한 `name` 매개 변수 값을 제공하는 경우 Video Indexer는 얼굴을 동일한 개인으로 보고, 비디오가 다시 인덱싱될 때 통합합니다.
 
