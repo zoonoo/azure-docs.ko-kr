@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ms.openlocfilehash: f95b9c1615cc58d9cc0589bad98c7315e571686e
-ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105709466"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 GPU(그래픽 처리 장치) 가속 구성
@@ -21,12 +21,12 @@ Windows Virtual Desktop은 향상된 앱 성능 및 확장성을 위해 GPU 가�
 
 이 문서의 지침에 따라 GPU에 최적화된 Azure 가상 머신을 만들고, 호스트 풀에 추가하고, 렌더링 및 인코딩에 GPU 가속을 사용하도록 구성합니다. 이 문서에서는 Windows Virtual Desktop 테넌트가 이미 구성되어 있다고 가정합니다.
 
-## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>적절 한 GPU에 최적화 된 Azure 가상 컴퓨터 크기를 선택 합니다.
+## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>적절한 GPU에 최적화된 Azure 가상 머신 크기 선택
 
-Azure의 [NV 시리즈](../virtual-machines/nv-series.md), [NVv3 시리즈](../virtual-machines/nvv3-series.md)또는 [NVv4 시리즈](../virtual-machines/nvv4-series.md) VM 크기 중 하나를 선택 합니다. 이러한 기능은 앱 및 데스크톱 가상화에 맞게 조정 되며 대부분의 앱 및 Windows 사용자 인터페이스를 GPU 가속으로 설정 합니다. 호스트 풀에 적합한 선택은 특정 앱 워크로드, 원하는 사용자 환경의 품질 및 비용을 비롯한 다양한 요인에 따라 달라집니다. 일반적으로 더 크고, 지원 되는 Gpu는 지정 된 사용자 밀도에서 더 나은 사용자 환경을 제공 하는 반면, 작고 작은 GPU 크기는 비용 및 품질에 대 한 세분화 된 제어를 허용 합니다.
+Azure의 [NV 시리즈](../virtual-machines/nv-series.md), [NVv3 시리즈](../virtual-machines/nvv3-series.md)또는 [NVv4 시리즈](../virtual-machines/nvv4-series.md) VM 크기 중 하나를 선택합니다. 이러한 기능은 앱 및 데스크톱 가상화에 맞게 조정되었으며 대부분의 앱과 Windows 사용자 인터페이스에 GPU 속도를 향상시킵니다. 호스트 풀에 적합한 선택은 특정 앱 워크로드, 원하는 사용자 환경의 품질 및 비용을 비롯한 다양한 요인에 따라 달라집니다. 일반적으로 더 많은 성능의 대규모 GPU는 주어진 사용자 밀도에서 더 나은 사용자 경험을 제공하며 적은 수의 소규모 GPU는 비용과 품질을 더 세밀하게 제어할 수 있습니다.
 
 >[!NOTE]
->Azure의 NC, NCv2, NCv3, ND 및 NDv2 시리즈 Vm은 일반적으로 Windows 가상 데스크톱 세션 호스트에 적합 하지 않습니다. 이러한 Vm은 NVIDIA를 사용 하 여 빌드된 특수 한 고성능 계산 또는 기계 학습 도구에 맞게 조정 됩니다. 대부분의 앱 또는 Windows 사용자 인터페이스에 대 한 GPU 가속을 지원 하지 않습니다.
+>Azure의 NC, NCv2, NCv3, ND 및 NDv2 시리즈 VM은 일반적으로 Windows Virtual Desktop 세션 호스트에 적합하지 않습니다. 이러한 VM은 NVIDIA CUDA로 구축된 것과 같은 특수한 고성능 컴퓨팅 또는 기계 학습 도구에 맞게 조정되었습니다. 대다수 앱 또는 Windows 사용자 인터페이스에는 GPU 가속을 지원하지 않습니다.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>호스트 풀 생성, 가상 머신 프로비저닝 및 앱 그룹 구성
 
@@ -41,10 +41,10 @@ Windows Virtual Desktop은 다음과 같은 운영 체제에서 GPU 가속 렌�
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>가상 머신에서 지원되는 그래픽 드라이버 설치
 
-Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원 되는 운영 체제 및 드라이버](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) 의 지침에 따라 드라이버를 설치 합니다. Azure에서 배포한 드라이버만 지원 됩니다.
+Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려면 적절한 그래픽 드라이버를 설치해야 합니다. [지원되는 운영 체제 및 드라이버](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers)의 지침에 따라 드라이버를 설치합니다. Azure에서 배포된 드라이버만 지원됩니다.
 
-* Azure NV 시리즈 또는 NVv3 시리즈 Vm의 경우 nvidia 표 드라이버만이 아닌 NVIDIA를 사용 하는 경우 대부분의 앱 및 Windows 사용자 인터페이스에 대 한 GPU 가속을 지원 합니다. 드라이버를 수동으로 설치 하도록 선택 하는 경우 그리드 드라이버를 설치 해야 합니다. Azure VM 확장을 사용 하 여 드라이버를 설치 하도록 선택 하는 경우 이러한 VM 크기에 맞게 그리드 드라이버가 자동으로 설치 됩니다.
-* Azure NVv4 시리즈 Vm의 경우 Azure에서 제공 하는 AMD 드라이버를 설치 합니다. Azure VM 확장을 사용 하 여 자동으로 설치 하거나 수동으로 설치할 수 있습니다.
+* Azure NV 시리즈 또는 NVv3 시리즈 VM의 경우 NVIDIA CUDA 드라이버가 아닌 NVIDIA GRID 드라이버만 대다수 앱 및 Windows 사용자 인터페이스에 GPU 가속을 지원합니다. 드라이버를 수동으로 설치하도록 선택하는 경우 GRID 드라이버를 설치해야 합니다. Azure VM 확장을 사용하여 드라이버를 설치하도록 선택하면 이러한 VM 크기에 대해 GRID 드라이버가 자동으로 설치됩니다.
+* Azure NVv4 시리즈 VM의 경우 Azure에서 제공하는 AMD 드라이버를 설치합니다. Azure VM 확장을 사용하여 자동으로 설치하거나 수동으로 설치할 수 있습니다.
 
 드라이버를 설치한 후에는 VM을 다시 시작해야 합니다. 위 지침의 확인 단계에 따라 그래픽 드라이버가 성공적으로 설치되었는지 확인합니다.
 
@@ -55,14 +55,14 @@ Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려
 1. 로컬 관리자 권한이 있는 계정을 사용하여 VM의 데스크톱에 연결합니다.
 2. 시작 메뉴를 열고 “gpedit.msc”를 입력하여 그룹 정책 편집기를 엽니다.
 3. 트리를 탐색하여 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > **원격 데스크톱 세션 호스트** > **원격 세션 환경** 으로 이동합니다.
-4. **모든 원격 데스크톱 서비스 세션에 대해 하드웨어 그래픽 어댑터 사용** 정책을 선택 하 고이 정책을 **사용으로 설정** 하 여 원격 세션에서 GPU 렌더링을 사용 하도록 설정 합니다.
+4. **모든 원격 데스크톱 서비스 세션에 대해 하드웨어 그래픽 어댑터 사용** 정책을 선택하고, 해당 정책을 **사용** 으로 설정하여 원격 세션에서 GPU 렌더링을 사용하도록 설정합니다.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 구성
 
-원격 데스크톱은 원격 데스크톱 클라이언트에 전송하기 위해 앱 및 데스크톱에 의해 렌더링된 모든 그래픽(GPU 또는 CPU를 사용하여 렌더링됨)을 인코딩합니다. 화면 일부가 자주 업데이트 되는 경우 화면의이 부분은 비디오 코덱 (h.264/AVC)로 인코딩됩니다. 기본적으로 원격 데스크톱은 이 인코딩에 대해 사용 가능한 GPU를 활용하지 않습니다. 세션 호스트에 대한 그룹 정책을 구성하여 GPU 가속 프레임 인코딩을 사용하도록 설정합니다. 위의 단계를 계속합니다.
+원격 데스크톱은 원격 데스크톱 클라이언트에 전송하기 위해 앱 및 데스크톱에 의해 렌더링된 모든 그래픽(GPU 또는 CPU를 사용하여 렌더링됨)을 인코딩합니다. 화면의 일부가 자주 업데이트되는 경우 화면의 해당 부분이 비디오 코덱(H.264/AVC)으로 인코딩됩니다. 기본적으로 원격 데스크톱은 이 인코딩에 대해 사용 가능한 GPU를 활용하지 않습니다. 세션 호스트에 대한 그룹 정책을 구성하여 GPU 가속 프레임 인코딩을 사용하도록 설정합니다. 위의 단계를 계속합니다.
 
 >[!NOTE]
->GPU 가속 프레임 인코딩은 NVv4 시리즈 Vm에서 사용할 수 없습니다.
+>GPU 가속 프레임 인코딩은 NVv4 시리즈 VM에서 사용할 수 없습니다.
 
 1. **원격 데스크톱 연결에 대한 h.264/AVC 하드웨어 인코딩 구성** 정책을 선택하고 이 정책을 **사용** 하도록 설정하여 원격 세션에서 AVC/H.264에 대해 하드웨어 인코딩을 사용하도록 설정합니다.
 
@@ -79,7 +79,7 @@ Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려
 
 ## <a name="configure-fullscreen-video-encoding"></a>전체 화면 비디오 인코딩 구성
 
-3D 모델링, CAD/CAM 및 비디오 응용 프로그램과 같은 높은 프레임 레이트 콘텐츠를 생성 하는 응용 프로그램을 자주 사용 하는 경우 원격 세션에 대해 전체 화면 비디오 인코딩을 사용 하도록 선택할 수 있습니다. 전체 화면 비디오 프로필은 네트워크 대역폭과 세션 호스트 및 클라이언트 리소스를 모두 사용 하 여 이러한 응용 프로그램에 더 높은 프레임 속도와 더 나은 사용자 환경을 제공 합니다. 전체 화면 비디오 인코딩에는 GPU 가속 프레임 인코딩을 사용 하는 것이 좋습니다. 세션 호스트에 대 한 그룹 정책를 구성 하 여 전체 화면 비디오 인코딩을 사용 하도록 설정 합니다. 위의 단계를 계속합니다.
+3D 모델링, CAD/CAM 및 비디오 애플리케이션과 같이 높은 프레임 속도의 콘텐츠를 생성하는 애플리케이션을 자주 사용하는 경우 원격 세션에 대해 전체 화면 비디오 인코딩을 사용하도록 선택할 수 있습니다. 전체 화면 비디오 프로필은 네트워크 대역폭과 세션 호스트 및 클라이언트 리소스를 모두 사용하여 이러한 애플리케이션에 더 높은 프레임 속도와 더 나은 사용자 경험을 제공합니다. 전체 화면 비디오 인코딩에는 GPU 가속 프레임 인코딩을 사용하는 것이 좋습니다. 세션 호스트에 대한 그룹 정책을 구성하여 전체 화면 비디오 인코딩을 사용하도록 설정합니다. 위의 단계를 계속합니다.
 
 1. **원격 데스크톱 연결에 h.264/AVC 444 그래픽 모드 우선 사용** 정책을 선택하고 이 정책을 **사용** 하도록 설정하여 원격 세션에서 h.264/AVC 444 코덱을 강제로 적용합니다.
 2. 그룹 정책을 편집했으므로 이제 그룹 정책 업데이트를 강제로 적용합니다. 명령 프롬프트를 열고 다음을 입력합니다.
@@ -93,7 +93,7 @@ Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려
 
 앱이 렌더링에 GPU를 사용하는지 확인하려면 다음 중 하나를 수행합니다.
 
-* NVIDIA GPU를 사용 하는 Azure Vm의 경우 `nvidia-smi` [드라이버 설치 확인](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation) 에 설명 된 대로 유틸리티를 사용 하 여 앱을 실행할 때 GPU 사용률을 확인 합니다.
+* NVIDIA GPU를 사용하는 Azure VM의 경우 [드라이버 설치 확인](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation)에 설명된 대로 `nvidia-smi` 유틸리티를 사용하여 앱을 실행할 때 GPU 사용률을 확인합니다.
 * 지원되는 운영 체제 버전에서는 작업 관리자를 사용하여 GPU 사용률을 확인할 수 있습니다. “성능” 탭에서 GPU를 선택하여 앱에서 GPU를 활용하는지 확인합니다.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 확인
@@ -106,11 +106,11 @@ Windows Virtual Desktop에서 Azure N 시리즈 VM의 GPU 기능을 활용하려
 
 ## <a name="verify-fullscreen-video-encoding"></a>전체 화면 비디오 인코딩 확인
 
-원격 데스크톱이 전체 화면 비디오 인코딩을 사용 하는지 확인 하려면:
+원격 데스크톱이 전체 화면 비디오 인코딩을 사용하는지 확인하려면 다음을 수행합니다.
 
 1. Windows Virtual Desktop 클라이언트를 사용하여 VM의 데스크톱에 연결합니다.
 2. 이벤트 뷰어를 시작하고 다음 노드로 이동합니다. **애플리케이션 및 서비스 로그** > **Microsoft** > **Windows** > **RemoteDesktopServices-RdpCoreCDV** > **Operational**
-3. 전체 화면 비디오 인코딩을 사용 하는지 확인 하려면 이벤트 ID 162를 확인 합니다. “AVC 사용 가능: 1 초기 프로필: 2048”이 표시되면 AVC 444가 사용되는 것입니다.
+3. 전체 화면 비디오 인코딩이 사용되는지 확인하려면 이벤트 ID 162를 찾습니다. “AVC 사용 가능: 1 초기 프로필: 2048”이 표시되면 AVC 444가 사용되는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

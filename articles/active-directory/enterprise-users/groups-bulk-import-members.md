@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22d39a2ee66f2c63612ad2cb3cf9ae61f1660de3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96547749"
 ---
 # <a name="bulk-add-group-members-in-azure-active-directory"></a>Azure Active Directory에서 대량으로 그룹 구성원 추가
@@ -44,7 +44,7 @@ Azure AD(Azure Active Directory) 포털에서 CSV(쉼표로 구분된 값) 파�
 - 필수 열이 먼저 나열됩니다.
 - 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
 - 가능한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
-- 파일을 성공적으로 업로드 하려면 사용자의 Upn 또는 개체 Id를 두 개 이상 추가 합니다.
+- 파일을 성공적으로 업로드하려면 사용자의 UPN 또는 개체 ID를 두 개 이상 추가합니다.
 
 ## <a name="to-bulk-import-group-members"></a>그룹 구성원을 대량으로 가져오려면
 
@@ -69,13 +69,13 @@ Azure AD(Azure Active Directory) 포털에서 CSV(쉼표로 구분된 값) 파�
 
 **대량 작업 결과** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
-[![대량 작업 결과 페이지에서 상태를 확인 합니다.](./media/groups-bulk-import-members/bulk-center.png)](./media/groups-bulk-import-members/bulk-center.png#lightbox)
+[![대량 작업 결과 페이지에서 상태를 확인합니다.](./media/groups-bulk-import-members/bulk-center.png)](./media/groups-bulk-import-members/bulk-center.png#lightbox)
 
 대량 작업 내의 각 줄 항목에 대한 자세한 내용을 보려면 **# Success**, **# Failure** 또는 **Total Requests** 열의 값을 선택합니다. 오류가 발생하면 실패 이유가 나열됩니다.
 
 ## <a name="bulk-import-service-limits"></a>대량 가져오기 서비스 제한
 
-그룹 구성원 목록을 가져오는 각 대량 활동은 최대 1시간 동안 실행될 수 있습니다. 이를 통해 최대 4만 개의 멤버 목록을 가져올 수 있습니다.
+그룹 구성원 목록을 가져오는 각 대량 활동은 최대 1시간 동안 실행될 수 있습니다. 이를 통해 최대 40,000 명의 멤버 목록을 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

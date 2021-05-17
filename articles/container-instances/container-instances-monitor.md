@@ -4,10 +4,10 @@ description: Azure Container Instances에서 컨테이너의 CPU 및 메모리�
 ms.topic: article
 ms.date: 12/17/2020
 ms.openlocfilehash: ae9725ffe66bebbed26745c311b2ada07d5d2c00
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589292"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
@@ -25,13 +25,13 @@ ms.locfileid: "100589292"
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 
-Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭][supported-metrics]을 제공합니다. 이러한 메트릭은 컨테이너 그룹 및 개별 컨테이너에 사용할 수 있습니다. 기본적으로 메트릭은 평균으로 집계 됩니다.
+Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭][supported-metrics]을 제공합니다. 이러한 메트릭은 컨테이너 그룹 및 개별 컨테이너에 사용할 수 있습니다. 기본적으로 메트릭은 평균으로 집계됩니다.
 
-- **Millicores** 에서 **CPU 사용량** 을 측정 했습니다. 
-  - 한 millicore CPU 코어의 1/1000th 이므로 500 millicores는 0.5 CPU 코어의 사용량을 나타냅니다.
-- **메모리 사용량** (바이트)
-- 초당 **받은 네트워크 바이트** 수
-- 초당 **전송 된 네트워크 바이트** 수 
+- **밀리코어** 단위로 측정된 **CPU 사용량**. 
+  - 1밀리코어는 CPU 코어의 1/1000이므로 500밀리코어는 0.5 CPU 코어의 사용을 나타냅니다.
+- **메모리 사용량**(바이트)
+- 초당 **수신된 네트워크 바이트**
+- 초당 **전송된 네트워크 바이트** 
 
 ## <a name="get-metrics---azure-portal"></a>메트릭 가져오기 - Azure Portal
 
@@ -39,12 +39,12 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 
 ![이중 차트][dual-chart]
 
-여러 컨테이너가 포함 된 컨테이너 그룹에서 [차원을][monitor-dimension] 사용 하 여 컨테이너 별로 메트릭을 표시 합니다. 개별 컨테이너 메트릭이 있는 차트를 만들려면 다음 단계를 수행합니다.
+여러 컨테이너가 포함된 컨테이너 그룹에서 [차원][monitor-dimension]을 사용하여 컨테이너별로 메트릭을 표시합니다. 개별 컨테이너 메트릭이 있는 차트를 만들려면 다음 단계를 수행합니다.
 
 1. **개요** 페이지에서 **CPU** 와 같은 메트릭 차트 중 하나를 선택합니다. 
 1. **분할 적용** 단추를 선택하고 **컨테이너 이름** 을 선택합니다.
 
-![화면 캡처는 선택한 분할 적용 및 컨테이너 이름이 선택 된 컨테이너 인스턴스에 대 한 메트릭을 보여 줍니다.][dimension]
+![화면 캡처는 선택된 분할 적용 및 컨테이너 이름이 선택된 컨테이너 인스턴스에 대한 메트릭을 보여줍니다.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>메트릭 가져오기 - Azure CLI
 

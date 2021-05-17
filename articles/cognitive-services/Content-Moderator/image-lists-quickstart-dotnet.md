@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bec31f830adddfc7251ce36e13ef0bfaa0af7638
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: f5813ea33e83316a7207da973a54ce10e2ddf503
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88931712"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063052"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>C#에서 사용자 지정 이미지 목록을 사용하여 조정
 
@@ -33,9 +33,9 @@ ms.locfileid: "88931712"
 > [!NOTE]
 > 최대 **5개 이미지 목록** 으로 제한되고, 각 목록은 **10,000개 이미지를 초과하지 않아야** 합니다.
 
-이 가이드의 콘솔 응용 프로그램에서는 이미지 목록 API를 사용 하 여 수행할 수 있는 작업 중 일부를 시뮬레이션 합니다.
+이 가이드의 콘솔 애플리케이션은 이미지 목록 API로 수행할 수 있는 작업 중 일부를 시뮬레이션합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다. 
 
 ## <a name="sign-up-for-content-moderator-services"></a>Content Moderator 서비스 등록
 
@@ -73,7 +73,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator 클라이언트 만들기
 
-다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. `AzureEndpoint`및 필드를 `CMSubscriptionKey` 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+다음 코드를 추가하여 구독에 대한 Content Moderator 클라이언트를 만듭니다. `AzureEndpoint` 및 `CMSubscriptionKey` 필드를 엔드포인트 URL 및 구독 키 값으로 업데이트합니다. Azure Portal에 있는 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
 
 ```csharp
 /// <summary>
@@ -293,7 +293,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>목록에 이미지의 컬렉션을 추가하는 메서드 만들기
 
-**Program** 클래스에 다음 메서드를 추가합니다. 이 가이드에서는 목록의 이미지에 태그를 적용 하는 방법을 보여 주지 않습니다. 
+**Program** 클래스에 다음 메서드를 추가합니다. 이 가이드는 목록의 이미지에 태그를 적용하는 방법을 보여주지 않습니다. 
 
 ```csharp
 /// <summary>
@@ -588,7 +588,7 @@ private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>코드를 추가하여 이미지 목록의 사용 시뮬레이션
 
-**Main** 메서드에 다음 코드를 추가 합니다. 이 코드는 목록을 정의 및 관리하고 이미지를 차단하도록 목록을 사용하는 데 수행하는 많은 작업을 시뮬레이션합니다. 로깅 기능을 통해 Content Moderator 서비스에 대한 SDK 호출에 의해 생성된 응답 개체를 볼 수 있습니다.
+**Main** 메서드에 다음 코드를 추가합니다. 이 코드는 목록을 정의 및 관리하고 이미지를 차단하도록 목록을 사용하는 데 수행하는 많은 작업을 시뮬레이션합니다. 로깅 기능을 통해 Content Moderator 서비스에 대한 SDK 호출에 의해 생성된 응답 개체를 볼 수 있습니다.
 
 ```csharp
 // Create the text writer to use for logging, and cache a static reference to it.

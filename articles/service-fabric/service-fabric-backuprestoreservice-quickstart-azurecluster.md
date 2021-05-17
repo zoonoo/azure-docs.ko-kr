@@ -4,13 +4,13 @@ description: Service Fabric의 주기적 백업 및 복원 기능을 사용하�
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103198720"
 ---
-# <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에서 정기 백업 및 복원
+# <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터에서 정기적인 백업 및 복원
 > [!div class="op_single_selector"]
 > * [Azure의 클러스터](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [독립 실행형 클러스터](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -43,23 +43,23 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 - 일시적으로 백업 일시 중단
 - 백업의 보존 관리(예정)
 
-## <a name="prerequisites"></a>필수 조건
-* 패브릭 버전 6.4 이상을 사용 하는 클러스터를 Service Fabric 합니다. Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
+## <a name="prerequisites"></a>필수 구성 요소
+* Fabric 버전 6.4 이상을 포함하는 Service Fabric 클러스터 Azure 리소스 템플릿을 사용하여 Service Fabric 클러스터를 만드는 단계는 이 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. X.509 인증서를 가져오거나 만드는 방법에 대해 알아보려면 [문서](service-fabric-cluster-creation-via-arm.md)를 참조하세요.
-* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 하는 응용 프로그램의 경우 응용 프로그램을 Service Fabric SDK 버전 3.1 이상으로 빌드해야 합니다.
+* Service Fabric SDK 버전 3.0 이상을 사용하여 빌드된 Service Fabric Reliable Stateful 애플리케이션. .NET Core 2.0을 대상으로 하는 애플리케이션은 Service Fabric SDK 버전 3.1 이상을 사용하여 빌드되어야 합니다.
 * 애플리케이션 백업을 저장하기 위해 Azure Storage 계정을 만듭니다.
-* 구성 호출을 위해 ServiceFabric 모듈 (미리 보기)을 설치 합니다.
+* 구성 호출을 위해 Microsoft.ServiceFabric.Powershell.Http 모듈(미리 보기)을 설치합니다.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
 > [!NOTE]
-> PowerShellGet 버전이 1.6.0 미만인 경우 *-allowprerelease* 플래그에 대 한 지원을 추가 하도록 업데이트 해야 합니다.
+> PowerShellGet 버전이 1.6.0 미만인 경우 *-AllowPrerelease* 플래그에 대한 지원을 추가하도록 업데이트해야 합니다.
 >
 > `Install-Module -Name PowerShellGet -Force`
 
-* `Connect-SFCluster`ServiceFabric 모듈을 사용 하 여 구성 요청을 수행 하기 전에 명령을 사용 하 여 클러스터를 연결 했는지 확인 합니다.
+* Microsoft.ServiceFabric.Powershell.Http 모듈을 사용하여 구성 요청을 수행하기 전에 `Connect-SFCluster` 명령을 사용하여 클러스터를 연결했는지 확인합니다.
 
 ```powershell
 
@@ -71,15 +71,15 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
 ### <a name="using-azure-portal"></a>Azure Portal 사용
 
-사용 `Include backup restore service` 확인란의 아래 `+ Show optional settings` 에 있는 확인란을 선택 `Cluster Configuration` 합니다.
+`Cluster Configuration` 탭의 `+ Show optional settings` 아래에 있는 `Include backup restore service` 확인란을 사용합니다.
 
-![포털을 사용 하 여 백업 복원 서비스 사용][1]
+![포털을 사용하여 백업 복원 서비스 사용][1]
 
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
-먼저 클러스터에서 _Backup 및 Restore 서비스_ 를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) 사용 하거나 리소스 관리자 템플릿을 만들 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_ 를 사용하도록 설정합니다.
+먼저 클러스터에서 _Backup 및 Restore 서비스_ 를 사용하도록 설정해야 합니다. 배포하려는 클러스터에 대한 템플릿을 가져옵니다. [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 Resource Manager 템플릿을 만들 수 있습니다. 다음 단계에 따라 _Backup 및 Restore 서비스_ 를 사용하도록 설정합니다.
 
-1. `apiversion`리소스에 대해가로 설정 되어 있는지 확인 하 **`2018-02-01`** `Microsoft.ServiceFabric/clusters` 고 그렇지 않은 경우 다음 코드 조각과 같이 업데이트 합니다.
+1. 먼저 다음 코드 조각과 같이 `Microsoft.ServiceFabric/clusters` 리소스에 대해 `apiversion`이 **`2018-02-01`** 로 설정되었는지 확인하고 이렇게 설정되어 있지 않으면 업데이트합니다.
 
     ```json
     {
@@ -133,9 +133,9 @@ Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 �
 
 백업 스토리지의 경우 위에서 만든 Azure Storage 계정을 사용합니다. `backup-container` 컨테이너는 백업을 저장하기 위해 구성됩니다. 백업 업로드 중이 이 이름의 컨테이너가 만들어집니다(아직 없는 경우). Azure Storage 계정에 유효한 연결 문자열로 `ConnectionString`을 채우고 `account-name`을 스토리지 계정 이름으로 바꾸며 `account-key`를 스토리지 계정 키로 바꿉니다.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용하는 PowerShell
 
-새 백업 정책을 만들기 위해 다음 PowerShell cmdlet을 실행 합니다. `account-name`을 스토리지 계정의 이름으로 바꾸고 `account-key`를 스토리지 계정 키로 바꿉니다.
+새 백업 정책을 만들기 위해 다음 PowerShell cmdlet을 실행합니다. `account-name`을 스토리지 계정의 이름으로 바꾸고 `account-key`를 스토리지 계정 키로 바꿉니다.
 
 ```powershell
 
@@ -143,7 +143,7 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 
-#### <a name="rest-call-using-powershell"></a>PowerShell을 사용 하 여 Rest 호출
+#### <a name="rest-call-using-powershell"></a>PowerShell을 사용하여 Rest 호출
 
 필요한 REST API를 호출하여 새 정책을 만들려면 다음 PowerShell 스크립트를 실행합니다. `account-name`을 스토리지 계정의 이름으로 바꾸고 `account-key`를 스토리지 계정 키로 바꿉니다.
 
@@ -181,25 +181,25 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 #### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
 
-1. Service Fabric Explorer에서 백업 탭으로 이동 하 고 작업 > 백업 정책 만들기를 선택 합니다.
+1. Service Fabric Explorer에서 백업 탭으로 이동하고 작업 > 백업 정책 만들기를 선택합니다.
 
     ![Backup 정책 만들기][6]
 
-2. 정보를 입력 합니다. Azure 클러스터의 경우 AzureBlobStore를 선택 해야 합니다.
+2. 정보를 입력합니다. Azure 클러스터의 경우 AzureBlobStore를 선택해야 합니다.
 
     ![백업 정책 Azure Blob Storage 만들기][7]
 
 ### <a name="enable-periodic-backup"></a>정기적 백업 사용
 애플리케이션의 데이터 보호 요구 사항을 충족하도록 백업 정책을 정의한 후 백업 정책을 애플리케이션과 연결해야 합니다. 요구 사항에 따라 백업 정책을 애플리케이션, 서비스 또는 파티션과 연결할 수 있습니다.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용하는 PowerShell
 
 ```powershell
 
 Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-#### <a name="rest-call-using-powershell"></a>PowerShell을 사용 하 여 Rest 호출
+#### <a name="rest-call-using-powershell"></a>PowerShell을 사용하여 Rest 호출
 
 위의 단계에서 만든 이름이 `BackupPolicy1`인 백업 정책을 `SampleApp` 애플리케이션과 연결하기 위해 필요한 REST API를 호출하기 위해 다음 PowerShell 스크립트를 실행합니다.
 
@@ -215,13 +215,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 
 #### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
-Service Fabric Explorer에 대 한 [고급 모드가](service-fabric-visualizing-your-cluster.md#backup-and-restore) 사용 하도록 설정 되어 있는지 확인 합니다. 
+Service Fabric Explorer에 대한 [고급 모드](service-fabric-visualizing-your-cluster.md#backup-and-restore) 사용하도록 설정되어 있어야 합니다. 
 
-1. 응용 프로그램을 선택 하 고 작업으로 이동 합니다. 응용 프로그램 백업 사용/업데이트를 클릭 합니다.
+1. 애플리케이션을 선택하고 작업으로 이동합니다. 애플리케이션 백업 사용/업데이트를 클릭합니다.
 
-    ![응용 프로그램 백업 사용][3]
+    ![애플리케이션 백업 사용][3]
 
-2. 마지막으로 원하는 정책을 선택 하 고 백업 사용을 클릭 합니다.
+2. 마지막으로 원하는 정책을 선택하고 백업 사용을 클릭합니다.
 
     ![정책 선택][4]
 
@@ -236,14 +236,14 @@ Service Fabric Explorer에 대 한 [고급 모드가](service-fabric-visualizing
 
 애플리케이션의 Reliable Stateful 서비스 및 Reliable Actors에 속한 모든 파티션과 관련된 백업은 _GetBackups_ API를 사용하여 열거할 수 있습니다. 백업은 애플리케이션, 서비스 또는 파티션에 대해 열거할 수 있습니다.
 
-#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell을 사용 하 여 ServiceFabric 모듈을 사용 합니다.
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>Microsoft.ServiceFabric.Powershell.Http 모듈을 사용하는 PowerShell
 
 ```powershell
     
 Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
-#### <a name="rest-call-using-powershell"></a>PowerShell을 사용 하 여 Rest 호출
+#### <a name="rest-call-using-powershell"></a>PowerShell을 사용하여 Rest 호출
 
 HTTP API를 호출하는 다음 PowerShell 스크립트를 실행하여 `SampleApp` 애플리케이션 내의 모든 파티션에 대해 생성된 백업을 열거합니다.
 
@@ -298,12 +298,12 @@ FailureError            :
 
 #### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
 
-Service Fabric Explorer에서 백업을 보려면 파티션으로 이동한 후 백업 탭을 선택 합니다.
+Service Fabric Explorer에서 백업을 보려면 파티션으로 이동한 후 백업 탭을 선택합니다.
 
 ![백업 열거][5]
 
 ## <a name="limitation-caveats"></a>제한/주의 사항
-- Service Fabric PowerShell cmdlet이 미리 보기 모드입니다.
+- Service Fabric PowerShell cmdlet은 미리 보기 모드입니다.
 - Linux에서 Service Fabric 클러스터에 대한 지원이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계

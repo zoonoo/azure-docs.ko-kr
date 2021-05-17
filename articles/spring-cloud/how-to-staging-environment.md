@@ -7,30 +7,30 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 9b3a5659e91ca90d31500b10526e3e2179d4e7da
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: d4c2be170ad66b12a4ea176937565755ec514832
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046116"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134648"
 ---
-# <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 스테이징 환경 설정
+# <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 스테이징 환경 설정
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java
 
-이 문서에서는 Azure 스프링 클라우드의 파랑-녹색 배포 패턴을 사용 하 여 스테이징 배포를 설정 하는 방법을 설명 합니다. 파랑-녹색 배포는 기존 (파란색) 버전을 라이브 상태로 유지 하 고 새로운 (녹색) 버전을 배포 하는 Azure DevOps 연속 배달 패턴입니다. 이 문서에서는 프로덕션 배포를 변경 하지 않고 스테이징 배포를 프로덕션에 배치 하는 방법을 보여 줍니다.
+이 문서는 Azure Spring Cloud에서 파란색-녹색 배포 패턴을 사용하여 스테이징 배포를 설정하는 방법을 설명합니다. 파란색-녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps의 지속적인 업데이트 패턴입니다. 이 문서에서는 프로덕션 배포를 변경하지 않고 스테이징 배포를 프로덕션에 배치하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 표준 가격 책정 계층의 Azure 스프링 클라우드 인스턴스
-* Azure CLI에 대 한 [Azure 스프링 클라우드 확장](/cli/azure/azure-cli-extensions-overview)
+* 표준 가격 책정 계층의 Azure Spring Cloud 인스턴스
+* Azure CLI용 [Azure Spring Cloud 확장](/cli/azure/azure-cli-extensions-overview)
 
-이 문서에서는 스프링 Inr에서 빌드된 응용 프로그램을 사용 합니다. 이 예제에 다른 응용 프로그램을 사용 하려는 경우 스테이징 배포를 프로덕션 으로부터 구분 하기 위해 응용 프로그램의 공용 부분을 간단 하 게 변경 해야 합니다.
+이 문서에서는 Spring Initializr에서 빌드된 애플리케이션을 사용합니다. 이 예제에 다른 애플리케이션을 사용하려는 경우 애플리케이션의 공용 주소 부분을 간단하게 변경해서 스테이징 배포를 프로덕션과 구분해야 합니다.
 
 >[!TIP]
-> [Azure Cloud Shell](https://shell.azure.com) 은이 문서의 지침을 실행 하는 데 사용할 수 있는 무료 대화형 셸입니다.  최신 버전의 Git, JDK, Maven 및 Azure CLI를 포함 하는 미리 설치 된 공통 Azure 도구를 포함 합니다. Azure 구독에 로그인 하는 경우 Cloud Shell 인스턴스를 시작 합니다. 자세히 알아보려면 [Azure Cloud Shell 개요](../cloud-shell/overview.md)를 참조 하세요.
+> [Azure Cloud Shell](https://shell.azure.com)은 이 문서의 지침을 실행하는 데 사용할 수 있는 무료 대화형 셸입니다.  최신 버전의 Git, JDK, Maven 및 Azure CLI를 포함하는 미리 설치된 공통 Azure 도구를 포함합니다. Azure 구독에 로그인되어 있으면 Cloud Shell 인스턴스를 시작하세요. 자세한 내용은 [Azure Cloud Shell 개요](../cloud-shell/overview.md)를 참조하세요.
 
-Azure 스프링 클라우드에서 파랑-녹색 배포를 설정 하려면 다음 섹션의 지침을 따르세요.
+Azure Spring Cloud에서 파란색-녹색 배포를 설정하려면 다음 섹션의 지침을 따르세요.
 
 ## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
 
@@ -40,12 +40,12 @@ Azure 스프링 클라우드에서 파랑-녹색 배포를 설정 하려면 다�
 az extension add --name spring-cloud
 ```
 ## <a name="prepare-the-app-and-deployments"></a>앱 및 배포 준비
-응용 프로그램을 빌드하려면 다음 단계를 수행 합니다.
+애플리케이션을 빌드하려면 다음 단계를 수행합니다.
 
-1. [이 구성](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)에서 스프링 inr을 사용 하 여 샘플 앱에 대 한 코드를 생성 합니다.
+1. 샘플 앱의 코드를 생성하려면 [이 구성](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)으로 Spring Initializr를 사용하세요.
 
 2. 코드를 다운로드합니다.
-3. 다음 Hellocontroller.java 소스 파일을 폴더에 추가 합니다 `\src\main\java\com\example\hellospring\` .
+3. 다음 Hellocontroller.java 원본 파일을 `\src\main\java\com\example\hellospring\` 폴더에 추가합니다.
 
    ```java
    package com.example.hellospring; 
@@ -65,22 +65,22 @@ az extension add --name spring-cloud
 
    } 
    ```
-4. Jar 파일을 빌드합니다.
+4. .jar 파일을 빌드합니다.
 
    ```azurecli
    mvn clean packge -DskipTests
    ```
-5. Azure 스프링 클라우드 인스턴스에서 앱을 만듭니다.
+5. Azure Spring Cloud 인스턴스에서 앱을 만듭니다.
 
    ```azurecli
    az spring-cloud app create -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --assign-endpoint
    ```
-6. Azure 스프링 클라우드에 앱을 배포 합니다.
+6. Azure Spring Cloud에 앱을 배포합니다.
 
    ```azurecli
    az spring-cloud app deploy -n demo -g <resourceGroup> -s <Azure Spring Cloud instance> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
    ```
-7. 스테이징 배포에 대 한 코드를 수정 합니다.
+7. 스테이징 배포의 코드를 수정합니다.
 
    ```java
    package com.example.hellospring; 
@@ -100,7 +100,7 @@ az extension add --name spring-cloud
 
    } 
    ```
-8. Jar 파일을 다시 빌드합니다.
+8. .jar 파일을 다시 빌드합니다.
 
    ```azurecli
    mvn clean packge -DskipTests
@@ -113,61 +113,61 @@ az extension add --name spring-cloud
 
 ## <a name="view-apps-and-deployments"></a>앱 및 배포 보기
 
-다음 절차를 사용 하 여 배포 된 앱을 봅니다.
+다음 프로시저를 통해 배포된 앱을 봅니다.
 
-1. Azure Portal에서 Azure 스프링 클라우드 인스턴스로 이동 합니다.
+1. Azure Portal에서 Azure Spring Cloud 인스턴스로 이동합니다.
 
-1. 왼쪽 창에서 **앱** 창을 열어 서비스 인스턴스에 대 한 앱을 봅니다.
+1. 왼쪽 창에서 **앱** 창을 열어 서비스 인스턴스에 대한 앱을 봅니다.
 
-   ![앱 열기 창의 스크린샷](media/spring-cloud-blue-green-staging/app-dashboard.png)
+   ![앱 열기 창의 스크린샷.](media/spring-cloud-blue-green-staging/app-dashboard.png)
 
-1. 앱을 선택 하 고 세부 정보를 볼 수 있습니다.
+1. 앱을 선택하고 세부 정보를 볼 수 있습니다.
 
-   ![앱에 대 한 세부 정보의 스크린샷](media/spring-cloud-blue-green-staging/app-overview.png)
+   ![앱에 대한 세부 정보의 스크린샷.](media/spring-cloud-blue-green-staging/app-overview.png)
 
-1. **배포** 를 열어 앱의 모든 배포를 확인 합니다. 표는 프로덕션 및 스테이징 배포를 모두 보여 줍니다.
+1. **배포** 를 열어 앱의 모든 배포를 확인합니다. 그리드는 프로덕션 및 스테이징 배포를 모두 표시합니다.
 
-   ![나열 된 앱 배포를 보여 주는 스크린샷](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
+   ![나열된 앱 배포를 표시하는 스크린샷.](media/spring-cloud-blue-green-staging/deployments-dashboard.png)
 
-1. URL을 선택 하 여 현재 배포 된 응용 프로그램을 엽니다.
+1. URL을 선택하여 현재 배포된 애플리케이션을 엽니다.
     
-   ![배포 된 응용 프로그램에 대 한 U R L을 보여 주는 스크린샷](media/spring-cloud-blue-green-staging/running-blue-app.png)
+   ![배포된 애플리케이션에 대한 URL을 보여 주는 스크린샷.](media/spring-cloud-blue-green-staging/running-blue-app.png)
 
-1. **상태** 열에서 **프로덕션** 을 선택 하 여 기본 앱을 표시 합니다.
+1. **프로덕션** 을 **상태** 열에서 선택하여 기본 앱을 표시합니다.
     
-   ![기본 앱에 대 한 U R L을 보여 주는 스크린샷](media/spring-cloud-blue-green-staging/running-default-app.png)
+   ![기본 앱에 대한 URL을 보여 주는 스크린샷.](media/spring-cloud-blue-green-staging/running-default-app.png)
 
-1. **상태** 열에서 **준비** 를 선택 하 여 준비 앱을 확인 합니다.
+1. **준비** 를 **상태** 열에서 선택하여 스테이징 앱을 확인합니다.
     
-   ![준비 앱에 대 한 U R L을 보여 주는 스크린샷](media/spring-cloud-blue-green-staging/running-staging-app.png)
+   ![스테이징 앱에 대한 URL을 보여 주는 스크린샷.](media/spring-cloud-blue-green-staging/running-staging-app.png)
 
 >[!TIP]
-> * 테스트 끝점이 슬래시 (/)로 끝나는지 확인 하 여 CSS 파일이 올바르게 로드 되는지 확인 합니다.  
-> * 브라우저에서 페이지를 보기 위해 로그인 자격 증명을 입력해야 하는 경우, [URL 디코드](https://www.urldecoder.org/)를 사용하여 테스트 엔드포인트를 디코드합니다. Url 디코딩은 url을 *https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/gateway/green* 형식으로 반환 합니다. 이 형식을 사용 하 여 끝점에 액세스 합니다.
+> * 테스트 엔드포인트가 슬래시(/)로 끝나는지 확인하여 CSS 파일이 올바르게 로드되는지 확인합니다.  
+> * 브라우저에서 페이지를 보기 위해 로그인 자격 증명을 입력해야 하는 경우, [URL 디코드](https://www.urldecoder.org/)를 사용하여 테스트 엔드포인트를 디코드합니다. URL 디코딩은 URL을 *https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green* 형식으로 반환합니다. 이 형식을 사용하여 엔드포인트에 액세스합니다.
 
 >[!NOTE]    
-> 구성 서버 설정은 스테이징 환경과 프로덕션 환경에 모두 적용 됩니다. 예를 들어 구성 서버에서 앱 게이트웨이의 컨텍스트 경로 *(* somepath)를 로 설정 하는 경우 녹색 배포 경로가 *https:// \<username> : \<password> @ \<cluster-name> . test.azureapps.io/gateway/green/somepath/...* 로 변경 됩니다.
+> 구성 서버 설정은 스테이징 환경과 프로덕션 환경에 모두 적용됩니다. 예를 들어, 구성 서버의 앱 게이트웨이에 대한 컨텍스트 경로(*server.servlet.context-path*)를 *somepath* 로 설정했다면, 녹색 배포로 가는 경로가 *https://\<username>:\<password>@\<cluster-name>.test.azureapps.io/gateway/green/somepath/...* 로 변경됩니다.
  
-이 시점에서 공용 앱 게이트웨이를 방문 하면 새 변경 없이 이전 페이지가 표시 됩니다.
+이 지점에서 공개 주소 앱 게이트웨이를 방문하면 새로운 변경 없이 이전 페이지가 표시됩니다.
 
 ## <a name="set-the-green-deployment-as-the-production-environment"></a>녹색 배포를 프로덕션 환경으로 설정
 
-1. 스테이징 환경에서 변경 내용을 확인 한 후 프로덕션으로 푸시할 수 있습니다. **앱**  >  **배포** 페이지에서 현재 **프로덕션** 중인 응용 프로그램을 선택 합니다.
+1. 스테이징 환경에서 변경 내용을 확인한 후 프로덕션 환경으로 푸시할 수 있습니다. **앱** > **배포** 페이지에서 현재 **프로덕션** 중인 애플리케이션을 선택합니다.
 
-1. 녹색 배포의 **등록 상태** 뒤에 있는 줄임표 (...)를 선택 하 고 **프로덕션으로 설정** 을 선택 합니다. 
+1. 녹색 배포의 **등록 상태** 뒤에 있는 줄임표를 선택하고 **프로덕션으로 설정** 을 선택합니다. 
 
-   ![스테이징 빌드를 프로덕션으로 설정 하기 위한 선택 항목을 보여 주는 스크린샷](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
+   ![스테이징 빌드를 프로덕션으로 설정하기 위한 선택 영역을 표시하는 스크린샷.](media/spring-cloud-blue-green-staging/set-staging-deployment.png)
 
-1. 앱의 URL에 변경 내용이 표시 되는지 확인 합니다.
+1. 앱의 URL에 변경 내용이 표시되는지 확인합니다.
 
-   ![현재 프로덕션 환경에서 앱의 U R L을 보여 주는 스크린샷](media/spring-cloud-blue-green-staging/new-production-deployment.png)
+   ![현재 프로덕션 환경에서 앱의 URL을 보여 주는 스크린샷.](media/spring-cloud-blue-green-staging/new-production-deployment.png)
 
 >[!NOTE]
 > 녹색 배포를 프로덕션 환경으로 설정한 후에는 이전 배포가 스테이징 배포가 됩니다.
 
 ## <a name="modify-the-staging-deployment"></a>스테이징 배포 수정
 
-변경에 만족 하지 않는 경우 응용 프로그램 코드를 수정 하 고, 새 jar 패키지를 작성 하 고, Azure CLI를 사용 하 여 녹색 배포에 업로드할 수 있습니다.
+변경에 만족하지 않는 경우 애플리케이션 코드를 수정하고, 새 .jar 패키지를 빌드한 후, Azure CLI를 사용하여 녹색 배포에 업로드할 수 있습니다.
 
 ```azurecli
 az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> -n gateway -d green --jar-path gateway.jar
@@ -175,9 +175,9 @@ az spring-cloud app deploy  -g <resource-group-name> -s <service-instance-name> 
 
 ## <a name="delete-the-staging-deployment"></a>스테이징 배포 삭제
 
-Azure Portal에서 스테이징 배포를 삭제 하려면 스테이징 배포에 대 한 페이지로 이동 하 여 **삭제** 단추를 선택 합니다.
+Azure Portal에서 스테이징 배포를 삭제하려면 스테이징 배포에 대한 페이지로 이동하여 **삭제** 단추를 선택합니다.
 
-또는 다음 명령을 실행 하 여 Azure CLI에서 스테이징 배포를 삭제 합니다.
+또는 다음 명령을 실행하여 Azure CLI에서 스테이징 배포를 삭제합니다.
 
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
@@ -185,4 +185,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 스프링 클라우드 용 CI/CD](./spring-cloud-howto-cicd.md?pivots=programming-language-java)
+* [Azure Spring Cloud에 대한 CI/CD](./how-to-cicd.md?pivots=programming-language-java)

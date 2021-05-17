@@ -1,6 +1,6 @@
 ---
 title: Azure Sentinel에 F5 ASM 데이터 연결| Microsoft Docs
-description: F5 ASM 데이터 커넥터를 사용 하 여 Azure 센티널로 F5 ASM 로그를 가져오는 방법에 대해 알아봅니다. 통합 문서에서 F5 ASM 데이터를 보고, 경고를 생성 하 고, 조사를 개선 합니다.
+description: F5 ASM 데이터 커넥터를 사용하여 Azure Sentinel에 F5 ASM 로그를 가져오는 방법을 알아봅니다. 통합 문서에서 F5 ASM 데이터를 보고, 경고를 만들고, 조사를 개선합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 81a0f0e01827c48518f2eb1fba062e9e6536d9df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94655700"
 ---
 # <a name="connect-f5-asm-to-azure-sentinel"></a>Azure Sentinel에 F5 ASM 연결

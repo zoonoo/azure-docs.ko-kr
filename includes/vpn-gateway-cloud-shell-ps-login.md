@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,17 +9,17 @@ ms.date: 10/29/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 24d146da7946176c92902698d0f52ae01baf79ee
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93061636"
 ---
-PowerShell을 로컬로 실행 하는 경우 상승 된 권한으로 PowerShell 콘솔을 열고 Azure 계정에 연결 합니다. *Connect-AzAccount* cmdlet에서 자격 증명을 입력하라는 메시지를 표시합니다. 인증한 다음, Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
+PowerShell을 로컬로 실행하는 경우 상승된 권한으로 PowerShell 콘솔을 열고 Azure 계정에 연결합니다. *Connect-AzAccount* cmdlet에서 자격 증명을 입력하라는 메시지를 표시합니다. 인증한 다음, Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
 
-PowerShell을 로컬로 실행 하는 대신 Azure Cloud Shell를 사용 하는 경우 *AzAccount* 를 실행 하지 않아도 됩니다. **시도** 를 선택 하면 Azure 계정에 자동으로 연결 Azure Cloud Shell.
+PowerShell을 로컬로 실행하는 대신 Azure Cloud Shell을 사용하는 경우 *Connect-AzAccount* 를 실행하지 않아도 됩니다. **사용해보기** 를 선택하면 Azure Cloud Shell이 자동으로 Azure 계정에 연결됩니다.
 
-1. PowerShell을 로컬로 실행 하는 경우 로그인 합니다.
+1. PowerShell을 로컬로 실행하는 경우 로그인합니다.
 
    ```azurepowershell
    Connect-AzAccount

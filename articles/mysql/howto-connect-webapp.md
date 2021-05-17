@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에 연결-Azure Database for MySQL
+title: Azure App Service에 연결 - Azure Database for MySQL
 description: 기존 Azure App Service를 Azure Database for MySQL에 적절하게 연결하는 방법에 대한 지침
 author: savjani
 ms.author: pariks
@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: 6355afe6ce5decbed029db4536b1b1b19f5a876c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94541507"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>기존 Azure App Service를 Azure Database for MySQL 서버에 연결
@@ -49,7 +49,7 @@ Azure App Service에서는 시간이 지나도 IP 주소를 동일하게 유지�
 ## <a name="ssl-configuration"></a>SSL 구성
 Azure Database for MySQL은 기본적으로 SSL을 사용하도록 설정됩니다. 애플리케이션에서 데이터베이스에 연결할 때 SSL을 사용하지 않는 경우 MySQL 서버에서 SSL을 사용하지 않도록 설정해야 합니다. SSL을 구성하는 방법에 대한 자세한 내용은 [Azure Database for MySQL에 SSL 사용](howto-configure-ssl.md)을 참조하세요.
 
-### <a name="django-pymysql"></a>Django (PyMySQL)
+### <a name="django-pymysql"></a>Django(PyMySQL)
 ```python
 DATABASES = {
     'default': {

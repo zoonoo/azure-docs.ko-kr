@@ -1,24 +1,24 @@
 ---
-title: 중지/시작-Azure Portal-유연한 서버 Azure Database for PostgreSQL
-description: 이 문서에서는 Azure Portal를 통해 Azure Database for PostgreSQL에서 작업을 중지/시작 하는 방법을 설명 합니다.
+title: 중지/시작 - Azure Portal - Azure Database for PostgreSQL 유연한 서버
+description: 이 문서에서는 Azure Portal을 통해 Azure Database for PostgreSQL에서 작업을 중지/시작하는 방법에 대해 설명합니다.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: e28243f5919c355e6ad0d4998ff8388a56e3d0ca
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105607371"
 ---
-# <a name="stopstart-an-azure-database-for-postgresql---flexible-server-preview"></a>Azure Database for PostgreSQL 유연한 서버 중지/시작 (미리 보기)
+# <a name="stopstart-an-azure-database-for-postgresql---flexible-server-preview"></a>Azure Database for PostgreSQL 중지/시작 - 유연한 서버(미리 보기)
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL-유연한 서버는 현재 미리 보기 상태입니다.
+> Azure Database for PostgreSQL - 유연한 서버는 현재 미리 보기로 제공됩니다.
 
-이 문서에서는 유연한 서버를 중지 하 고 시작 하는 단계별 지침을 제공 합니다.
+이 문서에서는 유연한 서버를 중지하고 시작하는 단계별 지침을 제공합니다.
 
 ## <a name="pre-requisites"></a>필수 구성 요소
 
@@ -28,24 +28,24 @@ ms.locfileid: "105607371"
 
 ## <a name="stop-a-running-server"></a>실행 중인 서버 중지
 
-1.  [Azure Portal](https://portal.azure.com/)에서 중지 하려는 유연한 서버를 선택 합니다.
+1.  [Azure Portal](https://portal.azure.com/)에서 중지하려는 유연한 서버를 선택합니다.
 
-2.  **개요** 페이지의 도구 모음에서 **중지** 단추를 클릭 합니다.
-
-> [!NOTE]
-> 서버를 중지 한 후에는 유연한 서버에서 다른 관리 작업을 사용할 수 없습니다.
-
-중지 된 서버는 7 일 후에 자동으로 다시 시작 됩니다. 보류 중인 유지 관리 업데이트는 다음에 서버를 시작할 때 적용 됩니다.
-
-## <a name="start-a-stopped-server"></a>중지 된 서버 시작
-
-1.  [Azure Portal](https://portal.azure.com/)에서 시작 하려는 유연한 서버를 선택 합니다.
-
-2.  **개요** 페이지의 도구 모음에서 **시작** 단추를 클릭 합니다.
+2.  **개요** 페이지의 도구 모음에서 **중지** 단추를 클릭합니다.
 
 > [!NOTE]
-> 서버를 시작한 후에는 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.
+> 서버가 중지된 후에는 유연한 서버에서 다른 관리 작업을 사용할 수 없습니다.
+
+중지된 서버는 7일 후에 자동으로 다시 시작된다는 점을 알아두세요. 보류 중인 유지 관리 업데이트는 다음에 서버를 시작할 때 적용됩니다.
+
+## <a name="start-a-stopped-server"></a>중지된 서버 시작
+
+1.  [Azure Portal](https://portal.azure.com/)에서 시작하려는 유연한 서버를 선택합니다.
+
+2.  **개요** 페이지의 도구 모음에서 **시작** 단추를 클릭합니다.
+
+> [!NOTE]
+> 서버가 시작된 후에는 이제 유연한 서버에서 모든 관리 작업을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Database for PostgreSQL 유연한 서버에서 계산 및 저장소 옵션](./concepts-compute-storage.md)에 대해 자세히 알아보세요.
+- [Azure Database for PostgreSQL 유연한 서버의 계산 및 스토리지 옵션](./concepts-compute-storage.md)에 대한 자세한 정보를 알아봅니다

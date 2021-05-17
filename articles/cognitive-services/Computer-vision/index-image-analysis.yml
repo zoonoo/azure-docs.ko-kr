@@ -1,0 +1,74 @@
+### YamlMime:Landing
+title: 이미지 분석 설명서
+summary: 클라우드 기반 이미지 분석 API를 사용하면 개발자가 이미지를 처리하고 해당 시각적 기능에 대한 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 서비스는 입력 및 사용자 선택 항목에 따라 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+metadata:
+  title: 이미지 분석 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  description: 클라우드 기반 이미지 분석 API를 사용하면 개발자가 이미지를 처리하고 해당 시각적 기능에 대한 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 서비스는 입력 및 사용자 선택 항목에 따라 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 30/31/2021
+  ms.openlocfilehash: a46a958fb70c046bd9ac3f54d66ad9b3f1a330d6
+  ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/27/2021
+  ms.locfileid: "108071368"
+landingContent:
+- title: 이미지 분석 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 이미지 분석 개요
+      url: overview-image-analysis.md
+  - linkListType: quickstart
+    links:
+    - text: 이미지 분석 빠른 시작
+      url: quickstarts-sdk/image-analysis-client-library.md
+- title: 이미지 분석 기능
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 콘텐츠 태그
+      url: concept-tagging-images.md
+    - text: 개체 감지
+      url: concept-object-detection.md
+    - text: 브랜드 검색
+      url: concept-brand-detection.md
+    - text: 이미지 분류
+      url: concept-categorizing-images.md
+    - text: 이미지 설명
+      url: concept-describing-images.md
+    - text: 얼굴 감지
+      url: concept-detecting-faces.md
+    - text: 도메인 특정 콘텐츠
+      url: concept-detecting-domain-content.md
+    - text: 스마트하게 자른 썸네일
+      url: concept-generating-thumbnails.md
+    - text: 성인 콘텐츠 검색
+      url: concept-detecting-adult-content.md
+- title: 이미지 분석을 사용하여 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 이미지 분석 API 호출
+      url: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - linkListType: tutorial
+    links:
+    - text: 이미지에 대한 메타데이터 생성
+      url: Tutorials/storage-lab-tutorial.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 이미지 분석 REST API
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

@@ -5,18 +5,18 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aba107ac58538245c16f581afa2c493f546ca01
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92736731"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107786948"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Instances에 배포할 때 Azure Container Registry에 저장된 컨테이너 이미지를 풀하는 방법에 대해 설명합니다. 레지스트리 액세스를 구성하려면 Azure Active Directory 서비스 주체와 암호를 만들고 Azure 주요 자격 증명 모음에 로그인 자격 증명을 저장하는 것입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 **Azure Container Registry**: 이 문서의 단계를 완료하려면 Azure Container Registry가 필요하고 해당 레지스트리에 하나 이상의 컨테이너 이미지가 있어야 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
@@ -175,7 +175,7 @@ Azure Container Registry 인증에 대한 자세한 내용은 [Azure Container R
 [cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-container-create]: /cli/azure/container#az-container-create
-[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-container-create]: /cli/azure/container#az_container_create
+[az-keyvault-secret-set]: /cli/azure/keyvault/secret#az_keyvault_secret_set

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 로그를 Azure Monitor 로그로 스트림 | Microsoft Docs
-description: Azure Active Directory 로그를 Azure Monitor 로그와 통합 하는 방법 알아보기
+title: Azure Monitor 로그에 Azure Active Directory 로그 스트리밍 | Microsoft Docs
+description: Azure Monitor 로그와 Azure Active Directory 로그를 통합하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -18,13 +18,13 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100591135"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure Monitor 로그와 Azure AD 로그 통합
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Azure AD 로그를 Azure Monitor 로그와 통합
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -46,7 +46,7 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 * **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
 * **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
-* **프로 비전 로그**: [프로 비전 로그](../app-provisioning/application-provisioning-log-analytics.md)를 사용 하 여 모든 타사 응용 프로그램에서 생성, 업데이트 및 삭제 된 사용자를 모니터링할 수 있습니다. 
+* **프로비저닝 로그**: [프로비저닝 로그](../app-provisioning/application-provisioning-log-analytics.md)를 사용하면 모든 타사 애플리케이션에서 생성, 업데이트 및 삭제된 사용자를 모니터링할 수 있습니다. 
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
@@ -63,13 +63,13 @@ Ignite 세션의 다음 비디오는 실제 사용자 시나리오에서 Azure A
 
 ## <a name="licensing-requirements"></a>라이선싱 요구 사항
 
-이 기능을 사용 하려면 Azure AD Premium P1 또는 P2 라이선스가 필요 합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+이 기능을 사용하려면 Azure AD Premium P1 또는 P2 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 ## <a name="send-logs-to-azure-monitor"></a>Azure Monitor로 로그 보내기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
-2.   >  **진단 설정**  ->  **추가 진단** 설정 Azure Active Directory 선택 합니다. 또한 **감사 로그** 또는 **로그인 페이지** 에서 **설정 내보내기** 를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
+2. **Azure Active Directory** > **진단 설정** -> **진단 설정 추가** 를 차례로 선택합니다. 또한 **감사 로그** 또는 **로그인 페이지** 에서 **설정 내보내기** 를 선택하여 진단 설정 구성 페이지로 이동할 수도 있습니다.  
     
 3. **진단 설정** 메뉴에서 **Log Analytics 작업 영역에 보내기** 확인란을 선택한 다음, **구성** 을 선택합니다.
 

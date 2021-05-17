@@ -1,7 +1,7 @@
 ---
-title: Azure에서 TCP 다시 설정 및 유휴 시간 제한 Load Balancer
+title: Azure의 Load Balancer TCP 재설정 및 유휴 시간 제한
 titleSuffix: Azure Load Balancer
-description: 이 문서에서는 유휴 시간 제한에 양방향 TCP RST 패킷을 사용 하는 Azure Load Balancer에 대해 알아봅니다.
+description: 이 문서에서는 유휴 시간 초과 시 양방향 TCP RST 패킷이 포함된 Azure Load Balancer에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: allensu
-ms.openlocfilehash: 0d02b46345af13770f77a7dac452127a665e01fd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9b555d7972e88df85e08dbcb1737231755c21361
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94696747"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448851"
 ---
-# <a name="load-balancer-tcp-reset-and-idle-timeout"></a>TCP 다시 설정 및 유휴 시간 제한 Load Balancer
+# <a name="load-balancer-tcp-reset-and-idle-timeout"></a>Load Balancer TCP 재설정 및 유휴 시간 제한
 
 [표준 Load Balancer](./load-balancer-overview.md)를 지정된 규칙에 대해 TCP Reset on Idle을 사용하도록 설정하여 시나리오용으로 예측 가능성이 더 높은 애플리케이션 동작을 만들 수 있습니다. Load Balancer의 기본 동작은 흐름의 유휴 시간이 초과되면 흐름을 자동으로 끊는 것입니다.  이 기능을 사용하도록 설정하면 Load Balancer가 유휴 시간 초과 시 양방향 TCP Reset(TCP RST 패킷)을 전송합니다.  이 패킷은 연결 시간이 초과되어 더 이상 연결을 사용할 수 없음을 애플리케이션 엔드포인트에 알립니다.  엔드포인트는 필요한 경우 새 연결을 즉시 설정할 수 있습니다.
 
@@ -41,8 +41,8 @@ TCP RST 패킷을 수신하는 엔드포인트는 즉시 해당 소켓을 닫습
 ## <a name="configurable-tcp-idle-timeout"></a>구성 가능한 TCP 유휴 시간 제한
 
 Azure Load Balancer의 유휴 시간 제한 범위는 다음과 같습니다.
--  아웃 바운드 규칙의 경우 4 분 ~ 100 분
--  Load Balancer 규칙 및 인바운드 NAT 규칙에 대 한 4 분 ~ 30 분
+-  아웃바운드 규칙의 경우 4분~100분
+-  Load Balancer 규칙 및 인바운드 NAT 규칙의 경우 4분~30분
 
 기본적으로 4분으로 설정되어 있습니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다.
 
@@ -57,12 +57,11 @@ TCP 연결 유지는 배터리 수명이 제한되지 않는 시나리오에서 
 
 ## <a name="limitations"></a>제한 사항
 
-- Tcp는 설정 된 상태에서 TCP를 연결 하는 동안에만 전송 됩니다.
-- HA 포트가 구성 된 내부 부하 분산 장치에 대해서는 TCP 다시 설정이 전송 되지 않습니다.
+- TCP 재설정은 ESTABLISHED 상태에서 TCP 연결 중에만 전송됩니다.
 - TCP 유휴 시간 제한은 UDP 프로토콜의 부하 분산 규칙에 영향을 주지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [표준 Load Balancer](./load-balancer-overview.md)에 대해 알아봅니다.
-- [아웃 바운드 규칙](./load-balancer-outbound-connections.md#outboundrules)에 대해 알아봅니다.
-- [유휴 시간 제한 시 TCP RST 구성](load-balancer-tcp-idle-timeout.md)
+- [아웃바운드 규칙](./load-balancer-outbound-connections.md#outboundrules)에 대해 알아봅니다.
+- [유휴 시간 초과 시 TCP RST 구성](load-balancer-tcp-idle-timeout.md)

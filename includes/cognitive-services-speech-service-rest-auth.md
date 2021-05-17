@@ -5,40 +5,40 @@ ms.topic: include
 ms.date: 01/08/2021
 ms.author: erhopf
 ms.openlocfilehash: 22127f81d871fe333750020196540db17e7544f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98033454"
 ---
 ## <a name="authentication"></a>인증
 
-각 요청에는 인증 헤더가 필요 합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
+각 요청에는 인증 헤더가 필요합니다. 이 표에서는 각 서비스에 대해 지원되는 헤더를 보여 줍니다.
 
 | 지원되는 인증 헤더 | 음성 텍스트 변환 | 텍스트 음성 변환 |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | 예 | 예 |
 | Authorization: Bearer | 예 | 예 |
 
-`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예를 들면 다음과 같습니다.
+`Ocp-Apim-Subscription-Key` 헤더를 사용하는 경우 구독 키만 제공하면 됩니다. 예:
 
 ```http
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 섹션에서는 토큰을 가져오고 토큰을 사용 하는 방법에 대해 알아봅니다.
+`Authorization: Bearer` 헤더를 사용하는 경우 `issueToken` 엔드포인트에 요청해야 합니다. 이 요청에서는 10분 동안 유효한 액세스 토큰에 대한 구독 키를 교환합니다. 다음 몇 개의 섹션에서는 토큰을 가져오고 토큰을 사용하는 방법을 알아봅니다.
 
 ### <a name="how-to-get-an-access-token"></a>액세스 토큰을 가져오는 방법
 
 액세스 토큰을 가져오려면 `Ocp-Apim-Subscription-Key` 및 구독 키를 사용하여 `issueToken` 엔드포인트에 요청해야 합니다.
 
-`issueToken`끝점의 형식은 다음과 같습니다.
+`issueToken` 엔드포인트의 형식은 다음과 같습니다.
 
 ```http
 https://<REGION_IDENTIFIER>.api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-`<REGION_IDENTIFIER>`이 테이블에서 구독의 지역과 일치 하는 식별자로 대체 합니다.
+`<REGION_IDENTIFIER>`를 다음 표에서 구독의 지역과 일치하는 식별자로 바꿉니다.
 
 [!INCLUDE [](cognitive-services-speech-service-region-identifier.md)]
 
@@ -151,7 +151,7 @@ def get_token(subscription_key):
 
 액세스 토큰은 `Authorization: Bearer <TOKEN>` 헤더로 서비스에 전송되어야 합니다. 각 액세스 토큰은 10분 동안 유효합니다. 언제든지 새 토큰을 가져올 수 있지만, 네트워크 트래픽 및 대기 시간을 최소화하려면 동일한 토큰을 9분 동안 사용하는 것이 좋습니다.
 
-다음은 짧은 오디오의 음성 텍스트 REST API에 대 한 샘플 HTTP 요청입니다.
+다음은 짧은 오디오를 위한 음성 텍스트 변환 REST API에 대한 샘플 HTTP 요청입니다.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1

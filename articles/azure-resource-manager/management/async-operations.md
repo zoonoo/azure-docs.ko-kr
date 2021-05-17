@@ -4,12 +4,12 @@ description: Azure에서 비동기 작업을 추적하는 방법에 대해 설�
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e2c5ba137d5277466cf1b382d2b0b1bc02259f00
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: f5823bc8f6c0d5b334a638d4ad350eb2f9ef2b28
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88723455"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932746"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
 
@@ -31,23 +31,23 @@ ms.locfileid: "88723455"
 
 201 또는 202 응답 코드를 가져온 후에는 작업의 상태를 모니터링할 준비가 된 것입니다.
 
-## <a name="url-to-monitor-status"></a>상태를 모니터링 하는 URL
+## <a name="url-to-monitor-status"></a>상태를 모니터링할 URL
 
-비동기 작업의 상태를 모니터링 하는 방법에는 두 가지가 있습니다. 원래 요청에서 반환 된 헤더 값을 검사 하 여 올바른 방법을 결정 합니다. 먼저 다음을 찾습니다.
+비동기 작업의 상태를 모니터링 하는 방법에는 두 가지가 있습니다. 원래 요청에서 반환된 헤더 값을 검사하여 올바른 방법을 결정합니다. 먼저 다음을 찾습니다.
 
-* `Azure-AsyncOperation` - 작업의 진행 상태를 확인하는 URL입니다. 작업에서이 값을 반환 하는 경우 작업 상태를 추적 하는 데 사용 합니다.
+* `Azure-AsyncOperation` - 작업의 진행 상태를 확인하는 URL입니다. 작업이 이 값을 반환하는 경우 작업의 상태를 추적하는 데 사용합니다.
 * `Retry-After` - 비동기 작업의 상태를 확인하기 전에 대기할 시간(초)입니다.
 
 `Azure-AsyncOperation`가 헤더 값 중 하나가 아닌 경우 다음을 찾습니다.
 
-* `Location` - 작업이 완료된 시점을 결정하는 URL입니다. Azure-AsyncOperation 반환 되지 않은 경우에만이 값을 사용 합니다.
+* `Location` - 작업이 완료된 시점을 결정하는 URL입니다. Azure-AsyncOperation이 반환되지 않은 경우 이 값만 사용합니다.
 * `Retry-After` - 비동기 작업의 상태를 확인하기 전에 대기할 시간(초)입니다.
 
 ## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation 요청 및 응답
 
-헤더 값의 URL이 있는 경우 `Azure-AsyncOperation` 해당 url에 GET 요청을 보냅니다. 의 값을 사용 `Retry-After` 하 여 상태를 확인 하는 빈도를 예약 합니다. 작업 상태를 나타내는 응답 개체를 가져옵니다. URL을 사용 하 여 작업의 상태를 확인할 때 다른 응답이 반환 됩니다 `Location` . 위치 URL의 응답에 대 한 자세한 내용은 [저장소 계정 만들기 (202 With location And Retry-After)](#create-storage-account-202-with-location-and-retry-after)를 참조 하세요.
+`Azure-AsyncOperation` 헤더 값의 URL이 있는 경우 해당 URL에 GET 요청을 보냅니다. `Retry-After`의 값을 사용하여 상태 확인 빈도를 예약합니다. 작업 상태를 나타내는 응답 개체를 가져옵니다. `Location` URL로 작업 상태를 확인할 때 다른 응답이 반환됩니다. 위치 URL의 응답에 대한 자세한 내용은 [스토리지 계정 만들기(위치 및 재시도 후 202)](#create-storage-account-202-with-location-and-retry-after)를 참조하세요.
 
-응답 속성은 다를 수 있지만 항상 비동기 작업의 상태를 포함 합니다.
+응답 속성은 다를 수 있지만 항상 비동기 작업의 상태를 포함합니다.
 
 ```json
 {
@@ -55,7 +55,7 @@ ms.locfileid: "88723455"
 }
 ```
 
-다음 예에서는 작업에서 반환 될 수 있는 다른 값을 보여 줍니다.
+다음 예제에서는 작업에서 반환될 수 있는 다른 값을 보여줍니다.
 
 ```json
 {
@@ -75,7 +75,7 @@ ms.locfileid: "88723455"
 }
 ```
 
-상태가 실패함 또는 취소됨인 경우 오류 개체가 반환됩니다. 다른 모든 값은 선택 사항입니다. 수신 하는 응답은 예제와 다를 수 있습니다.
+상태가 실패함 또는 취소됨인 경우 오류 개체가 반환됩니다. 다른 모든 값은 선택 사항입니다. 수신하는 응답은 예제와 다를 수 있습니다.
 
 ## <a name="provisioningstate-values"></a>provisioningState 값
 
@@ -91,7 +91,7 @@ ms.locfileid: "88723455"
 
 ### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>가상 머신 시작(Azure-AsyncOperation에서 202)
 
-이 예제에서는 [가상 컴퓨터에 대 한 시작 작업](/rest/api/compute/virtualmachines/start)의 상태를 확인 하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
+이 예제에서는 [가상 머신의 시작 작업](/rest/api/compute/virtualmachines/start) 상태를 확인하는 방법을 보여줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
 ```HTTP
 POST 
@@ -123,7 +123,7 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>리소스 배포(Azure-AsyncOperation에서 201)
 
-이 예제에서는 Azure에 [리소스를 배포 하기 위한 배포 작업](/rest/api/resources/deployments/createorupdate) 의 상태를 확인 하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
+이 예제에서는 [Azure에 리소스를 배포하는 배포 작업](/rest/api/resources/resources/deployments/createorupdate)의 상태를 확인하는 방법을 보여줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
 ```HTTP
 PUT
@@ -167,7 +167,7 @@ https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{res
 
 ### <a name="create-storage-account-202-with-location-and-retry-after"></a>스토리지 계정 만들기(위치 및 Retry-After에서 202)
 
-이 예제에서는 [저장소 계정에 대 한 만들기 작업](/rest/api/storagerp/storageaccounts/create)의 상태를 확인 하는 방법을 보여 줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
+이 예제에서는 [스토리지 계정의 만들기 작업](/rest/api/storagerp/storageaccounts/create) 상태를 확인하는 방법을 보여줍니다. 초기 요청은 다음 형식으로 되어 있습니다.
 
 ```HTTP
 PUT
@@ -206,4 +206,4 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft
 ## <a name="next-steps"></a>다음 단계
 
 * 각 REST 작업에 대한 설명서는 [REST API 설명서](/rest/api/azure/)를 참조하세요.
-* 리소스 관리자 REST API를 통해 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿과 함께 리소스 배포 및 리소스 관리자 REST API](../templates/deploy-rest.md)을 참조 하세요.
+* Resource Manager REST API를 통한 템플릿 배포 방법에 대한 정보는 [Resource Manager 템플릿과 Resource Manager REST API로 리소스 배포](../templates/deploy-rest.md)를 참조하세요.

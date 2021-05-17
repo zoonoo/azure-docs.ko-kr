@@ -1,5 +1,5 @@
 ---
-title: 인증서 기반 인증-Azure Active Directory
+title: 인증서 기반 인증 - Azure Active Directory
 description: 사용자 환경에서 인증서 기반 인증을 구성하는 방법 알아보기
 services: active-directory
 ms.service: active-directory
@@ -13,10 +13,10 @@ ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: 3ba84bb3ee38981217e72f8372a836b03647083d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96861343"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory에서 인증서 기반 인증 시작
@@ -37,16 +37,16 @@ ms.locfileid: "96861343"
 
 인증서 기반 인증을 구성하려면 다음 명령문에 해당되어야 합니다.
 
-- CBA (인증서 기반 인증)는 브라우저 응용 프로그램에 대 한 페더레이션 환경, ADAL (최신 인증) 또는 MSAL 라이브러리를 사용 하는 네이티브 클라이언트에 대해서만 지원 됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO(Exchange Online)용 EAS(Exchange Active Sync)는 예외입니다.
+- CBA(인증서 기반 인증)는 ADAL(최신 인증) 또는 MSAL 라이브러리를 사용하는 브라우저 애플리케이션 또는 네이티브 클라이언트의 페더레이션 환경에서만 지원됩니다. 단, 페더레이션 및 관리 계정 모두에 사용할 수 있는 EXO(Exchange Online)용 EAS(Exchange Active Sync)는 예외입니다.
 - Azure Active Directory에는 루트 인증 기관 및 중간 인증 기관을 구성되어야 합니다.
 - 각 인증 기관에는 인터넷 연결 URL을 통해 참조될 수 있는 CRL(인증서 해지 목록)이 있어야 합니다.
 - Azure Active Directory에 해당 인증 기관이 하나 이상 구성되어 있어야 합니다. [인증 기관 구성](#step-2-configure-the-certificate-authorities) 섹션에서 관련 단계를 찾을 수 있습니다.
-- Exchange ActiveSync 클라이언트의 경우 사용자 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange online의 사용자 라우팅 가능한 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
+- Exchange ActiveSync 클라이언트의 경우, 보안 주체 이름 또는 주체 대체 이름 필드의 RFC822 이름 값에 Exchange Online 사용자가 라우팅할 수 있는 메일 주소가 있어야 합니다. Azure Active Directory는 디렉터리의 프록시 주소 특성에 RFC822 값을 매핑합니다.
 - 클라이언트 디바이스는 클라이언트 인증서를 발급하는 하나 이상의 인증 기관에 액세스해야 합니다.
 - 클라이언트 인증을 위한 클라이언트 인증서가 클라이언트에 발급되어야 합니다.
 
 >[!IMPORTANT]
->Azure Active Directory 다운로드 하 고 캐시에 대 한 CRL의 최대 크기는 20MB이 고, CRL을 다운로드 하는 데 필요한 시간은 10 초를 초과 하면 안 됩니다.  Azure Active Directory CRL을 다운로드할 수 없는 경우 해당 CA에서 발급 한 인증서를 사용 하는 인증서 기반 인증에 실패 합니다. CRL 파일이 크기 제약 조건 내에 있는지 확인 하는 모범 사례는 인증서 수명을 합당 한 제한 내에서 유지 하 고 만료 된 인증서를 정리 하는 것입니다.
+>Azure Active Directory를 성공적으로 다운로드하고 캐시하기 위한 CRL의 최대 크기는 20MB이며 CRL을 다운로드하는 데 필요한 시간은 10초를 초과하지 않아야 합니다.  Azure Active Directory에서 CRL을 다운로드할 수 없는 경우 해당 CA에서 발급한 인증서를 사용하는 인증서 기반 인증이 실패합니다. CRL 파일이 크기 제한 내에 있는지 확인하는 모범 사례는 인증서 수명을 합리적인 제한 내로 유지하고 만료된 인증서를 정리하는 것입니다.
 
 ## <a name="step-1-select-your-device-platform"></a>1단계: 디바이스 플랫폼 선택
 

@@ -3,13 +3,13 @@ title: 클라우드 네이티브 빌드팩을 사용하여 이미지 빌드
 description: Dockerfile을 사용하지 않고 az acr pack build 명령을 사용하여 앱에서 컨테이너 이미지를 빌드하고 Azure Container Registry에 푸시합니다.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 264fc7314c78088ebfefb9ddb8edbe38fa16581a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js
+ms.openlocfilehash: 1700c8fda8ac91e7d447d35c0989da2d5fc3aefe
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92736636"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780932"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>클라우드 네이티브 빌드팩을 사용하여 앱에서 이미지 빌드 및 푸시
 
@@ -107,4 +107,4 @@ ACR 작업 기능에 대한 자세한 내용은 [ACR 작업을 사용하여 컨�
 <!-- LINKS - Internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr/task
-[az-acr-pack-build]: /cli/azure/acr/pack#az-acr-pack-build
+[az-acr-pack-build]: /cli/azure/acr/pack#az_acr_pack_build

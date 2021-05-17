@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2020
 ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 20d9810ef5ff7380eb0df5df8a6720dcef71a6ad
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: f0621788f50a07466861fbd87ede191f5ab688cd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104780"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554749"
 ---
 다음은 고유의 인증서를 만들 때 허용되는 CA입니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "105104780"
 - AME Infra CA 02
 - Ameroot
 - APCA-DM3P
-- Atos를 통해 루트 2011
+- Atos TrustedRoot 2011
 - Autopilot Root CA
 - Baltimore CyberTrust Root
 - Class 3 Public Primary Certification Authority
@@ -54,15 +54,17 @@ ms.locfileid: "105104780"
 - GlobalSign Root CA
 - Go Daddy Root Certificate Authority - G2
 - Go Daddy Secure Certificate Authority - G2
-- 홍콩 Post 루트 CA 1
-- 인증 기관 X3을 암호화 합니다.
-- 마이크로 초 e-Szigno 루트 CA 2009
+- Hongkong Post Root CA 1
+- 인증 기관 X3를 암호화하세요.
+- Microsec e-Szigno Root CA 2009
 - QuoVadis Root CA2 G3
 - RapidSSL RSA CA 2018
 - 보안 통신 RootCA1
 - 보안 통신 RootCA2
 - 보안 통신 RootCA3
+- SSL.com 루트 인증 기관 ECC
 - SSL.com 루트 인증 기관 RSA
+- SSL.com EV 루트 인증 기관 ECC
 - SSL.com EV 루트 인증 기관 RSA R2
 - Staat der Nederlanden EV 루트 CA
 - Symantec Class 3 EV SSL CA - G3

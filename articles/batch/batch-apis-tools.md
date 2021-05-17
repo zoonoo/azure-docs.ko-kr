@@ -4,12 +4,12 @@ description: Azure Batch 서비스를 사용하여 솔루션을 개발하는 데
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 502eb08631223215933b75dca882c12c02d17bd9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: b7c68ab16834bbd746cf52708db0cdb3f31c8d4d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89146405"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219929"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
@@ -43,11 +43,11 @@ Azure Batch에는 서비스 수준과 관리 수준을 위한 두 가지 API 세
 
 | API | API 참조 | 다운로드 | 자습서 | 코드 샘플 | 추가 정보 |
 | --- | --- | --- | --- | --- | --- |
-| **Batch REST** |[Azure REST API-Docs](/rest/api/batchservice/) |해당 없음 |- |- | [지원되는 버전](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[.NET 용 Azure SDK-Docs](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[자습서](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [릴리스 정보](https://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[Python 용 Azure SDK-Docs](/python/api/overview/azure/batch/client) |[PyPI](https://pypi.org/project/azure-batch/) |[자습서](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [추가 정보](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
-| **Batch Node.js** |[JavaScript 용 Azure SDK-Docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[자습서](batch-nodejs-get-started.md) |- | [추가 정보](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **Batch Java** |[Java 용 Azure SDK-Docs](/java/api/overview/azure/batch) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [추가 정보](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **Batch REST** |[Azure REST API - Docs](/rest/api/batchservice/) |해당 없음 |- |- | [지원되는 버전](/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **Batch .NET** |[.NET용 Azure SDK - Docs](/dotnet/api/overview/azure/batch) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch/) |[자습서](tutorial-parallel-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) | [릴리스 정보](https://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[Python용 Azure SDK - Docs](/python/api/overview/azure/batch/client) |[PyPI](https://pypi.org/project/azure-batch/) |[자습서](tutorial-parallel-python.md)|[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Python/Batch) | [추가 정보](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/batch/azure-batch/README.md) |
+| **Batch JavaScript** |[JavaScript용 Azure SDK - Docs](/javascript/api/overview/azure/batch/client) |[npm](https://www.npmjs.com/package/azure-batch) |[자습서](batch-js-get-started.md) |- | [추가 정보](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **Batch Java** |[Java용 Azure SDK - Docs](/java/api/overview/azure/batch) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/Java) | [추가 정보](https://github.com/Azure/azure-batch-sdk-for-java)|
 
 ## <a name="batch-management-apis"></a>Batch 관리 API
 
@@ -55,11 +55,11 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 
 | API | API 참조 | 다운로드 | 자습서 | 코드 샘플 |
 | --- | --- | --- | --- | --- |
-| **Batch 관리 REST** |[Azure REST API-Docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-| **Batch 관리 .NET** |[.NET 용 Azure SDK-Docs](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [자습서](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
-| **Batch 관리 Python** |[Python 용 Azure SDK-Docs](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
-| **Batch 관리 Node.js** |[JavaScript 용 Azure SDK-Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
-| **Batch 관리 Java** |[Java 용 Azure SDK-Docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
+| **Batch 관리 REST** |[Azure REST API - Docs](/rest/api/batchmanagement/) |- |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+| **Batch 관리 .NET** |[.NET용 Azure SDK - Docs](/dotnet/api/overview/azure/batch/management) |[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/) | [자습서](batch-management-dotnet.md) |[GitHub](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp) |
+| **Batch 관리 Python** |[Python용 Azure SDK - Docs](/python/api/overview/azure/batch/management) |[PyPI](https://pypi.org/project/azure-mgmt-batch/) |- |- |
+| **Batch Management JavaScript** |[JavaScript용 Azure SDK - Docs](/javascript/api/overview/azure/batch/management) |[npm](https://www.npmjs.com/package/azure-arm-batch) |- |- | 
+| **Batch 관리 Java** |[Java용 Azure SDK - Docs](/java/api/overview/azure/batch/management) |[Maven](https://search.maven.org/search?q=a:azure-batch) |- |- |
 
 ## <a name="batch-command-line-tools"></a>Batch 명령줄 도구
 
@@ -86,5 +86,5 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 ## <a name="next-steps"></a>다음 단계
 
 - 풀, 노드, 작업(job) 및 작업(task)과 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
-- [.NET용 Azure Batch 라이브러리 시작](tutorial-parallel-dotnet.md) 에서는 일반적인 Batch 워크플로를 사용하여 간단한 워크로드를 실행하는 데 C# 및 Batch .NET 라이브러리를 사용하는 방법을 알아봅니다. [Python 버전](tutorial-parallel-python.md) 및 [Node.js 자습서](batch-nodejs-get-started.md)도 사용할 수 있습니다.
+- [.NET용 Azure Batch 라이브러리 시작](tutorial-parallel-dotnet.md) 에서는 일반적인 Batch 워크플로를 사용하여 간단한 워크로드를 실행하는 데 C# 및 Batch .NET 라이브러리를 사용하는 방법을 알아봅니다. [Python 버전](tutorial-parallel-python.md) 및 [JavaScript 자습서](batch-js-get-started.md)도 사용할 수 있습니다.
 - [GitHub의 코드 샘플](https://github.com/Azure-Samples/azure-batch-samples)을 다운로드하여 샘플 워크로드를 예약하고 처리하기 위해 C# 및 Python이 Batch와 상호 작용하는 방법을 확인합니다.

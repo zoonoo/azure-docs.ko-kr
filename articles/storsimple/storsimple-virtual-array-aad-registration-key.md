@@ -1,16 +1,16 @@
 ---
-title: StorSimple 가상 배열에 대 한 새 인증
-description: AAD 인증, 연결 된 새 서비스 등록 키 및 StorSimple 장치에 적용할 수 있는 방화벽 규칙에 대 한 수정 사항에 대해 알아봅니다.
+title: StorSimple Virtual Array에 대한 새 인증
+description: AAD 인증, 연결된 신규 서비스 등록 키 및 StorSimple 디바이스에 적용할 수 있는 방화벽 규칙 수정에 대해 알아봅니다.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 75332498ac59dc46a7a079eff4c25e02b2a6cb9b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98986940"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
@@ -53,9 +53,9 @@ StorSimple Virtual Array를 사용하는 경우 다음 테이블을 사용하여
 
 | 실행 중인 디바이스  | 수행할 작업                                    |
 |----------------------------|--------------------------------------------------------------|
-| 업데이트 1.0 이상을 실행 중이고 오프라인 상태입니다. <br> URL이 나열 되지 않음 경고가 표시 됩니다.| 1. 인증 URL을 포함 하도록 방화벽 규칙을 수정 합니다. [인증 URL](#url-changes-for-aad-authentication)을 참조하세요. <br> 2. [서비스에서 AAD 등록 키를 가져옵니다](#aad-based-registration-keys). <br> 3.1-5 단계를 수행 하 여 [가상 배열의 Windows PowerShell 인터페이스에 연결](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)합니다.<br> 4. `Invoke-HcsReRegister` cmdlet을 사용 하 여 Windows PowerShell을 통해 장치를 등록 합니다. 이전 단계에서 얻은 키를 제공합니다.|
+| 업데이트 1.0 이상을 실행 중이고 오프라인 상태입니다. <br> URL이 허용 목록에 없다는 경고가 표시됩니다.| 1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다. [인증 URL](#url-changes-for-aad-authentication)을 참조하세요. <br> 2. [서비스에서 AAD 등록 키를 가져옵니다](#aad-based-registration-keys). <br> 3. 1-5단계를 수행하여 [가상 배열의 Windows PowerShell 인터페이스에 연결](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)합니다.<br> 4. `Invoke-HcsReRegister` cmdlet을 사용하여 Windows PowerShell을 통해 디바이스를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
 | 업데이트 1.0 이상을 실행 중이고 온라인 상태입니다.| 사용자가 조치할 필요는 없습니다.                                       |
-| 업데이트 0.6 이상을 실행 중이고 디바이스가 오프라인 상태입니다. | 1. [카탈로그 서버를 통해 업데이트 1.0을 다운로드](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix)합니다.<br>2. [로컬 웹 UI를 통해 업데이트 1.0을 적용](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix)합니다.<br>3. [서비스에서 AAD 등록 키를 가져옵니다](#aad-based-registration-keys). <br>4.1-5 단계를 수행 하 여 [가상 배열의 Windows PowerShell 인터페이스에 연결](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)합니다.<br>5. `Invoke-HcsReRegister` cmdlet을 사용 하 여 Windows PowerShell을 통해 장치를 등록 합니다. 이전 단계에서 얻은 키를 제공합니다.|
+| 업데이트 0.6 이상을 실행 중이고 디바이스가 오프라인 상태입니다. | 1. [카탈로그 서버를 통해 업데이트 1.0을 다운로드합니다](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [로컬 웹 UI를 통해 업데이트 1.0을 적용합니다](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [서비스에서 AAD 등록 키를 가져옵니다](#aad-based-registration-keys). <br>4. 1-5단계를 수행하여 [가상 배열의 Windows PowerShell 인터페이스에 연결](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor)합니다.<br>5. `Invoke-HcsReRegister` cmdlet을 사용하여 Windows PowerShell을 통해 디바이스를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
 | 업데이트 0.6 이상을 실행 중이고 디바이스가 온라인 상태입니다. | 인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br> Azure Portal을 통해 업데이트 1.0을 설치합니다. |
 
 ## <a name="aad-based-registration-keys"></a>AAD 기반 등록 키

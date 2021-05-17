@@ -1,25 +1,26 @@
 ---
-title: Azure Cloud Services (클래식) NetworkConfiguration 스키마 | Microsoft Docs
-description: Virtual Network 및 DNS 값을 지정 하는 서비스 구성 파일의 NetworkConfiguration 요소에 대 한 자식 요소에 대해 알아봅니다.
+title: Azure Cloud Services(클래식) NetworkConfiguration 스키마 | Microsoft Docs
+description: Virtual Network 및 DNS 값을 지정하는 서비스 구성 파일의 NetworkConfiguration 요소에 대한 자식 요소에 대해 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 '---thor': tagore
-ms.openlocfilehash: acf4c050ade21a6e5fc51ee6ace512eff00360ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: e3e9d5ebc7e4e2aa1119f4b840aa1d8b94d93aa4
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98743460"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935127"
 ---
-# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Azure Cloud Services (클래식) Config NetworkConfiguration 스키마
+# <a name="azure-cloud-services-classic-config-networkconfiguration-schema"></a>Azure Cloud Services(클래식) 구성 NetworkConfiguration 스키마
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌었으며 모든 새로운 배포는 [Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 서비스 구성 파일의 `NetworkConfiguration` 요소는 Virtual Network 및 DNS 값을 지정합니다. 이러한 설정은 클라우드 서비스에 대한 선택 사항입니다.
 

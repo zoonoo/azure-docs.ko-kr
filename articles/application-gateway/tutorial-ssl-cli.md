@@ -1,6 +1,6 @@
 ---
-title: CLI를 사용 하 여 TLS 종료-Azure 애플리케이션 게이트웨이
-description: Azure CLI를 사용 하 여 응용 프로그램 게이트웨이를 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
+title: CLI를 사용한 TLS 종료 - Azure Application Gateway
+description: Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들고 TLS 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 24dafd63de1a37140c6a56547c4701729df1c8fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9ae15503e8f12f7ba70aa5a9d306306fa79745f9
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94566557"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220388"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Azure CLI를 사용하여 TLS 종료로 애플리케이션 게이트웨이 만들기
 
-Azure CLI를 사용 하 여 [TLS 종료](ssl-overview.md)를 위한 인증서로 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 백 엔드 서버의 경우 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 을 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
+Azure CLI를 사용하여 [TLS 종료](ssl-overview.md)를 위한 인증서로 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 백 엔드 서버의 경우 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md)을 사용할 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -165,11 +165,11 @@ az network public-ip show \
   --output tsv
 ```
 
-공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서 URL은 **https://52.170.203.149** 입니다.
+공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 이 예제에서는 URL이 **https://52.170.203.149** 입니다.
 
 ![보안 경고](./media/tutorial-ssl-cli/application-gateway-secure.png)
 
-자체 서명 된 인증서를 사용 하는 경우 보안 경고를 수락 하려면 **세부 정보** 를 선택한 다음 **웹 페이지로 이동** 합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
+자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동** 을 차례로 선택합니다. 그러면 보안 NGINX 사이트가 다음 예제와 같이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-ssl-cli/application-gateway-nginx.png)
 

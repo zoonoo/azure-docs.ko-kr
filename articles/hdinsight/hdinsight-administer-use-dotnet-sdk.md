@@ -6,10 +6,10 @@ ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.openlocfilehash: e5f328d6be52732c30478eb49360efb13919a23e
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104872220"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Apache Hadoop 클러스터 관리
@@ -18,7 +18,7 @@ ms.locfileid: "104872220"
 
 [HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 
-**전제 조건**
+**필수 구성 요소**
 
 이 문서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -167,7 +167,7 @@ HDInsight에서 지원되는 클러스터의 각 형식에 대한 데이터 노�
     
     Storm 웹 UI는 HDInsight 클러스터에서 제공됩니다.
     
-    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight 스톰 규모 균형 재조정":::
+    :::image type="content" source="./media/hdinsight-administer-use-powershell/hdinsight-portal-scale-cluster-storm-rebalance.png" alt-text="HDInsight Storm 규모 재조정":::
     
     다음은 CLI 명령을 사용하여 Storm 토폴로지 균형을 다시 조정하는 방법의 예입니다.
     
@@ -223,7 +223,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 > [!NOTE]  
 > 액세스 권한을 부여/해지하여 클러스터 사용자 이름 및 암호를 다시 설정합니다.
 
-이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal를 사용 하 여 HDInsight에서 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조 하세요.
+이 작업은 포털을 통해서도 수행할 수 있습니다. [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)를 참조하세요.
 
 ## <a name="update-http-user-credentials"></a>HTTP 사용자 자격 증명 업데이트
 

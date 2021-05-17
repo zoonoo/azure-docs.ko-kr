@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2020
 ms.author: yelevin
-ms.openlocfilehash: a1c2754fcae5768c6b87d6280fc882acd46d9a0a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: f7c4905f3122bf5abd2dc955170113cac3039a5d
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100585341"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106219045"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure Sentinel 고객 관리형 키 설정
 
 이 문서에서는 Azure Sentinel에 대한 CMK(고객 관리형 키)를 구성하는 단계 및 배경 정보를 제공합니다. CMK를 사용하면 사용자가 만들거나 소유한 Azure Key Vault 키로 Azure Sentinel에 저장되거나 전송된 모든 데이터를 모든 관련 스토리지 리소스에서 암호화할 수 있습니다.
 
 > [!NOTE]
-> - Azure 센티널 CMK 기능은 **새 고객** 에게만 제공 됩니다.
+> - Azure Sentinel CMK 기능은 **신규 고객** 에게만 제공됩니다.
 >
-> - 이 기능에 대 한 액세스는 Azure 기능 등록을 통해 제어 됩니다. 에 연락 하 여 액세스를 요청할 수 있습니다 azuresentinelCMK@microsoft.com . 보류 중인 요청은 사용 가능한 용량에 따라 승인 됩니다.
+> - 이 기능에 대한 액세스는 Azure 기능 등록을 통해 제어됩니다. azuresentinelCMK@microsoft.com에 문의하여 액세스를 요청할 수 있습니다. 보류 중인 요청은 사용 가능한 용량에 따라 승인됩니다.
 >
 > - CMK 기능은 매일 1TB 이상을 전송하는 고객만 사용할 수 있습니다. Microsoft에 적용하여 Azure 구독의 CMK를 프로비저닝할 때 가격 책정에 대한 추가 정보를 받게 됩니다. [Log Analytics 가격 책정](../azure-monitor/logs/manage-cost-storage.md#log-analytics-dedicated-clusters)에 대해 자세히 알아보세요.
 
@@ -81,7 +81,7 @@ Cosmos DB 지침에 따라 Azure 구독에 대한 [Azure Cosmos DB 리소스 공
 
 ### <a name="step-4-add-an-access-policy-to-your-azure-key-vault-instance"></a>4단계: Azure Key Vault 인스턴스에 액세스 정책 추가
 
-Cosmos DB에서 Azure Key Vault 인스턴스에 대한 액세스를 추가해야 합니다. Cosmos DB 지침에 따라 Azure Cosmos DB 보안 주체를 사용하여 [Azure Key Vault 인스턴스에 액세스 정책을 추가](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)합니다.
+Cosmos DB에서 Azure Key Vault 인스턴스에 대한 액세스를 추가해야 합니다. Cosmos DB 지침에 따라 Azure Cosmos DB 보안 주체를 사용하여 [Azure Key Vault 인스턴스에 액세스 정책을 추가](../cosmos-db/how-to-setup-cmk.md#add-access-policy)합니다.
 
 ### <a name="step-5-enable-cmk-in-azure-sentinel"></a>5단계: Azure Sentinel에서 CMK 사용
 
@@ -91,7 +91,7 @@ Azure Sentinel CMK 기능은 Azure 제품 그룹에서 직접 액세스 권한�
 
 -  CMK를 사용하도록 설정하려는 작업 영역 ID
 
--  Key Vault URL: 키의 "키 식별자"를 마지막 슬래시까지 복사 합니다.  
+-  Key Vault URL: 키의 "키 식별자"를 마지막 슬래시까지 복사합니다.  
     
 
     ![키 식별자](./media/customer-managed-keys/key-identifier.png)

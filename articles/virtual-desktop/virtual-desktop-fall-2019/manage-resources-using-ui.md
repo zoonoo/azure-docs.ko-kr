@@ -1,19 +1,19 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 관리 도구 배포 - Azure
-description: Windows 가상 데스크톱 (클래식) 리소스를 관리 하기 위해 Azure Resource Manager 템플릿을 사용 하 여 사용자 인터페이스 도구를 설치 하는 방법입니다.
+description: Windows Virtual Desktop(클래식) 리소스를 관리하기 위해 Azure Resource Manager 템플릿을 사용하여 사용자 인터페이스 도구 설치 방법을 설명합니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f96365bcdf64d19dc0b894f2f1230233b3137bc7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 1d562c483b340bee5f1c1aa5f63c068de6f54e42
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94842654"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106444397"
 ---
-# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Windows 가상 데스크톱 (클래식) 관리 도구 배포
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Windows Virtual Desktop(클래식) 관리 도구 배포
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 지원하지 않는 Windows Virtual Desktop(클래식)에 적용됩니다.
@@ -24,7 +24,7 @@ ms.locfileid: "94842654"
 
 앱을 사용하려면 Windows Virtual Desktop과 상호 작용하도록 동의가 필요하므로 이 도구는 B2B 시나리오를 지원하지 않습니다. AAD(Azure Active Directory) 테넌트의 구독마다 별도의 관리 도구를 배포해야 합니다.
 
-이 관리 도구는 샘플입니다. Microsoft에서 중요한 보안 및 품질 업데이트를 제공할 것입니다. [소스 코드는 GitHub에서 사용할 수 있습니다](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 고객과 파트너는 각자 비즈니스 요구 사항에 맞게 도구를 사용자 지정할 수 있습니다.
+이 관리 도구는 샘플입니다. Microsoft에서 중요한 보안 및 품질 업데이트를 제공할 것입니다. [소스 코드는 GitHub에서 받을 수 있습니다](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). 고객과 파트너는 각자 비즈니스 요구 사항에 맞게 도구를 사용자 지정할 수 있습니다.
 
 다음 브라우저는 관리 도구와 호환됩니다.
 - Google Chrome 68 이상
@@ -36,7 +36,7 @@ ms.locfileid: "94842654"
 
 관리 도구를 배포하기 전에 앱 등록을 만들고 관리 UI를 배포하는 Azure AD(Azure Active Directory) 사용자가 필요합니다. 이 사용자가 다음 조건을 충족해야 합니다.
 
-- MFA (Azure AD Multi-Factor Authentication) 사용 안 함
+- Azure AD MFA(다단계 인증)를 사용하지 않도록 설정
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
 - Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
@@ -83,7 +83,7 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 동의하는 데 사용할 사용자를 결정한 후에는 다음 지침에 따라 도구에 대해 동의합니다.
 
-1. Azure 리소스로 이동 하 여 템플릿에서 제공한 이름 (예: Apr3UX)으로 Azure 앱 Services 리소스를 선택 하 고 연결 된 URL로 이동 합니다. 예를 들면  `https://rdmimgmtweb-210520190304.azurewebsites.net` 입니다.
+1. Azure 리소스를 이동하고, 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: `https://rdmimgmtweb-210520190304.azurewebsites.net`)로 이동합니다.
 2. 적절한 Azure Active Directory 사용자 계정을 사용하여 로그인합니다.
 3. 글로벌 관리자로 인증하면 **조직 대신 동의** 확인란을 선택할 수 있습니다. **동의** 를 선택하여 동의합니다.
 
@@ -100,7 +100,7 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 
 1. 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: `https://rdmimgmtweb-210520190304.azurewebsites.net`)로 이동합니다.
 2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
-3. 테 넌 트 그룹을 선택 하 라는 메시지가 표시 되 면 드롭다운 목록에서 **기본 테 넌 트 그룹** 을 선택 합니다.
+3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹** 을 선택합니다.
 4. **기본 테넌트 그룹** 을 선택하면 창의 왼쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
 
   > [!NOTE]

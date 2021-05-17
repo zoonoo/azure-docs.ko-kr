@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: ecc8fa0d6660d76f20451cf98e927e7efb2c30d7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102434548"
 ---
 :::row:::
     :::column span="3":::
-        Python Speech SDK는 Python 패키지 인덱스 (PyPI) 모듈로 사용할 수 있습니다. 자세한 내용은 <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">cognitiveservices account-Speech </a>를 참조 하세요. Python Speech SDK는 Windows, Linux 및 macOS와 호환 됩니다.
+        Python Speech SDK는 PyPI(Python 패키지 인덱스) 모듈로 사용할 수 있습니다. 자세한 내용은 <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech</a>를 참조하세요. Python Speech SDK는 Windows, Linux 및 macOS와 호환됩니다.
     :::column-end:::
     :::column:::
         <br>
@@ -28,7 +28,7 @@ pip install azure-cognitiveservices-speech
 ```
 
 > [!TIP]
-> MacOS를 사용 하는 경우 다음 명령을 실행 하 여 위의 pip 명령이 작동 하도록 해야 할 수 있습니다.
+> macOS를 사용하는 경우 위의 pip 명령을 실행하려면 다음 명령을 실행해야 할 수 있습니다.
 > ```Bash
 > python3 -m pip install --upgrade pip
 > ```

@@ -1,6 +1,6 @@
 ---
 title: 맵에 다각형 계층 추가 | Microsoft Azure Maps
-description: 지도에 다각형 또는 원을 추가 하는 방법에 대해 알아봅니다. Azure Maps 웹 SDK를 사용 하 여 기하학적 모양을 사용자 지정 하 고 쉽게 업데이트 하 고 유지 관리할 수 있도록 하는 방법을 참조 하세요.
+description: 맵에 다각형 또는 원을 추가하는 방법을 알아봅니다. Azure Maps Web SDK를 사용하여 기하학적 모양을 사용자 지정하고 쉽게 업데이트 및 유지 관리하는 방법을 확인하세요.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/29/2019
@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 96553e75d4b982cfe67d03961d4356a3844f253c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92891000"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>맵에 다각형 계층 추가

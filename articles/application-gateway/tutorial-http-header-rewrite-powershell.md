@@ -1,5 +1,5 @@
 ---
-title: HTTP 헤더를 다시 작성 & Azure 애플리케이션 게이트웨이 만들기
+title: Azure Application Gateway 만들기 & HTTP 헤더 다시 쓰기
 description: 이 문서에서는 Azure PowerShell을 사용하여 Azure Application Gateway를 만들고 HTTP 헤더를 다시 쓰는 방법에 대한 정보를 제공합니다.
 services: application-gateway
 author: vhorne
@@ -7,16 +7,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: 4a1a122eb7b5b0abcc47cd321c74267a1a4aecda
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 07e12272eeb8d35620baafef5414060dff2e9ee2
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93396858"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108319632"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기
 
-새 [자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU](./application-gateway-autoscaling-zone-redundant.md)를 만들 때 Azure PowerShell을 사용하여 [HTTP 요청 및 응답 헤더를 다시 쓰는 규칙](rewrite-http-headers.md)을 구성할 수 있습니다.
+새 [자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU](./application-gateway-autoscaling-zone-redundant.md)를 만들 때 Azure PowerShell을 사용하여 [HTTP 요청 및 응답 헤더를 다시 쓰는 규칙](./rewrite-http-headers-url.md)을 구성할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -30,9 +31,9 @@ ms.locfileid: "93396858"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서에서는 Azure PowerShell를 로컬로 실행 해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 문서에 따르려면 Azure PowerShell을 로컬로 실행해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 

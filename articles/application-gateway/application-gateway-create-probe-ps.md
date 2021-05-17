@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 사용자 지정 프로브 만들기
+title: PowerShell을 사용하여 사용자 지정 프로브 만들기
 titleSuffix: Azure Application Gateway
 description: 리소스 관리자에서 PowerShell을 사용하여 Application Gateway에 대한 사용자 지정 프로브를 만드는 방법에 대해 알아봅니다.
 services: application-gateway
@@ -8,12 +8,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d3c5bb4f883538f2d56cbd12edf9dde6a9c155ce
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93397844"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316752"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Azure Resource Manager에 대해 PowerShell을 사용하여 Azure Application Gateway에 대한 사용자 지정 프로브 만들기
 
@@ -77,7 +78,7 @@ $subnet = $vnet.Subnets[0]
 
 ### <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
-미국 서 부 지역에 대해 리소스 그룹 **apim-appgw-rg-rg** 에서 공용 IP 리소스 **publicIP01** 을 만듭니다. 이 예제에서는 애플리케이션 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  애플리케이션 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
+미국 서부 지역의 리소스 그룹 **appgw-rg** 에 공용 IP 리소스 **publicIP01** 을 만듭니다. 이 예제에서는 애플리케이션 게이트웨이의 프런트 엔드 IP 주소에 공용 IP 주소를 사용합니다.  애플리케이션 게이트웨이를 사용하려면 공용 IP 주소에 동적으로 만들어진 DNS 이름이 있어야 하므로 공용 IP 주소를 만드는 동안에는 `-DomainNameLabel`을 지정할 수 없습니다.
 
 ```powershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01 -Location 'West US' -AllocationMethod Dynamic
@@ -197,4 +198,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-[Tls 오프 로드 구성](./tutorial-ssl-powershell.md) 을 방문 하 여 tls 오프 로딩을 구성 하는 방법을 알아봅니다.
+[TLS 오프로드 구성](./tutorial-ssl-powershell.md)을 방문하여 TLS 오프로드를 구성하는 방법을 알아봅니다.

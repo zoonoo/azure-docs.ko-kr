@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager 설정 확인
-description: 이 문서에서는 Traffic Manager 설정을 확인 하 고 트래픽 라우팅 메서드를 테스트 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Traffic Manager 설정을 확인하고 트래픽 라우팅 방법을 테스트하는 방법을 알아봅니다.
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: duau
 ms.openlocfilehash: 4bb7458d4258dffb074d663e5cf712c7a0245cc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96022329"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인

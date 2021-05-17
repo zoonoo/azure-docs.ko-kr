@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 여러 웹 사이트 호스트
+title: PowerShell을 사용하여 여러 웹 사이트 호스트
 titleSuffix: Azure Application Gateway
 description: Azure Powershell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 508ab2e543e89378db5a174eebd65b366f09bc68
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93360312"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320010"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
 
-Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신 확장 집합을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 사용자가 여러 도메인을 소유 하 고 *www.contoso.com* 및 *www.fabrikam.com* 의 예제를 사용 한다고 가정 합니다.
+Azure Powershell을 사용하여 [애플리케이션 게이트웨이](multiple-site-overview.md)를 만들 때 [여러 웹 사이트의 호스팅](overview.md)을 구성할 수 있습니다. 이 문서에서는 가상 머신 확장 집합을 사용하여 백 엔드 주소 풀을 정의합니다. 그런 다음, 웹 트래픽이 풀에서 적절한 서버에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 문서에서는 여러 도메인을 소유하고 있으며 *www.contoso.com* 및 *www.fabrikam.com* 의 예제를 사용한다고 가정합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -121,13 +121,13 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 문서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. *Contoso.com* 및 *fabrikam.com* 도메인에 대해 수신기가 생성 됩니다.
+애플리케이션 게이트웨이가 백 엔드 주소 풀에 트래픽을 적절하게 라우팅하려면 수신기가 필요합니다. 이 문서는 두 도메인에 대한 두 개의 수신기를 만듭니다. *contoso.com* 및 *fabrikam.com* 도메인에 대한 수신기가 생성됩니다.
 
 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener)를 사용하여 이전에 만든 프론트 엔드 구성 및 프론트 엔드 포트가 포함된 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)을 사용하여 *contosoRule* 이라는 기본 규칙을 만듭니다.
 
 >[!NOTE]
-> Application Gateway 또는 WAF v2 SKU를 사용 하 여 수신기 당 호스트 이름을 5 개까지 구성할 수 있으며 호스트 이름에 와일드 카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드 카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview) 을 참조 하세요.
->Azure PowerShell를 사용 하 여 수신기에서 여러 호스트 이름 및 와일드 카드 문자를 사용 하려면 대신를 사용 해야 `-HostNames` `-HostName` 합니다. 호스트 이름을 사용 하면 최대 5 개의 호스트 이름을 쉼표로 구분 된 값으로 지정할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com","*.fabrikam.com"`
+> Application Gateway 또는 WAF v2 SKU를 사용하여 수신기당 호스트 이름을 최대 5개까지 구성할 수 있으며, 호스트 이름에 와일드카드 문자를 사용할 수도 있습니다. 자세한 내용은 [수신기의 와일드카드 호스트 이름](multiple-site-overview.md#wildcard-host-names-in-listener-preview)을 참조하세요.
+>Azure PowerShell를 사용하여 수신기에 여러 호스트 이름 및 와일드카드 문자를 사용하려면 `-HostName` 대신 `-HostNames`을 사용해야 합니다. HostNames를 사용하면 최대 5개의 호스트 이름을 쉼표로 구분된 값으로 멘션할 수 있습니다. 예를 들어 `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -279,7 +279,7 @@ for ($i=1; $i -le 2; $i++)
 
 ## <a name="create-cname-record-in-your-domain"></a>도메인에서 CNAME 레코드 만들기
 
-애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. A 레코드를 사용 하는 것은 응용 프로그램 게이트웨이가 V1 SKU에서 다시 시작 될 때 VIP가 변경 될 수 있기 때문에 권장 되지 않습니다.
+애플리케이션 게이트웨이가 해당 공용 IP 주소로 생성된 후 DNS 주소를 가져와 도메인에서 CNAME 레코드를 만드는 데 사용할 수 있습니다. [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress)를 사용하여 애플리케이션 게이트웨이의 DNS 주소를 가져올 수 있습니다. DNSSettings의 *fqdn* 값을 복사하여 만드는 CNAME 레코드의 값으로 사용합니다. 애플리케이션 게이트웨이가 V1 SKU에서 다시 시작될 때 VIP가 변경될 수 있기 때문에 A 레코드를 사용하는 것은 권장되지 않습니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

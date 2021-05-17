@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: cc42c22579346c272ee5a6f41147e6b5b09643ba
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95560528"
 ---
 #### <a name="to-download-hotfixes"></a>핫픽스를 다운로드하려면
 
 Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
 
-1. Internet Explorer를 시작 하 고로 이동 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com) 합니다.
+1. Internet Explorer를 시작하고 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)으로 이동합니다.
 2. 이 컴퓨터에서 Microsoft 업데이트 카탈로그를 처음 사용하는 경우 Microsoft 업데이트 카탈로그 추가 기능을 설치하라는 메시지가 나타나면 **설치** 를 클릭합니다.
 
     ![카탈로그 설치](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -107,7 +107,7 @@ Microsoft 업데이트 카탈로그에서 소프트웨어 업데이트를 다운
      > 다음 업데이트를 적용하기 전에 `Restart-HcsController` cmdlet을 통해 활성 컨트롤러를 다시 시작해야 합니다.
      
 7. _FirstOrderUpdate_ 폴더에 다운로드한 Cis/MDS 에이전트를 설치하려면 3-5단계를 반복합니다. 
-8. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. **두 번째 주문 업데이트의 경우를 실행 하 `Start-HcsHotfix cmdlet` 고 두 번째 주문 업데이트가 있는 폴더를 가리켜 여러 업데이트를 설치할 수 있습니다. 이 cmdlet은 폴더에서 사용할 수 있는 모든 업데이트를 실행 합니다.** 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 
+8. 두 번째 주문 업데이트를 설치하려면 3-5 단계를 반복합니다. **두 번째 주문 업데이트의 경우 `Start-HcsHotfix cmdlet`을 실행하고 두 번째 주문 업데이트가 있는 폴더를 가리키키만 하면 여러 업데이트를 설치할 수 있습니다. cmdlet이 폴더에서 사용할 수 있는 모든 업데이트를 실행합니다.** 업데이트가 이미 설치되어 경우 업데이트 논리를 감지하고 해당 업데이트를 적용하지 않습니다. 
 
 핫픽스를 모두 설치한 후 `Get-HcsSystem` cmdlet을 사용합니다. 버전은 다음과 같아야 합니다.
 
@@ -123,7 +123,7 @@ KB4011837을 사용하여 디스크 펌웨어 업데이트를 설치합니다. �
 
 디스크 펌웨어 업데이트를 설치하려면 아래 지침을 따릅니다.
 
-1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 장치에 연결할 때는 Windows PowerShell 원격을 사용해 서는 안 됩니다. 대신 장치 직렬 콘솔을 통해 연결 된 경우 장치 컨트롤러에서이 cmdlet을 실행 합니다.** 유형:
+1. 디바이스를 유지 관리 모드로 설정합니다. **유지 관리 모드에서 디바이스에 연결할 때는 Windows PowerShell 원격을 사용해서는 안 됩니다. 대신 디바이스 직렬 콘솔을 통해 연결된 경우 디바이스 컨트롤러에서 이 cmdlet을 실행합니다.** 유형:
    
     `Enter-HcsMaintenanceMode`
    

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 3/12/2021
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 9adc4c92e3e637b9d3e18249b5de00782a94baab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103232888"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>관리 .NET SDK: .NET용 Azure Stream Analytics API를 사용하여 분석 작업 설정 및 실행
@@ -207,17 +207,17 @@ File Storage를 사용하려면 Azure 스토리지 계정에 연결해야 합니
    // Test the connection to the input
    ResourceTestStatus testInputResult = streamAnalyticsManagementClient.Inputs.Test(resourceGroupName, streamingJobName, inputName);
    ```
-TestConnection 호출의 결과는 두 개의 속성을 포함 하는 *Resourcetestresult* 개체입니다.
+TestConnection 호출의 결과는 두 개의 속성을 포함하는 *Resourcetestresult* 개체입니다.
 
-- *상태*: 다음 문자열 중 하나일 수 있습니다. ["TestNotAttempted", "testsucceeded", "testsucceeded"]
-- *오류*: 다음 속성을 포함 하는 errorresponse 유형입니다.
-   - *code*: string 유형의 필수 속성입니다. 이 값은 테스트 하는 동안 HttpStatusCode에서 받은 표준 시스템 .Net입니다.
-   - *메시지*: 오류를 나타내는 문자열 형식의 필수 속성입니다. 
+- *status*: 다음 문자열 중 하나일 수 있습니다. ["TestNotAttempted", "TestSucceeded", "TestFailed"]
+- *error*: 다음 속성을 포함하는 Errorresponse 형식입니다.
+   - *code*: 문자열 형식의 필수 속성입니다. 이 값은 테스트하는 동안 받은 표준 System.Net.HttpStatusCode입니다.
+   - *message*: 오류를 나타내는 문자열 형식의 필수 속성입니다. 
 
 ## <a name="create-a-stream-analytics-output-target"></a>Stream Analytics 출력 대상 만들기
 출력 대상 만들기는 Stream Analytics 입력 소스 만들기와 유사합니다. 입력 소스와 같이 출력 대상은 특정 작업에 연결됩니다. 다른 작업에 대해 동일한 출력 소스를 사용하려면, 메서드를 다시 호출하고 다른 작업 이름을 지정해야 합니다.
 
-다음 코드는 출력 대상 (Azure SQL Database)을 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
+다음 코드는 출력 대상(Azure SQL Database)을 만듭니다. 출력 대상의 데이터 형식 및/또는 serialization 형식을 사용자 지정할 수 있습니다.
 
    ```csharp
    // Create an output

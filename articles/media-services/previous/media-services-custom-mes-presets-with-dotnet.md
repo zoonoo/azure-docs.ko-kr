@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2ec7c8fe312787d153c76b0b0194354e1717db7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 758a2fc607217f38306f8d50273c580daf523982
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016715"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492697"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Media Encoder Standard 사전 설정 사용자 지정
 
@@ -33,7 +33,7 @@ ms.locfileid: "103016715"
 이 문서에서는 [H264 다중 비트 전송률 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) 기본 설정을 사용하고 레이어 수를 줄여 기본 설정을 사용자 지정하는 방법을 살펴봅니다. [Media Encoder Standard 기본 설정 사용자 지정](media-services-advanced-encoding-with-mes.md) 문서에서는 고급 인코딩 작업을 수행하는 데 사용할 수 있는 사용자 지정 기본 설정을 보여 줍니다.
 
 > [!NOTE]
-> 이 문서에 설명 된 사용자 지정 기본 설정은 [Media Services V3](../latest/index.yml) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 v 2 [에서 v3로 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md) 을 참조 하세요.
+> 이 문서에 설명된 사용자 지정 사전 설정은 [Media Services V3](../latest/index.yml) 변환 또는 CLI 명령에서 사용할 수 없습니다. 자세한 내용은 [v2에서 v3로 마이그레이션 지침](../latest/migrate-v-2-v-3-migration-introduction.md)을 참조하세요.
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> MES 사전 설정 사용자 지정
 
@@ -137,7 +137,7 @@ ms.locfileid: "103016715"
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-개발 환경을 설정 하 고 [.net을 사용한 Media Services 개발](media-services-dotnet-how-to-use.md)에 설명 된 대로 연결 정보를 사용 하 여 app.config 파일을 채웁니다. 
+개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
 #### <a name="example"></a>예제   
 
@@ -269,10 +269,10 @@ namespace CustomizeMESPresests
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
-- [CLI를 사용 하 여 사용자 지정 변환을 사용 하 여 인코딩하는 방법](../latest/custom-preset-cli-howto.md)
-- [Media Services v3를 사용하여 인코딩](../latest/encoding-concept.md)
+- [CLI를 사용하여 사용자 지정 변환을 통해 인코딩하는 방법](../latest/transform-custom-preset-cli-how-to.md)
+- [Media Services v3를 사용하여 인코딩](../latest/encode-concept.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

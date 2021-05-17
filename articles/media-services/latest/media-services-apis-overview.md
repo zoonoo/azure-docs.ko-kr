@@ -1,8 +1,8 @@
 ---
-# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드입니다. 자세한 내용은 aka.ms/skyeye/meta을 참조 하세요.
-제목: v3 Api를 사용 하 여 개발: Azure Media Services 설명: Media Services v3로 개발할 때 엔터티 및 Api에 적용 되는 규칙에 대해 알아봅니다. services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
+# <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>필수 필드. 자세한 내용은 aka.ms/skyeye/meta를 참조하세요.
+제목: v3 API를 사용하여 개발: Azure Media Services 설명: Media Services v3로 개발할 때 엔터티 및 API에 적용되는 규칙에 대해 알아봅니다. services: media-services documentationcenter: '' author: IngridAtMicrosoft 관리자: femila editor: ''
 
-ms. 서비스: media services ms. 작업: 밀리초. 토픽: 개념: 밀리초. 날짜: 10/23/2020. 작성자: inhenkel. 사용자 지정: seodec18
+ms.service: media-services ms.workload: ms.topic: conceptual ms.date: 2020/10/23 ms.author: inhenkel ms.custom: seodec18
 
 ---
 
@@ -21,13 +21,13 @@ Media Services 리소스 및 Media Services API에 액세스할 수 있는 권�
 * **서비스 주체 인증**: 서비스를 인증하는 데 사용됩니다 (예: 웹앱, 함수 앱, 논리 앱, API 및 마이크로서비스). 이 인증 방법을 일반적으로 사용하는 애플리케이션은 디먼 서비스, 중간 계층 서비스 또는 예약된 작업을 실행하는 앱입니다. 예를 들어 웹앱의 경우 서비스 주체로 Microsoft Azure Media Services에 연결하는 중간 계층이 항상 있어야 합니다.
 * **사용자 인증**: 앱을 사용하여 Microsoft Azure Media Services 리소스와 상호 작용하는 사용자를 인증하는 데 사용됩니다. 대화형 앱은 먼저 사용자에게 사용자의 자격 증명을 묻는 메시지를 표시합니다. 예제는 권한 있는 사용자가 인코딩 작업 또는 라이브 스트리밍을 모니터링하기 위해 사용한 관리 콘솔 앱입니다.
 
-Microsoft Azure Media Services API를 사용하려면 REST API 요청을 하는 사용자 또는 앱이 Microsoft Azure Media Services 계정 리소스에 액세스할 수 있고 **기여자** 또는 **소유자** 역할을 사용해야 합니다. **읽기 권한자** 역할로 API에 액세스할 수 있지만 **가져오기** 또는 **나열** 작업만 사용할 수 있습니다.자세한 내용은 [Media Services 계정에 대 한 AZURE RBAC (역할 기반 액세스 제어)](rbac-overview.md)를 참조 하세요.
+Microsoft Azure Media Services API를 사용하려면 REST API 요청을 하는 사용자 또는 앱이 Microsoft Azure Media Services 계정 리소스에 액세스할 수 있고 **기여자** 또는 **소유자** 역할을 사용해야 합니다. **읽기 권한자** 역할로 API에 액세스할 수 있지만 **가져오기** 또는 **나열** 작업만 사용할 수 있습니다.자세한 내용은 [Media Services 계정에 대한 Azure RBAC(Azure 역할 기반 액세스 제어)](security-rbac-concept.md)를 참조하세요.
 
 서비스 주체를 만드는 대신 Azure Resource Manager를 통해 Azure 리소스에 대한 관리 ID를 사용하여 Microsoft Azure Media Services API에 액세스하는 것이 좋습니다. Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
 
 ### <a name="azure-ad-service-principal"></a>Microsoft Azure Active Directory 서비스 주체
 
-Azure AD 앱 및 서비스 사용자는 동일한 테 넌 트에 있어야 합니다. 앱을 만든 후 앱 **기여자** 또는 **소유자** 역할에 Microsoft Azure Media Services 계정에 대한 액세스 권한을 제공합니다.
+Azure AD 앱과 서비스 주체는 동일한 테넌트에 있어야 합니다. 앱을 만든 후 앱 **기여자** 또는 **소유자** 역할에 Microsoft Azure Media Services 계정에 대한 액세스 권한을 제공합니다.
 
 Microsoft Azure Active Directory 앱을 만들 수 있는 권한이 있는지 확실하지 않은 경우 [필요한 권한](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)을 참조하세요.
 
@@ -52,7 +52,7 @@ Microsoft Azure Active Directory 앱을 만들 수 있는 권한이 있는지 �
 
 Microsoft Azure Active Directory 서비스 주체와 연결하는 방법을 보여주는 다음 샘플을 참조하세요.
 
-* [REST를 사용하여 연결](media-rest-apis-with-postman.md)  
+* [REST를 사용하여 연결](setup-postman-rest-how-to.md)  
 * [Java로 연결](configure-connect-java-howto.md)
 * [.NET으로 연결](configure-connect-dotnet-howto.md)
 * [Node.js로 연결](configure-connect-nodejs-howto.md)
@@ -95,7 +95,7 @@ Microsoft Azure Media Services에는 다음과 같은 장기 실행 작업이 �
 * [StreamingEndpoint 중지](/rest/api/media/streamingendpoints/stop)
 * [StreamingEndpoint 스케일링](/rest/api/media/streamingendpoints/scale)
 
-긴 작업을 성공적으로 제출 하면 ' 201 Created '이 표시 되며 반환 된 작업 ID를 사용 하 여 작업 완료를 폴링하는 것이 좋습니다.
+장기 실행 작업 제출에 성공하면 '201 생성됨'이 수신되며 반환된 작업 ID를 사용하여 작업 완료를 폴링해야 합니다.
 
 [비동기 Azure 작업 추적](../../azure-resource-manager/management/async-operations.md) 문서에서는 응답에서 반환된 값을 통해 비동기 Azure 작업의 상태를 추적하는 방법에 대해 자세히 설명합니다.
 
@@ -128,7 +128,7 @@ AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Media Services 엔터티 필터링, 순서 지정, 페이징
 
-[Azure Microsoft Azure Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
+[Azure Microsoft Azure Media Services 엔터티 필터링, 순서 지정, 페이징](filter-order-page-entitites-how-to.md)을 참조하세요.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

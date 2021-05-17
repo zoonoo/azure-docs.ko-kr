@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96020418"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Verizon Premium의 Azure CDN 규칙 엔진 기능
@@ -59,7 +59,7 @@ ms.locfileid: "96020418"
 | [대역폭 제한](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | 에지 서버에서 제공하는 응답에 대한 대역폭을 제한합니다. |
 | [바이패스 캐시](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | 요청에서 캐싱 기술을 활용할 수 있는지 여부를 결정합니다. |
 | [Cache-Control 헤더 처리](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  외부 Max-Age 기능이 활성 상태일 때 에지 서버에 의한 Cache-Control 헤더의 생성을 제어합니다. |
-| [Cache-Key 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | **캐시 키** _가 요청과 관련 된 쿼리 문자열 매개 변수를 포함할지 또는 제외할지를 결정 합니다. <br> __ 캐싱의 용도에 대 한 자산을 고유 하 게 식별 하는 상대 경로입니다.  에 지 서버는 캐시 된 콘텐츠를 확인할 때이 상대 경로를 사용 합니다.  기본적으로 캐시 키는 쿼리 문자열을 포함 하지 않습니다 parameters._ |
+| [Cache-Key 쿼리 문자열](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | **cache-key** _에서 요청과 관련된 쿼리 문자열 매개 변수를 포함 또는 제외할지 여부를 결정합니다. <br> __캐싱을 위해 자산을 고유하게 식별하는 상대 경로입니다.  에지 서버는 캐시된 콘텐츠를 확인할 때 이 상대 경로를 사용합니다.  기본적으로 캐시 키는 쿼리 문자열 매개 변수를 포함하지 않습니다. |
 | [Cache-Key 다시 쓰기](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | 요청과 관련된 cache-key를 다시 씁니다. |
 | [전체 캐시 채우기](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | 요청 결과, 에지 서버에서 캐시가 부분적으로 누락된 경우 수행할 작업을 결정합니다. |
 | [압축 파일 형식](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | 서버에서 압축할 파일 형식을 정의합니다. | 
@@ -68,7 +68,7 @@ ms.locfileid: "96020418"
 | [외부 Max-Age](https://docs.vdms.com/cdn/Content/HRE/F/External-Max-Age.htm) | 브라우저에서 에지 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다. |
 | [강제 내부 Max-Age](https://docs.vdms.com/cdn/Content/HRE/F/Force-Internal-Max-Age.htm) | 에지 서버에서 원본 서버 캐시 유효성 재검사를 위한 max-age 간격을 결정합니다. |
 | [H.264 지원(HTTP 점진적 다운로드)](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-HPD.htm) | 콘텐츠를 스트리밍하는 데 사용할 수 있는 H.264 파일 형식의 유형을 결정합니다. |
-| [H. 264 Support Video Seek Params](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-VSP-HPD.htm) | HTTP 프로그레시브 다운로드를 사용할 때 h.264 미디어를 통한 검색을 제어 하는 매개 변수에 할당 된 이름을 재정의 합니다. |
+| [H.264 지원 비디오 찾기 매개 변수](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-VSP-HPD.htm) | HTTP 프로그레시브 다운로드를 사용할 때 H.264 미디어를 통한 검색을 제어하는 매개 변수에 할당 된 이름을 재정의합니다. |
 | [No-Cache 요청 부여](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | HTTP 클라이언트의 no-cache 요청을 원본 서버에 전달할지 여부를 결정합니다. |
 | [원본 No-Cache 무시](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Origin-No-Cache.htm) | CDN이 원본 서버에서 제공되는 특정 지시문을 무시할지 여부를 결정합니다. |
 | [적절하지 않은 범위 무시](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Unsatisfiable-Ranges.htm) | 요청에서 416 요청한 범위가 적절하지 않음 상태 코드를 생성하는 경우 클라이언트로 반환할 응답을 결정합니다. |
@@ -82,7 +82,7 @@ ms.locfileid: "96020418"
 
 **[맨 위로 돌아가기](#top)**
 
-### <a name="comment"></a><a name="comment"></a>의견
+### <a name="comment"></a><a name="comment"></a>주석
 
 주석 기능을 통해 규칙 내에 메모를 추가할 수 있습니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "96020418"
 | Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [Age 응답 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Age-Response-Header.htm) | Age 응답 헤더를 요청자에게 전송되는 응답에 포함할지 결정합니다. |
-| [디버그 캐시 응답 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) | 응답에 요청 된 자산의 캐시 정책에 대 한 정보를 제공 하는 [X EC-디버그 응답 헤더](https://docs.vdms.com/cdn/Content/Knowledge_Base/X_EC_Debug.htm) 를 포함할 수 있는지 여부를 결정 합니다. |
+| [디버그 캐시 응답 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) | 응답에 요청된 자산에 대한 캐시 정책 정보를 제공하는 [X-EC-Debug 응답 헤더](https://docs.vdms.com/cdn/Content/Knowledge_Base/X_EC_Debug.htm)를 포함할 수 있는지 여부를 결정합니다. |
 | [클라이언트 요청 헤더 수정](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Request-Header.htm) | 요청에서 헤더를 덮어쓰기, 추가 또는 삭제합니다. |
 | [클라이언트 응답 헤더 수정](https://docs.vdms.com/cdn/Content/HRE/F/Modify-Client-Response-Header.htm) | 응답에서 헤더를 덮어쓰기, 추가 또는 삭제합니다. |
 | [클라이언트 IP 사용자 지정 헤더 설정](https://docs.vdms.com/cdn/Content/HRE/F/Set-Client-IP-Custom-Header.htm) | 클라이언트를 요청하는 IP 주소가 사용자 지정 요청 헤더로 요청에 추가되도록 합니다. |
@@ -131,7 +131,7 @@ ms.locfileid: "96020418"
 | Name       | 목적                                                           |
 |------------|-------------------------------------------------------------------|
 | [최대 연결 유지 요청](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | 연결이 닫히기 전에 연결을 유지할 최대 요청 수를 정의합니다. |
-| [프록시 특별 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | 에 지 서버에서 원본 서버로 전달할 [CDN 특정 요청 헤더](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders) 집합을 정의 합니다. |
+| [프록시 특별 헤더](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | 에지 서버에서 원본 서버로 전달할 [CDN 전용 요청 헤더](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders)의 집합을 정의합니다. |
 
 **[맨 위로 돌아가기](#top)**
 
@@ -143,9 +143,9 @@ ms.locfileid: "96020418"
 |------------|-------------------------------------------------------------------|
 | [캐시 가능한 HTTP 메서드](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-HTTP-Methods.htm) | 네트워크에서 캐시할 수 있는 추가 HTTP 메서드 집합을 결정합니다. |
 | [캐시 가능한 요청 본문 크기](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-Request-Body-Size.htm) | POST 응답을 캐시할 수 있는지 여부를 결정하는 임계값을 정의합니다. |
-| [고-IC](https://docs.vdms.com/cdn/Content/HRE/F/QUIC.htm) | CDN 서비스에서이를 지원 하는지 여부를 확인 합니다. |
-| [스트리밍 최적화](https://docs.vdms.com/cdn/Content/HRE/F/Streaming-Optimization.htm) | 캐싱 구성을 조정 하 여 라이브 스트림의 성능을 최적화 하 고 원본 서버의 부하를 줄입니다. |
-| [User 변수](https://docs.vdms.com/cdn/Content/HRE/F/User-Variable.htm) | 맞춤식 트래픽 처리 솔루션에 전달 되는 사용자 정의 변수에 값을 할당 합니다. |
+| [QUIC](https://docs.vdms.com/cdn/Content/HRE/F/QUIC.htm) | 클라이언트가 CDN 서비스가 QUIC를 지원한다는 알림을 받을지 여부를 결정합니다. |
+| [스트리밍 최적화](https://docs.vdms.com/cdn/Content/HRE/F/Streaming-Optimization.htm) | 캐싱 구성을 조정하여 라이브 스트림의 성능을 최적화하고 원본 서버의 부하를 줄입니다. |
+| [User 변수](https://docs.vdms.com/cdn/Content/HRE/F/User-Variable.htm) | 맞춤식 트래픽 처리 솔루션에 전달되는 사용자 정의 변수에 값을 할당합니다. |
 
 **[맨 위로 돌아가기](#top)**
 
@@ -161,9 +161,9 @@ ms.locfileid: "96020418"
 
 **[맨 위로 돌아가기](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>웹 애플리케이션 방화벽
+### <a name="web-application-firewall"></a><a name="waf">웹 애플리케이션 방화벽</a>
 
-웹 [응용 프로그램 방화벽](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) 기능은 요청이 웹 응용 프로그램 방화벽에 의해 차단 되는지 여부를 결정 합니다.
+[웹 애플리케이션 방화벽](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) 기능은 웹 애플리케이션 방화벽으로 요청을 보호할지 여부를 결정합니다.
 
 **[맨 위로 돌아가기](#top)**
 

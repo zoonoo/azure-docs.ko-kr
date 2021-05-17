@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b56313183ba3bf39313ec06ddb9cdb36ac445aee
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92744159"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204516"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Azure App Service용 ASP.NET 앱 구성
 
@@ -19,7 +19,7 @@ ms.locfileid: "92744159"
 
 ASP.NET 앱은 컴파일된 이진 파일로 Azure App Service에 배포해야 합니다. Visual Studio 게시 도구는 솔루션을 빌드한 다음 컴파일된 이진 파일을 직접 배포하는 반면, App Service 배포 엔진은 코드 리포지토리를 먼저 배포한 다음 이진 파일을 컴파일합니다.
 
-이 가이드는 ASP.NET 개발자를 위한 주요 개념 및 지침을 제공합니다. Azure App Service를 사용한 적이 없는 경우 [ASP.NET 빠른 시작](quickstart-dotnet-framework.md)과 [SQL Database를 사용한 ASP.NET 자습서](app-service-web-tutorial-dotnet-sqldatabase.md)를 먼저 따릅니다.
+이 가이드는 ASP.NET 개발자를 위한 주요 개념 및 지침을 제공합니다. Azure App Service를 사용한 적이 없는 경우 [ASP.NET 빠른 시작](./quickstart-dotnetcore.md?tabs=netframework48)과 [SQL Database를 사용한 ASP.NET 자습서](app-service-web-tutorial-dotnet-sqldatabase.md)를 먼저 따릅니다.
 
 ## <a name="show-supported-net-framework-runtime-versions"></a>지원되는 .NET Framework 런타임 버전 표시
 

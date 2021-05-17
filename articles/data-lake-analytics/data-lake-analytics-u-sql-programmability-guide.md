@@ -1,15 +1,15 @@
 ---
 title: Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드
-description: 적절 한 SCRIPT.USQL 스크립트를 만들 수 있도록 하는 Azure Data Lake Analytics의 U-SQL 개요 및 UDF 프로그래밍 기능에 대해 알아봅니다.
+description: 적절한 USQL 스크립트를 만들 수 있도록 하는 Azure Data Lake Analytics의 U-SQL 개요 및 UDF 프로그래밍 기능에 대해 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: d263f2616607a96a8aa14f1ad1c06330b1b44644
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96510865"
 ---
 # <a name="u-sql-programmability-guide-overview"></a>U-SQL 프로그래밍 기능 가이드 개요
@@ -123,13 +123,13 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 
 
 ### <a name="use-assembly-versioning"></a>어셈블리 버전 관리 사용
-현재 4.7.2는 .NET Framework 버전을 사용 합니다. 따라서 자신의 어셈블리가 해당 런타임 버전과 호환되는지 확인해야 합니다.
+현재 U-SQL은 .NET Framework 버전 4.7.2를 사용합니다. 따라서 자신의 어셈블리가 해당 런타임 버전과 호환되는지 확인해야 합니다.
 
 앞에서 언급했듯이 U-SQL은 64비트(x64) 형식 코드를 실행합니다. 따라서 코드가 x64에서 실행되도록 컴파일되었는지 확인합니다. 그렇지 않으면 앞에서 설명한 잘못된 형식 오류가 발생합니다.
 
 업로드된 각 어셈블리 DLL, 리소스 파일(예: 다양한 런타임), 네이티브 어셈블리 또는 구성 파일의 크기는 최대 400MB입니다. DEPLOY RESOURCE를 통해 또는 참조 어셈블리를 통해 배포된 리소스 및 추가 파일의 총 크기는 3GB를 초과할 수 없습니다.
 
-마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 Newtonsoft.json Json.NET 라이브러리의 버전 7과 버전 8이 모두 필요한 경우 두 개의 다른 데이터베이스에 등록 해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
+마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 NewtonSoft Json.Net 라이브러리의 버전 7과 버전 8이 모두 필요하면 서로 다른 두 데이터베이스에 등록해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
 
 ## <a name="use-user-defined-functions-udf"></a>UDF(사용자 정의 함수) 사용
 U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(예: 복잡한 계산)을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
@@ -289,7 +289,7 @@ OUTPUT @rs1
 ### <a name="keep-state-between-udf-invocations"></a>UDF 호출 사이 상태 유지
 U-SQL C# 프로그래밍 기능 개체는 코드 숨김 전역 변수를 통한 상호 작용을 활용하여 더 정교해질 수 있습니다. 다음과 같은 비즈니스 사용 사례 시나리오를 살펴보겠습니다.
 
-대규모 조직에서는 사용자가 다양한 내부 애플리케이션 간에 전환할 수 있습니다. 여기에는 Microsoft Dynamics CRM, Power BI 등이 포함 될 수 있습니다. 고객을 위해 사용자가 다양한 애플리케이션 사이를 전환하는 방법, 사용 추세 등에 대한 원격 분석을 적용하는 것이 필요할 수 있습니다. 비즈니스의 목표는 애플리케이션 사용을 최적화하는 것입니다. 다양한 애플리케이션이나 특정 로그인 루틴을 결합하는 것이 필요할 수 있습니다.
+대규모 조직에서는 사용자가 다양한 내부 애플리케이션 간에 전환할 수 있습니다. 여기에는 Microsoft Dynamics CRM, PowerBI 등이 포함될 수 있습니다. 고객을 위해 사용자가 다양한 애플리케이션 사이를 전환하는 방법, 사용 추세 등에 대한 원격 분석을 적용하는 것이 필요할 수 있습니다. 비즈니스의 목표는 애플리케이션 사용을 최적화하는 것입니다. 다양한 애플리케이션이나 특정 로그인 루틴을 결합하는 것이 필요할 수 있습니다.
 
 이러한 목표를 달성하려면 세션 ID 및 마지막으로 발생한 세션 간의 지연 시간을 판단해야 합니다.
 
@@ -421,5 +421,5 @@ OUTPUT @rs2
 이 예제는 전체 메모리 행 집합에 적용된 코드 숨김 섹션 내부에 전역 변수를 사용하는 보다 세밀한 사용 사례 시나리오를 보여줍니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
-* [U-SQL 프로그래밍 기능 가이드-UDO](data-lake-analytics-u-sql-programmability-guide-UDO.md)
+* [U-SQL 프로그램 기능 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그래밍 기능 가이드 - UDO](data-lake-analytics-u-sql-programmability-guide-UDO.md)

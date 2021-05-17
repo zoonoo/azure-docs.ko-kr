@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: storage
 author: roygara
 ms.service: storage
@@ -9,15 +9,15 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: f5ebd05177abf5fb3468b3ce935b7d004b414424
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100551486"
 ---
-NFS는 프리미엄 파일 저장소를 사용할 수 **있는 30 개** 이상의 지역에서 지원 됩니다.
+NFS는 프리미엄 Files Storage를 사용할 수 있는 30개 이상의 **모든** 지역에서 지원됩니다.
 
-계속 해 서 지역을 추가 하 고 있습니다. 최신 목록을 보려면 아래 샘플을 사용 하 여 NFS를 지 원하는 지역 목록을 쿼리 하세요. **프리미엄 파일 저장소** 의 [지역에서 사용 가능한 Azure 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all) 에서 지역 지원을 확인할 수도 있습니다.
+지속적으로 지역을 추가하고 있습니다. 최신 목록을 보려면 아래 샘플을 사용하여 NFS를 지원하는 지역 목록을 쿼리하세요. **프리미엄 Files Storage** 아래의 [지역별 사용 가능한 Azure 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all)에서 지역 지원을 확인할 수도 있습니다.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell

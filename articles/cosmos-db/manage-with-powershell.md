@@ -1,24 +1,24 @@
 ---
-title: PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
-description: PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스를 관리 합니다.
+title: PowerShell을 사용하여 Azure Cosmos DB Core (SQL) API 리소스 관리
+description: PowerShell을 사용하여 Azure Cosmos DB Core (SQL) API 리소스 관리.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 04/25/2021
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 2d99a760e3bf44febcee05bf9827479616bf7bd6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: f967c5b40facbcbfe21ae87ae962241632135c34
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93333446"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228207"
 ---
-# <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>PowerShell을 사용 하 여 Azure Cosmos DB Core (SQL) API 리소스 관리
+# <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>PowerShell을 사용하여 Azure Cosmos DB Core (SQL) API 리소스 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-다음 가이드에서는 PowerShell을 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함 하 여 Azure Cosmos DB Core (SQL) API 리소스의 관리를 스크립팅 및 자동화 하는 방법을 설명 합니다. 다른 API에 대한 PowerShell cmdlet은 [Cassandra용 PowerShell 샘플](powershell-samples-cassandra.md), [MongoDB API용 PowerShell 샘플](powershell-samples-mongodb.md), [Gremlin용 PowerShell 샘플](powershell-samples-gremlin.md), [Table용 PowerShell 샘플](powershell-samples-table.md)을 참조하세요.
+다음 참고 자료는 PowerShell을 사용하여 Cosmos 계정, 데이터베이스, 컨테이너 및 처리량을 포함한 Azure Cosmos DB Core (SQL) API 리소스의 관리를 스크립팅하고 자동화하는 방법에 대해 설명합니다. 다른 API에 대한 PowerShell cmdlet은 [Cassandra용 PowerShell 샘플](powershell-samples-cassandra.md), [MongoDB API용 PowerShell 샘플](powershell-samples-mongodb.md), [Gremlin용 PowerShell 샘플](powershell-samples-gremlin.md), [Table용 PowerShell 샘플](powershell-samples-table.md)을 참조하세요.
 
 > [!NOTE]
 > 이 문서의 샘플에서는 [Az.CosmosDB](/powershell/module/az.cosmosdb) 관리 cmdlet을 사용합니다. 최신 변경 내용은 [Az.CosmosDB](/powershell/module/az.cosmosdb) API 참조 페이지를 참조하세요.
@@ -32,7 +32,7 @@ Azure Cosmos DB의 플랫폼 간 관리를 위해 [플랫폼 간 PowerShell](/po
 [Azure PowerShell을 설치하고 구성하는 방법][powershell-install-configure]의 지침에 따라 PowerShell에서 Azure 계정을 설치하고 로그인합니다.
 
 > [!IMPORTANT]
-> Azure Cosmos DB 리소스는 Azure Resource Manager 리소스 Uri에서 작동 하는 방법을 위반 하므로 이름을 바꿀 수 없습니다.
+> Azure Resource Manager가 리소스 URI와 함께 작동하는 방식을 위반하므로 Azure Cosmos DB 리소스의 이름을 바꿀 수 없습니다.
 
 ## <a name="azure-cosmos-accounts"></a>Azure Cosmos 계정
 
@@ -78,7 +78,7 @@ New-AzCosmosDBAccount `
 ```
 
 * `$resourceGroupName` Cosmos 계정을 배포할 Azure 리소스 그룹입니다. 이 리소스 그룹은 이미 있어야 합니다.
-* `$locations` 데이터베이스 계정에 대 한 지역이 인 지역은 `FailoverPriority 0` 쓰기 지역입니다.
+* `$locations` 데이터베이스 계정에 대한 지역이고, `FailoverPriority 0`가 있는 지역은 쓰기 지역입니다.
 * `$accountName` Azure Cosmos 계정의 이름입니다. 고유한 소문자여야 하며, 영숫자 및 '-' 문자만 포함하고, 3-31자여야 합니다.
 * `$apiKind` 만드는 Cosmos 계정의 유형입니다. 자세한 내용은 [Cosmos DB의 API](introduction.md#simplified-application-development)를 참조하세요.
 * `$consistencyPolicy`, `$maxStalenessInterval` 및 `$maxStalenessPrefix` Azure Cosmos 계정의 기본 일관성 수준 및 설정입니다. 자세한 내용은 [Azure Cosmos DB의 일관성 수준](consistency-levels.md)을 참조하세요.
@@ -120,6 +120,8 @@ Get-AzCosmosDBAccount -ResourceGroupName $resourceGroupName -Name $accountName
 > 영역(`locations`)을 추가하거나 제거하면서 동시에 Azure Cosmos 계정에 대한 다른 속성을 변경할 수 없습니다. 지역을 수정하는 작업은 계정에 대한 다른 변경과는 별도의 작업으로 수행해야 합니다.
 > [!NOTE]
 > 이 명령을 사용하면 지역을 추가 및 제거할 수 있지만 장애 조치(failover) 우선 순위를 수정하거나 수동 장애 조치(failover)를 트리거할 수 없습니다. [장애 조치(failover) 우선 순위 수정](#modify-failover-priority) 및 [수동 장애 조치(failover) 트리거](#trigger-manual-failover)를 참조하세요.
+> [!TIP]
+> 새 지역이 추가되면 해당 지역이 사용 가능으로 표시되기 전에 모든 데이터를 완전히 복제하고 새 지역에 커밋해야 합니다. 이 작업에 걸리는 시간은 해당 계정 내에 저장된 데이터 양에 따라 달라집니다.
 
 ```azurepowershell-interactive
 # Create account with two regions
@@ -225,7 +227,7 @@ Update-AzCosmosDBAccount `
 
 ### <a name="list-account-keys"></a><a id="list-keys"></a> 계정 키 나열
 
-Azure Cosmos 계정을 만들 때 서비스는 Azure Cosmos 계정에 액세스할 때 인증에 사용할 수 있는 두 가지 기본 액세스 키를 생성 합니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 생성합니다.
+Azure Cosmos 계정이 만들어지면 서비스에서 Azure Cosmos 계정에 액세스할 때 인증하는 데 사용할 수 있는 두 개의 기본 액세스 키를 생성합니다. 읽기 전용 작업을 인증하기 위한 읽기 전용 키도 생성합니다.
 두 개의 액세스 키를 제공하면 Azure Cosmos DB를 통해 Azure Cosmos 계정을 중단하지 않고 한 번에 하나의 키를 다시 생성하고 회전시킬 수 있습니다.
 Cosmos DB 계정에는 두 개의 읽기-쓰기 키(기본 및 보조) 및 두 개의 읽기 전용 키(기본 및 보조)가 있습니다.
 
@@ -498,7 +500,7 @@ Remove-AzResourceLock `
 * [자동 크기 조정을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-autoscale)
 * [대용량 파티션 키를 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-big-pk)
 * [Azure Cosmos DB 컨테이너의 처리량 가져오기](#get-container-ru)
-* [자동 크기 조정으로 컨테이너 처리량 마이그레이션](#migrate-container-ru)
+* [컨테이너 처리량을 자동 크기 조정으로 마이그레이션](#migrate-container-ru)
 * [사용자 지정 인덱싱을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-custom-index)
 * [해제된 인덱싱을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-no-index)
 * [고유 키와 TTL을 사용하여 Azure Cosmos DB 컨테이너 만들기](#create-container-unique-key-ttl)
@@ -586,7 +588,7 @@ Get-AzCosmosDBSqlContainerThroughput `
     -Name $containerName
 ```
 
-### <a name="migrate-container-throughput-to-autoscale"></a><a id="migrate-container-ru"></a>자동 크기 조정으로 컨테이너 처리량 마이그레이션
+### <a name="migrate-container-throughput-to-autoscale"></a><a id="migrate-container-ru"></a>컨테이너 처리량을 자동 크기 조정으로 마이그레이션
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"

@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: 음성 도우미 설명서
-summary: 음성 도우미는 음성 서비스를 사용 하 여 개발자가 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다.
+summary: Speech Service를 사용하는 음성 도우미를 사용하면 개발자가 자신의 애플리케이션과 환경에 맞게 자연스럽고 인간적인 대화형 인터페이스를 만들 수 있습니다.
 metadata:
-  title: 음성 도우미 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  title: 음성 도우미 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 4fae88de9ad6c48e8079fc7d9ff2d7527d9e7208
-  ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
-  ms.translationtype: MT
+  ms.openlocfilehash: f9f5a2934a012ba93accc050ebebee7c844312fc
+  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85299384"
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105746229"
 landingContent:
 - title: 음성 도우미 정보
   linkLists:
@@ -24,7 +24,7 @@ landingContent:
     links:
     - text: 음성 도우미란?
       url: voice-assistants.md
-    - text: 사용자 지정 명령 앱 이란?
+    - text: 사용자 지정 명령 앱이란?
       url: custom-commands.md
     - text: Direct Line Speech란?
       url: direct-line-speech.md
@@ -32,13 +32,13 @@ landingContent:
     links:
     - text: 음성 도우미 FAQ
       url: faq-voice-assistants.md
-    - text: 음성 도우미 가격
+    - text: 음성 도우미 가격 책정
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
   - linkListType: get-started
     links:
-    - text: Azure 구독에 샘플 음성 도우미 빌드 및 배포 (GitHub)
+    - text: Azure 구독(GitHub)에 샘플 음성 도우미 빌드 및 배포
       url: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
-- title: 사용자 지정 명령을 사용 하 여 개발
+- title: 사용자 지정 명령으로 개발
   linkLists:
   - linkListType: quickstart
     links:
@@ -46,37 +46,43 @@ landingContent:
       url: quickstart-custom-commands-application.md
   - linkListType: how-to-guide
     links:
-    - text: 간단한 명령을 사용 하 여 응용 프로그램 만들기
-      url: how-to-custom-commands-create-application-with-simple-commands.md
+    - text: 간단한 명령으로 애플리케이션 만들기
+      url: ./how-to-develop-custom-commands-application.md
     - text: 명령에 매개 변수 추가
-      url: how-to-custom-commands-add-parameters-to-commands.md
+      url: ./how-to-develop-custom-commands-application.md
     - text: 매개 변수 및 수정 프롬프트에 유효성 검사 추가
-      url: how-to-custom-commands-add-parameter-configuration.md
-    - text: Speech SDK를 사용 하 여 통합
+      url: ./how-to-develop-custom-commands-application.md
+    - text: Speech SDK를 사용하여 통합
       url: how-to-custom-commands-setup-speech-sdk.md
-    - text: Azure DevOps를 사용 하 여 사용자 지정 명령 앱에 대 한 연속 배포 설정
+    - text: Azure DevOps를 사용하여 사용자 지정 명령 앱에 대한 연속 배포 설정
       url: how-to-custom-commands-deploy-cicd.md
-- title: 직접 라인 음성으로 개발
+- title: Direct Line Speech로 개발
   linkLists:
   - linkListType: quickstart
     links:
     - text: C#(UWP)
-      url: quickstart-voice-assistant-csharp-uwp.md
+      url: ./quickstarts/voice-assistants.md?pivots=programming-language-csharp
     - text: Java(Windows, macOS, Linux)
-      url: quickstart-voice-assistant-java-jre.md
+      url: ./quickstarts/voice-assistants.md?pivots=programming-language-java
     - text: Java(Android)
-      url: quickstart-voice-assistant-java-android.md
+      url: ./quickstarts/voice-assistants.md?pivots=programming-language-java
   - linkListType: tutorial
     links:
     - text: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
       url: tutorial-voice-enable-your-bot-speech-sdk.md
-- title: 사용자 지정 키워드를 사용 하 여 개발
+- title: 사용자 지정 키워드로 개발
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 사용자 지정 키워드 만들기
-      url: speech-devices-sdk-create-kws.md
+      url: ./custom-keyword-basics.md
   - linkListType: reference
     links:
     - text: 사용자 지정 키워드 명명 지침
-      url: speech-devices-sdk-kws-guidelines.md
+      url: ./custom-keyword-overview.md
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

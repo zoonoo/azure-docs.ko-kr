@@ -11,15 +11,15 @@ ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: e180ecbf5c68dbd9c179244083a641ac6ed42de0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100371960"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
-일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 작성과 같은 몇 가지 일반적인 데이터 과학 작업을 완료 하는 작업을 설명 합니다. 프로덕션 환경에 모델을 배포 하기 위한 옵션에는 다음이 포함 될 수 있습니다.
+일반적인 데이터 과학 작업으로 데이터 탐색, 모델링 및 배포가 있습니다. 이 문서에서는 대화형 데이터 탐색, 데이터 분석, 보고 및 모델 생성과 같은 몇 가지 일반적인 데이터 과학 작업을 완료하는 작업을 간략히 설명합니다. 프로덕션 환경에 모델을 배포하기 위한 옵션에는 다음이 포함될 수 있습니다.
 
 - [Azure Machine Learning](../index.yml)
 - [ML 서비스 포함 SQL-Server](/sql/advanced-analytics/r/r-services)
@@ -30,7 +30,7 @@ ms.locfileid: "100371960"
 
 데이터 과학자는 다양한 방법으로, 예를 들어 Python(예: matplotlib) 또는 R(예: ggplot 또는 lattice)과 함께 사용할 수 있는 라이브러리 및 패키지를 사용하여 탐색 및 보고를 수행할 수 있습니다. 데이터 과학자는 해당 코드를 사용자 지정하여 특정 시나리오의 데이터 탐색 요구에 맞출 수 있습니다. 구조화된 데이터를 다루기 위한 요구는 텍스트나 이미지 등 구조화되지 않은 데이터의 경우와 다릅니다. 
 
-Azure Machine Learning 등의 제품은 기능 생성을 포함 하 여 데이터 랭 글 링 및 탐색을 위한 [고급 데이터 준비](../how-to-create-register-datasets.md) 도 제공 합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
+Azure Machine Learning과 같은 제품은 기능 생성을 포함하여 데이터 랭글링 및 탐색을 위한 [고급 데이터 준비](../how-to-create-register-datasets.md)도 제공합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
 
 이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 
 

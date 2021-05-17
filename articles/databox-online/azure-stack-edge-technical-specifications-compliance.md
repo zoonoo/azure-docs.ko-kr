@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Stack Edge Pro 기술 사양 및 규정 준수 | Microsoft Docs
-description: Azure Stack Edge Pro의 기술 사양 및 규정 준수에 대해 알아봅니다.
+description: Azure Stack Edge Pro에 대한 기술 사양 및 규정 준수에 대해 알아보기
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,28 +9,28 @@ ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
 ms.openlocfilehash: 8b36bb34f4c9081d807998cb8287797443625a6b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96460298"
 ---
-# <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge Pro 기술 사양
+# <a name="azure-stack-edge-pro-technical-specifications"></a>Azure Stack Edge Pro기술 사양
 
-Microsoft Azure Stack Edge Pro 장치의 하드웨어 구성 요소는이 문서에 설명 된 기술 사양과 규정 표준을 준수 합니다. 기술 사양은 PSU(전원 공급 장치), 스토리지 용량, 엔클로저 및 환경 표준을 설명합니다.
+Microsoft Azure Stack Edge Pro 디바이스의 하드웨어 구성 요소는 이 문서에 설명된 기술 사양 및 규제 표준을 준수합니다. 기술 사양은 PSU(전원 공급 장치), 스토리지 용량, 엔클로저 및 환경 표준을 설명합니다.
 
 ## <a name="compute-memory-specifications"></a>컴퓨팅, 메모리 사양
 
-Azure Stack Edge Pro 장치에는 계산 및 메모리에 대 한 다음과 같은 사양이 있습니다.
+Azure Stack Edge Pro 디바이스에는 계산 및 메모리에 대한 다음과 같은 사양이 있습니다.
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
-| CPU    | 2 X 10 코어 CPU Intel Xeon 실버 4114 2.2 G                    |
-| 메모리              | 128 g b RAM (8x 16GB RDIMM)                 |
+| CPU    | 10코어 CPU Intel Xeon 실버 4114 2.2G 2개                    |
+| 메모리              | 128GB RAM(16GBRDIMM 8개)                 |
 
 ## <a name="fpga-specifications"></a>FPGA 사양
 
-FPGA (필드 프로그래밍 가능 게이트 배열)는 ML (Machine Learning) 시나리오를 가능 하 게 하는 모든 Azure Stack Edge Pro 장치에 포함 됩니다.
+ML(Machine Learning) 시나리오를 가능하게 하는 FPGA(Field Programmable Gate Array)는 모든 Azure Stack Edge Pro 디바이스에 포함되어 있습니다.
 
 | 사양           | 값                  |
 |-------------------------|----------------------------|
@@ -38,7 +38,7 @@ FPGA (필드 프로그래밍 가능 게이트 배열)는 ML (Machine Learning) �
 
 ## <a name="power-supply-unit-specifications"></a>전원 공급 장치 사양
 
-Azure Stack Edge Pro 장치에는 고성능 팬이 있는 2 개의 100-240 V 전원 공급 장치 (PSUs)가 있습니다. 두 대의 PSU는 중복 전원 구성을 제공합니다. PSU가 실패하면, 디바이스는 실패한 모듈이 교체될 때까지 다른 PSU에서 정상적으로 작동합니다. 다음 표에는 PSU의 기술 사양이 나열되어 있습니다.
+Azure Stack Edge Pro 디바이스에는 고성능 팬이 탑재된 2대의 100-240V PSU(전원 공급 디바이스)가 있습니다. 두 대의 PSU는 중복 전원 구성을 제공합니다. PSU가 실패하면, 디바이스는 실패한 모듈이 교체될 때까지 다른 PSU에서 정상적으로 작동합니다. 다음 표에는 PSU의 기술 사양이 나열되어 있습니다.
 
 | 사양           | 750W PSU                  |
 |-------------------------|----------------------------|
@@ -47,10 +47,10 @@ Azure Stack Edge Pro 장치에는 고성능 팬이 있는 2 개의 100-240 V 전
 | 전압 범위 선택 | 자동 범위 지정: 100-240V AC |
 | 핫 플러그형           | 예                        |
 
-### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>지역별 Edge Pro 전원 코드 사양 Azure Stack
+### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Azure Stack Edge Pro 지역별 전원 코드 사양
 
-Azure Stack Edge Pro 장치에는 Azure 지역에 따라 달라 지는 전원 코드가 필요 합니다.
-지원 되는 모든 전원 코드의 기술 사양에 대해서는 [지역별 Azure Stack Edge Pro 전원 코드 사양](azure-stack-edge-technical-specifications-power-cords-regional.md)을 참조 하세요.
+Azure Stack Edge Pro 디바이스에는 전원 코드가 필요하며 이는 Azure 지역에 따라 다릅니다.
+지원되는 모든 전원 코드의 기술 사양에 대해서는 [Azure Stack Edge Pro 지역별 전원 코드 사양](azure-stack-edge-technical-specifications-power-cords-regional.md)을 참조하세요.
 
 <!--## Power consumption statistics
 
@@ -58,24 +58,24 @@ The following table lists the typical power consumption data (actual values may 
 
 ## <a name="network-interface-specifications"></a>네트워크 인터페이스 사양
 
-Azure Stack Edge Pro 장치에는 6 개의 네트워크 인터페이스인 PORT1-PORT6가 있습니다.
+Azure Stack Edge Pro 디바이스에는 6개의 네트워크 인터페이스인 PORT1~PORT6이 있습니다.
 
 | 사양           | Description                 |
 |-------------------------|----------------------------|
 |  네트워크 인터페이스    | 1GbE 인터페이스 2개 - 1개는 관리용으로 사용자가 구성할 수 없으며 초기 설정에 사용됩니다. 다른 인터페이스는 사용자가 구성 가능하고 데이터 전송에 사용할 수 있으며, 기본적으로 DHCP입니다. <br>25GbE 인터페이스 2개 - 10GbE 인터페이스로도 작동할 수 있습니다. 사용자는 이러한 데이터 인터페이스를 DHCP(기본값) 또는 정적으로 구성할 수 있습니다. <br> 25GbE 인터페이스 2개 - 사용자는 이러한 데이터 인터페이스를 DHCP(기본값) 또는 정적으로 구성할 수 있습니다.                  |
 
-사용 되는 네트워크 어댑터는 다음과 같습니다. 
+사용되는 네트워크 어댑터는 다음과 같습니다. 
 
 | 사양           | Description                 |
 |-------------------------|----------------------------|
-|RNDC (네트워크 부속 카드) |QLogic FastLinQ 41264 이중 포트 25GbE SFP +, 이중 포트 1GbE, rNDC|
+|rNDC(Network Daughter Card) |QLogic FastLinQ 41264 듀얼 포트 25GbE SFP+, 듀얼 포트 1GbE, rNDC|
 |PCI 네트워크 어댑터 |QLogic FastLinQ 41262 zwei Ports 25Gbit/s SFP28 어댑터|
 
-호환 되는 기가 비트 인터페이스 변환기 (GBIC)는 Intel QLogic의 하드웨어 호환성 목록을 참조 하십시오. GBIC (기가 비트 인터페이스 변환기)는 Azure Stack Edge 배달에 포함 되지 않습니다. 
+호환되는 GBIC(기가비트 인터페이스 변환기)는 Intel QLogic의 하드웨어 호환성 목록을 참조하세요. GBIC(기가비트 인터페이스 변환기)는 Azure Stack Edge의 전송에 포함되지 않습니다. 
 
 ## <a name="storage-specifications"></a>스토리지 사양
 
-Azure Stack Edge Pro 장치에는 각각 1.6 TB의 용량을 포함 하는 9 X 2.5 "NVMe Ssd가 있습니다. 이러한 SSD 중 1개는 운영 체제 디스크이고 다른 8개는 데이터 디스크입니다. 디바이스에 사용할 수 있는 총 용량은 약 12.5TB입니다. 다음 표에는 디바이스의 스토리지 용량에 대한 세부 정보가 나와 있습니다.
+Azure Stack Edge Pro 디바이스에는 각각 1.6TB의 용량을 포함하는 2.5" NVMe SSD가 9개 있습니다. 이러한 SSD 중 1개는 운영 체제 디스크이고 다른 8개는 데이터 디스크입니다. 디바이스에 사용할 수 있는 총 용량은 약 12.5TB입니다. 다음 표에는 디바이스의 스토리지 용량에 대한 세부 정보가 나와 있습니다.
 
 |     사양                          |     값             |
 |--------------------------------------------|-----------------------|

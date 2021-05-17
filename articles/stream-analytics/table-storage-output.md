@@ -1,19 +1,19 @@
 ---
-title: Azure Stream Analytics의 테이블 저장소 출력
-description: 이 문서에서는 Azure Stream Analytics에 대 한 출력으로 Azure 테이블 저장소에 대해 설명 합니다.
+title: Azure Stream Analytics의 테이블 스토리지 출력
+description: 이 문서에서는 Azure Stream Analytics의 출력으로 Azure Table Storage를 설명합니다.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: 558ddf065d33a552034c5b129ea70bc144c494ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98013892"
 ---
-# <a name="table-storage-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 테이블 저장소 출력
+# <a name="table-storage-output-from-azure-stream-analytics"></a>Azure Stream Analytics의 테이블 스토리지 출력
 
 [Azure Table Storage](../storage/common/storage-introduction.md)는 가용성이 높고 확장성이 큰 스토리지를 제공하므로, 애플리케이션이 사용자 요구에 맞게 자동으로 확장할 수 있습니다. Table 스토리지는 스키마에 대한 제약 조건이 더 적은 정형 데이터에 사용할 수 있는 Microsoft의 NoSQL 키/특성 저장소입니다. Azure Table Storage는 지속적이고 효율적인 검색을 위해 데이터를 저장하는 데 사용할 수 있습니다.
 
@@ -31,17 +31,17 @@ ms.locfileid: "98013892"
 
 ## <a name="partitioning"></a>분할
 
-파티션 키는 모든 출력 열입니다. 출력 작성기의 수는 [완전히 병렬화 된 쿼리에](stream-analytics-scale-jobs.md)대 한 입력 분할을 따릅니다.
+파티션 키는 모든 출력 열입니다. 출력 작성기의 수는 [완전히 병렬화된 쿼리](stream-analytics-scale-jobs.md)의 입력 분할을 따릅니다.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
-최대 메시지 크기는 [Azure Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)을 참조 하세요. 기본값은 단일 트랜잭션 당 100 엔터티 이지만 필요에 따라 더 작은 값으로 구성할 수 있습니다.
+최대 메시지 크기는 [Azure Storage 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)을 참조하세요. 기본값은 단일 트랜잭션당 100개의 엔터티이지만 필요에 따라 더 작은 값으로 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-cli.md)
 * [빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-resource-manager.md)
-* [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
+* [빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
 * [빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
 * [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

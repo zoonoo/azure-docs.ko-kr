@@ -10,11 +10,11 @@ ms.subservice: language-understanding
 ms.date: 01/21/2021
 ms.topic: include
 ms.openlocfilehash: 4b40f51435033a48b0e397e3f064101827fe596e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98680192"
 ---
 > [!NOTE]
-> 2021 년 1 월 20 luis.au 및 luis.eu 포털이 단일 LUIS 포털에 통합 되었습니다. 이러한 포털 중 하나를 사용 하는 경우 대신 LUIS에서 [luis.ai](https://luis.ai)에 액세스 합니다.
+> 2021년 1월 20일부터 luis.au 및 luis.eu 포털이 단일 LUIS 포털로 통합되었습니다. 이러한 포털 중 하나를 사용하는 경우 대신 [luis.ai](https://luis.ai)에서 LUIS에 액세스합니다.

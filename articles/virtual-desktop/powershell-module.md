@@ -5,18 +5,18 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: f2f01e2b58c997db08ad4427de7eef1ee3760c4a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: fdd74a09e49a352d18cf4ceccf406a25bf6dffb3
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96016814"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445842"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 PowerShell 모듈 설정
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager 통합을 포함 하는 Windows 가상 데스크톱에 적용 됩니다.
+>이 콘텐츠는 Azure Resource Manager 통합이 포함된 Windows Virtual Desktop에 적용됩니다.
 
 Windows Virtual Desktop PowerShell 모듈은 Azure PowerShell 모듈에 통합되어 있습니다. 이 문서에서는 Windows Virtual Desktop에 대한 cmdlet을 실행할 수 있도록 PowerShell 모듈을 설정하는 방법을 설명합니다.
 
@@ -42,7 +42,7 @@ Connect-AzAccount
 ```
 
 >[!IMPORTANT]
->US Gov 포털에 연결 하는 경우 대신이 cmdlet을 실행 합니다.
+>US Gov 포털에 연결하는 경우 대신 다음 cmdlet을 실행합니다.
 > 
 > ```powershell
 > Connect-AzAccount -EnvironmentName AzureUSGovernment
@@ -68,7 +68,7 @@ Youradminupn subscriptionname AzureADTenantID AzureCloud
 Select-AzSubscription -Subscription <preferredsubscriptionname>
 ```
 
-Out-GridView cmdlet을 사용 하 여 목록에서 하나를 선택할 수도 있습니다.
+Out-GridView cmdlet을 사용하여 목록에서 하나를 선택할 수도 있습니다.
 
 ```powershell
 Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription

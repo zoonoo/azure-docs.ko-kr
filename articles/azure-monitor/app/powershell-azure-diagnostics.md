@@ -3,12 +3,13 @@ title: Azure에서 PowerShell을 사용하여 Application Insights 설정 | Micr
 description: Application Insights에 데이터를 파이핑하는 Azure Diagnostics 구성을 자동화합니다.
 ms.topic: conceptual
 ms.date: 08/06/2019
-ms.openlocfilehash: c7c385888d7322b212cdd62497c9bbbabb970d65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 67798476e83f36f185e1b56a2f3096058f89d65c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100583836"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321990"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-azure-cloud-services"></a>PowerShell을 사용하여 Azure Cloud Services를 위한 Application Insights 설정
 

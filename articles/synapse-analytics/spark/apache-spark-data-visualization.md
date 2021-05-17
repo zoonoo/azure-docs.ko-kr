@@ -1,6 +1,6 @@
 ---
 title: 시각화
-description: Azure Synapse 노트북을 사용 하 여 데이터 시각화
+description: Azure Synapse Notebook을 사용하여 데이터 시각화
 author: midesa
 ms.author: midesa
 ms.reviewer: euang
@@ -10,67 +10,67 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 09/13/2020
 ms.openlocfilehash: 7e57cdca1d212e6077d685d95a8f869c12e546a8
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105627951"
 ---
 # <a name="visualize-data"></a>데이터 시각화
-Azure Synapse는 데이터 웨어하우스 및 빅 데이터 분석 시스템에서 정보에 대 한 시간을 가속화 하는 통합 분석 서비스입니다. 데이터 시각화는 데이터에 대 한 통찰력을 얻을 수 있는 핵심 구성 요소입니다. 이를 통해 큰 데이터를 더 쉽게 이해할 수 있습니다. 또한 데이터 그룹의 패턴, 추세 및 이상 값을 더 쉽게 검색할 수 있습니다. 
+Azure Synapse는 통합 분석 서비스로, 데이터 웨어하우스와 빅 데이터 분석 시스템 전체에서 인사이트를 얻는 시간을 앞당길 수 있습니다. 데이터 시각화는 데이터에 대한 통찰력을 얻을 수 있는 핵심 구성 요소입니다. 이를 통해 사람이 크고 작은 데이터를 더 쉽게 이해할 수 있습니다. 또한 데이터 그룹의 패턴, 추세, 이상값을 더 쉽게 검색할 수 있습니다. 
 
-Azure Synapse Analytics에서 Apache Spark를 사용 하는 경우 Synapse 노트북 차트 옵션, 인기 있는 오픈 소스 라이브러리에 대 한 액세스 및 Synapse SQL 및 Power BI와의 통합을 포함 하 여 데이터를 시각화 하는 데 도움이 되는 다양 한 기본 제공 옵션이 있습니다.
+Azure Synapse Analytics에서 Apache Spark를 사용하는 경우 Synapse Notebook 차트 옵션, 인기 있는 오픈 소스 라이브러리에 대한 액세스 권한, Synapse SQL 및 Power BI와의 통합 등 데이터를 시각화하는 데 도움이 되는 다양한 기본 제공 옵션이 있습니다.
 
-## <a name="notebook-chart-options"></a>노트북 차트 옵션
-Azure Synapse 노트북을 사용 하는 경우 차트 옵션을 사용 하 여 테이블 형식 결과 뷰를 사용자 지정 된 차트로 전환할 수 있습니다. 여기에서 코드를 작성 하지 않고도 데이터를 시각화할 수 있습니다. 
+## <a name="notebook-chart-options"></a>Notebook 차트 옵션
+Azure Synapse Notebook을 사용하는 경우 차트 옵션을 통해 테이블 형식 결과 보기를 사용자 지정된 차트로 전환할 수 있습니다. 여기에서 코드를 작성하지 않고도 데이터를 시각화할 수 있습니다. 
 
-### <a name="displaydf-function"></a>display (df) 함수
-함수를 사용 하 여 ```display``` SQL 쿼리를 설정 하 고 데이터 프레임 및 Rds를 다양 한 데이터 시각화로 Apache Spark 수 있습니다. ```display``` PySpark, Scala, Java 및 .net에서 만든 데이터 프레임 또는 RDDs에서 함수를 사용할 수 있습니다.
+### <a name="displaydf-function"></a>display(df) 함수
+```display``` 함수를 사용하면 SQL 쿼리와 Apache Spark 데이터프레임, RDD를 풍부한 데이터 시각화로 전환할 수 있습니다. ```display``` 함수는 PySpark, Scala, Java 및 .NET에서 만든 데이터프레임 또는 RDD에서 사용될 수 있습니다.
 
-차트 옵션에 액세스 하려면:
-1. ```%%sql```기본적으로 매직 명령의 출력이 렌더링 된 테이블 뷰에 표시 됩니다. 또한 ```display(df)``` Spark 데이터 프레임 또는 RDD (복원 력 있는 분산 데이터 집합) 함수를 호출 하 여 렌더링 된 테이블 뷰를 생성할 수 있습니다. 
+차트 옵션에 액세스하려면 다음을 수행합니다.
+1. ```%%sql``` 매직 명령의 출력은 기본적으로 렌더링된 테이블 뷰에 표시됩니다. 또한 Spark DataFrames 또는 RDD(Resilient Distributed Datasets) 함수에서 ```display(df)```를 호출하여 렌더링된 테이블 보기를 생성할 수 있습니다. 
    
-2. 렌더링 된 테이블 뷰가 있으면 차트 뷰로 전환 합니다.
-   ![기본 제공 차트](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
+2. 렌더링된 테이블 보기가 있으면 차트 보기로 전환합니다.
+   ![built-in-charts](./media/apache-spark-development-using-notebooks/synapse-built-in-charts.png#lightbox)
 
-3. 이제 다음 값을 지정 하 여 시각화를 사용자 지정할 수 있습니다.
+3. 이제 다음 값을 지정하여 시각화를 사용자 지정할 수 있습니다.
 
-   | 구성 | 설명 |
+   | 구성 | Description |
    |--|--| 
-   | 차트 종류 | ```display```함수는 가로 막대형 차트, 산 점도, 선 그래프 등을 비롯 한 다양 한 차트 종류를 지원 합니다. |
-   | 키 | X 축의 값 범위를 지정 합니다.|
-   | 값 | Y 축 값의 범위를 지정 합니다. |
-   | 계열 그룹 | 집계에 대 한 그룹을 결정 하는 데 사용 됩니다. | 
-   | 집계 | 시각화에서 데이터를 집계 하는 방법| 
+   | 차트 종류 | ```display``` 함수는 막대형 차트, 산점도, 선 그래프 등 광범위한 차트 종류를 지원합니다. |
+   | 키 | x-축의 값 범위를 지정합니다.|
+   | 값 | y-축 값의 값 범위를 지정합니다. |
+   | 계열 그룹 | 집계 그룹을 결정하는 데 사용 됩니다. | 
+   | 집계 | 시각화에서 데이터를 집계하는 방법| 
    
    
     > [!NOTE]
-    > 기본적으로 ```display(df)``` 함수는 차트를 렌더링 하기 위해 데이터의 처음 1000 행만 사용 합니다. **모든 결과에 대 한 집계** 를 확인 하 고 **적용** 단추를 클릭 하 여 전체 데이터 집합에서 차트 생성을 적용 합니다. Spark 작업은 차트 설정이 변경 될 때 트리거됩니다. 계산을 완료 하 고 차트를 렌더링 하는 데 몇 분 정도 걸릴 수 있습니다.
+    > 기본적으로 ```display(df)``` 함수는 데이터의 처음 1000행만 사용하여 차트를 렌더링합니다. **모든 결과에 대한 집계** 를 확인하고 **적용** 단추를 클릭하여 전체 데이터 세트에서 차트 생성을 적용합니다. Spark 작업은 차트 설정이 변경될 때 트리거됩니다. 계산을 완료하고 차트를 렌더링하는 데 몇 분 정도 걸릴 수 있습니다.
    
-4. 완료 되 면 최종 시각화를 보고 조작할 수 있습니다.
+4. 완료되면 최종 시각화를 보고 이와 상호 작용할 수 있습니다.
 
-### <a name="displaydf-statistic-details"></a>표시 (df) 통계 세부 정보
-를 사용 하 여 열 <code>display(df, summary = true)</code> 이름, 열 유형, 고유 값 및 각 열에 대 한 누락 값을 포함 하는 지정 된 Apache Spark 데이터 프레임의 통계 요약을 확인할 수 있습니다. 특정 열을 선택 하 여 최소값, 최대값, 평균 값 및 표준 편차를 볼 수도 있습니다.
-    ![기본 제공 차트-요약](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
+### <a name="displaydf-statistic-details"></a>display(df) 통계 세부 정보
+<code>display(df, summary = true)</code>를 사용하여 열 이름, 열 형식, 고유 값, 각 열에 누락된 값을 포함하는 지정된 Apache Spark DataFrame의 통계 요약을 확인할 수 있습니다. 또한 특정 열을 선택하여 최솟값, 최댓값, 평균값, 표준 편차를 볼 수 있습니다.
+    ![built-in-charts-summary](./media/apache-spark-development-using-notebooks/synapse-built-in-charts-summary.png#lightbox)
    
-### <a name="displayhtmldf-option"></a>displayHTML (df) 옵션
-Azure Synapse Analytics 노트북은 함수를 사용 하 여 HTML 그래픽을 지원 ```displayHTML``` 합니다.
+### <a name="displayhtmldf-option"></a>displayHTML(df) 옵션
+Azure Synapse Analytics Notebooks는 ```displayHTML``` 함수를 사용하여 HTML 그래픽을 지원합니다.
 
-다음 그림은 [D3.js](https://d3js.org/)를 사용 하 여 시각화를 만드는 예입니다.
+다음 이미지는 [D3.js](https://d3js.org/)를 사용하여 시각화를 만드는 방법의 예제입니다.
 
-   ![d3-js-예제](./media/apache-spark-data-viz/d3-boxplot.png#lightbox)
+   ![d3-js-example](./media/apache-spark-data-viz/d3-boxplot.png#lightbox)
 
-위의 시각화를 만들려면 다음 코드를 실행 합니다.
+다음 코드를 실행하여 위의 시각화를 만듭니다.
 
 ```python
-displayHTML("""<!DOCTYPE html>
-<meta charset="utf-8">
+displayHTML("&quot;&quot;<!DOCTYPE html>
+<meta charset=&quot;utf-8&quot;>
 
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
+<script src=&quot;https://d3js.org/d3.v4.js&quot;></script>
 
 <!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
+<div id=&quot;my_dataviz&quot;></div>
 <script>
 
 // set the dimensions and margins of the graph
@@ -79,7 +79,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 40},
   height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg = d3.select(&quot;#my_dataviz")
 .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -147,12 +147,12 @@ svg
 ```
 
 ## <a name="popular-libraries"></a>인기 있는 라이브러리
-데이터 시각화와 함께 제공 되는 Python은 다양 한 기능을 제공 하는 여러 그래프 라이브러리를 제공 합니다. 기본적으로 Azure Synapse Analytics의 모든 Apache Spark 풀에는 큐 레이트 및 인기 있는 오픈 소스 라이브러리 집합이 포함 되어 있습니다. Azure Synapse Analytics 라이브러리 관리 기능을 사용 하 여 추가 라이브러리 & 버전을 추가 하거나 관리할 수도 있습니다. 
+데이터 시각화와 관련하여 Python은 다양한 기능이 포함된 여러 그래프 라이브러리를 제공합니다. 기본적으로 Azure Synapse Analytics의 모든 Apache Spark 풀에는 큐레이팅된 인기 오픈 소스 라이브러리 집합이 포함되어 있습니다. 또한 Azure Synapse Analytics 라이브러리 관리 기능을 사용하여 추가 라이브러리와 버전을 추가하거나 관리할 수 있습니다. 
 
 ### <a name="matplotlib"></a>Matplotlib
-각 라이브러리에 대해 기본 제공 렌더링 함수를 사용 하 여 Matplotlib와 같은 표준 그리기 라이브러리를 렌더링할 수 있습니다.
+각 라이브러리에 기본 제공되는 렌더링 함수를 사용하여 Matplotlib 같은 표준 그리기 라이브러리를 렌더링할 수 있습니다.
 
-다음 그림은 **Matplotlib** 를 사용 하 여 가로 막대형 차트를 만드는 예입니다.
+다음 이미지는 **Matplotlib** 를 사용하여 막대형 차트를 만드는 방법의 예제입니다.
    ![선 그래프 예제입니다.](./media/apache-spark-data-viz/matplotlib-example.png#lightbox)
 
 위의 이미지를 그리려면 다음 샘플 코드를 실행합니다.
@@ -181,7 +181,7 @@ plt.show()
 
 
 ### <a name="bokeh"></a>Bokeh
-를 사용 하 여 **빛 망 울** 와 같은 HTML 또는 대화형 라이브러리를 렌더링할 수 있습니다 ```displayHTML(df)``` . 
+```displayHTML(df)```을 사용하여 **bokeh** 같은 대화형 라이브러리나 HTML을 렌더링할 수 있습니다. 
 
 다음 이미지는 **빛망울** 을 사용하여 지도 위에 문자 모양을 그리는 예입니다.
 
@@ -200,7 +200,7 @@ tile_provider = get_provider(Vendors.CARTODBPOSITRON)
 
 # range bounds supplied in web mercator coordinates
 p = figure(x_range=(-9000000,-8000000), y_range=(4000000,5000000),
-           x_axis_type="mercator", y_axis_type="mercator")
+           x_axis_type="mercator&quot;, y_axis_type=&quot;mercator")
 p.add_tile(tile_provider)
 
 # plot datapoints on the map
@@ -220,11 +220,11 @@ displayHTML(html)
 
 
 ### <a name="plotly"></a>Plotly
-**Displayhtml ()** 을 사용 하 여 **PLOTLY** 와 같은 HTML 또는 대화형 라이브러리를 렌더링할 수 있습니다.
+**displayHTML()** 을 사용하여 **Plotly** 같은 대화형 라이브러리 또는 HTML을 렌더링할 수 있습니다.
 
-다음 샘플 코드를 실행 하 여 아래 이미지를 그립니다.
+다음 샘플 코드를 실행하여 아래의 이미지를 그립니다.
 
-   ![plotly-예제](./media/apache-spark-development-using-notebooks/synapse-plotly-image.png#lightbox)
+   ![plotly-example](./media/apache-spark-development-using-notebooks/synapse-plotly-image.png#lightbox)
 
 
 ```python
@@ -256,20 +256,20 @@ displayHTML(h)
 
 
 ### <a name="additional-libraries"></a>추가 라이브러리 
-이러한 라이브러리 외에도 Azure Synapse Analytics 런타임에는 데이터 시각화에 자주 사용 되는 다음과 같은 라이브러리 집합이 포함 되어 있습니다.
+이러한 라이브러리 외에도 Azure Synapse Analytics 런타임에는 데이터 시각화에 자주 사용되는 다음과 같은 라이브러리 집합도 포함되어 있습니다.
 - [Matplotlib](https://matplotlib.org/)
 - [Bokeh](https://bokeh.org/)
 - [Seaborn](https://seaborn.pydata.org/) 
 - [Plotly](https://plotly.com/)
 
-사용할 수 있는 라이브러리 및 버전에 대 한 최신 정보는 Azure Synapse Analytics 런타임 [설명서](./spark/../apache-spark-version-support.md) 를 참조 하세요.
+사용할 수 있는 라이브러리와 버전에 대한 최신 데이터 정보는 Azure Synapse Analytics 런타임 [설명서](./spark/../apache-spark-version-support.md)를 참조하세요.
 
-## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>주문형 SQL & Apache Spark를 사용 하 여 Power BI에 연결
-Azure Synapse Analytics는 데이터 엔지니어가 분석 솔루션을 빌드할 수 있도록 하 Power BI와 긴밀 하 게 통합 됩니다.
+## <a name="connect-to-power-bi-using-apache-spark--sql-on-demand"></a>Apache Spark 및 SQL 주문형을 사용하여 Power BI에 연결
+Azure Synapse Analytics는 데이터 엔지니어가 분석 솔루션을 빌드할 수 있도록 Power BI와 긴밀하게 통합됩니다.
 
-Azure Synapse Analytics를 사용 하면 다른 작업 영역 계산 엔진이 Spark 풀과 서버 리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다. [공유 메타 데이터 모델](../metadata/overview.md)을 사용 하 여 SQL 주문형으로 Apache Spark 테이블을 쿼리할 수 있습니다. 완료 되 면 SQL 주문형 끝점을 Power BI에 연결 하 여 동기화 된 Spark 테이블을 쉽게 쿼리할 수 있습니다.
+Azure Synapse Analytics를 사용하면 다른 작업 영역 계산 엔진에서 Spark 풀과 서버리스 SQL 풀 간에 데이터베이스와 테이블을 공유할 수 있습니다. [공유 메타데이터 모델](../metadata/overview.md)을 사용하면 SQL 주문형으로 Apache Spark 테이블을 쿼리할 수 있습니다. 완료되면 SQL 주문형 엔드포인트를 Power BI에 연결하여 동기화된 Spark 테이블을 쉽게 쿼리할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-- Spark SQL DW 커넥터를 설정 하는 방법에 대 한 자세한 내용은: [SYNAPSE sql Connector](./spark/../synapse-spark-sql-pool-import-export.md)
+- Spark SQL DW 커넥터를 설정하는 방법에 대한 자세한 내용: [Synapse SQL 커넥터](./spark/../synapse-spark-sql-pool-import-export.md)
 - 기본 라이브러리 보기: [Azure Synapse Analytics 런타임](../spark/apache-spark-version-support.md)

@@ -11,19 +11,19 @@ ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103472053"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 자연어 지원
 
-Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말하기 및 이해 하는 응용 프로그램을 빌드할 수 있습니다. 이러한 서비스 간에 36개 이상의 언어가 지원되므로 사용자가 자연스러운 방식으로 애플리케이션과 통신할 수 있습니다. 아래 링크를 사용 하 여 서비스별 언어 가용성을 볼 수 있습니다.
+Azure Cognitive Services를 사용하면 사용자를 보고, 듣고, 대화하고, 이해하는 애플리케이션을 빌드할 수 있습니다. 이러한 서비스 간에 36개 이상의 언어가 지원되므로 사용자가 자연스러운 방식으로 애플리케이션과 통신할 수 있습니다. 아래 링크를 사용하여 서비스별 언어 가용성을 확인합니다.
 
-이러한 Cognitive Services 언어 독립적 이며 인간 언어를 기반으로 하는 제한이 없습니다.
+이러한 Cognitive Services는 언어에 구애받지 않으며 인간 언어를 기반으로 한 제한이 없습니다.
 
-* [변칙 탐지기 (미리 보기)](./anomaly-detector/index.yml)
+* [Anomaly Detector(미리 보기)](./anomaly-detector/index.yml)
 * [Custom Vision](./custom-vision-service/index.yml)
 * [Face](./face/index.yml)
 * [Personalizer](./personalizer/index.yml)
@@ -31,7 +31,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 ## <a name="vision"></a>Vision
 
 * [Computer Vision](./computer-vision/language-support.md)
-* [폼 인식기 (미리 보기)](./form-recognizer/language-support.md)
+* [Form Recognizer(미리 보기)](./form-recognizer/language-support.md)
 * [Ink Recognizer(미리 보기)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
@@ -43,7 +43,7 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 * [텍스트 분석](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
-## <a name="speech"></a>음성
+## <a name="speech"></a>Speech
 
 * [Speech Service: Speech-to-Text](./speech-service/language-support.md#speech-to-text)
 * [Speech Service:Text-to-Speech](./speech-service/language-support.md#text-to-speech)
@@ -55,5 +55,5 @@ Azure Cognitive Services를 사용 하면 사용자에 게 표시, 듣기, 말�
 
 ## <a name="see-also"></a>참고 항목
 
-* [Cognitive Services은 무엇 인가요?](./what-are-cognitive-services.md)
+* [Cognitive Services란?](./what-are-cognitive-services.md)
 * [계정 만들기](cognitive-services-apis-create-account.md)

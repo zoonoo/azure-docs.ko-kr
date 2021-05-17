@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
 ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92164842"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 스크립트(.csx) 개발자 참조
@@ -249,11 +249,11 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> 대신 사용할 수 있는 최신 로깅 프레임 워크에 대 한 자세한 내용은 `TraceWriter` .net 클래스 라이브러리 개발자 가이드에서 [ILogger](functions-dotnet-class-library.md#ilogger) 설명서를 참조 하세요.
+> `TraceWriter` 대신 사용할 수 있는 최신 로깅 프레임워크에 대한 자세한 내용은 .NET 클래스 라이브러리 개발자 가이드의 [ILogger](functions-dotnet-class-library.md#ilogger) 설명서를 참조하세요.
 
 ### <a name="custom-metrics-logging"></a>사용자 지정 메트릭 로깅
 
-`LogMetric`에서 확장 메서드를 사용 하 여 `ILogger` Application Insights에서 사용자 지정 메트릭을 만들 수 있습니다. 다음은 샘플 메서드 호출입니다.
+`ILogger`의 `LogMetric` 확장 메서드를 사용하여 Application Insights에서 사용자 지정 메트릭을 만들 수 있습니다. 다음은 샘플 메서드 호출입니다.
 
 ```csharp
 logger.LogMetric("TestMetric", 1234);
@@ -470,7 +470,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6 개의 출력 형식을](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)지원 하지만 [ \<T> ICollector](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는에만 사용할 수 있습니다 [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) `T` .
+`BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어, Mobile Apps 테이블 출력 바인딩은 [6가지 출력 형식](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)을 지원하지만 `T`에는 [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [`IAsyncCollector<T>`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)만 사용할 수 있습니다.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 

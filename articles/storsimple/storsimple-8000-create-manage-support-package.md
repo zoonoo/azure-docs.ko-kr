@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96017171"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
@@ -68,10 +68,10 @@ Export-HcsSupportPackage cmdlet으로 다음 매개 변수를 사용할 수 있�
 | --- | --- | --- |
 | `-Path` |필수 |지원 패키지가 배치된 네트워크 공유 폴더의 위치를 제공하는 데 사용합니다. |
 | `-EncryptionPassphrase` |필수 |지원 패키지를 암호화하기 위해 암호를 제공하는 데 사용합니다. |
-| `-Credential` |선택 사항 |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
-| `-Force` |선택 사항 |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
-| `-PackageTag` |선택 사항 |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
-| `-Scope` |선택 사항 |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller** 를 지정합니다. |
+| `-Credential` |Optional |네트워크 공유 폴더에 대한 액세스 자격 증명을 제공하는 데 사용합니다. |
+| `-Force` |Optional |암호화 암호 확인 단계를 건너뛰는 데 사용합니다. |
+| `-PackageTag` |Optional |지원 패키지가 배치된 *경로* 의 디렉터리를 지정하는 데 사용합니다. 기본값은 [디바이스 이름]-[현재 날짜 및 시간: yyyy-MM-dd-HH-mm-ss]입니다. |
+| `-Scope` |Optional |두 컨트롤러 모두에 대해 지원 패키지를 만들려면 **Cluster**(기본값)로 지정합니다. 현재 컨트롤러에 대한 패키지만 만들려면 **Controller** 를 지정합니다. |
 
 ## <a name="edit-a-support-package"></a>지원 패키지 편집
 

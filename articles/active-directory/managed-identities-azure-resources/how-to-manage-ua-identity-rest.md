@@ -1,6 +1,6 @@
 ---
-title: REST를 사용 하 여 사용자 할당 관리 id 관리-Azure AD
-description: 사용자 할당 관리 id를 만들고, 나열 하 고, 삭제 하 여 REST API 호출 하는 방법에 대 한 단계별 지침입니다.
+title: REST를 사용하여 사용자 할당 관리 ID 관리 - Azure AD
+description: REST API를 호출하기 위해 사용자 할당 관리 ID를 만들고 나열하고 삭제하는 방법에 대한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -16,15 +16,15 @@ ms.date: 12/02/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 117f9a1c173f2083dd4621f4f3f41b6e83d1d46b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96546695"
 ---
-# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용 하 여 사용자 할당 관리 id 만들기, 나열 또는 삭제
+# <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 관리 ID 만들기, 나열 또는 삭제
 
-Azure 리소스에 대 한 관리 되는 id는 코드에서 자격 증명을 필요로 하지 않고 azure AD 인증을 지 원하는 서비스에 인증 하는 기능을 제공 합니다. 
+Azure 리소스에 대한 관리 ID는 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증하는 기능을 Azure 서비스에 제공합니다. 
 
 이 문서에서는 CURL을 통해 REST API를 호출하여 사용자 할당 관리 ID 만들고 나열하고 삭제하는 방법을 알아봅니다.
 
@@ -34,17 +34,17 @@ Azure 리소스에 대 한 관리 되는 id는 코드에서 자격 증명을 필
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - 이 문서의 모든 명령은 클라우드에서 또는 로컬로 실행할 수 있습니다.
     - 클라우드에서 실행하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
-    - 로컬로 실행 하려면 [말아 넘기기](https://curl.haxx.se/download.html) 와 [Azure CLI](/cli/azure/install-azure-cli)를 설치 합니다.
+    - 로컬로 실행하려면 [넘기기](https://curl.haxx.se/download.html)와 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 
 ## <a name="obtain-a-bearer-access-token"></a>전달자 액세스 토큰 가져오기
 
-1. 로컬로 실행 하는 경우 Azure CLI를 통해 Azure에 로그인 합니다.
+1. 로컬로 실행하는 경우 Azure CLI를 통해 Azure에 로그인합니다.
 
     ```
     az login
     ```
 
-1. [Az account get-token을](/cli/azure/account#az_account_get_access_token) 사용 하 여 액세스 토큰 가져오기
+1. [Az account get-token](/cli/azure/account#az_account_get_access_token)을 사용하여 액세스 토큰 가져오기
 
     ```azurecli-interactive
     az account get-access-token
@@ -76,7 +76,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **요청 본문**
 
-|Name  |설명  |
+|이름  |설명  |
 |---------|---------|
 |위치     | 필수 요소. 리소스 위치.        |
 

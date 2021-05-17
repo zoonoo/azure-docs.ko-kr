@@ -1,5 +1,5 @@
 ---
-title: 액세스 검토를 사용 하 여 사용자 액세스 관리-Azure AD
+title: 액세스 검토를 사용하여 사용자 액세스 관리 - Azure AD
 description: Azure Active Directory 액세스 검토를 사용하여 애플리케이션에 대한 그룹 또는 할당의 멤버 자격으로 사용자 액세스를 관리하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc12b4cb7e97a0808405baebc64ca83cdb742bf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94696951"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
@@ -44,15 +44,15 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 2. 각 사용자가 자신의 액세스를 검토하도록 할지 또는 하나 이상의 사용자가 모든 사용자의 액세스를 검토하도록 할지를 결정합니다.
 
-3. 검토할 그룹의 전역 관리자, 사용자 관리자 또는 (미리 보기) M365 또는 AAD 보안 그룹 소유자 역할 중 하나에서 [Id 거 버 넌 스 페이지로](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)이동 합니다.
+3. 검토할 그룹의 전역 관리자, 사용자 관리자 또는 (미리 보기) M365나 AAD 보안 그룹 소유자 역할 중 하나에서 [ID 거버넌스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다.
 
-4. 액세스 검토를 만듭니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 만들기](create-access-review.md)를 참조 하세요.
+4. 액세스 검토를 만듭니다. 자세한 내용은 [그룹 또는 애플리케이션의 액세스 검토 만들기](create-access-review.md)를 참조하세요.
 
-5. 액세스 검토를 시작할 때 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 Azure AD에서 액세스 패널에 대 한 링크를 사용 하 여 [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 전자 메일을 받습니다.
+5. 액세스 검토를 시작할 때 입력을 제공하도록 검토자에게 요청합니다. 기본적으로 각 사용자는 [ 그룹 또는 애플리케이션에 대한 액세스 권한을 검토](perform-access-review.md)하는 액세스 패널 링크가 포함된 이메일을 Azure AD에서 받습니다.
 
 6. 검토자가 입력을 제공하지 않으면 미리 알림을 보내도록 Azure AD에 요청할 수 있습니다. Azure AD에서는 기본적으로 아직 응답하지 않은 검토자에게 종료일 중간에 미리 알림을 자동으로 보냅니다.
 
-7. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 응용 프로그램에 대 한 액세스 검토 완료](complete-access-review.md)를 참조 하세요.
+7. 검토자가 입력을 제공하면 액세스 검토를 중지하고 변경 내용을 적용합니다. 자세한 내용은 [그룹 또는 애플리케이션의 액세스 검토 완료](complete-access-review.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

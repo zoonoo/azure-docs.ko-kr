@@ -1,5 +1,5 @@
 ---
-title: 파일 포함
+title: 포함 파일
 description: 포함 파일
 services: vpn-gateway
 author: cherylmc
@@ -9,10 +9,10 @@ ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c3236f9c60cb359349d96e93f674c3e278e44f1e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93375900"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Azure AD 테넌트 만들기
@@ -72,7 +72,7 @@ Azure AD 테넌트에 VPN 클라이언트를 등록합니다.
     ```
 
 > [!NOTE]
-> 동의를 제공 하기 위해 Azure AD 테 넌 트의 기본이 아닌 전역 관리자 계정을 사용 하는 경우 "common"을 URL의 Azure AD 디렉터리 id로 바꿉니다. 특정 한 경우에도 "common"을 디렉터리 id로 바꾸어야 할 수도 있습니다.
+> 동의를 제공하기 위해 Azure AD 테넌트의 기본이 아닌 전역 관리자 계정을 사용하는 경우 URL에서 "common"을 Azure AD 디렉터리 ID로 바꾸세요. 다른 특정 경우에도 "common"을 디렉터리 ID로 바꾸어야 할 수도 있습니다.
 >
 
 5. 메시지가 표시되면 **전역 관리자** 계정을 선택합니다.
@@ -81,7 +81,7 @@ Azure AD 테넌트에 VPN 클라이언트를 등록합니다.
 
 6. 메시지가 표시되면 **수락** 을 선택합니다.
 
-    ![스크린샷에는 요청한 메시지 권한 및 요청에 대 한 정보가 포함 된 창이 표시 됩니다.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![스크린샷은 조직에 요청된 권한 수락 메시지와 요청에 대한 정보가 있는 창을 보여줍니다.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. Azure AD 아래의 **엔터프라이즈 애플리케이션** 에서 **Azure VPN** 이 표시됩니다.
 

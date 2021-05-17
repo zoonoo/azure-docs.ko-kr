@@ -5,14 +5,14 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.custom: subject-armqs
-ms.date: 08/18/2020
-ms.openlocfilehash: 8bd9a45ec7c43d9338dec184afd784d2b163c410
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.date: 04/28/2021
+ms.openlocfilehash: 321dc2aed6ee507ad2ac4987d630b782052884b2
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92735968"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108277285"
 ---
 # <a name="quickstart-create-an-azure-cache-for-redis-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cache for Redis 만들기
 
@@ -22,7 +22,7 @@ Azure Cache for Redis를 배포하는 ARM 템플릿(Azure Resource Manager 템�
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +33,7 @@ Azure Cache for Redis를 배포하는 ARM 템플릿(Azure Resource Manager 템�
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-redis-cache/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-redis-cache/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cache/redis-cache/azuredeploy.json":::
 
 다음 리소스는 템플릿에 정의되어 있습니다.
 
@@ -52,7 +52,7 @@ Azure Cache for Redis를 배포하는 ARM 템플릿(Azure Resource Manager 템�
 
 1. 다음 이미지를 선택하여 Azure에 로그인하고 템플릿을 엽니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cache%2Fredis-cache%2Fazuredeploy.json)
 1. 다음 값을 선택하거나 입력합니다.
 
     * **구독**: 데이터 공유 및 기타 리소스를 만드는 데 사용되는 Azure 구독을 선택합니다.

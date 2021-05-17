@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: sethm
 ms.openlocfilehash: fb3c95b74128f1da7b29a290e17fefe21987dd76
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96019425"
 ---
 ## <a name="webapi-project"></a>WebAPI 프로젝트
 
 1. Visual Studio에서 **사용자에게 알림** 자습서에서 만든 **AppBackend** 프로젝트를 엽니다.
-2. 알림 .cs에서 전체 **알림** 클래스를 다음 코드로 바꿉니다. 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure Portal](https://portal.azure.com)에서 이러한 값을 가져올 수 있습니다. 이 모듈은 이제 전송할 다른 보안 알림을 나타냅니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다.
+2. Notifications.cs에서 전체 **Notifications** 클래스를 다음 코드로 바꿉니다. 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름으로 바꿉니다. [Azure Portal](https://portal.azure.com)에서 이러한 값을 가져올 수 있습니다. 이 모듈은 이제 전송할 다른 보안 알림을 나타냅니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다.
 
    ```csharp
     public class Notification
@@ -95,4 +95,4 @@ ms.locfileid: "96019425"
 이제 `Post` 메서드는 알림 메시지를 보내지 않습니다. 중요 콘텐츠가 아닌 알림 ID만 포함하는 원시 알림을 보냅니다. 또한 알림 허브에서 자격 증명을 구성하지 않은 플랫폼에 대한 보내기 작업은 오류를 발생시키므로 이 작업을 주석으로 처리합니다.
 
 1. 이제 모든 디바이스에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 다시 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
-2. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인 하 고 기존 또는 새 웹 사이트를 선택 하 고 **연결** 탭에서 **대상 URL** 속성을 기록 합니다. 이 URL은이 자습서의 뒷부분에 있는 *백 엔드 끝점* 으로 참조 합니다. **게시** 를 클릭합니다.
+2. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하고, 기존 또는 새 웹 사이트를 선택하고, **연결** 탭에서 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 엔드포인트* 로 참조합니다. **게시** 를 클릭합니다.

@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: 지점 및 사이트 간 연결 문제 해결: Mac OS X 클라이언트'
-description: 기본 VPN 클라이언트 및 IKEv2를 사용 하 여 Mac OS X에서 지점 및 사이트 간 연결 문제를 해결 하는 방법에 대해 알아봅니다.
+description: 기본 VPN 클라이언트와 IKEv2를 사용하여 Mac OS X에서 지점 및 사이트 간 연결 문제를 해결하는 방법을 알아봅니다.
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 02/10/2021
 ms.author: alzam
 ms.openlocfilehash: 4c8657f8a40084a726280efe471c0791931294f7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100366639"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Mac OS X VPN 클라이언트에서 지점 및 사이트 간 VPN 연결 문제 해결
@@ -34,7 +34,7 @@ ms.locfileid: "100366639"
 4. **로컬 ID** 는 클라이언트 인증서의 **주체** 와 동일해야 합니다.
 5. **인증 설정** 을 클릭하여 인증 설정 페이지를 엽니다.
 
-   ![인증서가 선택 된 인증 설정 대화 상자를 보여 주는 스크린샷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![스크린샷은 인증서가 선택된 인증 설정 대화 상자를 보여줍니다.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. 드롭다운에서 **인증서** 가 선택되었는지 확인합니다.
 7. **선택** 단추를 클릭하고 올바른 인증서가 선택되었는지 확인합니다. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "100366639"
 4. **로컬 ID** 는 공백일 수 있습니다.
 5. **인증 설정** 단추를 클릭하고 드롭다운에서 “사용자 이름”이 선택되었는지 확인합니다.
 
-   ![스크린샷 선택한 사용자 이름으로 인증 설정 대화 상자를 표시 합니다.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![스크린샷은 사용자 이름이 선택된 인증 설정 대화 상자를 보여줍니다.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. 올바른 자격 증명 정보가 입력되었는지 확인합니다.
 
 ## <a name="additional-steps"></a><a name="additional"></a>추가 단계
@@ -60,7 +60,7 @@ ms.locfileid: "100366639"
 
    ![패킷](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. 네트워크 추적에 서버 응답이 없으면 Azure Portal 웹 사이트의 Azure 게이트웨이 구성 페이지에서 IKEv2 프로토콜을 사용 하도록 설정 했는지 확인 합니다.
+3. 네트워크 추적에 서버 응답이 없는 경우 Azure Portal 웹 사이트의 Azure Gateway 구성 페이지에서 IKEv2 프로토콜을 사용하도록 설정했는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 [Microsoft 지원](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 참조하세요.

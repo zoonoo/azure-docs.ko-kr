@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 519105374a2c12807bdac92bfb2b60feaeeb89c2
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100596300"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108324800"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 감사 로깅
 
@@ -37,7 +37,7 @@ Azure Storage, Event Hubs 또는 Azure Monitor 로그에 로깅을 설정하는 
 
 ## <a name="installing-pgaudit"></a>pgAudit 설치
 
-pgAudit를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함시켜야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경하려면 서버를 다시 시작해야 합니다. 매개 변수는 [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md) 또는 [REST API](/rest/api/postgresql/configurations/createorupdate)를 사용하여 바꿀 수 있습니다.
+pgAudit를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함시켜야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경하려면 서버를 다시 시작해야 합니다. 매개 변수는 [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md) 또는 [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate)를 사용하여 바꿀 수 있습니다.
 
 [Azure Portal](https://portal.azure.com) 사용:
 
@@ -88,9 +88,9 @@ t=%m u=%u db=%d pid=[%p]:
 ## <a name="viewing-audit-logs"></a>감사 로그 보기
 .log 파일을 사용하는 경우 PostgreSQL 오류 로그와 동일한 파일에 감사 로그가 포함됩니다. 로그 파일은 Azure [Portal](howto-configure-server-logs-in-portal.md) 또는 [CLI](howto-configure-server-logs-using-cli.md)에서 다운로드할 수 있습니다. 
 
-Azure 리소스 로깅을 사용하는 경우 로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hubs의 경우에는 [Azure 로그 스트리밍](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
+Azure 리소스 로깅을 사용하는 경우 로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hub의 경우에는 [Azure 로그 스트리밍](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
 
-Azure Monitor 로그의 경우 선택한 작업 영역으로 로그가 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로 AzureDiagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보는 [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요에서 알아 보세요.
+Azure Monitor 로그의 경우 선택한 작업 영역으로 로그가 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로, AzureDiagnostics 테이블에서 쿼리될 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보는 [Azure Monitor 로그 쿼리](../azure-monitor/logs/log-query-overview.md) 개요에서 알아 보세요.
 
 이 쿼리를 사용하여 시작할 수 있습니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 
@@ -104,4 +104,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL의 로깅에 대해 알아보기](concepts-server-logs.md)
-- [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md) 또는 [REST API](/rest/api/postgresql/configurations/createorupdate)를 사용하여 매개 변수를 설정하는 방법을 알아봅니다.
+- [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md) 또는 [REST API](/rest/api/postgresql/singleserver/configurations/createorupdate)를 사용하여 매개 변수를 설정하는 방법을 알아봅니다.

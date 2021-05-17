@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: virtual-machines-windows
 author: rothja
 manager: craigg
@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 3509185baa3a9d7be90c1fa4bd8000da4a8a6fe5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95564343"
 ---
 ## <a name="prepare-for-akv-integration"></a>AKV 통합 준비
@@ -32,15 +32,15 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ### <a name="install-azure-powershell"></a><a id="install"></a> Azure PowerShell 설치
-최신 Azure PowerShell 모듈을 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+최신 Azure PowerShell 모듈을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
-### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a> Azure Active Directory에 응용 프로그램 등록
+### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a> Azure Active Directory 내 애플리케이션 등록
 
 우선, 구독에 AAD( [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) )가 있어야 합니다. 이렇게 하면 여러 이점이 있지만, 그 중에서도 특정 사용자 및 애플리케이션에 키 자격 증명 모음에 대한 권한을 부여할 수 있다는 이점이 있습니다.
 
-다음으로 AAD에 애플리케이션을 등록합니다. 이렇게 하면 VM에 필요한 Key Vault에 액세스할 수 있는 서비스 주체 계정이 제공됩니다. Azure Key Vault 문서에서는 [Azure Active Directory를 사용 하 여 응용 프로그램 등록](../articles/key-vault/general/manage-with-cli2.md#registering-an-application-with-azure-active-directory) 섹션에서 이러한 단계를 확인 하거나 [이 블로그 게시물](/archive/blogs/kv/azure-key-vault-step-by-step)의 **응용 프로그램에 대 한 id 가져오기 섹션** 에서 스크린샷 관련 단계를 확인할 수 있습니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 다음 정보를 등록 과정에서 수집해야 합니다.
+다음으로 AAD에 애플리케이션을 등록합니다. 이렇게 하면 VM에 필요한 Key Vault에 액세스할 수 있는 서비스 주체 계정이 제공됩니다. Azure Key Vault 문서의 [Azure Active Directory에 애플리케이션 등록](../articles/key-vault/general/manage-with-cli2.md#registering-an-application-with-azure-active-directory) 섹션에서 다음 단계를 찾아보거나 [이 블로그 게시물](/archive/blogs/kv/azure-key-vault-step-by-step)의 **애플리케이션용 ID 가져오기 섹션** 에서 스크린샷으로 단계를 볼 수 있습니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 다음 정보를 등록 과정에서 수집해야 합니다.
 
-* 응용 프로그램이 추가 된 후 **등록 된 앱** 블레이드에서 **응용 프로그램 ID** (AAD ClientID 또는 AppID 라고도 함)를 찾습니다.
+* 애플리케이션이 추가된 후 **등록된 앱** 블레이드에서 **애플리케이션 ID**(AAD ClientID 또는 AppID라고도 함)를 찾습니다.
     애플리케이션 ID는 나중에 Azure Key Vault 통합을 활성화하기 위해 PowerShell 스크립트의 **$spName** (서비스 주체 이름) 매개 변수에 할당됩니다.
 
    ![애플리케이션 ID](./media/virtual-machines-sql-server-akv-prepare/aad-application-id.png)
@@ -51,9 +51,9 @@ Azure Key Vault 통합을 사용하여 SQL Server VM을 구성하려면 몇 가�
 
 * 애플리케이션 ID 및 암호는 또한 SQL Server에서 자격 증명을 만드는 데 사용됩니다.
 
-* 이 새 응용 프로그램 ID (또는 클라이언트 ID)에 게 **get**, **wrapKey**, **unwrapKey** 액세스 권한을 부여 해야 합니다. 이 작업은 [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet을 통해 수행됩니다. 자세한 내용은 [Azure Key Vault 개요](../articles/key-vault/general/overview.md)를 참조하세요.
+* 이 새 애플리케이션 ID(또는 클라이언트 ID)에 **get**, **wrapKey**, **unwrapKey** 액세스 권한을 부여해야 합니다. 이 작업은 [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet을 통해 수행됩니다. 자세한 내용은 [Azure Key Vault 개요](../articles/key-vault/general/overview.md)를 참조하세요.
 
-### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> 주요 자격 증명 모음 만들기
+### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Key Vault 만들기
 Azure Key Vault를 사용하여 암호화에 사용할 키를 VM에 저장하려면 키 자격 증명 모음에 액세스해야 합니다. 아직 Key Vault를 설정하지 않았으면 [Azure Key Vault 시작](../articles/key-vault/general/overview.md) 문서의 단계에 따라 새로 만듭니다. 다음 단계를 완료하기 전에, SQL VM에서 Azure Key Vault 통합을 활성화할 때 필요한 몇 가지 정보를 이 설정 과정에서 수집해야 합니다.
 
 ```azurepowershell

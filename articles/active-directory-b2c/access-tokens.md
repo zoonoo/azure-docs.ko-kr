@@ -11,12 +11,12 @@ ms.date: 10/26/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e5168d5e5e3935da267fb26f38735a88bdfd7837
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a633a7656a287c0b8df050b6d14afb73c27a7460
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101654479"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106382144"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
@@ -58,7 +58,7 @@ OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다
 
 - **openid** - ID 토큰을 요청합니다.
 - **offline_access** - [인증 코드 흐름](authorization-code-flow.md)을 사용하여 새로 고침 토큰을 요청합니다.
-- **00000000-0000-0000-0000-000000000000** -클라이언트 id를 범위로 사용 하는 것은 앱에 동일한 클라이언트 id로 표시 되는 고유한 서비스 또는 web API에 대해 사용할 수 있는 액세스 토큰이 필요 함을 나타냅니다.
+- **00000000-0000-0000-0000-000000000000** - 클라이언트 ID를 범위로 사용할 경우 동일한 클라이언트 ID가 나타내는 사용자 고유의 서비스 또는 웹 API에 대해 사용할 수 있는 액세스 토큰이 앱에 필요합니다.
 
 `/authorize` 요청의 **response_type** 매개 변수가 `token`을 포함하는 경우 **scope** 매개 변수는 권한이 부여될 하나 이상의 리소스 범위(`openid` 및 `offline_access` 이외)를 포함해야 합니다. 그렇지 않으면 `/authorize` 요청이 실패합니다.
 
@@ -71,6 +71,8 @@ OpenID Connect 표준은 몇 가지 특별한 범위 값을 지정합니다. 다
 - `<tenant-name>` - Azure AD B2C 테넌트의 이름.
 - `<policy-name>` - 사용자 지정 정책 또는 사용자 흐름의 이름.
 - `<application-ID>` - 사용자 흐름을 지원하기 위해 등록한 웹 애플리케이션의 애플리케이션 식별자
+- `<application-ID-URI>` - 클라이언트 애플리케이션의 **API 노출**  블레이드에서 설정한 애플리케이션 식별자 URI입니다.
+- `<scope-name>` - 클라이언트 애플리케이션의 **API 노출** 아래에 추가한 범위의 이름입니다.
 - `<redirect-uri>` - 클라이언트 애플리케이션을 등록할 때 입력한 **리디렉션 URI**.
 
 ```http
@@ -78,7 +80,7 @@ GET https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-nam
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
 
@@ -97,7 +99,7 @@ Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
 &client_id=<application-ID>
-&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&scope=<application-ID-URI>/<scope-name>
 &code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 &redirect_uri=https://jwt.ms
 &client_secret=2hMG2-_:y12n10vwH...

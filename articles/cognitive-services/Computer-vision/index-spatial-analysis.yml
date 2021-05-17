@@ -1,0 +1,64 @@
+### YamlMime:Landing
+title: 공간 분석 설명서
+summary: 공간 분석 서비스는 조직에서 지정된 영역 내에서 사람들의 움직임과 상태를 파악하여 실제 공간의 가치를 극대화할 수 있도록 지원합니다. 이를 통해 CCTV 또는 감시 카메라에서 비디오를 수집하고, AI 작업을 실행하여 비디오 스트림에서 인사이트를 추출하고, 다른 시스템에서 사용할 이벤트를 생성할 수 있습니다.
+metadata:
+  title: 공간 분석 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  description: 공간 분석 서비스는 조직에서 지정된 영역 내에서 사람들의 움직임과 상태를 파악하여 실제 공간의 가치를 극대화할 수 있도록 지원합니다. 이를 통해 CCTV 또는 감시 카메라에서 비디오를 수집하고, AI 작업을 실행하여 비디오 스트림에서 인사이트를 추출하고, 다른 시스템에서 사용할 이벤트를 생성할 수 있습니다.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 30/31/2021
+  ms.openlocfilehash: b57a90d1897fc7dce92cdebd0c0f81e9f59854b7
+  ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/03/2021
+  ms.locfileid: "106287496"
+landingContent:
+- title: 공간 분석 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 공간 분석 개요
+      url: intro-to-spatial-analysis-public-preview.md
+  - linkListType: quickstart
+    links:
+    - text: 호스트 머신 설정 및 컨테이너 실행
+      url: spatial-analysis-container.md
+- title: 공간 분석을 통한 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 작업 구성
+      url: spatial-analysis-operations.md
+  - linkListType: concept
+    links:
+    - text: 영역 및 줄 배치
+      url: spatial-analysis-zone-line-placement.md
+    - text: 카메라 배치
+      url: spatial-analysis-camera-placement.md
+    - text: 로깅 및 문제 해결
+      url: spatial-analysis-logging.md
+- title: AI의 책임 있는 사용
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 공간 분석에 대한 투명도 메모
+      url: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - linkListType: concept
+    links:
+    - text: AI 배포의 책임감 있는 사용
+      url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    - text: 디자인 지침 공개
+      url: /legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/computer-vision/context/context
+    - text: 데이터, 개인 정보 및 보안
+      url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

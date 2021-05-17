@@ -3,13 +3,13 @@ title: 컨테이너 인스턴스 로그 및 이벤트 가져오기
 description: 컨테이너 문제 해결에 도움을 받기 위해 Azure Container Instances에서 컨테이너 로그 및 이벤트를 검색하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 12/30/2019
-ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 20b6e1cfe6bb8f6ac721a401c3d0831d4f447edb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc
+ms.openlocfilehash: f5eb8c878164846ed2f1daf1cb7e5014e0c62c55
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92746970"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107764048"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 로그 및 이벤트 검색
 
@@ -154,6 +154,6 @@ Azure Container Instances의 [컨테이너 및 배포 문제를 해결](containe
 컨테이너 그룹에 대한 로그 및 이벤트 데이터를 [Azure Monitor 로그](container-instances-log-analytics.md)에 보내는 방법에 대해 알아봅니다.
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az-container-attach
-[az-container-logs]: /cli/azure/container#az-container-logs
-[az-container-show]: /cli/azure/container#az-container-show
+[az-container-attach]: /cli/azure/container#az_container_attach
+[az-container-logs]: /cli/azure/container#az_container_logs
+[az-container-show]: /cli/azure/container#az_container_show

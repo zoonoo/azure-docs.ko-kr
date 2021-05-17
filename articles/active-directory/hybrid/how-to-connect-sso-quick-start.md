@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 349aef1bb9382eec19d9ad9c7f6d4579c82b62de
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ba3bdc3f58395f17911042c699a0aca3cbae92a2
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043940"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108290635"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -208,7 +208,7 @@ macOS 및 기타 Windows가 아닌 플랫폼의 Google Chrome의 경우 통합 �
 
 #### <a name="known-browser-limitations"></a>알려진 브라우저 제한 사항
 
-Firefox 및 Microsoft Edge(레거시) 브라우저의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원하고 설계에 따라 InPrivate 및 게스트 모드에서 작동합니다.
+Firefox의 프라이빗 검색 모드에서는 Seamless SSO가 작동하지 않습니다. 또한 브라우저가 고급 보호 모드에서 실행 중인 경우 Internet Explorer에서 작동하지 않습니다. 원활한 SSO는 Chromium을 기반으로 하는 Microsoft Edge의 다음 버전을 지원하고 설계에 따라 InPrivate 및 게스트 모드에서 작동합니다. Microsoft Edge(레거시)는 더 이상 지원되지 않습니다.
 
 ## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
 

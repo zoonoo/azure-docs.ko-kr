@@ -1,5 +1,5 @@
 ---
-title: MongoDB에 대 한 Azure Cosmos DB API에서 읽기 기본 설정을 사용 합니다.
+title: Azure Cosmos DB의 MongoDB용 API에서 기본 설정 사용
 description: Azure Cosmos DB의 MongoDB용 API에서 MongoDB 읽기 기본 설정을 사용하는 방법에 대한 자세한 정보
 author: sivethe
 ms.author: sivethe
@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
 ms.openlocfilehash: 3c78ad6605e927015d35df12cadf0347dd0337cf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96349047"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 MongoDB용 API를 사용하여 읽기를 전역 배포하는 방법
@@ -21,7 +21,7 @@ ms.locfileid: "96349047"
 
 이 문서에서는 Azure Cosmos DB의 MongoDB용 API를 사용하여 [MongoDB 읽기 기본 설정](https://docs.mongodb.com/manual/core/read-preference/)으로 읽기 작업을 전역 배포하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -88,7 +88,7 @@ MongoDB 프로토콜은 클라이언트에서 사용할 수 있는 다음과 같
 일반적인 시나리오에 따라 다음 설정을 사용하는 것이 좋습니다.
 
 1. **대기 시간이 짧은 읽기** 가 필요한 경우 **NEAREST** 읽기 기본 설정 모드를 사용합니다. 이 설정은 읽기 작업을 사용 가능한 가장 가까운 지역으로 보냅니다. 가장 가까운 지역이 WRITE 지역이면, 이러한 작업은 해당 지역으로 보내집니다.
-2. **읽기의 고가용성 및 지리적 배포가** 필요한 경우 (대기 시간은 제약 조건이 아님) **기본** 기본 설정 또는 **보조 기본** 설정 모드를 사용 합니다. 이 설정은 읽기 작업을 사용 가능한 쓰기 또는 읽기 지역으로 각각 보냅니다. 지역을 사용할 수 없는 경우 요청은 읽기 기본 설정 동작에 따라 사용 가능한 다음 지역으로 전달 됩니다.
+2. **고가용성 및 읽기의 지리적 분포** 가 필요한 경우(대기 시간은 제약 조건이 아님), **PRIMARY PREFERRED** 또는 **SECONDARY PREFERRED** 읽기 기본 설정 모드를 사용합니다. 이 설정은 읽기 작업을 사용 가능한 WRITE 또는 READ 지역으로 각각 보냅니다. 지역을 사용할 수 없는 경우 읽기 기본 설정 동작에 따라 요청이 사용 가능한 다음 지역으로 전달됩니다.
 
 샘플 애플리케이션의 다음 코드 조각에서는 NodeJS에서 NEAREST 읽기 기본 설정을 구성하는 방법을 보여 줍니다.
 

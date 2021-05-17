@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB의 문자열 함수 쿼리 언어
 description: Azure Cosmos DB의 문자열 SQL 시스템 함수에 대해 알아봅니다.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 10/13/2020
-ms.author: girobins
+ms.date: 05/04/2021
+ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 5e84a679f0bc26b701dc1d51db3605c452675ea3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fe60a119626dca51f5dd4f38a81f6a2ef99c83c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96545284"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743726"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>문자열 함수(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,30 +24,30 @@ ms.locfileid: "96545284"
 
 다음 스칼라 반환 함수는 문자열 입력 값에 대해 작업을 수행하고 문자열, 숫자 또는 부울 값을 반환합니다.
   
-* [CONCAT](sql-query-concat.md)
-* [CONTAINS](sql-query-contains.md)
-* [ENDSWITH](sql-query-endswith.md)
-* [INDEX_OF](sql-query-index-of.md)
-* [LEFT](sql-query-left.md)
-* [LENGTH](sql-query-length.md)
-* [LOWER](sql-query-lower.md)
-* [LTRIM](sql-query-ltrim.md)
-* [REGEXMATCH](sql-query-regexmatch.md)
-* [REPLACE](sql-query-replace.md)
-* [REPLICATE](sql-query-replicate.md)
-* [REVERSE](sql-query-reverse.md)
-* [RIGHT](sql-query-right.md)
-* [RTRIM](sql-query-rtrim.md)
-* [STARTSWITH](sql-query-startswith.md)
-* [StringToArray](sql-query-stringtoarray.md)
-* [StringToBoolean](sql-query-stringtoboolean.md)
-* [StringToNull](sql-query-stringtonull.md)
-* [StringToNumber](sql-query-stringtonumber.md)
-* [StringToObject](sql-query-stringtoobject.md)
-* [SUBSTRING](sql-query-substring.md)
-* [ToString](sql-query-tostring.md)
-* [TRIM](sql-query-trim.md)
-* [UPPER](sql-query-upper.md)
+| 시스템 함수                                 | 인덱스 사용량        | [스칼라 집계 함수](index-overview.md#index-utilization-for-scalar-aggregate-functions)가 있는 쿼리의 인덱스 사용량 | 설명                                                      |
+| ----------------------------------------------- | ------------------ | ------------------------------------------------------ | ------------------------------------------------------------ |
+| [CONCAT](sql-query-concat.md)                   | 전체 검사          | 전체 검사                                              |                                                              |
+| [CONTAINS](sql-query-contains.md)               | 전체 인덱스 검사    | 전체 검사                                              |                                                              |
+| [ENDSWITH](sql-query-endswith.md)               | 전체 인덱스 검사    | 전체 검사                                              |                                                              |
+| [INDEX_OF](sql-query-index-of.md)               | 전체 검사          | 전체 검사                                              |                                                              |
+| [LEFT](sql-query-left.md)                       | 정확한 인덱스 검사 | 정확한 인덱스 검사                                     |                                                              |
+| [LENGTH](sql-query-length.md)                   | 전체 검사          | 전체 검사                                              |                                                              |
+| [LOWER](sql-query-lower.md)                     | 전체 검사          | 전체 검사                                              |                                                              |
+| [LTRIM](sql-query-ltrim.md)                     | 전체 검사          | 전체 검사                                              |                                                              |
+| [REGEXMATCH](sql-query-regexmatch.md)           | 전체 인덱스 검사    | 전체 검사                                              |                                                              |
+| [REPLACE](sql-query-replace.md)                 | 전체 검사          | 전체 검사                                              |                                                              |
+| [REPLICATE](sql-query-replicate.md)             | 전체 검사          | 전체 검사                                              |                                                              |
+| [REVERSE](sql-query-reverse.md)                 | 전체 검사          | 전체 검사                                              |                                                              |
+| [RIGHT](sql-query-right.md)                     | 전체 검사          | 전체 검사                                              |                                                              |
+| [RTRIM](sql-query-rtrim.md)                     | 전체 검사          | 전체 검사                                              |                                                              |
+| [STARTSWITH](sql-query-startswith.md)           | 정확한 인덱스 검사 | 정확한 인덱스 검사                                     | 대/소문자를 구분 옵션을 true로 설정하면 확장된 인덱스 검사가 이루어집니다. |
+| [STRINGEQUALS](sql-query-stringequals.md)       | 인덱스 이동         | 인덱스 이동                                             | 대/소문자를 구분 옵션을 true로 설정하면 확장된 인덱스 검사가 이루어집니다. |
+| [StringToArray](sql-query-stringtoarray.md)     | 전체 검사          | 전체 검사                                              |                                                              |
+| [StringToBoolean](sql-query-stringtoboolean.md) | 전체 검사          | 전체 검사                                              |                                                              |
+| [StringToNull](sql-query-stringtonull.md)       | 전체 검사          | 전체 검사                                              |                                                              |
+| [StringToNumber](sql-query-stringtonumber.md)   | 전체 검사          | 전체 검사                                              |                                                              |
+
+Azure Cosmos DB의 [인덱스 사용량](index-overview.md#index-usage)에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

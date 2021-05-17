@@ -1,56 +1,56 @@
 ---
-title: 로그 구성 및 액세스-유연한 서버-Azure Database for PostgreSQL
-description: Azure Database for PostgreSQL-유연한 서버에 대 한 데이터베이스 로그에 액세스 하는 방법
+title: 로그 구성 및 액세스 - 유연한 서버 - Azure Database for PostgreSQL
+description: Azure Database for PostgreSQL - 유연한 서버의 데이터베이스 로그에 액세스하는 방법
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 59a2ddcc68a7c5a3b6fa3a3b315f4294d1625204
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105607408"
 ---
-# <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL 유연한 서버에서 로그 구성 및 액세스
+# <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 로그 구성 및 액세스
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
-PostgreSQL 로그는 유연한 서버의 모든 노드에서 사용할 수 있습니다. 저장소 서버 또는 분석 서비스에 로그를 제공할 수 있습니다. 로그를 사용 하 여 구성 오류를 식별 하 고, 문제를 해결 하 고, 문제를 해결할 수 있습니다.
+PostgreSQL 로그는 유연한 서버의 모든 노드에서 사용할 수 있습니다. 스토리지 서버 또는 분석 서비스에 로그를 보낼 수 있습니다. 로그는 구성 오류 및 비정상적인 성능 문제를 인지하고, 해결하며, 복구하는 데 사용됩니다.
 
 ## <a name="configure-diagnostic-settings"></a>진단 설정 구성
 
-Azure Portal, CLI, REST API 및 PowerShell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 선택할 로그 범주는 **PostgreSQLLogs** 입니다.
+Azure Portal, CLI, REST API 및 PowerShell을 사용하여 Postgres 서버에 진단 설정을 사용할 수 있습니다. 선택할 로그 범주는 **PostgreSQLLogs** 입니다.
 
-Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면
+Azure Portal을 사용하여 리소스 로그를 사용하려면 다음 단계를 수행합니다.
 
-1. 포털에서 Postgres server의 탐색 메뉴에 있는 *진단 설정* 으로 이동 합니다.
+1. 포털에서 Postgres 서버의 탐색 메뉴에 있는 *진단 설정* 으로 이동합니다.
    
-2. *진단 설정 추가* 를 선택 합니다.
+2. *진단 설정 추가* 를 선택합니다.
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="진단 설정 추가 단추":::
 
-3. 이 설정의 이름을로 설정 합니다. 
+3. 이 설정의 이름을 정합니다. 
 
-4. 기본 설정 끝점 (저장소 계정, 이벤트 허브, log analytics)을 선택 합니다. 
+4. 선호하는 엔드포인트(스토리지 계정, 이벤트 허브, 로그 분석)를 선택합니다. 
 
-5. **PostgreSQLLogs** 로그 유형을 선택 합니다.
+5. 로그 유형 **PostgreSQLLogs** 를 선택합니다.
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="PostgreSQL 로그 선택":::
 
 7. 설정을 저장합니다.
 
-PowerShell, CLI 또는 REST API를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면 [진단 설정](../../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조 하세요.
+PowerShell, CLI 또는 REST API를 사용하여 리소스 로그를 사용하려면 [진단 설정](../../azure-monitor/essentials/diagnostic-settings.md) 문서를 참조하세요.
 
 ### <a name="access-resource-logs"></a>리소스 로그 액세스
 
-로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조 하세요.
+로그에 액세스하는 방법은 선택한 엔드포인트에 따라 다릅니다. Azure Storage의 경우에는 [로그 스토리지 계정](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 문서를 참조하세요. Event Hubs에 대해서는 [Azure 로그 스트림](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs) 문서를 참조하세요.
 
-Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../../azure-monitor/logs/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
+Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송됩니다. Postgres 로그는 **AzureDiagnostics** 컬렉션 모드를 사용하므로 AzureDiagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명되어 있습니다. 쿼리와 경고에 대한 자세한 정보를 [Azure Monitor 로그 쿼리](../../azure-monitor/logs/log-query-overview.md) 개요에서 알아봅니다.
 
-다음은 시작 하기 위해 시도할 수 있는 쿼리입니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
+다음은 시작할 수 있는 쿼리입니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
 
-마지막 날에 특정 서버에 대 한 모든 Postgres 로그를 검색 합니다.
+마지막 날에 특정 서버에 대한 모든 Postgres 로그를 검색합니다
 
 ```kusto
 AzureDiagnostics
@@ -59,7 +59,7 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 ```
 
-모든 localhost가 아닌 연결 시도를 검색 합니다.
+모든 localhost가 아닌 연결 시도를 검색합니다
 
 ```kusto
 AzureDiagnostics
@@ -67,9 +67,9 @@ AzureDiagnostics
 | where Category == "PostgreSQLLogs" and TimeGenerated > ago(6h)
 ```
 
-위의 쿼리는이 작업 영역에 있는 Postgres 서버 로깅에 대해 최근 6 시간 동안의 결과를 표시 합니다.
+위의 쿼리는 이 작업 영역에 있는 Postgres 서버 로깅에 대해 최근 6시간 동안의 결과를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log analytics 쿼리 시작](../../azure-monitor/logs/log-analytics-tutorial.md)
-- [Azure event hubs](../../event-hubs/event-hubs-about.md) 에 대 한 자세한 정보
+- [Log Analytics 쿼리 시작](../../azure-monitor/logs/log-analytics-tutorial.md)
+- [Azure Event Hubs](../../event-hubs/event-hubs-about.md)에 대해 알아봅니다

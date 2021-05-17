@@ -1,37 +1,37 @@
 ---
-title: 제한 Azure Database for MySQL-유연한 서버
-description: 이 문서에서는 연결 수 및 저장소 엔진 옵션과 같은 Azure Database for MySQL 유연한 서버의 제한 사항을 설명 합니다.
+title: 제한 사항 - Azure Database for MySQL - 유연한 서버
+description: '이 문서에서는 Azure Database for MySQL - 유연한 서버의 제한 사항(예: 연결 수 및 스토리지 엔진 옵션)을 설명합니다.'
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
 ms.openlocfilehash: 48aef337326d58b2a503dc48862571efde0d37ab
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105034523"
 ---
-# <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL 유연한 서버 (미리 보기)의 제한 사항
+# <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버의 제한 사항(미리 보기)
 
 > [!IMPORTANT] 
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
-이 문서에서는 Azure Database for MySQL 유연한 서버 서비스의 제한 사항을 설명 합니다. MySQL 데이터베이스 엔진의 [일반적인 제한](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html) 사항도 적용 됩니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 알아보려면 [계산 및 저장소](concepts-compute-storage.md) 문서를 참조 하세요.
+이 문서에서는 Azure Database for MySQL 유연한 서버 서비스의 제한 사항을 설명합니다. MySQL 데이터베이스 엔진의 [일반 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.7/en/limits.html)도 적용됩니다. 리소스(컴퓨팅, 메모리, 스토리지) 계층에 대해 알아보려면 [컴퓨팅 및 스토리지](concepts-compute-storage.md) 문서를 참조하세요.
 
 ## <a name="server-parameters"></a>서버 매개 변수
 
 > [!NOTE]
-> 및와 같은 서버 매개 변수에 대 한 최소/최대 값을 찾고 있는 경우 `max_connections` `innodb_buffer_pool_size` 이 정보는 서버 매개 변수 개념 [서버 매개 변수](./concepts-server-parameters.md) 문서로 이동 되었습니다.
+> `max_connections`, `innodb_buffer_pool_size` 같은 서버 매개 변수에 대한 최솟값/최댓값을 찾고 있는 경우, 이 정보는 서버 매개 변수 개념 [서버 매개 변수](./concepts-server-parameters.md) 문서로 이동되었습니다.
 
-Azure Database for MySQL 서버 매개 변수 값의 튜닝을 지원 합니다. 일부 매개 변수의 min 및 max 값 (예: `max_connections`, `join_buffer_size` , `query_cache_size` )는 서버의 계산 계층 및 계산 크기에 따라 결정 됩니다. 이러한 제한에 대 한 자세한 내용은 [서버 매개 변수](./concepts-server-parameters.md) 를 참조 하세요.
+Azure Database for MySQL은 서버 매개 변수 값 조정을 지원합니다. 일부 매개 변수의 최솟값과 최댓값(예: `max_connections`, `join_buffer_size`, `query_cache_size`)은 서버의 컴퓨팅 계층 및 컴퓨팅 크기에 따라 결정됩니다. 이러한 제한에 대한 자세한 내용은 [서버 매개 변수](./concepts-server-parameters.md)를 참조하세요.
 
-"Validate_password" 및 "caching_sha2_password"와 같은 암호 플러그 인은 서비스에서 지원 되지 않습니다.
+"validate_password" 및 "caching_sha2_password" 같은 암호 플러그인은 서비스에서 지원되지 않습니다.
 
-## <a name="storage-engines"></a>저장소 엔진
+## <a name="storage-engines"></a>스토리지 엔진
 
-MySQL은 많은 저장소 엔진을 지원 합니다. Azure Database for MySQL 유연한 서버에서 지원 되 고 지원 되지 않는 저장소 엔진은 다음과 같습니다.
+MySQL은 많은 스토리지 엔진을 지원합니다. Azure Database for MySQL 유연한 서버에서 지원되거나 지원되지 않는 스토리지 엔진은 다음과 같습니다.
 
 ### <a name="supported"></a>지원됨
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -43,20 +43,20 @@ MySQL은 많은 저장소 엔진을 지원 합니다. Azure Database for MySQL �
 - [ARCHIVE](https://dev.mysql.com/doc/refman/5.7/en/archive-storage-engine.html)
 - [FEDERATED](https://dev.mysql.com/doc/refman/5.7/en/federated-storage-engine.html)
 
-## <a name="privileges--data-manipulation-support"></a>데이터 조작 지원 & 권한
+## <a name="privileges--data-manipulation-support"></a>권한 및 데이터 조작 지원
 
-많은 서버 매개 변수 및 설정이 실수로 서버 성능을 저하 시키거나 MySQL 서버의 ACID 속성을 무시할 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지 하기 위해이 서비스는 여러 역할을 노출 하지 않습니다. 
+서버 매개 변수 및 설정이 많으면 실수로 서버 성능이 저하되거나 MySQL 서버의 ACID 속성이 무효화될 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스는 여러 역할을 노출하지 않습니다. 
 
-MySQL 서비스는 기본 파일 시스템에 대 한 직접 액세스를 허용 하지 않습니다. 일부 데이터 조작 명령은 지원 되지 않습니다. 
+MySQL 서비스는 기본 파일 시스템에 대한 직접 액세스를 허용하지 않습니다. 일부 데이터 조작 명령은 지원되지 않습니다. 
 
 ### <a name="unsupported"></a>지원되지 않음
 
-지원 되지 않는 기능은 다음과 같습니다.
-- DBA 역할: 제한 됨 또는 새 서버를 만드는 동안 만들어진 관리자 사용자를 사용 하 여 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
-- SUPER 권한: 마찬가지로 [슈퍼 권한도](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) 제한 됩니다.
+다음은 지원되지 않습니다.
+- DBA 역할: 제한됨. 또는 관리자 사용자(새 서버를 만드는 동안 만들어짐)를 사용하면 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
+- SUPER 권한: 마찬가지로 [SUPER 권한](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super)도 제한됩니다.
 - DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
-- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) 는 읽기 전용 이며 다양 한 PaaS 기능을 지 원하는 데 사용 됩니다. 시스템 데이터베이스를 변경할 수 없습니다 `mysql` .
-- `SELECT ... INTO OUTFILE`: 서비스에서 지원 되지 않습니다.
+- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 읽기 전용이며 다양한 PaaS 기능을 지원하는 데 사용됩니다. `mysql` 시스템 데이터베이스로 변경할 수 없습니다.
+- `SELECT ... INTO OUTFILE`: 서비스에서 지원되지 않습니다.
 
 ### <a name="supported"></a>지원됨
 - `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다.
@@ -65,36 +65,36 @@ MySQL 서비스는 기본 파일 시스템에 대 한 직접 액세스를 허용
 
 ### <a name="zone-redundant-ha"></a>영역 중복 HA
 - 이 구성은 서버를 만드는 동안에만 설정할 수 있습니다.
-- 삼 간에 안정화 되는 계산 계층에서는 지원 되지 않습니다.
+- 버스트 가능 컴퓨팅 계층에서는 지원되지 않습니다.
 
 ### <a name="networking"></a>네트워킹
-- 서버를 만든 후에는 연결 방법을 변경할 수 없습니다. 서버를 *개인 액세스 (VNet 통합)* 를 사용 하 여 만든 경우에는 만든 후 *공용 액세스 (허용 된 IP 주소)* 로 변경할 수 없으며 그 반대의 경우도 마찬가지입니다.
-- TLS/SSL은 기본적으로 사용 하도록 설정 되어 있으며 사용 하지 않도록 설정할 수 없습니다.
-- 서버에서 지원 되는 최소 TLS 버전은 TLS 1.2입니다. 자세한 내용은 [TLS/SSL을 사용 하 여 연결](./how-to-connect-tls-ssl.md) 을 참조 하세요.
+- 서버를 만든 후에는 연결 방법을 변경할 수 없습니다. 서버를 *개인 액세스(VNet 통합)* 를 사용하여 만든 경우에는 만든 후 *공용 액세스(허용된 IP 주소)* 로 변경할 수 없으며, 그 반대의 경우도 마찬가지입니다.
+- TLS/SSL는 기본적으로 사용하도록 설정되어 있으며, 사용하지 않도록 설정할 수 없습니다.
+- 서버에서 지원되는 최소 TLS 버전은 TLS1.2입니다. 자세한 내용은 [TLS/SSL을 사용하여 연결](./how-to-connect-tls-ssl.md)을 참조하세요.
 
 ### <a name="stopstart-operation"></a>작업 중지/시작
-- 영역 중복 HA 구성 (주 및 대기 모두)에서는 지원 되지 않습니다.
-- 읽기 복제본 구성 (원본 및 복제본 모두)에서 지원 되지 않습니다.
+- 영역 중복 HA 구성(기본/대기 모두)에서는 지원되지 않습니다.
+- 읽기 복제본 구성(원본/복제본 모두)에서는 지원되지 않습니다.
 
 ### <a name="scale-operations"></a>크기 조정 작업
-- 프로 비전 된 서버 저장소를 줄이는 것은 지원 되지 않습니다.
+- 프로비저닝된 서버 스토리지를 줄이는 것은 지원되지 않습니다.
 
 ### <a name="read-replicas"></a>읽기 복제본
-- 영역 중복 HA 구성 (주 및 대기 모두)에서는 지원 되지 않습니다.
+- 영역 중복 HA 구성(기본/대기 모두)에서는 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
-- 주 데이터베이스 엔진 버전 간의 자동화 된 마이그레이션은 지원 되지 않습니다. 주 버전을 업그레이드 하려면 덤프를 사용 하 여 새 엔진 버전으로 만든 서버에 [복원](../concepts-migrate-dump-restore.md) 합니다.
+- 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 지원되지 않습니다. 주 버전으로 업그레이드하려는 경우 새 엔진 버전으로 만든 서버에 주 버전을 [덤프 및 복원](../concepts-migrate-dump-restore.md)합니다.
 
 ### <a name="restoring-a-server"></a>서버 복원
-- 지정 시간 복원을 사용 하 여 새 서버는 기반으로 하는 원본 서버와 동일한 계산 및 저장소 구성을 사용 하 여 만들어집니다. 서버를 만든 후 새로 복원 된 서버의 계산을 축소할 수 있습니다.
-- 삭제 된 서버 복원은 지원 되지 않습니다.
+- 지정 시간 복구를 사용하는 새 서버는 기반으로 하는 원본 서버와 동일한 컴퓨팅 및 스토리지 구성을 사용하여 만들어집니다. 서버를 만든 후 새로 복원된 서버의 컴퓨팅 규모를 축소할 수 있습니다.
+- 삭제된 서버 복원은 지원되지 않습니다.
 
-## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>단일 서버에서 사용할 수 있지만 유연한 서버에서 아직 지원 되지 않는 기능 
-Azure Database for MySQL 단일 서버에서 사용할 수 있는 일부 기능은 아직 유연한 서버에서 사용할 수 없습니다. 단일 서버와 유연한 서버 간의 기능 비교에 대 한 전체 목록은 [Azure 설명서에서 적절 한 MySQL 서버 옵션 선택을 참조 하세요.](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)
+## <a name="features-available-in-single-server-but-not-yet-supported-in-flexible-server"></a>단일 서버에서 사용할 수 있지만 유연한 서버에서는 아직 지원되지 않는 기능 
+Azure Database for MySQL - 단일 서버에서 사용할 수 있는 일부 기능은 아직 유연한 서버에서 사용할 수 없습니다. 단일 서버와 유연한 서버 간의 전체 기능 비교 목록은 [Azure 설명서에서 적절한 MySQL 서버 옵션 선택](../select-right-deployment-type.md#comparing-the-mysql-deployment-options-in-azure)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 설명서에서 적절 한 MySQL Server 옵션을 선택 하는](../select-right-deployment-type.md) 방법 알아보기
-- [유연한 서버에서 계산 및 저장소 옵션에 사용할 수 있는 기능](concepts-compute-storage.md) 이해
-- [지원 되는 MySQL 버전](concepts-supported-versions.md) 에 대 한 자세한 정보
-- 빠른 시작: [Azure Portal을 사용 하 여 Azure Database for MySQL 유연한 서버 만들기](quickstart-create-server-portal.md)
+- [Azure 설명서에서 적절한 MySQL Server 옵션을 선택하는 방법](../select-right-deployment-type.md) 알아보기
+- [유연한 서버에서 컴퓨팅 및 스토리지 옵션에 사용할 수 있는 기능](concepts-compute-storage.md) 이해
+- [지원되는 MySQL 버전](concepts-supported-versions.md) 알아보기
+- 빠른 시작: [Azure Portal을 사용하여 Azure Database for MySQL 유연한 서버 만들기](quickstart-create-server-portal.md)

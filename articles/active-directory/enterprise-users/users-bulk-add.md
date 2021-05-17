@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c653f3e8583ef3aadff26cb2b7a3266555d313a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96547817"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Azure Active Directory에서 사용자 대량 만들기
@@ -35,7 +35,7 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 ![업로드용 스프레드시트 및 각 행과 열의 용도 및 값에 대한 설명](./media/users-bulk-add/create-template-example.png)
 
 > [!WARNING]
-> CSV 템플릿을 사용 하 여 하나의 항목만 추가 하는 경우 행 3을 유지 하 고 행 4에 새 항목을 추가 해야 합니다.
+> CSV 템플릿을 사용하여 하나의 항목만 추가하는 경우 행 3을 유지하고 행 4에 새 항목을 추가해야 합니다.
 
 ### <a name="csv-template-structure"></a>CSV 템플릿 구조
 
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory)는 사용자 대량 만들기 및 삭제 작업
 - 필수 열이 먼저 나열됩니다.
 - 템플릿에 새 열을 추가하지 않는 것이 좋습니다. 새로 추가하는 열은 무시되고 처리되지 않습니다.
 - 가능한 자주 최신 버전의 CSV 템플릿을 다운로드하는 것이 좋습니다.
-- 필드 앞/뒤에 의도 하지 않은 공백이 없는지 확인 해야 합니다. **사용자 계정 이름의** 경우 이러한 공백이 있으면 가져오기 오류가 발생 합니다.
+- 필드 앞/뒤에 의도하지 않은 공백이 없는지 확인해야 합니다. **사용자 계정 이름** 에 이러한 공백이 있으면 가져오기 오류가 발생합니다.
 
 ## <a name="to-create-users-in-bulk"></a>사용자를 대량으로 만들려면
 

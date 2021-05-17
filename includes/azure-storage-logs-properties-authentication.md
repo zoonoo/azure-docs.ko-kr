@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: normesta
 ms.openlocfilehash: ca8963ed8928745a6d5918c86021199432339c83
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104612712"
 ---
 | 속성 | Description |
 |:--- |:---|
-|**identity / type** | 요청을 수행하는 데 사용된 인증 형식입니다. 예: `OAuth` ,, `Kerberos` `SAS Key` , `Account Key` 또는 `Anonymous` |
-|**identity / tokenHash**|요청에 사용 되는 인증 토큰의 SHA-256 해시입니다. <br>인증 유형이 인 경우 `Account Key` 형식은 "key1 \| key2 (키의 SHA256 해시)"입니다. 예를 들어 `key1(5RTE343A6FEB12342672AFD40072B70D4A91BGH5CDF797EC56BF82B2C3635CE)`을 참조하십시오. <br>인증 유형이 인 경우 `SAS Key` 형식은 "key1 \| key2 (키의 sha 256 해시), SASSIGNATURE (SAS 토큰의 sha 256 해시)"입니다. 예를 들어 `key1(0A0XE8AADA354H19722ED12342443F0DC8FAF3E6GF8C8AD805DE6D563E0E5F8A),SasSignature(04D64C2B3A704145C9F1664F201123467A74D72DA72751A9137DDAA732FA03CF)`을 참조하십시오. 인증 형식이 이면 `OAuth` "OAuth 토큰의 SHA 256 해시" 형식이 됩니다. `B3CC9D5C64B3351573D806751312317FE4E910877E7CBAFA9D95E0BE923DW25C`<br> 다른 인증 유형에는 tokenHash 필드가 없습니다. |
+|**identity / type** | 요청을 수행하는 데 사용된 인증 형식입니다. 예: `OAuth`, `Kerberos`, `SAS Key`, `Account Key` 또는 `Anonymous` |
+|**identity / tokenHash**|요청에 사용되는 인증 토큰의 SHA-256 해시입니다. <br>인증 유형이 `Account Key`인 경우 형식은 "key1 \| key2(키의 SHA256 해시)"입니다. 예: `key1(5RTE343A6FEB12342672AFD40072B70D4A91BGH5CDF797EC56BF82B2C3635CE)`. <br>인증 유형이 `SAS Key`인 경우 형식은 "key1 \| key2(키의 SHA 256 해시), SasSignature(SAS 토큰의 SHA 256 해시)"입니다. 예: `key1(0A0XE8AADA354H19722ED12342443F0DC8FAF3E6GF8C8AD805DE6D563E0E5F8A),SasSignature(04D64C2B3A704145C9F1664F201123467A74D72DA72751A9137DDAA732FA03CF)`. 인증 형식이 `OAuth`인 경우 형식은 "OAuth 토큰의 SHA 256 해시"입니다. 예: `B3CC9D5C64B3351573D806751312317FE4E910877E7CBAFA9D95E0BE923DW25C`<br> 다른 인증 유형의 경우 tokenHash 필드가 없습니다. |
 |**authorization / action** | 요청에 할당된 작업입니다. |
 |**authorization / roleAssignmentId** | 역할 할당 ID입니다. 예: `4e2521b7-13be-4363-aeda-111111111111`|
 |**authorization / roleDefinitionId** | 역할 정의 ID입니다. 예: `ba92f5b4-2d11-453d-a403-111111111111"`|
