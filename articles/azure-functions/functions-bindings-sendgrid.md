@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: b3d09ec4c4ab578a87f0d983c0f243bee2a84597
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94991233"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
@@ -25,7 +25,7 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
+## <a name="packages---functions-2x-and-higher"></a>패키지 - Functions 2.x 이상
 
 SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
 
@@ -206,7 +206,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-다음 예제에서는 SendGrid 바인딩을 사용 하 여 전자 메일을 보내는 HTTP 트리거 함수를 보여 줍니다. 바인딩 구성에서 기본값을 제공할 수 있습니다. 예를 들어 *보낸* 사람 전자 메일 주소는 *function.js* 에 구성 됩니다. 
+다음 예제에서는 SendGrid 바인딩을 사용하여 메일을 보내는 HTTP 트리거 함수를 보여 줍니다. 바인딩 구성에서 기본값을 제공할 수 있습니다. 예를 들어, *보낸 사람* 메일 주소는 *function.json* 에 구성됩니다. 
 
 ```json
 {
@@ -235,7 +235,7 @@ module.exports = function (context, input) {
 }
 ```
 
-다음 함수는 선택적 속성에 대 한 사용자 지정 값을 제공 하는 방법을 보여 줍니다.
+다음 함수는 선택적 속성에 대한 사용자 지정 값을 제공하는 방법을 보여 줍니다.
 
 ```python
 import logging
@@ -263,7 +263,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
 
 # <a name="java"></a>[Java](#tab/java)
 
-다음 예제에서는 `@SendGridOutput` [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 주석을 사용 하 여 SendGrid 출력 바인딩을 사용 하는 전자 메일을 보냅니다.
+다음 예제에서는 `@SendGridOutput`[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)의 주석을 사용하여 SendGrid 출력 바인딩을 사용하여 메일을 보냅니다.
 
 ```java
 package com.function;
@@ -333,7 +333,7 @@ public static void Run(
 }
 ```
 
-전체 예제는 [c # 예제](#example)를 참조 하세요.
+전체 예제는 [C# 예제](#example)를 참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
@@ -349,26 +349,26 @@ Python에서는 특성을 지원하지 않습니다.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Sendgridoutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) 주석을 사용 하면 구성 값을 제공 하 여 SendGrid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조하세요.
+[SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) 주석을 사용하면 구성 값을 제공하여 SendGrid 바인딩을 선언적으로 구성할 수 있습니다. 자세한 내용은 [예제](#example) 및 [구성](#configuration) 섹션을 참조하세요.
 
 ---
 
 ## <a name="configuration"></a>구성
 
-다음 표에서는  *function.js* 파일 및 `SendGrid` 특성/주석에 사용할 수 있는 바인딩 구성 속성을 보여 줍니다.
+다음 표에서는 *function.json* 파일 및 `SendGrid` 특성/주석에서 사용할 수 있는 바인딩 구성 속성을 보여 줍니다.
 
-| 속성 *function.js* | 특성/주석 속성 | 설명 | 선택 |
+| *function.json* 속성 | 특성/주석 속성 | 설명 | 선택 |
 |--------------------------|-------------------------------|-------------|----------|
-| 형식 |해당 없음| `sendGrid`로 설정해야 합니다.| 아니요 |
+| type |해당 없음| `sendGrid`로 설정해야 합니다.| 예 |
 | direction |해당 없음| `out`로 설정해야 합니다.| 예 |
-| name |해당 없음| 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 아니요 |
-| apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey* 입니다.| 예 |
-| to| 대상 | 받는 사람의 이메일 주소입니다. | 예 |
+| name |해당 없음| 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 예 |
+| apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정되지 않은 경우 기본 앱 설정 이름은 *AzureWebJobsSendGridApiKey* 입니다.| 예 |
+| to| 작업 | 받는 사람의 이메일 주소입니다. | 예 |
 | 원본| 시작 | 보낸 사람의 전자 메일 주소입니다. |  예 |
-| subject| 주체 | 전자 메일의 제목입니다. | 예 |
-| text| 텍스트 | 전자 메일 내용입니다. | 예 |
+| subject| 제목 | 전자 메일의 제목입니다. | 예 |
+| text| 텍스트 | 메일 내용입니다. | 예 |
 
-선택적 속성은 바인딩에 정의 된 기본값을 포함 하 고 프로그래밍 방식으로 추가 또는 재정의 될 수 있습니다.
+선택적 속성은 바인딩에 정의된 기본값을 포함하고 프로그래밍 방식으로 추가 또는 재정의될 수 있습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -376,7 +376,7 @@ Python에서는 특성을 지원하지 않습니다.
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 버전 2.x 이상에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. 아래 파일에 host.js예제에는이 바인딩에 대 한 버전 2.x + 설정만 포함 되어 있습니다. 2.x 이상 버전의 전역 구성 설정에 대 한 자세한 내용은 [ Azure Functions에 대 한 참조host.js](functions-host-json.md)를 참조 하세요.
+이 섹션에서는 버전 2.x 이상에서 이 바인딩에 사용할 수 있는 전역 구성 설정을 설명합니다. 아래 예제 host.json 파일에는 이 바인딩에 대한 버전 2.x+ 설정만 포함되어 있습니다. 버전 2.x 이상의 전역 구성 설정에 관한 자세한 내용은 [Azure Functions에 관한 host.json 참조](functions-host-json.md)를 확인하세요.
 
 > [!NOTE]
 > Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.

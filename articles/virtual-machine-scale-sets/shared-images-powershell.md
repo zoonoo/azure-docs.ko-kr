@@ -1,19 +1,19 @@
 ---
-title: 공유 VM 이미지를 사용 하 여 Azure PowerShell에서 확장 집합 만들기
+title: 공유 VM 이미지를 사용하여 Azure PowerShell에서 확장 집합 만들기
 description: Azure PowerShell을 사용하여 Azure에서 가상 머신 확장 세트 배포에 사용할 공유 VM 이미지를 만드는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: 3ba826de47255143c8adefe4424448d0b80ba105
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.reviewer: mimckitt
+ms.openlocfilehash: c3ae34655598454e1a91f9353ed993151efa8f6a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98678341"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108738218"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 세트용 공유 이미지 만들기 및 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "98678341"
 
 공유 이미지 갤러리를 사용하면 조직, 지역, AAD 테넌트의 다른 사용자와 사용자 지정 VM 이미지를 공유할 수 있습니다. 공유할 이미지, 이미지를 제공할 지역, 이미지를 공유할 사람을 선택하세요. 여러 갤러리를 만들어서 공유 이미지 논리적으로 그룹화할 수 있습니다. 
 
-갤러리는 전체 Azure 역할 기반 액세스 제어 (Azure RBAC)를 제공 하는 최상위 수준 리소스입니다. 이미지 버전을 관리할 수 있으며, 각 이미지 버전을 여러 Azure 지역에 복제하도록 선택할 수 있습니다. 갤러리는 관리되는 이미지에서만 작동합니다. 
+갤러리는 전체 Azure RBAC(Azure 역할 기반 액세스 제어)를 제공하는 최상위 리소스입니다. 이미지 버전을 관리할 수 있으며, 각 이미지 버전을 여러 Azure 지역에 복제하도록 선택할 수 있습니다. 갤러리는 관리되는 이미지에서만 작동합니다. 
 
 공유 이미지 갤러리 기능에는 여러 가지 리소스가 있습니다. 
 
@@ -33,7 +33,7 @@ ms.locfileid: "98678341"
 
 아래 단계에서는 기존 VM을 가져와서 새 VM 인스턴스를 만드는 데 사용할 수 있는 재사용 가능 사용자 지정 이미지로 변환하는 방법을 자세히 설명합니다.
 
-이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. [Azure PowerShell를 사용 하 여 가상 머신 확장 집합에 대 한 사용자 지정 이미지 만들기 및 사용 자습서](tutorial-use-custom-image-powershell.md) 를 수행 하 여 필요한 경우 만들 수 있습니다. 관리 되는 이미지에 데이터 디스크가 포함 되어 있는 경우 데이터 디스크 크기는 1TB를 넘을 수 없습니다.
+이 문서의 예제를 완료하려면 기존 관리 이미지가 있어야 합니다. 필요에 따라 [자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 대한 사용자 지정 이미지 만들기 및 사용](tutorial-use-custom-image-powershell.md)에 따라 이미지를 만들 수 있습니다. 관리형 이미지에 데이터 디스크가 포함되어 있는 경우 데이터 디스크 크기는 1TB를 초과할 수 없습니다.
 
 이 문서를 진행할 때 필요한 경우 리소스 그룹 및 VM 이름을 바꿉니다.
 

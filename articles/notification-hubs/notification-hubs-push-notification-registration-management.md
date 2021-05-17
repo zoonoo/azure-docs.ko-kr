@@ -18,10 +18,10 @@ ms.reviewer: thsomasu
 ms.lastreviewed: 04/08/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7807d28da459656938acb399eb8c621e4c292372
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89001572"
 ---
 # <a name="registration-management"></a>등록 관리
@@ -34,10 +34,10 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치** 를 사�
 
 ### <a name="registrations"></a>등록
 
-등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 장치 토큰 또는 FCM 등록 ID가 될 수 있습니다. 태그는 디바이스 핸들의 정확한 집합에 알림을 올바른 디바이스 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조 하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
+등록은 태그 및 아마도 템플릿을 가진 디바이스에 대해 플랫폼 알림 서비스(PNS) 핸들을 연결합니다. PNS 핸들은 ChannelURI, 디바이스 토큰 또는 FCM 등록 ID일 수 있습니다. 태그는 디바이스 핸들의 정확한 집합에 알림을 올바른 디바이스 핸들 집합에 라우팅하기 위해 사용됩니다. 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요. 템플릿은 등록당 변환을 구현하는 데 사용됩니다. 자세한 내용은 [템플릿](notification-hubs-templates-cross-platform-push-messages.md)을 사용하세요.
 
 > [!NOTE]
-> Azure Notification Hubs은 장치당 최대 60 개의 태그를 지원 합니다.
+> Azure Notification Hubs는 디바이스당 최대 60개 태그를 지원합니다.
 
 ### <a name="installations"></a>설치
 
@@ -46,7 +46,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치** 를 사�
 설치 사용의 몇 가지 주요 장점은 다음과 같습니다.
 
 - 설치 만들기 또는 업데이트가 완전히 멱등 상태입니다. 따라서 중복 등록을 걱정할 필요 없이 재시도할 수 있습니다.
-- 설치 모델은 `$InstallationId:{INSTALLATION_ID}` 특정 장치로 직접 알림을 보낼 수 있는 특수 태그 형식 ()을 지원 합니다. 예를 들어 앱의 코드가이 특정 장치에 대 한의 설치 ID를 설정 하는 경우 `joe93developer` 개발자는 태그에 알림을 보낼 때이 장치를 대상으로 지정할 수 있습니다 `$InstallationId:{joe93developer}` . 이렇게 하면 추가 코딩을 수행할 필요 없이 특정 장치를 대상으로 지정할 수 있습니다.
+- 설치 모델은 특정 디바이스로 직접 알림을 보낼 수 있는 특수 태그 형식(`$InstallationId:{INSTALLATION_ID}`)을 지원합니다. 예를 들어, 앱의 코드가 이 특정 디바이스에 대해 설치 ID `joe93developer`를 설정하는 경우 개발자는 `$InstallationId:{joe93developer}` 태그에 알림을 보낼 때 이 디바이스를 대상으로 지정할 수 있습니다. 따라서 추가 코딩을 수행할 필요 없이 특정 디바이스를 대상으로 지정할 수 있습니다.
 - 또한 설치를 사용하여 부분적인 등록 업데이트를 수행할 수도 있습니다. 설치의 부분 업데이트는 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902)을 사용하여 PATCH 메서드에서 요청됩니다. 이는 등록 시 태그를 업데이트하려고 할 때 유용합니다. 전체 등록을 풀다운한 다음 모든 이전 태그를 다시 보낼 필요가 없습니다.
 
 설치는 다음과 같은 속성을 포함할 수 있습니다. 설치 속성의 전체 목록은 [REST API를 사용하여 설치 만들기 또는 덮어쓰기](/rest/api/notificationhubs/create-overwrite-installation) 또는 [설치 속성](/dotnet/api/microsoft.azure.notificationhubs.installation)을 참조하세요.
@@ -93,7 +93,7 @@ Notification Hub에 디바이스 등록은 **등록** 또는 **설치** 를 사�
 등록 및 설치는 각 디바이스/채널에 대한 유효한 PNS 핸들을 포함해야 합니다. PNS 핸들은 디바이스의 클라이언트 앱에서만 획득할 수 있으므로 한 가지 패턴은 클라이언트 앱을 사용하여 해당 디바이스에서 직접 등록하는 것입니다. 한편 태그와 관련된 보안 고려 사항 및 비즈니스 논리 때문에 앱 백 엔드에서 디바이스 등록을 관리해야 할 수 있습니다.
 
 > [!NOTE]
-> 설치 API는 등록 API를 통해 Baidu 서비스를 지원 하지 않습니다. 
+> 설치 API는 등록 API와 달리 Baidu 서비스를 지원하지 않습니다. 
 
 ### <a name="templates"></a>템플릿
 
@@ -111,7 +111,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 
 클라이언트 앱에서 디바이스 등록을 관리하는 경우 백 엔드만는 알림을 보내기만 합니다. 클라이언트 앱은 PNS 핸들을 최신 상태로 유지하고 태그를 등록합니다. 다음 그림은 이 패턴을 보여 줍니다.
 
-![장치에서 등록](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
+![디바이스에서 등록](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 디바이스는 먼저 PNS에서 PNS 핸들을 검색한 다음 알림 허브에 직접 등록합니다. 등록이 성공한 후 앱 백 엔드는 해당 등록을 대상으로 지정하는 알림을 보낼 수 있습니다. 알림을 보내는 방법에 대한 자세한 내용은 [라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
@@ -120,7 +120,7 @@ SecondaryTiles 사전은 Windows 스토어 앱에서 SecondaryTiles 개체를 �
 디바이스에서 등록은 가장 간단한 방법이지만 몇 가지 단점이 있습니다.
 
 - 클라이언트 앱은 활성 상태일 때에만 태그를 업데이트할 수 있습니다. 예를 들어 사용자가 스포츠 팀과 관련된 태그를 등록하는 디바이스 두 개를 가지고 있는 경우 첫 번째 디바이스가 추가 태그(예: Seahawks)에 대해 등록하면 두 번째 디바이스는 두 번째 디바이스의 앱이 두 번째로 실행될 때까지 Seahawks에 관한 알림을 받지 않습니다. 더 일반적으로 태그가 여러 디바이스의 영향을 받는 경우 백 엔드에서 태그 관리가 바람직한 옵션입니다.
-- 앱은 해킹 될 수 있으므로 [보안](notification-hubs-push-notification-security.md)문서에 설명 된 대로 특정 태그에 대 한 등록을 보호 하려면 추가 주의가 필요 합니다.
+- 앱이 해킹을 당할 수 있으므로 [보안](notification-hubs-push-notification-security.md) 문서에서 설명한 것처럼 특정 태그에 대한 등록을 보호하려면 좀 더 주의해야 합니다.
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>설치를 사용하여 디바이스에서 알림 허브에 등록하는 예제 코드
 
@@ -270,7 +270,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>설치를 사용하여 백 엔드에서 알림 허브에 등록하는 예제 코드
 
-클라이언트 장치는 이전과 마찬가지로 PNS 핸들 및 관련 설치 속성을 가져오고, 등록 및 권한 부여를 수행할 수 있는 백 엔드에서 사용자 지정 API를 호출 합니다. 백 엔드는 [백 엔드 작업에 Notification HUBS SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 활용할 수 있습니다.
+클라이언트 디바이스는 여전히 해당 PNS 핸들 및 관련 설치 속성을 전과 같이 가져오며 등록을 수행하고 태그 등에 권한을 부여할 수 있는 백 엔드의 사용자 지정 API를 호출합니다. 백 엔드는 [백 엔드 작업용 Notification Hub SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 활용할 수 있습니다.
 
 설치를 업데이트하는 경우 [JSON 패치 표준](https://tools.ietf.org/html/rfc6902) 을 사용하여 PATCH 메서드를 사용할 수도 있습니다.
 

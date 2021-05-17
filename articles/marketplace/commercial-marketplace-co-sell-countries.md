@@ -1,32 +1,32 @@
 ---
 title: 국가 및 지역 코드 공동 판매 | Azure Marketplace
-description: 제품의 공동 판매 페이지에서 연락처 정보를 제공할 때 이러한 두 문자로 이루어진 국가/지역 코드를 사용 합니다.
+description: 제품의 공동 판매 페이지에 연락처 정보를 제공할 때 이러한 두 문자로 이루어진 국가/지역 코드를 사용합니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 08/27/2019
-ms.openlocfilehash: af110a66bc7ef5737f3d2d97a85ca07525b1d9e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: d480f400bfd5a8d1ad59c9e4bcf1e8425171cc4a
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96744706"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123324"
 ---
 # <a name="co-sell-country-and-region-codes"></a>공동 판매 국가 및 지역 코드
 
-[제품의 공동 판매 페이지에서 연락처 정보를 제공할](commercial-marketplace-co-sell.md)때 이러한 두 문자로 이루어진 국가/지역 코드를 사용 합니다.
+[제품의 공동 판매 페이지에 연락처 정보를 제공](./co-sell-configure.md)할 때 이러한 두 문자로 이루어진 국가/지역 코드를 사용합니다.
 
-연락처가 모든 국가/지역을 포함 하는 경우 세 문자 코드 "OOO"를 사용 합니다.
+연락처가 모든 국가/지역을 포함하는 경우 세 문자 코드 "OOO"를 사용합니다.
 
-연락처가 둘 이상의 국가/지역을 포함 하는 경우 쉼표로 구분 된 두 문자 코드를 입력 합니다 (예: 따옴표 없이 "US, CA, FR" 입력).
+연락처가 둘 이상의 국가/지역을 포함하는 경우 두 문자 코드를 각각 쉼표로 구분하여 입력합니다(예: 따옴표 없이 "US, CA, FR" 입력).
 
 ## <a name="countryregion-table"></a>국가/지역 테이블
 
 |   국가/지역 이름               |   ISO-2   |
 |-------------------------------------|-----------|
-| 전역 연락처                     | OOO       |
+| 글로벌 연락처                     | OOO       |
 | 아프가니스탄                         | AF        |
 | 올란드 제도                       | AX        |
 | 알바니아                             | AL        |
@@ -97,7 +97,7 @@ ms.locfileid: "96744706"
 | 적도 기니                   | GQ        |
 | 에리트리아                             | ER        |
 | 에스토니아                             | EE        |
-| eSwatini                            | SZ        |
+| 에스와티니                            | SZ        |
 | 에티오피아                            | ET        |
 | 페로 제도                       | FO        |
 | 피지                                | FJ        |
@@ -273,8 +273,7 @@ ms.locfileid: "96744706"
 | 예멘                               | YE        |
 | 잠비아                              | ZM        |
 | 짐바브웨                            | ZW        |
-|   |   |   |
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 marketplace의 공동 판매 옵션](./commercial-marketplace-co-sell.md)에 대해 알아봅니다.
+- [상업용 Marketplace의 공동 판매 옵션](./co-sell-configure.md)에 대해 알아봅니다.

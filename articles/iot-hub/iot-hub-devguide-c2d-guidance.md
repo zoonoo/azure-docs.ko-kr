@@ -14,10 +14,10 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 ms.openlocfilehash: ad4f5dcd137a9be6dfc764385802792026c0297d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101093017"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>클라우드-디바이스 통신 지침
@@ -30,7 +30,7 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바�
 
 * [클라우드-디바이스 메시지](iot-hub-devguide-messages-c2d.md) 디바이스 앱에 대한 단방향 알림의 경우
 
-[Azure iot 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md) 이 옵션을 사용 하 여 iot 플러그 앤 플레이 장치를 제어 하는 방법을 알아보려면 [iot 플러그 앤 플레이 서비스 개발자 가이드](../iot-pnp/concepts-developer-guide-service.md)를 참조 하세요.
+[Azure IoT 플러그 앤 플레이](../iot-pnp/overview-iot-plug-and-play.md)가 이러한 옵션을 사용하여 IoT 플러그 앤 플레이 디바이스를 제어하는 방법을 알아보려면 [IoT 플러그 앤 플레이 서비스 개발자 가이드](../iot-pnp/concepts-developer-guide-service.md)를 참조하세요.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -42,12 +42,12 @@ IoT Hub는 백 엔드 앱에 기능을 공개하는 세 가지 옵션을 디바�
 | 데이터 흐름 | 양방향. 디바이스 앱에서 메서드에 즉시 응답할 수 있습니다. 솔루션 백 엔드에서 컨텍스트에 따라 요청에 대한 결과를 수신합니다. | 단방향. 디바이스 앱에서 속성 변경 알림을 수신합니다. | 단방향. 디바이스 앱에서 메시지를 수신합니다.
 | 내구성 | 연결이 끊긴 디바이스는 연결되지 않습니다. 디바이스가 연결되어 있지 않다고 솔루션 백 엔드에 알립니다. | 속성 값은 디바이스 쌍에 유지됩니다. 다음에 다시 연결할 때 디바이스에서 이 알림을 읽습니다. 속성 값은 [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)로 검색할 수 있습니다. | 메시지는 최대 48시간 동안 IoT Hub에 보관될 수 있습니다. |
 | 대상 | **deviceId** 를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId** 를 사용하는 단일 디바이스 또는 [jobs](iot-hub-devguide-jobs.md)를 사용하는 여러 디바이스 | **deviceId** 를 사용하는 단일 디바이스 |
-| 크기 | 최대 직접 메서드 페이로드 크기는 128KB입니다. | Desired 속성의 최대 크기는 32입니다. | 최대 64KB 메시지 |
+| 크기 | 최대 직접 메서드 페이로드 크기는 128KB입니다. | 최대 희망 속성 크기는 32KB입니다. | 최대 64KB 메시지 |
 | 빈도 | 높음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 중간. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. | 낮음. 자세한 내용은 [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. |
 | 프로토콜 | MQTT 또는 AMQP를 통해 사용 가능합니다. | MQTT 또는 AMQP를 통해 사용 가능합니다. | 모든 프로토콜에서 사용할 수 있습니다. HTTPS를 사용할 경우 디바이스에서 폴링해야 합니다. |
 
 다음 자습서에서 직접 메서드, desired 속성 및 클라우드-디바이스 메시지를 사용하는 방법에 대해 알아보세요.
 
 * [직접 메서드 사용](quickstart-control-device-node.md)
-* [Desired 속성을 사용 하 여 장치 구성](tutorial-device-twins.md) 
+* [desired 속성을 사용하여 디바이스 구성](tutorial-device-twins.md) 
 * [클라우드-디바이스 메시지 보내기](iot-hub-node-node-c2d.md)

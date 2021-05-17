@@ -1,5 +1,5 @@
 ---
-title: 응급 액세스 관리자 계정 관리-Azure AD
+title: Azure AD에서 응급 액세스 관리자 계정 관리 - Azure AD
 description: 이 문서에서는 응급 액세스 계정을 사용하여 Azure AD(Azure Active Directory) 조직에서 실수로 계정이 잠기는 것을 방지하는 방법을 설명합니다.
 services: active-directory
 author: markwahl-msft
@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6a1e4b3b44004ec6d03c293bbd10617b3d3af69
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98740825"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
@@ -33,18 +33,18 @@ ms.locfileid: "98740825"
 조직은 다음과 같은 상황에서 응급 액세스 계정을 사용해야 할 수도 있습니다.
 
 - 사용자 계정이 페더레이션되고, 페더레이션이 현재 셀 네트워크 중단 또는 ID 공급자 중단으로 인해 사용할 수 없습니다. 예를 들어, 사용자 환경에서 ID 공급자 호스트가 중단된 경우 사용자는 Azure AD가 해당 ID 공급자로 리디렉션할 때 로그인하지 못할 수 있습니다.
-- 관리자가 Azure AD Multi-Factor Authentication를 통해 등록 되 고 모든 개별 장치를 사용할 수 없거나 서비스를 사용할 수 없습니다. 사용자는 역할을 활성화하는 Multi-Factor Authentication을 완료하지 못할 수도 있습니다. 예를 들어 셀 네트워크 장애로 인해 해당 디바이스에 대해 등록된 단 두 개의 인증 메커니즘인 수신 전화에 응답 및 문자 메시지 수신이 불가능할 수 있습니다.
+- 관리자는 Azure AD 다단계 인증을 통해 등록되며 모든 개별 디바이스 또는 서비스는 사용할 수 없습니다. 사용자는 역할을 활성화하는 Multi-Factor Authentication을 완료하지 못할 수도 있습니다. 예를 들어 셀 네트워크 장애로 인해 해당 디바이스에 대해 등록된 단 두 개의 인증 메커니즘인 수신 전화에 응답 및 문자 메시지 수신이 불가능할 수 있습니다.
 - 최근 글로벌 관리자 액세스 권한이 있는 사용자가 조직을 떠났습니다. Azure AD는 마지막 글로벌 관리자 계정이 삭제되지 않도록 할 수 있으나, 계정이 온-프레미스에서 삭제되거나 비활성화되는 것은 방지할 수 없습니다. 각 상황에서 조직은 계정을 복구하지 못할 수 있습니다.
 - 자연 재해 비상 사태와 같이 예기치 않은 상황이 발생하여 휴대폰이나 기타 네트워크를 사용하지 못하는 경우. 
 
-## <a name="create-emergency-access-accounts"></a>응급 액세스 계정 만들기
+## <a name="create-emergency-access-accounts"></a>응급 액세스 계정 생성
 
 두 개 이상의 응급 액세스 계정을 만듭니다. 이러한 계정은 \*.onmicrosoft.com 도메인을 사용하고, 온-프레미스 환경에서 페더레이션되거나 동기화되지 않은 클라우드 전용 계정이어야 합니다.
 
 이러한 계정을 구성할 때는 다음 요구 사항이 충족되어야 합니다.
 
 - 응급 액세스 계정은 조직의 개별 사용자와 연결되지 않아야 합니다. 직원이 제공한 휴대폰, 개별 직원이 가지고 다니는 하드웨어 토큰 또는 기타 직원 전용 자격 증명에 계정이 연결되지 않아야 합니다. 이 예방 조치는 개별 직원이 자격 증명이 필요한 경우 접근할 수 없는 인스턴스를 포함합니다. 등록된 모든 디바이스가 Azure AD와 통신하는 여러 수단이 있는 안전하고 알려진 위치에 있는지 확인하는 것이 중요합니다.
-- 응급 액세스 계정에 사용되는 인증 메커니즘은 다른 응급 액세스 계정을 비롯한 기타 관리 계정에 사용되는 메커니즘과 구분되어야 합니다.  예를 들어 일반 관리자가 온-프레미스 MFA를 통해 로그인 하는 경우 Azure AD MFA는 다른 메커니즘입니다.  그러나 Azure AD MFA가 관리자 계정에 대 한 인증의 주된 부분인 경우 사용자 지정 컨트롤을 통해 타사 MFA 공급자와의 조건부 액세스를 사용 하는 것과 같은 다른 방법을 고려해 야 합니다.
+- 응급 액세스 계정에 사용되는 인증 메커니즘은 다른 응급 액세스 계정을 비롯한 기타 관리 계정에 사용되는 메커니즘과 구분되어야 합니다.  예를 들어, 일반 관리자가 온-프레미스 MFA를 통해 로그인하는 경우 Azure AD MFA는 다른 메커니즘입니다.  하지만 Azure AD MFA가 관리 계정에 대한 인증의 기본적인 부분인 경우에는 다른 방법(예: 사용자 지정 컨트롤을 통해 타사 MFA 공급자로 조건부 액세스 사용)을 고려하는 것이 좋습니다.
 - 디바이스나 자격 증명이 만료되지 않아야 하고 사용 부족으로 인해 자동으로 정리되는 범위에 속하지 않아야 합니다.  
 - 응급 액세스 계정에 대한 글로벌 관리자 역할 할당은 영구적으로 설정해야 합니다. 
 
@@ -60,7 +60,7 @@ ms.locfileid: "98740825"
 
 ## <a name="federation-guidance"></a>페더레이션 지침
 
-일부 조직에서는 AD Domain Services 및 ADFS 또는 유사한 id 공급자를 사용 하 여 Azure AD에 페더레이션 합니다. [관리 권한이 있는 온-프레미스 계정이](../fundamentals/protect-m365-from-on-premises-attacks.md)없어야 합니다. Azure AD 외부에서 관리 권한이 있는 계정에 대 한 마스터링 및 또는 소싱 인증은 해당 시스템의 작동이 중단 되거나 손상 될 경우 불필요 한 위험을 추가 합니다.
+일부 조직에서는 AD Domain Services 및 ADFS나 유사한 ID 공급자를 사용하여 Azure AD에 페더레이션합니다. [관리 권한이 있는 온-프레미스 계정이 없어야 합니다](../fundamentals/protect-m365-from-on-premises-attacks.md). Azure AD 외부에서 관리 권한이 있는 계정에 대해 인증을 마스터링 및/또는 소싱하면 해당 시스템의 작동이 중단되거나 손상될 경우 불필요한 위험을 초래합니다.
 
 ## <a name="store-account-credentials-safely"></a>계정 자격 증명을 안전하게 저장
 
@@ -156,5 +156,5 @@ ms.locfileid: "98740825"
 - [Azure AD를 사용하여 사용자를 추가](../fundamentals/add-users-azure-active-directory.md)하고 [새 사용자를 글로벌 관리자 역할에 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 - 아직 가입하지 않은 경우 [Azure AD Premium에 가입](../fundamentals/active-directory-get-started-premium.md)
 - [사용자에 대해 2단계 인증을 요구하는 방법](../authentication/howto-mfa-userstates.md)
-- Microsoft 365을 사용 하는 경우 [Microsoft 365에서 전역 관리자에 대 한 추가 보호를 구성](/office365/enterprise/protect-your-global-administrator-accounts)합니다.
+- Microsoft 365를 사용하는 경우 [Microsoft 365의 글로벌 관리자에 대한 추가 보호 구성](/office365/enterprise/protect-your-global-administrator-accounts)
 - [ 관리자에 대한 액세스 검토를 시작](../privileged-identity-management/pim-how-to-start-security-review.md)하고 [기존 글로벌 관리자를 보다 구체적인 관리자 역할로 전환](permissions-reference.md)

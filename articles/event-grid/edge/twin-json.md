@@ -1,6 +1,6 @@
 ---
-title: 모듈 쌍-Azure Event Grid IoT Edge | Microsoft Docs
-description: 모듈 쌍을 통한 구성.
+title: 모듈 쌍 - Azure Event Grid IoT Edge | Microsoft Docs
+description: 모듈 쌍을 통한 구성
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -8,25 +8,25 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: f39d22fe58d4375b3b68bacd237c1b200328c4b1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86171332"
 ---
-# <a name="module-twin-json-schema-azure-event-grid"></a>모듈 쌍 JSON 스키마 (Azure Event Grid)
+# <a name="module-twin-json-schema-azure-event-grid"></a>모듈 쌍 JSON 스키마(Azure Event Grid)
 
-IoT Edge Event Grid는 IoT Edge 에코 시스템과 통합 되며 모듈 쌍을 통해 토픽 및 구독 만들기를 지원 합니다. 또한 모듈 쌍의 보고 된 속성에 대 한 모든 토픽 및 이벤트 구독의 현재 상태를 보고 합니다.
+IoT Edge의 Event Grid는 IoT Edge 에코시스템과 통합되며 모듈 쌍을 통해 토픽 및 구독 만들기를 지원합니다. 또한 모듈 쌍의 reported 속성에 대한 모든 토픽 및 이벤트 구독의 현재 상태를 보고합니다.
 
 > [!WARNING]
-> IoT Edge 에코 시스템의 제한 사항 때문에 다음 json 예제의 모든 배열 요소가 json 문자열로 인코딩되어 있습니다. `EventSubscription.Filter.EventTypes`다음 예제에서는 및 키를 참조 `EventSubscription.Filter.AdvancedFilters` 하세요.
+> IoT Edge 에코시스템의 제한 사항 때문에 다음 json 예제의 모든 배열 요소가 json 문자열로 인코딩되어 있습니다. 다음 예제에서는 `EventSubscription.Filter.EventTypes` 및 `EventSubscription.Filter.AdvancedFilters` 키를 참조하세요.
 
-## <a name="desired-properties-json"></a>Desired 속성 JSON
+## <a name="desired-properties-json"></a>desired 속성 JSON
 
-* 토픽 섹션에서 각 키-값 쌍의 값에는 `Topic.Properties` 항목을 만들 때 API에서에 사용 되는 것과 동일한 JSON 스키마가 있습니다.
-* **Eventsubscriptions** 섹션에서 각 키-값 쌍의 값에는 `EventSubscription.Properties` 항목을 만들 때 API에서에 사용 되는 것과 동일한 json 스키마가 있습니다.
-* 토픽을 삭제 하려면 desired 속성에서 해당 값을로 설정 `null` 합니다.
-* Desired 속성을 통해 이벤트 구독을 삭제할 수 없습니다.
+* 토픽 섹션의 각 키-값 쌍 값에는 토픽을 만들 때 API의 `Topic.Properties`에서 사용되는 것과 동일한 JSON 스키마가 적용됩니다.
+* **EventSubscriptions** 섹션의 각 키-값 쌍 값에는 토픽을 만들 때 API의 `EventSubscription.Properties`에서 사용되는 것과 정확히 동일한 JSON 스키마가 적용됩니다.
+* 토픽을 삭제하려면 desired 속성에서 해당 값을 `null`로 설정합니다.
+* desired 속성을 통해 이벤트 구독을 삭제할 수는 없습니다.
 
 ```json
 {
@@ -77,13 +77,13 @@ IoT Edge Event Grid는 IoT Edge 에코 시스템과 통합 되며 모듈 쌍을 
 }
 ```
 
-## <a name="reported-properties-json"></a>보고 된 속성 JSON
+## <a name="reported-properties-json"></a>reported 속성 JSON
 
-모듈 쌍의 보고 된 속성 섹션에는 다음 정보가 포함 됩니다.
+모듈 쌍의 reported 속성 섹션에는 다음 정보가 포함됩니다.
 
-* 모듈의 저장소에 존재 하는 토픽 및 구독 집합
-* 원하는 토픽/이벤트 구독을 만들 때 발생 하는 모든 오류
-* 모든 부팅 오류 (예: desired 속성 JSON 구문 분석 실패)
+* 모듈의 저장소에 존재하는 토픽 및 구독 세트
+* 원하는 토픽/이벤트 구독을 만들 때 발생하는 오류
+* 모든 부팅 오류(예: desired 속성 JSON 구문 분석 실패)
 
 ```json
 {

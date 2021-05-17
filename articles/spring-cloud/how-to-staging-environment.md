@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d4c2be170ad66b12a4ea176937565755ec514832
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 9b3a5659e91ca90d31500b10526e3e2179d4e7da
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134648"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046116"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 스테이징 환경 설정
 
@@ -20,7 +20,7 @@ ms.locfileid: "108134648"
 
 이 문서는 Azure Spring Cloud에서 파란색-녹색 배포 패턴을 사용하여 스테이징 배포를 설정하는 방법을 설명합니다. 파란색-녹색 배포는 새로운(녹색) 버전이 배포되는 동안 기존(파란색) 버전을 유지하도록 하는 Azure DevOps의 지속적인 업데이트 패턴입니다. 이 문서에서는 프로덕션 배포를 변경하지 않고 스테이징 배포를 프로덕션에 배치하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 표준 가격 책정 계층의 Azure Spring Cloud 인스턴스
 * Azure CLI용 [Azure Spring Cloud 확장](/cli/azure/azure-cli-extensions-overview)
@@ -185,4 +185,4 @@ az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Spring Cloud에 대한 CI/CD](./how-to-cicd.md?pivots=programming-language-java)
+* [Azure Spring Cloud에 대한 CI/CD](./spring-cloud-howto-cicd.md?pivots=programming-language-java)

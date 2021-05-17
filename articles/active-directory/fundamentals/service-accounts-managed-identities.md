@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a08c464e5c6a1fb5d4337e0902c9bd84b3b7772
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 8b08231f254ea47fc3c9d65de42966301bd3378f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732923"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105640056"
 ---
 # <a name="securing-managed-identities"></a>관리 ID 보안
 
@@ -55,6 +55,8 @@ Azure의 모든 컨트롤 플레인 작업은 [Azure Resource Manager](../../azu
 컨트롤 플레인 및 데이터 평면에 대한 자세한 내용은 [컨트롤 플레인 및 데이터 평면 작업 - Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md)를 참조하세요.
 
 모든 Azure 서비스는 최종적으로 관리 ID를 지원합니다. 자세한 내용은 [Azure 리소스에 대한 관리 ID를 지원하는 서비스](../managed-identities-azure-resources/services-support-managed-identities.md)를 참조하세요.
+
+##  
 
 ## <a name="types-of-managed-identities"></a>관리 ID 유형
 

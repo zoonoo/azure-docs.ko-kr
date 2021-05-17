@@ -1,6 +1,6 @@
 ---
-title: 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 파일 쿼리
-description: 이 문서에서는 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 파일을 쿼리 하는 방법에 대해 알아봅니다.
+title: 서버리스 SQL 풀을 사용하여 Parquet 파일 쿼리
+description: 이 문서에서는 서버리스 SQL 풀을 사용하여 Parquet 파일을 쿼리하는 방법을 알아봅니다.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -10,23 +10,23 @@ ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
 ms.openlocfilehash: cce4c6aff986c2e8c3d879d962714e13f6b2e7ae
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97694679"
 ---
-# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버를 사용 하지 않는 SQL 풀을 사용 하 여 Parquet 파일 쿼리
+# <a name="query-parquet-files-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 Parquet 파일 쿼리
 
-이 문서에서는 Parquet 파일을 읽는 서버 리스 SQL 풀을 사용 하 여 쿼리를 작성 하는 방법을 알아봅니다.
+이 문서에서는 Parquet 파일을 읽는 서버리스 SQL 풀을 사용하여 쿼리를 작성하는 방법을 알아봅니다.
 
 ## <a name="quickstart-example"></a>빠른 시작 예제
 
-`OPENROWSET` 함수를 사용 하면 파일에 대 한 URL을 제공 하 여 parquet 파일의 내용을 읽을 수 있습니다.
+`OPENROWSET` 함수를 사용하면 파일에 URL을 제공하여 Parquet 파일의 콘텐츠를 읽을 수 있습니다.
 
 ### <a name="read-parquet-file"></a>Parquet 파일 읽기
 
-파일의 콘텐츠를 확인 하는 가장 쉬운 방법은 `PARQUET` 함수에 파일 URL을 제공 하 고 parquet를 지정 하는 것입니다 `OPENROWSET` `FORMAT` . 파일이 공개적으로 사용 가능한 경우 또는 Azure AD id가이 파일에 액세스할 수 있는 경우 다음 예제와 같이 쿼리를 사용 하 여 파일의 내용을 볼 수 있어야 합니다.
+`PARQUET` 파일의 콘텐츠를 확인하는 가장 쉬운 방법은 `OPENROWSET` 함수에 파일 URL을 제공하고 parquet `FORMAT`을 지정하는 것입니다. 파일이 공개적으로 사용할 수 있거나 Azure AD ID로 이 파일에 액세스할 수 있다면 다음 예제와 같이 쿼리를 사용하여 파일의 콘텐츠를 볼 수 있습니다.
 
 ```sql
 select top 10 *
@@ -35,16 +35,16 @@ from openrowset(
     format = 'parquet') as rows
 ```
 
-이 파일에 액세스할 수 있는지 확인 합니다. 파일이 SAS 키 또는 사용자 지정 Azure id를 사용 하 여 보호 되는 경우 [sql 로그인에 대 한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정 해야 합니다.
+이 파일에 액세스할 수 있는지 확인합니다. 파일이 SAS 키 또는 사용자 지정 Azure ID를 통해 보호되는 경우, [SQL 로그인에 대한 서버 수준 자격 증명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential)을 설정해야 합니다.
 
 > [!IMPORTANT]
-> `Latin1_General_100_BIN2_UTF8`PARQUET 파일의 문자열 값이 utf-8 인코딩을 사용 하 여 인코딩 되므로 utf-8 데이터베이스 데이터 정렬을 사용 하 고 있는지 확인 합니다 (예:).
-> PARQUET 파일의 텍스트 인코딩과 데이터 정렬이 일치 하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_BIN2_UTF8`
+> PARQUET 파일의 문자열 값이 UTF-8 인코딩을 사용하여 인코딩되므로 UTF-8 데이터베이스 데이터 정렬(예: `Latin1_General_100_BIN2_UTF8`)을 사용하고 있는지 확인합니다.
+> PARQUET 파일의 텍스트 인코딩과 데이터 정렬이 일치하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-SQL 문 `alter database current collate Latin1_General_100_BIN2_UTF8`을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
 
 ### <a name="data-source-usage"></a>데이터 원본 사용
 
-이전 예에서는 파일에 대 한 전체 경로를 사용 합니다. 또는 저장소의 루트 폴더를 가리키는 위치를 사용 하 여 외부 데이터 원본을 만들고 해당 데이터 원본 및 함수에 있는 파일에 대 한 상대 경로를 사용할 수 있습니다 `OPENROWSET` .
+이전 예제에서는 파일에 전체 경로를 사용했습니다. 전체 경로 대신 스토리지의 루트 폴더를 가리키는 위치를 사용하여 외부 데이터 원본을 만들고 해당 데이터 원본 및 `OPENROWSET` 함수에서 파일의 상대 경로를 사용할 수 있습니다.
 
 ```sql
 create external data source covid
@@ -58,11 +58,11 @@ from openrowset(
     ) as rows
 ```
 
-데이터 원본이 SAS 키 또는 사용자 지정 id를 사용 하 여 보호 되는 경우 [데이터베이스 범위 자격 증명을 사용 하 여 데이터 원본을](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)구성할 수 있습니다.
+데이터 원본이 SAS 키 또는 사용자 지정 ID를 통해 보호되는 경우 [데이터베이스 범위 자격 증명을 사용하여 데이터 원본](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)을 구성할 수 있습니다.
 
-### <a name="explicitly-specify-schema"></a>명시적으로 스키마 지정
+### <a name="explicitly-specify-schema"></a>스키마를 명시적으로 지정
 
-`OPENROWSET` 에서는 절을 사용 하 여 파일을 읽을 열을 명시적으로 지정할 수 있습니다 `WITH` .
+`OPENROWSET`을 사용하면 `WITH` 절을 사용하여 파일에서 읽을 열을 명시적으로 지정할 수 있습니다.
 
 ```sql
 select top 10 *
@@ -74,12 +74,12 @@ from openrowset(
 ```
 
 > [!IMPORTANT]
-> 절의 모든 문자열 열에 대해 일부 UTF-8 데이터 정렬 (예:)을 지정 `Latin1_General_100_BIN2_UTF8` `WITH` 하거나 데이터베이스 수준에서 utf-8 데이터 정렬을 설정 하는 것이 explicilty 합니다.
-> 파일의 텍스트 인코딩과 문자열 열 데이터 정렬의 불일치 때문에 예기치 않은 변환 오류가 발생할 수 있습니다.
-> 다음 T-sql 문을 사용 하 여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다. `alter database current collate Latin1_General_100_BIN2_UTF8`
-> 다음 정의를 사용 하 여 열 형식에 대 한 데이터 정렬을 쉽게 설정할 수 있습니다. `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`
+> `WITH` 절의 모든 문자열 열에 대해 UTF-8 데이터 정렬(예: `Latin1_General_100_BIN2_UTF8`)을 명시적으로 지정하거나 데이터베이스 수준에서 UTF-8 데이터 정렬을 설정합니다.
+> 파일 및 문자열 열 데이터 정렬에서 텍스트 인코딩이 일치하지 않으면 예기치 않은 변환 오류가 발생할 수 있습니다.
+> 다음 T-SQL 문 `alter database current collate Latin1_General_100_BIN2_UTF8`을 사용하여 현재 데이터베이스의 기본 데이터 정렬을 쉽게 변경할 수 있습니다.
+> 다음 정의 `geo_id varchar(6) collate Latin1_General_100_BIN2_UTF8`을 사용하여 열 형식에 대한 데이터 정렬을 쉽게 설정할 수 있습니다.
 
-다음 섹션에서는 다양 한 유형의 PARQUET 파일을 쿼리 하는 방법을 볼 수 있습니다.
+다음 섹션에서는 다양한 유형의 PARQUET 파일을 쿼리하는 방법을 알아볼 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -122,7 +122,7 @@ Parquet 파일을 읽을 때 OPENROWSET WITH 절을 사용할 필요가 없습�
 아래 샘플에서는 Parquet 파일에 대한 자동 스키마 유추 기능을 보여줍니다. 스키마를 지정하지 않고 2017년 9월의 행 수를 반환합니다.
 
 > [!NOTE]
-> Parquet 파일을 읽을 때 OPENROWSET WITH 절에 열을 지정할 필요가 없습니다. 이 경우 서버를 사용 하지 않는 SQL 풀 쿼리 서비스는 Parquet 파일에서 메타 데이터를 활용 하 고 이름으로 열을 바인딩합니다.
+> Parquet 파일을 읽을 때 OPENROWSET WITH 절에 열을 지정할 필요가 없습니다. 이 경우 서버리스 SQL 풀 쿼리 서비스는 Parquet 파일의 메타데이터를 활용하여 열을 이름별로 바인딩합니다.
 
 ```sql
 SELECT TOP 10 *
@@ -139,7 +139,7 @@ FROM
 이 샘플에 제공된 데이터 세트는 별도의 하위 폴더로 분할(파티션)됩니다. filepath 함수를 사용하여 특정 파티션을 대상으로 지정할 수 있습니다. 이 예제에서는 2017년 첫 3개월 동안의 년, 월 및 payment_type별 요금을 보여줍니다.
 
 > [!NOTE]
-> 서버를 사용 하지 않는 SQL 풀 쿼리는 Hive/Hadoop 파티션 구성표와 호환 됩니다.
+> 서버리스 SQL 풀 쿼리는 Hive/Hadoop 파티션 구성표와 호환됩니다.
 
 ```sql
 SELECT
@@ -166,7 +166,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>형식 매핑
 
-Parquet type을 SQL native type으로 매핑하면 [Parquet에 대 한 형식 매핑을](develop-openrowset.md#type-mapping-for-parquet)확인 합니다.
+Parquet 형식에서 SQL 네이티브 형식으로의 매핑에 대해서는 [Parquet에 대한 형식 매핑](develop-openrowset.md#type-mapping-for-parquet)을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

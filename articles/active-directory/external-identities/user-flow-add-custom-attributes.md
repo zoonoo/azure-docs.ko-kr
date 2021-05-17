@@ -1,5 +1,5 @@
 ---
-title: 셀프 서비스 등록 흐름에 사용자 지정 특성 추가-Azure AD
+title: 셀프 서비스 등록 흐름에 사용자 지정 특성 추가 - Azure AD
 description: 셀프 서비스 가입 사용자 흐름에 대한 특성을 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory
 author: msmimart
@@ -12,10 +12,10 @@ ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46b498f8b8512d0202f47dd31ba25cc851ca71e6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101644105"
 ---
 # <a name="define-custom-attributes-for-user-flows"></a>사용자 흐름의 사용자 지정 특성 정의
@@ -28,14 +28,14 @@ Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
 ```
 
-은 `<extensions-app-id>` 테 넌 트에만 해당 됩니다. 이 식별자를 찾으려면 모든 응용 프로그램 > 앱 등록 > Azure Active Directory으로 이동 합니다. "Aad-확장명-앱"으로 시작 하는 앱을 검색 하 고 선택 합니다. 앱의 개요 페이지에서 응용 프로그램 (클라이언트) ID를 확인 합니다.
+`<extensions-app-id>`는 테넌트에만 해당됩니다. 이 ID를 찾으려면 Azure Active Directory > 앱 등록 > 모든 애플리케이션으로 이동합니다. ‘aad-extensions-app’으로 시작하는 앱을 검색하여 선택합니다. 앱의 개요 페이지에서 애플리케이션(클라이언트) ID를 확인합니다.
 
 ## <a name="create-a-custom-attribute"></a>사용자 지정 특성 만들기
 
 1. Azure AD 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Services** 아래에서 **Azure Active Directory** 를 선택합니다.
 3. 왼쪽 메뉴에서 **외부 ID** 를 선택합니다.
-4. **사용자 지정 사용자 특성** 을 선택 합니다. 사용 가능한 사용자 특성이 나열됩니다.
+4. **사용자 지정 사용자 특성** 을 선택합니다. 사용 가능한 사용자 특성이 나열됩니다.
 
    ![가입할 사용자 특성을 선택합니다.](media/user-flow-add-custom-attributes/user-attributes.png)
 
@@ -52,7 +52,7 @@ Azure Portal에 사용자 지정 특성을 만들고 셀프 서비스 가입 사
 
 이제 사용자 지정 특성을 사용자 특성 목록 및 사용자 흐름에서 사용할 수 있습니다. 사용자 지정 특성은 사용자 특성 목록에 추가될 때가 아니라 사용자 흐름에 사용될 때 처음으로 만들어집니다.
 
-새로 만든 사용자 지정 특성을 사용하는 사용자 흐름을 사용하여 새 사용자를 만든 후에는 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)에서 개체를 쿼리할 수 있습니다. 이제 사용자 개체에 대 한 등록 과정에서 수집 된 특성 목록에 **Shoesize** 가 표시 됩니다. 응용 프로그램에서 Graph API를 호출 하 여 사용자 개체에 추가 된 후이 특성에서 데이터를 가져올 수 있습니다.
+새로 만든 사용자 지정 특성을 사용하는 사용자 흐름을 사용하여 새 사용자를 만든 후에는 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)에서 개체를 쿼리할 수 있습니다. 이제 사용자 개체의 등록 과정 동안 수집된 특성 목록에 **ShoeSize** 가 표시됩니다. 애플리케이션에서 Graph API를 호출하여 이 특성이 사용자 개체에 추가된 후 이 특성에서 데이터를 가져올 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

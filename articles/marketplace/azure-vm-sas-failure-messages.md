@@ -1,6 +1,6 @@
 ---
-title: 가상 컴퓨터 SAS 오류 메시지-Azure Marketplace
-description: SAS (공유 액세스 서명)를 사용 하는 경우 질문과 대답입니다.
+title: 가상 머신 SAS 오류 메시지 - Azure Marketplace
+description: SAS(공유 액세스 서명)를 사용하는 경우의 질문과 대답입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -8,13 +8,13 @@ author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
 ms.openlocfilehash: 1c89887117c10ca77ec4c04b3adbe3e2d9923479
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93126841"
 ---
-# <a name="virtual-machine-sas-failure-messages"></a>가상 컴퓨터 SAS 오류 메시지
+# <a name="virtual-machine-sas-failure-messages"></a>가상 머신 SAS 오류 메시지
 
 다음은 권장되는 해결 방법과 함께 공유 액세스 서명(업로드된 솔루션용 VHD를 식별하고 공유하는 데 사용됨)을 사용할 때 발생하는 몇 가지 일반적인 문제입니다.
 

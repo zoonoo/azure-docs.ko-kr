@@ -7,14 +7,16 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3f933393b331d24e5de05a00d1abdc7302282308
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: ea4a47f1ba3eac39820e839a10330840f57afe42
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109684148"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105629073"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 Azure IoT Central 데이터 시각화 및 분석
+
+*이 항목은 관리자 및 솔루션 개발자에게 적용됩니다.*
 
 > [!Note] 
 > 이 솔루션은 [레거시 데이터 내보내기 기능](./howto-export-data-legacy.md)을 사용합니다. 최신 데이터 내보내기를 사용하여 Power BI에 연결하는 방법에 대한 업데이트된 지침을 계속 주목해 주세요.
@@ -32,10 +34,11 @@ Azure IoT Central V3용 Power BI 솔루션을 사용하여 IoT 디바이스의 �
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 방법 가이드의 단계를 완료하려면 다음이 필요합니다.
+이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
+솔루션을 설정하려면 다음 리소스가 필요합니다.
 
+- 버전 3 IoT Central 애플리케이션. 애플리케이션 버전을 확인하는 방법을 알아보려면 [애플리케이션 정보](./howto-get-app-info.md)를 참조하세요. IoT Central 애플리케이션을 만드는 방법을 알아보려면 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md)를 참조하세요.
 - 원격 분석과 디바이스, 디바이스 템플릿을 Azure Blob Storage로 내보내도록 구성된 레거시 연속 데이터 내보내기. 자세한 내용은 [레거시 데이터 내보내기 설명서](howto-export-data-legacy.md)를 참조하세요.
   - IoT Central 애플리케이션만 Blob 컨테이너로 데이터를 내보내고 있는지 확인합니다.
   - [디바이스에서 JSON 인코딩된 메시지를 전송해야](../../iot-hub/iot-hub-devguide-messages-d2c.md) 합니다. 디바이스에서는 메시스 시스템 속성에 `contentType:application/JSON` 및 `contentEncoding:utf-8` 또는 `contentEncoding:utf-16` 또는 `contentEncoding:utf-32`를 지정해야 합니다.

@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.openlocfilehash: 087c1d2efc93b8460a3683a4e66916d73fd4e885
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87015683"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 기본 스케줄러 기능 모범 사례
@@ -77,7 +77,7 @@ Pod를 제거하는 두 개의 중단 이벤트가 있습니다.
 
 클러스터가 업그레이드되거나 배포 템플릿이 업데이트되는 경우 Kubernetes 스케줄러는 자발적 중단 이벤트가 계속되기 전에 다른 노드에 추가 Pod가 예약되어 있는지 확인합니다. 스케줄러는 노드가 다시 부팅되기 전에 정의된 수의 Pod가 클러스터의 다른 노드에 성공적으로 예약될 때까지 대기합니다.
 
-NGINX를 실행하는 5개의 Pod가 있는 복제본 세트의 예를 살펴보겠습니다. 복제본 집합의 pod에 레이블이 할당 됩니다 `app: nginx-frontend` . 자발적 중단 이벤트(예: 클러스터 업그레이드) 중에 최소 3개의 Pod가 계속 실행되게 하려고 합니다. *PodDisruptionBudget* 개체의 다음 YAML 매니페스트는 다음 요구 사항을 정의합니다.
+NGINX를 실행하는 5개의 Pod가 있는 복제본 세트의 예를 살펴보겠습니다. 복제본 세트의 Pod에는 레이블 `app: nginx-frontend`가 할당되었습니다. 자발적 중단 이벤트(예: 클러스터 업그레이드) 중에 최소 3개의 Pod가 계속 실행되게 하려고 합니다. *PodDisruptionBudget* 개체의 다음 YAML 매니페스트는 다음 요구 사항을 정의합니다.
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -119,9 +119,9 @@ Pod 중단 예산 사용에 대한 자세한 내용은 [애플리케이션의 �
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>kube-advisor를 사용하여 클러스터 문제를 정기적으로 확인
 
-**모범 사례 지침** -최신 버전의 `kube-advisor` 오픈 소스 도구를 정기적으로 실행 하 여 클러스터의 문제를 검색 합니다. 기존 AKS 클러스터에서 리소스 할당량을 적용하는 경우 먼저 `kube-advisor`를 실행하여 리소스 요청 및 한도가 정의되지 않은 Pod를 찾습니다.
+**모범 사례 가이드** - `kube-advisor` 오픈 소스 최신 버전을 정기적으로 실행하여 클러스터에서 문제를 감지합니다. 기존 AKS 클러스터에서 리소스 할당량을 적용하는 경우 먼저 `kube-advisor`를 실행하여 리소스 요청 및 한도가 정의되지 않은 Pod를 찾습니다.
 
-[Kube-advisor][kube-advisor] 도구는 Kubernetes 클러스터를 검색 하 고 발견 된 문제를 보고 하는 연결 된 AKS 오픈 소스 프로젝트입니다. 한 가지 유용한 검사는 리소스 요청 및 한도가 없는 Pod를 식별하는 것입니다.
+[kube-advisor][kube-advisor] 도구는 Kubernetes 클러스터를 검사하고 찾아내는 문제에 대해 보고하는 연결된 AKS 오픈 소스 프로젝트입니다. 한 가지 유용한 검사는 리소스 요청 및 한도가 없는 Pod를 식별하는 것입니다.
 
 Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플리케이션용 PodSpecs에서 누락된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube-advisor 도구 자체는 Linux Pod에서 예약해야 합니다. Pod의 구성에서 [노드 선택기][k8s-node-selector]를 사용하여 특정 OS가 있는 노드 풀에서 실행되도록 Pod를 예약할 수 있습니다.
 
@@ -131,7 +131,7 @@ Kube-advisor 도구는 Linux 애플리케이션뿐만 아니라 Windows 애플�
 
 이 문서에서는 기본 Kubernetes 스케줄러 기능을 중점적으로 설명했습니다. AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를 참조하세요.
 
-* [다중 테 넌 트 및 클러스터 격리][aks-best-practices-cluster-isolation]
+* [다중 테넌트 지원 및 클러스터 격리][aks-best-practices-cluster-isolation]
 * [고급 Kubernetes 스케줄러 기능][aks-best-practices-advanced-scheduler]
 * [인증 및 권한 부여][aks-best-practices-identity]
 

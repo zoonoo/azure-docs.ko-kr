@@ -1,23 +1,23 @@
 ---
-title: Azure HDInsight 클러스터의 안전 모드에서 로컬 HDFS가 중단 됨
-description: Azure HDInsight에서 Apache 클러스터의 안전 모드로 로컬 Apache HDFS 정지 문제 해결
+title: Azure HDInsight 클러스터에서 안전 모드를 사용하면 로컬 HDFS가 중단됨
+description: Azure HDInsight의 Apache 클러스터에서 로컬 Apache HDFS가 안전 모드 상태로 중단되는 문제 해결
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/14/2019
 ms.openlocfilehash: d34bf8d82aee14f5ba835f68a061555d24ee2621
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944447"
 ---
-# <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>시나리오: Azure HDInsight 클러스터의 안전 모드에서 로컬 HDFS가 중단 됨
+# <a name="scenario-local-hdfs-stuck-in-safe-mode-on-azure-hdinsight-cluster"></a>시나리오: Azure HDInsight 클러스터에서 안전 모드를 사용하면 로컬 HDFS가 중단됨
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="issue"></a>문제
 
-로컬 Apache HDFS(Hadoop 분산 파일 시스템)가 HDInsight 클러스터에서 안전 모드 상태로 중단되었습니다. 다음과 유사한 오류 메시지가 표시 됩니다.
+로컬 Apache HDFS(Hadoop 분산 파일 시스템)가 HDInsight 클러스터에서 안전 모드 상태로 중단되었습니다. 다음과 유사한 오류 메시지가 표시됩니다.
 
 ```output
 hdiuser@spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -31,17 +31,17 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ## <a name="cause"></a>원인
 
-HDInsight 클러스터는 아래 노드가 매우 적게 축소 되었거나, 노드 수가 HDFS 복제 요소에 가깝습니다.
+HDInsight 클러스터가 매우 적은 수의 노드로 스케일 다운되었거나 노드 수가 HDFS 복제 계수에 가깝습니다.
 
 ## <a name="resolution"></a>해결 방법
 
-1. 다음 명령을 사용 하 여 HDInsight 클러스터에서 HDFS 상태를 보고 합니다.
+1. 다음 명령을 사용하여 HDInsight 클러스터에서 HDFS 상태를 보고합니다.
 
     ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     ```
 
-1. 다음 명령을 사용 하 여 HDInsight 클러스터에서 HDFS의 무결성을 확인 합니다.
+1. 다음 명령을 사용하여 HDInsight 클러스터에서 HDFS의 무결성을 확인합니다.
 
     ```bash
     hdiuser@spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /

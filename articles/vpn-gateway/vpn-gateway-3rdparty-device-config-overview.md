@@ -1,18 +1,18 @@
 ---
-title: Azure VPN gateway에 연결 하기 위한 파트너 VPN 장치 구성
-description: 이 문서에서는 Azure VPN Gateway에 연결하기 위한 파트너 VPN 디바이스 구성에 대한 개요를 제공합니다.
+title: Azure VPN 게이트웨이에 연결하기 위한 파트너 VPN 디바이스 구성
+description: Azure VPN 게이트웨이에 연결하기 위한 파트너 VPN 디바이스 구성에 대해 자세히 알아봅니다.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 484dad65310efaa60e8744b2f122b5e44ae13565
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8a6c6564391d9ba2722bfa9c637ee9d1e19d9e80
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98880155"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229003"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 디바이스 구성의 개요
 이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 디바이스를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 디바이스 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.
@@ -111,7 +111,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False
 ```
 
-### <a name="optional-use-custom-ipsecike-policy-with-usepolicybasedtrafficselectors"></a><a name ="policybased"></a>필드 UsePolicyBasedTrafficSelectors에서 사용자 지정 IPsec/IKE 정책 사용
+### <a name="optional-use-custom-ipsecike-policy-with-usepolicybasedtrafficselectors"></a><a name ="policybased"></a>(선택 사항)UsePolicyBasedTrafficSelectors로 사용자 지정 IPsec/IKE 정책 사용
 VPN 디바이스에서 임의 트래픽 선택기(예: 경로 기반/VTI 기반 구성)를 지원하지 않는 경우 [UsePolicyBasedTrafficSelectors](vpn-gateway-connect-multiple-policybased-rm-ps.md) 옵션을 사용하여 사용자 지정 IPsec/IKE 정책을 만듭니다.
 
 > [!IMPORTANT]
@@ -133,7 +133,7 @@ $lng5gw  = Get-AzLocalNetworkGateway -Name $LNGName5 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP $False -IpsecPolicies $ipsecpolicy5 -UsePolicyBasedTrafficSelectors $True
 ```
 
-### <a name="optional-use-bgp-on-s2s-vpn-connection"></a><a name ="bgp"></a>필드 S2S VPN 연결에 BGP 사용
+### <a name="optional-use-bgp-on-s2s-vpn-connection"></a><a name ="bgp"></a>(선택 사항)S2S VPN 연결에 BGP 사용
 S2S VPN 연결을 만들 경우 선택적으로 [VPN Gateway의 BGP](vpn-gateway-bgp-resource-manager-ps.md)를 사용할 수 있습니다. 이 방법에는 두 가지 차이점이 있습니다.
 
 * 온-프레미스 주소 접두사는 단일 호스트 주소일 수 있습니다. 온-프레미스 BGP 피어 IP 주소는 다음과 같이 지정됩니다.

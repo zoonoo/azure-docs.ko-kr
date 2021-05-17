@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: 1e3ea9222b0f231250bde43fb86c07847ca4835e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99832338"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Azure Cloud Shell 편집기 사용
@@ -53,5 +53,5 @@ Cloud Shell 편집기에서 언어 강조 표시 지원은 Monarch 구문 정의
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Cloud Shell의 Bash에 대 한 빠른 시작을 시도 합니다.](quickstart.md)
+- [Cloud Shell의 Bash에 대한 빠른 시작 시도](quickstart.md)
 - [통합 Cloud Shell 도구의 전체 목록 보기](features.md)

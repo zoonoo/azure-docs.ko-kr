@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c0cc93fee8aacc711a797925cb2e2808b73cafd1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 64514e69b41dda26fc39e747d7fef88706a64c64
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93338835"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163880"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,23 +62,7 @@ SELECT ENDSWITH("abc", "b", false) AS e1, ENDSWITH("abc", "bC", false) AS e2, EN
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
-
-시스템 함수 내 속성의 카디널리티가 증가함에 따라 EndsWith의 RU 소비량이 증가합니다. 즉, 속성 값이 특정 문자열로 끝나는지 여부를 확인하는 경우 쿼리 RU 요금은 해당 속성에 사용할 수 있는 값의 수에 따라 달라집니다.
-
-예를 들어, 도시와 국가라는 두 가지 속성을 고려합니다. 도시의 카디널리티는 5,000이고 국가의 카디널리티는 200입니다. 다음은 두 가지 예제 쿼리입니다.
-
-```sql
-    SELECT * FROM c WHERE ENDSWITH(c.town, "York", false)
-```
-
-```sql
-    SELECT * FROM c WHERE ENDSWITH(c.country, "States", false)
-```
-
-도시의 카디널리티가 국가보다 높기 때문에 첫 번째 쿼리가 두 번째 쿼리보다 더 많은 RU를 사용할 것입니다.
-
-일부 문서에 대해 EndsWith의 속성 크기가 1kb 보다 큰 경우 쿼리 엔진은 해당 문서를 로드 해야 합니다. 이 경우 쿼리 엔진은 인덱스를 사용 하 여 EndsWith를 완전히 평가할 수 없습니다. 속성 크기가 1kb를 초과 하는 문서 수가 많은 경우에는 EndsWith 요금이 높아집니다.
+이 [문자열 시스템 함수에서 인덱스를 사용하는 방법](sql-query-string-functions.md)을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

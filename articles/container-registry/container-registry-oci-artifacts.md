@@ -1,52 +1,52 @@
 ---
-title: 밀어넣기 및 끌어오기 OCI 아티팩트
-description: Azure에서 개인 컨테이너 레지스트리를 사용 하 여 OCI (Open Container 이니셔티브) 아티팩트 푸시 및 끌어오기
+title: OCI 아티팩트 밀어넣기 및 끌어오기
+description: Azure에서 개인 컨테이너 레지스트리를 사용하여 OCI(Open Container Initiative) 아티팩트 밀어넣기 및 끌어오기
 author: SteveLasker
 manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 399bb001432759556cd0ba8bf15f7738dd4edb7c
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99988219"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781490"
 ---
-# <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure container registry를 사용 하 여 OCI 아티팩트 푸시 및 끌어오기
+# <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure 컨테이너 레지스트리를 사용하여 OCI 아티팩트 밀어넣기 및 끌어오기
 
-Azure container registry를 사용 하 여 [OCI (Open Container 이니셔티브) 아티팩트](container-registry-image-formats.md#oci-artifacts) 뿐만 아니라 Docker 및 docker 호환 컨테이너 이미지를 저장 하 고 관리할 수 있습니다.
+Azure 컨테이너 레지스트리를 사용하여 Docker 및 Docker 호환 컨테이너 이미지뿐 아니라 [OCI(Open Container 이니셔티브) 아티팩트](container-registry-image-formats.md#oci-artifacts)도 저장하고 관리할 수 있습니다.
 
-이 기능을 설명 하기 위해이 문서에서는 [OCI 레지스트리를 저장소 (ORAS)](https://github.com/deislabs/oras) 도구로 사용 하 여 샘플 아티팩트 (텍스트 파일)를 Azure container Registry로 푸시하는 방법을 보여 줍니다. 그런 다음 레지스트리에서 아티팩트를 가져옵니다. 각 아티팩트에 적합 한 다양 한 명령줄 도구를 사용 하 여 Azure container registry에서 다양 한 OCI 아티팩트를 관리할 수 있습니다.
+이 기능을 설명하기 위해 이 문서에서는 [ORAS(OCI Registry as Storage)](https://github.com/deislabs/oras) 도구를 사용하여 샘플 아티팩트(텍스트 파일)를 Azure 컨테이너 레지스트리로 밀어넣는 방법을 보여 줍니다. 그런 다음 레지스트리에서 아티팩트를 끌어옵니다. 각 아티팩트에 적합한 다양한 명령줄 도구를 사용하여 Azure 컨테이너 레지스트리에서 다양한 OCI 아티팩트를 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
-* **Azure container registry** -azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-* **Oras 도구** - [GitHub](https://github.com/deislabs/oras/releases)리포지토리에서 운영 체제에 대 한 현재 oras 릴리스를 다운로드 하 여 설치 합니다. 이 도구는 압축 된 tarball ( `.tar.gz` 파일)로 릴리스됩니다. 운영 체제에 대 한 표준 절차를 사용 하 여 파일을 추출 하 고 설치 합니다.
-* **Azure Active Directory 서비스 주체 (선택 사항)** -oras를 사용 하 여 직접 인증 하려면 레지스트리에 액세스 하는 [서비스 주체](container-registry-auth-service-principal.md) 를 만듭니다. 아티팩트를 푸시 및 끌어올 수 있는 권한이 있도록 서비스 사용자에 게 AcrPush와 같은 역할을 할당 해야 합니다.
-* **Azure CLI (선택 사항)** -개별 id를 사용 하려면 Azure CLI의 로컬 설치가 필요 합니다. 2.0.71 이상 버전을 권장 합니다. `az --version `을 실행 하 여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-* **Docker (선택 사항)** -개별 id를 사용 하려면 로컬로 Docker를 설치 하 여 레지스트리로 인증 해야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
+* **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
+* **ORAS 도구** - [GitHub 리포지토리](https://github.com/deislabs/oras/releases)에서 운영 체제에 맞는 최신 ORAS 릴리스를 다운로드하여 설치합니다. 이 도구는 압축된 tarball(`.tar.gz` 파일)로 릴리스됩니다. 운영 체제의 표준 절차를 사용하여 파일 압축을 풀고 설치합니다.
+* **Azure Active Directory 서비스 주체(선택 사항)** - ORAS를 사용하여 직접 인증하려면 레지스트리에 액세스하는 [서비스 주체](container-registry-auth-service-principal.md)를 만듭니다. 아티팩트를 밀어넣고 끌어올 수 있는 권한을 갖도록 서비스 주체에게 AcrPush와 같은 역할을 할당해야 합니다.
+* **Azure CLI(선택 사항)** - 개별 ID를 사용하려면 Azure CLI의 로컬 설치가 필요합니다. 버전 2.0.71 이상을 사용하는 것이 좋습니다. `az --version `을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+* **Docker(선택 사항)** - 개별 ID를 사용하려면 로컬로 Docker를 설치하여 레지스트리로 인증해야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
 
 
 ## <a name="sign-in-to-a-registry"></a>레지스트리에 로그인
 
-이 섹션에서는 사용 되는 id에 따라 레지스트리에 로그인 하기 위한 두 가지 권장 워크플로를 보여 줍니다. 사용자 환경에 적합 한 방법을 선택 합니다.
+이 섹션에서는 사용되는 ID에 따라 레지스트리에 로그인하기 위한 두 가지 권장 워크플로를 보여 줍니다. 사용자 환경에 적합한 방법을 선택하세요.
 
-### <a name="sign-in-with-oras"></a>ORAS를 사용 하 여 로그인
+### <a name="sign-in-with-oras"></a>ORAS로 로그인
 
-푸시 권한이 있는 [서비스 주체](container-registry-auth-service-principal.md) 를 사용 하 여 `oras login` 서비스 주체 응용 프로그램 ID 및 암호를 사용 하 여 레지스트리에 로그인 하는 명령을 실행 합니다. 정규화 된 레지스트리 이름 (이 경우 모두 소문자)을 지정 합니다 (이 경우 *myregistry.azurecr.io*). 서비스 사용자 응용 프로그램 ID는 환경 변수 `$SP_APP_ID` 및 변수의 암호에 전달 됩니다 `$SP_PASSWD` .
+끌어오기 권한이 있는 [서비스 주체](container-registry-auth-service-principal.md)를 사용하여 서비스 주체 애플리케이션 ID 및 암호로 `oras login` 명령을 실행하여 레지스트리에 로그인합니다. 정규화된 레지스트리 이름(모두 소문자)을 지정합니다. 이 경우 *myregistry.azurecr.io* 입니다. 서비스 주체 애플리케이션 ID는 환경 변수 `$SP_APP_ID`로 전달되고 암호는 변수 `$SP_PASSWD`로 전달됩니다.
 
 ```bash
 oras login myregistry.azurecr.io --username $SP_APP_ID --password $SP_PASSWD
 ```
 
-Stdin에서 암호를 읽으려면를 사용 `--password-stdin` 합니다.
+Stdin에서 암호를 읽으려면 `--password-stdin`을 사용합니다.
 
 ### <a name="sign-in-with-azure-cli"></a>Azure CLI로 로그인
 
-Id로 Azure CLI에 [로그인](/cli/azure/authenticate-azure-cli) 하 여 컨테이너 레지스트리에서 아티팩트를 푸시하고 풀 합니다.
+ID로 Azure CLI에 [로그인](/cli/azure/authenticate-azure-cli)하여 컨테이너 레지스트리에서 아티팩트를 밀어넣고 끌어옵니다.
 
-그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az-acr-login) 을 사용 하 여 레지스트리에 액세스 합니다. 예를 들어 *myregistry* 라는 레지스트리에 인증 하려면 다음을 수행 합니다.
+그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az_acr_login)을 사용하여 레지스트리에 액세스합니다. 예를 들어 이름이 *myregistry* 인 레지스트리에 로그인하는 방법은 다음과 같습니다.
 
 ```azurecli
 az login
@@ -54,17 +54,17 @@ az acr login --name myregistry
 ```
 
 > [!NOTE]
-> `az acr login` Docker 클라이언트를 사용 하 여 파일에 Azure Active Directory 토큰을 설정 `docker.config` 합니다. 개별 인증 흐름을 완료 하려면 Docker 클라이언트를 설치 하 고 실행 해야 합니다.
+> `az acr login`은 Docker 클라이언트를 사용하여 `docker.config` 파일에 Azure Active Directory 토큰을 설정합니다. 개별 인증 흐름을 완료하려면 Docker 클라이언트가 설치되고 실행 중이어야 합니다.
 
-## <a name="push-an-artifact"></a>아티팩트 푸시
+## <a name="push-an-artifact"></a>아티팩트 밀어넣기
 
-일부 샘플 텍스트를 사용 하 여 로컬 작업 작업 디렉터리에 텍스트 파일을 만듭니다. 예를 들어 bash 셸에서는 다음과 같습니다.
+일부 샘플 텍스트를 사용하여 로컬 작업 디렉터리에 텍스트 파일을 만듭니다. 예를 들어 bash 셸에서는 다음과 같습니다.
 
 ```bash
 echo "Here is an artifact" > artifact.txt
 ```
 
-명령을 사용 `oras push` 하 여이 텍스트 파일을 레지스트리에 푸시합니다. 다음 예에서는 리포지토리에 샘플 텍스트 파일을 푸시합니다 `samples/artifact` . 레지스트리는 정규화 된 레지스트리 이름 *myregistry.azurecr.io* (모두 소문자)로 식별 됩니다. 아티팩트에 태그가 지정 됩니다 `1.0` . 아티팩트에는 기본적으로 파일 이름 다음에 *미디어 유형* 문자열로 식별 되는 정의 되지 않은 형식이 있습니다 `artifact.txt` . 추가 형식은 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 를 참조 하세요. 
+`oras push` 명령을 사용하여 이 텍스트 파일을 레지스트리에 밀어넣습니다. 다음 예제는 `samples/artifact` 리포지토리에 샘플 텍스트 파일을 밀어넣습니다. 레지스트리는 정규화된 레지스트리 이름 *myregistry.azurecr.io*(모두 소문자)로 식별됩니다. 아티팩트에 `1.0` 태그가 지정됩니다. 아티팩트에는 기본적으로 파일 이름 `artifact.txt` 다음에 오는 *media type* 문자열로 식별되는 정의되지 않은 형식이 있습니다. 추가 형식은 [OCI 아티팩트](https://github.com/opencontainers/artifacts)를 참조하세요. 
 
 **Linux 또는 macOS**
 
@@ -82,7 +82,7 @@ oras push myregistry.azurecr.io/samples/artifact:1.0 \
     .\artifact.txt:application/vnd.unknown.layer.v1+txt
 ```
 
-성공적인 푸시에 대 한 출력은 다음과 유사 합니다.
+밀어넣기가 성공하면 다음과 비슷한 출력이 표시됩니다.
 
 ```console
 Uploading 33998889555f artifact.txt
@@ -90,7 +90,7 @@ Pushed myregistry.azurecr.io/samples/artifact:1.0
 Digest: sha256:xxxxxxbc912ef63e69136f05f1078dbf8d00960a79ee73c210eb2a5f65xxxxxx
 ```
 
-레지스트리에서 아티팩트를 관리 하려면 Azure CLI을 사용 하는 경우 `az acr` 이미지 관리를 위한 표준 명령을 실행 합니다. 예를 들어 [az acr repository show][az-acr-repository-show] 명령을 사용 하 여 아티팩트의 특성을 가져옵니다.
+레지스트리에서 아티팩트를 관리하려면 Azure CLI를 사용하는 경우 이미지 관리를 위한 표준 `az acr` 명령을 실행합니다. 예를 들어 [az acr repository show][az-acr-repository-show] 명령을 사용하여 아티팩트의 특성을 가져옵니다.
 
 ```azurecli
 az acr repository show \
@@ -118,31 +118,31 @@ az acr repository show \
 
 ## <a name="pull-an-artifact"></a>아티팩트 끌어오기
 
-명령을 실행 `oras pull` 하 여 레지스트리에서 아티팩트를 가져옵니다.
+`oras pull` 명령을 사용하여 레지스트리에서 아티팩트를 끌어옵니다.
 
-먼저 로컬 작업 디렉터리에서 텍스트 파일을 제거 합니다.
+먼저 로컬 작업 디렉터리에서 텍스트 파일을 제거합니다.
 
 ```bash
 rm artifact.txt
 ```
 
-을 실행 `oras pull` 하 여 아티팩트를 가져오고 아티팩트를 푸시하는 데 사용 되는 미디어 유형을 지정 합니다.
+`oras pull`을 실행하여 아티팩트를 끌어오고, 아티팩트를 밀어넣는 데 사용되는 미디어 유형을 지정합니다.
 
 ```bash
 oras pull myregistry.azurecr.io/samples/artifact:1.0 \
     --media-type application/vnd.unknown.layer.v1+txt
 ```
 
-풀에 성공 했는지 확인 합니다.
+끌어오기가 성공했는지 확인합니다.
 
 ```bash
 $ cat artifact.txt
 Here is an artifact
 ```
 
-## <a name="remove-the-artifact-optional"></a>아티팩트 제거 (선택 사항)
+## <a name="remove-the-artifact-optional"></a>아티팩트 제거(선택 사항)
 
-Azure container registry에서 아티팩트를 제거 하려면 [az acr repository delete][az-acr-repository-delete] 명령을 사용 합니다. 다음 예제에서는 여기에 저장 된 아티팩트를 제거 합니다.
+Azure 컨테이너 레지스트리에서 아티팩트를 제거하려면 [az acr repository delete][az-acr-repository-delete] 명령을 사용합니다. 다음 예제는 Azure 컨테이너 레지스트리에 저장한 아티팩트를 제거합니다.
 
 ```azurecli
 az acr repository delete \
@@ -150,9 +150,9 @@ az acr repository delete \
     --image samples/artifact:1.0
 ```
 
-## <a name="example-build-docker-image-from-oci-artifact"></a>예: OCI 아티팩트에서 Docker 이미지 빌드
+## <a name="example-build-docker-image-from-oci-artifact"></a>예제: OCI 아티팩트에서 Docker 이미지 빌드
 
-컨테이너 이미지를 빌드하기 위한 소스 코드 및 이진 파일을 Azure container registry에 OCI 아티팩트로 저장할 수 있습니다. [ACR 태스크](container-registry-tasks-overview.md)에 대 한 빌드 컨텍스트로 소스 아티팩트를 참조할 수 있습니다. 이 예제에서는 Dockerfile을 OCI 아티팩트로 저장 한 다음 아티팩트를 참조 하 여 컨테이너 이미지를 빌드하는 방법을 보여 줍니다.
+컨테이너 이미지를 빌드하기 위한 소스 코드 및 이진 파일을 Azure 컨테이너 레지스트리에 OCI 아티팩트로 저장할 수 있습니다. [ACR 작업](container-registry-tasks-overview.md)의 빌드 컨텍스트로 소스 아티팩트를 참조할 수 있습니다. 이 예제는 Dockerfile을 OCI 아티팩트로 저장한 다음 아티팩트를 참조하여 컨테이너 이미지를 빌드하는 방법을 보여 줍니다.
 
 예를 들어 한 줄 Dockerfile을 만듭니다.
 
@@ -160,20 +160,20 @@ az acr repository delete \
 echo "FROM mcr.microsoft.com/hello-world" > hello-world.dockerfile
 ```
 
-대상 컨테이너 레지스트리에 로그인 합니다.
+대상 컨테이너 레지스트리에 로그인합니다.
 
 ```azurecli
 az login
 az acr login --name myregistry
 ```
 
-명령을 사용 하 여 새 OCI 아티팩트를 만들어 대상 레지스트리에 푸시합니다 `oras push` . 이 예제에서는 아티팩트의 기본 미디어 유형을 설정 합니다.
+`oras push` 명령을 사용하여 새 OCI 아티팩트를 만들고 대상 레지스트리에 밀어넣습니다. 이 예제는 아티팩트의 기본 미디어 유형을 설정합니다.
 
 ```bash
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-[Az acr build](/cli/azure/acr#az-acr-build) 명령을 실행 하 여 새 아티팩트를 빌드 컨텍스트로 사용 하 여 hello-세계 이미지를 빌드합니다.
+[az acr build](/cli/azure/acr#az_acr_build) 명령을 실행하고 새 아티팩트를 빌드 컨텍스트로 사용하여 hello-world 이미지를 빌드합니다.
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \
@@ -183,8 +183,8 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 아티팩트에 대 한 매니페스트를 구성 하는 방법을 포함 하 여 [ORAS 라이브러리](https://github.com/deislabs/oras/tree/master/docs)에 대해 자세히 알아보세요.
-* 새 아티팩트 형식에 대 한 참조 정보를 보려면 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 리포지토리를 방문 하세요.
+* 아티팩트의 매니페스트를 구성하는 방법을 포함하여 [ORAS 라이브러리](https://github.com/deislabs/oras/tree/master/docs)에 대해 자세히 알아보세요.
+* 새 아티팩트 형식에 대한 참조 정보를 보려면 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 리포지토리를 방문하세요.
 
 
 
@@ -194,5 +194,5 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

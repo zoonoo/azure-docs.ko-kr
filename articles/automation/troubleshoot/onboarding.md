@@ -5,10 +5,10 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100651122"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>기능 배포 문제 해결
@@ -67,7 +67,7 @@ VM 또는 작업 영역의 권한이나 사용자의 권한이 잘못되었거�
 
 #### <a name="resolution"></a>해결 방법
 
-[기능 배포 권한](../automation-role-based-access-control.md#feature-setup-permissions)이 올바른지 확인한 후 기능을 다시 배포하세요. 오류 메시지가 표시 `The solution cannot be enabled on this VM because the permission to read the workspace is missing` 되 면 다음 [문제 해결 정보](update-management.md#failed-to-enable-error)를 참조 하세요.
+[기능 배포 권한](../automation-role-based-access-control.md#feature-setup-permissions)이 올바른지 확인한 후 기능을 다시 배포하세요. `The solution cannot be enabled on this VM because the permission to read the workspace is missing` 오류 메시지가 표시되면 다음 [문제 해결 정보](update-management.md#failed-to-enable-error)를 참조하세요.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>시나리오: 기능 배포가 실패하고 "진단 로깅을 위한 자동화 계정을 구성하지 못했습니다"라는 메시지가 표시됨
 

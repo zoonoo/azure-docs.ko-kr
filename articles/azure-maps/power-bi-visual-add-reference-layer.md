@@ -1,6 +1,6 @@
 ---
-title: Azure Maps Power BI 시각적 개체에 참조 계층 추가 | Microsoft Azure 맵
-description: 이 문서에서는 Power BI에 대 한 Microsoft Azure 맵 시각적 개체에서 참조 계층을 사용 하는 방법에 대해 설명 합니다.
+title: Azure Maps Power BI 시각적 개체에 참조 계층 추가 | Microsoft Azure Maps
+description: 이 문서에서는 Power BI용 Microsoft Azure Maps 시각적 개체에서 참조 계층을 사용하는 방법을 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 06/26/2020
@@ -10,39 +10,39 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: eb6c9fed42f263ca6cfaa1ea975d31cb8f4a75cf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86261946"
 ---
 # <a name="add-a-reference-layer"></a>참조 레이어 추가
 
-참조 계층 기능을 사용 하면 보조 공간 데이터 집합을 시각적 개체에 업로드 하 고 맵에 겹쳐서 추가 컨텍스트를 제공할 수 있습니다. 이 데이터 집합은 Power BI에서 호스팅되며 또는 파일 확장명을 가진 [GeoJSON 파일](https://wikipedia.org/wiki/GeoJSON) 이어야 합니다 `.json` `.geojson` .
+참조 계층 기능을 사용하면 보조 공간 데이터 세트를 시각적 개체에 업로드하고 지도에 중첩하여 추가 컨텍스트를 제공할 수 있습니다. 이 데이터 세트는 Power BI에서 호스트되며 `.json` 또는 `.geojson` 파일 확장명을 갖는 [GeoJSON 파일](https://wikipedia.org/wiki/GeoJSON)이어야 합니다.
 
-**GeoJSON** 파일을 참조 계층으로 추가 하려면 **형식** 창으로 이동 하 여 **참조 계층** 섹션을 확장 하 고 **+ 로컬 파일 추가** 단추를 누릅니다.
+**GeoJSON** 파일을 참조 계층으로 추가하려면 **서식** 창으로 이동하여 **참조 계층** 섹션을 확장하고 **+ 로컬 파일 추가** 단추를 누릅니다.
 
-GeoJSON 파일이 참조 계층에 추가 되 면 파일 이름이 **+ 로컬 파일 추가** 단추 대신 **X** 가 표시 됩니다. **X** 단추를 눌러 시각적 개체에서 데이터를 제거 하 고 Power BI GeoJSON 파일을 삭제 합니다.
+GeoJSON 파일이 참조 계층에 추가되면 **X** 가 옆에 있는 **+ 로컬 파일 추가** 단추 대신 파일 이름이 표시됩니다. **X** 단추를 눌러 시각적 개체에서 데이터를 제거하고 Power BI에서 GeoJSON 파일을 삭제합니다.
 
-다음 지도에는 [Colorado에 대 한 2016 인구 조사 tracts](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Common/data/geojson)(모집단으로 색 지정)가 표시 됩니다.
+다음 지도에는 [콜로라도의 2016년 인구 조사](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Common/data/geojson)(모집단별로 색 지정)가 표시됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![Colorado에 대 한 2016 인구 조사 tracts를 참조 계층으로 모집단으로 색을 표시 하는 지도](media/power-bi-visual/reference-layer-CO-census-tract.png)
+> ![콜로라도의 2016년 인구 조사를 표시하고 모집단별로 색을 지정하여 참조 계층으로 보여 주는 지도](media/power-bi-visual/reference-layer-CO-census-tract.png)
 
 다음은 **참조 계층** 섹션에서 사용할 수 있는 **서식** 창의 모든 설정입니다.
 
 | 설정              | 설명   |
 |----------------------|---------------|
-| 참조 계층 데이터 | 지도 내에서 추가 계층으로 시각적 개체에 업로드할 데이터 GeoJSON 파일입니다. **+ 로컬 파일 추가** 단추는 사용자가 `.json` 또는 파일 확장명이 있는 GeoJSON 파일을 선택 하는 데 사용할 수 있는 파일 대화 상자를 엽니다 `.geojson` . |
+| 참조 계층 데이터 | 지도 내에서 추가 계층으로 시각적 개체에 업로드할 데이터 GeoJSON 파일입니다. **+ 로컬 파일 추가** 단추는 사용자가 `.json` 또는 `.geojson` 파일 확장명을 갖는 GeoJSON 파일을 선택하는 데 사용할 수 있는 파일 대화 상자를 엽니다. |
 
 > [!NOTE]
-> Azure Maps 시각적 개체의이 미리 보기에서 참조 계층은 처음 5000 셰이프 기능만 맵에 로드 합니다. 이 제한은 향후 업데이트에서 증가 됩니다.
+> Azure Maps 시각적 개체의 이 미리 보기에서 참조 계층은 처음 5,000개 도형 기능만 지도에 로드합니다. 이 제한은 향후 업데이트에서 늘어날 예정입니다.
 
 ## <a name="styling-data-in-a-reference-layer"></a>참조 계층의 데이터 스타일 지정
 
-GeoJSON 파일 내의 각 기능에 속성을 추가 하 여 맵에 스타일을 지정 하는 방법을 사용자 지정할 수 있습니다. 이 기능은 Azure Maps 웹 SDK의 단순 데이터 계층 기능을 사용 합니다. 자세한 내용은 [지원 되는 스타일 속성](spatial-io-add-simple-data-layer.md#default-supported-style-properties)에 대 한이 문서를 참조 하세요. 사용자 지정 아이콘 이미지는 보안 예방 조치로 Azure Maps 시각적 개체 내에서 지원 되지 않습니다.
+GeoJSON 파일 내의 각 기능에 속성을 추가하여 지도에서 데이터 스타일 방식을 사용자 지정할 수 있습니다. 이 기능은 Azure Maps Web SDK의 단순 데이터 계층 기능을 사용합니다. 자세한 내용은 [지원되는 스타일 속성](spatial-io-add-simple-data-layer.md#default-supported-style-properties)에 대한 이 문서를 참조하세요. 사용자 지정 아이콘 이미지는 보안 예방 조치로 Azure Maps 시각적 개체 내에서 지원되지 않습니다.
 
-다음은 표시 된 색을 빨강으로 설정 하는 GeoJSON point 기능의 예입니다.
+다음은 표시된 색을 빨강으로 설정하는 GeoJSON 점 기능의 예입니다.
 
 ```json
 {
@@ -58,7 +58,7 @@ GeoJSON 파일 내의 각 기능에 속성을 추가 하 여 맵에 스타일을
 ```
 ## <a name="next-steps"></a>다음 단계
 
-맵에 컨텍스트를 더 추가 합니다.
+지도에 컨텍스트 추가:
 
 > [!div class="nextstepaction"]
 > [타일 레이어 추가](power-bi-visual-add-tile-layer.md)

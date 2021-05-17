@@ -1,6 +1,6 @@
 ---
-title: 제안 만들기 또는 수정-Azure Marketplace
-description: 새 API를 만들거나 기존 제안을 업데이트 합니다.
+title: 제품 만들기 또는 수정 | Microsoft Docs
+description: 새 제품을 만들거나 기존 제품을 업데이트하기 위한 API입니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
@@ -8,16 +8,16 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/29/2020
 ms.openlocfilehash: dba47073a6676b17c091af048f583ca3e7712999
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87420229"
 ---
 # <a name="create-or-modify-an-offer"></a>제안 만들기 또는 수정
 
 > [!NOTE]
-> Cloud 파트너 포털 Api는와 통합 되며 파트너 센터에서 계속 작업 합니다. 전환에는 작은 변화가 도입 됩니다. [CLOUD 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md) 에 나열 된 변경 내용을 검토 하 여 파트너 센터로 전환 된 후 코드가 계속 작동 하는지 확인 합니다. CPP Api는 파트너 센터로 전환 하기 전에 이미 통합 된 기존 제품에만 사용 해야 합니다. 새 제품은 파트너 센터 제출 Api를 사용 해야 합니다.
+> Cloud 파트너 포털 API는 파트너 센터와 통합되었으며 앞으로도 계속 작동합니다. 이러한 전환에 따라 사소한 변경 내용이 적용됩니다. [Cloud 파트너 포털 API 참조](./cloud-partner-portal-api-overview.md)에 나열된 변경 내용을 검토하여 파트너 센터로 전환한 후에도 코드가 계속 작동하는지 확인합니다. CPP API는 파트너 센터로 전환하기 전에 이미 통합된 기존 제품에만 사용해야 합니다. 새 제품은 파트너 센터 제출 API를 사용해야 합니다.
 
 이 호출은 게시자 네임스페이스 내에서 특정 제안을 업데이트하거나 새 제안을 만듭니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "87420229"
 |  --------         |  ----------------                     |  -------------  |
 | publisherId       |  게시자 식별자입니다(예: `contoso`). |   String |
 | offerId           |  제안 식별자입니다.                     |   String        |
-| api-version       |  최신 버전의 API입니다.            |   날짜           |
+| api-version       |  최신 버전의 API입니다.            |   Date           |
 |  |  |  |
 
 ## <a name="header"></a>헤더
@@ -263,7 +263,7 @@ ms.locfileid: "87420229"
 
 ### <a name="response-status-codes"></a>응답 상태 코드
 
-| **코드**  |  **설명**                                                                            |
+| ‘코드’  |  **설명**                                                                            |
 | --------  |  ---------------                                                                            |
 |  200      | `OK`. 요청이 성공적으로 처리되었으며 제안이 수정되었습니다.           |
 |  201      | `Created`. 요청이 성공적으로 처리되었으며 제안이 만들어졌습니다.   |
@@ -275,273 +275,273 @@ ms.locfileid: "87420229"
 
 ## <a name="uploading-artifacts"></a>아티팩트 업로드 중
 
-위 예제와 같이 이미지, 로고 등의 아티팩트를 웹의 액세스 가능 위치에 업로드한 후 각각을 PUT 요청에 URI로 포함하여 공유해야 합니다. 시스템은 이러한 파일이 Azure Marketplace 저장소에 존재 하지 않는 것을 감지 하 고 이러한 파일을 저장소로 다운로드 합니다.  결과적으로 이후 GET 요청에서 이러한 파일에 대 한 Azure Marketplace 서비스 URL을 반환 한다는 것을 알 수 있습니다.
+위 예제와 같이 이미지, 로고 등의 아티팩트를 웹의 액세스 가능 위치에 업로드한 후 각각을 PUT 요청에 URI로 포함하여 공유해야 합니다. 시스템에서는 이러한 파일이 Azure Marketplace 스토리지에 없음을 감지하고 스토리지에 다운로드합니다.  결과적으로, 후속 GET 요청은 이러한 파일의 Azure Marketplace 서비스 URL을 반환한다는 것을 알 수 있습니다.
 
 ## <a name="categories-and-industries"></a>범주 및 산업
 
-새 제품을 만들 때 marketplace에서 제품에 대 한 범주를 지정 해야 합니다. 필요에 따라 일부 제공 유형에 대해 산업을 지정할 수도 있습니다. 제안 유형에 따라 다음 표의 특정 키 값을 사용 하 여 제품에 적용 가능한 범주/산업을 제공 합니다.
+새 제품을 만들 때 마켓플레이스에서 제품에 대한 범주를 지정해야 합니다. 필요에 따라 일부 제품 유형에 대해 산업을 지정할 수도 있습니다. 제품 유형에 따라 다음 표의 특정 키 값을 사용하여 제품에 적용 가능한 범주/산업을 제공합니다.
 
 ### <a name="azure-marketplace-categories"></a>Azure Marketplace 범주
 
-이러한 범주 및 해당 키는 Azure 앱, Virtual Machines, 핵심 Virtual Machines, 컨테이너, 컨테이너 앱, IoT Edge 모듈 및 SaaS 제품 유형에 적용 됩니다. 굵은 기울임꼴 (예: ***분석***)의 항목은 범주 이며 표준 텍스트 항목 (예: 데이터-정보)은 하위 범주입니다. 공백 또는 대문자 표시를 변경 하지 않고 정확한 키 값을 사용 합니다.
+이러한 범주 및 해당 키는 Azure 앱, 가상 머신, 핵심 가상 머신, 컨테이너, 컨테이너 앱, IoT Edge 모듈 및 SaaS 제품 유형에 적용됩니다. 굵은 기울임꼴 항목(예: ***분석***)은 범주이며 표준 텍스트 항목(예: data-insights)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
 
-| 범주 | SaaS 키 | Azure 앱 키 | 가상 컴퓨터, 컨테이너, 컨테이너 앱, IoT Edge 모듈, 코어 가상 컴퓨터 키 |
+| 범주 | SaaS 키 | Azure 앱 키 | 가상 머신, 컨테이너, 컨테이너 앱, IoT Edge 모듈, 핵심 가상 머신 키 |
 | --- | --- | --- | --- |
-| ***분석** _ | _*_analytics_*_ | _*_분석-azure-앱_*_ | _ *_분석-amp_** |
-| 데이터 정보 | 데이터-정보 | 데이터-정보 | 데이터-정보 |
-| 데이터 분석 | 데이터 분석 | 데이터 분석 | 데이터 분석 |
-| 빅 데이터 | 빅 데이터 | 데이터 데이터 | 빅 데이터 |
-| 예측 분석 | 예측-분석 | 예측-분석 | 예측-분석 |
-| 실시간/스트리밍 분석 | 실시간 스트리밍-분석 | 실시간 스트리밍-분석 | 실시간 스트리밍-분석 |
-| 기타 | 기타 | 기타-분석 | 기타 |
-| ***AI + Machine Learning** _ | _*_ArtificialIntelligence_*_ | _*_ai + 기계 학습_*_ | _ *_ai + 기계 학습_** |
-| Bot Services | bot-서비스 | bot-서비스 | bot-서비스 |
-| Cognitive Services | 인지-서비스 | 인지-서비스 | 인지-서비스 |
-| ML 서비스 | ml-서비스 | ml-서비스 | ml-서비스 |
-| 자동화된 ML | 자동-ml | 자동-ml | 자동-ml |
-| 비즈니스/로보틱 프로세스 자동화 | 비즈니스-로보틱-프로세스-자동화 | 비즈니스-로보틱-프로세스-자동화 | 비즈니스-로보틱-프로세스-자동화 |
-| 데이터 Labelling | 데이터-labelling | 데이터-labelling | 데이터-labelling |
-| 데이터 준비 | 데이터-준비 | 데이터-준비 | 데이터-준비 |
-| 지식 마이닝 | 지식-마이닝 | 지식-마이닝 | 지식-마이닝 |
-| ML 작업 | ml-작업 | ml-작업 | ml-작업 |
-| 기타 | 기타-AI-기계 학습 | 기타 | 기타 |
-| ***블록 체인** _ | _*_blockchain_*_ | _*_blockchain_*_ | _ *_blockchain_** |
-| 앱 가속기 | 앱-가속기 | 앱-가속기 | 앱-가속기 |
-| 단일 노드 원장 | 단일 노드 원장 | 단일 노드 원장 | 단일 노드 원장 |
-| 다중 노드 원장 | 다중 노드 원장 | 다중 노드 원장 | 다중 노드 원장 |
+| ***분석** _ | _*_analytics_*_ | _*_analytics-azure-apps_*_ | _ *_analytics-amp_** |
+| 데이터 인사이트 | data-insights | data-insights | data-insights |
+| 데이터 분석 | data-analytics | data-analytics | data-analytics |
+| 빅 데이터 | big-data | bigData | big-data |
+| 예측 분석 | predictive-analytics | predictive-analytics | predictive-analytics |
+| 실시간/스트리밍 분석 | real-time-streaming-analytics | real-time-streaming-analytics | real-time-streaming-analytics |
+| 기타 | 기타 | other-analytics | 기타 |
+| ***AI + 기계 학습** _ | _*_ArtificialIntelligence_*_ | _*_ai-plus-machine-learning_*_ | _ *_ai-plus-machine-learning_** |
+| Bot Services | bot-services | bot-services | bot-services |
+| Cognitive Services | cognitive-services | cognitive-services | cognitive-services |
+| ML 서비스 | ml-service | ml-service | ml-service |
+| 자동화된 ML | automated-ml | automated-ml | automated-ml |
+| 비즈니스/로봇 프로세스 자동화 | business-robotic-process-automation | business-robotic-process-automation | business-robotic-process-automation |
+| 데이터 레이블 지정 | data-labelling | data-labelling | data-labelling |
+| 데이터 준비 | data-preparation | data-preparation | data-preparation |
+| 정보 마이닝 | knowledge-mining | knowledge-mining | knowledge-mining |
+| ML 작업 | ml-operations | ml-operations | ml-operations |
+| 기타 | other-AI-plus-machine-learning | 기타 | 기타 |
+| ***블록체인** _ | _*_blockchain_*_ | _*_blockchain_*_ | _ *_blockchain_** |
+| 앱 가속기 | app-accelerators | app-accelerators | app-accelerators |
+| 단일 노드 원장 | single-node-ledger | single-node-ledger | single-node-ledger |
+| 다중 노드 원장 | multi-node-ledger | multi-node-ledger | multi-node-ledger |
 | 도구 | 도구 | 도구 | 도구 |
 | 기타 | 기타 | 기타 | 기타 |
-| ***Compute** _ | _*_계산-saas_*_ | _*_계산-azure-앱_*_ | _ *_compute_** |
-| 응용 프로그램 인프라 | appInfra | appInfrastructure | 응용 프로그램-인프라 |
-| 운영 체제 | clientOS | clientOS | 운영 체제 |
+| ***컴퓨팅** _ | _*_compute-saas_*_ | _*_compute-azure-apps_*_ | _ *_compute_** |
+| 애플리케이션 인프라 | appInfra | appInfrastructure | application-infrastructure |
+| 운영 체제 | clientOS | clientOS | operating-systems |
 | 캐시 | 캐시 | 캐시 | 캐시 |
-| 기타 | 기타-계산 | 기타-계산 | 기타 |
-| ***컨테이너** _ | _*_컨테이너가_*_ | _*_컨테이너가_*_ | _ *_컨테이너_** |
-| 컨테이너 앱 | 컨테이너-앱 | 컨테이너-앱 | 컨테이너-앱 |
-| 컨테이너 이미지 | 컨테이너-이미지 | 컨테이너-이미지 | 컨테이너-이미지 |
-| 컨테이너 시작 | 시작-컨테이너 포함 | 시작-컨테이너 포함 | 시작-컨테이너 포함 |
+| 기타 | other-compute | other-compute | 기타 |
+| ***컨테이너** _ | _*_containers_*_ | _*_containers_*_ | _ *_containers_** |
+| 컨테이너 앱 | container-apps | container-apps | container-apps |
+| 컨테이너 이미지 | container-images | container-images | container-images |
+| 컨테이너 시작 | get-started-with-containers | get-started-with-containers | get-started-with-containers |
 | 기타 | 기타 | 기타 | 기타 |
-| ***데이터베이스** _ | _*_데이터베이스-saas_*_ | _*_데이터_*_ | _ *_데이터베이스_** |
-| NoSQL 데이터베이스 | nosql-데이터베이스 | nosql-데이터베이스 | nosql-데이터베이스 |
-| 관계형 데이터베이스 | 관계형 데이터베이스 | 관계형 데이터베이스 | 관계형 데이터베이스 |
-| 원장/Blockchain 데이터베이스 | 원장 blockchain-데이터베이스 | 원장 blockchain-데이터베이스 | 원장 blockchain-데이터베이스 |
-| 데이터 레이크 | 데이터-레이크 | 데이터-레이크 | 데이터-레이크 |
-| 데이터 웨어하우스 | 데이터 웨어하우스 | 데이터 웨어하우스 | 데이터 웨어하우스 |
-| 기타 | 기타-데이터베이스 | 기타-데이터베이스 | 기타 |
-| ***개발자 도구** _ | _*_개발자-saas_*_ | _*_개발자-도구-azure-앱_*_ | _ *_개발자-도구_** |
-| 도구 | 도구-개발자-도구 | 도구-개발자-도구 | 도구-개발자-도구 |
+| ***데이터베이스** _ | _*_databases-saas_*_ | _*_database_*_ | _ *_databases_** |
+| NoSQL 데이터베이스 | nosql-databases | nosql-databases | nosql-databases |
+| 관계형 데이터베이스 | relational-databases | relational-databases | relational-databases |
+| 원장/블록체인 데이터베이스 | ledger-blockchain-databases | ledger-blockchain-databases | ledger-blockchain-databases |
+| 데이터 레이크 | data-lakes | data-lakes | data-lakes |
+| 데이터 웨어하우스 | data-warehouse | data-warehouse | data-warehouse |
+| 기타 | other-databases | other-databases | 기타 |
+| ***개발자 도구** _ | _*_developer-tools-saas_*_ | _*_developer-tools-azure-apps_*_ | _ *_developer-tools_** |
+| 도구 | tools-developer-tools | tools-developer-tools | tools-developer-tools |
 | 스크립트 | 스크립트 | 스크립트 | 스크립트 |
-| 개발자 서비스 | devService | devService | 개발자-서비스 |
-| 기타 | 기타-개발자-도구 | 기타-개발자-도구 | 기타 |
-| ***Devops** _ | _*_devops_*_ | _*_devops_*_ | _ *_devops_** |
+| 개발자 서비스 | devService | devService | developer-service |
+| 기타 | other-developer-tools | other-developer-tools | 기타 |
+| ***DevOps** _ | _*_devops_*_ | _*_devops_*_ | _ *_devops_** |
 | 기타 | 기타 | 기타 | 기타 |
-| ***Id** _ | _*_신분을_*_ | _*_신분을_*_ | _ *_id_** |
-| 액세스 관리 | 액세스 관리 | 액세스 관리 | 액세스 관리 |
+| ***ID** _ | _*_identity_*_ | _*_identity_*_ | _ *_identity_** |
+| 액세스 관리 | access-management | access-management | access-management |
 | 기타 | 기타 | 기타 | 기타 |
-| ***통합** _ | _*_통합할_*_ | _*_통합할_*_ | _ *_통합_** |
+| ***통합** _ | _*_integration_*_ | _*_integration_*_ | _ *_integration_** |
 | 메시징 | 메시징 | 메시징 | 메시징 |
 | 기타 | 기타 | 기타 | 기타 |
-| ***사물 인터넷** _ | _*_IoT_*_ | _*_사물 인터넷-azure-앱_*_ | _ *_인터넷_** |
-| IoT 핵심 서비스 | 해당 없음 | iot-핵심 서비스 | iot-핵심 서비스 |
-| IoT Edge 모듈 | 해당 없음 | iot-에 지-모듈 | iot-에 지-모듈 |
-| IoT 솔루션 | iot-솔루션 | iot-솔루션 | iot-솔루션 |
-| 데이터 분석 & 시각화 | 데이터 분석 및 시각화 | 데이터 분석 및 시각화 | 데이터 분석 및 시각화 |
-| IoT 연결 | iot-연결 | iot-연결 | iot-연결 |
-| 기타 | 기타-사물 인터넷 | 기타-사물 인터넷 | 기타 |
-| ***IT & 관리 도구** _ | _*_ITandAdministration_*_ | _*_it-및 관리-도구-azure-앱_*_ | _ *_it 및 관리-도구_** |
-| 관리 솔루션 | 관리-솔루션 | 관리-솔루션 | 관리-솔루션 |
-| 비즈니스 애플리케이션 | businessApplication | businessApplication | 비즈니스 응용 프로그램 |
-| 기타 | 기타-관리-도구 | 기타-관리-도구 | 기타 |
-| ***모니터링 & 진단** _ | _*_모니터링-및 진단_*_ | _*_모니터링-및 진단_*_ | _ *_모니터링-및-진단_** |
+| ***사물 인터넷** _ | _*_IoT_*_ | _*_internet-of-things-azure-apps_*_ | _ *_internet-of-things_** |
+| IoT 핵심 서비스 | 해당 없음 | iot-core-services | iot-core-services |
+| IoT Edge 모듈 | 해당 없음 | iot-edge-modules | iot-edge-modules |
+| IoT 솔루션 | iot-solutions | iot-solutions | iot-solutions |
+| 데이터 분석 및 시각화 | data-analytics-and-visualization | data-analytics-and-visualization | data-analytics-and-visualization |
+| IoT 연결 | iot-connectivity | iot-connectivity | iot-connectivity |
+| 기타 | other-internet-of-things | other-internet-of-things | 기타 |
+| ***IT 및 관리 도구** _ | _*_ITandAdministration_*_ | _*_it-and-management-tools-azure-apps_*_ | _ *_it-and-management-tools_** |
+| 관리 솔루션 | management-solutions | management-solutions | management-solutions |
+| 비즈니스 애플리케이션 | businessApplication | businessApplication | business-applications |
+| 기타 | other-it-management-tools | other-it-management-tools | 기타 |
+| ***모니터링 및 진단** _ | _*_monitoring-and-diagnostics_*_ | _*_monitoring-and-diagnostics_*_ | _ *_monitoring-and-diagnostics_** |
 | 기타 | 기타 | 기타 | 기타 |
-| ***미디어** _ | _*_미디어만_*_ | _*_미디어만_*_ | _ *_미디어_** |
+| ***미디어** _ | _*_media_*_ | _*_media_*_ | _ *_media_** |
 | Media Services | media-services | media-services | media-services |
 | Content Protection | content-protection | content-protection | content-protection |
-| 라이브 & 주문형 스트리밍 | 주문형 라이브 스트리밍 | 주문형 라이브 스트리밍 | 주문형 라이브 스트리밍 |
+| 라이브 및 주문형 스트리밍 | live-and-on-demand-streaming | live-and-on-demand-streaming | live-and-on-demand-streaming |
 | 기타 | 기타 | 기타 | 기타 |
-| ***마이그레이션** _ | _*_마이그레이션이나_*_ | _*_마이그레이션이나_*_ | _ *_마이그레이션_** |
-| 데이터 마이그레이션 | 데이터 마이그레이션 | 데이터 마이그레이션 | 데이터 마이그레이션 |
+| ***마이그레이션** _ | _*_migration_*_ | _*_migration_*_ | _ *_migration_** |
+| 데이터 마이그레이션 | data-migration | data-migration | data-migration |
 | 기타 | 기타 | 기타 | 기타 |
-| ***혼합 현실** _ | _*_mixed-reality_*_ | _*_mixed-reality_*_ | _ *_mixed-현실_** |
+| ***혼합 현실** _ | _*_mixed-reality_*_ | _*_mixed-reality_*_ | _ *_mixed-reality_** |
 | 기타 | 기타 | 기타 | 기타 |
-| ***네트워킹** _ | _*_lan_*_ | _*_lan_*_ | _ *_네트워킹_** |
-| 어플라이언스 관리자 | 어플라이언스-관리자 | 어플라이언스-관리자 | 어플라이언스-관리자 |
+| ***네트워킹** _ | _*_networking_*_ | _*_networking_*_ | _ *_networking_** |
+| 어플라이언스 관리자 | appliance-managers | appliance-managers | appliance-managers |
 | 연결 | 연결 | 연결 | 연결 |
 | 방화벽 | 방화벽 | 방화벽 | 방화벽 |
-| 부하 분산 장치 | 부하 분산 장치 | 부하 분산 장치 | 부하 분산 장치 |
+| 부하 분산 장치 | load-balancers | load-balancers | load-balancers |
 | 기타 | 기타 | 기타 | 기타 |
-| ***보안** _ | _*_보안_*_ | _*_보안_*_ | _ *_보안_** |
-| ID 및 액세스 관리 | id 및 액세스 관리 | id 및 액세스 관리 | id 및 액세스 관리 |
-| Threat Protection | 위협 방지 | 위협 방지 | 위협 방지 |
-| Information Protection | 정보-보호 | 정보-보호 | 정보-보호 |
+| ***보안** _ | _*_security_*_ | _*_security_*_ | _ *_security_** |
+| ID 및 액세스 관리 | identity-and-access-management | identity-and-access-management | identity-and-access-management |
+| Threat Protection | threat-protection | threat-protection | threat-protection |
+| Information Protection | information-protection | information-protection | information-protection |
 | 기타 | 기타 | 기타 | 기타 |
-| ***저장소** _ | _*_저장소-saas_*_ | _*_저장소-azure-앱_*_ | _ *_저장소_** |
-| 백업 & 복구 | 백업(backup) | 백업(backup) | 백업 및 복구 |
-| 엔터프라이즈 하이브리드 저장소 | 엔터프라이즈급-하이브리드 저장소 | 엔터프라이즈급-하이브리드 저장소 | 엔터프라이즈급-하이브리드 저장소 |
-| 파일 공유 | 파일 공유 | 파일 공유 | 파일 공유 |
-| 데이터 수명 주기 관리 | 데이터 수명 주기-관리 | 데이터 수명 주기-관리 | 데이터 수명 주기-관리 |
-| 기타 | 기타-저장소 | 기타-저장소 | 기타 |
-| ***웹** _ | _*_웹_*_ | _*_웹_*_ | _ *_웹_** |
-| 블로그 & CMSs | 블로그-및-cmss | 블로그-및-cmss | 블로그-및-cmss |
-| 스타터 Web Apps | starter-웹-앱 | starter-웹-앱 | starter-웹-앱 |
-| 전자 | 전자 | 전자 | 전자 |
-| Web Apps 프레임 워크 | 웹 앱-프레임 워크 | 웹 앱-프레임 워크 | 웹 앱-프레임 워크 |
-| Web Apps | 웹 앱 | 웹 앱 | 웹 앱 |
+| ***스토리지** _ | _*_storage-saas_*_ | _*_storage-azure-apps_*_ | _ *_storage_** |
+| 백업 및 복구 | 백업(backup) | 백업(backup) | backup-and-recovery |
+| 엔터프라이즈 하이브리드 스토리지 | enterprise-hybrid-storage | enterprise-hybrid-storage | enterprise-hybrid-storage |
+| 파일 공유 | file-sharing | file-sharing | file-sharing |
+| 데이터 수명 주기 관리 | data-lifecycle-management | data-lifecycle-management | data-lifecycle-management |
+| 기타 | other-storage | other-storage | 기타 |
+| ***웹** _ | _*_web_*_ | _*_web_*_ | _ *_web_** |
+| 블로그 및 CMS | blogs-and-cmss | blogs-and-cmss | blogs-and-cmss |
+| 시작 웹앱 | starter-web-apps | starter-web-apps | starter-web-apps |
+| 전자 상거래 | ecommerce | ecommerce | ecommerce |
+| Web Apps 프레임워크 | web-apps-frameworks | web-apps-frameworks | web-apps-frameworks |
+| Web Apps | web-apps | web-apps | web-apps |
 | 기타 | 기타 | 기타 | 기타 |
 ||||
 
 ### <a name="microsoft-appsource-categories"></a>Microsoft AppSource 범주
 
-이러한 범주 및 해당 키는 SaaS, PowerBI 앱, Dynamics 365 business central, Dynamics 365 for customer engagement 및 작업 제공 유형에 대 한 Dynamics 365에 적용 됩니다. 굵은 기울임꼴 (예: ***분석***)의 항목은 범주 이며 표준 텍스트 항목 (예: 고급 분석)은 하위 범주입니다. 공백 또는 대문자 표시를 변경 하지 않고 정확한 키 값을 사용 합니다.
+이러한 범주 및 해당 키는 SaaS, PowerBI 앱, Dynamics 365 business central, Dynamics 365 for customer engagement 및 Dynamics 365 for operation 제품 유형에 적용됩니다. 굵은 기울임꼴 항목(예: ***분석***)은 범주이며 표준 텍스트 항목(예: advanced-analytics)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
 
-| 범주 | SaaS 키 | Dynamics 365 business central, Dynamics 365 for customer engagement, 작업 키에 대 한 Dynamics 365 | PowerBI 앱 키 |
+| 범주 | SaaS 키 | Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation 키 | PowerBI 앱 키 |
 | --- | --- | --- | --- |
-| ***분석** _ | _*_analytics_*_ | _*_분석_*_ | _ *_분석_** |
-| 고급 분석 | 고급-분석 | 고급-분석 | 고급-분석 |
-| 시각화 & 보고 | 시각화-보고 | 시각화-보고 | 시각화-보고 |
-| 기타 | 기타 | 기타-분석 | 기타-분석 |
-| ***AI + Machine Learning** _ | _*_ArtificialIntelligence_*_ | _*_ai와 기계 학습-dynamics_*_ | _ *_ai + 기계 학습-appsource_** |
-| 비즈니스 AI | 비즈니스 ai | 비즈니스 ai | 비즈니스 ai |
-| Bot 앱 | 봇-앱 | 봇-앱 | 봇-앱 |
-| 기타 | 기타-ai-기계 학습 | 기타-ai-기계 학습 | 기타-ai-기계 학습 |
-| **협업*** | _*_협업_*_ | _*_협업_*_ | _ *_공동 작업_** |
-| 담당자 & 담당자 | 연락처-사람 | 연락처-사람 | 연락처-사용자 |
-| 모임 관리 | 모임 관리 | 모임 관리 | 모임 관리 |
-| 사이트 디자인 & 관리 | 사이트-디자인-관리 | 사이트-디자인-관리 | 사이트 디자인 및 관리 |
-| 작업 & 프로젝트 관리 | 작업-프로젝트 관리 | 작업-프로젝트 관리 | 작업 및 프로젝트 관리 |
-| 음성 & 비디오 회의 | 음성-비디오-회의 | 음성-비디오-회의 | 음성 및 비디오 회의 |
-| 기타 | 기타-공동 작업 | 기타-공동 작업 | 기타 |
-| ***준수 & 법적** _ | _*_정한_*_ | _*_정한_*_ | _ *_준수 및 법적_** |
-| 세금 & 감사 | 세금 감사 | 세금 감사 | 세금 및 감사 |
+| ***분석** _ | _*_analytics_*_ | _*_분석_*_ | _ *_Analytics_** |
+| 고급 분석 | advanced-analytics | advanced-analytics | advanced-analytics |
+| 시각화 및 보고 | visualization-reporting | visualization-reporting | visualization-reporting |
+| 기타 | 기타 | other-analytics | other-analytics |
+| ***AI + 기계 학습** _ | _*_ArtificialIntelligence_*_ | _*_ai-plus-machine-learning-dynamics_*_ | _ *_ai-plus-machine-learning-appsource_** |
+| 비즈니스용 AI | ai-for-business | ai-for-business | ai-for-business |
+| 봇 앱 | bot-apps | bot-apps | bot-apps |
+| 기타 | other-ai-plus-machine-learning | other-ai-plus-machine-learning | other-ai-plus-machine-learning |
+| **협업*** | _*_협업_*_ | _*_협업_*_ | _ *_collaboration_** |
+| 연락처 및 사람 | contact-people | contact-people | contact-and-people |
+| 모임 관리 | meeting-management | meeting-management | meeting-management |
+| 사이트 디자인 및 관리 | site-design-management | site-design-management | site-design-and-management |
+| 작업 및 프로젝트 관리 | task-project-management | task-project-management | task-and-project-management |
+| 음성 및 화상 회의 | voice-video-conferencing | voice-video-conferencing | voice-and-video-conferencing |
+| 기타 | other-collaboration | other-collaboration | 기타 |
+| ***규정 준수 및 법률** _ | _*_compliance_*_ | _*_compliance_*_ | _ *_compliance-and-legal_** |
+| 세금 및 감사 | tax-audit | tax-audit | tax-and-audit |
 | Legal | Legal | Legal | legal |
-| 데이터, 거 버 넌 스 & 개인 정보 | 데이터-거 버 넌 스-개인 정보 | 데이터-거 버 넌 스-개인 정보 | 데이터-거 버 넌 스 및 개인 정보 |
-| 상태 & 안전 | 상태-안전 | 상태-안전 | 상태 및 안전 |
-| 기타 | 기타 규정 준수-법적 | 기타 규정 준수-법적 | 기타 |
-| ***고객 서비스** _ | _*_CustomerService_*_ | _*_CustomerService_*_ | _ *_고객-서비스_** |
-| 연락처 센터 | 연락처-센터 | 연락처-센터 | 연락처-센터 |
-| Face 서비스 | 얼굴 대 얼굴 서비스 | 얼굴 대 얼굴 서비스 | 얼굴 대 얼굴 서비스 |
-| Office & Employee Service 백업 | 사무실-직원-서비스 | 사무실-직원-서비스 | 사무실 및 직원-서비스 |
-| 기술 자료 & 사례 관리 | 기술 항목-관리 | 기술 항목-관리 | 지식과 사례 관리 |
-| 소셜 미디어 & Omnichannel Engagement | omnichannel-engagement | omnichannel-engagement | 소셜-미디어 및-omnichannel |
-| 기타 | 기타-고객-서비스 | 기타-고객-서비스 | 기타 |
-| ***재무** _ | _*_Finance_*_ | _*_Finance_*_ | _ *_재무_** |
+| 데이터, 거버넌스 및 개인 정보 | data-governance-privacy | data-governance-privacy | data-governance-and-privacy |
+| 건강 및 안전 | health-safety | health-safety | health-and-safety |
+| 기타 | other-compliance-legal | other-compliance-legal | 기타 |
+| ***고객 서비스** _ | _*_CustomerService_*_ | _*_CustomerService_*_ | _ *_customer-service_** |
+| 연락 센터 | contact-center | contact-center | contact-center |
+| 대면 서비스 | face-to-face-service | face-to-face-service | face-to-face-service |
+| 백오피스 및 직원 서비스 | back-office-employee-service | back-office-employee-service | back-office-and-employee-service |
+| 지식 및 사례 관리 | knowledge-case-management | knowledge-case-management | knowledge-and-case-management |
+| 소셜 미디어 및 옴니채널 참여 | social-media-omnichannel-engagement | social-media-omnichannel-engagement | social-media-and-omnichannel-engagement |
+| 기타 | other-customer-service | other-customer-service | 기타 |
+| ***재무** _ | _*_Finance_*_ | _*_Finance_*_ | _ *_finance_** |
 | 회계 | 회계 | 회계 | 회계 |
-| 자산 관리 | 자산 관리 | 자산 관리 | 자산 관리 |
-| 분석, 통합 & 보고 | 분석-통합-보고 | 분석-통합-보고 | 분석-통합 및 보고 |
-| 크레딧 & 컬렉션 | 크레딧-컬렉션 | 크레딧-컬렉션 | 크레딧 및 컬렉션 |
-| 규정 준수 & 위험 관리 | 규정 준수-위험 관리 | 규정 준수-위험 관리 | 규정 준수 및 위험 관리 |
-| 기타 | 기타-재무 | 기타-재무 | 기타 |
-| ***인적 자원** _ | _*_HumanResources_*_ | _*_HumanResources_*_ | _ *_인적 자원_** |
-| 인재 획득 | 인재-취득 | 인재-취득 | 인재-취득 |
-| 인재 관리 | 인재-관리 | 인재-관리 | 인재-관리 |
-| HR 작업 | hr-작업 | hr-작업 | hr-작업 |
-| 직원 계획 & 분석 | 직원-계획-분석 | 직원-계획-분석 | 직원-계획 및 분석 |
-| 기타 | 기타-인적 자원 | 기타-인적 자원 | 기타 |
-| ***사물 인터넷** _ | _*_IoT_*_ | _*_사물 인터넷_*_ | _ *_사물 인터넷-appsource_** |
-| Asset Management & 작업 | 자산 관리-작업 | 자산 관리-작업 | 자산 관리-및 작업 |
-| 연결 된 제품 | 연결 됨-제품 | 연결 됨-제품 | 연결 됨-제품 |
-| 인텔리전트 공급망 | intelligent 공급망 | intelligent 공급망 | intelligent 공급망 |
-| 예측 유지 관리 | 예측 유지 관리 | 예측 유지 관리 | 예측 유지 관리 |
-| 원격 모니터링 | 원격 모니터링 | 원격 모니터링 | 원격 모니터링 |
-| 안전 & 보안 | 안전-보안 | 안전-보안 | 안전 및 보안 |
-| 스마트 인프라 & 리소스 | 스마트 인프라-리소스 | 스마트 인프라-리소스 | 스마트 인프라 및 리소스 |
-| 차량 & 이동성 | 차량-이동성 | 차량-이동성 | 차량 및 이동성 |
-| 기타 | 기타-사물 인터넷 | 기타-사물 인터넷 | 기타 |
-| ***IT & 관리 도구** _ | _*_ITandAdministration_*_ | _*_ITandAdministration_*_ | _ *_it 및 관리-도구_** |
-| 관리 솔루션 | 관리-솔루션 | 관리-솔루션 | 관리-솔루션 |
-| 비즈니스 애플리케이션 | businessApplication | businessApplication | 비즈니스 응용 프로그램 |
-| 기타 | 기타-관리-도구 | 기타-관리-도구 | 기타 |
-| ***마케팅** _ | _*_Marketing_*_ | _*_Marketing_*_ | _ *_마케팅_** |
-| 광고가 | 광고가 | 광고가 | 광고가 |
-| 분석 | 분석-마케팅 | 분석-마케팅 | 분석-마케팅 |
-| 캠페인 관리 & 자동화 | 캠페인-관리-자동화 | 캠페인-관리-자동화 | 캠페인 관리-및-자동화 |
-| 전자 메일 마케팅 | 전자 메일-마케팅 | 전자 메일-마케팅 | 전자 메일-마케팅 |
-| L2-이벤트 & 리소스 관리 | 이벤트-리소스 관리 | 이벤트-리소스 관리 | 이벤트 및 리소스 관리 |
-| & 분석 연구 | 연구 분석 | 연구 분석 | 연구 분석 |
-| 소셜 미디어 | 소셜-미디어 | 소셜-미디어 | 소셜-미디어 |
-| 기타 | 기타-마케팅 | 기타-마케팅 | 기타 |
-| ***작업 & 공급망** _ | _*_OperationsSupplyChain_*_ | _*_OperationsSupplyChain_*_ | _ *_작업-및_ 공급망** |
-| Asset & 프로덕션 관리 | 자산-프로덕션 관리 | 자산-프로덕션 관리 | 자산 및 프로덕션 관리 |
-| 수요 예측 | 수요 예측 | 수요 예측 | 수요 예측 |
-| 정보 관리 & 연결 | 정보-관리-연결 | 정보-관리-연결 | 정보 관리 및 연결 |
-| 계획, 구매 & 보고 | 계획-구매-보고 | 계획-구매-보고 | 계획-구매 및 보고 |
-| 품질 & 서비스 관리 | 품질-서비스 관리 | 품질-서비스 관리 | 품질 및 서비스 관리 |
-| 판매 & 주문 관리 | 판매 주문 관리 | 판매 주문 관리 | 판매 및 주문 관리 |
-| 교통 & 웨어하우스 관리 | 교통-웨어하우스-관리 | 교통-웨어하우스-관리 | 교통 및 웨어하우스 관리 |
-| 기타 | 기타-작업-공급망 | 기타-작업-공급망 | 기타 |
-| ***생산성** _ | _*_생산성_*_ | _*_생산성_*_ | _ *_생산성_** |
-| 콘텐츠 생성 & 관리 | 콘텐츠 생성-관리 | 콘텐츠 생성-관리 | 콘텐츠 생성 및 관리 |
-| 언어 & 번역 | 언어-번역 | 언어-번역 | 언어 및 번역 |
-| 문서 관리 | 문서 관리 | 문서 관리 | 문서 관리 |
-| 전자 메일 관리 | 전자 메일 관리 | 전자 메일 관리 | 전자 메일 관리 |
-| 검색 & 참조 | 검색-참조 | 검색-참조 | 검색 및 참조 |
-| 기타 | 기타-생산성 | 기타-생산성 | 기타 |
+| 자산 관리 | asset-management | asset-management | asset-management |
+| 분석, 통합 및 보고 | analytics-consolidation-reporting | analytics-consolidation-reporting | analytics-consolidation-and-reporting |
+| 크레딧 및 컬렉션 | credit-collections | credit-collections | credit-and-collections |
+| 규정 준수 및 위험 관리 | compliance-risk-management | compliance-risk-management | compliance-and-risk-management |
+| 기타 | other-finance | other-finance | 기타 |
+| ***인사 관리** _ | _*_HumanResources_*_ | _*_HumanResources_*_ | _ *_human-resources_** |
+| 인재 획득 | talent-acquisition | talent-acquisition | talent-acquisition |
+| 인재 관리 | talent-management | talent-management | talent-management |
+| HR 운영 | hr-operations | hr-operations | hr-operations |
+| 인력 계획 및 분석 | workforce-planning-analytics | workforce-planning-analytics | workforce-planning-and-analytics |
+| 기타 | other-human-resources | other-human-resources | 기타 |
+| ***사물 인터넷** _ | _*_IoT_*_ | _*_internet-of-things-dynamics_*_ | _ *_internet-of-things-appsource_** |
+| 자산 관리 및 운영 | asset-management-operations | asset-management-operations | asset-management-and-operations |
+| 연결된 제품 | connected-products | connected-products | connected-products |
+| 지능형 공급망 | intelligent-supply-chain | intelligent-supply-chain | intelligent-supply-chain |
+| 예측 유지 관리 | predictive-maintenance | predictive-maintenance | predictive-maintenance |
+| 원격 모니터링 | remote-monitoring | remote-monitoring | remote-monitoring |
+| 안전 및 보안 | safety-security | safety-security | safety-and-security |
+| 스마트 인프라 및 리소스 | smart-infrastructure-resources | smart-infrastructure-resources | smart-infrastructure-and-resources |
+| 차량 및 이동성 | vehicles-mobility | vehicles-mobility | vehicles-and-mobility |
+| 기타 | other-internet-of-things | other-internet-of-things | 기타 |
+| ***IT 및 관리 도구** _ | _*_ITandAdministration_*_ | _*_ITandAdministration_*_ | _ *_it-and-management-tools_** |
+| 관리 솔루션 | management-solutions | management-solutions | management-solutions |
+| 비즈니스 애플리케이션 | businessApplication | businessApplication | business-applications |
+| 기타 | other-it-management-tools | other-it-management-tools | 기타 |
+| ***마케팅** _ | _*_Marketing_*_ | _*_Marketing_*_ | _ *_marketing_** |
+| 광고 | advertisement | advertisement | advertisement |
+| 분석 | analytics-marketing | analytics-marketing | analytics-marketing |
+| 캠페인 관리 및 자동화 | campaign-management-automation | campaign-management-automation | campaign-management-and-automation |
+| 메일 마케팅 | email-marketing | email-marketing | email-marketing |
+| L2 - 이벤트 및 리소스 관리 | events-resource-management | events-resource-management | events-and-resource-management |
+| 리서치 및 분석 | research-analytics | research-analytics | research-and-analysis |
+| 소셜 미디어 | social-media | social-media | social-media |
+| 기타 | other-marketing | other-marketing | 기타 |
+| ***운영 및 공급망** _ | _*_OperationsSupplyChain_*_ | _*_OperationsSupplyChain_*_ | _ *_operations-and-supply-chain_** |
+| 자산 및 프로덕션 관리 | asset-production-management | asset-production-management | asset-and-production-management |
+| 수요 예측 | demand-forecasting | demand-forecasting | demand-forecasting |
+| 정보 관리 및 연결 | information-management-connectivity | information-management-connectivity | information-management-and-connectivity |
+| 계획, 구매 및 보고 | planning-purchasing-reporting | planning-purchasing-reporting | planning-purchasing-and-reporting |
+| 품질 및 서비스 관리 | quality-service-management | quality-service-management | quality-and-service-management |
+| 판매 및 주문 관리 | sales-order-management | sales-order-management | sales-and-order-management |
+| 교통 및 웨어하우스 관리 | transportation-warehouse-management | transportation-warehouse-management | transportation-and-warehouse-management |
+| 기타 | other-operations-supply-chain | other-operations-supply-chain | 기타 |
+| ***생산성** _ | _*_생산성_*_ | _*_생산성_*_ | _ *_productivity_** |
+| 콘텐츠 만들기 및 관리 | content-creation-management | content-creation-management | content-creation-and-management |
+| 언어 및 번역 | language-translation | language-translation | language-and-translation |
+| 문서 관리 | document-management | document-management | document-management |
+| 전자 메일 관리 | email-management | email-management | email-management |
+| 검색 및 참조 | search-reference | search-reference | search-and-reference |
+| 기타 | other-productivity | other-productivity | 기타 |
 | 게이미피케이션 | 게이미피케이션 | 게이미피케이션 | gamification |
-| ***판매** _ | _*_Sales_*_ | _*_Sales_*_ | _ *_판매_** |
-| 영업 | 영업 | 영업 | 영업 |
-| 구성, 가격, 견적 (CPQ) | 구성-가격-견적 | 구성-가격-견적 | 구성-가격-견적 |
-| 계약 관리 | 계약 관리 | 계약 관리 | 계약 관리 |
+| ***판매** _ | _*_매출_*_ | _*_매출_*_ | _ *_Sales_** |
+| 통신 판매 | telesales | telesales | telesales |
+| CPQ(구성, 가격, 견적) | configure-price-quote | configure-price-quote | configure-price-quote |
+| 계약 관리 | contract-management | contract-management | contract-management |
 | CRM | crm | crm | crm |
-| 전자 상거래 | 전자 상거래 | 전자 상거래 | 전자 상거래 |
-| 비즈니스 데이터 보강 | 비즈니스 데이터-보강 | 비즈니스 데이터-보강 | 비즈니스 데이터-보강 |
-| 판매 활성화 | 판매-활성화 | 판매-활성화 | 판매-활성화 |
-| 기타 | 기타-판매 | 기타-판매 | 기타-판매 |
-| ***지리적** 위치 _ | _*_지리적_*_ | _*_지리적_*_ | _ *_지리적_ 위치** |
+| 전자 상거래 | e-commerce | e-commerce | e-commerce |
+| 비즈니스 데이터 보강 | business-data-enrichment | business-data-enrichment | business-data-enrichment |
+| 판매 활성화 지원 | sales-enablement | sales-enablement | sales-enablement |
+| 기타 | other-sales | other-sales | other-sales |
+| ***지리적 위치** _ | _*_geolocation_*_ | _*_geolocation_*_ | _ *_geolocation_** |
 | 지도 | maps | maps | maps |
-| 뉴스 & 날씨 | 뉴스 및 날씨 | 뉴스 및 날씨 | 뉴스 및 날씨 |
-| 기타 | 기타-지리적 위치 | 기타-지리적 위치 | 기타-지리적 위치 |
+| 뉴스 및 날씨 | news-and-weather | news-and-weather | news-and-weather |
+| 기타 | other-geolocation | other-geolocation | other-geolocation |
 ||||
 
 ### <a name="microsoft-appsource-industries"></a>Microsoft AppSource 산업
 
-이러한 산업 및 해당 키는 SaaS, PowerBI 앱, Dynamics 365 business central, Dynamics 365 for customer engagement 및 작업 제공 유형에 대 한 Dynamics 365에 적용 됩니다. 굵은 기울임꼴 (예: ***자동차***)의 항목은 범주 이며 표준 텍스트 항목 (예: AutomotiveL2)은 하위 범주입니다. 공백 또는 대문자 표시를 변경 하지 않고 정확한 키 값을 사용 합니다.
+이러한 산업 및 해당 키는 SaaS, PowerBI 앱, Dynamics 365 business central, Dynamics 365 for customer engagement 및 Dynamics 365 for operation 제품 유형에 적용됩니다. 굵은 기울임꼴 항목(예: ***자동차***)은 범주이며 표준 텍스트 항목(예: AutomotiveL2)은 하위 범주입니다. 공백 또는 대/소문자를 변경하지 말고 정확한 키 값을 사용합니다.
 
-| 업종 | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, 작업 키에 대 한 Dynamics 365 | PowerBI 앱 키 |
+| 업종 | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation 키 | PowerBI 앱 키 |
 | --- | --- | --- |
-| ***자동차** _ | _*_자동차_*_ | _ *_자동차_** |
+| ***자동차** _ | _*_자동차_*_ | _ *_automotive_** |
 | 자동차 | AutomotiveL2 | AutomotiveL2 |
-| ***농업** _ | _*_농업_*_ | _ *_농업_** |
-| 기타-분할 되지 않음 | 분할 되지 않은 농업 \_ | 기타-분할 되지 않음 |
-| ***분포** _ | _*_배포_*_ | _ *_분포_** |
-| 도매 | 도매 | 도매 |
-| Parcel & 패키지 전달 | ParcelAndPackageShipping | parcel-및 패키지 전달 |
-| ***교육** _ | _*_Education_*_ | _ *_교육_** |
-| 높은 교육 | HigherEducation | 높은 교육 |
-| 기본 & 보조 교육/K-12 | PrimaryAndSecondaryEducationK12 | 기본-및 보조-교육 |
-| 라이브러리 & Museums | LibrariesAndMuseums | 라이브러리-및-museums |
-| ***금융 서비스** _ | _*_FinancialServices_*_ | _ *_금융-서비스_** |
-| 은행 & 자본 시장 | BankingAndCapitalMarkets | 은행 및 자본-시장 |
+| ***농업** _ | _*_농업_*_ | _ *_agriculture_** |
+| 기타 - 분류되지 않음 | Agriculture\_OtherUnsegmented | other-unsegmented |
+| ***유통** _ | _*_배포_*_ | _ *_distribution_** |
+| 도매 | 도매 | wholesale |
+| 소포 및 택배 배달 | ParcelAndPackageShipping | parcel-and-package-shipping |
+| ***교육** _ | _*_Education_*_ | _ *_education_** |
+| 고등 교육 | HigherEducation | higher-education |
+| 초등 및 중등 교육/K-12 | PrimaryAndSecondaryEducationK12 | primary-and-secondary-education |
+| 도서관 및 박물관 | LibrariesAndMuseums | libraries-and-museums |
+| ***금융 서비스** _ | _*_FinancialServices_*_ | _ *_financial-services_** |
+| 뱅킹 및 자금 시장 | BankingAndCapitalMarkets | banking-and-capital-markets |
 | 보험 | 보험 | 보험 |
-| ***정부** _ | _*_정부_*_ | _ *_정부_** |
-| 방어 & 인텔리전스 | DefenseAndIntelligence | 방어 및 인텔리전스 |
-| 공용 안전 & | PublicSafetyAndJustice | 공용 안전 성과 |
-| Civilian 정부 | CivilianGovernment | civilian-정부 |
-| ***의료** _ | _*_HealthCareandLifeSciences_*_ | _ *_의료_** |
-| 상태 보험사 | HealthPayor | 상태-보험사 |
-| 상태 제공자 | HealthProvider | 상태-공급자 |
+| ***정부** _ | _*_정부_*_ | _ *_government_** |
+| 군사 및 정보 | DefenseAndIntelligence | defense-and-intelligence |
+| 공공 안전 및 사법 | PublicSafetyAndJustice | public-safety-and-justice |
+| 민간 정부 | CivilianGovernment | civilian-government |
+| ***의료** _ | _*_HealthCareandLifeSciences_*_ | _ *_healthcare_** |
+| 의료 서비스 보험사 | HealthPayor | health-payor |
+| 의료 서비스 제공자 | HealthProvider | health-provider |
 | 제약 | 제약 | 제약 회사 |
-| ***제조 & 리소스** _ | _*_제조업_*_ | _ *_제조-및 리소스_** |
-| 화학 & Agrochemical | ChemicalAndAgrochemical | 화학 및 agrochemical |
-| 불연속 제조 | DiscreteManufacturing | 불연속-제조 |
+| ***제조 및 자원** _ | _*_제조업_*_ | _ *_manufacturing-and-resources_** |
+| 화학 및 농화학 | ChemicalAndAgrochemical | chemical-and-agrochemical |
+| 조립 제조 | DiscreteManufacturing | discrete-manufacturing |
 | 에너지 | 에너지 | energy |
-| ***소매 & 소비자 상품** _ | _*_RetailandConsumerGoods_*_ | _ *_소매-및-소비자-상품_** |
-| 소비자 상품 | ConsumerGoods | 소비자 상품 |
-| 업체 | 업체 | 업체 |
-| ***미디어 & 통신** _ | _*_MediaAndCommunications_*_ | _ *_미디어 및 통신_** |
-| 미디어 & 엔터테인먼트 | MediaandEntertainment | 미디어 및 엔터테인먼트 |
-| 전자 통신 | 전자 통신 | 통신 |
-| ***전문 서비스** _ | _*_ProfessionalServices_*_ | _ *_professional-서비스_** |
+| ***소매 및 소비재** _ | _*_RetailandConsumerGoods_*_ | _ *_retail-and-consumer-goods_** |
+| 소비재 | ConsumerGoods | consumer-goods |
+| 소매점 | 소매점 | retailers |
+| ***미디어 및 커뮤니케이션** _ | _*_MediaAndCommunications_*_ | _ *_media-and-communications_** |
+| 미디어 및 엔터테인먼트 | MediaandEntertainment | media-and-entertainment |
+| 전자 통신 | 전자 통신 | telecommunications |
+| ***전문 서비스** _ | _*_ProfessionalServices_*_ | _ *_professional-services_** |
 | Legal | Legal | legal |
-| 파트너 전문가 서비스 | PartnerProfessionalServices | 파트너-전문가-서비스 |
-| ***아키텍처 & 생성** _ | _*_ArchitectureAndConstruction_*_ | _ *_아키텍처 및-생성_** |
-| 기타-분할 되지 않음 | 분할 되지 않은 ArchitectureAndConstruction \_ | 기타-분할 되지 않음 |
-| ***숙박 & 여행** _ | _*_HospitalityandTravel_*_ | _ *_숙박-및 여행_** |
-|    호텔 & 레저 | HotelsAndLeisure | 호텔-및-레저 |
-| 여행 및 교통 | TravelAndTransportation | 여행 및 교통 |
-| 식당 & 음식 서비스 | RestaurantsAndFoodServices | 식당 및 음식-서비스 |
-| ***기타 공공 부문 산업** _ | _*_OtherPublicSectorIndustries_*_ | _ *_기타-공공 부문-산업_** |
-| 임업 & 낚 싯 | ForestryAndFishing | 임업 |
-| 비영리 조직 | 비영리 조직 | 비영리 조직 |
-| ***부동산 _** | _*_Realestate-us-sample_*_ | _ *부동산** |
-| 기타-분할 되지 않음 | 분할 되지 않은 Realestate-us-sample \_ | 기타-분할 되지 않음 |
+| 파트너 전문 서비스 | PartnerProfessionalServices | partner-professional-services |
+| ***건축 및 설계** _ | _*_ArchitectureAndConstruction_*_ | _ *_architecture-and-construction_** |
+| 기타 - 분류되지 않음 | ArchitectureAndConstruction\_OtherUnsegmented | other-unsegmented |
+| ***숙박 및 여행** _ | _*_HospitalityandTravel_*_ | _ *_hospitality-and-travel_** |
+|    호텔 및 레저 | HotelsAndLeisure | hotels-and-leisure |
+| 여행 및 교통 | TravelAndTransportation | travel-and-transportation |
+| 식당 및 식품 서비스 | RestaurantsAndFoodServices | restaurants-and-food-services |
+| ***기타 공공 부문 산업** _ | _*_OtherPublicSectorIndustries_*_ | _ *_other-public-sector-industries_** |
+| 임업 및 어업 | ForestryAndFishing | forestry-and-fishing |
+| 비영리 | Nonprofits | nonprofits |
+| ***부동산** _ | _*_RealEstate_*_ | _ *_real-estate_** |
+| 기타 - 분류되지 않음 | RealEstate\_OtherUnsegmented | other-unsegmented |
 |||

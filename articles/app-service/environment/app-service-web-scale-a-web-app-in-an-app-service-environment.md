@@ -1,6 +1,6 @@
 ---
-title: ASE v1에서 앱 크기 조정
-description: App Service Environment에서 앱의 크기를 조정 합니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
+title: ASE v1에서 앱 스케일링
+description: App Service Environment에서 앱을 스케일링합니다. 이 문서는 레거시 v1 ASE를 사용하는 고객에게만 제공됩니다.
 author: ccompy
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
 ms.topic: article
@@ -8,13 +8,13 @@ ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 0e665ec27da0a898e754817f946b965ac7360fda
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86220561"
 ---
-# <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 크기 조정
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 스케일링
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
 
 * 가격 계획
@@ -30,7 +30,7 @@ ASE에서는 가격 계획을 선택하거나 변경할 필요가 없습니다. 
 
 한 항목을 변경하는 작업은 ASE 호스트된 App Service 계획에 대해 표시되는 적절한 UI를 통해 수행됩니다.  
 
-![크기 조정 서비스 계획 및 작업자 풀 서비스 계획에 대 한 세부 정보를 볼 수 있는 위치를 보여 주는 스크린샷][1]
+![스케일링 서비스 플랜 및 작업자 풀 서비스 플랜의 세부 정보를 볼 수 있는 위치를 보여 주는 스크린샷][1]
 
 ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초과하여 ASP를 확장할 수 없습니다.  해당 작업자 풀에 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가해 달라고 요청해야 합니다.  ASE를 다시 구성하는 방법에 대한 정보는 [App Service 환경을 구성하는 방법][HowtoConfigureASE]을 읽어보세요.  일정 또는 메트릭에 따라 용량을 추가하기 위해 ASE 자동 크기 조정 기능을 활용할 수도 있습니다.  ASE 환경 자체에 대한 자동 크기 조정 구성에 대한 자세한 내용은 [App Service 환경에 대한 자동 크기 조정을 구성하는 방법][ASEAutoscale]을 참조하세요.
 
@@ -39,11 +39,11 @@ ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초�
 ### <a name="scaling-the-number-of-instances"></a>인스턴스 수 확장
 App Service Environment에서 웹앱을 처음 만드는 경우 1개의 인스턴스로 시작합니다.  그런 다음, 앱에 대한 추가 컴퓨팅 리소스를 제공하기 위해 추가 인스턴스로 확장할 수 있습니다.   
 
-ASE의 용량이 충분한 경우에는 매우 간단합니다.  확장할 사이트를 유지하는 App Service 계획으로 이동하여 크기 조정을 선택합니다.  그러면 수동으로 ASP 프로그램에 대한 확장을 설정하거나 ASP에 대한 자동 크기 조정 규칙을 구성하는 UI가 열립니다.  수동으로 앱 크기를 조정 하려면 ***scale by** _를 _ *_수동으로 입력 한 인스턴스 수_ 를 * *로 설정 하면 됩니다.  여기에서 원하는 수량으로 슬라이더를 끌거나 슬라이더 옆에 있는 상자에 입력합니다.  
+ASE의 용량이 충분한 경우에는 매우 간단합니다.  확장할 사이트를 유지하는 App Service 계획으로 이동하여 크기 조정을 선택합니다.  그러면 수동으로 ASP 프로그램에 대한 확장을 설정하거나 ASP에 대한 자동 크기 조정 규칙을 구성하는 UI가 열립니다.  수동으로 앱을 스케일링하려면 **스케일링 기준** 을 _수동으로 입력한 인스턴스 수_ 로 설정하기면 하면 됩니다.  여기에서 원하는 수량으로 슬라이더를 끌거나 슬라이더 옆에 있는 상자에 입력합니다.  
 
-![Asp에 대 한 규모를 설정 하거나 ASP에 대 한 자동 크기 조정 규칙을 구성할 수 있는 위치를 보여 주는 스크린샷][2] 
+![ASP 프로그램에 대한 스케일링을 설정하거나 ASP에 대한 자동 스케일링 규칙을 구성할 수 있는 위치를 보여 주는 스크린샷][2] 
 
-ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동일하게 작동합니다.  _*_크기 조정 기준_*_ 에서 ***cpu 비율** _을 선택 하 고 CPU 비율에 따라 ASP에 대 한 자동 크기 조정 규칙을 만들거나 _ *_일정 및 성능 규칙_* *을 사용 하 여 보다 복잡 한 규칙을 만들 수 있습니다.  자동 크기 조정 구성에 관하여 전체 세부 정보를 자세히 보려면 [Azure App Service에서 앱 확장][AppScale] 가이드를 참조하세요. 
+ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동일하게 작동합니다.  _*_스케일링 기준_*_ 에 있는 **CPU 비율** 을 선택하여 CPU 비율에 따라 ASP에 대한 자동 스케일링 규칙을 만들거나 _일정 및 성능 규칙_ 을 사용하여 좀 더 복잡한 규칙을 만들 수 있습니다.  자동 크기 조정 구성에 관하여 전체 세부 정보를 자세히 보려면 [Azure App Service에서 앱 확장][AppScale] 가이드를 참조하세요. 
 
 ### <a name="worker-pool-selection"></a>작업자 풀 선택
 앞에서 언급한 것처럼 작업자 풀 선택은 ASP UI에서 액세스됩니다.  확장하려는 ASP의 블레이드를 열고 작업자 풀을 선택합니다.  App Service Environment에서 구성한 모든 작업자 풀이 표시됩니다.  작업자 풀이 하나뿐인 경우에는 하나의 풀만 나열됩니다.  ASP가 있는 작업자 풀을 변경하려면 App Service 계획을 이동할 작업자 풀을 선택하기만 하면 됩니다.  
@@ -58,7 +58,7 @@ ASE의 ASP에 대한 자동 크기 조정 규칙은 일반적인 경우와 동�
 > 
 
 ## <a name="getting-started"></a>시작
-App Service 환경을 시작 하려면 [App Service Environment를 만드는 방법][HowtoCreateASE] 을 참조 하세요.
+App Service Environment를 시작하려면 [App Service Environment를 만드는 방법][HowtoCreateASE]을 참조하세요.
 
 <!--Image references-->
 [1]: ./media/app-service-web-scale-a-web-app-in-an-app-service-environment/aseappscale-aspblade.png

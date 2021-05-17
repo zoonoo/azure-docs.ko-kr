@@ -6,10 +6,10 @@ ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.openlocfilehash: 2d2619c7bd7bc09eeab3845599758db7134b4134
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945647"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
@@ -98,15 +98,15 @@ Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있�
 
 대부분의 Hadoop 배포판에서 데이터는 HDFS에 저장됩니다. HDFS는 클러스터의 머신에 있는 로컬 스토리지에 의해 지원됩니다. 컴퓨팅 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 스토리지를 사용하는 비용이 많이 들 수 있습니다.
 
-HDInsight를 사용 하는 경우 데이터 파일은 Azure Blob Storage를 사용 하 여 클라우드에서 탄력적이 고 복원 가능한 방식으로 저장 되며 필요에 따라 Azure Data Lake Storage Gen1/Gen2. 이러한 서비스는 다음과 같은 이점을 제공합니다.
+HDInsight를 사용할 때 데이터 파일은 Azure Blob Storage와 선택적으로 Azure Data Lake Storage Gen1/Gen2를 사용하여 적응 가능하고 탄력적인 방식으로 클라우드에 저장됩니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
 * 저렴한 장기 스토리지
 * 웹 사이트, 파일 업로드/다운로드 유틸리티, 다양한 언어 SDK 및 웹 브라우저와 같은 외부 서비스에 액세스할 수 있음
 * 대용량 파일 용량과 대규모 적응 가능한 스토리지.
 
-자세한 내용은 [Azure Blob storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)또는 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)를 참조 하세요.
+자세한 내용은 [Azure Blob Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) 또는 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)를 참조하세요
 
-Azure Blob storage 또는 Data Lake Storage Gen1/Gen2 중 하나를 사용 하는 경우 데이터에 액세스 하기 위해 HDInsight에서 특별 한 작업을 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Storage 또는 Data Lake Storage에 저장되어 있는지 여부에 상관없이 `/example/data` 폴더에 있는 파일을 나열합니다.
+Azure Blob Storage 또는 Data Lake Storage Gen1/Gen2를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Storage 또는 Data Lake Storage에 저장되어 있는지 여부에 상관없이 `/example/data` 폴더에 있는 파일을 나열합니다.
 
 ```console
 hdfs dfs -ls /example/data
@@ -186,7 +186,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 
 HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방법이 있습니다. 다음은 데이터 작업에 사용할 수 있는 유틸리티 및 SDK에 대한 몇 가지 링크입니다.
 
-__Azure Blob storage__ 를 사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
+__Azure Blob Storage__ 를 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
 * [Azure CLI](/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 스토리지 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
 * [blobxfer.py](https://github.com/Azure/blobxfer): Azure Storage의 Blob 작업을 위한 Python 스크립트입니다.
@@ -200,7 +200,7 @@ __Azure Blob storage__ 를 사용 하는 경우 데이터에 액세스할 수 �
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [Storage REST API](/rest/api/storageservices/Blob-Service-REST-API)
 
-__Azure Data Lake Storage Gen1__ 사용 하는 경우 데이터에 액세스할 수 있는 방법에 대 한 다음 링크를 참조 하세요.
+__Azure Data Lake Storage Gen1__ 을 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
 * [웹 브라우저](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)

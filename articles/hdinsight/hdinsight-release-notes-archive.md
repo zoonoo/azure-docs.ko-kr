@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 399464dd684abaf506798190cd3a04492430d03d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 108dfb48f602f776ae50290c1b45ceecd8569421
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127536"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105607306"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -24,10 +24,10 @@ Azure HDInsight는 Azure에서 오픈 소스 Apache Hadoop 및 Apache Spark 분�
 
 ### <a name="new-features"></a>새로운 기능
 #### <a name="dav4-series-support"></a>Dav4 시리즈 지원
-HDInsight는 이 릴리스에서 Dav4 시리즈 지원 기능을 추가했습니다. Dav4 시리즈에 대한 자세한 정보는 [여기](../virtual-machines/dav4-dasv4-series.md)에서 알아봅니다.
+HDInsight는 이 릴리스에서 Dav4 시리즈 지원 기능을 추가했습니다. Dav4 시리즈에 대한 자세한 정보는 [여기](/azure/virtual-machines/dav4-dasv4-series)에서 알아봅니다.
 
 #### <a name="kafka-rest-proxy-ga"></a>Kafka REST 프록시 GA 
-Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이번 릴리스부터는 kafka REST 프록시가 일반적으로 사용 가능합니다. [Kafka REST 프록시에 대한 자세한 정보는 여기](./kafka/rest-proxy.md)에서 자세히 알아봅니다.
+Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka 클러스터와 상호 작용할 수 있습니다. 이번 릴리스부터는 kafka REST 프록시가 일반적으로 사용 가능합니다. [Kafka REST 프록시에 대한 자세한 정보는 여기](/azure/hdinsight/kafka/rest-proxy)에서 자세히 알아봅니다.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets로 전환
 이제 HDInsight는 Azure Virtual Machines를 사용하여 클러스터를 프로비저닝합니다. 이 서비스는 [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md)로 점진적으로 마이그레이션됩니다. 전체 프로세스에는 몇 개월이 걸릴 수 있습니다. 지역 및 구독이 마이그레이션된 후에는 새로 생성된 HDInsight 클러스터가 고객의 작업 없이도 Virtual Machine Scale Sets에서 실행됩니다. 호환성이 손상되는 변경 사항은 없을 것으로 예상됩니다.
@@ -44,7 +44,7 @@ Kafka REST 프록시를 사용하면 HTTPS를 통한 REST API를 통해 Kafka �
 HDInsight는 Azure Virtual Machine Scale Sets로 점진적으로 마이그레이션되고 있습니다. 가상 머신의 네트워크 인터페이스는 Azure Virtual Machine Scale Sets를 사용하는 클러스터의 고객에게는 더 이상 표시되지 않습니다.
 
 #### <a name="breaking-change-for-net-for-apache-spark-100"></a>Apache Spark 1.0.0의 .NET에 대한 호환성이 손상되는 변경 내용
-최신 릴리스를 사용하는 경우 HDInsight는 [“.NET for Apache Spark”](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v1.0.0을 소개합니다. [다른 기능](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)의 호스트와 함께 Spark 2.4.x 및 Spark 3.0.x에 대한 DataFrame API 완전성을 제공합니다. 이 주 버전에 대한 호환성이 손상되는 변경 내용이 있습니다. [Apache Spark용 .NET 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10)를 참조하여 코드와 파이프라인을 업데이트하는 데 필요한 단계를 알아보세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v1.0에 대한 .NET 가이드](./spark/spark-dotnet-version-update.md#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
+최신 릴리스를 사용하는 경우 HDInsight는 [“.NET for Apache Spark”](https://github.com/dotnet/spark) 라이브러리의 첫 공식 버전 v1.0.0을 소개합니다. [다른 기능](https://github.com/dotnet/spark/blob/master/docs/release-notes/1.0.0/release-1.0.0.md)의 호스트와 함께 Spark 2.4.x 및 Spark 3.0.x에 대한 DataFrame API 완전성을 제공합니다. 이 주 버전에 대한 호환성이 손상되는 변경 내용이 있습니다. [Apache Spark용 .NET 마이그레이션 가이드](https://github.com/dotnet/spark/blob/master/docs/migration-guide.md#upgrading-from-microsoftspark-0x-to-10)를 참조하여 코드와 파이프라인을 업데이트하는 데 필요한 단계를 알아보세요. 자세한 내용은 [Azure HDInsight에서 Apache Spark v1.0에 대한 .NET 가이드](/azure/hdinsight/spark/spark-dotnet-version-update#using-net-for-apache-spark-v10-in-hdinsight)를 참조하세요.
 
 ### <a name="upcoming-changes"></a>예정된 변경
 이후 릴리스에서는 다음과 같은 변경이 수행됩니다.
@@ -423,7 +423,7 @@ HDInsight는 계속해서 클러스터 안정성과 성능을 향상시킵니다
 ### <a name="new-features"></a>새로운 기능
 
 #### <a name="service-tags"></a>서비스 태그
-서비스 태그는 Azure 서비스에 대한 네트워크 액세스를 쉽게 제한하도록 하여 Azure 가상 머신 및 Azure 가상 네트워크에 대한 보안을 간소화합니다. NSG(네트워크 보안 그룹) 규칙에서 서비스 태그를 사용하여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공합니다. NSG(네트워크 보안 그룹)의 HDInsight 서비스 태그는 상태 및 관리 서비스에 대한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 만들기의 복잡성을 최소화하는 데 유용합니다. HDInsight 고객은 Azure Portal, PowerShell, REST API를 통해 서비스 태그를 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
+서비스 태그는 Azure 서비스에 대한 네트워크 액세스를 쉽게 제한하도록 하여 Azure 가상 머신 및 Azure 가상 네트워크에 대한 보안을 간소화합니다. NSG(네트워크 보안 그룹) 규칙에서 서비스 태그를 사용하여 전역적으로 또는 Azure 지역에 따라 특정 Azure 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. Azure는 각 태그를 기반으로 하는 IP 주소의 유지 관리를 제공합니다. NSG(네트워크 보안 그룹)의 HDInsight 서비스 태그는 상태 및 관리 서비스에 대한 IP 주소 그룹입니다. 이러한 그룹은 보안 규칙 만들기의 복잡성을 최소화하는 데 유용합니다. HDInsight 고객은 Azure Portal, PowerShell 및 REST API를 통해 서비스 태그를 사용할 수 있습니다. 자세한 내용은 [Azure HDInsight용 NSG(네트워크 보안 그룹) 서비스 태그](./hdinsight-service-tags.md)를 참조하세요.
 
 #### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 이제 HDInsight를 사용하여 Apache Ambari에 고유 SQL DB를 사용할 수 있습니다. 이 사용자 지정 Ambari DB는 Azure Portal 또는 Resource Manager 템플릿을 통해 구성할 수 있습니다.  이 기능을 사용하여 처리 및 용량 요구 사항에 적합한 SQL DB를 선택할 수 있습니다. 비즈니스 성장 요구 사항에 맞게 간단히 업그레이드할 수도 있습니다. 자세한 내용은 [사용자 지정 Ambari DB를 사용하여 HDInsight 클러스터 설정](hdinsight-custom-ambari-db.md)을 참조하세요.
@@ -608,7 +608,7 @@ HDInsight 4.0의 경우 다음 단계를 수행합니다.
 1. 다음 명령을 입력하여 스크립트를 실행합니다.
 
     ```
-    sudo bash hdi_enable_replication.sh -m <hn*> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
     ```
 HDInsight 3.6의 경우 다음 단계를 수행합니다.
 

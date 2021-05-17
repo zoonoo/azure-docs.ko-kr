@@ -1,15 +1,15 @@
 ---
 title: HDInsight에서 Apache Hadoop 작업 제출
-description: Microsoft .NET SDK, 말아 또는 PowerShell을 사용 하 여 Azure HDInsight에서 Apache Hadoop 작업 제출
+description: Microsoft .NET SDK, curl 또는 PowerShell을 사용하여 Azure HDInsight에서 Apache Hadoop 작업 제출
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 52a5fcbc68d7efdce5724e39ee7bc25581ceb0ef
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944201"
 ---
 # <a name="submit-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업 제출
@@ -25,7 +25,7 @@ HDInsight, curl 또는 Azure PowerShell에 대해 Microsoft.NET SDK를 사용하
   - [HDInsight에서 Apache Hadoop용 .NET SDK를 사용하여 Apache Sqoop 작업 실행](apache-hadoop-use-sqoop-dotnet-sdk.md)
   - [HDInsight .NET SDK를 사용하여 MapReduce 작업 실행](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
-- **말아**:
+- **curl**:
 
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Hive 쿼리 실행](apache-hadoop-use-hive-curl.md)
   - [curl을 사용하여 HDInsight에서 Apache Hadoop과 함께 Apache Sqoop 작업 실행](apache-hadoop-use-sqoop-curl.md)

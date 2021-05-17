@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9866245229375cc911d6839e2a9bd9a27dc4a868
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 001ccf1e9992af4cce2146cb899b7cce159da6eb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320352"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737390"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 리소스 관리
 
@@ -19,8 +19,8 @@ ms.locfileid: "108320352"
 
 리소스 관리에 대한 다른 문서:
 
-- [Azure Portal을 사용하여 Azure 리소스 관리](manage-resources-portal.md)
-- [Azure CLI를 사용하여 Azure 리소스 관리](manage-resources-cli.md)
+- [Azure Portal를 사용하여 Azure 리소스 관리](manage-resources-portal.md)
+- [Azure CLI를 사용하여 Azure 리소스를 관리](manage-resources-cli.md)
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>기존 리소스 그룹에 리소스 배포
 
@@ -52,7 +52,7 @@ $ctx = $storageAccount.Context
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
 ```
 
@@ -130,11 +130,11 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="tag-resources"></a>리소스 태그 지정
 
-태그를 지정하면 리소스 그룹 및 리소스를 논리적으로 구성하는 데 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](tag-resources.md#powershell)을 참조하세요.
+태그를 지정하면 리소스 그룹 및 리소스를 논리적으로 구성할 수 있습니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](tag-resources.md#powershell)을 참조하세요.
 
 ## <a name="manage-access-to-resources"></a>리소스에 대한 액세스 관리
 
-[Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 자세한 내용은 [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
+[Azure RBAC](../../role-based-access-control/overview.md)(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 자세한 내용은 [Azure PowerShell을 사용하여 Azure 역할 할당 추가 또는 제거](../../role-based-access-control/role-assignments-powershell.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,7 +1,7 @@
 ---
-title: IPv6 이중 스택 응용 프로그램 배포-표준 Load Balancer-PowerShell
+title: IPv6 이중 스택 애플리케이션 배포 - 표준 Load Balancer - PowerShell
 titlesuffix: Azure Virtual Network
-description: 이 문서에서는 azure Powershell을 사용 하 여 Azure virtual network에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여줍니다.
+description: 이 문서에서는 Azure Powershell을 사용하여 Azure 가상 네트워크에서 표준 Load Balancer로 IPv6 이중 스택 애플리케이션을 배포하는 방법을 보여 줍니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
 ms.openlocfilehash: e0b17c7b707a7718428f63c334210a91759f00e3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98223655"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell
+# <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Azure에서 IPv6 이중 스택 애플리케이션 배포 - PowerShell
 
-이 문서에서는 이중 스택 가상 네트워크 및 서브넷 표준 Load Balancer, 이중 (IPv4 + IPv6) 프런트 엔드 구성, 이중 IP 구성, 네트워크 보안 그룹 및 공용 Ip가 있는 Nic가 있는 Vm을 포함 하는 Azure의 표준 Load Balancer를 사용 하 여 이중 스택 (IPv4 + IPv6) 응용 프로그램을 배포 하는 방법을 보여 줍니다.
+이 문서에서는 이중 스택 가상 네트워크 및 서브넷, 이중(IPv4 + IPv6) 프런트 엔드 구성이 포함된 표준 Load Balancer, 이중 IP 구성이 있는 NIC를 사용하는 VM, 네트워크 보안 그룹 및 공용 IP를 포함하는 Azure의 표준 Load Balancer를 사용하여 이중 스택(IPv4 + IPv6) 애플리케이션을 배포하는 방법을 보여 줍니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -30,7 +30,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-이중 스택 가상 네트워크를 만들려면 먼저 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 하 여 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *미국 동부* 위치에 *myRGDualStack* 이라는 리소스 그룹을 만듭니다.
+이중 스택 가상 네트워크를 만들려면 먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만들어야 합니다. 다음 예제에서는 *미국 동부* 위치에 *myRGDualStack* 이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
    $rg = New-AzResourceGroup `
@@ -39,7 +39,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses"></a>IPv4 및 IPv6 공용 IP 주소 만들기
-인터넷에서 가상 컴퓨터에 액세스 하려면 부하 분산 장치에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *dsRG1* 리소스 그룹에 *dsPublicIP_v4* 및 *dsPublicIP_v6* 라는 IPv4 및 IPv6 공용 IP 주소를 만듭니다.
+인터넷에서 가상 머신에 액세스하려면 부하 분산 장치에 대한 IPv4 및 IPv6 공용 IP 주소가 필요합니다. [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 공용 IP 주소를 만듭니다. 다음 예에서는 *dsRG1* 리소스 그룹에 *dsPublicIP_v4* 및 *dsPublicIP_v6* 이라는 IPv4 및 IPv6 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $PublicIP_v4 = New-AzPublicIpAddress `
@@ -58,7 +58,7 @@ $PublicIP_v6 = New-AzPublicIpAddress `
   -IpAddressVersion IPv6 `
   -Sku Standard
 ```
-RDP 연결을 사용 하 여 가상 컴퓨터에 액세스 하려면 [AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용 하 여 가상 컴퓨터에 대 한 IPV4 공용 IP 주소를 만듭니다.
+RDP 연결을 사용하여 가상 머신에 액세스하려면 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 가상 머신에 대한 IPV4 퍼블릭 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
   $RdpPublicIP_1 = New-AzPublicIpAddress `
@@ -80,11 +80,11 @@ RDP 연결을 사용 하 여 가상 컴퓨터에 액세스 하려면 [AzPublicIp
 
 ## <a name="create-standard-load-balancer"></a>표준 Load Balancer 만들기
 
-이 섹션에서는 부하 분산 장치에 대 한 이중 프런트 엔드 IP (IPv4 및 IPv6) 및 백 엔드 주소 풀을 구성 하 고 표준 Load Balancer를 만듭니다.
+이 섹션에서는 부하 분산 장치에 대한 이중 프런트 엔드 IP(IPv4 및 IPv6) 및 백 엔드 주소 풀을 구성한 다음, 표준 Load Balancer를 만듭니다.
 
 ### <a name="create-front-end-ip"></a>프런트 엔드 IP 만들기
 
-[AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용 하 여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v4* 및 *dsLbFrontEnd_v6* 라는 IPv4 및 IPv6 프런트 엔드 IP 구성을 만듭니다.
+[New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 프런트 엔드 IP를 만듭니다. 다음 예제에서는 *dsLbFrontEnd_v4* 및 *dsLbFrontEnd_v6* 라는 IPv4 및 IPv6 프런트 엔드 IP 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $frontendIPv4 = New-AzLoadBalancerFrontendIpConfig `
@@ -99,7 +99,7 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ### <a name="configure-back-end-address-pool"></a>백 엔드 주소 풀 구성
 
-[New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결됩니다. 다음 예제에서는 *dsLbBackEndPool_v4* 이라는 백 엔드 주소 풀을 만들고 IPV4 및 IPv6 NIC 구성을 모두 사용 하 여 vm을 포함 하도록 *dsLbBackEndPool_v6* 합니다.
+[New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결됩니다. 다음 예제에서는 IPV4 및 IPv6 NIC 구성을 모두 사용하여 VM을 포함하도록 *dsLbBackEndPool_v4* 및 *dsLbBackEndPool_v6* 라는 백 엔드 주소 풀을 만듭니다.
 
 ```azurepowershell-interactive
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
@@ -109,15 +109,15 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 -Name "dsLbBackEndPool_v6"
 ```
 ### <a name="create-a-health-probe"></a>상태 프로브 만들기
-[AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) 를 사용 하 여 vm의 상태를 모니터링 하는 상태 프로브를 만듭니다.
+[Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig)를 사용하여 VM 상태를 모니터링하는 상태 프로브를 만듭니다.
 ```azurepowershell
 $probe = New-AzLoadBalancerProbeConfig -Name MyProbe -Protocol tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
 ```
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 Vm만 트래픽을 수신할 수 있도록 하려면 상태 프로브를 선택적으로 정의할 수 있습니다. 기본 부하 분산 장치는 IPv4 프로브를 사용 하 여 Vm의 IPv4 및 IPv6 끝점 모두에 대 한 상태를 평가 합니다. 표준 부하 분산 장치에는 명시적 IPv6 상태 프로브에 대 한 지원이 포함 됩니다.
+부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 VM만 트래픽을 수신하도록 하려면 필요에 따라 상태 프로브도 정의할 수 있습니다. 기본 부하 분산 장치는 IPv4 프로브를 사용하여 VM의 IPv4 및 IPv6 엔드포인트 둘 다의 상태를 평가합니다. 표준 부하 분산 장치는 명시적으로 IPv6 상태 프로브를 지원합니다.
 
-[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 *dsLBrule_v6* 및 분산 합니다.
+[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예에서는 *dsLBrule_v4* 및 *dsLBrule_v6* 이라는 부하 분산 장치 규칙을 만들고 IPv4 및 IPv6 프런트 엔드 IP 구성에 대한 *TCP* 포트 *80* 의 트래픽을 분산합니다.
 
 ```azurepowershell-interactive
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -141,7 +141,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-[AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용 하 여 표준 Load Balancer를 만듭니다. 다음 예제에서는 이전 단계에서 만든 IPv4 및 IPv6 프런트 엔드 IP 구성, 백 엔드 풀 및 부하 분산 규칙을 사용 하 여 *Myloadbalancer* 라는 공용 표준 Load Balancer를 만듭니다.
+[New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 표준 Load Balancer를 만듭니다. 다음 예제는 이전 단계에서 만든 IPv4 및 IPv6 프런트 엔드 IP 구성, 백 엔드 풀, 부하 분산 규칙을 사용하여 *myLoadBalancer* 라는 퍼블릭 표준 Load Balancer를 만듭니다.
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -156,7 +156,7 @@ $lb = New-AzLoadBalancer `
 ```
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
-일부 Vm을 배포 하 고 부하 분산 장치를 테스트 하려면 먼저 지원 되는 네트워크 리소스 (가용성 집합, 네트워크 보안 그룹, 가상 네트워크 및 가상 Nic)를 만들어야 합니다. 
+일부 VM을 배포하고 부하 분산 장치를 테스트하려면 먼저 지원되는 네트워크 리소스(가용성 집합, 네트워크 보안 그룹, 가상 네트워크 및 가상 NIC)를 만들어야 합니다. 
 ### <a name="create-an-availability-set"></a>가용성 집합 만들기
 앱의 고가용성을 향상시키려면 VM을 가용성 집합에 배치합니다.
 
@@ -174,7 +174,7 @@ $avset = New-AzAvailabilitySet `
 
 ### <a name="create-network-security-group"></a>네트워크 보안 그룹 만들기
 
-VNET에서 인바운드 및 아웃 바운드 통신을 제어 하는 규칙에 대 한 네트워크 보안 그룹을 만듭니다.
+VNET에서 인바운드 및 아웃바운드 통신을 제어하는 규칙에 대한 네트워크 보안 그룹을 만듭니다.
 
 #### <a name="create-a-network-security-group-rule-for-port-3389"></a>포트 3389에 대한 네트워크 보안 그룹 규칙 만들기
 
@@ -195,7 +195,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig `
 ```
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>포트 80에 대한 네트워크 보안 그룹 규칙 만들기
 
-80 포트를 통한 인터넷 연결을 허용 하는 네트워크 보안 그룹 규칙을 만듭니다. [AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig).
+포트 80을 통해 인터넷 연결을 허용하도록 [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하여 네트워크 보안 그룹 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $rule2 = New-AzNetworkSecurityRuleConfig `
@@ -223,7 +223,7 @@ $nsg = New-AzNetworkSecurityGroup `
 ```
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *Mysubnet* 을 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
+[New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *mySubnet* 을 사용하여 *dsVnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurepowershell-interactive
 # Create dual stack subnet
@@ -242,7 +242,7 @@ $vnet = New-AzVirtualNetwork `
 
 ### <a name="create-nics"></a>NIC 만들기
 
-[AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용 하 여 가상 nic를 만듭니다. 다음 예제에서는 IPv4 및 IPv6 구성을 사용 하 여 두 개의 가상 Nic를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩)
+[New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 가상 NIC를 만듭니다. 다음 예제에서는 IPv4 및 IPv6 구성을 사용하여 두 개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩)
 
 ```azurepowershell-interactive
   $Ip4Config=New-AzNetworkInterfaceIpConfig `
@@ -306,8 +306,8 @@ $VMconfig2 = New-AzVMConfig -VMName $vmName -VMSize $vmsize -AvailabilitySetId $
 $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location  -VM $VMconfig2
 ```
 
-## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>IPv4 및 IPv6 끝점의 IP 주소 확인
-을 사용 하 여이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다 `get-AzNetworkInterface` . 또한를 사용 하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다 `get-AzpublicIpAddress` .
+## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>IPv4 및 IPv6 엔드포인트의 IP 주소 확인
+`get-AzNetworkInterface`를 사용하여 이 배포에 사용되는 IP를 요약하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다. 또한 `get-AzpublicIpAddress`를 사용하여 IPv4 및 IPv6 엔드포인트의 Load Balancer 프런트 엔드 주소를 가져옵니다.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"
@@ -341,14 +341,14 @@ foreach ($NIC in $NICsInRG) {
  
   (get-AzpublicIpAddress -resourcegroupname $rgName | where { $_.name -notlike "RdpPublicIP*" }).IpAddress
 ```
-다음 그림은 두 Vm의 개인 IPv4 및 IPv6 주소와 Load Balancer의 프런트 엔드 IPv4 및 IPv6 IP 주소를 나열 하는 샘플 출력을 보여 줍니다.
+다음 그림은 두 VM의 프라이빗 IPv4 및 IPv6 주소와 Load Balancer의 프런트 엔드 IPv4 및 IPv6 IP 주소를 나열하는 샘플 출력을 보여 줍니다.
 
-![Azure의 이중 스택 (IPv4/IPv6) 응용 프로그램 배포에 대 한 IP 요약](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
+![Azure의 이중 스택(IPv4/IPv6) 애플리케이션 배포에 대한 IP 요약](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
 
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
-다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
-1. 포털의 검색 창에서 *Dsvnet* 을 입력 합니다.
-2. **Dsvnet** 이 검색 결과에 표시 되 면 선택 합니다. 그러면 *Dsvnet* 이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작 됩니다. 이중 스택 가상 네트워크는 *Dssubnet* 이라는 이중 스택 서브넷에 있는 IPv4 및 IPv6 구성을 모두 사용 하 여 두 개의 nic를 표시 합니다.
+다음과 같이 Azure 포털에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
+1. 포털의 검색 창에 *dsVnet* 을 입력합니다.
+2. 검색 결과에서 표시되는 **dsVnet** 을 선택합니다. 그러면 *dsVnet* 이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작됩니다. 이중 스택 가상 네트워크에서는 *dsSubnet* 이라는 이중 스택 서브넷에 IPv4 및 IPv6가 모두 구성된 두 개의 NIC가 표시됩니다.
 
   ![Azure의 IPv6 이중 스택 가상 네트워크](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
 
@@ -363,4 +363,4 @@ Remove-AzResourceGroup -Name dsRG1
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 이중 프런트 엔드 IP 구성 (IPv4 및 IPv6)을 사용 하 여 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가 된 Nic를 포함 하는 두 개의 가상 머신 (IPV4 + IPv6)를 만들었습니다. Azure virtual network의 IPv6 지원에 대 한 자세한 내용은 [azure Virtual Network에 대 한](ipv6-overview.md) i p v 6을 참조 하세요.
+이 문서에서는 이중 프런트 엔드 IP 구성(IPv4 및 IPv6)으로 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가된 이중 IP(IPV4 + IPv6)가 구성된 NIC가 포함된 두 개의 가상 머신을 만들었습니다. Azure 가상 네트워크의 IPv6 지원에 대한 자세한 내용은 [Azure 가상 네트워크의 IPv6이란?](ipv6-overview.md)을 참조하세요.

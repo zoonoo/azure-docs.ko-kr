@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory를 시각적으로 모니터링
 description: Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d177513af9f0ee4fcadb1ea316edf1ad8cb89e5a
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.openlocfilehash: bcc10ccde73f5036e50d1717528933a49ccd69cd
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783662"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904949"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -20,21 +20,21 @@ ms.locfileid: "104783662"
 
 Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리거와 연결하거나 임시 실행을 수동으로 시작할 수 있습니다. Azure Data Factory 사용자 환경에서 기본적으로 모든 파이프라인 실행을 모니터링할 수 있습니다. 모니터링 환경을 열려면 [Azure Portal](https://portal.azure.com/)의 data factory 블레이드에서 **모니터 & 관리** 타일을 선택합니다. ADF UX에 이미 있는 경우 왼쪽 사이드바에서 **모니터** 아이콘을 클릭합니다.
 
-기본적으로 모든 데이터 팩터리 실행은 브라우저의 현지 표준 시간대로 표시 됩니다. 표준 시간대를 변경하는 경우 모든 날짜/시간 필드가 선택한 항목에 맞춰집니다.
+기본적으로 모든 데이터 팩터리 실행은 브라우저의 현지 표준 시간대에 표시됩니다. 표준 시간대를 변경하는 경우 모든 날짜/시간 필드가 선택한 항목에 맞춰집니다.
 
 ## <a name="monitor-pipeline-runs"></a>파이프라인 실행 모니터링
 
-기본 모니터링 보기는 선택한 기간에 트리거된 파이프라인 실행의 목록입니다. 시간 범위를 변경 하 고 상태, 파이프라인 이름 또는 주석을 기준으로 필터링 할 수 있습니다. 특정 파이프라인 실행을 마우스로 가리켜 다시 실행 및 소비 보고서와 같은 실행 관련 작업을 가져옵니다.
+기본 모니터링 보기는 선택한 기간에 트리거된 파이프라인 실행 목록입니다. 시간 범위를 변경하고 상태, 파이프라인 이름 또는 주석을 기준으로 필터링할 수 있습니다. 특정 파이프라인 실행을 마우스로 가리키면 다시 실행 및 사용량 보고서와 같은 실행 관련 작업이 표시됩니다.
 
 ![파이프라인 실행 모니터링용 목록 보기](media/monitor-visually/pipeline-runs.png)
 
-파이프라인 실행 표에는 다음 열이 포함 되어 있습니다.
+파이프라인 실행 그리드에는 다음 열이 있습니다.
 
 | **열 이름** | **설명** |
 | --- | --- |
 | 파이프라인 이름 | 파이프라인 이름입니다. |
 | 실행 시작 | 파이프라인 실행에 대한 시작 날짜 및 시간(MM/DD/YYYY, HH: MM: SS AM/PM) |
-| 실행 종료 | 파이프라인 실행의 종료 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
+| 실행 종료 | 파이프라인 실행에 대한 종료 날짜 및 시간(MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duration | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 파이프라인을 시작한 트리거의 이름입니다. |
 | 상태 | **실패**, **성공**, **진행 중**, **취소** 또는 **큐 대기** |
@@ -47,19 +47,19 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ![새로 고침 단추](media/monitor-visually/refresh.png)
 
-디버그 실행의 결과를 보려면 **디버그** 탭을 선택 합니다.
+디버그 실행의 결과를 보려면 **디버그** 탭을 선택합니다.
 
 ![활성 디버그 실행 보기 아이콘 선택](media/iterative-development-debugging/view-debug-runs.png)
 
 ## <a name="monitor-activity-runs"></a>작업 실행 모니터링
 
-특정 파이프라인 실행의 개별 작업 실행에 대 한 자세한 보기를 가져오려면 파이프라인 이름을 클릭 합니다.
+특정 파이프라인 실행의 개별 활동 실행을 자세히 보려면 파이프라인 이름을 클릭합니다.
 
 ![활동 실행 보기](media/monitor-visually/view-activity-runs.png)
 
-목록 보기에는 각 파이프라인 실행에 해당하는 작업 실행이 표시됩니다. 특정 작업 실행을 마우스로 가리켜 JSON 입력, JSON 출력 및 자세한 작업 관련 모니터링 환경과 같은 실행 관련 정보를 가져옵니다.
+목록 보기에는 각 파이프라인 실행에 해당하는 작업 실행이 표시됩니다. 특정 활동 실행을 마우스로 가리키면 JSON 입력, JSON 출력 및 자세한 활동 관련 모니터링 환경과 같은 실행 관련 정보가 표시됩니다.
 
-![SalesAnalyticsMLPipeline에 대 한 정보와 작업 실행 목록이 차례로 표시 됩니다.](media/monitor-visually/activity-runs.png)
+![SalesAnalyticsMLPipeline에 대한 정보와 작업 실행 목록이 차례로 표시됩니다.](media/monitor-visually/activity-runs.png)
 
 | **열 이름** | **설명** |
 | --- | --- |
@@ -74,9 +74,9 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 | Error | 작업이 실패한 경우 실행 오류 |
 | 실행 ID | 활동 실행 ID입니다. |
 
-작업에 실패 한 경우 오류 열의 아이콘을 클릭 하 여 자세한 오류 메시지를 볼 수 있습니다. 
+활동이 실패한 경우 오류 열의 아이콘을 클릭하여 자세한 오류 메시지를 볼 수 있습니다. 
 
-![오류 코드, 오류 유형 및 오류 정보를 포함 한 오류 정보와 함께 알림이 나타납니다.](media/monitor-visually/activity-run-error.png)
+![오류 코드, 오류 유형 및 오류 정보를 포함한 오류 세부 정보를 표시하는 알림이 나타납니다.](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>모니터링하도록 사용자 속성 승격
 
@@ -97,13 +97,13 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ## <a name="rerun-pipelines-and-activities"></a>파이프라인 및 작업 다시 실행
 
-이전에 시작에서 실행 한 파이프라인을 다시 실행 하려면 특정 파이프라인 실행을 마우스로 가리키고 **다시 실행** 을 선택 합니다. 여러 파이프라인을 선택 하는 경우 **다시** 실행 단추를 사용 하 여 모든 파이프라인을 실행할 수 있습니다.
+이전에 처음부터 실행된 파이프라인을 다시 실행하려면 특정 파이프라인 실행을 마우스로 가리키고 **다시 실행** 을 선택합니다. 여러 파이프라인을 선택하는 경우 **다시 실행** 단추를 사용하여 모든 파이프라인을 실행할 수 있습니다.
 
 ![파이프라인 다시 실행](media/monitor-visually/rerun-pipeline.png)
 
-특정 지점에서 시작 하는 작업을 다시 실행 하려는 경우에는 작업 실행 보기에서 작업을 수행할 수 있습니다. 시작 하려는 작업을 선택 하 고 **작업에서 다시 실행** 을 선택 합니다. 
+특정 지점에서 시작을 다시 실행하려면 활동 실행 보기에서 다시 실행하면 됩니다. 시작하려는 활동을 선택하고 **활동에서 다시 실행** 을 선택합니다. 
 
-![작업 실행 다시 실행](media/monitor-visually/rerun-activity.png)
+![활동 실행 다시 실행](media/monitor-visually/rerun-activity.png)
 
 ### <a name="rerun-from-failed-activity"></a>실패한 활동에서 다시 실행
 
@@ -125,7 +125,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 실행 옆에 있는 사용량 아이콘을 클릭하여 파이프라인 실행에서 사용된 리소스를 볼 수 있습니다. 
 
-![파이프라인에서 사용 하는 리소스를 볼 수 있는 위치를 보여 주는 스크린샷](media/monitor-visually/monitor-consumption-1.png)
+![파이프라인에서 사용하는 리소스를 볼 수 있는 위치를 보여 주는 스크린샷](media/monitor-visually/monitor-consumption-1.png)
 
 아이콘을 클릭하면 해당 파이프라인 실행에 사용되는 리소스의 사용량 보고서가 열립니다. 
 
@@ -138,7 +138,7 @@ Azure Data Factory에서 파이프라인을 만들어 게시한 후에는 트리
 
 ## <a name="gantt-views"></a>Gantt 보기
 
-Gantt 차트는 시간 범위에 대 한 실행 기록을 볼 수 있는 뷰입니다. Gantt 보기로 전환 하면 모든 파이프라인 실행을 이름별로 그룹화 하 여 실행이 걸린 시간을 기준으로 막대로 표시 하는 것을 볼 수 있습니다. 파이프라인에서 만든 주석/태그를 기준으로 그룹화 할 수도 있습니다. 활동 실행 수준 에서도 Gantt 보기를 사용할 수 있습니다.
+Gantt 차트는 시간 범위에 따른 실행 기록을 확인할 수 있는 보기입니다. Gantt 보기로 전환하면 이름별로 그룹화된 모든 파이프라인 실행이 실행에 걸린 시간과 관련된 막대로 표시된 것을 확인할 수 있습니다. 또한 파이프라인에서 생성한 주석/태그별로 그룹화할 수도 있습니다. Gantt 보기는 활동 실행 수준에서도 사용할 수 있습니다.
 
 ![Gantt 차트의 예](media/monitor-visually/select-gantt.png)
 
@@ -170,11 +170,11 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
     ![대상 조건을 위한 상자](media/monitor-visually/add-criteria-1.png)
 
-    ![경고 조건을 설정 하기 위해 하나의 메트릭을 선택 하는 위치를 보여 주는 스크린샷](media/monitor-visually/add-criteria-2.png)
+    ![경고 조건을 설정하기 위해 하나의 메트릭을 선택하는 위치를 보여 주는 스크린샷입니다.](media/monitor-visually/add-criteria-2.png)
 
     ![조건 목록](media/monitor-visually/add-criteria-3.png)
 
-    SSIS 패키지 실행 및 SSIS IR 시작/중지 작업 뿐만 아니라 ADF 엔터티 수/크기, 작업/파이프라인/트리거 실행, IR (Integration Runtime) CPU 사용률/메모리/노드 수/큐에 대 한 경고를 비롯 하 여 다양 한 메트릭에 대 한 경고를 만들 수 있습니다.
+    SSIS 패키지 실행 및 SSIS IR 시작/중지 작업에 대해서 뿐만 아니라 ADF 엔터티 수/크기, 작업/파이프라인/트리거 실행, IR(Integration Runtime) CPU 사용률/메모리/노드 수/큐 등 다양한 메트릭에 대한 경고를 만들 수 있습니다.
 
 1.  경고 논리를 구성합니다. 모든 파이프라인 및 해당 활동의 선택한 메트릭에 대해 경고를 만들 수 있습니다. 특정 활동 유형, 활동 이름, 파이프라인 이름 또는 오류 유형을 선택할 수도 있습니다.
 

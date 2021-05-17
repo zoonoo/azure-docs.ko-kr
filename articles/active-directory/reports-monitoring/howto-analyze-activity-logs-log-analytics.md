@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 905261058c2de0afae18cbc5572c64962bef8834
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100580031"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Azure AD 활동 로그 분석
@@ -100,13 +100,13 @@ AuditLogs
 
 5. 경고를 구성한 후에는 **경고 만들기** 를 선택하여 사용하도록 설정합니다. 
 
-## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Azure AD 활동 로그에 미리 작성 된 통합 문서 사용
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Azure AD 활동 로그에 미리 빌드한 통합 문서 사용
 
-통합 문서는 감사, 로그인 및 프로 비전 이벤트와 관련 된 일반적인 시나리오와 관련 된 여러 보고서를 제공 합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
+통합 문서는 감사, 로그인, 프로비전 이벤트와 관련된 일반적인 시나리오에 대한 몇 가지 보고서를 제공합니다. 이전 섹션에서 설명한 단계를 사용하여 보고서에 제공된 데이터에 대해 경고를 발생할 수도 있습니다.
 
-* **프로 비전 분석**:이 [통합 문서](../app-provisioning/application-provisioning-log-analytics.md) 에는 프로 비전 된 새 사용자 수, 프로 비전 실패 횟수, 업데이트 된 사용자 수 및 업데이트 실패 횟수, 프로 비전 되지 않은 사용자 수 및 해당 오류와 같은 감사 프로 비전 작업과 관련 된 보고서가 표시 됩니다.    
-* **로그인 이벤트**:이 통합 문서는 응용 프로그램, 사용자, 장치 등의 로그인 작업과 관련 된 가장 관련성이 높은 보고서와 시간 경과에 따른 로그인 수를 추적 하는 요약 보기를 보여 줍니다.
-* **조건부 액세스 정보**: 조건부 액세스 정보 및 보고 [통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md) 를 사용 하면 시간에 따라 조직에서 조건부 액세스 정책의 영향을 이해할 수 있습니다. 
+* **프로비전 분석**: 이 [통합 문서](../app-provisioning/application-provisioning-log-analytics.md)는 프로비전 활동 감사(예: 새로 프로비전된 사용자 수 및 프로비전 실패 횟수, 업데이트된 사용자 수 및 업데이트 실패 횟수, 프로비전 해제된 사용자 수 및 해당 실패 횟수)와 관련된 보고서를 보여 줍니다.    
+* **로그인 이벤트**: 이 통합 문서에는 로그인 활동 모니터링(예: 애플리케이션, 사용자, 디바이스별 로그인)과 관련된 가장 적절한 보고서와 시간 경과에 따른 로그인 수를 추적하는 요약 보기가 표시됩니다.
+* **조건부 액세스 인사이트**: 조건부 액세스 인사이트 및 보고 [통합 문서](../conditional-access/howto-conditional-access-insights-reporting.md)를 사용하면 조건부 액세스 정책이 시간에 따라 조직에 미치는 영향을 이해할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

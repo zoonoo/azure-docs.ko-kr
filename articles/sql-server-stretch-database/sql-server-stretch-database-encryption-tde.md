@@ -1,5 +1,5 @@
 ---
-title: Stretch Database에 대 한 투명한 데이터 암호화 사용
+title: Stretch Database에 대해 투명한 데이터 암호화를 사용하도록 설정
 description: Azure에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: b016987162cc8202b7ad28d4dd8e5ab2953469d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95024248"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
@@ -35,16 +35,16 @@ TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 
 ## <a name="enabling-encryption"></a>암호화 설정
 스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하도록 설정하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
-3. 설정 블레이드가 표시 되는 Azure Portal의 **투명 한 데이터 암호화** 옵션 ![ 스크린샷을 선택 합니다. 일반 섹션에서 투명 한 데이터 암호화가 강조 표시 됩니다.][1]
-4. **설정을** 선택한 후 투명 한  
-    ![ 데이터 암호화 블레이드가 표시 되 면 Azure Portal의 스크린샷 저장을 선택 합니다. 데이터 암호화가 설정 되 고 저장 단추가 강조 표시 됩니다.][2]
+3. **투명한 데이터 암호화** 옵션을 선택합니다. ![설정 블레이드가 표시되는 Azure Portal 스크린샷 일반 섹션에서 투명한 데이터 암호화가 강조 표시됩니다.][1]
+4. **켜기** 설정을 선택한 후 **저장** 을 선택합니다.
+   ![투명한 데이터 암호화 블레이드가 표시되는 Azure Portal 스크린샷 데이터 암호화가 설정되고 저장 단추가 강조 표시됩니다.][2]
 
 ## <a name="disabling-encryption"></a>암호화 비활성화
 스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하지 않도록 설정하려면 다음을 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에서 데이터베이스를 엽니다.
+1. [Azure 포털](https://portal.azure.com)
 2. 데이터베이스 블레이드에서 **설정** 단추 클릭
 3. **투명한 데이터 암호화** 옵션 선택 
 4. **끄기** 설정을 선택한 다음 **저장** 선택

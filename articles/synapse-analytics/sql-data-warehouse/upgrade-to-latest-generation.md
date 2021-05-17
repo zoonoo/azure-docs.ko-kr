@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b5a9d1781bd0498ac6ad74439b1572c52e3c345a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12ac49154fabbc0ce96390d5fffa5d02d7886324
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96459258"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166004"
 ---
 # <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 업그레이드하여 성능 최적화
 
@@ -94,7 +94,7 @@ ms.locfileid: "96459258"
 
    원래 Gen1 T-SQL 명령:
 
-   ```SQL
+   ```sql
    ALTER DATABASE mySampleDataWarehouse MODIFY (SERVICE_OBJECTIVE = 'DW300') ;
    ```
 
@@ -222,7 +222,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 5. Gen2 ServiceObjectiveName을 지정하여 데이터베이스에 대한 복구 요청을 만듭니다.
 6. 지역에서 복원된 데이터베이스의 상태를 확인합니다.
 
-```Powershell
+```powershell
 Connect-AzAccount
 Get-AzSubscription
 Select-AzSubscription -SubscriptionName "<Subscription_name>"

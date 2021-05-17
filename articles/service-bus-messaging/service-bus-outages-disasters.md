@@ -1,13 +1,13 @@
 ---
-title: 작동 중단 및 재해 로부터 Azure Service Bus 응용 프로그램 방지
-description: 이 문서에서는 잠재적인 Azure Service Bus 중단 으로부터 응용 프로그램을 보호 하는 기술을 제공 합니다.
+title: 가동 중단 및 재해로부터 Azure Service Bus 애플리케이션 보호
+description: 이 문서에서는 잠재적인 Azure Service Bus 가동 중단으로부터 애플리케이션을 보호하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 02/10/2021
 ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100374595"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
@@ -23,13 +23,13 @@ ms.locfileid: "100374595"
 
 ### <a name="geo-disaster-recovery"></a>지리적 재해 복구
 
-Service Bus 프리미엄은 네임스페이스 수준에서 지리적 재해 복구를 지원합니다. 자세한 내용은 [Azure Service Bus 지역 재해 복구](service-bus-geo-dr.md)를 참조하세요. [Premium SKU](service-bus-premium-messaging.md)에서만 사용할 수 있는 재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다. Geo-Disaster 복구를 사용 하면 엔터티에 대 한 메타 데이터만 기본 네임 스페이스와 보조 네임 스페이스 간에 복제 됩니다.  
+Service Bus 프리미엄은 네임스페이스 수준에서 지리적 재해 복구를 지원합니다. 자세한 내용은 [Azure Service Bus 지역 재해 복구](service-bus-geo-dr.md)를 참조하세요. [Premium SKU](service-bus-premium-messaging.md)에서만 사용할 수 있는 재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다. 지리적 재해 복구를 사용하면 기본 네임스페이스와 보조 네임스페이스 간에 엔터티의 메타데이터만 복제됩니다.  
 
 ### <a name="availability-zones"></a>가용성 영역
 
-Service Bus 프리미엄 SKU는 동일한 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. Service Bus은 3 개의 메시징 저장소 복사본 (1 주 및 2 차)을 관리 합니다. Service Bus는 데이터 및 관리 작업에 대해 3 개의 복사본을 모두 동기화 된 상태로 유지 합니다. 주 복사본에 오류가 발생 하는 경우 보조 복사본 중 하나가 가동 중지 시간 없이 주 복제본으로 승격 됩니다. 응용 프로그램의 Service Bus에서 일시적으로 연결을 해제 하는 경우 SDK의 재시도 논리는 Service Bus에 자동으로 다시 연결 됩니다. 
+Service Bus 프리미엄 SKU는 동일한 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. Service Bus는 메시징 저장소의 복사본 3개(기본 1개와 보조 2개)를 관리합니다. Service Bus는 데이터 및 관리 작업을 위해 3개의 복사본을 모두 동기화된 상태로 유지합니다. 기본 복사본이 실패하는 경우 보조 복사본 중 하나가 가동 중지 시간 없이 기본 복제본으로 승격됩니다. 애플리케이션이 일시적으로 Service Bus에서 연결 해제되는 경우 SDK의 재시도 논리가 자동으로 Service Bus에 다시 연결합니다. 
 
-가용성 영역을 사용 하는 경우 메타 데이터와 데이터 (메시지)는 모두 가용성 영역의 데이터 센터에 복제 됩니다. 
+가용성 영역을 사용하는 경우 메타데이터와 데이터(메시지)가 모두 가용성 영역의 데이터 센터에 복제됩니다. 
 
 > [!NOTE]
 > Azure Service Bus 프리미엄에 대한 가용성 영역 지원은 가용성 영역이 있는 [Azure 지역](../availability-zones/az-region.md)에서만 사용할 수 있습니다.
@@ -74,7 +74,7 @@ Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영
 [Service Bus 표준 계층을 사용한 지역 복제][Geo-replication with Service Bus Standard Tier] 샘플을 통해 메시징 엔터티를 수동 복제하는 방법을 볼 수 있습니다.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>데이터센터 가동 중단 또는 재해로부터 릴레이 엔드포인트 보호
-[Azure Relay](../azure-relay/relay-what-is-it.md) 끝점의 지역에서 복제를 사용 하면 Service Bus 중단 상태에서 릴레이 끝점을 노출 하는 서비스에 연결할 수 있습니다. 지역 복제를 하려면 서비스에서 서로 다른 네임스페이스에 두 릴레이 엔드포인트를 만들어야 합니다. 네임스페이스는 서로 다른 데이터센터에 있어야 하고 두 엔드포인트 이름이 서로 달라야 합니다. 예를 들어, 기본 엔드포인트는 **contosoPrimary.servicebus.windows.net/myPrimaryService** 에서 접근할 수 있는 반면 보조 엔드포인트는 **contosoSecondary.servicebus.windows.net/mySecondaryService** 에서 접근할 수 있습니다.
+[Azure Relay](../azure-relay/relay-what-is-it.md) 엔드포인트의 지역 복제를 사용하면 Service Bus 가동 중단 시에도 릴레이 포인트를 공개하는 서비스에 연결할 수 있습니다. 지역 복제를 하려면 서비스에서 서로 다른 네임스페이스에 두 릴레이 엔드포인트를 만들어야 합니다. 네임스페이스는 서로 다른 데이터센터에 있어야 하고 두 엔드포인트 이름이 서로 달라야 합니다. 예를 들어, 기본 엔드포인트는 **contosoPrimary.servicebus.windows.net/myPrimaryService** 에서 접근할 수 있는 반면 보조 엔드포인트는 **contosoSecondary.servicebus.windows.net/mySecondaryService** 에서 접근할 수 있습니다.
 
 서비스는 두 엔드포인트를 모두를 수신하고, 클라이언트는 두 엔드포인트 중 어디를 통해서든 서비스를 호출할 수 있습니다. 클라이언트 애플리케이션은 기본 엔드포인트에서 임의로 하나의 릴레이를 선택하고, 활성 엔드포인트로 요청을 보냅니다. 오류 코드가 표시되고 작업이 실패하면, 이 오류는 릴레이 엔드포인트를 사용할 수 없음을 나타냅니다. 애플리케이션은 백업 엔드포인트로의 채널을 열고, 요청을 다시 발송합니다. 이때 활성 엔드포인트와 백업 엔드포인트의 역할이 서로 바뀝니다. 클라이언트 애플리케이션은 이전 활성 엔드포인트를 새 백업 엔드포인트로, 이전 백업 엔드포인트를 새 활성 엔드포인트로 간주합니다. 두 보내기 작업이 모두 실패하면, 두 엔터티의 역할이 바뀌지 않고 유지되며 오류가 반환됩니다.
 

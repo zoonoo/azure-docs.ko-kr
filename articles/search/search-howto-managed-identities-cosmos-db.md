@@ -1,7 +1,7 @@
 ---
-title: 관리 id를 사용 하 여 Cosmos DB 계정에 대 한 연결 설정
+title: 관리 ID를 사용하여 Cosmos DB 계정 연결 설정
 titleSuffix: Azure Cognitive Search
-description: 관리 id를 사용 하 여 Cosmos DB 계정에 인덱서 연결을 설정 하는 방법을 알아봅니다.
+description: 관리 ID를 사용하여 Cosmos DB 계정에 인덱서 연결을 설정하는 방법 알아보기
 manager: luisca
 author: markheff
 ms.author: maheff
@@ -10,13 +10,13 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93422096"
 ---
-# <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 id를 사용 하 여 Cosmos DB 데이터베이스에 대 한 인덱서 연결 설정
+# <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>관리 ID를 사용하여 Cosmos DB 데이터베이스에 인덱서 연결 설정
 
 이 페이지에서는 데이터 원본 개체 연결 문자열에 자격 증명을 제공하는 대신 관리 ID를 사용하여 Azure Cosmos DB 데이터베이스에 인덱서 연결을 설정하는 방법을 설명 합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "93422096"
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - 시스템 할당 관리 ID 켜기
 
-시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음 인덱싱 중 데이터에 액세스할 수 있도록 하는 azure RBAC (역할 기반 액세스 제어) 할당에서이 id를 사용할 수 있습니다.
+시스템 할당 관리 ID 사용이 설정되면 Azure는 동일한 테넌트 및 구독 내에서 다른 Azure 서비스에 인증하는 데 사용할 수 있는 검색 서비스 ID를 만듭니다. 그런 다음, 인덱싱 중에 데이터 액세스를 허용하는 Azure RBAC(Azure 역할 기반 액세스 제어) 할당에서 이 ID를 사용할 수 있습니다.
 
 ![시스템 할당 관리 ID 켜기](./media/search-managed-identities/turn-on-system-assigned-identity.png "시스템 할당 관리 ID 켜기")
 
@@ -55,9 +55,9 @@ ms.locfileid: "93422096"
 
 ### <a name="3---create-the-data-source"></a>3 - 데이터 원본 만들기
 
-[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.net SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 는 관리 되는 id 연결 문자열을 지원 합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 되는 id 연결 문자열을 사용 하 여 Cosmos DB에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대 한 예입니다. 관리 되는 id 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일 합니다.
+[REST API](/rest/api/searchservice/create-data-source), Azure Portal 및 [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype)는 관리 ID 연결 문자열을 지원합니다. 다음은 [REST API](/rest/api/searchservice/create-data-source) 및 관리 ID 연결 문자열을 사용하여 Cosmos DB에서 데이터를 인덱싱하는 데이터 원본을 만드는 방법에 대한 예입니다. 관리 ID 연결 문자열 형식은 REST API, .NET SDK 및 Azure Portal에 대해 동일합니다.
 
-관리 id를 사용 하 여 인증 하는 경우 **자격 증명** 은 계정 키를 포함 하지 않습니다.
+관리 ID를 사용하여 인증을 받는 경우 **자격 증명** 에 계정 키가 포함되지 않습니다.
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -80,7 +80,7 @@ api-key: [Search service admin key]
 
 요청 본문에는 다음 필드를 포함해야 하는 데이터 소스 정의가 포함됩니다.
 
-| 필드   | 설명 |
+| 필드   | Description |
 |---------|-------------|
 | **name** | 필수 사항입니다. 데이터 원본 개체를 나타낼 이름을 선택합니다. |
 |**type**| 필수 사항입니다. `cosmosdb`이어야 합니다. |
@@ -140,11 +140,11 @@ api-key: [admin key]
 
 ## <a name="troubleshooting"></a>문제 해결
 
-Cosmos DB에서 데이터를 인덱싱할 수 없는 경우 다음 사항을 고려 하십시오.
+Cosmos DB에서 데이터를 인덱싱할 수 없는 경우 다음 사항을 고려하세요.
 
-1. 최근 Cosmos DB 계정 키를 회전 한 경우 관리 id 연결 문자열이 작동 하는 데 최대 15 분이 걸립니다.
+1. 최근에 Cosmos DB 계정 키를 순환한 경우 관리 ID 연결 문자열이 작동하는 데 최대 15분이 걸립니다.
 
-1. Cosmos DB 계정의 액세스 권한이 네트워크 선택으로 제한 되어 있는지 확인 하세요. 이 경우 [Azure 네트워크 보안 기능을 통해 보호 되는 콘텐츠에 대 한 인덱서 액세스](search-indexer-securing-resources.md)를 참조 하세요.
+1. Cosmos DB 계정의 액세스 권한이 선택한 네트워크로 제한되어 있는지 확인합니다. 이 경우 [Azure 네트워크 보안 기능으로 보호되는 콘텐츠에 대한 인덱서 액세스](search-indexer-securing-resources.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

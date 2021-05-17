@@ -1,5 +1,5 @@
 ---
-title: Azure-SSIS Integration Runtime에 대 한 성능 구성
+title: Azure-SSIS Integration Runtime에 대한 성능 구성
 description: 고성능을 위해 Azure-SSIS Integration Runtime의 속성을 구성하는 방법을 알아봅니다.
 ms.date: 01/10/2018
 ms.topic: conceptual
@@ -7,10 +7,10 @@ ms.service: data-factory
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100364395"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>고성능을 위해 Azure-SSIS Integration Runtime 구성
@@ -65,7 +65,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** 은 통합 런타임 작업자 노드의 위치입니다. 작업자 노드는 Azure SQL Database에서 SSISDB (SSIS 카탈로그 데이터베이스)에 대 한 일정 한 연결을 유지 관리 합니다. **AzureSSISLocation** 를 SSISDB를 호스팅하는 [논리 SQL server](../azure-sql/database/logical-servers.md) 와 동일한 위치로 설정 합니다 .이를 통해 통합 런타임을 최대한 효율적으로 작동할 수 있습니다.
+**AzureSSISLocation** 은 통합 런타임 작업자 노드의 위치입니다. 작업자 노드는 Azure SQL Database의 SSISDB(SSIS 카탈로그 데이터베이스)와 지속적으로 연결을 유지 관리합니다. **AzureSSISLocation** 을 SSISDB를 호스트하는 [논리 SQL 서버](../azure-sql/database/logical-servers.md)와 동일한 위치로 설정하면 통합 런타임이 최대한 효율적으로 작동합니다.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Azure-SSIS IR을 포함하여 Data Factory는 다음 옵션을 지원합니다.
@@ -75,32 +75,32 @@ Azure-SSIS IR을 포함하여 Data Factory는 다음 옵션을 지원합니다.
 -   Standard\_D2\_v2
 -   Standard\_D3\_v2
 -   Standard\_D4\_v2
--   표준 \_ D2 \_ v3
--   표준 \_ D4 \_ v3
--   표준 \_ D8 \_ v3
--   표준 \_ D16 \_ v3
--   표준 \_ D32 \_ v3
--   표준 \_ D64 \_ v3
--   표준 \_ E2 \_ v3
--   표준 \_ E4 \_ v3
--   표준 \_ E8 \_ v3
--   표준 \_ E16 \_ v3
--   표준 \_ E32 \_ v3
--   표준 \_ E64 \_ v3
+-   Standard\_D2\_v3
+-   Standard\_D4\_v3
+-   Standard\_D8\_v3
+-   Standard\_D16\_v3
+-   Standard\_D32\_v3
+-   Standard\_D64\_v3
+-   Standard\_E2\_v3
+-   Standard\_E4\_v3
+-   Standard\_E8\_v3
+-   Standard\_E16\_v3
+-   Standard\_E32\_v3
+-   Standard\_E64\_v3
 
 SSIS 엔지니어링 팀의 비공식 사내 테스트에 따르면 D 시리즈가 A 시리즈보다 SSIS 패키지 실행에 더 적합합니다.
 
--   D 시리즈의 성능/가격은 시리즈 보다 높고 v3 시리즈의 성능/가격 비율은 v2 시리즈 보다 높습니다.
--   D 시리즈에 대 한 처리량은 동일한 가격의 시리즈 보다 더 높고 v3 시리즈의 처리량은 동일한 가격의 v2 시리즈 보다 높습니다.
--   Azure-SSIS IR의 v2 시리즈 노드가 사용자 지정 설치에 적합 하지 않으므로 v3 시리즈 노드를 대신 사용 하세요. 이미 v2 시리즈 노드를 사용 하는 경우 가능한 한 빨리 v3 시리즈 노드를 사용 하도록 전환 하세요.
--   E 시리즈는 다른 컴퓨터 보다 메모리와 CPU의 비율을 높이는 메모리 액세스에 최적화 된 VM 크기입니다. 패키지에 많은 메모리가 필요한 경우 E 시리즈 VM을 선택 하는 것을 고려할 수 있습니다.
+-   D 시리즈의 성능/가격 비율이 A 시리즈보다 높고 v3 시리즈의 성능/가격 비율이 v2 시리즈보다 높습니다.
+-   D 시리즈의 처리량은 동일한 가격에서 A 시리즈보다 높고 v3 시리즈의 처리량은 동일한 가격에서 v2 시리즈보다 높습니다.
+-   Azure-SSIS IR의 v2 시리즈 노드는 사용자 지정 설치에 적합하지 않으므로 v3 시리즈 노드를 대신 사용합니다. 이미 v2 시리즈 노드를 사용하고 있으면 가능한 한 빨리 v3 시리즈 노드를 사용하도록 전환하세요.
+-   E 시리즈는 다른 머신보다 높은 메모리 대 CPU 비율을 제공하는 메모리 최적화 VM 크기입니다. 패키지에 많은 메모리가 필요한 경우 E 시리즈 VM을 선택하는 것이 좋습니다.
 
 ### <a name="configure-for-execution-speed"></a>실행 속도 구성
 실행할 패키지가 많지 않고 패키지를 신속하게 실행하려면 다음 차트의 정보를 사용하여 시나리오에 적합한 가상 머신 유형을 선택합니다.
 
-이 데이터는 단일 작업자 노드에서 단일 패키지 실행을 나타냅니다. 패키지는 Azure Blob Storage에서 이름 및 성 열이 포함 된 300만 레코드를 로드 하 고, 전체 이름 열을 생성 하 고, 전체 이름이 20 자 보다 긴 레코드를 Azure Blob Storage에 기록 합니다.
+이 데이터는 단일 작업자 노드에서 단일 패키지 실행을 나타냅니다. 이 패키지는 Azure Blob Storage의 성 및 이름 열이 있는 3백만 개의 레코드를 로드하여 전체 이름 열을 생성하고 전체 이름이 20자 이상인 레코드를 Azure Blob Storage에 씁니다.
 
-Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메모리를 많이 사용 하는 패키지 하나에 대 한 테스트 결과만을 기억 하세요. 패키지의 처리량을 확인 하려면 직접 테스트를 수행 하는 것이 좋습니다.
+y축은 1시간 안에 실행을 완료한 패키지의 수입니다. 이것은 1개의 메모리 사용 패키지를 테스트한 결과일 뿐입니다. 패키지의 처리량을 알고 싶은 경우 직접 테스트해보는 것이 좋습니다.
 
 ![SSIS Integration Runtime 패키지 실행 속도](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
@@ -108,7 +108,7 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 
 실행할 패키지가 많고 전체 처리량을 가장 중요하게 생각하는 경우 다음 차트의 정보를 사용하여 시나리오에 적합한 가상 머신 유형을 선택합니다.
 
-Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메모리를 많이 사용 하는 패키지 하나에 대 한 테스트 결과만을 기억 하세요. 패키지의 처리량을 확인 하려면 직접 테스트를 수행 하는 것이 좋습니다.
+y축은 1시간 안에 실행을 완료한 패키지의 수입니다. 이것은 1개의 메모리 사용 패키지를 테스트한 결과일 뿐입니다. 패키지의 처리량을 알고 싶은 경우 직접 테스트해보는 것이 좋습니다.
 
 ![SSIS Integration Runtime 최대 전체 처리량](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 
@@ -118,7 +118,7 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode** 를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. 최대 값을 늘리려면 Azure PowerShell를 사용 하 여 **AzureSSISMaxParallelExecutionsPerNode** 를 업데이트 해야 합니다. 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/sizes-general.md)를 참조하세요.
+이미 강력한 작업자 노드를 사용하여 패키지를 실행 중인 경우 **AzureSSISMaxParallelExecutionsPerNode** 를 늘리면 통합 런타임의 전체 처리량이 증가할 수 있습니다. 최대값을 늘리려면 Azure PowerShell을 사용하여 **AzureSSISMaxParallelExecutionsPerNode** 를 업데이트해야 합니다. 패키지 비용과 작업자 노드에 대한 다음 구성을 기반으로 적절한 값을 예측할 수 있습니다. 자세한 내용은 [범용 가상 머신 크기](../virtual-machines/sizes-general.md)를 참조하세요.
 
 | 크기             | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 성능(Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -128,18 +128,18 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 | Standard\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16x500                       | 8 / 6000                                       |
 | Standard\_A4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8x500                         | 4 / 1000                                       |
 | Standard\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16x500                       | 8 / 2000                                       |
-| 표준 \_ D2 \_ v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
-| 표준 \_ D4 \_ v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
-| 표준 \_ D8 \_ v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| 표준 \_ D16 \_ v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
-| 표준 \_ D32 \_ v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
-| 표준 \_ D64 \_ v3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
-| 표준 \_ E2 \_ v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
-| 표준 \_ E4 \_ v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
-| 표준 \_ E8 \_ v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| 표준 \_ E16 \_ v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
-| 표준 \_ E32 \_ v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16000                                      |
-| 표준 \_ E64 \_ v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| Standard\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
+| Standard\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
+| Standard\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
+| Standard\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/ 48x500                        | 8 / 8000                                       |
+| Standard\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Standard\_D64\_v3| 64   | 256         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
+| Standard\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4 / 6x500                         | 2 / 1000                                       |
+| Standard\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8 / 12x500                        | 2 / 2000                                       |
+| Standard\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16 / 24x500                       | 4 / 4000                                       |
+| Standard\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32 / 48x500                       | 8 / 8000                                       |
+| Standard\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32 / 96x500                       | 8 / 16000                                      |
+| Standard\_E64\_v3| 64   | 432         | 1600                   | 96000 / 1000 / 500                                         | 32 / 192x500                      | 8 / 30000                                      |
 
 다음은 **AzureSSISMaxParallelExecutionsPerNode** 속성에 올바른 값을 설정하는 지침입니다. 
 
@@ -149,13 +149,13 @@ Y 축은 1 시간 동안 실행을 완료 한 패키지 수입니다. 이는 메
 
 ## <a name="ssisdbpricingtier"></a>SSISDBPricingTier
 
-**SSISDBPricingTier** 는 AZURE SQL DATABASE의 SSISDB (SSIS 카탈로그 데이터베이스)에 대 한 가격 책정 계층입니다. 이 설정은 IR 인스턴스의 최대 작업자 수, 패키지 실행을 큐에 넣는 속도 및 실행 로그를 로드하는 속도에 영향을 줍니다.
+**SSISDBPricingTier** 는 Azure SQL Database의 SSISDB(SSIS 카탈로그 데이터베이스)에 대한 가격 책정 계층입니다. 이 설정은 IR 인스턴스의 최대 작업자 수, 패키지 실행을 큐에 넣는 속도 및 실행 로그를 로드하는 속도에 영향을 줍니다.
 
 -   패키지 실행을 큐에 넣는 속도 및 실행 로그를 로드하는 속도가 중요하지 않은 경우 가장 낮은 데이터베이스 가격 책정 계층을 선택할 수 있습니다. 기본 가격을 사용하는 Azure SQL Database는 통합 런타임 인스턴스에 8명의 작업자를 지원합니다.
 
 -   작업자 수가 8 이상이거나 코어 수가 50을 넘는 경우 기본보다 더 강력한 데이터베이스를 선택합니다. 그렇지 않으면 데이터베이스가 통합 런타임 인스턴스의 병목 상태가 되어 전반적인 성능에 부정적인 영향을 미칩니다.
 
--   로깅 수준이 자세히로 설정 된 경우 s3과 같은 더 강력한 데이터베이스를 선택 합니다. 비공식 사내 테스트에 따르면 s3 가격 책정 계층은 2 개 노드, 128 병렬 개수 및 자세한 로깅 수준으로 SSIS 패키지 실행을 지원할 수 있습니다.
+-   로깅 수준이 자세한 정보 표시로 설정된 경우 s3와 같은 보다 강력한 데이터베이스를 선택합니다. 비공식 사내 테스트에 따르면 s3 가격 책정 계층은 2개 노드, 128개 병렬 개수 및 자세한 정보 로깅 수준의 SSIS 패키지 실행을 지원할 수 있습니다.
 
 Azure Portal에서 사용할 수 있는 DTU([데이터베이스 트랜잭션 단위](../azure-sql/database/service-tiers-dtu.md)) 사용량 정보를 기반으로 데이터베이스 가격 책정 계층을 조정할 수도 있습니다.
 

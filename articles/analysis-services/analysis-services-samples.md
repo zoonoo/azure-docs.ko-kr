@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Analysis Services에 대한 코드, 프�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a720c58009082c716e26cb11ade14c400cdd85a6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0ab0e64d9a088a332ba037dccf01dc445998ebfb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130272"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "96457554"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 

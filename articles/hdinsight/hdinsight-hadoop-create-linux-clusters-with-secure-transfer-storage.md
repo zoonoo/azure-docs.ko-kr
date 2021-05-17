@@ -1,43 +1,43 @@
 ---
-title: Apache Hadoop & 보안 전송 저장소-Azure HDInsight
+title: Apache Hadoop 및 보안 전송 스토리지 - Azure HDInsight
 description: 보안 전송이 활성화된 Azure Storage 계정을 사용하여 HDInsight 클러스터를 만드는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
 ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945730"
 ---
-# <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 저장소 계정을 사용 하 여 클러스터 Apache Hadoop
+# <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 스토리지 계정을 사용하는 Apache Hadoop 클러스터
 
 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md) 기능은 보안 연결을 통해 모든 요청을 계정에 적용하여 Azure Storage 계정의 보안을 강화합니다. 이 기능과 wasbs 체계는 HDInsight 클러스터 버전 3.6 이상에서만 지원됩니다.
 
 > [!IMPORTANT]
-> 클러스터를 만든 후 보안 저장소 전송을 사용 하도록 설정 하면 저장소 계정을 사용 하 여 오류가 발생할 수 있으므로 권장 되지 않습니다. 보안 전송이 이미 활성화 된 저장소 계정을 사용 하 여 새 클러스터를 만드는 것이 좋습니다.
+> 클러스터를 만든 후 보안 스토리지 전송을 사용하도록 설정하면 스토리지 계정을 사용하여 오류가 발생할 수 있으므로 권장하지 않습니다. 보안 전송을 이미 사용하는 것으로 설정된 스토리지 계정으로 새 클러스터를 만드는 것이 좋습니다.
 
 ## <a name="storage-accounts"></a>Storage 계정
 
 ### <a name="azure-portal"></a>Azure portal
 
-기본적으로 보안 전송 필수 속성은 Azure Portal에서 저장소 계정을 만들 때 사용 하도록 설정 됩니다.
+기본적으로 보안 전송 필요 속성은 Azure Portal에서 스토리지 계정을 만들 때 사용하도록 설정됩니다.
 
-Azure Portal를 사용 하 여 기존 저장소 계정을 업데이트 하려면 [Azure Portal로 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-for-an-existing-storage-account)를 참조 하세요.
+Azure Portal로 기존 스토리지 계정을 업데이트하려면 [Azure Portal에서 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-for-an-existing-storage-account)를 참조하세요.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell cmdlet [AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)의 경우 매개 변수가 `-EnableHttpsTrafficOnly` 로 설정 되어 있는지 확인 `1` 합니다.
+PowerShell cmdlet [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)의 경우 매개 변수 `-EnableHttpsTrafficOnly`가 `1`로 설정되어 있는지 확인합니다.
 
-PowerShell을 사용 하 여 기존 저장소 계정을 업데이트 하려면 [powershell을 사용 하 여 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell)를 참조 하세요.
+PowerShell로 기존 스토리지 계정을 업데이트하려면 [PowerShell에서 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell)를 참조하세요.
 
 ### <a name="azure-cli"></a>Azure CLI
 
-명령 [az storage account create](/cli/azure/storage/account#az-storage-account-create)Azure CLI 매개 변수 `--https-only` 가로 설정 되어 있는지 확인 합니다 `true` .
+Azure CLI 명령 [az storage account create](/cli/azure/storage/account#az-storage-account-create)의 경우 매개 변수 `--https-only`가 `true`로 설정되어 있는지 확인합니다.
 
-Azure CLI를 사용 하 여 기존 저장소 계정을 업데이트 하려면 [Azure CLI로 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli)를 참조 하세요.
+Azure CLI로 기존 스토리지 계정을 업데이트하려면 [에서 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli)를 참조하세요.
 
 ## <a name="add-additional-storage-accounts"></a>추가 스토리지 계정 추가
 

@@ -9,21 +9,21 @@ ms.service: iot-central
 services: iot-central
 manager: corywink
 ms.openlocfilehash: b2ac4bbf1457144d23a91c4e83b554b3ee806119
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87337231"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Azure IoT Central에서 규칙에 대해 웹후크 작업 만들기
 
 ‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
-웹후크를 사용하면 원격 모니터링 및 알림을 위해 IoT Central 앱을 다른 애플리케이션 및 서비스에 연결할 수 있습니다. 웹후크는 IoT Central 앱에서 규칙이 트리거될 때마다 연결하는 다른 애플리케이션 및 서비스에 자동으로 알립니다. IoT Central 앱은 규칙이 트리거될 때마다 다른 응용 프로그램의 HTTP 끝점에 POST 요청을 보냅니다. 페이로드는 장치 세부 정보 및 규칙 트리거 세부 정보를 포함 합니다.
+웹후크를 사용하면 원격 모니터링 및 알림을 위해 IoT Central 앱을 다른 애플리케이션 및 서비스에 연결할 수 있습니다. 웹후크는 IoT Central 앱에서 규칙이 트리거될 때마다 연결하는 다른 애플리케이션 및 서비스에 자동으로 알립니다. IoT Central 앱은 규칙이 트리거될 때마다 다른 애플리케이션의 HTTP 엔드포인트에 POST 요청을 보냅니다. 페이로드는 디바이스 세부 정보 및 규칙 트리거 세부 정보를 포함합니다.
 
 ## <a name="set-up-the-webhook"></a>Webhook 설정
 
-이 예제에서는 웹 후크를 사용 하 여 규칙이 실행 될 때 RequestBin에 연결 하 여 알림 메시지를 받습니다.
+이 예제에서는 RequestBin에 연결하여 규칙 실행 시 webhook를 통해 알림이 표시되도록 합니다.
 
 1. [RequestBin](https://requestbin.net/)을 엽니다.
 
@@ -37,11 +37,11 @@ ms.locfileid: "87337231"
 
 1. 규칙을 저장합니다.
 
-이제 규칙이 트리거되면 RequestBin에 새 요청이 표시 됩니다.
+이제 규칙이 트리거되면 RequestBin에 새 요청이 표시됩니다.
 
 ## <a name="payload"></a>Payload
 
-규칙이 트리거되면 원격 분석, 장치, 규칙 및 응용 프로그램 세부 정보를 사용 하 여 json 페이로드를 포함 하는 콜백 URL에 대해 HTTP POST 요청이 수행 됩니다. 페이로드는 다음과 같습니다.
+규칙이 트리거되면 원격 분석, 디바이스, 규칙 및 애플리케이션 세부 정보가 있는 json 페이로드를 포함하는 콜백 URL에 대해 HTTP POST 요청이 수행됩니다. 페이로드는 다음과 같아야 합니다.
 
 ```json
 {
@@ -95,7 +95,7 @@ ms.locfileid: "87337231"
     }
 }
 ```
-규칙에서 일정 기간 동안 집계 된 원격 분석을 모니터링 하는 경우 페이로드에는 다른 원격 분석 섹션이 포함 됩니다.
+규칙에서 일정 기간 동안 집계된 원격 분석을 모니터링하는 경우 페이로드에는 다른 원격 분석 섹션이 포함됩니다.
 
 ```json
 {
@@ -109,11 +109,11 @@ ms.locfileid: "87337231"
 }
 ```
 
-## <a name="data-format-change-notice"></a>데이터 형식 변경 공지
+## <a name="data-format-change-notice"></a>데이터 형식 변경 알림
 
-**2020 년 4 월 3** 일 이전에 하나 이상의 webhook를 만들고 저장 한 경우에는 웹 후크를 삭제 하 고 새 webhook를 만들어야 합니다. 이전 웹 후크 향후 더 이상 사용 되지 않을 이전 페이로드 형식을 사용 하기 때문입니다.
+**2020년 4월 3일** 이전에 하나 이상의 webhook를 만들고 저장한 경우에는 webhook를 삭제하고 새 webhook를 만들어야 합니다. 이전 webhook는 앞으로 지원이 중단될 이전 페이로드 형식을 사용하기 때문입니다.
 
-### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>웹 후크 페이로드 (지원 되지 않는 형식 3 년 4 월 2020)
+### <a name="webhook-payload-format-deprecated-as-of-3-april-2020"></a>webhook 페이로드(2020년 4월 3일부로 지원이 중단된 형식)
 
 ```json
 {
@@ -154,8 +154,8 @@ ms.locfileid: "87337231"
 
 현재, API 통해 이러한 웹후크에서 구독/구독 취소하는 프로그래밍 방법은 없습니다.
 
-이 기능을 개선 하는 방법에 대 한 아이디어가 있는 경우 [사용자 의견 포럼](https://feedback.azure.com/forums/911455-azure-iot-central)에 의견을 게시 하세요.
+이 기능을 개선하는 방법에 대한 아이디어가 있는 경우 [User voice 포럼](https://feedback.azure.com/forums/911455-azure-iot-central)에 게시해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-웹 후크를 설정 하 고 사용 하는 방법을 배웠으므로 이제 제안 된 다음 단계는 [Azure Monitor 작업 그룹 구성을](howto-use-action-groups.md)살펴보는 것입니다.
+webhook를 설정하고 사용하는 방법을 배웠으므로 이제 제안된 다음 단계는 [Azure Monitor 작업 그룹 구성 방법](howto-use-action-groups.md)을 살펴보는 것입니다.

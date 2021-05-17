@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 04/16/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8012702e9004361c8b19797bf0ca66553d307dce
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606779"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138196"
 ---
 # <a name="scaling-hpc-applications"></a>HPC 애플리케이션 크기 조정
 
@@ -112,4 +112,7 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 [HPC](/azure/architecture/topics/high-performance-computing/)에 대해 자세히 알아봅니다.
+- [Azure에서 HPC 애플리케이션 최적화에 대한 학습 모듈](/learn/modules/optimize-tightly-coupled-hpc-apps/)을 사용하여 지식을 테스트합니다.
+- [HBv3 시리즈 개요](hbv3-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토합니다.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
+- Azure의 [HPC](/azure/architecture/topics/high-performance-computing/)에 대해 자세히 알아봅니다.

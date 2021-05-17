@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c238b1e785c34a6ec4cd99d63419e73239a9bfe
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105612027"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135710"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Hyper-V에서 서버 어플라이언스 설정
 
@@ -37,7 +37,7 @@ VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
 
 ### <a name="generate-the-project-key"></a>프로젝트 키 생성
 
-1. **마이그레이션 목표** > **Windows, Linux 및 SQL Server** > **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택합니다.
+1. **마이그레이션 목표** > **Windows, Linux 및 SQL 서버** > **Azure Migrate: 검색 및 평가** 에서 **검색** 을 선택합니다.
 2. **서버 검색** > **서버가 가상화되어 있습니까?** 에서 **예, Hyper-V 사용** 을 선택합니다.
 3. **1: 프로젝트 키 생성** 에서 Hyper-V의 서버를 검색하도록 설정할 Azure Migrate 어플라이언스 이름을 입력합니다. 이름은 14자 이하의 영숫자여야 합니다.
 1. **키 생성** 을 클릭하여 필요한 Azure 리소스 만들기를 시작합니다. 리소스를 만드는 동안 [서버 검색] 페이지를 닫지 마세요.
@@ -62,7 +62,7 @@ VHD 템플릿을 사용하여 어플라이언스를 설정하려면 다음을 �
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-위 명령의 결과와 [여기](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security)에 설명된 값을 비교하여 최신 해시 값을 확인합니다.
+위 명령의 결과와 [여기](./tutorial-discover-hyper-v.md#verify-security)에 설명된 값을 비교하여 최신 해시 값을 확인합니다.
 
 ## <a name="create-the-appliance"></a>어플라이언스 만들기
 

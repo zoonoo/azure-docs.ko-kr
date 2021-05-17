@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code를 사용 하 여 Java 응용 프로그램 개발
+title: Visual Studio Code를 사용한 Java 애플리케이션 개발
 description: 이 문서에서는 Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션을 빌드, 배포 및 디버그하는 방법을 보여 줍니다.
 author: peterpogorski
 ms.topic: article
@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87327364"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Visual Studio Code를 사용하여 Java Service Fabric 애플리케이션 개발

@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c9bbdb831df9c51c6d80e6c441ac7bdd2778428
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: bafbbb8faee98bacbd6d1f314c1411ce2593296a
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044552"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108316284"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>사용자 흐름에 API 커넥터 추가
 
 [API 커넥터](api-connectors-overview.md)를 사용하려면 먼저 API 커넥터를 만든 다음 사용자 흐름에서 사용하도록 설정합니다.
 
 > [!IMPORTANT]
->**2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+> **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## <a name="create-an-api-connector"></a>API 커넥터 만들기
 
@@ -266,12 +266,12 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수                                          | Type              | 필수 | Description                                                                                                                                                                                                                                                                            |
+| 매개 변수                                          | 형식              | 필수 | Description                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 버전                                            | String            | 예      | API 버전입니다.                                                                                                                                                                                                                                                                |
 | action                                             | String            | 예      | 값은 `Continue`이어야 합니다.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | 예       | 사용자 흐름에 대한 API 커넥터 구성 및 **사용자 특성** 에서 **수신할 클레임** 으로 선택한 경우 값을 디렉터리에 저장할 수 있습니다. **애플리케이션 클레임** 으로 선택한 경우에는 토큰에서 값을 반환할 수 있습니다.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 예       | 반환된 클레임에는 `_<extensions-app-id>_`를 포함할 필요가 없습니다. 반환된 값은 사용자로부터 수집한 값을 덮어쓸 수 있습니다. 또한 애플리케이션의 일부로 구성된 경우 토큰에서 반환할 수 있습니다.  |
+| \<builtInUserAttribute>                            | \<attribute-type> | 아니요       | 사용자 흐름에 대한 API 커넥터 구성 및 **사용자 특성** 에서 **수신할 클레임** 으로 선택한 경우 값을 디렉터리에 저장할 수 있습니다. **애플리케이션 클레임** 으로 선택한 경우에는 토큰에서 값을 반환할 수 있습니다.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | 아니요       | 반환된 클레임에는 `_<extensions-app-id>_`를 포함할 필요가 없습니다. 반환된 값은 사용자로부터 수집한 값을 덮어쓸 수 있습니다. 또한 애플리케이션의 일부로 구성된 경우 토큰에서 반환할 수 있습니다.  |
 
 ### <a name="example-of-a-blocking-response"></a>차단 응답의 예제
 
@@ -287,7 +287,7 @@ Content-type: application/json
 
 ```
 
-| 매개 변수   | Type   | 필수 | Description                                                                |
+| 매개 변수   | 형식   | 필수 | Description                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | 버전     | String | 예      | API 버전입니다.                                                    |
 | action      | String | 예      | 값은 `ShowBlockPage`여야 합니다.                                              |
@@ -311,7 +311,7 @@ Content-type: application/json
 }
 ```
 
-| 매개 변수   | Type    | 필수 | Description                                                                |
+| 매개 변수   | 형식    | 필수 | Description                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | 버전     | String  | 예      | API의 버전입니다.                                                    |
 | action      | String  | 예      | 값은 `ValidationError`이어야 합니다.                                           |

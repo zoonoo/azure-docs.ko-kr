@@ -16,19 +16,19 @@ ms.date: 01/25/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a014bd5c8f1edbfb00019b8541cef552271d65b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 85f5322d43a26e35d86fd92f6d85a49815db0491
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762849"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165734"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
 이 문서에서는 Azure AD 통과 인증과 관련된 일반적인 문제에 대한 문제 해결 정보를 찾을 수 있습니다.
 
->[!IMPORTANT]
->통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../fundamentals/add-users-azure-active-directory.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
+> [!IMPORTANT]
+> 통과 인증에서 사용자 로그인 문제가 발생하는 경우 클라우드 전용 전역 관리자 계정을 다시 사용하지 않고 해당 기능을 사용하지 않도록 설정하거나 통과 인증 에이전트를 제거하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../fundamentals/add-users-azure-active-directory.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
 
 ## <a name="general-issues"></a>일반적인 문제
 
@@ -42,34 +42,36 @@ ms.locfileid: "98762849"
 
 ### <a name="user-facing-sign-in-error-messages"></a>사용자 관련 로그인 오류 메시지
 
-사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다. 
+사용자가 통과 인증을 통해 로그인할 수 없는 경우 Azure AD 로그인 화면에서 다음과 같은 사용자 관련 오류 메시지 중 하나가 표시될 수 있습니다.
 
 |Error|Description|해결 방법
 | --- | --- | ---
-|AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.  
+|AADSTS80001|Active Directory에 연결할 수 없음|에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다.
 |AADSTS8002|Active Directory에 연결하는 동안 시간 초과 발생|Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다.
 |AADSTS80004|에이전트에 전달된 사용자 이름이 유효하지 않음|사용자가 올바른 사용자 이름을 사용하여 로그인을 시도하는지 확인합니다.
 |AADSTS80005|유효성 검사 중 예측할 수 없는 WebException 발생|일시적인 오류입니다. 요청을 다시 시도하십시오. 계속 실패할 경우 Microsoft 지원에 문의하세요.
 |AADSTS80007|Active Directory와 통신 중 오류 발생|에이전트 로그에서 자세한 정보를 확인하고 Active Directory가 예상대로 작동하는지 확인합니다.
 
-### <a name="users-get-invalid-usernamepassword-error"></a>사용자에게 잘못된 사용자 이름/암호 오류 발생 
+### <a name="users-get-invalid-usernamepassword-error"></a>사용자에게 잘못된 사용자 이름/암호 오류 발생
 
 이러한 오류는 사용자의 온-프레미스 UPN(사용자 계정 이름)이 사용자의 클라우드 UPN과 다른 경우에 발생할 수 있습니다.
 
 이것이 원인인지 확인하려면 먼저 통과 인증 에이전트가 제대로 작동하는지 테스트합니다.
 
+1. 테스트 계정을 만듭니다.
 
-1. 테스트 계정을 만듭니다.  
 2. 에이전트 컴퓨터에서 PowerShell 모듈을 가져옵니다.
 
- ```powershell
- Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
- ```
-3. PowerShell 호출 명령을 실행합니다. 
+   ```powershell
+   Import-Module "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\PassthroughAuthPSModule\PassthroughAuthPSModule.psd1"
+   ```
 
- ```powershell
- Invoke-PassthroughAuthOnPremLogonTroubleshooter 
- ``` 
+3. PowerShell 호출 명령을 실행합니다.
+
+   ```powershell
+   Invoke-PassthroughAuthOnPremLogonTroubleshooter 
+   ```
+
 4. 자격 증명을 입력하라는 메시지가 표시되면 https://login.microsoftonline.com) 에 로그인하는 데 사용되는 것과 동일한 사용자 이름 및 암호를 입력합니다.
 
 이전과 동일한 사용자 이름/암호 오류가 표시되면 통과 인증 에이전트가 제대로 작동한다는 것을 의미하며 오류의 원인은 라우팅할 수 없는 온-프레미스 UPN일 수 있습니다. 자세한 내용은 [대체 로그인 ID 구성](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)을 참조하세요.
@@ -94,12 +96,12 @@ ms.locfileid: "98762849"
 | 80004 | 로그인 요청에 잘못된 UPN(사용자 계정 이름)이 사용되었습니다. | 사용자에게 올바른 사용자 이름으로 로그인하도록 요청합니다.
 | 80005 | 인증 에이전트: 오류가 발생했습니다. | 일시적인 오류입니다. 나중에 다시 시도하십시오.
 | 80007 | 인증 에이전트에서 Active Directory에 연결할 수 없습니다. | 인증 에이전트에서 Active Directory에 연결할 수 있는지 확인합니다.
-| 80010 | 인증 에이전트에서 암호를 해독할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다. 
+| 80010 | 인증 에이전트에서 암호를 해독할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
 | 80011 | 인증 에이전트에서 암호 해독 키를 검색할 수 없습니다. | 일관되게 재현될 수 있는 문제이면 새 인증 에이전트를 설치하고 등록합니다. 그리고 현재의 인증 에이전트는 제거합니다.
 | 80014 | 유효성 검사 요청이 최대 경과 시간이 초과된 후 응답했습니다. | 인증 에이전트 시간이 초과되었습니다. 이 오류에 대한 자세한 내용을 보려면 오류 코드, 상관 관계 ID 및 타임스탬프를 사용하여 지원 티켓을 여세요.
 
->[!IMPORTANT]
->통과 인증 에이전트는 [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera)를 호출하여 Active Directory에 대한 사용자 이름 및 암호의 유효성을 검사하여 Azure AD 사용자를 확인합니다. 따라서 워크스테이션 로그온 액세스를 제한하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스팅하는 서버를 "로그온" 서버 목록에도 추가해야 합니다. 이 작업을 수행하지 못하면 사용자가 Azure AD에 로그인하지 못하도록 차단됩니다.
+> [!IMPORTANT]
+> 통과 인증 에이전트는 [Win32 LogonUser API](/windows/win32/api/winbase/nf-winbase-logonusera)를 호출하여 Active Directory에 대한 사용자 이름 및 암호의 유효성을 검사하여 Azure AD 사용자를 확인합니다. 따라서 워크스테이션 로그온 액세스를 제한하기 위해 Active Directory에 "로그온" 설정을 구성한 경우 통과 인증 에이전트를 호스팅하는 서버를 "로그온" 서버 목록에도 추가해야 합니다. 이 작업을 수행하지 못하면 사용자가 Azure AD에 로그인하지 못하도록 차단됩니다.
 
 ## <a name="authentication-agent-installation-issues"></a>인증 에이전트 설치 문제
 
@@ -157,8 +159,6 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 자세한 분석을 위해 "세션" 로그를 활성화합니다(이벤트 뷰어 애플리케이션 내에서 마우스 오른쪽 단추로 클릭하여 이 옵션을 찾습니다). 정상 작동 중에는 이 로그를 활성화한 상태에서 인증 에이전트를 실행하지 마세요. 문제 해결에만 이 로그를 사용하세요. 로그 내용은 로그를 다시 비활성화한 후에만 볼 수 있습니다.
 
-
-
 ### <a name="detailed-trace-logs"></a>자세한 추적 로그
 
 사용자 로그인 실패 문제를 해결하려면 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\** 에서 추적 로그를 찾습니다. 이러한 로그에는 통과 인증 기능을 통해 특정 사용자 로그인이 실패한 이유가 포함되어 있습니다. 이러한 오류는 이전의 로그인 실패 이유 표에 나오는 로그인 실패 이유에도 매핑됩니다. 다음은 로그 항목의 예제입니다.
@@ -193,5 +193,5 @@ Azure AD Connect가 설치된 서버가 [여기](how-to-connect-pta-quick-start.
 
 ![통과 인증 성능 모니터 카운터](./media/tshoot-connect-pass-through-authentication/pta12.png)
 
->[!IMPORTANT]
->통과 인증은 여러 인증 에이전트를 사용하여 고가용성을 제공하지만 부하 분산 기능은 제공하지 _않습니다_. 구성에 따라 모든 인증 에이전트는 요청과 _동일한_ 수를 수신하지 _않습니다_. 특정 인증 에이전트는 트래픽을 전혀 수신하지 않을 수도 있습니다.
+> [!IMPORTANT]
+> 통과 인증은 여러 인증 에이전트를 사용하여 고가용성을 제공하지만 부하 분산 기능은 제공하지 _않습니다_. 구성에 따라 모든 인증 에이전트는 요청과 _동일한_ 수를 수신하지 _않습니다_. 특정 인증 에이전트는 트래픽을 전혀 수신하지 않을 수도 있습니다.

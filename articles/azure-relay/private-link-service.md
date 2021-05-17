@@ -3,14 +3,15 @@ title: Azure Private Link 서비스와 Azure Relay 통합
 description: Azure Private Link Service와 Azure Relay를 통합하는 방법을 알아봅니다.
 ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: 13644082160704ba9918e6bd6257fa314bb463a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 162b4a36e1da974a9a4c40ed67a3d6ce74ff6404
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98134384"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292903"
 ---
-# <a name="integrate-azure-relay-with-azure-private-link"></a>Azure 개인 링크와 Azure Relay 통합 
+# <a name="integrate-azure-relay-with-azure-private-link"></a>Azure Private Link와 Azure Relay 통합 
 Azure **Private Link Service** 를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure 서비스(예: Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
 **프라이빗 엔드포인트** 는 가상 네트워크에서 실행 중인 워크로드가 **프라이빗 링크 리소스** 가 있는 서비스(예: 릴레이 네임스페이스)에 비공개로 안전하게 연결할 수 있도록 하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute, VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. 특정 Azure Relay 네임스페이스에 대한 연결을 허용하여 액세스 제어 수준을 세분화할 수 있습니다. 
@@ -19,7 +20,7 @@ Azure **Private Link Service** 를 사용하면 가상 네트워크의 프라이
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 추가
 
 ### <a name="prerequisites"></a>사전 요구 사항
-Azure Relay 네임 스페이스를 Azure 개인 링크와 통합 하려면 다음 엔터티 또는 권한이 필요 합니다.
+Azure Relay 네임스페이스를 Azure Private Link와 통합하려면 다음 엔터티 또는 사용 권한이 필요합니다.
 
 - Azure Relay 네임스페이스
 - Azure 가상 네트워크
@@ -81,7 +82,7 @@ Azure Relay 네임 스페이스를 Azure 개인 링크와 통합 하려면 다�
 12. **프라이빗 엔드포인트** 페이지에서 프라이빗 엔드포인트 연결의 상태를 볼 수 있습니다. 릴레이 네임스페이스의 소유자이거나 이에 대한 액세스를 관리하고 **내 디렉터리에서 Azure 리소스에 연결** 을 **연결 방법** 에서 선택한 경우 엔드포인트 연결은 **자동 승인** 되어야 합니다. **보류 중** 인 경우 [Azure Portal을 사용하여 프라이빗 엔드포인트 관리](#manage-private-endpoints-using-azure-portal) 섹션을 참조하세요.
 
     ![프라이빗 엔드포인트 페이지](./media/private-link-service/private-endpoint-page.png)
-13. **네임 스페이스** 의 **네트워킹** 페이지로 다시 이동 하 고 **개인 끝점 연결** 탭으로 전환 합니다. 만든 개인 끝점이 표시 됩니다. 
+13. **네임스페이스** 의 **네트워킹** 페이지로 다시 이동하여 **프라이빗 엔드포인트 연결** 탭으로 전환합니다. 생성된 프라이빗 엔드포인트가 표시됩니다. 
 
     ![생성된 프라이빗 엔드포인트](./media/private-link-service/private-endpoint-created.png)
 
@@ -201,7 +202,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 3. 상태가 **연결 끊김** 으로 변경되어 있어야 합니다. 그러면 엔드포인트가 목록에서 사라지게 됩니다. 
 
 ## <a name="validate-that-the-private-link-connection-works"></a>프라이빗 링크 연결이 작동하는지 확인
-개인 IP 주소를 통해 개인 끝점의 가상 네트워크 내에 있는 리소스가 Azure Relay 네임 스페이스에 연결 되어 있는지 확인 해야 합니다.
+프라이빗 엔드포인트의 가상 네트워크 내의 리소스가 개인 IP 주소를 통해 Azure Relay 네임스페이스에 연결되어 있는지 확인해야 합니다.
 
 먼저 [Azure Portal에서 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)의 단계에 따라 가상 머신을 만듭니다.
 
@@ -230,7 +231,7 @@ Aliases:  <namespace-name>.servicebus.windows.net
 ## <a name="limitations-and-design-considerations"></a>제한 사항 및 디자인 고려 사항
 
 ### <a name="design-considerations"></a>디자인 고려 사항
-- 가격 책정 정보는 [Azure 개인 링크 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조 하세요.
+- 가격 책정 정보는 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link/)을 참조하세요.
 
 ### <a name="limitations"></a>제한 사항 
 - Azure Relay 네임스페이스당 최대 프라이빗 엔드포인트 수: 64.

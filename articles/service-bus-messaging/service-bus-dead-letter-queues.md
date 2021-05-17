@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
 ms.openlocfilehash: ad62f946584071e7ce6fd55f48b5f7ee8db44a2f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98630101"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
@@ -58,11 +58,11 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 또는 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성을 **true** 로 설정하면(기본값은 **false**) 만료되는 모든 메시지가 DLQ로 이동되고, `TTLExpiredException` 이유 코드를 지정합니다.
 
-만료 된 메시지는 기본 큐 또는 구독에서 끌어오는 활성 수신기가 하나 이상 있는 경우에만 제거 되 고 DLQ로 이동 됩니다. 또한 [지연 된 메시지](./message-deferral.md) 는 만료 된 후 삭제 되지 않고 배달 못 한 편지 큐로 이동 하지 않습니다. 이러한 동작은 의도적으로 설계 되었습니다.
+만료된 메시지는 기본 큐 또는 구독에서 끌어오는 활성 수신기가 하나 이상 있는 경우에만 제거된 후 DLQ로 이동됩니다. 또한 [지연된 메시지](./message-deferral.md)는 만료된 후 제거 및 배달 못 한 편지 큐로 이동되지 않습니다. 이러한 동작은 의도적인 것입니다.
 
 ## <a name="errors-while-processing-subscription-rules"></a>구독 규칙을 처리하는 동안 오류 발생
 
-구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다. 일부 메시지 유형에 구독자가 없는 프로덕션 환경에서는이 옵션을 사용 하지 마세요.
+구독에 대해 When the [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 속성이 활성화되면 구독의 SQL 필터 규칙이 실행되는 동안 발생하는 모든 오류가 오류 메시지와 함께 DLQ에 캡처됩니다. 일부 메시지 유형에 구독자가 없는 프로덕션 환경에서는 이 옵션을 사용하지 마세요.
 
 ## <a name="application-level-dead-lettering"></a>애플리케이션 수준에서 배달 못 한 편지 처리
 

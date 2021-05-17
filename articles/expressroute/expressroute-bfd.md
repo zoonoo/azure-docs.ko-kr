@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/14/2020
 ms.author: duau
-ms.openlocfilehash: 1ad91b00c14744ab1f0cbb414defeaffb85559fe
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 254f5909e7ed8db4dc18ade2677a3213b268cf41
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108127799"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97511266"
 ---
 # <a name="configure-bfd-over-expressroute"></a>ExpressRoute를 통해 BFD 구성
 
@@ -76,7 +76,7 @@ BFD 피어 간의 전송 속도는 둘 중 더 느린 쪽을 따릅니다. MSEE 
 - [ExpressRoute 회로의 라우팅 만들기 및 수정][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-bfd/bfd-need.png "연결 오류 추론 시간을 가속화하는 BFD"
+[1]: ./media/expressroute-bfd/BFD_Need.png "연결 오류 추론 시간을 가속화하는 BFD"
 
 <!--Link References-->
 [CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md

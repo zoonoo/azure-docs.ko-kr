@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - 2개 가상 네트워크 피어링 | Microsoft Docs
-description: 동일한 지역에 두 개의 가상 네트워크를 만들고 연결합니다. 두 피어 가상 네트워크에 Azure 스크립트를 사용 하 여 Azure를 통해 네트워크를 연결 합니다.
+description: 동일한 지역에 두 개의 가상 네트워크를 만들고 연결합니다. 두 개의 피어 가상 네트워크에 Azure 스크립트를 사용하여 Azure를 통해 네트워크를 연결합니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,10 +14,10 @@ ms.date: 05/16/2017
 ms.author: kumud
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 63fab50f991a15a38d18dead53d268abca79c811
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98231890"
 ---
 # <a name="peer-two-virtual-networks"></a>2개 가상 네트워크 피어링

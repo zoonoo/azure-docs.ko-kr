@@ -10,10 +10,10 @@ ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
 ms.openlocfilehash: 4bb4084a7ee0d9d719a88c077fa8c63803aa6934
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100591371"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Azure Portal에서 가상 머신 확장 집합의 크기를 자동으로 조정
@@ -48,8 +48,8 @@ ms.locfileid: "100591371"
     | *시간 조직 통계* | 분석을 위해 각 시간 조직에서 수집된 메트릭을 집계하는 방법을 정의합니다.                             | 평균        |
     | *연산자*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 초과   |
     | *임계값*            | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 백분율입니다.                                                 | 70             |
-    | *Duration*             | 메트릭과 임계값을 비교하기 전에 모니터링하는 기간입니다. 에는 쿨 다운 기간이 포함 되지 않습니다.                                   | 10분     |
-    | *연산*            | 규칙이 적용 될 때 확장 집합이 확장 또는 축소 되어야 하는지 여부를 정의 합니다.                        | 다음을 기준으로 백분율 늘이기 |
+    | *Duration*             | 메트릭과 임계값을 비교하기 전에 모니터링하는 기간입니다. 쿨 다운 기간은 포함되지 않습니다.                                   | 10분     |
+    | *연산*            | 규칙이 적용될 때 확장 집합이 스케일 업되어야 하는지 스케일 다운되어야 하는지 및 어떤 증분이 기준인지를 정의합니다.                        | 다음을 기준으로 백분율 늘이기 |
     | *인스턴스 수*       | 규칙이 트리거되면 VM 인스턴스의 백분율을 변경해야 합니다.                                            | 20             |
     | *정지(분)*  | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분      |
 

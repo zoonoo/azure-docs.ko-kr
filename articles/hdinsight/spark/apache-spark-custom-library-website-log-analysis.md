@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 12/27/2019
-ms.openlocfilehash: d99bf914d3ef746fe328d2447426565fc15e52b4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.openlocfilehash: 24e8fc5f4f47c9fbbfd730b0c822b39853a2f5cf
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104866321"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108160748"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight에서 Apache Spark 클러스터와 함께 사용자 지정 Python 라이브러리를 사용하여 웹 사이트 로그 분석
 
@@ -22,28 +22,28 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 ## <a name="save-raw-data-as-an-rdd"></a>RDD로 원시 데이터 저장
 
-이 섹션에서는 HDInsight의 Apache Spark 클러스터와 연결 된 [Jupyter](https://jupyter.org) 노트북을 사용 하 여 원시 샘플 데이터를 처리 하 고 Hive 테이블로 저장 하는 작업을 실행 합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
+이 섹션에서는 HDInsight에서 Apache Spark 클러스터와 연결된 [Jupyter](https://jupyter.org) Notebook을 사용하여 원시 샘플 데이터를 처리하고 Hive 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
 
-데이터가 Apache Hive 테이블로 저장 되 면 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용 하 여 Hive 테이블에 연결 합니다.
+데이터를 Apache Hive 테이블로 저장한 후에 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용하여 Hive 테이블에 연결합니다.
 
 1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. 새 Notebook을 만듭니다. **새로 만들기** 를 선택한 다음 **PySpark** 를 선택 합니다.
+1. 새 Notebook을 만듭니다. **새로 만들기**, **PySpark** 를 차례로 선택합니다.
 
-    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="새 Apache Jupyter Notebook 만들기" border="true"::: 노트북 "border =" true ":::
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png " alt-text="새 Apache Jupyter Notebook 만들기" border="true":::Notebook" border="true":::
 
-1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 위쪽에서 노트북 이름을 선택 하 고 이름을 입력 합니다.
+1. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 Notebook 이름을 선택하고 식별 이름을 입력합니다.
 
-    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="노트북 tebook의 이름을 입력" border="true":::하십시오. "border =" true ":::
+    :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-name-jupyter-notebook.png " alt-text="노트북에 대한 이름 제공" border="true":::
 
-1. PySpark 커널을 사용 하 여 노트북을 만들었으므로 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **Shift + enter** 를 누릅니다.
+1. PySpark 커널을 사용하여 Notebook을 만들었기 때문에 컨텍스트를 명시적으로 만들 필요가 없습니다. 첫 번째 코드 셀을 실행하면 Spark 및 Hive 컨텍스트가 자동으로 만들어집니다. 이 시나리오에 필요한 형식을 가져와 시작할 수 있습니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음, **Shift+Enter** 를 누릅니다.
 
     ```pyspark
     from pyspark.sql import Row
     from pyspark.sql.types import *
     ```
 
-1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. 에서 클러스터와 연결 된 기본 저장소 계정의 데이터에 액세스할 수 있습니다 `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log` . 다음 코드를 실행합니다.
+1. 클러스터에서 이미 사용할 수 있는 샘플 로그 데이터를 사용하는 RDD를 만듭니다. `\HdiSamples\HdiSamples\WebsiteLogSampleData\SampleLog\909f2b.log`에서 클러스터와 연결된 기본 스토리지 계정의 데이터에 액세스할 수 있습니다. 다음 코드를 실행합니다.
 
     ```pyspark
     logs = sc.textFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log')
@@ -55,7 +55,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     logs.take(5)
     ```
 
-    다음 텍스트와 유사한 출력이 표시 됩니다.
+    다음 텍스트와 유사한 출력이 표시됩니다.
 
     ```output
     [u'#Software: Microsoft Internet Information Services 8.0',
@@ -67,9 +67,9 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>사용자 지정 Python 라이브러리를 사용하여 로그 데이터 분석
 
-1. 위의 출력에서 처음 몇 줄은 헤더 정보를 포함하고 나머지 줄은 해당 헤더에 설명된 스키마와 일치합니다. 이러한 로그를 구문 분석하는 것은 복잡할 수 있습니다. 따라서 이러한 로그를 훨씬 쉽게 구문 분석하는 사용자 지정 Python 라이브러리(**iislogparser.py**)를 사용합니다. 기본적으로이 라이브러리는 HDInsight의 Spark 클러스터에 포함 되어 `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py` 있습니다.
+1. 위의 출력에서 처음 몇 줄은 헤더 정보를 포함하고 나머지 줄은 해당 헤더에 설명된 스키마와 일치합니다. 이러한 로그를 구문 분석하는 것은 복잡할 수 있습니다. 따라서 이러한 로그를 훨씬 쉽게 구문 분석하는 사용자 지정 Python 라이브러리(**iislogparser.py**)를 사용합니다. 기본적으로 이 라이브러리는 `/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py`에 있는 HDInsight의 Spark 클러스터에 포함되어 있습니다.
 
-    그러나이 라이브러리는에 있지 `PYTHONPATH` 않으므로와 같은 import 문을 사용 하 여 사용할 수 없습니다 `import iislogparser` . 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
+    그러나 이 라이브러리는 `PYTHONPATH`에 있지 않으므로 `import iislogparser`와 같은 import 문으로 사용할 수 없습니다. 이 라이브러리를 사용하려면 모든 작업자 노드에 배포해야 합니다. 다음 조각을 실행합니다.
 
     ```pyspark
     sc.addPyFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py')
@@ -90,14 +90,14 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     logLines.take(2)
     ```
 
-   출력은 다음 텍스트와 유사 합니다.
+   출력은 다음 텍스트와 유사하게 표시됩니다.
 
     ```output
     [2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step2.png X-ARR-LOG-ID=2ec4b8ad-3cf0-4442-93ab-837317ece6a1 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 53175 871 46,
     2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step3.png X-ARR-LOG-ID=9eace870-2f49-4efd-b204-0d170da46b4a 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 51237 871 32]
     ```
 
-1. 그러면 `LogLine` 클래스에는 로그 항목에 오류 코드가 있는지 여부를 반환하는 `is_error()`와(과) 같은 몇 가지 유용한 메서드가 있습니다. 이 클래스를 사용 하 여 추출 된 로그 줄의 오류 수를 계산한 다음 다른 파일에 모든 오류를 기록 합니다.
+1. 그러면 `LogLine` 클래스에는 로그 항목에 오류 코드가 있는지 여부를 반환하는 `is_error()`와(과) 같은 몇 가지 유용한 메서드가 있습니다. 이 클래스를 사용하여 추출된 로그 줄의 오류 수를 계산한 다음, 다른 파일에 모든 오류를 기록합니다.
 
     ```pyspark
     errors = logLines.filter(lambda p: p.is_error())
@@ -107,7 +107,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     errors.map(lambda p: str(p)).saveAsTextFile('wasbs:///HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b-2.log')
     ```
 
-    출력은 상태 여야 `There are 30 errors and 646 log entries` 합니다.
+    출력에 `There are 30 errors and 646 log entries`가 명시됩니다.
 
 1. **Matplotlib** 를 사용하여 데이터의 시각화를 만들 수도 있습니다. 예를 들어 오랜 시간 동안 실행되는 요청의 원인을 격리하려는 경우 평균적으로 제공하는 데 가장 많은 시간이 걸리는 파일을 찾을 수 있습니다. 다음 코드 조각은 요청을 처리하는 데 가장 많은 시간이 걸리는 상위 25개의 리소스를 검색합니다.
 
@@ -121,7 +121,7 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     avgTimeTakenByKey(logLines.map(lambda p: (p.cs_uri_stem, p))).top(25, lambda x: x[1])
     ```
 
-   다음 텍스트와 같은 출력이 표시 됩니다.
+   다음 텍스트와 같은 출력이 표시됩니다.
 
     ```output
     [(u'/blogposts/mvc4/step13.png', 197.5),
@@ -171,9 +171,9 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
 
    `-o averagetime` 앞의 `%%sql` 매직은 쿼리 출력이 Jupyter 서버(일반적으로 클러스터의 헤드 노드)에서 로컬로 유지되도록 합니다. 출력은 [averagetime](https://pandas.pydata.org/) 이라는 이름이 지정된 **Pandas** 데이터 프레임으로 유지됩니다.
 
-   다음 이미지와 같은 출력이 표시 됩니다.
+   다음 이미지와 같은 출력이 표시됩니다.
 
-   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="hdinsight jupyter sql 쿼리 출력" border="true":::yter sql 쿼리 출력 "border =" true ":::
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-jupyter-sql-qyery-output.png " alt-text="HDInsight Jupyter SQL 쿼리 출력" border="true":::yter sql query output" border="true":::
 
    `%%sql` 매직에 대한 자세한 내용은 [%%sql 매직에서 지원되는 매개 변수](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)를 참조하세요.
 
@@ -189,16 +189,16 @@ HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spa
     plt.ylabel('Average time taken for request (ms)')
     ```
 
-   다음 이미지와 같은 출력이 표시 됩니다.
+   다음 이미지와 같은 출력이 표시됩니다.
 
-   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="apache spark 웹 로그 분석 플롯" border="true":::eb 로그 분석 그림 "border =" true ":::
+   :::image type="content" source="./media/apache-spark-custom-library-website-log-analysis/hdinsight-apache-spark-web-log-analysis-plot.png " alt-text="Apache Spark 웹 로그 분석 플롯" border="true":::eb log analysis plot" border="true":::
 
-1. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지** 를 선택합니다. 이 작업은 노트북을 종료 하 고 닫습니다.
+1. 애플리케이션 실행을 완료한 후 리소스를 해제하도록 Notebook을 종료해야 합니다. 이렇게 하기 위해 Notebook의 **파일** 메뉴에서 **닫기 및 중지** 를 선택합니다. 이 작업을 수행하면 Notebook이 종료되고 닫힙니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 문서를 살펴보세요.
 
 * [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
-* [Jupyter 노트북에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Jupyter Notebook에서 외부 패키지 사용](apache-spark-jupyter-notebook-use-external-packages.md)
 * [컴퓨터에 Jupyter를 설치하고 HDInsight Spark 클러스터에 연결](apache-spark-jupyter-notebook-install-locally.md)

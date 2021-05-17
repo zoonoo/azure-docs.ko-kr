@@ -1,21 +1,21 @@
 ---
-title: 쿼리 저장소-Azure Database for PostgreSQL-단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 쿼리 저장소 기능에 대해 설명 합니다.
+title: 쿼리 저장소 - Azure Database for PostgreSQL - 단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL - 단일 서버의 쿼리 저장소 기능을 설명합니다.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100581555"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>쿼리 저장소를 사용하여 성능 모니터링
 
-**적용 대상:** Azure Database for PostgreSQL-단일 서버 버전 9.6 이상
+**적용 대상:** Azure Database for PostgreSQL - 단일 서버 버전 9.6 이상
 
 Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따라 쿼리 성능을 추적하는 방법을 제공합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대한 데이터는 Azure Database for PostgreSQL 인스턴스의 **azure_sys** 라는 데이터베이스에 저장됩니다.
 
@@ -29,14 +29,14 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수** 를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값을로 설정 하 `TOP` 고 **저장** 합니다.
+4. 값을 `TOP`로 설정하고 **저장** 합니다.
 
 쿼리 저장소에서 대기 통계를 사용하도록 설정하려면 다음과 같이 합니다. 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값을로 설정 하 `ALL` 고 **저장** 합니다.
+1. 값을 `ALL`로 설정하고 **저장** 합니다.
 
 
-또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
+또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -60,7 +60,7 @@ az postgres server configuration set --name pgms_wait_sampling.query_capture_mod
 
 ## <a name="access-query-store-information"></a>쿼리 저장소 정보 액세스
 
-쿼리 저장소 데이터는 Postgres 서버의 azure_sys 데이터베이스에 저장 됩니다. 
+쿼리 저장소 데이터는 Postgres 서버의 azure_sys 데이터베이스에 저장됩니다. 
 
 다음 쿼리는 쿼리 저장소의 쿼리에 대한 정보를 반환합니다.
 ```sql
@@ -178,27 +178,27 @@ Query_store.staging_data_reset() returns void
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
-Azure Database for PostgreSQL은 [Azure Monitor 진단 설정과](../azure-monitor/essentials/diagnostic-settings.md)통합 됩니다. 진단 설정을 사용 하면 분석 및 경고를 위해 Postgres 로그를 JSON 형식으로 [Azure Monitor](../azure-monitor/logs/log-query-overview.md) 하 고, 스트리밍 Event Hubs 하 고, 보관에 Azure Storage 보낼 수 있습니다.
+Azure Database for PostgreSQL은 [Azure Monitor 진단 설정](../azure-monitor/essentials/diagnostic-settings.md)과 통합됩니다. 진단 설정을 사용하면 JSON 형식의 Postgres 로그를 [Azure Monitor 로그](../azure-monitor/logs/log-query-overview.md)에 분석 및 경고 목적으로, Event Hubs에 스트리밍 목적으로, Azure Storage에 보관 목적으로 보낼 수 있습니다.
 
 >[!IMPORTANT]
-> 의이 진단 기능은 범용 및 메모리 액세스에 최적화 된 가격 책정 계층 에서만 사용할 수 있습니다.
+> 이 진단 기능은 범용 및 메모리 최적화 가격 책정 계층에서만 사용할 수 있습니다.
 
 ### <a name="configure-diagnostic-settings"></a>진단 설정 구성
-Azure Portal, CLI, REST API 및 PowerShell을 사용 하 여 Postgres server에 대 한 진단 설정을 사용 하도록 설정할 수 있습니다. 구성할 로그 범주는 QueryStoreRuntimeStatistics 및 **Query** **waitstatistics** 입니다. 
+Azure Portal, CLI, REST API, PowerShell을 사용하여 Postgres 서버에 진단 설정을 사용할 수 있습니다. 구성할 로그 범주는 **QueryStoreRuntimeStatistics** 와 **QueryStoreWaitStatistics** 입니다. 
 
-Azure Portal를 사용 하 여 리소스 로그를 사용 하도록 설정 하려면
+Azure Portal을 사용하여 리소스 로그를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. 포털에서 Postgres server의 탐색 메뉴에 있는 진단 설정으로 이동 합니다.
-2. 진단 설정 추가를 선택 합니다.
-3. 이 설정의 이름을로 설정 합니다.
-4. 기본 설정 끝점 (저장소 계정, 이벤트 허브, log analytics)을 선택 합니다.
-5. **QueryStoreRuntimeStatistics 및 Query** **waitstatistics** 로그 유형을 선택 합니다.
+1. 포털에서 Postgres 서버의 탐색 메뉴에 있는 진단 설정으로 이동합니다.
+2. 진단 설정 추가를 선택합니다.
+3. 이 설정의 이름을 지정합니다.
+4. 선호하는 엔드포인트(스토리지 계정, 이벤트 허브, 로그 분석)를 선택합니다.
+5. **QueryStoreRuntimeStatistics** 및 **QueryStoreWaitStatistics** 로그 형식을 선택합니다.
 6. 설정을 저장합니다.
 
-PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 설정 하려면 [진단 설정 문서](../azure-monitor/essentials/diagnostic-settings.md)를 참조 하세요.
+PowerShell, CLI 또는 REST API를 사용하여 리소스 로그를 사용하도록 설정하려면 [진단 설정 문서](../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 ### <a name="json-log-format"></a>JSON 로그 형식
-다음 표에서는 두 가지 로그 유형에 대 한 필드에 대해 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다.
+다음 표에서는 두 가지 로그 형식의 필드를 설명합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 선택한 출력 엔드포인트에 따라 달라질 수 있습니다.
 
 #### <a name="querystoreruntimestatistics"></a>QueryStoreRuntimeStatistics
 |**필드** | **설명** |
@@ -207,12 +207,12 @@ PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 
 | ResourceId | Postgres 서버의 Azure 리소스 URI |
 | 범주 | `QueryStoreRuntimeStatistics` |
 | OperationName | `QueryStoreRuntimeStatisticsEvent` |
-| LogicalServerName_s | Postgres server 이름 | 
+| LogicalServerName_s | Postgres 서버 이름 | 
 | runtime_stats_entry_id_s | runtime_stats_entries 테이블의 ID |
 | user_id_s | 문을 실행한 사용자의 OID |
 | db_id_s | 문이 실행된 데이터베이스의 OID |
 | query_id_s | 문의 구문 분석 트리에서 계산된 내부 해시 코드 |
-| end_time_s | 이 항목의 시간 버킷에 해당 하는 종료 시간 |
+| end_time_s | 이 항목의 시간 버킷에 해당하는 종료 시간 |
 | calls_s | 쿼리 실행 횟수 |
 | total_time_s | 총 쿼리 실행 시간(밀리초) |
 | min_time_s | 최소 쿼리 실행 시간(밀리초) |
@@ -221,7 +221,7 @@ PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 
 | ResourceGroup | 리소스 그룹 | 
 | SubscriptionId | 구독 ID |
 | ResourceProvider | `Microsoft.DBForPostgreSQL` | 
-| 리소스 | Postgres server 이름 |
+| 리소스 | Postgres 서버 이름 |
 | ResourceType | `Servers` | 
 
 
@@ -237,20 +237,20 @@ PowerShell, CLI 또는 REST API를 사용 하 여이 설정을 사용 하도록 
 | query_id_s | 쿼리의 내부 해시 코드 |
 | calls_s | 캡처된 동일한 이벤트 수 |
 | event_type_s | 백 엔드가 대기 중인 이벤트 유형 |
-| event_s | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름입니다. |
+| event_s | 백 엔드가 현재 대기 중인 경우 대기 이벤트 이름 |
 | start_time_t | 이벤트 시작 시간 |
 | end_time_s | 이벤트 종료 시간 | 
-| LogicalServerName_s | Postgres server 이름 | 
+| LogicalServerName_s | Postgres 서버 이름 | 
 | ResourceGroup | 리소스 그룹 | 
 | SubscriptionId | 구독 ID |
 | ResourceProvider | `Microsoft.DBForPostgreSQL` | 
-| 리소스 | Postgres server 이름 |
+| 리소스 | Postgres 서버 이름 |
 | ResourceType | `Servers` | 
 
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 - PostgreSQL 서버에서 default_transaction_read_only 매개 변수가 설정되어 있으면 Query Store가 데이터를 캡처할 수 없습니다.
 - 6000바이트 이상의 긴 유니코드 쿼리가 발견되면 Query Store 기능이 중단될 수 있습니다.
-- [복제본 읽기](concepts-read-replicas.md) 는 주 서버에서 쿼리 저장소 데이터를 복제 합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행 되는 쿼리에 대 한 통계를 제공 하지 않습니다.
+- [읽기 복제본](concepts-read-replicas.md)은 주 서버에서 쿼리 저장소 데이터를 복제합니다. 즉, 읽기 복제본의 쿼리 저장소는 읽기 복제본에서 실행되는 쿼리에 대한 통계를 제공하지 않습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

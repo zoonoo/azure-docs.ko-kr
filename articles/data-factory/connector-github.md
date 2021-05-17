@@ -1,17 +1,17 @@
 ---
 title: GitHub에 연결
 description: GitHub를 사용하여 Common Data Model 엔터티 참조 지정
-author: dcstwh
+author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.author: weetok
-ms.openlocfilehash: 7461a0332a36509c7bb6dfdd6db5948b056b35a6
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.author: jingwang
+ms.openlocfilehash: 6446bb9e18a8ce9e69c2462570d06154ed4ed8ac
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222115"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107904445"
 ---
 # <a name="use-github-to-read-common-data-model-entity-references"></a>GitHub를 사용하여 Common Data Model 엔터티 참조 읽기
 
@@ -25,9 +25,9 @@ GitHub 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | Description | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성은 **GitHub** 로 설정해야 합니다. | yes
-| userName | GitHub 사용자 이름 | yes |
-| password | GitHub 암호 | yes |
+| type | 형식 속성은 **GitHub** 로 설정해야 합니다. | 예
+| userName | GitHub 사용자 이름 | 예 |
+| 암호 | GitHub 암호 | 예 |
 
 ## <a name="next-steps"></a>다음 단계
 

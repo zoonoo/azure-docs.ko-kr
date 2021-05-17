@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
 ms.openlocfilehash: c65f32cc3ce56ddf3fd235de8c002528e7a3cebd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98791445"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>SQL FQDN을 사용하여 Azure Firewall 애플리케이션 규칙 구성
@@ -20,7 +20,7 @@ ms.locfileid: "98791445"
 
 SQL FQDN을 사용하여 트래픽을
 
-- Vnet에서 Azure SQL Database 또는 Azure Synapse Analytics로. 예를 들면 다음과 같습니다. *sql-server1.database.windows.net* 에 대한 액세스만 허용합니다.
+- VNet에서 Azure SQL Database 또는 Azure Synapse Analytics로 예를 들면 다음과 같습니다. *sql-server1.database.windows.net* 에 대한 액세스만 허용합니다.
 - 온-프레미스에서 Azure SQL Managed Instances 또는 VNet에서 실행되는 SQL IaaS로
 - 스포크-스포크에서 Azure SQL Managed Instances 또는 Vnet에서 실행되는 SQL IaaS로
 
@@ -30,12 +30,12 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
 ## <a name="configure-using-azure-cli"></a>Azure CLI를 사용하여 구성
 
 1. [Azure CLI를 사용하여 Azure Firewall](deploy-cli.md)을 배포합니다.
-2. Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance에 대 한 트래픽을 필터링 하는 경우 SQL 연결 모드가 **프록시** 로 설정 되었는지 확인 합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.
+2. 트래픽을 Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance로 필터링하는 경우 SQL 연결 모드가 **프록시** 로 설정되어 있는지 확인합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.
 
    > [!NOTE]
    > SQL *프록시* 모드는 *리디렉션* 에 비해 더 많은 대기 시간이 발생할 수 있습니다. Azure 내에서 연결하는 클라이언트의 기본값인 리디렉션 모드를 계속 사용하려면 방화벽 [네트워크 규칙](tutorial-firewall-deploy-portal.md#configure-a-network-rule)의 [SQL 서비스](service-tags.md) 태그를 사용하여 액세스를 필터링하면 됩니다.
 
-3. Sql FQDN을 사용 하 여 SQL server에 대 한 액세스를 허용 하는 응용 프로그램 규칙을 사용 하 여 새 규칙 컬렉션을 만듭니다.
+3. SQL FQDN을 사용하여 SQL Server에 대한 액세스를 허용하는 애플리케이션 규칙을 통해 새 규칙 컬렉션을 만듭니다.
 
    ```azurecli
     az extension add -n azure-firewall
@@ -52,15 +52,15 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
     --target-fqdns sql-serv1.database.windows.net
    ```
 
-## <a name="configure-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 구성
+## <a name="configure-using-azure-powershell"></a>Azure PowerShell을 사용하여 구성
 
-1. Azure PowerShell를 [사용 하 여 Azure 방화벽](deploy-ps.md)을 배포 합니다.
-2. Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance에 대 한 트래픽을 필터링 하는 경우 SQL 연결 모드가 **프록시** 로 설정 되었는지 확인 합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.
+1. [Azure PowerShell을 사용하여 Azure Firewall](deploy-ps.md)을 배포합니다.
+2. 트래픽을 Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance로 필터링하는 경우 SQL 연결 모드가 **프록시** 로 설정되어 있는지 확인합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.
 
    > [!NOTE]
    > SQL *프록시* 모드는 *리디렉션* 에 비해 더 많은 대기 시간이 발생할 수 있습니다. Azure 내에서 연결하는 클라이언트의 기본값인 리디렉션 모드를 계속 사용하려면 방화벽 [네트워크 규칙](tutorial-firewall-deploy-portal.md#configure-a-network-rule)의 [SQL 서비스](service-tags.md) 태그를 사용하여 액세스를 필터링하면 됩니다.
 
-3. Sql FQDN을 사용 하 여 SQL server에 대 한 액세스를 허용 하는 응용 프로그램 규칙을 사용 하 여 새 규칙 컬렉션을 만듭니다.
+3. SQL FQDN을 사용하여 SQL Server에 대한 액세스를 허용하는 애플리케이션 규칙을 통해 새 규칙 컬렉션을 만듭니다.
 
    ```azurepowershell
    $AzFw = Get-AzFirewall -Name "azfirewall" -ResourceGroupName "FWRG"
@@ -89,7 +89,7 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
 
 ## <a name="configure-using-the-azure-portal"></a>Azure Portal을 사용하여 구성
 1. [Azure CLI를 사용하여 Azure Firewall](deploy-cli.md)을 배포합니다.
-2. Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance에 대 한 트래픽을 필터링 하는 경우 SQL 연결 모드가 **프록시** 로 설정 되었는지 확인 합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.  
+2. 트래픽을 Azure SQL Database, Azure Synapse Analytics 또는 SQL Managed Instance로 필터링하는 경우 SQL 연결 모드가 **프록시** 로 설정되어 있는지 확인합니다. SQL 연결 모드를 전환하는 방법에 대해 알아보려면 [Azure SQL 연결 설정](../azure-sql/database/connectivity-settings.md#change-the-connection-policy-via-the-azure-cli)을 참조하세요.  
 
    > [!NOTE]
    > SQL *프록시* 모드는 *리디렉션* 에 비해 더 많은 대기 시간이 발생할 수 있습니다. Azure 내에서 연결하는 클라이언트의 기본값인 리디렉션 모드를 계속 사용하려면 방화벽 [네트워크 규칙](tutorial-firewall-deploy-portal.md#configure-a-network-rule)의 [SQL 서비스](service-tags.md) 태그를 사용하여 액세스를 필터링하면 됩니다.
@@ -100,4 +100,4 @@ SQL IaaS 트래픽에 기본 포트가 아닌 포트를 사용하는 경우 방�
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 프록시 및 리디렉션 모드에 대해 알아보려면 [Azure SQL Database 연결 아키텍처](../azure-sql/database/connectivity-architecture.md)를 참조 하세요.
+SQL 프록시 및 리디렉션 모드에 대해 알아보려면 [Azure SQL 데이터베이스 연결 아키텍처](../azure-sql/database/connectivity-architecture.md)를 참조하세요.

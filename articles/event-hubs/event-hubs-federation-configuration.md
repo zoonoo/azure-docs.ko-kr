@@ -1,16 +1,16 @@
 ---
-title: 구성 된 복제 작업-Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Event Hubs 간의 이벤트 복제에 대 한 개요를 제공 합니다.
+title: 구성된 복제 작업 - Azure Event Hubs | Microsoft Docs
+description: 이 문서에서는 Event Hubs 간 이벤트 복제에 대해 간단히 설명합니다.
 ms.topic: article
 ms.date: 12/12/2020
 ms.openlocfilehash: 0cc083a1368e05f039b674d255c3e3a8d8da0b7e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97935203"
 ---
-# <a name="configured-replication-tasks---azure-event-hubs"></a>구성 된 복제 작업-Azure Event Hubs
+# <a name="configured-replication-tasks---azure-event-hubs"></a>구성된 복제 작업 - Azure Event Hubs
 
 [!INCLUDE [messaging-configured-functions](../../includes/messaging-configured-functions.md)]
 

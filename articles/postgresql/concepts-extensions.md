@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 765c3653dae4f514263cd8db636d9cec42d56d15
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: de395bed885804445146b01745edf5e93426cb13
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107621"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606320"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버의 PostgreSQL 확장
 PostgreSQL은 확장을 사용하여 데이터베이스의 기능을 확장하는 방법을 제공합니다. 확장은 단일 명령을 사용하여 데이터베이스에서 로드하거나 제거할 수 있는 단일 패키지에서 여러 관련 SQL 개체를 함께 번들로 묶습니다. 데이터베이스에 로드한 확장은 기본 제공 기능처럼 작동합니다.
@@ -33,11 +33,11 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | GIN의 공통 데이터 형식 인덱싱 지원|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | GiST의 공통 데이터 형식 인덱싱 지원|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | 대/소문자를 구분하지 않는 문자열의 데이터 형식|
-> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | 다차원 큐브의 데이터 형식|
+> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | 다차원 큐브에 대한 데이터 형식|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
 > |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | 정수에 대한 텍스트 검색 사전 템플릿|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | 지구 표면의 대권거리 계산|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성과 거리 결정|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | 키/값 쌍 집합을 저장하기 위한 데이터 형식|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.2           | PostgreSQL에 대한 가상 인덱스|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
@@ -56,13 +56,13 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | 트라이그램을 기반으로 하는 텍스트 유사성 측정 및 인덱스 검색|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL 절차적 언어|
 > |[plv8](https://plv8.github.io/)                         | 2.3.11          | PL/JavaScript(v8) 신뢰할 수 있는 절차적 언어|
-> |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS 기하학, 지리, 래스터 공간 형식 및 함수|
+> |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS 기하학, 지리 및 래스터 공간 유형 및 함수|
 > |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | PostGIS SFCGAL 함수|
 > |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | PostGIS 타이거 지오코더(tiger geocoder) 및 리버스 지오코더(reverse geocoder)|
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | 원격 PostgreSQL 서버에 대한 외부 데이터 래퍼(wrapper)|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | 크로스탭을 포함한 전체 테이블을 조작하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    |1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2, 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | 악센트를 제거하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | UUID(범용 고유 식별자)를 생성합니다|
 
@@ -83,7 +83,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[dblink](https://www.postgresql.org/docs/10/dblink.html)                       | 1.2             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
 > |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1.0             | 정수에 대한 텍스트 검색 사전 템플릿|
 > |[earthdistance](https://www.postgresql.org/docs/10/earthdistance.html)                | 1.1             | 지구 표면의 대권거리 계산|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/10/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성과 거리 결정|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/10/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
 > |[hstore](https://www.postgresql.org/docs/10/hstore.html)                       | 1.4             | 키/값 쌍 집합을 저장하기 위한 데이터 형식|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | PostgreSQL에 대한 가상 인덱스|
 > |[intarray](https://www.postgresql.org/docs/10/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
@@ -108,7 +108,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.4.3           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | 원격 PostgreSQL 서버에 대한 외부 데이터 래퍼(wrapper)|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | 크로스탭을 포함한 전체 테이블을 조작하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
 > |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | 악센트를 제거하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | UUID(범용 고유 식별자)를 생성합니다|
 
@@ -129,7 +129,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | 데이터베이스 내에서 다른 PostgreSQL 데이터베이스에 연결|
 > |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | 정수에 대한 텍스트 검색 사전 템플릿|
 > |[earthdistance](https://www.postgresql.org/docs/9.6/earthdistance.html)                | 1.1             | 지구 표면의 대권거리 계산|
-> |[fuzzystrmatch](https://www.postgresql.org/docs/9.6/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성과 거리 결정|
+> |[fuzzystrmatch](https://www.postgresql.org/docs/9.6/fuzzystrmatch.html)                | 1.1             | 문자열 간의 유사성 및 거리 결정|
 > |[hstore](https://www.postgresql.org/docs/9.6/hstore.html)                       | 1.4             | 키/값 쌍 집합을 저장하기 위한 데이터 형식|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | PostgreSQL에 대한 가상 인덱스|
 > |[intarray](https://www.postgresql.org/docs/9.6/intarray.html)                     | 1.2             | 정수의 1차원 배열에 대한 함수, 연산자 및 인덱스 지원|
@@ -154,7 +154,7 @@ Azure Database for PostgreSQL은 다음에 나열된 대로 주요 확장의 하
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.2           | PostGIS 토폴로지 공간 형식 및 함수|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | 원격 PostgreSQL 서버에 대한 외부 데이터 래퍼(wrapper)|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | 크로스탭을 포함한 전체 테이블을 조작하는 함수|
-> |[timescaledb](https://docs.timescale.com/latest)                    | 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1, 1.7.4             | 시계열 데이터에 대한 확장성 있는 삽입 및 복잡한 쿼리를 사용합니다|
 > |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | 악센트를 제거하는 텍스트 검색 사전|
 > |[uuid-ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | UUID(범용 고유 식별자)를 생성합니다|
 

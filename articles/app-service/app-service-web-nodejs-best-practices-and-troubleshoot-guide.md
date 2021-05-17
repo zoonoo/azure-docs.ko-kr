@@ -1,6 +1,6 @@
 ---
 title: Node.js 모범 사례 및 문제 해결
-description: Azure App Service에서 실행 되는 Node.js 응용 프로그램에 대 한 모범 사례 및 문제 해결 단계를 알아봅니다.
+description: Azure App Service에서 실행되는 Node.js 애플리케이션의 모범 사례 및 문제 해결 단계를 알아봅니다.
 author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
@@ -9,15 +9,15 @@ ms.date: 11/09/2017
 ms.author: msangapu
 ms.custom: seodec18
 ms.openlocfilehash: bfbd93cc3d4e67c8a96a1413221fdd7190c4f0b6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100572624"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
-이 문서에서는 Azure App Service ( [iisnode](https://github.com/azure/iisnode)사용)에서 실행 되는 [Windows Node.js 응용 프로그램](quickstart-nodejs.md?pivots=platform-windows) 에 대 한 모범 사례 및 문제 해결 단계를 알아봅니다.
+이 문서에서는 Azure App Service에서 실행되는 [Windows Node.js 애플리케이션](quickstart-nodejs.md?pivots=platform-windows)([iisnode](https://github.com/azure/iisnode) 사용) 모범 사례 및 문제 해결 단계를 알아봅니다.
 
 > [!WARNING]
 > 프로덕션 사이트에서 문제 해결 단계를 사용할 때는 주의하세요. 비프로덕션 설정(예: 스테이징 슬롯)에서 앱의 문제를 해결하는 것이 좋으며 문제가 해결되면 스테이징 슬롯을 프로덕션 슬롯으로 교환하는 것이 좋습니다.
@@ -121,9 +121,9 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 많은 애플리케이션에서 일반 작업의 일부로 아웃바운드 연결을 생성하려고 합니다. 예를 들어 요청이 들어오면 노드 앱은 다른 위치에서 REST API에 연결하고 요청을 처리할 일부 정보를 얻습니다. http 또는 https 호출을 수행할 때 연결 유지 에이전트를 사용하려고 합니다. 이러한 아웃바운드 호출을 수행할 때 연결 유지 에이전트로 agentkeepalive 모듈을 사용할 수 있습니다.
 
-agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 애플리케이션에 오버 헤드가 추가됩니다. 애플리케이션이 아웃바운드 요청에서 소켓을 재사용하면 애플리케이션이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure App Service에 대 한 권장 사항은 agentKeepAlive maxSockets 값을 VM 당 총 (4 개 node.exe \* 32 maxsockets/instance) 128 소켓으로 설정 하는 것입니다.
+agentkeepalive 모듈은 소켓이 Azure 웹앱 VM에서 다시 사용되도록 합니다. 각 아웃바운드 요청에서 새 소켓을 만들면 애플리케이션에 오버 헤드가 추가됩니다. 애플리케이션이 아웃바운드 요청에서 소켓을 재사용하면 애플리케이션이 VM당 할당된 maxSockets를 초과하지 않도록 할 수 있습니다. Azure App Service에 대한 권장 사항은 agentKeepAlive maxSockets 값을 VM당 총 128개 소켓(node.exe의 인스턴스 4 \* 32 maxSockets/인스턴스)으로 설정하는 것입니다.
 
-[Agentkeepalive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
+[agentKeepALive](https://www.npmjs.com/package/agentkeepalive) 구성 예제:
 
 ```nodejs
 let keepaliveAgent = new Agent({
@@ -140,7 +140,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>내 노드 애플리케이션이 너무 많은 CPU를 사용하고 있습니다.
 
-포털의 Azure App Service에서 높은 CPU 사용량에 대한 권장 사항을 받게 됩니다. 또한 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수도 있습니다. [Azure Portal 대시보드에서](../azure-monitor/essentials/metrics-charts.md)cpu 사용량을 확인 하는 경우 최대 값을 놓치지 않도록 CPU의 최대값을 확인 합니다.
+포털의 Azure App Service에서 높은 CPU 사용량에 대한 권장 사항을 받게 됩니다. 또한 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수도 있습니다. [Azure Portal 대시보드](../azure-monitor/essentials/metrics-charts.md)에서 CPU 사용량을 확인할 때는 최고값을 놓치지 않도록 CPU의 MAX 값을 확인하세요.
 애플리케이션에서 CPU를 너무 많이 사용한다고 생각되고 그 이유를 설명할 수 없는 경우 노드 애플리케이션을 프로파일링해서 찾을 수 있습니다.
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Azure App Service에서 V8-Profiler로 노드 애플리케이션 프로파일링
@@ -170,7 +170,7 @@ http.createServer(function (req, res) {
 
 site/wwwroot 디렉터리로 이동합니다. 다음 예제와 같이 명령 프롬프트가 표시됩니다.
 
-![Site/wwwroot 디렉터리와 명령 프롬프트를 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
+![site/wwwroot 디렉터리와 명령 프롬프트를 보여 주는 스크린샷.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_install_v8.png)
 
 `npm install v8-profiler` 명령을 실행합니다.
 
@@ -203,17 +203,17 @@ http.createServer(function (req, res) {
 
 위의 코드 프로필은 WriteConsoleLog 함수를 프로파일링한 후 프로파일 출력을 사이트의 wwwroot 아래 'profile.cpuprofile' 파일에 기록합니다. 애플리케이션에 요청 보내기 사이트의 wwwroot 아래에 'profile.cpuprofile' 파일이 생성된 것을 확인할 수 있습니다.
 
-![Profile.cpuprofile 파일을 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
+![profile.cpuprofile 파일을 보여 주는 스크린샷.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택 합니다. **로드** 단추를 선택 합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
+이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택합니다. **로드** 단추를 선택합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
 
-![로드 한 profile.cpuprofile 파일을 보여 주는 스크린샷](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
+![로드한 profile.cpuprofile 파일을 보여 주는 스크린샷.](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 95%의 시간이 WriteConsoleLog 함수에 의해 소요되었다는 것을 볼 수 있습니다. 또한 이 문제를 발생시킨 정확한 줄 번호와 원본 파일도 표시됩니다.
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>내 노드 애플리케이션이 메모리를 너무 많이 사용합니다.
 
-애플리케이션에서 메모리를 너무 많이 사용하면 포털의 Azure App Service에서 높은 메모리 사용량에 대한 알림이 표시됩니다. 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수 있습니다. [Azure Portal 대시보드의](../azure-monitor/essentials/metrics-charts.md)메모리 사용량을 확인할 때는 최대 값을 놓치지 않도록 메모리에 대 한 MAX 값을 확인 해야 합니다.
+애플리케이션에서 메모리를 너무 많이 사용하면 포털의 Azure App Service에서 높은 메모리 사용량에 대한 알림이 표시됩니다. 특정 [메트릭](web-sites-monitor.md)을 감시하도록 모니터를 설정할 수 있습니다. [Azure Portal 대시보드](../azure-monitor/essentials/metrics-charts.md)에서 메모리 사용량을 확인할 때는 최고값을 놓치지 않도록 메모리의 MAX 값을 확인해야 합니다.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>node.js에 대한 누수 감지 및 힙 Diff
 

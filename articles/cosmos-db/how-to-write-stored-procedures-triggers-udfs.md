@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에서 저장 프로시저, 트리거 및 Udf 작성
+title: Azure Cosmos DB에서 저장 프로시저, 트리거, UDF 작성
 description: Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 정의하는 방법 알아보기
 author: timsander1
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 7600d8aa2f78e06ea4046273635fdbba18042010
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 30c20974513d5e52661fed16f671ca672950c054
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98028865"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331793"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및
 > [!NOTE]
 > 분할된 컨테이너의 경우 저장 프로시저를 실행할 때 파티션 키 값은 요청 옵션에서 제공되어야 합니다. 저장 프로시저의 범위는 항상 파티션 키로 지정됩니다. 다른 파티션 키 값을 가진 항목은 저장 프로시저에 표시되지 않습니다. 이 트리거에도 적용되었습니다.
 > [!Tip]
-> Cosmos는 저장 프로시저, 트리거 및 사용자 정의 함수를 사용 하 여 컨테이너 배포를 지원 합니다. 자세한 내용은 [서버 쪽 기능을 사용 하 여 Azure Cosmos DB 컨테이너 만들기](./manage-with-templates.md#create-sproc) 를 참조 하세요.
+> Cosmos는 저장 프로시저, 트리거, 사용자 정의 함수를 사용하여 컨테이너 배포를 지원합니다. 자세한 내용은 [서버 쪽 기능을 사용하여 Azure Cosmos DB 컨테이너 만들기](./manage-with-templates.md#create-sproc)를 참조하세요.
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>저장 프로시저를 작성하는 방법
 
@@ -51,11 +51,11 @@ var helloWorldStoredProc = {
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>저장 프로시저를 사용하여 항목 만들기
 
-저장 프로시저를 사용 하 여 항목을 만들 때 항목이 Azure Cosmos 컨테이너에 삽입 되 고 새로 만든 항목에 대 한 ID가 반환 됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다.
+저장 프로시저를 사용하여 항목을 만든 경우 해당 항목이 Azure Cosmos 컨테이너에 삽입되고 새로 만든 항목에 대한 ID가 반환됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다.
 
 또한 저장 프로시저에는 설명을 설정하는 매개 변수가 포함되며 부울 값입니다. 매개 변수가 true로 설정되고 설명이 누락된 경우 저장 프로시저는 예외를 throw합니다. 그렇지 않으면 저장 프로시저의 나머지가 계속 실행됩니다.
 
-다음 예제 저장 프로시저에서는 새 Azure Cosmos 항목의 배열을 입력으로 사용 하 고, Azure Cosmos 컨테이너에 삽입 하 고, 삽입 된 항목의 수를 반환 합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
+다음 예제 저장 프로시저에서는 새 Azure Cosmos 항목의 배열을 입력으로 사용하고 이 배열을 Azure Cosmos 컨테이너에 삽입하고 삽입된 항목의 수를 반환합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
 
 ```javascript
 function createToDoItems(items) {
@@ -232,9 +232,9 @@ function bulkImport(items) {
 }
 ```
 
-### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>저장 프로시저를 사용 하 여 비동기 대기
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises">저장 프로시저를 사용하여 비동기 대기</a>
 
-다음은 도우미 함수를 사용 하 여 동기-wait를 사용 하는 저장 프로시저의 예입니다. 저장 프로시저는 항목에 대 한 쿼리를 수행 하 고이를 대체 합니다.
+다음은 도우미 함수를 사용하는 프라미스에서 비동기 대기를 사용하는 저장 프로시저의 예입니다. 저장 프로시저는 항목을 쿼리하고 대체합니다.
 
 ```javascript
 function async_sample() {
@@ -284,7 +284,7 @@ function async_sample() {
 
 ## <a name="how-to-write-triggers"></a><a id="triggers"></a>트리거를 작성하는 방법
 
-Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다. 사전 트리거는 데이터베이스 항목을 수정하기 전에 실행되고, 사후 트리거는 데이터베이스 항목을 수정한 후에 실행됩니다. 트리거는 자동으로 실행 되지 않으며, 실행 하려는 각 데이터베이스 작업에 대해 지정 되어야 합니다. 트리거를 정의한 후 Azure Cosmos DB Sdk를 사용 하 여 [사전 트리거를 등록 하 고 호출](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 해야 합니다.
+Azure Cosmos DB에서는 사전 트리거와 사후 트리거를 지원합니다. 사전 트리거는 데이터베이스 항목을 수정하기 전에 실행되고, 사후 트리거는 데이터베이스 항목을 수정한 후에 실행됩니다. 트리거는 자동으로 실행되지 않으며 실행하려는 각 데이터베이스 작업에 대해 지정해야 합니다. 트리거를 정의한 후 Azure Cosmos DB SDK를 사용하여 [사전 트리거를 등록하고 호출](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)해야 합니다.
 
 ### <a name="pre-triggers"></a><a id="pre-triggers"></a>사전 트리거
 
@@ -351,6 +351,7 @@ function updateMetadataCallback(err, items, responseOptions) {
         if(!accept) throw "Unable to update metadata, abort";
         return;
 }
+}
 ```
 
 한 가지 중요한 사항은 Azure Cosmos DB에서 트리거의 트랜잭션을 실행하는 것입니다. 사후 트리거는 기본 항목 자체와 같은 트랜잭션의 일부로 실행됩니다. 사후 트리거를 실행하는 동안 예외가 발생하면 전체 트랜잭션이 실패합니다. 커밋된 모든 사항은 롤백되며 예외가 반환됩니다.
@@ -388,16 +389,29 @@ function tax(income) {
 
 사용자 정의 함수를 등록하고 사용하는 방법의 예제는 [Azure Cosmos DB에서 사용자 정의 함수를 사용하는 방법](how-to-use-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
 
-## <a name="logging"></a>로깅 
+## <a name="logging"></a>로깅
 
-저장 프로시저, 트리거 또는 사용자 정의 함수를 사용 하는 경우 명령을 사용 하 여 단계를 기록할 수 있습니다 `console.log()` . 이 명령은 `EnableScriptLogging` 다음 예제와 같이이 true로 설정 된 경우 디버깅을 위해 문자열을 집중 합니다.
+저장 프로시저, 트리거 또는 사용자 정의 함수를 사용하는 경우 스크립트 로깅을 사용하도록 설정하여 단계를 기록할 수 있습니다. 다음 예제와 같이 `EnableScriptLogging`을 true로 설정하면 디버깅용 문자열이 생성됩니다.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
+let requestOptions = { enableScriptLogging: true };
+const { resource: result, headers: responseHeaders} await container.scripts
+      .storedProcedure(Sproc.id)
+      .execute(undefined, [], requestOptions);
+console.log(responseHeaders[Constants.HttpHeaders.ScriptLogResults]);
+```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+```csharp
 var response = await client.ExecuteStoredProcedureAsync(
 document.SelfLink,
 new RequestOptions { EnableScriptLogging = true } );
 Console.WriteLine(response.ScriptLog);
 ```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

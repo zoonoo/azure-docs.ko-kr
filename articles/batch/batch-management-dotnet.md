@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: seodec18, has-adal-ref, devx-track-csharp
 ms.openlocfilehash: f6acf23742b8d4c5c31a5ea952aba5c76b64cae0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896734"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET용 Batch 관리 클라이언트 라이브러리를 사용하여 Batch 계정 및 할당량 관리
@@ -18,14 +18,14 @@ ms.locfileid: "98896734"
 - **Batch 계정을 만들고 삭제** 합니다. 예를 들어 ISV(독립 소프트웨어 공급업체)가 대금 청구를 위해 각각 별도의 Batch 계정에 할당되는 클라이언트용 서비스를 제공하는 경우 고객 포털에 계정 만들기 및 삭제 기능을 추가할 수 있습니다.
 - **계정 키를 검색하고 다시 생성** 합니다. 이렇게 하면 주기적인 롤오버 또는 계정 키 만료를 적용하는 보안 정책을 준수할 수 있습니다. 다양한 Azure 영역에 여러 Batch 계정이 있는 경우 롤오버 프로세스를 자동화하면 솔루션의 효율성이 높아집니다.
 - **계정 할당량을 확인** 하고 어떤 Batch 계정에 어떤 제한이 있는지를 확인하는 데 시행 착오 추측을 배제합니다. 작업을 시작하기 전에 계정 할당량을 확인하거나 풀을 만들거나 컴퓨팅 노드를 추가함으로써 이러한 컴퓨팅 리소스가 만들어지는 위치 또는 시기를 능동적으로 조정할 수 있습니다. 해당 계정에 추가 리소스를 할당하기 전에 할당량 증가가 필요한 계정을 확인할 수 있습니다.
-- **다른 Azure 서비스의 기능을 결합** 하 여 동일한 응용 프로그램에서 Batch 관리 .net, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)및 [Azure Resource Manager](../azure-resource-manager/management/overview.md) 를 함께 사용 하 여 완전 한 기능을 갖춘 관리 환경을 제공 합니다. 이러한 기능과 해당 API를 사용하여 원활한 인증 환경, 리소스 그룹을 만들고 삭제하는 기능 및 엔드투엔드 관리 솔루션에 대해 위에 설명된 기능을 제공할 수 있습니다.
+- Batch 관리 .NET, [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 및 [Azure Resource Manager](../azure-resource-manager/management/overview.md)를 동일한 애플리케이션에서 함께 사용하고 **다른 Azure 서비스의 기능을 결합** 하여 모든 기능을 갖춘 관리 환경을 제공합니다. 이러한 기능과 해당 API를 사용하여 원활한 인증 환경, 리소스 그룹을 만들고 삭제하는 기능 및 엔드투엔드 관리 솔루션에 대해 위에 설명된 기능을 제공할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 Batch 계정, 키 및 할당량을 프로그래밍 방식으로 관리 하는 방법에 중점을 두는 반면 [Azure Portal를 사용 하](batch-account-create-portal.md)여 이러한 작업을 여러 개 수행할 수도 있습니다.
+> 이 문서에서는 Batch 계정, 키 및 할당량을 프로그래밍 방식으로 관리하는 방법에 대해 주로 설명하는 동안 [Azure Portal](batch-account-create-portal.md)을 사용하여 이러한 다양한 작업을 수행할 수도 있습니다.
 
 ## <a name="create-and-delete-batch-accounts"></a>Batch 계정을 만들고 삭제
 
-Batch 관리 API의 주요 기능 중 하나는 Azure 지역에서 [batch 계정을](accounts.md) 만들고 삭제 하는 것입니다. 이렇게 하려면 [BatchManagementClient.Account.CreateAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.createasync) 및 [DeleteAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.deleteasync) 또는 해당 동기 항목을 사용합니다.
+Batch 관리 API의 주요 기능은 Azure 지역에서 [Batch 계정](accounts.md)을 만들고 삭제하는 것입니다. 이렇게 하려면 [BatchManagementClient.Account.CreateAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.createasync) 및 [DeleteAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.deleteasync) 또는 해당 동기 항목을 사용합니다.
 
 다음 코드 조각은 계정을 만들고 Batch 서비스에서 새로 만든 계정을 가져온 후 삭제합니다. 이 코드 조각과 이 문서의 다른 코드 조각에서 `batchManagementClient`는 완전히 초기화된 [BatchManagementClient](/dotnet/api/microsoft.azure.management.batch.batchmanagementclient) 인스턴스입니다.
 
@@ -49,7 +49,7 @@ await batchManagementClient.Account.DeleteAsync("MyResourceGroup", account.Name)
 
 ## <a name="retrieve-and-regenerate-account-keys"></a>계정 키를 검색하고 다시 생성
 
-[GetKeysAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.getkeysasync)를 사용 하 여 구독 내의 모든 Batch 계정에서 기본 및 보조 계정 키를 가져옵니다. [RegenerateKeyAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.regeneratekeyasync)를 사용하여 해당 키를 다시 생성할 수 있습니다.
+[GetKeysAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.getkeysasync)를 사용하여 구독 내 Batch 계정에서 기본 및 보조 계정 키를 가져옵니다. [RegenerateKeyAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.regeneratekeyasync)를 사용하여 해당 키를 다시 생성할 수 있습니다.
 
 ```csharp
 // Get and print the primary and secondary keys
@@ -71,7 +71,7 @@ BatchAccountRegenerateKeyResponse newKeys =
 ```
 
 > [!TIP]
-> 관리 애플리케이션에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [GetKeysAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.getkeysasync)를 사용 하 여 관리 하려는 Batch 계정에 대 한 계정 키를 가져옵니다. 그런 다음, [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials](/dotnet/api/microsoft.azure.batch.auth.batchsharedkeycredentials) 클래스를 초기화할 때 이 키를 사용합니다.
+> 관리 애플리케이션에 대한 간소화된 연결 워크플로를 만들 수 있습니다. 먼저 [GetKeysAsync](/dotnet/api/microsoft.azure.management.batch.batchaccountoperationsextensions.getkeysasync)를 사용하여 관리하려는 Batch 계정에 대한 계정 키를 가져옵니다. 그런 다음, [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient)를 초기화할 때 사용되는 배치 .NET 라이브러리의 [BatchSharedKeyCredentials](/dotnet/api/microsoft.azure.batch.auth.batchsharedkeycredentials) 클래스를 초기화할 때 이 키를 사용합니다.
 
 ## <a name="check-azure-subscription-and-batch-account-quotas"></a>Azure 구독 및 Batch 계정 할당량 확인
 
@@ -81,7 +81,7 @@ Azure 구독 및 Batch와 같은 개별 Azure 서비스는 모두 포함되는 �
 
 지역에 Batch 계정을 만들기 전에 Azure 구독에서 해당 지역에 계정을 추가할 수 있는지 여부를 확인할 수 있습니다.
 
-아래 코드 조각에서는 먼저 **Listasync** 를 사용 하 여 구독 내에 있는 모든 Batch 계정의 컬렉션을 가져옵니다. 이 컬렉션을 가져온 후 대상 영역의 계정 수를 결정합니다. 그런 다음 **GetQuotasAsync** 를 사용 하 여 Batch 계정 할당량을 가져오고 해당 지역에서 만들 수 있는 계정 수 (있는 경우)를 결정 합니다.
+아래 코드 조각에서 먼저 **ListAsync** 를 사용하여 구독 내에서 모든 배치 계정의 컬렉션을 가져옵니다. 이 컬렉션을 가져온 후 대상 영역의 계정 수를 결정합니다. 그런 다음, **GetQuotasAsync** 를 사용하여 배치 계정 할당량을 가져오고 해당 지역에서 얼마나 많은 계정(있는 경우)을 만들 수 있는지 결정합니다.
 
 ```csharp
 // Get a collection of all Batch accounts within the subscription
@@ -105,7 +105,7 @@ Console.WriteLine("Accounts in {0}: {1}", region, accountsInRegion);
 Console.WriteLine("You can create {0} accounts in the {1} region.", quotaResponse.AccountQuota - accountsInRegion, region);
 ```
 
-위의 코드 조각에서 `creds` 는 **tokencredentials** 의 인스턴스입니다. 이 개체를 만드는 예제를 보려면 GitHub에서 [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) 코드 샘플을 참조하세요.
+위의 코드 조각에서 `creds`는 **TokenCredentials** 의 인스턴스입니다. 이 개체를 만드는 예제를 보려면 GitHub에서 [AccountManagement](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/AccountManagement) 코드 샘플을 참조하세요.
 
 ### <a name="check-a-batch-account-for-compute-resource-quotas"></a>Batch 계정에서 컴퓨팅 리소스 할당량 확인
 
@@ -124,7 +124,7 @@ Console.WriteLine("Active job and job schedule quota: {0}", account.Properties.A
 ```
 
 > [!IMPORTANT]
-> Azure 구독 및 서비스에 대 한 기본 할당량이 있지만 이러한 제한의 대부분은 [Azure Portal에서 할당량 증가를 요청](batch-quota-limit.md#increase-a-quota)하 여 발생할 수 있습니다.
+> Azure 구독 및 서비스에 기본 할당량이 있기는 하지만 [Azure Portal에서 할당량 늘리기를 요청하여](batch-quota-limit.md#increase-a-quota) 이러한 여러 제한을 늘릴 수 있습니다.
 
 ## <a name="use-azure-ad-with-batch-management-net"></a>Batch Management .NET을 통한 Azure AD 사용
 
@@ -147,7 +147,7 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
    - 계정에 대한 할당량 정보를 인쇄합니다.
    - 구독에 대한 할당량 정보를 인쇄합니다.
    - 구독 내에서 모든 계정을 인쇄합니다.
-   - 새로 만든 계정을 삭제 합니다.
+   - 새로 만든 계정을 삭제합니다.
 7. 해당 리소스 그룹을 삭제합니다.
 
 샘플 애플리케이션을 실행하려면 먼저 Azure Portal의 Azure AD 테넌트에 애플리케이션을 등록하고 Azure Resource Manager API에 권한을 부여해야 합니다. [Active Directory를 사용하여 Batch Management 솔루션 인증](batch-aad-auth-management.md)에 제공된 단계를 수행합니다.
@@ -155,4 +155,4 @@ Batch Management .NET 라이브러리는 Azure 리소스 공급자 클라이언�
 ## <a name="next-steps"></a>다음 단계
 
 - 풀, 노드, 작업 및 태스크와 같은 [Batch 서비스 워크플로 및 기본 리소스](batch-service-workflow-features.md)에 대해 알아봅니다.
-- [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 애플리케이션 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용 하 여 작업 파일 준비 및 검색을 위해 Azure Storage를 사용 하 여 여러 계산 노드에서 워크 로드를 실행 하는 샘플 응용 프로그램을 안내 합니다. git pus
+- [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 애플리케이션 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 컴퓨팅 노드에서 워크로드를 실행하는 애플리케이션 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.

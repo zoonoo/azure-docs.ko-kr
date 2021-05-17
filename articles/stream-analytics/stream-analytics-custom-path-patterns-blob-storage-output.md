@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: cb9d8edd24dcc8809f2b207a4db80653b0e140e4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98014039"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics 사용자 지정 Blob 출력 분할
@@ -24,13 +24,13 @@ Azure Stream Analytics는 사용자 지정 필드 또는 특성과 사용자 지
 
 ### <a name="partition-key-options"></a>파티션 키 옵션
 
-입력 데이터를 분할 하는 데 사용 되는 파티션 키 또는 열 이름에는 [blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)에 대해 허용 되는 모든 문자가 포함 될 수 있습니다. 별칭과 함께 사용 하지 않는 한 중첩 된 필드를 파티션 키로 사용할 수 없지만 특정 문자를 사용 하 여 파일의 계층 구조를 만들 수는 있습니다. 예를 들어 다음 쿼리를 사용 하 여 다른 두 열의 데이터를 결합 하 여 고유한 파티션 키를 만드는 열을 만들 수 있습니다.
+입력 데이터를 분할하는 데 사용되는 파티션 키 또는 열 이름에는 [Blob 이름](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)에 대해 허용되는 어떤 문자도 사용할 수 있습니다. 별칭과 함께 사용하지 않는 한, 중첩된 필드를 파티션 키로 사용할 수 없지만 특정 문자를 사용하여 파일의 계층 구조를 만들 수는 있습니다. 예를 들어, 다음 쿼리에서 다른 두 열의 데이터를 결합하여 고유한 파티션 키를 만드는 열을 만들 수 있습니다.
 
 ```sql
 SELECT name, id, CONCAT(name, "/", id) AS nameid
 ```
 
-파티션 키는 NVARCHAR (MAX), BIGINT, FLOAT 또는 BIT (1.2 호환성 수준 이상) 여야 합니다. DateTime, Array 및 Records 형식은 지원 되지 않지만 문자열로 변환 된 경우에는 파티션 키로 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 참조 하세요.
+이파티션 키는 NVARCHAR(MAX), BIGINT, FLOAT 또는 BIT(1.2 호환성 수준 이상)여야 합니다. DateTime, Array 및 Records 형식은 지원되지 않지만 문자열로 변환할 경우에는 파티션 키로 사용할 수 있습니다. 자세한 내용은 [Azure Stream Analytics 데이터 형식](/stream-analytics-query/data-types-azure-stream-analytics)을 참조하세요.
 
 ### <a name="example"></a>예제
 
@@ -49,7 +49,7 @@ REST API를 사용하면 해당 요청에 사용되는 JSON 파일의 출력 섹
 
 ![클라이언트 컨테이너](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-clients-container.png)
 
-각 폴더에 여러 Blob이 포함될 수 있으며, 각 Blob에는 하나 이상의 레코드가 포함됩니다. 위의 예제에서는 "06000000" 이라는 폴더에 다음 내용이 포함 된 단일 blob이 있습니다.
+각 폴더에 여러 Blob이 포함될 수 있으며, 각 Blob에는 하나 이상의 레코드가 포함됩니다. 위의 예제에서 "06000000" 레이블이 지정된 폴더에는 단일 Blob이 있으며 그 콘텐츠는 다음과 같습니다.
 
 ![Blob 콘텐츠](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
@@ -68,7 +68,7 @@ Blob의 각 레코드에는 폴더 이름과 일치하는 **client_id** 열이 �
 
 3. 파티션 키 카디널리티 8000 미만의 레코드로 입력 스트림이 구성되면 레코드가 기존 Blob에 추가되고 필요할 때만 새 Blob을 만듭니다. 카디널리티가 8000을 넘으면 기존 Blob이 작성되고 파티션 키가 동일한 임의의 수의 레코드에 대한 새 Blob이 생성된다는 보장이 없습니다.
 
-4. Blob 출력을 변경할 수 없는 [것으로 구성](../storage/blobs/storage-blob-immutable-storage.md)하면 데이터를 보낼 때마다 새 blob이 만들어집니다 Stream Analytics.
+4. Blob 출력을 [변경 불가능으로 구성](../storage/blobs/storage-blob-immutable-storage.md)하면 데이터를 보낼 때마다 Stream Analytics에서 새 Blob을 만듭니다.
 
 ## <a name="custom-datetime-path-patterns"></a>사용자 지정 날짜/시간 경로 패턴
 
@@ -120,7 +120,7 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 ### <a name="example"></a>예제
 
-[Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) 빠른 시작 가이드에 따라 저장소 계정, 리소스 그룹, Stream Analytics 작업 및 입력 원본을 만듭니다. 빠른 시작 가이드에서 사용된 동일한 샘플 데이터를 사용하며 [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)에서도 사용 가능합니다.
+[Azure Stream Analytics Azure Portal](stream-analytics-quick-create-portal.md) 빠른 시작 가이드에 따라 스토리지 계정, 리소스 그룹, Stream Analytics 작업 및 입력 원본을 만듭니다. 빠른 시작 가이드에서 사용된 동일한 샘플 데이터를 사용하며 [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)에서도 사용 가능합니다.
 
 다음 구성을 사용하여 Blob 출력 싱크를 만듭니다.
 

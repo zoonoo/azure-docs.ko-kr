@@ -17,12 +17,12 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ca618dc234ff4383083ff5eb21299fb1e3e7128
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 00c519ef06637c5193b347f0bbc906c6232a7ca8
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96348741"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107532536"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -85,7 +85,7 @@ Azure AD 보고 API에 액세스하도록 디렉터리를 구성하려면 Azure 
 
     b. **지원되는 계정 유형** 에서 **이 조직의 계정만** 을 선택합니다.
 
-    다. **리디렉션 URL** 에서 **웹** 텍스트 상자를 선택하고 `https://localhost`를 입력합니다.
+    c. **리디렉션 URL** 에서 **웹** 텍스트 상자를 선택하고 `https://localhost`를 입력합니다.
 
     d. **등록** 을 선택합니다. 
 
@@ -224,5 +224,5 @@ Graph 탐색기를 사용하여 로그인에 액세스하는 동안 이 오류 �
 ## <a name="next-steps"></a>다음 단계
 
 * [인증서와 함께 Azure Active Directory reporting API를 사용하여 데이터 가져오기](tutorial-access-api-with-certificates.md).
-* [감사 API 참조](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
-* [로그인 활동 보고서 API 참조](/graph/api/resources/signin?view=graph-rest-beta)
+* [감사 API 참조](/graph/api/resources/directoryaudit) 
+* [로그인 활동 보고서 API 참조](/graph/api/resources/signin)

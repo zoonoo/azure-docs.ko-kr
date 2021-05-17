@@ -1,6 +1,6 @@
 ---
 title: 권한 부여 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: Threat Modeling Tool에서 권한 부여 완화에 대해 알아봅니다. 잠재적인 위협 및 완화 지침의 목록을 참조 하세요.
+description: Threat Modeling Tool의 권한 부여 완화에 대해 알아봅니다. 잠재적인 위협 목록과 완화 지침을 참조하세요.
 services: security
 documentationcenter: na
 author: jegeib
@@ -17,29 +17,29 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101094005"
 ---
 # <a name="security-frame-authorization--mitigations"></a>보안 프레임: 권한 부여 | 완화 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **컴퓨터 신뢰 경계** | <ul><li>[적절 한 Acl이 장치의 데이터에 대 한 무단 액세스를 제한 하도록 구성 되어 있는지 확인 합니다.](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포 된 응용 프로그램이 최소 권한으로 실행 되는지 확인](#deployed-privileges)</li></ul> |
-| **웹 애플리케이션** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절 한 권한 부여가 준비 되어 있고 최소 권한 원칙을 준수 하는지 확인 합니다.](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
-| **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[행 수준 보안 RLS를 구현 하 여 테 넌 트가 서로의 데이터에 액세스 하지 못하도록 합니다.](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
+| **컴퓨터 신뢰 경계** | <ul><li>[적절한 ACL이 디바이스의 데이터에 대한 무단 액세스를 제한하도록 구성되어 있는지 확인](#acl-restricted-access)</li><li>[사용자 고유의 중요한 애플리케이션 콘텐츠가 사용자 프로필 디렉터리에 저장되는지 확인](#sensitive-directory)</li><li>[배포된 애플리케이션이 최소 권한으로 실행되는지 확인](#deployed-privileges)</li></ul> |
+| **웹 애플리케이션** | <ul><li>[비즈니스 논리 흐름을 처리할 때 순차적 단계 순서 적용](#sequential-logic)</li><li>[열거를 방지하는 비율 제한 메커니즘 구현](#rate-enumeration)</li><li>[적절한 권한이 부여되고 최소 권한의 원칙이 준수되는지 확인](#principle-least-privilege)</li><li>[들어오는 요청 매개 변수를 기반으로 하지 않는 비즈니스 논리 및 리소스 액세스 권한 부여 결정](#logic-request-parameters)</li><li>[강제 검색을 통해 콘텐츠와 리소스를 열거하거나 액세스할 수 없는지 확인](#enumerable-browsing)</li></ul> |
+| **데이터베이스** | <ul><li>[최소 권한의 계정으로 데이터베이스 서버에 연결하는지 확인](#privileged-server)</li><li>[테넌트에서 다른 테넌트의 데이터에 액세스하지 못하도록 방지하는 RLS(행 수준 보안) 구현](#rls-tenants)</li><li>[유효한 필수 사용자에게만 부여되는 sysadmin 역할](#sysadmin-users)</li></ul> |
 | **IoT 클라우드 게이트웨이** | <ul><li>[최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결](#cloud-least-privileged)</li></ul> |
-| **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 대 한 직접 액세스를 제공 하는 액세스 토큰을 사용 하지 마십시오.](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
+| **Azure 이벤트 허브** | <ul><li>[송신 전용 권한 SAS 키를 사용하여 디바이스 토큰 생성](#sendonly-sas)</li><li>[이벤트 허브에 직접 액세스할 수 있는 액세스 토큰 사용 금지](#access-tokens-hub)</li><li>[최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결](#sas-minimum-permissions)</li></ul> |
 | **Azure Document DB** | <ul><li>[가능한 경우 리소스 토큰을 사용하여 Azure Cosmos DB에 연결](#resource-docdb)</li></ul> |
-| **Azure 신뢰 경계** | <ul><li>[Azure RBAC를 사용 하 여 Azure 구독에 대 한 세분화 액세스 관리 사용](#grained-rbac)</li></ul> |
-| **Service Fabric 신뢰 경계** | <ul><li>[Azure RBAC를 사용 하 여 클러스터 작업에 대 한 클라이언트 액세스 제한](#cluster-rbac)</li></ul> |
+| **Azure 신뢰 경계** | <ul><li>[Azure RBAC를 사용하여 Azure 구독에 세분화된 액세스 관리를 사용하도록 설정](#grained-rbac)</li></ul> |
+| **Service Fabric 신뢰 경계** | <ul><li>[Azure RBAC를 사용하여 클러스터 작업에 대한 클라이언트 액세스 제한](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[보안 모델링 수행 및 필요한 경우 필드 수준 보안 사용](#modeling-field)</li></ul> |
 | **Dynamics CRM 포털** | <ul><li>[포털의 보안 모델이 CRM의 나머지 부분과 다르다는 점을 감안하여 포털 계정의 보안 모델링을 수행합니다.](#portal-security)</li></ul> |
-| **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용 하 여 azure storage 계정에 대 한 azure RBAC (역할 기반 액세스 제어) 사용](#rbac-azure-manager)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure Table Storage의 엔터티 범위에 대해 세분화된 권한 부여](#permission-entities)</li><li>[Azure Resource Manager를 사용하여 Azure Storage 계정에 RBAC(역할 기반 액세스 제어)를 사용하도록 설정](#rbac-azure-manager)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[암시적 무단 해제 또는 루팅 검색 구현](#rooting-detection)</li></ul> |
-| **WCF** | <ul><li>[WCF의 Weak 클래스 참조](#weak-class-wcf)</li><li>[WCF-권한 부여 제어 구현](#wcf-authz)</li></ul> |
-| **앱 API** | <ul><li>[ASP.NET Web API에서 적절 한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
+| **WCF** | <ul><li>[WCF - 약한 클래스 참조](#weak-class-wcf)</li><li>[WCF - 권한 부여 제어 구현](#wcf-authz)</li></ul> |
+| **앱 API** | <ul><li>[ASP.NET Web API에서 적절한 권한 부여 메커니즘 구현](#authz-aspnet)</li></ul> |
 | **IoT 디바이스** | <ul><li>[다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 디바이스에서 권한 부여 확인 수행](#device-permission)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[다른 권한 수준이 필요한 다양한 작업을 지원하는 경우 필드 게이트웨이에서 권한 부여 확인 수행](#field-permission)</li></ul> |
 
@@ -147,7 +147,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Sql 사용 권한 계층](/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](/sql/relational-databases/security/securables) |
+| **참조**              | [SQL 권한 계층 구조](/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL 보안 개체](/sql/relational-databases/security/securables) |
 | **단계** | 최소 권한이 부여된 계정을 사용하여 데이터베이스에 연결해야 합니다. 애플리케이션 로그인은 데이터베이스에서 제한되어야 하며 선택된 저장 프로시저만 실행해야 합니다. 애플리케이션애플리케이션의 로그인에는 직접적인 테이블 액세스가 없어야 합니다. |
 
 ## <a name="implement-row-level-security-rls-to-prevent-tenants-from-accessing-each-others-data"></a><a id="rls-tenants"></a>테넌트에서 다른 테넌트의 데이터에 액세스하지 못하도록 방지하는 RLS(행 수준 보안) 구현
@@ -161,7 +161,7 @@ WHERE userID=:id < - session var
 | **참조**              | [SQL Server RLS(행 수준 보안)](/sql/relational-databases/security/row-level-security) |
 | **단계** | <p>행 수준 보안을 통해 고객은 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다.</p><p>행 수준 보안(RLS)은 애플리케이션의 보안 설계 및 코딩을 간소화합니다. RLS를 사용하면 데이터 행 액세스에 대한 제한을 구현할 수 있습니다. 예를 들어 작업자가 자신의 부서와 관련된 데이터 행에만 액세스하거나 고객의 데이터 액세스를 회사와 관련된 데이터만으로 제한할 수 있습니다.</p><p>액세스 제한 논리는 다른 애플리케이션 계층의 데이터와 다소 떨어진 데이터베이스 계층에 위치합니다. 데이터베이스 시스템은 모든 계층에서 데이터 액세스를 시도할 때마다 액세스를 제한합니다. 이렇게 하면 보안 시스템의 노출 영역을 줄임으로써 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다.</p><p>|
 
-기본적으로 사용할 수 있는 데이터베이스 기능으로는 SQL Server 2016, Azure SQL Database 및 SQL Managed Instance를 시작 하는 데에만 적용 됩니다. 기본적인 RLS 기능이 구현되지 않는 경우 뷰와 프로시저를 사용하여 데이터 액세스를 제한해야 합니다.
+기본 제공 데이터베이스 기능인 RLS는 2016년 이후의 SQL Server, Azure SQL Database, SQL Managed Instance에만 적용됩니다. 기본적인 RLS 기능이 구현되지 않는 경우 뷰와 프로시저를 사용하여 데이터 액세스를 제한해야 합니다.
 
 ## <a name="sysadmin-role-should-only-have-valid-necessary-users"></a><a id="sysadmin-users"></a>유효한 필수 사용자에게만 부여되는 sysadmin 역할
 
@@ -171,7 +171,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Sql 사용 권한 계층](/sql/relational-databases/security/permissions-hierarchy-database-engine), [sql 보안 개체](/sql/relational-databases/security/securables) |
+| **참조**              | [SQL 권한 계층 구조](/sql/relational-databases/security/permissions-hierarchy-database-engine), [SQL 보안 개체](/sql/relational-databases/security/securables) |
 | **단계** | SysAdmin 고정 서버 역할의 멤버는 매우 제한적이어야 하며 애플리케이션에서 사용하는 계정을 포함해서는 안됩니다.  역할에 포함된 사용자 목록을 검토하고 불필요한 계정을 제거합니다.|
 
 ## <a name="connect-to-cloud-gateway-using-least-privileged-tokens"></a><a id="cloud-least-privileged"></a>최소 권한의 토큰을 사용하여 클라우드 게이트웨이에 연결
@@ -205,7 +205,7 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
-| **단계** | 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 디바이스에 제공하면 안됩니다. 게시자에 대 한 액세스 권한만 부여 하는 장치에 대 한 최소 권한 있는 토큰을 사용 하면 rogue 또는 손상 된 장치로 검색 된 경우 해당 토큰을 식별 하 고 허용 하지 않을 수 있습니다.|
+| **단계** | 이벤트 허브에 대한 직접 액세스 권한을 부여하는 토큰을 디바이스에 제공하면 안됩니다. 게시자에게만 액세스 권한을 부여하는 최소 권한 토큰을 디바이스에 사용하면 악의적이거나 손상된 디바이스로 확인되는 경우 이를 식별하여 허용하지 않을 수 있습니다.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>최소 권한이 필요한 SAS 키를 사용하여 이벤트 허브에 연결
 
@@ -229,7 +229,7 @@ WHERE userID=:id < - session var
 | **참조**              | 해당 없음  |
 | **단계** | 리소스 토큰은 Azure Cosmos DB 권한 리소스와 연관되며, 데이터베이스 사용자와 해당 사용자가 특정 Azure Cosmos DB 애플리케이션 리소스(예: 컬렉션, 문서)에 대해 갖고 있는 권한 사이의 관계를 캡처합니다. 최종 사용자 애플리케이션(예: 모바일 또는 데스크톱 클라이언트)과 같이 클라이언트에서 마스터 또는 읽기 전용 키를 처리하여 신뢰할 수 없는 경우 항상 리소스 토큰을 사용하여 Azure Cosmos DB에 액세스해야 합니다. 이러한 키를 안전하게 저장할 수 있는 백 엔드 애플리케이션에서 마스터 키 또는 읽기 전용 키를 사용합니다.|
 
-## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Azure RBAC를 사용 하 여 Azure 구독에 대 한 세분화 액세스 관리 사용
+## <a name="enable-fine-grained-access-management-to-azure-subscription-using-azure-rbac"></a><a id="grained-rbac"></a>Azure RBAC를 사용하여 Azure 구독에 세분화된 액세스 관리를 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -237,10 +237,10 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure 역할을 할당 하 여 Azure 구독 리소스에 대 한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)  |
-| **단계** | Azure RBAC (역할 기반 액세스 제어)를 통해 Azure에 대 한 세밀 한 액세스 관리가 가능 합니다. Azure RBAC를 사용 하 여 사용자가 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다.|
+| **참조**              | [Azure 역할을 할당하여 Azure 구독 리소스에 대한 액세스 관리](../../role-based-access-control/role-assignments-portal.md)  |
+| **단계** | Azure RBAC(역할 기반 액세스 제어)를 사용하면 Azure에 대한 세분화된 액세스 관리가 가능합니다. Azure RBAC를 사용하여 사용자가 해당 작업을 수행하는 데 필요한 양의 액세스 권한만 부여할 수 있습니다.|
 
-## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Service Fabric RBAC를 사용 하 여 클러스터 작업에 대 한 클라이언트 액세스 제한
+## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Service Fabric RBAC를 사용하여 클러스터 작업에 대한 클라이언트 액세스 제한
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -248,7 +248,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 환경 - Azure |
-| **참조**              | [Service Fabric 클라이언트에 대 한 역할 기반 액세스 제어 Service Fabric](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **참조**              | [Service Fabric 클라이언트용 Service Fabric 역할 기반 액세스 제어](../../service-fabric/service-fabric-cluster-security-roles.md) |
 | **단계** | <p>Azure 서비스 패브릭은 서비스 패브릭 클러스터에 연결된 클라이언트 즉, 관리자 및 사용자에 대한 액세스 제어 형식을 지원합니다. 액세스 제어를 사용하면 클러스터 관리자가 사용자 그룹마다 특정 클러스터 작업에 대한 액세스를 제한하여 클러스터의 보안을 강화할 수 있습니다.</p><p>관리자는 관리 기능(읽기/쓰기 기능만 포함)에 대한 모든 권한을 가집니다. 사용자는 기본적으로 관리 기능(예: 쿼리 기능)에 대한 읽기 권한 및 애플리케이션과 서비스를 확인하는 기능만 갖습니다.</p><p>클러스터 생성 시 각각에 대해 개별 인증서를 제공하여 두 개의 클라이언트 역할(관리자 및 클라이언트)을 지정합니다.</p>|
 
 ## <a name="perform-security-modeling-and-use-field-level-security-where-required"></a><a id="modeling-field"></a>보안 모델링 수행 및 필요한 경우 필드 수준 보안 사용
@@ -282,9 +282,9 @@ WHERE userID=:id < - session var
 | **적용 가능한 기술** | 일반 |
 | **특성**              | StorageType - 테이블 |
 | **참조**              | [SAS를 사용하여 Azure Storage 계정의 개체에 대한 액세스 권한을 위임하는 방법](../../storage/blobs/security-recommendations.md#identity-and-access-management) |
-| **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 예를 들어, 다양 한 국가/지역과 관련 된 중요 한 데이터입니다. 이러한 경우, 사용자가 특정 국가/지역과 관련 된 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정 하 여 SAS 서명을 생성할 수 있습니다.| 
+| **단계** | 특정 비즈니스 시나리오에서 Azure Table Storage는 다른 당사자에게 제공하는 중요한 데이터(예: 다른 국가에 관한 중요한 데이터)를 저장해야 할 수 있습니다. 이러한 경우 사용자가 특정 국가/지역의 특정 데이터에 액세스할 수 있도록 파티션 및 행 키 범위를 지정하여 SAS 서명을 구성할 수 있습니다.| 
 
-## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Azure Resource Manager를 사용 하 여 azure storage 계정에 대 한 azure RBAC (역할 기반 액세스 제어) 사용
+## <a name="enable-azure-role-based-access-control-azure-rbac-to-azure-storage-account-using-azure-resource-manager"></a><a id="rbac-azure-manager"></a>Azure Resource Manager를 사용하여 Azure Storage 계정에 RBAC(역할 기반 액세스 제어)를 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -292,7 +292,7 @@ WHERE userID=:id < - session var
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [Azure 역할 기반 액세스 제어를 사용 하 여 저장소 계정을 보호 하는 방법 (Azure RBAC)](../../storage/blobs/security-recommendations.md) |
+| **참조**              | [Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 스토리지 계정을 보호하는 방법](../../storage/blobs/security-recommendations.md) |
 | **단계** | <p>새 스토리지 계정을 만들 때 클래식 배포 모델 또는 Azure Resource Manager 배포 모델 중에서 선택합니다. Azure에서 리소스를 만드는 기본 모델에서만 구독 및 스토리지 계정에 대한 완전한 액세스를 허용합니다.</p><p>Azure Resource Manager 모델에서는 Azure Active Directory를 사용하여 리소스 그룹에 스토리지 계정을 추가하고 해당 특정 스토리지 계정의 관리 평면에 대한 액세스를 제어합니다. 예를 들어 특정 사용자에게는 스토리지 계정 키에 액세스할 수 있는 기능을 제공하고 다른 사용자에게는 스토리지 계정에 대한 정보는 볼 수 있지만 스토리지 계정 키에는 액세스하지 못하게 할 수 있습니다.</p>|
 
 ## <a name="implement-implicit-jailbreak-or-rooting-detection"></a><a id="rooting-detection"></a>암시적 무단 해제 또는 루팅 검색 구현

@@ -1,6 +1,6 @@
 ---
 title: 일시적인 오류 작업
-description: Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 연결할 때 SQL 연결 오류 또는 일시적인 오류를 해결, 진단 및 방지 하는 방법에 대해 알아봅니다.
+description: Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics에 연결할 때 SQL 연결 오류 또는 일시적인 오류를 해결, 진단 및 방지하는 방법을 알아봅니다.
 keywords: SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류
 services: sql-database
 ms.service: sql-database
@@ -13,23 +13,23 @@ ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
 ms.openlocfilehash: 9f2e755047910aefa89c2f187cda956aca608b98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99093760"
 ---
-# <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 해결
+# <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>SQL Database 및 SQL Managed Instance에서 일시적인 연결 오류 문제 해결
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-이 문서에서는 클라이언트 응용 프로그램이 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics와 상호 작용할 때 발생 하는 연결 오류 및 일시적인 오류를 방지, 문제 해결, 진단 및 완화 하는 방법을 설명 합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
+이 문서에서는 클라이언트 애플리케이션이 Azure SQL Database, Azure SQL Managed Instance 및 Azure Synapse Analytics와 상호 작용할 때 발생하는 연결 오류 및 일시적 오류를 방지, 해결, 진단, 완화하는 방법에 대해 설명합니다. 재시도 논리를 구성하고 연결 문자열을 빌드하며 타 연결 설정을 조정하는 방법에 대해 알아봅니다.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
 ## <a name="transient-errors-transient-faults"></a>일시적인 오류(일시 장애)
 
-일시 결함으로도 알려진 일시적인 오류에는 자체적으로 신속히 확인되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 60초 이내에 완료됩니다. 이 재구성 기간 중에 SQL Database의 데이터베이스에 연결 하는 데 문제가 있을 수 있습니다. 데이터베이스에 연결 하는 응용 프로그램은 이러한 일시적인 오류를 발생 시킬 수 있도록 빌드해야 합니다. 이를 처리하기 위해 사용자에게 애플리케이션 오류로 표시되는 대신 해당 코드에서 재시도 논리를 구현합니다.
+일시 결함으로도 알려진 일시적인 오류에는 자체적으로 신속히 확인되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 60초 이내에 완료됩니다. 이 재구성 기간 중에는 SQL Database의 데이터베이스에 대한 연결에 문제가 있을 수 있습니다. 데이터베이스에 연결하는 애플리케이션은 이러한 일시적인 오류를 예상하도록 빌드되어야 합니다. 이를 처리하기 위해 사용자에게 애플리케이션 오류로 표시되는 대신 해당 코드에서 재시도 논리를 구현합니다.
 
 클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException** 이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다.
 
@@ -37,13 +37,13 @@ ms.locfileid: "99093760"
 
 ### <a name="connection-vs-command"></a>연결 및 명령
 
-다음에 따라 SQL Database 및 SQL Managed Instance 연결을 다시 시도 하거나 다시 설정 합니다.
+다음에 따라 SQL Database 및 SQL Managed Instance 연결을 다시 시도하거나 다시 설정합니다.
 
 - **연결 시도 중 일시적 오류가 발생할 경우**
 
 몇 초 지연한 후에 연결을 다시 시도합니다.
 
-- **SQL Database 및 SQL Managed Instance 쿼리 명령을 실행 하는 동안 일시적인 오류가 발생 했습니다.**
+- **SQL Database 및 SQL Managed Instance 쿼리 명령을 실행하는 동안 일시적인 오류가 발생함**
 
 명령을 즉시 다시 시도하지 않습니다. 대신, 지연 후에 연결을 새로 고쳐야 합니다. 그런 후 명령을 다시 시도합니다.
 
@@ -51,15 +51,15 @@ ms.locfileid: "99093760"
 
 ## <a name="retry-logic-for-transient-errors"></a>일시적인 오류에 대한 재시도 논리
 
-간혹 일시적 오류가 발생하는 클라이언트 프로그램에 재시도 논리가 포함된 경우 더욱 견고해질 수 있습니다. 프로그램이 타사 미들웨어를 통해 SQL Database에서 데이터베이스와 통신 하는 경우 미들웨어에 일시적 오류에 대 한 재시도 논리가 포함 되어 있는지 공급 업체에 문의 하세요.
+간혹 일시적 오류가 발생하는 클라이언트 프로그램에 재시도 논리가 포함된 경우 더욱 견고해질 수 있습니다. 프로그램이 타사 미들웨어를 통해 SQL Database의 데이터베이스와 통신하는 경우 공급업체에 문의하여 미들웨어에 일시적 오류에 대한 재시도 논리가 포함되어 있는지 여부를 확인해야 합니다.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
 ### <a name="principles-for-retry"></a>재시도 원칙
 
 - 오류가 일시적인 경우 연결 열기를 다시 시도합니다.
-- 일시적인 오류로 인해 실패 한 SQL Database 또는 SQL Managed Instance 문을 직접 다시 시도 하지 마세요 `SELECT` . 대신, 새로 연결한 다음 `SELECT`를 다시 시도합니다.
-- 일시적인 오류로 인해 SQL Database 또는 SQL Managed Instance `UPDATE` 문이 실패할 경우 업데이트를 다시 시도 하기 전에 새 연결을 설정 합니다. 재시도 논리는 전체 데이터베이스 트랜잭션이 완료되었는지 또는 전체 트랜잭션이 롤백되었는지 여부를 확인해야 합니다.
+- 일시적인 오류로 인해 실패한 SQL Database 또는 SQL Managed Instance `SELECT` 문은 직접 다시 시도하지 마세요. 대신, 새로 연결한 다음 `SELECT`를 다시 시도합니다.
+- 일시적 오류로 인해 SQL Database 또는 SQL Managed Instance `UPDATE` 문이 실패할 경우 UPDATE를 다시 시도하기 전에 새 연결을 설정합니다. 재시도 논리는 전체 데이터베이스 트랜잭션이 완료되었는지 또는 전체 트랜잭션이 롤백되었는지 여부를 확인해야 합니다.
 
 ### <a name="other-considerations-for-retry"></a>재시도에 대한 기타 고려 사항
 
@@ -70,7 +70,7 @@ ms.locfileid: "99093760"
 
 첫 번째 재시도 전에 5초간 대기하는 것이 좋습니다. 5초보다 짧은 지연 후 재시도는 클라우드 서비스에 많은 위험이 있습니다. 각 후속 재시도에 대해 지연 시간은 최대 60초까지 기하급수적으로 증가해야 합니다.
 
-ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설명은 [연결 풀링 (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조 하세요.
+ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [연결 풀링(ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
 
 또한 프로그램이 자체적으로 종료하기 전까지 최대 재시도 횟수를 설정할 수 있습니다.
 
@@ -78,8 +78,8 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 재시도 논리가 포함된 코드 예제는 다음에 있습니다.
 
-- [ADO.NET를 사용 하 여 탄력적으로를 Azure SQL에 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [PHP를 사용 하 여 Azure SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [ADO.NET을 사용하여 Azure SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [PHP를 사용하여 Azure SQL에 탄력적으로 연결][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -94,7 +94,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 - **SqlException.Number** = 11001
 - 메시지: "해당 호스트가 없습니다"
 
-첫 번째 다시 시도의 일부로 클라이언트 컴퓨터를 네트워크에 다시 연결한 다음 연결을 시도할 수 있습니다.
+첫 번째 다시 시도의 일부로 클라이언트 컴퓨터를 네트워크에 다시 연결한 다음, 연결을 시도할 수 있습니다.
 
 이 테스트를 실제로 사용하려면 프로그램을 시작하기 전에 네트워크와 컴퓨터 간 케이블을 분리합니다. 그러면 프로그램에서 프로그램이 다음과 같이 작동하는 런타임 매개 변수를 인식합니다.
 
@@ -105,7 +105,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 - **Console.ReadLine** 메서드 또는 확인 단추가 포함된 대화 상자를 사용하여 추가 실행을 일시 정지합니다. 사용자가 컴퓨터와 네트워크 간 케이블을 연결한 다음 Enter 키를 누릅니다.
 - 다시 연결을 시도합니다. 정상적으로 연결되어야 합니다.
 
-#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>연결할 때 사용자 이름의 철자를 검사 합니다.
+#### <a name="test-by-misspelling-the-user-name-when-connecting"></a>연결할 때 사용자 이름의 철자를 검사합니다.
 
 프로그램이 첫 번째 연결 시도 전에 의도적으로 사용자 이름의 철자를 잘못 입력할 수 있습니다. 오류는 다음과 같습니다.
 
@@ -126,7 +126,7 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>연결 다시 시도에 대한 .NET SqlConnection 매개 변수
 
-클라이언트 프로그램이 SQL Database의 .NET Framework 클래스를 사용 하 여 데이터베이스에 연결 하는 경우 .NET 4.6.1 이상 (또는 .NET Core)을 사용 하 여 연결 다시 시도 **기능을 사용할** 수 있습니다. 기능에 대 한 자세한 내용은 [SqlConnection 속성](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true)을 참조 하세요.
+클라이언트 프로그램이 .NET Framework 클래스 **System.Data.SqlClient.SqlConnection** 을 사용하여 SQL Database의 데이터베이스에 연결되면 .NET 4.6.1 이상(또는 .NET Core)을 사용하므로 해당 연결 다시 시도 기능을 사용할 수 있습니다. 기능에 대한 자세한 내용은 [SqlConnection.ConnectionString 속성](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring?view=netframework-4.8&preserve-view=true)을 참조하세요.
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
@@ -134,9 +134,9 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 **SqlConnection** 개체에 대한 [연결 문자열](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
-- **ConnectRetryCount**: &nbsp; &nbsp; 기본값은 1입니다. 범위는 0에서 255입니다.
-- **ConnectRetryInterval**: &nbsp; &nbsp; 기본값은 10 초입니다. 범위는 1에서 60입니다.
-- **연결 시간 제한**: &nbsp; &nbsp; 기본값은 15 초입니다. 범위는 0에서 2147483647입니다.
+- **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
+- **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10초입니다. 범위는 1에서 60입니다.
+- **연결 제한 시간**:&nbsp;&nbsp;기본값은 15초입니다. 범위는 0에서 2147483647입니다.
 
 특히 선택한 값은 다음 같음을 true로 만들어야 합니다. Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -148,8 +148,8 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 **ConnectRetryCount** 및 **ConnectRetryInterval** 매개 변수를 사용하면 **SqlConnection** 개체는 프로그램에 제어를 반환하는 등 프로그램에 전달하거나 신경 쓰지 않고 연결 작업을 다시 시도합니다. 다시 시도는 다음과 같은 상황에서 발생할 수 있습니다.
 
-- SqlConnection 메서드 호출
-- SqlConnection.Exe귀여운 메서드 호출
+- SqlConnection.Open 메서드 호출
+- SqlConnection.Execute 메서드 호출
 
 미묘한 문제가 있습니다. 임시 오류가 발생할 경우 *쿼리* 가 실행되는 동안 **SqlConnection** 개체는 연결 작업을 다시 시도하지 않습니다. 확실히 쿼리를 다시 시도하지 않습니다. 그러나 **SqlConnection** 는 매우 신속하게 실행에 쿼리를 보내기 전에 연결을 검사합니다. 빠른 검사가 연결 문제를 감지하면 **SqlConnection** 은 연결 작업을 다시 시도합니다. 다시 시도가 성공하면 쿼리는 실행을 위해 전송됩니다.
 
@@ -159,13 +159,13 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
-## <a name="connections-to-your-database-in-sql-database"></a>SQL Database의 데이터베이스에 대 한 연결
+## <a name="connections-to-your-database-in-sql-database"></a>SQL Database의 데이터베이스에 연결
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
 ### <a name="connection-connection-string"></a>연결: 연결 문자열
 
-데이터베이스에 연결 하는 데 필요한 연결 문자열은 SQL Server 연결 하는 데 사용 되는 문자열과 약간 다릅니다. [Azure Portal](https://portal.azure.com/)에서 데이터베이스에 대 한 연결 문자열을 복사할 수 있습니다.
+데이터베이스에 연결하는 데 필요한 연결 문자열은 SQL Server에 연결하는 데 사용되는 문자열과 약간 다릅니다. [Azure Portal](https://portal.azure.com/)에서 데이터베이스에 대한 연결 문자열을 복사할 수 있습니다.
 
 [!INCLUDE [sql-database-include-connection-string-20-portalshots](../../../includes/sql-database-include-connection-string-20-portalshots.md)]
 
@@ -173,13 +173,13 @@ ADO.NET를 사용 하는 클라이언트에 대 한 차단 기간에 대 한 설
 
 ### <a name="connection-ip-address"></a>연결: IP 주소
 
-클라이언트 프로그램을 호스팅하는 컴퓨터의 IP 주소에서 통신을 허용 하도록 SQL Database를 구성 해야 합니다. 이 구성을 설정하려면 [Azure Portal](https://portal.azure.com/)을 통해 방화벽 설정을 편집합니다.
+SQL Database가 사용자의 클라이언트 프로그램을 호스트하는 컴퓨터의 IP 주소의 통신을 수락하도록 구성해야 합니다. 이 구성을 설정하려면 [Azure Portal](https://portal.azure.com/)을 통해 방화벽 설정을 편집합니다.
 
 IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 오류 메시지로 필요한 IP 주소를 표시합니다.
 
 [!INCLUDE [sql-database-include-ip-address-22-portal](../../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-자세한 내용은 [SQL Database에서 방화벽 설정 구성](firewall-configure.md)을 참조 하세요.
+자세한 내용은 [SQL Database에 방화벽 설정 구성](firewall-configure.md)을 참조하세요.
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
 ### <a name="connection-ports"></a>연결: 포트
@@ -189,11 +189,11 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 예를 들어 클라이언트 프로그램이 Windows 컴퓨터에 호스팅된 경우 호스트의 Windows 방화벽을 사용하여 포트 1433을 열 수 있습니다.
 
 1. 제어판을 엽니다.
-2. **모든 제어판 항목**  >  **Windows 방화벽**  >  **고급 설정**  >  **아웃 바운드 규칙**  >  **동작**  >  **새 규칙** 을 선택 합니다.
+2. **모든 제어판 항목** > **Windows 방화벽** > **고급 설정** > **아웃바운드 규칙**  > **동작** > **새 규칙** 을 선택합니다.
 
 클라이언트 프로그램이 Azure VM(가상 머신)에서 호스팅되는 경우 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](adonet-v12-develop-direct-route-ports.md)를 참조하세요.
 
-데이터베이스의 포트 및 IP 주소 구성에 대 한 배경 정보는 [Azure SQL Database 방화벽](firewall-configure.md)을 참조 하세요.
+데이터베이스의 포트 및 IP 주소 구성에 대한 배경 정보는 [Azure SQL Database 방화벽](firewall-configure.md)을 참조하세요.
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
@@ -203,7 +203,7 @@ IP 주소를 구성하지 않을 경우 프로그램이 실패하고 간단한 �
 
 #### <a name="starting-with-adonet-462"></a>ADO.NET 4.6.2를 사용하여 시작
 
-- Azure SQL에 대 한 연결 열기 시도를 즉시 다시 시도 하 여 클라우드 지원 앱의 성능을 향상 시킵니다.
+- Azure SQL에 대한 연결 열기 시도가 즉시 다시 시도되므로 클라우드 기반 애플리케이션의 성능이 향상됩니다.
 
 #### <a name="starting-with-adonet-461"></a>ADO.NET 4.6.1을 사용하여 시작
 
@@ -222,7 +222,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>진단: 유틸리티에서 연결할 수 있는지 여부 테스트
 
-프로그램에서 SQL Database의 데이터베이스에 연결 하지 못하면 진단 프로그램을 사용 하 여 연결을 시도 하는 한 가지 진단 옵션이 있습니다. 유틸리티는 프로그램에서 사용하는 것과 동일한 라이브러리를 사용하여 연결하는 것이 가장 좋습니다.
+프로그램에서 SQL Database의 데이터베이스에 연결할 수 없을 경우 한 가지 진단 방법으로 유틸리티 프로그램에 연결해 볼 수 있습니다. 유틸리티는 프로그램에서 사용하는 것과 동일한 라이브러리를 사용하여 연결하는 것이 가장 좋습니다.
 
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
@@ -242,7 +242,7 @@ Linux에서 다음 유틸리티는 도움이 될 수 있습니다.
 - `netstat -nap`
 - `nmap -sS -O 127.0.0.1`: 사용자의 IP 주소가 되도록 예제 값을 변경합니다.
 
-Windows에서는 [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 SQL Database에서 데이터베이스에 대 한 포트 상황을 쿼리하고 노트북 컴퓨터에서 실행 된 예제 실행입니다.
+Windows에서는 [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) 유틸리티가 도움이 됩니다. 다음은 SQL Database의 데이터베이스에서 포트 상황에 대해 쿼리하기 위해 노트북 컴퓨터에서 실행한 실행 프로그램 예제입니다.
 
 ```cmd
 [C:\Users\johndoe\]
@@ -279,7 +279,7 @@ Enterprise Library 6(EntLib60)은 로깅을 지원하기 위해 .NET 관리 클�
 | 로그 쿼리 | 설명 |
 |:--- |:--- |
 | `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database) 보기는 일시적인 오류 또는 연결 실패를 일으킬 수 있는 일부를 포함하여 개별 이벤트에 대한 정보를 제공합니다.<br/><br/>이상적으로 **start_time** 또는 **end_time** 값을 클라이언트 프로그램에 문제가 발생하는 방법에 대한 정보와 함께 상호 연결할 수 있습니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database) 뷰는 추가 진단에 대 한 이벤트 유형의 집계 된 개수를 제공 합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database) 보기는 추가 진단을 위해 이벤트 유형별로 집계된 개수를 제공합니다.<br/><br/>*마스터* 데이터베이스에 연결하여 이 쿼리를 실행해야 합니다. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -326,7 +326,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
 
-Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이언트 SQL Database를 구현 하는 데 도움이 되는 .NET 클래스의 프레임 워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](/previous-versions/msp-n-p/dn169621(v=pandp.10))을 참조하세요.
+Enterprise Library 6(EntLib60)은 SQL Database를 포함한 견고한 클라우드 서비스 클라이언트를 구현할 수 있는 .NET 클래스의 프레임워크입니다. EntLib60을 이용할 수 있는 각 영역에 해당하는 항목을 찾으려면 [Enterprise Library 6 – 2013년 4월](/previous-versions/msp-n-p/dn169621(v=pandp.10))을 참조하세요.
 
 일시적 오류 처리에 대한 재시도 논리는 EntLib60을 이용할 수 있는 한 가지 영역입니다. 자세한 내용은 [4 - 모든 성공의 인내와 비밀: 일시적 오류 처리 애플리케이션 블록 사용](/previous-versions/msp-n-p/dn440719(v=pandp.60))을 참조하세요.
 
@@ -339,7 +339,7 @@ Enterprise Library 6 (EntLib60)은 클라우드 서비스의 강력한 클라이
 
 다음 EntLib60 클래스는 특히 재시도 논리에 유용합니다. 이러한 클래스는 모두 **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스에 있으며, 여기에서 찾을 수 있습니다.
 
-**Microsoft.practices.enterpriselibrary.transientfaulthandling** 네임 스페이스에서 다음을 수행 합니다.
+**Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** 네임스페이스:
 
 - **RetryPolicy** 클래스
   - **ExecuteAction** 메서드
@@ -446,7 +446,7 @@ public bool IsTransient(Exception ex)
 ## <a name="next-steps"></a>다음 단계
 
 - [SQL Database 및 SQL Server용 연결 라이브러리](connect-query-content-reference-guide.md#libraries)
-- [연결 풀링 (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [연결 풀링(ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* 은 임의 항목에 재시도 동작을 추가하는 작업을 간소화하기 위해 Apache 2.0 라이선스 하에 Python으로 작성한 일반 목적의 재시도 라이브러리입니다.](https://pypi.python.org/pypi/retrying)
 
 <!-- Link references. -->

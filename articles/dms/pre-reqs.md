@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service에 대 한 필수 구성 요소
+title: Azure Database Migration Service 필수 구성 요소
 description: Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하기 위한 필수 구성 요소의 개요를 알아봅니다.
 services: database-migration
 author: pochiraju
@@ -12,15 +12,15 @@ ms.custom: seo-lt-2019
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.openlocfilehash: 55d5594229bccb5fcb6a406e671ed104c1e12378
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101094051"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용을 위한 필수 구성 요소 개요
 
-데이터베이스 마이그레이션을 수행할 때 Azure Database Migration Service 원활 하 게 실행 되도록 하기 위해 필요한 몇 가지 필수 구성 요소가 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
+데이터베이스 마이그레이션을 수행할 때 Azure Database Migration Service가 원활히 실행되도록 하기 위해 필요한 필수 구성 요소가 몇 가지 있습니다. 일부 필수 구성 요소는 서비스가 지원하는 모든 시나리오(원본-대상 쌍)에 적용되는 반면에 특정 시나리오에만 적용되는 필수 구성 요소도 있습니다.
 
 Azure Database Migration Service 사용과 관련된 필구 구성 요소는 다음 섹션에 나열되어 있습니다.
 
@@ -35,7 +35,7 @@ Azure Database Migration Service 사용과 관련된 필구 구성 요소는 다
 * 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
 
     > [!IMPORTANT]
-    > Azure Database Migration Service 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있지 않은 가상 네트워크 설정에 대 한 액세스가 필요 합니다. 따라서 DMS의 인스턴스를 만드는 사용자에 게는 구독 수준에서 사용 권한이 필요 합니다. 필요에 따라 할당할 수 있는 필수 역할을 만들려면 다음 스크립트를 실행 합니다.
+    > Azure Database Migration Service 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있지 않은 가상 네트워크 설정에 액세스해야 합니다. 따라서 DMS의 인스턴스를 만드는 사용자는 구독 수준의 권한이 필요합니다. 필요에 따라 할당할 수 있는 필수 역할을 만들려면 다음 스크립트를 실행합니다.
     >
     > ```
     >
@@ -113,32 +113,32 @@ Azure Database Migration Service 사용과 관련된 필구 구성 요소는 다
 
 Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션을 수행하는 경우, 모든 마이그레이션 시나리오에 공통적인 필수 구성 요소 외에도 다음과 같은 필구 구성 요소를 충족해야 합니다.
 
-* [Azure Portal에서 Azure SQL Database의 데이터베이스 만들기](../azure-sql/database/single-database-create-quickstart.md)문서에서 세부 정보를 따라 수행 하는 Azure SQL Database 인스턴스의 인스턴스를 만듭니다.
+* [Azure Portal에서 Azure SQL Database 만들기](../azure-sql/database/single-database-create-quickstart.md) 문서의 세부 지침을 수행하여 Azure SQL Database 인스턴스의 인스턴스를 만듭니다.
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 이상을 다운로드 및 설치합니다.
 * Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있도록 방화벽을 통해 UDP 포트 1434에 액세스할 수 있습니다.
-* 대상 데이터베이스에 대 한 Azure Database Migration Service 액세스를 허용 하는 SQL Database에 대 한 서버 수준 [방화벽 규칙](../azure-sql/database/firewall-configure.md) 을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
+* Azure Database Migration Service에서 대상 데이터베이스에 액세스할 수 있도록 SQL Database에 대한 서버 수준 [방화벽 규칙](../azure-sql/database/firewall-configure.md)을 만듭니다. Azure Database Migration Service에 사용되는 가상 네트워크의 서브넷 범위를 입력합니다.
 * 원본 SQL Server 인스턴스에 연결하는 데 사용되는 자격 증명에는 [CONTROL SERVER](/sql/t-sql/statements/grant-server-permissions-transact-sql) 권한이 있어야 합니다.
-* 대상 데이터베이스에 연결 하는 데 사용 되는 자격 증명에 대상 데이터베이스에 대 한 CONTROL DATABASE 권한이 있는지 확인 하십시오.
+* 대상 데이터베이스에 연결하는 데 사용되는 자격 증명에는 대상 데이터베이스에 대한 CONTROL DATABASE 권한이 있어야 합니다.
 
    > [!NOTE]
    > Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 Azure SQL Database로 마이그레이션](./tutorial-sql-server-to-azure-sql.md) 자습서를 참조하세요.
    >
 
-## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance"></a>Azure SQL Managed Instance로 SQL Server 마이그레이션하기 위한 필수 구성 요소
+## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance"></a>SQL Server를 Azure SQL Managed Instance로 마이그레이션하기 위한 필수 구성 요소
 
-* [Azure Portal에서 AZURE sql Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md)문서의 세부 정보에 따라 SQL Managed Instance를 만듭니다.
+* [Azure Portal에서 Azure SQL Managed Instance 만들기](../azure-sql/managed-instance/instance-create-quickstart.md) 문서의 세부 정보에 따라 SQL Managed Instance를 만듭니다.
 * 방화벽을 열고 Azure Database Migration Service IP 주소 또는 서브넷 범위에 대한 포트 445에서 SMB 트래픽을 허용합니다.
 * Azure Database Migration Service가 기본적으로 TCP 포트 1433인 원본 SQL Server에 액세스하도록 허용하려면 Windows 방화벽을 엽니다.
 * 동적 포트를 사용하여 명명된 여러 SQL Server 인스턴스를 실행하는 경우 SQL Browser 서비스를 사용하도록 설정하고 Azure Database Migration Service가 원본 서버에서 명명된 인스턴스에 연결할 수 있도록 방화벽을 통해 UDP 포트 1434에 액세스할 수 있습니다.
 * 원본 SQL Server와 대상 Managed Instance를 연결하는 데 사용되는 로그인이 sysadmin 서버 역할의 구성원인지 확인합니다.
 * Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 네트워크 공유를 만듭니다.
 * 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
-* 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service은 사용자 자격 증명을 가장 하 여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드 합니다.
+* 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다.
 * [Storage Explorer를 사용하여 Azure Blob Storage 리소스 관리](../vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container) 문서의 단계에 따라 Blob 컨테이너를 만들고 해당 SAS URI를 검색합니다. SAS URI를 만드는 동안 정책 창에서 모든 권한(읽기, 쓰기, 삭제, 나열)을 선택해야 합니다.
 
    > [!NOTE]
-   > Azure Database Migration Service를 사용 하 여 SQL Managed Instance SQL Server에서 마이그레이션을 수행 하는 데 필요한 필수 구성 요소에 대 한 전체 목록은 [sql Managed Instance로 SQL Server 마이그레이션](./tutorial-sql-server-to-managed-instance.md)자습서를 참조 하세요.
+   > Azure Database Migration Service를 사용하여 SQL Server에서 SQL Managed Instance로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 SQL Managed Instance로 마이그레이션](./tutorial-sql-server-to-managed-instance.md) 자습서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -4,15 +4,15 @@ description: 이 문서에서는 Kafka MirrorMaker를 사용하여 Azure Event H
 ms.topic: how-to
 ms.date: 01/04/2021
 ms.openlocfilehash: 654e9e19dfde0d0c58d00e41cf8ab0ba8e1484d7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97861007"
 ---
-# <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Event Hubs에서 Apache Kafka MirrorMaker 사용
+# <a name="use-apache-kafka-mirrormaker-with-event-hubs"></a>Event Hubs를 사용하는 Apache Kafka MirrorMaker 사용
 
-이 자습서에서는 Kafka MirrorMaker를 사용 하 여 Azure Event Hub에 Kafka broker를 미러링 하는 방법을 보여 줍니다. CNCF Strimzi 연산자를 사용 하 여 Kubernetes에서 Apache Kafka를 호스트 하는 경우 [이 블로그 게시물](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/) 의 자습서를 참조 하 여 Strimzi 및 미러 작성자 2를 사용 하 여 Kafka을 설정 하는 방법을 배울 수 있습니다. 
+다음 자습서에서는 Kafka MirrorMaker를 사용하여 Azure 이벤틑 허브에 Kafka broker를 미러링하는 방법을 보여 줍니다. CNCF Strimzi 연산자를 사용하여 Kubernetes에서 Apache Kafka를 호스트하는 경우 [이 블로그 게시물](https://strimzi.io/blog/2020/06/09/mirror-maker-2-eventhub/)의 자습서를 참조하여 Strimzi 및 Mirror Maker 2를 사용하여 Kafka를 설정하는 방법을 알아볼 수 있습니다. 
 
    ![Event Hubs를 사용하는 Kafka MirrorMaker](./media/event-hubs-kafka-mirror-maker-tutorial/evnent-hubs-mirror-maker1.png)
 
@@ -31,11 +31,11 @@ ms.locfileid: "97861007"
 > * Kafka MirrorMaker 실행
 
 ## <a name="introduction"></a>소개
-이 자습서에서는 이벤트 허브 및 Kafka MirrorMaker가 Event Hubs 서비스에서 Kafka 입력 스트림을 "미러링" 하 여 Azure에 기존 Kafka 파이프라인을 통합 하는 방법을 보여 줍니다 .이를 통해 여러 [페더레이션 패턴](event-hubs-federation-overview.md)을 사용 하 여 Apache Kafka 스트림을 통합할 수 있습니다. 
+이 자습서에서는 Event Hubs 서비스에서 Kafka 입력 스트림을 미러하여 이벤트 허브와 Kafka MirrorMaker가 기존 Kafka 파이프라인을 Azure에 통합할 수 있는 방법을 보여 줍니다. 이 방법을 사용하면 몇 가지 [페더레이션 패턴](event-hubs-federation-overview.md)을 사용하여 Apache Kafka 스트림을 통합할 수 있습니다. 
 
-Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, Kafka 클라이언트)을 사용하여 Azure Event Hubs에 연결할 수 있습니다. Kafka 애플리케이션을 최소한으로 변경하면 Azure Event Hubs에 연결하여 Azure 에코시스템의 이점을 누릴 수 있습니다. Event Hubs 현재 Apache Kafka 버전 1.0 이상의 프로토콜을 지원 합니다.
+Azure Event Hubs Kafka 엔드포인트를 사용하면 Kafka 프로토콜(즉, Kafka 클라이언트)을 사용하여 Azure Event Hubs에 연결할 수 있습니다. Kafka 애플리케이션을 최소한으로 변경하면 Azure Event Hubs에 연결하여 Azure 에코시스템의 이점을 누릴 수 있습니다. Event Hubs는 현재 Apache Kafka 버전 1.0 이상의 프르토콜을 지원합니다.
 
-Apache Kafka의 MirrorMaker 1 unidirectionally를 Apache Kafka에서 Event Hubs으로 사용할 수 있습니다. MirrorMaker 2는 양방향으로 사용할 수 있지만 [ `MirrorCheckpointConnector` `MirrorHeartbeatConnector` MirrorMaker 2에서 구성할 수 있는 및](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0) 는 Apache Kafka broker를 가리키도록 구성 하 고 Event Hubs 하지 않도록 구성 해야 합니다. 이 자습서에서는 MirrorMaker 1을 구성 하는 방법을 보여 줍니다.
+Apache Kafka에서 Event Hubs로의 단방향으로 Apache Kafka의 MirrorMaker 1을 사용할 수 있습니다. MirrorMaker 2는 양방향으로 사용할 수 있지만 [MirrorMaker 2에서 구성할 수 있는 `MirrorCheckpointConnector` 및 `MirrorHeartbeatConnector`](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0)는 둘 다 Event Hubs가 아닌 Apache Kafka broker를 가리키도록 구성해야 합니다. 이 자습서에서는 MirrorMaker 1을 구성하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -43,21 +43,21 @@ Apache Kafka의 MirrorMaker 1 unidirectionally를 Apache Kafka에서 Event Hubs�
 
 * [Apache Kafka용 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md) 문서를 참조하세요. 
 * Azure 구독 구독이 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-* [JDK (Java Development Kit) 1.7 이상](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK(Java Development Kit) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support)
     * Ubuntu에서 `apt-get install default-jdk`를 실행하여 JDK를 설치합니다.
     * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* Maven 이진 보관 파일 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
+* Maven 이진 보관 파일을 [다운로드](https://maven.apache.org/download.cgi)하여 [설치](https://maven.apache.org/install.html)합니다.
     * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
 * [Git](https://www.git-scm.com/downloads)
     * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
 
-## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
+## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 생성
 
-Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임 스페이스 및 이벤트 허브를 만드는 방법에 대 한 지침은 [이벤트 허브 만들기](event-hubs-create.md) 를 참조 하세요. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
+Event Hubs 서비스와 통신하려면 Event Hubs 네임스페이스가 필요합니다. 네임스페이스 및 이벤트 허브를 만드는 방법에 대한 지침은 [이벤트 허브 만들기](event-hubs-create.md)를 참조하세요. 나중에 사용하기 위해 Event Hubs 연결 문자열을 복사합니다.
 
 ## <a name="clone-the-example-project"></a>프로젝트 예제 복제
 
-이제 연결 문자열 Event Hubs 있으므로 Kafka 리포지토리의 Azure Event Hubs를 복제 하 고 `mirror-maker` 하위 폴더로 이동 합니다.
+이제 Event Hubs 연결 문자열이 있으므로 Kafka용 Azure Event Hubs 리포지토리를 복제하고 `mirror-maker` 하위 폴더로 이동합니다.
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
@@ -70,11 +70,11 @@ cd azure-event-hubs-for-kafka/tutorials/mirror-maker
 
 ## <a name="configure-kafka-mirrormaker"></a>Kafka MirrorMaker 구성
 
-Kafka MirrorMaker를 사용하면 스트림을 "미러"할 수 있습니다. 원본 및 대상 Kafka 클러스터가 지정되면 MirrorMaker는 원본 클러스터에 보낸 모든 메시지를 원본 및 대상 클러스터 모두에서 받을 수 있도록 합니다. 이 예제에서는 대상 이벤트 허브를 사용 하 여 원본 Kafka 클러스터를 미러링 하는 방법을 보여 줍니다. 이 시나리오는 데이터 흐름을 중단하지 않고 기존 Kafka 파이프라인에서 Event Hubs로 데이터를 보내는 데 사용할 수 있습니다. 
+Kafka MirrorMaker를 사용하면 스트림을 "미러"할 수 있습니다. 원본 및 대상 Kafka 클러스터가 지정되면 MirrorMaker는 원본 클러스터에 보낸 모든 메시지를 원본 및 대상 클러스터 모두에서 받을 수 있도록 합니다. 다음 예제에서는 대상 이벤트 허브를 사용하여 원본 Kafka 클러스터를 미러하는 방법을 보여 줍니다. 이 시나리오는 데이터 흐름을 중단하지 않고 기존 Kafka 파이프라인에서 Event Hubs로 데이터를 보내는 데 사용할 수 있습니다. 
 
 Kafka MirrorMaker에 대한 자세한 내용은 [Kafka 미러링/MirrorMaker 가이드](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)를 참조하세요.
 
-Kafka MirrorMaker를 구성 하려면 해당 소비자/원본으로 kafstcluster를 제공 하 고, 해당 생산자/destination으로 이벤트 허브를 제공 합니다.
+Kafka MirrorMaker를 구성하려면 Kafka 클러스터를 소비자/원본으로, 그리고 이벤트 허브를 생산자/대상으로 지정합니다.
 
 #### <a name="consumer-configuration"></a>소비자 구성
 
@@ -116,22 +116,22 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 --producer.config mirror-eventhub.config --whitelist=".*"
 ```
 
-이벤트가 이벤트 허브에 도달 하는지 확인 하려면 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 수신 통계를 참조 하거나 이벤트 허브에 대해 소비자를 실행 합니다.
+이벤트가 이벤트 허브에 도달하는지 확인하려면 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 수신 통계를 살펴보거나 이벤트 허브에 대해 소비자를 실행합니다.
 
-MirrorMaker를 실행 하면 Kafka 클러스터와 미러된 이벤트 허브 모두에서 원본 Kafka 클러스터로 전송 된 모든 이벤트를 수신 합니다. MirrorMaker 및 Event Hubs Kafka 엔드포인트를 사용하면, 기존 클러스터를 변경하거나 진행 중인 데이터 흐름을 중단하지 않고도 기존 Kafka 파이프라인을 관리되는 Azure Event Hubs 서비스로 마이그레이션할 수 있습니다.
+MirrorMaker를 실행하면, Kafka 클러스터 및 미러된 이벤트 허브 모두에서 원본 Kafka 클러스터에 보낸 모든 이벤트를 받습니다. MirrorMaker 및 Event Hubs Kafka 엔드포인트를 사용하면, 기존 클러스터를 변경하거나 진행 중인 데이터 흐름을 중단하지 않고도 기존 Kafka 파이프라인을 관리되는 Azure Event Hubs 서비스로 마이그레이션할 수 있습니다.
 
 ## <a name="samples"></a>샘플
 GitHub에서 다음 샘플을 참조하세요.
 
-- [GitHub에 대 한이 자습서의 샘플 코드](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
-- [Azure Container Instance에서 실행 되는 azure Event Hubs Kafka MirrorMaker](https://github.com/djrosanova/EventHubsMirrorMaker)
+- [GitHub에 제공되는 이 자습서의 샘플 코드](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure Container Instance에서 실행되는 Azure Event Hubs Kafka MirrorMaker](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>다음 단계
-Kafka에 대 한 Event Hubs에 대해 자세히 알아보려면 다음 문서를 참조 하세요.  
+Kafka용 Event Hubs에 대해 자세한 내용은 다음 문서를 참조하세요.  
 
 - [이벤트 허브에 Apache Spark 연결](event-hubs-kafka-spark-tutorial.md)
 - [이벤트 허브에 Apache Flink 연결](event-hubs-kafka-flink-tutorial.md)
-- [Kafka Connect를 이벤트 허브와 통합](event-hubs-kafka-connect-tutorial.md)
+- [이벤트 허브와 Kafka 연결 통합](event-hubs-kafka-connect-tutorial.md)
 - [GitHub에서 더 많은 샘플 탐색](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [이벤트 허브에 Akka Streams 연결](event-hubs-kafka-akka-streams-tutorial.md)
-- [Azure Event Hubs에 대 한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)
+- [Azure Event Hubs에 대한 Apache Kafka 개발자 가이드](apache-kafka-developer-guide.md)

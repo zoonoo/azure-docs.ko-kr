@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 86622bf96d4b59537a2946073fdc638e51c3852d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98945840"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
@@ -18,13 +18,13 @@ ms.locfileid: "98945840"
 
 Azure PowerShell은 Microsoft Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 문서에서는 Azure PowerShell을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 정보를 제공합니다. 또한 예제 스크립트도 포함됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure PowerShell](/powershell/azure/install-Az-ps) Az module.
+[Azure PowerShell](/powershell/azure/install-Az-ps) Az 모듈
 
 ## <a name="create-cluster"></a>클러스터 만들기
 
@@ -38,7 +38,7 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 만들려면 다음 �
 * HDInsight 클러스터 만들기
 
 > [!NOTE]
-> Azure Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터를 만드는 데 PowerShell을 사용 하는 것은 현재 지원 되지 않습니다.
+> PowerShell에서 Azure Data Lake Storage Gen2를 사용하여 HDInsight 클러스터를 만드는 방식은 현재 지원되지 않습니다.
 
 다음 스크립트는 새 클러스터를 만드는 방법을 보여 줍니다.
 
@@ -57,7 +57,7 @@ SSH 사용자에 대해 지정한 값은 클러스터의 SSH 사용자를 만드
 
 ## <a name="create-cluster-configuration-object"></a>클러스터 만들기: 구성 개체
 
-Cmdlet을 사용 하 여 HDInsight 구성 개체를 만들 수도 있습니다 [`New-AzHDInsightClusterConfig`](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) . 그런 다음 이 구성 개체를 수정하여 클러스터에 대한 추가 구성 옵션을 사용하도록 설정합니다. 마지막으로, `-Config` cmdlet의 매개 변수를 사용 [`New-AzHDInsightCluster`](/powershell/module/az.hdinsight/new-azhdinsightcluster) 하 여 구성을 사용 합니다.
+또한 [`New-AzHDInsightClusterConfig`](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) cmdlet을 사용하여 HDInsight 구성 개체를 만들 수 있습니다. 그런 다음 이 구성 개체를 수정하여 클러스터에 대한 추가 구성 옵션을 사용하도록 설정합니다. 마지막으로 [`New-AzHDInsightCluster`](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `-Config` 매개 변수를 사용하여 구성을 사용합니다.
 
 다음 스크립트는 HDInsight 클러스터 유형에 R Server를 구성하기 위해 구성 개체를 만듭니다. 이 구성은 에지 노드, RStudio, 추가 스토리지 계정을 활성화합니다.
 
@@ -81,7 +81,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-HDInsight 클러스터를 성공적으로 만들었으므로 다음 리소스를 사용 하 여 클러스터 작업을 수행 하는 방법을 알아보세요.
+HDInsight 클러스터를 성공적으로 만들었으므로 다음 리소스를 사용하여 클러스터 작업을 수행하는 방법을 알아봅니다.
 
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 

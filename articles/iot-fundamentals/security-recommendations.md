@@ -12,12 +12,12 @@ ms.custom:
 - security-recommendations
 - amqp
 - mqtt
-ms.openlocfilehash: a1de3a71253b1a82b4423bff279fbf3f7e378da4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eeb8a8132b905254c02c86460c376d69948b9264
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96457619"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481412"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Azure IoT(사물 인터넷) 배포에 대한 보안 권장 사항
 
@@ -40,14 +40,14 @@ ms.locfileid: "96457619"
 
 | 권장 | 주석 | ASC에서 지원됨 |
 |-|----|--|
-| 허브에 대한 액세스 제어 정의 | 기능에 따라 각 구성 요소가 IoT Hub 솔루션에서 갖게 될 [액세스 유형을 이해하고 정의](iot-security-deployment.md#securing-the-cloud)합니다. 허용되는 권한은 *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, *DeviceConnect* 입니다. [IoT Hub의 기본 공유 액세스 정책은](../iot-hub/iot-hub-devguide-security.md#access-control-and-permissions) 해당 역할에 따라 각 구성 요소에 대한 사용 권한을 정의하는 데에도 도움이 됩니다. | - |
+| 허브에 대한 액세스 제어 정의 | 기능에 따라 각 구성 요소가 IoT Hub 솔루션에서 갖게 될 [액세스 유형을 이해하고 정의](iot-security-deployment.md#securing-the-cloud)합니다. 허용되는 권한은 *Registry Read*, *RegistryReadWrite*, *ServiceConnect*, *DeviceConnect* 입니다. [IoT Hub의 기본 공유 액세스 정책은](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions) 해당 역할에 따라 각 구성 요소에 대한 사용 권한을 정의하는 데에도 도움이 됩니다. | - |
 | 백 엔드 서비스에 대한 액세스 제어 정의 | IoT Hub 솔루션에 의해 수집된 데이터는 [Cosmos DB](../cosmos-db/index.yml), [Stream Analytics](../stream-analytics/index.yml), [App Service](../app-service/index.yml), [Logic Apps](../logic-apps/index.yml), 및 [Blob storage](../storage/blobs/storage-blobs-introduction.md)와 같은 다른 Azure 서비스에서 사용될 수 있습니다. 이러한 서비스에 대해 문서화된 적절한 액세스 권한을 이해하고 허용해야 합니다. | - |
 
 ## <a name="data-protection"></a>데이터 보호
 
 | 권장 | 주석 | ASC에서 지원됨 |
 |-|----|--|
-| 안전한 디바이스 인증 | 각 디바이스에 [고유 ID 키 또는 보안 토큰 ](iot-security-deployment.md#iot-hub-security-tokens) 또는 [디바이스 내 X.509 인증서](iot-security-deployment.md#x509-certificate-based-device-authentication)를 사용하여 디바이스와 IoT Hub 간에 안전한 통신을 보장합니다. 적절한 방법을 사용하여 [ 선택한 프로토콜(MQTT, AMQP 또는 HTTPS)에 따라 보안 토큰을 사용](../iot-hub/iot-hub-devguide-security.md)합니다. | - |
+| 안전한 디바이스 인증 | 각 디바이스에 [고유 ID 키 또는 보안 토큰 ](iot-security-deployment.md#iot-hub-security-tokens) 또는 [디바이스 내 X.509 인증서](iot-security-deployment.md#x509-certificate-based-device-authentication)를 사용하여 디바이스와 IoT Hub 간에 안전한 통신을 보장합니다. 적절한 방법을 사용하여 [ 선택한 프로토콜(MQTT, AMQP 또는 HTTPS)에 따라 보안 토큰을 사용](../iot-hub/iot-hub-dev-guide-sas.md)합니다. | - |
 | 안전한 디바이스 통신 | IoT Hub는 버전 1.2 및 1.0을 지원하는 TLS(전송 계층 보안) 표준을 사용하여 디바이스에 대한 연결을 보호합니다. [TLS 1.2](https://tools.ietf.org/html/rfc5246)를 사용하여 보안 수준을 최대화합니다. | - |
 | 서비스 통신 보안 유지 | IoT Hub는 TLS 프로토콜만 사용하여 [Azure Storage](../storage/index.yml) 또는 [Event Hubs](../event-hubs/index.yml)와 같은 백 엔드 서비스에 연결하는 엔드포인트를 제공하며 암호화되지 않은 채널에는 엔드포인트가 노출되지 않습니다. 이 데이터가 저장 또는 분석을 위해 이러한 백 엔드 서비스에 연결되면 해당 서비스에 적합한 보안 및 암호화 방법을 사용하고, 백 엔드에서 민감한 정보를 보호해야 합니다. | - |
 

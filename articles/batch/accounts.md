@@ -4,10 +4,10 @@ description: 개발 관점에서 Azure Batch 계정 및 이 계정의 사용 방
 ms.topic: conceptual
 ms.date: 01/26/2021
 ms.openlocfilehash: 83108a265f91c9feef2fab424f1819939c2d58c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896751"
 ---
 # <a name="batch-accounts-and-azure-storage-accounts"></a>배치 계정 및 Azure Storage 계정
@@ -42,5 +42,5 @@ Batch 계정을 만들 때 또는 나중에 스토리지 계정을 Batch 계정�
 ## <a name="next-steps"></a>다음 단계
 
 - [노드 및 풀](nodes-and-pools.md)에 대해 알아봅니다.
-- [Azure Portal](batch-account-create-portal.md) 또는 [batch 관리 .net](batch-management-dotnet.md)을 사용 하 여 batch 계정을 만들고 관리 하는 방법에 대해 알아봅니다.
-- Azure Batch 계정으로 [개인 끝점](private-connectivity.md) 을 사용 하는 방법에 대해 알아봅니다.
+- [Azure Portal](batch-account-create-portal.md) 또는 [Batch Management .NET](batch-management-dotnet.md)을 사용하여 Batch 계정을 만들고 관리하는 방법을 알아봅니다.
+- Azure Batch 계정으로 [프라이빗 엔드포인트](private-connectivity.md)를 사용하는 방법을 알아봅니다.

@@ -1,7 +1,7 @@
 ---
 title: 실험 추적 및 배포 모델
 titleSuffix: Azure Data Science Virtual Machine
-description: Azure Machine Learning 및/또는 MLFlow를 사용 하 여 Data Science Virtual Machine에서 실험을 추적 하 고 기록 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 또는 MLFlow를 사용하여 Data Science Virtual Machine에서 실험을 추적하고 기록하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: data-science-vm
 author: samkemp
@@ -9,41 +9,41 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518541"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Azure Machine Learning에서 실험 추적 및 모델 배포
 
-실험을 추적하고 실행 메트릭을 모니터링하여 모델 생성 프로세스를 개선합니다. 이 문서에서는 [Mlflow](https://mlflow.org/) API를 사용 하 여 학습 스크립트에 로깅 코드를 추가 하 고 Azure Machine Learning 실험을 추적 하는 방법에 대해 알아봅니다.
+실험을 추적하고 실행 메트릭을 모니터링하여 모델 생성 프로세스를 개선합니다. 이 문서에서는 [MLflow](https://mlflow.org/) API를 사용하여 학습 스크립트에 로깅 코드를 추가하고 Azure Machine Learning에서 실험을 추적하는 방법을 알아봅니다.
 
 다음 다이어그램에서는 MLflow 추적을 사용하여 Azure Machine Learning 작업 영역에 실험의 실행 메트릭과 모델 아티팩트를 저장하는 방법을 보여 줍니다.
 
 ![실험 추적](./media/how-to-track-experiments/mlflow-diagram-track.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-* [Azure Machine Learning 작업 영역를 프로 비전 해야 합니다](../how-to-manage-workspace.md#create-a-workspace) .
+* [Azure Machine Learning 작업 영역을 프로비전](../how-to-manage-workspace.md#create-a-workspace)해야 합니다.
 
 ## <a name="create-a-new-notebook"></a>새 Notebook 만들기
 
-Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치 되며 **azureml_py36_ \*** conda 환경에서 액세스할 수 있습니다. JupyterLab에서 시작 관리자를 클릭 하 고 다음 커널을 선택 합니다.
+Azure Machine Learning 및 MLFlow SDK는 Data Science VM에 미리 설치되며, **azureml_py36_ \*** conda 환경에서 액세스할 수 있습니다. JupyterLab에서 시작 관리자를 클릭하고 다음 커널을 선택합니다.
 
 ![커널 선택](./media/how-to-track-experiments/experiment-tracking-1.png)
 
 ## <a name="set-up-the-workspace"></a>작업 영역 설정
 
-[Azure Portal](https://portal.azure.com) 로 이동 하 고 필수 구성 요소의 일부로 프로 비전 한 작업 영역을 선택 합니다. __다운로드 config.js__ (아래 참조)에 표시 됩니다. 구성을 다운로드 하 고 dsvm의 작업 디렉터리에 저장 되었는지 확인 하세요.
+[Azure Portal](https://portal.azure.com)로 이동하고 필수 조건의 일부로 프로비전한 작업 영역을 선택합니다. __config.json 다운로드__ 가 표시됩니다(아래 참조). config를 다운로드하고 DSVM의 작업 디렉터리에 저장되었는지 확인하세요.
 
-![구성 파일 가져오기](./media/how-to-track-experiments/experiment-tracking-2.png)
+![config 파일 가져오기](./media/how-to-track-experiments/experiment-tracking-2.png)
 
-구성에는 작업 영역 이름, 구독 등의 정보가 포함 되어 있습니다 .이는 이러한 매개 변수를 하드 코드 하지 않아도 된다는 것을 의미 합니다.
+config에는 작업 영역 이름, 구독 등의 정보가 포함되어 있으므로 이러한 매개 변수를 하드 코드로 작성하지 않아도 됩니다.
 
 ## <a name="track-dsvm-runs"></a>DSVM 실행 추적
 
-노트북 (또는 스크립트)에 다음 코드를 추가 하 여 AzureML 작업 영역 개체를 설정 합니다.
+Notebook(또는 스크립트)에 다음 코드를 추가하여 AzureML 작업 영역 개체를 설정합니다.
 
 ```Python
 import mlflow
@@ -81,7 +81,7 @@ print ("Data contains", len(data['train']['X']), "training samples and",len(data
 
 ### <a name="add-tracking"></a>추적 추가
 
-Azure Machine Learning SDK를 사용하여 실험 추적을 추가하고 지속형 모델을 실험 실행 기록에 업로드합니다. 다음 코드는 로그를 추가 하 고 실험 실행에 모델 파일을 업로드 합니다. 모델은 Azure Machine Learning 모델 레지스트리에도 등록 됩니다.
+Azure Machine Learning SDK를 사용하여 실험 추적을 추가하고 지속형 모델을 실험 실행 기록에 업로드합니다. 다음 코드는 로그를 추가하고, 모델 파일을 실험 실행에 업로드합니다. 모델은 Azure Machine Learning 모델 레지스트리에 이미 등록되어 있습니다.
 
 ```python
 # Get an experiment object from Azure Machine Learning
@@ -114,71 +114,71 @@ with mlflow.start_run():
 
 ### <a name="view-runs-in-azure-machine-learning"></a>Azure Machine Learning에서 실행 보기
 
-[Azure Machine Learning Studio](https://ml.azure.com)에서 실험 실행을 볼 수 있습니다. 왼쪽 메뉴에서 __실험__ 을 클릭 하 고 ' experiment_with_mlflow '를 선택 합니다. 위 코드 조각에서 실험의 이름을 다르게 결정 한 경우에는 사용 된 이름을 클릭 합니다.
+[Azure Machine Learning Studio](https://ml.azure.com)에서 실험 실행을 볼 수 있습니다. 왼쪽 메뉴에서 __실험__ 을 클릭하고 'experiment_with_mlflow'를 선택하거나 위 코드 조각에서 실험의 이름을 다르게 지정한 경우에는 사용된 이름을 클릭합니다.
 
 ![실험 선택](./media/how-to-track-experiments/mlflow-experiments.png)
 
-기록 된 MSE (제곱 된 평균 오차)가 표시 되어야 합니다.
+로그된 MSE(평균 제곱 오차)가 표시되어야 합니다.
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-실행을 클릭 하면 다른 세부 정보 및 __출력 + 로그__ 의 pickle 처리 된 모델도 표시 됩니다.
+실행을 클릭하면 __출력+로그__ 에 다른 세부 정보와 pickle 처리된 모델도 표시됩니다.
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Azure Machine Learning에 모델 배포
 
-이 섹션에서는 DSVM에서 학습 된 모델을 Azure Machine Learning에 배포 하는 방법에 대해 간략하게 설명 합니다.
+이 섹션에서는 DSVM에서 학습된 모델을 Azure Machine Learning에 배포하는 방법을 간략하게 설명합니다.
 
-### <a name="step-1-create-inference-compute"></a>1 단계: 유추 계산 만들기
+### <a name="step-1-create-inference-compute"></a>1단계: 추론 컴퓨팅 만들기
 
-[AzureML 스튜디오](https://ml.azure.com) 의 왼쪽 메뉴에서 __계산__ 을 클릭 한 다음 __유추 클러스터__ 탭을 클릭 합니다. 다음으로 아래 설명 된 대로 __+ 새로 만들기__ 를 클릭 합니다.
+[AzureML Studio](https://ml.azure.com)의 왼쪽 메뉴에서 __컴퓨팅__ 을 클릭한 다음 __추론 클러스터__ 탭을 클릭한 후 아래 설명된 대로 __+ 새로 만들기__ 를 클릭합니다.
 
-![유추 계산 만들기](./media/how-to-track-experiments/mlflow-experiments-6.png)
+![추론 컴퓨팅 만들기](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-__새 유추 클러스터__ 창에서 다음에 대 한 세부 정보를 입력 합니다.
+__새 추론 클러스터__ 창에서 다음의 세부 정보를 채웁니다.
 
-* 계산 이름
-* Kubernetes Service-새로 만들기를 선택 합니다.
+* 컴퓨팅 이름
+* Kubernetes 서비스 - 새로 만들기 선택
 * 지역 선택
-* VM 크기를 선택 합니다 .이 자습서의 목적에는 Standard_D3_v2의 기본값 만으로도 충분 합니다.
-* 클러스터 용도- __개발-테스트__ 선택
-* 노드 수는 __1__ 과 같아야 합니다.
-* 네트워크 구성-기본
+* VM 크기 선택(이 자습서에서는 Standard_D3_v2 기본값으로 충분)
+* 클러스터 용도 - __Dev-test__ 선택
+* 노드 수는 __1__ 과 같아야 함
+* 네트워크 구성 - 기본
 
-그런 다음 __만들기__ 를 클릭 합니다.
+다음으로 __만들기__ 를 클릭합니다.
 
-![계산 세부 정보](./media/how-to-track-experiments/mlflow-experiments-7.png)
+![컴퓨팅 세부 정보](./media/how-to-track-experiments/mlflow-experiments-7.png)
 
-### <a name="step-2-deploy-no-code-inference-service"></a>2 단계: 코드 없는 유추 서비스 배포
+### <a name="step-2-deploy-no-code-inference-service"></a>2단계: 코드 없는 추론 서비스 배포
 
-를 사용 하 여 코드에 모델을 등록 하는 경우 프레임 워크를 사용 하 `register_model` 는 것으로 지정 했습니다. Azure Machine Learning는 다음 프레임 워크에 대 한 코드 배포를 지원 하지 않습니다.
+`register_model`을 사용하여 코드에 모델을 등록할 때 프레임워크를 sklearn으로 지정했습니다. Azure Machine Learning은 다음 프레임워크의 코드 없는 배포를 지원하지 않습니다.
 
 * scikit-learn
 * Tensorflow SaveModel 형식
 * ONNX 모델 형식
 
-코드 배포 안 함은 특정 점수 매기기 스크립트를 지정 하지 않고도 모델 아티팩트에서 바로 배포할 수 있음을 의미 합니다.
+코드 없는 배포는 특정 채점 스크립트를 지정하지 않고도 모델 아티팩트에서 바로 배포할 수 있음을 의미합니다.
 
-당뇨병 모델을 배포 하려면 [Azure Machine Learning Studio](https://ml.azure.com) 의 왼쪽 메뉴로 이동 하 여 __모델__ 을 선택 합니다. 다음으로 등록 된 diabetes_model를 클릭 합니다.
+당뇨병 모델을 배포하려면 [Azure Machine Learning Studio](https://ml.azure.com)의 왼쪽 메뉴로 이동하여 __모델__ 을 선택합니다. 그런 다음 등록된 diabetes_model을 클릭합니다.
 
 ![모델 선택](./media/how-to-track-experiments/mlflow-experiments-3.png)
 
-그런 다음 모델 세부 정보 창에서 __배포__ 단추를 클릭 합니다.
+다음으로 모델 세부 정보 창에서 __배포__ 단추를 클릭합니다.
 
-![배포](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![배포:](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-1 단계에서 만든 유추 클러스터 (Azure Kubernetes Service)에 모델을 배포 합니다. 서비스 이름을 제공 하 여 아래 세부 정보를 입력 하 고 1 단계에서 만든 AKS 계산 클러스터의 이름을 입력 합니다. 또한 __CPU 예약 용량__ 을 1 (0.1에서) 및 __메모리 예약 용량__ 을 1 (0.5)로 늘리는 것이 좋습니다. __고급__ 을 클릭 하 고 세부 정보를 입력 하 여이를 늘릴 수 있습니다. 그런 다음 __배포__ 를 클릭 합니다.
+1단계에서 만든 추론 클러스터(Azure Kubernetes Service)에 모델을 배포합니다. 서비스 이름과 1단계에서 만든 AKS 컴퓨팅 클러스터의 이름을 제공하여 아래 세부 정보를 채웁니다. __CPU 예약 용량__ 을 0.1에서 1로 늘리고 __메모리 예약 용량__ 을 0.5에서 1로 늘리는 것이 좋습니다. __고급__ 을 클릭하고 세부 정보를 채우면 늘릴 수 있습니다. 그런 다음 __배포__ 를 클릭합니다.
 
 ![배포 세부 정보](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
-### <a name="step-3-consume"></a>3 단계: 사용
+### <a name="step-3-consume"></a>3단계: 사용
 
-모델이 성공적으로 배포 되 면 다음이 표시 됩니다 .이 페이지로 이동 하려면 왼쪽 메뉴에서 끝점을 클릭 한 다음 배포 된 서비스의 이름을 클릭 > 합니다.
+모델이 성공적으로 배포되면 다음이 표시됩니다(이 페이지로 이동하려면 왼쪽 메뉴에서 엔드포인트를 클릭한 다음 배포된 서비스의 이름을 클릭합니다).
 
 ![모델 사용](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-배포 상태가 __정상__ 으로 __전환__ 되는 것으로 표시 되어야 합니다. 또한이 세부 정보 섹션에서는 응용 프로그램 개발자가 ML 모델을 앱에 통합 하는 데 사용할 수 있는 REST 끝점 및 Swagger Url을 제공 합니다.
+배포 상태가 __전환 중__ 에서 __정상__ 으로 바뀌는 것이 표시되어야 합니다. 또한 이 세부 정보 섹션은 애플리케이션 개발자가 ML 모델을 앱에 통합하는 데 사용할 수 있는 REST 엔드포인트와 Swagger URL을 제공합니다.
 
-[Postman](https://www.postman.com/)을 사용 하 여 끝점을 테스트 하거나 AzureML SDK를 사용할 수 있습니다.
+[Postman](https://www.postman.com/)을 사용하여 엔드포인트를 테스트하거나 AzureML SDK를 사용할 수 있습니다.
 
 ```python
 from azureml.core import Webservice
@@ -197,10 +197,10 @@ output = service.run(input_payload)
 print(output)
 ```
 
-### <a name="step-4-clean-up"></a>4 단계: 정리
+### <a name="step-4-clean-up"></a>4단계: 정리
 
-진행 중인 계산 요금이 발생 하지 않도록 1 단계에서 만든 유추 계산을 삭제 합니다. Azure Machine Learning Studio의 왼쪽 메뉴에서 계산 > 유추 클러스터를 클릭 > 계산 > 삭제를 선택 합니다.
+진행 중인 컴퓨팅 요금이 발생하지 않도록 1단계에서 만든 추론 컴퓨팅을 삭제합니다. Azure Machine Learning Studio의 왼쪽 메뉴에서 컴퓨팅 > 추론 클러스터 > 컴퓨팅 선택 > 삭제를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [AzureML에 모델 배포](../how-to-deploy-and-where.md) 에 대 한 자세한 정보
+* [AzureML에 모델 배포](../how-to-deploy-and-where.md)에 대해 자세히 알아보기

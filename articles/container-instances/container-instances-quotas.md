@@ -4,19 +4,19 @@ description: Azure Container Instances 서비스의 할당량, 제한 및 지역
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: eaaa8e0b2d72aaea546a1bc351da40932c1deb14
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87384834"
 ---
 # <a name="quotas-and-limits-for-azure-container-instances"></a>Azure Container Instances 할당량 및 제한
 
 모든 Azure 서비스에는 리소스와 기능에 대한 특정 기본 제한과 할당량이 있습니다. 이 문서에서는 Azure Container Instances의 기본 할당량 및 제한에 대해 자세히 설명합니다.
 
-Azure Container Instances에 대 한 계산, 메모리 및 저장소 리소스의 가용성은 지역 및 운영 체제에 따라 다릅니다. 자세한 내용은 [Azure Container Instances에 대 한 리소스 가용성](container-instances-region-availability.md)을 참조 하세요.
+Azure Container Instances에 대한 컴퓨팅, 메모리 및 스토리지 리소스의 가용성은 지역 및 운영 체제에 따라 다릅니다. 자세한 내용은 [Azure Container Instances에 대한 리소스 가용성](container-instances-region-availability.md)을 참조하세요.
 
-[목록 사용](/rest/api/container-instances/location/listusage) API를 사용 하 여 구독에 대 한 지역에서 현재 할당량 사용량을 검토 합니다.
+[사용량 나열](/rest/api/container-instances/location/listusage) API를 사용하여 구독의 지역에서 현재 할당량 사용량을 검토합니다.
 
 ## <a name="service-quotas-and-limits"></a>서비스 할당량 및 제한
 

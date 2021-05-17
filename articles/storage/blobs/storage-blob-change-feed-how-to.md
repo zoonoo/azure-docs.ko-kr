@@ -1,6 +1,6 @@
 ---
-title: Azure Blob Storage에서 변경 피드 처리 | Microsoft Docs
-description: .NET 클라이언트 응용 프로그램에서 변경 피드 로그를 처리 하는 방법을 알아봅니다.
+title: Azure Blob Storage의 변경 피드 처리 | Microsoft Docs
+description: .NET 클라이언트 애플리케이션에서 변경 피드 로그를 처리하는 방법 알아보기
 author: normesta
 ms.author: normesta
 ms.date: 09/08/2020
@@ -10,22 +10,22 @@ ms.subservice: blobs
 ms.reviewer: sadodd
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f0e89fdfba852fc056cf48efd1b92daabb272cf0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89568254"
 ---
 # <a name="process-change-feed-in-azure-blob-storage"></a>Azure Blob Storage에서 변경 피드 처리
 
-변경 피드는 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 합니다. 이 문서에서는 blob 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드 레코드를 읽는 방법을 보여 줍니다.
+변경 피드는 스토리지 계정의 Blob 및 Blob 메타데이터에 발생하는 모든 변경 내용에 대한 트랜잭션 로그를 제공합니다. 이 문서에서는 Blob 변경 피드 프로세서 라이브러리를 사용하여 변경 피드 레코드를 읽는 방법을 보여 줍니다.
 
-변경 피드에 대 한 자세한 내용은 [Azure Blob Storage 변경 피드](storage-blob-change-feed.md)를 참조 하세요.
+변경 피드에 대한 자세한 내용은 [Azure Blob Storage 변경 피드](storage-blob-change-feed.md)를 참조하세요.
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Blob 변경 피드 프로세서 라이브러리 가져오기
 
-1. 명령 창을 엽니다 (예: Windows PowerShell).
-2. 프로젝트 디렉터리에서 [ **Azure.. changefeed** NuGet 패키지](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/)를 설치 합니다.
+1. 명령 창을 엽니다(예: Windows PowerShell).
+2. 프로젝트 디렉터리에서 [**Azure.Storage.Blobs.Changefeed** NuGet 패키지](https://www.nuget.org/packages/Azure.Storage.Blobs.ChangeFeed/)를 설치합니다.
 
 ```console
 dotnet add package Azure.Storage.Blobs --version 12.5.1
@@ -34,9 +34,9 @@ dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
 ## <a name="read-records"></a>레코드 읽기
 
 > [!NOTE]
-> 변경 피드는 저장소 계정에 있는 변경할 수 없는 읽기 전용 엔터티입니다. 원하는 수의 응용 프로그램은 각자의 편의를 위해 동시에 독립적으로 변경 피드를 읽고 처리할 수 있습니다. 응용 프로그램에서 레코드를 읽을 때 레코드는 변경 피드에서 제거 되지 않습니다. 사용 되는 각 판독기의 읽기 또는 반복 상태는 응용 프로그램 에서만 독립적이 고 유지 관리 됩니다.
+> 변경 피드는 스토리지 계정에 있는 변경할 수 없는 읽기 전용 엔터티입니다. 제한 없는 애플리케이션에서 편리한 방식으로 동시에 또는 독립적으로 변경 피드를 읽고 처리할 수 있습니다. 애플리케이션에서 레코드를 읽어도 레코드는 변경 피드에서 제거되지 않습니다. 사용하는 각 판독기의 읽기 또는 반복 상태는 독립적이며 애플리케이션에서만 유지 관리됩니다.
 
-이 예제에서는 변경 피드의 모든 레코드를 반복 하 고, 목록에 추가한 다음 해당 목록을 호출자에 게 반환 합니다.
+이 예제에서는 변경 피드의 모든 레코드를 반복하고, 목록에 추가한 다음, 해당 목록을 호출자에게 반환합니다.
  
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionString)
@@ -59,7 +59,7 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedAsync(string connectionSt
 }
 ```
 
-이 예제에서는 목록의 각 레코드에서 몇 가지 값을 콘솔에 출력 합니다. 
+이 예제에서는 목록의 각 레코드에서 몇 가지 값을 콘솔에 출력합니다. 
 
 ```csharp
 public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
@@ -77,11 +77,11 @@ public void showEventData(List<BlobChangeFeedEvent> changeFeedEvents)
 }
 ```
 
-## <a name="resume-reading-records-from-a-saved-position"></a>저장 된 위치에서 레코드 읽기 재개
+## <a name="resume-reading-records-from-a-saved-position"></a>저장된 위치에서 레코드 읽기 계속
 
-변경 피드에 읽기 위치를 저장 한 다음 나중에 레코드 반복을 다시 시작할 수 있습니다. 변경 피드 커서를 가져와서 읽기 위치를 저장할 수 있습니다. 커서는 **문자열** 이며 응용 프로그램은 파일 또는 데이터베이스와 같은 응용 프로그램의 디자인에 적합 한 방식으로 해당 문자열을 저장할 수 있습니다.
+변경 피드에 읽기 위치를 저장한 다음, 나중에 레코드 반복을 다시 시작하도록 선택할 수 있습니다. 변경 피드 커서를 가져와 읽기 위치를 저장할 수 있습니다. 커서는 **문자열** 이며 애플리케이션은 애플리케이션의 디자인에 적합한 방식(예: 파일 또는 데이터베이스)으로 해당 문자열을 저장할 수 있습니다.
 
-이 예에서는 변경 피드의 모든 레코드를 반복 하 고, 목록에 추가 하 고, 커서를 저장 합니다. 목록 및 커서가 호출자에 게 반환 됩니다. 
+이 예제에서는 변경 피드의 모든 레코드를 반복하고, 목록에 추가하고, 커서를 저장합니다. 목록 및 커서가 호출자에게 반환됩니다. 
 
 ```csharp
 public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCursorAsync
@@ -114,11 +114,11 @@ public async Task<(string, List<BlobChangeFeedEvent>)> ChangeFeedResumeWithCurso
 }
 ```
 
-## <a name="stream-processing-of-records"></a>레코드의 스트림 처리
+## <a name="stream-processing-of-records"></a>레코드 처리 스트리밍
 
-변경 피드에 커밋될 때 변경 피드 레코드를 처리 하도록 선택할 수 있습니다. [사양](storage-blob-change-feed.md#specifications)을 참조 하세요. 변경 이벤트는 평균 60 초 동안 변경 피드에 게시 됩니다. 폴링 간격을 지정할 때이 기간을 사용 하 여 새로운 변경을 폴링하는 것이 좋습니다.
+변경 피드에 커밋될 때 변경 피드 레코드를 처리하도록 선택할 수 있습니다. [사양](storage-blob-change-feed.md#specifications)을 참조하세요. 변경 이벤트는 평균 60초 동안 변경 피드에 게시됩니다. 폴링 간격을 지정할 때 이 기간의 새로운 변경 내용을 폴링하는 것이 좋습니다.
 
-이 예에서는 정기적으로 변경을 폴링합니다.  변경 레코드가 있는 경우이 코드는 해당 레코드를 처리 하 고 변경 피드 커서를 저장 합니다. 이렇게 하면 프로세스가 중지 되었다가 다시 시작 되는 경우 응용 프로그램은 커서를 사용 하 여 마지막으로 중지 된 레코드의 처리를 다시 시작할 수 있습니다. 이 예제에서는 커서를 로컬 응용 프로그램 구성 파일에 저장 하지만 응용 프로그램은 시나리오에 가장 적합 한 형식으로 저장할 수 있습니다. 
+이 예제에서는 정기적으로 변경 내용을 폴링합니다.  변경 레코드가 있는 경우 이 코드는 해당 레코드를 처리하고 변경 피드 커서를 저장합니다. 이러한 방식으로 프로세스가 중지되었다가 다시 시작되는 경우 애플리케이션은 커서를 사용하여 마지막으로 중지했던 레코드의 처리를 다시 시작할 수 있습니다. 이 예제에서는 커서를 로컬 애플리케이션 구성 파일에 저장하지만 애플리케이션은 시나리오에 가장 적합한 형식으로 커서를 저장할 수 있습니다. 
 
 ```csharp
 public async Task ChangeFeedStreamAsync
@@ -180,9 +180,9 @@ public void SaveCursor(string cursor)
 
 ## <a name="reading-records-within-a-time-range"></a>시간 범위 내에서 레코드 읽기
 
-특정 시간 범위 내에 속하는 레코드를 읽을 수 있습니다. 이 예에서는 변경 피드의 모든 레코드를 반복 하 여 2 2020 년 3 월 일 오전 3:00에 해당 하는 변경 피드의 모든 레코드를 반복 하 고, 2:00 7 2020 AM을 목록에 추가한 다음, 해당 목록을 호출자에 게 반환 합니다.
+특정 시간 범위 내에 속하는 레코드를 읽을 수 있습니다. 이 예제에서는 변경 피드에서 2020년 3월 2일 오후 3시부터 2020년 7월 7일 오전 2시 사이의 모든 레코드를 반복한 후, 목록에 추가하고 해당 목록을 호출자에게 반환합니다.
 
-### <a name="selecting-segments-for-a-time-range"></a>시간 범위에 대 한 세그먼트 선택
+### <a name="selecting-segments-for-a-time-range"></a>시간 범위에 대한 세그먼트 선택
 
 ```csharp
 public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string connectionString)
@@ -212,8 +212,8 @@ public async Task<List<BlobChangeFeedEvent>> ChangeFeedBetweenDatesAsync(string 
 }
 ```
 
-사용자가 제공 하는 시작 시간은 가장 가까운 시간으로 반올림 되 고 종료 시간은 가장 가까운 시간으로 반올림 됩니다. 사용자가 시작 시간 이전에 발생 한 이벤트와 종료 시간 이후에 발생 한 이벤트를 볼 수 있습니다. 또한 시작 시간과 종료 시간 사이에 발생 하는 일부 이벤트는 표시 되지 않습니다. 이벤트는 시작 시간 이전 시간 또는 종료 시간 이후의 시간 동안 기록 될 수 있기 때문입니다.
+사용자가 제공하는 시작 시간은 가장 가까운 시간으로 반내림되고 종료 시간은 가장 가까운 시간으로 반올림됩니다. 사용자는 시작 시간 이전에 발생한 이벤트와 종료 시간 이후에 발생한 이벤트를 볼 수 있습니다. 또한 시작 시간과 종료 시간 사이에 발생하는 일부 이벤트는 표시되지 않을 수 있습니다. 이벤트가 시작 시간 이전 시간 또는 종료 시간 이후 시간 동안 기록될 수 있기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-변경 피드 로그에 대해 자세히 알아보세요. [Azure Blob Storage에서 변경 피드를](storage-blob-change-feed.md) 참조 하세요.
+변경 피드 로그에 대해 자세히 알아봅니다. [Azure Blob Storage의 변경 피드](storage-blob-change-feed.md)를 참조하세요.

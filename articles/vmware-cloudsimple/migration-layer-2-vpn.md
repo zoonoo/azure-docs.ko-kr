@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 계층 2 네트워크 온-프레미스를 프라이빗 클라우드로 확장
 description: CloudSimple 프라이빗 클라우드의 NSX-T와 온-프레미스 독립 실행형 NSX Edge 클라이언트 간의 계층 2 VPN을 설정하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 06446b6c36e36466fe891d7327d8151603cdecd2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 1b4b3e85323e2023afb67b2175377cb9b2d13a4f
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97899374"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108177515"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -430,7 +430,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 2. 추출된 파일이 모두 있는 폴더로 이동합니다. 모든 vmdks(큰 어플라이언스 크기의 경우 NSX-l2t-client-large.mf 및 NSX-l2t-client-large.ovf, 매우 큰 어플라이언스 크기의 경우 NSX-l2t-client-Xlarge.mf 및 NSX-l2t-client-Xlarge.ovf)를 선택합니다. **다음** 을 클릭합니다.
 
-    ![](media/l2vpn-deploy-client02.png) ![ 선택한 vmdk 파일을 표시 하는 템플릿 스크린샷을 선택 합니다.](media/l2vpn-deploy-client03.png)
+    ![템플릿을 선택합니다](media/l2vpn-deploy-client02.png). ![선택한 vmdks 파일을 보여 주는 스크린샷](media/l2vpn-deploy-client03.png)
 
 3. NSX-T 독립 실행형 클라이언트의 이름을 입력하고 **다음** 을 클릭합니다.
 

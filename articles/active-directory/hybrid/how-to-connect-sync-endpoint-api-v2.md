@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect sync V2 끝점 | Microsoft Docs
+title: Azure AD Connect 동기화 V2 엔드포인트 | Microsoft Docs
 description: 이 문서에서는 Azure AD Connect 동기화 v2 엔드포인트 API에 대한 업데이트를 다룹니다.
 services: active-directory
 author: billmath
@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0ecfd277f2cc86102d59b201e7b43fa8519bdd3a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98937607"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api"></a>Azure AD Connect 동기화 V2 엔드포인트 API 
@@ -26,9 +26,9 @@ Microsoft는 Azure AD Connect에 대한 새 엔드포인트(API)를 배포하여
  - Azure AD로 내보내기 및 가져오기 성능 향상
  
 > [!NOTE]
-> 현재 새 끝점에는 다시 작성 된 Microsoft 365 그룹에 대 한 그룹 크기 제한이 구성 되어 있지 않습니다. 이는 Active Directory 및 동기화 주기 대기 시간에 영향을 미칠 수 있습니다. 그룹 크기를 점진적으로 늘리는 것이 좋습니다.  
+> 현재 새 엔드포인트에는 다시 작성되는 Microsoft 365 그룹에 대한 그룹 크기 제한이 구성되어 있지 않습니다. 이는 Active Directory 및 동기화 주기 대기 시간에 영향을 미칠 수 있습니다. 그룹 크기를 점진적으로 늘리는 것이 좋습니다.  
 
-## <a name="prerequisites"></a>필수 구성 요소  
+## <a name="prerequisites"></a>사전 요구 사항  
 새 V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) 이상을 사용하고 아래 제공되는 배포 단계에 따라 Azure AD Connect 서버에 대해 V2 엔드포인트를 사용하도록 설정해야 합니다.   
 
 ## <a name="deployment-guidance"></a>배포 지침 
@@ -41,7 +41,7 @@ V2 엔드포인트를 사용하려면 [Azure AD Connect 버전 1.5.30.0](https:/
 
 1. 현재 준비 서버에 V2 엔드포인트를 배포합니다. 이 서버는 다음 단계에서 **V2 서버** 라고 합니다. 현재 활성 서버는 V1 엔드포인트를 사용하여 계속해서 프로덕션 워크로드를 처리합니다. 이 엔드포인트는 아래에서 **V1 서버** 로 지칭됩니다.
 1. **V2 서버** 가 예상한 대로 가져오기를 계속 처리하고 있는지 확인합니다. 이 단계에서 큰 그룹은 Azure AD 또는 온-프레미스 AD에 프로비저닝되지 않지만 업그레이드로 인해 기존 동기화 프로세스에 예기치 않은 다른 영향이 발생하지 않았음을 확인할 수 있습니다. 
-2. 유효성 검사가 완료되면 **V2 서버** 를 활성 서버로, **V1 서버** 를 준비 서버로 전환합니다. 이 시점에서 동기화 되는 범위에 있는 규모가 많은 그룹은 Azure AD에 프로 비전 되 고, 그룹 쓰기 저장을 사용 하도록 설정 된 경우 대량 Microsoft 365 통합 그룹이 AD에 프로 비전 됩니다.
+2. 유효성 검사가 완료되면 **V2 서버** 를 활성 서버로, **V1 서버** 를 준비 서버로 전환합니다. 이 시점에서 동기화 되는 범위에 있는 큰 그룹은 Azure AD에 프로비저닝되고, 그룹 쓰기 저장이 사용 설정된 경우 큰 Microsoft 365 통합 그룹도 AD에 프로비저닝됩니다.
 3. **V2 서버** 가 정상 작동하면서 큰 그룹을 성공적으로 처리하고 있는지 확인합니다. 일정 기간 동안 이 단계에 머물면서 동기화 프로세스를 모니터링하는 것이 좋습니다.
   >[!NOTE]
   > 이전 구성으로 다시 전환해야 하는 경우 **V2 서버** 에서 **V1 서버** 로 다시 스윙 마이그레이션을 수행할 수 있습니다. V1 엔드포인트는 멤버가 50k를 초과하는 그룹을 지원하지 않으므로 Azure AD 또는 온-프레미스 AD에서 Azure AD Connect에 의해 프로비저닝된 모든 큰 그룹은 이후 삭제됩니다. 
@@ -106,12 +106,12 @@ V2 엔드포인트로 전환하려면 다음 단계를 사용합니다.
 1. Azure AD 동기화 규칙 편집기를 엽니다. 
 2. 편집기에서 방향에 **아웃바운드** 를 선택합니다. 
 3. **AAD로 나가기 – 그룹 조인** 동기화 규칙을 클릭합니다. 
-4. "  ![ AAD-그룹 조인"이 선택 된 "동기화 규칙 보기 및 관리"를 표시 하는 편집 단추 스크린샷을 클릭 합니다.](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
+4. **편집** 단추를 클릭합니다. !["Out to AAD - Group Join"이 선택된 "동기화 규칙 보기 및 관리"를 표시하는 스크린샷](media/how-to-connect-sync-endpoint-api-v2/endpoint2.png)
 
 6. **예** 단추를 클릭하여 기본 규칙을 사용하지 않도록 설정하고 편집 가능한 복사본을 만듭니다.
- !["예" 단추를 선택 하 여 "예약 된 규칙 확인 편집" 창을 보여 주는 스크린샷](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
+ !["예" 단추가 선택된 "예약된 규칙 확인 편집" 창을 표시하는 스크린샷](media/how-to-connect-sync-endpoint-api-v2/endpoint3.png)
 
-7. **설명** 페이지의 팝업 창에서 " ![ 우선 순위"가 강조 표시 된 "아웃 바운드 동기화 규칙 편집" 창이 표시 되는 1 ~ 007e; 99 스크린샷 사이의 사용 가능한 값으로 우선 순위를 설정 합니다.](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
+7. **설명** 페이지의 팝업 창에서 1과 99 사이에서 사용 가능한 값에 대해 우선 순위를 설정합니다. !["우선 순위"가 강조 표시된 "아웃바운드 동기화 규칙 편집" 창을 표시하는 스크린샷](media/how-to-connect-sync-endpoint-api-v2/endpoint4.png)
 
 8. **변환** 페이지에서 **멤버** 변환에 대한 **원본** 값을 업데이트하여 '50000'을 50001에서 250000 사이의 값으로 바꿉니다. 이렇게 바꾸면 Azure AD와 동기화되는 그룹의 최대 멤버 자격 크기가 늘어납니다. 큰 그룹 동기화가 동기화 성능에 미치는 영향을 파악하기 위해 먼저 100k로 시작하는 것이 좋습니다. 
  
@@ -131,7 +131,7 @@ V2 엔드포인트로 전환하려면 다음 단계를 사용합니다.
 > Azure AD Connect Health가 사용 설정되지 않은 경우 Windows 애플리케이션 이벤트 로그 설정을 변경하여 로그를 덮어쓰지 않고 보관하도록 합니다. 로그는 향후 문제 해결 활동에 사용될 수 있습니다. 
 
 >[!NOTE]
-> 새 엔드포인트를 사용 설정한 후 AAD 커넥터에서 이름이 'dn-attributes-failure'인 내보내기 오류가 표시될 수 있습니다. Id가 6949 인 각 오류에 해당 하는 이벤트 로그 항목이 있습니다. 오류에서 정보를 얻을 수 있습니다. 오류는 설치 문제를 나타내지는 않고, 멤버 개체 자체가 Azure AD와 동기화되지 않았기 때문에 동기화 프로세스에서 특정 멤버를 Azure AD의 그룹에 추가할 수 없음을 나타냅니다. 
+> 새 엔드포인트를 사용 설정한 후 AAD 커넥터에서 이름이 'dn-attributes-failure'인 내보내기 오류가 표시될 수 있습니다. ID가 6949인 각 오류에 해당하는 이벤트 로그 항목이 있습니다. 오류에서 정보를 얻을 수 있습니다. 오류는 설치 문제를 나타내지는 않고, 멤버 개체 자체가 Azure AD와 동기화되지 않았기 때문에 동기화 프로세스에서 특정 멤버를 Azure AD의 그룹에 추가할 수 없음을 나타냅니다. 
 
 새 V2 엔드포인트 코드에서 일부 내보내기 오류 유형을 처리하는 방법은 V1 코드와는 약간 다릅니다.  V2 엔드포인트를 사용하는 경우 정보 제공을 위한 오류 메시지가 더 많이 표시될 수 있습니다. 
 
@@ -143,7 +143,7 @@ V2 엔드포인트로 전환하려면 다음 단계를 사용합니다.
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> 구성원이 50k 이상인 통합 그룹 Microsoft 365 있는 경우 그룹을 Azure AD Connect으로 읽어 그룹 쓰기 저장을 사용 하도록 설정 하면 온-프레미스 AD에 기록 됩니다. 
+> 멤버 수가 50K를 초과하는 Microsoft 365 통합 그룹이 있는 경우 그룹을 Azure AD Connect로 읽어오고, 그룹 쓰기 저장이 사용 설정된 경우 온-프레미스 AD에 기록됩니다. 
 
 ## <a name="rollback"></a>롤백 
 V2 엔드포인트를 사용 설정한 상황에서 롤백해야 하는 경우 다음 단계에 따릅니다. 
@@ -171,12 +171,12 @@ V2 엔드포인트를 사용 설정한 상황에서 롤백해야 하는 경우 �
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> V 2에서 V1 끝점으로 다시 전환 하는 경우, Azure Microsoft 365 AD에 프로 비전 된 AD 그룹과 AD에 프로 비전 된 통합 그룹 모두에 대해 전체 동기화를 실행 한 후에는 전체 동기화를 실행 한 후에 50 개 이상의 구성원과 동기화 된 그룹이 삭제 됩니다. 
+> V2에서 V1 엔드포인트로 되돌리는 경우 50k를 초과하는 멤버와 동기화된 그룹은 전체 동기화를 실행한 후에 Azure AD에 프로비저닝된 AD 그룹과 AD에 프로비저닝된 Microsoft 365 통합 그룹 모두에 대해 삭제됩니다. 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답  
  
-**업그레이드 및 새 설치의 경우 새 끝점이 기본값이 됩니다.**  
-</br>2 월 2021에 다운로드할 수 있도록 AADConnect의 새 릴리스가 게시 될 예정입니다. 이 릴리스에서는 기본적으로 V2 끝점이 사용 되며 추가 구성 없이 50K 보다 큰 그룹을 동기화 할 수 있습니다. 이 릴리스는 이후 적격 서버에 자동으로 업그레이드 하기 위해 게시 됩니다.
+**언제 새 엔드포인트가 업그레이드 및 새 설치의 의 기본값이 되나요?**   
+</br>2021년 2월에 새 릴리스의 AADConnect를 다운로드할 수 있게 게시할 예정입니다. 이 릴리스에서는 기본적으로 V2 엔드포인트가 사용되며 추가 구성 없이 50K보다 큰 그룹을 동기화할 수 있습니다. 이 릴리스는 이후 적격 서버에 자동으로 업그레이드할 수 있게 게시됩니다.
  
 ## <a name="next-steps"></a>다음 단계
 

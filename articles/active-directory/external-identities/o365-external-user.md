@@ -1,6 +1,6 @@
 ---
-title: Microsoft 365 외부 공유 및 B2B 공동 작업-Azure AD
-description: Microsoft 365 및 Azure Active Directory B2B 공동 작업을 사용 하 여 외부 파트너와 리소스를 공유 하는 방법을 설명 합니다.
+title: Microsoft 365 외부 공유 및 B2B 협업 - Azure AD
+description: Microsoft 365 및 Azure Active Directory B2B 협업을 사용한 외부 파트너와의 리소스 공유에 대해 설명합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,15 +12,15 @@ manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100008131"
 ---
-# <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 외부 공유 및 Azure Active Directory (Azure AD) B2B 공동 작업
+# <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 외부 공유 및 Azure Active Directory(Azure AD) B2B 협업
 
-Azure AD B2B 공동 작업 및 Microsoft 365 외부 공유 (OneDrive, SharePoint Online, 통합 그룹 등)에서 외부 사용자는 Azure AD B2B를 사용 하 여 인증 됩니다.
+Azure AD B2B 협업 및 Microsoft 365 외부 공유(OneDrive, SharePoint Online, 통합 그룹 등)에서 외부 사용자는 Azure AD B2B를 사용하여 인증됩니다.
 
 ## <a name="how-does-azure-ad-b2b-differ-from-external-sharing-in-sharepoint-online"></a>Azure AD B2B가 SharePoint Online의 외부 공유와 어떻게 다른가?
 
@@ -32,7 +32,7 @@ OneDrive/SharePoint Online에는 별도 초대 관리자가 있습니다. OneDri
 
 - Azure AD B2B 협업의 초대된 사용자는 OneDrive/SharePoint Online 공유 대화 상자에서 선택할 수 있습니다. OneDrive/SharePoint Online의 초대된 사용자는 초대를 상환한 후 Azure AD에도 표시됩니다.
 
-- 라이선싱 요구 사항이 다릅니다. 라이선스에 대해 자세히 알아보려면 [AZURE AD 외부 id 라이선스](./external-identities-pricing.md) 및 [SharePoint Online 외부 공유 개요](/sharepoint/external-sharing-overview)를 참조 하세요.
+- 라이선싱 요구 사항이 다릅니다. 라이선싱에 대해 자세히 알아보려면 [Azure AD External Identities 라이선싱](./external-identities-pricing.md) 및 [SharePoint Online 외부 공유 개요](/sharepoint/external-sharing-overview)를 참조하세요.
 Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 관리하려면 OneDrive/SharePoint Online 외부 공유 설정을 **조직의 디렉터리에 이미 있는 외부 사용자와의 공유만 허용** 으로 설정합니다. 사용자는 외부에서 공유되는 사이트로 이동하여 관리자가 추가한 외부 공동 관리자 중에서 선택할 수 있습니다. 관리자는 B2B 협업 초대 API를 통해 외부 협업자를 추가할 수 있습니다.
 
 
@@ -48,4 +48,4 @@ Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 
 * [역할에 B2B 협업 사용자 추가](add-guest-to-role.md)
 * [B2B 협업 초대 위임](delegate-invitations.md)
 * [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
-* [B2B 공동 작업 Azure Active Directory 문제 해결](troubleshoot.md)
+* [Azure Active Directory B2B 협업 문제 해결](troubleshoot.md)

@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100588045"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Monitor 통합 문서를 Azure Active Directory 보고서에 사용하는 방법
@@ -174,7 +174,7 @@ Monitor 통합 문서를 사용하려면 다음 항목이 필요합니다.
 
 사용되지 않는 로그인의 경우 조건부 액세스 상태별로 분석한 결과가 제공됩니다.
 
-![조건부 액세스 상태 및 최근 로그인을 보여 주는 스크린샷](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
+![조건부 액세스 상태와 최근 로그인을 보여 주는 스크린샷.](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
 
 ## <a name="conditional-access-insights"></a>조건부 액세스 인사이트
@@ -194,12 +194,12 @@ Monitor 통합 문서를 사용하려면 다음 항목이 필요합니다.
 
 - **데이터 뷰**
 
-![조건부 액세스 정책을 선택할 수 있는 조건부 액세스 창이 스크린샷에 표시 됩니다.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
+![조건부 액세스 정책을 선택할 수 있는 조건부 액세스 창을 보여 주는 스크린샷.](./media/howto-use-azure-monitor-workbooks/access-insights.png)
 
 
 [영향 요약]은 선택한 정책이 특정 결과를 가져온 사용자 또는 로그인 수를 보여줍니다. [합계]는 선택한 시간 범위에서 선택한 정책을 평가한 사용자 또는 로그인의 수입니다. 타일을 클릭하면 통합 문서의 데이터를 해당 결과 유형별로 필터링할 수 있습니다. 
 
-![스크린샷은 합계, 성공, 실패 등의 결과를 필터링 하는 데 사용할 수 있는 타일을 보여 줍니다.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
+![합계, 성공, 실패와 같은 결과를 필터링하는 데 사용하는 타일을 보여 주는 스크린샷.](./media/howto-use-azure-monitor-workbooks/impact-summary.png)
 
 이 통합 문서는 선택한 정책의 영향을 다음 6개 조건별로 나누어서 보여줍니다. 
 - **디바이스 상태**
@@ -209,11 +209,11 @@ Monitor 통합 문서를 사용하려면 다음 항목이 필요합니다.
 - **위치**
 - **애플리케이션**
 
-![스크린샷 전체 로그인 필터의 세부 정보를 보여 줍니다.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
+![합계 로그인 필터의 세부 정보를 보여 주는 스크린샷.](./media/howto-use-azure-monitor-workbooks/device-platform.png)
 
 통합 문서에서 선택한 매개 변수를 기준으로 필터링된 개별 로그인을 조사할 수도 있습니다. 개별 사용자를 검색하고(로그인 빈도를 기준으로 정렬됨), 해당하는 로그인 이벤트를 확인합니다. 
 
-![검토할 수 있는 개별 로그인을 보여 주는 스크린샷](./media/howto-use-azure-monitor-workbooks/filtered.png)
+![검토할 수 있는 개별 로그인을 보여 주는 스크린샷.](./media/howto-use-azure-monitor-workbooks/filtered.png)
 
 ## <a name="sign-ins-by-grant-controls"></a>권한 부여 컨트롤별 로그인
 

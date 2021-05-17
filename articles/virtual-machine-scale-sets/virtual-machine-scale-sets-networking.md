@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 머신 확장 집합에 대한 네트워킹
-description: Azure 가상 머신 확장 집합에 대 한 고급 네트워킹 속성 중 일부를 구성 하는 방법입니다.
+description: Azure 가상 머신 확장 집합에 대한 고급 네트워킹 속성 중 일부를 구성하는 방법입니다.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -10,10 +10,10 @@ ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: 9ad761f289805d15d316fc6f528a0049adb36b30
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97722320"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
@@ -42,8 +42,8 @@ Azure 가속 네트워킹은 가상 머신에서 SR-IOV(단일 루트 I/O 가상
 }
 ```
 
-## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure Load Balancer를 사용 하는 Azure 가상 머신 확장 집합
-시나리오에 따라 Virtual Machine Scale Sets를 사용 하 여 표준 Load Balancer를 구성 하는 방법에 대해 자세히 알아보려면 [Azure Load Balancer 및 Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) 를 참조 하세요.
+## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Azure Virtual Machine Scale Sets와 Azure Load Balancer
+시나리오에 따라 Virtual Machine Scale Sets를 사용하여 표준 Load Balancer를 구성하는 방법에 대해 자세히 알아보려면 [Azure Load Balancer 및 Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md)를 참조하세요.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Application Gateway를 참조하는 확장 집합 만들기
 애플리케이션 게이트웨이를 사용하는 확장 집합을 만들려면 이 ARM 템플릿 구성과 같이 설정된 확장의 ipConfigurations 섹션에서 애플리케이션 게이트웨이의 백 엔드 주소 풀을 참조합니다.
@@ -125,7 +125,7 @@ Azure 템플릿에서 도메인 이름을 설정하려면 **networkInterfaceConf
 ```
 
 ## <a name="public-ipv4-per-virtual-machine"></a>가상 머신당 공용 IPv4
-일반적으로 Azure 확장 집합 가상 머신에는 자체의 공용 IP 주소가 필요하지 않습니다. 대부분의 시나리오에서는 공용 IP 주소를 부하 분산 장치 또는 개별 가상 머신 (jumpbox 라고도 함)에 연결 하 고, 필요한 경우 (예: 인바운드 NAT 규칙을 통해) 확장 집합 가상 머신으로 들어오는 연결을 라우팅하는 것이 더 경제적 이며 안전 합니다.
+일반적으로 Azure 확장 집합 가상 머신에는 자체의 공용 IP 주소가 필요하지 않습니다. 대부분의 시나리오에서는 공용 IP 주소를 부하 분산 장치 또는 개별 가상 머신(점프박스라고도 함)에 연결한 다음, 필요에 따라 들어오는 연결을 확장 집합 가상 머신으로 라우팅하는(예: 인바운드 NAT 규칙을 통해) 것이 보다 경제적이며 안전합니다.
 
 그러나 일부 시나리오의 경우 확장 집합 가상 머신에는 자체의 공용 IP 주소가 필요합니다. 게임 물리 처리를 수행하는 클라우드 가상 머신에 콘솔을 직접 연결해야 하는 게임이 그 예입니다. 또 다른 예로 가상 머신이 분산된 데이터베이스의 여러 지역에서 서로를 외부 연결해야 하는 경우가 있습니다.
 
@@ -169,7 +169,7 @@ Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 1. 구독을 확장합니다.
 1. 리소스 그룹을 확장합니다.
 1. *공급자* 를 확장합니다.
-1. *Microsoft. Compute* 를 확장 합니다.
+1. *Microsoft.Compute* 를 확장합니다.
 1. *virtualMachineScaleSets* 를 확장합니다.
 1. 확장 집합을 확장합니다.
 1. *publicipaddresses* 를 클릭합니다.
@@ -382,25 +382,25 @@ az vmss show \
 ]
 ```
 
-## <a name="make-networking-updates-to-specific-instances"></a>특정 인스턴스에 대 한 네트워킹 업데이트 만들기
+## <a name="make-networking-updates-to-specific-instances"></a>특정 인스턴스에 대한 네트워킹 업데이트 만들기
 
-특정 가상 머신 확장 집합 인스턴스에 대 한 네트워킹 업데이트를 수행할 수 있습니다. 
+특정 가상 머신 확장 집합 인스턴스에 대한 네트워킹 업데이트를 수행할 수 있습니다. 
 
-`PUT`인스턴스에 대해 네트워크 구성을 업데이트 하는 데 사용할 수 있습니다. Nic (네트워크 인터페이스 카드)를 추가 또는 제거 하거나 백 엔드 풀에서 인스턴스를 제거 하는 등의 작업을 수행 하는 데 사용할 수 있습니다.
+인스턴스에 대해 `PUT`을 수행하여 네트워크 구성을 업데이트할 수 있습니다. 이를 사용하여 NIC(네트워크 인터페이스 카드)를 추가 또는 제거하거나 백 엔드 풀에서 인스턴스를 제거하는 등의 작업을 수행할 수 있습니다.
 
 ```
 PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
 ```
 
-다음 예제에서는 두 번째 IP 구성을 NIC에 추가 하는 방법을 보여 줍니다.
+다음 예제에서는 두 번째 IP 구성을 NIC에 추가하는 방법을 보여 줍니다.
 
-1. `GET` 특정 가상 머신 확장 집합 인스턴스에 대 한 세부 정보입니다.
+1. 특정 가상 머신 확장 집합 인스턴스에 대한 세부 정보를 `GET`합니다.
     
     ``` 
     GET https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
-    *다음은이 예제에 대 한 네트워킹 매개 변수만 보여 주기 위해 간소화 되었습니다.*
+    *다음은 이 예제에 대한 네트워킹 매개 변수만 보여 주도록 간소화되었습니다.*
 
     ```json
     {
@@ -450,14 +450,14 @@ PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/provid
     }
     ```
  
-2. `PUT` 인스턴스에 대해 추가 IP 구성을 추가 하도록를 업데이트 합니다. 이는를 추가 하는 것과 유사 `networkInterfaceConfiguration` 합니다.
+2. 인스턴스에 대해 `PUT`을 수행하여 추가 IP 구성을 추가하도록 업데이트합니다. 이 작업은 `networkInterfaceConfiguration`을 추가하는 것과 유사합니다.
 
     
     ```
     PUT https://management.azure.com/subscriptions/.../resourceGroups/vmssnic/providers/Microsoft.Compute/virtualMachineScaleSets/vmssnic/virtualMachines/1/?api-version=2019-07-01
     ```
 
-    *다음은이 예제에 대 한 네트워킹 매개 변수만 보여 주기 위해 간소화 되었습니다.*
+    *다음은 이 예제에 대한 네트워킹 매개 변수만 보여 주도록 간소화되었습니다.*
 
     ```json
       {

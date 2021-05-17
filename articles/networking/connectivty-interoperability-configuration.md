@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 50fd5641c61d08939eca1f2cbafb1d077254e37d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98233273"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Azure 백 엔드 연결 기능의 상호 운용성: 테스트 구성 세부 정보
@@ -27,7 +27,7 @@ ms.locfileid: "98233273"
 
 [![1]][1]
 
-다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 허브 VNet에서 허브 게이트웨이를 사용 하도록 스포크 VNet을 허용 하려면 **게이트웨이 전송 허용** 을 선택 합니다.
+다음 그림은 허브 VNet의 VNet 피어링 세부 정보를 보여줍니다. 허브 VNet에서 스포크 VNet이 허브 게이트웨이를 사용하도록 허용하려면 **게이트웨이 전송 허용** 을 선택합니다.
 
 [![2]][2]
 
@@ -51,7 +51,7 @@ Azure VPN Gateway에서 VPN 게이트웨이를 사용하여 허브와 분기 VNe
 
 [![5]][5]
 
-다음 목록은 ExpressRoute 프라이빗 피어링 연결에 대한 기본 CE 라우터 구성을 보여줍니다. Cisco ASR1000 라우터는 테스트 설정에서 CE 라우터로 사용 됩니다. 사이트 간 VPN 및 Express 경로 회로를 병렬로 구성 하 여 온-프레미스 네트워크를 Azure에 연결 하는 경우 Azure는 기본적으로 Express 경로 회로의 우선 순위를 설정 합니다. 비대칭 라우팅을 방지하려면 온-프레미스 네트워크도 사이트 간 VPN 연결에 비해 ExpressRoute 연결을 우선 순위로 지정해야 합니다. 다음 구성은 BGP **로컬 기본 설정** 특성을 사용하여 우선 순위를 설정합니다.
+다음 목록은 ExpressRoute 프라이빗 피어링 연결에 대한 기본 CE 라우터 구성을 보여줍니다. (Cisco ASR1000 라우터는 테스트 설정에서 CE 라우터로 사용됩니다.) 사이트 간 VPN과 ExpressRoute 회로가 온-프레미스 네트워크를 Azure에 연결하기 위해 병렬로 구성되는 경우 Azure는 기본적으로 ExpressRoute 회로를 우선 순위로 지정합니다. 비대칭 라우팅을 방지하려면 온-프레미스 네트워크도 사이트 간 VPN 연결에 비해 ExpressRoute 연결을 우선 순위로 지정해야 합니다. 다음 구성은 BGP **로컬 기본 설정** 특성을 사용하여 우선 순위를 설정합니다.
 
 ```config
 interface TenGigabitEthernet0/0/0.300
@@ -160,11 +160,11 @@ ip route vrf 30 10.10.30.254 255.255.255.255 Tunnel30
 
 다음 그림은 두 번째 ExpressRoute 회로와 허브 VNet 간의 연결 구성을 보여줍니다.
 
-[![일]][7]
+[![7]][7]
 
 ExpressRoute 1은 허브 VNet과 온-프레미스 위치 1을 모두 서로 다른 Azure 지역의 원격 VNet에 연결합니다.
 
-[![20cm(8]][8]
+[![8]][8]
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>탠덤에서 ExpressRoute 및 사이트 간 VPN 연결
 

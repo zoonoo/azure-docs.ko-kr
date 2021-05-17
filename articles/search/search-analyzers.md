@@ -1,5 +1,5 @@
 ---
-title: 언어 및 텍스트 처리를 위한 분석기
+title: 언어 및 텍스트 처리용 분석기
 titleSuffix: Azure Cognitive Search
 description: 인덱스의 검색 가능한 텍스트 필드에 분석기를 할당하여 사용자 지정, 미리 정의 또는 언어 특정 대안으로 기본 표준 Lucene을 바꿉니다.
 author: HeidiSteen
@@ -10,56 +10,56 @@ ms.topic: conceptual
 ms.date: 03/17/2021
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d40dd0b91f9dcfb7bf5b6e8f084f25ee4f90d780
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104596555"
 ---
-# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search에서 텍스트 처리를 위한 분석기
+# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Azure Cognitive Search의 텍스트 처리용 분석기
 
-*분석기* 는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 텍스트 처리 (어휘 분석이 라고도 함)는 변화 다음과 같은 동작을 통해 쿼리 문자열을 수정 합니다.
+*분석기* 는 쿼리 문자열과 인덱싱된 문서의 텍스트를 처리하는 [전체 텍스트 검색](search-lucene-query-architecture.md) 구성 요소입니다. 텍스트 처리(어휘 분석이라고도 함)는 변형 방식으로, 다음과 같은 작업을 통해 쿼리 문자열을 수정합니다.
 
-+ 필수적이 지 않은 단어 (중지 단어) 및 문장 부호 제거
-+ 구와 하이픈을 넣은 단어를 구성 요소 부분으로 분할
-+ 소문자-대문자 단어
-+ 저장 효율성을 위해 단어를 기본 루트 형식으로 줄인 후 시제에 관계 없이 일치 항목을 찾을 수 있습니다.
++ 필수적이지 않은 단어(중지 단어) 및 문장 부호를 제거합니다.
++ 구와 하이픈을 넣은 단어를 구성 요소 부분으로 분할합니다.
++ 단어를 소문자로 처리하거나 대문자로 처리합니다.
++ 스토리지 효율성을 유지하고 시제에 관계 없이 일치 항목을 찾을 수 있도록 하기 위해 단어를 기본 어근 형식으로 줄입니다.
 
-분석 `Edm.String` 은 전체 텍스트 검색을 나타내는 "검색 가능"으로 표시 된 필드에 적용 됩니다. 
+전체 텍스트 검색을 나타내는 "검색 가능"으로 표시된 `Edm.String` 필드가 분석됩니다. 
 
-이 구성을 사용 하는 필드의 경우에는 토큰을 만든 다음 쿼리를 구문 분석할 때 쿼리를 실행 하는 동안 분석을 수행 하 고 일치 하는 토큰을 검색 합니다. 일치는 동일한 분석기가 인덱싱 및 쿼리에 모두 사용 되는 경우 발생할 가능성이 높습니다. 요구 사항에 따라 각 워크 로드에 대 한 분석기를 독립적으로 설정할 수 있습니다.
+이 구성을 사용하는 필드의 경우에는 토큰을 만들고 인덱싱하는 동안 분석이 진행된 후, 쿼리가 구문 분석되고 엔진이 일치하는 토근을 검색하는 동안 쿼리가 실행될 때 다시 분석이 진행됩니다. 동일한 분석기가 인덱싱 및 쿼리 둘 다에 사용되는 경우 일치할 가능성이 높지만 요구 사항에 따라 각 워크로드에 대한 분석기를 독립적으로 설정할 수 있습니다.
 
-필터 또는 유사 항목 검색과 같은 전체 텍스트 검색이 *아닌* 쿼리 형식은 쿼리 쪽의 분석 단계를 거치지 않습니다. 대신, 파서는 일치의 기준으로 제공 하는 패턴을 사용 하 여 해당 문자열을 검색 엔진으로 직접 보냅니다. 일반적으로 이러한 쿼리 형식에는 패턴 일치 작업을 수행 하기 위해 전체 문자열 토큰이 필요 합니다. 인덱싱 중에 전체 용어 토큰을 확인 하려면 [사용자 지정 분석기](index-add-custom-analyzers.md)가 필요할 수 있습니다. 쿼리 용어를 분석 하는 시기와 이유에 대 한 자세한 내용은 [Azure Cognitive Search의 전체 텍스트 검색](search-lucene-query-architecture.md)을 참조 하세요.
+필터 또는 유사 항목 검색과 같은 전체 텍스트 검색이 *아닌* 쿼리 형식은 쿼리 쪽에서 분석 단계를 거치지 않습니다. 대신, 파서는 일치의 기준으로 제공하는 패턴을 사용하여 해당 문자열을 검색 엔진으로 직접 보냅니다. 일반적으로 이러한 쿼리 형식에는 패턴 일치가 작동하기 위해 전체 문자열 토큰이 필요합니다. 인덱싱 중에 전체 용어 토큰을 확인하려면 [사용자 지정 분석기](index-add-custom-analyzers.md)가 필요할 수 있습니다. 쿼리 용어를 분석하는 시기와 이유에 대한 자세한 내용은 [Azure Cognitive Search의 전체 텍스트 검색](search-lucene-query-architecture.md)을 참조하세요.
 
-어휘 분석에 대 한 자세한 배경 정보는 다음 비디오 클립에서 간략하게 설명 합니다.
+어휘 분석에 대한 추가 배경 정보는 다음 비디오 클립에서 확인할 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
 
 ## <a name="default-analyzer"></a>기본 분석기  
 
-Azure Cognitive Search 쿼리에서는 검색 가능으로 표시 된 모든 문자열 필드에서 분석기가 자동으로 호출 됩니다. 
+Azure Cognitive Search 쿼리에서는 검색 가능으로 표시된 모든 문자열 필드에서 분석기가 자동으로 호출됩니다. 
 
-기본적으로 Azure Cognitive Search는 [Apache Lucene 표준 분석기 (표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 사용 합니다 .이 분석기는 ["유니코드 텍스트 조각화"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리 합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
+기본적으로 Azure Cognitive Search는 [Apache Lucene 표준 분석기(표준 Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html)를 사용하며, ["유니코드 텍스트 구분"](https://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.  
 
-필드별로 기본 분석기를 재정의할 수 있습니다. 대체 분석기는 언어 처리, [사용자 지정 분석기](index-add-custom-analyzers.md)또는 [사용 가능한 분석기 목록](index-add-custom-analyzers.md#built-in-analyzers)에서 제공 하는 기본 제공 분석기에 대 한 [언어 분석기](index-add-language-analyzers.md) 일 수 있습니다.
+필드별로 기본 분석기를 재정의할 수 있습니다. 언어 처리를 위한 [언어 분석기](index-add-language-analyzers.md), [사용자 지정 분석기](index-add-custom-analyzers.md) 또는 [사용 가능한 분석기 목록](index-add-custom-analyzers.md#built-in-analyzers)의 기본 제공 분석기를 대신 사용할 수 있습니다.
 
 ## <a name="types-of-analyzers"></a>분석기 유형
 
-다음 목록에는 Azure Cognitive Search에서 사용할 수 있는 분석기에 대 한 설명이 나와 있습니다.
+다음 목록에서는 Azure Cognitive Search에서 사용 가능한 분석기를 설명합니다.
 
-| 범주 | 설명 |
+| 범주 | Description |
 |----------|-------------|
-| [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 다양 한 언어 및 시나리오에 적합 합니다.|
-| 기본 제공 분석기 | 있는 그대로 사용 되며 이름으로 참조 됩니다. 언어와 언어에 관계 없이 두 가지 유형이 있습니다. </br></br>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#built-in-analyzers)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 이 범주에 포함 된 분석기의 예로는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백** 등이 있습니다. </br></br>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35 Lucene 언어 분석기 및 50 Microsoft 자연어 처리 분석기를 지원 합니다. |
+| [표준 Lucene 분석기](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 기본값 사양 또는 구성이 필요하지 않습니다. 이 범용 분석기는 다양한 언어와 시나리오에서 잘 작동합니다.|
+| 기본 제공 분석기 | 있는 그대로 사용되며 이름으로 참조됩니다. 언어 및 언어 중립적의 두 가지 유형이 있습니다. </br></br>[특수(언어 중립적) 분석기](index-add-custom-analyzers.md#built-in-analyzers)는 텍스트 입력에 특수 처리 또는 최소한의 처리가 필요할 때 사용됩니다. 이 범주에 속하는 분석기 예제에는 **Asciifolding**, **키워드**, **패턴**, **단순**, **중지**, **공백** 이 포함됩니다. </br></br>[언어 분석기](index-add-language-analyzers.md)는 개별 언어에 대해 풍부한 언어 지원이 필요할 때 사용됩니다. Azure Cognitive Search는 35개의 Lucene 언어 분석기 및 50개의 Microsoft 자연어 처리 분석기를 지원합니다. |
 |[사용자 지정 분석기](/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 기존 요소를 결합한 사용자 정의 구성을 말하며, 토크나이저(필수) 하나와 여러 선택적 필터(char 또는 토큰)로 구성됩니다.|
 
-**패턴** 또는 **중지** 와 같은 몇 가지 기본 제공 분석기는 제한 된 구성 옵션 집합을 지원 합니다. 이러한 옵션을 설정 하려면 기본 제공 분석기와 [기본 제공](index-add-custom-analyzers.md#built-in-analyzers)분석기에 설명 된 대체 옵션 중 하나로 구성 된 사용자 지정 분석기를 만듭니다. 다른 사용자 지정 구성과 마찬가지로, Lucene 패턴 분석기와 구분할 수 있도록 구성의 이름(예: *myPatternAnalyzer*)을 입력합니다.
+**패턴** 또는 **중지** 같은 일부 기본 제공 분석기는 제한된 구성 옵션 세트를 지원합니다. 이러한 옵션을 설정하려면 기본 제공 분석기와 [기본 제공 분석기](index-add-custom-analyzers.md#built-in-analyzers)에 설명된 대체 옵션 중 하나로 구성되는 사용자 지정 분석기를 만듭니다. 다른 사용자 지정 구성과 마찬가지로, Lucene 패턴 분석기와 구분할 수 있도록 구성의 이름(예: *myPatternAnalyzer*)을 입력합니다.
 
 ## <a name="how-to-specify-analyzers"></a>분석기를 지정하는 방법
 
-분석기 설정은 선택 사항입니다. 일반적으로 기본 표준 Lucene 분석기를 사용 하 여 수행 방법을 확인 하세요. 쿼리가 예상한 결과를 반환 하지 못하는 경우 다른 분석기로 전환 하는 것이 적합 한 솔루션입니다.
+분석기 설정은 선택 사항입니다. 일반적으로 기본 표준 Lucene 분석기를 사용하여 수행 방법을 확인하세요. 쿼리가 예상한 결과를 반환하지 못하는 경우 다른 분석기로 전환하는 것이 적합합니다.
 
-1. [인덱스](/rest/api/searchservice/create-index)에서 필드 정의를 만들 때 "analyzer" 속성을 **키워드** 와 같은 [기본 제공 분석기](index-add-custom-analyzers.md#built-in-analyzers) ,와 같은 [언어 분석기](index-add-language-analyzers.md) `en.microsoft` 또는 동일한 인덱스 스키마에 정의 된 사용자 지정 분석기 중 하나로 설정 합니다.  
+1. [인덱스](/rest/api/searchservice/create-index)에서 필드 정의를 만들 때 "analyzer" 속성을 [기본 제공 분석기](index-add-custom-analyzers.md#built-in-analyzers)(예: **키워드**), [언어 분석기](index-add-language-analyzers.md)(예: `en.microsoft`) 또는 사용자 지정 분석기(동일한 인덱스 스키마에 정의) 중 하나로 설정합니다.  
  
    ```json
      "fields": [
@@ -74,9 +74,9 @@ Azure Cognitive Search 쿼리에서는 검색 가능으로 표시 된 모든 문
     },
    ```
 
-   [언어 분석기](index-add-language-analyzers.md)를 사용 하는 경우 "analyzer" 속성을 사용 하 여 지정 해야 합니다. "SearchAnalyzer" 및 "indexAnalyzer" 속성은 언어 분석기에 적용 되지 않습니다.
+   [언어 분석기](index-add-language-analyzers.md)를 사용하는 경우 "analyzer" 속성을 사용하여 지정해야 합니다. "SearchAnalyzer" 및 "indexAnalyzer" 속성은 언어 분석기에 적용되지 않습니다.
 
-1. 또는 각 워크 로드에 대 한 분석기를 변경 하려면 "indexAnalyzer" 및 "searchAnalyzer"를 설정 합니다. 이러한 속성을 함께 설정 하 고 "analyzer" 속성을 대체 합니다 .이 속성은 null 이어야 합니다. 이러한 작업 중 하나에 다른 분석기가 필요 하지 않은 특정 변환이 필요한 경우 인덱싱 및 쿼리에 대해 서로 다른 분석기를 사용할 수 있습니다.
+1. 또는 워크로드마다 분석기를 다양하게 지정하려면 "indexAnalyzer" 및 "searchAnalyzer"를 설정합니다. 이러한 속성은 함께 설정되고 "analyzer" 속성을 대체합니다(이 속성은 null이어야 함). 이러한 작업 중 하나에서 다른 작업에는 필요 없는 특정 변환이 필요한 경우 인덱싱 및 쿼리에 다른 분석기를 사용할 수 있습니다.
 
    ```json
      "fields": [
@@ -91,21 +91,21 @@ Azure Cognitive Search 쿼리에서는 검색 가능으로 표시 된 모든 문
     },
    ```
 
-1. 사용자 지정 분석기의 경우 인덱스의 **[분석기]** 섹션에 항목을 만든 다음 앞의 두 단계 중 하나에 따라 사용자 지정 분석기를 필드 정의에 할당 합니다. 자세한 내용은 [인덱스 만들기](/rest/api/searchservice/create-index) 및 [사용자 지정 분석기 추가](index-add-custom-analyzers.md)를 참조하세요.
+1. 단, 사용자 지정 분석기의 경우 인덱스의 **[분석기]** 섹션에 항목을 만든 다음, 앞의 두 단계 중 하나에 따라 사용자 지정 분석기를 필드 정의에 할당합니다. 자세한 내용은 [인덱스 만들기](/rest/api/searchservice/create-index) 및 [사용자 지정 분석기 추가](index-add-custom-analyzers.md)를 참조하세요.
 
 ## <a name="when-to-add-analyzers"></a>분석기를 추가하는 시기
 
 분석기를 추가하고 할당하기에 가장 좋은 시기는 인덱스를 삭제하고 다시 만드는 작업이 일상적으로 진행되는 능동적 개발 단계입니다.
 
-분석기는 용어를 토큰화 하는 데 사용 되므로 필드를 만들 때 분석기를 할당 해야 합니다. 실제로 이미 생성 된 필드에 analyzer 또는 indexAnalyzer를 할당 하는 것은 허용 되지 않습니다 (인덱스에 영향을 주지 않고 언제 든 지 searchAnalyzer 속성을 변경할 수 있음).
+분석기는 용어를 토큰화하는 데 사용되므로 필드를 만들 때 분석기를 할당해야 합니다. 실제로 이미 생성된 필드에 analyzer 또는 indexAnalyzer를 할당하는 것은 허용되지 않습니다(그렇지만 인덱스에 영향을 주지 않고 언제든지 searchAnalyzer 속성을 변경할 수 있음).
 
-기존 필드의 분석기를 변경 하려면 [인덱스를 완전히 다시 작성](search-howto-reindex.md) 해야 합니다. 개별 필드는 다시 작성할 수 없습니다. 프로덕션에 있는 인덱스의 경우 새 분석기 할당을 사용 하 여 새 필드를 만들고 이전에 사용 하기 시작 하 여 다시 빌드를 연기할 수 있습니다. [인덱스 업데이트](/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다.
+기존 필드의 analyzer를 변경하려면 [인덱스를 완전히 다시 빌드](search-howto-reindex.md)해야 합니다(개별 필드는 다시 빌드할 수 없음). 프로덕션 환경의 인덱스인 경우 새 분석기 할당으로 새 필드를 만들어 다시 작성을 지연하고, 기존 필드 대신 사용할 수 있습니다. [인덱스 업데이트](/rest/api/searchservice/update-index)를 사용하여 새 필드를 통합하고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents)를 사용하여 새 필드를 채웁니다. 나중에 계획된 인덱스 서비스의 일환으로 인덱스를 정리하여 오래된 필드를 제거할 수 있습니다.
 
-기존 인덱스에 새 필드를 추가 하려면 [인덱스 업데이트](/rest/api/searchservice/update-index) 를 호출 하 여 필드를 추가 하 고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents) 를 채웁니다.
+기존 인덱스에 새 필드를 추가하려면 [인덱스 업데이트](/rest/api/searchservice/update-index)를 호출하여 필드를 추가하고 [mergeOrUpload](/rest/api/searchservice/addupdate-or-delete-documents)를 호출하여 해당 필드를 채웁니다.
 
-사용자 지정 분석기를 기존 인덱스에 추가 하려면이 오류를 방지 하려면 [업데이트 인덱스](/rest/api/searchservice/update-index) 에서 "allowIndexDowntime 중지 시간" 플래그를 전달 합니다.
+이 오류를 방지하려면 사용자 지정 분석기를 기존 인덱스에 추가하도록 [인덱스 업데이트](/rest/api/searchservice/update-index)에서 "allowIndexDowntime" 플래그를 전달합니다.
 
-*"인덱스 업데이트는 가동 중지 시간이 발생할 수 있으므로 허용 되지 않습니다. 새 분석기, 토크 나이저, 토큰 필터 또는 문자 필터를 기존 인덱스에 추가 하려면 인덱스 업데이트 요청에서 ' allowIndexDowntime 중지 시간 ' 쿼리 매개 변수를 ' t r u e '로 설정 합니다. 이 작업을 수행 하면 최소한 몇 초 동안 인덱스를 오프 라인 상태로 전환 하므로 인덱싱 및 쿼리 요청이 실패 합니다. 인덱스를 업데이트 한 후 몇 분 동안 또는 매우 큰 인덱스의 경우에는 인덱스의 성능 및 쓰기 가용성이 손상 될 수 있습니다. "*
+*"가동 중지 시간이 발생하므로 인덱스 업데이트가 허용되지 않습니다. 기존 인덱스에 새 분석기, 토크나이저, 토큰 필터 또는 문자 필터를 추가하려면 인덱스 업데이트 요청에서 'allowIndexDowntime' 쿼리 매개 변수를 'true'로 설정하세요. 이 작업 중에 인덱스가 몇 초 이상 오프라인 상태가 되면 인덱싱 및 쿼리 요청이 실패합니다. 인덱스의 성능 및 쓰기 가용성은 인덱스를 업데이트한 후 몇 분 동안, 인덱스가 아주 큰 경우에는 더 긴 시간 동안 제대로 작동하지 않을 수 있습니다."*
 
 ## <a name="recommendations-for-working-with-analyzers"></a>분석기 사용에 대한 추천
 
@@ -113,7 +113,7 @@ Azure Cognitive Search 쿼리에서는 검색 가능으로 표시 된 모든 문
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>특정 요구 사항이 없는 경우 읽기 쓰기에 대해 하나의 분석기
 
-Azure Cognitive Search를 사용 하 여 인덱싱 및 검색에 대해 다른 분석기를 지정 하 고 추가 indexAnalyzer와 searchAnalyzer 필드 속성을 사용할 수 있습니다. 분석기를 지정하지 않으면 analyzer 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다. 분석기가 지정 되지 않은 경우 기본 표준 Lucene 분석기가 사용 됩니다.
+Azure Cognitive Search는 추가적인 indexAnalyzer 및 searchAnalyzer 필드 속성을 통해 인덱싱 및 검색에 서로 다른 분석기를 지정할 수 있습니다. 분석기를 지정하지 않으면 analyzer 속성을 통해 설정된 분석기가 인덱싱과 검색에 모두 사용됩니다. 분석기를 지정하지 않으면 기본 표준 Lucene 분석기가 사용됩니다.
 
 특정 요구 사항이 따로 지정되지 않으면 인덱싱 및 쿼리 모두에 대해 동일한 분석기를 사용하는 것이 일반적인 규칙입니다. 철저하게 테스트해야 합니다. 검색 및 인덱싱 시간에서 텍스트 처리가 다른 경우 검색 및 인덱싱 분석기 구성이 일치하지 않으면 쿼리 용어와 인덱싱된 용어 사이에 불일치가 발생할 위험을 떠안게 됩니다.
 
@@ -307,9 +307,9 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
   }
 ```
 
-## <a name="c-examples"></a>C # 예제
+## <a name="c-examples"></a>C# 예제
 
-.NET SDK 코드 샘플을 사용 하는 경우 다음 예제를 추가 하 여 분석기를 사용 하거나 구성할 수 있습니다.
+.NET SDK 코드 샘플을 사용하는 경우 다음 예제를 추가하여 분석기를 사용하거나 구성할 수 있습니다.
 
 + [기본 제공 분석기 할당](#Assign-a-language-analyzer)
 + [분석기 구성](#Define-a-custom-analyzer)
@@ -318,11 +318,11 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 ### <a name="assign-a-language-analyzer"></a>언어 분석기 할당
 
-구성 없이 있는 그대로 사용 되는 모든 분석기는 필드 정의에 지정 됩니다. 인덱스의 **[분석기]** 섹션에 항목을 만들 필요는 없습니다. 
+구성 없이 있는 그대로 사용되는 모든 분석기는 필드 정의에 지정됩니다. 인덱스의 **[분석기]** 섹션에 항목을 만들 필요가 없습니다. 
 
-언어 분석기는 있는 그대로 사용됩니다. 이를 사용 하려면 [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer)를 호출 하 고, Azure Cognitive Search에서 지원 되는 텍스트 분석기를 제공 하는 [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 유형을 지정 합니다.
+언어 분석기는 있는 그대로 사용됩니다. 이 분석기를 사용하려면 [LexicalAnalyzer](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzer)를 호출하고 [LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) 유형을 지정하여 Azure Cognitive Search에서 지원되는 텍스트 분석기를 제공합니다.
 
-사용자 지정 분석기는 필드 정의에 유사 하 게 지정 되지만이 작업을 수행 하려면 다음 섹션에서 설명 하는 것 처럼 인덱스 정의에 분석기를 지정 해야 합니다.
+사용자 지정 분석기는 필드 정의에 유사하게 지정되지만 이 작업을 수행하려면 다음 섹션에서 설명하는 것처럼 인덱스 정의에 분석기를 지정해야 합니다.
 
 ```csharp
     public partial class Hotel
@@ -345,15 +345,15 @@ API는 인덱싱 및 검색에 대해 다른 분석기를 지정하기 위한 �
 
 ### <a name="define-a-custom-analyzer"></a>사용자 지정 분석기 정의
 
-사용자 지정 또는 구성이 필요한 경우에는 분석기 구문을 인덱스에 추가 합니다. 정의한 후에는 앞의 예제에서 설명한 대로 필드 정의에 추가할 수 있습니다.
+사용자 지정 또는 구성이 필요한 경우에는 분석기 구문을 인덱스에 추가합니다. 정의한 후에는 앞의 예제에서 설명한 대로 필드 정의에 추가할 수 있습니다.
 
-[CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) 개체를 만듭니다. 사용자 지정 분석기는 알려진 토크, 0 개 이상의 토큰 필터 및 0 개 이상의 문자 필터 이름으로 이루어진 사용자 정의 조합입니다.
+[CustomAnalyzer](/dotnet/api/azure.search.documents.indexes.models.customanalyzer) 개체를 만듭니다. 사용자 지정 분석기는 알려진 토크나이저, 0개 이상의 토큰 필터 및 0개 이상의 문자 필터 이름으로 이루어진 사용자 정의 조합입니다.
 
-+ [CustomAnalyzer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
-+ [CustomAnalyzer 필터](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
-+ [CustomAnalyzer 필터](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
++ [CustomAnalyzer.Tokenizer](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer)
++ [CustomAnalyzer.TokenFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenfilters)
++ [CustomAnalyzer.CharFilters](/dotnet/api/microsoft.azure.search.models.customanalyzer.charfilters)
 
-다음 예제에서는 [uax_url_email 토크](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) 및 [소문자 토큰 필터](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase)를 사용 하는 "url-분석" 이라는 사용자 지정 분석기를 만듭니다.
+다음 예제에서는 [uax_url_email 토크나이저](/dotnet/api/microsoft.azure.search.models.customanalyzer.tokenizer) 및 [소문자 토큰 필터](/dotnet/api/microsoft.azure.search.models.tokenfiltername.lowercase)를 사용하는 "url-analyze"라는 사용자 지정 분석기를 만듭니다.
 
 ```csharp
 private static void CreateIndex(string indexName, SearchIndexClient adminClient)
@@ -374,13 +374,13 @@ private static void CreateIndex(string indexName, SearchIndexClient adminClient)
 }
 ```
 
-더 많은 예제는 [CustomAnalyzerTests](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)을 참조 하세요.
+추가 예제는 [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Microsoft.Azure.Search/tests/Tests/CustomAnalyzerTests.cs)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-쿼리 실행에 대 한 자세한 설명은 [Azure Cognitive Search의 전체 텍스트 검색](search-lucene-query-architecture.md)에서 찾을 수 있습니다. 이 문서에서는 예제를 사용 하 여 화면에서 직관적으로 보일 수 있는 동작을 설명 합니다.
+쿼리 실행에 대한 자세한 설명은 [Azure Cognitive Search의 전체 텍스트 검색](search-lucene-query-architecture.md)에서 찾을 수 있습니다. 이 문서에서는 화면에서 직관적이지 않은 것처럼 보일 수 있는 동작을 설명하는 예제를 사용합니다.
 
-분석기에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+분석기에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 + [언어 분석기](index-add-language-analyzers.md)
 + [사용자 지정 분석기](index-add-custom-analyzers.md)

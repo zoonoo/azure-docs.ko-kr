@@ -1,32 +1,32 @@
 ---
 title: Microsoft OPC 게시자 명령줄 인수
-description: 이 문서에서는 OPC 게시자 명령줄 인수에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 OPC 게시자 명령줄 인수를 대략적으로 설명합니다.
 author: jehona-m
 ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: reference
 ms.date: 3/22/2021
 ms.openlocfilehash: 0ff06475a987f2921f603802935570730577f743
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104787562"
 ---
 # <a name="command-line-arguments"></a>명령줄 인수
 
-다음에는 OPC 게시자에 대 한 전역 설정을 설정 하는 데 사용할 수 있는 몇 가지 명령줄 인수가 설명 되어 있습니다.
+다음에는 OPC 게시자의 전역 설정을 지정하는 데 사용할 수 있는 몇 가지 명령줄 인수가 있습니다.
 
-## <a name="opc-publisher-command-line-arguments-for-version-25-and-below"></a>OPC 게시자 명령줄 인수 2.5 버전에 대 한 명령줄 인수
+## <a name="opc-publisher-command-line-arguments-for-version-25-and-below"></a>버전 2.5 이하의 OPC 게시자 명령줄 인수
 
-* 사용법: opcpublisher.exe \<applicationname> [ \<iothubconnectionstring> ] [ \<options> ]
+* 사용법: opcpublisher.exe \<applicationname> [\<iothubconnectionstring>] [\<options>]
     
-* applicationname: 사용할 OPC UA 응용 프로그램 이름입니다. 필요한 응용 프로그램 이름은 IoT Hub 장치 레지스트리에서이 이름으로 게시자를 등록 하는 데도 사용 됩니다.
+* applicationname: 사용할 OPC UA 애플리케이션 이름입니다. 필수. 애플리케이션 이름은 IoT Hub 디바이스 레지스트리에서 이 이름으로 게시자를 등록하는 데도 사용됩니다.
     
-* iothubconnectionstring: IoT Hub owner connectionstring (옵션)입니다. 일반적으로 응용 프로그램의 첫 번째 시작에만 IoTHub owner connectionstring을 지정 합니다. 연결 문자열은 암호화 되어 플랫폼 인증서 저장소에 저장 됩니다.
-후속 호출에서이를 읽고 다시 사용 합니다. 각 시작에서 connectionstring을 지정 하면 IoT Hub 장치 레지스트리에서 응용 프로그램에 대해 생성 된 장치가 제거 되 고 매번 다시 만들어집니다.
+* iothubconnectionstring: IoT Hub 소유자 연결 문자열. 옵션. 일반적으로 애플리케이션의 처음 시작할 때 IoT Hub 소유자 연결 문자열을 지정합니다. 연결 문자열은 암호화되어 플랫폼 인증서 저장소에 저장됩니다.
+후속 호출에서 읽어온 후 다시 사용합니다. 각 시작에서 연결 문자열을 지정하면 IoT Hub 디바이스 레지스트리에서 애플리케이션에 대해 만든 디바이스가 매번 제거되었다가 다시 만들어집니다.
     
-응용 프로그램을 제어 하는 데 사용할 수 있는 몇 가지 환경 변수가 있습니다.
+애플리케이션을 제어하는 데 사용할 수 있는 몇 가지 환경 변수가 있습니다.
 ```
         _HUB_CS: sets the IoTHub owner connectionstring
         _GW_LOGP: sets the filename of the log file to use
@@ -330,7 +330,7 @@ ms.locfileid: "104787562"
 ```
 
 
-## <a name="opc-publisher-command-line-arguments-for-version-26-and-above"></a>버전 2.6 이상에 대 한 OPC 게시자 명령줄 인수
+## <a name="opc-publisher-command-line-arguments-for-version-26-and-above"></a>버전 2.6 이상의 OPC 게시자 명령줄 인수
 ```
       --pf, --publishfile=VALUE
                                        the filename to configure the nodes  to publish.
@@ -398,4 +398,4 @@ ms.locfileid: "104787562"
 > [OPC 게시자 GitHub 리포지토리](https://github.com/Azure/Industrial-IoT)
 
 > [!div class="nextstepaction"]
-> [IIoT Platform GitHub 리포지토리](https://github.com/Azure/iot-edge-opc-publisher)
+> [IIoT 플랫폼 GitHub 리포지토리](https://github.com/Azure/iot-edge-opc-publisher)

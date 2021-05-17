@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway: 지점 및 사이트 간 클라이언트 인증서 설치'
-description: P2S 인증서 인증용 Windows, Mac, Linux 클라이언트 인증서를 설치합니다.
+title: 지점 및 사이트 간 클라이언트 인증서 설치
+titleSuffix: Azure VPN Gateway
+description: P2S 인증서 인증용 클라이언트 인증서를 설치하는 방법에 대해 알아봅니다(Windows, Mac, Linux).
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8c4d37f67d89ad1b7973a85fb6c2a9f7e818a028
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faa2d1924b0953bbf8da660ac7702c959fe7b272
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89421665"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292237"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>P2S 인증서 인증 연결용 클라이언트 인증서 설치
 

@@ -1,6 +1,6 @@
 ---
 title: 쿼리
-description: 쿼리 성능 모니터링은 Azure SQL Database에서 단일 및 풀링된 데이터베이스에 대 한 CPU를 많이 사용 하는 장기 실행 쿼리를 식별 합니다.
+description: 쿼리 성능 모니터링은 Azure SQL Database에서 단일 및 풀링된 데이터베이스에 대해 CPU를 가장 많이 사용하는 장기 실행 쿼리를 식별합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,34 +12,34 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 1/14/2021
 ms.openlocfilehash: db24f280f66e567572821297cfc9bb9b1e19743b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98222346"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Azure SQL Database에 대한 Query Performance Insight
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Query Performance Insight는 단일 및 풀링된 데이터베이스에 대한 지능적인 쿼리 분석을 제공합니다. 워크로드에서 리소스를 많이 사용하고 오래 실행되는 쿼리를 식별하는 데 도움이 됩니다. 이를 통해 전체 워크로드 성능을 개선하고 비용을 지불하는 리소스를 효율적으로 사용할 수 있도록 최적화할 쿼리를 찾을 수 있습니다. Query Performance Insight를 사용 하면 다음을 제공 하 여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
+Query Performance Insight는 단일 및 풀링된 데이터베이스에 대한 지능적인 쿼리 분석을 제공합니다. 워크로드에서 리소스를 많이 사용하고 오래 실행되는 쿼리를 식별하는 데 도움이 됩니다. 이를 통해 전체 워크로드 성능을 개선하고 비용을 지불하는 리소스를 효율적으로 사용할 수 있도록 최적화할 쿼리를 찾을 수 있습니다. Query Performance Insight는 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
-* DTU (데이터베이스 리소스) 소비량에 대 한 심층 분석
-* CPU, 기간 및 실행 수 별 상위 데이터베이스 쿼리에 대 한 세부 정보 (성능 개선을 위한 잠재적 튜닝 후보)
-* 쿼리 정보를 확인 하 고 쿼리 텍스트 및 리소스 사용률 기록을 보기 위해 쿼리 정보를 드릴 다운할 수 있습니다.
-* [데이터베이스](database-advisor-implement-performance-recommendations.md) 관리자의 성능 권장 사항을 표시 하는 주석
+* DTU(데이터베이스 리소스) 사용에 대한 심층 인사이트
+* CPU, 기간 및 실행 횟수(성능 향상에 대한 잠재적 조정 후보)에 따른 상위 데이터베이스 쿼리의 세부 정보
+* 리소스 사용률에 대한 텍스트 및 기록을 확인할 수 있도록 쿼리에 대한 세부 정보로 드릴다운하는 기능
+* [Database Advisor](database-advisor-implement-performance-recommendations.md)의 성능 권장 사항을 표시하는 주석
 
 ![쿼리](./media/query-performance-insight-use/opening-title.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 가 활성 상태여야 합니다. 기본적으로 Azure SQL Database의 모든 데이터베이스에 대해 자동으로 사용 하도록 설정 됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
+Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 가 활성 상태여야 합니다. 기본적으로 Azure SQL Database의 모든 데이터베이스에 대해 자동으로 사용하도록 설정됩니다. 쿼리 저장소를 실행하지 않는 경우 Azure Portal에서 사용하도록 설정하라는 메시지가 나타납니다.
 
 > [!NOTE]
 > 포털에서 “쿼리 저장소가 이 데이터베이스에서 올바르게 구성되지 않음” 메시지가 표시되는 경우 [쿼리 저장소 구성 최적화](#optimize-the-query-store-configuration)를 참조하세요.
 
 ## <a name="permissions"></a>권한
 
-Query Performance Insight를 사용 하려면 다음 [azure 역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 권한이 필요 합니다.
+Query Performance Insight를 사용하려면 다음 [Azure RBAC(Azure 역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 권한이 필요합니다.
 
 * 최상위 리소스 사용 쿼리 및 차트를 보려면 **판독기**, **소유자**, **기여자**, **SQL DB 기여자** 또는 **SQL Server 기여자** 권한이 필요합니다.
 * 쿼리 텍스트를 보려면 **소유자**, **참여자**, **SQL DB 참여자** 또는 **SQL Server 참여자** 권한이 필요합니다.
@@ -49,19 +49,19 @@ Query Performance Insight를 사용 하려면 다음 [azure 역할 기반 액세
 Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)을 열고 검사하려는 데이터베이스를 찾습니다.
-2. 왼쪽 메뉴에서 **지능형 성능**  >  **Query Performance Insight** 을 엽니다.
+2. 왼쪽 메뉴에서 **지능형 성능** > **Query Performance Insight** 를 엽니다.
   
    ![메뉴에 표시된 Query Performance Insight](./media/query-performance-insight-use/tile.png)
 
 3. 첫 번째 탭에서 최상위 리소스 사용 쿼리의 목록을 검토합니다.
 4. 해당하는 세부 정보를 보려면 개별 쿼리를 선택합니다.
-5. **Intelligent performance**  >  **performance 권장 사항을** 열고 성능 권장 사항을 사용할 수 있는지 확인 합니다. 기본 제공 성능 권장 사항에 대 한 자세한 내용은 [Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md)를 참조 하세요.
+5. **지능형 성능** > **성능 권장 사항** 을 열고 성능 권장 사항을 사용할 수 있는지 확인합니다. 기본 제공 성능 권장 사항에 대한 자세한 내용은 [Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md)를 참조하세요.
 6. 슬라이더 또는 확대/축소 아이콘을 사용하여 관찰 간격을 변경합니다.
 
    ![성능 대시보드](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> Query Performance Insight에서 정보를 렌더링 하는 Azure SQL Database에는 쿼리 저장소 몇 시간의 데이터를 캡처해야 합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였다면 Query Performance Insight에서 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 쿼리 저장소는 실행 중이 아닌 경우 언제든지 활성화할 수 있습니다. 자세한 내용은 [쿼리 저장소 모범 사례](/sql/relational-databases/performance/best-practice-with-the-query-store)를 참조하세요.
+> Query Performance Insight에서 정보를 렌더링하는 Azure SQL Database의 경우 쿼리 저장소는 몇 시간의 데이터를 캡처해야 합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였다면 Query Performance Insight에서 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 쿼리 저장소는 실행 중이 아닌 경우 언제든지 활성화할 수 있습니다. 자세한 내용은 [쿼리 저장소 모범 사례](/sql/relational-databases/performance/best-practice-with-the-query-store)를 참조하세요.
 >
 
 데이터베이스 성능 권장 사항의 경우 Query Performance Insight 탐색 블레이드에서 [권장 사항](database-advisor-implement-performance-recommendations.md)을 선택합니다.
@@ -85,7 +85,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
    >
    > 더 세부적인 비교(최대 1분)는 사용자 지정 DTU 사용률 차트를 생성하는 것을 고려합니다.
    >
-   > 1. Azure Portal에서 **Azure SQL Database**  >  **모니터링** 을 선택 합니다.
+   > 1. Azure Portal에서 **Azure SQL Database** > **모니터링** 을 선택합니다.
    > 2. **메트릭** 을 선택합니다.
    > 3. **+차트 추가** 를 선택합니다.
    > 4. 차트에서 DTU 백분율을 선택합니다.
@@ -155,7 +155,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 
 Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재적인 병목 상태를 찾는 데 도움이 될 수 있습니다.
 
-장기 실행 쿼리는 리소스를 더 오래 잠그고, 다른 사용자를 차단하고, 확장성을 제한할 가능성이 가장 높습니다. 또한 최적화에 가장 적합한 후보이기도 합니다. 자세한 내용은 [AZURE SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조 하세요.
+장기 실행 쿼리는 리소스를 더 오래 잠그고, 다른 사용자를 차단하고, 확장성을 제한할 가능성이 가장 높습니다. 또한 최적화에 가장 적합한 후보이기도 합니다. 자세한 내용은 [Azure SQL 차단 문제 이해 및 해결](understand-resolve-blocking.md)을 참조하세요.
 
 장기 실행 쿼리를 식별하려면 다음을 수행합니다.
 
@@ -177,7 +177,7 @@ Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재
    >
    > 데이터베이스 DTU 사용량을 더 자세하게(최대 1분) 파악하려면 Azure Portal에서 사용자 지정 차트 만들기를 고려합니다.
    >
-   > 1. **Azure SQL Database**  >  **모니터링** 을 선택 합니다.
+   > 1. **Azure SQL Database** > **모니터링** 을 선택합니다.
    > 2. **메트릭** 을 선택합니다.
    > 3. **+차트 추가** 를 선택합니다.
    > 4. 차트에서 DTU 백분율을 선택합니다.
@@ -192,9 +192,9 @@ Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재
 
 일부 경우에 실행 횟수가 높으면 네트워크 왕복이 증가할 수 있습니다. 왕복은 성능에 영향을 줍니다. 네트워크 대기 시간 및 다운스트림 서버 대기 시간이 발생할 수 있습니다.
 
-예를 들어, 많은 데이터 기반 웹 사이트는 사용자 요청이 있을 때마다 데이터베이스에 과도하게 액세스합니다. 연결 풀링이 도움이 되지만 서버에서 네트워크 트래픽과 처리 부하가 증가 하면 성능이 저하 될 수 있습니다. 일반적으로 왕복을 최소로 유지합니다.
+예를 들어, 많은 데이터 기반 웹 사이트는 사용자 요청이 있을 때마다 데이터베이스에 과도하게 액세스합니다. 연결 풀링이 도움이 되지만, 서버에서 네트워크 트래픽 및 처리 부하가 높아져서 성능이 저하될 수 있습니다. 일반적으로 왕복을 최소로 유지합니다.
 
-자주 실행 되는 ("번잡") 쿼리를 식별 하려면 다음을 수행 합니다.
+자주 실행되는(“번잡한”) 쿼리를 식별하려면
 
 1. 선택한 데이터베이스에 대한 Query Performance Insight에서 **사용자 지정** 탭을 엽니다.
 2. 메트릭을 **실행 횟수** 로 변경합니다.
@@ -207,7 +207,7 @@ Query Performance Insight의 기간 및 실행 수라는 두 메트릭은 잠재
 
 Query Performance Insight에서 워크로드를 살펴보는 동안 차트 상단에 있는 세로줄에 아이콘이 표시될 수 있습니다.
 
-이러한 아이콘은 주석입니다. [Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md)에서 제공 하는 성능 권장 사항을 보여 줍니다. 주석을 마우스로 가리키면 성능 권장 사항에 대한 요약된 정보를 가져올 수 있습니다.
+이러한 아이콘은 주석입니다. [Azure SQL Database Advisor](database-advisor-implement-performance-recommendations.md)의 성능 권장 사항을 표시합니다. 주석을 마우스로 가리키면 성능 권장 사항에 대한 요약된 정보를 가져올 수 있습니다.
 
    ![쿼리 주석](./media/query-performance-insight-use/annotation.png)
 
@@ -238,14 +238,14 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 오류 
 
 보존 정책에는 다음과 같은 두 종류가 있습니다.
 
-* **크기 기반**:이 정책이 **자동** 으로 설정 된 경우 최대 크기에 도달 하면 데이터가 자동으로 정리 됩니다.
-* **시간 기준**: 기본적으로이 정책은 30 일로 설정 됩니다. 쿼리 저장소 공간이 부족하면 30일이 지난 쿼리 정보를 삭제합니다.
+* **크기 기반**: 이 정책이 **자동** 으로 설정된 경우 최대 크기에 가까워지면 데이터를 자동으로 지웁니다.
+* **시간 기반**: 기본적으로 이 정책은 30일로 설정되어 있습니다. 쿼리 저장소 공간이 부족하면 30일이 지난 쿼리 정보를 삭제합니다.
 
 캡처 정책을 다음으로 설정할 수 있습니다.
 
-* **All**: 쿼리 저장소 모든 쿼리를 캡처합니다.
-* **Auto**: 쿼리 저장소는 드물게 발생 하는 쿼리 및 쿼리를 무시 하 고 실행 기간이 중요 하지 않습니다. 실행 횟수, 컴파일 기간 및 런타임 기간에 대한 임계값은 내부적으로 결정됩니다. 기본 옵션입니다.
-* **없음**: 쿼리 저장소 새 쿼리 캡처를 중지 하지만 이미 캡처된 쿼리에 대 한 런타임 통계는 계속 수집 됩니다.
+* **모두**: 쿼리 저장소에서 모든 쿼리를 캡처합니다.
+* **자동**: 쿼리 저장소에서 잘 사용하지 않는 쿼리와 컴파일 및 실행 기간이 적은 쿼리들을 무시합니다. 실행 횟수, 컴파일 기간 및 런타임 기간에 대한 임계값은 내부적으로 결정됩니다. 기본 옵션입니다.
+* **없음**: 쿼리 저장소에서 새 쿼리의 캡처를 중지하지만 이미 캡처된 쿼리에 대한 런타임 통계는 계속 수집됩니다.
 
 [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 또는 Azure Portal에서 다음 명령을 실행하여 모든 정책은 **자동** 으로, 삭제 정책은 30일로 설정하는 것이 좋습니다. (`YourDB`를 데이터베이스 이름으로 바꿉니다.)
 
@@ -278,4 +278,4 @@ Query Performance Insight를 사용하는 동안 다음 쿼리 저장소 오류 
 
 ## <a name="next-steps"></a>다음 단계
 
-대량 단일 및 풀링된 데이터베이스, 탄력적 풀, 관리 되는 인스턴스 및 인스턴스 데이터베이스의 고급 성능 모니터링에 [Azure SQL 분석](../../azure-monitor/insights/azure-sql.md) 를 사용 하는 것이 좋습니다.
+단일 및 풀링된 데이터베이스, 탄력적 풀, Managed Instances 및 인스턴스 데이터베이스의 대규모 고급 성능 모니터링을 위해서는 [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md)를 사용하는 것이 좋습니다.

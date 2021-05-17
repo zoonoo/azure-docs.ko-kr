@@ -6,13 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: brendm
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 46d79de612a17c7b21e7cc51dcf4904209e1625d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java
+ms.openlocfilehash: f5fcd28f35260bf3b312e089e788f765c0219745
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878277"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108070914"
 ---
 # <a name="start-stop-and-delete-your-azure-spring-cloud-application"></a>Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제합니다
 
@@ -32,7 +32,7 @@ ms.locfileid: "104878277"
 ## <a name="using-the-azure-cli"></a>Azure CLI 사용
 
 > [!NOTE]
-> Azure CLI를 사용하여 선택적 매개 변수를 사용하고 기본값을 구성할 수 있습니다. Azure CLI에 대한 자세한 내용은 [참조 설명서](/cli/azure/ext/spring-cloud/spring-cloud)를 참조하세요.  
+> Azure CLI를 사용하여 선택적 매개 변수를 사용하고 기본값을 구성할 수 있습니다. Azure CLI에 대한 자세한 내용은 [참조 설명서](/cli/azure/spring-cloud)를 참조하세요.  
 
 먼저 다음과 같이 Azure CLI에 대한 Azure Spring Cloud 확장을 설치합니다.
 

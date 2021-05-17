@@ -1,17 +1,18 @@
 ---
-title: Azure Resource Manager 템플릿으로 최신 메트릭 경고 만들기
+title: Azure Resource Manager 템플릿을 사용하여 새로운 메트릭 경고 만들기
 description: Resource Manager 템플릿을 사용하여 메트릭 경고를 만드는 방법에 대해 알아봅니다.
 author: harelbr
 ms.author: harelbr
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
-ms.openlocfilehash: 031246efa35eee5e2e4470b94d56e47cba0ad8ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a75aca174fd2fda6ccb4c12346a617e24814caf4
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038325"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108318372"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -25,8 +26,8 @@ ms.locfileid: "102038325"
 기본적인 단계는 다음과 같습니다.
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
-2. 해당 매개 변수 파일을 편집 하 고 JSON으로 사용 하 여 경고를 사용자 지정 합니다.
-3. `metricName`매개 변수의 경우 [지원 되는 메트릭 Azure Monitor](../essentials/metrics-supported.md)에서 사용 가능한 메트릭을 참조 하세요.
+2. 해당 매개 변수 파일을 편집하고 JSON으로 사용하여 경고를 사용자 지정합니다.
+3. `metricName` 매개 변수에 대해서는 [Azure Monitor에서 지원되는 메트릭](../essentials/metrics-supported.md)에서 사용 가능한 메트릭을 참조하세요.
 4. [배포 방법](../../azure-resource-manager/templates/deploy-powershell.md)을 사용하여 템플릿을 배포합니다.
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>간단한 정적 임계값 메트릭 경고에 대한 템플릿
@@ -560,14 +561,14 @@ az deployment group create \
 >
 > 메트릭 경고는 다른 리소스 그룹에서 대상 리소스로 만들 수 있지만, 대상 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다.
 
-## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>여러 기준을 모니터링 하는 정적 임계값 메트릭 경고의 템플릿
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>여러 기준을 모니터링하는 정적 임계값 메트릭 경고에 대한 템플릿
 
-최신 메트릭 경고는 다중 차원 메트릭에 대 한 경고를 지원 하 고 여러 조건을 정의 하는 것을 지원 합니다 (경고 규칙 당 최대 5 개 조건). 다음 템플릿을 사용 하 여 차원 메트릭에 대 한 고급 메트릭 경고 규칙을 만들고 여러 조건을 지정할 수 있습니다.
+최신 메트릭 경고는 다차원 메트릭에 대한 경고 및 여러 조건의 정의를 지원합니다(경고 규칙당 최대 5개 조건까지 정의할 수 있음). 다음 템플릿을 사용하여 차원 메트릭에 대한 추가 고급 메트릭 경고 규칙을 작성하고 여러 조건을 지정할 수 있습니다.
 
-여러 조건을 포함 하는 경고 규칙에서 차원을 사용 하는 경우 다음 제약 조건을 유의 하세요.
+여러 조건이 포함된 경고 규칙에서 차원을 사용하는 경우 다음 제약 조건을 참조하세요.
 - 각 조건 내에서 차원당 하나의 값만 선택할 수 있습니다.
 - "\*"는 차원 값으로 사용할 수 없습니다.
-- 다른 조건에서 구성 된 메트릭이 동일한 차원을 지 원하는 경우 구성 된 차원 값은 모든 해당 메트릭에 대해 동일한 방식으로 명시적으로 설정 되어야 합니다 (관련 조건에 따라).
+- 다른 조건으로 구성된 메트릭에서 동일한 차원을 지원하는 경우 구성된 차원 값은 모든 메트릭(관련 조건의)에 대해 동일한 방식으로 명시적으로 설정해야 합니다.
     - 아래 예제에서는 **Transactions** 및 **SuccessE2ELatency** 메트릭 모두에 **ApiName** 차원이 있고 *criterion1* 에서 **ApiName** 차원에 대해 *"GetBlob"* 값을 지정하고 있으므로 *criterion2* 에서도 **ApiName** 차원에 대해 *"GetBlob"* 값을 설정해야 합니다.
 
 이 연습의 목적을 위해 아래의 json을 advancedstaticmetricalert.json으로 저장합니다.
@@ -798,13 +799,13 @@ az deployment group create \
 ```
 
 
-## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링 하는 정적 메트릭 경고의 템플릿
+## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링하는 정적 메트릭 경고에 대한 템플릿
 
-다음 템플릿을 사용 하 여 차원 메트릭에 대 한 정적 메트릭 경고 규칙을 만들 수 있습니다.
+다음 템플릿을 사용하여 차원 메트릭에 대한 정적 메트릭 경고 규칙을 만들 수 있습니다.
 
 단일 경고 규칙은 여러 메트릭 시계열을 한 번에 모니터링할 수 있으므로 관리할 경고 규칙이 줄어듭니다.
 
-아래 예제에서 경고 규칙은 **트랜잭션** 메트릭에 대 한 **Responsetype** 및 **apiname** 차원의 차원 값 조합을 모니터링 합니다.
+아래 예제에서 경고 규칙은 **Transactions** 메트릭에 대한 **ResponseType** 및 **ApiName** 차원의 차원 값 조합을 모니터링합니다.
 1. **ResponsType** - "\*" 와일드카드를 사용하면 미래 값을 포함하여 **ResponseType** 차원의 각 값에 대해 다른 시계열이 개별적으로 모니터링됩니다.
 2. **ApiName** - **GetBlob** 및 **PutBlob** 차원 값에 대해서만 다른 시계열이 모니터링됩니다.
 
@@ -814,7 +815,7 @@ az deployment group create \
 - Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
 - Metric = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
 
-이 연습의 목적을 위해 multidimensionalstaticmetricalert.js에 json을 저장 합니다.
+이 연습의 목적을 위해 아래 json을 multidimensionalstaticmetricalert.json으로 저장합니다.
 
 ```json
 {
@@ -941,7 +942,7 @@ az deployment group create \
 
 위의 템플릿을 아래 제공된 매개 변수 파일과 함께 사용할 수 있습니다. 
 
-이 연습의 목적을 위해 아래 multidimensionalstaticmetricalert.parameters.jsjson을 저장 하 고 수정 합니다.
+이 연습의 목적을 위해 아래 json을 multidimensionalstaticmetricalert.parameters.json으로 저장하고 수정합니다.
 
 ```json
 {
@@ -1018,13 +1019,13 @@ az deployment group create \
 ```
 
 
-## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링 하는 동적 임계값 메트릭 경고에 대 한 템플릿
+## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링하는 동적 임계값 메트릭 경고에 대한 템플릿
 
-다음 템플릿을 사용 하 여 차원 메트릭에 대 한 고급 동적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
+다음 템플릿을 사용하여 차원 메트릭에 대한 추가 고급 동적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
 
-단일 동적 임계값 경고 규칙은 한 번에 수백 개의 메트릭 시계열 (다양 한 형식)에 대 한 맞춤형 임계값을 만들 수 있으며,이로 인해 관리할 경고 규칙이 줄어듭니다.
+단일 동적 임계값 경고 규칙은 수백 가지 메트릭 시계열(다양한 형식의 경우에도)에 대한 맞춤형 임계값을 한 번에 만들 수 있으므로 관리할 경고 규칙이 줄어듭니다.
 
-아래 예제에서 경고 규칙은 **트랜잭션** 메트릭에 대 한 **Responsetype** 및 **apiname** 차원의 차원 값 조합을 모니터링 합니다.
+아래 예제에서 경고 규칙은 **Transactions** 메트릭에 대한 **ResponseType** 및 **ApiName** 차원의 차원 값 조합을 모니터링합니다.
 1. **ResponsType** - 미래 값을 포함하여 **ResponseType** 차원의 각 값에 대해 다른 시계열이 개별적으로 모니터링됩니다.
 2. **ApiName** - **GetBlob** 및 **PutBlob** 차원 값에 대해서만 다른 시계열이 모니터링됩니다.
 
@@ -1239,10 +1240,10 @@ az deployment group create \
 
 >[!NOTE]
 >
-> 동적 임계값을 사용 하는 메트릭 경고 규칙에 대 한 여러 조건은 현재 지원 되지 않습니다.
+> 동적 임계값을 사용하는 메트릭 경고 규칙에는 현재 여러 조건이 지원되지 않습니다.
 
 
-## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>사용자 지정 메트릭을 모니터링 하는 정적 임계값 메트릭 경고의 템플릿
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>사용자 지정 메트릭을 모니터링하는 정적 임계값 메트릭 경고에 대한 템플릿
 
 다음 템플릿을 사용하여 사용자 지정 메트릭에 대한 고급 정적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
 
@@ -1430,7 +1431,7 @@ Azure Monitor의 사용자 지정 메트릭에 대한 자세한 내용은 [Azure
 
 위의 템플릿을 아래 제공된 매개 변수 파일과 함께 사용할 수 있습니다. 
 
-이 연습의 목적을 위해 아래 customstaticmetricalert.parameters.jsjson을 저장 하 고 수정 합니다.
+이 연습의 목적을 위해 아래의 json을 customstaticmetricalert.parameters.json으로 저장하고 수정합니다.
 
 ```json
 {
@@ -1505,9 +1506,9 @@ az deployment group create \
 > [Azure Portal을 통해 사용자 지정 메트릭을 검색](../essentials/metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)하여 특정 사용자 지정 메트릭의 메트릭 네임스페이스를 찾을 수 있습니다.
 
 
-## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링 하는 메트릭 경고의 템플릿
+## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링하는 메트릭 경고에 대한 템플릿
 
-이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메트릭 경고 규칙을 사용 하 여 동일한 유형의 여러 리소스를 모니터링 하도록 지원 합니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며 가상 머신, SQL server 데이터베이스, SQL server 탄력적 풀 및 Databox edge 장치에 대해서만 지원 됩니다. 또한 이 기능은 플랫폼 메트릭에만 사용할 수 있으며, 사용자 지정 메트릭에는 지원되지 않습니다.
+이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메트릭 경고 규칙을 사용하여 여러 리소스(동일한 종류)를 모니터링할 수 있도록 지원합니다. 이 기능은 현재 Azure 퍼블릭 클라우드에서만 지원되고 가상 머신, SQL Server 데이터베이스, SQL Server 탄력적 풀, Data Box Edge 디바이스에 대해서만 지원됩니다. 또한 이 기능은 플랫폼 메트릭에만 사용할 수 있으며, 사용자 지정 메트릭에는 지원되지 않습니다.
 
 동적 임계값 경고 규칙은 수백 가지 메트릭 시리즈에 대한 맞춤형 임계값(심지어 다양한 형식의)을 한 번에 만드는 데 유용할 수 있습니다. 그러면 관리할 경고 규칙이 더 적어집니다.
 
@@ -1519,8 +1520,8 @@ az deployment group create \
 
 > [!NOTE]
 >
-> 여러 리소스를 모니터링 하는 메트릭 경고 규칙에서는 다음과 같은 제한 사항이 적용 됩니다.
-> - 경고 규칙의 범위는 선택한 리소스 유형의 리소스를 하나 이상 포함 해야 합니다.
+> 여러 리소스를 모니터링하는 메트릭 경고 규칙에서는 다음과 같은 제한 사항이 적용됩니다.
+> - 경고 규칙 범위에는 선택한 리소스 종류에 해당하는 리소스가 하나 이상 포함되어야 합니다.
 > - 경고 규칙은 조건을 하나만 포함할 수 있습니다.
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>하나 이상의 리소스 그룹에 있는 모든 가상 머신에 대한 정적 임계값 경고
@@ -3460,12 +3461,12 @@ az deployment group create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>메트릭 경고와 함께 가용성 테스트에 대 한 템플릿
+## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>메트릭 경고와 함께 가용성 테스트에 대한 템플릿
 
 [Application Insights 가용성 테스트](../app/monitor-web-app-availability.md)는 전 세계 다양한 위치에서 웹 사이트/애플리케이션의 가용성을 모니터링하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 수의 위치에서 가용성 테스트가 실패할 때 사용자에게 알려줍니다.
-메트릭 경고(Microsoft.Insights/metricAlerts)와 동일한 리소스 종류의 가용성 테스트 경고입니다. 다음 샘플 Azure Resource Manager 템플릿을 사용 하 여 간단한 가용성 테스트 및 관련 경고를 설정할 수 있습니다.
+메트릭 경고(Microsoft.Insights/metricAlerts)와 동일한 리소스 종류의 가용성 테스트 경고입니다. 다음 샘플 Azure Resource Manager 템플릿을 사용하여 간단한 가용성 테스트 및 관련 경고를 설정할 수 있습니다.
 
-이 연습의 목적을 위해 availabilityalert.js에 json을 저장 합니다.
+이 연습의 목적을 위해 아래 json을 availabilityalert.json으로 저장합니다.
 
 ```json
 {
@@ -3573,7 +3574,7 @@ az deployment group create \
 >
 > `&amp`;는 &에 대한 HTML 엔터티 참조입니다. URL 매개 변수는 여전히 단일 &로 구분되지만, HTML에서 URL을 언급하는 경우 인코딩해야 합니다. 따라서 pingURL 매개 변수 값에 "&"가 있으면 "`&amp`;"를 사용하여 이스케이프해야 합니다.
 
-availabilityalert.parameters.js에 json을 저장 하 고 필요에 따라 수정 합니다.
+아래의 json을 availabilityalert.parameters.json으로 저장하고 필요에 따라 수정합니다.
 
 ```json
 {
@@ -3596,7 +3597,7 @@ availabilityalert.parameters.js에 json을 저장 하 고 필요에 따라 수�
 }
 ```
 
-PowerShell 또는 Azure CLI를 사용 하 여 템플릿 및 매개 변수 파일을 사용 하 여 가용성 테스트 및 관련 경고를 만들 수 있습니다.
+PowerShell 또는 Azure CLI를 사용한 템플릿 및 매개 변수 파일을 사용하여 가용성 테스트 및 관련 경고를 만들 수 있습니다.
 
 Azure PowerShell 사용
 

@@ -1,42 +1,42 @@
 ---
-title: Azure 애플리케이션 Insights 스냅숏 디버거 문제 해결
-description: 이 문서에서는 개발자가 Application Insights 스냅숏 디버거을 사용 하도록 설정 하는 데 도움이 되는 문제 해결 단계 및 정보를 제공 합니다
+title: Azure Application Insights 스냅샷 디버거 문제 해결
+description: 이 문서에는 개발자가 Application Insights 스냅샷 디버거를 사용하도록 설정하거나 사용하는 데 도움이 되는 문제 해결 단계 및 정보가 나와 있습니다.
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105026456"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
-응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Application Insights 스냅샷 디버거를 사용하도록 설정하거나 스냅샷을 볼 때 발생하는 문제 해결
+애플리케이션에 대해 Application Insights 스냅샷 디버거를 사용하도록 설정했지만 예외에 대한 스냅샷이 표시되지 않는 경우 다음 지침을 사용하여 문제를 해결할 수 있습니다.
 
-스냅숏이 생성 되지 않는 여러 가지 이유가 있을 수 있습니다. 먼저 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
+스냅샷이 생성되지 않는 이유에는 여러 가지가 있을 수 있습니다. 먼저 스냅샷 상태 검사를 실행하여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
 
-## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>적절 한 스냅숏 디버거 끝점을 사용 하 고 있는지 확인 합니다.
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>적절한 스냅샷 디버거 엔드포인트를 사용하고 있는지 확인합니다.
 
-현재는 끝점을 수정 해야 하는 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) 및 [Azure 중국](/azure/china/resources-developer-guide)입니다.
+현재 엔드포인트 수정이 필요한 유일한 지역은 [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights)와 [Azure 중국](/azure/china/resources-developer-guide)입니다.
 
-Application Insights SDK를 사용 하는 App Service 및 응용 프로그램의 경우 아래에 정의 된 대로 스냅숏 디버거에 대해 지원 되는 재정의를 사용 하 여 연결 문자열을 업데이트 해야 합니다.
+Application Insights SDK를 사용하는 App Service 및 애플리케이션의 경우 아래에 정의된 대로 스냅샷 디버거에 대해 지원되는 재정의를 사용하여 연결 문자열을 업데이트해야 합니다.
 
-|연결 문자열 속성    | 미국 정부 클라우드 | 중국 클라우드 |   
+|연결 문자열 속성    | 미국 정부 클라우드: | 중국 클라우드 |   
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-다른 연결 재정의에 대 한 자세한 내용은 [Application Insights 설명서](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조 하세요.
+다른 연결 재정의에 대한 자세한 내용은 [Application Insights 설명서](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides)를 참조하세요.
 
-함수 앱의 경우 `host.json` 아래의 지원 되는 재정의를 사용 하 여를 업데이트 해야 합니다.
+함수 앱의 경우 아래의 지원되는 재정의를 사용하여 `host.json`을 업데이트해야 합니다.
 
-|속성    | 미국 정부 클라우드 | 중국 클라우드 |   
+|속성    | 미국 정부 클라우드: | 중국 클라우드 |   
 |---------------|---------------------|-------------|
 |AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-다음은 `host.json` 미국 정부 클라우드 에이전트 끝점으로 업데이트 된의 예입니다.
+다음은 미국 정부 클라우드 에이전트 엔드포인트로 업데이트된 `host.json`의 예입니다.
 ```json
 {
   "version": "2.0",
@@ -72,16 +72,16 @@ Application Insights SDK를 사용 하는 App Service 및 응용 프로그램의
 
 게시된 애플리케이션에서 올바른 계측 키를 사용하는 있는지 확인합니다. 일반적으로 계측 키는 ApplicationInsights.config 파일에서 읽습니다. 포털에 표시된 Application Insights 리소스에 대한 계측 키와 동일한 값인지 확인합니다.
 
-## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>TLS/SSL 클라이언트 설정 확인 (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>TLS/SSL 클라이언트 설정 확인(ASP.NET)
 
-Azure App Service 또는 가상 머신의 IIS에서 호스트 되는 ASP.NET 응용 프로그램이 있는 경우 SSL 보안 프로토콜이 누락 되어 응용 프로그램에서 스냅숏 디버거 서비스에 연결 하지 못할 수 있습니다.
+Azure App Service 또는 가상 머신의 IIS에서 호스트되는 ASP.NET 애플리케이션이 있는 경우 누락된 SSL 보안 프로토콜로 인해 애플리케이션이 스냅샷 디버거 서비스에 연결하지 못할 수 있습니다.
 
-[스냅숏 디버거 끝점에는 TLS 버전 1.2이 필요](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json)합니다. SSL 보안 프로토콜 집합은 web.config의 system.web 섹션에서 httpRuntime targetFramework 값으로 사용 되는 특수 한 기능 중 하나입니다. HttpRuntime targetFramework가 4.5.2 이하인 경우 TLS 1.2는 기본적으로 포함 되지 않습니다.
+[스냅샷 디버거 엔드포인트에는 TLS 버전 1.2이 필요함](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json) SSL 보안 프로토콜 세트는 web.config의 system.web 섹션에서 httpRuntime targetFramework 값을 통해 사용하도록 설정되는 특성 중 하나입니다. HttpRuntime targetFramework가 4.5.2 이하인 경우 TLS 1.2는 기본적으로 포함되지 않습니다.
 
 > [!NOTE]
-> HttpRuntime targetFramework 값은 응용 프로그램을 빌드할 때 사용 되는 대상 프레임 워크의 영향을 받지 않습니다.
+> httpRuntime targetFramework 값은 애플리케이션을 빌드할 때 사용되는 대상 프레임워크의 영향을 받지 않습니다.
 
-설정을 확인 하려면 web.config 파일을 열고 system.web 섹션을 찾습니다. `targetFramework`의 `httpRuntime` 가 4.6 이상으로 설정 되어 있는지 확인 합니다.
+설정을 확인하려면 web.config 파일을 열고 system.web 섹션을 찾습니다. `httpRuntime`의 `targetFramework`가 4.6 이상으로 설정되어 있는지 확인합니다.
 
    ```xml
    <system.web>
@@ -92,44 +92,44 @@ Azure App Service 또는 가상 머신의 IIS에서 호스트 되는 ASP.NET 응
    ```
 
 > [!NOTE]
-> HttpRuntime targetFramework 값을 수정 하면 응용 프로그램에 적용 되는 런타임이 변경 되어 다른 미묘한 동작이 변경 될 수 있습니다. 이러한 변경을 수행한 후에는 응용 프로그램을 철저히 테스트 해야 합니다. 호환성 변경 내용에 대 한 전체 목록은 다음을 참조 하세요. https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+> httpRuntime targetFramework 값을 수정하면 애플리케이션에 적용되는 런타임 특성이 변경되어 다른 미묘한 동작 변화가 나타날 수 있습니다. 이러한 변경을 수행한 후에는 애플리케이션을 철저히 테스트해야 합니다. 호환성 변경 내용의 전체 목록은 https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes 를 참조하세요.
 
 > [!NOTE]
-> TargetFramework가 4.7 이상인 경우 Windows에서 사용 가능한 프로토콜을 확인 합니다. Azure App Service TLS 1.2을 사용할 수 있습니다. 그러나 사용자 고유의 가상 컴퓨터를 사용 하는 경우 OS에서 TLS 1.2를 사용 하도록 설정 해야 할 수 있습니다.
+> targetFramework가 4.7 이상인 경우 Windows에서 사용 가능한 프로토콜을 확인합니다. Azure App Service에서는 TLS 1.2를 사용할 수 있습니다. 그러나 사용자 고유의 가상 머신을 사용하는 경우 OS에서 TLS 1.2를 사용하도록 설정해야 할 수 있습니다.
 
 ## <a name="preview-versions-of-net-core"></a>.NET Core 미리 보기 버전
-.NET Core의 미리 보기 버전을 사용 하는 경우 또는 종속 어셈블리를 통해 직접 또는 간접적으로 Application Insights SDK를 참조 하는 경우 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)에 대 한 지침을 따르세요.
+.NET Core의 미리 보기 버전을 사용하는 경우나 애플리케이션이 종속 어셈블리를 통해 직접 또는 간접적으로 Application Insights SDK를 참조하는 경우 [다른 환경의 스냅샷 디버거를 사용하도록 설정](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)에 대한 지침을 따르세요.
 
-## <a name="check-the-diagnostic-services-site-extension-status-page"></a>진단 서비스 사이트 확장의 상태 페이지를 확인 합니다.
-포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 스냅숏 디버거 사용 하도록 설정 된 경우 진단 서비스 사이트 확장에서 사용 하도록 설정 되었습니다.
-
-> [!NOTE]
-> Application Insights 스냅숏 디버거의 코드 없는 설치는 .NET Core 지원 정책을 따릅니다.
-> 지원 되는 런타임에 대 한 자세한 내용은 [.Net Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조 하세요.
-
-다음 url로 이동 하 여이 확장의 상태 페이지를 확인할 수 있습니다. `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
+## <a name="check-the-diagnostic-services-site-extension-status-page"></a>진단 서비스 사이트 확장의 상태 페이지를 확인합니다.
+스냅샷 디버거가 포털의 [Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)을 통해 사용하도록 설정된 경우, 진단 서비스 사이트 확장을 통해 사용하도록 설정된 것입니다.
 
 > [!NOTE]
-> 상태 페이지 링크의 도메인은 클라우드에 따라 달라 집니다.
-이 도메인은 App Service에 대 한 Kudu 관리 사이트와 동일 합니다.
+> Application Insights 스냅샷 디버거의 코드 없는 설치는 .NET Core 지원 정책을 따릅니다.
+> 지원되는 런타임에 대한 자세한 내용은 [.NET Core 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조하세요.
 
-이 상태 페이지는 프로파일러 및 Snapshot Collector 에이전트의 설치 상태를 표시 합니다. 예기치 않은 오류가 발생 한 경우 표시 되 고이를 해결 하는 방법을 보여 줍니다.
+URL `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`로 이동하여 해당 확장의 상태 페이지를 확인할 수 있습니다.
 
-App Service에 대 한 Kudu 관리 사이트를 사용 하 여이 상태 페이지의 기준 url을 가져올 수 있습니다.
+> [!NOTE]
+> 상태 페이지 링크의 도메인은 클라우드에 따라 달라집니다.
+해당 도메인은 App Service에 대한 Kudu 관리 사이트와 동일합니다.
+
+해당 상태 페이지는 Profiler 및 Snapshot Collector 에이전트의 설치 상태를 표시합니다. 예기치 않은 오류가 발생한 경우 해당 오류 및 오류를 해결하는 방법이 표시됩니다.
+
+App Service에 대한 Kudu 관리 사이트를 사용하여 해당 상태 페이지의 기준 URL을 가져올 수 있습니다.
 1. Azure Portal에서 App Service 애플리케이션을 엽니다.
-2. **고급 도구** 를 선택 하거나 **Kudu** 를 검색 합니다.
+2. **고급 도구** 를 선택하거나 **Kudu** 를 검색합니다.
 3. **이동** 을 선택합니다.
-4. Kudu 관리 사이트에 있는 경우 URL에서 **다음을 추가 `/DiagnosticServices` 하 고 enter 키를 누릅니다**.
- 다음과 같이 종료 됩니다. `https://<kudu-url>/DiagnosticServices`
+4. Kudu 관리 사이트로 이동하면 URL에서 **다음 `/DiagnosticServices`를 추가하고 enter 키를 누릅니다**.
+ 끝부분이 `https://<kudu-url>/DiagnosticServices`와 같이 표시됩니다.
 
-아래와 유사한 상태 페이지가 표시 됩니다. ![ 진단 서비스 상태 페이지](./media/diagnostic-services-site-extension/status-page.png)
+아래와 유사한 상태 페이지가 표시됩니다. ![진단 서비스 상태 페이지](./media/diagnostic-services-site-extension/status-page.png)
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
-스냅숏 디버거 사용 하도록 설정 된 방법에 따라 다음 옵션을 참조 하세요.
+스냅샷 디버거를 사용하도록 설정한 방법에 따라 다음 옵션을 참조하세요.
 
-* [포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다.
+* [Portal의 Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)을 통해 스냅샷 디버거를 사용하도록 설정한 경우 애플리케이션이 이미 최신 NuGet 패키지를 실행하고 있을 것입니다.
 
-* [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 Nuget 패키지 관리자를 사용 하 여 microsoft.applicationinsights.snapshotcollector의 최신 버전을 사용 하 고 있는지 확인 합니다.
+* [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함하여 스냅샷 디버거를 사용하도록 설정한 경우 Visual Studio의 NuGet 패키지 관리자를 사용하여 최신 버전의 Microsoft.ApplicationInsights.SnapshotCollector를 사용하고 있는지 확인합니다.
 
 최신 업데이트 및 버그 수정에 대해서는 [릴리스 정보를 참조](./snapshot-collector-release-notes.md)하세요.
 
@@ -138,12 +138,12 @@ App Service에 대 한 Kudu 관리 사이트를 사용 하 여이 상태 페이�
 스냅샷을 만들면 디스크에 미니덤프 파일(.dmp)이 생성됩니다. 별도의 업로더 프로세스에서 해당 미니덤프 파일을 만들어 관련 PDB와 함께 Application Insights 스냅샷 디버거 스토리지에 업로드합니다. 미니덤프가 성공적으로 업로드되면 디스크에서 삭제됩니다. 업로더 프로세스에 대한 로그 파일은 디스크에 유지됩니다. App Service 환경에서는 `D:\Home\LogFiles`에서 이러한 로그를 찾을 수 있습니다. App Service에 대한 Kudu 관리 사이트를 사용하여 이러한 로그 파일을 찾을 수 있습니다.
 
 1. Azure Portal에서 App Service 애플리케이션을 엽니다.
-2. **고급 도구** 를 선택 하거나 **Kudu** 를 검색 합니다.
+2. **고급 도구** 를 선택하거나 **Kudu** 를 검색합니다.
 3. **이동** 을 선택합니다.
 4. **디버그 콘솔** 드롭다운 목록 상자에서 **CMD** 를 선택합니다.
-5. **LogFiles** 를 선택 합니다.
+5. **LogFiles** 를 선택합니다.
 
-이름이 `Uploader_` 또는 `SnapshotUploader_`로 시작하고 확장명이 `.log`인 파일이 하나 이상 있어야 합니다. 적절 한 아이콘을 선택 하 여 로그 파일을 다운로드 하거나 브라우저에서 엽니다.
+이름이 `Uploader_` 또는 `SnapshotUploader_`로 시작하고 확장명이 `.log`인 파일이 하나 이상 있어야 합니다. 해당 아이콘을 선택하여 모든 로그 파일을 다운로드하거나 브라우저에서 엽니다.
 파일 이름에는 App Service 인스턴스를 식별하는 고유한 접미사가 포함됩니다. App Service 인스턴스가 둘 이상의 컴퓨터에서 호스팅되는 경우 각 컴퓨터에 대한 별도의 로그 파일이 있습니다. 업로더에서 새 미니덤프 파일을 검색하면 로그 파일에 기록됩니다. 성공적인 스냅샷 및 업로드의 예는 다음과 같습니다.
 
 ```
@@ -175,7 +175,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 > 위의 예제는 Microsoft.ApplicationInsights.SnapshotCollector NuGet 패키지 버전 1.2.0에 있습니다. 이전 버전에서 업로더 프로세스는 `MinidumpUploader.exe`라고 하고 로그는 덜 자세하게 설명됩니다.
 
 위 예에서 계측 키는 `c12a605e73c44346a984e00000000000`입니다. 이 값은 애플리케이션의 계측 키와 일치해야 합니다.
-미니덤프는 ID가 `139e411a23934dc0b9ea08a626db16c5`인 스냅샷에 연결됩니다. 나중에이 ID를 사용 하 여 Application Insights Analytics에서 연결 된 예외 레코드를 찾을 수 있습니다.
+미니덤프는 ID가 `139e411a23934dc0b9ea08a626db16c5`인 스냅샷에 연결됩니다. 나중에 이 ID를 사용하여 Application Insights Analytics에서 연결된 예외 레코드 분석을 찾을 수 있습니다.
 
 업로더는 약 15분에 한 번씩 새 PDB를 검색합니다. 예를 들면 다음과 같습니다.
 
@@ -193,13 +193,13 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 App Service에서 호스팅되지 _않는_ 애플리케이션의 경우 업로더 로그는 미니덤프와 동일한 폴더 `%TEMP%\Dumps\<ikey>`(여기서 `<ikey>`는 계측 키)에 저장됩니다.
 
 ## <a name="troubleshooting-cloud-services"></a>Cloud Services 문제 해결
-Cloud Services에서 기본 임시 폴더는 너무 작아 미니 덤프 파일을 저장할 수 없으므로 스냅숏이 손실 될 수 있습니다.
+Cloud Services에서 기본 임시 폴더가 너무 작아서 미니 덤프 파일을 저장할 수 없게 되어 스냅샷이 손실될 수 있습니다.
 
 필요한 공간은 애플리케이션의 전체 작업 집합과 동시 스냅샷 수에 따라 다릅니다.
 
 32비트 ASP.NET 웹 역할의 작업 집합은 일반적으로 200MB ~ 500MB 사이입니다. 둘 이상의 동시 스냅샷을 허용합니다.
 
-예를 들어 응용 프로그램에서 1gb의 총 작업 집합을 사용 하는 경우 스냅숏을 저장할 디스크 공간이 2gb 이상 인지 확인 해야 합니다.
+예를 들어, 애플리케이션이 1GB의 전체 작업 집합을 사용하는 경우, 스냅샷 저장을 위해 2GB 이상의 디스크 공간이 있는지 확인해야 합니다.
 
 스냅샷용 전용 로컬 리소스가 있는 클라우드 서비스 역할을 구성하려면 다음 단계를 수행합니다.
 
@@ -257,7 +257,7 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 - APPDATA
 - TEMP
 
-적절 한 폴더를 찾을 수 없는 경우 _"적절 한 섀도 복사본 폴더를 찾을 수 없습니다."_ 라는 오류를 Snapshot Collector 보고 합니다.
+적당한 폴더를 찾을 수 없으면 Snapshot Collector는 _"Could not find a suitable shadow copy folder."_ (적합한 섀도 복사본 폴더를 찾을 수 없습니다.)라는 오류를 보고합니다.
 
 복사에 실패하면 Snapshot Collector는 `ShadowCopyFailed` 오류를 보고합니다.
 
@@ -292,7 +292,7 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 ## <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Application Insights 검색을 사용하여 스냅샷 예외 찾기
 
-스냅샷이 생성될 때 throw되는 예외에는 스냅샷 ID로 태그가 지정됩니다. 이 스냅숏 ID는 Application Insights에 대 한 예외가 보고 될 때 사용자 지정 속성으로 포함 됩니다. Application Insights **검색** 을 사용 하 여 사용자 지정 속성이 있는 모든 레코드를 찾을 수 있습니다 `ai.snapshot.id` .
+스냅샷이 생성될 때 throw되는 예외에는 스냅샷 ID로 태그가 지정됩니다. 예외가 Application Insights에 보고될 때 이 스냅샷 ID가 사용자 지정 속성으로 포함됩니다. Application Insights에서 **검색** 을 사용하여 `ai.snapshot.id` 사용자 지정 속성으로 모든 레코드를 찾을 수 있습니다.
 
 1. Azure Portal에서 Application Insights 리소스로 이동합니다.
 2. **검색** 을 선택합니다.
@@ -300,18 +300,18 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 ![포털에서 스냅샷 ID로 원격 분석 검색](./media/snapshot-debugger/search-snapshot-portal.png)
 
-이 검색에서 결과를 반환 하지 않는 경우 선택한 시간 범위에서 Application Insights에 대 한 스냅숏이 보고 되지 않습니다.
+이 검색에서 반환되는 결과가 없으면 선택한 시간 범위에서 Application Insights에 보고된 스냅샷이 없는 것입니다.
 
-업로더 로그에서 특정 스냅샷 ID를 검색하려면 검색 상자에 해당 ID를 입력합니다. 업로드 된 스냅숏에 대 한 레코드를 찾을 수 없는 경우 다음 단계를 수행 합니다.
+업로더 로그에서 특정 스냅샷 ID를 검색하려면 검색 상자에 해당 ID를 입력합니다. 업로드된 것을 알고 있는 스냅샷에 대한 레코드를 찾을 수 없는 경우 다음 단계를 따릅니다.
 
 1. 계측 키를 확인하여 올바른 Application Insights 리소스가 표시되어 있는지 다시 확인합니다.
 
 2. 업로더 로그에서 타임스탬프를 사용하여 해당 시간 범위를 포함하도록 검색의 시간 범위 필터를 조정합니다.
 
-여전히 해당 스냅숏 ID를 사용 하 여 예외가 표시 되지 않는 경우 예외 레코드가 Application Insights에 보고 되지 않았습니다. 응용 프로그램이 스냅숏을 만든 후 예외 레코드를 보고 하기 전에 충돌 하는 경우 이러한 상황이 발생할 수 있습니다. 이 경우 `Diagnose and solve problems`에서 App Service 로그를 검사하여 예기치 않은 다시 시작 또는 처리되지 않은 예외가 있는지 확인합니다.
+해당 스냅샷 ID가 포함된 예외가 여전히 보이지 않는 경우 Application Insights에 예외 레코드가 보고되지 않은 것입니다. 스냅샷을 만든 후 예외 레코드를 보고하기 전에 애플리케이션의 작동이 중단된 경우에 이 상황이 발생할 수 있습니다. 이 경우 `Diagnose and solve problems`에서 App Service 로그를 검사하여 예기치 않은 다시 시작 또는 처리되지 않은 예외가 있는지 확인합니다.
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>네트워크 프록시 또는 방화벽 규칙 편집
 
-응용 프로그램이 프록시 또는 방화벽을 통해 인터넷에 연결 하는 경우 스냅숏 디버거 서비스와 통신 하도록 규칙을 업데이트 해야 할 수 있습니다.
+애플리케이션에서 프록시 또는 방화벽을 통해 인터넷에 연결하는 경우 스냅샷 디버거 서비스와 통신할 수 있도록 규칙을 업데이트해야 할 수 있습니다.
 
-Application Insights 스냅숏 디버거에서 사용 되는 Ip는 Azure Monitor 서비스 태그에 포함 됩니다. 자세한 내용은 [서비스 태그 설명서](../../virtual-network/service-tags-overview.md)를 참조 하세요.
+Application Insights 스냅샷 디버거에서 사용하는 IP는 Azure Monitor 서비스 태그에 포함됩니다. 자세한 내용은 [서비스 태그 설명서](../../virtual-network/service-tags-overview.md)를 참조하세요.

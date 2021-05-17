@@ -8,31 +8,31 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a487cba5026da827276f2e7681c0d362127a4e27
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98059724"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108204840"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
-Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF (웹 응용 프로그램 방화벽)는 WAF_v2 SKU에서 사용할 수 있습니다. V2 SKU는 성능 향상을 제공하고 자동 크기 조정, 영역 중복성 및 정적 VIP 지원과 같은 중요한 새 기능에 대한 지원을 추가적으로 제공합니다. Standard 및 WAF SKU의 기존 기능은 새 v2 SKU에서 계속 지원되며, [비교](#differences-from-v1-sku) 섹션에 몇 가지 예외가 나와 있습니다.
+Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF(웹 애플리케이션 방화벽)는 WAF_v2 SKU에서 사용할 수 있습니다. V2 SKU는 성능 향상을 제공하고 자동 크기 조정, 영역 중복성 및 정적 VIP 지원과 같은 중요한 새 기능에 대한 지원을 추가적으로 제공합니다. Standard 및 WAF SKU의 기존 기능은 새 v2 SKU에서 계속 지원되며, [비교](#differences-from-v1-sku) 섹션에 몇 가지 예외가 나와 있습니다.
 
 새 v2 SKU에는 다음과 같은 향상된 기능이 포함되어 있습니다.
 
-- 자동 크기 **조정: 크기** 자동 조정 SKU에서 Application Gateway 또는 waf 배포는 트래픽 부하 패턴을 변경 하는 방식으로 확장 하거나 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
+- **자동 스케일링**: 자동 스케일링 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 스케일 아웃하거나 스케일 인할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량(자동 크기 조정이 해제됨) 및 자동 크기 조정이 설정된 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 애플리케이션 트래픽이 자주 변하는 애플리케이션에 유용합니다.
 - **영역 중복**: Application Gateway 또는 WAF 배포 하나가 여러 가용성 영역을 포함할 수 있으므로 Traffic Manager를 사용하여 각 영역에 별도의 Application Gateway 인스턴스를 프로비저닝할 필요가 없습니다. Application Gateway 인스턴스가 배포되는 단일 영역 또는 여러 영역을 선택할 수 있기 때문에 영역 장애 복원력이 보장됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
 
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 지원됩니다. 다른 지역에서는 다른 모든 기능이 지원됩니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.
 - **정적 VIP**: Application Gateway v2 SKU는 정적 VIP 유형만 독점적으로 지원합니다. 이렇게 하면 Application Gateway와 연결된 VIP가 다시 시작된 후에도 배포의 수명 주기 동안 변경되지 않습니다.  V1에는 정적 VIP가 없으므로 Application Gateway를 통해 App Services로 라우팅하는 도메인 이름의 IP 주소 대신, Application Gateway URL을 사용해야 합니다.
-- **헤더 다시 쓰기**: Application Gateway를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway로 HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
+- **헤더 다시 쓰기**: Application Gateway를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway로 HTTP 헤더 다시 쓰기](./rewrite-http-headers-url.md)를 참조하세요.
 - **Key Vault 통합**: Application Gateway v2는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 자세한 내용은 [Key Vault 인증서를 사용한 TLS 종료](key-vault-certs.md)를 참조하세요.
 - **Azure Kubernetes Service 수신 컨트롤러**: Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 AKS 클러스터라고도 하는 AKS(Azure Kubernetes Service)의 수신으로 사용할 수 있습니다. 자세한 내용은 [Application Gateway 수신 컨트롤러란?](ingress-controller-overview.md)을 참조하세요.
 - **성능 향상**: V2 SKU는 표준/WAF SKU와 비교할 때 최대 5배 더 나은 TLS 오프로드 성능을 제공합니다.
 - **신속한 빠른 배포 및 업데이트 시간** v2 SKU는 표준/WAF SKU와 비교할 때 보다 빠른 배포 및 업데이트 시간을 제공합니다. 여기에는 WAF 구성 변경 내용도 포함됩니다.
 
-![자동 크기 조정 영역의 다이어그램입니다.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+![자동 스케일링 영역의 다이어그램입니다.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>지원되는 지역
 
@@ -45,9 +45,9 @@ v2 SKU를 사용하는 경우 가격 책정 모델은 사용량에 따라 결정
 - **고정 가격** - Standard_v2 또는 WAF_v2 게이트웨이를 프로비저닝하는 시간별(또는 부분 시간) 가격입니다. 0개 이상의 추가 최소 인스턴스는 항상 고정 가격에 포함된 서비스의 고가용성을 보장합니다.
 - **용량 단위 가격** - 고정 비용 외에 청구되는 소비 기반 비용입니다. 용량 단위 요금은 시간별로 또는 부분 시간별로 계산됩니다. 용량 단위의 세 가지 차원은 컴퓨팅 단위, 영구 연결 및 처리량입니다. 컴퓨팅 단위는 소비된 프로세서 용량의 척도입니다. 컴퓨팅 단위에 영향을 주는 요소는 TLS 연결/초, URL 다시 쓰기 계산 및 WAF 규칙 처리입니다. 영구 연결은 지정된 청구 간격으로 Application Gateway에 설정된 TCP 연결의 척도입니다. 처리량은 지정된 청구 간격으로 시스템에서 처리되는 평균 메가비트/초입니다.  청구는 예약 인스턴스 수를 초과하는 경우에 대해 용량 단위 수준에서 수행됩니다.
 
-각 용량 단위는 1 개의 compute 단위, 2500 영구 연결 및 2.22 Mbps 처리량으로 구성 됩니다.
+각 용량 단위는 최대 1개의 컴퓨팅 단위, 2,500개의 영구 연결 또는 2.22Mbps의 처리량으로 구성됩니다.
 
-자세히 알아보려면 [가격 책정 이해](understanding-pricing.md)를 참조 하세요.
+더 자세히 알아보려면 [가격 책정 이해](understanding-pricing.md)를 참조하세요.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Application Gateway 및 WAF v2 크기 조정
 

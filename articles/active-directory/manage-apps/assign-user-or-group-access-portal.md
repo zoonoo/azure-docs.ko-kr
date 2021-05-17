@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory에서 앱에 대한 사용자 할당 관리
-description: Id 관리를 위해 Azure Active Directory를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하 고 할당 해제 하는 방법을 알아봅니다.
+description: ID 관리를 위해 Azure Active Directory를 사용하여 앱에 대한 사용자 및 그룹을 할당하고 할당 해제하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -12,15 +12,15 @@ ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
 ms.openlocfilehash: 50dcde478b708cd53d8229d70a9ddf4b1ff271be
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99259737"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대한 사용자 할당 관리
 
-이 문서에서는 Azure Portal 내에서 또는 PowerShell을 사용 하 여 Azure Active Directory (Azure AD)에서 엔터프라이즈 응용 프로그램에 사용자 및 그룹을 할당 하는 방법을 보여 줍니다. 응용 프로그램에 사용자를 할당 하면 쉽게 액세스할 수 있도록 사용자의 [내 앱](https://myapps.microsoft.com/) 에 응용 프로그램이 표시 됩니다. 애플리케이션이 역할을 노출하는 경우 사용자에게 특정 역할을 할당할 수도 있습니다.
+이 문서에서는 Azure Portal 내에서 또는 PowerShell을 사용하여 Azure AD(Azure Active Directory)에서 엔터프라이즈 애플리케이션에 사용자 또는 그룹을 할당하는 방법을 보여 줍니다. 애플리케이션에 사용자를 할당하면 쉽게 액세스할 수 있도록 애플리케이션이 사용자의 [내 앱](https://myapps.microsoft.com/)에 표시됩니다. 애플리케이션이 역할을 노출하는 경우 사용자에게 특정 역할을 할당할 수도 있습니다.
 
 더 많은 제어를 위해 특정 유형의 엔터프라이즈 애플리케이션을 [사용자 할당이 필요](#configure-an-application-to-require-user-assignment)하도록 구성할 수 있습니다. 
 
@@ -42,7 +42,7 @@ ms.locfileid: "99259737"
 
 이 옵션을 **No** 로 설정했거나 애플리케이션이 다른 SSO 모드를 사용하기 때문에 할당이 *필요하지 않은* 경우 애플리케이션의 **속성** 페이지에 애플리케이션 또는 **사용자 액세스 URL** 에 대한 직접 링크가 있으면 모든 사용자가 애플리케이션에 액세스할 수 있습니다. 
 
-이 설정은 응용 프로그램이 내 앱에 표시 되는지 여부에 영향을 주지 않습니다. 사용자 또는 그룹을 애플리케이션에 할당하면 애플리케이션이 사용자의 내 앱 액세스 패널에 표시됩니다. 배경은 [앱에 대한 액세스 관리](what-is-access-management.md)를 참조하세요.
+이 설정은 애플리케이션이 내 앱에 표시되는지 여부에 영향을 주지 않습니다. 사용자 또는 그룹을 애플리케이션에 할당하면 애플리케이션이 사용자의 내 앱 액세스 패널에 표시됩니다. 배경은 [앱에 대한 액세스 관리](what-is-access-management.md)를 참조하세요.
 
 애플리케이션에 대한 사용자 할당을 요구하려면 다음을 수행합니다.
 1. 관리자 계정 또는 애플리케이션 소유자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -54,13 +54,13 @@ ms.locfileid: "99259737"
    > **사용자 할당이 필요한가요?** 토글을 사용할 수 없는 경우 PowerShell을 사용하여 서비스 주체에 appRoleAssignmentRequired 속성을 설정할 수 있습니다.
 6. 화면 위쪽에 있는 **저장** 단추를 선택합니다.
 
-## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-azure-portal"></a>Azure Portal를 사용 하 여 앱에 대 한 사용자 및 그룹 할당 또는 할당 해제
-Azure Portal 사용 하 여 사용자 또는 그룹을 할당 하거나 할당을 취소 하는 방법에 대해 알아보려면 [응용 프로그램 관리의 빠른 시작 시리즈](add-application-portal-assign-users.md)를 참조 하세요.
+## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-azure-portal"></a>Azure Portal을 사용하여 앱에 대한 사용자 및 그룹 할당 또는 할당 해제
+Azure Portal을 사용하여 사용자 또는 그룹을 할당하거나 할당을 해제하는 방법을 알아보려면 [애플리케이션 관리의 빠른 시작 시리즈](add-application-portal-assign-users.md)를 참조하세요.
 
-## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹 할당 또는 할당 해제
-Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거나 할당 취소할 수 있습니다. 자세히 알아보려면 [앱 역할 할당](/graph/api/resources/approleassignment)을 참조 하세요.
+## <a name="assign-or-unassign-users-and-groups-for-an-app-using-the-graph-api"></a>Graph API를 사용하여 앱에 대한 사용자 및 그룹 할당 또는 할당 해제
+Graph API를 사용하여 앱에 대한 사용자 및 그룹을 할당하거나 할당 해제할 수 있습니다. 자세히 알아보려면 [앱 역할 할당](/graph/api/resources/approleassignment)을 참조하세요.
 
-## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>PowerShell을 사용 하 여 앱에 사용자 및 그룹 할당
+## <a name="assign-users-and-groups-to-an-app-using-powershell"></a>PowerShell을 사용하여 사용자 및 그룹을 앱에 할당
 1. 관리자 권한 Windows PowerShell 명령 프롬프트를 엽니다.
    > [!NOTE]
    > Azure AD 모듈을 설치해야 합니다(`Install-Module -Name AzureAD` 명령 사용). NuGet 모듈 또는 새로운 Azure Active Directory V2 PowerShell 모듈을 설치하라는 메시지가 표시되면 Y를 입력하고 Enter 키를 누릅니다.
@@ -121,13 +121,13 @@ Graph API를 사용 하 여 앱에 대 한 사용자 및 그룹을 할당 하거
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-## <a name="unassign-users-and-groups-from-an-app-using-powershell"></a>PowerShell을 사용 하 여 앱에서 사용자 및 그룹 할당 해제
+## <a name="unassign-users-and-groups-from-an-app-using-powershell"></a>PowerShell을 사용하여 앱에서 사용자 및 그룹 할당 해제
 
 1. 관리자 권한 Windows PowerShell 명령 프롬프트를 엽니다.
    > [!NOTE]
    > Azure AD 모듈을 설치해야 합니다(`Install-Module -Name AzureAD` 명령 사용). NuGet 모듈 또는 새로운 Azure Active Directory V2 PowerShell 모듈을 설치하라는 메시지가 표시되면 Y를 입력하고 Enter 키를 누릅니다.
 2. `Connect-AzureAD`를 실행하고 전역 관리자 사용자 계정으로 로그인합니다.
-3. 다음 스크립트를 사용 하 여 응용 프로그램에서 사용자 및 역할을 제거 합니다.
+3. 다음 스크립트를 사용하여 애플리케이션에 사용자 및 역할을 제거합니다.
 
     ```powershell
     # Store the proper parameters

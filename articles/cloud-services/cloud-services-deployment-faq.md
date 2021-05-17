@@ -9,16 +9,16 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: dd7b19a2c9e872b811c1aab6e504accb7de383b2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98896480"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services (클래식)에 대 한 배포 문제: faq (질문과 대답)
+# <a name="deployment-issues-for-azure-cloud-services-classic-frequently-asked-questions-faqs"></a>Azure Cloud Services(클래식)의 배포 문제: FAQ(질문과 대답)
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 이 문서는 [Microsoft Azure Cloud Services](https://azure.microsoft.com/services/cloud-services)의 배포 문제에 대한 질문과 대답을 포함합니다. 크기 정보는 [Cloud Services VM 크기 페이지](cloud-services-sizes-specs.md) 를 참조할 수도 있습니다.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
@@ -28,31 +28,31 @@ ms.locfileid: "98896480"
 
 클라우드 서비스가 있는 클러스터가 배포 요청을 충족하기에 충분한 물리적 컴퓨팅 리소스 없는 경우 할당 오류가 발생합니다.
 
-이러한 할당 오류를 완화 하는 데 도움이 필요한 경우 [클라우드 서비스 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조 하세요.
+이러한 할당 오류를 완화하는 도움말은 [Cloud Service 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조하세요.
 
 ## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>클라우드 서비스 배포를 스케일 업 또는 스케일 아웃하는 경우 할당 오류가 발생하는 이유는 무엇인가요?
 클라우드 서비스를 배포할 때 일반적으로 특정 클러스터에 고정됩니다. 즉, 기존 클라우드 서비스를 스케일 업/아웃하면 동일한 클러스터에 새 인스턴스를 할당해야 합니다. 클러스터가 수용작업량에 가까워지거나 원하는 VM 크기/형식을 사용할 수 없는 경우 요청이 실패할 수 있습니다.
 
-이러한 할당 오류를 완화 하는 데 도움이 필요한 경우 [클라우드 서비스 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조 하세요.
+이러한 할당 오류를 완화하는 도움말은 [Cloud Service 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조하세요.
 
 ## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>선호도 그룹에 클라우드 서비스를 배포하는 경우 할당 오류가 발생하는 이유는 무엇인가요?
 클라우드 서비스가 선호도 그룹에 고정되어 있지 않는 한, 빈 클라우드 서비스에 새로 배포할 경우 해당 영역에 있는 클러스터의 패브릭에 의해서만 할당할 수 있습니다. 동일한 선호도 그룹에 대한 배포는 동일한 클러스터에서 시도됩니다. 클러스터의 용량이 거의 찼을 경우 요청이 실패할 수 있습니다.
 
-이러한 할당 오류를 완화 하는 데 도움이 필요한 경우 [클라우드 서비스 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조 하세요.
+이러한 할당 오류를 완화하는 도움말은 [Cloud Service 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조하세요.
 
 ## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>VM 크기를 변경하거나 기존 클라우드 서비스에 새 VM을 추가하면 할당 오류가 발생하는 이유는 무엇인가요?
-데이터 센터의 클러스터는 컴퓨터 유형 (예: 시리즈, Av2 시리즈, D 시리즈, Dv2 시리즈, G 시리즈, H 시리즈 등)의 구성이 다를 수 있습니다. 하지만 클러스터에는 일부 종류의 VM만이 있습니다. 예를 들어 A 시리즈 전용 클러스터에 이미 배포된 클라우드 서비스에 D 시리즈 VM을 추가하려는 경우 할당 오류가 발생합니다. 또한 VM SKU의 크기를 변경하려는 경우에 발생합니다(예: A 시리즈에서 D 시리즈로 전환).
+데이터 센터의 클러스터에는 다양한 컴퓨터 종류의 구성이 있습니다(예: A 시리즈, Av2 시리즈, D 시리즈, Dv2 시리즈, G 시리즈, H 시리즈 등). 하지만 클러스터에는 일부 종류의 VM만이 있습니다. 예를 들어 A 시리즈 전용 클러스터에 이미 배포된 클라우드 서비스에 D 시리즈 VM을 추가하려는 경우 할당 오류가 발생합니다. 또한 VM SKU의 크기를 변경하려는 경우에 발생합니다(예: A 시리즈에서 D 시리즈로 전환).
 
-이러한 할당 오류를 완화 하는 데 도움이 필요한 경우 [클라우드 서비스 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조 하세요.
+이러한 할당 오류를 완화하는 도움말은 [Cloud Service 할당 실패: 솔루션](cloud-services-allocation-failures.md#solutions)을 참조하세요.
 
 사용자 지역에서 사용할 수 있는 크기를 확인하려면 [Microsoft Azure: 지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services)을 참조하세요.
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>구독 또는 서비스에서 제한/할당량/제한 조건으로 인해 클라우드 서비스를 배포하는 데 실패하는 이유는 무엇인가요?
 할당하는 데 필요한 리소스가 지역/데이터 센터 수준에서 서비스에 허용되는 기본 또는 최대 할당량을 초과하는 경우 클라우드 서비스의 배포에 실패할 수 있습니다. 자세한 내용은 [Cloud Services 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits)을 참조하세요.
 
-포털에서 구독에 대 한 현재 사용량/할당량을 추적할 수도 있습니다. Azure Portal => Subscription => \<appropriate subscription>   => "사용량 + 할당량".
+포털에서 구독에 대한 현재 사용량/할당량도 추적할 수 있습니다. Azure Portal => 구독=> \<appropriate subscription> => “사용량 + 할당량”
 
-Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure 소비 API 개요](../cost-management-billing/manage/consumption-api-overview.md)를 참조 하세요.
+Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 수도 있습니다. [Azure Consumption API 개요](../cost-management-billing/manage/consumption-api-overview.md)를 참조하세요.
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>배포된 클라우드 서비스 VM을 다시 배포하지 않고 크기를 변경하려면 어떻게 할까요?
 배포된 클라우드 서비스 VM을 다시 배포하지 않고 크기를 변경할 수 없습니다. VM 크기는 CSDEF에 포함되며 재배포로 업데이트할 수 있습니다.
@@ -61,7 +61,7 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Azure Resource Manager 스토리지 계정을 사용하는 경우 Service Management API 또는 PowerShell을 통해 Cloud Services를 배포할 수 없는 이유는 무엇인가요? 
 
-클라우드 서비스는 Azure Resource Manager 모델과 직접 호환 되지 않는 클래식 리소스 이므로 Azure Resource Manager 저장소 계정에 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
+Cloud Service는 Azure Resource Manager 모델과 직접 호환되지 않는 클래식 리소스이므로 Azure Resource Manager 스토리지 계정과 함께 연결할 수 없습니다. 다음은 몇 가지 옵션입니다. 
 
 - REST API를 통해 배포.
 
@@ -69,7 +69,7 @@ Azure 청구 API를 통해 리소스 사용/사용 관련 정보를 검색할 �
 
 - [Azure Portal](https://portal.azure.com)을 통해 배포.
 
-    이는 호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용 하는 프록시/shim을 통과 하므로 [Azure Portal](https://portal.azure.com) 에서 작동 합니다. 
+    호출이 Azure Resource Manager와 클래식 리소스 간의 통신을 허용하는 프록시/shim을 통해 전송되므로 이 작업은 [Azure Portal](https://portal.azure.com)에서 작동합니다. 
 
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure Portal에서 배포할 스토리지 계정을 제공하도록 하는 이유는 무엇인가요?
 

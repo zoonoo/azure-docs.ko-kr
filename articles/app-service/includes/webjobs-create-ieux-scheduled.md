@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ef0aa8ba1983ca30fd44c27fe570b6b5f51733a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 5105df5793d37b166b017585a62c962933a0b019
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101745669"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106081046"
 ---
 ## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a>예약된 WebJob 만들기
 
 
-1. [Azure Portal](https://portal.azure.com)를 가져왔습니다.
-1. **App Service** 로 이동 합니다. <abbr title="앱 리소스는 웹 앱, API 앱 또는 모바일 앱 일 수 있습니다.">앱 리소스</abbr>.
+1. [Azure Portal](https://portal.azure.com)로 이동합니다.
+1. **App Service** 로 이동합니다. <abbr title="앱 리소스는 웹앱, API 앱 또는 모바일 앱일 수 있습니다.">앱 리소스</abbr>.
 1. **WebJobs** 를 선택합니다.
 
    ![WebJobs 선택](../media/web-sites-create-web-jobs/select-webjobs.png)
@@ -31,19 +31,19 @@ ms.locfileid: "101745669"
     
     | 설정      | 샘플 값   |
     | ------------ | ----------------- | 
-    | <abbr title="App Service 앱 내에서 고유한 이름입니다. 는 문자 또는 숫자로 시작 해야 하며 및 이외의 특수 문자를 포함할 수 없습니다 `-` `_` .">Name</a> | myScheduledWebJob |  |
+    | <abbr title="App Service 앱 내에서 고유한 이름입니다. 문자 또는 숫자로 시작해야 하며, `-` 및 `_`을 제외한 다른 특수 문자를 포함할 수 없습니다.">이름</a> | myScheduledWebJob | 
     | <abbr title="실행 파일 또는 스크립트 파일뿐만 아니라 프로그램 또는 스크립트를 실행하는 데 필요한 지원 파일이 포함되는 *.zip* 파일입니다.">파일 업로드</abbr> | ConsoleApp.zip |
-    | <abbr title="연속, 트리거된 형식이 포함 됩니다.">Type</abbr> | 트리거 |
+    | <abbr title="형식에는 연속, 트리거된 형식이 포함됩니다.">Type</abbr> | 트리거 |
     | <abbr title="안정적으로 실행되도록 예약하기 위해 Always On 기능을 사용하도록 설정합니다. Always On은 기본, 표준 및 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.">트리거</a> | 예약됨 |
     | CRON 식</a> | 0 0/20 * * * * | 
     
     <br>
     
     <details>
-     <summary>CRON 식에 대 한 자세한 정보</summary>
+     <summary>CRON 식에 대한 자세한 정보</summary>
      <a name="#ncrontab-expressions"></a>
     
-     다음 예제와 같이 포털에 [NCRONTAB 식을](../../azure-functions/functions-bindings-timer.md#ncrontab-expressions) 입력 하거나 `settings.job` WebJob *.zip* 파일의 루트에 파일을 포함할 수 있습니다.
+     다음 예제와 같이 포털에 [NCRONTAB 식](../../azure-functions/functions-bindings-timer.md#ncrontab-expressions)을 입력하거나 WebJob *.zip* 파일의 루트에 `settings.job` 파일을 포함할 수 있습니다.
      
      ```json
      {
@@ -51,7 +51,7 @@ ms.locfileid: "101745669"
      }
      ```
      
-     자세히 알아보려면 [트리거된 WebJob 예약](../webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)을 참조 하세요.
+     자세한 내용은 [트리거된 WebJob 예약](../webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)을 참조하세요.
      
      [!INCLUDE [webjobs-cron-timezone-note](../../../includes/webjobs-cron-timezone-note.md)]
      </details>

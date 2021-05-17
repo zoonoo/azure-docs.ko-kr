@@ -6,10 +6,10 @@ ms.date: 01/25/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.openlocfilehash: da7c0ea670b4c4201930ce5d0f01e7bd9d9835e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100581040"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Linux 업데이트 에이전트 문제 해결
@@ -124,7 +124,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트 [UM_Linux_Troubleshooter_Offline py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py)는 GitHub에서 찾을 수 있습니다. 이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
+이 스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. Python 스크립트인 [UM_Linux_Troubleshooter_Offline.py](https://github.com/Azure/updatemanagement/blob/main/UM_Linux_Troubleshooter_Offline.py)는 GitHub에서 찾을 수 있습니다. 이 스크립트의 출력 예제는 다음 예제에 표시됩니다.
 
 ```output
 Debug: Machine Information:   Static hostname: LinuxVM2

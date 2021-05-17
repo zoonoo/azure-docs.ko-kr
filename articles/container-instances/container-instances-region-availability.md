@@ -4,12 +4,12 @@ description: 여러 다른 Azure 지역의 Azure Container Instances 서비스�
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 2bf5735c1e50ae31f70b68d7b926e82badeb3933
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: b1783204ae416412579e63654ff236fbc6cf1a18
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108015990"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046014"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -45,9 +45,9 @@ ms.locfileid: "108015990"
 | 한국 중부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 미국 중북부 | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | 북유럽 | 4 | 16 | 4 | 16 | 50 | K80 |
-| 미국 중남부 | 4 | 16 | 4 | 16 | 50 | V100 |
+| 미국 중남부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 동남아시아 | 4 | 16 | 4 | 16 | 50 | P100, V100 |
-| 인도 남부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | K80 |
+| 인도 남부 | 4 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 스위스 북부 | 3 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |
 | 영국 남부 | 4 | 16 | 4 | 16 | 50 | 해당 없음 |
 | 아랍에미리트 북부 | 3 | 16 | 해당 없음 | 해당 없음 | 50 | 해당 없음 |

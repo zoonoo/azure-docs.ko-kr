@@ -4,14 +4,14 @@ description: Stream Analytics를 사용하여 Application Insights 데이터를 
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100587753"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
-이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL Database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
+이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여 줍니다. 
 
 연속 내보내기는 원격 분석 데이터를 JSON 형식으로 Azure Storage로 이동합니다. Azure Stream Analytics를 사용하여 JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만들 것입니다.
 
@@ -70,18 +70,18 @@ ms.locfileid: "100587753"
    
     애플리케이션 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다. 
 
-이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터를 사용 하 여 수행할 수 있는 모든 종류의 작업이 있지만 현재 계획은 Stream Analytics를 사용 하 여 데이터를 SQL Database으로 이동 하는 것입니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
+이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 Stream Analytics를 사용하여 데이터를 SQL Database로 이동하려고 합니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
 
-## <a name="create-an-azure-sql-database"></a>Azure SQL Database 만들기
+## <a name="create-an-azure-sql-database"></a>Azure SQL Database 생성
 다시 한 번 [Azure Portal][portal]의 구독에서 시작하여 데이터를 작성할 데이터베이스(및 이미 있는 경우 새 서버)를 만듭니다.
 
 ![새로 만들기, 데이터, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
-서버에서 Azure 서비스에 대 한 액세스를 허용 하는지 확인 합니다.
+서버에서 Azure 서비스에 대한 액세스를 허용하는지 확인합니다.
 
 ![찾아보기, 서버, 사용자 서버, 설정, 방화벽, Azure에 대한 액세스 허용](./media/code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
-## <a name="create-a-table-in-azure-sql-database"></a>Azure SQL Database에서 테이블 만들기
+## <a name="create-a-table-in-azure-sql-database"></a>Azure SQL Database에 테이블 만들기
 기본 관리 도구로 이전 섹션에서 만든 데이터베이스에 연결합니다. 이 연습에서는 SSMS( [SQL Server 관리 도구](/sql/ssms/sql-server-management-studio-ssms) )를 사용합니다.
 
 ![Azure SQL Database에 연결](./media/code-sample-export-sql-stream-analytics/31-sql-table.png)
@@ -133,21 +133,21 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics 인스턴스 만들기
 [Azure Portal](https://portal.azure.com/)에서 Azure Stream Analytics 서비스를 선택하고 새 Stream Analytics 작업을 만듭니다.
 
-![스크린샷-만들기 단추가 강조 표시 된 Stream analytics 작업 페이지를 보여 줍니다.](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![만들기 단추가 강조 표시된 Stream Analytics 작업 페이지를 보여 주는 스크린샷.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
-![새 stream analytics 작업](./media/code-sample-export-sql-stream-analytics/SA002.png)
+![새 Stream Analytics 작업](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 새 작업이 만들어질 때 **리소스로 이동** 을 선택합니다.
 
-![배포 성공 메시지 및 리소스로 이동 단추를 보여 주는 스크린샷](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![배포 성공 메시지 및 리소스로 이동 단추를 보여 주는 스크린샷.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>새 입력 추가
 
-![스크린샷 선택 된 추가 단추가 있는 입력 페이지를 보여 줍니다.](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![추가 단추가 선택된 입력 페이지를 보여 주는 스크린샷.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 연속 내보내기 Blob에서 입력을 가져오도록 설정합니다.
 
-![스크린샷 입력 별칭, 원본 및 저장소 계정 드롭다운 메뉴 옵션이 선택 된 새 입력 창을 보여 줍니다.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![입력 별칭, 원본, 스토리지 계정 드롭다운 메뉴 옵션이 선택된 새 입력 창을 보여 주는 스크린샷.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 이제 앞에서 기록해 둔 Storage 계정의 기본 액세스 키가 필요합니다. 이 키를 Storage 계정 키로 설정합니다.
 
@@ -222,7 +222,7 @@ SQL을 출력으로 선택합니다.
 
 ![스트림 분석에서 출력 선택](./media/code-sample-export-sql-stream-analytics/SA006.png)
 
-데이터베이스를 지정 합니다.
+데이터베이스를 지정합니다.
 
 ![데이터베이스의 세부 정보 채우기](./media/code-sample-export-sql-stream-analytics/SA007.png)
 
@@ -244,7 +244,7 @@ FROM [dbo].[PageViewsTable]
 
 ## <a name="related-articles"></a>관련된 문서
 * [Stream Analytics를 사용하여 Power BI로 내보내기](./export-power-bi.md)
-* [속성 형식 및 값에 대 한 자세한 데이터 모델 참조입니다.](./export-data-model.md)
+* [속성 형식 및 값에 대한 자세한 데이터 모델 참조](./export-data-model.md)
 * [Application Insights에서 연속 내보내기](./export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
