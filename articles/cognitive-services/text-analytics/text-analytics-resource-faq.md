@@ -1,25 +1,29 @@
 ---
 title: Text Analytics API에 대한 FAQ(질문과 대답)
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services에 대 한 텍스트 분석 API 관련 된 개념, 코드 및 시나리오에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
+description: Microsoft Cognitive Services용 Text Analytics API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문과 대답을 찾습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: 9a4e179767cc38169cd794f4cd629604bdcdaab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c38b7c33cfe787ba933ca1fc4961080eaa4ada61
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97955045"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276062"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Text Analytics API에 대한 FAQ(질문과 대답)
 
- Azure Cognitive Services에서 텍스트 분석 API 관련 된 개념, 코드 및 시나리오에 대 한 일반적인 질문과 대답을 찾습니다.
+ Azure Cognitive Services의 Text Analytics API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
+
+## <a name="what-is-the-maximum-size-and-number-of-requests-i-can-make-to-the-api"></a>API에 대해 요청할 수 있는 최대 크기와 수는 얼마인가요?
+
+분당 및 초당 보낼 수 있는 요청의 크기와 수에 대한 내용은 [데이터 제한](concepts/data-limits.md) 문서를 참조하세요.
 
 ## <a name="can-text-analytics-identify-sarcasm"></a>Text Analytics에서 비꼬는 표현을 식별할 수 있나요?
 
@@ -49,19 +53,19 @@ ms.locfileid: "97955045"
 
 ## <a name="service-availability-and-redundancy"></a>서비스 가용성 및 중복성
 
-### <a name="is-text-analytics-service-zone-resilient"></a>Text Analytics 서비스 영역 복원 력이 있나요?
+### <a name="is-text-analytics-service-zone-resilient"></a>Text Analytics 서비스 영역은 복원력이 있나요?
 
-예. Text Analytics 서비스는 기본적으로 영역 복원 가능 합니다.
+예. Text Analytics 서비스는 기본적으로 영역 복원력이 있습니다.
 
-### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>Text Analytics 서비스를 영역 복원 력이 되도록 구성 어떻게 할까요?
+### <a name="how-do-i-configure-the-text-analytics-service-to-be-zone-resilient"></a>영역 복원력을 갖도록 Text Analytics 서비스를 구성하려면 어떻게 해야 하나요?
 
-영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. 영역-Text Analytics 리소스에 대 한 복원 력은 기본적으로 제공 되며 서비스 자체에서 관리 됩니다.
+영역 복원력을 사용하도록 설정하기 위한 고객 구성은 필요 없습니다. Text Analytics 리소스의 영역 복원력은 기본적으로 제공되며 서비스 자체에서 관리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 요청하거나 투표하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참조
 
  * [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  * [StackOverflow: Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

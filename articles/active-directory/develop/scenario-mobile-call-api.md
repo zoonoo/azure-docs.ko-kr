@@ -14,15 +14,15 @@ ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 656cb167fb47e44c28922afed75d8c46a460aaf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99584400"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>모바일 앱에서 웹 API 호출
 
-앱에서 사용자를 로그인 하 고 토큰을 받은 후 MSAL (Microsoft 인증 라이브러리)은 사용자, 사용자 환경 및 발급 된 토큰에 대 한 정보를 제공 합니다. 앱은 이러한 값을 사용하여 웹 API를 호출하거나 사용자에게 환영 메시지를 표시할 수 있습니다.
+앱에서 사용자를 로그인하고 토큰을 받은 후 MSAL(Microsoft 인증 라이브러리)에서 사용자, 사용자 환경 및 발급된 토큰에 대한 정보를 제공합니다. 앱은 이러한 값을 사용하여 웹 API를 호출하거나 사용자에게 환영 메시지를 표시할 수 있습니다.
 
 이 문서에서는 먼저 MSAL 결과를 살펴보겠습니다. 그런 다음 `AuthenticationResult` 또는 `result`에서 액세스 토큰을 사용하여 보호된 웹 API를 호출하는 방법을 살펴보겠습니다.
 
@@ -117,15 +117,15 @@ task.resume()
 
 ## <a name="make-several-api-requests"></a>여러 API 요청 만들기
 
-동일한 API를 여러 번 호출 하거나 여러 Api를 호출 하려면 앱을 빌드할 때 다음 제목을 고려 합니다.
+동일한 API를 여러 번 호출하거나 여러 API를 호출하려면 앱을 빌드할 때 다음 사항을 고려합니다.
 
-- **증분 동의**: Microsoft id 플랫폼을 사용 하면 앱이 시작 시가 아니라 권한이 필요할 때 사용자 동의를 받을 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 필요한 범위만 요청해야 합니다.
+- **증분 동의**: Microsoft ID 플랫폼을 사용하면 앱 시작 시가 아닌 권한이 필요할 때 사용자 동의를 가져올 수 있습니다. 앱이 API를 호출할 준비가 될 때마다 필요한 범위만 요청해야 합니다.
 
 - **조건부 액세스**: 여러 API 요청을 만들 때 특정 시나리오에서는 추가 조건부 액세스 요구 사항을 충족해야 할 수 있습니다. 첫 번째 요청에 조건부 액세스 정책이 없고 앱에서 조건부 액세스가 필요한 새 API에 자동으로 액세스하려는 경우 이런 식으로 요구 사항이 늘어날 수 있습니다. 이 문제를 처리하려면 자동 요청에서 오류를 파악하고 대화형 요청을 준비해야 합니다.  자세한 내용은 [조건부 액세스에 대한 지침](../azuread-dev/conditional-access-dev-guide.md)을 참조하세요.
 
 ## <a name="call-several-apis-by-using-incremental-consent-and-conditional-access"></a>증분 동의 및 조건부 액세스를 사용하여 여러 API 호출
 
-동일한 사용자에 대해 여러 Api를 호출 하려면 사용자에 대 한 토큰을 가져온 후 다음 `AcquireTokenSilent` 을 호출 하 여 토큰을 가져오기 위해 사용자에 게 자격 증명을 반복적으로 요청 하는 것을 방지할 수 있습니다.
+동일한 사용자에 대해 여러 API를 호출하려면 사용자에 대한 토큰을 가져온 후에는 `AcquireTokenSilent`를 호출하여 토큰을 가져오기 위해 사용자에게 자격 증명을 반복적으로 요청하지 않아도 됩니다.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -159,4 +159,4 @@ catch(MsalUiRequiredException ex)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오에서 다음 문서로 이동 하 여 [프로덕션으로 이동](scenario-mobile-production.md)합니다.
+이 시나리오의 다음 문서로 이동하여 [프로덕션으로 이동](scenario-mobile-production.md)합니다.

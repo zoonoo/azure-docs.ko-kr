@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: a487cba5026da827276f2e7681c0d362127a4e27
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: fad6e27c4ee7e8c10237cb3face5cfab9329b2ed
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204840"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98059724"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -26,7 +26,7 @@ Application Gateway는 Standard_v2 SKU에서 사용할 수 있습니다. WAF(웹
 
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 지원됩니다. 다른 지역에서는 다른 모든 기능이 지원됩니다. 자세한 내용은 [Azure의 지역 및 가용성 영역](../availability-zones/az-overview.md)을 참조하세요.
 - **정적 VIP**: Application Gateway v2 SKU는 정적 VIP 유형만 독점적으로 지원합니다. 이렇게 하면 Application Gateway와 연결된 VIP가 다시 시작된 후에도 배포의 수명 주기 동안 변경되지 않습니다.  V1에는 정적 VIP가 없으므로 Application Gateway를 통해 App Services로 라우팅하는 도메인 이름의 IP 주소 대신, Application Gateway URL을 사용해야 합니다.
-- **헤더 다시 쓰기**: Application Gateway를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway로 HTTP 헤더 다시 쓰기](./rewrite-http-headers-url.md)를 참조하세요.
+- **헤더 다시 쓰기**: Application Gateway를 사용하면 v2 SKU를 사용하여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway로 HTTP 헤더 다시 쓰기](rewrite-http-headers.md)를 참조하세요.
 - **Key Vault 통합**: Application Gateway v2는 HTTPS 지원 수신기에 연결된 서버 인증서에 대해 Key Vault와의 통합을 지원합니다. 자세한 내용은 [Key Vault 인증서를 사용한 TLS 종료](key-vault-certs.md)를 참조하세요.
 - **Azure Kubernetes Service 수신 컨트롤러**: Application Gateway v2 수신 컨트롤러는 Azure Application Gateway를 AKS 클러스터라고도 하는 AKS(Azure Kubernetes Service)의 수신으로 사용할 수 있습니다. 자세한 내용은 [Application Gateway 수신 컨트롤러란?](ingress-controller-overview.md)을 참조하세요.
 - **성능 향상**: V2 SKU는 표준/WAF SKU와 비교할 때 최대 5배 더 나은 TLS 오프로드 성능을 제공합니다.

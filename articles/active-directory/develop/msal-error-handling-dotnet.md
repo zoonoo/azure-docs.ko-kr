@@ -1,7 +1,7 @@
 ---
 title: MSAL.NET에서 오류 및 예외 처리
 titleSuffix: Microsoft identity platform
-description: MSAL.NET에서 오류 및 예외를 처리 하는 방법, 조건부 액세스 클레임 문제 및 재시도를 처리 하는 방법에 대해 알아봅니다.
+description: MSAL.NET에서 오류와 예외, 조건부 액세스 클레임 챌린지 및 다시 시도를 처리하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 565acd745ba5d7fdec71f306d3851e599838f7d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99584047"
 ---
 # <a name="handle-errors-and-exceptions-in-msalnet"></a>MSAL.NET에서 오류 및 예외 처리
@@ -38,16 +38,16 @@ throw될 수 있는 일반적인 예외와 몇 가지 가능한 완화는 다음
 
 | 예외 | 오류 코드 | 완화 방법|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: 사용자 또는 관리자가 '{appName}'이라는' {appId}' ID의 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보냅니다.| 사용자 동의를 먼저 가져옵니다. 웹 UI가 없는 .NET Core를 사용하지 않는 경우 `AcquireTokeninteractive`를 한 번만 호출합니다. .NET Core를 사용하거나 `AcquireTokenInteractive`를 수행하지 않으려는 경우 사용자는 URL(`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`)로 이동하여 동의합니다. `AcquireTokenInteractive`를 호출하려면 `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`를 실행합니다.|
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: 사용자는 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용해야 합니다.| 완화가 없습니다. MFA에 대해 MFA를 구성 하 고 AAD (Azure Active Directory)에서 적용 하기로 결정 한 경우 또는와 같은 대화형 흐름으로 대체 `AcquireTokenInteractive` `AcquireTokenByDeviceCode` 합니다.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS65001: 사용자 또는 관리자가 '{appName}'이라는' {appId}' ID의 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보냅니다.| 먼저 사용자 동의를 얻습니다. 웹 UI가 없는 .NET Core를 사용하지 않는 경우 `AcquireTokeninteractive`를 한 번만 호출합니다. .NET Core를 사용하거나 `AcquireTokenInteractive`를 수행하지 않으려는 경우 사용자는 URL(`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read`)로 이동하여 동의합니다. `AcquireTokenInteractive`를 호출하려면 `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`를 실행합니다.|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception) | AADSTS50079: 사용자는 [MFA(Multi-Factor Authentication)](../authentication/concept-mfa-howitworks.md)를 사용해야 합니다.| 완화가 없습니다. MFA가 테넌트에 대해 구성되어 있고 AAD(Azure Active Directory)에서 적용하도록 결정한 경우 `AcquireTokenInteractive` 또는 `AcquireTokenByDeviceCode`와 같은 대화형 흐름으로 대체합니다.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) |AADSTS90010: 권한 부여 유형은 */common* 또는 */consumers* 엔드포인트에서 지원되지 않습니다. */organizations* 또는 테넌트 특정 엔드포인트를 사용합니다. */common* 을 사용했습니다.| Azure AD의 메시지에서 설명한 대로 인증 기관에 테넌트 또는 */organizations* 가 있어야 합니다.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception) | AADSTS70002: 요청 본문에는 `client_secret or client_assertion` 매개 변수가 있어야 합니다.| Azure AD에서 애플리케이션이 공용 클라이언트 애플리케이션으로 등록되지 않은 경우에 이 예외가 throw될 수 있습니다. Azure Portal에서 애플리케이션에 대한 매니페스트를 편집하고 `allowPublicClient`를 `true`로 설정합니다. |
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception)| `unknown_user Message`: 로그인한 사용자를 식별할 수 없음| 라이브러리가 현재 Windows 로그인 사용자를 쿼리하지 못했습니다. 또는이 사용자가 AD 또는 Azure AD에 연결 되지 않았습니다 (작업에 참가 한 사용자가 지원 되지 않음). 완화 1: UWP에서 애플리케이션에 엔터프라이즈 인증, 사설망(클라이언트 및 서버), 사용자 계정 정보와 같은 기능이 있는지 확인합니다. 해결 방법 2: 사용자 이름(예: john@contoso.com)을 가져오도록 사용자 고유의 논리를 구현하고 사용자 이름을 사용하는 `AcquireTokenByIntegratedWindowsAuth` 양식을 사용합니다.|
-| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception)|integrated_windows_auth_not_supported_managed_user| 이 메서드는 AD(Active Directory)에서 공개되는 프로토콜을 사용합니다. 사용자가 AD 백업 ("관리" 사용자) 없이 Azure AD에서 만들어진 경우이 메서드는 실패 합니다. AD에서 만들고 Azure AD ("페더레이션된" 사용자)가 지 원하는 사용자는 이러한 비 대화형 인증 방법으로 이점을 누릴 수 있습니다. 마이그레이션: 대화형 인증을 사용합니다.|
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception)| `unknown_user Message`: 로그인한 사용자를 식별할 수 없음| 라이브러리에서 현재 Windows에 로그인한 사용자를 쿼리할 수 없거나, 이 사용자가 AD 또는 Azure AD에 조인되어 있지 않습니다(작업 공간에 조인된 사용자는 지원되지 않음). 완화 1: UWP에서 애플리케이션에 엔터프라이즈 인증, 사설망(클라이언트 및 서버), 사용자 계정 정보와 같은 기능이 있는지 확인합니다. 해결 방법 2: 사용자 이름(예: john@contoso.com)을 가져오도록 사용자 고유의 논리를 구현하고 사용자 이름을 사용하는 `AcquireTokenByIntegratedWindowsAuth` 양식을 사용합니다.|
+| [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception)|integrated_windows_auth_not_supported_managed_user| 이 메서드는 AD(Active Directory)에서 공개되는 프로토콜을 사용합니다. 사용자("관리" 사용자)를 AD 지원 없이 Azure AD에서 만든 경우 이 메서드는 실패합니다. AD에서 만들어지고 Azure AD에서 지원하는 사용자("페더레이션" 사용자)는 이 비대화형 인증 메서드를 활용할 수 있습니다. 마이그레이션: 대화형 인증을 사용합니다.|
 
 ### `MsalUiRequiredException`
 
-`AcquireTokenSilent()`를 호출할 때 MSAL.NET에서 반환되는 일반적인 상태 코드 중 하나는 `MsalError.InvalidGrantError`입니다. 이 상태 코드는 응용 프로그램이 인증 라이브러리를 다시 호출 하지만 대화형 모드 (공용 클라이언트 응용 프로그램의 경우 AcquireTokenInteractive 또는 AcquireTokenByDeviceCodeFlow)에서 웹 앱에 문제가 있음을 의미 합니다. 인증 토큰을 발급하려면 추가 사용자 조작이 필요하기 때문입니다.
+`AcquireTokenSilent()`를 호출할 때 MSAL.NET에서 반환되는 일반적인 상태 코드 중 하나는 `MsalError.InvalidGrantError`입니다. 이 상태 코드는 애플리케이션이 인증 라이브러리를 대화형 모드(퍼블릭 클라이언트 애플리케이션의 경우 AcquireTokenInteractive 또는 AcquireTokenByDeviceCodeFlow, 웹앱에서 챌린지 수행)에서 다시 호출해야 함을 의미합니다. 인증 토큰을 발급하려면 추가 사용자 조작이 필요하기 때문입니다.
 
 `AcquireTokenSilent`가 실패하는 대부분의 경우는 토큰 캐시에 요청과 일치하는 토큰이 없기 때문입니다. 액세스 토큰은 1시간 후에 만료되고 `AcquireTokenSilent`는 새로 고침 토큰(OAuth2 용어로는 "새로 고침 토큰 ' 흐름)을 기준으로 새 토큰을 가져오려고 합니다. 이 흐름은 테넌트 관리자가 보다 엄격한 로그인 정책을 구성하는 등, 여러 가지 이유로 실패할 수도 있습니다. 
 
@@ -55,7 +55,7 @@ throw될 수 있는 일반적인 예외와 몇 가지 가능한 완화는 다음
 
 ### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException` 분류 열거
 
-MSAL은 `Classification` 더 나은 사용자 환경을 제공 하기 위해 읽을 수 있는 필드를 노출 합니다. 예를 들어 사용자가 암호를 만료 했거나 일부 리소스를 사용 하는 데 동의 해야 함을 사용자에 게 알립니다. 지원되는 값은 `UiRequiredExceptionClassification` 열거형에 속합니다.
+MSAL은 더 나은 사용자 환경을 제공하기 위해 읽을 수 있는 `Classification` 필드를 표시합니다. 예를 들어 사용자에게 암호가 만료되었거나 일부 리소스를 사용하기 위해 동의해야 한다는 것을 알리는 것입니다. 지원되는 값은 `UiRequiredExceptionClassification` 열거형에 속합니다.
 
 | 분류    | 의미           | 권장 처리 |
 |-------------------|-------------------|----------------------|
@@ -177,4 +177,4 @@ do
 
 ## <a name="next-steps"></a>다음 단계
 
-문제를 진단 하 고 디버그할 수 있도록 [MSAL.NET에서 로깅을](msal-logging-dotnet.md) 사용 하도록 설정 하는 것이 좋습니다.
+문제를 진단하고 디버그할 수 있도록 [MSAL.NET에서 로깅](msal-logging-dotnet.md)을 사용하도록 설정하는 것이 좋습니다.

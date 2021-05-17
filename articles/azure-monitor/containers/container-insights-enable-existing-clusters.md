@@ -3,13 +3,13 @@ title: 배포된 AKS(Azure Kubernetes Service) 클러스터 모니터링 | Micro
 description: 구독에 이미 배포된 Container insights를 사용하여 AKS(Azure Kubernetes Service) 클러스터의 모니터링을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.custom: devx-track-terraform, devx-track-azurepowershell
-ms.openlocfilehash: 7ab840f2de90f316461c84e2698e9b760c082e03
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: fba12fb8dd5c6c91883a88d4acfdca6c6d332c24
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318642"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109627"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포된 AKS(Azure Kubernetes Service) 클러스터의 모니터링 사용
 

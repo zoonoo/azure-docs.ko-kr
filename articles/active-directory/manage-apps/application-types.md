@@ -2,20 +2,20 @@
 title: ID 관리를 위해 Azure Active Directory 테넌트를 사용하여 앱 보기
 description: ID 관리를 위해 Azure Active Directory 테넌트를 사용하여 모든 애플리케이션을 보는 방법을 이해합니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 01/07/2021
-ms.author: kenwith
-ms.openlocfilehash: 443e8c83ec29f9f0478e3881b9e6d6a8eb0bf403
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: iangithinji
+ms.openlocfilehash: b11f2dab97b3c45502c6050e06f0f39312f8c3c0
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259789"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107378076"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>ID 관리를 위해 Azure AD 테넌트를 사용하여 앱 보기
 [애플리케이션 관리에 대한 빠른 시작 시리즈](view-applications-portal.md)에서 기본 사항을 알아봅니다. 여기서는 ID 관리를 위해 Azure AD 테넌트를 사용하여 모든 앱을 보는 방법을 알아봅니다. 이 문서에서는 찾고 있는 앱 유형을 좀 더 자세히 살펴봅니다.

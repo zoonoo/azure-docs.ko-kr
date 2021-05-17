@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 6ebec78d5a9e82cc8a2f6ceb020a8b9552d6311e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: f014c07a319cbb07497cba01699b93d092255b93
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604018"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107771520"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -33,12 +33,12 @@ Azure Disk Encryption은 [Azure Key Vault와 통합](disk-encryption-key-vault.m
 >[!WARNING]
 > - 이전에 VM을 암호화하기 위해 Azure AD에서 Azure Disk Encryption을 사용한 적이 있다면 VM을 암호화하는 데 이 옵션을 계속 사용해야 합니다. 자세한 내용은 [Azure AD(이전 릴리스)를 포함한 Azure Disk Encryption](disk-encryption-overview-aad.md)을 참조하세요. 
 >
-> - Linux OS 볼륨을 암호화하는 경우, VM은 사용할 수 없는 것으로 간주해야 합니다. 암호화 프로세스 중에 액세스해야 할 모든 열린 파일을 차단하는 문제를 방지하려면 암호화가 진행 중일 때 SSH 로그인을 하지 말 것을 적극 권장합니다. 진행률을 확인하려면 [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet을 사용하거나 [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) CLI 명령을 사용합니다. 이 프로세스는 30GB OS 볼륨을 처리하는 데 몇 시간이 걸리고 데이터 볼륨을 암호화하는 데 추가 시간이 걸릴 수 있습니다. 데이터 볼륨 암호화 시간은 encrypt format all 옵션이 사용되지 않는 한 데이터 볼륨의 크기 및 수량에 비례합니다. 
+> - Linux OS 볼륨을 암호화하는 경우, VM은 사용할 수 없는 것으로 간주해야 합니다. 암호화 프로세스 중에 액세스해야 할 모든 열린 파일을 차단하는 문제를 방지하려면 암호화가 진행 중일 때 SSH 로그인을 하지 말 것을 적극 권장합니다. 진행률을 확인하려면 [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) PowerShell cmdlet을 사용하거나 [vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) CLI 명령을 사용합니다. 이 프로세스는 30GB OS 볼륨을 처리하는 데 몇 시간이 걸리고 데이터 볼륨을 암호화하는 데 추가 시간이 걸릴 수 있습니다. 데이터 볼륨 암호화 시간은 encrypt format all 옵션이 사용되지 않는 한 데이터 볼륨의 크기 및 수량에 비례합니다. 
 > - Linux VM에서 암호화 사용 안 함은 데이터 볼륨에 대해서만 지원됩니다. OS 볼륨이 암호화된 경우 이 설정은 데이터 또는 OS 볼륨에서 지원되지 않습니다.  
 
 ## <a name="install-tools-and-connect-to-azure"></a>도구 설치 및 Azure에 연결
 
-Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬로 설치 하 고 Azure 구독에 연결 해야 합니다.
+Azure Disk Encryption은 [Azure CLI](/cli/azure) 및 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 통해 사용하고 관리할 수 있습니다. 이렇게 하려면 도구를 로컬로 설치하고 Azure 구독에 연결해야 합니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -58,7 +58,7 @@ az login
 az login --tenant <tenant>
 ```
 
-구독이 여러 개이고 특정 구독을 지정하려는 경우 [az account list](/cli/azure/account#az-account-list)를 사용하여 구독 목록을 가져오고 [az account set](/cli/azure/account#az-account-set)으로 지정합니다.
+구독이 여러 개이고 특정 구독을 지정하려는 경우 [az account list](/cli/azure/account#az_account_list)를 사용하여 구독 목록을 가져오고 [az account set](/cli/azure/account#az_account_set)으로 지정합니다.
      
 ```azurecli
 az account list
@@ -124,13 +124,13 @@ Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_
     > disk-encryption-keyvault 매개 변수의 값 구문은 전체 식별자 문자열, 즉 /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]입니다.</br>
 key-encryption-key 매개변수의 값 구문은 KEK의 전체 URI, 즉 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]입니다. 
 
-- **디스크가 암호화되어 있는지 확인:** VM의 암호화 상태를 확인하려면 [az vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) 명령을 사용합니다. 
+- **디스크가 암호화되어 있는지 확인:** VM의 암호화 상태를 확인하려면 [az vm encryption show](/cli/azure/vm/encryption#az_vm_encryption_show) 명령을 사용합니다. 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) 명령을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
+- **암호화 사용 안 함:** 암호화를 사용하지 않도록 설정하려면 [az vm encryption disable](/cli/azure/vm/encryption#az_vm_encryption_disable) 명령을 사용합니다. 암호화 사용 안 함은 Linux VM용 데이터 볼륨에서만 허용됩니다.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "data"
@@ -229,7 +229,7 @@ Linux VM 디스크 암호화 템플릿을 구성하는 방법에 대한 자세�
 RAID 볼륨 또는 LVM 볼륨이 아닌, RAID 볼륨 또는 LVM 볼륨을 구성하는 디스크를 암호화합니다.
 
 ### <a name="use-the-encryptformatall-parameter-with-azure-cli"></a>Azure CLI에서 EncryptFormatAll 매개 변수 사용
-Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) 명령을 사용하여 실행 중인 가상 머신에서 암호화를 사용하도록 설정합니다.
+Azure에서 [az vm encryption enable](/cli/azure/vm/encryption#az_vm_encryption_enable) 명령을 사용하여 실행 중인 가상 머신에서 암호화를 사용하도록 설정합니다.
 
 -  **EncryptFormatAll을 사용하여 실행 중인 VM 암호화:**
 
@@ -396,7 +396,7 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 
 - 클래식 VM 만들기 방법을 통해 만든 VM 또는 기본 계층 VM을 암호화
 - OS 드라이브가 암호화된 경우 Linux VM의 OS 드라이브 또는 데이터 드라이브에서 암호화를 사용하지 않도록 설정
-- Linux 가상 머신 확장 집합에 대 한 OS 드라이브를 암호화 합니다.
+- Linux 가상 머신 확장 집합용 OS 드라이브 암호화.
 - Linux VM에서 사용자 지정 이미지 암호화
 - 온-프레미스 키 관리 시스템과의 통합
 - Azure 파일(공유 파일 시스템)
@@ -404,18 +404,19 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - 동적 볼륨
 - 사용 후 삭제 OS 디스크
 - 다음과 같은 공유/분산 파일 시스템의 암호화(단, 다음 항목에 국한되지 않음), DFS, GFS, DRDB 및 CephFS
-- 다른 구독 또는 지역으로 암호화 된 VM 이동
-- 암호화 된 VM의 이미지나 스냅숏을 만들어 추가 Vm을 배포 하는 데 사용
+- 암호화된 VM을 다른 구독 또는 지역으로 이동하는 중입니다.
+- 암호화된 VM의 이미지 또는 스냅샷을 만들어 추가 VM을 배포하는 데 사용합니다.
 - 커널 크래시 덤프(kdump)
 - Oracle ACFS(ASM 클러스터 파일 시스템)
-- Lsv2 시리즈 Vm의 NVMe 디스크 (참조: [Lsv2 시리즈](../lsv2-series.md)).
+- Lsv2 시리즈 VM의 NVMe 디스크(참조: [Lsv2 시리즈](../lsv2-series.md)).
 - "중첩된 탑재 지점" 즉, 단일 경로 내 여러 탑재 지점(예: "/1stmountpoint/data/2stmountpoint")이 있는 VM
-- 데이터 드라이브가 OS 폴더 위에 탑재 된 VM입니다.
-- 데이터 디스크를 사용 하 여 루트 (OS 디스크) 논리 볼륨이 확장 된 VM입니다.
-- 쓰기 가속기 디스크가 있는 M 시리즈 Vm
-- [고객이 관리 하는 키를 사용 하 여 서버 쪽 암호화](../disk-encryption.md) 로 암호화 된 디스크를 포함 하는 VM에 ADE 적용 (SSE + cmk). ADE로 암호화 된 VM의 데이터 디스크에 SSE + CMK를 적용 하는 것도 지원 되지 않는 시나리오입니다.
-- ADE로 암호화 되었거나 ADE로 **암호화 된 VM** 을 [고객 관리 키를 사용 하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.
-- 장애 조치 (failover) 클러스터에서 Vm을 암호화 합니다.
+- 데이터 드라이브가 OS 폴더 위에 탑재된 VM입니다.
+- 데이터 디스크를 사용하여 루트(OS 디스크) 논리 볼륨이 확장된 VM입니다.
+- 쓰기 가속기 디스크가 있는 M 시리즈 VM.
+- [고객 관리형 키를 사용하여 서버 쪽 암호화](../disk-encryption.md)(SSE + CMK)로 암호화된 디스크가 있는 VM에 ADE를 적용합니다. ADE로 암호화된 VM의 데이터 디스크에 SSE + CMK를 적용하는 것도 지원되지 않는 시나리오입니다.
+- ADE로 암호화되었거나 ADE로 암호화된 **적이** 있는 VM을 [고객 관리형 키를 사용하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.
+- 장애 조치(failover) 클러스터에서 VM 암호화.
+- [Azure 울트라 디스크](../disks-enable-ultra-ssd.md) 암호화.
 
 ## <a name="next-steps"></a>다음 단계
 

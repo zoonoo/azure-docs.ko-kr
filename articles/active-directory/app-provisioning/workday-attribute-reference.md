@@ -1,6 +1,6 @@
 ---
 title: Workday 특성 참조
-description: XPATH 쿼리를 사용 하 여 Workday에서 인출할 수 있는 특성에 대해 알아봅니다.
+description: XPATH 쿼리를 사용하여 Workday에서 가져올 수 있는 특성에 대해 알아봅니다.
 services: active-directory
 author: kenwith
 manager: daveba
@@ -12,10 +12,10 @@ ms.date: 05/25/2020
 ms.author: kenwith
 ms.reviewer: celested
 ms.openlocfilehash: 0ff9b3d4cc3bee28c8e5e95d8854f64eaa546b0c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99255477"
 ---
 # <a name="workday-attribute-reference"></a>Workday 특성 참조
@@ -209,22 +209,22 @@ ms.locfileid: "99255477"
 | 80 | WorkSpaceReference                    | wd:Worker/wd:Worker\_Data/wd:Employment\_Data/wd:Worker\_Job\_Data\[@wd:Primary_Job=1]/wd:Position\_Data/wd:Work\_Space\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
 ## <a name="custom-xpath-values"></a>사용자 지정 XPATH 값
-아래 표에서는 Workday에서 Active Directory 또는 Azure AD로 작업자를 프로 비전 할 때 일반적으로 사용 되는 다른 사용자 지정 XPATH API 식의 목록을 제공 합니다. [자습서: 구성 관리](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)섹션에 나오는 지침을 참조 하 여 Workday 버전으로 여기에 제공 된 XPATH API 식을 테스트 하세요.
+아래 표에서는 Workday에서 Active Directory 또는 Azure AD로 작업자를 프로비저닝할 때 일반적으로 사용되는 다른 사용자 지정 XPATH API 식의 목록을 제공합니다. [자습서: 구성 관리](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration) 섹션에서 캡처한 지침을 참조하여 Workday 버전과 함께 여기에 제공된 XPATH API 식을 테스트하세요.
 
-이러한 통합을 구현 하는 고객의 혜택을 얻기 위해 XPATH 테이블에 더 많은 특성을 추가 하려면 아래에 의견을 남겨 두거나 문서에 직접 [참여](/contribute) 하세요. 
+이러한 통합을 구현하는 고객의 이익을 위해 XPATH 테이블에 더 많은 특성을 추가하려면 아래에 의견을 남겨 두거나 문서에 직접 [기여](/contribute)하세요. 
 
 > [!div class="mx-tdBreakAll"]
 > | \# | Workday 특성 이름  | Workday API 버전 | Workday XPATH API 식   |
 > |----|-------------------------|---------------------|--------------------------------|
-> | 1  | 유니버설 ID  | v 30.0 이상   | wd: Worker/wd: Worker_Data/wd: Universal_ID/text ()      |
-> | 2  | 사용자 이름     | v 30.0 이상   | wd: Worker/wd: Worker_Data/wd: User_Account_Data/wd: User_Name/text () |
-> | 3  | 관리 수준 ID  | v 30.0 이상  | wd: Worker/wd: Worker_Data/wd: Employment_Data/wd: Worker_Job_Data [ @wd:Primary_Job = 1]/wd: Position_Data/wd: Job_Profile_Summary_Data/wd: Management_Level_Reference/wd: ID [ @wd:type = "Management_Level_ID"]/text ()  |
-> | 4 | 고용 취소 함 | v 30.0 이상 | wd: Worker/wd: Worker_Data/wd: Employment_Data/wd: Worker_Status_Data/wd: Hire_Rescinded/text () |
-> | 5 | 할당 된 프로 비전 그룹 | v 21.1 이상 | wd: Worker/wd: Worker_Data/wd: Account_Provisioning_Data/wd: Provisioning_Group_Assignment_Data [wd: Status = ' 할당 됨 ']/wd: Provisioning_Group/text () | 
+> | 1  | 유니버설 ID  | v30.0+   | wd:Worker/wd:Worker_Data/wd:Universal_ID/text()      |
+> | 2  | 사용자 이름     | v30.0+   | wd:Worker/wd:Worker_Data/wd:User_Account_Data/wd:User_Name/text() |
+> | 3  | 관리 수준 ID  | v30.0+  | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Job_Data[@wd:Primary_Job=1]/wd:Position_Data/wd:Job_Profile_Summary_Data/wd:Management_Level_Reference/wd:ID[@wd:type="Management_Level_ID"]/text()  |
+> | 4 | 고용 취소 | v30.0+ | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Worker_Status_Data/wd:Hire_Rescinded/text() |
+> | 5 | 할당된 프로비저닝 그룹 | v21.1+ | wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text() | 
 
 
-## <a name="supported-xpath-functions"></a>지원 되는 XPATH 함수
-Xpath API 식을 만드는 동안 사용할 수 있는 [MICROSOFT .NET xpath 라이브러리](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) 에서 지원 되는 xpath 함수의 목록은 다음과 같습니다. 
+## <a name="supported-xpath-functions"></a>지원되는 XPATH 함수
+XPATH API 식을 만드는 동안 사용할 수 있는 [Microsoft .NET XPATH 라이브러리](/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100))에서 지원되는 XPATH 함수의 목록은 다음과 같습니다. 
 
 * name
 * last
@@ -243,7 +243,7 @@ Xpath API 식을 만드는 동안 사용할 수 있는 [MICROSOFT .NET xpath 라
 * true
 * not
 * false
-* 숫자
+* number
 * ceiling
 * sum
 * round

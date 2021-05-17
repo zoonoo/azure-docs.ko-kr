@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-js
 ms.openlocfilehash: e1992c806619154fa7b3c33500b2e54fbc919f20
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92151437"
 ---
-# <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트 (Node.js)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>작업 예약 및 브로드캐스트(Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -37,7 +37,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 솔루션 백 엔드에서 **lockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Node.js로 시뮬레이션된 디바이스 앱을 만듭니다.
 
@@ -45,7 +45,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 자습서를 마치면 두 가지 Node.js 앱이 만들어집니다.
 
-* **simDevice.js** 는 장치 id를 사용 하 여 IoT hub에 연결 하 고 **lockdoor** direct 메서드를 수신 합니다.
+* **simDevice.js** - 디바이스 ID로 IoT Hub에 연결하고 **lockDoor** 직접 메서드를 수신합니다.
 
 * **scheduleJobService.js** 는 시뮬레이션된 디바이스 앱에서 직접 메서드를 호출하고 작업을 사용하여 디바이스 쌍의 desired 속성을 업데이트합니다.
 
@@ -92,14 +92,14 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
 
-5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다. `{yourDeviceConnectionString}`자리 표시자 값을 이전에 복사한 장치 연결 문자열로 바꿉니다.
+5. **connectionString** 변수를 추가하고 이 변수를 사용하여 **클라이언트** 인스턴스를 만듭니다. `{yourDeviceConnectionString}` 자리 표시자 값을 이전에 복사한 디바이스 연결 문자열로 바꿉니다.
 
     ```javascript
     var connectionString = '{yourDeviceConnectionString}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
-6. 다음 함수를 추가 하 여 **Lockdoor** 메서드를 처리 합니다.
+6. 다음 함수를 추가하여 **lockDoor** 메서드를 처리합니다.
 
     ```javascript
     var onLockDoor = function(request, response) {
@@ -117,7 +117,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     };
     ```
 
-7. 다음 코드를 추가 하 여 **Lockdoor** 메서드에 대 한 처리기를 등록 합니다.
+7. 다음 코드를 추가하여 **lockDoor** 메서드에 대한 처리기를 등록합니다.
 
    ```javascript
    client.open(function(err) {
@@ -144,7 +144,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>직접 메서드를 호출하고 디바이스 쌍의 속성을 업데이트하기 위한 작업 예약
 
-이 섹션에서는 직접 메서드를 사용 하 여 장치에서 원격 **Lockdoor** 를 시작 하 고 장치 쌍의 속성을 업데이트 하는 Node.js 콘솔 앱을 만듭니다.
+이 섹션에서는 직접 메서드를 사용하여 디바이스에서 원격 **lockDoor** 를 시작하는 Node.js 콘솔 앱을 만들고 디바이스 쌍의 속성을 업데이트합니다.
 
 1. **scheduleJobService** 라는 빈 폴더를 새로 만듭니다.  **scheduleJobService** 폴더의 명령 프롬프트에서 다음 명령을 사용하여 package.json 파일을 만듭니다.  모든 기본값을 수락합니다.
 
@@ -160,7 +160,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 3. 텍스트 편집기를 사용하여 **scheduleJobService** 폴더에 새 **scheduleJobService.js** 파일을 만듭니다.
 
-4. **scheduleJobService.js** 파일의 시작 부분에 다음 ' 필수 ' 문을 추가 합니다.
+4. **scheduleJobService.js** 파일의 시작 부분에 다음 'require' 문을 추가합니다.
 
     ```javascript
     'use strict';
@@ -169,7 +169,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     var JobClient = require('azure-iothub').JobClient;
     ```
 
-5. 다음 변수 선언을 추가합니다. `{iothubconnectionstring}`자리 표시자 값을 [IoT hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 값으로 바꿉니다. **Mydeviceid** 와 다른 장치를 등록 한 경우 쿼리 조건에서 변경 해야 합니다.
+5. 다음 변수 선언을 추가합니다. `{iothubconnectionstring}` 자리 표시자 값을 [IoT 허브 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 값으로 바꿉니다. **myDeviceId** 이외의 다른 디바이스를 등록한 경우 쿼리 조건에서 변경해야 합니다.
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';
@@ -284,13 +284,13 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
     node scheduleJobService.js
     ```
 
-3. 콘솔에서 직접 메서드 및 작업 상태에 대 한 장치 응답이 표시 됩니다.
+3. 콘솔에서 직접 메서드 및 작업 상태에 대한 디바이스 응답을 볼 수 있습니다.
 
-   다음은 직접 메서드에 대 한 장치 응답을 보여 줍니다.
+   다음은 직접 메서드에 대한 디바이스 응답을 보여줍니다.
 
    ![시뮬레이트한 디바이스 앱 출력](./media/iot-hub-node-node-schedule-jobs/sim-device.png)
 
-   다음은 직접 메서드 및 장치 쌍 업데이트에 대 한 서비스 예약 작업과 완료 될 때 실행 되는 작업을 보여 줍니다.
+   다음은 직접 메서드 및 디바이스 쌍 업데이트에 대한 서비스 예약 작업과 완료될 때까지 실행되는 작업을 보여줍니다.
 
    ![시뮬레이션된 디바이스 앱 실행](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
@@ -298,6 +298,6 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 이 자습서에서는 디바이스에 대한 직접 메서드를 예약하고 디바이스 쌍의 속성을 업데이트하는 데 작업을 사용했습니다.
 
-무선 펌웨어 업데이트를 통한 원격 같은 IoT Hub 및 장치 관리 패턴을 계속 시작 하려면 [자습서: 펌웨어 업데이트를 수행 하는 방법](tutorial-firmware-update.md)을 참조 하세요.
+IoT Hub 및 디바이스 관리 패턴(예: 원격 무선 펌웨어 업데이트)을 계속 시작하려면 [자습서: 펌웨어 업데이트를 수행하는 방법](tutorial-firmware-update.md)을 참조하세요.
 
 계속해서 IoT Hub를 시작하려면 [Azure IoT Edge 시작](../iot-edge/quickstart-linux.md)을 참조하세요.

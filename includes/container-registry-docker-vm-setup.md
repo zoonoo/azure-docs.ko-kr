@@ -4,24 +4,24 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/07/2020
 ms.author: danlep
-ms.openlocfilehash: d699e8985a3a23b3aab87601d5298d9c8f7e34e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 429377cd50e83195cb1c3a422416fdb35644a28e
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244842"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107773482"
 ---
-## <a name="create-a-docker-enabled-virtual-machine"></a>Docker 사용 가상 컴퓨터 만들기
+## <a name="create-a-docker-enabled-virtual-machine"></a>Docker 지원 가상 머신 만들기
 
-테스트를 위해 Docker 사용 Ubuntu VM을 사용 하 여 Azure container registry에 액세스 합니다. 레지스트리에 대 한 Azure Active Directory 인증을 사용 하려면 VM에 [Azure CLI][azure-cli] 도 설치 합니다. Azure 가상 머신이 이미 있는 경우이 만들기 단계를 건너뜁니다.
+테스트를 위해 Docker 사용 Ubuntu VM을 사용하여 Azure 컨테이너 레지스트리에 액세스합니다. 레지스트리에 Azure Active Directory 인증을 사용하려면 VM에 [Azure CLI][azure-cli]도 설치합니다. Azure 가상 머신이 이미 있는 경우 이 생성 단계를 건너뜁니다.
 
-가상 머신과 컨테이너 레지스트리에 동일한 리소스 그룹을 사용할 수 있습니다. 이 설정은 종료 시 정리 작업을 단순화 하지만 필요 하지는 않습니다. 가상 컴퓨터 및 가상 네트워크에 대 한 별도의 리소스 그룹을 만들도록 선택 하는 경우 [az group create][az-group-create]를 실행 합니다. 다음 예제에서는 리소스 그룹 이름 및 레지스트리 위치에 대해 환경 변수를 설정 했다고 가정 합니다.
+가상 머신과 컨테이너 레지스트리에 동일한 리소스 그룹을 사용할 수 있습니다. 이 설정은 종료 시 정리 작업을 단순화하지만 필수는 아닙니다. 가상 머신 및 가상 네트워크에 대해 별도의 리소스 그룹을 만들도록 선택하는 경우 [az group create][az-group-create]를 실행합니다. 다음 예제에서는 리소스 그룹 이름 및 레지스트리 위치에 대한 환경 변수를 설정했다고 가정합니다.
 
 ```azurecli
 az group create --name $RESOURCE_GROUP --location $REGISTRY_LOCATION
 ```
 
-이제 [az vm create][az-vm-create]를 사용 하 여 기본 Ubuntu Azure virtual machine을 배포 합니다. 다음 예제에서는 *Mydockervm* 이라는 vm을 만듭니다.
+이제 [az vm create][az-vm-create]를 사용하여 기본 Ubuntu Azure 가상 머신을 배포합니다. 다음 예제에서는 *myDockerVM* 이라는 VM을 만듭니다.
 
 ```azurecli
 VM_NAME=myDockerVM
@@ -44,7 +44,7 @@ VM이 실행된 후 VM에 SSH 연결을 만듭니다. *publicIpAddress* 를 VM�
 ssh azureuser@publicIpAddress
 ```
 
-다음 명령을 실행 하 여 Ubuntu VM에 Docker를 설치 합니다.
+다음 명령을 실행하여 Ubuntu VM에 Docker를 설치합니다.
 
 ```bash
 sudo apt-get update
@@ -73,8 +73,8 @@ This message shows that your installation appears to be working correctly.
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-SSH 연결을 종료 합니다.
+SSH 연결을 종료합니다.
 
 [azure-cli]: /cli/azure/install-azure-cli
-[az-vm-create]: /cli/azure/vm#az-vm-create
+[az-vm-create]: /cli/azure/vm#az_vm_create
 [az-group-create]: /cli/azure/group

@@ -9,32 +9,32 @@ ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 02/04/2020
-ms.openlocfilehash: d6edee1f349b37c274f71c9db7abac35f9c88c4a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 407d208ef0385c795d086bb495ed51a020395cd2
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102557117"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443989"
 ---
 # <a name="edv4-and-edsv4-series"></a>Edv4 및 Edsv4 시리즈
 
-Edv4 및 Edsv4 시리즈는 하이퍼 스레드 구성에서 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프로세서로 실행되고 다양한 메모리 집약적 엔터프라이즈 애플리케이션에 이상적입니다. RAM 504GiB, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)가 제공됩니다. 또한 [Intel &reg; 심층 학습 부스트](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 지원 합니다. 이러한 새 VM 크기는 50% 더 큰 로컬 저장소 뿐만 아니라 [Gen2 vm](./generation-2.md)의 [Ev3/Esv3](./ev3-esv3-series.md) 크기와 비교 하 여 읽기 및 쓰기 둘 다에 대해 더 나은 로컬 디스크 IOPS를 갖게 됩니다. 3.4 g h z의 모든 코어 터보 클록 속도를 제공 합니다. 
+Edv4 및 Edsv4 시리즈는 하이퍼 스레드 구성에서 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프로세서로 실행되고 다양한 메모리 집약적 엔터프라이즈 애플리케이션에 이상적입니다. RAM 504GiB, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) 및 [Intel&reg; Advanced Vector Extensions 512(Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html)가 제공됩니다. 또한 [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html)를 지원합니다. 이 새로운 VM 크기는 [Gen2 VM](./generation-2.md)이 포함된 [Ev3/Esv3](./ev3-esv3-series.md)에 비해 로컬 스토리지가 50% 확장되고, 읽기 쓰기 로컬 디스크 IOPS가 향상됩니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다. 
 
 ## <a name="edv4-series"></a>Edv4 시리즈
 
 Edv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프로세서에서 실행됩니다. Edv4 가상 머신 크기는 대용량 고속 로컬 SSD 스토리지(최대 2,400GiB) 외에 RAM 504GiB가 탑재됩니다. 이 가상 머신은 메모리 집약적인 엔터프라이즈 애플리케이션과 지연이 낮은 고속 로컬 스토리지가 필요한 애플리케이션에 이상적입니다. 표준 SSD 및 표준 HDD 디스크 스토리지를 Edv4 VM에 연결할 수 있습니다. 
 
-[Acu](acu.md): 195-210<br>
-[Premium Storage](premium-storage-performance.md): 지원 되지 않음<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 되지 않음<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[ACU](acu.md): 195 - 210<br>
+[Premium Storage](premium-storage-performance.md): 지원되지 않음<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원되지 않음<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
+[VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 스토리지 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|
 | Standard_E2d_v4  | 2 | 16 | 75 | 4 | 19000/120 | 2|1000 |
 | Standard_E4d_v4  | 4 | 32 | 150 | 8 | 38500/242 | 2|2000 |
@@ -46,23 +46,23 @@ Edv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프
 | Standard_E64d_v4 | 64 | 504 | 2400 | 32 | 615000/3872 | 8|30000 |
 
 
-<sup>**</sup>이러한 IOPs 값은 [Gen2 vm](generation-2.md) 을 사용 하 여 보장할 수 있습니다.
+<sup>**</sup> [Gen2 VM](generation-2.md)을 사용하여 이러한 IOP 값을 보장할 수 있습니다.
 
 ## <a name="edsv4-series"></a>Edsv4 시리즈
 
 Edsv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) 프로세서에서 실행됩니다. Edsv4 가상 머신 크기는 대용량 고속 로컬 SSD 스토리지(최대 2,400GiB) 외에 RAM 504GiB가 탑재됩니다. 이 가상 머신은 메모리 집약적인 엔터프라이즈 애플리케이션과 지연이 낮은 고속 로컬 스토리지가 필요한 애플리케이션에 이상적입니다.
 
-[Acu](acu.md): 195-210<br>
-[Premium Storage](premium-storage-performance.md): 지원 됨<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 됨<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 됨<br>
-[VM 생성 지원](generation-2.md): 1 세대 및 2 세대<br>
-[가속화 된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨 (*최소 4 개의 vcpu 필요*)<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 됨 <br>
+[ACU](acu.md): 195-210<br>
+[Premium Storage](premium-storage-performance.md): 지원됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원됨<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원됨<br>
+[VM 생성 지원](generation-2.md): 1세대 및 2세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨(*최소 4개의 vCPU 필요*)<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭 (Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | <sup>**</sup> 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps | 최대 NIC 수|예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2ds_v4  | 2 | 16 | 75 | 4 | 19000/120(50) | 3200/48 | 2|1000 |
 | Standard_E4ds_v4  | 4 | 32 | 150 | 8 | 38500/242(100) | 6400/96 | 2|2000 |
@@ -72,7 +72,7 @@ Edsv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) �
 | Standard_E32ds_v4 | 32 | 256 | 1200 | 32 | 308000/1936(800) | 51200/768  | 8|16000 |
 | Standard_E48ds_v4 | 48 | 384 | 1800 | 32 | 462000/2904(1200) | 76800/1152 | 8|24000 |
 | Standard_E64ds_v4 <sup>1</sup> | 64 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
-| Standard_E80ids_v4 <sup>2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1200 | 8|30000 |
+| Standard_E80ids_v4 <sup>2</sup> | 80 | 504 | 2400 | 32 | 615000/3872(1600) | 80000/1500 | 8|30000 |
 
 <sup>1</sup> [사용 가능한 코어 크기 제한)](./constrained-vcpu.md).
 
@@ -91,7 +91,7 @@ Edsv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) �
 
 가격 계산기: [가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
-디스크 유형에 대 한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
+디스크 유형에 대한 자세한 정보: [디스크 유형](./disks-types.md#ultra-disk)
 
 
 ## <a name="next-steps"></a>다음 단계

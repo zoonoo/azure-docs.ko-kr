@@ -1,16 +1,16 @@
 ---
-title: 성능 조정-Azure Data Lake Storage Gen1의 Hive
-description: HdInsight 및 Azure Data Lake Storage Gen1의 Hive에 대 한 성능 조정에 대해 알아봅니다. I/o를 많이 사용 하는 쿼리의 경우 더 나은 성능을 얻으려면 Hive를 조정 합니다.
+title: 성능 조정 - Azure Data Lake Storage Gen1의 Hive
+description: HdInsight 및 Azure Data Lake Storage Gen1에서 Hive의 성능 조정에 대해 알아봅니다. I/O 집약적인 쿼리의 경우 Hive를 조정하여 성능을 향상시킵니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: twooley
 ms.openlocfilehash: 082d684ed0a29cb6bf2de9c506886b6d98cf174a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97723784"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight의 Hive 및 Azure Data Lake Storage Gen1에 대한 성능 조정 지침
@@ -20,10 +20,10 @@ ms.locfileid: "97723784"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Data Lake Storage Gen1 계정**. 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
+* **Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **HDInsight에서 Hive 실행**.  HDInsight에서 Hive 작업 실행에 대한 자세한 내용은 [HDInsight의 Hive 사용](../hdinsight/hadoop/hdinsight-use-hive.md)을 참조하세요.
-* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md) 을 참조 하세요.
+* **Data Lake Storage Gen1 성능 조정 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen1 성능 조정 지침](./data-lake-store-performance-tuning-guidance.md)을 참조하세요.
 
 ## <a name="parameters"></a>매개 변수
 
@@ -53,9 +53,9 @@ Data Lake Storage Gen1 성능 향상을 위해 조정할 가장 중요한 설정
 
 I/O 집약적인 워크로드의 경우 Tez 컨테이너 크기를 줄여 더 많은 병렬 처리의 이점을 얻을 수 있습니다. 이렇게 하면 사용자에게 더 많은 컨테이너가 제공되어 동시성이 증가합니다.  하지만 일부 Hive 쿼리에는 상당한 양의 메모리가 필요합니다(예: MapJoin).  태스크에 충분한 메모리가 없는 경우 런타임 중에 메모리 부족 예외가 발생합니다.  메모리 부족 예외가 발생하면 메모리를 늘려야 합니다.   
 
-병렬 처리에서 실행 중인 동시 태스크 수는 총 YARN 메모리의 제약을 받습니다.  YARN 컨테이너 수에 따라 실행할 수 있는 동시 태스크 수가 결정됩니다.  노드당 YARN 메모리를 찾으려면 Ambari로 이동할 수 있습니다.  YARN으로 이동 하 여 Configs 탭을 확인 합니다.  YARN 메모리가이 창에 표시 됩니다.  
+병렬 처리에서 실행 중인 동시 태스크 수는 총 YARN 메모리의 제약을 받습니다.  YARN 컨테이너 수에 따라 실행할 수 있는 동시 태스크 수가 결정됩니다.  노드당 YARN 메모리를 찾으려면 Ambari로 이동할 수 있습니다.  YARN으로 이동하여 Configs 탭을 확인합니다. 이 창에 YARN 메모리가 표시됩니다.  
 
-> Total YARN memory = nodes * YARN memory per node Number of YARN container = Total YARN memory/Tez 컨테이너 크기
+> 총 YARN 메모리 = 노드 * 노드당 YARN 메모리(YARN 컨테이너 수) = 총 YARN 메모리/Tez 컨테이너 크기
 
 Data Lake Storage Gen1을 사용하여 성능을 개선하기 위한 핵심은 가능한 동시성을 늘리는 것입니다.  Tez가 생성할 태스크 수를 자동으로 계산하므로 설정할 필요가 없습니다.   
 
@@ -63,7 +63,7 @@ Data Lake Storage Gen1을 사용하여 성능을 개선하기 위한 핵심은 �
 
 8 노드 D14 클러스터가 있다고 가정해 보겠습니다.  
 
-> Total YARN memory = nodes * YARN memory per 노드당 memory = 8 node * 96GB = 768GB의 YARN 컨테이너 수 = 768GB/3072MB = 256
+> 총 YARN 메모리 = 노드 * 노드당 YARN 메모리(총 YARN 메모리) = 8개 노드 * 96GB = 768GB의 YARN 컨테이너 수 = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>제한 사항
 
@@ -73,7 +73,7 @@ Data Lake Storage Gen1에서 제공하는 대역폭 한도에 도달한 경우 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정해야 합니다. 그 방법은 다음과 같습니다.
 
-1. Hive 구성의 log4j 속성에 다음 속성을 추가 합니다. Ambari 뷰에서이 작업을 수행할 수 있습니다. log4j. datalake = DEBUG 모든 노드/서비스를 다시 시작 하 여 구성을 적용 합니다.
+1. Hive 구성의 log4j 속성에 다음 속성을 입력합니다. 이 작업은 Ambari 보기인 log4j.logger.com.microsoft.azure.datalake.store=DEBUG에서 수행할 수 있습니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 
 2. 제한이 적용되면 hive 로그 파일에 HTTP 429 오류 코드가 표시됩니다. hive 로그 파일은 /tmp/&lt;user&gt;/hive.log에 있습니다.
 

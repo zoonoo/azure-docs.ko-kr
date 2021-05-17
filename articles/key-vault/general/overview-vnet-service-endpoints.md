@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault의 가상 네트워크 서비스 엔드포인트
-description: 사용 시나리오를 포함 하 여 지정 된 가상 네트워크에 대 한 액세스를 제한 하는 Azure Key Vault의 가상 네트워크 서비스 끝점을 사용 하는 방법을 알아봅니다.
+description: 사용 시나리오를 포함하여 Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면 지정된 가상 네트워크에 대한 액세스를 제한하는 방법을 알아봅니다.
 services: key-vault
 author: amitbapat
 ms.author: ambapat
@@ -10,10 +10,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: ae22f07a70f3317b62776e5024b7a3d1084516a1
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105643487"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
@@ -27,7 +27,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 기본적으로 모든 네트워크(인터넷 트래픽 포함)의 트래픽에 대한 액세스를 거부하도록 [Key Vault 방화벽 및 가상 네트워크](network-security.md)를 구성할 수 있습니다. 특정 Azure 가상 네트워크 및 공용 인터넷 IP 주소 범위의 트래픽에 대한 액세스 권한을 부여하여 애플리케이션에 대한 보안 네트워크 경계를 빌드하도록 할 수 있습니다.
 
 > [!NOTE]
-> Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](secure-your-key-vault.md#data-plane-access-control)에만 적용됩니다. Key Vault 제어 평면 작업 (예: 만들기, 삭제 및 수정, 액세스 정책 설정, 방화벽 설정, 방화벽 설정, 가상 네트워크 규칙 및 ARM 템플릿을 통해 암호 또는 키 배포)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
+> Key Vault 방화벽 및 가상 네트워크 규칙은 Key Vault의 [데이터 평면](secure-your-key-vault.md#data-plane-access-control)에만 적용됩니다. Key Vault 제어 평면 작업(예: 작업 만들기, 삭제 및 수정, 액세스 정책 설정, 방화벽 및 가상 네트워크 규칙 설정, ARM 템플릿을 통한 비밀 또는 키 배포)은 방화벽 및 가상 네트워크 규칙의 영향을 받지 않습니다.
 
 서비스 엔드포인트를 사용할 수 있는 방법의 몇 가지 예는 다음과 같습니다.
 
@@ -39,26 +39,26 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 
 **신뢰할 수 있는 서비스 허용** 옵션을 사용하도록 설정하는 경우 키 자격 증명 모음에 액세스하도록 허용되는 신뢰할 수 있는 서비스 목록은 다음과 같습니다.
 
-|신뢰할 수 있는 서비스|지원 되는 사용 시나리오|
+|신뢰할 수 있는 서비스|지원되는 사용 시나리오|
 | --- | --- |
 |Azure Virtual Machines 배포 서비스|[고객 관리 Key Vault에서 VM으로 인증서를 배포합니다](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
-|Azure Resource Manager 템플릿 배포 서비스|[배포 하는 동안 보안 값을 전달](../../azure-resource-manager/templates/key-vault-parameter.md)합니다.|
+|Azure Resource Manager 템플릿 배포 서비스|[배포 중 보안 값을 전달합니다](../../azure-resource-manager/templates/key-vault-parameter.md).|
 |Azure Disk Encryption 볼륨 암호화 서비스|가상 머신을 배포하는 동안 BitLocker 키(Windows VM) 또는 DM 암호(Linux VM) 및 키 암호화 키에 대한 액세스를 허용합니다. 그러면 [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)이 설정됩니다.|
 |Azure Backup|Azure Virtual Machines를 백업하는 동안 [Azure Backup](../../backup/backup-overview.md)을 사용하여 관련 키 및 비밀의 백업 및 복원을 허용합니다.|
 |Exchange Online 및 SharePoint Online|[고객 키](/microsoft-365/compliance/customer-key-overview)를 사용하여 Azure Storage 서비스 암호화를 위한 고객 키에 대한 액세스를 허용합니다.|
 |Azure Information Protection|[Azure Information Protection](/azure/information-protection/what-is-information-protection)을 위해 테넌트 키 액세스 허용|
 |Azure App Service|[Key Vault를 통해 Azure Web App 인증서를 배포합니다](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Azure SQL Database 및 Azure Synapse 분석에 대 한 Bring Your Own Key 지원으로 투명한 데이터 암호화](../../azure-sql/database/transparent-data-encryption-byok-overview.md)합니다.|
-|Azure Storage|[Azure Key Vault에서 고객 관리 키를 사용 하 여 저장소 서비스 암호화](../../storage/common/customer-managed-keys-configure-key-vault.md)합니다.|
+|Azure SQL Database|[Azure SQL Database 및 Azure Synapse Analytics에 대한 Bring Your Own Key 지원을 통한 투명한 데이터 암호화](../../azure-sql/database/transparent-data-encryption-byok-overview.md).|
+|Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../../data-lake-store/data-lake-store-encryption.md).|
-|Azure Synapse Analytics|[Azure Key Vault에서 고객이 관리 하는 키를 사용 하 여 데이터 암호화](../../synapse-analytics/security/workspaces-encryption.md)|
+|Azure Synapse Analytics|[Azure Key Vault에서 고객 관리형 키를 사용하여 데이터 암호화](../../synapse-analytics/security/workspaces-encryption.md)|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](/azure/databricks/scenarios/what-is-azure-databricks)|
-|Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
-|Azure Data Factory|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../event-hubs/configure-customer-managed-key.md)|
-|Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Azure API Management|[MSI를 사용하여 Key Vault에서 사용자 지정 도메인에 대한 인증서 배포](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|Azure 데이터 팩터리|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Event Hubs|[고객 관리형 키 시나리오에 대한 키 자격 증명 모음에 액세스 허용](../../event-hubs/configure-customer-managed-key.md)|
+|Azure Service Bus|[고객 관리형 키 시나리오에 대한 키 자격 증명 모음에 액세스 허용](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Azure Import/Export| [Azure Key Vault에서 Import/Export 서비스에 고객 관리형 키 사용](../../import-export/storage-import-export-encryption-key-portal.md)
-|Azure Container Registry|[고객 관리 키를 사용 하는 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
+|Azure Container Registry|[고객 관리형 키를 사용한 레지스트리 암호화](../../container-registry/container-registry-customer-managed-keys.md)
 |Azure Application Gateway |[HTTPS 사용 수신기에 Key Vault 인증서 사용](../../application-gateway/key-vault-certs.md)
 
 > [!NOTE]
@@ -66,5 +66,5 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 
 ## <a name="next-steps"></a>다음 단계
 
-- 단계별 지침은 [Azure Key Vault 방화벽 및 가상 네트워크 구성](network-security.md) 을 참조 하세요.
-- [Azure Key Vault 보안 개요](security-overview.md) 를 참조 하세요.
+- 단계별 지침은 [Key Vault 방화벽 및 가상 네트워크 구성](network-security.md)을 참조하세요.
+- [Azure Key Vault 보안 개요](security-overview.md)를 참조하세요.

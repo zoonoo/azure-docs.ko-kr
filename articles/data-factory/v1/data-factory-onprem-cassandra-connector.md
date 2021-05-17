@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용 하 여 Cassandra에서 데이터 이동
+title: Data Factory를 사용하여 Cassandra에서 데이터 이동
 description: Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다.
 author: linda33wj
 ms.service: data-factory
@@ -8,10 +8,10 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 005fd85a152ee2765facda0d961bd9119d1598e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100387413"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터 이동
@@ -22,14 +22,14 @@ ms.locfileid: "100387413"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. Data Factory 서비스 현재 버전을 사용 중인 경우 [V2의 Cassandra 커넥터](../connector-cassandra.md)를 참조하세요.
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 제공 하는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 Cassandra 데이터베이스에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-온-프레미스 Cassandra 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조 하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Cassandra 데이터 저장소로 데이터 이동이 아닌 Cassandra 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
+온-프레미스 Cassandra 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 Cassandra 데이터 저장소로 데이터 이동이 아닌 Cassandra 데이터 저장소에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
 ## <a name="supported-versions"></a>지원되는 버전
 Cassandra 커넥터는 Cassandra 2.X 및 3.x 버전을 지원합니다. 자체 호스팅 Integration Runtime에서 활동 실행의 경우 Cassandra 3.x는 IR 버전 3.7 이상에서 지원됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에 연결할 수 있도록 하려면 데이터베이스와 리소스 경쟁을 피하려면 데이터 관리 게이트웨이를 데이터베이스를 호스트하는 컴퓨터와 동일한 컴퓨터 또는 별도의 컴퓨터에 설치해야 합니다. 데이터 관리 게이트웨이는 온-프레미스 데이터 원본을 클라우드 서비스에 안전하게 관리되는 방식으로 연결하는 구성 요소입니다. 데이터 관리 게이트웨이에 대한 세부 정보는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 데이터 이동을 위한 데이터 파이프라인 및 게이트웨이 설정에 대한 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 데이터베이스가 클라우드(예: Azure IaaS VM)에서 호스팅되는 경우에도 게이트웨이를 사용하여 Cassandra 데이터베이스에 연결해야 합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한, 데이터베이스를 호스팅하는 동일한 VM 또는 별도의 VM에 게이트웨이를 포함할 수 있습니다.
@@ -42,14 +42,14 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
-- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요.
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+- 또한 **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API**, **REST API** 를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다.
-2. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다.
-3. 데이터 집합을 입력으로 사용 하 고 데이터 집합을 출력으로 사용 하는 복사 작업을 사용 하 여 **파이프라인** 을 만듭니다.
+1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스** 를 만듭니다.
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트** 를 만듭니다.
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인** 을 만듭니다.
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 온-프레미스 Cassandra 데이터 저장소의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Cassandra에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-cassandra-to-azure-blob) 섹션을 참조하세요.
 
@@ -58,7 +58,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 표에서는 Cassandra 연결된 서비스와 관련된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | type |type 속성은 다음으로 설정해야 함: **OnPremisesCassandra** |예 |
 | host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/><br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
@@ -67,17 +67,17 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | password |사용자 계정으로 password를 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | gatewayName |온-프레미스 Cassandra 데이터베이스에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
-| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |아니요 |
+| encryptedCredential |게이트웨이에 의해 암호화된 자격 증명입니다. |예 |
 
 >[!NOTE]
->현재 TLS를 사용 하는 Cassandra에 연결 하는 것은 지원 되지 않습니다.
+>현재, TLS를 사용한 Cassandra 연결은 지원되지 않습니다.
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
-**TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **CassandraTable** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
+**typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **CassandraTable** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 | --- | --- | --- |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |예(**CassandraSource** 의 **query** 가 정의되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |예(**CassandraSource** 의 **query** 가 정의되지 않은 경우) |
@@ -95,7 +95,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 | consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요. |아니요. 기본값은 ONE입니다. |
 
 ## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON 예: Cassandra에서 Azure Blob으로 데이터 복사
-이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 온-프레미스 Cassandra 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 온-프레미스 Cassandra 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -131,7 +131,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 }
 ```
 
-**Azure Storage 연결 된 서비스:**
+**Azure Storage 연결된 서비스:**
 
 ```json
 {
@@ -175,7 +175,7 @@ Azure Data Factory 서비스가 온-프레미스 Cassandra 데이터베이스에
 
 **external** 을 **true** 로 설정하면 데이터 세트가 Data Factory의 외부에 있고 Data Factory의 활동으로 생성되지 않는다고 Data Factory 서비스에 전달됩니다.
 
-**Azure Blob 출력 데이터 집합:**
+**Azure Blob 출력 데이터 세트:**
 
 데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회)
 
@@ -267,8 +267,8 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | INT |Int32 |
 | TEXT |String |
 | timestamp |DateTime |
-| TIMEUUID |Guid |
-| UUID |Guid |
+| TIMEUUID |GUID |
+| UUID |GUID |
 | VARCHAR |String |
 | VARINT |Decimal |
 
@@ -294,14 +294,14 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 ### <a name="example"></a>예제
 예를 들어 다음 "ExampleTable"은 "pk_int"라는 정수 기본 키 열, value라는 텍스트 열, 목록 열, 맵 열, 집합 열("StringSet")을 포함하는 Cassandra 데이터베이스 테이블입니다.
 
-| pk_int | 값 | 목록 | 지도 | StringSet |
+| pk_int | 값 | 목록 | 맵 | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
 드라이버는 이 단일 테이블을 나타내는 여러 개의 가상 테이블을 생성합니다. 가상 테이블의 외래 키 열은 실제 테이블의 기본 키 열을 참조하고, 가상 테이블 행에 해당하는 실제 테이블 행을 나타냅니다.
 
-첫 번째 가상 테이블은 다음 표에 표시 된 "ExampleTable" 이라는 기본 테이블입니다. 기본 테이블에는 컬렉션을 제외하고 원래 데이터베이스 테이블과 동일한 데이터가 포함됩니다. 컬렉션은 테이블에서 생략된 후 다른 가상 테이블에서 확장됩니다.
+첫 번째 가상 테이블은 다음 테이블에 표시된 'ExampleTable'이라는 기본 테이블입니다. 기본 테이블에는 컬렉션을 제외하고 원래 데이터베이스 테이블과 동일한 데이터가 포함됩니다. 컬렉션은 테이블에서 생략된 후 다른 가상 테이블에서 확장됩니다.
 
 | pk_int | 값 |
 | --- | --- |
@@ -341,7 +341,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하는 방법은 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.
 
 ## <a name="repeatable-read-from-relational-sources"></a>관계형 원본에서 반복 가능한 읽기
-관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기를](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)참조 하세요.
+관계형 데이터 저장소에서 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다. Azure Data Factory에서는 조각을 수동으로 다시 실행할 수 있습니다. 또한 오류가 발생하면 조각을 다시 실행하도록 데이터 세트에 대한 재시도 정책을 구성할 수 있습니다. 어느 쪽이든 조각이 재실행되는 경우 조각이 실행되는 횟수에 관계없이 같은 데이터를 읽어야 합니다. [관계형 원본에서 반복 가능한 읽기](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)를 참조하세요.
 
 ## <a name="performance-and-tuning"></a>성능 및 튜닝
 Azure Data Factory의 데이터 이동(복사 작업) 성능에 영향을 주는 주요 요소 및 최적화하는 다양한 방법에 대해 알아보려면 [복사 작업 성능 및 조정 가이드](data-factory-copy-activity-performance.md)를 참조하세요.

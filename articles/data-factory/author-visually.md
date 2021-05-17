@@ -3,15 +3,15 @@ title: 시각적 개체 작성
 description: Azure Data Factory에서 시각적 작성을 사용하는 방법에 알아봅니다.
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
+author: nabhishek
+ms.author: abnarain
 ms.date: 09/08/2020
-ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 3c5bbe128b03e1d4bfe562132656fee0df51423e
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100371484"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905387"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 
@@ -41,17 +41,17 @@ Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드�
 
 ### <a name="related-resources"></a>관련 참고 자료
 
-속성 창에서 **관련** 탭을 선택 하 여 선택한 리소스에 종속 된 리소스를 확인할 수 있습니다. 현재 리소스를 참조 하는 모든 리소스는 여기에 나열 됩니다.
+속성 창에서 **관련** 탭을 선택하여 선택한 리소스에 종속된 리소스를 확인할 수 있습니다. 현재 리소스를 참조하는 모든 리소스가 여기에 나열됩니다.
 
 ![관련 참고 자료](media/author-visually/related-resources.png)
 
-예를 들어 위의 이미지에서 한 파이프라인과 두 개의 데이터 흐름은 현재 선택 된 데이터 집합을 사용 합니다.
+예를 들어 위의 이미지에서는 파이프라인 하나와 데이터 흐름 두 개가 현재 선택된 데이터 세트를 사용합니다.
 
 ## <a name="management-hub"></a>관리 허브
 
-Azure Data Factory UX의 *관리* 탭에서 액세스할 수 있는 관리 허브는 데이터 팩터리에 대 한 전역 관리 작업을 호스트 하는 포털입니다. 여기에서 데이터 저장소 및 외부 계산, 소스 제어 구성 및 트리거 설정에 대 한 연결을 관리할 수 있습니다. 자세한 내용은 [관리 허브](author-management-hub.md)의 기능에 대해 알아보세요.
+Azure Data Factory UX의 *관리* 탭에서 액세스하는 관리 허브는 데이터 팩터리에 대한 전역 관리 작업을 호스팅하는 포털입니다. 여기에서 데이터 저장소 및 외부 컴퓨팅, 소스 제어 구성 및 트리거 설정에 대한 연결을 관리할 수 있습니다. 자세한 내용은 [관리 허브](author-management-hub.md)의 기능에 대해 알아보세요.
 
-![연결 된 서비스 관리](media/author-management-hub/management-hub-linked-services.png)
+![연결된 서비스 관리](media/author-management-hub/management-hub-linked-services.png)
 
 ## <a name="expressions-and-functions"></a>식 및 함수
 

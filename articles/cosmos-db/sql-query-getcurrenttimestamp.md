@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 GetCurrentTimestamp
-description: Azure Cosmos DB에서 SQL 시스템 함수 GetCurrentTimestamp에 대해 알아봅니다.
+description: Azure Cosmos DB의 SQL 시스템 함수 GetCurrentTimestamp에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,16 +9,16 @@ ms.date: 02/03/2021
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: fa7d1ec2af12065fb7d761073cd982a561cf53c1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99524264"
 ---
-# <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp (Azure Cosmos DB)
+# <a name="getcurrenttimestamp-azure-cosmos-db"></a>GetCurrentTimestamp(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- 00:00:00 목요일 1 월 1 1970 일 이후 경과 된 시간 (밀리초)을 반환 합니다.
+ 1970년 1월 1일 목요일 00:00:00 이후 경과된 시간(밀리초)을 반환합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -28,24 +28,24 @@ GetCurrentTimestamp ()
   
 ## <a name="return-types"></a>반환 형식
   
-부호 있는 숫자 값, Unix epoch 이후 경과 된 현재 시간 (밀리초)을 반환 합니다 (예: 00:00:00 목요일 이후 경과 된 시간 (밀리초), 1 월 1970 일).
+부호 있는 숫자 값, Unix 기간 이후 경과된 현재 시간(밀리초)을 반환합니다(즉, 1970년 1월 1일 목요일 00:00:00 이후 경관된 시간(밀리초)).
 
 ## <a name="remarks"></a>설명
 
-GetCurrentTimestamp ()는 비결 정적 함수입니다. 반환 된 결과는 UTC (협정 세계시)입니다.
+GetCurrentTimestamp()는 비결정적 함수입니다. 반환된 결과는 UTC(협정 세계시)입니다.
 
 > [!NOTE]
-> 이 시스템 함수는 인덱스를 활용 하지 않습니다. 현재 시간에 대 한 값을 비교 해야 하는 경우 쿼리 실행 전 현재 시간을 가져온 다음 절에서 해당 상수 문자열 값을 사용 합니다 `WHERE` .
+> 이 시스템 함수는 인덱스를 활용하지 않습니다. 값을 현재 시간과 비교해야 하는 경우 쿼리 실행 전 현재 시간을 가져와 `WHERE` 절에서 해당 상수 문자열 값을 사용합니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예에서는 GetCurrentTimestamp () 기본 제공 함수를 사용 하 여 현재 타임 스탬프를 가져오는 방법을 보여 줍니다.
+  다음 예제에서는 GetCurrentTimestamp() 기본 제공 함수를 사용하여 현재 타임스탬프를 가져오는 방법을 보여줍니다.
   
 ```sql
 SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 ```  
   
- 예제 결과 집합은 다음과 같습니다.
+ 다음은 결과 집합의 예입니다.
   
 ```json
 [{

@@ -1,7 +1,7 @@
 ---
 title: 몰입형 리더 시작 단추 편집
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 몰입 형 판독기를 시작 하는 단추를 사용자 지정 하는 방법을 보여 줍니다.
+description: 이 문서에서는 몰입형 리더를 시작하는 단추를 사용자 지정하는 방법을 보여줍니다.
 services: cognitive-services
 author: metanMSFT
 manager: guillasi
@@ -11,19 +11,19 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: metang
 ms.openlocfilehash: d60e37a437cacda8afbe88a901089f9478a53c16
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608617"
 ---
-# <a name="how-to-customize-the-immersive-reader-button"></a>몰입 형 판독기 단추를 사용자 지정 하는 방법
+# <a name="how-to-customize-the-immersive-reader-button"></a>몰입형 리더 단추를 사용자 지정하는 방법
 
-이 문서에서는 응용 프로그램의 요구 사항에 맞게 몰입 형 판독기를 시작 하는 단추를 사용자 지정 하는 방법을 보여 줍니다.
+이 문서에서는 애플리케이션의 요구 사항에 맞게 몰입형 리더를 시작하는 단추를 사용자 지정하는 방법을 보여줍니다.
 
-## <a name="add-the-immersive-reader-button"></a>몰입 형 판독기 단추 추가
+## <a name="add-the-immersive-reader-button"></a>몰입형 리더 단추 추가
 
-몰입 형 판독기 SDK는 몰입 형 판독기를 시작 하는 단추에 대 한 기본 스타일을 제공 합니다. `immersive-reader-button`이 스타일을 사용 하려면 class 특성을 사용 합니다.
+몰입형 리더 SDK는 몰입형 리더를 시작하는 단추에 대한 기본 스타일을 제공합니다. `immersive-reader-button` 클래스 특성을 사용하여 이 스타일링을 활성화합니다.
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -31,7 +31,7 @@ ms.locfileid: "102608617"
 
 ## <a name="customize-the-button-style"></a>단추 스타일 사용자 지정
 
-특성을 사용 `data-button-style` 하 여 단추의 스타일을 설정 합니다. 허용 되는 값은 `icon` , `text` 및 `iconAndText` 입니다. 기본값은 `icon`입니다.
+`data-button-style` 특성을 사용하여 단추의 스타일을 설정합니다. 허용되는 값은 `icon`, `text` 및 `iconAndText`입니다. 기본값은 `icon`입니다.
 
 ### <a name="icon-button"></a>아이콘 단추
 
@@ -39,9 +39,9 @@ ms.locfileid: "102608617"
 <div class='immersive-reader-button' data-button-style='icon'></div>
 ```
 
-그러면 다음과 같이 렌더링 됩니다.
+그러면 다음이 렌더링됩니다.
 
-![렌더링 된 텍스트 단추입니다.](./media/button-icon.png)
+![렌더링된 텍스트 단추입니다.](./media/button-icon.png)
 
 ### <a name="text-button"></a>텍스트 단추
 
@@ -49,9 +49,9 @@ ms.locfileid: "102608617"
 <div class='immersive-reader-button' data-button-style='text'></div>
 ```
 
-그러면 다음과 같이 렌더링 됩니다.
+그러면 다음이 렌더링됩니다.
 
-![렌더링 된 몰입 형 판독기 단추입니다.](./media/button-text.png)
+![이는 렌더링된 몰입형 리더 단추입니다.](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>아이콘 및 텍스트 단추
 
@@ -59,13 +59,13 @@ ms.locfileid: "102608617"
 <div class='immersive-reader-button' data-button-style='iconAndText'></div>
 ```
 
-그러면 다음과 같이 렌더링 됩니다.
+그러면 다음이 렌더링됩니다.
 
 ![아이콘 단추](./media/button-icon-and-text.png)
 
 ## <a name="customize-the-button-text"></a>단추 텍스트 사용자 지정
 
-특성을 사용 하 여 단추에 대 한 언어 및 대체 텍스트를 구성 합니다 `data-locale` . 기본 언어는 한국어(Korean)입니다.
+`data-locale` 특성을 사용하여 단추의 언어 및 대체 텍스트를 구성합니다. 기본 언어는 한국어(Korean)입니다.
 
 ```html
 <div class='immersive-reader-button' data-locale='fr-FR'></div>
@@ -73,7 +73,7 @@ ms.locfileid: "102608617"
 
 ## <a name="customize-the-size-of-the-icon"></a>아이콘 크기 사용자 지정
 
-몰입 형 판독기 아이콘의 크기는 특성을 사용 하 여 구성할 수 있습니다 `data-icon-px-size` . 이는 아이콘의 크기 (픽셀)를 설정 합니다. 기본 크기는 20px입니다.
+몰입형 리더 아이콘의 크기는 `data-icon-px-size` 특성을 사용하여 구성할 수 있습니다. 아이콘의 크기(픽셀 단위)를 설정합니다. 기본 크기는 20px입니다.
 
 ```html
 <div class='immersive-reader-button' data-icon-px-size='50'></div>

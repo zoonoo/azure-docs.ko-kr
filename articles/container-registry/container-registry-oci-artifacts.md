@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 399bb001432759556cd0ba8bf15f7738dd4edb7c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781490"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99988219"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure 컨테이너 레지스트리를 사용하여 OCI 아티팩트 밀어넣기 및 끌어오기
 
@@ -19,7 +19,7 @@ Azure 컨테이너 레지스트리를 사용하여 Docker 및 Docker 호환 컨�
 
 이 기능을 설명하기 위해 이 문서에서는 [ORAS(OCI Registry as Storage)](https://github.com/deislabs/oras) 도구를 사용하여 샘플 아티팩트(텍스트 파일)를 Azure 컨테이너 레지스트리로 밀어넣는 방법을 보여 줍니다. 그런 다음 레지스트리에서 아티팩트를 끌어옵니다. 각 아티팩트에 적합한 다양한 명령줄 도구를 사용하여 Azure 컨테이너 레지스트리에서 다양한 OCI 아티팩트를 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **ORAS 도구** - [GitHub 리포지토리](https://github.com/deislabs/oras/releases)에서 운영 체제에 맞는 최신 ORAS 릴리스를 다운로드하여 설치합니다. 이 도구는 압축된 tarball(`.tar.gz` 파일)로 릴리스됩니다. 운영 체제의 표준 절차를 사용하여 파일 압축을 풀고 설치합니다.
@@ -46,7 +46,7 @@ Stdin에서 암호를 읽으려면 `--password-stdin`을 사용합니다.
 
 ID로 Azure CLI에 [로그인](/cli/azure/authenticate-azure-cli)하여 컨테이너 레지스트리에서 아티팩트를 밀어넣고 끌어옵니다.
 
-그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az_acr_login)을 사용하여 레지스트리에 액세스합니다. 예를 들어 이름이 *myregistry* 인 레지스트리에 로그인하는 방법은 다음과 같습니다.
+그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az-acr-login)을 사용하여 레지스트리에 액세스합니다. 예를 들어 이름이 *myregistry* 인 레지스트리에 로그인하는 방법은 다음과 같습니다.
 
 ```azurecli
 az login
@@ -173,7 +173,7 @@ az acr login --name myregistry
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-[az acr build](/cli/azure/acr#az_acr_build) 명령을 실행하고 새 아티팩트를 빌드 컨텍스트로 사용하여 hello-world 이미지를 빌드합니다.
+[az acr build](/cli/azure/acr#az-acr-build) 명령을 실행하고 새 아티팩트를 빌드 컨텍스트로 사용하여 hello-world 이미지를 빌드합니다.
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \
@@ -194,5 +194,5 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

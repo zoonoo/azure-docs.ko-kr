@@ -1,6 +1,6 @@
 ---
-title: 파일 포함
-description: 파일 포함
+title: 포함 파일
+description: 포함 파일
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -9,15 +9,15 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 32978257c3e209dc78a29c6e8ae0d1c4ae016a5b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95559543"
 ---
 ## <a name="update-resources"></a>리소스 업데이트
 
-업데이트할 수 있는 항목에 대 한 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
+업데이트할 수 있는 항목에는 몇 가지 제한 사항이 있습니다. 다음 항목을 업데이트할 수 있습니다. 
 
 공유 이미지 갤러리:
 - Description
@@ -34,9 +34,9 @@ ms.locfileid: "95559543"
 - 최신에서 제외
 - 수명 주기 끝
 
-복제본 영역을 추가 하려는 경우 원본 관리 이미지를 삭제 하지 마십시오. 원본 관리 이미지는 이미지 버전을 추가 지역에 복제 하는 데 필요 합니다. 
+복제본 영역을 추가하려는 경우 원본 관리형 이미지를 삭제하지 마세요. 원본 관리형 이미지는 이미지 버전을 추가 지역에 복제하는 데 필요합니다. 
 
-갤러리에 대 한 설명을 업데이트 하려면 [AzGallery](/powershell/module/az.compute/update-azgallery)를 사용 합니다.
+갤러리에 대한 설명을 업데이트하려면 [Update-AzGallery](/powershell/module/az.compute/update-azgallery)를 사용합니다.
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -44,7 +44,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-이 예제에서는 [AzGalleryImageDefinition](/powershell/module/az.compute/update-azgalleryimagedefinition) 를 사용 하 여 이미지 정의의 수명 종료 날짜를 업데이트 하는 방법을 보여 줍니다.
+이 예제에서는 [Update-AzGalleryImageDefinition](/powershell/module/az.compute/update-azgalleryimagedefinition)을 사용하여 이미지 정의의 수명 종료 날짜를 업데이트하는 방법을 보여줍니다.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-이 예제에서는 [AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전이 *최신* 이미지로 사용 되지 않도록 제외 하는 방법을 보여 줍니다.
+이 예제에서는 [Update-AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion)을 사용하여 이 이미지 버전을 *최신* 이미지로 사용되지 않도록 제외하는 방법을 보여줍니다.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -65,7 +65,7 @@ Update-AzGalleryImageVersion `
    -PublishingProfileExcludeFromLatest
 ```
 
-이 예제에서는 [AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion) 를 사용 하 여이 이미지 버전을 *최신* 이미지를 고려 하는 것으로 포함 하는 방법을 보여 줍니다.
+이 예제에서는 [Update-AzGalleryImageVersion](/powershell/module/az.compute/update-azgalleryimageversion)을 사용하여 이 이미지 버전을 *최신* 이미지로 고려하는 방법을 보여줍니다.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -78,7 +78,7 @@ Update-AzGalleryImageVersion `
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-리소스를 삭제 하는 경우 중첩 된 리소스의 마지막 항목 (이미지 버전)으로 시작 해야 합니다. 버전을 삭제 한 후에는 이미지 정의를 삭제할 수 있습니다. 갤러리 아래의 모든 리소스가 삭제 될 때까지 갤러리를 삭제할 수 없습니다.
+리소스를 삭제하는 경우 중첩된 리소스의 마지막 항목(이미지 버전)으로 시작해야 합니다. 버전이 삭제되면 이미지 정의를 삭제할 수 있습니다. 갤러리 아래에 있는 모든 리소스가 삭제될 때까지 갤러리를 삭제할 수 없습니다.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"

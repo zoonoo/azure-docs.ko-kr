@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: a02da7237252811d89e2c19a29f49f0bf9bb3804
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22804015ebf0344c00e60c88f780fe22ba440b52
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945730"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107774992"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 스토리지 계정을 사용하는 Apache Hadoop 클러스터
 
@@ -21,7 +21,7 @@ ms.locfileid: "98945730"
 
 ## <a name="storage-accounts"></a>Storage 계정
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 기본적으로 보안 전송 필요 속성은 Azure Portal에서 스토리지 계정을 만들 때 사용하도록 설정됩니다.
 
@@ -35,7 +35,7 @@ PowerShell로 기존 스토리지 계정을 업데이트하려면 [PowerShell에
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI 명령 [az storage account create](/cli/azure/storage/account#az-storage-account-create)의 경우 매개 변수 `--https-only`가 `true`로 설정되어 있는지 확인합니다.
+Azure CLI 명령 [az storage account create](/cli/azure/storage/account#az_storage_account_create)의 경우 매개 변수 `--https-only`가 `true`로 설정되어 있는지 확인합니다.
 
 Azure CLI로 기존 스토리지 계정을 업데이트하려면 [에서 보안 전송 필요](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-azure-cli)를 참조하세요.
 

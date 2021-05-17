@@ -1,6 +1,6 @@
 ---
 title: 스트리밍 로케이터 생성 및 URL 빌드
-description: 이 문서에서는 스트리밍 로케이터 및 빌드 Url을 만드는 방법을 보여 줍니다.
+description: 이 문서에서는 스트리밍 로케이터를 만들고 URL을 빌드하는 방법을 보여줍니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,24 +12,24 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 71713fc061165673f132f5ab778391bba3e0709a
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101093476"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685355"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>스트리밍 로케이터 생성 및 URL 빌드
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services에서 스트리밍 URL을 작성 하려면 먼저 [스트리밍 로케이터](streaming-locators-concept.md)를 만들어야 합니다. 그런 다음 [스트리밍 끝점](/rest/api/media/streamingendpoints) 호스트 이름 및 **스트리밍 로케이터** 경로를 연결 합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트** 가 사용됩니다. 미디어 서비스 계정을 처음 만들 때이 *기본* **스트리밍 끝점** 은 중지 됨 상태가 되므로 **시작** 을 호출 하 여 스트리밍을 시작 해야 합니다.
+Azure Media Services에서 스트리밍 URL을 빌드하려면 먼저 [스트리밍 로케이터](stream-streaming-locators-concept.md)를 만들어야 합니다. 그런 다음, [스트리밍 엔드포인트](/rest/api/media/streamingendpoints) 호스트 이름과 **스트리밍 로케이터** 경로를 연결합니다. 이 샘플에서는 *기본* **스트리밍 엔드포인트** 가 사용됩니다. Media Service 계정을 처음으로 만들 때 이 *기본* **스트리밍 엔드포인트** 가 중지된 상태이므로 스트리밍을 시작하려면 **Start** 를 호출해야 합니다.
 
-이 문서에서는 Java 및 .NET Sdk를 사용 하 여 스트리밍 로케이터를 만들고 스트리밍 URL을 작성 하는 방법을 보여 줍니다.
+이 문서에서는 Java 및 .NET SDK를 사용하여 스트리밍 로케이터를 만들고 스트리밍 URL을 빌드하는 방법을 보여줍니다.
 
 ## <a name="prerequisite"></a>필수 조건
 
-[동적 패키징](dynamic-packaging-overview.md) 미리 보기
+[동적 패키징](encode-dynamic-packaging-concept.md) 미리 보기
 
 ## <a name="java"></a>Java
 
@@ -88,7 +88,7 @@ private static List<String> getStreamingUrls(MediaManager manager, String resour
 }
 ```
 
-전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+전체 코드 샘플([EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java))을 참조하세요.
 
 ## <a name="net"></a>.NET
 
@@ -161,14 +161,14 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 }
 ```
 
-전체 코드 샘플을 참조 하세요. [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+전체 코드 샘플([EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/VideoEncoding/Encoding_PredefinedPreset/Program.cs))을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-* [.NET을 사용하여 필터 만들기](filters-dynamic-manifest-dotnet-howto.md)
+* [.NET을 사용하여 필터 만들기](filters-dynamic-manifest-dotnet-how-to.md)
 * [REST를 사용하여 필터 만들기](filters-dynamic-manifest-rest-howto.md)
-* [CLI를 사용하여 필터 만들기](filters-dynamic-manifest-cli-howto.md)
+* [CLI를 사용하여 필터 만들기](filters-dynamic-manifest-cli-how-to.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[DRM을 사용 하 여 콘텐츠를 보호](protect-with-drm.md)합니다.
+[DRM을 사용하여 콘텐츠를 보호합니다](drm-protect-with-drm-tutorial.md).

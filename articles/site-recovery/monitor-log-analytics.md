@@ -1,18 +1,15 @@
 ---
 title: Azure Monitor 로그를 사용하여 Azure Site Recovery 모니터링
 description: Azure Monitor 로그(Log Analytics)를 사용하여 Azure Site Recovery를 모니터링하는 방법을 알아봅니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
-ms.author: raynew
-ms.openlocfilehash: 308e1bcf042feb15179d32844d8c569af6166619
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb38f7c2df6a8ad00009a0b7fc9c03638c33034c
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571684"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106581751"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -36,7 +33,7 @@ Site Recovery의 경우 Azure Monitor 로그를 사용하여 다음 작업을 �
 
 - Recovery Services 자격 증명 모음에서 보호되는 하나 이상의 컴퓨터.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역. 작업 영역을 설정하는 방법에 대해 [알아보세요](../azure-monitor/logs/quick-create-workspace.md).
-- Log Analytics에서 로그 쿼리를 작성, 실행, 분석하는 방법에 대한 기본적인 이해. [자세히 알아봅니다](../azure-monitor/logs/log-analytics-tutorial.md).
+- Log Analytics에서 로그 쿼리를 작성, 실행, 분석하는 방법에 대한 기본적인 이해. [자세한 정보를 알아보세요](../azure-monitor/logs/log-analytics-tutorial.md).
 
 시작하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md)을 검토하는 것이 좋습니다.
 

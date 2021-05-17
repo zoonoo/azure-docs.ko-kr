@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c026893c3185c6c9f960cdb6acb2d0c2d49cc4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: a1ea83dc62c2752e34584b89de2cdb6dbde3dfa0
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580354"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443921"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux VM용 Azure Disk Encryption 
 
 Azure Disk Encryption을 사용하여 고객 조직의 보안 및 규정 준수 약정에 맞게 데이터를 안전하게 보호할 수 있습니다. 이 기능은 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용하여 Azure VM(Virtual Machines)의 OS 및 데이터 디스크에 볼륨 암호화를 제공하며, 디스크 암호화 키 및 비밀을 제어하고 관리하는 데 유용한 [Azure Key Vault](../../key-vault/index.yml)와 통합됩니다.
 
-Azure Disk Encryption은 Virtual Machines와 동일한 방식으로 영역 복원 력입니다. 자세한 내용은 가용성 영역를 [지 원하는 Azure 서비스](../../availability-zones/az-region.md)를 참조 하세요.
+Azure Disk Encryption은 Virtual Machines와 동일한 방식으로 영역 복원력이 있습니다. 자세한 내용은 [가용성 영역을 지원하는 Azure Services](../../availability-zones/az-region.md)를 참조하세요.
 
 [Azure Security Center](../../security-center/index.yml)를 사용하는 경우 암호화되지 않은 VM이 있는 경우 경고 메시지가 표시됩니다. 이 경고는 심각도가 높다고 표시되며 이러한 VM을 암호화하도록 권장합니다.
 
@@ -36,11 +36,11 @@ Azure Disk Encryption은 Virtual Machines와 동일한 방식으로 영역 복�
 
 ### <a name="supported-vms"></a>지원되는 VM
 
-Linux VM은 [다양한 크기](../sizes.md)로 사용할 수 있습니다. Azure Disk Encryption는 1 세대 및 2 세대 Vm에서 지원 됩니다. Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
+Linux VM은 [다양한 크기](../sizes.md)로 사용할 수 있습니다. Azure Disk Encryption은 1세대 및 2세대 VM에서 지원됩니다. Azure Disk Encryption은 Premium Storage가 있는 VM에 사용할 수도 있습니다.
 
-[로컬 임시 디스크가 없는 AZURE VM 크기를](../azure-vms-no-temp-disk.md)참조 하세요.
+[로컬 임시 디스크가 없는 Azure VM 크기](../azure-vms-no-temp-disk.md)를 참조하세요.
 
-Azure Disk Encryption는 [기본, A 시리즈 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 이러한 최소 메모리 요구 사항을 충족 하지 않는 가상 머신에서 사용할 수 없습니다.
+Azure Disk Encryption은 [Basic, A 시리즈 VM](https://azure.microsoft.com/pricing/details/virtual-machines/series/) 또는 이러한 최소 메모리 요구 사항을 충족하지 않는 가상 머신에서도 사용할 수 없습니다.
 
 | 가상 머신 | 최소 메모리 요구 사항 |
 |--|--|
@@ -68,11 +68,12 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | Canonical | Ubuntu 16.04 | 16.04-DAILY-LTS | Canonical:UbuntuServer:16.04-DAILY-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Canonical:UbuntuServer:14.04.5-LTS:latest | OS 및 데이터 디스크 |
 | Canonical | Ubuntu 14.04.5</br>[4.15 이상으로 업데이트된 Azure 튜닝 커널 포함](disk-encryption-troubleshooting.md) | 14.04.5-DAILY-LTS | Canonical:UbuntuServer:14.04.5-DAILY-LTS:latest | OS 및 데이터 디스크 |
-| RedHat | RHEL 8-LVM | 8-LVM | RedHat: RHEL: 8lvm: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 8.2 | 8.2 | RedHat: RHEL: 8.2: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 8.1 | 8.1 | RedHat: RHEL: 8.1: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 7-LVM | 7-LVM | RedHat: RHEL: 7lvm: 7.8.2020111201 | OS 및 데이터 디스크(아래 참고 사항 참조) |
-| RedHat | RHEL 7.8 | 7.8 | RedHat: RHEL: 7.8: 최신 | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 8-LVM | 8-LVM | RedHat:RHEL:8-LVM:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 8.2 | 8.2 | RedHat:RHEL:8.2:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 8.1 | 8.1 | RedHat:RHEL:8.1:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 7-LVM | 7-LVM | RedHat:RHEL:7-LVM:7.9.2020111202 | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 7.9 | 7_9 | RedHat:RHEL:7_9:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
+| RedHat | RHEL 7.8 | 7.8 | RedHat:RHEL:7.8:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.7 | 7.7 | RedHat:RHEL:7.7:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.6 | 7.6 | RedHat:RHEL:7.6:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 7.5 | 7.5 | RedHat:RHEL:7.5:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
@@ -81,11 +82,12 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 | RedHat | RHEL 7.2 | 7.2 | RedHat:RHEL:7.2:latest | OS 및 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 6.8 | 6.8 | RedHat:RHEL:6.8:latest | 데이터 디스크(아래 참고 사항 참조) |
 | RedHat | RHEL 6.7 | 6.7 | RedHat:RHEL:6.7:latest | 데이터 디스크(아래 참고 사항 참조) |
-| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic: CentOS-LVM: 8lvm: 최신 | OS 및 데이터 디스크 |
-| OpenLogic | CentOS 8.2 | 8_2 | OpenLogic: CentOS: 8_2: 최신 | OS 및 데이터 디스크 |
-| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic: CentOS: 8_1: 최신 | OS 및 데이터 디스크 |
-| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic: CentOS-LVM: 7lvm: 7.8.2020111100 | OS 및 데이터 디스크 |
-| OpenLogic | CentOS 7.8 | 7.8 | OpenLogic: CentOS: 7_8: 최신 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 8-LVM | 8-LVM | OpenLogic:CentOS-LVM:8-LVM:latest | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 8.2 | 8_2 | OpenLogic:CentOS:8_2:latest | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 8.1 | 8_1 | OpenLogic:CentOS:8_1:latest | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7-LVM | 7-LVM | OpenLogic:CentOS-LVM:7-LVM:7.9.2021020400 | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.9 | 7_9 | OpenLogic:CentOS:7_9:latest | OS 및 데이터 디스크 |
+| OpenLogic | CentOS 7.8 | 7_8 | OpenLogic:CentOS:7_8:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.7 | 7.7 | OpenLogic:CentOS:7.7:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.6 | 7.6 | OpenLogic:CentOS:7.6:latest | OS 및 데이터 디스크 |
 | OpenLogic | CentOS 7.5 | 7.5 | OpenLogic:CentOS:7.5:latest | OS 및 데이터 디스크 |
@@ -106,7 +108,7 @@ Azure에서 보증되지 않는 Linux 서버 배포판은 Azure Disk Encryption�
 
 ## <a name="additional-vm-requirements"></a>추가 VM 요구 사항
 
-Azure Disk Encryption을 사용하려면 시스템에 dm-crypt 및 vfat 모듈이 있어야 합니다. 기본 이미지에서 vfat을 제거하거나 사용하지 않도록 설정하면 시스템에서 키 볼륨을 읽거나 후속 재부팅 시 디스크 잠금을 해제하는 데 필요한 키를 가져올 수 없습니다. 시스템에서 vfat 모듈을 제거 하거나 데이터 드라이브의 OS 탑재 지점이/폴더 확장을 적용 하는 시스템 강화 단계는 Azure Disk Encryption와 호환 되지 않습니다. 
+Azure Disk Encryption을 사용하려면 시스템에 dm-crypt 및 vfat 모듈이 있어야 합니다. 기본 이미지에서 vfat을 제거하거나 사용하지 않도록 설정하면 시스템에서 키 볼륨을 읽거나 후속 재부팅 시 디스크 잠금을 해제하는 데 필요한 키를 가져올 수 없습니다. 시스템에서 vfat 모듈을 제거하거나 데이터 드라이브에서 OS 탑재 지점/폴더 확장을 적용하는 시스템 강화 단계는 Azure Disk Encryption과 호환되지 않습니다. 
 
 암호화를 사용하도록 설정하기 전에 암호화할 데이터 디스크를 /etc/fstab에 올바르게 나열해야 합니다. 항목을 만들 때 "nofail" 옵션을 사용하고, 영구 블록 디바이스 이름을 선택합니다. "/dev/sdX" 형식의 디바이스 이름은 재부팅하는 동안, 특히 암호화 후에 동일한 디스크에 연결되지 않을 수 있습니다. 이 동작에 대한 자세한 내용은 [Linux VM 디바이스 이름 변경 문제 해결](/troubleshoot/azure/virtual-machines/troubleshoot-device-names-problems)을 참조하세요.
 
@@ -158,7 +160,7 @@ Azure Disk Encryption은 Azure Key Vault를 사용하여 키 디스크 암호화
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작 - Azure CLI를 사용하여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
-- [빠른 시작-Azure PowerShell를 사용 하 여 Linux VM 만들기 및 암호화](disk-encryption-powershell-quickstart.md) 
+- [빠른 시작 - Azure PowerShell을 사용하여 Linux VM 만들기 및 암호화](disk-encryption-powershell-quickstart.md) 
 - [Linux VM에 대한 Azure Disk Encryption 시나리오](disk-encryption-linux.md)
 - [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)
 - [Azure Disk Encryption 필수 조건 PowerShell 스크립트](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)

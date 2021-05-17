@@ -2,28 +2,28 @@
 title: Azure AD의 사용자 환경에서 엔터프라이즈 애플리케이션 숨기기
 description: Azure Active Directory 액세스 패널 또는 Microsoft 365 시작 관리자의 사용자 환경에서 엔터프라이즈 애플리케이션을 숨기는 방법입니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8469b48b92f3f9a645a0c05441e6c1943b02e16f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a90f3e3aeb1d68c6c6e6eeea29c04ff7880dccd3
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99258883"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374202"
 ---
 # <a name="hide-enterprise-applications-from-end-users-in-azure-active-directory"></a>Azure Active Directory의 최종 사용자로부터 엔터프라이즈 애플리케이션 숨기기
 
 최종 사용자의 MyApps 패널 또는 Microsoft 365 시작 관리자에서 애플리케이션을 숨기는 방법에 대한 지침입니다. 애플리케이션을 숨겨도 애플리케이션에 대한 사용자의 권한은 계속 유지됩니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 MyApps 패널 및 Microsoft 365 시작 관리자에서 애플리케이션을 숨기려면 애플리케이션 관리자 권한이 필요합니다.
 

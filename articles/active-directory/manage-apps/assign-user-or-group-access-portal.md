@@ -2,21 +2,21 @@
 title: Azure Active Directory에서 앱에 대한 사용자 할당 관리
 description: ID 관리를 위해 Azure Active Directory를 사용하여 앱에 대한 사용자 및 그룹을 할당하고 할당 해제하는 방법을 알아봅니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/21/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: luleon
-ms.openlocfilehash: 50dcde478b708cd53d8229d70a9ddf4b1ff271be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 097bf55cc7e5372749240c19afb09ba374d437af
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259737"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377975"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Azure Active Directory에서 앱에 대한 사용자 할당 관리
 

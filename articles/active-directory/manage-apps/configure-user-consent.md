@@ -2,22 +2,22 @@
 title: Azure AD를 사용하여 최종 사용자가 애플리케이션에 동의하는 방법 구성
 description: 사용자가 조직의 데이터에 액세스할 수 있는 애플리케이션에 동의하는 방법 및 시기를 관리하는 방법을 알아봅니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 68bb846ebb0199691161bc501441df908eb8ad87
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 95a651f6201c9f60500c9191821edb7eb76b8535
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101643612"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107374440"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>최종 사용자가 애플리케이션에 동의하는 방법 구성
 
@@ -32,17 +32,17 @@ ms.locfileid: "101643612"
 
 ## <a name="user-consent-settings"></a>사용자 동의 설정
 
-앱 승인 정책은 앱을 동의한 수 있으려면 충족 되어야 하는 조건을 설명 합니다. 이러한 정책에는 앱이 요청 하는 권한 뿐만 아니라 액세스를 요청 하는 앱의 조건이 포함 될 수 있습니다.
+앱 동의 정책은 앱이 동의를 얻기 전에 충족해야 하는 조건을 설명합니다. 해당 정책에는 앱이 요청하는 권한 뿐만 아니라 액세스를 요청하는 앱의 조건이 포함될 수 있습니다.
 
-모든 사용자에 대해 적용 되는 앱 동의 정책을 선택 하면 최종 사용자가 앱에 동의를 부여할 수 있는 경우 및 관리자 검토 및 승인을 요청 해야 하는 경우에 대 한 제한을 설정할 수 있습니다.
+모든 사용자에 적용되는 앱 동의 정책을 선택하면 최종 사용자가 앱에 대한 동의를 허용할 수 있는 경우와 관리자 검토 및 승인을 요청해야 하는 경우에 대한 제한을 설정할 수 있습니다.
 
-* **사용자 동의 사용 안 함** - 사용자가 애플리케이션에 권한을 부여할 수 없습니다. 사용자는 이전에 자신이 동의한 앱 또는 관리자가 사용자를 대신하여 동의한 앱에 계속 로그인할 수 있지만 새 권한이나 새 앱에 자체적으로 동의할 수는 없습니다. 동의를 부여할 수 있는 권한이 포함 된 디렉터리 역할이 부여 된 사용자만 새 앱에 동의할 수 있습니다.
+* **사용자 동의 사용 안 함** - 사용자가 애플리케이션에 권한을 부여할 수 없습니다. 사용자는 이전에 자신이 동의한 앱 또는 관리자가 사용자를 대신하여 동의한 앱에 계속 로그인할 수 있지만 새 권한이나 새 앱에 자체적으로 동의할 수는 없습니다. 동의를 부여할 수 있는 권한이 포함된 디렉터리 역할이 부여된 사용자만 새로운 권한 또는 새로운 앱에 동의할 수 있습니다.
 
-* **사용자는 확인 된 게시자 또는 조직의 앱에 동의할 수 있지만, 선택한 권한에 대해서만** 모든 사용자가 [확인 된 게시자](../develop/publisher-verification-overview.md) 및 테 넌 트에 등록 된 앱에 의해 게시 된 앱에만 동의할 수 있습니다. 사용자는 "낮은 영향"으로 분류 한 사용 권한에만 동의할 수 있습니다. 사용자가 동의할 수 있는 권한을 선택 하려면 [사용 권한을 분류](configure-permission-classifications.md) 해야 합니다.
+* **사용자는 검증된 게시자 또는 조직의 앱에 동의할 수 있지만 사용자가 선택한 권한만 동의할 수 있음** - 모든 사용자는 [검증된 게시자](../develop/publisher-verification-overview.md)가 게시한 앱과 테넌트에 등록된 앱에만 동의할 수 있습니다. 사용자는 “낮은 영향”으로 분류된 권한에만 동의할 수 있습니다. 사용자가 동의할 수 있는 권한을 선택하려면 [권한을 분류](configure-permission-classifications.md)해야 합니다.
 
-* **사용자가 모든 앱에 동의할 수 있음** -이 옵션을 선택 하면 모든 사용자가 모든 응용 프로그램에 대해 관리자 동의가 필요 없는 모든 권한에 동의할 수 있습니다.
+* **사용자가 모든 앱에 동의할 수 있음** - 이 옵션을 사용하면 모든 사용자가 모든 애플리케이션에 관리자 동의가 필요하지 않은 모든 권한을 동의할 수 있습니다.
 
-* 사용자 **지정 앱 동의 정책** -사용자 동의가 적용 되는 조건에 대 한 더 많은 옵션을 위해 사용자 [지정 앱 동의 정책을 만들고](manage-app-consent-policies.md#create-a-custom-app-consent-policy)사용자 동의에 적용 되도록 구성할 수 있습니다.
+* **사용자 지정 앱 동의 정책** – 사용자가 동의하는 조건을 충족하는 추가 옵션을 위해 [사용자 지정 앱 동의 정책을 만들고](manage-app-consent-policies.md#create-a-custom-app-consent-policy) 사용자 동의를 적용하도록 구성할 수 있습니다.
 
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
@@ -57,11 +57,11 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-최신 Azure AD PowerShell 미리 보기 모듈인 [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)를 사용 하 여 응용 프로그램에 대 한 사용자 동의를 제어 하는 앱 승인 정책을 선택할 수 있습니다.
+최신 Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview)를 사용하여 애플리케이션에 대한 사용자 동의를 제어하는 앱 동의 정책을 선택할 수 있습니다.
 
-#### <a name="disable-user-consent"></a>사용자 동의 사용 안 함
+#### <a name="disable-user-consent"></a>사용자 동의를 사용하지 않도록 설정
 
-사용자 동의를 사용 하지 않도록 설정 하려면 사용자 동의가 다음과 같이 비어 있는 동의 정책을 설정 합니다.
+사용자 동의를 사용하지 않도록 설정하려면 사용자 동의를 제어하는 동의 정책을 빈 상태로 설정합니다.
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -71,7 +71,7 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
 
 #### <a name="allow-user-consent-subject-to-an-app-consent-policy"></a>앱 동의 정책에 따라 사용자 동의 허용
 
-사용자 동의를 허용 하려면 앱에 대 한 동의를 부여 하는 사용자의 권한 부여를 제어 하는 앱 동의 정책을 선택 합니다.
+사용자 동의를 허용하려면 앱에 동의를 부여하는 사용자의 권한 부여를 제어하는 앱 동의 정책을 선택합니다.
 
   ```powershell
   Set-AzureADMSAuthorizationPolicy `
@@ -79,14 +79,14 @@ Azure Portal을 통해 사용자 동의 설정을 구성하려면 다음을 수�
      -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
   ```
 
-을 `{consent-policy-id}` 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책을](manage-app-consent-policies.md#create-a-custom-app-consent-policy) 선택 하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
+`{consent-policy-id}`를 적용할 정책의 ID로 바꿉니다. 만든 [사용자 지정 앱 동의 정책](manage-app-consent-policies.md#create-a-custom-app-consent-policy)을 선택하거나 다음 기본 제공 정책 중에서 선택할 수 있습니다.
 
-| ID | 설명 |
+| ID | Description |
 |:---|:------------|
-| microsoft-사용자-기본-낮음 | **선택한 권한에 대해 확인 된 게시자의 앱에 대 한 사용자 동의 허용**<br /> 사용자가 테 넌 트에 등록 된 앱 및 앱에 대 한 제한 된 사용자 동의가 허용 되며, "낮은 영향"으로 분류 한 사용 권한에 대해서만 허용 됩니다. 사용자가 동의할 수 있는 권한을 선택 하려면 [사용 권한을 분류](configure-permission-classifications.md) 해야 합니다. |
-| microsoft-사용자-기본-레거시 | **앱에 대 한 사용자 동의 허용**<br /> 이 옵션을 사용 하면 모든 사용자가 모든 응용 프로그램에 대해 관리자 동의가 필요 하지 않은 모든 사용 권한에 동의할 수 있습니다. |
+| microsoft-user-default-low | **선택한 권한에 대해 확인된 게시자의 앱에 대한 사용자 동의를 허용**<br /> 확인된 게시자의 앱 및 테넌트에 등록된 앱에 대한 제한적 사용자 동의를 '낮은 영향'으로 분류한 권한에 한해 허용합니다. (사용자가 동의할 수 있는 권한을 선택하려면 [권한을 분류](configure-permission-classifications.md)해야 합니다.) |
+| microsoft-user-default-legacy | **앱에 대한 사용자 동의 허용**<br /> 이 옵션을 사용하면 모든 사용자가 모든 애플리케이션에 대해 관리자 동의가 필요하지 않은 모든 권한에 동의할 수 있습니다. |
   
-예를 들어 기본 제공 정책에 따라 사용자 동의를 사용 하도록 설정 하려면 `microsoft-user-default-low` 다음을 수행 합니다.
+예를 들어 기본 제공 정책 `microsoft-user-default-low`에 따라 사용자 동의를 사용하도록 설정하려면 다음을 수행합니다.
 
 ```powershell
 Set-AzureADMSAuthorizationPolicy `
@@ -97,9 +97,9 @@ Set-AzureADMSAuthorizationPolicy `
 ---
 
 > [!TIP]
-> 사용자가 동의할 수 없는 응용 프로그램에 대 한 관리자의 검토 및 승인을 사용자가 허용할 수 있도록 관리자 [동의 워크플로를 사용 하도록 설정](configure-admin-consent-workflow.md) 합니다. 예를 들어 사용자 동의가 사용 하지 않도록 설정 되어 있거나 응용 프로그램에서 사용자에 게 허용 되지 않는 권한을 요청 하는 경우입니다.
+> [관리자 동의 워크플로를 사용하도록 설정](configure-admin-consent-workflow.md)하면 사용자가 동의할 수 없는 애플리케이션에 대해 관리자의 검토 및 승인을 요청할 수 있습니다(사용자 동의가 비활성화된 경우 또는 애플리케이션에서 사용자가 부여할 수 없는 권한을 요청하는 경우 등).
 
-## <a name="risk-based-step-up-consent"></a>위험 기반 단계 동의
+## <a name="risk-based-step-up-consent"></a>위험 기반 상향 동의
 
 위험 기반 상향 동의는 [불법 동의 요청](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants)을 보내는 악성 앱에 대한 사용자 노출을 줄이는 데 도움이 됩니다. Microsoft가 위험한 최종 사용자 동의 요청을 감지하면 이 요청에서 관리자 동의로의 상향을 대신 요구합니다. 이 기능은 기본적으로 사용하도록 설정되어 있지만 최종 사용자 동의가 허용된 경우에만 동작이 변경됩니다.
 
@@ -143,13 +143,13 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
     $riskBasedConsentEnabledValue = $settings.Values | ? { $_.Name -eq "BlockUserConsentForRiskyApps" }
     ```
 
-1. 설정 값을 이해 합니다.
+1. 다음 설정 값을 이해합니다.
 
-    | 설정       | Type         | Description  |
+    | 설정       | 유형         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | 부울 |  위험한 요청이 감지될 때 사용자 동의가 차단되는지 나타내는 플래그입니다. |
 
-1. 원하는 구성의 설정 값을 업데이트 합니다.
+1. 원하는 구성의 설정 값을 업데이트합니다.
 
     ```powershell
     # Disable risk-based step-up consent entirely
@@ -177,7 +177,7 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 
 자세히 알아보려면 다음을 수행합니다.
 
-* [사용자 승인 설정 구성](configure-user-consent.md)
+* [사용자 동의 설정 구성](configure-user-consent.md)
 * [앱 동의 정책 관리](manage-app-consent-policies.md)
 * [관리자 동의 워크플로 구성](configure-admin-consent-workflow.md)
 * [애플리케이션에 대한 동의를 관리하고 동의 요청을 평가하는 방법 알아보기](manage-consent-requests.md)
@@ -185,4 +185,4 @@ Azure AD PowerShell 미리 보기 모듈 [AzureADPreview](/powershell/module/azu
 * [Microsoft ID 플랫폼의 권한 및 동의](../develop/v2-permissions-and-consent.md)
 
 도움말을 얻거나 질문에 대한 답변을 찾으려면 다음을 수행합니다.
-* [Microsoft Q의 Azure AD는&합니다.](/answers/topics/azure-active-directory.html)
+* [Microsoft Azure AD Q&A](/answers/topics/azure-active-directory.html)

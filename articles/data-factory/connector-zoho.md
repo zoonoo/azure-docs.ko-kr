@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: e42638d484d2a71052c3a9410f73cbca9e038682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100366894"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Zoho에서 데이터 복사(미리 보기)
@@ -23,7 +23,7 @@ ms.locfileid: "100366894"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-이 Zoho 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
+이 Zoho 커넥터는 다음과 같은 작업에 지원됩니다.
 
 - [지원되는 원본/싱크 매트릭스](copy-activity-overview.md)를 사용한 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
@@ -31,7 +31,7 @@ ms.locfileid: "100366894"
 
 Zoho에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-이 커넥터는 Xero 액세스 토큰 인증 및 OAuth 2.0 인증을 지원 합니다.
+이 커넥터는 Xero 액세스 토큰 인증 및 OAuth 2.0 인증을 지원합니다.
 
 Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제공합니다. 따라서 이 커넥터를 사용하여 드라이버를 수동으로 설치하지 않아도 됩니다.
 
@@ -48,17 +48,17 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | type 속성은 **Zoho** 로 설정해야 합니다. | 예 |
-| connectionProperties | Zoho에 연결 하는 방법을 정의 하는 속성 그룹입니다. | 예 |
-| ***에서 `connectionProperties` 다음을 수행 합니다.*** | | |
+| connectionProperties | Zoho에 연결하는 방법을 정의하는 속성 그룹입니다. | 예 |
+| ***`connectionProperties` 아래에서:*** | | |
 | 엔드포인트(endpoint) | Zoho 서버의 엔드포인트입니다(`crm.zoho.com/crm/private`). | 예 |
-| authenticationType | 허용 되는 값은 `OAuth_2.0` 및 `Access Token` 입니다. | 예 |
-| clientId | Zoho 응용 프로그램에 연결 된 클라이언트 ID입니다. | OAuth 2.0 인증의 경우 예 | 
-| clientSecrect | Zoho 응용 프로그램에 연결 된 clientsecret입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | OAuth 2.0 인증의 경우 예 | 
-| refreshToken | Zoho 응용 프로그램과 연결 된 OAuth 2.0 새로 고침 토큰이 만료 되 면 액세스 토큰을 새로 고치는 데 사용 됩니다. 새로 고침 토큰은 만료 되지 않습니다. 새로 고침 토큰을 가져오려면 access_type를 요청 해야 합니다 `offline` . [이 문서](https://www.zoho.com/crm/developer/docs/api/auth-request.html)에서 자세히 알아보세요. <br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.| OAuth 2.0 인증의 경우 예 |
+| authenticationType | 허용되는 값은 `OAuth_2.0`와 `Access Token`입니다. | 예 |
+| clientId | Zoho 애플리케이션과 연결된 클라이언트 ID입니다. | OAuth 2.0 인증의 경우 예 | 
+| clientSecrect | Zoho 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | OAuth 2.0 인증의 경우 예 | 
+| refreshToken | Zoho 애플리케이션과 연결된 OAuth 2.0 새로 고침 토큰으로, 만료되면 액세스 토큰을 새로 고치는 데 사용됩니다. 새로 고침 토큰은 만료되지 않습니다. 새로 고침 토큰을 가져오려면 `offline` access_type을 요청해야 합니다. [이 문서](https://www.zoho.com/crm/developer/docs/api/auth-request.html)에서 자세히 알아보세요. <br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.| OAuth 2.0 인증의 경우 예 |
 | accessToken | Zoho 인증에 대한 액세스 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
-| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치 해야 하는지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
-| usePeerVerification | TLS를 통해 연결할 때 서버의 id를 확인할 지 여부를 지정 합니다. 기본값은 true입니다.  | 아니요 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| useHostVerification | TLS를 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
+| usePeerVerification | TLS를 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 예 |
 
 **예: OAuth 2.0 인증**
 
@@ -125,7 +125,7 @@ Zoho에서 데이터를 복사하려면 데이터 세트의 type 속성을 **Zoh
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 type 속성은 **ZohoObject** 로 설정 해야 합니다. | 예 |
+| type | 데이터 세트의 형식 속성을 **ZohoObject** 로 설정해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**

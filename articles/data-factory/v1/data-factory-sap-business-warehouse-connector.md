@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 이동
+title: Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
 description: Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터를 이동하는 방법을 알아봅니다.
 author: linda33wj
 ms.author: jingwang
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 robots: noindex
 ms.openlocfilehash: 513d6b28908b99594eaa525e86690fa75bffb103
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100386971"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 이동
@@ -23,16 +23,16 @@ ms.locfileid: "100386971"
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 SAP Business Warehouse 커넥터](../connector-sap-business-warehouse.md)를 참조하세요.
 
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 SAP BW(Business Warehouse)에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 제공 하는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 SAP BW(Business Warehouse)에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-온-프레미스 SAP Business Warehouse 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원 되는 데이터 저장소 목록은 [지원 되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조 하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 SAP Business Warehouse로 데이터를 이동하는 것은 지원하지 않고 SAP Business Warehouse에서 다른 데이터 저장소로 데이터를 이동하는 것만 지원합니다. 
+온-프레미스 SAP Business Warehouse 데이터 저장소의 데이터를 지원되는 싱크 데이터 저장소로 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 SAP Business Warehouse로 데이터를 이동하는 것은 지원하지 않고 SAP Business Warehouse에서 다른 데이터 저장소로 데이터를 이동하는 것만 지원합니다. 
 
 ## <a name="supported-versions-and-installation"></a>지원되는 버전 및 설치
 이 커넥터는 SAP Business Warehouse 버전 7.x를 지원합니다. MDX 쿼리를 사용하여 InfoCubes 및 QueryCubes(BEx 쿼리 포함)에서 데이터를 복사하도록 지원합니다.
 
 SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 구성 요소를 설치합니다.
 - **데이터 관리 게이트웨이**: Data Factory 서비스는 데이터 관리 게이트웨이라는 구성 요소를 사용하여 온-프레미스 데이터 저장소(SAP Business Warehouse 포함)에 연결을 지원합니다. 데이터 관리 게이트웨이 및 게이트웨이 설정에 대한 단계별 지침을 알아보려면 [온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요. 게이트웨이는 SAP Business Warehouse가 Azure IaaS 가상 머신(VM)에 호스팅되더라도 필요합니다. 게이트웨이를 데이터베이스에 연결할 수 있는 한 데이터 저장소와 동일한 VM 또는 다른 VM에 게이트웨이를 설치할 수 있습니다.
-- 게이트웨이 컴퓨터의 **SAP NetWeaver 라이브러리**. Sap 관리자 또는 sap [소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 직접 sap Netweaver 라이브러리를 가져올 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361** 을 검색합니다. SAP NetWeaver 라이브러리(32비트 또는 64비트)의 아키텍처가 게이트웨이 설치와 일치하는지 확인합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
+- 게이트웨이 컴퓨터의 **SAP NetWeaver 라이브러리**. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361** 을 검색합니다. SAP NetWeaver 라이브러리(32비트 또는 64비트)의 아키텍처가 게이트웨이 설치와 일치하는지 확인합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
 
 > [!TIP]
 > NetWeaver RFC SDK에서 추출된 dll을 system32 폴더에 넣습니다.
@@ -40,14 +40,14 @@ SAP BW 인스턴스에 대한 연결을 사용하도록 설정하려면 다음 �
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 온-프레미스 Cassandra 데이터 저장소의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다. 
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용 하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
-- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API** 및 **REST API**. 복사 작업을 사용 하 여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 를 참조 하세요. 
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사** 를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
+- 또한 **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API**, **REST API** 를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
-1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결 하는 **연결 된 서비스** 를 만듭니다.
-2. 복사 작업에 대 한 입력 및 출력 데이터를 나타내는 데이터 **집합** 을 만듭니다. 
-3. 데이터 집합을 입력으로 사용 하 고 데이터 집합을 출력으로 사용 하는 복사 작업을 사용 하 여 **파이프라인** 을 만듭니다. 
+1. 입력 및 출력 데이터 저장소를 데이터 팩터리에 연결하는 **연결된 서비스** 를 만듭니다.
+2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트** 를 만듭니다. 
+3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인** 을 만듭니다. 
 
 마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  온-프레미스 SAP Business Warehouse의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: SAP Business Warehouse에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-sap-business-warehouse-to-azure-blob) 섹션을 참조하세요. 
 
@@ -69,13 +69,13 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 ## <a name="dataset-properties"></a>데이터 세트 속성
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
-**TypeProperties** 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대 한 정보를 제공 합니다. **RelationalTable** 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다. 
+**typeProperties** 섹션은 데이터 세트의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **RelationalTable** 형식의 SAP BW 데이터 세트에 대해 지원되는 type별 속성은 없습니다. 
 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다.
 
-반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라 집니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
+반면 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다. 복사 활동의 경우 이러한 속성은 소스 및 싱크의 형식에 따라 달라집니다.
 
 활동 복사의 원본이 **RelationalSource**(SAP BW 포함) 형식인 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
@@ -85,7 +85,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>JSON 샘플: SAP Business Warehouse에서 Azure Blob에 데이터 복사
-다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 온-프레미스 SAP Business Warehouse에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
+다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)을 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다. 이 샘플은 온-프레미스 SAP Business Warehouse에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -96,7 +96,7 @@ encryptedCredential | 암호화된 자격 증명 문자열. | 문자열 | No
 2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 3. [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
 4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [RelationalSource](#copy-activity-properties) 및 [blobsink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용 하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md) 입니다.
+5. [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 SAP Business Warehouse 인스턴스에서 Azure Blob으로 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 

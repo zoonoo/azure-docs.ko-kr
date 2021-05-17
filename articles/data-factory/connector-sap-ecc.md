@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/28/2020
 ms.openlocfilehash: a3e701f3d433b5b52d8992035ac4ad75b78cb795
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100386699"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP ECC에서 데이터 복사
@@ -20,7 +20,7 @@ ms.locfileid: "100386699"
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP ECC(Enterprise Central Component)에서 데이터를 복사하는 방법을 설명합니다. 자세한 내용은 [작업 복사 개요](copy-activity-overview.md)를 참조하세요.
 
 >[!TIP]
->SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 각 sap 커넥터, comparsion 및 지침에 대 한 자세한 소개를 참조 하세요.
+>SAP 데이터 통합 시나리오에서 ADF의 전반적인 지원에 대한 자세한 내용은 [Azure Data Factory를 사용한 SAP 데이터 통합 백서](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf)에 설명된 각 SAP 커넥터의 자세한 소개, 비교 및 지침을 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -43,11 +43,11 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 - 기본 인증을 사용하여 데이터 복사
 
-버전 7.0 이상에서는 SAP ECC 버전 대신 SAP NetWeaver 버전을 참조 합니다. 예를 들어 SAP ECC 6.0 EHP 7은 일반적으로 NetWeaver 버전 >= 7.4입니다. 사용자 환경에 대해 잘 모를 경우 SAP 시스템에서 버전을 확인 하는 단계는 다음과 같습니다.
+버전 7.0 이상에서는 SAP ECC 버전 대신 SAP NetWeaver 버전을 참조합니다. 예를 들어 SAP ECC 6.0 EHP 7은 일반적으로 NetWeaver 버전 7.4 이상입니다. 현재 환경에 대해 잘 모르는 경우 SAP 시스템에서 다음 단계를 따라 버전을 확인합니다.
 
-1. Sap GUI를 사용 하 여 SAP 시스템에 연결 합니다. 
-2. **시스템**  ->  **상태** 로 이동 합니다. 
-3. SAP_BASIS의 릴리스를 확인 하 여 701 보다 크거나 같은지 확인 합니다.  
+1. SAP GUI를 사용하여 SAP 시스템에 연결합니다. 
+2. **시스템** -> **상태** 로 이동합니다. 
+3. SAP_BASIS의 릴리스를 확인하여 701 이상인지 확인합니다.  
       ![SAP_BASIS 확인](./media/connector-sap-table/sap-basis.png)
 
 >[!TIP]
@@ -55,7 +55,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-이 SAP ECC 커넥터를 사용 하려면 sap 게이트웨이를 통해 OData 서비스를 통해 SAP ECC 엔터티를 노출 해야 합니다. 더 구체적으로 살펴보면 다음과 같습니다.
+이 SAP ECC 커넥터를 사용하려면 OData 서비스를 사용하여 SAP 게이트웨이를 통해 SAP ECC 엔터티를 노출해야 합니다. 더 구체적으로 살펴보면 다음과 같습니다.
 
 - **SAP 게이트웨이 설정**. SAP NetWeaver 버전이 7.4 이상인 서버에는 SAP 게이트웨이가 이미 설치되어 있습니다. 이전 버전의 경우 OData 서비스를 통해 SAP ECC 데이터를 노출하기 전에 포함된 SAP 게이트웨이 또는 SAP 게이트웨이 허브 시스템을 설치해야 합니다. SAP 게이트웨이를 설정하려면 [설치 가이드](https://help.sap.com/saphelp_gateway20sp12/helpdata/en/c3/424a2657aa4cf58df949578a56ba80/frameset.htm)를 참조하세요.
 
@@ -73,7 +73,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 SAP ECC 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 이 옵션을 사용하는 경우 `type` 속성은 `SapEcc`로 설정해야 합니다. | 예 |
 | `url` | SAP ECC OData 서비스의 URL입니다. | 예 |
@@ -112,7 +112,7 @@ SAP ECC에서 데이터를 복사하려면 데이터 세트의 `type` 속성을 
 
 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `path` | SAP ECC OData 엔터티의 경로입니다. | 예 |
 
@@ -145,12 +145,12 @@ SAP ECC에서 데이터를 복사하려면 복사 작업의 `source` 섹션에�
 
 복사 작업의 `source` 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | `type` | 복사 작업 `source` 섹션의 `type` 속성을 `SapEccSource`로 설정해야 합니다. | 예 |
 | `query` | 데이터를 필터링하는 OData 쿼리 옵션입니다. 예를 들면 다음과 같습니다.<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터가 결합된 URL에서 데이터를 복사합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 예 |
-| `sapDataColumnDelimiter` | 출력 데이터를 분할 하기 위해 SAP RFC에 전달 된 구분 기호로 사용 되는 단일 문자입니다. | 아니요 |
-| `httpRequestTimeout` | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정 하지 않으면 기본값은 **00:30:00** (30 분)입니다. | 예 |
+| `sapDataColumnDelimiter` | 출력 데이터를 분할하기 위해 SAP RFC에 전달되어 구분 기호로 사용하는 단일 문자입니다. | 예 |
+| `httpRequestTimeout` | HTTP 요청이 응답을 받을 시간 제한(**TimeSpan** 값)입니다. 이 값은 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다. 지정하지 않으면 기본값은 **00:30:00**(30분)입니다. | 예 |
 
 ### <a name="example"></a>예제
 

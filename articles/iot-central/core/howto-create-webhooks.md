@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: b2ac4bbf1457144d23a91c4e83b554b3ee806119
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae1289c7ff9e66bf3b67577f815eaa55e12a0873
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87337231"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772372"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Azure IoT Central에서 규칙에 대해 웹후크 작업 만들기
-
-‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
 웹후크를 사용하면 원격 모니터링 및 알림을 위해 IoT Central 앱을 다른 애플리케이션 및 서비스에 연결할 수 있습니다. 웹후크는 IoT Central 앱에서 규칙이 트리거될 때마다 연결하는 다른 애플리케이션 및 서비스에 자동으로 알립니다. IoT Central 앱은 규칙이 트리거될 때마다 다른 애플리케이션의 HTTP 엔드포인트에 POST 요청을 보냅니다. 페이로드는 디바이스 세부 정보 및 규칙 트리거 세부 정보를 포함합니다.
 
@@ -39,7 +37,7 @@ ms.locfileid: "87337231"
 
 이제 규칙이 트리거되면 RequestBin에 새 요청이 표시됩니다.
 
-## <a name="payload"></a>Payload
+## <a name="payload"></a>페이로드
 
 규칙이 트리거되면 원격 분석, 디바이스, 규칙 및 애플리케이션 세부 정보가 있는 json 페이로드를 포함하는 콜백 URL에 대해 HTTP POST 요청이 수행됩니다. 페이로드는 다음과 같아야 합니다.
 

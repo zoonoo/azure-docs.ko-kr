@@ -1,35 +1,35 @@
 ---
-title: 확장 리소스 형식에 대 한 범위
-description: 확장 리소스 유형을 배포할 때 scope 속성을 사용 하는 방법을 설명 합니다.
+title: 확장 리소스 종류에 대한 범위
+description: 확장 리소스 종류를 배포할 때 scope 속성을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.openlocfilehash: ce08ca951e24c1c0a5450052cf814a68888837c2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99492164"
 ---
-# <a name="setting-scope-for-extension-resources-in-arm-templates"></a>ARM 템플릿에서 확장 리소스의 범위 설정
+# <a name="setting-scope-for-extension-resources-in-arm-templates"></a>ARM 템플릿에서 확장 리소스 범위 설정
 
-확장 리소스는 다른 리소스를 수정 하는 리소스입니다. 예를 들어 리소스에 역할을 할당할 수 있습니다. 역할 할당은 확장 리소스 형식입니다.
+확장 리소스는 다른 리소스를 수정하는 리소스입니다. 예를 들어 리소스에 역할을 할당할 수 있습니다. 역할 할당은 확장 리소스 종류입니다.
 
-확장 리소스 형식에 대 한 전체 목록은 [다른 리소스의 기능을 확장 하는 리소스 종류](../management/extension-resource-types.md)를 참조 하세요.
+확장 리소스 종류의 전체 목록은 [다른 리소스의 기능을 확장하는 리소스 종류](../management/extension-resource-types.md)를 참조하세요.
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)을 사용 하 여 배포할 때 확장 리소스 형식에 대 한 범위를 설정 하는 방법을 보여 줍니다. 리소스에 적용할 때 확장 리소스에 사용할 수 있는 scope 속성을 설명 합니다.
+이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 배포할 때 확장 리소스 종류에 범위를 설정하는 방법을 보여 줍니다. 확장 리소스를 리소스에 적용할 때 사용할 수 있는 scope 속성을 설명합니다.
 
 > [!NOTE]
-> 범위 속성은 확장 리소스 형식에만 사용할 수 있습니다. 확장 형식이 아닌 리소스 종류에 대해 다른 범위를 지정 하려면 중첩 또는 연결 된 배포를 사용 합니다. 자세한 내용은 [리소스 그룹 배포](deploy-to-resource-group.md), [구독 배포](deploy-to-subscription.md), [관리 그룹 배포](deploy-to-management-group.md)및 [테 넌 트 배포](deploy-to-tenant.md)를 참조 하세요.
+> scope 속성은 확장 리소스 종류에만 사용할 수 있습니다. 확장 형식이 아닌 리소스 종류에 대해 다른 범위를 지정하려면 중첩 또는 연결된 배포를 사용합니다. 자세한 내용은 [리소스 그룹 배포](deploy-to-resource-group.md), [구독 배포](deploy-to-subscription.md), [관리 그룹 배포](deploy-to-management-group.md) 및 [테넌트 배포](deploy-to-tenant.md)를 참조하세요.
 
 ## <a name="apply-at-deployment-scope"></a>배포 범위에서 적용
 
-대상 배포 범위에서 확장 리소스 형식을 적용 하려면 리소스 형식과 마찬가지로 리소스를 템플릿에 추가 합니다. 사용 가능한 범위는 [리소스 그룹](deploy-to-resource-group.md), [구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md)및 [테 넌 트](deploy-to-tenant.md)입니다. 배포 범위는 리소스 종류를 지원 해야 합니다.
+대상 배포 범위에서 확장 리소스 종류를 적용하려면 리소스 종류에서와 마찬가지로 템플릿에 리소스를 추가합니다. 사용 가능한 범위는 [리소스 그룹](deploy-to-resource-group.md), [구독](deploy-to-subscription.md), [관리 그룹](deploy-to-management-group.md) 및 [테넌트](deploy-to-tenant.md)입니다. 배포 범위가 리소스 종류를 지원해야 합니다.
 
-다음 템플릿은 잠금을 배포 합니다.
+다음 템플릿에서는 잠금을 배포합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/locktargetscope.json":::
 
-리소스 그룹에 배포 되 면 리소스 그룹을 잠급니다.
+리소스 그룹에 배포하면 리소스 그룹을 잠급니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -49,11 +49,11 @@ az deployment group create \
 
 ---
 
-다음 예에서는 역할을 할당 합니다.
+다음 예제에서는 역할을 할당합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/roletargetscope.json":::
 
-구독에 배포 하는 경우 구독에 역할을 할당 합니다.
+구독에 배포하면 구독에 역할을 할당합니다.
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -77,14 +77,14 @@ New-AzSubscriptionDeployment `
 
 ## <a name="apply-to-resource"></a>리소스에 적용
 
-리소스에 확장 리소스를 적용 하려면 속성을 사용 `scope` 합니다. 범위 속성을 확장을 추가 하는 리소스의 이름으로 설정 합니다. Scope 속성은 확장 리소스 형식에 대 한 루트 속성입니다.
+리소스에 확장 리소스를 적용하려면 `scope` 속성을 사용합니다. Scope 속성을 확장을 추가하는 리소스의 이름으로 설정합니다. Scope 속성은 확장 리소스 유형의 루트 속성입니다.
 
-다음 예제에서는 저장소 계정을 만들고 여기에 역할을 적용 합니다.
+다음 예제에서는 스토리지 계정을 만들고 여기에 역할을 적용합니다.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/storageandrole.json" highlight="56":::
 
 ## <a name="next-steps"></a>다음 단계
 
-* 템플릿에서 매개 변수를 정의 하는 방법을 이해 하려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
+* 템플릿에서 매개 변수를 정의하는 방식을 이해하려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
 * 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
-* SAS 토큰이 필요한 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [sas 토큰을 사용 하 여 개인 ARM 템플릿 배포](secure-template-with-sas-token.md)를 참조 하세요.
+* SAS 토큰이 필요한 템플릿을 배포하는 방법에 관한 자세한 내용은 [SAS 토큰으로 프라이빗 ARM 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.

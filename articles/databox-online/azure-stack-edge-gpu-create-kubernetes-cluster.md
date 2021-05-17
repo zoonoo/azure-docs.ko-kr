@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터 만들기 및 관리 | Microsoft Docs
-description: Windows PowerShell 인터페이스를 통해 Azure Stack Edge Pro GPU 장치에서 Kubernetes 클러스터를 만들고 관리 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 디바이스에서 Kubernetes 클러스터 만들기 및 관리 | Microsoft Docs
+description: Windows PowerShell 인터페이스를 통해 Azure Stack Edge Pro GPU 디바이스에서 Kubernetes 클러스터를 만들고 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,55 +9,55 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: ddbf3c99845f4c38f511260f4dec274903a9d586
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102631962"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 하 고 관리 합니다.
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 kubectl을 통해 Kubernetes 클러스터에 연결하고 관리합니다.
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-Azure Stack Edge Pro 장치에서 계산 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 만들어지면 *kubectl* 와 같은 네이티브 도구를 통해 클라이언트 컴퓨터에서 로컬로 클러스터에 연결 하 고 관리할 수 있습니다.
+Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 구성할 때 Kubernetes 클러스터가 만들어집니다. Kubernetes 클러스터가 생성되면 *kubectl* 과 같은 네이티브 도구를 통해 클라이언트 머신에서 로컬로 클러스터에 연결하고 관리할 수 ​​있습니다.
 
-이 문서에서는 Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 연결 하 고 *kubectl* 를 사용 하 여 관리 하는 방법을 설명 합니다. 
+이 문서에서는 Azure Stack Edge Pro 디바이스에서 Kubernetes 클러스터에 연결하고 *kubectl* 을 사용하여 관리하는 방법을 설명합니다. 
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. Azure Stack Edge Pro 장치에 액세스할 수 있습니다.
+1. Azure Stack Edge Pro 디바이스에 액세스할 수 있습니다.
 
 2. [Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)에 설명된 대로 Azure Stack Edge Pro 디바이스를 활성화했습니다.
 
-3. 장치에서 계산 역할을 사용 하도록 설정 했습니다. [Azure Stack Edge Pro 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 장치에서 compute를 구성 하는 경우에도 장치에 Kubernetes 클러스터가 만들어집니다.
+3. 디바이스에서 컴퓨팅 역할을 사용하도록 설정했습니다. [Azure Stack Edge Pro 디바이스에서 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 디바이스에서 컴퓨팅을 구성하는 경우에도 디바이스에 Kubernetes 클러스터가 생성됐습니다.
 
-4. 장치에 액세스 하기 위해 PowerShell 5.0 이상을 실행 하는 Windows 클라이언트 시스템에 액세스할 수 있습니다. [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 
+4. 디바이스 액세스용으로 PowerShell 5.0 이상을 실행하는 Windows 클라이언트 시스템에 액세스할 수 있습니다. [지원되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)를 사용하는 다른 클라이언트도 있을 수 있습니다. 
 
-5. 로컬 웹 UI의 **장치** 페이지에서 Kubernetes API 끝점이 있습니다. 자세한 내용은 [KUBERNETES API 끝점 가져오기](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints) 의 지침을 참조 하세요.
+5. 로컬 웹 UI의 **디바이스** 페이지에 Kubernetes API 엔드포인트가 있습니다. 자세한 내용은 [Kubernetes API 엔드포인트 가져오기](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)의 지침을 참조하세요.
 
 
 ## <a name="connect-to-powershell-interface"></a>PowerShell 인터페이스에 연결
 
-Kubernetes 클러스터를 만든 후이 클러스터에 액세스 하 여 네임 스페이스 및 사용자를 만들고 네임 스페이스에 사용자를 할당할 수 있습니다. 그러면 장치의 PowerShell 인터페이스에 연결 해야 합니다. PowerShell을 실행 하는 Windows 클라이언트에서 다음 단계를 수행 합니다.
+Kubernetes 클러스터가 생성된 후 이 클러스터에 액세스하여 네임스페이스 및 사용자를 만들고 네임스페이스에 사용자를 할당할 수 있습니다. 이를 위해 디바이스의 PowerShell 인터페이스에 연결해야 합니다. PowerShell을 실행하는 Windows 클라이언트에서 다음 단계를 수행합니다.
 
 [!INCLUDE [Connect to admin runspace](../../includes/azure-stack-edge-gateway-connect-minishell.md)]
 
 
 ## <a name="configure-cluster-access-via-kubernetes-rbac"></a>Kubernetes RBAC를 통해 클러스터 액세스 구성
 
-Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 클러스터에 액세스할 수 있습니다. 
+Kubernetes 클러스터가 생성된 후 명령줄을 통해 *kubectl* 을 사용하여 클러스터에 액세스할 수 있습니다. 
 
-이 방법에서는 네임 스페이스와 사용자를 만듭니다. 그런 다음 사용자를 네임 스페이스와 연결 합니다. 또한 Kubernetes client를 사용 하 여 Azure Stack Edge Pro 장치의 PowerShell 인터페이스에 연결 하지 않고도 만든 Kubernetes 클러스터와 직접 통신할 수 있도록 하는 *구성* 파일을 가져와야 합니다.
+이를 통해 네임스페이스와 사용자를 생성합니다. 그런 다음, 사용자를 네임스페이스와 연결합니다. 또한 Azure Stack Edge Pro 디바이스의 PowerShell 인터페이스에 연결하지 않고도 Kubernetes 클라이언트를 사용하여 Kubernetes 클러스터와 직접 통신할 수 있도록 *구성* 파일을 가져와야 합니다.
 
 1. 네임스페이스 만들기 유형:
 
     `New-HcsKubernetesNamespace -Namespace <string>` 
 
     > [!NOTE]
-    > 네임 스페이스 및 사용자 이름 둘 다에 대해 [DNS 하위 도메인 명명 규칙이](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) 적용 됩니다.
+    > 네임스페이스와 사용자 이름에는 [DNS 하위 도메인 명명 규칙](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names)이 적용됩니다.
 
     샘플 출력은 다음과 같습니다.
 
@@ -68,7 +68,7 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
     `New-HcsKubernetesUser -UserName <string>`
 
     > [!NOTE]
-    > *Aseuser* 를 사용자 이름으로 사용할 수 없습니다. Azure Stack Edge Pro 용 IoT 네임 스페이스와 연결 된 기본 사용자 용으로 예약 되어 있습니다.
+    > *aseuser* 는 Azure Stack Edge Pro 용 IoT 네임스페이스와 연결된 기본 사용자 용으로 사용되기 때문에 사용자 이름으로 사용할 수 없습니다.
 
     구성 파일의 샘플 출력은 다음과 같습니다.
    
@@ -98,16 +98,16 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
     ```
     
 
-3. 구성 파일은 일반 텍스트로 표시 됩니다. 이 파일을 복사 하 여 *구성* 파일로 저장 합니다. 
+3. 구성 파일은 일반 텍스트로 표시됩니다. 이 파일을 복사하여 *구성* 파일로 저장합니다. 
 
     > [!IMPORTANT]
-    > 구성 파일을 *.txt* 파일로 저장 하지 말고 파일 확장명 없이 파일을 저장 합니다.
+    > 구성 파일을 *.txt* 파일로 저장하지 말고 파일 확장명 없이 저장합니다.
 
-4. 구성 파일은 `.kube` 로컬 컴퓨터에 있는 사용자 프로필의 폴더에 있어야 합니다. 사용자 프로필의 해당 폴더에 파일을 복사 합니다.
+4. 구성 파일은 로컬 컴퓨터에 있는 사용자 프로필의 `.kube` 폴더에 있어야 합니다. 사용자 프로필의 해당 폴더에 파일을 복사합니다.
 
     ![클라이언트에 있는 구성 파일의 위치](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 
-5. 만든 사용자와 네임 스페이스를 연결 합니다. 유형:
+5. 생성한 사용자를 네임스페이스와 연결합니다. 유형:
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <string> -UserName <string>`
 
@@ -115,24 +115,24 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
 
     `[10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace "myasetest1" -UserName "aseuser1"`
 
-    구성 파일을 만든 후에는 클러스터에 대 한 물리적 액세스 권한이 필요 하지 않습니다. 클라이언트에서 Azure Stack Edge Pro 장치 IP를 ping 할 수 있는 경우 *kubectl* 명령을 사용 하 여 클러스터를 보낼 수 있습니다.
+    구성 파일을 만든 후에는 클러스터에 대한 물리적 액세스 권한이 필요하지 않습니다. 클라이언트에서 Azure Stack Edge Pro 디바이스 IP를 ping 할 수 있는 경우 *kubectl* 명령을 사용하여 클러스터를 보낼 수 있습니다.
 
-6. 클라이언트에서 새 PowerShell 세션을 시작 합니다. 장치 인터페이스에 연결 하지 않아도 됩니다. 이제 `kubectl` 다음 명령을 사용 하 여 클라이언트에을 설치할 수 있습니다.
+6. 클라이언트에서 새 PowerShell 세션을 시작합니다. 디바이스 인터페이스에 연결하지 않아도 됩니다. 이제 다음 명령을 사용하여 클라이언트에 `kubectl`을 설치할 수 있습니다.
 
     ```powershell
     PS C:\windows\system32> curl https://storage.googleapis.com/kubernetes-release/release/v1.15.2/bin/windows/amd64/kubectl.exe -O kubectl.exe
     
     PS C:\windows\system32>
     ```
-    예를 들어 Kubernetes 마스터 노드가 v 1.15.2를 실행 하는 경우 클라이언트에 v 1.15.2를 설치 합니다.
+    예를 들어 Kubernetes 마스터 노드가 v1.15.2를 실행하는 경우 클라이언트에 v1.15.2를 설치합니다.
 
     > [!IMPORTANT]
-    > 마스터에서 부 버전이 두 개 이상 왜곡된 클라이언트를 다운로드합니다. 클라이언트 버전은 마스터를 최대 1 부 버전까지 만들 수 있습니다. 예를 들어, v 1.3 마스터는 v 1.1, v 1.2 및 v 1.3 노드와 함께 사용 해야 하며, v 1.2, v 1.3 및 v 1.4 클라이언트에서 작동 해야 합니다. Kubernetes client 버전에 대 한 자세한 내용은 [Kubernetes 버전 및 버전 기울기 지원 정책](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)을 참조 하세요. Edge Pro Azure Stack의 Kubernetes server 버전에 대 한 자세한 내용은 Kubernetes 서버 버전 가져오기로 이동 합니다.<!-- insert link-->
-    > `kubectl`Windows용 Docker 또는 다른 도구를 실행 하는 경우가 시스템에 미리 설치 되어 있는 경우가 있습니다. 이 `kubectl` kubernetes 클러스터를 사용 하려면이 섹션에서 설명한 대로의 특정 버전을 다운로드 해야 합니다. 
+    > 마스터에서 부 버전이 두 개 이상 왜곡된 클라이언트를 다운로드합니다. 그러나 클라이언트 버전은 최대 하나의 부 버전으로 마스터를 이끌 수 있습니다. 예를 들어 v1.3 마스터는 v1.1, v1.2 및 v1.3 노드와 함께 사용해야 하며, v1.2, v1.3 및 v1.4 클라이언트에서 작동해야 합니다. Kubernetes client 버전에 대한 자세한 내용은 [Kubernetes 버전 및 버전 차이 지원 정책](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)을 참조하세요. Azure Stack Edge Pro의 Kubernetes 서버 버전에 대한 자세한 내용은 Kubernetes 서버 버전 가져오기를 참조하세요.<!-- insert link-->
+    > Windows용 Docker 또는 다른 도구를 실행 중인 경우 시스템에 `kubectl`가 미리 설치 되어 있는 경우가 있습니다. 이 kubernetes 클러스터를 사용하려면 이 섹션에서 설명한 대로 `kubectl`의 특정 버전을 다운로드해야 합니다. 
 
     설치는 몇 분 정도 걸립니다.
 
-7. 설치한 버전이 다운로드 한 버전 인지 확인 합니다. 시스템에가 설치 된 위치에 대 한 절대 경로를 지정 해야 합니다 `kubectl.exe` .
+7. 설치한 버전이 다운로드한 버전인지 확인합니다. 시스템에 `kubectl.exe`가 설치된 위치에 대한 절대 경로를 지정해야 합니다.
     
     ```powershell
     PS C:\Users\myuser> C:\windows\system32\kubectl.exe version
@@ -141,37 +141,37 @@ Kubernetes 클러스터를 만든 후 *kubectl* via 명령줄를 사용 하 여 
     PS C:\Users\myuser>
     ``` 
     
-    `kubectl`Kubernetes 클러스터를 관리 하는 데 사용 되는 명령에 대 한 자세한 내용은 [kubectl 개요](https://kubernetes.io/docs/reference/kubectl/overview/)를 참조 하세요.
+    Kubernetes 클러스터를 관리하는 데 사용되는 `kubectl` 명령에 대한 자세한 내용은 [kubectl 개요](https://kubernetes.io/docs/reference/kubectl/overview/)를 참조하세요.
 
-8. 시스템의 호스트 파일에 DNS 항목을 추가 합니다. 
+8. 시스템의 호스트 파일에 DNS 항목을 추가합니다. 
 
-    1. 관리자 권한으로 메모장을 실행 하 고 `hosts` 에 있는 파일을 엽니다 `C:\windows\system32\drivers\etc\hosts` . 
-    2. 이전 단계에서 로컬 UI의 **장치** 페이지에서 저장 한 정보를 사용 하 여 호스트 파일에 항목을 만듭니다. 
+    1. 관리자 권한으로 메모장을 실행하고 `hosts` 파일을 `C:\windows\system32\drivers\etc\hosts`에서 엽니다. 
+    2. 로컬 UI의 **디바이스** 페이지에서 저장한 정보를 사용하여 호스트 파일에 항목을 만듭니다. 
 
-        예를 들어, `https://compute.asedevice.microsoftdatabox.com/[10.100.10.10]` 장치 IP 주소 및 DNS 도메인을 사용 하 여 다음 항목을 만들려면이 끝점을 복사 합니다. 
+        예를 들어 이 엔드포인트 `https://compute.asedevice.microsoftdatabox.com/[10.100.10.10]`을 복사하여 디바이스 IP 주소와 DNS 도메인으로 다음 항목을 만듭니다. 
 
         `10.100.10.10 compute.asedevice.microsoftdatabox.com`
 
-9. Kubernetes pod에 연결할 수 있는지 확인 하려면 다음을 입력 합니다.
+9. Kubernetes pod에 연결할 수 있는지 확인하려면 다음을 입력합니다.
     
     ```powershell
     PS C:\Users\myuser> kubectl get pods -n "myasetest1"
     No resources found.
     PS C:\Users\myuser>
     ```
-이제 네임 스페이스에 응용 프로그램을 배포한 다음 해당 응용 프로그램 및 로그를 볼 수 있습니다.
+이제 네임스페이스에 애플리케이션을 배포한 다음, 해당 애플리케이션 및 로그를 볼 수 있습니다.
 
 > [!IMPORTANT]   
-> 예를 들어 관리자 액세스 권한이 필요한 명령을 실행할 수 없는 많은 명령이 있습니다. 네임스페이스에서 허용되는 작업만 수행할 수 있습니다.
+> 실행할 수 없는 명령이 많이 있습니다(예: 관리자 액세스 권한이 필요한 명령). 네임스페이스에서 허용되는 작업만 수행할 수 있습니다.
 
 
 ## <a name="remove-kubernetes-cluster"></a>Kubernetes 클러스터 제거
 
-Kubernetes 클러스터를 제거 하려면 IoT Edge 구성을 제거 해야 합니다.
+Kubernetes 클러스터를 제거하려면 IoT Edge 구성을 제거해야 합니다.
 
-자세한 지침은 [IoT Edge 구성 관리](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration)로 이동 합니다.
+자세한 지침은 [IoT Edge 구성 관리](azure-stack-edge-gpu-manage-compute.md#manage-iot-edge-configuration)를 참조하세요.
    
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)합니다.
+- [Azure Stack Edge Pro에 상태 비저장 애플리케이션을 배포합니다.](azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)

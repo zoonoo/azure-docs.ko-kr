@@ -5,18 +5,18 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 01/27/2021
 ms.author: mimart
-ms.openlocfilehash: e26dd7ea9f45af6f725f4deaefd9b5bd79a37e1c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 32a47a34d9a4c8562dd1cec44f5a2ec519cb1a7f
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106073214"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107984443"
 ---
 인증서가 아직 없는 경우 자체 서명된 인증서를 사용할 수 있습니다. 자체 서명된 인증서는 CA(인증 기관)가 서명하지 않은 보안 인증서이며, CA가 서명한 인증서의 보안 보장을 제공하지 않습니다. 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
+Windows에서는 PowerShell의 [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet을 사용하여 인증서를 생성할 수 있습니다.
 
 1. 이 PowerShell 명령을 실행하여 자체 서명된 인증서를 생성합니다. `-Subject` 인수를 애플리케이션 및 Azure AD B2C 테넌트 이름에 적절하게 수정합니다. `-NotAfter` 날짜를 조정하여 인증서에 다른 만료 날짜를 지정할 수도 있습니다.
 

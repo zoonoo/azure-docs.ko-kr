@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 논리적
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 논리 값을 확인하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 27d94f10374daf0b9a351469579a5eb659cf5445
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: f37f43d8fcec63ee4ae3d8a1064d87b0ec3d68a7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920480"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736886"
 ---
 # <a name="logical-functions-for-arm-templates"></a>ARM 템플릿의 논리 함수
 
@@ -24,7 +24,7 @@ Resource Manager는 ARM 템플릿(Azure Resource Manager 템플릿)에서 비교
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 
-## <a name="and"></a>and
+## <a name="and"></a>및
 
 `and(arg1, arg2, ...)`
 
@@ -82,7 +82,7 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -152,7 +152,7 @@ output falseInt bool = bool(0)
 ---
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -203,7 +203,7 @@ output falseOutput bool = false
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | falseOutput | Bool | False |
 
@@ -215,7 +215,7 @@ output falseOutput bool = false
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | condition(조건) |예 |boolean |true인지 false인지 확인할 값입니다. |
 | trueValue |예 | 문자열, 정수, 개체 또는 배열 |조건이 true이면 반환할 값입니다. |
@@ -270,7 +270,7 @@ output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('nul
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | yesOutput | String | 예 |
 | noOutput | String | 아니요 |
@@ -328,8 +328,30 @@ output objectOutput object = 'a' == 'a' ? json('{"test": "value1"}') : json('nul
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-> [!NOTE]
-> `Conditions`는 Bicep에서 아직 구현되지 않았습니다. [조건](https://github.com/Azure/bicep/issues/186)을 참조하세요.
+```bicep
+param vmName string
+param location string
+param logAnalytics string = ''
+
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = if (!empty(logAnalytics)) {
+  name: '${vmName}/omsOnboarding'
+  location: location
+  properties: {
+    publisher: 'Microsoft.EnterpriseCloud.Monitoring'
+    type: 'MicrosoftMonitoringAgent'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    settings: {
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : json('null'))
+    }
+    protectedSettings: {
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : json('null'))
+    }
+  }
+}
+
+output mgmtStatus string = ((!empty(logAnalytics)) ? 'Enabled monitoring for VM!' : 'Nothing to enable')
+```
 
 ---
 
@@ -389,7 +411,7 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -424,11 +446,11 @@ output checkNotEquals bool = !(1 == 2)
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-## <a name="or"></a>또는
+## <a name="or"></a>or
 
 `or(arg1, arg2, ...)`
 
@@ -486,7 +508,7 @@ output notExampleOutput bool = !(bool('true'))
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -536,10 +558,10 @@ output trueOutput bool = true
 
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | trueOutput | Bool | True |
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하십시오.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.

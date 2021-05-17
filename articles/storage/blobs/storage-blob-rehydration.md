@@ -1,20 +1,20 @@
 ---
 title: 보관 계층의 Blob 데이터 리하이드레이션
-description: Blob 데이터에 액세스할 수 있도록 보관 저장소에서 blob을 리하이드레이션 합니다. 온라인 계층에 보관 된 blob을 복사 합니다.
+description: Blob 데이터에 액세스할 수 있도록 보관 스토리지에서 Blob을 리하이드레이션합니다. 보관된 Blob을 온라인 계층에 복사합니다.
 services: storage
-author: mhopkins-msft
-ms.author: mhopkins
+author: twooley
+ms.author: twooley
 ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 2f0ddca9cbd7d85909b1d86e68b92fa1d847476d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: aaea21dca5304a7a75b24bd7f974712db38d1815
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225084"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106276776"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>보관 계층의 Blob 데이터 리하이드레이션
 
@@ -31,22 +31,22 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프라인으로 간주
 
 ### <a name="lifecycle-management"></a>수명 주기 관리
 
-리하이드레이션 blob는 시간을 변경 하지 않습니다 `Last-Modified` . [수명 주기 관리](storage-lifecycle-management-concepts.md) 기능을 사용 하 여 blob이 이동 되는 시나리오를 만들 수 있습니다 `Last-Modified` . 시간이 정책에 대해 설정 된 임계값을 초과 하기 때문에 수명 주기 관리 정책에서 blob을 보관으로 다시 이동 합니다. 이 시나리오를 방지 하려면 *[온라인 계층 메서드에 보관 된 Blob 복사](#copy-an-archived-blob-to-an-online-tier)* 를 사용 합니다. Copy 메서드는 업데이트 된 시간을 사용 하 여 blob의 새 인스턴스를 만들고 `Last-Modified` 수명 주기 관리 정책을 트리거하지 않습니다.
+Blob을 리하이드레이션해도 `Last-Modified` 시간이 변경되지 않습니다. [수명 주기 관리](storage-lifecycle-management-concepts.md) 기능을 사용하면 Blob이 리하이드레이션되는 시나리오를 만들 수 있습니다. `Last-Modified` 시간이 정책에 설정된 임계값을 초과하기 때문에 수명 주기 관리 정책이 Blob을 보관으로 다시 이동합니다. 이 시나리오를 방지하려면 *[보관된 Blob을 온라인 계층에 복사](#copy-an-archived-blob-to-an-online-tier)* 메서드를 사용합니다. copy 메서드는 업데이트된 `Last-Modified` 시간으로 Blob의 새 인스턴스를 만들고 수명 주기 관리 정책을 트리거하지 않습니다.
 
 ## <a name="monitor-rehydration-progress"></a>리하이드레이션 진행률 모니터링
 
-리하이드레이션 하는 동안 blob 속성 가져오기 작업을 사용 하 여 **보관 상태** 특성을 확인 하 고 계층 변경이 완료 되 면 확인 합니다. 상태는 대상 계층에 따라 "rehydrate-pending-to-hot" 또는 "rehydrate-pending-to-cool"을 읽습니다. 완료되면 보관 상태 속성이 제거되고 **액세스 계층** Blob 속성은 새로운 핫 또는 쿨 계층을 반영합니다.
+리하이드레이션하는 Blob 속성 가져오기 작업을 사용하여 **보관 상태** 특성을 확인하고 계층 변경이 완료되는 시점을 확인합니다. 상태는 대상 계층에 따라 "rehydrate-pending-to-hot" 또는 "rehydrate-pending-to-cool"을 읽습니다. 완료되면 보관 상태 속성이 제거되고 **액세스 계층** Blob 속성은 새로운 핫 또는 쿨 계층을 반영합니다.
 
 ## <a name="copy-an-archived-blob-to-an-online-tier"></a>보관된 Blob을 온라인 계층으로 복사
 
-보관 Blob을 리하이드레이션하지 않으려면 [Blob 복사](/rest/api/storageservices/copy-blob) 작업 수행을 선택할 수 있습니다. 원본 Blob은 보관 계층에 수정되지 않은 상태로 유지되고 온라인 핫 또는 쿨 계층에서 작업할 새 Blob이 생성됩니다. **Blob 복사** 작업에서 선택적 리하이드레이션 속성을 표준 또는 높음으로 설정 하 여 Blob 복사본을 만들 *우선 순위를* 지정할 수도 있습니다.
+보관 Blob을 리하이드레이션하지 않으려면 [Blob 복사](/rest/api/storageservices/copy-blob) 작업 수행을 선택할 수 있습니다. 원본 Blob은 보관 계층에 수정되지 않은 상태로 유지되고 온라인 핫 또는 쿨 계층에서 작업할 새 Blob이 생성됩니다. **Blob 복사** 작업에서 선택적 *x-ms-rehydrate-priority* 속성을 표준 또는 높음으로 설정하여 사용자가 만든 Blob 복사본의 우선 순위를 지정할 수도 있습니다.
 
 스토리지에서 Blob을 복사하는 작업은 선택된 리하이드레이션 우선 순위에 따라 완료하는 데 몇 시간 정도 걸릴 수 있습니다. 백그라운드에서 **Blob 복사** 작업은 보관 원본 Blob을 읽어서 선택한 대상 계층에 새 온라인 Blob을 만듭니다. Blob을 나열할 때 새 Blob이 표시될 수 있지만 원본 보관 Blob에서 읽기를 완료하고 새 온라인 대상 Blob에 데이터를 쓸 때까지 데이터를 사용할 수 없습니다. 새 Blob은 독립된 복사본이며 이에 대한 수정 또는 삭제는 원본 보관 Blob에 영향을 주지 않습니다.
 
 > [!IMPORTANT]
 > 대상에서 복사가 성공적으로 완료될 때까지 원본 Blob을 삭제하지 마세요. 원본 Blob이 삭제된 경우 대상 Blob은 복사를 완료하지 못할 수 있으며 비어 있게 됩니다. *x-ms-copy-status* 를 확인하여 복사 작업의 상태를 확인할 수 있습니다.
 
-보관 Blob은 동일한 스토리지 계정 내에서 온라인 대상 계층으로만 복사할 수 있습니다. 보관 Blob을 다른 보관 Blob에 복사하는 것은 지원되지 않습니다. 다음 표에서는 **Blob 복사** 작업의 기능을 보여 줍니다.
+보관 Blob은 동일한 스토리지 계정 내에서 온라인 대상 계층으로만 복사할 수 있습니다. 보관 Blob을 다른 보관 Blob에 복사하는 것은 지원되지 않습니다. 다음 표에서는 **Blob 복사** 작업의 기능을 보여줍니다.
 
 |                                           | **핫 계층 원본**   | **쿨 계층 원본** | **보관 계층 원본**    |
 | ----------------------------------------- | --------------------- | -------------------- | ------------------- |

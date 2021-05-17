@@ -4,12 +4,12 @@ description: Enterprise Security Package 배포 및 관리를 용이하게 하�
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 57bf6d1773857b7627b8cea5b69d18e337e41427
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 92ad8362f75cdf0613d4ee95f39c23aa6d4819bb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292849"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98933576"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 일반 정보 및 지침
 
@@ -112,7 +112,7 @@ Azure AD([Azure Active Directory](../../active-directory/fundamentals/active-dir
 Azure AD DS([Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md))는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP(Lightweight Directory Access Protocol) 및 Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다.
 
 Azure AD DS는 보안 클러스터에서 도메인에 조인하는 데 필요합니다.
-HDInsight는 너무 많은 오류 요소, 자격 증명 공유, DNS 권한 등을 도입하므로 온-프레미스 도메인 컨트롤러 또는 사용자 지정 도메인 컨트롤러에 종속되지 않습니다. 자세한 내용은 [Azure AD DS FAQ](../../active-directory-domain-services/faqs.yml)를 참조하세요.
+HDInsight는 너무 많은 오류 요소, 자격 증명 공유, DNS 권한 등을 도입하므로 온-프레미스 도메인 컨트롤러 또는 사용자 지정 도메인 컨트롤러에 종속되지 않습니다. 자세한 내용은 [Azure AD DS FAQ](../../active-directory-domain-services/faqs.md)를 참조하세요.
 
 ### <a name="azure-ad-ds-instance"></a>Azure AD DS 인스턴스
 

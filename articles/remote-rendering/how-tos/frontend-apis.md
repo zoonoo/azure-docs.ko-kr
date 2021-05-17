@@ -7,23 +7,23 @@ ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7149d7ac2625eb60a1d0d22253b93b68a99475de
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99592095"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>인증을 위해 Azure Frontend API 사용
 
-이 섹션에서는 인증 및 세션 관리를 위해 API를 사용 하는 방법을 설명 합니다.
+이 섹션에서는 인증 및 세션 관리에 API를 사용하는 방법을 설명합니다.
 
 > [!CAUTION]
-> 이 장에서 설명 하는 함수는 내부적으로 서버에서 REST 호출을 실행 합니다. 모든 REST 호출의 경우와 마찬가지로, 이러한 명령을 너무 자주 보내면 서버가 제한을 초과 하 여 결국 오류가 반환 됩니다. `SessionGeneralContext.HttpResponseCode`이 경우 멤버의 값은 429 ("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
+> 이 장에서 설명하는 함수는 내부적으로 서버에서 REST 호출을 실행합니다. 모든 REST 호출과 마찬가지로 이러한 명령을 너무 자주 보내면 서버가 제한을 초과하여 결국 오류가 반환됩니다. `SessionGeneralContext.HttpResponseCode`이 경우 멤버의 값은 429("요청이 너무 많음")입니다. 일반적으로 **후속 호출 간에 5~10초** 지연이 발생합니다.
 
 
 ## <a name="sessionconfiguration"></a>SessionConfiguration
 
-SessionConfiguration은 SDK에서 인스턴스에 대 한 인증 정보를 설정 하는 데 사용 됩니다 ```RemoteRenderingClient``` .
+SessionConfiguration은 SDK의 ```RemoteRenderingClient``` 인스턴스에 대한 인증 정보를 설정하는 데 사용됩니다.
 
 중요한 필드는 다음과 같습니다.
 
@@ -72,13 +72,13 @@ struct SessionConfiguration
 
 열려 있거나 생성된 각 ```RenderingSession```은 생성된 프런트 엔드에 대한 참조를 유지합니다. 완전히 종료하려면 프런트 엔드를 할당 취소하기 전에 모든 세션을 할당 취소해야 합니다.
 
-세션의 할당을 취소 하면 Azure에서 서버를 중지 하지 않으므로를 `RenderingSession.StopAsync` 명시적으로 호출 해야 합니다.
+세션의 할당을 취소해도 Azure에서 서버가 중지되지 않으며 `RenderingSession.StopAsync`를 명시적으로 호출해야 합니다.
 
 세션이 생성되고 해당 상태가 준비된 것으로 표시되면 `RenderingSession.ConnectAsync`을 사용하여 원격 렌더링 런타임에 연결할 수 있습니다.
 
 ### <a name="threading"></a>스레딩
 
-모든 RenderingSession 및 RemoteRenderingClient 비동기 호출은 주 응용 프로그램 스레드가 아니라 백그라운드 스레드에서 완료 됩니다.
+모든 RenderingSession 및 RemoteRenderingClient 비동기 호출은 주 애플리케이션 스레드가 아닌 백그라운드 스레드에서 완료됩니다.
 
 ### <a name="conversion-apis"></a>변환 API
 
@@ -156,7 +156,7 @@ void GetConversionStatus(ApiHandle<RemoteRenderingClient> client, std::string as
 
 세션 관리에 대한 자세한 내용은 [세션 관리 REST API](session-rest-api.md)를 참조하세요.
 
-서비스에서 렌더링 세션을 동적으로 만들거나 이미 존재 하는 세션 ID를 RenderingSession 개체에 ' 열 ' 할 수 있습니다.
+서비스에서 렌더링 세션을 동적으로 만들거나 기존 세션 ID를 RenderingSession 개체로 '열 수' 있습니다.
 
 #### <a name="create-rendering-session"></a>렌더링 세션 만들기
 

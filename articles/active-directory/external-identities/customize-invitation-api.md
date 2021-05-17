@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업 API 및 사용자 지정-Azure Active Directory
+title: B2B 협업 API 및 사용자 지정 - Azure Active Directory
 description: Azure Active Directory B2B 협업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8160859bb782ee8ffc4fef5ee03b61b6f54be1bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99548664"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
@@ -66,12 +66,12 @@ ms.locfileid: "99548664"
     "invitedUserType": "Member"
     ```
 
-## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>사용자가 디렉터리에 이미 초대 되었는지 확인
+## <a name="determine-if-a-user-was-already-invited-to-your-directory"></a>사용자가 디렉터리에 이미 초대되었는지 확인
 
-초대 API를 사용 하 여 사용자가 리소스 테 넌 트에 이미 있는지 확인할 수 있습니다. 이는 초대 API를 사용 하 여 사용자를 초대 하는 앱을 개발 하는 경우에 유용할 수 있습니다. 사용자가 리소스 디렉터리에 이미 있는 경우 초대를 받지 않으므로 먼저 쿼리를 실행 하 여 이미 전자 메일이 UPN 또는 다른 로그인 속성으로 존재 하는지 확인할 수 있습니다.
+초대 API를 사용하여 사용자가 리소스 테넌트에 이미 존재하는지 확인할 수 있습니다. 이는 초대 API를 사용하여 사용자를 초대하는 앱을 개발하는 경우에 유용할 수 있습니다. 리소스 디렉터리에 이미 존재하는 사용자는 초대를 받지 않으므로 먼저 쿼리를 실행하여 이미 이메일이 UPN 또는 다른 로그인 속성으로 존재하는지 확인할 수 있습니다.
 
-1. 사용자의 전자 메일 도메인이 리소스 테 넌 트의 확인 된 도메인에 속해 있지 않은지 확인 하세요.
-2. 리소스 테 넌 트에서 다음 get 사용자 쿼리를 사용 합니다 {0} . 여기서은 초대 하는 전자 메일 주소입니다.
+1. 사용자의 이메일 도메인이 리소스 테넌트의 확인된 도메인에 속해 있지 않은지 확인하세요.
+2. 리소스 테넌트에서 다음 get 사용자 쿼리를 사용합니다. 여기서 {0}은 초대하는 이메일 주소입니다.
 
    ```
    “userPrincipalName eq '{0}' or mail eq '{0}' or proxyAddresses/any(x:x eq 'SMTP:{0}') or signInNames/any(x:x eq '{0}') or otherMails/any(x:x eq '{0}')"
@@ -126,7 +126,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>참고 항목
 
-에서 초대 API 참조를 확인 하세요 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
+[https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)에서 초대 API 참조를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

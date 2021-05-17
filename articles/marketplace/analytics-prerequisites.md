@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b61608c0cb53ab808c5d3d789ec5ddc318c6923d
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105563823"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106805"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>분석 데이터에 프로그래밍 방식으로 액세스하기 위한 사전 요구 사항
 
@@ -20,7 +20,7 @@ ms.locfileid: "105563823"
 
 ## <a name="commercial-marketplace-enrollment"></a>상용 Marketplace 등록
 
-프로그래밍 방식으로 상용 Marketplace 분석 데이터에 액세스하려면 상용 Marketplace 프로그램에 등록하고 파트너 센터 계정이 있어야 합니다. 방법을 알아보려면 [파트너 센터에서 상업용 마켓플레이스 계정을 만듭니다](./partner-center-portal/create-account.md).
+프로그래밍 방식으로 상용 Marketplace 분석 데이터에 액세스하려면 상용 Marketplace 프로그램에 등록하고 파트너 센터 계정이 있어야 합니다. 방법을 알아보려면 [파트너 센터에서 상업용 마켓플레이스 계정을 만듭니다](create-account.md).
 
 ## <a name="create-azure-active-directory-application"></a>Azure Active Directory 애플리케이션 만들기
 

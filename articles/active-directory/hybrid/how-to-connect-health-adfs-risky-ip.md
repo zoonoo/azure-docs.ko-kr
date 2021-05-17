@@ -1,6 +1,6 @@
 ---
-title: 위험한 IP 보고서 AD FS를 사용 하 여 Azure AD Connect Health | Microsoft Docs
-description: 위험한 IP 보고서를 AD FS Azure AD Connect Health에 대해 설명 합니다.
+title: AD FS 위험 IP 보고서가 포함된 Azure AD Connect Health | Microsoft Docs
+description: Azure AD Connect Health AD FS 위험 IP 보고서에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
@@ -17,14 +17,14 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0b76d2f943f254eb06208e2c190bae4d4088030
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98746073"
 ---
-# <a name="risky-ip-report-public-preview"></a>위험한 IP 보고서 (공개 미리 보기)
-AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사용자가 Microsoft 365 같은 SaaS 응용 프로그램에 액세스할 수 있도록 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
+# <a name="risky-ip-report-public-preview"></a>위험 IP 보고서(공개 미리 보기)
+AD FS 고객은 암호 인증 엔드포인트를 인터넷에 공개하여 최종 사용자가 Microsoft 365와 같은 SaaS 애플리케이션에 액세스할 수 있게 하는 인증 서비스를 제공할 수 있습니다. 이 경우 악의적 행위자가 AD FS 시스템에 대한 로그인을 시도하여 사용자의 암호를 추측하고 종료하고 애플리케이션 리소스에 액세스할 수 있습니다. Windows Server 2012 R2의 AD FS 이후부터 AD FS에서는 이러한 유형의 공격을 방지하기 위해 엑스트라넷 계정 잠금 기능을 제공합니다. 더 낮은 버전을 사용하는 경우 AD FS 시스템을 Windows Server 2016으로 업그레이드하는 것이 좋습니다. <br />
 
 또한 단일 IP 주소에서 여러 사용자에 대해 여러 로그인을 시도할 수도 있습니다. 이러한 경우 사용자당 시도 횟수가 AD FS의 계정 잠금 보호 임계값보다 낮을 수 있습니다. Azure AD Connect Health는 이제 이 조건을 감지하고 해당 문제가 발생하면 관리자에게 알리는 "위험한 IP 보고서"를 제공합니다. 이 보고서의 주요 이점은 다음과 같습니다. 
 - 실패한 암호 기반 로그인의 임계값을 초과하는 IP 주소 검색
@@ -38,21 +38,21 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 > 미리 보기에 액세스하려면 전역 관리자 또는 [보안 읽기 권한자](../../role-based-access-control/built-in-roles.md#security-reader) 권한이 필요합니다.  
 >
 
-## <a name="what-is-in-the-report"></a>보고서에는 무엇이 있나요?
-실패 한 로그인 활동 클라이언트 IP 주소는 웹 응용 프로그램 프록시 서버를 통해 집계 됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. 다음 정보를 제공 합니다. ![ 열 머리글이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4a.png)
+## <a name="what-is-in-the-report"></a>보고서 내용은 무엇인가요?
+실패한 로그인 활동 클라이언트 IP 주소는 웹 애플리케이션 프록시 서버를 통해 집계됩니다. 위험한 IP 보고서의 각 항목에는 지정된 임계값을 초과하는 실패한 AD FS 로그인 활동에 대한 집계 정보가 표시됩니다. ![열 머리글이 강조 표시된 위험 IP 보고서를 보여주는 스크린샷](./media/how-to-connect-health-adfs/report4a.png) 정보를 제공합니다.
 
-| 보고서 항목 | 설명 |
+| 보고서 항목 | Description |
 | ------- | ----------- |
 | 타임스탬프 | 탐지 시간 범위가 시작되면 Azure Portal 현지 시간 기준의 타임스탬프가 표시됩니다.<br /> 모든 일별 이벤트는 자정 UTC 시간에 생성됩니다. <br />시간별 이벤트의 타임스탬프는 시간의 시작 시점으로 반올림됩니다. 첫 번째 활동 시작 시간은 내보낸 파일의 "firstAuditTimestamp"에서 찾을 수 있습니다. |
 | 트리거 형식 | 탐지 시간 범위 형식이 표시됩니다. 집계 트리거 형식은 시간 또는 일 단위입니다. 이렇게 하면 하루 동안에 걸쳐 분산된 시도 횟수에서 자주 발생한 무차별 암호 대입 공격 및 느린 공격을 탐지하는 데 도움이 될 수 있습니다. |
-| IP 주소 | 잘못된 암호 또는 엑스트라넷 잠금 로그인 활동이 있는 위험한 단일 IP 주소입니다. IPv4 또는 IPv6 주소일 수 있습니다. |
+| IP 주소 | 잘못된 암호 또는 엑스트라넷 잠금 로그인 활동이 있는 위험한 단일 IP 주소입니다. 이는 IPv4 또는 IPv6 주소일 수 있습니다. |
 | 잘못된 암호 오류 수 | 탐지 시간 범위 동안 IP 주소에서 잘못된 암호 오류가 발생했습니다. 잘못된 암호 오류는 특정 사용자에게 여러 번 발생할 수 있습니다. 만료된 암호로 인해 실패한 시도는 포함되지 않습니다. |
 | 엑스트라넷 잠금 오류 수 | 탐지 시간 범위 동안 IP 주소에서 엑스트라넷 잠금 오류가 발생했습니다. 엑스트라넷 잠금 오류는 특정 사용자에게 여러 번 발생할 수 있습니다. 이 정보는 엑스트라넷 잠금이 AD FS(2012R2 버전 이상)로 구성된 경우에만 표시됩니다. <b>참고</b> 암호를 사용하는 엑스트라넷 로그인을 허용하는 경우 이 기능을 설정하는 것이 좋습니다. |
 | 시도한 고유 사용자 | 탐지 시간 범위 동안 IP 주소에서 시도한 고유 사용자 계정의 수입니다. 이 정보는 단일 사용자 공격 패턴 및 다중 사용자 공격 패턴을 구분하는 메커니즘을 제공합니다.  |
 
 예를 들어 아래의 보고서 항목은 <i>104.2XX.2XX.9</i> IP 주소에서 2018년 2월 28일 오후 6 시부터 오후 7시까지 잘못된 암호 오류는 없지만 284개의 엑스트라넷 잠금 오류가 있었다고 나타냅니다. 조건 내에서 14명의 고유 사용자가 영향을 받았습니다. 활동 이벤트가 지정된 보고서 시간당 임계값을 초과했습니다. 
 
-![위험한 IP 보고서 항목의 예를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4b.png)
+![위험 IP 보고서 항목의 예를 보여주는 스크린샷.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - 지정된 임계값을 초과하는 활동만 보고서 목록에 표시됩니다. 
@@ -60,15 +60,15 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 > - 이 경고 보고서에는 Exchange IP 주소 또는 개인 IP 주소가 표시되지 않습니다. 이러한 주소는 여전히 내보내기 목록에 포함되어 있습니다. 
 >
 
-!["다운로드", "알림 설정" 및 "임계값 설정"이 강조 표시 된 위험한 IP 보고서를 보여 주는 스크린샷](./media/how-to-connect-health-adfs/report4c.png)
+!["다운로드", "알림 설정" 및 "임계값 설정"이 강조 표시된 위험 IP 보고서를 보여주는 스크린샷.](./media/how-to-connect-health-adfs/report4c.png)
 
-## <a name="load-balancer-ip-addresses-in-the-list"></a>목록에서 부하 분산 장치 IP 주소
+## <a name="load-balancer-ip-addresses-in-the-list"></a>목록의 부하 분산 장치 IP 주소
 부하 분산 장치는 실패한 로그인 작업을 집계하여 경고 임계값에 도달합니다. 부하 분산 장치 IP 주소가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다. 포워드 클라이언트 IP 주소를 전달하도록 올바르게 부하 분산 장치를 구성하세요. 
 
-## <a name="download-risky-ip-report"></a>위험한 IP 보고서 다운로드 
+## <a name="download-risky-ip-report"></a>위험 IP 보고서 다운로드 
 **다운로드** 기능을 사용하면 지난 30일 동안의 위험한 IP 주소 목록 전체를 Connect Health 포털에서 내보낼 수 있습니다. 내보내기 결과에는 각 탐지 시간 범위에서 실패한 AD FS 로그인 활동이 모두 포함되므로 내보낸 후에 필터링을 사용자 지정할 수 있습니다. 포털에서 강조 표시된 집계 외에도 내보내기 결과에는 실패한 로그인 활동에 대해 IP 주소별로 자세한 정보가 표시됩니다.
 
-|  보고서 항목  |  설명  | 
+|  보고서 항목  |  Description  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | 탐지 시간 범위 동안 실패한 활동이 시작된 첫 번째 타임스탬프를 표시합니다.  | 
 | lastAuditTimestamp | 탐지 시간 범위 동안 실패한 활동이 종료된 마지막 타임스탬프를 표시합니다.  | 
@@ -83,7 +83,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 
 ![Azure AD Connect Health 포털](./media/how-to-connect-health-adfs/report4d.png)
 
-| 임계값 항목 | 설명 |
+| 임계값 항목 | Description |
 | --- | --- |
 | (잘못된 U/P 수 + 엑스트라넷 잠금 수) / 일  | **일** 단위의 잘못된 암호 수와 엑스트라넷 잠금 수의 합계가 이 값을 초과하는 경우 활동을 보고하고 경고 알림을 트리거하는 임계값 설정 기본값은 100입니다.|
 | (잘못된 U/P 수 + 엑스트라넷 잠금 수) / 시간 | **시간** 단위의 잘못된 암호 수와 엑스트라넷 잠금 수의 합계가 이 값을 초과하는 경우 활동을 보고하고 경고 알림을 트리거하는 임계값 설정 기본값은 50입니다.|
@@ -99,7 +99,7 @@ AD FS 고객은 암호 인증 끝점을 인터넷에 노출 하 여 최종 사�
 
 ## <a name="faq"></a>FAQ
 **보고서에 개인 IP 주소 범위가 표시되는 이유는 무엇인가요?**  <br />
-개인 IP 주소 (<i>& 172.x.x.x,</i>x. x. x. x. x) 및 Exchange ip 주소는 필터링 되어 IP 승인 목록에서 True로 표시 됩니다. 개인 IP 주소 범위가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다.
+개인 IP 주소(<i>10.x.x.x, 172.x.x.x & 192.168.x.x</i>) 및 Exchange IP 주소는 IP 승인 목록에서 필터링되고 True로 표시됩니다. 개인 IP 주소 범위가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다.
 
 **보고서에 부하 분산 장치 IP 주소가 표시되는 이유는 무엇인가요?**  <br />
 부하 분산 장치 IP 주소가 표시되는 경우 웹 애플리케이션 프록시 서버에 요청을 전달할 때 외부 부하 분산 장치에서 클라이언트 IP 주소를 보내지 않을 가능성이 큽니다. 포워드 클라이언트 IP 주소를 전달하도록 올바르게 부하 분산 장치를 구성하세요. 

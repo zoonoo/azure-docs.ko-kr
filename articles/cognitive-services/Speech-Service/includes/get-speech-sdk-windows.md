@@ -6,15 +6,15 @@ ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fc4cc5063f72ff3f0db62cde79f7908add86166e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102434585"
 ---
 :::row:::
     :::column span="3":::
-        Speech SDK는 Windows 10 및 Windows Server 2016 이상 버전을 지원 합니다. 이전 버전은 공식적으로 지원 **되지 않습니다** . 음성 SDK의 일부를 이전 버전의 Windows와 함께 사용할 수 있지만 권장 되지는 않습니다.
+        Speech SDK는 Windows 10 및 Windows Server 2016 이상 버전을 지원합니다. 이전 버전은 공식적으로 지원되지 **않습니다**. Speech SDK의 일부를 이전 버전의 Windows에서 사용할 수 있지만 권장되지는 않습니다.
     :::column-end:::
     :::column:::
         <br>
@@ -26,11 +26,11 @@ ms.locfileid: "102434585"
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 
-Windows의 Speech SDK를 사용 하려면 시스템에서 <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Visual Studio 2019에 대 한 Microsoft Visual C++ 재배포 가능 패키지가 </a> 필요 합니다.
+Windows의 Speech SDK를 사용하려면 시스템에 <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지</a>가 필요합니다.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">X 86 용 설치 </a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">X 64 용 설치 </a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">ARMx64 설치 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">x86용 설치 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">x64용 설치 </a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">ARMx64용 설치 </a>
 
 ### <a name="c"></a>C#
 
@@ -38,7 +38,7 @@ Windows의 Speech SDK를 사용 하려면 시스템에서 <a href="https://suppo
 
 마이크 입력을 위해 미디어 파운데이션 라이브러리를 설치해야 합니다. 이러한 라이브러리는 Windows 10 및 Windows Server 2016에 포함됩니다. 마이크를 오디오 입력 디바이스로 사용하지 않는 경우에는 이러한 라이브러리 없이 Speech SDK를 사용할 수 있습니다.
 
-필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 응용 프로그램과 일치 하는 올바른 버전 (x86/x64)을 선택 했는지 확인 합니다.
+필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(x86/x64)을 선택해야 합니다.
 
 | Name                                            | 함수                                             |
 |-------------------------------------------------|------------------------------------------------------|
@@ -46,10 +46,10 @@ Windows의 Speech SDK를 사용 하려면 시스템에서 <a href="https://suppo
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |
 
 > [!NOTE]
-> 릴리스부터 릴리스 1.3.0는 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공 됨)이 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK에 통합 되었습니다.
+> 릴리스 1.3.0부터는 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll`(이전 릴리스에서 제공됨)이 더 이상 필요하지 않습니다. 이제 핵심 SDK에 기능이 통합되었습니다.
 
 > [!IMPORTANT]
-> Windows Forms App (.NET Framework) c # 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. 에서이를 확인할 수 있습니다 `Properties -> Publish Section` . 단추를 클릭 `Application Files` 하 고 스크롤 다운 목록에서 해당 라이브러리를 찾습니다. 값이로 설정 되어 있는지 확인 `Included` 합니다. 프로젝트를 게시/배포할 때 Visual Studio에 파일이 포함 됩니다.
+> Windows Forms App(.NET Framework) C# 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함되어 있는지 확인합니다. `Properties -> Publish Section`에서 확인할 수 있습니다. `Application Files` 단추를 클릭하고 스크롤 다운 목록에서 해당 라이브러리를 찾습니다. 값이 `Included`로 설정되었는지 확인합니다. Visual Studio에는 프로젝트가 게시/배포될 때 파일이 포함됩니다.
 
 ### <a name="c"></a>C++
 

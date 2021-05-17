@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 32b41c1c4446ba34e3bfad52f1d3cbd7ed72096d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java
+ms.openlocfilehash: ed906c32e91ae168e17d9eb769d3fd1985098f9c
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105108812"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634638"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>VNet에서 Azure Spring Cloud를 실행하는 고객의 책임
 이 문서에는 가상 네트워크에서 Azure Spring Cloud를 사용하기 위한 사양이 포함되어 있습니다.
@@ -33,7 +33,7 @@ Azure Spring Cloud가 가상 네트워크에 배포되면 가상 네트워크 �
 ## <a name="azure-spring-cloud-network-requirements"></a>Azure Spring Cloud 네트워크 요구 사항
 
   | 대상 엔드포인트 | 포트 | 사용 | 참고 |
-  |------|------|------|
+  |------|------|------|------|
   | *:1194 *또는* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:1194 | UDP:1194 | 기본 Kubernetes 클러스터 관리 | |
   | *:443 *또는* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:443 | TCP:443 | Azure Spring Cloud 서비스 관리 | 서비스 인스턴스 "requiredTraffics"의 정보는 "networkProfile" 섹션 아래의 리소스 페이로드에서 알 수 있습니다. |
   | *:9000 *또는* [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - AzureCloud:9000 | TCP:9000 | 기본 Kubernetes 클러스터 관리 |

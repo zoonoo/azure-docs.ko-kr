@@ -16,12 +16,12 @@ ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e3b06ce76ae77aa62b20b707a736e8e20e5f6c45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e1fa22cc36df00b098274002b6bd444be4140ff
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99090047"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783290"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Azure CLI를 사용하여 리소스에 관리 ID 액세스 권한 할당
 
@@ -41,7 +41,7 @@ ms.locfileid: "99090047"
 
 [Azure 가상 머신](qs-configure-cli-windows-vm.md) 또는 [Azure 가상 머신 확장 집합](qs-configure-cli-windows-vmss.md)과 같은 Azure 리소스에서 관리 ID를 사용하도록 설정하면 다음을 수행합니다. 
 
-1. 다음 예제에서는 스토리지 계정 액세스 권한을 Azure 가상 머신에 부여합니다. 먼저 [az resource list](/cli/azure/resource/#az-resource-list)를 사용하여 myVM이라는 가상 머신에 대한 서비스 주체를 가져옵니다.
+1. 다음 예제에서는 스토리지 계정 액세스 권한을 Azure 가상 머신에 부여합니다. 먼저 [az resource list](/cli/azure/resource/#az_resource_list)를 사용하여 myVM이라는 가상 머신에 대한 서비스 주체를 가져옵니다.
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -52,7 +52,7 @@ ms.locfileid: "99090047"
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-1. 서비스 사용자 ID를 가져오면 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)를 사용하여 가상 머신 또는 가상 머신 확장 집합 "읽기 권한자" 액세스 권한을 "myStorageAcct"라는 스토리지 계정에 부여합니다.
+1. 서비스 사용자 ID를 가져오면 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create)를 사용하여 가상 머신 또는 가상 머신 확장 집합 "읽기 권한자" 액세스 권한을 "myStorageAcct"라는 스토리지 계정에 부여합니다.
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

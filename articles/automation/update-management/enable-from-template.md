@@ -5,12 +5,13 @@ services: automation
 ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 95ef52acedc9171ba86110a665d08ea97c59bfbb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 687c3d49f98fe6832d23dc1529a9761d862e0666
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575824"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830883"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 
@@ -20,11 +21,11 @@ ms.locfileid: "100575824"
 * Azure Automation 계정 만들기를 자동화합니다.
 * Automation 계정을 Log Analytics 작업 영역에 연결합니다.
 * 계정에 샘플 Automation Runbook을 추가합니다.
-* 업데이트 관리 기능을 사용 하도록 설정 합니다.
+* 업데이트 관리 기능을 사용하도록 설정합니다.
 
-템플릿은 하나 이상의 Azure 또는 비 Azure Vm에서 업데이트 관리 사용 하도록 자동화 하지 않습니다.
+템플릿은 하나 이상의 Azure 또는 비 Azure VM에서 업데이트 관리를 자동으로 사용하도록 설정하지 않습니다.
 
-구독에서 지원되는 지역에 배포된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결되지 않습니다. 이 템플릿을 사용 하 여 성공적으로 링크를 만들고 업데이트 관리를 배포 합니다.
+구독에서 지원되는 지역에 배포된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결되지 않습니다. 이 템플릿을 사용하여 성공적으로 링크를 만들고 업데이트 관리를 배포합니다.
 
 >[!NOTE]
 >ARM 템플릿을 사용하는 경우 Automation 실행 계정 만들기가 지원되지 않습니다. 포털에서 또는 PowerShell을 사용하여 실행 계정을 수동으로 만들려면 [실행 계정 만들기](../create-run-as-account.md)를 참조하세요.
@@ -335,18 +336,18 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
     ![Log Analytics 작업 영역에 연결된 Automation 계정](../media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
-5. 왼쪽 창에서 **업데이트 관리** 를 선택 합니다. **업데이트 관리** 페이지에는 사용 하도록 설정 된 결과로 정보 없이 평가 페이지가 표시 되 고 컴퓨터가 관리를 위해 구성 되지 않습니다.
+5. 왼쪽 창에서 **업데이트 관리** 를 선택합니다. **업데이트 관리** 페이지에는 사용 가능 여부로 인한 정보 없이 평가 페이지가 표시되고 머신이 관리용으로 구성되지 않았습니다.
 
     ![업데이트 관리 기능 평가 보기](./media/enable-from-template/update-management-assessment-view.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요 하지 않은 경우 Log Analytics 작업 영역에서 **업데이트** 솔루션을 삭제 하 고 작업 영역에서 automation 계정의 연결을 해제 한 다음 automation 계정 및 작업 영역을 삭제 합니다.
+더 이상 필요하지 않은 경우 Log Analytics 작업 영역에서 **업데이트** 솔루션을 삭제하고 작업 영역에서 Automation 계정의 연결을 해제한 다음, Automation 계정 및 작업 영역을 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* Vm에 대 한 업데이트 관리를 사용 하려면 [vm에 대 한 업데이트 및 패치 관리](manage-updates-for-vm.md)를 참조 하세요.
+* VM에 업데이트 관리를 사용하려면 [VM의 업데이트 및 패치 관리](manage-updates-for-vm.md)를 참조하세요.
 
-* 업데이트 관리을 더 이상 사용 하지 않고 제거 하려는 경우 [업데이트 관리 기능 제거](remove-feature.md)의 지침을 참조 하세요.
+* 업데이트 관리를 더 이상 사용하지 않고 제거하려면 [업데이트 관리 기능 제거](remove-feature.md)의 지침을 참조하세요.
 
 * 업데이트 관리에서 VM을 삭제하려면 [업데이트 관리에서 VM 제거](remove-vms.md)를 참조하세요.

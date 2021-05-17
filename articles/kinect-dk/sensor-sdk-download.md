@@ -8,10 +8,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: azure, kinect, sdk, 업데이트 다운로드, 최신, 사용 가능, 설치
 ms.openlocfilehash: 591fcba4c887e298cf667c5d95c19184bc213ffe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102179632"
 ---
 # <a name="azure-kinect-sensor-sdk-download"></a>Azure Kinect 센서 SDK 다운로드
@@ -28,7 +28,7 @@ ms.locfileid: "102179632"
 
 ## <a name="windows-installation-instructions"></a>Windows 설치 지침
 
-Azure Kinect 센서 SDK 및 펌웨어의 최신 버전 및 이전 버전에 대 한 설치 세부 정보는 [여기](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)에서 확인할 수 있습니다.
+[여기](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md)에서 최신 및 이전 버전의 Azure Kinect 센서 SDK 및 펌웨어의 대한 설치 세부 정보를 찾을 수 있습니다.
 
 소스 코드는 [여기](https://github.com/microsoft/Azure-Kinect-Sensor-SDK)서 찾을 수 있습니다.
 
@@ -41,23 +41,23 @@ Azure Kinect 센서 SDK 및 펌웨어의 최신 버전 및 이전 버전에 대 
 
 먼저 [여기](/windows-server/administration/linux-package-repository-for-microsoft-software) 지침에 따라 [Microsoft의 패키지 리포지토리](https://packages.microsoft.com/)를 구성해야 합니다.
 
-이제 필요한 패키지를 설치할 수 있습니다. `k4a-tools` 패키지에는 [Azure Kinect 뷰어](azure-kinect-viewer.md), [Azure Kinect 레코더](record-sensor-streams-file.md) 및 [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)가 포함되어 있습니다. 패키지를 설치 하려면 다음을 실행 합니다.
+이제 필요한 패키지를 설치할 수 있습니다. `k4a-tools` 패키지에는 [Azure Kinect 뷰어](azure-kinect-viewer.md), [Azure Kinect 레코더](record-sensor-streams-file.md) 및 [Azure Kinect 펌웨어 도구](azure-kinect-firmware-tool.md)가 포함되어 있습니다. 패키지를 설치하려면 다음을 실행합니다.
 
 `sudo apt install k4a-tools`
  
-이 명령은 최신 버전의를 비롯 하 여 도구가 제대로 작동 하는 데 필요한 종속성 패키지를 설치 합니다 `libk4a<major>.<minor>` . 루트 사용자가 아닌 Azure Kinect 진한 액세스를 위해 udev 규칙을 추가 해야 합니다. 지침은 [Linux 장치 설정](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md#linux-device-setup)을 참조 하세요. 대신, 장치를 루트로 사용 하는 응용 프로그램을 시작할 수 있습니다.
+이 명령은 최신 버전의 `libk4a<major>.<minor>`를 비롯하여 도구가 제대로 작동하는 데 필요한 종속성 패키지를 설치합니다. 루트 사용자가 아닌 Azure Kinect DK에 액세스하려면 udev 규칙을 추가해야 합니다. 지침은 [Linux 디바이스 설정](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/blob/develop/docs/usage.md#linux-device-setup)을 참조하세요. 또는 디바이스를 루트로 사용하는 애플리케이션을 시작할 수 있습니다.
 
-패키지에는 `libk4a<major>.<minor>-dev` 응용 프로그램/실행 파일을 빌드하기 위한 헤더 및 cmake 파일이 포함 되어 있습니다 `libk4a` .
+`libk4a<major>.<minor>-dev` 패키지에는 `libk4a`에 대해 애플리케이션/실행 파일을 빌드할 헤더와 CMake 파일이 포함되어 있습니다.
 
-패키지에는 `libk4a<major>.<minor>` 에 종속 된 응용 프로그램/실행 파일을 실행 하는 데 필요한 공유 개체가 포함 되어 있습니다 `libk4a` .
+`libk4a<major>.<minor>` 패키지에는 `libk4a`에 종속된 애플리케이션/실행 파일을 실행하는 데 필요한 공유 개체가 포함되어 있습니다.
 
-기본 자습서에는 `libk4a<major>.<minor>-dev` 패키지가 필요합니다. 패키지를 설치 하려면 다음을 실행 합니다.
+기본 자습서에는 `libk4a<major>.<minor>-dev` 패키지가 필요합니다. 패키지를 설치하려면 다음을 실행합니다.
 
 `sudo apt install libk4a<major>.<minor>-dev` 
 
 명령이 성공하면 SDK를 사용할 준비가 된 것입니다.
 
-와 일치 하는 버전의를 설치 `libk4a<major>.<minor>` 해야 `libk4a<major>.<minor>-dev` 합니다. 예를 들어 패키지를 설치 하는 경우 `libk4a4.1-dev` `libk4a4.1` 공유 개체 파일의 일치 하는 버전을 포함 하는 해당 패키지를 설치 합니다. 최신 버전의 경우 `libk4a` 다음 섹션의 링크를 참조 하세요.
+`libk4a<major>.<minor>-dev`와 일치하는 `libk4a<major>.<minor>` 버전을 설치해야 합니다. 예를 들어 `libk4a4.1-dev` 패키지를 설치하는 경우 일치하는 버전의 공유 개체 파일이 포함된 해당 `libk4a4.1` 패키지를 설치합니다. `libk4a`의 최신 버전은 다음 섹션의 링크를 참조하세요.
 
 ## <a name="change-log-and-older-versions"></a>변경 로그 및 이전 버전
 

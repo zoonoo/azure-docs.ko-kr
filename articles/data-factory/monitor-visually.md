@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory를 시각적으로 모니터링
 description: Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
-author: minhe-msft
-ms.author: hemin
+author: dcstwh
+ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: bcc10ccde73f5036e50d1717528933a49ccd69cd
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: d177513af9f0ee4fcadb1ea316edf1ad8cb89e5a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904949"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783662"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Azure Data Factory를 시각적으로 모니터링
 
@@ -186,7 +186,7 @@ Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있�
 
     ![알림 추가 옵션](media/monitor-visually/configure-notification-2.png)
 
-1.  경고 규칙을 만듭니다.
+1.  경고 규칙을 생성합니다.
 
     ![경고 규칙을 만드는 옵션](media/monitor-visually/create-alert-rule.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Blob storage 모니터링 데이터 참조 | Microsoft Docs
-description: Azure Blob storage에서 데이터 모니터링에 대 한 로그 및 메트릭 참조입니다.
+title: Azure Blob 스토리지 모니터링 데이터 참조 | Microsoft Docs
+description: Azure Blob 스토리지의 모니터링 데이터를 위한 로그 및 메트릭 참조.
 author: normesta
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,13 +10,13 @@ ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
 ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100571629"
 ---
-# <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob storage 모니터링 데이터 참조
+# <a name="azure-blob-storage-monitoring-data-reference"></a>Azure Blob 스토리지 모니터링 데이터 참조
 
 Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [Azure Storage 모니터링](monitor-blob-storage.md)을 참조하세요.
 
@@ -26,7 +26,7 @@ Azure Storage의 모니터링 데이터를 수집하고 분석하는 방법은 [
 
 ### <a name="capacity-metrics"></a>용량 메트릭
 
-용량 메트릭 값은 매일 (최대 24 시간) 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
+용량 메트릭 값은 매일(최대 24시간) 새로 고쳐집니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 용량 메트릭에 대해 지원되는 시간 조직은 1시간(PT1H)입니다.
 
 Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공합니다.
 
@@ -34,21 +34,21 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-account-capacity-metrics.md)]
 
-#### <a name="blob-storage"></a>Blob 스토리지
+#### <a name="blob-storage"></a>Blob Storage
 
-다음 표에서는 [Blob storage 메트릭을](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices)보여 줍니다.
+다음 표에서는 [Blob 스토리지 메트릭](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices)을 보여줍니다.
 
 | 메트릭 | Description |
 | ------------------- | ----------------- |
 | BlobCapacity | 스토리지 계정에 사용한 Blob Storage의 총계입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
 | BlobCount    | 스토리지 계정에 저장된 Blob 개체 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 <br/> 차원: **BlobType** 및 **BlobTier**([정의](#metrics-dimensions)) |
-| BlobProvisionedSize | 저장소 계정에 프로 비전 된 저장소의 양입니다. 이 메트릭은 premium storage 계정에만 적용 됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
+| BlobProvisionedSize | 스토리지 계정에 프로비전된 스토리지 양입니다. 이 메트릭은 프리미엄 스토리지 계정에만 적용됩니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 |
 | ContainerCount    | 스토리지 계정의 컨테이너 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 | IndexCapacity     | ADLS Gen2 계층적 인덱스에 사용한 스토리지 양입니다. <br/><br/> 단위: 바이트 <br/> 집계 유형: 평균 <br/> 값 예제: 1024 |
 
 ### <a name="transaction-metrics"></a>트랜잭션 메트릭
 
-트랜잭션 메트릭은 스토리지 계정에 대한 모든 요청이 있을 때 Azure Storage에서 Azure Monitor로 내보내집니다. 스토리지 계정에 작업이 없는 경우 해당 기간에 트랜잭션 메트릭에도 데이터가 없습니다. 모든 트랜잭션 메트릭은 계정 및 Blob storage 서비스 수준에서 모두 사용할 수 있습니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 트랜잭션 메트릭에 대해 지원되는 시간 조직은 PT1H 및 PT1M입니다.
+트랜잭션 메트릭은 스토리지 계정에 대한 모든 요청이 있을 때 Azure Storage에서 Azure Monitor로 내보내집니다. 스토리지 계정에 작업이 없는 경우 해당 기간에 트랜잭션 메트릭에도 데이터가 없습니다. 모든 트랜잭션 메트릭은 계정 및 Blob 스토리지 서비스 수준에서 모두 사용할 수 있습니다. 시간 조직은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 트랜잭션 메트릭에 대해 지원되는 시간 조직은 PT1H 및 PT1M입니다.
 
 [!INCLUDE [Transaction metrics](../../../includes/azure-storage-account-transaction-metrics.md)]
 
@@ -58,18 +58,18 @@ Azure Storage는 Azure Monitor에서 다음과 같은 용량 메트릭을 제공
 
 Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다.
 
-### <a name="dimensions-available-to-all-storage-services"></a>모든 저장소 서비스에 사용할 수 있는 차원
+### <a name="dimensions-available-to-all-storage-services"></a>모든 스토리지 서비스에 사용할 수 있는 차원
 
 [!INCLUDE [Metrics dimensions](../../../includes/azure-storage-account-metrics-dimensions.md)]
 
-### <a name="dimensions-specific-to-blob-storage"></a>Blob 저장소에만 적용 되는 차원
+### <a name="dimensions-specific-to-blob-storage"></a>Blob 스토리지와 관련된 차원
 
 | 차원 이름 | Description |
 | ------------------- | ----------------- |
-| **BlobType** | Blob 메트릭용 Blob 형식만. 지원되는 값은 **BlockBlob**, **PageBlob** 및 **Azure Data Lake Storage** 입니다. 추가 blob은 **blockblob** 에 포함 되어 있습니다. |
+| **BlobType** | Blob 메트릭용 Blob 형식만. 지원되는 값은 **BlockBlob**, **PageBlob** 및 **Azure Data Lake Storage** 입니다. 추가 Blob은 **BlockBlob** 에 포함됩니다. |
 | **BlobTier** | Azure Storage는 가장 비용 효율적인 방식으로 Blob 개체 데이터를 저장할 수 있도록 여러 액세스 계층을 제공합니다. [Azure Storage Blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요. 지원되는 값은 다음과 같습니다. <br/> <li>**핫**: 핫 액세스 계층</li> <li>**쿨**: 쿨 액세스 계층</li> <li>**보관**: 보관 액세스 계층</li> <li>**프리미엄**: 블록 Blob 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: 프리미엄 페이지 Blob 계층 유형</li> <li>**표준**: 표준 페이지 Blob 계층 유형</li> <li>**계층 없음**: 범용 v1 스토리지 계정 계층 유형</li> |
 
-메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공** 을 포함한 **ResponseType** 차원을 필터링해야 합니다. 블록 Blob에 대 한 **Blobcount** 값을 확인 하는 경우 **blockblob** 을 사용 하 여 **blobcount** 차원을 필터링 해야 합니다.
+메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공** 을 포함한 **ResponseType** 차원을 필터링해야 합니다. 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob** 을 포함한 **BlobType** 차원을 필터링해야 합니다.
 
 ## <a name="resource-logs-preview"></a>리소스 로그(미리 보기)
 

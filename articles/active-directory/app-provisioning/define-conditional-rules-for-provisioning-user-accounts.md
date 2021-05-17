@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: kenwith
 ms.openlocfilehash: 7fff456b7ad6e980fc3c9bda36cfcab02e2ed863
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99255834"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
@@ -76,30 +76,30 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    a. **EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   b. 같지 **않음** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
+   b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   다. **이 TRUE 인** 경우 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   다. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
-   d. **가 FALSE 인 경우** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
+   d. **IS FALSE** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
-   e. **가 NULL 인 경우** 평가된 특성이 비어 있으면 "true"를 반환합니다.
+   e. **IS NULL** 평가된 특성이 비어 있으면 "true"를 반환합니다.
 
-   f. **가 NULL이 아닌** 경우 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
+   f. **IS NOT NULL** 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 
    g. **REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하면 "true"를 반환합니다. 예를 들어, ([1-9][0-9])는 10~99 범위의 모든 숫자와 일치합니다.
 
    h. **NOT REGEX MATCH** 평가된 특성이 정규식 패턴과 일치하지 않으면 "true"를 반환합니다.
    
-   i. **Greater_Than.** 평가 된 특성이 값 보다 크면 절은 "true"를 반환 합니다. 범위 지정 필터에 지정 된 값은 정수 여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수 여야 합니다. 
+   i. **Greater_Than.** 평가된 특성이 값보다 크면 절은 "true"를 반환합니다. 범위 지정 필터에 지정된 값은 정수여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수여야 합니다. 
    
-   j. **Greater_Than_OR_EQUALS.** 평가 된 특성이 값 보다 크거나 같으면 "true"를 반환 합니다. 범위 지정 필터에 지정 된 값은 정수 여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수 여야 합니다. 
+   j. **Greater_Than_OR_EQUALS.** 평가된 특성이 값보다 크거나 같으면 "true"를 반환합니다. 범위 지정 필터에 지정된 값은 정수여야 하며 사용자의 특성은 [0, 1, 2,...]의 정수여야 합니다. 
    
-   k. **내용이.** 평가 된 특성이 [여기](/dotnet/api/system.string.contains)에 설명 된 대로 문자열 값 (대/소문자 구분)을 포함 하면 "true"를 반환 합니다. 
+   k. **Includes.** [여기](/dotnet/api/system.string.contains)에 설명된 대로 평가된 특성이 문자열 값(대소문자 구분)을 포함하면 "true"를 반환합니다. 
 
 
 >[!IMPORTANT] 
-> - IsMemberOf 필터는 현재 지원 되지 않습니다.
-> - 같음 및 같지 않음은 다중 값 특성에 지원 되지 않습니다.
+> - IsMemberOf 필터는 현재 지원되지 않습니다.
+> - EQUALS 및 NOT EQUALS는 다중 값 특성에 지원되지 않습니다.
 
 9. 필요에 따라 7~8단계를 반복하여 다른 범위 지정 절을 추가합니다.
 
@@ -112,19 +112,19 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 13. **특성 매핑** 화면에서 **저장** 을 선택합니다. 
 
 >[!IMPORTANT] 
-> 새 범위 지정 필터를 저장하면 애플리케이션의 새로운 전체 동기화가 트리거되며 여기서 원본 시스템의 모든 사용자를 새 범위 지정 필터에 대해 다시 평가합니다. 애플리케이션의 사용자가 프로비전 범위에서 이전에 평가되었으나 범위를 벗어난 경우 해당 계정은 사용되지 않거나 애플리케이션에서 프로비전 해제됩니다. 이 기본 동작을 재정의 하려면 범위를 [벗어나는 사용자 계정에 대 한 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md)를 참조 하세요.
+> 새 범위 지정 필터를 저장하면 애플리케이션의 새로운 전체 동기화가 트리거되며 여기서 원본 시스템의 모든 사용자를 새 범위 지정 필터에 대해 다시 평가합니다. 애플리케이션의 사용자가 프로비전 범위에서 이전에 평가되었으나 범위를 벗어난 경우 해당 계정은 사용되지 않거나 애플리케이션에서 프로비전 해제됩니다. 이 기본 동작을 재정의하려면 범위를 [범위는 벗어나는 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md)를 참조하세요.
 
 
 ## <a name="common-scoping-filters"></a>공통 범위 지정 필터
 | 대상 특성| 연산자 | 값 | 설명|
 |----|----|----|----|
-|userPrincipalName|REGEX 일치|.\*@domain.com |도메인을 가진 userPrincipal의 모든 사용자 @domain.com 는 프로 비전 범위에 포함 됩니다.|
-|userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인을 가진 userPrincipal의 모든 사용자 @domain.com 는 프로 비전 범위를 벗어났습니다.|
-|department|EQUALS|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
-|workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
+|userPrincipalName|REGEX MATCH|.\*@domain.com |@domain.com 도메인의 userPrincipal을 가진 사용자는 프로비저닝 범위에 포함됩니다.|
+|userPrincipalName|NOT REGEX MATCH|.\*@domain.com|@domain.com 도메인의 userPrincipal을 가진 모든 사용자는 프로비저닝 범위를 벗어납니다.|
+|department|EQUALS|sales|판매 부서의 모든 사용자가 프로비저닝 범위에 포함됩니다.|
+|workerID|REGEX MATCH|(1[0-9][0-9][0-9][0-9][0-9][0-9])| workerID가 1000000부터 2000000까지인 모든 직원이 프로비저닝 범위에 포함됩니다.|
 
 ## <a name="related-articles"></a>관련된 문서
-* [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](../app-provisioning/user-provisioning.md)
+* [SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 자동화](../app-provisioning/user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](../app-provisioning/customize-application-attributes.md)
 * [특성 매핑 식 작성](functions-for-customizing-application-data.md)
 * [계정 프로비전 알림](../app-provisioning/user-provisioning.md)

@@ -9,14 +9,14 @@ ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
 ms.date: 10/29/2020
-ms.topic: conceptual
-ms.custom: how-to, deploy, studio, designer
-ms.openlocfilehash: 35acfc51ae76fdacef11f03b1fbd91ad58650ae6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: deploy, studio, designer
+ms.openlocfilehash: 110bb5e6349ab5cb64366ba365ccace8ab029362
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97722626"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949437"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>스튜디오를 사용하여 디자이너에서 학습된 모델 배포
 
@@ -33,7 +33,7 @@ ms.locfileid: "97722626"
 
 디자이너에서 직접 모델을 배포하여 모델 등록 및 파일 다운로드 단계를 건너뛸 수도 있습니다. 이 작업은 빠른 배포를 위해 유용할 수 있습니다. 자세한 내용은 [디자이너를 사용하여 모델 배포](tutorial-designer-automobile-price-deploy.md)를 참조하세요.
 
-디자이너에서 학습한 모델은 SDK 또는 CLI(명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning을 사용하여 모델 배포](how-to-deploy-existing-model.md)를 참조하세요.
+디자이너에서 학습한 모델은 SDK 또는 CLI(명령줄 인터페이스)를 통해 배포할 수도 있습니다. 자세한 내용은 [Azure Machine Learning을 사용하여 모델 배포](how-to-deploy-and-where.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

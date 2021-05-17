@@ -3,12 +3,12 @@ title: GPU 지원 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용하여 컴퓨팅 집약적 컨테이너 앱을 실행하기 위해 Azure Container Instances를 배포하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 6ffe4840d024c1e1f551966d05673c4ba83e1259
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107764066"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "93127011"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -236,8 +236,8 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-show]: /cli/azure/container#az_container_show
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
-[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
+[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create

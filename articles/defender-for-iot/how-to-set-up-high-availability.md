@@ -3,12 +3,12 @@ title: 고가용성 설정
 description: 온-프레미스 관리 콘솔 고가용성 어플라이언스를 설치하여 Defender for IoT 배포의 복원력을 높이세요. 고가용성 배포는 관리형 센서가 활성 온-프레미스 관리 콘솔에 지속적으로 보고하도록 합니다.
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.openlocfilehash: f341dee00574422ec325871ff97d6f3e8644ac48
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: d0e09cd37fbae91d1903ca8f175c0592b567da6e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208998"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104781656"
 ---
 # <a name="about-high-availability"></a>고가용성 정보
 
@@ -87,7 +87,7 @@ ms.locfileid: "108208998"
 2. 기본에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <primary token>
+sudo cyberx-management-trusted-hosts-add -ip <Secondary IP>
 ```
 
 >[!NOTE]

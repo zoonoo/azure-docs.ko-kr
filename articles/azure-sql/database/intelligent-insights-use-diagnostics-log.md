@@ -1,6 +1,6 @@
 ---
 title: Intelligent Insights 성능 진단 로그
-description: Intelligent Insights Azure SQL Database 및 Azure SQL Managed Instance 성능 문제의 진단 로그를 제공 합니다.
+description: Intelligent Insights는 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제의 진단 로그를 제공합니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
@@ -12,25 +12,25 @@ ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: b03c21eea18c966616154b5cfc5df5d8924fd335
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100589311"
 ---
-# <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Azure SQL Database 및 Azure SQL Managed Instance 성능 문제의 Intelligent Insights 성능 진단 로그를 사용 합니다.
+# <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Azure SQL Database 및 Azure SQL Managed Instance 성능 문제의 Intelligent Insights 성능 진단 로그를 사용합니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-이 페이지에서는 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함 된 데이터에 [Intelligent Insights](intelligent-insights-overview.md) 의해 생성 된 성능 진단 로그를 사용 하는 방법에 대 한 정보를 제공 합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)또는 타사 솔루션에 보낼 수 있습니다.
+이 페이지에서는 Azure SQL Database 및 Azure SQL Managed Instance 성능 문제의 [Intelligent Insights](intelligent-insights-overview.md)에서 생성된 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 이 진단 로그를 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../../azure-monitor/insights/azure-sql.md), [Azure Event Hub](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) 또는 타사 솔루션으로 보낼 수 있습니다.
 
 > [!NOTE]
-> Intelligent insights는 유럽 서부, 서유럽, 미국 서 부 1 및 미국 동부 1 지역에서 사용할 수 없는 미리 보기 기능입니다.
+> Intelligent insights는 서유럽, 북유럽, 미국 서부 1 및 미국 동부 1 지역에서는 사용할 수 없는 미리 보기 기능입니다.
 
 ## <a name="log-header"></a>로그 헤더
 
 진단 로그는 JSON 표준 형식을 사용하여 Intelligent Insights 결과를 출력합니다. Intelligent Insights에 액세스하기 위한 정확한 범주 속성은 고정 값 "SQLInsights"입니다.
 
-로그의 헤더는 일반적이며 항목이 만들어진 때를 나타내는 타임스탬프(TimeGenerated)로 구성됩니다. 또한 항목과 관련 된 특정 데이터베이스를 참조 하는 리소스 ID (ResourceId)를 포함 합니다. 범주(Category), 수준(Level) 및 작업 이름(OperationName)은 고정된 속성으로, 값이 변경되지 않습니다. 이러한 속성은 로그 항목이 정보 제공용이며 Intelligent Insights(SQLInsights)에서 제공되었음을 나타냅니다.
+로그의 헤더는 일반적이며 항목이 만들어진 때를 나타내는 타임스탬프(TimeGenerated)로 구성됩니다. 항목이 관련된 특정 데이터베이스를 나타내는 리소스 ID(ResourceId)도 포함합니다. 범주(Category), 수준(Level) 및 작업 이름(OperationName)은 고정된 속성으로, 값이 변경되지 않습니다. 이러한 속성은 로그 항목이 정보 제공용이며 Intelligent Insights(SQLInsights)에서 제공되었음을 나타냅니다.
 
 ```json
 "TimeGenerated" : "2017-9-25 11:00:00", // time stamp of the log entry
@@ -138,11 +138,11 @@ Intelligent Insights 성능 로그의 마지막 부분은 식별된 성능 저�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 Intelligent Insights 성능 로그를 사용할 수 있습니다.
+Intelligent Insights 성능 로그를 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 함께 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Intelligent Insights](intelligent-insights-overview.md) 개념에 대해 알아봅니다.
-- [Intelligent Insights의 성능 문제를 해결](intelligent-insights-troubleshoot-performance.md)하는 방법에 대해 알아봅니다.
-- [Azure SQL 분석를 사용 하 여 성능 문제를 모니터링](../../azure-monitor/insights/azure-sql.md)하는 방법을 알아봅니다.
+- [Intelligent Insights를 사용하여 성능 문제를 해결](intelligent-insights-troubleshoot-performance.md)하는 방법에 대해 알아봅니다.
+- [Azure SQL Analytics를 사용하여 성능 문제를 모니터링](../../azure-monitor/insights/azure-sql.md)하는 방법을 알아봅니다.
 - [Azure 리소스에서 로그 데이터 수집 및 소비](../../azure-monitor/essentials/platform-logs-overview.md)하는 방법을 알아봅니다.

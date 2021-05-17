@@ -6,12 +6,13 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ba021d280f71504ad5c1e1aea0dc1c8c6b507b1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ffcaf7fc50a310cdd4773868c62bbbb801619e3c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581075"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107833151"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -74,7 +75,7 @@ Azure Cache for Redis 설정은 **리소스 메뉴** 를 사용하여 **Azure Ca
 
 **액세스 제어(IAM)** 섹션에서는 Azure Portal의 Azure RBAC(Azure 역할 기반 액세스 제어)에 대한 지원을 제공합니다. 이 구성은 조직이 액세스 관리 요구 사항을 간편하고 정확하게 충족하도록 도와줍니다. 자세한 내용은 [Azure Portal의 Azure 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
-### <a name="tags"></a>태그들
+### <a name="tags"></a>태그
 
 **태그** 섹션은 리소스 구성에 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
 
@@ -183,7 +184,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 가격 책정 계층마다 클라이언트 연결, 메모리 및 대역폭에 대한 제한이 다릅니다. 캐시가 오랫동안 이러한 메트릭의 최대 용량에 근접하면 추천이 생성됩니다. **추천** 도구에서 검토하는 메트릭 및 제한에 대한 자세한 내용은 다음 테이블을 참조하세요.
 
-| Azure Cache for Redis 메트릭 | 자세한 정보 |
+| Azure Cache for Redis 메트릭 | 추가 정보 |
 | --- | --- |
 | 네트워크 대역폭 사용량 |[캐시 성능 - 사용 가능한 대역폭](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | 연결된 클라이언트 |[기본 Redis 서버 구성 - maxclients](#maxclients) |
@@ -304,10 +305,10 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 >
 >
 
-### <a name="reboot"></a>Reboot
+### <a name="reboot"></a>다시 부팅
 **다시 부팅** 블레이드에서는 캐시 노드를 다시 부팅할 수 있습니다. 이 다시 부팅 기능을 사용하면 캐시 노드에 오류가 발생하는 경우 애플리케이션의 복원력을 테스트할 수 있습니다.
 
-![Reboot](./media/cache-configure/redis-cache-reboot.png)
+![다시 부팅](./media/cache-configure/redis-cache-reboot.png)
 
 클러스터링이 설정된 프리미엄 캐시를 사용하는 경우 재부팅할 캐시 분할을 선택할 수 있습니다.
 
