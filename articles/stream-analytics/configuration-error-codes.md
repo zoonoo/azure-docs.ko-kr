@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
 ms.openlocfilehash: 6137ceeb0d86b1531adab910175ddbc4722ef858
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019519"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Azure Stream Analytics 구성 오류 코드
@@ -94,7 +94,7 @@ ms.locfileid: "98019519"
 ## <a name="sqldwoutputinvalidserviceedition"></a>SQLDWOutputInvalidServiceEdition
 
 * **원인**: SQL Database가 지원되지 않습니다.
-* **권장 사항**: 전용 SQL 풀을 사용 합니다.
+* **권장 사항**: 전용 SQL 풀을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

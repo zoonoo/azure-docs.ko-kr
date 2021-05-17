@@ -1,20 +1,20 @@
 ---
-title: Azure HDInsight에서 HDFS 문제 해결
+title: Azure HDInsight의 HDFS 문제 해결
 description: HDFS 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: c725e7b4e7af33181cb616d2bce2ae19521a5e7d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104871880"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Hadoop HDFS 문제 해결
 
-HDFS (Hadoop 분산 파일 시스템)를 사용할 때의 주요 문제 및 해결 방법에 대해 알아봅니다. 전체 명령 목록은 [HDFS 명령 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) 및 [파일 시스템 셸 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)를 참조 하세요.
+HDFS(Hadoop 분산 파일 시스템)를 사용할 때의 주요 문제 및 해결 방법을 알아봅니다. 명령의 전체 목록은 [HDFS 명령 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html) 및 [파일 시스템 셸 가이드](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)를 참조하세요.
 
 ## <a name="how-do-i-access-the-local-hdfs-from-inside-a-cluster"></a><a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>클러스터 내부에서 로컬 HDFS에 액세스하는 방법
 
@@ -73,7 +73,7 @@ HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Stora
 
 ### <a name="issue"></a>문제
 
-또는 명령을 사용 하 여 `hadoop` `hdfs dfs` HBase 클러스터에서 12gb 이상인 파일을 작성 하는 경우 다음과 같은 오류가 발생할 수 있습니다.
+`hadoop` 또는 `hdfs dfs` 명령을 사용하여 HBase 클러스터에 12GB를 초과하는 데이터를 기록하면 다음 오류가 발생할 수 있습니다.
 
 ```error
 ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -103,7 +103,7 @@ HDInsight의 HBase를 Azure Storage에 쓸 때 블록 크기는 기본적으로 
 
 ### <a name="resolution"></a>해결 방법
 
-`fs.azure.write.request.size`를 사용하여 블록 크기를 더 크게 지정합니다. 매개 변수를 사용 하 여 사용 시이 수정 작업을 수행할 수 있습니다 `-D` . `hadoop` 명령에서 이 매개 변수를 사용하는 예는 다음 명령과 같습니다.
+`fs.azure.write.request.size`를 사용하여 블록 크기를 더 크게 지정합니다. `-D` 매개 변수를 사용하여 사용량에 따라 이 수정 작업을 수행할 수 있습니다. `hadoop` 명령에서 이 매개 변수를 사용하는 예는 다음 명령과 같습니다.
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
@@ -111,9 +111,9 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Apache Ambari를 사용하여 `fs.azure.write.request.size` 값을 전역적으로 늘릴 수도 있습니다. 다음 단계에 따라 Ambari 웹 UI 값을 변경합니다.
 
-1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. URL은 이며 `https://CLUSTERNAME.azurehdinsight.net` , 여기서 `CLUSTERNAME` 은 클러스터의 이름입니다. 메시지가 표시되면 클러스터의 관리자 이름 및 암호를 입력합니다.
+1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. URL은 `https://CLUSTERNAME.azurehdinsight.net`이며, `CLUSTERNAME`은 클러스터의 이름입니다. 메시지가 표시되면 클러스터의 관리자 이름 및 암호를 입력합니다.
 2. 화면 왼쪽에서 **HDFS** 를 선택한 다음 **구성** 탭을 선택합니다.
-3. **필터 ...** 필드에 `fs.azure.write.request.size` 를 입력 합니다.
+3. **필터...** 필드에 `fs.azure.write.request.size`를 입력합니다.
 4. 값을 262144(256KB)에서 새 값으로 변경합니다. 예를 들어 4194304(4MB)로 변경합니다.
 
     :::image type="content" source="./media/hdinsight-troubleshoot-hdfs/hbase-change-block-write-size.png" alt-text="Ambari 웹 UI를 통해 값을 변경하는 이미지" border="false":::
@@ -122,12 +122,12 @@ Ambari 사용에 대한 자세한 내용은 [Apache Ambari 웹 UI를 사용하�
 
 ## <a name="du"></a>du
 
-[`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du)명령은 지정 된 디렉터리에 포함 된 파일 및 디렉터리의 크기나 파일의 길이에 대 한 파일 길이를 표시 합니다.
+[`-du`](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#du) 명령은 지정된 디렉터리에 포함된 파일 및 디렉터리의 크기 또는 파일의 길이(파일일 경우)를 표시합니다.
 
-`-s`옵션은 표시 되는 파일 길이의 집계 요약을 생성 합니다.  
-`-h`옵션은 파일 크기의 형식을 지정 합니다.
+`-s` 옵션은 표시되는 파일 길이에 대한 집계 요약을 생성합니다.  
+`-h` 옵션은 파일 크기의 형식을 지정합니다.
 
-예제:
+예:
 
 ```bash
 hdfs dfs -du -s -h hdfs://mycluster/
@@ -136,7 +136,7 @@ hdfs dfs -du -s -h hdfs://mycluster/tmp
 
 ## <a name="rm"></a>rm
 
-[-Rm](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) 명령은 인수로 지정 된 파일을 삭제 합니다.
+[-rm](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html#rm) 명령은 인수로 지정된 파일을 삭제합니다.
 
 예제:
 

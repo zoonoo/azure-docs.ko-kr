@@ -1,37 +1,37 @@
 ---
 title: Azure HDInsight의 WASB 파일 작업 디버그
-description: Azure HDInsight 클러스터와 상호 작용 하는 경우 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+description: Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: f0f06c81906116dc278377cf9fd8871e8899a1d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98938747"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Azure HDInsight의 WASB 파일 작업 디버그
 
-WASB 드라이버가 Azure Storage 시작 하는 작업을 이해 하려는 경우가 있습니다. 클라이언트 쪽의 경우 WASB 드라이버는 **디버그** 수준에서 각 파일 시스템 작업에 대 한 로그를 생성 합니다. WASB 드라이버는 log4j를 사용 하 여 로깅 수준을 제어 하 고 기본값은 **정보** 수준입니다. 서버 쪽 분석 로그 Azure Storage [Azure Storage 분석 로깅](../../storage/common/storage-analytics-logging.md)을 참조 하세요.
+WASB 드라이버가 Azure Storage에서 시작한 작업을 이해하려는 경우가 있습니다. 클라이언트 쪽의 경우 WASB 드라이버는 **DEBUG** 수준에서 각 파일 시스템 작업에 대한 로그를 생성합니다. WASB 드라이버는 log4j를 사용하여 로깅 수준을 제어하고 기본값은 **INFO** 수준입니다. Azure Storage 서버 쪽 분석 로그는 [Azure Storage 분석 로깅](../../storage/common/storage-analytics-logging.md)을 참조하세요.
 
-생성 된 로그는 다음과 유사 하 게 표시 됩니다.
+생성된 로그는 다음과 유사합니다.
 
 ```log
 18/05/13 04:15:55 DEBUG NativeAzureFileSystem: Moving wasb://xxx@yyy.blob.core.windows.net/user/livy/ulysses.txt/_temporary/0/_temporary/attempt_20180513041552_0000_m_000000_0/part-00000 to wasb://xxx@yyy.blob.core.windows.net/user/livy/ulysses.txt/part-00000
 ```
 
-## <a name="turn-on-wasb-debug-log-for-file-operations"></a>파일 작업에 대 한 WASB 디버그 로그 설정
+## <a name="turn-on-wasb-debug-log-for-file-operations"></a>파일 작업에 WASB 디버그 로그 켜기
 
-1. 웹 브라우저에서로 이동 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs` `CLUSTERNAME` 합니다. 여기서은 Spark 클러스터의 이름입니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`로 이동합니다. 여기서 `CLUSTERNAME`은 Spark 클러스터의 이름입니다.
 
-1. **Advanced spark2-log4j** 로 이동 합니다.
+1. **고급 spark2-log4j-properties** 로 이동합니다.
 
-    1. `log4j.appender.console.Threshold=INFO`을로 수정 `log4j.appender.console.Threshold=DEBUG` 합니다.
+    1. `log4j.appender.console.Threshold=INFO`을 `log4j.appender.console.Threshold=DEBUG`로 수정합니다.
 
     1. `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`를 추가합니다.
 
-1. **Advanced livy2-log4j** 로 이동 합니다.
+1. **고급 livy2-log4j-properties** 로 이동합니다.
 
     `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`를 추가합니다.
 
@@ -39,9 +39,9 @@ WASB 드라이버가 Azure Storage 시작 하는 작업을 이해 하려는 경�
 
 ## <a name="additional-logging"></a>추가 로깅
 
-위의 로그는 파일 시스템 작업에 대 한 높은 수준의 이해를 제공 해야 합니다. 위의 로그가 여전히 유용한 정보를 제공 하지 않거나 blob storage api 호출을 조사 하려는 경우에를 추가 `fs.azure.storage.client.logging=true` `core-site` 합니다. 이 설정은 wasb 저장소 드라이버에 대 한 java sdk 로그를 사용 하도록 설정 하 고 blob storage server에 대 한 각 호출을 인쇄 합니다. 디스크를 빠르게 채우고 프로세스를 늦출 수 있으므로 조사 후 설정을 제거 합니다.
+위의 로그는 파일 시스템 작업에 대한 높은 수준의 이해를 제공해야 합니다. 위의 로그가 여전히 유용한 정보를 제공하지 않거나 Blob Storage API 호출을 조사하려는 경우 `core-site`에 `fs.azure.storage.client.logging=true`를 추가합니다. 이 설정은 wasb 스토리지 드라이버에 대한 java sdk 로그를 사용하도록 설정하고 Blob Storage 서버에 대한 각 호출을 출력합니다. 조사 후 디스크를 빠르게 채울 수 있고 프로세스 속도가 느려질 수 있으므로 설정을 제거합니다.
 
-백 엔드가 Azure Data Lake 기반으로 하는 경우 구성 요소 (예: spark/tez/hdfs)에 대해 다음 log4j 설정을 사용 합니다.
+백 엔드가 Azure Data Lake 기반인 경우 구성 요소에 대해 다음 log4j 설정을 사용합니다(예: spark/tez/hdfs).
 
 ```
 log4j.logger.com.microsoft.azure.datalake.store=ALL,adlsFile
@@ -52,7 +52,7 @@ log4j.appender.adlsFile.layout=org.apache.log4j.PatternLayout
 log4j.appender.adlsFile.layout.ConversionPattern=%p\t%d{ISO8601}\t%r\t%c\t[%t]\t%m%n
 ```
 
-로그에 대 한에서 로그를 찾습니다 `/var/log/adl/adl.log` .
+로그에 대한 `/var/log/adl/adl.log` 로그인을 찾습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

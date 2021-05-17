@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure DDoS Protection 계획 만들기 및 구성
-description: 을 사용 하 여 DDoS Protection 계획을 만드는 방법에 대해 알아봅니다 Azure PowerShell
+title: Azure PowerShell을 사용하여 Azure DDoS Protection 계획 만들기 및 구성
+description: Azure PowerShell을 사용하여 DDoS Protection 계획을 만드는 방법을 알아봅니다.
 services: ddos-protection
 documentationcenter: na
 author: yitoh
@@ -12,19 +12,19 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
 ms.openlocfilehash: 69f9b5a74566879ecf8f15f23e689ebb731da45a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97814145"
 ---
-# <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>빠른 시작: Azure PowerShell를 사용 하 여 Azure DDoS Protection Standard 만들기 및 구성
+# <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure DDoS Protection Standard 만들기 및 구성
 
-Azure PowerShell를 사용 하 여 Azure DDoS Protection Standard를 시작 합니다. 
+Azure PowerShell을 사용하여 Azure DDoS Protection Standard를 시작합니다. 
 
 DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도록 설정된 일단의 가상 네트워크를 정의합니다. 조직에 대해 하나의 DDoS 보호 계획을 구성하고 여러 구독의 가상 네트워크를 동일한 계획에 연결할 수 있습니다. 
 
-이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결 합니다. 
+이 빠른 시작에서는 DDoS 보호 계획을 만들고 가상 네트워크에 연결합니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -35,11 +35,11 @@ DDoS 보호 계획은 구독 전반에 걸쳐 DDoS 보호 표준을 사용하도
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-ddos-protection-plan"></a>DDoS Protection 계획 만들기
+## <a name="create-a-ddos-protection-plan"></a>DDoS 보호 계획 만들기
 
 Azure에서 관련 리소스를 리소스 그룹에 할당합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다.
 
-리소스 그룹을 만들려면 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 합니다. 이 예제에서는 리소스 그룹 _Myresourcegroup_ 의 이름을로 하 고 _미국 동부_ 위치를 사용 합니다.
+[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 이 예에서는 리소스 그룹 이름을 _MyResourceGroup_ 으로 지정하고 _미국 동부_ 위치를 사용합니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name MyResourceGroup -Location "East US"
@@ -51,11 +51,11 @@ New-AzResourceGroup -Name MyResourceGroup -Location "East US"
 New-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan -Location "East US"
 ```
 
-## <a name="enable-ddos-for-a-virtual-network"></a>가상 네트워크에 대해 DDoS 사용
+## <a name="enable-ddos-for-a-virtual-network"></a>가상 네트워크에 DDoS 사용
 
 ### <a name="enable-ddos-for-a-new-virtual-network"></a>새 가상 네트워크에 대한 DDoS 사용
 
-가상 네트워크를 만들 때 DDoS 보호를 사용 하도록 설정할 수 있습니다. 이 예제에서는 가상 네트워크 _Myvnet_ 의 이름을로 합니다. 
+가상 네트워크를 만들 때 DDoS 보호를 사용하도록 설정할 수 있습니다. 이 예에서는 가상 네트워크 이름을 _MyVnet_ 으로 지정합니다. 
 
 ```azurepowershell-interactive
 New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16
@@ -81,23 +81,23 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="validate-and-test"></a>유효성 검사 및 테스트
 
-먼저 DDoS 보호 계획의 세부 정보를 확인 합니다.
+먼저 DDoS 보호 계획의 세부 정보를 확인합니다.
 
 ```azurepowershell-interactive
 Get-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan
 ```
 
-명령이 DDoS 보호 계획의 올바른 세부 정보를 반환 하는지 확인 합니다.
+명령이 DDoS 보호 계획의 올바른 세부 정보를 반환하는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서에 대 한 리소스를 유지할 수 있습니다. 더 이상 필요 하지 않은 경우 _Myresourcegroup_ 리소스 그룹을 삭제 합니다. 리소스 그룹을 삭제 하면 DDoS 보호 계획과 관련 된 모든 리소스도 삭제 됩니다. 
+다음 자습서를 위해 리소스를 보관할 수 있습니다. 더는 필요 없으면 _MyResourceGroup_ 리소스 그룹을 삭제합니다. 리소스 그룹을 삭제하면 DDoS 보호 계획과 모든 관련 리소스도 함께 삭제됩니다. 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
 
-가상 네트워크에 대 한 DDoS 보호를 사용 하지 않도록 설정 하려면: 
+가상 네트워크에 DDoS 보호를 사용하지 않으려면 다음을 수행합니다. 
 
 ```azurepowershell-interactive
 # Gets the most updated version of the virtual network
@@ -107,7 +107,7 @@ $vnet.EnableDdosProtection = $false
 $vnet | Set-AzVirtualNetwork
 ```
 
-DDoS 보호 계획을 삭제 하려면 먼저 모든 가상 네트워크를 분리 해야 합니다.
+DDoS 보호 계획을 삭제하려면 먼저 모든 가상 네트워크를 해당 계획에서 분리해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

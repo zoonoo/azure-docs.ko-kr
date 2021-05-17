@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ms.openlocfilehash: 5e75a39b1f9e8503097914b0c9e735915f9ae667
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98943221"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
@@ -32,38 +32,38 @@ HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법�
 
 |샘플 |Description |
 |---|---|
-|aggregatewordcount|입력 파일의 단어 수를 계산 합니다.|
-|aggregatewordhist|입력 파일의 단어에 대 한 히스토그램을 계산 합니다.|
-|bbp 형식의 수식을|Bailey-Bailey-borwein-plouffe-Plouffe를 사용 하 여 Pi의 정확한 자릿수를 계산 합니다.|
-|dbcount|데이터베이스에 저장 된 페이지 보기 로그를 계산 합니다.|
-|distbbp|는 BBP 형식의 수식을 사용 하 여 Pi의 정확한 비트를 계산 합니다.|
-|grep|입력에서 regex와 일치 하는 항목의 수를 셉니다.|
-|join|정렬 되 고 동일 하 게 분할 된 데이터 집합을 통해 조인을 수행 합니다.|
-|multifilewc|여러 파일에서 단어 수를 계산 합니다.|
-|pentomino|Pentomino 문제에 대 한 해결 방법을 찾는 타일 프로그램입니다.|
-|pi|준-Monte 몬테카를로 메서드를 사용 하 여 Pi를 추정 합니다.|
-|randomtextwriter|노드당 10gb의 임의 텍스트 데이터를 기록 합니다.|
-|randomwriter|노드당 10gb의 임의 데이터를 기록 합니다.|
-|secondarysort|축소 단계에 대 한 보조 정렬을 정의 합니다.|
-|sort|임의의 기록기에서 기록한 데이터를 정렬 합니다.|
+|aggregatewordcount|입력 파일의 단어 수를 계산합니다.|
+|aggregatewordhist|입력 파일에 있는 단어의 히스토그램을 계산합니다.|
+|bbp|Bailey-Borwein-Plouffe를 사용하여 Pi의 정확한 숫자를 계산합니다.|
+|dbcount|데이터베이스에 저장된 페이지 보기 로그를 계산합니다.|
+|distbbp|BBP 형식의 수식을 사용하여 Pi의 정확한 비트를 계산합니다.|
+|grep|입력에서 정규식과의 일치를 계산합니다.|
+|join|정렬되고 동일하게 분할된 데이터 세트를 통해 조인을 수행합니다.|
+|multifilewc|여러 파일의 단어 수를 계산합니다.|
+|pentomino|pentomino 문제에 대한 해결 방법을 찾는 타일 배치 프로그램입니다.|
+|pi|준난수 몬테카를로 매서드를 사용하여 Pi를 추정합니다.|
+|randomtextwriter|노드당 10GB의 임의 텍스트 데이터를 기록합니다.|
+|randomwriter|노드당 10GB의 임의 데이터를 기록합니다.|
+|secondarysort|reduce 단계에 대한 보조 정렬을 정의합니다.|
+|sort|임의 기록기에서 기록한 데이터를 정렬합니다.|
 |sudoku|sudoku 해 찾기입니다.|
 |teragen|terasort에 대한 데이터를 생성합니다.|
 |terasort|terasort를 실행합니다.|
 |teravalidate|terasort 결과를 확인합니다.|
-|wordcount|입력 파일의 단어 수를 계산 합니다.|
-|wordmean|입력 파일의 평균 단어 길이를 계산 합니다.|
-|wordmedian|입력 파일에서 단어의 중앙값 길이를 계산 합니다.|
-|wordstandarddeviation|입력 파일의 단어 길이에 대 한 표준 편차를 계산 합니다.|
+|wordcount|입력 파일의 단어 수를 계산합니다.|
+|wordmean|입력 파일의 단어 길이에 대한 평균값을 계산합니다.|
+|wordmedian|입력 파일의 단어 길이에 대한 중앙값을 계산합니다.|
+|wordstandarddeviation|입력 파일의 단어 길이에 대한 표준 편차를 계산합니다.|
 
 ## <a name="run-the-wordcount-example"></a>wordcount 예제 실행
 
-1. SSH를 사용하여 HDInsight에 연결합니다. 을 `CLUSTER` 클러스터의 이름으로 바꾸고 다음 명령을 입력 합니다.
+1. SSH를 사용하여 HDInsight에 연결합니다. `CLUSTER`를 클러스터 이름으로 바꾼 후, 다음 명령을 입력합니다.
 
     ```cmd
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. SSH 세션에서 다음 명령을 사용 하 여 샘플을 나열 합니다.
+2. SSH 세션에서 다음 명령을 사용하여 샘플을 나열합니다.
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -85,7 +85,7 @@ HDInsight의 Apache Hadoop에 포함된 MapReduce 예제를 실행하는 방법�
 
     이 메시지는 원본 문서에 대해 여러 입력 경로를 제공할 수 있음을 나타냅니다. 최종 경로는 출력(원본 문서의 단어 수)이 저장되는 곳입니다.
 
-4. 다음을 사용 하 여 클러스터에 샘플 데이터로 제공 되는 레오나르도 다빈치 노트북의 모든 단어 수를 계산 합니다.
+4. 다음을 사용하여 클러스터와 함께 샘플 데이터로 제공되는 Notebooks of Leonardo Da Vinci의 모든 단어 수를 계산할 수 있습니다.
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/davinciwordcount
@@ -157,7 +157,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 ## <a name="pi--example"></a>Pi(π) 예제
 
-Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 점은 단위 정사각형 내에 임의로 배치됩니다. 정사각형에는 원도 포함되어 있습니다. 점이 원 안에 있는 확률은 원형의 면적, pi/4와 같습니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
+Pi 샘플에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 점은 단위 정사각형 내에 임의로 배치됩니다. 정사각형에는 원도 포함되어 있습니다. 점이 원 안에 들어올 확률은 원의 영역인 pi/4와 같습니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
 
 다음 명령을 사용하여 이 샘플을 실행합니다. 이 명령은 각각 10,000,000개의 샘플이 있는 16개의 맵을 사용하여 pi 값을 추정합니다.
 
@@ -167,11 +167,11 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 이 명령에서 반환되는 값은 **3.14159155000000000000** 과 유사합니다. 참고로, Pi의 소수점 이하 10자리는 3.1415926535입니다.
 
-## <a name="10-gb-graysort-example"></a>10gb GraySort 예제
+## <a name="10-gb-graysort-example"></a>10GB GraySort 예제
 
 GraySort는 벤치마크 정렬입니다. 이 메트릭은 엄청난 양, 일반적으로 최소 100TB의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)입니다.
 
-이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 애플리케이션을 사용합니다. 이러한 응용 프로그램은 2009의 연간 범용 ("Daytona") 테라바이트 정렬 벤치 마크를, 0.578 t b/min (173 분의 100 TB) 이 정렬과 다른 정렬 벤치 마크에 대 한 자세한 내용은 [정렬 벤치 마크](https://sortbenchmark.org/) 사이트를 참조 하십시오.
+이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. Owen O'Malley와 Arun Murthy가 개발한 MapReduce 애플리케이션을 사용합니다. 이 애플리케이션은 0.578TB/분(100TB 정렬에 173분 소요)의 속도로, 2009년 연간 범용("Daytona") 테라바이트 정렬 벤치마크로 선정되었습니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](https://sortbenchmark.org/) 사이트(영문)를 참조하십시오.
 
 이 샘플에서는 세 가지 집합의 MapReduce 프로그램을 사용합니다.
 

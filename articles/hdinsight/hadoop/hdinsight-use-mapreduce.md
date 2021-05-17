@@ -1,15 +1,15 @@
 ---
 title: HDInsight에서 Apache Hadoop과 MapReduce
-description: HDInsight 클러스터의 Apache Hadoop에서 Apache MapReduce 작업을 실행 하는 방법에 대해 알아봅니다.
+description: HDInsight 클러스터의 Apache Hadoop에서 Apache MapReduce 작업을 실행하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 33d96262ca2e2ff3003fbf2b40ce9ceb496337ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98944257"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight의 Apache Hadoop에서 MapReduce 사용
@@ -18,7 +18,7 @@ HDInsight 클러스터에서 MapReduce 작업을 실행하는 방법에 대해 �
 
 ## <a name="example-data"></a>예제 데이터
 
-HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 스토리지에 있습니다. 이 문서에서는 `/example/data/gutenberg/davinci.txt` 파일을 사용합니다. 이 파일에는 레오나르도 da 다빈치의 노트북이 포함 되어 있습니다.
+HDInsight는 `/example/data` 및 `/HdiSamples` 디렉터리에 저장되는 다양한 예제 데이터 집합을 제공합니다. 이러한 디렉터리는 클러스터의 기본 스토리지에 있습니다. 이 문서에서는 `/example/data/gutenberg/davinci.txt` 파일을 사용합니다. 이 파일에는 레오나르도 다빈치의 메모장이 포함되어 있습니다.
 
 ## <a name="example-mapreduce"></a>예제 MapReduce
 
@@ -98,13 +98,13 @@ public class WordCount {
 }
 ```
 
-고유한 MapReduce 응용 프로그램을 작성 하는 방법에 대 한 지침은 [HDInsight 용 Java MapReduce 응용 프로그램 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)을 참조 하세요.
+사용자 MapReduce 애플리케이션을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 애플리케이션 개발](apache-hadoop-develop-deploy-java-mapreduce-linux.md)을 참조하세요.
 
 ## <a name="run-the-mapreduce"></a>MapReduce 실행
 
 HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
-| **사용** 방법 | **... 이렇게 하려면** |  ... **클라이언트 운영 체제** |
+| **사용 기능**... | **...다음을 수행합니다** |  ... **클라이언트 운영 체제** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |**SSH** |Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |**REST** |Linux, Unix, Mac OS X, 또는 Windows |
