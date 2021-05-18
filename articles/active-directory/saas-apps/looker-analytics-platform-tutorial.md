@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/10/2020
 ms.author: jeedes
-ms.openlocfilehash: dbb6f6d278256730e77677e78f452615fe4b611e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ed4cfb9362e20bb1ad8c25caa5579fddaa147e8d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96180745"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764300"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-looker-analytics-platform"></a>자습서: Looker Analytics Platform과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -78,7 +78,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `<SPN>_looker` 패턴을 사용하여 URL을 입력합니다.
+    a. **SP 엔터티/IdP 대상 그룹** 텍스트 상자에서 `<SPN>_looker` 패턴을 사용하는 URL을 입력합니다.
 
     b. **회신 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.looker.com/samlcallback` 패턴을 사용하여 URL을 입력합니다.
 

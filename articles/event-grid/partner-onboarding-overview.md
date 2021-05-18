@@ -1,108 +1,108 @@
 ---
-title: 파트너 온 보 딩 개요 (Azure Event Grid)
-description: Event Grid 파트너로 등록 하는 방법에 대 한 개요를 제공 합니다.
+title: 파트너 온보딩 개요(Azure Event Grid)
+description: Event Grid 파트너로 온보딩할 수 있는 방법에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: 9af80efc1ba342768f9bb6d504f921b52494d955
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105109342"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107890711"
 ---
-# <a name="partner-onboarding-overview-azure-event-grid"></a>파트너 온 보 딩 개요 (Azure Event Grid)
+# <a name="partner-onboarding-overview-azure-event-grid"></a>파트너 온보딩 개요(Azure Event Grid)
 
-이 문서에서는 Azure Event Grid 파트너 리소스를 개인적으로 사용 하는 방법 및 공개적으로 사용 가능한 파트너 토픽 유형을 만드는 방법을 설명 합니다.
+이 문서에서는 Azure Event Grid 파트너 리소스를 비공개로 사용하는 방법과 공개적으로 사용할 수 있는 파트너 토픽 유형이 되는 방법을 설명합니다.
 
-Event Grid 파트너로 게시 이벤트와 연결된 Event Grid 리소스 유형을 사용하는 데는 특별한 권한이 필요하지 않습니다. 실제로이를 사용 하 여 사용자 고유의 Azure 구독에 전용으로 이벤트를 게시 하 고 파트너가 되는 것으로 간주 하는 경우 리소스 모델을 테스트할 수 있습니다.
+Event Grid 파트너로 게시 이벤트와 연결된 Event Grid 리소스 유형을 사용하는 데는 특별한 권한이 필요하지 않습니다. 실제로 파트너가 되는 것을 고려 중인 경우 지금 바로 이를 사용하여 이벤트를 자체 Azure 구독에 비공개로 게시하고 리소스 모델을 테스트할 수 있습니다.
 
 > [!NOTE]
-> Azure Portal를 사용 하 여 Event Grid 파트너로 등록 하는 방법에 대 한 단계별 지침은 [Event Grid 파트너로 등록 하는 방법 (Azure Portal)](onboard-partner.md)을 참조 하세요. 
+> Azure Portal을 사용하여 Event Grid 파트너로 온보딩하는 방법에 대한 단계별 지침은 [Event Grid 파트너로 온보딩하는 방법(Azure Portal)](onboard-partner.md)을 참조하세요. 
 
-## <a name="how-partner-events-work"></a>파트너 이벤트 작동 방법
-파트너 이벤트 기능은 이미를 사용 하 여 Azure Storage 및 Azure IoT Hub와 같은 Azure 리소스의 이벤트를 게시 하 Event Grid 기존 아키텍처를 사용 하며, 이러한 도구를 누구나 사용할 수 있도록 합니다. 이러한 도구를 사용 하는 것은 기본적으로 Azure 구독 전용입니다. 이벤트를 공개적으로 사용할 수 있도록 하려면 양식을 작성 하 고 [Event Grid 팀에 문의 하세요](mailto:gridpartner@microsoft.com).
+## <a name="how-partner-events-work"></a>파트너 이벤트 작동 방식
+파트너 이벤트 기능은 Event Grid에서 Azure Storage 및 Azure IoT Hub와 같은 Azure 리소스의 이벤트를 게시하는 데 사용하는 기존 아키텍처로 구성되며, 이러한 도구를 누구나 공개적으로 사용할 수 있도록 합니다. 이러한 도구를 사용하는 것은 기본적으로 비공개의 Azure 구독 전용입니다. 이벤트를 공개적으로 사용할 수 있도록 하려면 양식을 작성하고 [Event Grid 팀에 문의](mailto:gridpartner@microsoft.com)하세요.
 
-Partner Events 기능을 사용 하면 다중 테 넌 트 사용에 대 한 Azure Event Grid에 이벤트를 게시할 수 있습니다.
+파트너 이벤트 기능을 사용하면 Azure Event Grid에 다중 테넌트 사용에 대한 이벤트를 게시할 수 있습니다.
 
 ## <a name="onboarding-and-event-publishing-overview"></a>온보딩 및 이벤트 게시 개요
 
 ### <a name="partner-flow"></a>파트너 흐름
 
 1. 아직 Azure 테넌트가 없는 경우 새로 하나 만듭니다.
-1. Azure CLI를 사용 하 여 새 Event Grid를 만듭니다 `partnerRegistration` . 이 리소스에는 표시 이름, 설명, 설치 URI 등의 정보가 포함 됩니다.
+1. Azure CLI를 사용하여 새 Event Grid `partnerRegistration`을 만듭니다. 이 리소스에는 표시 이름, 설명, 설치 URI 등의 정보가 포함됩니다.
 
-    ![파트너 항목 만들기](./media/partner-onboarding-how-to/create-partner-registration.png)
+    ![파트너 토픽 만들기](./media/partner-onboarding-how-to/create-partner-registration.png)
 
-1. 이벤트를 게시 하려는 각 지역에 하나 이상의 파트너 네임 스페이스를 만듭니다. Event Grid 서비스는 게시 끝점 (예: `https://contoso.westus-1.eventgrid.azure.net/api/events` ) 및 액세스 키를 프로 비전 합니다.
+1. 이벤트를 게시할 각 지역에 하나 이상의 파트너 네임스페이스를 만듭니다. Event Grid 서비스는 공개 엔드포인트(예: `https://contoso.westus-1.eventgrid.azure.net/api/events`) 및 액세스 키를 프로비저닝합니다.
 
-    ![파트너 네임 스페이스 만들기](./media/partner-onboarding-how-to/create-partner-namespace.png)
+    ![파트너 네임페이스 만들기](./media/partner-onboarding-how-to/create-partner-namespace.png)
 
-1. 고객이 파트너 토픽을 원하는 시스템에 등록할 수 있는 방법을 제공 합니다.
-1. 파트너 토픽 유형을 공용으로 지정할 수 있도록 Event Grid 팀에 문의 하세요.
+1. 고객이 파트너 토픽을 원하는 시스템에 등록할 수 있는 방법을 제공합니다.
+1. Event Grid 팀에 연락하여 파트너 토픽 유형이 공개되기를 원한다고 알립니다.
 
 ### <a name="customer-flow"></a>고객 흐름
 
-1. 고객은 Azure Portal를 방문 하 여 파트너 토픽을 만드는 데 사용할 Azure 구독 ID 및 리소스 그룹을 확인 합니다.
-1. 고객은 시스템을 통해 파트너 토픽을 요청 합니다. 응답으로 파트너 네임 스페이스에 대 한 이벤트 터널을 만듭니다.
-1. Event Grid 고객의 Azure 구독 및 리소스 그룹에 **보류 중인** 파트너 항목을 만듭니다.
+1. 고객이 Azure Portal을 방문하여 파트너 토픽을 만들려는 Azure 구독 ID 및 리소스 그룹을 기록합니다.
+1. 고객이 시스템을 통해 파트너 토픽을 요청합니다. 이에 대한 응답으로 파트너 네임스페이스에 대한 이벤트 터널을 만듭니다.
+1. Event Grid는 고객의 Azure 구독 및 리소스 그룹에 **보류 중** 인 파트너 토픽을 만듭니다.
 
     ![이벤트 채널 만들기](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
 
-1. 고객은 Azure Portal를 통해 파트너 토픽을 활성화 합니다. 이제 이벤트는 서비스에서 고객의 Azure 구독으로 전달 될 수 있습니다.
+1. 고객이 Azure Portal을 통해 파트너 토픽을 활성화합니다. 이제 이벤트가 서비스에서 고객의 Azure 구독으로 전달될 수 있습니다.
 
-    ![파트너 항목 활성화](./media/partner-onboarding-how-to/activate-partner-topic.png)
+    ![파트너 토픽 활성화](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>리소스 모델
-다음 리소스 모델은 파트너 이벤트에 대 한 것입니다.
+다음 리소스 모델은 파트너 이벤트용입니다.
 
 ### <a name="partner-registrations"></a>파트너 등록
 * 리소스: `partnerRegistrations`
 * 사용 대상: 파트너
-* 설명: SaaS (software as a service) 파트너의 글로벌 메타 데이터 (예: 이름, 표시 이름, 설명, 설치 URI)를 캡처합니다.
+* 설명: SaaS(software as a service) 파트너의 글로벌 메타데이터(예: 이름, 표시 이름, 설명, 설치 URI)를 캡처합니다.
     
-    파트너 등록을 만들거나 업데이트 하는 작업은 파트너를 위한 셀프 서비스 작업입니다. 이 셀프 서비스 기능을 통해 파트너는 완전 한 종단 간 흐름을 빌드하고 테스트할 수 있습니다.
+    파트너 등록을 만들거나 업데이트하는 작업은 파트너를 위한 셀프 서비스 작업입니다. 이 셀프 서비스 기능을 통해 파트너는 전체 엔드투엔드 흐름을 빌드하고 테스트할 수 있습니다.
     
-    Microsoft에서 승인한 파트너 등록만 고객이 검색할 수 있습니다.
-* 범위: 파트너의 Azure 구독에 생성 됩니다. 메타 데이터는 공용으로 만든 후 고객에 게 표시 됩니다.
+    고객은 Microsoft 승인 파트너 등록만 검색할 수 있습니다.
+* 범위: 파트너의 Azure 구독에서 만들어집니다. 메타데이터는 공개된 후 고객에게 표시됩니다.
 
-### <a name="partner-namespaces"></a>파트너 네임 스페이스
+### <a name="partner-namespaces"></a>파트너 네임스페이스
 * 리소스: `partnerNamespaces`
 * 사용 대상: 파트너
-* 설명: 고객 이벤트를 게시하기 위한 지역별 리소스를 제공합니다. 각 파트너 네임 스페이스에는 게시 끝점과 인증 키가 있습니다. 네임 스페이스는 파트너가 지정 된 고객에 대 한 파트너 항목을 요청 하 고 활성 고객을 나열 하는 방법 이기도 합니다.
-* 범위: 파트너의 구독에 상주 합니다.
+* 설명: 고객 이벤트를 게시하기 위한 지역별 리소스를 제공합니다. 각 파트너 네임스페이스에는 게시 엔드포인트 및 인증 키가 있습니다. 또한 네임스페이스는 파트너가 지정된 고객에 대한 파트너 토픽을 요청하고 활성 고객을 나열하는 방법입니다.
+* 범위: 파트너의 구독에 있습니다.
 
 ### <a name="event-channel"></a>이벤트 채널
 * 리소스: `partnerNamespaces/eventChannels`
 * 사용 대상: 파트너
-* 설명: 이벤트 채널은 고객의 파트너 항목의 미러입니다. 이벤트 채널을 만들고 메타 데이터에 고객의 Azure 구독 및 리소스 그룹을 지정 하 여 고객에 대 한 파트너 토픽을 만들도록 Event Grid에 게 알립니다. Event Grid은 고객의 구독에 해당 하는 파트너 항목을 만들기 위한 Azure Resource Manager 호출을 실행 합니다. 파트너 토픽은 보류 중 상태로 생성 됩니다. 각 이벤트 채널과 파트너 토픽 사이에는 일대일 링크가 있습니다.
-* 범위: 파트너의 구독에 상주 합니다.
+* 설명: 이벤트 채널은 고객의 파트너 토픽을 반영합니다. 이벤트 채널을 만들고 메타데이터에서 고객의 Azure 구독 및 리소스 그룹을 지정하면 Event Grid에 고객에 대한 파트너 토픽을 만들라는 신호를 보냅니다. Event Grid는 Azure Resource Manager 호출을 실행하여 고객의 구독에서 해당 파트너 토픽을 만듭니다. 파트너 토픽은 보류 중 상태로 생성됩니다. 각 이벤트 채널과 파트너 토픽 사이에는 일대일 링크가 있습니다.
+* 범위: 파트너의 구독에 있습니다.
 
 ### <a name="partner-topics"></a>파트너 토픽
 * 리소스: `partnerTopics`
 * 사용 대상: 고객
-* 설명: 파트너 토픽은 Event Grid의 사용자 지정 항목 및 시스템 항목과 유사 합니다. 각 파트너 토픽은 특정 원본 (예: `Contoso:myaccount` ) 및 특정 파트너 토픽 유형 (예: Contoso)과 연결 됩니다. 고객은 파트너 토픽에 이벤트 구독을 만들어 이벤트를 다양 한 이벤트 처리기로 라우팅합니다.
+* 설명: 파트너 토픽은 Event Grid의 사용자 지정 항목 및 시스템 항목과 유사합니다. 각 파트너 토픽은 특정 원본(예: `Contoso:myaccount`) 및 특정 파트너 토픽 유형(예: Contoso)과 연결됩니다. 고객은 파트너 토픽에 이벤트 구독을 만들어 이벤트를 다양한 이벤트 처리기로 라우팅합니다.
 
-    고객은 이 리소스를 직접 만들 수 없습니다. 파트너 항목을 만드는 유일한 방법은 이벤트 채널을 만드는 파트너 작업을 통하는 것입니다.
-* 범위: 고객의 구독에 상주 합니다.
+    고객은 이 리소스를 직접 만들 수 없습니다. 파트너 토픽을 만드는 유일한 방법은 이벤트 채널을 만드는 파트너 작업을 통하는 것입니다.
+* 범위: 고객의 구독에 있습니다.
 
-### <a name="partner-topic-types"></a>파트너 항목 유형
+### <a name="partner-topic-types"></a>파트너 토픽 유형
 * 리소스: `partnerTopicTypes`
 * 사용 대상: 고객
-* 설명: 파트너 토픽 유형은 고객이 승인 된 파트너 토픽 유형 목록을 검색할 수 있도록 하는 테 넌 트 전체 리소스 유형입니다. URL은 다음과 같습니다. https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* 설명: 파트너 토픽 유형은 고객이 승인된 파트너 토픽 유형 목록을 검색할 수 있도록 하는 테넌트 전체 리소스 유형입니다. URL은 https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes) 와 같습니다.
 * 범위: Global
 
 ## <a name="publish-events-to-event-grid"></a>Event Grid에 이벤트 게시
-Azure 지역에서 파트너 네임 스페이스를 만드는 경우 지역 끝점과 해당 하는 인증 키를 가져옵니다. 해당 네임 스페이스의 모든 고객 이벤트 채널에 대 한 이벤트 일괄 처리를이 끝점에 게시 합니다. 이벤트의 원본 필드에 따라 Azure Event Grid 각 이벤트를 해당 파트너 항목에 매핑합니다.
+Azure 지역에서 파트너 네임스페이스를 만들면 지역 엔드포인트 및 해당 인증 키가 제공됩니다. 해당 네임스페이스의 모든 고객 이벤트 채널에 대해 이 엔드포인트에 이벤트 일괄 처리를 게시합니다. 이벤트의 원본 필드에 따라 Azure Event Grid는 각 이벤트를 해당 파트너 토픽에 매핑합니다.
 
 ### <a name="event-schema-cloudevents-v10"></a>이벤트 스키마: CloudEvents v1.0
-CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게시 합니다. Event Grid는 구조적 모드와 일괄 처리 모드를 모두 지원합니다. CloudEvents 1.0는 파트너 네임 스페이스에 대해 유일 하 게 지원 되는 이벤트 스키마입니다.
+CloudEvents 1.0 스키마를 사용하여 Azure Event Grid에 이벤트를 게시합니다. Event Grid는 구조적 모드와 일괄 처리 모드를 모두 지원합니다. CloudEvents 1.0은 파트너 네임스페이스에 대해 유일하게 지원되는 이벤트 스키마입니다.
 
-### <a name="example-flow"></a>예제 흐름
+### <a name="example-flow"></a>흐름 예
 
 1.  게시 서비스가 `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`에 대한 HTTP POST를 수행합니다.
-1.  요청에 인증을 위한 키를 포함하며 이름이 aeg-sas-key인 헤더를 포함합니다. 이 키는 파트너 네임 스페이스를 만드는 동안 프로 비전 됩니다. 예를 들어 유효한 헤더 값은 aeg-sas-key (VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==)입니다.
-1.  콘텐츠 형식 헤더를 "application/cloudevents-batch + json;으로 설정 합니다. charset = 8a ".
-1.  해당 지역에 해당 하는 이벤트 일괄 처리를 사용 하 여 게시 URL에 대 한 HTTP POST 쿼리를 실행 합니다. 다음은 그 예입니다.
+1.  요청에 인증을 위한 키를 포함하며 이름이 aeg-sas-key인 헤더를 포함합니다. 이 키는 파트너 네임스페이스를 만드는 동안 프로비저닝됩니다. 예를 들어 유효한 헤더 값은 aeg-sas-key (VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==)입니다.
+1.  Content-Type 헤더를 "application/cloudevents-batch+json; charset=UTF-8a"로 설정합니다.
+1.  해당 지역의 이벤트를 일괄 처리하여 게시 URL에 대한 HTTP POST 쿼리를 실행합니다. 예를 들면 다음과 같습니다.
 
 ``` json
 [
@@ -137,7 +137,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 ]
 ```
 
-파트너 네임 스페이스 끝점에 게시 한 후 응답을 받게 됩니다. 응답은 표준 HTTP 응답 코드입니다. 몇 가지 일반적인 응답은 다음과 같습니다.
+파트너 네임스페이스 엔드포인트에 게시한 후 응답을 수신합니다. 응답은 표준 HTTP 응답 코드입니다. 몇 가지 일반적인 응답은 다음과 같습니다.
 
 | 결과                             | 응답              |
 |------------------------------------|-----------------------|
@@ -153,7 +153,7 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
   * [ARM 템플릿](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM 템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST API](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [CLI 확장](/cli/azure/ext/eventgrid/)
+  * [CLI 확장](/cli/azure/eventgrid)
 
 ### <a name="sdks"></a>SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)
@@ -166,6 +166,6 @@ CloudEvents 1.0 스키마를 사용 하 여 Azure Event Grid에 이벤트를 게
 
 ## <a name="next-steps"></a>다음 단계
 - [파트너 토픽 개요](partner-events-overview.md)
-- [파트너 토픽 등록 양식](https://aka.ms/gridpartnerform)
-- [좋아하게 되었습니다 partner 항목](auth0-overview.md)
-- [좋아하게 되었습니다 partner 항목을 사용 하는 방법](auth0-how-to.md)
+- [파트너 토픽 온보딩 양식](https://aka.ms/gridpartnerform)
+- [Auth0 파트너 토픽](auth0-overview.md)
+- [Auth0 파트너 토픽을 사용하는 방법](auth0-how-to.md)

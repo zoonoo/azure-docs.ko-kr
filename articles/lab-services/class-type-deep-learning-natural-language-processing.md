@@ -1,13 +1,13 @@
 ---
 title: Azure Lab Services를 사용하여 딥 러닝에 초점을 맞춘 랩을 설정 | Microsoft Docs
-description: Azure Lab Services를 사용 하 여 NLP (자연어 처리)의 심층 학습에 초점을 맞춘 랩을 설정 하는 방법에 대해 알아봅니다.
+description: Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점을 맞춘 랩을 설정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 01199e76b7b9cb1a6360b5aba010d0cfd8936c23
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91251459"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Azure Lab Services를 사용하여 자연어 처리의 딥 러닝에 초점을 맞춘 랩을 설정
@@ -28,7 +28,7 @@ NLP 클래스를 수강하는 학생은 Linux VM(가상 머신)을 통해 작성
 
 | 랩 설정 | 값/지침 | 
 | ------------ | ------------------ |
-| VM(가상 머신) 크기 | **소형 GPU (계산)**. 이 크기는 AI와 Deep Learning 같은 컴퓨팅 및 네트워크를 많이 사용하는 애플리케이션에 가장 적합합니다. |
+| VM(가상 머신) 크기 | **소형 GPU(컴퓨팅)** . 이 크기는 AI와 Deep Learning 같은 컴퓨팅 및 네트워크를 많이 사용하는 애플리케이션에 가장 적합합니다. |
 | VM 이미지 | [Linux(Ubuntu)용 Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) 이 이미지는 기계 학습 및 데이터 과학을 위한 딥 러닝 프레임워크 및 도구를 제공합니다. 이 이미지에 설치된 도구에 대한 전체 목록을 보려면 다음 문서를 참조하세요. [DSVM에는 무엇이 포함되나요?](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) |
 | 원격 데스크톱 연결을 사용하도록 설정 | <p>교사와 학생이 GUI 원격 데스크톱을 사용하여 연결할 수 있도록 데이터 과학 이미지가 이미 X2Go를 사용하도록 구성되어 있습니다.  X2Go는 **원격 데스크톱 연결 사용** 설정을 사용하도록 설정할 필요가 *없습니다*.  이 설정은 RDP를 대신 사용하도록 선택하는 경우에만 사용하도록 설정해야 합니다.
 

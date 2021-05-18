@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92070948"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management 정책에서 오류 처리
@@ -59,28 +59,28 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 
 다음 정책을 `on-error` 정책 섹션에서 사용할 수 있습니다.
 
--   [선택](api-management-advanced-policies.md#choose)
--   [집합 변수](api-management-advanced-policies.md#set-variable)
+-   [choose](api-management-advanced-policies.md#choose)
+-   [set-variable](api-management-advanced-policies.md#set-variable)
 -   [find-and-replace](api-management-transformation-policies.md#Findandreplacestringinbody)
 -   [return-response](api-management-advanced-policies.md#ReturnResponse)
 -   [set-header](api-management-transformation-policies.md#SetHTTPheader)
 -   [set-method](api-management-advanced-policies.md#SetRequestMethod)
 -   [set-status](api-management-advanced-policies.md#SetStatus)
 -   [send-request](api-management-advanced-policies.md#SendRequest)
--   [송신-단방향 요청](api-management-advanced-policies.md#SendOneWayRequest)
+-   [send-one-way-request](api-management-advanced-policies.md#SendOneWayRequest)
 -   [log-to-eventhub](api-management-advanced-policies.md#log-to-eventhub)
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)
 -   [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency)
 -   [mock-response](api-management-advanced-policies.md#mock-response)
--   [retry](api-management-advanced-policies.md#Retry)
+-   [다시 시도](api-management-advanced-policies.md#Retry)
 -   [추적](api-management-advanced-policies.md#Trace)
 
 ## <a name="lasterror"></a>lastError
 
-오류가 발생 하 고 제어가 정책 섹션으로 이동 하는 경우 `on-error` 오류는 컨텍스트에 저장 됩니다 [. LastError](api-management-policy-expressions.md#ContextVariables) 속성은 섹션의 정책에서 액세스할 수 있습니다 `on-error` . LastError에는 다음 속성이 있습니다.
+오류가 발생하고 제어가 `on-error` 정책 섹션으로 이동하는 경우 `on-error` 섹션에서 정책을 통해 액세스할 수 있는 [context.LastError](api-management-policy-expressions.md#ContextVariables) 속성에 오류가 저장됩니다. LastError에는 다음 속성이 있습니다.
 
-| Name       | Type   | 설명                                                                                               | 필수 |
+| 이름       | 유형   | 설명                                                                                               | 필수 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | `Source`   | 문자열 | 오류가 발생한 요소 이름을 지정합니다. 정책 또는 기본 제공 파이프라인 단계 이름일 수 있습니다.      | 예      |
 | `Reason`   | 문자열 | 오류 처리에 사용될 수 있는 컴퓨터에 익숙한 오류 코드입니다.                                       | 예       |
@@ -88,7 +88,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 | `Scope`    | 문자열 | 오류가 발생한 범위 이름으로 "global", "product", "api" 또는 "operation" 중 하나일 수 있습니다. | 예       |
 | `Section`  | 문자열 | 오류가 발생한 섹션 이름입니다. 가능한 값: "inbound", "backend", "outbound" 또는 "on-error".      | 예       |
 | `Path`     | 문자열 | 중첩된 정책(예: "choose[3]/when[2]")을 지정합니다.                                                 | 예       |
-| `PolicyId` | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 아니요       |
+| `PolicyId` | 문자열 | 오류가 발생한 정책에서 `id` 특성 값(고객이 지정한 경우)             | 예       |
 
 > [!TIP]
 > context.Response.StatusCode를 통해 상태 코드에 액세스할 수 있습니다.
@@ -105,9 +105,9 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 | 구성 | Uri가 API 또는 작업과 일치하지 않음 | OperationNotFound       | 들어오는 요청을 작업과 일치시킬 수 없습니다.                                                                      |
 | 권한 부여 | 구독 키가 제공되지 않음             | SubscriptionKeyNotFound | 구독 키가 누락되어 액세스가 거부되었습니다. 이 API에 요청을 수행할 때 구독 키를 포함해야 합니다. |
 | 권한 부여 | 구독 키 값이 잘못됨         | SubscriptionKeyInvalid  | 잘못된 구독 키로 인해 액세스가 거부되었습니다. 활성 구독에 대해 유효한 키를 제공해야 합니다.            |
-| multiple | 요청이 보류 중인 동안 클라이언트가 클라이언트에서 API Management 게이트웨이로의 다운스트림 연결을 중단 했습니다. | ClientConnectionFailure | multiple |
-| multiple | API Management 게이트웨이에서 백 엔드 서비스로의 업스트림 연결이 설정 되지 않았거나 백 엔드에서 중단 되었습니다. | BackendConnectionFailure | multiple |
-| multiple | 특정 식을 평가 하는 동안 런타임 예외가 발생 했습니다. | ExpressionValueEvaluationFailure | multiple |
+| multiple | 요청이 보류된 동안 클라이언트가 클라이언트와 API Management 게이트웨이 간 다운스트림 연결을 중단했습니다. | ClientConnectionFailure | multiple |
+| multiple | 백 엔드에서 API Management 게이트웨이와 백 엔드 서비스 간 업스트림 연결을 설정하지 않았거나 중단했습니다. | BackendConnectionFailure | multiple |
+| multiple | 특정 식을 평가하는 동안 런타임 예외가 발생했습니다. | ExpressionValueEvaluationFailure | multiple |
 
 ## <a name="predefined-errors-for-policies"></a>정책에 대해 미리 정의된 오류
 
@@ -132,7 +132,7 @@ Azure API Management의 정책은 다음 예에 표시된 것처럼 `inbound`, `
 | validate-jwt | 토큰에서 필수 클레임이 누락됨                          | TokenClaimNotFound        | JWT 토큰에 다음 클레임이 누락됨: <c1\>, <c2\>, … 액세스가 거부되었습니다.                                                            |
 | validate-jwt | 클레임 값이 일치하지 않음                                           | TokenClaimValueNotAllowed | {claim-value}의 클레임 {claim-name} 값이 허용되지 않습니다. 액세스가 거부되었습니다.                                                             |
 | validate-jwt | 기타 유효성 검사 실패                                       | JwtInvalid                | <jwt 라이브러리의 메시지\>                                                                                                          |
-| 전달 요청 또는 송신 요청 | 구성 된 시간 제한 내에 백 엔드에서 HTTP 응답 상태 코드 및 헤더를 받지 못했습니다. | 제한 시간 | multiple |
+| forward-request 또는 send-request | 구성된 시간 제한 내에 백 엔드로부터 HTTP 응답 상태 코드 및 헤더를 받지 못했습니다. | 제한 시간 | multiple |
 
 ## <a name="example"></a>예제
 

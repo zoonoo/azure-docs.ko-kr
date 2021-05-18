@@ -1,18 +1,18 @@
 ---
-title: SKU를 사용할 수 없음 오류
-description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때 SKU에서 사용할 수 없음 오류 문제를 해결 하는 방법을 설명 합니다.
+title: SKU 사용할 수 없음 에러
+description: Azure Resource Manager를 사용하여 리소스를 배포할 때 SKU 사용할 수 없음 오류 문제를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 02/18/2020
 ms.openlocfilehash: 5b0bbd653907c109eca526af86979013b3137cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98737153"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU 사용할 수 없음 오류 해결
 
-이 문서에서는 **SkuNotAvailable** 오류를 해결하는 방법에 대해 설명합니다. 해당 지역/영역 또는 비즈니스 요구 사항을 충족 하는 대체 지역/영역에서 적합 한 SKU를 찾을 수 없는 경우 Azure 지원에 [sku 요청](/troubleshoot/azure/general/region-access-request-process) 을 제출 하세요.
+이 문서에서는 **SkuNotAvailable** 오류를 해결하는 방법에 대해 설명합니다. 해당 지역/영역 또는 대체 지역/영역에서 비즈니스 요구를 충족하는 적합한 SKU를 찾을 수 없는 경우 [SKU 요청](/troubleshoot/azure/general/region-access-request-process)을 Azure 지원에 제출하세요.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,11 +30,11 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 선택한 리소스 SKU(예: VM 크기)를 선택한 위치에 사용할 수 없는 경우 이 오류가 나타납니다.
 
-Azure 스폿 VM 또는 별색 확장 집합 인스턴스를 배포 하는 경우이 위치에 Azure 지점에 대 한 용량이 없습니다. 자세한 내용은 [지점 오류 메시지](../../virtual-machines/error-codes-spot.md)를 참조 하세요.
+Azure 스폿 VM 또는 스폿 확장 집합 인스턴스를 배포하는 경우 이 위치에 Azure 스폿에 대한 용량이 없습니다. 자세한 내용은 [스폿 오류 메시지](../../virtual-machines/error-codes-spot.md)를 참조하세요.
 
 ## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 
-지역/영역에서 사용할 수 있는 Sku를 확인 하려면 [AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) 명령을 사용 합니다. 결과를 위치별로 필터링합니다. 이 명령이 작동하려면 최신 버전의 PowerShell이 있어야 합니다.
+한 지역/영역에서 사용할 수 있는 SKU를 확인하려면 [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) 명령을 사용합니다. 결과를 위치별로 필터링합니다. 이 명령이 작동하려면 최신 버전의 PowerShell이 있어야 합니다.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
@@ -58,7 +58,7 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
 ```
 
-끝에 "fc"를 추가 하면 더 자세한 정보가 반환 됩니다.
+끝에 "fc"를 추가하면 더 자세한 정보가 반환됩니다.
 
 ## <a name="solution-2---azure-cli"></a>해결 방법 2 - Azure CLI
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2020
+ms.date: 05/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 15a9a2becea9751903e99f6ef1d55bc6f7b65ca8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e19ab526df864bba7bd164a15c11185439d35d7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95998620"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742862"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-allyio"></a>자습서: Ally.io와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -64,7 +64,6 @@ Ally.io에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요�
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Ally.io SSO 구성](#configure-allyio-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Ally.io 테스트 사용자 만들기](#create-allyio-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Ally.io에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -77,7 +76,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
     a. **식별자** 텍스트 상자에서 `https://app.ally.io/saml/consume/<CUSTOM_GUID>` 패턴을 사용하여 URL을 입력합니다.
 
@@ -92,7 +91,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Ally.io 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/default-attributes.png)
+    ![기본 특성 목록을 보여 주는 스크린샷](common/default-attributes.png)
 
 1. 위에서 언급한 특성 외에도 Ally.io 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
@@ -142,11 +141,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-allyio-sso"></a>Ally.io SSO 구성
 
-**Ally.io** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Ally.io 지원 팀](mailto:contact@ally.io)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+Ally.io 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 인증서(Base64)와 적절한 URL을 복사하고 Ally.io에 추가해야 합니다.
 
-### <a name="create-allyio-test-user"></a>Ally.io 테스트 사용자 만들기
+1. 관리자 계정을 사용하여 Ally.io에 로그인합니다.
+1. 화면 왼쪽에 있는 탐색 모음을 사용하여 **관리자** > **통합** 을 선택합니다.
+1. **인증** 섹션으로 스크롤하고 **Single Sign-On** 을 선택합니다. 그런 다음, **사용** 을 선택합니다.
 
-이 섹션에서는 Ally.io에서 B.Simon이라는 사용자를 만듭니다. Ally.io는 기본적으로 사용하도록 설정된 Just-In-Time 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. 사용자가 Ally.io에 존재하지 않는 경우 Ally.io에 액세스하려고 할 때 새 사용자를 만듭니다.
+    ![Ally IO의 사용 단추를 보여 주는 스크린샷](./media/ally-tutorial/ally-enable.png)
+
+    **SSO 구성** 페이지가 열리고 Azure Portal에서 인증서 및 복사된 URL을 구성할 수 있습니다.
+
+    ![Ally IO의 SSO 구성 창을 보여 주는 스크린샷](./media/ally-tutorial/ally-single-sign-on-configuration.png)
+
+1. **SSO 구성** 에서 다음 설정을 입력하거나 선택합니다. 
+
+    * **Ally**: Azure AD
+    * **SAML 2.0 엔드포인트 URL**: 로그인 URL
+    * **ID 공급자 발급자 URL**: Azure AD 식별자
+    * **퍼블릭(x.509) 인증서**: 인증서(base 64)
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -154,11 +166,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 액세스 패널에서 Ally.io 타일을 클릭하면 SSO를 설정한 Ally.io에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
+Ally.io에서 B.Simon이라는 사용자를 만듭니다. Ally.io는 기본적으로 사용하도록 설정된 Just-In-Time 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. 사용자가 Ally.io에 존재하지 않는 경우 Ally.io에 액세스하려고 할 때 새 사용자를 만듭니다.
+
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 - [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
 

@@ -1,6 +1,6 @@
 ---
 title: VNET에서 Azure Data Lake Storage Gen1에 연결 | Microsoft Docs
-description: 리소스에 대해 제한 된 액세스 권한이 있는 Azure virtual machines에서 Azure Data Lake Storage Gen1에 대 한 액세스를 사용 하도록 설정 하는 방법을 알아봅니다.
+description: 리소스에 대한 제한된 액세스 권한이 있는 Azure 가상 머신에서 Azure Data Lake Storage Gen1에 액세스할 수 있도록 하는 방법을 알아봅니다.
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
 ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92104039"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Azure VNET 내 VM에서 Azure Data Lake Storage Gen1 액세스

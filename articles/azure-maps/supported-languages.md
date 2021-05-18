@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure 맵을 사용한 지역화 지원
-description: 지도, 검색, 라우팅, 날씨 및 트래픽 인시던트와 같은 서비스를 지 원하는 Azure Maps 지역을 확인 하세요. View 매개 변수를 설정 하는 방법에 대해 알아봅니다.
+title: Microsoft Azure Maps를 사용하여 지역화 지원
+description: 지도, 검색, 라우팅, 날씨 및 트래픽 인시던트와 같은 서비스를 지원하는 Azure Maps 지역을 확인하세요. View 매개 변수를 설정하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 50e5d0721eb14d1fcdfad26aaf081bfa370e954e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96904519"
 ---
 # <a name="localization-support-in-azure-maps"></a>Azure Maps의 지역화 지원
@@ -112,7 +112,7 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
 서비스에서 사용하는 REST API 및 SDK에 필요한 대로 **View** 매개 변수를 설정해야 합니다.
   
 
-### <a name="rest-apis"></a>Rest Api
+### <a name="rest-apis"></a>Rest API
   
 필요에 따라 View 매개 변수를 설정했는지 확인합니다. View 매개 변수는 Azure Maps 서비스를 통해 반환되는 지정학적 분쟁 콘텐츠를 지정합니다. 
 
@@ -129,10 +129,10 @@ Azure Maps는 서비스 전반에 걸쳐 다양한 언어로 지역화되었습�
  * Get Search Address Reverse
  * Get Search Address Reverse Cross Street
  * Post Search Inside Geometry
- * 사후 검색 주소 일괄 처리
- * 사후 검색 주소 역방향 일괄 처리
+ * Post Search Address Batch
+ * Post Search Address Reverse Batch
  * Post Search Along Route
- * 사후 검색 유사 일괄 처리
+ * Post Search Fuzzy Batch
 
  
 ### <a name="sdks"></a>SDK

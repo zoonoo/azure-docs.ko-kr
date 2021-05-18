@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 1a89ce873c53e94036aa4f8ac2c2870365924187
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91537211"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Azure Portal을 사용하여 직접 피어링 만들기 또는 수정
@@ -37,7 +37,7 @@ ms.locfileid: "91537211"
 1. **피어링 만들기** 페이지의 **기본 사항** 탭에서 다음과 같이 입력란을 채웁니다.
 
 
-    ![스크린샷 새로 만들기 링크를 사용 하 여 피어 링 페이지 기본 사항 만들기 탭을 보여 줍니다.](./media/setup-basics-tab.png)
+    ![새로 만들기 링크가 설명선으로 표시된 피어링 만들기 페이지의 기본 사항 탭 스크린샷](./media/setup-basics-tab.png)
 
 2. Azure 구독을 선택합니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "91537211"
 
 
 
-    ![스크린샷에는 모든 값을 입력 하 여 피어 링 페이지 기본 사항 만들기 탭이 표시 됩니다.](./media/setup-direct-basics-filled-tab.png)
+    ![모든 값이 입력된 피어링 만들기 페이지의 기본 사항 탭 스크린샷](./media/setup-direct-basics-filled-tab.png)
 
 
 #### <a name="configure-connections-and-submit"></a>연결 구성 및 제출

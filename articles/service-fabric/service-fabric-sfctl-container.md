@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl 컨테이너
-description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 컨테이너에 대 한 명령 목록을 포함 합니다.
+title: Azure Service Fabric CLI- sfctl container
+description: sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 컨테이너에 대한 명령 목록이 포함되어 있습니다.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: f82883b68ab911fb0b89fc117d9a9d77e05a781a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86245894"
 ---
 # <a name="sfctl-container"></a>sfctl container
@@ -17,7 +17,7 @@ ms.locfileid: "86245894"
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | invoke-api | 지정된 코드 패키지에 대해 Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 API를 호출합니다. |
 | 로그 | Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를 가져옵니다. |
@@ -27,7 +27,7 @@ ms.locfileid: "86245894"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id           [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --code-package-instance-id [필수] | Service Fabric 노드에 배포된 코드 패키지 인스턴스를 고유하게 식별하는 ID입니다. <br><br> 'service code-package-list'로 검색할 수 있습니다. |
@@ -42,7 +42,7 @@ ms.locfileid: "86245894"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -55,7 +55,7 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --application-id           [필수] | 애플리케이션 ID입니다. <br><br> 일반적으로 'fabric\:' URI 스키마가 없는 애플리케이션의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 애플리케이션 이름이 “fabric\:/myapp/app1”인 경우 애플리케이션 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
 | --code-package-instance-id [필수] | 'service code-package-list'에서 검색할 수 있는 코드 패키지 인스턴스 ID입니다. |
@@ -67,7 +67,7 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -77,5 +77,5 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
+- Service Fabric CLI [설정](service-fabric-cli.md)
 - [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

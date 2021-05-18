@@ -1,5 +1,5 @@
 ---
-title: 이미지 분류-Computer Vision
+title: 이미지 범주화 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 범주화 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 9721ffa807c9adbeb50839113bc64fd23d8eb13f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96533726"
 ---
 # <a name="categorize-images-by-subject-matter"></a>주제별 이미지 분류
@@ -24,7 +24,7 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 ## <a name="the-86-category-concept"></a>86개 범주 개념
 
-컴퓨터 비전은 다음 다이어그램에서 86 범주의 목록을 사용 하 여 이미지를 광범위 하거나 구체적으로 분류할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
+Computer Vision은 다음 다이어그램에 나온 86개 범주 목록을 사용하여 이미지를 광범위하게 또는 구체적으로 범주화할 수 있습니다. 전체 분류를 텍스트 형식으로 보려면 [범주 분류](category-taxonomy.md)를 참조하세요.
 
 ![범주 분류에 있는 모든 범주의 그룹화된 목록](./Images/analyze_categories-v2.png)
 
@@ -62,10 +62,10 @@ Computer Vision은 태그 지정 및 설명 외에도 이미지에서 감지된 
 
 ## <a name="use-the-api"></a>API 사용
 
-분류 기능은 [분석 이미지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Categories` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"categories"` .
+분류 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Categories`를 포함합니다. 그런 다음, 전체 JSON 응답을 받으면 `"categories"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
 * [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지에 태그](concept-tagging-images.md) 를 지정 하 고 [이미지를 설명](concept-describing-images.md)하는 관련 개념을 알아봅니다.
+[이미지에 태그를 지정](concept-tagging-images.md)하고 [이미지를 설명](concept-describing-images.md)하는 것과 관련된 개념을 알아봅니다.

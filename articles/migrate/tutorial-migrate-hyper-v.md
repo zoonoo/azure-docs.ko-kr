@@ -9,12 +9,12 @@ ms.date: 03/18/2021
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 0072ce81fc619c39770eba52e24dc5a0c57280a6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 397a26c7a0ba3771c47e2971fecde09f166cc90f
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604579"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751225"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -37,7 +37,7 @@ ms.locfileid: "104604579"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
@@ -69,7 +69,18 @@ Hyper-V VM을 마이그레이션하는 경우 Azure Migrate:Server Migration은 
     ![공급자 및 키 다운로드](./media/tutorial-migrate-hyper-v/download-provider-hyper-v.png)
 
 4. 복제하려는 VM을 실행하는 각 Hyper-V 호스트(또는 클러스터 노드)에 공급자 설치 파일 및 등록 키 파일을 복사합니다.
-5. 다음 절차에 설명된 대로 각 호스트에서 공급자 설치 파일을 실행합니다.
+5. 다음에 설명된 대로 각 호스트에서 공급자 설치 파일을 실행합니다.
+    - 복제하려는 VM을 실행하는 각 Hyper-V 호스트(또는 클러스터 노드)에 공급자 설치 파일 및 등록 키 파일을 복사합니다.
+    - 작업 표시줄에서 파일 아이콘을 클릭하여 설치 관리자 파일 및 등록 키가 다운로드된 폴더를 엽니다.
+    - **AzureSiteRecoveryProvider** 를 선택합니다. 
+    - 공급자 설치 마법사에서 **켜기(권장)** 가 선택되어 있는지 확인한 후 **다음** 을 클릭합니다.
+    - **설치** 를 선택하여 기본 설치 폴더를 적용합니다.
+    - **등록** 을 선택하여 Azure Site Recovery 자격 증명 모음에 이 서버를 등록합니다.
+    - **찾아보기** 를 클릭합니다.
+    - 등록 키를 찾고 **열기** 를 클릭합니다.
+    - **다음** 을 클릭합니다.
+    - **프록시 서버 없이 Azure Site Recovery에 직접 연결** 을 선택했는지 확인하고 **다음** 을 클릭합니다.
+    - **Finish** 를 클릭합니다.
 6. 호스트에 공급자를 설치한 후 **머신 검색** 에서 **등록 완료** 를 클릭합니다.
 
     ![등록 완료](./media/tutorial-migrate-hyper-v/finalize-registration.png)

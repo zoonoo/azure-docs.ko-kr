@@ -3,12 +3,12 @@ title: SWIFT CSP-CSCF v2020 청사진 샘플 컨트롤
 description: SWIFT CSP-CSCF v2020 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9d385cfddae11b026cd93f49c1bc41ca48265a87
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5f534853fb34be75f5bafcf0eb5dc90cf5afcc1a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386179"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733970"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>SWIFT CSP-CSCF v2020 청사진 샘플의 컨트롤 매핑
 
@@ -37,7 +37,7 @@ ms.locfileid: "106386179"
 - 관리 디스크를 사용하지 않는 VM 감사
 - Service Fabric 클러스터는 클라이언트 인증에 대해서만 Azure Active Directory를 사용해야 합니다.
 
-## <a name="29a--account-management--account-monitoring--atypical-usage"></a>2.9A 계정 관리 | 계정 모니터링/비정상적 사용
+## <a name="29a-account-management--account-monitoring--atypical-usage"></a>2.9A 계정 관리 | 계정 모니터링/비정상적 사용
 
 JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으로의 인바운드 트래픽이 잠기기 때문에, 필요할 때 VM에 쉽게 연결할 수 있으면서도 공격 노출을 줄일 수 있습니다. JIT의 가상 머신 액세스 요청이 모두 활동 로그에 기록되므로 비정상적인 사용을 모니터링할 수 있습니다. 이 청사진은 JIT 액세스를 지원할 수 있지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
@@ -188,12 +188,12 @@ Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 �
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에 대한 감사가 사용되도록 설정되어야 함
 - 가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.
-- SQL 데이터베이스의 취약성을 수정해야 합니다. 
+- SQL 데이터베이스의 취약성을 수정해야 합니다.
 - 머신 보안 구성의 취약성을 수정해야 합니다.
 
 ## <a name="13-denial-of-service-protection"></a>1.3 서비스 거부 방지
 
-Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층보다 강력한 추가 기능 및 위험 완화 기능을 제공합니다. 이러한 추가 기능으로는 Azure Monitor 통합과 공격 후 완화 보고서를 검토하는 기능이 포함됩니다. 이 청사진은 DDoS 표준 계층을 사용하는지 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 서비스 계층 간의 기능 차이를 이해하면 해당 Azure 환경의 서비스 거부를 방지하는 최적의 솔루션을 선택할 수 있습니다.
+Azure의 DDoS(분산형 서비스 거부) 표준 계층은 기본 서비스 계층보다 강력한 추가 기능 및 위험 완화 기능을 제공합니다. 이러한 추가 기능으로는 Azure Monitor 통합과 공격 후 완화 보고서를 검토하는 기능이 포함됩니다. 이 청사진은 DDoS 표준 계층을 사용하는지 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 서비스 계층 간의 기능 차이를 이해하면 해당 Azure 환경의 서비스 거부를 방지하는 최적의 솔루션을 선택할 수 있습니다.
 
 - Azure DDoS Protection 표준을 사용하도록 설정해야 함
 

@@ -1,74 +1,74 @@
 ---
-title: Azure Kinect 센서 SDK를 사용 하 여 파일 형식 기록
-description: Azure Kinect 센서 SDK 기록 파일 형식을 사용 하는 방법을 이해 합니다.
+title: 기록 파일 형식에 대해 Azure Kinect 센서 SDK 사용
+description: Azure Kinect 센서 SDK에서 기록된 파일 형식을 사용하는 방법을 이해합니다.
 author: xthexder
 ms.author: jawirth
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
-keywords: kinect, azure, 센서, sdk, 깊이, rgb, 레코드, 재생, matroska, .mkv
+keywords: kinect, azure, 센서, sdk, 깊이, rgb, 기록, 재생, matroska, mkv
 ms.openlocfilehash: f4fa14b0841cb76b2ba191310ecbca312d29f805
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97654594"
 ---
-# <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>Azure Kinect 센서 SDK를 사용 하 여 파일 형식 기록
+# <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>기록 파일 형식에 대해 Azure Kinect 센서 SDK 사용
 
-센서 데이터를 기록 하기 위해 Matroska (.mkv) 컨테이너 형식이 사용 됩니다 .이를 통해 다양 한 코덱을 사용 하 여 여러 트랙을 저장할 수 있습니다. 기록 파일은 색, 깊이, IR 이미지 및 IMU를 저장 하기 위한 트랙을 포함 합니다.
+센서 데이터를 기록하기 위해 Matroska(.mkv) 컨테이너 형식이 사용되며 이는 광범위한 코덱을 사용하여 여러 개의 트랙을 저장할 수 있습니다. 기록 파일은 색상, 깊이, IR 이미지, IMU를 저장하기 위한 트랙을 포함합니다.
 
-.Mkv 컨테이너 형식에 대 한 하위 수준 세부 정보는 [Matroska 웹 사이트](https://www.matroska.org/index.html)에서 찾을 수 있습니다.
+.mkv 컨테이너 형식에 대한 낮은 수준의 세부 정보는 [Matroska 웹 사이트](https://www.matroska.org/index.html)에서 찾을 수 있습니다.
 
 | 트랙 이름 | 코덱 형식                          |
 |------------|---------------------------------------|
-| 색      | Mode-Dependent (MJPEG, NV12 또는 YUY2) |
-| DEPTH      | b16g (16 비트 회색조, 빅 endian)   |
-| IR         | b16g (16 비트 회색조, 빅 endian)   |
-| IMU        | 사용자 지정 구조 아래의 [Imu 샘플 구조](record-file-format.md#imu-sample-structure) 를 참조 하세요. |
+| COLOR      | 모드 종속(MJPEG, NV12 또는 YUY2) |
+| DEPTH      | b16g(16비트 회색조, Big-endian)   |
+| IR         | b16g(16비트 회색조, Big-endian)   |
+| IMU        | 사용자 지정 구조는 아래의 [IMU 샘플 구조](record-file-format.md#imu-sample-structure)를 참조하세요. |
 
 ## <a name="using-third-party-tools"></a>타사 도구 사용
 
-`ffmpeg`또는 `mkvinfo` [MKVToolNix](https://mkvtoolnix.download/) toolkit의 명령과 같은 도구를 사용 하 여 기록 파일에서 정보를 보고 추출할 수 있습니다.
+[MKVToolNix](https://mkvtoolnix.download/) 도구 키트의 `ffmpeg` 또는 `mkvinfo` 명령과 같은 도구를 사용하여 기록 파일에서 정보를 보고 추출할 수 있습니다.
 
-예를 들어 다음 명령은 동일한 폴더에 대 한 16 비트 PNGs 시퀀스로 깊이 트랙을 추출 합니다.
+예를 들어 다음 명령은 깊이 트랙을 16비트 PNG의 시퀀스로 동일한 폴더에 추출합니다.
 
 ```
 ffmpeg -i output.mkv -map 0:1 -vsync 0 depth%04d.png
 ```
 
-`-map 0:1`이 매개 변수는 대부분의 기록에서 깊이가 되는 트랙 인덱스 1을 추출 합니다. 기록에 색 트랙이 포함 되지 않은 경우이 `-map 0:0` 사용 됩니다.
+`-map 0:1` 매개 변수는 트랙 인덱스 1을 추출하는데 이는 대부분의 기록에서 깊이에 해당합니다. 기록에 색상 트랙이 포함되지 않은 경우 `-map 0:0`이 사용됩니다.
 
-`-vsync 0`매개 변수는 ffmpeg에서 프레임 속도가 30fps, 15fps 또는 5fps 인 것과 일치 하는 것이 아니라 그대로 프레임을 추출 하도록 합니다.
+`-vsync 0` 매개 변수는 ffmpeg에서 프레임 속도를 30fps, 15fps 또는 5fps에 일치시키려고 하는 대신 있는 그대로의 프레임을 추출하게 합니다.
 
-## <a name="imu-sample-structure"></a>IMU 샘플 구조체
+## <a name="imu-sample-structure"></a>IMU 샘플 구조
 
-재생 API를 사용 하지 않고 파일에서 IMU 데이터를 추출 하는 경우 데이터는 이진 형식으로 됩니다.
-IMU 데이터의 구조는 아래와 같습니다. 모든 필드는 작은 endian입니다.
+재생 API를 사용하지 않고 파일에서 IMU 데이터를 추출하는 경우 데이터는 이진 형식이 됩니다.
+IMU 데이터의 구조는 아래와 같습니다. 모든 필드는 Little-endian 방식입니다.
 
 | 필드                        | Type     |
 |------------------------------|----------|
-| 가 속도계 Timestamp (μs) | uint64   |
-| 가 속도계 Data (x, y, z) | float [3] |
-| 자이로스코프가 Timestamp (μs)     | uint64   |
-| 자이로스코프가 Data (x, y, z)     | float [3] |
+| 가속도계 타임스탬프(μs) | uint64   |
+| 가속도계 데이터(x, y, z) | float[3] |
+| 자이로스코프 타임스탬프(μs)     | uint64   |
+| 자이로스코프 데이터(x, y, z)     | float[3] |
 
 ## <a name="identifying-tracks"></a>트랙 식별
 
-색, 깊이, IR 등을 포함 하는 트랙을 식별 해야 할 수도 있습니다. 타사 도구로 작업 하 여 Matroska 파일을 읽을 때는 트랙을 식별 해야 합니다.
-트랙 번호는 카메라 모드와 설정 된 트랙 집합에 따라 달라 집니다. 태그는 각 트랙의 의미를 식별 하는 데 사용 됩니다.
+색상, 깊이, IR 등을 포함하는 트랙을 식별해야 할 수도 있습니다. 타사 도구로 작업하여 Matroska 파일을 읽을 때는 트랙을 식별해야 합니다.
+트랙 번호는 카메라 모드 및 사용하도록 설정된 트랙의 집합에 따라 달라집니다. 태그는 각 트랙의 의미를 식별하는 데 사용됩니다.
 
-아래 태그 목록은 각각 특정 Matroska 요소에 연결 되며 해당 추적 또는 첨부 파일을 조회 하는 데 사용할 수 있습니다.
+아래 태그 목록은 각각 특정 Matroska 요소에 연결되며 해당 추적 또는 첨부 파일을 찾아내는 데 사용될 수 있습니다.
 
-이러한 태그는 및와 같은 도구를 사용 하 여 볼 수 있습니다 `ffmpeg` `mkvinfo` .
-태그의 전체 목록은 [레코드 및 재생](record-playback-api.md) 페이지에 나열 됩니다.
+이러한 태그는 `ffmpeg` 및 `mkvinfo`와 같은 도구를 사용하여 볼 수 있습니다.
+태그의 전체 목록은 [기록 및 재생](record-playback-api.md) 페이지에 나열되어 있습니다.
 
 | 태그 이름             | 태그 대상             | 태그 값             |
 |----------------------|------------------------|-----------------------|
-| K4A_COLOR_TRACK      | 색 트랙            | Matroska Track UID    |
-| K4A_DEPTH_TRACK      | 깊이 트랙            | Matroska Track UID    |
-| K4A_IR_TRACK         | IR 트랙               | Matroska Track UID    |
-| K4A_IMU_TRACK        | IMU 트랙              | Matroska Track UID    |
+| K4A_COLOR_TRACK      | 색상 트랙            | Matroska 트랙 UID    |
+| K4A_DEPTH_TRACK      | 깊이 트랙            | Matroska 트랙 UID    |
+| K4A_IR_TRACK         | IR 트랙               | Matroska 트랙 UID    |
+| K4A_IMU_TRACK        | IMU 트랙              | Matroska 트랙 UID    |
 | K4A_CALIBRATION_FILE | 보정 첨부 파일 | 첨부 파일 이름   |
 
 ## <a name="next-steps"></a>다음 단계

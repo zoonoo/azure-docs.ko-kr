@@ -1,14 +1,14 @@
 ---
-title: PowerShell을 사용 하 여 앱 업그레이드 Service Fabric
+title: PowerShell을 사용하여 Service Fabric 앱 업그레이드
 description: 이 문서는 PowerShell을 사용하여 서비스 패브릭 애플리케이션의 배포, 코드 변경, 업그레이드 롤아웃 환경을 안내합니다.
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 4b038f4a41ee02960a02c4445b65eb2360a75761
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98792034"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>PowerShell을 사용하여 서비스 패브릭 애플리케이션 업그레이드
@@ -24,10 +24,10 @@ ms.locfileid: "98792034"
 
 모니터링되는 애플리케이션 업그레이드는 관리 또는 네이티브 API, PowerShell, Azure CLI, Java 또는 REST를 사용하여 수행할 수 있습니다. Visual Studio를 사용하여 업그레이드를 수행하는 지침은 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)를 참조하세요.
 
-서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 경우 수행할 작업을 구성할 수 있습니다 (예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용 하는 SDK 샘플 중 하나에 대해 모니터링 되는 업그레이드를 안내 합니다. 
+서비스 패브릭 모니터링되는 롤링 업그레이드는 애플리케이션 관리자가 서비스 패브릭이 사용하여 애플리케이션이 정상인지 결정하는 상태 평가 정책을 구성할 수 있게 합니다. 또한 관리자는 상태 평가가 실패할 경우 수행할 작업을 구성할 수 있습니다(예: 자동 롤백 수행). 이 섹션에서는 PowerShell을 사용하는 SDK 샘플 중 하나에 대해 모니터링되는 업그레이드를 안내합니다. 
 
 > [!NOTE]
-> [Applicationparameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s는 응용 프로그램 업그레이드에서 유지 되지 않습니다. 현재 응용 프로그램 매개 변수를 유지 하기 위해 사용자는 매개 변수를 먼저 가져온 후 아래와 같은 업그레이드 API 호출로 전달 해야 합니다.
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters#System_Fabric_Description_ApplicationDescription_ApplicationParameters)는 애플리케이션 업그레이드 시 유지되지 않습니다. 현재 애플리케이션 매개 변수를 유지하려면 사용자가 먼저 매개 변수를 가져와서 아래와 같이 업그레이드 API 호출에 전달해야 합니다.
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -77,7 +77,7 @@ VisualObjects 솔루션에서 VisualObjects.ActorService 프로젝트를 선택�
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```
 
-이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **Build** 옵션을 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드** 를 선택한 경우 코드가 변경되었으므로 모든 프로젝트의 버전을 업데이트해야 합니다. 그런 다음 VisualObjectsApplication _을 마우스 오른쪽 단추로 클릭 하 ***고 Service Fabric 메뉴를 선택한 다음 _* 패키지를 선택** 하 여 업데이트 된 응용 프로그램을 패키지 하겠습니다. 이 작업을 수행하면 배포 가능한 애플리케이션 패키지가 만들어집니다.  업데이트된 애플리케이션의 배포 준비가 되었습니다.
+이제 **ActorService** 프로젝트를 선택하고 마우스 오른쪽 단추를 클릭한 후 Visual Studio에서 **Build** 옵션을 선택하여 프로젝트를 빌드합니다. **모두 다시 빌드** 를 선택한 경우 코드가 변경되었으므로 모든 프로젝트의 버전을 업데이트해야 합니다. 다음으로, **_VisualObjectsApplication_ *_을 마우스 오른쪽 단추로 클릭하고, 서비스 패브릭 메뉴를 선택하고, _* 패키지** 를 선택하여 업데이트된 애플리케이션을 패키지해 봅니다. 이 작업을 수행하면 배포 가능한 애플리케이션 패키지가 만들어집니다.  업데이트된 애플리케이션의 배포 준비가 되었습니다.
 
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>3단계: 상태 정책 결정 및 매개 변수 업그레이드
 [애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 및 [업그레이드 프로세스](service-fabric-application-upgrade.md)를 파악하여 다양한 업그레이드 매개 변수, 제한 시간 및 적용되는 상태 조건을 잘 이해하세요. 이 연습에서는 서비스 상태 평가 조건이 모든 서비스 및 인스턴스가 업그레이드 후에 *정상* 이 되어야 함을 의미하는 기본값(및 권장값)으로 설정됩니다.  
@@ -142,7 +142,7 @@ Get-ServiceFabricApplicationUpgrade fabric:/VisualObjects
 ## <a name="next-steps"></a>다음 단계
 [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
 
-[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용 하 여 응용 프로그램을 업그레이드 하는 방법을 제어 합니다.
+[업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
 
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md) 사용 방법을 익혀 애플리케이션 업그레이드와 호환되도록 만듭니다.
 

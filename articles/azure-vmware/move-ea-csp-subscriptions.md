@@ -1,41 +1,72 @@
 ---
-title: EA 및 CSP Azure VMware 솔루션 구독 이동
-description: 한 구독에서 다른 구독으로 사설 클라우드를 이동 하는 방법에 대해 알아봅니다. 요금 청구와 같은 다양 한 이유로 이동 하는 것이 가능 합니다.
+title: Azure VMware Solution 구독을 다른 구독으로 이동
+description: 이 문서에서는 Azure VMware Solution 구독을 다른 구독으로 이동하는 방법을 설명합니다. 요금 청구와 같은 다양한 이유로 리소스를 이동할 수 있습니다.
+ms.custom: subject-moving-resources
 ms.topic: how-to
-ms.date: 03/15/2021
-ms.openlocfilehash: 608f46dbd84d6bb899a3e7fcd1f8a63b3a5e85fb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 04/26/2021
+ms.openlocfilehash: 0cd06eb72f8ed93cc5a491070baded76f9dc9f6f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103555617"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108145567"
 ---
-# <a name="move-ea-and-csp-azure-vmware-solution-subscriptions"></a>EA 및 CSP Azure VMware 솔루션 구독 이동
+# <a name="move-azure-vmware-solution-subscription-to-another-subscription"></a>Azure VMware Solution 구독을 다른 구독으로 이동
 
-이 문서에서는 하나의 구독에서 다른 구독으로 사설 클라우드를 이동 하는 방법에 대해 알아봅니다. 요금 청구와 같은 다양 한 이유로 이동 하는 것이 가능 합니다. 
+이 문서에서는 Azure VMware Solution 구독을 다른 구독으로 이동하는 방법을 설명합니다. 요금 청구와 같은 다양한 이유로 구독을 이동할 수 있습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+**이전** 구독 및 **대상** 구독 둘 다에서 기여자 이상의 권한이 있어야 합니다. 
 
 >[!IMPORTANT]
->원본 및 대상 구독에 대 한 참가자 이상의 권한이 있어야 합니다. VNet 및 VNet 게이트웨이를 하나의 구독에서 다른 구독으로 이동할 수 없습니다. 또한 구독을 이동 해도 vCenter, NSX 및 워크 로드 가상 머신과 같은 관리 및 워크 로드에는 영향을 주지 않습니다.
+>VNet 및 VNet 게이트웨이는 한 구독에서 다른 구독으로 이동할 수 없습니다. 또한 구독을 이동해도 vCenter, NSX, 워크로드 가상 머신과 같은 관리 및 워크로드에 영향을 주지 않습니다.
 
-1. Azure Portal에 로그인 하 여 이동 하려는 사설 클라우드를 선택 합니다.
+## <a name="prepare-and-move"></a>준비 및 이동 
 
-1. **구독 (변경)** 링크를 선택 합니다.
+1. Azure Portal에서 이동할 프라이빗 클라우드를 선택합니다.
 
-   :::image type="content" source="media/private-cloud-overview-subscription-id.png" alt-text="사설 클라우드 세부 정보를 보여 주는 스크린샷":::
+   :::image type="content" source="media/move-subscriptions/source-subscription-id.png" alt-text="선택한 프라이빗 클라우드에 대한 개요 세부 정보를 보여 주는 스크린샷입니다.":::
 
-1. **대상** 에 대 한 구독 정보를 제공 하 고 **다음** 을 선택 합니다.
+1. 명령 프롬프트에서 구성 요소와 워크로드를 ping하여 동일한 구독에서 ping하는지 확인합니다.  
 
-   :::image type="content" source="media/move-resources-subscription-target.png" alt-text="대상 리소스의 스크린샷" lightbox="media/move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/verify-components-workloads.png" alt-text="ping 명령 및 ping 결과를 보여 주는 스크린샷입니다.":::
 
-1. 이동 하도록 선택한 리소스의 유효성 검사를 확인 하 고 **다음** 을 선택 합니다. 
+1. **구독(변경)** 링크를 선택합니다.
 
-   :::image type="content" source="media/confirm-move-resources-subscription-target.png" alt-text="이동 중인 리소스를 보여 주는 스크린샷" lightbox="media/confirm-move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/private-cloud-overview-subscription-id.png" alt-text="프라이빗 클라우드 세부 정보를 보여 주는 스크린샷입니다."::: 
 
-1. 새 리소스 Id를 사용 하도록 업데이트 될 때까지 연결 된 도구와 스크립트가 작동 하지 않는다는 것을 나타내는 확인란을 선택 합니다. 그런 다음, **이동** 을 선택 합니다.
+1. **대상** 에 대한 구독 세부 정보를 제공하고 **다음** 을 선택합니다.
 
-   :::image type="content" source="media/review-move-resources-subscription-target.png" alt-text="이동 중인 선택한 리소스의 요약을 보여 주는 스크린샷 " lightbox="media/review-move-resources-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/move-resources-subscription-target.png" alt-text="대상 리소스 스크린샷입니다.":::
 
-   리소스 이동이 완료 되 면 알림이 표시 됩니다. 새 구독은 사설 클라우드 개요에 표시 됩니다.
+1. 이동하도록 선택한 리소스의 유효성 검사를 확인합니다.  이동하도록 선택한 모든 리소스의 유효성을 검사합니다. 선택한 리소스의 유효성을 검사하는 동안에는 유효성 검사 상태가 **유효성 검사 보류 중** 으로 표시됩니다. 
 
-   :::image type="content" source="media/moved-subscription-target.png" alt-text="새 구독을 보여 주는 스크린샷" lightbox="media/moved-subscription-target.png":::
+   :::image type="content" source="media/move-subscriptions/pending-move-resources-subscription-target.png" alt-text="이동되는 리소스를 보여 주는 스크린샷입니다.":::
+
+1. 유효성 검사가 성공적으로 완료되면 **다음** 을 선택하여 프라이빗 클라우드 마이그레이션을 시작합니다.
+
+   :::image type="content" source="media/move-subscriptions/move-resources-succeeded.png" alt-text=" 성공 유효성 검사 상태를 보여 주는 스크린샷입니다.":::
+
+1. 새 리소스 ID를 사용하도록 업데이트할 때까지 연결된 도구와 스크립트가 작동하지 않는 것을 알고 있음을 나타내는 확인란을 선택합니다. 그런 다음, **이동** 을 선택합니다.
+
+   :::image type="content" source="media/move-subscriptions/review-move-resources-subscription-target.png" alt-text="이동 중인 선택된 리소스에 대한 요약을 보여 주는 스크린샷입니다.":::
+
+## <a name="verify-the-move"></a>이동 확인
+
+리소스 이동이 완료되면 알림이 표시됩니다. 
+
+:::image type="content" source="media/move-subscriptions/notification-move-resources-subscription-target.png" alt-text="리소스 이동이 완료된 후 표시되는 알림 스크린샷입니다.":::
+
+새 구독은 프라이빗 클라우드 개요에 표시됩니다.
+
+:::image type="content" source="media/move-subscriptions/moved-subscription-target.png" alt-text="새 구독을 보여 주는 스크린샷입니다.":::
+
+## <a name="next-steps"></a>다음 단계
+다음에 대해 자세히 알아봅니다.
+
+- [네트워킹 리소스 이동 지침](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
+- [가상 머신 이동 지침](/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations)
+- [App Service 리소스 이동 지침](/azure/azure-resource-manager/management/move-limitations/app-service-move-limitations)
+
+
 

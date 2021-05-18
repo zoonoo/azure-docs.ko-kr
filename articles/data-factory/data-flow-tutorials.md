@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 12/14/2020
-ms.openlocfilehash: f1171bdd087d6ca72a09a2e3efb7f4767a575d21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/04/2021
+ms.openlocfilehash: bc1297790322202713d06c4d1f7a474c1b9dcda8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100517793"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108774082"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -93,6 +93,8 @@ ms.locfileid: "100517793"
 
 [구문 분석 변환](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
+[복합 데이터 형식 변환](https://youtu.be/Wk0C76wnSDE)
+
 ## <a name="source-and-sink"></a>원본 및 싱크
 
 [JSON 읽기 및 쓰기](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
@@ -130,6 +132,8 @@ ms.locfileid: "100517793"
 [데이터 흐름 시작 시간 최적화](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 [데이터 흐름에 대한 Azure Integration Runtimes](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
+
+[Azure IR을 사용한 빠른 클러스터 시작 시간](https://www.youtube.com/watch?v=mxzsOZX6WVY)
 
 ## <a name="mapping-data-flow-scenarios"></a>매핑 데이터 흐름 시나리오
 

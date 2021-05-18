@@ -1,7 +1,7 @@
 ---
 title: Bing Autosuggest API를 사용한 검색어 제안
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Bing Autosuggest API를 사용 하 여 쿼리 용어를 제안 하는 개념과 쿼리 길이가 관련성이 높은 영향을 제안 하는 개념을 설명 합니다.
+description: 이 문서에서는 Bing Autosuggest API를 사용하여 쿼리 용어를 제안하는 개념과 쿼리 길이가 관련성에 미치는 영향에 대해 설명합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: be7686c4d8a676d2a1d85516d2e4aa6abe3f3bfd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353411"
 ---
 # <a name="suggesting-query-terms"></a>쿼리 용어 제안

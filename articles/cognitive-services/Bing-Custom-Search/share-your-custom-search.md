@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 검색 공유 - Bing Custom Search
 titleSuffix: Azure Cognitive Services
-description: 팀 멤버와 공유 하 여 인스턴스의 공동 작업 편집 및 테스트를 쉽게 수행할 수 있습니다.
+description: 팀 구성원들과 인스턴스를 공유하여 인스턴스 공동 편집 및 테스트를 쉽게 허용할 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 6141bd67681df757536792981d47756a20ed33db
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353326"
 ---
 # <a name="share-your-custom-search-instance"></a>Custom Search 인스턴스 공유

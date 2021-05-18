@@ -4,10 +4,10 @@ description: 다양한 입력 소스에서 Batch 리소스 파일을 만드는 �
 ms.date: 03/18/2020
 ms.topic: how-to
 ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92109292"
 ---
 # <a name="creating-and-using-resource-files"></a>리소스 파일 생성 및 사용
@@ -93,7 +93,7 @@ ResourceFile inputFile = ResourceFile.FromUrl("https://github.com/foo/file.txt",
 
 Batch 작업에는 모두 동일한 공용 파일을 사용하는 여러 태스크가 포함될 수 있습니다. 공용 태스크 파일이 여러 태스크에서 공유되는 경우 리소스 파일을 사용하는 대신 애플리케이션 패키지를 사용하여 파일을 포함하는 것이 더 나은 방법일 수 있습니다. 애플리케이션 패키지는 다운로드 속도 최적화를 제공합니다. 또한 애플리케이션 패키지의 데이터는 태스크 간에 캐시되므로 태스크 파일이 자주 변경되지 않는다면 애플리케이션 패키지가 솔루션에 적합할 수 있습니다. 애플리케이션 패키지를 사용하면 여러 리소스 파일을 수동으로 관리하거나 SAS URL을 생성하여 Azure Storage의 파일에 액세스할 필요가 없습니다. Batch는 Azure Storage와 함께 백그라운드에서 작동하여 애플리케이션 패키지를 저장하고 컴퓨팅 노드에 배포합니다.
 
-각 태스크에 해당 작업에 고유한 많은 파일이 있는 경우 고유한 파일을 사용 하는 작업을 업데이트 하거나 교체 해야 하는 경우가 많으므로 응용 프로그램 패키지 콘텐츠를 사용 하는 것이 쉽지 않으므로 리소스 파일이 가장 좋습니다. 리소스 파일은 개별 파일의 업데이트, 추가 또는 편집에 대한 추가 유연성을 제공합니다.
+각 태스크에 고유한 파일이 많은 경우 고유한 파일을 사용하는 태스크를 자주 업데이트하거나 교체해야 해서 애플리케이션 패키지 콘텐츠를 사용하는 것이 쉽지 않으므로 리소스 파일이 가장 좋습니다. 리소스 파일은 개별 파일의 업데이트, 추가 또는 편집에 대한 추가 유연성을 제공합니다.
 
 ### <a name="number-of-resource-files-per-task"></a>태스크당 리소스 파일 수
 

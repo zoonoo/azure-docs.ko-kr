@@ -3,16 +3,16 @@ title: CMMC 수준 3 청사진 샘플
 description: CMMC 수준 3 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/24/2021
 ms.topic: sample
-ms.openlocfilehash: 100e404567f0241e814280650944e620435dc60c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: df3dac17ce91757640f5b437f5915d41c901afc4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145090"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757640"
 ---
 # <a name="cmmc-level-3-blueprint-sample"></a>CMMC 수준 3 청사진 샘플
 
-CMMC 수준 3 청사진 샘플 청사진 샘플은 특정 [CMMC(Cybersecurity Maturity Model Certification) 프레임워크](https://www.acq.osd.mil/cmmc/index.html) 제어를 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 CMMC 수준 3 제어를 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+CMMC 수준 3 청사진 샘플 청사진 샘플은 특정 [CMMC(Cybersecurity Maturity Model Certification) 프레임워크](https://www.acq.osd.mil/cmmc/index.html) 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 보호책을 제공합니다. 이 청사진은 고객이 CMMC 수준 3 제어를 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 
@@ -101,7 +101,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 |아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
-|CMMC Level 3|정책 할당|게스트 구성 정책을 평가할 때 Arc 연결된 서버 포함|'true'를 선택하면 Arc 연결된 머신마다 매달 청구되는 것에 동의하게 됩니다. 자세한 내용은 https://aka.ms/policy-pricing 을 방문하세요.|
+|CMMC Level 3|정책 할당|게스트 구성 정책을 평가할 때 Arc 연결된 서버 포함|‘true’를 선택하면 Arc 연결된 머신마다 매달 청구되는 것에 동의하게 됩니다. 자세한 내용은 https://aka.ms/policy-pricing 을 방문하세요.|
 |CMMC Level 3|정책 할당|Windows VM Administrators 그룹에서 제외되어야 하는 사용자 목록|관리자 로컬 그룹에서 제외해야 하는 사용자의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |CMMC Level 3|정책 할당|Windows VM 관리자 그룹에 포함해야 하는 사용자 목록|관리자 로컬 그룹에 포함해야 하는 사용자의 세미콜론으로 구분된 목록입니다. 예: Administrator; myUser1; myUser2|
 |CMMC Level 3|정책 할당|VM 에이전트 보고를 위한 Log Analytics 작업 영역 ID|VM 에이전트가 보고해야 하는 Log Analytics 작업 영역의 ID(GUID)|

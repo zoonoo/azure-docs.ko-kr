@@ -4,10 +4,10 @@ description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91405210"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
@@ -15,22 +15,22 @@ ms.locfileid: "91405210"
 Azure Advisor의 주요 기능에 대해 알아보고 자주 묻는 질문과 답변을 살펴봅니다.
 
 ## <a name="what-is-advisor"></a>Advisor란?
-Advisor는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 분석 한 다음 비용 효율성, 성능, 안정성 (이전의 고가용성) 및 Azure 리소스의 보안을 개선 하는 데 도움이 될 수 있는 솔루션을 권장 합니다.
+Advisor는 Azure 배포를 최적화하기 위한 모범 사례를 따르는 데 도움이 되는 개인 설정된 클라우드 컨설턴트입니다. 리소스 구성 및 사용량 원격 분석을 수행하고 Azure 리소스의 경제성, 성능, 고가용성 및 보안을 개선하는 데 도움이 되는 해결 방법을 권장합니다.
 
 Advisor를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 * 사전 대응이 가능하고, 실행 가능하고, 맞춤형 모범 사례 추천 가져오기 
-* 전반적인 Azure 비용을 줄일 수 있는 기회를 식별 하 여 리소스의 성능, 보안 및 안정성을 향상 시킵니다.
+* 전체 Azure 지출을 줄일 수 있는 기회를 모색하면서 리소스의 성능, 보안, 안정성 향상
 * 온라인으로 작업이 제안되는 추천 가져오기
 
-[Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor** 를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
+[Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor** 를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
 Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다섯 가지 범주로 구분됩니다. 
 
-* **안정성 (이전에는 고가용성 이라고 함)**: 업무상 중요 한 응용 프로그램의 연속성을 보장 하 고 향상 시킵니다. 자세한 내용은 [Advisor 안정성 권장 사항](advisor-high-availability-recommendations.md)을 참조 하세요.
-* **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색 합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
-* **성능**: 응용 프로그램의 속도를 향상 시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
-* **비용**: 전체 Azure 비용을 최적화 하 고 절감 합니다. 자세한 내용은 [Advisor 비용 권장 사항](advisor-cost-recommendations.md)을 참조하세요.
-* **운영 뛰어난** 기능: 프로세스 및 워크플로 효율성, 리소스 관리 효율성 및 배포 모범 사례를 달성할 수 있도록 지원 합니다. . 자세한 내용은 Advisor 작동에 대 한 [권장 사항](advisor-operational-excellence-recommendations.md)을 참조 하세요.
+* **안전성(이전의 고가용성)** : 중요 비즈니스용 애플리케이션의 연속성을 보장하고 향상시키는 데 도움이 됩니다. 자세한 내용은 [Advisor 안전성 권장 사항](advisor-high-availability-recommendations.md)을 참조하세요.
+* **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
+* **성능**: 애플리케이션의 속도를 향상시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
+* **비용**: 전체 Azure 사용을 최적화하고 사용량을 줄입니다. 자세한 내용은 [Advisor 비용 권장 사항](advisor-cost-recommendations.md)을 참조하세요.
+* **뛰어난 운영**: 프로세스 및 워크플로 효율성, 리소스 관리 효율성, 배포 모범 사례를 달성하는 데 도움이 됩니다. . 자세한 내용은 [Advisor 뛰어난 운영 권장 사항](advisor-operational-excellence-recommendations.md)을 참조하세요.
 
   ![Advisor 권장 사항 유형](./media/advisor-overview/advisor-dashboard.png)
 
@@ -45,19 +45,19 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-do-i-access-advisor"></a>Advisor에 액세스하려면 어떻게 해야 하나요?
-[Azure Portal](https://aka.ms/azureadvisordashboard)를 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor** 를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
+[Azure Portal](https://aka.ms/azureadvisordashboard)을 통해 Advisor에 액세스할 수 있습니다. [Portal](https://portal.azure.com)에 로그인하고 탐색 메뉴에서 **Advisor** 를 찾거나 **모든 서비스** 메뉴에서 검색합니다.
 
 가상 머신 리소스 인터페이스를 통해 Advisor 권장 사항을 볼 수도 있습니다. 가상 컴퓨터를 선택하고 메뉴에서 Advisor 권장 사항으로 스크롤합니다. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor에 액세스하려면 어떤 권한이 필요하나요?
  
-구독, 리소스 그룹 또는 리소스의 *소유자*, *참가자* 또는 *읽기 권한자* 로 Advisor 권장 사항에 액세스할 수 있습니다.
+구독, 리소스 그룹 또는 리소스의 ‘소유자’, ‘기여자’ 또는 ‘읽기 권한자’로 Advisor 권장 사항에 액세스할 수 있습니다.  
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
-Advisor는 Application Gateway, App Services, 가용성 집합, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure Express 경로, Azure Cosmos DB, Azure 공용 IP 주소, Azure Synapse 분석, SQL server, storage 계정, Traffic Manager 프로필 및 가상 컴퓨터에 대 한 권장 사항을 제공 합니다.
+Advisor는 Application Gateway, App Services, 가용성 집합, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure 공용 IP 주소, Azure Synapse Analytics, SQL Server, 스토리지 계정, Traffic Manager 프로필, 가상 머신에 대한 권장 사항을 제공합니다.
 
-Azure Advisor에는 추가 리소스 유형에 대 한 권장 사항을 포함 하는 [Azure Security Center](../security-center/security-center-recommendations.md) 의 권장 사항도 포함 되어 있습니다.
+Azure Advisor는 추가 리소스 종류에 대한 권장 사항이 포함될 수 있는 [Azure Security Center](../security-center/security-center-recommendations.md)의 권장 사항도 포함합니다.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 
@@ -73,4 +73,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
-* [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)
+* [Advisor 뛰어난 운영 권장 사항](advisor-operational-excellence-recommendations.md)

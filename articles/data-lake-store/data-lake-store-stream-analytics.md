@@ -1,20 +1,20 @@
 ---
-title: Stream Analytics에서 Data Lake Storage Gen1로 데이터 스트리밍-Azure
-description: Azure Storage blob에서 데이터를 읽는 간단한 시나리오를 사용 하 여 Azure Stream Analytics 작업에 대 한 출력으로 Azure Data Lake Storage Gen1를 사용 하는 방법에 대해 알아봅니다.
+title: Stream Analytics에서 Data Lake Storage Gen1로 데이터 스트리밍 - Azure
+description: Azure Storage Blob에서 데이터를 읽는 간단한 시나리오에서 Azure Data Lake Storage Gen1을 Azure Stream Analytics 작업의 출력으로 사용하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
 ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91576220"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Azure Stream Analytics를 사용하여 Azure Storage Blob에서 Azure Data Lake Storage Gen1에 데이터 스트리밍
-이 문서에서는 Azure Stream Analytics 작업에 대 한 출력으로 Azure Data Lake Storage Gen1를 사용 하는 방법에 대해 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
+이 문서에서는 Azure Data Lake Storage Gen1을 Azure Stream Analytics 작업의 출력으로 사용하는 방법을 알아봅니다. 이 문서에서는 Azure Storage Blob(입력)에서 데이터를 읽고 Data Lake Storage Gen1(출력)에 데이터를 기록하는 간단한 시나리오를 보여줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
@@ -42,11 +42,11 @@ ms.locfileid: "91576220"
 
 1. Stream Analytics 작업 페이지를 열고 왼쪽 창에서 **입력** 탭을 클릭한 다음 **추가** 를 클릭합니다.
 
-    ![입력 옵션 및 스트림 입력 추가 옵션을 사용 하는 Stream Analytics 작업 블레이드의 스크린샷](./media/data-lake-store-stream-analytics/create.input.1.png "작업에 입력 추가")
+    ![입력 옵션과 스트림 입력 추가 옵션이 설명선으로 표시된 Stream Analytics 작업 블레이드 스크린샷](./media/data-lake-store-stream-analytics/create.input.1.png "작업에 입력 추가")
 
 2. **새 입력** 블레이드에서 다음 값을 제공합니다.
 
-    ![Blob storage-새 입력 블레이드의 스크린샷](./media/data-lake-store-stream-analytics/create.input.2.png "작업에 입력 추가")
+    ![Blob Storage - 새 입력 블레이드 스크린샷](./media/data-lake-store-stream-analytics/create.input.2.png "작업에 입력 추가")
 
    * **입력 별칭** 에 작업 입력에 대한 고유한 이름을 입력합니다.
    * **원본 형식** 으로 **데이터 스트림** 을 선택합니다.
@@ -65,18 +65,18 @@ ms.locfileid: "91576220"
 
 1. Stream Analytics 작업에 대한 페이지를 열고 **출력** 탭을 클릭한 다음, **추가** 를 클릭하고 **Data Lake Storage Gen1** 을 선택합니다.
 
-    ![출력 옵션, 추가 옵션 및 Data Lake Storage Gen 1 옵션을 호출한 Stream Analytics 작업 블레이드의 스크린샷](./media/data-lake-store-stream-analytics/create.output.1.png "작업에 출력 추가")
+    ![출력 옵션, 추가 옵션, Data Lake Storage Gen1 옵션이 설명선으로 표시된 Stream Analytics 작업 블레이드 스크린샷](./media/data-lake-store-stream-analytics/create.output.1.png "작업에 출력 추가")
 
 2. **새 출력** 블레이드에서 다음 값을 제공합니다.
 
-    ![권한 부여 옵션을 호출 하 여 Data Lake Storage Gen 1-새 출력 블레이드의 스크린샷](./media/data-lake-store-stream-analytics/create.output.2.png "작업에 출력 추가")
+    ![권한 부여 옵션이 설명선으로 표시된 Data Lake Storage Gen1 - 새 출력 블레이드 스크린샷](./media/data-lake-store-stream-analytics/create.output.2.png "작업에 출력 추가")
 
     * **입력 별칭** 에 작업 출력에 대한 고유한 이름을 입력합니다. 쿼리 출력을 이 Data Lake Storage Gen1 계정으로 직접 보내기 위해 쿼리에서 사용되는 식별 이름입니다.
-    * Data Lake Storage Gen1 계정에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. **권한 부여** 를 클릭 합니다.
+    * Data Lake Storage Gen1 계정에 대한 액세스 권한을 부여하라는 메시지가 표시됩니다. **권한 부여** 를 클릭합니다.
 
 3. **새 출력** 블레이드에서 계속 다음 값을 제공합니다.
 
-    ![Data Lake Storage Gen 1-새 출력 블레이드의 스크린샷](./media/data-lake-store-stream-analytics/create.output.3.png "작업에 출력 추가")
+    ![Data Lake Storage Gen1 - 새 출력 블레이드 스크린샷](./media/data-lake-store-stream-analytics/create.output.3.png "작업에 출력 추가")
 
    * **계정 이름** 에는 작업 출력을 전송하려는 위치에 미리 만든 Data Lake Storage Gen1 계정을 선택합니다.
    * **경로 접두사 패턴** 에는 지정된 Data Lake Storage Gen1 계정 내에서 파일을 작성하는 데 사용되는 파일 경로를 입력합니다.
@@ -90,7 +90,7 @@ ms.locfileid: "91576220"
     
 ## <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
-1. Stream Analytics 작업을 실행 하려면 **쿼리** 탭에서 쿼리를 실행 해야 합니다. 이 자습서에서는 아래 화면 캡처에 표시 된 것 처럼 자리 표시자를 작업 입력 및 출력 별칭으로 바꿔서 샘플 쿼리를 실행할 수 있습니다.
+1. Stream Analytics 작업을 실행하려면 **쿼리** 탭에서 쿼리를 실행해야 합니다. 이 자습서에서는 아래 화면 캡처와 같이 자리 표시자를 작업 입력 및 출력 별칭으로 대체하여 샘플 쿼리를 실행할 수 있습니다.
 
     ![쿼리 실행](./media/data-lake-store-stream-analytics/run.query.png "쿼리 실행")
 

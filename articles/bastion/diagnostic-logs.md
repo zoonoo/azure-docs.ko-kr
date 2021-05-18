@@ -1,6 +1,6 @@
 ---
-title: Azure 방호 리소스 로그 사용 및 사용
-description: 이 문서에서는 Azure 방호 진단 로그를 사용 하도록 설정 하 고 작업 하는 방법에 대해 알아봅니다.
+title: Azure Bastion 리소스 로그 사용 및 작업
+description: 이 문서에서는 Azure Bastion 진단 로그를 사용하도록 설정하고 작업하는 방법을 알아봅니다.
 services: bastion
 author: charwen
 ms.service: bastion
@@ -8,47 +8,47 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91445382"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Bastion 리소스 로그 사용 및 작업
 
-사용자가 Azure 방호를 사용 하 여 워크 로드에 연결 하면, 원격 세션의 진단 정보를 로깅할 수 있습니다. 그런 다음 진단을 사용 하 여 어떤 사용자가 어떤 시간에 어떤 작업에 연결 되어 있는지와 관련 된 로깅 정보를 볼 수 있습니다. 진단을 사용 하려면 Azure 방호에서 진단 로그를 사용 하도록 설정 해야 합니다. 이 문서는 진단 로그를 사용 하도록 설정 하 고 로그를 확인 하는 데 도움이 됩니다.
+사용자가 Azure Bastion을 사용하여 워크로드에 연결하면 Bastion에서 원격 세션 진단을 로깅할 수 있습니다. 그런 다음 진단을 사용하여 어떤 사용자가 어디에서 언제 어떤 워크로드에 연결되었는지 및 관련된 로깅 정보 등을 볼 수 있습니다. 진단을 사용하려면 Azure Bastion에서 진단 로그를 사용하도록 설정해야 합니다. 이 문서는 진단 로그를 사용하도록 설정하고 로그를 확인하는 데 도움이 됩니다.
 
 ## <a name="enable-the-resource-log"></a><a name="enable"></a>리소스 로그 사용
 
-1. [Azure Portal](https://portal.azure.com)에서 azure 방호 리소스로 이동 하 고 azure 방호 페이지에서 **진단 설정** 을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Azure Bastion 리소스로 이동한 다음, Azure Bastion 페이지에서 **진단 설정** 을 선택합니다.
 
-   !["진단 설정" 페이지를 보여 주는 스크린샷](./media/diagnostic-logs/1diagnostics-settings.png)
-2. **진단 설정** 을 선택 하 고 **+ 진단 설정 추가** 를 선택 하 여 로그 대상을 추가 합니다.
+   ![“진단 설정” 페이지 스크린샷](./media/diagnostic-logs/1diagnostics-settings.png)
+2. **진단 설정** 을 선택한 다음 **+ 진단 설정 추가** 를 선택하여 로그 대상을 추가합니다.
 
-   !["진단 설정 추가" 단추가 선택 된 "진단 설정" 페이지를 보여 주는 스크린샷](./media/diagnostic-logs/2add-diagnostic-setting.png)
-3. **진단 설정** 페이지에서 진단 로그를 저장 하는 데 사용할 저장소 계정의 유형을 선택 합니다.
+   ![“진단 설정 추가” 단추가 선택된 “진단 설정” 페이지 스크린샷](./media/diagnostic-logs/2add-diagnostic-setting.png)
+3. **진단 설정** 페이지에서 진단 로그를 저장하는 데 사용할 스토리지 계정 유형을 선택합니다.
 
-   ![강조 표시 된 저장소 위치를 선택 하는 섹션을 포함 하는 "진단 설정" 페이지의 스크린샷](./media/diagnostic-logs/3add-storage-account.png)
-4. 설정을 완료 하면 다음 예제와 같이 표시 됩니다.
+   ![스토리지 위치 선택 섹션이 강조 표시된 “진단 설정” 페이지 스크린샷](./media/diagnostic-logs/3add-storage-account.png)
+4. 설정을 완료하면 다음 예제와 같이 표시됩니다.
 
-   ![설정 예](./media/diagnostic-logs/4example-settings.png)
+   ![예제 설정](./media/diagnostic-logs/4example-settings.png)
 
 ## <a name="view-diagnostics-log"></a><a name="view"></a>진단 로그 보기
 
-진단 로그에 액세스 하려면 진단 설정을 사용 하도록 설정 하는 동안 지정한 저장소 계정을 직접 사용할 수 있습니다.
+진단 로그에 액세스하려면 진단 설정을 사용하도록 설정하는 동안 지정한 스토리지 계정을 직접 사용할 수 있습니다.
 
-1. 저장소 계정 리소스, **컨테이너로** 차례로 이동 합니다. 저장소 계정 blob 컨테이너에서 만든 **bastionauditlogs** blob이 표시 됩니다.
+1. 스토리지 계정 리소스, **컨테이너** 로 차례로 이동합니다. 스토리지 계정 Blob 컨테이너에 **insights-logs-bastionauditlogs** Blob이 생성된 것을 확인할 수 있습니다.
 
    ![진단 설정](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. 컨테이너 내부로 이동 하면 블로그의 다양 한 폴더가 표시 됩니다. 이러한 폴더는 Azure 방호 리소스의 리소스 계층 구조를 표시 합니다.
+2. 컨테이너 내부로 이동하면 블로그에 다양한 폴더가 있는 것을 확인할 수 있습니다. 해당 폴더는 Azure Bastion 리소스의 리소스 계층 구조를 나타냅니다.
 
    ![진단 설정 추가](./media/diagnostic-logs/2-resource-h.png)
-3. 액세스/확인 하려는 진단 로그를 포함 하는 Azure 방호 리소스의 전체 계층으로 이동 합니다. ' Y = ', ' m = ', ' d = ', ' h = ' 및 ' t = '는 리소스 로그의 연도, 월, 일, 시 및 분을 각각 표시 합니다.
+3. 진단 로그를 액세스/확인하려는 Azure Bastion 리소스의 전체 계층 구조로 이동합니다. ‘y=’, ‘m=’, ‘d=’, ‘h=’, ‘m=’은 리소스 로그의 연도, 월, 일, 시간, 분을 각각 나타냅니다.
 
-   ![저장소 위치 선택](./media/diagnostic-logs/3-resource-location.png)
-4. Azure 방호에서 만든 json 파일을 찾습니다. 해당 기간에 대 한 진단 로그 데이터를 포함 합니다.
+   ![스토리지 위치 선택](./media/diagnostic-logs/3-resource-location.png)
+4. 탐색한 기간의 진단 로그 데이터가 포함된, Azure Bastion에서 만든 json 파일을 찾습니다.
 
-5. 저장소 blob 컨테이너에서 json 파일을 다운로드 합니다. Json 파일의 예제 항목은 참조용으로 다음과 같이 표시 됩니다.
+5. 스토리지 Blob 컨테이너에서 json 파일을 다운로드합니다. 아래에는 json 파일의 예제 항목이 참조용으로 나와 있습니다.
 
    ```json
    { 

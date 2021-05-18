@@ -1,7 +1,7 @@
 ---
 title: MSAL.js에서 오류 및 예외 처리
 titleSuffix: Microsoft identity platform
-description: 오류 및 예외를 처리 하는 방법, 조건부 액세스 클레임 문제 및 MSAL.js 응용 프로그램에서 다시 시도 하는 방법에 대해 알아봅니다.
+description: MSAL 애플리케이션에서 오류와 예외, 조건부 액세스, 클레임, 챌린지 및 다시 시도를 처리하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,19 +14,19 @@ ms.author: marsma
 ms.reviewer: saeeda, hahamil
 ms.custom: aaddev
 ms.openlocfilehash: 20d276aba2ee3260911748cbee0a16020270059a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98761348"
 ---
 # <a name="handle-errors-and-exceptions-in-msaljs"></a>MSAL.js에서 오류 및 예외 처리
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## <a name="error-handling-in-msaljs"></a>MSAL.js의 오류 처리
+## <a name="error-handling-in-msaljs"></a>MSAL.js에서 오류 처리
 
-MSAL.js는 여러 유형의 일반적인 오류를 추상화하고 분류 하는 오류 개체를 제공합니다. 또한 오류 메시지와 같은 오류에 대 한 특정 세부 정보에 액세스 하 여 적절 하 게 처리할 수 있는 인터페이스도 제공 합니다.
+MSAL.js는 여러 유형의 일반적인 오류를 추상화하고 분류 하는 오류 개체를 제공합니다. 또한 오류 메시지와 같은 오류에 대한 특정 세부 정보에 액세스하여 적절히 처리하기 위한 인터페이스도 제공합니다.
 
 ### <a name="error-object"></a>Error 개체
 
@@ -155,4 +155,4 @@ myMSALObj.acquireTokenSilent(accessTokenRequest).then(function(accessTokenRespon
 
 ## <a name="next-steps"></a>다음 단계
 
-문제를 진단 하 고 디버깅 하는 데 도움이 되도록 [MSAL.js](msal-logging-js.md) 로그인을 사용 하는 것이 좋습니다.
+문제를 진단하고 디버그할 수 있도록 [MSAL.js에서 로깅](msal-logging-js.md)을 사용하도록 설정하는 것이 좋습니다.

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: cshoe
 ms.openlocfilehash: d561c72bb1c6e6e67de7698d7b21901fcf8d1f7c
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105544420"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 GitHub Actions 워크플로 미리 보기
@@ -96,7 +96,7 @@ on:
 
 `on` 속성과 연결된 설정을 통해 작업을 트리거하는 분기를 정의하고, 여러 끌어오기 요청 상태에 대해 발생하는 트리거를 설정할 수 있습니다.
 
-이 예제에서는 _main_ 분기가 변경 될 때 워크플로를 시작 합니다. 워크플로를 시작하는 변경 내용에는 선택한 분기에 대한 밀어넣기 커밋 및 끌어오기 요청 열기가 포함됩니다.
+이 예에서는 _주_ 분기가 변경될 때 워크플로를 시작합니다. 워크플로를 시작하는 변경 내용에는 선택한 분기에 대한 밀어넣기 커밋 및 끌어오기 요청 열기가 포함됩니다.
 
 ## <a name="jobs"></a>작업
 
@@ -107,7 +107,7 @@ Static Web Apps 워크플로 파일에는 두 개의 사용 가능한 작업이 
 | 속성  | Description |
 |---------|---------|
 |`build_and_deploy_job` | 커밋을 푸시하거나 `on` 속성에 나열된 분기에 대해 끌어오기 요청을 열 때 실행됩니다. |
-|`close_pull_request_job` | 끌어오기 요청을 닫을 때만 실행 되며, 끌어오기 요청에서 만든 스테이징 환경을 제거 합니다. |
+|`close_pull_request_job` | 끌어오기 요청을 닫을 때만 실행되며 끌어오기 요청에서 만든 스테이징 환경을 제거합니다. |
 
 ## <a name="steps"></a>단계
 
@@ -148,7 +148,7 @@ Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_w
 
 | 명령            | Description |
 |---------------------|-------------|
-| `app_build_command` | 정적 콘텐츠 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.<br><br>예를 들어, 각도 응용 프로그램에 대해 프로덕션 빌드를 구성 하려면를 실행 하도록 라는 npm 스크립트를 만들고를 `build-prod` `ng build --prod` `npm run build-prod` 사용자 지정 명령으로 입력 합니다. 이를 비워 두면 워크플로에서 `npm run build` 또는 `npm run build:azure` 명령을 실행하려고 시도합니다.  |
+| `app_build_command` | 정적 콘텐츠 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다.<br><br>예를 들어 Angular 애플리케이션에 대한 프로덕션 빌드를 구성하려면 `build-prod`라는 이름의 npm 스크립트를 만들어 `ng build --prod`를 실행하고 `npm run build-prod`를 사용자 지정 명령으로 입력합니다. 이를 비워 두면 워크플로에서 `npm run build` 또는 `npm run build:azure` 명령을 실행하려고 시도합니다.  |
 | `api_build_command` | Azure Functions API 애플리케이션을 배포하는 동안 실행할 사용자 지정 명령을 정의합니다. |
 
 ## <a name="route-file-location"></a>경로 파일 위치
@@ -163,7 +163,7 @@ Azure Static Web Apps에서 설정된 `repo_token`, `action` 및 `azure_static_w
 
 ## <a name="environment-variables"></a>환경 변수
 
-작업 구성의 섹션을 통해 빌드에 대 한 환경 변수를 설정할 수 있습니다 `env` .
+작업 구성의 `env` 섹션을 통해 빌드에 대한 환경 변수를 설정할 수 있습니다.
 
 ```yaml
 jobs:
@@ -191,9 +191,9 @@ jobs:
           HUGO_VERSION: 0.58.0
 ```
 
-## <a name="monorepo-support"></a>Monorepo 지원
+## <a name="monorepo-support"></a>monorepo 지원
 
-Monorepo는 둘 이상의 응용 프로그램에 대 한 코드를 포함 하는 리포지토리입니다. 기본적으로 정적 Web Apps 워크플로 파일은 리포지토리의 모든 파일을 추적 하지만 단일 앱을 대상으로 조정할 수 있습니다. 따라서 자료의 경우 각 정적 앱에는 리포지토리의 *github/워크플로* 폴더에 나란히 있는 자체 구성 파일이 있습니다.
+monorepo는 둘 이상의 애플리케이션에 대한 코드를 포함하는 리포지토리입니다. 기본적으로 Static Web Apps 워크플로 파일은 리포지토리의 모든 파일을 추적하지만 단일 앱을 대상으로 조정할 수 있습니다. 따라서 monorepos의 경우 각 정적 앱에는 저장소의 *.github/workflows* 폴더에 나란히 있는 자체 구성 파일이 있습니다.
 
 ```files
 ├── .github
@@ -210,9 +210,9 @@ Monorepo는 둘 이상의 응용 프로그램에 대 한 코드를 포함 하는
 └── README.md
 ```
 
-단일 앱에 워크플로 파일을 대상으로 지정 하려면 및 섹션에서 경로를 `push` 지정 `pull_request` 합니다.
+단일 앱의 대상으로 워크플로 파일을 지정하려면 `push` 및 `pull_request` 섹션에 경로를 지정합니다.
 
-다음 예제에서는 `paths` `push` `pull_request` _azure-static-web-apps-purple-pond_ 라는 파일의 및 섹션에 노드를 추가 하는 방법을 보여 줍니다.
+다음 예에서는 _azure-static-web-apps-purple-pond.yml_ 파일의 `push` 및 `pull_request` 섹션에 `paths` 노드를 추가하는 방법을 보여 줍니다.
 
 ```yml
 on:
@@ -233,11 +233,11 @@ on:
       - .github/workflows/azure-static-web-apps-purple-pond.yml
 ```
 
-이 인스턴스에서 다음 파일에 대 한 변경 내용만 새 빌드를 트리거합니다.
+이 인스턴스에서 다음 파일에 대한 변경 내용만 새 빌드를 트리거합니다.
 
-- *App1* 폴더 내의 모든 파일
-- *Api1* 폴더 내의 모든 파일
-- 앱의 *azure-static-web-apps-purple-pond* 워크플로 파일에 대 한 변경 내용
+- *app1* 폴더 내의 모든 파일
+- *api1* 폴더 내의 모든 파일
+- 앱의 *azure-static-web-apps-purple-pond.yml* 워크플로 파일에 대한 변경 내용
 
 ## <a name="next-steps"></a>다음 단계
 

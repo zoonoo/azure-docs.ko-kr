@@ -14,19 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: b0bffbba34e7816b62325db7999a7f5c6398b881
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 12a6ae76b1eb4dced661b811d8f6e9030f74b4f1
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124512"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795729"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>장기 로그 보존 시 Azure Data Explorer 통합
-
-<!--Info not included:>
-
-Script - can't xref out to a private github repo from docs
--->
 
 기본적으로 Azure Sentinel에 수집된 로그는 Azure Monitor Log Analytics에 저장됩니다. 이 문서에서는 장기 보존 시 Azure Data Explorer에 보내 Azure Sentinel의 보존 비용을 절감하는 방법을 설명합니다.
 
@@ -44,7 +39,7 @@ Azure Sentinel은 전체 SIEM/SOAR 기능, 신속한 배포/구성뿐만 아니�
 
 정기적인 조사나 감사와 같이 특정 테이블에만 액세스해야 하는 경우 Azure Sentinel에 데이터를 유지하는 것이 더 이상 비용 효율적이지 않다고 생각할 수 있습니다. 이때에는 비용이 절감되는 Azure Data Explorer에 데이터를 저장하는 것이 좋지만, Azure Sentinel에서 실행하는 것과 동일한 KQL 쿼리를 사용하여 계속 탐색할 수 있습니다.
 
-[Log Analytics Azure Data Explorer 프록시 기능](//azure/azure-monitor/logs/azure-monitor-data-explorer-proxy)을 사용하여 Azure Sentinel에서 직접 Azure Data Explorer의 데이터에 액세스할 수 있습니다. 이렇게 하려면 로그 검색 또는 통합 문서에서 클러스터 간 쿼리를 사용합니다.
+[Log Analytics Azure Data Explorer 프록시 기능](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy)을 사용하여 Azure Sentinel에서 직접 Azure Data Explorer의 데이터에 액세스할 수 있습니다. 이렇게 하려면 로그 검색 또는 통합 문서에서 클러스터 간 쿼리를 사용합니다.
 
 > [!IMPORTANT]
 > 분석 규칙, UEBA 및 조사 그래프 등의 핵심 SIEM 기능은 Azure Data Explorer에 저장된 데이터를 지원하지 않습니다.

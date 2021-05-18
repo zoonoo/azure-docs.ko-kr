@@ -1,14 +1,14 @@
 ---
-title: Azure Relay란? | Microsoft 문서
+title: Azure Relay란? | Microsoft Docs
 description: 이 문서에서는 Azure Relay 서비스에 대한 개요를 제공합니다. 이 서비스를 사용하면 방화벽 연결을 열거나 네트워크 인프라를 강제로 변경하지 않고도 회사 네트워크에서 실행되는 온-프레미스 서비스를 사용하는 클라우드 애플리케이션을 개발할 수 있습니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: fbf1b2134a4c2dce7a3e6a62668d0852dc08c18a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 3b222942394b8a83e6f5d4447aa9ccfb33cdec21
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97955385"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314204"
 ---
 # <a name="what-is-azure-relay"></a>Azure Relay란?
 Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서비스를 퍼블릭 클라우드에 안전하게 공개할 수 있습니다. 방화벽에서 포트를 열거나 회사 네트워크 인프라를 강제로 변경하지 않고도 이 작업을 수행할 수 있습니다. 
@@ -17,7 +17,7 @@ Azure Relay 서비스를 사용하면 회사 네트워크에서 실행되는 서
 
 - 기존의 단방향 요청/응답 및 피어 투 피어 통신 
 - 게시/구독 시나리오를 사용할 수 있게 하는 인터넷 범위의 이벤트 배포 
-- 네트워크 경계를 넘어 양방향 및 버퍼링 되지 않은 소켓 통신
+- 네트워크 경계를 가로지르는 양방향 비버퍼링 소켓 통신
 
 Azure Relay는 VPN과 같은 네트워크 수준의 통합 기술과 다릅니다. Azure Relay의 범위는 단일 머신의 단일 애플리케이션 엔드포인트로 지정될 수 있습니다. VPN 기술은 네트워크 환경 변화에 따라 결정되므로 훨씬 더 많이 개입해야 합니다. 
 
@@ -48,7 +48,7 @@ Azure Relay의 하이브리드 연결 기능은 이전에 있던 Relay 기능의
 ## <a name="wcf-relay"></a>WCF 릴레이
 WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이" 바인딩 모음을 사용하여 온-프레미스 서비스와 릴레이 서비스 사이의 연결을 만듭니다. 릴레이 바인딩은 클라우드에서 Service Bus와 통합하는 WCF 채널 구성 요소를 생성하도록 설계된 새로운 전송 바인딩 요소에 매핑합니다. 자세한 내용은 [WCF 릴레이 시작](service-bus-relay-tutorial.md)을 참조하세요.
 
-## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결와 WCF Relay 비교
+## <a name="hybrid-connections-vs-wcf-relay"></a>하이브리드 연결과 WCF Relay
 하이브리드 연결과 WCF Relay는 모두 회사 네트워크 내에 있는 자산에 안전하게 연결할 수 있게 합니다. 다음 표에서 설명한 대로 이들 중 무엇을 사용할지는 특정 요구 사항에 따라 달라집니다.
 
 |  | WCF 릴레이 | 하이브리드 연결 |
@@ -72,13 +72,13 @@ WCF Relay는 전체 .NET Framework 및 WCF에서 작동합니다. WCF "릴레이
 5. 게이트웨이에서 연결 요청을 게이트웨이 저장소에 언급된 올바른 게이트웨이로 전달합니다. 
 6. 게이트웨이에서 송신 클라이언트에 가장 가까운 게이트웨이 노드에 대한 임시 채널을 만들도록 요구하는 요청을 수신 클라이언트에 보냅니다. 
 7. 수신 클라이언트는 송신 클라이언트에서 가장 가까운 게이트웨이에 대한 임시 채널을 만듭니다. 이제 게이트웨이를 통해 클라이언트 간의 연결이 수립되었으므로 클라이언트가 서로 메시지를 교환할 수 있습니다. 
-8. 게이트웨이는 수신 대기 클라이언트에서 보내는 클라이언트로 메시지를 전달 합니다. 
+8. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다. 
 9. 게이트웨이는 메시지를 송신 클라이언트에서 수신 대기 클라이언트로 전달합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-* [.NET Websocket 시작](relay-hybrid-connections-dotnet-get-started.md)
+* [.NET WebSockets 시작](relay-hybrid-connections-dotnet-get-started.md)
 * [.NET HTTP 요청 시작](relay-hybrid-connections-http-requests-dotnet-get-started.md)
-* [노드 Websocket 시작](relay-hybrid-connections-node-get-started.md)
+* [Node WebSockets 시작](relay-hybrid-connections-node-get-started.md)
 * [Node HTTP 요청 시작](relay-hybrid-connections-http-requests-node-get-started.md)
-* [릴레이 FAQ](relay-faq.md)
+* [릴레이 FAQ](relay-faq.yml)
 

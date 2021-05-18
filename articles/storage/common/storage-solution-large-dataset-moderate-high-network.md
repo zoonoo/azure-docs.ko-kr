@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: cf0e423648db174433f0717f2e5971ac49697b42
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98704626"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>보통-높은 네트워크 대역폭에서 대용량 데이터 세트의 데이터 전송
@@ -69,7 +69,7 @@ ms.locfileid: "98704626"
 |    **폼 팩터**                  |    주문당 5개 SSD             |    1 X 50lbs 주문당 데스크톱 크기 디바이스    |    1 X ~500lbs 주문당 대형 디바이스    |    주문당 최대 10개 HDD/SSD        |
 |    **초기 설치 시간**               |    낮음 <br>(15분)            |    낮음-보통 <br> (30분 미만)               |    보통<br>(1~2시간)               |    보통-어려움<br>(가변적) |
 |    **Azure에 데이터 보내기**           |    예                          |    예                                           |    예                                   |    예                                 |
-|    **Azure에서 데이터 내보내기**           |    아니요                           |    아니요                                            |    아니요                                    |    예                                 |
+|    **Azure에서 데이터 내보내기**           |    예                           |    예                                            |    예                                    |    예                                 |
 |    **암호화**                   |    AES 128비트                  |    AES 256비트                                   |    AES 256비트                           |    AES 128비트                         |
 |    **하드웨어**                     |     Microsoft 제공          |    Microsoft 제공                            |    Microsoft 제공                    |    고객 제공                   |
 |    **네트워크 인터페이스**            |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -83,13 +83,13 @@ ms.locfileid: "98704626"
 
 ### <a name="high-network-bandwidth"></a>높은 네트워크 대역폭
 
-|                                     |    도구 AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API, SDK                   |    Data Box Gateway 또는 Data Box Edge          |    Azure 데이터 팩터리                                            |
+|                                     |    도구 AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API, SDK                   |    Data Box Gateway 또는 Data Box Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    **데이터 형식**              |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files, Azure 테이블    |    Azure Blob, Azure Files                           |   데이터 저장소 및 형식을 위해 70개 이상의 데이터 커넥터 지원    |
 |    **폼 팩터**            |    명령줄 도구                        |    프로그래밍 인터페이스                    |    Microsoft에서 가상 <br>또는 물리적 디바이스 제공     |    Azure Portal의 서비스                                            |
 |    **초기 일회성 설치** |    쉬움               |    보통                       |    쉬움(30분 미만)~보통(1~2시간)            |    광범위                                                          |
-|    **데이터 사전 처리**          |    아니요                                        |    아니요                                        |    예(Edge 컴퓨팅 사용)                               |    예                                                                |
-|    **다른 클라우드에서 전송**   |    아니요                                        |    아니요                                        |    아니요                                                    |    예                                                                |
+|    **데이터 사전 처리**          |    예                                        |    예                                        |    예(Edge 컴퓨팅 사용)                               |    예                                                                |
+|    **다른 클라우드에서 전송**   |    예                                        |    예                                        |    예                                                    |    예                                                                |
 |    **사용자 유형**                    |    IT 전문가 또는 개발자                                       |    개발                                       |    IT Pro                                                |    IT Pro                                                             |
 |    **가격**                      |    무료, 데이터 송신 요금 적용         |    무료, 데이터 송신 요금 적용         |    [가격](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [가격](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
@@ -98,12 +98,12 @@ ms.locfileid: "98704626"
 - [Import/Export를 사용하여 데이터를 전송하는 방법 알아보기](../../import-export/storage-import-export-data-to-blobs.md)
 - 다음 작업을 수행하는 방법을 이해합니다.
 
-    - [Data Box Disk를 사용 하 여 데이터를 전송](../../databox/data-box-disk-quickstart-portal.md)합니다.
-    - [Data Box를 사용 하 여 데이터를 전송](../../databox/data-box-quickstart-portal.md)합니다.
-- [AzCopy를 사용 하 여 데이터를 전송](./storage-use-azcopy-v10.md)합니다.
+    - [Data Box Disk를 사용하여 데이터 전송](../../databox/data-box-disk-quickstart-portal.md)
+    - [Data Box를 사용하여 데이터 전송](../../databox/data-box-quickstart-portal.md)
+- [AzCopy를 사용하여 데이터 전송](./storage-use-azcopy-v10.md)
 - 다음 작업을 수행하는 방법을 이해합니다.
     - [Data Box Gateway를 통해 데이터 전송](../../databox-gateway/data-box-gateway-deploy-add-shares.md).
-    - [Azure로 보내기 전에 Data Box Edge 데이터를 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)합니다.
+    - [Azure로 보내기 전에 Data Box Edge를 사용하여 데이터 변환](../../databox-online/azure-stack-edge-deploy-configure-compute.md)
 - [Azure Data Factory를 사용하여 데이터를 전송하는 방법 알아보기](../../data-factory/quickstart-create-data-factory-portal.md)
 - REST API를 사용하여 데이터 전송
 

@@ -1,6 +1,6 @@
 ---
-title: Windows server/System Center VMM 2012 r 2를 Windows Server 2016로 업그레이드-Azure Site Recovery
-description: Azure Site Recovery를 사용 하 여 구성 된 SCVMM 2012 R2 & Windows Server 2012 R2 호스트를 Windows Server 2016 & SCVMM 2016로 업그레이드 하는 방법에 대해 알아봅니다.
+title: Windows Server/System Center VMM 2012 R2에서 Windows Server 2016-Azure Site Recovery로 업그레이드
+description: Azure Site Recovery로 구성한 Windows Server 2012 R2 호스트, SCVMM 2012 R2를 Windows Server 2016 및 SCVMM 2016으로 업그레이드하는 방법을 알아봅니다.
 services: site-recovery
 author: Sharmistha-Rai
 manager: gaggupta
@@ -9,13 +9,13 @@ ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
 ms.openlocfilehash: b3df487d690befadd249142c449163c2393f6df6
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105640321"
 ---
-# <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Windows server Server/System Center 2012 R2 VMM을 Windows Server/VMM 2016로 업그레이드 
+# <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Windows Server/System Center 2012 R2 VMM에서 Windows Server/VMM 2016으로 업그레이드 
 
 이 문서에서는 Azure Site Recovery로 구성한 Windows Server 2012 R2 호스트, SCVMM 2012 R2를 Windows Server 2016 및 SCVMM 2016으로 업그레이드하는 방법을 보여줍니다.
 
@@ -42,11 +42,11 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 
 - System Center 2012 R2 VMM을 사용하는 경우 
 
-    - Vmm: **vmm 콘솔**  ->  **설정**  ->  **일반**  ->  **데이터베이스 연결** 에 대 한 데이터베이스 정보를 확인 합니다.
+    - VMM에서 데이터베이스 정보 확인: **VMM 콘솔** -> **설정** -> **일반** -> **데이터베이스 연결**
     - System Center Virtual Machine Manager 에이전트 서비스에 사용되는 서비스 계정을 확인합니다.
     - VMM 데이터베이스의 백업이 있는지 확인합니다.
-    - 관련된 SCVMM 서버의 데이터베이스 이름을 적어 둡니다. **VMM 콘솔**  ->  **설정**  ->  **일반**  ->  **데이터베이스 연결** 로 이동 하 여이 작업을 수행할 수 있습니다.
-    - 2012R2 기본 및 복구 VMM 서버 둘 다의 VMM ID를 적어 둡니다. VMM ID는 "HKLM: \ SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup" 레지스트리에서 찾을 수 있습니다.
+    - 관련된 SCVMM 서버의 데이터베이스 이름을 적어 둡니다. 이 작업은 **VMM 콘솔** -> **설정** -> **일반** -> **데이터베이스 연결** 로 이동하여 수행할 수 있습니다.
+    - 2012R2 기본 및 복구 VMM 서버 둘 다의 VMM ID를 적어 둡니다. VMM ID는 레지스트리 "HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup"에서 찾을 수 있습니다.
     - 클러스터에 추가한 새 SCVMM이 이전과 동일한 이름을 갖는지 확인합니다. 
 
 - 양쪽에서 SCVMM으로 관리하는 두 사이트 간에 복제를 수행하는 경우 주 항목을 업그레이드하기 전에 먼저 복구 항목을 업그레이드해야 합니다.
@@ -66,7 +66,7 @@ Site Recovery는 BCDR(비즈니스 연속성 및 재해 복구 개선) 전략에
 2. 클러스터에 도입된 새로운 Windows Server 2016 호스트를 모두 사용하는 경우[여기]에 언급된 단계에 따라 Azure Site Recovery에서 Windows Server 2012 R2 호스트의 참조를 제거하세요. 이 호스트는 클러스터에서 드레이닝 및 방출하기 위해 선택한 호스트여야 합니다.
 3. 모든 가상 머신에 대해 *Update-VMVersion* 명령이 실행되면 업그레이드가 완료된 것입니다. 
 4. [여기](./hyper-v-azure-tutorial.md#set-up-the-source-environment)에 언급된 단계를 사용하여 새 Windows Server 2016 호스트를 Azure Site Recovery에 등록하세요. Hyper-V 사이트가 이미 활성 상태이므로 클러스터에 새 호스트를 등록하기만 하면 됩니다. 
-5. Azure Portal로 이동 하 여 Recovery Services 내에서 복제 된 상태를 확인 합니다.
+5. Azure Portal로 이동한 후 Recovery Services 내에서 복제된 상태를 확인합니다.
 
 ## <a name="upgrade-windows-server-2012-r2-hosts-managed-by-stand-alone-scvmm-2012-r2-server"></a>독립 실행형 SCVMM 2012 R2 서버로 관리하는 Windows Server 2012 R2 호스트 업그레이드
 Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2를 SCVMM 2016으로 업그레이드해야 합니다. 아래 단계를 수행하세요.
@@ -75,10 +75,10 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 
 1.  제어판 -> 프로그램 -> 프로그램 및 기능 ->Microsoft Azure Site Recovery로 이동하여 ASR 공급자를 제거하고 제거를 클릭합니다.
 2. [SCVMM 데이터베이스를 유지하고 운영 체제를 업그레이드합니다.](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#back-up-and-upgrade-the-operating-system)
-3. **프로그램 추가/제거** 에서 **VMM** > **제거** 를 선택합니다. b. **기능 제거** 를 선택한 다음, V **MM 관리 서버 및 VMM 콘솔** 을 선택 합니다. 다. **데이터베이스 옵션** 에서 **데이터베이스 유지** 를 선택합니다. d. 요약을 검토하고 **제거** 를 클릭합니다.
+3. **프로그램 추가/제거** 에서 **VMM** > **제거** 를 선택합니다. b. **기능 제거** 를 선택한 후 **VMM 관리 서버 및 VMM 콘솔** 을 선택합니다. 다. **데이터베이스 옵션** 에서 **데이터베이스 유지** 를 선택합니다. d. 요약을 검토하고 **제거** 를 클릭합니다.
 
 4. [VMM 2016 설치](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#install-vmm-2016)
-5. SCVMM을 시작 하 고 **패브릭** 탭에서 각 호스트의 상태를 확인 합니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭 합니다. 상태는 "주의 필요"로 표시 되어야 합니다. 
+5. SCVMM을 시작하고 **패브릭** 탭에서 각 호스트의 상태를 확인합니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭합니다. 상태는 "주의 필요"로 표시되어야 합니다. 
 17.    SCVMM에 최신 [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra)를 설치합니다.
 16.    클러스터의 각 호스트에 최신 [MARS(Microsoft Azure Recovery Service) 에이전트](https://aka.ms/latestmarsagent)를 설치합니다. 새로 고쳐 SCVMM이 호스트를 성공적으로 쿼리할 수 있는지 확인합니다.
 
@@ -87,7 +87,7 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 1. [여기](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process)에 언급된 단계에 따라 롤링 클러스터 업그레이드 프로세스를 실행합니다. 
 2. 클러스터에 새 호스트를 추가한 후 SCVMM 콘솔에서 호스트를 새로 고쳐 이 업데이트된 호스트에 VMM 에이전트를 설치합니다.
 3. 가상 머신의 VM 버전을 업데이트하려면 *Update-VMVersion* 을 실행합니다. 
-4. Azure Portal로 이동 하 여 Recovery Services 자격 증명 모음 내에 있는 가상 머신의 복제 상태를 확인 합니다. 
+4. Azure Portal로 이동한 후 Recovery Services 자격 증명 모음에서 가상 머신의 복제된 상태를 확인합니다. 
 
 ## <a name="upgrade-windows-server-2012-r2-hosts-are-managed-by-highly-available-scvmm-2012-r2-server"></a>고가용성 SCVMM 2012 R2 서버로 관리하는 Windows Server 2012 R2 호스트 업그레이드
 Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2를 SCVMM 2016으로 업그레이드해야 합니다. Azure Site Recovery로 구성된 SCVMM 2012 R2 서버를 업그레이드하는 동안 추가 VMM 서버가 없는 혼합 모드 및 추가 VMM 서버가 있는 혼합 모드의 두 업그레이드 모드가 지원됩니다.
@@ -96,7 +96,7 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 
 1.  제어판 -> 프로그램 -> 프로그램 및 기능 ->Microsoft Azure Site Recovery로 이동하여 ASR 공급자를 제거하고 제거를 클릭합니다.
 2. 실행할 업그레이드 모드에 따라 [여기](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016&preserve-view=true#upgrade-a-standalone-vmm-server)에 언급된 단계를 수행합니다.
-3. SCVMM 콘솔을 시작 하 고 **패브릭** 탭에서 각 호스트의 상태를 확인 합니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭 합니다. 상태는 "주의 필요"로 표시 되어야 합니다.
+3. SCVMM 콘솔을 시작하고 **패브릭** 탭에서 각 호스트의 상태를 확인합니다. 최신 상태를 가져오려면 **새로 고침** 을 클릭합니다. 상태는 "주의 필요"로 표시되어야 합니다.
 4. SCVMM에 최신 [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra)를 설치합니다.
 5. 클러스터의 각 호스트에 최신 [MARS(Microsoft Azure Recovery Service) 에이전트](https://aka.ms/latestmarsagent)를 업데이트합니다. 새로 고쳐 SC VMM이 호스트를 성공적으로 쿼리할 수 있는지 확인합니다.
 
@@ -106,7 +106,7 @@ Windows Server 2012 R2 호스트를 업그레이드하기 전에 SCVMM 2012 R2�
 1. [여기](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade#cluster-os-rolling-upgrade-process)에 언급된 단계에 따라 롤링 클러스터 업그레이드 프로세스를 실행합니다.
 2. 클러스터에 새 호스트를 추가한 후 SCVMM 콘솔에서 호스트를 새로 고쳐 이 업데이트된 호스트에 VMM 에이전트를 설치합니다.
 3. 가상 머신의 VM 버전을 업데이트하려면 *Update-VMVersion* 을 실행합니다. 
-4. Azure Portal로 이동 하 여 Recovery Services 자격 증명 모음 내에 있는 가상 머신의 복제 상태를 확인 합니다. 
+4. Azure Portal로 이동한 후 Recovery Services 자격 증명 모음에서 가상 머신의 복제된 상태를 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 호스트가 업그레이드되면 [테스트 장애 조치(Failover)](tutorial-dr-drill-azure.md)를 수행하여 복제 및 재해 복구 상태를 테스트할 수 있습니다.

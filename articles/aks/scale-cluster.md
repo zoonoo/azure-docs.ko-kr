@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터의 노드 수를 조정�
 services: container-service
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: fdb61bf090351894329c24eb1a3c73d627e622e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 1468f9a0a23935022ed14488dfb65d789828d310
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102173769"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782890"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터의 노드 수 조정
 
@@ -17,7 +17,7 @@ ms.locfileid: "102173769"
 
 ## <a name="scale-the-cluster-nodes"></a>클러스터 노드 크기 조정
 
-먼저 [az aks show][az-aks-show] 명령을 사용 하여 노드 풀의 *이름* 을 가져옵니다. 다음 예제에서는 *Myresourcegroup* 리소스 그룹에서 *myAKSCluster* 이라는 클러스터의 노드 풀 이름을 가져옵니다.
+먼저 [az aks show][az-aks-show] 명령을 사용 하여 노드 풀의 *이름* 을 가져옵니다. 다음 예에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 노드 풀 이름을 가져옵니다.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
@@ -68,29 +68,29 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1
 ```
 
 
-## <a name="scale-user-node-pools-to-0"></a>`User`노드 풀 크기를 0으로 조정
+## <a name="scale-user-node-pools-to-0"></a>`User` 노드 풀의 크기를 0으로 조정
 
-`System`항상 노드를 실행 해야 하는 노드 풀과 달리 `User` 노드 풀을 사용 하면 0으로 확장할 수 있습니다. 시스템 및 사용자 노드 풀의 차이점에 대해 자세히 알아보려면 [시스템 및 사용자 노드 풀](use-system-pools.md)을 참조 하세요.
+항상 실행 중인 노드가 필요한 `System` 노드 풀과 달리 `User` 노드 풀을 사용하면 0으로 크기를 조정할 수 있습니다. 시스템 및 사용자 노드 풀의 차이점에 대해 자세히 알아보려면 [시스템 및 사용자 노드 풀](use-system-pools.md)을 참조하세요.
 
-사용자 풀의 크기를 0으로 조정 하려면 위 명령 대신 [az aks nodepool scale][az-aks-nodepool-scale] 을 사용 하 `az aks scale` 고 노드 수로 0을 설정할 수 있습니다.
+사용자 풀의 크기를 0으로 조정하려면 위의 `az aks scale` 명령 대신 [az aks nodepool scale][az-aks-nodepool-scale]을 사용하고 0을 노드 수로 설정할 수 있습니다.
 
 
 ```azurecli-interactive
 az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
 ```
 
-`User` `--min-count` [클러스터 Autoscaler](cluster-autoscaler.md) 의 매개 변수를 0으로 설정 하 여 노드 풀을 0 개 노드로 자동 크기 조정 할 수도 있습니다.
+[클러스터 자동 크기 조정기](cluster-autoscaler.md)의 `--min-count` 매개 변수를 0으로 설정하여 `User` 노드 풀을 0개 노드로 자동 크기 조정할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 AKS 클러스터를 수동으로 확장 하 여 노드 수를 늘리거나 줄입니다. [클러스터 autoscaler][cluster-autoscaler] 를 사용 하 여 클러스터를 자동으로 확장할 수도 있습니다.
+이 문서에서는 노드 수를 늘리거나 줄이기 위해 AKS 클러스터를 수동으로 크기 조정했습니다. [클러스터 자동 크기 조정기][cluster-autoscaler]를 사용하여 클러스터를 자동으로 크기 조정할 수도 있습니다.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 
 <!-- LINKS - internal -->
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-scale]: /cli/azure/aks#az_aks_scale
 [cluster-autoscaler]: cluster-autoscaler.md
-[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az-aks-nodepool-scale
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool#az_aks_nodepool_scale

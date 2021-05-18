@@ -1,13 +1,13 @@
 ---
-title: 신뢰할 수 있는 컬렉션에 대 한 지침
-description: Azure Service Fabric 응용 프로그램에서 Service Fabric 신뢰할 수 있는 컬렉션을 사용 하기 위한 지침과 권장 사항입니다.
+title: 신뢰할 수 있는 컬렉션 지침
+description: Azure Service Fabric 애플리케이션에서 Service Fabric 신뢰할 수 있는 컬렉션을 사용하기 위한 지침 및 권장 사항입니다.
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: f12db76f324d07c178b49150d4e574476e7d9929
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784328"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
@@ -20,8 +20,8 @@ ms.locfileid: "98784328"
 * 시간제한에 `TimeSpan.MaxValue` 를 사용하지 마세요. 시간 제한은 교착 상태를 감지하는 데 사용되어야 합니다.
 * 트랜잭션을 커밋, 중단 또는 삭제한 후에는 사용하지 마십시오.
 * 열거형이 만들어진 트랜잭션 범위 외부에서는 해당 열거형을 사용하지 마세요.
-* 교착 상태가 발생할 수 있으므로 다른 트랜잭션의 문 내에 트랜잭션을 만들지 마십시오 `using` .
-* 를 사용 하 여 신뢰할 수 있는 상태를 만들지 말고 `IReliableStateManager.GetOrAddAsync` 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용 합니다. 이로 인해 InvalidOperationException이 발생 합니다.
+* 다른 트랜잭션의 `using` 문 내에 트랜잭션을 만들지 마세요. 교착 상태가 발생할 수 있습니다.
+* `IReliableStateManager.GetOrAddAsync`로 신뢰할 수 있는 상태를 작성하지 말고 동일한 트랜잭션에서 신뢰할 수 있는 상태를 사용합니다. 이로 인해 InvalidOperationException이 발생합니다.
 * `IComparable<TKey>` 구현이 올바른지 확인하세요. 시스템은 검사점 및 행 병합을 위해 `IComparable<TKey>`에 대한 종속성을 보유합니다.
 * 특정 유형의 교착 상태를 방지하기 위해 항목을 업데이트하려는 경우에는 항목을 읽을 때 업데이트 잠금을 사용하지 마세요.
 * 파티션당 신뢰할 수 있는 컬렉션 수를 1,000개 미만으로 유지하세요. 항목 수가 더 적은 신뢰할 수 있는 컬렉션보다 항목 수가 더 많은 신뢰할 수 있는 컬렉션이 우선됩니다.
@@ -40,19 +40,19 @@ ms.locfileid: "98784328"
   즉, 단일 보조에서 읽은 데이터 버전은 거짓 처리될 수 있습니다.
   주에서 읽은 내용은 항상 안정적이며 거짓 처리될 수 없습니다.
 * 애플리케이션에서 유지되는 데이터의 보안/개인 정보 보호는 사용자가 결정하게 되며, 스토리지 관리에서 제공하는 보호 기능이 적용됩니다. 운영 체제 디스크 암호화는 미사용 데이터를 보호하는 데 사용될 수 있습니다.
-* `ReliableDictionary` 열거는 키로 정렬 된 정렬 된 데이터 구조를 사용 합니다. 열거를 효율적으로 수행 하기 위해 커밋을 임시 hashtable에 추가 하 고 나중에 주에 정렬 된 데이터 구조를 검사점 게시로 이동 합니다. 추가/업데이트/삭제에는 키의 존재 여부에 대 한 유효성 검사를 수행 하는 경우 o (1) 및 O (로그 n)의 최악의 런타임 런타임이 있습니다. 최근 커밋에서 읽고 있는지 아니면 이전 커밋에서 읽고 있는지에 따라 O (1) 또는 O (로그 n) 일 수 있습니다.
+* `ReliableDictionary` 열거는 키 순서로 정렬된 데이터 구조를 사용합니다. 열거를 효율적으로 만들기 위해 커밋은 임시 해시 테이블에 추가되고 나중에 검사점 후 기본 정렬된 데이터 구조로 이동됩니다. 추가/업데이트/삭제는 키 존재 여부에 대한 유효성 검사의 경우 최적의 런타임은 O(1)이고 최악의 런타임은 O(log n)입니다. 가져오기는 최근 커밋에서 읽거나 이전 커밋에서 읽는지 여부에 따라 O(1) 또는 O(log n)일 수 있습니다.
 
-## <a name="volatile-reliable-collections"></a>휘발성 안정적인 컬렉션
-휘발성의 신뢰할 수 있는 컬렉션을 사용 하기로 결정 하는 경우 다음을 고려 하십시오.
+## <a name="volatile-reliable-collections"></a>신뢰할 수 있는 휘발성 컬렉션
+신뢰할 수 있는 휘발성 컬렉션을 사용하기로 결정할 때 다음 사항을 고려하세요.
 
-* ```ReliableDictionary``` volatile 지원
-* ```ReliableQueue``` volatile 지원
-* ```ReliableConcurrentQueue``` volatile을 지원 하지 않습니다.
-* 지속형 서비스는 일시적으로 만들 수 없습니다. 플래그를 ```HasPersistedState``` 로 변경 하려면 ```false``` 전체 서비스를 처음부터 다시 만들어야 합니다.
-* 휘발성 서비스는 지속 될 수 없습니다. 플래그를 ```HasPersistedState``` 로 변경 하려면 ```true``` 전체 서비스를 처음부터 다시 만들어야 합니다.
-* ```HasPersistedState``` 는 서비스 수준 구성입니다. 즉, **모든** 컬렉션이 지속 되거나 휘발성이 됩니다. Volatile 및 지속형 컬렉션을 혼합할 수 없습니다.
-* 휘발성 파티션의 쿼럼 손실로 인해 전체 데이터 손실이 발생 합니다.
-* 휘발성 서비스에 대해 백업 및 복원을 사용할 수 없습니다.
+* ```ReliableDictionary```는 휘발성이 지원됩니다.
+* ```ReliableQueue```는 휘발성이 지원됩니다.
+* ```ReliableConcurrentQueue```는 휘발성이 지원되지 않습니다.
+* 지속형 서비스는 휘발성으로 만들 수 없습니다. ```HasPersistedState``` 플래그를 ```false```로 변경하려면 전체 서비스를 처음부터 다시 만들어야 합니다.
+* 휘발성 서비스는 지속될 수 없습니다. ```HasPersistedState``` 플래그를 ```true```로 변경하려면 전체 서비스를 처음부터 다시 만들어야 합니다.
+* ```HasPersistedState```는 서비스 수준 구성입니다. 이는 **모든** 컬렉션이 지속되거나 휘발될 수 있음을 의미합니다. 휘발성 및 지속형 컬렉션을 혼합할 수 없습니다.
+* 휘발성 파티션의 쿼럼 손실로 인해 전체 데이터 손실이 발생합니다.
+* 휘발성 서비스에는 백업 및 복원을 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)

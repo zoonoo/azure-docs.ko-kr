@@ -1,6 +1,6 @@
 ---
-title: Azure Express 경로 공용 피어 링 만들기 및 관리
-description: Azure 공용 피어 링에 대 한 자세한 정보 및 관리
+title: Azure ExpressRoute 퍼블릭 피어링 만들기 및 관리
+description: Azure 퍼블릭 피어링에 대한 자세한 정보 및 관리
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -8,44 +8,44 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
 ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92202551"
 ---
-# <a name="create-and-manage-expressroute-public-peering"></a>Express 경로 공용 피어 링 만들기 및 관리
+# <a name="create-and-manage-expressroute-public-peering"></a>ExpressRoute 퍼블릭 피어링 만들기 및 관리
 
 > [!div class="op_single_selector"]
-> * [문서-공용 피어 링](about-public-peering.md)
+> * [문서 - 퍼블릭 피어링](about-public-peering.md)
 > * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [문서-Microsoft 피어 링](expressroute-circuit-peerings.md#microsoftpeering)
+> * [문서 - Microsoft 피어링](expressroute-circuit-peerings.md#microsoftpeering)
 >
 
-이 문서는 Express 경로 회로에 대 한 공용 피어 링 라우팅 구성을 만들고 관리 하는 데 도움이 됩니다. 또한 상태를 확인, 업데이트 또는 삭제 하 고 피어 링을 프로 비전 해제할 수 있습니다. 이 문서는 공용 피어 링이 사용 되지 않기 전에 만들어진 리소스 관리자 회로에 적용 됩니다. 이전에 기존 회로 (공용 피어 링이 사용 되지 않기 전에 만들어짐)가 있는 경우 [Azure PowerShell](#powershell), [Azure CLI](#cli)및 [Azure Portal](#portal)를 사용 하 여 공용 피어 링을 관리/구성할 수 있습니다.
+이 문서는 ExpressRoute 회로에 대한 퍼블릭 피어링 라우팅 구성을 만들고 관리하는 데 도움이 됩니다. 피어링의 상태를 확인하고, 피어링을 업데이트 또는 삭제하고, 피어링 프로비전을 해제할 수도 있습니다. 이 문서는 퍼블릭 피어링이 중단되기 전에 만든 Resource Manager 회로에 적용됩니다. 퍼블릭 피어링이 중단되기 전에 만든 기존 회로가 있는 경우 [Azure PowerShell](#powershell), [Azure CLI](#cli), [Azure Portal](#portal)을 사용하여 퍼블릭 피어링을 관리/구성할 수 있습니다.
 
 >[!NOTE]
->공용 피어 링은 사용 되지 않습니다. 새 Express 경로 회로에 대 한 공용 피어 링을 만들 수 없습니다. 새 Express 경로 회로를 사용 하는 경우 Azure 서비스에 [Microsoft 피어 링](expressroute-circuit-peerings.md#microsoftpeering) 을 사용 합니다.
+>퍼블릭 피어링은 더 이상 사용되지 않습니다. 새 ExpressRoute 회로에서 퍼블릭 피어링을 만들 수는 없습니다. 새 ExpressRoute 회로를 사용하는 경우 Azure 서비스에 [Microsoft 피어링](expressroute-circuit-peerings.md#microsoftpeering)을 대신 사용합니다.
 >
 
 ## <a name="connectivity"></a>연결
 
-연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. Azure 공용 피어 링에 대해 Express 경로 회로를 사용 하도록 설정한 경우 회로를 통해 [azure에서 사용 되는 공용 IP 범위](../virtual-network/public-ip-addresses.md#public-ip-addresses) 에 액세스할 수 있습니다.
+연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. Azure 퍼블릭 피어링에 ExpressRoute 회로를 사용할 수 있는 경우 회로를 통해 [Azure에서 사용되는 공용 IP 범위](../virtual-network/public-ip-addresses.md#public-ip-addresses)에 액세스할 수 있습니다.
 
-공용 피어 링을 사용 하도록 설정 하면 대부분의 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다.
+퍼블릭 피어링을 사용하도록 설정한 후에는 대부분의 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다.
 
-* Azure Storage, SQL 데이터베이스 및 웹 사이트와 같은 서비스는 공용 IP 주소에서 제공 됩니다.
-* 공용 피어 링 라우팅 도메인을 통해 클라우드 서비스의 Vip를 포함 하 여 공용 IP 주소에서 호스트 되는 서비스에 개인적으로 연결할 수 있습니다.
+* Azure Storage, SQL Database, Websites 등의 서비스가 공용 IP 주소에 제공됩니다.
+* 퍼블릭 피어링 라우팅 도메인을 통해 클라우드 서비스의 VIP를 비롯한 공용 IP 주소에서 호스트된 서비스에 프라이빗 모드로 연결할 수 있습니다.
 * 인터넷을 통해 연결하지 않고도 공용 피어링 도메인을 DMZ에 연결하고 WAN에서 해당 공용 IP 주소의 모든 Azure 서비스에 연결할 수 있습니다.
 
-## <a name="services"></a><a name="services"></a>서비스
+## <a name="services"></a><a name="services"></a>Services
 
-이 섹션에서는 공용 피어 링을 통해 사용할 수 있는 서비스를 보여 줍니다. 공용 피어 링은 더 이상 사용 되지 않으므로 공용 피어 링에 새 서비스 또는 추가 서비스를 추가할 계획이 없습니다. 공용 피어 링을 사용 하 고 사용 하려는 서비스가 Microsoft 피어 링을 통해서만 지원 되는 경우 Microsoft 피어 링으로 전환 해야 합니다. 지원 되는 서비스 목록은 [Microsoft 피어 링](expressroute-faqs.md#microsoft-peering) 을 참조 하세요.
+이 섹션에서는 퍼블릭 피어링을 통해 사용할 수 있는 서비스를 보여 줍니다. 퍼블릭 피어링은 더 이상 사용되지 않으므로 퍼블릭 피어링에 새 서비스나 더 많은 서비스를 추가할 계획은 없습니다. 퍼블릭 피어링을 사용하는데 사용하려는 서비스가 Microsoft 피어링을 통해서만 지원되는 경우 Microsoft 피어링으로 전환해야 합니다. 지원되는 서비스 목록은 [Microsoft 피어링](expressroute-faqs.md#microsoft-peering)을 참조하세요.
 
 **지원됨:**
 
 * Power BI
-* 대부분의 Azure 서비스가 지원됩니다. 지원 확인에 사용 하려는 서비스를 직접 확인 합니다.
+* 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스에 직접 문의하여 지원을 확인합니다.
 
 **지원되지 않음:**
   * CDN
@@ -53,14 +53,14 @@ ms.locfileid: "92202551"
   * Multi-factor Authentication 서버(레거시)
   * Traffic Manager
 
-특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음 대상 서비스의 IP 범위를 조회 하 고 [AZURE IP 범위 및 서비스 태그 – 공용 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열 된 범위와 비교할 수 있습니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
+특정 서비스에 대한 가용성의 유효성을 검사하려면 해당 서비스에 대한 설명서를 보고 해당 서비스에 예약된 범위가 게시되었는지 확인합니다. 그런 다음, 대상 서비스의 IP 범위를 조회하고 [Azure IP 범위 및 서비스 태그 – 퍼블릭 클라우드 XML 파일](https://www.microsoft.com/download/details.aspx?id=56519)에 나열된 범위와 비교합니다. 또는 확인을 위해 해당 서비스의 지원 티켓을 열 수 있습니다.
 
 ## <a name="peering-comparison"></a><a name="compare"></a>피어링 비교
 
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Azure 공용 피어 링에는 각 BGP 세션에 연결 된 1 개의 NAT IP 주소가 있습니다. NAT IP 주소 2 개를 초과 하는 경우 Microsoft 피어 링으로 이동 합니다. Microsoft 피어 링을 사용 하면 사용자 고유의 NAT 할당을 구성 하 고 선택적 접두사 광고에 경로 필터를 사용할 수 있습니다. 자세한 내용은 [Microsoft 피어 링으로 이동](./how-to-move-peering.md)을 참조 하세요.
+> Azure 퍼블릭 피어링에서는 각 BGP 세션에 NAT IP 주소 1개가 연결됩니다. NAT IP 주소가 3개 이상인 경우 Microsoft 피어링으로 이동합니다. Microsoft 피어링을 사용하면 사용자 고유의 NAT 할당을 구성하고 선택적 접두사 보급 알림에 경로 필터를 사용할 수 있습니다. 자세한 내용은 [Microsoft 피어링으로 이동](./how-to-move-peering.md)을 참조하세요.
 >
 
 ## <a name="custom-route-filters"></a>사용자 지정 경로 필터
@@ -72,9 +72,9 @@ ms.locfileid: "92202551"
 
 [!INCLUDE [CloudShell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-공용 피어 링은 더 이상 사용 되지 않으므로 새 Express 경로 회로에서 공용 피어 링을 구성할 수 없습니다.
+퍼블릭 피어링은 더 이상 사용되지 않으므로 새 ExpressRoute 회로에서 퍼블릭 피어링을 구성할 수는 없습니다.
 
-1. 프로 비전 되 고 사용 하도록 설정 된 Express 경로 회로가 있는지 확인 합니다. 다음 예제를 사용합니다.
+1. 프로비저닝되고 사용하도록 설정된 ExpressRoute 회로가 있는지 확인합니다. 다음 예제를 사용합니다.
 
    ```azurepowershell-interactive
    Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -282,23 +282,23 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 
 ## <a name="azure-portal-steps"></a><a name="portal"></a>Azure Portal 단계
 
-피어 링을 구성 하려면이 문서에 포함 된 PowerShell 또는 CLI 단계를 사용 합니다. 피어 링을 관리 하려면 아래 섹션을 사용할 수 있습니다. 참조용으로 이러한 단계는 [포털에서 Microsoft 피어 링](expressroute-howto-routing-portal-resource-manager.md#msft)을 관리 하는 것과 비슷합니다.
+피어링을 구성하려면 이 문서에 포함된 PowerShell 또는 CLI 단계를 사용합니다. 피어링을 관리하려면 아래 섹션을 사용할 수 있습니다. 참조를 위해 이 단계는 [포털에서 Microsoft 피어링](expressroute-howto-routing-portal-resource-manager.md#msft)을 관리하는 경우와 비슷합니다.
 
 ### <a name="to-view-azure-public-peering-details"></a><a name="get"></a>Azure 공용 피어링 세부 정보를 보려면
 
-포털에서 피어 링을 선택 하 여 Azure 공용 피어 링의 속성을 봅니다.
+포털에서 피어링을 선택하여 Azure 퍼블릭 피어링의 속성을 확인합니다.
 
 ### <a name="to-update-azure-public-peering-configuration"></a><a name="update"></a>Azure 공용 피어링 구성을 업데이트하려면
 
-피어 링에 대 한 행을 선택 하 고 피어 링 속성을 수정 합니다.
+피어링할 행을 선택하고 피어링 속성을 수정합니다.
 
 ### <a name="to-delete-azure-public-peering"></a><a name="delete"></a>Azure 공용 피어링을 삭제하려면
 
-삭제 아이콘을 선택 하 여 피어 링 구성을 제거 합니다.
+삭제 아이콘을 선택하여 피어링 구성을 제거합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계에서는 [가상 네트워크를 express 경로 회로에 연결](expressroute-howto-linkvnet-arm.md)합니다.
+다음 단계로, [ExpressRoute 회로에 가상 네트워크를 연결](expressroute-howto-linkvnet-arm.md)합니다.
 
 * ExpressRoute 워크플로에 대한 자세한 내용은 [ExpressRoute 워크플로](expressroute-workflows.md)를 참조하세요.
 * 회로 피어링에 대한 자세한 내용은 [ExpressRoute 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 03/18/2021
 ms.author: alkohli
-ms.openlocfilehash: 8b154dabd6f672c6fdaf77c5f8d48f80fb40d5d8
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8bf73374545fa10c1b26ccbc9b932962fcabb6b3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060111"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108759872"
 ---
 # <a name="tutorial-install-azure-stack-edge-mini-r"></a>자습서: Azure Stack Edge Mini R 설치
 
@@ -27,7 +27,7 @@ ms.locfileid: "106060111"
 > * 디바이스 검사
 > * 디바이스에 케이블 연결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 물리적 디바이스를 설치하기 위한 필수 조건은 다음과 같습니다.
 
@@ -82,7 +82,10 @@ ms.locfileid: "106060111"
 - 설치 사이트의 Azure Stack Edge Mini R 물리적 디바이스
 - 전원 케이블 1개
 - 관리 인터페이스에 연결하는 하나 이상의 1-GbE RJ-45 네트워크 케이블 디바이스에는 두 개의 1-GbE 네트워크 인터페이스가 있습니다. 하나는 관리용이고 하나는 데이터용입니다.
-- 구성할 각 데이터 네트워크 인터페이스에 대한 10-GbE SFP+ 동 케이블 1개 하나 이상의 데이터 네트워크 인터페이스 - PORT 3 또는 PORT 4를 인터넷에 연결해야 합니다(Azure에 연결).  
+- 구성할 각 데이터 네트워크 인터페이스에 대한 10-GbE SFP+ 케이블 1개 PORT 3 또는 PORT 4에서 하나 이상의 데이터 네트워크 인터페이스를 인터넷에 연결해야 합니다(Azure에 연결).
+
+  최고 성능의 동 SFP+(10Gbps) 트랜시버를 사용하는 것이 좋습니다. 호환되는 광섬유 트랜시버를 사용할 수 있지만 테스트되지 않았습니다. 자세한 내용은 Azure Stack Edge Mini R의 [트랜시버 및 케이블 사양](azure-stack-edge-mini-r-technical-specifications-compliance.md#transceivers-cables)을 참조하세요.
+   
 - 전력 분배 장치 1개에 대한 액세스(권장)
 
 > [!NOTE]
@@ -97,10 +100,10 @@ Azure Stack Edge 디바이스에서:
     - 디바이스에는 슬롯에 SSD 디스크가 1개 있습니다. 
     - 또한 이 디바이스에는 운영 체제 디스크의 스토리지 역할을 하는 CFx 카드가 있습니다.
     
-- 전면 패널에는 네트워크 인터페이스와 Wi-Fi에 대한 액세스 권한이 있습니다.
+- 전면 패널에는 네트워크 인터페이스와 Wi-Fi에 대한 액세스 권한이 있습니다. 
 
-    - 1GbE RJ 45 네트워크 인터페이스 2개 이는 디바이스의 로컬 UI에 있는 PORT 1과 PORT 2입니다.
-    - 10GbE SFP+ 네트워크 인터페이스 2개 이는 디바이스의 로컬 UI에 있는 PORT 3과 PORT 4입니다. 
+    - 2 X 1 GbE RJ 45 네트워크 인터페이스(디바이스의 로컬 UI에 있는 PORT 1 및 PORT 2)
+    - 2 X 10 GbE SFP+ 네트워크 인터페이스(디바이스의 로컬 UI에 있는 PORT 3 및 PORT 4) 
     - Wi-Fi 트랜시버가 연결된 Wi-Fi 포트 1개
 
 - 전면 패널에는 전원 단추도 있습니다. 

@@ -1,7 +1,7 @@
 ---
-title: 음성 번역 빠른 시작-음성 서비스
+title: 음성 번역 빠른 시작 - Speech Service
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK를 사용 하 여 음성을 번역 하는 방법에 대해 알아봅니다. 이 빠른 시작에서는 개체 생성, 지원 되는 오디오 입력 형식 및 음성 번역을 위한 구성 옵션에 대해 알아봅니다.
+description: Speech SDK를 사용하여 음성을 번역하는 방법을 알아봅니다. 이 빠른 시작에서는 개체 생성, 지원되는 오디오 입력 형식 및 음성 번역을 위한 구성 옵션에 대해 알아봅니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -14,10 +14,10 @@ ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js-spx
 keywords: 음성 번역
 ms.openlocfilehash: d5da242a72a3b152924363190a2161ebc101da4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91819448"
 ---
 # <a name="get-started-with-speech-translation"></a>음성 번역 시작
@@ -49,4 +49,4 @@ ms.locfileid: "91819448"
 ## <a name="next-steps"></a>다음 단계
 
 * [코덱 압축 오디오 형식 사용](how-to-use-codec-compressed-audio-input-streams.md)
-* GitHub의 [빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) 을 참조 하세요.
+* GitHub의 [빠른 시작 샘플](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart)을 참조하세요.

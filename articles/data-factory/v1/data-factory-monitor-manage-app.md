@@ -1,5 +1,5 @@
 ---
-title: 데이터 파이프라인 모니터링 및 관리-Azure
+title: 데이터 파이프라인 모니터링 및 관리 - Azure
 description: 모니터링 및 관리 앱을 사용하여 Azure Data Factory 및 파이프라인을 모니터링하고 관리하는 방법을 알아봅니다.
 author: dcstwh
 ms.author: weetok
@@ -8,15 +8,15 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 3a9eb73aab381f90ae51300bff1250348916c2ab
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779599"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
-> * [Azure Portal/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
+> * [Azure 포털/Azure PowerShell 사용](data-factory-monitor-manage-pipelines.md)
 > * [모니터링 및 관리 앱 사용](data-factory-monitor-manage-app.md)
 >
 >
@@ -119,7 +119,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 오른쪽 창에서 **활동 기간 탐색기** 탭으로 전환하여 자세한 내용을 봅니다.
 
-![작업 창 탐색기 탭에 액세스 하는 방법을 보여 주는 스크린샷](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![작업 창 탐색기 탭에 액세스하는 방법을 보여 주는 스크린샷입니다.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 **Attempts**(시도) 섹션에서 활동의 각 실행 시도에 대한 **확인된 변수** 도 볼 수 있습니다.
 
@@ -212,7 +212,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 목록에서 활동 기간을 클릭하면 오른쪽에 있는 **속성** 창 또는 **활동 기간 탐색기** 에 자세한 내용이 표시됩니다.
 
-![작업 창에 대 한 세부 정보를 보는 방법을 보여 주는 스크린샷](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![작업 창에 대한 세부 정보를 보는 방법을 보여 주는 스크린샷입니다.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>작업 창 새로 고침
 세부 정보는 자동으로 새로 고쳐지지 않으므로 명령 모음에서 새로 고침 단추(두 번째 단추)를 사용하여 수동으로 활동 기간 목록을 새로 고칩니다.  
@@ -281,7 +281,7 @@ Ctrl 키를 사용하여 두 개 이상의 파이프라인을 다중 선택할 �
 
 ## <a name="perform-batch-actions"></a>배치 작업 수행
 ### <a name="rerun-selected-activity-windows"></a>선택한 작업 창 다시 실행
-작업 창을 선택 하 고, 첫 번째 명령 모음 단추에 대해 아래쪽 화살표를 클릭 하 고,  /  **파이프라인에서 업스트림으로 다시 실행** 을 선택 합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
+활동 기간을 선택하고 첫 번째 명령 모음 단추의 아래쪽 화살표를 클릭한 다음 **다시 실행** / **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행)을 선택합니다. **Rerun with upstream in pipeline**(파이프라인에서 업스트림으로 다시 실행) 옵션을 선택하면 모든 업스트림 활동 기간이 다시 실행됩니다.
     ![작업 창 다시 실행](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 또한 목록에서 여러 개의 작업 창을 선택하고 동시에 다시 실행할 수 있습니다. 상태를 기준으로 활동 기간을 필터링(예: **실패**)한 다음, 활동 기간에 실패를 일으키는 문제를 해결한 후에 실패한 활동 기간을 다시 실행할 수 있습니다. 목록에서 작업 창을 필터링하는 자세한 내용은 다음 섹션을 참조합니다.  

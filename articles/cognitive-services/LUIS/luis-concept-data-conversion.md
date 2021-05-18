@@ -1,5 +1,5 @@
 ---
-title: 데이터 변환-LUIS
+title: 데이터 변환 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding)에서 예측 전에 발언이 변경될 수 있는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.openlocfilehash: 42a9caff0433808734ee853cbad90a2088bf4e1e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95019248"
 ---
 # <a name="convert-data-format-of-utterances"></a>발언의 데이터 형식 변환
-LUIS는 예측 전 사용자 utterance를 다음과 같이 변환 합니다. "
+LUIS는 예측 전에 사용자 발화의 다음 변환을 제공합니다.
 
-* 음성 텍스트 [Cognitive Services 음성](../Speech-Service/overview.md) 서비스를 사용 합니다.
+* [Cognitive Services Speech](../Speech-Service/overview.md) 서비스를 사용하여 음성을 텍스트로 변환합니다.
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
-음성 텍스트는 LUIS와의 통합으로 제공 됩니다.
+음성 텍스트 변환은 LUIS와의 통합으로 제공됩니다.
 
 ### <a name="intent-conversion-concepts"></a>의도 변환 개념
 LUIS의 음성 텍스트 변환 기능을 사용하여 음성 발언을 엔드포인트로 보내고, LUIS 예측 응답을 수신할 수 있습니다. 이 프로세스는 [Speech](/azure/cognitive-services/Speech) Service를 LUIS와 통합하는 것입니다. [자습서](../speech-service/how-to-recognize-intents-from-speech-csharp.md)에서 음성 의도 변환에 대해 자세히 알아보세요.

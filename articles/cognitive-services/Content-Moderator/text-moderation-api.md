@@ -1,7 +1,7 @@
 ---
 title: 텍스트 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 원치 않는 텍스트, 개인 데이터 및 사용자 지정 약관 목록에 대해 텍스트 조정을 사용 합니다.
+description: 가능한 원치 않는 텍스트, 개인 데이터, 사용자 지정 용어 목록에 대해 텍스트 조정을 사용합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: ae49a8738ba711ac6c77f2e299852ad61f70be56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92912908"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
-텍스트 콘텐츠를 분석 하려면 Content Moderator의 텍스트 중재 모델을 사용 합니다.
+Content Moderator의 텍스트 조정 모델을 사용하여 텍스트 콘텐츠를 분석합니다.
 
-정책 및 임계값에 따라 콘텐츠를 차단, 승인 또는 검토할 수 있습니다 (사용자 리뷰를 설정 하는 방법을 알아보려면 [리뷰, 워크플로 및 작업](./review-api.md) 참조). 텍스트 조정 모델을 사용 하 여 파트너, 직원 및 소비자가 텍스트 콘텐츠를 생성 하는 환경에 대 한 사용자 중재를 보강 합니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다.
+정책 및 임계값을 기준으로 콘텐츠를 차단, 승인, 검토할 수 있습니다(사용자 검토를 설정하는 방법을 알아보려면 [검토, 워크플로, 작업](./review-api.md) 참조). 텍스트 조정 모델을 사용하여 파트너, 직원, 소비자가 텍스트 콘텐츠를 생성하는 환경에 대한 사용자의 조정을 강화합니다. 여기에는 채팅방, 토론 게시판, 챗봇, 전자 상거래 카탈로그 및 문서가 포함됩니다.
 
 서비스 응답에는 다음 정보가 포함됩니다.
 
@@ -53,7 +53,7 @@ API가 [지원되는 언어](./language-support.md)의 욕설을 감지하면 �
 
 ## <a name="classification"></a>분류
 
-Content Moderator의 기계 지원 **텍스트 분류 기능은** **영어만** 지원 하 고 잠재적으로 원치 않는 콘텐츠를 검색 하는 데 도움이 됩니다. 플래그가 지정된 콘텐츠는 컨텍스트에 따라 부적절한 콘텐츠로 평가될 수 있습니다. 각 범주의 가능성을 전달하고 사용자 검토를 권장할 수 있습니다. 이 기능은 학습된 모델을 사용하여 상스럽거나 경멸적이거나 차별적인 언어를 식별합니다. 여기에는 은어, 약어, 불쾌한 단어, 의도적으로 철자가 틀린 단어의 검토가 포함됩니다. 
+Content Moderator의 기계 지원 **텍스트 분류 기능** 은 **영어만** 지원하며, 잠재적으로 원치 않는 콘텐츠를 감지하는 데 도움이 됩니다. 플래그가 지정된 콘텐츠는 컨텍스트에 따라 부적절한 콘텐츠로 평가될 수 있습니다. 각 범주의 가능성을 전달하고 사용자 검토를 권장할 수 있습니다. 이 기능은 학습된 모델을 사용하여 상스럽거나 경멸적이거나 차별적인 언어를 식별합니다. 여기에는 은어, 약어, 불쾌한 단어, 의도적으로 철자가 틀린 단어의 검토가 포함됩니다. 
 
 JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
@@ -82,9 +82,9 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="personal-data"></a>개인 데이터
 
-개인 데이터 기능은이 정보의 잠재적 존재 여부를 검색 합니다.
+개인 데이터 기능은 잠재적으로 다음과 같은 정보가 있는지 감지합니다.
 
-- 메일 주소
+- 전자 메일 주소
 - 미국 우편 주소
 - IP 주소
 - 미국 전화 번호
@@ -129,13 +129,13 @@ JSON 추출의 다음 추출은 예제 출력을 보여 줍니다.
 
 ## <a name="auto-correction"></a>자동 고침
 
-입력 텍스트가 인 경우 (' lzay ' 및 ' f0x '는 의도적인 것으로 가정):
+입력 텍스트가 (the 'lzay' and 'f0x' are intentional)이라고 가정합니다.
 
-> Qu! 헤드 갈색 f0x은 lzay 강아지를 통해 이동 합니다.
+> The qu!ck brown f0x jumps over the lzay dog.
 
 자동 고침을 요청하면 응답에 다음과 같은 수정된 텍스트 버전이 포함됩니다.
 
-> 빠른 갈색 fox는 lazy 강아지를 이동 합니다.
+> The quick brown fox jumps over the lazy dog.
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>사용자 지정 용어 목록 만들기 및 관리
 
@@ -161,4 +161,4 @@ Content Moderator는 사용자 지정 용어 목록 관리 작업이 포함된 [
 
 ## <a name="next-steps"></a>다음 단계
 
-[텍스트 중재 api 콘솔](try-text-api.md)을 사용 하 여 api를 테스트 합니다. 또한 [리뷰, 워크플로 및 작업](./review-api.md) 을 참조 하 여 인간 리뷰를 설정 하는 방법을 알아보세요.
+[Text Moderation API 콘솔](try-text-api.md)로 API를 테스트합니다. 또한 사용자 검토를 설정하는 방법을 알아보려면 [검토, 워크플로 및 작업](./review-api.md)을 참조하세요.

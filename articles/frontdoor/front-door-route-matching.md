@@ -1,6 +1,6 @@
 ---
-title: Azure 전면 도어-라우팅 규칙 일치 모니터링 | Microsoft Docs
-description: 이 문서는 Azure Front 도어가 들어오는 요청에 사용할 라우팅 규칙과 일치 하는 방식을 이해 하는 데 도움이 됩니다.
+title: Azure Front Door - 회람 규칙 매칭 모니터링 | Microsoft Docs
+description: 이 문서에서는 Azure Front Door가 수신 요청에 사용할 회람 규칙을 매칭하는 방법을 설명합니다.
 services: front-door
 documentationcenter: ''
 author: duongau
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91449205"
 ---
-# <a name="how-requests-are-matched-to-a-routing-rule"></a>요청을 라우팅 규칙과 일치 시키는 방법
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>요청을 회람 규칙에 매칭하는 방법
 
-연결을 설정 하 고 TLS 핸드셰이크를 완료 한 후 요청이 프런트 도어 환경에 있는 경우, 프런트 도어에서 첫 번째 작업 중 하나는 요청과 일치 하는 특정 라우팅 규칙을 결정 한 다음 구성에서 정의 된 작업을 수행 하는 것입니다. 다음 문서에서는 Front Door가 HTTP 요청을 처리할 때 사용할 경로 구성을 결정하는 방법을 설명합니다.
+연결을 설정하고 TLS 핸드셰이크를 완료한 후 Front Door 환경에 요청이 도달했을 때 Front Door가 첫 번째로 수행하는 작업 중 하나는 요청을 매칭할 특정 회람 규칙을 확인한 후 구성에서 정의된 작업을 수행하는 것입니다. 다음 문서에서는 Front Door가 HTTP 요청을 처리할 때 사용할 경로 구성을 결정하는 방법을 설명합니다.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Front Door 경로 구성의 구조
 Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 구성됩니다. 들어오는 요청은 경로의 왼쪽에 매칭되고, 오른쪽은 요청을 처리하는 방법을 정의합니다.
@@ -29,7 +29,7 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 다음은 들어오는 요청이 회람 규칙(또는 왼쪽)과 매칭되는지 여부를 결정하는 속성입니다.
 
 * **HTTP 프로토콜**(HTTP/HTTPS)
-* **호스트** (예: www \. foo.com, \* . bar.com)
+* **호스트**(예: www\.foo.com, \*.bar.com)
 * **경로**(예: /\*, /users/\*, /file.gif)
 
 이러한 속성은 각 프로토콜/호스트/경로 조합이 가능한 매칭 집합이 될 수 있도록 내부적으로 확장됩니다.
@@ -41,7 +41,7 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 이 섹션에서는 지정된 Front Door 회람 규칙에 매칭하는 방법을 중점적으로 설명합니다. 기본 개념은 항상 "왼쪽"만 보면서 **가장 구체적인 첫 번째 매칭** 에 매칭하는 것입니다.  HTTP 프로토콜, 프런트 엔드 호스트, 경로 순서로 매칭합니다.
 
 ### <a name="frontend-host-matching"></a>프런트 엔드 호스트 매칭
-프런트 엔드 호스트와 일치 하는 경우 아래에 정의 된 논리를 사용 합니다.
+프런트 엔드 호스트를 매칭할 때는 다음과 같은 논리를 사용합니다.
 
 1. 정확히 일치하는 호스트가 있는 회람 규칙을 찾습니다.
 2. 정확히 일치하는 프런트 엔드 호스트가 없을 경우 요청을 거부하고 400 잘못된 요청 오류를 보냅니다.
@@ -52,19 +52,19 @@ Front Door 회람 규칙 구성은 크게 "왼쪽"과 "오른쪽" 부분으로 �
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
 | b | foo.contoso.com | /users/\* |
-| C | www \. fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
 Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 위의 회람 규칙 중 다름 규칙과 일치합니다.
 
 | 수신 프런트 엔드 호스트 | 일치하는 회람 규칙 |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
-| www \. fabrikam.com | C |
+| www\.fabrikam.com | C |
 | images.fabrikam.com | 오류 400: 잘못된 요청 |
 | foo.adventure-works.com | C |
 | contoso.com | 오류 400: 잘못된 요청 |
-| www \. adventure-works.com | 오류 400: 잘못된 요청 |
-| www \. northwindtraders.com | 오류 400: 잘못된 요청 |
+| www\.adventure-works.com | 오류 400: 잘못된 요청 |
+| www\.northwindtraders.com | 오류 400: 잘못된 요청 |
 
 ### <a name="path-matching"></a>경로 매칭
 특정 프런트 엔드 호스트를 확인하고 해당 프런트 엔드 호스트를 사용하여 가능한 회람 규칙을 경로에만 필터링하면 Front Door에서 요청 경로에 따라 회람 규칙을 필터링합니다. 프런트 엔드 호스트와 유사한 논리를 사용하겠습니다.
@@ -93,19 +93,19 @@ Front Door에 다음과 같은 요청이 전송된 경우, 이러한 요청은 �
 
 | 들어오는 요청    | 일치하는 경로 |
 |---------------------|---------------|
-| www \. contoso.com/            | A             |
-| www \. contoso.com/a           | b             |
-| www \. contoso.com/ab          | C             |
-| www \. contoso.com/abc         | D             |
-| www \. contoso.com/abzzz       | b             |
-| www \. contoso.com/abc/        | E             |
-| www \. contoso.com/abc/d       | F             |
-| www \. contoso.com/abc/def     | G             |
-| www \. contoso.com/abc/defzzz  | F             |
-| www \. contoso.com/abc/def/ghi | F             |
-| www \. contoso.com/path        | b             |
-| www \. contoso.com/path/       | H             |
-| www \. contoso.com/path/zzz    | b             |
+| www\.contoso.com/            | A             |
+| www\.contoso.com/a           | b             |
+| www\.contoso.com/ab          | C             |
+| www\.contoso.com/abc         | D             |
+| www\.contoso.com/abzzz       | b             |
+| www\.contoso.com/abc/        | E             |
+| www\.contoso.com/abc/d       | F             |
+| www\.contoso.com/abc/def     | G             |
+| www\.contoso.com/abc/defzzz  | F             |
+| www\.contoso.com/abc/def/ghi | F             |
+| www\.contoso.com/path        | b             |
+| www\.contoso.com/path/       | H             |
+| www\.contoso.com/path/zzz    | b             |
 
 >[!WARNING]
 > </br> 모두 캐치 라우팅 경로(`/*`)와 정확히 일치하는 프런트 엔드 호스트에 대한 회람 규칙이 없을 경우 회람 규칙과 일치하는 항목이 없는 것입니다.

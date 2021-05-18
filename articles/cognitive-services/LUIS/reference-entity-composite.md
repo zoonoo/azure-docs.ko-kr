@@ -1,7 +1,7 @@
 ---
-title: 복합 엔터티 형식-LUIS
+title: 복합 엔터티 형식 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
+description: 복합 엔터티는 미리 빌드된 엔터티, 단순 엔터티, 정규식 엔터티 및 목록 엔터티와 같은 다른 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,18 +9,18 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 3d936555a4d9a9c80718a24ba892c762f5a8354a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97608395"
 ---
 # <a name="composite-entity"></a>복합 엔터티
 
-복합 엔터티는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
+복합 엔터티는 미리 빌드된 엔터티, 단순 엔터티, 정규식 엔터티 및 목록 엔터티와 같은 다른 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 
 > [!CAUTION]
-> 이 엔터티는 **더 이상 사용 되지** 않습니다. [Machine learning 엔터티로](reference-entity-machine-learned-entity.md)마이그레이션 하세요.
+> 이 엔터티는 **사용되지 않습니다**. [기계 학습 엔터티](reference-entity-machine-learned-entity.md)로 마이그레이션하세요.
 
 **데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.**
 
@@ -34,7 +34,7 @@ ms.locfileid: "97608395"
 
 ## <a name="example-json"></a>예제 JSON
 
-다음 utterance을 사용 하 여 미리 작성 된의 복합 엔터티를 고려 합니다 `number` `Location::ToLocation` .
+다음 발화를 사용하여 미리 빌드된 `number` 및 `Location::ToLocation`의 복합 엔터티를 고려해 보세요.
 
 `book 2 tickets to cairo`
 
@@ -92,7 +92,7 @@ ms.locfileid: "97608395"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
+쿼리 문자열에 `verbose=false`가 설정된 경우의 JSON입니다.
 
 ```json
 "entities": {
@@ -109,7 +109,7 @@ ms.locfileid: "97608395"
 }
 ```
 
-이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
+쿼리 문자열에 `verbose=true`가 설정된 경우의 JSON입니다.
 
 ```json
 "entities": {
@@ -175,11 +175,11 @@ ms.locfileid: "97608395"
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
 |미리 빌드된 엔터티 - number|“builtin.number”|“2”|
-|미리 작성 한 엔터티-GeographyV2|“Location::ToLocation”|카이로|
+|미리 빌드된 엔터티 - GeographyV2|“Location::ToLocation”|"cairo"|
 
 ## <a name="next-steps"></a>다음 단계
 
-엔터티에 대 한 자세한 정보:
+엔터티에 대해 자세히 알아봅니다.
 
 * [개념](luis-concept-entity-types.md)
 * [만드는 방법](luis-how-to-add-entities.md)

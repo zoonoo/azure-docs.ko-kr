@@ -1,6 +1,6 @@
 ---
-title: REST API를 사용 하 여 Azure 센티널에서 구하기 및 라이브 스트림 쿼리 관리 Microsoft Docs
-description: 이 문서에서는 Azure 센티널 구하기 기능을 사용 하 여 Log Analytics ' REST API를 활용 하 여 구하기 및 라이브 스트림 쿼리를 관리 하는 방법을 설명 합니다.
+title: REST API를 사용하여 Azure Sentinel에서 헌팅 및 실시간 스트리밍 쿼리 관리 | Microsoft Docs
+description: 이 문서에서는 Azure Sentinel 헌팅 기능을 사용하여 Log Analytics의 REST API를 활용하여 헌팅 및 라이브 스트림 쿼리를 관리하는 방법을 설명합니다.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -16,37 +16,37 @@ ms.workload: na
 ms.date: 11/06/2020
 ms.author: yelevin
 ms.openlocfilehash: 64f05e18ff757d9f086cf06d74109bf64e32a05c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98795690"
 ---
 # <a name="manage-hunting-and-livestream-queries-in-azure-sentinel-using-rest-api"></a>REST API를 사용하여 Azure Sentinel에서 헌팅 및 실시간 스트리밍 쿼리 관리
 
-Azure Monitor Log Analytics에 포함 되는 Azure 센티널은 Log Analytics ' REST API를 사용 하 여 구하기 및 라이브 스트림 쿼리를 관리할 수 있습니다. 이 문서에서는 REST API를 사용 하 여 구하기 쿼리를 만들고 관리 하는 방법을 보여 줍니다.  이러한 방식으로 만들어진 쿼리는 Azure 센티널 UI에 표시 됩니다.
+Azure Monitor Log Analytics에 부분적으로 빌드된 Azure Sentinel을 사용하면 Log Analytics의 REST API를 사용하여 헌팅 및 라이브 스트림 쿼리를 관리할 수 있습니다. 이 문서에서는 REST API를 사용하여 헌팅 쿼리를 만들고 관리하는 방법을 보여 줍니다.  이러한 방식으로 만들어진 쿼리는 Azure Sentinel UI에 표시됩니다.
 
-[저장 된 검색 API](/rest/api/loganalytics/savedsearches)에 대 한 자세한 내용은 결정적인 REST API 참조를 참조 하세요.
+[저장된 검색 API](/rest/api/loganalytics/savedsearches)에 대한 자세한 내용은 최종 REST API 참조를 참조하세요.
 
 ## <a name="api-examples"></a>API 예제
 
-다음 예에서는 이러한 자리 표시자를 다음 표에 지정 된 대체 항목으로 바꿉니다.
+다음 예에서 이러한 자리 표시자를 다음 표에 명시된 대체 항목으로 바꿉니다.
 
 | 자리표시자 | 다음 항목으로 교체 |
 |-|-|
-| **구독** | 구하기 또는 라이브 스트림 쿼리를 적용할 구독의 이름입니다. |
-| **ResourceGroupName** | 구하기 또는 라이브 스트림 쿼리를 적용 하는 리소스 그룹의 이름입니다. |
-| **{savedSearchId}** | 각 사냥 쿼리의 고유 id (GUID)입니다. |
-| **WorkspaceName** | 쿼리의 대상인 Log Analytics 작업 영역의 이름입니다. |
-| **DisplayName** | 쿼리에 대해 선택한 표시 이름입니다. |
-| **한** | 구하기 또는 라이브 스트림 쿼리에 대 한 설명입니다. |
-| **공학적** | 쿼리에 적용 되는 관련 MITRE AT&T&접시 헤드 전술입니다. |
-| **쿼리입니다** | 쿼리에 대 한 쿼리 식입니다. |
+| **{subscriptionId}** | 헌팅 또는 라이브 스트림 쿼리를 적용할 구독의 이름입니다. |
+| **{resourceGroupName}** | 헌팅 또는 라이브 스트림 쿼리를 적용할 리소스 그룹의 이름입니다. |
+| **{savedSearchId}** | 각 헌팅 쿼리의 고유 ID(GUID)입니다. |
+| **{WorkspaceName}** | 쿼리의 대상인 Log Analytics 작업 영역의 이름입니다. |
+| **{DisplayName}** | 쿼리에 대해 선택한 표시 이름입니다. |
+| **{Description}** | 헌팅 또는 라이브 스트림 쿼리에 대한 설명입니다. |
+| **{Tactics}** | 쿼리에 적용되는 관련 MITRE ATT&CK 전술입니다. |
+| **{Query}** | 쿼리에 대한 쿼리 식입니다. |
 |  
 
 ### <a name="example-1"></a>예 1
 
-이 예에서는 지정 된 Azure 센티널 작업 영역에 대 한 구하기 쿼리를 만들거나 업데이트 하는 방법을 보여 줍니다.  라이브 스트림 쿼리의 경우 **요청 본문** 에서 " *category": "* 라이브 스트림 queries"를 "Category": " *queries"* 로 바꿉니다. 
+이 예에서는 지정된 Azure Sentinel 작업 영역에 대한 헌팅 쿼리를 만들거나 업데이트하는 방법을 보여 줍니다.  라이브 스트림 쿼리의 경우 **요청 본문** 에서 *“Category”: “Hunting Queries”* 를 *“Category”: “Livestream Queries”* 로 바꿉니다. 
 
 #### <a name="request-header"></a>요청 헤더
 
@@ -81,7 +81,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId} _
 
 ### <a name="example-2"></a>예제 2
 
-이 예에서는 지정 된 Azure 센티널 작업 영역에 대 한 구하기 또는 라이브 스트림 쿼리를 삭제 하는 방법을 보여 줍니다.
+이 예에서는 지정된 Azure Sentinel 작업 영역에 대한 헌팅 또는 라이브 스트림 쿼리를 삭제하는 방법을 보여 줍니다.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId} _
@@ -92,7 +92,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId} _
 
 ### <a name="example-3"></a>예제 3
 
-이 예에서는 지정 된 작업 영역에 대 한 검색 또는 라이브 스트림 쿼리를 검색 하는 방법을 보여 줍니다.
+이 예에서는 지정된 작업 영역에 대한 헌팅 또는 라이브 스트림 쿼리를 검색하는 방법을 보여 줍니다.
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId} _
@@ -103,7 +103,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId} _
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Log Analytics API를 사용 하 여 Azure 센티널에서 구하기 및 라이브 스트림 쿼리를 관리 하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 Log Analytics API를 사용하여 Azure Sentinel에서 헌팅 및 라이브 스트림 쿼리를 관리하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 - [위협 요소를 사전에 헌팅하기](hunting.md)
-- [노트북을 사용 하 여 자동화 된 구하기 캠페인 실행](notebooks.md)
+- [Notebook을 사용하여 자동 헌팅 캠페인 실행](notebooks.md)

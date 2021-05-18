@@ -1,5 +1,5 @@
 ---
-title: 백업 및 복원-Azure CLI-Azure Database for MySQL
+title: 백업 및 복원 - Azure CLI - Azure Database for MySQL
 description: Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법을 알아봅니다.
 author: savjani
 ms.author: pariks
@@ -8,22 +8,22 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8c8b0f37729ea20a62838d736dbed59f05c584c6
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94535404"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107780428"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
 Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
-- [Azure Database for MySQL 서버와 데이터베이스가](quickstart-create-mysql-server-database-using-azure-cli.md)필요 합니다.
+- [Azure Database for MySQL 서버 및 데이터베이스](quickstart-create-mysql-server-database-using-azure-cli.md)가 필요합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -56,7 +56,7 @@ az mysql server update --name mydemoserver --resource-group myresourcegroup --ba
 ## <a name="server-point-in-time-restore"></a>서버 지정 시간 복원
 이전의 특정 시점으로 서버를 복원할 수 있습니다. 복원된 데이터는 새 서버에 복사되고 기존 서버는 그대로 유지됩니다. 예를 들어 테이블이 오늘 정오에 실수로 삭제된 경우 정오 바로 전 시간으로 복원할 수 있습니다. 그런 다음 서버의 복원된 복사본에서 누락된 테이블 및 데이터를 검색할 수 있습니다. 
 
-서버를 복원하려면 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az-mysql-server-restore) 명령을 사용합니다.
+서버를 복원하려면 Azure CLI [az mysql server restore](/cli/azure/mysql/server#az_mysql_server_restore) 명령을 사용합니다.
 
 ### <a name="run-the-restore-command"></a>복원 명령 실행
 
@@ -79,13 +79,13 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 복원된 서버에 대한 위치 및 가격 책정 계층 값은 원본 서버와 같게 유지됩니다. 
 
-복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작 된 시점에 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
-또한 복원 작업이 완료 된 후 복원 작업 후 기본값으로 다시 설정 되 고 주 서버에서 복사 되지 않는 두 개의 서버 매개 변수가 있습니다.
-*   time_zone-기본값 **시스템** 으로 설정 하려면이 값을 설정 합니다.
-*   event_scheduler-복원 된 서버에서 event_scheduler **OFF** 로 설정 됩니다.
+또한 복원 작업이 완료된 후 복원 작업 후에 기본값으로 재설정되고 기본 서버에서 복사되지 않는 두 개의 서버 매개 변수가 있습니다.
+*   time_zone - 이 값은 기본값 **SYSTEM** 으로 설정됩니다.
+*   event_scheduler - event_scheduler는 복원된 서버에서 **OFF** 로 설정됩니다.
 
-[서버 매개 변수](howto-server-parameters.md) 를 다시 구성 하 여 주 서버에서 값을 복사 하 고 복원 된 서버에서 설정 해야 합니다.
+주 서버에서 값을 복사하고 [서버 매개 변수](howto-server-parameters.md)를 다시 구성하여 복원된 서버에 해당 값을 설정해야 합니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다. 원본 서버의 방화벽 규칙이 복원됩니다.
 
@@ -124,11 +124,11 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 지역 복원으로 새 서버를 만들 때 원본 서버와 동일한 스토리지 크기 및 가격 책정 계층을 상속합니다. 만드는 동안 이러한 값을 변경할 수 없습니다. 새 서버를 만든 후에 스토리지 크기를 확장할 수 있습니다.
 
-복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작 된 시점에 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다. 원본 서버의 방화벽 규칙이 복원됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 서비스의 [백업](concepts-backup.md) 에 대 한 자세한 정보
-- [복제본](concepts-read-replicas.md) 에 대해 알아보기
-- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대 한 자세한 정보
+- 서비스의 [백업](concepts-backup.md)에 대해 자세히 알아봅니다.
+- [복제본](concepts-read-replicas.md)에 대해 알아봅니다.
+- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대해 자세히 알아봅니다.

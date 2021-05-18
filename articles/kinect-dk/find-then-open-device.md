@@ -1,24 +1,24 @@
 ---
-title: Azure Kinect 장치를 찾아 엽니다.
-description: Azure Kinect Kinect 또는 SDK를 사용 하 여 Azure 장치를 찾고 여는 방법을 알아봅니다.
+title: Azure Kinect 디바이스 찾기 및 열기
+description: Azure Kinect Senor SDK를 사용하여 Azure Kinect 디바이스를 찾고 여는 방법을 알아봅니다.
 author: cedmonds
 ms.author: cedmonds
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
-keywords: kinect, azure, 센서, sdk, 깊이, rgb, 장치, 찾기, 열기
+keywords: kinect, azure, 센서, sdk, 깊이, rgb, 디바이스, 찾기, 열기
 ms.openlocfilehash: 67fc93b924d5d663bb43098969c54d1975bd5895
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85276921"
 ---
-# <a name="find-then-open-the-azure-kinect-device"></a>Azure Kinect 장치를 찾아 엽니다.
+# <a name="find-then-open-the-azure-kinect-device"></a>Azure Kinect 디바이스 찾기 및 열기
 
-이 문서에서는 Azure Kinect 진한를 찾고 여는 방법을 설명 합니다. 이 문서에서는 여러 장치가 컴퓨터에 연결 된 경우를 처리 하는 방법을 설명 합니다.
+이 문서에서는 Azure Kinect DK를 찾은 다음 여는 방법을 설명합니다. 이 문서에서는 컴퓨터에 여러 개의 디바이스가 연결되어 있는 경우 이를 처리하는 방법을 설명합니다.
 
-이 문서에서 함수를 사용 하는 방법을 보여 주는 [SDK 열거 예제](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/enumerate) 를 참조할 수도 있습니다.
+이 문서에서 함수를 사용하는 방법을 보여 주는 [SDK 열거 예](https://github.com/microsoft/Azure-Kinect-Sensor-SDK/tree/develop/examples/enumerate)를 참조할 수도 있습니다.
 
 지원되는 함수는 다음과 같습니다.
  * [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc)
@@ -26,9 +26,9 @@ ms.locfileid: "85276921"
  * [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22)
  * [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 
-## <a name="discover-the-number-of-connected-devices"></a>연결 된 장치의 수를 검색 합니다.
+## <a name="discover-the-number-of-connected-devices"></a>연결된 디바이스 수 검색
 
-먼저를 사용 하 여 현재 연결 된 Azure Kinect 장치 수를 가져옵니다 [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc) .
+먼저 [`k4a_device_get_installed_count()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaf7d19df0f73f8e4dfaa21e1b4b719ecc.html#gaf7d19df0f73f8e4dfaa21e1b4b719ecc)를 사용하여 현재 연결되어 있는 Azure Kinect 디바이스 개수를 얻습니다.
 
 ```C
 uint32_t device_count = k4a_device_get_installed_count();
@@ -36,9 +36,9 @@ uint32_t device_count = k4a_device_get_installed_count();
 printf("Found %d connected devices:\n", device_count);
 ```
 
-## <a name="open-a-device"></a>장치 열기
+## <a name="open-a-device"></a>디바이스 열기
 
-장치에 대 한 정보를 가져오거나 해당 장치에서 데이터를 읽으려면 먼저를 사용 하 여 장치에 대 한 핸들을 열어야 [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) 합니다.
+디바이스에 대한 정보를 얻거나 해당 디바이스에서 데이터를 읽으려면 먼저 [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)을 사용하여 디바이스에 대한 핸들을 열어야 합니다.
 
 ```C
 k4a_device_t device = NULL;
@@ -57,17 +57,17 @@ for (uint8_t deviceIndex = 0; deviceIndex < device_count; deviceIndex++)
 }
 ```
 
-`index`의 매개 변수는 둘 [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) 이상의 연결 된 경우 열려는 장치를 나타냅니다. 단일 장치만 연결 될 것으로 예측 하는 경우의 인수 `K4A_DEVICE_DEFAULT` 또는 0을 전달 하 여 첫 번째 장치를 나타낼 수 있습니다.
+[`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)의 `index` 매개 변수는 둘 이상의 디바이스가 연결되어 있는 경우 열 디바이스를 나타냅니다. 단일 디바이스가 연결되어 있는 것으로 예상되면 `K4A_DEVICE_DEFAULT` 인수나 0을 전달하여 첫 번째 디바이스를 나타낼 수 있습니다.
 
-언제 든 지 [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423) 핸들을 사용 하 여 작업을 수행할 때 호출 해야 하는 장치를 열 수 있습니다. 핸들을 닫을 때까지 동일한 장치에 다른 핸들을 열 수 없습니다.
+디바이스를 열 때는 항상 핸들 사용이 끝났을 때 [`k4a_device_close()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)를 호출해야 합니다. 핸들을 닫기 전까지는 동일한 디바이스에 어떤 다른 핸들도 열 수 없습니다.
 
-## <a name="identify-a-specific-device"></a>특정 장치 식별
+## <a name="identify-a-specific-device"></a>특정 디바이스 식별
 
-장치를 연결 하거나 분리 하는 순서 대로 장치를 열거 하는 순서는 변경 되지 않습니다. 물리적 장치를 식별 하려면 장치의 일련 번호를 사용 해야 합니다.
+디바이스가 연결되거나 분리되기 전까지는 인덱스에 기준해서 열거된 디바이스 순서는 변경되지 않습니다. 물리적 디바이스를 식별하려면 디바이스의 일련 번호를 사용해야 합니다.
 
-장치에서 일련 번호를 읽으려면 [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22) 핸들을 연 후 함수를 사용 합니다.
+디바이스에서 일련 번호를 읽으려면 핸들을 연 후 [`k4a_device_get_serialnum()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga798489af207ff1c99f2285ff6b08bc22.html#ga798489af207ff1c99f2285ff6b08bc22) 함수를 사용합니다.
 
-이 예에서는 일련 번호를 저장 하기 위해 적절 한 양의 메모리를 할당 하는 방법을 보여 줍니다.
+이 예에서는 일련 번호를 저장하기 위해 적절한 양의 메모리를 할당하는 방법을 보여 줍니다.
 
 ```C
 char *serial_number = NULL;
@@ -103,9 +103,9 @@ if (K4A_BUFFER_RESULT_SUCCEEDED != k4a_device_get_serialnum(device, serial_numbe
 printf("%d: Device \"%s\"\n", deviceIndex, serial_number);
 ```
 
-## <a name="open-the-default-device"></a>기본 장치 열기
+## <a name="open-the-default-device"></a>기본 디바이스 열기
 
-대부분의 응용 프로그램에는 동일한 컴퓨터에 단일 Azure Kinect만 연결 됩니다. 단일 예상 장치에만 연결 해야 하는 경우를 사용 하 여를 [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113) 호출 `index` 하 여 `K4A_DEVICE_DEFAULT` 첫 번째 장치를 열 수 있습니다.
+대부분의 애플리케이션에서는 단일 Azure Kinect DK만 동일한 컴퓨터에 연결되어 있습니다. 예상되는 단일 디바이스에만 연결해야 하는 경우 `K4A_DEVICE_DEFAULT`의 `index`로 [`k4a_device_open()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)을 호출하여 첫 번째 디바이스를 열 수 있습니다.
 
 ```C
 k4a_device_t device = NULL;

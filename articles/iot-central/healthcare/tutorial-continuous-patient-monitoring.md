@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 56ff43980aafc75d5936b86c6ba2cd400311c5fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 07cd77eb5546143936af1fc963f0212112fc6eb7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719103"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743366"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>자습서: 지속적인 환자 모니터링 앱 템플릿 배포 및 연습
 
-이 자습서에서는 솔루션 개발자로서 IoT Central 지속적인 환자 모니터링 애플리케이션을 배포하여 시작하는 방법을 보여줍니다. 템플릿을 배포하고 사용하는 방법에 대해 알아봅니다.
+이 자습서에서는 IoT Central 지속적인 환자 모니터링 애플리케이션 템플릿을 배포하여 시작하는 방법을 보여 줍니다. 템플릿을 배포하고 사용하는 방법에 대해 알아봅니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Maps 날씨 서비스 (미리 보기) 검사
-description: Microsoft Azure Maps 날씨 서비스 (미리 보기) 적용 범위에 대해 알아봅니다.
+title: Microsoft Azure Maps Weather Services(미리 보기) 적용 범위
+description: Microsoft Azure Maps Weather Services(미리 보기) 적용 범위에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -10,33 +10,33 @@ services: azure-maps
 ms.custom: references_regions
 manager: philmea
 ms.openlocfilehash: 6c4e9eb765a72b7a0b495f81a954b484ef6aa2b7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96905488"
 ---
-# <a name="azure-maps-weather-services-preview-coverage"></a>Azure Maps 날씨 서비스 (미리 보기) 검사
+# <a name="azure-maps-weather-services-preview-coverage"></a>Azure Maps Weather Services(미리 보기) 적용 범위
 
 > [!IMPORTANT]
 > Azure Maps Weather Services는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-이 문서에서는 [날씨 서비스](/rest/api/maps/weather)Azure Maps에 대 한 검사 정보를 제공 합니다. Azure Maps 날씨 데이터 서비스는 레이더 타일, 현재 날씨 조건, 날씨 예측, 경로를 따라 날씨 등의 세부 정보를 반환 합니다.
+이 문서에서는 Azure Maps [Weather Services](/rest/api/maps/weather)의 적용 범위에 대한 정보를 제공합니다. Azure Maps Weather Data Services는 레이더 타일, 현재 날씨 조건, 날씨 예측, 경로를 따른 날씨 등의 세부 정보를 반환합니다.
 
-Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다.
+Azure Maps는 모든 지역 및 국가에 대해 동일한 수준의 정보 및 정확도를 가지지는 않습니다.
 
-다음 표에서는 각 국가/지역에서 요청할 수 있는 날씨 정보 종류에 대 한 정보를 제공 합니다.
+다음 표에서는 각 국가/지역별로 요청할 수 있는 날씨 정보 종류에 대한 정보를 제공합니다.
 
 | 기호 | 의미 |
 |--------|---------|
-|*       |현재 조건, 시간별 예측, 사분기 예측, 매일 예측, 경로 및 일일 인덱스를 따라 날씨를 다룹니다. |
+|*       |현재 날씨 상황, 시간별 예측, 사분기 예측, 일일 예측, 경로에 따른 날씨 및 일일 인덱스를 다룹니다. |
 
 
 ## <a name="americas"></a>아메리카
 
-| 국가/지역              |  위성 타일 | 분 예측, 방사형 타일 | 심각한 날씨 경고 | 다른 |
+| 국가/지역              |  위성 타일 | 분 예측, 레이더 타일 | 심각한 날씨 경고 | 기타* |
 |-----------------------------|:----------------:|:-----------------:|:-----------------:|:--------:|  
 | 앵귈라                                 | ✓ |   | |  ✓| 
 | 남극 대륙                               | ✓ |   | |✓|
@@ -101,7 +101,7 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카
 
-| 국가/지역              |  위성 타일 | 분 예측, 방사형 타일 | 심각한 날씨 경고 | 다른 | 
+| 국가/지역              |  위성 타일 | 분 예측, 레이더 타일 | 심각한 날씨 경고 | 기타* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:| 
 | 알제리                     | ✓               |                              |     |  ✓| 
 | 앙골라                      | ✓               |                              |     |  ✓| 
@@ -122,7 +122,7 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 이집트                       | ✓               |                              |     |  ✓| 
 | 적도 기니           | ✓               |                              |     |  ✓| 
 | 에리트리아                     | ✓               |                              |     |  ✓| 
-| eSwatini                    | ✓               |                              |     |  ✓| 
+| 에스와티니                    | ✓               |                              |     |  ✓| 
 | 에티오피아                    | ✓               |                              |     |  ✓| 
 | 프랑스 남부 지방 | ✓               |                              |     |  ✓| 
 | 가봉                       | ✓               |                              |     |  ✓| 
@@ -179,7 +179,7 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 
 ## <a name="asia-pacific"></a>아시아 태평양
 
-| 국가/지역              |  위성 타일 | 분 예측, 방사형 타일 | 심각한 날씨 경고 | 다른 |
+| 국가/지역              |  위성 타일 | 분 예측, 레이더 타일 | 심각한 날씨 경고 | 기타* |
 |-----------------------------|:----------------:|:-----------------:|:--------:|  :--------:|
 | 아프가니스탄                       | ✓ |   | | ✓| 
 | 아메리칸 사모아                    | ✓ |   |  ✓| ✓| 
@@ -246,7 +246,7 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 
 ## <a name="europe"></a>유럽
 
-| 국가/지역              |  위성 타일 | 분 예측, 방사형 타일 | 심각한 날씨 경고 | 다른 | 
+| 국가/지역              |  위성 타일 | 분 예측, 레이더 타일 | 심각한 날씨 경고 | 기타* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|:--------:|
 | 알바니아                | ✓ |   | | ✓| 
 | 안도라                | ✓ |   | ✓ | ✓| 

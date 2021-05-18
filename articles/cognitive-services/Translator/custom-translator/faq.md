@@ -1,7 +1,7 @@
 ---
-title: Faq (질문과 대답)-사용자 지정 변환기
+title: 질문과 대답 - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 이 문서에는 Azure Cognitive Services 사용자 지정 변환기에 대 한 질문과 대답이 포함 되어 있습니다.
+description: 이 문서에는 Azure Cognitive Services Custom Translator에 대한 질문과 대답이 포함되어 있습니다.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,13 +10,13 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: reference
 ms.openlocfilehash: 001314817b0c18a8023258d01bcfb02eaaffe79b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895835"
 ---
-# <a name="custom-translator-frequently-asked-questions"></a>사용자 지정 변환기 faq (질문과 대답)
+# <a name="custom-translator-frequently-asked-questions"></a>Custom Translator 질문과 대답
 
 이 문서에는 [Custom Translator](https://portal.customtranslator.azure.ai)에 대해 자주 묻는 질문과 대답이 포함되어 있습니다.
 
@@ -49,7 +49,7 @@ Custom Translator는 `.align` 확장을 사용한 TMX 파일 및 텍스트 파�
 
 추출된 문장의 수가 동일한 기본 이름을 가진 두 파일과 일치하지 않는 경우 Custom Translator는 `.align` 파일에서 문장 정렬기를 계속 실행합니다.
 
-## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>TMX를 업로드 하려고 했지만 "문서 처리에 실패 했습니다." 라는 메시지가 표시 됨
+## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>내 TMX를 업로드하려고 했지만 "문서를 처리하지 못했습니다"라는 메시지가 표시됩니다.
 
 
 TMX가 <https://www.gala-global.org/tmx-14b>에 있는 TMX 1.4b 사양을 준수하는지 확인하십시오.

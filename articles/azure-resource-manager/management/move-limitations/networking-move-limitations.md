@@ -1,28 +1,31 @@
 ---
 title: Azure 네트워킹 리소스를 새 구독 또는 리소스 그룹으로 이동
-description: Azure Resource Manager를 사용 하 여 가상 네트워크 및 기타 네트워킹 리소스를 새 리소스 그룹 또는 구독으로 이동할 수 있습니다.
+description: Azure Resource Manager를 사용하여 가상 네트워크 및 다른 네트워킹 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 0cd6887d3489f2ffede0f5e3d63533a33a6ccc04
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 0ac503a778b3de8945b074628242233f9bcd6a3b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "75485235"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108129966"
 ---
-# <a name="move-guidance-for-networking-resources"></a>네트워킹 리소스에 대 한 이동 지침
+# <a name="move-guidance-for-networking-resources"></a>네트워킹 리소스 이동 지침
 
-이 문서에서는 특정 시나리오에 대 한 가상 네트워크 및 기타 네트워킹 리소스를 이동 하는 방법을 설명 합니다.
+이 문서에서는 특정 시나리오의 가상 네트워크와 다른 네트워킹 리소스를 이동하는 방법을 설명합니다.
 
 ## <a name="dependent-resources"></a>종속 리소스
 
-가상 네트워크를 이동할 때는 해당 종속 리소스도 함께 이동해야 합니다. VPN Gateway의 경우 IP 주소, 가상 네트워크 게이트웨이 및 모든 관련된 연결 리소스를 이동해야 합니다. 로컬 네트워크 게이트웨이는 다른 리소스 그룹에 있을 수 있습니다.
+> [!NOTE]
+> 공용 IP 표준 SKU 주소와 연결된 VPN 게이트웨이에서는 현재 리소스 그룹 또는 구독 간에 이동이 불가능합니다.
 
-네트워크 인터페이스 카드를 사용 하는 가상 컴퓨터를 새 구독으로 이동 하려면 모든 종속 리소스를 이동 해야 합니다. 네트워크 인터페이스 카드, 가상 네트워크의 다른 모든 네트워크 인터페이스 카드 및 VPN gateway에 대 한 가상 네트워크를 이동 합니다.
+리소스를 이동하는 경우 종속 리소스(예: 공용 IP 주소, 가상 네트워크 게이트웨이, 모든 관련된 연결 리소스)도 이동해야 합니다. 로컬 네트워크 게이트웨이는 다른 리소스 그룹에 있을 수 있습니다.
 
-자세한 내용은 [구독 간 이동 시나리오](../move-resource-group-and-subscription.md#scenario-for-move-across-subscriptions)를 참조 하십시오.
+네트워크 인터페이스 카드를 사용하는 가상 머신을 새 구독으로 이동하려면 모든 종속 리소스를 이동해야 합니다. 네트워크 인터페이스 카드의 가상 네트워크, 가상 네트워크의 다른 모든 네트워크 인터페이스 카드, VPN 게이트웨이를 이동합니다.
 
-## <a name="peered-virtual-network"></a>피어 링 가상 네트워크
+자세한 내용은 [구독 간 이동 시나리오](../move-resource-group-and-subscription.md#scenario-for-move-across-subscriptions)를 참조하세요.
+
+## <a name="peered-virtual-network"></a>피어링된 가상 네트워크
 
 피어링된 가상 네트워크를 이동하려면 먼저 가상 네트워크 피어링을 사용하지 않도록 설정해야 합니다. 사용하지 않도록 설정되면 가상 네트워크를 이동할 수 있습니다. 이동 후에는 가상 네트워크 피어링을 사용하도록 다시 설정합니다.
 

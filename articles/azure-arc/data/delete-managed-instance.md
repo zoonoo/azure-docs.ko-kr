@@ -1,34 +1,34 @@
 ---
-title: Azure Arc 사용 SQL Managed Instance 삭제
-description: Azure Arc 사용 SQL Managed Instance 삭제
+title: Azure Arc 지원 SQL Managed Instance 삭제
+description: Azure Arc 지원 SQL Managed Instance 삭제
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: rothja
+ms.author: jroth
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 416ba3305b1a118e05987c8c7b4499d1cf79ef5d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90940852"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736307"
 ---
-# <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance 삭제
-이 문서에서는 Azure Arc 사용 SQL Managed Instance를 삭제 하는 방법을 설명 합니다.
+# <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 삭제
+이 문서에서는 Azure Arc 지원 SQL Managed Instance를 삭제하는 방법을 설명합니다.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="view-existing-azure-arc-enabled-sql-managed-instances"></a>기존 Azure Arc 사용 SQL 관리 되는 인스턴스 보기
-SQL 관리 되는 인스턴스를 보려면 다음 명령을 실행 합니다.
+## <a name="view-existing-azure-arc-enabled-sql-managed-instances"></a>기존 Azure Arc 지원 SQL Managed Instance 보기
+SQL Managed Instance를 보려면 다음 명령을 실행합니다.
 
 ```console
 azdata arc sql mi list
 ```
 
-출력은 다음과 같이 표시 됩니다.
+출력은 다음과 비슷합니다.
 
 ```console
 Name    Replicas    ServerEndpoint    State
@@ -36,31 +36,31 @@ Name    Replicas    ServerEndpoint    State
 demo-mi 1/1         10.240.0.4:32023  Ready
 ```
 
-## <a name="delete-a-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 사용 SQL Managed Instance 삭제
-SQL Managed Instance를 삭제 하려면 다음 명령을 실행 합니다.
+## <a name="delete-a-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 삭제
+SQL Managed Instance를 삭제하려면 다음 명령을 실행합니다.
 
 ```console
 azdata arc sql mi delete -n <NAME_OF_INSTANCE>
 ```
 
-출력은 다음과 같이 표시 됩니다.
+출력은 다음과 비슷합니다.
 
 ```console
 # azdata arc sql mi delete -n demo-mi
 Deleted demo-mi from namespace arc
 ```
 
-## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes 영구 볼륨 클레임 회수 (Pvc)
+## <a name="reclaim-the-kubernetes-persistent-volume-claims-pvcs"></a>Kubernetes PVC(영구 볼륨 클레임) 회수
 
-SQL Managed Instance를 삭제 해도 연결 된 [pvc](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거 되지 않습니다. 이것은 의도적인 것입니다. 인스턴스가 실수로 삭제된 경우 사용자가 데이터베이스 파일에 액세스하도록 도와줍니다. PVC는 반드시 삭제할 필요는 없습니다. 그러나 권장됩니다. 이러한 Pvc를 회수 하지 않는 경우 Kubernetes 클러스터의 디스크 공간이 부족 하므로 결국 오류가 발생 합니다. PVC를 회수하려면 다음 단계를 수행합니다.
+SQL Managed Instance를 삭제해도 연결된 [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)는 제거되지 않습니다. 이것은 의도적인 것입니다. 인스턴스가 실수로 삭제된 경우 사용자가 데이터베이스 파일에 액세스하도록 도와줍니다. PVC는 반드시 삭제할 필요는 없습니다. 그러나 권장됩니다. 해당 PVC를 회수하지 않으면 Kubernetes 클러스터의 디스크 공간이 부족해지므로 결국 오류가 발생합니다. PVC를 회수하려면 다음 단계를 수행합니다.
 
-### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. 삭제 한 서버 그룹의 Pvc를 나열 합니다.
-Pvc를 나열 하려면 다음 명령을 실행 합니다.
+### <a name="1-list-the-pvcs-for-the-server-group-you-deleted"></a>1. 삭제한 서버 그룹의 PVC 나열
+PVC를 나열하려면 다음 명령을 실행합니다.
 ```console
 kubectl get pvc
 ```
 
-아래 예제에서는 삭제 한 SQL 관리 되는 인스턴스의 Pvc를 확인 합니다.
+아래 예제에서 삭제한 SQL Managed Instance의 PVC를 확인합니다.
 ```console
 # kubectl get pvc -n arc
 
@@ -69,8 +69,8 @@ data-demo-mi-0        Bound     pvc-1030df34-4b0d-4148-8986-4e4c20660cc4   5Gi  
 logs-demo-mi-0        Bound     pvc-11836e5e-63e5-4620-a6ba-d74f7a916db4   5Gi        RWO            managed-premium   13h
 ```
 
-### <a name="2-delete-each-of-the-pvcs"></a>2. 각 Pvc를 삭제 합니다.
-삭제 한 SQL 관리 되는 각 인스턴스에 대 한 데이터 및 로그 Pvc를 삭제 합니다.
+### <a name="2-delete-each-of-the-pvcs"></a>2. 각 PVC 삭제
+삭제한 각 SQL Managed Instance의 데이터 및 로그 PVC를 삭제합니다.
 이 명령의 일반적인 형식은 다음과 같습니다. 
 ```console
 kubectl delete pvc <name of pvc>
@@ -82,7 +82,7 @@ kubectl delete pvc data-demo-mi-0 -n arc
 kubectl delete pvc logs-demo-mi-0 -n arc
 ```
 
-이러한 각 kubectl 명령은 PVC가 성공적으로 삭제 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
+이러한 각 kubectl 명령은 PVC가 성공적으로 삭제되었는지 확인합니다. 예를 들면 다음과 같습니다.
 ```console
 persistentvolumeclaim "data-demo-mi-0" deleted
 persistentvolumeclaim "logs-demo-mi-0" deleted
@@ -90,13 +90,13 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
   
 
 > [!NOTE]
-> 표시 된 것 처럼, Pvc를 삭제 하지 않으면 오류가 발생 하는 상황에서 Kubernetes 클러스터를 가져올 수 있습니다. 이러한 오류 중 일부에는 azdata를 사용 하 여 Kubernetes 클러스터에 로그인 할 수 없는 항목이 포함 될 수 있습니다 .이 저장소 문제로 인해 pod가 제거 될 수 있습니다 (정상적인 Kubernetes 동작).
+> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 이러한 오류 중 일부에는 이 스토리지 문제로 인해 pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) azdata를 사용하여 Kubernetes 클러스터에 로그인할 수 없는 경우가 포함될 수 있습니다.
 >
-> 예를 들어 다음과 유사한 로그에 메시지가 표시 될 수 있습니다.  
-> - 주석: microsoft.com/ignore-pod-health: true  
-> - 상태: 실패  
-> - 이유: 제거 되었습니다.  
-> - 메시지: 리소스가 부족 합니다. 삭제 된 저장소입니다. 컨테이너 컨트롤러가 16372Ki를 사용 하 고 있습니다 .이는 0의 요청을 초과 합니다.
+> 예를 들어, 다음과 유사한 로그의 메시지가 표시될 수 있습니다.  
+> - Annotations:    microsoft.com/ignore-pod-health: true  
+> - Status:         Failed  
+> - Reason:         Evicted  
+> - Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
 
 ## <a name="next-steps"></a>다음 단계
 

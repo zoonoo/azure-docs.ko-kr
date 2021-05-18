@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric에 기존 실행 파일 배포
+title: 기존 실행 파일을 Azure Service Fabric에 배포
 description: Service Fabric 클러스터에 배포할 수 있도록 기존 애플리케이션을 게스트 실행 파일로 패키징하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86259267"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>기존 실행 파일을 Service Fabric으로 패키징 및 배포
@@ -22,10 +22,10 @@ ms.locfileid: "86259267"
 
 Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 배포할 수 있도록 서비스 패브릭 서비스 템플릿을 제공합니다.
 
-1. **파일**  >  **새로 만들기 프로젝트** 를 선택 하 고 Service Fabric 응용 프로그램을 만듭니다.
+1. **파일** > **새 프로젝트** 를 선택하여 Service Fabric 애플리케이션을 만듭니다.
 2. **게스트 실행 파일** 을 서비스 템플릿으로 선택합니다.
-3. **찾아보기** 를 클릭 하 여 실행 파일이 포함 된 폴더를 선택 하 고 나머지 매개 변수를 입력 하 여 서비스를 만듭니다.
-   * *코드 패키지 동작* 입니다. 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 애플리케이션 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 이는 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있습니다. 이 업데이트는 빌드의 애플리케이션 패키지의 일부가 됩니다.
+3. **찾아보기** 를 클릭하여 실행 파일이 포함된 폴더를 선택하고 매개 변수의 나머지를 입력하여 서비스를 만듭니다.
+   * *코드 패키지 동작*. 폴더의 모든 콘텐츠를 Visual Studio 프로젝트에 복사하도록 설정할 수 있으며 이것은 실행 파일이 변경되지 않는 경우에 유용합니다. 실행 파일을 변경하고 동적으로 새 빌드를 선택할 수 있는 기능을 원하는 경우 대신 폴더에 연결하도록 선택할 수 있습니다. Visual Studio에서 애플리케이션 프로젝트를 만들 경우 연결된 폴더를 사용할 수 있습니다. 이는 프로젝트 내에서 원본 위치에 연결되면 원본 대상에서 게스트 실행 파일을 업데이트할 수 있습니다. 이 업데이트는 빌드의 애플리케이션 패키지의 일부가 됩니다.
    * *프로그램* 은 서비스를 시작하기 위해 실행해야 하는 실행 파일을 지정합니다.
    * *인수* 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.
    * *WorkingFolder* 는 시작될 프로세스에 대한 작업 디렉터리를 지정합니다. 세 가지 값을 지정할 수 있습니다.
@@ -33,15 +33,15 @@ Visual Studio는 게스트 실행 파일을 서비스 패브릭 클러스터에 
      * `CodePackage`는 작업 디렉터리가 애플리케이션 패키지의 루트에 설정되도록 지정합니다(이전 파일 구조에 표시된 `GuestService1Pkg`).
      * `Work`는 파일이 work라는 하위 디렉터리에 배치되도록 지정합니다.
 4. 서비스에 이름을 지정하고 **확인** 을 클릭합니다.
-5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예를 들어 `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`을 참조하십시오.
+5. 서비스에서 통신에 엔드포인트가 필요한 경우 이제 프로토콜, 포트, 형식을 ServiceManifest.xml 파일에 추가할 수 있습니다. 예: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`
 6. 이제 패키지를 사용하고 Visual Studio에서 솔루션을 디버깅하여 로컬 클러스터에 대해 작업을 게시할 수 있습니다. 준비가 되면 원격 클러스터로 애플리케이션을 게시하거나 원본 제어에 대한 솔루션을 체크 인합니다.
 7. Service Fabric Explorer에서 실행 중인 게스트 실행 파일 서비스를 보는 방법을 보려면 [실행 중인 애플리케이션 확인](#check-your-running-application)을 참조하세요.
 
 예제 연습은 [Visual Studio를 사용하여 첫 번째 게스트 실행 파일 애플리케이션 만들기](quickstart-guest-app.md)를 참조하세요.
 
-### <a name="packaging-multiple-executables-with-visual-studio"></a>Visual Studio를 사용 하 여 여러 실행 파일 패키징
+### <a name="packaging-multiple-executables-with-visual-studio"></a>Visual Studio로 여러 실행 파일 패키징
 
-Visual Studio를 사용 하 여 여러 개의 게스트 실행 파일을 포함 하는 응용 프로그램 패키지를 생성할 수 있습니다. 첫 번째 게스트 실행 파일을 추가한 후 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **추가 >새 Service Fabric 서비스** 를 선택 하 여 두 번째 게스트 실행 파일 프로젝트를 솔루션에 추가 합니다.
+Visual Studio를 사용하여 여러 게스트 실행 파일이 포함된 애플리케이션 패키지를 생성할 수 있습니다. 첫 번째 게스트 실행 파일을 추가한 후 애플리케이션 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가->새 Service Fabric 서비스** 를 선택하여 솔루션에 두 번째 게스트 실행 파일 프로젝트를 추가합니다.
 
 > [!NOTE]
 > Visual Studio 솔루션을 구축하는 Visual Studio 프로젝트에서 원본을 연결하려는 경우 애플리케이션 패키지는 원본의 변경 내용으로 최신 상태로 업데이트됩니다.
@@ -56,7 +56,7 @@ Linux에서 실행되는 게스트를 만들고 배포하는 절차는 csharp �
 
 Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 매니페스트 파일로 애플리케이션 패키지를 만듭니다.
 
-### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Linux에서가 나를 사용 하 여 여러 실행 파일 패키징
+### <a name="packaging-multiple-executables-using-yeoman-on-linux"></a>Linux에서 Yeoman을 사용하여 여러 실행 파일 패키징
 
 `yo`을 사용하여 만든 애플리케이션에 다른 서비스를 추가하려면 다음 단계를 수행합니다.
 
@@ -76,7 +76,7 @@ Yeoman은 설치 및 제거 스크립트와 함께 해당 애플리케이션과 
 
 ### <a name="create-the-package-directory-structure"></a>패키지 디렉터리 구조 만들기
 
-[Azure Service Fabric 앱 패키지](./service-fabric-package-apps.md)에 설명 된 대로 디렉터리 구조를 만들어 시작할 수 있습니다.
+[Azure Service Fabric 앱 패키지](./service-fabric-package-apps.md)에 설명된 대로 디렉터리 구조를 만들어 시작할 수 있습니다.
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>애플리케이션의 코드 및 구성 파일 추가
 
@@ -178,7 +178,7 @@ SetupEntryPoint가 하나밖에 없으므로 애플리케이션의 설치에 여
 
 서비스 매니페스트 파일의 `EntryPoint` 요소는 서비스를 시작하는 방법을 지정하는 데 사용됩니다.
 
-`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예: `<ExeHost IsExternalExecutable="true">`
+`ExeHost` 요소는 서비스를 시작하는 데 사용되어야 하는 실행 파일(및 인수)을 지정합니다. 필요에 따라 `IsExternalExecutable="true"` 특성을 `ExeHost`에 추가하여 프로그램이 코드 패키지 외부의 외부 실행 파일임을 나타낼 수 있습니다. 예들 들어 `<ExeHost IsExternalExecutable="true">`입니다.
 
 * `Program`은 서비스를 시작해야 하는 실행 파일의 이름을 지정합니다.
 * `Arguments` 는 실행 파일에 전달되어야 하는 인수를 지정합니다. 인수가 있는 매개 변수 목록이 될 수도 있습니다.

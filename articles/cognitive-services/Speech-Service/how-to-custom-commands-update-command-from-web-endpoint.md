@@ -1,7 +1,7 @@
 ---
 title: 웹 엔드포인트에서 명령 업데이트
 titleSuffix: Azure Cognitive Services
-description: 웹 끝점에 대 한 호출을 사용 하 여 명령의 상태를 업데이트 하는 방법에 대해 알아봅니다.
+description: 웹 엔드포인트에 대한 호출을 사용하여 명령 상태를 업데이트하는 방법을 알아봅니다.
 services: cognitive-services
 author: nitinme
 manager: yetian
@@ -11,25 +11,25 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: nitinme
 ms.openlocfilehash: d0b77e6af36f0a71405f6c032bfdd121abeb0071
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97560273"
 ---
 # <a name="update-a-command-from-a-web-endpoint"></a>웹 엔드포인트에서 명령 업데이트
 
-클라이언트 응용 프로그램에서 음성 입력 없이 진행 중인 명령의 상태를 업데이트 해야 하는 경우 웹 끝점에 대 한 호출을 사용 하 여 명령을 업데이트할 수 있습니다.
+클라이언트 애플리케이션에서 음성 입력 없이 진행 중인 명령의 상태를 업데이트해야 하는 경우 웹 엔드포인트에 대한 호출을 사용하여 명령을 업데이트할 수 있습니다.
 
-이 문서에서는 웹 끝점에서 진행 중인 명령을 업데이트 하는 방법을 알아봅니다.
+이 문서에서는 웹 엔드포인트에서 진행 중인 명령을 업데이트하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 > [!div class = "checklist"]
 > * 이전에 [만든 사용자 지정 명령 앱](quickstart-custom-commands-application.md)
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기 
 
-이 예제에서는 다음 입력 또는이 입력의 하위 집합을 지 원하는 HTTP 트리거 [Azure 함수가](../../azure-functions/index.yml) 필요 합니다.
+이 예에서는 다음 입력(또는 이 입력의 하위 집합)을 지원하는 HTTP 트리거 [Azure 함수](../../azure-functions/index.yml)가 필요합니다.
 
 ```JSON
 {
@@ -48,16 +48,16 @@ ms.locfileid: "97560273"
 }
 ```
 
-이 입력의 주요 특성을 검토해 보겠습니다.
+이 입력의 키 특성을 검토해 보겠습니다.
 
-| 특성 | 설명 |
+| attribute | 설명 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| **conversationId** | 대화의 고유 식별자입니다. 클라이언트 앱에서이 ID를 생성할 수 있습니다. |
-| **currentCommand** | 대화에서 현재 활성화 된 명령입니다. |
-| **name** | 명령 이름입니다. `parameters`특성은 매개 변수의 현재 값을 포함 하는 맵입니다. |
-| **currentGlobalParameters** | 과 같은 맵 `parameters` 이지만 전역 매개 변수에 사용 됩니다. |
+| **conversationId** | 대화의 고유 식별자입니다. 클라이언트 앱에서 이 ID를 생성할 수 있습니다. |
+| **currentCommand** | 대화에서 현재 활성화된 명령입니다. |
+| **name** | 명령 이름입니다. `parameters` 특성은 매개 변수의 현재 값을 포함하는 맵입니다. |
+| **currentGlobalParameters** | `parameters`와 같은 맵이지만 전역 매개 변수에 사용됩니다. |
 
-Azure 함수의 출력은 다음 형식을 지원 해야 합니다.
+Azure 함수의 출력은 다음 형식을 지원해야 합니다.
 
 ```JSON
 {
@@ -74,9 +74,9 @@ Azure 함수의 출력은 다음 형식을 지원 해야 합니다.
 }
 ```
 
-[클라이언트에서 명령을 업데이트할](./how-to-custom-commands-update-command-from-client.md)때 사용한 것과 동일한 형식을 인식할 수 있습니다. 
+이 형식은 [클라이언트에서 명령을 업데이트](./how-to-custom-commands-update-command-from-client.md)할 때 사용한 것과 동일하기 때문에 인식할 수 있습니다. 
 
-이제 Node.js 기반으로 Azure 함수를 만듭니다. 이 코드를 복사 하 여 붙여 넣습니다.
+이제 Node.js를 기반으로 Azure 함수를 만듭니다. 이 코드를 복사하여 붙여넣습니다.
 
 ```nodejs
 module.exports = async function (context, req) {
@@ -94,35 +94,35 @@ module.exports = async function (context, req) {
 }
 ```
 
-사용자 지정 명령에서이 Azure 함수를 호출 하는 경우 대화의 현재 값을 보냅니다. 업데이트 하려는 매개 변수를 반환 하거나 현재 명령을 취소 합니다.
+사용자 지정 명령에서 이 Azure 함수를 호출하면 대화의 현재 값을 보냅니다. 업데이트할 매개 변수를 반환하거나 현재 명령을 취소하려는 경우 반환됩니다.
 
 ## <a name="update-the-existing-custom-commands-app"></a>기존 사용자 지정 명령 앱 업데이트
 
-Azure function을 기존 사용자 지정 명령 앱에 연결 해 보겠습니다.
+Azure 함수를 기존 사용자 지정 명령 앱에 연결해 보겠습니다.
 
-1. 이라는 새 명령을 추가 `IncrementCounter` 합니다.
-1. 값을 사용 하 여 하나의 예제 문장을 추가 `increment` 합니다.
-1. `Counter` `Number` 의 기본값을 사용 하 여 형식의 새 매개 변수 (Azure 함수에 지정 된 이름과 동일)를 추가 `0` 합니다.
-1. `IncrementEndpoint` **원격 업데이트가** **사용** 으로 설정 된 Azure 함수의 URL을 사용 하 여 라는 새 웹 끝점을 추가 합니다.
+1. `IncrementCounter`라는 새 명령을 추가합니다.
+1. 값이 `increment`인 문장 예를 하나 추가합니다.
+1. 기본값이 `0`인 `Number` 형식의 새 매개 변수 `Counter`(Azure 함수에 지정된 것과 동일한 이름)를 추가합니다.
+1. Azure 함수의 URL을 사용하여 `IncrementEndpoint`라는 새 웹 엔드포인트를 추가하고 **원격 업데이트** 를 **사용** 으로 설정합니다.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="원격 업데이트를 사용 하 여 웹 끝점을 설정 하는 방법을 보여 주는 스크린샷":::
-1. **IncrementRule** 라는 새 상호 작용 규칙을 만들고 **웹 끝점 호출** 작업을 추가 합니다.
+    > :::image type="content" source="./media/custom-commands/set-web-endpoint-with-remote-updates.png" alt-text="원격 업데이트가 설정된 웹 엔드포인트 설정을 보여 주는 스크린샷":::
+1. **IncrementRule** 이라는 새 상호 작용 규칙을 만들고 **웹 엔드포인트 호출** 작업을 추가합니다.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="상호 작용 규칙의 생성을 보여 주는 스크린샷":::
-1. 작업 구성에서을 선택 `IncrementEndpoint` 합니다. **성공 시** 값을 사용 하 여 **음성 응답을 보내도록** 구성 하 `Counter` 고 오류 메시지와 함께 **실패 시** 구성 합니다.
+    > :::image type="content" source="./media/custom-commands/increment-rule-web-endpoint.png" alt-text="상호 작용 규칙 생성을 보여 주는 스크린샷":::
+1. 작업 구성에서 `IncrementEndpoint`를 선택합니다. **성공 시** 를 값이 `Counter`인 **음성 응답 전송** 으로 구성하고 **실패 시** 를 오류 메시지로 구성합니다.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="웹 끝점을 호출 하는 증분 카운터를 설정 하는 방법을 보여 주는 스크린샷":::
-1. **사용자 입력을 대기** 하는 규칙의 실행 후 상태를 설정 합니다.
+    > :::image type="content" source="./media/custom-commands/set-increment-counter-call-endpoint.png" alt-text="웹 엔드포인트를 호출하기 위한 증분 카운터 설정을 보여 주는 스크린샷":::
+1. 규칙의 실행 후 상태를 **사용자 입력 대기** 로 설정합니다.
 
 ## <a name="test-it"></a>테스트
 
-1. 앱을 저장 하 고 학습 합니다.
+1. 앱을 저장하고 학습시킵니다.
 1. **테스트** 를 선택합니다.
-1. `increment`몇 번 보냅니다 (명령의 예제 문장 `IncrementCounter` ).
+1. `increment`를 몇 번 보냅니다(`IncrementCounter` 명령에 대한 예 문장).
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="증분 카운터 예제를 보여 주는 스크린샷":::
+    > :::image type="content" source="./media/custom-commands/increment-counter-example.png" alt-text="증분 카운터의 예를 보여 주는 스크린샷":::
 
-Azure 함수가 `Counter` 각 턴에서 매개 변수의 값을 증가 시키는 방법을 확인 합니다.
+Azure 함수가 매 차례마다 `Counter` 매개 변수의 값을 증가시키는 방법을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

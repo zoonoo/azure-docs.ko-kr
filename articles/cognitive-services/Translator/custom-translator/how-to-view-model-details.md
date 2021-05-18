@@ -10,17 +10,17 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 11f39aa480e3ba6508bf730c61891e80ea689e8b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895954"
 ---
 # <a name="view-model-details"></a>모델 세부 정보 보기
 
 프로젝트의 모델 탭에 해당 프로젝트의 모든 모델이 표시됩니다. 해당 프로젝트에 대해 학습된 모든 모델이 이 탭에는 나열됩니다.
 
-프로젝트의 각 모델에 대해 이러한 세부 정보가 표시 됩니다.
+프로젝트의 각 모델에 대해 다음과 같은 세부 정보가 표시됩니다.
 
 1. 모델 이름: 지정된 모델의 모델 이름을 표시합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "98895954"
 
 3. BLEU 점수: 번역 시스템의 품질을 나타내는 모델의 BLEU(Bilingual Evaluation Understudy) 점수를 표시합니다. 이 점수는 이 학습의 결과로 번역 시스템이 수행한 번역이 테스트 데이터 세트의 참조 문장과 얼마나 밀접하게 일치하는지 보여줍니다. BLEU 점수는 학습이 성공적으로 완료된 경우 나타납니다. 학습이 완료되지 않았거나 실패인 경우 BLEU 점수를 볼 수 없습니다.
 
-4. 학습 문장의 개수: 학습 집합으로 사용 되는 총 문장의 수를 표시 합니다.
+4. 학습 문장 수: 학습 세트로 사용된 총 문장 수를 표시합니다.
 
 5. 튜닝 문장 수: 튜닝 세트로 사용된 총 문장 수를 표시합니다.
 

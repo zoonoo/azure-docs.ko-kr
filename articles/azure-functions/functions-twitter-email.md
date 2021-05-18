@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/10/2021
 ms.author: cshoe
 ms.custom: devx-track-csharp, mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3517835859de82117de07ad67cdf8027960ab777
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 68953a2848594cac673f133b2a8fbd4de1ae63f0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388692"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760142"
 ---
 # <a name="tutorial-create-a-function-to-integrate-with-azure-logic-apps"></a>자습서: Azure Logic Apps와 통합하는 함수 만들기
 
@@ -226,7 +226,7 @@ Text Analytics 리소스를 만든 경우 몇 가지 설정을 복사하고 나�
     | 설정 | 값 |
     | ------- | ----- |
     | 검색 텍스트 | **#my-twitter-tutorial** |
-    | 얼마나 자주 항목을 확인하나요? | 텍스트 상자에서 **15** <br> 드롭다운에서 **분** |
+    | 얼마나 자주 항목을 확인하나요? | 텍스트 상자에서 **1** 및 <br> 드롭다운에서 **시간**. 다른 값을 입력할 수 있지만 Twitter 커넥터의 현재 [제한 사항](https://docs.microsoft.com/connectors/twitterconnector/#limits)을 검토해야 합니다.  |
 
 1. 도구 모음에서 **저장** 단추를 선택하여 진행 상황을 저장합니다.
 

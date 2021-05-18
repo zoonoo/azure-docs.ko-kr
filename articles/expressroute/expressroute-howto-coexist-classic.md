@@ -1,5 +1,5 @@
 ---
-title: 'Express 경로 및 S2S VPN 공존 연결 구성: 클래식'
+title: 'ExpressRoute 및 S2S VPN 공존 연결 구성: 클래식'
 description: 이 문서에서는 클래식 배포 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
 documentationcenter: na
 services: expressroute
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.openlocfilehash: 70407d726b697dd6c4dfb6777cf6c445092d3b73
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92206328"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
@@ -53,7 +53,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 > 
 > 
 
-![사이트 간 VPN 연결을 Express 경로에 대 한 백업으로 표시 하는 다이어그램입니다.](media/expressroute-howto-coexist-classic/scenario1.jpg)
+![사이트 간 VPN 연결이 ExpressRoute의 백업으로 표시된 다이어그램](media/expressroute-howto-coexist-classic/scenario1.jpg)
 
 ### <a name="configure-a-site-to-site-vpn-to-connect-to-sites-not-connected-through-expressroute"></a>사이트 간 VPN을 구성하여 ExpressRoute를 통해 연결되지 않은 사이트에 연결
 일부 사이트는 사이트 간 VPN을 통해 Azure에 직접 연결하고 일부 사이트는 ExpressRoute를 통해 연결된 네트워크를 구성할 수 있습니다. 
@@ -252,4 +252,4 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 6. 이제 게이트웨이가 없는 VNet이 설정됩니다. 새 게이트웨이를 만들고 연결을 완료하려면 이전 단계의 [4단계 - ExpressRoute 게이트웨이 만들기](#gw)를 진행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Express 경로에 대 한 자세한 내용은 [express 경로 FAQ](expressroute-faqs.md) 를 참조 하십시오.
+ExpressRoute에 대한 자세한 내용은 [ExpressRoute FAQ](expressroute-faqs.md)

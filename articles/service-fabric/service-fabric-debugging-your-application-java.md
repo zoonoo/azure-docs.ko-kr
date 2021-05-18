@@ -1,14 +1,14 @@
 ---
-title: Eclipse에서 응용 프로그램 디버그
+title: Eclipse에서 애플리케이션 디버그
 description: 로컬 개발 클러스터의 Eclipse에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다.
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
 ms.openlocfilehash: d321e0c10b66a15e6cb309cefe711602fa12957c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91534112"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 애플리케이션 디버그
@@ -41,4 +41,4 @@ ms.locfileid: "91534112"
 ### <a name="next-steps"></a>다음 단계
 
 * [Linux Azure Diagnostics를 사용하여 로그 수집](./service-fabric-diagnostics-event-aggregation-lad.md).
-* [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
+* [로컬로 서비스 모니터링 및 진단](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).

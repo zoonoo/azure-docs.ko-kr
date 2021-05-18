@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 4568b791db07eaa7a513c42066b22df04b24cb6d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 5d73c02b7fd5e40f3cc23f5b0eba1945cf3c8a40
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010306"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258438"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -21,9 +21,9 @@ ms.locfileid: "103010306"
 >
 >
 
-Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함 된 [Windows PowerShell 스크립트의 실행을 사용 하도록 설정](#enable-powershell-script-execution) 해야 합니다.
+Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 빌드 및 실행하려면 Service Fabric 런타임, SDK, 도구를 설치합니다. 또한 SDK에 포함된 [Windows PowerShell 스크립트의 실행을 사용하도록 설정](#enable-powershell-script-execution)해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 
@@ -33,11 +33,11 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션][1]을 �
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* 윈도우 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 지원:
-> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.1을 다운로드할][powershell5-download] 수 있습니다.
+> - Windows 7은 기본적으로 Windows PowerShell 2.0만을 포함합니다. 서비스 패브릭 PowerShell cmdlet에는 PowerShell 3.0 이상이 필요합니다. Microsoft 다운로드 센터에서 [Windows PowerShell 5.1을 다운로드][powershell5-download]할 수 있습니다.
 > - Service Fabric 역방향 프록시는 Windows 7에서 사용할 수 없습니다.
 
 ## <a name="install-the-sdk-and-tools"></a>SDK 및 도구 설치
@@ -47,9 +47,9 @@ SDK와 도구를 설치하려면 WebPI(웹 플랫폼 설치 관리자)를 사용
 > [!NOTE]
 > 로컬 Service Fabric 개발 클러스터 업그레이드는 지원되지 않습니다.
 
-### <a name="to-use-visual-studio-2017-or-2019"></a>Visual Studio 2017 또는 2019를 사용 하려면
+### <a name="to-use-visual-studio-2017-or-2019"></a>Visual Studio 2017 또는 2019를 사용하려면
 
-Service Fabric 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크 로드에 포함 되어 있습니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
+Service Fabric 도구는 Visual Studio 2017 및 2019의 Azure 개발 워크로드의 일부입니다. 이 워크로드를 Visual Studio 설치의 일부로 사용하도록 설정해야 합니다.
 또한 웹 플랫폼 설치 관리자를 사용하여 Microsoft Azure Service Fabric SDK 및 런타임을 설치해야 합니다.
 
 * [Microsoft Azure Service Fabric SDK 설치][core-sdk]
@@ -62,8 +62,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* Service Fabric SDK 및 도구 4.2.477
-* Service Fabric runtime 7.2.477
+* Service Fabric SDK 및 도구 5.0.514
+* Service Fabric 런타임 8.0.514
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 
@@ -91,7 +91,7 @@ Service Fabric은 머신 클러스터에 마이크로 서비스를 배포하기 
 * [GitHub의 서비스 패브릭 코드 샘플 확인](/samples/browse/?products=azure)
 * [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 * [Windows에서 Linux 개발 환경 준비](service-fabric-local-linux-cluster-windows.md)
-* [Service Fabric 지원 옵션](service-fabric-support.md) 에 대 한 자세한 정보
+* [Service Fabric 지원 옵션](service-fabric-support.md) 알아보기
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 캠페인 페이지"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

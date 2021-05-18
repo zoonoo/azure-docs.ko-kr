@@ -1,5 +1,5 @@
 ---
-title: 키 구 미리 작성 한 엔터티-LUIS
+title: Keyphrase 미리 빌드된 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 LUIS(Language Understanding)의 keyPhrase 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -10,24 +10,24 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
 ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91541988"
 ---
 # <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 keyPhrase 미리 빌드된 엔터티
-키 구 엔터티는 utterance에서 다양 한 키 구를 추출 합니다. 키 구를 포함 하는 예제 길이 발언를 응용 프로그램에 추가할 필요가 없습니다. 키 구 엔터티는 [텍스트 분석](../text-analytics/overview.md) 기능의 일부로 [많은 문화권](luis-language-support.md#languages-supported) 에서 지원 됩니다.
+keyPhrase 엔터티는 발화에서 다양한 핵심 구를 추출합니다. keyphrase를 포함하는 예제 발화를 애플리케이션에 추가할 필요는 없습니다. keyPhrase 엔터티는 [텍스트 분석](../text-analytics/overview.md) 기능의 일부로 [여러 문화권](luis-language-support.md#languages-supported)에서 지원됩니다.
 
 ## <a name="resolution-for-prebuilt-keyphrase-entity"></a>미리 빌드된 keyPhrase 엔터티의 해결
 
-쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+쿼리에 대해 반환되는 엔터티 개체는 다음과 같습니다.
 
 `where is the educational requirements form for the development and engineering group`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `false` .
+다음 JSON의 `verbose` 매개 변수가 `false`로 설정되어 있습니다.
 
 ```json
 "entities": {
@@ -38,7 +38,7 @@ ms.locfileid: "91541988"
 }
 ```
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
-다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `true` .
+다음 JSON의 `verbose` 매개 변수가 `true`로 설정되어 있습니다.
 
 ```json
 "entities": {

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 92c2ae13b840d7a73d86365ce88584bcafc878e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 673dca65726a4258e267e8dd3e403329b47f6d98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181461"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739989"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
@@ -40,6 +40,9 @@ ms.locfileid: "96181461"
 * [추가 플랜](https://aadsyncfabric.slack.com/pricing) 이상을 사용하도록 설정된 Slack 테넌트
 * 팀 관리자 권한이 있는 Slack의 사용자 계정
 
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
+
 ## <a name="step-1-plan-your-provisioning-deployment"></a>1단계. 프로비저닝 배포 계획
 1. [프로비저닝 서비스의 작동 방식](../app-provisioning/user-provisioning.md)에 대해 알아봅니다.
 2. [프로비저닝 범위](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에 있는 사용자를 결정합니다.
@@ -47,7 +50,7 @@ ms.locfileid: "96181461"
 
 ## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>2단계. Azure AD 애플리케이션 갤러리에서 Slack 추가
 
-Azure AD 애플리케이션 갤러리에서 Slack을 추가하여 Slack에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO에 대해 Slack을 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
+Azure AD 애플리케이션 갤러리에서 Slack을 추가하여 Slack에 대한 프로비저닝 관리를 시작합니다. 이전에 SSO용 Slack을 설정한 경우 동일한 애플리케이션을 사용할 수 있습니다. 그러나 처음 통합을 테스트하는 경우 별도의 앱을 만드는 것이 좋습니다. [여기](../manage-apps/add-application-portal.md)를 클릭하여 갤러리에서 애플리케이션을 추가하는 방법에 대해 자세히 알아봅니다. 
 
 ## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>3단계. 프로비저닝 범위에 있는 사용자 정의 
 
@@ -125,6 +128,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
    |profileUrl|String|
    |timezone|String|
    |userType|String|
+   |preferredLanguage|String|
    |urn:scim:schemas:extension:enterprise:1.0.department|String|
    |urn:scim:schemas:extension:enterprise:1.0.manager|참조|
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|

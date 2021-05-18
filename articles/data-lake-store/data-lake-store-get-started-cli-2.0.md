@@ -1,19 +1,19 @@
 ---
-title: Azure Data Lake Storage Gen1 계정 관리-Azure CLI
-description: Azure CLI를 사용 하 여 Data Lake Storage Gen1 계정을 만들고 기본 작업을 수행 합니다.
+title: Azure Data Lake Storage Gen1 계정 관리 - Azure CLI
+description: Azure CLI를 사용하여 Data Lake Storage Gen1 계정을 만들고 기본 작업을 수행합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92103631"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 시작
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Data Lake Storage Gen1 시작
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
@@ -24,7 +24,7 @@ ms.locfileid: "92103631"
 >
 > 
 
-Azure CLI를 사용 하 여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법에 대해 알아봅니다. Data Lake Storage Gen1에 대 한 자세한 내용은 [Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
+Azure CLI를 사용하여 Azure Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법을 알아봅니다. Data Lake Storage Gen1에 대한 자세한 내용은 [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조하세요.
 
 Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. 자세한 내용은 [Azure CLI 개요](/cli/azure)를 참조하세요. 전체 명령 및 구문 목록은 [Azure Data Lake Storage Gen1 CL 참조](/cli/azure/dls)에서 확인할 수 있습니다.
 
@@ -59,7 +59,7 @@ Azure CLI는 Azure 리소스를 관리하는 Azure의 명령줄 환경입니다.
 
 ## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Azure Data Lake Storage Gen1 계정 만들기
 
-1. 새 리소스 그룹을 만듭니다. 다음 명령에서 사용하려는 매개 변수 값을 제공합니다. 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "East US 2"입니다. 
+1. 새 리소스 그룹 만들기 다음 명령에서 사용하려는 매개 변수 값을 제공합니다. 위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "East US 2"입니다. 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
@@ -132,13 +132,13 @@ az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 
 ## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정에서 데이터 이름 바꾸기, 다운로드 및 삭제 
 
-* **파일의 이름을 바꾸려면** 다음 명령을 사용 합니다.
+* **파일의 이름을 바꾸려면** 다음 명령을 사용합니다.
   
     ```azurecli
     az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
-* **파일을 다운로드 하려면** 다음 명령을 사용 합니다. 이미 지정한 대상 경로가 있는지 확인합니다.
+* **파일을 다운로드하려면** 다음 명령을 사용합니다. 이미 지정한 대상 경로가 있는지 확인합니다.
   
     ```azurecli     
     az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"

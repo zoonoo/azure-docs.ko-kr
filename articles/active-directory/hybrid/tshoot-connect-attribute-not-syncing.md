@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6df1347eab57a6971fe2e39c0a55869c8f23939
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91317490"
 ---
 # <a name="troubleshoot-an-attribute-not-synchronizing-in-azure-ad-connect"></a>Azure AD Connect에서 동기화되지 않는 특성 문제 해결
@@ -32,22 +32,22 @@ ms.locfileid: "91317490"
 
 ### <a name="terminology"></a>**용어**
 
-* **CS:** 데이터베이스의 테이블인 커넥터 공간
-* **MV:** 메타 버스-데이터베이스의 테이블입니다.
-* **광고:** Active Directory
+* **CS:** 커넥터 공간(데이터베이스의 테이블)
+* **MV:** 메타버스(데이터베이스의 테이블)
+* **AD:** Active Directory
 * **AAD:** Azure Active Directory
 
 ### <a name="synchronization-steps"></a>**동기화 단계**
 
-* AD에서 가져오기: Active Directory 개체가 AD CS로 전환 됩니다.
+* AD에서 가져오기: Active Directory 개체를 AD CS로 가져옵니다.
 
-* AAD에서 가져오기: Azure Active Directory 개체가 AAD CS로 전환 됩니다.
+* AAD에서 가져오기: Azure Active Directory 개체를 AAD CS로 가져옵니다.
 
-* 동기화: **인바운드 동기화 규칙** 및 **아웃 바운드 동기화 규칙** 은 우선 순위가 낮은 것부터 높은 순서로 실행 됩니다. 동기화 규칙을 보려면 데스크톱 애플리케이션에서 **동기화 규칙 편집기** 로 이동하면 됩니다. **인바운드 동기화 규칙** 은 CS에서 MV로 데이터를 가져옵니다. **아웃바운드 동기화 규칙** 은 MV에서 CS로 데이터를 가져옵니다.
+* 동기화: **인바운드 동기화 규칙** 및 **아웃바운드 동기화 규칙** 은 우선 순위가 낮은 규칙부터 순서대로 실행됩니다. 동기화 규칙을 보려면 데스크톱 애플리케이션에서 **동기화 규칙 편집기** 로 이동하면 됩니다. **인바운드 동기화 규칙** 은 CS에서 MV로 데이터를 가져옵니다. **아웃바운드 동기화 규칙** 은 MV에서 CS로 데이터를 가져옵니다.
 
-* AD로 내보내기: 동기화를 실행 한 후 AD CS에서 **Active Directory** 로 개체를 내보냅니다.
+* AD로 내보내기: 동기화를 실행하고 나면 AD CS에서 **Active Directory** 로 개체가 내보내집니다.
 
-* AAD로 내보내기: 동기화를 실행 한 후 개체를 AAD CS에서 **Azure Active Directory** 로 내보냅니다.
+* AAD로 내보내기: 동기화를 실행하고 나면 AAD CS에서 **Azure Active Directory** 로 개체가 내보내집니다.
 
 ### <a name="step-by-step-investigation"></a>**단계별 조사**
 
@@ -67,7 +67,7 @@ ms.locfileid: "91317490"
 
 * **Active Directory 커넥터** 를 두 번 클릭하여 **커넥터 공간** 특성을 봅니다. **미리 보기** 단추를 클릭하고, 다음 대화 상자에서 **미리 보기 생성** 단추를 클릭합니다.
 
-  ![미리 보기 단추가 강조 표시 된 커넥터 공간 개체 속성 화면을 보여 주는 스크린샷](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
+  ![미리 보기 단추가 강조 표시된 커넥터 공간 개체 속성 화면 스크린샷](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/csattributes.png)
 
 * **가져오기 특성 흐름** 을 클릭하면 **Active Directory 커넥터 공간** 에서 **메타버스** 로의 특성 흐름이 표시됩니다. **동기화 규칙** 열에는 해당 특성에 적용되는 **동기화 규칙** 이 표시됩니다. **데이터 원본** 열에는 **커넥터 공간** 의 특성이 표시됩니다. **메타버스 특성** 열에는 **메타버스** 의 특성이 표시됩니다. 여기서 동기화되지 않는 특성을 찾을 수 있습니다. 여기서 특성을 찾지 못하면 매핑되지 않은 것이며, 특성을 매핑하는 새 사용자 지정 **동기화 규칙** 을 만들어야 합니다.
 
@@ -75,12 +75,12 @@ ms.locfileid: "91317490"
 
 * 왼쪽 창에서 **내보내기 특성 흐름** 을 클릭하여 **아웃바운드 동기화 규칙** 을 통해 **메타버스** 에서 **Active Directory 커넥터 공간** 으로 돌아하는 특성 흐름을 봅니다.
 
-  ![아웃 바운드 동기화 규칙을 사용 하 여 메타 버스에서 Active Directory 커넥터 공간으로 다시의 특성 흐름을 보여 주는 스크린샷](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
+  ![아웃바운드 동기화 규칙을 사용하여 메타버스에서 Active Directory 커넥터 공간으로 돌아가는 특성 흐름 스크린샷](media/tshoot-connect-attribute-not-syncing/tshoot-connect-attribute-not-syncing/mvtocsattributeflow.png)
 
 * 마찬가지로, **Azure Active Directory 커넥터 공간** 개체를 볼 수 있으며, **메타버스** 에서 **커넥터 공간** 으로 그리고 그 반대로 흐르는 특성 흐름을 보는 **미리 보기** 를 만들 수 있습니다. 이러한 방식으로 특성이 동기화되지 않는 이유를 조사할 수 있습니다.
 
 ## <a name="recommended-documents"></a>**권장되는 문서**
-* [Azure AD Connect 동기화: 기술 개념](./how-to-connect-sync-technical-concepts.md)
+* [Azure AD Connect Sync: 기술 개념](./how-to-connect-sync-technical-concepts.md)
 * [Azure AD Connect 동기화: 아키텍처 이해](./concept-azure-ad-connect-sync-architecture.md)
 * [Azure AD Connect 동기화: 선언적 프로비전 이해](./concept-azure-ad-connect-sync-declarative-provisioning.md)
 * [Azure AD Connect 동기화: 선언적 프로비전 식 이해](./concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
@@ -90,5 +90,5 @@ ms.locfileid: "91317490"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [동기화를 Azure AD Connect](how-to-connect-sync-whatis.md)합니다.
-- [하이브리드 id 란?](whatis-hybrid-identity.md)
+- [Azure AD Connect 동기화](how-to-connect-sync-whatis.md)
+- [하이브리드 ID란?](whatis-hybrid-identity.md)

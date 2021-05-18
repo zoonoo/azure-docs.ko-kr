@@ -1,7 +1,7 @@
 ---
 title: 이미지 조정 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Content Moderator의 기계 지원 이미지 조정 및 사용자가 반복 하는 검토 도구를 사용 하 여 성인 및 외설 콘텐츠에 대 한 이미지를 중간에 사용 합니다.
+description: Content Moderator의 머신 지원 이미지 조정 및 휴먼 참여형 검토 도구를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.openlocfilehash: fe76e32bfd9b1734f3c84a400f897b7af7e3168b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85800998"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
-Content Moderator의 기계 지원 이미지 조정 및 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 를 사용 하 여 성인 및 외설 콘텐츠에 대 한 이미지를 중간에 보호 합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
+Content Moderator의 컴퓨터 지원 이미지 조정 및 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md)를 사용하여 성인 및 외설 콘텐츠에 대한 이미지를 조정합니다. 텍스트 콘텐츠에 대한 이미지를 검색하고 해당 텍스트를 추출한 후 얼굴을 감지합니다. 사용자 지정 목록에서 이미지와 일치하는 사용자를 검색한 후 후속 조치를 취할 수 있습니다.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>성인 및 외설 콘텐츠 평가
 
@@ -69,7 +69,7 @@ Content Moderator의 기계 지원 이미지 조정 및 [검토 도구](Review-T
 
 ## <a name="detecting-faces"></a>얼굴 감지
 
-얼굴을 감지 하면 이미지의 얼굴 같은 개인 데이터를 검색 하는 데 도움이 됩니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
+얼굴을 검색하면 이미지에 있는 얼굴 같은 개인 정보를 검색할 수 있습니다. 각 이미지에서 잠재적인 얼굴 및 얼굴 수를 감지합니다.
 
 응답에는 다음 정보가 포함됩니다.
 
@@ -147,10 +147,10 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 ## <a name="review-tool"></a>검토 도구
 
-미묘한 사례에 대 한 자세한 내용은 Content Moderator [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용 하 여 사용자 중재자를 위해 검토에서 중재 결과와 콘텐츠를 노출 합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
+좀 더 미묘한 차이가 있는 경우 Content Moderator의 [검토 도구](Review-Tool-User-Guide/human-in-the-loop.md) 및 해당 API를 사용하여 중재자가 검토할 수 있게 조정 결과 및 콘텐츠를 제공합니다. 컴퓨터 할당 태그를 검토하고 최종 결정을 확인합니다.
 
 ![사용자 중재자를 위한 이미지 검토](images/moderation-reviews-quickstart-dotnet.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 [리뷰, 워크플로 및 작업](./review-api.md) 을 참조 하 여 인간 리뷰를 설정 하는 방법을 알아보세요.
+[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 사용자 검토를 설정하는 방법을 알아보려면 [검토, 워크플로 및 작업](./review-api.md)을 참조하세요.

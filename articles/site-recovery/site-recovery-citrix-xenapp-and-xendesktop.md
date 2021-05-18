@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Citrix XenDesktop/XenApp 재해 복구 설정
+title: Azure Site Recovery를 사용하여 Citrix XenDesktop/XenApp 재해 복구 설정
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Citrix XenDesktop 및 XenApp 배포에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: ponatara
 manager: abhemraj
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ponatara
 ms.openlocfilehash: 90d54a8ded99dd8ab43aed688036add6aede20ab
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86134845"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>다중 계층 Citrix XenApp 및 XenDesktop 배포에 대해 재해 복구 설정
@@ -26,7 +26,7 @@ Citrix XenDesktop은 어디서든 모든 사용자에게 데스크톱 및 애플
 이 문서에서는 Hyper-V 및 VMware vSphere 플랫폼에서 온-프레미스 Citrix XenApp 배포용 재해 복구 솔루션을 빌드하기 위한 단계별 지침을 제공합니다. 또한 복구 계획, 지원되는 구성 및 필수 구성 요소를 사용하여 Azure로의 테스트 장애 조치(재해 복구 드릴) 및 계획되지 않은 장애 조치를 수행하는 방법을 설명합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -156,7 +156,7 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
    >[!NOTE]     
    >수동 또는 스크립트 작업을 포함하는 4, 6 및 7단계는 MCS/PVS 카탈로그가 있는 온-프레미스 XenApp 환경에만 적용됩니다.
 
-4. 그룹 3 수동 또는 스크립트 동작: 마스터 VDA VM을 종료 합니다.
+4. 그룹 3 수동 또는 스크립트 작업: 마스터 VDA VM 종료.
 Azure로 장애 조치된 경우 마스터 VDA VM은 실행 상태가 됩니다. Azure 호스팅을 사용하여 새 MCS 카탈로그를 만들려면 마스터 VDA VM이 중지됨(할당 취소됨) 상태에 있어야 합니다. Azure Portal에서 VM을 종료합니다.
 
 5. 장애 조치 그룹 4: Delivery Controller 및 StoreFront 서버 VM

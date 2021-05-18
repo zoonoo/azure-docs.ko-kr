@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dd3afed85dc3eff81cbe60f252cdc16b0d4018c8
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628121"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Service Fabric 애플리케이션에 로깅 추가
@@ -95,8 +95,8 @@ internal sealed class ServiceEventSource : EventSource
 
 ASP.NET Core 로깅([ Microsoft.Extensions.Logging NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Logging))은 애플리케이션에 대한 표준 로깅 API를 제공하는 로깅 프레임워크입니다. 다른 로깅 백 엔드에 대한 지원을 ASP.NET Core 로깅에 연결할 수 있습니다. 이렇게 하면 많은 코드를 변경할 필요 없이 애플리케이션의 로깅에 대한 다양한 지원이 처리됩니다.
 
-1. 계측할 프로젝트에 **Microsoft 확장명 로깅** 패키지를 추가 합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
-2. 서비스 파일에 **로깅하** 는 **using** 지시문을 추가 합니다.
+1. 계측하려는 프로젝트에 **Microsoft.Extensions.Logging** NuGet 패키지를 추가합니다. 또한 공급자 패키지를 추가합니다. 자세한 내용은 [ASP.NET Core 로그인](/aspnet/core/fundamentals/logging)(영문)을 참조하세요.
+2. **Microsoft.Extensions.Logging** 에 대한 **using** 지시문을 서비스 파일에 추가합니다.
 3. 서비스 클래스 내에 프라이빗 변수를 정의합니다.
 
    ```csharp

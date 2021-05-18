@@ -3,16 +3,16 @@ title: CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플
 description: CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플 개요. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: b6188d96971329a83bc82042a1f840bd893354eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5a7b6afb2647db02f50704c8718ba8562c5c6c02
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103197795"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757784"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v110-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플
 
-CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플은 특정 CIS Microsoft Azure Foundations Benchmark 권장 사항을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+CIS Microsoft Azure Foundations Benchmark v1.1.0 청사진 샘플은 특정 CIS Microsoft Azure Foundations Benchmark 권장 사항을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 보호책을 제공합니다. 이 청사진은 고객이 CIS Microsoft Azure Foundations Benchmark v1.1.0 권장 사항을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="recommendation-mapping"></a>추천 매핑
 

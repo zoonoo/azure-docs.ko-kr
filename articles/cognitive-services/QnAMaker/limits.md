@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 1e57ae537c271e61f0b2d37f5320cb177b04802b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98164875"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816371"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -108,6 +108,26 @@ URL 페이지에서 QnA 추출을 위해 크롤링할 수 있는 최대 딥 링�
 * 추가 또는 삭제된 최대 메타데이터 필드 수: 10
 * 새로 고칠 수 있는 최대 URL 수: 5
 * 호출당 허용되는 최대 QnA 수: 1000개
+
+## <a name="add-unstructured-file-limits"></a>비구조적 파일 한도 추가
+
+> [!NOTE]
+> * 허용 한도보다 크기가 큰 파일을 사용해야 하는 경우 파일을 API로 보내기 전에 큰 파일을 작은 파일로 분할할 수 있습니다. 
+
+이 한도는 ‘KB를 만들거나’ CreateKnowledgeBase API를 호출하는 데 비구조적 파일이 사용된 경우 나타납니다.
+* 파일 길이: 처음 32,000자 추출
+* 파일당 최대 응답 3개
+
+## <a name="prebuilt-question-answering-limits"></a>미리 빌드된 질문 답변 한도
+
+> [!NOTE]
+> * 허용 한도보다 크기가 큰 문서를 사용해야 하는 경우 텍스트를 API로 보내기 전에 큰 텍스트를 작은 텍스트 청크로 분할할 수 있습니다. 
+> * 문서는 텍스트 문자의 단일 문자열입니다.  
+
+이 한도는 ‘응답을 생성’하거나 GenerateAnswer API를 호출하는 데 미리 빌드된 API가 사용된 경우 나타납니다.
+* 문서 수: 5개
+* 단일 문서의 최대 크기: 5,120자
+* 문서당 최대 응답 3개
 
 ## <a name="next-steps"></a>다음 단계
 

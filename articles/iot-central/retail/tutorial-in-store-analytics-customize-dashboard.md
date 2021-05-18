@@ -11,17 +11,17 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 74ce36652b1a00ac6813c62a17d44e2a5486645f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cea5ed5d75bbba4e2e6cdc8793bf5ce7503a5912
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99831719"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755354"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>자습서:  Azure IoT Central에서 운영자 대시보드 사용자 지정 및 디바이스 관리
 
 
-이 자습서에서는 빌더로서 Azure IoT Central 스토어 내 분석 애플리케이션에서 운영자 대시보드를 사용자 지정하는 방법을 알아봅니다. 애플리케이션 운영자는 사용자 지정된 대시보드를 사용하여 애플리케이션을 실행하고 연결된 디바이스를 관리할 수 있습니다.
+이 자습서에서는 Azure IoT Central 매장 내 분석 애플리케이션에서 운영자 대시보드를 사용자 지정하는 방법을 알아봅니다. 애플리케이션 운영자는 사용자 지정된 대시보드를 사용하여 애플리케이션을 실행하고 연결된 디바이스를 관리할 수 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]

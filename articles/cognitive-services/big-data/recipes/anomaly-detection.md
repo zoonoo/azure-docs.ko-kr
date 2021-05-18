@@ -1,7 +1,7 @@
 ---
-title: 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 피가
+title: '레시피: 빅 데이터용 Cognitive Services로 예측 유지 관리'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 빅 데이터에 대 한 Cognitive Services에서 분산 변칙 검색을 수행 하는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 빅 데이터용 Cognitive Services로 분산형 변칙 검색을 수행하는 방법을 보여 줍니다.
 services: cognitive-services
 author: mhamilton723
 manager: nitinme
@@ -12,40 +12,40 @@ ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
 ms.openlocfilehash: 5a583d74ae0bf421a7a863a65442d250489a2f8f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104775394"
 ---
-# <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 레 Cognitive Services 피가
+# <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>레시피: 빅 데이터용 Cognitive Services로 예측 유지 관리
 
-이 작성법은 IoT 장치의 예측 유지 관리를 위해 Azure Synapse Analytics를 사용 하 고 Apache Spark에서 Cognitive Services 하는 방법을 보여 줍니다. [CosmosDB 및 Synapse 링크](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) 샘플을 따릅니다. 이러한 작업을 단순하게 유지 하기 위해 CosmosDB 및 Synapse 링크를 통해 스트리밍된 데이터를 가져오는 대신 CSV 파일에서 직접 데이터를 읽습니다. Synapse Link 샘플을 살펴보는 것이 좋습니다.
+이 레시피는 IoT 디바이스의 예측 유지 관리를 위해 Apache Spark에서 Azure Synapse Analytics 및 Cognitive Services를 사용하는 방법을 보여 줍니다. [CosmosDB 및 Synapse Link](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) 샘플을 사용합니다. 간단하게 하기 위해 이 레시피에서는 CosmosDB 및 Synapse Link를 통해 스트리밍된 데이터를 가져오는 대신 CSV 파일에서 직접 데이터를 읽습니다. Synapse Link 샘플을 살펴보는 것이 좋습니다.
 
 ## <a name="hypothetical-scenario"></a>가상 시나리오
 
-가상 시나리오는 IoT 장치가 [스트림 터빈](https://en.wikipedia.org/wiki/Steam_turbine)를 모니터링 하는 전원 공장입니다. IoTSignals 컬렉션은 각 터빈에 대해 분당 회전 (RPM) 및 Megawatts (MW) 데이터를 포함 합니다. 스트림 터빈의 신호를 분석 하 고 있으며 비정상 신호를 검색 했습니다.
+가상 시나리오는 IoT 디바이스가 [증기 터빈](https://en.wikipedia.org/wiki/Steam_turbine)을 모니터링하는 발전소입니다. IoTSignals 컬렉션은 각 터빈에 대한 RPM(분당 회전 수) 및 MW(메가와트) 데이터를 포함합니다. 증기 터빈의 신호를 분석하고 비정상적인 신호를 검색합니다.
 
-임의 빈도의 데이터에는 이상 값이 있을 수 있습니다. 이러한 상황에서 RPM 값은 위로 이동 하 고 MW 출력은 회로 보호에 대해 다운 됩니다. 이 개념은 데이터를 동시에 다른 신호로 표시 하는 것을 확인 하는 것입니다.
+임의 빈도의 데이터에는 이상값이 있을 수 있습니다. 이러한 상황에서는 회로 보호를 위해 RPM 값은 올라가고 MW 출력은 내려갑니다. 데이터가 동시에 변하지만 신호가 다른 것을 확인하는 개념입니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
-* [서버 리스 Apache Spark 풀](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 로 구성 된 [Azure Synapse 작업 영역](../../../synapse-analytics/quickstart-create-workspace.md)
+* [서버리스 Apache Spark 풀](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)로 구성된 [Azure Synapse 작업 영역](../../../synapse-analytics/quickstart-create-workspace.md)
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치 프로그램
 
 ### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용 하 여 번역기에 대 한 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. [Azure Portal](../../cognitive-services-apis-create-account.md) 또는 [Azure CLI](../../cognitive-services-apis-create-account-cli.md)를 사용하여 Translator용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
 - [Azure Portal](https://portal.azure.com/)에서 기존 리소스를 봅니다.
 
-이 리소스에 대 한 끝점 및 키를 적어 두세요 .이 가이드에서 필요 합니다.
+이 리소스에 대한 엔드포인트 및 키를 기록해 둡니다. 이 가이드에서 필요합니다.
 
 ## <a name="enter-your-service-keys"></a>서비스 키 입력
 
-키와 위치를 추가 하 여 시작 해 보겠습니다.
+키 및 위치를 추가하는 것으로 시작하겠습니다.
 
 ```python
 service_key = None # Paste your anomaly detector key here
@@ -55,17 +55,17 @@ assert (service_key is not None)
 assert (location is not None)
 ```
 
-## <a name="read-data-into-a-dataframe"></a>데이터 프레임 데이터 읽기
+## <a name="read-data-into-a-dataframe"></a>DataFrame으로 데이터 가져오기
 
-다음으로, I데이터 프레임 신호 파일을 읽어 보겠습니다. Synapse 작업 영역에서 새 노트북을 열고 파일에서 데이터 프레임를 만듭니다.
+다음으로 IoTSignals 파일을 DataFrame으로 읽어오겠습니다. Synapse 작업 영역에서 새 Notebook을 열고 파일에서 DataFrame을 만듭니다.
 
 ```python
 df_signals = spark.read.csv("wasbs://publicwasb@mmlspark.blob.core.windows.net/iot/IoTSignals.csv", header=True, inferSchema=True)
 ```
 
-### <a name="run-anomaly-detection-using-cognitive-services-on-spark"></a>Spark에서 Cognitive Services를 사용 하 여 변칙 검색 실행
+### <a name="run-anomaly-detection-using-cognitive-services-on-spark"></a>Spark에서 Cognitive Services를 사용하여 변칙 검색 실행
 
-목표는 IoT 장치의 신호가 비정상 값을 출력 하는 인스턴스를 찾는 것입니다 .이를 통해 무언가 잘못 된 경우를 확인 하 고 예측 유지 관리를 수행할 수 있습니다. 이렇게 하려면 Spark에서 변칙 탐지기를 사용 하겠습니다.
+IoT 디바이스의 신호가 비정상적인 값을 출력하는 인스턴스를 찾아서 언제 문제가 발생하는지 확인하고 예측 유지 관리를 수행하는 것이 목표입니다. 이를 위해 Spark에서 Anomaly Detector를 사용하겠습니다.
 
 ```python
 from pyspark.sql.functions import col, struct
@@ -96,18 +96,18 @@ df_anomaly.createOrReplaceTempView('df_anomaly')
 df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 ```
 
-이 셀의 결과는 다음과 같습니다.
+이 셀에는 다음과 같은 결과가 산출되어야 합니다.
 
 | timestamp           |   값 | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
-| 2020-05-01 18:33:51 |    3174 | 개발-7      | 거짓       |
-| 2020-05-01 18:33:52 |    2976 | 개발-7      | 거짓       |
-| 2020-05-01 18:33:53 |    2714 | 개발-7      | 거짓       |
+| 2020-05-01 18:33:51 |    3174 | dev-7      | False       |
+| 2020-05-01 18:33:52 |    2976 | dev-7      | False       |
+| 2020-05-01 18:33:53 |    2714 | dev-7      | False       |
 
 
- ## <a name="visualize-anomalies-for-one-of-the-devices"></a>장치 중 하나에 대 한 변칙 시각화
+ ## <a name="visualize-anomalies-for-one-of-the-devices"></a>디바이스 중 하나에 대한 변칙 시각화
 
-IoTSignals.csv에는 여러 IoT 장치의 신호가 있습니다. 특정 장치에 집중 하 고 장치에서 비정상적인 출력을 시각화 합니다.
+IoTSignals.csv에는 여러 IoT 디바이스의 신호가 포함되어 있습니다. 특정 디바이스에 집중하고 디바이스의 비정상적인 출력을 시각화합니다.
 
 ```python
 df_anomaly_single_device = spark.sql("""
@@ -125,7 +125,7 @@ order by timestamp
 limit 200""")
 ```
 
-이제 특정 장치에 대 한 변칙을 나타내는 데이터 프레임를 만들었으므로 다음과 같은 비정상 상황을 시각화할 수 있습니다.
+이제 특정 디바이스에 대해 변칙을 나타내는 데이터 프레임을 만들었으므로 다음과 같은 변칙을 시각화할 수 있습니다.
 
 ```python
 import matplotlib.pyplot as plt
@@ -145,10 +145,10 @@ plt.title('RPM Anomalies with Confidence Intervals')
 plt.show()
 ```
 
-성공 하면 출력이 다음과 같이 표시 됩니다.
+성공하면 출력이 다음과 같이 표시됩니다.
 
-![변칙 탐지기 플롯](../media/anomaly-output.png)
+![Anomaly Detector 플롯](../media/anomaly-output.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Cognitive Services, Azure Synapse Analytics 및 Azure CosmosDB를 사용 하 여 대규모 예측 유지 관리를 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples)에서 전체 샘플을 참조 하세요.
+Azure Cognitive Services, Azure Synapse Analytics, Azure CosmosDB로 대규모의 예측 유지 관리를 수행하는 방법을 알아봅니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples)에서 전체 샘플을 참조하세요.

@@ -1,7 +1,7 @@
 ---
-title: 컨테이너 또는 blob에 대 한 서비스 SAS 만들기
+title: 컨테이너 또는 Blob에 대한 서비스 SAS 만들기
 titleSuffix: Azure Storage
-description: Azure Blob Storage 클라이언트 라이브러리를 사용 하 여 컨테이너 또는 blob에 대 한 서비스 공유 액세스 서명 (SAS)을 만드는 방법에 대해 알아봅니다.
+description: Azure Blob Storage 클라이언트 라이브러리를 사용하여 컨테이너 또는 Blob에 대한 SAS(서비스 공유 액세스 서명)를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -12,31 +12,31 @@ ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7bbe19de666fb167297de89e85bf302186a9145e
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105024883"
 ---
-# <a name="create-a-service-sas-for-a-container-or-blob"></a>컨테이너 또는 blob에 대 한 서비스 SAS 만들기
+# <a name="create-a-service-sas-for-a-container-or-blob"></a>컨테이너 또는 Blob에 대한 서비스 SAS 만들기
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-이 문서에서는 저장소 계정 키를 사용 하 여 Blob Storage에 대 한 Azure Storage 클라이언트 라이브러리를 통해 컨테이너 또는 blob에 대 한 서비스 SAS를 만드는 방법을 보여 줍니다.
+이 문서에서는 스토리지 계정 키를 사용하여 Blob Storage에 대한 Azure Storage 클라이언트 라이브러리를 통해 컨테이너 또는 Blob에 대한 서비스 SAS를 만드는 방법을 보여 줍니다.
 
-## <a name="create-a-service-sas-for-a-blob-container"></a>Blob 컨테이너에 대 한 서비스 SAS 만들기
+## <a name="create-a-service-sas-for-a-blob-container"></a>컨테이너 또는 Blob에 대한 서비스 SAS 만들기
 
-다음 코드 예제에서는 컨테이너에 대 한 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책이 제공 되지 않는 경우 코드는 컨테이너에 임시 SAS를 만듭니다.
+다음 코드 예는 컨테이너에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장된 액세스 정책이 제공되지 않는 경우 코드는 컨테이너에서 임시 SAS를 만듭니다.
 
 ### <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-서비스 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
+서비스 SAS는 계정 액세스 키로 서명됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용하여 SAS에 서명하는 데 사용되는 자격 증명을 만듭니다. 그런 다음 새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters)를 호출하여 SAS 토큰 문자열을 가져옵니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForContainer":::
 
 ### <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-컨테이너에 대 한 서비스 SAS를 만들려면 [CloudBlobContainer. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) 메서드를 호출 합니다.
+컨테이너에 대한 서비스 SAS를 만들려면 [CloudBlobContainer.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getsharedaccesssignature) 메서드를 호출합니다.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, 
@@ -85,25 +85,25 @@ private static string GetContainerSasUri(CloudBlobContainer container,
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-서비스 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 필요한 매개 변수를 제공 하는 [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) 함수를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
+서비스 SAS는 계정 액세스 키로 서명됩니다. [StorageSharedKeyCredential](/javascript/api/@azure/storage-blob/storagesharedkeycredential) 클래스를 사용하여 SAS에 서명하는 데 사용되는 자격 증명을 만듭니다. 그런 다음 SAS 토큰 문자열을 가져오는 데 필요한 매개 변수를 제공하는 [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) 함수를 호출합니다.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_ContainerSAS":::
 
 ---
 
-## <a name="create-a-service-sas-for-a-blob"></a>Blob에 대 한 서비스 SAS 만들기
+## <a name="create-a-service-sas-for-a-blob"></a>Blob에 서비스 SAS 만들기
 
-다음 코드 예제에서는 blob에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장 된 액세스 정책이 제공 되지 않는 경우 코드는 blob에 임시 SAS를 만듭니다.
+다음 코드 예는 Blob에 SAS를 만듭니다. 기존에 저장된 액세스 정책의 이름을 제공하는 경우 해당 정책은 SAS와 연결됩니다. 저장된 액세스 정책이 제공되지 않는 경우 코드는 Blob에서 임시 SAS를 만듭니다.
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-서비스 SAS는 계정 액세스 키로 서명 됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용 하 여 SAS에 서명 하는 데 사용 되는 자격 증명을 만듭니다. 그런 다음 새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) 를 호출 하 여 SAS 토큰 문자열을 가져옵니다.
+서비스 SAS는 계정 액세스 키로 서명됩니다. [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) 클래스를 사용하여 SAS에 서명하는 데 사용되는 자격 증명을 만듭니다. 그런 다음 새 [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) 개체를 만들고 [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters)를 호출하여 SAS 토큰 문자열을 가져옵니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForBlob":::
 
 # <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
 
-Blob에 대 한 서비스 SAS를 만들려면 [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출 합니다.
+Blob에 대한 서비스 SAS를 만들려면 [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출합니다.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container,
@@ -157,19 +157,19 @@ private static string GetBlobSasUri(CloudBlobContainer container,
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Blob에 대 한 서비스 SAS를 만들려면 [CloudBlob. GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출 합니다.
+Blob에 대한 서비스 SAS를 만들려면 [CloudBlob.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getsharedaccesssignature) 메서드를 호출합니다.
 
-Blob에 대 한 서비스 SAS를 만들려면 필요한 매개 변수를 제공 하는 [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) 함수를 호출 합니다.
+Blob에 대한 서비스 SAS를 만들려면 필요한 매개 변수를 제공하는 [generateBlobSASQueryParameters](/javascript/api/@azure/storage-blob/#generateBlobSASQueryParameters_BlobSASSignatureValues__StorageSharedKeyCredential_) 함수를 호출합니다.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/SAS.js" id="Snippet_BlobSAS":::
 
 ---
 
-## <a name="create-a-service-sas-for-a-directory"></a>디렉터리에 대 한 서비스 SAS 만들기
+## <a name="create-a-service-sas-for-a-directory"></a>디렉터리에 대한 서비스 SAS 만들기
 
-계층적 네임 스페이스를 사용 하도록 설정 된 저장소 계정에서 디렉터리에 대 한 서비스 SAS를 만들 수 있습니다. Service SAS를 만들려면 12.5.0 [. DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) 패키지의 버전을 설치 했는지 확인 합니다.
+계층적 네임스페이스를 사용하도록 설정된 스토리지 계정에서 디렉터리에 대한 서비스 SAS를 만들 수 있습니다. 서비스 SAS를 만들려면 [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) 패키지의 버전 12.5.0 이상을 설치했는지 확인합니다.
 
-다음 예제에서는 .NET 용 v12 클라이언트 라이브러리를 사용 하 여 디렉터리에 대 한 서비스 SAS를 만드는 방법을 보여 줍니다.
+다음 예에서는 .NET용 v12 클라이언트 라이브러리를 사용하여 디렉터리에 대한 서비스 SAS를 만드는 방법을 보여 줍니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetServiceSasUriForDirectory":::
 
@@ -179,5 +179,5 @@ Blob에 대 한 서비스 SAS를 만들려면 필요한 매개 변수를 제공 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
+- [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../common/storage-sas-overview.md)
 - [서비스 SAS 만들기](/rest/api/storageservices/create-service-sas)

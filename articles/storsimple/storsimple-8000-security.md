@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 72bf252488878c8b6fabb2ea2d61658a2cd87e14
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: ecfeffb490c54d24a6254961cf17b13f0b6a34bc
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94966210"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076674"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -185,7 +185,7 @@ StorSimple 디바이스는 사용 빈도에 따라 데이터를 로컬과 클라
 
 ## <a name="protect-data-via-storage-accounts"></a>스토리지 계정을 통해 데이터 보호
 
-각 Microsoft Azure 구독에 하나 이상의 스토리지 계정을 만들 수 있습니다. (저장소 계정은 Azure 클라우드에 저장 된 데이터로 작업 하기 위한 고유한 네임 스페이스를 제공 합니다.) 저장소 계정에 대 한 액세스는 해당 저장소 계정과 연결 된 구독 및 액세스 키에 의해 제어 됩니다.
+각 Microsoft Azure 구독에 하나 이상의 스토리지 계정을 만들 수 있습니다. 스토리지 계정은 Azure 클라우드에 저장된 데이터로 작업하는 데 필요한 고유 네임스페이스를 제공합니다. 스토리지 계정에 대한 액세스는 해당 스토리지 계정과 연결된 구독 및 액세스 키에 따라 제어됩니다.
 
 스토리지 계정을 만들 때 Microsoft Azure는 두 개의 512비트 스토리지 액세스 키를 생성하며, 이 중 하나는 StorSimple 디바이스가 스토리지 계정에 액세스할 때 인증에 사용됩니다. 이 키 중 하나만 사용 중입니다. 주기적으로 키를 회전하도록 다른 키를 예약 상태로 둡니다. 키를 회전하려면 보조키를 활성화한 다음, 기본 키를 삭제합니다. 그런 후 다음 회전 시 사용할 새 키를 만들 수 있습니다. (보안상의 이유로 많은 데이터 센터 키 회전이 필요합니다.)
 
@@ -217,7 +217,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 - 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 볼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다. 이는 StorSimple 가상 배열에만 적용됩니다.
   * 액세스할 수 있는 사용자 목록을 보거나 공유를 삭제하려면 [StorSimple 가상 배열에서 공유 관리](storsimple-virtual-array-manage-shares.md) 단계 수행
 
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토 하세요.
+자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
@@ -254,7 +254,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** StorSimple 디바이스에 대한 액세스를 허용하는 암호를 변경하고 재설정하고, 서비스 데이터 암호화 키를 변경하여 새 정보가 인증되지 않은 사람에게 알려지지 않도록 합니다. 자세한 내용은 다음을 참조하세요.
 
-* [Storsimple 장치 관리자 서비스를 사용 하 여 storsimple 암호 변경](storsimple-8000-change-passwords.md)
+* [StorSimple 디바이스 관리자 서비스를 사용하여 StorSimple 암호 변경](storsimple-8000-change-passwords.md)
 * [서비스 데이터 암호화 키 변경](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [StorSimple 디바이스에 대한 CHAP 구성](storsimple-8000-configure-chap.md)
 
@@ -269,7 +269,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** StorSimple 디바이스 관리자 서비스에서 새 인증서를 다운로드하여 원격 액세스 클라이언트의 인증서 저장소에 설치될 수 있도록 제공합니다. 자세한 내용은 다음을 참조하세요.
 
-* [가져오기-Certificate cmdlet](/powershell/module/pkiclient/import-certificate)
+* [가져오기-Certificate cmdlet](/powershell/module/pki/import-certificate)
 
 **Q:** StorSimple 디바이스 관리자 서비스가 손상되어도 데이터가 보호되나요?
 

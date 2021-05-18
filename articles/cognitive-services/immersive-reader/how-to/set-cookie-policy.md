@@ -1,7 +1,7 @@
 ---
-title: 몰입 형 판독기 쿠키 정책 설정
+title: 몰입형 리더 쿠키 정책 설정
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 몰입 형 판독기에 대 한 쿠키 정책을 설정 하는 방법을 보여 줍니다.
+description: 이 문서에서는 몰입형 리더에 대한 쿠키 정책을 설정하는 방법을 보여 줍니다.
 services: cognitive-services
 author: nitinme
 manager: guillasi
@@ -12,19 +12,19 @@ ms.date: 01/06/2020
 ms.author: nitinme
 ms.custom: devx-track-js
 ms.openlocfilehash: 8b0a1f4a948aa6fec565130acb5267476a1d4401
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048649"
 ---
-# <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>몰입 형 판독기에 대 한 쿠키 정책을 설정 하는 방법
+# <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>몰입형 리더에 대한 쿠키 정책을 설정하는 방법
 
-몰입 형 판독기는 기본적으로 쿠키 사용을 사용 하지 않도록 설정 합니다. 쿠키 사용을 사용 하도록 설정 하면 몰입 형 판독기는 쿠키를 사용 하 여 사용자 기본 설정을 유지 하 고 기능 사용을 추적할 수 있습니다. 몰입 형 판독기에서 쿠키 사용을 사용 하도록 설정 하는 경우 EU 쿠키 준수 정책의 요구 사항을 고려 하세요. EU 쿠키 준수 정책에 따라 필요한 사용자 동의를 얻으려면 호스트 응용 프로그램의 책임입니다.
+몰입형 리더는 기본적으로 쿠키 사용 기능을 사용하지 않도록 설정합니다. 쿠키 사용 기능을 사용하도록 설정하는 경우 몰입형 리더는 쿠키를 사용하여 사용자 기본 설정을 유지 관리하고 기능 사용을 추적할 수 있습니다. 몰입형 리더에서 쿠키 사용 기능을 사용하도록 설정하는 경우 EU 쿠키 준수 정책의 요구 사항을 고려하세요. EU 쿠키 준수 정책에 따라 필요한 모든 사용자 동의를 얻는 것은 호스트 애플리케이션의 책임입니다.
 
-쿠키 정책은 몰입 형 판독기 [옵션](../reference.md#options)을 통해 설정할 수 있습니다.
+쿠키 정책은 몰입형 리더 [옵션](../reference.md#options)을 통해 설정할 수 있습니다.
 
-## <a name="enable-cookie-usage"></a>쿠키 사용 사용
+## <a name="enable-cookie-usage"></a>쿠키 사용 기능을 사용하도록 설정
 
 ```javascript
 var options = {
@@ -34,7 +34,7 @@ var options = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
 
-## <a name="disable-cookie-usage"></a>쿠키 사용 안 함
+## <a name="disable-cookie-usage"></a>쿠키 사용 기능을 사용하지 않도록 설정
 
 ```javascript
 var options = {

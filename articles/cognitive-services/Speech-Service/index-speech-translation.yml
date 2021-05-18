@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title: 음성 번역 설명서
-summary: 음성 서비스에서 음성 번역을 사용 하면 실시간 다중 언어 음성-음성 음성 변환 및 오디오 스트림 음성-텍스트 변환이 가능 합니다.
+summary: Speech 서비스에서 음성 번역을 사용하면 오디오 스트림의 실시간 다중 언어 음성 간 변환 및 음성 텍스트 변환이 가능합니다.
 metadata:
-  title: 음성 번역 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  title: 음성 번역 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/13/2020
   ms.author: trbye
-  ms.openlocfilehash: 8fa1b62b193fff2a0ca8f4825ece228f156e5318
-  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
-  ms.translationtype: MT
+  ms.openlocfilehash: a54153dc8fc7f3b5ea2f86b3bf03f469aa56cdb3
+  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/22/2020
-  ms.locfileid: "83800840"
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105746233"
 landingContent:
 - title: 음성 번역 정보
   linkLists:
@@ -25,23 +25,19 @@ landingContent:
     - text: 음성 번역이란?
       url: speech-translation.md
     - text: 음성 번역 기본 사항
-      url: speech-translation-basics.md
-    - text: 음성 CLI를 사용 하 여 코드 없이 음성 변환
+      url: ./get-started-speech-translation.md
+    - text: Speech CLI를 사용하여 코드 없이 음성 번역
       url: spx-overview.md
   - linkListType: quickstart
     links:
-    - text: 음성을 텍스트로 변환
-      url: quickstarts/translate-speech-to-text.md
-    - text: 음성을 여러 대상 언어로 번역
-      url: quickstarts/translate-speech-to-text-multiple-languages.md
-    - text: 음성 통역
-      url: quickstarts/translate-speech-to-speech.md
-- title: 음성 번역을 사용 하 여 개발
+    - text: 음성 번역 시작
+      url: get-started-speech-translation.md
+- title: 음성 번역을 사용하여 개발
   linkLists:
   - linkListType: learn
     links:
-    - text: 실시간으로 음성 변환
-      url: https://docs.microsoft.com/learn/modules/convert-speech-to-text
+    - text: 실시간으로 음성 번역
+      url: /learn/modules/convert-speech-to-text
   - linkListType: tutorial
     links:
     - text: REST API를 사용하여 텍스트 변환 및 합성
@@ -56,3 +52,9 @@ landingContent:
       url: https://www.microsoft.com/translator/business/faq/
     - text: 음성 번역 가격
       url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

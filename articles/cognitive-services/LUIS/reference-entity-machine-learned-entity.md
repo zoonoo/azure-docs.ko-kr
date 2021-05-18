@@ -1,7 +1,7 @@
 ---
-title: 기계 학습 엔터티 형식-LUIS
+title: 기계 학습 엔터티 형식 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 기계 학습 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
+description: 기계 학습 엔터티는 LUIS 애플리케이션을 빌드하기 위한 기본 엔터티입니다.
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
@@ -9,24 +9,24 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91542243"
 ---
 # <a name="machine-learning-entity"></a>기계 학습 엔터티
 
-기계 학습 엔터티는 LUIS 응용 프로그램을 빌드하기 위한 기본 엔터티입니다.
+기계 학습 엔터티는 LUIS 애플리케이션을 빌드하기 위한 기본 엔터티입니다.
 
 
 ## <a name="example-json"></a>예제 JSON
 
-앱에서 [없습니다 entity 자습서](tutorial-machine-learned-entity.md)와 같은 피자 주문을 사용 한다고 가정 합니다. 각 주문에는 서로 다른 크기를 포함 하 여 여러 때울 포함 될 수 있습니다.
+[분해 가능한 엔터티 자습서](tutorial-machine-learned-entity.md)와 같이 앱에서 피자를 주문한다고 가정합니다. 각 주문에는 다양한 크기를 비롯하여 다양한 피자가 포함될 수 있습니다.
 
 발언 예제는 다음과 같습니다.
 
-|피자 앱에 대 한 예제 길이 발언|
+|피자 앱에 대한 예제 발화|
 |--|
 |`Can I get a pepperoni pizza and a can of coke please`|
 |`can I get a small pizza with onions peppers and olives`|
@@ -36,13 +36,13 @@ ms.locfileid: "91542243"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-기계 학습 엔터티에는 필요한 기능이 포함 된 많은 하위 엔터티가 있을 수 있으므로이는 단지 예 일 뿐입니다. 엔터티가 반환 하는 항목에 대 한 가이드로 간주 되어야 합니다.
+기계 학습 엔터티에는 필요한 기능이 포함된 많은 하위 엔터티가 있을 수 있으므로 이는 단지 예일 뿐입니다. 엔터티가 반환하는 항목에 대한 가이드로 간주되어야 합니다.
 
-다음 쿼리를 살펴보십시오.
+다음 쿼리를 참조하세요.
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
+쿼리 문자열에 `verbose=false`가 설정된 경우의 JSON입니다.
 
 ```json
 "entities": {
@@ -100,7 +100,7 @@ ms.locfileid: "91542243"
 
 ```
 
-이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
+쿼리 문자열에 `verbose=true`가 설정된 경우의 JSON입니다.
 
 ```json
 "entities": {
@@ -346,6 +346,6 @@ ms.locfileid: "91542243"
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서](tutorial-machine-learned-entity.md), [개념](luis-concept-entity-types.md#design-entities-for-decomposition)및 [방법 가이드](luis-how-to-add-entities.md#create-a-machine-learned-entity)를 포함 하 여 기계 학습 엔터티에 대해 자세히 알아보세요.
+[자습서](tutorial-machine-learned-entity.md), [개념](luis-concept-entity-types.md#design-entities-for-decomposition) 및 [방법 가이드](luis-how-to-add-entities.md#create-a-machine-learned-entity)를 포함하여 기계 학습 엔터티에 대해 자세히 알아봅니다.
 
 [목록](reference-entity-list.md) 엔터티 및 [정규식](reference-entity-regular-expression.md) 엔터티에 대해 알아봅니다.

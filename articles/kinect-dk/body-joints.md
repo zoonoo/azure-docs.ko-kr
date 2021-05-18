@@ -1,51 +1,51 @@
 ---
-title: Azure Kinect 본문 추적 조인트
-description: Azure Kinect에서 본문 프레임, 조인트, 조인트 좌표 및 공동 계층 구조를 이해 합니다.
+title: Azure Kinect 신체 추적 관절
+description: Azure Kinect DK에서 신체 프레임, 관절, 관절 좌표, 관절 계층 구조를 이해합니다.
 author: qm13
 ms.author: quentinm
 ms.reviewer: cedmonds, abalan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
-keywords: kinect, 포팅, 본문, 추적, 조인트, 계층, 뼈, 연결
+keywords: kinect, 이식, 신체, 추적, 관절, 계층 구조, 뼈, 연결
 ms.openlocfilehash: 4cf6ac13a93d0674f9fa144abcc3153a2d7c3350
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85276996"
 ---
-# <a name="azure-kinect-body-tracking-joints"></a>Azure Kinect 본문 추적 조인트
+# <a name="azure-kinect-body-tracking-joints"></a>Azure Kinect 신체 추적 관절
 
-Azure Kinect 본문 추적은 동시에 여러 사람의 본문을 추적할 수 있습니다. 각 본문에는 프레임과 운동학 적 해골 간의 임시 상관 관계에 대 한 ID가 포함 됩니다. 각 프레임에서 검색 된 본문 수는를 사용 하 여 가져올 수 있습니다 `k4abt_frame_get_num_bodies()` .
+Azure Kinect 신체 추적은 동시에 여러 인체를 추적할 수 있습니다. 각 신체에는 프레임과 운동학적 골격 간의 시간에 따른 상관 관계에 대한 ID가 포함됩니다. 각 프레임에서 검색된 신체 수는 `k4abt_frame_get_num_bodies()`를 사용하여 얻을 수 있습니다.
 
-## <a name="joints"></a>조인트
+## <a name="joints"></a>관절
 
-공동 위치와 방향은 참조의 글로벌 깊이 센서 프레임을 기준으로 하는 예상 률입니다. 위치는 밀리미터 단위로 지정 됩니다. 방향은 정규화 된 4 원수로 표시 됩니다.
+관절 위치와 방향은 참조의 전체 깊이 센서 프레임에 상대적인 예상치입니다. 위치는 밀리미터 단위로 지정됩니다. 방향은 정규화된 쿼터니언으로 표현됩니다.
 
-## <a name="joint-coordinates"></a>조인트 좌표
+## <a name="joint-coordinates"></a>관절 좌표
 
-각 조인트의 위치와 방향은 고유한 접합 좌표계를 형성 합니다. 모든 공동 좌표계는 깊이 카메라 3D 좌표계를 기준으로 하는 절대 좌표계입니다.
+각 관절의 위치와 방향은 자체적인 관절 좌표계를 형성합니다. 모든 관절 좌표계는 깊이 카메라 3D 좌표계에 상대적인 절대 좌표계입니다.
 
 > [!NOTE]
-> 조인트 좌표는 축 방향입니다. 축 방향은 상업적 아바타, 게임 엔진 및 렌더링 소프트웨어에서 널리 사용 됩니다. 축 방향을 사용 하면 대칭 이동이 간단해 집니다. 예를 들어 두 개의 팔걸이를 20도 올립니다.
+> 축 방향에 관절 좌표가 있습니다. 축 방향은 상업적 아바타, 게임 엔진, 렌더링 소프트웨어에서 널리 사용됩니다. 축 방향 사용은 예를 들어 양쪽 팔을 20도 올리는 것과 같은 미러링된 움직임을 간단하게 합니다.
 
-![조인트 좌표](./media/concepts/joint-coordinates.png)
+![관절 좌표](./media/concepts/joint-coordinates.png)
 
-## <a name="joint-hierarchy"></a>공동 계층
+## <a name="joint-hierarchy"></a>관절 계층 구조
 
-기본 구조에는 본문의 중앙에서 extremities 흐르는 조인트 계층 구조와 함께 32이 포함 됩니다. 각 연결 (뼈)은 부모 조인트를 자식 조인트와 연결 합니다. 다음 그림에서는 인간 본문에 상대적인 공동 위치 및 연결을 보여 줍니다.
+골격에는 신체의 중앙에서 말단으로 흐르는 관절 계층 구조와 함께 32개의 관절이 포함됩니다. 각 연결(뼈)은 부모 관절을 자식 관절과 연결합니다. 그림에서는 인체와 관련된 관절 위치 및 연결을 보여 줍니다.
 
-![공동 계층](./media/concepts/joint-hierarchy.png)
+![관절 계층 구조](./media/concepts/joint-hierarchy.png)
 
-다음 표에서는 표준 연결 연결을 열거 합니다.
+다음 표에는 표준 관절 연결이 열거되어 있습니다.
 
-|인덱스 |조인트 이름     | 부모 조인트   |
+|인덱스 |관절 이름     | 부모 관절   |
 |------|---------------|----------------|
 | 0    |PELVIS         | -              |
 | 1    |SPINE_NAVAL    | PELVIS         |
 | 2    |SPINE_CHEST    | SPINE_NAVAL    |
-| 3    |목           | SPINE_CHEST    |
+| 3    |NECK           | SPINE_CHEST    |
 | 4    |CLAVICLE_LEFT  | SPINE_CHEST    |
 | 5    |SHOULDER_LEFT  | CLAVICLE_LEFT  |
 | 6    |ELBOW_LEFT     | SHOULDER_LEFT  |
@@ -68,8 +68,8 @@ Azure Kinect 본문 추적은 동시에 여러 사람의 본문을 추적할 수
 | 23   |KNEE_RIGHT     | HIP_RIGHT      |
 | 24   |ANKLE_RIGHT    | KNEE_RIGHT     |
 | 25   |FOOT_RIGHT     | ANKLE_RIGHT    |
-| 26   |HEAD           | 목           |
-| 27   |코           | HEAD           |
+| 26   |HEAD           | NECK           |
+| 27   |NOSE           | HEAD           |
 | 28   |EYE_LEFT       | HEAD           |
 | 29   |EAR_LEFT       | HEAD           |
 | 30   |EYE_RIGHT      | HEAD           |

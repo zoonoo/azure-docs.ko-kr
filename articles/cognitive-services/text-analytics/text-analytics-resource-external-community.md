@@ -1,7 +1,7 @@
 ---
 title: Text Analytics API에 대한 외부 및 커뮤니티 콘텐츠
 titleSuffix: Azure Cognitive Services
-description: 파트너 블로그, YouTube 비디오, Azure Cognitive Services 텍스트 분석 API 학습.
+description: Azure Cognitive Services Text Analytics API에 대한 파트너 블로그, YouTube 비디오, 교육입니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
 ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94365011"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
@@ -33,9 +33,9 @@ ms.locfileid: "94365011"
 
 + [Dynamics 365 CRM Online을 사용한 감정 분석(MSDN 블로그)](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
-+ Power BI 블로그: Facebook 메시지에서 키 문구 추출: [1 부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) 및 [2 부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
++ Power BI 블로그: Facebook 메시지에서 핵심 구 추출: [1부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) 및 [2부](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [MS Flow를 사용 하 여 Yammer 그룹에서 의견의 감정 식별 (Microsoft tech community)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [Yammer 그룹에서 MS Flow를 사용하여 의견에 대한 감정 식별(Microsoft 기술 커뮤니티)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 
@@ -53,5 +53,5 @@ ms.locfileid: "94365011"
 
 ## <a name="see-also"></a>참고 항목
 
- [StackOverflow: Azure 텍스트 분석 API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
+ [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

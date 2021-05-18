@@ -1,5 +1,5 @@
 ---
-title: 콘텐츠 태그-Computer Vision
+title: 콘텐츠 태그 - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision API의 이미지 태그 지정 기능과 관련된 개념에 대해 알아봅니다.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: a75e55cd51890173b6733ab5f8c0f1bcbfeef0f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96532978"
 ---
 # <a name="applying-content-tags-to-images"></a>이미지에 콘텐츠 태그 적용
@@ -85,10 +85,10 @@ Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경�
 
 ## <a name="use-the-api"></a>API 사용
 
-태깅 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. `Tags` **Visualfeatures** 쿼리 매개 변수에를 포함 합니다. 그런 다음 전체 JSON 응답을 가져오는 경우 섹션의 내용에 대 한 문자열을 구문 분석 하면 됩니다 `"tags"` .
+태그 지정 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Tags`를 포함합니다. 그런 다음, 전체 JSON 응답을 받으면 `"tags"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
 * [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>다음 단계
 
-이미지 [분류](concept-categorizing-images.md) 및 [이미지 설명](concept-describing-images.md)의 관련 개념에 대해 알아봅니다.
+[이미지를 분류](concept-categorizing-images.md)하고 [이미지를 설명](concept-describing-images.md)하는 것과 관련된 개념을 알아봅니다.

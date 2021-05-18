@@ -3,12 +3,12 @@ title: '자습서: Azure Portal에서 쿼리 관리'
 description: 이 자습서에서는 Resource Graph 쿼리를 만들고 Azure Portal의 다른 사용자와 새 쿼리를 공유합니다.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: a7c2e5917abc89aded225bc7a62746399bec050b
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 75942cf681384d2759a8cf0f32c938efa793df86
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324836"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751430"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>자습서: Azure Portal에서 Azure Resource Graph 쿼리 만들기 및 공유
 
@@ -44,7 +44,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
    **쿼리 실행** 을 선택하여 아래쪽 창에서 쿼리 결과를 확인합니다.
 
-   이 쿼리에 대한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-os)을 참조하세요.
+   이 쿼리에 관한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-os)을 참조하세요.
 
 1. **저장** 또는 **다른 이름으로 저장** 을 선택하고, 이름으로 **OS별로 VM 수 계산** 을 입력하고, 유형을 **프라이빗 쿼리** 로 그대로 두고, **쿼리 저장** 창의 아래쪽에서 **저장** 을 선택합니다. 탭 제목이 **쿼리 1** 에서 **OS별로 VM 수 계산** 으로 변경됩니다.
 
@@ -52,7 +52,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
 1. **쿼리 열기** 를 선택합니다. 유형이 **프라이빗 쿼리** 인지 확인합니다. 이제 저장된 이름 **OS별로 VM 수 계산** 이 **쿼리 이름** 목록에 표시됩니다. 저장된 쿼리의 제목 링크를 선택하면 해당 쿼리 이름을 사용하는 새 탭에 로드됩니다.
 
-   > [!NOTE] 
+   > [!NOTE]
    > 저장된 쿼리가 열려 있고 탭이 해당 이름을 표시하는 경우 **저장** 단추를 선택하면 저장된 쿼리가 변경 내용으로 업데이트됩니다. 열려 있는 쿼리에서 저장된 쿼리를 새로 만들려면 **다른 이름으로 저장** 을 선택하고, 새 쿼리를 저장할 때처럼 계속 진행합니다.
 
 1. 저장된 쿼리를 삭제하려면 **쿼리 열기** 를 다시 선택하고, **유형** 필드가 **프라이빗 쿼리** 로 설정되었는지 확인합니다. 저장된 `Count VMs by OS` 쿼리의 행에서 **삭제**(휴지통 아이콘)를 선택합니다. 확인 대화 상자에서 **예** 를 선택하여 쿼리 삭제를 완료합니다.
@@ -71,10 +71,10 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
    | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
-    
+
    **쿼리 실행** 을 선택하여 아래쪽 창에서 쿼리 결과를 확인합니다.
 
-   이 쿼리에 대한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-os)을 참조하세요.
+   이 쿼리에 관한 자세한 내용은 [샘플 – OS 유형별로 가상 머신 개수 계산](../samples/starter.md#count-os)을 참조하세요.
 
 1. **저장** 또는 **다른 이름으로 저장** 을 선택합니다.
 
@@ -87,10 +87,10 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 1. **resource-graph-queries 리소스 그룹에 게시** 확인란을 선택하고 **리소스 그룹 위치** 를 **(미국) 미국 중서부** 로 설정합니다.
 
 1. **쿼리 저장** 창의 아래쪽에서 **저장** 을 선택합니다. 탭 제목이 **쿼리 1** 에서 **OS별로 VM 수 계산** 으로 변경됩니다. **resource-graph-queries** 리소스 그룹을 처음으로 사용할 때 리소스 그룹이 생성되므로 저장 시간이 예상보다 오래 걸립니다.
-   
+
    :::image type="content" source="../media/create-share-query/save-shared-query-window.png" alt-text="새 쿼리를 공유 쿼리로 저장" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > 공유 쿼리를 저장할 기존 리소스 그룹의 이름을 직접 입력하려면 **resource-graph-queries 리소스 그룹에 게시** 확인란의 선택을 취소하면 됩니다. 쿼리에 대해 지정되는 기본 리소스 그룹을 사용하면 공유 쿼리를 좀 더 쉽게 검색할 수 있습니다. 또한 해당 리소스 그룹의 용도를 더욱 명확히 할 수 있습니다. 그러나 보안상의 이유로 기존 권한을 기반으로 기존 리소스 그룹을 선택하도록 할 수도 있습니다.
 
 1. Azure Portal에서, Azure Resource Graph Explorer에서 나왔다가 다시 돌아갑니다. 저장된 쿼리가 더 이상 표시되지 않고 **쿼리 1** 탭이 반환됩니다.
@@ -99,7 +99,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 
    :::image type="content" source="../media/create-share-query/show-saved-shared-query.png" alt-text="아이콘을 사용하여 공유 쿼리 표시" border="false":::
 
-   > [!NOTE] 
+   > [!NOTE]
    > 저장된 쿼리가 열려 있고 탭이 해당 이름을 표시하는 경우 **저장** 단추를 누르면 저장된 쿼리가 변경 내용으로 업데이트됩니다. 저장된 쿼리를 새로 만들려면 **다른 이름으로 저장** 을 선택하고, 새 쿼리를 저장할 때처럼 계속 진행합니다.
 
 ## <a name="discover-shared-queries"></a>공유 쿼리 검색
@@ -122,7 +122,7 @@ Azure Portal의 Resource Graph 쿼리 페이지에는 로그인한 계정에서 
 ### <a name="list-resource-groups-resources"></a>리소스 그룹 리소스 나열
 
 Resource Graph 쿼리는 리소스 그룹에 포함된 다른 리소스와 함께 나열됩니다.
-Resource Graph 쿼리를 선택하면 해당 쿼리에 대한 페이지가 열립니다. 줄임표 및 바로 가기 메뉴 옵션(마우스 오른쪽 단추를 클릭하면 트리거됨)은 Resource Graph 쿼리 페이지와 동일한 방식으로 작동합니다.
+Resource Graph 쿼리를 선택하면 해당 쿼리에 대한 페이지가 열립니다. 선택한 상태로 유지(또는 마우스 오른쪽 단추 클릭)하여 실행된 줄임표 및 바로 가기 메뉴 옵션은 Resource Graph 쿼리 페이지와 동일한 방식으로 작동합니다.
 
 ### <a name="query-resource-graph"></a>Resource Graph 쿼리
 

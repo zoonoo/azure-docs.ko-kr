@@ -1,9 +1,9 @@
 ---
 title: DDoS 대응 전략의 구성 요소
-description: Azure DDoS Protection Standard를 사용 하 여 DDoS 공격에 대응 하는 방법을 알아봅니다.
+description: Azure DDoS Protection Standard를 사용하여 DDoS 공격에 대응하는 방법을 알아봅니다.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: 2b31a8aa8b126c228ac7e9c3ca182300c710b098
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: c028185a0753bc4da966ebc56bb792e57cac1f77
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97814060"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107103048"
 ---
 # <a name="components-of-a-ddos-response-strategy"></a>DDoS 대응 전략의 구성 요소
 
@@ -44,23 +44,23 @@ Microsoft는 중요한 인프라 공급자로써 위협에 대한 조기 경고�
 
 - 내 서비스가 여러 지역에서 활성화/장애 조치(failover)와 함께 활성화됩니까?
 
-응용 프로그램의 정상적인 동작을 이해 하 고 응용 프로그램이 DDoS 공격 중에 예상 대로 작동 하지 않는 경우 작업을 준비 하는 것이 중요 합니다. 클라이언트 동작을 모방 하는 업무상 중요 한 응용 프로그램에 대해 모니터를 구성 하 고 관련 된 변칙이 검색 되 면 사용자에 게 알립니다. 응용 프로그램의 상태에 대 한 정보를 얻으려면 [모니터링 및 진단 모범 사례](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) 를 참조 하세요.
+애플리케이션의 정상적인 동작을 이해하고 애플리케이션이 DDoS 공격 중에 예상대로 작동하지 않는 경우 조치를 취할 준비를 하는 것이 중요합니다. 클라이언트 동작을 모방하는 업무상 중요한 애플리케이션에 대해 모니터를 구성하고 관련된 변칙이 검색되면 사용자에게 알립니다. 애플리케이션의 상태에 대한 인사이트를 얻으려면 [모니터링 및 진단 모범 사례](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios)를 참조하세요.
 
-[Azure Application Insights](../azure-monitor/app/app-insights-overview.md)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. Application Insights를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 검색합니다. 여기에는 문제를 진단 하 고 사용자가 앱에서 수행 하는 작업을 이해 하는 데 도움이 되는 분석 도구가 포함 됩니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+[Azure Application Insights](../azure-monitor/app/app-insights-overview.md)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. Application Insights를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 검색합니다. 또한 문제를 진단하고 앱을 사용하여 수행하는 작업을 파악할 수 있는 분석 도구도 포함되어 있습니다. 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ## <a name="customer-ddos-response-team"></a>고객 DDoS 대응 팀
 
 공격에 효과적이고 신속하게 대응하기 위한 핵심 단계는 DDoS 대응 팀을 만드는 것입니다. 조직 내에서 계획 및 실행을 감독할 연락 담당자를 식별합니다. DDoS 대응 팀은 Azure DDoS Protection 표준 서비스를 완전히 이해해야 합니다. 팀이 Microsoft 지원 팀을 포함한 내부 및 외부 고객을 조정하여 공격을 식별하고 줄일 수 있는지 확인합니다. 
 
-시뮬레이션 연습은 서비스 가용성 및 연속성 계획의 일반적인 일부로 사용 하는 것이 좋으며, 이러한 연습에는 규모 테스트가 포함 되어야 합니다. Azure 공용 끝점에 대해 DDoS 테스트 트래픽을 시뮬레이트하는 방법에 대해 알아보려면 [시뮬레이션 테스트](test-through-simulations.md) 를 참조 하세요.
+서비스 가용성 및 연속성 계획의 일반적인 부분으로 시뮬레이션 연습을 사용하는 것이 좋으며 이러한 연습에는 크기 조정 테스트가 포함되어야 합니다. Azure 퍼블릭 엔드포인트에 대해 DDoS 테스트 트래픽을 시뮬레이션하는 방법에 대해 알아보려면 [시뮬레이션 테스트](test-through-simulations.md)를 참조하세요.
 
 ## <a name="alerts-during-an-attack"></a>공격 진행 중 경고
 
-Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호 된 공용 IP에 대 한 활성 완화가 있는 경우 알림을 받으려면 [경고를 구성할](alerts.md)수 있습니다.
+Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호되는 공용 IP에 대한 활성 완화가 발생할 때 알림을 받으려면 [경고를 구성](alerts.md)합니다.
 
 ### <a name="when-to-contact-microsoft-support"></a>Microsoft 지원에 문의해야 하는 경우
 
-Azure DDoS Protection Standard 고객은 공격 및 공격 후 분석을 통해 공격 조사에 도움을 주는 DRR (DDoS 신속한 응답) 팀에 액세스할 수 있습니다. DRR 팀에 참여 해야 하는 경우를 포함 하 여 자세한 내용은 [DDoS 신속한 응답](ddos-rapid-response.md) 을 참조 하세요.
+Azure DDoS Protection Standard 고객은 공격 및 공격 후 분석을 통해 공격 조사에 도움을 주는 DRR(DDoS 신속한 응답) 팀에 액세스할 수 있습니다. DRR 팀의 참여가 필요한 경우를 포함하여 자세한 내용은 [DDoS 신속한 응답](ddos-rapid-response.md)을 참조하세요.
 
 ## <a name="post-attack-steps"></a>사후 공격 단계
 
@@ -76,4 +76,4 @@ DDoS 공격을 받고 있다고 의심 되는 경우 일반 Azure 지원 채널�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [DDoS 보호 계획을 만드는](manage-ddos-protection.md)방법에 대해 알아봅니다.
+- [DDoS 보호 계획을 생성](manage-ddos-protection.md)하는 방법을 알아봅니다.

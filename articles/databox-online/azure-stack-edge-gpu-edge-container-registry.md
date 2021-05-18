@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro GPU 장치에서 Edge 컨테이너 레지스트리를 사용 하도록 설정
-description: Azure Stack Edge Pro GPU 장치에서 로컬에 지 컨테이너 레지스트리를 사용 하도록 설정 하는 방법을 설명 합니다.
+title: Azure Stack Edge Pro GPU 디바이스에서 Edge 컨테이너 레지스트리 사용
+description: Azure Stack Edge Pro GPU 디바이스에서 로컬 Edge 컨테이너 레지스트리를 사용하도록 설정하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,68 +9,68 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 56b691b2755b5e248b16e338f8fd82864f5bf218
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105560338"
 ---
-# <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 Edge 컨테이너 레지스트리를 사용 하도록 설정
+# <a name="enable-edge-container-registry-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 Edge 컨테이너 레지스트리 사용
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 Edge 컨테이너 레지스트리를 사용 하도록 설정 하 고 Azure Stack Edge Pro 장치의 Kubernetes 클러스터 내에서 사용 하는 방법을 설명 합니다. 이 문서에 사용 된 예제에서는 원본 레지스트리에서 이미지를 푸시하는 방법 (이 경우 Microsoft Container registry)을 Edge 컨테이너 레지스트리 인 Azure Stack Edge 장치의 레지스트리에 푸시하는 방법에 대해 자세히 설명 합니다.
+이 문서에서는 Edge 컨테이너 레지스트리를 사용하도록 설정하고 Azure Stack Edge Pro 디바이스의 Kubernetes 클러스터 내에서 이를 사용하는 방법을 설명합니다. 이 문서에 사용된 예는 원본 레지스트리(이 경우 Microsoft 컨테이너 레지스트리)에서 Azure Stack Edge 디바이스의 레지스트리인 Edge 컨테이너 레지스트리로 이미지를 푸시하는 방법을 자세히 설명합니다.
 
 ### <a name="about-edge-container-registry"></a>Edge 컨테이너 레지스트리 정보
 
-컨테이너 화 된 계산 응용 프로그램은 컨테이너 이미지에서 실행 되며 이러한 이미지는 레지스트리에 저장 됩니다. 레지스트리는 Docker 허브, 사설 또는 클라우드 공급자 관리 (예: Azure Container Registry)와 같이 공용이 될 수 있습니다. 자세한 내용은 [레지스트리, 리포지토리 및 이미지 정보](../container-registry/container-registry-concepts.md)를 참조 하세요.
+컨테이너화된 컴퓨팅 애플리케이션은 컨테이너 이미지에서 실행되며 이러한 이미지는 레지스트리에 저장됩니다. 레지스트리는 Docker Hub와 같은 공용, 비공개 또는 Azure 컨테이너 레지스트리와 같이 관리되는 클라우드 공급자일 수 있습니다. 자세한 내용은 [레지스트리, 리포지토리 및 이미지 정보](../container-registry/container-registry-concepts.md)를 참조하세요.
 
-Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 장치에서에 지에 대 한 리포지토리를 제공 합니다. 이 레지스트리를 사용 하 여 개인 컨테이너 이미지를 저장 하 고 관리할 수 있습니다.
+Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 디바이스의 Edge에 리포지토리를 제공합니다. 이 레지스트리를 사용하여 프라이빗 컨테이너 이미지를 저장하고 관리할 수 ​​있습니다.
 
-다중 노드 환경에서는 컨테이너 이미지를 다운로드 하 여 Edge 컨테이너 레지스트리에 한 번 푸시할 수 있습니다. 모든에 지 응용 프로그램은 후속 배포에 Edge 컨테이너 레지스트리를 사용할 수 있습니다.
+다중 노드 환경에서는 컨테이너 이미지를 다운로드하여 Edge 컨테이너 레지스트리에 한 번 푸시할 수 있습니다. 모든 Edge 애플리케이션은 후속 배포에 Edge 컨테이너 레지스트리를 사용할 수 있습니다.
 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음 사항을 확인합니다.
 
-1. Azure Stack Edge Pro 장치에 액세스할 수 있습니다.
+1. Azure Stack Edge Pro 디바이스에 액세스할 수 있습니다.
 
 1. [Azure Stack Edge Pro 활성화](azure-stack-edge-gpu-deploy-activate.md)에 설명된 대로 Azure Stack Edge Pro 디바이스를 활성화했습니다.
 
-1. 장치에서 계산 역할을 사용 하도록 설정 했습니다. [Azure Stack Edge Pro 장치에서 계산 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 장치에서 compute를 구성 하는 경우에도 장치에 Kubernetes 클러스터가 만들어집니다.
+1. 디바이스에 컴퓨팅 역할을 사용하도록 설정했습니다. [Azure Stack Edge Pro 디바이스에서 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)의 지침에 따라 디바이스에서 컴퓨팅을 구성할 때 디바이스에 Kubernetes 클러스터도 만들었습니다.
 
-1. 로컬 웹 UI의 **장치** 페이지에서 Kubernetes API 끝점이 있습니다. 자세한 내용은 [KUBERNETES API 끝점 가져오기](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)의 지침을 참조 하세요.
+1. 로컬 웹 UI의 **디바이스** 페이지에 Kubernetes API 엔드포인트가 있습니다. 자세한 내용은 [Kubernetes API 엔드포인트 가져오기](azure-stack-edge-gpu-deploy-configure-compute.md#get-kubernetes-endpoints)의 지침을 참조하세요.
 
-1. [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)를 사용 하 여 클라이언트 시스템에 액세스할 수 있습니다. Windows 클라이언트를 사용 하는 경우 시스템은 PowerShell 5.0 이상을 실행 하 여 장치에 액세스 해야 합니다.
+1. [지원되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)가 있는 클라이언트 시스템에 액세스할 수 있습니다. Windows 클라이언트를 사용하는 경우 시스템은 PowerShell 5.0 이상을 실행하여 디바이스에 액세스해야 합니다.
 
-    1. 사용자 고유의 컨테이너 이미지를 끌어오거나 푸시 하려면 시스템에 Docker 클라이언트가 설치 되어 있는지 확인 합니다. Windows 클라이언트를 사용 하는 경우 [windows에 Docker Desktop을 설치](https://docs.docker.com/docker-for-windows/install/)합니다.  
+    1. 자체 컨테이너 이미지를 가져와서 푸시하려면 시스템에 Docker 클라이언트가 설치되어 있는지 확인합니다. Windows 클라이언트를 사용하는 경우 [Windows에 Docker Desktop을 설치](https://docs.docker.com/docker-for-windows/install/)합니다.  
 
 
-## <a name="enable-container-registry-as-add-on"></a>컨테이너 레지스트리를 추가 기능으로 사용
+## <a name="enable-container-registry-as-add-on"></a>컨테이너 레지스트리를 추가 기능으로 사용하도록 설정
 
-첫 번째 단계는 Edge 컨테이너 레지스트리를 추가 기능으로 사용 하도록 설정 하는 것입니다.
+첫 번째 단계는 Edge 컨테이너 레지스트리를 추가 기능으로 사용하도록 설정하는 것입니다.
 
-1. [장치의 PowerShell 인터페이스에 연결](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface)합니다. 
+1. [디바이스의 PowerShell 인터페이스에 연결합니다](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface). 
 
-1. 컨테이너 레지스트리를 추가 기능으로 사용 하도록 설정 하려면 다음을 입력 합니다. 
+1. 컨테이너 레지스트리를 추가 기능으로 사용하려면 다음을 입력합니다. 
 
     `Set-HcsKubernetesContainerRegistry`
     
     이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-    이 명령의 샘플 출력은 다음과 같습니다.  
+    다음은 이 명령의 샘플 출력입니다.  
             
     ```powershell
     [10.128.44.40]: PS>Set-HcsKubernetesContainerRegistry
     Operation completed successfully. Use Get-HcsKubernetesContainerRegistryInfo for credentials    
     ```
             
-1. 컨테이너 레지스트리 세부 정보를 가져오려면 다음을 입력 합니다.
+1. 컨테이너 레지스트리 세부 사항을 가져오려면 다음을 입력합니다.
 
     `Get-HcsKubernetesContainerRegistryInfo`
 
-    다음은이 명령에서 제외 되는 샘플입니다.  
+    다음은 이 명령의 샘플입니다.  
     
     ```powershell
     [10.128.44.40]: PS> Get-HcsKubernetesContainerRegistryInfo
@@ -80,55 +80,55 @@ Edge 컨테이너 레지스트리는 Azure Stack Edge Pro 장치에서에 지에
     ecr.dbe-hw6h1t2.microsoftdatabox.com:31001 10.128.44.41 ase-ecr-user i3eTsU4zGYyIgxV
     ``` 
 
-1. 의 출력에서 사용자 이름 및 암호를 기록해 둡니다 `Get-HcsKubernetesContainerRegistryInfo` . 이러한 자격 증명은 이미지를 푸시하는 동안에 지 컨테이너 레지스트리에 로그인 하는 데 사용 됩니다.         
+1. `Get-HcsKubernetesContainerRegistryInfo`의 출력에서 ​​사용자 이름과 암호를 기록해 둡니다. 이러한 자격 증명은 이미지를 푸시하는 동안 Edge 컨테이너 레지스트리에 로그인하는 데 사용됩니다.         
 
 
 ## <a name="manage-container-registry-images"></a>컨테이너 레지스트리 이미지 관리
 
-Azure Stack Edge 장치 외부에서 컨테이너 레지스트리에 액세스할 수 있습니다. 레지스트리에서 이미지를 끌어오거나 끌어올 수도 있습니다.
+Azure Stack Edge 디바이스 외부에서 컨테이너 레지스트리에 액세스할 수 있습니다. 레지스트리에서 이미지를 푸시하거나 가져올 수도 있습니다.
 
-Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행 합니다.
+Edge 컨테이너 레지스트리에 액세스하려면 다음 단계를 따르세요.
 
-1. Edge 컨테이너 레지스트리에 대 한 끝점 세부 정보를 가져옵니다.
-    1. 장치의 로컬 UI에서 **장치** 로 이동 합니다.
-    1. **Edge 컨테이너 레지스트리 끝점** 을 찾습니다.
-        ![장치 페이지의 Edge 컨테이너 레지스트리 끝점](media/azure-stack-edge-gpu-edge-container-registry/get-edge-container-registry-endpoint-1.png) 
-    1. 이 끝점을 복사 하 고 클라이언트의 파일에 해당 하는 DNS 항목을 만들어 `C:\Windows\System32\Drivers\etc\hosts` Edge 컨테이너 레지스트리 끝점에 연결 합니다. 
+1. Edge 컨테이너 레지스트리에 대한 엔드포인트 세부 정보를 가져옵니다.
+    1. 디바이스의 로컬 UI에서 **디바이스** 로 이동합니다.
+    1. **Edge 컨테이너 레지스트리 엔드포인트** 를 찾습니다.
+        ![디바이스의 Edge 컨테이너 레지스트리 엔드포인트 페이지](media/azure-stack-edge-gpu-edge-container-registry/get-edge-container-registry-endpoint-1.png) 
+    1. 이 엔드포인트를 복사하고 해당 DNS 항목을 클라이언트의 `C:\Windows\System32\Drivers\etc\hosts` 파일에 작성하여 Edge 컨테이너 레지스트리 엔드포인트에 연결합니다. 
 
         <IP address of the Kubernetes main node>    <Edge container registry endpoint> 
         
-        ![Edge 컨테이너 레지스트리 끝점에 대 한 DNS 항목 추가](media/azure-stack-edge-gpu-edge-container-registry/add-domain-name-service-entry-hosts-1.png)    
+        ![Edge 컨테이너 레지스트리 엔드포인트에 대한 DNS 항목 추가](media/azure-stack-edge-gpu-edge-container-registry/add-domain-name-service-entry-hosts-1.png)    
 
-1. 로컬 UI에서 Edge 컨테이너 레지스트리 인증서를 다운로드 합니다. 
-    1. 장치의 로컬 UI에서 **인증서** 로 이동 합니다.
-    1. **Edge 컨테이너 레지스트리 인증서** 에 대 한 항목을 찾습니다. 이 항목의 오른쪽에서 **다운로드** 를 선택 하 여 장치에 액세스 하는 데 사용할 클라이언트 시스템에 Edge 컨테이너 레지스트리 인증서를 다운로드 합니다. 
+1. 로컬 UI에서 Edge 컨테이너 레지스트리 인증서를 다운로드합니다. 
+    1. 디바이스의 로컬 UI에서 **인증서** 로 이동합니다.
+    1. **Edge 컨테이너 레지스트리 인증서** 항목을 찾습니다. 이 항목의 오른쪽에서 **다운로드** 를 선택하여 디바이스에 액세스하는 데 사용할 클라이언트 시스템에 Edge 컨테이너 레지스트리 인증서를 다운로드합니다. 
 
-        ![Edge 컨테이너 레지스트리 끝점 인증서 다운로드](media/azure-stack-edge-gpu-edge-container-registry/download-edge-container-registry-endpoint-certificate-1.png)  
+        ![Edge 컨테이너 레지스트리 엔드포인트 인증서 다운로드](media/azure-stack-edge-gpu-edge-container-registry/download-edge-container-registry-endpoint-certificate-1.png)  
 
-1. 클라이언트에 다운로드 한 인증서를 설치 합니다. Windows 클라이언트를 사용 하는 경우 다음 단계를 수행 합니다. 
-    1. 인증서를 선택 하 고 **인증서 가져오기 마법사** 에서 **로컬 컴퓨터로** 위치 저장을 선택 합니다. 
+1. 다운로드한 인증서를 클라이언트에 설치합니다. Windows 클라이언트를 사용하는 경우 다음 단계를 따르세요. 
+    1. 인증서를 선택하고 **인증서 가져오기 마법사** 에서 저장소 위치를 **로컬 컴퓨터** 로 선택합니다. 
 
         ![인증서 설치 1](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-1.png) 
     
-    1. 로컬 컴퓨터의 신뢰할 수 있는 루트 저장소에 인증서를 설치 합니다. 
+    1. 신뢰할 수 있는 루트 저장소의 로컬 컴퓨터에 인증서를 설치합니다. 
 
-        ![인증서 2 설치](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
+        ![인증서 설치 2](media/azure-stack-edge-gpu-edge-container-registry/install-certificate-2.png) 
 
-1. 인증서가 설치 된 후 시스템에서 Docker 클라이언트를 다시 시작 합니다.
+1. 인증서가 설치된 후 시스템에서 Docker 클라이언트를 다시 시작하세요.
 
-1. Edge 컨테이너 레지스트리에 로그인 합니다. 유형:
+1. Edge 컨테이너 레지스트리에 로그인합니다. 유형:
 
     `docker login <Edge container registry endpoint> -u <username> -p <password>`
 
-    **장치** 페이지에서에 지 컨테이너 레지스트리 엔드포인트를 제공 하 고 출력에서 가져온 사용자 이름 및 암호를 제공 `Get-HcsKubernetesContainerRegistryInfo` 합니다. 
+    **디바이스** 페이지에서 Edge 컨테이너 레지스트리 엔드포인트를 제공하고 `Get-HcsKubernetesContainerRegistryInfo`의 출력에서 ​​얻은 사용자 이름 및 암호를 제공합니다. 
 
-1. Docker push 또는 pull 명령을 사용 하 여 컨테이너 레지스트리에서 컨테이너 이미지를 끌어오거나 풀 합니다.
+1. docker push 또는 pull 명령을 사용하여 컨테이너 레지스트리에서 컨테이너 이미지를 푸시하거나 가져옵니다.
  
-    1. Microsoft Container Registry 이미지에서 이미지를 끌어옵니다. 유형:
+    1. Microsoft Container Registry 이미지에서 이미지를 가져옵니다. 유형:
         
         `docker pull <Full path to the container image in the Microsoft Container Registry>`
        
-    1. 레지스트리의 정규화 된 경로를 사용 하 여 끌어온 이미지의 별칭을 만듭니다.
+    1. 레지스트리에 대한 정규화된 경로를 사용하여 풀한 이미지의 별칭을 만듭니다.
 
         `docker tag <Path to the image in the Microsoft container registry> <Path to the image in the Edge container registry/Image name with tag>`
 
@@ -136,7 +136,7 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
     
         `docker push <Path to the image in the Edge container registry/Image name with tag>`
 
-    1. 레지스트리에 푸시된 이미지를 실행 합니다.
+    1. 레지스트리에 푸시한 이미지를 실행합니다.
     
         `docker run -it --rm -p 8080:80 <Path to the image in the Edge container registry/Image name with tag>`
 
@@ -164,7 +164,7 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
         PS C:\WINDOWS\system32>    
         ```
     
-1. `http://localhost:8080`으로 이동하여 실행 중인 컨테이너를 봅니다. 이 경우 nginx 웹 서버를 실행 하는 것을 볼 수 있습니다.
+1. `http://localhost:8080`으로 이동하여 실행 중인 컨테이너를 봅니다. 이 경우 nginx 웹 서버가 실행 중인 것을 볼 수 있습니다.
 
     ![실행 중인 컨테이너 보기](media/azure-stack-edge-gpu-edge-container-registry/view-running-container-1.png)
 
@@ -172,15 +172,15 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
 
  
 
-## <a name="use-edge-container-registry-images-via-kubernetes-pods"></a>Kubernetes pod를 통해 Edge 컨테이너 레지스트리 이미지 사용
+## <a name="use-edge-container-registry-images-via-kubernetes-pods"></a>Kubernetes Pod를 통해 Edge 컨테이너 레지스트리 이미지 사용
 
-이제 Kubernetes pod 내에서 Edge 컨테이너 레지스트리에 푸시된 이미지를 배포할 수 있습니다.
+이제 Kubernetes Pod 내에서 Edge 컨테이너 레지스트리에 푸시한 이미지를 배포할 수 있습니다.
 
-1. 이미지를 배포 하려면 *kubectl* 를 통해 클러스터 액세스를 구성 해야 합니다. 네임 스페이스를 만들고 사용자에 게 네임 스페이스에 대 한 액세스 권한을 부여 하 고 *구성* 파일을 가져옵니다. Kubernetes pod에 연결할 수 있는지 확인 합니다. 
+1. 이미지를 배포하려면 *kubectl* 을 통해 클러스터 액세스를 구성해야 합니다. 네임스페이스, 사용자를 만들고 사용자에게 네임스페이스에 대한 액세스 권한을 부여하고 *구성* 파일을 가져옵니다. Kubernetes Pod에 연결할 수 있는지 확인하세요. 
     
-    [Azure Stack Edge PRO GPU 장치에서 kubectl를 통해 Kubernetes 클러스터에 연결 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)의 모든 단계를 수행 합니다. 
+    [Azure Stack Edge Pro GPU 디바이스에서 kubectl을 통해 Kubernetes 클러스터에 연결하고 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)의 모든 단계를 따릅니다. 
 
-    사용자가 Kubernetes 클러스터에 액세스할 수 있는 장치에서 네임 스페이스에 대 한 샘플 출력은 다음과 같습니다.
+    다음은 사용자가 Kubernetes 클러스터에 액세스할 수 있는 디바이스의 네임스페이스에 대한 샘플 출력입니다.
 
     ```powershell
     [10.128.44.40]: PS>New-HcsKubernetesNamespace -Namespace myecr
@@ -202,7 +202,7 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
     PS C:\WINDOWS\system32>
     ```  
 
-2. 이미지 끌어오기 비밀이 장치의 모든 Kubernetes 네임 스페이스에 이미 설정 되어 있습니다. 명령을 사용 하 여 암호를 가져올 수 있습니다 `get secrets` . 샘플 출력은 다음과 같습니다.
+2. 이미지 풀 비밀은 이미 디바이스의 모든 Kubernetes 네임스페이스에 설정되어 있습니다. `get secrets` 명령을 사용하여 비밀을 얻을 수 있습니다. 샘플 출력은 다음과 같습니다.
 
     ```powershell
     PS C:\WINDOWS\system32> .\kubectl.exe get secrets -n myecr
@@ -213,9 +213,9 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
     PS C:\WINDOWS\system32>   
     ```    
 
-3. Kubectl를 사용 하 여 pod를 네임 스페이스에 배포 합니다. 다음을 사용 `yaml` 합니다. 
+3. kubectl을 사용하여 네임스페이스에 Pod를 배포합니다. 다음 `yaml`을 사용합니다. 
 
-    이미지를 `<image-name>` 컨테이너 레지스트리에 푸시된 이미지로 바꿉니다. 이름으로 imagePullSecrets을 사용 하 여 네임 스페이스의 비밀을 참조 `ase-ecr-credentials` 합니다.
+    이미지 `<image-name>`를 컨테이너 레지스트리로 푸시된 이미지로 바꿉니다. 이름이 `ase-ecr-credentials`인 imagePullSecrets를 사용하여 네임스페이스의 비밀을 참조하세요.
     
     ```yml
     apiVersion: v1
@@ -231,7 +231,7 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
       - name: ase-ecr-credentials
     ```
 
-4. Apply 명령을 사용 하 여 만든 네임 스페이스에 배포를 적용 합니다. 컨테이너가 실행 중인지 확인 합니다. 샘플 출력은 다음과 같습니다.
+4. 적용 명령을 사용하여 생성한 네임스페이스에 배포를 적용합니다. 컨테이너가 실행 중인지 확인합니다. 샘플 출력은 다음과 같습니다.
    
     ```yml
     PS C:\Windows\System32> .\kubectl.exe apply -f .\deployment.yml -n myecr
@@ -244,17 +244,17 @@ Edge 컨테이너 레지스트리에 액세스 하려면 다음 단계를 수행
 
 ## <a name="delete-container-registry-images"></a>컨테이너 레지스트리 이미지 삭제
 
-Edge Container Registry 저장소는 장치에서 사용 가능한 저장소에 의해 제한 되는 Azure Stack Edge Pro 장치 내의 로컬 공유에서 호스팅됩니다. Docker HTTP v2 API (를 사용 하 여 컨테이너 레지스트리에서 사용 하지 않는 docker 이미지를 삭제 하는 것은 사용자의 책임입니다 https://docs.docker.com/registry/spec/api/) .  
+Edge Container Registry 스토리지는 디바이스에서 사용 가능한 스토리지로 제한되는 Azure Stack Edge Pro 디바이스 내의 로컬 공유에서 호스팅됩니다. Docker HTTP v2 API(https://docs.docker.com/registry/spec/api/).NET)를 사용하여 컨테이너 레지스트리에서 사용하지 않는 Docker 이미지를 삭제하는 것은 사용자의 책임입니다.  
 
-컨테이너 이미지를 하나 이상 제거 하려면 다음 단계를 수행 합니다.
+하나 이상의 컨테이너 이미지를 제거하려면 다음 단계를 따르세요.
 
-1. 이미지 이름을 삭제 하려는 이미지로 설정 합니다.
+1. 삭제할 이미지에 이미지 이름을 설정합니다.
 
     ```powershell
     PS C:\WINDOWS\system32> $imageName="nginx"    
     ```
 
-1. 컨테이너 레지스트리의 사용자 이름 및 암호를 PS 자격 증명으로 설정 합니다.
+1. 컨테이너 레지스트리의 사용자 이름과 암호를 PS 자격 증명으로 설정합니다.
 
     ```powershell
     PS C:\WINDOWS\system32> $username="ase-ecr-user"
@@ -263,7 +263,7 @@ Edge Container Registry 저장소는 장치에서 사용 가능한 저장소에 
     PS C:\WINDOWS\system32> $credential = New-Object System.Management.Automation.PSCredential ($username, $securePassword)    
     ```
 
-1. 이미지와 연결 된 태그 나열
+1. 이미지와 관련된 태그 나열
 
     ```powershell
     PS C:\WINDOWS\system32> $tags = Invoke-RestMethod -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/nginx/tags/list" | Select-Object -ExpandProperty tags
@@ -275,7 +275,7 @@ Edge Container Registry 저장소는 장치에서 사용 가능한 저장소에 
     PS C:\WINDOWS\system32>    
     ```
   
-1. 삭제할 태그와 연결 된 다이제스트를 나열 합니다. 이는 위의 명령 출력에서 $tags를 사용 합니다. 태그가 여러 개인 경우 하나를 선택 하 고 다음 명령에서를 사용 합니다.
+1. 삭제하려는 태그와 관련된 메시지 다이제스트를 나열합니다. 위 명령의 출력에서 ​​$tags가 사용됩니다. 여러 태그가 있는 경우 그중 하나를 선택하고 다음 명령에서 사용합니다.
 
     ```powershell
     PS C:\WINDOWS\system32> $response = Invoke-WebRequest -Method Head -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/$imageName/manifests/$tags" -Headers @{ 'Accept' = 'application/vnd.docker.distribution.manifest.v2+json' }
@@ -284,14 +284,14 @@ Edge Container Registry 저장소는 장치에서 사용 가능한 저장소에 
     sha256:b4c0378c841cd76f0b75bc63454bfc6fe194a5220d4eab0d75963bccdbc327ff
     PS C:\WINDOWS\system32>    
     ```
-1. Image: tag의 다이제스트를 사용 하 여 이미지를 삭제 합니다.
+1. image:tag의 메시지 다이제스트를 사용하여 이미지를 삭제합니다.
 
     ```powershell
     PS C:\WINDOWS\system32> Invoke-WebRequest -Method Delete -Credential $credential -Uri "https://ecr.dbe-hw6h1t2.microsoftdatabox.com:31001/v2/$imageName/manifests/$digest" | Select-Object -ExpandProperty StatusDescription    
     ```
 
-사용 하지 않는 이미지를 삭제 한 후에는 참조 되지 않은 이미지와 연결 된 공간을 매일 실행 하는 프로세스에서 자동으로 회수 합니다. 
+사용하지 않는 이미지를 삭제하면 참조되지 않은 이미지와 연관된 공간이 야간에 실행되는 프로세스에 의해 자동으로 회수됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Stack Edge Pro에 상태 비저장 응용 프로그램을 배포](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md)합니다.
+- [Azure Stack Edge Pro에 상태 비저장 애플리케이션을 배포합니다](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).

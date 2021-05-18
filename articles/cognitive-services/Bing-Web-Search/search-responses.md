@@ -12,10 +12,10 @@ ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: 3dda95312a0b9191ddc11de62959f308ee19fff4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94380983"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API 응답 구조 및 대답 형식  
@@ -25,7 +25,7 @@ ms.locfileid: "94380983"
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
 > 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-Bing Web Search 검색 요청을 보내면 [`SearchResponse`](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 응답 본문에 개체가 반환 됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
+Bing Web Search에 검색 요청을 보내는 경우 응답 본문에 [`SearchResponse`](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체가 반환됩니다. 개체는 Bing이 쿼리와 관련이 있다고 결정한 각 응답에 대한 필드를 포함합니다. 이 예제에서는 Bing이 모든 응답을 반환한 경우 응답 개체를 설명합니다.
 
 ```json
 {
@@ -43,7 +43,7 @@ Bing Web Search 검색 요청을 보내면 [`SearchResponse`](/rest/api/cognitiv
 }, ...
 ```
 
-일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어 쿼리 용어가 *돛단 dinghies* 인 경우 응답에는, 및이 포함 될 수 있습니다 `webPages` `images` `rankingResponse` . [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
+일반적으로 Bing Web Search는 응답의 하위 집합을 반환합니다. 예를 들어, 쿼리 용어가 *돛단배* 였다면 응답은 `webPages`, `images` 및 `rankingResponse`를 포함할 수 있습니다. [responseFilter](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter)를 사용하여 웹 페이지를 필터링한 경우 외에는 응답은 항상 `webpages` 및 `rankingResponse` 응답을 포함합니다.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -309,7 +309,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 상수를 포함할 수 있습니다.
 
-|기호|설명|
+|기호|Description|
 |------------|-----------------|
 |Pi|3.14159...|
 |도|도|
@@ -319,7 +319,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 수학 표현식은 다음과 같은 함수를 포함할 수 있습니다.
 
-|기호|설명|
+|기호|Description|
 |------------|-----------------|
 |정렬|제곱근|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|삼각함수(인수 사용, 라디안 단위)|
@@ -337,7 +337,7 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 `timeZone` 응답은 위치 이름, 지정된 위치의 현재 UTC 날짜 및 시간, UTC 오프셋을 제공합니다. 위치의 경계가 여러 표준 시간대 내에 있으면 응답은 경계 내 모든 표준 시간대의 현재 UTC 날짜 및 시간을 포함합니다. 예를 들어, 플로리다 주는 두 표준 시간대에 속하기 때문에 응답은 두 표준 시간대의 현지 날짜 및 시간을 포함합니다.  
 
-쿼리가 상태 또는 국가/지역의 시간을 요청 하는 경우 Bing은 위치의 지리적 경계 내에서 기본 도시를 결정 하 고 필드에 반환 `primaryCityTime` 합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
+쿼리가 주 또는 국가/지역의 시간을 요청하는 경우 Bing은 해당 위치의 지리적 경계 내에서 기본 도시를 결정하고 `primaryCityTime` 필드에 반환합니다. 경계가 여러 표준 시간대를 포함하는 경우 나머지 표준 시간대가 `otherCityTimes` 필드에 반환됩니다.
 
 다음은 `timeZone` 응답을 반환하는 예제 쿼리입니다.
 
@@ -450,7 +450,7 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 
 그러나 JavaScript에서 Bing Web Search API를 호출하면 브라우저의 기본 제공 보안 기능(CORS)이 이러한 헤더 값으로의 액세스를 차단할 수 있습니다.
 
-헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 `Access-Control-Expose-Headers` 응답 헤더를 필터링 하 고 JavaScript에서 사용할 수 있도록 하는 헤더가 있습니다.
+헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Web Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 필터링하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 [자습서 앱](tutorial-bing-web-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 
@@ -458,7 +458,7 @@ Bing Web Search API의 응답에 다음 헤더가 포함될 수 있습니다.
 npm install -g cors-proxy-server
 ```
 
-다음으로 HTML 파일의 Bing Web Search API 끝점을: \로 변경 합니다.
+다음으로, HTML 파일에서 Bing Web Search API 엔드포인트를 다음으로 변경합니다.\
 `http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.

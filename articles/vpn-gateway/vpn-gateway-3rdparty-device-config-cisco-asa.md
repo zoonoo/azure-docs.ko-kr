@@ -1,32 +1,33 @@
 ---
-title: Azure VPN gateway에 Cisco GLOBAL.ASA 장치를 연결 하기 위한 샘플 구성
-description: 이 문서에서는 Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성을 제공합니다.
+title: VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성
+titleSuffix: Azure VPN Gateway
+description: Azure VPN Gateway에 Cisco ASA 디바이스를 연결하는 샘플 구성을 봅니다.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 04/29/2021
 ms.author: yushwang
-ms.openlocfilehash: 82e00e0b519040c57fdfd798d8992086c61e5481
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: c9de069b657f991444d84f5bff5f61d1150c0b0f
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89426180"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292147"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 디바이스(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 디바이스를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 디바이스에 적용됩니다. 
 
 ## <a name="device-at-a-glance"></a>디바이스 개요
 
-* 장치 공급 업체: **Cisco**
-* 장치 모델: **global.asa**           
+* 디바이스 공급업체: **Cisco**
+* 디바이스 모델: **ASA**           
 * 대상 버전: **8.4 이상**
-* 테스트 된 모델: **global.asa 5505**
-* 테스트 된 버전: **9.2**             
+* 테스트 모델: **ASA 5505**
+* 테스트 버전: **9.2**             
 * IKE 버전: **IKEv2**                  
 * BGP: **아니요**      
-* Azure VPN gateway 유형: **경로 기반 VPN gateway**
+* Azure VPN Gateway 유형: **경로 기반 VPN Gateway**
 
 > [!NOTE]
 > 샘플 구성은 Cisco ASA 디바이스를 Azure **경로 기반** VPN Gateway에 연결합니다. 연결은 [이 문서](vpn-gateway-connect-multiple-policybased-rm-ps.md)에 설명된 대로 **UsePolicyBasedTrafficSelectors** 옵션이 있는 사용자 지정 IPsec/IKE 정책을 사용합니다.
@@ -108,13 +109,13 @@ Azure 구성을 빌드하는 단계별 지침은 [단일 VPN 터널 설정](vpn-
 * 디바이스에서 모든 이름 및 정책 번호가 고유한지 확인합니다.
 * 디바이스에서 암호화 알고리즘이 지원되는지 확인합니다.
 * 다음 **자리 표시자 값** 을 구성에 대한 실제 값으로 바꿉니다.
-  - 외부 인터페이스 이름: **외부**
+  - 외부 인터페이스 이름: **outside**
   - **Azure_Gateway_Public_IP**
   - **OnPrem_Device_Public_IP**
   - IKE: **Pre_Shared_Key**
   - 가상 네트워크 및 로컬 네트워크 게이트웨이 이름: **VNetName** 및 **LNGName**
   - 가상 네트워크 및 온-프레미스 네트워크 주소 **접두사**
-  - 적절 한 **네트워크 마스크**
+  - 적절한 **네트워크 마스크**
 
 #### <a name="sample-script"></a>샘플 스크립트
 

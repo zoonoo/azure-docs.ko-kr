@@ -3,16 +3,16 @@ title: Azure 보안 벤치마크 청사진 샘플 개요
 description: Azure 보안 벤치마크 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 58e8c3972b0f05e5b0a3f15da0dfd3eae301ad31
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 0e4a8eab295690770745362480251a4a8c2c3959
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386995"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757856"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Azure 보안 벤치마크 청사진 샘플
 
-Azure 보안 벤치마크 청사진 샘플은 특정 [Azure 보안 벤치마크 v1](../../../security/benchmarks/overview.md) 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 보호책을 제공합니다. 이 청사진은 고객이 Azure 보안 벤치마크 컨트롤을 구현하려는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+Azure Security Benchmark 청사진 샘플은 특정 [Azure Security Benchmark v1](../../../security/benchmarks/overview.md) 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 보호책을 제공합니다. 이 청사진은 고객이 Azure 보안 벤치마크 컨트롤을 구현하려는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 

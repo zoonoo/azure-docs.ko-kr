@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 607a68870d3124eadba63b7a04b73ec7705a97a0
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100547403"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713975"
 ---
 # <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>자습서: Azure AD 자격 관리에서 리소스에 대한 액세스 관리
 
@@ -78,7 +78,7 @@ Azure AD 권한 관리를 사용하려면 다음 라이선스 중 하나가 있�
 
 *액세스 패키지* 는 팀 또는 프로젝트에 필요한 리소스의 번들로, 정책에 따라 관리됩니다. 액세스 패키지는 카탈로그(*catalogs*)라는 컨테이너에 정의됩니다. 이 단계에서는 **일반** 카탈로그에 **마케팅 캠페인** 액세스 패키지를 만듭니다.
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, Identity Governance 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자
 
 ![액세스 패키지 만들기](./media/entitlement-management-access-package-first/elm-access-package.png)
 

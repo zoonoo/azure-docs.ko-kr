@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl 메시 코드-패키지-로그
-description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 지정 된 코드 패키지에 대 한 로그를 가져오기 위한 명령 목록을 포함 합니다.
+title: Azure Service Fabric CLI- sfctl mesh code-package-log
+description: sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 지정된 코드 패키지에 대한 로그를 가져오기 위한 명령 목록이 포함되어 있습니다.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 9ac1d85a1a498f9f6fcd0a03f8f819d1cdfcac33
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86257298"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
@@ -17,7 +17,7 @@ ms.locfileid: "86257298"
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | Get | 컨테이너에서 로그를 가져옵니다. |
 
@@ -28,7 +28,7 @@ ms.locfileid: "86257298"
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --app-name --application-name[필수] | 애플리케이션 이름입니다. |
 | --code-package-name           [필수] | 서비스의 코드 패키지 이름입니다. |
@@ -38,7 +38,7 @@ ms.locfileid: "86257298"
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -48,5 +48,5 @@ ms.locfileid: "86257298"
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
+- Service Fabric CLI [설정](service-fabric-cli.md)
 - [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

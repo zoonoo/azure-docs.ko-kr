@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2017
 ms.author: terrylan
 ms.openlocfilehash: fc5899fe5aca4bbaa9250cf41b240816e2cbedb0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "80548598"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>보안 이벤트 지원 티켓을 로그하는 방법
@@ -28,11 +28,11 @@ ms.locfileid: "80548598"
 
     ![이벤트 유형 및 정의](./media/event-support-ticket/chart.png)
 
-3. 문제 유형 및 범주를 선택한 후 '**요청 시작**' 단추를 클릭 합니다. 다음 정보를 제공하면 문제를 이해하는 데 도움이 됩니다.
+3. 문제 유형과 범주를 선택한 후 [**요청 시작**] 단추를 클릭합니다. 다음 정보를 제공하면 문제를 이해하는 데 도움이 됩니다.
 
     i. 문제 및/또는 취약성은 무엇인가요?
 
-    ii. 취약성에 대해 CVE (mitre.org) 또는 CVSS3 v3 계산기 ()를 입력 하세요 https://www.first.org/cvss/calculator/3.0) .
+    ii. 취약성의 경우 CVE(mitre.org) 또는 작성된 CVSS3 v3 계산기(https://www.first.org/cvss/calculator/3.0) )를 제공하세요.
 
     iii. 해결 방법 또는 위험 완화가 있나요? 있다면 수정 단계를 제공해 주세요.
 

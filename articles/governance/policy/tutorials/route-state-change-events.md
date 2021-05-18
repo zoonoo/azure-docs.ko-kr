@@ -4,12 +4,12 @@ description: 이 자습서에서는 정책 상태 변경 이벤트를 수신 대
 ms.date: 03/29/2021
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1fe87e4fd3349df7d8f5d57b2b2d95f95ed3fba8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d2017b4e85c4d064fc206d9b908be126559032bd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105734883"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752042"
 ---
 # <a name="tutorial-route-policy-state-change-events-to-event-grid-with-azure-cli"></a>자습서: Azure CLI를 사용하여 정책 상태 변경 이벤트를 Event Grid로 라우팅
 
@@ -39,7 +39,7 @@ ms.locfileid: "105734883"
 
 Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해야 합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
 
-[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 다음 예에서는 _westus_ 위치에 `<resource_group_name>`이라는 리소스 그룹을 만듭니다. `<resource_group_name>`을 리소스 그룹의 고유한 이름으로 바꿉니다.
 

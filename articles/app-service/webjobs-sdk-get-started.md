@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
 ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91652043"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
@@ -188,7 +188,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-로컬로 실행 되는 Azure Storage 에뮬레이터에는 WebJobs SDK에 필요한 기능이 모두 포함 되어 있지 않습니다. 따라서 이 섹션에서는 Azure에서 Storage 계정을 만들고 이를 사용하도록 프로젝트를 구성합니다. 이미 스토리지 계정이 있는 경우 6단계로 건너뜁니다.
+로컬로 실행되는 Azure Storage 에뮬레이터에는 WebJobs SDK에 필요한 일부 기능이 없습니다. 따라서 이 섹션에서는 Azure에서 Storage 계정을 만들고 이를 사용하도록 프로젝트를 구성합니다. 이미 스토리지 계정이 있는 경우 6단계로 건너뜁니다.
 
 1. Visual Studio에서 **서버 탐색기** 를 열고 Azure에 로그인합니다. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음, **Microsoft Azure 구독에 연결** 을 선택합니다.
 
@@ -264,13 +264,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. 큐에 대한 이름으로 *queue* 를 입력한 다음, **확인** 을 선택합니다.
 
-   ![큐를 만들고 이름을 "queue"로 하는 위치를 보여 주는 스크린샷 ](./media/webjobs-sdk-get-started/create-queue.png)
+   ![큐를 만들고 이름을 “queue”로 지정하는 위치 스크린샷 ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. 새 큐에 대한 노드를 마우스 오른쪽 단추로 클릭한 다음, **큐 보기** 를 선택합니다.
 
 1. **메시지 추가** 아이콘을 선택합니다.
 
-   ![메시지 추가 아이콘을 강조 표시 하는 스크린샷](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![메시지 추가 아이콘이 강조 표시된 스크린샷](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. **메시지 추가** 대화 상자에서 *Hello World!* 를 **메시지 텍스트** 로 입력한 다음, **확인** 을 선택합니다. 이제 큐에 메시지가 있습니다.
 
@@ -514,7 +514,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=5a2ac479-de13-4f41-aae9-1361f291ff88)
    ```
 
-## <a name="add-an-output-binding"></a>출력 바인딩 추가
+## <a name="add-an-output-binding&quot;></a>출력 바인딩 추가
 
 출력 바인딩은 데이터를 쓰는 코드를 간소화합니다. 이 예제에서는 크기를 로깅하지 않고 Blob 복사본을 작성하여 이전 예제를 수정합니다. Blob Storage 바인딩은 이전에 설치한 Azure Storage 확장 패키지에 포함되어 있습니다.
 
@@ -522,7 +522,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
    ```cs
    public static void ProcessQueueMessage(
-       [QueueTrigger("queue")] string message,
+       [QueueTrigger(&quot;queue")] string message,
        [Blob("container/{queueTrigger}", FileAccess.Read)] Stream myBlob,
        [Blob("container/copy-{queueTrigger}", FileAccess.Write)] Stream outputBlob,
        ILogger logger)

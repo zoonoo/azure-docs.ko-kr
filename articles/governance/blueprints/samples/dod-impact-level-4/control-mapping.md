@@ -3,16 +3,17 @@ title: DoD 영향 수준 4 청사진 샘플 컨트롤
 description: DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 5e022f4cea10be628d7d58c85ac10eb960d8ffa0
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 401c0be0f30ade1dd35c8597dcb60f15e1a86b23
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386978"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757604"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>DoD 영향 수준 4 청사진 샘플의 컨트롤 매핑
 
-다음 문서에서는 Azure Blueprints DoD IL4(국방부 영향 수준 4) 청사진 샘플이 DoD 영향 수준 4 컨트롤에 매핑되는 방법을 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf)를 참조하세요. DISA(방어 정보 시스템 기관)는 DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)를 개발하고 유지 관리하는 미국 DoD(국방부)의 기관입니다. SRG는 DoD 정보, 시스템 및 애플리케이션을 호스팅하는 CSP(클라우드 서비스 공급자)와 DoD의 클라우드 서비스 사용에 대한 기본 보안 요구 사항을 정의합니다.  
+다음 문서에서는 Azure Blueprints DoD IL4(국방부 영향 수준 4) 청사진 샘플이 DoD 영향 수준 4 컨트롤에 매핑되는 방법을 자세히 설명합니다. 컨트롤에 대한 자세한 내용은 [DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf)를 참조하세요.
+DISA(방어 정보 시스템 기관)는 DoD 클라우드 컴퓨팅 SRG(보안 요구 사항 가이드)를 개발하고 유지 관리하는 미국 DoD(국방부)의 기관입니다. SRG는 DoD 정보, 시스템 및 애플리케이션을 호스팅하는 CSP(클라우드 서비스 공급자)와 DoD의 클라우드 서비스 사용에 대한 기본 보안 요구 사항을 정의합니다.
 
 다음 매핑은 **DoD 영향 수준 4** 컨트롤에 대한 것입니다. 특정 컨트롤 매핑으로 바로 점프하려면 오른쪽의 탐색 기능을 사용합니다. 많은 매핑된 컨트롤은 [Azure Policy](../../../policy/overview.md) 이니셔티브를 사용하여 구현됩니다. 전체 이니셔티브를 검토하려면 Azure Portal에서 **정책** 을 열고 **정의** 페이지를 선택합니다. 그런 다음, **\[미리 보기\]: DoD 영향 수준 4** 기본 제공 정책 이니셔티브를 찾아 선택합니다.
 
@@ -131,7 +132,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) 감사 검토, 분석 및 보고 | 통합/검색 및 모니터링 기능
 
-이 청사진은 가상 머신, 가상 머신 확장 집합, SQL Database 서버 및 SQL Managed Instance 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다. 자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 활용하는 것이 좋습니다.
+이 청사진은 가상 머신, 가상 머신 확장 집합, SQL Database 서버 및 SQL Managed Instance 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다. 자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 사용하는 것이 좋습니다.
 
 - \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - SQL 서버에서 취약성 평가를 사용하도록 설정해야 합니다.
@@ -174,19 +175,19 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) 최소한의 기능 | 프로그램 실행 금지
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어는 승인되지 않은 애플리케이션의 실행을 금지하는 적용 모드에서 실행할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 Azure Policy 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 자동화된 인텔리전트형 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어는 승인되지 않은 애플리케이션의 실행을 금지하는 적용 모드에서 실행할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 Azure Policy 정의를 할당합니다.
 
 - 머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) 최소한의 기능 | 권한이 부여된 소프트웨어/허용 목록
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어를 사용하면 가상 머신에 사용하도록 승인인 애플리케이션 목록을 만들 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 자동화된 인텔리전트형 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어를 사용하면 가상 머신에 사용하도록 승인인 애플리케이션 목록을 만들 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 사용자가 설치한 소프트웨어
 
-Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 지능적이고 자동화된 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어를 사용하면 소프트웨어 제한 정책을 적용하고 규정 준수 여부를 모니터링할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure Security Center의 적응형 애플리케이션 제어는 특정 소프트웨어가 가상 머신에서 실행되지 않도록 차단하거나 방지할 수 있는 자동화된 인텔리전트형 엔드투엔드 애플리케이션 허용 목록 솔루션입니다. 애플리케이션 제어를 사용하면 소프트웨어 제한 정책을 적용하고 규정 준수 여부를 모니터링할 수 있습니다. 이 청사진은 애플리케이션 허용 목록을 사용하는 것이 좋지만 아직 구성하지 않은 가상 머신을 모니터링하도록 도와주는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 머신에서 안전한 애플리케이션을 정의하기 위해 적응형 애플리케이션 제어를 사용하도록 설정해야 합니다.
 
@@ -196,7 +197,7 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 - 재해 복구를 구성하지 않고 가상 머신 감사
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) 정보 시스템 백업 | 대체 스토리지 사이트로 전송
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9(05) 정보 시스템 백업 | 대체 스토리지 사이트로 전송
 
 이 청사진은 조직의 시스템 백업 정보를 대체 스토리지 사이트로 전자적으로 감사하는 Azure Policy 정의를 할당합니다. 스토리지 메타데이터를 물리적으로 배송하려면 Azure Data Box를 사용하는 것이 좋습니다.
 
@@ -259,7 +260,8 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 ## <a name="ra-5-vulnerability-scanning"></a>RA-5 취약성 검색
 
-이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
+이 청사진을 사용하면 Azure Security Center에서 운영 체제 취약성, SQL 취약성 및 가상 머신 취약성을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 정보 시스템 취약성을 관리할 수 있습니다.
+Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다. 또한 이 청사진은 SQL 서버에서 Advanced Data Security를 감사하고 적용하는 정책 정의를 할당합니다. Advanced Data Security는 배포된 리소스의 취약성을 이해할 수 있는 취약성 평가 및 고급 위협 보호 기능이 포함되어 있습니다.
 
 - 관리형 인스턴스에서 Advanced Data Security를 사용하도록 설정해야 합니다.
 - SQL Server에서 Advanced Data Security를 사용하도록 설정해야 합니다.
@@ -271,14 +273,13 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 ## <a name="sc-5-denial-of-service-protection"></a>SC-5 서비스 거부 방지
 
-Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층보다 강력한 추가 기능 및 위험 완화 기능을 제공합니다. 이러한 추가 기능으로는 Azure Monitor 통합과 공격 후 완화 보고서를 검토하는 기능이 포함됩니다. 이 청사진은 DDoS 표준 계층을 사용하는지 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 서비스 계층 간의 기능 차이를 이해하면 해당 Azure 환경의 서비스 거부를 방지하는 최적의 솔루션을 선택할 수 있습니다.
+Azure의 DDoS(분산형 서비스 거부) 표준 계층은 기본 서비스 계층보다 강력한 추가 기능 및 위험 완화 기능을 제공합니다. 이러한 추가 기능으로는 Azure Monitor 통합과 공격 후 완화 보고서를 검토하는 기능이 포함됩니다. 이 청사진은 DDoS 표준 계층을 사용하는지 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. 서비스 계층 간의 기능 차이를 이해하면 해당 Azure 환경의 서비스 거부를 방지하는 최적의 솔루션을 선택할 수 있습니다.
 
 - DDoS Protection 표준을 사용하도록 설정해야 합니다.
 
 ## <a name="sc-7-boundary-protection"></a>SC-7 경계 보호
 
-이 청사진을 사용하면 Azure Security Center에서 네트워크 보안 그룹 강화 추천 사항을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 경계를 관리하고 제어할 수 있습니다. Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하여 공격 노출 영역을 줄일 수 있는 네트워크 보안 그룹 규칙 추천 사항을 제공합니다.
-또한 이 청사진은 보호되지 않은 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 정책 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
+이 청사진을 사용하면 Azure Security Center에서 네트워크 보안 그룹 강화 추천 사항을 모니터링하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 시스템 경계를 관리하고 제어할 수 있습니다. Azure Security Center는 인터넷 연결 가상 머신의 트래픽 패턴을 분석하여 공격 노출 영역을 줄일 수 있는 네트워크 보안 그룹 규칙 추천 사항을 제공합니다. 또한 이 청사진은 보호되지 않은 엔드포인트, 애플리케이션 및 스토리지 계정을 모니터링하는 정책 정의를 할당합니다. 방화벽으로 보호되지 않는 엔드포인트 및 애플리케이션과 액세스가 제한되지 않는 스토리지 계정은 정보 시스템 내에 포함된 정보에 대한 원치 않는 액세스를 허용할 수 있습니다.
 
 - 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.
@@ -337,15 +338,15 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 
 이 청사진은 애플리케이션에서 최신 버전의 HTTP, Java, PHP, Python 및 TLS를 사용하도록 보장하는 데 유용한 정책 정의를 할당합니다. 또한 이 청사진은 Kubernetes Services가 취약하지 않은 버전으로 업그레이드되도록 하는 정책 정의를 할당합니다.
 
-- API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+- API 앱을 실행하는 데 사용되는 경우 최신의 ‘HTTP 버전’인지 확인
 - 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
 - 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
-- API 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+- API 앱의 일부로 사용되는 경우 최신 ‘Java 버전’인지 확인
 - 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
-- API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+- API 앱의 일부로 사용되는 경우 최신 ‘PHP 버전’인지 확인
 - 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
-- API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+- API 앱의 일부로 사용되는 경우 최신 ‘Python 버전’인지 확인
 - 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
 - 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
 - API 앱에서 최신 TLS 버전을 사용해야 합니다.
@@ -394,9 +395,9 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 이 청사진은 데이터 보안 알림이 제대로 사용되도록 설정하는 데 유용한 정책 정의를 제공합니다. 또한 이 청사진은 Azure Security Center에 표준 가격 책정 계층이 사용되도록 합니다. 표준 가격 책정 계층은 Azure Security Center에서 네트워크 및 가상 머신에 대한 위협을 탐지하고 위협 인텔리전스, 변칙 검색 및 동작 분석을 제공합니다.
 
 - 심각도가 높은 경고에 대해 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
-- 구독에 대한 보안 연락처 이메일 주소를 제공해야 합니다. 
-- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다. 
-- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다. 
+- 구독에 대한 보안 연락처 이메일 주소를 제공해야 합니다.
+- SQL 관리형 인스턴스 Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
+- SQL Server Advanced Data Security 설정에는 관리자 및 구독 소유자에게 이메일 알림을 사용하도록 설정해야 합니다.
 - 구독에 대한 보안 연락처 전화 번호를 제공해야 합니다.
 - SQL Server에 대한 Advanced Data Security 설정에는 보안 경고를 받을 이메일 주소가 포함되어야 합니다.
 - Security Center 표준 가격 책정 계층을 선택해야 합니다.
@@ -408,7 +409,7 @@ Azure Storage에 사용되는 Advanced Threat Protection은 스토리지 계정�
 - 스토리지 계정에 Advanced Threat Protection 배포
 
 > [!NOTE]
-> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다. 
+> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

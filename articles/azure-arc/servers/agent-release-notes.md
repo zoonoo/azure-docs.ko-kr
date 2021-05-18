@@ -1,36 +1,47 @@
 ---
-title: Azure Arc 사용 서버 에이전트의 새로운 기능
-description: 이 문서에는 Azure Arc 사용 서버 에이전트에 대 한 릴리스 정보가 포함 되어 있습니다. 요약 된 많은 문제에 대 한 자세한 내용은 링크를 참조 하십시오.
+title: Azure Arc 지원 서버 에이전트의 새로운 기능
+description: 이 문서에는 Azure Arc 지원 서버 에이전트 릴리스 정보가 있습니다. 요약된 문제 중 다수에 추가 세부 정보로 연결되는 링크가 있습니다.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: acf606ed1ad0f54c983b14a0141d0dc11e2c45d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 04/27/2021
+ms.openlocfilehash: c223b5dd75ac82706a2b35268813391899170f73
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470509"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071544"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 사용 서버 에이전트의 새로운 기능
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트의 새로운 기능
 
-Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향상 된 기능을 받습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음에 대한 정보를 제공합니다.
+Azure Arc 지원 서버 Connected Machine Agent에는 지속적으로 향상된 기능이 제공됩니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음에 대한 정보를 제공합니다.
 
 - 최신 릴리스
 - 알려진 문제
 - 버그 수정
 
+## <a name="april-2021"></a>2021년 4월
+
+버전 1.5
+
+### <a name="new-feature"></a>새로운 기능
+
+- Red Hat Enterprise Linux 8 및 CentOS Linux 8에 대한 지원이 추가되었습니다.
+- 새 `-useStderr` 매개 변수를 통해 오류 및 자세한 정보 출력을 stderr로 지정합니다.
+- 새 `-json` 매개 변수를 통해 출력을 지정하여 JSON 형식이 되도록 합니다(-useStderr과 함께 사용하는 경우).
+- 제조업체, 모델, SQL Server 설치 여부(부울), 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 등 다른 인스턴스 메타데이터를 수집합니다.
+ 
 ## <a name="march-2021"></a>2021년 3월
 
 버전 1.4
 
-## <a name="new-feature"></a>새로운 기능
+### <a name="new-feature"></a>새로운 기능
 
-- 전용 끝점에 대 한 지원이 추가 되었습니다.
-- Azcmagent에 대 한 종료 코드의 확장 된 목록입니다.
-- 이제--config 매개 변수를 사용 하 여 파일에서 에이전트 구성 매개 변수를 읽을 수 있습니다.
+- 현재 제한된 미리 보기로 제공되는 프라이빗 엔드포인트에 대한 지원이 추가되었습니다.
+- azcmagent 종료 코드의 확장된 목록이 제공됩니다.
+- 이제 `--config` 매개 변수를 사용하여 파일에서 에이전트 구성 매개 변수를 읽을 수 있습니다.
 
-## <a name="fixed"></a>고정
+### <a name="fixed"></a>고정
 
-이제 네트워크 끝점 검사가 더 빠릅니다.
+네트워크 엔드포인트 검사가 더 빨라졌습니다.
 
 ## <a name="december-2020"></a>2020년 12월
 
@@ -38,11 +49,11 @@ Azure Arc 사용 서버 연결 된 컴퓨터 에이전트는 지속적으로 향
 
 ### <a name="new-feature"></a>새로운 기능
 
-Windows Server 2008 r 2에 대 한 지원이 추가 되었습니다.
+Windows Server 2008 R2에 대한 지원이 추가되었습니다.
 
 ### <a name="fixed"></a>고정
 
-Linux에서 사용자 지정 스크립트 확장을 설치 하지 못하게 하는 문제가 해결 되었습니다.
+Linux에서 사용자 지정 스크립트 확장을 설치하지 못하는 문제가 해결되었습니다.
 
 ## <a name="november-2020"></a>2020년 11월
 
@@ -50,7 +61,7 @@ Linux에서 사용자 지정 스크립트 확장을 설치 하지 못하게 하�
 
 ### <a name="fixed"></a>고정
 
-RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 수 있는 문제를 해결 했습니다.
+RPM 기반 배포에서 업그레이드 후 프록시 구성이 손실되는 문제가 해결되었습니다.
 
 ## <a name="october-2020"></a>2020년 10월
 
@@ -58,50 +69,50 @@ RPM 기반 배포에서 업그레이드 한 후 프록시 구성이 손실 될 �
 
 ### <a name="fixed"></a>고정
 
-- 대체 GC 데몬 단위 파일 위치를 처리 하는 프록시 스크립트를 수정 했습니다.
-- GuestConfig 에이전트 안정성 변경
-- US Gov 버지니아 지역에 대 한 GuestConfig agent 지원.
-- 오류가 발생 하는 경우 GuestConfig 에이전트 확장 보고서 메시지를 더 자세히 표시 합니다.
+- 대체 GC 디먼 단위 파일 위치를 처리하도록 프록시 스크립트가 수정되었습니다.
+- GuestConfig 에이전트 안정성이 변경되었습니다.
+- US Gov 버지니아 지역에 대한 GuestConfig 에이전트 지원이 제공됩니다.
+- 오류가 발생하는 경우 GuestConfig 에이전트 확장 보고서 메시지가 더 자세히 표시됩니다.
 
 ## <a name="september-2020"></a>2020년 9월
 
-버전: 1.0 (일반 공급)
+버전: 1.0(일반 공급)
 
 ### <a name="plan-for-change"></a>변경 계획
 
-- 미리 보기 에이전트 (1.0 이전의 모든 버전)에 대 한 지원은 향후 서비스 업데이트에서 제거 될 예정입니다.
-- 대체 끝점에 대 한 지원이 제거 `.azure-automation.net` 되었습니다. 프록시가 있는 경우 끝점을 허용 해야 `*.his.arc.azure.com` 합니다.
-- 연결 된 컴퓨터 에이전트가 Azure에서 호스트 되는 가상 컴퓨터에 설치 된 경우 Arc 사용 서버 리소스에서 VM 확장을 설치 하거나 수정할 수 없습니다. 이는 가상 머신의 **HybridCompute 및 microsoft** 리소스에서 수행 되는 충돌 하는 확장 작업을 방지 하기 위한 것 **입니다.** 모든 확장 작업에 컴퓨터에 대 한 **Microsoft Compute** 리소스를 사용 합니다.
-- 게스트 구성 프로세스의 이름이 *gcd* 에서 Linux의 *gcad* 로 변경 되 고 *gcservice* 가 Windows의 *gcarcservice* 로 변경 되었습니다.
+- 미리 보기 에이전트(1.0 이전의 모든 버전)에 대한 지원이 향후 서비스 업데이트에서 제거될 예정입니다.
+- 대체 엔드포인트 `.azure-automation.net`에 대한 지원이 제거되었습니다. 프록시가 있는 경우 엔드포인트 `*.his.arc.azure.com`을 허용해야 합니다.
+- Azure에 호스트된 가상 머신에 Connected Machine Agent가 설치된 경우 Arc 지원 서버 리소스에서 VM 확장을 설치하거나 수정할 수 없습니다. 가상 머신의 **Microsoft.Compute** 및 **Microsoft.HybridCompute** 리소스에서 수행되는 확장 작업의 충돌을 방지하기 위한 것입니다. 모든 확장 작업의 경우 머신에 **Microsoft.Compute** 리소스를 사용합니다.
+- 게스트 구성 프로세스 이름이 Linux에서는 *gcd* 에서 *gcad* 로, Windows에서는 *gcservice* 에서 *gcarcservice* 로 변경되었습니다.
 
 ### <a name="new-feature"></a>새로운 기능
 
-- `azcmagent logs`지원 정보를 수집 하는 옵션이 추가 되었습니다.
-- `azcmagent license`EULA를 표시 하는 옵션이 추가 되었습니다.
-- `azcmagent show --json`간편한 구문 분석할 형식으로 에이전트 상태를 출력 하는 옵션이 추가 되었습니다.
-- `azcmagent show`서버가 Azure에 호스트 된 가상 컴퓨터에 있는지 여부를 나타내는 플래그를 출력에 추가 했습니다.
-- `azcmagent disconnect --force-local-only`Azure 서비스에 연결할 수 없는 경우 로컬 에이전트 상태를 다시 설정 하도록 허용 하는 옵션이 추가 되었습니다.
-- `azcmagent connect --cloud`다른 클라우드를 지원 하기 위한 옵션이 추가 되었습니다. 이 릴리스에서는 Azure만 에이전트 릴리스 시 서비스에서 지원 됩니다.
-- 에이전트가 Azure 지원 언어로 지역화 되었습니다.
+- 지원 정보를 수집하는 `azcmagent logs` 옵션이 추가되었습니다.
+- EULA를 표시하는 `azcmagent license` 옵션이 추가되었습니다.
+- 에이전트 상태를 쉽게 구문 분석 가능한 형식으로 출력하는 `azcmagent show --json` 옵션이 추가되었습니다.
+- 서버가 Azure에 호스트된 가상 머신에 있는지를 나타내는 플래그가 `azcmagent show` 출력에 추가되었습니다.
+- Azure 서비스에 연결할 수 없는 경우 로컬 에이전트 상태 재설정을 허용하는 `azcmagent disconnect --force-local-only` 옵션이 추가되었습니다.
+- 다른 클라우드를 지원하는 `azcmagent connect --cloud` 옵션이 추가되었습니다. 이 릴리스에서는 에이전트 출시 시점에 Azure만 서비스에서 지원됩니다.
+- 에이전트는 Azure 지원 언어로 지역화되었습니다.
 
 ### <a name="fixed"></a>고정
 
-- 연결 확인 향상.
-- Linux에서 에이전트를 업그레이드할 때 손상 된 프록시 서버 설정 문제를 수정 했습니다.
-- Windows Server 2012 r 2를 실행 하는 서버에 에이전트를 설치 하는 동안 문제가 해결 되었습니다.
-- 확장 설치 안정성 향상
+- 연결 확인이 향상되었습니다.
+- Linux에서 에이전트를 업그레이드하는 경우 프록시 서버 설정이 손실되는 문제가 수정되었습니다.
+- Windows Server 2012 R2를 실행하는 서버에 에이전트를 설치하려고 시도하는 경우 발생하는 문제가 해결되었습니다.
+- 확장 설치 안정성이 향상되었습니다.
 
 ## <a name="august-2020"></a>2020년 8월
 
 버전: 0.11
 
-- 이 릴리스에는 이전에 Ubuntu 20.04에 대 한 지원이 발표 되었습니다. 일부 Azure VM 확장은 Ubuntu 20.04을 지원 하지 않으므로이 Ubuntu 버전에 대 한 지원이 제거 됩니다.
+- 이전에 이 릴리스에서는 Ubuntu 20.04에 대한 지원을 발표했습니다. 일부 Azure VM 확장에서 Ubuntu 20.04를 지원하지 않으므로 이 버전의 Ubuntu에 대한 지원은 제거됩니다.
 
-- 확장 배포에 대 한 안정성 향상.
+- 확장 배포에 대한 안정성이 향상되었습니다.
 
 ### <a name="known-issues"></a>알려진 문제
 
-이전 버전의 Linux 에이전트를 사용 하 고 있고 프록시 서버를 사용 하도록 구성 된 경우 업그레이드 후 프록시 서버 설정을 다시 구성 해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
+이전 버전의 Linux 에이전트를 사용하고 있으며 프록시 서버를 사용하도록 구성된 경우 업그레이드 후 프록시 서버 설정을 다시 구성해야 합니다. 이 위해 실행 `sudo azcmagent_proxy add http://proxyserver.local:83`합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

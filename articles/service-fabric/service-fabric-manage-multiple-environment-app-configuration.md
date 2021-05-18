@@ -1,13 +1,13 @@
 ---
-title: 여러 환경에 대 한 앱 관리
+title: 여러 환경을 위한 앱 관리
 description: 한 컴퓨터에서 수천 개의 컴퓨터에 이르는 클러스터에서 Azure Service Fabric 애플리케이션을 실행할 수 있습니다. 어떤 경우에 해당하는 다양한 환경에 대해 다르게 애플리케이션을 구성하려 합니다. 이 문서에서는 환경 당 다른 애플리케이션 매개 변수를 정의하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.openlocfilehash: c907540c03788ab5f4087a96e301f18ab7ced4ca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98787980"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 애플리케이션 관리
@@ -38,9 +38,9 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 
 Service Fabric에서 명명된 애플리케이션 인스턴스를 만들 때 매개 변수를 전달하는 옵션을 사용할 수 있습니다. 이렇게 하는 방법은 애플리케이션 인스턴스를 만드는 방법에 따라 달라집니다.
 
-  - PowerShell에서 cmdlet은 [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication) 응용 프로그램 매개 변수를 hashtable로 사용 합니다.
-  - Sfctl을 사용 하 여 [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용 합니다. install.sh 스크립트는 sfctl을 사용합니다.
-  - Visual Studio에서는 애플리케이션 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Azure DevOps Services 또는 Azure DevOps Server를 사용 하 여 Visual Studio에서 게시할 때 사용 됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
+  - PowerShell에서 [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication) cmdlet은 애플리케이션 매개 변수를 해시 테이블로 사용합니다.
+  - sfctl를 사용하여 [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용합니다. install.sh 스크립트는 sfctl을 사용합니다.
+  - Visual Studio에서는 애플리케이션 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Azure DevOps Services 또는 Azure DevOps Server를 사용하여 Visual Studio에서 게시할 때 사용됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 여기에 설명된 개념 중 일부를 사용하는 방법을 보여 줍니다.

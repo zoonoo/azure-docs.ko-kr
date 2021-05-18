@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: a365ae58442a8448baeee831035f10efb40e24fa
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91336208"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949797"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -77,7 +77,7 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
     - 영향을 받는 복제된 머신의 디스크 블레이드로 이동하여 복제본 디스크 이름을 복사합니다.
     - 이 복제본 관리 디스크로 이동합니다.
     - 개요 블레이드에 SAS URL이 생성되었다는 배너가 표시될 수 있습니다. 이 배너를 클릭하고 내보내기를 취소합니다. 배너가 표시되지 않으면 이 단계를 무시합니다.
-    - SAS URL이 해지 되는 즉시 관리 디스크의 구성 블레이드로 이동 하 여 원본 디스크에서 관찰 된 변동 율 Azure Site Recovery 지원 하도록 크기를 늘립니다.
+    - SAS URL이 호출되는 즉시 관리 디스크의 구성 블레이드로 이동하여 Azure Site Recovery가 원본 디스크에서 관찰된 변동을 지원하도록 크기를 늘립니다.
 - 관찰된 변동이 일시적인 경우 보류 중인 데이터 업로드를 처리하고 복구 지점이 생성될 때까지 몇 시간이 걸릴 수 있습니다.
 - 디스크가 임시 로그, 테스트 데이터 등의 중요하지 않은 데이터를 포함하는 경우 이 데이터를 다른 곳으로 이동하거나 복제에서 이 디스크를 완전히 제외하는 것이 좋습니다.
 - 문제가 지속되면 Site Recovery [Deployment Planner](site-recovery-deployment-planner.md#overview)를 사용하여 복제 계획을 세울 수 있습니다.
@@ -95,16 +95,16 @@ Site Recovery에서 복제된 가상 머신은 시스템에 중복된 항목이 
    - InMage Scout Application 서비스
 4. 원본 머신에서 오류 세부 정보에 대한 위치에서 로그를 검사합니다.
 
-    *C:\Program Files (X86) \Microsoft Azure Site Recovery\agent\sv\sv.log \**
+    *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 
 ### <a name="process-server-with-no-heartbeat-error-806"></a>하트비트가 없는 프로세스 서버 [오류 806]
 PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합니다.
 1. PS VM이 실행되고 있습니다.
 2. PS에서 오류 세부 정보에 대한 다음 로그를 확인합니다.
 
-    *C:\ProgramData\ASR\home\svsystems\eventmanager \**\
-    하거나
-    *C:\ProgramData\ASR\home\svsystems\ monitor_protection \* .log*
+    *C:\ProgramData\ASR\home\svsystems\eventmanager\*.log*\
+    및\
+    *C:\ProgramData\ASR\home\svsystems\monitor_protection\*.log*
 
 ### <a name="master-target-server-with-no-heartbeat-error-78022"></a>하트비트가 없는 마스터 대상 서버 [오류 78022]
 
@@ -117,7 +117,7 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
     - svagents 서비스가 실행 중인지 확인합니다. 실행 중이라면 서비스를 다시 시작합니다.
     - 위치의 로그에서 오류 정보를 확인합니다.
 
-        *C:\Program Files (X86) \Microsoft Azure Site Recovery\agent\sv\sv.log \**
+        *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 3. 마스터 대상을 구성 서버에 등록하려면 **%PROGRAMDATA%\ASR\Agent** 폴더로 이동하고 명령 프롬프트에서 다음을 실행합니다.
    ```
    cmd
@@ -146,14 +146,14 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>원인 3: SQL Server 2016 및 2017의 알려진 문제
 **해결 방법**: 기술 자료 [문서](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)를 참조하세요.
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 App-Consistency 사용 하도록 설정 되지 않음
-**해결 방법** : Linux 운영 체제에 대 한 Azure Site Recovery는 응용 프로그램 사용자 지정 스크립트에서 앱 일관성을 지원 합니다. 사전 및 사후 옵션을 포함 하는 사용자 지정 스크립트는 Azure Site Recovery 모바일 에이전트가 앱에 일관성을 유지 하는 데 사용 됩니다. 이를 사용 하도록 설정 하는 단계는 [다음과](./site-recovery-faq.md#replication) 같습니다.
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>원인 4: Linux 서버에서 앱 일관성이 사용하도록 설정되지 않음
+**해결 방법**: Linux 운영 체제용 Azure Site Recovery는 앱 일관성을 위한 애플리케이션 사용자 지정 스크립트를 지원합니다. 사전 및 사후 옵션이 포함된 사용자 지정 스크립트는 앱 일관성을 위해 Azure Site Recovery 모바일 에이전트에서 사용됩니다. 사용하도록 설정하는 단계는 [여기](/azure/site-recovery/site-recovery-faq#replication)를 참조하세요.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>VSS 관련 문제로 인한 추가 원인:
 
 추가로 문제를 해결하려면 원본 머신의 파일을 확인하여 오류에 대한 정확한 오류 코드를 확인합니다.
 
-*C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
+*C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log*
 
 파일에서 오류를 찾으려면
 편집기에서 vacp.log 파일을 열어 “vacpError” 문자열을 검색합니다.
@@ -164,12 +164,12 @@ PS(프로세스 서버)에서 하트비트가 없는 경우 다음을 확인합�
 
 #### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 기록기가 설치되어 있지 않음 - 오류 2147221164
 
-해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 설치 되지 않은 경우 "클래스가 등록 되지 않았습니다" 라는 오류 ID 0x80040154 응용 프로그램 일관성 스냅숏 만들기가 실패 합니다. </br>
+해결 방법: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 설치되지 않은 경우 애플리케이션 일관성 스냅샷 만들기에 실패하고 오류 ID 0x80040154 “클래스가 등록되지 않았습니다.”가 표시됩니다. </br>
 [VSS 기록기 설치 문제 해결에 대한 문서](./vmware-azure-troubleshoot-push-install.md#vss-installation-failures)를 참조하세요.
 
 #### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 기록기를 사용할 수 없음 - 오류 2147943458
 
-**해결 방법**: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스를 사용 하지 않도록 설정 하는 경우 응용 프로그램 일관성 스냅숏 만들기가 실패 하 고 오류 ID "지정 된 서비스를 사용할 수 없으며 시작할 수 없습니다 (0x80070422)"가 발생 합니다. </br>
+**해결 방법**: 애플리케이션 일관성 태그를 생성하려면 Azure Site Recovery에서 Microsoft VSS(볼륨 섀도 복사본 서비스)를 사용합니다. 그러면 애플리케이션 일관성 스냅샷을 찍는 작업을 위한 VSS 공급자를 설치합니다. 이 VSS 공급자는 서비스로 설치됩니다. VSS 공급자 서비스가 사용하지 않도록 설정된 경우 애플리케이션 일관성 스냅샷 만들기에 실패하고 오류 ID “지정된 서비스가 사용 안 함으로 지정되어 있어 시작될 수 없습니다(0x80070422).”가 표시됩니다. </br>
 
 - VSS를 사용할 수 없는 경우
     - VSS 공급자 서비스의 시작 유형이 **자동** 으로 설정되어 있는지 확인합니다.
@@ -193,22 +193,22 @@ VSS 공급자 서비스의 시작 유형이 **자동** 으로 설정되어 있�
         - Azure Site Recovery VSS 공급자
         - VDS 서비스
 
-## <a name="error-id-95001---insufficient-permissions-found"></a>오류 ID 95001-권한이 없음
+## <a name="error-id-95001---insufficient-permissions-found"></a>오류 ID 95001 - 권한이 없음
 
-이 오류는 복제를 사용 하도록 설정 하려고 하는데 응용 프로그램 폴더에 충분 한 권한이 없는 경우에 발생 합니다.
+이 오류는 복제를 사용하도록 설정하려고 하는데 애플리케이션 폴더에 대한 충분한 권한이 없는 경우에 발생합니다.
 
-**해결 방법**:이 문제를 해결 하려면 아래에 언급 된 모든 폴더에 대해 IUSR 사용자에 게 소유자 역할이 있는지 확인 합니다.
+**해결 방법**: 해당 이슈를 해결하려면 아래에 언급된 모든 폴더에 대한 소유자 역할이 IUSR 사용자에게 있는지 확인합니다.
 
 - *C\ProgramData\Microsoft Azure Site Recovery\private*
-- 설치 디렉터리입니다. 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
-    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems*
-- 설치 디렉터리의 *\pushinstallsvc* 폴더 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
-    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems\pushinstallsvc*
-- 설치 디렉터리의 *\ay폴더* 예를 들어 설치 디렉터리가 F 드라이브인 경우-에 대 한 올바른 사용 권한을 제공 합니다.
-    - *F:\Program Files (x86) \Microsoft Azure 사이트 Recovery\home\svsystems\etc*
-- *배열은*
+- 설치 디렉터리. 예를 들어 설치 디렉터리가 F 드라이브인 경우 다음에 대한 올바른 권한을 제공합니다.
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems*
+- 설치 디렉터리의 *\pushinstallsvc* 폴더. 예를 들어 설치 디렉터리가 F 드라이브인 경우 다음에 대한 올바른 권한을 제공합니다.
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc*
+- 설치 디렉터리의 *\etc* 폴더. 예를 들어 설치 디렉터리가 F 드라이브인 경우 다음에 대한 올바른 권한을 제공합니다.
+    - *F:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\etc*
+- *C:\Temp*
 - *C:\thirdparty\php5nts*
-- 아래 경로 아래의 모든 항목-
+- 아래 경로에 있는 모든 항목 -
     - *C:\thirdparty\rrdtool-1.2.15-win32-perl58\rrdtool\Release\**
 
 ## <a name="next-steps"></a>다음 단계

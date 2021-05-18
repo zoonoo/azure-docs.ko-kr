@@ -1,6 +1,6 @@
 ---
-title: Azure IoT (장치 프로 비전 서비스) TLS 지원
-description: IoT 장치 프로 비전 서비스 (DPS)와 통신 하는 장치 및 서비스에 대 한 보안 TLS 연결 사용의 모범 사례
+title: Azure IoT DPS(Device Provisioning Service) TLS 지원
+description: IoT DPS(Device Provisioning Service)와 통신하는 디바이스 및 서비스에 보안 TLS 연결을 사용하는 모범 사례입니다.
 services: iot-dps
 author: wesmc7777
 ms.service: iot-dps
@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
 ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91761297"
 ---
-# <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Azure IoT Hub 장치 프로 비전 서비스 (DPS)의 TLS 지원
+# <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Azure IoT Hub DPS(Device Provisioning Service)의 TLS 지원
 
-DPS는 [TLS (전송 계층 보안](http://wikipedia.org/wiki/Transport_Layer_Security) )를 사용 하 여 IoT 장치에서의 연결을 보호 합니다. 
+DPS는 [TLS(전송 계층 보안)](http://wikipedia.org/wiki/Transport_Layer_Security)를 사용하여 IoT 디바이스의 연결을 보호합니다. 
 
-DPS에서 지 원하는 현재 TLS 프로토콜 버전은 다음과 같습니다. 
+DPS에서 지원하는 현재 TLS 프로토콜 버전은 다음과 같습니다. 
 * TLS 1.2
 
 TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. 자세한 내용은 [IoT Hub용 TLS 1.0 및 1.1 사용 중단](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md)을 참조하세요. 
 
-## <a name="restrict-connections-to-tls-12"></a>TLS 1.2에 대 한 연결 제한
+## <a name="restrict-connections-to-tls-12"></a>연결을 TLS 1.2로 제한
 
-보안을 강화 하려면 TLS 버전 1.2을 사용 하는 장치 클라이언트 *연결만 허용 하* 고 권장 되는 [암호화](#recommended-ciphers)사용을 적용 하도록 DPS 인스턴스를 구성 하는 것이 좋습니다.
+보안을 강화하려면 TLS 버전 1.2를 사용하는 디바이스 클라이언트 ‘연결만’ 허용하고 [권장 암호화](#recommended-ciphers) 사용을 적용하도록 DPS 인스턴스를 구성하는 것이 좋습니다.
 
-이렇게 하려면 `minTlsVersion` `1.2` AZURE RESOURCE MANAGER 템플릿의 DPS 리소스 사양에서 속성을로 설정 하 여 새 DPS 리소스를 프로 비전 합니다. 다음 예제 템플릿 JSON은 `minTlsVersion` 새 DPS 인스턴스에 대 한 속성을 지정 합니다.
+이렇게 하려면 Azure Resource Manager 템플릿의 DPS 리소스 사양에서 `minTlsVersion` 속성을 `1.2`로 설정하여 새 DPS 리소스 설정을 프로비저닝합니다. 다음 예제 템플릿 JSON은 새 DPS 인스턴스의 `minTlsVersion` 속성을 지정합니다.
 
 ```json
 {
@@ -51,49 +51,49 @@ TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. �
 }
 ```
 
-다음 Azure CLI 명령을 사용 하 여 템플릿을 배포할 수 있습니다. 
+다음 Azure CLI 명령을 사용하여 템플릿을 배포할 수 있습니다. 
 
 ```azurecli
 az deployment group create -g <your resource group name> --template-file template.json
 ```
 
-리소스 관리자 템플릿으로 DPS 리소스를 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿을 사용 하 여 Dps 설정](quick-setup-auto-provision-rm.md)을 참조 하십시오.
+Resource Manager 템플릿을 사용하여 DPS 리소스를 만드는 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 DPS 설정](quick-setup-auto-provision-rm.md)을 참조하세요.
 
-이 구성을 사용 하 여 만든 DPS 리소스는 TLS 버전 1.0 및 1.1를 사용 하 여 연결을 시도 하는 장치를 거부 합니다. 마찬가지로 장치 클라이언트의 HELLO 메시지에 [권장 되는 암호화](#recommended-ciphers)가 나열 되지 않은 경우에는 TLS 핸드셰이크가 거부 됩니다.
-
-> [!NOTE]
-> `minTlsVersion`속성은 읽기 전용 이며 DPS 리소스를 만든 후에는 변경할 수 없습니다. 따라서 *모든* IOT 장치가 TLS 1.2 및 [권장 되는 암호화](#recommended-ciphers) 와 호환 되는지 제대로 테스트 하 고 유효성을 검사 하는 것이 중요 합니다.
-
+이 구성을 사용하여 만든 DPS 리소스는 TLS 버전 1.0 및 1.1을 사용하여 연결을 시도하는 디바이스를 거부합니다. 마찬가지로, 디바이스 클라이언트의 HELLO 메시지에 [권장 암호화](#recommended-ciphers)가 나열되지 않는 경우 TLS 핸드셰이크가 거부됩니다.
 
 > [!NOTE]
-> 장애 조치 ( `minTlsVersion` failover) 시 DPS의 속성은 지리적으로 쌍을 이루는 지역에서 계속 적용 됩니다.
+> `minTlsVersion` 속성은 읽기 전용이며 DPS 리소스를 만든 후에는 변경할 수 없습니다. 따라서 미리 적절하게 테스트하여 ‘모든’ IoT 디바이스가 TLS 1.2 및 [권장 암호화](#recommended-ciphers)와 호환되는지 확인하는 것이 중요합니다.
+
+
+> [!NOTE]
+> 장애 조치(failover) 시 DPS의 `minTlsVersion` 속성은 지리적으로 쌍을 이루는 지역에서 장애 조치 후에도 계속 적용됩니다.
 
 ## <a name="recommended-ciphers"></a>권장되는 암호
 
-TLS 1.2만 허용 하도록 구성 된 DPS 인스턴스는 다음 암호 그룹을 사용 하는 것도 적용 합니다.
+TLS 1.2만 허용하도록 구성된 DPS 인스턴스는 다음과 같은 암호화 그룹 사용도 적용합니다.
 
 
-| 권장 되는 TLS 1.2 암호 그룹 |
+| 권장되는 TLS 1.2 암호화 그룹 |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
 
-### <a name="legacy-cipher-suites"></a>레거시 암호 그룹 
+### <a name="legacy-cipher-suites"></a>레거시 암호화 그룹 
 
-이러한 암호 그룹은 현재 DPS에서 계속 지원 되지만 사용 됩니다. 가능 하면 위의 권장 암호 그룹을 사용 합니다.
+이 암호화 그룹은 현재 DPS에서 계속 지원되지만 사용이 중단될 예정입니다. 가능하면 위의 권장 암호화 그룹을 사용합니다.
 
-| 옵션 #1 (보안 강화) |
+| 옵션 #1(보안 강화) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
-| 옵션 #2 (성능 향상) |
+| 옵션 #2(성능 향상) |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256   (uses SHA-1)`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P384   (uses SHA-1)`<br>`TLS_RSA_WITH_AES_128_GCM_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_GCM_SHA384           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA256           (lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_128_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)`<br>`TLS_RSA_WITH_AES_256_CBC_SHA              (uses SHA-1, lack of Perfect Forward Secrecy)` |
 
 
-## <a name="use-tls-12-in-the-iot-sdks"></a>IoT Sdk에서 TLS 1.2 사용
+## <a name="use-tls-12-in-the-iot-sdks"></a>IoT SDK에서 TLS 1.2 사용
 
-아래 링크를 사용 하 여 Azure IoT 클라이언트 Sdk에서 TLS 1.2 및 허용 되는 암호화를 구성 합니다.
+아래 링크를 사용하여 IoT Hub 클라이언트 SDK에서 TLS 1.2 및 허용되는 암호화를 구성할 수 있습니다.
 
 | 언어 | TLS 1.2를 지원하는 버전 | 문서화 |
 |----------|------------------------------------|---------------|
@@ -105,8 +105,8 @@ TLS 1.2만 허용 하도록 구성 된 DPS 인스턴스는 다음 암호 그룹�
 
 ## <a name="use-tls-12-with-iot-hub"></a>IoT Hub에서 TLS 1.2 사용
 
-장치와 통신할 때 TLS 1.2을 사용 하도록 IoT Hub를 구성할 수 있습니다. 자세한 내용은 [IoT Hub용 TLS 1.0 및 1.1 사용 중단](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md)을 참조하세요.
+디바이스와 통신할 때 TLS 1.2를 사용하도록 IoT Hub를 구성할 수 있습니다. 자세한 내용은 [IoT Hub용 TLS 1.0 및 1.1 사용 중단](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md)을 참조하세요.
 
 ## <a name="use-tls-12-with-iot-edge"></a>IoT Edge에서 TLS 1.2 사용
 
-IoT Edge 장치는 IoT Hub 및 DPS와 통신할 때 TLS 1.2를 사용 하도록 구성할 수 있습니다. 자세한 내용은 [IoT Edge 설명서 페이지](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md)를 참조 하세요.
+IoT Hub 및 DPS와 통신할 때 TLS 1.2를 사용하도록 IoT Edge 디바이스를 구성할 수 있습니다. 자세한 내용은 [IoT Edge 설명서 페이지](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md)를 참조하세요.

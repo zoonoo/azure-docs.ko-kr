@@ -13,15 +13,15 @@ ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
 ms.openlocfilehash: 3c11334fe1b4d77be6e64febfc1d3de6efa302c3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100365943"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>암시적 허용에서 권한 부여 코드 흐름으로 JavaScript 단일 페이지 앱 마이그레이션
 
-JavaScript (MSAL.js) v 2.0 용 Microsoft 인증 라이브러리는 Microsoft id 플랫폼의 단일 페이지 응용 프로그램에 대 한 PKCE 및 CORS를 사용 하는 권한 부여 코드 흐름을 지원 합니다. 암시적 허용을 사용하는 MSAL.js 1.x 애플리케이션을 MSAL.js 2.0 이상("*2.x*")과 권한 부여 코드 흐름으로 마이그레이션하려면 아래 섹션의 단계를 따르세요.
+JavaScript용 Microsoft 인증 라이브러리(MSAL.js) v2.0은 Microsoft ID 플랫폼의 단일 페이지 애플리케이션에 PKCE 및 CORS를 사용하는 권한 부여 코드 흐름 지원을 제공합니다. 암시적 허용을 사용하는 MSAL.js 1.x 애플리케이션을 MSAL.js 2.0 이상("*2.x*")과 권한 부여 코드 흐름으로 마이그레이션하려면 아래 섹션의 단계를 따르세요.
 
 MSAL.js 1.x에서 개선된 MSAL.js 2.x는 암시적 허용 흐름 대신 브라우저의 권한 부여 코드 흐름을 지원합니다. MSAL.js 2.x는 암시적 흐름을 지원하지 **않습니다**.
 
@@ -90,7 +90,7 @@ MSAL 2.x를 애플리케이션에 추가하는 전체 연습을 보려면 [자�
 
 ## <a name="next-steps"></a>다음 단계
 
-암시적 코드 흐름과 인증 코드 흐름 간의 차이점을 포함 하 여 권한 부여 코드 흐름에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조 하세요.
+암시적 코드 흐름과 권한 부여 코드 흐름 간의 차이점을 포함하여 권한 부여 코드 흐름에 대해 자세히 알아보려면 [Microsoft ID 플랫폼 및 OAuth 2.0 권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md)을 참조하세요.
 
 Microsoft ID 플랫폼에서 JavaScript 단일 페이지 애플리케이션을 개발하는 방법에 대해 자세히 알아보려면 여러 부분으로 구성된 [시나리오: 단일 페이지 애플리케이션](scenario-spa-overview.md) 시리즈 문서가 시작하는 데 도움이 될 수 있습니다.
 

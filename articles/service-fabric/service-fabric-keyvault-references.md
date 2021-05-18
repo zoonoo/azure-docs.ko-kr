@@ -1,44 +1,44 @@
 ---
-title: Azure Service Fabric-Service Fabric 응용 프로그램 KeyVault 참조 사용
-description: 이 문서에서는 응용 프로그램 암호에 대 한 service fabric KeyVaultReference 지원을 사용 하는 방법을 설명 합니다.
+title: Azure Service Fabric - Service Fabric 애플리케이션 KeyVault 참조 사용
+description: 이 문서에서는 애플리케이션 비밀에 대한 Service Fabric KeyVaultReference 지원을 사용하는 방법에 대해 설명합니다.
 ms.topic: article
 ms.date: 09/20/2019
 ms.openlocfilehash: a0e4ef0decae8cc9ab4dc5f8c69dfef854af81f3
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98898599"
 ---
-# <a name="keyvaultreference-support-for-azure-deployed-service-fabric-applications"></a>Azure 배포 Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원
+# <a name="keyvaultreference-support-for-azure-deployed-service-fabric-applications"></a>Azure 배포 Service Fabric 애플리케이션에 대한 KeyVaultReference 지원
 
-클라우드 응용 프로그램을 빌드할 때 일반적인 문제는 응용 프로그램에 비밀을 안전 하 게 배포 하는 방법입니다. 예를 들어 파이프라인 또는 연산자 중에 키를 노출 하지 않고 데이터베이스 키를 응용 프로그램에 배포할 수 있습니다. Service Fabric KeyVaultReference 지원을 사용 하면 Key Vault에 저장 된 암호의 URL을 참조 하 여 응용 프로그램에 쉽게 비밀을 배포할 수 있습니다. Service Fabric는 응용 프로그램의 관리 되는 Id를 대신 하 여 해당 비밀 가져오기를 처리 하 고 암호를 사용 하 여 응용 프로그램을 활성화 합니다.
-
-> [!NOTE]
-> Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원은 Service Fabric 버전 7.2 CU5부터 GA (미리 보기)입니다. 이 기능을 사용 하기 전에이 버전으로 업그레이드 하는 것이 좋습니다.
+클라우드 애플리케이션을 빌드할 때 일반적인 문제는 어떻게 비밀을 애플리케이션에 안전하게 배포하는냐 하는 것입니다. 예를 들어 파이프라인 중 또는 운영자에게 키를 노출하지 않고 데이터베이스 키를 애플리케이션에 배포하려고 할 수 있습니다. Service Fabric KeyVaultReference 지원을 사용하면 Key Vault에 저장된 비밀의 URL을 참조하여 애플리케이션에 쉽게 비밀을 배포할 수 있습니다. Service Fabric은 애플리케이션의 관리 ID를 대신하여 해당 비밀 가져오기를 처리하고 비밀을 사용하여 애플리케이션을 활성화합니다.
 
 > [!NOTE]
-> Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원은 [버전이](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) 지정 된 암호를 지원 합니다. Versionless 비밀은 지원 되지 않습니다. Key Vault은 service fabric 클러스터와 동일한 구독에 있어야 합니다. 
+> Service Fabric 애플리케이션에 대한 KeyVaultReference 지원은 Service Fabric 버전 7.2 CU5부터 GA(미리 보기 제외)입니다. 이 기능을 사용하기 전에 이 버전으로 업그레이드하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!NOTE]
+> Service Fabric 애플리케이션에 대한 KeyVaultReference 지원은 [버전이 지정된](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) 비밀만 지원합니다. 버전이 없는 비밀은 지원되지 않습니다. Key Vault는 Service Fabric 클러스터와 동일한 구독에 있어야 합니다. 
 
-- Service Fabric 응용 프로그램에 대 한 관리 Id
+## <a name="prerequisites"></a>사전 요구 사항
 
-    Service Fabric KeyVaultReference 지원에서는 응용 프로그램의 관리 되는 Id를 사용 하 여 응용 프로그램을 대신 하 여 비밀을 페치 하므로 응용 프로그램을를 통해 배포 하 고 관리 되는 id를 할당 해야 합니다. 이 [문서](concepts-managed-identity.md) 에 따라 응용 프로그램에 관리 되는 id를 사용 하도록 설정 합니다.
+- Service Fabric 애플리케이션에 대한 관리 ID
 
-- 중앙 비밀 저장소 (CSS).
+    Service Fabric KeyVaultReference 지원은 애플리케이션의 관리 ID를 사용하여 애플리케이션을 대신하여 비밀을 가져오므로 애플리케이션이 관리 ID를 통해 배포되고 할당되어야 합니다. 이 [문서](concepts-managed-identity.md)에 따라 애플리케이션에 관리 ID를 사용하도록 설정합니다.
 
-    CSS (중앙 비밀 저장소)는 Service Fabric의 암호화 된 로컬 비밀 캐시입니다. 이 기능은 Key Vault에서 가져온 후에 CSS를 사용 하 여 비밀을 보호 하 고 유지 합니다. 이 기능을 사용 하려면이 선택적 시스템 서비스를 사용 해야 합니다. CSS를 사용 하도록 설정 하 고 구성 하려면이 [문서](service-fabric-application-secret-store.md) 를 따르세요.
+- CSS(중앙 비밀 저장소).
 
-- Keyvault에 응용 프로그램의 관리 되는 id 액세스 권한 부여
+    CSS(중앙 비밀 저장소)는 Service Fabric의 암호화된 로컬 비밀 캐시입니다. 이 기능은 비밀을 Key Vault에서 가져온 후 보호하고 유지하기 위해 CSS를 사용합니다. 이 기능을 사용하려면 이 선택적 시스템 서비스를 사용하도록 설정해야 합니다. 이 [문서](service-fabric-application-secret-store.md)에 따라 CSS를 사용하도록 설정하고 구성합니다.
 
-    이 [문서](how-to-grant-access-other-resources.md) 를 참조 하 여 keyvault에 관리 id 액세스 권한을 부여 하는 방법을 확인 합니다. 또한 시스템 할당 관리 id를 사용 하는 경우 관리 id는 응용 프로그램 배포 후에만 생성 됩니다. 이를 통해 자격 증명 모음에 대 한 액세스 권한을 id에 부여 하기 전에 응용 프로그램이 비밀에 액세스를 시도 하는 경합 상태를 만들 수 있습니다. 시스템에서 할당 한 id의 이름은 `{cluster name}/{application name}/{service name}` 입니다.
+- Keyvault에 애플리케이션의 관리 ID 액세스 권한 부여
+
+    이 [문서](how-to-grant-access-other-resources.md)를 참조하여 keyvault에 관리 ID 액세스 권한을 부여하는 방법을 참조하세요. 또한 시스템 할당 관리 ID를 사용하는 경우 관리 ID는 애플리케이션 배포 후에만 만들어집니다. 이로 인해 ID에 자격 증명 모음에 대한 액세스 권한을 부여하기 전에 애플리케이션이 비밀 액세스를 시도하는 경쟁 조건이 만들어질 수 있습니다. 시스템에서 할당한 ID의 이름은 `{cluster name}/{application name}/{service name}`입니다.
     
-## <a name="use-keyvaultreferences-in-your-application"></a>응용 프로그램에서 KeyVaultReferences 사용
-KeyVaultReferences는 여러 가지 방법으로 사용 될 수 있습니다.
+## <a name="use-keyvaultreferences-in-your-application"></a>애플리케이션에서 KeyVaultReferences 사용
+KeyVaultReferences는 여러 가지 방법으로 사용될 수 있습니다.
 - [환경 변수로](#as-an-environment-variable)
-- [파일로 탑재 된 컨테이너](#mounted-as-a-file-into-your-container)
-- [컨테이너 리포지토리 암호에 대 한 참조로](#as-a-reference-to-a-container-repository-password)
+- [컨테이너에 파일로 탑재](#mounted-as-a-file-into-your-container)
+- [컨테이너 리포지토리 암호에 대한 참조로](#as-a-reference-to-a-container-repository-password)
 
 ### <a name="as-an-environment-variable"></a>환경 변수로
 
@@ -52,11 +52,11 @@ KeyVaultReferences는 여러 가지 방법으로 사용 될 수 있습니다.
 string secret =  Environment.GetEnvironmentVariable("MySecret");
 ```
 
-### <a name="mounted-as-a-file-into-your-container"></a>파일로 탑재 된 컨테이너
+### <a name="mounted-as-a-file-into-your-container"></a>컨테이너에 파일로 탑재
 
-- 섹션을 추가 settings.xml
+- settings.xml에 섹션 추가
 
-    `MySecret`형식 `KeyVaultReference` 및 값을 사용 하 여 매개 변수 정의`<KeyVaultURL>`
+    형식 `KeyVaultReference` 및 값 `<KeyVaultURL>`로 `MySecret` 매개 변수 정의
 
     ```xml
     <Section Name="MySecrets">
@@ -64,7 +64,7 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
     </Section>
     ```
 
-- ApplicationManifest.xml의 새 섹션을 참조 하십시오. `<ConfigPackagePolicies>`
+- ApplicationManifest.xml의 `<ConfigPackagePolicies>`에서 새 섹션 참조
 
     ```xml
     <ServiceManifestImport>
@@ -82,7 +82,7 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
 
 - 서비스 코드에서 비밀 사용
 
-    아래에 나열 된 각 매개 변수 `<Section  Name=MySecrets>` 는 고 environmentvariable SecretPath가 가리키는 폴더 아래에 있는 파일입니다. 아래 c # 코드 조각에서는 응용 프로그램에서 MySecret를 읽는 방법을 보여 줍니다.
+    `<Section  Name=MySecrets>` 아래에 나열된 각 매개 변수는 EnvironmentVariable SecretPath가 가리키는 폴더 아래의 파일입니다. 아래 C# 코드 조각은 애플리케이션에서 MySecret를 읽는 방법을 보여 줍니다.
 
     ```C#
     string secretPath = Environment.GetEnvironmentVariable("SecretPath");
@@ -92,9 +92,9 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
     }
     ```
     > [!NOTE] 
-    > 탑재는 비밀 값을 포함 하는 파일이 탑재 될 폴더를 제어 합니다.
+    > MountPoint는 비밀 값을 포함하는 파일이 탑재될 폴더를 제어합니다.
 
-### <a name="as-a-reference-to-a-container-repository-password"></a>컨테이너 리포지토리 암호에 대 한 참조로
+### <a name="as-a-reference-to-a-container-repository-password"></a>컨테이너 리포지토리 암호에 대한 참조로
 
 ```xml
  <Policies>
@@ -106,5 +106,5 @@ string secret =  Environment.GetEnvironmentVariable("MySecret");
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure KeyVault 설명서](../key-vault/index.yml)
-* [중앙 비밀 저장소에 대 한 자세한 정보](service-fabric-application-secret-store.md)
-* [Service Fabric 응용 프로그램에 대 한 관리 id에 대해 알아보기](concepts-managed-identity.md)
+* [중앙 비밀 저장소에 대해 알아보기](service-fabric-application-secret-store.md)
+* [Service Fabric 애플리케이션의 관리 ID에 대해 알아보기](concepts-managed-identity.md)

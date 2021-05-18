@@ -3,12 +3,12 @@ title: '패턴: 정책 정의의 count 연산자'
 description: 이 Azure Policy 패턴은 정책 정의에서 count 연산자를 사용하는 방법에 대한 예를 제공합니다.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: dc2914028887ae5a91e3379e2a94ddbc57a7cef3
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 4b4a2615491632caf1a7abddd1b6ace96ccc608d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093455"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752528"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Azure Policy 패턴: count 연산자
 
@@ -22,7 +22,7 @@ ms.locfileid: "106093455"
 
 ### <a name="explanation"></a>설명
 
-**count** 연산자의 핵심 구성 요소는 _필드_, _where_ 및 조건입니다. 각각은 아래 코드 조각에서 강조 표시됩니다.
+**count** 연산자의 핵심 구성 요소는 _필드_, _where_ 및 조건입니다. 각각은 다음 코드 조각에서 강조 표시됩니다.
 
 - _필드_ 는 멤버를 평가하는 [별칭](../concepts/definition-structure.md#aliases) 수를 알려줍니다. 여기서는 네트워크 보안 그룹의 **securityRules\[\*\]** 별칭 _배열_ 을 살펴봅니다.
 - _여기서_ 정책 언어를 사용하여 해당 조건을 충족하는 _배열_ 멤버를 정의합니다. 이 예제에서 **allOf** 논리 연산자는 별칭 _배열_ 속성의 세 가지 조건 평가(_direction_, _access_ 및 _destinationPortRange_)를 그룹화합니다.

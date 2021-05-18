@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric CLI-sfctl sa-클러스터
-description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 독립 실행형 클러스터를 관리 하기 위한 명령 목록을 포함 합니다.
+title: Azure Service Fabric CLI- sfctl sa-cluster
+description: sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 독립 실행형 클러스터를 관리하기 위한 명령 목록이 포함되어 있습니다.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 7e9f4b55945afc04e5c826b26632d68cb75e502f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86260266"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
@@ -17,7 +17,7 @@ ms.locfileid: "86260266"
 
 ## <a name="commands"></a>명령
 
-|명령|설명|
+|명령|Description|
 | --- | --- |
 | config | Service Fabric 독립 실행형 클러스터 구성을 가져옵니다. |
 | config-upgrade | Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작합니다. |
@@ -30,14 +30,14 @@ Service Fabric 독립 실행형 클러스터 구성을 가져옵니다.
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --configuration-api-version [필수] | 독립 실행형 클러스터 json 구성의 API 버전입니다. |
-| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행하기 위한 서버 제한 시간(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -52,7 +52,7 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --cluster-config            [필수] | 클러스터 구성입니다. |
 | --application-health-policies | 오류를 발생시키기 전의 비정상 애플리케이션 형식 이름 및 최대 비율 쌍의 JSON 인코딩된 사전. |
@@ -69,7 +69,7 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -77,7 +77,7 @@ Service Fabric 독립 실행형 클러스터의 구성 업그레이드를 시작
 | --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 클러스터 구성 업데이트 시작
 ```
@@ -92,13 +92,13 @@ Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이
 
 ### <a name="arguments"></a>인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
-| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
+| --timeout -t | 작업을 수행하기 위한 서버 제한 시간(초)입니다. 이 시간 제한은 요청된 작업이 완료될 때까지 클라이언트가 기다릴 시간을 지정합니다. 이 매개 변수의 기본값은 60초입니다.  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
 
-|인수|설명|
+|인수|Description|
 | --- | --- |
 | --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
 | --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
@@ -108,5 +108,5 @@ Service Fabric 독립 실행형 클러스터의 클러스터 구성 업그레이
 
 
 ## <a name="next-steps"></a>다음 단계
-- Service Fabric CLI를 [설정](service-fabric-cli.md) 합니다.
+- Service Fabric CLI [설정](service-fabric-cli.md)
 - [샘플 스크립트](./scripts/sfctl-upgrade-application.md)를 사용하여 Microsoft Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다.

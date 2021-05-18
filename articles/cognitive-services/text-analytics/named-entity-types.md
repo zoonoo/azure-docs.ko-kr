@@ -1,7 +1,7 @@
 ---
-title: 명명 된 엔터티 인식에 대해 지원 되는 범주
+title: 명명된 엔터티 인식에 지원되는 범주
 titleSuffix: Azure Cognitive Services
-description: 텍스트 분석 API에서 지원 되는 엔터티 범주에 대해 알아봅니다.
+description: Text Analytics API에서 지원되는 엔터티 범주에 대해 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 03/11/2021
 ms.author: aahi
 ms.openlocfilehash: 8b596a5e54c0b59c4c0b49aa5cdc4fd6477d46dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104599336"
 ---
-# <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>텍스트 분석 API v3에서 지원 되는 엔터티 범주
+# <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Text Analytics API v3에서 지원되는 엔터티 범주
 
-이 문서를 사용 하 여 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) (NER)에서 반환할 수 있는 엔터티 범주를 찾을 수 있습니다. NER는 예측 모델을 실행 하 여 입력 문서에서 명명 된 엔터티를 식별 하 고 분류 합니다.
+이 문서를 사용하면 [NER(명명된 엔터티 인식)](how-tos/text-analytics-how-to-entity-linking.md)에서 반환할 수 있는 엔터티 범주를 찾을 수 있습니다. NER은 예측 모델을 실행하여 입력 문서에서 명명된 엔터티를 식별하고 분류합니다.
 
-NER v 3.1의 미리 보기를 사용할 수도 있습니다. 여기에는 개인 ( `PII` ) 및 상태 () 정보를 검색 하는 기능이 포함 됩니다 `PHI` . 또한 상태 탭을 클릭 **하 여 상태** 에 대 한 Text Analytics에서 지원 되는 범주 목록을 표시 합니다. 
+개인(`PII`) 및 상태(`PHI`) 정보를 검색하는 기능이 포함된 NER v3.1의 미리 보기도 사용할 수 있습니다. 또한 **상태** 탭을 클릭하여 Text Analytics에서 상태에 대해 지원되는 범주 목록을 볼 수 있습니다. 
 
-[마이그레이션 가이드](migration-guide.md?tabs=named-entity-recognition) 의 버전 2.1에서 반환 된 유형 목록을 찾을 수 있습니다.
+[마이그레이션 가이드](migration-guide.md?tabs=named-entity-recognition)에서 버전 2.1에서 반환된 유형 목록을 찾을 수 있습니다.
 
 ## <a name="entity-categories"></a>엔터티 범주
 
@@ -43,4 +43,4 @@ NER v 3.1의 미리 보기를 사용할 수도 있습니다. 여기에는 개인
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법](how-tos/text-analytics-how-to-entity-linking.md)
+* [Text Analytics에서 명명된 엔터티 인식을 사용하는 방법](how-tos/text-analytics-how-to-entity-linking.md)

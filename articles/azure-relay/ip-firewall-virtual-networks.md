@@ -1,13 +1,13 @@
 ---
-title: Azure Relay 네임 스페이스에 대 한 IP 방화벽 구성
+title: Azure Relay 네임스페이스에 대한 IP 방화벽 구성
 description: 이 문서에서는 특정 IP 주소에서 Azure Relay 네임스페이스로의 연결을 허용하도록 방화벽 규칙을 사용하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: ad8feed5df49dcc4503226a5fae50195bb9d48aa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91999501"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Azure Relay 네임스페이스에 대한 IP 방화벽 구성
@@ -29,7 +29,7 @@ IP 방화벽 규칙은 네임스페이스 수준에 적용됩니다. 따라서 �
 1. [Azure Portal](https://portal.azure.com)에서 **릴레이 네임스페이스** 로 이동합니다.
 2. 왼쪽 메뉴에서 **네트워킹** 옵션을 선택합니다. **액세스 허용** 섹션에서 **모든 네트워크** 옵션을 선택하면 릴레이 네임스페이스는 모든 IP 주소로부터의 연결을 허용합니다. 이 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
-    ![모든 네트워크 옵션이 선택 된 네트워킹 페이지가 스크린샷에 표시 됩니다.](./media/ip-firewall/all-networks-selected.png)
+    ![모든 네트워크 옵션이 선택된 네트워킹 페이지 스크린샷](./media/ip-firewall/all-networks-selected.png)
 1. 특정 네트워크 및 IP 주소에 대한 액세스를 제한하려면 **선택한 네트워크** 옵션을 선택합니다. **방화벽** 섹션에서 다음 단계를 수행합니다.
     1. **클라이언트 IP 주소 추가** 옵션을 선택하여 현재 클라이언트 IP에 네임스페이스에 대한 액세스 권한을 부여합니다. 
     2. **주소 범위** 에 CIDR 표기법으로 특정 IPv4 주소 또는 IPv4 주소 범위를 입력합니다. 

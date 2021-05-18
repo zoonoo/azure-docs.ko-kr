@@ -1,7 +1,7 @@
 ---
-title: 프로젝트 사용자 지정 번역기를 만드는 방법
+title: 프로젝트를 만드는 방법 - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기에서 프로젝트를 만들고 관리 하는 방법을 설명 합니다.
+description: 이 문서에서는 Azure Cognitive Services Custom Translator에서 프로젝트를 만들고 관리하는 방법을 설명합니다.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 9e3aa52323f44e6c1407fe2a542e40ee06370043
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895801"
 ---
 # <a name="create-a-project"></a>프로젝트 만들기
@@ -52,7 +52,7 @@ Custom Translator 방문 페이지에는 작업 영역에 포함된 처음 10개
 
 프로젝트를 선택하면 프로젝트 페이지에서 다음을 확인할 수 있습니다.
 
-- CategoryID: CategoryID는 WorkspaceID, 프로젝트 레이블, 범주 코드를 연결하여 만들어집니다. CategoryID를 Text Translator API와 함께 사용하면 사용자 지정 번역을 얻을 수 있습니다. 복사 하려면 복사 아이콘을 클릭 합니다.
+- CategoryID: CategoryID는 WorkspaceID, 프로젝트 레이블, 범주 코드를 연결하여 만들어집니다. CategoryID를 Text Translator API와 함께 사용하면 사용자 지정 번역을 얻을 수 있습니다. 복사하려면 복사 아이콘을 클릭합니다.
 
 - 훈련 단추: 이 단추를 사용하여 [모델 훈련](how-to-train-model.md)을 시작합니다.
 

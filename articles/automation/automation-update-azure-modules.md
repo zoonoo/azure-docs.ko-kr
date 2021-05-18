@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: f05c3247ecdd77fe4cf02db70c7ba4b2c534f959
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c1632da35864fc6822b385adac06d7f124aea061
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99055351"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107830415"
 ---
 # <a name="update-azure-powershell-modules"></a>Azure PowerShell 모듈 업데이트
 
@@ -23,7 +24,7 @@ ms.locfileid: "99055351"
 
 Runbook 및 Runbook이 자동화하는 프로세스에 영향을 주지 않으려면 업데이트할 때 테스트 및 유효성 검사를 꼭 수행해야 합니다. 이 용도로 설계된 전용 Automation 계정이 없는 경우 만들어서 Runbook을 개발하는 동안 다양한 시나리오를 테스트할 수 있습니다. 이 테스트에는 PowerShell 모듈 업데이트 같은 반복적인 변경도 포함되어야 합니다.
 
-Automation 계정에 [Azure 실행 계정이](automation-security-overview.md#run-as-accounts) 생성 되었는지 확인 합니다.
+Automation 계정에 [Azure 실행 계정](automation-security-overview.md#run-as-accounts)이 만들어져 있는지 확인합니다.
 
 로컬로 스크립트를 개발하는 경우 동일한 결과를 얻기 위해 테스트할 때 Automation 계정에서 사용하는 것과 동일한 모듈 버전을 로컬에서 사용하는 것이 좋습니다. 결과의 유효성을 검사하고 필수 변경 내용을 적용한 후에 변경 내용을 프로덕션으로 이동할 수 있습니다.
 

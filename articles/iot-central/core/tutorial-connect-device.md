@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure IoT Central에 제네릭 클라이언트 앱 연결 | Microsoft Docs
-description: 이 자습서에서는 디바이스 개발자가 C, C#, Java, JavaScript 또는 Python 클라이언트 앱을 실행하는 디바이스를 Azure IoT Central 애플리케이션에 연결하는 방법을 보여줍니다. 운영자가 연결된 디바이스와 상호 작용할 수 있도록 하는 보기를 추가하여 자동으로 생성된 디바이스 템플릿을 수정합니다.
+description: 이 자습서에서는 C, C#, Java, JavaScript 또는 Python 클라이언트 앱을 실행하는 디바이스를 Azure IoT Central 애플리케이션에 연결하는 방법을 보여 줍니다. 운영자가 연결된 디바이스와 상호 작용할 수 있도록 하는 보기를 추가하여 자동으로 생성된 디바이스 템플릿을 수정합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/24/2020
@@ -11,18 +11,16 @@ ms.custom:
 - mqtt
 - device-developer
 zone_pivot_groups: programming-languages-set-twenty-six
-ms.openlocfilehash: 479c12ca00614b2d34bd08f41e3451826a253035
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: 0e6f4ac3cd95873c8b735a1843438499f2405bef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001822"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750026"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application"></a>자습서: 클라이언트 애플리케이션을 만들어 Azure IoT Central 애플리케이션에 연결
 
-*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
-
-이 자습서에서는 디바이스 개발자가 클라이언트 애플리케이션을 Azure IoT Central 애플리케이션에 연결하는 방법을 보여줍니다. 이 애플리케이션은 온도 컨트롤러 디바이스의 동작을 시뮬레이션합니다. 애플리케이션이 IoT Central에 연결되면 온도 컨트롤러 디바이스 모델의 모델 ID를 보냅니다. IoT Central은 모델 ID를 사용하여 디바이스 모델을 검색하고 디바이스 템플릿을 만듭니다. 운영자가 디바이스와 상호 작용할 수 있도록 디바이스 템플릿에 사용자 지정 및 보기를 추가합니다.
+이 자습서에서는 클라이언트 애플리케이션을 Azure IoT Central 애플리케이션에 연결하는 방법을 보여 줍니다. 이 애플리케이션은 온도 컨트롤러 디바이스의 동작을 시뮬레이션합니다. 애플리케이션이 IoT Central에 연결되면 온도 컨트롤러 디바이스 모델의 모델 ID를 보냅니다. IoT Central은 모델 ID를 사용하여 디바이스 모델을 검색하고 디바이스 템플릿을 만듭니다. 운영자가 디바이스와 상호 작용할 수 있도록 디바이스 템플릿에 사용자 지정 및 보기를 추가합니다.
 
 이 자습서에서는 다음과 같은 작업을 수행하는 방법을 살펴봅니다.
 
@@ -66,7 +64,7 @@ ms.locfileid: "108001822"
 
 ## <a name="view-raw-data"></a>원시 데이터 보기
 
-디바이스 개발자는 **원시 데이터** 보기를 사용하여 장치에서 IoT Central로 전송하는 원시 데이터를 검사할 수 있습니다.
+**원시 데이터** 보기를 사용하여 디바이스에서 IoT Central로 전송하는 원시 데이터를 검사할 수 있습니다.
 
 :::image type="content" source="media/tutorial-connect-device/raw-data.png" alt-text="원시 데이터 보기":::
 
@@ -82,10 +80,3 @@ IoT Central 자습서 세트를 계속 진행하고 IoT Central 솔루션 빌드
 
 > [!div class="nextstepaction"]
 > [게이트웨이 디바이스 템플릿 만들기](./tutorial-define-gateway-device-type.md)
-
-디바이스 개발자로서 디바이스를 만드는 방법의 기본 사항을 배웠습니다. 이제 다음 단계를 수행하는 것이 좋습니다.
-
-* 디바이스 코드를 구현할 때 디바이스 템플릿의 역할을 자세히 알아보려면 [디바이스 템플릿이란?](./concepts-device-templates.md)을 참조하세요.
-* IoT Central에 디바이스를 등록하는 방법과 IoT Central에서 디바이스 연결을 보호하는 방법에 대한 자세한 내용은 [Azure IoT Central에 연결](./concepts-get-connected.md)을 참조하세요.
-* 디바이스에서 IoT Central과 교환하는 데이터에 대한 자세한 내용은 [원격 분석, 속성 및 명령 페이로드](concepts-telemetry-properties-commands.md)를 참조하세요.
-* [IoT 플러그 앤 플레이 디바이스 개발자 가이드](../../iot-pnp/concepts-developer-guide-device.md)를 읽습니다.

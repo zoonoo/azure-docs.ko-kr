@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
 ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94380452"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>순위를 사용하여 Bing Web Search API 결과를 표시하는 방법  
@@ -35,7 +35,7 @@ ms.locfileid: "94380452"
 
 순위 ID를 답변 또는 결과 중 하나의 ID와 일치하기만 하면 되므로 ID를 사용하는 것이 더 간단합니다. 답변 개체에 `id` 필드가 포함된 경우 모든 답변의 결과를 함께 표시합니다. 예를 들어 `News` 개체에 `id` 필드가 포함된 경우 모든 뉴스 기사를 함께 표시합니다. `News` 개체에 `id` 필드가 포함되지 않은 경우에는 각 뉴스 기사에 `id` 필드가 포함되며, 순위 응답이 뉴스 기사와 다른 답변의 결과를 함께 사용합니다.  
 
-`answerType` 및 `resultIndex` 사용은 좀 더 복잡합니다. `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그런 다음, `resultIndex`로 답변 결과를 인덱싱하여 표시할 결과를 가져옵니다. 값은 `answerType` [searchresponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체의 필드 이름입니다. 모든 답의 결과를 함께 표시 해야 하는 경우 순위 응답 항목에는 필드가 포함 되지 않습니다 `resultIndex` .  
+`answerType` 및 `resultIndex` 사용은 좀 더 복잡합니다. `answerType`을 사용하여 표시할 결과가 포함된 답변을 식별합니다. 그런 다음, `resultIndex`로 답변 결과를 인덱싱하여 표시할 결과를 가져옵니다. (`answerType` 값은 [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) 개체의 필드 이름입니다.) 모든 대답의 결과를 함께 표시해야 하는 경우 순위 응답 항목에 `resultIndex` 필드가 포함되지 않습니다.  
 
 ## <a name="ranking-response-example"></a>순위 응답 예제
 

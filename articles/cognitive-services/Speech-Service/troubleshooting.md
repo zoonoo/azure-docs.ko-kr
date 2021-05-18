@@ -1,5 +1,5 @@
 ---
-title: Speech SDK-Speech service 문제 해결
+title: Speech SDK의 문제 해결 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 음성 SDK를 사용할 때 발생할 수 있는 문제를 해결하는 데 도움이 되는 정보를 제공합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
-ms.openlocfilehash: 421b9adf4ae5d2c641484e646bea096716d46cca
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 97e980c7d77d39a6fd4bcd33b28096a6d13303d3
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "74815421"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166688"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Speech SDK 문제 해결
 
@@ -50,7 +50,7 @@ ms.locfileid: "74815421"
 
 * PowerShell
 
-    ```Powershell
+    ```powershell
     $FetchTokenHeader = @{
       'Content-type'='application/x-www-form-urlencoded'
       'Content-Length'= '0'
@@ -77,7 +77,7 @@ ms.locfileid: "74815421"
 
 * PowerShell
 
-    ```Powershell
+    ```powershell
     $SpeechServiceURI =
     'https://YOUR_REGION.stt.speech.microsoft.com/speech/recognition/interactive/cognitiveservices/v1?language=en-US'
 

@@ -1,6 +1,6 @@
 ---
-title: 모바일 (전송) Microsoft Azure 지도 모바일 서비스 (미리 보기)
-description: Azure Maps 모바일 서비스 (미리 보기)에서 라우팅 및 서비스 알림과 같은 공용 전송 기능을 제공 하는 영역을 제공 하는 검사 수준에 대해 알아봅니다.
+title: Microsoft Azure Maps Mobility Services(미리 보기)의 이동성(교통) 적용 범위
+description: Azure Maps Mobility Services(미리 보기)가 라우팅 및 서비스 경고와 같은 대중 교통 기능을 위한 지역에 제공하는 적용 범위 수준을 알아 봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,162 +9,162 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: e902f313edf22d75f6b183575c3dc8d0dd94bc1f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96904757"
 ---
-# <a name="azure-maps-mobility-services-preview-coverage"></a>Azure Maps 모바일 서비스 (미리 보기) 검사
+# <a name="azure-maps-mobility-services-preview-coverage"></a>Azure Maps Mobility Services(미리 보기) 적용 범위
 
 > [!IMPORTANT]
-> Azure Maps 모바일 서비스는 현재 공개 미리 보기로 제공 됩니다.
+> Azure Maps Mobility Services는 현재 공개 미리 보기로 제공됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
-Azure Maps [모바일 서비스](/rest/api/maps/mobility) 는 전송 라우팅 및 근접 한 공용 전송 중지와 같은 공개 전송 기능을 사용 하 여 응용 프로그램에 대 한 개발 시간을 향상 시킵니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 모바일 서비스를 사용 하면 사용자가 중지 및 선 기 하 도형, 중지, 줄 및 서비스 영역에 대 한 경고, 실시간 공용 전송 도착 한 및 서비스 경고를 검색할 수 있습니다. 또한 Mobility Services는 다중 모달 이동 계획 옵션이 있는 라우팅 기능을 제공합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
+Azure Maps [Mobility Services](/rest/api/maps/mobility)는 교통 라우팅, 가까운 대중 교통 정류장 등의 대중 교통 기능을 사용하여 애플리케이션 개발 시간을 단축합니다. 사용자는 대중 교통 정류장, 노선 및 일정에 대한 세부 정보를 검색할 수 있습니다. 또한 사용자는 Mobility Service를 통해 정류장 및 노선 기하학, 정류장/노선/서비스 영역 알림, 실시간 대중 교통 도착 및 서비스 알림을 검색할 수 있습니다. 또한 Mobility Services는 다중 모달 이동 계획 옵션이 있는 라우팅 기능을 제공합니다. 다중 모달 이동 계획은 1회 이동에 도보, 자전거 및 대중 교통 옵션을 모두 통합합니다. 사용자는 자세한 다중 모달 단계별 여정에 액세스할 수도 있습니다.
 
-Azure Maps는 모든 도시와 국가/지역에 대해 동일한 수준의 정보 및 정확도를 제공 하지 않습니다. 공용 전송 데이터를 호출 하는 기능은 metro 영역에 따라 달라 집니다. 또한 지도 데이터에는 metro 영역을 제공 하는 모든 공개 전송 옵션 및 기관이 포함 되지 않을 수 있습니다.
+Azure Maps는 모든 도시, 국가 및 지역에 대해 동일한 수준의 정보 및 정확도를 제공하지 않습니다. 대중 교통 데이터를 호출하는 기능은 지하철 영역에 따라 달라집니다. 또한 지도 데이터에는 지하철 영역을 제공하는 모든 대중 교통 옵션 및 기관이 포함되지 않았을 수 있습니다.
 
-다음 표에서는 Azure Maps Mobility services에 대 한 검사 정보를 제공 합니다.
+다음 표에서는 Azure Maps Mobility Services의 적용 범위에 대한 정보를 제공합니다.
 
 | 기호 | 의미 |
 |--------|---------|
-| *      |해당 국가/지역에 대 한 거의 완전 한 검사입니다.|
+| *      |해당 국가/지역에 대해 거의 완전히 적용됩니다.|
 
 ## <a name="americas"></a>아메리카
 
-| 국가/지역 |  도시 (지하철 면적) |
+| 국가/지역 |  도시(지하철 영역) |
 |----------------|---------|
-| 앤티가 바부다 | 앤티가 바부다 * |
-| 아르헨티나       | <p>Azul, Bahía Blanca, 부에노스아이레스 부에노스아이레스, Caleta Olivia, 카타마르카, Chivilcoy, Comodoro Rivadavia, Concordia, 코르도바, Corrientes, 일반 Pico, Gualeguaychu, La Rioja-jp, Mar del Plata, 멘도사, MiNeuquén Ar, Necochea, Oberá, Olavarría, Paraná, Posadas, Rio, Rafaela, Rosario Tercero, Salta, Carlos, san Bariloche de Luis, San Tucumán,, Pedro, Tandil, Ushuaia, 빅토리아, Viedma Villa</p>|
-| 바베이도스       |  바베이도스 |
-| 브라질         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Atibaia, Bage, Araxa, Bauru, Bebedouro, 벨렘, Belo Horizonte, Blumenau, 보아 비스타 Vista, Botucatu, 브라질리아, Caldas Novas, Campina 그란데, Campinas, 캄 푸 Belo, 캄 푸 그란데, Caraguatatuba, Caratinga, Cascavel, Cataguases, Caxias, Leopoldina e Região, Catalão, Chapecó, Conselheiro, Lafaiete, Corumbá, Criciúma, Cruzeiro, Cuiabá, Curitibanos Curvelo, Diamantina,, Divinópolis, Dourados, Estde a, Feira de Santana, 김철수 de 노로냐, Florianópolis, 포르탈레자, Fz do Iguaçu, 대표, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Itajuba, Ituiutaba, Jaguarao, Jaraguá do Sul, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Lavras e Regiao, Lucas do Rio 카보베르데, Londrina, Macapa, Macapa, Maceiacc, Mafra e Rio Negro, 마나우스, Manhuacu, Maringá, Marília, Monte Carmelo , Montes 기술 Claros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Paranaguá, Parnaíba, Patos, Fundo,, Pato 리오, Patrocínio de Minas, Pelotas, Piracicaba, Pirapora, Grossa, 포르토, 포르토, Pocos de Caldas, Ponta Ferreira, 포르토 Alegre, Seguro 포르토, 포르토 Praia, 그란데 레시페, Ribeirão Rio, Rio, 리오 Preto, Rio, Rondonópolis Salinas, 카보베르데,,, 엘살바도르, 산타 Cruz do Sul, 산타 민, 산타 Rita do Sapucaí, Santarem, 산티아고 del Estero, Santos, 상 Gabriel do Osorio, 상 Joao del Rei, Tiradentes e Regiao, 상 Jose do Rio Preto, 상 Mateus, 상 파울로, Sorocaba, 상투메 Carlos, 상투메 샌프란시스코 do l, 상투메 José dos Campos, 상투메 Lourenço, 상투메 Luís, Taubaté, Borba Emaco Otoni, Teofilo Teresina, Toledo, Três, Ubatuba Lagoas, vlookup Curui, Uberaba, Uberlândia, Ubá, Uruguaiana, Vicosa, Varginha, Videira, Fraiburgo & , Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
-| 캐나다 | Banff (AB), Brandon (MB), 캘거리 (AB), Chatham-Kent (설정), Comox 계곡 (bc), Cowichan 유역 (BC), Cranbrook (BC), 에드먼턴 (AB), 요새 세인트 John, Frederic7(NB), 더 큰 Sudbury (설정), 캠룹스 (bc), Kelowna-Vernon (BC), Kingston (ON), 런던 (ON), Moncton (NB), 몬트리올 (QC), Nanaimo (BC), George (ON), BC (프린스), Québec City (QC), 레드 Deer (AB), 리자이나 (도), Rimouski (QC), 새스커툰 (대만), Sherbrooke (QC), 남서쪽 영국 특별구 (BC), Squamish (BC), 세인트 John의 (NL), 햇빛과 해안, 썬 고가, 고가, 고가, 빅토리아 (BC), 서쪽 Kootenay (BC), 휘슬러 (BC), Windsor (설정), 위니펙 (MB), Woodstock</p>|
-| 칠레  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Iquique, Serena, Coquimbo, Linares, 로스앤젤레스 (칠레), 시야가 라고스, Punta 아레나스, Rancagua, 산티아고, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
-| 콜롬비아 | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, Popayán, Marta, 산타 Sincelejo,, Valledupa</p>|  
-| 코스타리카 | San José|
-| 도미니카 공화국 | 산토도밍고 산토도밍고 |
-| 에콰도르 | 과야킬, Loja, Milagro|
-| 엘살바도르 | San (엘살바도르) |
- | 과테말라 | Ciudad de (GT) |
-| 멕시코 | Acapulco, Aguascalientes, 칸쿤, Durango, 멕시코 시티,과 달라, 사자, Merida, 몬테레이, 푸에블라, 푸에르토리코 Vallarta, 케레타로, San Luis Potosi, 티후아나, Torreon|
+| 앤티가 바부다 | 앤티가 바부다* |
+| 아르헨티나       | <p>아줄, 바이아 블랑카, 부에노스아이레스, 칼레타올리비아, 카타마르카, 치빌코이, 코모도로리바다비아, 콘코르디아, 코르도바, 코리엔테, 제너럴 피코, 구알레구아이추, 라리오하, 마르델플라타, 멘도사, 미라마, 네코체아, 네우껜, 오베라, 올라바리아, 파라나, 포사다스, 라파엘라, 리오테르세로, 로사리오, 살타, 산 카를로스 데 바릴로체, 산루이스, 산미겔데투쿠만, 산페드로, 산타페, 탄딜, 우수아이아, 빅토리아, 비에드마, 빌라 마리아</p>|
+| 바베이도스       |  바베이도스* |
+| 브라질         | <p>앙그라도스헤이스, 아나폴리스, 아푸카라, 아라카주, 아라라콰라, 아락사, 아라카츄바, 아찌바이아, 바게, 바레토스, 바우루, 베베두로, 벨렘, 벨루오리존치, 블루메나우, 보아비스타, 보투카투, 브라질리아, 칼다스노바스, 캄피나그란데, 캄피나스, 캄포벨로, 캄포그란데, 카라구아타투바, 카라칭가, 카스카벨, 카타구아세스, 카시아스, 레오폴디나와 지역, 카탈랑, 카시아스두술, 샤페코, 시아노르테, 콘셀예이로 라파예치, 코룸바, 크리슈마, 크루지엘로두술, 쿠이아바, 쿠리티바, 쿠리티바 노스, 케벨루, 지아만치나, 디비노폴리스, 두라도스, 에스트렐라, 페이라지산타나, 페르난도데노로냐, 플로리아노폴리스, 포르탈레자, 포스두이구아수, 프랑카, 구아라늉스, 고이아니아, 고베르나도르발라다레스, 구아라푸아바, 임페라,이파팅가, 이라치, 이타비라, 이타부나, 이타자이, 이타주바, 이타우타 바, 쟈가라우, 쟈라가두술, 조아오페수아, 조인빌리, 주아제이로두노르치, 쥬이즈드포라, 쥰지에이, 라지스, 라브라스 지역, 루카스 리오 베르데, 론 드리나, 마카파, 마카에, 마세이오, 마프라리오네그로, 마나우스, 마누아쿠, 마링가, 마릴라, 몬테 카멜로, 몬테스 클라로스, 모소로, 나탈, 오소리오, 오리뇨스, 오우로프레토, 팔마스, 파라카투, 파라나구아, 파르나이바, 파쏘푼도, 파소스, 파투브랑코, 파토스데미나스, 파트로씨뇨, 펠로타스, 피쿠스, 피라시카바, 피라포라, 포코스드칼다스, 폰타 그로사, 포르토 알레그레, 포르토 페레이라, 포르토 세 구로, 포르토 벨류, 프라이 아 그란데, 레시 페, 리베 이랑 프레 투, 리오, 리오 브랑코, 리오 베르데, 론도 노 폴리스, 살리나스, 살바도르, 산타 크루스 두술, 산타 마리아, 산타 리타 두사 푸카이, 산타 렘, 산티아고 델 에스테로, 산토스, 상 가브리엘 에스테, 상 조 아오 델 레이, Tiradentes 지역, 상 호세 두 리오 프레 투, 상 마테우스, 상파울루, 소로 카바, 상 카를로스, 상 프란시스코 두 술, 상 호세 도스 캄포스, 상 루 렌코, 상 루이스, 타우바테, 텔레마코 보르바, 테오필로 오토니, 테레시나, 톨레도, 트레이야스 라고아스, 투 쿠루이, 우바투바, 우베라바, 우베를란지아, 우바, 우루과이아나, 바지니아, 비코자, 비데이라 & 프레이보르고, 비토리아, 비토리아 다 콘키스타, 볼타레돈다, 보투포랑가 </p>|
+| 캐나다 | 밴프(AB), 브랜든(MB), 캘거리(AB), 채텀-켄트(ON), 코목스 밸리(BC), 코위찬 밸리(BC), 크랜브룩(BC), 에드먼턴(AB), 포트 세인트 존, 프레더릭턴(NB), 그레이터 서드 베리(ON), 그레이터 밴쿠버(BC), 핼리팩스(NS), 캠룹스(BC), 킬로와나 - 버논(BC), 킹스턴(ON), 런던(ON), 멍크 턴(NB), 몬트리올(QC), 나나이모(BC), 오타와(ON), 프린스 조지(BC), 퀘벡시(QC), 레드 디어(AB), 레지나(SK), 리모우스키(QC), 새스커툰(SK), 셔 브룩(QC), 브리티시 컬럼비아 남서부(BC), 스쿼미시(BC), 세인트 존스(NL), 선샤인 코스트, 썬더 베이(ON), 토론토(ON), 빅토리아(BC), 웨스트 쿠트네이(BC), 휘슬러(BC), 윈저(ON), 위니펙(MB), 우드스탁</p>|
+| 칠레  | <p>안토파가스타, 아리카, 야센, 치얀, 콘셉시온, 콘스티투티온, 코피아코, 쿠리코, 이키케, 라 세레나 이 코 킴보, 리나 레스(칠레), 로스 앤젤레스(칠레), 로스 라고스, 푼타 아레나스, 랑카과, 산티아고, 탈카, 테무코, 발디비아, 발파라이소, 비나 델 마르</p>|
+| 콜롬비아 | <p>바랑키야, 보고타, 부카라망가, 칼리, 카르타헤나, 이바게, 메데인, 파스토, 포파얀, 산타 마르타, 신실레호, 발레두파</p>|  
+| 코스타리카 | 산호세|
+| 도미니카 공화국 | 산토도밍고 |
+| 에콰도르 | 쿠엥카, 과야킬, 로하, 만타, 밀라그로|
+| 엘살바도르 | 산살바도르 |
+ | 과테말라 | 과테말라시(GT) |
+| 멕시코 | 아카풀코, 아과스칼리엔테스, 칸쿤, 두랑고, 멕시코 시티, 과달라하라, 라이온, 메리다, 몬테레이, 푸에블라, 푸에르토 바야르타, 케레타로, 산 루이스 포토시, 티후아나, 토레온|
 | 니카라과 | 마나과 |
-| 파나마 | 파나마|
-| 페루 | Cusco, 리마 |
-| 푸에르토리코 | San Juan |
+| 파나마 | 파나마*|
+| 페루 | 쿠스코, 리마 |
+| 푸에르토리코 | 산후안 |
 | 수리남 | 파라마리보 |
-| 우루과이 | 몬테비디오, Paysandu, Punta del Este, Salto |
-| 미합중국 | <p>올버니 (GA), 올버니 (), Albuquerque (NM), Anchorage (AK), Ann Arbor (MI) Appleton-Oshkosh-Neenah (WI), Asheville (NC), 아테네 (GA), 아테네 (오), 애틀랜타 (GA), 오스틴 (TX), Bakersfield (CA), Baltimore (MD), Bend-Redmond (또는), Berkshire 관할지 (MA), 버밍엄 (AL), Bloomington (IN), Boise (ID), 보스턴 (MA), 보 울 어 (CO), 볼링 Green (KY), Brevard 군 (FL), Buffalo (), (MT), 카보베르데 Cod (MA), 중앙 관할지 (PA), Champaign-Urbana (IL), Charleston (SC), Charleston (WV), Charlotte (NC), Charlottesville (VA), Chattanooga (TN), 샤이엔 (WY), 시카고 (IL), Cincinnati (), Citrus 군 (FL), Cleveland (오), Coachella 유역 (CA), Colorado 스프링 (CO), 특별구 (TN), 특별구 (SC), 콜럼버스 (오), 모음 Christi (TX), 달라스/분 (TX), Dayton (오), Delaware, 덴버 (CO), Des Moines (IA), 디트로이트 (MI), Duluth (MN), El o (TX), Eugene (OR), Fairbanks (AK), Fargo (), () , Fayetteville (NC), 서 부 직원 (AZ), Flint (MI) 요새 Collins (CO), 요새 포트웨인 (IN), Fresno (CA), Gainesville (FL), 전체 분기 (ND), 전체 Rapids (MI), 녹색 베이 (WI-FI), Greensboro (NC), Greenville (SC), Gunnison (CO), VA (Hampton), VA (Hanford), Hartford (CT), Hernando, Hinesville (GA), Honolulu (HI), Houston (TX), Humboldt 관할지 (CA), Huntsville (AL), 인디애나폴리스 (IN), Ithaca (), Jackson (MS), Jackson (TN), Jacksonville-St. John의 관할지 (FL), Johnson city (TN), Jonesboro (AR), Joplin (MO), Juneau (AK), Kalamazoo (MI), Kalispell (MT), 캔자스 City (MO), Kalispell (HI), Ketchum (ID), 녹스빌 (TN), Lafayette (IN), Lancaster (PA), Lansing (MI), Laredo (TX), Las Vegas (NV), Lawrence (KS), Lee 관할지 (), Lexington (KY), Lincoln 관할지 (또는), 작은 바위 (AR), 로스앤젤레스 (), 루이빌 (KY), Lubbock (TX), Madison (WI), 맨체스터 (NH) , McAllen (TX), 멤피스에 (TN), 마이애미 (FL), Milwaukee-Waukesha (WI), Minneapolis-St. Paul (MN), Missoula (MT), Modeto(USA), Moline (IL), Monroe stagp, Montgomery (AL), Morgantown (WV), 내슈빌 (TN), 나바호 국가), 뉴욕 (새 Orleans), LA (NYC), NJ 영역 (), Ocala (FL), Okaloosa 군 (FL), Oklahoma City (OK), Omaha (NE), 올랜도 (FL), Palm 사막 (CA), 파나마 도시 (FL), Pensacola (FL), Peoria (IL), 필라델피아 (PA), Phoenix (AZ), Pittsburgh (PA), 포틀랜드 (ME), 포틀랜드 (또는), Racine (WI), Raleigh (NC), Redding (CA), Reno & Lake Tahoe (NV), Richmond (VA), Roanoke 유역 (VA-Lynchburg), Rochester (), Rockford (IL), Rocky Mount (NC), Rocky 산 국가 공원 (CO), Rogue 유역 (또는), Roseburg (또는), Roseville (CA), Sacramento (CA), Salem (또는), Salt Lake City (세계), San Antonio (TX), San Diego (ca), San Luis Obispo (ca), 산타 Barbara (ca), (NM), Sarasota (FL) , 사바나 (GA), Seacoast Region (NH), 시애틀-Tacoma-Bellevue (WA), SF 베이 영역 (CA), SF-San Jose 영역 (CA), Sioux City (IA), Sioux (SD), Sitka (AK), Spokane (WA), 스프링 필드 (MA), 남부 벤드 (IN), 스프링 필드 (IL), 스프링 필드 (질량), 세인트 George (고), 세인트 Louis (MO), Stockton (CA), Syracuse-Utica (wa), Tallahassee (FL), Tampa-St. Haute (FL), Terre (IN), Toledo (), Topeka (KS), 통과 도시 (MI), Tucson (AZ), Tulsa (OK), Vermont, Victorville (CA), Volusia 군 (FL), Waco (TX), 워싱턴 (DC), Waterbury (CT), Wichita (KS), Wichita 저 (TX) Wilmington (NC), 야키마 (WA), Youngstown (오), 지방 지방 (PA), Yuma (AZ)</p>|
-| + 미국령 버진 아일랜드 | 미국령 버진 아일랜드 * |
+| 우루과이 | 몬테비데오, 파이산두, 푼타 델 에스테, 살토 |
+| 미합중국 | <p>알바니(GA), 알바니(NY), 앨버 커키(NM), 앵커리지(AK), 앤 아버(MI) 애플 턴 - 오쉬 코쉬 - 니나(WI), 애쉬 빌(NC), 아테네(GA), 아테네(OH), 애틀랜타(GA), 오스틴(TX), 베이커 스 필드(CA), 볼티모어(MD), 벤드 - 레드몬드(OR), 버크셔 카운티(MA), 버밍엄(AL), 블루밍턴(IN), 보이즈(ID), 보스턴(MA), 볼더(CO), 볼링 그린(KY), 브러바드군(FL), 버팔로(NY), 버트(MT), 케이프 코드(MA), 센터 카운티(PA),어 바나 샴페인(IL), 찰스턴(SC), 찰스턴(WV), 샬럿(NC), 샬 러츠 빌(VA), 채터 누가(TN), 샤이엔(WY), 시카고(IL), 신시내티(OH), 감귤류 카운티(FL), 클리블랜드(OH), 코 첼라 밸리(CA), 콜로라도 스프링스(CO), 콜롬비아(TN), 콜롬비아(SC), 콜럼버스(OH), 코퍼스 크리스티(TX), 달라스 / 포트 워스(TX), 데이턴(OH), 델라웨어, 덴버(CO), 디모 인(IA), 디트로이트(MI), 덜 루스(MN), 엘 파소(TX), 유진(OR), 페어 뱅크스(AK), 파고(ND), 페이 어트 빌(NC), 플래그 스태프(AZ), 플린트(MI) 포트 콜린스(CO), 포트 웨인(IN), 프레스노(CA), 게인즈 빌(FL), 그랜드 포크(ND), 그랜드 래 피즈(MI), 그린 베이(WI), 그린 즈 버러(NC), 그린빌(SC), 니슨(CO), 햄프 턴로드(VA), 핸 포드(CA), 하트 포드(CT), 에르난 카운티(FL), 하 인스빌(GA), 호놀룰루(HI), 휴스턴(TX), 훔볼트 카운티(CA), 헌츠빌(AL), 인디애나 폴리스(IN), 이타카(NY), 잭슨(MS), 잭슨(TN), 잭슨빌-세인트 존스 카운티(FL), 존슨 시티(TN), 존스보로(AR), 조플린(MO), 주노(AK), 칼라 마주(MI), 칼리 스펠(MT), 캔자스 시티(MO), 카우아이(HI), 케첨(ID), 녹스빌(TN), 라파예트(IN), 랭커스터(PA), 랜싱(MI), 라레도(TX), 라스 베이거스(NV), 로렌스(KS), 리 카운티(FL), 렉싱턴(KY), 링컨 카운티(OR), 리틀 록(AR), 로스 앤젤레스(CA), 루이빌(KY), 러벅(TX), 매디슨(WI), 맨체스터(NH), 맥컬린(TX), 멤피스(TN), 마이애미(FL), 밀워키-워 케샤(WI), 미니애폴리스-세인트 폴(MN), 미 줄라(MT), 모데 스토(미국), 몰린(IL), 먼로 카운티(PA), 몽고메리(AL), 모건 타운(WV), 내쉬빌(TN), 나바 호족 국가), 뉴 헤이븐(CT), 뉴 올리언스(LA), 뉴욕 - 뉴저지 지역(NY), 오 칼라(FL), 오칼루사군(FL), 오클라호마 시티(OK), 오마하(NE), 올랜도(FL), 팜 데저트(CA), 파나마 시티(FL), 펜사콜라(FL), 피오리아(IL), 필라델피아(PA), 피닉스(AZ), 피츠버그(PA), 포틀랜드(ME), 포틀랜드(OR), 라신(WI), 롤리(NC), 레딩(CA), 리노 & 레이크 타호(NV), 리치몬드(VA), 로어 노크 밸리(VA - 린치 버그), 로체스터(NY), 록 포드(IL), 록키 마운트(NC), 록키 마운틴 국립 공원(CO), 악성 밸리(OR), 로즈버그(OR), 로즈빌(CA), 새크라멘토(CA), 살렘(OR), 솔트 레이크 시티(UT), 샌 안토니오(TX), 샌디에고(CA), 샌 루이스 오비 스포(CA), 산타 바바라(CA), 산타페(NM), 사라 소타(FL), 사바나(GA), 해안 지역(NH), 시애틀-타코마-벨뷰(WA), SF 베이 지역(CA), SF-산호세 지역(CA), 수 시티(IA), 수 폴스(SD), 싯카(AK), 스포 케인(WA), 스프링 필드(MA), 사우스 벤드(IN), 스프링 필드(IL), 스프링 필드(Mass), 세인트 조지(UT), 세인트 루이스(MO), 스톡턴(CA), 시러큐스 - 유 티카(NY), 탤러 해시(FL), 탬파 - 세인트. 피터스 버그(FL), 테르 오트(IN), 톨레도(OH), 토피카(KS), 트래버스 시티(MI), 투손(AZ), 털사(OK), 버몬트, 빅토 빌(CA), 볼 루시아 카운티(FL), 와코(TX), 워싱턴(DC), 워터 버리(CT), 위치 타(KS), 위치 타 폴스(TX) 윌 밍턴(NC), 야키 마(WA), 영스 타운(OH), 요크 카운티(PA), 유마 카운티(AZ)</p>|
+| +미국령 버진아일랜드 | 미국령 버진아일랜드* |
 | 베네수엘라 | 카라카스 |
 
 ## <a name="asia-pacific"></a>아시아 태평양
 
-| 국가/지역 |  도시 (지하철 면적) |
+| 국가/지역 |  도시(지하철 영역) |
 |--------|---------|
-| 오스트레일리아 | <p>애들레이드, Alice 스프링, Bowen, 브리즈번, Bundaberg QLD, Burnie, Cairns, 캔버라, 다윈, Ad석재, 호바트, Innisfail, Launceston, Mackay, 자기 섬, Maryborough-Hervey 베이, 멜버른, 새로운 남부 Wales, 퍼스, RockHampton, 남부 동부 Queensland, 시드니, Toowoomba, Townsville, 빅토리아, Warwick, Yeppoon,,,,,,</p> |
-| 브루나이 | 밴드 ar Begawan |
-| 중국 | <p> Changchun, Changsha, Chengdu, 충칭, Dalian, Datong, Dongguan, Hangzhou, Harbin, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, 상하이, Guangzhou, Shenzhen, Zhengzhou,</P>|
-| 홍콩 특별행정구 | 홍콩 특별 행정구 *|
-| 마카오 특별행정구 | 마카오 특별 행정구 *|
+| 오스트레일리아 | <p>애들레이드, 앨리스 스프링스, 보웬, 브리즈번, 번더 버그 QLD, 버니, 케언즈, 캔버라, 다윈, 글래드스톤, 호바트, 이니스 페일, 론세 스턴, 맥케이, 마그네틱 아일랜드, 메리 버러-허비 베이, 멜버른, 뉴 사우스 웨일즈, 퍼스, 록 햄튼, 사우스 이스트 퀸즐랜드, 시드니, 투 움바, 타운 스빌, 빅토리아, 워릭, 예푼</p> |
+| 브루나이 | 반다르스리브가완 |
+| 중국 | <p> 장춘, 창사, 청두, 충칭, 대련, 다퉁, 동관, 항저우, 하얼빈, 장인, 지난, 난징, 난퉁, 닝보, 핑딩산, 칭다오, 심양, 쑤저우, 탕산, 톈진, 웨이 팡, 우한, 무석, 옌타이, 이싱, 주하이, 상하이, 베이징, 광저우, 선전, 정저우</P>|
+| 홍콩 특별행정구 | 홍콩 특별행정구*|
+| 마카오 특별행정구 | 마카오 특별행정구*|
 | 몰디브 | Male |
-| 인도 | Ahmedabad, Bengaluru, Hyderabad, 뭄바이, Mysuru, 푸 네|
-| 인도네시아 | Bandung, Banjarmasin, Banyuwangi, 바 탐, Denpasar, 자카르타, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
-| 일본 | Hokkaido, Shizuoka 현, 도쿄, Wakkanai, Yamanashi 현 |
-| 말레이시아 | Ipoh, Johar Bahru, 콸라룸푸르, Kuantan, Penang |
-| 뉴질랜드 | 오클랜드, Christchurch, Dunedin, Queenstown, Timaru, 웰링턴|
+| 인도 | 아메다바드, 벵갈 루루, 델리, 하이데라바드, 뭄바이, 마이소르, 푸네|
+| 인도네시아 | 반둥, 반자르마신, 바뉴왕기, 바탐, 덴파사르, 자카르타, 케디리, 말랑, 팔렘방, 세마랑, 수라바야, 수라카르타, 요그야카르타 |
+| 일본 | 홋카이도, 시즈오카 현, 도쿄, 왓카나이, 야마나시 현 |
+| 말레이시아 | 이포, 조하르바루, 콸라룸푸르, 콴탄, 페낭 |
+| 뉴질랜드 | 오클랜드, 크라이스트 처치, 더니든, 퀸스 타운, 티마루, 웰링턴|
 | 필리핀 | 마닐라 |
-| 싱가포르 | 싱가포르 |
+| 싱가포르 | 싱가포르* |
 | 대한민국 | 부산, 서울 |
-| 대만 | Changhua 군, 타이베이 |
-| 태국 | 방콕, Chiang Mai |
-| 우즈베키스탄 | Samarkand |
-| 베트남 | 하노이, 호 카이 호치민 도시 |
+| 대만 | 장화 현, 타이베이 |
+| 태국 | 방콕, 치앙마이 |
+| 우즈베키스탄 | 사마르칸트 |
+| 베트남 | 하노이, 호치민 |
 
 ## <a name="europe"></a>유럽
 
-| 국가/지역 |  도시 (지하철 면적) |
+| 국가/지역 |  도시(지하철 영역) |
 |----------------|---------|
-| 안도라        | 간에 la Vella |
+| 안도라        | 안도라라베야 |
 | 오스트리아        | Vienna |
-| 벨라루스        | Gomel, Grodno, Polotsk & Novopolotsk, Zhlobin, Vileyka, Maladziečna, 민스크, Rechytsa |
-| 벨기에        | 벨기에 |
-| 볼리비아        | La, 산타 Cruz de la 시에라리온 |
+| 벨라루스        | 고멜, 그로드노, 폴로츠크 & 노보폴로츠크, 즐빈, 빌리카, 말라디지나, 민스크, 레히트사 |
+| 벨기에        | 벨기에* |
+| 볼리비아        | 라파스, 산타 크루스 데 라 시에라 |
 | 보스니아 헤르체고비나 | 사라예보 |
-| 불가리아       | <p>Balchik, Blagoevgrad, 삼 간, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pernik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, 소피아</P> |
-| 크로아티아 | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, 자그레브 |
-| 키프로스 | Larnaca, Limassol, 니코시아 |
-| 체코 공화국 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 |
-| 덴마크   | 덴마크 |
-| 에스토니아   | 에스토니아 |
-| 핀란드   | Hämeenlinna, 헬싱키, Joensuu, Jyväskylä, Kajaani, Kouvola-k, Kuopio, Lappeenranta, Mikkeli, Oulu, Rovaniemi, Seinäjoki, Tampere, Turku, Vaasa,|
-| 프랑스    | <p>Amberieu-en-us, Amiens, Angers, Annecy, Annonay, Arras, Annonay, Bayonne, Besançon, Blois, Bordeaux, Boulogne 성 Mer, Brest, Briançon, cannes, Châlons-en-Champagne, Chartres, Clermont-Ferrand, Colmar, d'Azur, Dax, Dijon, Grenoble, Haguenau, La Rochelle, Le Mans, Lens, Lille, Lorient, Lyon, MAC, 마르세유에 & Provence, Metz가, Millau, Mont-, Montpellier, Mulhouse, 김소미, Nantes, 좋아요, 좋은 d'Azur, Nimes, Normandy, Nyons, 파리, Poitiers, Privas,,,, 세인트 Malo, 세인트 Étienne, 세인트 Nazaire, Saintes, Sarrebourg, Sete, Strasbourg, Tarbes, Toulouse, 둘러보기</P> |
-| + 프랑스령 기아나 | 카옌 |
-| + 뉴칼레도니아 | Nouméa  |
+| 불가리아       | <p>치크, 블라고에브그라드, 부르가스, 도브리치, 가브로보, 하스코보, 커르잘리, 로베, 네세바르, 파자르지크, 페르 니크, 플레 벤, 플 로브 디프, 루즈, 슈멘, 슬리벤, 스타라자고라, 브라차, 얌볼, 바르나, 벨 리코, 소피아</P> |
+| 크로아티아 | 크릭베니카, 두브로브니크, 리예카, 슬로반스키 브로드, 자그레브 |
+| 키프로스 | 라르나카, 리마솔, 니코시아 |
+| 체코 공화국 | 브르노, 야블로네츠, 카를로비바리, 리베레츠, 오스트라바, 프라하 |
+| 덴마크   | 덴마크* |
+| 에스토니아   | 에스토니아* |
+| 핀란드   | 헤멘 린나, 헬싱키, 조엔, 유바스큘라, 코스타나이, 코우 볼라 - 코트카, 쿠오 피오, 라페 란타, 켈리, 오 울루, 포리, 로바니에미, 세이나요 키, 탐 페레, 투르 쿠, 바사|
+| 프랑스    | <p>앙 베리 외앙 뷔제, 아미 앵, 앙제, 안시, 아노 네, 아라스, 오베나스, 바욘, 브 장송, 블루 아, 보르도, 불로뉴 쉬르 메르, 브레스트, 브리앙 송, 칸, 샬롱 앙 샹파뉴, 샤르트르, 클레르 몽 페랑, 콜 마르, 코트 다 쥐르, 닥스, 디종, 그르노블, 헤이그 나우, 라로 셸, 르망, 렌즈, 릴, 로리 앙, 리옹, MACS, 마르세유 프로방스, 메츠, 미요, 몽드 마르 산, 몽펠리에, 뮐 루즈, 낸시,낭트, 니스, 니스 코트 다 쥐르, 님, 노르망디, 니옹, 파리, 푸아티에, 프리 바스, 큄 페르, 렌, 생 말로, 생테 티엔, 생나 제르, 생트, 사르 부르, 세테, 스트라스부르, 타르 브, 툴루즈, 투르</P> |
+| +프랑스령 기아나 | 카옌 |
+| +뉴칼레도니아 | 누메아  |
 | 조지아 | 트빌리시 |
-| 독일 | <p>베를린, Brandenburg, Bremen & Niedersachsen, Cologne, Eisenach, 프랑크푸르트, 함부르크, Karlsruhe, Mainz, München-뮌헨, Rhein-Neckar 지역, Rhein-Ruhr Region, Stuttgart, Titisee-Neustadt, Ulm</P> |
-| 그리스 | <p>Agrinio, Aigio, 아테네, Arta, Amorgos, Chania, Corfu, Chios Kos, Heraklion, Ioannina, Kavala, Kalamata, Kanos, Komotini, Kos, Larissa, Meganisi, Milos, Mykonos, Patra, Rethimno, Rhodes, 산토리니, Serres, Syros, Tinos, Thessaloniki, Veria, Volos, Xanthi </P> |
-| 헝가리 | 부다페스트, Gyor, Miskolc, Nograd 관할지, Pesc, Szeged, Székesfehérvár |
-| 아이슬란드 | Ísland-아이슬란드 * |
-| 아일랜드 | 아일랜드 |
-| 이탈리아   | <p>Cagliari-Sardinia, Campobasso, Cremona, Crotone, Cuneo, Firenze, Florence,,,,,,,,,,,,,,,,,,,,,,,,,,, Foggia, Genova-Genoa, Iglesias, La Spezia, Lecce, Matera, Milano, Milan, Napoli, Naples, Padova, Parma, Palermo, Perugia, Pisa, Pescara, Roma-로마, Potenza e Siena, Grosseto, Siracusa, Syracuse, Taranto, Torino, Venezia, Venice,,,,,,, </p> |
-| 라트비아 | Rīga |
-| 리히텐슈타인 | 리히텐슈타인 |
-| 리투아니아 | Druskininkai, Kauno, Klaipėda, Panevėžys, 빌뉴스 |
-| 룩셈부르크 | 크 |
+| 독일 | <p>베를린, 브란덴부르크, 브레멘 및 니더 작센, 쾰른, 아이 제나 흐, 프랑크푸르트, 함부르크, 카를 스루에, 마인츠, 뮌헨-뮌헨, 라인-넥카 지역, 라인-루르 지역, 슈투트가르트, 티티 제-노 이슈 타트, 울름</P> |
+| 그리스 | <p>아그리니오, 아이지오, 아테네, 아르타, 아모르고스, 니아, 코르푸, 오스코스, 헤라클리온, 이오아니나, 카발라, 칼라 마타, 키오스, 코모티니, 코스, 라리사, 메가니시, 밀로스, 미코노스, 파트라, 레 팀노, 로즈, 산토리니, 세레스, 시로 스, 티노스, 테살로니키, 베리아, 볼 로스, 잔티 </P> |
+| 헝가리 | 부다페스트, 죄르, 미슈 콜츠, 노 그라드 카운티, 페치, 세게드, 세케슈페헤르바르 |
+| 아이슬란드 | 아이슬란드 - 아이슬란드* |
+| 아일랜드 | 아일랜드* |
+| 이탈리아   | <p>아그 리젠 토, 알렉산드리아, 안코나, 바리, 볼로냐-볼로냐, 칼리아리-사르디니아, 캄포 바소, 카타니아와 메시나, 코센 자, 크레마, 크레모나, 크로톤, 쿠네오, 피렌체-피렌체, 포자, 제노바-제노아, 이글레시아스, 라스페 치아, 레체, 마 테라, 밀라노-밀라노, 나폴리-나폴리, 파도바, 팔레르모, 파르마, 페루자, 페스 카라, 피사, 포 텐자, 로마-로마, 시에나 및 그로세토, 시러큐스-시러큐스, 타란 토, 토리노-토리노, 트 렌토, 트리 에스테, 우디 네, 베니스-베네치아, </p> |
+| 라트비아 | 리가 |
+| 리히텐슈타인 | 리히텐슈타인* |
+| 리투아니아 | 드루스키닌카이, 카우노, 클라이페다, 파네베지스, 빌뉴스 |
+| 룩셈부르크 | 룩셈부르크* |
 | 몰도바 | 키시네프 |
-| 몬테네그로 공화국 | Podgorica |
-| 네덜란드 | 네덜란드 |
-| 노르웨이 | 노르웨이 |
-| 폴란드 | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Elk, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, 바르샤바, Wodzisław Śląski, Wrocław, Zakopane</p> |
-| 포르투갈 | Bragança, Coimbra, Funchal, Leiria, Lisboa, 포르토 Timao,|
-| 몰타 | 몰타 |
-| 루마니아 | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, 부카레스트, Ulzau, Cluj Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
-| 러시아  | 칼리닌그라드, Rostov-온-없음, 볼고그라드, 예카테린부르크, Kazan, Kirov, Krasnodar, 모스크바, Nalchik, Nizhny Novgorod, 노보시비르스크, Noyabrroa, 옴스크, Oryol, Perm, St, Pyatigorsk, Tver, 톰스크 |
-| 세르비아  | Beograd, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
-| 슬로바키아 | Banská Bystrica, 브라티슬라바, Kosice, Presov, Prievidza, Ruzomberok a Liptovsky Mikulas, Stará Ľubovňa, Trencin |
-| 슬로베니아 | Koper, 류블랴나 |
-| 스페인    | <p>Albacete, Corunna, Alicante, Almería, Badajoz, Avila, 바르셀로나, Cadiz, Bilbao, Caceres, Gos, 캄 푸, Castellon de 지브롤터, 세우타 de la 계획 a,, Ciudad Real, 코르도바, Hierro, Ferrol, Fuerteventura, Gran Canaria, Granada, Huelva, Huesca, Ibiza, Jaén, Úbeda, La Gomera, La Palma, Lanzarote, León, Lleida, Logroño, Lugo, 마드리드, Malaga, Mallorca, Majorca, 멜리야, Menorca, Merida, Murcia, Ourense, Palencia, Pamplona, Salamanca, Sebastian,,,, , Santander, 산티아고 de Compostela, Segovia, Seville, Soria, Tarragona-Reus, Tenerife, Toledo, 발렌시아, Valladolid, Vigo, Vitoria-Gasteiz, Zaragoza-Saragossa</p> |
-| 스웨덴 | Goteborg/Gothenburg/Jonkoping, Malmö kommun-Malmö, Norrköping och Linköping, 스톡홀름, Sundsvall |
-| 스위스 | Basel, Geneva, Yverdon, 취리히 | 
-| 터키 | Adana-Mersin, Ankara,,, Balıkesir, Bilecik, Bolu, 간 Sa, Çorum, Denizli, Duzce, Edirne, Elazig, Eskisehir, 이스탄불, Izmir, Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa, Trabzon |
-| 영국 | 동부 Anglia, East Midlands, 런던 및 남부 동부, 북부 북부, 북부, 북부 아일랜드, 스코틀랜드, 남부 서 부, Wales, 서 부 Midlands, Yorkshire |
-| 우크라이나 | Kharkiv, Zhytomyr, 키예프, Lviv, Chernivtsi |
+| 몬테네그로 공화국 | 포드고리차 |
+| 네덜란드 | 네덜란드* |
+| 노르웨이 | 노르웨이* |
+| 폴란드 | <p>브로츠와프, 비아 위 스토크, 비드 고 슈치, 엘 블롱, 엘크, 고르조, 케트르친, 크라쿠프, 레즈노, 우치, 루블린, 므롱고보, 올 슈틴, 포즈 난, 수프, 사 노크, 스타 라호 비체, 시비노우이시치에, 슈 체친, 트리시티, 바르샤바, 보지스와프실롱스키, 브로츠와프, 자코 파네</p> |
+| 포르투갈 | 브라간사, 코임브라, 푼샬, 레이리아, 리스본, 포티마오, 포르투|
+| 몰타 | 몰타* |
+| 루마니아 | <p>알바이 울리아, 아라드, 비스트, 브러일라, 브라쇼브, 부카레스트, 저우, 클루지나 포카, 콘스탄차, 크라이오바, 데바, 포샤니, 갈라츠, 야쉬, 미에르 쿠레아치우크, 오라데아, 암츠, 피테스티, 플로에스티, 레시, 사투마레, 시비우, 수체아바, 타르구무레스, 티미쇼아라, 툴체아, 잘라우</p> | 
+| 러시아  | 칼리닌그라드, 로스토프 온돈, 볼고그라드, 예카테린부르크, 카잔, 키로프, 크라스노다르, 모스크바, 날 치크, 니즈니 노브 고로드, 노보시비르스크, 노야 브르 스크, 옴스크, 오룔, 페름, 상트 페테르부르크, 퍄티 고르 스크, 트베리, 톰스크 |
+| 세르비아  | 베오그라드, 크라구예바츠, 니스, 노비사드, 발 예보, 수보티차 | 
+| 슬로바키아 | 반스카비스트리차, 브라티슬라바, 코시체, 프레쇼프, 프리에비드자, 루좀베로크 아 립토프스키 미쿨라시,스타라루보브냐, 트렌친 |
+| 슬로베니아 | 코 페르, 류블 랴나 |
+| 스페인    | <p>알바세테, 코 루나, 알리 칸테, 알 메리아, 아스투리아스, 아빌라, 바다 호스, 카디스 만, 바르셀로나, 빌바오, 부르고스, 카세레스, 캄포 드 지브롤터, 카스텔 론 드 라 플라나, 세 우타, 시우다드 레알, 코르도바, 쿠 엥카, 엘 히에, 페롤, 카나리아, 그란 카나리아, 그라나다, 우엘바, 우에스카, 이비자, 하엔-우베다, 라고메라, 라팔마, 란사로테, 레온, 레이다, 로그로 뇨, 루고, 마드리드, 말라가, 마요르카-마요르카, 멜리 야, 메 노르 카, 메리다, 무르시아, 오렌세, 팔렌시아, 팜플로나, 살라망카, 산 세바스티안, 산탄데르, 산티아고 데 콤포 스텔라, 세고비아, 세비야, 소리아, 타라고 나-레 우스, 테 네리 페, 톨레도, 발렌시아, 바야돌리드, 비고, 비토리아-가스 테 이즈, 사라고사-사라고사</p> |
+| 스웨덴 | 예테보리/예텐부르크/옌세핑, 말뫼코문-말뫼, 노르취핑 린최핑, 스톡홀름, 순스발 |
+| 스위스 | 바젤, 제네바, 이베르돈-레스-베인, 취리히 | 
+| 터키 | 아다나 메르신, 앙카라, 안탈리아, 발레키시르, 빌레시크, 볼루, 부르사, 차오름, 데니즐리, 뒤체, 에디르네, 엘라지그, 에스키세히르, 이스탄불, 이즈미르 에이딘, 카흐라마란마라스, 카에리, 코냐, 말라티야, 무알라, 삼순, 차우르파, 트라브존 |
+| 영국 | 이스트 앵글리아, 이스트 미들랜드, 런던 및 사우스 이스트, 노스 이스트, 노스 웨스트, 북 아일랜드, 스코틀랜드, 사우스 웨스트, 웨일즈, 웨스트 미들랜드, 요크셔 |
+| 우크라이나 | 하르키우, 지토미르, 키예프, 리비우, 체르니우치 |
 
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카
 
-| 국가/지역 |  도시 (지하철 면적) |
+| 국가/지역 |  도시(지하철 영역) |
 |---------|---------|
-| 바레인 | 바레인 |
+| 바레인 | 바레인* |
 | 부르키나파소 | 와가두구 |
 | 콩고 공화국 | 킨샤사 |
 | 이집트 | Cairo    |
-| 이스라엘| 이스라엘  |
+| 이스라엘| 이스라엘*  |
 | 케냐 | 나이로비  |
 | 마다가스카르 | 안타나나리보 |
-| 모로코 | 카사블랑카, Essaouira, Khouribga, Tétouan|
-| 카타르| Doha|
-| 사우디아라비아 | Thuwal |
+| 모로코 | 카사블랑카, 에사우이라, 쿠리브가, 테투안|
+| 카타르| 도하|
+| 사우디아라비아 | 투왈 |
 | 세네갈 | 다카르 |
 | 남아프리카 공화국 | 케이프타운 |
-| 튀니지 | Kairouan |
-| 아랍에미리트연합국  | 아부다비, Dubai |
+| 튀니지 | 카이루안 |
+| 아랍에미리트연합국  | 아부 다비, 두바이 |
 
 
 ## <a name="next-steps"></a>다음 단계
 
-모바일 서비스 (미리 보기)를 사용 하 여 전송 데이터를 요청 하는 방법을 알아봅니다.
+Mobility Services(미리 보기)를 사용하여 교통 데이터를 요청하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [전송 데이터를 요청 하는 방법](how-to-request-transit-data.md)
+> [교통 데이터를 요청하는 방법](how-to-request-transit-data.md)
 
-모바일 서비스 (미리 보기)를 사용 하 여 실시간 데이터를 요청 하는 방법을 알아봅니다.
-
-> [!div class="nextstepaction"]
-> [실시간 데이터를 요청 하는 방법](how-to-request-real-time-data.md)
-
-Azure Maps 모바일 서비스 (미리 보기) API 설명서 살펴보기
+Mobility Services(미리 보기)를 사용하여 실시간 데이터를 요청하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [모바일 서비스 API 설명서](/rest/api/maps/mobility)
+> [실시간 데이터를 요청하는 방법](how-to-request-real-time-data.md)
+
+Azure Maps Mobility Services(미리 보기) API 설명서 살펴보기
+
+> [!div class="nextstepaction"]
+> [Mobility Services API 설명서](/rest/api/maps/mobility)

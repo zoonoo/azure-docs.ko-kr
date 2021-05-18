@@ -6,10 +6,10 @@ ms.topic: conceptual
 description: Azure Dev Spaces 작동을 위해 Azure Kubernetes Service 클러스터를 설정하는 방법을 설명
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 ms.openlocfilehash: 841e67b96e95aa251fa5bf1ef469b68de30f54d9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91972682"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Azure Dev Spaces 작동을 위해 클러스터를 설정하는 방법
@@ -20,7 +20,7 @@ Azure Dev Spaces를 사용하면 여러 가지 방법을 통해 Kubernetes 애�
 
 ## <a name="prepare-your-aks-cluster"></a>AKS 클러스터 준비
 
-AKS 클러스터에서 Dev Spaces를 준비하려면 AKS 클러스터가 [Azure Dev Spaces에서 지원][supported-regions]하는 지역에 있는지, Kubernetes 1.10.3 이상을 실행하고 있는지 확인합니다. 을 실행 하 여 Azure CLI에서 Azure Dev Spaces을 사용 하도록 설정할 수 있습니다 `az aks use-dev-spaces` .
+AKS 클러스터에서 Dev Spaces를 준비하려면 AKS 클러스터가 [Azure Dev Spaces에서 지원][supported-regions]하는 지역에 있는지, Kubernetes 1.10.3 이상을 실행하고 있는지 확인합니다. `az aks use-dev-spaces`를 실행하여 Azure CLI에서 Azure Dev Spaces를 사용하도록 설정할 수 있습니다.
 
 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하면 클러스터에 대한 컨트롤러를 설치합니다. 컨트롤러는 AKS 클러스터 외부에 상주합니다. 이는 클라이언트 쪽 도구와 AKS 클러스터 간의 동작 및 통신을 구동합니다. 한 번 사용하도록 설정하고 나면 클라이언트 쪽 도구를 사용하여 컨트롤러와 상호 작용할 수 있습니다.
 

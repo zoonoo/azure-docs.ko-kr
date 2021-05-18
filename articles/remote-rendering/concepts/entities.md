@@ -7,10 +7,10 @@ ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 29952353b8c3452d95bcced163fafa81fe158f64
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99593404"
 ---
 # <a name="entities"></a>엔터티
@@ -21,7 +21,7 @@ ms.locfileid: "99593404"
 
 엔터티는 위치, 회전 및 크기로 정의되는 변환을 갖습니다. 엔터티 그 자체로는 눈에 보이는 기능을 갖지 않으며, 엔터티에 연결되는 구성 요소를 통해 동작이 추가됩니다. 예를 들어, [CutPlaneComponent](../overview/features/cut-planes.md)를 연결하면 엔터티 위치에 잘린 평면이 만들어집니다.
 
-엔터티 자체의 가장 중요한 측면은 계층 구조와 그로 인한 계층 변환입니다. 예를 들어, 공유 부모 엔터티에 여러 엔터티가 자식 요소로 연결된 경우, 부모 엔터티의 변환을 변경하여 모든 엔터티를 이동, 회전 및 크기 조정할 수 있습니다. 또한 엔터티의 `enabled` 상태를 사용 하 여 계층의 전체 하위 그래프에 대 한 표시 유형 및 광선 캐스팅에 대 한 응답을 해제할 수 있습니다.
+엔터티 자체의 가장 중요한 측면은 계층 구조와 그로 인한 계층 변환입니다. 예를 들어, 공유 부모 엔터티에 여러 엔터티가 자식 요소로 연결된 경우, 부모 엔터티의 변환을 변경하여 모든 엔터티를 이동, 회전 및 크기 조정할 수 있습니다. 또한 엔터티의 `enabled` 상태를 사용하여 계층의 전체 하위 그래프에 대한 표시 유형 및 광선 캐스트에 대한 응답을 해제할 수 있습니다.
 
 엔터티는 부모 요소에 의해 고유하게 소유됩니다. 즉, `Entity.Destroy()`로 부모 요소가 제거되면 그 자식 요소와 모든 연결된 [구성 요소](components.md)도 제거됩니다. 따라서 장면에서 모델을 제거하는 것은 모델의 루트 노드에서 `RenderingSession.Connection.LoadModelAsync()` 또는 그 SAS 변형 `RenderingSession.Connection.LoadModelFromSasAsync()`로 반환되는 `Destroy`를 호출하여 수행됩니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "99593404"
 
 ## <a name="create-an-entity"></a>엔터티 만들기
 
-장면에 새 엔터티를 추가 하 여 모델을 로드 하기 위한 루트 개체로 전달 하거나 구성 요소를 연결 하려면 다음 코드를 사용 합니다.
+장면에 새 엔터티를 추가하여 모델을 로드하기 위한 루트 개체로 전달하거나 구성 요소를 연결하려면 다음 코드를 사용합니다.
 
 ```cs
 Entity CreateNewEntity(RenderingSession session)
@@ -130,10 +130,10 @@ entity->QueryMetadataAsync([](Status status, ApiHandle<ObjectMetadata> metaData)
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # 엔터티 클래스](/dotnet/api/microsoft.azure.remoterendering.entity)
-* [C # RenderingConnection ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
-* [C + + 엔터티 클래스](/cpp/api/remote-rendering/entity)
-* [C + + RenderingConnection:: CreateEntity ()](/cpp/api/remote-rendering/renderingconnection#createentity)
+* [C# Entity 클래스](/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RenderingConnection.CreateEntity()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.createentity)
+* [C++ Entity 클래스](/cpp/api/remote-rendering/entity)
+* [C++ RenderingConnection::CreateEntity()](/cpp/api/remote-rendering/renderingconnection#createentity)
 
 ## <a name="next-steps"></a>다음 단계
 

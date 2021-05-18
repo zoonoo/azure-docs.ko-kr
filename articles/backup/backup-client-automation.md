@@ -1,18 +1,18 @@
 ---
 title: PowerShell을 사용하여 Azure에 Windows Server 백업
-description: 이 문서에서는 PowerShell을 사용 하 여 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 PowerShell을 사용하여 Windows Server 또는 Windows 클라이언트에서 Azure Backup을 설정하고 백업 및 복구를 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 8876dc30cc60356accaf3c828f0162cca8d7372e
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90987096"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162422"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
-이 문서에서는 PowerShell을 사용 하 여 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 방법을 보여 줍니다.
+이 문서에서는 PowerShell을 사용하여 Windows Server 또는 Windows 클라이언트에서 Azure Backup을 설정하고 백업 및 복구를 관리하는 방법을 보여 줍니다.
 
 ## <a name="install-azure-powershell"></a>Azure Powershell 설치
 
@@ -24,13 +24,13 @@ ms.locfileid: "90987096"
 
 다음 단계는 Recovery Services 자격 증명 모음을 만드는 과정을 안내합니다. Recovery Services 자격 증명 모음은 Backup 자격 증명 모음과 다릅니다.
 
-1. Azure Backup를 처음으로 사용 하는 경우 **AzResourceProvider** cmdlet을 사용 하 여 Azure 복구 서비스 공급자를 구독에 등록 해야 합니다.
+1. 처음으로 Azure Backup을 사용하는 경우 **Register-AzResourceProvider** cmdlet을 사용하여 구독에 Azure Recovery Service 공급자를 등록해야 합니다.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-2. Recovery Services 자격 증명 모음은 Azure Resource Manager 리소스 이므로 리소스 그룹 내에 저장 해야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.  
+2. Recovery Services 자격 증명 모음은 Azure Resource Manager 리소스이므로 리소스 그룹 내에 배치해야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. 새 리소스 그룹을 만들 때 리소스 그룹의 이름과 위치를 지정합니다.
 
     ```powershell
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
@@ -42,7 +42,7 @@ ms.locfileid: "90987096"
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. 사용할 스토리지 중복 유형을 지정합니다. [LRS (로컬 중복 저장소)](../storage/common/storage-redundancy.md#locally-redundant-storage), [GRS (지역 중복](../storage/common/storage-redundancy.md#geo-redundant-storage) 저장소) 또는 [ZRS (영역 중복 저장소)](../storage/common/storage-redundancy.md#zone-redundant-storage)를 사용할 수 있습니다. 다음 예에서는 **GeoRedundant** 로 설정 된 *testvault* 에 대 한 **-BackupStorageRedundancy** 옵션을 보여 줍니다.
+4. 사용할 스토리지 중복 유형을 지정합니다. [LRS(로컬 중복 스토리지)](../storage/common/storage-redundancy.md#locally-redundant-storage), [GRS(지역 중복 스토리지)](../storage/common/storage-redundancy.md#geo-redundant-storage) 또는 [ZRS(영역 중복 스토리지)](../storage/common/storage-redundancy.md#zone-redundant-storage)를 사용할 수 있습니다. 다음 예제는 *testVault* 의 **-BackupStorageRedundancy** 옵션이 **GeoRedundant** 로 설정된 경우를 보여 줍니다.
 
    > [!TIP]
    > 많은 Azure Backup cmdlet에는 Recovery Services 자격 증명 모음 개체가 입력으로 필요합니다. 이러한 이유로 인해 Backup Recovery Services 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
@@ -56,7 +56,7 @@ ms.locfileid: "90987096"
 
 ## <a name="view-the-vaults-in-a-subscription"></a>구독의 자격 증명 모음 보기
 
-**Get-AzRecoveryServicesVault** 를 사용하여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용 하 여 새 자격 증명 모음이 만들어졌는지 확인 하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
+**Get-AzRecoveryServicesVault** 를 사용하여 현재 구독의 모든 자격 증명 모음 목록을 볼 수 있습니다. 이 명령을 사용하여 새 자격 증명 모음이 생성되었는지 확인하거나 구독에서 사용할 수 있는 자격 증명 모음을 확인할 수 있습니다.
 
 **Get-AzRecoveryServicesVault** 명령을 실행하면 구독의 모든 자격 증명 모음이 나열됩니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "90987096"
 Get-AzRecoveryServicesVault
 ```
 
-```Output
+```output
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -82,12 +82,12 @@ Azure Backup 에이전트를 설치하기 전에 Windows Server에 설치 관리
 
 또는 PowerShell을 사용하여 다운로더를 가져옵니다.
 
- ```powershell
- $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
- $WC = New-Object System.Net.WebClient
- $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
- C:\Downloads\MARSAgentInstaller.EXE /q
- ```
+```powershell
+$MarsAURL = 'https://aka.ms/Azurebackup_Agent'
+$WC = New-Object System.Net.WebClient
+$WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.exe')
+C:\Downloads\MARSAgentInstaller.exe /q
+```
 
 에이전트를 설치하려면 승격된 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -95,7 +95,7 @@ Azure Backup 에이전트를 설치하기 전에 Windows Server에 설치 관리
 MARSAgentInstaller.exe /q
 ```
 
-그러면 에이전트가 모두 기본 옵션으로 설치됩니다. 설치는 백그라운드에서 몇 분 정도 소요됩니다. */Nu* 옵션을 지정 하지 않으면 설치 종료 시 **Windows 업데이트** 창이 열리고 업데이트가 있는지 확인할 수 있습니다. 설치되면 설치된 프로그램 목록에 에이전트가 표시됩니다.
+그러면 에이전트가 모두 기본 옵션으로 설치됩니다. 설치는 백그라운드에서 몇 분 정도 소요됩니다. */nu* 옵션을 지정하지 않으면 설치 마지막에 **Windows 업데이트** 창이 열리고 업데이트가 있는지 확인합니다. 설치되면 설치된 프로그램 목록에 에이전트가 표시됩니다.
 
 설치된 프로그램 목록을 보려면 **제어판** > **프로그램** > **프로그램 및 기능** 으로 이동합니다.
 
@@ -117,14 +117,14 @@ MARSAgentInstaller.exe /?
 | /p:"위치" |Azure Backup 에이전트의 설치 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent |
 | /s:"위치" |Azure Backup 에이전트의 캐시 폴더에 대한 경로입니다. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Microsoft 업데이트에 옵트인 |- |
-| /nu |설치가 완료 된 후 업데이트 확인 안 함 |- |
+| /nu |설치가 완료된 후 업데이트 확인 안 함 |- |
 | /d |Microsoft Azure Recovery Services 에이전트를 제거합니다. |- |
 | /ph |프록시 호스트 주소 |- |
 | /po |프록시 호스트 포트 번호 |- |
 | /pu |프록시 호스트 사용자 이름 |- |
 | /pw |프록시 암호 |- |
 
-## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Windows Server 또는 Windows 클라이언트 컴퓨터 등록
+## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Windows Server 또는 Windows 클라이언트 머신 등록
 
 Recovery Services 자격 증명 모음을 만든 후에, 최신 에이전트 및 보관 자격 증명을 다운로드하여 편리한 위치(예: C:\Downloads)에 저장합니다.
 
@@ -138,7 +138,7 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 > [!NOTE]
 > 자격 증명 모음 인증서를 생성할 때 발생하는 버그는 Az 3.5.릴리스에서 수정되었습니다. Az 3.5.0 이상 릴리스 버전을 사용하여 자격 증명 모음 인증서를 다운로드합니다.
 
-기본 플랫폼 제한으로 인해 PowerShell의 최신 Az 모듈에서 자격 증명 모음 자격 증명을 다운로드 하려면 자체 서명 된 인증서가 필요 합니다. 다음 예제에서는 자체 서명된 인증서를 제공하고 자격 증명 모음을 다운로드하는 방법을 보여 줍니다.
+PowerShell의 최신 Az 모듈에서 자격 증명 모음 자격 증명을 다운로드하려면 기본 플랫폼 제한 사항 때문에 자체 서명된 인증서가 필요합니다. 다음 예제에서는 자체 서명된 인증서를 제공하고 자격 증명 모음을 다운로드하는 방법을 보여 줍니다.
 
 ```powershell
 $dt = $(Get-Date).ToString("M-d-yyyy")
@@ -148,9 +148,9 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -
 ```
 
 Windows Server 또는 Windows 클라이언트 컴퓨터에서, [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet을 실행하여 컴퓨터를 자격 증명 모음에 등록합니다.
-이 및 백업에 사용 되는 다른 cmdlet은 설치 프로세스의 일부로 MARS AgentInstaller가 추가 된 MSONLINE 모듈에서 가져온 것입니다.
+이 cmdlet 및 백업에 사용되는 다른 cmdlet은 MARS AgentInstaller가 설치 과정에서 추가한 MSONLINE 모듈에서 가져온 것입니다.
 
-에이전트 설치 관리자가 $Env:P SModulePath 변수를 업데이트 하지 않습니다. 즉, 모듈 자동 로드에 실패합니다. 이 문제를 해결하려면 다음을 수행하면 됩니다.
+에이전트 설치 관리자는 $Env:PSModulePath 변수를 업데이트하지 않습니다. 즉, 모듈 자동 로드에 실패합니다. 이 문제를 해결하려면 다음을 수행하면 됩니다.
 
 ```powershell
 $Env:PSModulePath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
@@ -168,7 +168,7 @@ Online Backup cmdlet을 로드하면 자격 증명 모음을 등록합니다.
 Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 ```
 
-```Output
+```output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName : testvault
@@ -177,13 +177,11 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> 자격 증명 모음 자격 증명 파일을 지정 하려면 상대 경로를 사용 하지 마세요. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
->
->
+> 상대 경로를 사용하여 자격 증명 모음 자격 증명 파일을 지정하지 않습니다. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
 
 ## <a name="networking-settings"></a>네트워킹 서비스
 
-Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련 된 모든 정보를 명시적으로 지웁니다.
+Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
 
 대역폭 사용 역시 주의 정해진 요일에 대해 `work hour bandwidth` 및 `non-work hour bandwidth` 옵션으로 제어할 수 있습니다.
 
@@ -193,7 +191,7 @@ Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, �
 Set-OBMachineSetting -NoProxy
 ```
 
-```Output
+```output
 Server properties updated successfully.
 ```
 
@@ -201,7 +199,7 @@ Server properties updated successfully.
 Set-OBMachineSetting -NoThrottle
 ```
 
-```Output
+```output
 Server properties updated successfully.
 ```
 
@@ -211,7 +209,7 @@ Azure Backup에 전송되는 백업 데이터는 데이터의 기밀성을 보�
 
 Azure Portal의 **Recovery Services 자격 증명 모음** 에서 **설정** > **속성** > **보안 PIN** 아래의 **생성** 을 선택하여 보안 PIN을 생성해야 합니다.
 
->[!NOTE]
+> [!NOTE]
 > 보안 PIN은 Azure Portal를 통해서만 생성할 수 있습니다.
 
 그런 다음, 명령에서 `generatedPIN`으로 사용합니다.
@@ -221,18 +219,16 @@ $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -
 Set-OBMachineSetting -EncryptionPassPhrase $PassPhrase -SecurityPin "<generatedPIN>"
 ```
 
-```Output
+```output
 Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> 암호 정보는 설정 되 면 안전 하 고 안전 하 게 유지 합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
->
->
+> 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
 
 ## <a name="back-up-files-and-folders"></a>파일 및 폴더 백업
 
-Windows 서버 및 클라이언트에서 Azure Backup으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 다음 세 부분으로 구성 됩니다.
+Windows 서버 및 클라이언트에서 Azure Backup으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 다음 세 부분으로 구성됩니다.
 
 1. 백업을 수행하고 서비스와 동기화해야 할 시기를 지정하는 **백업 일정** .
 2. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정** 입니다.
@@ -244,7 +240,7 @@ Windows 서버 및 클라이언트에서 Azure Backup으로의 모든 백업은 
 $NewPolicy = New-OBPolicy
 ```
 
-지금은 정책이 비어 있으며, 포함 또는 제외할 항목, 백업 실행 시기 및 백업이 저장 되는 위치를 정의 하는 데 다른 cmdlet이 필요 합니다.
+지금은 정책이 비어 있으며 포함하거나 제외할 항목, 백업 실행 시기, 백업이 저장될 위치를 정의하려면 다른 cmdlet이 필요합니다.
 
 ### <a name="configuring-the-backup-schedule"></a>백업 일정 구성
 
@@ -265,13 +261,13 @@ $Schedule = New-OBSchedule -DaysOfWeek Saturday, Sunday -TimesOfDay 16:00
 Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
 ```
 
-```Output
+```output
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 
 ### <a name="configuring-a-retention-policy"></a>보존 정책 구성
 
-보존 정책은 백업 작업에서 생성된 복구 지점이 유지되는 기간을 정의합니다. 새 보존 정책을 만들 때 [새](/powershell/module/msonlinebackup/new-obretentionpolicy) 보존 정책을 만들 때 백업 복구 지점이 Azure Backup 보존 되는 일 수를 지정할 수 있습니다. 다음 예제에서는 7일의 보존 정책을 설정합니다.
+보존 정책은 백업 작업에서 생성된 복구 지점이 유지되는 기간을 정의합니다. [New-OBRetentionPolicy](/powershell/module/msonlinebackup/new-obretentionpolicy) cmdlet을 사용하여 새 보존 정책을 만드는 경우 Azure Backup을 사용하여 백업 복구 지점을 보존할 기간(일)을 지정할 수 있습니다. 다음 예제에서는 7일의 보존 정책을 설정합니다.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
@@ -283,7 +279,7 @@ $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
 Set-OBRetentionPolicy -Policy $NewPolicy -RetentionPolicy $RetentionPolicy
 ```
 
-```Output
+```output
 BackupSchedule  : 4:00 PM
                   Saturday, Sunday,
                   Every 1 week(s)
@@ -322,7 +318,7 @@ $Exclusions = New-OBFileSpec -FileSpec @("C:\windows", "C:\temp") -Exclude
 Add-OBFileSpec -Policy $NewPolicy -FileSpec $Inclusions
 ```
 
-```Output
+```output
 BackupSchedule  : 4:00 PM
                   Saturday, Sunday,
                   Every 1 week(s)
@@ -363,7 +359,7 @@ PolicyState     : Valid
 Add-OBFileSpec -Policy $NewPolicy -FileSpec $Exclusions
 ```
 
-```Output
+```output
 BackupSchedule  : 4:00 PM
                   Saturday, Sunday,
                   Every 1 week(s)
@@ -416,7 +412,7 @@ PolicyState     : Valid
 Get-OBPolicy | Remove-OBPolicy
 ```
 
-```Output
+```output
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
@@ -426,7 +422,7 @@ Microsoft Azure Backup Are you sure you want to remove this backup policy? This 
 Set-OBPolicy -Policy $NewPolicy
 ```
 
-```Output
+```output
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
@@ -474,7 +470,7 @@ State : Existing PolicyState : Valid
 Get-OBPolicy | Get-OBSchedule
 ```
 
-```Output
+```output
 SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a
 ScheduleRunDays : {Saturday, Sunday}
 ScheduleRunTimes : {16:00:00}
@@ -485,7 +481,7 @@ State : Existing
 Get-OBPolicy | Get-OBRetentionPolicy
 ```
 
-```Output
+```output
 RetentionDays : 7
 RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e
 State : Existing
@@ -495,7 +491,7 @@ State : Existing
 Get-OBPolicy | Get-OBFileSpec
 ```
 
-```Output
+```output
 FileName : *
 FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
 FileSpec : D:\
@@ -529,7 +525,7 @@ IsRecursive : True
 Get-OBPolicy | Start-OBBackup
 ```
 
-```Output
+```output
 Initializing
 Taking snapshot of volumes...
 Preparing storage...
@@ -544,7 +540,7 @@ The backup operation completed successfully.
 
 ## <a name="back-up-windows-server-system-state-in-mars-agent"></a>MARS 에이전트에서 Windows Server 시스템 상태 백업
 
-이 섹션에서는 MARS 에이전트에서 시스템 상태를 설정 하는 PowerShell 명령에 대해 설명 합니다.
+이 섹션에서는 MARS 에이전트에서 시스템 상태를 설정하는 PowerShell 명령에 대해 설명합니다.
 
 ### <a name="schedule"></a>일정
 
@@ -562,13 +558,13 @@ $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -Retention
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
- ```
+```
 
 ### <a name="verifying-the-policy"></a>정책 확인
 
 ```powershell
 Get-OBSystemStatePolicy
- ```
+```
 
 ## <a name="restore-data-from-azure-backup"></a>Azure Backup에서 데이터 복원
 
@@ -581,14 +577,14 @@ Get-OBSystemStatePolicy
 
 ### <a name="picking-the-source-volume"></a>원본 볼륨 선택
 
-Azure Backup에서 항목을 복원 하려면 먼저 항목의 소스를 식별 해야 합니다. Windows 서버 또는 Windows 클라이언트의 컨텍스트에서 명령을 실행 중이므로 컴퓨터는 이미 식별된 상태입니다. 원본을 식별하는 다음 단계는 해당 원본이 포함된 볼륨을 식별하는 것입니다. 이 컴퓨터에서 백업 중인 볼륨 또는 원본 목록은 [Get-OBRecoverableSource](/powershell/module/msonlinebackup/get-obrecoverablesource) cmdlet을 실행하여 검색할 수 있습니다. 이 명령은 이 서버/클라이언트에서 백업한 모든 원본의 배열을 반환합니다.
+Azure Backup에서 항목을 복원하려면 먼저 항목의 원본을 식별해야 합니다. Windows 서버 또는 Windows 클라이언트의 컨텍스트에서 명령을 실행 중이므로 컴퓨터는 이미 식별된 상태입니다. 원본을 식별하는 다음 단계는 해당 원본이 포함된 볼륨을 식별하는 것입니다. 이 컴퓨터에서 백업 중인 볼륨 또는 원본 목록은 [Get-OBRecoverableSource](/powershell/module/msonlinebackup/get-obrecoverablesource) cmdlet을 실행하여 검색할 수 있습니다. 이 명령은 이 서버/클라이언트에서 백업한 모든 원본의 배열을 반환합니다.
 
 ```powershell
 $Source = Get-OBRecoverableSource
 $Source
 ```
 
-```Output
+```output
 FriendlyName : C:\
 RecoverySourceName : C:\
 ServerName : myserver.microsoft.com
@@ -607,7 +603,7 @@ $Rps = Get-OBRecoverableItem $Source[0]
 $Rps
 ```
 
-```Output
+```output
 
 IsDir                : False
 ItemNameFriendly     : C:\
@@ -632,7 +628,7 @@ ItemSize             :
 ItemLastModifiedTime :
 ```
 
-개체 `$Rps` 는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최신 요소를 선택 하려면를 사용 `$Rps[0]` 합니다.
+개체 `$Rps` 는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 가장 최근 시점을 선택하려면 `$Rps[0]`을 사용합니다.
 
 ### <a name="specifying-an-item-to-restore"></a>복원할 항목 선택
 
@@ -643,7 +639,7 @@ $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
 $Item
 ```
 
-```Output
+```output
 IsDir                : False
 ItemNameFriendly     : C:\Test\cat.jpg
 ItemNameGuid         :
@@ -654,12 +650,11 @@ PointInTime          : 10/17/2019 7:52:13 PM
 ServerName           : myserver.microsoft.com
 ItemSize             :
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
-
 ```
 
 ### <a name="triggering-the-restore-process"></a>복원 프로세스 트리거
 
-복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](/powershell/module/msonlinebackup/new-obrecoveryoption) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\temp* 로 복원 하려는 경우를 가정해 보겠습니다. 또한 대상 폴더 *C:\temp* 에 이미 있는 파일을 건너뛸지를 가정해 보겠습니다. 이러한 복구 옵션을 만들려면 다음 명령을 사용 합니다.
+복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](/powershell/module/msonlinebackup/new-obrecoveryoption) cmdlet을 사용하여 수행할 수 있습니다. 이 예제에서는 파일을 *C:\temp* 로 복원한다고 가정해 봅시다. 또한 대상 폴더 *C:\temp* 에 이미 존재하는 파일은 건너뛴다고 가정합니다. 해당 복구 옵션을 만들려면 다음 명령을 사용합니다.
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -671,7 +666,7 @@ $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption
 ```
 
-```Output
+```output
 Estimating size of backup items...
 Estimating size of backup items...
 Estimating size of backup items...
@@ -694,7 +689,7 @@ Azure Backup 에이전트 제거는 다음 명령을 사용하여 수행할 수 
 * 모든 정책 정보가 컴퓨터에서 제거되지만 정책 정보는 서비스에 계속 저장됩니다.
 * 모든 백업 일정이 제거되고 더 이상 백업이 수행되지 않습니다.
 
-그러나 Azure에 저장 된 데이터는 그대로 유지 되며 사용자의 보존 정책 설정에 따라 보존 됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
+하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
 ## <a name="remote-management"></a>원격 관리
 
@@ -706,7 +701,7 @@ Azure Backup 에이전트, 정책, 데이터 원본과 관련된 모든 관리�
 Get-Service -Name WinRM
 ```
 
-```Output
+```output
 Status   Name               DisplayName
 ------   ----               -----------
 Running  winrm              Windows Remote Management (WS-Manag...
@@ -718,7 +713,7 @@ PowerShell을 원격 작업용으로 구성해야 합니다.
 Enable-PSRemoting -Force
 ```
 
-```Output
+```output
 WinRM is already set up to receive requests on this computer.
 WinRM has been updated for remote management.
 WinRM firewall exception enabled.

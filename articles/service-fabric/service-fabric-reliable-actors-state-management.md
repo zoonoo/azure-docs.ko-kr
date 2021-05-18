@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: badfc490f26b71881e7970c2c0be3472abfec25a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96575604"
 ---
 # <a name="reliable-actors-state-management"></a>Reliable Actors 상태 관리
@@ -113,7 +113,7 @@ class MyActorImpl extends FabricActor implements MyActor
 ### <a name="correctly-manage-the-actors-life-cycle"></a>행위자의 수명 주기를 올바르게 관리
 행위자 서비스의 파티션마다 상태의 크기를 관리하는 명확한 정책이 있어야 합니다. 행위자 서비스에는 고정된 수의 행위자를 두고 최대한 많이 다시 사용해야 합니다. 새 행위자를 지속적으로 만드는 경우 작업이 완료되고 나면 행위자를 삭제해야 합니다. 행위자 프레임워크는 존재하는 각 행위자에 대한 메타데이터를 저장합니다. 행위자의 상태를 모두 삭제해도 해당 행위자에 대한 메타데이터는 제거되지 않습니다. 시스템에 저장된 행위자에 대한 정보를 모두 제거하려면 행위자를 삭제해야 합니다([행위자와 해당 상태 삭제](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state) 참조). 추가 검사의 일환으로, 가끔 행위자 서비스를 쿼리하여 숫자 행위자가 예상 범위 내에 있는지 확인해야 합니다([행위자 열거](service-fabric-reliable-actors-enumerate.md) 참조).
  
-행위자 서비스의 데이터베이스 파일 크기가 예상 크기를 초과하여 증가하는 경우가 발생하면 이전 지침을 따르고 있는지 확인해야 합니다. 이러한 지침에 따라 데이터베이스 파일 크기 문제가 계속 발생 하는 경우 제품 팀과 함께 [지원 티켓을 열어](service-fabric-support.md) 도움을 받으세요.
+행위자 서비스의 데이터베이스 파일 크기가 예상 크기를 초과하여 증가하는 경우가 발생하면 이전 지침을 따르고 있는지 확인해야 합니다. 지침을 따르고 있는데 데이터베이스 파일 크기에 문제가 있으면, 제품 팀과 함께 [지원 티켓을 열어서](service-fabric-support.md) 지원을 받는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

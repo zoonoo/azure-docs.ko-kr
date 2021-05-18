@@ -3,16 +3,16 @@ title: CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플
 description: CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/11/2021
 ms.topic: sample
-ms.openlocfilehash: 7030b4e9e9ddd3d5bbf1a5a7deaf1e1aa241b38e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 402d01d05a36bbcdcc36e60e16a05e51c9a8e30c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565999"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757676"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-v130-blueprint-sample"></a>CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플
 
-CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플은 특정 CIS Microsoft Azure Foundations Benchmark v1.3.0 권장 사항을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 CIS Microsoft Azure Foundations Benchmark v1.3.0 권장 사항을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+CIS Microsoft Azure Foundations Benchmark v1.3.0 청사진 샘플은 특정 CIS Microsoft Azure Foundations Benchmark v1.3.0 권장 사항을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 보호책을 제공합니다. 이 청사진은 고객이 CIS Microsoft Azure Foundations Benchmark v1.3.0 권장 사항을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="recommendation-mapping"></a>추천 매핑
 
@@ -172,18 +172,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Azure Security Center에서 누락된 Endpoint Protection 모니터링|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Search Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: App Services의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/delete) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/delete) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/securityRules/write) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Network/networkSecurityGroups/write) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/delete) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 관리 작업의 활동 로그 경고가 있어야 함(Microsoft.Sql/servers/firewallRules/write) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 승인된 VM 확장만 설치해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 컨테이너 레지스트리용 Azure Defender를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 관리 ID를 사용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: API 앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/delete)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
-|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/write)|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/delete) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
+|CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 특정 정책 작업의 활동 로그 경고가 있어야 함(Microsoft.Authorization/policyAssignments/write) |효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 함수 앱에서 인증을 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: Data Lake Analytics의 진단 로그를 사용하도록 설정해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |
 |CIS Microsoft Azure Foundations Benchmark v1.3.0|정책 할당|정책 효과: 스토리지 계정은 신뢰할 수 있는 Microsoft 서비스의 액세스를 허용해야 함|효과에 대한 자세한 내용은 [https://aka.ms/policyeffects](../../policy/concepts/effects.md)를 방문하세요. |

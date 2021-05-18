@@ -1,22 +1,22 @@
 ---
-title: SCIM (도메인 간 Id 관리) 2.0 프로토콜 준수에 대 한 시스템의 알려진 문제-Azure AD
+title: SCIM(System for Cross-Domain Identity Management) 2.0 프로토콜 준수의 알려진 문제 - Azure AD
 description: SCIM 2.0을 지원하는 비갤러리 애플리케이션을 Azure AD에 추가할 때 발생하는 일반적인 프로토콜 호환성 문제를 해결하는 방법
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/05/2020
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d13629b4cb05995b9652e862f769a0ffcae30a8c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 0e369a6ab857b95035b0aaca28525e54e15835e8
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99256901"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783264"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
@@ -26,35 +26,35 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 이 문서에서는 Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련한 현재와 과거의 문제 및 이러한 문제를 해결하는 방법을 설명합니다.
 
-## <a name="understanding-the-provisioning-job"></a>프로 비전 작업 이해
-프로 비전 서비스는 작업 개념을 사용 하 여 응용 프로그램에 대해 작동 합니다. JobID는 [진행률 표시줄](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar)에서 찾을 수 있습니다. 모든 새 프로 비전 응용 프로그램은 "scim"으로 시작 하는 jobID를 사용 하 여 만들어집니다. Scim 작업은 서비스의 현재 상태를 나타냅니다. 이전 작업에는 ID "customappsso"가 있습니다. 이 작업은 2018의 서비스 상태를 나타냅니다. 
+## <a name="understanding-the-provisioning-job"></a>프로비저닝 작업 이해
+프로비저닝 서비스는 작업 개념을 사용하여 애플리케이션에 대해 작동합니다. jobID는 [진행률 표시줄](application-provisioning-when-will-provisioning-finish-specific-user.md#view-the-provisioning-progress-bar)에서 찾을 수 있습니다. 모든 새 프로비저닝 애플리케이션은 "scim"으로 시작하는 jobID를 사용하여 만들어집니다. SCIM 작업은 서비스의 현재 상태를 나타냅니다. 이전 작업에는 ID "customappsso"가 있습니다. 이 작업은 2018년의 서비스 상태를 나타냅니다. 
 
-갤러리에서 응용 프로그램을 사용 하는 경우 작업에는 일반적으로 앱의 이름 (예: zoom 눈송이, dataBricks 등)이 포함 됩니다. 갤러리 응용 프로그램을 사용 하는 경우이 설명서를 건너뛸 수 있습니다. 이는 주로 jobID SCIM 또는 customAppSSO를 사용 하는 비 갤러리 응용 프로그램에 적용 됩니다.
+갤러리에서 애플리케이션을 사용하는 경우 작업에는 일반적으로 앱의 이름(예: zoom snowFlake, dataBricks 등)이 포함됩니다. 갤러리 애플리케이션을 사용하는 경우 이 설명서를 건너뛸 수 있습니다. 이는 주로 jobID SCIM 또는 customAppSSO를 사용하는 비갤러리 애플리케이션에 적용됩니다.
 
 ## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2.0 준수 문제 및 상태
-아래 표에서 fixed로 표시 된 항목은 SCIM 작업에서 적절 한 동작을 찾을 수 있음을 의미 합니다. 변경한 내용에 대해 이전 버전과의 호환성을 보장 하기 위해 노력 했습니다. 그러나 이전 동작을 구현 하지 않는 것이 좋습니다. 새 구현에 새로운 동작을 사용 하 고 기존 구현을 업데이트 하는 것이 좋습니다.
+아래 표에서 fixed로 표시된 항목은 SCIM 작업에서 적절한 동작을 찾을 수 있음을 의미합니다. 변경한 내용에 대해 이전 버전과의 호환성을 보장하기 위해 노력했습니다. 그러나 이전 동작은 구현하지 않는 것이 좋습니다. 새 구현에는 새로운 동작을 사용하고 기존 구현을 업데이트하는 것이 좋습니다.
 
 > [!NOTE]
-> 2018에서 변경 된 내용을 적용 하려면 customappsso 동작으로 되돌릴 수 있습니다. 2018 이후 변경 된 내용에 대해 Url을 사용 하 여 이전 동작으로 되돌릴 수 있습니다. 이전 jobID로 되돌리거나 플래그를 사용 하 여 이전에 변경한 내용에 대해 이전 버전과의 호환성을 보장 하기 위해 노력 했습니다. 그러나 앞에서 설명한 대로 이전 동작을 구현 하지 않는 것이 좋습니다. 새 구현에 새로운 동작을 사용 하 고 기존 구현을 업데이트 하는 것이 좋습니다.
+> 2018년에 변경된 사항의 경우 customappsso 동작으로 되돌릴 수 있습니다. 2018 년 이후 변경된 사항의 경우 URL을 사용하여 이전 동작으로 되돌릴 수 있습니다. 이전 jobID로 되돌리거나 플래그를 사용하여 이전에 변경한 내용에 대해 이전 버전과의 호환성을 보장하기 위해 노력했습니다. 그러나 앞에서 설명한 대로 이전 동작은 구현하지 않는 것이 좋습니다. 새 구현에는 새로운 동작을 사용하고 기존 구현을 업데이트하는 것이 좋습니다.
 
-| **SCIM 2.0 준수 문제** |  **고정?** | **수정 날짜**  |  **이전 버전과의 호환성** |
+| **SCIM 2.0 준수 문제** |  **수정?** | **수정 날짜**  |  **이전 버전과의 호환성** |
 |---|---|---|
-| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | customappSSO로 다운 그레이드 |
-| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | customappSSO로 다운 그레이드 |
-| 다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | customappSSO로 다운 그레이드 |
-| 그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  customappSSO로 다운 그레이드 |
-| 규정 준수를 보장 하기 위해 패치 동작 업데이트 (예: 부울로 활성 및 적절 한 그룹 멤버 자격 제거) | 아니요 | TBD| 미리 보기 플래그 사용 |
+| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | customappSSO로 다운그레이드 |
+| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | customappSSO로 다운그레이드 |
+| 다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | customappSSO로 다운그레이드 |
+| 그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  customappSSO로 다운그레이드 |
+| 규정 준수를 보장하기 위해 PATCH 동작 업데이트(예: 부울로 활성 및 적절한 그룹 구성원 제거) | 예 | TBD| 미리 보기 플래그 사용 |
 
-## <a name="flags-to-alter-the-scim-behavior"></a>SCIM 동작을 변경 하기 위한 플래그
-기본 SCIM 클라이언트 동작을 변경 하려면 응용 프로그램의 테 넌 트 URL에서 아래 플래그를 사용 합니다.
+## <a name="flags-to-alter-the-scim-behavior"></a>SCIM 동작을 변경하기 위한 플래그
+기본 SCIM 클라이언트 동작을 변경하려면 애플리케이션의 테넌트 URL에서 아래 플래그를 사용합니다.
 
-:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대 한 SCIM 플래그입니다.":::
+:::image type="content" source="media/application-provisioning-config-problem-scim-compatibility/scim-flags.jpg" alt-text="이후 동작에 대한 SCIM 플래그입니다.":::
 
-* 다음 URL을 사용 하 여 패치 동작을 업데이트 하 고 SCIM 준수를 보장 합니다 (예:를 부울로 활성화 하 고 적절 한 그룹 멤버 자격 제거). 이 동작은 현재 플래그를 사용 하는 경우에만 사용할 수 있지만 다음 몇 달 동안 기본 동작이 됩니다. 참고이 미리 보기 플래그는 현재 주문형 프로 비전에서 작동 하지 않습니다. 
-  * **URL (SCIM 규격):** AzureAdScimPatch062020
+* 다음 URL을 사용하여 패치 동작을 업데이트하고 SCIM 준수를 보장합니다(예: 부울로 활성화, 적절한 그룹 구성원 제거). 이 동작은 현재 플래그를 사용하는 경우에만 사용할 수 있지만 향후 몇 달 동안 기본 동작이 될 것입니다. 참고로 현재 이 미리 보기 플래그는 주문형 프로비저닝에서 작동하지 않습니다. 
+  * **URL(SCIM 준수):** aadOptscim062020
   * **SCIM RFC 참조:** 
     * https://tools.ietf.org/html/rfc7644#section-3.5.2
-  * **행동**
+  * **동작:**
   ```json
    PATCH https://[...]/Groups/ac56b4e5-e079-46d0-810e-85ddbd223b09
    {
@@ -143,12 +143,12 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
    
   ```
 
-  * **다운 그레이드 URL:** 새 SCIM 규격 동작이 비 갤러리 응용 프로그램에서 기본값이 되 면 다음 URL을 사용 하 여 이전 비 SCIM 규격 동작으로 롤백할 수 있습니다. AzureAdScimPatch2017
+  * **다운그레이드 URL:** 새 SCIM 준수 동작이 비갤러리 애플리케이션에서 기본값이 되면 다음 URL을 사용하여 이전 비SCIM 준수 동작(AzureAdScimPatch2017)으로 롤백할 수 있습니다.
   
 
 
 ## <a name="upgrading-from-the-older-customappsso-job-to-the-scim-job"></a>이전 customappsso 작업에서 SCIM 작업으로 업그레이드
-다음 단계를 수행 하면 기존 customappsso 작업이 삭제 되 고 새 scim 작업이 생성 됩니다. 
+아래 단계를 수행하면 기존 customappsso 작업이 삭제되고 새 scim 작업이 생성됩니다. 
  
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션** 섹션에서 기존의 SCIM 애플리케이션을 찾아 선택합니다.
@@ -168,7 +168,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
  
    ![스키마 가져오기](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "스키마 가져오기") 
 
-8. 마지막 단계의 JSON 출력을 복사하여 텍스트 파일에 저장합니다. JSON에는 이전 앱에 추가한 모든 사용자 지정 특성 매핑이 포함 되어 있으며, 약 1000 줄의 JSON이 있어야 합니다.
+8. 마지막 단계의 JSON 출력을 복사하여 텍스트 파일에 저장합니다. JSON에는 이전 앱에 추가한 모든 사용자 지정 특성 매핑이 포함되어 있으며, 약 몇 천 줄의 JSON이 있어야 합니다.
 9. 아래 명령을 실행하여 프로비저닝 작업을 삭제합니다.
  
    `DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]`
@@ -178,7 +178,7 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
  `{   templateId: "scim"   }`
    
-11. 마지막 단계의 결과에서 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다. 필요에 따라 다음 명령을 실행 하 여 [새-job-id]를 복사한 새 작업 ID로 바꾸고 #7 단계의 JSON 출력을 요청 본문으로 입력 하 여 이전 특성 매핑을 다시 적용 합니다.
+11. 마지막 단계의 결과에서 “scim”으로 시작하는 전체 “ID” 문자열을 복사합니다. 선택적으로, 아래 명령을 실행하여 이전 특성 매핑을 다시 적용하고 [new-job-id]를 방금 복사한 새 작업 ID로 바꾸고 7단계의 JSON 출력을 요청 본문으로 입력합니다.
 
  `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
  `{   <your-schema-json-here>   }`
@@ -186,8 +186,8 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 12. 첫 번째 웹 브라우저 창으로 돌아가서 애플리케이션에 해당하는 **프로비저닝** 탭을 선택합니다.
 13. 구성을 확인한 후 프로비저닝 작업을 시작합니다. 
 
-## <a name="downgrading-from-the-scim-job-to-the-customappsso-job-not-recommended"></a>SCIM 작업에서 customappsso 작업으로 다운 그레이드 (권장 하지 않음)
- 이전 동작으로 다시 다운 그레이드 하는 것이 좋지만 customappsso가 어떤 업데이트를 활용 하지 않으며 영원히 지원 되지 않을 수도 있으므로 권장 하지 않습니다. 
+## <a name="downgrading-from-the-scim-job-to-the-customappsso-job-not-recommended"></a>SCIM 작업에서 customappsso 작업으로 다운그레이드(권장하지 않음)
+ 이전 동작으로 다시 다운그레이드할 수 있지만 customappsso는 일부 업데이트의 이점을 활용하지 못하고 계속 지원되지 않을 수 있으므로 권장하지 않습니다. 
 
 1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 **Azure Active Directory > 엔터프라이즈 애플리케이션 > 애플리케이션 만들기** 섹션에서 새 **비갤러리** 애플리케이션을 만듭니다.

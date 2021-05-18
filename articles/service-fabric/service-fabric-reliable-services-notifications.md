@@ -1,16 +1,16 @@
 ---
 title: Reliable Services 알림
-description: 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 사전에 대 한 Service Fabric Reliable Services 알림에 대 한 개념 설명서
+description: 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 사전에 대한 Service Fabric Reliable Services 알림에 대한 개념 설명서
 author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f5b48cc6cca2e143c48ed7bdfc99de936be2a227
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784582"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 알림
@@ -159,7 +159,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 
 * **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
-* **Notifydictionarychangedaction.remove**: **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**: **NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 

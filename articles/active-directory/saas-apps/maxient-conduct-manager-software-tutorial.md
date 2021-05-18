@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2790ae787831fb5dfa81656d32473c98ac4bb4bd
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458203"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739946"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>자습서: Maxient Conduct Manager Software와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -28,7 +28,7 @@ ms.locfileid: "92458203"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -64,7 +64,7 @@ Maxient Conduct Manager Software용 Azure AD SSO 구성 및 테스트 SSO가 작
 Maxient Conduct Manager Software를 사용하여 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - Maxient Conduct Manager Software에 사용할 수 있도록 사용자 인증을 지원합니다.
-    1. **[Maxient를 사용하도록 모든 사용자 할당](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** - 조직 내 모든 사람이 인증을 수행할 수 있도록 허용합니다.
+   - **[“사용자 할당 필요?”를 아니요로 설정](#set-user-assignment-required-to-no)** - 기관의 모든 사용자가 인증할 수 있습니다.
 1. **[Maxient를 사용하여 Azure AD 설정 테스트](#test-with-maxient)** - 구성이 작동하고 올바른 특성이 릴리스되는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -90,21 +90,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
-### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Maxient Conduct Manager Software에서 인증을 수행할 수 있도록 모든 사용자 할당
+<a name="set-user-assignment-required-to-no"></a>
+    
+### <a name="set-user-assignment-required-to-no"></a>“사용자 할당 필요?”를 아니요로 설정
 
-이 섹션에서는 Maxient Conduct Manager Software에서 Azure 시스템을 사용하여 인증을 수행할 수 있도록 모든 계정에 대해 액세스 권한을 부여합니다.  Maxient가 올바르게 작동하려면 이 단계가 **필수** 단계입니다.  Maxient는 Azure AD 시스템을 활용해서 사용자 *인증* 을 수행합니다. 사용자에 대한 *권한 부여* 는 사용자가 수행하려는 특정 기능에 따라 Maxient 시스템 내에서 수행됩니다. Maxient는 이러한 결정을 내릴 때 해당 디렉터리의 특성을 사용하지 않습니다.
+Maxient가 올바르게 작동하려면 이 단계가 **필수** 단계입니다.  Maxient는 Azure AD 시스템을 활용해서 사용자 *인증* 을 수행합니다. 사용자에 대한 *권한 부여* 는 사용자가 수행하려는 특정 기능에 따라 Maxient 시스템 내에서 수행됩니다. Maxient는 이러한 결정을 내릴 때 해당 디렉터리의 특성을 사용하지 않습니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **Maxient Conduct Manager Software** 를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자에서 모든 사용자(또는 적합한 그룹)를 선택하고 Maxient에서 인증을 수행할 수 있도록 사용자를 **할당** 합니다.
+1. 앱의 개요 페이지에서 “사용자 할당 필요” 설정을 아니요로 토글합니다.
 
 ## <a name="test-with-maxient"></a>Maxient로 테스트 
 

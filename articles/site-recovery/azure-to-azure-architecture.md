@@ -1,24 +1,21 @@
 ---
-title: Azure에서 Azure로의 재해 복구 아키텍처 Azure Site Recovery
-description: Azure Site Recovery 서비스를 사용 하 여 Azure Vm에 대 한 Azure 지역 간의 재해 복구를 설정 하는 경우 사용 되는 아키텍처 개요입니다.
+title: Azure Site Recovery의 Azure와 Azure 간 재해 복구 아키텍처 | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 Azure VM의 Azure 지역 간에 재해 복구를 설정할 때 사용되는 아키텍처에 대한 개요입니다.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
-ms.author: raynew
-ms.openlocfilehash: 64d1084fd7025c74676977f065062e5e94dabf1d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 38bf9d41f81a76c4263952a94b5526984db0705f
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97652248"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580930"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
 
-이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure VM(가상 머신)에 대한 재해 복구를 배포할 때 사용되는 아키텍처, 구성 요소 및 프로세스에 대해 설명합니다. 재해 복구를 설정 하면 Azure Vm은 다른 대상 지역에 지속적으로 복제 됩니다. 중단이 발생하는 경우 VM을 보조 지역으로 장애 조치하고, 해당 지역에서 액세스할 수 있습니다. 모두 정상적으로 다시 실행 중인 경우 다시 장애 복구하고 기본 위치에서 작업을 계속할 수 있습니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 Azure VM(가상 머신)에 대한 재해 복구를 배포할 때 사용되는 아키텍처, 구성 요소 및 프로세스에 대해 설명합니다. 재해 복구를 설정하면 Azure VM이 다른 대상 지역에 지속적으로 복제됩니다. 중단이 발생하는 경우 VM을 보조 지역으로 장애 조치하고, 해당 지역에서 액세스할 수 있습니다. 모두 정상적으로 다시 실행 중인 경우 다시 장애 복구하고 기본 위치에서 작업을 계속할 수 있습니다.
 
 
 
@@ -31,10 +28,10 @@ Azure VM에 대한 재해 복구에 관련된 구성 요소는 다음 표에 요
 **원본 지역의 VM** | [지원되는 원본 지역](azure-to-azure-support-matrix.md#region-support)에서 하나 이상의 Azure VM입니다.<br/><br/> VM은 [지원되는 운영 체제](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)에서 실행될 수 있습니다.
 **원본 VM 스토리지** | Azure VM은 관리될 수 있습니다. 또는 스토리지 계정에 분산된 관리되지 않는 디스크를 가집니다.<br/><br/>지원되는 Azure 스토리지에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#replicated-machines---storage).
 **원본 VM 네트워크** | VM은 원본 지역의 VNet(가상 네트워크)에서 하나 이상의 서브넷에 있을 수 있습니다. 네트워킹 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#replicated-machines---networking).
-**캐시 스토리지 계정** | 원본 네트워크에서 캐시 스토리지 계정이 필요합니다. 복제 중 VM 변경 내용이 대상 스토리지로 전송되기 전에 캐시에 저장됩니다.  캐시 저장소 계정은 표준 이어야 합니다.<br/><br/> 캐시를 사용하여 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.<br/><br/> 캐시 스토리지 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#cache-storage). 
+**캐시 스토리지 계정** | 원본 네트워크에서 캐시 스토리지 계정이 필요합니다. 복제 중 VM 변경 내용이 대상 스토리지로 전송되기 전에 캐시에 저장됩니다.  캐시 스토리지 계정은 표준이어야 합니다.<br/><br/> 캐시를 사용하여 VM에서 실행 중인 프로덕션 애플리케이션에 미치는 영향이 최소화됩니다.<br/><br/> 캐시 스토리지 요구 사항에 대해 [자세히 알아봅니다](azure-to-azure-support-matrix.md#cache-storage). 
 **대상 리소스** | 대상 리소스는 복제하는 동안 및 장애 조치(failover)가 발생하는 경우에 사용됩니다. Site Recovery는 기본적으로 대상 리소스를 설정할 수 있습니다. 또는 사용자가 만들거나 사용자 지정할 수 있습니다.<br/><br/> 대상 지역에서 VM을 만들 수 있는지, 구독에 대상 지역에 필요한 VM 크기를 지원하기 위해 충분한 리소스가 있는지 확인합니다. 
 
-![원본 및 대상 복제를 보여 주는 다이어그램](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![원본 및 대상 복제를 보여 주는 다이어그램입니다.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>대상 리소스
 
@@ -55,17 +52,17 @@ VM의 복제를 활성화하면 Site Recovery는 대상 리소스를 자동으�
 다음과 같이 대상 리소스를 관리할 수 있습니다.
 
 - 복제를 사용하도록 설정하면 대상 설정을 수정할 수 있습니다.
-- 복제가 작동한 후 대상 설정을 수정할 수 있습니다. 대상 지역 VM에 대 한 기본 SKU는 원본 VM의 SKU (또는 원본 VM SKU와 비교 하 여 사용 가능한 다음 최고 SKU)와 동일 합니다. 대상 리소스 그룹, 대상 이름 등과 같은 다른 리소스와 마찬가지로 복제를 진행 중인 후에도 대상 지역 VM SKU를 업데이트할 수 있습니다. 업데이트할 수 없는 리소스는 가용성 유형 (단일 인스턴스, 집합 또는 영역)입니다. 이 설정을 변경하려면 복제를 비활성화하고, 설정을 수정한 다음, 다시 활성화해야 합니다. 
+- 복제가 작동한 후 대상 설정을 수정할 수 있습니다. 대상 지역 VM에 대한 기본 SKU는 원본 VM의 SKU(또는 원본 VM SKU와 비교하여 다음으로 가장 좋은 사용 가능한 SKU)와 동일합니다. 대상 리소스 그룹, 대상 이름 등과 같은 다른 리소스와 유사하게 복제가 진행 중인 후에 대상 지역 VM SKU를 업데이트할 수도 있습니다. 업데이트할 수 없는 리소스는 가용성 유형(단일 인스턴스, 집합 또는 영역)입니다. 이 설정을 변경하려면 복제를 비활성화하고, 설정을 수정한 다음, 다시 활성화해야 합니다. 
 
 
 ## <a name="replication-policy"></a>복제 정책 
 
 Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요약된 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
-**정책 설정** | **세부 정보** | **기본값**
+**정책 설정** | **세부 정보** | **기본**
 --- | --- | ---
 **복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
-**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4 시간 마다
+**앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4시간마다
 
 ### <a name="managing-replication-policies"></a>복제 정책 관리
 
@@ -104,7 +101,7 @@ Site Recovery는 다음과 같이 스냅샷을 생성합니다.
 
 **설명** | **세부 정보** | **권장**
 --- | --- | ---
-앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) Azure Site Recovery Microsoft SQL의 트랜잭션 로그 백업 시간 및 시퀀스 번호를 변경 하지 않는 복사 전용 백업 (VSS_BT_COPY) 방법을 사용 합니다. </br></br> 2) 스냅숏이 시작 될 때 VSS는 볼륨에서 쓰기 (소) 작업을 수행 합니다.<br/><br/>   3) 소를 수행 하기 전에 VSS는 메모리 상주 데이터를 디스크에 플러시하는 데 필요한 모든 앱을 컴퓨터에 알립니다.<br/><br/>   4) VSS는 백업/재해 복구 앱 (이 경우 Site Recovery)에서 스냅숏 데이터를 읽고 계속 진행할 수 있도록 합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
+앱 일치 복구 지점은 앱 일치 스냅샷에서 생성됩니다.<br/><br/> 앱 일치 스냅샷은 크래시 일관성 스냅샷의 모든 정보와 메모리의 모든 데이터 및 진행 중인 트랜잭션을 포함합니다. | 앱 일치 스냅샷은 VSS(볼륨 섀도 복사본 서비스)를 사용합니다.<br/><br/>   1) Azure Site Recovery는 Microsoft SQL의 트랜잭션 로그 백업 시간 및 시퀀스 번호를 변경하지 않는 복사 전용 백업(VSS_BT_COPY) 방법을 사용합니다. </br></br> 2) 스냅샷이 시작되면 VSS는 볼륨에 COW(기록 중 복사) 작업을 수행합니다.<br/><br/>   3) COW를 수행하기 전에 VSS는 머신의 모든 앱에 해당 메모리 상주 데이터를 디스크에 플러시해야 함을 알립니다.<br/><br/>   4) 그런 다음, VSS는 백업/재해 복구 앱(이 경우 Site Recovery)에서 스냅샷 데이터를 읽고 진행하도록 허용합니다. | 앱 일치 스냅샷은 지정하는 빈도에 따라 생성됩니다. 이 빈도는 항상 복구 지점 유지에 대한 설정보다 작아야 합니다. 예를 들어 24시간의 기본 설정을 사용하여 복구 지점을 보존하는 경우 빈도를 24시간 미만으로 설정해야 합니다.<br/><br/>크래시 일관성 스냅샷보다 더 복잡하며 완료하는 데 시간이 더 걸립니다.<br/><br/> 복제에 대해 활성화된 VM에서 실행되는 앱의 성능에 영향을 미칩니다. 
 
 ## <a name="replication-process"></a>복제 프로세스
 
@@ -116,7 +113,7 @@ Azure VM에 대해 복제를 활성화하면 다음 상황이 발생합니다.
 4. Site Recovery는 캐시의 데이터를 처리하여 대상 스토리지 계정 또는 복제본 관리 디스크로 보냅니다.
 5. 데이터가 처리된 후 크래시 일관성 복구 지점이 5분마다 생성됩니다. 앱 일치 복구 지점은 복제 정책에 지정된 설정에 따라 생성됩니다.
 
-![복제 프로세스를 보여 주는 다이어그램 2 단계](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![2단계 복제 프로세스를 보여 주는 다이어그램입니다.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **복제 프로세스**
 
@@ -134,35 +131,35 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
 | 복제               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
-| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | 포털을 통해 ADE 지원 가상 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 액세스 허용 |
-| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | 포털을 통해 복제 된 항목에 대해 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 합니다. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | 포털을 통해 ADE 지원 가상 머신에 대한 복제를 사용하도록 설정하기 위한 액세스를 허용합니다. |
+| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | 포털을 통해 복제된 항목의 모바일 에이전트의 자동 업그레이드 사용 설정을 허용합니다. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
 IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면 다음 주소를 허용합니다.
-네트워크 연결 요구 사항에 대 한 자세한 내용은 [네트워킹 백서](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 를 참조 하십시오. 
+네트워크 연결 요구 사항에 대한 자세한 내용은 [네트워킹 백서](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags)에서 찾을 수 있습니다. 
 
 #### <a name="source-region-rules"></a>원본 지역 규칙
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<region-name>
-HTTPS 아웃바운드 허용: 포트 443 | Azure Active Directory에 해당 하는 범위 허용 (Azure AD)  | AzureActiveDirectory
-HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<region-name>
-HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
-HTTPS 아웃바운드 허용: 포트 443 | Azure Key Vault에 해당 하는 범위 허용 (포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 데만 필요) | AzureKeyVault
-HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해당 하는 범위 허용 (포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요) | GuestAndHybridManagement
+HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | Storage.\<region-name>
+HTTPS 아웃바운드 허용: 포트 443 | Azure AD(Azure Active Directory)에 해당하는 범위를 허용합니다.  | AzureActiveDirectory
+HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 이벤트 허브에 해당하는 범위를 허용합니다. | EventsHub.\<region-name>
+HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당하는 범위를 허용합니다.  | AzureSiteRecovery
+HTTPS 아웃바운드 허용: 포트 443 | Azure Key Vault에 해당하는 범위를 허용합니다(포털을 통해 ADE 지원 가상 머신의 복제를 사용하도록 설정하는 데만 필요). | AzureKeyVault
+HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해당하는 범위를 허용합니다(포털을 통해 복제된 항목에 대한 모바일 에이전트의 자동 업그레이드를 사용하도록 설정하는 데만 필요). | GuestAndHybridManagement
 
 #### <a name="target-region-rules"></a>대상 지역 규칙
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 저장소 계정에 해당 하는 범위 허용 | 저장할.\<region-name>
-HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당 하는 범위 허용  | AzureActiveDirectory
-HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<region-name>
-HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
-HTTPS 아웃바운드 허용: 포트 443 | Azure Key Vault에 해당 하는 범위 허용 (포털을 통해 ADE 지원 가상 컴퓨터의 복제를 사용 하도록 설정 하는 데만 필요) | AzureKeyVault
-HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해당 하는 범위 허용 (포털을 통해 복제 된 항목에 대 한 모바일 에이전트의 자동 업그레이드를 사용 하도록 설정 하는 경우에만 필요) | GuestAndHybridManagement
+HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | Storage.\<region-name>
+HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당하는 범위 허용  | AzureActiveDirectory
+HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 이벤트 허브에 해당하는 범위를 허용합니다. | EventsHub.\<region-name>
+HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당하는 범위를 허용합니다.  | AzureSiteRecovery
+HTTPS 아웃바운드 허용: 포트 443 | Azure Key Vault에 해당하는 범위를 허용합니다(포털을 통해 ADE 지원 가상 머신의 복제를 사용하도록 설정하는 데만 필요). | AzureKeyVault
+HTTPS 아웃바운드 허용: 포트 443 | Azure Automation 컨트롤러에 해당하는 범위를 허용합니다(포털을 통해 복제된 항목에 대한 모바일 에이전트의 자동 업그레이드를 사용하도록 설정하는 데만 필요). | GuestAndHybridManagement
 
 
 #### <a name="control-access-with-nsg-rules"></a>NSG 규칙을 사용하여 액세스 제어
@@ -191,7 +188,7 @@ Site Recovery에 대한 [아웃바운드 연결](azure-to-azure-about-networking
 
 장애 조치(failover)를 시작하면 대상 리소스 그룹, 대상 가상 네트워크, 대상 서브넷 및 대상 가용성 집합에 VM이 생성됩니다. 장애 조치(failover) 중에는 모든 복구 지점을 사용할 수 있습니다.
 
-![원본 및 대상 환경의 장애 조치 (failover) 프로세스를 보여 주는 다이어그램](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![원본 및 대상 환경의 장애 조치(failover) 프로세스를 보여 주는 다이어그램입니다.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>다음 단계
 

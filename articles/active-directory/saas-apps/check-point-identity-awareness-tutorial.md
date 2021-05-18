@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/08/2021
+ms.date: 04/15/2021
 ms.author: jeedes
-ms.openlocfilehash: 0024d6b3f7e692a7caf13457b27c32d0ba9dc1e8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f517698c1e44ccb5bdddb5a0bf78578c62b481e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134378"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740054"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-identity-awareness"></a>자습서: Check Point Identity Awareness와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -85,13 +85,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Check Point Identity Awareness 클라이언트 지원 팀](mailto:support@checkpoint.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/metadataxml.png)
 
 1. **Check Point Identity Awareness 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
+
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -136,7 +137,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. **Reply URL**(회신 URL) 값을 복사하고, 이 값을 Azure Portal의 **기본 SAML 구성** 섹션에 있는 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    e. **Import the Metadata File**(메타데이터 파일 가져오기)을 선택하여 Azure Portal에서 다운로드한 **인증서(Base64)** 를 업로드합니다.
+    e. **메타데이터 파일 가져오기** 를 선택하고 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 을 업로드합니다.
 
     > [!NOTE]
     > 또는 **Insert Manually**(수동으로 삽입)를 선택하여 수동으로 **Entity ID**(엔터티 ID) 및 **Login URL**(로그인 URL) 값을 해당 필드에 붙여넣고 Azure Portal에서 **인증서 파일** 을 업로드할 수도 있습니다.

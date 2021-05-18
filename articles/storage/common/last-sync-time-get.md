@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 242700c05053aa9d07e3a561a21986c8451a46c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91612447"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>스토리지 계정에 대한 마지막 동기화 시간 속성 확인
@@ -38,7 +38,7 @@ PowerShell 또는 Azure CLI를 사용하여 **마지막 동기화 시간** 속�
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 [Az. storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈의 버전 1.11.0 이상을 설치 합니다. 그런 다음, 스토리지 계정의 **GeoReplicationStats.LastSyncTime** 속성을 확인합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+PowerShell을 사용하여 스토리지 계정의 마지막 동기화 시간을 가져오려면 [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) 모듈 버전 1.11.0 이상을 설치합니다. 그런 다음, 스토리지 계정의 **GeoReplicationStats.LastSyncTime** 속성을 확인합니다. 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

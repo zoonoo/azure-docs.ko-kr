@@ -3,12 +3,12 @@ title: 고급 쿼리 샘플
 description: Azure Resource Graph를 사용하여 열 작업, 사용된 태그 나열 및 정규식과 일치하는 리소스를 비롯한 일부 고급 쿼리를 실행합니다.
 ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef26a12b2b9d8b0d2bfe473ca91c12985185ade8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104949858"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751556"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>고급 Resource Graph 쿼리 샘플
 
@@ -218,7 +218,7 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ## <a name="list-cosmos-db-with-specific-write-locations"></a><a name="mvexpand-cosmosdb"></a>특정 쓰기 위치를 사용하여 Cosmos DB 나열
 
-다음 쿼리는 Cosmos DB 리소스를 제한하고, `mv-expand`를 사용하여 **properties.writeLocations** 와 프로젝트 관련 필드에 대한 속성 모음을 차례로 확장한 다음, '미국 동부' 또는 '미국 서부'와 일치하는 **properties.writeLocations.locationName** 값으로 결과를 제한합니다.
+다음 쿼리는 Azure Cosmos DB 리소스를 제한하고, `mv-expand`를 사용하여 **properties.writeLocations** 와 프로젝트 관련 필드에 대한 속성 모음을 차례로 확장한 다음, ‘미국 동부’ 또는 ‘미국 서부’와 일치하는 **properties.writeLocations.locationName** 값으로 결과를 제한합니다.
 
 ```kusto
 Resources
@@ -330,15 +330,15 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.sql/servers/database
 ```kusto
 Resources
 | where type =~ 'microsoft.compute/virtualmachines'
-| extend nics=array_length(properties.networkProfile.networkInterfaces) 
-| mv-expand nic=properties.networkProfile.networkInterfaces 
-| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic) 
-| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id) 
+| extend nics=array_length(properties.networkProfile.networkInterfaces)
+| mv-expand nic=properties.networkProfile.networkInterfaces
+| where nics == 1 or nic.properties.primary =~ 'true' or isempty(nic)
+| project vmId = id, vmName = name, vmSize=tostring(properties.hardwareProfile.vmSize), nicId = tostring(nic.id)
 | join kind=leftouter (
     Resources
     | where type =~ 'microsoft.network/networkinterfaces'
-    | extend ipConfigsCount=array_length(properties.ipConfigurations) 
-    | mv-expand ipconfig=properties.ipConfigurations 
+    | extend ipConfigsCount=array_length(properties.ipConfigurations)
+    | mv-expand ipconfig=properties.ipConfigurations
     | where ipConfigsCount == 1 or ipconfig.properties.primary =~ 'true'
     | project nicId = id, publicIpId = tostring(ipconfig.properties.publicIPAddress.id))
 on nicId
@@ -390,7 +390,7 @@ Resources
 | join kind=leftouter(
     Resources
     | where type == 'microsoft.compute/virtualmachines/extensions'
-    | extend 
+    | extend
         VMId = toupper(substring(id, 0, indexof(id, '/extensions'))),
         ExtensionName = name
 ) on $left.JoinID == $right.VMId
@@ -532,7 +532,6 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 이 쿼리는 가상 머신의 [확장 속성](../concepts/query-language.md#extended-properties)을 사용하여 전원 상태별로 요약합니다.
 
-
 ```kusto
 Resources
 | where type == 'microsoft.compute/virtualmachines'
@@ -563,7 +562,8 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ## <a name="count-of-non-compliant-guest-configuration-assignments"></a><a name="count-gcnoncompliant"></a>비규격 게스트 구성 할당의 수
 
-[게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 기준으로 비규격 머신의 수를 표시합니다. 성능에 대한 결과를 처음 100으로 제한합니다.
+[게스트 구성 할당 이유](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)를 기준으로 비규격 머신의 수를 표시합니다.
+성능에 대한 결과를 처음 100으로 제한합니다.
 
 ```kusto
 GuestConfigurationResources

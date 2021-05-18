@@ -7,15 +7,15 @@ ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 851a87885ac765c829e8c2be9fd1205e22906ca9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94445157"
 ---
 # <a name="hierarchical-state-override"></a>계층 상태 재정의
 
-대부분의 경우에는 [모델](../../concepts/models.md)의 일부에 대 한 모양을 동적으로 변경 해야 합니다. 예를 들어 하위 그래프를 숨기 거 나 부분을 투명 렌더링으로 전환할 수 있습니다. 관련된 각 파트의 재질을 변경하는 것은 전체 장면 그래프를 반복하고 각 노드에서 재질 복제 및 할당을 관리해야 하므로 실용적이지 않습니다.
+대부분의 경우에는 하위 그래프를 숨기거나 투명한 렌더링으로 파트를 전환하는 등, [모델](../../concepts/models.md)의 파트에 대한 모양을 동적으로 변경해야 합니다. 관련된 각 파트의 재질을 변경하는 것은 전체 장면 그래프를 반복하고 각 노드에서 재질 복제 및 할당을 관리해야 하므로 실용적이지 않습니다.
 
 최소한의 오버 헤드로 이 사용 사례를 수행하려면 `HierarchicalStateOverrideComponent`를 사용합니다. 이 구성 요소는 장면 그래프의 임의 분기에서 계층 상태 업데이트를 구현합니다. 즉, 상태는 장면 그래프의 모든 수준에서 정의될 수 있으며 새 상태로 재정의되거나 리프 개체에 적용될 때까지 계층 구조로 공급됩니다.
 
@@ -28,37 +28,37 @@ ms.locfileid: "94445157"
 
 재정의할 수 있는 상태의 고정 집합은 다음과 같습니다.
 
-* **`Hidden`**: 장면 그래프의 각 망상이 숨겨지거나 표시 됩니다.
-* **`Tint color`**: 렌더링 된 개체는 개별 색조 색 및 색조 가중치를 사용 하 여 색 색조가 될 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
+* **`Hidden`** : 장면 그래프의 각 메시가 숨겨지거나 표시됩니다.
+* **`Tint color`** : 렌더링된 개체는 개별 색조 색 및 색조 가중치를 사용하여 색을 칠할 수 있습니다. 아래 이미지는 휠 테두리를 색칠한 모습을 보여줍니다.
   
-  ![개체를 녹색으로 전환 하는 데 사용 되는 색조 색입니다.](./media/color-tint.png)
+  ![개체를 녹색으로 전환하는 데 사용되는 색조 색](./media/color-tint.png)
 
-* **`See-through`**: 개체의 내부 부분을 표시 하는 등의 방법으로 기 하 도형을 약간 투명 하 게 렌더링 합니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
+* **`See-through`** : 예를 들어 개체의 내부 파트를 표시하기 위해 기하 도형은 약간 투명하게 렌더링됩니다. 다음 이미지는 빨간색 브레이크 캘리퍼를 제외하고, 투명 모드에서 렌더링되는 전체 자동차를 보여줍니다.
 
-  ![선택한 개체를 투명 하 게 만드는 데 사용 되는 보기 모드](./media/see-through.png)
+  ![선택한 개체를 투명하게 만드는 데 사용되는 투명 모드](./media/see-through.png)
 
   > [!IMPORTANT]
   > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 투명 효과가 나타납니다.
 
-* **`Shell`**: 기 하 도형은 투명 한 비 포화 셸로 렌더링 됩니다. 이 모드를 사용 하면 모양과 상대 위치를 그대로 유지 하면서 장면의 중요 하지 않은 부분을 페이드 아웃할 수 있습니다. 셸 렌더링의 모양을 변경 하려면 [ShellRenderingSettings](shell-effect.md) 상태를 사용 합니다. 파란색 스프링을 제외 하 고 완전히 셸 렌더링 되는 자동차 모델은 다음 이미지를 참조 하세요.
+* **`Shell`** : 기하 도형이 채도를 낮춘 투명한 셸로 렌더링됩니다. 이 모드를 사용하면 모양과 상대 위치를 그대로 유지하면서 장면의 중요하지 않은 부분을 페이드 아웃할 수 있습니다. 셸 렌더링의 모양을 변경하려면 [ShellRenderingSettings](shell-effect.md) 상태를 사용합니다. 파란색 스프링을 제외하고 완전히 셸 렌더링되는 자동차 모델은 다음 이미지를 참조하세요.
 
-  ![특정 개체를 페이드 아웃 하는 데 사용 되는 셸 모드](./media/shell.png)
+  ![특정 개체를 페이드 아웃하는 데 사용되는 셸 모드](./media/shell.png)
 
   > [!IMPORTANT]
-  > 셸 효과는 *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md) 를 사용 하는 경우에만 작동 합니다.
+  > *TileBasedComposition* [렌더링 모드](../../concepts/rendering-modes.md)가 사용될 때만 셸 효과가 나타납니다.
 
-* **`Selected`**: Geometry는 [선택 윤곽](outlines.md)을 사용 하 여 렌더링 됩니다.
+* **`Selected`** : [윤곽 선택](outlines.md)을 사용하여 기하 도형을 렌더링합니다.
 
-  ![선택한 파트를 강조 표시 하는 데 사용 되는 윤곽선 옵션](./media/selection-outline.png)
+  ![선택한 부분을 강조 표시하는 데 사용되는 윤곽선 옵션](./media/selection-outline.png)
 
-* **`DisableCollision`**: 기 하 도형은 [공간 쿼리에서](spatial-queries.md)제외 됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정 됩니다.
+* **`DisableCollision`** : 기하 도형이 [공간 쿼리](spatial-queries.md)에서 제외됩니다. **`Hidden`** 플래그는 충돌 상태 플래그에 영향을 주지 않으므로 이러한 두 플래그는 자주 함께 설정됩니다.
 
-* **`UseCutPlaneFilterMask`**: 개별 필터 비트 마스크를 사용 하 여 잘림 평면 선택을 제어 합니다. 이 플래그는 개별 필터 마스크를 사용 하거나 부모 로부터 상속 해야 하는지 여부를 결정 합니다. 필터 비트 마스크 자체는 속성을 통해 설정 됩니다 `CutPlaneFilterMask` . 필터링의 작동 방식에 대 한 자세한 내용은 [선택적 잘라내기 평면 단락](cut-planes.md#selective-cut-planes)을 참조 하세요. 장면의 나머지 부분이 영향을 받지 않는 동안에는 타이어 및 테두리만 잘라내는 다음 예제를 참조 하세요.
-![선택적 잘라내기 평면](./media/selective-cut-planes-hierarchical-override.png)
+* **`UseCutPlaneFilterMask`** : 개별 필터 비트 마스크를 사용하여 절단면 선택을 제어합니다. 이 플래그는 개별 필터 마스크 사용 여부 및 부모로부터 상속 여부를 결정합니다. 필터 비트 마스크 자체는 `CutPlaneFilterMask` 속성을 통해 설정됩니다. 필터링 작동 방식에 대한 자세한 내용은 [선택적 절단면 단락](cut-planes.md#selective-cut-planes)을 참조하세요. 장면의 나머지 부분은 영향을 받지 않고 타이어 및 테두리만 잘라내는 경우는 다음 예를 참조하세요.
+![선택적 절단면](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
-> 전체 하위 그래프의 표시 유형 및 공간 쿼리를 해제 하는 대신 `enabled` 게임 개체의 상태를 설정/해제할 수 있습니다. 계층을 사용 하지 않도록 설정 하는 경우이에 대 한 우선 순위가 지정 됩니다 `HierarchicalStateOverrideComponent` .
+> 전체 하위 그래프의 표시 유형 및 공간 쿼리를 해제하는 대신 게임 개체의 `enabled` 상태를 설정/해제할 수 있습니다. 계층을 사용하지 않도록 설정하는 경우 `HierarchicalStateOverrideComponent`보다 우선합니다.
 
 ## <a name="hierarchical-overrides"></a>계층 재정의
 
@@ -102,18 +102,18 @@ component->SetState(
 
 ### <a name="tint-color"></a>색조 색
 
-`tint color`On/off/inherit 상태와 색조 색 속성이 모두 있으므로 재정의는 약간 특수 합니다. 색조 색의 알파 부분은 색조 효과의 가중치를 정의합니다. 0.0로 설정된 경우에는 색조 색을 볼 수 없으며 1.0로 설정된 경우 개체가 순수한 색조 색으로 렌더링됩니다. 중간 값의 경우 최종 색은 색조 색과 혼합됩니다. 색 애니메이션을 달성하기 위해 각 프레임 단위로 색조 색을 변경할 수 있습니다.
+`tint color` 재정의는 on/off/inherit 상태와 색조 색 속성이 모두 약간 특별합니다. 색조 색의 알파 부분은 색조 효과의 가중치를 정의합니다. 0.0로 설정된 경우에는 색조 색을 볼 수 없으며 1.0로 설정된 경우 개체가 순수한 색조 색으로 렌더링됩니다. 중간 값의 경우 최종 색은 색조 색과 혼합됩니다. 색 애니메이션을 달성하기 위해 각 프레임 단위로 색조 색을 변경할 수 있습니다.
 
 ## <a name="performance-considerations"></a>성능 고려 사항
 
 `HierarchicalStateOverrideComponent` 자체의 인스턴스는 런타임 오버헤드를 많이 추가하지는 않습니다. 그러나 활성 구성 요소의 수를 낮게 유지하는 것은 언제나 바람직합니다. 예를 들어 선택한 개체를 강조 표시하는 선택 시스템을 구현하는 경우 강조 표시가 제거될 때 구성 요소를 삭제하는 것이 좋습니다. 중립 기능을 중심으로 구성 요소를 유지하면 신속하게 추가할 수 있습니다.
 
-투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through* 로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [선택 윤곽이](../../overview/features/outlines.md#performance) 있는 개체와 [셸 렌더링](../../overview/features/shell-effect.md#performance) 의 경우에도 마찬가지입니다. 
+투명 렌더링은 표준 렌더링보다 서버의 GPU에 더 많은 작업을 배치합니다. 장면 그래프의 큰 파트를 *see-through* 로 전환하고 많은 레이어의 기하 도형을 표시하는 경우, 성능 병목 상태가 발생할 수 있습니다. [윤곽 선택](../../overview/features/outlines.md#performance)이 있는 개체 및 [셸 렌더링](../../overview/features/shell-effect.md#performance)에도 동일하게 사용할 수 있습니다. 
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # HierarchicalStateOverrideComponent 클래스](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
-* [C + + HierarchicalStateOverrideComponent 클래스](/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
+* [C# HierarchicalStateOverrideComponent 클래스](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [C++ HierarchicalStateOverrideComponent 클래스](/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>다음 단계
 

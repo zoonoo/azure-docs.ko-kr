@@ -1,5 +1,5 @@
 ---
-title: LUIS 미리 작성 한 엔터티 전자 메일 참조
+title: LUIS 미리 빌드된 엔터티 이메일 참조
 titleSuffix: Azure Cognitive Services
 description: 이 아티클에는 LUIS(Language Understanding)의 이메일 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
 ms.openlocfilehash: 806357670bead54658f0b501ca20473293275d58
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91533369"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 이메일 미리 빌드된 엔터티
@@ -21,13 +21,13 @@ ms.locfileid: "91533369"
 
 ## <a name="resolution-for-prebuilt-email"></a>미리 빌드된 이메일의 해결
 
-쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+쿼리에 대해 반환되는 엔터티 개체는 다음과 같습니다.
 
 `please send the information to patti@contoso.com`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `false` .
+다음 JSON의 `verbose` 매개 변수가 `false`로 설정되어 있습니다.
 
 ```json
 "entities": {
@@ -38,7 +38,7 @@ ms.locfileid: "91533369"
 ```
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
 
-다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `true` .
+다음 JSON의 `verbose` 매개 변수가 `true`로 설정되어 있습니다.
 
 ```json
 "entities": {

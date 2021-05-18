@@ -3,12 +3,12 @@ title: 시작 쿼리 샘플
 description: Azure Resource Graph를 사용하여 리소스 개수 계산, 리소스 정렬 또는 특정 태그를 포함한 일부 시작 쿼리를 실행합니다.
 ms.date: 05/01/2021
 ms.topic: sample
-ms.openlocfilehash: 52744c3d1e83874d4ac469a93eef86ae12155b5a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ddb4b57a9f2bae8298de8dad74e99edc19353e42
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326006"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751502"
 ---
 # <a name="starter-resource-graph-query-samples"></a>스타터 Resource Graph 쿼리 샘플
 
@@ -17,7 +17,7 @@ Azure Resource Graph를 사용하는 쿼리를 이해하는 첫 번째 단계는
 다음 시작 쿼리를 살펴보겠습니다.
 
 - [Azure 리소스 개수 계산](#count-resources)
-- [Key Vault 리소스 수](#count-keyvaults)
+- [Key Vault 리소스 개수 계산](#count-keyvaults)
 - [리소스를 이름별로 나열](#list-resources)
 - [이름의 내림차순으로 모든 가상 머신 나열](#show-vms)
 - [이름 및 해당 OS 유형별로 처음 5개의 가상 머신 표시](#show-sorted)
@@ -69,7 +69,7 @@ Search-AzGraph -Query "Resources | summarize count()"
 
 ---
 
-## <a name="count-key-vault-resources"></a><a name="count-keyvaults"></a>Key Vault 리소스 수
+## <a name="count-key-vault-resources"></a><a name="count-keyvaults">Key Vault 리소스 개수 계산</a>
 
 이 쿼리는 `summarize` 대신 `count`를 사용하여 반환된 레코드 수를 계산합니다. Key Vault만 개수에 포함됩니다.
 
@@ -468,7 +468,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Storage/storageAccou
 이 쿼리는 먼저 `isnotempty()` 태그가 `project`에 _태그_ 만 포함시켜 포함된 필드를 제한하는 리소스로 제한하고 `mvexpand`와 `extend`는 속성 모음에서 쌍으로 연결된 데이터를 가져옵니다. 그런 다음, `union`을 사용하여 _ResourceContainers_ 의 결과를 _리소스_ 의 동일한 결과와 결합하여 태그를 가져올 수 있는 광범위한 범위를 제공합니다. 마지막으로, 결과를 `distinct` 쌍 데이터로 제한하고 시스템 숨김 태그를 제외합니다.
 
 ```kusto
-ResourceContainers 
+ResourceContainers
 | where isnotempty(tags)
 | project tags
 | mvexpand tags
@@ -555,7 +555,7 @@ advisorresources
     solution = tostring(properties.shortDescription.solution),
     currency = tostring(properties.extendedProperties.savingsCurrency)
 | summarize
-    dcount(resources), 
+    dcount(resources),
     bin(sum(savings), 0.01)
     by solution, currency
 | project solution, dcount_resources, sum_savings, currency

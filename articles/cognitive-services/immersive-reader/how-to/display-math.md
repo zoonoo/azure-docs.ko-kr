@@ -1,7 +1,7 @@
 ---
-title: 몰입 형 판독기에 수학 표시
+title: 몰입형 리더에 수식 표시
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 몰입 형 판독기에 수치를 표시 하는 방법을 보여 줍니다.
+description: 이 문서에서는 몰입형 리더에 수식을 표시하는 방법을 보여줍니다.
 author: nitinme
 manager: guillasi
 ms.service: cognitive-services
@@ -11,21 +11,21 @@ ms.date: 01/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
 ms.openlocfilehash: 75b748604e8faa502970ac71e3fec4fae2774c19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91334517"
 ---
-# <a name="how-to-display-math-in-the-immersive-reader"></a>몰입 형 판독기에서 수학을 표시 하는 방법
+# <a name="how-to-display-math-in-the-immersive-reader"></a>몰입형 리더에 수식을 표시하는 방법
 
-[MathML](https://developer.mozilla.org/docs/Web/MathML)(수학 Markup Language) 형식으로 제공 된 경우 몰입 형 판독기에서 수학을 표시할 수 있습니다.
-MIME 형식은 몰입 형 판독기 [청크](../reference.md#chunk)를 통해 설정할 수 있습니다. 자세한 내용은 [지원 되는 MIME 형식](../reference.md#supported-mime-types) 을 참조 하세요.
+[MathML](https://developer.mozilla.org/docs/Web/MathML)(Mathematical Markup Language) 형식으로 제공될 때 몰입형 리더에서 수식을 표시할 수 있습니다.
+MIME 형식은 몰입형 리더 [청크](../reference.md#chunk)를 통해 설정할 수 있습니다. 자세한 내용은 [지원되는 MIME 형식](../reference.md#supported-mime-types)을 참조하세요.
 
-## <a name="send-math-to-the-immersive-reader"></a>몰입 형 판독기로 수학을 보냅니다.
-MathML를 포함 하는 청크를 입력 하 고 MIME 형식을로 설정 합니다 ```application/mathml+xml``` .
+## <a name="send-math-to-the-immersive-reader"></a>몰입형 리더로 수식 보내기
+몰입형 리더로 수식을 보내기 위해서 MathML을 포함하는 청크를 제공하고 MIME 형식을 ```application/mathml+xml```로 설정합니다.
 
-예를 들어 다음과 같은 내용이 있습니다.
+예를 들어 콘텐츠가 다음과 같은 경우입니다.
 
 ```html
 <div id='ir-content'>
@@ -54,7 +54,7 @@ MathML를 포함 하는 청크를 입력 하 고 MIME 형식을로 설정 합니
 </div>
 ```
 
-그러면 다음 JavaScript를 사용 하 여 콘텐츠를 표시할 수 있습니다.
+그러면 다음 JavaScript를 사용하여 콘텐츠를 표시할 수 있습니다.
 
 ```javascript
 const data = {
@@ -68,9 +68,9 @@ const data = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, data, YOUR_OPTIONS);
 ```
 
-몰입 형 판독기를 시작 하면 다음이 표시 됩니다.
+몰입형 리더를 시작하면 다음과 같이 표시됩니다.
 
-![몰입 형 판독기의 수학](../media/how-tos/1-math.png)
+![몰입형 리더의 수식](../media/how-tos/1-math.png)
 
 ## <a name="next-steps"></a>다음 단계
 

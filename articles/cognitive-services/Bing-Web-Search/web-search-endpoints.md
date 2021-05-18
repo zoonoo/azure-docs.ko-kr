@@ -1,7 +1,7 @@
 ---
 title: Web Search 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: 웹 검색 결과를 가져오려면 `GET` 다음 끝점에 요청을 보냅니다. 헤더 및 URL 매개 변수는 추가 사양을 정의합니다.
+description: 웹 검색 결과를 얻으려면 다음 엔드포인트로 `GET` 요청을 보냅니다. 헤더 및 URL 매개 변수는 추가 사양을 정의합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: aahi
 ms.openlocfilehash: c882e3e4d0cd6ba594a700f4fd53c14103a8d1d1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94381255"
 ---
 # <a name="web-search-endpoint"></a>Web Search 엔드포인트

@@ -1,7 +1,7 @@
 ---
-title: 상태에 Text Analytics를 사용 하는 방법
+title: 의료 분야 Text Analytics 사용 방법
 titleSuffix: Azure Cognitive Services
-description: 상태에 대 한 Text Analytics를 사용 하 여 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블 하는 방법에 대해 알아봅니다.
+description: 의료 분야 Text Analytics를 사용하여 비구조적 임상 텍스트에서 의료 정보를 추출하고 레이블을 지정하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,92 +12,92 @@ ms.date: 03/11/2021
 ms.author: aahi
 ms.custom: references_regions
 ms.openlocfilehash: 80a943d235783852f57832363b5af8048f010575
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104599438"
 ---
-# <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 상태에 대 한 Text Analytics 사용 (미리 보기)
+# <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 의료 분야 Text Analytics(미리 보기)
 
 > [!IMPORTANT] 
-> 상태 Text Analytics은 "있는 그대로" 및 "모든 오류를 포함 하 여" 제공 되는 미리 보기 기능입니다. 따라서 **상태 (미리 보기)에 대 한 Text Analytics는 프로덕션 환경에서 구현 하거나 배포 해서는** 안 됩니다. 상태에 대 한 Text Analytics는 질병 또는 기타 조건에 대 한 진단, 치료, 완화, 처리 또는 방지에 사용 하기 위한 의료 장치, 임상 지원, 진단 도구 또는 기타 기술로 사용할 수 없으며, Microsoft가 이러한 목적을 위해이 기능을 사용할 수 있는 라이선스 또는 권한이 부여 되지 않습니다. 이 기능은 의료 전문가의 전문 의료 통지, 의료 보험 통지, 진단, 처리 또는 임상를 위한 대체 방법으로 설계 되거나 구현 하거나 배포 하기 위한 것이 아니며, 사용 하지 않아야 합니다. 고객은 상태에 대 한 Text Analytics의 사용만을 담당 합니다. Microsoft는 의료 목적을 위해이 기능을 사용 하 여 제공 되는 Text Analytics 또는 모든 사람의 의료 요구 사항을 충족 하는 경우에만이 기능을 제공 합니다. 
+> 의료 분야 Text Analytics는 "있는 그대로" 및 "모든 오류 포함"으로 제공되는 미리 보기 기능입니다. 따라서 **의료 분야 Text Analytics(미리 보기)는 프로덕션 환경에서 구현하거나 배포해서는 안 됩니다.** 의료 분야 Text Analytics는 질병 또는 기타 상태의 진단, 치료, 완화, 처치 또는 예방에 사용하기 위한 의료 기기, 임상 지원, 진단 도구 또는 기타 기술로 사용하도록 의도되거나 제공되지 않습니다. 또한 Microsoft는 이러한 목적으로 이 기능을 사용할 수 있는 라이선스나 권한을 부여하지 않습니다. 이 기능은 전문적인 의학적 조언이나 의료 의견, 진단, 치료 또는 의료 전문가의 임상적 판단을 대체하기 위해 구현되거나, 배포되도록 설계되거나, 의도된 것이 아니므로 그렇게 사용해서는 안 됩니다. 의료 분야 Text Analytics 사용의 책임은 전적으로 고객에게 있습니다. Microsoft는 의료 분야 Text Analytics 또는 그 기능과 관련하여 제공되는 자료가 의료 목적에 충분하거나 다른 사람의 건강 또는 의료 요구 사항을 충족한다고 보증하지 않습니다. 
 
 
-상태에 대 한 Text Analytics는 의료 노트, 방전 요약, 임상 문서 및 전자 상태 레코드와 같은 구조화 되지 않은 텍스트에서 관련 의료 정보를 추출 하 고 레이블 하는 텍스트 분석 API 서비스의 기능입니다.  이 서비스를 활용 하는 방법에는 두 가지가 있습니다. 
+의료 분야 Text Analytics는 의사의 메모, 퇴원 요약, 임상 문서 및 전자 의료 레코드 같은 구조화되지 않은 텍스트에서 관련 의료 정보를 추출하고 레이블을 지정하는 Text Analytics API 서비스 기능입니다.  이 서비스를 활용하는 방법에는 두 가지가 있습니다. 
 
-* [웹 기반 API (비동기)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
-* [Docker 컨테이너 (동기)](#hosted-asynchronous-web-api-response)   
+* [웹 기반 API(비동기)](#structure-the-api-request-for-the-hosted-asynchronous-web-api)
+* [Docker 컨테이너(동기)](#hosted-asynchronous-web-api-response)   
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## <a name="features"></a>기능
 
-상태 Text Analytics는 NER (명명 된 엔터티 인식), 관계 추출, 엔터티 부정 및 영어 텍스트에 대 한 엔터티 링크를 수행 하 여 비구조적 임상 및 생명 공학 텍스트에서 정보를 파악 합니다.
+의료 분야 Text Analytics는 NER(명명된 엔터티 인식), 관계 추출, 엔터티 부정 및 영어 텍스트에 대한 엔터티 연결을 수행하여 비구조적 임상 및 생명 공학 텍스트에서 정보를 파악합니다.
 
 ### <a name="named-entity-recognition"></a>[명명된 엔터티 인식](#tab/ner)
 
-명명 된 엔터티 인식은 진단, 조제 이름, 증상/기호 또는 연령와 같은 하나 이상의 의미 체계 형식과 연결 될 수 있는 구조화 되지 않은 텍스트에서 언급 된 단어와 구를 검색 합니다.
+명명된 엔터티 인식은 진단, 처방약 이름, 증상/징후 또는 연령과 같은 하나 이상의 의미 체계와 연관될 수 있는 비구조적 텍스트에 언급된 단어 및 구를 검색합니다.
 
 > [!div class="mx-imgBorder"]
-> ![상태 NER](../media/ta-for-health/health-named-entity-recognition.png)
+> ![의료 분야 NER](../media/ta-for-health/health-named-entity-recognition.png)
 
 ### <a name="relation-extraction"></a>[관계 추출](#tab/relation-extraction)
 
-관계 추출은 텍스트에 언급 된 개념 간의 의미 있는 연결을 식별 합니다. 예를 들어 "조건 시간" 관계는 조건 이름을 시간 또는 약어와 전체 설명 사이에 연결 하 여 찾을 수 있습니다.  
+관계 추출은 텍스트에 언급된 개념 간의 의미 있는 연결을 식별합니다. 예를 들어, "조건 시간" 관계는 조건 이름을 시간에 연결하여 찾거나 약어와 전체 설명 사이에서 찾습니다.  
 
 > [!div class="mx-imgBorder"]
-> ![상태 재지정](../media/ta-for-health/health-relation-extraction.png)
+> ![의료 분야 RE](../media/ta-for-health/health-relation-extraction.png)
 
 
 ### <a name="entity-linking"></a>[엔터티 연결](#tab/entity-linking)
 
-엔터티 링크는 텍스트에 언급 된 명명 된 엔터티를 구분 UMLS (통합 의료 언어 시스템)를 비롯 한 미리 정의 된 개념의 데이터베이스에 있는 개념에 연결 하 여 고유 엔터티를 제공 합니다. 의료 개념은 또한 추가 형태의 정규화로 기본 이름 지정이 할당 됩니다.
+엔터티 연결은 텍스트에 언급된 명명된 엔터티를 UMLS(통합 의료 언어 시스템)를 포함하여 사전 정의된 개념 데이터베이스에 있는 개념에 연결하여 고유한 엔터티를 구분합니다. 의료 개념에는 추가 정규화 형식으로 선호하는 이름이 지정됩니다.
 
 > [!div class="mx-imgBorder"]
-> ![상태 EL](../media/ta-for-health/health-entity-linking.png)
+> ![의료 분야 EL](../media/ta-for-health/health-entity-linking.png)
 
-상태에 대 한 Text Analytics는[Umls](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)(통합 의료 언어 시스템) Metathesaurus 기술 자료에 있는 상태 및 생명 공학 어휘에 연결 하는 것을 지원 합니다.
+의료 분야 Text Analytics는 [UMLS](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html)(Unified Modeling Language) Metathesaurus 기술 자료에 있는 상태 및 생명 공학 어휘에 연결하는 것을 지원합니다.
 
 ### <a name="assertion-detection"></a>[어설션 검색](#tab/assertion-detection) 
 
-Misrepresented 인 경우 중요 한 영향을 줄 수 있는 음수 또는 조건부 어설션과 같은 한정자의 경우 의료 콘텐츠의 의미가 크게 영향을 받습니다. 상태 Text Analytics는 텍스트에서 엔터티에 대 한 세 가지 범주의 어설션 검색을 지원 합니다. 
+의료 콘텐츠의 의미는 부정적 또는 조건적 어설션과 같은 한정자에 의해 크게 영향을 받습니다. 이러한 어설션이 잘못 표현될 경우 중대한 영향을 미칠 수 있습니다. 의료 분야 Text Analytics는 텍스트의 엔터티에 대한 세 가지 범주의 어설션 검색을 지원합니다. 
 
-* 명확
+* 확신도
 * 조건
 * 연관성
 
 > [!div class="mx-imgBorder"]
-> ![상태 NEG](../media/ta-for-health/assertions.png)
+> ![의료 분야 NEG](../media/ta-for-health/assertions.png)
 
 ---
 
-지원 되는 엔터티의 전체 목록에 대해서는 Text Analytics에서 반환 된 [엔터티 범주](../named-entity-types.md?tabs=health) 를 참조 하세요. 신뢰 점수에 대 한 자세한 내용은 [Text Analytics 투명도 메모](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context)를 참조 하세요. 
+지원되는 엔터티의 전체 목록은 의료 분야 Text Analytics에서 반환하는 [엔터티 범주](../named-entity-types.md?tabs=health)를 참조하세요. 신뢰도 점수에 대한 자세한 내용은 [Text Analytics 투명도 메모](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context)를 참조하세요. 
 
-### <a name="supported-languages-and-regions"></a>지원 되는 언어 및 지역
+### <a name="supported-languages-and-regions"></a>지원되는 언어 및 지역
 
-상태 Text Analytics는 영어 문서만 지원 합니다. 
+의료 분야 Text Analytics는 영어 문서만 지원합니다. 
 
-상태 호스트 된 web API에 대 한 Text Analytics은 현재 미국 서 부 2, 미국 동부 2, 미국 중부, 유럽, 유럽 및 유럽 서부 지역 에서만 사용할 수 있습니다.
+의료 분야 Text Analytics 호스팅 웹 API는 현재 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽 및 서부 유럽 지역에서만 사용할 수 있습니다.
 
-## <a name="request-access-to-the-public-preview"></a>공개 미리 보기에 대 한 액세스 요청
+## <a name="request-access-to-the-public-preview"></a>공개 미리 보기에 대한 액세스 요청
 
-상태 공개 미리 보기에 대 한 Text Analytics에 대 한 액세스를 요청 하는 [Cognitive Services 요청 양식을](https://aka.ms/csgate) 작성 하 고 제출 합니다. 상태 사용에 대 한 Text Analytics 요금은 청구 되지 않습니다. 
+의료 분야 Text Analytics 공개 미리 보기에 대한 액세스를 요청하려면 [Cognitive Services 요청 양식](https://aka.ms/csgate)을 작성하고 제출합니다. 의료 분야 Text Analytics 사용에 대한 비용은 청구되지 않습니다. 
 
-이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 양식이 제출 되 면 Azure Cognitive Services 팀에서 검토 하 고 의사 결정을 내립니다.
+이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 양식을 제출하면 Azure Cognitive Services 팀이 양식을 검토하여 이메일로 결과를 보내 드립니다.
 
 > [!IMPORTANT]
-> * 양식에서 Azure 구독 ID와 연결 된 전자 메일 주소를 사용 해야 합니다.
-> * 사용 하는 Azure 리소스는 승인 된 Azure 구독 ID로 생성 되어야 합니다. 
-> * Microsoft에서 응용 프로그램의 상태에 대 한 업데이트를 확인 하려면 전자 메일 (받은 편지함 및 정크 폴더 모두)을 확인 합니다.
+> * 양식에는 Azure 구독 ID와 연결된 이메일 주소를 사용해야 합니다.
+> * 사용하는 Azure 리소스는 승인된 Azure 구독 ID로 생성되어야 합니다. 
+> * Microsoft에서 애플리케이션의 상태에 대한 업데이트를 확인하려면 이메일(받은 편지함 및 스팸 메일함 모두)을 확인합니다.
 
 ## <a name="using-the-docker-container"></a>Docker 컨테이너 사용 
 
-사용자 환경에서 health 컨테이너에 Text Analytics를 실행 하려면 다음 지침에 따라 [컨테이너를 다운로드](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare)하 여 설치 합니다.
+사용자 환경에서 의료 분야 Text Analytics 컨테이너를 실행하려면 다음 [컨테이너 다운로드 및 설치 지침](../how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare)을 따르세요.
 
 ## <a name="using-the-client-library"></a>클라이언트 라이브러리 사용
 
-Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용 하면 클라이언트 개체를 사용 하 여 상태에 대 한 Text Analytics를 호출할 수 있습니다. 참조 설명서를 참조 하 고 GitHub의 예제를 참조 하세요.
+Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용하면 클라이언트 개체를 통해 의료 분야 Text Analytics를 호출할 수 있습니다. 참조 문서를 참조하고 GitHub의 예를 참조하세요.
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
@@ -108,20 +108,20 @@ Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용 하
 
 ### <a name="preparation"></a>준비
 
-상태에 대 한 Text Analytics 작업에 더 적은 양의 텍스트를 제공할 때 품질 높은 결과를 생성 합니다. 이는 더 큰 텍스트 블록에서 더 나은 성능을 제공 하는 키 구 추출을 비롯 한 다른 Text Analytics 기능 중 일부와 반대입니다. 이러한 작업에서 최상의 결과를 얻으려면 입력을 적절 하 게 재구성 하는 것이 좋습니다.
+의료 분야 Text Analytics에서는 사용할 텍스트를 더 작은 크기로 제공하면 더 높은 품질의 결과를 얻을 수 있습니다. 이는 더 큰 텍스트 블록에서 더 나은 성능을 제공하는 핵심 구 추출 등의 다른 Text Analytics 기능과는 반대입니다. 이러한 작업에서 최상의 결과를 얻으려면 이에 따라 입력을 다시 구성하는 것이 좋습니다.
 
 다음 형식의 JSON 문서가 있어야 합니다. ID, 텍스트 및 언어. 
 
 문서 크기는 문서당 5,120자 미만이어야 합니다. 컬렉션에 허용되는 최대 문서 수는 개념 아래의 [데이터 제한](../concepts/data-limits.md?tabs=version-3) 문서를 참조하세요. 컬렉션은 요청 본문에 제출됩니다.
 
-### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>호스트 된 비동기 웹 API에 대 한 API 요청 구성
+### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>호스팅된 비동기 웹 API에 대한 API 요청 구성
 
-컨테이너와 호스트 된 web API 모두에 대해 POST 요청을 만들어야 합니다. [상태 호스팅 api 참조에 대 한 Text Analytics](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) 에서 [Postman](text-analytics-how-to-call-api.md), 말아 넘기기 명령 또는 **api 테스트 콘솔** 을 사용 하 여 원하는 지역의 호스트 된 web api에 대 한 POST 요청을 빠르게 생성 하 고 보낼 수 있습니다. 
+컨테이너와 호스팅된 웹 API 모두에 대해 POST 요청을 만들어야 합니다. [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health)에서 [Postman](text-analytics-how-to-call-api.md), cURL 명령 또는 **API 테스트 콘솔** 을 사용하여 원하는 지역의 호스팅된 웹 API에 POST 요청을 빠르게 구성하고 보낼 수 있습니다. 
 
 > [!NOTE]
-> 비동기 및 끝점 모두는 미국 `/analyze` `/health` 서 부 2, 미국 동부 2, 미국 중부, 서유럽 및 유럽 서부 지역 에서만 사용할 수 있습니다.  이러한 끝점에 대 한 성공적인 요청을 만들려면 리소스가 이러한 지역 중 하나에 생성 되었는지 확인 하세요.
+> 비동기 `/analyze` 및 `/health` 엔드포인트는 모두 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽 및 서부 유럽 지역에서만 사용 가능합니다.  이러한 엔드포인트에 성공적으로 요청하려면 리소스가 이러한 지역 중 하나에서 생성되었는지 확인합니다.
 
-다음은 상태 API 요청의 게시 본문에 대 한 Text Analytics에 연결 된 JSON 파일의 예입니다.
+다음은 의료 분야 Text Analytics 요청의 POST 본문에 첨부된 JSON 파일의 예입니다.
 
 ```json
 example.json
@@ -137,17 +137,17 @@ example.json
 }
 ```
 
-### <a name="hosted-asynchronous-web-api-response"></a>호스트 된 비동기 웹 API 응답 
+### <a name="hosted-asynchronous-web-api-response"></a>호스팅된 비동기 웹 API 응답 
 
-이 POST 요청은 비동기 작업에 대 한 작업을 제출 하는 데 사용 되므로 응답 개체에 텍스트가 없습니다.  그러나 작업 및 출력의 상태를 확인 하는 GET 요청을 수행 하려면 응답 헤더에 작업-위치 키 값이 있어야 합니다.  다음은 POST 요청의 응답 헤더에 있는 작업 위치 키 값의 예입니다.
+이 POST 요청은 비동기 작업(operation)에 대한 작업(job)을 제출하는 데 사용되므로 응답 개체에 텍스트가 없습니다.  그러나 작업 및 출력의 상태를 확인하기 위해 GET 요청을 하려면 응답 헤더에 작업-위치 키 값이 필요합니다.  다음은 POST 요청의 응답 헤더에 있는 작업-위치 KEY 값의 예입니다.
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/health/jobs/<jobID>`
 
-작업 상태를 확인 하려면 POST 응답의 작업-위치 키 헤더 값에 있는 URL에 대 한 GET 요청을 수행 합니다.  작업 상태를 반영 하는 데 사용 되는 상태는,,,,, `NotStarted` `running` `succeeded` `failed` `rejected` `cancelling` 및 `cancelled` 입니다.  
+작업 상태를 확인하려면 POST 응답의 작업-위치 KEY 헤더 값에 있는 URL에 GET 요청을 수행합니다.  작업 상태를 반영하는 데는 `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` 및 `cancelled` 등의 상태가 사용됩니다.  
 
-`NotStarted` `running` GET 요청과 동일한 URL에 대 한 DELETE HTTP 호출을 포함 하는 또는 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대 한 자세한 내용은 [상태 호스팅 API 참조에 대 한 Text Analytics를 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob)하세요.
+GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotStarted` 또는 `running` 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대한 자세한 내용은 [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob)에서 확인할 수 있습니다.
 
-다음은 GET 요청에 대 한 응답의 예입니다.  출력은 `expirationDateTime` (작업이 생성 된 시간부터 24 시간 이후)이 경과 된 후 출력이 제거 될 때까지 검색에 사용할 수 있습니다.
+다음은 GET 요청 응답의 예입니다.  출력은 `expirationDateTime`(작업이 생성된 시간부터 24시간)이 경과되어 출력이 제거될 때까지 검색에 사용할 수 있습니다.
 
 ```json
 {
@@ -297,16 +297,16 @@ example.json
 ```
 
 
-### <a name="structure-the-api-request-for-the-container"></a>컨테이너에 대 한 API 요청 구조
+### <a name="structure-the-api-request-for-the-container"></a>컨테이너에 대한 API 요청 구성
 
-[Postman](text-analytics-how-to-call-api.md) 또는 아래의 예제 말아 request를 사용 하 여 배포 된 컨테이너에 쿼리를 제출 하 고 `serverURL` 변수를 적절 한 값으로 바꿀 수 있습니다.  컨테이너의 URL에 있는 API 버전은 호스트 된 API와 다릅니다.
+[Postman을 사용](text-analytics-how-to-call-api.md)하거나 아래의 cURL 요청 예를 사용하여 배포한 컨테이너에 쿼리를 제출하고 `serverURL` 변수를 적절한 값으로 바꿀 수 있습니다.  컨테이너의 URL에 있는 API 버전은 호스팅된 API와 다릅니다.
 
 ```bash
 curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
-다음 JSON은 상태 API 요청의 POST 본문에 대 한 Text Analytics에 연결 된 JSON 파일의 예입니다.
+다음 JSON은 의료 분야 Text Analytics API 요청의 POST 본문에 첨부된 JSON 파일의 예입니다.
 
 ```json
 example.json
@@ -329,7 +329,7 @@ example.json
 
 ### <a name="container-response-body"></a>컨테이너 응답 본문
 
-다음 JSON은 컨테이너 화 된 동기 호출의 상태 API 응답 본문에 대 한 Text Analytics의 예입니다.
+다음 JSON은 컨테이너화된 동기 호출의 의료 분야 Text Analytics API 응답 본문의 예입니다.
 
 ```json
 {
@@ -472,26 +472,26 @@ example.json
 
 ### <a name="assertion-output"></a>어설션 출력
 
-상태에 대 한 Text Analytics는 텍스트 내 개념의 컨텍스트를 심층적으로 이해 하는 의료 개념에 할당 된 정보 특성인 어설션 한정자를 반환 합니다. 이러한 한정자는 각각 서로 다른 측면에 초점을 맞춘 세 가지 범주로 구분 되며 함께 사용할 수 없는 값의 집합을 포함 합니다. 각 엔터티에는 범주 당 하나의 값만 할당 됩니다. 각 범주에 대 한 가장 일반적인 값은 기본값입니다. 서비스의 출력 응답에 기본값과 다른 어설션 한정자만 포함 되어 있습니다.
+의료 분야 Text Analytics는 텍스트 내에서 개념의 컨텍스트를 더 깊이 이해할 수 있도록 의료 개념에 할당된 정보 특성인 어설션 한정자를 반환합니다. 이러한 한정자는 서로 다른 측면에 초점을 맞추고 상호 배타적인 값 집합을 포함하는 세 가지 범주로 나뉩니다. 범주당 하나의 값만 각 항목에 할당됩니다. 각 범주에 대한 가장 일반적인 값은 기본값입니다. 서비스의 출력 응답에는 기본값과 다른 어설션 한정자만 포함됩니다.
 
-**확신**  -개념의 존재 여부 (존재 하는 경우)와 해당 텍스트가 현재 상태와 관련 된 정도에 대 한 정보를 제공 합니다 (확정 및 가능한 경우).
-*   **긍정** [기본값]: 개념이 존재 하거나 발생 합니다.
-* **음수**: 개념이 없거나 발생 한 적이 없습니다.
-* **Positive_Possible**: 개념이 있지만 약간의 불확실성이 있습니다.
-* **Negative_Possible**: 개념의 존재는 거의 없으므로 약간의 불확실성이 있습니다.
-* **Neutral_Possible**: 둘 중 하나에 대해 추세 없이 개념이 존재 하거나 존재 하지 않을 수 있습니다.
+**확신도(CERTAINTY)**  – 개념의 존재 여부(존재 및 부재)에 대한 정보와 텍스트가 존재와 관련하여 얼마나 확실한지(확실 및 가능)에 대한 정보를 제공합니다.
+*   **Positive**[기본값]: 개념이 존재하거나 발생했습니다.
+* **Negative**: 개념이 현재 존재하지 않거나 발생하지 않았습니다.
+* **Positive_Possible**: 개념이 존재할 가능성이 있지만 약간의 불확실성이 있습니다.
+* **Negative_Possible**: 개념의 존재 가능성은 낮지만 약간의 불확실성이 있습니다.
+* **Neutral_Possible**: 개념이 어느 한 쪽에 치우치는 경향이 없이 존재하거나 존재하지 않을 수 있습니다.
 
-**조건** 지정-특정 조건에 따라 개념이 있는지 여부에 대 한 정보를 제공 합니다. 
-*   **없음** [기본값]: 개념은 팩트가 아닌 팩트 이며 특정 조건에 의존 하지 않습니다.
-*   **가상**: 개념은 나중에 개발 하거나 발생할 수 있습니다.
-*   **조건**: 개념이 존재 하거나 특정 조건 에서만 발생 합니다.
+**조건부(CONDITIONALITY)** – 개념의 존재가 특정 조건에 따라 달라지는지 여부에 대한 정보를 제공합니다. 
+*   **None**[기본값]: 개념이 팩트이고 가상이 아니며 특정 조건에 의존하지 않습니다.
+*   **Hypothetical**: 개념이 미래에 개발되거나 발생할 수 있습니다.
+*   **Conditional**: 개념이 존재하거나 특정 조건에서만 발생합니다.
 
-**연결** -개념이 텍스트의 제목 또는 다른 사용자와 연결 되어 있는지 여부를 설명 합니다.
-*   **Subject** [기본값]: 개념은 텍스트의 제목 (일반적으로 환자)과 연결 됩니다.
-*   **Someone_Else**: 개념은 텍스트의 제목이 아닌 사용자와 연결 됩니다.
+**관련(ASSOCIATION)** – 개념이 텍스트의 주체 또는 다른 사람과 관련되어 있는지를 설명합니다.
+*   **Subject**[기본값]: 개념이 텍스트의 주체, 일반적으로 환자와 관련됩니다.
+*   **Someone_Else**: 개념이 텍스트의 주체가 아닌 사람과 관련이 있습니다.
 
 
-어설션 검색은 부정 된 엔터티를 확신 범주에 대 한 음수 값으로 나타냅니다. 예를 들면 다음과 같습니다.
+어설션 검색은 부정된 엔터티를 확실성 범주의 음수 값으로 나타냅니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -501,26 +501,26 @@ example.json
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty": "negative"
+                            "certainty&quot;: &quot;negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id": "C0013404"
+                                "id&quot;: &quot;C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id": "0000005442"
+                                "id&quot;: &quot;0000005442"
                             },
     ...
 ```
 
 ### <a name="relation-extraction-output"></a>관계 추출 출력
 
-상태에 대 한 Text Analytics는 특성 및 엔터티 간의 관계 (예: 본문 구조의 방향, 조제의 dosage) 및 엔터티 간의 관계 (예: 약어 검색)를 포함 하 여 서로 다른 개념 간의 관계를 인식 합니다.
+의료 분야 Text Analytics는 특성과 엔터티 간의 관계(예: 신체 구조 방향, 약물 투여량) 및 엔터티 간의 관계(예: 약어 검색)를 포함하여 서로 다른 개념 간의 관계를 인식합니다.
 
-**약어**
+**ABBREVIATION**
 
 **DIRECTION_OF_BODY_STRUCTURE**
 
@@ -563,11 +563,11 @@ example.json
 **VALUE_OF_EXAMINATION**
 
 > [!NOTE]
-> * 조건을 참조 하는 관계는 진단 엔터티 형식 또는 SYMPTOM_OR_SIGN 엔터티 형식 중 하나를 참조할 수 있습니다.
-> * 조제를 참조 하는 관계는 MEDICATION_NAME 엔터티 형식 또는 MEDICATION_CLASS 엔터티 형식 중 하나를 참조할 수 있습니다.
-> * 시간을 참조 하는 관계는 TIME 엔터티 형식 또는 날짜 엔터티 형식을 참조할 수 있습니다.
+> * CONDITION을 참조하는 관계는 DIAGNOSIS 엔터티 유형 또는 SYMPTOM_OR_SIGN 엔터티 유형을 참조할 수 있습니다.
+> * MEDICATION을 참조하는 관계는 MEDICATION_NAME 엔터티 유형 또는 MEDICATION_CLASS 엔터티 유형을 참조할 수 있습니다.
+> * TIME을 참조하는 관계는 TIME 엔터티 유형 또는 DATE 엔터티 유형을 참조할 수 있습니다.
 
-관계 추출 출력에는 관계 유형 엔터티의 URI 참조 및 할당 된 역할이 포함 되어 있습니다. 예를 들면 다음과 같습니다.
+관계 추출 출력에는 URI 참조와 관계 유형 엔터티의 지정된 역할이 포함됩니다. 예를 들면 다음과 같습니다.
 
 ```json
                 "relations": [
@@ -603,5 +603,5 @@ example.json
 ## <a name="see-also"></a>참고 항목
 
 * [Text Analytics 개요](../overview.md)
-* [명명 된 엔터티 범주](../named-entity-types.md)
+* [명명된 엔터티 범주](../named-entity-types.md)
 * [새로운 기능](../whats-new.md)

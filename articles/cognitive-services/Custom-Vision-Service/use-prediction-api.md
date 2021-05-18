@@ -12,45 +12,45 @@ ms.date: 04/02/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 7f1939536e033d2cf964dd2f4ee562e4ee20061b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "88934755"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>예측 API와 함께 모델 사용
 
-모델을 학습 한 후에는 예측 API 끝점에 해당 이미지를 제출 하 여 프로그래밍 방식으로 이미지를 테스트할 수 있습니다.
+모델을 학습시킨 후에 예측 API 엔드포인트에 이미지를 제출하여 프로그래밍 방식으로 해당 이미지를 테스트할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 C#을 사용하여 예측 API에 이미지를 제출하는 방법을 보여 줍니다. 자세한 내용 및 예제는 [예측 API 참조](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)를 참조 하세요.
+> 이 문서에서는 C#을 사용하여 예측 API에 이미지를 제출하는 방법을 보여 줍니다. 자세한 내용과 예는 [예측 API 참조](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15)를 참조하세요.
 
-## <a name="publish-your-trained-iteration"></a>학습 된 반복 게시
+## <a name="publish-your-trained-iteration"></a>학습된 반복 게시
 
 [Custom Vision 웹 페이지](https://customvision.ai)에서 프로젝트를 선택하고 __성능__ 탭을 선택합니다.
 
-예측 API에 이미지를 제출 하려면 먼저 예측을 위해 반복을 게시 해야 합니다 .이 작업은 __게시__ 를 선택 하 고 게시 된 반복의 이름을 지정 하 여 수행할 수 있습니다. 이렇게 하면 Custom Vision Azure 리소스의 예측 API에서 모델에 액세스할 수 있습니다.
+예측 API에 이미지를 제출하려면 먼저 예측을 위해 반복을 게시해야 하는데 이 작업은 __게시__ 를 선택하고 게시된 반복의 이름을 지정하여 수행할 수 있습니다. 이렇게 하면 Custom Vision Azure 리소스의 예측 API에 모델이 액세스할 수 있습니다.
 
-![성능 탭이 표시 되 고 게시 단추 주위에 빨간색 사각형이 표시 됩니다.](./media/use-prediction-api/unpublished-iteration.png)
+![게시 단추를 빨간색 사각형이 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/unpublished-iteration.png)
 
-모델이 성공적으로 게시 되 면 왼쪽 사이드바의 반복 옆에 "게시 된" 레이블이 표시 되 고, 해당 이름이 반복의 설명에 표시 됩니다.
+모델이 성공적으로 게시되고 나면 왼쪽 사이드바의 반복 옆에 "게시됨" 레이블이 표시되고 해당 이름이 반복의 설명 부분에 표시됩니다.
 
-![게시 된 레이블 주위에 빨간색 사각형과 게시 된 반복의 이름을 포함 하는 성능 탭이 표시 됩니다.](./media/use-prediction-api/published-iteration.png)
+![게시된 레이블 및 게시된 반복의 이름이 빨간색 사각형으로 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>URL 및 예측 키 가져오기
 
-모델을 게시 한 후에는 __예측 URL__ 을 선택 하 여 필요한 정보를 검색할 수 있습니다. 그러면 예측 __URL__ 및 __예측 키__ 를 포함 하 여 예측 API를 사용 하기 위한 정보가 포함 된 대화 상자가 열립니다.
+모델이 게시되고 나면 __예측 URL__ 을 선택하여 필요한 정보를 검색할 수 있습니다. 그러면 __예측 URL__ 및 __예측-키__ 를 포함하여 예측 API를 사용하기 위한 정보가 있는 대화 상자가 열립니다.
 
-![성능 탭은 예측 URL 단추 주위에 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/published-iteration-prediction-url.png)
+![예측 URL 단추를 빨간색 사각형이 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
-![성능 탭은 이미지 파일 및 Prediction-Key 값을 사용 하기 위한 예측 URL 값을 둘러싼 빨간색 사각형으로 표시 됩니다.](./media/use-prediction-api/prediction-api-info.png)
+![이미지 파일 및 예측-키 값을 사용하기 위한 예측 URL 값을 빨간색 사각형이 둘러싸고 있는 성능 탭이 표시됩니다.](./media/use-prediction-api/prediction-api-info.png)
 
 
-이 가이드에서는 로컬 이미지를 사용 하므로 임시 위치에 **이미지 파일이 있는 경우** URL을 복사 합니다. 해당 하는 __예측 키__ 값도 복사 합니다.
+이 가이드에서는 로컬 이미지를 사용하므로 **이미지 파일이 있는 경우** 에서 임시 위치로 URL을 복사합니다. 해당하는 __예측-키__ 값도 복사합니다.
 
 ## <a name="create-the-application"></a>애플리케이션 만들기
 
-1. Visual Studio에서 새 c # 콘솔 응용 프로그램을 만듭니다.
+1. Visual Studio에서 새 C# 콘솔 애플리케이션을 만듭니다.
 
 1. 다음 코드를 __Program.cs__ 파일의 본문으로 사용합니다.
 
@@ -110,13 +110,13 @@ ms.locfileid: "88934755"
     ```
 
 1. 다음 정보를 변경합니다.
-   * 필드를 `namespace` 프로젝트의 이름으로 설정 합니다.
-   * 자리 표시자를 `<Your prediction key>` 이전에 검색 한 키 값으로 바꿉니다.
-   * 자리 표시자를 `<Your prediction URL>` 앞에서 검색 한 URL로 바꿉니다.
+   * `namespace` 필드를 프로젝트 이름으로 설정합니다.
+   * 자리 표시자 `<Your prediction key>`를 이전에 검색한 키 값으로 바꿉니다.
+   * 자리 표시자 `<Your prediction URL>`을 이전에 검색한 URL로 바꿉니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-응용 프로그램을 실행 하면 콘솔에 이미지 파일의 경로를 입력 하 라는 메시지가 표시 됩니다. 그런 다음 이미지는 예측 API에 전송 되 고 예측 결과는 JSON 형식 문자열로 반환 됩니다. 다음은 예제 응답입니다.
+애플리케이션을 실행할 때 콘솔에 이미지 파일의 경로를 입력하라는 메시지가 표시됩니다. 그런 다음 이미지가 Prediction API에 제출되고 예측 결과가 JSON 형식 문자열로 반환됩니다. 다음은 응답 예입니다.
 
 ```json
 {
@@ -133,6 +133,6 @@ ms.locfileid: "88934755"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 사용자 지정 이미지 분류자/탐지기에 이미지를 제출 하 고 c # SDK를 사용 하 여 프로그래밍 방식으로 응답을 수신 하는 방법을 배웠습니다. 다음으로, c #을 사용 하 여 종단 간 시나리오를 완료 하거나 다른 언어 SDK를 사용 하 여 시작 하는 방법을 알아봅니다.
+이 가이드에서는 사용자 지정 이미지 분류자/감지기에 이미지를 제출하는 방법과 C# SDK로 응답을 프로그래밍 방식으로 수신하는 방법을 알아보았습니다. 다음으로 C#을 사용하여 엔드투엔드 시나리오를 완료하거나 다른 언어의 SDK로 시작하는 방법을 알아봅니다.
 
 * [빠른 시작: Custom Vision SDK](quickstarts/image-classification.md)

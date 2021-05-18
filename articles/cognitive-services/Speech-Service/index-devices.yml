@@ -2,7 +2,7 @@
 title: 음성 디바이스 설명서
 summary: Speech Devices SDK는 특별히 만들어진 마이크 배열 개발 키트와 쌍으로 연결된 미리 조정된 라이브러리입니다.
 metadata:
-  title: 음성 장치 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  title: 음성 디바이스 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
   author: trevorbye
@@ -11,14 +11,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: 76bb63654778a08244e2207839e12812b7227dff
-  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-  ms.translationtype: MT
+  ms.openlocfilehash: 66b4ec0186864e443babae0c26094bc4f613e67b
+  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "81401381"
+  ms.lasthandoff: 03/30/2021
+  ms.locfileid: "105746228"
 landingContent:
-- title: 음성 장치 SDK 정보
+- title: Speech Devices SDK 정보
   linkLists:
   - linkListType: overview
     links:
@@ -26,13 +26,13 @@ landingContent:
       url: speech-devices-sdk.md
   - linkListType: quickstart
     links:
-    - text: 음성 장치 SDK 사용 (Windows)
+    - text: Speech Devices SDK 사용(Windows)
       url: speech-devices-sdk-quickstart.md?pivots=platform-windows
-    - text: 음성 장치 SDK 사용 (Linux)
+    - text: Speech Devices SDK 사용(Linux)
       url: speech-devices-sdk-quickstart.md?pivots=platform-linux
-    - text: 음성 장치 SDK 사용 (Android)
+    - text: Speech Devices SDK 사용(Android)
       url: speech-devices-sdk-quickstart.md?pivots=platform-android
-- title: 음성 장치 SDK를 사용 하 여 개발
+- title: Speech Devices SDK를 사용하여 개발
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -50,3 +50,9 @@ landingContent:
     links:
     - text: 문제 해결
       url: speech-devices-sdk-troubleshooting.md
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context

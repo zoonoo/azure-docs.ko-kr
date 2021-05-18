@@ -1,7 +1,7 @@
 ---
 title: Bing Autosuggest API에 요청 보내기
 titleSuffix: Azure Cognitive Services
-description: Bing Autosuggest API는 검색 상자에 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 요청을 보내는 방법에 대해 자세히 알아보세요.
+description: Bing Autosuggest API는 검색 상자에 부분 쿼리 문자열을 기준으로 제안된 쿼리 목록을 반환합니다. 요청 보내기에 대해 자세히 알아봅니다.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
 ms.openlocfilehash: dd845c0fb877afa76b84eb5c2d86392f763eccf7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96353394"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Bing Autosuggest API에 요청 보내기
@@ -53,11 +53,11 @@ Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시�
 
 모든 요청은 서버에서 시작되는 것이 좋습니다. 클라이언트 애플리케이션의 일부로 키를 배포하면 제3자가 나쁜 목적을 갖고 애플리케이션에 액세스할 가능성이 높아집니다. 또한 서버에서 호출하면 향후 업데이트를 위한 단일 업그레이드 지점이 제공됩니다.
 
-요청에서 사용자의 부분 검색어가 포함된 [q](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) 쿼리 매개 변수도 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters)를 참조 하세요. 모든 쿼리 매개 변수 값은 URL로 인코드되어야 합니다.
+요청에서 사용자의 부분 검색어가 포함된 [q](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) 쿼리 매개 변수를 지정해야 합니다. 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) 쿼리 매개 변수도 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters)를 참조하세요. 모든 쿼리 매개 변수 값은 URL로 인코드되어야 합니다.
 
 요청에서 [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) 헤더를 지정해야 합니다. 선택 사항이지만, 다음 헤더도 지정하는 것이 좋습니다.
 
-- [사용자-에이전트](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [User-Agent](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
 - [X-MSEdge-ClientID](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
 - [X-Search-ClientIP](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
 - [X-Search-Location](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
@@ -69,7 +69,7 @@ Autosuggest API를 사용하는 기본 요청의 예는 [Autosuggest 빠른 시�
 > [!NOTE]
 > JavaScript에서 Bing Autosuggest API를 호출하는 경우 브라우저의 기본 제공 보안 기능으로 인해 이러한 헤더 값에 액세스하지 못할 수 있습니다.
 
-이 문제를 해결하려면 CORS 프록시를 통해 Bing Autosuggest API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 `Access-Control-Expose-Headers` 응답 헤더를 필터링 하 고 JavaScript에서 사용할 수 있도록 하는 헤더가 있습니다.
+이 문제를 해결하려면 CORS 프록시를 통해 Bing Autosuggest API 요청을 수행할 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 필터링하고 JavaScript에서 응답 헤더를 사용할 수 있도록 하는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 [자습서 앱](../tutorials/autosuggest.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 

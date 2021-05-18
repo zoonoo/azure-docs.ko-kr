@@ -3,12 +3,12 @@ title: 패턴 이니셔티브가 포함된 그룹 정책 정의
 description: 이 Azure Policy 패턴에서는 정책 정의를 이니셔티브로 그룹화하는 방법에 대한 예를 제공합니다.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: 7bbb2efdd27ead942fa0ef48f7785eec8bce9378
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: a2cc89954c34f22d5dba0ecce710a7db152ec665
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092860"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752348"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Azure Policy 패턴: 그룹 정책 정의
 
@@ -32,7 +32,7 @@ ms.locfileid: "106092860"
 
 #### <a name="includes-policy-definitions"></a>정책 정의 포함
 
-정책 정의에서 매개 변수를 허용하는 경우 포함된 각 정책 정의는 **policyDefinitionId** 및 **매개 변수** 배열을 제공해야 합니다. 아래 코드 조각에서 포함된 정책 정의는 **tagName** 및 **tagValue** 의 두 매개 변수를 사용합니다. **tagName** 은 리터럴로 정의되지만 **tagValue** 는 이니셔티브에서 정의한 매개 변수 **costCenterValue** 를 사용합니다. 이 값의 통과는 재사용을 향상시킵니다.
+정책 정의에서 매개 변수를 허용하는 경우 포함된 각 정책 정의는 **policyDefinitionId** 및 **매개 변수** 배열을 제공해야 합니다. 다음 코드 조각에서 포함된 정책 정의는 **tagName** 및 **tagValue** 의 두 매개 변수를 사용합니다. **tagName** 은 리터럴로 정의되지만 **tagValue** 는 이니셔티브에서 정의한 매개 변수 **costCenterValue** 를 사용합니다. 이 값의 통과는 재사용을 향상시킵니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-group-with-initiative.json" range="30-40":::
 

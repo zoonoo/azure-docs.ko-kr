@@ -1,7 +1,7 @@
 ---
 title: iOS/macOS용 MSAL에서 오류 및 예외 처리
 titleSuffix: Microsoft identity platform
-description: IOS/macOS 응용 프로그램에 대 한 오류 및 예외, 조건부 액세스 클레임 문제 및 MSAL의 재시도를 처리 하는 방법에 대해 알아봅니다.
+description: iOS/macOS용 MSAL 애플리케이션에서 오류와 예외, 조건부 액세스, 클레임, 챌린지 및 다시 시도를 처리하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: saeeda, oldalton
 ms.custom: aaddev
 ms.openlocfilehash: f7f2abadb7586e1b19168eb46a54bad53caa05cc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98761109"
 ---
 # <a name="handle-errors-and-exceptions-in-msal-for-iosmacos"></a>iOS/macOS용 MSAL에서 오류 및 예외 처리
 
 [!INCLUDE [Active directory error handling introduction](../../../includes/active-directory-develop-error-handling-introduction.md)]
 
-## <a name="error-handling-in-msal-for-iosmacos"></a>IOS/macOS에 대 한 MSAL의 오류 처리
+## <a name="error-handling-in-msal-for-iosmacos"></a>iOS/macOS용 MSAL의 오류 처리
 
 iOS 및 macOS 오류에 대한 MSAL의 전체 목록은 [MSALError 열거형](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128)에 나와 있습니다.
 
@@ -43,7 +43,7 @@ iOS 및 macOS 오류에 대한 MSAL의 전체 목록은 [MSALError 열거형](ht
 
 예를 들어 `MSALInternalErrorBrokerResponseNotReceived`는 사용자가 인증을 완료하지 않았고 앱에 수동으로 반환되었음을 의미합니다. 이 경우, 애플리케이션은 인증이 완료되지 않은 것을 설명하는 일반 오류 메시지를 표시하고 인증을 다시 시도할 것을 제안합니다.
 
-다음 목표 C 샘플 코드는 몇 가지 일반적인 오류 조건을 처리 하기 위한 모범 사례를 보여 줍니다.
+다음 Objective-C 샘플 코드는 몇 가지 일반적인 오류 조건을 처리하기 위한 모범 사례를 보여 줍니다.
 
 ```objc
     MSALInteractiveTokenParameters *interactiveParameters = ...;
@@ -242,4 +242,4 @@ iOS 및 macOS용 MSAL을 사용하여 대화형 및 자동 토큰 취득 시나�
 
 ## <a name="next-steps"></a>다음 단계
 
-[IOS/macOS에 대 한 MSAL에서 로깅을](msal-logging-ios.md) 사용 하도록 설정 하 여 문제를 진단 하 고 디버그할 수 있습니다.
+문제를 진단하고 디버그할 수 있도록 [iOS/macOS용 MSA에서 로깅](msal-logging-ios.md)을 사용하도록 설정하는 것이 좋습니다.

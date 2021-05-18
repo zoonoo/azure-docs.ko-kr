@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 04/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 8ec834d76692f78d1d7bc60ddbd4c73fe4adaede
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29ffe0f0509629daa0fc0c9b72e4a55d16b88856
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646114"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109733020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>자습서: SAML SSO for Bamboo by resolution GmbH와 Azure Active Directory 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "101646114"
 SAML SSO for Bamboo by resolution GmbH와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* SAML SSO for Bamboo by resolution GmbH Single Sign-On이 설정된 구독
+* SAML SSO for Bamboo by resolution GmbH Single Sign-On을 사용하도록 설정한 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -125,19 +125,19 @@ SAML SSO for Bamboo by resolution GmbH에서 Azure AD SSO를 구성하고 테스
 
 1. 주 도구 모음의 오른쪽에서 **설정** > **Add-ons**(추가 기능)을 클릭합니다.
 
-    ![설정](./media/bamboo-tutorial/tutorial_bamboo_setings.png)
+    ![설정](./media/bamboo-tutorial/settings.png)
 
 1. SECURITY 섹션으로 이동하여 메뉴 모음의 **SAML SingleSignOn** 을 클릭합니다.
 
-    ![Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
+    ![Samlsingle](./media/bamboo-tutorial/single-sign-on.png)
 
 1. **SAML SIngleSignOn Plugin Configuration page**(SAML SIngleSignOn 플러그 인 구성 페이지)에서 **Add idp**(idp 추가)를 클릭합니다.
 
-    ![idp 추가](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
+    ![idp 추가](./media/bamboo-tutorial/configuration.png)
 
 1. **Choose your SAML Identity Provider**(SAML ID 공급자 선택) 페이지에서 다음 단계를 수행합니다.
 
-    ![ID 공급자](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
+    ![ID 공급자](./media/bamboo-tutorial/identity-provider.png)
 
     a. **Idp Type**(Idp 유형)을 **AZURE AD** 로 선택합니다.
 
@@ -149,11 +149,11 @@ SAML SSO for Bamboo by resolution GmbH에서 Azure AD SSO를 구성하고 테스
 
 1. **Identity provider configuration**(ID 공급자 구성) 페이지에서 **다음** 을 클릭합니다.
 
-    ![ID 구성](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
+    ![ID 구성](./media/bamboo-tutorial/identity-configuration.png)
 
 1. **Import SAML Idp Metadata**(SAML Idp 메타데이터 가져 오기) 페이지에서 **파일 로드** 를 클릭하여 Azure Portal에서 다운로드한 **메타데이터 XML** 파일을 업로드합니다.
 
-    ![idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
+    ![idpmetadata](./media/bamboo-tutorial/metadata.png)
 
 1. **다음** 을 클릭합니다.
 

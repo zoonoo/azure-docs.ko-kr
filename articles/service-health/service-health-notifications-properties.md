@@ -4,13 +4,13 @@ description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 �
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.openlocfilehash: 4f2b4a0779d775ed5be5bfa28831cccc68c33caf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86529015"
 ---
-# <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Azure Portal를 사용 하 여 서비스 상태 알림 보기
+# <a name="use-the-azure-portal-to-view-service-health-notifications"></a>Azure Portal을 사용하여 Service Health 알림 보기
 
 서비스 상태 알림은 Azure에서 게시하며 구독 아래에 있는 리소스에 대한 정보를 포함합니다. 이러한 알림은 활동 로그 이벤트의 하위 클래스이며 활동 로그에서도 찾을 수 있습니다. 서비스 상태 알림은 클래스에 따라 정보만 제공하거나 실행할 수 있습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "86529015"
 
 각 서비스 상태 알림은 범위 및 리소스에 대한 영향에 대한 세부 정보를 포함합니다. 세부 정보는 다음과 같습니다.
 
-속성 이름 | 설명
+속성 이름 | Description
 -------- | -----------
 channels | **관리자** 또는 **작업** 값 중 하나여야 합니다.
 correlationId | 일반적으로 문자열 형식의 GUID입니다. 동일한 작업에 속하는 이벤트는 일반적으로 동일한 correlationId를 공유합니다.
@@ -43,29 +43,29 @@ category | 이 속성은 항상 **ServiceHealth** 입니다.
 resourceId | 영향을 받는 리소스의 리소스 ID입니다.
 Properties.title | 이 통신에 대한 지역화된 제목입니다. 기본값은 영어입니다.
 Properties.communication | HTML 태그와 통신에 대한 지역화된 세부 정보입니다. 기본값은 영어입니다.
-Properties.incidentType | **Actionrequired**, **정보**, **인시던트**, **유지 관리** 또는 **보안** 값 중 하나입니다.
+Properties.incidentType | **ActionRequired**, **Informational**, **Incident**, **Maintenance** 또는 **Security** 값 중 하나입니다.
 Properties.trackingId | 이 이벤트가 연결된 인시던트입니다. 인시던트와 관련된 이벤트를 상호 연결할 때 사용합니다.
 Properties.impactedServices | 인시던트에 의해 영향을 받는 서비스 및 지역을 설명하는 이스케이프된 JSON Blob입니다. 속성에는 각각 **ServiceName** 이 포함된 서비스 목록 및 각각 **RegionName** 이 포함된 영향 받는 지역 목록이 포함됩니다.
 Properties.defaultLanguageTitle | 통신은 영어로 이루어집니다.
 Properties.defaultLanguageContent | 영어로 통신은 HTML 태그 또는 일반 텍스트로 수행됩니다.
-Properties.stage | **Incident**, 및 **Security** 에 사용할 수 있는 값은 는 **Active,** **Resolved** 또는 **RCA** 입니다. **ActionRequired** 또는 **Informational** 의 유일한 값은 **Active** 입니다. **유지 관리** 의 경우 **활성**, **계획** 됨, **진행 중,** **취소** 됨, **예약** **됨, 해결 됨** 또는 **완료** 입니다.
+Properties.stage | **Incident**, 및 **Security** 에 사용할 수 있는 값은 는 **Active,** **Resolved** 또는 **RCA** 입니다. **ActionRequired** 또는 **Informational** 의 유일한 값은 **Active** 입니다. **Maintenance** 에 대해 가능한 값은 **Active**, **Planned**, **InProgress**, **Canceled**, **Rescheduled**, **Resolved** 또는 **Complete** 입니다.
 Properties.communicationId | 이 이벤트가 연결된 통신입니다.
 
 ### <a name="details-on-service-health-level-information"></a>서비스 상태 수준 정보에 대한 세부 정보
 
 **작업 필요**(properties.incidentType == ActionRequired)
-- 정보-관리자 작업은 기존 서비스에 대 한 영향을 방지 하기 위해 필요 합니다.
+- 정보 - 관리자 작업이 기존 서비스에 미치는 영향을 방지하는 데 필요합니다.
     
 **유지 관리**(properties.incidentType == Maintenance)
-- 경고-응급 유지 관리
-- 정보-표준 계획 된 유지 관리
+- 경고 - 응급 유지 관리
+- 정보 - 계획된 표준 유지 관리
 
 **정보**(properties.incidentType == Information)
-- 정보-관리자는 기존 서비스에 대 한 영향을 방지 하기 위해 필요할 수 있습니다.
+- 정보 - 관리자는 기존 서비스에 미치는 영향을 방지해야 할 수 있습니다.
 
 **보안**(properties.incidentType == Security)
-- 경고-기존 서비스에 영향을 주는 보안 권고 이며 관리자 작업이 필요할 수 있습니다.
-- 정보-보안 권고는 기존 서비스에 영향을 줍니다.
+- 경고 - 기존 서비스에 영향을 주는 보안 권고이며 관리자 작업이 필요할 수 있습니다.
+- 정보 - 기존 서비스에 영향을 주는 보안 권고입니다.
 
 **서비스 문제**(properties.incidentType == Incident)
 - 오류- 여러 지역의 여러 서비스에 액세스할 때 나타나는 다양한 문제가 광범위한 고객에게 영향을 미치고 있습니다.

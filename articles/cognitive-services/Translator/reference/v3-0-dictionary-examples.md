@@ -1,7 +1,7 @@
 ---
-title: Translator 사전 예제 메서드
+title: Translator Dictionary Examples 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator 사전 예제 메서드는 컨텍스트에서 사전의 용어를 사용 하는 방법을 보여 주는 예제를 제공 합니다.
+description: Translator Dictionary Examples 메서드는 사전의 용어가 컨텍스트에서 사용되는 방법을 보여 주는 예를 제공합니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: lajanuar
 ms.openlocfilehash: e7f0e106c1ca154dcd54990395430b3e0f6c536f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895512"
 ---
-# <a name="translator-30-dictionary-examples"></a>Translator 3.0: 사전 예제
+# <a name="translator-30-dictionary-examples"></a>Translator 3.0: Dictionary Examples
 
 사전의 용어가 컨텍스트에서 사용되는 방식을 보여 주는 예제를 제공합니다. 이 작업은 [사전 조회](./v3-0-dictionary-lookup.md)와 함께 사용됩니다.
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-| 쿼리 매개 변수 | 설명 |
+| 쿼리 매개 변수 | Description |
 | --------- | ----------- |
 | api-version <img width=200/> | **필수 매개 변수** 입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
 | 원본 | **필수 매개 변수** 입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
@@ -94,7 +94,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     > [!NOTE]
     > 사전에 예제가 없는 경우 응답은 200(정상)이지만 `examples` 목록은 빈 목록이 됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 이 예제에서는 영어 용어 `fly` 및 해당 스페인어 번역 `volar`로 구성된 쌍의 예제를 조회하는 방법을 보여 줍니다.
 

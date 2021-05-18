@@ -1,7 +1,7 @@
 ---
-title: Translator 변환 메서드
+title: Translator Translate 메서드
 titleSuffix: Azure Cognitive Services
-description: 텍스트를 번역 하기 위해 Azure Cognitive Services Translator의 변환 메서드에 대 한 매개 변수, 헤더 및 본문 메시지를 이해 합니다.
+description: 텍스트를 번역하기 위해 Azure Cognitive Services Translator의 Translate 메서드의 매개 변수, 헤더 및 본문 메시지를 파악합니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
-ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7c92fb7f5de5542af08d1335bea745557a330f0d
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98895444"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107506009"
 ---
-# <a name="translator-30-translate"></a>Translator 3.0: 변환
+# <a name="translator-30-translate"></a>Translator 3.0: Translate
 
 텍스트를 번역합니다.
 
@@ -55,15 +55,15 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <th>Description</th>
   <tr>
     <td>원본</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><code>from</code> <a href="/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 매개 변수를 사용 해야 합니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용하는 경우 자동 검색 대신 <code>from</code> 매개 변수를 사용해야 합니다.</td>
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역되는 텍스트가 일반 텍스트인지 또는 HTML 인지를 정의합니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다. 가능한 값은 <code>plain</code> (기본값) 또는입니다. <code>html</code>.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>번역되는 텍스트가 일반 텍스트인지 또는 HTML 인지를 정의합니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다. 가능한 값은 <code>plain</code>(기본값) 또는 <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 사용자 지정 변환기 <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보의</a> 범주 ID를이 매개 변수에 추가 하 여 배포 된 사용자 지정 시스템을 사용 합니다. 기본값은 <code>general</code>입니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 이 매개 변수에 Custom Translator <a href="/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보</a>의 프로젝트의 범주 ID를 추가하여 배포된 사용자 지정 시스템을 사용합니다. 기본값은 <code>general</code>입니다.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
@@ -136,7 +136,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 다음과 같은 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
-* 요청에 포함 된 전체 텍스트는 공백을 포함 하 여 1만 자를 초과할 수 없습니다.
+* 요청에 포함된 전체 텍스트는 공백을 포함하여 10,000자를 초과할 수 없습니다.
 
 ## <a name="response-body"></a>응답 본문
 
@@ -199,7 +199,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>설명</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>성공.</td>
@@ -222,7 +222,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   </tr>
   <tr>
     <td>429</td>
-    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
+    <td>클라이언트가 요청 한도를 초과했기 때문에 서버가 요청을 거부했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -234,9 +234,9 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](./v3-0-reference.md#errors)에서 찾을 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator 참조 페이지](./v3-0-reference.md#errors)에서 확인할 수 있습니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
@@ -280,7 +280,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
     }
 ]
 ```
-응답은 앞의 예제에 나온 응답과 유사합니다. 언어 자동 검색이 요청되었으므로 응답에는 입력 텍스트에 대해 검색된 언어에 대한 정보도 포함됩니다. 언어 자동 검색은 더 긴 입력 텍스트에서 잘 작동 합니다.
+응답은 앞의 예제에 나온 응답과 유사합니다. 언어 자동 검색이 요청되었으므로 응답에는 입력 텍스트에 대해 검색된 언어에 대한 정보도 포함됩니다. 언어 자동 검색은 입력 텍스트가 길수록 더 효과적입니다.
 
 ### <a name="translate-with-transliteration"></a>음차를 사용한 번역
 
@@ -317,7 +317,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
-응답에는 요청과 정확히 동일한 순서로 모든 텍스트의 번역이 포함 됩니다.
+응답에는 모든 텍스트 조각의 번역이 요청과 동일한 순서로 포함됩니다.
 응답 본문은 다음과 같습니다.
 
 ```
@@ -384,7 +384,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
     <td>욕설이 출력에서 표식으로 바뀝니다. 표식은 <code>ProfanityMarker</code> 매개 변수에 따라 달라집니다.<br/><br/>
 <code>ProfanityMarker=Asterisk</code>의 경우 욕설이 다음과 같이 <code>***</code>로 바뀝니다.<br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
-    <strong>변환 예 (영어)</strong>: \* \* \* 입니다.<br/><br/>
+    <strong>예제 번역(영어)</strong>: He is a \*\*\*.<br/><br/>
 <code>ProfanityMarker=Tag</code>의 경우 욕설이 다음과 같이 XML 태그 &lt;profanity&gt; 및 &lt;/profanity&gt;로 묶입니다.<br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
     <strong>예제 번역(영어)</strong>: He is a &lt;profanity&gt;jackass&lt;/profanity&gt;.
@@ -466,7 +466,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 맞춤 정보를 받으려면 쿼리 문자열에 `includeAlignment=true`를 지정합니다.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true&quot; -H &quot;Ocp-Apim-Subscription-Key: <client-secret>&quot; -H &quot;Content-Type: application/json; charset=UTF-8&quot; -d &quot;[{'Text':'The answer lies in machine translation.'}]"
 ```
 
 응답은 다음과 같습니다.
@@ -488,16 +488,16 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 맞춤 정보는 `0:2-0:1`로 시작합니다. 이것은 원본 텍스트의 처음 세 문자(`The`)가 번역된 텍스트의 처음 두 문자(`La`)에 매핑됨을 의미합니다.
 
 #### <a name="limitations"></a>제한 사항
-맞춤 정보를 얻는 것은 잠재적인 문구 매핑을 사용 하 여 프로토타입 조사 및 환경을 사용할 수 있는 실험적 기능입니다. 나중에이를 지원 하지 않도록 선택할 수 있습니다. 맞춤이 지원 되지 않는 몇 가지 주목할 만한 제한 사항은 다음과 같습니다.
+맞춤 정보 가져오기는 잠재적인 문구 매핑에 대한 조사 및 환경을 프로토타이핑하기 위해 도입한 실험적 기능입니다. 이 기능은 향후 지원이 중단될 수 있습니다. 맞춤이 지원되지 않는 몇 가지 주요 제한 사항은 다음과 같습니다.
 
-* HTML 형식의 텍스트에는 맞춤을 사용할 수 없습니다. 즉, textType = html입니다.
+* HTML 형식의 텍스트(예: textType=html)에는 맞춤을 사용할 수 없습니다.
 * 다음 언어 쌍의 하위 집합에 대해서만 맞춤이 반환됩니다.
-  - 중국어 번체, 광둥어 (전통) 또는 세르비아어 (키릴 자모)를 제외한 다른 모든 언어에서의 영어
+  - 영어에서 다른 언어로 또는 다른 언어에서 영어로 - 중국어 번체, 광둥어(번체) 또는 세르비아어(키릴 자모) 제외
   - 일본어에서 한국어로 또는 한국어에서 일본어로
-  - 일본어에서 중국어 간체 및 중국어 간체를 일본어로 
-  - 중국어 간체에서 중국어 번체, 중국어 번체에서 중국어 간체로 
+  - 일본어에서 중국어 간체로, 중국어 간체에서 일본어로 
+  - 중국어 간체에서 중국어 번체로, 중국어 번체에서 중국어 간체로 
 * 문장에 미리 준비된 번역이 있으면 맞춤을 받지 못합니다. 미리 준비된 번역의 예로 “This is a test”, “I love you”, 기타 빈도가 높은 문장 등이 있습니다.
-* [여기](../prevent-translation.md) 에 설명 된 대로 번역을 방지 하는 방법을 적용 하는 경우에는 정렬을 사용할 수 없습니다.
+* [여기](../prevent-translation.md)에 설명된 대로 번역을 방지하는 방법을 적용한 경우 맞춤을 사용할 수 없습니다.
 
 ### <a name="obtain-sentence-boundaries"></a>문장 경계 가져오기
 
@@ -525,7 +525,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 ### <a name="translate-with-dynamic-dictionary"></a>동적 사전을 사용하여 번역
 
-단어나 구에 적용할 번역을 이미 알고 있는 경우 요청 내에 태그로 제공할 수 있습니다. 동적 사전은 개인 이름 및 제품 이름과 같은 적절 한 명사에만 안전 합니다.
+단어나 구에 적용할 번역을 이미 알고 있는 경우 요청 내에 태그로 제공할 수 있습니다. 동적 사전은 개인 이름 및 제품 이름과 같은 고유 명사에만 안전합니다.
 
 제공할 태그는 다음 구문을 사용합니다.
 
@@ -551,4 +551,4 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 ]
 ```
 
-이 기능은 `textType=text` 또는 `textType=html`을 사용할 때와 같은 결과를 가져옵니다. 이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있는 경제적 여유가 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. [사용자 지정 번역기에 대해 자세히 알아보세요](../customization.md).
+이 기능은 `textType=text` 또는 `textType=html`을 사용할 때와 같은 결과를 가져옵니다. 이 기능은 자주 사용하지 않는 것이 좋습니다. 번역을 사용자 지정하는 보다 적절하고 훨씬 더 나은 방법은 Custom Translator를 사용하는 것입니다. Custom Translator는 컨텍스트 및 통계적 확률을 최대한 활용합니다. 컨텍스트에 따라 사용자 작업 또는 구를 보여 주는 학습 데이터를 보유하고 있거나 이러한 데이터를 만들 수 있는 경제적 여유가 있으면 훨씬 더 나은 결과를 얻을 수 있습니다. [Custom Translator에 대해 자세히 알아보세요](../customization.md).

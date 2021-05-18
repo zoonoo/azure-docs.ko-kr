@@ -5,15 +5,15 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: d5a1d810c357aa83b8069023b00d76352da124df
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9aca1e76c825de52744da817f6a0bf236eef617c
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94844798"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313609"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 사용자 정보 액세스
 
@@ -25,12 +25,12 @@ Azure 정적 Web Apps는 [직접 액세스 엔드포인트](#direct-access-endpo
 
 클라이언트 보안 주체 데이터 개체는 사용자가 식별할 수 있는 정보를 앱에 노출합니다. 클라이언트 보안 주체 개체에는 다음과 같은 속성이 있습니다.
 
-| 속성  | Description |
-|-----------|---------|
-| `identityProvider` | [ID 공급자](authentication-authorization.md)의 이름입니다. |
-| `userId` | 사용자에 대한 Azure Static Web Apps 관련 고유 식별자입니다. <ul><li>이 값은 앱별로 고유합니다. 예를 들어 동일한 사용자가 다른 Static Web Apps 리소스에서 다른 `userId` 값을 반환합니다.<li>이 값은 사용자의 수명 동안 지속됩니다. 동일한 사용자를 삭제하고 앱에 다시 추가하면 새 `userId`가 생성됩니다.</ul>|
-| `userDetails` | 사용자의 사용자 이름 또는 이메일 주소입니다. 일부 공급자는 [사용자의 이메일 주소](authentication-authorization.md)를 반환하는 반면 다른 공급자는 [사용자 핸들](authentication-authorization.md)을 보냅니다. |
-| `userRoles`     | [사용자의 할당된 역할](authentication-authorization.md)의 배열입니다. |
+| 속성           | Description                                                                                                                                                                                                                                                                                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `identityProvider` | [ID 공급자](authentication-authorization.md)의 이름입니다.                                                                                                                                                                                                                                                                                              |
+| `userId`           | 사용자에 대한 Azure Static Web Apps 관련 고유 식별자입니다. <ul><li>이 값은 앱별로 고유합니다. 예를 들어 동일한 사용자가 다른 Static Web Apps 리소스에서 다른 `userId` 값을 반환합니다.<li>이 값은 사용자의 수명 동안 지속됩니다. 동일한 사용자를 삭제하고 앱에 다시 추가하면 새 `userId`가 생성됩니다.</ul> |
+| `userDetails`      | 사용자의 사용자 이름 또는 이메일 주소입니다. 일부 공급자는 [사용자의 이메일 주소](authentication-authorization.md)를 반환하는 반면 다른 공급자는 [사용자 핸들](authentication-authorization.md)을 보냅니다.                                                                                                                                                                    |
+| `userRoles`        | [사용자의 할당된 역할](authentication-authorization.md)의 배열입니다.                                                                                                                                                                                                                                                                                          |
 
 다음 예제는 샘플 클라이언트 보안 주체 개체입니다.
 
@@ -39,7 +39,7 @@ Azure 정적 Web Apps는 [직접 액세스 엔드포인트](#direct-access-endpo
   "identityProvider": "facebook",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
   "userDetails": "user@example.com",
-  "userRoles": [ "anonymous", "authenticated" ]
+  "userRoles": ["anonymous", "authenticated"]
 }
 ```
 
@@ -53,7 +53,7 @@ Azure 정적 Web Apps는 [직접 액세스 엔드포인트](#direct-access-endpo
 
 ```javascript
 async function getUserInfo() {
-  const response = await fetch("/.auth/me");
+  const response = await fetch('/.auth/me');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
@@ -64,7 +64,7 @@ console.log(getUserInfo());
 
 ## <a name="api-functions"></a>API 함수
 
-Azure Functions 백 엔드를 통해 정적 Web Apps에서 사용할 수 있는 API 함수는 클라이언트 응용 프로그램과 동일한 사용자 정보에 액세스할 수 있습니다. API는 사용자가 식별할 수 있는 정보를 수신 하지만 사용자가 인증 되는 경우 또는 사용자가 필요한 역할과 일치 하는지 확인 하지 않습니다. 액세스 제어 규칙은 파일에 정의 되어 있습니다 [`routes.json`](routes.md) .
+Azure Functions 백 엔드를 통해 Static Web Apps에서 사용 가능한 API 함수는 클라이언트 애플리케이션과 동일한 사용자 정보에 액세스할 수 있습니다. API는 사용자 식별 가능한 정보를 수신하는 반면 사용자가 인증되는지 또는 요구되는 역할과 일치하는지 자체적인 확인을 수행하지는 않습니다. 액세스 제어 규칙은 [`staticwebapp.config.json`](routes.md) 파일에 정의되어 있습니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -74,14 +74,14 @@ Azure Functions 백 엔드를 통해 정적 Web Apps에서 사용할 수 있는 
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers["x-ms-client-principal"];
-  const encoded = Buffer.from(header, "base64");
-  const decoded = encoded.toString("ascii");
+  const header = req.headers['x-ms-client-principal'];
+  const encoded = Buffer.from(header, 'base64');
+  const decoded = encoded.toString('ascii');
 
   context.res = {
     body: {
-      clientPrincipal: JSON.parse(decoded)
-    }
+      clientPrincipal: JSON.parse(decoded),
+    },
   };
 };
 ```
@@ -90,7 +90,7 @@ module.exports = async function (context, req) {
 
 ```javascript
 async function getUser() {
-  const response = await fetch("/api/user");
+  const response = await fetch('/api/user');
   const payload = await response.json();
   const { clientPrincipal } = payload;
   return clientPrincipal;
@@ -101,7 +101,7 @@ console.log(await getUser());
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-C # 함수에서 사용자 정보는 `x-ms-client-principal` `ClaimsPrincipal` 개체 또는 사용자 지정 형식으로 deserialize 할 수 있는 헤더에서 사용할 수 있습니다. 다음 코드에서는 헤더를 중간 형식에 압축을 풀고 인스턴스로 전환 하는 방법을 보여 줍니다 `ClientPrincipal` `ClaimsPrincipal` .
+C# 함수에서 사용자 정보는 `ClaimsPrincipal` 개체 또는 사용자 자체 지정 유형으로 역직렬화될 수 있는 `x-ms-client-principal` 헤더에서 사용할 수 있습니다. 다음 코드에서는 `ClaimsPrincipal` 인스턴스로 바뀌기 전의 중간 유형인 `ClientPrincipal`로 헤더 압축을 푸는 방법을 보여 줍니다.
 
 ```csharp
   public static class StaticWebAppsAuth

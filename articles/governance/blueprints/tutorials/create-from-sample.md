@@ -3,12 +3,12 @@ title: '자습서: 새 환경에 대한 청사진 샘플'
 description: 이 자습서에서는 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
 ms.date: 05/01/2021
 ms.topic: tutorial
-ms.openlocfilehash: 50871c14ed8357e46e49a599065f878253c860df
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 809f29e603d82467a5188a94d4517b48fa825a37
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324440"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733916"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기
 
@@ -122,7 +122,7 @@ ms.locfileid: "108324440"
 
 1. 왼쪽에서 **할당된 청사진** 페이지를 선택합니다. 필터를 사용하여 _Assignment-two-rgs-with-role-assignments_ 청사진 할당을 찾은 후 선택합니다.
 
-   이 페이지에서 할당이 성공했음을 알 수 있으며 만든 리소스와 해당 청사진의 잠금 상태 목록이 표시됩니다. 할당이 업데이트되면 **할당 작업** 드롭다운에 각 정의 버전 배포에 대한 세부 정보가 표시됩니다. 생성되어 나열된 각 리소스를 선택하면 해당 리소스 속성 페이지가 열립니다.
+   이 페이지에서 할당이 성공했음을 알 수 있으며 만든 리소스와 해당 청사진의 잠금 상태 목록이 표시됩니다. 할당이 업데이트되면 **할당 작업** 드롭다운 목록에 각 정의 버전 배포에 관한 세부 정보가 표시됩니다. 생성되어 나열된 각 리소스를 선택하면 해당 리소스 속성 페이지가 열립니다.
 
 1. **ProductionRG** 리소스 그룹을 선택합니다.
 

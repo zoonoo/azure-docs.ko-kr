@@ -1,6 +1,6 @@
 ---
 title: Azure VM 간의 연결 문제 해결 | Microsoft Docs
-description: Azure Vm 간에 발생할 수 있는 연결 문제를 해결 하 고 해결 하는 방법을 알아봅니다.
+description: Azure VM 간에 발생할 수 있는 연결 문제를 해결하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: chadmath
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 5e602f8bbdf6ad92acacac6688326a555a0420b6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105042869"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Azure VM 간의 연결 문제 해결

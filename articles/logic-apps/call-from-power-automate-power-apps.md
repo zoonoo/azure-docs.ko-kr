@@ -1,154 +1,154 @@
 ---
 title: Power Automate 및 Power Apps에서 논리 앱 호출
-description: 논리 앱을 커넥터로 내보내 Microsoft Power에서 논리 앱을 호출 합니다.
+description: 논리 앱을 커넥터로 내보내 Microsoft Power Automate 흐름에서 논리 앱을 호출합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: b402dab4c6e94a7634e11f0330b5379315e43abf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91762477"
 ---
 # <a name="call-logic-apps-from-power-automate-and-power-apps"></a>Power Automate 및 Power Apps에서 논리 앱 호출
 
-Microsoft Power 자동화 및 Microsoft Power Apps에서 논리 앱을 호출 하려면 논리 앱을 커넥터로 내보낼 수 있습니다. 전원 자동화 또는 Power Apps 환경에서 논리 앱을 사용자 지정 커넥터로 노출 하는 경우 흐름에서 논리 앱을 호출할 수 있습니다.
+Microsoft Power Automate 및 Microsoft Power Apps에서 논리 앱을 호출하려면 논리 앱을 커넥터로 내보낼 수 있습니다. Power Automate 또는 Power Apps 환경에서 논리 앱을 사용자 지정 커넥터로 노출하는 경우 흐름에서 논리 앱을 호출할 수 있습니다.
 
-대신 전원 자동 또는 전원에서 Logic Apps 흐름을 마이그레이션하려면 [전원 자동화에서 흐름 내보내기 및 Azure Logic Apps에 배포](export-from-microsoft-flow-logic-app-template.md)를 참조 하세요.
+Power Automate 또는 Power Apps에서 Logic Apps로 흐름을 마이그레이션하려는 경우 [Power Automate에서 흐름 내보내기 및 Azure Logic Apps에 배포](export-from-microsoft-flow-logic-app-template.md)를 참조하세요.
 
 > [!NOTE]
-> 모든 전원 자동화 커넥터를 Azure Logic Apps에서 사용할 수 있는 것은 아닙니다. Azure Logic Apps에서 동일한 커넥터가 있는 전원 자동화 흐름과 마이그레이션할 수 있습니다. 예를 들어 단추 트리거, 승인 커넥터 및 알림 커넥터는 전원 자동화에만 적용 됩니다. 현재 전원 자동화의 OpenAPI 기반 흐름은 논리 앱 템플릿으로 내보내기 및 배포에 대해 지원 되지 않습니다.
+> Azure Logic Apps에서 모든 Power Automate 커넥터를 사용할 수 있는 것은 아닙니다. Azure Logic Apps에 동등한 커넥터가 있는 Power Automate 흐름만 마이그레이션할 수 있습니다. 예를 들어 단추 트리거, 승인 트리거, 알림 커넥터는 Power Automate에만 적용됩니다. 현재 Power Automate의 OpenAPI 기반 흐름은 논리 앱 템플릿으로 내보내기 및 배포가 지원되지 않습니다.
 >
-> * 해당 하는 Logic Apps 없는 전원 자동화 커넥터를 찾으려면 [전원 자동화 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
+> * Logic Apps에 동등한 커넥터가 없는 Power Automate 커넥터를 확인하려면 [Power Automate 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조하세요.
 >
-> * 전원 자동화가 해당 하는 Logic Apps 커넥터를 찾으려면 [커넥터 Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조 하세요.
+> * Power Automate에 동등한 커넥터가 없는 Logic Apps 커넥터를 확인하려면 [Logic Apps 커넥터](/connectors/connector-reference/connector-reference-powerautomate-connectors)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 전원 자동화 또는 Power Apps 라이선스.
+* Power Automate 또는 Power Apps 라이선스
 
-* 내보낼 요청 트리거가 있는 논리 앱입니다.
+* 내보낼 논리 앱(요청 트리거 포함)
 
-* 논리 앱을 호출 하려는 전원 자동화 또는 Power Apps의 흐름입니다.
+* 논리 앱을 호출할 Power Automate 또는 Power Apps의 흐름
 
 ## <a name="export-your-logic-app-as-a-custom-connector"></a>논리 앱을 사용자 지정 커넥터로 내보내기
 
-전원 자동화 또는 Power Apps에서 논리 앱을 호출 하려면 먼저 논리 앱을 사용자 지정 커넥터로 내보내야 합니다.
+Power Automate 또는 Power Apps에서 논리 앱을 호출하려면 먼저 논리 앱을 사용자 지정 커넥터로 내보내야 합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure Portal 검색 상자에을 입력 `Logic Apps` 합니다. 결과의 **서비스** 에서 **Logic Apps** 를 선택 합니다.
+1. Azure Portal의 검색 상자에 `Logic Apps`를 입력합니다. 결과의 **서비스** 에서 **Logic Apps** 를 선택합니다.
 
-1. 내보내려는 논리 앱을 선택 합니다.
+1. 내보낼 논리 앱을 선택합니다.
 
-1. 논리 앱의 메뉴에서 **내보내기** 를 선택 합니다.
+1. 논리 앱의 메뉴에서 **내보내기** 를 선택합니다.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app.png" alt-text="' 내보내기 ' 단추가 선택 된 메뉴를 표시 하는 Azure Portal에서 논리 앱 페이지의 스크린샷":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app.png" alt-text="‘내보내기’ 단추가 선택된 메뉴를 표시하는 Azure Portal의 논리 앱 페이지 스크린샷":::
 
-1. **내보내기** 창에서 **이름** 에 대해 논리 앱에 대 한 사용자 지정 커넥터의 이름을 입력 합니다. **환경** 목록에서 논리 앱을 호출 하려는 전원 자동 또는 전원 앱 환경을 선택 합니다. 완료되면 **확인** 을 선택합니다.
+1. **내보내기** 창의 **이름** 에 논리 앱에 대한 사용자 지정 커넥터의 이름을 입력합니다. **환경** 목록에서 논리 앱을 호출할 Power Automate 또는 Power Apps 환경을 선택합니다. 완료되면 **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="사용자 지정 커넥터 이름 및 환경에 대 한 필수 필드를 표시 하는 논리 앱에 대 한 내보내기 창의 스크린샷":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/export-logic-app2.png" alt-text="사용자 지정 커넥터 이름 및 환경의 필수 필드가 표시된 논리 앱 내보내기 창 스크린샷":::
 
-1. 논리 앱이 성공적으로 내보내기 되었는지 확인 하려면 알림 창을 확인 합니다.
+1. 논리 앱을 성공적으로 내보냈는지 확인하려면 알림 창을 살펴봅니다.
 
 ### <a name="exporting-errors"></a>내보내기 오류
 
-논리 앱을 사용자 지정 커넥터 및 제안 된 솔루션으로 내보낼 때 발생할 수 있는 오류는 다음과 같습니다.
+논리 앱을 사용자 지정 커넥터 및 제안된 솔루션으로 내보낼 때 발생할 수 있는 오류는 다음과 같습니다.
 
-* **환경을 가져오지 못했습니다. 사용자의 계정이 전원 자동화를 사용 하도록 구성 되어 있는지 확인 한 후 다시 시도 하세요.**: Azure 계정에 전원 자동화 계획이 있는지 확인 하세요.
+* **환경을 가져오지 못했습니다. 사용자 계정이 Power Automate에 대해 구성되어 있는지 확인한 후 다시 시도하세요.** : Azure 계정에 Power Automate 플랜이 있는지 확인합니다.
 
-* **현재 논리 앱을 내보낼 수 없습니다. 내보내려면 요청 트리거가 있는 논리 앱을 선택 합니다.**: 논리 앱이 [요청 트리거로](./logic-apps-workflow-actions-triggers.md#request-trigger)시작 하는지 확인 합니다.
+* **현재 논리 앱을 내보낼 수 없습니다. 내보내려면 요청 트리거가 있는 논리 앱을 선택합니다.** : 논리 앱이 [요청 트리거](./logic-apps-workflow-actions-triggers.md#request-trigger)로 시작되는지 확인합니다.
 
-## <a name="connect-to-your-logic-app-from-power-automate"></a>전원 자동화에서 논리 앱에 연결
+## <a name="connect-to-your-logic-app-from-power-automate"></a>Power Automate에서 논리 앱에 연결
 
-전원 자동화 흐름으로 내보낸 논리 앱에 연결 하려면:
+Power Automate 흐름을 사용하여 내보낸 논리 앱에 연결하려면 다음을 수행합니다.
 
-1. [Power 자동화](https://flow.microsoft.com)에 로그인 합니다.
+1. [Power Automate](https://flow.microsoft.com)에 로그인합니다.
 
-1. **전원 자동화** 홈 페이지 메뉴에서 **내 흐름** 을 선택 합니다.
+1. **Power Automate** 홈페이지 메뉴에서 **내 흐름** 을 선택합니다.
 
-1. **흐름** 페이지에서 논리 앱에 연결 하려는 흐름을 선택 합니다.
+1. **흐름** 페이지에서 논리 앱에 연결할 흐름을 선택합니다.
 
-1. 흐름 페이지의 메뉴에서 **편집** 을 선택 합니다.
+1. 흐름 페이지의 메뉴에서 **편집** 을 선택합니다.
 
-1. 흐름 편집기에서 **&#43; 새 단계** 를 선택 합니다.
+1. 흐름 편집기에서 **&#43; 새 단계** 를 선택합니다.
 
-1. **작업 선택** 아래의 검색 상자에 논리 앱 커넥터의 이름을 입력 합니다. 필요에 따라 사용자 환경에 사용자 지정 커넥터만 표시 하려면 **사용자 지정** 탭을 선택 하 여 결과를 필터링 합니다.
+1. **작업 선택** 아래의 검색 상자에 논리 앱 커넥터의 이름을 입력합니다. 필요에 따라 사용자 환경에 사용자 지정 커넥터만 표시하려면 **사용자 지정** 탭을 선택하여 결과를 필터링합니다.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="사용자 지정 커넥터 및 사용 가능한 작업에 대해 추가 되는 새 단계를 보여 주는 전원 자동화 흐름 편집기의 스크린샷":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-automate-custom-connector-action.png" alt-text="사용자 지정 커넥터에 대해 추가되는 새 단계 및 사용 가능한 작업이 표시된 Power Automate 흐름 편집기 스크린샷":::
 
-1. 논리 앱 커넥터를 사용 하 여 수행 하려는 작업을 선택 합니다. 
+1. 논리 앱 커넥터를 사용하여 수행하려는 작업을 선택합니다. 
 
-1. 작업이 논리 앱 커넥터에 전달 하는 정보를 제공 합니다.
+1. 작업이 논리 앱 커넥터에 전달하는 정보를 제공합니다.
 
-1. 변경 내용을 저장 하려면 전원 자동화 편집기 메뉴에서 **저장** 을 선택 합니다.
+1. 변경 내용을 저장하려면 Power Automate 편집기 메뉴에서 **저장** 을 선택합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Logic Apps 서비스에서 내보낸 논리 앱을 찾습니다.
 
-1. 논리 앱이 전원 자동화 흐름에서 원하는 방식으로 작동 하는지 확인 합니다.
+1. 논리 앱이 Power Automate 흐름에서 예상대로 작동하는지 확인합니다.
 
-## <a name="delete-logic-app-connector-from-power-automate"></a>전원 자동화에서 논리 앱 커넥터 삭제
+## <a name="delete-logic-app-connector-from-power-automate"></a>Power Automate에서 논리 앱 커넥터 삭제
 
-1. [Power 자동화](https://flow.microsoft.com)에 로그인 합니다.
+1. [Power Automate](https://flow.microsoft.com)에 로그인합니다.
 
-1. **전원 자동화** 홈 페이지의 메뉴에서 **데이터** &gt; **사용자 지정 커넥터** 를 선택 합니다.
+1. **Power Automate** 홈페이지의 메뉴에서 **데이터** &gt; **사용자 지정 커넥터** 를 선택합니다.
 
-1. 목록에서 사용자 지정 커넥터를 찾고 줄임표 (**...**) 단추를 클릭 하 여 &gt; **삭제** 합니다.
+1. 목록에서 사용자 지정 커넥터를 찾은 다음 줄임표( **...** ) 단추 &gt; **삭제** 를 선택합니다.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="논리 앱의 사용자 지정 커넥터 관리 단추를 표시 하는 고급 ' 사용자 지정 커넥터 ' 페이지의 스크린샷":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="논리 앱의 사용자 지정 커넥터 관리 단추가 표시된 Power Automate ‘사용자 지정 커넥터’ 페이지 스크린샷":::
 
-1. 삭제를 확인 하려면 **확인** 을 선택 합니다.
+1. 삭제를 확인하려면 **확인** 을 선택합니다.
 
 ## <a name="connect-to-your-logic-app-from-power-apps"></a>Power Apps에서 논리 앱에 연결
 
-Power Apps flow를 사용 하 여 내보낸 논리 앱에 연결 하려면 다음을 수행 합니다.
+Power Apps 흐름을 사용하여 내보낸 논리 앱에 연결하려면 다음을 수행합니다.
 
-1. [Power Apps](https://powerapps.microsoft.com/)에 로그인 합니다.
+1. [Power Apps](https://powerapps.microsoft.com/)에 로그인합니다.
 
-1. **파워 앱** 홈 페이지의 메뉴에서 **흐름** 을 선택 합니다.
+1. **Power Apps** 홈페이지의 메뉴에서 **흐름** 을 선택합니다.
 
-1. **흐름** 페이지에서 논리 앱에 연결 하려는 흐름을 선택 합니다.
+1. **흐름** 페이지에서 논리 앱에 연결할 흐름을 선택합니다.
 
-1. 흐름의 페이지에서 흐름의 메뉴에서 **편집** 을 선택 합니다.
+1. 흐름 페이지의 흐름 메뉴에서 **편집** 을 선택합니다.
 
-1. 흐름 편집기에서 **&#43; 새 단계** 단추를 선택 합니다.
+1. 흐름 편집기에서 **&#43; 새 단계** 단추를 선택합니다.
 
-1. 새 단계의 **작업 선택** 에서 검색 상자에 논리 앱 커넥터의 이름을 입력 합니다. 필요에 따라 **사용자 지정** 탭을 기준으로 결과를 필터링 하 여 환경에서 사용자 지정 커넥터만 표시 합니다.
+1. 새 단계의 **작업 선택** 아래 검색 상자에 논리 앱 커넥터의 이름을 입력합니다. 필요에 따라 사용자 환경에 사용자 지정 커넥터만 표시하려면 **사용자 지정** 탭을 기준으로 결과를 필터링합니다.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="사용자 지정 커넥터 및 사용 가능한 작업에 대해 추가 되는 새 단계를 보여 주는 Power Apps flow 편집기의 스크린샷":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/power-apps-custom-connector-action.png" alt-text="사용자 지정 커넥터에 대해 추가되는 새 단계 및 사용 가능한 작업이 표시된 Power Apps 흐름 편집기 스크린샷":::
 
-1. 커넥터를 사용 하 여 수행 하려는 작업을 선택 합니다. 
+1. 커넥터를 사용하여 수행하려는 작업을 선택합니다. 
 
-1. 작업에서 논리 앱 커넥터에 전달 하는 정보를 구성 합니다.
+1. 작업이 논리 앱 커넥터에 전달하는 정보를 구성합니다.
 
-1. Power Apps 편집기 메뉴에서 **저장** 을 선택 하 여 변경 내용을 저장 합니다. 
+1. Power Apps 편집기 메뉴에서 **저장** 을 선택하여 변경 내용을 저장합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Logic Apps 서비스에서 내보낸 논리 앱을 찾습니다.
 
-1. 논리 앱이 Power Apps flow를 사용 하 여 의도 한 대로 작동 하는지 확인 합니다.
+1. 논리 앱이 Power Apps 흐름에서 의도한 대로 작동하는지 확인합니다.
 
-## <a name="delete-logic-app-connector-from-power-apps"></a>파워 앱에서 논리 앱 커넥터 삭제
+## <a name="delete-logic-app-connector-from-power-apps"></a>Power Apps에서 논리 앱 커넥터 삭제
 
-1. [Power Apps](https://powerapps.microsoft.com)에 로그인 합니다.
+1. [Power Apps](https://powerapps.microsoft.com)에 로그인합니다.
 
-1. **Power Apps** 홈 페이지의 메뉴에서 **데이터** &gt; **사용자 지정 커넥터** 를 선택 합니다.
+1. **Power Apps** 홈페이지의 메뉴에서 **데이터** &gt; **사용자 지정 커넥터** 를 선택합니다.
 
-1. 목록에서 사용자 지정 커넥터를 찾고 줄임표 (**...**) 단추를 클릭 하 여 &gt; **삭제** 합니다.
+1. 목록에서 사용자 지정 커넥터를 찾은 다음 줄임표( **...** ) 단추 &gt; **삭제** 를 선택합니다.
 
-    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="논리 앱의 사용자 지정 커넥터 관리 단추를 표시 하는 Power Apps ' 사용자 지정 커넥터 ' 페이지의 스크린샷":::
+    :::image type="content" source="./media/call-logic-apps-from-power-automate-power-apps/delete-custom-connector.png" alt-text="논리 앱의 사용자 지정 커넥터 관리 단추가 표시된 Power Apps ‘사용자 지정 커넥터’ 페이지 스크린샷":::
 
-1. 삭제를 확인 하려면 **확인** 을 선택 합니다.
+1. 삭제를 확인하려면 **확인** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Logic Apps 커넥터](../connectors/apis-list.md) 에 대 한 자세한 정보
-* [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 에 대 한 자세한 정보
+* [Azure Logic Apps용 커넥터](../connectors/apis-list.md)에 대해 자세히 알아봅니다.
+* [Azure Logic Apps](../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.

@@ -1,5 +1,5 @@
 ---
-title: 지리 V2 미리 작성 한 엔터티-LUIS
+title: Geography V2 미리 빌드된 엔터티 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 이 문서에는 Language Understanding(LUIS)의 geographyV2 미리 빌드된 엔터티가 포함됩니다.
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
 ms.openlocfilehash: ad6fd62178ec8e987e1e3b6e05cc961bbe15e377
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "91541965"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 GeographyV2 미리 빌드된 엔터티
@@ -22,7 +22,7 @@ ms.locfileid: "91541965"
 ## <a name="subtypes"></a>하위 유형
 지리적 위치에는 하위 유형이 있습니다.
 
-|Subtype|용도|
+|Subtype|목적|
 |--|--|
 |`poi`|관심 지점|
 |`city`|도시 이름|
@@ -33,13 +33,13 @@ ms.locfileid: "91541965"
 
 ## <a name="resolution-for-geographyv2-entity"></a>GeographyV2 엔터티의 해결
 
-쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+쿼리에 대해 반환되는 엔터티 개체는 다음과 같습니다.
 
 `Carol is visiting the sphinx in gizah egypt in africa before heading to texas.`
 
 #### <a name="v3-response"></a>[V3 응답](#tab/V3)
 
-다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `false` .
+다음 JSON의 `verbose` 매개 변수가 `false`로 설정되어 있습니다.
 
 ```json
 "entities": {
@@ -68,11 +68,11 @@ ms.locfileid: "91541965"
 }
 ```
 
-앞의 JSON에서 `poi` 는 **관심 지점** 에 대 한 약어입니다.
+앞의 JSON에서 `poi`는 **관심 지점** 에 대한 약어입니다.
 
 #### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
 
-다음 JSON은 `verbose` 매개 변수를로 설정 하는입니다 `true` .
+다음 JSON의 `verbose` 매개 변수가 `true`로 설정되어 있습니다.
 
 ```json
 "entities": {

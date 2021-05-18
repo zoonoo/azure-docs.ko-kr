@@ -1,7 +1,7 @@
 ---
-title: 'PowerShell: BYOK (BYOK) TDE를 사용 하도록 설정'
+title: 'PowerShell: BYOK(Bring Your Own Key) TDE 사용'
 titleSuffix: Azure SQL Managed Instance
-description: PowerShell을 사용 하 여 미사용 암호화를 위해 TDE (BYOK) 투명한 데이터 암호화 (BYOK)를 사용 하 여 시작 하도록 Azure SQL Managed Instance를 구성 하는 방법에 대해 알아봅니다.
+description: PowerShell을 통해 미사용 암호화에 BYOK(Bring Your Own Key) TDE(투명한 데이터 암호화)를 사용하도록 Azure SQL Managed Instance를 구성하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -13,27 +13,27 @@ ms.author: mlandzic
 ms.reviewer: vanto, sstein
 ms.date: 08/25/2020
 ms.openlocfilehash: 34a849fde315b45bdb1df577cf26c91f458abd72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91323235"
 ---
-# <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 고유한 키를 사용 하 여 SQL Managed Instance에서 투명한 데이터 암호화
+# <a name="transparent-data-encryption-in-sql-managed-instance-using-your-own-key-from-azure-key-vault"></a>Azure Key Vault의 사용자 고유 키를 사용하는 SQL Managed Instance의 투명한 데이터 암호화
 
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-이 PowerShell 스크립트 예제에서는 Azure Key Vault의 키를 사용 하 여 Azure SQL Managed Instance에 대 한 고객 관리 키를 사용 하 여 TDE (투명한 데이터 암호화)를 구성 합니다. 이를 종종 TDE에 대 한 BYOK (BYOK) 시나리오 라고 합니다. 자세한 내용은 [고객 관리 키를 사용 하 여 AZURE SQL 투명한 데이터 암호화](../../database/transparent-data-encryption-byok-overview.md)를 참조 하세요.
+이 PowerShell 스크립트 예제에서는 Azure Key Vault의 키를 사용하여 Azure SQL Managed Instance에 대해 고객 관리형 키로 TDE(투명한 데이터 암호화)를 구성합니다. 일반적으로 이 구성을 TDE의 BYOK(Bring Your Own Key) 시나리오라고도 합니다. 자세한 내용은 [고객 관리형 키를 사용한 Azure SQL 투명한 데이터 암호화](../../database/transparent-data-encryption-byok-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 기존 관리형 인스턴스. [PowerShell을 사용 하 여 관리 되는 인스턴스 만들기를](create-configure-managed-instance-powershell.md)참조 하세요.
+- 기존 관리형 인스턴스. [PowerShell을 사용하여 관리형 인스턴스 만들기](create-configure-managed-instance-powershell.md)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-PowerShell을 로컬로 사용 하거나 Azure Cloud Shell을 사용 하려면 Azure PowerShell 2.3.2 이상 버전이 필요 합니다. 업그레이드 해야 하는 경우에는 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조 하거나 아래 샘플 스크립트를 실행 하 여 현재 사용자에 대 한 모듈을 설치 합니다.
+로컬에서 PowerShell을 사용하거나 Azure Cloud Shell을 사용하려면 Azure PowerShell 2.3.2 이상 버전이 필요합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하거나 아래 샘플 스크립트를 실행하여 현재 사용자에 대해 모듈을 설치합니다.
 
 `Install-Module -Name Az -AllowClobber -Scope CurrentUser`
 

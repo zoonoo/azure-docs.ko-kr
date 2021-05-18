@@ -1,6 +1,6 @@
 ---
-title: HBv2 시리즈 VM 개요-Azure Virtual Machines | Microsoft Docs
-description: Azure에서 HBv2 시리즈 VM 크기에 대해 알아봅니다.
+title: HBv2 시리즈 VM 개요 - Azure Virtual Machines | Microsoft Docs
+description: Azure의 HBv2 시리즈 VM 크기에 대해 알아봅니다.
 services: virtual-machines
 author: vermagit
 tags: azure-resource-manager
@@ -12,57 +12,57 @@ ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104721149"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>HBv2 시리즈 가상 머신 개요 
 
  
-AMD EPYC에서 HPC (high performance compute) 응용 프로그램 성능을 최대화 하려면 메모리 위치 및 프로세스 배치를 신중 하 게 설정 해야 합니다. 아래에서는 Azure에서 HPC 응용 프로그램에 대 한 AMD EPYC 아키텍처 및 구현에 대해 간략하게 설명 합니다. 여기서는 **Pnuma** 라는 용어를 사용 하 여 실제 numa 도메인을 참조 하 고 **vnuma** 는 가상화 된 numa 도메인을 참조 합니다. 
+AMD EPYC에서 HPC(고성능 컴퓨팅) 애플리케이션 성능을 최대화하려면 신중한 접근 방식의 메모리 지역성과 프로세스 배치를 신중하게 설정해야 합니다. 아래에서는 AMD EPYC 아키텍처와 Azure에서 HPC 애플리케이션을 위해 이를 구현하는 방법에 대해 간략히 설명합니다. **pNUMA** 라는 용어는 물리적 NUMA 도메인을 의미하고 **vNUMA** 는 가상화된 NUMA 도메인을 의미합니다. 
 
-물리적으로 [HBv2 시리즈](../../hbv2-series.md) 서버는 총 128 개의 실제 코어에 대해 2 * 64-코어 epyc 7742 cpu입니다. 이러한 128 코어는 32 pNUMA 도메인 (소켓 당 16 개)으로 구분 됩니다. 각각은 4 코어이 고 AMD는 **코어 복합** (또는 **CCX**)로 표현 됩니다. 각 CCX에는 자체 L3 캐시가 있으며,이는 OS에 pNUMA/vNUMA 경계가 표시 되는 방법입니다. 네 개의 인접 CCXs는 물리적 DRAM의 2 개 채널에 대 한 액세스를 공유 합니다. 
+물리적으로, [HBv2 시리즈](../../hbv2-series.md) 서버 1개는 총 128개의 물리적 코어를 위한 64코어 EPYC 7742 CPU 2개로 구성됩니다. 128개의 코어는 32개의 pNUMA 도메인(소켓당 16개)으로 나뉘고, 각 도메인은 4개의 코어이며 AMD에서는 **코어 복합체**(또는 **CCX**)로 알려져 있습니다. 각 CCX에는 자체 L3 캐시가 있으며, 이를 통해 OS가 pNUMA/vNUMA 경계를 파악합니다. 4개의 인접 CCX는 물리적 DRAM의 2개 채널에 대한 액세스를 공유합니다. 
 
-VM을 방해 하지 않고 Azure 하이퍼바이저가 작동할 수 있는 공간을 제공 하기 위해 실제 pNUMA 도메인 0 및 16 (즉, 각 CPU 소켓의 첫 번째 CCX)을 예약 합니다. 남아 있는 모든 30 개의 pNUMA 도메인은 VM에 할당 됩니다. 여기서 VM은 vNUMA가 됩니다. 따라서 VM에 다음이 표시 됩니다.
+Azure 하이퍼바이저가 VM을 방해하지 않고 작동할 수 있는 공간을 제공하기 위해 물리적 pNUMA 도메인 0 및 16(즉, 각 CPU 소켓의 첫 번째 CCX)을 예약합니다. 나머지 30개의 pNUMA 도메인은 모두 vNUMA가 되는 시점에 VM에 할당됩니다. 따라서 VM에 다음이 표시됩니다.
 
-`(30 vNUMA domains) * (4 cores/vNUMA) = 120` VM 당 코어 수 
+VM당 `(30 vNUMA domains) * (4 cores/vNUMA) = 120`개 코어 
 
-VM 자체는 pNUMA 0 및 16이 예약 된다는 것을 인식 하지 못합니다. 0-29로 표시 되는 vNUMA를 열거 합니다 .이는 소켓 당 15 개의 vNUMA, vnuma 0의 vNUMA 0-14, Vnuma 1의 vnuma 15-29 다음 섹션에는이 비대칭 NUMA 레이아웃에서 MPI 응용 프로그램을 실행 하는 최상의 방법에 대 한 지침이 있습니다. 
+VM 자체는 pNUMA 0 및 16이 예약되어 있음을 인식하지 못합니다. 대칭적으로 소켓당 15개의 vNUMA로 0-29를 표시되는 vNUMA를 열거합니다(vSocket 0의 vNUMA 0-14, vSocket 1의 vNUMA 15-29). 다음 섹션에는 이 비대칭 NUMA 레이아웃에서 MPI 애플리케이션을 실행하는 최상의 방법에 대한 지침이 있습니다. 
 
-게스트 VM에 기본 실리콘를 그대로 노출 하기 때문에 프로세스 고정은 HBv2 시리즈 Vm에서 작동 합니다. 최적의 성능과 일관성을 위해이를 고정 하는 것이 좋습니다. 
+프로세스 고정은 기본 실리콘을 있는 그대로 게스트 VM에 노출하므로 HBv2 시리즈 VM에서 작동합니다. 최적의 성능과 일관성을 유지하기 위해 이를 고정하는 것이 좋습니다. 
 
 
 ## <a name="hardware-specifications"></a>하드웨어 사양 
 
 | 하드웨어 사양          | HBv2 시리즈 VM                   | 
 |----------------------------------|----------------------------------|
-| 코어                            | 120 (SMT 사용 안 함)               | 
+| 코어                            | 120(SMT 사용 안 함)               | 
 | CPU                              | AMD EPYC 7742                    | 
-| CPU 빈도 (비 AVX)          | ~ 3.1 g h z (단일 + 모든 코어)    | 
-| 메모리                           | 4gb/코어 (480 총 GB)         | 
-| 로컬 디스크                       | 960 GB NVMe (블록), 480 GB SSD (페이지 파일) | 
-| Infiniband                       | 200 g b/초 EDR Mellanox Connectx-3-6 | 
-| 네트워크                          | 50 g b/s 이더넷 (40 g b/초 사용 가능) Azure second Gen SmartNIC | 
+| CPU 주파수(비 AVX)          | ~3.1GHz(단일 + 모든 코어)    | 
+| 메모리                           | 4GB/코어(총 480GB)         | 
+| 로컬 디스크                       | 960GB NVMe(블록), 480GB SSD(페이지 파일) | 
+| Infiniband                       | 200GB/s EDR Mellanox ConnectX-6 | 
+| 네트워크                          | 50GB/s 이더넷(40GB/s 사용 가능) Azure 2세대 SmartNIC | 
 
 
 ## <a name="software-specifications"></a>소프트웨어 사양 
 
 | 소프트웨어 사양     | HBv2 시리즈 VM                                            | 
 |-----------------------------|-----------------------------------------------------------|
-| 최대 MPI 작업 크기            | 36000 코어 (단일 가상 머신 확장 집합에서 단일 가상 머신 확장 집합의 300 Vm (Singleementgroup = true)) |
-| MPI 지원                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, Platform MPI  |
-| 추가 프레임 워크       | 로 x,을 (를) |
-| 지원 Azure Storage       | Standard 및 Premium 디스크 (최대 8 개 디스크) |
-| SRIOV RDMA에 대 한 OS 지원   | CentOS/RHEL 7.6 +, Ubuntu 16.04 +, SLES 12 SP4 +, WinServer 2016 이상  |
-| Orchestrator 지원        | CycleCloud, Batch, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)  |
+| 최대 MPI 작업 크기            | 36000개 코어(singlePlacementGroup = true로 설정된 단일 가상 머신 확장 집합의 300개 VM) |
+| MPI 지원                 | HPC-X, Intel MPI, OpenMPI, MVAPICH2, MPICH, 플랫폼 MPI  |
+| 추가 프레임워크       | UCX, libfabric, PGAS |
+| Azureob Storage 지원       | 표준 및 프리미엄 디스크(최대 8개의 디스크) |
+| SRIOV RDMA에 대한 OS 지원   | CentOS/RHEL 7.6+, Ubuntu 16.04+, SLES 12 SP4 +, WinServer 2016+  |
+| 오케스트레이터 지원        | CycleCloud, 배치, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
-> Windows Server 2012 r 2는 HBv2 및 64 (가상 또는 실제) 코어가 있는 다른 Vm에서 지원 되지 않습니다. 자세한 내용은 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
+> Windows Server 2012 R2는 HBv2 및 64개 가상 또는 물리적 코어를 초과하는 기타 VM에서 지원되지 않습니다. 자세한 내용은 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [AMD EPYC 아키텍처](https://bit.ly/2Epv3kC) 및 [다중 칩 아키텍처](https://bit.ly/2GpQIMb)에 대해 자세히 알아보세요. 자세한 내용은 [AMD EPYC 프로세서에 대 한 HPC 튜닝 가이드](https://bit.ly/2T3AWZ9)를 참조 하세요.
-- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
+- [AMD EPYC 아키텍처](https://bit.ly/2Epv3kC) 및 [다중 칩 아키텍처](https://bit.ly/2GpQIMb)에 대해 자세히 알아봅니다. 자세한 내용은 [AMD EPYC 프로세서 HPC 튜닝 가이드](https://bit.ly/2T3AWZ9)를 참조하세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

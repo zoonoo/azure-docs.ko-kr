@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.reviewer: sngun
 ms.openlocfilehash: b0d27cb2f941db374a144cbd5c026444730e24e8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98247508"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Azure Cosmos DB 요금 청구 이해
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-완전히 관리 되는 클라우드 네이티브 데이터베이스 서비스인 Azure Cosmos DB는 데이터베이스 작업 및 사용 된 저장소에 대해서만 요금을 청구 하 여 요금 청구를 간소화 합니다. 온-프레미스 및 IaaS 호스티드 대안에 비해 추가 라이선스 요금, 하드웨어, 유틸리티 비용 또는 시설 비용이 들지 않습니다. Microsoft Azure Cosmos DB의 다중 지역 기능을 고려할 때 데이터베이스 서비스는 기존의 온-프레미스 또는 IaaS 솔루션에 비해 획기적으로 비용을 절감합니다.
+완전 관리형 클라우드 네이티브 데이터베이스 서비스인 Azure Cosmos DB는 데이터베이스 작업 및 사용된 스토리지에 대해서만 요금을 청구하여 청구 과정을 간소화합니다. 온-프레미스 및 IaaS 호스티드 대안에 비해 추가 라이선스 요금, 하드웨어, 유틸리티 비용 또는 시설 비용이 들지 않습니다. Microsoft Azure Cosmos DB의 다중 지역 기능을 고려할 때 데이터베이스 서비스는 기존의 온-프레미스 또는 IaaS 솔루션에 비해 획기적으로 비용을 절감합니다.
 
-- **데이터베이스 작업**: 데이터베이스 작업에 대해 부과 되는 방법은 사용 하는 Azure Cosmos 계정 유형에 따라 달라 집니다.
+- **데이터베이스 작업**: 데이터베이스 작업에 대해 부과되는 방법은 사용하는 Azure Cosmos 계정 유형에 따라 달라집니다.
 
-  - **프로 비전 된 처리량**: 지정 된 시간 동안 프로 비전 된 최대 처리량 (100 r u/초 단위로)에 대해 시간당 요금이 청구 됩니다.
-  - **서버** 를 사용 하지 않음: 데이터베이스 작업에 사용 된 총 요청 단위 크기에 대해 시간당 요금이 청구 됩니다.
+  - **프로비저닝된 처리량**: 지정된 시간 동안 프로비저닝된 최대 처리량(100 RU/초 단위)에 대해 시간당 요금이 청구됩니다.
+  - **서버리스**: 데이터베이스 작업에 사용된 총 요청 단위 크기에 대해 시간당 요금이 청구됩니다.
 
-- **저장소**: 지정 된 시간 동안 데이터 및 인덱스에서 사용 하는 총 저장소 크기 (gb)에 대 한 정액 요금이 청구 됩니다.
+- **스토리지**: 지정된 시간 동안 데이터 및 인덱스에 사용된 총 스토리지 양(GB)에 대해 정액 요금이 부과됩니다.
 
-최신 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
+최신 가격 정보는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
-이 문서에서는 몇 가지 예외를 사용하여 월별 청구서에 표시되는 세부 항목을 이해하는 데 도움을 줍니다. 예제에 표시되는 수치는 Azure Cosmos 컨테이너가 다른 양의 처리량이 프로비전되었거나, 다중 지역에 걸쳐 있거나, 한 달 중 다른 기간에 실행된 경우 달라질 수 있습니다. 이 문서의 모든 예제에서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)에 표시 된 가격 책정 정보를 기준으로 청구서를 계산 합니다.
+이 문서에서는 몇 가지 예외를 사용하여 월별 청구서에 표시되는 세부 항목을 이해하는 데 도움을 줍니다. 예제에 표시되는 수치는 Azure Cosmos 컨테이너가 다른 양의 처리량이 프로비전되었거나, 다중 지역에 걸쳐 있거나, 한 달 중 다른 기간에 실행된 경우 달라질 수 있습니다. 이 문서의 모든 예제에서는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)에 표시된 가격 책정 정보를 기준으로 청구서를 계산합니다.
 
 > [!NOTE]
-> 요금 청구는 60분이 아닌 분과 초 단위로 이루어집니다. 이 문서에 표시 된 모든 예제는 미국의 비 정부 지역에 배포 된 Azure Cosmos 계정에 대 한 가격을 기준으로 합니다. 가격 책정 및 계산은 사용 중인 지역에 따라 달라 지 며, 최신 가격 책정 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 를 참조 하세요.
+> 요금 청구는 60분이 아닌 분과 초 단위로 이루어집니다. 이 문서에 표시된 모든 예제는 미국 내 정부가 아닌 지역에 배포된 Azure Cosmos 계정에 대한 가격을 기준으로 합니다. 가격 책정 및 계산은 사용 중인 지역에 따라 다릅니다. 최신 가격 책정 정보는 [Azure Cosmos DB 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
 ## <a name="billing-examples"></a>청구 예제
 
-### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>청구 예제-컨테이너에 프로 비전 된 처리량 (전체 월)
+### <a name="billing-example---provisioned-throughput-on-a-container-full-month"></a>청구 예제 - 컨테이너에 대하여 프로비저닝된 처리량(전체 월)
 
 * 컨테이너에서 1,000RU/초의 처리량을 구성하며, 24시간 * 30일(해당 월에 포함된 일 수) = 총 720시간 동안 유지된다고 가정합니다.  
 
@@ -47,7 +47,7 @@ ms.locfileid: "98247508"
 
 * 월간 총 청구 요금은 7,200개 단위(100RU 기준), 즉 $57.60에 해당합니다.
 
-### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>청구 예제-컨테이너에 프로 비전 된 처리량 (부분 월)
+### <a name="billing-example---provisioned-throughput-on-a-container-partial-month"></a>청구 예제 - 컨테이너에 프로비저닝된 처리량(부분 월)
 
 * 프로비저닝된 처리량이 2,500RU/초인 컨테이너를 만든다고 가정합니다. 이 컨테이너는 월 중에 24시간 동안 라이브됩니다(예를 들어 만들고 24시간 후에 삭제함).  
 
@@ -55,13 +55,13 @@ ms.locfileid: "98247508"
 
 * 월간 총 청구 금액은 $4.80입니다.
 
-### <a name="billing-example---serverless-container"></a>청구 예제-서버를 사용 하지 않는 컨테이너
+### <a name="billing-example---serverless-container"></a>청구 예제 - 서버리스 컨테이너
 
-* 서버를 사용 하지 않는 컨테이너를 만든다고 가정 합니다. 
+* 서버리스 컨테이너를 만든다고 가정합니다. 
 
-* 매월 전체 50만 요청 단위를 사용 하는 데이터베이스 요청을 실행 합니다. 비용은 $0.125 (50만 * $0.25/백만)이 됩니다.
+* 매월 전체 50만 요청 단위를 사용하는 데이터베이스 요청을 실행합니다. 비용은 $0.125(50만 * $0.25/백만)이 됩니다.
 
-* 매월 총 청구 금액은 $0.125입니다.
+* 월간 총 청구 금액은 $0.125입니다.
 
 ### <a name="billing-rate-if-storage-size-changes"></a>스토리지 크기가 변경될 경우의 청구 요금
 
@@ -71,7 +71,7 @@ Storage 용량은 한 달 동안 저장된 최대 시간당 데이터 양(GB)을
 
 사용량이나 컨테이너 또는 데이터베이스 활성 시간이 1시간 미만인지에 관계없이 컨테이너 또는 데이터베이스가 존재하는 시간마다 균일한 요금이 청구됩니다. 예를 들어, 컨테이너 또는 데이터베이스를 하나 만들고 5분 후 삭제하는 경우 청구서에는 1시간이 포함됩니다.
 
-### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>컨테이너 또는 데이터베이스에서 프로 비전 된 처리량이 확장/축소 되는 경우 요금 청구 속도
+### <a name="billing-rate-when-provisioned-throughput-on-a-container-or-database-scales-updown"></a>컨테이너 또는 데이터베이스에서 프로비저닝된 처리량이 스케일 업/다운되는 경우 청구 요율
 
 오전 9:30에 프로비전된 처리량을 400RU/초에서 1,000RU/초로 늘린 다음 오전 10:45에 프로비전된 처리량을 다시 400RU/초로 줄인 경우 1,000RU/초 2시간에 대한 요금이 청구됩니다. 
 
@@ -91,7 +91,7 @@ Storage 용량은 한 달 동안 저장된 최대 시간당 데이터 양(GB)을
 
 :::image type="content" source="./media/understand-your-bill/bill-example1.png" alt-text="전용 처리량 청구 예제":::
 
-### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>청구 예: 공유 (프로 비전 된) 처리량 모드가 있는 컨테이너
+### <a name="billing-example-containers-with-shared-provisioned-throughput-mode"></a>청구 예제: 공유(프로비저닝된) 처리량 모드가 있는 컨테이너
 
 * 프로비전된 처리량이 각각 50K RU/초 및 70K RU/초인 2개의 Azure Cosmos 데이터베이스(컨테이너 세트가 데이터베이스 수준에서 처리량을 공유함)를 사용하여 미국 동부 2 지역에 Azure Cosmos 계정을 만들 경우 프로비전된 총 처리량은 120K RU/초가 됩니다.  
 
@@ -105,9 +105,9 @@ Storage 용량은 한 달 동안 저장된 최대 시간당 데이터 양(GB)을
 
 :::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="공유 처리량 청구 예제":::
 
-## <a name="billing-examples-with-geo-replication"></a>지역에서 복제를 사용 하는 청구 예  
+## <a name="billing-examples-with-geo-replication"></a>지역에서 복제를 사용하는 청구 예제  
 
-언제든지 전 세계의 Azure 지역을 Azure Cosmos 데이터베이스 계정에 추가/제거할 수 있습니다. 다양한 Azure Cosmos 데이터베이스 및 컨테이너에 대해 구성한 처리량은 Azure Cosmos 데이터베이스 계정과 연결된 각 Azure 지역에서 예약됩니다. Azure Cosmos 데이터베이스 계정 (시간당 프로 비전 됨) 내에서 모든 데이터베이스 및 컨테이너에 대해 구성 된 프로 비전 된 처리량 (r u/초)의 합계가 T이 고, 데이터베이스 계정과 연결 된 Azure 지역 수가 N 이면, 지정 된 시간 동안 프로 비전 된 총 처리량은 T x N r u/초와 같습니다. 프로 비전 된 처리량 (단일 쓰기 지역) 비용 $0.008/시간 100 r u/초 및 여러 쓰기 가능 영역 (다중 지역 쓰기 구성) 비용 $0.016/100 r u/초 ( [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)참조) 단일 쓰기 지역이든, 다중 쓰기 지역이든 관계없이 Azure Cosmos DB에서는 모든 지역의 데이터를 읽을 수 있습니다.
+언제든지 전 세계의 Azure 지역을 Azure Cosmos 데이터베이스 계정에 추가/제거할 수 있습니다. 다양한 Azure Cosmos 데이터베이스 및 컨테이너에 대해 구성한 처리량은 Azure Cosmos 데이터베이스 계정과 연결된 각 Azure 지역에서 예약됩니다. Azure Cosmos 데이터베이스 계정(시간당 프로비저닝됨) 내 모든 데이터베이스 및 컨테이너에 대해 구성된 프로비저닝된 처리량(RU/초)의 합계가 T이고, 데이터베이스 계정과 연결된 Azure 지역 수가 N이면, Azure Cosmos 데이터베이스 계정에서 지정된 시간 동안 프로비저닝된 총 처리량은 T x N RU/초와 같습니다. 프로비저닝된 처리량(단일 쓰기 지역) 비용은 $0.008/시간 100RU/초이며 다중 쓰기 가능 지역이 있는 프로비저닝된 처리량(다중 지역 쓰기 구성) 비용은 $0.016/시간 100RU/초입니다([가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/) 참조). 단일 쓰기 지역이든, 다중 쓰기 지역이든 관계없이 Azure Cosmos DB에서는 모든 지역의 데이터를 읽을 수 있습니다.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>청구 예제: 다중 지역 Azure Cosmos 계정, 단일 지역 쓰기
 
@@ -130,16 +130,16 @@ Azure Cosmos 컨테이너가 미국 서부에 있다고 가정해보겠습니다
 |**항목** |**사용량(월)**|**비용** |**월간 비용** |
 |---------|---------|---------|-------|
 |미국 서부의 컨테이너에 대한 처리량 청구(모든 지역에 쓰기 가능)       | 10K RU/초 * 24 * 30    |시간 기준 100RU/초당 $0.016    |$1,152 |
-|3개 추가 지역인 미국 동부, 북유럽 및 동아시아에 대한 처리량 청구(모든 지역에 쓰기 가능)        | 3 * 10K RU/초 * 24 * 30    |시간 기준 100RU/초당 $0.016   |$3456 |
+|3개 추가 지역인 미국 동부, 북유럽 및 동아시아에 대한 처리량 청구(모든 지역에 쓰기 가능)        | 3 * 10K RU/초 * 24 * 30    |시간 기준 100RU/초당 $0.016   |$3,456 |
 |미국 서부의 컨테이너에 대한 스토리지 청구      | 250GB    |$0.25/GB  |$62.50|
 |3개 추가 지역인 미국 동부, 북유럽 및 동아시아에 대한 스토리지 청구      | 3 * 250GB    |$0.25/GB  |$187.50|
 |**합계**     |     |  |**$6,010**|
 
 *또한 매월 미국 서부의 컨테이너에서 100GB 데이터를 송신하여 미국 동부, 북유럽 및 동아시아로 데이터를 복제한다고 가정해보겠습니다. 데이터 전송 요금을 기준으로 송신에 대한 요금이 청구됩니다.*
 
-### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>청구 예: 다중 지역 쓰기를 사용 하는 Azure Cosmos 계정, 일부 컨테이너의 전용 처리량 모드를 포함 하는 데이터베이스 수준 처리량
+### <a name="billing-example-azure-cosmos-account-with-multi-region-writes-database-level-throughput-including-dedicated-throughput-mode-for-some-containers"></a>청구 예제: 일부 컨테이너에 대한 전용 처리량 모드를 포함하여 다중 지역 쓰기, 데이터베이스 수준 처리량이 있는 Azure Cosmos 계정
 
-모든 지역이 쓰기 가능 (다중 쓰기 지역 구성) 된 다중 지역 Azure Cosmos 계정이 있는 다음 예제를 살펴보겠습니다. 간단히 하기 위해 스토리지 크기는 달라지지 않고 일정하게 유지된다고 가정하며, 여기서는 예제를 보다 간단히 나타내기 위해 생략합니다. 월간 프로비전된 처리량은 다음과 같이 달라집니다(30일 또는 720시간으로 가정). 
+모든 지역이 쓰기 가능한(다중 쓰기 지역 구성) 다중 지역 Azure Cosmos 계정이 있는 다음 예제를 가정해봅니다. 간단히 하기 위해 스토리지 크기는 달라지지 않고 일정하게 유지된다고 가정하며, 여기서는 예제를 보다 간단히 나타내기 위해 생략합니다. 월간 프로비전된 처리량은 다음과 같이 달라집니다(30일 또는 720시간으로 가정). 
 
 [0-100시간]:  
 
@@ -215,12 +215,12 @@ Azure Cosmos 컨테이너가 미국 서부에 있다고 가정해보겠습니다
 | | |2개의 추가 지역인 미국 동부, 북유럽(모든 지역이 쓰기 가능)에 대한 처리량 요금  |`(1 + 1) * (70 K RU/sec /100 * $0.016) * 20 hours = $448`  |$224  |
 || |**월간 총 비용**  | |**$38,688**   |
 
-## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Azure Cosmos DB 무료 계층 계정을 사용한 청구 예
+## <a name="billing-examples-with-azure-cosmos-db-free-tier-accounts"></a><a id="azure-free-tier"></a>Azure Cosmos DB 무료 계층 계정을 사용한 청구 예제
 
-Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정 수준에서 무료로 제공됩니다. 400RU/초 및 5GB를 초과하는 모든 RU/초 및 스토리지는 요금 페이지당 정가로 청구됩니다. 청구서에는 무료 400RU/초 및 5GB에 대한 청구 내역 또는 품목이 없고 무료 계층에 적용되는 범위를 넘어서는 RU/초 및 스토리지에 대해서만 표시됩니다. 400 o s/s는 프로 비전 된 처리량, 자동 크기 조정 및 다중 지역 쓰기의 모든 형식에 적용 됩니다.  
+Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정 수준에서 무료로 제공됩니다. 400RU/초 및 5GB를 초과하는 모든 RU/초 및 스토리지는 요금 페이지당 정가로 청구됩니다. 청구서에는 무료 400RU/초 및 5GB에 대한 청구 내역 또는 품목이 없고 무료 계층에 적용되는 범위를 넘어서는 RU/초 및 스토리지에 대해서만 표시됩니다. 프로비저닝된 처리량, 자동 크기 조정 및 다중 지역 쓰기와 같은 모든 유형의 RU/초에 400 RU/초가 적용됩니다.  
 
 > [!NOTE]
-> Azure Cosmos DB 무료 계층은 Azure 무료 계정과 다릅니다. Azure 무료 계정은 제한 된 시간 동안 Azure 크레딧 및 리소스를 무료로 제공 합니다. 이 무료 계정의 일부로 Azure Cosmos DB를 사용 하는 경우 12 개월 동안 프로 비전 된 처리량이 25GB 인 25gb의 저장소 및 400 r u/초를 얻을 수 있습니다.
+> Azure Cosmos DB 무료 계층은 Azure 무료 계정과 다릅니다. Azure 무료 계정은 제한된 시간 동안 Azure 크레딧 및 리소스를 무료로 제공합니다. 이 무료 계정의 일부로 Azure Cosmos DB를 사용하는 경우 12개월 동안 프로비저닝된 처리량에 대한 25GB의 스토리지 및 400RU/s를 얻을 수 있습니다.
 
 ### <a name="billing-example---container-or-database-with-provisioned-throughput"></a>청구 예 - 프로비저닝된 처리량이 있는 컨테이너 또는 데이터베이스
 - 무료 계층 계정에서 400RU/초와 5GB의 스토리지가 있는 데이터베이스나 컨테이너를 만든다고 가정해보겠습니다.
@@ -236,16 +236,16 @@ Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400R
 - 처음 5GB를 초과하는 스토리지는 모두 일반 스토리지 요금으로 청구됩니다. 
 
 ### <a name="billing-example---multi-region-single-write-region-account"></a>청구 예 - 다중 지역, 단일 쓰기 지역 계정
-- 무료 계층 계정에서 1200RU/초와 10GB의 스토리지가 있는 데이터베이스나 컨테이너를 만든다고 가정해보겠습니다. 계정을 3 개 지역으로 복제 하 고 단일 쓰기 지역 계정이 있습니다.
+- 무료 계층 계정에서 1200RU/초와 10GB의 스토리지가 있는 데이터베이스나 컨테이너를 만든다고 가정해보겠습니다. 계정을 3개 지역에 복제했고 단일 쓰기 지역 계정을 가지고 있습니다.
 - 무료 계층이 없는 경우 총 3 * 1200RU/초 = 3600RU/초 및 3 * 10GB = 30GB의 스토리지에 대해 요금이 청구됩니다.
 - 무료 계층 할인이 적용되는 경우 400RU/초와 5GB의 스토리지를 제거한 후 단일 쓰기 지역 요금으로 프로비저닝된 처리량의 유효 3200RU/초(32개)와 25GB의 스토리지에 대해 요금이 청구됩니다.
 - RU/초에 대한 월별 비용은 다음과 같습니다. 32개 * $0.008 * 24시간 * 31일 = $190.46. 스토리지에 대한 예상 비용은 다음과 같습니다. 25GB * 0.25/GB = $6.25. 총 비용은 $190.46 + $6.25 = $196.71입니다.
 - 참고: RU/초나 스토리지에 대한 단가가 지역에서 다른 경우 무료 계층 400RU/초와 5GB는 계정이 만들어진 지역의 요금을 반영합니다.
 
-### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>청구 예-다중 지역, 여러 쓰기 지역이 있는 계정
+### <a name="billing-example---multi-region-account-with-multiple-write-regions"></a>청구 예제 - 다중 지역, 다중 쓰기 지역이 있는 계정
 
-이 예제에서는 2019 년 12 월 1 일 이후에 생성 된 계정에 대 한 [다중 지역 쓰기의 가격](https://azure.microsoft.com/pricing/details/cosmos-db/) 을 반영 합니다. 
-- 무료 계층 계정에서 1200RU/초와 10GB의 스토리지가 있는 데이터베이스나 컨테이너를 만든다고 가정해보겠습니다. 계정을 3 개 지역으로 복제 하 고, 여러 쓰기 지역 계정이 있습니다. 
+이 예제에서는 2019년 12월 1일 후에 만들어진 계정에 대한 [다중 지역 쓰기 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/)을 반영합니다. 
+- 무료 계층 계정에서 1200RU/초와 10GB의 스토리지가 있는 데이터베이스나 컨테이너를 만든다고 가정해보겠습니다. 계정을 3개 지역에 복제하고 다중 쓰기 지역 계정이 있습니다. 
 - 무료 계층이 없는 경우 총 3 * 1200RU/초 = 3600RU/초 및 3 * 10GB = 30GB의 스토리지에 대해 요금이 청구됩니다.
 - 무료 계층 할인이 적용되는 경우 400RU/초와 5GB의 스토리지를 제거한 후 다중 쓰기 지역 요금으로 프로비저닝된 처리량의 유효 3200RU/초(32개)와 25GB의 스토리지에 대해 요금이 청구됩니다.
 - RU/초에 대한 월별 비용은 다음과 같습니다. 32개 * $0.016 * 24시간 * 31일 = $380.93. 스토리지에 대한 예상 비용은 다음과 같습니다. 25GB * 0.25/GB = $6.25. 총 비용은 $380.93 + $6.25 = $387.18입니다.
@@ -254,13 +254,13 @@ Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400R
 
 해당 월이 끝나기 전에 청구 금액을 미리 예상해보는 또 다른 예를 살펴보겠습니다. 다음과 같이 청구 금액을 예측할 수 있습니다.
 
-**저장소 비용**
+**스토리지 비용**
 
-* 평균 레코드 크기 (KB) = 1 
+* 평균 레코드 크기(KB) = 1 
 * 레코드 수 = 1억 
-* 총 저장소 (GB) = 100 
-* GB 당 월별 비용 = $0.25 
-* 저장소에 대 한 월별 예상 비용 = $25.00 
+* 총 저장소(GB) = 100 
+* GB당 월별 비용 = $0.25 
+* 스토리지에 대한 월별 예상 비용 = $25.00 
 
 **처리량 비용**
 

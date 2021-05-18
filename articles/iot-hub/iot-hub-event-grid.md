@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 ms.openlocfilehash: 0e0ca8a787145fb40087a2d99be85607404eebfa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92152132"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
@@ -27,7 +27,7 @@ Azure Maps 이벤트 알림을 다른 서비스에 보내고 다운스트림 프
 
 ![Azure Event Grid 아키텍처](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -76,13 +76,13 @@ IoT Hub 이벤트에는 디바이스 수명 주기 변경에 대응하는 데 �
 
 
 
-### <a name="device-telemetry-schema"></a>장치 원격 분석 스키마
+### <a name="device-telemetry-schema"></a>디바이스 원격 분석 스키마
 
-장치 원격 분석 메시지는 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType이 **application/JSON** 으로 설정 되 고 Contentencoding이 **u t f-8** 로 설정 된 유효한 JSON 형식 이어야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다.
+디바이스 원격 분석 메시지는 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType이 **application/json** 으로 설정되고 contentEncoding은 **UTF-8** 로 설정된 유효한 JSON 형식이어야 합니다. 두 속성은 모두 대/소문자를 구분하지 않습니다. 콘텐츠 인코딩을 지정하지 않으면 IoT Hub는 base 64로 인코드된 형식으로 메시지를 작성합니다.
 
-Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되기 전에 장치 원격 분석 이벤트를 보강할 수 있습니다. 자세한 내용은 [메시지 강화 개요](iot-hub-message-enrichments-overview.md)를 참조 하세요.
+엔드포인트를 Event Grid로 선택하여 Event Grid에 게시되기 전에 디바이스 원격 분석 이벤트를 보강할 수 있습니다. 자세한 내용은 [메시지 보강 개요](iot-hub-message-enrichments-overview.md)를 참조하세요.
 
-다음 예제에서는 장치 원격 분석 이벤트의 스키마를 보여 줍니다.
+다음 예제에서는 디바이스 원격 분석 이벤트의 스키마를 보여 줍니다.
 
 ```json
 [{  
@@ -168,15 +168,15 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되기 전에 장
 
 
 > [!WARNING]
-> 장치 만들기 이벤트와 연결 된 쌍 *데이터* 는 기본 구성 이며,  `authenticationType` 새로 만든 장치의 실제 및 기타 장치 속성에는 의존해 서는 안 됩니다. `authenticationType`및 기타 장치 속성은 새로 만든 장치에서 Azure IoT sdk에 제공 된 등록 관리자 API를 사용 합니다.
+> 디바이스 만들기 이벤트와 연결된 ‘트윈 데이터’는 기본 구성 이며, 새로 만든 디바이스의 실제 `authenticationType` 및 기타 디바이스 속성에 사용해서는 ‘안 됩니다’.  새로 만든 디바이스의 `authenticationType` 및 기타 디바이스 속성에는 Azure IoT SDK에 제공된 등록 관리자 API를 사용합니다.
 
-각 속성에 대 한 자세한 설명은 [IoT Hub에 대 한 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-iot-hub.md)를 참조 하세요.
+각 속성에 대한 자세한 설명은 [IoT Hub에 대한 Azure Event Grid 이벤트 스키마](../event-grid/event-schema-iot-hub.md)를 참조하세요.
 
 ## <a name="filter-events"></a>이벤트 필터링
 
-IoT Hub 이벤트 구독은 이벤트 유형, 데이터 콘텐츠 및 주체 (장치 이름)를 기준으로 이벤트를 필터링 할 수 있습니다.
+IoT Hub 이벤트 구독은 이벤트 유형, 데이터 콘텐츠, 주체(디바이스 이름)를 기준으로 이벤트를 필터링할 수 있습니다.
 
-Event Grid를 사용 하 여 이벤트 유형, 주제 및 데이터 내용에 대 한 [필터링](../event-grid/event-filtering.md) 을 수행할 수 있습니다. Event Grid 구독을 만드는 동안 선택한 IoT 이벤트를 구독 하도록 선택할 수 있습니다. Event Grid의 제목 필터는 **시작 문자**(접두사) 및 **끝 문자**(접미사) 일치를 기반으로 작동합니다. 필터는 `AND` 연산자를 사용하므로 접두사와 접미사가 둘 다 일치하는 제목의 이벤트가 구독자에게 전달됩니다.
+Event Grid를 사용하면 이벤트 유형, 주체, 데이터 콘텐츠를 [필터링](../event-grid/event-filtering.md)할 수 있습니다. Event Grid 구독을 만드는 동안 선택한 IoT 이벤트를 구독하도록 선택할 수 있습니다. Event Grid의 제목 필터는 **시작 문자**(접두사) 및 **끝 문자**(접미사) 일치를 기반으로 작동합니다. 필터는 `AND` 연산자를 사용하므로 접두사와 접미사가 둘 다 일치하는 제목의 이벤트가 구독자에게 전달됩니다.
 
 IoT 이벤트의 제목은 다음 형식을 사용합니다.
 
@@ -184,21 +184,21 @@ IoT 이벤트의 제목은 다음 형식을 사용합니다.
 devices/{deviceId}
 ```
 
-또한 Event Grid를 사용 하 여 데이터 콘텐츠를 포함 하 여 각 이벤트의 특성에 대 한 필터링을 수행할 수 있습니다. 그러면 원격 분석 메시지의 내용에 따라 전달 되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering) 을 참조 하세요. 원격 분석 메시지 본문에 대 한 필터링을 위해 메시지 [시스템 속성](./iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다.
+Event Grid를 사용하여 데이터 콘텐츠를 비롯한 각 이벤트의 특성을 필터링할 수도 있습니다. 이렇게 하면 원격 분석 메시지의 내용에 따라 전달되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering)을 참조하세요. 원격 분석 메시지 본문을 필터링하려면 메시지 [시스템 속성](./iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/json** 으로 설정하고 contentEncoding을 **UTF-8** 로 설정해야 합니다. 두 속성은 모두 대/소문자를 구분하지 않습니다.
 
-DeviceConnected, DeviceDisconnected, DeviceCreated 및 Devicedisconnected와 같은 비 원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우, Event Grid 필터링 외에도 사용자는 메시지 라우팅 쿼리를 통해 장치 쌍, 메시지 속성 및 본문을 기준으로 필터링 할 수 있습니다. 
+DeviceConnected, DeviceDisconnected, DeviceCreated, DeviceDeleted와 같은 비원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우 사용자는 Event Grid 필터링 외에도 메시지 라우팅 쿼리를 통해 디바이스 쌍, 메시지 속성, 본문을 필터링할 수도 있습니다. 
 
-Event Grid를 통해 원격 분석 이벤트를 구독할 때 IoT Hub는 기본 메시지 경로를 만들어 데이터 원본 유형 장치 메시지를 Event Grid 보냅니다. 메시지 라우팅에 대 한 자세한 내용은 [IoT Hub 메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 참조 하세요. 이 경로는 포털의 IoT Hub > 메시지 라우팅에서 볼 수 있습니다. 원격 분석 이벤트에 대해 생성 된 예 구독 수에 관계 없이 Event Grid 하나의 경로만 생성 됩니다. 따라서 다른 필터를 사용 하는 구독이 여러 개 필요한 경우에는 동일한 경로에 대 한 이러한 쿼리에서 또는 연산자를 사용할 수 있습니다. 경로 생성 및 삭제는 Event Grid를 통한 원격 분석 이벤트의 구독을 통해 제어 됩니다. IoT Hub 메시지 라우팅을 사용 하 여 Event Grid에 대 한 경로를 만들거나 삭제할 수 없습니다.
+Event Grid를 통해 원격 분석 이벤트를 구독하면 IoT Hub에서 기본 메시지 경로를 만들어 데이터 원본 형식 디바이스 메시지를 Event Grid로 보냅니다. 메시지 라우팅에 대한 자세한 내용은 [IoT Hub 메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 참조하세요. 이 경로는 포털의 IoT Hub > 메시지 라우팅에서 볼 수 있습니다. 원격 분석 이벤트에 대해 생성된 EG 구독 수에 관계없이 Event Grid 경로는 한 개만 생성됩니다. 따라서 각기 다른 필터를 사용하는 여러 구독이 필요한 경우 동일한 경로에 대한 해당 쿼리에서 OR 연산자를 사용할 수 있습니다. 경로 생성 및 삭제는 Event Grid를 통해 원격 분석 이벤트를 구독하여 제어합니다. IoT Hub 메시지 라우팅을 사용하여 Event Grid 경로를 만들거나 삭제할 수는 없습니다.
 
-원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](./iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다.
+원격 분석 데이터를 보내기 전에 메시지를 필터링하려면 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트합니다. 본문이 JSON인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](./iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/json** 으로 설정하고 contentEncoding을 **UTF-8** 로 설정해야 합니다.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
-장치 연결 상태 이벤트를 수신 하려면 장치에서 Iot Hub를 사용 하 여 ' ' C2D Receive Message ' 작업 또는 '이 원격 분석 전송 ' 작업을 수행 해야 합니다. 그러나 장치에서 AMQP 프로토콜을 사용 하 여 Iot Hub에 연결 하는 경우에는 ' C2D Receive Message ' 작업을 수행 하는 것이 좋습니다. 그렇지 않으면 몇 분 동안 연결 상태 알림이 지연 될 수 있습니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 IoT Hub c # SDK 용 비동기 API 수신 또는 [AMQP 용 장치 클라이언트](iot-hub-amqp-support.md#device-client)를 호출 하 여 C2D 링크를 열 수 있습니다.
+디바이스 연결 상태 이벤트를 수신하려면 디바이스에서 Iot Hub를 사용하여 ‘D2C 원격 분석 보내기’ 또는 ‘C2D 메시지 받기’ 작업을 수행해야 합니다. 그러나 디바이스에서 AMQP 프로토콜을 사용하여 Iot Hub에 연결하는 경우에는 ‘C2D 메시지 받기’ 작업을 수행하는 것이 좋습니다. 그러지 않으면 연결 상태 알림이 몇 분간 지연될 수 있습니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 IoT Hub C# SDK용 비동기 수신 API 또는 [AMQP용 디바이스 클라이언트](iot-hub-amqp-support.md#device-client)를 호출하여 C2D 링크를 열 수 있습니다.
 
 원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 
 
-장치 연결이 깜박이는 경우 (장치에서 연결 하 고 연결이 자주 끊어진 경우) 모든 단일 연결 상태를 전송 하지는 않지만 깜박임이 계속 될 때까지 주기적인 스냅숏에서 수행 된 현재 연결 상태를 게시 합니다. 서로 다른 시퀀스 번호 또는 서로 다른 연결 상태 이벤트를 사용 하 여 동일한 연결 상태 이벤트를 수신 하면 장치 연결 상태가 변경 된 것을 의미 합니다.
+디바이스 연결이 깜박이는 경우(디바이스 연결 및 연결 끊김이 빈번함을 의미함) 단일 연결 상태를 모두 전송하지 않고 깜박임이 계속될 때까지 주기적인 스냅샷에서 생성된 현재 연결 상태를 게시합니다. 동일한 연결 상태 이벤트를 여러 시퀀스 번호로 수신하거나 여러 연결 상태 이벤트를 수신하는 경우 디바이스 연결 상태가 변경된 것을 의미합니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용 팁
 
@@ -208,7 +208,7 @@ IoT Hub 이벤트를 처리하는 애플리케이션은 다음과 같은 권장 
 
 * 수신하는 모든 이벤트가 예상한 유형일 것이라고 가정하지 마세요. 메시지를 처리하기 전에 eventType을 항상 확인합니다.
 
-* 메시지가 잘못된 순서로 도착하거나 지연 후에 도착할 수 있습니다. Etag 필드를 사용 하 여 개체에 대 한 정보가 장치 생성 또는 장치 삭제 이벤트에 대해 최신 상태 인지 파악 합니다.
+* 메시지가 잘못된 순서로 도착하거나 지연 후에 도착할 수 있습니다. etag 필드를 사용하여 디바이스 생성됨 또는 디바이스 삭제됨 이벤트의 개체 정보가 최신 상태인지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -216,8 +216,8 @@ IoT Hub 이벤트를 처리하는 애플리케이션은 다음과 같은 권장 
 
 * [디바이스 연결 및 연결 해제 이벤트를 정렬하는 방법](iot-hub-how-to-order-connection-state-events.md)에 대해 알아봅니다.
 
-* [Event Grid에 대 한 자세한 정보](../event-grid/overview.md)
+* [Event Hubs에 대한 자세한 정보](../event-grid/overview.md)
 
 * [IoT Hub 이벤트 라우팅 및 메시지 간의 차이점 비교](iot-hub-event-grid-routing-comparison.md)
 
-* [IoT 원격 분석 이벤트를 사용 하 여 Azure Maps를 사용 하 여 IoT 공간 분석을 구현 하는 방법을 알아봅니다.](../azure-maps/tutorial-iot-hub-maps.md)
+* [IoT 원격 분석 이벤트를 사용하여 Azure Maps를 통해 IoT 공간 분석을 구현하는 방법에 대한 자세한 정보](../azure-maps/tutorial-iot-hub-maps.md)

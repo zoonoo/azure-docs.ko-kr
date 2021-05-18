@@ -1,5 +1,5 @@
 ---
-title: 일괄 처리 테스트를 수행 하는 방법-LUIS
+title: 일괄 테스트를 수행하는 방법 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
@@ -10,32 +10,32 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/29/2020
 ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98787015"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
-일괄 처리 테스트는 적극적인 학습 버전의 유효성을 검사 하 여 예측 정확도를 측정 합니다. 일괄 처리 테스트를 사용 하면 활성 버전에서 각 의도 및 엔터티의 정확성을 확인할 수 있습니다. 앱이 utterance 내에서 올바른 의도를 식별 하거나 레이블을 지정 하는 데 자주 실패 하는 경우 길이 발언에 더 많은 예제를 추가 하는 것과 같이 적절 한 조치를 취하는 일괄 처리 테스트 결과를 검토 하 여 정확성을 향상 시킵니다.
+일괄 처리 테스트는 활성 학습 버전의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 테스트는 활성 버전의 각 의도와 엔터티의 정확도를 확인하는 데 도움이 됩니다. 일괄 처리 테스트 결과를 검토하여 앱이 올바른 의도를 자주 식별하지 못하는 경우 의도에 예제 발화 추가 또는 발화 내 엔터티에 레이블 지정 등의 적절한 조치를 취해 정확도를 향상합니다.
 
 ## <a name="group-data-for-batch-test"></a>일괄 처리 테스트를 위해 데이터 그룹화
 
-일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 길이 발언 데이터 집합을 사용 하는 경우 길이 발언를 세 개의 집합으로 나눕니다. 예를 들어 길이 발언는 의도에 추가 되 고, 게시 된 끝점에서 수신 되는 길이 발언, 학습 된 후 테스트 길이 발언를 일괄 처리 하는 데 사용 된 LUIS입니다.
+일괄 처리 테스트에 사용되는 발언은 LUIS에 새로 추가된 발언이어야 합니다. 발화 데이터 세트가 있는 경우 발화를 의도에 추가되는 예제 발화, 게시된 엔드포인트에서 받은 발화, 학습된 후 LUIS 일괄 처리 테스트에 사용되는 발화의 세 가지 집합으로 나눕니다.
 
-사용 하는 batch JSON 파일에는 시작 및 끝 위치를 포함 하 여 레이블이 지정 된 최상위 machine learning 엔터티를 포함 하는 길이 발언이 포함 되어야 합니다. 발화는 이미 앱에 있는 예제의 일부가 아니어야 합니다. 의도 또는 엔터티에 대해 긍정적으로 예측하려는 발화여야 합니다.
+사용하는 배치 JSON 파일에는 시작 및 끝 위치를 포함하여 레이블이 지정된 최상위 수준의 기계 학습 엔터티가 있는 발화가 포함되어야 합니다. 발화는 이미 앱에 있는 예제의 일부가 아니어야 합니다. 의도 또는 엔터티에 대해 긍정적으로 예측하려는 발화여야 합니다.
 
 의도 및/또는 엔터티별로 테스트를 분리하거나 모든 테스트(최대 1,000개 발화)를 동일한 파일에 포함할 수 있습니다. 
 
 ### <a name="common-errors-importing-a-batch"></a>배치를 가져오는 중 발생하는 일반적인 오류
 
-LUIS에 배치 파일을 업로드 하는 동안 오류가 발생 하는 경우 다음과 같은 일반적인 문제를 확인 합니다.
+LUIS에 일괄 처리 파일을 업로드하는 동안 오류가 발생하는 경우 다음과 같은 일반적인 문제를 확인합니다.
 
-* 배치 파일에서 1000 길이 발언 이상
+* 일괄 처리 파일에 발화가 1,000개를 초과함
 * 엔터티 속성이 없는 발언 JSON 개체입니다. 속성은 빈 배열일 수 있습니다.
 * 단어에 여러 엔터티로 레이블이 지정됨
-* 공백으로 시작 하거나 끝나는 엔터티 레이블입니다.
+* 공간에서 시작하거나 종료하는 엔터티 레이블.
 
 ## <a name="fixing-batch-errors"></a>일괄 처리 오류 수정
 
@@ -44,16 +44,16 @@ LUIS에 배치 파일을 업로드 하는 동안 오류가 발생 하는 경우 
 
 <a name="batch-testing"></a>
 
-## <a name="batch-testing-using-the-luis-portal"></a>LUIS 포털을 사용 하 여 Batch 테스트 
+## <a name="batch-testing-using-the-luis-portal"></a>LUIS 포털을 사용하여 일괄 테스트 
 
-### <a name="import-and-train-an-example-app"></a>예제 앱 가져오기 및 학습
+### <a name="import-and-train-an-example-app"></a>앱 예 가져오기 및 학습
 
 `1 pepperoni pizza on thin crust`와 같은 피자 주문을 받는 앱을 가져옵니다.
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true)을 다운로드하고 저장합니다.
 
 1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
-1. **새 앱** 옆의 화살표를 선택 하 고 **json으로 가져오기** 를 클릭 하 여 json을 새 앱으로 가져옵니다. 앱의 이름을로 `Pizza app` 합니다.
+1. **새 앱** 옆의 화살표를 선택하고 **JSON으로 가져오기** 를 클릭하여 JSON을 새 앱으로 가져옵니다. 앱 이름을 `Pizza app`으로 지정합니다.
 
 
 1. 탐색 영역의 오른쪽 위 모서리에서 **학습** 을 선택하여 앱을 학습시킵니다.
@@ -79,7 +79,7 @@ JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정
 
     ![일괄 테스트 링크](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-3. **가져오기** 를 선택합니다. 표시 되는 대화 상자에서 **파일 선택** 을 선택 하 고 테스트할 *1000* 길이 발언을 포함 하는 올바른 json 형식의 json 파일을 찾습니다.
+3. **가져오기** 를 선택합니다. 표시되는 대화 상자에서 **파일 선택** 을 선택하고 테스트할 *1,000개 이하* 의 발화를 포함하는 올바른 JSON 형식의 JSON 파일을 찾습니다.
 
     가져오기 오류는 브라우저 위쪽의 빨간색 알림 표시줄에 보고됩니다. 가져오기에 오류가 있으면 데이터 세트가 생성되지 않습니다. 자세한 내용은 [일반 오류](#common-errors-importing-a-batch)를 참조하세요.
 
@@ -87,11 +87,11 @@ JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정
 
 5. 데이터 세트의 이름을 `pizza test`로 지정하고 **완료** 를 선택합니다.
 
-6. **실행** 단추를 선택합니다. 일괄 처리 테스트를 실행 한 후 **결과 보기** 를 선택 합니다. 
+6. **실행** 단추를 선택합니다. 일괄 처리 테스트를 실행한 후 **결과 보기** 를 선택합니다. 
 
     > [!TIP]
-    > * **다운로드** 를 선택 하면 업로드 한 것과 동일한 파일이 다운로드 됩니다.
-    > * 일괄 처리 테스트가 실패 한 것으로 확인 되 면 하나 이상의 utterance 의도가 예측과 일치 하지 않습니다.
+    > * **다운로드** 를 선택하면 업로드한 것과 동일한 파일이 다운로드됩니다.
+    > * 일괄 처리 테스트가 실패한 것으로 확인되면 하나 이상의 발화 의도가 예측과 일치하지 않은 것입니다.
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
 
@@ -121,7 +121,7 @@ JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정
 
 ### <a name="review-batch-test-results-for-entities"></a>엔터티에 대한 일괄 처리 테스트 결과 검토
 
-하위 엔터티를 사용 하는 컴퓨터 엔터티인 ModifyOrder 엔터티는 최상위 엔터티가 일치 하는지 여부와 하위 엔터티를 예측 하는 방법을 표시 합니다.
+하위 엔터티가 있는 머신 엔터티인 ModifyOrder 엔터티는 최상위 엔터티가 일치하는지 여부와 하위 엔터티를 예측하는 방법을 표시합니다.
 
 1. 필터 목록에서 **ModifyOrder** 엔터티를 선택한 다음, 그리드에서 원을 선택합니다.
 
@@ -164,51 +164,51 @@ LUIS 포털의 차트에서는 다음 작업을 수행할 수 있습니다.
 
 녹색으로 표시된 차트의 두 섹션은 예상 예측과 일치했습니다.
 
-## <a name="batch-testing-using-the-rest-api"></a>REST API를 사용 하 여 테스트 일괄 처리 
+## <a name="batch-testing-using-the-rest-api"></a>REST API를 사용하여 일괄 테스트 
 
-LUIS를 사용 하면 LUIS 포털을 사용 하 여 테스트를 일괄 처리 하 고 REST API 수 있습니다. REST API에 대 한 끝점은 다음과 같습니다. LUIS 포털을 사용한 일괄 처리 테스트에 대 한 자세한 내용은 [자습서: 일괄 처리 테스트 데이터 집합]()을 참조 하세요. 아래 전체 Url을 사용 하 여 자리 표시자 값을 고유한 LUIS 예측 키 및 끝점으로 바꿉니다. 
+LUIS를 사용하면 LUIS 포털 및 REST API를 사용하여 테스트를 일괄 처리할 수 있습니다. REST API에 대한 엔드포인트는 다음과 같습니다. LUIS 포털을 사용한 일괄 테스트에 대한 자세한 내용은 [자습서: 일괄 테스트 데이터 집합]()을 참조하세요. 아래 전체 URL을 사용하여 자리 표시자 값을 고유한 LUIS 예측 키 및 엔드포인트로 바꿉니다. 
 
-헤더의에 LUIS 키를 추가 하 `Ocp-Apim-Subscription-Key` 고를로 설정 해야 `Content-Type` `application/json` 합니다.
+헤더의 `Ocp-Apim-Subscription-Key`에 LUIS 키를 추가하고 `Content-Type`을 `application/json`으로 설정해야 합니다.
 
-### <a name="start-a-batch-test"></a>일괄 처리 테스트 시작
+### <a name="start-a-batch-test"></a>일괄 테스트 시작
 
-앱 버전 ID 또는 게시 슬롯을 사용 하 여 일괄 처리 테스트를 시작 합니다. 다음 끝점 형식 중 하나로 **POST** 요청을 보냅니다. 요청 본문에 배치 파일을 포함 합니다.
+앱 버전 ID 또는 게시 슬롯을 사용하여 일괄 테스트를 시작합니다. 다음 엔드포인트 형식 중 하나로 **POST** 요청을 보냅니다. 요청 본문에 일괄 처리 파일을 포함합니다.
 
-슬롯 게시
+게시 슬롯
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-NAME>/evaluations`
 
 앱 버전 ID
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations`
 
-이러한 끝점은 상태를 확인 하 고 결과를 가져오는 데 사용 하는 작업 ID를 반환 합니다. 
+이러한 엔드포인트는 상태를 확인하고 결과를 가져오는 데 사용할 작업 ID를 반환합니다. 
 
 
-### <a name="get-the-status-of-an-ongoing-batch-test"></a>진행 중인 일괄 처리 테스트의 상태 가져오기
+### <a name="get-the-status-of-an-ongoing-batch-test"></a>진행 중인 일괄 테스트의 상태 가져오기
 
-시작한 일괄 처리 테스트의 작업 ID를 사용 하 여 다음 끝점 형식에서 해당 상태를 가져옵니다. 
+시작한 일괄 테스트의 작업 ID를 사용하여 다음 엔드포인트 형식에서 해당 상태를 가져옵니다. 
 
-슬롯 게시
+게시 슬롯
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
 앱 버전 ID
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/status`
 
-### <a name="get-the-results-from-a-batch-test"></a>일괄 처리 테스트에서 결과 가져오기
+### <a name="get-the-results-from-a-batch-test"></a>일괄 테스트에서 결과 가져오기
 
-시작한 일괄 처리 테스트의 작업 ID를 사용 하 여 다음 끝점 형식에서 결과를 가져옵니다. 
+시작한 일괄 테스트의 작업 ID를 사용하여 다음 엔드포인트 형식에서 해당 결과를 가져옵니다. 
 
-슬롯 게시
+게시 슬롯
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/slots/<YOUR-SLOT-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 앱 버전 ID
 * `<YOUR-PREDICTION-ENDPOINT>/luis/prediction/v3.0-preview/apps/<YOUR-APP-ID>/versions/<YOUR-APP-VERSION-ID>/evaluations/<YOUR-OPERATION-ID>/result`
 
 
-### <a name="batch-file-of-utterances"></a>길이 발언의 배치 파일
+### <a name="batch-file-of-utterances"></a>발화의 일관 처리 파일
 
-일괄 테스트를 위해 *데이터 집합* 으로 알려진 길이 발언의 배치 파일을 제출 합니다. 데이터 집합은 길이 발언 레이블이 지정 된 최대 1000를 포함 하는 JSON 형식의 파일입니다. 앱에서 최대 10 개의 데이터 집합을 테스트할 수 있습니다. 더 많은 테스트를 수행 해야 하는 경우 데이터 집합을 삭제 한 다음 새 데이터 집합을 추가 합니다. 모델의 모든 사용자 지정 엔터티는 일괄 처리 파일 데이터에 해당 엔터티가 없더라도 일괄 처리 테스트 엔터티 필터에 표시됩니다.
+일괄 처리 테스트를 위해 *데이터 세트* 라는 발화 일괄 처리 파일을 제출합니다. 데이터 세트는 레이블이 지정된 최대 1,000개의 발화를 포함하는 JSON 형식의 파일입니다. 앱에서 최대 10개의 데이터 세트를 테스트할 수 있습니다. 더 많은 데이터 세트를 테스트해야 하는 경우 데이터 세트를 삭제하고 새 데이터 세트를 추가합니다. 모델의 모든 사용자 지정 엔터티는 일괄 처리 파일 데이터에 해당 엔터티가 없더라도 일괄 처리 테스트 엔터티 필터에 표시됩니다.
 
-배치 파일은 발언으로 구성됩니다. 각 utterance에는 검색 된 것으로 예상 되는 [기계 학습 엔터티와](luis-concept-entity-types.md#types-of-entities) 함께 예상 된 의도 예측이 있어야 합니다.
+배치 파일은 발언으로 구성됩니다. 각 발화에는 감지될 것으로 예상하는 모든 [기계 학습 엔터티](luis-concept-entity-types.md#types-of-entities)와 함께 예상된 의도 예측이 있어야 합니다.
 
 ### <a name="batch-syntax-template-for-intents-with-entities"></a>엔터티를 사용한 의도에 대한 일괄 처리 구문 템플릿
 
@@ -249,14 +249,14 @@ LUIS를 사용 하면 LUIS 포털을 사용 하 여 테스트를 일괄 처리 �
 
 엔터티를 테스트하지 않는 경우 `entities` 속성을 포함하여 빈 배열 `[]`와 같이 값을 정합니다.
 
-### <a name="rest-api-batch-test-results"></a>일괄 처리 테스트 결과 REST API
+### <a name="rest-api-batch-test-results"></a>REST API 일괄 테스트 결과
 
-API에서 반환 되는 개체에는 여러 가지가 있습니다.
+API에서 반환되는 여러 개체가 있습니다.
 
-* 정밀도, 회수, F-점수와 같은 의도 및 엔터티 모델에 대 한 정보입니다.
-* 각 엔터티에 대 한 전체 자릿수, 회수 및 F-점수와 같은 엔터티 모델에 대 한 정보 
-  * 플래그를 사용 하 여 `verbose` 및와 같은 엔터티에 대 한 자세한 정보를 가져올 수 있습니다 `entityTextFScore` `entityTypeFScore` .
-* 제공 된 길이 발언에는 예측 및 레이블이 지정 된 의도 이름이 있습니다.
+* 정밀도, 재현율, F-점수와 같은 의도 및 엔터티 모델에 대한 정보
+* 각 엔터티에 대한 정밀도, 재현율 및 F-점수와 같은 엔터티 모델에 대한 정보 
+  * `verbose` 플래그를 사용하여 `entityTextFScore` 및 `entityTypeFScore` 등 엔터티에 대한 더 많은 정보를 가져올 수 있습니다.
+* 예측되고 레이블이 지정된 의도 이름으로 제공된 발화
 * 거짓 긍정 엔터티 목록과 거짓 부정 엔터티 목록
 
 ## <a name="next-steps"></a>다음 단계

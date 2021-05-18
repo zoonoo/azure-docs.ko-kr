@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
 ms.openlocfilehash: 83bd4a7ae0082d24f7ac617719e628f4db4baeb9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98197638"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Azure Remote Rendering 계정 만들기
@@ -28,13 +28,13 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
     1. '리소스 이름'을 계정 이름으로 설정
     1. 필요한 경우 ‘구독’ 업데이트
     1. ' 리소스 그룹 '을 원하는 리소스 그룹으로 설정
-    1. 이 리소스를 만들어야 하는 ' 위치 ' 드롭다운에서 지역을 선택 합니다. 아래 [계정 영역](create-an-account.md#account-regions) 에 대 한 설명을 참조 하세요.
+    1. '위치' 드롭다운에서 이 리소스를 만들어야 하는 지역을 선택합니다. 아래 [계정 영역](create-an-account.md#account-regions)에 대한 설명을 참조하세요.
 1. 계정을 만든 후 이동하고
     1. *개요* 탭에서 '계정 ID' 확인
     1. *설정 > 액세스 키* 탭에서 '기본 키' 확인. 계정의 비밀 계정 키임
 
-### <a name="account-regions"></a>계정 지역
-계정 생성 시 지정 된 위치에 따라 계정 리소스가 할당 된 지역이 결정 됩니다. 이를 만든 후에는 변경할 수 없습니다. 그러나 계정 위치에 관계 없이 지원 되는 모든 [지역](./../reference/regions.md)에서 원격 렌더링 세션에 연결 하는 데 계정을 사용할 수 있습니다.
+### <a name="account-regions"></a>계정 영역
+계정 생성 시 지정된 위치에 따라 계정 리소스가 할당되는 지역이 결정됩니다. 이 영역을 만든 후에는 변경할 수 없습니다. 그러나 계정 위치에 관계없이 [지원되는 모든 지역](./../reference/regions.md)에서 Remote Rendering 세션에 연결하는 데 계정을 사용할 수 있습니다.
 
 ### <a name="retrieve-the-account-information"></a>계정 정보 검색
 
@@ -71,7 +71,7 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 
 이 단락에서는 스토리지 계정을 Remote Rendering 계정에 연결하는 방법을 설명 합니다. 스토리지 계정이 연결되면 모델 로드 등, 계정의 데이터와 상호 작용할 때마다 매번 SAS URI를 생성할 필요가 없습니다. 대신 [모델 로드 섹션](../concepts/models.md#loading-models)에서 설명한 대로 스토리지 계정 이름을 직접 사용할 수 있습니다.
 
-이 단락의 단계는이 액세스 방법을 사용 해야 하는 각 저장소 계정에 대해 수행 되어야 합니다. 스토리지 계정을 아직 만들지 않은 경우 [렌더링을 위한 모델 변환 빠른 시작](../quickstarts/convert-model.md#storage-account-creation)의 해당 단계를 통해 살펴볼 수 있습니다.
+이 단락의 단계는 이 액세스 방법을 사용하는 스토리지 계정 각각에 대해 수행해야 합니다. 스토리지 계정을 아직 만들지 않은 경우 [렌더링을 위한 모델 변환 빠른 시작](../quickstarts/convert-model.md#storage-account-creation)의 해당 단계를 통해 살펴볼 수 있습니다.
 
 여기서는 스토리지 계정이 있다고 가정합니다. 포털의 스토리지 계정으로 이동하고 해당 스토리지 계정에 대한 **IAM(Access Control)** 탭으로 이동합니다.
 
@@ -79,20 +79,20 @@ Azure Remote Rendering 서비스에 대한 계정을 만들려면 다음 단계�
 
 역할 할당을 추가할 수 있게 이 스토리지 계정에 대한 소유자 권한이 있는지 확인합니다. 액세스 권한이 없으면 **역할 할당 추가** 옵션이 비활성화됩니다.
 
-"역할 할당 추가" 타일에서 **추가** 단추를 클릭 하 여 역할을 추가 합니다.
+"역할 할당 추가" 타일에서 **추가** 단추를 클릭하여 역할을 추가합니다.
 
-![저장소 계정 IAM 역할 할당 추가](./media/azure-add-role-assignment.png)
+![스토리지 계정 IAM 역할 할당 추가](./media/azure-add-role-assignment.png)
 
-* 위의 스크린샷에 표시 된 것 처럼 **저장소 Blob 데이터 참가자** 역할을 할당 합니다.
-* **액세스 권한 할당** 드롭다운에서 **원격 렌더링 계정** 시스템 할당 관리 id를 선택 합니다.
+* 위의 스크린샷에 표시된 것처럼 **Storage Blob 데이터 기여자** 역할을 할당합니다.
+* **액세스 할당** 드롭다운에서 **Remote Rendering 계정** 시스템이 할당한 관리 ID를 선택합니다.
 * 마지막 드롭다운에서 구독 및 Remote Rendering 계정을 선택합니다.
-* "저장"을 클릭 하 여 변경 내용을 저장 합니다.
+* "저장"을 클릭하여 변경 내용을 저장합니다.
 
 > [!WARNING]
 > Remote Rendering 계정이 나열되지 않는 경우 이 [문제 해결 섹션](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account)을 참조하세요.
 
 > [!IMPORTANT]
-> Azure 역할 할당은 Azure Storage에 의해 캐시 되므로 원격 렌더링 계정에 대 한 액세스 권한을 부여 하는 경우와 저장소 계정에 액세스 하는 데 사용할 수 있는 시간 사이에 최대 30 분의 지연이 발생할 수 있습니다. 자세한 내용은 [AZURE RBAC (역할 기반 액세스 제어) 설명서](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) 를 참조 하세요.
+> Azure 역할 할당은 Azure Storage에 의해 캐시되므로 원격 렌더링 계정에 대한 액세스 권한을 부여하는 시간과 이 권한을 사용하여 스토리지 계정에 액세스할 수 있는 시간 사이에 최대 30분의 지연이 발생할 수 있습니다. 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어) 설명서](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
