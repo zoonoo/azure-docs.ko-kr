@@ -4,10 +4,10 @@ description: Azure Resource Manager 템플릿을 배포하는 동안 값을 전�
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89276663"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Resource Manager 매개 변수 파일 만들기
@@ -148,7 +148,7 @@ ms.locfileid: "89276663"
 }
 ```
 
-매개 변수 파일에는 템플릿에 정의 된 매개 변수에 대 한 값만 포함 될 수 있습니다. 매개 변수 파일에 템플릿의 매개 변수와 일치 하지 않는 추가 매개 변수가 포함 된 경우 오류가 발생 합니다.
+매개 변수 파일에는 템플릿에 정의된 매개 변수 값만 포함할 수 있습니다. 매개 변수 파일에 템플릿의 매개 변수와 일치하지 않는 추가 매개 변수가 포함된 경우 오류가 발생합니다.
 
 ## <a name="parameter-type-formats"></a>매개 변수 유형 형식
 
@@ -184,9 +184,9 @@ ms.locfileid: "89276663"
 }
 ```
 
-## <a name="deploy-template-with-parameter-file"></a>매개 변수 파일을 사용 하 여 템플릿 배포
+## <a name="deploy-template-with-parameter-file"></a>매개 변수 파일을 사용하여 템플릿 배포
 
-Azure CLI를 사용 하 여 로컬 매개 변수 파일을 전달 하려면 @와 매개 변수 파일의 이름을 사용 합니다.
+Azure CLI를 사용하여 로컬 매개 변수 파일을 전달하려면 @ 및 매개 변수 파일의 이름을 사용합니다.
 
 ```azurecli
 az deployment group create \
@@ -196,9 +196,9 @@ az deployment group create \
   --parameters @storage.parameters.json
 ```
 
-자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure CLI](./deploy-cli.md#parameters)을 참조 하세요.
+자세한 내용은 [ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포](./deploy-cli.md#parameters)를 참조하세요.
 
-Azure PowerShell를 사용 하 여 로컬 매개 변수 파일을 전달 하려면 `TemplateParameterFile` 매개 변수를 사용 합니다.
+Azure PowerShell을 사용하여 로컬 매개 변수 파일을 전달하려면 `TemplateParameterFile` 매개 변수를 사용합니다.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -206,10 +206,10 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](./deploy-powershell.md#pass-parameter-values) 을 참조 하세요.
+자세한 내용은 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](./deploy-powershell.md#pass-parameter-values)를 참조하세요.
 
 > [!NOTE]
-> 포털의 사용자 지정 템플릿 블레이드에는 매개 변수 파일을 사용할 수 없습니다.
+> 포털에서 사용자 지정 템플릿 블레이드에 매개 변수 파일을 사용할 수 없습니다.
 
 ## <a name="file-name"></a>파일 이름
 
@@ -221,7 +221,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
 
 동일한 배포 작업에서 인라인 매개 변수 및 로컬 매개 변수 파일을 사용할 수 있습니다. 예를 들어 로컬 매개 변수 파일에서 일부 값을 지정하고 배포하는 동안 인라인으로 다른 값을 추가할 수 있습니다. 로컬 매개 변수 파일 및 인라인에서 매개 변수에 대한 값을 제공하는 경우 인라인 값이 우선합니다.
 
-파일에 URI를 제공하여 외부 매개 변수 파일을 사용할 수 있습니다. 외부 매개 변수 파일을 사용 하는 경우 인라인 또는 로컬 파일에서 다른 값을 전달할 수 없습니다. 모든 인라인 매개 변수가 무시됩니다. 외부 파일에서 모든 매개 변수 값을 제공해야 합니다.
+파일에 URI를 제공하여 외부 매개 변수 파일을 사용할 수 있습니다. 외부 매개 변수 파일을 사용할 때 인라인 또는 로컬 파일에서 다른 값을 전달할 수 없습니다. 모든 인라인 매개 변수가 무시됩니다. 외부 파일에서 모든 매개 변수 값을 제공해야 합니다.
 
 ## <a name="parameter-name-conflicts"></a>매개 변수 이름 충돌
 

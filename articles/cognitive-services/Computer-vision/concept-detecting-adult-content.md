@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a3c8a5a0ee31b827c41c4a5a07af8c69c8a8cecd
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 5d5961ecae2fbc154ae6f1acd74df2bb74024fa1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714886"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "96532621"
 ---
 # <a name="detect-adult-content"></a>성인 콘텐츠 검색
 
@@ -35,6 +35,6 @@ Computer Vision은 이미지에서 성인 자료를 검색할 수 있어서 개�
 
 ## <a name="use-the-api"></a>API 사용
 
-[Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API를 사용하여 성인 콘텐츠를 검색할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Adult` 값을 추가하면 API는 JSON 응답에서 세 개의 부울 속성&mdash;`isAdultContent`, `isRacyContent` 및 `isGoryContent`&mdash;가 반환됩니다. 또한 이 메서드는 각 카테고리에 대해 0과 1 사이의 신뢰도 점수를 나타내는 해당 속성&mdash;`adultScore`, `racyScore` 및 `goreScore`&mdash;를 반환합니다.
+[Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API를 사용하여 성인 콘텐츠를 검색할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Adult` 값을 추가하면 API는 JSON 응답에서 세 개의 부울 속성&mdash;`isAdultContent`, `isRacyContent` 및 `isGoryContent`&mdash;가 반환됩니다. 또한 이 메서드는 각 카테고리에 대해 0과 1 사이의 신뢰도 점수를 나타내는 해당 속성&mdash;`adultScore`, `racyScore` 및 `goreScore`&mdash;를 반환합니다.
 
 - [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)

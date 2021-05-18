@@ -1,6 +1,6 @@
 ---
-title: Redis 개발용 Azure Cache Faq
-description: Redis 용 Azure Cache를 개발 하는 데 도움이 되는 일반적인 질문에 대 한 답변을 알아보세요.
+title: Azure Cache for Redis 개발 FAQ
+description: Azure Cache for Redis를 개발에 도움이 되는 일반적인 질문에 대한 답변 알아보기
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: bafd8a9752d2587ec52fe586e442e3bfc86d7537
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97585771"
 ---
-# <a name="azure-cache-for-redis-development-faqs"></a>Redis 개발용 Azure Cache Faq
+# <a name="azure-cache-for-redis-development-faqs"></a>Azure Cache for Redis 개발 FAQ
 
-이 문서에서는 Redis 용 Azure Cache를 개발 하는 방법에 대 한 일반적인 질문에 대 한 답변을 제공 합니다.
+이 문서는 Azure Cache for Redis의 개발 방법에 대한 일반적인 질문의 답변을 제공합니다.
 
-## <a name="common-questions-and-answers"></a>일반적인 질문 및 답변
-이 섹션에서는 다음 Faq를 다룹니다.
+## <a name="common-questions-and-answers"></a>일반적인 질문과 답변
+이 섹션에서는 다음 FAQ를 다룹니다.
 
 * [Azure Cache for Redis를 시작하려면 어떻게 해야 하나요?](#how-can-i-get-started-with-azure-cache-for-redis)
 * [StackExchange.Redis 구성 옵션은 어떤 기능을 수행하나요?](#what-do-the-stackexchangeredis-configuration-options-do)
 * [사용할 수 있는 Azure Cache for Redis 클라이언트는 어떻게 되나요?](#what-azure-cache-for-redis-clients-can-i-use)
 * [Azure Cache for Redis에 대한 로컬 에뮬레이터가 있나요?](#is-there-a-local-emulator-for-azure-cache-for-redis)
 * [어떻게 Redis 명령을 실행할 수 있나요?](#how-can-i-run-redis-commands)
-* [Azure Cache for Redis에 MSDN 클래스 라이브러리 참조가 없는 이유는 무엇 인가요?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference)
+* [Azure Cache for Redis에 MSDN 클래스 라이브러리 참조가 없는 이유는 무엇인가요?](#why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference)
 * [Azure Cache for Redis는 PHP 세션 캐시로 사용할 수 있나요?](#can-i-use-azure-cache-for-redis-as-a-php-session-cache)
 * [Redis 데이터베이스란?](#what-are-redis-databases)
 
@@ -113,8 +113,8 @@ public static ConnectionMultiplexer Connection
 >
 >
 
-### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference"></a>Azure Cache for Redis에 MSDN 클래스 라이브러리 참조가 없는 이유는 무엇 인가요?
-Redis에 대 한 캐시 Microsoft Azure는 인기 있는 오픈 소스 메모리 내 데이터 저장소 Redis를 기반으로 합니다. 여러 프로그래밍 언어를 위한 다양한 [Redis 클라이언트](https://redis.io/clients)에서 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](https://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
+### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference"></a>Azure Cache for Redis에 MSDN 클래스 라이브러리 참조가 없는 이유는 무엇인가요?
+Microsoft Azure Cache for Redis는 널리 사용되는 오픈 소스 인-메모리 데이터 저장소인 레디스를 기반으로 한다. 여러 프로그래밍 언어를 위한 다양한 [Redis 클라이언트](https://redis.io/clients)에서 액세스할 수 있습니다. 각 클라이언트에는 [Redis 명령](https://redis.io/commands)을 사용하여 Azure Cache for Redis 인스턴스를 호출하는 자체 API가 있습니다.
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없고, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 다양한 언어와 캐시 클라이언트를 사용하여 Azure Cache for Redis를 시작하는 방법을 보여 주는 몇 가지 자습서가 있습니다. 이 자습서에 액세스하려면 [Azure Cache for Redis 사용 방법](cache-dotnet-how-to-use-azure-redis-cache.md)과 목차에 포함된 관련 문서를 참조하세요.
 
@@ -136,10 +136,10 @@ PhpRedis 클라이언트에서 Azure Cache for Redis를 PHP 세션 캐시로 사
 Redis 데이터베이스는 동일한 Redis 인스턴스 내에 있는 데이터를 논리적으로 분리한 단위입니다. 캐시 메모리는 모든 데이터베이스와 해당 데이터베이스에 저장된 키/값에 따라 지정된 데이터베이스의 실제 메모리 소비 간에 공유됩니다. 예를 들어 C6 캐시에는 53GB, P5에는 120GB의 메모리가 있습니다. 하나의 데이터베이스에 53GB/120GB를 모두 사용하거나 여러 데이터베이스 간에 분할할 수 있습니다. 
 
 > [!NOTE]
-> 클러스터링을 사용하도록 설정된 프리미엄 Azure Cache for Redis를 사용하는 경우 데이터베이스 0만 사용할 수 있습니다. 이 제한은 본질적인 Redis 제한이므로 Azure Cache for Redis에만 한정되지는 않습니다. 자세한 내용은 [클라이언트 응용 프로그램에서 클러스터링을 사용 하도록 변경 해야 하나요?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)를 참조 하세요.
+> 클러스터링을 사용하도록 설정된 프리미엄 Azure Cache for Redis를 사용하는 경우 데이터베이스 0만 사용할 수 있습니다. 이 제한은 본질적인 Redis 제한이므로 Azure Cache for Redis에만 한정되지는 않습니다. 자세한 내용은 [클러스터링을 사용하려면 클라이언트 애플리케이션을 변경해야 하나요?](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering)를 참조하세요.
 > 
 > 
 
 ## <a name="next-steps"></a>다음 단계
 
-[Redis faq 용 다른 Azure Cache](cache-faq.md)에 대해 알아봅니다.
+다른 [Azure Cache for Redis FAQ](cache-faq.md)에 대해 알아보세요.

@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/01/2020
 ms.openlocfilehash: 2ad2affee34348e8c2fc7b734c8b49d0aec8db40
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96744912"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
@@ -33,7 +33,7 @@ Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 �
 * *Standard_ZRS* - 표준 ZRS(영역 중복 스토리지)
 * *Standard_RAGRS* - 표준 RA-GRS(읽기 액세스 지역 중복 스토리지)
 * *Premium_LRS* - 프리미엄 LRS(로컬 중복 스토리지)
-* *Premium_ZRS* -프리미엄 ZRS (영역 중복 저장소)
+* *Premium_ZRS* - 프리미엄 영역 중복 스토리지(ZRS)
 
 > [!NOTE]
 > Azure Files는 Kubernetes 1.13 이상을 실행하는 AKS 클러스터의 프리미엄 스토리지를 지원하며, 프리미엄 파일 공유의 최소 크기는 100GB입니다.
@@ -106,7 +106,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-다음 YAML은 영구 볼륨 클레임 *내 azurefile* 을 사용 하 여 */Mnt/azure* 경로에 Azure 파일 공유를 탑재 하는 pod를 만듭니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath* 를 지정합니다.
+다음 YAML은 영구 볼륨 클레임 *my-azurefile* 을 사용하여 Azure 파일 공유를 */mnt/azure* 경로에 탑재하는 Pod를 생성합니다. Windows Server 컨테이너의 경우 *‘D:’* 와 같이 Windows 경로 규칙을 사용하여 *mountPath* 를 지정합니다.
 
 `azure-pvc-files.yaml` 파일을 만들고 다음 YAML에 복사합니다. *claimName* 이 마지막 단계에서 만든 PVC와 일치하는지 확인합니다.
 
@@ -190,7 +190,7 @@ parameters:
 
 관련 모범 사례는 [AKS에서 스토리지 및 백업에 대한 모범 사례][operator-best-practices-storage]를 참조하세요.
 
-저장소 클래스 매개 변수는 [동적 프로 비전](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision)을 참조 하세요.
+스토리지 클래스 매개 변수는 [동적 프로비전](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision)을 참조하세요.
 
 Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알아봅니다.
 

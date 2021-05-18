@@ -1,18 +1,18 @@
 ---
-title: .Odc 파일을 사용 하 여 Azure Analysis Services에 연결 | Microsoft Docs
+title: .odc 파일을 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
 description: Azure의 Analysis Services 서버에서 데이터에 연결하고 가져오기 위한 Office 데이터 연결 파일을 만드는 방법에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2019
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7cabf82c38d0b167f151af6c0abb22048d9a3786
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96487340"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130290"
 ---
 # <a name="create-an-office-data-connection-file"></a>Office 데이터 연결 파일 만들기
 

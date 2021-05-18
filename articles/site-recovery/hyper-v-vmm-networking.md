@@ -1,18 +1,15 @@
 ---
-title: Azure Site Recovery를 사용 하 여 보조 사이트로 장애 조치 (failover) 후 IP 주소 지정 설정
+title: Azure Site Recovery를 통해 보조 사이트로 장애 조치(Failover) 후 IP 주소 지정 설정
 description: Azure Site Recovery를 통해 재해 복구 및 장애 조치(failover) 후 보조 온-프레미스 사이트의 VM에 연결하도록 IP 주소 지정을 설정하는 방법을 설명합니다.
-author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.author: raynew
-ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 1169748d7dae9990728dff91782a20d42e3c860b
+ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87495946"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106580252"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 
@@ -63,11 +60,11 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 **장애 조치(failover) 전**
 
-![장애 조치 (failover) 전 서브넷을 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design2.png)
+![장애 조치(failover) 전 서브넷을 보여 주는 다이어그램.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **장애 조치(failover) 후**
 
-![장애 조치 (failover) 후 서브넷을 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design3.png)
+![장애 조치(failover) 후 서브넷을 보여 주는 다이어그램.](./media/hyper-v-vmm-networking/network-design3.png)
 
 장애 조치(failover) 후 Site Recovery는 VM의 각 네트워크 인터페이스에 대해 IP 주소를 할당합니다. 주소는 각 VM 인스턴스에 대해 관련 네트워크의 고정 IP 주소 풀에서 할당됩니다.
 
@@ -118,11 +115,11 @@ $ip.address
 
 **장애 조치(failover) 전**
 
-![장애 조치 (failover) 전에 서로 다른 IP 주소를 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design10.png)
+![장애 조치(failover) 전 서로 다른 IP 주소를 보여 주는 다이어그램.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **장애 조치(failover) 후**
 
-![장애 조치 (failover) 후 다른 IP 주소를 보여 주는 다이어그램](./media/hyper-v-vmm-networking/network-design11.png)
+![장애 조치(failover) 후 서로 다른 IP 주소를 보여 주는 다이어그램.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>다음 단계

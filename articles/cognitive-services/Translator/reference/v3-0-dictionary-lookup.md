@@ -1,7 +1,7 @@
 ---
-title: Translator 사전 조회 방법
+title: Translator Dictionary Lookup 메서드
 titleSuffix: Azure Cognitive Services
-description: 사전 조회 메서드는 단어 및 적은 수의 자연 스러운 구에 대 한 대체 번역을 제공 합니다.
+description: Dictionary Lookup 메서드는 단어와 소수의 관용구에 대한 대체 번역을 제공합니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -11,13 +11,13 @@ ms.topic: reference
 ms.date: 01/21/2020
 ms.author: lajanuar
 ms.openlocfilehash: 88a76a16de43853a001f5db895d6ad418940de0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895495"
 ---
-# <a name="translator-30-dictionary-lookup"></a>Translator 3.0: 사전 조회
+# <a name="translator-30-dictionary-lookup"></a>Translator 3.0: Dictionary Lookup
 
 하나의 단어와 소수의 관용구에 대한 대체 번역을 제공합니다. 각 번역에는 음성 일부 및 역번역 목록이 포함되어 있습니다. 역번역을 사용하면 번역 맥락을 이해할 수 있습니다. [사전 예제](./v3-0-dictionary-examples.md) 작업을 사용하면 추가로 드릴다운하여 각 번역 쌍의 사용 예제를 볼 수 있습니다.
 
@@ -33,9 +33,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-| 쿼리 매개 변수  | 설명 |
+| 쿼리 매개 변수  | Description |
 | ------ | ----------- |
-| api-version <img width=200/>   | **필수 매개 변수** 입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 이어야 합니다. `3.0` |
+| api-version <img width=200/>   | **필수 매개 변수** 입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다. |
 | 원본 | **필수 매개 변수** 입니다.<br/>입력 텍스트의 언어를 지정합니다. 원본 언어는 `dictionary` 범위에 포함된 [지원되는 언어](./v3-0-languages.md) 중 하나여야 합니다. |
 | 을   | **필수 매개 변수** 입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 `dictionary` 범위에 포함된 [지원되는 언어](v3-0-languages.md) 중 하나여야 합니다. |
 
@@ -80,7 +80,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
     * `posTag`: 이 용어를 음성 부분 태그에 연결하는 문자열입니다.
 
-        | 태그 이름 | 설명  |
+        | 태그 이름 | Description  |
         |----------|--------------|
         | ADJ      | 형용사   |
         | ADV      | 부사      |
@@ -112,7 +112,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
     > [!NOTE]
     > 조회되는 용어가 사전에 없는 경우 응답은 200(정상)이지만 `translations` 목록은 빈 목록이 됩니다.
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 이 예제에서는 영어 용어인 `fly`의 스페인어 대체 번역을 조회하는 방법을 보여 줍니다.
 

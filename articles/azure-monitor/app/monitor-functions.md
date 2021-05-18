@@ -6,10 +6,10 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
 ms.openlocfilehash: 6d790a6f02fdc07609e374639c6e452b9088262e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87024574"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Azure Monitor Application Insights를 사용하여 Azure Functions 모니터링
@@ -20,10 +20,10 @@ Application Insights는 로그, 성능 및 오류 데이터를 수집하고 성�
 
 필요한 Application Insights 계측은 Azure Functions에 기본 제공됩니다. 유효한 계측 키만 있으면 함수 앱을 Application Insights 리소스에 연결할 수 있습니다. Azure에서 함수 앱 리소스를 만들 때 계측 키를 애플리케이션 설정에 추가해야 합니다. 함수 앱에 이 키가 아직 없는 경우 수동으로 설정할 수 있습니다. 자세한 내용은 [Azure Functions 모니터링](../../azure-functions/functions-monitoring.md?tabs=cmd)을 참조하세요.
 
-## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Windows에서 Java 응용 프로그램에 대 한 분산 추적 (공개 미리 보기)
+## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Windows 상의 Java 애플리케이션에 대한 분산 추적(공개 미리 보기)
 
 > [!IMPORTANT]
-> 이 기능은 현재 Windows의 Java Azure Functions에 대 한 공개 미리 보기 상태 이며, Linux의 Java Azure Functions에 대 한 분산 추적은 지원 되지 않습니다. 소비 계획의 경우 콜드 시작은 8-9 초입니다.
+> 이 기능은 현재 Windows의 Java Azure Functions에 대한 공개 미리 보기 상태이며, Linux의 Java Azure Functions에 대한 분산 추적은 지원되지 않습니다. 사용 계획에서 콜드 부팅 시간은 8~9초입니다.
 
 애플리케이션을 Java로 작성하는 경우, 함수 애플리케이션에서 요청, 종속성, 로그 및 메트릭 등 다양한 데이터를 볼 수 있습니다. 추가 데이터를 사용하여 엔드투엔드 트랜잭션을 보고 진단하고, 애플리케이션 맵도 볼 수 있습니다. 여기에는 다수의 트랜잭션을 집계하여 시스템이 어떻게 상호 작용하는지에 대한 토폴로지 보기가 표시되고 평균 성능 및 오류율이 얼마인지를 보여 줍니다.
 

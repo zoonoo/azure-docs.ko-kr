@@ -4,12 +4,12 @@ description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: befe2f6fe67ce7c2c4bb61153344103ee2aa70cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144753"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107768436"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 
@@ -54,7 +54,7 @@ Azure에 로그인할 수 있는 몇 가지 방법이 있으며, [Azure CLI로 �
 1. [대화형으로 로그인합니다](/cli/azure/authenticate-azure-cli). 명령줄에서 Azure CLI 명령을 직접 실행하면 대화형으로 로그인합니다.
 2. [서비스 주체를 사용하여 로그인합니다](/cli/azure/authenticate-azure-cli). 스크립트 또는 애플리케이션에서 Azure CLI 명령을 실행할 때 서비스 주체를 사용하여 로그인합니다.
 
-이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](/cli/azure/reference-index#az-login)을 입력합니다.
+이 문서에서는 Azure에 대화형으로 로그인하는 방법을 보여 줍니다. 명령줄에서 [az login](/cli/azure/reference-index#az_login)을 입력합니다.
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -69,7 +69,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>Batch 계정에 로그인
 
-Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령을 사용합니다. 
+Azure CLI를 사용하여 풀, 작업 및 태스크와 같은 Batch 리소스를 관리하려면 배치 계정에 로그인하여 인증해야 합니다. Batch 서비스에 로그인하려면 [az batch account login](/cli/azure/batch/account#az_batch_account_login) 명령을 사용합니다. 
 
 Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
@@ -81,7 +81,7 @@ Batch 계정에 대한 인증에는 다음 두 가지 옵션이 있습니다.
 
     Azure AD의 장점은 Azure RBAC(Azure 역할 기반 액세스 제어)를 제공한다는 것입니다. Azure RBAC를 사용하면 사용자의 액세스 권한이 계정 키 소유 여부에 관계없이 할당된 역할에 따라 달라집니다. 계정 키를 관리하는 대신 Azure 역할을 관리하고 Azure AD에서 액세스와 인증을 처리하도록 할 수 있습니다.  
 
-     Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](/cli/azure/batch/account#az-batch-account-login) 명령을 호출합니다. 
+     Azure AD를 사용하여 Batch 계정에 로그인하려면 [az batch account login](/cli/azure/batch/account#az_batch_account_login) 명령을 호출합니다. 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

@@ -1,5 +1,5 @@
 ---
-title: Azure 애플리케이션 게이트웨이에서 WebSocket 지원
+title: Azure Application Gateway의 WebSocket 지원
 description: Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네이티브 지원을 제공합니다. 사용자가 구성할 수 있는 설정이 없습니다.
 author: vhorne
 ms.author: amsriva
@@ -8,10 +8,10 @@ services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.openlocfilehash: 59ca7708b24d2e75381290b80adeb671e2b49822
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91362698"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
@@ -26,13 +26,13 @@ Application Gateway는 모든 게이트웨이 크기에 WebSocket에 대한 네�
 
 ## <a name="how-does-websocket-work"></a>WebSocket 작동 방식
 
-WebSocket 연결을 설정 하기 위해 특정 HTTP 기반 핸드셰이크는 클라이언트와 서버 간에 교환 됩니다. 성공하면 애플리케이션 계층 프로토콜이 이전에 설정된 TCP 연결을 사용하여 HTTP에서 WebSocket으로 "업그레이드"됩니다. 이렇게 되면 HTTP는 완전히 제외됩니다. 데이터는 WebSocket 연결을 종료할 때까지 양쪽 엔드포인트에서 WebSocket 프로토콜을 사용하여 보내거나 받을 수 있습니다. 
+WebSocket 연결을 설정하기 위해 특정 HTTP 기반 핸드셰이크가 클라이언트와 서버 간에 교환됩니다. 성공하면 애플리케이션 계층 프로토콜이 이전에 설정된 TCP 연결을 사용하여 HTTP에서 WebSocket으로 "업그레이드"됩니다. 이렇게 되면 HTTP는 완전히 제외됩니다. 데이터는 WebSocket 연결을 종료할 때까지 양쪽 엔드포인트에서 WebSocket 프로토콜을 사용하여 보내거나 받을 수 있습니다. 
 
-![다이어그램은 웹 서버와 상호 작용 하는 클라이언트를 두 번 연결 하 여 두 번 연결 하 고, WebSocket 상호 작용을 통해 클라이언트가 한 번 서버에 연결 하 여 여러 회신을 가져옵니다.](./media/application-gateway-websocket/websocket.png)
+![다이어그램은 클라이언트와 웹 서버의 상호 작용(두 번 연결하여 두 번 응답을 받음)과 WebSocket 상호 작용(서버에 한 번 연결하여 여러 번 응답을 받음)을 비교합니다.](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>수신기 구성 요소
 
-기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 마찬가지로 포털 또는 Azure PowerShell를 사용 하 여 WebSocket 트래픽을 지원 하기 위해 포트 80/443의 수신기를 사용 하 여 응용 프로그램 게이트웨이를 만들 수 있습니다.
+기존 HTTP 수신기를 사용하여 WebSocket을 지원할 수 있습니다. 다음은 샘플 템플릿 파일에 있는 httpListeners 요소의 코드 조각입니다. WebSocket을 지원하고 WebSocket 트래픽을 보호하기 위해 HTTP 및 HTTPS 수신기가 모두 필요합니다. 마찬가지로 포털 또는 Azure PowerShell을 사용하여 WebSocket 트래픽을 지원하기 위해 포트 80/443에 대한 수신기를 포함한 애플리케이션 게이트웨이를 만들 수 있습니다.
 
 ```json
 "httpListeners": [
@@ -68,7 +68,7 @@ WebSocket 연결을 설정 하기 위해 특정 HTTP 기반 핸드셰이크는 �
 
 ## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool, BackendHttpSetting 및 라우팅 규칙 구성
 
-BackendAddressPool은 WebSocket 지원 서버가 포함된 백 엔드 풀을 정의하는 데 사용됩니다. backendHttpSetting은 80 및 443 백 엔드 포트로 정의됩니다. HTTP 설정의 요청 시간 제한 값은 WebSocket 세션에도 적용 됩니다. 적절 한 수신기를 해당 백 엔드 주소 풀에 연결 하는 데 사용 되는 라우팅 규칙에 필요한 변경 내용이 없습니다. 
+BackendAddressPool은 WebSocket 지원 서버가 포함된 백 엔드 풀을 정의하는 데 사용됩니다. backendHttpSetting은 80 및 443 백 엔드 포트로 정의됩니다. HTTP 설정의 요청 시간 제한 값은 WebSocket 세션에도 적용됩니다. 회람 규칙은 변경할 필요가 없으며, 이 규칙은 적절한 수신기를 해당 백 엔드 주소 풀에 연결하는 데 사용됩니다. 
 
 ```json
 "requestRoutingRules": [{

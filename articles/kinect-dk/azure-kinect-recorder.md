@@ -1,31 +1,31 @@
 ---
-title: Azure Kinect 진한 레코더
-description: Azure Kinect 레코더를 사용 하 여 센서 SDK의 데이터 스트림을 파일에 기록 하는 방법을 이해 합니다.
+title: Azure Kinect DK 레코더
+description: Azure Kinect 레코더를 사용하여 센서 SDK의 데이터 스트림을 파일로 기록하는 방법을 이해합니다.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
-keywords: kinect, record, 재생, 판독기, matroska, .mkv, 스트림, 깊이, rgb, 카메라, 색, imu, 오디오
+keywords: kinect, 기록, 재생, 판독기, matroska, mkv, 스트림, 깊이, rgb, 카메라, 색상, imu, 오디오
 ms.openlocfilehash: 5fb6895d4102956a991c67ffab836a26b7a3abb0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85276963"
 ---
-# <a name="azure-kinect-dk-recorder"></a>Azure Kinect 진한 레코더
+# <a name="azure-kinect-dk-recorder"></a>Azure Kinect DK 레코더
 
-이 문서에서는 명령줄 유틸리티를 사용 하 여 `k4arecorder` 센서 SDK의 데이터 스트림을 파일에 기록 하는 방법을 설명 합니다.
+이 문서에서는 `k4arecorder` 명령줄 유틸리티를 사용하여 센서 SDK의 데이터 스트림을 파일로 기록하는 방법을 다룹니다.
 
 >[!NOTE]
->Azure Kinect 레코더는 오디오를 기록 하지 않습니다.
+>Azure Kinect 레코더는 오디오를 기록하지 않습니다.
 
 ## <a name="recorder-options"></a>레코더 옵션
 
-에는 `k4arecorder` 출력 파일 및 기록 모드를 지정 하는 다양 한 명령줄 인수가 있습니다.
+`k4arecorder`에는 출력 파일 및 기록 모드를 지정하는 다양한 명령줄 인수가 있습니다.
 
-기록은 [Matroska. .mkv 형식](record-file-format.md)으로 저장 됩니다. 기록은 색 및 깊이에 대 한 여러 비디오 트랙과 카메라 보정 및 메타 데이터와 같은 추가 정보를 사용 합니다.
+기록은 [Matroska .mkv 형식](record-file-format.md)으로 저장됩니다. 기록은 색상 및 깊이에 대한 여러 비디오 트랙을 사용하고 카메라 보정 및 메타데이터와 같은 추가 정보도 사용합니다.
 
 ```console
 k4arecorder [options] output.mkv
@@ -52,36 +52,36 @@ k4arecorder [options] output.mkv
   -e, --exposure-control  Set manual exposure value (-11 to 1) for the RGB camera (default: auto exposure)
 ```
 
-## <a name="record-files"></a>레코드 파일
+## <a name="record-files"></a>파일 기록
 
-예제 1. 레코드 깊이 NFOV un범주화 된 (640x576) 모드, RGB 1080p (IMU)
-Ctrl + **C** 키를 눌러 기록을 중지 합니다.
+예제 1. IMU를 사용하여 30fps로 깊이 NFOV 비범주화(640x576) 모드, RGB 1080p를 기록합니다.
+**CTRL-C** 키를 눌러 기록하기를 중지합니다.
 
 ```
 k4arecorder.exe output.mkv
 ```
 
-예제 2. WFOV 비 범주화 (1MP), RGB 3072p (IMU 없이 15 fps)를 10 초 동안 기록 합니다.
+예제 2. 10초 동안 IMU를 사용하지 않고 15fps로 WFOV 무범주화(1MP), RGB 3072p를 기록합니다.
 
 ```
 k4arecorder.exe -d WFOV_UNBINNED -c 3072p -r 15 -l 10 --imu OFF output.mkv
 ```
 
-예제 3. 30 fps에서 WFOV 2x2를 5 초 동안 기록 하 고 .mkv에 저장 합니다.
+예제 3. 5초 동안 30fps로 WFOV 2x2 범주화를 기록하고 output.mkv로 저장합니다.
 
 ```
 k4arecorder.exe -d WFOV_2X2BINNED -c OFF --imu OFF -l 5 output.mkv
 ```
 
 >[!TIP]
->[Azure Kinect Viewer](azure-kinect-viewer.md) 를 사용 하 여 기록 하기 전에 RGB 카메라 컨트롤을 구성할 수 있습니다 (예: 수동 흰색 잔액 설정).
+>[Azure Kinect 뷰어](azure-kinect-viewer.md)를 사용하여 기록하기 전에 RGB 카메라 컨트롤을 구성할 수 있습니다(예: 수동 화이트 밸런스 설정).
 
 ## <a name="verify-recording"></a>기록 확인
 
-[Azure Kinect Viewer](azure-kinect-viewer.md)를 사용 하 여 .mkv 파일을 열 수 있습니다.
+[Azure Kinect 뷰어](azure-kinect-viewer.md)로 .mkv 출력 파일을 열 수 있습니다.
 
-트랙을 추출 하거나 파일 정보를 보려면와 같은 도구를 `mkvinfo` [MKVToolNix](https://mkvtoolnix.download/) 도구 키트의 일부로 사용할 수 있습니다.
+트랙을 추출하거나 파일 정보를 보기 위해 `mkvinfo`와 같은 도구가 [MKVToolNix](https://mkvtoolnix.download/) 도구 키트의 일부로 제공됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[외부 동기화 된 단위와 함께 레코더 사용](record-external-synchronized-units.md)
+[외부 동기화 장치가 있는 레코더 사용](record-external-synchronized-units.md)

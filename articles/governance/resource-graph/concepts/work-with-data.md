@@ -5,10 +5,10 @@ ms.date: 01/27/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1eaabfdd78712966f3b21d869259a312db31b7bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98917693"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
@@ -48,7 +48,7 @@ Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 큰 데이터 세트 작업을 위한 다음 옵션은 **Skip** 제어입니다. 이 제어를 사용하면 쿼리가 결과를 반환하기 전에 정의된 레코드 수를 점프하거나 건너뛸 수 있습니다. **Skip** 은 결과 집합의 중간에 있는 레코드에 접근하기 위해 의미 있는 방식으로 결과를 정렬하는 쿼리에 유용합니다. 필요한 결과가 반환된 데이터 세트의 끝에 있는 경우, 다른 정렬 구성을 사용하고 대신 데이터 세트의 맨 위에서 결과를 검색하는 것이 더 효율적입니다.
 
 > [!NOTE]
-> **Skip** 을 사용할 경우 `asc` 또는 `desc`를 사용하여 하나 이상의 열을 기준으로 결과를 정렬하는 것이 좋습니다. 정렬하지 않으면 결과가 무작위로 반환되고 반복되지 않습니다. `limit`쿼리에서 또는를 `take` 사용 하는 경우 **Skip** 은 무시 됩니다.
+> **Skip** 을 사용할 경우 `asc` 또는 `desc`를 사용하여 하나 이상의 열을 기준으로 결과를 정렬하는 것이 좋습니다. 정렬하지 않으면 결과가 무작위로 반환되고 반복되지 않습니다. 쿼리에서 `limit` 또는 `take`를 사용하는 경우 **건너뛰기** 는 무시됩니다.
 
 다음 예제에서는 반환된 결과 집합을 11번째 레코드로 시작하는 대신, 쿼리에서 생성하는 처음 _10_ 개의 레코드를 건너뛰는 방법을 보여 줍니다.
 
@@ -64,10 +64,10 @@ Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 
 ## <a name="paging-results"></a>페이징 결과
 
-처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _1000_ 을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources) 
- **queryresponse** 는 결과 집합을 표시 하는 값을 제공 합니다. **resulttruncated** 및 **$skipToken**. **Resulttruncated** 는 응답에 반환 되지 않은 레코드가 더 있는지 소비자에 게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords** 는 쿼리와 일치하는 레코드 수를 정의합니다.
+처리를 위해 결과 집합을 작은 레코드 집합으로 나누어야 하는 경우 또는 결과 집합이 허용된 최댓값인 _1000_ 을 초과하기 때문에 페이징을 사용합니다. [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+**QueryResponse** 는 결과 집합이 분할되었음을 나타내는 값(**resultTruncated** 및 **$skipToken**)을 제공합니다. **resultTruncated** 는 응답에 반환되지 않은 추가 레코드가 있는지 여부를 소비자에게 알리는 부울 값입니다. **count** 속성이 **totalRecords** 속성보다 작은 경우에도 이 조건을 식별할 수 있습니다. **totalRecords** 는 쿼리와 일치하는 레코드 수를 정의합니다.
 
-  열이 없거나  `id` 쿼리를 요청 하는 것 보다 사용 가능한 리소스가 부족 하기 때문에 페이징이 사용 하지 않도록 설정 되거나 가능 하지 않은 경우에는 true가 잘립니다. **Resulttruncated** 경우 **$skipToken** 속성이 설정 **되지 않습니다.**
+ 쿼리가 요청하는 것보다 사용 가능한 리소스가 적을 경우 `id` 열이 없어서 페이징이 비활성화되거나 사용 불가능해지면 **resultTruncated** 가 **true** 입니다. **resultTruncated** 가 **true** 이면 **$skipToken** 속성이 설정되지 않습니다.
 
 다음 예에서는 Azure CLI 및 Azure PowerShell을 사용하여 처음 3000개 레코드를 **건너뛰고** 이러한 레코드를 건너뛴 후 **처음** 1000개 레코드를 반환하는 방법을 보여 줍니다.
 
@@ -94,7 +94,7 @@ Azure CLI의 결과는 기본적으로 JSON 형식으로 제공됩니다. Azure 
 
 기본 형식인 _Table_ 은 쿼리에서 반환하는 속성의 열 디자인과 행 값을 강조 표시하도록 설계된 JSON 형식으로 결과를 반환합니다. 이 형식은 먼저 열이 식별된 후 데이터를 표현하는 각 행이 이러한 열에 맞게 조정되는 구조화된 테이블이나 스프레드시트에 정의된 데이터와 비슷합니다.
 
-_표_ 서식 지정을 사용 하는 쿼리 결과의 예제는 다음과 같습니다.
+다음은 _Table_ 서식이 지정된 쿼리 결과의 샘플입니다.
 
 ```json
 {
@@ -136,7 +136,7 @@ _표_ 서식 지정을 사용 하는 쿼리 결과의 예제는 다음과 같습
 
 _ObjectArray_ 형식도 JSON 형식으로 결과를 반환합니다. 그러나 이 디자인은 배열 그룹에서 열과 행 데이터가 일치하는 JSON에서 일반적인 키/값 쌍 관계에 맞게 조정됩니다.
 
-다음은 _ObjectArray_ 서식 지정을 사용 하는 쿼리 결과의 샘플입니다.
+다음은 _ObjectArray_ 서식이 지정된 쿼리 결과의 샘플입니다.
 
 ```json
 {

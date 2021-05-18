@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 VMware VM 다중 테 넌 트 재해 복구
+title: Azure Site Recovery를 사용하여 VMware VM 다중 테넌트 재해 복구
 description: 다중 테넌트 환경(CSP) 프로그램에서 VMWare와 Azure 간 재해 복구를 위해 제공되는 Azure Site Recovery 지원에 대해 간략하게 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 64e40341ec56a2e1c561b2bcbb5e584830c14015
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93145585"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>CSP를 사용한 VMware와 Azure 간 재해 복구를 위한 다중 테넌트 지원 개요
 
-[Azure Site Recovery](site-recovery-overview.md) 은 테 넌 트 구독에 대 한 다중 테 넌 트 환경을 지원 합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
+[Azure Site Recovery](site-recovery-overview.md)는 테넌트 구독을 위해 다중 테넌트 환경을 지원합니다. 또한 Microsoft CSP(클라우드 솔루션 공급자) 프로그램을 통해 생성 및 관리되는 테넌트 구독에 대한 다중 테넌트도 지원합니다.
 
 이 아티클에서는 Azure 복제에 대해 다중 테넌트 VMware를 구현하고 관리하는 개요를 제공합니다.
 
@@ -72,13 +72,13 @@ ms.locfileid: "93145585"
 
 ### <a name="create-a-vcenter-account"></a>vCenter 계정 만들기
 
-1. 미리 정의 된 *읽기 전용* 역할을 복제 하 여 새 역할을 만든 다음이 예와 같이 편리한 이름을 지정 합니다 (예: Azure_Site_Recovery).
+1. 미리 정의된 *읽기 전용* 역할을 복제하여 새 역할을 만들고 편리한 이름을 부여합니다(예: 이 예제에서 표시된 것처럼 Azure_Site_Recovery).
 2. 이 역할에 다음 권한을 할당합니다.
 
    * **데이터 저장소**: 공간 할당, 데이터 저장소 찾아보기, 낮은 수준 파일 작업, 파일 제거, 가상 머신 파일 업데이트
    * **네트워크**: 네트워크 할당
    * **리소스**: 리소스 풀에 VM 할당, 전원이 꺼진 VM 마이그레이션, 전원이 켜진 VM 마이그레이션
-   * **작업**: 작업 만들기, 작업 업데이트
+   * **작업**: 만들기 작업, 업데이트 작업
    * **VM - 구성**: 전체
    * **VM - 상호 작용** &gt; 질문 응답, 디바이스 연결, CD 미디어 구성, 플로피 미디어 구성, 전원 끄기, 전원 켜기, VMware 도구 설치
    * **VM - 인벤토리** > 기존 항목에서 만들기, 새로 만들기, 등록, 등록 취소
@@ -120,13 +120,13 @@ ms.locfileid: "93145585"
 
 1. Azure Portal에 있는 앞에서 만든 자격 증명 모음에서 만든 vCenter 계정을 사용하여 구성 서버에 vCenter Server를 등록합니다.
 2. 일반 프로세스에 대한 Site Recovery를 위해 “준비 인프라” 프로세스를 완료합니다.
-3. 이제 VM을 복제할 준비가 되었습니다. **복제**  >  **선택 가상 컴퓨터** 에 테 넌 트의 vm만 표시 되는지 확인 합니다.
+3. 이제 VM을 복제할 준비가 되었습니다. 테넌트의 VM이 **복제** > **가상 머신 선택** 에 표시되는지만 확인합니다.
 
 ## <a name="dedicated-hosting-solution"></a>전용 호스팅 솔루션
 
 다음 다이어그램에 표시된 것처럼 전용 호스팅 솔루션의 아키텍처 차이점은 각 테넌트의 인프라가 해당 테넌트에 대해서만 설정된다는 것입니다.
 
-![전용 호스팅 솔루션의 아키텍처 차이점을 보여 주는 다이어그램은 각 테 넌 트의 인프라가 해당 테 넌 트에 대해서만 설정 된다는 것입니다.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
+![전용 호스팅 솔루션의 아키텍처 차이점은 각 테넌트의 인프라가 해당 테넌트에 대해서만 설정된다는 것을 보여주는 다이어그램.](./media/vmware-azure-multi-tenant-overview/dedicated-hosting-scenario.png)  
 **여러 vCenter를 사용한 전용 호스팅 시나리오**
 
 ## <a name="managed-service-solution"></a>관리형 서비스 솔루션

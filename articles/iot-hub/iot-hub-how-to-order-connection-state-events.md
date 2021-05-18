@@ -7,12 +7,13 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 00765a51ad07cd53fde403ed1cfabb73c5692026
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076872"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92147271"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -334,7 +335,7 @@ Cosmos DB 문서에서 실행된 저장 프로시저의 결과를 볼 수 있습
 
 ## <a name="use-the-azure-cli"></a>Azure CLI 사용
 
-[Azure Portal](https://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
+[Azure Portal](https://portal.azure.com)을 사용하는 대신 Azure CLI를 사용하여 IoT Hub 단계를 설정할 수 있습니다. 자세한 내용은 [이벤트 구독 만들기](/cli/azure/eventgrid/event-subscription) 및 [IoT 디바이스 만들기](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create)에 대한 Azure 명령줄 인터페이스 페이지를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

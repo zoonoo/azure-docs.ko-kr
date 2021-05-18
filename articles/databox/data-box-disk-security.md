@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Data Box Disk 보안 기능 | 데이터의 Microsoft Docs
-description: Azure로 많은 양의 데이터를 전송할 수 있도록 하는 클라우드 솔루션인 Azure Data Box Disk에 대해 구현 된 보안 기능에 대해 설명 합니다.
+title: Microsoft Azure Data Box Disk 보안 기능 | 데이터에서 Microsoft Docs
+description: 많은 양의 데이터를 Azure로 전송할 수 있는 클라우드 솔루션인 Azure Data Box Disk에 구현된 보안 기능에 대해 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: alkohli
 ms.openlocfilehash: 59cce6d89bc863ad489a8ed37c7f284d3085c775
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "79117279"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
@@ -86,7 +86,7 @@ Azure Data Box Disk는 서비스의 다음 키 인스턴스에서 개인 정보�
 
 - **배송 주소** – 주문이 완료되면 Data Box 서비스는 UPS 또는 DHL과 같은 타사 운송 업체에 배송 주소를 제공합니다. 
 
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토 하세요.
+자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

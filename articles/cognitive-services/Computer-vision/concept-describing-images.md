@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0d3cc66a9494cfdee4aa62ad87630487ae3462e7
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 4fd328dad3544697ba1f4896f7383be857b097a5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714911"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "96530666"
 ---
 # <a name="describe-images-with-human-readable-language"></a>사람이 읽을 수 있는 언어를 사용하여 이미지를 설명합니다.
 
@@ -58,7 +58,7 @@ Computer Vision은 이미지를 분석하고 콘텐츠를 설명하는, 사람�
 
 ## <a name="use-the-api"></a>API 사용
 
-이미지 설명 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Description`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"description"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+이미지 설명 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Description`를 포함합니다. 그런 다음, 전체 JSON 응답을 받으면 `"description"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
 * [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 

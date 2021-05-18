@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 04/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 2bc2c1361c7d2f73ff8a67e906a6db725f669d52
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5beb222ec20b1e7941f9438c0aacf98879a567a
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895410"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107727945"
 ---
 # <a name="request-limits-for-translator"></a>Translator에 대한 요청 제한
 
-이 문서에서는 Translator에 대한 제한 한도를 제공합니다. 서비스는 번역, 음차, 문장 길이 감지, 언어 감지 및 대체 번역을 포함합니다.
+이 문서에서는 번역기 번역, 음차, 문장 길이 검색, 언어 검색 및 대체 번역에 대한 제한 한도를 제공합니다.
 
 ## <a name="character-and-array-limits-per-request"></a>요청당 문자 및 배열 제한
 
@@ -27,18 +27,18 @@ ms.locfileid: "98895410"
 
 다음 표에는 Translator의 각 작업에 대한 배열 요소 및 문자 제한이 나열되어 있습니다.
 
-| 작업 | 배열 요소 최대 크기 |    배열 요소 최대 개수 |    최대 요청 크기(문자) |
+| 작업(Operation) | 배열 요소 최대 크기 |    배열 요소 최대 개수 |    최대 요청 크기(문자) |
 |:----|:----|:----|:----|
-| Translate | 10000    | 100   | 10000 |
-| Transliterate | 5,000 | 10    | 5,000 |
-| Detect | 50,000 | 100 |   50,000 |
-| BreakSentence | 50,000    | 100 | 50,000 |
-| 사전 조회| 100 |  10  | 1,000 |
-| 사전 예제 | 텍스트 100 및 번역 100(총 200)| 10|   2,000 |
+| Translate | 10000| 100| 10000 |
+| Transliterate | 5,000| 10| 5,000 |
+| Detect | 50,000 |100 |50,000 |
+| BreakSentence | 50,000| 100 |50,000 |
+| 사전 조회| 100 |10| 1,000 |
+| 사전 예제 | 텍스트 100 및 번역 100(총 200)| 10|2,000 |
 
 ## <a name="character-limits-per-hour"></a>시간당 문자 제한
 
-시간당 문자 제한은 Translator 구독 계층을 기반으로 합니다. 
+시간당 문자 제한은 Translator 구독 계층을 기반으로 합니다.
 
 시간별 할당량은 해당 시간 동안 균등하게 사용해야 합니다. 예를 들어 시간당 200만 자 F0 계층 제한에서 문자는 분당 슬라이딩 윈도우(200만 자를 60분으로 나눈 값)인 약 33,300자보다 빠르게 사용될 수 없습니다.
 
@@ -54,11 +54,11 @@ ms.locfileid: "98895410"
 
 [다중 서비스 구독](./reference/v3-0-reference.md#authentication)의 한도는 S1 계층과 동일합니다.
 
-이러한 한도는 Microsoft의 표준 번역 모델로 제한됩니다. Custom Translator를 사용하는 사용자 지정 번역 모델은 초당 1,800자로 제한됩니다.
+이러한 한도는 Microsoft의 표준 번역 모델로 제한됩니다. Custom Translator를 사용하는 사용자 지정 번역 모델은 모델당 초당 1,800자로 제한됩니다.
 
 ## <a name="latency"></a>대기 시간
 
-Translator는 최대 대기 시간이 표준 모델을 사용하는 경우 15초이고 사용자 지정 모델을 사용하는 경우 120초입니다. 일반적으로 100자 이내의 텍스트에 대한 응답은 150~300밀리초에 반환됩니다. Custom Translator 모델은 지속적인 요청 속도에서 비슷한 대기 시간 특성을 가지며, 요청 속도가 일시적이면 대기 시간이 길어질 수 있습니다. 응답 시간은 요청 크기 또는 언어 쌍에 따라 달라집니다. 해당 시간 범위 내에 번역 또는 [오류 응답](./reference/v3-0-reference.md#errors)을 받지 못하는 경우에는 코드, 네트워크 연결을 확인하고 다시 시도하세요. 
+Translator는 최대 대기 시간이 표준 모델을 사용하는 경우 15초이고 사용자 지정 모델을 사용하는 경우 120초입니다. 일반적으로 100자 이내의 텍스트에 대한 응답은 150~300밀리초에 반환됩니다. Custom Translator 모델은 지속적인 요청 속도에서 비슷한 대기 시간 특성을 가지며, 요청 속도가 일시적이면 대기 시간이 길어질 수 있습니다. 응답 시간은 요청 크기 또는 언어 쌍에 따라 달라집니다. 해당 시간 범위 내에 번역 또는 [오류 응답](./reference/v3-0-reference.md#errors)을 받지 못하는 경우에는 코드, 네트워크 연결을 확인하고 다시 시도하세요.
 
 ## <a name="sentence-length-limits"></a>문장 길이 제한
 

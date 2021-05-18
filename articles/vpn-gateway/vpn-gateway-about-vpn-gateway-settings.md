@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: 구성 설정'
-description: 리소스 관리자 배포 모델에서 만든 가상 네트워크에 대 한 VPN Gateway 리소스 및 설정에 대해 알아봅니다.
+description: 리소스 관리자 배포 모델에서 생성된 가상 네트워크의 VPN Gateway 리소스 및 설정에 대해 알아보세요.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1aba87b2139fb8a7d395fb3180d2074e47310fa9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96010875"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
@@ -39,7 +39,7 @@ VPN Gateway 연결은 각각이 구성 가능한 설정을 포함하는 여러 �
 
 VPN Gateway에는 `-GatewayType` *Vpn* 이 필요합니다.
 
-예제:
+예:
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -75,11 +75,11 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizing-or-changing-a-sku"></a><a name="resizechange"></a>SKU 크기 조정 또는 변경
 
-VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 게이트웨이를 빌드하는 데 최대 45 분이 걸릴 수 있습니다. 반면 게이트웨이 SKU의 크기를 조정할 때 게이트웨이를 삭제 하 고 다시 빌드할 필요가 없기 때문에 가동 중지 시간이 많지 않습니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
+VPN 게이트웨이가 있는데 다른 게이트웨이 SKU를 사용하려는 경우 게이트웨이 SKU 크기를 조정하거나 다른 SKU로 변경할 수 있습니다. 다른 게이트웨이 SKU로 변경할 때는 기존 게이트웨이를 완전히 삭제하고 새로 작성하게 됩니다. 게이트웨이 구축에 최대 45분이 소요될 수 있습니다. 이에 비해 게이트웨이 SKU 크기를 조정할 경우 게이트웨이를 삭제하고 재구성할 필요가 없기 때문에 가동 중지 시간이 길지 않습니다. 게이트웨이 SKU를 변경하지 않고 크기를 조정할 수 있다면 그렇게 하는 것이 좋습니다. 그러나 크기 조정에 대한 규칙이 있습니다.
 
-1. 기본 SKU를 제외 하 고, 동일한 세대 (Generation1.xml 또는 Generation2) 내에서 다른 VPN gateway sku에 대 한 VPN 게이트웨이 SKU의 크기를 조정할 수 있습니다. 예를 들어 Generation1.xml의 VpnGw1는 Generation1.xml의 VpnGw2로 크기를 조정할 수 있지만 VpnGw2의 Generation2로 크기를 조정할 수 없습니다.
+1. 기본 SKU를 제외하고 동일한 세대(Generation1 또는 Generation2) 내에서 VPN Gateway SKU의 크기를 다른 VPN Gateway SKU로 크기로 조정할 수 있습니다. 예를 들어, Generation1의 VpnGw1의 크기는 Generation1의 VpnGw2로 크기로 조정될 수 있지만 Generation2 VpnGw2의 크기로 조정될 수 없습니다.
 2. 이전 게이트웨이 SKU로 작동하는 경우 Basic, Standard 및 HighPerformance SKU 간에 크기를 조정할 수 있습니다.
-3. Basic/Standard/HighPerformance Sku에서 VpnGw Sku로 크기를 조정할 **수 없습니다** . 대신 새 SKU로 [변경](#change)해야 합니다.
+3. Basic/Standard/HighPerformance SKU에서 VpnGw SKU로 크기를 조정할 **수 없습니다**. 대신 새 SKU로 [변경](#change)해야 합니다.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>게이트웨이의 크기를 조정하려면
 
@@ -136,7 +136,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gateway-subnet"></a><a name="gwsub"></a>게이트웨이 서브넷
 
-VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 필수 VPN Gateway 설정으로 구성됩니다. 다른 Vm (예: 추가 Vm)을 게이트웨이 서브넷에 배포 하지 마십시오. 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름을 'GatewaySubnet'으로 지정하면 Azure에서 해당 서브넷이 가상 네트워크 게이트웨이 VM 및 서비스를 배포할 서브넷임을 알 수 있습니다.
+VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니다. 게이트웨이 서브넷은 가상 네트워크 게이트웨이 VM 및 서비스에서 사용하는 IP 주소를 포함합니다. 가상 네트워크 게이트웨이 만들 때 게이트웨이 VM은 게이트웨이 서브넷에 배포되고 필수 VPN Gateway 설정으로 구성됩니다. 게이트웨이 서브넷에 다른 항목(예: 추가 VM)을 배포하지 마세요. 게이트웨이 서브넷이 제대로 작동하려면 이름을 'GatewaySubnet'으로 지정해야 합니다. 게이트웨이 서브넷 이름을 'GatewaySubnet'으로 지정하면 Azure에서 해당 서브넷이 가상 네트워크 게이트웨이 VM 및 서비스를 배포할 서브넷임을 알 수 있습니다.
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -144,7 +144,7 @@ VPN Gateway를 만들기 전에 게이트웨이 서브넷을 만들어야 합니
 
 게이트웨이 서브넷을 만드는 경우 서브넷이 포함하는 IP 주소의 수를 지정합니다. 게이트웨이 서브넷의 IP 주소는 게이트웨이 VM 및 게이트웨이 서비스에 할당됩니다. 일부 구성에는 다른 구성보다 더 많은 IP 주소가 필요합니다. 
 
-게이트웨이 서브넷 크기를 계획할 때 만들려는 구성에 대 한 설명서를 참조 하세요. 예를 들어 Express 경로/VPN Gateway 공존 구성에는 대부분의 다른 구성 보다 더 큰 게이트웨이 서브넷이 필요 합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. 게이트웨이 서브넷을/29만 큼 작게 만들 수 있지만, 사용 가능한 주소 공간이 있는 경우/27 이상의 게이트웨이 서브넷을 만드는 것이 좋습니다 (/27,/26 등). 이렇게 하면 대부분의 구성이 적용 됩니다.
+게이트웨이 서브넷 크기를 계획하는 경우 생성하려는 구성에 대한 설명서를 참조하세요. 예를 들어 ExpressRoute/VPN Gateway 공존 구성을 사용하려면 다른 대부분의 구성보다 큰 게이트웨이 서브넷이 필요합니다. 또한 이후 추가 구성이 추가될 가능성에 대비하여 게이트웨이 서브넷에 IP 주소가 충분히 포함되어 있는지 확인하려고 할 수 있습니다. /29만큼 작은 게이트웨이 서브넷을 생성할 수 있지만 사용 가능한 주소 공간이 있는 경우 /27 이상의 게이트웨이 서브넷(예: /27, /26 등)을 생성하는 것이 좋습니다. 이렇게 하면 대부분의 구성을 적용할 수 있습니다.
 
 다음 Resource Manager PowerShell 예제에서는 이름이 GatewaySubnet인 게이트웨이 서브넷을 보여 줍니다. CIDR 표기법이 /27을 지정하는 것을 확인할 수 있으며 이는 이번에 존재하는 대부분의 구성에 대한 충분한 IP 주소를 허용합니다.
 
@@ -156,9 +156,9 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 ## <a name="local-network-gateways"></a><a name="lng"></a>로컬 네트워크 게이트웨이
 
-로컬 네트워크 게이트웨이는 가상 네트워크 게이트웨이와 다릅니다. VPN gateway 구성을 만들 때 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 네트워크 및 해당 VPN 장치를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
+로컬 네트워크 게이트웨이는 가상 네트워크 게이트웨이와 다릅니다. VPN Gateway 구성을 생성할 때 로컬 네트워크 게이트웨이는 일반적으로 온-프레미스 네트워크와 해당 VPN 디바이스를 나타냅니다. 클래식 배포 모델에서 로컬 네트워크 게이트웨이는 로컬 사이트라고 했습니다.
 
-로컬 네트워크 게이트웨이에 온-프레미스 VPN 장치의 이름, 공용 IP 주소 또는 FQDN (정규화 된 도메인 이름)을 지정 하 고 온-프레미스 위치에 있는 주소 접두사를 지정 합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. VPN 장치에서 BGP (Border Gateway Protocol)를 사용 하는 경우 VPN 장치의 BGP 피어 IP 주소와 온-프레미스 네트워크의 ASN (자치 시스템 번호)을 제공 합니다. VPN Gateway 연결을 사용하는 VNet-VNet 구성에 대해서도 로컬 네트워크 게이트웨이를 지정합니다.
+로컬 네트워크 게이트웨이에 이름, 공용 IP 주소 또는 온-프레미스 VPN 디바이스의 정규화된 도메인 이름(FQDN)을 지정하고 온-프레미스 위치에 있는 주소 접두사를 지정합니다. Azure는 네트워크 트래픽에 대상 주소 접두사를 보고 로컬 네트워크 게이트웨이에 대해 지정한 구성을 참조하며 그에 따라 패킷을 라우팅합니다. VPN 디바이스에서 Border Gateway Protocol(BGP)을 사용하는 경우 VPN 디바이스의 BGP 피어 IP 주소와 온-프레미스 네트워크의 자율 시스템 번호(ASN)를 제공합니다. VPN Gateway 연결을 사용하는 VNet-VNet 구성에 대해서도 로컬 네트워크 게이트웨이를 지정합니다.
 
 다음 PowerShell 예제에서는 새 로컬 네트워크 게이트웨이 만듭니다.
 

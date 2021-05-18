@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: luquinta
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d045c1ec96bb7b31a710a28e30e3d428922b65e
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 895d766cc1e70e6a001904770d6f3ef12b6945cd
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378553"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98018664"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용하여 Apache Spark에 .NET 사용
 
@@ -29,10 +29,19 @@ Spark 일괄 작업 정의 또는 대화형 Azure Synapse Analytics Notebook을 
 이 자습서를 방문하여 Azure Synapse Analytics를 사용하여 [Synapse Spark 풀에 대한 Apache Spark 작업 정의를 만드는 방법](apache-spark-job-definitions.md)을 알아보세요. 앱을 패키징하여 Azure Synapse에 제출하지 않은 경우 다음 단계를 완료합니다.
 
 1. 다음 명령을 실행하여 앱을 게시합니다. *mySparkApp* 은 해당 앱의 경로로 바꾸어야 합니다.
-   
+
+   **Windows:**
+
    ```dotnetcli
    cd mySparkApp
-   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.18.04-x64
+   dotnet publish -c Release -f netcoreapp3.1 -r win-x64
+   ```
+   
+   **Linux:**
+
+   ```dotnetcli
+   cd mySparkApp
+   dotnet publish -c Release -f netcoreapp3.1 -r ubuntu.16.04-x64
    ```
 
 2. 예를 들어 1단계의 결과로 생성된 게시 폴더의 콘텐츠를 `publish.zip`으로 압축합니다. 모든 어셈블리는 ZIP 파일의 첫 번째 계층에 있어야 하며 중간 폴더 계층은 없어야 합니다. 즉, `publish.zip`의 압축을 풀면 모든 어셈블리가 현재 작업 디렉터리로 추출됩니다.

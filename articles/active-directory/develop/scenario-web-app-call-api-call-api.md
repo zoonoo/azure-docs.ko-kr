@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b294a56a523adaa2629a5d1e72a7ccef532956e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b81e94fddd428da97429fb280f09a16a77229235
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98753288"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165086"
 ---
 # <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 API를 호출하는 웹앱: 웹 API 호출
 
@@ -33,13 +33,13 @@ ms.locfileid: "98753288"
 
 - [옵션 1: Microsoft Graph SDK를 사용하여 Microsoft Graph 호출](#option-1-call-microsoft-graph-with-the-sdk)
 - [옵션 2: helper 클래스를 사용하여 다운스트림 웹 API 호출](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [옵션 3: helper 클래스 없이 다운스트림 웹 API 호출](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [옵션 3: 도우미 클래스 없이 다운스트림 웹 API 호출](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>옵션 1: SDK를 사용하여 Microsoft Graph 호출
 
 Microsoft Graph를 호출하려고 합니다. 이 시나리오에서는 [코드 구성](scenario-web-app-call-api-app-configuration.md#option-1-call-microsoft-graph)에 지정된 대로 *Startup.cs* 에 `AddMicrosoftGraph`를 추가했으며, 작업에 사용할 컨트롤러 또는 페이지 생성자에 `GraphServiceClient`를 직접 삽입할 수 있습니다. 다음 Razor 페이지 예에서는 로그인한 사용자의 사진이 표시됩니다.
 
-```CSharp
+```csharp
 [Authorize]
 [AuthorizeForScopes(Scopes = new[] { "user.read" })]
 public class IndexModel : PageModel
@@ -75,7 +75,7 @@ public class IndexModel : PageModel
 
 Microsoft Graph가 아닌 웹 API를 호출하려고 합니다. 이 경우에는 [코드 구성](scenario-web-app-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph)에 지정된 대로 *Startup.cs* 에 `AddDownstreamWebApi`를 추가했으며 컨트롤러 또는 페이지 생성자에 `IDownstreamWebApi` 서비스를 직접 삽입하고 작업에 사용할 수 있습니다.
 
-```CSharp
+```csharp
 [Authorize]
 [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
 public class TodoListController : Controller
@@ -103,7 +103,7 @@ public class TodoListController : Controller
 
 `CallWebApiForUserAsync`에는 직접 개체를 받을 수 있도록 하는 강력한 형식의 일반적인 재정의가 있습니다. 예를 들어 다음 메서드는 웹 API에서 반환된 JSON의 강력한 형식의 표현인 `Todo` 인스턴스를 수신합니다.
 
-```CSharp
+```csharp
     // GET: TodoList/Details/5
     public async Task<ActionResult> Details(int id)
     {
@@ -125,30 +125,31 @@ public class TodoListController : Controller
 
 토큰을 획득한 후에는 전달자 토큰으로 사용하여 다운스트림 API를 호출합니다. 이 경우에는 Microsoft Graph입니다.
 
- ```csharp
+```csharp
 public async Task<IActionResult> Profile()
 {
- // Acquire the access token.
- string[] scopes = new string[]{"user.read"};
- string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
+  // Acquire the access token.
+  string[] scopes = new string[]{"user.read"};
+  string accessToken = await tokenAcquisition.GetAccessTokenForUserAsync(scopes);
 
- // Use the access token to call a protected web API.
- HttpClient client = new HttpClient();
- client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+  // Use the access token to call a protected web API.
+  HttpClient client = new HttpClient();
+  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
   var response = await httpClient.GetAsync($"{webOptions.GraphApiUrl}/beta/me");
 
   if (response.StatusCode == HttpStatusCode.OK)
   {
-   var content = await response.Content.ReadAsStringAsync();
+    var content = await response.Content.ReadAsStringAsync();
 
-   dynamic me = JsonConvert.DeserializeObject(content);
-   ViewData["Me"] = me;
+    dynamic me = JsonConvert.DeserializeObject(content);
+    ViewData["Me"] = me;
   }
 
   return View();
 }
 ```
+
 > [!NOTE]
 > 동일한 원칙을 사용하여 웹 API를 호출할 수 있습니다.
 >
@@ -156,7 +157,7 @@ public async Task<IActionResult> Profile()
 
 # <a name="java"></a>[Java](#tab/java)
 
-```Java
+```java
 private String getUserInfoFromGraph(String accessToken) throws Exception {
     // Microsoft Graph user endpoint
     URL url = new URL("https://graph.microsoft.com/v1.0/me");
@@ -177,12 +178,11 @@ private String getUserInfoFromGraph(String accessToken) throws Exception {
     JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
     return responseObject.toString();
 }
-
 ```
 
 # <a name="python"></a>[Python](#tab/python)
 
-```Python
+```python
 @app.route("/graphcall")
 def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
@@ -199,4 +199,4 @@ def graphcall():
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시나리오의 다음 문서로 이동하여 [프로덕션으로 이동](scenario-web-app-call-api-production.md)합니다.
+이 시나리오의 다음 문서인 [프로덕션으로 이동](scenario-web-app-call-api-production.md)으로 이동합니다.

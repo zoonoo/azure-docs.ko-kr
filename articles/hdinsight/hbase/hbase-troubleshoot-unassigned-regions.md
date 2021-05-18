@@ -1,81 +1,81 @@
 ---
-title: Azure HDInsight에서 지역 서버 문제
-description: Azure HDInsight에서 지역 서버 문제
+title: Azure HDInsight의 지역 서버 문제
+description: Azure HDInsight의 지역 서버 문제
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/16/2019
 ms.openlocfilehash: 968a0c6e1717245171bf84821a58cad4e440046e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98936622"
 ---
-# <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight에서 지역 서버 문제
+# <a name="issues-with-region-servers-in-azure-hdinsight"></a>Azure HDInsight의 지역 서버 문제
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
-## <a name="scenario-unassigned-regions"></a>시나리오: 할당 되지 않은 영역
+## <a name="scenario-unassigned-regions"></a>시나리오: 할당되지 않은 지역
 
 ### <a name="issue"></a>문제
 
-명령을 실행 하면 `hbase hbck` 다음과 비슷한 오류 메시지가 표시 됩니다.
+`hbase hbck` 명령을 실행하면 다음과 비슷한 오류 메시지가 표시됩니다.
 
 ```
 multiple regions being unassigned or holes in the chain of regions
 ```
 
-Apache HBase Master UI에서 모든 지역 서버에서 불균형 한 지역 수를 확인할 수 있습니다. 그런 후 `hbase hbck` 명령을 실행하여 영역 체인의 빈 영역을 확인할 수 있습니다.
+Apache HBase Master UI에서 모든 영역 서버 중 부하가 분산되지 않은 영역 수를 확인할 수 있습니다. 그런 후 `hbase hbck` 명령을 실행하여 영역 체인의 빈 영역을 확인할 수 있습니다.
 
 ### <a name="cause"></a>원인
 
-구멍은 오프 라인 영역으로 인해 발생할 수 있습니다.
+빈 영역은 오프라인 영역으로 인해 발생할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-할당을 수정 합니다. 할당되지 않은 지역을 정상 상태로 전환하려면 다음 단계를 수행합니다.
+할당을 수정합니다. 할당되지 않은 지역을 정상 상태로 전환하려면 다음 단계를 수행합니다.
 
-1. SSH를 사용 하 여 HDInsight HBase 클러스터에 로그인 합니다.
+1. SSH를 사용하여 HDInsight HBase 클러스터에 로그인합니다.
 
-1. `hbase zkcli`명령을 실행 하 여 사육 사 셸에 연결 합니다.
+1. `hbase zkcli` 명령을 실행하여 ZooKeeper 셸에 연결합니다.
 
-1. `rmr /hbase/regions-in-transition`또는 `rmr /hbase-unsecure/regions-in-transition` 명령을 실행 합니다.
+1. `rmr /hbase/regions-in-transition` 또는 `rmr /hbase-unsecure/regions-in-transition` 명령을 실행합니다.
 
-1. 명령을 사용 하 여 사육 사 셸을 종료 `exit` 합니다.
+1. `exit` 명령을 사용하여 ZooKeeper 셸을 끝냅니다.
 
 1. Apache Ambari UI를 열고 활성 HBase Master 서비스를 다시 시작합니다.
 
-1. `hbase hbck`명령을 다시 실행 합니다 (추가 옵션 없음). 출력을 확인 하 고 모든 지역이 할당 되었는지 확인 합니다.
+1. 다른 옵션 없이 `hbase hbck` 명령을 다시 실행합니다. 출력을 확인하고 모든 영역이 할당되었는지 확인합니다.
 
 ---
 
-## <a name="scenario-dead-region-servers"></a>시나리오: 비활성 지역 서버
+## <a name="scenario-dead-region-servers"></a>시나리오: 중지된 지역 서버
 
 ### <a name="issue"></a>문제
 
-영역 서버를 시작할 수 없습니다.
+지역 서버를 시작할 수 없습니다.
 
 ### <a name="cause"></a>원인
 
-여러 개의 WAL 디렉터리 분할.
+여러 WAL 디렉터리 분할.
 
-1. 현재 WALs의 목록을 `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out` 가져옵니다.
+1. 현재 WAL의 목록 `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`을 가져옵니다.
 
-1. 파일을 검사 `wals.out` 합니다. 분할 디렉터리가 너무 많은 경우 (* 분할부터) 영역 서버는 이러한 디렉터리로 인해 실패할 수 있습니다.
+1. `wals.out` 파일을 검사합니다. 분할 디렉터리가 너무 많은 경우(*-splitting으로 시작) 이러한 디렉터리로 인해 영역 서버가 실패할 수 있습니다.
 
 ### <a name="resolution"></a>해결 방법
 
-1. Ambari 포털에서 HBase를 중지 합니다.
+1. Ambari 포털에서 HBase를 중지합니다.
 
-1. `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`새 WALs 목록을 가져오려면를 실행 합니다.
+1. 새 WAL 목록을 가져오려면 `hadoop fs -ls -R /hbase/WALs/ > /tmp/wals.out`를 실행합니다.
 
-1. *-디렉터리를 임시 폴더로 이동 하 `splitWAL` 고 * 분할 디렉터리를 삭제 합니다.
+1. *-splitting 디렉터리를 임시 폴더 `splitWAL`로 이동하고 *-splitting 디렉터리를 삭제합니다.
 
-1. `hbase zkcli`명령을 실행 하 여 사육 사 셸에 연결 합니다.
+1. `hbase zkcli` 명령을 실행하여 ZooKeeper 셸에 연결합니다.
 
 1. `rmr /hbase-unsecure/splitWAL`을 실행합니다.
 
-1. HBase 서비스를 다시 시작 합니다.
+1. HBase 서비스를 다시 시작합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

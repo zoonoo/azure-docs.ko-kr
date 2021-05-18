@@ -1,6 +1,6 @@
 ---
-title: Azure Network Watcher에 대 한 데이터 상주 | Microsoft Docs
-description: 이 문서는 Azure Network Watcher 서비스에 대 한 데이터 상주를 이해 하는 데 도움이 됩니다.
+title: Azure Network Watcher에 대한 데이터 보존 | Microsoft Docs
+description: 이 문서는 Azure Network Watcher 서비스에 대한 데이터 보존을 이해하는 데 도움이 됩니다.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: b5aa8167031c3b871c6a6a4d84159c3c284bf241
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98018431"
 ---
-# <a name="data-residency-for-azure-network-watcher"></a>Azure Network Watcher에 대 한 데이터 상주
-연결 모니터 (미리 보기) 서비스를 제외 하 고 Azure Network Watcher는 고객 데이터를 저장 하지 않습니다.
+# <a name="data-residency-for-azure-network-watcher"></a>Azure Network Watcher에 대한 데이터 보존
+연결 모니터(미리 보기) 서비스를 제외하고 Azure Network Watcher는 고객 데이터를 저장하지 않습니다.
 
 
-## <a name="connection-monitor-preview-data-residency"></a>연결 모니터 (미리 보기) 데이터 상주
-연결 모니터 (미리 보기) 서비스는 고객 데이터를 저장 합니다. 이 데이터는 단일 지역에 Network Watcher 의해 자동으로 저장 됩니다. 따라서 연결 모니터 (미리 보기)는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정 된 요구 사항을 포함 하 여 지역 데이터 상주 요구 사항을 자동으로 충족 합니다.
+## <a name="connection-monitor-preview-data-residency"></a>연결 모니터(미리 보기) 데이터 보존
+연결 모니터(미리 보기) 서비스는 고객 데이터를 저장합니다. 이 데이터는 Network Watcher에 의해 단일 지역에 자동으로 저장됩니다. 따라서 연결 모니터(미리 보기)는 [보안 센터](https://azuredatacentermap.azurewebsites.net/)에 지정된 요구 사항을 포함하여 지역 데이터 보존 요구 사항을 자동으로 충족합니다.
 
 ## <a name="data-residency"></a>데이터 상주
-Azure에서 단일 지역에 고객 데이터를 저장할 수 있도록 하는 기능은 현재 브라질 지역의 아시아 태평양 지역 및 브라질 남부 (상 파울로 State) 지역의 동남 아시아 지역 (싱가포르) 에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다. 자세한 내용은 [보안 센터](https://azuredatacentermap.azurewebsites.net/)를 참조하세요.
+Azure에서 단일 지역에 고객 데이터를 저장할 수 있는 기능은 현재 아시아 태평양 지역의 동남 아시아 지역(싱가포르) 및 브라질 지역의 브라질 남부(상파울루주)에서만 사용할 수 있습니다. 다른 모든 지역의 경우 고객 데이터는 지역에 저장됩니다. 자세한 내용은 [보안 센터](https://azuredatacentermap.azurewebsites.net/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Network Watcher](./network-watcher-monitoring-overview.md)개요를 참조 하세요.
+* [Network Watcher](./network-watcher-monitoring-overview.md) 개요를 읽어 보세요.

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1e05435f364cc30b351275439a04caff47c35512
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 4fd5d7bfc7a4ac8ab3b255091b4383085a87d4da
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871798"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634530"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -65,7 +65,7 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 무료 App Service Managed Certificate는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 TLS/SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
 
-- 와일드카드 인증서를 지원하지 않습니다.
+- 와일드카드 인증서를 지원하지 않으며 클라이언트 인증서로 사용하면 안 됩니다.
 - 내보낼 수 없습니다.
 - ASE(App Service Environment)에서 지원되지 않습니다.
 - Traffic Manager와 통합된 루트 도메인에서 지원되지 않습니다.
@@ -117,9 +117,9 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 다음 표를 사용하여 인증서를 구성할 수 있습니다. 작업을 마쳤으면 **만들기** 를 클릭합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
-| 속성 | App Service Certificate에 대한 식별 이름입니다. |
+| Name | App Service Certificate에 대한 식별 이름입니다. |
 | Naked 도메인 호스트 이름 | 여기서 루트 도메인을 지정합니다. 발급된 인증서는 루트 도메인과 `www` 하위 도메인을 *모두* 보호합니다. 발급된 인증서의 일반 이름 필드에는 루트 도메인이 포함되고, 주체 대체 이름 필드에는 `www` 도메인이 포함됩니다. 하위 도메인만 보호하려면 여기에 하위 도메인의 정규화된 도메인 이름을 지정합니다(예: `mysubdomain.contoso.com`).|
 | Subscription | 인증서를 포함할 구독입니다. |
 | Resource group | 인증서를 포함할 리소스 그룹입니다. 예를 들어, 새로운 리소스 그룹을 사용하거나 App Service 앱과 동일한 리소스 그룹을 선택할 수 있습니다. |
@@ -142,9 +142,9 @@ App Service 인증서를 구매하려면 [인증서 주문 시작](#start-certif
 
 **Key Vault 상태** 페이지에서 **Key Vault 리포지토리** 를 클릭하여 새 자격 증명 모음을 만들거나 기존 자격 증명 모음을 선택합니다. 새 자격 증명 모음을 만들려면 다음 표를 사용하여 자격 증명 모음을 구성하고 만들기를 클릭합니다. App Service 앱과 동일한 구독 및 리소스 그룹 내에 새 Key Vault를 만듭니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
-| 속성 | 영숫자와 대시로 구성된 고유한 이름입니다. |
+| Name | 영숫자와 대시로 구성된 고유한 이름입니다. |
 | Resource group | 권장 사항으로, App Service Certificate과 동일한 리소스 그룹을 선택합니다. |
 | 위치 | App Service 앱과 동일한 위치를 선택합니다. |
 | 가격 책정 계층 | 자세한 내용은 [Azure Key Vault 가격 책정 정보](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요. |
@@ -206,7 +206,7 @@ Azure Key Vault를 사용하여 인증서를 관리하는 경우 Key Vault의 [�
 
 다음 표를 사용하여 인증서를 선택합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |-|-|
 | Subscription | Key Vault가 속한 구독입니다. |
 | Key Vault | 가져오려는 인증서가 포함된 자격 증명 모음입니다. |

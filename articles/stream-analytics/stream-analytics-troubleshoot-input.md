@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 2d7171c9ec1e60447fb3342caa72098fb2eb9337
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019910"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
@@ -138,9 +138,9 @@ FROM data
 
 세 개 이상의 입력이 동일한 Event Hubs 소비자 그룹에 연결된 쿼리의 경우 개별 소비자 그룹을 만듭니다. 이를 위해서는 추가 Stream Analytics 입력을 만들어야 합니다.
 
-### <a name="create-separate-inputs-with-different-consumer-groups"></a>다른 소비자 그룹을 사용 하 여 별도의 입력 만들기
+### <a name="create-separate-inputs-with-different-consumer-groups"></a>다른 소비자 그룹을 사용하여 별도의 입력 만들기
 
-동일한 이벤트 허브에 대해 서로 다른 소비자 그룹을 사용 하 여 별도의 입력을 만들 수 있습니다. 다음 UNION 쿼리는 *Inputone* 및 *inputone* 가 동일한 이벤트 허브 원본을 참조 하는 경우의 예입니다. 모든 쿼리에는 서로 다른 소비자 그룹을 사용 하는 별도의 입력이 있을 수 있습니다. UNION 쿼리는 한 가지 예입니다.
+동일한 이벤트 허브에 대해 서로 다른 소비자 그룹을 사용하여 별도의 입력을 만들 수 있습니다. 다음 UNION 쿼리는 *InputOne* 및 *InputTwo* 가 동일한 이벤트 허브 원본을 참조하는 경우의 예제입니다. 모든 쿼리에는 서로 다른 소비자 그룹을 사용하는 별도의 입력이 있을 수 있습니다. UNION 쿼리는 한 가지 예제입니다.
 
 ```sql
 WITH 
@@ -160,9 +160,9 @@ SELECT foo FROM DataTwo
 
 ```
 
-## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>파티션 당 판독기가 IoT Hub 제한을 초과 합니다.
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>파티션당 판독기가 IoT Hub 한도 초과
 
-Stream Analytics 작업은 IoT Hub의 기본 제공 [Event Hub 호환 끝점](../iot-hub/iot-hub-devguide-messages-read-builtin.md) 을 사용 하 여 IoT Hub에서 이벤트를 연결 하 고 읽습니다. 파티션당 읽기가 IoT Hub 제한을 초과 하는 경우 [이벤트 허브에 대 한 솔루션](#readers-per-partition-exceeds-event-hubs-limit) 을 사용 하 여 문제를 해결할 수 있습니다. IoT Hub portal 끝점 세션이 나 [IOT HUB SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)를 통해 기본 제공 끝점에 대 한 소비자 그룹을 만들 수 있습니다.
+Stream Analytics 작업은 IoT Hub의 기본 제공 [Event Hub 호환 엔드포인트](../iot-hub/iot-hub-devguide-messages-read-builtin.md)를 사용하여 IoT Hub에서 이벤트를 연결하고 읽습니다. 파티션당 읽기가 IoT Hub 한도를 초과하는 경우 [이벤트 허브에 대한 솔루션](#readers-per-partition-exceeds-event-hubs-limit)을 사용하여 문제를 해결할 수 있습니다. IoT Hub 포털 엔드포인트 세션이나 [IOT HUB SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup)를 통해 기본 제공 엔드포인트에 대한 소비자 그룹을 만들 수 있습니다.
 
 ## <a name="get-help"></a>도움말 보기
 

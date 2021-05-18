@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 206cc70b5ee636ec3cc54727c3e94a10ad2426d1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98234140"
 ---
 # <a name="interoperability-in-azure--test-setup"></a>Azure의 상호 운용성: 테스트 설정
@@ -82,7 +82,7 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/TestSetup.png "테스트 토폴로지의 다이어그램"
+[1]: ./media/backend-interoperability/TestSetup.png "테스트 토폴로지 다이어그램"
 
 <!--Link References-->
 [ExpressRoute]: ../expressroute/expressroute-introduction.md

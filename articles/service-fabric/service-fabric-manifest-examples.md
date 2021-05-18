@@ -1,15 +1,15 @@
 ---
-title: Azure Service Fabric 응용 프로그램 매니페스트 예제
+title: Azure Service Fabric 애플리케이션 매니페스트 예제
 description: Service Fabric 애플리케이션에 대한 애플리케이션 및 서비스 매니페스트 설정을 구성하는 방법을 알아봅니다.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: pepogors
 ms.openlocfilehash: 6f44d2ddaac11545a3a3dc52fd20e02263c6ad67
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75451633"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 애플리케이션 및 서비스 매니페스트 예제

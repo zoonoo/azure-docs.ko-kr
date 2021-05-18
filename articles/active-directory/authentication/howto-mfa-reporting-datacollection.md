@@ -1,6 +1,6 @@
 ---
 title: Azure AD MFA 사용자 데이터 수집-Azure Active Directory
-description: Azure AD Multi-Factor Authentication에서 사용자를 인증 하는 데 도움이 되는 정보는 무엇 인가요?
+description: Azure AD 다단계 인증으로 사용자를 인증하는 데 사용되는 정보
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,21 +12,21 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2124ca9fae76d87a695a2c453f7b222e7a08794
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96742796"
 ---
-# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD Multi-Factor Authentication 사용자 데이터 수집
+# <a name="azure-ad-multi-factor-authentication-user-data-collection"></a>Azure AD 다단계 인증 사용자 데이터 컬렉션
 
-이 문서에서는 제거할 이벤트에서 Azure Multi-Factor Authentication 서버 (MFA 서버) 및 Azure AD MFA (클라우드 기반)에 의해 수집 된 사용자 정보를 찾는 방법을 설명 합니다.
+이 문서에서는 Azure Multi-Factor Authentication 서버(MFA 서버) 및 Azure AD MFA(클라우드 기반)에서 수집된 사용자 정보를 찾아 제거하는 방법에 대해 설명합니다.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="information-collected"></a>수집된 정보
 
-MFA 서버, NPS 확장 및 Windows Server 2016 Azure AD MFA AD FS 어댑터는 90 일에 대 한 다음 정보를 수집 하 고 저장 합니다.
+MFA 서버, NPS 확장 및 Windows Server 2016 Azure AD MFA AD FS 어댑터는 다음 정보를 수집하고 90일 동안 저장합니다.
 
 인증 시도(보고 및 문제 해결에 사용):
 
@@ -116,7 +116,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure AD MFA AD FS 어댑터는 9
 - 완료 이유
 - 사용된 바이패스
 
-변경 내용 (사용자 변경 내용을 MFA 서버 또는 Azure AD와 동기화 하는 데 사용 됨):
+변경(MFA 서버 또는 Azure AD로 사용자 변경 내용을 동기화하는 데 사용):
 
 - 변경 타임스탬프
 - 사용자 이름
@@ -138,9 +138,9 @@ MFA 서버 8.0 이상 버전의 경우 다음 프로세스를 통해 관리자�
 - MFA 서버에 로그인하고, **사용자** 탭으로 이동하여, 해당 사용자를 선택하고, **편집** 단추를 클릭합니다. 각 탭의 스크린샷을 만들고(Alt-PrtScn) 현재 해당 MFA 설정 사용자를 제공합니다.
 - MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` 명령을 실행하여 JSON 형식 파일을 생성합니다.
 - 또한 관리자는 웹 서비스 SDK GetUserGdpr 작업을 옵션으로 사용하여 지정된 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 내보내거나 더 큰 보고 솔루션에 통합할 수 있습니다.
-- `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` \<username> 추가 또는 변경 되는 사용자 레코드의 모든 인스턴스를 찾기 위해 "" (검색에 따옴표 포함)의 검색 및 백업을 검색 합니다.
-   - MFA 서버 UX, 로깅 섹션, 로그 파일 탭에서 **"사용자 변경 내용 로그"** 를 제거 하 여 이러한 레코드를 제한 (제거 하지 않음) 할 수 있습니다.
-   - Syslog를 구성 하 고 MFA 서버 UX, 로깅 섹션, Syslog 탭에서 **"로그 사용자 변경"** 을 선택한 경우 대신 syslog에서 로그 항목을 수집할 수 있습니다.
+- 추가되거나 변경된 사용자 레코드의 모든 인스턴스를 찾기 위해 `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log`과 "\<username>"에 대한 모든 백업을 검색(검색에 따옴표 포함)합니다.
+   - 이러한 레코드는 MFA 서버 UX, 로깅 섹션, 로그 파일 탭에서 **"사용자 변경 내용 로깅"** 을 선택 취소하여 제한할 수 있습니다(제거할 수는 없음).
+   - 만약 Syslog가 구성되고 MFA 서버 UX, 로깅 섹션, Syslog 탭에서 **"사용자 변경 내용 로깅"** 이 선택된 경우에는 로그 항목을 syslog에서 대신 수집할 수 있습니다.
 - MultiFactorAuthSvc.log 및 인증 시도와 관련된 다른 MFA 서버 로그 파일에서 사용자 이름의 다른 항목은 MultiFactorAuthGdpr.exe 내보내기 또는 웹 서비스 SDK GetUserGdpr을 사용하여 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.
 
 ## <a name="delete-data-from-mfa-server"></a>MFA 서버에서 데이터 삭제
@@ -176,13 +176,13 @@ MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Pr
 
 - 데이터를 완전히 제거하는 데 최대 30일까지 걸릴 수 있습니다.
 
-## <a name="gather-data-for-azure-ad-mfa"></a>Azure AD MFA에 대 한 데이터 수집
+## <a name="gather-data-for-azure-ad-mfa"></a>Azure AD MFA용 데이터 수집
 
 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 내보내기에 대한 요청을 수행합니다.
 
 - 내보내기에 포함된 MFA 정보는 완료하는 데 몇 시간 또는 며칠이 걸릴 수 있습니다.
 
-## <a name="delete-data-for-azure-ad-mfa"></a>Azure AD MFA에 대 한 데이터 삭제
+## <a name="delete-data-for-azure-ad-mfa"></a>Azure AD MFA용 데이터 삭제
 
 이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 계정 닫기를 요청합니다.
 

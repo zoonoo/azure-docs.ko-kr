@@ -1,5 +1,5 @@
 ---
-title: 연결 문제 해결-Azure CLI
+title: 연결 문제 해결 - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Azure CLI를 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: e93a9b7ba2c7f801761d33ccacfa3ecdb3c48503
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019791"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Network Watcher로 연결 문제 해결
@@ -273,4 +273,4 @@ az network watcher test-connectivity --resource-group ContosoRG --source-resourc
 
 [경고로 트리거된 패킷 캡처 만들기](network-watcher-alert-triggered-packet-capture.md)를 확인하여 가상 머신 경고로 패킷 캡처를 자동화하는 방법을 알아봅니다.
 
-[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md) 을 방문 하 여 VM에서 또는 VM에서 특정 트래픽이 허용 되는지 확인 합니다.
+[IP 흐름 확인 확인](diagnose-vm-network-traffic-filtering-problem.md)을 방문하여 특정 트래픽이 VM에서 허용되는지 알아봅니다.

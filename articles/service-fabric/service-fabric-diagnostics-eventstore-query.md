@@ -1,14 +1,14 @@
 ---
-title: EventStore Api를 사용 하 여 클러스터 이벤트 쿼리
+title: EventStore API를 사용하는 클러스터 이벤트 쿼리
 description: Azure Service Fabric EventStore API를 사용하여 플랫폼 이벤트를 쿼리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: bc8909a6f25c3adcba60de639d822769baff703f
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105628809"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>EventStore API를 통한 클러스터 이벤트 쿼리
@@ -180,7 +180,7 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
 
 지난 며칠 동안 변경된 노드 상태, 즉 플랫폼, 카오스 서비스 또는 사용자 입력에 따라 노드가 위/아래로 이동하거나 활성화되거나 비활성화된 경우를 확인하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*응용 프로그램 이벤트:*
+*애플리케이션 이벤트:*
 
 최근의 애플리케이션 배포 및 업그레이드를 추적할 수도 있습니다. 클러스터의 애플리케이션 이벤트를 모두 표시하려면 다음 쿼리를 사용합니다. `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 

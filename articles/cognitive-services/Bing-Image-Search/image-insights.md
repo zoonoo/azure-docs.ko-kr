@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.openlocfilehash: 9dffc16a1d1171343fa10fce10fddba2a12c2167
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96348248"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Bing Image Search API를 사용하여 이미지 정보 가져오기
@@ -379,7 +379,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="finding-visually-similar-products"></a>시각적으로 유사한 제품 찾기  
 
-원래 이미지에 있는 제품과 유사한 제품을 포함 하는 이미지를 찾으려면 [modules](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) 쿼리 매개 변수를 SimilarProducts로 설정 합니다.  
+원본 이미지에서 찾은 제품과 시각적으로 유사한 제품을 포함하는 이미지 찾으려면 [모듈](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#modulesrequested) 쿼리 매개 변수를 SimilarProducts로 설정합니다.  
 
 다음 요청은 시각적으로 유사한 제품의 이미지를 가져오는 방법을 보여줍니다. 요청은 [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken) 쿼리 매개 변수를 사용하여 이전 요청에서 반환된 원본 이미지를 식별합니다. 관련성을 향상시키려면 사용자의 쿼리 문자열을 포함해야 합니다.  
 

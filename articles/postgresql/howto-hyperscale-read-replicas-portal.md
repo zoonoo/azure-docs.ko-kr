@@ -4,15 +4,14 @@ description: Azure Portal을 사용하여 Azure Database for PostgreSQL - 하이
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
-ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 04/07/2021
-ms.openlocfilehash: 7bf5cc43ca173aa787c1cde4d5727b48206872af
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 4d3a88692da6d1fc78e96a6261d42d3ca97b0dd0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315510"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107023892"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---hyperscale-citus-from-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)에서 읽기 복제본 만들기 및 관리
 
@@ -24,7 +23,7 @@ ms.locfileid: "108315510"
 이 문서에서는 Azure Portal을 사용하여 하이퍼스케일(Citus)에서 읽기 복제본을 만들고 관리하는 방법을 알아봅니다. 읽기 복제본에 대한 자세한 내용은 [개요](concepts-hyperscale-read-replicas.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 주 서버가 될 [하이퍼스케일(Citus) 서버 그룹](quickstart-create-hyperscale-portal.md)
 

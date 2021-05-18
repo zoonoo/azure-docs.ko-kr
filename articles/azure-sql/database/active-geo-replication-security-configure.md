@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92674792"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리
@@ -49,7 +49,7 @@ master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사�
 
 대상 서버에서 로그인을 설정하는 작업은 아래에서 설명할 세 가지 단계를 포함합니다.
 
-#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. 주 데이터베이스에 대 한 액세스 권한이 있는 로그인 확인
+#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. 주 데이터베이스에 대한 액세스 권한으로 로그인 확인
 
 프로세스의 첫 번째 단계는 대상 서버에 중복되어야 하는 로그인을 결정하는 것입니다. 이는 원본 서버의 논리적 master 데이터베이스에 있는 하나와 주 데이터베이스 자체에 있는 하나로 이루어진 SELECT 문 쌍으로 수행됩니다.
 
@@ -69,7 +69,7 @@ FROM [sys].[database_principals]
 WHERE [type_desc] = 'SQL_USER'
 ```
 
-#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2.1 단계에서 확인 된 로그인에 대 한 SID를 찾습니다.
+#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. 1단계에서 식별된 로그인에 대한 SID 찾기
 
 이전 섹션에서 쿼리의 출력을 비교하고 SID와 일치하여 서버 로그인을 데이터베이스 사용자에 매핑할 수 있습니다. 일치하는 SID가 있는 데이터베이스 사용자를 가진 로그인은 해당 데이터베이스 사용자 계정으로 해당 데이터베이스에 대한 사용자 액세스를 가집니다.
 
@@ -108,5 +108,5 @@ SID = <desired login SID>
 * 데이터베이스 액세스 및 로그인 관리에 대한 자세한 내용은 [SQL Database 보안: 데이터베이스 액세스 및 로그인 보안 관리](logins-create-manage.md)를 참조하세요.
 * 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 참조하세요.
 * 활성 지역 복제에 대한 자세한 내용은 [활성 지역 복제](active-geo-replication-overview.md)를 참조하세요.
-* 자동 장애 조치 그룹에 대 한 자세한 내용은 [자동 장애 조치 그룹](auto-failover-group-overview.md)을 참조 하세요.
+* 자동 장애 조치(failover) 그룹에 대해 알아보려면 [자동 장애 조치(failover) 그룹](auto-failover-group-overview.md)을 참조하세요.
 * 지역 복원을 사용하는 방법에 대한 내용은 [지역 복원](recovery-using-backups.md#geo-restore)을 참조하세요.

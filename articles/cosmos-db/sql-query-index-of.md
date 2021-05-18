@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 228e23cd94f6d903af63e59ba0333d78bd5eacfd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341722"
 ---
-# <a name="index_of-azure-cosmos-db"></a>INDEX_OF (Azure Cosmos DB)
+# <a name="index_of-azure-cosmos-db"></a>INDEX_OF(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다.  
@@ -34,13 +34,13 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
 *str_expr2*  
    검색할 문자열 식입니다.  
 
-*numeric_expr* 검색을 시작할 위치를 설정 하는 선택적 숫자 식입니다. *Str_expr1* 의 첫 번째 위치는 0입니다. 
+*numeric_expr* 검색을 시작할 위치를 설정하는 선택적 숫자 식입니다. *Str_expr1* 의 첫 번째 위치는 0입니다. 
   
 ## <a name="return-types"></a>반환 형식
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
   다음 예제에서는 "abc" 안에 다양한 부분 문자열의 인덱스를 반환합니다.  
   

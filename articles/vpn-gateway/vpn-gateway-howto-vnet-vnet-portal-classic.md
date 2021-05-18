@@ -1,5 +1,5 @@
 ---
-title: 'Vnet: 클래식: Azure Portal 간의 연결을 만듭니다.'
+title: 'VNet 간 연결 만들기: 클래식: Azure Portal'
 description: PowerShell 및 Azure Portal을 사용하여 Azure 가상 네트워크를 함께 연결합니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92103223"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
 이 문서는 가상 네트워크 간에 VPN 게이트웨이 연결을 만드는 데 도움이 됩니다. 가상 네트워크는 같은 또는 다른 구독의 같은 지역에 있을 수도 있고 다른 지역에 있을 수도 있습니다.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png" alt-text="클래식 VNet 간 아키텍처를 보여 주는 다이어그램":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png" alt-text="클래식 VNet 간 아키텍처가 표시된 다이어그램":::
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
@@ -28,7 +28,7 @@ ms.locfileid: "92103223"
 > [!div class="op_single_selector"]
 > * [클래식](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Resource Manager](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [다른 배포 모델의 Vnet 연결](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [다양한 배포 모델로 VNet 연결](vpn-gateway-connect-different-deployment-models-portal.md)
 >
 >
 
@@ -38,7 +38,7 @@ VPN 게이트웨이를 사용하여 클래식 배포 모델에서 가상 네트�
 
 연결하는 VNet은 서로 다른 구독 및 지역에 있을 수 있습니다. VNet 간 통신을 다중 사이트 구성과 통합할 수 있습니다. 이렇게 하면 프레미스 간 연결을 가상 네트워크 간 연결과 결합하는 네트워크 토폴로지를 설정할 수 있습니다.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="연결을 보여 주는 다이어그램":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="연결이 표시된 다이어그램":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>가상 네트워크에 연결하는 이유
 
@@ -60,15 +60,15 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. 포털에서 공유 키를 지정할 수 있는 방법이 없기 때문에 Azure Portal를 사용 하 여 연결을 만들 수 없습니다. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
+대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. 포털에서 공유 키를 지정할 수 없기 때문에 Azure Portal을 사용하여 연결을 만들 수는 없습니다. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="planning"></a><a name="planning"></a>계획
 
 가상 네트워크를 구성하는 데 사용할 범위를 결정하는 것이 중요합니다. 이 구성의 경우 VNet 범위가 서로 간에 또는 연결된 로컬 네트워크와 겹치지 않는지 확인해야 합니다.
 
-### <a name="vnets"></a><a name="vnet"></a>Vnet
+### <a name="vnets"></a><a name="vnet"></a>VNet
 
-이 연습에서는 다음 예제 값을 사용 합니다.
+이 연습에서는 다음 예제 값을 사용합니다.
 
 **TestVNet1에 대한 값**
 
@@ -90,23 +90,23 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 위치: 미국 서부<br>
 게이트웨이 서브넷: 10.41.1.0/27
 
-### <a name="connections"></a><a name="plan"></a>연결만
+### <a name="connections"></a><a name="plan"></a>Connections
 
-다음 표에서는 Vnet를 연결 하는 방법의 예를 보여 줍니다. 범위는 지침으로만 참고하고, 실제 가상 네트워크에 사용할 범위를 기록합니다. 이 정보는 이후 단계에서 필요합니다.
+다음 표에서는 VNet을 연결하는 방법의 예제를 보여 줍니다. 범위는 지침으로만 참고하고, 실제 가상 네트워크에 사용할 범위를 기록합니다. 이 정보는 이후 단계에서 필요합니다.
 
-이 예제에서 TestVNet1는 ' VNet4Local ' 이라는 사용자가 만든 로컬 네트워크 사이트에 연결 됩니다. VNet4Local에 대한 설정에는 TestVNet4의 주소 접두사가 포함됩니다.
+이 예제에서 TestVNet1은 ‘VNet4Local’이라는 이름으로 만든 로컬 네트워크 사이트에 연결됩니다. VNet4Local에 대한 설정에는 TestVNet4의 주소 접두사가 포함됩니다.
 각 VNet의 로컬 사이트는 다른 VNet입니다. 다음 예제 값은 여기의 구성에 사용됩니다.
 
 **예제**
 
-| Virtual Network | 주소 공간 | 위치 | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | Location | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |SiteVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |SiteVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
 ## <a name="create-virtual-networks"></a><a name="vnetvalues"></a>가상 네트워크 만들기
 
-이 단계에서는 TestVNet1 및 TestVNet4의 두 가지 클래식 가상 네트워크를 만듭니다. 이 문서를 연습으로 사용 하는 경우 [예제 값](#vnet)을 사용 합니다.
+이 단계에서는 두 가지 클래식 가상 네트워크인 TestVNet1 및 TestVNet4를 만듭니다. 이 문서를 연습으로 사용하는 경우 [예제 값](#vnet)을 사용합니다.
 
 **VNet을 만드는 경우 다음 설정에 유념하세요.**
 
@@ -134,46 +134,46 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 예를 들어 TestVNet1은 'VNet4Local'이라는 이름으로 만든 로컬 네트워크 사이트에 연결됩니다. VNet4Local에 대한 설정에는 TestVNet4의 주소 접두사가 포함됩니다.
 
-각 VNet의 로컬 사이트는 다른 VNet을 염두에 두어야 합니다.
+각 VNet의 로컬 사이트는 다른 VNet입니다.
 
-| Virtual Network | 주소 공간 | 위치 | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | Location | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |SiteVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |SiteVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-### <a name="to-configure-a-site"></a><a name="site"></a>사이트를 구성 하려면
+### <a name="to-configure-a-site"></a><a name="site"></a>사이트를 구성하려면
 
 로컬 사이트는 일반적으로 온-프레미스 위치를 가리킵니다. VPN 디바이스의 IP 주소를 포함하며 여기에서 VPN 디바이스에 대한 VPN Gateway를 통해 라우팅되는 연결 및 IP 주소 범위를 만듭니다.
 
-1. VNet에 대 한 페이지의 **설정** 아래에서 **사이트 간 연결** 을 선택 합니다.
-1. 사이트 간 연결 페이지에서 **+ 추가** 를 선택 합니다.
-1. **VPN 연결 및 게이트웨이 구성** 페이지에서 **연결 형식** 으로 **사이트 간** 을 선택 된 상태로 둡니다.
+1. VNet에 대한 페이지의 **설정** 에서 **사이트 간 연결** 을 선택합니다.
+1. 사이트 간 연결 페이지에서 **+ 추가** 를 선택합니다.
+1. **VPN 연결 및 게이트웨이 구성** 페이지에서 **연결 형식** 으로 **사이트 간** 을 선택한 상태로 둡니다.
 
-   * **VPN Gateway IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. 이 연습에서는 다른 사이트에 대 한 VPN gateway의 IP 주소가 아직 없으므로 더미 주소를 입력할 수 있습니다. 예를 들면 5.4.3.2입니다. 나중에 다른 VNet에 대 한 게이트웨이를 구성한 후이 값을 조정할 수 있습니다.
+   * **VPN Gateway IP 주소:** 온-프레미스 네트워크에 대한 VPN 디바이스의 공용 IP 주소입니다. 이 연습에서는 다른 사이트에 대한 VPN 게이트웨이의 IP 주소가 아직 없으므로 더미 주소를 입력할 수 있습니다. 예: 5.4.3.2. 나중에 다른 VNet에 대한 게이트웨이를 구성한 후 이 값을 조정할 수 있습니다.
 
-   * **클라이언트 주소 공간:** 이 게이트웨이를 통해 다른 VNet으로 라우팅할 IP 주소 범위를 나열 합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 자체 가상 네트워크가 연결된 다른 네트워크의 범위 또는 가상 네트워크 자체의 주소 범위와 겹치지 않도록 합니다.
-1. 페이지 맨 아래에서 검토 + 만들기를 선택 하지 않습니다. 대신 **다음: 게이트웨이>** 를 선택 합니다.
+   * **클라이언트 주소 공간:** 이 게이트웨이를 통해 다른 VNet으로 라우팅할 IP 주소 범위를 나열합니다. 주소 공간 범위를 여러 개 추가할 수 있습니다. 여기에서 지정한 범위가 자체 가상 네트워크가 연결된 다른 네트워크의 범위 또는 가상 네트워크 자체의 주소 범위와 겹치지 않도록 합니다.
+1. 페이지 맨 아래에서 검토 + 만들기를 선택하지 않습니다. 대신, **다음: 게이트웨이>** 를 선택합니다.
 
-### <a name="to-configure-a-virtual-network-gateway"></a><a name="sku"></a>가상 네트워크 게이트웨이를 구성 하려면
+### <a name="to-configure-a-virtual-network-gateway"></a><a name="sku"></a>가상 네트워크 게이트웨이를 구성하려면
 
-1. **게이트웨이** 페이지에서 다음 값을 선택 합니다.
+1. **게이트웨이** 페이지에서 다음 값을 선택합니다.
 
-   * **크기:** 가상 네트워크 게이트웨이를 만드는 데 사용 하는 게이트웨이 SKU입니다. 클래식 VPN 게이트웨이는 이전(레거시) 게이트웨이 SKU를 사용합니다. 레거시 게이트웨이 SKU에 대한 자세한 내용은 [가상 네트워크 게이트웨이 SKU(이전 SKU) 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요. 이 연습에서 **Standard** 를 선택할 수 있습니다.
+   * **크기:** 가상 네트워크 게이트웨이를 만드는 데 사용하는 게이트웨이 SKU입니다. 클래식 VPN 게이트웨이는 이전(레거시) 게이트웨이 SKU를 사용합니다. 레거시 게이트웨이 SKU에 대한 자세한 내용은 [가상 네트워크 게이트웨이 SKU(이전 SKU) 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요. 이 연습에서는 **표준** 을 선택할 수 있습니다.
 
-   * **라우팅 유형:** 게이트웨이의 라우팅 형식을 선택 합니다. VPN 유형이라고도 합니다. 게이트웨이를 한 형식에서 다른 형식으로 변환할 수 없기 때문에 올바른 유형을 선택 하는 것이 중요 합니다. VPN 디바이스는 선택한 라우팅 유형과 호환되어야 합니다. 라우팅 유형에 대 한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조 하세요. '경로 기반' 및 '정책 기반' VPN 유형을 참조하는 문서를 볼 수 있습니다. '동적'은 '경로 기반'에 해당하고 '고정'은 '정책 기반'에 해당합니다. 이 구성의 경우 **동적** 을 선택 합니다.
+   * **라우팅 유형:** 게이트웨이에 대한 라우팅 유형을 선택합니다. VPN 유형이라고도 합니다. 게이트웨이를 한 가지 유형에서 다른 유형으로 변환할 수 없기 때문에 올바른 유형을 선택해야 합니다. VPN 디바이스는 선택한 라우팅 유형과 호환되어야 합니다. 라우팅 유형에 대한 자세한 내용은 [VPN Gateway 설정 정보](vpn-gateway-about-vpn-gateway-settings.md#vpntype)를 참조하세요. '경로 기반' 및 '정책 기반' VPN 유형을 참조하는 문서를 볼 수 있습니다. '동적'은 '경로 기반'에 해당하고 '고정'은 '정책 기반'에 해당합니다. 이 구성에서는 **동적** 을 선택합니다.
 
-   * **게이트웨이 서브넷:** 지정 하는 게이트웨이 서브넷의 크기는 만들려는 VPN gateway 구성에 따라 달라 집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 /27 또는 /28을 사용하는 것이 좋습니다. 이렇게 하면 더 많은 주소를 포함하는 큰 서브넷이 만들어집니다. 더 큰 게이트웨이 서브넷을 사용하면 향후 구성을 수용할 수 있을 만큼 충분한 IP 주소를 확보할 수 있습니다.
+   * **게이트웨이 서브넷:** 지정하는 게이트웨이 서브넷의 크기는 만들려는 VPN Gateway 구성에 따라 달라집니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 /27 또는 /28을 사용하는 것이 좋습니다. 이렇게 하면 더 많은 주소를 포함하는 큰 서브넷이 만들어집니다. 더 큰 게이트웨이 서브넷을 사용하면 향후 구성을 수용할 수 있을 만큼 충분한 IP 주소를 확보할 수 있습니다.
 
-1. 페이지 맨 아래에서 **검토 + 만들기** 를 선택 하 여 설정의 유효성을 검사 합니다. **만들기** 를 선택 하 여 배포 합니다. 선택한 게이트웨이 SKU에 따라 가상 네트워크 게이트웨이를 만드는 데 최대 45 분이 걸릴 수 있습니다.
-1. 이 게이트웨이가 생성 되는 동안 다음 단계로 진행을 시작할 수 있습니다.
+1. 페이지 맨 아래에서 **검토 + 만들기** 를 선택하여 설정의 유효성을 검사합니다. **만들기** 를 선택하여 배포합니다. 선택한 게이트웨이 SKU에 따라 가상 네트워크 게이트웨이를 만드는 데 최대 45분까지 걸릴 수 있습니다.
+1. 이 게이트웨이가 생성되는 동안 다음 단계를 시작해도 됩니다
 
 ### <a name="configure-testvnet4-settings"></a>TestVNet4 설정 구성
 
-[사이트 및 게이트웨이 만들기](#localsite) 단계를 반복 하 여 TestVNet4를 구성 하 고 필요한 경우 값을 대체 합니다. 연습으로이 작업을 수행 하는 경우 [예제 값](#planning)을 사용 합니다.
+[사이트 및 게이트웨이 만들기](#localsite) 단계를 반복하여 TestVNet4를 구성하고 필요한 경우 값을 대체합니다. 이 작업을 연습으로 수행하는 경우 [예제 값](#planning)을 사용합니다.
 
 ## <a name="update-local-sites"></a><a name="updatelocal"></a>로컬 사이트 업데이트
 
-두 Vnet에 대해 가상 네트워크 게이트웨이를 만든 후에는 **VPN GATEWAY IP 주소** 에 대 한 로컬 사이트 속성을 조정 해야 합니다.
+두 VNet에서 가상 네트워크 게이트웨이를 만든 후에는 **VPN 게이트웨이IP 주소** 의 로컬 사이트 속성을 조정해야 합니다.
 
 |VNet 이름|연결된 사이트|게이트웨이 IP 주소|
 |:--- |:--- |:--- |
@@ -182,20 +182,20 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 ### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>1부 - 가상 네트워크 게이트웨이 공용 IP 주소 가져오기
 
-1. **리소스 그룹** 으로 이동 하 고 가상 네트워크를 선택 하 여 VNet으로 이동 합니다.
-1. 가상 네트워크에 대 한 페이지의 오른쪽에 있는 **Essentials** 창에서 **게이트웨이 IP 주소** 를 찾아 클립보드로 복사 합니다.
+1. **리소스 그룹** 으로 이동한 다음 가상 네트워크를 선택하여 VNet으로 이동합니다.
+1. 가상 네트워크에 대한 페이지의 오른쪽 **기본 정보** 창에서 **게이트웨이 IP 주소** 를 찾아 클립보드로 복사합니다.
 
-### <a name="part-2---modify-the-local-site-properties"></a>2 부-로컬 사이트 속성 수정
+### <a name="part-2---modify-the-local-site-properties"></a>2부 - 로컬 사이트 속성 수정
 
-1. 사이트 간 연결에서 연결을 선택 합니다. 예를 들면 SiteVNet4입니다.
-1. 사이트 간 연결에 대 한 **속성** 페이지에서 **로컬 사이트 편집** 을 선택 합니다.
-1. **Vpn GATEWAY ip 주소** 필드에 이전 섹션에서 복사한 VPN gateway ip 주소를 붙여넣습니다.
+1. 사이트 간 연결에서 연결을 선택합니다. 예를 들어 SiteVNet4를 선택합니다.
+1. 사이트 간 연결에 대한 **속성** 페이지에서 **로컬 사이트 편집** 을 선택합니다.
+1. **VPN 게이트웨이 IP 주소** 필드에 이전 섹션에서 복사한 VPN 게이트웨이 IP 주소를 붙여넣습니다.
 1. **확인** 을 선택합니다.
-1. 시스템에서 필드가 업데이트 됩니다. 이 방법을 사용 하 여이 사이트에 라우팅하는 데 사용할 추가 IP 주소를 추가할 수도 있습니다.
+1. 시스템에서 필드가 업데이트됩니다. 이 방법을 사용하여 이 사이트로 라우팅할 IP 주소를 더 추가할 수도 있습니다.
 
-### <a name="part-3---repeat-steps-for-the-other-vnet"></a>3 부-다른 VNet에 대 한 단계 반복
+### <a name="part-3---repeat-steps-for-the-other-vnet"></a>3부 - 다른 VNet에 대해 단계 반복
 
-TestVNet4에 대 한 단계를 반복 합니다.
+TestVNet4에 대한 단계를 반복합니다.
 
 ## <a name="retrieve-configuration-values"></a><a name="getvalues"></a>구성 값 검색
 
@@ -203,11 +203,11 @@ TestVNet4에 대 한 단계를 반복 합니다.
 
 ## <a name="create-connections"></a><a name="createconnections"></a>연결 만들기
 
-위의 모든 단계를 완료한 후에는 IPsec/IKE 사전 공유 키를 설정하고 연결을 만들 수 있습니다. 이번 단계에서는 PowerShell을 사용합니다. 포털에서 공유 키를 지정할 수 없기 때문에 Azure Portal에서 클래식 배포 모델에 대 한 VNet 간 연결을 구성할 수 없습니다.
+위의 모든 단계를 완료한 후에는 IPsec/IKE 사전 공유 키를 설정하고 연결을 만들 수 있습니다. 이번 단계에서는 PowerShell을 사용합니다. 포털에서 공유 키를 지정할 수 없기 때문에 Azure Portal에서 클래식 배포 모델에 대한 VNet 간 연결을 구성할 수는 없습니다.
 
 아래 예제에서 공유 키가 정확히 동일한지 확인합니다. 공유 키는 항상 일치해야 합니다. 이 예제의 값을 VNet과 로컬 네트워크 사이트의 정확한 이름으로 변경해야 합니다.
 
-1. TestVNet1 대 TestVNet4 연결을 만듭니다. 값을 변경 해야 합니다.
+1. TestVNet1 대 TestVNet4 연결을 만듭니다. 값을 변경해야 합니다.
 
    ```powershell
    Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
@@ -232,11 +232,11 @@ TestVNet4에 대 한 단계를 반복 합니다.
 
 ## <a name="faq-and-considerations"></a><a name="faq"></a>FAQ 및 고려 사항
 
-이러한 고려 사항은 클래식 가상 네트워크 및 클래식 가상 네트워크 게이트웨이에 적용 됩니다.
+이 고려 사항은 클래식 가상 네트워크 및 클래식 가상 네트워크 게이트웨이에 적용됩니다.
 
 * 가상 네트워크는 같은 구독에 있을 수도 있고 다른 구독에 있을 수도 있습니다.
 * 가상 네트워크는 같은 Azure 지역(위치)에 있을 수도 있고 다른 Azure 지역(위치)에 있을 수도 있습니다.
-* 클라우드 서비스 또는 부하 분산 끝점은 서로 연결 되어 있더라도 가상 네트워크에 걸쳐 있을 수 없습니다.
+* 클라우드 서비스 또는 부하 분산 엔드포인트는 연결된 경우에도 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 * 여러 가상 네트워크를 연결할 때 VPN 디바이스는 필요하지 않습니다.
 * VNet 간 연결은 Azure Virtual Network 연결을 지원합니다. 그러나 가상 네트워크에 배포되지 않은 가상 머신 또는 클라우드 서비스 연결은 지원하지 않습니다.
 * VNet-VNet을 위해서는 동적 라우팅 게이트웨이가 필요합니다. Azure 정적 라우팅 게이트웨이는 지원되지 않습니다.

@@ -1,5 +1,5 @@
 ---
-title: 아키텍처-Azure Site Recovery를 사용 하 여 보조 사이트로의 Hyper-v 재해 복구
+title: 아키텍처 - Azure Site Recovery를 사용하여 보조 사이트로 Hyper-V 재해 복구
 description: 이 문서에서는 Azure Site Recovery를 사용한 온-프레미스 Hyper-V VM과 보조 System Center VMM 사이트 간 재해 복구를 위한 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 manager: carmonm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87496001"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
@@ -27,16 +27,16 @@ a
 --- | --- | ---
 **Azure** | Azure 구독 | VMM 위치 간에 복제를 오케스트레이션 및 관리할 수 있도록 Azure 구독에서 Recovery Services 자격 증명 모음을 만듭니다.
 **VMM 서버** | VMM 기본 및 보조 위치가 필요합니다. | VMM 서버는 기본 사이트에서 1개, 보조 사이트에서 1개를 사용하는 것이 좋습니다.
-**Hyper-v 서버** |  기본 및 보조 VMM 클라우드에 있는 하나 이상의 Hyper-V 호스트 서버. | Kerberos 또는 인증서 인증을 사용하여 LAN 또는 VPN을 통해 기본 및 보조 Hyper-V 호스트 서버 간에 데이터가 복제됩니다.  
+**Hyper-V 서버** |  기본 및 보조 VMM 클라우드에 있는 하나 이상의 Hyper-V 호스트 서버. | Kerberos 또는 인증서 인증을 사용하여 LAN 또는 VPN을 통해 기본 및 보조 Hyper-V 호스트 서버 간에 데이터가 복제됩니다.  
 **Hyper-V VM** | Hyper-V 호스트 서버에 있습니다. | 원본 호스트 서버에는 복제하려는 VM이 하나 이상 있어야 합니다.
 
 **온-프레미스 간 아키텍처**
 
-![온-프레미스에서 온-프레미스로의 보호를 보여 주는 다이어그램](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![온-프레미스 간 보호를 보여 주는 다이어그램.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>복제 프로세스
 
-1. 초기 복제가 트리거될 때 [HYPER-V VM 스냅숏](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) 스냅숏이 생성 됩니다.
+1. 초기 복제가 트리거되면 [Hyper-V VM 스냅샷](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10))이 생성됩니다.
 2. VM의 가상 하드 디스크는 보조 위치에 하나씩 복제됩니다.
 3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅샷과 로그 파일이 디스크 리소스를 사용합니다.
 4. 초기 복제가 완료되면 VM 스냅샷은 삭제되고 델타 복제가 시작됩니다.

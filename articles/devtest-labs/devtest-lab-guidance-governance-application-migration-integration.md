@@ -1,14 +1,14 @@
 ---
-title: Azure DevTest Labs에서 응용 프로그램 마이그레이션 및 통합
-description: 이 문서에서는 응용 프로그램 마이그레이션 및 통합의 컨텍스트에서 Azure DevTest Labs 인프라의 관리에 대 한 지침을 제공 합니다.
+title: Azure DevTest Labs에서의 애플리케이션 마이그레이션 및 통합
+description: 이 문서에서는 애플리케이션 마이그레이션 및 통합의 맥락에서 Azure DevTest Labs 인프라의 거버넌스에 대한 지침을 제공합니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 8d86728eefc46c74b49ac610e2207ce5e7ae6a9d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87289356"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Azure DevTest Labs 인프라의 거버넌스 - 애플리케이션 마이그레이션 및 통합
@@ -50,12 +50,12 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 사용자 지정 조직 이미지를 DevTest Labs 환경으로 가져오기 위해 손쉽게 반복 가능한 프로세스를 설정하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>답변
-[이미지 팩터리 패턴에 대 한이 비디오를](./devtest-lab-faq.md#blog-post)참조 하세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
+[이 비디오에서 Image Factory 패턴](./devtest-lab-faq.md#blog-post)을 확인해 보세요. 이 시나리오는 고급 방식이며 샘플 스크립트만 제공합니다. 스크립트를 변경해야 하는 경우 환경에서 사용되는 스크립트를 직접 유지하고 관리해야 합니다.
 
 DevTest Labs를 사용하여 Azure Pipelines에서 사용자 지정 이미지 파이프라인 만들기:
 
 - [소개: Azure DevTest Labs에서 이미지 팩터리를 설정하여 몇 분 내에 VM 준비](./devtest-lab-faq.md#blog-post)
-- [이미지 팩터리 – 2 부! Vm을 만들기 위한 Azure Pipelines 및 공장 랩 설정](./devtest-lab-faq.md#blog-post)
+- [Image Factory – Part 2! VM 생성을 위한 Azure Pipelines 및 Factory Lab 설정](./devtest-lab-faq.md#blog-post)
 - [Image Factory – 3부: 사용자 지정 이미지 저장 및 여러 랩에 배포](./devtest-lab-faq.md#blog-post)
 - [비디오: Azure DevTest Labs를 통해 사용자 지정 Image Factory 만들기](./devtest-lab-faq.md#blog-post)
 
@@ -108,7 +108,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 사용자/랩당 가상 머신 수를 고려할 때는 다음의 세 가지 요소를 주로 파악해야 합니다.
 
 - 팀이 랩의 리소스에 재출할 수 있는 **전체 비용**. 여러 컴퓨터를 스핀업하는 것 자체는 간단합니다. 이 경우 비용을 제어하는 메커니즘 중 하나는 사용자 및/또는 랩당 VM 수를 제한하는 것입니다.
-- 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 구독에 10 개의 lab이 있는 경우 labs는 각 랩에 약 79 개의 가상 머신을 맞출 수 있습니다 (10 개의 랩 자체에 대 한 800 상한-10 개의 리소스 그룹) = 79 가상 머신을 랩 당 합니다.
+- 랩의 총 가상 머신 수는 사용 가능한 [구독 수준 할당량](../azure-resource-manager/management/azure-subscription-service-limits.md)에 따라 달라집니다. 예를 들어 구독당 리소스 그룹 800개 등의 상한이 적용될 수 있습니다. 공유 공용 IP를 사용하는 경우가 아니면 DevTest Labs는 현재 각 VM에 대해 새 리소스 그룹을 만듭니다. 구독에 10개의 랩이 있는 경우 각 랩에 약 79개의 가상 머신이 포함될 수 있습니다(상한 800개 – 10개 랩 자체의 리소스 그룹 10개) = 랩당 79개의 가상 머신.
 - 랩이 Express 경로 등을 통해 온-프레미스에 연결되는 경우에는 VNet/서브넷용으로 **정의된 사용 가능한 IP 주소 공간** 이 있습니다. ‘IP 주소를 가져올 수 없음’ 오류로 인해 랩에서 VM 생성이 실패하는 일이 없도록 하려는 경우 랩 소유자는 사용 가능한 IP 주소 공간에 맞게 랩당 최대 VM 수를 적절하게 지정할 수 있습니다.
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
@@ -117,7 +117,7 @@ VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs �
 DevTest Labs 환경 내에서 Resource Manager 템플릿을 사용하려면 어떻게 해야 하나요?
 
 ### <a name="answer"></a>답변
-[DevTest labs의 환경 기능](devtest-lab-test-env.md) 문서에 설명 된 단계를 사용 하 여 리소스 관리자 템플릿을 DevTest Labs 환경에 배포할 수 있습니다. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 프라이빗 리포지토리](devtest-lab-test-env.md)를 추가합니다.
+[DevTest 랩의 환경 기능](devtest-lab-test-env.md) 문서에서 설명하는 단계에 따라 Resource Manager 템플릿을 DevTest 랩 환경에 배포합니다. 기본적으로는 Git 리포지토리(Azure Repos 또는 GitHub)에 Resource Manager 템플릿을 체크 인하고 랩에 [템플릿용 프라이빗 리포지토리](devtest-lab-test-env.md)를 추가합니다.
 
 이 시나리오는 DevTest Labs를 사용하여 개발 컴퓨터를 호스트하는 경우에는 유용하지 않을 수 있지만, 프로덕션 환경을 대표하는 스테이징 환경을 구축하는 경우에는 유용할 수 있습니다.
 

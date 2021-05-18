@@ -1,16 +1,16 @@
 ---
-title: 템플릿을 사용 하 여 앱 배포
-description: App Service 앱을 프로 비전 하 고 배포 하는 Azure Resource Manager 템플릿을 만드는 방법에 대 한 지침을 찾습니다.
+title: 템플릿을 사용하여 애플리케이션 배포
+description: App Service 앱을 프로비전 및 배포하기 위한 Azure Resource Manager 템플릿 생성에 대한 지침을 확인하세요.
 author: tfitzmac
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88961621"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
@@ -22,7 +22,7 @@ ms.locfileid: "88961621"
 웹앱의 종속성을 정의하려면 웹앱 내에서 리소스가 상호 작용하는 원리를 이해해야 합니다. 잘못된 순서로 종속성을 지정하면 배포 오류가 발생하거나 배포가 중지되는 경합 상태가 생성될 수 있습니다.
 
 > [!WARNING]
-> 템플릿에 MSDeploy 사이트 확장을 포함하는 경우 구성 리소스가 MSDeploy 리소스에 종속되는 것으로 설정해야 합니다. 구성을 변경하면 사이트가 비동기적으로 다시 시작됩니다. 구성 리소스가 MSDeploy에 종속되도록 설정하면 사이트가 다시 시작되기 전에 MSDeploy가 완료됩니다. 이러한 종속성이 없으면 MSDeploy의 배포 프로세스 도중에 사이트가 다시 시작될 수 있습니다. 예제 템플릿 [웹 배포 종속성이 포함 된 WordPress 템플릿](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)을 참조 하세요.
+> 템플릿에 MSDeploy 사이트 확장을 포함하는 경우 구성 리소스가 MSDeploy 리소스에 종속되는 것으로 설정해야 합니다. 구성을 변경하면 사이트가 비동기적으로 다시 시작됩니다. 구성 리소스가 MSDeploy에 종속되도록 설정하면 사이트가 다시 시작되기 전에 MSDeploy가 완료됩니다. 이러한 종속성이 없으면 MSDeploy의 배포 프로세스 도중에 사이트가 다시 시작될 수 있습니다. 예제 템플릿을 보려면 [웹 배포 종속성이 포함된 WordPress 템플릿](https://github.com/davidebbo/AzureWebsitesSamples/blob/master/ARMTemplates/WordpressTemplateWebDeployDependency.json)을 참조하세요.
 
 다음 이미지는 다양한 App Service 리소스의 종속성 순서를 보여줍니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "88961621"
 **계층 3**
 * 소스 제어--웹앱에 종속됩니다.
 * MSDeploy 사이트 확장--웹앱에 종속됩니다.
-* 웹 앱을 대상으로 하는 Azure 애플리케이션 Insights 인스턴스-웹 앱에 종속 됩니다.
+* 웹앱을 대상으로 하는 Azure Application Insights 인스턴스는 웹앱에 따라 달라집니다.
 
 **계층 4**
 * App Service 인증서--있는 경우 소스 제어 또는 MSDeploy에 종속됩니다. 그렇지 않으면, 웹앱에 종속됩니다.
@@ -90,7 +90,7 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 1. 사이트의 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)로 이동합니다.
 2. D:\home\LogFiles\SiteExtensions\MSDeploy에서 폴더로 이동합니다.
-3. appManagerStatus.xml 및 appManagerLog.xml 파일을 찾습니다. 첫 번째 파일은 상태를 기록합니다. 두 번째 파일은 오류에 대한 정보를 기록합니다. 오류가 명확 하지 않은 경우 [포럼](/answers/topics/azure-webapps.html)에서 도움을 요청 하는 경우이를 포함할 수 있습니다.
+3. appManagerStatus.xml 및 appManagerLog.xml 파일을 찾습니다. 첫 번째 파일은 상태를 기록합니다. 두 번째 파일은 오류에 대한 정보를 기록합니다. 오류가 명확하지 않은 경우 [포럼](/answers/topics/azure-webapps.html)에서 도움말을 요청할 때 해당 내용을 포함할 수 있습니다.
 
 ## <a name="choose-a-unique-web-app-name"></a>고유한 웹앱 이름을 선택합니다.
 
@@ -109,7 +109,7 @@ Resource Manager 템플릿에서 MSDeploy를 사용하는 경우 배포 오류 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-템플릿이 TLS/SSL 바인딩에 대 한 [Microsoft 웹/인증서](/azure/templates/microsoft.web/certificates) 리소스를 포함 하 고 인증서가 Key Vault에 저장 된 경우 App Service id에서 인증서에 액세스할 수 있는지 확인 해야 합니다.
+템플릿에 TLS/SSL 바인딩에 대한 [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) 리소스가 포함되어 있고 인증서가 Key Vault에 저장되어 있는 경우 App Service ID가 인증서에 액세스할 수 있는지 확인해야 합니다.
 
 전역 Azure에서 App Service 서비스 주체의 ID는 **abfa0a7c-a6b6-4736-8310-5855508787cd** 입니다. App Service 서비스 주체에 Key Vault에 대한 액세스를 허용하려면 다음을 사용합니다.
 

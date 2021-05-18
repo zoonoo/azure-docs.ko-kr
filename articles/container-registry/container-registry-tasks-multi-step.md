@@ -1,14 +1,14 @@
 ---
-title: 이미지를 작성 하 고 테스트 & 패치를 실행 하는 다단계 작업
-description: 클라우드의 컨테이너 이미지를 빌드, 테스트 및 패치 하는 작업 기반 워크플로를 제공 하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업을 소개 합니다.
+title: 이미지 빌드, 테스트 및 패치를 위한 다단계 작업
+description: 클라우드에서 컨테이너 이미지를 빌드하고, 테스트하고, 패치하기 위한 작업 기반 워크플로를 제공하는 Azure Container Registry의 ACR 작업 기능인 다단계 작업에 대해 소개합니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d57044fa8a0db7d661eb50284b34a6bbec9a1879
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "78399705"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781022"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -43,9 +43,9 @@ ms.locfileid: "78399705"
 
 ACR 작업의 다단계 작업은 YAML 파일 내에서 일련의 단계로 정의됩니다. 각 단계는 이전 단계 하나 이상의 정상 완료에 따른 종속성을 지정할 수 있습니다. 사용 가능한 작업 단계 유형은 다음과 같습니다.
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): 익숙한 구문이 나 병렬를 사용 하 여 하나 이상의 컨테이너 이미지 `docker build` 를 빌드합니다.
-* [`push`](container-registry-tasks-reference-yaml.md#push): 빌드된 이미지를 컨테이너 레지스트리에 푸시합니다. Azure Container Registry 등의 프라이빗 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): 실행 중인 작업의 컨텍스트 내에서 함수로 작동할 수 있도록 컨테이너를 실행 합니다. 컨테이너의 `[ENTRYPOINT]`에 매개 변수를 전달하고 env, detach 및 흔히 사용되는 기타 `docker run` 매개 변수와 같은 속성을 지정할 수 있습니다. `cmd` 단계 유형에서는 컨테이너를 동시에 실행하면서 단위 및 기능 테스트를 수행할 수 있습니다.
+* [`build`](container-registry-tasks-reference-yaml.md#build): 익숙한 `docker build` 구문을 사용하여 하나 이상의 컨테이너 이미지를 차례로 또는 병렬로 작성합니다.
+* [`push`](container-registry-tasks-reference-yaml.md#push): 작성한 이미지를 컨테이너 레지스트리에 푸시합니다. Azure Container Registry 등의 프라이빗 레지스트리와 공용 Docker 허브가 모두 지원됩니다.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): 실행 중인 작업의 컨텍스트 내에서 함수로 작동할 수 있도록 컨테이너를 실행합니다. 컨테이너의 `[ENTRYPOINT]`에 매개 변수를 전달하고 env, detach 및 흔히 사용되는 기타 `docker run` 매개 변수와 같은 속성을 지정할 수 있습니다. `cmd` 단계 유형에서는 컨테이너를 동시에 실행하면서 단위 및 기능 테스트를 수행할 수 있습니다.
 
 다음 코드 조각은 이러한 작업 단계 형식을 결합하는 방법을 보여줍니다. 다중 단계 작업은 다음과 유사한 YAML 파일을 사용하여 Dockerfile에서 단일 이미지를 빌드하고 레지스트리에 푸시하는 방법처럼 간단할 수 있습니다.
 
@@ -65,7 +65,7 @@ steps:
     build: -t $Registry/hello-world:$ID .
     when: ["-"]
   - id: build-tests
-    build -t $Registry/hello-world-tests ./funcTests
+    build: -t $Registry/hello-world-tests ./funcTests
     when: ["-"]
   - id: push
     push: ["$Registry/helloworld:$ID"]
@@ -79,7 +79,7 @@ steps:
   - cmd: $Registry/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image=$Registry/helloworld:$ID
 ```
 
-여러 시나리오에 대 한 다단계 작업 YAML 파일 및 Dockerfiles의 [작업 예](container-registry-tasks-samples.md) 를 참조 하세요.
+여러 시나리오에 대한 다단계 작업 YAML 파일 및 Dockerfile은 [작업 예제](container-registry-tasks-samples.md)를 참조하세요.
 
 ## <a name="run-a-sample-task"></a>샘플 작업 실행
 
@@ -153,7 +153,7 @@ Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 작성 작�
 다단계 작업 참조 및 예제는 아래 문서에서 확인할 수 있습니다.
 
 * [작업 참조](container-registry-tasks-reference-yaml.md) - 작업 단계 유형, 해당 속성 및 사용법을 확인할 수 있습니다.
-* [작업](container-registry-tasks-samples.md) 예- `task.yaml` 간단 하 고 복잡 한 여러 시나리오에 대 한 예제 및 Docker 파일.
+* [작업 예제](container-registry-tasks-samples.md) - 단순하거나 복잡한 여러 시나리오에 대한 예제 `task.yaml` 및 Docker 파일입니다.
 * [Cmd 리포지토리](https://github.com/AzureCR/cmd) - ACR 작업에 대한 명령인 컨테이너의 컬렉션입니다.
 
 <!-- IMAGES -->
@@ -164,6 +164,6 @@ Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 작성 작�
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
-[az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task-create]: /cli/azure/acr/task#az_acr_task_create
+[az-acr-run]: /cli/azure/acr#az_acr_run
 [az-acr-task]: /cli/azure/acr/task

@@ -4,13 +4,13 @@ description: 의도 및 엔터티를 사용하여 발화 텍스트에서 데이�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/13/2021
-ms.openlocfilehash: dd7d113b1c23a0afec82a346e0f7baa1254ebbed
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 05/01/2020
+ms.openlocfilehash: e6f01354bb5aa2b78d3c9962bac49be39dd2c81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500144"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "95025996"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용하여 발화 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -242,7 +242,7 @@ LUIS에서 [토큰 지원](luis-language-support.md#tokenization)을 참조하�
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
 
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. **[단순 엔터티](luis-concept-entity-types.md)** 로 시작하고 [구문 목록](luis-concept-feature.md)을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](./luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 유형의 이름을 가진 데이터를 추출하기가 가장 어렵습니다. **[단순 엔터티](luis-concept-entity-types.md#simple-entity)** 로 시작하고 [구문 목록](luis-concept-feature.md)을 추가합니다. 정기적으로 엔드포인트 발화를 [검토](./luis-how-to-review-endpoint-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
 

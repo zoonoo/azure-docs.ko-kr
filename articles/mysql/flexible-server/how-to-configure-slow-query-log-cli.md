@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.openlocfilehash: 72cf06049ae272e3e55017dd8a0207739c25d960
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b42aba84dcbff795ee4ca1f8d622527e8039f27a
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108738758"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107509015"
 ---
 # <a name="configure-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버의 느린 쿼리 로그 구성
 
@@ -20,10 +20,10 @@ ms.locfileid: "108738758"
 
 이 문서에서는 Azure CLI를 사용하여 MySQL 유연한 서버의 [느린 쿼리 로그](concepts-slow-query-logs.md)를 구성하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-- 최신 버전으로 Azure CLI를 설치하거나 업그레이드합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
--  [az login](/cli/azure/reference-index#az_login) 명령을 사용하여 Azure 계정에 로그인합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
+- Azure CLI를 설치하거나 최신 버전으로 업그레이드합니다. [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+-  [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 Azure 계정에 로그인합니다. Azure 계정에 대한 **구독 ID** 를 참조하는 **id** 속성을 기록해 둡니다.
 
     ```azurecli-interactive
     az login
@@ -35,7 +35,7 @@ ms.locfileid: "108738758"
     az account set --subscription <subscription id>
     ```
 
-- MySQL Flexible Server를 아직 만들지 않은 경우 ```az mysql flexible-server create``` 명령을 사용하여 만듭니다.
+- MySQL 유연한 서버를 아직 만들지 않은 경우 ```az mysql flexible-server create``` 명령을 사용하여 만듭니다.
 
     ```azurecli
     az mysql flexible-server create --resource-group myresourcegroup --name myservername
@@ -44,7 +44,7 @@ ms.locfileid: "108738758"
 ## <a name="configure-slow-query-logs"></a>느린 쿼리 로그 구성
 
 >[!IMPORTANT]
-> 서버 성능에 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자만 로깅하는 것이 좋습니다.
+> 서버 성능이 크게 영향을 받지 않도록 감사 목적에 필요한 이벤트 유형과 사용자만 로그하는 것이 좋습니다.
 
 서버에 대한 느린 쿼리 로그를 사용하도록 설정하고 구성합니다.
 

@@ -7,15 +7,15 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/30/2020
 ms.openlocfilehash: f89635a74b82cfc34d55a662de8f7372aabd3162
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91708138"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>PostgreSQL용 Azure Database 비디오
 
-이 페이지는 Azure Database for PostgreSQL에 대 한 학습 비디오 콘텐츠를 제공 합니다.
+이 페이지는 Azure Database for PostgreSQL에 대해 학습하기 위한 비디오 콘텐츠를 제공합니다.
 
 ## <a name="overview-azure-database-for-postgresql-and-mysql"></a>개요: Azure Database for PostgreSQL 및 MySQL
 
@@ -25,7 +25,7 @@ ms.locfileid: "91708138"
 Azure Database for PostgreSQL 및 Azure Database for MySQL을 함께 사용하면 완전히 관리되는 장치의 커뮤니티 버전 데이터베이스 엔진 및 기능이 제공되므로 데이터베이스를 관리할 필요 없이 앱에 주력할 수 있습니다. 서비스 사용에 따른 이점을 빠르게 살펴보고 사용되는 몇 가지 기능에 대해 알아보세요.
 
 ## <a name="create-a-postgresql-or-mysql-server"></a>PostgreSQL 또는 MySQL 서버 만들기
-Azure Database for PostgreSQL 및 Azure Database for MySQL는 클라우드에서 항상 사용 가능한 community edition 데이터베이스 엔진을 실행, 관리 및 확장 하는 데 사용 하는 관리 서비스입니다. 이러한 비디오 자습서에서는 Azure Portal 사용 하 여 약 3 분 내에 PostgreSQL 또는 MySQL 서버를 만드는 방법을 보여 줍니다. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
+Azure Database for PostgreSQL 및 Azure Database for MySQL은 클라우드에서 고가용성 커뮤니티 에디션 데이터베이스 엔진을 실행, 관리 및 확장하는 데 사용하는 관리 서비스입니다. 이 비디오 자습서는 Azure Portal을 사용하여 약 3분 안에 PostgreSQL 또는 MySQL 서버를 만드는 방법을 보여 줍니다. Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
 * [PostgreSQL 비디오 자습서](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal)
 

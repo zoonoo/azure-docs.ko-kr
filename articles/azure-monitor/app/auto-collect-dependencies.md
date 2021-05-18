@@ -4,12 +4,12 @@ description: Application Insights에서 자동으로 종속성 수집 및 시각
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: aa4d39ca8964e95ca787d236223e2b475a9597c1
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873832"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91930869"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
@@ -24,7 +24,7 @@ ms.locfileid: "107873832"
 | ASP.NET WebAPI | 4.5+ |
 | ASP.NET Core | 1.1+ |
 | <b> 통신 라이브러리</b> |
-| [HttpClient](https://dotnet.microsoft.com) | 4.5+, .NET Core 1.1+ |
+| [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
 | [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - 안정적인 최신 릴리스. 아래 참고 사항을 참조하세요.
 | [EventHubs 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |

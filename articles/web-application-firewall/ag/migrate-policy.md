@@ -1,6 +1,6 @@
 ---
-title: Azure 애플리케이션 Gateway에 대 한 WAF 정책 마이그레이션
-description: Azure PowerShell를 사용 하 여 Azure 웹 응용 프로그램 방화벽 정책을 마이그레이션하는 방법에 대해 알아봅니다.
+title: Azure Application Gateway에 대한 WAF 정책 마이그레이션
+description: Azure PowerShell을 사용하여 Azure Web Application Firewall 정책을 마이그레이션하는 방법을 알아봅니다.
 services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
@@ -8,33 +8,33 @@ ms.service: web-application-firewall
 ms.date: 04/16/2020
 ms.author: ant
 ms.openlocfilehash: 9b60075eb861fe598a05ba014a7def96bc815d06
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97653013"
 ---
-# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 정책 마이그레이션
+# <a name="migrate-web-application-firewall-policies-using-azure-powershell"></a>Azure PowerShell을 사용하여 Web Application Firewall 정책 마이그레이션
 
-이 스크립트를 사용 하면 WAF 구성 또는 사용자 지정 규칙 전용 WAF 정책에서 전체 WAF 정책으로 쉽게 전환할 수 있습니다. 포털에서 *waf 정책으로 마이그레이션* 이라는 경고가 표시 되거나, geomatch 사용자 지정 규칙 (미리 보기), 사이트별 waf 정책, URI 별 waf 정책 (미리 보기) 또는 봇 완화 규칙 집합 (미리 보기)과 같은 새로운 waf 기능이 필요할 수 있습니다. 이러한 기능을 사용 하려면 응용 프로그램 게이트웨이에 연결 된 전체 WAF 정책이 필요 합니다. 
+이 스크립트를 사용하면 WAF 구성 또는 사용자 지정 규칙 전용 WAF 정책에서 전체 WAF 정책으로 쉽게 전환할 수 있습니다. 포털에 *WAF 정책으로 마이그레이션* 이라는 경고가 표시되거나, 또는 Geomatch 사용자 지정 규칙(미리 보기), 사이트별 WAF 정책, URI별 WAF 정책(미리 보기) 또는 봇 완화 규칙 집합(미리 보기)과 같은 새로운 WAF 기능이 필요할 수 있습니다. 이러한 기능을 사용하려면 애플리케이션 게이트웨이에 연결된 전체 WAF 정책이 필요합니다. 
 
-새 WAF 정책을 만드는 방법에 대 한 자세한 내용은 [Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기](create-waf-policy-ag.md)를 참조 하세요. 마이그레이션에 대 한 자세한 내용은 [WAF 정책으로 마이그레이션](create-waf-policy-ag.md#migrate-to-waf-policy)을 참조 하세요.
+새 WAF 정책을 만드는 방법에 대한 자세한 내용은 [Application Gateway에 대한 Web Application Firewall 정책 만들기](create-waf-policy-ag.md)를 참조하세요. 마이그레이션에 대한 자세한 내용은 [WAF 정책으로 마이그레이션](create-waf-policy-ag.md#migrate-to-waf-policy)을 참조하세요.
 
-## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>마이그레이션 스크립트를 사용 하 여 WAF 정책으로 마이그레이션하려면
+## <a name="to-migrate-to-waf-policy-using-the-migration-script"></a>마이그레이션 스크립트를 사용하여 WAF 정책으로 마이그레이션하려면
 
-다음 단계를 사용 하 여 마이그레이션 스크립트를 실행 합니다. 
+다음 단계를 사용하여 마이그레이션 스크립트를 실행합니다. 
 
-1. 다음 cloud shell 창을 열거나 포털 내에서 하나를 엽니다.
-2. Cloud shell 창에 스크립트를 복사 하 여 실행 합니다.
-3. 이 스크립트는 구독 ID, 리소스 그룹 이름, WAF 구성이 연결 된 Application Gateway 이름 및 만들 새 WAF 정책의 이름을 묻는 메시지를 표시 합니다. 이러한 입력을 입력 하면 스크립트가 실행 되 고 새 WAF 정책을 만듭니다.
-4. 새 WAF 정책을 응용 프로그램 게이트웨이와 연결 합니다. 포털의 WAF 정책으로 이동 하 고 **연결 된 응용 프로그램 게이트웨이** 탭을 선택 합니다. **Application Gateway 연결** 을 선택한 다음 waf 정책을 연결할 Application Gateway를 선택 합니다.
+1. 다음 Cloud Shell 창을 열거나 포털 내에서 하나를 엽니다.
+2. Cloud Shell 창에 스크립트를 복사하여 실행합니다.
+3. 이 스크립트는 구독 ID, 리소스 그룹 이름, WAF 구성이 연결된 Application Gateway의 이름 및 만들 새 WAF 정책의 이름을 묻는 메시지를 표시합니다. 이러한 항목을 입력하면 스크립트가 실행되고 새 WAF 정책을 만듭니다.
+4. 새 WAF 정책을 애플리케이션 게이트웨이와 연결합니다. 포털의 WAF 정책으로 이동하고 **연결된 Application Gateway** 탭을 선택합니다. **Application Gateway를 연결** 을 선택한 다음 WAF 정책을 연결할 Application Gateway를 선택합니다.
 
 > [!NOTE]
-> 다음 조건에 해당 하는 경우 스크립트에서 마이그레이션을 완료 하지 않습니다.
-> - 전체 규칙을 사용할 수 없습니다. 마이그레이션을 완료 하려면 전체 rulegroup을 사용 하지 않도록 설정 해야 합니다.
-> - *Equals any* 연산자가 있는 제외 항목입니다. 마이그레이션을 완료 하려면 *Equals Any* 연산자가 있는 제외 항목이 존재 하지 않는지 확인 합니다.
+> 다음 조건에 해당하는 경우 스크립트는 마이그레이션을 완료하지 않습니다.
+> - 전체 규칙을 사용할 수 없습니다. 마이그레이션을 완료하려면 전체 rulegroup이 비활성화되지 않았음을 확인합니다.
+> - *Equals any* 연산자가 있는 제외 항목. 마이그레이션을 완료하려면 *Equals Any* 연산자가 있는 제외 항목이 없는지 확인합니다.
 >
-> 자세한 내용은 스크립트의 *Validateinput* 함수를 참조 하십시오.
+> 자세한 내용은 스크립트의 *Validateinput* 함수를 참조하세요.
 
 ```azurepowershell-interactive
 <#PSScriptInfo
@@ -219,4 +219,4 @@ Main
 ```
 ## <a name="next-steps"></a>다음 단계
 
-[웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙](application-gateway-crs-rulegroups-rules.md)에 대해 자세히 알아보세요.
+[Web Application Firewall CRS 규칙 그룹 및 규칙](application-gateway-crs-rulegroups-rules.md)에 대해 자세히 알아보세요.

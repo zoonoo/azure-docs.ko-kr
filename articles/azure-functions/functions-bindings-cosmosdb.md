@@ -1,28 +1,28 @@
 ---
 title: Functions 1.x에 대한 Azure Cosmos DB 바인딩
-description: Azure Functions 1.x에서 Azure Cosmos DB 트리거와 바인딩을 사용 하는 방법을 이해 합니다.
+description: Azure Functions 1.x에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96002116"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
-> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
+> [!div class="op_single_selector" title1="사용할 Azure Functions 런타임 버전을 선택합니다. "]
 > * [버전 1](functions-bindings-cosmosdb.md)
 > * [버전 2](functions-bindings-cosmosdb-v2.md)
 
 이 문서에서는 Azure Functions에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
 > [!NOTE]
-> 이 문서는 Azure Functions 1.x에 대한 것입니다. 함수 2.x 이상에서 이러한 바인딩을 사용 하는 방법에 대 한 자세한 내용은 Azure Functions 2.x [에 대 한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조 하세요.
+> 이 문서는 Azure Functions 1.x에 대한 것입니다. Functions 2.x 이상에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조하세요.
 >
 >이 바인딩의 원래 이름은 DocumentDB입니다. 함수 버전 1.x에서 트리거만 Cosmos DB로 명명되었습니다. 입력 바인딩, 출력 바인딩 및 NuGet 패키지는 DocumentDB 이름을 유지합니다.
 
@@ -198,7 +198,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 |**leaseRenewInterval**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
 |**checkpointFrequency**| **CheckpointFrequency**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다.
 |**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (선택 사항) 설정하면 함수 호출당 받은 최대 항목 수를 사용자 지정합니다.
-|**시작 Fromstart**| **StartFromBeginning**| (선택 사항) 설정하면 현재 시간이 아니라 컬렉션 기록 시작부터 변경 내용을 읽기 시작하도록 트리거에 알립니다. 후속 실행에서는 검사점이 이미 저장되므로 트리거가 처음 시작될 때만 작동합니다. 임대가 이미 만들어진 후에 이 값을 `true`로 설정하면 아무 효과가 없습니다.
+|**startFromBeginning**| **StartFromBeginning**| (선택 사항) 설정하면 현재 시간이 아니라 컬렉션 기록 시작부터 변경 내용을 읽기 시작하도록 트리거에 알립니다. 후속 실행에서는 검사점이 이미 저장되므로 트리거가 처음 시작될 때만 작동합니다. 임대가 이미 만들어진 후에 이 값을 `true`로 설정하면 아무 효과가 없습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1122,7 +1122,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 |**name**     | 해당 없음 | 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
-|**ID**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
+|**id**    | **ID** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**connection**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
 |**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다.|
@@ -1133,15 +1133,15 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-함수가 성공적으로 종료 되 면 명명 된 입력 매개 변수를 통해 입력 문서에 대 한 모든 변경 내용이 자동으로 유지 됩니다.
+함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 변경한 내용이 자동으로 유지됩니다.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-함수가 성공적으로 종료 되 면 명명 된 입력 매개 변수를 통해 입력 문서에 대 한 모든 변경 내용이 자동으로 유지 됩니다.
+함수가 성공적으로 종료되면 명명된 입력 매개 변수를 통해 입력 문서에 변경한 내용이 자동으로 유지됩니다.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-함수 종료 시 업데이트가 자동으로 수행 되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [입력 예제](#input)를 참조 하십시오.
+함수 종료 시 자동으로 업데이트되지 않습니다. 대신 `context.bindings.<documentName>In` 및 `context.bindings.<documentName>Out`을 사용하여 업데이트합니다. [입력 예제](#input)를 참조하세요.
 
 ---
 
@@ -1156,7 +1156,7 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
 * 큐 트리거, 하나의 문서 쓰기
-* 큐 트리거, using 문서 작성 `IAsyncCollector`
+* 큐 트리거, `IAsyncCollector`를 사용하여 문서 쓰기
 
 예제에서는 간단한 `ToDoItem` 형식을 참조하세요.
 
@@ -1242,7 +1242,7 @@ namespace CosmosDBSamplesV1
 이 섹션에는 다음 예제가 포함되어 있습니다.
 
 * 큐 트리거, 하나의 문서 쓰기
-* 큐 트리거, using 문서 작성 `IAsyncCollector`
+* 큐 트리거, `IAsyncCollector`를 사용하여 문서 쓰기
 
 ### <a name="queue-trigger-write-one-doc"></a>큐 트리거, 하나의 문서 쓰기
 
@@ -1440,7 +1440,7 @@ JavaScript 코드는 다음과 같습니다.
     }
 ```
 
-전체 예제는 [Output](#output)을 참조 하세요.
+전체 예제는 [출력](#output)을 참조하세요.
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 

@@ -1,23 +1,22 @@
 ---
 title: Azure VPN Gateway 디자인 정보
-description: Azure 가상 네트워크에 연결 하기 위해 VPN gateway 토폴로지를 디자인 하는 방법에 대해 알아봅니다.
+description: Azure 가상 네트워크에 연결하기 위해 VPN Gateway 토폴로지를 디자인하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
-Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 99b8cdbb1528caefd30fb11c9702dff1e817c0ab
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91397218"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061811"
 ---
 # <a name="vpn-gateway-design"></a>VPN Gateway 디자인
 
-VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 그 중에서 필요에 맞는 최상의 구성을 결정해야 합니다. 아래 섹션에서는 다음 VPN gateway 연결에 대 한 디자인 정보 및 토폴로지 다이어그램을 볼 수 있습니다. 다이어그램 및 설명을 사용하여 요구 사항에 맞게 연결 토폴로지를 선택하도록 도울 수 있습니다. 다이어그램은 기본 기본 토폴로지를 표시 하지만 다이어그램을 지침으로 사용 하 여 더 복잡 한 구성을 빌드할 수 있습니다.
+VPN Gateway 연결에 사용할 수 있는 다양한 구성이 있다는 사실을 꼭 기억하시기 바랍니다. 그 중에서 필요에 맞는 최상의 구성을 결정해야 합니다. 아래 섹션에서는 다음과 같은 VPN Gateway 연결에 대한 디자인 정보 및 토폴로지 다이어그램을 볼 수 있습니다. 다이어그램 및 설명을 사용하여 요구 사항에 맞게 연결 토폴로지를 선택하도록 도울 수 있습니다. 다이어그램은 주요 기준 토폴로지를 보여 주지만 다이어그램을 지침으로 사용하여 더 복잡한 구성을 빌드할 수 있습니다.
 
 ## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a><a name="s2smulti"></a>사이트 간 및 다중 사이트(IPsec/IKE VPN 터널)
 
@@ -27,7 +26,7 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 
 ![Azure VPN Gateway 사이트 간 연결 예제](./media/design/vpngateway-site-to-site-connection-diagram.png)
 
-하나의 공용 IP를 사용 하 여 활성-대기 모드에서 또는 두 개의 공용 IP를 사용 하는 활성-활성 모드에서 VPN Gateway를 구성할 수 있습니다. 활성-대기 모드에서는 하나의 IPsec 터널이 활성 상태이 고 다른 터널은 대기 상태입니다. 이 설정에서는 트래픽이 활성 터널을 통해 전달 되 고,이 터널에서 문제가 발생 하는 경우 트래픽이 대기 터널로 전환 됩니다. 활성-활성 모드에서 VPN Gateway를 설정 하는 것이 좋습니다. 두 IPsec 터널 모두 동시에 활성 상태이 고 동시에 두 터널을 통해 데이터를 이동 하는 *것이 좋습니다* . 활성-활성 모드의 추가 장점은 고객이 더 높은 처리량을 경험 하는 것입니다.
+하나의 공용 IP를 사용하여 활성-대기 모드에서, 또는 두 개의 공용 IP를 사용하여 활성-활성 모드에서 VPN Gateway를 구성할 수 있습니다. 활성-대기 모드에서는 하나의 IPsec 터널이 활성 상태이고 다른 터널은 대기 상태입니다. 이 설정에서는 트래픽이 활성 터널을 통해 전달되고, 터널에 문제가 발생하는 경우 트래픽이 대기 터널로 전환됩니다. 두 IPsec 터널이 동시에 활성 상태로서 데이터가 두 터널을 동시에 통과하는 활성-활성 모드에서 VPN Gateway를 설정할 것을 *권장* 합니다. 활성-활성 모드는 고객이 더 높은 처리량을 경험한다는 또 다른 장점이 있습니다.
 
 ### <a name="multi-site"></a><a name="Multi"></a>다중 사이트
 
@@ -77,11 +76,11 @@ Azure에는 현재 클래식 및 Resource Manager 등 두 개의 배포 모델�
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute(프라이빗 연결)
 
-ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용 하 여 Microsoft Azure, Microsoft 365 및 CRM Online과 같은 Microsoft 클라우드 서비스에 대 한 연결을 설정할 수 있습니다. 연결은 공동 배치 시설의 연결 공급자를 통해 Any-to-Any(IP VPN) 네트워크, 지점 간 이더넷 네트워크 또는 가상 교차 연결에서 수행할 수 있습니다.
+ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure, Microsoft 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다. 연결은 공동 배치 시설의 연결 공급자를 통해 Any-to-Any(IP VPN) 네트워크, 지점 간 이더넷 네트워크 또는 가상 교차 연결에서 수행할 수 있습니다.
 
 ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 ExpressRoute 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
-ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게이트웨이를 사용합니다. ExpressRoute 연결에서 가상 네트워크 게이트웨이는 'Vpn'이 아닌 'ExpressRoute' 게이트웨이 유형으로 구성됩니다. ExpressRoute 회로를 통해 전송되는 트래픽은 기본적으로 암호화되지 않으므로, ExpressRoute 회로를 통해 암호화된 트래픽을 보낼 수 있는 솔루션을 만듭니다. Express 경로에 대 한 자세한 내용은 [express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조 하세요.
+ExpressRoute 연결은 필수 구성의 일부분으로 가상 네트워크 게이트웨이를 사용합니다. ExpressRoute 연결에서 가상 네트워크 게이트웨이는 'Vpn'이 아닌 'ExpressRoute' 게이트웨이 유형으로 구성됩니다. ExpressRoute 회로를 통해 전송되는 트래픽은 기본적으로 암호화되지 않으므로, ExpressRoute 회로를 통해 암호화된 트래픽을 보낼 수 있는 솔루션을 만듭니다. ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## <a name="site-to-site-and-expressroute-coexisting-connections"></a><a name="coexisting"></a>사이트 간 및 ExpressRoute 공존 연결
 
@@ -95,17 +94,17 @@ ExpressRoute는 공용 인터넷을 사용하지 않는 WAN에서 Azure를 비�
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
-## <a name="highly-available-connections"></a><a name="highly-available"></a>항상 사용 가능한 연결
+## <a name="highly-available-connections"></a><a name="highly-available"></a>고가용성 연결
 
-항상 사용 가능한 연결에 대 한 계획 및 디자인은 [항상 사용 가능한 연결](vpn-gateway-highlyavailable.md)을 참조 하세요.
+고가용성 연결에 대한 계획 및 디자인은 [고가용성 연결](vpn-gateway-highlyavailable.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 자세한 내용은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-* [VPN Gateway 구성 설정](vpn-gateway-about-vpn-gateway-settings.md)에 대해 자세히 알아보세요.
+* [VPN Gateway 구성 설정](vpn-gateway-about-vpn-gateway-settings.md)에 대해 자세히 알아봅니다.
 
-* VPN Gateway BGP 고려 사항은 [Bgp 정보](vpn-gateway-bgp-overview.md)를 참조 하세요.
+* VPN Gateway BGP에 대한 고려 사항은 [BGP 정보](vpn-gateway-bgp-overview.md)를 참조하세요.
 
 * [구독 및 서비스 한도](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)를 참조하세요.
 

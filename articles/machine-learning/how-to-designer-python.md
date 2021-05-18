@@ -1,21 +1,21 @@
 ---
 title: 디자이너에서 Python 스크립트 실행
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너에서 Python 스크립트 실행 모델을 사용 하 여 Python으로 작성 된 사용자 지정 작업을 실행 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 디자이너에서 Python 스크립트 실행 모델을 사용하여 Python으로 작성된 사용자 지정 작업을 실행하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2020
-ms.topic: conceptual
-ms.custom: how-to, designer, devx-track-python
-ms.openlocfilehash: dcc28d98efbc82079586de8cfbecd35effc93d6e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.topic: how-to
+ms.custom: designer, devx-track-python
+ms.openlocfilehash: ffb46fcc4576e4b4daaf3be02625e9f9cf00a461
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94556236"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107885239"
 ---
 # <a name="run-python-code-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에서 Python 코드 실행
 

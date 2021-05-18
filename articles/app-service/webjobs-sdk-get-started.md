@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4a22602dd9638b981cfe3d8bae9b5cdaacbf90dc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7df6eabbecca9538de3c45bf1c9fc7ca6e4334bd
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91652043"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205380"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -311,7 +311,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 ### <a name="create-app-service-app-and-application-insights-instance"></a>App Service 앱 및 Application Insights 인스턴스 만들기
 
-1. 사용할 수 있는 App Service 앱이 아직 없는 경우 [하나를 만듭니다](quickstart-dotnet-framework.md). 앱을 만들 때 연결된 Application Insights 리소스를 만들 수도 있습니다. 이 작업을 수행하면 앱에서 `APPINSIGHTS_INSTRUMENTATIONKEY`가 자동으로 설정됩니다.
+1. 사용할 수 있는 App Service 앱이 아직 없는 경우 [하나를 만듭니다](./quickstart-dotnetcore.md?tabs=netframework48). 앱을 만들 때 연결된 Application Insights 리소스를 만들 수도 있습니다. 이 작업을 수행하면 앱에서 `APPINSIGHTS_INSTRUMENTATIONKEY`가 자동으로 설정됩니다.
 
 1. 사용할 수 있는 Application Insights 리소스가 아직 없는 경우 [하나를 만듭니다](../azure-monitor/app/create-new-resource.md ). **애플리케이션 종류** 를 **일반** 으로 설정하고, **계측 키 복사** 를 수행하는 섹션을 건너뜁니다.
 

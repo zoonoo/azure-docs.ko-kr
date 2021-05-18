@@ -1,5 +1,5 @@
 ---
-title: 내부 Load Balancer-Azure 애플리케이션 Gateway와 함께 사용
+title: 내부 부하 분산 장치 사용 - Azure Application Gateway
 description: 이 페이지에서는 Azure Resource Manager용 ILB(내부 부하 분산 장치)를 사용하여 Azure 애플리케이션 게이트웨이를 만들고, 구성하고, 시작하고, 삭제하기 위한 지침을 제공합니다.
 services: application-gateway
 author: vhorne
@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 3d663dc4e2bd860ec9494785ecbf6dbf10a4c5b5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93397759"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
-Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 엔드포인트라고 알려진 인터넷에 노출되지 않은 내부 엔드포인트를 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출 되지 않지만 라운드 로빈 부하 분산, 세션에 대 한 보안 또는 TLS (전송 계층 보안)를 요구 하는 다중 계층 응용 프로그램 내의 서비스 및 계층 (이전에는 SSL (SSL(Secure Sockets Layer)), 종료)에도 유용 합니다.
+Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 엔드포인트라고 알려진 인터넷에 노출되지 않은 내부 엔드포인트를 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 애플리케이션의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 애플리케이션 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 TLS (Transport Layer Security)(이전 명칭 SSL (Secure Sockets Layer)) 종료가 필요합니다.
 
 이 문서는 ILB와 애플리케이션 게이트웨이 구성 단계를 안내합니다.
 
@@ -24,17 +24,17 @@ Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. [설치 지침](/powershell/azure/install-az-ps)에 따라 최신 버전의 Azure PowerShell 모듈을 설치 합니다.
+1. [설치 지침](/powershell/azure/install-az-ps)에 따라, 최신 버전의 Azure PowerShell 모듈을 설치합니다.
 2. Application Gateway에 대한 가상 네트워크 및 서브넷을 만듭니다. 서브넷을 사용 중인 가상 머신 또는 클라우드 배포가 없는지 확인합니다. Application Gateway는 가상 네트워크 서브넷에서 단독이어야 합니다.
 3. 애플리케이션 게이트웨이를 사용하도록 구성된 서버가 존재하거나 가상 네트워크나 공용 IP/VIP가 할당된 해당 엔드포인트가 만들어져야 합니다.
 
 ## <a name="what-is-required-to-create-an-application-gateway"></a>애플리케이션 게이트웨이를 만드는 데 필요한 것은 무엇입니까?
 
 * **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 애플리케이션 게이트웨이에 대한 다른 서브넷의 가상 네트워크에 속하거나 공용 IP/VIP이어야 합니다.
-* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
+* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
 * **프런트 엔드 포트:** 이 포트는 애플리케이션 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
 * **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
-* **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달 했을 때 트래픽이 전송 되어야 하는 백 엔드 서버 풀을 정의 합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
+* **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
@@ -50,7 +50,7 @@ Resource Manager를 사용하면 애플리케이션 게이트웨이를 만드는
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 
-Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [리소스 관리자와 함께 Windows PowerShell을 사용 하 여](../azure-resource-manager/management/manage-resources-powershell.md)제공 됩니다.
+Azure 리소스 관리자 cmdlet을 사용하려면 PowerShell 모드로 전환해야 합니다. 자세한 내용은 [Resource Manager에서 Windows PowerShell 사용](../azure-resource-manager/management/manage-resources-powershell.md)을 참조하세요.
 
 ### <a name="step-1"></a>1단계
 

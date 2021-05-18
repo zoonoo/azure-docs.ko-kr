@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
 ms.openlocfilehash: 3cfe75edcf338f5248baf396147a5b77803fbfb3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97655937"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 Avro 데이터 쿼리
 
-이 아티클에서는 Azure IoT Hub에서 Azure 서비스로 메시지를 효율적으로 라우팅하기 위해 Avro 데이터를 쿼리하는 방법을 설명합니다. [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 통해 메시지 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성 기반의 풍부한 쿼리를 사용하여 데이터를 필터링할 수 있습니다. 메시지 라우팅의 쿼리 기능에 대해 자세히 알아보려면 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)에 대 한 문서를 참조 하세요.
+이 아티클에서는 Azure IoT Hub에서 Azure 서비스로 메시지를 효율적으로 라우팅하기 위해 Avro 데이터를 쿼리하는 방법을 설명합니다. [메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 통해 메시지 속성, 메시지 본문, 디바이스 쌍 태그 및 디바이스 쌍 속성 기반의 풍부한 쿼리를 사용하여 데이터를 필터링할 수 있습니다. 메시지 라우팅의 쿼리 기능에 대한 자세한 내용은 [메시지 라우팅 쿼리 구문](iot-hub-devguide-routing-query-syntax.md)에 대한 문서를 참조하세요.
 
-이러한 문제는 Azure IoT Hub에서 Azure Blob storage로 메시지를 라우팅하는 경우 기본적으로 IoT Hub는 메시지 본문 속성과 메시지 속성을 모두 포함 하는 Avro 형식으로 콘텐츠를 기록 하는 것입니다. Avro 형식은 다른 끝점에는 사용 되지 않습니다. Avro 형식은 데이터와 메시지 보존에 적합하지만 이를 사용하여 데이터를 쿼리하기에 어렵습니다. 반면 JSON 또는 CSV 형식은 데이터를 쿼리하기에 훨씬 용이합니다. 이제 IoT Hub는 AVRO 뿐만 아니라 JSON의 Blob storage에 데이터를 쓸 수 있습니다.
+Azure IoT Hub가 Azure Blob Storage에 메시지를 라우팅하는 경우 기본적으로 IoT Hub에서 메시지 본문 속성 및 메시지 속성을 모두 포함하는 Avro 형식으로 콘텐츠를 작성하는 것이 어려운 점이었습니다. Avro 형식은 다른 엔드포인트에는 사용되지 않습니다. Avro 형식은 데이터와 메시지 보존에 적합하지만 이를 사용하여 데이터를 쿼리하기에 어렵습니다. 반면 JSON 또는 CSV 형식은 데이터를 쿼리하기에 훨씬 용이합니다. 이제 IoT Hub는 AVRO뿐만 아니라 JSON의 Blob Storage에 데이터를 쓸 수 있습니다.
 
-자세한 내용은 [Azure Storage를 라우팅 끝점으로 사용](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)을 참조 하세요.
+자세한 내용은 [Azure Storage를 라우팅 엔드포인트로 사용](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint)을 참조하세요.
 
 비관계형 빅 데이터 요구 사항 및 형식을 해결하고 이 어려움을 이겨내려면 데이터 변환 및 크기 조정 모두에 대해 여러 빅 데이터 패턴을 사용할 수 있습니다. 이런 패턴 중 하나인 "쿼리당 지불"은 Azure Data Lake Analytics이며, 이 문서의 핵심 내용입니다. Hadoop 또는 기타 솔루션에서 쿼리를 쉽게 실행할 수 있지만 Data Lake Analytics는 이 "쿼리당 지불" 방법에 더 적합합니다.
 
@@ -66,13 +66,13 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
 
     ```sql
         DROP ASSEMBLY IF EXISTS [Avro];
-        CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll";
+        CREATE ASSEMBLY [Avro] FROM @"/Assemblies/Avro/Avro.dll&quot;;
         DROP ASSEMBLY IF EXISTS [Microsoft.Analytics.Samples.Formats];
-        CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @"/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll";
+        CREATE ASSEMBLY [Microsoft.Analytics.Samples.Formats] FROM @&quot;/Assemblies/Avro/Microsoft.Analytics.Samples.Formats.dll&quot;;
         DROP ASSEMBLY IF EXISTS [Newtonsoft.Json];
-        CREATE ASSEMBLY [Newtonsoft.Json] FROM @"/Assemblies/Avro/Newtonsoft.Json.dll";
+        CREATE ASSEMBLY [Newtonsoft.Json] FROM @&quot;/Assemblies/Avro/Newtonsoft.Json.dll&quot;;
         DROP ASSEMBLY IF EXISTS [log4net];
-        CREATE ASSEMBLY [log4net] FROM @"/Assemblies/Avro/log4net.dll";
+        CREATE ASSEMBLY [log4net] FROM @&quot;/Assemblies/Avro/log4net.dll&quot;;
 
         REFERENCE ASSEMBLY [Newtonsoft.Json];
         REFERENCE ASSEMBLY [log4net];
@@ -80,8 +80,8 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
         REFERENCE ASSEMBLY [Microsoft.Analytics.Samples.Formats];
 
         // Blob container storage account filenames, with any path
-        DECLARE @input_file string = @"wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}";
-        DECLARE @output_file string = @"/output/output.csv";
+        DECLARE @input_file string = @&quot;wasb://hottubrawdata@kevinsayazstorage/kevinsayIoT/{*}/{*}/{*}/{*}/{*}/{*}&quot;;
+        DECLARE @output_file string = @&quot;/output/output.csv&quot;;
 
         @rs =
         EXTRACT
@@ -89,35 +89,35 @@ U-SQL에는 Avro용 "추출기"가 있습니다. 자세한 내용은 [U-SQL Avro
         Body byte[]
         FROM @input_file
 
-        USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@"
+        USING new Microsoft.Analytics.Samples.Formats.ApacheAvro.AvroExtractor(@&quot;
         {
-            ""type"":""record"",
-            ""name"":""Message"",
-            ""namespace"":""Microsoft.Azure.Devices"",
-            ""fields"":
+            &quot;&quot;type&quot;&quot;:&quot;&quot;record&quot;&quot;,
+            &quot;&quot;name&quot;&quot;:&quot;&quot;Message&quot;&quot;,
+            &quot;&quot;namespace&quot;&quot;:&quot;&quot;Microsoft.Azure.Devices&quot;&quot;,
+            &quot;&quot;fields&quot;&quot;:
            [{
-                ""name"":""EnqueuedTimeUtc"",
-                ""type"":""string""
+                &quot;&quot;name&quot;&quot;:&quot;&quot;EnqueuedTimeUtc&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:&quot;&quot;string&quot;&quot;
             },
             {
-                ""name"":""Properties"",
-                ""type"":
+                &quot;&quot;name&quot;&quot;:&quot;&quot;Properties&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:
                 {
-                    ""type"":""map"",
-                    ""values"":""string""
+                    &quot;&quot;type&quot;&quot;:&quot;&quot;map&quot;&quot;,
+                    &quot;&quot;values&quot;&quot;:&quot;&quot;string&quot;&quot;
                 }
             },
             {
-                ""name"":""SystemProperties"",
-                ""type"":
+                &quot;&quot;name&quot;&quot;:&quot;&quot;SystemProperties&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:
                 {
-                    ""type"":""map"",
-                    ""values"":""string""
+                    &quot;&quot;type&quot;&quot;:&quot;&quot;map&quot;&quot;,
+                    &quot;&quot;values&quot;&quot;:&quot;&quot;string&quot;&quot;
                 }
             },
             {
-                ""name"":""Body"",
-                ""type"":[""null"",""bytes""]
+                &quot;&quot;name&quot;&quot;:&quot;&quot;Body&quot;&quot;,
+                &quot;&quot;type&quot;&quot;:[&quot;&quot;null&quot;&quot;,&quot;&quot;bytes&quot;&quot;]
             }]
         }"
         );

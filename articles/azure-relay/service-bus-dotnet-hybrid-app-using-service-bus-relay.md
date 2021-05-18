@@ -4,12 +4,12 @@ description: Azure Relay를 사용하여 클라우드의 웹 애플리케이션�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: 6f12133277d60560a19f35dead3a30be7c934adf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137710"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "90983894"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Azure Relay를 사용하여 클라우드의 웹 애플리케이션에 온-프레미스 WCF 서비스 노출
 
@@ -31,7 +31,7 @@ ms.locfileid: "108137710"
 > * Azure에 웹앱 배포
 > * Azure에서 앱 실행
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -245,7 +245,7 @@ Azure 애플리케이션 개발을 시작하려면 먼저 도구를 다운로드
     ![인증 지정][18]
 
 1. **새 ASP.NET 웹 애플리케이션 만들기** 로 돌아가서 **만들기** 를 선택하여 MVC 앱을 만듭니다.
-1. 새 웹앱의 Azure 리소스를 구성합니다. [웹앱 게시](../app-service/quickstart-dotnetcore.md?tabs=netframework48#publish-your-web-app)의 단계를 따릅니다. 그런 다음, 이 자습서로 돌아와서 다음 단계를 진행합니다.
+1. 새 웹앱의 Azure 리소스를 구성합니다. [웹앱 게시](../app-service/quickstart-dotnet-framework.md#launch-the-publish-wizard)의 단계를 따릅니다. 그런 다음, 이 자습서로 돌아와서 다음 단계를 진행합니다.
 1. **솔루션 탐색기** 에서 **모델** 을 마우스 오른쪽 단추로 클릭하고 **추가** > **클래스** 를 선택합니다.
 1. 클래스 이름을 *Product.cs* 로 지정하고 **추가** 를 선택합니다.
 

@@ -4,10 +4,10 @@ description: Azure Event Grid 이벤트에 대한 이벤트 처리기로 웹후�
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91875804"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Azure Event Grid 이벤트에 대한 이벤트 처리기로서의 웹후크, Automation Runbook, Logic Apps
@@ -15,7 +15,7 @@ ms.locfileid: "91875804"
 
 > [!NOTE]
 > - Azure Automation Runbook 및 논리 앱은 웹후크를 통해 이벤트 처리기로 지원됩니다. 
-> - 웹 후크를 **끝점 형식** **으로 사용 하 여 azure** 함수를 이벤트 처리기로 구성 하는 경우에도 **azure function** 을 끝점 형식으로 사용 합니다. 자세한 내용은 [이벤트 처리기로 서의 Azure 함수](handler-functions.md)를 참조 하세요.
+> - **웹 후크** 를 **엔드포인트 형식** 으로 사용하여 Azure 함수를 이벤트 처리기로 구성하는 경우에도 **Azure 함수** 를 엔드포인트 형식으로 사용합니다. 자세한 내용은 [이벤트 처리기로 Azure 함수 사용](handler-functions.md)을 참조하세요.
 
 ## <a name="webhooks"></a>Webhook
 웹후크를 이벤트 처리기로 사용하는 방법에 대한 개요 및 예제는 다음 문서를 참조하세요. 

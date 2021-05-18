@@ -5,14 +5,14 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.date: 01/28/2019
 ms.topic: conceptual
-description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
+description: Azure Dev Spaces 및 Azure Kubernetes Service를 사용하여 비즈니스 연속성을 제공하고 재해 복구를 준비하는 방법 알아보기
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
 ms.openlocfilehash: 77425d294dcea0546259b152b793cec291940c53
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96929602"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
@@ -45,7 +45,7 @@ Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공�
 
 ## <a name="select-the-correct-aks-cluster-to-use-for-dev-spaces"></a>Dev Spaces용으로 사용할 올바른 AKS 클러스터 선택
 
-팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 다음 자식 dev 공간에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
+팀의 초기 계획을 실행하는 백업 클러스터를 올바르게 구성하고 나면 언제든지 백업 클러스터로 빠르게 전환할 수 있습니다. 그런 후에는 자식 개발 공간에서 작업 중인 개별 서비스를 다시 실행할 수 있습니다.
 
 다음 CLI 명령을 사용하여 다른 클러스터를 선택합니다.
 

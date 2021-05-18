@@ -3,12 +3,12 @@ title: 사이드카 컨테이너로 TLS 사용
 description: 사이드카 컨테이너에서 Nginx를 실행하여 Azure Container Instances에서 실행되는 컨테이너 그룹에 대한 SSL 또는 TLS 엔드포인트를 만듭니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 906a1f239d7050ea17fd7d1425138049ebf045c1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790980"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "96558082"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 TLS 엔드포인트 사용
 
@@ -193,13 +193,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>컨테이너 그룹 배포
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-[az container create](/cli/azure/container#az_container_create) 명령을 사용하여 컨테이너 그룹을 배포하고, YAML 파일을 인수로 전달합니다.
+[az container create](/cli/azure/container#az-container-create) 명령을 사용하여 컨테이너 그룹을 배포하고, YAML 파일을 인수로 전달합니다.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -207,7 +207,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 확인하려면 다음 [az container show](/cli/azure/container#az_container_show) 명령을 사용합니다.
+배포 상태를 확인하려면 다음 [az container show](/cli/azure/container#az-container-show) 명령을 사용합니다.
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table

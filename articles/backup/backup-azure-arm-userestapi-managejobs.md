@@ -1,23 +1,23 @@
 ---
-title: REST API를 사용 하 여 백업 작업 관리
-description: 이 문서에서는 REST API를 사용 하 여 Azure Backup 백업 및 복원 작업을 추적 하 고 관리 하는 방법에 대해 알아봅니다.
+title: REST API를 사용하여 백업 작업 관리
+description: 이 문서에서는 REST API를 사용하여 Azure Backup의 백업 및 복원 작업을 추적하고 관리하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: ced0e0020fe955734bf6cc767480fbadd6eaffc1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88890283"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
-Azure Backup service는 백업 트리거, 복원 작업, 백업 사용 안 함과 같은 다양 한 시나리오에서 백그라운드로 실행 되는 작업을 트리거합니다. 이러한 작업은 해당 ID를 사용하여 추적할 수 있습니다.
+Azure Backup 서비스는 백업을 트리거하거나, 복원 작업을 수행하거나, 백업을 사용하지 않도록 설정하는 등의 다양한 시나리오에서 백그라운드로 실행되는 작업을 트리거합니다. 이러한 작업은 해당 ID를 사용하여 추적할 수 있습니다.
 
 ## <a name="fetch-job-information-from-operations"></a>작업(operation)에서 작업(job) 정보 가져오기
 
-백업 트리거와 같은 작업은 항상 jobID를 반환합니다. 예: [트리거 백업 REST API 작업](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) 의 마지막 응답은 다음과 같습니다.
+백업 트리거와 같은 작업은 항상 jobID를 반환합니다. 예를 들어 [백업 트리거 REST API 작업](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup)의 최종 응답은 다음과 같습니다:
 
 ```http
 {
@@ -41,11 +41,11 @@ Azure VM 백업 작업은 “jobId” 필드로 식별되며 [여기](/rest/api/
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-`{jobName}`은 위에 언급된 “jobId”입니다. 응답은 항상 작업의 현재 상태를 나타내는 “상태” 필드가 포함된 200 OK입니다. "Completed" 또는 "CompletedWithWarnings" 이면 ' extendedInfo ' 섹션에서 작업에 대 한 자세한 정보를 표시 합니다.
+`{jobName}`은 위에 언급된 “jobId”입니다. 응답은 항상 작업의 현재 상태를 나타내는 “상태” 필드가 포함된 200 OK입니다. "Completed" 또는 "CompletedWithWarnings"이면 'extendedInfo' 섹션에 해당 작업에 대한 자세한 내용이 표시됩니다.
 
 ### <a name="response"></a>응답
 
-|Name  |Type  |설명  |
+|이름  |유형  |설명  |
 |---------|---------|---------|
 |200 정상     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | 정상        |
 

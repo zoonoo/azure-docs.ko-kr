@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89279655"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
@@ -156,7 +156,7 @@ Source Anchor 특성으로 objectGUID에서 ConsistencyGuid로 전환하려면:
 
 ![기존 배포에 대해 ConsistencyGuid 사용 - 오류](./media/plan-connect-design-concepts/consistencyguidexistingdeploymenterror.png)
 
- 다른 기존 응용 프로그램에서 특성을 사용 하지 않는 것이 확실 한 경우 **/SkipLdapSearch** 스위치가 지정 된 상태에서 Azure AD Connect 마법사를 다시 시작 하 여 오류를 표시 하지 않을 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
+ 특성이 다른 기존 애플리케이션에서 사용되지 않는 것이 확실한 경우 지정된 **/SkipLdapSearch** 스위치를 통해 Azure AD Connect 마법사를 다시 시작하여 오류를 억제할 수 있습니다. 이렇게 하려면 명령 프롬프트 창에서 다음 명령을 실행합니다.
 
 ```
 "c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
@@ -170,7 +170,7 @@ Azure AD Connect 외부에서 AD FS를 관리하거나 타사 페더레이션 �
 ![타사 페더레이션 구성](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>기존 배포에 새 디렉터리 추가
-활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 응용 프로그램에서 특성을 사용 하지 않는 것이 확실 한 경우 위에 설명 된 **/SkipLdapSearch** 스위치를 사용 하 여 Azure AD Connect 마법사를 다시 시작 하거나, 자세한 내용을 보려면 지원 담당자에 게 문의 하 여 오류를 표시 하지 않을 수 있습니다.
+활성화된 ConsistencyGuid 기능으로 Azure AD Connect를 배포한 후에 이제 다른 디렉터리를 배포에 추가하려고 한다고 가정합니다. 디렉터리를 추가하려고 하는 경우 Azure AD Connect 마법사에서 디렉터리의 ms-DS-ConsistencyGuid 특성 상태를 확인합니다. 특성이 디렉터리에 있는 하나 이상의 개체에 구성되어 있으면, 마법사에서 특성이 다른 애플리케이션에서 사용되고 있다고 결정하고 아래 그림과 같은 오류를 반환합니다. 기존 애플리케이션에서 특성을 사용하지 않는 것이 확실한 경우 위에서 설명한 **/SkipLdapSearch** 스위치를 통해 Azure AD Connect 마법사를 다시 시작하여 오류를 억제할 수 있습니다. 자세한 내용은 지원팀에 문의하세요.
 
 ![기존 배포에 새 디렉터리 추가](./media/plan-connect-design-concepts/consistencyGuid-04.png)
 

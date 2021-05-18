@@ -1,6 +1,6 @@
 ---
-title: 개요-온-프레미스 AD DS Azure 파일 공유에 대 한 인증
-description: Azure 파일 공유에 대 한 AD DS (Active Directory Domain Services) 인증에 대해 알아봅니다. 이 문서에서는 지원 시나리오와 가용성을 자세히 설명 하 고 AD DS와 Azure active directory 간의 사용 권한이 어떻게 작동 하는지 설명 합니다.
+title: 개요 - Azure 파일 공유에 대한 온-프레미스 AD DS 인증
+description: Azure 파일 공유에 대한 AD DS(Active Directory Domain Services) 인증에 대해 알아봅니다. 이 문서에서는 지원 시나리오와 가용성을 살펴보고 AD DS와 Azure Active Directory 간의 사용 권한이 작동하는 방식을 설명합니다.
 author: roygara
 ms.service: storage
 ms.subservice: files
@@ -8,92 +8,92 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: rogarana
 ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103472147"
 ---
-# <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요-Azure 파일 공유에 대 한 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
+# <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>개요 - Azure 파일 공유에 대해 SMB를 통한 온-프레미스 Active Directory Domain Services 인증
 
-[Azure Files](storage-files-introduction.md)   는 온-프레미스 Active Directory Domain Services (AD DS) 및 Azure Active Directory Domain Services (Azure AD DS)의 두 가지 유형의 도메인 서비스를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 인증을 위해 올바른 도메인 서비스를 선택 하는 [것은 작동 방법 섹션](./storage-files-active-directory-overview.md#how-it-works) 을 검토 하는 것이 좋습니다. 설치는 선택한 도메인 서비스에 따라 달라 집니다. 이러한 일련의 문서는 Azure 파일 공유를 사용 하 여 인증을 위해 온-프레미스 AD DS을 설정 및 구성 하는 데 중점을 둡니다.
+[Azure Files는](storage-files-introduction.md) 온-프레미스 AD DS(Active Directory Domain Services) 및 Azure AD DS(Azure Active Directory Domain Services)의 두 가지 유형의 도메인 서비스를 통해 SMB(서버 메시지 블록)를 통한 ID 기반 인증을 지원합니다. [작동 방법 섹션](./storage-files-active-directory-overview.md#how-it-works)을 검토하여 인증에 적합한 도메인 서비스를 선택하는 것이 좋습니다. 설정은 선택한 도메인 서비스에 따라 달라집니다. 이 문서는 Azure 파일 공유를 사용하여 인증을 위해 온-프레미스 AD DS를 사용하도록 설정하고 구성하는 방법에 중점을 둡니다.
 
-Azure 파일 공유를 처음 접하는 경우 다음 일련의 문서를 읽기 전에 [계획 가이드](storage-files-planning.md) 를 읽어 보는 것이 좋습니다.
+Azure 파일 공유를 처음 사용하는 경우 다음 일련의 문서를 읽기 전에 [계획 가이드](storage-files-planning.md)를 읽어 보는 것이 좋습니다.
 
-## <a name="supported-scenarios-and-restrictions"></a>지원 되는 시나리오 및 제한 사항
+## <a name="supported-scenarios-and-restrictions"></a>지원되는 시나리오 및 제한 사항
 
-- Azure Files 온-프레미스 AD DS 인증에 사용 되는 AD DS Id를 Azure AD에 동기화 해야 합니다. 암호 해시 동기화는 선택 사항입니다. 
-- Azure 파일 동기화에서 관리 하는 Azure 파일 공유를 지원 합니다.
-- 는 RC4-HMAC 및 [AES 256 암호화](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 사용 하 여 AD에서 Kerberos 인증을 지원 합니다. AES 256 암호화 지원은 현재 이름이 15 자인 <의 저장소 계정으로 제한 됩니다. AES 128 Kerberos 암호화는 아직 지원되지 않습니다.
-- Single Sign-On 환경을 지원 합니다.
-- Windows 7 또는 Windows Server 2008 r 2 보다 최신 버전의 OS에서 실행 되는 클라이언트 에서만 지원 됩니다.
-- 저장소 계정이 등록 된 AD 포리스트에 대해서만 지원 됩니다. 기본적으로 단일 포리스트의 AD DS 자격 증명을 사용 하 여 Azure 파일 공유에 액세스할 수 있습니다. 다른 포리스트에서 Azure 파일 공유에 액세스 해야 하는 경우 적절 한 포리스트 트러스트를 구성 했는지 확인 하세요. 자세한 내용은 [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) 를 참조 하세요.
-- 는 AD DS에서 생성 되는 컴퓨터 계정에 대 한 인증을 지원 하지 않습니다.
-- 에서는 NFS (네트워크 파일 시스템) 파일 공유에 대 한 인증을 지원 하지 않습니다.
+- Azure Files 온-프레미스 AD DS 인증에 사용되는 AD DS ID를 Azure AD에 동기화해야 합니다. 암호 해시 동기화는 선택 사항입니다. 
+- Azure 파일 동기화로 관리되는 Azure 파일 공유를 지원합니다.
+- RC4-HMAC 및 [AES 256 암호화](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption)를 사용하는 AD로 Kerberos 인증을 지원합니다. AES 256 암호화 지원은 현재 이름이 15자 미만인 스토리지 계정으로 제한됩니다. AES 128 Kerberos 암호화는 아직 지원되지 않습니다.
+- Single Sign-On 환경을 지원합니다.
+- Windows 7 또는 Windows Server 2008 R2보다 최신 버전의 OS에서 실행되는 클라이언트 에서만 지원됩니다.
+- 스토리지 계정이 등록된 AD 포리스트에 대해서만 지원됩니다. 기본적으로 단일 포리스트의 AD DS 자격 증명으로만 Azure 파일 공유에 액세스할 수 있습니다. 다른 포리스트에서 Azure 파일 공유에 액세스해야 하는 경우 적절한 포리스트 트러스트가 구성되어 있는지 확인하세요. 자세한 내용은 [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication)를 참조하세요.
+- AD DS에서 만든 컴퓨터 계정에 대한 인증을 지원하지 않습니다.
+- NFS(네트워크 파일 시스템) 파일 공유에 대한 인증을 지원하지 않습니다.
 
-SMB를 통해 Azure 파일 공유에 대 한 AD DS를 사용 하도록 설정 하면 AD DS 가입 된 컴퓨터에서 기존 AD DS 자격 증명을 사용 하 여 Azure 파일 공유를 탑재할 수 있습니다. 온-프레미스 컴퓨터 또는 Azure에서 호스트 되는 AD DS 환경을 사용 하 여이 기능을 사용 하도록 설정할 수 있습니다.
+SMB를 통해 Azure 파일 공유에 대한 AD DS를 사용하도록 설정하면 AD DS에 가입된 컴퓨터에서 기존 AD DS 자격 증명을 사용하여 Azure 파일 공유를 탑재할 수 있습니다. 온-프레미스 머신에서 호스팅되거나 Azure에서 호스팅되는 AD DS 환경에서 이 기능을 사용하도록 설정할 수 있습니다.
 
 ## <a name="videos"></a>동영상
 
-몇 가지 일반적인 사용 사례에 대 한 Azure Files AD 인증을 설정 하는 데 도움이 되도록 다음 시나리오에 대 한 단계별 지침을 포함 하는 두 개의 비디오를 게시 했습니다.
+몇 가지 일반적인 사용 사례에 대한 Azure Files AD 인증을 설정하는 데 도움이 되도록 다음 시나리오에 대한 단계별 지침을 포함하는 두 개의 비디오를 게시했습니다.
 
-| 온-프레미스 파일 서버를 Azure Files로 바꾸기 (파일 및 AD 인증을 위한 개인 링크의 설정 포함) | Windows 가상 데스크톱에 대 한 프로필 컨테이너로 Azure Files 사용 (AD 인증 및 FsLogix 구성의 설정 포함)  |
+| 온-프레미스 파일 서버를 Azure Files로 바꾸기(파일 및 AD 인증을 위한 프라이빗 링크 설정 포함) | Windows Virtual Desktop에 대한 프로필 컨테이너로 Azure Files 사용(AD 인증 및 FsLogix 구성의 설정 포함)  |
 |-|-|
-| [![동영상 가이드 온-프레미스 파일 서버 교체 비디오-클릭 하 여 재생 합니다.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![동영상 가이드을 프로필 컨테이너로 사용 Azure Files 하는를 클릭 하 여 재생 합니다.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
+| [![온-프레미스 파일 서버 교체 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-identity-auth-active-directory-enable/replace-on-prem-server-thumbnail.png)](https://www.youtube.com/watch?v=jd49W33DxkQ) | [![프로필 컨테이너로 Azure Files 사용 비디오의 동영상 가이드 - 재생하려면 클릭하세요.](./media/storage-files-identity-auth-active-directory-enable/files-ad-ds-fslogix-thumbnail.png)](https://www.youtube.com/watch?v=9S5A1IJqfOQ) |
 
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>필수 구성 요소 
 
-Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다. 
+Azure 파일 공유에 대해 AD DS 인증을 사용하도록 설정하기 전에 다음 사전 요구 사항을 완료했는지 확인합니다. 
 
-- [AD DS 환경을](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 선택 하거나 만들고 Azure AD Connect를 사용 [하 여 Azure AD에 동기화](../../active-directory/hybrid/how-to-connect-install-roadmap.md) 합니다. 
+- [AD DS 환경](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)을 선택하거나 만들고 Azure AD Connect를 사용하여 [Azure AD에 동기화](../../active-directory/hybrid/how-to-connect-install-roadmap.md)합니다. 
 
-    새 온-프레미스 또는 기존 온-프레미스 AD DS 환경에서이 기능을 사용 하도록 설정할 수 있습니다. 액세스에 사용 되는 id를 Azure AD와 동기화 해야 합니다. 액세스 하는 Azure AD 테 넌 트와 파일 공유는 동일한 구독과 연결 되어 있어야 합니다.
+    신규 또는 기존 온-프레미스 AD DS 환경에서 이 기능을 사용하도록 설정할 수 있습니다. 액세스에 사용되는 ID를 Azure AD와 동기화해야 합니다. Azure AD 테넌트와 액세스 중인 파일 공유는 동일한 구독에 연결되어 있어야 합니다.
 
-- 온-프레미스 컴퓨터 또는 Azure VM을 온-프레미스 AD DS에 도메인 가입 합니다. 도메인에 가입 하는 방법에 대 한 자세한 내용은 [도메인에 컴퓨터 가입](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain)을 참조 하세요.
+- 온-프레미스 컴퓨터 또는 Azure VM을 온-프레미스 AD DS에 도메인 가입합니다. 도메인에 가입하는 방법에 대한 자세한 내용은 [컴퓨터를 도메인에 가입](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain)을 참조하세요.
 
-    컴퓨터가 AD DS 도메인에 가입 되지 않은 경우에도 컴퓨터에 AD 도메인 컨트롤러의 시야가 있는 경우 인증을 위해 AD 자격 증명을 활용할 수 있습니다.
+    컴퓨터가 AD DS 도메인에 가입되어 있지 않은 경우에도 AD 도메인 컨트롤러가 컴퓨터의 가시선에 있는 경우 인증을 위해 AD 자격 증명을 계속 활용할 수 있습니다.
 
-- Azure storage 계정을 선택 하거나 만듭니다.  최적의 성능을 위해서는 공유에 액세스할 계획인 클라이언트와 동일한 지역에 저장소 계정을 배포 하는 것이 좋습니다. 그런 다음 저장소 계정 키를 사용 하 여 [Azure 파일 공유를 탑재](storage-how-to-use-files-windows.md) 합니다. 저장소 계정 키를 탑재 하면 연결이 확인 됩니다.
+- Azure 스토리지 계정을 선택하거나 만듭니다.  성능을 최적화하려면 공유에 액세스하려는 클라이언트와 동일한 지역에 스토리지 계정을 배치하는 것이 좋습니다. 그런 다음 스토리지 계정 키를 사용하여 [Azure 파일 공유를 탑재](storage-how-to-use-files-windows.md)합니다. 스토리지 계정 키를 사용하여 탑재하면 연결이 확인됩니다.
 
-    파일 공유가 포함 된 저장소 계정이 Azure AD DS 인증에 대해 아직 구성 되지 않았는지 확인 합니다. 저장소 계정에서 Azure AD DS 인증을 사용 하도록 설정한 Azure Files 경우 온-프레미스 AD DS를 사용 하도록 변경 하기 전에 사용 하지 않도록 설정 해야 합니다. 이는 Azure AD DS 환경에서 구성 된 기존 Acl을 적절 한 사용 권한을 적용 하도록 다시 구성 해야 함을 의미 합니다.
-
-
-    Azure Files에 연결 하는 데 문제가 발생 하는 경우 [Windows에서 Azure Files 탑재 오류에 대해 게시 된 문제 해결 도구](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/)를 참조 하세요. 또한 포트 445이 차단 될 때 시나리오를 해결 하기 위한 [지침](./storage-files-faq.md#on-premises-access) 을 제공 합니다. 
+    파일 공유가 포함된 스토리지 계정이 Azure AD DS 인증에 대해 아직 구성되지 않았는지 확인합니다. Azure Files Azure AD DS 인증이 스토리지 계정에서 활성화된 경우 온-프레미스 AD DS를 사용하도록 변경하기 전에 비활성화해야 합니다. 이는 적절한 권한 적용을 위해 Azure AD DS 환경에서 구성된 기존 ACL을 다시 구성해야 함을 의미합니다.
 
 
-- Azure 파일 공유에 대 한 AD DS 인증을 설정 하 고 구성 하기 전에 관련 네트워킹 구성을 수행 합니다. 자세한 내용은 [Azure Files 네트워킹 고려 사항](storage-files-networking-overview.md) 을 참조 하세요.
+    Azure Files에 연결하는 데 문제가 발생하는 경우 [Windows에서 발생하는 Azure Files 탑재 오류를 위해 게시된 문제 해결 도구](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/)를 참조하세요. 또한 포트 445가 차단되는 시나리오를 해결하기 위한 [지침](./storage-files-faq.md#on-premises-access)을 제공합니다. 
 
-## <a name="regional-availability"></a>지역별 가용성
 
-AD DS를 사용 하 여 Azure Files 인증은 [모든 Azure 공용, 중국 및 .gov 지역](https://azure.microsoft.com/global-infrastructure/locations/)에서 사용할 수 있습니다.
+- Azure 파일 공유에 대한 AD DS 인증을 설정하 고 구성하기 전에 관련 네트워킹 구성을 수행합니다. 자세한 내용은 [Azure Files 네트워킹 고려 사항](storage-files-networking-overview.md)을 참조하세요.
+
+## <a name="regional-availability"></a>국가별 가용성
+
+AD DS를 사용한 Azure Files 인증은 [모든 Azure 공용, 중국 및 Gov 지역](https://azure.microsoft.com/global-infrastructure/locations/)에서 사용할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
-파일 공유에서 네트워킹 구성을 사용 하도록 설정 하려는 경우 [네트워킹 고려 사항](./storage-files-networking-overview.md) 문서를 읽고 AD DS 인증을 사용 하도록 설정 하기 전에 관련 구성을 완료 하는 것이 좋습니다.
+파일 공유에서 네트워킹 구성을 사용하도록 설정하려는 경우 [네트워킹 고려 사항](./storage-files-networking-overview.md) 문서를 읽고 AD DS 인증을 사용하도록 설정하기 전에 관련 구성을 완료하는 것이 좋습니다.
 
-Azure 파일 공유에 대 한 AD DS 인증을 사용 하도록 설정 하면 온-프레미스 AD DS 자격 증명을 사용 하 여 Azure 파일 공유에 인증할 수 있습니다. 또한 세부적인 액세스 제어를 허용 하기 위해 사용 권한을 보다 잘 관리할 수 있습니다. 이렇게 하려면 AD connect를 사용 하 여 온-프레미스 AD DS에서 Azure AD로 id를 동기화 해야 합니다. 온-프레미스 AD DS 자격 증명을 사용 하 여 파일/공유 수준 액세스를 관리 하는 동안 Azure AD에 동기화 된 id로 공유 수준 액세스를 제어 합니다.
+Azure 파일 공유에 대해 AD DS 인증을 사용하도록 설정하면 온-프레미스 AD DS 자격 증명을 사용하여 Azure 파일 공유에 인증할 수 있습니다. 또한 세분화된 액세스 제어를 허용하도록 권한을 더 잘 관리할 수 있습니다. 이렇게 하려면 AD 연결을 사용하여 온-프레미스 AD DS에서 Azure AD로 ID를 동기화해야 합니다. 온-프레미스 AD DS 자격 증명을 사용하여 파일/공유 수준 액세스를 관리하는 동안 Azure AD에 동기화된 ID로 공유 수준 액세스를 제어합니다.
 
-다음으로 AD DS 인증에 대 한 Azure Files를 설정 하려면 다음 단계를 수행 합니다. 
+그런 다음 아래 단계에 따라 AD DS 인증을 위한 Azure Files를 설정합니다. 
 
-1. [1 부: 저장소 계정에 대 한 AD DS 인증 사용](storage-files-identity-ad-ds-enable.md)
+1. [1부: 스토리지 계정에서 AD DS 인증 사용](storage-files-identity-ad-ds-enable.md)
 
-1. [2 부: 대상 AD id와 동기화 되는 Azure AD id (사용자, 그룹 또는 서비스 주체)에 공유에 대 한 액세스 권한 할당](storage-files-identity-ad-ds-assign-permissions.md)
+1. [2부: 대상 AD ID와 동기화되는 Azure AD ID(사용자, 그룹 또는 서비스 주체)에 공유에 대한 액세스 권한 할당](storage-files-identity-ad-ds-assign-permissions.md)
 
-1. [3 부: 디렉터리 및 파일에 대해 SMB를 통한 Windows Acl 구성](storage-files-identity-ad-ds-configure-permissions.md)
+1. [3부: 디렉터리 및 파일에 대해 SMB를 통한 Windows ACL 구성](storage-files-identity-ad-ds-configure-permissions.md)
  
-1. [4 부: AD DS에 조인 된 VM에 Azure 파일 공유 탑재](storage-files-identity-ad-ds-mount-file-share.md)
+1. [4부: AD DS에 연결된 VM에 Azure 파일 공유 탑재](storage-files-identity-ad-ds-mount-file-share.md)
 
-1. [AD DS에서 저장소 계정 id의 암호를 업데이트 합니다.](storage-files-identity-ad-ds-update-password.md)
+1. [AD DS에서 스토리지 계정 ID의 암호를 업데이트](storage-files-identity-ad-ds-update-password.md)
 
-다음 다이어그램에서는 Azure 파일 공유에 대해 SMB를 통한 Azure AD 인증을 사용 하도록 설정 하는 종단 간 워크플로를 보여 줍니다. 
+다음 다이어그램에서는 Azure 파일 공유에 대해 SMB를 통한 Azure AD 인증을 사용하도록 설정하는 엔드투엔드 워크플로를 보여 줍니다. 
 
-![파일 광고 워크플로 다이어그램](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
+![Files AD 워크플로 다이어그램](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Azure 파일 공유에 액세스 하는 데 사용 되는 id를 azure AD에 동기화 하 여 azure [역할 기반 액세스 제어 (AZURE RBAC)](../../role-based-access-control/overview.md) 모델을 통해 공유 수준 파일 권한을 적용 해야 합니다. 기존 파일 서버에서 전달 되는 파일/디렉터리의 [Windows 스타일 dacl](/previous-versions/technet-magazine/cc161041(v=msdn.10)) 은 유지 되 고 적용 됩니다. 이를 통해 엔터프라이즈 AD DS 환경과 원활한 통합이 가능 합니다. 온-프레미스 파일 서버를 Azure 파일 공유로 바꾸면 기존 사용자가 사용 중인 자격 증명을 변경 하지 않고 Single Sign-On 환경을 사용 하 여 현재 클라이언트에서 Azure 파일 공유에 액세스할 수 있습니다.  
+Azure 파일 공유에 액세스하는 데 사용되는 ID를 Azure AD에 동기화하여 [Azure 역할 기반 액세스 제어(Azure RBAC)](../../role-based-access-control/overview.md) 모델을 통해 공유 수준 파일 권한을 적용해야 합니다. 기존 파일 서버에서 전달된 파일/디렉터리의 [Windows 스타일 DACL](/previous-versions/technet-magazine/cc161041(v=msdn.10))은 보존되고 적용됩니다. 이를 통해 엔터프라이즈 AD DS 환경과 원활한 통합이 가능합니다. 온-프레미스 파일 서버를 Azure 파일 공유로 교체하면 기존 사용자가 사용 중인 자격 증명을 변경하지 않고도 Single Sign-On 환경을 사용하여 현재 클라이언트에서 Azure 파일 공유에 액세스할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 파일 공유에 대해 온-프레미스 AD DS 인증을 사용 하도록 설정 하려면 다음 문서를 계속 진행 합니다.
+Azure 파일 공유에 대해 온-프레미스 AD DS 인증을 사용하도록 설정하려면 다음 문서를 계속 진행합니다.
 
-[1 부: 계정에 대 한 AD DS 인증 사용](storage-files-identity-ad-ds-enable.md)
+[1부: 계정에 대해 Azure AD DS 인증 사용](storage-files-identity-ad-ds-enable.md)

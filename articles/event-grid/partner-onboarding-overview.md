@@ -3,12 +3,12 @@ title: 파트너 온보딩 개요(Azure Event Grid)
 description: Event Grid 파트너로 온보딩할 수 있는 방법에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 9af80efc1ba342768f9bb6d504f921b52494d955
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: d16337eada829a817110abf7842f763972d0718f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107890711"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105109342"
 ---
 # <a name="partner-onboarding-overview-azure-event-grid"></a>파트너 온보딩 개요(Azure Event Grid)
 
@@ -153,7 +153,7 @@ CloudEvents 1.0 스키마를 사용하여 Azure Event Grid에 이벤트를 게�
   * [ARM 템플릿](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM 템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST API](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [CLI 확장](/cli/azure/eventgrid)
+  * [CLI 확장](/cli/azure/ext/eventgrid/)
 
 ### <a name="sdks"></a>SDK
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

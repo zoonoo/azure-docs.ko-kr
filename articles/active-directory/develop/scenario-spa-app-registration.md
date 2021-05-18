@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9366bb5b2bb5820245ec1b699bbf2ddda0dd9f9d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d0cc32a84ee0d214df9533b480a1c29bb57ee1c7
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100103178"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108071742"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
@@ -32,7 +32,7 @@ MSAL.js 1.0 및 2.0 기반 애플리케이션의 경우 둘 다 먼저 다음 �
 1. **Azure Active Directory** 를 검색하고 선택합니다.
 1. **관리** 아래에서 **앱 등록** > **새 등록** 을 선택합니다.
 1. 애플리케이션의 **이름** 을 입력합니다. 이 이름은 앱의 사용자에게 표시될 수 있으며 나중에 변경할 수 있습니다.
-1. 응용 프로그램에 대해 **지원 되는 계정 유형을** 선택 합니다. **리디렉션 URI** 를 입력하면 **안 됩니다**. 다른 계정 유형에 대 한 설명은 [응용 프로그램 등록](quickstart-register-app.md)을 참조 하세요.
+1. 애플리케이션에 **지원되는 계정 형식** 을 선택합니다. **리디렉션 URI** 를 입력하면 **안 됩니다**. 다른 계정 형식에 대한 설명은 [애플리케이션 등록](quickstart-register-app.md)을 참조하세요.
 1. **등록** 을 선택하여 앱 등록을 만듭니다.
 
 그런 다음, **리디렉션 URI** 로 앱 등록을 구성하여 Microsoft ID 플랫폼이 보안 토큰과 함께 클라이언트를 리디렉션해야 하는 위치를 지정합니다. 애플리케이션에서 사용 중인 MSAL.js 버전에 해당하는 단계를 사용합니다.
@@ -40,21 +40,21 @@ MSAL.js 1.0 및 2.0 기반 애플리케이션의 경우 둘 다 먼저 다음 �
 - [인증 코드 흐름을 사용하는 MSAL.js 2.0](#redirect-uri-msaljs-20-with-auth-code-flow)(권장)
 - [암시적 흐름을 사용하는 MSAL.js 1.0](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉션 URI: [ 인증 코드 흐름과MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>리디렉트 URI: [인증 코드 흐름을 사용하는 MSAL.js 2.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 MSAL.js 2.0 이상을 사용하는 앱의 리디렉션 URI를 추가하려면 다음 단계를 따르세요. MSAL.js 2.0보다 높은 버전에서는 [브라우저의 타사 쿠키 제한](reference-third-party-cookies-spas.md)에 대한 대응으로 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원합니다. 암시적 허용 흐름은 MSAL.js 2.0보다 높은 버전에서 지원되지 않습니다.
 
 1. Azure Portal에서 이전에 [앱 등록 만들기](#create-the-app-registration)에서 만든 앱 등록을 선택합니다.
 1. **관리** 에서 **인증** > **플랫폼 추가** 를 선택합니다.
 1. **웹 애플리케이션** 에서 **단일 페이지 애플리케이션** 타일을 선택합니다.
-1. **리디렉션 URI** 에서 [리디렉션 URI](reply-url.md)를 입력합니다. **암시적 허용 및 하이브리드 흐름** 에서 확인란을 선택 **하지** 마십시오.
+1. **리디렉션 URI** 에서 [리디렉션 URI](reply-url.md)를 입력합니다. **암시적 허용 및 하이브리드 흐름** 에서 확인란을 선택하면 **안됩니다**.
 1. **구성** 을 선택하여 리디렉션 URI 추가를 마칩니다.
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **플랫폼 추가** 창에서 **단일 페이지 애플리케이션** 타일을 사용하여 리디렉션 URI를 구성하면 애플리케이션 등록은 PKCE 및 CORS를 사용하여 인증 코드 흐름을 지원하도록 구성됩니다.
 
-추가 지침을 보려면 [자습서](tutorial-v2-javascript-auth-code.md) 를 따르세요.
+추가 지침을 보려면 [자습서](tutorial-v2-javascript-auth-code.md)를 따르세요.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: [ 암시적 흐름을 사용 하는MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>리디렉션 URI: [암시적 흐름을 사용하는 MSAL.js 1.0](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 앱에 대한 리디렉션 URI를 추가하려면 다음 단계를 수행합니다. MSAL.js 1.3 이전 버전을 사용하는 애플리케이션은 인증 코드 흐름을 지원하지 않습니다.
 
@@ -62,14 +62,12 @@ MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 
 1. **관리** 에서 **인증** > **플랫폼 추가** 를 선택합니다.
 1. **웹 애플리케이션** 에서 **단일 페이지 애플리케이션** 타일을 선택합니다.
 1. **리디렉션 URI** 에서 [리디렉션 URI](reply-url.md)를 입력합니다.
-1. **암시적 허용 및 하이브리드 흐름** 을 사용 하도록 설정 합니다.
+1. **암시적 허용 및 하이브리드 흐름** 사용:
     - 애플리케이션에서 사용자를 로그인하는 경우 **ID 토큰** 을 선택합니다.
     - 애플리케이션에서 보호된 웹 API를 호출해야 하는 경우에는 **액세스 토큰** 을 선택합니다. 이러한 토큰 형식에 대한 자세한 내용은 [ID 토큰](id-tokens.md) 및 [액세스 토큰](access-tokens.md)을 참조하세요.
 1. **구성** 을 선택하여 리디렉션 URI 추가를 마칩니다.
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **ID 토큰** 및 **액세스 토큰** 중 하나 또는 둘 다를 선택하여 암시적 허용 흐름을 사용하도록 설정했습니다.
-
-추가 지침을 보려면 [자습서](tutorial-v2-javascript-spa.md) 를 따르세요.
 
 ## <a name="note-about-authorization-flows"></a>권한 부여 흐름에 대한 참고 사항
 
@@ -81,4 +79,4 @@ MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 
 
 ## <a name="next-steps"></a>다음 단계
 
-이전 단계에서 만든 앱 등록을 사용 하도록 앱의 코드 [구성](scenario-spa-app-configuration.md)을 구성 합니다.
+이전 단계에서 생성한 앱 등록을 사용하도록 앱 코드를 구성합니다. [앱의 코드 구성](scenario-spa-app-configuration.md).

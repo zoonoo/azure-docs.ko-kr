@@ -1,6 +1,6 @@
 ---
-title: Azure Maps 계정의 가격 책정 계층 관리 | Microsoft Azure 맵
-description: Azure Portal를 사용 하 여 Microsoft Azure Maps 계정 및 해당 가격 책정 계층을 관리할 수 있습니다.
+title: Azure Maps 계정의 가격 책정 계층 관리 | Microsoft Azure Maps
+description: Azure Portal을 사용하여 Microsoft Azure Maps 계정 및 가격 책정 계층을 관리할 수 있습니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/27/2020
@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92895735"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Azure Maps 계정의 가격 책정 계층 관리
 
-Azure Portal을 통해 Azure Maps 계정의 가격 책정 계층을 관리할 수 있습니다. [계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)만든 후 계정 가격 책정 계층을 보거나 변경할 수도 있습니다.
+Azure Portal을 통해 Azure Maps 계정의 가격 책정 계층을 관리할 수 있습니다. [계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들면 계정의 가격 책정 계층을 보거나 변경할 수도 있습니다.
 
 [Azure Maps에서 적절한 가격 책정 계층 선택](./choose-pricing-tier.md)에 관해 알아봅니다.
 
@@ -25,13 +25,13 @@ Azure Portal을 통해 Azure Maps 계정의 가격 책정 계층을 관리할 �
 
 선택한 가격 책정 계층을 보려면 설정 메뉴에서 **가격 책정 계층** 옵션으로 이동합니다.
 
-[![선택한 가격 책정 계층 ](./media/how-to-manage-pricing-tier/view-pricing-tier.png) 보기](./media/how-to-manage-pricing-tier/view-pricing-tier.png#lightbox)
+[ ![선택한 가격 책정 계층 보기](./media/how-to-manage-pricing-tier/view-pricing-tier.png) ](./media/how-to-manage-pricing-tier/view-pricing-tier.png#lightbox)
 
 ## <a name="change-a-pricing-tier"></a>가격 책정 계층 변경
 
 Azure Maps 계정을 만든 후 Azure Maps 계정에 대한 가격 책정 계층을 업그레이드하거나 다운그레이드할 수 있습니다. 업그레이드하거나 다운그레이드하려면 설정 메뉴에서 **가격 책정 계층** 옵션으로 이동합니다. 강조 표시되지 않은 가격 책정 계층을 선택합니다. **저장** 단추를 선택하여 선택한 가격 책정 계층 옵션을 저장합니다.
 
-[![가격 책정 계층 ](./media/how-to-manage-pricing-tier/change-pricing-tier.png) 변경](./media/how-to-manage-pricing-tier/change-pricing-tier.png#lightbox)
+[ ![가격 책정 계층 변경](./media/how-to-manage-pricing-tier/change-pricing-tier.png) ](./media/how-to-manage-pricing-tier/change-pricing-tier.png#lightbox)
 
 > [!NOTE]
 > Azure Maps 계정에 대한 가격 책정 계층을 업그레이드 또는 다운그레이드하는 경우 새 구독 키 또는 클라이언트 ID(Azure AD 인증용)를 생성할 필요가 없습니다.

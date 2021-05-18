@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94537920"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
@@ -21,26 +21,26 @@ ms.locfileid: "94537920"
 - 명령줄에서 덤프 및 복원(mysqldump 사용)
 - PHPMyAdmin을 사용하여 덤프 및 복원
 
-데이터베이스를 Azure Database for MySQL로 마이그레이션하는 방법에 대 한 자세한 내용 및 사용 사례는 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) 를 참조 하세요. 이 가이드는 Azure로의 MySQL 마이그레이션 계획 및 실행을 안내 하는 지침을 제공 합니다.
+데이터베이스를 Azure Database for MySQL로 마이그레이션하는 방법에 대한 자세한 내용 및 사용 사례는 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)를 참조할 수도 있습니다. 이 가이드는 Azure로의 MySQL 마이그레이션의 계획 및 실행을 안내하는 참고 자료를 제공합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [MySQL용 Azure 데이터베이스 서버 만들기 - Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 함
-- 덤프 및 복원 명령을 수행 하는 [Mysql 워크 벤치](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 MySQL 도구입니다.
+- 덤프 및 복원 명령을 수행할 [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 MySQL 도구입니다.
 
 > [!TIP]
-> 데이터베이스 크기가 1tb 이상인 대량 데이터베이스를 마이그레이션하려면 병렬 내보내기 및 가져오기를 지 원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용 하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.
+> 데이터베이스 크기가 1TB를 초과하는 대량 데이터베이스를 마이그레이션하려는 경우 병렬 내보내기 및 가져오기를 지원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.
 
 
-## <a name="common-use-cases-for-dump-and-restore"></a>덤프 및 복원에 대 한 일반적인 사용 사례
+## <a name="common-use-cases-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용 사례
 
-가장 일반적인 사용 사례는 다음과 같습니다.
+일반적인 사용 사례는 다음과 같습니다.
 
-- **다른 관리 서비스 공급자에서 이동** -대부분의 관리 되는 서비스 공급자는 보안상의 이유로 실제 저장소 파일에 대 한 액세스를 제공 하지 않을 수 있으므로, 논리적 백업 및 복원만 마이그레이션하는 유일한 옵션입니다.
-- **온-프레미스 환경 또는 가상 Azure Database for MySQL 컴퓨터에서 마이그레이션하** 는 것은 물리적 백업의 복원을 지원 하지 않습니다 .이 경우 유일한 방법으로 논리적 백업 및 복원을 수행 합니다.
-- **백업 저장소를 로컬 중복에서 지역 중복 Azure Database for MySQL 저장소로 이동** 하면 백업에 대 한 로컬 중복 또는 지역 중복 저장소 구성이 서버를 만드는 동안에만 허용 됩니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다. 백업 저장소를 로컬 중복 저장소에서 지역 중복 저장소로 이동 하기 위해 유일한 옵션은 덤프 및 복원입니다. 
--  **대체 저장소 엔진에서 InnoDB-Azure Database for MySQL로 마이그레이션하면** InnoDB 저장소 엔진도 지원 되므로 대체 저장소 엔진을 지원 하지 않습니다. 테이블이 다른 스토리지 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
+- **다른 관리되는 서비스 공급자에서 이동** - 대부분의 관리되는 서비스 공급자는 보안상의 이유로 실제 스토리지 파일에 대한 액세스를 제공하지 않을 수 있으므로 논리적 백업 및 복원이 마이그레이션하는 유일한 옵션입니다.
+- **온-프레미스 환경 또는 가상 머신에서 마이그레이션** - Azure Database for MySQL은 논리적 백업 및 복원을 유일한 방법으로 만드는 실제 백업의 복원을 지원하지 않습니다.
+- **백업 스토리지를 로컬 중복에서 지역 중복 스토리지로 이동** - Azure Database for MySQL은 백업을 위해 로컬 중복 스토리지 또는 지역 중복 스토리지의 구성을 서버 생성 중에만 허용합니다. 서버가 프로비전되면 백업 스토리지 중복 옵션을 변경할 수 없습니다. 백업 스토리지를 로컬 중복 스토리지에서 지역 중복 스토리지로 이동하기 위한 유일한 옵션은 덤프 및 복원입니다. 
+-  **대체 스토리지 엔진에서 InnoDB로 마이그레이션** - Azure Database for MySQL은 InnoDB 스토리지 엔진만을 지원하므로 대체 스토리지 엔진을 지원하지 않습니다. 테이블이 다른 스토리지 엔진으로 구성된 경우 Azure Database for MySQL로 마이그레이션 전에 InnoDB 엔진 형식으로 변환합니다.
 
     예를 들어 MyISAM 테이블을 사용하는 WordPress 또는 WebApp이 있는 경우 Azure Database for MySQL로 복원하기 전에 InnoDB 형식으로 마이그레이션하여 먼저 해당 테이블을 변환합니다. `ENGINE=InnoDB` 절을 사용하여 새 테이블을 만들 때 사용되는 엔진을 설정한 다음 복원 전에 데이터를 호환되는 테이블로 전송합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "94537920"
 -   Azure blob/저장소에 백업 파일을 복사하고, 인터넷을 통해 복원을 수행할 때보다 훨씬 더 빨리 수행할 수 있는 위치에서 복원을 수행합니다.
 
 ## <a name="create-a-database-on-the-target-azure-database-for-mysql-server"></a>대상 Azure Database for MySQL 서버에서 데이터베이스 만들기
-데이터를 마이그레이션하려는 대상 Azure Database for MySQL 서버에서 빈 데이터베이스를 만듭니다. MySQL 워크 벤치 또는 mysql.exe와 같은 도구를 사용 하 여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
+데이터를 마이그레이션하려는 대상 Azure Database for MySQL 서버에서 빈 데이터베이스를 만듭니다. MySQL Workbench 또는 mysql.exe와 같은 도구를 사용하여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
 연결하려면 Azure Database for MySQL의 **개요** 에서 연결 정보를 찾습니다.
 
@@ -79,15 +79,15 @@ MySQL Workbench에 연결 정보를 추가합니다.
 더 빠른 데이터 로드를 위해 대상 Azure Database for MySQL 서버를 준비하려면 다음 서버 매개 변수 및 구성을 변경해야 합니다.
 - max_allowed_packet – 긴 행으로 인한 오버플로 문제를 방지하기 위해 1073741824(예: 1GB)로 설정합니다.
 - slow_query_log – 저속 쿼리 로그를 해제하려면 OFF로 설정합니다. 이렇게 하면 데이터 로드 중 느린 쿼리 로깅으로 인한 오버헤드가 제거됩니다.
-- query_store_capture_mode – 쿼리 저장소 해제 하려면 없음으로 설정 합니다. 이렇게 하면 쿼리 저장소의 샘플링 작업으로 인한 오버헤드가 제거됩니다.
+- query_store_capture_mode – 쿼리 저장소를 해제하려면 NONE으로 설정합니다. 이렇게 하면 쿼리 저장소의 샘플링 작업으로 인한 오버헤드가 제거됩니다.
 - innodb_buffer_pool_size – 마이그레이션 중에 포털의 가격 책정 계층에서 서버를 32개의 vCore 메모리 최적화 SKU로 확장하여 innodb_buffer_pool_size를 늘립니다. Innodb_buffer_pool_size는 Azure Database for MySQL 서버에 대한 컴퓨팅을 확장해야만 늘릴 수 있습니다.
-- innodb_io_capacity & innodb_io_capacity_max-Azure Portal의 서버 매개 변수에서 9000로 변경 하 여 마이그레이션 속도를 최적화 하기 위해 IO 사용률을 향상 시킵니다.
-- innodb_write_io_threads & innodb_write_io_threads-마이그레이션의 속도를 개선 하기 위해 Azure Portal의 서버 매개 변수에서 4로 변경 합니다.
+- innodb_io_capacity & innodb_io_capacity_max - Azure Portal의 서버 매개 변수에서 9000으로 변경하여 마이그레이션 속도를 최적화하기 위해 IO 사용률을 향상시킵니다.
+- innodb_write_io_threads & innodb_write_io_threads - 마이그레이션의 속도를 개선하기 위해 Azure Portal의 서버 매개 변수에서 4로 변경합니다.
 - 스토리지 계층 스케일 업 – 스토리지 계층이 증가함에 따라 Azure Database for MySQL 서버의 IOP가 점진적으로 증가합니다. 더 빠른 로드를 위해 스토리지 계층을 늘려 프로비저닝된 IOP를 늘릴 수 있습니다. 스토리지는 축소할 수 없고 확장만 할 수 있습니다.
 
 마이그레이션이 완료되면 서버 매개 변수 및 컴퓨팅 계층 구성을 이전 값으로 되돌릴 수 있습니다.
 
-## <a name="dump-and-restore-using-mysqldump-utility"></a>Mysqldump 유틸리티를 사용 하 여 덤프 및 복원
+## <a name="dump-and-restore-using-mysqldump-utility"></a>mysqldump 유틸리티를 사용하여 덤프 및 복원
 
 ### <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>mysqldump를 사용하여 명령줄에서 백업 파일 만들기
 로컬 온-프레미스 서버 또는 가상 머신에 기존 MySQL 데이터베이스를 백업하려면 다음 명령을 실행합니다.
@@ -102,12 +102,12 @@ $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 - [backupfile.sql] 데이터베이스 백업의 파일 이름
 - [-opt] mysqldump 옵션
 
-예를 들어 사용자 이름이 'testuser'이고 암호가 없는 'testdb'라는 MySQL 서버의 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb_backup.sql`이라는 파일로 `testdb` 데이터베이스를 백업합니다. 사용자 이름 ' testuser '에 적어도 덤프 된 테이블에 대 한 SELECT 권한이 있는지 확인 하 고, 덤프 된 뷰에 대 한 뷰를 표시 하 고, 덤프 된 트리거의 트리거를 사용 하 고,--단일 트랜잭션 옵션이 사용 되지 않는 경우 테이블을 잠급니다.
+예를 들어 사용자 이름이 'testuser'이고 암호가 없는 'testdb'라는 MySQL 서버의 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb_backup.sql`이라는 파일로 `testdb` 데이터베이스를 백업합니다. --single-transaction 옵션이 사용되지 않는 경우 사용자 이름 'testuser'에 덤프된 테이블에 대한 SELECT 권한, 덤프된 보기에 대한 SHOW VIEW 권한, 덤프된 트리거에 대한 TRIGGER 권한 및 LOCK TABLES 권한이 있는지 확인합니다.
 
 ```bash
 GRANT SELECT, LOCK TABLES, SHOW VIEW ON *.* TO 'testuser'@'hostname' IDENTIFIED BY 'password';
 ```
-이제 mysqldump을 실행 하 여 데이터베이스의 백업을 만듭니다. `testdb`
+이제 mysqldump를 실행하여 `testdb` 데이터베이스의 백업을 만듭니다.
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -129,12 +129,12 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 이 예제에서는 대상 Azure Database for MySQL 서버의 새로 만든 데이터베이스로 데이터를 복원합니다.
 
-**단일 서버** 에 대해이 **mysql** 을 사용 하는 방법에 대 한 예제는 다음과 같습니다.
+**단일 서버** 에 이 **mysql** 을 사용하는 방법에 대한 예제는 다음과 같습니다.
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-**유연한 서버** 에이 **mysql** 을 사용 하는 방법에 대 한 예제는 다음과 같습니다.
+**유연한 서버** 에 이 **mysql** 을 사용하는 방법에 대한 예제는 다음과 같습니다.
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
@@ -142,12 +142,12 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_b
 ---
 
 ## <a name="dump-and-restore-using-phpmyadmin"></a>PHPMyAdmin을 사용하여 덤프 및 복원
-PHPMyadmin를 사용 하 여 데이터베이스를 덤프 및 복원 하려면 다음 단계를 수행 합니다.
+다음 단계에 따라 PHPMyadmin을 사용하여 데이터베이스를 덤프 및 복원합니다.
 
 > [!NOTE]
-> 단일 서버의 경우 사용자 이름은 ' ' 형식 이어야 username@servername 하지만 유연한 서버에서는 ' '를 사용 하 여 유연한 서버에 대해 ' 사용자 이름 '을 사용할 수 있습니다 .이 경우에는 username@servername 연결이 실패 합니다.
+> 단일 서버의 경우, 사용자 이름은 'username@servername' 형식이어야 합니다. 그러나 유연한 서버의 경우 '사용자 이름'만 사용할 수 있습니다. 유연한 서버에 'username@servername'을 사용하면 연결이 실패합니다.
 
-### <a name="export-with-phpmyadmin"></a>PHPMyadmin를 사용 하 여 내보내기
+### <a name="export-with-phpmyadmin"></a>PHPMyadmin을 사용하여 내보내기
 내보내려면 환경에 로컬로 이미 설치했을 수 있는 일반 도구 phpMyAdmin을 사용할 수 있습니다. PHPMyAdmin을 사용하여 MySQL 데이터베이스를 내보내려면
 1. phpMyAdmin을 엽니다.
 2. 데이터베이스를 선택합니다. 왼쪽 목록에서 데이터베이스 이름을 클릭합니다.
@@ -171,4 +171,4 @@ PHPMyadmin를 사용 하 여 데이터베이스를 덤프 및 복원 하려면 �
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MySQL에 애플리케이션을 연결합니다](./howto-connection-string.md).
 - Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide)을 참조합니다.
-- 데이터베이스 크기가 1tb 이상인 대량 데이터베이스를 마이그레이션하려면 병렬 내보내기 및 가져오기를 지 원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용 하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.
+- 데이터베이스 크기가 1TB를 초과하는 대량 데이터베이스를 마이그레이션하려는 경우 병렬 내보내기 및 가져오기를 지원하는 **mydumper/myloader** 와 같은 커뮤니티 도구를 사용하는 것이 좋습니다. [대량 MySQL 데이터베이스를 마이그레이션하는 방법](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699)에 대해 알아봅니다.

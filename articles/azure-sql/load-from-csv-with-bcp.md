@@ -1,5 +1,5 @@
 ---
-title: CSV 파일에서 데이터베이스로 데이터 로드 (bcp)
+title: CSV 파일에서 데이터베이스(bcp)로 데이터 로드
 description: 작은 데이터 크기의 경우 bcp를 사용하여 Azure SQL Database로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
@@ -12,20 +12,20 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: 09ae46ec6455b6998bcf4da5648d2ceaef4d5b19
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105644793"
 ---
-# <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>CSV의 데이터를 Azure SQL Database 또는 SQL Managed Instance (플랫 파일)로 로드
+# <a name="load-data-from-csv-into-azure-sql-database-or-sql-managed-instance-flat-files"></a>CSV에서 Azure SQL Database 또는 SQL Managed Instance(플랫 파일)로 데이터 로드
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-Bcp 명령줄 유틸리티를 사용 하 여 CSV 파일에서 Azure SQL Database 또는 Azure SQL Managed Instance 데이터를 가져올 수 있습니다.
+bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL Database 또는 Azure SQL Managed Instance로 데이터를 가져올 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -33,13 +33,13 @@ Bcp 명령줄 유틸리티를 사용 하 여 CSV 파일에서 Azure SQL Database
 * 설치된 bcp 명령줄 유틸리티
 * 설치된 sqlcmd 명령줄 유틸리티
 
-[Microsoft Sqlcmd 설명서](/sql/tools/sqlcmd-utility?view=sql-server-ver15&preserve-view=true)에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
+[Microsoft sqlcmd 설명서](/sql/tools/sqlcmd-utility?view=sql-server-ver15&preserve-view=true)에서 bcp 및 sqlcmd 유틸리티를 다운로드할 수 있습니다.
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>ASCII 또는 UTF-16 형식 데이터
 
 사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다.
 
-## <a name="1-create-a-destination-table"></a>1. 대상 테이블을 만듭니다.
+## <a name="1-create-a-destination-table"></a>1. 대상 테이블 만들기
 
 SQL Database에서 테이블을 대상 테이블로 정의합니다. 테이블의 열은 데이터 파일의 각 행에 있는 데이터와 일치해야 합니다.
 

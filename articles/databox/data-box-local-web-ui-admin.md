@@ -1,6 +1,6 @@
 ---
-title: 로컬 웹 UI를 사용 하 여 Azure Data Box/Azure Data Box Heavy 관리
-description: 로컬 웹 UI를 사용 하 여 Data Box 및 Data Box Heavy 장치를 관리 하는 방법을 설명 합니다.
+title: 로컬 웹 UI를 사용하여 Azure Data Box/Azure Data Box Heavy 관리
+description: 로컬 웹 UI를 사용하여 Data Box 및 Data Box Heavy 디바이스를 관리하는 방법 설명
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,37 +9,37 @@ ms.topic: article
 ms.date: 12/18/2020
 ms.author: alkohli
 ms.openlocfilehash: e84f39fa5b9245d1874e60d651156e99c0885040
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97678926"
 ---
-# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용 하 여 Data Box를 관리 하 고 Data Box Heavy
+# <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>로컬 웹 UI를 사용하여 Data Box 및 Data Box Heavy 디바이스 관리
 
-이 문서에서는 Data Box 및 Data Box Heavy 장치에서 수행 되는 구성 및 관리 작업에 대해 설명 합니다. Azure Portal UI와 장치의 로컬 웹 UI를 통해 Data Box 및 Data Box Heavy 장치를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용 하 여 수행 되는 작업에 대해 집중적으로 설명 합니다.
+이 문서는 Data Box 및 Data Box Heavy 디바이스에서 수행되는 몇 가지 구성 및 관리 작업을 설명합니다. 디바이스의 로컬 웹 UI와 Azure Portal UI를 통해 Data Box 및 Data Box Heavy 디바이스를 관리할 수 있습니다. 이 문서에서는 로컬 웹 UI를 사용하여 수행되는 작업을 집중적으로 설명합니다.
 
-Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성에 사용 됩니다. 로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작 하 고, 진단 테스트를 실행 하 고, 소프트웨어를 업데이트 하 고, 복사 로그를 보고, 장치에서 로컬 데이터를 지우고, Microsoft 지원에 대 한 지원 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 장치에서는 장치의 각 노드에 해당 하는 두 개의 개별 로컬 웹 Ui에 액세스할 수 있습니다.
+Data Box 및 Data Box Heavy용 로컬 웹 UI는 디바이스의 초기 구성에 사용됩니다. 로컬 웹 UI를 사용하여 디바이스를 종료하거나 다시 시작하고, 진단 테스트를 실행하고, 소프트웨어를 업데이트하고, 복사 로그를 확인하고, 디바이스에서 로컬 데이터를 삭제하며, Microsoft 지원에 보낼 지원 패키지를 생성할 수도 있습니다. 독립적인 노드가 두 개인 Data Box Heavy 디바이스에서는 디바이스의 각 노드에 해당하는 두 개의 개별 로컬 웹 UI에 액세스할 수 있습니다.
 
 ## <a name="generate-support-package"></a>지원 패키지 생성
 
 디바이스 문제가 발생하는 경우 시스템 로그에서 지원 패키지를 만들 수 있습니다. Microsoft 지원에서는 이 패키지를 사용하여 문제를 해결합니다.
 
-지원 패키지를 생성 하려면 다음 단계를 수행 합니다.
+지원 패키지를 생성하려면 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **지원 담당자** 로 이동 합니다. 필요에 따라 **메모리 덤프 포함** 을 선택 합니다. 그런 다음 **지원 패키지 만들기** 를 선택 합니다.
+1. 로컬 웹 UI에서 **고객 지원팀에 문의** 로 이동합니다. 필요에 따라 **메모리 덤프 포함** 을 선택합니다. 그런 다음 **지원 패키지 만들기** 를 선택합니다.
 
-    메모리 덤프는 시스템 오류가 발생 한 후 저장 되는 장치 메모리의 내용입니다.
+    메모리 덤프는 시스템 실패가 발생한 후 저장되는 디바이스 메모리의 콘텐츠입니다.
 
-    지원 서비스를 요청 하지 않는 한 **메모리 덤프 포함** 옵션을 선택 하면 안 됩니다. 메모리 덤프가 포함 된 지원 패키지를 수집 하는 데 시간이 오래 걸리고 중요 한 데이터가 포함 되어 있습니다.
+    고객 지원팀이 요청하지 않는 한 **메모리 덤프 포함** 옵션을 선택해서는 안 됩니다. 메모리 덤프가 포함된 지원 패키지를 수집하는 데는 시간이 오래 걸리고 중요한 데이터가 포함되어 있습니다.
 
     ![지원 패키지 만들기 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
-    지원 패키지가 수집됩니다. 시스템 로그만 포함 하는 경우이 작업은 몇 분 정도 걸립니다. 메모리 덤프를 포함 하는 경우 더 오랜 시간이 걸립니다.
+    지원 패키지가 수집됩니다. 시스템 로그만 포함하는 경우 이 작업은 몇 분 정도 걸립니다. 메모리 덤프를 포함하는 경우 시간이 더 오래 걸립니다.
 
     ![지원 패키지 만들기 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-2. 지원 패키지 만들기가 완료 되 면 **지원 패키지 다운로드** 를 선택 합니다.
+2. 지원 패키지 만들기가 완료되면 **지원 패키지 다운로드** 를 선택합니다.
 
     ![지원 패키지 만들기 3](media/data-box-local-web-ui-admin/create-support-package-3.png)
 
@@ -47,31 +47,31 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
     ![지원 패키지 만들기 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
-## <a name="erase-local-data-from-your-device"></a>장치에서 로컬 데이터 지우기
+## <a name="erase-local-data-from-your-device"></a>디바이스에서 로컬 데이터 지우기
 
-로컬 웹 UI를 사용 하 여 Azure 데이터 센터에 반환 하기 전에 장치에서 로컬 데이터를 지울 수 있습니다.
+로컬 웹 UI를 사용하여 Azure 데이터 센터에 반환하기 전에 디바이스에서 로컬 데이터를 지울 수 있습니다.
 
 > [!IMPORTANT]
-> 데이터 지우기는 되돌릴 수 없습니다. 장치에서 로컬 데이터를 지우기 전에 파일을 백업 해야 합니다.
+> 데이터를 지우면 되돌릴 수 없습니다. 디바이스에서 로컬 데이터를 지우기 전에 파일을 백업해야 합니다.
 
-장치에서 로컬 데이터를 지우려면 다음 단계를 수행 합니다.
+디바이스에서 로컬 데이터를 지우려면 다음 단계를 수행합니다.
 
-1. 로컬 웹 UI에서 **데이터 지우기** 로 이동 합니다.
-2. 장치 암호를 입력 하 고 **데이터 지우기** 를 선택 합니다.
+1. 로컬 웹 UI에서 **데이터 지우기** 로 이동합니다.
+2. 디바이스 암호를 입력하고 **데이터 지우기** 를 선택합니다.
 
-    ![장치에 대 한 데이터 지우기 옵션](media/data-box-local-web-ui-admin/erase-local-data-1.png)
+    ![디바이스에 대한 데이터 지우기 옵션](media/data-box-local-web-ui-admin/erase-local-data-1.png)
 
-3. 확인 메시지가 표시 되 면 **예** 를 선택 하 여 계속 합니다. 데이터 지우기는 50 분까지 걸릴 수 있습니다.
+3. 확인 메시지가 나타나면 **예** 를 선택하여 계속 진행합니다. 데이터 지우기는 50분까지 걸릴 수 있습니다.
 
-   장치에서 삭제 하기 전에 로컬 데이터를 백업 해야 합니다. 데이터 지우기는 되돌릴 수 없습니다.
+   디바이스에서 삭제하기 전에 로컬 데이터를 백업해야 합니다. 데이터를 지우면 되돌릴 수 없습니다.
 
     ![데이터 지우기 확인 프롬프트](media/data-box-local-web-ui-admin/erase-local-data-2.png)
 
 ## <a name="shut-down-or-restart-your-device"></a>디바이스 종료 또는 다시 시작
 
-로컬 웹 UI를 사용 하 여 장치를 종료 하거나 다시 시작할 수 있습니다. 다시 시작 하기 전에 호스트와 장치에서 공유를 오프 라인 상태로 전환 하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화 됩니다. 장치를 종료할 때 데이터 복사가 진행 되 고 있지 않은지 확인 합니다.
+로컬 웹 UI를 사용하여 디바이스를 종료하거나 다시 시작할 수 있습니다. 다시 시작하기 전에 호스트에서 공유를 오프라인으로 전환한 후 디바이스를 다시 시작하는 것이 좋습니다. 이렇게 하면 데이터 손상 가능성이 최소화됩니다. 디바이스를 종료할 때 데이터 복사가 진행 중이지 않은지 확인합니다.
 
-장치를 종료 하려면 다음 단계를 수행 합니다.
+디바이스를 종료하려면 다음 단계를 수행합니다.
 
 1. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
 
@@ -79,7 +79,7 @@ Data Box 및 Data Box Heavy에 대 한 로컬 웹 UI는 장치의 초기 구성�
 
     ![Data Box 종료 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. 확인 메시지가 표시 되 면 **확인** 을 선택 하 여 계속 합니다.
+3. 확인을 요청하는 메시지가 표시되면 **확인** 을 선택하여 계속 진행합니다.
 
     ![Data Box 종료 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -92,25 +92,25 @@ Data Box를 다시 시작하려면 다음 단계를 수행합니다.
 
     ![Data Box 다시 시작 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. 확인 메시지가 표시 되 면 **확인** 을 선택 하 여 계속 합니다.
+3. 확인을 요청하는 메시지가 표시되면 **확인** 을 선택하여 계속 진행합니다.
 
    디바이스가 종료되었다가 다시 시작됩니다.
 
 ## <a name="download-bom-or-manifest-files"></a>BOM 또는 매니페스트 파일 다운로드
 
-BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 된 파일의 목록을 포함 합니다. 이러한 파일은 장치를 배송할 준비를 할 때 가져오기 순서에 대해 생성 됩니다.
+BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사되는 파일 목록을 포함하고 있습니다. 이러한 파일은 디바이스를 배송할 준비를 할 때 가져오기 순서에 따라 생성됩니다.
 
-시작 하기 전에 다음 단계를 수행 하 여 가져오기 순서로 BOM 또는 매니페스트 파일을 다운로드 합니다.
+시작하기 전에 다음 단계를 수행하여 가져오기 순서에 따라 BOM 또는 매니페스트 파일을 다운로드합니다.
 
-1. 장치의 로컬 웹 UI로 이동 합니다. 장치가 **배송 준비** 단계를 완료 했는지 확인 합니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료** 로 표시됩니다.
+1. 디바이스의 로컬 웹 UI로 이동합니다. 디바이스가 **배송 준비** 단계를 완료했는지 확인합니다. 디바이스 준비가 완료되면 디바이스 상태가 **배송 준비 완료** 로 표시됩니다.
 
     ![디바이스 배송 준비 완료](media/data-box-local-web-ui-admin/prepare-to-ship-3.png)
 
-2. **파일 목록 다운로드** 를 선택 하 여 Data Box에 복사 된 파일 목록을 다운로드 합니다.
+2. **파일 목록 다운로드** 를 선택하면 Data Box에 복사된 파일 목록을 다운로드할 수 있습니다.
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. 파일 탐색기에서 장치에 연결 하는 데 사용 되는 프로토콜 및 사용 되는 Azure Storage 형식에 따라 별도의 파일 목록이 생성 됩니다.
+3. 파일 탐색기에서, 디바이스에 연결하는 데 사용된 프로토콜 및 사용된 Azure Storage 유형에 따라 별도의 파일 목록이 생성되는 것을 볼 수 있습니다.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![스토리지 유형 및 연결 프로토콜에 대한 파일](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -128,7 +128,7 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 이 목록을 사용하여 Data Box가 Azure 데이터 센터로 반환된 후 Azure Storage 계정에 업로드된 파일을 확인합니다. 샘플 매니페스트 파일은 아래에 표시되어 있습니다.
 
 > [!NOTE]
-> Data Box Heavy에는 장치의 두 노드에 해당 하는 두 개의 파일 목록 (BOM 파일)이 표시 됩니다.
+> Data Box Heavy에는 디바이스의 두 노드에 해당하는 두 개의 파일 목록 집합(BOM 파일)이 표시됩니다.
 
 ```xml
 <file size="52689" crc64="0x95a62e3f2095181e">\databox\media\data-box-deploy-copy-data\prepare-to-ship2.png</file>
@@ -170,7 +170,7 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 <file size="3603" crc64="0x7e34c25d5606693f">\databox\TOC.yml</file>
 ```
 
-이 파일은 Data Box 또는 Data Box Heavy에 복사 된 모든 파일의 목록을 포함 합니다. 이 파일의 *crc64* 값은 해당 파일에 대해 생성된 체크섬과 관련이 있습니다.
+이 파일에는 Data Box 또는 Data Box Heavy에 복사된 모든 파일 목록이 포함되어 있습니다. 이 파일의 *crc64* 값은 해당 파일에 대해 생성된 체크섬과 관련이 있습니다.
 
 ## <a name="view-available-capacity-of-the-device"></a>디바이스의 사용 가능한 용량 확인
 
@@ -185,11 +185,11 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 
 기본적으로는 배송을 준비할 때 데이터의 체크섬이 생성됩니다. 드물지만 파일 형식(작은 파일 크기)에 따라 성능이 저하될 수 있습니다. 이러한 경우에는 체크섬을 건너뛸 수 있습니다.
 
-발송 준비 중에 체크섬 계산은 가져오기 주문에 대해서만 수행 되며 내보내기 주문에 대해서는 수행 되지 않습니다.
+배송 준비 중 체크섬 계산은 가져오기 주문에 대해서만 수행되며 내보내기 주문에 대해서는 수행되지 않습니다.
 
-성능이 심각 하 게 영향을 받지 않는 경우에는 체크섬을 사용 하지 않도록 설정 하는 것이 좋습니다.
+성능이 심하게 영향을 받은 경우가 아니면 체크섬은 사용하는 것이 좋습니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 으로 이동 합니다.
+1. 디바이스 로컬 웹 UI의 오른쪽 위에 있는 **설정** 으로 이동합니다.
 
     ![체크섬 사용 안 함](media/data-box-local-web-ui-admin/disable-checksum.png)
 
@@ -197,21 +197,21 @@ BOM 또는 매니페스트 파일은 Data Box 또는 Data Box Heavy에 복사 �
 3. **적용** 을 선택합니다.
 
 > [!NOTE]
-> 체크섬 계산 건너뛰기 옵션은 Azure Data Box 잠금 해제 된 경우에만 사용할 수 있습니다. 장치가 잠겨 있으면이 옵션이 표시 되지 않습니다.
+> 체크섬 계산 건너뛰기 옵션은 Azure Data Box가 잠금 해제된 경우에만 사용할 수 있습니다. 디바이스가 잠겨 있으면 이 옵션이 표시되지 않습니다.
 
 ## <a name="enable-smb-signing"></a>SMB 서명 사용
 
-SMB (서버 메시지 블록) 서명은 SMB를 사용 하는 통신을 패킷 수준에서 디지털 서명할 수 있는 기능입니다. 이 서명은 전송 중인 SMB 패킷을 수정 하는 공격을 방지 합니다.
+SMB(서버 메시지 블록) 서명은 SMB를 사용하는 통신을 패킷 수준에서 디지털 서명할 수 있는 기능입니다. 이 서명은 전송 중인 SMB 패킷을 수정하는 공격을 방지합니다.
 
-SMB 서명과 관련 된 자세한 내용은 [서버 메시지 블록 서명 개요](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing)를 참조 하세요.
+SMB 서명과 관련된 자세한 내용은 [서버 메시지 블록 서명 개요](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing)를 참조하세요.
 
-Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수행 합니다.
+Azure 디바이스에서 SMB 서명을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
+1. 디바이스 로컬 웹 UI의 오른쪽 위에 있는 **설정** 을 선택합니다.
 
     ![설정 열기](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
-2. **사용** SMB 서명.
+2. SMB 서명을 **사용** 합니다.
 
     ![SMB 서명 사용](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
@@ -219,44 +219,44 @@ Azure 장치에서 SMB 서명을 사용 하도록 설정 하려면 다음을 수
 4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
 5. **다시 시작** 을 선택합니다.
 
-## <a name="enable-backup-operator-privileges"></a>Backup 운영자 권한 사용
+## <a name="enable-backup-operator-privileges"></a>백업 운영자 권한 사용
 
-웹 UI 사용자에 게는 기본적으로 SMB 공유에 대 한 Backup Operator 권한이 있습니다. 이를 원하지 않는 경우에는 **Back Operator 권한** 사용을 사용 하거나 사용 하지 않도록 설정 합니다.
+웹 UI 사용자에게는 기본값으로 SMB 공유에 대한 백업 운영자 권한이 있습니다. 이를 원하지 않는 경우에는 **백업 운영자 권한 사용** 을 사용하여 권한을 사용하거나 사용하지 않도록 설정합니다.
 
-자세한 내용은 [Active Directory 보안 그룹](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)의 백업 운영자를 참조 하세요.
+자세한 내용은 [Active Directory 보안 그룹](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators)의 백업 운영자를 참조하세요.
 
-Azure 장치에서 Backup 운영자 권한을 사용 하도록 설정 하려면 다음을 수행 합니다.
+Azure 디바이스에서 백업 운영자 권한을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
+1. 디바이스 로컬 웹 UI의 오른쪽 위에 있는 **설정** 을 선택합니다.
 
    ![Data Box 설정 열기-1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
-2. **사용** Backup Operator 권한입니다.
+2. 백업 운영자 권한을 **사용** 합니다.
 
-   ![Backup 운영자 권한 사용](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+   ![백업 운영자 권한 사용](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
 
-3. **적용을 선택** 합니다.
+3. **적용을 선택합니다**.
 4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
 5. **다시 시작** 을 선택합니다.
 
-## <a name="enable-acls-for-azure-files"></a>Azure Files Acl 사용
+## <a name="enable-acls-for-azure-files"></a>Azure Files용 ACL 사용
 
-사용자가 SMB를 통해 Data Box에 데이터를 업로드 하면 기본적으로 파일에 대 한 메타 데이터가 전송 됩니다. 메타 데이터에는 Acl (액세스 제어 목록), 파일 특성 및 타임 스탬프가 포함 됩니다. 이 기능을 사용 하지 않으려면 **Azure 파일에 acl** 을 사용 하 여이 기능을 사용 하지 않도록 설정 하거나 사용 하도록 설정 합니다.
+사용자가 SMB를 통해 Data Box에 데이터를 업로드하면 기본값으로 파일의 메타데이터가 전송됩니다. 메타데이터에는 ACL(액세스 제어 목록), 파일 특성 및 타임스탬프가 포함됩니다. 이 기능을 사용하지 않으려면 **Azure 파일용 ACL** 을 사용하여 이 기능을 사용하지 않도록 설정하거나 사용하도록 설정합니다.
 
 <!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
 
 > [!Note]
-> 파일을 사용 하 여 메타 데이터를 전송 하려면 백업 운영자 여야 합니다. 이 기능을 사용 하는 경우 웹 UI의 로컬 사용자가 백업 운영자 인지 확인 합니다. [Backup Operator 권한 사용](#enable-backup-operator-privileges)을 참조 하세요.
+> 파일을 사용하여 메타데이터를 전송하려면 백업 운영자여야 합니다. 이 기능을 사용하는 경우 웹 UI의 로컬 사용자가 백업 운영자인지 확인합니다. [백업 운영자 권한 사용](#enable-backup-operator-privileges)을 참조하세요.
 
-Azure 파일에 대 한 Acl 전송을 사용 하도록 설정 하려면:
+Azure 파일에 대한 ACL 전송을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
+1. 디바이스 로컬 웹 UI의 오른쪽 위에 있는 **설정** 을 선택합니다.
 
     ![Data Box 설정 열기-2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
-2. **사용** Azure 파일에 대 한 Acl.
+2. Azure Files용 ACL을 **사용** 합니다.
 
-     ![Azure 파일에 Acl 사용](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+     ![Azure Files용 ACL 사용](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
 3. **적용** 을 선택합니다.
 4. 로컬 웹 UI에서 **종료 또는 다시 시작** 으로 이동합니다.
@@ -264,17 +264,17 @@ Azure 파일에 대 한 Acl 전송을 사용 하도록 설정 하려면:
 
 ## <a name="enable-tls-11"></a>TLS 1.1 사용
 
-기본적으로 Azure Data Box는 TSL 1.1 보다 더 안전 하므로 암호화에 TLS (Transport Layer Security) 1.2를 사용 합니다. 그러나 사용자 또는 클라이언트에서 브라우저를 사용 하 여 TLS 1.2을 지원 하지 않는 데이터에 액세스 하는 경우 TLS 1.1을 사용 하도록 설정할 수 있습니다.
+기본값으로 Azure Data Box는 암호화에 TSL(전송 계층 보안) 1.1보다 더 안전한 TLS 1.2를 사용합니다. 그러나 사용자 또는 클라이언트에서 브라우저를 사용하여 TLS 1.2을 지원하지 않는 데이터에 액세스하는 경우 TLS 1.1을 사용하도록 설정할 수 있습니다.
 
-TLS와 관련 된 자세한 내용은 [Azure Data Box Gateway 보안](../databox-gateway/data-box-gateway-security.md)을 참조 하세요.
+TLS와 관련된 자세한 내용은 [Azure Data Box Gateway 보안](../databox-gateway/data-box-gateway-security.md)을 참조하세요.
 
-Azure 장치에서 TLS 1.1을 사용 하도록 설정 하려면 다음을 수행 합니다.
+Azure 디바이스에서 TLS 1.1을 사용하도록 설정하려면 다음을 수행합니다.
 
-1. 장치의 로컬 웹 UI의 오른쪽 위 모서리에서 **설정** 을 선택 합니다.
+1. 디바이스 로컬 웹 UI의 오른쪽 위에 있는 **설정** 을 선택합니다.
 
     ![Data Box 설정 열기-3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
-2. **사용** TLS 1.1.
+2. TLS 1.1을 **사용** 합니다.
 
     ![TLS 1.1 사용](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
@@ -284,4 +284,4 @@ Azure 장치에서 TLS 1.1을 사용 하도록 설정 하려면 다음을 수행
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal를 통해 Data Box 및 Data Box Heavy를 관리](data-box-portal-admin.md)하는 방법을 알아봅니다.
+- [Azure Portal을 통해 Data Box 및 Data Box Heavy를 관리](data-box-portal-admin.md)하는 방법을 알아봅니다.

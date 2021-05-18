@@ -1,14 +1,14 @@
 ---
 title: 방화벽 액세스 규칙
-description: REST API 및 데이터 끝점 도메인 이름이 나 서비스별 IP 주소 범위에 대 한 액세스를 허용 하 여 방화벽 뒤에서 Azure container registry에 액세스 하는 규칙을 구성 합니다.
+description: REST API 및 데이터 엔드포인트 도메인 이름 또는 서비스별 IP 주소 범위에 대한 액세스를 허용하여 방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙을 구성합니다.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 548d64632c1d726111770dfb49f705d31f5ca714
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 6aea4415468eb21e8d010b74597fc68e4ebf573f
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97935991"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783938"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>방화벽 뒤에서 Azure 컨테이너 레지스트리에 액세스하기 위한 규칙 구성
 
@@ -197,5 +197,5 @@ az acr show-endpoints --name myregistry
 
 <!-- LINKS - Internal -->
 
-[az-acr-update]: /cli/azure/acr#az-acr-update
-[az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
+[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-show-endpoints]: /cli/azure/acr#az_acr_show_endpoints

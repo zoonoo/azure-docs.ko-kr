@@ -1,6 +1,6 @@
 ---
 title: Azure 인프라 보안 | Microsoft Docs
-description: Azure 데이터 센터를 보호 하기 위해 Microsoft가 어떻게 작동 하는지 알아보세요. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다.
+description: Azure 데이터 센터를 보호하기 위해 Microsoft가 어떻게 작동하는지 알아보세요. 데이터 센터는 Microsoft 운영 담당자에 의해 관리되고 모니터링됩니다.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
 ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87543931"
 ---
 # <a name="azure-infrastructure-security"></a>Azure 인프라 보안
@@ -41,6 +41,6 @@ Microsoft Azure는 Microsoft에서 관리하고 운영하는 데이터 센터에
 
 ## <a name="next-steps"></a>다음 단계
 
-- [클라우드의 공유 책임](shared-responsibility.md)을 이해 합니다.
+- [클라우드에서의 공동 책임](shared-responsibility.md)을 이해합니다.
 
-- Azure 리소스의 보안에 대 한 향상 된 가시성과 제어를 통해 위협을 예방, 감지 및 대응 하는 데 [Azure Security Center](https://azure.microsoft.com/services/security-center/) 하는 방법에 대해 알아봅니다.
+- [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 통해 Azure 리소스의 보안에 대한 향상된 가시성과 제어권으로 위협을 예방하고 검색하며 위협에 대응할 수 있는 방법을 알아봅니다.

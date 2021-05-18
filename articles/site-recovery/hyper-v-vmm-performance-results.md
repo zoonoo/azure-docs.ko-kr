@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 VMM을 사용 하 여 보조 사이트로 Hyper-v VM 복제 테스트
+title: Azure Site Recovery를 사용하여 VMM으로 보조 사이트에 대한 Hyper-V VM 복제 테스트
 description: 이 문서에서는 Azure Site Recovery를 사용하여 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제에 대한 성능 테스트에 대해 정보를 제공합니다.
 author: sujayt
 manager: rochakm
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
 ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92327640"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
@@ -47,7 +47,7 @@ ms.locfileid: "92327640"
 * Hyper-V 복제본은 추적을 위해 IOPS 오버헤드를 최소화하도록 자체 관리되는 메모리 캐시를 활용합니다. 메모리에서 VHDX에 쓰기를 저장하고 복구 사이트로 로그를 보내기 전에 해당 로그 파일에 이를 플러시합니다. 쓰기가 미리 결정된 제한에 도달하는 경우에도 디스크 플러시가 발생합니다.
 * 아래 Graph는 복제에 대한 안정적인 상태 IOPS 오버헤드를 보여줍니다. 복제로 인한 IOPS 오버헤드는 약 5%로 상당히 낮음을 볼 수 있습니다.
 
-  ![복제에 대 한 안정적인 상태 IOPS 오버 헤드를 보여 주는 그래프입니다.](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![복제에 대한 안정적인 상태 IOPS 오버헤드를 보여 주는 Graph입니다.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 Hyper-V 복제본은 디스크 성능을 최적화하기 위해 기본 서버의 메모리를 사용합니다. 다음 Graph에서 볼 수 있듯이 기본 클러스터에서 모든 서버의 메모리 오버헤드는 한계입니다. 표시되는 메모리 오버헤드는 Hyper-V 서버에서 설치된 총 메모리에 비해 복제를 통해 사용되는 메모리의 비율입니다.
 
@@ -55,20 +55,20 @@ Hyper-V 복제본은 디스크 성능을 최적화하기 위해 기본 서버의
 
 Hyper-V 복제본에는 최소 CPU 오버헤드가 있습니다. Graph에서 볼 수 있듯이 복제 오버헤드는 2~3% 범위 이내입니다.
 
-![복제 오버 헤드를 표시 하는 그래프의 범위는 2-3%입니다.](./media/hyper-v-vmm-performance-results/IC744915.png)
+![복제 오버헤드가 2~3 % 범위 이내임을 보여 주는 Graph입니다.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>보조 서버 성능
 
 Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 스토리지 작업의 수를 최적화합니다. Graph는 복구 서버에서 메모리 사용량을 요약합니다. 표시되는 메모리 오버헤드는 Hyper-V 서버에서 설치된 총 메모리에 비해 복제를 통해 사용되는 메모리의 비율입니다.
 
-![복구 서버의 메모리 사용량을 요약 하는 그래프입니다.](./media/hyper-v-vmm-performance-results/IC744916.png)
+![복구 서버에서 메모리 사용량을 요약하는 Graph입니다.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 복구 사이트에서 I/O 작업 양은 기본 사이트에서 쓰기 작업의 수에 따라 다릅니다. 기본 사이트에서 총 I/O 작업 및 쓰기 작업과 비교하여 복구 사이트에서 총 I/O 작업을 살펴 보겠습니다. Graph는 복구 사이트에서 총 IOPS를 보여줍니다.
 
 * 기본에서 쓰기 IOPS의 약 1.5배입니다.
 * 기본 사이트에서 총 IOPS의 약 37%입니다.
 
-![기본 사이트와 보조 사이트의 IOPS 비교를 보여 주는 그래프입니다.](./media/hyper-v-vmm-performance-results/IC744917.png)
+![기본 사이트와 보조 사이트의 IOPS를 비교한 Graph입니다.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![보조 결과](./media/hyper-v-vmm-performance-results/IC744918.png)
 
@@ -134,7 +134,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 | 작업 | I/O 크기(KB) | 액세스 % | 쓰기 % | 미해결 I/O | I/O 패턴 |
 | --- | --- | --- | --- | --- | --- |
 | 파일 서버 |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |모두 100% 임의 |
-| SQL Server(볼륨 1)<br />SQL Server (볼륨 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% 임의<br />100% 순차 |
+| SQL Server(볼륨 1)<br />SQL Server(볼륨 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% 임의<br />100% 순차 |
 | Exchange |32 |100% |67% |8 |100% 임의 |
 | 워크스테이션/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |둘 다 100% 임의 |
 | 웹 파일 서버 |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |모두 75% 임의 |

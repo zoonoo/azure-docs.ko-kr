@@ -8,10 +8,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: fcf7620f53c9bfdb51eb62598f2c8b441574eca6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90006083"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub"></a>IoT Hub에서 TLS 1.0 및 1.1 사용 중단
@@ -40,7 +40,7 @@ IoT Hub는 추가 공지가 있을 때까지 TLS 1.0/1.1을 계속 지원합니�
 
 ## <a name="tls-12-cipher-suites"></a>TLS 1.2 암호 그룹
 
-[IOT HUB TLS 1.2 암호 그룹](iot-hub-tls-support.md#cipher-suites)을 참조 하세요.
+[IoT Hub TLS 1.2 암호 그룹](iot-hub-tls-support.md#cipher-suites)을 참조하세요.
  
 ## <a name="customer-feedback"></a>고객 의견
 

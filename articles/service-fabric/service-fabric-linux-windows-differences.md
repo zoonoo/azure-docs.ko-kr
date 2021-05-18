@@ -4,10 +4,10 @@ description: Linux의 Azure Service Fabric과 Windows의 Azure Service Fabric �
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 4adae60ded804450c25809faa0edca6bb058adf7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96574499"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux와 Windows의 Service Fabric 간의 차이점
@@ -82,6 +82,6 @@ ms.locfileid: "96574499"
 * [Linux에서 개발 환경 준비](service-fabric-get-started-linux.md)
 * [OSX에서 개발 환경 준비](service-fabric-get-started-mac.md)
 * [Yeoman을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-create-your-first-linux-application-with-java.md)
-* [Eclipse 용 Service Fabric 플러그 인을 사용 하 여 Linux에서 첫 번째 Service Fabric Java 응용 프로그램 만들기 및 배포](service-fabric-get-started-eclipse.md)
+* [Eclipse용 Service Fabric 플러그 인을 사용하여 Linux에서 첫 번째 Service Fabric Java 애플리케이션 만들기 및 배포](service-fabric-get-started-eclipse.md)
 * [Linux에서 첫 번째 CSharp 애플리케이션 만들기](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Service Fabric CLI를 사용하여 애플리케이션 관리](service-fabric-application-lifecycle-sfctl.md)

@@ -4,16 +4,20 @@ description: 제공되는 기능을 기준으로 API Management 계층을 비교
 services: api-management
 documentationcenter: ''
 author: vladvino
+manager: gwallace
+editor: ''
 ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/13/2021
+ms.date: 07/15/2020
 ms.author: apimpm
-ms.openlocfilehash: f111729d7d7707ed4f40ce8f89ce76975fb47400
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: eec913237ba978e52bb64fbd4c1f043a9214ffc8
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107536451"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "92077850"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API Management 계층의 기능 기반 비교
 
@@ -22,12 +26,11 @@ ms.locfileid: "107536451"
 > [!IMPORTANT]
 > 개발자 계층은 비프로덕션 사용 사례 및 평가용입니다. SLA는 제공하지 않습니다.
 
-| 기능                                                                                      | Consumption | 개발자 | Basic | Standard | Premium |
+| 기능                                                                                      | Consumption | Developer | Basic | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Azure AD 통합<sup>1</sup>                                                             | 예          | 예       | 예    | 예      | 예     |
 | 가상 네트워크(VNet) 지원                                                               | 예          | 예       | 예    | 예       | 예     |
 | 다중 지역 배포                                                                      | 예          | 예        | 예    | 예       | 예     |
-| 가용성 영역                                                                           | 예          | 예        | 예    | 예       | 예     |
 | 여러 사용자 지정 도메인 이름                                                                 | 예          | 예        | 예    | 예       | 예     |
 | 개발자 포털<sup>2</sup>                                                                 | 예          | 예       | 예   | 예      | 예     |
 | 기본 제공 캐시                                                                               | 예          | 예       | 예   | 예      | 예     |
@@ -39,7 +42,7 @@ ms.locfileid: "107536451"
 | [Backup 및 복원](api-management-howto-disaster-recovery-backup-restore.md)               | 예          | 예       | 예   | 예      | 예     |
 | [Git을 통한 관리](api-management-configuration-repository-git.md)                        | 예          | 예       | 예   | 예      | 예     |
 | 직접 관리 API                                                                        | 예          | 예       | 예   | 예      | 예     |
-| Azure Monitor 로그 및 메트릭                                                               | 예          | 예       | 예   | 예      | 예     |
+| Azure Monitor 로그 및 메트릭                                                               | 예         | 예       | 예   | 예      | 예     |
 | 고정 IP                                                                                    | 예          | 예       | 예   | 예      | 예     |
 
 <sup>1</sup> 개발자 포털에서 사용자 로그인의 ID 공급자로 Azure AD(및 Azure AD B2C)를 사용할 수 있습니다.<br/>

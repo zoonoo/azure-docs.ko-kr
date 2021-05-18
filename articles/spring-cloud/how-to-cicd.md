@@ -1,6 +1,6 @@
 ---
-title: Azure 스프링 클라우드 용 CI/CD
-description: Azure 스프링 클라우드 용 CI/CD
+title: Azure Spring Cloud에 대한 CI/CD
+description: Azure Spring Cloud에 대한 CI/CD
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,27 +9,27 @@ ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 331ef39facb9f7cf8f069f2a238be325f53de2d0
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104878544"
 ---
-# <a name="cicd-for-azure-spring-cloud"></a>Azure 스프링 클라우드 용 CI/CD
+# <a name="cicd-for-azure-spring-cloud"></a>Azure Spring Cloud에 대한 CI/CD
 
-연속 통합 및 지속적인 업데이트 도구를 사용 하면 최소한의 노력과 위험으로 기존 응용 프로그램에 업데이트를 신속 하 게 배포할 수 있습니다. Azure DevOps는 이러한 주요 작업을 구성 하 고 제어 하는 데 도움이 됩니다. 현재 Azure 스프링 클라우드는 특정 Azure DevOps 플러그 인을 제공 하지 않습니다.  그러나 [Azure CLI 작업](/azure/devops/pipelines/tasks/deploy/azure-cli)을 사용 하 여 스프링 클라우드 응용 프로그램을 devops와 통합할 수 있습니다.
+연속 통합 및 지속적인 업데이트 도구를 사용하면 최소한의 노력과 위험으로 기존 애플리케이션에 업데이트를 신속하게 배포할 수 있습니다. Azure DevOps는 이러한 핵심 작업을 구성하고 제어하는 데 도움이 됩니다. 현재 Azure 스프링 클라우드는 특정 Azure DevOps 플러그 인을 제공하지 않습니다.  그러나 [Azure CLI 작업](/azure/devops/pipelines/tasks/deploy/azure-cli)을 사용하여 스프링 클라우드 애플리케이션을 DevOps와 통합할 수 있습니다.
 
-이 문서에서는 azure 스프링 클라우드에서 Azure CLI 작업을 사용 하 여 Azure DevOps와 통합 하는 방법을 보여 줍니다.
+이 문서에서는 Azure 스프링 클라우드에서 Azure CLI 작업을 사용하여 Azure DevOps와 통합하는 방법을 보여 줍니다.
 
 ## <a name="create-an-azure-resource-manager-service-connection"></a>Azure Resource Manager 서비스 연결 만들기
 
-Azure DevOps 프로젝트에 대 한 Azure Resource Manager 서비스 연결을 만드는 방법에 대해 알아보려면 [이 문서](/azure/devops/pipelines/library/connect-to-azure) 를 참조 하세요. Azure 스프링 클라우드 서비스 인스턴스에 사용 하는 것과 동일한 구독을 선택 해야 합니다.
+Azure DevOps 프로젝트에 대한 Azure Resource Manager 서비스 연결을 만드는 방법에 대해 알아보려면 [이 문서](/azure/devops/pipelines/library/connect-to-azure)를 참조하세요. Azure 스프링 클라우드 서비스 인스턴스에 사용하는 것과 동일한 구독을 선택해야 합니다.
 
-## <a name="azure-cli-task-templates"></a>작업 템플릿 Azure CLI
+## <a name="azure-cli-task-templates"></a>Azure CLI 작업 템플릿
 ::: zone pivot="programming-language-csharp"
 ### <a name="deploy-artifacts"></a>아티팩트 배포
 
-일련의를 사용 하 여 프로젝트를 빌드하고 배포할 수 있습니다 `tasks` . 이 코드 조각은 변수, 응용 프로그램을 빌드하는 .NET Core 작업 및 *.zip* 파일을 배포 하는 Azure CLI 작업을 정의 합니다.
+일련의 `tasks`를 사용하여 프로젝트를 빌드하고 배포할 수 있습니다. 이 코드 조각은 변수, 애플리케이션을 빌드하는 .NET Core 작업 및 *.zip* 파일을 배포하는 Azure CLI 작업을 정의합니다.
 
 ```yaml
 variables:
@@ -72,7 +72,7 @@ steps:
 ::: zone pivot="programming-language-java"
 ### <a name="deploy-artifacts"></a>아티팩트 배포
 
-일련의를 사용 하 여 프로젝트를 빌드하고 배포할 수 있습니다 `tasks` . 이 코드 조각은 먼저 응용 프로그램을 빌드하는 Maven 작업을 정의 하 고, Azure 스프링 클라우드 Azure CLI 확장을 사용 하 여 JAR 파일을 배포 하는 두 번째 작업을 정의 합니다.
+일련의 `tasks`를 사용하여 프로젝트를 빌드하고 배포할 수 있습니다. 이 코드 조각은 먼저 애플리케이션을 빌드하는 Maven 작업을 정의하고, Azure 스프링 클라우드 Azure CLI 확장을 사용하여 JAR 파일을 배포하는 두 번째 작업을 정의합니다.
 
 ```yaml
 steps:
@@ -89,7 +89,7 @@ steps:
       # deploy other app
 ```
 
-### <a name="deploy-from-source"></a>원본에서 배포
+### <a name="deploy-from-source"></a>소스에서 배포
 
 별도의 빌드 단계 없이 Azure에 직접 배포할 수 있습니다.
 

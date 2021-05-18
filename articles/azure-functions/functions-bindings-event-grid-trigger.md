@@ -7,10 +7,10 @@ ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python
 ms.openlocfilehash: 886db905008af94b66a902cc551e4d55b36572a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98250131"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Functions의 Azure Event Grid 트리거
@@ -226,7 +226,7 @@ module.exports = function (context, eventGridEvent) {
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 예제에서는 파일 *의function.js* 에서 Event Grid 트리거 바인딩을 구성 하는 방법을 보여 줍니다.
+다음 예제에서는 *function.json* 파일에서 Event Grid 트리거 바인딩을 구성하는 방법을 보여 줍니다.
 
 ```powershell
 {
@@ -240,7 +240,7 @@ module.exports = function (context, eventGridEvent) {
 }
 ```
 
-다음 PowerShell 예제와 같이 이라는 매개 변수를 통해 함수에서 Event Grid 이벤트를 사용할 수 있습니다 `eventGridEvent` .
+다음 PowerShell 예제에 표시된 것처럼 이름이 `eventGridEvent`인 매개 변수를 통해 함수에서 Event Grid 이벤트를 사용할 수 있습니다.
 
 ```powershell
 param($eventGridEvent, $TriggerMetadata)
@@ -324,7 +324,7 @@ JavaScript에서는 특성을 지원하지 않습니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-특성은 PowerShell에서 지원 되지 않습니다.
+PowerShell에서는 특성을 지원하지 않습니다.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -603,7 +603,7 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 ### <a name="manually-post-the-request"></a>수동으로 요청 게시
 
-Event Grid 함수를 로컬로 실행합니다. `Content-Type`및 `aeg-event-type` 헤더는 수동으로 설정 해야 하며, 다른 모든 값은 기본값으로 남겨둘 수 있습니다.
+Event Grid 함수를 로컬로 실행합니다. `Content-Type` 및 `aeg-event-type` 헤더는 수동으로 설정해야 하며, 다른 모든 값은 기본값으로 남겨둘 수 있습니다.
 
 [Postman](https://www.getpostman.com/) 또는 [curl](https://curl.haxx.se/docs/httpscripting.html)과 같은 도구를 사용하여 HTTP POST 요청을 만듭니다.
 

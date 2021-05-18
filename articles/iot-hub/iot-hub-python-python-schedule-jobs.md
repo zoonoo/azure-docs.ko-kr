@@ -10,10 +10,10 @@ ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
 ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87876685"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>작업 예약 및 브로드캐스트(Python)
@@ -36,7 +36,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 * 솔루션 백 엔드에서 **LockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
 
@@ -114,7 +114,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
             print (patch)
     ```
 
-6. 다음 코드를 추가 하 여 **Lockdoor** 메서드에 대 한 처리기를 등록 합니다. `main` 루틴도 포함하세요.
+6. 다음 코드를 추가하여 **lockDoor** 메서드에 대한 처리기를 등록합니다. `main` 루틴도 포함하세요.
 
     ```python
     def iothub_jobs_sample_run():
@@ -153,21 +153,21 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 ## <a name="get-the-iot-hub-connection-string"></a>IoT Hub 연결 문자열 가져오기
 
-이 문서에서는 장치에서 직접 메서드를 호출 하 고 장치 쌍을 업데이트 하는 백 엔드 서비스를 만듭니다. 서비스는 장치에서 직접 메서드를 호출 하려면 **서비스 연결** 권한이 필요 합니다. 또한 서비스에는 id 레지스트리를 읽고 쓰기 위한 **레지스트리 읽기** 및 **레지스트리 쓰기** 권한이 필요 합니다. 이러한 권한만 포함 하는 기본 공유 액세스 정책은 없으므로 만들어야 합니다.
+이 문서에서는 디바이스에서 직접 메서드를 호출하고 디바이스 쌍을 업데이트하는 백 엔드 서비스를 만듭니다. 서비스는 디바이스에서 직접 메서드를 호출하려면 **서비스 연결** 권한이 필요합니다. 또한 서비스에는 ID 레지스트리를 읽고 쓰기 위한 **레지스트리 읽기** 및 **레지스트리 쓰기** 권한이 필요합니다. 이러한 권한만 포함하는 기본 공유 액세스 정책은 없으므로, 만들어야 합니다.
 
-**서비스 연결**, **레지스트리 읽기** 및 **레지스트리 쓰기** 권한을 부여 하 고이 정책에 대 한 연결 문자열을 가져오는 공유 액세스 정책을 만들려면 다음 단계를 수행 합니다.
+**서비스 연결** 및 **레지스트리 읽기** 및 **레지스트리 쓰기** 권한을 부여하는 공유 액세스 정책을 만들고, 이 정책에 대한 연결 문자열을 가져오려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 IoT hub를 엽니다. IoT hub를 가져오는 가장 쉬운 방법은 **리소스 그룹** 을 선택 하 고 iot hub가 있는 리소스 그룹을 선택한 다음 리소스 목록에서 iot hub를 선택 하는 것입니다.
+1. [Azure Portal](https://portal.azure.com)에서 IoT 허브를 엽니다. IoT 허브로 가져오는 가장 쉬운 방법은 **리소스 그룹** 을 선택하고 IoT 허브가 위치한 리소스 그룹에서 리소스 그룹을 선택한 다음, 리소스 목록에서 IoT 허브를 선택하는 것입니다.
 
 2. IoT Hub의 왼쪽 창에서 **공유 액세스 정책** 을 선택합니다.
 
 3. 정책 목록 위의 상단 메뉴에서 **추가** 를 선택합니다.
 
-4. **공유 액세스 정책 추가** 창에서 정책에 대 한 설명이 포함 된 이름을 입력 합니다. 예: *serviceAndRegistryReadWrite*. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택 합니다 ( **레지스트리 쓰기** 를 선택 하면 **레지스트리 읽기가** 자동으로 선택 됨). 그런 다음 **만들기** 를 선택합니다.
+4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **생성** 를 선택합니다.
 
     ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
-5. 다시 **공유 액세스 정책** 창의 정책 목록에서 새 정책을 선택 합니다.
+5. 다시 **공유 액세스 정책** 창의 정책 목록에서 새 정책을 선택합니다.
 
 6. **공유 액세스 키** 에서 **연결 문자열 -- 기본 키** 에 대한 복사 아이콘을 선택하고 값을 저장합니다.
 
@@ -177,7 +177,7 @@ IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>직접 메서드를 호출하고 디바이스 쌍의 속성을 업데이트하기 위한 작업 예약
 
-이 섹션에서는 직접 메서드를 사용 하 여 장치에서 원격 **Lockdoor** 를 시작 하는 Python 콘솔 앱을 만들고 장치 쌍의 desired 속성을 업데이트 합니다.
+이 섹션에서는 직접 메서드를 사용하여 디바이스에서 원격 **LockDoor** 를 시작하는 Python 콘솔 앱을 만들고 디바이스 쌍의 desired 속성을 업데이트합니다.
 
 1. 명령 프롬프트에서 다음 명령을 실행하여 **azure-iot-hub** 패키지를 설치합니다.
 
@@ -187,7 +187,7 @@ IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 
 
 2. 텍스트 편집기를 사용하여 작업 디렉터리에 새 **scheduleJobService.py** 파일을 만듭니다.
 
-3. `import` **ScheduleJobService.py** 파일의 시작 부분에 다음 문 및 변수를 추가 합니다. `{IoTHubConnectionString}`자리 표시자를 이전에 [iot hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 iot hub 연결 문자열로 바꿉니다. `{deviceId}`자리 표시자를 [IoT hub에서 새 장치 등록](#register-a-new-device-in-the-iot-hub)에 등록 한 장치 ID로 바꿉니다.
+3. **scheduleJobService.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다. `{IoTHubConnectionString}` 자리 표시자 값을 이전에 [IoT 허브 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT 허브 연결 문자열로 바꿉니다. `{deviceId}` 자리 표시자 값을 [IoT 허브에서 새 디바이스 등록](#register-a-new-device-in-the-iot-hub)에서 등록한 디바이스 ID로 바꿉니다.
 
     ```python
     import sys
@@ -330,9 +330,9 @@ IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 
 
 3. 콘솔에서 직접 메서드와 디바이스 쌍 업데이트에 대한 디바이스 응답을 확인합니다.
 
-    ![IoT Hub 작업 샘플 1-장치 출력](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![Azure IoT Hub Job 샘플 1 -- 디바이스 출력](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![IoT Hub 작업 샘플 2--장치 출력](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![Azure IoT Hub Job 샘플 2 -- 디바이스 출력](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>다음 단계
 

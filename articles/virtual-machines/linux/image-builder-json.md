@@ -10,10 +10,10 @@ ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
 ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104594736"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure Image Builder 템플릿 만들기 
@@ -88,7 +88,7 @@ Azure Image Builder는 .json 파일을 사용하여 Image Builder 서비스로 �
 
 ## <a name="osdisksizegb"></a>osDiskSizeGB
 
-기본적으로 Image Builder는 이미지 크기를 변경하지 않으며 원본 이미지의 크기를 사용합니다. OS 디스크의 크기를 늘릴 수 **만** 있습니다 (Win 및 Linux) .이는 선택 사항이 며 값 0은 원본 이미지와 동일한 크기를 유지 한다는 의미입니다. OS 디스크 크기는 원본 이미지의 크기 보다 작게 축소할 수 없습니다.
+기본적으로 Image Builder는 이미지 크기를 변경하지 않으며 원본 이미지의 크기를 사용합니다. OS 디스크의 크기(Win 및 Linux)**만** 늘릴 수 있습니다. 이 구성 요소는 선택 사항이며 값 0은 원본 이미지와 동일한 크기를 유지한다는 의미입니다. OS 디스크 크기는 원본 이미지의 크기보다 작게 할 수 없습니다.
 
 ```json
  {
@@ -121,7 +121,7 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 
 ## <a name="identity"></a>ID
 
-필수-이미지 작성기에서 이미지를 읽고 쓸 수 있는 권한이 있어야 합니다. Azure Storage의 스크립트에서 읽기는 개별 리소스에 대 한 권한이 있는 Azure User-Assigned Id를 만들어야 합니다. 이미지 작성기 권한이 작동 하는 방법 및 관련 단계에 대 한 자세한 내용은 [설명서](image-builder-user-assigned-identity.md)를 참조 하세요.
+필수 - Image Builder가 이미지를 읽고, 쓰고, Azure Storage의 스크립트를 읽어 들일 권한을 가지려면 개별 리소스에 대한 권한을 갖는 Azure 사용자 할당 ID를 만들어야 합니다. Image Builder 권한이 작동하는 방법 및 관련 단계에 대한 자세한 내용은 [설명서](image-builder-user-assigned-identity.md)를 참조하세요.
 
 
 ```json
@@ -134,16 +134,16 @@ VNET 속성을 지정하지 않으면 Image Builder에서 자체 VNET, 공용 IP
 ```
 
 
-User-Assigned Id에 대 한 이미지 작성기 지원:
-* 단일 id만 지원 합니다.
-* 사용자 지정 도메인 이름을 지원 하지 않습니다.
+사용자 할당 ID에 대한 Image Builder 지원:
+* 단일 ID만 지원
+* 사용자 지정 도메인 이름을 지원하지 않음
 
 자세히 알아보려면 [Azure 리소스에 대한 관리 ID란?](../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 이 기능을 배포하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID 구성](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity)을 참조하세요.
 
 ## <a name="properties-source"></a>속성: source
 
-`source` 섹션에는 Image Builder에서 사용되는 원본 이미지에 대한 정보가 포함되어 있습니다. 이미지 작성기는 현재 Azure 공유 이미지 갤러리 (SIG) 또는 관리 되는 이미지에 대 한 Gen1 (Hyper-v 생성) 1 이미지 만들기만 기본적으로 지원 합니다. Gen2 이미지를 만들려는 경우 원본 Gen2 이미지를 사용 하 고 VHD에 배포 해야 합니다. 그런 다음 VHD에서 관리 되는 이미지를 만들고이를 Gen2 이미지로 SIG에 삽입 해야 합니다.
+`source` 섹션에는 Image Builder에서 사용되는 원본 이미지에 대한 정보가 포함되어 있습니다. Image Builder는 현재 기본적으로 Azure SIG(Shared Image Gallery) 또는 관리되는 이미지에 대한 Hyper-V 세대(Gen1) 1 이미지 만들기만 지원합니다. Gen2 이미지를 만들려는 경우 원본 Gen2 이미지를 사용하고 VHD에 배포해야 합니다. 그런 다음 VHD에서 관리되는 이미지를 만들고 이를 Gen2 이미지로 SIG에 삽입해야 합니다.
 
 API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필요합니다. 현재 세 가지 유형이 있습니다.
 - PlatformImage - 원본 이미지가 Marketplace 이미지 임을 나타냅니다.
@@ -152,7 +152,7 @@ API에는 이미지 빌드에 대한 소스를 정의하는 'SourceType'이 필�
 
 
 > [!NOTE]
-> 기존 Windows 사용자 지정 이미지를 사용 하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8 번까지 실행할 수 있습니다. 자세한 내용은 [sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조 하십시오.
+> 기존 Windows 사용자 지정 이미지를 사용하는 경우 단일 Windows 이미지에서 Sysprep 명령을 최대 8번까지 실행할 수 있습니다. 자세한 내용은 [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) 설명서를 참조하십시오.
 
 ### <a name="platformimage-source"></a>PlatformImage 원본 
 Azure Image Builder는 Windows Server 및 클라이언트 그리고 Linux Azure Marketplace 이미지를 지원합니다. 전체 목록은 [여기](../image-builder-overview.md#os-support)를 참조하세요. 
@@ -176,8 +176,8 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 
 버전에서 '최신'을 사용할 수 있습니다. 버전은 템플릿이 제출될 때가 아니라 이미지 빌드가 수행될 때 평가됩니다. Shared Image Gallery 대상과 함께 이 기능을 사용하는 경우 템플릿을 다시 전송하지 않고 주기적으로 이미지 빌드를 다시 실행하여 가장 최근 이미지에서 이미지를 다시 만들 수 있습니다.
 
-#### <a name="support-for-market-place-plan-information"></a>시장 출시 계획 정보 지원
-계획 정보를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
+#### <a name="support-for-market-place-plan-information"></a>MarketPlace 플랜 정보 지원
+플랜 정보를 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
 ```json
     "source": {
         "type": "PlatformImage",
@@ -196,7 +196,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 원본 이미지를 일반화된 VHD 또는 VM의 기존 관리형 이미지로 설정합니다.
 
 > [!NOTE]
-> 원본 관리 이미지는 지원 되는 OS 여야 하 고 이미지는 Azure 이미지 작성기 템플릿과 동일한 지역 이어야 합니다. 
+> 원본 관리형 이미지는 지원되는 OS여야 하며 이미지가 Azure Image Builder 템플릿과 동일한 지역에 있어야 합니다. 
 
 ```json
         "source": { 
@@ -212,7 +212,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
 Shared Image Gallery에서 원본 이미지를 기존 이미지 버전으로 설정합니다.
 
 > [!NOTE]
-> 원본 관리 이미지는 지원 되는 OS 여야 하 고 이미지는 Azure 이미지 작성기 템플릿과 동일한 지역 이어야 합니다. 그렇지 않은 경우 이미지 작성기 템플릿 영역에 이미지 버전을 복제 하세요.
+> 원본 관리 이미지는 지원되는 OS여야 하고 이미지는 Azure Image Builder 템플릿과 동일한 지역이어야 합니다. 그렇지 않은 경우 Image Builder 템플릿 지역에 이미지 버전을 복제하세요.
 
 
 ```json
@@ -274,7 +274,7 @@ Image Builder는 여러 '사용자 지정자'를 지원합니다. 사용자 지�
 사용자 지정 섹션은 배열입니다. Azure Image Builder는 이를 정렬된 순서로 실행합니다. 한 사용자 지정자라도 오류가 발생하면 빌드 프로세스가 실패합니다. 
 
 > [!NOTE]
-> 인라인 명령은 이미지 템플릿 정의와 지원 사례를 지원할 때 Microsoft 지원에서 볼 수 있습니다. 중요 한 정보가 있는 경우 액세스를 요구 하는 Azure Storage의 스크립트로 이동 해야 합니다.
+> 이미지 템플릿 정의 및 Microsoft 지원을 통해 사례를 지원 받을 때 인라인 명령이 보일 수 있습니다. 중요한 정보가 있는 경우 액세스가 필요한 Azure Storage의 스크립트로 이동해야 합니다.
  
 ### <a name="shell-customizer"></a>셸 사용자 지정자
 
@@ -310,10 +310,10 @@ OS 지원: Linux
     * sha256Checksum을 생성하려면 Mac/Linux에서 터미널을 사용하여 다음을 실행합니다. `sha256sum <fileName>`
 
 > [!NOTE]
-> 인라인 명령은 이미지 템플릿 정의의 일부로 저장 되며, 이미지 정의를 덤프할 때 볼 수 있으며, 문제 해결을 위한 지원 사례의 경우 Microsoft 지원에도 표시 됩니다. 중요 한 명령 또는 값이 있는 경우 스크립트로 이동 하 고 사용자 id를 사용 하 여 Azure Storage에 인증 하는 것이 좋습니다.
+> 인라인 명령은 이미지 템플릿 정의의 일부로 저장되며, 이미지 정의를 덤프할 때 볼 수 있습니다. 문제 해결을 위한 지원 사례의 경우 Microsoft 지원에도 표시됩니다. 중요한 명령 또는 값이 있는 경우 스크립트로 이동하고 사용자 ID를 사용하여 Azure Storage에 인증하는 것이 좋습니다.
 
 #### <a name="super-user-privileges"></a>슈퍼 사용자 권한
-슈퍼 사용자 권한으로 명령을 실행 하려면 접두사를 접두사로 사용 해야 합니다 `sudo` . 이러한 명령을 스크립트에 추가 하거나 인라인 명령을 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+슈퍼 사용자 권한으로 명령을 실행하려면 `sudo` 접두사를 사용해야 합니다. 접두사는 스크립트에 추가하거나 다음과 같이 인라인 명령으로 사용할 수 있습니다.
 ```json
                 "type": "Shell",
                 "name": "setupBuildPath",
@@ -321,7 +321,7 @@ OS 지원: Linux
                     "sudo mkdir /buildArtifacts",
                     "sudo cp /tmp/index.html /buildArtifacts/index.html"
 ```
-ScriptUri를 사용 하 여 참조할 수 있는 sudo를 사용 하는 스크립트의 예:
+scriptUri를 사용하여 참조할 수 있는 sudo 사용 스크립트의 예:
 ```bash
 #!/bin/bash -e
 
@@ -417,7 +417,7 @@ OS 지원: Linux 및 Windows
 - **sourceUri** - 액세스할 수 있는 스토리지 엔드포인트로, GitHub 또는 Azure 스토리지일 수 있습니다. 전체 디렉터리가 아닌 하나의 파일만 다운로드할 수 있습니다. 디렉터리를 다운로드해야 하는 경우에는 압축된 파일을 사용하고 셸 또는 PowerShell 사용자 지정자를 사용하여 압축을 풉니다. 
 
 > [!NOTE]
-> SourceUri가 Azure Storage 계정인 경우 blob이 공용으로 표시 되어 있는 경우에 관계 없이 blob에 대 한 읽기 액세스 권한을 관리 되는 사용자 Id에 부여 합니다. 저장소 권한을 설정 하려면이 [예제](./image-builder-user-assigned-identity.md#create-a-resource-group) 를 참조 하세요.
+> sourceUri가 Azure Storage 계정인 경우 Blob이 공용으로 표시되어 있는지와 관계 없이 관리되는 사용자 ID에 Blob에 대한 읽기 액세스 권한을 부여하십시오. 스토리지 권한을 설정하려면 이 [예제](./image-builder-user-assigned-identity.md#create-a-resource-group)를 참조하세요.
 
 - **destination** – 전체 대상 경로 및 파일 이름입니다. 참조된 경로와 하위 디렉터리가 있어야 합니다. 셸 또는 PowerShell을 사용하여 미리 해당 값을 설정합니다. 스크립트 사용자 지정자를 사용하여 경로를 만들 수 있습니다. 
 
@@ -456,7 +456,7 @@ OS support: Windows
 - **updateLimit** – 선택 사항. 설치할 수 있는 업데이트 수를 정의합니다. 기본값은 1000입니다.
  
 > [!NOTE]
-> 처리 중인 Windows를 다시 시작 하거나 응용 프로그램 설치를 계속 실행 하는 경우 Windows 업데이트 사용자 지정 자가 실패할 수 있습니다. 일반적으로 사용자 지정. 로그에서이 오류가 표시 될 수 `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` 있습니다. Windows를 다시 시작할 때 추가 하거나, Windows 업데이트를 실행 하기 전에 인라인 명령이 나 스크립트에서 [절전](/powershell/module/microsoft.powershell.utility/start-sleep) 또는 대기 명령을 사용 하 여 설치를 완료할 수 있는 충분 한 시간을 응용 프로그램에 제공 하는 것이 좋습니다.
+> 처리 중인 Windows 다시 시작이나 실행 중인 애플리케이션 설치가 있는 경우 Windows 업데이트 사용자 지정자가 실패할 수 있습니다. 일반적으로 customization.log `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016`에서 이 오류를 볼 수 있습니다. Windows 다시 시작을 추가하고 Windows 업데이트를 실행하기 전에 인라인 명령이나 스크립트에 [일시 중지](/powershell/module/microsoft.powershell.utility/start-sleep)나 대기 명령을 사용하여 애플리케이션 설치가 완료되도록 충분한 시간을 주는 것이 좋습니다.
 
 ### <a name="generalize"></a>일반화 
 기본적으로 Azure Image Builder는 각 이미지 사용자 지정 단계가 끝날 때 '프로비전 해제' 코드를 실행하여 이미지를 '일반화'합니다. 일반화는 여러 VM을 만드는 데 다시 사용할 수 있도록 이미지를 설정하는 프로세스입니다. Windows VM의 경우 Azure Image Builder는 Sysprep을 사용합니다. Linux의 경우 Azure Image Builder는 'waagent -deprovision'을 실행합니다. 
@@ -511,10 +511,10 @@ Azure Image Builder는 다음과 같은 세 가지 배포 대상을 지원합니
 - **sharedImage**- Shared Image Gallery입니다.
 - **VHD** - 스토리지 계정의 VHD입니다.
 
-동일한 구성에서 두 대상 유형 모두에 이미지를 배포할 수 있습니다.
+동일한 구성으로 두 대상 유형 모두에 이미지를 배포할 수 있습니다.
 
 > [!NOTE]
-> 기본 AIB sysprep 명령은 "/mode: vm"을 포함 하지 않습니다. 그러나 HyperV 역할을 설치 하는 이미지를 만들 때이 작업이 필요할 수 있습니다. 이 명령 인수를 추가 해야 하는 경우 sysprep 명령을 재정의 해야 합니다.
+> 기본 AIB Sysprep 명령에는 "/mode:vm"이 포함되지 않으나 HyperV 역할을 설치하는 이미지를 만들 때 이 작업이 필요할 수 있습니다. 이 명령 인수를 추가해야 하는 경우 Sysprep 명령을 재정의해야 합니다.
 
 배포할 대상이 둘 이상 있을 수 있으므로 Image Builder는 `runOutputName`을 쿼리하여 액세스할 수 있는 모든 배포 대상의 상태를 유지 관리합니다.  `runOutputName`은 배포 후 해당 배포에 대한 정보를 위해 쿼리할 수 있는 개체입니다. 예를 들어 VHD의 위치 또는 이미지 버전이 복제된 지역 또는 생성된 SIG 이미지 버전을 쿼리할 수 있습니다. 이는 모든 배포 대상의 속성입니다. `runOutputName`은 각 배포 대상에 고유해야 합니다. 다음은 Shared Image Gallery 배포를 쿼리하는 예제입니다.
 
@@ -568,7 +568,7 @@ az resource show \
  
 배포 속성은 다음과 같습니다.
 - **type** – managedImage 
-- **imageId** – 대상 이미지의 리소스 ID입니다. 형식이 필요 합니다./Subscriptions/ \<subscriptionId> /Sggg/ \<destinationResourceGroupName> /providers/Microsoft.Compute/images/\<imageName>
+- **imageId** – 대상 이미지의 리소스 ID로 다음과 같은 형식이어야 합니다. /subscriptions/\<subscriptionId>/resourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/\<imageName>
 - **location** - 관리형 이미지의 위치입니다.  
 - **runOutputName** – 분포를 식별하는 고유 이름입니다.  
 - **artifactTags** - 선택 사항. 사용자 지정 키 값 쌍 태그입니다.
@@ -608,21 +608,21 @@ Shared Image Gallery의 구성 요소는 다음과 같습니다.
 공유 이미지 갤러리의 배포 속성은 다음과 같습니다.
 
 - **type** - sharedImage  
-- **galleryImageId** – 공유 이미지 갤러리의 ID 이며, 다음 두 가지 형식으로 지정할 수 있습니다.
-    * 자동 버전 관리-이미지 빌더는 단조 버전 번호를 생성 합니다 .이는 동일한 템플릿에서 이미지를 다시 작성 하려는 경우에 유용 합니다. 형식: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`
-    * 명시적 버전 관리-이미지 작성기에서 사용 하려는 버전 번호를 전달할 수 있습니다. 형식은 다음과 같습니다. `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
+- **galleryImageId** – 공유 이미지 갤러리의 ID로 다음 두 가지 형식으로 지정할 수 있습니다.
+    * 자동 버전 관리 - Image Builder가 단조로운 버전 번호를 생성합니다. 이 방법은 동일한 템플릿에서 이미지를 다시 빌드하려는 경우에 유용합니다. 형식은 다음과 같습니다. `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>`
+    * 명시적 버전 관리 - Image Builder에서 사용하려는 버전 번호를 전달할 수 있습니다. 형식은 다음과 같습니다. `/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/galleries/<sharedImageGalName>/images/<imageDefName>/versions/<version e.g. 1.1.1>`
 
 - **runOutputName** – 분포를 식별하는 고유 이름입니다.  
 - **artifactTags** - 선택 사항. 사용자 지정 키 값 쌍 태그입니다.
-- **replicationRegions** - 복제용 지역의 배열입니다. 지역 중 하나는 갤러리가 배포된 지역이어야 합니다. 영역을 추가 하는 것은 복제가 완료 될 때까지 빌드가 완료 되지 않으므로 빌드 시간이 증가 한다는 것을 의미 합니다.
-- **excludeFromLatest** (선택 사항)이 옵션을 사용 하면 사용자가 만든 이미지 버전을 SIG 정의에서 최신 버전으로 표시할 수 있습니다. 기본값은 ' f a l s e '입니다.
-- **Storageaccounttype** (옵션) AIB는 만들 이미지 버전에 대해 다음과 같은 유형의 저장소를 지정할 수 있도록 지원 합니다.
+- **replicationRegions** - 복제용 지역의 배열입니다. 지역 중 하나는 갤러리가 배포된 지역이어야 합니다. 빌드는 복제가 완료될 때까지 완료되지 않기 때문에 영역을 추가하면 빌드 시간도 증가합니다.
+- **excludeFromLatest**(선택 사항) 이 옵션을 사용하면 사용자가 만든 이미지 버전을 SIG 정의에서 최신 버전으로 표시하지 않도록 합니다. 기본값은 'false'입니다.
+- **storageAccountType**(선택 사항) AIB가 만들어질 이미지 버전에 대해 다음과 같은 유형의 스토리지를 지정할 수 있도록 지원합니다.
     * "Standard_LRS"
     * "Standard_ZRS"
 
 
 > [!NOTE]
-> 이미지 템플릿이 `image definition` 동일한 위치에 있지 않으면 이미지를 만드는 데 추가 시간이 표시 됩니다. 이미지 작성기에는 현재 `location` 이미지 버전 리소스에 대 한 매개 변수가 없으므로 부모에서 가져옵니다 `image definition` . 예를 들어 이미지 정의가 westus에 있고 이미지 버전이 eastus에 복제 되 게 하려면 blob을 westus에 복사 하 고,이에서 westus의 이미지 버전 리소스를 만든 다음 eastus에 복제 합니다. 추가 복제 시간을 방지 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
+> 이미지 템플릿과 참조 `image definition`이 동일한 위치에 있지 않으면 이미지를 만드는 데 더 오래 걸립니다. Image Builder에는 현재 이미지 버전 리소스에 대한 `location` 매개 변수가 없기 때문에 부모 `image definition`에서 가져옵니다. 예를 들어 이미지 정의가 westus에 있고 이미지 버전이 eastus에 복제되도록 하려면 Blob을 westus에 복사하고,이에서 westus의 이미지 버전 리소스를 만든 다음 eastus에 복제합니다. 복제 시간이 더해지지 않도록 하려면 `image definition` 및 이미지 템플릿이 동일한 위치에 있어야 합니다.
 
 
 ### <a name="distribute-vhd"></a>배포: VHD  
@@ -660,7 +660,7 @@ az resource show \
 ## <a name="image-template-operations"></a>이미지 템플릿 작업
 
 ### <a name="starting-an-image-build"></a>이미지 빌드 시작
-빌드를 시작 하려면 이미지 템플릿 리소스에서 ' 실행 '을 호출 해야 합니다 `run` . 명령의 예는 다음과 같습니다.
+빌드를 시작하려면 이미지 템플릿 리소스에서 '실행'을 호출해야 합니다. `run` 명령의 예는 다음과 같습니다.
 
 ```PowerShell
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
@@ -676,12 +676,12 @@ az resource invoke-action \
 ```
 
 ### <a name="cancelling-an-image-build"></a>이미지 빌드 취소
-잘못 된 것으로 생각 되는 이미지 빌드를 실행 하 고 사용자 입력을 기다리거나 성공적으로 완료 되지 않을 경우 빌드를 취소할 수 있습니다.
+잘못된 것으로 생각되는 이미지 빌드를 실행하거나, 사용자 입력을 기다리거나, 성공적으로 완료되지 않을 것으로 생각되는 경우 빌드를 취소할 수 있습니다.
 
-언제 든 지 빌드를 취소할 수 있습니다. 배포 단계가 시작 된 경우에도 취소할 수 있지만 완료 하지 못할 수 있는 이미지를 모두 정리 해야 합니다. 취소 명령이 취소를 완료할 때까지 기다리지 않습니다 `lastrunstatus.runstate` . 다음 상태 [명령을](image-builder-troubleshoot.md#customization-log)사용 하 여 진행률 취소를 모니터링 하세요.
+빌드는 언제든지 취소할 수 있습니다. 배포 단계가 시작된 경우에도 취소할 수 있지만 완료하지 못할 수 있는 이미지를 모두 정리해야 합니다. 취소 명령은 취소가 완료될 때까지 기다리지 않습니다. 다음 상태 [명령](image-builder-troubleshoot.md#customization-log)을 사용하여 `lastrunstatus.runstate`의 취소 진행률을 모니터링하세요.
 
 
-명령의 예는 `cancel` 다음과 같습니다.
+`cancel` 명령의 예는 다음과 같습니다.
 
 ```powerShell
 Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force

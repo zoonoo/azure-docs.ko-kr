@@ -1,6 +1,6 @@
 ---
-title: HC 시리즈 VM 크기 성능
-description: Azure에서 HC 시리즈 VM 크기에 대 한 성능 테스트 결과에 대해 알아봅니다.
+title: HC-시리즈 VM 크기 성능
+description: Azure에서 HC-시리즈 VM 크기의 성능 테스트 결과에 대해 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
@@ -9,48 +9,48 @@ ms.date: 09/10/2020
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 177a58090303a70491d9a9226eca40d0bb371764
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104722262"
 ---
-# <a name="hc-series-virtual-machine-sizes"></a>HC 시리즈 가상 머신 크기
+# <a name="hc-series-virtual-machine-sizes"></a>HC-시리즈 가상 머신 크기
 
-여러 성능 테스트가 HC 시리즈 크기에서 실행 되었습니다. 다음은 이러한 성능 테스트의 결과 중 일부입니다.
+몇 가지 성능 테스트가 HC-시리즈 크기에 대해 실행되었습니다. 다음은 이 성능 테스트의 결과 중 일부입니다.
 
 | 작업                                        | HB                    |
 |-------------------------------------------------|-----------------------|
-| 스트림 조로 묶어                                    | 190 g b/초 (Intel MLC AVX-512)  |
-| High-Performance Linpack (HPL)                  | 3520 GigaFLOPS (Rpeak), 2970 GigaFLOPS (Rpeak) |
-| RDMA 대기 시간 & 대역폭                        | 1.05 마이크로초, 96.8 g b/초   |
-| 로컬 NVMe SSD의 FIO                           | 1.3 m b/초 읽기, 900 m b/초 쓰기 |  
-| IOR on 4 Azure 프리미엄 SSD (P30 Managed Disks, RAID0) * *  | 780 m b/초 읽기, 780 m b/쓰기 |
+| STREAM 3조                                    | 190 GB/s (Intel MLC AVX-512)  |
+| 고성능 LInpack (HPL)                  | 3520 GigaFLOPS (Rpeak), 2970 GigaFLOPS (Rmax) |
+| RDMA 대기 시간 및 대역폭                        | 1.05마이크로초, 96.8Gb/s   |
+| 로컬 NVMe SSD의 FIO                           | 1.3 GB/s 읽기, 900 MB/s 쓰기 |  
+| 4 Azure Premium SSD의 IOR(P30 관리 디스크, RAID0)**  | 780 MB/s 읽기, 780 MB/쓰기 |
 
 ## <a name="mpi-latency"></a>MPI 대기 시간
 
-OSU 마이크로 벤치 마크 제품군의 MPI 대기 시간 테스트를 실행 합니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh) 에 있습니다.
+OSU 마이크로 벤치마크 제품군의 MPI 대기 시간 테스트가 실행됩니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)에 있습니다.
 
 ```bash
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-:::image type="content" source="./media/latency-hc.png" alt-text="Azure HC의 MPI 대기 시간입니다.":::
+:::image type="content" source="./media/latency-hc.png" alt-text="Azure HC의 MPI 대기 시간":::
 
 ## <a name="mpi-bandwidth"></a>MPI 대역폭
 
-OSU 마이크로 벤치 마크 제품군의 MPI 대역폭 테스트가 실행 됩니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh) 에 있습니다.
+OSU 마이크로 벤치마크 제품군의 MPI 대역폭 테스트가 실행됩니다. 샘플 스크립트는 [GitHub](https://github.com/Azure/azhpc-images/blob/04ddb645314a6b2b02e9edb1ea52f079241f1297/tests/run-tests.sh)에 있습니다.
 
 ```bash
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-:::image type="content" source="./media/bandwidth-hc.png" alt-text="Azure HC의 MPI 대역폭.":::
+:::image type="content" source="./media/bandwidth-hc.png" alt-text="Azure HC의 MPI 대역폭":::
 
 
 ## <a name="mellanox-perftest"></a>Mellanox Perftest
 
-[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package) 에는 대기 시간 (ib_send_lat) 및 대역폭 (ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
+[Mellanox Perftest 패키지](https://community.mellanox.com/s/article/perftest-package)에는 대기 시간(ib_send_lat)과 대역폭(ib_send_bw)과 같은 많은 InfiniBand 테스트가 있습니다. 예제 명령은 다음과 같습니다.
 
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
@@ -58,5 +58,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크 로드 예제 및 성능 결과에 대해 읽어 보세요.
-- 실행 중인 HPC 워크 로드에 대 한 높은 수준의 아키텍처 보기는 [Azure의 hpc (고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조 하세요.
+- [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
+- HPC 워크로드를 실행하는 상위 수준의 아키텍처 뷰는 [Azure의 고성능 컴퓨팅 (HPC)](/azure/architecture/topics/high-performance-computing/)을 참조하세요.

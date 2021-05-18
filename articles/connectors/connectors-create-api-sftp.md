@@ -1,6 +1,6 @@
 ---
-title: SFTP 계정에 연결 (사용 되지 않음)
-description: Azure Logic Apps를 사용 하 여 SFTP 서버에 대 한 파일을 모니터링, 생성, 관리, 전송 및 수신 하는 작업 및 프로세스를 자동화 합니다.
+title: SFTP 계정에 연결(사용되지 않음)
+description: Azure Logic Apps를 사용하여 SFTP 서버에 대한 파일을 모니터링, 만들기, 관리, 전송 및 수신하는 작업 및 프로세스 자동화
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,16 +10,16 @@ ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
 ms.openlocfilehash: 70fb956af7ff45c7b54f04d7ed441ec39f9d80a5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92673815"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Azure Logic Apps에서 SFTP 파일 모니터링, 만들기 및 관리
 
 > [!IMPORTANT]
-> SFTP 커넥터는 사용 되지 않으므로 [sftp-SSH 커넥터](../connectors/connectors-sftp-ssh.md) 를 사용 하세요. 논리 앱 디자이너에서 더 이상 SFTP 트리거와 작업을 선택할 수 없습니다.
+> SFTP 커넥터가 사용되지 않으므로 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용하세요. Logic App Designer에서 더 이상 SFTP 트리거와 작업을 선택할 수 없습니다.
 
 [SFTP(보안 파일 전송 프로토콜)](https://www.ssh.com/ssh/sftp/) 서버에서 파일을 모니터링, 만들기, 전송 및 수신하는 작업을 자동화하려면 Azure Logic Apps 및 SFTP 커넥터를 사용하여 통합 워크플로를 빌드하고 자동화할 수 있습니다. SFTP는 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다. 다음은 자동화할 수 있는 몇 가지 예제 작업입니다.
 
@@ -32,9 +32,9 @@ SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다�
 
 ## <a name="limits"></a>제한
 
-SFTP 커넥터는 *50 MB 미만의* 파일만 처리 하 고 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용 합니다. Sftp 커넥터와 SFTP-ssh 커넥터 간의 차이점을 보려면 SFTP-ssh 문서에서 [Sftp 비교-ssh와 sftp](../connectors/connectors-sftp-ssh.md#comparison) 를 검토 합니다.
+SFTP 커넥터는 *50MB 미만* 의 파일만 처리하고 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용합니다. SFTP 커넥터와 SFTP-SSH 커넥터 간의 차이점을 보려면 SFTP-SSH 문서에서 [SFTP-SSH와 SFTP 비교](../connectors/connectors-sftp-ssh.md#comparison)를 검토합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -54,12 +54,12 @@ SFTP 커넥터는 *50 MB 미만의* 파일만 처리 하 고 [메시지 청크](
 
 ## <a name="how-sftp-triggers-work"></a>SFTP 트리거 작동 방법
 
-SFTP 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경 된 파일을 찾는 방식으로 작동 합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
+SFTP 트리거는 SFTP 파일 시스템을 폴링하여 마지막 폴링 이후 변경된 파일을 찾는 방식으로 작동합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
 
 | SFTP 클라이언트 | 작업 |
 |-------------|--------|
-| Winscp | **옵션**  >  **기본 설정**  >  **전송**  >  **편집**  >  **타임 스탬프 유지**  >  **사용 안 함** |
-| FileZilla | **전송** 으로 이동 전송  >  **된 파일의 타임 스탬프를 유지** 합니다.  >  **사용 안 함** |
+| Winscp | **옵션** > **기본 설정** > **전송** > **편집** > **타임스탬프 보존** > **사용 안 함** 으로 이동 |
+| FileZilla | **전송** > **전송된 파일의 타임스탬프 보존** > **사용 안 함** 으로 이동 |
 |||
 
 트리거는 새 파일을 찾으면 해당 파일이 완전한 상태이며 부분적으로 작성된 것이 아닌지 확인합니다. 예를 들어 트리거가 파일 서버를 확인할 때 파일을 변경하는 중일 수 있습니다. 부분적으로 작성된 파일이 반환되지 않도록 하기 위해 트리거는 최근 변경된 내용이 있는 파일의 타임스탬프를 기록하되 해당 파일을 즉시 반환하지는 않으며, 서버를 다시 폴링할 때만 해당 파일을 반환합니다. 이 동작으로 인해 트리거 폴링 간격의 최대 2배까지 지연이 발생하는 경우도 있습니다.
@@ -89,11 +89,11 @@ SFTP 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 
 
    1. 텍스트 편집기에서 SSH 프라이빗 키 파일을 엽니다. 이러한 단계는 예제로 메모장을 사용합니다.
 
-   1. 메모장의 **편집** 메뉴에서 **모두 선택** 을 선택 합니다.
+   1. 메모장의 **편집** 메뉴에서 **모두 선택** 을 선택합니다.
 
-   1. 복사 **편집**  >  을 선택 합니다.
+   1. **편집** > **복사** 를 선택합니다.
 
-   1. 추가한 SFTP 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다. **키를 _붙여 넣습니다_*. _*_키를 수동으로 입력 하거나 편집 하지 마십시오_.**
+   1. 추가한 SFTP 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다. **_키를 붙여 넣습니다_ *.* _키를 수동으로 입력하거나 편집하지 마십시오_**.
 
 1. 연결 세부 정보 입력이 완료되면 **만들기** 를 선택합니다.
 

@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 4797fca5b4a756ca502147172e6f1590b9eacbe4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98234174"
 ---
 # <a name="interoperability-in-azure--data-plane-analysis"></a>Azure의 상호 운용성: 데이터 평면 분석
@@ -180,7 +180,7 @@ Tracing route to 10.2.30.10 over a maximum of 30 hops
 Trace complete.
 ```
 
-이 경로 추적 첫 번째 홉은 MSEE에 대 한 허브 VNet의 Express 경로 게이트웨이 터널 끝점입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
+이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 1 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 1의 VM입니다.
 
 ### <a name="path-to-on-premises-location-2"></a>온-프레미스 위치 2 경로
 
@@ -199,7 +199,7 @@ Tracing route to 10.1.31.10 over a maximum of 30 hops
 Trace complete.
 ```
 
-이 경로 추적 첫 번째 홉은 MSEE에 대 한 허브 VNet의 Express 경로 게이트웨이 터널 끝점입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
+이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 및 세 번째 홉은 CE 라우터와 온-프레미스 위치 2 LAN IP입니다. 이러한 IP 주소는 허브/스포크 VNet에서 보급되지 않습니다. 네 번째 홉은 온-프레미스 위치 2의 VM입니다.
 
 ### <a name="path-to-the-remote-vnet"></a>원격 VNet 경로
 
@@ -217,7 +217,7 @@ Tracing route to 10.17.30.4 over a maximum of 30 hops
 Trace complete.
 ```
 
-이 경로 추적 첫 번째 홉은 MSEE에 대 한 허브 VNet의 Express 경로 게이트웨이 터널 끝점입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브/스포크 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
+이 경로 추적에서 첫 번째 홉은 MSEE에 대한 허브 VNet의 ExpressRoute 게이트웨이 터널 엔드포인트입니다. 두 번째 홉은 원격 VNet의 게이트웨이 IP입니다. 두 번째 홉 IP 범위는 허브/스포크 VNet 내에서 보급되지 않습니다. 세 번째 홉은 원격 VNet의 VM입니다.
 
 ## <a name="data-path-from-the-branch-vnet"></a>분기 VNet에서 오는 데이터 경로
 
@@ -333,7 +333,7 @@ Network Watcher는 Azure 중심 보기만 제공합니다. 온-프레미스 관�
 
 ![4][4]
 
-앞서 설명했듯이, 테스트 설정은 온-프레미스 위치 1과 허브 VNet 간의 ExpressRoute에 대한 백업 연결로 사이트 간 VPN을 사용합니다. 백업 데이터 경로를 테스트 하기 위해 온-프레미스 위치 1 기본 CE 라우터 및 해당 MSEE 간에 Express 경로 링크 오류가 발생 하도록 합니다. ExpressRoute 연결 장애를 유도하기 위해 MSEE를 지향하는 CE 인터페이스를 종료합니다.
+앞서 설명했듯이, 테스트 설정은 온-프레미스 위치 1과 허브 VNet 간의 ExpressRoute에 대한 백업 연결로 사이트 간 VPN을 사용합니다. 백업 데이터 경로를 테스트하기 위해 온-프레미스 위치 1 기본 CE 라우터와 해당 MSEE 간의 ExpressRoute 연결 장애를 유도해 보겠습니다. ExpressRoute 연결 장애를 유도하기 위해 MSEE를 지향하는 CE 인터페이스를 종료합니다.
 
 ```console
 C:\Users\rb>tracert 10.10.30.4
@@ -558,11 +558,11 @@ ExpressRoute 및 사이트 간 VPN의 공존 연결을 구성하는 방법에 �
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "허브 VNet에서 스포크 VNet으로의 연결 Network Watcher 보기"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "허브 VNet에서 분기 VNet으로의 연결 Network Watcher 보기"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "허브 VNet에서 분기 VNet으로의 연결에 대 한 Network Watcher 그리드 보기"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Express 경로 1을 통해 위치 1 VM에서 허브 VNet으로의 연결 네트워크 성능 모니터 보기"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "사이트 간 VPN을 통해 위치 1 VM에서 허브 VNet으로의 연결 네트워크 성능 모니터 보기"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "허브 VNet에서 스포크 VNet으로 연결의 Network Watcher 보기"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "허브 VNet에서 분기 VNet으로 연결의 Network Watcher 보기"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "허브 VNet에서 분기 VNet으로 연결의 Network Watcher 그리드 보기"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "ExpressRoute 1을 통한 위치 1 VM에서 허브 VNet으로 연결의 네트워크 성능 모니터 보기"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "사이트 간 VPN을 통한 위치 1 VM에서 허브 VNet으로 연결의 네트워크 성능 모니터 보기"
 
 <!--Link References-->
 [Setup]: ./connectivty-interoperability-preface.md

@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth 1.0 기술 프로필을 정의 합니다.
+description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth 1.0 기술 프로필을 정의하세요.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,17 +12,17 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7a2cbca8c02dcbfc0e59d31040d1fca7a790cd35
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96936661"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://tools.ietf.org/html/rfc5849) id 공급자에 대 한 지원을 제공 합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용 하 여 Twitter와 같은 OAuth1 기반 id 공급자와 페더레이션 할 수 있습니다. Id 공급자와의 페더레이션을 통해 사용자는 기존 소셜 또는 엔터프라이즈 id를 사용 하 여 로그인 할 수 있습니다.
+Azure Active Directory B2C는 [OAuth 1.0 프로토콜](https://tools.ietf.org/html/rfc5849) ID 에 공급자에 대한 지원을 제공합니다. 이 문서에서는 이 표준 프로토콜을 지원하는 클레임 공급자와 상호 작용하기 위한 기술 프로필에 대해 구체적으로 설명합니다. OAuth1 기술 프로필을 사용하면 Twitter와 같은 OAuth1 기반 ID 공급자와 페더레이션할 수 있습니다. ID 공급자와 페더레이션하면 사용자는 기존의 소셜 또는 엔터프라이즈 ID로 로그인할 수 있습니다.
 
 ## <a name="protocol"></a>프로토콜
 
@@ -47,7 +47,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 다음 예제는 Twitter ID 공급자가 반환한 클레임을 보여 줍니다.
 
-- **IssuerUserId** 클레임에 매핑되는 **user_id** 클레임입니다.
+- **issueUserId** 클레임에 매핑된 **user_id** 클레임입니다.
 - **displayName** 클레임에 매핑된 **screen_name** 클레임입니다.
 - 이름 매핑이 없는 **email** 클레임입니다.
 
@@ -71,25 +71,25 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 | attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
-| ProviderName | 아니요 | ID 공급자의 이름입니다. |
+| ProviderName | 예 | ID 공급자의 이름입니다. |
 | request_token_endpoint | 예 | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
 | authorization_endpoint | 예 | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
 | access_token_endpoint | 예 | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
-| ClaimsEndpoint | 아니요 | 사용자 정보 엔드포인트의 URL입니다. |
-| ClaimsResponseFormat | 아니요 | 클레임 응답 형식입니다.|
+| ClaimsEndpoint | 예 | 사용자 정보 엔드포인트의 URL입니다. |
+| ClaimsResponseFormat | 예 | 클레임 응답 형식입니다.|
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 
-ID 공급자의 리디렉션 URI를 구성할 때 `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`를 입력합니다. 을 `{tenant-name}` 테 넌 트 이름 (예: contosob2c)으로 바꾸고을 `{policy-id}` 정책의 식별자로 바꿔야 합니다 (예: b2c_1a_policy). 리디렉션 URI는 모두 소문자여야 합니다. Id 공급자 로그인을 사용 하는 모든 정책에 대 한 리디렉션 URL을 추가 합니다.
+ID 공급자의 리디렉션 URI를 구성할 때 `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp`를 입력합니다. `{tenant-name}`을 테넌트 이름(예: contosob2c)으로 변경하고 `{policy-id}`을 정책 식별자(예: b2c_1a_policy)로 변경해야 합니다. 리디렉션 URI는 모두 소문자여야 합니다. ID 공급자 로그인을 사용하는 모든 정책에 대해 리디렉션 URL을 추가하세요.
 
-예제:
+예:
 
 - [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](identity-provider-twitter.md)

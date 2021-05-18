@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files의 수동 QoS 용량 풀 Microsoft Docs
-description: 수동 QoS 용량 풀 및 추가 정보에 대 한 참조를 소개 합니다.
+title: Azure NetApp Files의 수동 QoS 용량 풀 | Microsoft Docs
+description: 수동 QoS 용량 풀을 소개하고 추가 정보를 위한 참조를 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,43 +15,43 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: b-juche
 ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99581128"
 ---
 # <a name="manual-qos-capacity-pool"></a>수동 QoS 용량 풀
 
-이 문서에서는 수동 QoS (서비스 품질) 용량 풀 기능에 대해 소개 합니다.
+이 문서에서는 수동 QoS(서비스 품질) 용량 풀 기능에 대해 소개합니다.
 
-## <a name="how-manual-qos-differs-from-auto-qos"></a>수동 QoS가 자동 QoS와 어떻게 다른 지
+## <a name="how-manual-qos-differs-from-auto-qos"></a>수동 QoS와 자동 QoS의 차이점
 
-[QoS 유형은](azure-netapp-files-understand-storage-hierarchy.md#qos_types) 용량 풀의 특성입니다. Azure NetApp Files에서는 자동 (기본값) 및 수동 이라는 두 가지 QoS 유형의 용량 풀을 제공 합니다.  
+[QoS 유형](azure-netapp-files-understand-storage-hierarchy.md#qos_types)은 용량 풀의 특성입니다. Azure NetApp Files는 용량 풀의 QoS 유형으로 자동(기본값) 및 수동 두 가지 유형을 제공합니다.  
 
-*수동* QoS 용량 풀에서는 볼륨에 대 한 용량 및 처리량을 독립적으로 할당할 수 있습니다. 최소 및 최대 처리량 수준에 대해서는 [Azure NetApp Files에 대 한 리소스 제한](azure-netapp-files-resource-limits.md#resource-limits)을 참조 하세요. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다. 이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 
+'수동' QoS 용량 풀에서는 볼륨의 용량과 처리량을 독립적으로 할당할 수 있습니다. 최소 및 최대 처리량 수준에 대해서는 [Azure NetApp Files의 리소스 제한](azure-netapp-files-resource-limits.md#resource-limits)을 참조하세요. 수동 QoS 용량 풀로 만든 모든 볼륨의 총 처리량은 풀의 총 처리량으로 제한됩니다. 이는 풀 크기와 서비스 수준 처리량의 조합에 따라 결정됩니다. 
 
-*자동* QoS 용량 풀에서 처리량은 볼륨에 할당 된 크기 할당량에 비례하여 풀의 볼륨에 자동으로 할당 됩니다.  
+'자동' QoS 용량 풀에서 처리량은 볼륨에 할당된 크기 할당량에 비례하여 풀의 볼륨에 자동으로 할당됩니다.  
 
-QoS 형식에 대 한 고려 사항은 [Azure NetApp Files의 저장소 계층 구조](azure-netapp-files-understand-storage-hierarchy.md) 및 [Azure NetApp Files에 대 한 성능 고려 사항](azure-netapp-files-performance-considerations.md) 을 참조 하세요.
+QoS 유형에 대한 고려 사항은 [Azure NetApp Files의 스토리지 계층 구조](azure-netapp-files-understand-storage-hierarchy.md) 및 [Azure NetApp Files에 대한 성능 고려 사항](azure-netapp-files-performance-considerations.md)을 참조하세요.
 
 ## <a name="example-of-using-manual-qos"></a>수동 QoS 사용 예
 
-예를 들어 SAP HANA 시스템, Oracle 데이터베이스 또는 여러 볼륨이 필요한 다른 워크 로드와 함께 수동 QoS 용량 풀을 사용 하는 경우 용량 풀을 사용 하 여 이러한 응용 프로그램 볼륨을 만들 수 있습니다.  각 볼륨은 응용 프로그램 요구 사항을 충족 하기 위해 개별 크기와 처리량을 제공할 수 있습니다.  이점에 대 한 자세한 내용은 [수동 QoS 용량 풀에 있는 볼륨의 처리량 제한 예](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) 를 참조 하세요.  
+예를 들어 SAP HANA 시스템, Oracle 데이터베이스 또는 기타 여러 볼륨이 필요한 워크로드에 수동 QoS 용량 풀을 사용하는 경우 용량 풀을 사용하여 이러한 애플리케이션 볼륨을 만들 수 있습니다.  각 볼륨은 애플리케이션 요구 사항을 충족하기 위해 개별 크기 및 처리량을 제공할 수 있습니다.  이점에 대한 자세한 내용은 [수동 QoS 용량 풀에 포함된 볼륨의 처리량 제한 예](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool)를 참조하세요.  
 
-## <a name="how-to-specify-the-manual-qos-type"></a>수동 QoS 유형을 지정 하는 방법
+## <a name="how-to-specify-the-manual-qos-type"></a>수동 QoS 유형을 지정하는 방법
 
-[용량 풀을 만들](azure-netapp-files-set-up-capacity-pool.md)때 수동 QoS 유형을 사용 하도록 용량 풀을 지정할 수 있습니다.  수동 QoS 유형을 사용 하도록 [기존 용량 풀을 변경할](manage-manual-qos-capacity-pool.md#change-to-qos) 수도 있습니다. 
+[용량 풀을 만들](azure-netapp-files-set-up-capacity-pool.md) 때 용량 풀이 수동 QoS 유형을 사용하도록 지정할 수 있습니다.  수동 QoS 유형을 사용하도록 [기존 용량 풀을 변경](manage-manual-qos-capacity-pool.md#change-to-qos)할 수도 있습니다. 
 
-용량 유형을 수동 QoS로 설정 하는 것은 영구적으로 변경 된 것입니다. 수동 QoS 유형 용량 도구를 자동 QoS 용량 풀로 변환할 수 없습니다. 
+용량 유형을 수동 QoS로 설정하는 것은 영구적 변경입니다. 수동 QoS 유형 용량 풀을 자동 QoS 용량 풀로 변환할 수는 없습니다. 
 
-수동 QoS 유형을 사용 하려면 [기능을 등록](manage-manual-qos-capacity-pool.md#register-the-feature)해야 합니다.  
+수동 QoS 유형을 사용하려면 [기능을 등록](manage-manual-qos-capacity-pool.md#register-the-feature)해야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
 * [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)
 * [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)
-* [저장소 계층 구조](azure-netapp-files-understand-storage-hierarchy.md) 
+* [스토리지 계층 구조](azure-netapp-files-understand-storage-hierarchy.md) 
 * [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
 * [Azure NetApp Files의 성능 고려 사항](azure-netapp-files-performance-considerations.md)
 * [Azure NetApp Files 비용 모델](azure-netapp-files-cost-model.md)

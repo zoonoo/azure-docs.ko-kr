@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92536065"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 파일 업로드 구성
@@ -27,9 +27,9 @@ ms.locfileid: "92536065"
 
 * [Azure CLI](/cli/azure/install-azure-cli)
 
-* Azure IoT Hub - IoT hub가 없는 경우 [ `az iot hub create` 명령을](/cli/azure/iot/hub#az-iot-hub-create) 사용 하 여 포털을 만들거나 [포털을 사용 하 여 iot hub를 만들](iot-hub-create-through-portal.md)수 있습니다.
+* Azure IoT Hub - IoT Hub가 없는 경우 [`az iot hub create` 명령](/cli/azure/iot/hub#az-iot-hub-create)을 사용하여 하나 만들거나 [포털을 사용하여 IoT Hub를 만들 수 있습니다](iot-hub-create-through-portal.md).
 
-* Azure Storage 계정. Azure Storage 계정이 없으면 Azure CLI를 사용 하 여 계정을 만들 수 있습니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 를 참조하세요.
+* Azure Storage 계정. Azure Storage 계정이 없는 경우 Azure CLI를 사용하여 계정을 만들 수 있습니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 를 참조하세요.
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Azure 계정 로그인 및 설정
 
@@ -138,7 +138,7 @@ IoT Hub의 파일 업로드 기능에 대한 자세한 내용은 [디바이스�
 Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.
 
 * [IoT 디바이스 대량 관리](iot-hub-bulk-identity-mgmt.md)
-* [IoT hub 모니터링](monitor-iot-hub.md)
+* [IoT 허브 모니터링](monitor-iot-hub.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

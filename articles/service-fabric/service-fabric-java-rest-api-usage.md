@@ -7,10 +7,10 @@ ms.date: 11/27/2017
 ms.custom: devx-track-java
 ms.author: rapatchi
 ms.openlocfilehash: 24ee4a3d8109626bf93e01fbd10c00140762c9c6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87324627"
 ---
 # <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java 클라이언트 API
@@ -122,7 +122,7 @@ Service Fabric 클라이언트 API를 사용하면 Azure, 온-프레미스, 로�
     * 나중에 기반한 비동기 프로그래밍을 사용하고 콜백을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
  3. **public Observable\<Void> removeReplicaAsync(String nodeName, UUID partitionId, String replicaId)**
     * 사후 비동기 프로그래밍을 사용하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
- 4. **공개 관찰 가능 \<ServiceResponse\<Void>> removeReplicaWithServiceResponseAsync (문자열 nodeName, UUID partitionId, 문자열 replicaId)**
+ 4. **public Observable\<ServiceResponse\<Void>> removeReplicaWithServiceResponseAsync(String nodeName, UUID partitionId, String replicaId)**
     * 사후 비동기 프로그래밍을 사용하고 RAW REST 응답을 처리하려는 경우 이 변형의 API 호출을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

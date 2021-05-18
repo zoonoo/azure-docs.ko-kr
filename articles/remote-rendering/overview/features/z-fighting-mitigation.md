@@ -7,23 +7,23 @@ ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a399565d62b20f62b72257bcb9f3beb2c910ac98
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594064"
 ---
 # <a name="z-fighting-mitigation"></a>Z-fighting 완화
 
-두 표면이 겹치면 어느 표면을 다른 표면 위에 렌더링해야 하는지 명확하지 않습니다. 결과는 픽셀 마다 다르므로 카메라 뷰 종속 아티팩트가 발생 합니다. 따라서 카메라나 메시가 움직이면 이러한 패턴이 눈에 띄게 깜박입니다. 이 아티팩트를 *z-fighting* 이라고 합니다. AR 및 VR 응용 프로그램의 경우 머리에 탑재된 장치가 자연스럽게 항상 움직이기 때문에 문제가 심화됩니다. 시청자의 불편을 방지하기 위해 z-fighting 완화 기능이 Azure Remote Rendering에서 제공됩니다.
+두 표면이 겹치면 어느 표면을 다른 표면 위에 렌더링해야 하는지 명확하지 않습니다. 결과는 픽셀마다 다르므로 카메라 뷰 종속 아티팩트가 생성됩니다. 따라서 카메라나 메시가 움직이면 이러한 패턴이 눈에 띄게 깜박입니다. 이 아티팩트를 *z-fighting* 이라고 합니다. AR 및 VR 응용 프로그램의 경우 머리에 탑재된 장치가 자연스럽게 항상 움직이기 때문에 문제가 심화됩니다. 시청자의 불편을 방지하기 위해 z-fighting 완화 기능이 Azure Remote Rendering에서 제공됩니다.
 
 ## <a name="z-fighting-mitigation-modes"></a>z-fighting 완화 모드
 
 |상황                        | 결과                               |
 |---------------------------------|:-------------------------------------|
-|일반 z-fighting               |![Red와 green quads의 결정적 우선 순위 없음](./media/zfighting-0.png)|
-|z-fighting 완화 사용    |![빨간색 쿼드의 우선 순위](./media/zfighting-1.png)|
-|바둑판 무늬 강조 표시 사용|![바둑판 패턴의 빨강 및 녹색 쿼드 전환 기본 설정](./media/zfighting-2.png)|
+|일반 z-fighting               |![빨간색 사각형과 녹색 사각형 간에 결정적 우선 순위가 없음](./media/zfighting-0.png)|
+|z-fighting 완화 사용    |![빨간색 사각형의 우선 순위가 높음](./media/zfighting-1.png)|
+|바둑판 무늬 강조 표시 사용|![체크 무늬 패턴으로 빨간색 사각형과 녹색 사각형의 우선 순위가 전환됨](./media/zfighting-2.png)|
 
 다음 코드는 z-fighting 완화를 사용합니다.
 
@@ -78,8 +78,8 @@ z-fighting은 주로 다음과 같은 두 가지 이유로 발생합니다.
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RenderingConnection ZFightingMitigationSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.zfightingmitigationsettings)
-* [C + + RenderingConnection:: ZFightingMitigationSettings ()](/cpp/api/remote-rendering/renderingconnection#zfightingmitigationsettings)
+* [C# RenderingConnection.ZFightingMitigationSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.zfightingmitigationsettings)
+* [C++ RenderingConnection::ZFightingMitigationSettings()](/cpp/api/remote-rendering/renderingconnection#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

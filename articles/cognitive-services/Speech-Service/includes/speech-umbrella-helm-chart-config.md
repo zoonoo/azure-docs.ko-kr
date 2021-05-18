@@ -1,7 +1,7 @@
 ---
-title: 음성 컨테이너 설치
+title: Speech 컨테이너 설치
 titleSuffix: Azure Cognitive Services
-description: 음성 파라솔 투구 차트 구성 옵션에 대해 자세히 설명 합니다.
+description: 음성 umbrella helm 차트 구성 옵션을 자세히 설명합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,29 +11,29 @@ ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
 ms.openlocfilehash: 0257f3af44cc85d0a3656472db224ae5a7e19161
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96002291"
 ---
-### <a name="speech-umbrella-chart"></a>Speech (파라솔 차트)
+### <a name="speech-umbrella-chart"></a>음성(umbrella 차트)
 
-최상위 "파라솔" 차트의 값은 해당 하위 차트 값을 재정의 합니다. 따라서 모든 온-프레미스 사용자 지정 값을 여기에 추가 해야 합니다.
+최상위 “파라솔” 차트의 값은 해당 하위 차트 값을 재정의합니다. 따라서 모든 온-프레미스 사용자 지정 값을 여기에 추가해야 합니다.
 
 |매개 변수|Description|기본값|
 | -- | -- | -- | -- |
-| `speechToText.enabled` | **음성 텍스트** 서비스의 사용 여부를 지정 합니다. | `true` |
-| `speechToText.verification.enabled` | `helm test` **음성 텍스트** 서비스의 기능을 사용할 수 있는지 여부를 나타냅니다. | `true` |
-| `speechToText.verification.image.registry` | `helm test`에서 **음성 텍스트** 서비스를 테스트 하는 데 사용 하는 docker 이미지 리포지토리입니다. 투구는 테스트를 위해 클러스터 내부에 별도의 pod를 만들고이 레지스트리에서 *테스트 사용* 이미지를 끌어옵니다. | `docker.io` |
-| `speechToText.verification.image.repository` | `helm test`에서 **음성 텍스트** 서비스를 테스트 하는 데 사용 하는 docker 이미지 리포지토리입니다. 투구 테스트 pod는이 리포지토리를 사용 하 여 *테스트 사용* 이미지를 끌어옵니다. | `antsu/on-prem-client` |
-| `speechToText.verification.image.tag` | `helm test` **음성 텍스트** 서비스에 사용 되는 docker 이미지 태그입니다. 투구 테스트 pod는이 태그를 사용 하 여 *테스트 사용* 이미지를 가져옵니다. | `latest` |
-| `speechToText.verification.image.pullByHash` | *테스트 사용* docker 이미지를 해시로 끌어올 지 여부를 지정 합니다. 인 `true` 경우 `speechToText.verification.image.hash` 유효한 이미지 해시 값을 사용 하 여을 추가 해야 합니다. | `false` |
-| `speechToText.verification.image.arguments` | *테스트 사용* docker 이미지를 실행 하는 데 사용 되는 인수입니다. 투구 테스트 pod는 실행할 때 이러한 인수를 컨테이너에 전달 `helm test` 합니다. | `"./speech-to-text-client"`<br/> `"./audio/whatstheweatherlike.wav"` <br/> `"--expect=What's the weather like"`<br/>`"--host=$(SPEECH_TO_TEXT_HOST)"`<br/>`"--port=$(SPEECH_TO_TEXT_PORT)"` |
-| `textToSpeech.enabled` | **텍스트 음성 변환** 서비스의 사용 여부를 지정 합니다. | `true` |
-| `textToSpeech.verification.enabled` | `helm test` **음성 텍스트** 서비스의 기능을 사용할 수 있는지 여부를 나타냅니다. | `true` |
-| `textToSpeech.verification.image.registry` | `helm test`에서 **음성 텍스트** 서비스를 테스트 하는 데 사용 하는 docker 이미지 리포지토리입니다. 투구는 테스트를 위해 클러스터 내부에 별도의 pod를 만들고이 레지스트리에서 *테스트 사용* 이미지를 끌어옵니다. | `docker.io` |
-| `textToSpeech.verification.image.repository` | `helm test`에서 **음성 텍스트** 서비스를 테스트 하는 데 사용 하는 docker 이미지 리포지토리입니다. 투구 테스트 pod는이 리포지토리를 사용 하 여 *테스트 사용* 이미지를 끌어옵니다. | `antsu/on-prem-client` |
-| `textToSpeech.verification.image.tag` | `helm test` **음성 텍스트** 서비스에 사용 되는 docker 이미지 태그입니다. 투구 테스트 pod는이 태그를 사용 하 여 *테스트 사용* 이미지를 가져옵니다. | `latest` |
-| `textToSpeech.verification.image.pullByHash` | *테스트 사용* docker 이미지를 해시로 끌어올 지 여부를 지정 합니다. 인 `true` 경우 `textToSpeech.verification.image.hash` 유효한 이미지 해시 값을 사용 하 여을 추가 해야 합니다. | `false` |
-| `textToSpeech.verification.image.arguments` | *테스트 사용* docker 이미지를 사용 하 여 실행할 인수입니다. 투구 테스트 pod는 실행할 때 이러한 인수를 컨테이너에 전달 `helm test` 합니다. | `"./text-to-speech-client"`<br/> `"--input='What's the weather like'"` <br/> `"--host=$(TEXT_TO_SPEECH_HOST)"`<br/>`"--port=$(TEXT_TO_SPEECH_PORT)"` |
+| `speechToText.enabled` | **speech-to-text** 서비스 사용 여부를 나타냅니다. | `true` |
+| `speechToText.verification.enabled` | **speech-to-text** 서비스의 `helm test` 기능 사용 여부를 나타냅니다. | `true` |
+| `speechToText.verification.image.registry` | `helm test`가 **speech-to-text** 서비스를 테스트하는 데 사용하는 Docker 이미지 리포지토리입니다. Helm은 테스트를 위해 클러스터 내부에 분리된 Pod를 만들고 이 레지스트리에서 *test-use* 이미지를 풀합니다. | `docker.io` |
+| `speechToText.verification.image.repository` | `helm test`가 **speech-to-text** 서비스를 테스트하는 데 사용하는 Docker 이미지 리포지토리입니다. Helm 테스트 Pod는 이 리포지토리를 사용하여 *test-use* 이미지를 풀합니다. | `antsu/on-prem-client` |
+| `speechToText.verification.image.tag` | **speech-to-text** 서비스의 `helm test`에서 사용되는 Docker 이미지 태그입니다. Helm 테스트 Pod는 이 태그를 사용하여 *test-use* 이미지를 풀합니다. | `latest` |
+| `speechToText.verification.image.pullByHash` | *test-use* Docker 이미지를 해시를 통해 풀할지 여부를 나타냅니다. `true`인 경우 유효한 이미지 해시 값과 함께 `speechToText.verification.image.hash`를 추가해야 합니다. | `false` |
+| `speechToText.verification.image.arguments` | *test-use* Docker 이미지를 실행하는 데 사용되는 인수입니다. Helm 테스트 Pod는 `helm test`를 실행할 때 이 인수를 컨테이너에 전달합니다. | `"./speech-to-text-client"`<br/> `"./audio/whatstheweatherlike.wav"` <br/> `"--expect=What's the weather like"`<br/>`"--host=$(SPEECH_TO_TEXT_HOST)"`<br/>`"--port=$(SPEECH_TO_TEXT_PORT)"` |
+| `textToSpeech.enabled` | **text-to-speech** 서비스 사용 여부를 나타냅니다. | `true` |
+| `textToSpeech.verification.enabled` | **speech-to-text** 서비스의 `helm test` 기능 사용 여부를 나타냅니다. | `true` |
+| `textToSpeech.verification.image.registry` | `helm test`가 **speech-to-text** 서비스를 테스트하는 데 사용하는 Docker 이미지 리포지토리입니다. Helm은 테스트를 위해 클러스터 내부에 분리된 Pod를 만들고 이 레지스트리에서 *test-use* 이미지를 풀합니다. | `docker.io` |
+| `textToSpeech.verification.image.repository` | `helm test`가 **speech-to-text** 서비스를 테스트하는 데 사용하는 Docker 이미지 리포지토리입니다. Helm 테스트 Pod는 이 리포지토리를 사용하여 *test-use* 이미지를 풀합니다. | `antsu/on-prem-client` |
+| `textToSpeech.verification.image.tag` | **speech-to-text** 서비스의 `helm test`에서 사용되는 Docker 이미지 태그입니다. Helm 테스트 Pod는 이 태그를 사용하여 *test-use* 이미지를 풀합니다. | `latest` |
+| `textToSpeech.verification.image.pullByHash` | *test-use* Docker 이미지를 해시를 통해 풀할지 여부를 나타냅니다. `true`인 경우 유효한 이미지 해시 값과 함께 `textToSpeech.verification.image.hash`를 추가해야 합니다. | `false` |
+| `textToSpeech.verification.image.arguments` | *test-use* Docker 이미지에서 실행할 인수입니다. Helm 테스트 Pod는 `helm test`를 실행할 때 이 인수를 컨테이너에 전달합니다. | `"./text-to-speech-client"`<br/> `"--input='What's the weather like'"` <br/> `"--host=$(TEXT_TO_SPEECH_HOST)"`<br/>`"--port=$(TEXT_TO_SPEECH_PORT)"` |

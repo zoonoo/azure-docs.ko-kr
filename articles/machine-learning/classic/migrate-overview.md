@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션'
 description: 현대화된 데이터 과학 플랫폼을 위해 Studio(클래식)에서 Azure Machine Learning으로 마이그레이션합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio-classic
+ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: fafb9f7e84263c33cf1b15a52742ec9cd0380a40
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 7cdf016d7de66c33973ec7818fa92df28c4639dd
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311858"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566962"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Azure Machine Learning으로 마이그레이션
 
@@ -82,7 +82,7 @@ Azure Machine Learning으로 마이그레이션하려면 다음 방식을 사용
 > 디자이너는 C# 패키지가 아닌 Studio(클래식)와 같은 오픈 소스 Python 패키지를 통해 모듈을 구현합니다. 이러한 차이로 인해 디자이너 모듈의 출력은 해당 Studio(클래식)와 약간 다를 수 있습니다.
 
 
-|Category|Studio(클래식) 모듈|대체 디자이너 모듈|
+|범주|Studio(클래식) 모듈|대체 디자이너 모듈|
 |--------------|----------------|--------------------------------------|
 |데이터 입력 및 출력|- 수동으로 데이터 입력 </br> - 데이터 내보내기 </br> - 데이터 가져오기 </br> - 학습된 모델 로드 </br> - 압축된 데이터 세트 압축 풀기|- 수동으로 데이터 입력 </br> - 데이터 내보내기 </br> - 데이터 가져오기|
 |데이터 형식 변환|- CSV로 변환 </br> - 데이터 세트로 변환 </br> - ARFF로 변환 </br> - SVMLight로 변환 </br> - TSV로 변환|- CSV로 변환 </br> - 데이터 세트로 변환|

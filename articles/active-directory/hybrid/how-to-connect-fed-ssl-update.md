@@ -1,6 +1,6 @@
 ---
-title: Azure AD Connect-AD FS 팜에 대 한 TLS/SSL 인증서를 업데이트 합니다. Microsoft Docs
-description: 이 문서에서는 Azure AD Connect를 사용 하 여 AD FS 팜의 TLS/SSL 인증서를 업데이트 하는 단계를 자세히 설명 합니다.
+title: Azure AD 연결 - ADFS 팜에 대한 TLS/SSL 인증서 업데이트 | Microsoft Docs
+description: 이 문서에서는 Azure AD Connect를 사용하여 AD FS 팜에 대한 TLS/SSL 인증서를 업데이트하는 단계를 자세히 설명합니다.
 services: active-directory
 manager: daveba
 editor: billmath
@@ -17,18 +17,18 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89279910"
 ---
-# <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Active Directory Federation Services (AD FS) 팜에 대 한 TLS/SSL 인증서를 업데이트 합니다.
+# <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Active Directory Federation Services 팜에 대한 TLS/SSL 인증서 업데이트
 
 ## <a name="overview"></a>개요
-이 문서에서는 Azure AD Connect를 사용 하 여 Active Directory Federation Services (AD FS) 팜에 대 한 TLS/SSL 인증서를 업데이트 하는 방법을 설명 합니다. 선택한 사용자 로그인 방법이 AD FS 되지 않았더라도 Azure AD Connect 도구를 사용 하 여 AD FS 팜에 대 한 TLS/SSL 인증서를 쉽게 업데이트할 수 있습니다.
+이 문서에서는 Azure AD Connect를 사용하여 Active Directory Federation Services 팜에 대한 TLS/SSL 인증서를 업데이트하는 방법에 대해 설명합니다. 선택한 사용자 로그인 방법이 AD FS가 아닌 경우에도 Azure AD Connect 도구를 사용하여 AD FS 팜에 대한 TLS/SSL 인증서를 쉽게 업데이트할 수 있습니다.
 
-다음 세 가지 간단한 단계를 통해 모든 페더레이션 및 WAP (웹 응용 프로그램 프록시) 서버에서 AD FS 팜에 대 한 TLS/SSL 인증서를 업데이트 하는 전체 작업을 수행할 수 있습니다.
+간단한 세 단계로 모든 페더레이션 및 WAP(Web Application Proxy) 서버에서 AD FS 팜에 대한 TLS/SSL 인증서를 업데이트하는 전체 작업을 수행할 수 있습니다.
 
 ![3단계](./media/how-to-connect-fed-ssl-update/threesteps.png)
 
@@ -49,7 +49,7 @@ Azure AD Connect는 다음과 같은 방법으로 AD FS 팜에 대한 정보를 
 1. AD FS(Windows Server 2016 이상)에서 팜 정보 쿼리.
 2. Azure AD Connect를 통해 로컬에 저장된 이전 실행의 정보 참조.
 
-표시된 서버 목록은 서버를 추가하거나 제거하여 AD FS 팜의 현재 구성을 반영하도록 수정할 수 있습니다. 서버 정보를 제공 하는 즉시 연결 및 현재 TLS/SSL 인증서 상태가 Azure AD Connect 표시 됩니다.
+표시된 서버 목록은 서버를 추가하거나 제거하여 AD FS 팜의 현재 구성을 반영하도록 수정할 수 있습니다. 서버 정보가 제공되면 Azure AD Connect가 연결 및 현재 TLS/SSL 인증서 상태를 표시합니다.
 
 ![AD FS 서버 정보](./media/how-to-connect-fed-ssl-update/adfsserverinfo.png)
 
@@ -60,9 +60,9 @@ Azure AD Connect는 다음과 같은 방법으로 AD FS 팜에 대한 정보를 
 >[!NOTE]
 > Azure AD Connect에서 AD FS 팜에 대한 서버 목록에서 서버를 제거하는 것은 로컬 작업이며 이 작업을 수행하면 Azure AD Connect가 로컬에서 유지 관리하는 AD FS 팜에 대한 정보가 업데이트됩니다. Azure AD Connect는 변경 내용을 반영하기 위해 AD FS의 구성을 수정하지 않습니다.    
 
-## <a name="step-2-provide-a-new-tlsssl-certificate"></a>2 단계: 새 TLS/SSL 인증서 제공
+## <a name="step-2-provide-a-new-tlsssl-certificate"></a>2단계: 새 TLS/SSL 인증서 제공
 
-AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SSL 인증서를 요청 합니다. 설치를 계속하려면 암호로 보호된 PFX 인증서를 제공합니다.
+AD FS 팜 서버에 대한 정보가 확인된 후 Azure AD Connect에서 새 TLS/SSL 인증서를 요청합니다. 설치를 계속하려면 암호로 보호된 PFX 인증서를 제공합니다.
 
 ![TLS/SSL 인증서](./media/how-to-connect-fed-ssl-update/certificate.png)
 
@@ -75,7 +75,7 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
 ## <a name="step-3-select-servers-for-the-update"></a>3단계: 업데이트할 서버 선택
 
-다음 단계에서 TLS/SSL 인증서를 업데이트 해야 하는 서버를 선택 합니다. 오프라인 상태인 서버는 업데이트 대상으로 선택할 수 없습니다.
+다음 단계에서 TLS/SSL 인증서를 업데이트해야 하는 서버를 선택합니다. 오프라인 상태인 서버는 업데이트 대상으로 선택할 수 없습니다.
 
 ![업데이트할 서버 선택](./media/how-to-connect-fed-ssl-update/selectservers.png)
 
@@ -85,7 +85,7 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
 ## <a name="faqs"></a>FAQ
 
-* **새 AD FS TLS/SSL 인증서에 대 한 인증서의 주체 이름은 무엇 인가요?**
+* **새 AD FS TLS/SSL 인증서의 주체 이름은 무엇인가요?**
 
     Azure AD Connect는 인증서의 주체 이름/대체 주체 이름에 페더레이션 서비스 이름이 포함되어 있는지 확인합니다. 예를 들어 페더레이션 서비스 이름이 fs.contoso.com이면 주체 이름/대체 주체 이름은 fs.contoso.com이어야 합니다.  와일드 카드 인증서도 허용됩니다.
 
@@ -93,15 +93,15 @@ AD FS 팜 서버에 대 한 정보를 확인 한 후 Azure AD Connect 새 TLS/SS
 
     AD FS 서버에 연결하기 위해 제공한 자격 증명에 WAP 서버를 관리할 권한이 없으면 Azure AD Connect는 WAP 서버에 대한 관리자 권한이 포함된 자격 증명을 요청합니다.
 
-* **서버가 오프 라인으로 표시 됩니다. 제가 뭘 해야 하나요?**
+* **서버가 오프라인으로 표시됩니다. 어떻게 해야 하나요?**
 
     서버가 오프라인 상태이면 Azure AD Connect가 작업을 수행할 수 없습니다. 서버가 AD FS 팜의 일부이면 서버 연결을 확인하세요. 이 문제를 해결한 후 마법사에서 새로 고침 아이콘을 눌러 상태를 업데이트하세요. 서버가 이전에 팜에 포함되었지만 더 이상 존재하지 않으면 **제거** 를 클릭하여 Azure AD Connect가 유지 관리하는 서버 목록에서 서버를 삭제합니다. Azure AD Connect의 목록에서 서버를 제거해도 AD FS 구성 자체는 변경되지 않습니다. Windows Server 2016 이상에서 AD FS를 사용하는 경우 서버는 구성 설정에 남아 있게 되며 다음에 작업이 실행될 때 표시됩니다.
 
-* **새 TLS/SSL 인증서를 사용 하 여 팜 서버의 하위 집합을 업데이트할 수 있나요?**
+* **새 TLS/SSL 인증서를 사용하여 팜 서버의 하위 집합을 업데이트할 수 있나요?**
 
     예. 언제든지 **SSL 인증서 업데이트** 작업을 다시 실행하여 나머지 서버를 업데이트할 수 있습니다. **SSL 인증서 업데이트용 서버 선택** 페이지에서 **SSL 만료 날짜** 를 기준으로 서버 목록을 정렬하면 아직 업데이트되지 않은 서버에 쉽게 액세스할 수 있습니다.
 
-* **이전 실행에서 서버를 제거 했지만 계속 오프 라인으로 표시 되 고 AD FS 서버 페이지에 나열 됩니다. 제거한 후에도 오프 라인 서버가 남아 있는 이유는 무엇 인가요?**
+* **이전 실행에서 서버를 제거했지만 여전히 오프라인으로 표시되고 있으며 AD FS 서버 페이지에 표시됩니다. 오프라인 서버가 제거한 후에도 남아 있는 이유는 무엇인가요?**
 
     Azure AD Connect의 목록에서 서버를 제거해도 AD FS 구성에서는 서버가 제거되지 않습니다. Azure AD Connect는 팜에 대한 정보를 얻기 위해 AD FS(Windows Server 2016 이상)를 참조합니다. 서버가 AD FS 구성에 남아 있으면 해당 서버는 목록에 다시 표시됩니다.  
 

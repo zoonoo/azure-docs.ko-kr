@@ -7,10 +7,10 @@ ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 0d1e66d09db3e3934871ed15493feb685d1cbe6a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99593877"
 ---
 # <a name="models"></a>모델
@@ -39,7 +39,7 @@ Blob Storage에서 자산을 처리하는 방법에 따라 다른 두 개의 개
 * [Blob Storage가 계정에 연결되어 있으면](../how-tos/create-an-account.md#link-storage-accounts) Blob Storage 매개 변수로 직접 모델을 처리할 수 있습니다. 이 경우 매개 변수 `LoadModelOptions`와 관련된 로딩 함수는 `LoadModelAsync`입니다.
 * 모델은 SAS URI를 통해 처리됩니다. 매개 변수 `LoadModelFromSasOptions`와 관련된 로딩 함수는 `LoadModelFromSasAsync`입니다. [기본 제공 모델](../samples/sample-model.md)을 로드하는 경우에도 이 변형을 사용합니다.
 
-다음 코드 조각은 두 함수 중 하나를 사용하여 모델을 로드하는 방법을 보여 줍니다. Blob 저장소 매개 변수를 사용 하 여 모델을 로드 하려면 아래와 같은 코드를 사용 합니다.
+다음 코드 조각은 두 함수 중 하나를 사용하여 모델을 로드하는 방법을 보여 줍니다. Blob Storage 매개 변수를 사용하여 모델을 로드하려면 아래와 같은 코드를 사용합니다.
 
 
 ```cs
@@ -87,7 +87,7 @@ void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParen
 }
 ```
 
-SAS 토큰을 사용 하 여 모델을 로드 하려면 다음 코드 조각과 비슷한 코드를 사용 합니다.
+SAS 토큰을 사용하여 모델을 로드하려면 다음 코드 조각과 같은 코드를 사용합니다.
 
 ```cs
 async void LoadModel(RenderingSession session, Entity modelParent, string modelUri)
@@ -131,10 +131,10 @@ void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParen
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RenderingConnection ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadmodelasync)
-* [C # RenderingConnection ()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadmodelfromsasasync)
-* [C + + RenderingConnection:: LoadModelAsync ()](/cpp/api/remote-rendering/renderingconnection#loadmodelasync)
-* [C + + RenderingConnection:: Loadmodel Msasasync ()](/cpp/api/remote-rendering/renderingconnection#loadmodelfromsasasync)
+* [C# RenderingConnection.LoadModelAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadmodelasync)
+* [C# RenderingConnection.LoadModelFromSasAsync()](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.loadmodelfromsasasync)
+* [C++ RenderingConnection::LoadModelAsync()](/cpp/api/remote-rendering/renderingconnection#loadmodelasync)
+* [C++ RenderingConnection::LoadModelFromSasAsync()](/cpp/api/remote-rendering/renderingconnection#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>다음 단계
 

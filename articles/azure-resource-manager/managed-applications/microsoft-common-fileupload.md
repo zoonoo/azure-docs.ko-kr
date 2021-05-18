@@ -1,15 +1,15 @@
 ---
 title: FileUpload UI 요소
-description: Azure Portal의 Microsoft.Common.FileUpload UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 파일을 업로드 해야 할 수 있습니다.
+description: Azure Portal의 Microsoft.Common.FileUpload UI 요소에 대해 설명합니다. 사용자가 관리 애플리케이션을 배포할 때 파일을 업로드해야 할 수 있습니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: tomfitz
 ms.openlocfilehash: c4eb3972be85ac7e291380f64127c20424b0d0f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87004286"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 요소

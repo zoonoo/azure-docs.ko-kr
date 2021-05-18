@@ -12,13 +12,12 @@ ms.date: 12/10/2019
 ms.author: rhurey
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ROBOTS: NOINDEX
-ms.openlocfilehash: dd13bb2fcb295951f4a8e6e857a4c71611022346
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: c7e74ce8f4d0b7889d2e5bcd117eaa43e2b6991b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330731"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "88934143"
 ---
 # <a name="how-to-track-speech-sdk-memory-usage"></a>Speech SDK 메모리 사용량을 추적하는 방법
 

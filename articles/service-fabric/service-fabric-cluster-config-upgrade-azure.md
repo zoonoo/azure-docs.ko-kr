@@ -4,10 +4,10 @@ description: Resource Manager 템플릿을 사용하여 Azure에서 Service Fabr
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 692dc2162159ab61a3ac527e12dac43438084a60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91842719"
 ---
 # <a name="upgrade-the-configuration-of-a-cluster-in-azure"></a>Azure에서 클러스터의 구성 업그레이드 
@@ -25,9 +25,9 @@ ms.locfileid: "91842719"
 JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 있습니다. 다른 설정에 대해 자세히 알아보려면 [클러스터에 대한 구성 설정](service-fabric-cluster-fabric-settings.md)을 참조하세요. 예제로 아래 단계에서는 Azure Resource Explorer를 사용하여 새로운 *MaxDiskQuotaInMB* 설정을 *Diagnostics* 섹션에 추가하는 방법을 보여줍니다.
 
 1. https://resources.azure.com 로 이동
-2. **구독**  ->  **\<Your Subscription>**  ->  **resourcegroups**  ->  **\<Your Resource Group>**  ->  **공급자**  ->  **ServiceFabric**  ->  **클러스터** 를 확장 하 여 구독으로 이동 합니다. -> **\<Your Cluster Name>**
-3. 오른쪽 위 모서리에서 **읽기/쓰기를 선택 합니다.**
-4. **편집** 을 선택 하 고 `fabricSettings` JSON 요소를 업데이트 하 고 새 요소를 추가 합니다.
+2. **구독** ->  **\<Your Subscription>**  -> **resourceGroups** ->  **\<Your Resource Group>**  -> **공급자** -> **Microsoft.ServiceFabric** -> **클러스터** ->  **\<Your Cluster Name>** 을 펼쳐 해당 구독으로 이동합니다.
+3. 오른쪽 위 모서리에서 **읽기/쓰기** 를 선택합니다.
+4. **편집** 을 선택하고 `fabricSettings` JSON 요소를 업데이트하고 새 요소를 추가합니다.
 
 ```json
       {
@@ -46,9 +46,9 @@ JSON Resource Manager 템플릿을 통해 Azure 클러스터를 구성할 수 �
 - [Azure Portal](../azure-resource-manager/templates/export-template-portal.md)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
 - [PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)을 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
 - [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md)를 사용하여 Resource Manger 템플릿을 내보내고 업데이트합니다.
-- Azure PowerShell [AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) 및 [AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) 명령을 사용 하 여 설정을 직접 수정할 수 있습니다.
+- Azure PowerShell [Set-AzServiceFabricSetting](/powershell/module/az.servicefabric/set-azservicefabricsetting) 및 [Remove-AzServiceFabricSetting](/powershell/module/az.servicefabric/remove-azservicefabricsetting) 명령을 사용하여 설정을 직접 수정합니다.
 - Azure CLI [az sf 클러스터 설정](/cli/azure/sf/cluster/setting) 명령을 사용하여 설정을 직접 수정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 클러스터 설정](service-fabric-cluster-fabric-settings.md)에 대해 알아봅니다.
-* [클러스터를 확장 및 축소](service-fabric-cluster-scale-in-out.md)하는 방법을 알아봅니다.
+* [클러스터를 확장 및 축소](service-fabric-cluster-scale-in-out.md)하는 방법 알아보기

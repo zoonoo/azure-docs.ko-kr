@@ -1,7 +1,7 @@
 ---
 title: '지점 및 사이트 간 사용자 지정 IPsec 정책 만들기 및 설정: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: 이 문서는 VPN Gateway P2S 구성에 대 한 사용자 지정 IPSec 정책을 만들고 설정 하는 데 도움이 됩니다.
+description: 이 문서는 VPN Gateway P2S 구성에 대한 사용자 지정 IPSec 정책을 만들고 설정하는 데 도움이 됩니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -9,23 +9,23 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: cherylmc
 ms.openlocfilehash: a77a870304e20c179e22b4a4ffe404315894d8a0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91743695"
 ---
-# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>지점 및 사이트 간 (미리 보기)에 대 한 사용자 지정 IPsec 정책 만들기 및 설정
+# <a name="create-and-set-custom-ipsec-policies-for-point-to-site-preview"></a>지점 및 사이트 간(미리 보기) 사용자 지정 IPsec 정책 만들기 및 설정
 
-사용자 환경에 암호화를 위한 사용자 지정 IPsec 정책이 필요한 경우 필요한 설정을 사용 하 여 정책 개체를 쉽게 구성할 수 있습니다. 이 문서에서는 사용자 지정 정책 개체를 만들고 PowerShell을 사용 하 여 설정 하는 방법을 설명 합니다.
+사용자 환경에 암호화를 위한 사용자 지정 IPsec 정책이 필요한 경우 필요한 설정을 사용하여 정책 개체를 쉽게 구성할 수 있습니다. 이 문서는 사용자 지정 정책 개체를 만들고 PowerShell을 사용하여 설정하는 데 도움이 됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-사용자 환경이 다음과 같은 필수 구성 요소를 충족 하는지 확인 합니다.
+사용자 환경이 다음과 같은 사전 요구 사항을 충족하는지 확인합니다.
 
-* 작동 지점 및 사이트 간 VPN이 이미 구성 되어 있습니다. 그렇지 않은 경우 [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)또는 [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)를 사용 하 여 **지점 및 사이트 간 VPN 만들기** 문서 단계를 사용 하 여 구성 합니다.
+* 작동 지점 및 사이트 간 VPN이 이미 구성되어 있습니다. 그렇지 않은 경우 [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) 또는 [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)을 사용하여 **지점 및 사이트 간 VPN 만들기** 문서의 단계에 따라 구성합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
@@ -33,7 +33,7 @@ ms.locfileid: "91743695"
 
 ## <a name="1-set-variables"></a><a name="signin"></a>1. 변수 설정
 
-사용할 변수를 선언합니다. 필요한 경우 사용자 고유의 값을 대체 하 여 다음 샘플을 사용 합니다. 연습 중에 언제 든 지 PowerShell/Cloud Shell 세션을 닫는 경우 값을 복사 하 여 다시 붙여넣어 변수를 다시 선언 합니다.
+사용할 변수를 선언합니다. 다음 샘플을 사용하여 필요할 때 고유한 값으로 대체합니다. 이 연습을 수행하는 동안 PowerShell/Cloud Shell 세션을 닫게 되는 경우 값을 복사하고 붙여넣어 변수를 다시 선언하세요.
 
   ```azurepowershell-interactive
   $RG = "TestRG"
@@ -48,9 +48,9 @@ ms.locfileid: "91743695"
 $vpnclientipsecpolicy = New-AzVpnClientIpsecPolicy -IpsecEncryption AES256 -IpsecIntegrity SHA256 -SALifeTime 86471 -SADataSize 429496 -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup2 -PfsGroup PFS2
 ```
 
-## <a name="3-update-gateway-and-set-policy"></a><a name="update"></a>3. 게이트웨이를 업데이트 하 고 정책을 설정 합니다.
+## <a name="3-update-gateway-and-set-policy"></a><a name="update"></a>3. 게이트웨이 업데이트 및 정책 설정
 
-이 단계에서는 기존 P2S VPN 게이트웨이를 업데이트 하 고 IPsec 정책을 설정 합니다.
+이 단계에서는 기존 P2S VPN Gateway를 업데이트하고 IPsec 정책을 설정합니다.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -name $GWName
@@ -59,4 +59,4 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway -VpnClientIpsecPolic
 
 ## <a name="next-steps"></a>다음 단계
 
-P2S 구성에 대 한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조 하세요.
+P2S 구성에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.

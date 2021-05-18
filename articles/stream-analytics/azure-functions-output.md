@@ -1,23 +1,23 @@
 ---
-title: Azure Stream Analytics에서 출력 Azure Functions
-description: 이 문서에서는 Azure Stream Analytics에 대 한 출력으로 Azure 기능을 설명 합니다.
+title: Azure Stream Analytics 작업에서 Azure Functions 실행
+description: 이 문서에서는 Azure Stream Analytics의 출력으로 Azure functions를 설명합니다.
 author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.openlocfilehash: e5ea7a1abbbd6ab4be32955179227fbd539cf641
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019621"
 ---
-# <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Stream Analytics에서 출력 Azure Functions
+# <a name="azure-functions-output-from-azure-stream-analytics"></a>Azure Stream Analytics 작업에서 Azure Functions 실행
 
 Azure Functions는 인프라를 명시적으로 프로비저닝하거나 관리할 필요 없이 요청 시 코드를 실행하는 데 사용할 수 있는 서버리스 컴퓨팅 서비스입니다. Azure 또는 파트너 서비스에서 발생하는 이벤트에서 트리거되는 코드를 구현할 수 있습니다. 트리거에 응답하는 Azure Functions의 이 기능을 사용하면 Azure Stream Analytics 출력을 자연스럽게 제공할 수 있습니다. 이 출력 어댑터를 사용하면 사용자가 Stream Analytics를 Azure Functions에 연결하여 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
 
-Stream Analytics의 Azure Functions 출력은 Azure 중국 21Vianet 및 Azure 독일 (T-sql 국제) 지역에서 사용할 수 없습니다. 다중 테 넌 트 클러스터에서 실행 되는 Stream Analytics 작업에서 VNet (가상 네트워크) 내 Azure Functions에 대 한 연결도 지원 되지 않습니다.
+Stream Analytics의 Azure Functions 출력은 현재 Azure 중국 21Vianet 및 Azure 독일(T-Systems International) 지역에서 사용할 수 없습니다. 다중 테넌트 클러스터에서 실행 중인 Stream Analytics 작업에서 가상 네트워크 (VNet) 내의 Azure Functions에 대한 연결은 지원되지 않습니다.
 
 Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합니다. Azure Functions 출력 어댑터는 다음과 같은 구성 가능한 속성을 통해 사용할 수 있습니다.
 
@@ -40,7 +40,7 @@ Azure Stream Analytics는 Azure 함수에서 413("http 요청 엔터티가 너�
 
 ## <a name="partitioning"></a>분할
 
-파티션 키는 쿼리의 PARTITION BY 절을 기반으로 합니다. 출력 작성기의 수는 [완전히 병렬화 된 쿼리에](stream-analytics-scale-jobs.md)대 한 입력 분할을 따릅니다.
+partition 키 값은 쿼리의 PARTITION BY 절에 기반합니다. 출력 작성기의 수는 [완전히 병렬화된 쿼리](stream-analytics-scale-jobs.md)의 입력 분할을 따릅니다.
 
 ## <a name="output-batch-size"></a>출력 일괄 처리 크기
 
@@ -51,6 +51,6 @@ Azure Stream Analytics는 Azure 함수에서 413("http 요청 엔터티가 너�
 * [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-portal.md)
 * [빠른 시작: Azure CLI를 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-cli.md)
 * [빠른 시작: ARM 템플릿을 사용하여 Azure Stream Analytics 작업 만들기](quick-create-azure-resource-manager.md)
-* [빠른 시작: Azure PowerShell를 사용 하 여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
+* [빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-powershell.md)
 * [빠른 시작: Visual Studio를 사용하여 Azure Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
 * [빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기](quick-create-visual-studio-code.md)

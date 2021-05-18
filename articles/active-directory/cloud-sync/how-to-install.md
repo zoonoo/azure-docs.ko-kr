@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect 프로비저닝 에이전트 설치
-description: Azure AD Connect 프로 비전 에이전트를 설치 하는 방법 및 Azure Portal에서 구성 하는 방법에 대해 알아봅니다.
+description: Azure AD Connect 프로비전 에이전트를 설치하는 방법과 Azure Portal에서 그것을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 742b9fc79489feba8192b6e62a6431bb37f55ad4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98613750"
 ---
 # <a name="install-the-azure-ad-connect-provisioning-agent"></a>Azure AD Connect 프로비저닝 에이전트 설치
@@ -24,7 +24,7 @@ ms.locfileid: "98613750"
 >[!IMPORTANT]
 >다음 설치 지침에서는 모든 [사전 요구 사항](how-to-prerequisites.md)을 충족한다고 가정합니다.
 
-Azure AD Connect 클라우드 동기화를 설치 하 고 구성 하는 작업은 다음 단계에서 수행 됩니다.
+Azure AD Connect 클라우드 동기화을 설치하고 구성하는 작업은 다음 단계에 따라 수행됩니다.
 
 - [그룹 관리 서비스 계정](#group-managed-service-accounts) 
 - [에이전트 설치](#install-the-agent)
@@ -32,11 +32,11 @@ Azure AD Connect 클라우드 동기화를 설치 하 고 구성 하는 작업�
 
 
 ## <a name="group-managed-service-accounts"></a>Group Managed Service Accounts
-그룹 관리 서비스 계정은 자동 암호 관리, 간소화 된 SPN (서비스 사용자 이름) 관리, 다른 관리자에 게 관리를 위임 하는 기능 및 여러 서버에서이 기능을 확장 하는 관리 되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행 하는 그룹 관리 서비스 계정 사용을 지원 하 고 권장 합니다.  GMSA에 대 한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 을 참조 하세요. 
+그룹 관리 서비스 계정은 자동 암호 관리, 간소화된 SPN(서비스 사용자 이름) 관리, 다른 관리자에게 관리를 위임하는 기능 및 여러 서버에서 이 기능을 확장하는 관리되는 도메인 계정입니다.  Azure AD Connect 클라우드 동기화는 에이전트를 실행하는 그룹 관리 서비스 계정 사용을 지원하고 권장합니다.  gMSA에 대한 자세한 내용은 [그룹 관리 서비스 계정](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)을 참조하세요. 
 
 
-### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>GMSA 계정을 사용 하도록 기존 에이전트 업그레이드
-설치 중 만든 gMSA 계정을 사용 하도록 기존 에이전트를 업그레이드 하려면 AADConnectProvisioningAgent.msi를 실행 하 여 에이전트 서비스를 최신 버전으로 업데이트 하면 됩니다.  그러면 서비스가 최신 버전으로 업그레이드 됩니다.  이제 설치 마법사를 다시 실행 하 고 메시지가 표시 되 면 계정을 만들 수 있는 자격 증명을 제공 합니다.
+### <a name="upgrading-an-existing-agent-to-use-the-gmsa-account"></a>gMSA 계정을 사용하도록 기존 에이전트 업그레이드
+설치 중 만든 gMSA 계정을 사용하도록 기존 에이전트를 업그레이드하려면, AADConnectProvisioningAgent.msi를 실행하여 에이전트 서비스를 최신 버전으로 업데이트하면 됩니다.  그러면 서비스가 최신 버전으로 업그레이드됩니다.  이제 설치 마법사를 다시 실행하고, 메시지가 표시되면 계정을 만들 수 있는 자격 증명을 제공합니다.
 
 
 
@@ -44,27 +44,27 @@ Azure AD Connect 클라우드 동기화를 설치 하 고 구성 하는 작업�
 에이전트를 설치하려면 다음 단계를 따르세요.
 
  1. 사용할 서버에 엔터프라이즈 관리자 권한으로 로그인합니다.
- 2. Azure Portal에 로그인 한 후 **Azure Active Directory** 로 이동 합니다.
- 3. 왼쪽 메뉴에서 **Azure AD Connect** 를 선택 합니다.
- 4. **클라우드 동기화 관리**  >  **모든 에이전트** 를 선택 합니다.
+ 2. Azure Portal에 로그인한 다음 **Azure Active Directory** 로 이동합니다.
+ 3. 왼쪽 메뉴에서 **Azure AD 연결** 을 선택합니다.
+ 4. **클라우드 동기화 관리** > **모든 에이전트 검토** 를 선택합니다.
  5. Azure Portal에서 Azure AD Connect 프로비저닝 에이전트를 다운로드합니다.
    ![온-프레미스 에이전트 다운로드](media/how-to-install/install-9.png)</br>
- 6. 조건에 동의 하 고 다운로드를 클릭 합니다.
- 7. Azure AD Connect 프로 비전 설치 관리자 AADConnectProvisioningAgentSetup.msi를 실행 합니다.
+ 6. 사용 약관에 동의하고, 다운로드를 클릭합니다.
+ 7. Azure AD Connect 프로비전 설치 프로그램 AADConnectProvisioningAgentSetup.msi를 실행합니다.
  8. **Microsoft Azure AD Provisioning Agent Package** 화면에서 사용 조건에 동의하고 **설치** 를 선택합니다.
    ![Microsoft Azure AD Connect Provisioning Agent Package 화면](media/how-to-install/install-1.png)</br>
  9. 이 작업이 완료되면 구성 마법사가 시작됩니다. Azure AD 글로벌 관리자 계정으로 로그인합니다.
- 10. **서비스 계정 구성 화면** 에서 **create gMSA** 를 선택 하거나 **사용자 지정 gMSA를 사용** 합니다.  에이전트가 계정을 만들도록 허용 하면 이름이 provAgentgMSA $로 지정 됩니다. **사용자 지정 GMSA 사용** 을 지정 하면이 계정을 제공 하 라는 메시지가 표시 됩니다.
- 11. 도메인 관리자 자격 증명을 입력 하 여 에이전트 서비스를 실행 하는 데 사용 되는 그룹 관리 서비스 계정을 만듭니다. **다음** 을 클릭합니다.  
-   ![GMSA 만들기](media/how-to-install/install-12.png)</br>
+ 10. **서비스 계정 구성 화면** 에서 **create gMSA** 나 **사용자 지정 gMSA 사용** 을 선택합니다.  에이전트가 계정을 만들도록 허용하면, 그 이름이 provAgentgMSA$로 지정됩니다. **사용자 지정 gMSA 사용** 을 지정하면, 이 계정을 제공 하 라는 메시지가 표시됩니다.
+ 11. 도메인 관리자 자격 증명을 입력하여, 에이전트 서비스를 실행하는 데 사용되는 그룹 관리 서비스 계정을 만듭니다. **다음** 을 클릭합니다.  
+   ![gMSA 만들기](media/how-to-install/install-12.png)</br>
  12. **Active Directory 연결** 화면에서 **디렉터리 추가** 를 선택합니다. 그런 다음, Active Directory 관리자 계정으로 로그인합니다. 이 작업을 수행하면 온-프레미스 디렉터리가 추가됩니다. 
- 13. 필요에 따라 **도메인 컨트롤러 우선 순위 선택** 및 도메인 컨트롤러 목록 순서 지정을 선택 하 여 에이전트가 사용 하는 도메인 컨트롤러의 기본 설정을 관리할 수 있습니다.   **확인** 을 클릭합니다.
+ 13. 필요에 따라 **도메인 컨트롤러 우선 순위 선택** 및 도메인 컨트롤러 목록 순서 지정을 선택하여, 에이전트가 사용하는 도메인 컨트롤러의 기본 설정을 관리할 수 있습니다.   **확인** 을 클릭합니다.
   ![도메인 컨트롤러 주문](media/how-to-install/install-2a.png)</br>
  14. **다음** 을 선택합니다.
   ![Active Directory 연결 화면](media/how-to-install/install-3a.png)</br>
- 15.  **에이전트 설치** 화면에서 설정 및 생성 될 계정을 확인 하 고 **확인** 을 클릭 합니다.
+ 15.  **에이전트 설치** 화면에서 설정 및 생성될 계정을 확인하고, **확인** 을 클릭합니다.
   ![설정 확인](media/how-to-install/install-11.png)</br>
- 16. 이 작업이 완료 **되 면 에이전트 설치가 완료 된 것** 을 확인할 수 있습니다. **끝내기** 를 선택합니다.
+ 16. 이 작업이 완료되면, **에이전트 설치가 완료** 된 것을 확인해야 합니다. **끝내기** 를 선택합니다.
   ![구성 완료 화면](media/how-to-install/install-4a.png)</br>
  17. 초기 **Microsoft Azure AD Connect Provisioning Agent Package** 화면이 계속 표시되는 경우 **닫기** 를 선택합니다.
 
@@ -75,11 +75,11 @@ Azure AD Connect 클라우드 동기화를 설치 하 고 구성 하는 작업�
 Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수행합니다.
 
  1. Azure Portal에 로그인합니다.
- 2. 왼쪽에서 **Azure Active Directory** > **Azure AD Connect** 를 선택합니다. 가운데에서 **클라우드 동기화 관리** 를 선택 합니다.
+ 2. 왼쪽에서 **Azure Active Directory** > **Azure AD Connect** 를 선택합니다. 중앙에서 **클라우드 동기화 관리** 를 선택합니다.
 
    ![Azure portal](media/how-to-install/install-6.png)</br>
 
- 3.  **Azure AD Connect 클라우드 동기화** 화면에서 **모든 에이전트 검토** 를 선택 합니다.
+ 3.  **Azure AD Connect 클라우드 동기화** 화면에서 **모든 에이전트 검토** 를 클릭합니다.
 
    ![모든 에이전트 검토 옵션](media/how-to-install/install-7.png)</br>
  
@@ -99,7 +99,7 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
     ![서비스 화면](media/how-to-install/troubleshoot-1.png)
 
 >[!IMPORTANT]
->에이전트가 설치되었지만 에이전트가 사용자 동기화를 시작하기 전에 에이전트를 구성하고 사용하도록 설정해야 합니다. 새 에이전트를 구성 하려면 [Azure AD Connect 클라우드 동기화에 대 한 새 구성 만들기](how-to-configure.md)를 참조 하세요.
+>에이전트가 설치되었지만 에이전트가 사용자 동기화를 시작하기 전에 에이전트를 구성하고 사용하도록 설정해야 합니다. 새 에이전트를 구성하려면 [Azure AD Connect 클라우드 동기화에 대한 새 구성 만들기](how-to-configure.md)를 참조하세요.
 
 
 
@@ -108,5 +108,5 @@ Azure에서 에이전트가 표시되는지 확인하려면 다음 단계를 수
 
 - [프로비저닝이란?](what-is-provisioning.md)
 - [Azure AD Connect 클라우드 동기화란?](what-is-cloud-sync.md)
-- [Azure AD Connect 클라우드 동기화에 대 한 새 구성을 만듭니다](how-to-configure.md).
+- [Azure AD Connect 클라우드 동기화에 대한 새 구성 만들기](how-to-configure.md)
 

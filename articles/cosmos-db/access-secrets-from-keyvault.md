@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: a9bea0664f99a21ac734de666c802e9875ff00b5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359327"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Azure Key Vault를 사용하여 Azure Cosmos 키 보호 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
-> Azure Cosmos DB 키에 액세스 하기 위한 권장 솔루션은 [시스템 할당 관리 id](managed-identity-based-authentication.md)를 사용 하는 것입니다. 서비스에서 관리 되는 id를 활용할 수 없는 경우 [인증서 기반 솔루션](certificate-based-authentication.md)을 사용 합니다. 관리 id 솔루션과 인증서 기반 솔루션이 사용자의 요구를 충족 하지 않는 경우 아래 key vault 솔루션을 사용 하세요.
+> Azure Cosmos DB 키에 액세스하기 위한 권장 솔루션은 [시스템 할당 관리 ID](managed-identity-based-authentication.md)를 사용하는 것입니다. 서비스에서 관리 ID를 활용할 수 없는 경우 [인증서 기반 솔루션](certificate-based-authentication.md)을 사용합니다. 관리 ID 솔루션과 인증서 기반 솔루션이 사용자의 요구를 충족하지 않는 경우, 아래 키 자격 증명 모음 솔루션을 사용하세요.
 
-응용 프로그램에 Azure Cosmos DB를 사용 하는 경우 응용 프로그램의 구성 파일 내에서 끝점 및 키를 사용 하 여 데이터베이스, 컬렉션, 문서에 액세스할 수 있습니다.  그러나 키와 URL은 모든 사용자에 게 일반 텍스트 형식으로 제공 되므로 응용 프로그램 코드에 직접 저장 하는 것은 안전 하지 않습니다. 안전한 메커니즘을 통해 엔드포인트와 키를 사용하도록 만들 수 있습니다. 이 경우 Azure Key Vault가 애플리케이션 비밀을 안전하게 저장하고 관리하는 데 도움을 줄 수 있습니다.
+애플리케이션에 Azure Cosmos DB를 사용하는 경우, 앱의 구성 파일 내에 있는 엔드포인트와 키를 사용하여 데이터베이스, 컬렉션, 문서에 액세스할 수 있습니다.  그러나 모든 사용자가 명확한 텍스트 형식으로 사용할 수 있으므로 애플리케이션 코드에 키와 URL을 직접 입력하는 것은 안전하지 않습니다. 안전한 메커니즘을 통해 엔드포인트와 키를 사용하도록 만들 수 있습니다. 이 경우 Azure Key Vault가 애플리케이션 비밀을 안전하게 저장하고 관리하는 데 도움을 줄 수 있습니다.
 
 Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다음 단계가 필요합니다.
 
@@ -38,16 +38,16 @@ Key Vault에서 Azure Cosmos DB 액세스 키를 저장하고 읽으려면 다�
 3. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.  
    * **이름:** Key Vault의 고유한 이름을 제공합니다.  
    * **구독**: 사용할 구독을 선택합니다.  
-   * **리소스 그룹** 아래에서 **새로 만들기** 를 선택 하 고 리소스 그룹 이름을 입력 합니다.  
+   * **리소스 그룹** 에서 **새로 만들기** 를 선택하고 리소스 그룹 이름을 입력합니다.  
    * 위치 풀 다운 메뉴에서 위치를 선택합니다.  
    * 다른 옵션은 기본값으로 그대로 둡니다.  
 4. 위의 정보를 제공한 후 **만들기** 를 선택합니다.  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Key Vault에 Azure Cosmos DB 액세스 키를 추가합니다.
 1. 이전 단계에서 만든 Key Vault로 이동하고 **비밀** 탭을 엽니다.  
-2. **+ 생성/가져오기** 를 선택 합니다. 
+2. **+생성/가져오기** 를 선택합니다. 
 
-   * **업로드 옵션** 에서 **수동** 을 선택 합니다.
+   * **업로드 옵션** 에 **수동** 을 선택합니다.
    * 비밀의 **이름** 을 제공합니다.
    * Cosmos DB 계정의 연결 문자열을 **값** 필드에 제공합니다. 그런 다음, **만들기** 를 선택합니다.
 

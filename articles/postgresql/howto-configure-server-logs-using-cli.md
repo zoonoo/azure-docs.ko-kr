@@ -1,6 +1,6 @@
 ---
-title: 로그 관리-Azure CLI-Azure Database for PostgreSQL-단일 서버
-description: 이 문서에서는 Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버 로그 (.log 파일)를 구성 하 고 액세스 하는 방법을 설명 합니다.
+title: 로그 관리 - Azure CLI - Azure Database for PostgreSQL - 단일 서버
+description: 이 문서에서는 Azure CLI를 사용하여 단일 서버에서 Azure Database for PostgreSQL의 서버 로그(.log 파일)를 구성 및 액세스하는 방법을 설명합니다.
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 64582e7655ef2a3cf72547bfa8c3269f1624c890
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105604178"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
@@ -46,5 +46,5 @@ az postgres server-logs list --resource-group myresourcegroup --server mydemoser
 az postgres server-logs download --name 20170414-mydemoserver-postgresql.log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="next-steps"></a>다음 단계
-- 서버 로그에 대해 자세히 알아보려면 [Azure Database for PostgreSQL의 서버 로그](concepts-server-logs.md)를 참조 하세요.
+- 서버 로그에 대한 자세한 내용은 [PostgreSQL용 Azure Database의 서버 로그](concepts-server-logs.md)를 참조하세요.
 - 서버 매개 변수에 대한 자세한 내용은 [Azure CLI를 사용하여 서버 구성 매개 변수 사용자 지정](howto-configure-server-parameters-using-cli.md)을 참조하세요.

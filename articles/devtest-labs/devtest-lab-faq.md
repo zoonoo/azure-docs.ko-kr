@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대�
 ms.topic: article
 ms.date: 07/17/2020
 ms.openlocfilehash: 9fcdc160754822d5c6f22b7349d0e72f0cf22633
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97590276"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
@@ -68,7 +68,7 @@ DevTest Labs는 무료 서비스입니다. 즉 DevTest Labs에서 랩을 만들�
 ## <a name="security"></a>보안
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs의 다른 보안 수준은 무엇인가요?
-보안 액세스는 azure RBAC (역할 기반 액세스 제어)에 의해 결정 됩니다. 액세스가 작동 하는 방식을 알아보려면 Azure RBAC에서 정의한 대로 사용 권한, 역할 및 범위 간의 차이점을 파악 하는 것이 좋습니다.
+보안 액세스는 Azure RBAC(Azure 역할 기반 액세스 제어)를 통해 결정됩니다. 액세스의 작동 방식을 알아보기 위해 Azure RBAC에 의해 정의된 대로 사용 권한, 역할 및 범위 사이의 차이점을 알아보는 데 도움을 줍니다.
 
 - **사용 권한**: 사용 권한은 특정 작업에 대해 정의된 액세스입니다. 예로 모든 VM에 대한 읽기 액세스가 있습니다.
 - **역할**: 역할은 그룹화되고 사용자에게 할당될 수 있는 사용 권한의 세트입니다. 예를 들어 구독 소유자 역할이 있는 사용자는 구독 내의 모든 리소스에 대한 액세스를 보유합니다.
@@ -83,7 +83,7 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 범위는 계층적이므로 사용자가 특정 범위에서 사용 권한을 가진 경우 범위의 모든 하위 수준 범위에서 해당 사용 권한이 자동으로 부여됩니다. 예를 들어 사용자가 구독 소유자의 역할에 할당되면 사용자는 구독의 모든 리소스에 대한 액세스를 갖게 됩니다. 이러한 리소스에는 VM, 가상 네트워크 및 랩이 포함됩니다. 구독 소유자는 자동으로 랩 소유자의 역할을 상속합니다. 그러나 반대의 경우는 적용되지 않습니다. 랩 소유자는 구독 수준보다 낮은 범위인 랩에 대한 액세스를 가집니다. 따라서 랩 소유자는 VM, 가상 네트워크 또는 랩 외부에 있는 다른 모든 리소스를 볼 수 없습니다.
 
-### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>DevTest Labs 환경에 대 한 Azure 역할 기반 액세스 제어를 정의 하 여 개발자/테스트에서 작업을 수행할 수 있는 동안 제어할 수 있는지 확인 합니다. 어떻게 할까요?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>개발자/테스트 담당자가 해당 작업을 수행하는 동안 IT 부서에서 관리할 수 있도록 내 DevTest Labs의 Azure 역할 기반 액세스 제어를 정의하려면 어떻게 해야 하나요?
 광범위하게 적용되는 한 가지 패턴이 있지만 세부 사항은 조직에 따라 다릅니다.
 
 중앙 IT 부서는 필요한 사항만 소유하고 프로젝트 및 애플리케이션 팀이 필요한 수준의 제어 권한을 갖도록 하는 것이 좋습니다. 이에 따라 일반적으로 중앙 IT 부서는 구독을 소유하고 네트워킹 구성과 같은 핵심 IT 기능을 처리합니다. 구독의 **소유자** 집합은 소규모인 것이 좋습니다. 이러한 소유자는 필요할 때 추가 소유자를 지정하거나, 구독자 수준 정책(예: “공용 IP 없음”)을 적용할 수 있습니다.
@@ -92,7 +92,7 @@ DevTest Labs에서 사용자 지정 역할을 만들 수도 있습니다. DevTes
 
 DevTest Labs 리소스는 프로젝트/애플리케이션 팀에 가까운 소유자가 소유하는 것이 좋습니다. 머신 및 필수 소프트웨어에 대한 자신들의 요구 사항을 잘 이해하고 있기 때문입니다. 대부분의 조직에서 이 DevTest Labs 리소스의 소유자는 일반적으로 프로젝트/개발 책임자입니다. 이 소유자는 랩 환경 내에서 사용자 및 정책을 관리하고 DevTest Labs 환경에서 모든 VM을 관리할 수 있습니다.
 
-프로젝트/응용 프로그램 팀 멤버는 **DevTest Labs 사용자** 역할에 추가 해야 합니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
+프로젝트/애플리케이션 팀 멤버를 **DevTest Labs 사용자** 역할에 추가하는 것이 좋습니다. 이러한 사용자는 가상 머신을 만들 수 있습니다(랩 및 구독 수준 정책에 따라). 또한 자신의 가상 머신을 관리할 수도 있습니다. 다른 사용자에게 속하는 가상 머신은 관리할 수 없습니다.
 
 자세한 내용은 [Azure 엔터프라이즈 스캐폴드: 규범적 구독 거버넌스](/azure/architecture/cloud-adoption/appendix/azure-scaffold) 설명서를 참조하세요.
 
@@ -200,7 +200,7 @@ DevTest Labs에서 VM을 만들 때 해당 VM에 액세스할 수 있는 권한�
 예, 여러 개의 디스크를 VM에 연결할 수 있습니다.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Gen 2 이미지가 DevTest Labs에서 지원되나요?
-예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/generation-2.md)를 지원 합니다. 그러나 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있는 경우 DevTest Labs는 VM을 만들 때 이미지의 Gen 1 버전만 표시 합니다. 사용 가능한 Gen 2 버전만 있는 경우 이미지가 표시 됩니다. 
+예. DevTest Labs 서비스는 [Gen 2 이미지](../virtual-machines/generation-2.md)를 지원합니다. 이미지에 Gen 1과 Gen 2 버전을 모두 사용할 수 있으면 DevTest Labs는 VM을 만들 때 Gen 1 버전의 이미지만 보여줍니다. Gen 2 버전만 사용할 수 있으면 이미지가 표시됩니다. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>테스트에 Windows OS 이미지를 사용하려면 MSDN 구독을 구매해야 하나요?
 Azure에서 개발이나 테스트를 위해 Windows 클라이언트 OS 이미지(Windows 7 이상 버전)를 사용하려면 다음 단계 중 하나를 수행하세요.
@@ -318,7 +318,7 @@ Azure Marketplace 이미지와 고유한 사용자 지정 조직 이미지는 �
 - Azure 구독이 인증 및 권한 부여에 사용하는 동일한 Azure Active Directory 테넌트에 Azure Repos를 연결합니다.
 - Azure Active Directory에 중앙에서 관리되는 `All DevTest Labs Developers`라는 그룹을 만듭니다. 아티팩트 개발에 참여하는 모든 개발자는 이 그룹에 배치되어야 합니다.
 - 동일한 Azure Active Directory 그룹을 사용하여 Azure Repos 리포지토리 및 랩에 대한 액세스 권한을 부여할 수 있습니다.
-- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절 한 코드 검토 후 끌어오기 요청을 사용 하 여 주 분기에만 추가 됩니다. 코드 검토자가 변경 내용을 승인 하면 main 분기의 유지 관리를 담당 하는 리드 개발자가 업데이트 된 코드를 병합 합니다.
+- Azure Repos에서 분기 또는 포크를 사용하여 기본 프로덕션 리포지토리에서 개발용 리포지토리를 분리해야 합니다. 콘텐츠는 적절한 코드 검토 후에 끌어오기 요청을 통해서만 기본 분기에 추가됩니다. 코드 검토자가 변경을 승인하면 기본 분기의 유지 관리를 담당하는 수석 개발자가 업데이트된 코드를 병합합니다.
 
 ## <a name="cicd-integration"></a>CI/CD 통합
 
@@ -340,9 +340,9 @@ Azure DevOps를 사용하는 경우 [DevTest Labs 작업 확장](https://marketp
 ## <a name="networking"></a>네트워킹
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>DevTest Labs 환경용으로 신규 가상 네트워크를 생성해야 하는 경우와 기존 가상 네트워크를 사용해야 하는 경우는 각각 언제인가요?
-VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs 환경 내에서 기존 가상 네트워크를 사용하는 방식을 고려합니다. Express 경로를 사용 하는 경우 구독에 사용 하도록 할당 되는 IP 주소 공간을 조각화 하지 않도록 가상 네트워크/서브넷 수를 최소화 하는 것이 좋습니다.
+VM이 기존 인프라와 상호 작용해야 하는 경우에는 DevTest Labs 환경 내에서 기존 가상 네트워크를 사용하는 방식을 고려합니다. ExpressRoute를 사용하는 경우에는 구독에서 사용하도록 할당되는 IP 주소 공간이 조각화되지 않도록 가상 네트워크/서브넷 수를 최소화해야 할 수 있습니다.
 
-여기서 가상 네트워크 피어 링 패턴 ([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))을 사용 하는 것이 좋습니다. 이 방법을 사용하면 구독 전체에서 vnet/서브넷 통신이 가능합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다.
+이러한 상황에서는 가상 네트워크 피어링 패턴([허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke))도 사용해보십시오. 이 방법을 사용하면 구독 전체에서 vnet/서브넷 통신이 가능합니다. 각 DevTest Labs 환경에 자체 가상 네트워크가 있을 수도 있습니다.
 
 구독당 가상 네트워크 수에는 [제한](../azure-resource-manager/management/azure-subscription-service-limits.md)이 있습니다. 기본 수는 50이지만 100까지 높일 수 있습니다.
 

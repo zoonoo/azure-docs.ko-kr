@@ -1,15 +1,15 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Dynamics AX의 재해 복구
-description: Azure Site Recovery를 사용 하 여 Dynamics AX에 대 한 재해 복구를 설정 하는 방법을 알아봅니다.
+title: Azure Site Recovery를 사용한 Dynamics AX의 재해 복구
+description: 이 문서에서는 Azure Site Recovery를 사용하여 Dynamics AX에 대한 재해 복구를 설정하는 방법을 설명합니다
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: dfa3c108d00aeba9c7d42e96e7a40736a087a508
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86133815"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
@@ -25,7 +25,7 @@ ms.locfileid: "86133815"
 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 복구를 구현하려면 다음과 같은 필수 조건을 완료해야 합니다.
 
@@ -37,7 +37,7 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션을 위한 재해 �
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 응용 프로그램을 독립적으로 사용할 수 있으므로 여기에서 제공 하는 권장 사항은 다음 시나리오에 대 한 것입니다.
+이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 애플리케이션을 제한하지 않으므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 유지됩니다.
 
 ### <a name="source-and-target"></a>원본 및 대상
 
@@ -68,7 +68,7 @@ Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Act
 ### <a name="2-set-up-sql-server-replication"></a>2. SQL Server 복제 설정
 SQL 계층 보호를 위해 권장되는 옵션에 대한 기술 지침은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
-### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Dynamics AX 클라이언트 및 응용 프로그램 개체 서버 Vm에 대 한 보호 사용
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Dynamics AX 클라이언트 및 Application Object Server VM에 대해 보호 사용
 VM이 [Hyper-V](./hyper-v-azure-tutorial.md) 또는 [VMware](./vmware-azure-tutorial.md)에 배포되었는지 여부에 따라 관련 Site Recovery 구성을 수행합니다.
 
 > [!TIP]
@@ -137,7 +137,7 @@ Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure A
 
 2. Dynamics AX에 대해 만든 복구 계획을 선택합니다.
 
-3. **테스트 장애 조치 (Failover)** 를 선택 합니다.
+3. **테스트 장애 조치** 를 선택합니다.
 
 4. 테스트 장애 조치(failover) 프로세스를 시작할 가상 네트워크를 선택합니다.
 

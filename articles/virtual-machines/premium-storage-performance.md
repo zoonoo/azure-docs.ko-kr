@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7e93c659ad58db8d82e68380ab6a0855af27e1bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79fa9b3a84bbf523fe243b1d37d798dfd1172a6b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98882385"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146278"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 
@@ -326,7 +326,7 @@ Linux에서 MDADM 유틸리티를 사용하여 디스크를 함께 스트라이�
 
 예를 들어 애플리케이션에 의해 생성된 IO 요청이 디스크 스트라이프 크기보다 큰 경우 스토리지 시스템은 둘 이상의 디스크에 스트라이프 단위 경계를 넘어 작성합니다. 해당 데이터에 액세스할 때 요청을 완료하려면 둘 이상의 스트라이프 단위 간을 검색해야 합니다. 이러한 동작의 누적 된 효과로 성능이 상당히 저하될 수 있습니다. 반면에 IO 요청 크기가 스트라이프 크기보다 작고 기본적으로 임의일 경우 IO 요청은 병목 상태가 발생하고 궁극적으로 IO 성능이 저하되는 동일한 디스크에 추가할 수 있습니다.
 
-애플리케이션이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. Premium Storage에서 실행되는 애플리케이션에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL Server의 경우 OLTP 워크로드에 대해 64KB의 스트라이프 크기, 데이터 웨어하우징 워크로드에 대해 256KB의 스트라이프 크기를 구성합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) 를 참조하세요.
+애플리케이션이 실행하는 작업의 유형에 따라 적절한 스트라이프 크기를 선택합니다. 작은 임의 IO 요청의 경우 더 작은 스트라이프 크기를 사용합니다. 반면 큰 순차 IO 요청의 경우 더 큰 스트라이프 크기를 사용합니다. Premium Storage에서 실행되는 애플리케이션에 대한 스트라이프 크기 권장 사항에 대해 알아봅니다. SQL Server의 경우 OLTP 워크로드에 대해 64KB의 스트라이프 크기, 데이터 웨어하우징 워크로드에 대해 256KB의 스트라이프 크기를 구성합니다. 자세한 내용은 [Azure VM의 SQL Server에 대한 성능 모범 사례](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md) 를 참조하세요.
 
 > [!NOTE]
 > DS 시리즈 VM에 최대 32개의 Premium Storage 디스크를 GS 시리즈 VM에 64개의 Premium Storage 디스크를 함께 스트라이프할 수 있습니다.
@@ -390,5 +390,5 @@ Azure Premium Storage는 선택한 VM 크기 및 디스크 크기에 따라 지�
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 
-* [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md)
+* [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md)
 * [Azure Premium Storage는 Azure VM의 SQL Server에 대해 가장 높은 성능을 제공합니다](https://cloudblogs.microsoft.com/sqlserver/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm/)

@@ -1,20 +1,20 @@
 ---
-title: Azure에서 일정에 따라 실행 되는 함수 만들기
-description: Azure Portal를 사용 하 여 정의한 일정에 따라 실행 되는 함수를 만드는 방법에 대해 알아봅니다.
+title: Azure에서 일정에 따라 실행되는 함수 만들기
+description: Azure Portal을 사용하여 정의한 일정에 따라 실행되는 함수를 만드는 방법을 알아봅니다.
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 14d918cc41f49b954f5cabf48572db5df829fd10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98035192"
 ---
-# <a name="create-a-function-in-the-azure-portal-that-runs-on-a-schedule"></a>일정에 따라 실행 되는 Azure Portal에서 함수 만들기
+# <a name="create-a-function-in-the-azure-portal-that-runs-on-a-schedule"></a>Azure Portal에서 일정에 따라 실행되는 함수 만들기
 
-Azure Portal를 사용 하 여 정의한 일정에 따라 Azure에서 [서버](https://azure.microsoft.com/solutions/serverless/) 리스를 실행 하는 함수를 만드는 방법을 알아봅니다.
+Azure Portal을 사용하여 정의한 일정에 따라 [서버리스](https://azure.microsoft.com/solutions/serverless/) 실행되는 함수를 만드는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -44,9 +44,9 @@ Azure Portal를 사용 하 여 정의한 일정에 따라 Azure에서 [서버](h
 
 1. 이미지 아래 표에 지정된 설정을 사용하여 새 트리거를 구성한 후 **함수 만들기** 를 선택합니다.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="타이머 트리거 템플릿이 선택 된 새 함수 페이지를 보여 주는 스크린샷" border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="타이머 트리거 템플릿이 선택된 새 함수 페이지를 보여 주는 스크린샷." border="true":::
     
-    | 설정 | 제안 값 | 설명 |
+    | 설정 | 제안 값 | Description |
     |---|---|---|
     | **이름** | 기본값 | 타이머 트리거 함수의 이름을 정의합니다. |
     | **일정** | 0 \*/1 \* \* \* \* | 1분마다 함수가 실행되도록 예약하는 6개 필드의 [CRON 식](functions-bindings-timer.md#ncrontab-expressions)입니다. |
@@ -73,7 +73,7 @@ Azure Portal를 사용 하 여 정의한 일정에 따라 Azure에서 [서버](h
 
 1. **일정** 값을 `0 0 */1 * * *`로 업데이트한 후 **저장** 을 선택합니다.  
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Azure Portal에서 함수 타이머 일정을 업데이트 합니다." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-edit-timer-schedule.png" alt-text="Azure Portal에서 함수 타이머 일정을 업데이트합니다." border="true":::
 
 함수는 이제 한 시간마다 한 번씩 실행됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell를 사용 하 여 여러 공용 IP 주소를 사용 하 여 Azure 방화벽 배포
-description: 여러 공용 IP 주소를 사용 하 여 방화벽을 배포 하 여 가상 허브 보호
+title: Azure PowerShell을 사용하여 여러 공용 IP 주소로 Azure Firewall 배포
+description: 여러 공용 IP 주소가 있는 방화벽을 배포하여 가상 허브 보호
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 652c7cbfbe63ef2ae9a0d54e05407152ea300f1d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87007000"
 ---
-# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>여러 공용 IP 주소를 사용 하 여 Azure 방화벽 배포
+# <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses"></a>여러 공용 IP 주소를 사용하여 Azure Firewall 배포
 
-Azure 방화벽을 사용 하 여 가상 허브를 보호 하려는 경우 Azure PowerShell를 사용 하 여 여러 공용 IP 주소를 사용 하 여 방화벽을 배포할 수 있습니다.
+Azure 방화벽을 사용하여 가상 허브를 보호하려는 경우 Azure PowerShell를 사용하여 여러 공용 IP 주소가 있는 방화벽을 배포할 수 있습니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="deploy-the-firewall"></a>방화벽 배포
 
-다음 Azure PowerShell 예제를 사용 하 여 가상 허브를 보호 하기 위해 여러 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포 합니다.
+다음 Azure PowerShell 예제를 사용하여 가상 허브를 보호하기 위해 여러 공용 IP 주소로 Azure 방화벽을 배포합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <subscription ID> 
@@ -37,9 +37,9 @@ $fw = New-AzFirewall -Name <firewall name> -ResourceGroupName $rgName `
      -VirtualHubId $vHubId 
 ```
 
-### <a name="update-a-public-ip-address"></a>공용 IP 주소를 업데이트 합니다.
+### <a name="update-a-public-ip-address"></a>공용 IP 주소 업데이트
 
-Azure PowerShell를 사용 하 여 Azure 방화벽에 대 한 공용 IP 주소를 업데이트할 수 있습니다. 다음 예에서는 방화벽에서 하나의 공용 IP 주소를 삭제 합니다. 3 개의 공용 IP 주소로 시작 합니다.
+Azure PowerShell을 사용하여 Azure 방화벽에 대한 공용 IP 주소를 업데이트할 수 있습니다. 다음 예제에서는 방화벽에서 하나의 공용 IP 주소를 삭제합니다. 세 개의 공용 IP주소로 시작합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId <subscription ID>

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 9342e0c39b558cf8b6ff5773d623ce55062f9ab5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d9d53b4e6b7237c93c6203351463515bb2b34d26
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607476"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108125304"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 머신이 초래할 수 있는 세 가지 시나리오, 즉 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -34,7 +34,7 @@ Azure의 가상 머신이 초래할 수 있는 세 가지 시나리오, 즉 계�
 
 * [가용성 영역](../availability-zones/az-overview.md)을 사용하여 데이터 센터 장애로부터 보호합니다.
 * 중복성을 위해 [가용성 집합](availability-set-overview.md)에서 여러 가상 머신 구성
-* [Linux에 대한 예약된 이벤트](/azure/virtual-machines/linux/scheduled-events) 또는 [Windows에 대한 예약된 이벤트](/azure/virtual-machines/windows/scheduled-events)를 사용하여 VM에 영향을 주는 이벤트에 사전에 대응합니다.
+* [Linux에 대한 예약된 이벤트](./linux/scheduled-events.md) 또는 [Windows에 대한 예약된 이벤트](./windows/scheduled-events.md)를 사용하여 VM에 영향을 주는 이벤트에 사전에 대응합니다.
 * 각 애플리케이션 계층을 별도의 가용성 집합으로 구성
 * 가용성 영역 또는 집합과 [부하 분산 장치](../load-balancer/load-balancer-overview.md) 결합
 

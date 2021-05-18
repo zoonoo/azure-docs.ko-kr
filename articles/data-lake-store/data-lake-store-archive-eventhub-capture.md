@@ -1,16 +1,16 @@
 ---
-title: Event Hubs에서 Azure Data Lake Storage Gen1 데이터 캡처
-description: Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이터를 캡처하는 방법을 알아봅니다. 먼저 필수 구성 요소를 확인 합니다.
+title: Event Hubs에서 Azure Data Lake Storage Gen1로 데이터 캡처
+description: Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이터를 캡처하는 방법을 알아봅니다. 먼저 필수 조건을 확인합니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8be242369ecae2c809a38428284c9ddcad440e3f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91578243"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Azure Data Lake Storage Gen1을 사용하여 Event Hubs의 데이터 캡처
@@ -23,7 +23,7 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이�
 
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md)을 참조하세요.
 
-*  **Event Hubs 네임 스페이스** 입니다. 자세한 내용은 [Event Hubs 네임스페이스 만들기](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)를 참조하세요. Data Lake Storage Gen1 계정 및 Event Hubs 네임스페이스가 동일한 Azure 구독에 있는지 확인합니다.
+*  **Event Hubs 네임스페이스**. 자세한 내용은 [Event Hubs 네임스페이스 만들기](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace)를 참조하세요. Data Lake Storage Gen1 계정 및 Event Hubs 네임스페이스가 동일한 Azure 구독에 있는지 확인합니다.
 
 
 ## <a name="assign-permissions-to-event-hubs"></a>Event Hubs에 사용 권한 할당
@@ -32,21 +32,21 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이�
 
 1. Event Hubs의 데이터를 캡처하려는 Data Lake Storage Gen1 계정을 열고 **데이터 탐색기** 를 클릭합니다.
 
-    ![데이터 탐색기 Data Lake Storage Gen1](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "데이터 탐색기 Data Lake Storage Gen1")
+    ![Data Lake Storage Gen1 데이터 탐색기](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Data Lake Storage Gen1 데이터 탐색기")
 
 1.  **새 폴더** 를 클릭하고 데이터를 캡처할 폴더의 이름을 입력합니다.
 
-    ![Data Lake Storage Gen1에서 새 폴더를 만듭니다.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Data Lake Storage Gen1에서 새 폴더를 만듭니다.")
+    ![Data Lake Storage Gen1에서 새 폴더 만들기](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Data Lake Storage Gen1에서 새 폴더 만들기")
 
 1. Data Lake Storage Gen1의 루트에서 사용 권한을 할당합니다. 
 
     a. **데이터 탐색기** 를 클릭하고 Data Lake Storage Gen1 계정의 루트를 선택한 다음, **액세스** 를 클릭합니다.
 
-    ![계정 루트와 액세스 옵션을 호출한 데이터 탐색기의 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Data Lake Storage Gen1 루트에 대 한 사용 권한 할당")
+    ![계정 루트와 액세스 옵션이 설명선으로 표시된 데이터 탐색기 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Data Lake Storage Gen1 루트에 대한 권한 할당")
 
     b. **액세스** 아래에서 **추가** 를 클릭하고 **사용자 또는 그룹 선택** 을 클릭한 후 `Microsoft.EventHubs`를 검색합니다. 
 
-    ![추가 옵션을 선택 하 고, 사용자 또는 그룹 옵션을 선택 하 고, Microsoft Eventhubs 옵션을 선택 하 여 액세스 페이지의 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Data Lake Storage Gen1 루트에 대 한 사용 권한 할당")
+    ![추가 옵션, 사용자 또는 그룹 선택 옵션, Microsoft Eventhubs 옵션이 설명선으로 표시된 액세스 페이지 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Data Lake Storage Gen1 루트에 대한 권한 할당")
     
     **선택** 을 클릭합니다.
 
@@ -55,7 +55,7 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이�
     > [!IMPORTANT]
     > Azure Event Hubs에서 수신된 데이터를 캡처하기 위해 새 폴더 계층 구조를 만들 경우 이렇게 하면 대상 폴더에 대한 액세스를 쉽게 보장할 수 있습니다.  그러나 많은 자식 파일 및 폴더를 포함하는 최상위 수준 폴더의 모든 자식 항목에 대해 사용 권한을 추가하는 데는 시간이 오래 걸릴 수 있습니다.  루트 폴더에 많은 수의 파일 및 폴더가 포함되어 있으면 `Microsoft.EventHubs`에 대한 **실행** 권한을 최종 대상 폴더의 경로에 있는 각 폴더에 개별적으로 추가하는 것이 더 빠를 수 있습니다. 
 
-    ![Select 권한 옵션이 out 인 권한 할당 섹션의 스크린샷 권한 선택 섹션은 실행 옵션, 다음으로 추가 옵션 및 추가 as 옵션을 사용 하 여 호출 합니다.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Storage Gen1 루트에 대 한 사용 권한 할당")
+    ![권한 선택 옵션이 설명선으로 표시된 권한 할당 섹션 스크린샷. 이 섹션 옆에는 실행 옵션, 추가 옵션, 다음으로 추가 옵션이 설명선으로 표시된 권한 선택 섹션이 있습니다.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Storage Gen1 루트에 대한 권한 할당")
 
     **확인** 을 클릭합니다.
 
@@ -63,17 +63,17 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이�
 
     a. **데이터 탐색기** 를 클릭하고 Data Lake Storage Gen1 계정의 폴더를 선택한 다음, **액세스** 를 클릭합니다.
 
-    ![계정에 폴더가 있고 액세스 옵션이 out 이라고 하는 데이터 탐색기의 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Data Lake Storage Gen1 폴더에 대 한 사용 권한 할당")
+    ![계정의 폴더와 액세스 옵션이 설명선으로 표시된 데이터 탐색기 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Data Lake Storage Gen1 폴더에 대한 권한 할당")
 
     b. **액세스** 아래에서 **추가** 를 클릭하고 **사용자 또는 그룹 선택** 을 클릭한 후 `Microsoft.EventHubs`를 검색합니다. 
 
-    ![추가 옵션을 선택 하 고, 사용자 또는 그룹 옵션을 선택 하 고, Microsoft Eventhubs 옵션을 선택 하 여 데이터 탐색기 액세스 페이지의 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Data Lake Storage Gen1 폴더에 대 한 사용 권한 할당")
+    ![추가 옵션, 사용자 또는 그룹 선택 옵션, Microsoft Eventhubs 옵션이 설명선으로 표시된 데이터 탐색기 액세스 페이지 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Data Lake Storage Gen1 폴더에 대한 권한 할당")
     
     **선택** 을 클릭합니다.
 
     다. **권한 할당** 에서 **권한 선택** 을 클릭합니다. **권한** 을 **읽기, 쓰기,** 및 **실행** 으로 설정합니다. **추가 대상** 을 **이 폴더 및 모든 하위 폴더** 로 설정합니다. 마지막으로 **다른 권한으로 추가** 를 **액세스 권한 항목 및 기본 권한 항목** 으로 설정합니다.
 
-    ![Select 권한 옵션이 out 인 권한 할당 섹션의 스크린샷 권한 선택 섹션은 읽기, 쓰기 및 실행 옵션, 추가 대상 옵션 및 외부에서 호출 옵션을 사용 하 여 옆에 있습니다.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Data Lake Storage Gen1 폴더에 대 한 사용 권한 할당")
+    ![권한 선택 옵션이 설명선으로 표시된 권한 할당 섹션 스크린샷. 이 섹션 옆에는 읽기, 쓰기 및 실행 옵션, 추가 옵션, 다음으로 추가 옵션이 설명선으로 표시된 권한 선택 섹션이 있습니다.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Data Lake Storage Gen1 폴더에 대한 권한 할당")
     
     **확인** 을 클릭합니다. 
 
@@ -83,11 +83,11 @@ Azure Data Lake Storage Gen1을 사용하여 Azure Event Hubs가 받은 데이�
 
 1. Event Hubs 네임스페이스의 **개요** 창에서 **+ 이벤트 허브** 를 클릭합니다.
 
-    ![이벤트 허브 옵션을 호출한 개요 창의 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "이벤트 허브 만들기")
+    ![이벤트 허브 옵션이 설명선으로 표시된 개요 창 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "이벤트 허브 만들기")
 
 1. Data Lake Storage Gen1에 데이터를 캡처하도록 Event Hubs를 구성하려면 다음 값을 제공합니다.
 
-    ![이름 텍스트 상자, 캡처 옵션, 캡처 공급자 옵션, Data Lake Store 선택 옵션 및 out Data Lake Path 옵션을 사용 하 여 이벤트 허브 만들기 대화 상자의 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "이벤트 허브 만들기")
+    ![이름 텍스트 상자, 캡처 옵션, 캡처 공급자 옵션, Data Lake Store 선택 옵션, Data Lake 경로 옵션이 설명선으로 표시된 이벤트 허브 만들기 대화 상자 스크린샷](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "이벤트 허브 만들기")
 
     a. 이벤트 허브의 이름을 제공하세요.
     

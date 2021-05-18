@@ -4,10 +4,10 @@ description: Azure Portal 또는 PowerShell을 사용하여 Azure DevTest Labs�
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 2ca6a1ffa66ab294e34a1b4866953a393aba4d6d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97511980"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
@@ -15,7 +15,7 @@ ms.locfileid: "97511980"
 > 
 > 
 
-Azure DevTest Labs의 액세스는 azure [역할 기반 access control (AZURE RBAC)](../role-based-access-control/overview.md)에 의해 제어 됩니다. Azure RBAC를 사용 하면 팀 내에서 업무를 수행 하는 데 필요한 액세스 권한만 부여 하는 *역할로* 구분할 수 있습니다. 이러한 Azure 역할 중 세 가지는 *소유자*, *DevTest Labs 사용자* 및 *참가자* 입니다. 이 문서에서는 세 가지 주요 Azure 역할 각각에서 수행할 수 있는 작업을 알아봅니다. 여기서 포털 및 PowerShell 스크립트를 통해 랩에 사용자를 추가하는 방법과 구독 수준에서 사용자를 추가하는 방법을 설명합니다.
+Azure DevTest Labs의 액세스는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)을 통해 제어됩니다. Azure RBAC를 사용하면 팀 내에서 업무를 수행하기 위해 사용자에게 필요한 만큼의 액세스 권한을 부여하는 *역할* 로 업무를 분리할 수 있습니다. 이러한 세 가지 Azure 역할은 *소유자*, *DevTest Labs 사용자* 및 *참가자* 입니다. 이 문서에서는 세 가지 주요 Azure 역할에서 각각 수행할 수 있는 작업을 학습합니다. 여기서 포털 및 PowerShell 스크립트를 통해 랩에 사용자를 추가하는 방법과 구독 수준에서 사용자를 추가하는 방법을 설명합니다.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>각 역할에서 수행할 수 있는 작업
 사용자를 할당할 수 있는 세 가지 주요 역할이 있습니다.
@@ -29,19 +29,19 @@ Azure DevTest Labs의 액세스는 azure [역할 기반 access control (AZURE RB
 | **이 역할의 사용자가 수행할 수 있는 작업** | **DevTest Lab 사용자** | **소유자** | **기여자** |
 | --- | --- | --- | --- |
 | **랩 작업** | | | |
-| 랩에 사용자 추가 |아니요 |예 |아니요 |
-| 비용 설정 업데이트 |아니요 |예 |예 |
+| 랩에 사용자 추가 |예 |예 |예 |
+| 비용 설정 업데이트 |예 |예 |예 |
 | **VM 기본 작업** | | | |
-| 사용자 지정 이미지 추가 및 제거 |아니요 |예 |예 |
+| 사용자 지정 이미지 추가 및 제거 |예 |예 |예 |
 | 수식 추가, 업데이트 및 삭제 |예 |예 |예 |
-| Marketplace 이미지 사용 |아니요 |예 |예 |
+| 마켓플레이스 이미지를 사용하도록 설정 |예 |예 |예 |
 | **VM 작업** | | | |
 | VM 만들기 |예 |예 |예 |
 | VM 시작, 중지 및 삭제 |사용자가 만든 VM만 |예 |예 |
-| VM 정책 업데이트 |아니요 |예 |예 |
+| VM 정책 업데이트 |예 |예 |예 |
 | VM에 데이터 디스크 추가/VM에서 데이터 디스크 제거 |사용자가 만든 VM만 |예 |예 |
 | **아티팩트 작업** | | | |
-| 아티팩트 리포지토리 추가 및 제거 |아니요 |예 |예 |
+| 아티팩트 리포지토리 추가 및 제거 |예 |예 |예 |
 | 아티팩트 적용 |예 |예 |예 |
 
 > [!NOTE]
@@ -54,7 +54,7 @@ Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수
 다음 단계는 Azure DevTest Labs에서 랩에 소유자 또는 사용자를 추가하는 과정을 안내합니다.
 
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
-2. **모든 서비스** 를 선택한 다음, 목록에서 **DevTest Labs** 를 선택 합니다.
+2. **모든 서비스** 를 선택한 다음 목록에서 **DevTest Labs** 를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.
 4. 랩의 블레이드에서 **구성 및 정책** 을 선택합니다. 
 5. **구성 및 정책** 페이지의 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
@@ -116,7 +116,7 @@ Azure 구독에 소유자를 추가하려면 다음 단계를 수행합니다.
 4. **액세스** 아이콘을 선택합니다. 
    
     ![사용자 액세스](./media/devtest-lab-add-devtest-user/access-users.png)
-5. **사용자** 블레이드에서 **추가** 를 선택 합니다.
+5. **사용자** 블레이드에서 **추가** 를 선택합니다.
    
     ![사용자 추가](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
 6. **역할 선택** 블레이드에서 **소유자** 를 선택합니다.

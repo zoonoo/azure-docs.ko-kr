@@ -14,20 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
 ms.openlocfilehash: 4853f485e4424c3c3263a18d27834d0f9ae94918
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98019655"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>지역 간에 Azure Network Watcher 리소스 이동
 
 ## <a name="moving-the-network-watcher-resource"></a>Network Watcher 리소스 이동
-Network Watcher 리소스는 Network Watcher에 대 한 백 엔드 서비스를 나타내며 Azure를 통해 완전히 관리 됩니다. 고객은 관리할 필요가 없습니다. 이동 작업은이 리소스에서 지원 되지 않습니다.
+Network Watcher 리소스는 Network Watcher에 대한 백 엔드 서비스를 나타내며, Azure를 통해 완전히 관리됩니다. 고객은 관리할 필요가 없습니다. 이동 작업은 이 리소스에서 지원되지 않습니다.
 
 ## <a name="moving-child-resources-of-network-watcher"></a>Network Watcher의 자식 리소스 이동
-리소스를 지역 간에 이동 하는 것은 현재 리소스 종류의 모든 자식 리소스에 대해 지원 되지 않습니다 `*networkWatcher*` .
+리소스를 지역 간에 이동하는 것은 현재 `*networkWatcher*` 리소스 종류의 모든 자식 리소스에 대해서도 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [Network Watcher 개요](./network-watcher-monitoring-overview.md) 읽기
-* [NETWORK WATCHER FAQ](./frequently-asked-questions.md) 참조
+* [Network Watcher 개요](./network-watcher-monitoring-overview.md)를 참조하세요.
+* [Network Watcher FAQ](./frequently-asked-questions.md)를 참조하세요.

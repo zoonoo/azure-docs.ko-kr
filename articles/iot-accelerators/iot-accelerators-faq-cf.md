@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 솔루션 FAQ - Azure | Microsoft Docs
-description: 이 문서에서는 연결 된 팩터리 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다. GitHub 리포지토리에 대 한 링크를 포함 합니다.
+description: 이 문서에서는 연결된 팩터리 솔루션 가속기에 대한 질문과 대답에 대답합니다. GitHub 리포지토리의 링크를 포함합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6a695030d399cb1609c63ef5652419a9bef1bbf
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.openlocfilehash: 038403743caf13087655066f4acbec4dcee598c7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105646223"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874210"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
@@ -125,7 +125,7 @@ Azure Portal을 사용하여 연결 문자열을 찾을 수도 있습니다. 배
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>시뮬레이션이 데이터를 클라우드로 보내는지 어떻게 확인할 수 있나요?
 
-[Azure Iot 탐색기](https://github.com/Azure/azure-iot-explorer) 또는 [Azure iot CLI 확장 모니터-이벤트](/cli/azure/ext/azure-iot/iot/hub#ext-azure-iot-az-iot-hub-monitor-events) 명령을 사용 하면 특정 장치에서 IoT Hub으로 전송 된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
+[Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) 또는 [Azure IoT CLI Extension monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) 명령을 사용하여 특정 디바이스에서 IoT Hub로 전송된 데이터를 검사할 수 있습니다. 이러한 도구를 사용하려면 배포에서 IoT 허브에 대한 연결 문자열을 알아야 합니다. [내 솔루션에서 사용하는 IoT 허브의 연결 문자열을 어떻게 찾나요?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)를 참조하세요.
 
 게시자 디바이스 중 하나를 통해 보낸 데이터를 검사합니다.
 
@@ -148,7 +148,7 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 또한 배포 후 솔루션 가속기에 Azure Maps 계정 키를 추가할 수도 있습니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **애플리케이션 설정** 섹션을 찾을 수 있는 **애플리케이션 설정** 으로 이동합니다. **MapApiQueryKey** 를 [Azure Maps 계정의 키](../azure-maps/how-to-manage-account-keys.md)로 설정합니다. 설정을 저장한 다음 **개요** 로 이동하고 App Service를 다시 시작합니다.
 
-### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정을 만들 어떻게 할까요? 있나요?
+### <a name="how-do-i-create-an-azure-maps-account"></a>Azure Maps 계정을 만드는 방법?
 
 [Azure Maps 계정과 키를 관리하는 방법](../azure-maps/how-to-manage-account-keys.md)을 참조하세요.
 

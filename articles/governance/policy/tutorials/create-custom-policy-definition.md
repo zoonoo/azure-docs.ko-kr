@@ -3,12 +3,12 @@ title: '자습서: 사용자 지정 정책 정의 만들기'
 description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
 ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: c6c4fbe05b6df8a6f8521a0551fe276c893bb6be
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 1cd88481e84fd334b95a5969fb7f4fa268e30cf5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106092806"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752132"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "106092806"
 
 사용자 지정 정책을 만드는 비즈니스 요인이 무엇이든, 새 사용자 지정 정책을 정의하는 단계는 동일합니다.
 
-사용자 지정 정책을 만들기 전에, [정책 샘플](../samples/index.md)을 검사하여 요구 사항과 일치하는 기존 정책이 있는지 확인합니다.
+사용자 지정 정책을 만들기 전에 [정책 샘플](../samples/index.md)을 검사하여 요구 사항과 일치하는 기존 정책이 있는지 여부를 확인합니다.
 
 사용자 지정 정책을 만드는 단계는 다음과 같습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "106092806"
 > - 사용할 효과 결정
 > - 정책 정의 작성
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

@@ -1,20 +1,20 @@
 ---
 title: TagsByResource UI 요소
-description: Azure Portal에 대 한 TagsByResource UI 요소에 대해 설명 합니다. 배포 하는 동안를 사용 하 여 리소스에 태그를 적용 합니다.
+description: Azure Portal의 Microsoft.Common.TagsByResource UI 요소에 대해 설명합니다. 배포 중 리소스에 태그를 적용하는 데 사용하세요.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: e730201812005a9b469a964e4acd081ebe86b100
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87063948"
 ---
-# <a name="microsoftcommontagsbyresource-ui-element"></a>TagsByResource UI 요소
+# <a name="microsoftcommontagsbyresource-ui-element"></a>Microsoft.Common.TagsByResource UI 요소
 
-배포의 리소스와 [태그](../management/tag-resources.md) 를 연결 하기 위한 컨트롤입니다.
+배포의 리소스에 [태그](../management/tag-resources.md)를 연결하기 위한 제어입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
@@ -49,9 +49,9 @@ ms.locfileid: "87063948"
 
 ## <a name="remarks"></a>설명
 
-- 배열에 있는 하나 이상의 항목을 `resources` 지정 해야 합니다.
-- 의 각 요소 `resources` 는 정규화 된 리소스 형식 이어야 합니다. 이러한 요소는 **리소스** 드롭다운에서 표시 되며 사용자가 taggable 합니다.
-- 컨트롤의 출력은 Azure Resource Manager 템플릿에서 태그 값을 쉽게 할당할 수 있도록 형식이 지정 됩니다. 템플릿에서 컨트롤의 출력을 받으려면 다음 예제와 같이 템플릿에 매개 변수를 포함 합니다.
+- `resources`배열에서 하나 이상의 항목을 지정해야 합니다.
+- `resources`의 각 요소는 정규화된 리소스 종류여야 합니다. 이러한 요소는 **리소스** 드롭다운에 표시되며 사용자가 태그를 지정할 수 있습니다.
+- 제어 출력은 Azure Resource Manager 템플릿에서 태그 값을 쉽게 할당하기 위해 포맷됩니다. 템플릿에서 제어 출력을 수신하려면 다음 예와 같이 템플릿에 매개 변수를 포함하세요.
 
   ```json
   "parameters": {
@@ -59,7 +59,7 @@ ms.locfileid: "87063948"
   }
   ```
 
-  태그를 지정할 수 있는 각 리소스에 대해 태그 속성을 해당 리소스 형식의 매개 변수 값에 할당 합니다.
+  태그를 지정할 수 있는 각 리소스에 대해 해당 리소스 종류의 매개 변수 값에 태그 속성을 할당하세요.
 
   ```json
   {
@@ -69,7 +69,7 @@ ms.locfileid: "87063948"
     ...
   ```
 
-- TagsByResource 매개 변수에 액세스할 때 [if](../templates/template-functions-logical.md#if) 함수를 사용 합니다. 지정 된 리소스 형식에 할당 된 태그가 없는 경우 빈 개체를 할당할 수 있습니다.
+- tagByResource 매개 변수에 액세스할 때 [if](../templates/template-functions-logical.md#if) 함수를 사용하세요. 지정된 리소스 종류에 태그가 할당되지 않은 경우 빈 개체를 할당할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

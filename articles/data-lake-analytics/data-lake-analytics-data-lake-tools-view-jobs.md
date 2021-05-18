@@ -1,14 +1,14 @@
 ---
-title: 작업 보기 & 작업 브라우저 사용-Azure Data Lake Analytics
+title: 작업 브라우저 및 작업 보기 사용 - Azure Data Lake Analytics
 description: 이 문서에서는 Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기를 사용하는 방법을 설명합니다.
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 08/02/2017
 ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96018565"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
@@ -37,7 +37,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     
       작업 상태에는 작업 단계가 요약 표시됩니다.
     
-      ![Azure Data Lake Analytics 작업 단계를 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Azure Data Lake Analytics 작업 단계를 보여 주는 스크린샷.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * 준비 중: 스크립트를 클라우드로 업로드하고 컴파일 서비스를 사용하여 스크립트를 컴파일 및 최적화합니다.
     * 큐에 대기: 작업이 충분한 리소스를 기다리거나 계정당 최대 동시 작업 수 한도를 초과한 경우 큐에 대기합니다. 우선 순위 설정에 따라 큐 작업의 순서가 결정되며 숫자가 낮을수록 우선 순위가 높습니다.
@@ -49,7 +49,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     
       기본 작업 정보는 Job Summary 창 아래쪽에 표시됩니다.
     
-      ![텍스트 상자에 설명이 포함 된 작업 요약을 보여 주는 스크린샷](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![텍스트 상자에 설명이 포함된 작업 요약을 보여 주는 스크린샷.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * 작업 결과: 성공 또는 실패입니다. 작업은 모든 단계에서 실패할 수 있습니다.
     * 총 기간: 제출 시간과 종료 시간 간 벽시계 시간(기간)입니다.
@@ -59,10 +59,10 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     * 계정: 작업을 실행하는 데 사용된 Data Lake Analytics 계정입니다.
     * 작성자: 작업을 제출한 사용자이며, 실제 사람의 계정 또는 시스템 계정일 수 있습니다.
     * 우선 순위: 작업의 우선 순위입니다. 번호가 낮을수록 우선 순위가 높습니다. 큐에 있는 작업의 순서에만 영향을 미칩니다. 높은 우선 순위를 설정할 경우 실행 중인 작업을 선취하는 것은 아닙니다.
-    * 병렬 처리: 요청 된 최대 Adlau (동시 Azure Data Lake Analytics 단위) 수 (꼭지점이 라고도 함)입니다. 현재 꼭짓점 한 개는 한 개의 VM 및 두 개의 가상 코어와 6GB RAM과 동일하며, 나중에 Data Lake Analytics 업데이트에서 업그레이드할 수 있습니다.
+    * 병렬 처리: 요청된 동시 ADLAU(Azure Data Lake Analytics Unit)의 최대 수이며 꼭짓점이라고도 합니다. 현재 꼭짓점 한 개는 한 개의 VM 및 두 개의 가상 코어와 6GB RAM과 동일하며, 나중에 Data Lake Analytics 업데이트에서 업그레이드할 수 있습니다.
     * 남은 바이트: 작업이 완료될 때까지 처리해야 하는 바이트입니다.
     * 읽은/쓴 바이트: 작업이 실행되기 시작한 이후 읽거나 쓴 바이트 수입니다.
-    * 전체 꼭짓점 수: 작업(Job)은 여러 작업(Work)으로 나누어지며, 각 작업을 꼭짓점이라고 합니다. 이 값은 작업(Job)이 몇 개의 작업(Work)으로 구성되었는가를 나타냅니다. 꼭 짓 점은 ADLAU (Azure Data Lake Analytics Unit) 라고도 하는 기본 프로세스 단위로 간주할 수 있으며, 꼭 짓 점은 병렬 처리에서 실행할 수 있습니다. 
+    * 전체 꼭짓점 수: 작업(Job)은 여러 작업(Work)으로 나누어지며, 각 작업을 꼭짓점이라고 합니다. 이 값은 작업(Job)이 몇 개의 작업(Work)으로 구성되었는가를 나타냅니다. 꼭짓점은 ADLAU(Azure Data Lake Analytics Unit)라고도 하는 기본 처리 단위로 간주할 수 있으며 꼭짓점은 병렬 처리로 실행할 수 있습니다. 
     * 완료됨/실행 중/실패함: 완료/실행/실패한 꼭짓점의 수. 꼭짓점은 사용자 코드 및 시스템 오류로 실패할 수 있지만 시스템은 실패한 꼭짓점을 자동으로 몇 번 더 재시도합니다. 재시도 후에도 꼭짓점이 계속 실패할 경우 전체 작업이 실패합니다.
 * 작업 그래프
   
@@ -70,7 +70,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
   
     ![Azure Data Lake Analytics 작업 단계 상태](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    작업(Job)은 여러 작업(Work)으로 세분화됩니다. 각 작업(Work)을 꼭짓점이라고 합니다. 꼭 짓 점은 단계 라고도 하는 슈퍼 꼭 짓 점으로 그룹화 되 고 작업 그래프로 시각화 됩니다. 작업 그래프의 녹색 단계 카드는 단계를 나타냅니다.
+    작업(Job)은 여러 작업(Work)으로 세분화됩니다. 각 작업(Work)을 꼭짓점이라고 합니다. 꼭짓점은 스테이지라고도 하는 슈퍼 꼭짓점으로 그룹화되며 작업 그래프로 시각화됩니다. 작업 그래프의 녹색 단계 카드는 단계를 나타냅니다.
   
     한 단계의 모든 꼭짓점은 동일 데이터 중 다른 부분에서 동일한 종류의 작업을 수행합니다. 예를 들어 한 TB 데이터에 파일이 있고 여기에서 읽은 꼭짓점이 수백 개 있을 경우 각 꼭짓점은 청크를 읽습니다. 이러한 꼭짓점은 동일한 단계로 그룹화되며 동일한 입력 파일 중 다른 부분에 대해 동일한 작업을 수행합니다.
   
@@ -108,7 +108,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
   * 기간: 단계에 소요된 벽시계 시간으로, 이 값을 보려면 프로필을 로드해야 합니다.
   * 작업 재생
     
-      Data Lake Analytics는 작업을 실행 하 고 꼭 짓 점이 시작, 중지 됨, 실패 및 재시도 방법 등의 작업에 대 한 꼭 짓 점 실행 정보를 보관 합니다. 모든 정보는 자동으로 쿼리 저장소에 기록 되 고 해당 작업 프로필에 저장 됩니다. 작업 보기의 "프로필 로드"를 통해 작업 프로필을 다운로드할 수 있으며 작업 프로필을 다운로드한 후 작업 재생을 볼 수 있습니다.
+      Data Lake Analytics는 작업을 실행하고 꼭짓점이 시작, 중지, 실패한 시기 및 재시도한 방법 등과 같은 작업 정보를 실행하는 꼭짓점을 보관합니다. 모든 정보는 자동으로 쿼리 저장소에 로그된 후 해당 작업 프로필에 저장됩니다. 작업 보기의 "프로필 로드"를 통해 작업 프로필을 다운로드할 수 있으며 작업 프로필을 다운로드한 후 작업 재생을 볼 수 있습니다.
     
       작업 재생은 클러스터에서 실행되는 작업을 시각화한 것입니다. 작업 실행 진행률을 보고 매우 짧은 시간(일반적으로 30초 미만) 동안의 성능 이상과 병목 현상을 시각적으로 감지할 수 있습니다.
   * 작업 열 지도 표시 
@@ -128,7 +128,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     * 입력/출력 처리량: 각 단계의 입력/출력 처리량의 열 지도. 여기에서 작업이 I/O 바운드 작업인지 여부를 확인할 수 있습니다.
 * 메타데이터 작업
   
-    데이터베이스 만들기, 테이블 삭제 등의 U-SQL 스크립트에서 일부 메타 데이터 작업을 수행할 수 있습니다. 이러한 작업은 컴파일 후 메타 데이터 작업에 표시 됩니다. 여기에서 어설션을 찾고 엔터티를 만들거나 삭제할 수 있습니다.
+    U-SQL 스크립트에서 데이터베이스 생성, 테이블 삭제 등과 같은 일부 메타데이터 작업을 수행할 수 있습니다. 이러한 작업은 컴파일 후 메타데이터 작업에 표시됩니다. 여기에서 어설션을 찾고 엔터티를 만들거나 삭제할 수 있습니다.
   
     ![Azure Data Lake Analytics 작업 보기 메타데이터 작업](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
 * 상태 기록
@@ -160,7 +160,7 @@ Azure Data Lake Analytics 서비스는 제출된 작업을 쿼리 저장소에 �
     리소스를 통해 쿼리 저장소에 저장된 작업 컴파일 출력을 찾을 수 있습니다. 예를 들어 여기에서 작업 그래프, 등록한 어셈블리 등을 표시하는 데 사용하는 "algebra.xml"을 찾을 수 있습니다.
 * Vertex 실행 보기
   
-    꼭짓점 실행에 대한 세부 정보가 표시됩니다. 작업 프로필은 전체 데이터 읽기/쓰기, 런타임, 상태 등의 모든 꼭 짓 점 실행 로그를 보관 합니다. 이 보기를 통해 작업이 실행 되는 방법에 대 한 자세한 정보를 얻을 수 있습니다. 자세한 내용은 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
+    꼭짓점 실행에 대한 세부 정보가 표시됩니다. 작업 프로필은 총 읽은/기록한 데이터, 런타임, 상태 등과 같은 모든 꼭짓점 실행 로그를 보관합니다. 이 보기를 통해 작업이 실행된 방법에 대한 자세한 정보를 얻을 수 있습니다. 자세한 내용은 [Data Lake Tools for Visual Studio에서 Vertex Execution View 사용](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)

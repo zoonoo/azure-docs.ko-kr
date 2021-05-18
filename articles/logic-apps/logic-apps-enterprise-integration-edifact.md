@@ -1,5 +1,5 @@
 ---
-title: B2B 통합에 대 한 EDIFACT 메시지
+title: B2B 통합을 위한 EDIFACT 메시지
 description: 엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 EDI 형식의 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
 services: logic-apps
 ms.suite: integration
@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
 ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96006526"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 EDIFACT 메시지 교환
@@ -63,7 +63,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
    | 속성 | 설명 |
    | --- | --- |
-   | Name |규약 이름 |
+   | 이름 |규약 이름 |
    | 규약 유형 | EDIFACT여야 함 |
    | 호스트 파트너 |규약에는 호스트 및 게스트 파트너가 필요합니다. 호스트 파트너는 규약을 구성하는 조직을 나타냅니다. |
    | 호스트 ID |호스트 파트너의 식별자입니다. |
@@ -78,8 +78,8 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 규약 속성을 설정했으므로 규약이 이 계약을 통해 파트너로부터 받은 들어오는 메시지를 식별하고 처리하는 방법을 구성할 수 있습니다.
 
 > [!IMPORTANT]
-> EDIFACT 커넥터는 UTF-8 문자만 지원 합니다.
-> 출력에 예기치 않은 문자가 포함 되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용 하는지 확인 합니다.
+> EDIFACT 커넥터는 UTF-8 문자만 지원합니다.
+> 출력에 예기치 않은 문자가 포함되어 있는 경우 EDIFACT 메시지에서 UTF-8 문자 집합을 사용하는지 확인합니다.
 
 1. **추가** 아래에서 **수신 설정** 을 선택합니다.
 사용자와 메시지를 교환하는 파트너와의 규약에 따라 이러한 속성을 구성합니다. 속성 설명은 이 섹션에 있는 테이블을 참조하세요.
@@ -99,7 +99,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNB6.1(받는 사람 참조 암호) |1 ~ 14자 사이의 영숫자 값을 입력합니다. |
 | UNB6.2(받는 사람 참조 한정자) |1 ~ 2자의 영숫자 값을 입력합니다. |
 
-### <a name="acknowledgments"></a>승인
+### <a name="acknowledgments"></a>감사의 글
 
 | 속성 | 설명 |
 | --- | --- |
@@ -204,7 +204,7 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 | UNA 세그먼트 적용(서비스 문자열 도움말) |보낼 교환에 대해 UNA 세그먼트를 생성하려면 이 확인란을 선택합니다. |
 | UNG 세그먼트 적용(기능 그룹 헤더) |게스트 파트너에게 보낸 메시지의 기능 그룹 헤더에 그룹화 세그먼트를 만들려면 이 확인란을 선택합니다. UNG 세그먼트를 만드는 데 다음 값이 사용됩니다. <p>**UNG1** 의 경우 1~6자 사이의 영숫자 값을 입력합니다. <p>**UNG2.1** 의 경우 1~35자 사이의 영숫자 값을 입력합니다. <p>**UNG2.2** 의 경우 최대 4자의 영숫자 값을 입력합니다. <p>**UNG3.1** 의 경우 1~35자 사이의 영숫자 값을 입력합니다. <p>**UNG3.2** 의 경우 최대 4자의 영숫자 값을 입력합니다. <p>**UNG6** 의 경우 1~3자 사이의 영숫자 값을 입력합니다. <p>**UNG7.1** 의 경우 1~3자 사이의 영숫자 값을 입력합니다. <p>**UNG7.2** 의 경우 1~3자 사이의 영숫자 값을 입력합니다. <p>**UNG7.3** 의 경우 1~6자 사이의 영숫자 값을 입력합니다. <p>**UNG8** 의 경우 1~14자 사이의 영숫자 값을 입력합니다. |
 
-### <a name="character-sets-and-separators"></a>문자 집합 및 구분 기호
+### <a name="character-sets-and-separators"></a>문자 세트 및 구분 기호
 
 문자 집합 외에 각 메시지 유형에 사용할 다른 구분 기호 집합을 입력할 수 있습니다. 주어진 메시지 스키마의 문자 집합이 지정되지 않은 경우 기본 문자 집합이 사용됩니다.
 
@@ -247,11 +247,11 @@ Azure Logic Apps의 EDIFACT 메시지를 교환하기 전에 EDIFACT 규약을 �
 
 2.  또한 통합 계정 개요에서 규약을 볼 수도 있습니다. 통합 계정 메뉴에서 **개요** 를 선택한 다음, **규약** 타일을 선택합니다. 
 
-    ![규약 타일을 보여 주는 스크린샷](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![규약 타일을 보여주는 스크린샷.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/edifact/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명된 작업 및 제한을 비롯하여 이 커넥터에 대한 추가 기술 정보는 [커넥터의 참조 페이지](/connectors/edifact/)에서 확인할 수 있습니다.
 
 > [!NOTE]
 > 이 커넥터의 ISE 레이블이 지정된 버전은 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에는 [ISE에 대한 B2B 메시지 제한](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits)을 사용합니다.

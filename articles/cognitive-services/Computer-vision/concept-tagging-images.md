@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a75e55cd51890173b6733ab5f8c0f1bcbfeef0f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4235278d14e52aa3b364353a67db3059a5fe184b
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532978"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715865"
 ---
 # <a name="applying-content-tags-to-images"></a>이미지에 콘텐츠 태그 적용
 
@@ -85,7 +85,7 @@ Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경�
 
 ## <a name="use-the-api"></a>API 사용
 
-태그 지정 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Tags`를 포함합니다. 그런 다음, 전체 JSON 응답을 받으면 `"tags"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+태그 지정 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Tags`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"tags"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
 * [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 

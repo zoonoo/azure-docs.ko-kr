@@ -8,16 +8,16 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: 3f0856f85e279f97934fff506a052c8fd214ff73
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.openlocfilehash: cf39a2b5853368f529c524798c6ac6486f148d46
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105641227"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745076"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 
-공개 미리 보기 중에 “zoneType” 속성이 “Private”으로 설정된 “dnszones” 리소스를 사용하여 프라이빗 DNS 영역을 만들었습니다. 이러한 영역은 2019년 12월 31일 이후에는 지원되지 않으며 “dnszones” 대신 “privateDnsZones” 리소스 유형을 사용하는 GA 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS 프라이빗 영역을 새 리소스 모델로 마이그레이션하는 단계별 지침을 제공합니다.
+공개 미리 보기 중에 “zoneType” 속성이 “Private”으로 설정된 “dnszones” 리소스를 사용하여 프라이빗 DNS 영역을 만들었습니다. 이러한 영역은 2019년 12월 31일 이후에는 지원되지 않으며 “dnszones” 대신 “privateDnsZones” 리소스 종류를 사용하는 GA 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS 프라이빗 영역을 새 리소스 모델로 마이그레이션하는 단계별 지침을 제공합니다.
 
 마이그레이션이 필요한 dnszones 리소스를 확인하려면 Azure CLI에서 아래 명령을 실행합니다.
 ```azurecli
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. Azure PowerShell(Az)과 설치 방법에 대한 자세한 내용을 보려면 https://docs.microsoft.com/powershell/azure/new-azureps-module-az를 방문하세요.
 
@@ -91,7 +91,7 @@ PrivateDnsMigrationScript.ps1
 
 ![이름 확인이 작동하는지 확인](./media/private-dns-migration-guide/verifyresolution-migration-script.png)
 
-DNS 쿼리가 확인되지 않는다면 몇 분 정도 기다린 후 쿼리를 다시 시도해 보세요. DNS 쿼리가 제대로 작동한다면 스크립트가 프라이빗 DNS 영역에서 가상 네트워크를 제거하라는 메시지를 표시하면 ‘Y’를 입력합니다.
+DNS 쿼리가 확인되지 않는다면 몇 분 정도 기다린 후 쿼리를 다시 시도해 보세요. DNS 쿼리가 제대로 작동하는 경우 스크립트가 프라이빗 DNS 영역에서 가상 네트워크를 제거하라는 메시지를 표시하면 ‘Y’를 입력합니다.
 
 ![이름 확인이 작동하는지 확인](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
@@ -108,9 +108,9 @@ DNS 쿼리가 확인되지 않는다면 몇 분 정도 기다린 후 쿼리를 �
 
 SDK를 사용하여 개발된 템플릿, PowerShell 스크립트 또는 사용자 지정 코드를 포함한 자동화를 사용하는 경우 프라이빗 DNS 영역의 새 리소스 모델을 사용하도록 자동화를 업데이트해야 합니다. 다음은 새로운 프라이빗 DNS CLI/PS/SDK 설명서에 대한 링크입니다.
 * [Azure DNS Private Zones REST API](/rest/api/dns/privatedns/privatezones)
-* [Azure DNS Private Zones CLI](/cli/azure/network/private-dns/link/vnet?view=azure-cli-latest)
+* [Azure DNS Private Zones CLI](/cli/azure/network/private-dns/link/vnet)
 * [Azure DNS Private Zones PowerShell](/powershell/module/az.privatedns/)
-* [Azure DNS Private Zones SDK](/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [Azure DNS Private Zones SDK](/dotnet/api/overview/azure/privatedns/management)
 
 ## <a name="need-further-help"></a>추가 도움이 필요한 경우
 
@@ -122,8 +122,8 @@ SDK를 사용하여 개발된 템플릿, PowerShell 스크립트 또는 사용�
 
 * Azure DNS에서 프라이빗 영역으로 실현할 수 있는 몇 가지 일반 [프라이빗 영역 시나리오](./private-dns-scenarios.md)에 대해 읽어보세요.
 
-* 특정 종류의 작업에 필요한 특정 동작을 포함하여 Azure DNS의 프라이빗 영역에 대한 일반적인 질문과 대답은 [프라이빗 DNS FAQ](./dns-faq-private.md)를 참조하세요.
+* 특정 종류의 작업에 필요한 특정 동작을 포함하여 Azure DNS의 프라이빗 영역에 대한 일반적인 질문과 대답은 [프라이빗 DNS FAQ](./dns-faq-private.yml)를 참조하세요.
 
 * [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
-* Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+* Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/fundamentals/networking-overview.md)을 알아봅니다.

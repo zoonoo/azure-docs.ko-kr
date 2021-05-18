@@ -1,5 +1,5 @@
 ---
-title: MFA 등록 정책 구성-Azure Active Directory Identity Protection
+title: MFA 등록 정책 구성 - Azure Active Directory ID 보호
 description: Azure AD ID 보호 다단계 인증 등록 정책을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -12,46 +12,46 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 072db1d47abd95844075aeedfeddc4f8cf6bf936
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94835869"
 ---
 # <a name="how-to-configure-the-azure-ad-multi-factor-authentication-registration-policy"></a>방법: Azure AD Multi-Factor Authentication 등록 정책 구성
 
-Azure AD ID 보호은 로그인 하는 최신 인증 앱에 관계 없이 MFA 등록을 요구 하는 조건부 액세스 정책을 구성 하 여 Azure AD Multi-Factor Authentication (MFA) 등록의 롤아웃을 관리 하는 데 도움이 됩니다.
+Azure AD ID 보호는 어떤 최신 인증 앱에 로그인하는지 관계없이 MFA 등록을 요구하도록 조건부 액세스 정책을 구성하여 Azure AD MFA(Multi-Factor Authentication) 등록 롤아웃을 관리하는 데 도움이 됩니다.
 
-## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>Azure AD Multi-Factor Authentication 등록 정책은 무엇 인가요?
+## <a name="what-is-the-azure-ad-multi-factor-authentication-registration-policy"></a>Azure AD Multi-Factor Authentication 등록 정책이란?
 
-Azure AD Multi-Factor Authentication은 사용자 이름과 암호를 사용 하는 사용자를 확인 하는 수단을 제공 합니다. 사용자 로그인에 대 한 두 번째 보안 계층을 제공 합니다. 사용자가 MFA 프롬프트에 응답할 수 있도록 하려면 먼저 Azure AD Multi-Factor Authentication에 등록 해야 합니다.
+Azure AD Multi-Factor Authentication은 사용자 이름과 암호 이외에 추가 기능을 사용하는 사용자를 확인하는 수단을 제공합니다. 또한 사용자 로그인에 대한 두 번째 보안 계층을 제공합니다. 사용자가 MFA 프롬프트에 응답할 수 있으려면 먼저 Azure AD Multi-Factor Authentication에 등록해야 합니다.
 
-사용자 로그인을 위해 Azure AD Multi-Factor Authentication를 요구 하는 것이 좋습니다.
+다음과 같은 이유로, 사용자 로그인에 대해 Azure AD Multi-Factor Authentication을 요구하는 것이 좋습니다.
 
-- 에서는 다양 한 확인 옵션을 통해 강력한 인증을 제공 합니다.
-- 는 Id 보호에서 위험 검색을 자동으로 재구성 하도록 조직을 준비 하는 데 중요 한 역할을 합니다.
+- 다양한 확인 옵션을 통해 강력한 인증을 제공합니다.
+- 조직에서 ID 보호의 위험 검색으로부터 자체 수정할 수 있도록 준비하는 데 중요한 역할을 합니다.
 
-Azure AD Multi-Factor Authentication에 대 한 자세한 내용은 [AZURE ad Multi-Factor Authentication 란?](../authentication/howto-mfa-getstarted.md) 을 참조 하세요.
+Azure Multi-Factor Authentication에 대한 자세한 내용은 [Azure AD Multi-Factor Authentication이란?](../authentication/howto-mfa-getstarted.md)을 참조하세요.
 
 ## <a name="policy-configuration"></a>정책 구성
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **Azure Active Directory**  >  **보안**  >  **id 보호**  >  **MFA 등록 정책** 으로 이동 합니다.
-   1. **할당** 아래
-      1. **사용자** -출시를 제한 하는 경우 **모든 사용자** 를 선택 하거나 **개인 및 그룹을 선택** 합니다.
-         1. 필요에 따라 정책에서 사용자를 제외 하도록 선택할 수 있습니다.
-   1. **컨트롤** 에서
-      1. **AZURE AD MFA 등록 필요** 확인란을 선택 했는지 확인 하 고 **선택** 을 선택 합니다.
-   1. **정책 적용**  -  **설정**
+1. **Azure Active Directory** > **보안** > **ID 보호** > **MFA 등록 정책** 으로 이동합니다.
+   1. **할당** 에서
+      1. **사용자** - 롤아웃을 제한하는 경우 **모든 사용자** 또는 **개인 및 그룹 선택** 을 선택할 수 있습니다.
+         1. 원하는 경우 정책에서 사용자를 제외하도록 선택할 수 있습니다.
+   1. **제어** 에서
+      1. **Azure AD MFA 등록 필요** 확인란이 선택되어 있는지 확인하고 **선택** 을 선택합니다.
+   1. **정책 적용** - **설정**
    1. **저장**
 
 ## <a name="user-experience"></a>사용자 환경
 
-사용자에 게 다음에 대화형으로 로그인 할 때 등록 하 라는 메시지가 표시 되 고 등록을 완료 하는 데 14 일이 Azure Active Directory Identity Protection 됩니다. 이 14 일 동안에는 등록을 무시할 수 있지만 로그인 프로세스를 완료 하기 전에 등록 해야 하는 기간이 종료 되었습니다.
+Azure Active Directory Identity Protection은 사용자가 다음에 대화형으로 로그인할 때 등록하라는 메시지를 표시하고 사용자에게 등록을 완료하는 데 14일이 주어집니다. 이 14일 기간 동안 등록을 무시할 수 있지만 기간이 끝나면 등록해야만 로그인 프로세스를 완료할 수 있습니다.
 
 관련 사용자 환경에 대한 개요는 다음을 참조하세요.
 
-- [Azure AD ID 보호를 사용 하는 로그인 환경](concept-identity-protection-user-experience.md)  
+- [Azure AD ID 보호를 사용하는 로그인 환경](concept-identity-protection-user-experience.md)  
 
 ## <a name="next-steps"></a>다음 단계
 

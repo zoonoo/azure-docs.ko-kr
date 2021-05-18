@@ -1,16 +1,16 @@
 ---
-title: Advanced Threat Protection-Azure Portal-Azure Database for MySQL
-description: 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 하도록 Advanced Threat Protection을 구성 하는 방법에 대해 알아봅니다.
+title: Advanced Threat Protection - Azure Portal - Azure Database for MySQL
+description: Advanced Threat Protection을 구성하여 데이터베이스에 대한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색하는 방법을 알아봅니다.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96012666"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Azure Database for MySQL용 Advanced Threat Protection
@@ -27,7 +27,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for MySQL이 배포된 모든 Azure 지역에서 사용할 수 있습니다.
 
 ## <a name="set-up-threat-detection"></a>위협 감지 설정
-1. 에서 Azure Portal를 시작 [https://portal.azure.com](https://portal.azure.com) 합니다.
+1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal을 시작합니다.
 2. 보호할 Azure Database for MySQL 서버의 구성 페이지로 이동합니다. 보안 설정에서 **Advanced Threat Protection(미리 보기)** 을 선택합니다.
 3. **Advanced Threat Protectio(미리 보기)** 구성 페이지에서 다음을 수행합니다.
 
@@ -54,7 +54,7 @@ Advanced Threat Detection은 고급 보안 기능용 통합 패키지인 Advance
 
 ## <a name="explore-threat-detection-alerts"></a>위협 검색 경고 살펴보기
 
-SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. 라이브 SQL 위협 검색 타일은 데이터베이스 및 Azure Portal의 SQL ATP 페이지에서 활성 위협의 상태를 추적 합니다.
+SQL Database 위협 감지는 경고를 [Azure Security Center](https://azure.microsoft.com/services/security-center/)와 통합합니다. Azure Portal의 데이터베이스 및 SQL ATP 페이지의 라이브 SQL 위협 감지 타일은 활성 위협의 상태를 추적합니다.
 
 **보안 위협 경고** 를 클릭하면 Azure Security Center 경고 페이지가 열리고 데이터베이스에서 감지된 활성 SQL 위협에 대한 개요가 제공됩니다.
 

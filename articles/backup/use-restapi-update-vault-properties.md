@@ -1,39 +1,39 @@
 ---
-title: REST API를 사용 하 여 Recovery Services 자격 증명 모음 구성 업데이트
-description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음 구성을 업데이트 하는 방법을 알아봅니다.
+title: REST API를 사용하여 Recovery Services 자격 증명 모음 구성 업데이트
+description: 이 문서에서는 REST API를 사용하여 자격 증명 모음 구성을 업데이트하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 19a335d17ee0aa5ff9f989556656f5cf20d2b1a9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91567828"
 ---
-# <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
+# <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
-이 문서에서는 REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음에서 백업 관련 구성을 업데이트 하는 방법을 설명 합니다.
+이 문서에서는 REST API를 사용하여 Azure Recovery Services 자격 증명 모음에서 백업 관련 구성을 업데이트하는 방법을 설명합니다.
 
 ## <a name="soft-delete-state"></a>일시 삭제 상태
 
-보호 된 항목의 백업 삭제는 모니터링 해야 하는 중요 한 작업입니다. 실수로 인 한 삭제를 방지 하기 위해 Azure Recovery Services 자격 증명 모음에는 일시 삭제 기능이 있습니다. 이 기능을 사용 하면 삭제 후 일정 기간 내에 삭제 된 백업 (필요한 경우)을 복원할 수 있습니다.
+보호된 항목의 백업 삭제는 모니터링이 필요한 중요한 작업입니다. 실수로 인한 삭제를 방지하기 위해 Azure Recovery Services 자격 증명 모음에는 일시 삭제 기능이 있습니다. 이 기능을 사용하면 삭제 후 일정 기간 내에 삭제된 백업을 복원할 수 있습니다(필요한 경우).
 
-그러나이 기능이 필요 하지 않은 시나리오는 있습니다. Azure Recovery Services 자격 증명 모음은 일시 삭제 된 경우에도 해당 항목 내에 백업 항목이 있으면 삭제할 수 없습니다. 자격 증명 모음을 즉시 삭제 해야 하는 경우 문제가 발생할 수 있습니다. 예를 들어의 경우 배포 작업은 동일한 워크플로에서 생성 된 리소스를 정리 하는 경우가 많습니다. 배포는 자격 증명 모음을 만들고, 항목에 대 한 백업을 구성 하 고, 테스트 복원을 수행한 후 백업 항목과 자격 증명 모음을 계속 해 서 삭제할 수 있습니다. 자격 증명 모음을 삭제 하지 못하면 전체 배포가 실패할 수 있습니다. 즉시 삭제를 보장 하는 유일한 방법은 일시 삭제를 사용 하지 않도록 설정 하는 것입니다.
+그러나 이 기능이 필요하지 않은 시나리오가 있습니다. Azure Recovery Services 자격 증명 모음은 일시 삭제된 경우에도 해당 항목 내에 백업 항목이 있으면 삭제할 수 없습니다. 이는 자격 증명 모음을 즉시 삭제해야 하는 경우에 문제가 될 수 있습니다. 예를 들어 배포 작업은 동일한 워크플로에서 생성된 리소스를 정리하는 경우가 많습니다. 배포는 자격 증명 모음을 만들고, 항목에 대한 백업을 구성하고, 테스트 복원을 수행한 다음, 백업 항목 및 자격 증명 모음 삭제를 진행할 수 있습니다. 자격 증명 모음을 삭제하지 못하면 전체 배포가 실패할 수 있습니다. 즉시 삭제를 보장하는 유일한 방법은 일시 삭제를 사용하지 않는 것입니다.
 
-따라서 시나리오에 따라 특정 자격 증명 모음에 대해 일시 삭제를 사용 하지 않도록 설정할지 여부를 신중 하 게 선택 해야 합니다. 자세한 내용은 [일시 삭제 문서](backup-azure-security-feature-cloud.md)를 참조 하세요.
+따라서 시나리오에 따라 특정 자격 증명 모음에 대해 일시 삭제를 비활성화할지 여부를 신중하게 선택해야 합니다. 자세한 내용은 [일시 삭제 문서](backup-azure-security-feature-cloud.md)를 참조하세요.
 
-### <a name="fetch-soft-delete-state-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 상태 페치
+### <a name="fetch-soft-delete-state-using-rest-api"></a>REST API를 사용하여 일시 삭제 상태 페치
 
-기본적으로 새로 만든 Recovery Services 자격 증명 모음에 대해 일시 삭제 상태가 사용 됩니다. 자격 증명 모음에 대 한 일시 삭제 상태를 인출/업데이트 하려면 백업 자격 증명 모음 관련 [REST API 문서](/rest/api/backup/backupresourcevaultconfigs) 를 사용 합니다.
+기본적으로 새로 만든 Recovery Services 자격 증명 모음에는 일시 삭제 상태가 활성화됩니다. 자격 증명 모음에 대한 일시 삭제 상태를 페치/업데이트하려면 백업 자격 증명 모음의 구성 관련 [REST API 문서](/rest/api/backup/backupresourcevaultconfigs)를 사용합니다.
 
-자격 증명 모음에 대 한 일시 삭제의 현재 상태를 인출 하려면 다음 *가져오기* 작업을 사용 합니다.
+자격 증명 모음에 대한 일시 삭제의 현재 상태를 페치하려면 다음 *GET* 작업을 사용합니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-GET URI에는 `{subscriptionId}` , `{vaultName}` `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에 제공 되므로 별도의 요청 본문이 필요 하지 않습니다.
+GET URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서 `{vaultName}`은 "testVault"이고 `{vaultresourceGroupName}`은 "testVaultRG"입니다. 모든 필수 매개 변수가 URI에서 지정되므로 별도의 요청 본문이 필요 없습니다.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
@@ -41,15 +41,15 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### <a name="responses"></a>응답
 
-' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
+'GET' 작업에 대한 성공적인 응답은 다음과 같습니다.
 
-|Name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
 ##### <a name="example-response"></a>예제 응답
 
-' GET ' 요청이 제출 되 면 200 (성공) 응답이 반환 됩니다.
+‘GET’ 요청이 제출되면 응답으로 200(성공)이 반환됩니다.
 
 ```json
 {
@@ -63,15 +63,15 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-### <a name="update-soft-delete-state-using-rest-api"></a>REST API를 사용 하 여 일시 삭제 상태 업데이트
+### <a name="update-soft-delete-state-using-rest-api"></a>REST API를 사용하여 일시 삭제 상태 업데이트
 
-REST API를 사용 하 여 Recovery Services 자격 증명 모음의 일시 삭제 상태를 업데이트 하려면 다음 *PUT* 작업을 사용 합니다.
+REST API를 사용하여 Recovery Services 자격 증명 모음의 일시 삭제 상태를 업데이트하려면 다음 *PUT* 작업을 사용합니다.
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-PUT URI에는 `{subscriptionId}` , `{vaultName}` `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서는 `{vaultName}` "testVault"이 고 `{vaultresourceGroupName}` 는 "testVaultRG"입니다. URI를 위의 값으로 바꾸면 URI가 다음과 같이 표시 됩니다.
+POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` 매개 변수가 있습니다. 이 예제에서 `{vaultName}`은 "testVault"이고 `{vaultresourceGroupName}`은 "testVaultRG"입니다. URI를 위의 값으로 바꾸면 URI가 다음과 같이 표시됩니다.
 
 ```http
 PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
@@ -79,11 +79,11 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### <a name="create-the-request-body"></a>요청 본문 만들기
 
-다음 일반 정의는 요청 본문을 만드는 데 사용 됩니다.
+다음과 같은 일반적인 정의가 요청 본문을 만드는 데 사용됩니다.
 
-자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
+자세한 내용은 [REST API 설명서](/rest/api/backup/backupresourcevaultconfigs/update#request-body)를 참조하세요.
 
-|Name  |필수  |Type  |설명  |
+|이름  |필수  |Type  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  선택적 eTag       |
 |위치     |  true       |String         |   리소스 위치      |
@@ -92,7 +92,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### <a name="example-request-body"></a>요청 본문 예제
 
-다음 예제는 일시 삭제 상태를 ' 사용 안 함 '으로 업데이트 하는 데 사용 됩니다.
+다음 예제는 일시 삭제 상태를 '사용할 수 없는'으로 업데이트하는 데 사용됩니다.
 
 ```json
 {
@@ -103,17 +103,17 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-#### <a name="responses-for-the-patch-operation"></a>패치 작업에 대 한 응답
+#### <a name="responses-for-the-patch-operation"></a>PATCH 작업에 대한 응답
 
-' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
+'PATCH' 작업에 대한 성공적인 응답은 다음과 같습니다.
 
-|Name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 정상        |
 
-##### <a name="example-response-for-the-patch-operation"></a>패치 작업에 대 한 예제 응답
+##### <a name="example-response-for-the-patch-operation"></a>PATCH 작업에 대한 응답의 예
 
-' PATCH ' 요청이 제출 되 면 200 (성공) 응답이 반환 됩니다.
+‘PATCH’ 요청이 제출되면 응답으로 200(성공)이 반환됩니다.
 
 ```json
 {

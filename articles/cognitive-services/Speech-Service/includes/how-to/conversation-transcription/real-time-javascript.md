@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/20/2020
 ms.author: trbye
 ms.openlocfilehash: d2fae1c08132c855f570750a4528a9a37343434e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105104678"
 ---
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
@@ -21,9 +21,9 @@ class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ## <a name="create-voice-signatures"></a>음성 서명 만들기
 
-첫 번째 단계는 대화 참가자에 대 한 음성 서명을 만들어 고유 스피커로 식별할 수 있도록 하는 것입니다. `.wav`음성 서명을 만들기 위한 입력 오디오 파일은 16 비트, 16Khz 샘플 요금 및 단일 채널 (mono) 형식 이어야 합니다. 각 오디오 샘플의 권장 길이는 30 초에서 2 분 사이입니다. `.wav`이 파일은 고유한 음성 프로필을 만들도록 **한 사람의** 음성 샘플 이어야 합니다.
+첫 번째 단계는 고유 스피커로 식별할 수 있도록 대화 참가자의 음성 서명을 만드는 것입니다. 음성 서명을 만들기 위한 입력 `.wav` 오디오 파일은 16비트, 16Khz 샘플 속도 및 단일 채널(모노) 형식이어야 합니다. 각 오디오 샘플의 권장 길이는 30초~2분 사이입니다. `.wav` 파일은 고유한 음성 프로필이 생성되도록 **한 사람의** 음성 샘플이어야 합니다.
 
-다음 예제에서는 JavaScript에서 [REST API를 사용](https://aka.ms/cts/signaturegenservice) 하 여 음성 서명을 만드는 방법을 보여 줍니다. `subscriptionKey`, 및 샘플 파일의 경로에 대 한 실제 정보를 대체 해야 `region` `.wav` 합니다.
+다음 예제에서는 JavaScript에서 [REST API를 사용](https://aka.ms/cts/signaturegenservice)하여 음성 서명을 만드는 방법을 보여 줍니다. `subscriptionKey`, `region` 및 샘플 `.wav` 파일 경로의 실제 정보를 대체해야 합니다.
 
 ```javascript
 const fs = require('fs');
@@ -54,22 +54,22 @@ async function main() {
 main();
 ```
 
-이 스크립트를 실행 하면 변수에 음성 서명 문자열이 반환 `voiceSignatureString` 됩니다. 함수를 두 번 실행 하 여 변수 및 아래에 대 한 입력으로 사용할 문자열 두 개를 갖도록 `voiceSignatureStringUser1` `voiceSignatureStringUser2` 합니다.
+이 스크립트를 실행하면 `voiceSignatureString` 변수의 음성 서명 문자열이 반환됩니다. 함수를 두 번 실행하면 아래 `voiceSignatureStringUser1` 및 `voiceSignatureStringUser2` 변수에 대한 입력으로 두 개의 문자열을 사용할 수 있습니다.
 
 > [!NOTE]
-> 음성 서명은 REST API를 사용 **하 여 만들 수 있습니다.**
+> 음성 서명을 만들려면 REST API를 사용 **해야 합니다**.
 
-## <a name="transcribe-conversations"></a>높여줄 대화
+## <a name="transcribe-conversations"></a>대화 기록
 
-다음 샘플 코드에서는 두 개의 스피커에 대해 실시간으로 대화를 높여줄 하는 방법을 보여 줍니다. 위에서 설명한 것 처럼 각 스피커에 대해 음성 서명 문자열을 이미 만들었다고 가정 합니다. `subscriptionKey`, 및 높여줄 오디오의 경로에 대 한 실제 정보를 대체 `region` `filepath` 합니다.
+다음 샘플 코드에서는 두 개의 스피커에 대해 실시간으로 대화를 기록하는 방법을 보여 줍니다. 위에 표시된 대로 각 스피커에 대한 음성 서명 문자열을 이미 만들었다고 가정합니다. 기록할 오디오에 관한 `subscriptionKey`, `region` 및 경로 `filepath`의 실제 정보를 대체합니다.
 
-이 샘플 코드는 다음을 수행 합니다.
+이 샘플 코드에서는 다음을 수행합니다.
 
-* 기록에 사용할 푸시 스트림을 만들고 `.wav` 여기에 샘플 파일을 씁니다.
-* 을 `Conversation` 사용 하 여를 만듭니다 `createConversationAsync()` .
-* `ConversationTranscriber`생성자를 사용 하 여를 만듭니다.
-* 대화에 참가자를 추가 합니다. 문자열과는 `voiceSignatureStringUser1` `voiceSignatureStringUser2` 위의 단계에서 출력으로 제공 됩니다.
-* 이벤트에 등록 하 고 기록을 시작 합니다.
+* 대화 내용 기록에 사용할 푸시 스트림을 만들고 여기에 샘플 `.wav` 파일을 씁니다.
+* `createConversationAsync()`를 사용하여 `Conversation`을 만듭니다.
+* 생성자를 사용하여 `ConversationTranscriber`를 만듭니다.
+* 대화에 참가자를 추가합니다. 문자열 `voiceSignatureStringUser1` 및 `voiceSignatureStringUser2`는 위의 단계에서 출력으로 제공됩니다.
+* 이벤트에 등록하고 대화 내용 기록을 시작합니다.
 
 ```javascript
 (function() {

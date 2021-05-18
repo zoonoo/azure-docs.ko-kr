@@ -1,29 +1,30 @@
 ---
-title: 포털에서 클라우드 서비스 (클래식) 자동 크기 조정 | Microsoft Docs
-description: 포털을 사용 하 여 Azure에서 클라우드 서비스 (클래식) 역할에 대 한 자동 크기 조정 규칙을 구성 하는 방법에 대해 알아봅니다.
+title: 포털에서 클라우드 서비스(클래식) 크기 자동 조정 | Microsoft Docs
+description: 포털을 사용하여 Azure에서 클라우드 서비스(클래식) 역할에 대한 자동 크기 조정 규칙을 구성하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: autoscale
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: ddf0f97e78ebc6f1eb8eade0d1842c912d167155
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99980833"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105935945"
 ---
-# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>포털에서 클라우드 서비스 (클래식)에 대 한 자동 크기 조정을 구성 하는 방법
+# <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>포털(클래식)에서 클라우드 서비스 크기 자동 조정을 구성하는 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 규모 감축 또는 규모 확장 작업을 트리거하는 클라우드 서비스 작업자 역할에 대해 조건을 설정할 수 있습니다. 역할에 대한 조건은 CPU, 디스크 또는 역할의 네트워크 부하를 기반으로 할 수 있습니다. 메시지 큐 또는 구독에 연결된 일부 다른 Azure 리소스의 메트릭을 기준으로 조건을 설정할 수도 있습니다.
 
 > [!NOTE]
-> 이 문서는 클라우드 서비스 (클래식)에 중점을 둔 문서입니다. 가상 머신(클래식)를 직접 만든 경우 이 가상 머신은 클라우드 서비스에서 호스트됩니다. 표준 가상 머신을 [가용성 집합](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic)에 연결하여 규모를 조정하고 수동으로 켜거나 끌 수 있습니다.
+> 이 문서에서는 클라우드 서비스(클래식) 역할에 중점을 둡니다. 가상 머신(클래식)를 직접 만든 경우 이 가상 머신은 클라우드 서비스에서 호스트됩니다. 표준 가상 머신을 [가용성 집합](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic)에 연결하여 규모를 조정하고 수동으로 켜거나 끌 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항
 애플리케이션의 크기 조정을 구성하기 전에 다음 내용을 고려해야 합니다.
@@ -47,17 +48,17 @@ ms.locfileid: "99980833"
 1. 클라우드 서비스 블레이드의 **역할 및 인스턴스** 타일에서 클라우드 서비스의 이름을 선택합니다.   
    **중요**: 역할 아래에 있는 역할 인스턴스가 아니라 클라우드 서비스 역할을 클릭해야 합니다.
 
-    ![역할 및 인스턴스 타일의 스크린샷-B 큐 1 옵션을 사용 하는 작업자 역할을 빨간색으로 설명 합니다.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
+    ![S B 큐 1이 포함된 작업자 역할 옵션이 빨간색 윤곽선으로 표시된 역할 및 인스턴스 타일의 스크린샷입니다.](./media/cloud-services-how-to-scale-portal/roles-instances.png)
 2. **크기 조정** 타일을 선택합니다.
 
-    ![판매 타일이 빨간색으로 표시 된 작업 페이지의 스크린샷](./media/cloud-services-how-to-scale-portal/scale-tile.png)
+    ![크기 조정 타일이 빨간색 윤곽선으로 표시된 작업 페이지의 스크린샷입니다.](./media/cloud-services-how-to-scale-portal/scale-tile.png)
 
 ## <a name="automatic-scale"></a>자동 크기 조정
 **수동** 또는 **자동** 의 두 가지 모드 중 하나를 사용하여 역할에 대한 크기 조정 설정을 구성할 수 있습니다. 수동에서는 예상할 수 있는 절대 인스턴스 수를 설정합니다. 하지만 자동을 사용하면 크기 조정 방법과 정도를 제어하는 규칙을 설정할 수 있습니다.
 
 **크기 조정 기준** 옵션을 **일정 및 성능 규칙** 으로 설정합니다.
 
-![프로필 및 규칙을 사용 하는 이미지 클라우드 서비스 크기 조정 설정](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![프로필 및 규칙을 사용하는 이미지 클라우드 서비스 크기 조정 설정](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. 기존 프로필입니다.
 2. 부모 프로필에 대한 규칙을 추가합니다.
@@ -93,7 +94,7 @@ ms.locfileid: "99980833"
 
 규칙 트리거는 조건 값을 추가할 수 있는 클라우드 서비스(CPU 사용량, 디스크 작업 또는 네트워크 작업)의 메트릭을 기준으로 합니다. 또한 메시지 큐 또는 구독에 연결된 일부 다른 Azure 리소스의 메트릭을 기준으로 트리거가 작동되도록 할 수 있습니다.
 
-![메트릭 이름 옵션이 빨간색으로 표시 된 규칙 대화 상자의 스크린샷](./media/cloud-services-how-to-scale-portal/rule-settings.png)
+![메트릭 이름 옵션이 빨간색으로 표시된 규칙 대화 상자의 스크린샷입니다.](./media/cloud-services-how-to-scale-portal/rule-settings.png)
 
 규칙을 구성한 후 규칙 블레이드 아래쪽에 있는 **확인** 단추를 선택합니다.
 

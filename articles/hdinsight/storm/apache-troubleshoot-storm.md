@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: c81084c77b355a5d60c72564c58a98e08da14312
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98946312"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용하여 Apache Storm 문제 해결
@@ -43,9 +43,9 @@ HDInsight Storm 이벤트 허브 spout .jar 파일을 사용하여 Azure Event H
 
 오프셋에 대한 검사점 데이터는 Zookeeper의 이벤트 허브 Spout를 통해 다음 두 루트 경로에 저장됩니다.
 
-- 비트랜잭션 spout 검사점은에 저장 됩니다 `/eventhubspout` .
+- 비트랜잭션 Spout 검사점 데이터는 `/eventhubspout`에 저장됩니다.
 
-- 트랜잭션 spout 검사점 데이터는에 저장 됩니다 `/transactional` .
+- 트랜잭션 Spout 검사점 데이터는 `/transactional`에 저장됩니다.
 
 ### <a name="how-to-restore"></a>복원하는 방법
 
@@ -57,12 +57,12 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 내보내기 명령은 설정한 Azure Blob Storage 또는 Azure Data Lake Storage의 Apache HDFS(Hadoop 분산 파일 시스템) 경로에 메타데이터를 씁니다.
 
-### <a name="examples"></a>예제
+### <a name="examples"></a>예
 
 #### <a name="export-offset-metadata"></a>오프셋 메타데이터 내보내기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로에 사육 사 오프셋 데이터를 내보냅니다 `/stormmetadta/zkdata` .
+2. (HDP 버전 문자열을 업데이트한 후) 다음 명령을 실행하여 ZooKeeper 오프셋 데이터를 `/stormmetadta/zkdata` HDFS 경로로 내보냅니다.
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
@@ -71,7 +71,7 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 #### <a name="import-offset-metadata"></a>오프셋 메타데이터 가져오기
 
 1. SSH를 사용하여 검사점 오프셋을 내보내야 하는 클러스터의 ZooKeeper 클러스터로 이동합니다.
-2. HDP 버전 문자열을 업데이트 한 후 다음 명령을 실행 하 여 HDFS 경로에서 `/stormmetadata/zkdata` 대상 클러스터의 사육 사 서버로의 사육 사 오프셋 데이터를 가져옵니다.
+2. (HDP 버전 문자열을 업데이트한 후) 다음 명령을 실행하여 ZooKeeper 오프셋 데이터를 HDFS path `/stormmetadata/zkdata` 경로에서 대상 클러스터의 ZooKeeper 서버로 가져옵니다:
 
     ```apache
     java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
@@ -88,9 +88,9 @@ lib 폴더에는 가져오기/내보내기 작업에 대한 구현이 포함된 
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>클러스터에서 Storm 이진을 찾는 방법
 
-현재 HDP 스택에 대 한 스톰 이진 파일은에 `/usr/hdp/current/storm-client` 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
+현재 HDP 스택에 대한 Storm 이진 파일은 `/usr/hdp/current/storm-client`에 있습니다. 위치는 헤드 노드 및 작업자 노드 둘 다에 대해 동일합니다.
 
-/Usr/hdp에는 특정 HDP 버전에 대 한 여러 바이너리가 있을 수 있습니다 (예: `/usr/hdp/2.5.0.1233/storm` ). `/usr/hdp/current/storm-client`폴더는 클러스터에서 실행 되는 최신 버전에 연결 되어 있습니다.
+/usr/hdp에 특정 HDP 버전에 대한 여러 이진 파일이 있을 수 있습니다(예: `/usr/hdp/2.5.0.1233/storm`). `/usr/hdp/current/storm-client` 폴더가 클러스터에서 실행 중인 최신 버전에 연결되어 있습니다.
 
 자세한 내용은 [SSH를 사용하여 HDInsight 클러스터에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md) 및 [Apache Storm](https://storm.apache.org/)을 참조하세요.
 
@@ -142,7 +142,7 @@ Storm 작업자 노드에서 실행하는 서비스는 다음과 같습니다.
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>HDInsight 3.5 이상 Linux Storm 클러스터용 최신 Apache Storm 이벤트 허브 Spout 이진 파일
 
-HDInsight 3.5 + Linux 스톰 클러스터에서 작동 하는 최신 스톰 event hub spout를 사용 하는 방법에 대 한 자세한 내용은 [mvn 추가 정보 파일](https://github.com/hdinsight/mvn-repo/blob/master/README.md)을 참조 하세요.
+HDInsight 3.5 이상의 Linux Storm 클러스터에서 작동하는 최신 Storm 이벤트 허브 spout을 사용하는 방법을 알아보려면 [mvn-repo readme 파일](https://github.com/hdinsight/mvn-repo/blob/master/README.md)을 참조하세요.
 
 ### <a name="source-code-examples"></a>소스 코드 예제
 
@@ -154,24 +154,24 @@ Storm 서비스에 대한 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/
 
 ### <a name="on-head-nodes"></a>헤드 노드에서
 
-Nimbus Log4J 구성은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
+Nimbus Log4J 구성은 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`에서 읽습니다.
 
 ### <a name="on-worker-nodes"></a>작업자 노드에서
 
-감독자 Log4J 구성은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` .
+Supervisor Log4J 구성은 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml`에서 읽습니다.
 
-Worker Log4J 구성 파일은에서 읽습니다 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` .
+Worker Log4J 구성 파일은 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml`에서 읽습니다.
 
-예와 `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+예: `/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
 `/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
 
 ---
 
 ## <a name="not-a-leader-exception"></a>리더 예외가 아닙니다.
 
-토폴로지를 제출 하는 경우 사용자에 게 다음과 유사한 오류 메시지가 표시 될 수 있습니다 `Topology submission exception, cause not a leader, the current leader is NimbusInfo` .
+토폴로지를 제출하는 경우 사용자에게 다음과 유사한 오류 메시지가 표시될 수 있습니다: `Topology submission exception, cause not a leader, the current leader is NimbusInfo`.
 
-이 문제를 해결 하려면 사용자가 노드를 다시 시작/다시 부팅 하기 위해 티켓을 제출 해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)을(를) 참조하세요.
+이 문제를 해결하려면 사용자가 노드를 다시 시작/다시 부팅하기 위해 티켓을 제출해야 할 수 있습니다. 자세한 내용은 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)을(를) 참조하세요.
 
 ---
 

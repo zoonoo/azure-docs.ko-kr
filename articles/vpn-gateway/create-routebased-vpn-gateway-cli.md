@@ -1,6 +1,6 @@
 ---
 title: '경로 기반 Azure VPN Gateway 만들기: CLI'
-description: 온-프레미스 네트워크에 대 한 VPN 연결 또는 가상 네트워크 연결에 대 한 Azure CLI를 사용 하 여 경로 기반 Azure VPN gateway를 신속 하 게 만듭니다.
+description: Azure CLI을 사용하여 온-프레미스 네트워크에 대한 VPN 연결이나 가상 네트워크 연결을 위한 경로 기반 Azure VPN 게이트웨이를 빠르게 만들 수 있습니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2bbd7e39ee65ba304ec62697b6fcc77bea133b41
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94737254"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI를 사용하여 경로 기반 VPN 게이트웨이 만들기

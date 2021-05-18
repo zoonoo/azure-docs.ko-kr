@@ -1,6 +1,6 @@
 ---
 title: JSON 데이터 작업
-description: Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 JSON (JavaScript Object Notation) 표기법으로 데이터를 구문 분석, 쿼리 및 형식을 지정할 수 있습니다.
+description: Azure SQL Database 및 Azure SQL Managed Instance에서는 JSON(JavaScript Object Notation) 표기법으로 데이터 구문 분석, 쿼리 및 서식 지정을 수행할 수 있습니다.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: development
@@ -12,16 +12,16 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 04/19/2020
 ms.openlocfilehash: 4258c60335a13a6c0f27588aac1c6cdb185fcf6a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92782803"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database-and-azure-sql-managed-instance"></a>Azure SQL Database 및 Azure SQL Managed Instance에서 JSON 기능 시작
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 JavaScript Object Notation [(json)](https://www.json.org/) 형식으로 표현 된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 json 텍스트로 내보낼 수 있습니다. 다음 JSON 시나리오를 사용할 수 있습니다.
+Azure SQL Database 및 Azure SQL Managed Instance를 사용하면 [JSON](https://www.json.org/)(JavaScript Object Notation) 형식으로 표현된 데이터를 구문 분석 및 쿼리하고 관계형 데이터를 JSON 텍스트로 내보낼 수 있습니다. 다음과 같은 JSON 시나리오를 사용할 수 있습니다.
 
 - `FOR JSON` 절을 사용하여 [관계형 데이터 형식을 JSON으로 지정](#formatting-relational-data-in-json-format).
 - [JSON 데이터 작업](#working-with-json-data)
@@ -30,7 +30,7 @@ Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 JavaScript O
 
 ## <a name="formatting-relational-data-in-json-format"></a>관계형 데이터 형식을 JSON으로 지정
 
-데이터베이스 계층에서 데이터를 가져오고 JSON 형식으로 응답을 제공하는 웹 서비스 또는 JSON으로 형식이 지정된 데이터를 수락하는 클라이언트 쪽 JavaScript 프레임워크나 라이브러리가 있는 경우 SQL 쿼리에서 직접 데이터베이스 콘텐츠 형식을 JSON으로 지정할 수 있습니다. 더 이상 Azure SQL Database 또는 Azure SQL Managed Instance의 결과 형식을 JSON으로 지정 하는 응용 프로그램 코드를 작성 하거나, 테이블 형식 쿼리 결과를 변환 하는 json 직렬화 라이브러리를 포함 하 고, 개체를 JSON 형식으로 serialize 할 필요가 없습니다. 대신 FOR JSON 절을 사용 하 여 SQL 쿼리 결과의 형식을 JSON으로 지정 하 고 응용 프로그램에서 직접 사용할 수 있습니다.
+데이터베이스 계층에서 데이터를 가져오고 JSON 형식으로 응답을 제공하는 웹 서비스 또는 JSON으로 형식이 지정된 데이터를 수락하는 클라이언트 쪽 JavaScript 프레임워크나 라이브러리가 있는 경우 SQL 쿼리에서 직접 데이터베이스 콘텐츠 형식을 JSON으로 지정할 수 있습니다. Azure SQL Database 또는 Azure SQL Managed Instance의 결과 형식을 JSON으로 지정하는 애플리케이션 코드를 작성하거나 테이블 형식 쿼리 결과를 변환한 다음, 개체를 JSON 형식으로 직렬화하는 JSON 직렬화 라이브러리를 더 이상 포함할 필요가 없습니다. 대신, FOR JSON 절을 사용하여 Azure SQL Database에서 SQL 쿼리 결과의 형식을 JSON으로 지정하고 애플리케이션에서 직접 사용할 수 있습니다.
 
 다음 예제에서 Sales.Customer 테이블의 행은 FOR JSON 절을 사용하여 JSON으로 형식이 지정됩니다.
 
@@ -106,7 +106,7 @@ Customer 데이터를 가져온 다음 관련 Orders 목록을 인출하는 별�
 
 엄격하게 구조화된 데이터가 없거나, 복잡한 하위 개체, 배열 또는 계층적 데이터가 있거나, 시간이 지나면서 데이터 구조가 변화할 경우 JSON 형식을 사용하면 복잡한 데이터 구조를 나타내는 데 도움이 될 수 있습니다.
 
-JSON은 Azure SQL Database 및 Azure SQL Managed Instance에서 다른 문자열 형식 처럼 사용할 수 있는 텍스트 형식입니다. JSON 데이터를 표준 NVARCHAR로 전송하거나 저장할 수 있습니다.
+JSON은 Azure SQL Database 및 Azure SQL Managed Instance에서 다른 문자열 형식처럼 사용할 수 있는 텍스트 형식입니다. JSON 데이터를 표준 NVARCHAR로 전송하거나 저장할 수 있습니다.
 
 ```sql
 CREATE TABLE Products (
@@ -128,13 +128,13 @@ END
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Azure SQL Database 및 Azure SQL Managed Instance에서 문자열 데이터와 함께 작동 하는 모든 클라이언트 쪽 언어 또는 라이브러리는 JSON 데이터에도 사용할 수 있습니다. JSON은 메모리 최적화 테이블 또는 시스템 버전 테이블같이 NVARCHAR 형식을 지원하는 모든 테이블에 저장할 수 있습니다. JSON을 사용할 경우 클라이언트 쪽 코드 또는 데이터베이스 계층에 어떤 제약도 적용되지 않습니다.
+Azure SQL Database 및 Azure SQL Managed Instance의 문자열 데이터를 사용하는 모든 클라이언트 쪽 언어 또는 라이브러리에서도 JSON 데이터를 사용할 수 있습니다. JSON은 메모리 최적화 테이블 또는 시스템 버전 테이블같이 NVARCHAR 형식을 지원하는 모든 테이블에 저장할 수 있습니다. JSON을 사용할 경우 클라이언트 쪽 코드 또는 데이터베이스 계층에 어떤 제약도 적용되지 않습니다.
 
 ## <a name="querying-json-data"></a>JSON 데이터 쿼리
 
 Azure SQL 테이블에 저장된 JSON으로 형식이 지정된 데이터가 있는 경우 JSON 함수를 통해 SQL 쿼리에서 이 데이터를 사용할 수 있습니다.
 
-Azure SQL Database 및 Azure SQL Managed Instance에서 사용할 수 있는 JSON 함수를 사용 하면 JSON으로 형식이 지정 된 데이터를 다른 SQL 데이터 형식으로 처리할 수 있습니다. JSON 텍스트에서 쉽게 값을 추출하고 쿼리에서 JSON 데이터를 사용할 수 있습니다.
+Azure SQL Database 및 Azure SQL Managed Instance에서 사용할 수 있는 JSON 함수는 JSON으로 형식이 지정된 데이터를 다른 SQL 데이터 형식처럼 처리할 수 있습니다. JSON 텍스트에서 쉽게 값을 추출하고 쿼리에서 JSON 데이터를 사용할 수 있습니다.
 
 ```sql
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -164,7 +164,7 @@ ALTER TABLE Products
 
 ## <a name="transforming-json-into-tabular-format"></a>JSON을 테이블 형식으로 변환
 
-또한 Azure SQL Database 및 Azure SQL Managed Instance를 사용 하 여 JSON 컬렉션을 테이블 형식으로 변환 하 고 JSON 데이터를 로드 또는 쿼리할 수 있습니다.
+Azure SQL Database 및 Azure SQL Managed Instance에서는 JSON 컬렉션을 테이블 형식으로 변환하고 JSON 데이터를 로드 또는 쿼리할 수 있습니다.
 
 OPENJSON은 JSON 텍스트를 구문 분석하고, JSON 개체의 배열을 찾고, 배열의 요소를 반복하고, 배열의 각 요소에 대한 출력 결과에 하나의 행을 반환하는 테이블 값 함수입니다.
 

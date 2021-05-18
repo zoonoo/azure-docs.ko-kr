@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: 회로 및 피어 링'
+title: 'Azure ExpressRoute: 회로 및 피어링'
 description: 이 페이지는 ExpressRoute 회로 및 라우팅 도메인/피어링에 대한 개요를 제공합니다.
 services: expressroute
 author: duongau
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
 ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92202347"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
 
 ExpressRoute 회로는 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결합니다. 이 문서는 ExpressRoute 회로 및 라우팅 도메인/피어링을 이해하도록 도와줍니다. 다음 그림은 WAN 및 Microsoft 간 연결의 논리적 표현을 보여 줍니다.
 
-![Express 경로 회로가 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결 하는 방법을 보여 주는 다이어그램입니다.](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![ExpressRoute 회로가 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하는 방법을 보여 주는 다이어그램입니다.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
-> Azure 공용 피어 링은 더 이상 사용 되지 않으며 새로운 Express 경로 회로에 사용할 수 없습니다. 새 회로는 Microsoft 피어 링 및 개인 피어 링을 지원 합니다.  
+> Azure 공용 피어링은 사용되지 않으며, 새 ExpressRoute 회로에 사용할 수 없습니다. 새로운 회로는 Microsoft 피어링 및 개인 피어링을 지원합니다.  
 >
 
 ## <a name="expressroute-circuits"></a><a name="circuits"></a>ExpressRoute 회로
@@ -40,9 +40,9 @@ ExpressRoute 회로는 물리적 엔터티에 매핑되지 않습니다. 회로�
 
 ## <a name="expressroute-peering"></a><a name="routingdomains"></a>ExpressRoute 피어링
 
-Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결 된 여러 라우팅 도메인/피어 링이 있습니다. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗* 으로 분류됩니다.
+ExpressRoute 회로에는 Azure 공용, Azure 프라이빗 및 Microsoft와 연결된 여러 라우팅 도메인/피어링이 있습니다. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗* 으로 분류됩니다.
 
-![Azure 공용, Azure 개인 및 Microsoft 피어 링을 Express 경로 회로에서 구성 하는 방법을 보여 주는 다이어그램입니다.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Express 경로 회로에서 Azure 공용, Azure 프라이빗 및 Microsoft 피어링을 구성하는 방법을 보여 주는 다이어그램입니다.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="azure-private-peering"></a><a name="privatepeering"></a>Azure 프라이빗 피어링
 
@@ -54,7 +54,7 @@ Azure 컴퓨팅 서비스, 즉 가상 머신(IaaS) 및 가상 네트워크 내�
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-Microsoft 피어 링을 통해 Microsoft 온라인 서비스 (Microsoft 365 및 Azure PaaS 서비스)에 연결 합니다. Microsoft 피어링 라우팅 도메인을 통해 WAN 및 Microsoft 클라우드 서비스 간의 양방향 연결을 설정합니다. 사용자 또는 연결 공급자가 소유하는 공용 IP 주소에 대해서만 Microsoft 클라우드 서비스에 연결 해야 하고 모든 정의된 규칙을 따라야 합니다. 자세한 내용은 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조하세요.
+Microsoft 피어링을 통해 Microsoft 온라인 서비스(Microsoft 365 및 Azure PaaS 서비스)에 연결됩니다. Microsoft 피어링 라우팅 도메인을 통해 WAN 및 Microsoft 클라우드 서비스 간의 양방향 연결을 설정합니다. 사용자 또는 연결 공급자가 소유하는 공용 IP 주소에 대해서만 Microsoft 클라우드 서비스에 연결 해야 하고 모든 정의된 규칙을 따라야 합니다. 자세한 내용은 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 페이지를 참조하세요.
 
 지원 서비스, 비용 및 구성 세부 정보에 대한 자세한 내용은 [FAQ 페이지](expressroute-faqs.md) 를 참조하세요. Microsoft 피어링이 지원하는 연결 공급자의 목록에 대한 정보는 [ExpressRoute 위치](expressroute-locations.md) 페이지를 참조하세요.
 

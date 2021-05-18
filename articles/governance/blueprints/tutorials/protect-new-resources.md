@@ -3,12 +3,12 @@ title: '자습서: 잠금을 사용하여 새 리소스 보호'
 description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽기 전용 및 삭제 안 함을 사용하여 새로 배포한 리소스를 보호합니다.
 ms.date: 03/08/2021
 ms.topic: tutorial
-ms.openlocfilehash: 87da0f5a1fff2feb103b32533c8d314fb7690f80
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abb880923da71c437507245917c8e8fddb92b2fa
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102485744"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733862"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
@@ -23,7 +23,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 > - 새 리소스 그룹 조사
 > - 청사진을 할당 취소하여 잠금 제거
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -161,7 +161,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      |-|-|-|-|-|
      |RGtoLock 리소스 그룹|Resource group|Name|TestingBPLocks|청사진 잠금을 적용할 새 리소스 그룹의 이름을 정의합니다.|
      |RGtoLock 리소스 그룹|Resource group|위치|미국 서부 2|청사진 잠금을 적용할 새 리소스 그룹의 위치를 정의합니다.|
-     |StorageAccount|Resource Manager 템플릿|storageAccountType(StorageAccount)|Standard_GRS|스토리지 SKU 기본값은 _Standard_LRS_ 입니다.|
+     |StorageAccount|Resource Manager 템플릿|storageAccountType(StorageAccount) |Standard_GRS|스토리지 SKU 기본값은 _Standard_LRS_ 입니다.|
 
 1. 모든 매개 변수를 입력한 후 페이지 아래쪽에서 **할당** 을 선택합니다.
 
@@ -177,7 +177,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 왼쪽에서 **할당된 청사진** 페이지를 선택합니다. 필터를 사용하여 **assignment-locked-storageaccount-TestingBPLocks** 청사진 할당을 찾은 후 선택합니다.
 
-   이 페이지에서 할당이 성공했으며 리소스가 새 청사진 잠금 상태로 배포되었음을 확인할 수 있습니다. 할당이 업데이트되면 **할당 작업** 드롭다운에 각 정의 버전 배포에 대한 세부 정보가 표시됩니다. 리소스 그룹을 선택하여 속성 페이지를 열 수 있습니다.
+   이 페이지에서 할당이 성공했으며 리소스가 새 청사진 잠금 상태로 배포되었음을 확인할 수 있습니다. 할당이 업데이트되면 **할당 작업** 드롭다운 목록에 각 정의 버전 배포에 관한 세부 정보가 표시됩니다. 리소스 그룹을 선택하여 속성 페이지를 열 수 있습니다.
 
 1. **TestingBPLocks** 리소스 그룹을 선택합니다.
 

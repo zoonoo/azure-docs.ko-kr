@@ -1,13 +1,13 @@
 ---
-title: 서비스에 대 한 환경 변수 지정
+title: 서비스에 대한 환경 변수 지정
 description: Service Fabric에서 애플리케이션에 대한 환경 변수를 사용하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
 ms.openlocfilehash: 610e44ac98b8b8a2ce5a91fdbcfda145ae36a94b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96576743"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Service Fabric에서 서비스에 대한 환경 변수를 지정하는 방법
@@ -44,9 +44,9 @@ ms.locfileid: "96576743"
       </ServiceManifestImport>
     ```
 
-## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Docker Compose를 사용 하 여 동적으로 환경 변수 지정
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Docker Compose를 사용하여 동적으로 환경 변수 지정
 
-Service Fabric는 [배포에 Docker Compose를 사용](service-fabric-docker-compose.md#supported-compose-directives)하는 기능을 지원 합니다. 작성 파일은 셸에서 환경 변수를 원본으로 사용할 수 있습니다. 이 동작은 원하는 환경 값을 동적으로 대체 하는 데 사용할 수 있습니다.
+Service Fabric은 [배포에 Docker Compose를 사용](service-fabric-docker-compose.md#supported-compose-directives)하는 기능을 지원합니다. 작성 파일은 셸에서 환경 변수를 원본으로 사용할 수 있습니다. 이 동작은 원하는 환경 값을 동적으로 대체하는 데 사용할 수 있습니다.
 
 ```yml
 environment:
