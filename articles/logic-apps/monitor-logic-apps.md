@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 3c3d1930234c178a56227830ef0702450ddf4a8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 174f177080a421ec65f4ba79c550292737284de4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100580669"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734795"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>실행 상태를 모니터링하고, 트리거 기록을 검토하고, Azure Logic Apps에 대한 경고를 설정합니다.
 
@@ -20,7 +20,7 @@ ms.locfileid: "100580669"
 실시간 이벤트 모니터링 및 보다 풍부한 디버깅은 [Azure Monitor 로그](../azure-monitor/overview.md)를 사용하여 논리 앱에 대한 진단 로깅을 설정합니다. 이 Azure 서비스를 사용하면 클라우드 및 온-프레미스 환경을 모니터링하여 가용성과 성능을 보다 쉽게 유지 관리할 수 있습니다. 그러면 트리거 이벤트, 실행 이벤트, 작업 이벤트와 같은 이벤트를 찾고 볼 수 있습니다. [Azure Monitor 로그](../azure-monitor/logs/data-platform-logs.md)에 이 정보를 저장하여 이 정보를 찾고 분석하는 데 도움이 되는 [로그 쿼리](../azure-monitor/logs/log-query-overview.md)를 만들 수 있습니다. 또한 Azure Storage 및 Azure Event Hubs와 같은 다른 Azure 서비스에서 이 진단 데이터를 사용할 수도 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 논리 앱 모니터링](../logic-apps/monitor-logic-apps-log-analytics.md)을 참조하세요.
 
 > [!NOTE]
-> 논리 앱이 [내부 액세스 엔드포인트](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 사용하도록 만들어진 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행되는 경우 *가상 네트워크 내부에서만 논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있습니다*. 실행 기록에 액세스하려는 컴퓨터와 프라이빗 엔드포인트 간에 네트워크 연결이 있어야 합니다. 예를 들어 클라이언트 컴퓨터는 ISE의 가상 네트워크 내부 또는 피어링이나 VPN(가상 사설망)을 통해 ISE의 가상 네트워크에 연결된 가상 네트워크 내부에 있을 수 있습니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요. 
+> 논리 앱이 [내부 액세스 엔드포인트](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 사용하도록 만들어진 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행되는 경우 *가상 네트워크 내부에서만 논리 앱의 실행 기록에서 입력 및 출력을 보고 액세스할 수 있습니다*. 실행 기록에 액세스하려는 컴퓨터와 프라이빗 엔드포인트 간에 네트워크 연결이 있어야 합니다. 예를 들어 클라이언트 컴퓨터는 ISE의 가상 네트워크 내부 또는 피어링이나 VPN(가상 사설망)을 통해 ISE의 가상 네트워크에 연결된 가상 네트워크 내부에 있을 수 있습니다. 자세한 내용은 [ISE 엔드포인트 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조하세요.
 
 <a name="review-runs-history"></a>
 
@@ -43,13 +43,14 @@ ms.locfileid: "100580669"
    개요 창의 **실행 기록** 에서 논리 앱의 모든 과거, 현재 및 대기 중인 실행이 표시됩니다. 목록에 표시된 실행이 많아서 원하는 항목을 찾을 수 없는 경우 목록을 필터링해 보세요.
 
    > [!TIP]
-   > 실행 상태가 표시되지 않으면 **새로 고침** 을 선택하여 개요 페이지를 새로 고쳐 보세요. 조건이 충족되지 않거나 데이터를 찾을 수 없어 트리거를 건너뛴 경우에는 실행이 발생하지 않습니다.
+   > 실행 상태가 표시되지 않으면 **새로 고침** 을 선택하여 개요 페이지를 새로 고쳐 보세요.
+   > 조건이 충족되지 않거나 데이터를 찾을 수 없어 트리거를 건너뛴 경우에는 실행이 발생하지 않습니다.
 
    ![개요, 실행 기록 및 기타 논리 앱 정보](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
    다음은 가능한 실행 상태입니다.
 
-   | 실행 상태 | 설명 |
+   | 실행 상태 | Description |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |
@@ -91,7 +92,9 @@ ms.locfileid: "100580669"
      이제 해당 단계의 입력 및 출력과 같은 정보를 볼 수 있습니다. 예를 들면 다음과 같습니다.
 
    > [!NOTE]
-   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다. 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다. [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용하여 [실행 기록에서 입력 및 출력을 숨기거나](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 이 정보에 대한 사용자 액세스를 제어할 수 있습니다.
+   > 모든 런타임 세부 정보 및 이벤트는 Logic Apps 서비스 내에서 암호화됩니다.
+   > 사용자가 해당 데이터를 보기 위해 요청하는 경우에만 해독됩니다.
+   > [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 사용하여 [실행 기록에서 입력 및 출력을 숨기거나](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) 이 정보에 대한 사용자 액세스를 제어할 수 있습니다.
 
 <a name="review-trigger-history"></a>
 
@@ -121,7 +124,7 @@ ms.locfileid: "100580669"
 
    가능한 트리거 시도 상태는 다음과 같습니다.
 
-   | 트리거 상태 | 설명 |
+   | 트리거 상태 | Description |
    |----------------|-------------|
    | **실패** | 오류가 발생했습니다. 실패한 트리거에 생성된 오류 메시지를 검토하려면 해당 트리거 시도를 선택하고 **출력** 을 선택합니다. 예를 들어 유효하지 않은 입력을 찾을 수 있습니다. |
    | **생략** | 트리거가 엔드포인트를 확인했지만 지정된 기준을 충족하는 데이터를 찾지 못했습니다. |
@@ -189,10 +192,10 @@ ms.locfileid: "100580669"
 
 > [!TIP]
 > 경고에서 논리 앱을 실행하기 위해 워크플로에서 다음 예제와 같은 작업을 수행할 수 있도록 하는 [요청 트리거](../connectors/connectors-native-reqres.md)를 포함할 수 있습니다.
-> 
+>
 > * [Slack에 게시](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
-> * [텍스트 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app)
-> * [큐에 메시지 추가](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app)
+> * [텍스트 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
+> * [큐에 메시지 추가](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory의 복사 작업
 description: Azure Data Factory의 복사 작업에 대해 알아봅니다. 지원되는 원본 데이터 저장소에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 데 사용할 수 있습니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: jingwang
-ms.openlocfilehash: d52a0bba5fddaa865b8fad74b778ba7a3838b2a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: df26bdcc76b894991393019a12da71df2f893b6b
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100387906"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488666"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -42,11 +42,11 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 ## <a name="supported-data-stores-and-formats"></a>지원되는 데이터 저장소 및 형식
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
 
 ### <a name="supported-file-formats"></a>지원되는 파일 형식
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 복사 작업을 사용하여 두 파일 기반 데이터 저장소 간에 있는 그대로 파일을 복사할 수 있습니다. 이 때 데이터는 직렬화 또는 역직렬화 없이 효율적으로 복사됩니다. 또한 지정된 형식의 파일을 구문 분석하거나 생성할 수도 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
@@ -62,7 +62,7 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 ## <a name="configuration"></a>구성
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 일반적으로 Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니다.
 
@@ -124,7 +124,7 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 
 | 속성 | Description | 필수 여부 |
 |:--- |:--- |:--- |
-| type | 복사 작업의 경우 `Copy`로 설정합니다. | 예 |
+| 형식 | 복사 작업의 경우 `Copy`로 설정합니다. | 예 |
 | 입력 | 원본 데이터를 가리키도록 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 입력만 지원합니다. | 예 |
 | outputs | 싱크 데이터를 가리키도록 만든 데이터 세트를 지정합니다. 복사 작업에서는 하나의 출력만 지원합니다. | 예 |
 | typeProperties | 복사 작업을 구성할 속성을 지정합니다. | 예 |

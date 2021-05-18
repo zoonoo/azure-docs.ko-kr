@@ -3,13 +3,13 @@ title: Azure Application Insights IP 주소 수집 | Microsoft Docs
 description: Azure Application Insights를 사용하여 IP 주소 및 지리적 위치를 처리하는 방법 이해
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-js, devx-track-azurepowershell
+ms.openlocfilehash: d5bacde864d42dfefab9c4b0d5dc90072081a25f
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584070"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321360"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
