@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어에서 자르기
-description: Azure Cosmos DB의 SQL 시스템 함수 트리밍에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 TRIM
+description: Azure Cosmos DB의 SQL 시스템 함수 TRIM에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 377aa042919f94ec31549f6d672a4dabc6c86859
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93340739"
 ---
-# <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
+# <a name="trim-azure-cosmos-db"></a>TRIM(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  선행 및 후행 공백을 제거한 후에 문자열 식을 반환합니다.  
@@ -35,9 +35,9 @@ TRIM(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예에서는 쿼리 내에서를 사용 하는 방법을 보여 줍니다 `TRIM` .  
+  다음 예제에서는 쿼리 내에서 `TRIM`을 사용하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4
@@ -51,7 +51,7 @@ SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 활용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

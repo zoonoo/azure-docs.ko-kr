@@ -3,13 +3,12 @@ title: Azure 활동 로그를 확인하여 리소스 모니터링
 description: 활동 로그를 사용하여 사용자 작업 및 오류를 검토합니다. Azure Portal, PowerShell, Azure CLI, REST를 보여 줍니다.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 8917ffe287ecf60659f48dfb947bbd5b06d46005
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752925"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91371595"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>활동 로그를 확인하여 리소스에 대한 작업 모니터링
 
@@ -141,7 +140,7 @@ Resource Graph를 사용하여 리소스 변경 내용을 확인할 수 있습�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-로그 항목을 검색하려면 시간 범위를 나타내는 오프셋을 사용하여 [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list) 명령을 실행합니다.
+로그 항목을 검색하려면 시간 범위를 나타내는 오프셋을 사용하여 [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) 명령을 실행합니다.
 
 ```azurecli-interactive
 az monitor activity-log list --resource-group ExampleGroup --offset 7d

@@ -3,16 +3,17 @@ title: Synapse Studio 연결 문제 해결
 description: PowerShell을 사용하여 Azure Synapse Studio 연결 문제 해결
 author: saveenr
 ms.service: synapse-analytics
+ms.subservice: troubleshooting
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ff3d985bb24ec852bb5c6cfaedf295fd79a8247
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 431ceed6f6f272c4473b6fc4e5b59941b4a94b5e
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98120362"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143218"
 ---
 # <a name="troubleshoot-synapse-studio-connectivity-with-powershell"></a>PowerShell을 사용한 Synapse Studio 연결 문제 해결
 
@@ -20,7 +21,7 @@ Azure Synapse Studio는 정상적으로 작동하는 웹 API 엔드포인트의 
 - Azure Synapse Studio에 액세스하기 위해 로컬 네트워크(예: 회사 방화벽 뒤에 있는 네트워크)를 구성합니다.
 - Azure Synapse Studio를 사용할 때 연결 문제가 발생합니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>필수 조건
 
 * Windows의 PowerShell 5.0 이상 버전 또는
 * Windows 또는 Linux의 PowerShell Core 6.0 이상 버전.
@@ -58,4 +59,4 @@ Azure Synapse Studio는 정상적으로 작동하는 웹 API 엔드포인트의 
 
 
 ## <a name="next-steps"></a>다음 단계
-이전 단계가 문제를 해결하는 데 도움이 되지 않는 경우 [지원 티켓을 만듭니다](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+이전 단계가 이슈를 해결하는 데 도움이 되지 않는 경우, [지원 티켓을 만듭니다](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

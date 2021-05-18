@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
 ms.openlocfilehash: 73b25ce1093ce697aa0937161d2af49526c231b7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96352357"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Bing Custom Search API에 대한 언어 및 지역 지원
@@ -28,7 +28,7 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 
 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) 쿼리 매개 변수를 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)를 참조하세요.
 
-`cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원 되는 언어는 국가/지역에 따라 다릅니다. 이러한 설정은 **시장** 테이블의 각 국가/지역에 대해 제공 됩니다.
+`cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가/지역마다 다르며, **지역/국가** 표에서 각 국가/지역에 대해 제공됩니다.
 
 `Accept-Language` 헤더 및 `setLang` 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. 자세한 내용은 [Accept-Language](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage)를 참조하세요.
 
@@ -116,5 +116,5 @@ Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중�
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |미국|스페인어|es-US|

@@ -10,10 +10,10 @@ ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
 ms.openlocfilehash: 8c43c8a0b9fdf30b5ce5ae6ecbf123b563099ff6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92148779"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
@@ -77,7 +77,7 @@ ms.locfileid: "92148779"
 
 MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭 하 고 **빌드 작업 실행** ...을 선택 합니다. Arduino 스케치가 컴파일되고 DevKit로 업로드 됩니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **빌드 작업 실행...** 을 선택합니다. Arduino 스케치가 컴파일되고 DevKit에 업로드됩니다.
 
 2. 스케치가 성공적으로 업로드되면 *Build & Upload Sketch: success*(스케치 빌드 및 업로드: 성공) 메시지가 표시됩니다.
 
@@ -89,7 +89,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 
 3. 앞서 적어둔 함수 앱 이름을 입력합니다.
 
-4. **연결** 단추를 클릭 합니다.
+4. **연결** 단추를 클릭합니다.
 
 5. 몇 초 안에 페이지가 새로 고쳐지고 DevKit의 WiFi 연결 상태와 각 온보드 센서의 상태가 표시됩니다.
 
@@ -106,7 +106,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ![예제 테스트 절차](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Azure Portal에서 장치 쌍의 원시 데이터를 볼 수 있습니다. IoT Hub- \> IoT 장치- \> *\<your device\>*  - \> 장치 쌍입니다.
+> Azure Portal의 IoT Hub -\> IoT 디바이스 -\> *\<your device\>*  -\> 디바이스 쌍에서 디바이스 쌍의 원시 데이터를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -114,4 +114,4 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 - MXChip IoT DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연결합니다.
 - Azure IoT 디바이스 쌍 함수를 사용하여 DevKit의 RGB LED 색상을 감지하고 제어합니다.
 
-제안 된 다음 단계는 다음과 같습니다. [Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)
+제안된 다음 단계는 [Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)입니다.

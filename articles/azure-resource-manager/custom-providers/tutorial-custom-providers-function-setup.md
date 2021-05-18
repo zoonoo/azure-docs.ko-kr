@@ -1,27 +1,27 @@
 ---
 title: Azure Functions 설정
-description: 이 자습서에서는 Azure 함수 앱을 만들어서 Azure 사용자 지정 공급자에서 작동하도록 설정하는 방법을 살펴봅니다.
+description: 이 자습서에서는 Azure Functions에서 함수 앱을 만들고 Azure 사용자 지정 공급자에서 작동하도록 설정하는 방법을 살펴봅니다.
 author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 55554678047faeedd16b78dea61a42d50fd59491
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b63dc2e47a494b50ea756728afc39e74200f8d39
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99822358"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745832"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Azure 사용자 지정 공급자를 위한 Azure Functions 설정
 
-사용자 지정 공급자는 Azure와 엔드포인트 사이의 계약입니다. 사용자 지정 공급자를 사용하면 Azure에서 워크플로를 변경할 수 있습니다. 이 자습서에서는 사용자 지정 공급자 엔드포인트로 작동하도록 Azure 함수 앱을 설정하는 방법을 보여줍니다.
+사용자 지정 공급자는 Azure와 엔드포인트 사이의 계약입니다. 사용자 지정 공급자를 사용하면 Azure에서 워크플로를 변경할 수 있습니다. 이 자습서에서는 사용자 지정 공급자 엔드포인트로 작동하도록 Azure Functions에서 함수 앱을 설정하는 방법을 보여 줍니다.
 
-## <a name="create-the-azure-function-app"></a>Azure 함수 앱 만들기
+## <a name="create-the-function-app"></a>함수 앱 만들기
 
 > [!NOTE]
-> 이 자습서에서는 Azure 함수 앱을 사용하는 간단한 서비스 엔드포인트를 만듭니다. 그러나 사용자 지정 공급자는 공개적으로 액세스할 수 있는 엔드포인트를 사용할 수 있습니다. 대안에는 Azure Logic Apps, Azure API Management 및 Azure App Service의 Web Apps 기능이 포함됩니다.
+> 이 자습서에서는 Azure Functions에서 함수 앱을 사용하는 간단한 서비스 엔드포인트를 만듭니다. 그러나 사용자 지정 공급자는 공개적으로 액세스할 수 있는 엔드포인트를 사용할 수 있습니다. 대안에는 Azure Logic Apps, Azure API Management 및 Azure App Service의 Web Apps 기능이 포함됩니다.
 
-이 자습서를 시작하려면 [Azure Portal에서 첫 번째 Azure 함수 앱 만들기](../../azure-functions/functions-get-started.md) 자습서를 먼저 수행해야 합니다. 이 자습서에서는 Azure Portal에서 수정할 수 있는 .NET Core 웹후크 함수를 만듭니다. 또한 현재 자습서의 기반이 됩니다.
+이 자습서를 시작하려면 [Azure Portal에서 첫 번째 함수 앱 만들기](../../azure-functions/functions-get-started.md) 자습서를 먼저 수행해야 합니다. 이 자습서에서는 Azure Portal에서 수정할 수 있는 .NET Core 웹후크 함수를 만듭니다. 또한 현재 자습서의 기반이 됩니다.
 
 ## <a name="install-azure-table-storage-bindings"></a>Azure Table Storage 바인딩 설치
 
@@ -77,6 +77,6 @@ Azure Table Storage 바인딩을 설치하려면 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure 사용자 지정 공급자 엔드포인트로 작동하도록 Azure 함수 앱을 설정합니다.
+이 자습서에서는 Azure 사용자 지정 공급자 엔드포인트로 작동하도록 Azure Functions에서 함수 앱을 설정합니다.
 
 RESTful 사용자 지정 공급자 엔드포인트를 작성하는 방법을 알아보려면 [자습서: RESTful 사용자 지정 공급자 엔드포인트 작성](./tutorial-custom-providers-function-authoring.md)을 참조하세요.

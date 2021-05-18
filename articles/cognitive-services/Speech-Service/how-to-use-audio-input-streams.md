@@ -12,21 +12,21 @@ ms.date: 07/05/2019
 ms.author: fmegen
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 87fa97dafe9de4a23f5eaadfd4083cd1ca517cde
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95026593"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
-음성 SDK의 **오디오 입력 스트림** API는 마이크나 입력 파일 api를 사용 하는 대신 인식기로 오디오를 스트리밍하는 방법을 제공 합니다.
+음성 SDK의 **오디오 입력 스트림** API는 마이크 또는 입력 파일 API를 사용하는 대신 오디오를 인식기로 스트리밍하는 방법을 제공합니다.
 
 다음 단계는 오디오 입력 스트림을 사용할 때 필요합니다.
 
 - 오디오 스트림의 형식을 식별합니다. 형식은 음성 SDK 및 Speech Service에서 지원되어야 합니다. 현재는 다음 구성만 지원됩니다.
 
-  오디오 샘플은 PCM 형식, 단일 채널, 샘플 당 16 비트, 8000 또는 16000 샘플 (초당 16000 또는 32000 바이트), 2 개의 블록 맞춤 (샘플에 대 한 안쪽 여백을 포함 하 여 16 비트)입니다.
+  오디오 샘플은 PCM 형식의 오디오 샘플, 채널 1개, 샘플당 16비트, 초당 샘플 8000개 또는 16000개, 초당 16000 또는 32000바이트, 블록 정렬 2개(한 개 샘플에 대해 패딩을 포함하여 16비트)입니다.
 
   오디오 형식을 만들기 위한 SDK의 해당 코드는 다음과 같습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "95026593"
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- 이러한 사양에 따라 코드에서 원시 오디오 데이터를 제공 하는지 확인 합니다. 또한 16 비트 샘플이 작은 endian 형식으로 도착 하도록 보장 합니다. 서명 된 샘플도 지원 됩니다. 오디오 원본 데이터가 지원되는 형식과 일치하지 않는 경우, 오디오를 필요한 형식으로 트랜스코딩해야 합니다.
+- 코드가 이러한 사양에 따라 RAW 오디오 데이터를 제공하는지 확인합니다. 또한 16비트 샘플이 little-endian 형식인지 확인합니다. 서명된 샘플도 지원됩니다. 오디오 원본 데이터가 지원되는 형식과 일치하지 않는 경우, 오디오를 필요한 형식으로 트랜스코딩해야 합니다.
 
 - `PullAudioInputStreamCallback`에서 파생된 고유한 오디오 입력 스트림 클래스를 만듭니다. `Read()` 및 `Close()` 멤버를 구현합니다. 정확한 함수 시그니처는 언어에 따라 다르지만 코드는 다음 코드 샘플과 유사합니다.
 

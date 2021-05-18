@@ -3,17 +3,17 @@ title: cloud-init를 사용하여 문제 해결
 description: cloud-init를 사용하여 Azure VM 프로비전 문제를 해결합니다.
 author: danielsollondon
 ms.service: virtual-machines
+ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.subservice: cloud-init
-ms.openlocfilehash: fa4381aa21b1565e29db026b43dbc70b457daf5d
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 842107245fe26155d53866bf95e11b08d7593ad1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783210"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104582156"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>cloud-init를 사용하여 VM 프로비전 문제 해결
 
@@ -89,7 +89,7 @@ VM이 실행되는 동안 VM의 로그가 있어야 프로비전이 실패한 �
 
 기본적으로 우선 순위가 debug 이상인 모든 cloud-init 이벤트는 `/var/log/cloud-init.log`에 기록됩니다. 기록된 이벤트는 cloud-init를 초기화하는 동안 발생한 모든 이벤트에 대해 자세한 로그를 제공합니다. 
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -124,7 +124,7 @@ cloud-init에는 여러 종속성이 있습니다. 이러한 종속성은 네트
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>4단계: 구성이 적용되지 않는 이유 조사
-모든 cloud-init 오류가 심각한 프로비전 오류로 이어지지는 않습니다. 예를 들어 cloud-init 구성에서 `runcmd` 모듈을 사용하는 경우 실행중인 명령에서 0이 아닌 종료 코드가 발생하면 VM 프로비전이 실패합니다. 이는 종료 코드가 cloud-init의 처음 3단계에서 발생하는 코어 프로비전 기능 후에 실행되기 때문입니다. 구성이 적용되지 않는 이유를 해결하려면 3단계에서 로그를 검토하고 cloud-init 모듈을 수동으로 검토합니다. 예를 들어:
+모든 cloud-init 오류가 심각한 프로비전 오류로 이어지지는 않습니다. 예를 들어 cloud-init 구성에서 `runcmd` 모듈을 사용하는 경우 실행중인 명령에서 0이 아닌 종료 코드가 발생하면 VM 프로비전이 실패합니다. 이는 종료 코드가 cloud-init의 처음 3단계에서 발생하는 코어 프로비전 기능 후에 실행되기 때문입니다. 구성이 적용되지 않는 이유를 해결하려면 3단계에서 로그를 검토하고 cloud-init 모듈을 수동으로 검토합니다. 예를 들면 다음과 같습니다.
 
 - `runcmd` -스크립트가 오류 없이 실행되나요? 터미널에서 구성을 수동으로 실행하여 예상과 같이 실행되는지 확인합니다.
 - 패키지 설치 중 - VM이 패키지 리포지토리에 액세스할 수 있나요?

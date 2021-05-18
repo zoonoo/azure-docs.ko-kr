@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업 문제 해결
 description: 이 문서에서는 Azure 파일 공유를 보호할 때 발생하는 문제를 해결하는 방법에 대한 내용을 설명합니다.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4908b8ed97bad43d9d24427660a8691ee43d7eaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c934d2295fa702425e8df0a03636b9f9208cfa4
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89376981"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107515076"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Azure 파일 공유를 백업하는 동안 발생하는 문제 해결
 
@@ -49,7 +49,7 @@ ms.locfileid: "89376981"
 - 보호하려는 파일 공유가 삭제되지 않았는지 확인합니다.
 - 한 번에 여러 파일 공유를 보호하려고 하는데 그 중 일부가 실패하는 경우 실패한 파일 공유에 대해 백업을 다시 구성해 봅니다.
 
-### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>파일 공유 보호를 해제한 후 Recovery Services 자격 증명 모음을 삭제할 수 없음
+### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>파일 공유 보호를 해제한 후 Recovery Services 자격 증명 모음을 삭제할 수 없습니다.
 
 Azure Portal에서 **자격 증명 모음** > **백업 인프라** > **스토리지 계정** 을 엽니다. **등록 취소** 를 선택하여 Recovery Services 자격 증명 모음에서 스토리지 계정을 제거합니다.
 
@@ -323,4 +323,4 @@ Azure Files 포털에서 요청 시 백업(Azure 파일 공유 스냅샷)을 삭
 Azure 파일 공유 백업에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 파일 공유 백업](backup-afs.md)
-- [Azure 파일 공유 백업 FAQ](backup-azure-files-faq.md)
+- [Azure 파일 공유 백업 FAQ](backup-azure-files-faq.yml)

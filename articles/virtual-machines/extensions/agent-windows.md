@@ -8,12 +8,12 @@ ms.author: amjads
 author: amjads1
 ms.collection: windows
 ms.date: 07/20/2019
-ms.openlocfilehash: bd845c5ef5a06e3a0bca1cebe54ded2e49355617
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 33db214013111b0dd4540a1b1d2947b7d1854db9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107309818"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104607486"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -121,7 +121,7 @@ Azure VM 에이전트는 VM 또는 가상 머신 확장 집합의 `OSProfile`에
 
 가상 머신의 경우 [Remove-AzVMSecret]()를 사용하여 `OSProfile`에서 인증서를 제거합니다.
 
-Virtual Machine Scale Set 인증서에 대한 자세한 내용은 [Virtual Machine Scale Sets - 사용되지 않는 인증서를 제거하려면 어떻게 해야 하나요?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-remove-deprecated-certificates-)를 참조하세요.
+Virtual Machine Scale Set 인증서에 대한 자세한 내용은 [Virtual Machine Scale Sets - 사용되지 않는 인증서를 제거하려면 어떻게 해야 하나요?](../../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-remove-deprecated-certificates)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

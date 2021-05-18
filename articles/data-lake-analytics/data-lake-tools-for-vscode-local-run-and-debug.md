@@ -1,15 +1,15 @@
 ---
-title: 디버그 U-SQL 작업-Azure Data Lake Tools for Visual Studio 코드
+title: U-SQL 작업 디버그 - Azure Data Lake Tools for Visual Studio
 description: Azure Data Lake Tools for Visual Studio Code를 사용하여 U-SQL 작업을 로컬에서 실행하고 디버그하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 07/14/2017
 ms.openlocfilehash: 194fe3494915be9f6784e1596e647885634817ad
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97969013"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Visual Studio Code로 로컬에서 U-SQL 실행 및 디버그
@@ -47,13 +47,13 @@ Azure Data Lake Tools for Visual Studio의 Windows 설치만 U-SQL을 로컬로 
 2. **Accept** 를 선택하여 처음으로 Microsoft 소프트웨어 사용 조건에 동의합니다. 
 
    ![Microsoft 소프트웨어 사용 조건에 동의](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. cmd 콘솔이 열립니다. 처음 사용하는 경우 **3** 을 입력한 다음 데이터 입력 및 출력을 위한 로컬 폴더 경로를 찾아야 합니다. 백슬래시를 사용 하 여 경로를 정의 하지 못한 경우 슬래시를 사용 하십시오. 다른 옵션은 기본값을 사용할 수 있습니다.
+3. cmd 콘솔이 열립니다. 처음 사용하는 경우 **3** 을 입력한 다음 데이터 입력 및 출력을 위한 로컬 폴더 경로를 찾아야 합니다. 백슬래시를 사용하여 경로를 정의하지 못한 경우 슬래시를 사용하세요. 다른 옵션은 기본값을 사용할 수 있습니다.
 
    ![Data Lake Tools for Visual Studio Code가 cmd 로컬 실행](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Ctrl+Shift+P를 선택하여 명령 팔레트를 열고 **ADL: Submit Job** 을 입력한 다음 **Local** 을 선택하여 작업을 로컬 계정에 제출합니다.
 
    ![Data Lake Tools for Visual Studio Code 로컬 선택](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-select-local.png)
-5. 작업을 제출하면 제출 세부 정보를 볼 수 있습니다. 제출 세부 정보를 보려면 **출력** 창에서 **joburl** 을 선택 합니다. cmd 콘솔에서 작업 제출 상태를 볼 수도 있습니다. 작업 세부 정보에 대해 더 알고 싶은 경우 cmd 콘솔에 **7** 을 입력합니다.
+5. 작업을 제출하면 제출 세부 정보를 볼 수 있습니다. 제출 세부 정보를 보려면 **Output** 창에서 **jobUrl** 을 선택합니다. cmd 콘솔에서 작업 제출 상태를 볼 수도 있습니다. 작업 세부 정보에 대해 더 알고 싶은 경우 cmd 콘솔에 **7** 을 입력합니다.
 
    ![Data Lake Tools for Visual Studio Code 로컬 실행 출력](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-result.png)
    ![Data Lake Tools for Visual Studio Code 로컬 실행 cmd 상태](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-localrun-cmd-status.png) 

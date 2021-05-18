@@ -1,7 +1,7 @@
 ---
 title: .NET을 사용하여 비디오 대본 만들기 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: .NET 용 Azure Cognitive Services Content Moderator SDK를 사용 하 여 비디오 성적 리뷰를 만드는 방법에 대해 알아봅니다.
+description: .NET용 Azure Cognitive Services Content Moderator SDK를 사용하여 비디오 대본 검토를 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,10 +12,10 @@ ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 326fc2cc162a2ab54b40888250fbeef55ad8800a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96853461"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
@@ -26,9 +26,9 @@ ms.locfileid: "96853461"
 - 검토에 조정된 대본 추가
 - 검토 게시
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 아직 수행 하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만듭니다.
+- 아직 그렇게 수행하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에 로그인하거나 계정을 만듭니다.
 - 이 문서에서는 사용자 결정을 위한 검토 도구에서 [비디오를 조정](video-moderation-api.md)하고 [비디오 검토를 생성](video-reviews-quickstart-dotnet.md)했다고 가정합니다. 이제 검토 도구에서 조정된 비디오 대본을 추가하려고 합니다.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>API 키에서 검토 API를 호출할 수 있는지 확인(작업 생성)
@@ -81,7 +81,7 @@ using Newtonsoft.Json;
 
 ### <a name="add-private-properties"></a>프라이빗 속성 추가
 
-다음 개인 속성을 **videorec**# 클래스 **프로그램** 의 네임 스페이스에 추가 합니다. `AzureEndpoint`및 필드를 `CMSubscriptionKey` 끝점 URL 및 구독 키의 값으로 업데이트 합니다. Azure Portal에서 리소스의 **빠른 시작** 탭에서 찾을 수 있습니다.
+**VideoTranscriptReviews** 네임스페이스, **Program** 클래스에 다음 프라이빗 속성을 추가합니다. `AzureEndpoint` 및 `CMSubscriptionKey` 필드를 엔드포인트 URL 및 구독 키 값으로 업데이트합니다. Azure Portal에 있는 리소스의 **빠른 시작** 탭에서 이를 찾을 수 있습니다.
 
 ```csharp
 namespace VideoReviews
@@ -140,7 +140,7 @@ public static ContentModeratorClient NewClient()
 
 ## <a name="create-a-video-review"></a>비디오 검토 만들기
 
-**ContentModeratorClient.Reviews.CreateVideoReviews** 를 사용하여 비디오 검토를 만듭니다. 자세한 내용은 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)를 참조 하세요.
+**ContentModeratorClient.Reviews.CreateVideoReviews** 를 사용하여 비디오 검토를 만듭니다. 자세한 내용은 [API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)를 참조하세요.
 
 **CreateVideoReviews** 에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
@@ -148,7 +148,7 @@ public static ContentModeratorClient NewClient()
 1. **IList\<CreateVideoReviewsBodyItem>** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem** 에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
-- **콘텐츠**. 검토할 비디오의 URL입니다.
+- **Content**. 검토할 비디오의 URL입니다.
 - **ContentId**. 비디오 검토에 할당할 ID입니다.
 - **상태**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
@@ -229,17 +229,17 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 
 ## <a name="add-a-transcript-moderation-result-to-video-review"></a>비디오 검토에 대본 조정 결과 추가
 
-비디오 검토에 대본을 추가하는 것 외에, 해당 대본의 조정 결과도 추가합니다. **ContentModeratorClient.Reviews.AddVideoTranscriptModerationResult** 를 사용하여 이 작업을 수행합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff)를 참조 하세요.
+비디오 검토에 대본을 추가하는 것 외에, 해당 대본의 조정 결과도 추가합니다. **ContentModeratorClient.Reviews.AddVideoTranscriptModerationResult** 를 사용하여 이 작업을 수행합니다. 자세한 내용은 [API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff)를 참조하세요.
 
 **AddVideoTranscriptModerationResult** 에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews** 에서 반환된 비디오 검토 ID입니다.
 1. IList\<TranscriptModerationBodyItem>입니다. **TranscriptModerationBodyItem** 에는 다음 속성이 있습니다.
-1. **용어**. IList\<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem** 에는 다음 속성이 있습니다.
-1. **인덱스**. 용어의 0부터 시작하는 인덱스입니다.
-1. **용어**. 용어를 포함하는 문자열입니다.
-1. **타임 스탬프**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
+1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem>입니다. **TranscriptModerationBodyItemTermsItem** 에는 다음 속성이 있습니다.
+1. **Index**. 용어의 0부터 시작하는 인덱스입니다.
+1. **Term**. 용어를 포함하는 문자열입니다.
+1. **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
 대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
@@ -367,7 +367,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>비디오 대본 검토로 이동
 
-비디오 기록 **검토** 화면에서 Content Moderator 검토 도구의 비디오 녹음/녹음/리뷰로 이동 >  >  합니다.
+**검토**>**비디오**>**대본** 화면에서 Content Moderator 검토 도구의 비디오 대본 검토로 이동합니다.
 
 다음 기능이 표시됩니다.
 - 추가한 두 줄의 대본

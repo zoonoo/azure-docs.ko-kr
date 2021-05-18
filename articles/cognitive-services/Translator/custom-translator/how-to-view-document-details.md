@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 56093204516e156d670097c22b4edab42db54bde
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895614"
 ---
 # <a name="view-document-details"></a>문서 세부 정보 보기
@@ -22,7 +22,7 @@ ms.locfileid: "98895614"
 
 개별 문서를 클릭하여 문서 세부 사항 페이지를 봅니다. 문서 세부 사항 페이지에 문서에서 추출된 문장 목록이 표시됩니다.
 
-- 기본적으로 드롭다운 필드에서 "Side-by-side" 소스 및 대상 언어 표시가 선택 되어 있지만 소스 또는 대상 언어의 문장을 표시 하도록 전환할 수 있습니다.
+- 기본적으로 드롭다운 필드에서 원본 및 대상 언어 표시가 "나란히" 선택되지만 원본 또는 대상 언어로 문장이 표시되도록 설정할 수 있습니다.
 - 기본적으로 페이지당 20개의 문장이 표시됩니다. 페이지 매김 컨트롤을 사용하여 페이지 사이를 이동할 수 있습니다.
 
 ![문서 세부 사항](media/how-to/how-to-view-document-details.png)

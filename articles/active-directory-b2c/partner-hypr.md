@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: b80b1a4b3f9bcde6cf01b0e0e59425c6783bd5d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 357c8d79259986e211dd04580b1d8205c25824da
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94953766"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107257979"
 ---
 # <a name="tutorial-for-configuring-hypr-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 HYPR을 구성하기 위한 자습서
 
 이 샘플 자습서에서는 [HYPR](https://get.hypr.com)을 사용하여 Azure AD B2C를 구성하는 방법에 대한 참고 자료를 제공합니다. Azure AD B2C를 ID 공급자로 사용하여 HYPR과 고객 애플리케이션을 통합하여 사용자에게 진정한 암호 없는 인증을 제공할 수 있습니다. HYPR은 암호를 공개 키 암호화로 바꿔서, 사기 행위, 피싱 및 자격 증명 재사용을 제거합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음이 필요합니다.
 
@@ -50,7 +50,7 @@ HYPR 통합에는 다음 구성 요소가 포함됩니다.
 
 ![hypr-아키텍처-다이어그램에 대한 스크린샷](media/partner-hypr/hypr-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지를 엽니다. 사용자가 로그인/등록을 선택하고, 페이지에 사용자 이름을 입력합니다.
 | 2. | 애플리케이션은 ID 확인을 위해 Azure AD B2C에 사용자 특성을 보냅니다.
@@ -62,7 +62,7 @@ HYPR 통합에는 다음 구성 요소가 포함됩니다.
 
 1. 정책 폴더의 [Azure AD B2C HYPR 정책](https://github.com/HYPR-Corp-Public/Azure-AD-B2C-HYPR-Sample/tree/master/policy)으로 이동합니다.
 
-2. 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)에 따라 [LocalAccounts 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
+2. 이 [문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)에 따라 [LocalAccounts 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
 
 3. Azure AD B2C 테넌트에 대한 정책을 구성합니다.
 
@@ -93,4 +93,4 @@ HYPR 통합에는 다음 구성 요소가 포함됩니다.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

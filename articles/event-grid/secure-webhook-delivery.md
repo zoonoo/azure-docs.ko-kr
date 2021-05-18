@@ -3,12 +3,12 @@ title: Azure Event Grid에서 Azure AD를 사용하여 보안 웹후크 배달
 description: Azure Event Grid를 사용하여 Azure Active Directory가 보호하는 HTTPS 엔드포인트에 이벤트를 전달하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.openlocfilehash: 0d92b89b1df6b6969491d39b04764f15b7a510d1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6a0f9059e17d96d497b425abc9749e69c5ab4d41
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125808"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575550"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory로 보호되는 엔드포인트에 이벤트 게시
 이 문서에서는 Azure AD(Azure Active Directory)를 사용하여 **이벤트 구독** 과 **웹후크 엔드포인트** 간의 연결을 보호하는 방법을 설명합니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../active-directory/develop/v2-overview.md)를 참조하세요.
@@ -20,7 +20,7 @@ ms.locfileid: "108125808"
 
 
 ## <a name="create-an-azure-ad-application"></a>Azure AD 애플리케이션 만들기
-보호된 엔드포인트에 대한 Azure AD 애플리케이션을 만들어 Azure AD에 웹후크를 등록합니다. [시나리오: 보호된 웹 API](../active-directory/develop/scenario-protected-web-api-overview.md)를 참조하세요. 디먼 앱에서 호출하도록 보호된 API를 구성합니다.
+보호된 엔드포인트에 대한 Azure AD 애플리케이션을 만들어 Azure AD에 웹후크를 등록합니다. [시나리오: 보호된 웹 API](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview)를 참조하세요. 디먼 앱에서 호출하도록 보호된 API를 구성합니다.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Azure AD 애플리케이션을 사용하기 위해 Event Grid를 사용하도록 설정
 이 섹션에서는 Azure AD 애플리케이션을 사용하기 위해 Event Grid를 사용하도록 설정하는 방법을 보여 줍니다. 

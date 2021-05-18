@@ -1,7 +1,7 @@
 ---
 title: Bing Image Search API에 대한 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: Image Search API에는 세 개의 끝점이 포함 되어 있습니다. 끝점 1은 웹에서 이미지를 반환 합니다. 엔드포인트 2는 ImageInsights를 반환합니다. 엔드포인트 3은 최신 이미지를 반환합니다.
+description: Image Search API는 세 개의 엔드포인트를 포함합니다. 엔드포인트 1은 웹에서 이미지를 반환합니다. 엔드포인트 2는 ImageInsights를 반환합니다. 엔드포인트 3은 최신 이미지를 반환합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 67fec77136f5d593279be2846e63c51b60e16bb4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94593521"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 엔드포인트

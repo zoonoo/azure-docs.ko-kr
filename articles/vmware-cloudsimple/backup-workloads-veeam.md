@@ -1,19 +1,19 @@
 ---
 title: Azure의 VMware 솔루션 by CloudSimple-Veeam을 사용하여 프라이빗 클라우드의 워크로드 가상 머신 백업
 description: Veeam B&R 9.5를 사용하여 Azure 기반 CloudSimple 프라이빗 클라우드에서 실행되는 가상 머신을 백업하는 방법을 설명합니다
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7be606b3e23a594e67acf3f169d88353403d8577
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 115cb4203966bdf4cb60373d9c08994b6eb11576
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899340"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182609"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B&R을 사용하여 CloudSimple 프라이빗 클라우드에서 워크로드 가상 머신 백업
 
@@ -153,7 +153,7 @@ Veeam에서 사용하는 포트에서 네트워크 트래픽을 허용하도록 
 
 기본적으로 CloudSimple은 1Gbps ExpressRoute 링크를 제공합니다. 환경 크기가 큰 경우 더 높은 대역폭 연결이 필요할 수 있습니다. 더 높은 대역폭 연결에 대한 자세한 내용은 Azure 지원에 문의하세요.
 
-설치를 계속하려면 인증 키 및 피어 회로 URI와 Azure 구독에 대한 액세스 권한이 필요합니다.  이 정보는 CloudSimple 포털의 가상 네트워크 연결 페이지에서 확인할 수 있습니다. 명령은 [Azure 가상 네트워크의 피어링 정보를 CloudSimple 연결로 가져오기](virtual-network-connection.md)를 참조하세요. 정보를 얻는 중에 문제가 있는 경우 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
+설치를 계속하려면 인증 키 및 피어 회로 URI와 Azure 구독에 대한 액세스 권한이 필요합니다.  이 정보는 CloudSimple 포털의 가상 네트워크 연결 페이지에서 확인할 수 있습니다. 지침은 [Azure 가상 네트워크의 피어링 정보를 CloudSimple 연결로 가져오기](virtual-network-connection.md)를 참조하세요. 정보를 얻는 중에 문제가 있는 경우 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
 
 ### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple 프라이빗 클라우드: cloudowner에 대한 권한 높이기
 

@@ -1,60 +1,60 @@
 ---
-title: Openid connect Connect 공급자 구성 (미리 보기)
-description: App Service 또는 Azure Functions 앱에 대 한 id 공급자로 Openid connect Connect 공급자를 구성 하는 방법에 대해 알아봅니다.
+title: OpenID Connect 공급자(미리 보기) 구성
+description: OpenID Connect 공급자를 App Service 또는 Azure Functions 앱의 ID 공급자로 구성하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.openlocfilehash: e8112f2dc20175e81cfa8388440b2d9aef6a419c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90983871"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-login-using-an-openid-connect-provider-preview"></a>OpenID Connect 공급자를 사용하여 로그인하도록 App Service 또는 Azure Functions 앱 구성(미리 보기)
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-이 문서에서는 [Openid connect Connect 사양을](https://openid.net/connect/)준수 하는 사용자 지정 인증 공급자를 사용 하도록 Azure App Service 또는 Azure Functions를 구성 하는 방법을 보여 줍니다. OIDC (Openid connect Connect)는 IDPs (여러 id 공급자)에서 사용 하는 업계 표준입니다. Adherent IDP를 사용 하도록 앱을 구성 하기 위해 사양에 대 한 세부 정보를 이해할 필요가 없습니다.
+이 문서에서는 [OpenID Connect 사양](https://openid.net/connect/)을 준수하는 사용자 지정 인증 공급자를 사용하도록 Azure App Service 또는 Azure Functions를 구성하는 방법을 보여 줍니다. OIDC(OpenID Connect)는 여러 IDP(ID 공급자)에서 사용되는 업계 표준입니다. 준수하는 IDP를 사용하도록 앱을 구성하기 위해 사양의 세부 정보를 이해할 필요는 없습니다.
 
-는 하나 이상의 OIDC 공급자를 사용 하도록 앱을 구성할 수 있습니다. 각각은 구성에서 고유한 이름을 지정 해야 하며, 하나만 기본 리디렉션 대상으로 사용할 수 있습니다.
+하나 이상의 OIDC 공급자를 사용하도록 앱을 구성할 수 있습니다. 구성에서 각 공급자에 고유 이름을 지정해야 하며, 하나의 공급자만 기본 리디렉션 대상 역할을 할 수 있습니다.
 
 > [!CAUTION]
-> Openid connect Connect 공급자를 사용 하도록 설정 하면 Azure Portal, Azure CLI, Azure PowerShell 등의 일부 클라이언트를 통해 응용 프로그램에 대 한 App Service 인증/권한 부여 기능을 관리할 수 없습니다. 이 기능은 미리 보기 중에 모든 관리 환경에서 아직 고려 되지 않는 새 API 화면을 사용 합니다.
+> OpenID Connect 공급자를 사용하도록 설정하면 Azure Portal, Azure CLI, Azure PowerShell 등의 일부 클라이언트를 통해 애플리케이션의 App Service 인증/권한 부여 기능을 관리할 수 없습니다. 미리 보기 기간에는 이 기능에 필요한 새 API 표면이 일부 관리 환경에서 고려되지 않습니다.
 
-## <a name="register-your-application-with-the-identity-provider"></a><a name="register"> </a>Id 공급자를 사용 하 여 응용 프로그램 등록
+## <a name="register-your-application-with-the-identity-provider"></a><a name="register"> </a>ID 공급자에 애플리케이션 등록
 
-공급자는 응용 프로그램의 세부 정보를 등록 해야 합니다. 해당 공급자와 관련 된 지침을 참조 하세요. 응용 프로그램에 대 한 **클라이언트 ID** 및 **클라이언트 암호** 를 수집 해야 합니다.
+애플리케이션의 세부 정보를 공급자에 등록해야 합니다. 해당 공급자와 관련된 지침을 참조하세요. 애플리케이션의 **클라이언트 ID** 및 **클라이언트 암호** 를 수집해야 합니다.
 
 > [!IMPORTANT]
 > 앱 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 클라이언트 애플리케이션 내에 배포하지 마세요.
 >
 
 > [!NOTE]
-> 일부 공급자에는 구성에 대 한 추가 단계와 해당 구성에 제공 된 값을 사용 하는 방법이 필요할 수 있습니다. 예를 들어 Apple은 OIDC 클라이언트 암호로 사용 되지 않는 개인 키를 제공 하 고 대신 앱 구성에서 제공 하는 비밀으로 처리 되는 JWT를 사용 해야 합니다 ( [apple 설명서를 사용 하 여 로그인](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)의 "클라이언트 암호 만들기" 섹션 참조).
+> 일부 공급자는 구성 및 제공된 값을 사용하는 방법에 대한 추가 단계가 필요할 수 있습니다. 예를 들어 Apple은 OIDC 클라이언트 암호로 사용되지 않는 프라이빗 키를 제공하며 해당 키를 대신 사용하여 앱 구성에 제공하는 암호로 처리되는 JWT를 작성해야 합니다([Apple 설명서를 사용하여 로그인](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)의 “클라이언트 암호 만들기” 섹션 참조).
 >
 
-선택한 설정 이름을 사용 하 여 앱에 대 한 [응용 프로그램 설정](./configure-common.md#configure-app-settings) 으로 클라이언트 암호를 추가 합니다. 나중에이 이름을 적어 둡니다.
+선택한 설정 이름을 사용하여 클라이언트 암호를 앱의 [애플리케이션 설정](./configure-common.md#configure-app-settings)으로 추가합니다. 나중을 위해 해당 이름을 적어둡니다.
 
-또한 공급자에 대 한 Openid connect Connect 메타 데이터가 필요 합니다. 이는 대개 공급자의 발급자 URL 접미사가 인 [구성 메타 데이터 문서](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig)를 통해 노출 됩니다 `/.well-known/openid-configuration` . 이 구성 URL을 수집 합니다.
+또한 공급자에 대한 OpenID Connect 메타데이터가 필요합니다. 이 메타데이터는 일반적으로 공급자의 발급자 URL에 `/.well-known/openid-configuration`이 접미사로 추가된 [구성 메타데이터 문서](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig)를 통해 노출됩니다. 이 구성 URL을 수집합니다.
 
-구성 메타 데이터 문서를 사용할 수 없는 경우 다음 값을 별도로 수집 해야 합니다.
+구성 메타데이터 문서를 사용할 수 없는 경우 다음 값을 별도로 수집해야 합니다.
 
-- 발급자 URL (로 표시 되는 경우 `issuer` )
-- [OAuth 2.0 권한 부여 끝점](https://tools.ietf.org/html/rfc6749#section-3.1) (경우에 따라 `authorization_endpoint` )
-- [OAuth 2.0 토큰 끝점](https://tools.ietf.org/html/rfc6749#section-3.2) (간혹로 표시 됨 `token_endpoint` )
-- [OAuth 2.0 JSON 웹 키 집합](https://tools.ietf.org/html/rfc8414#section-2) 문서의 URL (로 표시 되는 경우도 있음 `jwks_uri` )
+- 발급자 URL(`issuer`로 표시되는 경우도 있음)
+- [OAuth 2.0 권한 부여 엔드포인트](https://tools.ietf.org/html/rfc6749#section-3.1)(`authorization_endpoint`로 표시되는 경우도 있음)
+- [OAuth 2.0 토큰 엔드포인트](https://tools.ietf.org/html/rfc6749#section-3.2)(`token_endpoint`로 표시되는 경우도 있음)
+- [OAuth 2.0 JSON Web Key 집합](https://tools.ietf.org/html/rfc8414#section-2) 문서의 URL(`jwks_uri`로 표시되는 경우도 있음)
 
-## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>응용 프로그램에 공급자 정보 추가
+## <a name="add-provider-information-to-your-application"></a><a name="configure"> </a>애플리케이션에 공급자 정보 추가
 
 > [!NOTE]
-> 필요한 구성은 새 API 형식으로, 현재는 [파일 기반 구성 (미리 보기)](.\app-service-authentication-how-to.md#config-file)에서만 지원 됩니다. 이러한 파일을 사용 하 여 아래 단계를 수행 해야 합니다.
+> 필요한 구성은 새 API 형식으로, 현재 [파일 기반 구성(미리 보기)](.\app-service-authentication-how-to.md#config-file)에서만 지원됩니다. 해당 파일을 사용하여 아래 단계를 수행해야 합니다.
 
-이 섹션에서는 새 IDP을 포함 하도록 구성을 업데이트 하는 과정을 안내 합니다. 구성 예제는 다음과 같습니다.
+이 섹션에서는 새 IDP를 포함하도록 구성을 업데이트하는 과정을 안내합니다. 예제 구성은 다음과 같습니다.
 
-1. 개체가 없는 경우 개체 내에 `identityProviders` 개체를 추가 `openIdConnectProviders` 합니다.
-1. 개체 내에서 `openIdConnectProviders` 새 공급자에 대 한 키를 추가 합니다. 나머지 구성에서 공급자를 참조 하는 데 사용 되는 이름입니다. 예를 들어이 공급자를 사용 하 여 모든 요청을 인증 해야 하는 경우 `globalValidation.unauthenticatedClientAction` 를 "RedirectToLoginPage"로 설정 하 고 `redirectToProvider` 이 같은 친숙 한 이름으로 설정 합니다.
-1. 개체를 포함 하 `registration` 고 필요에 따라 개체를 사용 하 여 개체를 해당 키에 할당 합니다 `login` .
+1. 아직 없는 경우 `identityProviders` 개체 내에 `openIdConnectProviders` 개체를 추가합니다.
+1. `openIdConnectProviders` 개체 내에서 새 공급자의 키를 추가합니다. 이 키는 나머지 구성에서 해당 공급자를 참조하는 데 사용되는 식별 이름입니다. 예를 들어 이 공급자를 사용하여 모든 요청을 인증하도록 하려는 경우 `globalValidation.unauthenticatedClientAction`을 “RedirectToLoginPage”로 설정하고 `redirectToProvider`를 동일한 식별 이름으로 설정합니다.
+1. 해당 키에 개체를 할당하고 `registration` 개체와 선택적으로 `login` 개체를 포함합니다.
     
     ```json
     "myCustomIDP" : {
@@ -67,7 +67,7 @@ ms.locfileid: "90983871"
     }
     ```
 
-1. 등록 개체 내에서를 `clientId` 수집한 클라이언트 ID로 설정 하 `clientCredential.secretSettingName` 고, 클라이언트 암호를 저장 한 응용 프로그램 설정의 이름으로 설정 하 고, 개체를 만듭니다 `openIdConnectConfiguration` .
+1. registration 개체 내에서 `clientId`를 수집한 클라이언트 ID로 설정하고 `clientCredential.secretSettingName`을 클라이언트 암호가 저장된 애플리케이션 설정의 이름으로 설정한 다음, `openIdConnectConfiguration` 개체를 만듭니다.
 
     ```json
     "registration": {
@@ -79,20 +79,20 @@ ms.locfileid: "90983871"
     }
     ```
 
-1. 개체 내에서 `openIdConnectConfiguration` 앞서 수집한 Openid connect Connect 메타 데이터를 제공 합니다. 수집 된 정보에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
+1. `openIdConnectConfiguration` 개체 내에서 앞서 수집한 OpenID Connect 메타데이터를 제공합니다. 수집한 정보에 따라 다음 두 가지 옵션을 사용할 수 있습니다.
 
-    - 속성을 `wellKnownOpenIdConfiguration` 앞에서 수집한 구성 메타 데이터 URL로 설정 합니다.
-    - 또는 다음과 같이 수집 된 네 개의 개별 값을 설정 합니다.
-        - `issuer`발급자 URL로 설정 합니다.
-        - `authorizationEndpoint`권한 부여 끝점으로 설정 합니다.
-        - `tokenEndpoint`토큰 끝점으로 설정 합니다.
-        - `certificationUri`JSON 웹 키 집합 문서의 URL로 설정 합니다.
+    - `wellKnownOpenIdConfiguration` 속성을 앞서 수집한 구성 메타데이터 URL로 설정합니다.
+    - 또는 수집된 네 개의 개별 값을 다음과 같이 설정합니다.
+        - `issuer`를 발급자 URL로 설정
+        - `authorizationEndpoint`를 권한 부여 엔드포인트로 설정
+        - `tokenEndpoint`을 토큰 엔드포인트로 설정
+        - `certificationUri`를 JSON Web Key 집합 문서의 URL로 설정
 
-    이러한 두 옵션은 함께 사용할 수 없습니다.
+    두 옵션을 함께 사용할 수는 없습니다.
 
-이 구성을 설정 하면 앱에서 인증에 Openid connect Connect 공급자를 사용할 준비가 된 것입니다.
+이 구성을 설정했으면 앱에서 OpenID Connect 공급자를 인증에 사용할 준비가 된 것입니다.
 
-예제 구성은 다음과 같이 표시 될 수 있습니다. 예를 들어 Apple과 함께 로그인을 사용 하 여 APPLE_GENERATED_CLIENT_SECRET 설정이 [apple 설명서](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)당 생성 된 JWT를 가리키도록 합니다.
+예제 구성은 다음과 같이 표시될 수 있습니다(Apple로 로그인을 예제로 사용). 여기서 APPLE_GENERATED_CLIENT_SECRET 설정은 [Apple 설명서](https://developer.apple.com/documentation/sign_in_with_apple/generate_and_validate_tokens)에 따라 생성된 JWT를 가리킵니다.
 
 ```json
 {

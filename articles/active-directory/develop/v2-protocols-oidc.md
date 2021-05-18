@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: de1fcdc259de3f72e35feb411bcc836354352eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d64a6e6a4dcd1d7b1917720152e2738bf6476e9
+ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98752601"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108063986"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft ID 플랫폼 및 OpenID Connect 프로토콜
 
@@ -116,7 +116,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=678910
 ```
 
-| 매개 변수 | 조건 | Description |
+| 매개 변수 | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본 사항](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | 필수 | [Azure Portal - 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경이 앱에 할당한 **애플리케이션(클라이언트) ID** 입니다. |
@@ -247,7 +247,7 @@ Content-Type: application/x-www-form-urlencoded
 
 응답 매개 변수는 해당 매개 변수를 획득하는 데 사용되는 흐름과 상관없이 동일한 작업을 의미합니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 | --- | --- |
 | `access_token` | UserInfo 엔드포인트를 호출하는 데 사용되는 토큰입니다.|
 | `token_type` | 항상 “전달자”입니다. |
@@ -275,7 +275,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 가능한 오류 코드 및 권장되는 클라이언트 응답에 대한 설명은 [권한 부여 엔드포인트 오류에 대한 오류 코드](#error-codes-for-authorization-endpoint-errors)를 참조하세요.
 
-권한 부여 코드와 ID 토큰이 있는 경우 사용자로 로그인하여 액세스 토큰을 대신 가져올 수 있습니다. 사용자로 로그인하려면 [정확히 위에 설명된 대로](id-tokens.md#validating-an-id_token) ID 토큰의 유효성을 검사해야 합니다. 액세스 토큰을 가져오려면 [OAuth 코드 흐름 설명서](v2-oauth2-auth-code-flow.md#request-an-access-token)에 설명된 단계를 따릅니다.
+권한 부여 코드와 ID 토큰이 있는 경우 사용자로 로그인하여 액세스 토큰을 대신 가져올 수 있습니다. 사용자로 로그인하려면 [정확히 위에 설명된 대로](id-tokens.md#validating-an-id_token) ID 토큰의 유효성을 검사해야 합니다. 액세스 토큰을 가져오려면 [OAuth 코드 흐름 설명서](v2-oauth2-auth-code-flow.md#redeem-a-code-for-an-access-token)에 설명된 단계를 따릅니다.
 
 ### <a name="calling-the-userinfo-endpoint"></a>UserInfo 엔드포인트 호출
 

@@ -1,6 +1,6 @@
 ---
 title: Azure API Management의 페이지 템플릿 | Microsoft Docs
-description: Azure API Management에서 개발자 포털 페이지 템플릿의 콘텐츠를 사용자 지정 하는 방법에 대해 알아봅니다.
+description: Azure API Management에서 템플릿을 사용하여 개발자 포털 페이지 내용을 사용자 지정하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 24d026785025dba4ae45de404edec67c2cf3871a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91335588"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Azure API Management의 페이지 템플릿
@@ -38,7 +38,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="sign-in"></a><a name="SignIn"></a> 서명하세요  
+##  <a name="sign-in"></a><a name="SignIn"></a> 로그인  
  **로그인** 템플릿을 통해 개발자 포털에서 로그인 페이지를 사용자 지정할 수 있습니다.  
   
  ![로그인 페이지](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "APIM 로그인 페이지 개발자 포털 템플릿")  
@@ -102,7 +102,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [기본-로그인](api-management-page-controls.md#basic-signin)  
+-   [basic-signin](api-management-page-controls.md#basic-signin)  
   
 -   [providers](api-management-page-controls.md#providers)  
   
@@ -137,7 +137,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 }
 ```  
   
-##  <a name="sign-up"></a><a name="SignUp"></a> 등록하세요  
+##  <a name="sign-up"></a><a name="SignUp"></a> 등록  
  **로그인** 템플릿을 통해 개발자 포털에서 로그인 페이지를 사용자 지정할 수 있습니다.  
   
  ![등록 페이지](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "APIM 등록 페이지 개발자 포털 템플릿")  
@@ -161,7 +161,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  이 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [등록](api-management-page-controls.md#sign-up)  
+-   [sign-up](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>데이터 모델  
  [사용자 등록](api-management-template-data-model-reference.md#UserSignUp) 엔터티입니다.  
@@ -188,7 +188,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ##  <a name="page-not-found"></a><a name="PageNotFound"></a> 페이지를 찾을 수 없음  
  **페이지를 찾을 수 없음** 템플릿을 통해 개발자 포털에서 페이지를 찾을 수 없음 페이지를 사용자 지정할 수 있습니다.  
   
- ![찾을 수 없음 페이지](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM을 찾을 수 없음 페이지 개발자 포털 템플릿")  
+ ![찾을 수 없음 페이지](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM 찾을 수 없음 페이지 개발자 포털 템플릿")  
   
 ### <a name="default-template"></a>기본 템플릿  
   
@@ -227,7 +227,7 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|Type|설명|  
+|속성|유형|Description|  
 |--------------|----------|-----------------|  
 |referenceCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  
 |errorCode|문자열|이 페이지가 내부 오류의 결과로 표시된 경우에 생성되는 코드입니다.|  

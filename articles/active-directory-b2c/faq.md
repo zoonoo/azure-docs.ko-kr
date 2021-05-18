@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d84c5fff41a7f00405c29ab4b4921ed2e28bdfde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac1daff6d7256bdb406cf07f4d5cb45414f9da86
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580099"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127104"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
@@ -103,7 +103,7 @@ Microsoft Graph API를 사용하여 마이그레이션 도구를 작성할 수 �
 
 ### <a name="can-my-app-open-up-azure-ad-b2c-pages-within-an-iframe"></a>앱의 Azure AD B2C 페이지가 iFrame 내에서 열릴 수 있나요?
 
-이 기능은 공개 미리 보기 상태입니다. 자세한 내용은 [포함된 로그인 환경](https://docs.microsoft.com/azure/active-directory-b2c/embedded-login)을 참조하세요.
+이 기능은 공개 미리 보기 상태입니다. 자세한 내용은 [포함된 로그인 환경](./embedded-login.md)을 참조하세요.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C는 Microsoft Dynamics와 같은 CRM 시스템과 함께 작동합니까?
 
@@ -131,7 +131,7 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Azure AD B2C에서 제공하는 등록 및 로그인 페이지에 고유 URL을 사용할 수 있나요? 예를 들어 contoso.b2clogin.com에서 login.contoso.com으로 URL을 변경할 수 있나요?
 
-이 기능은 공개 미리 보기 상태로 지원됩니다. 자세한 내용은 [Azure AD B2C 사용자 지정 도메인](https://docs.microsoft.com/azure/active-directory-b2c/custom-domain?pivots=b2c-user-flow)을 확인하세요.
+이 기능은 공개 미리 보기 상태로 지원됩니다. 자세한 내용은 [Azure AD B2C 사용자 지정 도메인](./custom-domain.md?pivots=b2c-user-flow)을 확인하세요.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 

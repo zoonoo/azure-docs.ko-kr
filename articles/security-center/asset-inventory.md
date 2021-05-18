@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: a6fcb3b3fece367ab950426c29df2d1b39735957
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108228726"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100393357"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>자산 인벤토리로 리소스 탐색 및 관리
 
@@ -128,6 +128,8 @@ ARG는 대규모로 쿼리를 하는 기능을 갖춘 효율적인 리소스 탐
 1. 현재 선택한 필터 옵션을 Resource Graph 탐색기에서 쿼리로 보려면 **쿼리 열기** 를 선택합니다.
 
     ![ARG의 인벤토리 쿼리](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
+
+1. 이전에 정의된 논리 앱을 실행하려면 
 
 1. 일부 필터를 정의하고 페이지를 열어둔 경우에는 Security Center가 결과를 자동으로 업데이트하지 않습니다. 수동으로 페이지를 다시 로드하거나 **새로 고침** 을 선택하지 않으면 리소스 변경 내용이 표시된 결과에 영향을 주지 않습니다.
 

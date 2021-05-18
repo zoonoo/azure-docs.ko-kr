@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: victorh
-ms.openlocfilehash: f0c06a94498f4d2481a6e953b959d766c60415fb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ea5512f3b454edc2edd66c546629cc5f0b8f465c
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98622183"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320892"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
 
@@ -20,7 +21,7 @@ ms.locfileid: "98622183"
 
 Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연결된 인증서를 갱신할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure Portal
 
 포털에서 수신기 인증서를 갱신하려면 애플리케이션 게이트웨이 수신기로 이동합니다. 인증서를 갱신해야 하는 수신기를 선택한 다음, **선택한 인증서 갱신 또는 편집** 을 선택합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Kinect 펌웨어 도구
-description: Azure Kinect 펌웨어 도구를 사용 하 여 장치 펌웨어를 쿼리하고 업데이트 하는 방법을 알아봅니다.
+description: Azure Kinect 펌웨어 도구를 사용하여 디바이스 펌웨어를 쿼리하고 업데이트하는 방법을 이해합니다.
 author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
@@ -8,19 +8,19 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, 펌웨어, 업데이트
 ms.openlocfilehash: f8b89751d27fb5a4b18d635f45f63f4f36bd05f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85276975"
 ---
-# <a name="azure-kinect-dk-firmware-tool"></a>Azure Kinect 진한 펌웨어 도구
+# <a name="azure-kinect-dk-firmware-tool"></a>Azure Kinect DK 펌웨어 도구
 
-Azure Kinect 펌웨어 도구를 사용 하 여 Azure Kinect 진한 장치 펌웨어를 쿼리하고 업데이트할 수 있습니다.
+Azure Kinect 펌웨어 도구를 사용하여 Azure Kinect DK 디바이스 펌웨어를 쿼리하고 업데이트할 수 있습니다.
 
-## <a name="list-connected-devices"></a>연결 된 장치 나열
+## <a name="list-connected-devices"></a>연결된 디바이스 나열
 
--L 옵션을 사용 하 여 연결 된 장치 목록을 가져올 수 있습니다.  `AzureKinectFirmwareTool.exe -l`
+-l 옵션을 사용하여 연결된 디바이스의 목록을 얻을 수 있습니다.  `AzureKinectFirmwareTool.exe -l`
 
 ```console
  == Azure Kinect DK Firmware Tool ==
@@ -29,9 +29,9 @@ Found 2 connected devices:
 1: Device "000274185112"
 ```
 
-## <a name="check-device-firmware-version"></a>장치 펌웨어 버전 확인
+## <a name="check-device-firmware-version"></a>디바이스 펌웨어 버전 확인
 
--Q 옵션 (예:)을 사용 하 여 첫 번째 연결 된 장치의 현재 펌웨어 버전을 확인할 수 있습니다 `AzureKinectFirmwareTool.exe -q` .
+-q 옵션을 사용하여(예: `AzureKinectFirmwareTool.exe -q`) 연결된 첫 번째 디바이스의 현재 펌웨어 버전을 확인할 수 있습니다.
 
 ```console
  == Azure Kinect DK Firmware Tool ==
@@ -45,33 +45,33 @@ Current Firmware Versions:
     Certificate Type:         Microsoft
 ```
 
-장치가 둘 이상 연결 된 경우 명령에 전체 일련 번호를 추가 하 여 쿼리할 장치를 지정할 수 있습니다. 예를 들면 다음과 같습니다.
+디바이스가 둘 이상 연결되어 있는 경우 다음과 같이 명령에 전체 일련 번호를 추가하여 쿼리하려는 디바이스를 지정할 수 있습니다.
 
 `AzureKinectFirmwareTool.exe -q 000036590812`
 
 ## <a name="update-device-firmware"></a>디바이스 펌웨어 업데이트
 
-이 도구의 가장 일반적인 용도는 장치 펌웨어를 업데이트 하는 것입니다. 옵션을 사용 하 여 도구를 호출 하 여 업데이트를 수행 합니다 `-u` . 펌웨어 업데이트는 업데이트 해야 하는 펌웨어 파일에 따라 몇 분 정도 걸릴 수 있습니다.
+이 도구의 가장 일반적인 용도는 디바이스 펌웨어를 업데이트하는 것입니다. `-u` 옵션을 사용해서 도구를 호출하여 업데이트를 수행합니다. 펌웨어 업데이트는 업데이트해야 하는 펌웨어 파일이 무엇이냐에 따라 몇 분 정도 걸릴 수 있습니다.
 
-단계별 펌웨어 업데이트 지침은 [Azure Kinect 펌웨어 업데이트](update-device-firmware.md)를 참조 하세요.  
+단계별 펌웨어 업데이트 지침은 [Azure Kinect 펌웨어 업데이트](update-device-firmware.md)를 참조하세요.  
 
 `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
-장치가 둘 이상 연결 된 경우 명령에 전체 일련 번호를 추가 하 여 쿼리 하려는 장치를 지정할 수 있습니다.
+디바이스가 둘 이상 연결되어 있는 경우 명령에 전체 일련 번호를 추가하여 쿼리하려는 디바이스를 지정할 수 있습니다.
 
 `AzureKinectFirmwareTool.exe -u firmware\AzureKinectDK_Fw_1.5.926614.bin 000036590812`
 
 ## <a name="reset-device"></a>디바이스 다시 설정
 
-장치를 알려진 상태로 전환 해야 하는 경우-r 옵션을 사용 하 여 연결 된 Azure Kinect 진한을 다시 설정할 수 있습니다.
+디바이스를 알려진 상태로 전환해야 하는 경우 -r 옵션을 사용하여 연결된 Azure Kinect DK를 재설정할 수 있습니다.
 
-장치가 둘 이상 연결 된 경우 명령에 전체 일련 번호를 추가 하 여 쿼리 하려는 장치를 지정할 수 있습니다.
+디바이스가 둘 이상 연결되어 있는 경우 명령에 전체 일련 번호를 추가하여 쿼리하려는 디바이스를 지정할 수 있습니다.
 
 `AzureKinectFirmwareTool.exe -r 000036590812`
 
 ## <a name="inspect-firmware"></a>펌웨어 검사
 
-펌웨어를 검사 하면 실제 장치를 업데이트 하기 전에 펌웨어 bin 파일에서 버전 정보를 가져올 수 있습니다.
+펌웨어를 검사하면 실제 디바이스를 업데이트하기 전에 펌웨어 bin 파일에서 버전 정보를 가져올 수 있습니다.
 
 `AzureKinectFirmwareTool.exe -i firmware\AzureKinectDK_Fw_1.5.926614.bin`
 
@@ -117,4 +117,4 @@ Examples:
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
->[장치 펌웨어를 업데이트 하는 단계별 지침](update-device-firmware.md)
+>[디바이스 펌웨어를 업데이트하는 단계별 지침](update-device-firmware.md)

@@ -1,13 +1,13 @@
 ---
-title: Azure PowerShell를 사용 하 여 VHD 파일에서 사용자 지정 이미지 만들기
+title: Azure PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
 description: PowerShell을 사용하여 VHD 파일에서 Azure DevTest Labs에 사용자 지정 이미지 만들기 자동화
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 4b0712fdbec1ce23ad9e09d972e425cb7941107b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87288970"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file-using-powershell"></a>PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지 만들기
@@ -24,20 +24,20 @@ ms.locfileid: "87288970"
 
 다음 단계는 PowerShell을 사용하여 VHD 파일에서 사용자 지정 이미지를 만드는 과정을 안내합니다.
 
-1. PowerShell 프롬프트에서 **AzAccount** cmdlet에 대 한 다음 호출을 사용 하 여 Azure 계정에 로그인 합니다.
+1. PowerShell 프롬프트에서, **Connect-AzAccount** cmdlet에 대한 다음 호출로 Azure 계정에 로그인합니다.
 
     ```powershell
     Connect-AzAccount
     ```
 
-1.  **AzSubscription** cmdlet을 호출 하 여 원하는 Azure 구독을 선택 합니다. **$subscriptionId** 변수에 대한 다음 자리 표시자를 유효한 Azure 구독 ID로 바꿉니다.
+1.  **Select-AzSubscription** cmdlet을 호출하여 원하는 Azure 구독을 선택합니다. **$subscriptionId** 변수에 대한 다음 자리 표시자를 유효한 Azure 구독 ID로 바꿉니다.
 
     ```powershell
     $subscriptionId = '<Specify your subscription ID here>'
     Select-AzSubscription -SubscriptionId $subscriptionId
     ```
 
-1.  **AzResource** cmdlet을 호출 하 여 랩 개체를 가져옵니다. **$labRg** 및 **$labName** 변수에 대한 다음 자리 표시자를 환경에 적합한 값으로 바꿉니다.
+1.  **Get-AzResource** cmdlet을 호출하여 랩 객체를 가져옵니다. **$labRg** 및 **$labName** 변수에 대한 다음 자리 표시자를 환경에 적합한 값으로 바꿉니다.
 
     ```powershell
     $labRg = '<Specify your lab resource group name here>'
@@ -51,7 +51,7 @@ ms.locfileid: "87288970"
     $vhdUri = '<Specify the VHD URI here>'
     ```
 
-1.  **AzResourceGroupDeployment** cmdlet을 사용 하 여 사용자 지정 이미지를 만듭니다. **$customImageName** 및 **$customImageDescription** 변수에 대한 다음 자리 표시자를 환경에 의미 있는 이름으로 바꿉니다.
+1.  **New-AzResourceGroupDeployment** cmdlet로 사용자 지정 이미지를 만듭니다. **$customImageName** 및 **$customImageDescription** 변수에 대한 다음 자리 표시자를 환경에 의미 있는 이름으로 바꿉니다.
 
     ```powershell
     $customImageName = '<Specify the custom image name>'

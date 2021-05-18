@@ -1,35 +1,35 @@
 ---
 title: IoT Hub에 대한 보안 추천 사항
-description: 보안 권장 사항의 개념과 Defender for IoT Hub에 사용 되는 방법에 대해 알아봅니다.
+description: 보안 권장 사항의 개념과 Defender for IoT Hub에 사용되는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: a9e33248354aab659694e39df605cc070fdaaf73
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104779344"
 ---
 # <a name="security-recommendations-for-iot-hub"></a>IoT Hub에 대한 보안 추천 사항
 
-Defender for IoT는 Azure 리소스 및 IoT 장치를 검색 하 고 보안 권장 사항을 제공 하 여 공격 노출 영역을 줄입니다.
-보안 권장 사항은 보안 모범 사례를 준수 하는 고객을 지원 하기 위해 조치를 취할 수 있는 목표입니다.
+Defender for IoT는 Azure 리소스 및 IoT 디바이스를 검색하고, 보안 권장 사항을 제공하여 공격 노출 영역을 줄입니다.
+보안 권장 사항은 실행 가능하며, 고객이 보안 모범 사례를 준수하도록 지원하는 것을 목표로 합니다.
 
-이 문서에는 IoT Hub에서 트리거될 수 있는 권장 사항 목록이 있습니다.
+이 문서에서는 IoT Hub에서 트리거할 수 있는 권장 사항 목록을 찾을 수 있습니다.
 
 ## <a name="built-in-recommendations-in-iot-hub"></a>IoT Hub의 기본 제공 권장 사항
 
-권장 사항 경고는 환경의 보안 상태를 개선 하기 위한 작업에 대 한 통찰력 및 제안을 제공 합니다.
+권장 사항 경고는 환경의 보안 상태를 개선하기 위한 작업에 대한 인사이트 및 제안을 제공합니다.
 
-| 심각도 | Name | 데이터 원본 | Description |
+| 심각도 | 이름 | 데이터 원본 | Description |
 |--|--|--|--|
-| 높음 | 여러 장치에서 사용 하는 동일한 인증 자격 증명 | IoT Hub | IoT Hub 인증 자격 증명은 여러 장치에서 사용 됩니다. 이 프로세스는 합법적인 장치를 가장 하는 불법 장치를 나타낼 수 있습니다. 중복 자격 증명 사용은 악성 행위자에 의해 장치 가장의 위험을 늘립니다. |
-| 중간 | 기본 IP 필터 정책은 거부 되어야 합니다. | IoT Hub | IP 필터 구성에는 허용 되는 트래픽에 대해 정의 된 규칙이 있어야 하며 기본적으로 다른 모든 트래픽은 기본적으로 거부 해야 합니다. |
-| 중간 | IP 필터 규칙에 많은 IP 범위가 포함 되어 있습니다. | IoT Hub | 허용 IP 필터 규칙 원본 IP 범위가 너무 깁니다. 과도 한 허용 규칙은 악의적인 행위자에 게 IoT hub를 노출할 수 있습니다. |
-| 낮음 | IoT Hub에서 진단 로그 사용 | IoT Hub | 로그를 사용하도록 설정하고 최대 1년간 보존합니다. 로그를 유지 하면 보안 인시던트가 발생 하거나 네트워크가 손상 된 경우 조사를 위해 활동 기록을 다시 만들 수 있습니다. |
+| 높음 | 동일한 인증 자격 증명이 여러 디바이스에서 사용됩니다. | IoT Hub | IoT Hub 인증 자격 증명이 여러 디바이스에서 사용됩니다. 이 프로세스는 합법적인 디바이스를 가장한 불법 디바이스를 표시할 수 있습니다. 중복 자격 증명 사용은 악의적인 행위자의 디바이스 가장 위험을 증가합니다. |
+| 중간 | 기본 IP 필터 정책은 거부여야 합니다. | IoT Hub | IP 필터 구성에서는 허용된 트래픽에 대한 규칙이 정의되어야 하고, 기본값으로 다른 모든 트래픽을 거부해야 합니다. |
+| 중간 | IP 필터 규칙은 큰 IP 범위를 포함합니다. | IoT Hub | IP 필터 허용 규칙의 원본 IP 범위가 너무 큽니다. 허용 범위가 과도하게 큰 규칙은 IoT 허브를 악의적인 행위자에게 노출할 수 있습니다. |
+| 낮음 | IoT Hub에서 진단 로그 사용 | IoT Hub | 로그를 사용하도록 설정하고 최대 1년간 보존합니다. 로그를 보존하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-- IoT 서비스용 Defender [개요](overview.md)
-- [보안 데이터에 액세스](how-to-security-data-access.md) 하는 방법 알아보기
-- [장치 조사](how-to-investigate-device.md) 에 대 한 자세한 정보
+- Defender for IoT 서비스 [개요](overview.md)
+- [보안 데이터에 액세스](how-to-security-data-access.md)하는 방법 알아보기
+- [디바이스 조사](how-to-investigate-device.md)대해 자세히 알아보기

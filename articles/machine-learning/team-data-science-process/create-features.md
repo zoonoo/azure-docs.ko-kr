@@ -1,5 +1,5 @@
 ---
-title: 기계 학습의 기능 엔지니어링-팀 데이터 과학 프로세스
+title: 기계 학습에서 기능 엔지니어링 - Team Data Science Process
 description: 기계 학습의 데이터 향상 프로세스에서 기능 엔지니어링 및 해당 역할에 대해 알아봅니다.
 services: machine-learning
 author: marktab
@@ -12,13 +12,13 @@ ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperf-fy20q4
 ms.openlocfilehash: b20a6744644678879fedf44e960854f558eb0f03
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98610440"
 ---
-# <a name="feature-engineering-in-machine-learning"></a>기계 학습의 기능 엔지니어링
+# <a name="feature-engineering-in-machine-learning"></a>기계 학습에서 기능 엔지니어링
 
 이 문서에서는 기계 학습에서 데이터를 향상시키는 기능 엔지니어링 및 해당 역할에 대해 알아봅니다. [Azure Machine Learning Studio(클래식)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 실험에서 얻은 설명 예제에 대해 알아보세요. 
 

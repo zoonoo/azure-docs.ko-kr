@@ -3,12 +3,12 @@ title: 패턴 정책 정의의 논리 연산자
 description: 이 Azure Policy 패턴에서는 정책 정의에서 논리 연산자를 사용하는 방법에 대한 예를 제공합니다.
 ms.date: 03/31/2021
 ms.topic: sample
-ms.openlocfilehash: feb9e50b0c73c19027b747cf0f95fa1cb6fbd47c
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 3daf5e5873566b1335178d50a4589ec7a6e1971c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106093353"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752276"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Azure Policy 패턴: 논리 연산자
 
@@ -16,7 +16,7 @@ ms.locfileid: "106093353"
 
 ## <a name="sample-1-one-logical-operator"></a>샘플 1: 하나의 논리 연산자
 
-이 정책 정의는 [Azure Cosmos DB](../../../cosmos-db/introduction.md) 계정을 평가하여 자동 장애 조치(failover) 및 여러 쓰기 위치가 구성되어 있는지 확인합니다. 그렇지 않은 경우 [감사](../concepts/effects.md#audit)는 비규격 리소스를 만들거나 업데이트할 때 트리거하고 로그 항목을 만듭니다.
+이 정책 정의는 [Azure Cosmos DB](../../../cosmos-db/introduction.md) 계정을 평가하여 자동 장애 조치(failover) 및 여러 쓰기 위치가 구성되어 있는지 여부를 확인합니다. 그렇지 않은 경우 [감사](../concepts/effects.md#audit)는 비규격 리소스를 만들거나 업데이트할 때 트리거하고 로그 항목을 만듭니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-1.json":::
 
@@ -37,11 +37,11 @@ ms.locfileid: "106093353"
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-2.json" range="7-21" highlight="2,3,9":::
 
-이 **policyRule.if** 블록에는 단일 **allOf** 도 포함되지만 각 조건은 **not** 논리 연산자로 래핑됩니다. **not** 논리 연산자 내부의 조건을 먼저 평가한 다음, **not** 을 평가하여 전체 절이 true인지 false인지 확인합니다. **not** 논리 연산자가 모두 true로 평가되면 정책 효과가 트리거됩니다.
+이 **policyRule.if** 블록에는 단일 **allOf** 도 포함되지만 각 조건은 **not** 논리 연산자로 래핑됩니다. **not** 논리 연산자 내부의 조건을 먼저 평가한 다음, **not** 을 평가하여 전체 절이 true인지 false인지 여부를 확인합니다. **not** 논리 연산자가 모두 true로 평가되면 정책 효과가 트리거됩니다.
 
 ## <a name="sample-3-combining-logical-operators"></a>샘플 3: 논리 연산자 결합
 
-이 정책 정의는 [Azure의 Spring](/azure/developer/java/spring-framework) 계정을 평가하여 추적을 사용하도록 설정하지 않았거나 추적이 성공했는지 여부를 확인합니다.
+이 정책 정의는 [Azure의 Spring](/azure/developer/java/spring-framework) 계정을 평가하여 추적을 사용하도록 설정하지 않았거나 추적이 성공 상태가 아닌지 여부를 확인합니다.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-logical-operators-3.json":::
 

@@ -1,7 +1,7 @@
 ---
 title: Microsoft Translator Hub 작업 영역 및 프로젝트를 마이그레이션하려면? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기로 허브 작업 영역 및 프로젝트를 마이그레이션하는 방법을 설명 합니다.
+description: 이 문서에서는 허브 작업 영역 및 프로젝트를 Azure Cognitive Services Custom Translator로 마이그레이션하는 방법을 설명합니다.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -10,10 +10,10 @@ ms.date: 05/26/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 89658ce88b4f1ac9d5bacac7bd45511b4aa0a1be
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895714"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
@@ -21,13 +21,13 @@ ms.locfileid: "98895714"
 [Microsoft Translator Hub](https://hub.microsofttranslator.com/) 작업 영역 및 프로젝트를 Custom Translator로 쉽게 마이그레이션할 수 있습니다. 마이그레이션은 작업 영역 또는 프로젝트를 선택하고, Custom Translator에서 작업 영역을 선택한 다음, 전송하려는 학습을 선택하여 Microsoft Hub에서 시작됩니다. 마이그레이션이 시작된 후 선택한 학습 설정은 모든 관련 문서를 통해 전송됩니다. 배포된 모델은 학습되며 완료 시 자동 배포될 수 있습니다.
 
 마이그레이션하는 중에 이러한 작업을 수행합니다.
-* 모든 문서와 프로젝트 정의는 이름 앞에 "hub_"를 추가 하 여 해당 이름을 전송 합니다. 자동으로 생성된 테스트 및 튜닝 데이터는 hub_systemtune_\<modelid> 또는 hub_systemtest_\<modelid>라고 합니다.
+* 모든 문서와 프로젝트 정의에는 이름에 "hub_" 접두사를 추가하여 전송된 해당 이름이 있습니다. 자동으로 생성된 테스트 및 튜닝 데이터는 hub_systemtune_\<modelid> 또는 hub_systemtest_\<modelid>라고 합니다.
 * 마이그레이션을 수행하는 경우 배포된 상태에 있던 모든 학습을 Hub 학습 문서를 사용하여 자동으로 학습합니다. 이 학습은 구독에 대한 비용은 청구되지 않습니다. 마이그레이션에 대해 자동 배포가 선택된 경우 완료 시 학습된 모델을 배포합니다. 일반 호스팅 요금을 적용합니다.
 * 배포 상태에 있지 않던 모든 마이그레이션된 학습은 마이그레이션된 초안 상태에 놓이게 됩니다. 이 상태에서는 마이그레이션된 정의를 사용하여 모델을 학습하는 옵션이 있지만 일반적인 학습 비용이 적용됩니다.
-* 언제 든 지 허브 학습에서 마이그레이션된 BLEU 점수는 "MT Hub의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
+* 허브 학습에서 마이그레이션된 BLEU 점수는 언제든 "MT 허브의 Bleu 점수" 제목의 모델의 TrainingDetails 페이지에서 찾을 수 있습니다.
 
 > [!Note] 
-> 학습에 성공 하려면 사용자 지정 변환기에 1만의 고유 하 고 압축을 푼 문장이 필요 합니다. 사용자 지정 번역기는 [제안 된 최소값](./sentence-alignment.md#suggested-minimum-number-of-sentences)보다 작은 학습을 수행할 수 없습니다.
+> 학습에 성공하려면 Custom Translator에 고유하게 추출된 최소 10,000개의 문장이 필요합니다. [권장 최솟값](./sentence-alignment.md#suggested-minimum-number-of-sentences) 미만인 경우 Custom Translator는 학습을 수행할 수 없습니다.
 
 ## <a name="find-custom-translator-workspace-id"></a>Custom Translator 작업 영역 ID 찾기
 
@@ -55,7 +55,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 3. 해당 프로젝트에서 “마이그레이션” 링크를 클릭합니다.
 
-    ![선택한 프로젝트에 대 한 마이그레이션 단추를 강조 표시 하는 스크린샷](media/how-to/how-to-migrate-from-hub.png)
+    ![선택한 프로젝트에 대한 마이그레이션 단추를 강조 표시하는 스크린샷](media/how-to/how-to-migrate-from-hub.png)
 
 4. 마이그레이션 링크를 누르면 다음을 수행할 수 있는 양식이 표시됩니다.
    * Custom Translator로 전송하려는 작업 영역 지정
@@ -76,7 +76,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 3. “설정” 페이지에서 “Custom Translator로 작업 영역 데이터 마이그레이션”을 클릭합니다.
 
-    ![사용자 지정 번역기로 작업 영역 데이터 마이그레이션 옵션을 강조 표시 하는 스크린샷](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Custom Translator로 작업 영역 데이터 마이그레이션 옵션을 강조 표시하는 스크린샷](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. 다음 페이지에서 다음과 같은 두 옵션 중 하나를 선택합니다.
 
@@ -92,7 +92,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
 ## <a name="migration-history"></a>마이그레이션 기록
 
-허브에서 작업 영역/프로젝트 마이그레이션을 요청 하면 사용자 지정 변환기 설정 페이지에서 마이그레이션 기록이 검색 됩니다.
+허브에서 작업 영역/프로젝트 마이그레이션을 요청한 경우 Custom Translator 설정 페이지에서 마이그레이션 기록을 찾을 수 있습니다.
 
 마이그레이션 기록을 보려면 다음 단계를 수행합니다.
 
@@ -119,10 +119,10 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 프로젝트, 학습 및 문서에 대한 더 자세한 마이그레이션 보고서를 보려면 CSV로 세부 정보 내보내기 옵션이 있습니다.
 
 ## <a name="implementation-notes"></a>구현 노트
-* 사용자 지정 변환기에서 언어 쌍을 사용할 수 없는 시스템은 데이터에 액세스 하거나 사용자 지정 번역기를 통해 배포 취소할 수만 있습니다. 이러한 프로젝트는 프로젝트 페이지에서 "사용할 수 없음"으로 표시 됩니다. 사용자 지정 번역기를 사용 하 여 새 언어 쌍을 사용 하도록 설정 하면 프로젝트를 학습 하 고 배포할 수 있습니다. 
+* Custom Translator에서 아직 사용할 수 없는 언어 쌍이 있는 시스템은 Custom Translator를 통해서만 데이터에 액세스하거나 배포를 취소할 수 있습니다. 이러한 프로젝트는 프로젝트 페이지에서 "사용할 수 없음"으로 표시됩니다. Custom Translator로 새로운 언어 쌍을 사용하도록 설정하면 프로젝트가 활성화되어 학습 및 배포할 수 있습니다. 
 * 허브에서 Custom Translator로 프로젝트를 마이그레이션하면 허브 학습 또는 프로젝트에 아무런 영향도 주지 않습니다. 마이그레이션하는 중에는 허브에서 프로젝트 또는 문서를 삭제하지 않으며 모델 배포를 취소하지 않습니다.
 * 프로젝트당 한 번만 마이그레이션할 수 있습니다. 프로젝트에서 마이그레이션을 반복해야 하는 경우 당사에 연락하세요.
-* 사용자 지정 변환기는 영어에서 NMT 언어 쌍을 지원 합니다. [지원 되는 언어의 전체 목록을 봅니다](../language-support.md#customization). 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
+* Custom Translator는 영어와 NMT 언어의 쌍을 지원합니다. [지원되는 언어의 전체 목록을 확인합니다.](../language-support.md#customization) 허브는 기준 모델이 필요하지 않으므로 수천 개의 언어를 지원합니다. 지원되지 않는 언어 쌍을 마이그레이션할 수 있지만 문서 및 프로젝트 정의만 마이그레이션합니다. 새 모델을 학습할 수 없습니다. 또한 이러한 문서와 프로젝트를 지금은 사용할 수 없는 것으로 나타내려면 해당 문서와 프로젝트를 비활성으로 표시합니다. 이러한 프로젝트 및/또는 문서에 대한 지원이 추가되면 활성화되고 학습이 가능해집니다.
 * Custom Translator는 현재 단일어 학습 데이터를 지원하지 않습니다. 지원되지 않는 언어 쌍처럼 단일어 문서를 마이그레이션할 수 있지만 단일어 데이터가 지원될 때까지는 비활성으로 표시합니다.
 * 학습하려면 Custom Translator에는 10,000개의 병렬 문장이 필요합니다. Microsoft Hub는 더 작은 데이터 세트에 대해 학습할 수 있습니다. 이 요구 사항을 충족하지 않는 학습이 마이그레이션되는 경우 해당 요구 사항은 학습되지 않습니다.
 
@@ -134,16 +134,16 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 | ------- | :-: | :---------------: |
 | 사용자 지정 기능 상태    | 일반 공급    | 일반 공급 |
 | Text API 버전    | V2     | V3  |
-| SMT 사용자 지정    | 예    | 아니요 |
-| NMT 사용자 지정    | 아니요    | 예 |
-| 새로운 통합 Speech Service 사용자 지정    | 아니요    | 예 |
+| SMT 사용자 지정    | 예    | 예 |
+| NMT 사용자 지정    | 예    | 예 |
+| 새로운 통합 Speech Service 사용자 지정    | 예    | 예 |
 | 추적 없음 | 예 | 예 |
 
 ## <a name="new-languages"></a>새 언어
 
-번역기에 대 한 새 언어 시스템을 만드는 데 사용 하는 커뮤니티 또는 조직인 경우 [custommt@microsoft.com](mailto:custommt@microsoft.com) 자세한 내용을 확인 하세요.
+Translator용 새 언어 시스템을 만드는 작업을 하는 커뮤니티 또는 조직인 경우 [custommt@microsoft.com](mailto:custommt@microsoft.com)에 문의하여 자세한 내용을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [모델을 학습](how-to-train-model.md)합니다.
-- [변환기 V3](../reference/v3-0-translate.md?tabs=curl)을 통해 배포 된 사용자 지정 변환 모델 사용을 시작 합니다.
+- [모델을 학습합니다](how-to-train-model.md).
+- 배포된 사용자 지정 번역 모델을 [Translator V3](../reference/v3-0-translate.md?tabs=curl)을 통해 사용합니다.

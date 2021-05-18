@@ -1,23 +1,23 @@
 ---
-title: 기타 그룹 UI 요소
-description: Azure Portal의 Microsoft.Common.OptionsGroup UI 요소에 대해 설명합니다. 사용자가 관리 되는 응용 프로그램을 배포할 때 사용 가능한 옵션 중에서 선택할 수 있습니다.
+title: OptionsGroup UI 요소
+description: Azure Portal의 Microsoft.Common.OptionsGroup UI 요소에 대해 설명합니다. 사용자가 관리 애플리케이션을 배포할 때 사용 가능한 옵션 중에서 선택할 수 있습니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tomfitz
 ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87004196"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI 요소
 
-옵션 그룹 컨트롤을 사용 하면 사용자가 둘 이상의 선택 항목에서 옵션을 선택할 수 있습니다. 사용자는 옵션을 하나만 선택할 수 있습니다.
+OptionsGroup 컨트롤을 사용하면 사용자는 둘 이상의 선택 항목 중 하나의 옵션을 선택할 수 있습니다. 사용자는 옵션을 하나만 선택할 수 있습니다.
 
 > [!NOTE]
-> 이전에이 컨트롤은 옵션을 가로로 렌더링 했습니다. 이제 컨트롤은 옵션을 라디오 단추로 세로로 표시 합니다.
+> 이전에 이 컨트롤은 옵션을 가로로 렌더링했습니다. 현재는 컨트롤이 옵션을 라디오 단추 형태로 세로로 표시합니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 

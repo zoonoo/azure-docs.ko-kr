@@ -1,5 +1,5 @@
 ---
-title: 디버그 세션 개념 (미리 보기)
+title: 디버그 세션 개념(미리 보기)
 titleSuffix: Azure Cognitive Search
 description: Azure Portal을 통해 액세스하는 디버그 세션은 오류를 식별 및 수정하고, 변경 내용의 유효성을 검사하고, 변경 내용을 AI 보강 파이프라인의 기술 세트에 밀어넣을 수 있는 환경과 같은 IDE를 제공합니다. 디버그 세션은 미리 보기 상태입니다.
 manager: nitinme
@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.openlocfilehash: f666cc2f9d11b1e05d11ba266897e6fca3cd287e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92057623"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Azure Cognitive Search의 디버그 세션
@@ -85,7 +85,7 @@ ms.locfileid: "92057623"
 
 ## <a name="limitations"></a>제한 사항
 
-디버그 sesisons는 일반적으로 사용 가능한 모든 데이터 원본 amd 가장 많은 데이터 원본을 사용 하 여 작동 합니다. Cosmos DB의 MongoDB API (미리 보기) 및 Cassandra API (미리 보기)는 현재 지원 되지 않습니다.
+디버그 세션은 출시된 모든 데이터 원본과 대부분의 미리 보기 데이터 원본에서 작동합니다. Cosmos DB의 MongoDB API(미리 보기) 및 Cassandra API(미리 보기)는 현재 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: DPM을 사용하여 Azure에 SharePoint 팜 백업
 description: 이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure Backup 서버 보호에 관한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 3524107b545c151fcf931b89c629a61d83f47ace
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 7661d64e487c8b8badca240852d17bcf736ba8cf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515161"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91254434"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>DPM을 사용하여 Azure에 SharePoint 팜 백업
 
@@ -24,7 +24,7 @@ DPM을 사용하여 SharePoint를 Azure에 백업하는 작업은 SharePoint를 
 
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>필수 구성 요소
 
 진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 
@@ -75,5 +75,5 @@ DPM을 사용하여 디스크에서 SharePoint 항목을 복원하는 방법에 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Backup Server 및 DPM - FAQ](backup-azure-dpm-azure-server-faq.yml)
+* [Azure Backup Server 및 DPM - FAQ](backup-azure-dpm-azure-server-faq.md)
 * [System Center Data Protection Manager 문제 해결](backup-azure-scdpm-troubleshooting.md)

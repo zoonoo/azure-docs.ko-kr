@@ -7,13 +7,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 04/30/2020
-ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 12724175ebb9e23efa431169c01a804cd193cdd5
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91542243"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502592"
 ---
 # <a name="machine-learning-entity"></a>기계 학습 엔터티
 
@@ -346,6 +346,6 @@ ms.locfileid: "91542243"
 
 ## <a name="next-steps"></a>다음 단계
 
-[자습서](tutorial-machine-learned-entity.md), [개념](luis-concept-entity-types.md#design-entities-for-decomposition) 및 [방법 가이드](luis-how-to-add-entities.md#create-a-machine-learned-entity)를 포함하여 기계 학습 엔터티에 대해 자세히 알아봅니다.
+[자습서](tutorial-machine-learned-entity.md), [개념](luis-concept-entity-types.md#machine-learned-ml-entity) 및 [방법 가이드](luis-how-to-add-entities.md#create-a-machine-learned-entity)를 포함하여 기계 학습 엔터티에 대해 자세히 알아봅니다.
 
 [목록](reference-entity-list.md) 엔터티 및 [정규식](reference-entity-regular-expression.md) 엔터티에 대해 알아봅니다.

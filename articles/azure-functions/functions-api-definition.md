@@ -1,13 +1,13 @@
 ---
-title: Azure Functions의 OpenAPI 메타 데이터
+title: Azure Functions의 OpenAPI 메타데이터
 description: Azure Functions에서 OpenAPI 지원 개요
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.openlocfilehash: 499d4f685e3802fcc37c8a3050ae367207f192d2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96000211"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
@@ -38,7 +38,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 ### <a name="available-templates"></a><a name="templates"></a>사용 가능한 템플릿
 
-|Name| 설명 |
+|이름| 설명 |
 |:-----|:-----|
 |생성된 정의|최대 정보량을 포함하여 함수의 기존 메타데이터에서 유추할 수 있는 OpenAPI 정의|
 
@@ -48,9 +48,9 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 |Swagger.json|포털 UI|Function.json|
 |:----|:-----|:-----|
-|[Host](https://swagger.io/specification/#fixed-fields-15)|**함수 앱 설정**  >  **App Service 설정**  >  **개요**  >  **URL**|*없음*
-|[경로](https://swagger.io/specification/#paths-object-29)|**통합**  >  **선택한 HTTP 메서드**|바인딩: 경로
-|[경로 항목](https://swagger.io/specification/#path-item-object-32)|**통합**  >  **경로 템플릿**|바인딩: 메서드
+|[Host](https://swagger.io/specification/#fixed-fields-15)|**함수 앱 설정** > **App Service 설정** > **개요** > **URL**|*없음*
+|[경로](https://swagger.io/specification/#paths-object-29)|**통합** > **선택한 HTTP 메서드**|바인딩: 경로
+|[경로 항목](https://swagger.io/specification/#path-item-object-32)|**통합** > **경로 템플릿**|바인딩: 메서드
 |[보안](https://swagger.io/specification/#security-scheme-object-112)|**키**|*없음*|
 |operationID*|**경로 + 허용 동사**|경로 + 허용 동사|
 
@@ -74,6 +74,6 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 이제 리포지토리의 swagger.json에 대한 변경 내용이 1.c 단계에서 적어 둔 API 정의 URL과 키에서 함수 앱에 의해 호스팅됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [초보자](./functions-openapi-definition.md)를 위한 자습서입니다. 연습을 통해 작동 중인 OpenAPI 정의를 확인합니다.
-* [GitHub 리포지토리를 Azure Functions](https://github.com/Azure/Azure-Functions/)합니다. Functions 리포지토리를 확인하여 API 정의 지원 미리 보기에 대한 의견을 보냅니다. 업데이트하려는 항목에 대한 GitHub 문제를 제기합니다.
-* [개발자 참조를 Azure Functions](functions-reference.md). 함수 코딩과 트리거 및 바인딩 정의에 대해 알아봅니다.
+* [시작 자습서](./functions-openapi-definition.md) - 연습을 통해 작동 중인 OpenAPI 정의를 확인합니다.
+* [Azure Functions GitHub 리포지토리](https://github.com/Azure/Azure-Functions/) - Functions 리포지토리를 확인하여 API 정의 지원 미리 보기에 대한 의견을 보냅니다. 업데이트하려는 항목에 대한 GitHub 문제를 제기합니다.
+* [Azure Functions 개발자 참조](functions-reference.md) - 함수 코딩과 트리거 및 바인딩 정의에 대해 알아봅니다.

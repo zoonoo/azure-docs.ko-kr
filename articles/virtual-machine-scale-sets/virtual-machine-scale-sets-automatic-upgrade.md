@@ -1,20 +1,20 @@
 ---
-title: Azure 가상 머신 확장 집합을 사용 하 여 자동 OS 이미지 업그레이드
-description: 확장 집합의 VM 인스턴스에서 OS 이미지를 자동으로 업그레이드 하는 방법을 알아봅니다.
+title: Azure 가상 머신 확장 집합을 사용하여 자동 OS 이미지 업그레이드
+description: 확장 집합의 VM 인스턴스에서 OS 이미지를 자동으로 업그레이드하는 방법을 알아봅니다.
 author: avirishuv
 ms.author: avverma
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
+ms.subservice: automatic-os-upgrade
 ms.date: 06/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: ff1a29577c0778d6ef88d3523c726f7a48739cdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 39649d9fc12e78f962fac25a12db796b71015db8
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98684613"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934549"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure Virtual Machine Scale Sets 자동 OS 업그레이드
 
@@ -23,13 +23,13 @@ ms.locfileid: "98684613"
 자동 OS 업그레이드의 특징은 다음과 같습니다.
 
 - 구성이 완료되면 이미지 게시자가 게시한 최신 OS 이미지가 사용자 개입 없이 확장 집합에 자동으로 적용됩니다.
-- 게시자가 새 이미지를 게시할 때마다 롤링 방식으로 인스턴스의 일괄 처리를 업그레이드 합니다.
+- 게시자가 새 이미지를 게시할 때마다 인스턴스의 일괄 처리를 롤링 방식으로 업그레이드합니다.
 - 애플리케이션 상태 프로브 및 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)과 통합됩니다.
-- 모든 VM 크기와 Windows 및 Linux 이미지에 대해 작동 합니다.
+- 모든 VM 크기와 Windows 및 Linux 이미지 모두에서 작동합니다.
 - 언제든지 자동 업그레이드를 옵트아웃할 수 있습니다(OS 업그레이드를 수동으로 시작 가능).
 - VM의 OS 디스크는 최신 이미지 버전을 사용하여 만든 새 OS 디스크로 교체됩니다. 구성된 확장 및 사용자 지정 데이터 스크립트가 실행되고 지속형 데이터 디스크는 유지됩니다.
 - [확장 시퀀스](virtual-machine-scale-sets-extension-sequencing.md)가 지원됩니다.
-- 크기 조정 집합에서 자동 OS 이미지 업그레이드를 사용 하도록 설정할 수 있습니다.
+- 자동 OS 이미지 업그레이드는 모든 크기의 확장 집합에서 사용하도록 설정할 수 있습니다.
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>자동 OS 이미지 업그레이드의 작동 방식
 
@@ -37,21 +37,21 @@ ms.locfileid: "98684613"
 
 업그레이드 프로세스는 다음과 같이 작동합니다.
 1. 업그레이드 프로세스를 시작하기 전에 오케스트레이터는 전체 확장 집합에서 어떠한 이유로든 비정상 상태인 인스턴스 비율이 20% 이하인지를 확인합니다.
-2. 업그레이드 오 케 스트레이 터는 업그레이드에 사용 되는 VM 인스턴스의 일괄 처리를 식별 합니다 .이 일괄 처리는 하나의 가상 컴퓨터에 대 한 최소 일괄 처리 크기에 따라 총 인스턴스 수의 최대 20%를 포함 합니다.
-3. 선택한 VM 인스턴스 일괄 처리의 OS 디스크는 최신 이미지에서 만든 새 OS 디스크로 대체 됩니다. 확장 집합 모델의 지정 된 모든 확장 및 구성이 업그레이드 된 인스턴스에 적용 됩니다.
-4. 구성된 애플리케이션 상태 프로브 또는 애플리케이션 상태 확장이 있는 확장 집합의 경우 업그레이드 작업은 인스턴스가 정상이 될 때까지 최대 5분 동안 기다렸다가 다음 배치 업그레이드를 진행합니다. 업그레이드 후 5 분 안에 인스턴스가 상태를 복구 하지 않으면 기본적으로 인스턴스에 대 한 이전 OS 디스크가 복원 됩니다.
+2. 업그레이드 오케스트레이터는 업그레이드할 VM 인스턴스의 일괄 처리를 식별합니다. 이때 하나의 일괄 처리는 총 인스턴스 수의 최대 20%를 차지하며 가상 머신 한 개의 최소 일괄 처리 크기에 따라 달라집니다.
+3. 선택한 VM 인스턴스 일괄 처리의 OS 디스크는 최신 이미지에서 만든 새 OS 디스크로 대체됩니다. 확장 집합 모델의 지정된 모든 확장 및 구성이 업그레이드된 인스턴스에 적용됩니다.
+4. 구성된 애플리케이션 상태 프로브 또는 애플리케이션 상태 확장이 있는 확장 집합의 경우 업그레이드 작업은 인스턴스가 정상이 될 때까지 최대 5분 동안 기다렸다가 다음 배치 업그레이드를 진행합니다. 업그레이드 후 5분 안에 인스턴스가 상태를 복구하지 않으면 기본적으로 인스턴스의 이전 OS 디스크가 복원됩니다.
 5. 업그레이드 오케스트레이터는 업그레이드 후 비정상 상태가 되는 인스턴스의 백분율도 추적합니다. 업그레이드 프로세스 중에 업그레이드된 인스턴스의 20% 이상이 비정상 상태가 되면 업그레이드가 중지됩니다.
 6. 확장 집합의 모든 인스턴스가 업그레이드될 때까지 위의 프로세스가 계속됩니다.
 
 확장 집합 OS 업그레이드 오케스트레이터는 전체 확장 집합 상태를 확인한 후에 모든 배치를 업그레이드합니다. 배치 업그레이드 중에 확장 집합 인스턴스의 상태에 영향을 줄 수 있는, 계획되었거나 계획되지 않은 다른 동시 유지 관리 활동이 있을 수 있습니다. 확장 집합 인스턴스의 20% 이상이 비정상 상태가 될 경우 현재 배치가 끝나면 확장 집합 업그레이드가 중지됩니다.
 
 > [!NOTE]
->자동 OS 업그레이드는 확장 집합에 대 한 참조 이미지 Sku를 업그레이드 하지 않습니다. Sku (예: Ubuntu 16.04-LTS에서 18.04-LTS)를 변경 하려면 원하는 이미지 Sku를 사용 하 여 [확장 집합 모델](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model) 을 직접 업데이트 해야 합니다. 기존 확장 집합에 대해 이미지 게시자 및 제품을 변경할 수 없습니다.  
+>자동 OS 업그레이드는 확장 집합의 참조 이미지 Sku를 업그레이드하지 않습니다. Sku를 변경하려면(예를 들어 Ubuntu 16.04-LTS에서 18.04-LTS로 변경) 원하는 이미지 Sku를 사용하여 [확장 집합 모델](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model)을 직접 업데이트해야 합니다. 기존 확장 집합에 대해 이미지 게시자 및 제품을 변경할 수 없습니다.  
 
 ## <a name="supported-os-images"></a>지원되는 OS 이미지
-현재는 특정 OS 플랫폼 이미지만 지원됩니다. 확장 집합에서 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)를 통해 사용자 지정 이미지를 사용 하는 경우 사용자 지정 이미지가 [지원 됩니다](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images) .
+현재는 특정 OS 플랫폼 이미지만 지원됩니다. 확장 집합에서 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)를 통해 사용자 지정 이미지를 사용하는 경우 사용자 지정 이미지가 [지원됩니다](virtual-machine-scale-sets-automatic-upgrade.md#automatic-os-image-upgrade-for-custom-images).
 
-현재 지원 되는 플랫폼 Sku는 다음과 같습니다 .이는 주기적으로 추가 됩니다.
+현재 지원되는 플랫폼 SKU는 다음과 같습니다(주기적으로 더 추가될 예정).
 
 | 게시자               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
@@ -63,41 +63,41 @@ ms.locfileid: "98684613"
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter |
-| MicrosoftWindowsServer  | WindowsServer | 2019-Smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-Smalldisk |
 | MicrosoftWindowsServer  | WindowsServer | 2019-Datacenter-with-Containers |
-| MicrosoftWindowsServer  | WindowsServer | Datacenter-1903-smalldisk |
+| MicrosoftWindowsServer  | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>자동 OS 이미지 업그레이드 구성을 위한 요구 사항
 
-- 이미지의 *version* 속성을 *최신* 으로 설정 해야 합니다.
+- 이미지의 *버전* 속성을 *최신* 으로 설정해야 합니다.
 - Service Fabric 이외의 확장 집합에는 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)을 사용합니다.
-- Compute API 버전 2018-10-01 이상을 사용 합니다.
+- Compute API 버전 2018-10-01 이상을 사용합니다.
 - 확장 집합 모델에 지정된 외부 리소스가 사용 가능하고 업데이트되었는지 확인합니다. VM 확장 속성의 페이로드, 스토리지 계정의 페이로드, 모델의 비밀에 대한 참조 등을 부트스트랩하기 위한 SAS URI를 예로 들 수 있습니다.
-- Windows 가상 머신을 사용 하는 확장 집합의 경우 계산 API 버전 2019-03-01부터 *osProfile* 속성은 확장 집합 모델 정의에서 *false* 로 설정 되어야 합니다. 위의 속성은 "Windows 업데이트"에서 OS 디스크를 교체 하지 않고 운영 체제 패치를 적용 하는 VM 내 업그레이드를 사용 하도록 설정 합니다. 크기 집합에서 자동 OS 이미지 업그레이드를 사용 하도록 설정 하면 "Windows 업데이트"를 통한 추가 업데이트가 필요 하지 않습니다.
+- Windows 가상 머신을 사용하는 확장 집합의 경우 Compute API 버전 2019-03-01부터 *virtualMachineProfile.osProfile.windowsConfiguration.enableAutomaticUpdates* 속성은 확장 집합 모델 정의에서 *false* 로 설정되어야 합니다. 위의 속성은 "Windows 업데이트"가 OS 디스크를 교체하지 않고 운영 체제 패치를 적용하는 VM 내 업그레이드를 사용합니다. 확장 집합에서 자동 OS 이미지 업그레이드를 사용하면 "Windows 업데이트"를 통한 추가 업데이트가 필요하지 않습니다.
 
 ### <a name="service-fabric-requirements"></a>Service Fabric 요구 사항
 
-Service Fabric를 사용 하는 경우 다음 조건이 충족 되는지 확인 합니다.
--   Service Fabric [내구성 수준은](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) 브론즈가 아니라 실버 또는 골드입니다.
+Service Fabric을 사용하는 경우 다음 조건이 충족되는지 확인합니다.
+-   Service Fabric [내구성 수준](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)은 브론즈가 아니라 실버 또는 골드입니다.
 -   확장 집합 모델 정의의 Service Fabric 확장에는 TypeHandlerVersion 1.1 이상이 있어야 합니다.
--   Service Fabric 클러스터와 확장 집합 모델 정의에 대 한 Service Fabric 확장에서 내구성 수준이 동일 해야 합니다.
-- 추가 상태 프로브 또는 응용 프로그램 상태 확장 사용은 필요 하지 않습니다.
+-   내구성 수준은 확장 집합 모델 정의의 Service Fabric 클러스터 및 Service Fabric 확장에서 동일해야 합니다.
+- 추가 상태 프로브 또는 애플리케이션 상태 확장 사용은 필요하지 않습니다.
 
-Service Fabric 클러스터와 Service Fabric 확장에서 내구성 설정이 일치 하지 않는지 확인 합니다 .이로 인해 업그레이드 오류가 발생 합니다. [이 페이지](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels)에 설명 된 지침에 따라 내구성 수준을 수정할 수 있습니다.
+Service Fabric 클러스터와 Service Fabric 확장에서 내구성 설정이 불일치하지 않아야 합니다. 불일치할 경우 업그레이드 오류가 발생합니다. [이 페이지](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels)에 설명된 지침에 따라 내구성 수준을 수정할 수 있습니다.
 
 
-## <a name="automatic-os-image-upgrade-for-custom-images"></a>사용자 지정 이미지에 대 한 자동 OS 이미지 업그레이드
+## <a name="automatic-os-image-upgrade-for-custom-images"></a>사용자 지정 이미지에 대한 자동 OS 이미지 업그레이드
 
-자동 OS 이미지 업그레이드는 [공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)를 통해 배포 된 사용자 지정 이미지에 대해 지원 됩니다. 자동 OS 이미지 업그레이드에 대 한 다른 사용자 지정 이미지는 지원 되지 않습니다.
+자동 OS 이미지 업그레이드는 [Shared Image Gallery](../virtual-machines/shared-image-galleries.md)를 통해 배포되는 사용자 지정 이미지에 지원됩니다. 다른 사용자 지정 이미지에는 자동 OS 이미지 업그레이드가 지원되지 않습니다.
 
-### <a name="additional-requirements-for-custom-images"></a>사용자 지정 이미지에 대 한 추가 요구 사항
-- 자동 OS 이미지 업그레이드에 대 한 설치 및 구성 프로세스는이 페이지의 [구성 섹션](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade) 에 자세히 설명 된 모든 규모 집합에 대해 동일 합니다.
-- 자동 OS 이미지 업그레이드에 대해 구성 된 확장 집합 인스턴스는 새 버전의 이미지를 게시 하 고 해당 확장 집합의 지역에 [복제할](../virtual-machines/shared-image-galleries.md#replication) 때 공유 이미지 갤러리 이미지의 최신 버전으로 업그레이드 됩니다. 새 이미지가 배율이 배포 된 지역에 복제 되지 않으면 확장 집합 인스턴스는 최신 버전으로 업그레이드 되지 않습니다. 지역별 이미지 복제를 사용 하 여 확장 집합에 대 한 새 이미지의 출시를 제어할 수 있습니다.
-- 새 이미지 버전은 해당 갤러리 이미지의 최신 버전에서 제외 되어서는 안 됩니다. 갤러리 이미지의 최신 버전에서 제외 된 이미지 버전은 자동 OS 이미지 업그레이드를 통해 확장 집합으로 롤아웃 되지 않습니다.
+### <a name="additional-requirements-for-custom-images"></a>사용자 지정 이미지에 대한 추가 요구 사항
+- 자동 OS 이미지 업그레이드에 대한 설치 및 구성 프로세스는 이 페이지의 [구성 섹션](virtual-machine-scale-sets-automatic-upgrade.md#configure-automatic-os-image-upgrade)에 자세히 설명되어 있는 모든 확장 집합에 동일합니다.
+- 자동 OS 이미지 업그레이드에 구성된 확장 집합 인스턴스는 새 버전의 이미지가 게시되고 해당 확장 집합의 영역에 [복제](../virtual-machines/shared-image-galleries.md#replication)될 때 Shared Image Gallery 이미지의 최신 버전으로 업그레이드됩니다. 새 이미지가 확장 집합이 배포된 영역에 복제되지 않으면 확장 집합 인스턴스는 최신 버전으로 업그레이드되지 않습니다. 영역별 이미지 복제를 통해 확장 집합에 대하여 새 이미지의 롤아웃을 제어할 수 있습니다.
+- 새 이미지 버전은 해당 갤러리 이미지의 최신 버전에서 제외되어서는 안 됩니다. 갤러리 이미지의 최신 버전에서 제외된 이미지 버전은 자동 OS 이미지 업그레이드를 통해 확장 집합으로 롤아웃되지 않습니다.
 
 > [!NOTE]
->자동 OS 업그레이드에 대해 확장 집합이 먼저 구성 된 후 확장 집합이 첫 번째 이미지 업그레이드 롤아웃을 트리거하는 데 최대 3 시간이 걸릴 수 있습니다. 크기 집합 당 일회성 지연입니다. 이후 이미지 롤아웃은 30-60 분 내에 확장 집합에서 트리거됩니다.
+>확장 집합이 자동 OS 업그레이드에 대해 최초로 구성된 후에는 확장 집합이 첫 이미지 업그레이드 롤아웃을 트리거하는 데 최대 3 시간이 걸릴 수 있습니다. 확장 집합당 일회성으로 발생하는 지연입니다. 이후 이미지 롤아웃은 30-60분 이내에 확장 집합에서 트리거됩니다.
 
 
 ## <a name="configure-automatic-os-image-upgrade"></a>자동 OS 이미지 업그레이드 구성
@@ -123,27 +123,27 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet을 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
+[Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet을 사용하여 확장 집합에 대한 자동 OS 이미지 업그레이드를 구성합니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에 있는 확장 집합 *myScaleSet* 에 대해 자동 업그레이드를 구성합니다.
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[Az vmss update](/cli/azure/vmss#az-vmss-update) 를 사용 하 여 확장 집합에 대 한 자동 OS 이미지 업그레이드를 구성 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 자동 업그레이드를 구성 합니다.
+[az vmss update](/cli/azure/vmss#az-vmss-update)를 사용하여 확장 집합에 대한 자동 OS 이미지 업그레이드를 구성합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에 있는 확장 집합 *myScaleSet* 에 대해 자동 업그레이드를 구성합니다.
 
 ```azurecli-interactive
 az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
 
 > [!NOTE]
->확장 집합에 대해 자동 OS 이미지 업그레이드를 구성한 후 확장 집합에서 ' 수동 ' [업그레이드 정책을](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)사용 하는 경우 확장 집합 vm을 최신 확장 집합 모델로 가져와야 합니다.
+>확장 집합에 대해 자동 OS 이미지 업그레이드를 구성한 후에는 확장 집합에서 '수동' [업그레이드 정책](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)을 사용하는 경우 확장 집합 VM을 최신 확장 집합 모델로 가져와야 합니다.
 
 ## <a name="using-application-health-probes"></a>애플리케이션 상태 프로브 사용
 
 OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번에 하나의 일괄 처리 단위로 업그레이드됩니다. 업그레이드된 VM 인스턴스에서 고객 애플리케이션의 상태가 정상인 경우에만 업그레이드를 계속 진행해야 합니다. 애플리케이션이 확장 집합 OS 업그레이드 엔진에 상태 신호를 제공하는 것이 좋습니다. 기본적으로 OS를 업그레이드하는 동안 플랫폼은 VM 전원 상태 및 확장 프로비전 상태를 고려하여 업그레이드 후 VM 인스턴스가 정상 상태인지 확인합니다. VM 인스턴스의 OS를 업그레이드하는 동안 VM 인스턴스의 OS 디스크는 최신 이미지 버전에 따라 새 디스크로 교체됩니다. OS 업그레이드가 완료되면 구성된 확장이 이러한 VM에서 실행됩니다. 인스턴스의 모든 확장이 성공적으로 프로비전된 경우에만 애플리케이션이 정상 상태로 간주됩니다.
 
-원한다면 플랫폼에 애플리케이션의 현재 상태에 대한 정확한 정보를 제공하도록 확장 집합을 구성할 수 있습니다. 애플리케이션 상태 프로브는 상태 신호로 사용되는 사용자 지정 부하 분산 장치 프로브입니다. 확장 집합 VM 인스턴스에서 실행되는 애플리케이션은 외부 HTTP 또는 TCP 요청에 응답하여 정상 상태인지 여부를 알릴 수 있습니다. 사용자 지정 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요. 응용 프로그램 상태 프로브는 Service Fabric 확장 집합에 대해 지원 되지 않습니다. Service Fabric 이외의 확장 집합에는 Load Balancer 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)이 필요합니다.
+원한다면 플랫폼에 애플리케이션의 현재 상태에 대한 정확한 정보를 제공하도록 확장 집합을 구성할 수 있습니다. 애플리케이션 상태 프로브는 상태 신호로 사용되는 사용자 지정 부하 분산 장치 프로브입니다. 확장 집합 VM 인스턴스에서 실행되는 애플리케이션은 외부 HTTP 또는 TCP 요청에 응답하여 정상 상태인지 여부를 알릴 수 있습니다. 사용자 지정 부하 분산 장치 프로브에 대한 자세한 내용은 [부하 분산 장치 프로브 이해](../load-balancer/load-balancer-custom-probe-overview.md)를 참조하세요. 애플리케이션 상태 프로브는 Service Fabric 확장 집합에 지원되지 않습니다. Service Fabric 이외의 확장 집합에는 Load Balancer 애플리케이션 상태 프로브 또는 [애플리케이션 상태 확장](virtual-machine-scale-sets-health-extension.md)이 필요합니다.
 
 여러 배치 그룹을 사용하도록 확장 집합을 구성한 경우 [표준 부하 분산 장치](../load-balancer/load-balancer-overview.md)를 사용하는 프로브를 사용해야 합니다.
 
@@ -166,7 +166,7 @@ OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번�
 > Service Fabric과 함께 자동 OS 업그레이드를 사용할 때 새 OS 이미지는 Service Fabric에서 실행되는 서비스의 고가용성을 유지하기 위해 업데이트 도메인에 의해 업데이트 도메인에 롤아웃됩니다. Service Fabric에서 자동 OS 업그레이드를 활용하려면 실버 내구성 계층 이상을 사용하도록 클러스터가 구성되어야 합니다. Service Fabric 클러스터의 내구성 특성에 대한 자세한 내용은 [이 설명서](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster)를 참조하세요.
 
 ### <a name="keep-credentials-up-to-date"></a>자격 증명을 최신 상태로 유지
-확장 집합에서 자격 증명을 사용 하 여 저장소 계정에 대 한 SAS 토큰을 사용 하도록 구성 된 VM 확장과 같은 외부 리소스에 액세스 하는 경우 자격 증명을 업데이트 해야 합니다. 인증서 및 토큰을 포함 한 자격 증명이 만료 된 경우 업그레이드는 실패 하 고 Vm의 첫 번째 일괄 처리는 실패 상태로 남아 있습니다.
+확장 집합에서 자격 증명을 사용하여 외부 리소스(예: 스토리지 계정에 SAS 토큰을 사용하도록 구성된 VM 확장)에 액세스하는 경우 자격 증명을 업데이트해야 합니다. 인증서 및 토큰을 포함한 자격 증명이 만료된 경우 업그레이드에 실패하고 VM의 첫 번째 일괄 처리가 실패 상태로 남게 됩니다.
 
 리소스 인증 오류 시 VM을 복구하고 자동 OS 업그레이드를 다시 설정하기 위한 권장 단계는 다음과 같습니다.
 
@@ -186,7 +186,7 @@ OS가 업그레이드되는 동안 확장 집합의 VM 인스턴스는 한 번�
 Azure PowerShell, Azure CLI 2.0 또는 REST API를 사용하여 확장 집합에서 수행된 가장 최근의 OS 업그레이드 기록을 확인할 수 있습니다. 지난 2개월 동안 마지막으로 시도한 OS 업그레이드 5개의 기록을 가져올 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
-다음 예제에서는 [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) 를 사용 하 여 *myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합의 상태를 확인 합니다.
+다음 예제에서는 [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory)를 사용하여 리소스 그룹 *myResourceGroup *에 있는 확장 집합* myScaleSet* 의 상태를 확인합니다.
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2019-12-01`
@@ -230,14 +230,14 @@ GET 호출은 다음 예제 출력과 비슷한 속성을 반환합니다.
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 OS 업그레이드 상태를 검토 하는 방법을 자세히 설명 합니다.
+[Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에 있는 확장 집합 *myVMSS* 에 대한 OS 업그레이드 상태를 검토하는 방법을 자세히 설명합니다.
 
 ```azurepowershell-interactive
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history)를 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 이라는 확장 집합에 대 한 OS 업그레이드 상태를 검토 하는 방법을 자세히 설명 합니다.
+[az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history)를 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup* 에 있는 확장 집합 *myVMSS* 에 대한 OS 업그레이드 상태를 검토하는 방법을 자세히 설명합니다.
 
 ```azurecli-interactive
 az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
@@ -245,7 +245,7 @@ az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSe
 
 ## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>플랫폼 OS 이미지의 최신 버전을 가져오는 방법
 
-아래 예제를 사용 하 여 자동 OS 업그레이드 지원 Sku에 대 한 사용 가능한 이미지 버전을 가져올 수 있습니다.
+아래 예제를 사용하면 자동 OS 업그레이드가 지원되는 SKU의 사용 가능한 이미지 버전을 가져올 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
 ```
@@ -263,29 +263,29 @@ az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServ
 ```
 
 ## <a name="manually-trigger-os-image-upgrades"></a>OS 이미지 업그레이드 수동 트리거
-크기 집합에서 자동 OS 이미지 업그레이드를 사용 하도록 설정 하면 확장 집합에서 이미지 업데이트를 수동으로 트리거할 필요가 없습니다. OS 업그레이드 오 케 스트레이 터는 수동 개입 없이 확장 집합 인스턴스에 사용 가능한 최신 이미지 버전을 자동으로 적용 합니다.
+확장 집합에서 자동 OS 이미지 업그레이드를 사용하도록 설정하면 확장 집합에서 이미지 업데이트를 수동으로 트리거할 필요가 없습니다. OS 업그레이드 오케스트레이터는 수동 개입 없이 확장 집합 인스턴스에 사용 가능한 최신 이미지 버전을 자동으로 적용합니다.
 
-Orchestrator가 최신 이미지를 적용할 때까지 기다리지 않으려는 특정 경우에는 아래 예제를 사용 하 여 OS 이미지 업그레이드를 수동으로 트리거할 수 있습니다.
+특수한 경우에 오케스트레이터가 최신 이미지를 적용할 때까지 기다리지 않으려면 아래 예제를 사용하여 OS 이미지 업그레이드를 수동으로 트리거할 수 있습니다.
 
 > [!NOTE]
-> OS 이미지 업그레이드의 수동 트리거는 자동 롤백 기능을 제공 하지 않습니다. 업그레이드 작업 후에 인스턴스가 상태를 복구 하지 않으면 이전 OS 디스크를 복원할 수 없습니다.
+> OS 이미지 업그레이드를 수동으로 트리거하면 자동 롤백 기능이 제공되지 않습니다. 업그레이드 작업 후에 인스턴스 상태가 복구되지 않으면 이전 OS 디스크를 복원할 수 없습니다.
 
 ### <a name="rest-api"></a>REST API
-[OS 업그레이드 시작](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API 호출을 사용 하 여 롤링 업그레이드를 시작 하 고 모든 가상 머신 확장 집합 인스턴스를 사용 가능한 최신 이미지 OS 버전으로 이동 합니다. 사용 가능한 최신 OS 버전을 이미 실행 중인 인스턴스는 영향을 받지 않습니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
+[OS 업그레이드 시작](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) API 호출로 롤링 업그레이드를 시작하여 모든 가상 머신 확장 집합 인스턴스를 사용 가능한 최신 이미지 OS 버전으로 이동합니다. 사용 가능한 최신 OS 버전을 이미 실행 중인 인스턴스는 영향을 받지 않습니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹의 *myScaleSet* 이라는 확장 집합에서 롤링 OS 업그레이드를 시작하는 방법을 자세히 설명합니다.
 
 ```
 POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2019-12-01`
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) cmdlet을 사용 하 여 확장 집합에 대 한 OS 업그레이드 기록을 확인 합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
+[Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) cmdlet을 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹의 *myScaleSet* 이라는 확장 집합에서 롤링 OS 업그레이드를 시작하는 방법을 자세히 설명합니다.
 
 ```azurepowershell-interactive
 Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-[Az vmss 롤링 업그레이드 시작](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) 을 사용 하 여 확장 집합에 대 한 OS 업그레이드 기록을 확인 합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *Myresourcegroup* 이라는 리소스 그룹에서 *myScaleSet* 라는 확장 집합에 대해 롤링 OS 업그레이드를 시작 하는 방법을 자세히 설명 합니다.
+[az vmss rolling-upgrade start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start)을 사용하여 확장 집합에 대한 OS 업그레이드 기록을 확인합니다. Azure CLI 2.0.47 이상을 사용합니다. 다음 예제에서는 *MyResourceGroup* 이라는 리소스 그룹의 *myScaleSet* 이라는 확장 집합에서 롤링 OS 업그레이드를 시작하는 방법을 자세히 설명합니다.
 
 ```azurecli-interactive
 az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"

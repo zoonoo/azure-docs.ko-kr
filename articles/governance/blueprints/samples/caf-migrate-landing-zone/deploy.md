@@ -3,12 +3,12 @@ title: CAF Migration 방문 영역 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 CAF Migration 방문 영역 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: d5aed1d492fea102598a22921d04ed8681c727cb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9c953c5ec7f6c8a9a9ae7a1ff784b5c0d0f8f877
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103470118"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757820"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플 배포
 
@@ -35,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **CAF Migration 방문 영역** 청사진 샘플을 _다른 샘플_ 아래에서 찾은 다음, **이 샘플 사용** 을 선택합니다.
 
 1. 청사진 샘플의 _기본 사항_ 을 입력합니다.
-   - **청사진 이름** CAF Migration 방문 영역 청사진 샘플의 복사본에 사용할 이름을 입력합니다.
+   - **청사진 이름** CAF 마이그레이션 랜딩 존 청사진 샘플의 복사본에 사용할 이름을 입력합니다.
    - **위치 정의** 줄임표를 사용하고 샘플 사본을 저장할 관리 그룹을 선택합니다.
 
 1. 페이지 위쪽의 _아티팩트_ 탭 또는 페이지 아래쪽의 **다음: 아티팩트** 를 선택합니다.
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      - Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다.
        자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
      - **청사진 정의 버전**: 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
-    
+
    - 할당 잠금
 
      환경에 맞는 청사진 잠금 설정을 선택합니다. 자세한 내용은 [청사진 리소스 잠금](../../concepts/resource-locking.md)을 참조하세요.
@@ -85,9 +85,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      이 섹션에 정의된 매개 변수는 일관성을 제공하기 위해 청사진 정의의 아티팩트 대부분에서 사용됩니다.
 
-       - **조직**: 고유한 조직 이름(예: Contoso 또는 Fabrikam)을 입력합니다.
-       - **AzureRegion**: 배포할 Azure 지역을 선택합니다.
-       
+     - **조직**: 고유한 조직 이름(예: Contoso 또는 Fabrikam)을 입력합니다.
+     - **AzureRegion**: 배포할 Azure 지역을 선택합니다.
+
    - 아티팩트 매개 변수
 
      이 섹션에 정의된 매개 변수는 정의된 아티팩트에 적용됩니다. 이러한 매개 변수는 청사진 할당 중에 정의되므로 [동적 매개 변수](../../concepts/parameters.md#dynamic-parameters)입니다. 전체 목록 또는 아티팩트 매개 변수 및 해당 설명은 [아티팩트 매개 변수 테이블](#artifact-parameters-table)을 참조하세요.

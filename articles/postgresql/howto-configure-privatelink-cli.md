@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 410da33b531524f4a6458df13a89807fedd739a2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3452bfee1e9228926bb687d1b9dc7fb26dfff85a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773336"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642180"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에 대한 프라이빗 링크 만들기 및 관리
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 [네트워크 정책](../private-link/disable-private-endpoint-network-policy.md)을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 [네트워크 정책](../private-link/disable-private-endpoint-network-policy.md)을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \

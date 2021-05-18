@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96006732"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Hive 테이블을 만들고 Azure Blob Storage에서 데이터 로드
@@ -30,7 +30,7 @@ ms.locfileid: "96006732"
 * 클러스터에 대한 원격 액세스를 설정하고, 로그인하고, Hadoop 명령줄 콘솔을 열었습니다. 지침이 필요한 경우 [Apache Hadoop 클러스터 관리](../../hdinsight/hdinsight-administer-use-portal-linux.md)를 참조하세요.
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Azure File Storage는 Windows 및 기타 운영 체제에 대해 표준 SMB 2.1 프로토콜을 사용하므로, 응용 프로그램은 파일 공유 열기, 액세스 및 관리에 대해 익숙한 FileSystem API를 계속 사용할 수 있습니다.
-[고급 분석을 위해 azure 가상 머신 설정](../../machine-learning/data-science-virtual-machine/overview.md)에 제공 된 지침에 따라 azure 가상 머신을 만든 경우이 스크립트 파일은 가상 머신의 *C: \\ Users \\ \<user name\> \\ Documents \\ Data 과학 Scripts* 디렉터리에 다운로드 되어야 합니다. 이러한 Hive 쿼리는 적절한 필드에 데이터 스키마와 Azure Blob Storage 구성을 제공하기만 하면 제출할 준비를 갖추게 됩니다.
+[고급 분석을 위한 Azure 가상 머신 설정](../../machine-learning/data-science-virtual-machine/overview.md)의 지침에 따라 Azure 가상 머신을 만드는 경우 이 스크립트 파일을 가상 머신의 *C:\\Users\\\<user name\>\\Documents\\Data Science Scripts* 디렉터리에 다운로드해야 합니다. 이러한 Hive 쿼리는 적절한 필드에 데이터 스키마와 Azure Blob Storage 구성을 제공하기만 하면 제출할 준비를 갖추게 됩니다.
 
 Hive 테이블의 데이터가 **압축되지 않은** 테이블 형식이고 Hadoop 클러스터에서 사용하는 스토리지 계정의 기본 또는 추가 컨테이너에 데이터가 업로드된 것으로 가정합니다.
 
@@ -101,7 +101,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 다음 예제에서 Hive 쿼리의 출력은 `C:\apps\temp` 디렉터리의 `hivequeryoutput.txt` 파일에 작성됩니다.
 
-![Hadoop 명령줄 창에서 Hive 쿼리의 출력을 보여 주는 스크린샷](./media/move-hive-tables/output-hive-results-1.png)
+![스크린샷은 Hadoop 명령줄 창에서 Hive 쿼리의 출력을 보여 줍니다.](./media/move-hive-tables/output-hive-results-1.png)
 
 **Azure blob에 Hive 쿼리 결과 출력**
 
@@ -113,14 +113,14 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 다음 예제에서 Hive 쿼리는 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir` 에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. `wasb:///queryoutputdir/queryoutput.txt`처럼 디렉터리 이름과 blob 이름을 모두 입력하면 오류가 발생합니다.
 
-![스크린샷에는 Hadoop 명령줄 창에서 이전 명령이 표시 됩니다.](./media/move-hive-tables/output-hive-results-2.png)
+![스크린샷은 Hadoop 명령줄 창에서 이전 명령을 보여 줍니다.](./media/move-hive-tables/output-hive-results-2.png)
 
 Azure Storage Explorer를 사용하여 Hadoop 클러스터의 기본 컨테이너를 열면 다음과 같은 Hive 쿼리 출력을 볼 수 있습니다. 필터(빨간색 상자로 강조 표시됨)를 적용하여 이름에 지정된 문자가 포함된 blob만 검색할 수 있습니다.
 
 ![Hive 쿼리의 출력을 표시하는 Azure Storage Explorer](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a>Hive 편집기를 사용하여 Hive 쿼리 제출
-*Https: \/ / \<Hadoop cluster name> . azurehdinsight.net/Home/HiveEditor* 형식의 URL을 웹 브라우저에 입력 하 여 쿼리 콘솔 (Hive 편집기)을 사용할 수도 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.
+*https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* 형식의 URL을 웹 브라우저에 입력하여 쿼리 콘솔(Hive 편집기)을 사용할 수도 있습니다. 이 콘솔을 보려면 로그인해야 하며, Hadoop 클러스터 자격 증명이 필요합니다.
 
 ### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
 PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)을 참조하세요.
@@ -147,11 +147,11 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 다음은 연결해야 하는 필드와 기타 구성에 대한 설명입니다.
 
-* **\<database name\>**: 만들려는 데이터베이스의 이름입니다. 기본 데이터베이스를 사용하려는 경우 "*create database...* " 쿼리를 생략할 수 있습니다.
-* **\<table name\>**: 지정 된 데이터베이스 내에서 만들려는 테이블의 이름입니다. 기본 데이터베이스를 사용 하려는 경우를 사용 하지 않고 테이블을 직접 참조할 수 있습니다 *\<table name\>* \<database name\> .
-* **\<field separator\>**: Hive 테이블에 업로드할 데이터 파일의 필드를 구분 하는 구분 기호입니다.
-* **\<line separator\>**: 데이터 파일에서 줄을 구분 하는 구분 기호입니다.
-* **\<storage location\>**: Hive 테이블의 데이터를 저장 하는 Azure Storage 위치입니다. *LOCATION\<storage location\>* 을 지정하지 않으면 데이터베이스 및 테이블이 기본적으로 Hive 클러스터의 기본 컨테이너에 있는 hive/warehouse/ 디렉터리에 저장됩니다. 스토리지 위치를 지정하려면 스토리지 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *' wasb:/// \<directory 1> /'* 또는 *' wasb:/// \<directory 1> / \<directory 2> /'* 등의 형식으로 클러스터의 기본 컨테이너를 기준으로 하는 위치를 참조 해야 합니다. 쿼리가 실행 된 후에는 기본 컨테이너 내에서 상대 디렉터리가 만들어집니다.
+* **\<database name\>** : 만들려는 데이터베이스 이름입니다. 기본 데이터베이스를 사용하려는 경우 "*create database...* " 쿼리를 생략할 수 있습니다.
+* **\<table name\>** : 지정된 데이터베이스 내에 만들려는 테이블 이름입니다. 기본 데이터베이스를 사용하려는 경우 \<database name\> 없이 *\<table name\>* 에서 테이블을 직접 참조할 수 있습니다.
+* **\<field separator\>** : Hive 테이블에 업로드할 데이터 파일의 필드를 구분하는 구분 기호입니다.
+* **\<line separator\>** : 데이터 파일의 줄을 구분하는 구분 기호입니다.
+* **\<storage location\>** : Hive 테이블의 데이터를 저장하는 Azure Storage의 위치입니다. *LOCATION\<storage location\>* 을 지정하지 않으면 데이터베이스 및 테이블이 기본적으로 Hive 클러스터의 기본 컨테이너에 있는 hive/warehouse/ 디렉터리에 저장됩니다. 스토리지 위치를 지정하려면 스토리지 위치가 데이터베이스 및 테이블의 기본 컨테이너 내부에 있어야 합니다. 이 위치는 *'wasb:///\<directory 1>/'* 또는 *'wasb:///\<directory 1>/\<directory 2>/'* 등의 형식으로 클러스터 기본 컨테이너의 상대 위치로 참조되어야 합니다. 쿼리가 실행된 후 기본 컨테이너 내에 상대 디렉터리가 만들어집니다.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : 데이터 파일에 헤더 줄이 있으면 *create table* 쿼리의 **끝** 에 이 속성을 추가해야 합니다. 그렇지 않으면 헤더 줄이 테이블의 레코드로 로드됩니다. 데이터 파일에 헤더 줄이 없으면 쿼리에서 이 구성을 생략해도 됩니다.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Hive 테이블에 데이터 로드
@@ -161,7 +161,7 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>**: Hive 테이블에 업로드할 blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있는 경우은 *\<path to blob data\>* *' wasb:// \<directory in this container> / \<blob file name> '* 형식 이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우는 *\<path to blob data\>* *' wasb:// \<container name> @ \<storage account name> . blob.core.windows.net/ \<blob file name> '* 형식 이어야 합니다.
+* **\<path to blob data\>** : Hive 테이블에 업로드할 Blob 파일이 HDInsight Hadoop 클러스터의 기본 컨테이너에 있으면 *\<path to blob data\>* 가 *'wasb://\<directory in this container>/\<blob file name>'* 형식이어야 합니다. blob 파일이 HDInsight Hadoop 클러스터의 추가 컨테이너에 있을 수도 있습니다. 이 경우 *\<path to blob data\>* 는 *'wasb://\<container name>@\<storage account name>.blob.core.windows.net/\<blob file name>'* 형식이어야 합니다.
 
   > [!NOTE]
   > Hive 테이블에 업로드할 blob 데이터가 Hadoop 클러스터에 대한 스토리지 계정의 기본 또는 추가 컨테이너에 있어야 합니다. 그렇지 않으면 데이터에 액세스할 수 없기 때문에 *LOAD DATA* 쿼리가 실패합니다.
@@ -238,7 +238,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name>
 ```
 
 > [!NOTE]
-> TEXTFILE 테이블 *\<database name\> 입니다. \<external textfile table name\>* 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서 파티션 변수를 반환된 데이터 집합의 필드로 선택합니다. 에 삽입 *\<database name\> 합니다. \<ORC table name\>* 이후 실패 *\<database name\> 합니다 \<ORC table name\> .* 파티션 변수가 테이블 스키마의 필드로 포함되지 않기 때문입니다. 이 경우 삽입할 필드를 구체적으로 선택 해야 *\<database name\> 합니다. \<ORC table name\>* 선택해야 합니다.
+> *\<database name\>.\<external textfile table name\>* TEXTFILE 테이블에 파티션이 있으면 3단계의 `SELECT * FROM <database name>.<external textfile table name>` 명령에서 파티션 변수를 반환된 데이터 집합의 필드로 선택합니다. *\<database name\>.\<ORC table name\>* 에는 삽입할 수 없습니다. 이는 *\<database name\>.\<ORC table name\>* 에 파티션 변수가 테이블 스키마의 필드로 포함되지 않기 때문입니다. 이 경우 *\<database name\>.\<ORC table name\>* 에 삽입할 필드는 다음과 같이 구체적으로 선택해야 합니다.
 >
 >
 
@@ -249,7 +249,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition va
     WHERE <partition variable>=<partition value>;
 ```
 
-*\<external text file table name\>* 모든 데이터를에 삽입 한 후에는 다음 쿼리를 사용할 때를 삭제 하는 것이 안전 *\<database name\> 합니다. \<ORC table name\>*
+모든 데이터가 *\<database name\>.\<ORC table name\>* 에 삽입되면 다음 쿼리를 사용할 때 *\<external text file table name\>* 을 삭제하는 것이 안전합니다.
 
 ```hiveql
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;

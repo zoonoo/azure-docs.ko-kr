@@ -3,15 +3,15 @@ title: Azure Automation에서 Runbook 실행
 description: 이 문서에서는 Azure Automation에서 Runbook을 처리하는 방법에 대한 개요를 제공합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/23/2021
+ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0807b11adfc46b9c32a8f7bd36a2f7d4db519975
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: a0c734d7717f157ba062b1c9369be5dd95be03af
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107830523"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108278473"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -118,7 +118,13 @@ Runbook이 자격 증명을 통해 Azure에 대해 인증되려면 권한이 필
 
 ## <a name="modules"></a>모듈
 
-Azure Automation은 일부 AzureRM 모듈(AzureRM.Automation) 및 여러 내부 cmdlet을 포함하는 모듈을 비롯해 다양한 기본 모듈을 지원합니다. 현재 AzureRM 모듈보다 더 널리 사용되고 있는 Az 모듈(Az.Automation)을 비롯한 설치 가능한 모듈도 지원됩니다. Runbook 및 DSC 구성에서 사용할 수 있는 모듈에 대한 자세한 내용은 [Azure Automation에서 모듈 관리](shared-resources/modules.md)를 참조하세요.
+Azure Automation은 다음 PowerShell 모듈을 포함합니다.
+
+* Orchestrator.AssetManagement.Cmdlets - Azure 샌드박스 환경 또는 Windows Hybrid Runbook Worker에서 Notebook을 실행할 때에만 사용 가능한 여러 내부 cmdlet이 포함되어 있습니다. 이러한 cmdlet은 Azure PowerShell cmdlet 대신 사용하여 Automation 계정 리소스와 상호 작용하도록 설계되었습니다.
+* Az.Automation - AzureRM Automation 모듈을 대체하는 Azure Automation과 상호 작용하는 권장 PowerShell 모듈입니다. Az.Automation 모듈은 Automation 계정을 만들 때 자동으로 포함되지 않으며 이를 수동으로 가져와야 합니다. 
+* AzureRM.Automation - Automation 계정을 만들 때 기본적으로 설치됩니다. 
+
+또한 Runbook과 DSC 구성에 필요한 cmdlet에 따라 설치 가능한 모듈도 지원됩니다. Runbook 및 DSC 구성에서 사용할 수 있는 모듈에 대한 자세한 내용은 [Azure Automation에서 모듈 관리](shared-resources/modules.md)를 참조하세요.
 
 ## <a name="certificates"></a>인증서
 

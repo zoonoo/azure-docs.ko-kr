@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 8a6bfb1c6aa268914e6dd1157115067b15bfa404
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98786913"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Azure Portal을 사용하여 Azure Data Box Gateway에서 공유 관리 
@@ -36,7 +36,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
 공유를 만들려면 Azure Portal에서 다음 단계를 수행합니다.
 
-1. Azure Portal에서 Data Box Gateway 리소스로 이동한 다음 **개요** 로 이동 합니다. 명령 모음에서 **+ 공유 추가** 를 클릭합니다.
+1. Azure Portal에서 Data Box Gateway 리소스로 이동한 다음, **개요** 로 이동합니다. 명령 모음에서 **+ 공유 추가** 를 클릭합니다.
 2. **공유 추가** 에서 공유 설정을 지정합니다. 공유에 대한 고유한 이름을 제공합니다. 
 
     ![공유 추가 클릭](media/data-box-gateway-manage-shares/add-share-1.png)
@@ -47,7 +47,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
 4. 공유가 상주할 **스토리지 계정** 을 제공합니다. 컨테이너가 아직 없으면 스토리지 계정에 공유 이름이 포함된 컨테이너가 만들어집니다. 컨테이너가 이미 있으면 기존 컨테이너가 사용됩니다.  
 
-5. **스토리지 서비스** 는 블록 Blob, 페이지 Blob 또는 파일 중에서 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어이 인스턴스에서 데이터는 Azure에서 blob 블록으로 배치 하므로 **Blob 차단** 을 선택 합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
+5. **스토리지 서비스** 는 블록 Blob, 페이지 Blob 또는 파일 중에서 선택합니다. 선택하는 서비스 유형은 데이터를 Azure에 저장할 형식에 따라 달라집니다. 예를 들어, 이 인스턴스에서는 Azure에서 데이터가 Blob 블록으로 존재하기를 원하므로 **블록 Blob** 을 선택합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되었는지 확인해야 합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
 
    > [!IMPORTANT]
    > Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
@@ -62,7 +62,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
         ![NFS 공유 추가](media/data-box-gateway-manage-shares/add-share-3.png)
 
-7. **만들기** 를 클릭 하 여 공유를 만듭니다. 공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정 된 설정을 사용 하 여 공유를 만든 후 공유 **블레이드가 새** 공유를 반영 하도록 업데이트 됩니다.
+7. **만들기** 를 클릭하여 공유를 만듭니다. 공유 만들기가 진행 중이라는 알림이 표시됩니다. 지정한 설정으로 공유가 만들어지면 **공유** 블레이드를 업데이트하여 새 공유가 반영됩니다.
  
 ## <a name="delete-a-share"></a>공유 삭제
 
@@ -94,7 +94,7 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 
 1. Azure Portal에서 **공유** 로 이동합니다. 새로 고치려는 공유를 선택하고 클릭합니다.
 
-   ![공유 2 선택](media/data-box-gateway-manage-shares/refresh-1.png)
+   ![공유 선택 2](media/data-box-gateway-manage-shares/refresh-1.png)
 
 2. **새로 고침** 을 클릭합니다. 
 
@@ -122,13 +122,13 @@ Azure에 데이터를 전송하려면 Azure Data Box Gateway에 공유를 만들
 스토리지 액세스 키를 동기화하려면 Azure Portal에서 다음 단계를 수행합니다.
 
 1. 리소스에서 **개요** 로 이동합니다. 
-2. 공유 목록에서 동기화 해야 하는 저장소 계정과 연결 된 공유를 선택 하 고 클릭 합니다. **저장소 키 동기화** 를 클릭 합니다. 
+2. 공유 목록에서 동기화해야 하는 스토리지 계정과 연결된 공유를 선택하여 클릭합니다. **스토리지 키 동기화** 를 클릭합니다. 
 
      ![스토리지 키 동기화](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 
 3. 확인 메시지가 표시되면 **예** 를 클릭합니다. 동기화가 완료되면 대화 상자를 종료합니다.
 
-     ![저장소 키 동기화 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
+     ![스토리지 키 동기화 2](media/data-box-gateway-manage-shares/sync-storage-key-2.png)
 
 >[!NOTE]
 > 이 작업은 지정된 스토리지 계정에 대해 한 번만 수행하면 됩니다. 동일한 스토리지 계정에 연결된 모든 공유에 대해 이 작업을 반복할 필요가 없습니다.

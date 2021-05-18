@@ -1,15 +1,15 @@
 ---
-title: 엔터티 형식 나열-LUIS
+title: 목록 엔터티 형식 - LUIS
 description: 목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. 권장 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.openlocfilehash: 410b33b5c6078d096fa4b2acaa7b49bc14c95e31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97608275"
 ---
 # <a name="list-entity"></a>목록 엔터티
@@ -21,15 +21,15 @@ ms.locfileid: "97608275"
 **텍스트 데이터의 상태가 다음과 같은 경우 이 엔터티가 적합합니다.**
 
 * 알려진 세트입니다.
-* 자주 변경 되지 않습니다. 목록을 자주 변경 하거나 목록을 자체 확장 하려는 경우에는 문구 목록과 함께 간단한 엔터티를 사용 하는 것이 더 좋습니다.
+* 자주 변경되지 않습니다. 목록을 자주 변경해야 하거나 목록을 자체 확장하려는 경우에는 구문 목록이 향상된 단순 엔터티를 사용하는 것이 더 좋습니다.
 * 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-limits.md)를 초과하지 않습니다.
-* Utterance의 텍스트는 대/소문자를 구분 하지 않고 동의어 또는 정식 이름과 일치 합니다. LUIS는 일치 항목 이외의 목록을 사용 하지 않습니다. 유사 항목 일치, 형태소 분석, 복수 및 기타 변형은 목록 엔터티로 확인 되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
+* 발화의 텍스트는 대/소문자를 구분하지 않고 동의어 또는 정식 이름과 일치합니다. LUIS는 일치를 벗어나는 목록을 사용하지 않습니다. 유사 일치, 형태소 분석, 복수형 및 기타 변형은 목록 엔터티로 확인되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
 
 ![목록 엔터티](./media/luis-concept-entities/list-entity.png)
 
-## <a name="example-json-to-import-into-list-entity"></a>예제. json을 목록 엔터티로 가져오기
+## <a name="example-json-to-import-into-list-entity"></a>.json을 목록 엔터티로 가져오는 예
 
-  다음 json 형식을 사용 하 여 기존 목록 엔터티로 값을 가져올 수 있습니다.
+  다음과 같은 .json 형식을 사용하여 기존 목록 엔터티로 값을 가져올 수 있습니다.
 
   ```JSON
   [
@@ -85,7 +85,7 @@ ms.locfileid: "97608275"
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-이는 `verbose=false` 쿼리 문자열에가 설정 된 경우 JSON입니다.
+쿼리 문자열에 `verbose=false`가 설정된 경우의 JSON입니다.
 
 ```json
 "entities": {
@@ -97,7 +97,7 @@ ms.locfileid: "97608275"
 }
 ```
 
-이는 `verbose=true` 쿼리 문자열에가 설정 된 경우 JSON입니다.
+쿼리 문자열에 `verbose=true`가 설정된 경우의 JSON입니다.
 
 ```json
 "entities": {
@@ -128,11 +128,11 @@ ms.locfileid: "97608275"
 
 |데이터 개체|엔터티 이름|값|
 |--|--|--|
-|엔터티 나열|`Cities`|`paris`|
+|목록 엔터티|`Cities`|`paris`|
 
 ## <a name="next-steps"></a>다음 단계
 
-엔터티에 대 한 자세한 정보:
+엔터티에 대해 자세히 알아봅니다.
 
 * [개념](luis-concept-entity-types.md)
 * [만드는 방법](luis-how-to-add-entities.md)

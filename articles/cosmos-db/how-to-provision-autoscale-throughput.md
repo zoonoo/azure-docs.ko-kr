@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 52904296df77d9097a6180345388e8e702e2bca0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f47e86b89244cdc2ac41d72203a51b0d91effdb
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97357630"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227473"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Azure Cosmos DB - SQL API에서 데이터베이스 또는 컨테이너의 자동 크기 조정 처리량 프로비전
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -122,7 +122,7 @@ SQL API용 Azure Cosmos DB Java SDK의 [버전 4.0 이상](https://mvnrepository
 
 ### <a name="create-database-with-shared-throughput"></a>공유 처리량을 사용하여 데이터베이스 만들기
 
-#### <a name="async"></a>[비동기](#tab/api-async)
+# <a name="async"></a>[비동기](#tab/api-async)
 
 ```java
 // Create instance of CosmosClient
@@ -139,7 +139,7 @@ ThroughputProperties autoscaleThroughputProperties = ThroughputProperties.create
 CosmosAsyncDatabase database = client.createDatabase(databaseName, autoscaleThroughputProperties).block().getDatabase();
 ```
 
-#### <a name="sync"></a>[동기화](#tab/api-sync)
+# <a name="sync"></a>[동기화](#tab/api-sync)
 
 ```java
 // Create instance of CosmosClient
@@ -160,7 +160,7 @@ CosmosDatabase database = client.createDatabase(databaseName, autoscaleThroughpu
 
 ### <a name="create-container-with-dedicated-throughput"></a>전용 처리량을 사용하여 컨테이너 만들기
 
-#### <a name="async"></a>[비동기](#tab/api-async)
+# <a name="async"></a>[비동기](#tab/api-async)
 
 ```java
 // Get reference to database that container will be created in
@@ -176,7 +176,7 @@ CosmosAsyncContainer container = database.createContainer(autoscaleContainerProp
                                 .getContainer();
 ```
 
-#### <a name="sync"></a>[동기화](#tab/api-sync)
+# <a name="sync"></a>[동기화](#tab/api-sync)
 
 ```java
 // Get reference to database that container will be created in
@@ -195,7 +195,7 @@ CosmosContainer container = database.createContainer(autoscaleContainerPropertie
 
 ### <a name="read-the-current-throughput-rus"></a>현재 처리량(RU/s) 읽기
 
-#### <a name="async"></a>[비동기](#tab/api-async)
+# <a name="async"></a>[비동기](#tab/api-async)
 
 ```java
 // Get a reference to the resource
@@ -211,7 +211,7 @@ int autoscaleMaxThroughput = autoscaleContainerThroughput.getAutoscaleMaxThrough
 int currentThroughput = autoscaleContainerThroughput.Throughput;
 ```
 
-#### <a name="sync"></a>[동기화](#tab/api-sync)
+# <a name="sync"></a>[동기화](#tab/api-sync)
 
 ```java
 // Get a reference to the resource
@@ -231,14 +231,14 @@ int currentThroughput = autoscaleContainerThroughput.Throughput;
 
 ### <a name="change-the-autoscale-max-throughput-rus"></a>자동 크기 조정 최대 처리량(RU/s) 변경
 
-#### <a name="async"></a>[비동기](#tab/api-async)
+# <a name="async"></a>[비동기](#tab/api-async)
 
 ```java
 // Change the autoscale max throughput (RU/s)
 container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newAutoscaleMaxThroughput)).block();
 ```
 
-#### <a name="sync"></a>[동기화](#tab/api-sync)
+# <a name="sync"></a>[동기화](#tab/api-sync)
 
 ```java
 // Change the autoscale max throughput (RU/s)
@@ -249,15 +249,15 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 
-Azure Resource Manager 템플릿을 사용하여 모든 Azure Cosmos DB API에 대한 데이터베이스 또는 컨테이너 레벨 리소스의 자동 크기 조정 처리량을 프로비전할 수 있습니다. 샘플은 [Azure Cosmos DB의 Azure Resource Manager 템플릿](./templates-samples-sql.md)을 참조하세요.
+Azure Resource Manager 템플릿은 데이터베이스에서 자동 크기 조정 처리량을 프로비저닝하거나 모든 Azure Cosmos DB API에 대해 컨테이너 수준 리소스를 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB용 Azure Resource Manager 템플릿](./templates-samples-sql.md)에서 샘플을 확인하십시오.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI을 사용하여 모든 Azure Cosmos DB API에 대한 데이터베이스 또는 컨테이너 레벨 리소스에 자동 크기 조정 처리량을 프로비전할 수 있습니다. 샘플은 [Azure Cosmos DB의 Azure CLI 샘플](cli-samples.md)을 참조하세요.
+Azure CLI는 데이터베이스에서 자동 크기 조정 처리량을 프로비저닝하거나 모든 Azure Cosmos DB API에 대해 컨테이너 수준 리소스를 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB에 대한 Azure CLI 샘플](cli-samples.md)에서 샘플을 확인하십시오.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell을 사용하여 모든 Azure Cosmos DB API에 대한 데이터베이스 또는 컨테이너 레벨 리소스의 자동 크기 조정 처리량을 프로비전할 수 있습니다. 샘플은 [Azure Cosmos DB의 Azure PowerShell 샘플](powershell-samples.md)을 참조하세요.
+Azure PowerShell은 데이터베이스에서 자동 크기 조정 처리량을 프로비저닝하거나 모든 Azure Cosmos DB API에 대해 컨테이너 수준 리소스를 프로비저닝하는 데 사용될 수 있습니다. [Azure Cosmos DB에 대한 Azure PowerShell 샘플](powershell-samples.md)에서 샘플을 확인하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

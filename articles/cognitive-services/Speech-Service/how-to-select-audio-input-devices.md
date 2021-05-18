@@ -1,7 +1,7 @@
 ---
 title: Speech SDK를 사용하여 오디오 입력 디바이스를 선택하는 방법
 titleSuffix: Azure Cognitive Services
-description: '시스템에 연결 된 오디오 장치의 Id를 가져와 음성 SDK (c + +, c #, Python, 목표-C, Java, JavaScript)에서 오디오 입력 장치를 선택 하는 방법에 대해 알아봅니다.'
+description: '시스템에 연결된 오디오 디바이스의 ID를 가져와서 Speech SDK(C++, C #, Python, Objective-C, Java, JavaScript)에서 오디오 입력 디바이스를 선택하는 방법을 알아봅니다.'
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -12,13 +12,13 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ms.custom: devx-track-js
 ms.openlocfilehash: 48316d571eac835dd5d4ec7d225048f4fdcdf237
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95026610"
 ---
-# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: 음성 SDK를 사용 하 여 오디오 입력 장치 선택
+# <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>방법: Speech SDK를 사용하여 오디오 입력 디바이스 선택
 
 Speech SDK 버전 1.3.0은 오디오 입력을 선택하는 API를 도입합니다. 이 문서에서는 시스템에 연결된 오디오 디바이스의 ID를 가져오는 방법을 설명합니다. 그러면 `AudioConfig` 개체를 통해 오디오 디바이스를 구성하여 Speech SDK에서 이러한 ID를 사용할 수 있습니다.
 
@@ -180,7 +180,7 @@ namespace ConsoleApp
 
 ## <a name="audio-device-ids-on-uwp"></a>UWP의 오디오 디바이스 ID
 
-UWP (유니버설 Windows 플랫폼)에서 `Id()` 해당 개체의 속성을 사용 하 여 오디오 입력 장치를 가져올 수 있습니다 [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) .
+UWP(유니버설 Windows 플랫폼)에서 오디오 입력 디바이스는 해당 [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) 개체의 `Id()` 속성을 사용하여 가져올 수 있습니다.
 
 다음 코드 샘플에서는 C++ 및 C#에서 이 작업을 수행하는 방법을 보여 줍니다.
 
@@ -370,7 +370,7 @@ CFArrayRef CreateInputDeviceArray()
 
 ## <a name="audio-device-ids-on-ios"></a>iOS의 오디오 디바이스 ID
 
-iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용 하는 앱은 프레임 워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) .
+iOS에서는 Speech SDK를 사용하여 오디오 디바이스를 선택할 수 없습니다. 그러나 SDK를 사용하는 앱은 [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) 프레임워크를 통한 오디오 라우팅에 영향을 줄 수 있습니다.
 
 예를 들어 다음 명령은
 

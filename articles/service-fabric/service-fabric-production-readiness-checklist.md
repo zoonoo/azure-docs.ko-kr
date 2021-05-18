@@ -3,12 +3,12 @@ title: Azure Service Fabric 프로덕션 준비 검사 목록
 description: 모범 사례에 따라 Service Fabric 애플리케이션 및 클러스터 프로덕션을 준비합니다.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5872de420b72f9b453c4b64cd7790a14c0d5d305
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87835870"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732203"
 ---
 # <a name="production-readiness-checklist"></a>프로덕션 준비 검사 목록
 
@@ -34,7 +34,7 @@ ms.locfileid: "87835870"
 1. 프로덕션 클러스터에서 자동 업그레이드를 끄고, 개발 및 스테이징 클러스터에서 켭니다(필요한 경우 롤백). 
 1. 서비스에 대해 RPO(복구 지점 목표)를 설정하고, [재해 복구 프로세스](service-fabric-disaster-recovery.md)를 설정한 후 테스트합니다.
 1. 수동 또는 프로그래밍 방식의 클러스터 [크기 조정](service-fabric-cluster-scaling.md)을 계획합니다.
-1. 클러스터 노드 [패치 적용](service-fabric-patch-orchestration-application.md)을 계획합니다. 
+1. 클러스터 노드 [패치 적용](how-to-patch-cluster-nodes-windows.md)을 계획합니다. 
 1. 최신 변경 내용이 지속적으로 테스트되도록 CI/CD 파이프라인을 설정합니다. 예를 들어 [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) 또는 [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)를 사용합니다.
 1. [Fault Analysis Service](service-fabric-testability-overview.md)를 사용하여 부하 상태에서 개발 및 스테이징 클러스터를 테스트하고, 제어된 [혼란](service-fabric-controlled-chaos.md)을 유도합니다. 
 1. 애플리케이션 [크기 조정](service-fabric-concepts-scalability.md)을 계획합니다. 

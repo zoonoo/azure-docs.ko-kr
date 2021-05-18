@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 6006a56fd9a8ed6bcb323aebb4e075fa42a2966e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341879"
 ---
-# <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE (Azure Cosmos DB)
+# <a name="is_primitive-azure-cosmos-db"></a>IS_PRIMITIVE(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정한 식의 형식이 기본 형식(문자열, 부울, 숫자 또는 null)인지 여부를 나타내는 부울 값을 반환합니다.  
@@ -37,7 +37,7 @@ IS_PRIMITIVE(<expr>)
   
 ## <a name="examples"></a>예
   
-  다음 예제에서는 함수를 사용 하 여 JSON 부울, 숫자, 문자열, null, 개체, 배열 및 정의 되지 않은 형식의 개체를 검사 합니다 `IS_PRIMITIVE` .  
+  다음 예제에서는 `IS_PRIMITIVE` 함수를 사용하여 JSON 부울, 숫자, 문자열, Null, 개체, 배열 및 정의되지 않은 형식의 개체를 확인합니다.  
   
 ```sql
 SELECT   

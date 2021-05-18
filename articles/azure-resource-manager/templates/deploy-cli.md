@@ -3,12 +3,12 @@ title: Azure CLI 및 템플릿으로 리소스 배포
 description: Azure Resource Manager와 Azure CLI를 사용하여 Azure에 리소스를 배포합니다. 리소스는 Resource Manager 템플릿 또는 Bicep 파일에 정의됩니다.
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: ddcb9adad545f27dfe29f3a9354520b0e141e933
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b19dc6cc292306cc796f8c1d8f93b358a079d83b
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108737084"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105544437"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>ARM 템플릿 및 Azure CLI를 사용하여 리소스 배포
 
@@ -24,13 +24,13 @@ Azure CLI가 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 
 리소스 그룹, 구독, 관리 그룹 또는 테넌트를 배포 대상으로 지정할 수 있습니다. 배포의 범위에 따라 다른 명령을 사용합니다.
 
-* **리소스 그룹** 에 배포하려면 [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용합니다.
+* **리소스 그룹** 에 배포하려면 [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)를 사용합니다.
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
-* **구독** 에 배포하려면 [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create)를 사용합니다.
+* **구독** 에 배포하려면 [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)를 사용합니다.
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
@@ -38,7 +38,7 @@ Azure CLI가 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 
   구독 수준 배포에 대한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조하세요.
 
-* **관리 그룹** 에 배포하려면 [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create)를 사용합니다.
+* **관리 그룹** 에 배포하려면 [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)를 사용합니다.
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
@@ -46,7 +46,7 @@ Azure CLI가 설치되어 있지 않으면 Azure Cloud Shell을 사용할 수 �
 
   관리 그룹 수준 배포에 대한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조하세요.
 
-* **테넌트** 에 배포하려면 [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)를 사용합니다.
+* **테넌트** 에 배포하려면 [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)를 사용합니다.
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
@@ -103,7 +103,7 @@ az group create --name ExampleGroup --location "Central US"
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json" \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -143,7 +143,7 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 
 그러나 `storage1`이라는 스토리지 계정을 배포하는 `newStorage`라는 배포를 실행하고 배포가 완료된 직후에 `storage2`라는 스토리지 계정을 배포하는 `newStorage`라는 다른 배포를 실행하면 두 개의 스토리지 계정이 배포됩니다. 하나는 `storage1`이고 다른 하나는 `storage2`입니다. 그러나 배포 기록에는 하나의 항목만 기록됩니다.
 
-각 배포에 고유한 이름을 지정하는 경우 충돌 없이 동시에 실행할 수 있습니다. `storage1`이라는 스토리지 계정을 배포하는 `newStorage1`이라는 배포를 실행하는 동시에 `storage2`라는 스토리지 계정을 배포하는 `newStorage2`라는 다른 배포를 실행하면 두 개의 스토리지 계정이 배포되고 배포 기록에 두 개의 항목이 기록됩니다.
+각 배포에 고유한 이름을 지정하는 경우 충돌없이 동시에 실행할 수 있습니다. `storage1`이라는 스토리지 계정을 배포하는 `newStorage1`이라는 배포를 실행하는 동시에 `storage2`라는 스토리지 계정을 배포하는 `newStorage2`라는 다른 배포를 실행하면 두 개의 스토리지 계정이 배포되고 배포 기록에 두 개의 항목이 기록됩니다.
 
 동시 배포와의 충돌을 방지하고 배포 기록에서 고유한 항목이 기록되게 하려면 각 배포에 고유한 이름을 지정합니다.
 
@@ -152,7 +152,7 @@ deploymentName='ExampleDeployment'$(date +"%d-%b-%Y")
 > [!NOTE]
 > 현재 Azure CLI은 Bicep 파일을 제공하여 템플릿 사양을 만드는 것을 지원하지 않습니다. 그러나 [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) 리소스를 사용하여 Bicep 파일을 만들어 템플릿 사양을 배포할 수 있습니다. 여기에서 [예제](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)를 확인할 수 있습니다.
 
-로컬 또는 원격 템플릿을 배포하는 대신 [템플릿 사양](template-specs.md)을 만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함하는 Azure 구독의 리소스입니다. 이를 통해 조직의 사용자와 안전하게 템플릿을 공유할 수 있습니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 템플릿 사양에 대한 액세스 권한을 부여합니다. 이 기능은 현재 미리 보기로 제공됩니다.
+로컬 또는 원격 템플릿을 배포하는 대신 [템플릿 사양](template-specs.md)을 만들 수 있습니다. 템플릿 사양은 ARM 템플릿을 포함하는 Azure 구독의 리소스입니다. 이를 통해 조직의 사용자와 템플릿을 쉽고 안전하게 공유할 수 있습니다. Azure RBAC(역할 기반 액세스 제어)를 사용하여 템플릿 사양에 대한 액세스 권한을 부여합니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
 다음 예제에서는 템플릿 사양을 만들고 배포하는 방법을 보여 줍니다.
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 6f2dfdbb5833b34441b4abba7359ad70c4717d1d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98602158"
 ---
 # <a name="set-up-web-endpoints"></a>웹 엔드포인트 설정
@@ -41,7 +41,7 @@ ms.locfileid: "98602158"
    > [!div class="mx-imgBorder"]
    > ![새 웹 엔드포인트](media/custom-commands/setup-web-endpoint-new-endpoint.png)
 
-   | 설정 | 제안 값 | 설명 |
+   | 설정 | 제안 값 | Description |
    | ------- | --------------- | ----------- |
    | 이름 | UpdateDeviceState | 웹 엔드포인트의 이름입니다. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | 사용자 지정 명령 앱에서 통신할 엔드포인트의 URL입니다. |
@@ -79,7 +79,7 @@ ms.locfileid: "98602158"
     **간단한 편집기** 에서 `{SubjectDevice} is {OnOff}`를 입력합니다.
 
    > [!div class="mx-imgBorder"]
-   > ![성공 시-실행 화면 작업을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![성공 시 - 실행할 작업 화면을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | 설정 | 제안 값 | 설명 |
    | ------- | --------------- | ----------- |
@@ -107,7 +107,7 @@ ms.locfileid: "98602158"
 - 성공 시 응답
 저장, 학습 및 테스트
    > [!div class="mx-imgBorder"]
-   > ![성공 응답을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![성공 시 응답을 보여 주는 스크린샷](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - 실패 시 응답
 쿼리 매개 변수 중 하나 제거, 저장, 학습 및 테스트
    > [!div class="mx-imgBorder"]
@@ -205,5 +205,5 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용자 지정 명령 응용 프로그램을 원격 기술로 내보내기](./how-to-custom-commands-integrate-remote-skills.md)
+> [사용자 지정 명령 애플리케이션을 원격 기술로 내보내기](./how-to-custom-commands-integrate-remote-skills.md)
 

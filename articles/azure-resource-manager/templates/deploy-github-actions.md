@@ -3,17 +3,17 @@ title: GitHub Actions를 사용하여 Resource Manager 템플릿 배포
 description: GitHub Actions를 사용하여 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure, devx-track-azurecli
-ms.openlocfilehash: 564a21d565fb80eba605eece95562a809a93246f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: github-actions-azure
+ms.openlocfilehash: fb14c6e452ea4923ece7561ca8af968626f4af77
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471925"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108737030"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>GitHub Actions를 사용하여 ARM 템플릿 배포
 
-[GitHub Actions](https://docs.github.com/en/actions)는 코드를 저장하고 끌어오기 요청 및 이슈에 대해 공동 작업하는 곳과 동일한 위치에서 소프트웨어 개발 워크플로를 자동화하는 GitHub의 기능 모음입니다.
+[GitHub Actions](https://docs.github.com/en/actions)는 코드를 저장하고 풀 요청 및 문제에 대해 공동 작업하는 것과 동일한 위치에서 소프트웨어 개발 워크플로를 자동화하는 GitHub의 기능 모음입니다.
 
 [Azure Resource Manager 템플릿 배포 작업](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template)을 사용하여 Azure에 대한 ARM 템플릿(Azure Resource Manager 템플릿) 배포를 자동화할 수 있습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "103471925"
 ## <a name="generate-deployment-credentials"></a>배포 자격 증명 생성
 
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용하여 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)를 만들 수 있습니다. 이 명령은 Azure Portal에서 [Azure Cloud Shell](https://shell.azure.com/)을 사용하거나 **사용해 보세요** 단추를 선택하여 실행합니다.
 
 아직 없는 경우 리소스 그룹을 만듭니다.
 
@@ -88,7 +88,7 @@ Azure 자격 증명, 리소스 그룹 및 구독의 비밀을 만들어야 합�
 GitHub 리포지토리에 Resource Manager 템플릿을 추가합니다. 이 템플릿으로 스토리지 계정을 만듭니다.
 
 ```url
-https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
+https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json
 ```
 
 파일을 리포지토리의 어디에나 배치할 수 있습니다. 다음 섹션의 워크플로 샘플에서는 템플릿 파일의 이름이 **azuredeploy.json** 이고 리포지토리의 루트에 저장된다고 가정합니다.

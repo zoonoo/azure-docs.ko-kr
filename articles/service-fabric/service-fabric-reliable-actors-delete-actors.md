@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 행위자 삭제
-description: Azure Service Fabric 응용 프로그램에서 Reliable Actors 및 해당 상태를 수동으로 및 완전히 삭제 하는 방법에 대해 알아봅니다.
+title: Azure Service Fabric 작업자 삭제
+description: Azure Service Fabric 애플리케이션에서 Reliable Actors 및 해당 상태를 수동으로 및 완전히 삭제하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 16d4ab6a3c155f897cf9212fb1cd6c34d977b9ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96574023"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Reliable Actors 및 해당 상태 삭제
@@ -46,10 +46,10 @@ myActorServiceProxy.deleteActorAsync(actorToDelete);
 Reliable Actors에 대한 자세한 내용은 다음을 참조하세요.
 * [행위자 타이머 및 미리 알림](service-fabric-reliable-actors-timers-reminders.md)
 * [행위자 이벤트](service-fabric-reliable-actors-events.md)
-* [행위자 재입력](service-fabric-reliable-actors-reentrancy.md)
+* [행위자 다시 표시](service-fabric-reliable-actors-reentrancy.md)
 * [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [행위자 API 참조 설명서](/previous-versions/azure/dn971626(v=azure.100))
-* [C # 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# 샘플 코드](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Java 샘플 코드](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->

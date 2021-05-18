@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: a3f423a144738fdaa4462606de6ad4a4e34d6775
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-csharp, devx-track-python
+ms.openlocfilehash: 478f8be017ced99776a0b69ef034d54ba8075c6e
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97563418"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076800"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
@@ -248,7 +248,7 @@ JavaScript 앱이 Windows 네이티브 모듈에 대한 종속성이 있는 경�
 
 ## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Azure CLI를 사용하여 빌드 파이프라인 생성
 
-Azure에서 빌드 파이프라인을 생성하려면 `az functionapp devops-pipeline create` [명령](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)을 사용하세요. 빌드 파이프라인은 리포지토리에서 만들어진 모든 코드 변경을 빌드하고 릴리스하기 위해 생성됩니다. 명령어는 빌드 및 릴리스 파이프라인을 정의하는 새 YAML 파일을 생성한 다음 이를 사용자의 리포지토리에 커밋합니다. 이 명령의 사전 요구 사항은 코드의 위치에 따라 달라집니다.
+Azure에서 빌드 파이프라인을 생성하려면 `az functionapp devops-pipeline create` [명령](/cli/azure/functionapp/devops-pipeline#az_functionapp_devops_pipeline_create)을 사용하세요. 빌드 파이프라인은 리포지토리에서 만들어진 모든 코드 변경을 빌드하고 릴리스하기 위해 생성됩니다. 명령어는 빌드 및 릴리스 파이프라인을 정의하는 새 YAML 파일을 생성한 다음 이를 사용자의 리포지토리에 커밋합니다. 이 명령의 사전 요구 사항은 코드의 위치에 따라 달라집니다.
 
 - 코드가 GitHub에 있는 경우:
 

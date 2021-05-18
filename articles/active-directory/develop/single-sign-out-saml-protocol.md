@@ -13,17 +13,17 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 040e49ee870704107e1d4118f1484119d98a9ebf
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104781214"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
 
-Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL** 이 Azure AD에 명시적으로 등록되어야 합니다. 앱이 [Azure 앱 갤러리에 추가](v2-howto-app-gallery-listing.md) 되 면 기본적으로이 값을 설정할 수 있습니다. 그렇지 않으면 앱을 Azure AD 테 넌 트에 추가 하는 사람이 값을 결정 하 고 설정 해야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다. 
+Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 애플리케이션 등록 중에 애플리케이션에 대한 **LogoutURL** 이 Azure AD에 명시적으로 등록되어야 합니다. 앱이 [Azure 앱 갤러리에 추가](v2-howto-app-gallery-listing.md)되면 기본값으로 이 값을 설정할 수 있습니다. 그렇지 않으면 앱을 Azure AD 테넌트에 추가하는 사람이 값을 결정하고 설정해야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다. 
 
-Azure AD는 HTTP POST 바인딩이 아닌 리디렉션 바인딩 (HTTP GET)을 지원 합니다.
+Azure AD는 HTTP POST 바인딩이 아닌 리디렉션 바인딩(HTTP GET)을 지원합니다.
 
 다음 다이어그램에서는 Azure AD Single Sign-Out 프로세스의 워크플로를 보여 줍니다.
 
@@ -73,4 +73,4 @@ Azure AD는 이 값을 `https://login.microsoftonline.com/<TenantIdGUID>/`로 �
 `Issuer` 요소 값을 평가하려면 애플리케이션 등록 중에 제공한 **앱 ID URI** 값을 사용합니다.
 
 ### <a name="status"></a>상태
-Azure AD는 요소의 요소를 사용 하 여 `StatusCode` `Status` 로그 아웃 성공 또는 실패를 표시 합니다. 로그 아웃 시도가 실패 하면 `StatusCode` 요소에 사용자 지정 오류 메시지가 포함 될 수도 있습니다.
+Azure AD는 `Status` 요소의 `StatusCode` 요소를 사용하여 로그아웃 성공 또는 실패를 표시합니다. 로그아웃 시도가 실패하면 `StatusCode` 요소에 사용자 지정 오류 메시지가 포함될 수도 있습니다.

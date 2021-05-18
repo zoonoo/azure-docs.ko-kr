@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 2eb6bcb2fcaeb3afddfb8605b9065766fa0af5ee
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 677ce4e66a3d9f870e21785327f382b9974b2cdf
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130573"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748658"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-holmes"></a>자습서: Holmes와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -36,8 +36,6 @@ ms.locfileid: "108130573"
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
-
-* Holmes에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-holmes-from-the-gallery"></a>갤러리에서 Holmes 추가
 
@@ -74,18 +72,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+2. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    **식별자** 텍스트 상자에 `https://<WorkspaceID>.holmescloud.com` 패턴을 사용하여 URL을 입력합니다.
+   1. **식별자** 텍스트 상자에서 다음 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
-
-    **로그온 URL** 텍스트 상자에 `https://www.holmescloud.com/login` URL을 입력합니다.
+      `https://<WorkspaceID>.holmescloud.com`
+      
+   1. **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 `https://holmescloud.com/sso/acs`를 입력합니다.
+   
+   1. **로그아웃 URL** 텍스트 상자에 `https://holmescloud.com/sso/logout`을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 실제 식별자로 값을 업데이트하세요. 이 값을 얻으려면 [Holmes 클라이언트 지원 팀](mailto:team-dev@holmescloud.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > Holmes 관리자 페이지를 참조하는 실제 식별자로 값을 업데이트합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+3. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -103,7 +103,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
    1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기** 를 클릭합니다.
+   1. **만들기** 를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -115,15 +115,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
 
 ## <a name="configure-holmes-sso"></a>Holmes SSO 구성
 
-**Holmes** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 [Holmes 지원 팀](mailto:team-dev@holmescloud.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Holmes** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 적절히 복사한 URL을 Holmes 관리자 페이지에 등록해야 합니다. 
 
 ### <a name="create-holmes-test-user"></a>Holmes 테스트 사용자 만들기
 
-이 섹션에서는 Holmes에서 Britta Simon이라는 사용자를 만듭니다. [Holmes 지원 팀](mailto:team-dev@holmescloud.com)과 협력하여 Holmes 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 Holmes에서 B.Simon이라는 사용자를 만듭니다. Holmes 멤버 관리 페이지에서 사용자를 생성/초대할 수 있습니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

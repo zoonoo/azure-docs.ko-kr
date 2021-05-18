@@ -4,13 +4,13 @@ description: ZIP 파일(또는 Java 개발자의 경우 WAR 파일)을 사용하
 ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
-ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c4fdf78096f6f8b46c601440db6604cec6c61c99
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 150f6b57f1dec0b6d925ef53b4a7001ae9f23607
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074370"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97007911"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -31,7 +31,7 @@ WAR 파일 배포를 사용하면 [WAR](https://wikipedia.org/wiki/WAR_(file_for
 > [!NOTE]
 > `ZipDeploy`을 사용하는 경우 타임 스탬프가 이미 배포된 것과 일치하지 않는 경우에만 파일이 복사됩니다. 출력을 캐시하는 빌드 프로세스를 사용하여 zip을 생성하면 배포 속도가 빨라질 수 있습니다. 자세한 내용은 [zip 파일이나 url에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 단계를 완료하려면 [App Service 앱을 만들거나](./index.yml)다른 자습서에 대해 만든 앱을 사용합니다.
 
@@ -44,7 +44,7 @@ WAR 파일 배포를 사용하면 [WAR](https://wikipedia.org/wiki/WAR_(file_for
 
 ## <a name="deploy-zip-file-with-azure-cli"></a>Azure CLI를 사용하여 ZIP 파일 배포
 
-[az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config_zip) 명령을 사용하여 업로드된 ZIP 파일을 웹앱에 배포합니다.  
+[az webapp deployment source config-zip](/cli/azure/webapp/deployment/source#az-webapp-deployment-source-config-zip) 명령을 사용하여 업로드된 ZIP 파일을 웹앱에 배포합니다.  
 
 다음 예제에서는 업로드한 ZIP 파일을 배포합니다. Azure CLI의 로컬 설치를 사용할 경우 `--src`에 대해 로컬 ZIP 파일 경로를 지정합니다.
 

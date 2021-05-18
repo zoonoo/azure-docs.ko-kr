@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 66ec0d4b09dc983eb898d63d45b3dd7cab291c4c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e344c849a8e9021daea9caebacec3289b99d03e6
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928667"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256670"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Jumio를 구성하기 위한 자습서
 
@@ -46,7 +46,7 @@ Jumio 통합에는 다음 구성 요소가 포함됩니다.
 
 ![Jumio과의 Azure AD B2C 통합 아키텍처 다이어그램.](./media/partner-jumio/jumio-architecture-diagram.png)
 
-|단계 | 설명 |
+|단계 | Description |
 |:-----| :-----------|
 | 1. | 사용자가 로그인하거나 등록하여 계정을 만들기 위해 페이지에 도착합니다. Azure AD B2C가 사용자 특성을 수집합니다.
 | 2. | Azure AD B2C는 중간 API를 호출하고 사용자 특성을 전달합니다.
@@ -91,7 +91,7 @@ Jumio 계정을 만든 후에는 계정을 사용하여 Azure AD B2C를 구성�
 
 문자 및 숫자만 포함된 64자 보다 긴 임의의 문자열을 만듭니다.
 
-예: ``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
+``C9CB44D98642A7062A0D39B94B6CDC1E54276F2E7CFFBF44288CEE73C08A8A65``
 
 다음 샘플 PowerShell 스크립트를 사용하여 문자열을 만듭니다.
 
@@ -104,7 +104,7 @@ Jumio 계정을 만든 후에는 계정을 사용하여 Azure AD B2C를 구성�
 
 [Azure App Service에서 애플리케이션 설정을 구성](../app-service/configure-common.md#configure-app-settings)할 수 있습니다. 이 방법을 사용하면 설정을 리포지토리로 체크인하지 않고도 안전하게 구성할 수 있습니다. Rest API에 대한 다음 설정을 제공해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |JumioSettings:AuthUsername | Jumio 계정 구성 |     |
 |JumioSettings: AuthPassword | Jumio 계정 구성 |     |
@@ -139,7 +139,7 @@ Jumio 계정을 만든 후에는 계정을 사용하여 Azure AD B2C를 구성�
 
 1. 정책 폴더의 [Azure AD B2C 정책](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Jumio/Policies)으로 이동합니다.
 
-2. [이 문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)에 따라 [LocalAccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
+2. [이 문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)에 따라 [LocalAccounts 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드합니다.
 
 3. Azure AD B2C 테넌트에 대한 정책을 구성합니다.
 
@@ -166,8 +166,8 @@ Jumio 계정을 만든 후에는 계정을 사용하여 Azure AD B2C를 구성�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요:
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

@@ -1,7 +1,7 @@
 ---
 title: 음성 SDK를 사용하여 클라이언트 앱과 통합
 titleSuffix: Azure Cognitive Services
-description: UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 요청을 수행 하는 방법입니다.
+description: UWP 애플리케이션에서 실행되는 Speech SDK에서 게시된 사용자 지정 명령 애플리케이션에 대한 요청을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -12,60 +12,60 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fa3a6d16b79800043bdcd3f183dd86fa278dd1a9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95026030"
 ---
-# <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용 하 여 클라이언트 응용 프로그램과 통합
+# <a name="integrate-with-a-client-application-using-speech-sdk"></a>Speech SDK를 사용하여 클라이언트 애플리케이션과 통합
 
-이 문서에서는 UWP 응용 프로그램에서 실행 되는 음성 SDK에서 게시 된 사용자 지정 명령 응용 프로그램에 대 한 요청을 수행 하는 방법에 대해 알아봅니다. 사용자 지정 명령 응용 프로그램에 대 한 연결을 설정 하려면 다음이 필요 합니다.
+이 문서에서는 UWP 애플리케이션에서 실행되는 Speech SDK에서 게시된 사용자 지정 명령 애플리케이션에 대한 요청을 만드는 방법을 알아봅니다. 사용자 지정 명령 애플리케이션에 대한 연결을 설정하려면 다음이 필요합니다.
 
-- 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 ID)
-- Speech SDK를 사용 하 여 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 하는 UWP (유니버설 Windows 플랫폼) 클라이언트 앱 만들기
+- 사용자 지정 명령 애플리케이션을 게시하고 애플리케이션 식별자(앱 ID) 가져오기
+- Speech SDK를 사용하여 사용자 지정 명령 애플리케이션과 통신할 수 있도록 UWP(유니버설 Windows 플랫폼) 클라이언트 앱 만들기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 만들지 않은 경우 빠른 시작을 수행 하 여 다음을 수행할 수 있습니다.
+이 문서를 완료하려면 사용자 지정 명령 애플리케이션이 필요합니다. 사용자 지정 명령 애플리케이션을 만들지 않은 경우 빠른 시작에 따라 만들 수 있습니다.
 > [!div class = "checklist"]
-> * [사용자 지정 명령 응용 프로그램 만들기](quickstart-custom-commands-application.md)
+> * [사용자 지정 명령 애플리케이션 만들기](quickstart-custom-commands-application.md)
 
-다음도 필요 합니다.
+또한 다음이 필요합니다.
 > [!div class = "checklist"]
-> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드는 Visual Studio 2019을 기반으로 합니다.
-> * Speech Service에 대한 Azure 구독 키. [무료로 다운로드](overview.md#try-the-speech-service-for-free) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드는 Visual Studio 2019를 기반으로 합니다.
+> * Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [체험 계정을 가져오거나](overview.md#try-the-speech-service-for-free) 새로 만듭니다.
 > * [디바이스를 개발에 사용하도록 설정](/windows/uwp/get-started/enable-your-device-for-development)
 
-## <a name="step-1-publish-custom-commands-application"></a>1 단계: 사용자 지정 명령 응용 프로그램 게시
+## <a name="step-1-publish-custom-commands-application"></a>1단계: 사용자 지정 명령 애플리케이션 게시
 
-1. 이전에 만든 사용자 지정 명령 응용 프로그램 열기
-1. **설정** 으로 이동 하 고 **LUIS 리소스** 를 선택 합니다.
-1. **예측 리소스가** 할당 되지 않은 경우 쿼리 예측 키를 선택 하거나 새로 만듭니다.
+1. 이전에 만든 사용자 지정 명령 애플리케이션을 엽니다.
+1. **설정** 으로 이동하여 **LUIS 리소스** 를 선택합니다.
+1. **예측 리소스** 가 할당되지 않은 경우 쿼리 예측 키를 선택하거나 새로 만듭니다.
 
-    응용 프로그램을 게시 하기 전에 쿼리 예측 키가 항상 필요 합니다. LUIS 리소스에 대 한 자세한 내용은 [LUIS 리소스 만들기](../luis/luis-how-to-azure-subscription.md) 를 참조 하세요.
+    애플리케이션을 게시하기 전에 항상 쿼리 예측 키가 필요합니다. LUIS 리소스에 대한 자세한 내용은 [LUIS 리소스 만들기](../luis/luis-how-to-azure-subscription.md)를 참조하세요.
 
-1. 편집 명령으로 돌아가서 **게시** 를 선택 합니다.
+1. 명령 편집으로 돌아가서 **게시** 를 선택합니다.
 
    > [!div class="mx-imgBorder"]
    > ![애플리케이션 게시](media/custom-commands/setup-speech-sdk-publish-application.png)
 
-1. 나중에 사용 하기 위해 게시 알림에서 앱 ID를 복사 합니다.
-1. 나중에 사용 하기 위해 음성 리소스 키를 복사 합니다.
+1. 나중에 사용할 수 있도록 게시 알림에서 앱 ID를 복사합니다.
+1. 나중에 사용할 수 있도록 음성 리소스 키를 복사합니다.
 
-## <a name="step-2-create-a-visual-studio-project"></a>2 단계: Visual Studio 프로젝트 만들기
+## <a name="step-2-create-a-visual-studio-project"></a>2단계: Visual Studio 프로젝트 만들기
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-## <a name="step-3-add-sample-code"></a>3 단계: 샘플 코드 추가
+## <a name="step-3-add-sample-code"></a>3단계: 샘플 코드 추가
 
-이 단계에서는 응용 프로그램의 사용자 인터페이스를 정의 하는 XAML 코드를 추가 하 고 c # 코드 뒤 구현을 추가 합니다.
+이 단계에서 애플리케이션의 사용자 인터페이스를 정의하는 XAML 코드를 추가하고, C# 코드 숨김 구현을 추가합니다.
 
 ### <a name="xaml-code"></a>XAML 코드
 
-XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스를 만듭니다.
+XAML 코드를 추가하여 애플리케이션의 사용자 인터페이스를 만듭니다.
 
-1. **솔루션 탐색기** 에서를 엽니다.`MainPage.xaml`
+1. **솔루션 탐색기** 에서 `MainPage.xaml`을 엽니다.
 
 1. 디자이너의 XAML 보기에서 전체 콘텐츠를 다음 코드 조각으로 바꿉니다.
 
@@ -118,18 +118,18 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 ### <a name="c-code-behind-source"></a>C# 코드 숨김 원본
 
-응용 프로그램이 예상 대로 작동 하도록 코드 숨김이 소스를 추가 합니다. 코드 숨김 원본은 다음을 포함합니다.
+애플리케이션이 예상대로 작동하도록 코드 숨김 원본을 추가합니다. 코드 숨김 원본은 다음을 포함합니다.
 
-- `using` `Speech` 및 `Speech.Dialog` 네임 스페이스에 대 한 필수 문
+- `Speech` 및 `Speech.Dialog` 네임스페이스에 대해 `using` 문을 추가합니다.
 - 단추 처리기에 연결된 마이크 액세스를 보장하는 간단한 구현
 - 애플리케이션에서 메시지 및 오류를 표시하는 기본 UI 도우미
 - 나중에 채울 초기화 코드 경로에 대한 시작 지점
 - 텍스트 음성 변환을 재생할 수 있는 도우미(스트리밍 지원 없음)
 - 나중에 채울 수신 대기를 시작하는 빈 단추 처리기
 
-다음과 같이 코드의 소스를 추가 합니다.
+다음과 같이 코드 숨김 원본을 추가합니다.
 
-1. **솔루션 탐색기** 에서 코드 숨겨진 소스 파일 `MainPage.xaml.cs` (아래에 그룹화 됨)을 엽니다. `MainPage.xaml`
+1. **솔루션 탐색기** 에서 코드 숨김 원본 파일 `MainPage.xaml.cs`(`MainPage.xaml`에 그룹화됨)를 엽니다.
 
 1. 파일의 내용을 다음 코드로 바꿉니다. 
 
@@ -298,12 +298,12 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    }
    ```
     > [!NOTE]
-    > "' Object ' 형식이 참조 되지 않은 어셈블리에 정의 되어 있습니다." 라는 오류 메시지가 표시 되는 경우
-    > 1. 솔루션을 마우스 오른쪽 단추로 클라이언트 합니다.
-    > 1. **솔루션에 대 한 NuGet 패키지 관리** 를 선택 하 고 **업데이트** 를 선택 합니다. 
-    > 1. 업데이트 목록에 **microsoft.netcore.universalwindowsplatform** 이 표시 되 면 microsoft.netcore.universalwindowsplatform를 최신 버전으로 업데이트 **합니다** .
+    > "'개체' 형식이 참조되지 않는 어셈블리에 정의되어 있습니다."라는 오류가 표시되는 경우 다음을 수행합니다.
+    > 1. 솔루션을 마우스 오른쪽 단추로 클릭합니다.
+    > 1. **솔루션용 NuGet 패키지 관리** 를 선택하고 **업데이트** 를 선택합니다. 
+    > 1. 업데이트 목록에 **Microsoft.NETCore.UniversalWindowsPlatform** 이 표시되면 **Microsoft.NETCore.UniversalWindowsPlatform** 을 새 버전으로 업데이트합니다.
 
-1. 의 메서드 본문에 다음 코드를 추가 합니다. `InitializeDialogServiceConnector`
+1. `InitializeDialogServiceConnector` 메서드 본문에 다음 코드를 추가합니다.
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -318,9 +318,9 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. 문자열 `YourApplicationId` , 및를 `YourSpeechSubscriptionKey` `YourServiceRegion` 앱, 음성 구독 및 [지역](regions.md) 에 대 한 사용자 고유의 값으로 바꿉니다.
+1. `YourApplicationId`, `YourSpeechSubscriptionKey` 및 `YourServiceRegion` 문자열을 사용자 고유의 앱, 음성 구독 및 [지역](regions.md) 값으로 바꿉니다.
 
-1. 다음 코드 조각을의 메서드 본문 끝에 추가 합니다. `InitializeDialogServiceConnector`
+1. `InitializeDialogServiceConnector`의 메서드 본문 끝에 다음 코드 조각을 추가합니다.
 
    ```csharp
    //
@@ -378,7 +378,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    };
    ```
 
-1. `ListenButton_ButtonClicked`클래스의 메서드 본문에 다음 코드 조각을 추가 합니다. `MainPage`
+1. `MainPage` 클래스의 `ListenButton_ButtonClicked` 메서드 본문에 다음 코드 조각을 추가합니다.
 
    ```csharp
    // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
@@ -402,7 +402,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
    }
    ```
 
-1. 메뉴 모음에서 **파일**  >  **모두 저장** 을 선택 하 여 변경 내용을 저장 합니다.
+1. 메뉴 모음에서 **파일** > **모두 저장** 을 선택하여 변경 내용을 저장합니다.
 
 ## <a name="try-it-out"></a>사용해 보기
 
@@ -412,13 +412,13 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
    ![C#의 샘플 UWP 가상 길잡이 애플리케이션 - 빠른 시작](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. **마이크 사용** 을 선택합니다. 액세스 권한 요청이 팝업 되 면 **예** 를 선택 합니다.
+1. **마이크 사용** 을 선택합니다. 액세스 권한 요청이 나타나면 **예** 를 선택합니다.
 
    ![마이크 액세스 권한 요청](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. 대화를 선택 하 고 장치 마이크에 **대해** 영어 문구 또는 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
+1. **말하기** 를 선택하고, 디바이스의 마이크에 영어로 짧은 구나 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [방법: 클라이언트 응용 프로그램으로 작업 보내기 (미리 보기)](./how-to-custom-commands-send-activity-to-client.md)
+> [방법: 클라이언트 애플리케이션으로 작업 보내기(미리 보기)](./how-to-custom-commands-send-activity-to-client.md)

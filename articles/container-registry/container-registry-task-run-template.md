@@ -3,12 +3,12 @@ title: 템플릿을 사용한 빠른 작업 실행
 description: Azure Resource Manager 템플릿을 사용하여 이미지를 빌드하기 위한 ACR 작업 실행 큐
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e8023c088ac328c2b6e95fccd0230c4d40325c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af7bebc311f81bb489fcc8be419f167ff6f9460a
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98916068"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107781238"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용한 ACR 작업 실행
 
@@ -241,13 +241,13 @@ basetask
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build]: /cli/azure/acr#az-acr-build
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-task-run]: /cli/azure/acr/task#az-acr-task-run
-[az-acr-task-logs]: /cli/azure/acr/task#az-acr-task-logs
-[az-acr-repository-show-tags]: /cli/azure/acr/repository#az-acr-repository-show-tags
-[az-acr-task-list-runs]: /cli/azure/acr/task#az-acr-task-list-runs
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-acr-build]: /cli/azure/acr#az_acr_build
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-task-run]: /cli/azure/acr/task#az_acr_task_run
+[az-acr-task-logs]: /cli/azure/acr/task#az_acr_task_logs
+[az-acr-repository-show-tags]: /cli/azure/acr/repository#az_acr_repository_show_tags
+[az-acr-task-list-runs]: /cli/azure/acr/task#az_acr_task_list_runs
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-identity-show]: /cli/azure/identity#az_identity_show
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

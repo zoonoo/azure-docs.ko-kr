@@ -1,13 +1,13 @@
 ---
 title: Azure Service Bus 메시지 프리페치 | Microsoft Docs
-description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다. 응용 프로그램에서 메시지를 요청 하기 전에 로컬 검색에 메시지를 쉽게 사용할 수 있습니다.
+description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다. 애플리케이션에서 메시지를 요청하기 전에 로컬 검색에 메시지를 쉽게 사용할 수 있습니다.
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 05e23b0590f0c04171efda8fb561b4c2664ed096
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85341048"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
@@ -22,7 +22,7 @@ ms.locfileid: "85341048"
 
 이 설정을 [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) 또는 [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) 샘플 설정의 수신 쪽에 쉽게 추가하여 해당 컨텍스트에 미치는 영향을 확인할 수 있습니다.
 
-프리페치 버퍼에서 메시지를 사용할 수 있는 동안에는 모든 후속 **수신** / **ReceiveAsync** 호출이 버퍼에서 즉시 충족 되 고 공간을 사용할 수 있게 되 면 버퍼가 백그라운드에서 보충 됩니다. 배달할 수 있는 메시지가 없으면 수신 작업은 버퍼를 비우고 예상대로 대기하거나 차단됩니다.
+메시지를 프리페치 버퍼에서 사용할 수 있지만 모든 후속 **Receive**/**ReceiveAsync** 호출은 버퍼에서 즉시 이행되고, 버퍼는 공간이 사용 가능해지면 백그라운드에서 보충됩니다. 배달할 수 있는 메시지가 없으면 수신 작업은 버퍼를 비우고 예상대로 대기하거나 차단됩니다.
 
 또한 프리페치는 [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) 및 [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync) API와도 같은 방식으로 작동합니다.
 

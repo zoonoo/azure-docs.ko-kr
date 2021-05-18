@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
 ms.openlocfilehash: d10db37934bb0d6571eb0191d5f1be47dae000ed
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96342178"
 ---
 # <a name="bing-image-search-api-v7-upgrade-guide"></a>Bing Image Search API v7 업그레이드 가이드
@@ -31,7 +31,7 @@ ms.locfileid: "96342178"
 
 ### <a name="endpoints"></a>엔드포인트
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: https: \/ /api.cognitive.microsoft.com/bing/ \* \* v 7.0 * */images/search.
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예를 들어 https:\//api.cognitive.microsoft.com/bing/\*\*v7.0**/images/search입니다.
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
@@ -44,7 +44,7 @@ ms.locfileid: "96342178"
 
 - v5 오류 코드가 다음과 같이 가능한 `code` 및 `subCode` 값으로 바뀌었습니다.
 
-|코드|SubCode|설명
+|코드|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing은 하위 코드 조건 중 하나가 발생할 때마다 ServerError를 반환합니다. 응답은 HTTP 상태 코드가 500인 경우 이러한 오류를 포함합니다.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>차단|Bing은 요청의 일부가 잘못된 경우 항상 InvalidRequest를 반환합니다. 예를 들어 필수 매개 변수가 없거나 매개 변수 값이 잘못된 경우입니다.<br/><br/>오류가 ParameterMissing 또는 ParameterInvalidValue이면 HTTP 상태 코드는 400입니다.<br/><br/>오류가 HttpNotAllowed이면 HTTP 상태 코드는 410입니다.
@@ -103,11 +103,11 @@ InsufficientScope|InsufficientAuthorization
 - 다음 쿼리 매개 변수는 이제 `/images/details` 엔드포인트와만 유효합니다.  
 
     -   [insightsToken](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#insightstoken)  
-    -   [모듈로](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
+    -   [modules](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)  
     -   [imgUrl](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imgurl)  
-    -   [.cab](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
+    -   [cab](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cab)  
     -   [cal](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cal)  
-    -   [석](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
+    -   [car](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#car)  
     -   [cat](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#cat)  
     -   [ct](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#ct)  
 

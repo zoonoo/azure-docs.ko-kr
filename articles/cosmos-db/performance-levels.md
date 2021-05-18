@@ -8,10 +8,10 @@ ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4cb07d9d19d85cd8dff9a52eeeb7e173b60f4d6d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93080773"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
@@ -27,7 +27,7 @@ ms.locfileid: "93080773"
 - [내 데이터에 중단 없이 액세스하려면 어떻게 해야 합니까?](#uninterrupted-access)
 - [마이그레이션하면 내 컬렉션이 어떻게 변경됩니까?](#collection-change)
 - [단일 파티션 컬렉션으로 마이그레이션하면 요금 청구는 어떻게 변경됩니까?](#billing-change)
-- [20gb 이상의 저장소를 필요로 한다면 어떻게 되나요?](#more-storage-needed)
+- [스토리지 용량이 20GB 이상 필요한 경우 어떻게 해야 합니까?](#more-storage-needed)
 - [계획된 마이그레이션 이전에 S1, S2 및 S3 성능 수준을 변경할 수 있습니까?](#change-before)
 - [S1, S2, S3 성능 수준에서 단일 파티션 컬렉션으로 마이그레이션하려면 어떻게 해야 합니까?](#migrate-diy)
 - [EA 고객에게 미치는 영향은?](#ea-customer)
@@ -81,9 +81,9 @@ S3 컬렉션이 있는 경우 2,500RU/s 처리량의 단일 파티션 컬렉션�
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>20gb 이상의 저장소를 필요로 한다면 어떻게 되나요?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>스토리지 용량이 20GB 이상 필요한 경우 어떻게 해야 합니까?
 
-컬렉션에 S1, S2 또는 S3 성능 수준이 있거나 단일 파티션 컬렉션이 포함 되어 있든, 모두 20gb의 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용 하 여 거의 무제한 저장소를 사용 하는 분할 된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요. 
+S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션이 있든 간에 모두 20GB 스토리지를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 거의 무제한 스토리지가 있는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](partitioning-overview.md)을 참조하세요. 
 
 <a name="change-before"></a>
 
@@ -135,4 +135,4 @@ Azure Cosmos DB의 가격 책정 및 데이터 관리에 대한 자세한 내용
 
 1.  [Cosmos DB의 데이터 분할](partitioning-overview.md). 단일 파티션 컨테이너와 분할된 컨테이너 간의 차이점을 이해하고 매끄럽게 크기를 조정하는 분할 전략을 구현하는 데 유용한 팁을 알아봅니다.
 2.  [Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/). 처리량 프로비전 및 스토리지 소비 비용에 대해 알아봅니다.
-3.  [요청 단위](request-units.md). 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.
+3.  [요청 단위](request-units.md) 읽기, 쓰기, 쿼리와 같은 다양한 작업 유형의 처리량 사용에 대해 알아봅니다.

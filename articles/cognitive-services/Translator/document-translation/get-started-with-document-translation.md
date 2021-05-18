@@ -1,48 +1,48 @@
 ---
 title: 문서 번역 시작
-description: 'C #, Go, Java, Node.js 또는 Python 프로그래밍 언어 및 플랫폼을 사용 하 여 문서 번역 서비스를 만드는 방법'
+description: C#, Go, Java, Node.js 또는 Python 프로그래밍 언어 및 플랫폼을 사용하여 문서 번역 서비스를 만드는 방법입니다.
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
 ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105612384"
 ---
-# <a name="get-started-with-document-translation-preview"></a>문서 번역 시작 (미리 보기)
+# <a name="get-started-with-document-translation-preview"></a>문서 번역 시작(미리 보기)
 
- 이 문서에서는 HTTP REST API 메서드를 사용 하 여 문서 번역을 사용 하는 방법을 배웁니다. 문서 변환은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  문서 변환 API를 사용 하면 소스 문서 구조와 텍스트 서식을 유지 하면서 전체 문서를 변환할 수 있습니다.
+ 이 문서에서는 HTTP REST API 메서드와 함께 문서 번역을 사용하는 방법을 알아봅니다. 문서 번역은 [Azure Translator](../translator-info-overview.md) 서비스의 클라우드 기반 기능입니다.  Document Translation API를 사용하면 원본 문서 구조와 텍스트 형식을 유지하면서 전체 문서를 번역할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 > [!NOTE]
 >
-> 1. 일반적으로 Azure Portal에서 인지 서비스 리소스를 만들 때 다중 서비스 구독 키 또는 단일 서비스 구독 키를 만드는 옵션이 있습니다. 그러나 문서 변환은 현재 Translator (단일 서비스) 리소스 에서만 지원 되며 Cognitive Services (다중 서비스) 리소스에는 포함 **되지** 않습니다.
-> 2. 문서 변환은 현재 **S1 Standard 서비스 계획** 에서 사용할 수 있습니다.  [Cognitive Services 가격-Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)를 참조 하세요.
+> 1. 일반적으로 Azure Portal에서 Cognitive Service 리소스를 만들 때 다중 서비스 구독 키 또는 단일 서비스 구독 키를 만들 수 있습니다. 그러나 문서 번역은 현재 Translator(단일 서비스) 리소스에서만 지원되며 Cognitive Services(다중 서비스) 리소스에는 포함되지 **않습니다**.
+> 2. 문서 번역은 현재 **S1 표준 서비스 계획** 에서 사용할 수 있습니다. [Cognitive Services 가격 책정 - Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)_를 참조하세요_.
 >
 
-시작 하려면 다음이 필요 합니다.
+시작하려면 다음이 필요합니다.
 
-* 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/).  계정이 없는 경우 [**무료 계정을 만들**](https://azure.microsoft.com/free/)수 있습니다.
+* 활성 [**Azure 계정**](https://azure.microsoft.com/free/cognitive-services/).  계정이 없는 경우 [**무료 계정을 만들 수**](https://azure.microsoft.com/free/) 있습니다.
 
-* Cognitive Services 리소스가 **아니라** [**변환기**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 서비스 리소스입니다.
+* [**Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) 서비스 리소스(Cognitive Services 리소스 **아님**).
 
-* [**Azure blob storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 저장소 계정 내에서 blob 데이터를 저장 하 고 구성 하는 컨테이너를 만듭니다.
+* [**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). 스토리지 계정 내에서 Blob 데이터를 저장하고 구성하는 컨테이너를 만듭니다.
 
 ## <a name="get-your-custom-domain-name-and-subscription-key"></a>사용자 지정 도메인 이름 및 구독 키 가져오기
 
 > [!IMPORTANT]
 >
-> * **문서 변환 서비스에 대 한 모든 API 요청에는 사용자 지정 도메인 끝점이 필요** 합니다.
-> * 문서 변환에 대 한 HTTP 요청을 수행 하려면 Azure Portal 리소스 _키와 끝점_ 페이지 또는 전역 변환기 끝점 ()에 있는 끝점을 사용 하지 않습니다 `api.cognitive.microsofttranslator.com` .
+> * **문서 번역 서비스에 대한 모든 API 요청에는 사용자 지정 도메인 엔드포인트가 필요합니다.**
+> * Azure Portal 리소스 _키 및 엔드포인트_ 페이지에 있는 엔드포인트나 전역 번역기 엔드포인트(`api.cognitive.microsofttranslator.com`)를 사용하여 문서 번역에 대한 HTTP 요청을 수행하지 않습니다.
 
-### <a name="what-is-the-custom-domain-endpoint"></a>사용자 지정 도메인 끝점은 무엇 인가요?
+### <a name="what-is-the-custom-domain-endpoint"></a>사용자 지정 도메인 엔드포인트란?
 
-사용자 지정 도메인 끝점은 리소스 이름, 호스트 이름 및 번역기 하위 디렉터리로 형식이 지정 된 URL입니다.
+사용자 지정 도메인 엔드포인트는 리소스 이름, 호스트 이름 및 Translator 하위 디렉터리로 형식이 지정된 URL입니다.
 
 ```http
 https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1
@@ -50,41 +50,41 @@ https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batc
 
 ### <a name="find-your-custom-domain-name"></a>사용자 지정 도메인 이름 찾기
 
-*사용자 지정 도메인 이름 (사용자 지정 도메인 이름* 이 라고도 함) 매개 **변수는** 사용자가 번역기 리소스를 만들 때 **이름** 필드에 입력 한 값입니다.
+**NAME-OF-YOUR-RESOURCE**(*사용자 지정 도메인 이름* 이라고도 함) 매개 변수는 Translator 리소스를 만들 때 **이름** 필드에 입력한 값입니다.
 
-:::image type="content" source="../media/instance-details.png" alt-text="Azure Portal, 리소스 만들기, 인스턴트 세부 정보, 이름 필드의 이미지입니다.":::
+:::image type="content" source="../media/instance-details.png" alt-text="Azure Portal의 이미지, 리소스 만들기, 인스턴트 세부 정보, 이름 필드":::
 
 ### <a name="get-your-subscription-key"></a>구독 키 가져오기
 
-Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 전용 키가 필요 합니다.
+Translator 서비스에 대한 요청에는 액세스 인증을 위한 읽기 전용 키가 필요합니다.
 
-1. 새 리소스를 만든 경우 배포한 후 **리소스로 이동** 을 선택 합니다. 기존 문서 번역 리소스가 있는 경우 리소스 페이지로 직접 이동 합니다.
-1. 왼쪽 레일의 *리소스 관리* 에서 **키 및 끝점** 을 선택 합니다.
-1. *Microsoft 메모장과* 같은 편리한 위치에 구독 키를 복사 하 여 붙여 넣습니다.
-1. 문서 변환 서비스에 대 한 요청을 인증 하는 아래 코드에 붙여 넣습니다.
+1. 새 리소스를 만든 경우 배포한 후 **리소스로 이동** 을 선택합니다. 기존 문서 번역 리소스가 있는 경우 리소스 페이지로 직접 이동합니다.
+1. 왼쪽 레일의 *리소스 관리* 에서 **키 및 엔드포인트** 를 선택합니다.
+1. *Microsoft 메모장* 과 같은 편리한 위치에 구독 키를 복사하여 붙여넣습니다.
+1. 문서 번역 서비스에 대한 요청을 인증하기 위해 아래 코드에 붙여넣습니다.
 
-:::image type="content" source="../media/translator-keys.png" alt-text="Azure Portal에서 구독 키 가져오기 필드의 이미지입니다.":::
+:::image type="content" source="../media/translator-keys.png" alt-text="Azure Portal의 구독 키 가져오기 필드 이미지":::
 
-## <a name="create-your-azure-blob-storage-containers"></a>Azure blob storage 컨테이너 만들기
+## <a name="create-your-azure-blob-storage-containers"></a>Azure Blob Storage 컨테이너 만들기
 
-원본, 대상 및 선택적 용어집 파일에 대해 [**Azure blob storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) 에 [**컨테이너를 만들어야**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 합니다.
+[**Azure Blob Storage 계정**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 원본, 대상 및 선택적 용어집 파일에 대한 [**컨테이너를 생성**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)해야 합니다.
 
-* **원본 컨테이너**. 이 컨테이너는 번역을 위해 파일을 업로드 하는 위치입니다 (필수).
-* **대상 컨테이너** 입니다. 이 컨테이너는 번역 된 파일이 저장 되는 위치입니다 (필수).  
-* **용어집 컨테이너**. 이 컨테이너는 용어집 파일 (옵션)을 업로드 합니다.  
+* **원본 컨테이너**. 이 컨테이너는 번역을 위해 파일을 업로드하는 위치입니다(필수).
+* **대상 컨테이너**. 이 컨테이너는 번역된 파일이 저장되는 위치입니다(필수).  
+* **용어집 컨테이너**. 이 컨테이너에서 용어집 파일을 업로드합니다(옵션).  
 
-### <a name="create-sas-access-tokens-for-document-translation"></a>**문서 변환에 대 한 SAS 액세스 토큰 만들기**
+### <a name="create-sas-access-tokens-for-document-translation"></a>**문서 번역을 위한 SAS 토큰 생성**
 
-`sourceUrl`, `targetUrl` 및 옵션은 `glossaryUrl` 쿼리 문자열로 추가 된 SAS (공유 액세스 서명) 토큰을 포함 해야 합니다. 토큰을 컨테이너 또는 특정 blob에 할당할 수 있습니다.  [**문서 변환 프로세스에 대 한 SAS 토큰 만들기를**](create-sas-tokens.md)참조 하세요.
+`sourceUrl`, `targetUrl` 및 선택적 `glossaryUrl`에는 쿼리 문자열로 추가된 SAS(공유 액세스 서명) 토큰이 포함되어야 합니다. 토큰은 컨테이너 또는 특정 Blob에 할당될 수 있습니다. [**문서 번역을 위한 SAS 토큰 생성 프로세스**](create-sas-tokens.md)를 *참조하세요*.
 
-* **원본** 컨테이너 또는 blob에 **읽기** 및 **목록** 액세스를 지정 해야 합니다.
-* **대상** 컨테이너 또는 blob에는 지정 된 **쓰기** 및 **목록** 액세스 권한이 있어야 합니다.
-* **용어집** 컨테이너 또는 blob에서 **읽기** 및 **목록** 액세스를 지정 해야 합니다.
+* **원본** 컨테이너 또는 Blob에는 **읽기** 및 **나열** 액세스가 지정되어 있어야 합니다.
+* **대상** 컨테이너 또는 Blob에는 **쓰기** 및 **나열** 액세스가 지정되어 있어야 합니다.
+* **용어집** 컨테이너 또는 Blob에는 **읽기** 및 **나열** 액세스가 지정되어 있어야 합니다.
 
 > [!TIP]
 >
-> * 작업에서 **여러** 파일 (blob)을 변환 하는 경우 **컨테이너 수준에서 SAS 액세스를 위임** 합니다.  
-> * 작업에서 **단일** 파일 (blob)을 변환 하는 경우 **BLOB 수준에서 SAS 액세스를 위임** 합니다.  
+> * 작업에서 **여러** 파일(Blob)을 번역하는 경우 **컨테이너 수준에서 SAS 액세스 권한을 위임** 합니다.  
+> * 작업에서 **단일** 파일(Blob)을 번역하는 경우 **Blob 수준에서 SAS 액세스 권한을 위임** 합니다.  
 >
 
 ## <a name="set-up-your-coding-platform"></a>코딩 플랫폼 설정
@@ -93,28 +93,28 @@ Translator 서비스에 대 한 요청에는 액세스 인증을 위한 읽기 �
 
 * 새 프로젝트를 만듭니다.
 * Program.cs를 아래에 표시된 C# 코드로 바꿉니다.
-* Program .cs에서 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
-* JSON 데이터를 처리 하려면 [ .NET CLI를 사용 하 여 패키지에Newtonsoft.Js](https://www.nuget.org/packages/Newtonsoft.Json/)를 추가 합니다.
-* 프로젝트 디렉터리에서 프로그램을 실행 합니다.
+* Program.cs에서 엔드포인트, 구독 키 및 컨테이너 URL 값을 설정합니다.
+* JSON 데이터를 처리하려면 [.NET CLI를 사용하여 Newtonsoft.Json 패키지](https://www.nuget.org/packages/Newtonsoft.Json/)를 추가합니다.
+* 프로젝트 디렉터리에서 프로그램을 실행합니다.
 
 ### <a name="nodejs"></a>[Node.JS](#tab/javascript)
 
 * 새 Node.js 프로젝트를 만듭니다.
-* 를 사용 하 여 Axios 라이브러리를 설치 `npm i axios` 합니다.
-* 아래 코드를 복사 하 여 프로젝트에 붙여넣습니다.
-* 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
+* `npm i axios`를 사용하여 Axios 라이브러리를 설치합니다.
+* 아래 코드를 복사하여 프로젝트에 붙여넣습니다.
+* 엔드포인트, 구독 키 및 컨테이너 URL 값을 설정합니다.
 * 프로그램을 실행합니다.
 
 ### <a name="python"></a>[Python](#tab/python)  
 
 * 새 프로젝트를 만듭니다.
-* 샘플 중 하나에서 코드를 복사 하 여 프로젝트에 붙여넣습니다.
-* 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
+* 샘플 중 하나의 코드를 프로젝트에 복사하여 붙여넣습니다.
+* 엔드포인트, 구독 키 및 컨테이너 URL 값을 설정합니다.
 * 프로그램을 실행합니다. 예: `python translate.py`
 
 ### <a name="java"></a>[Java](#tab/java)
 
-* 프로젝트에 대한 작업 디렉터리를 만듭니다. 예를 들어:
+* 프로젝트에 대한 작업 디렉터리를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```powershell
 mkdir sample-project
@@ -123,16 +123,16 @@ mkdir sample-project
 * 프로젝트 디렉터리에서 다음 하위 디렉터리 구조를 만듭니다.  
 
   src</br>
-&emsp; └ 주</br>
+&emsp; └ main</br>
 &emsp;&emsp;&emsp;└ java
 
 ```powershell
 mkdir -p src/main/java/
 ```
 
-**참고**: java 원본 파일 (예: _java_)은 src/main/**Java** 에서 라이브입니다.
+**참고**: Java 원본 파일(예: _sample.java_)은 src/main/**java** 에 있습니다.
 
-* 루트 디렉터리 (예: *샘플 프로젝트*)에서 Gradle를 사용 하 여 프로젝트를 초기화 합니다.
+* 루트 디렉터리(예: *sample-project*)에서 Gradle로 프로젝트를 초기화합니다.
 
 ```powershell
 gradle init --type basic
@@ -140,7 +140,7 @@ gradle init --type basic
 
 * **DSL** 을 선택하라는 메시지가 표시되면 **Kotlin** 을 선택합니다.
 
-* 파일을 업데이트 `build.gradle.kts`  합니다. 샘플에 따라를 업데이트 해야 한다는 점에 유의 하세요 `mainClassName` .
+* `build.gradle.kts` 파일을 업데이트합니다. 샘플에 따라 `mainClassName`을 업데이트해야 합니다.
 
   ```java
   plugins {
@@ -158,9 +158,9 @@ gradle init --type basic
   }
   ```
 
-* **Java** 디렉터리에서 java 파일을 만들고 제공 된 샘플에서 코드를 복사 하 여 붙여넣습니다. 구독 키와 끝점을 추가 하는 것을 잊지 마세요.
+* **java** 디렉터리에서 Java 파일을 만들고 제공된 샘플에서 코드를 복사하여 붙여넣습니다. 구독 키 및 엔드포인트를 추가하는 것을 잊지 마세요.
 
-* **루트 디렉터리에서 샘플을 빌드하고 실행 합니다**.
+* **루트 디렉터리에서 샘플 빌드 및 실행**:
 
 ```powershell
 gradle build
@@ -171,43 +171,43 @@ gradle run
 
 * 새 Go 프로젝트를 만듭니다.
 * 아래 제공된 코드를 추가합니다.
-* 끝점, 구독 키 및 컨테이너 URL 값을 설정 합니다.
+* 엔드포인트, 구독 키 및 컨테이너 URL 값을 설정합니다.
 * '.go' 확장명으로 파일을 저장합니다.
 * Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
-* 파일을 빌드합니다. 예: ' go build example-code. go '.
+* 파일을 빌드합니다. 예: 'go build example-code.go'.
 * 파일을 실행합니다(예: 'example-code').
 
  ---
 
 ## <a name="make-document-translation-requests"></a>문서 번역 요청 만들기
 
-Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점으로 전송 됩니다. 성공 하면 POST 메서드에서 응답 코드를 반환 `202 Accepted`  하 고 서비스에서 일괄 처리 요청을 만듭니다.
+일괄 처리 문서 번역 요청은 POST 요청을 통해 Translator 서비스 엔드포인트로 전송됩니다. 성공하면 POST 메서드가 `202 Accepted` 응답 코드를 반환하고 서비스에서 일괄 요청을 만듭니다.
 
 ### <a name="http-headers"></a>HTTP 헤더
 
-각 문서 변환기 API 요청에는 다음과 같은 헤더가 포함 됩니다.
+각 Document Translator API 요청에는 다음 헤더가 포함됩니다.
 
-|HTTP 헤더|설명|
+|HTTP 헤더|Description|
 |---|--|
-|Ocp-Apim-Subscription-Key|**필수**: 값은 Translator 또는 Cognitive Services 리소스에 대 한 Azure 구독 키입니다.|
-|콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정 합니다. 허용 되는 값은 application/json 또는 charset = u t f-8입니다.|
+|Ocp-Apim-Subscription-Key|**필수**: 이 값은 Translator 또는 Cognitive Services 리소스에 대한 Azure 구독 키입니다.|
+|콘텐츠 형식|**필수**: 페이로드의 콘텐츠 형식을 지정합니다. 허용되는 값은 application/json 또는 charset=UTF-8입니다.|
 |Content-Length|**필수**: 요청 본문의 길이입니다.|
 
 ### <a name="post-request-body-properties"></a>POST 요청 본문 속성
 
-* POST 요청 본문은 라는 JSON 개체입니다 `inputs` .
-* 개체에는 `inputs`  `sourceURL` `targetURL`  소스 및 대상 언어 쌍에 대 한 및 컨테이너 주소가 모두 포함 되며 선택적으로 컨테이너 주소를 포함할 수 있습니다 `glossaryURL` .
-* `prefix`및 `suffix` 필드 (선택 사항)는 폴더를 포함 하 여 컨테이너에서 문서를 필터링 하는 데 사용 됩니다.
-* 필드에 대 한 값  `glossaries`  (선택 사항)은 문서를 번역할 때 적용 됩니다.
-* `targetUrl`각 대상 언어에 대 한은 고유 해야 합니다.
+* POST 요청 본문은 `inputs`라는 JSON 객체입니다.
+* `inputs` 개체는 원본 및 대상 언어 쌍에 대한 `sourceURL` 및 `targetURL` 컨테이너 주소를 모두 포함하며 선택적으로 `glossaryURL` 컨테이너 주소를 포함할 수 있습니다.
+* `prefix` 및 `suffix` 필드(선택 사항)는 폴더를 포함하여 컨테이너의 문서를 필터링하는 데 사용됩니다.
+* `glossaries` 필드(선택 사항)의 값은 문서가 번역될 때 적용됩니다.
+* 각 대상 언어의 `targetUrl`은 고유해야 합니다.
 
 >[!NOTE]
 > 이름이 같은 파일이 대상에 이미 있으면 해당 파일을 덮어씁니다.
 
-## <a name="post-a-translation-request"></a>번역 요청 게시
+## <a name="post-a-translation-request"></a>번역 요청 게시(POST)
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>컨테이너의 모든 문서를 변환 하는 POST 요청 본문
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>컨테이너의 모든 문서를 번역하는 POST 요청 본문
 
 ```json
 {
@@ -228,12 +228,12 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 ```
 
 
-### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>컨테이너의 특정 문서를 변환 하는 POST 요청 본문
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>컨테이너의 특정 문서를 번역하는 POST 요청 본문
 
-* "StorageType": "File"을 지정 했는지 확인 합니다.
-* 특정 blob/문서에 대 한 원본 URL & SAS 토큰을 생성 했는지 확인 합니다 (컨테이너가 아님). 
-* 대상 파일 이름을 대상 URL의 일부로 지정 했는지 확인 합니다. SAS 토큰은 아직 컨테이너에 대 한 것입니다.
-* 아래 샘플 요청에서는 두 개의 대상 언어로 번역 된 단일 문서를 보여 줍니다.
+* "storageType": "File"을 지정했는지 확인합니다.
+* 특정 Blob/문서(컨테이너 아님)에 대한 원본 URL 및 SAS 토큰을 생성했는지 확인합니다. 
+* SAS 토큰은 컨테이너용이지만 대상 URL의 일부로 대상 파일 이름을 지정했는지 확인합니다.
+* 아래 샘플 요청은 두 개의 대상 언어로 번역되는 단일 문서를 보여 줍니다.
 
 ```json
 {
@@ -261,33 +261,33 @@ Batch 문서 번역 요청은 POST 요청을 통해 Translator 서비스 끝점�
 
 > [!IMPORTANT]
 >
-> 아래 코드 샘플의 경우 키와 끝점이 표시 되 면 하드 코드 합니다. 작업이 완료 되 면 코드에서 키를 제거 하 고 공개적으로 게시 하지 마십시오.  자격 증명을 안전 하 게 저장 하 고 액세스 하는 방법은 [Azure Cognitive Services 보안](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) 을 참조 하세요.
+> 아래 코드 샘플의 경우 표시된 곳에 키와 엔드포인트를 하드 코딩합니다. 작업이 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요.  자격 증명을 안전하게 저장하고 액세스하는 방법은 [Azure Cognitive Services 보안](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp)을 참조하세요.
 >
-> 작업에 따라 다음 필드를 업데이트 해야 할 수 있습니다.
+> 작업에 따라 다음 필드를 업데이트해야 할 수 있습니다.
 >>>
 >> * `endpoint`
 >> * `subscriptionKey`
 >> * `sourceURL`
 >> * `targetURL`
 >> * `glossaryURL`
->> * `id`  (작업 ID)
+>> * `id`(작업 ID)
 >>
 
-#### <a name="locating--the-id-value"></a>값 찾기 `id`
+#### <a name="locating--the-id-value"></a>`id` 값 찾기
 
-* `id`POST 메서드 응답 헤더 URL 값에서 작업을 찾을 수 있습니다 `Operation-Location` . URL의 마지막 매개 변수는 작업의 작업입니다 **`id`** .
+* POST 메서드 응답 헤더 `Operation-Location` URL 값에서 작업 `id`를 찾습니다. URL의 마지막 매개 변수는 작업의 작업 **`id`** 입니다.
 
 |**응답 헤더**|**결과 URL**|
 |-----------------------|----------------|
-Operation-Location   | https://<<span>리소스> 이름입니다. cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
+Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/9dce0aa9-78dc-41ba-8cae-2e2f3c2ff8ec</span>
 
-* **작업 가져오기** 요청을 사용 하 여 문서 번역 작업을 검색할 수도 있습니다 `id` .
+* **작업 가져오기(GET)** 요청을 사용하여 문서 번역 작업 `id`를 검색할 수도 있습니다.
 
 >
 
-## <a name="_post-document-translation_-request"></a>_문서 변환 후_ 요청
+## <a name="_post-document-translation_-request"></a>_문서 번역 게시(POST)_ 요청
 
-번역 서비스에 batch 문서 번역 요청을 제출 합니다.
+번역 서비스에 일괄 처리 문서 번역 요청을 제출합니다.
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
@@ -518,9 +518,9 @@ if err != nil {
 
 ---
 
-## <a name="_get-file-formats_"></a>_파일 형식 가져오기_ 
+## <a name="_get-file-formats_"></a>_파일 형식 가져오기(GET)_ 
 
-지원 되는 파일 형식 목록을 검색 합니다. 성공 하면이 메서드는 `200 OK` 응답 코드를 반환 합니다.
+지원되는 파일 형식 목록을 검색합니다. 성공한 경우 이 메서드는 `200 OK` 응답 코드를 반환합니다.
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
@@ -695,9 +695,9 @@ func main() {
 
 ---
 
-## <a name="_get-job-status_"></a>_작업 상태 가져오기_ 
+## <a name="_get-job-status_"></a>_작업 상태 가져오기(GET)_ 
 
-단일 작업의 현재 상태와 문서 번역 요청에서 모든 작업의 요약을 가져옵니다. 성공 하면이 메서드는 `200 OK` 응답 코드를 반환 합니다.
+단일 작업의 현재 상태와 문서 번역 요청의 모든 작업 요약을 가져옵니다. 성공한 경우 이 메서드는 `200 OK` 응답 코드를 반환합니다.
 <!-- markdownlint-disable MD024 -->
 
 ### <a name="c"></a>[C#](#tab/csharp)
@@ -874,11 +874,11 @@ func main() {
 
 ---
 
-## <a name="_get-document-status_"></a>_문서 상태 가져오기_
+## <a name="_get-document-status_"></a>_문서 상태 가져오기(GET)_
 
-### <a name="brief-overview"></a>간략 한 개요
+### <a name="brief-overview"></a>간략한 개요
 
-문서 번역 요청에서 특정 문서의 상태를 검색 합니다. 성공 하면이 메서드는 `200 OK` 응답 코드를 반환 합니다.
+문서 번역 요청에서 특정 문서의 상태를 검색합니다. 성공한 경우 이 메서드는 `200 OK` 응답 코드를 반환합니다.
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
@@ -1054,11 +1054,11 @@ func main() {
 
 ---
 
-## <a name="_delete-job_"></a>_작업 삭제_ 
+## <a name="_delete-job_"></a>_작업 삭제(DELETE)_ 
 
-### <a name="brief-overview"></a>간략 한 개요
+### <a name="brief-overview"></a>간략한 개요
 
-현재 처리 중이거나 대기 중인 작업을 취소 합니다. 번역이 시작 되지 않은 문서만 취소 됩니다.
+현재 처리 중이거나 대기 중인 작업을 취소합니다. 번역이 시작되지 않은 문서만 취소됩니다.
 
 ### <a name="c"></a>[C#](#tab/csharp)
 
@@ -1236,28 +1236,28 @@ func main() {
 
 ## <a name="content-limits"></a>콘텐츠 제한
 
-다음 표에서는 문서 번역 (미리 보기)에 보내는 데이터의 제한을 나열 합니다.
+다음 표에는 문서 번역(미리 보기)으로 보내는 데이터에 대한 제한이 나열되어 있습니다.
 
 |attribute | 제한|
 |---|---|
-|문서 크기| ≤ 40 |
-|총 파일 수입니다.|≤ 1000 |
-|일괄 처리의 총 콘텐츠 크기 | ≤ 250|
+|문서 크기| ≤ 40MB |
+|총 파일 수|≤ 1000 |
+|일괄 처리의 총 콘텐츠 크기 | ≤ 250MB|
 |일괄 처리의 대상 언어 수| ≤ 10 |
-|변환 메모리 파일의 크기| ≤ 10MB|
+|번역 메모리 파일 크기| ≤ 10MB|
 
 > [!NOTE]
-> 위의 콘텐츠 제한은 공개 릴리스 이전에 변경 될 수 있습니다.
+> 위의 콘텐츠 제한은 공개되기 전에 변경될 수 있습니다.
 
 ## <a name="learn-more"></a>자세한 정보
 
 * [Translator v3 API 참조](../reference/v3-0-reference.md)
 * [언어 지원](../language-support.md)
-* [Azure API Management의 구독](../../../api-management/api-management-subscriptions.md)
+* [Azure API Management의 구독](../../../api-management/api-management-subscriptions.md).
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [사용자 지정 번역기를 사용 하 여 사용자 지정 된 언어 시스템 만들기](../custom-translator/overview.md)
+> [Custom Translator를 사용하여 사용자 지정된 언어 시스템 만들기](../custom-translator/overview.md)
 >
 >

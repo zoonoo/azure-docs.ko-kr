@@ -1,20 +1,20 @@
 ---
 title: TLS 상호 인증 구성
-description: TLS에서 클라이언트 인증서를 인증 하는 방법에 대해 알아봅니다. Azure App Service를 사용 하면 인증을 위해 응용 프로그램 코드에서 클라이언트 인증서를 사용할 수 있습니다.
+description: TLS에서 클라이언트 인증서를 인증하는 방법에 대해 알아보세요. Azure App Service를 통해 클라이언트 인증서를 앱 코드에서 확인을 위해 사용할 수 있습니다.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
 ms.custom: devx-track-csharp, seodec18
 ms.openlocfilehash: 6ceeb3d31652c04eb9a69c1c8bb4b114e6f38d52
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97347743"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대한 TLS 상호 인증 구성
 
-다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 이 작업을 수행 하는 한 가지 방법은 클라이언트 요청이 TLS/SSL을 통해 수행 되는 경우 클라이언트 인증서를 요청 하 고 인증서의 유효성을 검사 하는 것입니다. 이 메커니즘을 TLS 상호 인증 또는 클라이언트 인증서 인증 이라고 합니다. 이 문서에서는 클라이언트 인증서 인증을 사용 하도록 앱을 설정 하는 방법을 보여 줍니다.
+다양한 유형의 인증을 사용하여 Azure App Service 앱에 대한 액세스를 제한할 수 있습니다. 이 작업을 수행하는 한 가지 방법은 클라이언트 요청이 TLS/SSL을 초과하고 인증서 요청 시 인증서를 검증하는 것입니다. 이 메커니즘을 TLS 상호 인증 또는 클라이언트 인증서 인증이라고 합니다. 이 문서에는 클라이언트 인증서 인증을 사용하도록 앱을 설정하는 방법이 나와 있습니다.
 
 > [!NOTE]
 > HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 애플리케이션에 클라이언트 인증서가 필요한 경우 HTTP를 통한 애플리케이션 요청을 허용해서는 안 됩니다.
@@ -24,41 +24,41 @@ ms.locfileid: "97347743"
 
 ## <a name="enable-client-certificates"></a>클라이언트 인증서 사용하도록 설정
 
-클라이언트 인증서를 요구 하도록 앱을 설정 하려면:
+클라이언트 인증서를 사용해야 하도록 앱을 설정하려면:
 
-1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성**  >  **일반 설정** 을 선택 합니다.
+1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성** > **일반 설정** 을 선택하세요.
 
-1. **클라이언트 인증서 모드** 를 **필수** 로 설정 합니다. 페이지 위쪽에서 **저장** 을 클릭합니다.
+1. **클라이언트 인증서 모드** 를 **필수** 로 설정하세요. 페이지 위쪽에서 **저장** 을 클릭합니다.
 
-Azure CLI와 동일 하 게 수행 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+Azure CLI와 동일하게 작업을 수행하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행하세요.
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app-name> --resource-group <group-name>
 ```
 
-## <a name="exclude-paths-from-requiring-authentication"></a>인증 요청에서 경로 제외
+## <a name="exclude-paths-from-requiring-authentication"></a>인증 요구에서 경로 제외
 
-응용 프로그램에 대해 상호 인증을 사용 하도록 설정 하면 앱의 루트에 있는 모든 경로에 액세스 하기 위한 클라이언트 인증서가 필요 합니다. 특정 경로에 대 한이 요구 사항을 제거 하려면 응용 프로그램 구성의 일부로 제외 경로를 정의 합니다.
+프로그램에 대해 상호 인증을 사용하도록 설정하면 앱 루트의 모든 경로에 액세스할 수 있는 클라이언트 인증서가 필요합니다. 특정 경로에 대한 해당 요구 사항을 제거하려면 애플리케이션 구성의 일부로 제외 경로를 정의하세요.
 
-1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성**  >  **일반 설정** 을 선택 합니다.
+1. 앱 관리 페이지의 왼쪽 탐색 영역에서 **구성** > **일반 설정** 을 선택하세요.
 
-1. **클라이언트 제외 경로** 옆에 있는 편집 아이콘을 클릭 합니다.
+1. **클라이언트 제외 경로** 옆의 편집 아이콘을 클릭하세요.
 
-1. **새 경로** 를 클릭 하 고 경로를 지정 하 고 **확인** 을 클릭 합니다.
+1. **새 경로** 를 클릭하고 경로를 지정한 다음 **확인** 을 클릭하세요.
 
 1. 페이지 위쪽에서 **저장** 을 클릭합니다.
 
-다음 스크린샷에서 앱 경로 아래에 있는 모든 항목은 `/public` 클라이언트 인증서를 요청 하지 않습니다.
+다음 스크린샷에서 앱의 `/public`경로의 모든 항목은 클라이언트 인증서를 요청하지 않습니다.
 
 ![인증서 제외 경로][exclusion-paths]
 
 ## <a name="access-client-certificate"></a>클라이언트 인증서 액세스
 
-App Service에서 요청에 대 한 TLS 종료는 프런트 엔드 부하 분산 장치에서 발생 합니다. [클라이언트 인증서를 사용](#enable-client-certificates)하 여 응용 프로그램 코드에 요청을 전달 하는 경우 App Service는 `X-ARR-ClientCert` 클라이언트 인증서를 사용 하 여 요청 헤더를 삽입 합니다. App Service는이 클라이언트 인증서를 사용 하 여 앱에 전달 하는 것 외에 다른 작업을 수행 하지 않습니다. 응용 프로그램 코드는 클라이언트 인증서의 유효성을 검사 해야 합니다.
+App Service에서 요청 TLS 종료는 프런트 엔드 부하 분산 장치에서 수행됩니다. [클라이언트 인증서를 사용](#enable-client-certificates)하여 요청을 앱 코드에 전달하면 App Service가 클라이언트 인증서로 `X-ARR-ClientCert`요청 헤더를 삽입합니다. 앱 서비스는 이 클라이언트 인증서를 사용하여 앱에 전달하는 것 외에 다른 작업을 수행하지 않습니다. 앱 코드는 클라이언트 인증서 유효성 검사를 담당합니다.
 
-ASP.NET의 경우 **HttpRequest** 속성을 통해 클라이언트 인증서를 사용할 수 있습니다.
+ASP용.NET의 경우, 클라이언트 인증서는 **HttpRequest.ClinentCertificate** 를 통해 사용할 수 있습니다.
 
-다른 응용 프로그램 스택 (Node.js, PHP 등)의 경우 요청 헤더에 있는 base64 인코딩 값을 통해 앱에서 클라이언트 인증서를 사용할 수 있습니다. `X-ARR-ClientCert`
+다른 애플리케이션 스택(Node.js, PHP 등)의 경우 `X-ARR-ClientCert`요청 헤더의 base64 인코딩 값을 통해 클라이언트 인증서를 앱에서 사용할 수 있습니다.
 
 ## <a name="aspnet-sample"></a>ASP.NET 샘플
 
@@ -186,7 +186,7 @@ ASP.NET의 경우 **HttpRequest** 속성을 통해 클라이언트 인증서를 
 
 ## <a name="nodejs-sample"></a>Node.js 샘플
 
-다음 Node.js 샘플 코드는 헤더를 가져오고 `X-ARR-ClientCert` [노드-대장간](https://github.com/digitalbazaar/forge) 을 사용 하 여 b a s e 64로 인코딩된 PEM 문자열을 인증서 개체로 변환 하 고 유효성을 검사 합니다.
+다음 Node.js 샘플 코드는 `X-ARR-ClientCert`헤더를 가져오고 [node-forge](https://github.com/digitalbazaar/forge)를 사용하여 기본 64 인코딩 PEM 문자열을 인증서 개체로 변환하고 유효성을 검사합니다.
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -231,7 +231,7 @@ export class AuthorizationHandler {
 
 ## <a name="java-sample"></a>Java 샘플
 
-다음 Java 클래스는에서 인스턴스로 인증서를 인코딩합니다 `X-ARR-ClientCert` `X509Certificate` . `certificateIsValid()` 인증서의 지문이 생성자에 지정 된 지문과 일치 하 고 인증서가 만료 되지 않았는지 확인 합니다.
+다음 Java 클래스는 인증서를 `X-ARR-ClientCert`에서 `X509Certificate` 인스턴스로 인코딩합니다. `certificateIsValid()`은 인증서의 지문이 생성자에 지정된 지문과 일치하고 인증서가 만료되지 않았는지 확인합니다.
 
 
 ```java

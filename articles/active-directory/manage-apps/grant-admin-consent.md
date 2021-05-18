@@ -2,22 +2,22 @@
 title: 애플리케이션에 테넌트 전체 관리자 동의 부여 - Azure AD
 description: 최종 사용자가 애플리케이션에 로그인할 때 동의 여부를 묻지 않도록 애플리케이션에 테넌트 전체 동의를 부여하는 방법을 알아봅니다.
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: iangithinji
+ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd5017b1437b0f07553e798ab1d96de15fafb3f9
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 646c2216c3d71aa441d33dde0ab3e2ef7bb4fd89
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374185"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101643561"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>애플리케이션에 대한 테넌트 전체 관리자 동의 부여
 
@@ -25,7 +25,7 @@ ms.locfileid: "107374185"
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 테넌트 전체 관리자 동의를 부여하려면 조직을 대신하여 동의할 수 있는 사용자로 로그인해야 합니다. 여기에는 [전역 관리자](../roles/permissions-reference.md#global-administrator) 및 [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 그리고 일부 애플리케이션의 경우 [애플리케이션 관리자](../roles/permissions-reference.md#application-administrator) 및 [클라우드 애플리케이션 관리자](../roles/permissions-reference.md#cloud-application-administrator)가 포함됩니다. [애플리케이션에 권한을 부여할 수 있는 권한](../roles/custom-consent-permissions.md)을 포함하는 [사용자 지정 디렉터리 역할](../roles/custom-create.md)이 할당된 사용자에게는 테넌트 전체 동의를 부여할 수 있는 권한도 부여될 수 있습니다.
 

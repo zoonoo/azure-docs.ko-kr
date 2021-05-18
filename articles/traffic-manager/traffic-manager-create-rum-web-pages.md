@@ -1,6 +1,6 @@
 ---
-title: 웹 페이지 실제 사용자 측정-Azure Traffic Manager
-description: 이 문서에서는 Azure Traffic Manager에 실제 사용자 측정를 보내도록 웹 페이지를 설정 하는 방법에 대해 알아봅니다.
+title: 웹 페이지로 실제 사용자 측정 - Azure Traffic Manager
+description: 이 문서에서는 실제 사용자 측정을 Azure Traffic Manager로 보내도록 웹 페이지를 설정하는 방법을 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: duongau
@@ -14,10 +14,10 @@ ms.date: 03/16/2018
 ms.author: duau
 ms.custom: ''
 ms.openlocfilehash: 2bb104fd9cfc3c4ffddb82e4cf442e94c4650550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98184561"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
@@ -66,6 +66,6 @@ RUM 키를 가져온 후에 다음 단계는 복사한 JavaScript를 최종 사�
 
 ## <a name="next-steps"></a>다음 단계
 - [실제 사용자 측정](traffic-manager-rum-overview.md)에 대한 자세한 정보
-- [Traffic Manager 작동 방법](traffic-manager-overview.md) 알아보기
+- [Traffic Manager 작동 방식](traffic-manager-overview.md)
 - Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
-- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md) 방법 알아보기
+- [Traffic Manager 프로필을 만드는](./quickstart-create-traffic-manager-profile.md)

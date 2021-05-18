@@ -1,7 +1,7 @@
 ---
 title: 몰입형 판독기 리소스 만들기
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 사용자 지정 하위 도메인을 사용 하 여 새 몰입 형 판독기 리소스를 만든 다음 Azure 테 넌 트에서 Azure AD를 구성 하는 방법을 보여 줍니다.
+description: 이 문서에서는 사용자 지정 하위 도메인이 있는 새 몰입형 리더 리소스를 만든 다음 Azure 테넌트에서 Azure AD를 구성하는 방법을 보여 줍니다.
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -11,27 +11,27 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: rwaller
 ms.openlocfilehash: 369905ed5ee0ce9a93ec2be879b5e40114b0a380
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105048666"
 ---
-# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>몰입 형 판독기 리소스 만들기 및 Azure Active Directory 인증 구성
+# <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>몰입형 리더 리소스 만들기 및 Azure Active Directory 인증 구성
 
-이 문서에서는 몰입 형 판독기 리소스를 만들고 Azure Active Directory (Azure AD) 인증을 구성 하는 스크립트를 제공 합니다. 이 스크립트나 포털에서 몰입 형 판독기 리소스를 만들 때마다 Azure AD 사용 권한으로 구성 해야 합니다. 이 스크립트는이에 도움이 됩니다.
+이 문서에서는 몰입형 리더 리소스를 만들고 Azure AD(Azure Active Directory) 인증을 구성하는 스크립트를 제공합니다. 이 스크립트로든 포털에서든 몰입형 리더 리소스를 만들 때마다 Azure AD 사용 권한도 구성해야 합니다. 이 스크립트는 이에 도움이 됩니다.
 
-이 스크립트는 모든 필요한 몰입 형 판독기 및 Azure AD 리소스를 한 번에 만들고 구성 하도록 디자인 되었습니다. 그러나 기존 몰입 형 판독기 리소스에 대해 Azure AD 인증을 구성할 수도 있습니다. 예를 들어, Azure Portal에서 이미 만든 경우에는이를 이미 만든 것입니다.
+스크립트는 필요한 모든 몰입형 리더 및 Azure AD 리소스를 한 단계 실행으로 만들고 구성하도록 설계되었습니다. 그러나 예를 들어 혹시라도 Azure Portal에 이미 만들어 놓은 게 있다면 기존 몰입형 리더 리소스에 대해 Azure AD 인증 구성만 할 수도 있습니다.
 
-일부 고객의 경우 개발 및 프로덕션에 대해 또는 서비스를 배포 하는 여러 다른 지역에 대해 여러 몰입 형 판독기 리소스를 만들어야 할 수 있습니다. 이러한 경우 스크립트를 여러 번 사용 하 여 여러 가지 몰입 형 판독기 리소스를 만들고 Azure AD 권한으로 구성할 수 있습니다.
+일부 고객에 대해서는 개발용 및 프로덕션용으로 또는 아마도 서비스가 배포되는 여러 다른 지역용으로 여러 개의 몰입형 리더 리소스를 만들어야 할 수 있습니다. 이러한 경우에 대해서는 돌아와서 스크립트를 여러 번 사용하여 여러 가지 몰입형 리더 리소스를 만들고 Azure AD 권한으로 구성할 수 있습니다.
 
-이 스크립트는 유연 하 게 설계 되었습니다. 먼저 구독에서 기존 몰입 형 판독기 및 Azure AD 리소스를 검색 하 고, 필요한 경우에만 해당 리소스를 만듭니다. 몰입 형 판독기 리소스를 처음 만들 때 스크립트는 필요한 모든 작업을 수행 합니다. 포털에서 만든 기존 몰입 형 판독기 리소스에 대해 Azure AD를 구성 하는 데만 사용 하려는 경우에도 마찬가지입니다. 또한 다양 한 몰입 형 판독기 리소스를 만들고 구성 하는 데 사용할 수 있습니다.
+스크립트는 유연하도록 설계되었습니다. 먼저 구독에서 기존 몰입형 리더 및 Azure AD 리소스를 검색하여 아직 없다면 필요한 경우에만 이를 만듭니다. 몰입형 리더 리소스를 처음 만들어 보는 경우 스크립트가 필요한 모든 작업을 수행합니다. 스크립트를 사용해서 포털에서 만든 기존 몰입형 리더 리소스에 대해 Azure AD 구성만 하려는 경우에도 마찬가지입니다. 여러 개의 몰입형 리더 리소스를 만들고 구성하는 데 사용할 수도 있습니다.
 
 ## <a name="set-up-powershell-environment"></a>PowerShell 환경 설정
 
-1. [Azure Cloud Shell](../../cloud-shell/overview.md)를 열어 시작 합니다. Cloud Shell를 왼쪽 위 드롭다운에서 PowerShell로 설정 하거나를 입력 하 여 확인 `pwsh` 합니다.
+1. [Azure Cloud Shell](../../cloud-shell/overview.md)을 열어 시작합니다. 왼쪽 위의 드롭다운에서 또는 `pwsh`를 입력하여 Cloud Shell이 PowerShell로 설정되어 있는지 확인합니다.
 
-1. 다음 코드 조각을 복사 하 여 셸에 붙여 넣습니다.
+1. 다음 코드 조각을 복사하여 셸에 붙여넣습니다.
 
     ```azurepowershell-interactive
     function Create-ImmersiveReaderResource(
@@ -143,13 +143,13 @@ ms.locfileid: "105048666"
     }
     ```
 
-1. 함수를 실행 `Create-ImmersiveReaderResource` 하 여 아래에 ' <PARAMETER_VALUES> ' 자리 표시자를 적절 한 값으로 제공 합니다.
+1. `Create-ImmersiveReaderResource` 함수를 실행합니다. 아래의 '<PARAMETER_VALUES>' 자리 표시자에 적절한 사용자 고유의 값을 제공합니다.
 
     ```azurepowershell-interactive
     Create-ImmersiveReaderResource -SubscriptionName '<SUBSCRIPTION_NAME>' -ResourceName '<RESOURCE_NAME>' -ResourceSubdomain '<RESOURCE_SUBDOMAIN>' -ResourceSKU '<RESOURCE_SKU>' -ResourceLocation '<RESOURCE_LOCATION>' -ResourceGroupName '<RESOURCE_GROUP_NAME>' -ResourceGroupLocation '<RESOURCE_GROUP_LOCATION>' -AADAppDisplayName '<AAD_APP_DISPLAY_NAME>' -AADAppIdentifierUri '<AAD_APP_IDENTIFIER_URI>' -AADAppClientSecret '<AAD_APP_CLIENT_SECRET>' -AADAppClientSecretExpiration '<AAD_APP_CLIENT_SECRET_EXPIRATION>'
     ```
 
-    전체 명령은 다음과 유사 하 게 표시 됩니다. 여기서는 명확 하 게 하기 위해 각 매개 변수를 별도의 줄에 배치 했으므로 전체 명령을 볼 수 있습니다. 이 명령을 그대로 사용 하거나 복사 하지 마십시오. 위의 명령을 사용자 고유의 값으로 복사 하 여 사용 합니다. 이 예제에는 위의 ' <PARAMETER_VALUES> '에 대 한 더미 값이 있습니다. 이러한 값에 대 한 고유한 이름을 사용 하기 때문에 사용자는 달라질 것입니다.
+    전체 명령은 다음과 비슷합니다. 여기서는 명확성을 위해 각 매개 변수를 개별 줄에 입력했으므로 명령 전체를 볼 수 있습니다. 이 명령을 그대로 복사하거나 사용하지 않습니다. 위의 명령을 사용자 고유의 값으로 복사하여 사용합니다. 이 예에는 위의 '<PARAMETER_VALUES>'에 대한 더미 값이 있습니다. 이러한 값에 대해 사용자는 사용자 고유의 이름을 지정하게 되므로 사용자가 사용하는 값은 다를 것입니다.
 
     ```
     Create-ImmersiveReaderResource
@@ -168,23 +168,23 @@ ms.locfileid: "105048666"
 
     | 매개 변수 | 주석 |
     | --- | --- |
-    | SubscriptionName |몰입 형 판독기 리소스에 사용할 Azure 구독의 이름입니다. 리소스를 만들려면 구독이 있어야 합니다. |
-    | ResourceName |  '-'가 첫 번째 또는 마지막 문자가 아닌 경우 영숫자 여야 하며 '-'를 포함할 수 있습니다. 길이는 63 자를 초과할 수 없습니다.|
-    | ResourceSubdomain |사용자 지정 하위 도메인은 몰입 형 판독기 리소스에 필요 합니다. 하위 도메인은 몰입 형 판독기 서비스를 호출 하 여 판독기를 시작할 때 SDK에서 사용 됩니다. 하위 도메인은 전역적으로 고유 해야 합니다. '-'가 첫 번째 또는 마지막 문자가 아닌 경우 하위 도메인은 영숫자 여야 하 고 '-'를 포함할 수 있습니다. 길이는 63 자를 초과할 수 없습니다. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
-    | ResourceSKU |옵션: `S0` (표준 계층) 또는 `S1` (교육/비영리 조직). 사용 가능한 각 SKU에 대 한 자세한 내용은 [Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) 를 참조 하세요. 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
-    | ResourceLocation |옵션: `eastus` , `eastus2` , `southcentralus` , `westus` , `westus2` , `australiaeast` `southeastasia` `centralindia` `japaneast` `northeurope` `uksouth` ,,,,,, `westeurope` 리소스가 이미 존재 하는 경우이 매개 변수는 선택 사항입니다. |
-    | ResourceGroupName |리소스는 구독 내의 리소스 그룹에 만들어집니다. 기존 리소스 그룹의 이름을 제공 합니다. 리소스 그룹이 아직 없는 경우이 이름을 가진 새 리소스 그룹이 생성 됩니다. |
-    | ResourceGroupLocation |리소스 그룹이 없는 경우 그룹을 만들 위치를 제공 해야 합니다. 위치 목록을 찾으려면를 실행 `az account list-locations` 합니다. 반환 된 결과의 *이름* 속성 (공백 없음)을 사용 합니다. 리소스 그룹이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
-    | AADAppDisplayName |Azure Active Directory 응용 프로그램 표시 이름입니다. 기존 Azure AD 응용 프로그램을 찾을 수 없는 경우이 이름을 가진 새 응용 프로그램이 생성 됩니다. Azure AD 응용 프로그램이 이미 있는 경우이 매개 변수는 선택 사항입니다. |
-    | AADAppIdentifierUri |Azure AD 앱에 대 한 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우이 URI를 사용 하는 새 앱이 만들어집니다. 예: `https://immersivereaderaad-mycompany`. |
-    | AADAppClientSecret |사용자가 만드는 암호는 나중에 몰입 형 판독기를 시작 하기 위해 토큰을 획득 하는 경우 나중에 인증 하는 데 사용 됩니다. 암호는 16 자 이상 이어야 하 고 하나 이상의 특수 문자를 포함 하 고 하나 이상의 숫자 문자를 포함 해야 합니다. 이 리소스를 만든 후 Azure AD 응용 프로그램 클라이언트 암호를 관리 하려면 https://portal.azure.com `[AADAppDisplayName]` 아래 "azure ad 응용 프로그램 비밀 관리" 스크린샷에서 볼 수 있는 것 처럼 azure ad 응용 프로그램 클라이언트 암호를 방문 하 여 > Azure Active Directory-> 앱 등록 >-> 인증서 및 비밀 블레이드-> 클라이언트 암호 섹션으로 이동 하세요. |
-    | AADAppClientSecretExpiration |가 만료 되는 날짜 또는 날짜/시간 `[AADAppClientSecret]` 입니다 (예: ' 2020-12-31T11:59:59 + 00:00 ' 또는 ' 2020-12-31 '). |
+    | SubscriptionName |몰입형 리더 리소스에 사용할 Azure 구독의 이름입니다. 리소스를 만들기 위해서는 구독이 있어야 합니다. |
+    | ResourceName |  영숫자여야 하며 '-'가 첫 번째 또는 마지막 문자가 아닌 한 '-'를 포함할 수 있습니다. 길이는 63자를 초과할 수 없습니다.|
+    | ResourceSubdomain |사용자 지정 하위 도메인이 몰입형 리더 리소스에 필요합니다. 하위 도메인은 몰입형 리더 서비스를 호출하여 리더를 시작할 때 SDK에서 사용됩니다. 하위 도메인은 전역적으로 고유해야 합니다. 하위 도메인은 영숫자여야 하며 '-'가 첫 번째 또는 마지막 문자가 아닌 한 '-'를 포함할 수 있습니다. 길이는 63자를 초과할 수 없습니다. 리소스가 이미 존재하는 경우 이 매개 변수는 선택 사항입니다. |
+    | ResourceSKU |옵션: `S0`(표준 계층) 또는 `S1`(교육/비영리 조직)이 있습니다. 사용 가능한 각 SKU에 대해 자세히 알아보려면 [Cognitive Services 가격 책정 페이지](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/)를 참조합니다. 리소스가 이미 존재하는 경우 이 매개 변수는 선택 사항입니다. |
+    | ResourceLocation |옵션: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. 리소스가 이미 존재하는 경우 이 매개 변수는 선택 사항입니다. |
+    | ResourceGroupName |리소스는 구독 내의 리소스 그룹에 만들어집니다. 기존 리소스 그룹의 이름을 제공합니다. 리소스 그룹이 아직 없는 경우 이 이름을 갖는 새 리소스 그룹이 만들어집니다. |
+    | ResourceGroupLocation |리소스 그룹이 없는 경우 그룹을 만들 위치를 제공해야 합니다. 위치 목록을 찾으려면 `az account list-locations`를 실행합니다. 반환된 결과의 *name* 속성(공백 없음)을 사용합니다. 리소스 그룹이 이미 있는 경우 이 매개 변수는 선택 사항입니다. |
+    | AADAppDisplayName |Azure Active Directory 애플리케이션 표시 이름입니다. 기존 Azure AD 애플리케이션을 찾을 수 없는 경우 이 이름을 갖는 새 애플리케이션이 만들어집니다. Azure AD 애플리케이션이 이미 있는 경우 이 매개 변수는 선택 사항입니다. |
+    | AADAppIdentifierUri |Azure AD 앱의 URI입니다. 기존 Azure AD 앱을 찾을 수 없는 경우 이 URI로 새 앱이 만들어집니다. 예들 들어 `https://immersivereaderaad-mycompany`입니다. |
+    | AADAppClientSecret |사용자가 만들어서 나중에 몰입형 리더를 시작하기 위한 토큰을 획득할 때 인증에 사용하는 암호입니다. 암호는 길이가 16자 이상이며 특수 문자 1자 이상 및 숫자 1자 이상을 포함해야 합니다. 이 리소스를 만든 후 Azure AD 애플리케이션 클라이언트 비밀을 관리하려면 https://portal.azure.com 을 방문하여 아래의 "Azure AD 애플리케이션 비밀 관리"스크린샷에 표시된 대로 홈 -> Azure Active Directory -> 앱 등록 -> `[AADAppDisplayName]` -> 인증서 및 비밀 블레이드 -> 클라이언트 비밀 섹션으로 이동하세요. |
+    | AADAppClientSecretExpiration |`[AADAppClientSecret]`이 만료되는 날짜 또는 날짜/시간입니다(예: '2020-12-31T11:59:59+00:00' 또는 '2020-12-31'). |
 
-    Azure AD 응용 프로그램 비밀 관리
+    Azure AD 애플리케이션 비밀 관리
 
     ![Azure Portal 인증서 및 비밀 블레이드](./media/client-secrets-blade.png)
 
-1. 나중에 사용 하기 위해 JSON 출력을 텍스트 파일로 복사 합니다. 출력은 다음과 비슷합니다.
+1. 나중에 사용하기 위해 JSON 출력을 텍스트 파일로 복사합니다. 출력은 다음과 비슷합니다.
 
     ```json
     {

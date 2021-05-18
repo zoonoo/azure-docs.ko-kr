@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: trbye
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8f1e5f38e97a1b51a2d919deebbdc452e9daf993
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ddba62b37c200ade87dbb51042fe0cb084a9ef9a
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98539770"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107106125"
 ---
 # <a name="what-is-the-speech-cli"></a>Speech CLI란?
 
@@ -36,7 +36,7 @@ Speech SDK의 대부분의 기능은 Speech CLI에서 사용할 수 있으며 �
 
 * 음성 인식 - 오디오 파일 또는 마이크에서 직접 음성을 텍스트로 변환하거나 녹음된 대화를 전사합니다.
 
-* 음성 합성 - 텍스트 파일에서 입력하거나 명령줄에서 직접 입력하여 텍스트를 음성으로 변환합니다. [SSML 구성](speech-synthesis-markup.md)과 [표준 또는 인공신경망 음성](speech-synthesis-markup.md#standard-neural-and-custom-voices)을 사용하여 음성 출력 특성을 사용자 지정합니다.
+* 음성 합성 - 텍스트 파일에서 입력하거나 명령줄에서 직접 입력하여 텍스트를 음성으로 변환합니다. [SSML 구성](speech-synthesis-markup.md)과 [표준 또는 인공신경망 음성](speech-synthesis-markup.md#neural-and-custom-voices)을 사용하여 음성 출력 특성을 사용자 지정합니다.
 
 * 음성 번역 - 소스 언어의 오디오를 대상 언어의 텍스트 또는 오디오로 번역합니다.
 

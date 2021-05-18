@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 템플릿으로 디스크 배포
-description: Azure Vm의 Azure Resource Manager 템플릿에서 관리 및 관리 되지 않는 디스크를 사용 하는 방법에 대해 자세히 설명 합니다.
+title: Azure Resource Manager 템플릿을 사용하여 디스크 배포
+description: Azure VM용 Azure Resource Manager 템플릿에서 관리 디스크와 비관리 디스크를 사용하는 방법을 자세히 설명합니다.
 documentationcenter: ''
 author: jboeshart
 manager: ''
@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: af47182219441a373fd3e05585dbbb9484d06b37
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91976669"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753036"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 디스크 사용
 
@@ -98,16 +98,16 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 
 ### <a name="default-managed-disk-settings"></a>기본 관리 디스크 설정
 
-관리 디스크를 사용 하 여 VM을 만들려면 저장소 계정 리소스를 더 이상 만들 필요가 없습니다. 아래 템플릿 예제를 참조 하십시오. 이전에 관리 되지 않는 디스크 예제와 관련 된 몇 가지 차이점이 있습니다.
+이제 관리 디스크를 사용하여 VM을 만들기 위해 스토리지 계정 리소스를 만들지 않아도 됩니다. 아래 템플릿 예제를 참조하면 이전 비관리 디스크 예제와 몇 가지 차이점이 있습니다.
 
-- 는 `apiVersion` 관리 디스크를 지 원하는 버전입니다.
-- `osDisk` 및 `dataDisks` 는 더 이상 VHD의 특정 URI를 참조 하지 않습니다.
-- 추가 속성을 지정 하지 않고 배포 하는 경우 디스크는 VM 크기에 따라 저장소 유형을 사용 합니다. 예를 들어 premium storage를 지 원하는 VM 크기 (예: Standard_D2s_v3)를 사용 하는 경우 프리미엄 디스크가 기본적으로 구성 됩니다. 디스크의 sku 설정을 사용 하 여 저장소 유형을 지정 하 여이를 변경할 수 있습니다.
-- 디스크의 이름을 지정 하지 않으면 `<VMName>_OsDisk_1_<randomstring>` OS 디스크와 각 데이터 디스크에 대 한 형식이 사용 됩니다 `<VMName>_disk<#>_<randomstring>` .
-  - 사용자 지정 이미지에서 VM을 만드는 경우 사용자 지정 이미지 리소스에 정의 된 디스크 속성에서 저장소 계정 유형 및 디스크 이름에 대 한 기본 설정이 검색 됩니다. 이러한 값은 템플릿에서 이러한 값을 지정 하 여 재정의할 수 있습니다.
-- 기본적으로 Azure disk encryption은 사용 하지 않도록 설정 되어 있습니다.
-- 기본적으로 디스크 캐싱은 OS 디스크에 대 한 읽기/쓰기 이며 데이터 디스크에 대해서는 없습니다.
-- 아래 예제에서는 여전히 저장소 계정 종속성이 있지만이는 진단의 저장소에만 해당 되며 디스크 저장소에는 필요 하지 않습니다.
+- `apiVersion`은 관리 디스크를 지원하는 버전입니다.
+- `osDisk` 및 `dataDisks`는 특정 VHD URI를 더 이상 참조하지 않습니다.
+- 추가 속성을 지정하지 않고 배포할 경우 디스크는 VM 크기에 따라 스토리지 유형을 사용합니다. 예를 들어 프리미엄 스토리지를 지원하는 VM 크기(Standard_D2s_v3과 같이 이름에 “s”가 포함된 크기)를 사용하는 경우 기본적으로 프리미엄 디스크가 구성됩니다. 디스크의 sku 설정을 통해 스토리지 유형을 지정하여 변경할 수 있습니다.
+- 디스크 이름을 지정하지 않으면 OS 디스크의 경우 `<VMName>_OsDisk_1_<randomstring>` 형식을 사용하고 각 데이터 디스크의 경우 `<VMName>_disk<#>_<randomstring>` 형식을 사용합니다.
+  - 사용자 지정 이미지에서 VM을 만드는 경우 사용자 지정 이미지 리소스에 정의된 디스크 속성에서 스토리지 계정 유형 및 디스크 이름의 기본 설정이 검색됩니다. 템플릿에서 해당 값을 지정하여 재정의할 수 있습니다.
+- 기본적으로 Azure 디스크 암호화는 사용하지 않도록 설정되어 있습니다.
+- 기본적으로 디스크 캐싱은 OS 디스크의 경우 읽기/쓰기이고 데이터 디스크의 경우 없음입니다.
+- 아래 예제에는 여전히 스토리지 계정 종속성이 있습니다. 이 종속성은 진단 스토리지에만 적용되고 디스크 스토리지에는 필요하지 않습니다.
 
 ```json
 {
@@ -168,7 +168,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 }
 ```
 
-그런 다음 VM 개체 내에서 이 디스크 개체를 참조하여 연결합니다. `managedDisk` 속성에서 만든 관리 디스크의 리소스 ID를 지정하면 VM이 생성될 때 디스크를 첨부할 수 있습니다. 위 코드에서 VM 리소스의 `apiVersion`은 `2017-03-30`으로 설정되어 있습니다. VM이 만들어지기 전에 리소스가 만들어졌는지 확인하는 디스크 리소스에 대한 종속성이 추가되었습니다. 
+그런 다음 VM 개체 내에서 이 디스크 개체를 참조하여 연결합니다. `managedDisk` 속성에서 만든 관리 디스크의 리소스 ID를 지정하면 VM이 생성될 때 디스크를 첨부할 수 있습니다. 위 코드에서 VM 리소스의 `apiVersion`은 `2017-03-30`으로 설정되어 있습니다. VM이 만들어지기 전에 리소스가 만들어졌는지 확인하는 디스크 리소스에 대한 종속성이 추가되었습니다.
 
 ```json
 {
@@ -252,11 +252,11 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 }
 ```
 
-템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
+템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-with-standardssd-disk/)를 참조하세요.
 
 ### <a name="additional-scenarios-and-customizations"></a>추가 시나리오 및 사용자 지정
 
-REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST API 설명서 만들기](/rest/api/manageddisks/disks/disks-create-or-update)를 검토하세요. 추가 시나리오는 물론 템플릿 배포를 통해 API에 전송할 수 있는 허용되는 값 및 기본값을 확인합니다. 
+REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST API 설명서 만들기](/rest/api/manageddisks/disks/disks-create-or-update)를 검토하세요. 추가 시나리오는 물론 템플릿 배포를 통해 API에 전송할 수 있는 허용되는 값 및 기본값을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

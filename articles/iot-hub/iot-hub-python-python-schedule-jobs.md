@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: robinsh
 ms.custom: devx-track-python
-ms.openlocfilehash: 733e3be21a1a1305b5c7947de1ae54ddce5e0d2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 55672b5d58c6c1185c6bf6b17ea63302b6f9b891
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87876685"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487964"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>작업 예약 및 브로드캐스트(Python)
 
@@ -36,7 +36,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 다음을 수행하는 방법을 보여 줍니다.
 
 * 솔루션 백 엔드에서 **LockDoor** 를 호출할 수 있는 직접 메서드가 포함된 Python 시뮬레이션된 디바이스 앱을 만듭니다.
 
@@ -163,7 +163,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
 3. 정책 목록 위의 상단 메뉴에서 **추가** 를 선택합니다.
 
-4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **생성** 를 선택합니다.
+4. **공유 액세스 정책 추가** 창에서 정책에 대한 설명형 이름(예: *serviceAndRegistryReadWrite*)을 입력합니다. **사용 권한** 아래에서 **서비스 연결** 및 **레지스트리 쓰기** 를 선택합니다 (**레지스트리 쓰기** 를 선택하면 **레지스트리 읽기** 가 자동으로 선택됨). 그런 다음 **만들기** 를 선택합니다.
 
     ![새 공유 액세스 정책을 추가하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
 
@@ -173,7 +173,7 @@ Azure IoT Hub는 백 엔드 앱에서 수백만 개의 디바이스를 예약 �
 
     ![연결 문자열을 검색하는 방법 표시](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
 
-IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 [액세스 제어 및 권한](./iot-hub-devguide-security.md#access-control-and-permissions)을 참조하세요.
+IoT Hub 공유 액세스 정책 및 사용 권한에 대한 자세한 내용은 [액세스 제어 및 권한](./iot-hub-dev-guide-sas.md#access-control-and-permissions)을 참조하세요.
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>직접 메서드를 호출하고 디바이스 쌍의 속성을 업데이트하기 위한 작업 예약
 

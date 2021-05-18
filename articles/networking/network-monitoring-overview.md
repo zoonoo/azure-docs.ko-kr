@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 로그의 네트워크 모니터링 정보 | Microsoft Docs
+title: Azure Monitor 로그의 네트워크 모니터링 | Microsoft Docs
 description: 클라우드, 온-프레미스 및 하이브리드 환경에 걸친 네트워크를 관리하는, NPM을 비롯한 네트워크 모니터링 솔루션의 개요입니다.
 services: monitoring-and-diagnostics
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
 ms.openlocfilehash: a92c6789723dc42ac8f3a9c471e494079dc19328
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98233443"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
@@ -65,12 +65,12 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 온-프레미스에서 클라우드 애플리케이션까지 네트워크 토폴로지 검색
 * 용량 계획, 대역폭 사용률 분석
 * 기본 및 보조 경로에서 모니터링 및 경고
-* Microsoft 365, Dynamics 365 등의 Azure 서비스에 대 한 연결 모니터링 Express 경로
+* ExpressRoute를 통해 Microsoft 365, Dynamics 365 등의 Azure 서비스에 대한 연결 모니터링
 * VNet에 대한 연결에서 성능 저하 감지
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 * [ExpressRoute에 대한 네트워크 성능 모니터 구성](../expressroute/how-to-npm.md)
 * [블로그 게시물](https://aka.ms/NPMExRmonitorGA)
@@ -84,9 +84,9 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 * 전 세계 여러 사용자 위치에서 애플리케이션 연결 테스트
 * 비즈니스 및 SaaS 애플리케이션에 대한 네트워크 대기 시간 및 패킷 손실 파악
 * 잘못된 애플리케이션 성능을 일으킬 수 있는 네트워크상 핫 스폿 확인
-* Microsoft 365, Dynamics 365, 비즈니스용 Skype 및 기타 Microsoft 서비스에 대 한 기본 제공 테스트를 사용 하 여 Microsoft 365 응용 프로그램에 대 한 연결성을 모니터링 합니다.
+* Microsoft 365, Dynamics 365, Skype for Business 및 기타 Microsoft 서비스를 위한 기본 테스트를 사용하여 Microsoft 365 애플리케이션에 대한 연결 가능성 모니터링
 
-자세한 내용은 다음 아티클을 참조하세요.
+자세한 내용은 다음 문서를 참조하세요.
 
 * [서비스 엔드포인트를 모니터링하기 위한 네트워크 성능 모니터 구성](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [블로그 게시물](https://aka.ms/svcendptmonitor)
@@ -103,7 +103,7 @@ ExpressRoute를 위한 NPM은 Azure 프라이빗 피어링 및 Microsoft 피어�
 
 트래픽 분석은 조직의 네트워크 활동을 감사하고, 애플리케이션 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 되는 실행 가능한 정보를 제공합니다.
 
-![지역 간 트래픽을 보여 주는 지역 지도 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
+![전체 지역의 트래픽을 보여주는 지역 지도 2](../network-watcher/media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png) 
 
 관련 링크:
 * [블로그 게시물](https://aka.ms/trafficanalytics), [설명서](../network-watcher/traffic-analytics.md), [FAQ](../network-watcher/traffic-analytics-faq.md)

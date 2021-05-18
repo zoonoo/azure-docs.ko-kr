@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91313623"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect 동기화: 선언적 프로비전 이해
@@ -29,11 +29,11 @@ ms.locfileid: "91313623"
 ## <a name="overview"></a>개요
 선언적 프로비전은 연결된 원본 디렉터리에서 들어오는 개체를 처리하고 개체 및 특성이 원본에서 대상으로 변환되는 방법을 결정합니다. 개체는 동기화 파이프라인에서 처리되고 파이프라인은 인바운드 및 아웃 바운드 규칙에 동일합니다. 인바운드 규칙은 커넥터 공간에서 메타버스까지이고 아웃바운드 규칙은 메타버스에서 커넥터 공간까지입니다.
 
-![동기화 파이프라인 예제를 보여 주는 다이어그램입니다.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![동기화 파이프라인 예제를 보여 주는 다이어그램](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 파이프라인에는 여러 다른 모듈이 있습니다. 각 모듈은 동기화 개체에서 한 가지 개념을 담당합니다.
 
-![파이프라인의 모듈을 표시 하는 다이어그램입니다.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![파이프라인의 모듈을 보여 주는 다이어그램](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * 원본, 원본 개체
 * [범위](#scope), 범위에 있는 모든 동기화 규칙을 찾습니다.
@@ -44,7 +44,7 @@ ms.locfileid: "91313623"
 
 ## <a name="scope"></a>범위
 범위 모듈은 개체를 평가하고 범위 내에서 처리에 포함되어야 하는 규칙을 결정합니다. 개체에 대한 특성 값에 따라 다른 동기화 규칙이 범위에 있다고 평가됩니다. 예를 들어 사서함이 없는 비활성화된 사용자에게는 사서함이 있는 활성화된 사용자보다 다양한 규칙이 적용됩니다.  
-![개체의 범위 모듈을 보여 주는 다이어그램입니다.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![개체의 범위 모듈을 보여 주는 다이어그램](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 범위는 그룹 및 절로 정의됩니다. 절은 그룹 내에 있습니다. 논리적 AND는 그룹의 모든 절 간에 사용됩니다. 예를 들어 (부서 = IT AND 국가 = 덴마크). 논리 OR은 그룹 간에 사용됩니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "91313623"
 | ISBITSET, ISNOTBITSET |특정 비트가 설정되었는지 평가합니다. 예를 들어 사용자가 활성화되었는지 비활성화되었는지를 확인하기 위해 userAccountControl에서 비트를 평가하는 데 사용할 수 있습니다. |
 | ISMEMBEROF, ISNOTMEMBEROF |값은 커넥터 공간의 그룹에서 DN을 포함해야 합니다. 개체가 지정된 그룹의 멤버인 경우 규칙은 범위 내에 있습니다. |
 
-## <a name="join"></a>참여
+## <a name="join"></a>Join
 동기화 파이프라인에서 조인 모듈은 원본의 개체와 대상의 개체 간의 관계를 찾는 작업을 담당합니다. 인바운드 규칙에서 이 관계는 메타버스의 개체에 대한 관계를 찾는 커넥터 공간의 개체일 수 있습니다.  
 ![cs와 mv 간의 조인](./media/concept-azure-ad-connect-sync-declarative-provisioning/join1.png)  
 목표는 다른 커넥터에서 만든 메타버스에 이미 개체가 있는지 확인하는 것입니다. 이는 연결되어야 합니다. 예를 들어 계정-리소스 포리스트에서 계정 포리스트의 사용자는 리소스 포리스트의 사용자와 조인되어야 합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "91313623"
  이 그림에서 조인은 위쪽에서 아래쪽으로 처리됩니다. 먼저 동기화 파이프라인은 employeeID에 대해 일치하는지 확인합니다. 그렇지 않으면 두 번째 규칙은 계정 이름이 객체를 조인하는 데 사용되는지 확인합니다. 일치하지 않는 경우 세 번째이자 마지막 규칙은 사용자의 이름을 사용하여 더 유사한 일치를 확인합니다.
 
 모든 조인 규칙이 평가되며 일치 항목이 없는 경우 **설명** 페이지의 **링크 형식** 이 사용됩니다. 이 옵션이 **프로비전** 에 설정된 경우 대상에서 새 개체가 만들어집니다.  
-!["링크 유형" 드롭다운 메뉴를 표시 하는 스크린샷](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![“링크 형식” 드롭다운 메뉴가 열려 있는 스크린샷](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 개체에는 범위 내에 조인 규칙이 포함된 하나의 단일 동기화 규칙이 있어야 합니다. 조인이 정의되는 여러 동기화 규칙이 있는 경우 오류가 발생합니다. 우선 순위는 조인 충돌을 해결하는 데 사용되지 않습니다. 개체는 동일한 인바운드/아웃바운드 방향을 갖는 흐름에 대한 특성의 범위에 조인 규칙을 가지고 있어야 합니다. 동일한 개체에 대한 인바운드 및 아웃바운드 모든 특성이 흘러야 하는 경우 조인된 인바운드 및 아웃바운드 동기화 규칙이 모두 있어야 합니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "91313623"
 ### <a name="merging-attribute-values"></a>특성 값 병합
 특성 흐름에는 여러 다른 커넥터에서 다중값 특성을 병합해야 하는지를 결정하는 설정이 있습니다. 기본값은 **업데이트** 이며 우선 순위가 높은 동기화 규칙이 우선함을 나타냅니다.
 
-!["병합 유형" 드롭다운 메뉴가 열려 있는 "변환 추가" 섹션을 보여 주는 스크린샷](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![“병합 유형” 드롭다운 메뉴가 열려 있는 “변환 추가” 섹션 스크린샷](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 또한 **병합** 및 **MergeCaseInsensitive** 가 있습니다. 이 옵션을 사용하면 다양한 원본에서 값을 병합할 수 있습니다. 예를 들어, 여러 다른 포리스트에서 구성원 또는 proxyAddresses 특성을 병합하는 데 사용할 수 있습니다. 이 옵션을 사용하는 경우 하나의 개체의 범위에 있는 모든 동기화 규칙은 동일한 병합 유형을 사용해야 합니다. 한 커넥터의 **업데이트** 및 다른 커넥터의 **병합** 을 정의할 수는 없습니다. 시도하면 오류가 발생합니다.
 
@@ -146,7 +146,7 @@ ImportedValue 함수는 특성 이름을 대괄호 대신 따옴표로 묶어야
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>동일한 커넥터 공간의 여러 개체
 여러 개체가 동일한 메타버스 개체에 조인된 동일한 커넥터 공간에 있는 경우 우선 순위를 조정해야 합니다. 여러 개체가 동일한 동기화 규칙의 범위에 있는 경우 동기화 엔진은 우선 순위를 결정할 수 없습니다. 어떤 원본 개체가 메타버스에 값을 제공해야 하는지 모호합니다. 원본에 있는 특성이 동일한 값인 경우더라도 이 구성은 모호하다고 보고됩니다.  
-![투명 빨강 X 오버레이가 있는 동일한 mv 개체에 조인 된 여러 개체를 표시 하는 다이어그램입니다. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![동일한 mv 개체에 조인된 여러 개체와 투명한 빨간색 X 오버레이가 표시된 다이어그램 ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 이 시나리오의 경우 원본 개체에 범위의 여러 동기화 규칙이 있도록 동기화 규칙의 범위를 변경해야 합니다. 다른 우선 순위를 정의할 수 있습니다.  
 ![동일한 mv 개체에 조인된 여러 개체](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

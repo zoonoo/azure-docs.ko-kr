@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: b297330f3562babf9e83d36934827f7b92d5ea35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787015"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501793"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -208,7 +208,7 @@ LUIS를 사용하면 LUIS 포털 및 REST API를 사용하여 테스트를 일�
 
 일괄 처리 테스트를 위해 *데이터 세트* 라는 발화 일괄 처리 파일을 제출합니다. 데이터 세트는 레이블이 지정된 최대 1,000개의 발화를 포함하는 JSON 형식의 파일입니다. 앱에서 최대 10개의 데이터 세트를 테스트할 수 있습니다. 더 많은 데이터 세트를 테스트해야 하는 경우 데이터 세트를 삭제하고 새 데이터 세트를 추가합니다. 모델의 모든 사용자 지정 엔터티는 일괄 처리 파일 데이터에 해당 엔터티가 없더라도 일괄 처리 테스트 엔터티 필터에 표시됩니다.
 
-배치 파일은 발언으로 구성됩니다. 각 발화에는 감지될 것으로 예상하는 모든 [기계 학습 엔터티](luis-concept-entity-types.md#types-of-entities)와 함께 예상된 의도 예측이 있어야 합니다.
+배치 파일은 발언으로 구성됩니다. 각 발화에는 감지될 것으로 예상하는 모든 [기계 학습 엔터티](luis-concept-entity-types.md#machine-learned-ml-entity)와 함께 예상된 의도 예측이 있어야 합니다.
 
 ### <a name="batch-syntax-template-for-intents-with-entities"></a>엔터티를 사용한 의도에 대한 일괄 처리 구문 템플릿
 

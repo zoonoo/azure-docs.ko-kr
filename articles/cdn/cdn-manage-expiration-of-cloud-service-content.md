@@ -16,10 +16,10 @@ ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
 ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93240973"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
@@ -73,9 +73,9 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 1. **사용자 지정 캐싱 규칙** 에 따라 일치 조건 두 개를 만듭니다.
 
-     a. 첫 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/*`을 입력합니다. **캐싱 동작** 을 **재정의** 로 설정 하 고 **일** 상자에 4를 입력 합니다.
+     a. 첫 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/*`을 입력합니다. **캐싱 동작** 을 **재정의** 로 설정하고 **일** 상자에 4를 입력합니다.
 
-     b. 두 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작** 을 **재정의** 로 설정 하 고 **일** 상자에 2를 입력 합니다.
+     b. 두 번째 일치 조건의 경우 **일치 조건** 을 **경로** 로 설정하고 **일치 값** 으로 `/webfolder1/file1.txt`를 입력합니다. **캐싱 동작** 을 **재정의** 로 설정하고 **일** 상자에 2를 입력합니다.
 
     ![CDN 사용자 지정 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 
@@ -107,7 +107,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 </configuration>
 ```
 
-**cacheControlMaxAge** 특성을 사용하려면 **cacheControlMode** 특성의 값을 `UseMaxAge`로 설정해야 합니다. 이 설정으로 인해 HTTP 헤더 및 지시문, `Cache-Control: max-age=<nnn>`이 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위 값의 형식은 `<days>.<hours>:<min>:<sec>`입니다. 해당 값은 초로 변환 되 고 지시문의 값으로 사용 됩니다 `Cache-Control` `max-age` . `<clientCache>` 요소에 대한 자세한 내용은 [클라이언트 캐시 \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)를 참조하세요.  
+**cacheControlMaxAge** 특성을 사용하려면 **cacheControlMode** 특성의 값을 `UseMaxAge`로 설정해야 합니다. 이 설정으로 인해 HTTP 헤더 및 지시문, `Cache-Control: max-age=<nnn>`이 응답에 추가됩니다. **cacheControlMaxAge** 특성에 대한 시간 범위 값의 형식은 `<days>.<hours>:<min>:<sec>`입니다. 해당 값은 초로 변환되고 `Cache-Control` `max-age` 지시문의 값으로 사용됩니다. `<clientCache>` 요소에 대한 자세한 내용은 [클라이언트 캐시 \<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)를 참조하세요.  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>프로그래밍 방식으로 Cache-Control 헤더 설정
 ASP.NET 애플리케이션의 경우 .NET API의 **HttpResponse.Cache** 속성을 설정하면 CDN 캐싱 동작을 프로그래밍 방식으로 제어합니다. **HttpResponse.Cache** 속성에 대한 자세한 내용은 [HttpResponse.Cache 속성](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 및 [HttpCachePolicy 클래스](/dotnet/api/system.web.httpcachepolicy)를 참조하세요.  
@@ -134,5 +134,5 @@ Response.Cache.SetLastModified(DateTime.Now);
 ## <a name="next-steps"></a>다음 단계
 * [**clientCache** 요소에 대한 자세한 내용](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [**HttpResponse.Cache** 속성에 대한 자세한 내용](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
-* [**HttpCachePolicy 클래스** 에 대 한 설명서 읽기](/dotnet/api/system.web.httpcachepolicy)  
+* [**HttpCachePolicy 클래스** 에 대한 자세한 내용](/dotnet/api/system.web.httpcachepolicy)  
 * [캐싱 개념에 대해 알아보기](cdn-how-caching-works.md)

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: 14dacc4351af444c75517df4d4e02ecca3bbf40a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96350078"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Bing Image Search API에 대한 언어 및 지역 지원
@@ -120,7 +120,7 @@ Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에
 |대만|중국어 번체|zh-TW|
 |터키|터키어|tr-TR|
 |영국|영어|en-GB|
-|미국|영어|ko-KR|
+|미국|영어|en-US|
 |미국|스페인어|es-US|
 
 ## <a name="next-steps"></a>다음 단계

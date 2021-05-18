@@ -4,14 +4,14 @@ description: 데이터 팩터리를 만들고 하위 리소스를 사용하는 �
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-author: dcstwh
-ms.author: weetok
-ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: nabhishek
+ms.author: abnarain
+ms.openlocfilehash: 7bc386e17cef3bfc6b2c4db83c1edcb04d2d9178
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100364480"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906767"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 

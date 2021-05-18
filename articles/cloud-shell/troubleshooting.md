@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87543455"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
@@ -31,8 +31,8 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="error-running-azuread-cmdlets-in-powershell"></a>PowerShell에서 AzureAD cmdlet 실행 중 오류 발생
 
-- **세부 정보**: Cloud Shell와 같은 AzureAD cmdlet `Get-AzureADUser` 을 실행 하면 다음과 같은 오류가 표시 될 수 있습니다. `You must call the Connect-AzureAD cmdlet before calling any other cmdlets` . 
-- **해결** 방법: cmdlet을 실행 `Connect-AzureAD` 합니다. 이전에는 PowerShell을 시작 하는 동안이 cmdlet을 자동으로 실행 Cloud Shell. 시작 시간을 단축 하기 위해 cmdlet이 더 이상 자동으로 실행 되지 않습니다. `Connect-AzureAD`PowerShell에서 $PROFILE 파일에를 추가 하 여 이전 동작을 복원 하도록 선택할 수 있습니다.
+- **세부 정보**: `Get-AzureADUser`Cloud Shell와 같은 AzureAD cmdlet을 실행하면 다음과 같은 오류가 표시될 수 있습니다. `You must call the Connect-AzureAD cmdlet before calling any other cmdlets`. 
+- **해상도**: `Connect-AzureAD` cmdlet을 실행합니다. 이전에는 Cloud Shell이 PowerShell을 시작하는 동안이 cmdlet을 자동으로 실행합니다. 시작 시간을 단축하기 위해 cmdlet이 더 이상 자동으로 실행되지 않습니다. PowerShell의 $PROFILE 파일에 `Connect-AzureAD`을 추가하여 이전 동작을 복원하도록 선택할 수 있습니다.
 
 ### <a name="early-timeouts-in-firefox"></a>FireFox의 조기 시간 초과
 
@@ -41,13 +41,13 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
 
-- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 도메인에 대 한 액세스를 활용 하 여 `ux.console.azure.com` 거부 될 수 있으며, portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com를 포함 하 여 Cloud Shell 진입점에 대 한 액세스를 중지 합니다. 미국 정부 클라우드에서 entrypoint는 이며 해당 하는 `ux.console.azure.us` shell.azure.us 없습니다.
-- **해결** 방법: `ux.console.azure.com` `ux.console.azure.us` 네트워크 설정을 통해 또는 사용자 환경으로의 액세스를 제한 합니다. Cloud Shell 아이콘은 계속 Azure Portal에 있지만 서비스에 성공적으로 연결 되지 않습니다.
+- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell은 거부될 수 있는 `ux.console.azure.com` 도메인에 대한 액세스를 활용하여 portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com을 포함한 Cloud Shell의 entrypoint에 대한 액세스를 중단합니다. 미국 정부 클라우드에서 entrypoint는 `ux.console.azure.us`이며, shell.azure.us에 해당하지 않습니다.
+- **해결 방법**: 사용자 환경에 대한 네트워크 설정을 통해 `ux.console.azure.com` 또는 `ux.console.azure.us`에 대한 액세스를 제한합니다. Cloud Shell 아이콘은 Azure Portal에 여전히 존재하지만 서비스에 성공적으로 연결되지 않습니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 
-- **세부 정보**: Cloud Shell을 통해 저장소 계정을 만들 때 관리자가 Azure Policy 할당으로 인해 실패 합니다. 오류 메시지에는 다음이 포함 됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **해결** 방법: 저장소 만들기를 거부 하는 Azure Policy 할당을 제거 하거나 업데이트 하려면 Azure 관리자에 게 문의 하세요.
+- **세부 정보**: Cloud Shell을 통해 스토리지 계정을 만들 경우, 관리자가 배치한 Azure 정책 때문에 생성되지 않습니다. 오류 메시지에는 다음이 포함됩니다. `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **해결 방법**: Azure 관리자에게 문의하여 스토리지 생성을 거부하는 Azure 정책 할당을 제거하거나 업데이트하세요.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>스토리지 대화 상자 - 오류: 400 DisallowedOperation
 
@@ -59,7 +59,7 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 - **해결 방법**: *.console.azure.com의 도메인으로 https 요청 및 websocket 요청을 전송할 수 있게 네트워크 설정을 구성했는지 확인합니다.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>TLS 1.2를 사용하여 지원을 위한 Cloud Shell 연결 설정
- - **세부 정보**: Cloud Shell 연결에 대 한 TLS 버전을 정의 하려면 브라우저 관련 설정을 지정 해야 합니다.
+ - **세부 정보**: Cloud Shell에 연결하기 위해 TLS 버전을 확인하려면 브라우저별 설정을 지정해야 합니다.
  - **해결 방법**: 브라우저의 보안 설정으로 이동하고 “TLS 1.2 사용” 옆에 있는 확인란을 선택합니다.
 
 ## <a name="bash-troubleshooting"></a>Bash 문제 해결
@@ -94,9 +94,9 @@ Azure Cloud Shell에는 다음과 같이 알려진 제한 사항이 있습니다
 
 ### <a name="quota-limitations"></a>할당량 제한
 
-Azure Cloud Shell는 지역 당 테 넌 트 당 최대 20 명의 동시 사용자 제한이 있습니다. 한도 보다 많은 동시 세션을 열려고 하면 "할당량을 통한 테 넌 트 사용자" 오류가 표시 됩니다. 이 보다 더 많은 세션이 열려 있어야 하는 합법적인 요구 사항이 있는 경우 (예: 교육 세션), 예상 되는 사용량에 앞서 지원에 문의 하 여 할당량 증가를 요청 합니다.
+Azure Cloud Shell는 지역당 테넌트당 최대 20명의 동시 사용자 제한이 있습니다. 한도보다 많은 동시 세션을 열려고 하면 "할당량을 초과한 테넌트 사용자" 오류가 표시됩니다. 이보다 더 많은 세션이 열려 있어야 하는 합법적인 요구 사항이 있는 경우 (예: 교육 세션), 예상되는 사용량을 미리 고객 지원팀에 문의하여 할당량 증가를 요청합니다.
 
-Cloud Shell은 무료 서비스로 제공 되며 범용 컴퓨팅 플랫폼이 아닌 Azure 환경을 구성 하는 데 사용 하도록 설계 되었습니다. 과도 한 자동화 된 사용은 Azure 서비스 약관을 위반 하는 것으로 간주 될 수 있으며 Cloud Shell 액세스가 차단 될 수 있습니다.
+Cloud Shell은 무료 서비스로 제공되며 범용 컴퓨팅 플랫폼이 아닌 Azure 환경을 구성하는 데 사용하도록 설계되었습니다. 과도한 자동화된 사용은 Azure 서비스 약관을 위반하는 것으로 간주될 수 있어 Cloud Shell 액세스가 차단될 수 있습니다.
 
 ### <a name="system-state-and-persistence"></a>시스템 상태 및 지속성
 
@@ -151,14 +151,14 @@ Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud 
 ### <a name="export"></a>내보내기
 사용자 설정을 **내보내기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다.
 
-1. [![시작 Azure Cloud Shell 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. [![시작 Azure Cloud Shell 레이블이 지정된 단추를 표시하는 이미지.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
 
 2. Bash 또는 PowerShell에서 다음 명령을 실행합니다.
 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data &quot;resource=https://management.azure.com/&quot; -H Metadata:true -s | jq -r &quot;.access_token")"
   curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
   ```
 
@@ -175,14 +175,14 @@ PowerShell:
 >[!Note]
 > 사용자 설정을 삭제하는 경우 실제 Azure Files 공유는 삭제되지 않습니다. 해당 작업을 완료하려면 Azure Files로 이동합니다.
 
-1. [![시작 Azure Cloud Shell 레이블이 지정 된 단추를 표시 하는 이미지입니다.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+1. [![시작 Azure Cloud Shell 레이블이 지정된 단추를 표시하는 이미지.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
 
 2. Bash 또는 PowerShell에서 다음 명령을 실행합니다.
 
 Bash:
 
   ```
-  token="Bearer $(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s | jq -r ".access_token")"
+  token="Bearer $(curl http://localhost:50342/oauth2/token --data &quot;resource=https://management.azure.com/&quot; -H Metadata:true -s | jq -r &quot;.access_token")"
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
@@ -193,7 +193,7 @@ PowerShell:
   Invoke-WebRequest -Method Delete -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}
   ```
 ## <a name="azure-government-limitations"></a>Azure Government 제한 사항
-Azure Government Azure Cloud Shell은 Azure Portal을 통해서만 액세스할 수 있습니다.
+Azure Government의 Azure Cloud Shell은 Azure Portal을 통해서만 액세스할 수 있습니다.
 
 >[!Note]
-> Exchange Online에 대 한 GCC-High 또는 정부 DoD 클라우드에 연결 하는 것은 현재 지원 되지 않습니다.
+> Exchange Online에 대한 GCC-High 또는 Government DoD 클라우드에 연결하는 것은 현재 지원되지 않습니다.

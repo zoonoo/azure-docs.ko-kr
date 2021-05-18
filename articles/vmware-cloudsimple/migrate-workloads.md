@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-프라이빗 클라우드로 워크로드 VM 마이그레이션
 description: 온-프레미스 vCenter에서 CloudSimple 프라이빗 클라우드 vCenter로 가상 컴퓨터를 마이그레이션하는 방법에 대해 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/20/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d95257d0b3c031747ca7ff4f359398938f9bde61
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 851305775d14ed371440434b2fbe9334ec0a21b9
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181925"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97899323"
 ---
 # <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>온-프레미스 vCenter에서 프라이빗 클라우드 vCenter로 워크로드 VM을 마이그레이션합니다.
 

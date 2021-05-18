@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: lajanuar
-ms.openlocfilehash: 7c92fb7f5de5542af08d1335bea745557a330f0d
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: d46fef0159b983f2685be40e2a0ab5471b96883b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107506009"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "98895444"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: Translate
 
@@ -199,7 +199,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 <table width="100%">
   <th width="20%">상태 코드</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>200</td>
     <td>성공.</td>

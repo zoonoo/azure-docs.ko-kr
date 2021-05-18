@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 1441210303984bf777c6b580f6f7ab0c67ce6f21
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 46c6eac80ddbff73d99e05c070e66aa1700da174
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257860"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "96928633"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Onfido를 구성하기 위한 자습서
 
@@ -50,7 +50,7 @@ Onfido 통합에는 다음 구성 요소가 포함됩니다.
 
 ![onfido-아키텍처-다이어그램에 대한 스크린샷](media/partner-onfido/onfido-architecture-diagram.png)
 
-|단계 | Description |
+|단계 | 설명 |
 |:-----| :-----------|
 | 1. | 사용자가 로그인 페이지를 엽니다. 사용자가 등록하여 새 계정을 만들고 페이지에 정보를 입력합니다. Azure AD B2C가 사용자 특성을 수집합니다. Azure AD B2C에서 호스트되는 Onfido 클라이언트 앱은 예비로 사용자 정보를 확인합니다.
 | 2. | Azure AD B2C는 중간 계층 API를 호출하고 사용자 특성을 전달합니다.
@@ -84,7 +84,7 @@ Onfido에 대한 자세한 내용은 [Onfido API 설명서](https://documentatio
 
 애플리케이션 설정은 [Azure의 App Service](../app-service/configure-common.md#configure-app-settings)에서 구성할 수 있습니다. 앱 서비스를 사용하면 설정을 리포지토리로 체크인하지 않고도 안전하게 구성할 수 있습니다. Rest API에는 다음 설정이 제공되어야 합니다.
 
-| 애플리케이션 설정 이름 | 원본 | 메모 |
+| 애플리케이션 설정 이름 | 원본 | 참고 |
 |:-------------------------|:-------|:-------|
 |OnfidoSettings:AuthToken| Onfido 계정 |
 
@@ -142,7 +142,7 @@ Onfido에 대한 자세한 내용은 [Onfido API 설명서](https://documentatio
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>4부 - Azure AD B2C 정책 구성
 
-Azure AD B2C 테넌트를 설정하고 정책을 구성하는 방법에 대한 명령은 이 [문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)를 참조하세요.
+Azure AD B2C 테넌트를 설정하고 정책을 구성하는 방법에 대한 명령은 이 [문서](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)를 참조하세요.
 
 >[!NOTE]
 > 모범 사례로, 고객은 특성 컬렉션 페이지에서 동의 알림을 추가하는 것이 좋습니다. 신원 확인을 위해 타사 서비스에 정보가 보내질 것임을 사용자에게 알립니다.
@@ -167,8 +167,8 @@ Azure AD B2C 테넌트를 설정하고 정책을 구성하는 방법에 대한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 문서를 참조하세요:
 
 - [Azure AD B2C의 사용자 지정 정책](./custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](./custom-policy-get-started.md?tabs=applications)

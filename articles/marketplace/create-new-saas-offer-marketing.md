@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: e61d85b5f02cb73d078888badc2fa24c4506fe64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fa207ca38c46f09e3660ea03e70d20e45c620845
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96620887"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127446"
 ---
 # <a name="how-to-sell-your-saas-offer"></a>SaaS 제품을 판매하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "96620887"
 
 **Microsoft와 공동 판매** 탭에 제공하는 정보는 모두 선택 사항입니다. 하지만 _공동 판매 준비_ 및 _IP 공동 판매 준비_ 상태가 되어야 합니다. Microsoft 영업 팀은 고객의 요구에 적합한 솔루션을 평가할 때 이 정보를 사용하여 솔루션에 대해 자세히 알아봅니다. 이 탭에서 제공하는 정보는 고객이 직접 사용할 수 없습니다.
 
-**Microsoft와 공동 판매** 탭을 구성하는 방법에 대한 세부 정보와 지침은 [상업용 마켓플레이스의 공동 판매 옵션](commercial-marketplace-co-sell.md)을 참조하세요.
+**Microsoft와 공동 판매** 탭을 구성하는 방법에 대한 세부 정보와 지침은 [상업용 마켓플레이스의 공동 판매 옵션](./co-sell-configure.md)을 참조하세요.
 
 ## <a name="resell-through-csps"></a>CSP를 통한 재판매
 

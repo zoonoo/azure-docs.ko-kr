@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: d0cc32a84ee0d214df9533b480a1c29bb57ee1c7
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 9366bb5b2bb5820245ec1b699bbf2ddda0dd9f9d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071742"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100103178"
 ---
 # <a name="single-page-application-app-registration"></a>단일 페이지 애플리케이션: 앱 등록
 
@@ -68,6 +68,8 @@ MSAL.js 1.3 이하 및 암시적 허용 흐름을 사용하는 단일 페이지 
 1. **구성** 을 선택하여 리디렉션 URI 추가를 마칩니다.
 
 이제 SPA(단일 페이지 애플리케이션)의 등록을 완료하고 클라이언트가 리디렉션되고 보안 토큰이 전송될 리디렉션 URI를 구성했습니다. **ID 토큰** 및 **액세스 토큰** 중 하나 또는 둘 다를 선택하여 암시적 허용 흐름을 사용하도록 설정했습니다.
+
+추가 지침을 보려면 [자습서](tutorial-v2-javascript-spa.md)를 따르세요.
 
 ## <a name="note-about-authorization-flows"></a>권한 부여 흐름에 대한 참고 사항
 

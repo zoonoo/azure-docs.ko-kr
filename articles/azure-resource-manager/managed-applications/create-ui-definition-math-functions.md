@@ -1,20 +1,20 @@
 ---
-title: UI 정의 수학 함수 만들기
-description: 수학 연산을 수행할 때 사용할 함수에 대해 설명 합니다.
+title: Create UI definition math functions
+description: 수학 연산을 수행할 때 사용할 함수에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: 022e59d847a4d89b4243223637fc6fd1e73255a9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87098169"
 ---
-# <a name="createuidefinition-math-functions"></a>CreateUiDefinition 수학 함수
+# <a name="createuidefinition-math-functions"></a>CreateUiDefinition math functions
 
-함수를 사용 하 여 수학 연산을 수행할 수 있습니다.
+함수를 사용하면 수학 연산을 수행할 수 있습니다.
 
 ## <a name="add"></a>add
 
@@ -68,7 +68,7 @@ ms.locfileid: "87098169"
 
 ## <a name="min"></a>분
 
-두 숫자 중 더 작은 숫자를 반환 합니다.
+두 숫자 중 작은 숫자를 반환합니다.
 
 다음 예제는 `1`을 반환합니다.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.date: 03/04/2020
 ms.author: shants
-ms.openlocfilehash: 91a6adecc9cf0db56fa4c433f388b05aa1bdef6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f833f3eb9e3d94da6178a0a9a9cf4f95ec0682e7
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98202915"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107865372"
 ---
 # <a name="move-a-maintenance-control-configuration-to-another-region"></a>유지 관리 제어 구성을 다른 지역으로 이동
 
@@ -24,7 +24,7 @@ ms.locfileid: "98202915"
 - 구성 자체가 아닌, 유지 관리 구성과 연결된 리소스를 이동하려면 [다음 지침을 따르세요.](move-region-maintenance-configuration-resources.md)
 - 유지 관리 구성과 그와 연결된 리소스를 모두 이동하려면, 먼저 이 문서의 지침을 따릅니다. 그리고 나서 [다음 지침](move-region-maintenance-configuration-resources.md)을 따릅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 유지 관리 제어 구성 이동을 시작하기 전에 다음을 수행합니다.
 
@@ -38,12 +38,12 @@ ms.locfileid: "98202915"
 
 ## <a name="prepare-and-move"></a>준비 및 이동 
 
-1. 각 구독의 모든 유지 관리 구성을 검색합니다. CLI [az maintenance configuration list](/cli/azure/ext/maintenance/maintenance/configuration#ext-maintenance-az-maintenance-configuration-list) 명령을 실행하여 이 작업을 수행합니다. $subId는 구독 ID로 대체합니다.
+1. 각 구독의 모든 유지 관리 구성을 검색합니다. CLI [az maintenance configuration list](/cli/azure/maintenance/configuration#az_maintenance_configuration_list) 명령을 실행하여 이 작업을 수행합니다. $subId는 구독 ID로 대체합니다.
 
     ```
     az maintenance configuration list --subscription $subId --query "[*].{Name:name, Location:location, ResGroup:resourceGroup}" --output table
     ```
-2. 구독 내에서 구성 레코드의 반환된 테이블 목록을 검토합니다. 예제는 다음과 같습니다. 목록에는 특정 환경에 대한 값이 포함됩니다.
+2. 구독 내에서 구성 레코드의 반환된 테이블 목록을 검토합니다. 예를 들면 다음과 같습니다. 목록에는 특정 환경에 대한 값이 포함됩니다.
 
     **이름** | **위치** | **리소스 그룹**
     --- | --- | ---

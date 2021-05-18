@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2021
 ms.author: jeedes
-ms.openlocfilehash: d21ccdcb1f3854733d045b47a5f43e27bbdf4ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 79153734beb9ddc8bb43c1c4928844c5d4bd18e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822256"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739998"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>자습서: Box와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -153,12 +153,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Box 로그온 URL로 리디렉션됩니다.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 선택합니다. 로그인 흐름을 시작할 수 있는 Box 로그온 URL로 리디렉션됩니다.
 
 * Box 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 * Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Box 타일을 클릭하면 Box 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
+### <a name="push-an-azure-group-to-box"></a>Box에 Azure 그룹 푸시
+
+Azure 그룹을 Box에 푸시하고 해당 그룹을 동기화할 수 있습니다. Azure는 API 수준 통합을 통해 Box에 그룹을 푸시합니다.
+
+1. **사용자 및 그룹** 에서 Box에 할당할 그룹을 검색합니다.
+1. **프로비저닝** 에서 **Azure Active Directory 그룹을 Box에 동기화** 가 선택되어 있는지 확인합니다. 이 설정은 이전 단계에서 할당한 그룹을 동기화합니다. 이 그룹이 Azure에서 푸시되는 데 다소 시간이 걸릴 수 있습니다.
+
+> [!NOTE]
+> 사용자를 수동으로 만들어야 하는 경우 [Box 지원 팀](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)에 문의합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

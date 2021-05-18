@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 2/7/2021
-ms.reviewer: mbullwin
-ms.openlocfilehash: 1f19366ac8fd7aedadcca0287540262516ad060c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.date: 3/30/2021
+ms.reviewer: lagayhar
+ms.openlocfilehash: e048e788e674e90a62b15784c590c07e5d36b816
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726186"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106078403"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -25,7 +25,7 @@ Application Insights의 가격 책정 방식에 대해 궁금한 사항이 있�
 
 ## <a name="pricing-model"></a>가격 책정 모델
 
-[Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. [라이브 메트릭 스트림](./live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다.
+[Azure Application Insights][start]의 기본 가격은 수집된 데이터 볼륨을 기반으로 하며 필요에 따라 데이터를 더 오래 보존하기 위한 **종량제** 모델에 속합니다. 각 Application Insights 리소스는 별도의 서비스로 요금이 부과되고 Azure 구독에 대한 청구서에 추가됩니다. 데이터 볼륨은 애플리케이션의 Application Insights에서 받은 압축되지 않은 JSON 데이터 패키지의 크기로 측정됩니다. 데이터 볼륨은 GB(10^9바이트)로 측정됩니다. [라이브 메트릭 스트림](./live-stream.md) 사용에 대한 데이터 볼륨 요금은 없습니다.
 
 [다중 단계 웹 테스트](./availability-multistep.md)는 추가 요금이 발생합니다. 다중 단계 웹 테스트는 일련의 작업을 수행하는 웹 테스트입니다. 단일 페이지의 *ping 테스트* 에 대해 별도의 요금이 부과되지 않습니다. ping 테스트와 다중 단계 테스트의 원격 분석은 앱의 다른 원격 분석과 동일하게 청구됩니다.
 
@@ -43,7 +43,10 @@ Application Insights를 아직 사용하고 있지 않다면 [Azure Monitor 가�
 
 ### <a name="data-collection-when-using-sampling"></a>샘플링을 사용하는 경우의 데이터 수집
 
-ASP.NET SDK의 [적응 샘플링](sampling.md#adaptive-sampling)을 사용하면 데이터 볼륨이 기본 Application Insights 모니터링의 지정된 최대 트래픽 속도 아래로 유지되도록 자동으로 조정됩니다. 디버깅할 때나 사용량이 낮은 경우와 같이 애플리케이션이 낮은 양의 원격 분석을 생성하는 경우, 볼륨이 두 번째 수준에 대해 구성된 이벤트보다 낮은 수준으로 유지되는 한 항목이 샘플링 프로세서에 의해 삭제되지 않습니다. 기본 임계값이 초당 이벤트 5개인 높은 볼륨의 애플리케이션의 경우, 적응 샘플링은 일일 이벤트의 개수를 432,000개로 제한합니다. 일반적인 평균 이벤트 크기인 1KB로 계산했을 때 이는 애플리케이션을 호스트하는 노드당(샘플링은 각 노드에서 로컬로 이루어지므로) 월(31일) 13.4GB의 원격 분석에 해당합니다. 
+ASP.NET SDK의 [적응 샘플링](sampling.md#adaptive-sampling)을 사용하면 데이터 볼륨이 기본 Application Insights 모니터링의 지정된 최대 트래픽 속도 아래로 유지되도록 자동으로 조정됩니다. 디버깅할 때나 사용량이 낮은 경우와 같이 애플리케이션이 낮은 양의 원격 분석을 생성하는 경우, 볼륨이 두 번째 수준에 대해 구성된 이벤트보다 낮은 수준으로 유지되는 한 항목이 샘플링 프로세서에 의해 삭제되지 않습니다. 기본 임계값이 초당 이벤트 5개인 높은 볼륨의 애플리케이션의 경우, 적응 샘플링은 일일 이벤트의 개수를 432,000개로 제한합니다. 일반적인 평균 이벤트 크기인 1KB로 계산했을 때 샘플링이 각 노드에서 로컬로 이루어지므로 애플리케이션을 호스트하는 노드당 월(31일) 13.4GB의 원격 분석에 해당합니다.
+
+> [!NOTE]
+> Azure Monitor 로그 데이터 크기는 GB 단위(1GB = 10^9바이트)로 계산됩니다.
 
 적응 샘플링을 지원하지 않는 SDK의 경우, 보존할 데이터의 백분율을 기준으로 Application Insights가 데이터를 수신하는 시점을 샘플링하는 [수집 샘플링](./sampling.md#ingestion-sampling)을 사용하거나 [ASP.NET, ASP.NET Core 및 Java 웹 사이트를 위한 고정 속도 샘플링](sampling.md#fixed-rate-sampling)을 사용하여 웹 서버와 웹 브라우저에서 전송하는 트래픽을 줄일 수 있습니다.
 
@@ -58,7 +61,7 @@ Application Insights를 사용하면 최근 사용 패턴에 따른 예상 비�
 ![가격 책정 선택](./media/pricing/pricing-001.png)
 
 A. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](./sampling.md) 이후) 모든 데이터가 포함됩니다.  
-B. [다단계 웹 테스트](./availability-multistep.md)에 대해 별도의 요금이 부과 됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
+B. [다중 단계 웹 테스트](./availability-multistep.md)에 대해서는 별도 요금이 부과됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
 C. 지난 달의 데이터 볼륨 추세를 봅니다.  
 D. 데이터 수집 [샘플링](./sampling.md)을 사용합니다.
 E. 일일 데이터 볼륨 한도를 설정합니다.  
@@ -186,7 +189,7 @@ Azure는 [Azure Cost Management + 청구](../../cost-management-billing/costs/qu
 
 * **샘플링**: 샘플링을 사용하여 메트릭 왜곡을 최소화하면서 서버 및 클라이언트 앱에서 전송되는 원격 분석의 양을 줄일 수 있습니다. 샘플링은 보내는 데이터의 양을 조정하는 데 사용할 수 있는 기본 도구입니다. [샘플링 기능](./sampling.md)에 대해 자세히 알아보세요.
 
-* **Ajax 호출 제한**: 모든 페이지 보기에서 [보고될 수 있는 Ajax 호출 수를 제한](./javascript.md#configuration)하거나 Ajax 보고를 해제할 수 있습니다. Ajax 호출을 사용 하지 않도록 설정 하면 [JavaScript 상관 관계가](./javascript.md#enable-correlation)사용 되지 않습니다.
+* **Ajax 호출 제한**: 모든 페이지 보기에서 [보고될 수 있는 Ajax 호출 수를 제한](./javascript.md#configuration)하거나 Ajax 보고를 해제할 수 있습니다. Ajax 호출을 사용하지 않도록 설정하면 [JavaScript 상관 관계](./javascript.md#enable-correlation)가 사용되지 않습니다.
 
 * **불필요한 모듈 사용 안 함**: [ApplicationInsights.config를 편집](./configuration-with-applicationinsights-config.md)하여 필요하지 않은 컬렉션 모듈을 끕니다. 예를 들어 성능 카운터 또는 종속성 데이터가 필요하지 않다고 결정할 수 있습니다.
 
@@ -231,7 +234,7 @@ Application Insights 일일 한도는 수집된 데이터 볼륨이 경고 수�
 * Application Insights 구성 요소 일일 상한에 도달함
 
 ## <a name="sampling"></a>샘플링
-[샘플링](./sampling.md) 은 진단 검색 중에 관련 이벤트를 찾는 기능을 유지 하면서 앱에 원격 분석이 전송 되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.
+[샘플링](./sampling.md)은 진단 검색 중에 관련 이벤트를 찾는 기능은 유지하면서 앱에 원격 분석이 전송되는 속도를 줄이는 방법입니다. 또한 올바른 이벤트 개수를 유지합니다.
 
 샘플링은 요금을 줄이고 월간 할당량 내로 유지하는 효과적인 방법입니다. 샘플링 알고리즘은 예를 들어 검색을 사용하면 특정 예외와 관련된 요청을 찾을 수 있도록 원격 분석의 관련된 항목을 유지합니다. 알고리즘은 또한 요청 속도, 예외 속도 및 기타 카운트에 대해 메트릭 탐색기에 올바른 값을 확인할 수 있도록 올바른 카운트를 유지합니다.
 
@@ -264,7 +267,7 @@ Application Insights 리소스의 기본 보존 기간은 90일입니다. 각 Ap
 
 보존 기간을 변경하려면 Application Insights 리소스에서 **사용량 및 예상 비용** 페이지로 이동하고 다음과 같은 **데이터 보존** 옵션을 선택합니다.
 
-![데이터 보존 기간을 변경할 위치를 보여 주는 스크린샷](./media/pricing/pricing-005.png)
+![데이터 보존 기간을 변경할 위치를 보여주는 스크린샷입니다.](./media/pricing/pricing-005.png)
 
 데이터 보존 기간을 줄이면 가장 오래된 데이터를 제거하기 전에 며칠의 유예 기간이 적용됩니다.
 
@@ -288,16 +291,16 @@ Application Insights로 데이터를 전송하면 데이터 대역폭 요금이 
 
 이 레거시 가격 책정 계층의 이름이 변경되었습니다. Enterprise 가격 책정 계층은 **노드당** 계층으로 변경되었고, Basic 가격 책정 계층은 **GB당** 계층으로 변경되었습니다. 아래에서, 그리고 Azure Portal에서 이 새로운 이름이 사용됩니다.  
 
-노드당(이전 명칭: Enterprise) 계층에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. 노드당 가격 책정 계층에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 노드당 계층을 선택해야 합니다. 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 모델](..//usage-estimated-costs.md)에 대해 자세히 알아보세요.
+노드당(이전 명칭: Enterprise) 계층에는 노드별 청구가 사용되며 각 노드는 일일 데이터 허용량을 수신합니다. 노드당 가격 책정 계층에서는 포함된 허용량 이상으로 수집된 데이터에 대해 요금이 부과됩니다. Operations Management Suite를 사용하는 경우 노드당 계층을 선택해야 합니다. 2018년 4월에는 Azure 모니터링을 위한 새로운 가격 책정 모델이 [도입](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)되었습니다. 이 모델은 모니터링 서비스의 전체 포트폴리오에서 간단한 "종량제" 모델을 채택합니다. [새 가격 책정 계층](..//usage-estimated-costs.md)에 대해 자세히 알아봅니다.
 
 사용자의 통화 및 지역에 따른 현재 가격은 [Application Insights 가격 책정](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요.
 
-### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>레거시 엔터프라이즈 (노드당) 계층에서 청구 된 사용량 이해 
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>레거시 Enterprise(노드당) 계층에서 청구된 사용량 해석 
 
-아래에서 설명 하는 것 처럼 레거시 Enterprise (노드당) 계층은 구독의 모든 Application Insights 리소스에 대 한 사용량을 결합 하 여 노드 수와 데이터 초과분 계산 합니다. 이러한 조합 프로세스로 인해 **구독의 모든 Application Insights 리소스에 대 한 사용량은 리소스 중 하나에 대해서만 보고 됩니다**.  이렇게 하면 각 Application Insights 리소스에 대해 관찰 하는 사용량으로 [청구 된 사용량](#viewing-application-insights-usage-on-your-azure-bill) 을 조정 하는 데 매우 복잡 합니다. 
+아래에서 자세히 설명된 대로 레거시 Enterprise(노드당) 계층은 구독의 모든 Application Insights 리소스에 대한 사용량을 결합하여 노드 수와 데이터 초과분을 계산합니다. 이러한 조합 프로세스로 인해 **구독의 모든 Application Insights 리소스에 대한 사용량이 리소스 중 하나에 대해서만 보고됩니다**.  이렇게 하면 [청구된 사용량](#viewing-application-insights-usage-on-your-azure-bill)을 각 Application Insights 리소스에 대해 관찰하는 사용량과 조정하기가 매우 복잡해집니다. 
 
 > [!WARNING]
-> 레거시 Enterprise (노드당) 계층에서 Application Insights 리소스의 사용량을 추적 하 고 이해 하는 복잡성 때문에 현재 종 량 제 가격 책정 계층을 사용 하는 것이 좋습니다. 
+> 레거시 Enterprise(노드당) 계층에서 Application Insights 리소스의 사용량을 추적하고 해석하는 복잡성 때문에 현재 종량제 가격 책정 계층을 사용하는 것이 좋습니다. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>노드당 계층 및 Operations Management Suite 구독 자격
 
@@ -343,7 +346,7 @@ Azure Resource Management를 사용하여 가격 책정 계층을 설정하는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [견본](./sampling.md)
+* [샘플링](./sampling.md)
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties

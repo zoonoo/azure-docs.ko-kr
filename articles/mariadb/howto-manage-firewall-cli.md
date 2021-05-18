@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 87ff75a07bd1b91121d614e0f41c0ecf216e1b41
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: ef04e2b4c820c14ea7df6c35ecb0189ef31ef7dc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791718"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98665041"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database for MariaDB 방화벽에 대한 개요는 [Azure Database for MariaDB 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
 
 VNet(가상 네트워크) 규칙을 사용하여 서버에 대한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트 및 규칙 만들기 및 관리](howto-manage-vnet-cli.md)에 관한 자세한 정보를 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 * [Azure CLI 설치](/cli/azure/install-azure-cli).
 * [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
@@ -47,25 +47,25 @@ VNet(가상 네트워크) 규칙을 사용하여 서버에 대한 액세스를 �
 
 3. 프롬프트에서 Azure 자격 증명을 사용하여 로그인합니다.
 
-4. 로그인 권한이 부여되면 구독 목록은 콘솔에 인쇄됩니다. 원하는 구독의 ID를 복사하여 사용할 현재 구독을 설정합니다. [az account set](/cli/azure/account#az_account_set) 명령을 사용합니다.
+4. 로그인 권한이 부여되면 구독 목록은 콘솔에 인쇄됩니다. 원하는 구독의 ID를 복사하여 사용할 현재 구독을 설정합니다. [az account set](/cli/azure/account#az-account-set) 명령을 사용합니다.
    ```azurecli-interactive
    az account set --subscription <your subscription id>
    ```
 
-5. 이름이 확실치 않은 경우 리소스 그룹 및 구독에 대한 Azure Database for MariaDB 서버를 나열합니다. [az mariadb server list](/cli/azure/mariadb/server#az_mariadb_server_list) 명령을 사용합니다.
+5. 이름이 확실치 않은 경우 리소스 그룹 및 구독에 대한 Azure Database for MariaDB 서버를 나열합니다. [az mariadb server list](/cli/azure/mariadb/server#az-mariadb-server-list) 명령을 사용합니다.
 
    ```azurecli-interactive
    az mariadb server list --resource-group myresourcegroup
    ```
 
-   나열되는 이름 특성은 작업할 MariaDB 서버를 지정하는 데 필요합니다. 필요한 경우 해당 서버에 대한 세부 정보를 확인하고 이름 특성을 사용하여 올바른지 확인합니다. [az mariadb server show](/cli/azure/mariadb/server#az_mariadb_server_show) 명령을 사용합니다.
+   나열되는 이름 특성은 작업할 MariaDB 서버를 지정하는 데 필요합니다. 필요한 경우 해당 서버에 대한 세부 정보를 확인하고 이름 특성을 사용하여 올바른지 확인합니다. [az mariadb server show](/cli/azure/mariadb/server#az-mariadb-server-show) 명령을 사용합니다.
 
    ```azurecli-interactive
    az mariadb server show --resource-group myresourcegroup --name mydemoserver
    ```
 
 ## <a name="list-firewall-rules-on-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에서 방화벽 규칙 나열 
-서버 이름 및 리소스 그룹 이름을 사용하여 기존 서버 방화벽 규칙을 서버에 나열합니다. [az mariadb server firewall list](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_list) 명령을 사용합니다.  서버 이름 특성은 **--name** 스위치가 아닌 **--server** 스위치에서 지정됩니다. 
+서버 이름 및 리소스 그룹 이름을 사용하여 기존 서버 방화벽 규칙을 서버에 나열합니다. [az mariadb server firewall list](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list) 명령을 사용합니다.  서버 이름 특성은 **--name** 스위치가 아닌 **--server** 스위치에서 지정됩니다. 
 ```azurecli-interactive
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
@@ -74,7 +74,7 @@ az mariadb server firewall-rule list --resource-group myresourcegroup --server-n
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
 ## <a name="create-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에서 방화벽 규칙 만들기
-Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에 새로운 방화벽 규칙을 만듭니다. [az mariadb server firewall create](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_create) 명령을 사용합니다. 규칙에 사용할 이름, 규칙에 대한 시작 IP 및 끝 IP(IP 주소 범위에 액세스 권한 제공)를 제공합니다.
+Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에 새로운 방화벽 규칙을 만듭니다. [az mariadb server firewall create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) 명령을 사용합니다. 규칙에 사용할 이름, 규칙에 대한 시작 IP 및 끝 IP(IP 주소 범위에 액세스 권한 제공)를 제공합니다.
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
@@ -96,7 +96,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 성공하면 각각의 create 명령 출력은 만든 방화벽 규칙의 세부 정보를 JSON 형식(기본값)으로 나열합니다. 오류가 있는 경우 출력은 오류 메시지 텍스트를 대신 표시합니다.
 
 ## <a name="update-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에서 방화벽 규칙 업데이트 
-Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙을 업데이트합니다. [az mariadb server firewall update](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_update) 명령을 사용합니다. 기존 방화벽 규칙의 이름과 업데이트할 시작 IP 및 끝 IP 특성을 입력합니다.
+Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙을 업데이트합니다. [az mariadb server firewall update](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-update) 명령을 사용합니다. 기존 방화벽 규칙의 이름과 업데이트할 시작 IP 및 끝 IP 특성을 입력합니다.
 ```azurecli-interactive
 az mariadb server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
@@ -106,14 +106,14 @@ az mariadb server firewall-rule update --resource-group myresourcegroup --server
 > 방화벽 규칙이 존재하지 않는 경우 업데이트 명령에 의해 생성됩니다.
 
 ## <a name="show-firewall-rule-details-on-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에서 방화벽 규칙 세부 정보 표시
-Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙 세부 정보를 표시합니다. [az mariadb server firewall show](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_show) 명령을 사용합니다. 기존 방화벽 규칙의 이름을 입력합니다.
+Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙 세부 정보를 표시합니다. [az mariadb server firewall show](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-show) 명령을 사용합니다. 기존 방화벽 규칙의 이름을 입력합니다.
 ```azurecli-interactive
 az mariadb server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
 성공하면 명령 출력은 지정한 방화벽 규칙의 세부 정보를 기본적으로 JSON 형식으로 나열합니다. 오류가 있는 경우 출력은 오류 메시지 텍스트를 대신 표시합니다.
 
 ## <a name="delete-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Azure Database for MariaDB 서버에서 방화벽 규칙 삭제
-Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙을 제거합니다. [az mariadb server firewall delete](/cli/azure/mariadb/server/firewall-rule#az_mariadb_server_firewall_rule_delete) 명령을 사용합니다. 기존 방화벽 규칙의 이름을 제공합니다.
+Azure MariaDB 서버 이름 및 리소스 그룹 이름을 사용하여 서버에서 기존 방화벽 규칙을 제거합니다. [az mariadb server firewall delete](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-delete) 명령을 사용합니다. 기존 방화벽 규칙의 이름을 제공합니다.
 ```azurecli-interactive
 az mariadb server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```

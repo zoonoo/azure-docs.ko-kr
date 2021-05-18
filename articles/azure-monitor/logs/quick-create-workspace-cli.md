@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 8e1fc816e32e563161e1604bdcd7a7006353e4ed
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 175473f5abd74fa208962fd94852e9ddedfaf7e3
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102047386"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105812"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Azure CLI 2.0으로 Log Analytics 작업 영역 만들기
 
@@ -34,7 +34,7 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 - 이 문서에는 Azure CLI 버전 2.0.30 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-[Az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용 하 여 작업 영역을 만듭니다. 다음 예에서는 로컬 컴퓨터에서 Resource Manager 템플릿을 사용하여 *eastus* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
+[az deployment group create](/cli/azure/deployment/group#az_deployment_group_create)를 사용하여 작업 영역을 만듭니다. 다음 예에서는 로컬 컴퓨터에서 Resource Manager 템플릿을 사용하여 *eastus* 위치에 작업 영역을 만듭니다. JSON 템플릿은 작업 영역의 이름만 사용자에게 입력을 요청하도록 구성되며, 환경에서 표준 구성으로 사용될수 있는 다른 매개 변수에 대해서는 기본값을 지정합니다. 또는 조직에서 공유 액세스에 대한 Azure Storage 계정에 템플릿을 저장할 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [Azure Resource Manager 템플릿과 Azure CLI를 사용하여 리소스 배포](../../azure-resource-manager/templates/deploy-cli.md)를 참조하세요.
 
 지원되는 지역에 대한 자세한 내용은 [Log Analytics 사용 가능 지역](https://azure.microsoft.com/regions/services/)을 참조하고 **제품 검색** 필드에서 Azure Monitor를 검색합니다.
 
@@ -107,7 +107,7 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 
 2. 요구 사항을 충족하도록 템플릿을 편집합니다. 지원되는 속성 및 값은 [Microsoft.OperationalInsights/workspaces 템플릿](/azure/templates/microsoft.operationalinsights/2015-11-01-preview/workspaces) 참조를 검토하세요.
 3. 이 파일을 로컬 폴더에 **deploylaworkspacetemplate.json** 으로 저장합니다.   
-4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함된 폴더에서 다음 명령을 사용합니다. 작업 영역 이름을 묻는 메시지가 표시되면 모든 Azure 구독에서 전역적으로 고유한 이름을 입력합니다.
+4. 이제 이 템플릿을 배포할 수 있습니다. 템플릿이 포함된 폴더에서 다음 명령을 사용합니다. 작업 영역 이름을 입력하라는 메시지가 표시되면 리소스 그룹에서 고유한 이름을 제공합니다.
 
     ```azurecli
     az deployment group create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
@@ -120,7 +120,7 @@ Azure VM 및 사용자 환경의 Windows 또는 Linux VM 등 다른 소스의 �
 ## <a name="troubleshooting"></a>문제 해결
 지난 14일 동안 삭제되어 [일시 삭제 상태](../logs/delete-workspace.md#soft-delete-behavior)인 작업 영역을 만들면 작업 영역 구성에 따라 작업의 결과가 달라질 수 있습니다.
 1. 삭제된 작업 영역과 작업 영역 이름, 리소스 그룹, 구독 및 지역이 동일한 경우 해당 데이터, 구성 및 연결된 에이전트를 포함한 작업 영역이 복구됩니다.
-2. 작업 영역 이름은 동일하지만 다른 리소스 그룹, 구독 또는 지역을 사용할 경우 ‘작업 영역 이름 *workspace-name* 이 고유하지 않음’ 오류 또는 ‘충돌’ 오류가 발생합니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하고 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.
+2. 작업 영역 이름은 리소스 그룹당 고유해야 합니다. 리소스 그룹의 일시 삭제에서도 이미 존재하는 작업 영역 이름을 사용하는 경우 *작업 영역 이름 '작업 영역-이름'이 고유하지 않음* 또는 *충돌* 오류가 발생합니다. 일시 삭제를 재정의하고 작업 영역을 영구적으로 삭제하고 같은 이름으로 새 작업 영역을 만들려면 다음 단계를 수행하여 작업 영역을 먼저 복구한 후 영구 삭제를 수행합니다.
    * [작업 영역](../logs/delete-workspace.md#recover-workspace)을 복구합니다.
    * 작업 영역을 [영구 삭제](../logs/delete-workspace.md#permanent-workspace-delete)합니다.
    * 동일한 작업 영역 이름을 사용하여 새 작업 영역을 만듭니다.

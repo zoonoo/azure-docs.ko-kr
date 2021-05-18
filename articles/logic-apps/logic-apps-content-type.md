@@ -1,16 +1,16 @@
 ---
 title: 콘텐츠 형식 처리
-description: Azure Logic Apps에서 디자인 타임 및 런타임에 워크플로의 다양 한 콘텐츠 형식을 처리 하는 방법에 대해 알아봅니다.
+description: Azure Logic Apps에서 디자인 타임 및 런타임 중에 워크플로의 다양한 콘텐츠 형식을 처리하는 방법을 알아봅니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
 ms.openlocfilehash: 04642e69adba82cf33b933829d72c51109ad2ee1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91578189"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
@@ -61,7 +61,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   2. **샘플 JSON 페이로드를 입력하거나 붙여넣기** 에서 샘플 페이로드를 입력하고 **완료** 를 선택합니다. 예를 들면 다음과 같습니다. 
 
-     ![샘플 JSON 페이로드를 사용 하는 "HTTP 요청을 수신 하는 경우" 작업을 보여 주는 스크린샷](./media/logic-apps-content-type/request-trigger.png)
+     ![샘플 JSON 페이로드를 사용한 “HTTP 요청을 수신하는 경우” 작업 스크린샷](./media/logic-apps-content-type/request-trigger.png)
 
      생성된 스키마가 트리거에 나타납니다.
 
@@ -140,12 +140,12 @@ Logic Apps는 항상 수신한 HTTP 요청 또는 응답의 `Content-Type`을 �
 * `xml()`: 데이터를 `application/xml`로 캐스팅합니다.
 * `binary()`: 데이터를 `application/octet-stream`로 캐스팅합니다.
 * `string()`: 데이터를 `text/plain`로 캐스팅합니다.
-* `base64()`: 콘텐츠를 b a s e 64로 인코딩된 문자열로 변환 합니다.
-* `base64toString()`: B a s e 64로 인코딩된 문자열을로 변환 합니다. `text/plain`
-* `base64toBinary()`: B a s e 64로 인코딩된 문자열을로 변환 합니다. `application/octet-stream`
-* `dataUri()`: 문자열을 데이터 URI로 변환 합니다.
-* `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환 합니다.
-* `dataUriToString()`: 데이터 URI를 문자열로 변환 합니다.
+* `base64()`: 콘텐츠를 base64로 인코드된 문자열로 변환합니다.
+* `base64toString()`: base64로 인코드된 문자열을 `text/plain`으로 변환합니다.
+* `base64toBinary()`: base64로 인코드된 문자열을 `application/octet-stream`으로 변환합니다.
+* `dataUri()`: 문자열을 데이터 URI로 변환합니다.
+* `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환합니다.
+* `dataUriToString()`: 데이터 URI를 문자열로 변환합니다.
 
 예를 들어 이 콘텐츠처럼 `Content-Type`이 `application/xml`로 설정된 HTTP 요청을 받는 경우:
 
@@ -175,9 +175,9 @@ Logic Apps는 다른 콘텐츠 형식과 호환 및 지원되지만 `$content` �
 
 Logic Apps는 양식 데이터를 처리하기 위한 다음과 같은 네이티브 함수를 제공합니다. 
 
-* [triggerFormDataValue ()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
+* [triggerFormDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue)
 * [triggerFormDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues)
-* [formDataValue ()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
+* [formDataValue()](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) 
 * [formDataMultiValues()](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues)
 
 또는 이 예제와 같은 언어 식을 사용하여 데이터에 직접 액세스할 수 있습니다.

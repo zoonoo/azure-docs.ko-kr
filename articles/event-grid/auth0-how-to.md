@@ -4,10 +4,10 @@ description: Azure Event Grid를 사용하여 Auth0에서 Azure로 이벤트를 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: a66a60cb926b933a6b0628a67506d0d52ab7a905
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93077866"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Azure Event Grid와 Auth0 통합
@@ -67,7 +67,7 @@ Auth0 파트너 토픽을 구독하면 Event Grid에게 Auth0 이벤트가 이�
 1. Auth0 통합에 대한 파트너 토픽에서 맨 위의 + 이벤트 구독을 선택합니다.
 1. 이벤트 구독 만들기 페이지에서
     1. 이벤트 구독의 이름을 입력합니다.
-    1. 끝점 형식에 대해 만든 Azure 서비스 또는 Webhook를 선택 합니다.
+    1. 엔드포인트 유형에 대해 만든 Azure 서비스나 Webhook을 선택합니다.
     1. 특정 서비스에 대한 지침을 따릅니다.
     1. 만들기를 클릭합니다.
 

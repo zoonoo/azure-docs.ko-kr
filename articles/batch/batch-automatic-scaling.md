@@ -2,14 +2,14 @@
 title: Azure Batch 풀에서 자동으로 컴퓨팅 노드 크기 조정
 description: 풀의 컴퓨팅 노드 수를 동적으로 조정하려면 클라우드 풀에서 자동 크기 조정을 사용하도록 설정합니다.
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 04/13/2021
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f70c29f0e8a313233991c7363dc4b8a41a1b1cd5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381429"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389369"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Batch 풀에서 컴퓨팅 노드의 크기를 조정하는 자동 수식 만들기
 
@@ -139,7 +139,7 @@ $NodeDeallocationOption = taskcompletion;
 > [!NOTE]
 > 특정 시점에 실행되는 태스크 수를 기준으로 크기를 조정하는 경우 `$RunningTasks`를 사용하고, 실행을 위해 큐에 대기 중인 작업의 수에 따라 크기를 조정하는 경우 `$ActiveTasks`를 사용합니다.
 
-## <a name="types"></a>형식
+## <a name="types"></a>유형
 
 자동 크기 조정 수식은 다음 형식을 지원합니다.
 
@@ -285,13 +285,13 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 다음 메서드를 사용하여 서비스 정의 변수에 대한 샘플 데이터를 가져올 수 있습니다.
 
-| 방법 | Description |
+| 메서드 | Description |
 | --- | --- |
 | GetSample() |`GetSample()` 메서드는 데이터 샘플의 벡터를 반환합니다.<br/><br/>하나의 샘플은 30초 동안의 메트릭 데이터입니다. 즉 30초마다 샘플을 가져옵니다. 그러나 아래에서 설명하듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. 따라서 지정된 기간 동안 일부 샘플을 수식에 의한 평가에 사용할 수 없을지도 모릅니다.<ul><li>`doubleVec GetSample(double count)`: 수집한 최근 샘플에서 가져올 샘플 수를 지정합니다. `GetSample(1)`은 사용 가능한 마지막 샘플을 반환합니다. 그러나 `$CPUPercent`와 같은 메트릭의 경우 샘플이 수집된 '시점'을 알 수 없기 때문에 `GetSample(1)`을 사용해서는 안 됩니다. 최근 샘플일 수도 있지만 시스템 문제로 인해 훨씬 오래된 샘플일 수도 있습니다. 그러한 경우 아래에 표시된 것처럼 시간 간격을 사용하는 것이 더 좋습니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: 샘플 데이터를 수집하기 위한 시간 프레임을 지정합니다. 선택적으로 요청 시간 프레임에 있어야 하는 샘플의 백분율을 지정합니다. 예를 들어 `$CPUPercent.GetSample(TimeInterval_Minute * 10)`은 지난 10분 동안의 모든 샘플이 `CPUPercent` 기록에 있는 경우 20개 샘플을 반환합니다. 기록의 마지막 1분을 사용할 수 없다면 샘플은 18개만 반환될 것입니다. 이 경우 샘플의 90%만 사용할 수 있기 때문에 `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`은 실패하지만 `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`은 성공합니다.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: 시작 시간과 종료 시간을 사용하여 데이터를 수집하기 위한 시간 프레임을 지정합니다. 위에서 언급했듯이 샘플이 수집된 시간과 해당 샘플을 수식에 사용할 수 있게 되는 시간 사이에 지연이 있습니다. `GetSample` 메서드를 사용할 때 이 지연을 고려해 보세요. 아래 `GetSamplePercent` 참조 |
 | GetSamplePeriod() |기록 샘플 데이터 집합에서 가져온 샘플의 기간을 반환합니다. |
 | Count() |메트릭 기록에 있는 총 샘플 수를 반환합니다. |
 | HistoryBeginTime() |메트릭에 대해 사용 가능한 가장 오래된 데이터 샘플의 타임스탬프를 반환합니다. |
-| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예들 들어 `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`입니다. 반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
+| GetSamplePercent() |지정된 시간 간격에 사용할 수 있는 샘플의 백분율을 반환합니다. 예: `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. 반환된 샘플의 백분율이 지정한 `samplePercent`보다 작은 경우 `GetSample` 메서드가 실패하기 때문에 `GetSamplePercent` 메서드를 사용하여 먼저 확인할 수 있습니다. 그런 다음 비효율적인 샘플이 존재하는 경우 자동 크기 조정 평가를 중단하지 않고 대체 작업을 수행할 수 있습니다. |
 
 ### <a name="samples"></a>샘플
 
@@ -419,7 +419,13 @@ $NodeDeallocationOption = taskcompletion;
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
                     virtualMachineSize: "standard_d1_v2",
-                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
+                    VirtualMachineConfiguration: new VirtualMachineConfiguration(
+                        imageReference: new ImageReference(
+                                            publisher: "MicrosoftWindowsServer",
+                                            offer: "WindowsServer",
+                                            sku: "2019-datacenter-core",
+                                            version: "latest"),
+                        nodeAgentSkuId: "batch.node.windows amd64");
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);

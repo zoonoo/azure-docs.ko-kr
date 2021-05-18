@@ -1,6 +1,6 @@
 ---
 title: 도메인 독립 작업 그룹 가용성 그룹 만들기
-description: Azure의 SQL Server 가상 머신에서 Active Directory 도메인 독립적 작업 그룹 Always On 가용성 그룹을 구성 하는 방법에 대해 알아봅니다.
+description: Azure의 SQL Server 가상 머신에서 Active Directory Domain Services 도메인 독립 작업 그룹 AlwaysOn 가용성 그룹을 구성하는 방법에 대해 알아보세요.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -15,10 +15,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
 ms.openlocfilehash: 0f194101720481f71434709c467d0e3130a0f1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97359458"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>작업 그룹 가용성 그룹 구성 
@@ -53,7 +53,7 @@ ms.locfileid: "97359458"
 
 DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 
-1. 첫 번째 노드에 RDP를 서버 관리자를 엽니다. 
+1. 첫 번째 노드에 RDP를 활성화하고서버 관리자를 여세요. 
 1. **로컬 서버** 를 선택하고 **컴퓨터 이름** 에서 가상 머신의 이름을 선택합니다. 
 1. **이 컴퓨터 이름을 바꾸려면...** 에서 **변경...** 을 선택합니다. 
 1. 작업 그룹 이름을 `AGWORKGROUP`과 같은 의미 있는 이름으로 변경합니다. 
@@ -63,11 +63,11 @@ DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 1. **자세히...** 를 선택하여 **DNS 접미사 및 NetBIOS 컴퓨터 이름** 대화 상자를 엽니다. 
 1. **이 컴퓨터의 주 DNS 접미사** 아래에 DNS 접미사의 이름(예: `ag.wgcluster.example.com`)을 입력하고 **확인** 을 선택합니다. 
 
-   ![스크린샷에는 값을 입력할 수 있는 D N S 접미사 및 NetBIOS 컴퓨터 이름 대화 상자가 표시 됩니다.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![스크린샷에 값을 입력할 수 있는 DNS 접미사와 NetBIOS 컴퓨터 이름 대화 상자가 표시됩니다.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. **전체 컴퓨터 이름** 에 DNS 접미사가 표시되는지 확인하고 **확인** 을 선택하여 변경 내용을 저장합니다. 
 
-   ![전체 컴퓨터 이름을 볼 수 있는 위치를 보여 주는 스크린샷](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![스크린샷에 전체 컴퓨터 이름을 볼 수 있는 위치가 표시됩니다.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. 지시에 따라 서버를 다시 부팅합니다. 
 1. 가용성 그룹에 사용할 다른 모든 노드에서 이 단계를 반복합니다. 
@@ -78,7 +78,7 @@ DNS 접미사를 구성하려면 다음 단계를 수행합니다.
 
 호스트 파일을 편집하려면 다음 단계를 수행합니다.
 
-1. 의 RDP를 통해 가상 컴퓨터에 연결할 수 있습니다. 
+1. 가상 머신에 RDP를 활성화하세요. 
 1. **파일 탐색기** 를 사용하여 `c:\windows\system32\drivers\etc`로 이동합니다. 
 1. **호스트** 파일을 마우스 오른쪽 단추로 클릭하고 **메모장** 이나 다른 텍스트 편집기로 파일을 엽니다.
 1. 파일 끝에 다음과 같이 `IP Address, DNS Suffix #comment` 형식으로 각 노드, 가용성 그룹 및 수신기에 대한 항목을 추가합니다. 
@@ -131,13 +131,13 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## <a name="create-a-cloud-witness"></a>클라우드 감시 만들기 
 
-이 단계에서는 클라우드 공유 감시를 구성합니다. 단계에 익숙하지 않은 경우 [장애 조치 (Failover) 클러스터에 대 한 클라우드 감시 배포](/windows-server/failover-clustering/deploy-cloud-witness)를 참조 하세요. 
+이 단계에서는 클라우드 공유 감시를 구성합니다. 단계가 익숙하지 않은 경우 [장애 조치(failover) 클러스터용 클라우드 감시 배포](/windows-server/failover-clustering/deploy-cloud-witness)를 참조하세요. 
 
 ## <a name="enable-the-availability-group-feature"></a>가용성 그룹 기능 사용 
 
 이 단계에서는 가용성 그룹 기능을 사용하도록 설정합니다. 이 단계에 익숙하지 않은 경우 [가용성 그룹 자습서](availability-group-manually-configure-tutorial.md#enable-availability-groups)를 참조하세요. 
 
-## <a name="create-keys-and-certificates"></a>키 및 인증서 만들기
+## <a name="create-keys-and-certificates"></a>키 및 인증서 생성
 
 이 단계에서는 SQL 로그인이 암호화된 엔드포인트에서 사용하는 인증서를 만듭니다. 각 노드에 인증서 백업을 저장할 폴더(예: `c:\certs`)를 만듭니다. 
 
@@ -287,7 +287,7 @@ GO
 
 ## <a name="configure-a-load-balancer"></a>부하 분산 장치 구성
 
-이 마지막 단계에서는 [Azure Portal](availability-group-load-balancer-portal-configure.md) 또는 [PowerShell](availability-group-listener-powershell-configure.md)을 사용 하 여 부하 분산 장치를 구성 합니다.
+마지막 단계에서는 [Azure Portal](availability-group-load-balancer-portal-configure.md) 또는 [PowerShell](availability-group-listener-powershell-configure.md)을 사용하여 부하 분산 장치를 구성하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

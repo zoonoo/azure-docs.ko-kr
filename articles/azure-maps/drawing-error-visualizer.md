@@ -1,6 +1,6 @@
 ---
 title: Azure Maps 그리기 오류 시각화 도우미 사용
-description: 이 문서에서는 작성자 (미리 보기) 변환 API에서 반환 되는 경고 및 오류를 시각화 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Creator (프리뷰) Conversion API에서 반환되는 경고 및 오류를 시각화하는 방법에 대해 알아봅니다.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -9,13 +9,13 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: db88e347e12783205ea8c31fed0bb374fccb4736
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96903584"
 ---
-# <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>작성자와 함께 오류 시각화 도우미를 사용 하 여 Azure Maps 그리기 (미리 보기)
+# <a name="using-the-azure-maps-drawing-error-visualizer-with-creator-preview"></a>Azure Maps 그리기 오류 시각화 도우미 사용 (프리뷰)
 
 > [!IMPORTANT]
 > Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
@@ -36,7 +36,7 @@ ms.locfileid: "96903584"
 
 ## <a name="download"></a>다운로드
 
-1. 드로잉 패키지를 Azure Maps Creator service (미리 보기)에 업로드 하 여 `udid` 업로드 된 패키지에 대 한를 가져옵니다. 패키지를 업로드하는 자세한 방법은 [그리기 패키지 업로드](tutorial-creator-indoor-maps.md#upload-a-drawing-package)를 참조하세요.
+1. Azure Maps Creator 서비스 (프리뷰)에 그리기 패키지를 업로드하여 업로드된 패키지에 대한 `udid`을 가져옵니다. 패키지를 업로드하는 자세한 방법은 [그리기 패키지 업로드](tutorial-creator-indoor-maps.md#upload-a-drawing-package)를 참조하세요.
 
 2. 이제 그리기 패키지가 업로드되었으므로 업로드된 패키지에 대해 `udid`를 사용하여 패키지를 지도 데이터로 변환합니다. 패키지를 변환하는 자세한 방법은 [그리기 패키지 변환](tutorial-creator-indoor-maps.md#convert-a-drawing-package)을 참조하세요.
 
@@ -89,7 +89,7 @@ _ConversionWarningsAndErrors.json_ 파일은 다운로드된 디렉터리의 루
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="그리기 오류 시각화 도우미 앱 - 끌어서 놓기로 데이터 로드":::
 
-_ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 오류 및 경고 목록이 표시됩니다. 각 오류 또는 경고에는 레이어, 수준 및 자세한 메시지가 명시됩니다. 오류 또는 경고에 대 한 자세한 정보를 보려면 **세부 정보** 링크를 클릭 합니다. 그러면 intractable 섹션이 목록 아래에 표시 됩니다. 이제 각 오류로 이동하여 오류를 해결하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
+_ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 오류 및 경고 목록이 표시됩니다. 각 오류 또는 경고에는 레이어, 수준 및 자세한 메시지가 명시됩니다. 오류 또는 경고에 대한 자세한 정보를 보려면 **세부 정보** 링크를 클릭합니다. 그러면 intractable 섹션이 목록 아래에 표시됩니다. 이제 각 오류로 이동하여 오류를 해결하는 방법에 대한 자세한 정보를 확인할 수 있습니다.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="그리기 오류 시각화 도우미 앱 - 오류 및 경고":::
 
@@ -101,7 +101,7 @@ _ConversionWarningsAndErrors.json_ 파일이 로드되면 그리기 패키지 �
 > [그리기 변환 오류 코드](drawing-conversion-error-codes.md)
 
 > [!div class="nextstepaction"]
-> [실내 지도의 작성자 (미리 보기)](creator-indoor-maps.md)
+> [실내 맵용 Creator(프리뷰)](creator-indoor-maps.md)
 
 > [!div class="nextstepaction"]
 > [Indoor Maps 모듈 사용](how-to-use-indoor-module.md)

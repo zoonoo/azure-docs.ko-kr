@@ -4,12 +4,12 @@ description: Azure Backup Server 설치, 등록 및 애플리케이션 워크로
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 644946ca90c2893ba3d87f9d2ff8bfd8325f4715
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107514753"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91403010"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -22,7 +22,7 @@ MABS(Microsoft Azure Backup Server) 문제 해결을 시작하기 전에 다음 
 - [MARS(Microsoft Azure Recovery Services) 에이전트가 최신 상태인지 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [MARS 에이전트와 Azure 간에 네트워크 연결이 있는지 확인](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Microsoft Azure Recovery Services가 실행 중인지 확인(서비스 콘솔에서) 필요한 경우 다시 시작하고 작업을 다시 시도
-- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](./backup-azure-file-folder-backup-faq.yml#what-s-the-minimum-size-requirement-for-the-cache-folder-)
+- [스크래치 폴더 위치에서 5~10% 볼륨 여유 공간을 사용할 수 있는지 확인](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - 등록에 실패하면 Azure Backup Server를 설치하려는 서버가 이미 다른 자격 증명 모음으로 등록되지 않았는지 확인
 - 푸시 설치에 실패할 경우 이미 DPM 에이전트가 있는지 확인합니다. 있는 경우 해당 에이전트를 제거하고 다시 설치
 - [다른 프로세스 또는 바이러스 백신 소프트웨어가 Azure Backup을 방해하는지 확인](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)<br>

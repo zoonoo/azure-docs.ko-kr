@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 87fed1d2ac4f5fa85c01d7af10bec10c1412744f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08a19c55bd208036fe6731e4436a8f0a74a76723
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92202347"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127716"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
 
@@ -20,8 +20,9 @@ ExpressRoute 회로는 연결 공급자를 통해 온-프레미스 인프라를 
 
 ![ExpressRoute 회로가 연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하는 방법을 보여 주는 다이어그램입니다.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
-> [!IMPORTANT]
-> Azure 공용 피어링은 사용되지 않으며, 새 ExpressRoute 회로에 사용할 수 없습니다. 새로운 회로는 Microsoft 피어링 및 개인 피어링을 지원합니다.  
+> [!NOTE]
+> * ExpressRoute의 컨텍스트에서 Microsoft Edge는 ExpressRoute 회로의 Microsoft 쪽에 있는 에지 라우터를 설명합니다. 이는 ExpressRoute 회로의 Microsoft 네트워크 진입점입니다.
+> * Azure 공용 피어링은 사용되지 않으며, 새 ExpressRoute 회로에 사용할 수 없습니다. 새로운 회로는 Microsoft 피어링 및 개인 피어링을 지원합니다.  
 >
 
 ## <a name="expressroute-circuits"></a><a name="circuits"></a>ExpressRoute 회로

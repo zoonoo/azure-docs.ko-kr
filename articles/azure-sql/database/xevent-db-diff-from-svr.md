@@ -12,10 +12,10 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 12/19/2018
 ms.openlocfilehash: 139673e46421aa0dc19298697872fbff5fe587af
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96501212"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Azure SQL 데이터베이스의 확장 이벤트 
@@ -23,29 +23,29 @@ ms.locfileid: "96501212"
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL Managed Instance의 강력한 기능 집합입니다.
+Azure SQL Database의 확장 이벤트 기능 집합은 SQL Server 및 Azure SQL Managed Instance 기능의 견고한 하위 집합입니다.
 
 *XEvents* 는 블로그 및 기타 비공식 위치에서 '확장 이벤트'를 가리키는 비공식적 별명입니다.
 
-확장 이벤트에 대 한 추가 정보는 다음 위치에서 제공 됩니다.
+확장 이벤트에 대한 추가 정보는 다음에서 확인할 수 있습니다.
 
 - [빠른 시작: SQL Server의 확장 이벤트](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server)
 - [확장 이벤트](/sql/relational-databases/extended-events/extended-events)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 항목은 다음에 대한 어느 정도의 지식이 있는 것으로 가정합니다.
 
 - [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [확장 이벤트](/sql/relational-databases/extended-events/extended-events)
 
-- 확장 이벤트에 대 한 대부분의 설명서는 SQL Server, Azure SQL Database 및 Azure SQL Managed Instance에 적용 됩니다.
+- 확장 이벤트에 대한 설명서의 대부분은 SQL Server, Azure SQL Database 및 Azure SQL Managed Instance에 적용됩니다.
 
 이벤트 파일을 [대상](#AzureXEventsTargets)으로 선택할 경우 다음 항목에 대한 사전 지식이 있으면 도움이 됩니다.
 
 - [Azure Storage 서비스](https://azure.microsoft.com/services/storage/)
 
-- [Azure Storage Azure PowerShell](/powershell/module/az.storage/)
+- [Azure Storage와 함께 Azure PowerShell](/powershell/module/az.storage/)
 
 ## <a name="code-samples"></a>코드 샘플
 
@@ -63,7 +63,7 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 차이점
 
-- SQL Server에서 [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) 명령을 사용하는 경우 **ON SERVER** 절을 사용합니다. 그러나 Azure SQL Database에서는 **ON Database** 절을 대신 사용 합니다.
+- SQL Server에서 [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) 명령을 사용하는 경우 **ON SERVER** 절을 사용합니다. 하지만 Azure SQL Database에서는 대신 **ON DATABASE** 절을 사용합니다.
 - **ON DATABASE** 절은 [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) 및 [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql) Transact-SQL 명령에도 적용됩니다.
 
 - **CREATE EVENT SESSION** 또는 **ALTER EVENT SESSION** 문에 **STARTUP_STATE = ON** 의 이벤트 세션 옵션을 포함하는 것이 가장 좋습니다.
@@ -79,7 +79,7 @@ Azure SQL Database 확장 이벤트의 기능 집합은 SQL Server 및 Azure SQL
 | **sys.database_event_session_events** |이벤트 세션의 각 이벤트에 대한 행을 반환합니다. |
 | **sys.database_event_session_fields** |이벤트 및 대상에 명시적으로 설정된 사용자 지정 가능한 각 열에 대한 행을 반환합니다. |
 | **sys.database_event_session_targets** |이벤트 세션의 각 이벤트 대상에 대해 한 행을 반환합니다. |
-| **sys.database_event_sessions** |데이터베이스의 각 이벤트 세션에 대해 하나의 행을 반환 합니다. |
+| **sys.database_event_sessions** |데이터베이스의 각 이벤트 세션에 대한 행을 반환합니다. |
 
 Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_* 가 아닌 *.server\_* 가 포함됩니다. 이름 패턴은 **sys.server_event_%** 와 같습니다.
 
@@ -95,13 +95,13 @@ Azure SQL Database에는 확장 이벤트를 지원하는 [DMV(동적 관리 뷰
 | **sys.dm_xe_database_session_targets** |세션 작업에 대한 정보를 반환합니다. |
 | **sys.dm_xe_database_sessions** |현재 데이터베이스로 범위가 한정된 각 이벤트 세션에 대한 행을 반환합니다. |
 
-Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름의 *\_ 데이터베이스* 부분 없이 이름이 지정 됩니다.
+Microsoft SQL Server에서 유사한 카탈로그 뷰는 다음과 같이 이름에 *\_database* 부분이 없습니다.
 
 - **sys.dm_xe_sessions**, 이름 대신<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>둘 다에 공통적인 DMV
 
-확장 이벤트에는 Azure SQL Database, Azure SQL Managed Instance 및 Microsoft SQL Server에 공통적인 추가 Dmv가 있습니다.
+확장 이벤트에는 Azure SQL Database, Azure SQL Managed Instance 및 Microsoft SQL Server에 공통적인 추가 DMV가 있습니다.
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -144,11 +144,11 @@ Azure SQL Database에서 이벤트 세션의 결과를 캡처할 수 있는 대�
 - [이벤트 카운터 대상](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) - 확장 이벤트 세션 동안 발생하는 모든 이벤트의 수를 계산합니다.
 - [이벤트 파일 대상](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) - Azure Storage 컨테이너에 전체 버퍼를 기록합니다.
 
-Azure SQL Database의 확장 이벤트에는 [ETW(Windows용 이벤트 추적) (ETW)](/dotnet/framework/wcf/samples/etw-tracing) API를 사용할 수 없습니다.
+[ETW(Windows 이벤트 추적)](/dotnet/framework/wcf/samples/etw-tracing) API는 Azure SQL Database의 확장 이벤트에서 사용할 수 없습니다.
 
 ## <a name="restrictions"></a>제한
 
-Azure SQL Database 클라우드 환경에 대 한 몇 가지 보안 관련 차이점은 다음과 같습니다.
+Azure SQL Database의 클라우드 환경에 적합한 몇 가지 보안 관련 차이점이 있습니다.
 
 - 확장 이벤트는 단일 테넌트 격리 모델에서 찾을 수 있습니다. 한 데이터베이스의 이벤트 세션은 다른 데이터베이스의 데이터 또는 이벤트에 액세스할 수 없습니다.
 - **마스터** 데이터베이스의 컨텍스트에서 **CREATE EVENT SESSION** 문을 실행할 수 없습니다.
@@ -167,7 +167,7 @@ Azure Storage 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **
 
 ## <a name="performance-considerations"></a>성능 고려 사항
 
-확장 이벤트를 집중적으로 사용할 경우 전체 시스템에 안정적인 메모리보다 더 많은 활성 메모리가 누적되는 시나리오가 있습니다. 따라서 Azure SQL Database는 이벤트 세션에서 누적 될 수 있는 활성 메모리의 양에 대 한 제한을 동적으로 설정 하 고 조정 합니다. 많은 요소가 동적 계산에 활용됩니다.
+확장 이벤트를 집중적으로 사용할 경우 전체 시스템에 안정적인 메모리보다 더 많은 활성 메모리가 누적되는 시나리오가 있습니다. 따라서 Azure SQL Database는 이벤트 세션이 누적할 수 있는 활성 메모리의 양에 대한 한도를 동적으로 설정 및 조정합니다. 많은 요소가 동적 계산에 활용됩니다.
 
 메모리 최대 한도가 적용되었다는 오류 메시지가 표시될 경우 다음과 같은 방법으로 해결할 수 있습니다.
 
@@ -176,13 +176,13 @@ Azure Storage 컨테이너에 대해 만드는 SAS 토큰은 권한에 대해 **
 
 ### <a name="network-latency"></a>네트워크 대기 시간
 
-Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대상에서 네트워크 지연 또는 오류가 발생할 수 있습니다. Azure SQL Database의 다른 이벤트는 네트워크 통신이 완료 될 때까지 대기 하는 동안 지연 될 수 있습니다. 이 지연으로 인해 워크로드가 느려질 수 있습니다.
+Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대상에서 네트워크 지연 또는 오류가 발생할 수 있습니다. 네트워크 통신이 완료될 때까지 기다리는 동안 Azure SQL Database의 다른 이벤트가 지연될 수 있습니다. 이 지연으로 인해 워크로드가 느려질 수 있습니다.
 
 - 이러한 성능 위험을 줄이려면 이벤트 세션 정의에서 **EVENT_RETENTION_MODE** 옵션을 **NO_EVENT_LOSS** 로 설정하지 마십시오.
 
 ## <a name="related-links"></a>관련 링크
 
-- [Azure Storage에서 Azure PowerShell 사용](/powershell/module/az.storage/)
+- [Azure Storage와 함께 Azure PowerShell 사용](/powershell/module/az.storage/)
 - [Azure Storage Cmdlet](/powershell/module/Azure.Storage)
 - [Azure Storage와 함께 Azure PowerShell 사용](/powershell/module/az.storage/)
 - [.NET에서 Blob Storage를 사용하는 방법](../../storage/blobs/storage-quickstart-blobs-dotnet.md)

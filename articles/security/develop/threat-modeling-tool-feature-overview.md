@@ -1,6 +1,6 @@
 ---
-title: Microsoft Threat Modeling Tool 기능 개요-Azure
-description: 분석 보기 및 보고서와 같은 Threat Modeling Tool에서 사용할 수 있는 모든 기능에 대해 알아봅니다.
+title: Microsoft Threat Modeling Tool 기능 개요 - Azure
+description: 분석 보기 및 보고서를 포함하여 Threat Modeling Tool에서 사용할 수 있는 모든 기능에 대해 알아봅니다.
 author: jegeib
 ms.author: jegeib
 ms.service: security
@@ -8,10 +8,10 @@ ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
 ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90980673"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>위협 모델링 도구 기능 개요
@@ -39,7 +39,7 @@ ms.locfileid: "90980673"
 
 ![메뉴 항목](./media/threat-modeling-tool-feature-overview/menuitems.png)
 
-| label                               | 세부 정보      |
+| 레이블                               | 세부 정보      |
 | --------------------------------------- | ------------ |
 | **파일** | <ul><li>파일 열기, 저장 및 닫기</li><li>OneDrive 계정에 로그인 및 로그아웃합니다.</li><li>링크를 공유합니다(보기 및 편집).</li><li>파일 정보를 봅니다.</li><li>기존 모델에 새 템플릿을 적용합니다.</li></ul> |
 | **편집** | 작업을 실행 취소 및 다시 실행하고, 복사하고, 붙여넣고, 삭제합니다. |
@@ -122,7 +122,7 @@ ms.locfileid: "90980673"
 
 **피드백, 제안 및 문제** 를 선택하는 경우 SDL 도구에 관한 MSDN 포럼으로 이동합니다. 해결 방법 및 새로운 아이디어를 포함하여 도구에 대한 다른 사용자의 의견을 읽을 수 있습니다.
 
-![스크린 샷 텍스트 피드백, 제안 및 문제를 포함 하는 단추를 표시 합니다.](./media/threat-modeling-tool-feature-overview/feedback.png)
+![피드백, 제안 및 이슈 텍스트가 있는 단추 스크린샷](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>디자인 보기
 
@@ -158,7 +158,7 @@ ms.locfileid: "90980673"
 
 위협 모델을 만들고 데이터 흐름을 요소에 연결하는 것을 잊은 경우 알림이 나타납니다. 메시지를 무시하거나 지침을 따라 문제를 해결할 수 있습니다. 
 
-![이 문제로 인해 발생 하는 메시지와 함께 요소에 연결 되지 않은 위협 모델 커넥터를 보여 주는 스크린샷](./media/threat-modeling-tool-feature-overview/messages.png)
+![위협 모델 커넥터가 요소에 연결되지 않은 상태 및 해당 이슈로 인한 메시지 스크린샷](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>참고
 
@@ -194,9 +194,9 @@ ms.locfileid: "90980673"
 
 ## <a name="reports"></a>보고서
 
-생성된 각 위협 상태의 우선 순위 변경 및 업데이트가 완료되면 파일을 저장하거나 보고서를 출력할 수 있습니다. **보고서**  >  **전체 보고서 만들기** 로 이동 합니다. 보고서에 이름을 지정하면 다음 이미지와 비슷하게 표시됩니다.
+생성된 각 위협 상태의 우선 순위 변경 및 업데이트가 완료되면 파일을 저장하거나 보고서를 출력할 수 있습니다. **보고서** > **전체 보고서 만들기** 로 이동합니다. 보고서에 이름을 지정하면 다음 이미지와 비슷하게 표시됩니다.
 
-![요약, 다이어그램 및 기타 정보를 포함 하는 예제 위협 모델링 보고서를 보여 주는 스크린샷](./media/threat-modeling-tool-feature-overview/report.png)
+![요약, 다이어그램, 기타 정보를 포함하는 예제 위협 모델링 보고서 스크린샷](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>다음 단계
 

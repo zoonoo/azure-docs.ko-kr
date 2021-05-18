@@ -10,20 +10,20 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: 53dea20e356f735a521dec8c22edf8cb2aa7122d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895869"
 ---
 # <a name="data-filtering"></a>데이터 필터링
 
-사용자 지정 시스템을 학습하는 데 사용할 문서를 제출하면 문서는 일련의 처리 및 필터링 단계를 거쳐 학습을 준비합니다. 이 단계는 여기에서 설명합니다. 필터링에 대 한 정보는 사용자 지정 번역기에 표시 되는 문장 수와 사용자 지정 번역기로 학습 하기 위해 문서를 준비 하는 단계를 이해 하는 데 도움이 될 수 있습니다.
+사용자 지정 시스템을 학습하는 데 사용할 문서를 제출하면 문서는 일련의 처리 및 필터링 단계를 거쳐 학습을 준비합니다. 이 단계는 여기에서 설명합니다. 필터링에 대한 지식이 있으면 Custom Translator에 표시되는 문장 수를 파악하고 Custom Translator를 사용하여 학습용 문서를 직접 준비하는 단계를 이해할 수 있습니다.
 
 ## <a name="sentence-alignment"></a>문장 맞춤
-문서가 XLIFF, TMX 또는 ALIGN 형식이 아닌 경우 Custom Translator는 원본 및 대상 문서의 문장을 서로 문장 단위로 정렬합니다. 사용자 지정 번역기는 문서 정렬을 수행 하지 않습니다. 문서 이름을 따라 다른 언어의 일치 하는 문서를 찾습니다. 문서 내에서 Custom Translator는 다른 언어로 해당 문장 찾기를 시도합니다. 포함된 HTML 태그와 같은 문서 태그를 사용하여 정렬을 지원합니다.  
+문서가 XLIFF, TMX 또는 ALIGN 형식이 아닌 경우 Custom Translator는 원본 및 대상 문서의 문장을 서로 문장 단위로 정렬합니다. Custom Translator는 문서 정렬을 수행하지 않으며 다른 언어의 일치하는 문서를 찾기 위해 문서의 이름 지정을 따릅니다. 문서 내에서 Custom Translator는 다른 언어로 해당 문장 찾기를 시도합니다. 포함된 HTML 태그와 같은 문서 태그를 사용하여 정렬을 지원합니다.  
 
-원본 및 대상 쪽 문서에 있는 문장 수의 차이가 크게 표시 되는 경우 문서를 처음부터 병렬 처리 하지 못할 수도 있고 다른 이유 때문에 정렬 하지 못할 수도 있습니다. 각각에서 문장 수 차이가 10%를 초과하는 문서 쌍은 반드시 재차 확인하여 실제로 병행되었는지 확인합니다. Custom Translator는 문장 수가 다른 것으로 의심되는 경우 문서 옆에 경고를 표시합니다.  
+원본 및 대상 쪽 문서에서 문장의 수가 크게 다른 경우 문서가 처음에는 병행되지 않았거나 다른 이유로 잘 정렬되지 않았을 수 있습니다. 각각에서 문장 수 차이가 10%를 초과하는 문서 쌍은 반드시 재차 확인하여 실제로 병행되었는지 확인합니다. Custom Translator는 문장 수가 다른 것으로 의심되는 경우 문서 옆에 경고를 표시합니다.  
 
 
 ## <a name="deduplication"></a>중복 제거
@@ -45,7 +45,7 @@ Custom Translator는 학습 데이터에서 테스트 및 튜닝 문서에 제�
 여러 문장 종료 부호 문자를 단일 항목으로 바꿉니다.  
 
 ## <a name="japanese-character-normalization"></a>일본어 문자 정규화
-전자 문자와 숫자를 반자 문자로 변환 합니다.
+전자 문자와 숫자를 반자 문자로 변환합니다.
 
 ## <a name="unescaped-xml-tags"></a>이스케이프되지 않은 XML 태그
 필터링은 이스케이프되지 않은 태그를 이스케이프된 태그로 변환합니다.

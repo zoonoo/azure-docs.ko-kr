@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100590049"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Azure Application Insights 데이터를 사용하여 사용자 지정 보고서 자동화
@@ -31,7 +31,7 @@ ms.locfileid: "100590049"
 
 [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하여 일정에 따라 사용자 지정 보고서를 생성할 수 있습니다. 다음 옵션은 빠르게 시작할 수 있게 돕습니다.
 
-* [전원 자동화를 사용 하 여 보고서 자동화](../logs/logicapp-flow-connector.md)
+* [Power Automate를 사용하여 보고서 자동화](../logs/logicapp-flow-connector.md)
 * [논리 앱을 사용하여 보고서 자동화](automate-with-logic-apps.md)
 * 모니터링 시나리오에서 "Application Insights 예약된 다이제스트" [Azure 함수](../../azure-functions/functions-get-started.md) 템플릿을 사용합니다. 이 함수는 SendGrid를 사용하여 이메일을 배달합니다. 
 
@@ -70,9 +70,9 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights 예약된 다이제스트 보고서
 
-1. Azure 함수 앱를 만듭니다. (Application Insights는 Application Insights를 사용 하 여 새 함수 앱를 모니터링 하려는 경우 _에_ 만 필요 함)
+1. Azure 함수 앱을 만듭니다. (Application Insights를 사용하여 새 함수 앱을 모니터링하는 경우에만 Application Insights 켜기가 필요합니다)
 
-   [함수 앱을 만드는](../../azure-functions/functions-get-started.md) 방법에 대해 알아보려면 Azure Functions 설명서를 참조 하세요.
+   [함수 앱을 만드는](../../azure-functions/functions-get-started.md) 방법을 알아보려면 Azure Functions 설명서를 참조하세요.
 
 2. 새 함수 앱에서 배포를 완료하면 **리소스로 이동** 을 선택합니다.
 
@@ -83,7 +83,7 @@ availabilityResults
 4. **_Application Insights 예약된 다이제스트 템플릿_** 을 선택합니다.
 
      > [!NOTE]
-     > 기본적으로 함수 앱은 런타임 버전 3.x로 생성 됩니다. Application Insights 예약 된 다이제스트 템플릿을 사용 하려면 [Azure Functions 런타임 버전](../../azure-functions/set-runtime-version.md) 1.x를 대상으로 해야 **합니다.** 구성 > 함수 런타임 설정으로 이동 하 여 런타임 버전을 변경 합니다. ![런타임 스크린샷](./media/automate-custom-reports/change-runtime-v.png)
+     > 기본적으로 함수 앱은 런타임 버전 3.x를 사용하여 작성됩니다. Application Insights 예약된 다이제스트 템플릿을 사용하려면 [Azure Functions 런타임 버전](../../azure-functions/set-runtime-version.md) **1.x** 를 대상으로 지정해야 합니다. 구성 > 함수 런타임 설정으로 이동하여 런타임 버전을 변경합니다. ![런타임 스크린샷](./media/automate-custom-reports/change-runtime-v.png)
 
    ![새 함수 Application Insights 템플릿 스크린샷](./media/automate-custom-reports/function-app-04.png)
 
@@ -91,7 +91,7 @@ availabilityResults
 
    ![함수 설정 스크린샷](./media/automate-custom-reports/scheduled-digest.png)
 
-6. **함수 앱**  >  **플랫폼 기능**  >  **구성을** 선택 합니다.
+6. **함수 앱** > **플랫폼 기능** > **구성** 을 선택합니다.
 
     ![Azure 함수 애플리케이션 설정 스크린샷](./media/automate-custom-reports/config.png)
 
@@ -128,7 +128,7 @@ availabilityResults
 
 이러한 단계는 구성된 SendGrid 계정이 아직 없는 경우에만 적용됩니다.
 
-1. Azure Portal에서 **리소스 만들기** 를 선택 하 여 **SendGrid 메일 배달** > 검색 > **만들기** 를 클릭 하 > 특정 만들기 지침을 입력 합니다.
+1. Azure Portal에서 **리소스 만들기** 를 선택하고, **SendGrid 이메일 배달** 을 검색하고, **만들기** 를 클릭하고, SendGrid 관련 만들기 명령을 채웁니다.
 
      ![SendGrid 리소스 만들기 스크린샷](./media/automate-custom-reports/sendgrid.png)
 
@@ -136,11 +136,11 @@ availabilityResults
 
      ![API 키 설정 스크린샷](./media/automate-custom-reports/sendgrid-manage.png)
 
-3. SendGrid의 사이트가 시작됩니다. **설정**  >  **API 키** 를 선택 합니다.
+3. SendGrid의 사이트가 시작됩니다. **설정** > **API 키** 를 선택합니다.
 
      ![API 키 앱 만들기 및 보기 스크린샷](./media/automate-custom-reports/function-app-15.png)
 
-4. API 키를 만들고 **& 보기 만들기**> 선택 합니다. (제한 된 액세스에 대 한 SendGrid 설명서를 검토 하 여 API 키에 적합 한 권한 수준을 결정 합니다. 여기에서 예제 목적으로만 모든 권한이 선택됩니다.)
+4. API 키를 만들고 **만들기 및 보기** 를 선택합니다. (API 키에 적절한 권한 수준을 확인하려면 제한된 액세스에 대한 SendGrid의 설명서를 검토하세요. 여기에서 예제 목적으로만 모든 권한이 선택됩니다.)
 
    ![모든 권한 스크린샷](./media/automate-custom-reports/function-app-16.png)
 
@@ -153,4 +153,4 @@ availabilityResults
 * [Analytics 쿼리](../logs/get-started-queries.md) 만들기에 대해 자세히 알아봅니다.
 * [Application Insights 데이터를 프로그래밍 방식으로 쿼리](https://dev.applicationinsights.io/)하는 방법에 대해 자세히 알아보기
 * [Logic Apps](../../logic-apps/logic-apps-overview.md)에 대해 자세히 알아봅니다.
-* [Microsoft Power 자동화](https://ms.flow.microsoft.com)에 대해 자세히 알아보세요.
+* [Microsoft Power Automate](https://ms.flow.microsoft.com)에 대해 자세히 알아봅니다.

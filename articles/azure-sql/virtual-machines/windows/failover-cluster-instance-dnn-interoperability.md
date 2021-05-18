@@ -1,6 +1,6 @@
 ---
-title: SQL Server FCI와의 기능 상호 운용성 & DNN
-description: 'Azure Vm의 SQL Server에서 장애 조치 (failover) 클러스터 인스턴스를 사용 하 여 특정 SQL Server 기능 및 DNN (분산 네트워크 이름) 리소스를 사용할 때의 추가 고려 사항에 대해 알아봅니다. '
+title: SQL Server FCI 및 DNN의 기능 상호 운용성
+description: 'Azure VM의 SQL Server 장애 조치(failover) 클러스터 인스턴스를 사용하여 특정 SQL Server 기능 및 DNN(분산 네트워크 이름) 리소스를 사용할 때의 추가 고려 사항에 대해 알아봅니다. '
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -14,45 +14,45 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: 3c92aa3b35240831fad14919dc73609d803c610a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97358217"
 ---
-# <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI와의 기능 상호 운용성 & DNN
+# <a name="feature-interoperability-with-sql-server-fci--dnn"></a>SQL Server FCI 및 DNN의 기능 상호 운용성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-하드 코드 된 VNN (가상 네트워크 이름)을 사용 하는 특정 SQL Server 기능이 있습니다. 따라서 장애 조치 (failover) 클러스터 인스턴스와 DNN (분산 네트워크 이름) 리소스를 사용 하 고 Azure Vm에서 SQL Server 하는 경우 몇 가지 추가 고려 사항이 있습니다. 
+하드 코딩된 VNN(가상 네트워크 이름)을 사용하는 특정 SQL Server 기능이 있습니다. 따라서 DNN(분산 네트워크 이름) 리소스를 Azure VM의 장애 조치(failover) 클러스터 인스턴스 및 SQL Server와 사용할 때 몇 가지 추가 고려 사항이 있습니다. 
 
-이 문서에서는 DNN 리소스를 사용 하는 경우 네트워크 별칭을 구성 하는 방법과 추가 고려 사항이 필요한 SQL Server 기능에 대해 알아봅니다.
+이 문서에서는 DNN 리소스를 사용할 때 네트워크 별칭을 구성하는 방법과 추가 고려 사항이 필요한 SQL Server 기능에 대해 알아봅니다.
 
-## <a name="create-network-alias-fci"></a>네트워크 별칭 (FCI) 만들기
+## <a name="create-network-alias-fci"></a>네트워크 별칭 만들기(FCI)
 
-일부 서버 쪽 구성 요소는 하드 코드 된 VNN 값을 사용 하며, 제대로 작동 하려면 VNN을 DNN DNS 이름에 매핑하는 네트워크 별칭이 필요 합니다. [서버 별칭 만들기](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) 의 단계에 따라 VNN을 DNN DNS 이름에 매핑하는 별칭을 만듭니다. 
+일부 서버 측 구성 요소는 하드 코딩된 VNN 값을 사용하며 제대로 작동하려면 DNN DNS 이름에 VNN을 매핑하는 네트워크 별칭이 필요합니다. [서버 별칭 만들기](/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client)의 단계에 따라 DNN DNS 이름에 VNN을 매핑하는 별칭을 만듭니다. 
 
-기본 인스턴스의 경우 vnn을 DNN DNS 이름에 직접 매핑할 수 있습니다. 예를 들어 VNN = DNN DNS 이름입니다.
-예를 들어 VNN 이름이이 고 `FCI1` , 인스턴스 이름이이 `MSSQLSERVER` 고, DNN가 (이전에 연결 된 클라이언트)이 고, 이제에 연결 된 경우 `FCI1DNN` `FCI` `FCI1DNN` vnn을 `FCI1` DNN에 매핑합니다 `FCI1DNN` . 
+기본 인스턴스의 경우 VNN = DNN DNS 이름과 같이 DNN DNS 이름에 VNN을 직접 매핑할 수 있습니다.
+예를 들어 VNN 이름이 `FCI1`이고, 인스턴스 이름이 `MSSQLSERVER`, 그리고 DNN이 `FCI1DNN`(클라이언트가 이전에는 `FCI`에 연결하고, 현재는 `FCI1DNN`에 연결)이면 VNN `FCI1`을 DNN `FCI1DNN`에 매핑합니다. 
 
-명명 된 인스턴스의 경우에는 전체 인스턴스에 대해 네트워크 별칭 매핑을 수행 해야 합니다 `VNN\Instance`  =  `DNN\Instance` . 예를 들어 VNN 이름이이 고 `FCI1` , 인스턴스 이름이이 `instA` 고, DNN가 (이전에 연결 된 클라이언트)이 고, 이제에 연결 된 경우 `FCI1DNN` `FCI1\instA` `FCI1DNN\instaA` vnn을 `FCI1\instaA` DNN에 매핑합니다 `FCI1DNN\instaA` . 
+명명된 인스턴스의 경우 `VNN\Instance` = `DNN\Instance`과 같은 전체 인스턴스에 대해 네트워크 별칭 매핑을 수행해야합니다. 예를 들어 VNN 이름이 `FCI1`이고 인스턴스 이름이 `instA`이고 DNN이 `FCI1DNN`(이전에 `FCI1\instA`에 연결된 클라이언트가 이제 `FCI1DNN\instaA`에 연결됨)인 경우 VNN `FCI1\instaA`을 DNN `FCI1DNN\instaA`에 매핑합니다. 
 
 
 
 ## <a name="client-drivers"></a>클라이언트 드라이버
 
-ODBC, OLEDB, ADO.NET, JDBC, PHP 및 Node.js 드라이버의 경우 사용자는 연결 문자열에서 서버 이름으로 DNN DNS 이름을 명시적으로 지정 해야 합니다. 장애 조치 (failover) 시 빠른 연결을 보장 하려면 `MultiSubnetFailover=True` SQL 클라이언트에서 지 원하는 경우 연결 문자열에를 추가 합니다. 
+ODBC, OLEDB, ADO.NET, JDBC, PHP 및 Node.js 드라이버의 경우 사용자는 연결 문자열의 서버 이름으로 DNN DNS 이름을 명시적으로 지정해야 합니다. 장애 조치(failover) 시 빠른 연결을 보장하려면 SQL 클라이언트에서 지원하는 경우 연결 문자열에 `MultiSubnetFailover=True`를 추가합니다. 
 
 ## <a name="tools"></a>도구
 
-[SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](/sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is)및 [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) 사용자는 연결 문자열에서 서버 이름으로 DNN DNS 이름을 명시적으로 지정 해야 합니다. 
+[SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms), [sqlcmd](/sql/tools/sqlcmd-utility), [Azure Data Studio](/sql/azure-data-studio/what-is) 및 [SQL Server Data Tools](/sql/ssdt/sql-server-data-tools) 사용자는 연결 문자열의 서버 이름으로 DNN DNS 이름을 명시적으로 지정해야 합니다. 
 
 ## <a name="availability-groups-and-fci"></a>가용성 그룹 및 FCI
 
-장애 조치 (failover) 클러스터 인스턴스를 복제본 중 하나로 사용 하 여 Always On 가용성 그룹을 구성할 수 있습니다. 이 구성에서 FCI 복제본의 미러링 끝점 URL은 FCI DNN를 사용 해야 합니다. 마찬가지로 FCI가 읽기 전용 복제본으로 사용 되는 경우 fci 복제본에 대 한 읽기 전용 라우팅은 FCI DNN을 사용 해야 합니다. 
+장애 조치(failover) 클러스터 인스턴스를 복제본 중 하나로 사용하여 Always On 가용성 그룹을 구성할 수 있습니다. 이 구성에서 FCI 복제본의 미러링 엔드포인트 URL은 FCI DNN를 사용해야 합니다. 마찬가지로 FCI가 읽기 전용 복제본으로 사용되는 경우 FCI 복제본에 대한 읽기 전용 라우팅은 FCI DNN을 사용해야 합니다. 
 
-미러링 끝점의 형식은 `ENDPOINT_URL = 'TCP://<DNN DNS name>:<mirroring endpoint port>'` 입니다. 
+미러링 엔드포인트의 형식은 `ENDPOINT_URL = 'TCP://<DNN DNS name>:<mirroring endpoint port>'` 입니다. 
 
-예를 들어, DNN DNS 이름이이 `dnnlsnr` 고 `5022` 가 fci의 미러링 끝점 포트인 경우 끝점 URL을 만드는 Transact-sql (t-sql) 코드 조각은 다음과 같습니다. 
+예를 들어 DNN DNS 이름이 `dnnlsnr`이고 `5022`가 FCI 미러링 엔드포인트의 포트인 경우 엔드포인트 URL을 생성하는 T-SQL(Transact-SQL) 코드 조각은 다음과 같습니다: 
 
 ```sql
 ENDPOINT_URL = 'TCP://dnnlsnr:5022'
@@ -60,40 +60,40 @@ ENDPOINT_URL = 'TCP://dnnlsnr:5022'
 
 마찬가지로 읽기 전용 라우팅 URL의 형식은 `TCP://<DNN DNS name>:<SQL Server instance port>` 입니다. 
 
-예를 들어 DNN DNS 이름이이 고 `dnnlsnr` `1444` 가 읽기 전용 대상 SQL Server fci에서 사용 하는 포트인 경우 읽기 전용 라우팅 URL을 만드는 t-sql 코드 조각은 다음과 같습니다. 
+예를 들어 DNN DNS 이름이 `dnnlsnr`이고 `1444`가 읽기 전용 대상 SQL Server FCI에서 사용하는 포트인 경우 읽기 전용 라우팅 URL을 만드는 T-SQL 코드 조각은 다음과 같습니다: 
 
 ```sql
 READ_ONLY_ROUTING_URL = 'TCP://dnnlsnr:1444'
 ```
 
-기본 1433 포트인 경우 URL에서 포트를 생략할 수 있습니다. 명명 된 인스턴스의 경우 명명 된 인스턴스에 대 한 정적 포트를 구성 하 고 읽기 전용 라우팅 URL에서 지정 합니다.  
+기본 1433 포트인 경우 URL에서 포트를 생략할 수 있습니다. 명명된 인스턴스의 경우 명명된 인스턴스에 대한 고정 포트를 구성하고 읽기 전용 라우팅 URL에 지정합니다.  
 
 ## <a name="replication"></a>복제
 
-복제에는 게시자, 배포자, 구독자의 세 가지 구성 요소가 있습니다. 이러한 구성 요소는 장애 조치 (failover) 클러스터 인스턴스일 수 있습니다. FCI VNN은 복제 구성에서 강력 하 고 암시적으로 사용 되기 때문에 복제 작업을 수행 하려면 DNN에 VNN을 매핑하는 네트워크 별칭이 필요할 수 있습니다. 
+복제는 게시자, 배포자와 구독자의 세 가지 구성 요소로 이루어져 있습니다. 이러한 구성 요소는 장애 조치(failover) 클러스터 인스턴스일 수 있습니다. FCI VNN은 명시적 및 암시적으로 복제 구성에 많이 사용되기 때문에 복제 작업을 수행하려면 VNN을 DNN에 매핑하는 네트워크 별칭이 필요할 수 있습니다. 
 
-복제 내에서 FCI 이름으로 VNN 이름을 계속 사용 하지만 *복제를 구성 하기 전에* 다음과 같은 원격 상황에서 네트워크 별칭을 만듭니다.
+복제 내에서 FCI 이름으로 VNN 이름을 계속 사용하되 *복제를 구성하기 전에* 다음 원격 상황에서 네트워크 별칭을 만듭니다:
 
-| **복제 구성 요소 (DNN를 사용 하는 FCI)** | **원격 구성 요소** | **네트워크 별칭 맵** | **네트워크 맵이 있는 서버**| 
+| **복제 구성 요소(DNN이 있는 FCI)** | **원격 구성 요소** | **네트워크 별칭 매핑** | **네트워크 맵이 있는 서버**| 
 |---------|---------|---------|-------- | 
-|게시자 | 배포자 | 게시자 VNN에서 게시자로 DNN| 배포자| 
-|배포자|가입자 |배포자 VNN에서 배포자로 DNN| 가입자 | 
-|배포자|게시자 | 배포자 VNN에서 배포자로 DNN | 게시자| 
-|가입자| 배포자| 구독자 VNN에서 구독자로 DNN | 배포자| 
+|게시자 | 배포자 | 게시자 VNN에서 게시자 DNN으로| 배포자| 
+|배포자|가입자 |배포자 VNN에서 배포자 DNN으로| 가입자 | 
+|배포자|게시자 | 배포자 VNN에서 배포자 DNN으로 | 게시자| 
+|가입자| 배포자| 가입자 VNN에서 가입자 DNN으로 | 배포자| 
 
-예를 들어 복제 토폴로지에서 DNN를 사용 하 여 FCI로 구성 된 게시자가 있고 배포자가 원격 이라고 가정 합니다. 이 경우 게시자 VNN을 게시자 DNN 매핑하기 위해 배포자 서버에 네트워크 별칭을 만듭니다. 
+예를 들어 복제 토폴로지에서 DNN을 사용하여 FCI로 구성된 게시자가 있고 배포자가 원격이라고 가정합니다. 이 경우 배포자 서버에서 네트워크 별칭을 만들어 게시자 VNN을 게시자 DNN에 매핑합니다: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-in-configuration-manager.png" alt-text="SQL Server 구성 관리자를 사용 하 여 DNN DNS 이름을 네트워크 별칭으로 구성 합니다." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-in-configuration-manager.png" alt-text="SQL Server 구성 관리자를 사용하여 DNN DNS 이름을 네트워크 별칭으로 구성합니다." :::
 
-다음 이미지 예제와 같이 명명 된 인스턴스에 대 한 전체 인스턴스 이름을 사용 합니다. 
+다음 이미지 예제와 같이 명명된 인스턴스의 전체 인스턴스 이름을 사용합니다: 
 
-:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="명명 된 인스턴스에 대 한 네트워크 별칭을 구성할 때 전체 인스턴스 이름을 사용 합니다." :::
+:::image type="content" source="media/failover-cluster-instance-dnn-interoperability/alias-named-instance-configuration-manager.png" alt-text="명명된 인스턴스에 대한 네트워크 별칭을 구성할 때 전체 인스턴스 이름을 사용합니다." :::
 
 ## <a name="database-mirroring"></a>데이터베이스 미러링
 
-FCI를 사용 하 여 데이터베이스 미러링을 데이터베이스 미러링 파트너로 구성할 수 있습니다. SQL Server Management Studio GUI 아닌 [transact-sql (t-sql)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql) 을 사용 하 여 구성 합니다. T-sql을 사용 하면 VNN 대신 DNN를 사용 하 여 데이터베이스 미러링 끝점을 만들 수 있습니다. 
+FCI를 사용하여 데이터베이스 미러링 파트너로 데이터베이스 미러링을 구성할 수 있습니다. SQL Server Management Studio GUI가 아닌 [T-SQL(Transact-SQL)](/sql/database-engine/database-mirroring/example-setting-up-database-mirroring-using-windows-authentication-transact-sql)을 사용하여 구성합니다. T-SQL을 사용하면 VNN 대신 DNN을 사용하여 데이터베이스 미러링 엔드포인트가 만들어집니다. 
 
-예를 들어 DNN DNS 이름이이 `dnnlsnr` 고 데이터베이스 미러링 끝점이 7022 인 경우 다음 t-sql 코드 조각은 데이터베이스 미러링 파트너를 구성 합니다. 
+예를 들어 DNN DNS 이름이 `dnnlsnr`이고 데이터베이스 미러링 엔드포인트가 7022인 경우 다음 T-SQL 코드 조각은 데이터베이스 미러링 파트너를 구성합니다: 
 
 ```sql
 ALTER DATABASE AdventureWorks
@@ -102,22 +102,22 @@ ALTER DATABASE AdventureWorks
 GO 
 ```
 
-클라이언트 액세스의 경우 장애 조치 ( **failover) 파트너** 속성은 데이터베이스 미러링 장애 조치 (failover)를 처리할 수 있지만 fci 장애 조치 (failover) 
+클라이언트 액세스의 경우 **장애 조치(failover) 파트너** 속성은 데이터베이스 미러링 장애 조치(failover)를 처리할 수 있지만 FCI 장애 조치(failover)는 처리할 수 없습니다. 
 
 ## <a name="msdtc"></a>MSDTC
 
-FCI는 MSDTC (Microsoft DTC(Distributed Transaction Coordinator))에 의해 조정 되는 분산 트랜잭션에 참여할 수 있습니다. 클러스터 된 msdtc와 로컬 MSDTC는 모두 FCI DNN에서 지원 되지만, Azure에서 부하 분산 장치는 클러스터 된 MSDTC에 여전히 필요 합니다. FCI에 정의 된 DNN는 Azure에서 클러스터형 MSDTC에 대 한 Azure Load Balancer 요구 사항을 대체 하지 않습니다. 
+FCI는 MSDTC(Microsoft Distributed Transaction Coordinator)에서 조정하는 분산 트랜잭션에 참여할 수 있습니다. 클러스터된 MSDTC와 로컬 MSDTC는 모두 FCI DNN에서 지원되지만 Azure에서는 클러스터형 MSDTC에 여전히 부하 분산 장치가 필요합니다. FCI에 정의된 DNN은 Azure의 클러스터형 MSDTC에 대한 Azure Load Balancer 요구 사항을 대체하지 않습니다. 
 
 ## <a name="filestream"></a>FileStream
 
-FCI의 데이터베이스에는 FileStream이 지원 되지만 DNN에서 파일 시스템 Api를 사용 하 여 FileStream 또는 FileTable에 액세스 하는 것은 지원 되지 않습니다. 
+FCI의 데이터베이스에 대해 FileStream이 지원되지만 DNN과 함께 파일 시스템 API를 사용하여 FileStream 또는 FileTable에 액세스하는 것은 지원되지 않습니다. 
 
 ## <a name="linked-servers"></a>연결된 서버
 
-FCI DNN 연결 된 서버를 사용 하는 것이 지원 됩니다. DNN를 직접 사용 하 여 연결 된 서버를 구성 하거나 네트워크 별칭을 사용 하 여 VNN을 DNN에 매핑합니다. 
+FCI DNN과 연결된 서버를 사용할 수 있습니다. DNN을 직접 사용하여 연결된 서버를 구성하거나 네트워크 별칭을 사용하여 VNN을 DNN에 매핑합니다. 
 
 
-예를 들어 명명 된 인스턴스에 대 한 DNN DNS 이름을 사용 하 여 연결 된 서버를 만들려면 `dnnlsnr` `insta1` 다음 Transact-sql (t-sql) 명령을 사용 합니다.
+예를 들어 명명된 인스턴스 `insta1`에 대해 DNN DNS 이름이 `dnnlsnr`인 연결된 서버를 만들려면 다음 T-SQL(Transact-SQL) 명령을 사용합니다:
 
 ```sql
 USE [master]   
@@ -129,9 +129,9 @@ EXEC master.dbo.sp_addlinkedserver
 GO 
 ```
 
-또는 VNN (가상 네트워크 이름)을 사용 하 여 연결 된 서버를 만들 수는 있지만 VNN을 DNN 매핑하기 위해 네트워크 별칭을 정의 해야 합니다. 
+또는 VNN(가상 네트워크 이름)을 사용하여 연결된 서버를 만들 수 있지만 그런 다음 VNN을 DNN에 매핑하려면 네트워크 별칭을 정의해야 합니다. 
 
-예를 들어 인스턴스 이름 `insta1` , vnn 이름 `vnnname` 및 DNN name의 경우 `dnnlsnr` 다음 transact-sql (t-sql) 명령을 사용 하 여 vnn을 사용 하 여 연결 된 서버를 만듭니다.
+예를 들어 인스턴스 이름 `insta1`, VNN 이름 `vnnname` 및 DNN 이름 `dnnlsnr`의 경우 다음 T-SQL(Transact-SQL) 명령을 사용하여 VNN을 사용하는 연결된 서버를 만듭니다:
 
 ```sql
 USE [master]
@@ -144,32 +144,32 @@ GO
 
 ```
 
-그런 다음 매핑할 네트워크 별칭을 만듭니다 `vnnname\insta1` `dnnlsnr\insta1` . 
+그런 다음 `vnnname\insta1`을 `dnnlsnr\insta1`에 매핑할 네트워크 별칭을 만듭니다. 
 
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 
-- DNN에서 지원 되는 SQL Server 버전은 무엇 인가요? 
+- 어떤 SQL Server 버전에서 DNN을 지원하나요? 
 
-   SQL Server 2019 CU2 이상입니다.
+   SQL Server 2019 CU2 이상 버전에서 지원합니다.
 
-- DNN가 사용 되는 경우 예상 되는 장애 조치 (failover) 시간은 무엇 인가요?
+- DNN을 사용할 때 예상되는 장애 조치(failover) 시간은 어느 정도입니까?
 
-   DNN의 경우 장애 조치 (failover) 시간은 추가 된 시간 없이 FCI 장애 조치 (failover) 시간입니다 (Azure Load Balancer를 사용 하는 프로브 시간 등).
+   DNN을 사용할 때 예상되는 장애 조치(failover) 시간의 경우 시간이 추가되지 않은 FCI 장애 조치(failover) 시간입니다(예: Azure Load Balancer를 사용하는 경우의 프로브 시간).
 
-- SQL 클라이언트에서 OLEDB 및 ODBC를 사용 하 여 DNN를 지원 하기 위한 버전 요구 사항이 있나요?
+- SQL 클라이언트에서 OLEDB 및 ODBC와 함께 DNN을 지원하기위한 버전 요구 사항이 있나요?
 
-   `MultiSubnetFailover=True`DNN에 대 한 연결 문자열 지원을 권장 합니다. SQL Server 2012 (11.x)부터 사용할 수 있습니다.
+   DNN에 대한 `MultiSubnetFailover=True` 연결 문자열 지원을 권장합니다. SQL Server 2012 (11.x)부터 사용할 수 있습니다.
 
-- DNN를 사용 하는 데 필요한 SQL Server 구성 변경 내용이 있나요? 
+- DNN을 사용하려면 SQL Server 구성을 변경해야 하나요? 
 
-   SQL Server DNN를 사용 하기 위해 구성 변경이 필요 하지는 않지만 일부 SQL Server 기능을 사용 하려면 더 많은 주의가 필요할 수 있습니다. 
+   DNN을 사용하기 위해 SQL Server 구성을 변경할 필요는 없지만 일부 SQL Server 기능은 더 많은 고려 사항이 필요할 수 있습니다. 
 
-- DNN는 다중 서브넷 클러스터를 지원 하나요?
+- DNN은 다중 서브넷 클러스터를 지원하나요?
 
-   예. 클러스터는 서브넷에 관계 없이 클러스터에 있는 모든 노드의 실제 IP 주소를 사용 하 여 DNS의 DNN을 바인딩합니다. SQL 클라이언트는 서브넷에 관계 없이 DNS 이름의 모든 IP 주소를 시도 합니다. 
+   예. 클러스터는 서브넷에 관계없이 클러스터에 있는 모든 노드의 실제 IP 주소로 DNS의 DNN을 바인딩합니다. SQL 클라이언트는 서브넷에 관계없이 DNS 이름의 모든 IP 주소를 시도합니다. 
 
 
 

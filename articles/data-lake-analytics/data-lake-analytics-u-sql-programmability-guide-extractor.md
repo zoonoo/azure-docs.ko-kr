@@ -1,15 +1,15 @@
 ---
-title: U-SQL 사용자 정의 추출기 프로그래밍 가이드 Azure Data Lake
-description: U-SQL UDO 프로그래밍 기능 가이드-사용자 정의 추출기에 대해 알아봅니다.
+title: Azure Data Lake용 U-SQL 사용자 정의 추출기 프로그래밍 가이드
+description: U-SQL UDO 프로그래밍 가이드 - 사용자 정의 추출기에 대해 알아보세요.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/30/2017
 ms.openlocfilehash: ad7f6336753903533771033de21aec8262425a61
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608020"
 ---
 # <a name="use-user-defined-extractor"></a>사용자 정의 추출기 사용
@@ -29,7 +29,7 @@ U-SQL을 사용하면 EXTRACT 문을 사용하여 외부 데이터를 가져올 
 * 구조화되지 않은 데이터(예: 웹 페이지 및 전자 메일) 또는 반 구조화되지 않은 데이터(예: XML/JSON)를 구문 분석합니다.
 * 지원되지 않는 인코딩 데이터를 구문 분석합니다.
 
-## <a name="how-to-define-and-use-user-defined-extractor"></a>사용자 정의 추출기를 정의 하 고 사용 하는 방법
+## <a name="how-to-define-and-use-user-defined-extractor"></a>사용자 정의 추출기를 정의하고 사용하는 방법
 UDE(사용자 정의 추출기)를 정의하려면 `IExtractor` 인터페이스를 만들어야 합니다. 열/행 구분 기호 및 인코딩 등과 같은 추출기에 대한 모든 입력 매개 변수는 클래스의 생성자에서 정의해야 합니다. 다음과 같이 `IExtractor` 인터페이스는 `IEnumerable<IRow>` override에 대한 정의도 포함해야 합니다.
 
 ```csharp
@@ -169,5 +169,5 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 
 
 ## <a name="next-steps"></a>다음 단계
-* [U-SQL 프로그래밍 기능 가이드-개요](data-lake-analytics-u-sql-programmability-guide.md)
-* [U-SQL 프로그래밍 기능 가이드-UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)
+* [U-SQL 프로그래밍 가이드 - 개요](data-lake-analytics-u-sql-programmability-guide.md)
+* [U-SQL 프로그래밍 가이드 - UDT 및 UDAGG](data-lake-analytics-u-sql-programmability-guide-UDT-AGG.md)

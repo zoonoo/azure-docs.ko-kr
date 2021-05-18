@@ -15,10 +15,10 @@ ms.reviewer: lenalepa
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ms.openlocfilehash: 6a33da602eaa9bee20f155eaa550e558e5dcbeca
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98755560"
 ---
 # <a name="app-registration-reference"></a>앱 등록 참조
@@ -27,7 +27,7 @@ ms.locfileid: "98755560"
 
 ## <a name="my-applications-or-converged-applications"></a>내 애플리케이션 또는 수렴된 애플리케이션
 
-이 목록에는 Microsoft id 플랫폼에 사용 하기 위해 등록 된 모든 응용 프로그램이 포함 되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Microsoft id 플랫폼에 대 한 자세한 내용은 v2.0 [개요](./v2-overview.md)를 참조 하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
+이 목록에는 Microsoft ID 플랫폼에서 사용하도록 등록된 모든 애플리케이션이 포함되어 있습니다. 이러한 애플리케이션은 Azure Active Directory에서 개인 Microsoft 계정 및 회사/학교 계정 모두를 사용하는 사용자를 로그인할 수 있습니다. Microsoft ID 플랫폼에 대해 자세히 알아보려면 [v2.0 개요](./v2-overview.md)를 참조하세요. 이러한 애플리케이션을 사용하여 Microsoft 계정 인증 엔드포인트인 `https://login.live.com`과 통합할 수도 있습니다.
 
 ## <a name="azure-ad-only-applications"></a>Azure AD 전용 애플리케이션
 
@@ -39,11 +39,11 @@ ms.locfileid: "98755560"
 
 ## <a name="application-secrets"></a>애플리케이션 비밀
 
-응용 프로그램 암호는 응용 프로그램이 Microsoft id 플랫폼을 사용 하 여 신뢰할 수 있는 [클라이언트 인증](https://tools.ietf.org/html/rfc6749#section-2.3) 을 수행할 수 있도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 애플리케이션 비밀은 일반적으로 `client_secret`라고 합니다. V2.0 프로토콜에서 웹 주소 지정 가능한 위치 (체계 사용)에서 보안 토큰을 수신 하는 모든 응용 프로그램은 `https` 해당 보안 토큰을 상환 하는 경우 Microsoft id 플랫폼에서 자신을 식별 하는 데 응용 프로그램 암호를 사용 해야 합니다. 또한 디바이스에서 토큰을 받는 모든 네이티브 클라이언트는 애플리케이션 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 스토리지할 필요가 없습니다.
+애플리케이션 비밀은 Microsoft ID 플랫폼에서 애플리케이션에서 신뢰할 수 있는 [클라이언트 인증](https://tools.ietf.org/html/rfc6749#section-2.3)이 되도록 하는 자격 증명입니다. OAuth 및 OpenID Connect에서 애플리케이션 비밀은 일반적으로 `client_secret`라고 합니다. v2.0 프로토콜에서, `https` 체계를 사용하여 웹 주소 지정 가능한 위치에서 보안 토큰을 받는 모든 애플리케이션은 해당 보안 토큰 상환 시 Microsoft ID 플랫폼에서 자신을 식별할 수 있도록 애플리케이션 암호를 사용해야 합니다. 또한 디바이스에서 토큰을 받는 모든 네이티브 클라이언트는 애플리케이션 비밀을 사용하여 클라이언트 인증을 수행할 수 없도록 금지됩니다. 이에 따라 안전하지 않은 환경에서 비밀을 스토리지할 필요가 없습니다.
 
 각 앱에는 지정된 시점에 유효한 두 개의 애플리케이션 비밀이 포함될 수 있습니다. 두 개의 비밀을 유지하여 애플리케이션의 전체 환경에서 정기적으로 키 롤오버를 수행할 수 있습니다. 애플리케이션 전체를 새 비밀로 마이그레이션하면 이전 비밀을 삭제하고 새 비밀을 프로비전할 수 있습니다.
 
-현재 앱 등록 포털에는 두 가지 유형의 애플리케이션 비밀만 허용됩니다. **새 암호 생성** 을 선택하면 애플리케이션에 사용할 수 있는 공유 비밀이 각 데이터 저장소에 생성되어 저장됩니다. **새 키 쌍 생성** 을 선택 하면 Microsoft id 플랫폼에 대 한 클라이언트 인증에 다운로드 하 여 사용할 수 있는 새 공개/개인 키 쌍이 생성 됩니다. **퍼블릭 키 업로드** 를 선택하면 자신의 퍼블릭/프라이빗 키 쌍을 사용할 수 있습니다.
+현재 앱 등록 포털에는 두 가지 유형의 애플리케이션 비밀만 허용됩니다. **새 암호 생성** 을 선택하면 애플리케이션에 사용할 수 있는 공유 비밀이 각 데이터 저장소에 생성되어 저장됩니다. **새 키 쌍 생성** 을 선택하면 Microsoft ID 플랫폼에 대한 클라이언트 인증을 위해 다운로드하여 사용할 수 있는 새 퍼블릭/프라이빗 키가 만들어집니다. **퍼블릭 키 업로드** 를 선택하면 자신의 퍼블릭/프라이빗 키 쌍을 사용할 수 있습니다.
 공개 키가 포함된 인증서를 업로드해야 합니다.
 
 ## <a name="profile"></a>프로필

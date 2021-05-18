@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 4535e6bf11f8c2abf20b1b323925c3fc3299d362
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3debd58aadb98ab1e78692411e8d0bb66635f0da
+ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90971788"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108279301"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
 
 논리 앱 만들기 및 배포를 자동화하는 데 도움이 되도록 이 문서에서는 논리 앱용 [Azure Resource Manager 템플릿](../azure-resource-manager/management/overview.md)을 만들 수 있는 방법을 설명합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함하는 템플릿의 구조 및 구문에 대한 개요는 [개요: Azure Resource Manager 템플릿을 사용하여 논리 앱 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)를 참조하세요.
 
-Azure Logic Apps는 논리 앱을 만들고 배포에 사용할 리소스와 매개 변수를 정의하기 위해 재사용할 수 있는 [미리 작성된 논리 앱 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)을 제공합니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
+Azure Logic Apps는 논리 앱을 만들고 배포에 사용할 리소스와 매개 변수를 정의하기 위해 재사용할 수 있는 [미리 작성된 논리 앱 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json)을 제공합니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
 > [!IMPORTANT]
 > 템플릿의 연결이 논리 앱과 동일한 Azure 리소스 그룹 및 위치를 사용하는지 확인합니다.
@@ -119,10 +119,10 @@ Azure Key Vault 참조(정적만 해당)를 사용하여 추출하려면 다음 
 Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 매개 변수 | 필수 | 설명 |
+| 매개 변수 | 필수 | Description |
 |------------|----------|-------------|
-| TemplateFile | 예 | 템플릿 파일의 파일 경로입니다. |
-| KeyVault | 예 | 가능한 키 자격 증명 모음 값을 처리하는 방법을 설명하는 열거형입니다. 기본값은 `None`입니다. |
+| TemplateFile | Yes | 템플릿 파일의 파일 경로입니다. |
+| KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리하는 방법을 설명하는 열거형입니다. 기본값은 `None`입니다. |
 ||||
 
 ## <a name="next-steps"></a>다음 단계

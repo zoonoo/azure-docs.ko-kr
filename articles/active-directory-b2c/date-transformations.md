@@ -1,6 +1,6 @@
 ---
-title: 사용자 지정 정책에 대 한 날짜 클레임 변환 예제
-description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 날짜 클레임 변환 예입니다.
+title: 사용자 지정 정책의 날짜 클레임 변환 예제
+description: Azure Active Directory B2C의 IEF(ID 경험 프레임워크) 스키마용 날짜 클레임 변환의 예제를 제공합니다.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,17 +11,17 @@ ms.date: 02/16/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: eaf58b964517162ee7f7eb925e1e64830eedc087
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85202554"
 ---
 # <a name="date-claims-transformations"></a>날짜 클레임 변환
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 Id 경험 프레임 워크 스키마의 날짜 클레임 변환을 사용 하는 예제를 제공 합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
+이 문서에서는 Azure AD B2C(Azure Active Directory B2C)에서 ID 경험 프레임워크 스키마의 날짜 클레임 변환을 사용하는 예제를 제공합니다. 자세한 내용은 [ClaimsTransformations](claimstransformations.md)를 참조하세요.
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan
 
@@ -81,8 +81,8 @@ ms.locfileid: "85202554"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **leftOperand**: 2020-03-01T15:00:00.0000000 z
-    - **rightOperand**: 2020-03-01T14:00:00.0000000 z
+    - **leftOperand**: 2020-03-01T15:00:00.0000000Z
+    - **rightOperand**: 2020-03-01T14:00:00.0000000Z
 - 결과: 오류가 throw됨
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -110,20 +110,20 @@ ms.locfileid: "85202554"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **Inputclaim**: 2020-15-03
+    - **inputClaim**: 2020-15-03
 - 출력 클레임:
-    - **Outputclaim**: 2020-15-03T00:00:00.0000000 z
+    - **outputClaim**: 2020-15-03T00:00:00.0000000Z
 
 ## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim
 
-**DateTime** Claimtype을 **Date** claimtype으로 변환 합니다. 클레임 변환은 날짜에서 시간 형식을 제거 합니다.
+**DateTime** ClaimType을 **Date** ClaimType으로 변환합니다. 클레임 변환은 날짜에서 시간 형식을 제거합니다.
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | dateTime | 변환할 ClaimType입니다. |
 | OutputClaim | outputClaim | date | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
-다음 예에서는 클레임 `systemDateTime` (dateTime 데이터 형식)을 다른 클레임 `systemDate` (날짜 데이터 형식)으로 변환 하는 방법을 보여 줍니다.
+다음 예제에서는 `systemDateTime` 클레임(dateTime 데이터 형식)을 다른 `systemDate` 클레임(date 데이터 형식)으로 변환하는 방법을 보여줍니다.
 
 ```xml
 <ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
@@ -139,9 +139,9 @@ ms.locfileid: "85202554"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-  - **Inputclaim**: 2020-15-03T11:34:22.0000000 z
+  - **inputClaim**: 2020-15-03T11:34:22.0000000Z
 - 출력 클레임:
-  - **Outputclaim**: 2020-15-03
+  - **outputClaim**: 2020-15-03
 
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
@@ -162,7 +162,7 @@ ms.locfileid: "85202554"
 ### <a name="example"></a>예제
 
 * 출력 클레임:
-    * **Currentdatetime**: 2020-15-03T11:40:35.0000000 z
+    * **currentDateTime**: 2020-15-03T11:40:35.0000000Z
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -198,8 +198,8 @@ ms.locfileid: "85202554"
 ### <a name="example"></a>예제
 
 - 입력 클레임:
-    - **Firstdatetime**: 2020-01-01T00:00:00.100000 z
-    - **secondDateTime**: 2020-04-01T00:00:00.100000 z
+    - **firstDateTime**: 2020-01-01T00:00:00.100000Z
+    - **secondDateTime**: 2020-04-01T00:00:00.100000Z
 - 입력 매개 변수:
     - **operator**: 보다 나중
     - **timeSpanInSeconds**: 7776000(90일)

@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 온-프레미스에서 Azure로 데이터 복사
-description: 이 PowerShell 스크립트는 SQL Server 데이터베이스에서 다른 Azure Blob Storage로 데이터를 복사 합니다.
+title: PowerShell을 사용하여 온-프레미스에서 Azure로 데이터 복사
+description: 이 PowerShell 스크립트는 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사합니다.
 ms.service: data-factory
 ms.topic: article
 ms.author: jingwang
@@ -8,15 +8,15 @@ author: linda33wj
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
 ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100373388"
 ---
-# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>PowerShell을 사용 하 여 SQL Server에서 Azure로 데이터를 복사 하는 data factory 파이프라인 만들기
+# <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>PowerShell에서 SQL Server의 데이터를 Azure로 복사하는 Data Factory 파이프라인 만들기
 
-이 샘플 PowerShell 스크립트는 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사 하는 파이프라인을 Azure Data Factory 만듭니다.
+이 샘플 PowerShell 스크립트는 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 파이프라인을 Azure Data Factory에서 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -24,12 +24,12 @@ ms.locfileid: "100373388"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- **SQL Server**. 이 샘플에서는 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용 합니다.
-- **Azure Storage 계정**. 이 샘플에서는 Azure Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조 하세요.
+- **SQL Server**. 이 샘플에서는 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다.
+- **Azure Storage 계정**. 이 샘플에서는 Azure Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [스토리지 계정 만들기](../../storage/common/storage-account-create.md) 문서를 참조하세요.
 - **자체 호스팅 통합 런타임**. [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 파일을 다운로드하고 실행하여 컴퓨터에 자체 호스팅 통합 런타임을 설치합니다.  
 
 ### <a name="create-sample-database-in-sql-server"></a>SQL Server에서 샘플 데이터베이스 만들기
-1. SQL Server 데이터베이스에서 다음 SQL 스크립트를 사용 하 여 **emp** 라는 테이블을 만듭니다.
+1. 다음 SQL 스크립트를 사용하여 SQL Server 데이터베이스에 **emp** 라는 테이블을 만듭니다.
 
    ```sql   
      CREATE TABLE dbo.emp
@@ -77,13 +77,13 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 | 명령 | 메모 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |
-| [AzDataFactoryV2LinkedServiceEncryptCredential](/powershell/module/az.datafactory/new-Azdatafactoryv2linkedserviceencryptedcredential) | 연결된 서비스에서 자격 증명을 암호화하고 암호화된 자격 증명으로 새 연결된 서비스 정의를 생성합니다.
-| [AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | 데이터 팩터리에서 연결된 서비스를 만듭니다. 연결된 서비스는 데이터 저장소 또는 컴퓨팅을 데이터 팩터리에 연결합니다. |
-| [AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | 데이터 팩터리에서 데이터 세트를 만듭니다. 데이터 세트는 파이프라인의 작업에 대한 입/출력을 나타냅니다. |
-| [AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | 데이터 팩터리에서 파이프라인을 만듭니다. 파이프라인에는 특정 작업을 수행하는 하나 이상의 작업이 있습니다. 이 파이프라인에서 복사 작업은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. |
-| [AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | 파이프라인에 대한 실행을 만듭니다. 즉, 파이프라인을 실행합니다. |
-| [AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | 파이프라인의 작업 실행 방법에 대한 세부 정보를 가져옵니다.
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |
+| [New-AzDataFactoryV2LinkedServiceEncryptCredential](/powershell/module/az.datafactory/new-Azdatafactoryv2linkedserviceencryptedcredential) | 연결된 서비스에서 자격 증명을 암호화하고 암호화된 자격 증명으로 새 연결된 서비스 정의를 생성합니다.
+| [Set-AzDataFactoryV2LinkedService](/powershell/module/az.datafactory/Set-Azdatafactoryv2linkedservice) | 데이터 팩터리에서 연결된 서비스를 만듭니다. 연결된 서비스는 데이터 저장소 또는 컴퓨팅을 데이터 팩터리에 연결합니다. |
+| [Set-AzDataFactoryV2Dataset](/powershell/module/az.datafactory/Set-Azdatafactoryv2dataset) | 데이터 팩터리에서 데이터 세트를 만듭니다. 데이터 세트는 파이프라인의 작업에 대한 입/출력을 나타냅니다. |
+| [Set-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Set-Azdatafactoryv2pipeline) | 데이터 팩터리에서 파이프라인을 만듭니다. 파이프라인에는 특정 작업을 수행하는 하나 이상의 작업이 있습니다. 이 파이프라인에서 복사 작업은 Azure Blob Storage의 한 위치에서 다른 위치로 데이터를 복사합니다. |
+| [Invoke-AzDataFactoryV2Pipeline](/powershell/module/az.datafactory/Invoke-Azdatafactoryv2pipeline) | 파이프라인에 대한 실행을 만듭니다. 즉, 파이프라인을 실행합니다. |
+| [Get-AzDataFactoryV2ActivityRun](/powershell/module/az.datafactory/get-Azdatafactoryv2activityrun) | 파이프라인의 작업 실행 방법에 대한 세부 정보를 가져옵니다.
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

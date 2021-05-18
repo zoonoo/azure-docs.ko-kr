@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB SQL API에서 컨테이너 처리량 프로 비전
-description: Azure Portal, CLI, PowerShell 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB SQL API의 컨테이너 수준에서 처리량을 프로 비전 하는 방법을 알아봅니다.
+title: Azure Cosmos DB SQL API에서 컨테이너 처리량 프로비전
+description: Azure Portal, CLI, PowerShell 및 기타 다양한 SDK를 사용하여 Azure Cosmos DB SQL API의 컨테이너 수준에서 처리량을 프로비저닝하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,18 +9,18 @@ ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93100102"
 ---
-# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Azure Cosmos 컨테이너에서 표준 (수동) 처리량 프로 비전-SQL API
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Azure Cosmos 컨테이너에서 표준(수동) 처리량 프로비전 - SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 SQL API Azure Cosmos DB의 컨테이너에 대 한 표준 (수동) 처리량을 프로 비전 하는 방법을 설명 합니다. 단일 컨테이너 또는 [데이터베이스의 처리량을 프로비저닝](how-to-provision-database-throughput.md)하고 데이터베이스 내부의 컨테이너와 처리량을 공유할 수 있습니다. Azure Portal, Azure CLI 또는 Azure Cosmos DB SDK를 사용하여 컨테이너의 처리량을 프로비저닝할 수 있습니다.
+이 문서에서는 Azure Cosmos DB SQL API의 컨테이너에서 표준(수동) 처리량을 프로비전하는 방법을 설명합니다. 단일 컨테이너 또는 [데이터베이스의 처리량을 프로비저닝](how-to-provision-database-throughput.md)하고 데이터베이스 내부의 컨테이너와 처리량을 공유할 수 있습니다. Azure Portal, Azure CLI 또는 Azure Cosmos DB SDK를 사용하여 컨테이너의 처리량을 프로비저닝할 수 있습니다.
 
-다른 API를 사용 하는 경우 [MongoDB](how-to-provision-throughput-mongodb.md), [CASSANDRA API](how-to-provision-throughput-cassandra.md), [Gremlin api](how-to-provision-throughput-gremlin.md) 문서를 참조 하 여 처리량을 프로 비전 합니다.
+다른 API를 사용하는 경우 처리량을 프로비전하려면 [API for MongoDB](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) 문서를 참조하세요.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -28,10 +28,10 @@ ms.locfileid: "93100102"
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 Azure Cosmos 계정을 선택합니다.
 
-1. **데이터 탐색기** 창을 열고 **새 컨테이너** 를 선택 합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
+1. **데이터 탐색기** 창을 열어 **새 컨테이너** 를 선택합니다. 다음으로, 다음과 같은 세부 정보를 제공합니다.
 
    * 새 데이터베이스를 만드는지 아니면 기존 데이터베이스를 사용하는지 표시합니다.
-   * 컨테이너 ID를 입력 하십시오.
+   * 컨테이너 ID를 입력합니다.
    * 파티션 키 값을 입력합니다(예: `/ItemID`).
    * 프로비저닝하려는 처리량을 입력합니다(예: 1000RU).
    * **확인** 을 선택합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "93100102"
 ## <a name="net-sdk"></a>.NET SDK
 
 > [!Note]
-> Cosmos Sdk for SQL API를 사용 하 여 Cassandra 및 MongoDB API를 제외한 모든 Cosmos DB Api에 대 한 처리량을 프로 비전 합니다.
+> Cassandra 및 MongoDB API를 제외한 모든 Azure Cosmos DB API의 처리량을 프로비전할 때 Cosmos SDKs for SQL API를 사용합니다.
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 

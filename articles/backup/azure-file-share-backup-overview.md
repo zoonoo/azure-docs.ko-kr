@@ -3,12 +3,12 @@ title: Azure 파일 공유 백업
 description: Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: e955df7662bd18ed1d1d4ec1f0aa6c9474c5386f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f9dd816ace2c9aec8f48207fbce88acf34e24a
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89378086"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107516818"
 ---
 # <a name="about-azure-file-share-backup"></a>Azure 파일 공유 백업
 
@@ -61,4 +61,4 @@ Azure 파일 공유 백업에 대한 자세한 추정치를 얻으려면 자세�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 파일 공유 백업](backup-afs.md) 방법 알아보기
-* [Azure Files 백업에 대한 질문](backup-azure-files-faq.md)의 답변 찾기
+* [Azure Files 백업에 대한 질문](backup-azure-files-faq.yml)의 답변 찾기

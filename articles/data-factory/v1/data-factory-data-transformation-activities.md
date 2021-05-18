@@ -1,6 +1,6 @@
 ---
-title: '데이터 변환: 데이터를 처리 & 변환 '
-description: Hadoop, Azure Machine Learning Studio (클래식) 또는 Azure Data Lake Analytics를 사용 하 여 Azure Data Factory에서 데이터를 변환 하거나 데이터를 처리 하는 방법을 알아봅니다.
+title: '데이터 변환: 데이터 처리 및 변환 '
+description: Hadoop, Azure Machine Learning 스튜디오(클래식) 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환 또는 처리하는 방법에 대해 알아봅니다.
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 422acbaab097182b800e3bad35b0121284db9cd8
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104782931"
 ---
 # <a name="transform-data-in-azure-data-factory-version-1"></a>Azure Data Factory 버전 1의 데이터 변환
@@ -20,7 +20,7 @@ ms.locfileid: "104782931"
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Hadoop 스트리밍](data-factory-hadoop-streaming-activity.md)
-> * [Azure Machine Learning Studio (클래식)](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Azure Machine Learning 스튜디오(클래식)](data-factory-azure-ml-batch-execution-activity.md) 
 > * [저장 프로시저](data-factory-stored-proc-activity.md)
 > * [데이터 레이크 분석 U-SQL](data-factory-usql-activity.md)
 > * [.NET 사용자 지정](data-factory-use-custom-activities.md)
@@ -39,13 +39,13 @@ Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인]
 > 
 
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
-Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 작업에 대 한 자세한 내용은 [Hive 작업](data-factory-hive-activity.md) 문서를 참조 하세요. 
+Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 작업에 대한 자세한 내용은 [Hive 작업](data-factory-hive-activity.md) 문서를 참조하세요. 
 
 ## <a name="hdinsight-pig-activity"></a>HDInsight Pig 작업
-Data Factory 파이프라인에서 HDInsight Pig 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 작업에 대 한 자세한 내용은 [Pig 활동](data-factory-pig-activity.md) 문서를 참조 하세요. 
+Data Factory 파이프라인에서 HDInsight Pig 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Pig 쿼리를 실행합니다. 이 작업에 대한 자세한 내용은 [Pig 작업](data-factory-pig-activity.md) 문서를 참조하세요. 
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce 작업
-Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 작업에 대 한 자세한 내용은 [MapReduce 작업](data-factory-map-reduce.md) 문서를 참조 하세요.
+Data Factory 파이프라인의 HDInsight MapReduce 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 MapReduce 프로그램을 실행합니다. 이 작업에 대한 자세한 내용은 [MapReduce 작업](data-factory-map-reduce.md) 문서를 참조하세요.
 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight 스트리밍 작업
 Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다. 이 작업에 대한 자세한 내용은 [HDInsight 스트리밍 작업](data-factory-hadoop-streaming-activity.md)을 참조하세요.
@@ -53,18 +53,18 @@ Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고�
 ## <a name="hdinsight-spark-activity"></a>HDInsight Spark 작업
 Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](data-factory-spark.md) 을 참조하세요. 
 
-## <a name="azure-machine-learning-studio-classic-activities"></a>Azure Machine Learning Studio (클래식) 활동
-Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 처리 실행 작업](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) 을 사용 하 여 Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리에서 데이터에 대 한 예측을 만들 수 있습니다.
+## <a name="azure-machine-learning-studio-classic-activities"></a>Azure Machine Learning 스튜디오(클래식) 작업
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning 스튜디오(클래식) 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 실행 작업](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity)을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다.
 
-시간이 지남에 따라 스튜디오 (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 재 학습을 완료 한 후에는 다시 학습 machine learning 모델을 사용 하 여 점수 매기기 웹 서비스를 업데이트 하려고 합니다. [리소스 업데이트 작업](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) 을 사용 하 여 새로 학습 된 모델로 웹 서비스를 업데이트할 수 있습니다.  
+시간이 지남에 따라 Studio(클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 Machine Learning 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
 
-이러한 Studio (클래식) 활동에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 활동 사용](data-factory-azure-ml-batch-execution-activity.md) 을 참조 하세요. 
+이러한 Studio(클래식) 작업에 대한 자세한 내용은 [Azure Machine Learning 스튜디오(클래식) 작업 사용](data-factory-azure-ml-batch-execution-activity.md)을 참조하세요. 
 
 ## <a name="stored-procedure-activity"></a>저장 프로시저 작업
-Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics, SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](data-factory-stored-proc-activity.md) 문서를 참조 하세요.  
+Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM의 Azure SQL Database,Azure Synapse Analytics, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](data-factory-stored-proc-activity.md)을 참조하세요.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
-Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [데이터 분석의 U-SQL 작업](data-factory-usql-activity.md) 문서를 참조 하세요. 
+Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](data-factory-usql-activity.md) 문서를 참조하세요. 
 
 ## <a name="net-custom-activity"></a>.NET 사용자 지정 작업
 Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 작업 사용](data-factory-use-custom-activities.md) 문서를 참조하세요. 

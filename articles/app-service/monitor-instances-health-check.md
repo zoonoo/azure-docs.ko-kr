@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 3cc8ba29629c36cc9fcb295b1cdd348fbcae1584
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732905"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104871200"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>상태 검사를 사용하여 App Service 인스턴스 모니터링
 
@@ -51,7 +51,7 @@ ms.locfileid: "109732905"
 | 앱 설정 이름 | 허용되는 값 | Description |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | 최대 ping 실패 수입니다. 예를 들어 `2`로 설정하면 인스턴스가 ping `2`회 실패 후 제거됩니다. 또한 스케일 업하거나 스케일 아웃할 때 App Service는 새 인스턴스가 준비되도록 Health check 경로를 ping합니다. |
-|`WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | 0 - 100 | 정상 상태의 인스턴스가 너무 많아지는 것을 방지하기 위해 인스턴스 중 절반 이하만 제외됩니다. 예를 들어 App Service 계획이 4개의 인스턴스로 확장되고 3개가 비정상이면 최대 2개가 제외됩니다. 나머지 두 인스턴스(정상 1 및 비정상 1)에서는 계속해서 요청을 받습니다. 모든 인스턴스가 비정상인 최악의 시나리오에서는 인스턴스가 제외되지 않습니다. 이 동작을 재정의하려면 앱 설정을 `0` - `100` 사이의 값으로 설정합니다. 값이 높을수록 더 비정상 인스턴스가 많이 제거됩니다(기본값은 50). |
+|`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | 정상 상태의 인스턴스가 너무 많아지는 것을 방지하기 위해 인스턴스 중 절반 이하만 제외됩니다. 예를 들어 App Service 계획이 4개의 인스턴스로 확장되고 3개가 비정상이면 최대 2개가 제외됩니다. 나머지 두 인스턴스(정상 1 및 비정상 1)에서는 계속해서 요청을 받습니다. 모든 인스턴스가 비정상인 최악의 시나리오에서는 인스턴스가 제외되지 않습니다. 이 동작을 재정의하려면 앱 설정을 `0` - `100` 사이의 값으로 설정합니다. 값이 높을수록 더 비정상 인스턴스가 많이 제거됩니다(기본값은 50). |
 
 #### <a name="authentication-and-security"></a>인증 및 보안
 
@@ -68,8 +68,8 @@ ms.locfileid: "109732905"
 프리미엄 함수 사이트에서 상태 검사를 사용하도록 설정하면 안 됩니다. 프리미엄 함수의 빠른 크기 조정으로 인해 상태 검사 요청이 HTTP 트래픽의 불필요한 변동을 야기할 수 있습니다. 프리미엄 기능에는 확장 결정을 알리는 데 사용되는 자체 내부 상태 프로브가 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
-- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
+- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-success-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-failure-diagram.png

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d041f864c6c8cd3ae9c522d79447d71c86f9ac04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab19bb1c6cc43334a3d0d427b6aff6ced2d6cc69
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98875607"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789666"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>포털 또는 Azure CLI를 사용하여 스냅샷 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "98875607"
 
 다음 단계에서는 **az snapshot create** 명령과 **--source-disk** 매개 변수를 사용하여 스냅샷을 만드는 방법을 보여줍니다. 다음 예제는 *myResourceGroup* 리소스 그룹의 *myVM* 이라는 VM이 있는 것으로 가정합니다.
 
-[az vm show](/cli/azure/vm#az-vm-show)를 사용하여 디스크 ID를 가져옵니다.
+[az vm show](/cli/azure/vm#az_vm_show)를 사용하여 디스크 ID를 가져옵니다.
 
 ```azurecli-interactive
 osDiskId=$(az vm show \
@@ -36,7 +36,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-[az snapshot create](/cli/azure/snapshot#az-snapshot-create)를 사용하여 *osDisk-backup* 이라는 스냅샷을 만듭니다.
+[az snapshot create](/cli/azure/snapshot#az_snapshot_create)를 사용하여 *osDisk-backup* 이라는 스냅샷을 만듭니다.
 
 ```azurecli-interactive
 az snapshot create \
@@ -48,7 +48,7 @@ az snapshot create \
 > [!NOTE]
 > 스냅샷을 영역 중복 스토리지에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 **--sku Standard_ZRS** 매개 변수를 포함하는 지역에 만들어야 합니다.
 
-[az snapshot list](/cli/azure/snapshot#az-snapshot-list)를 사용하여 스냅샷 목록을 볼 수 있습니다.
+[az snapshot list](/cli/azure/snapshot#az_snapshot_list)를 사용하여 스냅샷 목록을 볼 수 있습니다.
 
 ```azurecli-interactive
 az snapshot list \

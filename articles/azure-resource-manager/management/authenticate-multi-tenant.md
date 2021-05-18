@@ -4,10 +4,10 @@ description: Azure Resource Manager가 테넌트에서 인증 요청을 처리�
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.openlocfilehash: 7a13ba6f6cbfc10c52484c45e4011da7a0d8ee4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75478826"
 ---
 # <a name="authenticate-requests-across-tenants"></a>테넌트에서 요청 인증
@@ -21,7 +21,7 @@ ms.locfileid: "75478826"
 | 헤더 이름 | 설명 | 예제 값 |
 | ----------- | ----------- | ------------ |
 | 권한 부여 | 기본 토큰 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt; 보조-token1 &gt; , encryptedbearer &lt; 보조-token2 &gt; , 전달자 &lt; 보조-token3&gt; |
+| x-ms-authorization-auxiliary | 보조 토큰 | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
 
 보조 헤더는 최대 세 개의 보조 토큰을 유지할 수 있습니다. 
 
@@ -35,5 +35,5 @@ ms.locfileid: "75478826"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 인증 요청에 대 한 자세한 내용은 [인증 흐름 및 응용 프로그램 시나리오](../../active-directory/develop/authentication-flows-app-scenarios.md)를 참조 하세요.
+* 인증 요청에 대한 자세한 내용은 [인증 흐름 및 애플리케이션 시나리오](../../active-directory/develop/authentication-flows-app-scenarios.md)를 참조하세요.
 * 토큰에 대한 자세한 내용은 [Azure Active Directory 액세스 토큰](../../active-directory/develop/access-tokens.md)을 참조하세요.

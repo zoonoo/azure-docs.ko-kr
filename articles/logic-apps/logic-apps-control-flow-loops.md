@@ -7,17 +7,17 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
 ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93358459"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
-논리 앱에서 배열을 처리하려면 ["Foreach" 루프](#foreach-loop)를 만들 수 있습니다. 이 루프는 배열의 각 항목에 대해 하나 이상의 작업을 반복합니다. "Foreach" 루프에서 처리할 수 있는 배열 항목 수에 대 한 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+논리 앱에서 배열을 처리하려면 ["Foreach" 루프](#foreach-loop)를 만들 수 있습니다. 이 루프는 배열의 각 항목에 대해 하나 이상의 작업을 반복합니다. "Foreach" 루프에서 처리할 수 있는 배열 항목 수에 대한 제한은 [동시성, 반복 및 분리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요.
 
-조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내부의 모든 작업을 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+조건이 충족되거나 상태가 변경될 때마다 작업을 반복하려면 ["Until" 루프](#until-loop)를 만들 수 있습니다. 논리 앱은 먼저 루프 내부의 모든 작업을 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함될 수 있는 "Until" 루프 수에 대한 기본 및 최대 제한은 [동시성, 반복 및 분리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요.
 
 > [!TIP]
 > 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다.
@@ -32,13 +32,13 @@ ms.locfileid: "93358459"
 
 ## <a name="foreach-loop"></a>"Foreach" 루프
 
-"Foreach" 루프는 각 배열 항목에 대해 하나 이상의 작업을 반복 하 고 배열에 대해서만 작동 합니다. "Foreach" 루프를 사용하는 경우 다음과 같은 몇 가지 사항을 고려해야 합니다.
+"Foreach" 루프는 각 배열 항목에 대해 하나 이상의 작업을 반복하고 배열에만 작동합니다. "Foreach" 루프를 사용하는 경우 다음과 같은 몇 가지 사항을 고려해야 합니다.
 
-* "Foreach" 루프는 제한 된 수의 배열 항목을 처리할 수 있습니다. 이 제한에 대해서는 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+* "Foreach" 루프는 제한된 수의 배열 항목을 처리할 수 있습니다. 이 제한에 대해서는 [동시성, 반복 및 분리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요.
 
-* 기본적으로 "Foreach" 루프의 반복은 동시에 실행 되거나 동시에 실행 됩니다. 이 동작은 반복이 한 번에 하나씩 또는 순차적으로 실행 되는 [ **각 루프에 적용**](/power-automate/apply-to-each) 되는 것과 다릅니다. 그러나 [순차적 "Foreach" 루프 반복을 설정할](#sequential-foreach-loop)수 있습니다. 예를 들어 [지연 작업](../connectors/connectors-native-delay.md)을 사용 하 여 "Foreach" 루프의 다음 반복을 일시 중지 하려면 루프가 순차적으로 실행 되도록 설정 해야 합니다.
+* 기본적으로 "Foreach" 루프의 반복은 동시에 실행되거나 병렬로 실행됩니다. 이 동작은 [Power Automate의 **각 루프에 대한 적용**](/power-automate/apply-to-each)과 다릅니다. 여기서는 반복이 한 번에 하나씩 또는 순차적으로 실행됩니다. 그러나 [순차적 "Foreach" 루프 반복을 설정](#sequential-foreach-loop)할 수 있습니다. 예를 들어 [지연 작업](../connectors/connectors-native-delay.md)을 사용하여 "Foreach" 루프의 다음 반복을 일시 중지하려면 루프가 순차적으로 실행되도록 설정해야 합니다.
 
-  기본 동작에 대 한 예외는 반복이 병렬로 실행 되지 않고 항상 순차적으로 실행 되는 중첩 된 루프입니다. 중첩된 루프의 항목에 대해 작업을 병렬로 실행하려면 [자식 논리 앱을 만들고 호출](../logic-apps/logic-apps-http-endpoint.md)합니다.
+  기본 동작에 대한 예외는 반복이 병렬로 실행되지 않고 항상 순차적으로 실행되는 중첩된 루프입니다. 중첩된 루프의 항목에 대해 작업을 병렬로 실행하려면 [자식 논리 앱을 만들고 호출](../logic-apps/logic-apps-http-endpoint.md)합니다.
 
 * 각 루프 반복 동안 변수 작업에서 예측 가능한 결과를 얻으려면 해당 루프를 순차적으로 실행합니다. 예를 들어, 동시에 실행 중인 루프가 종료될 때 변수에 대해 증가, 감소 및 추가 작업을 수행하면 예측 가능한 결과가 반환됩니다. 그러나 동시 실행 루프에서 각 반복이 수행되는 동안 이러한 작업을 수행하면 예기치 않은 결과가 반환될 수 있습니다. 
 
@@ -47,7 +47,7 @@ ms.locfileid: "93358459"
 
 이 예제의 논리 앱은 웹 사이트 RSS 피드에 대한 일별 요약을 보냅니다. 앱은 각각의 새 항목에 대한 이메일을 보내는 "Foreach" 루프를 사용합니다.
 
-1. Outlook.com 계정 또는 회사 또는 학교 계정을 사용 하 여 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md) .
+1. Outlook.com 계정 또는 회사나 학교 계정을 사용하여 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 2. RSS 트리거와 이메일 보내기 작업 사이에 "Foreach" 루프를 추가합니다. 
 
@@ -152,7 +152,7 @@ ms.locfileid: "93358459"
 
 ## <a name="until-loop"></a>"Until" 루프
   
-조건이 충족되거나 상태가 변경될 때마다 작업을 실행하고 반복하려면 "Until" 루프에 해당 작업을 추가합니다. 논리 앱은 먼저 루프 내부의 작업을 모두 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+조건이 충족되거나 상태가 변경될 때마다 작업을 실행하고 반복하려면 "Until" 루프에 해당 작업을 추가합니다. 논리 앱은 먼저 루프 내부의 작업을 모두 실행한 다음, 조건 또는 상태를 확인합니다. 조건이 충족되면 루프가 중지됩니다. 그렇지 않으면 루프가 반복됩니다. 논리 앱 실행에 포함될 수 있는 "Until" 루프 수에 대한 기본 및 최대 제한은 [동시성, 반복 및 분리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요.
 
 "Until" 루프를 사용할 수 있는 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -249,15 +249,15 @@ ms.locfileid: "93358459"
 
 ## <a name="prevent-endless-loops"></a>무한 루프 방지
 
-"Until" 루프는 이러한 속성을 기반으로 실행을 중지 하므로 적절 하 게 값을 설정 해야 합니다.
+"Until" 루프는 이러한 속성을 기반으로 실행을 중지하므로 적절하게 해당 값을 설정해야 합니다.
 
-* **개수**:이 값은 루프를 종료 하기 전에 실행 되는 가장 높은 루프의 수입니다. 논리 앱 실행에 포함 될 수 있는 "Until" 루프 수에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 분리 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+* **개수**:루프가 종료되기 전에 실행되는 최대 루프 수입니다. 논리 앱 실행에 포함될 수 있는 "Until" 루프 수에 대한 기본 및 최대 제한은 [동시성, 반복 및 분리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요.
 
-* **Timeout**:이 값은 루프가 종료 되기 전에 실행 되 고 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 되는 가장 많은 시간입니다. **제한 시간** 값에 대 한 기본 및 최대 제한은 [동시성, 루핑 및 일괄 처리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요.
+* **시간 제한**: 이 값은 루프가 종료 전에 실행되는 최대 시간이고 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정됩니다. **제한 시간** 값에 대한 기본 및 최대 제한은 [동시성, 반복 및 분리 제한](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조하세요.
 
   시간 제한 값은 각 루프 주기에 대해 평가됩니다. 루프의 작업이 시간 제한보다 오래 걸리면 현재 주기가 중지되지 않습니다. 그러나 제한 조건이 충족되지 않으면 다음 주기가 시작되지 않습니다.
 
-이러한 한도를 변경 하려면 루프 동작에서 **제한 변경** 을 선택 합니다.
+이러한 한도를 변경하려면 루프 작업에서 **제한 변경** 을 선택합니다.
 
 <a name="until-json"></a>
 

@@ -1,6 +1,6 @@
 ---
 title: SSTP에서 OpenVPN 또는 IKEv2로 전환 | Azure VPN Gateway
-description: 이 문서에서는 SSTP의 128 동시 연결 제한을 극복 하는 방법을 이해 하는 데 도움을 줍니다.
+description: 이 문서를 통해 SSTP의 128 동시 연결 제한을 극복하는 방법을 이해하는 데 도움을 줍니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,59 +8,59 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
 ms.openlocfilehash: e2fa265e580bc0e752498284ed50e398b59423fd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97657144"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>SSTP에서 OpenVPN 프로토콜 또는 IKEv2로 전환
 
-P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 문서는 리소스 관리자 배포 모델에 적용 되며 OpenVPN 프로토콜 또는 IKEv2로 전환 하 여 SSTP의 128 동시 연결 제한을 해결 하는 방법에 대해 설명 합니다.
+P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 문서는 Resource Manager 배포 모델에 적용 되며, OpenVPN 프로토콜 또는 IKEv2로 전환하여 SSTP의 128 동시 연결 제한을 해결하는 방법에 대해 설명합니다.
 
-## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>P2S에서 사용 하는 프로토콜
+## <a name="what-protocol-does-p2s-use"></a><a name="protocol"></a>P2S는 어떤 프로토콜을 사용합니까?
 
 지점 및 사이트 간 VPN에서는 다음 프로토콜 중 하나를 사용할 수 있습니다.
 
-* **Openvpn &reg; 프로토콜**, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS (버전 11.0 이상), Windows, Linux 및 Mac 장치 (OSX 버전 10.13 이상)에서 연결 하는 데 사용할 수 있습니다.
+* **OpenVPN&reg; 프로토콜**, SSL/TLS 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 아웃바운드 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. OpenVPN은 Android, iOS(버전 11.0 이상), Windows, Linux, Mac 디바이스(OSX 버전 10.13 이상)에서 연결하는 데 사용할 수 있습니다.
 
-* 독점 SSL 기반 VPN 프로토콜인 **SSTP (Secure Socket Tunneling protocol)** 대부분의 방화벽은 SSL에서 사용 하는 TCP 포트 443 아웃 바운드를 열기 때문에 SSL VPN 솔루션은 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다. **SSTP는 게이트웨이 SKU에 관계 없이 최대 128의 동시 연결을 지원** 합니다.
+* **SSTP(Secure Socket Tunneling Protocol)** - 독점적인 SSL 기반 VPN 프로토콜입니다. 대부분의 방화벽에서 SSL이 사용되는 443 아웃바운드 TCP 포트를 열기 때문에 SSL VPN 솔루션이 방화벽을 통과할 수 있습니다. SSTP는 Windows 디바이스에서만 지원됩니다. Azure는 SSTP가 설치된 모든 Windows 버전(Windows 7 이상)을 지원합니다. **SSTP는 게이트웨이 SKU에 관계없이 최대 128개의 동시 연결을 지원합니다**.
 
 * IKEv2 VPN - 표준 기반 IPsec VPN 솔루션입니다. IKEv2 VPN은 Mac 디바이스(OSX 버전 10.11 이상)에서 연결하는 데 사용할 수 있습니다.
 
 
 >[!NOTE]
->P2S용 IKEv2 및 OpenVPN은 Resource Manager 배포 모델에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다. 기본 게이트웨이 SKU는 IKEv2 또는 OpenVPN 프로토콜을 지원 하지 않습니다. 기본 SKU를 사용 하는 경우 프로덕션 SKU Virtual Network 게이트웨이를 삭제 하 고 다시 만들어야 합니다.
+>P2S용 IKEv2 및 OpenVPN은 Resource Manager 배포 모델에서만 사용할 수 있습니다. 클래식 배포 모델에서는 사용할 수 없습니다. 기본 게이트웨이 SKU는 IKEv2 또는 OpenVPN 프로토콜을 지원하지 않습니다. 기본 SKU를 사용하고 있는 경우, 프로덕션 SKU Virtual Network Gateway를 삭제하고 다시 만들어야 합니다.
 >
 
 ## <a name="migrating-from-sstp-to-ikev2-or-openvpn"></a>SSTP에서 IKEv2 또는 OpenVPN으로 마이그레이션
 
-VPN gateway에 대해 128 개가 넘는 동시 P2S 연결을 지원 하지만 SSTP를 사용 하 고 있는 경우가 있을 수 있습니다. 이 경우 IKEv2 또는 OpenVPN 프로토콜로 이동 해야 합니다.
+VPN 게이트웨이에 대해 128개가 넘는 동시 P2S 연결을 지원 하고 싶지만, SSTP를 사용하고 있는 경우가 있을 수 있습니다. 이 경우 IKEv2 또는 OpenVPN 프로토콜로 이동해야 합니다.
 
-### <a name="option-1---add-ikev2-in-addition-to-sstp-on-the-gateway"></a>옵션 1-게이트웨이에서 SSTP 외에 IKEv2 추가
+### <a name="option-1---add-ikev2-in-addition-to-sstp-on-the-gateway"></a>옵션 1 - Gateway에서 SSTP 외에 IKEv2 추가
 
-가장 간단한 옵션입니다. SSTP 및 IKEv2는 동일한 게이트웨이에 공존할 수 있으며 더 많은 동시 연결을 제공 합니다. 단순히 기존 게이트웨이에서 IKEv2를 사용 하도록 설정 하 고 클라이언트를 redownload 수 있습니다.
+이것이 가장 간단한 옵션입니다. SSTP 및 IKEv2는 동일한 게이트웨이에 공존할 수 있으며, 더 많은 동시 연결을 제공할 수 있습니다. 단순히 기존 게이트웨이에서 IKEv2를 사용하도록 설정하고 클라이언트를 다시 다운로드할수 있습니다.
 
-기존 SSTP VPN 게이트웨이에 IKEv2를 추가 해도 기존 클라이언트에는 영향을 주지 않으며, 작은 일괄 처리에서 IKEv2를 사용 하도록 구성 하거나, 새 클라이언트가 IKEv2를 사용 하도록 구성할 수 있습니다. Windows 클라이언트에서 SSTP 및 IKEv2를 모두 구성 하는 경우 먼저 IKEV2를 사용 하 여 연결을 시도 하 고 실패 하면 SSTP로 대체 합니다.
+기존 SSTP VPN 게이트웨이에 IKEv2를 추가 해도 기존 클라이언트에는 영향을 주지 않으며, 작은 배치(Batch)에서 IKEv2를 사용하도록 구성하거나, 새 클라이언트가 IKEv2를 사용하도록 구성할 수 있습니다. Windows 클라이언트에서 SSTP 및 IKEv2를 모두 구성하는 경우, 먼저 IKEV2를 사용하여 연결을 시도하고, 실패하면 SSTP로 대체합니다.
 
-**IKEv2는 비표준 UDP 포트를 사용 하므로 이러한 포트가 사용자의 방화벽에서 차단 되지 않도록 해야 합니다. 사용 중인 포트는 UDP 500 및 4500입니다.**
+**IKEv2는 비표준 UDP 포트를 사용하므로, 이러한 포트가 사용자의 방화벽에서 차단되지 않도록해야 합니다. 사용 중인 포트는 UDP 500 및 4500입니다.**
 
-기존 게이트웨이에 IKEv2를 추가 하려면 포털에서 Virtual Network 게이트웨이의 "지점 및 사이트 간 구성" 탭으로 이동 하 고 드롭다운 상자에서 **ikev2 및 SSTP (SSL)** 를 선택 하면 됩니다.
+기존 게이트웨이에 IKEv2를 추가하려면, 포털에서 Virtual Network Gateway 아래의 "지점 및 사이트 간 구성" 탭으로 이동하고, 드롭다운 상자에서 **IKEv2 및 SSTP (SSL)** 를 선택하면 됩니다.
 
-!["터널 유형" 드롭다운이 열려 있는 "지점 및 사이트 간 구성" 페이지와 "IKEv2 및 SSTP (SSL)"가 선택 되어 표시 되는 스크린샷](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+!["터널 유형" 드롭다운이 열려 있는 "지점 및 사이트 간 구성" 페이지와 "IKEv2 및 SSTP (SSL)"가 선택되어 있음을 보여 주는 스크린샷](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
-### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>옵션 2-SSTP 제거 및 게이트웨이에서 OpenVPN 사용
+### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>옵션 2 - 게이트웨이에서 SSTP 제거 및 OpenVPN 사용
 
-SSTP 및 OpenVPN은 모두 TLS 기반 프로토콜 이므로 동일한 게이트웨이에 공존할 수 없습니다. SSTP에서 OpenVPN으로 이동 하기로 결정 한 경우 SSTP를 사용 하지 않도록 설정 하 고 게이트웨이에서 OpenVPN을 사용 하도록 설정 해야 합니다. 이 작업을 수행 하면 클라이언트에서 새 프로필이 구성 될 때까지 기존 클라이언트에서 VPN gateway에 대 한 연결이 끊어집니다.
+SSTP 및 OpenVPN은 모두 TLS 기반 프로토콜이므로, 동일한 게이트웨이에 공존할 수 없습니다. SSTP에서 OpenVPN에서 이동하기로 결정한 경우, SSTP를 사용하지 않도록 설정하고, 게이트웨이에서 OpenVPN을 사용하도록 설정해야 합니다. 이 작업을 수행하면 클라이언트에서 새 프로필이 구성될 때까지 기존 클라이언트의 VPN Gateway에 대한 연결이 끊어집니다.
 
-원하는 경우 IKEv2와 함께 OpenVPN을 사용 하도록 설정할 수 있습니다. OpenVPN은 TLS 기반 이며 표준 TCP 443 포트를 사용 합니다. OpenVPN으로 전환 하려면 포털에서 Virtual Network 게이트웨이의 "지점 및 사이트 간 구성" 탭으로 이동 하 고 드롭다운 상자에서 **Openvpn (ssl)** 또는 **IKEv2 및 OPENVPN (ssl)** 을 선택 합니다.
+원하는 경우 IKEv2와 함께 OpenVPN을 사용하도록 설정할 수 있습니다. OpenVPN은 TLS 기반이며, 표준 TCP 443 포트를 사용합니다. OpenVPN으로 전환하려면, 포털에서 Virtual Network Gateway 아래의 "지점 및 사이트 간 구성" 탭으로 이동하고, 드롭다운 상자에서 **OpenVPN (SSL)** 또는 **IKEv2 및 OPENVPN (SSL)** 을 선택합니다.
 
 ![지점 및 사이트 간](./media/ikev2-openvpn-from-sstp/sstptoopenvpn.png "OpenVPN")
 
-게이트웨이가 구성 된 후에는 [OpenVPN 클라이언트를 배포 하 고 구성할](./vpn-gateway-howto-openvpn-clients.md)때까지 기존 클라이언트를 연결할 수 없습니다.
+게이트웨이가 구성된 후에는 [OpenVPN 클라이언트를 배포하고 구성할](./vpn-gateway-howto-openvpn-clients.md) 때까지 기존 클라이언트를 연결할 수 없습니다.
 
-Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client) 를 사용할 수도 있습니다.
+Windows 10을 사용하는 경우, [Wndows 용 Azure VPN Client](./openvpn-azure-ad-client.md#to-download-the-azure-vpn-client)를 사용할 수도 있습니다.
 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
@@ -81,7 +81,7 @@ Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](./ope
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>어떤 게이트웨이 Sku에서 P2S VPN을 지원 하나요?
+### <a name="which-gateway-skus-support-p2s-vpn"></a><a name="gwsku"></a>어떤 게이트웨이 SKU에서 P2S VPN을 지원하나요?
 
 [!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -91,12 +91,12 @@ Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](./ope
 >기본 SKU는 IKEv2 또는 RADIUS 인증을 지원하지 않습니다.
 >
 
-### <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>P2S에 대 한 VPN 게이트웨이에서 구성 된 IKE/IPsec 정책은 무엇 인가요?
+### <a name="what-ikeipsec-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="IKE/IPsec policies"></a>P2S용 VPN 게이트웨이에 구성된 IKE/IPsec 정책은 무엇인가요?
 
 
 **IKEv2**
 
-| **암호** | **무결성** | **PRF** | **DH 그룹** |
+| **암호화** | **무결성** | **PRF** | **DH 그룹** |
 |--|--|--|--|
 | GCM_AES256 | GCM_AES256 | SHA384 | GROUP_24 |
 | GCM_AES256 | GCM_AES256 | SHA384 | GROUP_14 |
@@ -118,7 +118,7 @@ Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](./ope
 
 **IPsec**
 
-| **암호** | **무결성** | **PFS 그룹** |
+| **암호화** | **무결성** | **PFS 그룹** |
 |--|--|--|
 | GCM_AES256 | GCM_AES256 | GROUP_NONE |
 | GCM_AES256 | GCM_AES256 | GROUP_24 |
@@ -132,7 +132,7 @@ Windows 10을 사용 하는 경우 [windows 용 AZURE VPN 클라이언트](./ope
 | AES256 | SHA256 | GROUP_ECP256 |
 | AES256 | SHA1 | GROUP_NONE |
 
-### <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>P2S에 대 한 VPN 게이트웨이에서 구성 된 TLS 정책은 무엇 인가요?
+### <a name="what-tls-policies-are-configured-on-vpn-gateways-for-p2s"></a><a name="TLS policies"></a>P2S용 VPN 게이트웨이에 구성된 TLS 정책은 무엇인가요?
 **TLS**
 
 |**정책** |
@@ -166,4 +166,4 @@ P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서�
 
 * [P2S 연결 구성 - Azure 네이티브 인증서 인증](vpn-gateway-howto-point-to-site-rm-ps.md)
 
-**"OpenVPN"은 OpenVPN i n c .의 상표입니다.**
+**"OpenVPN"은 OpenVPN Inc.의 상표입니다.**
