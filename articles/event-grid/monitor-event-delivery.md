@@ -44,7 +44,7 @@ ms.locfileid: "104598561"
 1. 이전 섹션의 단계를 따라 **Event Grid 토픽** 페이지로 이동합니다. 
 2. 아래 예제와 같이 아래쪽 창에서 구독을 선택합니다. 
 
-    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text="":::    
+    :::image type="content" source="./media/monitor-event-delivery/select-event-subscription.png" alt-text=" ":::    
 
     Azure Portal의 검색 표시줄에서 **Event Grid 구독** 을 검색하고 **토픽 유형**, **구독**, **위치** 를 선택하여 이벤트 구독을 확인할 수도 있습니다. 
 
