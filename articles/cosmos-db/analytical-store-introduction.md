@@ -4,15 +4,15 @@ description: Microsoft Azure Cosmos DB 트랜잭션(행 기반) 및 분석(열 �
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: 450514541a90a01ea6b70f77491f116adb404887
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: eaabc663ba243423bddf7ef6abfe41182e06b4f9
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046215"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107364611"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>Azure Cosmos DB 분석 저장소란?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -134,6 +134,7 @@ Microsoft Azure Cosmos DB 트랜잭션 저장소는 스키마에 구애받지 �
 잘 정의된 스키마 표시는 트랜잭션 저장소에서 스키마와 관계없는 데이터의 간단한 테이블 형식 표시를 만듭니다. 잘 정의된 스키마 표시의 고려 사항은 다음과 같습니다.
 
 * 속성이 여러 항목에서 항상 동일한 형식입니다.
+* Null에서 다른 데이터 형식으로의 형식 변경 1개만 허용합니다. Null이 아닌 첫 번째 발생이 열 데이터 형식을 정의합니다.
 
   * 예를 들어, `"a"`는 문자열인 경우도 있고 숫자인 경우도 있기 때문에 `{"a":123} {"a": "str"}`에는 잘 정의된 스키마가 없습니다. 이 경우 분석 저장소는 컨테이너 수명 동안 첫 번째로 발생하는 항목에 `"a"`의 데이터 형식을 `“a”`의 데이터 형식으로 등록합니다. 문서는 분석 저장소에 계속 포함되지만 `"a"`의 데이터 형식이 다른 항목은 포함되지 않습니다.
   

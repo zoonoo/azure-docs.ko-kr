@@ -1,14 +1,14 @@
 ---
 title: ISO 27001 ASE/SQL 워크로드 청사진 샘플 컨트롤
 description: Azure Policy 및 Azure RBAC에 대한 ISO 27001 App Service Environment/SQL Database 워크로드 청사진 샘플의 컨트롤 매핑입니다.
-ms.date: 02/05/2021
+ms.date: 04/30/2021
 ms.topic: sample
-ms.openlocfilehash: f4bd340e67547ee22a558a63b56619171a1749c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ad15e7ebc980a72b079ff965e3f94a46c470af7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821254"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108753014"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 워크로드 청사진 샘플에 대한 컨트롤 매핑
 
@@ -179,7 +179,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A.13.2.1 정보 전송 정책 및 절차
 
-이 청사진은 스토리지 계정 및 Redis Cache에 대한 보안되지 않은 연결을 감사하는 [Azure Policy](../../../policy/overview.md) 정의 2개를 할당하여 Azure 서비스를 사용한 정보 전송이 안전하게 이루어지도록 하는 데 도움이 됩니다.
+이 청사진은 스토리지 계정 및 Azure Cache for Redis에 대한 안전되지 않은 연결을 감사하는 두 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 Azure 서비스를 사용한 정보 전송이 안전하게 이루어지도록 하는 데 도움이 됩니다.
 
 - Azure Cache for Redis에 보안 연결만 사용하도록 설정해야 함
 - Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.

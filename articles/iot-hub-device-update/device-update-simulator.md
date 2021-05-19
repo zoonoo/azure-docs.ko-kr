@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 77bfab51cf7ccc9ec6ffe3b0018c0a488b601a0a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7381d7f233bc813118f310b08352d1642904a907
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070212"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753798"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-1804-x64-simulator-reference-agent"></a>Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트를 사용하는 Azure IoT Hub용 디바이스 업데이트 자습서
 
@@ -75,9 +75,9 @@ PS> wsl --list
 
 ## <a name="download-device-update-ubuntu-1804-x64-simulator-reference-agent"></a>디바이스 업데이트 Ubuntu(18.04 x64) 시뮬레이터 참조 에이전트 다운로드
 
-Ubuntu 업데이트 이미지는 [여기](https://github.com/Azure/iot-hub-device-update/releases)에 있는 릴리스 정보의 자산 섹션에서 다운로드할 수 있습니다.
+Ubuntu 참조 에이전트는업데이트는 [여기](https://github.com/Azure/iot-hub-device-update/releases)에 있는 릴리스 정보의 *자산* 섹션에서 다운로드할 수 있습니다.
 
-에이전트에는 두 가지 버전이 있습니다. 이미지 기반 시나리오를 연습하는 경우 AducIotAgentSim-microsoft-swupdate를 사용하고 패키지 기반 시나리오를 연습하는 경우 AducIotAgentSim-microsoft-apt를 사용합니다.
+에이전트에는 두 가지 버전이 있습니다. 이 자습서에서는 이미지 기반 시나리오를 연습하고 있으므로 AducIotAgentSim-microsoft-swupdate를 사용합니다. 패키지 기반 시나리오를 대신 연습하려는 경우에는 AducIotAgentSim-microsoft-apt를 사용합니다.
 
 ## <a name="install-device-update-agent-simulator"></a>디바이스 업데이트 에이전트 시뮬레이터 설치
 
@@ -161,14 +161,14 @@ Agent running. [main]
 
 ## <a name="import-update"></a>업데이트 가져오기
 
-1. 이러한 [지침](import-update.md)에 따라 가져오기 매니페스트를 만듭니다.
-2. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
+1. [샘플 가져오기 매니페스트](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) 및 [샘플 이미지 업데이트](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu)를 다운로드합니다.
+2. [Azure Portal](https://portal.azure.com/)에 로그인하고 디바이스 업데이트를 사용하여 IoT Hub로 이동합니다. 그런 다음, 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
 
 3. 업데이트 탭을 선택합니다.
 
 4. "+ 새 업데이트 가져오기"를 선택합니다.
 
-5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위에서 만든 가져오기 매니페스트를 선택합니다.  다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 이전에 다운로드한 Ubuntu 업데이트 이미지를 선택합니다. 
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위의 1단계에서 다운로드한 _샘플 가져오기 매니페스트_ 를 선택합니다.  다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위의 1단계에서 다운로드한 _샘플 이미지 업데이트_ 를 선택합니다. 
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="파일 선택을 보여 주는 스크린샷" lightbox="media/import-update/select-update-files.png":::
 

@@ -9,12 +9,12 @@ ms.date: 03/29/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 868b0bc3e09768a26b895e35306de574e4bfc444
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 9f07a4f9c42923ac42735155fb0da21dee3a2353
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287593"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632370"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 기업계약 구독 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "108287593"
 
 * 등록의 엔터프라이즈 관리자는 귀하를 [계정 소유자로 만들 수](https://ea.azure.com/helpdocs/addNewAccount) 있고(로그인 필요) 그러면 귀하가 등록 계정의 소유자가 됩니다.
 * 등록 계정의 기존 소유자가 [액세스 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)해야 합니다.  
-    SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다.
+    SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다. EA 역할 할당 API 요청에 대한 자세한 내용은 [Azure 기업계약 서비스 주체 이름에 역할 할당](assign-roles-azure-service-principals.md)을 참조하세요. 이 페이지에는 SPN에 할당할 수 있는 역할(및 역할 정의 ID) 목록이 포함되어 있습니다.
   > [!NOTE]
   > 올바른 API 버전을 사용하여 등록 계정 소유자 권한을 부여했는지 확인합니다. 이 문서 및 여기에서 설명하는 API에는 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API를 사용합니다. 최신 API를 사용하도록 마이그레이션하는 경우 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)를 사용하여 소유자 권한을 다시 부여해야 합니다. [2015-07-01 버전](grant-access-to-create-subscription.md)으로 만든 이전 구성은 최신 API에서 사용하도록 자동으로 변환되지 않습니다.
 

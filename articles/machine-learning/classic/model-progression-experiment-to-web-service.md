@@ -1,5 +1,5 @@
 ---
-title: 'ML Studio (클래식): 모델이 웹 서비스가 되는 방법-Azure'
+title: 'ML Studio(클래식): 모델이 웹 서비스가 되는 방법 - Azure'
 description: Azure Machine Learning Studio(클래식) 모델이 개발 실험에서 웹 서비스로 진행되는 방식에 대한 메커니즘을 간략히 살펴봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
 ms.openlocfilehash: 4e0f5786047977a319825aae9f3c7b89c0aa118b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100518626"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Machine Learning Studio(클래식) 모델이 실험에서 웹 서비스로 진행되는 방법
@@ -29,7 +29,7 @@ Azure Machine Learning Studio(클래식)는 예측 분석 모델을 대신하는
 * 결과 평가
 * 최종 값 출력
 
-실험에 만족 하는 경우 사용자가 새 데이터를 보내고 결과를 받을 수 있도록 ***클래식 Azure Machine Learning 웹 서비스** _ 또는 _ *_새로운 Azure Machine Learning 웹 서비스_**로 배포할 수 있습니다.
+실험에 만족했으면 사용자가 새 데이터를 전송하고 그 결과를 다시 받을 수 있도록 해당 실험을 **클래식 Azure Machine Learning 웹 서비스** 또는 **_새 Azure Machine Learning 웹 서비스_** 로 배포할 수 있습니다.
 
 이 문서에서는 Machine Learning 모델을 통해 개발 실험에서 조작 가능한 웹 서비스까지 진행하는 메커니즘을 간략히 살펴봅니다.
 
@@ -51,7 +51,7 @@ Azure Machine Learning Studio(클래식)는 *예측 분석 모델* 을 개발 �
 ***학습 실험*** 은 Machine Learning Studio(클래식)에서 웹 서비스를 개발하기 위한 초기 단계입니다. 학습 실험의 목적은 기계 학습 모델을 개발, 테스트, 반복하고 최종적으로 학습할 장소를 제공하는 것입니다. 최적의 솔루션을 찾으면서 여러 모델을 동시에 학습할 수도 있으나 실험을 완료한 후에는 하나의 학습 모델을 선택하고 나머지 모델은 실험에서 제거합니다. 예측 분석 실험 개발의 예제는 [Azure Machine Learning Studio(클래식)의 신용 위험 평가에 대한 예측 분석 솔루션 개발](tutorial-part1-credit-risk.md)을 참조하세요.
 
 ### <a name="the-predictive-experiment"></a>예측 실험
-학습 실험에서 학습 된 모델을 만들었으면 **웹 서비스 설정** 을 클릭 하 고 Machine Learning Studio (클래식)에서 **예측 웹 서비스** 를 선택 하 여 학습 실험을 **_예측 실험_** 으로 변환 하는 프로세스를 시작 합니다. 예측 실험의 목적은 학습된 모델을 사용하여 새 데이터에 점수를 매기며, 최종적으로는 조작 가능한 Azure 웹 서비스가 되도록 하는 것입니다.
+학습 실험에서 모델을 학습한 후에 Machine Learning Studio(클래식)에서 **웹 서비스 설정** 을 클릭하여 **예측 웹 서비스** 를 선택하면 학습 실험을 **_예측 실험_** 으로 변환하는 프로세스를 시작합니다. 예측 실험의 목적은 학습된 모델을 사용하여 새 데이터에 점수를 매기며, 최종적으로는 조작 가능한 Azure 웹 서비스가 되도록 하는 것입니다.
 
 이 변환은 다음 단계를 통해 수행됩니다.
 
@@ -97,7 +97,7 @@ Azure Machine Learning Studio(클래식)는 *예측 분석 모델* 을 개발 �
 
 기계 학습 모델을 유지하려고 하지만 새 데이터로 재학습하려는 경우 두 옵션이 있습니다.
 
-1. **웹 서비스가 실행 되는 동안 모델 다시 학습** -예측 웹 서비스가 실행 되는 동안 모델을 다시 학습 하려면 학습 실험을 몇 번 수정 하 여 재 학습 실험으로 만들어이 작업을 수행할 수 있습니다. ***그러면 _* 재 학습 _웹_ 서비스로 배포할 수** 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](./retrain-machine-learning-model.md)을 참조하세요.
+1. **웹 서비스 실행 중 모델 재학습** - 예측 웹 서비스를 실행하면서 모델을 재학습하려는 경우 학습 실험을 두 번 수정하여 **_재학습 실험_ **으로 만든 후 ** _재학습 웹 서비스_** 로 배포하면 됩니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 Machine Learning 모델 다시 학습](./retrain-machine-learning-model.md)을 참조하세요.
 2. **원래 학습 실험으로 돌아가 다른 학습 데이터를 사용하여 모델 개발** - 예측 실험이 웹 서비스에 연결되지만 학습 실험은 이런 방식으로 직접 연결되지 않습니다. 원래 학습 실험을 수정하고 **웹 서비스 설정** 을 클릭하면 *새* 예측 실험을 만들고, 이 실험이 배포될 때 *새* 웹 서비스를 만듭니다. 원래 웹 서비스는 업데이트되지 않습니다.
 
    학습 실험을 수정해야 하는 경우 해당 실험을 열고 **다른 이름으로 저장** 을 클릭하여 복사본을 만듭니다. 이렇게 하면 원래 학습 실험, 예측 실험 및 웹 서비스가 그대로 유지됩니다. 이제 변경 내용을 포함한 새 웹 서비스를 만들 수 있습니다. 새 웹 서비스를 배포했으면 이전 웹 서비스를 중지할지 또는 새 웹 서비스와 함께 실행하도록 유지할지 여부를 결정할 수 있습니다.

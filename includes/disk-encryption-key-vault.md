@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 98922829e83f84078c3d8cadae15844dba194c93
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a8df14dc5fbd3f69f9c4e1b29ddb04c1a04073d9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107799977"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108793189"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *이미 키 자격 증명 모음이 있는 경우 [키 자격 증명 모음 고급 액세스 정책 설정](#set-key-vault-advanced-access-policies)으로 건너뛸 수 있습니다.*
 
-[az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure Powershell 명령, [Azure Portal](https://portal.azure.com) 또는 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만듭니다.
+[az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell 명령, [Azure Portal](https://portal.azure.com) 또는 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만듭니다.
 
 >[!WARNING]
 > 키 자격 증명 모음과 VM이 동일한 구독에 있어야 합니다. 또한 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 Key Vault와 VM을 동일한 지역에 공동 배치해야 합니다. 암호화할 VM과 동일한 구독 및 지역에 있는 Key Vault를 만들고 사용합니다. 
@@ -126,6 +126,9 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 
 
 ## <a name="set-up-a-key-encryption-key-kek"></a>KEK(키 암호화 키) 설정
+
+> [!IMPORTANT]
+> 키 자격 증명 모음을 통해 디스크 암호화를 사용하도록 설정하기 위해 실행 중인 계정에는 "리더" 권한이 있어야 합니다.
 
 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용하려면 키 자격 증명 모음에 KEK를 추가합니다. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다.
 

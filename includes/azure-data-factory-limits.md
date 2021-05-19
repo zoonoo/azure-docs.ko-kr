@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 96c67327a8272a02e677cc40b46c3177e470b684
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: 5efc74ec150dcd18181404d93dc2142552a2c792
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106125873"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108807481"
 ---
 Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보호되도록 하기 위해 다음과 같은 기본 제한이 적용되는 다중 테넌트 서비스입니다. 구독에 대한 최대 제한 값을 높이려면 고객 지원에 문의하세요.
 
@@ -21,7 +21,7 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 
 | 리소스 | 기본 제한 | 최대 제한 |
 | -------- | ------------- | ------------- |
-| Azure 구독의 데이터 팩터리 | 800 | 800 |
+| 리소스 그룹당 데이터 팩터리 | 800 | 800 |
 | 데이터 팩터리 내 총 엔터티(예: 파이프라인, 데이터 세트, 트리거, 연결된 서비스, 프라이빗 엔드포인트 및 통합 런타임) 수 | 5,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 한 구독의 Azure-SSIS Integration Runtime에 대한 총 CPU 코어 수 | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 팩터리의 모든 파이프라인에서 공유되는 데이터 팩터리당 동시 파이프라인 실행 수 | 10000  | 10000 |

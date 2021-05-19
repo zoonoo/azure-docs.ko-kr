@@ -4,12 +4,12 @@ description: 이 자습서에서는 Azure에 호스팅된 Service Fabric 클러�
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 083c6047a8b5279b9f03db5ba5196c9a109f2d25
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: c6187d2bd5b8f2101c21b3eb35362e443854e8a4
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075954"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734766"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>자습서: Azure에서 실행되는 Service Fabric 클러스터를 제거
 
@@ -37,7 +37,7 @@ ms.locfileid: "108075954"
 이 자습서를 시작하기 전에:
 
 * Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* [Azure Powershell](/powershell/azure//install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
+* [Azure PowerShell](/powershell/azure//install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli)를 설치합니다.
 * Azure에서 보안 [Windows 클러스터](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 만들기
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>또한 Service Fabric 클러스터를 포함하는 리소스 그룹 삭제
@@ -108,5 +108,5 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 
 이제 이 자습서를 완료했으니 다음을 시도하세요.
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 Service Fabric 클러스터를 검사 및 관리하는 방법을 알아봅니다.
-* 클러스터 노드의 [Windows 운영 체제를 패치](service-fabric-patch-orchestration-application.md)하는 방법을 알아보세요.
+* [Windows에서 실행되는 클러스터 노드를 패치](how-to-patch-cluster-nodes-windows.md)하는 방법을 알아봅니다.
 * [Windows 클러스터](service-fabric-diagnostics-event-aggregation-wad.md)에 대한 이벤트를 집계하거나 수집하고, [Log Analytics를 설정](service-fabric-diagnostics-oms-setup.md)하여 클러스터 이벤트를 모니터링하는 방법을 알아보세요.

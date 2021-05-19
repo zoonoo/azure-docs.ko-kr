@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 내에서 모델을 만들고, 편집하고, 삭제하는 방법을 참조하세요.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953700"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303783"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
-[**DigitalTwinModels API**](/rest/api/digital-twins/dataplane/models), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client)또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용하여 Azure Digital Twins 인스턴스에서 알고 있는 [모델](concepts-models.md)을 관리할 수 있습니다. 
+[**DigitalTwinModels API**](/rest/api/digital-twins/dataplane/models), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용하여 Azure Digital Twins 인스턴스의 [모델](concepts-models.md)을 관리할 수 있습니다. 
 
 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함됩니다. 
 

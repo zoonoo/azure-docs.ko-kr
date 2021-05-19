@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 223d119786d99eac611ece597fc0e8de4fcaf6bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c7901dd4a238b27a31f95f1e22ddf9dc1ae5327a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98762401"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813069"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -78,11 +79,14 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 5. **Azure 서비스 관리** 를 선택합니다.
 6. **선택** 을 누릅니다.
 
-    ![권한 추가](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/add-app-permission.png" alt-text="앱 사용 권한을 추가하는 방법을 보여주는 스크린샷."::: 
 
 7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한** 을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
+
+    :::image type="content" source="./media/api-management-howto-disaster-recovery-backup-restore/delegated-app-permission.png" alt-text="위임된 앱 사용 권한을 추가하는 것을 보여주는 스크린샷.":::
+
 8. **선택** 을 누릅니다.
-9. **권한 부여** 를 클릭합니다.
+9. **권한 추가** 를 클릭합니다.
 
 ### <a name="configuring-your-app"></a>앱 구성
 
@@ -227,7 +231,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   [관리 ID](api-management-howto-use-managed-service-identity.md) 구성.
 -   [Azure Monitor 진단](api-management-howto-use-azure-monitor.md) 구성.
 -   [프로토콜 및 암호](api-management-howto-manage-protocols-ciphers.md) 설정.
--   [개발자 포털](api-management-howto-developer-portal.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) 콘텐츠.
+-   [개발자 포털](developer-portal-faq.md#is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management) 콘텐츠.
 
 서비스 백업을 수행하는 빈도는 복구 지점 목표에 영향을 줍니다. 영향을 최소화하려면 정기 백업을 구현함과 동시에 API Management 서비스에 대한 변경을 수행한 후 요청 시 백업도 수행하는 것이 좋습니다.
 

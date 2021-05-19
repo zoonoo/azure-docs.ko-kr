@@ -1,7 +1,7 @@
 ---
 title: Azure 서비스에 대한 가상 네트워크
 titlesuffix: Azure Virtual Network
-description: 가상 네트워크에 전용 Azure 서비스를 배포 하는 방법을 알아보고 해당 배포에서 제공 하는 기능에 대해 알아보세요.
+description: 전용 Azure 서비스를 가상 네트워크에 배포하는 방법과 해당 배포에서 제공하는 기능을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: mohnader
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/06/2020
 ms.author: kumud
-ms.openlocfilehash: 79b6fa1043b1bb8add6b6beb5fd38312ee12ea75
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 43a40ff9991a5893fe6eec710194a7f8bbcf9179
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102210277"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142751"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>가상 네트워크에 전용 Azure 서비스 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "102210277"
 | 컨테이너 | [AKS(Azure Kubernetes Service)](../aks/concepts-network.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[ACI(Azure Container Instance)](https://www.aka.ms/acivnet)<br/>Azure Virtual Network CNI [플러그 인](https://github.com/Azure/acs-engine/tree/master/examples/vnet)을 사용하는 [Azure Container Service 엔진](https://github.com/Azure/acs-engine)<br/>[Azure Functions](../azure-functions/functions-networking-options.md#virtual-network-integration) |아니요<sup>2</sup><br/> 예 <br/> 아니요 <br/> 예
 | 웹 | [API Management](../api-management/api-management-using-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Web Apps](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[App Service Environment](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|예 <br/> 예 <br/> 예 <br/> 예
 | 호스트형 | [Azure 전용 HSM](../dedicated-hsm/index.yml?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>[Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br/>|예 <br/> 예 <br/>
-| Azure Spring Cloud | [Azure virtual network (VNet 주입)에서 배포](../spring-cloud/spring-cloud-tutorial-deploy-in-azure-virtual-network.md)<br/>| 예 <br/>
+| Azure Spring Cloud | [Azure 가상 네트워크에 배포(VNet 삽입)](../spring-cloud/how-to-deploy-in-azure-virtual-network.md)<br/>| 예 <br/>
 | | |
 
 <sup>1</sup> '전용'은 서비스 관련 리소스만 이 서브넷에 배포할 수 있으며 고객 VM/VMSS와 함께 결합할 수 없음을 의미합니다. <br/> 

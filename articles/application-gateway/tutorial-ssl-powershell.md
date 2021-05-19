@@ -1,7 +1,7 @@
 ---
-title: PowerShell을 사용 하 여 TLS 종료
+title: PowerShell을 사용하여 TLS 종료
 titleSuffix: Azure Application Gateway
-description: Azure PowerShell를 사용 하 여 응용 프로그램 게이트웨이를 만들고 TLS 종료를 위한 인증서를 추가 하는 방법을 알아봅니다.
+description: Azure PowerShell을 사용하여 애플리케이션 게이트웨이를 만들고 TLS 종료 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 2bd57344f0bd7f3b97c523f9378a5820c1a90a84
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: aefd52ad7b92f6cf7f702d6b8c9496ac535da70c
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93396569"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107866290"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Azure PowerShell을 사용하여 TLS 종료로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell를 사용 하 여 백 엔드 서버에 대 한 [가상 머신 확장 집합](../virtual-machine-scale-sets/overview.md) 을 사용 하는 [TLS/SSL 종료](ssl-overview.md) 용 인증서가 있는 [응용 프로그램 게이트웨이](overview.md) 를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다. 
+Azure PowerShell을 사용하여 백 엔드 서버에 [가상 머신 확장 세트](../virtual-machine-scale-sets/overview.md)를 사용하는 [TLS/SSL 종료](ssl-overview.md) 인증서가 있는 [애플리케이션 게이트웨이](overview.md)를 만들 수 있습니다. 이 예제에서 확장 집합은 애플리케이션 게이트웨이의 기본 백 엔드 풀에 추가되는 두 개의 가상 머신 인스턴스를 포함합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -31,11 +31,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+이 문서에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
-프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 문서에서는 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate)를 사용 하 여 자체 서명 된 인증서를 만듭니다. [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate)을 인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 사용할 수 있습니다.
+프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 문서에서는 [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate)를 사용하여 자체 서명된 인증서를 만듭니다. [Export-PfxCertificate](/powershell/module/pki/export-pfxcertificate)을 인증서에서 pfx 파일을 내보내도록 반환된 지문과 함께 사용할 수 있습니다.
 
 ```powershell
 New-SelfSignedCertificate `
@@ -284,7 +284,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![보안 경고](./media/tutorial-ssl-powershell/application-gateway-secure.png)
 
-자체 서명 된 인증서를 사용 하는 경우 보안 경고를 수락 하려면 **세부 정보** 를 선택한 다음 **웹 페이지로 이동** 합니다. 그러면 보안 IIS 웹 사이트가 다음 예제와 같이 표시됩니다.
+자체 서명된 인증서를 사용하는 경우 보안 경고를 받으려면 **세부 정보**, **웹 페이지로 이동** 을 차례로 선택합니다. 그러면 보안 IIS 웹 사이트가 다음 예제와 같이 표시됩니다.
 
 ![애플리케이션 게이트웨이의 기준 URL 테스트](./media/tutorial-ssl-powershell/application-gateway-iistest.png)
 

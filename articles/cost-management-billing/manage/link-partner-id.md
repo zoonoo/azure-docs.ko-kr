@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: a214e91307308e191ce92b6461c1454d2cc7dd2b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 416bb5f477396a17d1003c537149b4c90378e652
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370481"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784560"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -31,7 +31,7 @@ PAL을 통해 Microsoft는 Azure 고객의 성공을 유도하는 파트너를 �
 
 - **서비스 주체**: 고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 Azure 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID를 서비스 주체라고 합니다.
 
-- **Azure Lighthouse**: 사용자가 테넌트 내에서 작업할 수 있도록 고객이 구독(또는 리소스 그룹)을 위임할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리](../../lighthouse/concepts/azure-delegated-resource-management.md)를 참조하세요.
+- **Azure Lighthouse**: 사용자가 테넌트 내에서 작업할 수 있도록 고객이 구독(또는 리소스 그룹)을 위임할 수 있습니다. 자세한 내용은 [Azure Lighthouse](../../lighthouse/overview.md)를 참조하세요.
 
 ## <a name="link-to-a-partner-id"></a>파트너 ID에 연결
 

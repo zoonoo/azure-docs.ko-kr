@@ -3,12 +3,12 @@ title: Batch에서 컴퓨팅 집약적 Azure VM 사용
 description: Azure Batch 풀에서 HPC 및 GPU 가상 머신 크기를 활용하는 방법입니다. OS 종속성에 대해 알아보고 몇 가지 시나리오 예제를 살펴봅니다.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f3156296e1ae1ec892be86fc41738fcb7f29090
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86147331"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988337"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
@@ -41,7 +41,7 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 <sup>*</sup>RDMA 지원 N 시리즈 크기에는 NVIDIA Tesla GPU도 포함됨
 
-### <a name="windows-pools---virtual-machine-configuration"></a>Windows 풀 - 가상 머신 구성
+### <a name="windows-pools---virtual-machine-configuration"></a>Windows 풀 - Virtual Machine 구성
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------ | -------- | -------- | ----- |
@@ -51,15 +51,17 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 <sup>*</sup>RDMA 지원 N 시리즈 크기에는 NVIDIA Tesla GPU도 포함됨
 
-### <a name="windows-pools---cloud-services-configuration"></a>Windows 풀 - 클라우드 서비스 구성
+### <a name="windows-pools---cloud-services-configuration"></a>Windows 풀 - Cloud Services 구성
 
-> [!NOTE]
-> N 시리즈 크기는 클라우드 서비스 구성을 사용하는 Batch 풀에서 지원되지 않습니다.
->
+> [!WARNING]
+> Cloud Services 구성 풀은 [사용되지 않습니다](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). 대신 Virtual Machine 구성 풀을 사용하세요.
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 또는<br/>2008 R2(게스트 OS 제품군) | Microsoft MPI 2012 R2 이상 또는<br/>Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용<br/> 동시 작업 실행 사용 안 함 |
+
+> [!NOTE]
+> Cloud Services 구성 풀에서는 N 시리즈 크기가 지원되지 않습니다.
 
 ## <a name="pool-configuration-options"></a>풀 구성 옵션
 

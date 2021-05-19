@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/17/2020
 ms.author: msangapu
-ms.openlocfilehash: dad7799cb5a7579b28847e3968b6b38f1f98298a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: e2f75c6305fb3a9879f1e801ad59cd8581dd2fd4
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327279"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109644831"
 ---
 | 리소스 | 무료 | 공유됨 | Basic | Standard | Premium(v1-v3) | 격리 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -29,7 +29,7 @@ ms.locfileid: "107327279"
 | 구독당 App Service 인증서 수<sup>9</sup>| 지원 안 함 | 지원 안 함 |10 |10 |10 |10 |
 | 앱당 사용자 지정 도메인</a> |0(azurewebsites.net 하위 도메인 전용)|500 |500 |500 |500 |500 |
 | 사용자 지정 도메인 [SSL 지원](../articles/app-service/configure-ssl-certificate.md) |지원되지 않음, \*.azurewebsites.net에 대한 와일드카드 인증서는 기본적으로 사용 가능|지원되지 않음, \*.azurewebsites.net에 대한 와일드카드 인증서는 기본적으로 사용 가능|무제한 SNI SSL 연결 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 |무제한 SNI SSL 및 1개의 IP SSL 연결 포함 | 무제한 SNI SSL 및 1개의 IP SSL 연결 포함|
-| 하이브리드 연결 | | | 플랜당 5개 | 플랜당 25개 | 앱당 200개 | 앱당 200개 |
+| [하이브리드 연결](../articles/app-service/app-service-hybrid-connections.md) | | | 플랜당 5개 | 플랜당 25개 | 앱당 220개 | 앱당 220개 |
 | [가상 네트워크 통합](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | [프라이빗 엔드포인트](../articles/app-service/networking/private-endpoint.md) | | |   |   |  앱당 100  |    |
 | 통합 부하 분산 장치 | |X |X |X |X |X<sup>10</sup> |

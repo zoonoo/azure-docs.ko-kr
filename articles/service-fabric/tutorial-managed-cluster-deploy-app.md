@@ -1,16 +1,16 @@
 ---
-title: PowerShell을 통해 Service Fabric 관리형 클러스터에 애플리케이션 배포(미리 보기)
+title: PowerShell을 통해 Service Fabric 관리형 클러스터에 애플리케이션 배포
 description: 이 자습서에서는 Service Fabric 관리형 클러스터에 연결하고 PowerShell을 통해 애플리케이션을 배포합니다.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: 36a91d2852bcda5f958441b48ef4721d6ccc83c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: c51d753f3d0aa5d3c05c66fc45ae653f0bfa8e71
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91410256"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685426"
 ---
-# <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터에 앱 배포(미리 보기)
+# <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터에 앱 배포
 
 이 자습서 시리즈에서는 다음을 설명합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "91410256"
 다음 명령을 사용하여 클러스터 리소스에서 클러스터 인증서 지문을 쿼리할 수 있습니다.
 
 ```powershell
-$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprint
+$serverThumbprint = (Get-AzResource -ResourceId /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ServiceFabric/managedclusters/mysfcluster).Properties.clusterCertificateThumbprints
 ```
 
 클러스터 인증서 지문을 사용하여 클러스터에 연결할 준비가 되었습니다.
@@ -93,7 +93,12 @@ Remove-ServiceFabricApplication fabric:/Voting
 
 ## <a name="next-steps"></a>다음 단계
 
-이 단계에서는 Service Fabric 관리형 클러스터에 앱을 배포했습니다. Service Fabric 관리형 클러스터에 대해 자세히 알아보려면 다음을 참고하세요.
+이 단계에서는 Service Fabric 관리형 클러스터에 애플리케이션을 배포했습니다. 애플리케이션 배포 옵션에 대한 자세한 내용은 다음을 참조하세요.
 
-> [!div class="nextstepaction"]
-> [Service Fabric 관리형 클러스터 질문과 대답](faq-managed-cluster.md)
+* [관리형 클러스터 애플리케이션 비밀 배포](how-to-managed-cluster-application-secrets.md)
+* [ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
+* [관리 ID를 사용하여 관리형 클러스터 애플리케이션 배포](how-to-managed-cluster-application-managed-identity.md)
+
+관리형 클러스터 구성 옵션에 대한 자세한 내용은 다음을 참조하세요.
+
+* [관리 클러스터 구성](how-to-managed-cluster-configuration.md)

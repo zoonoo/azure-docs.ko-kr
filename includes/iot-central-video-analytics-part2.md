@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 472c1770e2793d8da4e8fc76fafbf3b9073b746d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99dcb0d7edaf79356f54c930e24e35153c26c3f
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96763429"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109718808"
 ---
 ## <a name="deploy-and-configure-azure-media-services"></a>Azure Media Services 배포 및 구성
 
@@ -78,7 +78,7 @@ az resource list --resource-group lva-rg --resource-type microsoft.media/mediase
 
 1. Azure 구독이 있는 경우 해당하는 **디렉터리** 및 **Azure 구독** 을 선택하고, **위치** 로 **미국** 을 선택합니다. 구독이 없는 경우 **7일 평가판** 을 사용하도록 설정하고 필요한 연락처 정보를 작성할 수 있습니다. 이 자습서에서는 두 개의 디바이스(카메라 2대, IoT Edge 디바이스 하나)를 사용하므로, 평가판을 사용하지 않으면 사용량에 따라 요금이 청구됩니다.
 
-    디렉터리, 구독 및 위치에 대한 자세한 내용은 [애플리케이션 만들기 빠른 시작](../articles/iot-central/core/quick-deploy-iot-central.md)을 참조하세요.
+    디렉터리, 구독 및 위치에 대한 자세한 내용은 [IoT Central 애플리케이션 만들기](../articles/iot-central/core/howto-create-iot-central-application.md)를 참조하세요.
 
 1. **만들기** 를 선택합니다.
 

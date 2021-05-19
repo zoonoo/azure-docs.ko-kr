@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 02/08/2021
+ms.date: 05/04/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1949fe7e795d7f671462f8c2a78204690dfa0595
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99974641"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108807493"
 ---
 #### <a name="process-automation"></a>프로세스 자동화
 
@@ -49,6 +49,7 @@ ms.locfileid: "99974641"
 | **리소스** | **제한**| **참고** |
 |---|---|---|
 |파일|500||
+|파일 크기|5 MB||
 |레지스트리|250||
 |Windows 소프트웨어|250|소프트웨어 업데이트를 포함하지 않습니다.|
 |Linux 패키지|1,250||
@@ -62,3 +63,4 @@ ms.locfileid: "99974641"
 | **리소스** | **제한**| **참고** |
 |---|---|---|
 |업데이트 배포당 머신 수|1000||
+|업데이트 배포당 동적 그룹 수 |500 ||

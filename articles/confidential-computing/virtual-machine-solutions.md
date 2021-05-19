@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8621dc8cfc10ab44ecb358a40fdae1a1b2081734
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 580c53f311bc8ee70e974df2bc4111e6361d06f6
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102566586"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818965"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Azure 가상 머신의 솔루션
 
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>전용 호스트 요구 사항
-DCSv2-Series VM 제품군에 **Standard_DC8_v2** 가상 컴퓨터 크기를 배포 하는 것은 전체 호스트를 차지 하 고 다른 테 넌 트 또는 구독과 공유 되지 않습니다. 이 VM SKU 제품군은 전용 호스트 서비스를 통해 일반적으로 충족 되는 규정 준수 및 보안 규정 요구 사항을 충족 하기 위해 필요할 수 있는 격리를 제공 합니다. **Standard_DC8_v2** SKU를 선택 하면 실제 호스트 서버는 사용 가능한 모든 하드웨어 리소스 (예를 들어, 가상 컴퓨터에 대 한 EPC 메모리 포함)를 할당 합니다. 이 기능은 인프라 설계에 의해 존재 하며 **Standard_DC8_v2** 의 모든 기능이 지원 될 예정입니다. 이 배포는 다른 Azure VM 제품군에서 제공 하는 [Azure 전용 호스트](../virtual-machines/dedicated-hosts.md) 서비스와 동일 하지 않습니다.
+**Standard_DC8_v2** 가상 머신 크기를 DCsv2 시리즈 VM 제품군에 배포하면 전체 호스트가 사용되고 다른 테넌트나 구독과 공유되지 않습니다. 이 VM SKU 제품군은 일반적으로 전용 호스트 서비스가 있으면 충족되는 규정 준수 및 보안 규정 요구 사항을 충족하려면 필요할 수 있는 격리를 제공합니다. **Standard_DC8_v2** SKU를 선택하면 실제 호스트 서버가 EPC 메모리 등 모든 사용 가능한 하드웨어 리소스를 가상 머신으로만 할당합니다. 인프라를 설계할 때 이 기능을 지정하며 **Standard_DC8_v2** 의 모든 기능이 지원됩니다. 이 배포는 다른 Azure VM 제품군에서 제공하는 [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) 서비스와 다릅니다.
 
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
@@ -66,7 +66,7 @@ DCSv2-Series VM 제품군에 **Standard_DC8_v2** 가상 컴퓨터 크기를 배�
   
 - **크기 조정** - 특수한 하드웨어로 인해 동일한 크기의 제품군 내에서만 기밀 컴퓨팅 인스턴스의 크기를 조정할 수 있습니다. 예를 들어 DCsv2 시리즈 VM 크기는 한 DCsv2 시리즈에서 다른 DCsv2 시리즈로만 조정할 수 있습니다. 기밀이 아닌 컴퓨팅 크기에서 기밀 컴퓨팅 크기로 크기를 조정하는 것은 지원되지 않습니다.  
 
-- **이미지** - 기밀 컴퓨팅 인스턴스에 Intel SGX(Software Guard Extension) 지원을 제공하기 위해 모든 배포를 2세대 이미지에서 실행해야 합니다. Azure 기밀 컴퓨팅은 Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 Gen 2 및 Windows Server 2016 Gen 2에서 실행되는 워크로드를 지원합니다. 지원되거나 지원되지 않는 시나리오에 대한 자세한 내용은 [Azure의 2세대 VM에 대한 지원](../virtual-machines/generation-2.md)을 참조하세요. 
+- **이미지** - 기밀 컴퓨팅 인스턴스에 Intel SGX(Software Guard Extension) 지원을 제공하기 위해 모든 배포를 2세대 이미지에서 실행해야 합니다. Azure 기밀 컴퓨팅은 Ubuntu 18.04 Gen 2, Ubuntu 20.04 Gen 2, Windows Server 2019 Gen 2 및 Windows Server 2016 Gen 2에서 실행되는 워크로드를 지원합니다. 지원되거나 지원되지 않는 시나리오에 대한 자세한 내용은 [Azure의 2세대 VM에 대한 지원](../virtual-machines/generation-2.md)을 참조하세요. 
 
 - **스토리지** - Azure 기밀 컴퓨팅 가상 머신 데이터 디스크 및 사용 후 삭제되는 OS 디스크는 NVMe 디스크에 있습니다. 인스턴스는 프리미엄 SSD 및 표준 SSD 디스크만 지원하고 울트라 SSD 또는 표준 HDD는 지원하지 않습니다. 가상 머신 크기 **DC8_v2** 는 프리미엄 스토리지를 지원하지 않습니다. 
 
@@ -78,17 +78,17 @@ Azure에서 가상 머신을 사용하는 경우 모든 가동 중지 시간을 
 
 Azure 기밀 컴퓨팅은 현재 가용성 영역을 통해 영역 중복성을 지원하지 않습니다. 기밀 컴퓨팅에 대한 최고 가용성 및 중복성을 위해 [가용성 집합](../virtual-machines/availability-set-overview.md)을 사용합니다. 하드웨어 제한으로 인해 기밀 컴퓨팅 인스턴스의 가용성 집합에는 최대 10개의 업데이트 도메인만 사용할 수 있습니다. 
 
-## <a name="deployment-with-azure-resource-manager-arm-template"></a>Azure Resource Manager (ARM) 템플릿을 사용 하 여 배포
+## <a name="deployment-with-azure-resource-manager-arm-template"></a>ARM(Azure Resource Manager) 템플릿을 사용하여 배포
 
 Azure Resource Manager는 Azure용 배포 및 관리 서비스입니다. Azure 구독에서 리소스를 만들고, 업데이트하고, 삭제할 수 있는 관리 계층을 제공합니다. 배포 이후 액세스 제어, 잠금 및 태그와 같은 관리 기능을 사용하여 리소스를 보호하고 구성할 수 있습니다.
 
-ARM 템플릿에 대 한 자세한 내용은 [템플릿 배포 개요](../azure-resource-manager/templates/overview.md)를 참조 하세요.
+ARM 템플릿에 대한 자세한 내용은 [템플릿 배포 개요](../azure-resource-manager/templates/overview.md)를 참조하세요.
 
-ARM 템플릿에서 DCsv2-Series VM을 배포 하려면 [가상 머신 리소스](../virtual-machines/windows/template-description.md)를 활용 합니다. **vmSize** 및 **imageReference** 에 대한 올바른 속성을 지정해야 합니다.
+DCsv2 시리즈 VM을 ARM 템플릿에 배포하려면 [Virtual Machine 리소스](../virtual-machines/windows/template-description.md)를 활용합니다. **vmSize** 및 **imageReference** 에 대한 올바른 속성을 지정해야 합니다.
 
 ### <a name="vm-size"></a>VM 크기
 
-가상 컴퓨터 리소스의 ARM 템플릿에서 다음 크기 중 하나를 지정 합니다. 이 문자열은 **속성** 에서 **vmSize** 로 배치됩니다.
+Virtual Machine 리소스의 ARM 템플릿에서 다음 크기 중 하나를 지정합니다. 이 문자열은 **속성** 에서 **vmSize** 로 배치됩니다.
 
 ```json
   [
@@ -122,10 +122,10 @@ ARM 템플릿에서 DCsv2-Series VM을 배포 하려면 [가상 머신 리소스
         "sku": "18_04-lts-gen2",
         "version": "latest"
       },
-      "16_04-lts-gen2": {
+      "20_04-lts-gen2": {
         "offer": "UbuntuServer",
         "publisher": "Canonical",
-        "sku": "16_04-lts-gen2",
+        "sku": "20_04-lts-gen2",
         "version": "latest"
       }
 ```

@@ -3,12 +3,12 @@ title: FedRAMP High 청사진 샘플 컨트롤
 description: FedRAMP High 청사진 샘플의 컨트롤 매핑 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 88449bfb52dfe2452e1dd6b744f67600242edf79
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3e1cea90e7b1553fb3b8b9e93994208ecfa564da
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386746"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757460"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>FedRAMP High 청사진 샘플의 컨트롤 매핑
 
@@ -117,7 +117,7 @@ Azure Monitor를 통해 수집되는 로그 데이터는 Log Analytics 작업 �
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) 감사 검토, 분석 및 보고 | 통합/검색 및 모니터링 기능
 
-이 청사진은 가상 머신, 가상 머신 확장 집합, SQL Database 서버 및 SQL Managed Instance 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다. 자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 활용하는 것이 좋습니다.
+이 청사진은 가상 머신, 가상 머신 확장 집합, SQL Database 서버 및 SQL Managed Instance 서버에 대한 취약성 평가를 분석하여 레코드를 감사하는 정책 정의를 제공합니다. 또한 이러한 정책은 진단 로그 구성을 감사하여 Azure 리소스 내에서 수행되는 작업에 대한 인사이트를 제공합니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다. 자세한 취약성 검색 및 모니터링을 위해 Azure Sentinel 및 Azure Security Center를 사용하는 것이 좋습니다.
 
 - \[미리 보기\]: Virtual Machines에서 취약성 평가를 사용하도록 설정해야 함
 - \[미리 보기\]: VM용 Azure Monitor 사용
@@ -182,7 +182,7 @@ Azure Site Recovery는 가상 머신에서 실행되는 워크로드를 기본 �
 
 - 재해 복구를 구성하지 않고 가상 머신 감사
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) 정보 시스템 백업 | 대체 스토리지 사이트로 전송
+## <a name="cp-9-05-information-system-backup--transfer-to-alternate-storage-site"></a>CP-9(05) 정보 시스템 백업 | 대체 스토리지 사이트로 전송
 
 이 청사진은 조직의 시스템 백업 정보를 대체 스토리지 사이트로 전자적으로 감사하는 Azure Policy 정의를 할당합니다. 스토리지 메타데이터를 물리적으로 배송하려면 Azure Data Box를 사용하는 것이 좋습니다.
 
@@ -352,7 +352,7 @@ Azure Storage에 사용되는 Advanced Threat Protection은 스토리지 계정�
 - 스토리지 계정에 Advanced Threat Protection 배포
 
 > [!NOTE]
-> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다. 
+> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
