@@ -1,110 +1,109 @@
 ---
 title: Azure Media Player 옵션
-description: Azure Media Player embed 코드는 단순히 HTML5 비디오 태그 이므로 대부분의 옵션에서는 표준 태그 특성을 사용 하 여 옵션을 설정할 수 있습니다.
+description: Azure Media Player embed 태그는 간단한 HTML5 비디오 태그이므로 대부분의 옵션에서는 표준 태그 특성을 사용하여 옵션을 설정할 수 있습니다.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 04/05/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 261d4710e1c88a89c6dcef06dad430cd996b2869
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92366873"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448782"
 ---
 # <a name="options"></a>옵션 #
 
 ## <a name="setting-options"></a>설정 옵션 ##
 
-Azure Media Player embed 코드는 단순히 HTML5 비디오 태그 이므로 대부분의 옵션에서는 표준 태그 특성을 사용 하 여 옵션을 설정할 수 있습니다.
+Azure Media Player embed 태그는 간단한 HTML5 비디오 태그이므로 대부분의 옵션에서는 표준 태그 특성을 사용하여 옵션을 설정할 수 있습니다.
 
 `<video controls autoplay ...>`
 
-또는 데이터 설치 특성을 사용 하 여 [JSON](http://json.org/example.html) 형식으로 옵션을 제공할 수 있습니다. 이는 비디오 태그에 대해 표준이 아닌 옵션을 설정 하는 방법 이기도 합니다.
+또는 data-setup 특성을 사용하여 [JSON](http://json.org/example.html) 형식으로 옵션을 제공할 수 있습니다. 이 방법을 사용하여 비디오 태그에 대해 표준이 아닌 옵션을 설정할 수 있습니다.
 
 `<video data-setup='{ "controls": true, "autoplay": false }'...>`
 
-마지막으로, 데이터 설치 특성을 사용 하 여 플레이어 설정을 트리거하지 않는 경우 플레이어 옵션을 사용 하 여 개체를 JavaScript 설치 함수의 두 번째 인수로 전달할 수 있습니다.
+마지막으로, data-setup 특성을 사용하여 플레이어 설정을 트리거하지 않는 경우 플레이어 옵션이 포함된 개체를 JavaScript 설정 함수의 두 번째 인수로 전달할 수 있습니다.
 
 `amp("vid1", { "controls": true, "autoplay": false });`
 
 > [!NOTE]
-> 생성자의 옵션은 소스가 설정 되기 전에 첫 번째 초기화 에서만 설정 됩니다.  초기화 된 동일한 Azure Media Player 요소에 대 한 옵션을 수정 하려는 경우 소스를 변경 하기 전에 옵션을 업데이트 해야 합니다. 을 사용 하 여 JavaScript의 옵션을 업데이트할 수 있습니다 `myPlayer.options({/*updated options*/});` . 변경 된 옵션만 영향을 받으므로 이전에 설정 된 다른 모든 옵션은 유지 됩니다.
+> 생성자의 옵션은 원본이 설정되기 전에 첫 번째 초기화에서만 설정됩니다.  동일한 초기화된 Azure Media Player 요소에 대한 옵션을 수정하려는 경우 원본을 변경하기 전에 옵션을 업데이트해야 합니다. `myPlayer.options({/*updated options*/});` 사용을 통해 JavaScript에서 옵션을 업데이트할 수 있습니다. 변경된 옵션만 영향을 받으므로 이전에 설정된 다른 모든 옵션은 그대로 유지됩니다.
 
 ## <a name="individual-options"></a>개별 옵션 ##
 
 > [!NOTE]
->비디오 태그 특성은 true 또는 false (부울)만 가능 합니다. 특성을 설정 하거나 해제 하려면 해당 특성 (등호 없음)만 포함 하면 됩니다. 예를 들어 컨트롤을 설정 하려면: 사용자가 실행 하는 `<video controls="true" ...>` `<video controls ...>` 가장 큰 문제는 값 (예: controls = "false")으로 false를 사용 하 여 이러한 값을 false로 설정 하는 것입니다.
+>비디오 태그 특성은 true 또는 false(부울)만 가능합니다. 특성(등호 없음)을 포함하여 이를 설정하거나 제외하여 해제할 수 있습니다. 예를 들어 controls를 설정하는 경우: 올바르지 않음 `<video controls="true" ...>` 올바름 `<video controls ...>` 가장 많이 발생하는 문제는 이러한 값을 false로 설정하려 할 때 false를 값으로 사용하여(예: controls="false") 실제로 반대의 역할을 하여 값을 true로 설정하는 것입니다. 특성이 여전히 포함되어 있기 때문입니다.
 
 ### <a name="controls"></a>controls ###
 
-Controls 옵션은 플레이어에 게 사용자가 조작할 수 있는 컨트롤이 있는지 여부를 설정 합니다. 컨트롤을 사용 하지 않고 비디오 재생을 시작 하는 유일한 방법은 자동 실행 특성을 사용 하거나 API를 사용 하는 것입니다.
+controls 옵션은 플레이어에 사용자가 상호 작용할 수 있는 컨트롤이 있는지 여부를 설정합니다. 컨트롤을 사용하지 않고 비디오 재생을 시작하는 유일한 방법은 autoplay 특성을 사용하거나 API를 사용하는 것입니다.
 
 `<video controls ...>` 또는 `{ "controls": true }`
 
 ### <a name="autoplay"></a>autoplay ###
 
-자동 실행이 true 이면 페이지가 로드 되는 즉시 비디오가 재생 되기 시작 합니다 (사용자의 상호 작용 없음).
+autoplay가 true인 경우 페이지가 로드되는 즉시 비디오가 재생을 시작합니다(사용자의 상호 작용 없음).
 
 > [!NOTE]
-> 이 옵션은 Windows Phone, Apple iOS, Android 등의 모바일 장치에서 지원 되지 않습니다. 모바일 장치는 소비자의 월간 데이터 요금제 사용을 방지 하기 위해 자동 실행 기능을 차단 합니다 (종종 비용이 많이 듭니다.). 이 경우 비디오를 시작 하려면 사용자 터치/클릭이 필요 합니다.
+> 이 옵션은 Windows Phone, Apple iOS, Android 등의 모바일 디바이스에서 지원되지 않습니다. 모바일 디바이스는 소비자의 월간 데이터 요금제(요금이 높은 경우가 많음) 과다 사용을 방지하기 위해 자동 실행 기능을 차단합니다. 이 경우 비디오를 시작하려면 사용자 터치/클릭이 필요합니다.
 
-`<video autoplay ...>`디스크나 `{ "autoplay": true }`
+`<video autoplay ...>` 또는 `{ "autoplay": true }`
 
-### <a name="poster"></a>장 ###
-포스터 특성은 비디오 재생을 시작 하기 전에 표시 되는 이미지를 설정 합니다. 이는 종종 비디오 또는 사용자 지정 제목 화면의 프레임입니다. 사용자가 play를 클릭 하는 즉시 이미지는 사라집니다.
+### <a name="poster"></a>poster ###
+poster 특성은 비디오 재생을 시작하기 전에 표시되는 이미지를 설정합니다. 주로 비디오의 프레임 또는 사용자 지정 제목 화면입니다. 사용자가 재생을 클릭하는 즉시 이 이미지는 사라집니다.
 
 `<video poster="myPoster.jpg" ...>` 또는 `{ "poster": "myPoster.jpg" }`
 
 ### <a name="width"></a>width ###
 
-Width 특성은 비디오의 표시 너비를 설정 합니다.
+width 특성은 비디오의 표시 너비를 설정합니다.
 
 `<video width="640" ...>` 또는 `{ "width": 640 }`
 
 ### <a name="height"></a>키 ###
 
-Height 특성은 비디오의 표시 높이를 설정 합니다.
+height 특성은 비디오의 표시 높이를 설정합니다.
 
 `<video height="480" ...>` 또는 `{ "height": 480 }`
 
 ### <a name="plugins"></a>plugins ###
 
-플러그 인 JSON은 해당 AMP의 인스턴스를 사용 하 여 로드 된 플러그 인을 확인 하 여 플러그 인에 포함 될 수 있는 옵션을 구성할 수 있습니다.
+plugins JSON은 플러그 인에 있을 수 있는 옵션을 구성하도록 하는 AMP의 인스턴스와 로드할 플러그 인을 확인합니다.
 
    `<video... data-setup='{plugins: { "contentTitle": {"name": "Azure Medi Services Overview"}}}'...>`
 
-플러그 인 개발 및 사용에 대 한 자세한 내용은 [플러그 인 작성](azure-media-player-writing-plugins.md) 을 참조 하세요.
+플러그 인 개발 및 사용에 대한 자세한 내용은 [플러그 인 작성](azure-media-player-writing-plugins.md)을 참조하세요.
 
 ### <a name="other-options"></a>기타 옵션 ###
 
-`<video>`JSON을 사용 하는 매개 변수를 사용 하 여 태그에 대해 다른 옵션을 설정할 수 있습니다 `data-setup` .
+JSON을 가져오는 `data-setup` 매개 변수를 사용하여 `<video>` 태그에 기타 옵션을 설정할 수 있습니다.
 `<video ... data-setup='{"nativeControlsForTouch": false}'>`
 
 #### <a name="nativecontrolsfortouch"></a>nativeControlsForTouch ####
 
-이는 명시적으로 false로 설정 됩니다. 을 false로 설정 하면 Azure Media Player 스킨이 여러 플랫폼에서 동일 하 게 렌더링 될 수 있습니다.  또한 이름과 달리 터치는 계속 사용할 수 있습니다.
+명시적으로 false로 설정됩니다. false로 설정하면 Azure Media Player 스킨이 여러 플랫폼에서 동일하게 렌더링됩니다.  또한 이름과 달리 터치는 계속 사용할 수 있습니다.
 
-### <a name="fluid"></a>유체 ###
+### <a name="fluid"></a>fluid ###
 
-이 옵션을 true video 요소로 설정 하면 부모 컨테이너의 전체 너비가 사용 되며 높이가 표준 16:9 가로 세로 비율을 사용 하는 비디오에 맞게 조정 됩니다.
+이 옵션을 true로 설정하면 비디오 요소가 부모 컨테이너의 전체 너비를 사용하고 높이는 표준 16:9 가로 세로 비율에 맞춰 조정됩니다.
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid` 옵션은 명시적 `width` 및 `height` 설정 보다 우선 합니다. 이 옵션은 Azure Media Player 버전 이상 에서만 사용할 수 있습니다 `2.0.0` .
+`fluid` 옵션은 명시적 `width` 및 `height` 설정을 재정의합니다. 이 옵션은 Azure Media Player 버전 `2.0.0` 이상에서만 사용할 수 있습니다.
 
 ### <a name="playbackspeed"></a>playbackSpeed ###
 
-`playbackSpeed` 옵션은 playbackSpeed 컨트롤 및 사용자가 사용할 수 있는 재생 속도 설정 집합을 제어 합니다. `playbackSpeed` 개체를 사용 합니다. 컨트롤 막대에서 재생 속도 제어를 사용 하도록 설정 하려면 `enabled` 개체의 속성을 true로 설정 해야 합니다. 태그에서 재생 속도를 사용 하는 예제:
+`playbackSpeed` 옵션은 playbackSpeed 컨트롤 및 사용자에게 제공되는 재생 속도 설정 집합을 제어합니다. `playbackSpeed`은 개체를 받아들입니다. 컨트롤 막대에서 재생 속도 제어를 사용하려면 개체의 `enabled` 속성을 true로 설정해야 합니다. 태그에서 재생 속도를 사용하는 예시:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
+`playbackSpeed` 설정의 다른 속성은 `PlaybackSpeedOptions` 개체에 의해 지정됩니다.
 
-이 설정의 다른 속성 `playbackSpeed` 은 [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions) 개체에 의해 지정 됩니다.
-
-JavaScript에서 재생 속도 옵션을 설정 하는 예제:
+JavaScript에서 재생 속도 설정 옵션 설정의 예시:
 
 ```javascript
     var myPlayer = amp('vid1', {
@@ -127,15 +126,15 @@ JavaScript에서 재생 속도 옵션을 설정 하는 예제:
     });
 ```
 
-이 옵션은 Azure Media Player 버전 2.0.0 이상 에서만 사용할 수 있습니다.
+이 옵션은 Azure Media Player 버전 2.0.0 이상에서만 사용할 수 있습니다.
 
 ### <a name="staledatatimelimitinsec"></a>staleDataTimeLimitInSec ###
 
-`staleDataTimeLimitInSec`옵션은 mediaSource 버퍼에 유지할 부실 데이터의 최대 시간 (초)을 구성 하는 데 사용할 수 있는 최적화입니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
+`staleDataTimeLimitInSec` 옵션은 mediaSource 버퍼에서 부실 데이터를 유지할 최대 시간(초)을 구성하는 데 사용할 수 있는 최적화입니다. 이 옵션은 기본적으로 사용하지 않도록 설정되어 있습니다.
 
 ### <a name="cea708captionssettings"></a>cea708CaptionsSettings ###
 
-Enabled를 true로 설정 하면 라이브 스트림 및 라이브 보관 파일에 라이브 CEA 캡션을 표시할 수 있습니다. 레이블 특성은 필요 하지 않습니다. 포함 되지 않은 경우 플레이어는 기본 레이블로 대체 됩니다.
+enabled를 true로 설정하면 라이브 스트림 및 라이브 보관에 라이브 CEA 캡션을 표시할 수 있습니다. label 특성이 필요하지 않으며, 포함되지 않은 경우 플레이어에서 기본 레이블로 대체합니다.
 
 ```javascript
      cea708CaptionsSettings: {
@@ -145,7 +144,7 @@ Enabled를 true로 설정 하면 라이브 스트림 및 라이브 보관 파일
             }
 ```
 
-이 옵션은 Azure Media Player 버전 2.1.1 이상 에서만 사용할 수 있습니다.
+이 옵션은 Azure Media Player 버전 2.1.1 이상에서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계 ##
 

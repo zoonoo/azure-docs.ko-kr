@@ -1,7 +1,7 @@
 ---
 title: 인증 토큰 캐시
 titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 인증 토큰을 캐시 하는 방법을 보여 줍니다.
+description: 이 문서에서는 인증 토큰을 캐시하는 방법을 보여줍니다.
 author: metanMSFT
 manager: guillasi
 ms.service: cognitive-services
@@ -11,19 +11,19 @@ ms.date: 01/14/2020
 ms.author: metang
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: e79ae3914e32038e2823fb37e3eee658c95e0003
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102608770"
 ---
-# <a name="how-to-cache-the-authentication-token"></a>인증 토큰을 캐시 하는 방법
+# <a name="how-to-cache-the-authentication-token"></a>인증 토큰을 캐시하는 방법
 
-이 문서에서는 응용 프로그램의 성능을 향상 시키기 위해 인증 토큰을 캐시 하는 방법을 보여 줍니다.
+이 문서에서는 애플리케이션의 성능을 향상시키기 위해 인증 토큰을 캐시하는 방법을 보여줍니다.
 
 ## <a name="using-aspnet"></a>ASP.NET 사용
 
-토큰을 획득 하는 데 사용 되는 **system.identitymodel. ActiveDirectory** NuGet 패키지를 가져옵니다. 다음으로, `AuthenticationResult` [몰입 형 판독기 리소스를 만들](./how-to-create-immersive-reader.md)때 얻은 인증 값을 사용 하 여 다음 코드를 사용 하 여을 가져옵니다.
+토큰을 획득하는 데 사용되는 **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet 패키지를 가져옵니다. 다음으로, [몰입형 리더 리소스를 만들](./how-to-create-immersive-reader.md) 때 가져온 인증 값을 통해 다음 코드를 사용하여 `AuthenticationResult`를 획득합니다.
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()
@@ -35,11 +35,11 @@ private async Task<AuthenticationResult> GetTokenAsync()
 }
 ```
 
-개체에는 `AuthenticationResult` `AccessToken` SDK를 사용 하 여 몰입 형 판독기를 시작할 때 사용 하는 실제 토큰의 속성이 있습니다. 또한 `ExpiresOn` 토큰이 만료 되는 경우를 나타내는 속성도 있습니다. 몰입 형 판독기를 시작 하기 전에 토큰이 만료 되었는지 여부를 확인 하 고 만료 된 경우에만 새 토큰을 획득할 수 있습니다.
+`AuthenticationResult` 개체에는 SDK를 사용하여 몰입형 리더를 시작할 때 사용하는 실제 토큰인 `AccessToken` 속성이 있습니다. 토큰이 만료되는 시기를 나타내는 `ExpiresOn` 속성도 있습니다. 몰입형 리더를 시작하기 전에 토큰이 만료되었는지 여부를 확인하고 만료된 경우에만 새 토큰을 획득할 수 있습니다.
 
 ## <a name="using-nodejs"></a>Node.JS 사용
 
-[**Npm 패키지를 프로젝트**](https://www.npmjs.com/package/request) 에 추가 합니다. [몰입 형 판독기 리소스를 만들](./how-to-create-immersive-reader.md)때 얻은 인증 값을 사용 하 여 토큰을 가져오려면 다음 코드를 사용 합니다.
+프로젝트에 [**요청**](https://www.npmjs.com/package/request) npm 패키지를 추가합니다. 다음 코드를 사용하여 [몰입형 리더 리소스를 만들](./how-to-create-immersive-reader.md) 때 가져온 인증 값을 통해 토큰을 획득합니다.
 
 ```javascript
 router.get('/token', function(req, res) {
@@ -65,7 +65,7 @@ router.get('/token', function(req, res) {
 });
 ```
 
-`expires_on`속성은 토큰이 만료 되는 날짜와 시간으로, 1970 UTC 이후의 초 수로 표시 됩니다. 토큰의 만료 여부를 확인 하려면이 값을 사용 하 여 새 토큰을 획득 하려고 시도 합니다.
+`expires_on` 속성은 토큰이 만료되는 날짜와 시간으로, 1970년 1월 1일 UTC 이후의 시간(초)으로 표시됩니다. 이 값을 사용하여 새 토큰을 얻기 전에 토큰이 만료되었는지 여부를 확인합니다.
 
 ```javascript
 async function getToken() {

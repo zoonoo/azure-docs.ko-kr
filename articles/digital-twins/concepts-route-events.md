@@ -1,116 +1,116 @@
 ---
 title: 이벤트 경로
 titleSuffix: Azure Digital Twins
-description: Azure Digital Twins 내에서 이벤트를 라우팅하는 방법 및 다른 Azure 서비스에 대해 알아봅니다.
+description: Azure Digital Twins 내에서, 다른 Azure 서비스로 이벤트를 라우팅하는 방법에 대해 알아봅니다.
 author: baanders
 ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: ea412b695c12f3ff7fdfa6250e2a474b618b8032
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102430924"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
-Azure Digital 쌍는 **이벤트 경로** 를 사용 하 여 서비스 외부의 소비자에 게 데이터를 보냅니다. 
+Azure Digital Twins에서 **이벤트 경로** 를 사용하여 서비스 외부의 소비자에게 데이터를 전송합니다. 
 
-Azure Digital Twins 데이터를 전송 하는 두 가지 주요 사례는 다음과 같습니다.
-* Azure Digital Twins 그래프의 한 쌍에서 다른 쌍으로 데이터 전송 예를 들어 하나의 디지털 쌍에서 속성이 변경 되 면 다른 디지털 쌍을 적절 하 게 통보 하 고 업데이트할 수 있습니다.
-* 추가 저장 또는 처리를 위해 다운스트림 데이터 서비스로 데이터 전송 ( *데이터 송신* 이 라고도 함) 예를 들어
-  - 병원은 대량 분석을 위해 handwashing 관련 이벤트의 시계열 데이터를 기록 하기 위해 Azure Digital Twins 이벤트 데이터를 [Time Series Insights (TWINS)](../time-series-insights/overview-what-is-tsi.md)로 보낼 수 있습니다.
-  - 이미 [Azure Maps](../azure-maps/about-azure-maps.md) 를 사용 하 고 있는 비즈니스에서는 Azure Digital twins를 사용 하 여 솔루션을 향상 시킬 수 있습니다. Azure digital 쌍를 설정 하 고, [쌍으로 된](concepts-twins-graph.md) azure map 엔터티를 쌍으로 된 azure 디지털 쌍으로 가져오거나, Azure Maps 및 Azure Digital 쌍 데이터를 함께 활용 하는 강력한 쿼리를 실행 한 후 azure map을 신속 하 게 사용 하도록 설정할 수 있습니다.
+Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음과 같습니다.
+* Azure Digital Twins 그래프의 한 트윈에서 다른 트윈으로 데이터 전송 예를 들어 하나의 디지털 트윈에서 속성이 변경되면 다른 디지털 트윈에게 적절하게 알리고 업데이트할 수 있습니다.
+* 추가 스토리지 또는 처리를 위해 다운스트림 데이터 서비스로 데이터 전송(*데이터 송신* 이라고도 함) 예를 들어
+  - 병원은 대량 분석을 위해 손 씻기 관련 이벤트의 시계열 데이터를 기록하기 위해 Azure Digital Twins 이벤트 데이터를 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)로 보낼 수 있습니다.
+  - 이미 [Azure Maps](../azure-maps/about-azure-maps.md)를 사용하고 있는 비즈니스에서는 Azure Digital Twins를 사용하여 솔루션을 향상시킬 수 있습니다. Azure Digital Twins를 설정하고, 트윈 그래프에서 [디지털 트윈](concepts-twins-graph.md)으로 Azure Map 엔터티를 Azure Digital Twins로 가져온 후 Azure Map을 신속하게 사용하도록 설정하거나 Azure Maps 및 Azure Digital Twins 데이터를 함께 활용하는 강력한 쿼리를 실행할 수 있습니다.
 
-이벤트 경로는 이러한 두 시나리오에 모두 사용 됩니다.
+이벤트 경로는 이러한 두 시나리오에 모두 사용됩니다.
 
 ## <a name="about-event-routes"></a>이벤트 경로 정보
 
-이벤트 경로를 사용 하면 Azure digital 쌍의 디지털 쌍에서 구독의 사용자 지정 된 끝점으로 이벤트 데이터를 보낼 수 있습니다. 3 개의 Azure 서비스는 현재 끝점, 즉 [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)및 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)지원 됩니다. 이러한 각 Azure 서비스는 다른 서비스에 연결 될 수 있으며, 매개자 역할을 하며, 필요한 처리를 위해 TSI 또는 Azure Maps와 같은 최종 대상으로 데이터를 전송 합니다.
+이벤트 경로를 사용하면 Azure Digital Twins의 디지털 트윈에서 구독의 사용자 지정된 엔드포인트로 이벤트 데이터를 보낼 수 있습니다. 3개의 Azure 서비스는 현재 엔드포인트, 즉 [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md) 및 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)에 지원됩니다. 이러한 각 Azure 서비스는 다른 서비스에 연결될 수 있으며, 매개자 역할을 하여 필요한 처리를 위해 TSI 또는 Azure Maps와 같은 최종 대상으로 데이터를 전송합니다.
 
-다음 다이어그램은 Azure Digital Twins 측면에서 더 큰 IoT 솔루션을 통해 이벤트 데이터의 흐름을 보여 줍니다.
+다음 다이어그램은 Azure Digital Twins 측면을 사용하여 더 큰 IoT 솔루션을 통한 이벤트 데이터의 흐름을 보여 줍니다.
 
-:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="여러 다운스트림 서비스에 끝점을 통해 데이터를 라우팅하는 Azure Digital Twins" border="false":::
+:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="여러 다운스트림 서비스에 엔드포인트를 통해 데이터를 라우팅하는 Azure Digital Twins" border="false":::
 
-이벤트 경로에 대 한 일반적인 다운스트림 대상은 TSI, Azure Maps, storage 및 analytics 솔루션과 같은 리소스입니다.
+이벤트 경로에 대한 일반적인 다운스트림 대상은 TSI, Azure Maps, 스토리지 및 분석 솔루션과 같은 리소스입니다.
 
-### <a name="event-routes-for-internal-digital-twin-events"></a>내부 디지털 쌍 이벤트에 대 한 이벤트 경로
+### <a name="event-routes-for-internal-digital-twin-events"></a>내부 디지털 트윈 이벤트에 대한 이벤트 경로
 
-또한 이벤트 경로는 쌍 그래프 내의 이벤트를 처리 하 고 디지털 쌍에서 디지털 쌍으로 데이터를 전송 하는 데 사용 됩니다. 이 작업은 Event Grid를 통해 [Azure Functions](../azure-functions/functions-overview.md)와 같은 계산 리소스에 이벤트 경로를 연결 하 여 수행 됩니다. 그런 다음 이러한 함수는 쌍이 이벤트를 수신 하 고 응답 하는 방법을 정의 합니다. 
+또한 이벤트 경로는 트윈 그래프 내의 이벤트를 처리하고 디지털 트윈 간 데이터를 전송하는 데 사용됩니다. 이 작업은 Event Grid를 통해 [Azure Functions](../azure-functions/functions-overview.md)와 같은 컴퓨팅 리소스에 이벤트 경로를 연결하여 수행됩니다. 그런 다음, 이러한 함수는 트윈이 이벤트를 수신하고 응답하는 방법을 정의합니다. 
 
-계산 리소스가 이벤트 경로를 통해 받은 이벤트에 따라 쌍 그래프를 수정 하려는 경우 미리 수정할 쌍을 파악 하는 것이 좋습니다. 
+컴퓨팅 리소스가 이벤트 경로를 통해 받은 이벤트에 따라 트윈 그래프를 수정하려는 경우 미리 수정할 트윈을 파악하는 것이 좋습니다. 
 
-또는 이벤트 메시지에는 메시지를 보낸 원본 쌍의 ID도 포함 되므로 계산 리소스는 쿼리 또는 트래버스 관계를 사용 하 여 원하는 작업에 대 한 대상 쌍을 찾을 수 있습니다. 
+또는 이벤트 메시지에는 메시지를 보낸 원본 트윈의 ID도 포함되므로 컴퓨팅 리소스는 쿼리 또는 트래버스 관계를 사용하여 원하는 작업에 대한 대상 트윈을 찾을 수 있습니다. 
 
-또한 계산 리소스는 보안 및 액세스 권한을 독립적으로 설정 해야 합니다.
+또한 컴퓨팅 리소스는 보안 및 액세스 권한을 독립적으로 설정해야 합니다.
 
-디지털 쌍 이벤트를 처리 하도록 Azure 함수를 설정 하는 프로세스를 안내 하려면 [*방법: 데이터 처리를 위한 azure 함수 설정*](how-to-create-azure-function.md)을 참조 하세요.
+디지털 트윈 이벤트를 처리하도록 Azure 함수를 설정하는 프로세스를 안내하려면 [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)을 참조하세요.
 
 ## <a name="create-an-endpoint"></a>엔드포인트 만들기
 
-이벤트 경로를 정의하려면 개발자는 먼저 엔드포인트를 정의해야 합니다. **끝점** 은 경로 연결을 지 원하는 Azure Digital twins 외부의 대상입니다. 지원 되는 대상은 다음과 같습니다.
-* Event Grid 사용자 지정 항목
+이벤트 경로를 정의하려면 개발자는 먼저 엔드포인트를 정의해야 합니다. **엔드포인트** 는 라우팅 연결을 지원하는 Azure Digital Twins 외부의 대상입니다. 지원되는 대상은 다음과 같습니다.
+* Event Grid 사용자 지정 토픽
 * 이벤트 허브
 * Service Bus
 
-끝점을 만들려면 Azure Digital Twins [REST api, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins)또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)를 사용할 수 있습니다.
+엔드포인트를 만들려면 Azure Digital Twins [REST API, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins) 또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins)을 사용할 수 있습니다.
 
-끝점을 정의 하는 경우 다음을 제공 해야 합니다.
-* 끝점의 이름입니다.
-* 끝점 유형 (Event Grid, Event Hub 또는 Service Bus)
+엔드포인트를 정의하는 경우 다음을 제공해야 합니다.
+* 엔드포인트의 이름
+* 엔드포인트 유형(Event Grid, Event Hub 또는 Service Bus)
 * 인증할 기본 연결 문자열 및 보조 연결 문자열 
-* 끝점의 토픽 경로 (예: *your-topic.westus2.eventgrid.azure.net* )
+* 엔드포인트의 토픽 경로(예: *your-topic.westus2.eventgrid.azure.net*)
 
-제어 평면에서 사용할 수 있는 끝점 Api는 다음과 같습니다.
+컨트롤 플레인에서 사용할 수 있는 엔드포인트 API는 다음과 같습니다.
 * 엔드포인트 만들기
-* 끝점 목록 가져오기
-* 이름으로 끝점 가져오기
-* 이름으로 끝점 삭제
+* 엔드포인트 목록 가져오기
+* 이름으로 엔드포인트 가져오기
+* 이름으로 엔드포인트 삭제
 
 ## <a name="create-an-event-route"></a>이벤트 경로 만들기
  
-이벤트 경로를 만들려면 Azure Digital Twins [REST api, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-event-route)또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route)를 사용할 수 있습니다.
+이벤트 경로를 만들려면 Azure Digital Twins [REST API, CLI 명령](how-to-manage-routes-apis-cli.md#create-an-event-route) 또는 [Azure Portal](how-to-manage-routes-portal.md#create-an-event-route)을 사용할 수 있습니다.
 
-다음은 `CreateOrReplaceEventRouteAsync` [.Net (c #) SDK](/dotnet/api/overview/azure/digitaltwins/client) 호출을 사용 하 여 클라이언트 응용 프로그램 내에서 이벤트 경로를 만드는 예제입니다. 
+다음은 `CreateOrReplaceEventRouteAsync` [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 호출을 사용하여 클라이언트 애플리케이션 내에서 이벤트 경로를 만드는 예제입니다. 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/eventRoute_operations.cs" id="CreateEventRoute":::
 
-1. 먼저 `DigitalTwinsEventRoute` 개체가 만들어지고 생성자는 끝점의 이름을 사용 합니다. 이 `endpointName` 필드는 이벤트 허브, Event Grid 또는 Service Bus 등의 끝점을 식별 합니다. 이러한 끝점은 구독에서 생성 되 고이 등록을 호출 하기 전에 제어 평면 Api를 사용 하 여 Azure Digital Twins에 연결 되어야 합니다.
+1. 먼저 `DigitalTwinsEventRoute` 개체가 만들어지고 생성자는 엔드포인트의 이름을 사용합니다. 이 `endpointName` 필드는 Event Hub, Event Grid 또는 Service Bus 등의 엔드포인트를 식별합니다. 이러한 엔드포인트는 구독에서 생성되고 이 등록을 호출하기 전에 컨트롤 플레인 API를 사용하여 Azure Digital Twins에 연결되어야 합니다.
 
-2. 이벤트 경로 개체에는이 경로를 따르는 이벤트 유형을 제한 하는 데 사용할 수 있는 [**필터**](how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. 필터는 `true` 추가 필터링 없이 경로를 사용 하도록 설정 합니다. 필터는 `false` 경로를 사용 하지 않도록 설정 합니다. 
+2. 이벤트 경로 개체에는 이 경로를 따르는 이벤트 유형을 제한하는 데 사용할 수 있는 [**필터**](how-to-manage-routes-apis-cli.md#filter-events) 필드도 있습니다. `true` 필터는 추가 필터링 없이 경로를 사용하도록 설정합니다. `false` 필터는 경로를 사용하지 않도록 설정합니다. 
 
-3. 그런 다음이 이벤트 경로 개체는 `CreateOrReplaceEventRouteAsync` 경로에 대 한 이름과 함께에 전달 됩니다.
+3. 그런 다음, 이 이벤트 경로 개체는 경로에 대한 이름과 함께 `CreateOrReplaceEventRouteAsync`에 전달됩니다.
 
 > [!TIP]
-> 모든 SDK 함수는 동기 및 비동기 버전으로 제공 됩니다.
+> 모든 SDK 함수는 동기 및 비동기 버전으로 제공됩니다.
 
 ## <a name="dead-letter-events"></a>배달 못한 편지 이벤트
 
-끝점이 특정 기간 내에 이벤트를 전달할 수 없거나 특정 횟수 만큼 이벤트를 배달 하려고 시도한 후에는 배달 되지 않은 이벤트를 저장소 계정으로 보낼 수 있습니다. 이 프로세스를 **배달 못 한 문자** 라고 합니다. **다음 조건 중 하나가** 충족 되 면 Azure Digital twins는 이벤트를 배달 하지 않습니다. 
+엔드포인트가 일정 시간 안에 또는 일정 횟수의 이벤트 배달 시도 후 이벤트를 배달할 수 없는 경우, 미배달 이벤트를 스토리지 계정에 보낼 수 있습니다. 이 프로세스를 **배달 못한 편지** 라고 합니다. **다음 조건 중 하나** 가 충족되면 Azure Digital Twins는 이벤트를 배달하지 않습니다. 
 
-* 이벤트는 ttl (time to live) 기간 내에 배달 되지 않습니다.
-* 이벤트 전달 시도 횟수가 제한을 초과 했습니다.
+* 이벤트가 TTL(Time to Live) 기간 내에 배달되지 않은 경우
+* 이벤트 전달 시도 횟수가 한도를 초과한 경우
 
-조건 중 하나가 충족 되 면 이벤트가 삭제 되거나 배달 되지 않습니다. 기본적으로 각 끝점은 배달 못 한 문자를 설정 **하지** 않습니다. 이를 사용 하도록 설정 하려면 끝점을 만들 때 배달 되지 않은 이벤트를 보관할 저장소 계정을 지정 해야 합니다. 그런 다음이 저장소 계정에서 이벤트를 끌어와 배달 문제를 해결할 수 있습니다.
+조건 중 하나가 충족되면 이벤트가 삭제되거나 배달 못한 편지로 처리됩니다. 기본적으로 각 엔드포인트는 배달 못한 편지를 설정 **하지 않습니다**. 이 기능을 사용하려면 엔드포인트를 만들 때 전송되지 않은 이벤트를 보유할 스토리지 계정을 지정해야 합니다. 그런 다음, 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
 
-배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 끝점을 만들 때이 컨테이너의 URL을 제공 합니다. 배달 못 한 편지는 SAS 토큰을 포함 하는 컨테이너 URL로 제공 됩니다. 해당 토큰 `write` 은 저장소 계정 내에서 대상 컨테이너에 대 한 권한만 필요 합니다. 완전히 구성 된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 엔드포인트를 만들 때 이 컨테이너에 대한 URL을 제공합니다. 배달 못한 편지는 SAS 토큰과 함께 컨테이너 URL로 제공됩니다. 이 토큰은 스토리지 계정 내의 대상 컨테이너에 대한 `write` 권한만이 필요합니다. 완전히 구성된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
-SAS 토큰에 대 한 자세한 내용은 [ *sas (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대해 제한 된 액세스 권한 부여* 를 참조 하세요.](../storage/common/storage-sas-overview.md)
+SAS 토큰에 대해 자세히 알아보려면 [*SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여*](../storage/common/storage-sas-overview.md)를 참조하세요.
 
-배달 못 한 문자를 사용 하 여 끝점을 설정 하는 방법을 알아보려면 [*방법: Azure 디지털 쌍의 끝점 및 경로 관리 (api 및 CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조 하세요.
+배달 못한 편지를 사용하여 엔드포인트를 설정하는 방법을 알아보려면 [*방법: Azure Digital Twins(API 및 CLI)에서 엔드포인트 및 경로 관리*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering)를 참조하세요.
 
-### <a name="types-of-event-messages"></a>이벤트 메시지 유형
+### <a name="types-of-event-messages"></a>이벤트 메시지 형식
 
-IoT Hub의 다양 한 이벤트 유형 및 Azure Digital Twins는 아래에 설명 된 대로 서로 다른 유형의 알림 메시지를 생성 합니다.
+IoT Hub의 다양한 이벤트 유형 및 Azure Digital Twins는 아래에 설명된 대로 서로 다른 유형의 알림 메시지를 생성합니다.
 
 [!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-이벤트 경로를 설정 하 고 관리 하는 방법을 참조 하세요.
-* [*방법: 끝점과 경로 관리*](how-to-manage-routes-apis-cli.md)
+이벤트 경로를 설정하고 관리하는 방법을 참조하세요.
+* [*방법: 엔드포인트 및 경로 관리*](how-to-manage-routes-apis-cli.md)
 
-또는 Azure Functions를 사용 하 여 Azure Digital Twins 내에서 이벤트를 라우팅하는 방법을 참조 하세요.
-* [*방법: 데이터 처리를 위한 Azure 함수 설정*](how-to-create-azure-function.md)
+또는 Azure Functions를 사용하여 Azure Digital Twins 내에서 이벤트를 라우팅하는 방법을 참조하세요.
+* [*방법: 데이터 처리를 위한 Azure Function 설정*](how-to-create-azure-function.md)

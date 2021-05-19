@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 6e281931eb4646e09bb9aa3226ed7d0735c84e3f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74ea971a16d1c16be17f16cc5345e162fd974f43
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643782"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>자습서: Everbridge와 Azure Active Directory 통합
 
@@ -79,8 +79,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **Everbridge** 애플리케이션을 **Everbridge 관리자 포털** 로 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    ![Everbridge 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
-
     a. **식별자** 상자에 패턴을 따르는 URL을 입력합니다.
     `https://sso.everbridge.net/<API_Name>`
 
@@ -94,15 +92,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
   * IDP 시작 모드로 애플리케이션을 구성하려는 경우 다음 단계를 수행합니다.
 
-     ![IDP 시작 모드에 대한 EverBridge 도메인 및 URL Single Sign-On 정보](common/idp-intiated.png)
-
     a. **식별자** 상자에 `https://sso.everbridge.net/<API_Name>/<Organization_ID>` 패턴을 따르는 URL을 입력합니다.
 
     b. **회신 URL** 상자에 `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias` 패턴을 따르는 URL을 입력합니다.
 
    * SP 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 을 선택하고, 다음 단계를 수행합니다.
-
-     ![SP 시작 모드에 대한 Everbridge 도메인 및 URL Single Sign-On 정보](common/both-signonurl.png)
 
      a. **로그온 URL** 상자에 `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true` 패턴을 따르는 URL을 입력합니다.
 
@@ -141,15 +135,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="configure-everbridge-sso"></a>Everbridge SSO 구성
+## <a name="configure-everbridge-sso"></a>Everbridge SSO 구성
 
 **Everbridge** 의 SSO를 **Everbridge 관리자 포털** 로 구성하려면 다음 단계를 수행합니다.
  
 1. 다른 웹 브라우저 창에서 Everbridge에 관리자 권한으로 로그인합니다.
 
-1. 위쪽 메뉴에서 **설정** 탭을 선택합니다. **보안** 에서 **Single Sign-on** 을 선택합니다.
+1. 위쪽 메뉴에서 **설정** 탭을 선택합니다. **보안** 에서 **Manager Portal용 Single Sign-On** 을 선택합니다.
    
-     ![Single Sign-On 구성](./media/everbridge-tutorial/sso.png)
+     ![Single Sign-On 구성](./media/everbridge-tutorial/settings.png)
    
      a. **이름** 상자에 식별자 공급자의 이름을 입력합니다. 회사 이름을 예로 들 수 있습니다.
    
@@ -165,7 +159,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
      g. **저장** 을 선택합니다.
 
-### <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Everbridge를 Everbridge 멤버 포털 SSO로 구성
+## <a name="configure-everbridge-as-everbridge-member-portal-sso"></a>Everbridge를 Everbridge 멤버 포털 SSO로 구성
 
 **Everbridge** 의 Single Sign-On을 **EverBridge 멤버 포털** 로 구성하려면 다운로드한 **페더레이션 메타데이터 XML** 을 [Everbridge 지원 팀](mailto:support@everbridge.com)에 보냅니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
@@ -173,7 +167,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 Everbridge에서 테스트 사용자인 Britta Simon을 만듭니다. Everbridge 플랫폼에서 사용자를 추가하려면 [Everbridge 지원 팀](mailto:support@everbridge.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 Everbridge에서 활성화해야 합니다. 
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

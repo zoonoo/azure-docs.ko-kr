@@ -1,9 +1,9 @@
 ---
 title: Azure DDoS Protection 참조 아키텍처
-description: Azure DDoS protection 참조 아키텍처에 대해 알아봅니다.
+description: Azure DDoS Protection 참조 아키텍처에 대해 알아봅니다.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e5472620fe9b07d152a5325b0654044cb1505fd7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: ddb42dde242bb9c3f33a6dc3f8f52a147367f295
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94992440"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139114"
 ---
 # <a name="ddos-protection-reference-architectures"></a>DDoS Protection 참조 아키텍처
 
-DDoS Protection Standard는 [가상 네트워크에 배포 된 서비스를 위해](../virtual-network/virtual-network-for-azure-services.md)설계 되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 다음과 같은 참조 아키텍처는 시나리오별로 정렬되어 있으며, 아키텍처 패턴이 함께 그룹화되어 있습니다.
+DDoS Protection Standard는 [가상 네트워크에 배포되는 서비스](../virtual-network/virtual-network-for-azure-services.md)를 위해 설계되었습니다. 다른 서비스에는 기본 DDoS Protection 기본 서비스가 적용됩니다. 다음과 같은 참조 아키텍처는 시나리오별로 정렬되어 있으며, 아키텍처 패턴이 함께 그룹화되어 있습니다.
 
 ## <a name="virtual-machine-windowslinux-workloads"></a>가상 머신(Windows/Linux) 워크로드
 
@@ -43,7 +43,7 @@ N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. �
 이 아키텍처에서 DDoS Protection 표준은 가상 네트워크에서 사용됩니다. 가상 네트워크의 모든 공용 IP는 레이어 3 및 4에 대해 DDoS 보호를 받습니다. 레이어 7 보호의 경우 WAF SKU에 Application Gateway를 배포합니다. 이 참조 아키텍처에 대한 자세한 내용은 [이 아티클](/azure/architecture/reference-architectures/virtual-machines-windows/n-tier)을 참조하세요.
 
 > [!NOTE]
-> 단일 VM이 공용 IP 뒤에서 실행 되는 시나리오는 지원 되지 않습니다.
+> 단일 VM이 공용 IP 뒤에서 실행되는 시나리오는 지원되지 않습니다.
 
 ### <a name="paas-web-application"></a>PaaS 웹 애플리케이션
 
@@ -59,6 +59,20 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 레이어 7(HTTP/HTTPS/WebSocket) 공격에 대해 보호할 수 있도록 Application Gateway WAF SKU(금지 모드)를 구성하는 것이 좋습니다. 또한 웹앱은 [Application Gateway IP 주소에서 오는 트래픽만 수락](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/)하도록 구성됩니다.
 
 이 참조 아키텍처에 대한 자세한 내용은 [이 아티클](/azure/architecture/reference-architectures/app-service-web-app/multi-region)을 참조하세요.
+
+## <a name="protecting-on-premises-resources"></a>온-프레미스 리소스 보호
+
+Azure에서 공용 IP 주소를 백 엔드 원본에 대한 트래픽을 온-프레미스 환경으로 리디렉션하여 Azure DDoS Protection 표준의 규모, 용량 및 효율성을 활용해 온-프레미스 리소스를 보호할 수 있습니다.
+
+![온-프레미스 리소스 보호](./media/reference-architectures/ddos-on-prem.png)
+
+인터넷에서 트래픽을 수신하는 웹 애플리케이션이 있는 경우 Application Gateway 뒤에 웹 애플리케이션을 호스팅한 다음, SQL 삽입 및 Slowloris와 같은 레이어 7 웹 공격으로부터 WAF를 사용하여 보호할 수 있습니다. 애플리케이션의 백 엔드 원본은 VPN을 통해 연결된 온-프레미스 환경에 있습니다. 
+
+온-프레미스 환경의 백 엔드 리소스는 공용 인터넷에 노출되지 않습니다. AppGW/WAF 공용 IP만 인터넷에 노출되며 애플리케이션의 DNS 이름이 해당 공용 IP 주소에 매핑됩니다. 
+
+AppGW/WAF가 포함된 가상 네트워크에서 DDoS Protection 표준이 활성화되면 DDoS Protection 표준은 잘못된 트래픽을 완화하고 정상적인 트래픽을 애플리케이션으로 라우팅하여 애플리케이션을 보호합니다. 
+
+이 [문서](../azure-vmware/protect-azure-vmware-solution-with-application-gateway.md)에서는 Application Gateway와 함께 DDoS Protection 표준을 사용하여 Azure VMware Solution에서 실행되는 웹앱을 보호하는 방법을 보여줍니다.
 
 ## <a name="mitigation-for-non-web-paas-services"></a>비 웹 PaaS 서비스에 대한 완화
 
@@ -80,4 +94,4 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 ## <a name="next-steps"></a>다음 단계
 
-- [DDoS 보호 계획을 만드는](manage-ddos-protection.md)방법에 대해 알아봅니다.
+- [DDoS 보호 계획을 만드는](manage-ddos-protection.md) 방법을 알아봅니다.

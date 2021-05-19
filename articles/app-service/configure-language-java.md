@@ -1,7 +1,7 @@
 ---
 title: Java 앱 구성
-description: Azure App Service에서 실행 되도록 Java 앱을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
-keywords: azure app service, 웹 앱, windows, oss, java, tomcat, jboss
+description: Azure App Service에서 실행되도록 Java 앱을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
+keywords: azure 앱 서비스, 웹앱, windows, oss, java, tomcat, jboss
 author: jasonfreeberg
 ms.devlang: java
 ms.topic: article
@@ -12,27 +12,27 @@ ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 ms.openlocfilehash: cc532c5ac6babb8378860ac5049e931cc7657932
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105629260"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Azure App Service용 Java 앱 구성
 
-Azure App Service를 통해 Java 개발자는 완전히 관리 되는 서비스에서 Java SE, Tomcat 및 JBoss EAP 웹 응용 프로그램을 신속 하 게 빌드, 배포 및 확장할 수 있습니다. Maven 플러그 인을 사용 하 여 응용 프로그램을 배포 하거나, 명령줄에서 또는 IntelliJ, Eclipse 또는 Visual Studio Code 같은 편집기에 배포 합니다.
+Azure App Service는 Java 개발자가 완전 관리형 서비스에 Java SE, Tomcat 및 JBoss EAP 웹 애플리케이션을 신속하게 구축하고, 배포하고, 규모를 조정할 수 있게 도와줍니다. 명령줄에서 또는 IntelliJ, Eclipse 또는 Visual Studio Code와 같은 편집기에서 Maven 플러그 인을 사용하여 애플리케이션을 배포합니다.
 
-이 가이드에서는 App Service를 사용 하는 Java 개발자를 위한 주요 개념 및 지침을 제공 합니다. Azure App Service 사용한 적이 없는 경우 먼저 [Java 빠른](quickstart-java.md) 시작을 참조 하세요. Java 개발과 관련 되지 않은 App Service 사용에 대 한 일반적인 질문은 [APP SERVICE FAQ](faq-configuration-and-management.md)에 답변 되어 있습니다.
+이 가이드에서는 App Service를 사용하는 Java 개발자를 위해 핵심 개념 및 지침을 제공합니다. Azure App Service를 사용한 경험이 없는 분들은 먼저 [Java 빠른 시작](quickstart-java.md)을 정독해야 합니다. Java 개발에 국한되지 않는 App Service 사용에 대한 일반적인 질문의 답은 [App Service FAQ](faq-configuration-and-management.md)에서 찾을 수 있습니다.
 
 ## <a name="deploying-your-app"></a>앱 배포
 
-[Maven 용 Azure 웹 앱 플러그 인](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) 을 사용 하 여 war 또는 .jar 파일을 배포할 수 있습니다. [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) 또는 [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse)를 사용 하 여 널리 사용 되는 ide를 배포할 수도 있습니다.
+[Maven용 Azure 웹앱 플러그 인](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)을 사용하여 .war 또는 .jar 파일을 배포할 수 있습니다. 또한 배포 시 많이 사용되는 IDE를 사용하면 [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/) 또는 [Azure Toolkit for Eclipse](/azure/developer/java/toolkit-for-eclipse)에서 지원됩니다.
 
 그렇지 않으면 배포 방법이 보관 형식에 따라 달라집니다.
 
 ### <a name="java-se"></a>Java SE
 
-Kudu 사이트의 끝점을 사용 하 여 jar 파일을 Java SE에 배포 합니다 `/api/zipdeploy/` . 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#rest)를 참조하세요.
+Java SE에 .jar 파일을 배포하려면 Kudu 사이트의 `/api/zipdeploy/` 엔드포인트를 사용합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#rest)를 참조하세요.
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -42,9 +42,9 @@ Kudu 사이트의 끝점을 사용 하 여 jar 파일을 Java SE에 배포 합�
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-JBoss에 게 war 파일을 배포 하려면 끝점을 사용 `/api/wardeploy/` 하 여 보관 파일을 게시 합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-war-file)를 참조하세요.
+JBoss에 .war 파일을 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](./deploy-zip.md#deploy-war-file)를 참조하세요.
 
-귀 파일을 배포 하려면 [FTP를 사용](deploy-ftp.md)합니다.
+.ear 파일을 배포하려면 [FTP를 사용합니다](deploy-ftp.md).
 
 ::: zone-end
 
@@ -83,15 +83,15 @@ Azure Portal을 통해 각 앱에 대한 성능 보고서, 트래픽 시각화 �
 
 ### <a name="flight-recorder"></a>비행 레코더
 
-Azul Jvm를 사용 하는 App Service에 대 한 모든 Java 런타임은 줄루어 비행 레코더와 함께 제공 됩니다. 이를 사용 하 여 JVM, 시스템 및 응용 프로그램 이벤트를 기록 하 고 Java 응용 프로그램의 문제를 해결할 수 있습니다.
+Azul JVM을 사용하는 App Service에 대한 모든 Java 런타임은 Zulu 비행 레코더와 함께 제공됩니다. 이를 사용하여 JVM, 시스템 및 애플리케이션 이벤트를 기록하고 Java 애플리케이션의 문제를 해결할 수 있습니다.
 
 ::: zone pivot="platform-windows"
 
 #### <a name="timed-recording"></a>시간 기록
 
-시간이 지정 된 기록을 수행 하려면 Java 응용 프로그램의 PID (프로세스 ID)가 필요 합니다. PID를 찾으려면 https://의 웹 앱 SCM 사이트로 브라우저를 엽니다. scm.azurewebsites.net/ProcessExplorer/>. <. 이 페이지에는 웹 앱에서 실행 중인 프로세스가 표시 됩니다. 테이블에서 "java" 라는 프로세스를 찾고 해당 PID (프로세스 ID)를 복사 합니다.
+시간 기록 애플리케이션을 수행하려면 Java 애플리케이션의 PID(프로세스 ID)가 필요합니다. PID를 찾으려면 https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/에서 웹앱의 SCM 사이트에 대한 브라우저를 엽니다. 이 페이지는 웹앱에서 실행 중인 프로세스를 표시합니다. 테이블에서 "java"라는 프로세스를 찾고 해당 PID(프로세스 ID)를 복사합니다.
 
-다음으로, SCM 사이트의 상단 도구 모음에서 **디버그 콘솔** 를 열고 다음 명령을 실행 합니다. `<pid>`을 이전에 복사한 프로세스 ID로 바꿉니다. 이 명령은 Java 응용 프로그램의 30 초 profiler 기록을 시작 하 고 디렉터리에 이라는 파일을 생성 합니다 `timed_recording_example.jfr` `D:\home` .
+다음으로, SCM 사이트의 상단 도구 모음에서 **디버그 콘솔** 을 열고 다음 명령을 실행합니다. `<pid>`를 이전에 복사한 프로세스 ID로 바꿉니다. 이 명령은 Java 애플리케이션의 30초 프로파일러 기록을 시작하고 `D:\home` 디렉터리에 `timed_recording_example.jfr`이라는 파일을 생성합니다.
 
 ```
 jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="D:\home\timed_recording_example.JFR"
@@ -100,7 +100,7 @@ jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename=
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-App Service에 SSH를 실행 하 고 `jcmd` 명령을 실행 하 여 실행 중인 모든 Java 프로세스 목록을 확인 합니다. Jcmd 자체 외에 PID(프로세스 ID 번호)로 Java 애플리케이션이 실행 중인 것을 볼 수 있습니다.
+App Service에 SSH를 사용하고 `jcmd` 명령을 실행하여 실행 중인 모든 Java 프로세스 목록을 확인합니다. Jcmd 자체 외에 PID(프로세스 ID 번호)로 Java 애플리케이션이 실행 중인 것을 볼 수 있습니다.
 
 ```shell
 078990bbcd11:/home# jcmd
@@ -133,7 +133,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 ::: zone-end
 
-#### <a name="analyze-jfr-files"></a>`.jfr`파일 분석
+#### <a name="analyze-jfr-files"></a>`.jfr` 파일 분석
 
 [FTPS](deploy-ftp.md)를 사용하여 JFR 파일을 로컬 컴퓨터에 다운로드합니다. JFR 파일을 분석하려면 [Zulu Mission Control](https://www.azul.com/products/zulu-mission-control/)을 다운로드하여 설치합니다. Zulu Mission Control에 대한 지침은 [Azul 설명서](https://docs.azul.com/zmc/) 및 [설치 지침](/java/azure/jdk/java-jdk-flight-recorder-and-mission-control)을 참조하세요.
 
@@ -167,7 +167,7 @@ Linux용 Azure App Service는 기본적으로 Azure Portal 및 CLI를 통해 튜
 
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
-할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션으로 이라는 [앱 설정을](configure-common.md#configure-app-settings) 만듭니다 `JAVA_OPTS` . App Service는이 설정을 시작 시 Java 런타임으로이를 환경 변수로 전달 합니다.
+할당된 메모리 또는 기타 JVM 런타임 옵션을 설정하려면 `JAVA_OPTS`라는 [앱 설정](configure-common.md#configure-app-settings)을 옵션과 함께 만듭니다. App Service는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
 Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
 
@@ -228,7 +228,7 @@ Tomcat 애플리케이션의 성능을 향상시키기 위해 App Service에 배
 
 ## <a name="secure-applications"></a>보안 애플리케이션
 
-App Service에서 실행 되는 Java 응용 프로그램에는 다른 응용 프로그램과 동일한 [보안 모범 사례](../security/fundamentals/paas-applications-using-app-services.md) 집합이 있습니다.
+App Service에서 실행되는 Java 애플리케이션의 [보안 모범 사례](../security/fundamentals/paas-applications-using-app-services.md) 집합은 다른 애플리케이션과 동일합니다.
 
 ### <a name="authenticate-users-easy-auth"></a>사용자 인증(간편 인증)
 
@@ -338,8 +338,8 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 6. */home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 YAML 파일을 수정하고 자리 표시자 라이선스 값을 사용자의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
 
-    - **JAVA SE** 앱의 경우 `JAVA_OPTS` 값을 사용 하 여 라는 환경 변수를 만듭니다 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - **Tomcat** 의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - **Java SE** 앱의 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `JAVA_OPTS`라는 환경 변수를 만듭니다.
+    - **Tomcat** 의 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -352,8 +352,8 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 6. */home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 YAML 파일을 수정하고 자리 표시자 라이선스 값을 사용자의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
    
-    - **JAVA SE** 앱의 경우 `JAVA_OPTS` 값을 사용 하 여 라는 환경 변수를 만듭니다 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
-    - **Tomcat** 의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` .
+    - **Java SE** 앱의 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `JAVA_OPTS`라는 환경 변수를 만듭니다.
+    - **Tomcat** 의 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다.
 
 ::: zone-end
 
@@ -365,12 +365,12 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 
 1. [AppDynamics.com](https://www.appdynamics.com/community/register/)에서 AppDynamics 계정 만들기
 2. AppDynamics 웹 사이트에서 Java 에이전트를 다운로드하면 파일 이름은 *AppServerAgent-x.x.x.xxxxx.zip* 과 유사합니다.
-3. [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console) 을 사용 하 여 */home/site/wwwroot/apm* 새 디렉터리를 만듭니다.
+3. [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 사용하여 새 디렉터리 */home/site/wwwroot/apm* 을 만듭니다.
 4. Java 에이전트 파일을 */home/site/wwwroot/apm* 아래의 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics* 에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
 
-   - **JAVA SE** 응용 프로그램의 경우 값으로 이라는 환경 변수를 만듭니다 `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` . 여기서는 App Service 이름입니다.
-   - **Tomcat** apps의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` . 여기서 `<app-name>` 는 App Service 이름입니다.
+   - **Java SE** 앱의 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `JAVA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+   - **Tomcat** 앱의 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
 
 ::: zone-end
 ::: zone pivot="platform-linux"
@@ -381,8 +381,8 @@ App Service에 [SSH 연결을 열고](configure-linux-open-ssh-session.md) `keyt
 4. Java 에이전트 파일을 */home/site/wwwroot/apm* 아래의 디렉터리에 업로드합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics* 에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
 
-   - **JAVA SE** 응용 프로그램의 경우 값으로 이라는 환경 변수를 만듭니다 `JAVA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` . 여기서는 App Service 이름입니다.
-   - **Tomcat** apps의 경우 값으로 이라는 환경 변수를 만듭니다 `CATALINA_OPTS` `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` . 여기서 `<app-name>` 는 App Service 이름입니다.
+   - **Java SE** 앱의 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `JAVA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+   - **Tomcat** 앱의 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
 
 ::: zone-end
 
@@ -464,7 +464,7 @@ JDBC(Java Database Connectivity) 또는 JPA(Java Persistence API)를 사용하�
 
 #### <a name="finalize-configuration"></a>구성 완료
 
-마지막으로 Tomcat 클래스 경로에 드라이버 Jar를 저장 하 고 App Service를 다시 시작 합니다. JDBC 드라이버 파일을 Tomcat classloader에 사용할 수 있도록 */home/tomcat/lib* 디렉터리에 배치합니다. (아직 존재하지 않는 경우 이 디렉터리를 만듭니다.) 이러한 파일을 App Service 인스턴스에 업로드하려면 다음 단계를 수행합니다.
+마지막으로 Tomcat 클래스 경로에 드라이버 JAR을 배치하고 App Service를 다시 시작합니다. JDBC 드라이버 파일을 Tomcat classloader에 사용할 수 있도록 */home/tomcat/lib* 디렉터리에 배치합니다. (아직 존재하지 않는 경우 이 디렉터리를 만듭니다.) 이러한 파일을 App Service 인스턴스에 업로드하려면 다음 단계를 수행합니다.
 
 1. [Cloud Shell](https://shell.azure.com)에서 웹앱 확장을 설치합니다.
 
@@ -642,10 +642,10 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
 
 ### <a name="jboss-eap"></a>JBoss EAP
 
-[JBoss EAP에 데이터 원본을 등록할](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management)때 세 가지 핵심 단계는 jdbc 드라이버 업로드, jdbc 드라이버를 모듈로 추가 및 모듈 등록입니다. App Service은 상태 비저장 호스팅 서비스 이므로, 컨테이너가 시작 될 때 데이터 원본 모듈을 추가 하 고 등록 하는 구성 명령을 스크립팅된 후에 적용 해야 합니다.
+[JBoss EAP에 데이터 원본을 등록할](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/configuration_guide/datasource_management) 때 세 가지 핵심 단계는 JDBC 드라이버 업로드, JDBC 드라이버를 모듈로 추가 및 모듈 등록입니다. App Service는 상태 비저장 호스팅 서비스이므로, 컨테이너가 시작될 때 데이터 원본 모듈을 추가하고 등록하는 구성 명령을 스크립팅하고 적용해야 합니다.
 
 1. 데이터베이스의 JDBC 드라이버를 가져옵니다. 
-2. JDBC 드라이버에 대 한 XML 모듈 정의 파일을 만듭니다. 아래에 표시 된 예제는 PostgreSQL에 대 한 모듈 정의입니다.
+2. JDBC 드라이버에 대한 XML 모듈 정의 파일을 만듭니다. 아래에 표시된 예제는 PostgreSQL에 대한 모듈 정의입니다.
 
     ```xml
     <?xml version="1.0" ?>
@@ -661,7 +661,7 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
     </module>
     ```
 
-1. JBoss CLI 명령을 이라는 파일에 배치 `jboss-cli-commands.cli` 합니다. JBoss 명령은 모듈을 추가 하 고이를 데이터 원본으로 등록 해야 합니다. 아래 예제에서는 PostgreSQL에 대 한 JBoss CLI 명령을 보여 줍니다.
+1. JBoss CLI 명령을 `jboss-cli-commands.cli`라는 파일에 배치합니다. JBoss 명령은 모듈을 추가하고 이를 데이터 원본으로 등록해야 합니다. 아래 예제에서는 PostgreSQL에 대한 JBoss CLI 명령을 보여 줍니다.
 
     ```bash
     #!/usr/bin/env bash
@@ -672,16 +672,16 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
     data-source add --name=postgresDS --driver-name=postgres --jndi-name=java:jboss/datasources/postgresDS --connection-url=${POSTGRES_CONNECTION_URL,env.POSTGRES_CONNECTION_URL:jdbc:postgresql://db:5432/postgres} --user-name=${POSTGRES_SERVER_ADMIN_FULL_NAME,env.POSTGRES_SERVER_ADMIN_FULL_NAME:postgres} --password=${POSTGRES_SERVER_ADMIN_PASSWORD,env.POSTGRES_SERVER_ADMIN_PASSWORD:example} --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
     ```
 
-1. `startup_script.sh`JBoss CLI 명령을 호출 하는 시작 스크립트를 만듭니다. 아래 예제에서는를 호출 하는 방법을 보여 줍니다 `jboss-cli-commands.cli` . 나중에 컨테이너가 시작 될 때이 스크립트를 실행 하 App Service configre 합니다. 
+1. JBoss CLI 명령을 호출하는 시작 스크립트, `startup_script.sh`를 만듭니다. 아래의 예제에서는 `jboss-cli-commands.cli`를 호출하는 방법을 보여 줍니다. 나중에 컨테이너가 시작될 때 이 스크립트를 실행하도록 App Service를 구성합니다. 
 
     ```bash
     $JBOSS_HOME/bin/jboss-cli.sh --connect --file=/home/site/deployments/tools/jboss-cli-commands.cli
     ```
 
-1. 원하는 FTP 클라이언트를 사용 하 여 JDBC 드라이버, `jboss-cli-commands.cli` , `startup_script.sh` 및 모듈 정의를에 업로드 `/site/deployments/tools/` 합니다.
-2. 컨테이너가 시작 될 때 실행 되도록 사이트를 구성 `startup_script.sh` 합니다. Azure Portal에서 **구성**  >  **일반 설정**  >  **시작 명령** 으로 이동 합니다. 시작 명령 필드를로 설정 `/home/site/deployments/tools/startup_script.sh` 합니다. 변경 내용을 **저장** 합니다.
+1. 원하는 FTP 클라이언트를 사용하여 JDBC 드라이버, `jboss-cli-commands.cli`, `startup_script.sh` 및 모듈 정의를 `/site/deployments/tools/`에 업로드합니다.
+2. 컨테이너가 시작될 때 `startup_script.sh`를 실행하도록 사이트를 구성합니다. Azure Portal에서 **구성** > **일반 설정** > **시작 명령** 으로 이동합니다. 시작 명령 필드를 `/home/site/deployments/tools/startup_script.sh`로 설정합니다. 변경 내용을 **저장** 합니다.
 
-데이터 원본이 JBoss 서버에 추가 되었는지 확인 하려면 webapp에 SSH를 실행 하 고를 실행 `$JBOSS_HOME/bin/jboss-cli.sh --connect` 합니다. JBoss에 연결 되 면를 실행 `/subsystem=datasources:read-resource` 하 여 데이터 원본 목록을 인쇄 합니다.
+데이터 원본이 JBoss 서버에 추가되었는지 확인하려면 웹앱에 SSH를 사용하고 `$JBOSS_HOME/bin/jboss-cli.sh --connect`를 실행합니다. JBoss에 연결되면 `/subsystem=datasources:read-resource`를 실행하여 데이터 원본 목록을 인쇄합니다.
 
 ::: zone-end
 
@@ -689,13 +689,13 @@ xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /
 
 ## <a name="choosing-a-java-runtime-version"></a>Java 런타임 버전 선택
 
-App Service를 통해 사용자는 JVM의 주 버전 (예: Java 8 또는 Java 11) 및 부 버전 (예: 1.8.0 _232 또는 11.0.5)을 선택할 수 있습니다. 새 부 버전을 사용할 수 있게 되 면 부 버전이 자동으로 업데이트 되도록 선택할 수도 있습니다. 대부분의 경우 프로덕션 사이트는 고정 된 부 JVM 버전을 사용 해야 합니다. 이렇게 하면 부 버전 자동 업데이트 중에 발생 하는 중단이 발생 하지 않습니다.
+App Service를 통해 사용자는 JVM의 주 버전(예: Java 8 또는 Java 11) 및 부 버전(예: 1.8.0_232 또는 11.0.5)을 선택할 수 있습니다. 새 부 버전을 사용할 수 있게 되면 부 버전이 자동으로 업데이트되도록 선택할 수도 있습니다. 대부분의 경우 프로덕션 사이트는 고정된 부 JVM 버전을 사용해야 합니다. 이렇게 하면 부 버전 자동 업데이트 중에 발생하는 중단이 발생하지 않습니다.
 
-부 버전을 고정 하도록 선택 하는 경우 사이트에서 JVM 부 버전을 주기적으로 업데이트 해야 합니다. 최신 부 버전에서 응용 프로그램을 실행 하려면 준비 슬롯을 만들고 준비 사이트에서 부 버전을 증가 시킵니다. 새 부 버전에서 응용 프로그램이 올바르게 실행 되었는지 확인 한 후에는 스테이징 및 프로덕션 슬롯을 교환할 수 있습니다.
+부 버전을 고정하도록 선택하는 경우 사이트에서 JVM 부 버전을 주기적으로 업데이트해야 합니다. 최신 부 버전에서 애플리케이션을 실행하려면 스테이징 슬롯을 만들고 준스테이징 사이트에서 부 버전을 증가시킵니다. 새 부 버전에서 애플리케이션이 올바르게 실행되었는지 확인한 후에는 스테이징 및 프로덕션 슬롯을 교환할 수 있습니다.
 
 ## <a name="jboss-eap-hardware-options"></a>JBoss EAP 하드웨어 옵션
 
-JBoss EAP는 프리미엄 및 격리 된 하드웨어 옵션 에서만 사용할 수 있습니다. 공개 미리 보기로 제공 되는 무료, 공유, 기본 또는 표준 계층에서 JBoss EAP 사이트를 만든 고객은 예기치 않은 동작을 방지 하기 위해 프리미엄 또는 격리 된 하드웨어 계층으로 확장 해야 합니다.
+JBoss EAP는 프리미엄 및 격리된 하드웨어 옵션에서만 사용할 수 있습니다. 공개 미리 보기 중 제공되는 무료, 공유, 기본 또는 표준 계층에서 JBoss EAP 사이트를 만든 고객은 예기치 않은 동작을 방지하기 위해 프리미엄 또는 격리된 하드웨어 계층으로 확장해야 합니다.
 
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원
 
@@ -703,15 +703,15 @@ JBoss EAP는 프리미엄 및 격리 된 하드웨어 옵션 에서만 사용할
 
 Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다. OpenJDK의 Azul Zulu Enterprise 빌드는 Microsoft와 Azul Systems가 후원하는 Azure 및 Azure Stack에 대한 OpenJDK의 무료 다중 플랫폼 프로덕션 준비 배포입니다. 여기에는 Java SE 애플리케이션을 빌드하고 실행하기 위한 모든 구성 요소가 포함됩니다. [Java JDK 설치](/azure/developer/java/fundamentals/java-jdk-long-term-support)에서 JDK를 설치할 수 있습니다.
 
-주 버전 업데이트는 Azure App Service의 새로운 런타임 옵션을 통해 제공 됩니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
+주 버전 업데이트는 Azure App Service에서 새 런타임 옵션을 통해 제공될 예정입니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
 
-지원되는 JDK는 매년 분기마다 1월, 4월, 7월, 10월에 자동으로 패치됩니다. Azure의 Java에 대 한 자세한 내용은 [이 지원 문서](/azure/developer/java/fundamentals/java-jdk-long-term-support)를 참조 하세요.
+지원되는 JDK는 매년 분기마다 1월, 4월, 7월, 10월에 자동으로 패치됩니다. Azure의 Java에 대한 자세한 내용은 [이 지원 문서](/azure/developer/java/fundamentals/java-jdk-long-term-support)를 참조하세요.
 
 ### <a name="security-updates"></a>보안 업데이트
 
 Azul Systems에서 주요 보안 취약점에 대한 패치 및 수정 사항을 출시하는 즉시 고객에게 제공됩니다. [NIST Common Vulnerability Scoring System 버전 2](https://nvd.nist.gov/vuln-metrics/cvss)에서 기본 점수 9.0 이상을 받으면 "주요" 취약점으로 정의됩니다.
 
-Tomcat 8.0이 [2018 년 9 월 30 일까 지 종료 (EOL)](https://tomcat.apache.org/tomcat-80-eol.html)에 도달 했습니다. Azure App Service에서 런타임을 계속 사용할 수 있지만 Azure는 Tomcat 8.0에 보안 업데이트를 적용 하지 않습니다. 가능 하면 응용 프로그램을 Tomcat 8.5 또는 9.0로 마이그레이션합니다. Tomcat 8.5 및 9.0은 모두 Azure App Service에서 사용할 수 있습니다. 자세한 내용은 [공식 Tomcat 사이트](https://tomcat.apache.org/whichversion.html) 를 참조 하세요. 
+Tomcat 8.0이 [2018년 9월 30일 현재 EOL(수명 종료)](https://tomcat.apache.org/tomcat-80-eol.html)에 도달했습니다. Azure App Service에서 런타임을 계속 사용할 수 있지만 Azure는 Tomcat 8.0에 보안 업데이트를 적용하지 않습니다. 가능하면 애플리케이션을 Tomcat 8.5 또는 9.0으로 마이그레이션합니다. Tomcat 8.5 및 9.0은 모두 Azure App Service에서 사용할 수 있습니다. 자세한 내용은 [공식 Tomcat 사이트](https://tomcat.apache.org/whichversion.html)를 참조하세요. 
 
 ### <a name="deprecation-and-retirement"></a>사용 중단 및 사용 중지
 
@@ -724,7 +724,7 @@ Tomcat 8.0이 [2018 년 9 월 30 일까 지 종료 (EOL)](https://tomcat.apache.
 
 ### <a name="development-support"></a>개발 지원
 
-Azure [지원 Azul 줄루어 JDK](https://www.azul.com/downloads/azure-only/zulu/) 에 대 한 제품 지원은 azure 용으로 개발 하거나 [정규화 된 azure 지원 계획](https://azure.microsoft.com/support/plans/)을 사용 하 여 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 때 Microsoft를 통해 제공 됩니다.
+[정규화된 Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 사용하여 Azure 또는 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/)용 제품을 개발하는 경우 Microsoft를 통해 [Azure에서 지원하는 Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/)에 대한 제품 지원을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

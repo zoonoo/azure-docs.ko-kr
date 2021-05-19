@@ -1,6 +1,6 @@
 ---
-title: Kubectl를 사용 하 여 Azure Stack Edge Pro GPU 장치에 Kubernetes 상태 비저장 응용 프로그램 배포 | Microsoft Docs
-description: Microsoft Azure Stack Edge Pro 장치에서 kubectl를 사용 하 여 Kubernetes 상태 비저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
+title: kubectl을 사용하여 Azure Stack Edge Pro GPU 디바이스에 Kubernetes 상태 비저장 애플리케이션 배포 | Microsoft Docs
+description: Microsoft Azure Stack Edge Pro 디바이스에서 kubectl을 사용하여 Kubernetes 상태 비저장 애플리케이션 배포를 만들고 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,49 +9,49 @@ ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
 ms.openlocfilehash: fd55ce702ae3c9485fc2dcc37fc90915a8990ce7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102638151"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 장치에서 kubectl를 통해 Kubernetes 상태 비저장 응용 프로그램 배포
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스에서 kubectl을 통해 Kubernetes 상태 비저장 애플리케이션 배포
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 기존 Kubernetes 클러스터에서 kubectl 명령을 사용 하 여 상태 비저장 응용 프로그램을 배포 하는 방법을 설명 합니다. 또한이 문서에서는 상태 비저장 응용 프로그램에서 pod을 만들고 설정 하는 과정을 안내 합니다.
+이 문서에서는 기존 Kubernetes 클러스터에서 kubectl 명령을 사용하여 상태 비저장 애플리케이션을 배포하는 방법을 설명합니다. 또한 이 문서에서는 상태 비저장 애플리케이션에서 Pod를 만들고 설정하는 프로세스를 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `kubectl` 다음을 확인 해야 합니다.
+Kubernetes 클러스터를 만들고 `kubectl` 명령줄 도구를 사용하려면 다음을 확인해야 합니다.
 
-- 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
+- 1노드 Azure Stack Edge Pro 디바이스에 대한 로그인 자격 증명이 있어야 합니다.
 
-- Windows PowerShell 5.0 이상이 Windows 클라이언트 시스템에 설치 되어 Azure Stack Edge Pro 장치에 액세스 합니다. 지원 되는 운영 체제를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동 합니다.
+- Azure Stack Edge Pro 디바이스에 액세스하려면 Windows 클라이언트 시스템에 Windows PowerShell 5.0 이상이 설치되어 있어야 합니다. 지원되는 운영 체제를 사용하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용하는 절차에 대해 설명합니다. 최신 버전의 Windows PowerShell을 다운로드하려면 [Windows PowerShell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동합니다.
 
-- Compute는 Azure Stack Edge Pro 장치에서 사용 하도록 설정 됩니다. 계산을 사용 하도록 설정 하려면 장치의 로컬 UI에서 **계산** 페이지로 이동 합니다. 그런 다음 계산에 사용할 네트워크 인터페이스를 선택 합니다. **사용** 을 선택합니다. 계산을 사용 하도록 설정 하면 장치에서 해당 네트워크 인터페이스의 가상 스위치가 생성 됩니다. 자세한 내용은 [Azure Stack Edge Pro에서 compute 네트워크 사용](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조 하세요.
+- Azure Stack Edge Pro 디바이스에는 컴퓨팅이 설정됩니다. 컴퓨팅을 사용하도록 설정하려면 디바이스의 로컬 UI에서 **컴퓨팅** 페이지로 이동합니다. 그런 다음, 컴퓨팅을 사용하도록 설정하려는 네트워크 인터페이스를 선택합니다. **사용** 을 선택합니다. 컴퓨팅을 사용하도록 설정하면 해당 네트워크 인터페이스에서 디바이스에 가상 스위치가 생성됩니다. 자세한 내용은 [Azure Stack Edge Pro에서 컴퓨팅 네트워크 사용](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)을 참조하세요.
 
-- Azure Stack Edge Pro 장치에는 버전 v 1.9 이상 버전을 실행 하는 Kubernetes 클러스터 서버가 있습니다. 자세한 내용은 [Microsoft Azure Stack Edge Pro 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조 하세요.
+- Azure Stack Edge Pro 디바이스에는 v1.9 이상 버전을 실행하는 Kubernetes 클러스터 서버가 있습니다. 자세한 내용은 [Microsoft Azure Stack Edge Pro 디바이스에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md)를 참조하세요.
 
-- 을 (를) 설치 했습니다 `kubectl` .
+- `kubectl`이 설치되어 있습니다.
 
-## <a name="deploy-a-stateless-application"></a>상태 비저장 응용 프로그램 배포
+## <a name="deploy-a-stateless-application"></a>상태 비저장 애플리케이션 배포
 
-시작 하기 전에 다음이 있어야 합니다.
+시작하기 전에 다음을 수행해야 합니다.
 
-1. Kubernetes 클러스터를 만들었습니다.
-2. 네임 스페이스를 설정 합니다.
-3. 네임 스페이스와 사용자를 연결 합니다.
-4. 사용자 구성을에 저장 `C:\Users\<username>\.kube` 했습니다.
-5. 설치 됨 `kubectl` .
+1. Kubernetes 클러스터를 만듭니다.
+2. 네임스페이스를 설정합니다.
+3. 네임스페이스와 사용자를 연결합니다.
+4. 사용자 구성을 `C:\Users\<username>\.kube`에 저장합니다.
+5. `kubectl`을 설치합니다.
 
-이제 Azure Stack Edge Pro 장치에서 상태 비저장 응용 프로그램 배포 실행 및 관리를 시작할 수 있습니다. 사용을 시작 하기 전에 `kubectl` 올바른 버전의가 있는지 확인 해야 `kubectl` 합니다.
+이제 Azure Stack Edge Pro 디바이스에서 상태 비저장 애플리케이션 배포 실행 및 관리를 시작할 수 있습니다. `kubectl` 사용을 시작하기 전에 올바른 버전의 `kubectl`이 있는지 확인해야 합니다.
 
-### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Kubectl의 올바른 버전이 있는지 확인 하 고 구성을 설정 합니다.
+### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>올바른 버전의 kubectl이 있고 구성을 설정했는지 확인합니다.
 
-버전을 확인 하려면 `kubectl` 다음을 수행 합니다.
+`kubectl`의 버전을 확인하려면 다음을 수행합니다.
 
-1. 의 버전이 `kubectl` 1.9 보다 크거나 같은지 확인 합니다.
+1. `kubectl`의 버전이 1.9보다 크거나 같은지 확인합니다.
 
    ```powershell
    kubectl version
@@ -65,9 +65,9 @@ Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `k
    Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.1", GitCommit:"4485c6f18cee9a5d3c3b4e523bd27972b1b53892", GitTreeState:"clean", BuildDate:"2019-07-18T09:09:21Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
    ```
 
-   이 경우 kubectl의 클라이언트 버전은 v 1.15.2이 고 continue로 호환 됩니다.
+   이 경우 kubectl의 클라이언트 버전이 v1.15.2 이고 호환되면 계속합니다.
 
-2. Kubernetes 클러스터에서 실행 중인 pod의 목록을 가져옵니다. Pod는 Kubernetes 클러스터에서 실행 되는 응용 프로그램 컨테이너 또는 프로세스입니다.
+2. Kubernetes 클러스터에서 실행 중인 Pod의 목록을 가져옵니다. Pod는 Kubernetes 클러스터에서 실행되는 애플리케이션 컨테이너 또는 프로세스입니다.
 
    ```powershell
    kubectl get pods -n <namespace-string>
@@ -81,11 +81,11 @@ Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `k
    PS C:\WINDOWS\system32>
    ```
     
-   출력에는 클러스터에서 실행 중인 응용 프로그램이 없기 때문에 리소스 (pod)가 없다는 것을 명시 해야 합니다.
+   클러스터에서 실행 중인 애플리케이션이 없기 때문에 리소스(Pod)가 없다는 내용이 출력에 표시되어야 합니다.
 
-   이 명령은 "C:\Users username. kube의 디렉터리 구조를 \\ &lt; &gt; \\ \" 구성 파일에 채웁니다. Kubectl 명령줄 도구는 이러한 파일을 사용 하 여 Kubernetes 클러스터에서 상태 비저장 응용 프로그램을 만들고 관리 합니다.  
+   이 명령은 "C:\Users\\&lt;username&gt;\\.kube\"의 디렉터리 구조를 구성 파일로 채웁니다. kubectl 명령줄 도구는 이러한 파일을 사용하여 Kubernetes 클러스터에서 상태 비저장 애플리케이션을 만들고 관리합니다.  
 
-3. "C:\Users username. kube의 디렉터리 구조를 수동으로 확인 \\ &lt; &gt; \\ \" 하 여 *kubectl* 가 다음 하위 폴더로 채워졌는지 확인 합니다.
+3. "C:\Users\\&lt;username&gt;\\.kube\"의 디렉터리 구조를 수동으로 확인하여 *kubectl* 이 다음 하위 폴더로 채워졌는지 확인합니다.
 
    ```powershell
    PS C:\Users\username> ls .kube
@@ -101,31 +101,31 @@ Kubernetes 클러스터를 만들고 명령줄 도구를 사용 하기 전에 `k
    ```
 
 > [!NOTE]
-> 모든 kubectl 명령 목록을 보려면을 입력 `kubectl --help` 합니다.
+> 모든 kubectl 명령의 목록을 보려면 `kubectl --help`를 입력합니다.
 
-### <a name="create-a-stateless-application-using-a-deployment"></a>배포를 사용 하 여 상태 비저장 응용 프로그램 만들기
+### <a name="create-a-stateless-application-using-a-deployment"></a>배포를 사용하여 상태 비저장 애플리케이션 만들기
 
-Kubectl 명령줄 버전이 올바르고 필요한 구성 파일이 있는지 확인 했으므로 상태 비저장 응용 프로그램 배포를 만들 수 있습니다.
+Kubectl 명령줄 버전이 올바르고 필요한 구성 파일이 있는지 확인했으므로 상태 비저장 애플리케이션 배포를 만들 수 있습니다.
 
-Pod는 만들거나 배포 하는 Kubernetes 개체 모델에서 가장 작은 가장 간단한 단위인 Kubernetes 응용 프로그램의 기본 실행 단위입니다. Pod는 저장소 리소스, 고유한 네트워크 IP 및 컨테이너가 실행 되는 방법을 제어 하는 옵션을 캡슐화 합니다.
+Pod는 Kubernetes 애플리케이션의 기본 실행 단위이며, 사용자가 Kubernetes 개체 모델에서 만들거나 배포하는 가장 작고 가장 간단한 단위입니다. Pod는 또한 스토리지 리소스, 고유한 네트워크 IP 및 컨테이너가 실행되는 방법을 제어하는 옵션을 캡슐화합니다.
 
-사용자가 만드는 상태 비저장 응용 프로그램의 형식은 nginx 웹 서버 배포입니다.
+사용자가 만드는 상태 비저장 애플리케이션의 형식은 nginx 웹 서버 배포입니다.
 
-상태 비저장 응용 프로그램 배포를 만들고 관리 하는 데 사용 하는 모든 kubectl 명령은 구성과 연결 된 네임 스페이스를 지정 해야 합니다. 을 사용 하 여 [Microsoft Azure Stack Edge pro 장치에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md) 자습서의 Azure Stack Edge pro 장치에서 클러스터에 연결 된 상태에서 네임 스페이스를 만들었습니다 `New-HcsKubernetesNamespace` .
+상태 비저장 애플리케이션 배포를 만들고 관리하는 데 사용하는 모든 kubectl 명령은 구성과 연결된 네임스페이스를 지정해야 합니다. [Microsoft Azure Stack Edge Pro 디바이스에서 Kubernetes 클러스터 만들기 및 관리](azure-stack-edge-gpu-create-kubernetes-cluster.md) 자습서에서 `New-HcsKubernetesNamespace`를 사용하여 Azure Stack Edge Pro 디바이스의 클러스터에 연결된 상태에서 네임스페이스를 만들었습니다.
 
-Kubectl 명령에서 네임 스페이스를 지정 하려면를 사용 `kubectl <command> -n <namespace-string>` 합니다.
+kubectl 명령에서 네임스페이스를 지정하려면 `kubectl <command> -n <namespace-string>`을 사용합니다.
 
-Nginx 배포를 만들려면 다음 단계를 따르세요.
+다음 단계에 따라 nginx 배포를 만듭니다.
 
-1. Kubernetes 배포 개체를 만들어 상태 비저장 응용 프로그램을 적용 합니다.
+1. Kubernetes 배포 개체를 만들어 상태 비저장 애플리케이션을 적용합니다.
 
    ```powershell
    kubectl apply -f <yaml-file> -n <namespace-string>
    ```
 
-   이 예제에서 응용 프로그램 YAML 파일의 경로는 외부 원본입니다.
+   이 예제에서 애플리케이션 YAML 파일의 경로는 외부 원본입니다.
 
-   다음은 명령과 해당 출력을 사용 하는 샘플입니다.
+   다음은 명령과 해당 출력을 사용하는 샘플입니다.
 
    ```powershell
    PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment.yaml -n "test1"
@@ -133,7 +133,7 @@ Nginx 배포를 만들려면 다음 단계를 따르세요.
    deployment.apps/nginx-deployment created
    ```
 
-   또는 로컬 컴퓨터에 다음 markdown를 저장 하 고 *-f* 매개 변수에서 경로와 파일 이름을 대체할 수 있습니다. 예를 들어 "C:\Kubernetes\deployment.yaml"입니다. 응용 프로그램 배포에 대 한 구성은 다음과 같습니다.
+   또는 로컬 컴퓨터에 다음 마크다운을 저장하고 *-f* 매개 변수에서 경로와 파일 이름을 대체할 수 있습니다. 예를 들면 "C:\Kubernetes\deployment.yaml"입니다. 애플리케이션 배포에 대한 구성은 다음과 같습니다.
 
    ```markdown
    apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -157,15 +157,15 @@ Nginx 배포를 만들려면 다음 단계를 따르세요.
            - containerPort: 80
    ```
 
-   이 명령은 응용 프로그램을 실행 하기 위한 두 가지 pod를 포함 하는 기본 nginx 배포를 만듭니다.
+   이 명령은 애플리케이션을 실행하는 데 필요한 두 가지 Pod를 포함하는 기본 nginx 배포를 만듭니다.
 
-2. 만든 Kubernetes nginx 배포에 대 한 설명을 가져옵니다.
+2. 생성된 Kubernetes nginx 배포에 대한 설명을 가져옵니다.
 
    ```powershell
    kubectl describe deployment nginx-deployment -n <namespace-string>
    ```
 
-   명령의 샘플 사용은 다음과 같습니다.
+   명령의 샘플 사용법과 출력은 다음과 같습니다.
     
    ```powershell
    PS C:\Users\user> kubectl describe deployment nginx-deployment -n "test1"
@@ -205,24 +205,24 @@ Nginx 배포를 만들려면 다음 단계를 따르세요.
      Normal  ScalingReplicaSet  2m22s  deployment-controller  Scaled up replica set nginx-deployment-5754944d6c to 2
    ```
 
-   *복제본* 설정의 경우 다음이 표시 됩니다.
+   *복제본* 설정의 경우 다음이 표시됩니다.
     
    ```powershell
    Replicas:               2 desired | 2 updated | 2 total | 2 available | 0 unavailable
    ```
 
-   *복제본* 설정은 배포 사양에 두 개의 pod가 필요 하 고 해당 pod가 만들어지고 업데이트 되었으며 사용할 준비가 되었음을 나타냅니다.
+   *복제본* 설정은 배포 사양에 두 개의 Pod가 필요하고, 해당 Pod가 생성되고 업데이트되었으며 사용할 준비가 되었음을 나타냅니다.
 
    > [!NOTE]
-   > 복제본 세트는 장치 노드 실패 또는 장치 업그레이드 중단 등의 이유로 삭제 되거나 종료 된 pod을 대체 합니다. 따라서 응용 프로그램에 단일 pod만 필요한 경우에도 복제본 집합을 사용 하는 것이 좋습니다.
+   > 복제본 세트는 디바이스 노드 오류 또는 디바이스 업그레이드 중단 등의 이유로 삭제되거나 종료된 Pod를 대체합니다. 따라서 애플리케이션에 단일 Pod만 필요한 경우에도 복제본 세트를 사용하는 것이 좋습니다.
 
-3. 배포에 pod를 나열 하려면:
+3. 배포의 Pod를 나열하려면 다음을 수행합니다.
 
    ```powershell
    kubectl get pods -l app=nginx -n <namespace-string>
    ```
     
-   명령의 샘플 사용은 다음과 같습니다.
+   명령의 샘플 사용법과 출력은 다음과 같습니다.
     
    ```powershell
    PS C:\Users\user> kubectl get pods -l app=nginx -n "test1"
@@ -232,15 +232,15 @@ Nginx 배포를 만들려면 다음 단계를 따르세요.
    nginx-deployment-5754944d6c-nfj2h   1/1     Running   0          3m13s
    ```
 
-   출력은 kubectl를 사용 하 여 참조할 수 있는 고유한 이름을 가진 두 개의 pod가 있는지 확인 합니다.
+   이 출력은 kubectl을 사용하여 참조할 수 있는 고유한 이름을 가진 두 개의 Pod가 있는지 확인합니다.
 
-4. 배포의 개별 pod에 대 한 정보를 보려면 다음을 수행 합니다.
+4. 배포의 개별 Pod에 대한 정보를 보려면 다음을 수행합니다.
 
    ```powershell
    kubectl describe pod <podname-string> -n <namespace-string>
    ```
 
-  명령의 샘플 사용은 다음과 같습니다.
+  명령의 샘플 사용법과 출력은 다음과 같습니다.
 
    ```powershell
    PS C:\Users\user> kubectl describe pod "nginx-deployment-5754944d6c-7wqjd" -n "test1"
@@ -295,16 +295,16 @@ Nginx 배포를 만들려면 다음 단계를 따르세요.
       Normal  Started    4m52s  kubelet, k8s-1d9qhq2cl-n1  Started container nginx
    ```
 
-### <a name="rescale-the-application-deployment-by-increasing-the-replica-count"></a>복제본 수를 늘려서 응용 프로그램 배포 크기를 조정 합니다.
+### <a name="rescale-the-application-deployment-by-increasing-the-replica-count"></a>복제본 수를 늘려서 애플리케이션 배포 크기를 조정합니다.
 
-각 pod는 지정 된 응용 프로그램의 단일 인스턴스를 실행 하기 위한 것입니다. 여러 인스턴스를 실행 하기 위해 응용 프로그램을 수평으로 확장 하려는 경우 각 인스턴스에 대해 pod 수를 하나로 늘릴 수 있습니다. Kubernetes에서는이를 복제 라고 합니다.
-새 YAML 파일을 적용 하 여 응용 프로그램 배포의 pod 수를 늘릴 수 있습니다. YAML 파일은 복제본 설정을 4로 변경 하 여 배포의 pod 수를 4 개의 pod로 늘립니다. Pod 수를 2에서 4로 늘리려면:
+각 Pod는 지정된 애플리케이션의 단일 인스턴스를 실행하기 위한 것입니다. 여러 인스턴스를 실행하기 위해 애플리케이션을 수평으로 스케일링하려면 Pod 수를 각 인스턴스별로 하나씩 늘릴 수 있습니다. Kubernetes에서는 이를 복제라고 합니다.
+새 YAML 파일을 적용하여 애플리케이션 배포의 Pod 수를 늘릴 수 있습니다. YAML 파일은 복제본 설정을 4로 변경하여 배포의 Pod 수를 4개의 Pod로 늘립니다. Pod 수를 2개에서 4개로 늘리려면 다음을 수행합니다.
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl apply -f https://k8s.io/examples/application/deployment-scale.yaml -n "test1"
 ```
 
-또는 로컬 컴퓨터에 다음 markdown를 저장 하 고에 대 한 *-f* 매개 변수의 경로와 파일 이름을 대체할 수 있습니다 `kubectl apply` . 예를 들어 "C:\Kubernetes\deployment-scale.yaml"입니다. 응용 프로그램 배포 규모에 대 한 구성은 다음과 같습니다.
+또는 로컬 컴퓨터에 다음 마크다운을 저장하고 `kubectl apply`에 대한 *-f* 매개 변수에서 경로와 파일 이름을 대체할 수 있습니다. 예를 들면 "C:\Kubernetes\deployment-scale.yaml"입니다. 애플리케이션 배포 규모에 대한 구성은 다음과 같습니다.
 
 ```markdown
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
@@ -328,13 +328,13 @@ spec:
         - containerPort: 80
 ```
 
-배포에 4 개의 pod 있는지 확인 하려면 다음을 수행 합니다.
+배포에 4개의 Pod가 있는지 확인하려면 다음을 수행합니다.
 
 ```powershell
 kubectl get pods -l app=nginx
 ```
 
-크기 조정 배포에 대 한 예제 출력은 다음과 같습니다.
+배포 크기를 2개에서 4개 Pod로 조정하는 예제 출력은 다음과 같습니다.
 
 ```powershell
 PS C:\WINDOWS\system32> kubectl get pods -l app=nginx
@@ -346,17 +346,17 @@ nginx-deployment-148880595-fxcez   1/1       Running   0          2m
 nginx-deployment-148880595-rwovn   1/1       Running   0          2m
 ```
 
-출력에서 볼 수 있듯이 이제 응용 프로그램을 실행할 수 있는 4 개의 pod 배포에 있습니다.
+출력에서 볼 수 있듯이, 이제 배포에서 애플리케이션을 실행할 수 있는 Pod가 4개 있습니다.
 
 ### <a name="delete-a-deployment"></a>배포 삭제
 
-모든 pod를 포함 하 여 배포를 삭제 하려면 `kubectl delete deployment` 배포 *nginx* 이름 및 네임 스페이스 이름을 지정 하 여를 실행 해야 합니다. 배포를 삭제 하려면:
+모든 Pod를 포함한 배포를 삭제하려면 배포 이름 *nginx-deployment* 및 네임스페이스 이름을 지정하여 `kubectl delete deployment`를 실행해야 합니다. 배포를 삭제하려면 다음을 수행합니다.
 
    ```powershell
    kubectl delete deployment nginx-deployment -n <namespace-string>
    ```
 
-명령 사용의 예는 다음과 같습니다. 출력은 다음과 같습니다.
+명령 사용법의 예와 출력은 다음과 같습니다.
 
 ```powershell
 PS C:\Users\user> kubectl delete deployment nginx-deployment -n "test1"

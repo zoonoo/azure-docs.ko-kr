@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: f4cc631bd3ff05dc63566677ec96ef0360d362c9
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: f36d5deb93f141bb7467a50d4b5dba7f3df1ea92
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517354"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517013"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
@@ -51,7 +51,7 @@ Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습�
 1. 첫 번째 쿼리(28~32번 줄)로 스크롤하여 쿼리 텍스트를 선택합니다.
 1. 실행을 클릭합니다. 선택한 코드만 실행됩니다.
 
-## <a name="gallery-a-collectiopn-of-sample-data-sets-and-sample-code"></a>갤러리: 샘플 데이터 세트 및 샘플 코드 모음
+## <a name="gallery-a-collection-of-sample-datasets-and-sample-code"></a>갤러리: 샘플 데이터 세트 및 샘플 코드 모음
 
 1. **지식 센터** 로 이동하여 **갤러리 찾아보기** 를 클릭합니다.
 1. 위쪽에서 **SQL 스크립트** 탭을 선택합니다.

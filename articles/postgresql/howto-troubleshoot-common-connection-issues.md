@@ -1,20 +1,21 @@
 ---
-title: 연결 문제 해결-Azure Database for PostgreSQL-단일 서버
-description: Azure Database for PostgreSQL 단일 서버에 대 한 연결 문제를 해결 하는 방법을 알아봅니다.
+title: 연결 문제 해결 - Azure Database for PostgreSQL - 단일 서버
+description: Azure Database for PostgreSQL - 단일 서버에 대한 연결 문제를 해결하는 방법을 알아봅니다.
 keywords: PostgreSQL 연결, 연결 문자열, 연결 문제, 일시적 오류, 연결 오류
-author: niklarin
-ms.author: nlarin
+author: sunilagarwal
+ms.author: sunila
+ms.reviewer: ''
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7fe8c4b751be174a91a0e2e94991bc63b4b1e5c7
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96014621"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504246"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 연결 문제 해결
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버에 대한 연결 문제 해결
 
 연결 문제는 다음과 같은 다양한 작업으로 인해 발생할 수 있습니다.
 
@@ -46,16 +47,16 @@ ms.locfileid: "96014621"
 
 애플리케이션에서 Azure Database for PostgreSQL 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
 
-* 서버 방화벽 구성: 프록시 서버 및 게이트웨이를 포함 하 여 클라이언트의 연결을 허용 하도록 Azure Database for PostgreSQL 서버 방화벽이 구성 되어 있는지 확인 합니다.
-* 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 대 한 연결을 허용 해야 합니다. 일부 방화벽에서 PostgreSQL과 같은 애플리케이션 이름뿐만 아니라 연결할 수 없는 서버의 IP 주소 및 포트도 허용되어야 합니다.
-* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락 된 *\@ servername* 접미사가 포함 된 연결 매개 변수를 잘못 입력 했을 수 있습니다.
-* _Ipv6 연결을 허용 하도록 서버가 구성 되어 있지 않습니다_. 라는 오류 메시지가 표시 되 면 기본 계층이 VNet 서비스 끝점을 지원 하지 않습니다. 기본 서버에 연결 하려는 서브넷에서 Microsoft .Sql 끝점을 제거 해야 합니다.
-* _Ssl 지원을 오류로 컴파일하지 않을 때 연결 오류 sslmode 값 "* * *"이 잘못_ 된 경우 POSTGRESQL 클라이언트가 ssl을 지원 하지 않음을 의미 합니다. 대부분의 경우 클라이언트 쪽 libpq는 "--openssl" 플래그를 사용 하 여 컴파일되지 않은 것입니다. SSL이 지원 되는 PostgreSQL 클라이언트와의 연결을 시도 하세요. 
+* 서버 방화벽 구성: Azure Database for PostgreSQL 서버 방화벽이 프록시 서버 및 게이트웨이를 포함하여 클라이언트에서 연결을 허용하도록 구성되어 있는지 확인합니다.
+* 클라이언트 방화벽 구성: 클라이언트의 방화벽은 데이터베이스 서버에 연결을 허용해야 합니다. 연결할 수 없는 서버의 IP 주소와 포트는 허용되어야 하며, 일부 방화벽에서는 PostgreSQL과 같은 애플리케이션 이름이 허용되어야 합니다.
+* 사용자 오류: 연결 문자열의 서버 이름 또는 사용자 이름에 누락된 *\@서버 이름* 접미사와 같은 연결 매개 변수가 잘못 입력되었을 수 있습니다.
+* _서버가 ipv6 연결을 허용하도록 구성되지 않음_ 오류가 표시되는 경우, 기본 계층에서는 VNet 서비스 엔드포인트를 지원하지 않습니다. 기본 서버에 연결하려는 서브넷에서 Microsoft.Sql 엔드포인트를 제거해야 합니다.
+* _SSL 지원이 컴파일되지 않을 때 sslmode 값 "***"가 유효하지 않음_ 연결 오류가 표시되는 경우 PostgreSQL 클라이언트가 SSL을 지원하지 않음을 의미합니다. 대부분의 경우 클라이언트 쪽 libpq는 "--with-openssl" 플래그로 컴파일되지 않습니다. SSL이 지원되는 PostgreSQL 클라이언트로 연결해 보세요. 
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>영구적인 연결 문제를 해결하는 단계
 
-1. 클라이언트 IP 주소를 허용 하도록 [방화벽 규칙](howto-manage-firewall-using-portal.md) 을 설정 합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
-2. 클라이언트와 인터넷 간의 모든 방화벽에서 아웃 바운드 연결에 대 한 포트 5432가 열려 있는지 확인 합니다.
+1. 클라이언트 IP 주소를 허용하도록 [방화벽 규칙](howto-manage-firewall-using-portal.md) 을 설정합니다. 임시 테스트 용도로만 목적으로만 0.0.0.0을 시작 IP 주소로 사용하고 255.255.255.255를 끝 IP 주소로 사용하여 방화벽 규칙을 설정합니다. 이렇게 하면 서버가 모든 IP 주소로 열립니다. 이렇게 해서 연결 문제가 해결되면 이 규칙을 제거하고 적절하게 제한된 IP 주소 또는 주소 범위에 대해 방화벽 규칙을 만듭니다.
+2. 클라이언트와 인터넷 간의 모든 방화벽에서 아웃바운드 연결을 위해 5432 포트가 열려 있는지 확인합니다.
 3. 연결 문자열 및 기타 연결 설정을 확인합니다.
 4. 대시보드에서 서비스 상태를 확인합니다. 지역 가동 중단이 있다고 생각되는 경우 새 영역으로 복구하는 단계는 [Azure Database for PostgreSQL의 비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.
 

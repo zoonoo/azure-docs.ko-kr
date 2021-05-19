@@ -1,35 +1,43 @@
 ---
-title: 아크 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
+title: Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Azure Arc 사용 클러스터 구성에 대 한 투구와 함께 GitOps 사용
+description: Azure Arc 지원 클러스터 구성을 위해 Helm에서 GitOps 사용
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 75e2fcb25680817fc3e2bddabbbdd9c52b7dd059
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: df9b40764ec463553659803749f282bbc4587bde
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121408"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106449546"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>아크 사용 Kubernetes 클러스터에서 GitOps를 사용 하 여 투구 차트 배포
+# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 Helm 차트 배포
 
-Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT, Yum 등의 Linux 패키지 관리자와 마찬가지로, 투구는 미리 구성 된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리 하는 데 사용 됩니다.
+Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하는 오픈 소스 패키징 도구입니다. APT 및 Yum과 같은 Linux 패키지 관리자와 마찬가지로 Helm은 사전 구성된 Kubernetes 리소스의 패키지인 Kubernetes 차트를 관리하는 데 사용합니다.
 
 이 문서에서는 Azure Arc 사용 Kubernetes에서 Helm을 구성하고 사용하는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="prerequisites"></a>필수 구성 요소
 
-기존 Azure Arc enabled Kubernetes 연결 된 클러스터가 있는지 확인 합니다. 연결 된 클러스터가 필요한 경우 [연결 a Azure Arc Enabled Kubernetes cluster 빠른](./quickstart-connect-cluster.md)시작을 참조 하세요.
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- 기존 Azure Arc 지원 Kubernetes 연결 클러스터.
+    - 아직 클러스터를 연결하지 않은 경우 [Azure Arc 지원 Kubernetes 클러스터 연결 빠른 시작](quickstart-connect-cluster.md)을 살펴보세요.
+- 이 기능의 이점과 아키텍처 이해. [구성 및 GitOps - Azure Arc 지원 Kubernetes 문서](conceptual-configurations.md)에서 자세히 알아보세요.
+- `k8s-configuration` Azure CLI 확장 버전 >= 1.0.0을 설치합니다.
+  
+  ```azurecli
+  az extension add --name k8s-configuration
+  ```
 
-## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc를 사용 하는 Kubernetes를 사용 하 여 GitOps 및 투구 사용에 대 한 개요
+## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes에서 GitOps 및 Helm 사용 개요
 
- Helm 연산자는 Helm 차트 릴리스를 자동화하는 Flux에 대한 확장을 제공합니다. 투구 차트 릴리스는 이라는 Kubernetes 사용자 지정 리소스를 통해 설명 합니다. Flux는 이러한 리소스를 Git에서 클러스터로 동기화 하지만, 투구 연산자는 리소스에 지정 된 대로 투구 차트가 해제 되도록 합니다.
+ Helm 연산자는 Helm 차트 릴리스를 자동화하는 Flux에 대한 확장을 제공합니다. Helm 차트 릴리스는 HelmRelease라는 Kubernetes 사용자 지정 리소스를 통해 설명됩니다. Flux는 이러한 리소스를 Git에서 클러스터로 동기화하는 반면 Helm 연산자는 리소스에 지정된 대로 Helm 차트가 릴리스되도록 합니다.
 
- 이 문서에 사용 된 [예제 리포지토리](https://github.com/Azure/arc-helm-demo) 는 다음과 같은 방식으로 구성 됩니다.
+ 이 문서에 사용된 [예제 리포지토리](https://github.com/Azure/arc-helm-demo)는 다음과 같은 방식으로 구성됩니다.
 
 ```console
 ├── charts
@@ -44,7 +52,7 @@ Helm은 Kubernetes 애플리케이션을 설치하고 수명 주기를 관리하
     └── app.yaml
 ```
 
-Git 리포지토리에는 투구 차트를 포함 하는 디렉터리와 릴리스 구성을 포함 하는 두 개의 디렉터리가 있습니다. 디렉터리에서 `releases` 에는 `app.yaml` 아래와 같은 HelmRelease 구성이 포함 되어 있습니다.
+Git 리포지토리에는 두 개의 디렉터리(Helm 차트를 포함하는 디렉터리와 릴리스 구성을 포함하는 디렉터리)가 있습니다. `releases` 디렉터리의 `app.yaml`에는 다음과 같은 HelmRelease 구성이 포함됩니다.
 
 ```yaml
 apiVersion: helm.fluxcd.io/v1
@@ -67,18 +75,18 @@ Helm 릴리스 구성에는 다음 필드가 포함되어 있습니다.
 | 필드 | 설명 |
 | ------------- | ------------- | 
 | `metadata.name` | 필수 필드입니다. Kubernetes 명명 규칙을 따라야 합니다. |
-| `metadata.namespace` | 선택적 필드입니다. 릴리스가 생성 되는 위치를 결정 합니다. |
-| `spec.releaseName` | 선택적 필드입니다. 제공 되지 않으면 릴리스 이름은이 됩니다 `$namespace-$name` . |
-| `spec.chart.path` | 차트를 포함 하는 디렉터리 (리포지토리 루트 기준)입니다. |
-| `spec.values` | 차트 자체의 기본 매개 변수 값에 대 한 사용자 지정 |
+| `metadata.namespace` | 선택적 필드입니다. 릴리스가 생성되는 위치를 결정합니다. |
+| `spec.releaseName` | 선택적 필드입니다. 제공되지 않은 경우 릴리스 이름은 `$namespace-$name`입니다. |
+| `spec.chart.path` | 차트를 포함하는 디렉터리(리포지토리 루트 기준). |
+| `spec.values` | 차트 자체에서 기본 매개 변수 값의 사용자 사용자 지정. |
 
-이 옵션은 `spec.values` 차트 원본에서에 지정 된 옵션을 재정의 합니다 `values.yaml` .
+HelmRelease `spec.values`에 지정된 옵션은 차트 원본의 `values.yaml`에 지정된 옵션을 재정의합니다.
 
-공식 [투구 운영자 설명서](https://docs.fluxcd.io/projects/helm-operator/en/stable/)에서 추가 정보를 확인할 수 있습니다.
+공식 [Helm 연산자 설명서](https://docs.fluxcd.io/projects/helm-operator/en/stable/)에서 HelmRelease에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="create-a-configuration"></a>구성 만들기
 
-의 Azure CLI 확장을 사용 하 여 `k8s-configuration` 연결 된 클러스터를 예제 Git 리포지토리에 연결 합니다. 이 구성에 이름을 지정 `azure-arc-sample` 하 고 네임 스페이스에 Flux 연산자를 배포 `arc-k8s-demo` 합니다.
+`k8s-configuration`에 대한 Azure CLI 확장을 사용하여 연결된 클러스터를 예제 Git 리포지토리에 연결합니다. 이 구성 이름을 `azure-arc-sample`로 지정하고 `arc-k8s-demo` 네임스페이스에 Flux 연산자를 배포합니다.
 
 ```console
 az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-chart-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
@@ -86,17 +94,17 @@ az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1
 
 ### <a name="configuration-parameters"></a>구성 매개 변수
 
-구성의 생성을 사용자 지정 하려면 [추가 매개 변수에 대해 알아보세요](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
+구성 만들기를 사용자 지정하려면 [추가 매개 변수에 대해 알아보세요](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="validate-the-configuration"></a>구성 유효성 검사
 
-Azure CLI 사용 하 여 구성이 성공적으로 만들어졌는지 확인 합니다.
+Azure CLI를 사용하여 구성이 성공적으로 만들어졌는지 확인합니다.
 
 ```console
 az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-구성 리소스는 준수 상태, 메시지 및 디버깅 정보로 업데이트 됩니다.
+구성 리소스는 규정 준수 상태, 메시지 및 디버깅 정보로 업데이트됩니다.
 
 ```output
 {
@@ -126,9 +134,9 @@ az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 -
 }
 ```
 
-## <a name="validate-application"></a>응용 프로그램 유효성 검사
+## <a name="validate-application"></a>애플리케이션 유효성 검사
 
-다음 명령을 실행 하 고 브라우저에서로 이동 하 여 `localhost:8080` 응용 프로그램이 실행 중인지 확인 합니다.
+다음 명령을 실행하고 브라우저에서 `localhost:8080`으로 이동하여 애플리케이션이 실행 중인지 확인합니다.
 
 ```console
 kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
@@ -136,4 +144,4 @@ kubectl port-forward -n arc-k8s-demo svc/arc-k8s-demo 8080:8080
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Policy](./use-azure-policy.md)를 사용 하 여 대규모로 클러스터 구성을 적용 합니다.
+[Azure Policy](./use-azure-policy.md)를 사용하여 대규모 클러스터 구성을 적용합니다.

@@ -2,207 +2,152 @@
 title: Azure Static Web Apps에 대한 로컬 개발 설정
 description: Azure Static Web Apps에 대한 로컬 개발 환경을 설정하는 방법을 알아봅니다.
 services: static-web-apps
-author: burkeholland
+author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.author: buhollan
+ms.date: 04/02/2021
+ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 8a45d490d060febc18d77c8487c9f562fd2a914a
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91326170"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106275519"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 로컬 개발 설정 미리 보기
 
-Azure Static Web Apps 인스턴스는 두 가지 유형의 애플리케이션으로 구성됩니다. 첫 번째는 정적 콘텐츠에 대한 웹앱입니다. 웹앱은 종종 프런트 엔드 프레임워크 및 라이브러리 또는 정적 사이트 생성기를 사용하여 생성됩니다. 두 번째 측면은 다양한 백 엔드 개발 환경을 제공하는 Azure Functions 앱인 API입니다.
+Azure Static Web Apps 사이트에는 클라우드에 게시될 때 동일한 애플리케이션처럼 함께 작동하는 서비스가 많습니다. 이러한 서비스에는 다음이 포함됩니다.
 
-클라우드에서 실행하는 경우 Azure Static Web Apps는 CORS 구성 없이 웹앱에서 Azure Functions 앱으로의 `api` 경로에 요청을 원활하게 매핑합니다. 로컬에서 이 동작을 모방하도록 애플리케이션을 구성해야 합니다.
+- 정적 웹앱
+- Azure Functions API
+- 인증 및 권한 부여 서비스
+- 라우팅 및 구성 서비스
 
-이 문서에서는 다음 개념을 포함하여 로컬 개발에 대한 권장 모범 사례를 보여 줍니다.
+이러한 서비스는 서로 통신해야 하며, Azure Static Web Apps는 클라우드에서 이 통합을 처리합니다.
 
-- 정적 콘텐츠에 대한 웹앱 설정
-- 애플리케이션의 API에 대한 Azure Functions 앱 구성
-- 애플리케이션 디버깅 및 실행
-- 앱의 파일 및 폴더 구조에 대한 모범 사례
+그러나, 로컬로 실행하는 경우 이러한 서비스는 자동으로 함께 연결되지 않습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+Azure에서 제공하는 것과 유사한 환경을 제공하기 위해 [Azure Static Web Apps CLI](https://github.com/Azure/static-web-apps-cli)는 다음과 같은 서비스를 제공합니다.
 
-- [Visual Studio Code](https://code.visualstudio.com/)
-- Visual Studio Code용 [Azure Functions 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-- Visual Studio Code용 [Live Server 확장](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
-  - 프런트 엔드 JavaScript 프레임워크 또는 정적 사이트 생성기의 CLI를 사용하고 있지 않은 경우에만 필요합니다.
+- 로컬 정적 사이트 서버
+- 프런트 엔드 프레임워크 개발 서버에 대한 프록시
+- API 엔드포인트에 대한 프록시 - Azure Functions Core Tools를 통해 사용 가능
+- 모의 인증 및 권한 부여 서비스
+- 로컬 경로 및 구성 설정 적용
 
-## <a name="run-projects-locally"></a>로컬로 프로젝트 실행
+## <a name="how-it-works"></a>작동 방식
 
-Azure Static Web App을 로컬로 실행하려면 프로젝트에 API가 포함되어 있는지 여부에 따라 3개의 프로세스가 필요합니다.
+다음 차트에서는 요청을 로컬로 처리하는 방법을 보여 줍니다.
 
-- 로컬 웹 서버 실행
-- API 실행
-- 웹 프로젝트를 API에 연결
+:::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI 요청 및 응답 흐름":::
 
-웹 사이트가 빌드되는 방식에 따라 로컬 웹 서버는 브라우저에서 애플리케이션을 실행하는 데 필요할 수도 있고 그렇지 않을 수도 있습니다. 프런트 엔드 JavaScript 프레임워크 및 정적 사이트 생성기를 사용하는 경우 이 기능은 해당 CLI(명령줄 인터페이스)에 기본 제공됩니다. 다음 링크는 프레임워크, 라이브러리 및 생성기 선택 항목에 대한 CLI 참조를 가리킵니다.
+> [!IMPORTANT]
+> [http://localhost:4280](http://localhost:4280)으로 이동하여 CLI에서 제공하는 애플리케이션에 액세스합니다.
 
-### <a name="javascript-frameworks-and-libraries"></a>JavaScript 프레임워크 및 라이브러리
+- 포트 `4280`으로 전송되는 **요청** 은 요청 형식에 따라 적합한 서버로 전달됩니다.
 
-- [Angular CLI](https://angular.io/cli)
-- [Vue CLI](https://cli.vuejs.org/guide/creating-a-project.html)
-- [React CLI](https://create-react-app.dev/)
+- HTML 또는 CSS와 같은 **정적 콘텐츠** 요청은 내부 CLI 정적 콘텐츠 서버에서 처리되거나 디버깅을 위해 프런트 엔드 프레임워크 서버에서 처리됩니다.
 
-### <a name="static-site-generators"></a>정적 사이트 생성기
+- **인증 및 권한 부여** 요청은 애플리케이션에 가짜 ID 프로필을 제공하는 에뮬레이터에서 처리됩니다.
 
-- [Gatsby CLI](https://www.gatsbyjs.org/docs/gatsby-cli/)
-- [Hugo](https://gohugo.io/getting-started/quick-start/)
-- [Jekyll](https://jekyllrb.com/docs/usage/)
+- **Functions Core Tools 런타임** 은 사이트의 API에 대한 요청을 처리합니다.
 
-CLI 도구를 사용하여 사이트를 제공하는 경우 [API 실행](#run-api-locally) 섹션으로 건너뛸 수 있습니다.
+- 모든 서비스의 **응답** 은 모두 단일 애플리케이션처럼 브라우저에 반환됩니다.
 
-### <a name="running-a-local-web-server-with-live-server"></a>Live Server를 사용하여 로컬 웹 서버 실행
+## <a name="prerequisites"></a>필수 구성 요소
 
-Visual Studio Code용 Live Server 확장은 정적 콘텐츠를 제공하는 로컬 개발 웹 서버를 제공합니다.
+- **기존 Azure Static Web Apps 사이트**: 사이트가 없는 경우 [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) 스타터 앱으로 시작합니다.
+- **npm이 있는 [Node.js](https://nodejs.org)** : [npm](https://www.npmjs.com/)에 대한 액세스를 포함하는 [Node.js LTS](https://nodejs.org) 버전을 실행합니다.
+- **[Visual Studio Code](https://code.visualstudio.com/)** : API 애플리케이션을 디버깅하는 데 사용되지만 CLI에는 필요하지 않습니다.
 
-#### <a name="create-a-repository"></a>리포지토리 만들기
+## <a name="get-started"></a>시작
 
-1. GitHub에 로그인 되어 있는지 확인 하 고 [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) 이 템플릿을 사용 하 여 **바닐라** 라는 새 GitHub 프로젝트를 탐색 하 고 만듭니다.
+기존 Azure Static Web Apps 사이트의 루트 폴더에 대한 터미널을 엽니다.
 
-    :::image type="content" source="media/local-development/vanilla-api.png" alt-text="GitHub 새 리포지토리 창":::
+1. CLI를 설치합니다.
 
-1. Visual Studio Code를 엽니다.
+    `npm install -g @azure/static-web-apps-cli`
 
-1. **F1** 키를 눌러 명령 팔레트를 엽니다.
+1. 애플리케이션에 필요한 경우 앱을 빌드합니다.
 
-1. 검색 상자에 **복제** 를 입력하고 **Git: 복제** 를 선택합니다.
+    `npm run build`를 실행하거나 프로젝트에 해당하는 명령을 실행합니다.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Visual Studio Code의 git 복제 옵션":::
+1. 앱의 출력 디렉터리로 변경합니다. 출력 폴더는 _빌드_ 또는 유사한 이름으로 지정되는 경우가 많습니다.
 
-1. **리포지토리 URL** 에 대해 다음 값을 입력합니다.
+1. CLI를 시작합니다.
 
-   ```http
-   git@github.com:<YOUR_GITHUB_ACCOUNT>/vanilla-api.git
-   ```
+    `swa start`
 
-1. 새 프로젝트의 폴더 위치를 선택합니다.
+1. [http://localhost:4280](http://localhost:4280)으로 이동하여 브라우저에서 앱을 봅니다.
 
-1. 복제된 리포지토리를 열 것인지 묻는 메시지가 표시되면 **열기** 를 선택합니다.
+### <a name="other-ways-to-start-the-cli"></a>CLI를 시작하는 다른 방법
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="새 창에서 열기":::
+| Description | 명령 |
+|--- | --- |
+| 특정 폴더 제공 | `swa start ./output-folder` |
+| 실행 중인 프레임워크 개발 서버 사용 | `swa start http://localhost:3000` |
+| 폴더에서 함수 앱 시작 | `swa start ./output-folder --api ./api` |
+| 실행 중인 함수 앱 사용 | `swa start ./output-folder --api http://localhost:7071` |
 
-Visual Studio Code에서 편집기에 복제된 프로젝트를 엽니다.
+## <a name="authorization-and-authentication-emulation"></a>인증 및 권한 부여 에뮬레이션
 
-### <a name="run-the-website-locally-with-live-server"></a>Live Server를 사용하여 웹 사이트를 로컬로 실행
+Static Web Apps CLI는 Azure에 구현된 [보안 흐름](./authentication-authorization.md)을 에뮬레이트합니다. 사용자가 로그인할 때 앱에 반환되는 가짜 ID 프로필을 정의할 수 있습니다.
 
-1. **F1** 키를 눌러 명령 팔레트를 엽니다.
+예를 들어, `/.auth/login/github`로 이동하려고 하면 ID 프로필을 정의할 수 있는 페이지가 반환됩니다.
 
-1. 검색 상자에 **Live Server** 를 입력하고 **Live Server: Live Server로 열기** 를 선택합니다.
+> [!NOTE]
+> 에뮬레이터는 GitHub뿐만 아니라 모든 보안 공급자와 함께 작동합니다.
 
-    애플리케이션을 표시하는 브라우저 탭이 열립니다.
+:::image type="content" source="media/local-development/auth-emulator.png" alt-text="로컬 인증 및 권한 부여 에뮬레이터":::
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="브라우저에서 실행되는 단순 정적 사이트":::
+에뮬레이터는 다음과 같은 [클라이언트 보안 주체](./user-information.md#client-principal-data) 값을 제공할 수 있는 페이지를 제공합니다.
 
-    이 애플리케이션은 `api/message` 엔드포인트에 대한 HTTP 요청을 수행합니다. 지금은 이 애플리케이션의 API 부분을 시작해야 하기 때문에 요청이 실패합니다.
+| 값 | 설명 |
+| --- | --- |
+| **사용자 이름** | 보안 공급자와 연결된 계정 이름입니다. 이 값은 클라이언트 보안 주체의 `userDetails` 속성으로 나타나며 값을 제공하지 않으면 자동으로 생성됩니다. |
+| **사용자 ID** | CLI에서 자동으로 생성되는 값입니다.  |
+| **역할** | 각 이름이 새 줄에 있는 역할 이름 목록입니다.  |
 
-### <a name="run-api-locally"></a>로컬로 API 실행
+로그인되면 다음을 수행합니다.
 
-Azure Static Web Apps API는 Azure Functions에서 제공합니다. Azure Static Web Apps 프로젝트에 API를 추가하는 방법에 대한 자세한 내용은 [Azure Functions를 사용하여 Azure Static Web Apps에 API 추가](add-api.md)를 참조하세요.
+- `/.auth/me` 엔드포인트 또는 함수 엔드포인트를 사용하여 사용자의 [클라이언트 보안 주체](./user-information.md)를 검색할 수 있습니다.
 
-API 만들기 프로세스의 일부로 Visual Studio Code에 대한 시작 구성이 생성됩니다. 이 구성은 _.vscode_ 폴더에 있습니다. 이 폴더에는 API를 로컬로 빌드 및 실행하는 데 필요한 모든 설정이 포함되어 있습니다.
+- `./auth/logout`로 이동하면 클라이언트 보안 주체가 지워지고 모의 사용자가 로그아웃됩니다.
 
-1. Visual Studio Code에서 **F5** 키를 눌러 API를 시작합니다.
+## <a name="debugging"></a>디버깅
 
-1. 새 터미널 인스턴스가 열리고 API 빌드 프로세스의 출력이 표시됩니다.
+정적 웹앱에는 두 가지 디버깅 컨텍스트가 있습니다. 첫 번째는 정적 콘텐츠 사이트용이고, 두 번째는 API 함수용입니다. Static Web Apps CLI가 이러한 컨텍스트 중 하나 또는 둘 모두에 대해 개발 서버를 사용할 수 있도록 하여 로컬 디버깅을 수행할 수 있습니다.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Visual Studio Code 터미널에서 실행되는 API":::
+다음 단계에서는 두 가지 디버깅 컨텍스트 모두에 대해 개발 서버를 사용하는 일반적인 시나리오를 설명합니다.
 
-   Visual Studio Code의 상태 표시줄은 이제 주황색입니다. 이 색은 이제 API가 실행 중이고 디버거가 연결되었음을 나타냅니다.
+1. 정적 사이트 개발 서버를 시작합니다. 이 명령은 사용 중인 프런트 엔드 프레임워크에만 적용되지만, `npm run build`, `npm start`, 또는 `npm run dev`와 같은 명령의 형태로 제공되는 경우가 많습니다.
 
-1. 다음으로 **Ctrl/Cmd** 를 누르고 터미널에서 URL을 클릭하여 API를 호출하는 브라우저 창을 엽니다.
+1. Visual Studio Code에서 API 애플리케이션 폴더를 열고 디버깅 세션을 시작합니다.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="API 호출의 브라우저 표시 결과":::
+1. 정적 서버 및 API 서버의 주소를 순서대로 나열하여 `swa start` 명령에 전달합니다.
 
-### <a name="debugging-the-api"></a>API 디버깅
+    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
 
-1. Visual Studio Code에서 _api/GetMessage/index.js_ 파일을 엽니다.
+다음 스크린샷에는 일반적인 디버깅 시나리오를 위한 터미널을 보여줍니다.
 
-1. 2줄의 왼쪽 여백을 클릭하여 중단점을 설정합니다. 중단점이 설정되었음을 나타내는 빨간색 점이 표시됩니다.
+정적 콘텐츠 사이트는 `npm run dev`를 통해 실행되고 있습니다.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Visual Studio Code의 중단점":::
+:::image type="content" source="media/local-development/run-dev-static-server.png" alt-text="정적 사이트 개발 서버":::
 
-1. 브라우저에서 <http://127.0.0.1:7071/api/message>에서 실행되는 페이지를 새로 고칩니다.
+Azure Functions API 애플리케이션이 Visual Studio Code에서 디버그 세션을 실행하고 있습니다.
 
-1. 중단점은 Visual Studio Code에서 적중되며 프로그램 실행이 일시 중지됩니다.
+:::image type="content" source="media/local-development/visual-studio-code-debugging.png" alt-text="Visual Studio Code API 디버깅":::
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Visual Studio Code의 중단점 적중":::
+Static Web Apps CLI는 두 개발 서버를 사용하여 시작됩니다.
 
-   API에 대해 [Visual Studio Code에서 전체 디버깅 환경을 사용할 수 있습니다](https://code.visualstudio.com/Docs/editor/debugging).
+:::image type="content" source="media/local-development/static-web-apps-cli-terminal.png" alt-text="Azure Static Web Apps CLI 터미널":::
 
-1. 디버그 표시줄에서 **계속** 단추를 눌러 실행을 계속합니다.
+이제 포트 `4280`을 통과하는 요청이 정적 콘텐츠 개발 서버 또는 API 디버깅 세션으로 라우팅됩니다.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Visual Studio Code의 계속 단추":::
-
-### <a name="calling-the-api-from-the-application"></a>애플리케이션에서 API 호출
-
-배포되면 Azure Static Web Apps는 이러한 요청을 _api_ 폴더의 엔드포인트에 자동으로 매핑합니다. 이 매핑을 통해 애플리케이션에서 API로의 요청을 다음 예제와 같이 확인할 수 있습니다.
-
-```javascript
-let response = await fetch("/api/message");
-```
-
-애플리케이션을 JavaScript 프레임워크 CLI로 빌드하는지 여부에 따라 애플리케이션을 로컬로 실행할 때 `api` 경로에 대한 경로를 구성하는 두 가지 방법이 있습니다.
-
-- 환경 구성 파일(JavaScript 프레임워크 및 라이브러리에 권장)
-- 로컬 프록시
-
-### <a name="environment-configuration-files"></a>환경 구성 파일
-
-CLI를 포함하는 프런트 엔드 프레임워크를 사용하여 앱을 빌드하는 경우 환경 구성 파일을 사용해야 합니다. 각 프레임워크 또는 라이브러리는 이러한 환경 구성 파일을 서로 다른 방식으로 처리합니다. 애플리케이션을 로컬로 실행할 때 사용되는 개발용 구성 파일과 애플리케이션을 프로덕션 환경에서 실행할 때 사용되는 프로덕션용 구성 파일을 사용하는 것이 일반적입니다. 사용 중인 JavaScript 프레임워크 또는 정적 사이트 생성기의 CLI는 앱이 Azure Static Web Apps에 의해 빌드될 때 개발 파일을 로컬로 사용하고 프로덕션 파일을 사용하는 것을 자동으로 인식합니다.
-
-개발 구성 파일에서 API에 대한 경로를 지정할 수 있습니다. 이 경로는 사이트에 대한 API가 로컬로 실행되는 `http:127.0.0.1:7071`의 로컬 위치를 가리킵니다.
-
-```
-API=http:127.0.0.1:7071/api
-```
-
-프로덕션 구성 파일에서 API의 경로를 `api`로 지정합니다. 이러한 방식으로 애플리케이션은 프로덕션 환경에서 실행될 때 "yoursite.com/api"를 통해 api를 호출합니다.
-
-```
-API=api
-```
-
-이러한 구성 값은 웹앱의 JavaScript에서 노드 환경 변수로 참조될 수 있습니다.
-
-```js
-let response = await fetch(`${process.env.API}/message`);
-```
-
-CLI를 사용하여 개발 모드에서 사이트를 실행하거나 프로덕션용 사이트를 빌드할 때 `process.env.API` 값이 적절한 구성 파일의 값으로 바뀝니다.
-
-프런트 엔드 JavaScript 프레임워크 및 라이브러리를 위한 환경 파일 구성에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-- [Angular 환경 변수](https://angular.io/guide/build#configuring-application-environments)
-- [React - 사용자 지정 환경 변수 추가](https://create-react-app.dev/docs/adding-custom-environment-variables/)
-- [Vue - 모드 및 환경 변수](https://cli.vuejs.org/guide/mode-and-env.html)
-
-[!INCLUDE [static-web-apps-local-proxy](../../includes/static-web-apps-local-proxy.md)]
-
-##### <a name="restart-live-server"></a>Live Server 다시 시작
-
-1. Visual Studio Code에서 **F1** 키를 눌러 명령 팔레트를 엽니다.
-
-1. **Live Server** 를 입력하고 **Live Server: Live Server 중지** 를 선택합니다.
-
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Visual Studio 명령 팔레트에서 Live Server 중지 명령":::
-
-1. **F1** 키를 눌러 명령 팔레트를 엽니다.
-
-1. **Live Server** 를 입력하고 **Live Server: Live Server로 열기** 를 선택하여 Live Server를 시작합니다.
-
-1. `http://locahost:3000`에서 실행되는 애플리케이션을 새로 고칩니다. 이제 브라우저는 API에서 반환된 메시지를 표시합니다.
-
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="브라우저에 표시되는 API의 Hello":::
+포트 및 서버 주소를 사용자 지정하는 방법에 대한 지침과 다양한 디버깅 시나리오에 대한 자세한 내용은 [Azure Static Web Apps CLI 리포지토리](https://github.com/Azure/static-web-apps-cli)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [앱 설정 구성](application-settings.md)
+> [애플리케이션 구성](configuration.md)

@@ -5,15 +5,15 @@ author: Heidilohr
 ms.topic: how-to
 ms.date: 10/02/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 9ec900f0537030d3ed0d1c875e8125806159bd51
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 2c1ce95f9eba8c31b20d8e992fa1880a5d33da8d
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98251457"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106447856"
 ---
-# <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용 하 여 Windows 가상 데스크톱 호스트 풀 만들기
+# <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>PowerShell을 사용하여 Windows Virtual Desktop 호스트 풀 만들기
 
 >[!IMPORTANT]
 >이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-powershell-2019.md)를 참조하세요.
@@ -101,7 +101,7 @@ Windows Virtual Desktop 에이전트를 설치하고 가상 머신을 Windows Vi
     > Azure AD DS(Azure Active Directory Domain Services) 환경에 VM을 조인하는 경우 도메인 가입 사용자가 [AAD DC 관리자 그룹](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group)의 멤버이기도 한지 확인합니다.
 
 >[!IMPORTANT]
->Windows Installer를 사용 하지 않도록 설정 하는 정책이 나 구성은 사용 하지 않는 것이 좋습니다. Windows Installer를 사용 하지 않도록 설정 하면 서비스에서 세션 호스트에 에이전트 업데이트를 설치할 수 없고 세션 호스트가 제대로 작동 하지 않습니다.
+>Windows Installer를 비활성화하는 정책이나 구성은 사용하지 않는 것이 좋습니다. Windows Installer를 비활성화하면 서비스에서 세션 호스트에 에이전트 업데이트를 설치할 수 없고 세션 호스트가 제대로 작동하지 않습니다.
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
 
@@ -112,7 +112,7 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
 1. 가상 머신을 만들 때 입력한 자격 증명으로 [가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)합니다.
 2. Windows Virtual Desktop 에이전트를 다운로드하여 설치합니다.
    - [Windows Virtual Desktop 에이전트](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)를 다운로드합니다.
-   - 설치 관리자를 실행합니다. 설치 관리자에서 등록 토큰을 묻는 메시지가 표시 되 면 **AzWvdRegistrationInfo** cmdlet에서 가져온 값을 입력 합니다.
+   - 설치 관리자를 실행합니다. 설치 관리자가 등록 토큰을 요청하면 **Get-AzWvdRegistrationInfo** cmdlet에서 가져온 값을 입력합니다.
 3. Windows Virtual Desktop 에이전트 부팅 로더를 다운로드하여 설치합니다.
    - [Windows Virtual Desktop 에이전트 부팅 로더](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH)를 다운로드합니다.
    - 설치 관리자를 실행합니다.
@@ -122,28 +122,28 @@ Windows Virtual Desktop 에이전트를 등록하려면 각 가상 머신에서 
 
 ## <a name="update-the-agent"></a>에이전트 업데이트
 
-다음 상황 중 하나에 해당 하는 경우 에이전트를 업데이트 해야 합니다.
+다음 상황 중 하나에 해당하는 경우 에이전트를 업데이트해야 합니다.
 
-- 이전에 등록 한 세션 호스트를 새 호스트 풀로 마이그레이션하려고 합니다.
+- 이전에 등록한 세션 호스트를 새 호스트 풀로 마이그레이션하려고 합니다.
 - 업데이트 후에도 호스트 풀에 세션 호스트가 나타나지 않음
 
-에이전트를 업데이트 하려면:
+에이전트를 업데이트하려면 다음을 수행합니다.
 
-1. 관리자 권한으로 VM에 로그인 합니다.
-2. **서비스** 로 이동한 다음 **Rdagent** 및 **원격 데스크톱 에이전트 로더** 프로세스를 중지 합니다.
-3. 그런 다음 에이전트 및 부팅 로더 Msi을 찾습니다. 이 폴더는 **C:\deployagent** 폴더에 있거나 설치할 때 저장 한 위치에 있습니다.
-4. 다음 파일을 찾아 제거 합니다.
+1. VM에 관리자로 로그인합니다.
+2. **서비스** 로 이동한 다음, **Rdagent** 및 **원격 데스크톱 에이전트 로더** 프로세스를 중지합니다.
+3. 다음으로, 에이전트 및 부팅 로더 MSI를 찾습니다. 이는 **C:\DeployAgent** 폴더에 있거나 설치할 때 저장한 위치에 있습니다.
+4. 다음 파일을 찾아 제거합니다.
      
-     - RDInfra-64-verx. x. x. x
-     - RDInfra. 설치 관리자-x64
+     - Microsoft.RDInfra.RDAgent.Installer-x64-verx.x.x
+     - Microsoft.RDInfra.RDAgentBootLoader.Installer-x64
 
-   이러한 파일을 제거 하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭 한 다음 **제거** 를 선택 합니다.
+   이러한 파일을 제거하려면 각 파일 이름을 마우스 오른쪽 단추로 클릭한 다음, **제거** 를 선택합니다.
 5. 필요에 따라 다음 레지스트리 설정을 제거할 수도 있습니다.
      
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
      - Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDAgentBootLoader
 
-6. 이러한 항목을 제거한 후에는 이전 호스트 풀과의 모든 연결을 제거 해야 합니다. 이 호스트를 서비스에 등록 하려면 [Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
+6. 이러한 항목을 제거하면 이전 호스트 풀과의 모든 연결이 제거됩니다. 이 호스트를 서비스에 다시 등록하려면 [Windows Virtual Desktop 호스트 풀에 가상 머신 등록](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)의 지침을 따르세요.
 
 
 ## <a name="next-steps"></a>다음 단계

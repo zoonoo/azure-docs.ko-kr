@@ -4,10 +4,10 @@ description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103419850"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
@@ -39,7 +39,7 @@ ms.locfileid: "103419850"
 
 사용자 지정 항목에 이벤트를 게시할 때 구독자가 이벤트에 관심이 있는지 더 쉽게 알 수 있도록 사용자 이벤트에 대한 제목을 만듭니다. 구독자는 제목 속성을 사용하여 이벤트를 필터링 및 라우팅합니다. 구독자가 해당 경로의 세그먼트를 기준으로 필터링할 수 있도록 이벤트가 발생하는 경로를 추가하는 것을 고려합니다. 구독자는 경로를 통해 이벤트를 제한적이거나 광범위하게 필터링할 수 있습니다. 제목에 `/A/B/C`와 같은 3개의 세그먼트 경로를 제공하는 경우 구독자는 첫 번째 세그먼트 `/A`를 기준으로 필터링하여 광범위한 이벤트 집합을 가져올 수 있습니다. 구독자는 `/A/B/C` 또는 `/A/D/E`와 같은 제목이 있는 이벤트를 가져옵니다. 다른 구독자는 `/A/B`를 기준으로 필터링하여 제한된 이벤트 집합을 얻을 수 있습니다.
 
-제목별로 필터링 하기 위한 JSON 구문은 다음과 같습니다.
+주체를 필터링하는 JSON 구문:
 
 ```json
 "filter": {
@@ -55,15 +55,15 @@ ms.locfileid: "103419850"
 
 * 연산자 형식 - 비교의 형식입니다.
 * 키 - 필터링에 사용하는 이벤트 데이터의 필드입니다. 숫자, 부울, 문자열 또는 배열일 수 있습니다.
-* values-키와 비교할 값입니다.
+* 값 - 키와 비교할 값입니다.
 
 ## <a name="key"></a>키
-키는 필터링에 사용 중인 이벤트 데이터의 필드입니다. 다음 유형 중 하나일 수 있습니다.
+키는 필터링에 사용하는 이벤트 데이터의 필드입니다. 다음 유형 중 하나일 수 있습니다.
 
 - 숫자
 - 부울
 - String
-- Array입니다. `enableAdvancedFilteringOnArrays`이 기능을 사용 하려면 속성을 true로 설정 해야 합니다. 현재 Azure Portal이 기능 사용을 지원 하지 않습니다. 
+- Array입니다. 이 기능을 사용하려면 `enableAdvancedFilteringOnArrays` 속성을 true로 설정해야 합니다. 현재까지 Azure Portal에서는 이 기능을 사용할 수 없습니다. 
 
     ```json
     "filter":
@@ -74,11 +74,11 @@ ms.locfileid: "103419850"
     }
     ```
 
-**Event Grid 스키마** 의 이벤트에 대해,,,, `ID` `Topic` `Subject` `EventType` `DataVersion` 또는 이벤트 데이터 ( `data.key1` 예:)에 대해 다음 값을 사용 합니다.
+**Event Grid 스키마** 의 이벤트의 경우에는 키에 `ID`, `Topic`, `Subject`, `EventType`, `DataVersion` 값 또는 이벤트 데이터(예: `data.key1`)를 사용합니다.
 
-**클라우드 이벤트 스키마** 의 이벤트에 대해 키에 `eventid` ,, `source` `eventtype` , `eventtypeversion` 또는 이벤트 데이터 값 (예:)을 사용 `data.key1` 합니다.
+**클라우드 이벤트 스키마** 의 이벤트의 경우에는 키에 `eventid`, `source`, `eventtype`, `eventtypeversion` 값 또는 이벤트 데이터(예: `data.key1`)를 사용합니다.
 
-**사용자 지정 입력 스키마** 의 경우와 같이 이벤트 데이터 필드를 사용 `data.key1` 합니다. 데이터 섹션의 필드에 액세스 하려면 `.` (점) 표기법을 사용 합니다. 예를 들어 `data.sitename` , `data.appEventTypeDetail.action` `sitename` `action` 다음 샘플 이벤트에 대해 또는에 액세스 합니다.
+**사용자 지정 입력 스키마** 의 경우 이벤트 데이터 필드(예: `data.key1`)를 사용합니다. 데이터 섹션의 필드에 액세스하려면 `.`(점) 표기법을 사용합니다. 예를 들어 다음 샘플 이벤트에 대해 `sitename` 또는 `action`에 액세스하려면 `data.sitename`, `data.appEventTypeDetail.action`을 사용합니다.
 
 ```json
     "data": {
@@ -95,14 +95,14 @@ ms.locfileid: "103419850"
 ```
 
 ## <a name="values"></a>값
-값은 number, string, boolean 또는 array 일 수 있습니다.
+값은 숫자, 문자열, 부울 또는 배열일 수 있습니다.
 
 ## <a name="operators"></a>연산자
 
-**숫자** 에 사용할 수 있는 연산자는 다음과 같습니다.
+**숫자** 에 사용 가능한 연산자는 다음과 같습니다.
 
 ## <a name="numberin"></a>NumberIn
-**키** 값이 지정 된 **필터** 값 중 하나인 경우 숫자 in 연산자는 true로 평가 됩니다. 다음 예제에서는 `counter` 섹션의 특성 값이 5 또는 1 인지 여부를 확인 `data` 합니다. 
+NumberIn 연산자는 **키** 값이 지정된 **필터** 값 중 하나이면 true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `counter` 특성의 값이 5 또는 1인지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -116,7 +116,7 @@ ms.locfileid: "103419850"
 ```
 
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a, b, c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a, b, c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -126,7 +126,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="numbernotin"></a>NumberNotIn
-**키** 값이 지정 된 **필터** 값이 **아닌** 경우에는 숫자 notin이 true로 평가 됩니다. 다음 예제에서는 `counter` 섹션의 특성 값이 41 및 0이 아닌지 여부를 확인 `data` 합니다. 
+NumberNotIn은 **키** 값이 지정된 **필터** 값이 **아닐** 때 true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `counter` 특성의 값이 41 및 0이 아닌지 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -139,7 +139,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a, b, c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a, b, c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -149,7 +149,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="numberlessthan"></a>NumberLessThan
-NumberLessThan 연산자는 **키** 값이 지정 된 **필터** 값 **보다 작은** 경우 true로 평가 됩니다. 다음 예제에서는 섹션의 특성 값이 100 미만인 지 여부를 확인 `counter` `data` 합니다. 
+NumberLessThan 연산자는 **키** 값이 지정된 **필터** 값보다 **작을 때** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `counter` 특성의 값이 100보다 작은지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -159,7 +159,7 @@ NumberLessThan 연산자는 **키** 값이 지정 된 **필터** 값 **보다 �
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값에 대해 검사 됩니다. 키가 포함 된 의사 코드 `[v1, v2, v3]` 는 다음과 같습니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터에 따라 확인됩니다. 키: `[v1, v2, v3]`가 포함된 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH key IN (v1, v2, v3)
@@ -168,7 +168,7 @@ FOR_EACH key IN (v1, v2, v3)
 ```
 
 ## <a name="numbergreaterthan"></a>NumberGreaterThan
-NumberGreaterThan 연산자는 **키** 값이 지정 된 **필터** 값 **보다 큰** 경우 true로 평가 됩니다. 다음 예제에서는 `counter` 섹션의 특성 값 `data` 이 20 보다 큰지 여부를 확인 합니다. 
+NumberGreaterThan 연산자는 **키** 값이 지정된 **필터** 값보다 **클 때** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `counter` 특성의 값이 20보다 큰지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -178,7 +178,7 @@ NumberGreaterThan 연산자는 **키** 값이 지정 된 **필터** 값 **보다
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값에 대해 검사 됩니다. 키가 포함 된 의사 코드 `[v1, v2, v3]` 는 다음과 같습니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터에 따라 확인됩니다. 키: `[v1, v2, v3]`가 포함된 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH key IN (v1, v2, v3)
@@ -187,7 +187,7 @@ FOR_EACH key IN (v1, v2, v3)
 ```
 
 ## <a name="numberlessthanorequals"></a>NumberLessThanOrEquals
-NumberLessThanOrEquals 연산자는 **키** 값이 지정 된 **필터** 값 **보다 작거나 같으면** true로 평가 됩니다. 다음 예제에서는 `counter` 섹션의 특성 값 `data` 이 100 보다 작거나 같은지 여부를 확인 합니다. 
+NumberLessThanOrEquals 연산자는 **키** 값이 지정된 **필터** 값보다 **작거나 같을 때** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `counter` 특성의 값이 100보다 작거나 같은지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -197,7 +197,7 @@ NumberLessThanOrEquals 연산자는 **키** 값이 지정 된 **필터** 값 **�
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값에 대해 검사 됩니다. 키가 포함 된 의사 코드 `[v1, v2, v3]` 는 다음과 같습니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터에 따라 확인됩니다. 키: `[v1, v2, v3]`가 포함된 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH key IN (v1, v2, v3)
@@ -206,7 +206,7 @@ FOR_EACH key IN (v1, v2, v3)
 ```
 
 ## <a name="numbergreaterthanorequals"></a>NumberGreaterThanOrEquals
-NumberGreaterThanOrEquals 연산자는 **키** 값이 지정 된 **필터** 값 **보다 크거나 같으면** true로 평가 됩니다. 다음 예제에서는 `counter` 섹션의 특성 값 `data` 이 30 보다 크거나 같은지 여부를 확인 합니다. 
+NumberGreaterThanOrEquals 연산자는 **키** 값이 지정된 **필터** 값보다 **크거나 같을 때** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `counter` 특성의 값이 30보다 크거나 같은지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -216,7 +216,7 @@ NumberGreaterThanOrEquals 연산자는 **키** 값이 지정 된 **필터** 값 
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값에 대해 검사 됩니다. 키가 포함 된 의사 코드 `[v1, v2, v3]` 는 다음과 같습니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터에 따라 확인됩니다. 키: `[v1, v2, v3]`가 포함된 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH key IN (v1, v2, v3)
@@ -224,8 +224,8 @@ FOR_EACH key IN (v1, v2, v3)
         MATCH
 ```
 
-## <a name="numberinrange"></a>숫자 범위
-**키** 값이 지정 된 **필터 범위** 중 하나에 있으면 숫자 inrange 연산자가 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값 `data` 이 두 범위 (3.14159-999.95, 3000-4000) 중 하나에 있는지 여부를 확인 합니다. 
+## <a name="numberinrange"></a>NumberInRange
+NumberInRange 연산자는 **키** 값이 지정된 **필터 범위** 중 하나에 있으면 true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 3.14159 - 999.95, 3000 - 4000의 두 범위 중 하나에 있는지 여부를 확인합니다. 
 
 ```json
 {
@@ -235,9 +235,9 @@ FOR_EACH key IN (v1, v2, v3)
 }
 ```
 
-`values`속성은 범위의 배열입니다. 이전 예제에서는 두 범위의 배열입니다. 확인할 범위가 하나 있는 배열의 예는 다음과 같습니다. 
+`values` 속성은 배열 범위입니다. 이전 예제에서는 두 범위의 배열입니다. 확인할 범위가 하나인 배열 예제는 다음과 같습니다. 
 
-**범위가 1 인 배열:** 
+**범위가 하나인 배열:** 
 ```json
 {
     "operatorType": "NumberInRange",
@@ -246,7 +246,7 @@ FOR_EACH key IN (v1, v2, v3)
 }
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 키를 포함 하는 의사 코드는 `[v1, v2, v3]` 및 필터: 범위의 배열입니다. 이 의사 코드에서 `a` 및 `b` 는 배열의 각 범위에서 낮은 값과 높은 값입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: 범위의 배열이 사용되는 의사 코드는 다음과 같습니다. 이 의사 코드에서 `a` 및 `b`는 배열에 있는 각 범위의 낮은 값과 높은 값입니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH (a,b) IN filter.Values
@@ -256,8 +256,8 @@ FOR_EACH (a,b) IN filter.Values
 ```
 
 
-## <a name="numbernotinrange"></a>숫자 Notinrange
-**키** 값이 지정 된 **필터 범위** 에 **속하지 않는** 경우에는 숫자 notinrange 연산자가 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값 `data` 이 두 범위 (3.14159-999.95, 3000-4000) 중 하나에 있는지 여부를 확인 합니다. 인 경우 연산자는 false를 반환 합니다. 
+## <a name="numbernotinrange"></a>NumberNotInRange
+NumberNotInRange 연산자는 **키** 값이 지정된 **필터 범위** 에 **없으면** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 3.14159 - 999.95, 3000 - 4000의 두 범위 중 하나에 있는지 여부를 확인합니다. 범위에 있으면 연산자가 false를 반환합니다. 
 
 ```json
 {
@@ -266,9 +266,9 @@ FOR_EACH (a,b) IN filter.Values
     "values": [[3.14159, 999.95], [3000, 4000]]
 }
 ```
-`values`속성은 범위의 배열입니다. 이전 예제에서는 두 범위의 배열입니다. 확인할 범위가 하나 있는 배열의 예는 다음과 같습니다.
+`values` 속성은 배열 범위입니다. 이전 예제에서는 두 범위의 배열입니다. 확인할 범위가 하나인 배열 예제는 다음과 같습니다.
 
-**범위가 1 인 배열:** 
+**범위가 하나인 배열:** 
 ```json
 {
     "operatorType": "NumberNotInRange",
@@ -277,7 +277,7 @@ FOR_EACH (a,b) IN filter.Values
 }
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 키를 포함 하는 의사 코드는 `[v1, v2, v3]` 및 필터: 범위의 배열입니다. 이 의사 코드에서 `a` 및 `b` 는 배열의 각 범위에서 낮은 값과 높은 값입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: 범위의 배열이 사용되는 의사 코드는 다음과 같습니다. 이 의사 코드에서 `a` 및 `b`는 배열에 있는 각 범위의 낮은 값과 높은 값입니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH (a,b) IN filter.Values
@@ -287,10 +287,10 @@ FOR_EACH (a,b) IN filter.Values
 ```
 
 
-**부울** 에 사용할 수 있는 연산자는 다음과 같습니다. 
+**부울** 에 사용 가능한 연산자는 다음과 같습니다. 
 
 ## <a name="boolequals"></a>BoolEquals
-BoolEquals 연산자는 **키** 값이 지정 된 부울 값 **필터** 이면 true로 평가 됩니다. 다음 예제에서는 섹션의 특성 값이 인지 여부를 확인 `isEnabled` `data` `true` 합니다. 
+BoolEquals 연산자는 **키** 값이 지정된 부울 값 **필터** 이면 true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `isEnabled` 특성의 값이 `true`인지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -300,7 +300,7 @@ BoolEquals 연산자는 **키** 값이 지정 된 부울 값 **필터** 이면 t
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 부울 값을 기준으로 검사 됩니다. 키가 포함 된 의사 코드 `[v1, v2, v3]` 는 다음과 같습니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 부울 값에 따라 확인됩니다. 키: `[v1, v2, v3]`가 포함된 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH key IN (v1, v2, v3)
@@ -308,10 +308,10 @@ FOR_EACH key IN (v1, v2, v3)
         MATCH
 ```
 
-**문자열** 에 사용할 수 있는 연산자는 다음과 같습니다.
+**문자열** 에 사용 가능한 연산자는 다음과 같습니다.
 
 ## <a name="stringcontains"></a>StringContains
-**Stringcontains** 는 **키** 값에 지정 된 **필터** 값 (부분 문자열)이 **포함** 된 경우 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값이 `data` 지정 된 부분 문자열 중 하나 ( `microsoft` 또는)를 포함 하는지 확인 `azure` 합니다. 예를 들어,에 `azure data factory` 는가 `azure` 있습니다. 
+**StringContains** 는 **키** 값에 지정된 **필터** 값(부분 문자열)이 **포함** 되는 경우 true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 지정된 부분 문자열 `microsoft` 또는 `azure` 중 하나를 포함하는지 여부를 확인합니다. 예를 들어 `azure data factory`에는 `azure`가 포함됩니다. 
 
 ```json
 "advancedFilters": [{
@@ -324,7 +324,7 @@ FOR_EACH key IN (v1, v2, v3)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -334,7 +334,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringnotcontains"></a>StringNotContains
-**Stringnotcontains** 연산자는 지정 된 **필터** 값을 하위 문자열로 **포함 하지** **않는 경우** true로 평가 됩니다. 키에 지정 된 값 중 하나를 하위 문자열로 포함 하는 경우 연산자는 false로 평가 됩니다. 다음 예제에서 연산자는 `key1` 섹션의 특성 값에 `data` `contoso` 및 부분 문자열이 없는 경우에만 true를 반환 합니다 `fabrikam` . 
+**StringNotContains** 연산자는 **키** 에 지정된 **필터** 값이 부분 문자열로 **포함되지 않는 경우** true로 평가됩니다. 키에 지정된 값 중 하나가 부분 문자열로 포함된 경우 연산자가 false로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `contoso` 및 `fabrikam`을 부분 문자열로 포함하지 않는 경우에만 연산자가 true를 반환합니다. 
 
 ```json
 "advancedFilters": [{
@@ -347,7 +347,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -355,10 +355,10 @@ FOR_EACH filter IN (a, b, c)
         IF key CONTAINS filter
             FAIL_MATCH
 ```
-이 연산자의 현재 제한 사항에 대 한 [제한](#limitations) 섹션을 참조 하세요.
+이 연산자의 현재 제한 사항에 대해서는 [제한 사항](#limitations) 섹션을 참조하세요.
 
 ## <a name="stringbeginswith"></a>StringBeginsWith
-**StringBeginsWith** 연산자는 **키** 값이 지정 된 **필터** 값 **으로 시작** 하는 경우 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값이 `data` 또는로 시작 하는지 여부를 확인 합니다 `event` `grid` . 예를 들어는 `event hubs` 로 시작 `event` 합니다.  
+**StringBeginsWith** 연산자는 **키** 값이 지정된 **필터** 값으로 **시작하는 경우** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `event` 또는 `grid`로 시작하는지 여부를 확인합니다. 예를 들어 `event hubs`는 `event`로 시작합니다.  
 
 ```json
 "advancedFilters": [{
@@ -371,7 +371,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -381,7 +381,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringnotbeginswith"></a>StringNotBeginsWith
-**StringNotBeginsWith** 연산자는 **키** 값이 지정 된 **필터** 값 **으로 시작 하지** 않는 경우 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값이 `data` 또는로 시작 하지 않는지 확인 합니다 `event` `message` .
+**StringNotBeginsWith** 연산자는 **키** 값이 지정된 **필터** 값으로 **시작하지 않는 경우** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `event` 또는 `message`로 시작하지 않는지 여부를 확인합니다.
 
 ```json
 "advancedFilters": [{
@@ -394,7 +394,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -404,7 +404,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringendswith"></a>StringEndsWith
-**Stringendswith** 연산자는 **키** 값이 지정 된 **필터** 값 중 하나로 **끝나는** 경우 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값이 `data` 또는 또는로 끝나는지 여부를 확인 `jpg` `jpeg` `png` 합니다. 예를 들어는 `eventgrid.png` 로 끝납니다 `png` .
+**StringEndsWith** 연산자는 **키** 값이 지정된 **필터** 값으로 **끝나는 경우** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `jpg`, `jpeg` 또는 `png`로 끝나는지 여부를 확인합니다. 예를 들어 `eventgrid.png`는 `png`로 끝납니다.
 
 
 ```json
@@ -419,7 +419,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -429,7 +429,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringnotendswith"></a>StringNotEndsWith
-**키** 값이 지정 된 **필터** 값 **으로 끝나지** 않는 경우 **stringnotendswith** 연산자는 true로 평가 됩니다. 다음 예제에서는 `key1` 섹션의 특성 값이 `data` 또는 또는로 끝나지 않는지 여부를 확인 합니다 `jpg` `jpeg` `png` . 
+**StringNotEndsWith** 연산자는 **키** 값이 지정된 **필터** 값으로 **끝나지 않는 경우** true로 평가됩니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `jpg`, `jpeg` 또는 `png`로 끝나지 않는지 여부를 확인합니다. 
 
 
 ```json
@@ -444,7 +444,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -454,7 +454,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringin"></a>StringIn
-**Stringin** 연산자는 **키** 값이 지정 된 **필터** 값 중 하 나와 **정확 하 게 일치** 하는지 여부를 확인 합니다. 다음 예제에서는 `key1` 섹션의 특성 값 `data` 이 또는 인지 여부를 확인 합니다 `exact` `string` `matches` . 
+**StringIn** 연산자는 **키** 값이 지정된 **필터** 값 중 하나와 **정확히 일치** 하는지 여부를 확인합니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `exact`, `string` 또는 `matches`인지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -468,7 +468,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -478,7 +478,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringnotin"></a>StringNotIn
-**Stringnotin** 연산자는 **키** 값이 지정 된 **필터** 값 **과 일치 하지** 않는지 여부를 확인 합니다. 다음 예제에서는 섹션의 특성 값이 및이 아닌지 여부를 확인 합니다 `key1` `data` `aws` `bridge` . 
+**StringNotIn** 연산자는 **키** 값이 지정된 **필터** 값과 **일치하지 않는지** 여부를 확인합니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `aws` 및 `bridge`가 아닌지 확인합니다. 
 
 ```json
 "advancedFilters": [{
@@ -491,7 +491,7 @@ FOR_EACH filter IN (a, b, c)
 }]
 ```
 
-키가 배열인 경우 배열의 모든 값은 필터 값의 배열에 대해 검사 됩니다. 다음은 키가 있는 의사 코드 `[v1, v2, v3]` 와 필터 `[a,b,c]` 입니다. 필터의 데이터 형식과 일치 하지 않는 데이터 형식의 키 값은 모두 무시 됩니다.
+키가 배열이면 배열의 모든 값이 필터 값의 배열에 따라 확인됩니다. 키: `[v1, v2, v3]` 및 필터: `[a,b,c]`의 의사 코드는 다음과 같습니다. 필터의 데이터 형식과 일치하지 않는 데이터 형식의 키 값은 무시됩니다.
 
 ```
 FOR_EACH filter IN (a, b, c)
@@ -501,16 +501,16 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 
-모든 문자열 비교는 대/소문자를 구분 하지 않습니다.
+모든 문자열 비교는 대/소문자를 구분합니다.
 
 > [!NOTE]
-> 이벤트 JSON에 고급 필터 키가 포함 되어 있지 않으면 필터는 다음 연산자에 대해 **일치 하지 않는** 것으로 Evaulated. NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, 숫자 In, BoolEquals, stringcontains, StringNotContains, StringBeginsWith, StringNotBeginsWith, Stringcontains, StringNotEndsWith, stringcontains.
+> 이벤트 JSON에 고급 필터 키가 포함되지 않은 경우 필터가 NumberGreaterThan, NumberGreaterThanOrEquals, NumberLessThan, NumberLessThanOrEquals, NumberIn, BoolEquals, StringContains, StringNotContains, StringBeginsWith, StringNotBeginsWith, StringEndsWith, StringNotEndsWith, StringIn 연산자에 대해 **일치하지 않음** 으로 평가됩니다.
 > 
->다음 연산자와 **일치** 하는 필터를 evaulated 합니다.
+>이 필터는NumberNotIn, StringNotIn 연산자에 대해 **일치함** 으로 평가됩니다.
 
 
 ## <a name="isnullorundefined"></a>IsNullOrUndefined
-키의 값이 NULL 이거나 정의 되지 않은 경우 IsNullOrUndefined 연산자가 true로 평가 됩니다. 
+IsNullOrUndefined 연산자는 키 값이 NULL 또는 정의되지 않은 경우 true로 평가됩니다. 
 
 ```json
 {
@@ -519,7 +519,7 @@ FOR_EACH filter IN (a, b, c)
 }
 ```
 
-다음 예에서는 key1이 없으므로 연산자가 true로 평가 됩니다. 
+다음 예제에서는 key1이 누락되었으므로 연산자가 true로 평가됩니다. 
 
 ```json
 { 
@@ -530,7 +530,7 @@ FOR_EACH filter IN (a, b, c)
 }
 ```
 
-다음 예에서 key1은 null로 설정 되므로 연산자가 true로 평가 됩니다.
+다음 예제에서 key1은 null로 설정되므로 연산자가 true로 평가됩니다.
 
 ```json
 {
@@ -541,10 +541,10 @@ FOR_EACH filter IN (a, b, c)
 }
 ```
 
-이 예에서는 key1에 다른 값이 있는 경우 연산자가 false로 평가 됩니다. 
+이 예제에서 key1에 다른 값이 있으면 연산자가 false로 평가됩니다. 
 
 ## <a name="isnotnull"></a>IsNotNull
-IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 true로 평가 됩니다. 
+IsNotNull 연산자는 키의 값이 NULL이 아니거나 정의되지 않았으면 true로 평가됩니다. 
 
 ```json
 {
@@ -553,8 +553,8 @@ IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 
 }
 ```
 
-## <a name="or-and-and"></a>OR 및 및
-여러 값이 있는 단일 필터를 지정 하는 경우 **또는** 작업이 수행 되므로 키 필드의 값은 다음 값 중 하나 여야 합니다. 예를 들면 다음과 같습니다.
+## <a name="or-and-and"></a>OR 및 AND
+여러 값으로 단일 필터를 지정하면 **OR** 연산이 수행됩니다. 따라서 키 필드의 값이 해당 값 중 하나여야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 "advancedFilters": [
@@ -569,7 +569,7 @@ IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 
 ]
 ```
 
-여러 필터를 지정 하는 경우 **및** 작업이 수행 되므로 각 필터 조건이 충족 되어야 합니다. 예를 들면 다음과 같습니다. 
+다른 여러 필터를 지정하는 경우 **AND** 연산이 수행됩니다. 따라서 각 필터 조건이 충족되어야 합니다. 예를 들면 다음과 같습니다. 
 
 ```json
 "advancedFilters": [
@@ -591,9 +591,9 @@ IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 
 ```
 
 ## <a name="cloudevents"></a>CloudEvents 
-**CloudEvents 스키마** 의 이벤트에 대해,,, `eventid` `source` `eventtype` `eventtypeversion` 또는 이벤트 데이터 ( `data.key1` 예:)에 대해 다음 값을 사용 합니다. 
+**CloudEvents 스키마** 에 있는 이벤트의 경우 키에 `eventid`, `source`, `eventtype`, `eventtypeversion` 값 또는 이벤트 데이터(예: `data.key1`)를 사용합니다. 
 
-[CloudEvents 1.0에서 확장 컨텍스트 특성](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes)을 사용할 수도 있습니다. 다음 예제에서 `comexampleextension1` 및 `comexampleothervalue` 는 확장 컨텍스트 특성입니다. 
+[CloudEvents 1.0에서 확장 컨텍스트 특성](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md#extension-context-attributes)을 사용할 수도 있습니다. 다음 예제에서 `comexampleextension1` 및 `comexampleothervalue`는 확장 컨텍스트 특성입니다. 
 
 ```json
 {
@@ -614,7 +614,7 @@ IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 
 }
 ```
 
-다음은 필터에 확장 컨텍스트 특성을 사용 하는 예입니다.
+다음은 필터에서 확장 컨텍스트 특성을 사용하는 예제입니다.
 
 ```json
 "advancedFilters": [{
@@ -632,11 +632,11 @@ IsNotNull 연산자는 키의 값이 NULL 이거나 정의 되지 않은 경우 
 
 고급 필터링에는 다음과 같은 제한이 있습니다.
 
-* 5 이벤트 그리드 구독 당 모든 필터의 고급 필터 및 25 필터 값
+* Event Grid 구독당 모든 필터 값이 고급 필터 5개 및 필터 25개로 제한됨
 * 문자열 값당 512자
 * **in** 및 **not in** 연산자에 대한 5개의 값
-* `StringNotContains`현재이 연산자는 포털에서 사용할 수 없습니다.
-* 문자에 **`.` (점)** 이 있는 키입니다. 예를 들어 `http://schemas.microsoft.com/claims/authnclassreference` 또는 `john.doe@contoso.com`입니다. 현재는 키에 이스케이프 문자를 사용할 수 없습니다. 
+* `StringNotContains` 연산자는 현재 포털에서 사용할 수 없습니다.
+* **`.`(점)** 문자가 포함된 키. 예를 들어 `http://schemas.microsoft.com/claims/authnclassreference` 또는 `john.doe@contoso.com`입니다. 현재까지는 키에서 이스케이프 문자가 지원되지 않습니다. 
 
 둘 이상의 필터에 동일한 키를 사용할 수 있습니다.
 

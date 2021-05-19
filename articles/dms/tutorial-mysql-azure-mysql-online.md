@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b7afc6c82f06e977caea90ac3e8d2355d56c920d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 561cc2a32ce7c9d3fd61fafb47326ce9c95cad45
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129768"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753204"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](../mysql/index.yml)로 마이그레이션할 수 있습니다. 즉 애플리케이션의 가동 중지 시간을 최소화하면서 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 온라인 마이그레이션 작업을 사용하여 **Employees** 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL로 마이그레이션합니다.
 
 > [!IMPORTANT]
-> "MySQL에서 Azure Database for MySQL로" 온라인 마이그레이션 시나리오는 2021년 6월 1일부터 병렬화된 고성능의 오프라인 마이그레이션 시나리오로 대체됩니다. 온라인 마이그레이션의 경우 이 새 제품을 [데이터 입력 복제](../mysql/concepts-data-in-replication.md)와 함께 사용할 수 있습니다. 또는 온라인 마이그레이션에 대한 데이터 입력 복제 기능이 있는 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용합니다. 
+> "MySQL to Azure Database for MySQL" 온라인 마이그레이션 시나리오는 **2021년 6월 1일 이후에 더 이상 사용할 수 없습니다**. "MySQL to Azure Database for MySQL" 마이그레이션을 지원하기 위해 병렬화되고 성능이 뛰어난 [오프라인 마이그레이션 기능](./tutorial-mysql-azure-mysql-offline-portal.md)을 **이제 미리 보기에서 사용할 수 있습니다**. 온라인 마이그레이션의 경우에는 [데이터 입력 복제](/azure/mysql/concepts-data-in-replication) 기능이 있는 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용합니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]

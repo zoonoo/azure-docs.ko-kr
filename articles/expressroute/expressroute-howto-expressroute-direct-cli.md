@@ -1,6 +1,6 @@
 ---
-title: 'Azure Express 경로: Express 경로 직접 구성: CLI'
-description: Azure CLI를 사용 하 여 Microsoft 글로벌 네트워크에 직접 연결 하도록 Azure Express 경로 다이렉트를 구성 하는 방법을 알아봅니다.
+title: 'Azure ExpressRoute: ExpressRoute Direct 구성: CLI'
+description: Azure CLI를 사용하여 Microsoft 글로벌 네트워크에 직접 연결하도록 Azure ExpressRoute Direct를 구성하는 방법을 알아봅니다.
 services: expressroute
 author: duongau
 ms.service: expressroute
@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 12/14/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d68011afe044535783dd8a8c56ed5d950c6d06b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9f35a698510f8637c3fe66528e6d64e5cd87b693
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099882"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106553824"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용하여 ExpressRoute Direct 구성
 
-Express 경로 다이렉트는 전 세계에 분산 된 피어 링 위치를 통해 Microsoft의 글로벌 네트워크에 직접 연결 하는 기능을 제공 합니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
+ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치를 통해 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해야 합니다. 등록 하려면 Azure PowerShell를 통해 다음을 수행 하세요.
-1.  Azure에 로그인 하 고 등록 하려는 구독을 선택 합니다.
+ExpressRoute Direct를 사용하려면 먼저 구독을 등록해야 합니다. ExpressRoute Direct를 사용하려면 먼저 구독을 등록해야 합니다. 등록하려면 Azure PowerShell을 통해 다음을 수행하세요.
+1.  Azure에 로그인하고 등록할 구독을 선택합니다.
 
     ```azurepowershell-interactive
     Connect-AzAccount 
@@ -30,12 +30,12 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
     Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
     ```
 
-2. 다음 명령을 사용 하 여 공개 미리 보기에 대 한 구독을 등록 합니다.
+2. 다음 명령을 사용하여 공개 미리 보기에 대한 구독을 등록합니다.
     ```azurepowershell-interactive
     Register-AzProviderFeature -FeatureName AllowExpressRoutePorts -ProviderNamespace Microsoft.Network
     ```
 
-등록 한 후에는 **Microsoft 네트워크** 리소스 공급자가 구독에 등록 되어 있는지 확인 합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
+등록한 후에는 **Microsoft.Network** 리소스 공급자가 구독에 등록되어 있는지 확인합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자에서 작동하도록 구성됩니다.
 
 ## <a name="create-the-resource"></a><a name="resources"></a>리소스 만들기
 
@@ -57,7 +57,7 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
    az account set --subscription "<subscription ID>"
    ```
 
-2. Expressrouteportslocation 및 expressrouteport Api에 액세스 하려면 구독을 Microsoft 네트워크에 다시 등록 합니다.
+2. expressrouteportslocation 및 expressrouteport API에 액세스하려면 Microsoft.Network에 대한 구독을 다시 등록합니다.
 
    ```azurecli
    az provider register --namespace Microsoft.Network
@@ -227,6 +227,14 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
    }  
    ```
 
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="resources"></a>LOA(승인 문서) 생성
+
+최근에 생성된 ExpressRoute Direct 리소스 이름, 리소스 그룹 이름 및 LOA를 작성하는 고객 이름을 입력하고 (선택 사항) 문서를 저장할 파일 위치를 정의합니다. 파일 경로를 참조하지 않으면 문서가 현재 디렉터리로 다운로드됩니다.
+
+```azurecli
+az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
+```
+
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>링크에 대한 AdminState 변경
 
 이 프로세스를 사용하여 계층 1 테스트를 수행합니다. 각 교차 연결을 기본 및 보조 포트의 각 라우터에 제대로 패치해야 합니다.
@@ -297,15 +305,15 @@ Express 경로 다이렉트를 사용 하기 전에 먼저 구독을 등록 해�
 
    동일한 절차에 따라 `AdminState = "Disabled"`를 사용하여 포트를 작동 중단합니다.
 
-## <a name="create-a-circuit"></a><a name="circuit"></a>회로 만들기
+## <a name="create-a-circuit"></a><a name="circuit"></a>회로 생성
 
 기본적으로 ExpressRoute Direct 리소스를 포함하는 구독에서 10개의 회로를 만들 수 있습니다. Microsoft 지원은 기본 제한을 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스의 모든 회로 대역폭 합계입니다. 사용된 대역폭은 기본 실제 인터페이스의 실제 사용량입니다.
 
 여기에 설명된 시나리오만 지원하도록 ExpressRoute Direct에서 추가 회로 대역폭을 사용할 수 있습니다. 대역폭은 40Gbps 및 100Gbps입니다.
 
-지역, 표준 또는 프리미엄 일 **수 있습니다.**
+**SkuTier** 는 로컬, 표준 또는 프리미엄일 수 있습니다.
 
-고가 Unlimiteddata **만 가능 합니다** . Express 경로 직접에서는 무제한이 지원 되지 않습니다.
+**SkuFamily** 는 MeteredData만 될 수 있습니다. ExpressRoute Direct에서는 무제한이 지원되지 않습니다.
 
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
