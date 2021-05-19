@@ -4,12 +4,12 @@ description: Oracle 데이터베이스용 BareMetal에서 사용할 수 있는 �
 ms.topic: overview
 ms.subservice: workloads
 ms.date: 04/16/2021
-ms.openlocfilehash: b27dc4b857d553be791528cbd91aee70b2294a92
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 91ec416c6f7c98100bf8ee00af2c060219e54693
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600219"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518345"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Azure BareMetal의 Oracle용 고가용성 기능
 
@@ -59,7 +59,7 @@ Data Guard는 스토리지 수준 복제보다 다음과 같은 이점을 제공
 
 BareMetal에서 사용되는 NetApp Files 스토리지 솔루션을 사용하면 볼륨의 스냅샷을 만들 수 있습니다. 스냅샷을 사용하면 파일 시스템을 특정 시점으로 빠르게 되돌릴 수 있습니다. 스냅샷 기술은 데이터베이스 백업을 복원하는 데 필요한 시간의 일부인 RTO(복구 시간 목표) 시간을 허용합니다.
 
-Oracle 데이터베이스의 스냅샷 기능은 Azure NetApp SnapCenter를 통해 사용할 수 있습니다. SnapCenter는 백업용 스냅샷을 지원하고, SnapVault는 오프라인 저장을 제공하며, Snap Clone은 셀프 서비스 복원 및 기타 작업을 지원합니다.
+Oracle 데이터베이스의 스냅샷 기능은 Azure NetApp SnapCenter를 통해 사용할 수 있습니다. SnapCenter는 백업용 스냅샷을 지원하고, SnapVault는 오프라인 저장을 제공하며, Snap Clone은 셀프 서비스 복원 및 기타 작업을 지원합니다. 자세한 내용은 [Baremetal Infrastructure의 Oracle용 SnapCenter 통합](netapp-snapcenter-integration-oracle-baremetal.md)을 참조하세요.
 
 ## <a name="recovery-manager"></a>Recovery Manager
 

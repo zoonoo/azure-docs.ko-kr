@@ -4,12 +4,12 @@ description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a89c37b8447b318c44faf0d4e0b1921d305e7f59
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519394"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91271650"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 
@@ -24,7 +24,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 >
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
@@ -122,4 +122,4 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Backup - FAQ](backup-azure-backup-faq.yml)
+* [Azure Backup - FAQ](backup-azure-backup-faq.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: v-demjoh
 keywords: 의도 인식
-ms.openlocfilehash: 215b25e440b8cad76e0656e47d32b184edf4ac66
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 532101c8cc307e6a5bb65022702b516c492a51fe
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018704"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107210374"
 ---
 # <a name="what-is-intent-recognition"></a>의도 인식이란?
 
@@ -33,9 +33,9 @@ ms.locfileid: "95018704"
 
 ## <a name="get-started"></a>시작
 
-의도 인식을 시작하려면 [빠른 시작](quickstarts/intent-recognition.md)을 참조하세요.
+의도 인식을 시작하려면 [빠른 시작](get-started-intent-recognition.md)을 참조하세요.
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 의도 인식용 샘플 코드:
 
@@ -53,6 +53,6 @@ ms.locfileid: "95018704"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 의도 인식 [빠른 시작](quickstarts/intent-recognition.md) 완료
+* 의도 인식 [빠른 시작](get-started-intent-recognition.md) 완료
 * [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)

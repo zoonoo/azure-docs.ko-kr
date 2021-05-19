@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용 하 여 Azure 사용자 지정 역할 만들기 또는 업데이트-Azure RBAC
-description: Azure RBAC (역할 기반 액세스 제어) 및 Azure CLI를 사용 하 여 Azure 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
+title: Azure CLI를 사용하여 사용자 지정 역할 만들기 또는 업데이트 - Azure RBAC
+description: Azure CLI 및 Azure RBAC(역할 기반 액세스 제어)를 사용하여 Azure 사용자 지정 역할을 나열하고, 만들고, 업데이트하고, 삭제하는 방법 알아보기.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 31dabcf77f0db76047919fa76d00f1c5ed3c96d6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d3d05ba65e0d3918f1651c36cd17700ebf74de76
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97369143"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107778340"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 역할 만들기 또는 업데이트
 
@@ -28,11 +28,11 @@ ms.locfileid: "97369143"
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 문서에서는 Azure CLI를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
+Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](built-in-roles.md)을 만들면 됩니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 역할을 나열하고, 만들고, 업데이트하고, 삭제하는 방법을 설명합니다.
 
-사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure CLI을 사용 하 여 Azure 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조 하세요.
+사용자 지정 역할을 만드는 방법에 대한 단계별 자습서는 [자습서: Azure CLI를 사용하여 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -41,7 +41,7 @@ Azure 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않
 
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
-할당에 사용할 수 있는 사용자 지정 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다. 다음 예에서는 현재 구독의 모든 사용자 지정 역할을 나열 합니다.
+할당에 사용할 수 있는 사용자 지정 역할을 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다. 다음 예제에서는 현재 구독의 모든 사용자 지정 역할을 나열합니다.
 
 ```azurecli
 az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -64,15 +64,15 @@ az role definition list --custom-role-only true --output json --query '[].{roleN
 ]
 ```
 
-## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열
+## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열하기
 
-사용자 지정 역할 정의를 나열 하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용 합니다. 이는 기본 제공 역할에 사용 하는 것과 동일한 명령입니다.
+사용자 지정 역할 정의를 나열하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다. 이 명령은 기본 제공 역할에 사용하는 것과 동일한 명령입니다.
 
 ```azurecli
 az role definition list --name {roleName}
 ```
 
-다음 예제에서는 *가상 머신 운영자* 역할 정의를 나열 합니다.
+다음 예제에서는 *Virtual Machine Operator* 역할 정의를 나열합니다.
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -114,7 +114,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-다음 예제에서는 *가상 머신 운영자* 역할의 작업만 나열 합니다.
+다음 예제에서는 *Virtual Machine Operator* 역할의 작업만 나열합니다.
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json --query '[].permissions[0].actions'
@@ -140,7 +140,7 @@ az role definition list --name "Virtual Machine Operator" --output json --query 
 
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 
-사용자 지정 역할을 만들려면 [az role definition create](/cli/azure/role/definition#az-role-definition-create)를 사용합니다. 역할 정의는 JSON 설명이거나, JSON 설명이 포함된 파일에 대한 경로가 될 수 있습니다.
+사용자 지정 역할을 만들려면 [az role definition create](/cli/azure/role/definition#az_role_definition_create)를 사용합니다. 역할 정의는 JSON 설명이거나, JSON 설명이 포함된 파일에 대한 경로가 될 수 있습니다.
 
 ```azurecli
 az role definition create --role-definition {roleDefinition}
@@ -183,13 +183,13 @@ az role definition create --role-definition ~/roles/vmoperator.json
 
 ## <a name="update-a-custom-role"></a>사용자 지정 역할 업데이트
 
-사용자 지정 역할을 업데이트하려면 먼저 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 [az role definition update](/cli/azure/role/definition#az-role-definition-update)를 사용하여 업데이트된 역할 정의를 저장합니다.
+사용자 지정 역할을 업데이트하려면 먼저 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용하여 역할 정의를 검색합니다. 그런 다음 역할 정의를 원하는 대로 변경합니다. 마지막으로 [az role definition update](/cli/azure/role/definition#az_role_definition_update)를 사용하여 업데이트된 역할 정의를 저장합니다.
 
 ```azurecli
 az role definition update --role-definition {roleDefinition}
 ```
 
-다음 예에서는에 *Microsoft diagnosticSettings//* 작업을 추가 하 `Actions` 고 `AssignableScopes` *Virtual Machine Operator* 사용자 지정 역할에 대 한 관리 그룹을에 추가 합니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
+다음 예제에서는 `Actions`에 *Microsoft.Insights/diagnosticSettings/* 작업을 추가하고 *Virtual Machine Operator* 사용자 지정 역할의 `AssignableScopes`에 관리 그룹을 추가합니다. `AssignableScopes`에 관리 그룹을 추가하는 것은 현재 미리 보기로 제공됩니다.
 
 vmoperator.json
 
@@ -228,7 +228,7 @@ az role definition update --role-definition ~/roles/vmoperator.json
 
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 
-사용자 지정 역할을 삭제하려면 [az role definition delete](/cli/azure/role/definition#az-role-definition-delete)를 사용합니다. 삭제할 역할을 지정하려면 역할 이름이나 역할 ID를 사용합니다. 역할 ID를 결정하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
+사용자 지정 역할을 삭제하려면 [az role definition delete](/cli/azure/role/definition#az_role_definition_delete)를 사용합니다. 삭제할 역할을 지정하려면 역할 이름이나 역할 ID를 사용합니다. 역할 ID를 결정하려면 [az role definition list](/cli/azure/role/definition#az_role_definition_list)를 사용합니다.
 
 ```azurecli
 az role definition delete --name {roleNameOrId}

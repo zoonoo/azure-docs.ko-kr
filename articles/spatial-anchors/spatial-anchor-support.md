@@ -1,6 +1,6 @@
 ---
 title: 지원 옵션
-description: Azure 공간 앵커 지원 팀에서 요청을 여는 방법에 대 한 정보입니다.
+description: Azure Spatial Anchors 지원 팀에서 요청을 여는 방법에 대한 정보입니다.
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
@@ -9,45 +9,45 @@ ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: f47f07fee70d2fc0ee445c6788a8ccb522b7774e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "95494712"
 ---
-# <a name="azure-spatial-anchors-support-options"></a>Azure 공간 앵커 지원 옵션
+# <a name="azure-spatial-anchors-support-options"></a>Azure Spatial Anchors 지원 옵션
 
 ## <a name="open-a-tech-support-ticket"></a>기술 지원 티켓 열기
 
-Azure Portal에서 Azure 공간 앵커에 대 한 기술 지원 티켓을 열려면 다음을 수행 합니다.
+Azure Portal에서 Azure Spatial Anchors에 대한 기술 지원 티켓을 열려면 다음을 수행합니다.
 
-1. [Azure Portal](https://azure.microsoft.com/account/) 열리면 상단 메뉴 모음에서 도움말 아이콘을 선택 하 고 **도움말 + 지원** 단추를 선택 합니다.
+1. [Azure Portal](https://azure.microsoft.com/account/)에서 상단 메뉴 모음에서 도움말 아이콘을 선택하고 **도움말 + 지원** 단추를 선택합니다.
 
 ![Azure Portal 도움말 및 지원](./media/spatial-anchor-support.png)
 
-1. 도움말 + 지원 페이지가 열리면 **+ 새 지원 요청** 을 선택 합니다.
+1. Azure 도움말 + 지원 페이지에서 **+새 지원 요청** 을 선택합니다.
 
-![새 지원 요청 Azure Portal](./media/spatial-anchor-support2.png)
+![Azure Portal 새 지원 요청](./media/spatial-anchor-support2.png)
 
-1. 지원 티켓 필드를 완료 하는 경우:
+1. 지원 티켓 필드 완료 시:
 
 - 문제 유형: 기술
-- 서비스: 공간 앵커
+- 서비스: Spatial Anchors
 
-![지원 티켓 필드 Azure Portal](./media/spatial-anchor-support3.png)
+![Azure Portal 지원 티켓 필드](./media/spatial-anchor-support3.png)
 
 ## <a name="community-support"></a>커뮤니티 지원
 
-사용자 커뮤니티에서 지원 되는 경우 [Stack Overflow의 Azure 공간 앵커](https://stackoverflow.com/questions/tagged/azure-spatial-anchors)를 참조 하세요.
+사용자 커뮤니티에서 지원을 받으려면 [Stack Overflow의 Azure Spatial Anchors](https://stackoverflow.com/questions/tagged/azure-spatial-anchors)를 참조하세요.
 
 ## <a name="provide-content-feedback"></a>콘텐츠 피드백 제공
 
-각 콘텐츠 문서의 아래쪽에 GitHub 문제를 열고 Azure 공간 고정 설명서 콘텐츠에 대 한 피드백을 제공할 수 있는 기회가 있습니다.
+각 콘텐츠 문서의 아래쪽에서 GitHub 문제를 열고 Azure Spatial Anchor 설명서 콘텐츠에 대한 피드백을 제공할 수 있습니다.
 
 ## <a name="provide-product-feedback"></a>제품 사용자 의견 제공
 
-사용자 의견을 제공 하거나, Azure 공간 앵커 서비스에 대 한 아이디어 또는 제안을 공유 하거나, 다른 사람이 제출한 아이디어에 투표 하려면 [Azure 공간 앵커 피드백 포럼](https://feedback.azure.com/forums/919252-azure-spatial-anchors)을 방문 하세요.
+사용자 의견을 제공하거나, Azure Spatial Anchors 서비스에 대한 아이디어 또는 제안을 공유하거나, 다른 사람이 제출한 아이디어에 투표하려면 [Azure Spatial Anchors 피드백 포럼](https://feedback.azure.com/forums/919252-azure-spatial-anchors)을 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 공간 앵커에 대 한 자주 묻는 질문은 [FAQ](spatial-anchor-faq.md) 페이지를 참조 하세요.
+Azure Spatial Anchors에 대한 질문과 대답을 보려면 [FAQ](spatial-anchor-faq.md) 페이지를 참조하세요.

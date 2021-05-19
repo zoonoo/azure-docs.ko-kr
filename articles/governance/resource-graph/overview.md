@@ -3,12 +3,12 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
 ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: dfbd0aad0ddc7a6b5aa0ccb78429c82f6aa33b3d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 783f6040191996c1ba8d572be2666e5aeabc76e5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326060"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751592"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -88,7 +88,7 @@ Azure Portal의 일부인 Azure Resource Graph Explorer를 사용하면 Azure Po
 
 Resource Graph는 Azure CLI, Azure PowerShell, Python용 Azure SDK 등을 지원합니다. 쿼리는 각 언어에서 동일하게 구조화됩니다. 다음을 사용하여 Resource Graph를 활성화하는 방법을 알아봅니다.
 
-- [Azure Portal 및 Resource Graph Explorer](./first-query-portal.md) 
+- [Azure Portal 및 Resource Graph Explorer](./first-query-portal.md)
 - [Azure CLI](./first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
 - [Python](./first-query-python.md#add-the-resource-graph-library)
@@ -96,5 +96,5 @@ Resource Graph는 Azure CLI, Azure PowerShell, Python용 Azure SDK 등을 지원
 ## <a name="next-steps"></a>다음 단계
 
 - [쿼리 언어](./concepts/query-language.md)에 대해 자세히 알아보기
-- [시작 쿼리](./samples/starter.md)에 사용되는 언어를 참조하세요.
-- [고급 쿼리](./samples/advanced.md)의 고급 사용법을 참조하세요.
+- [시작 쿼리](./samples/starter.md)에 사용되는 언어를 확인합니다.
+- [고급 쿼리](./samples/advanced.md)의 고급 사용법을 확인합니다.

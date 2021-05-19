@@ -1,18 +1,19 @@
 ---
-title: 'Azure VPN Gateway vnet 간 연결을 사용 하 여 VNet을 다른 VNet에 연결: PowerShell'
-description: VNet-VNet 연결 및 PowerShell을 사용하여 가상 네트워크를 서로 연결합니다.
+title: 'VPN Gateway VNet 간 연결을 사용하여 VNet을 다른 VNet에 연결: PowerShell'
+titleSuffix: Azure VPN Gateway
+description: VNet 간 연결 및 PowerShell을 사용하여 가상 네트워크를 서로 연결하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7de83302dd91d7d679b9c35718d184a9767ba436
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 6baf0342f5fea5ee4ec062c5eed07d9761e72c1d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94655360"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289465"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>PowerShell을 사용하여 VNet-VNet VPN Gateway 연결 구성
 
@@ -24,7 +25,7 @@ ms.locfileid: "94655360"
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure Portal (클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Azure Portal(클래식)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [다양한 배포 모델 간 연결 - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [다양한 배포 모델 간 연결 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 
@@ -67,7 +68,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 * [동일한 구독에 상주하는 VNet](#samesub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet4를 사용합니다.
 
-  ![동일한 구독에 상주 하는 V 안전망의 V 넷 단계를 보여 주는 다이어그램입니다.](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+  ![동일한 구독에 있는 VNet에 대해 VNet 간 단계를 보여 주는 다이어그램](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
 * [서로 다른 구독에 상주하는 VNet](#difsub): 이 구성에 대한 단계에서는 TestVNet1 및 TestVNet5를 사용합니다.
 
@@ -89,7 +90,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 
 예제에서 다음 값을 사용합니다.
 
-**TestVNet1에 대 한 값:**
+**TestVNet1에 대한 값:**
 
 * VNet 이름: TestVNet1
 * 리소스 그룹: TestRG1
@@ -105,7 +106,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
 * 연결(1 대 5): VNet1 대 VNet5(예: 다른 구독의 VNet)
 * 연결 유형: VNet 간
 
-**TestVNet4에 대 한 값:**
+**TestVNet4에 대한 값:**
 
 * VNet 이름: TestVNet4
 * TestVNet2: 10.41.0.0/16 & 10.42.0.0/16
@@ -166,7 +167,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. TestVNet1에 대한 서브넷 구성 만들기. 이 예제에서는 TestVNet1이라는 가상 네트워크와 GatewaySubnet, FrontEnd 및 Backend라는 세 개의 서브넷을 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 GatewaySubnet라고 명시적으로 지정해야 합니다. 다른 이름을 지정하는 경우 게이트웨이 만들기가 실패합니다. 따라서 아래 변수를 통해 할당 되지 않습니다.
+4. TestVNet1에 대한 서브넷 구성 만들기. 이 예제에서는 TestVNet1이라는 가상 네트워크와 GatewaySubnet, FrontEnd 및 Backend라는 세 개의 서브넷을 만듭니다. 값을 대체할 때 언제나 게이트웨이 서브넷 이름을 GatewaySubnet라고 명시적으로 지정해야 합니다. 다른 이름을 지정하는 경우 게이트웨이 만들기가 실패합니다. 따라서 아래 변수를 통해 할당되지 않습니다.
 
    다음 예제에서는 앞에서 설정한 변수를 사용합니다. 이 예제에서 게이트웨이 서브넷은 /27을 사용합니다. 게이트웨이 서브넷을 /29만큼 작게 만들 수 있지만 적어도 /28 또는 /27을 선택하여 더 많은 주소를 포함하는 큰 서브넷을 만드는 것이 좋습니다. 이렇게 하면 나중에 필요할 수도 있는 추가 구성에 맞게 충분히 주소를 사용할 수 있습니다.
 
@@ -203,7 +204,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    -VpnType RouteBased -GatewaySku VpnGw1
    ```
 
-명령을 완료하면 45분 이내에 이 게이트웨이가 만들어집니다. Azure Cloud Shell를 사용 하는 경우 Cloud Shell 터미널의 왼쪽 위를 클릭 하 고 TestVNet4를 구성 하 여 Cloud Shell 세션을 다시 시작할 수 있습니다. TestVNet1 게이트웨이가 완료될 때까지 기다릴 필요가 없습니다.
+명령을 완료하면 45분 이내에 이 게이트웨이가 만들어집니다. Azure Cloud Shell을 사용하는 경우 Cloud Shell 터미널의 왼쪽 위를 클릭한 다음, TestVNet4를 구성하여 CloudShell 세션을 다시 시작할 수 있습니다. TestVNet1 게이트웨이가 완료될 때까지 기다릴 필요가 없습니다.
 
 ### <a name="step-3---create-and-configure-testvnet4"></a>3단계 - TestVNet4 만들기 및 구성
 
@@ -364,7 +365,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName $Sub5
    ```
-3. 새 리소스 그룹을 만듭니다.
+3. 새 리소스 그룹 만들기
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG5 -Location $Location5
@@ -448,7 +449,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    PS C:\> $vnet5gw.Id
    /subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
    ```
-3. **[구독 1]** TestVNet1에서 TestVNet5에 연결 만들기. 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 여기서 차이점은 $vnet5gw가 다른 구독에 있기 때문에 직접 가져올 수 없다는 것입니다. 위의 단계에서 구독 1에서 전달한 값을 사용하여 새 PowerShell 개체를 만들어야 합니다. 아래 예제를 사용하세요. 이름, ID 및 공유 키를 사용자 고유의 값으로 바꿉니다. 중요한 점은 두 연결에서 모두 공유 키가 일치해야 한다는 것입니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.
+3. **[구독 1]** TestVNet1에서 TestVNet5에 연결 만들기. 이 단계에서는 TestVNet1에서 TestVNet5까지 연결을 만듭니다. 여기서 차이점은 $vnet5gw가 다른 구독에 있기 때문에 직접 가져올 수 없다는 것입니다. 위의 단계에서 구독 1에서 전달한 값을 사용하여 새 PowerShell 개체를 만들어야 합니다. 아래 예제를 사용하세요. 이름, ID 및 공유 키를 사용자의 고유한 값으로 바꿉니다. 중요한 점은 두 연결에서 모두 공유 키가 일치해야 한다는 것입니다. 연결 만들기는 완료하는 데 꽤 오래 걸릴 수 있습니다.
 
    다음 예제를 실행하기 전에 구독 1에 연결합니다.
 
@@ -459,7 +460,7 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
    $Connection15 = "VNet1toVNet5"
    New-AzVirtualNetworkGatewayConnection -Name $Connection15 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet5gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
-4. **[구독 5]** TestVNet5 to TestVNet1 연결을 만듭니다. 이 단계는 TestVNet5에서 TestVNet1까지 연결을 만드는 점을 제외하면 위의 비슷합니다. 구독 1에서 가져온 값을 기반으로 PowerShell 개체를 만드는 동일한 과정이 여기에도 적용됩니다. 이 단계에서는 공유된 키가 일치해야 합니다.
+4. **[구독 5]** TestVNet5에서 TestVNet1에 연결 만들기. 이 단계는 TestVNet5에서 TestVNet1까지 연결을 만드는 점을 제외하면 위의 비슷합니다. 구독 1에서 가져온 값을 기반으로 PowerShell 개체를 만드는 동일한 과정이 여기에도 적용됩니다. 이 단계에서는 공유된 키가 일치해야 합니다.
 
    다음 예제를 실행하기 전에 구독 5에 연결합니다.
 
@@ -483,5 +484,5 @@ TestVNet1 및 TestVNet1의 VPN Gateway를 만들고 구성하려면 이전 섹�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines 설명서](../index.yml) 를 참조 하세요.
+* 연결이 완료되면 가상 네트워크에 가상 머신을 추가할 수 있습니다. 자세한 내용은 [Virtual Machines](../index.yml) 설명서를 참조하세요.
 * BGP에 대한 내용은 [BGP 개요](vpn-gateway-bgp-overview.md) 및 [BGP를 구성하는 방법](vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.

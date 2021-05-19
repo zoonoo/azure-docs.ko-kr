@@ -1,6 +1,6 @@
 ---
-title: 템플릿을 통해 Azure Stack Edge Pro 장치에 Vm 배포
-description: 템플릿을 사용 하 여 Azure Stack Edge Pro 장치에서 Vm (가상 머신)을 만들고 관리 하는 방법을 설명 합니다.
+title: 템플릿을 통해 Azure Stack Edge Pro 디바이스에 VM 배포
+description: 템플릿을 사용하여 Azure Stack Edge Pro 디바이스에서 VM(가상 머신)을 만들고 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,79 +9,79 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: cf236396f080af9676f211c42178ddda6a794420
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105568344"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 장치에 Vm 배포
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>템플릿을 통해 Azure Stack Edge Pro GPU 디바이스에 VM 배포
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 자습서에서는 템플릿을 사용 하 여 Azure Stack Edge Pro 장치에서 VM을 만들고 관리 하는 방법을 설명 합니다. 이러한 템플릿은 VM에 대 한 인프라 및 구성을 정의 하는 JSON (JavaScript Object Notation) 파일입니다. 이러한 템플릿에서는 배포할 리소스 및 해당 리소스에 대 한 속성을 지정 합니다.
+이 자습서에서는 템플릿을 사용하여 Azure Stack Edge Pro 디바이스에서 VM을 만들고 관리하는 방법을 설명합니다. 이러한 템플릿은 VM을 위한 인프라 및 구성을 정의하는 JSON(JavaScript Object Notation) 파일입니다. 이러한 템플릿에서 배포할 리소스와 해당 리소스의 속성을 지정합니다.
 
-템플릿은 런타임에 파일의 입력으로 매개 변수를 사용할 수 있으므로 다양 한 환경에서 유연 합니다. 표준 명명 구조는 `TemplateName.json` 템플릿 및 매개 변수 파일에 대 한 것입니다 `TemplateName.parameters.json` . ARM 템플릿에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 이란?](../azure-resource-manager/templates/overview.md)을 참조 하세요.
+템플릿은 런타임 시 파일에서 매개 변수를 입력으로 사용할 수 있으므로 다양한 환경에서 유연하게 사용할 수 있습니다. 표준 이름 지정 구조는 템플릿의 경우에는 `TemplateName.json`이고 매개 변수 파일의 경우에는 `TemplateName.parameters.json`입니다. ARM 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿이란?](../azure-resource-manager/templates/overview.md)을 참조하세요.
 
-이 자습서에서는 리소스를 만들기 위해 미리 작성 된 샘플 템플릿을 사용 합니다. 템플릿 파일을 편집할 필요는 없으며 `.parameters.json` 파일만 수정 하 여 컴퓨터에 배포를 사용자 지정할 수 있습니다. 
+이 자습서에서는 리소스를 만들기 위해 미리 작성된 샘플 템플릿을 사용합니다. 템플릿 파일을 편집할 필요가 없으며 `.parameters.json` 파일만 수정하여 머신에 대한 배포를 사용자 지정할 수 있습니다. 
 
 ## <a name="vm-deployment-workflow"></a>VM 배포 워크플로
 
-여러 장치에 Azure Stack Edge Pro Vm을 배포 하기 위해 전체 부에 대해 단일 sysprep VHD를 사용 하 고, 배포에 대해 동일한 템플릿을 사용 하 고, 각 배포 위치에 대 한 매개 변수를 변경 하는 것이 가능 합니다. 이러한 변경은 여기에서 수행 하는 것과 같은 방식으로 또는 프로그래밍 방식으로 변경 될 수 있습니다. 
+여러 디바이스에 Azure Stack Edge Pro VM을 배포하려면 전체 집합에 sysprep된 단일 VHD를 사용하고, 배포에 동일한 템플릿을 사용하고, 각 배포 위치에 대해 해당 템플릿의 매개 변수를 약간만 변경하면 됩니다(여기서와 같이 수작업으로 변경하거나 프로그래밍 방식으로 변경 가능). 
 
-템플릿을 사용한 배포 워크플로의 개략적인 요약은 다음과 같습니다.
+템플릿을 사용하는 배포 워크플로의 개략적인 요약은 다음과 같습니다.
 
-1. **필수 구성 요소 구성** -장치, 클라이언트 및 VM에 대 한 세 가지 필수 구성 요소가 있습니다.
+1. **사전 요구 사항 구성** - 디바이스, 클라이언트 및 VM에 대한 세 가지 유형의 사전 요구 사항이 있습니다.
 
-    1. **장치 필수 조건**
+    1. **디바이스 필수 구성 요소**
 
-        1. 장치에서 Azure Resource Manager에 연결 합니다.
-        2. 로컬 UI를 통해 계산을 사용 하도록 설정 합니다.
+        1. 디바이스에서 Azure Resource Manager에 연결합니다.
+        2. 로컬 UI를 통해 컴퓨팅을 사용하도록 설정합니다.
 
     2. **클라이언트 필수 조건**
 
-        1. 클라이언트에서 VM 템플릿 및 관련 파일을 다운로드 합니다.
-        1. 필요에 따라 클라이언트에서 TLS 1.2을 구성 합니다.
-        1. 클라이언트에 [Microsoft Azure Storage 탐색기를 다운로드 하 여 설치](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409) 합니다.
+        1. 클라이언트에서 VM 템플릿 및 관련 파일을 다운로드합니다.
+        1. 선택적으로 클라이언트에서 TLS 1.2를 구성합니다.
+        1. 클라이언트에서 [Microsoft Azure Storage Explorer를 다운로드하고 설치합니다](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409).
 
     3. **VM 필수 구성 요소**
 
-        1. 모든 VM 리소스를 포함 하는 장치 위치에 리소스 그룹을 만듭니다.
-        1. VM 이미지를 만드는 데 사용 되는 VHD를 업로드 하는 저장소 계정을 만듭니다.
-        1. 장치에 액세스 하는 클라이언트의 DNS 또는 hosts 파일에 로컬 저장소 계정 URI를 추가 합니다.
-        1. 장치 및 로컬 클라이언트에 장치에 액세스 하는 blob storage 인증서를 설치 합니다. 필요에 따라 Storage 탐색기에 blob storage 인증서를 설치 합니다.
-        1. 이전에 만든 저장소 계정에 VHD를 만들고 업로드 합니다.
+        1. 모든 VM 리소스를 포함할 디바이스 위치에 리소스 그룹을 만듭니다.
+        1. VM 이미지를 만드는 데 사용되는 VHD를 업로드할 스토리지 계정을 만듭니다.
+        1. 디바이스에 액세스하는 클라이언트의 DNS 또는 호스트 파일에 로컬 스토리지 계정 URI를 추가합니다.
+        1. 디바이스 및 디바이스에 액세스하는 로컬 클라이언트에 Blob Storage 인증서를 설치합니다. 선택적으로 스토리지 탐색기에 Blob Storage 인증서를 설치합니다.
+        1. VHD를 만들고 앞서 만든 스토리지 계정에 업로드합니다.
 
 2. **템플릿에서 VM 만들기**
 
-    1. `CreateImage.parameters.json`매개 변수 파일 및 배포 템플릿을 사용 하 여 VM 이미지를 만듭니다 `CreateImage.json` .
-    1. `CreateVM.parameters.json`매개 변수 파일 및 배포 템플릿을 사용 하 여 이전에 만든 리소스를 사용 하 여 VM을 만듭니다 `CreateVM.json` .
+    1. `CreateImage.parameters.json` 매개 변수 파일 및 `CreateImage.json` 배포 템플릿을 사용하여 VM 이미지를 만듭니다.
+    1. `CreateVM.parameters.json`매개 변수 파일 및 `CreateVM.json` 배포 템플릿을 사용하여 이전에 만든 리소스로 VM을 만듭니다.
 
-## <a name="device-prerequisites"></a>장치 필수 조건
+## <a name="device-prerequisites"></a>디바이스 필수 구성 요소
 
-Azure Stack Edge Pro 장치에서 이러한 필수 구성 요소를 구성 합니다.
+Azure Stack Edge Pro 디바이스에서 이러한 필수 구성 요소를 구성합니다.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>클라이언트 필수 조건
 
-Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 클라이언트에서 이러한 필수 구성 요소를 구성 합니다.
+Azure Stack Edge Pro 디바이스에 액세스하는 데 사용할 클라이언트에서 이러한 필수 구성 요소를 구성합니다.
 
-1. VHD를 업로드 하는 데 사용 하는 경우 [Storage 탐색기를 다운로드](https://azure.microsoft.com/features/storage-explorer/) 합니다. 또는 AzCopy를 다운로드 하 여 VHD를 업로드할 수 있습니다. 이전 버전의 AzCopy를 실행 하는 경우 클라이언트 컴퓨터에서 TLS 1.2을 구성 해야 할 수 있습니다. 
-1. 클라이언트 컴퓨터에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates) 합니다. 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
+1. VHD를 업로드하는 데 사용할 [스토리지 탐색기를 다운로드](https://azure.microsoft.com/features/storage-explorer/)합니다. 또는 AzCopy를 다운로드하여 VHD를 업로드할 수 있습니다. 이전 버전의 AzCopy를 실행하는 경우 클라이언트 컴퓨터에서 TLS 1.2를 구성해야 할 수 있습니다. 
+1. 클라이언트 시스템에 [VM 템플릿 및 매개 변수 파일을 다운로드](https://aka.ms/ase-vm-templates)합니다. 작업 디렉터리로 사용할 디렉터리에 압축을 풉니다.
 
 
 ## <a name="vm-prerequisites"></a>VM 필수 구성 요소
 
-이러한 필수 구성 요소를 구성 하 여 VM을 만드는 데 필요한 리소스를 만듭니다. 
+VM 생성에 필요한 리소스를 생성하려면 이러한 필수 구성 요소를 구성합니다. 
 
     
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 저장소 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리 되는 논리적 컨테이너입니다.
+[New-AzureRmResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 Azure 리소스 그룹을 만듭니다. 리소스 그룹은 스토리지 계정, 디스크, 관리 디스크와 같은 Azure 리소스가 배포 및 관리형 논리적 컨테이너입니다.
 
 > [!IMPORTANT]
-> 모든 리소스는 장치와 동일한 위치에 만들어지고 위치는 **Dbelocal** 로 설정 됩니다.
+> 모든 리소스는 디바이스와 동일한 위치에 생성되며 위치는 **DBELocal** 로 설정됩니다.
 
 ```powershell
 New-AzureRmResourceGroup -Name <Resource group name> -Location DBELocal
@@ -103,14 +103,14 @@ PS C:\windows\system32>
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-이전 단계에서 만든 리소스 그룹을 사용 하 여 새 저장소 계정을 만듭니다. 이 계정은 VM에 대 한 가상 디스크 이미지를 업로드 하는 데 사용 되는 **로컬 저장소 계정** 입니다.
+이전 단계에서 만든 리소스 그룹을 사용하여 새 스토리지 계정을 만듭니다. 이 계정은 VM에 대한 가상 디스크 이미지를 업로드하는 데 사용되는 **로컬 스토리지 계정** 입니다.
 
 ```powershell
 New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resource group name> -Location DBELocal -SkuName Standard_LRS
 ```
 
 > [!NOTE]
-> 로컬 중복 저장소 (Standard_LRS 또는 Premium_LRS)와 같은 로컬 저장소 계정만 Azure Resource Manager를 통해 만들 수 있습니다. 계층화 된 저장소 계정을 만들려면 [Azure Stack Edge Pro에서 저장소 계정에 연결 추가](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)의 단계를 참조 하세요.
+> Azure Resource Manager를 통해 로컬 중복 스토리지(표준_LRS 또는 프리미엄_LRS)와 같은 로컬 스토리지 계정만 만들 수 있습니다. 계층형 스토리지 계정을 만들려면 [Azure Stack Edge Pro에서 스토리지 계정 추가, 연결](./azure-stack-edge-gpu-deploy-add-storage-accounts.md)의 단계를 참조하세요.
 
 샘플 출력은 다음과 같습니다.
 
@@ -124,7 +124,7 @@ myasegpusavm       myasegpurgvm      DBELocal StandardLRS Storage            7/2
 PS C:\windows\system32>
 ```
 
-저장소 계정 키를 가져오려면 `Get-AzureRmStorageAccountKey` 명령을 실행 합니다. 이 명령의 샘플 출력은 다음과 같습니다.
+스토리지 계정 키를 얻으려면 `Get-AzureRmStorageAccountKey` 명령을 실행합니다. 이 명령의 샘플 출력이 여기에 표시됩니다.
 
 ```powershell
 PS C:\windows\system32> Get-AzureRmStorageAccountKey
@@ -143,33 +143,33 @@ key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/Zj
 
 ### <a name="add-blob-uri-to-hosts-file"></a>호스트 파일에 Blob URI 추가
 
-Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파일에 blob URI를 이미 추가 했는지 확인 합니다. **관리자 권한으로 메모장을 실행** 하 고에 blob URI에 대 한 다음 항목을 추가 합니다 `C:\windows\system32\drivers\etc\hosts` .
+Blob Storage에 연결하는 데 사용하는 클라이언트의 호스트 파일에 Blob URI를 이미 추가했는지 확인합니다. **관리자로 메모장을 실행** 하고 `C:\windows\system32\drivers\etc\hosts`의 blob URI에 다음 항목을 추가합니다.
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-일반적인 환경에서는 모든 저장소 계정이 항목을 사용 하 여 Azure Stack Edge Pro 장치를 가리키도록 DNS를 구성 해야 `*.blob.devicename.domainname.com` 합니다.
+일반적인 환경에서는 모든 스토리지 계정이 `*.blob.devicename.domainname.com` 항목이 있는 Azure Stack Edge Pro 디바이스를 가리키도록 DNS를 구성합니다.
 
-### <a name="optional-install-certificates"></a>필드 인증서 설치
+### <a name="optional-install-certificates"></a>(선택 사항) 인증서 설치
 
-*Http* 를 사용 하 여 Storage 탐색기를 통해 연결 하는 경우이 단계를 건너뜁니다. *Https* 를 사용 하는 경우 Storage 탐색기에 적절 한 인증서를 설치 해야 합니다. 이 경우 blob 끝점 인증서를 설치 합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)에서 인증서를 만들고 업로드 하는 방법을 참조 하세요. 
+*http* 를 사용하여 스토리지 탐색기를 통해 연결하려면 이 단계를 건너뜁니다. *https* 를 사용하는 경우 스토리지 탐색기에 적절한 인증서를 설치해야 합니다. 이 경우 Blob 엔드포인트 인증서를 설치합니다. 자세한 내용은 [인증서 관리](azure-stack-edge-gpu-manage-certificates.md)에서 인증서를 만들고 업로드하는 방법을 참조하세요. 
 
 ### <a name="create-and-upload-a-vhd"></a>VHD 만들기 및 업로드
 
-이후 단계에서 업로드 하는 데 사용할 수 있는 가상 디스크 이미지가 있는지 확인 합니다. [VM 이미지 만들기](azure-stack-edge-gpu-create-virtual-machine-image.md)의 단계를 따릅니다. 
+이후 단계에서 업로드하는 데 사용할 수 있는 가상 디스크 이미지가 있는지 확인하세요. [VM 이미지 만들기](azure-stack-edge-gpu-create-virtual-machine-image.md)의 단계를 따릅니다. 
 
-이전 단계에서 만든 로컬 저장소 계정의 페이지 blob에 사용할 디스크 이미지를 복사 합니다. [Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 또는 AzCopy와 같은 도구를 사용 하 여 이전 단계에서 만든 [저장소 계정에 VHD를 업로드할](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd) 수 있습니다. 
+이전 단계에서 만든 로컬 스토리지 계정의 페이지 Blob에 사용할 디스크 이미지를 복사합니다. [스토리지 탐색기](https://azure.microsoft.com/features/storage-explorer/) 또는 [AzCopy와 같은 도구를 사용하여 이전 단계에서 만든 스토리지 계정](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#upload-a-vhd)에 VHD를 업로드할 수 있습니다. 
 
-### <a name="use-storage-explorer-for-upload"></a>업로드에 Storage 탐색기 사용
+### <a name="use-storage-explorer-for-upload"></a>업로드에 스토리지 탐색기 사용
 
-1. Storage Explorer를 엽니다. **편집** 으로 이동 하 여 응용 프로그램이 **대상 Azure Stack api** 로 설정 되었는지 확인 합니다.
+1. Storage Explorer를 엽니다. **편집** 으로 이동하여 애플리케이션이 **대상 Azure Stack API** 로 설정되어 있는지 확인합니다.
 
-    ![대상을 Azure Stack Api로 설정](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/set-target-apis-1.png)
+    ![대상을 Azure Stack API로 설정](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/set-target-apis-1.png)
 
-2. 클라이언트 인증서를 PEM 형식으로 설치 합니다. **편집 > SSL 인증서 > 인증서 가져오기** 로 이동 합니다. 클라이언트 인증서를 가리킵니다.
+2. PEM 형식으로 클라이언트 인증서를 설치합니다. **편집 > SSL 인증서> 인증서 가져오기** 로 이동합니다. 클라이언트 인증서를 가리킵니다.
 
-    ![Blob 저장소 끝점 인증서 가져오기](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
+    ![Blob Storage 엔드포인트 인증서 가져오기](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
 
-    - 장치에서 생성 한 인증서를 사용 하는 경우 blob storage 끝점 인증서를 형식으로 다운로드 하 여 변환 `.cer` `.pem` 합니다. 다음 명령을 실행합니다. 
+    - 디바이스 생성 인증서를 사용하는 경우 Blob Storage 엔드포인트 `.cer` 인증서를 다운로드하여 `.pem` 형식으로 변환합니다. 다음 명령을 실행합니다. 
     
         ```powershell
         PS C:\windows\system32> Certutil -encode 'C:\myasegpu1_Blob storage (1).cer' .\blobstoragecert.pem
@@ -177,53 +177,53 @@ Blob storage에 연결 하는 데 사용 하는 클라이언트의 호스트 파
         Output Length = 1954
         CertUtil: -encode command completed successfully.
         ```
-    - 사용자 고유의 인증서를 가져오는 경우 서명 체인 루트 인증서를 형식으로 사용 `.pem` 합니다.
+    - 자체 인증서를 가져오는 경우 `.pem` 형식의 서명 체인 루트 인증서를 사용합니다.
 
-3. 인증서를 가져온 후에는 Storage 탐색기를 다시 시작 하 여 변경 내용을 적용 합니다.
+3. 인증서를 가져온 후 변경 사항을 적용하려면 스토리지 탐색기를 다시 시작합니다.
 
     ![Storage Explorer 다시 시작](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/restart-storage-explorer-1.png)
 
-4. 왼쪽 창에서 **저장소 계정** 을 마우스 오른쪽 단추로 클릭 하 고 **Azure Storage에 연결을** 선택 합니다. 
+4. 왼쪽 창에서 **스토리지 계정** 을 마우스 오른쪽 단추로 클릭하고 **Azure Storage에 연결** 을 선택합니다. 
 
-    ![Azure Storage 1에 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
+    ![Azure Storage에 연결 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. **스토리지 계정 이름 및 키 사용** 을 선택합니다. **새로 만들기** 를 선택합니다.
+5. **스토리지 계정 이름 및 키 사용** 을 선택합니다. **다음** 을 선택합니다.
 
-    ![Azure Storage 2에 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
+    ![Azure Storage에 연결 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. **연결 이름 및 키** 에 **표시 이름**, **저장소 계정 이름**, Azure Storage **계정 키** 를 제공 합니다. **다른** 저장소 도메인을 선택한 다음 `<device name>.<DNS domain>` 연결 문자열을 입력 합니다. Storage 탐색기에서 인증서를 설치 하지 않은 경우 **HTTP 사용** 옵션을 선택 합니다. **새로 만들기** 를 선택합니다.
+6. **이름 및 키로 연결** 에서 **표시 이름**, **스토리지 계정 이름**, Azure Storage **계정 키** 를 제공합니다. **다른** 스토리지 도메인을 선택한 다음 `<device name>.<DNS domain>` 연결 문자열을 제공합니다. 스토리지 탐색기에 인증서를 설치하지 않은 경우 **HTTP 사용** 옵션을 선택합니다. **다음** 을 선택합니다.
 
     ![이름 및 키로 연결](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
-7. **연결 요약** 을 검토 하 고 **연결** 을 선택 합니다.
+7. **연결 요약** 을 검토하고 **연결** 을 선택합니다.
 
-8. 저장소 계정이 왼쪽 창에 표시 됩니다. 저장소 계정을 선택 하 고 확장 합니다. **Blob 컨테이너** 를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **blob 컨테이너 만들기** 를 선택 합니다. Blob 컨테이너에 대 한 이름을 제공 합니다.
+8. 스토리지 계정이 왼쪽 창에 나타납니다. 스토리지 계정을 선택하고 확장합니다. **Blob 컨테이너** 를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기** 를 선택합니다. Blob 컨테이너의 이름을 제공합니다.
 
-9. 방금 만든 컨테이너를 선택 하 고 오른쪽 창에서 **업로드 > 파일 업로드** 를 선택 합니다. 
+9. 방금 만든 컨테이너를 선택하고 오른쪽 창에서 **업로드 > 파일 업로드** 를 선택합니다. 
 
-    ![VHD 파일 업로드 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-1.png)
+    ![VHD 파일 1 업로드](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-1.png)
 
-10. **선택 된 파일** 에서 업로드 하려는 VHD를 찾아서 가리킵니다. **Blob 유형** 을 **페이지 blob** 으로 선택 하 고 **업로드** 를 선택 합니다.
+10. **선택한 파일** 에서 업로드할 VHD를 찾아서 가리킵니다. **페이지 Blob** 으로 **Blob 유형** 을 선택하고 **업로드** 를 선택합니다.
 
-    ![VHD 파일 업로드 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-2.png)
+    ![VHD 파일 2 업로드](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-2.png)
 
-11. VHD가 blob 컨테이너에 로드 되 면 VHD를 선택 하 고 마우스 오른쪽 단추를 클릭 한 다음 **속성** 을 선택 합니다. 
+11. VHD가 Blob 컨테이너에 로드되면 VHD를 선택하고 마우스 오른쪽 단추를 클릭한 다음 **속성** 을 선택합니다. 
 
-    ![VHD 파일 업로드 3](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
+    ![VHD 파일 3 업로드](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/upload-vhd-file-3.png)
 
-12. 이후 단계에서 사용할 **Uri** 를 복사 하 고 저장 합니다.
+12. 이후 단계에서 사용할 **URI** 를 복사하고 저장합니다.
 
     ![URI 복사](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/copy-uri-1.png)
 
 
-## <a name="create-image-for-your-vm"></a>VM에 대 한 이미지 만들기
+## <a name="create-image-for-your-vm"></a>VM용 이미지 만들기
 
-VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변수 파일을 편집 하 고 `CreateImage.json` 이 매개 변수 파일을 사용 하는 템플릿을 배포 합니다.
+VM의 이미지를 만들려면 `CreateImage.parameters.json`매개 변수 파일을 편집한 다음 이 매개 변수 파일을 사용하는 템플릿`CreateImage.json`을 배포합니다.
 
 
 ### <a name="edit-parameters-file"></a>매개 변수 파일 편집
 
-이 파일은 `CreateImage.parameters.json` 다음 매개 변수를 사용 합니다. 
+`CreateImage.parameters.json` 파일은 다음 매개 변수를 사용합니다. 
 
 ```json
 "parameters": {
@@ -239,9 +239,9 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
     }
 ```
 
-파일을 편집 `CreateImage.parameters.json` 하 여 Azure Stack Edge Pro 장치에 대해 다음 값을 포함 합니다.
+Azure Stack Edge Pro 디바이스에 대한 다음 값을 포함하도록 `CreateImage.parameters.json` 파일을 편집합니다.
 
-1. 업로드할 VHD에 해당 하는 OS 유형을 제공 합니다. OS 유형은 Windows 또는 Linux 일 수 있습니다.
+1. 업로드할 VHD에 해당하는 OS 유형을 제공합니다. OS 유형은 Windows 또는 Linux일 수 있습니다.
 
     ```json
     "parameters": {
@@ -250,7 +250,7 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
             },
     ```
 
-2. 이미지 URI를 이전 단계에서 업로드 한 이미지의 URI로 변경 합니다.
+2. 이미지 URI를 이전 단계에서 업로드한 이미지의 URI로 변경합니다.
 
    ```json
    "imageUri": {
@@ -258,11 +258,11 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
        },
    ```
 
-   *Http* 를 Storage 탐색기와 함께 사용 하는 경우 uri를 *http* uri로 변경 합니다.
+   스토리지 탐색기에서 *http* 를 사용하는 경우 URI를 *http* URI로 변경합니다.
 
-3. 고유한 이미지 이름을 제공 합니다. 이 이미지는 이후 단계에서 VM을 만드는 데 사용 됩니다. 
+3. 고유한 이미지 이름을 제공합니다. 이 이미지는 이후 단계에서 VM을 만드는 데 사용됩니다. 
 
-   이 문서에서 사용 되는 샘플 json은 다음과 같습니다.
+   다음은 이 문서에서 사용되는 샘플 json입니다.
 
     ```json
     {
@@ -287,12 +287,12 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
 
 ### <a name="deploy-template"></a>템플릿 배포 
 
-템플릿을 배포 `CreateImage.json` 합니다. 이 템플릿은 이후 단계에서 Vm을 만드는 데 사용 되는 이미지 리소스를 배포 합니다.
+`CreateImage.json` 템플릿을 배포합니다. 이 템플릿은 이후 단계에서 VM을 만드는 데 사용될 이미지 리소스를 배포합니다.
 
 > [!NOTE]
-> 인증 오류가 발생 하는 경우 템플릿을 배포할 때이 세션의 Azure 자격 증명이 만료 되었을 수 있습니다. 명령을 다시 실행 `login-AzureRM` 하 여 Azure Stack Edge Pro 장치에서 Azure Resource Manager에 다시 연결 합니다.
+> 템플릿을 배포할 때 인증 오류가 발생하면 이 세션에 대한 Azure 자격 증명이 만료되었을 수 있습니다. `login-AzureRM` 명령을 다시 실행하여 Azure Stack Edge Pro 디바이스에서 Azure Resource Manager에 다시 연결합니다.
 
-1. 다음 명령을 실행합니다. 
+1. 다음 명령 실행: 
     
     ```powershell
     $templateFile = "Path to CreateImage.json"
@@ -304,12 +304,12 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
         -TemplateParameterFile $templateParameterFile `
         -Name "<Name for your deployment>"
     ```
-    이 명령은 이미지 리소스를 배포 합니다. 리소스를 쿼리하려면 다음 명령을 실행 합니다.
+    이 명령은 이미지 리소스를 배포합니다. 리소스를 쿼리하려면 다음 명령을 실행합니다.
 
     ```powershell
     Get-AzureRmImage -ResourceGroupName <Resource Group Name> -name <Image Name>
     ``` 
-    성공적으로 생성 된 이미지의 샘플 출력은 다음과 같습니다.
+    다음은 성공적으로 생성된 이미지의 샘플 출력입니다.
     
     ```powershell
     PS C:\WINDOWS\system32> login-AzureRMAccount -EnvironmentName aztest -TenantId c0257de7-538f-415c-993a-1b87a031879d
@@ -344,9 +344,9 @@ VM에 대 한 이미지를 만들려면 `CreateImage.parameters.json` 매개 변
     
 ## <a name="create-vm"></a>VM 만들기
 
-### <a name="edit-parameters-file-to-create-vm"></a>VM을 만들기 위해 매개 변수 파일 편집
+### <a name="edit-parameters-file-to-create-vm"></a>매개 변수 파일을 편집하여 VM 생성
  
-VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합니다. 다음 매개 변수를 사용 합니다.
+VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합니다. 다음 매개 변수를 사용합니다.
     
 ```json
 "vmName": {
@@ -384,13 +384,13 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
         }
 ```    
 
-에서 Azure Stack Edge Pro 장치에 적절 한 매개 변수를 할당 `CreateVM.parameters.json` 합니다.
+`CreateVM.parameters.json`에서 Azure Stack Edge Pro 디바이스에 적절한 매개 변수를 할당합니다.
 
-1. 고유한 이름, 네트워크 인터페이스 이름 및 ipconfig 이름을 제공 합니다. 
-1. 사용자 이름, 암호 및 지원 되는 VM 크기를 입력 합니다.
-1. Compute에 대해 네트워크 인터페이스를 사용 하도록 설정 하면 가상 스위치와 가상 네트워크가 해당 네트워크 인터페이스에 자동으로 만들어집니다. 기존 가상 네트워크를 쿼리하여 Vnet 이름, 서브넷 이름 및 Vnet 리소스 그룹 이름을 가져올 수 있습니다.
+1. 고유한 이름, 네트워크 인터페이스 이름 및 IP 구성 이름을 제공합니다. 
+1. 사용자 이름, 암호 및 지원되는 VM 크기를 입력합니다.
+1. 컴퓨팅을 위해 네트워크 인터페이스를 사용하도록 설정했을 때 해당 네트워크 인터페이스에 가상 스위치와 가상 네트워크가 자동으로 생성되었습니다. 기존 가상 네트워크를 쿼리하여 Vnet 이름, 서브넷 이름 및 Vnet 리소스 그룹 이름을 가져올 수 있습니다.
 
-    다음 명령을 실행합니다.
+    다음 명령 실행:
 
     ```powershell
     Get-AzureRmVirtualNetwork
@@ -436,9 +436,9 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
     PS C:\WINDOWS\system32>
     ```
 
-    Vnet 이름에는 ASEVNET, 서브넷 이름에는 ASEVNETsubNet, Vnet 리소스 그룹 이름에는 ASERG를 사용 합니다.
+    Vnet 이름에는 ASEVNET, 서브넷 이름에는 ASEVNETsubNet, Vnet 리소스 그룹 이름에는 ASERG를 사용합니다.
     
-1. 이제 위에 정의 된 서브넷 네트워크에 있는 VM에 할당할 고정 IP 주소가 필요 합니다. **PrivateIPAddress** 를 매개 변수 파일의이 주소로 바꿉니다. VM이 로컬 DCHP 서버에서 IP 주소를 가져오도록 하려면 `privateIPAddress` 값을 비워 둡니다.  
+1. 이제 위에서 정의한 서브넷 네트워크에 있는 VM에 할당할 고정 IP 주소가 필요합니다. 매개 변수 파일에서 **PrivateIPAddress** 를 이 주소로 바꿉니다. VM이 로컬 DCHP 서버에서 IP 주소를 받도록 하려면 `privateIPAddress` 값을 비워둡니다.  
     
     ```json
     "privateIPAddress": {
@@ -448,7 +448,7 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
     
 4. 매개 변수 파일을 저장합니다.
 
-    이 문서에서 사용 되는 샘플 json은 다음과 같습니다.
+    다음은 이 문서에서 사용되는 샘플 json입니다.
     
     ```json
     {
@@ -492,11 +492,11 @@ VM을 만들려면 `CreateVM.parameters.json` 매개 변수 파일을 사용합�
     }
     ```      
 
-### <a name="deploy-template-to-create-vm"></a>템플릿을 배포 하 여 VM 만들기
+### <a name="deploy-template-to-create-vm"></a>VM을 만드는 템플릿 배포
 
-VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기존 VNet에서 네트워크 인터페이스를 만들고 배포 된 이미지에서 VM을 만듭니다.
+VM을 만드는 템플릿 `CreateVM.json`을 배포합니다. 이 템플릿은 기존 VNet에서 네트워크 인터페이스를 만들고 배포된 이미지에서 VM을 만듭니다.
 
-1. 다음 명령을 실행합니다. 
+1. 다음 명령 실행: 
     
     ```powershell
     Command:
@@ -512,7 +512,7 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
             -Name "<DeploymentName>"
     ```   
 
-    VM 생성에는 15-20 분이 소요 됩니다. 성공적으로 만든 VM의 샘플 출력은 다음과 같습니다.
+    VM 만들기에는 15~20분이 소요됩니다. 다음은 성공적으로 만든 VM의 샘플 출력입니다.
     
     ```powershell
     PS C:\WINDOWS\system32> $templateFile = "C:\12-09-2020\CreateVM\CreateVM.json"
@@ -547,7 +547,7 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
     PS C:\WINDOWS\system32
     ```   
 
-    `New-AzureRmResourceGroupDeployment`매개 변수를 사용 하 여 비동기적으로 명령을 실행할 수도 있습니다 `–AsJob` . 다음은 cmdlet이 백그라운드에서 실행 될 때의 샘플 출력입니다. 그런 다음 cmdlet을 사용 하 여 만든 작업의 상태를 쿼리할 수 있습니다 `Get-Job` .
+    `–AsJob` 매개 변수를 사용하여 `New-AzureRmResourceGroupDeployment` 명령을 비동기식으로 실행할 수도 있습니다. 다음은 cmdlet이 백그라운드에서 실행될 때의 샘플 출력입니다. 그런 다음 `Get-Job` cmdlet을 사용하여 만든 작업의 상태를 쿼리할 수 ​​있습니다.
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -567,7 +567,7 @@ VM 만들기 템플릿을 배포 `CreateVM.json` 합니다. 이 템플릿은 기
     --     ----            -------------   -----         -----------     --------             -------
     ```
 
-7. VM이 성공적으로 프로 비전 되었는지 확인 합니다. 다음 명령을 실행합니다.
+7. VM이 성공적으로 프로비저닝되었는지 확인합니다. 다음 명령 실행:
 
     `Get-AzureRmVm`
 
@@ -578,13 +578,13 @@ Windows 또는 Linux VM을 만들었는지 여부에 따라 연결 단계가 다
 
 ### <a name="connect-to-windows-vm"></a>Windows VM에 연결
 
-Windows VM에 연결 하려면 다음 단계를 수행 합니다.
+Windows VM에 연결하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
 
 ### <a name="connect-to-linux-vm"></a>Linux VM에 연결
 
-Linux VM에 연결 하려면 다음 단계를 수행 합니다.
+Linux VM에 연결하려면 다음 단계를 수행합니다.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 

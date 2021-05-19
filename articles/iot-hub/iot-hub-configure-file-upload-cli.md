@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea6ec30ad5f3b1cdbc906cc94cb211295b84e802
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536065"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761730"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Azure CLI를 사용하여 IoT Hub 파일 업로드 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "92536065"
 
 * [Azure CLI](/cli/azure/install-azure-cli)
 
-* Azure IoT Hub - IoT Hub가 없는 경우 [`az iot hub create` 명령](/cli/azure/iot/hub#az-iot-hub-create)을 사용하여 하나 만들거나 [포털을 사용하여 IoT Hub를 만들 수 있습니다](iot-hub-create-through-portal.md).
+* Azure IoT Hub - IoT Hub가 없는 경우 [`az iot hub create` 명령](/cli/azure/iot/hub#az_iot_hub_create)을 사용하여 하나 만들거나 [포털을 사용하여 IoT Hub를 만들 수 있습니다](iot-hub-create-through-portal.md).
 
 * Azure Storage 계정. Azure Storage 계정이 없는 경우 Azure CLI를 사용하여 계정을 만들 수 있습니다. 자세한 내용은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 를 참조하세요.
 

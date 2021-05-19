@@ -1,6 +1,6 @@
 ---
-title: Azure NetApp Files에 대 한 Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 복원 | Microsoft Docs
-description: Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅숏 도구의 복원 명령을 실행 하는 방법에 대 한 지침을 제공 합니다.
+title: Azure NetApp Files에 대한 Azure Application Consistent Snapshot 도구를 사용하여 복원 | Microsoft Docs
+description: Azure NetApp Files에서 사용할 수 있는 Azure Application Consistent Snapshot 도구의 복원 명령을 실행하는 방법에 대한 지침을 제공합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: Phil-Jensen
@@ -15,53 +15,53 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: 793b4da8fcf46ba4d5618f8ada86f9c3c8026ffd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104865267"
 ---
-# <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅숏 도구를 사용 하 여 복원 (미리 보기)
+# <a name="restore-using-azure-application-consistent-snapshot-tool-preview"></a>Azure Application Consistent Snapshot 도구로 복원(미리 보기)
 
-이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅숏 도구의 복원 명령을 실행 하는 방법에 대 한 지침을 제공 합니다.
+이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure Application Consistent Snapshot 도구의 복원 명령을 실행하는 방법에 대한 지침을 제공합니다.
 
 ## <a name="introduction"></a>소개
 
-스냅숏에서 볼륨 복원을 수행 하는 작업은 명령을 사용 하 여 수행 됩니다 `azacsnap -c restore` .
+스냅숏에서 볼륨 복원을 수행하는 작업은 `azacsnap -c restore` 명령을 사용하여 수행됩니다.
 
 > [!IMPORTANT]
-> 이는 데이터베이스 복구를 수행 하지 않고 아래의 각 옵션에 대해 설명한 대로 볼륨 복원만 수행 합니다.
+> 이 명령은 데이터베이스 복구를 수행하지 않고 아래의 각 옵션에 대해 설명한 대로 볼륨 복원만 수행합니다.
 
 ## <a name="command-options"></a>명령 옵션
 
-명령에는 `-c restore` 다음과 같은 옵션이 있습니다.
+`-c restore` 명령에는 다음과 옵션이 있습니다.
 
-- `--restore snaptovol` 대상 볼륨의 최신 스냅숏을 기반으로 새 볼륨을 만듭니다. 이 명령은 새 볼륨을 만들기 위한 기준으로 최신 볼륨 스냅숏을 사용 하 여 구성 된 대상 볼륨을 기반으로 새 "복제 된" 볼륨을 만듭니다.  이 명령은 기본에서 보조로의 저장소 복제를 중단 하지 않습니다. 대신 사용 가능한 최신 스냅숏의 복제본이 DR 사이트에서 생성 되 고 복제 된 볼륨의 권장 파일 시스템 탑재 지점이이 표시 됩니다. 이 명령은 **DR 지역의** Azure Large Instance 시스템 (즉, 대상 장애 조치 (failover) 시스템)에서 실행 해야 합니다.
+- `--restore snaptovol`은 대상 볼륨의 최신 스냅샷을 기반으로 새 볼륨을 만듭니다. 이 명령은 새 볼륨을 만들기 위한 기준으로 최신 볼륨 스냅숏을 사용하여 구성된 대상 볼륨을 기반으로 새 "복제된" 볼륨을 만듭니다.  이 명령을 사용해도 기본 스토리지에서 보조 스토리지로의 스토리지 복제가 중지되지는 않습니다. 대신 사용 가능한 최신 스냅숏의 복제본이 DR 사이트에서 생성되고 복제된 볼륨의 권장 파일 시스템 탑재 지점이 제시됩니다. 이 명령은 **DR 지역의** Azure Large Instance 시스템(즉, 대상 장애 조치 시스템)에서 실행해야 합니다.
 
-- `--restore revertvolume` 가장 최근의 스냅숏을 기반으로 대상 볼륨을 이전 상태로 되돌립니다.  이 명령을 연결 된 DR 지역으로 DR 장애 조치 (Failover)의 일부로 사용 합니다. 이 명령은 기본 사이트에서 보조 사이트로의 저장소 복제를 **중지** 하 고, 되돌려 진 dr 볼륨에 대해 권장 되는 filesystem 탑재 지점이와 함께 대상 dr 볼륨을 dr 볼륨에서 사용 가능한 최신 스냅숏으로 되돌립니다. 이 명령은 **DR 지역의** Azure Large Instance 시스템 (즉, 대상 장애 조치 (failover) 시스템)에서 실행 해야 합니다.
+- `--restore revertvolume`은 가장 최근의 스냅샷을 기반으로 대상 볼륨을 이전 상태로 되돌립니다.  이 명령은 연결된 DR 지역에 대한 DR 장애 조치의 일부로 사용합니다. 이 명령을 사용하면 기본 사이트에서 보조 사이트로의 스토리지 복제를 **중지** 하고 대상 DR 볼륨을 해당 DR 볼륨의 사용 가능한 최신 스냅샷과 되돌린 DR 볼륨의 filesystem 탑재 지점으로 되돌립니다. 이 명령은 **DR 지역의** Azure Large Instance 시스템(즉, 대상 장애 조치 시스템)에서 실행해야 합니다.
     > [!NOTE]
-    > 하위 명령 ( `--restore revertvolume` )은 Azure Large 인스턴스에만 사용할 수 있으며 Azure NetApp Files 사용할 수 없습니다.
-- `--dbsid <SAP HANA SID>` 볼륨 복원 명령을 적용할 구성 파일에서 선택 하는 SAP HANA SID입니다.
+    > 하위 명령(`--restore revertvolume`)은 Azure Large Instance에만 사용할 수 있으며 Azure NetApp Files에 사용할 수 없습니다.
+- `--dbsid <SAP HANA SID>`는 볼륨 복원 명령을 적용할 구성 파일에서 선택하는 SAP HANA SID입니다.
 
-- `[--configfile <config filename>]` 는 사용자 지정 구성 파일 이름을 허용 하는 선택적 매개 변수입니다.
+- `[--configfile <config filename>]`은 사용자 지정 구성 파일 이름을 허용하는 선택적 매개 변수입니다.
 
-## <a name="perform-a-test-dr-failover-azacsnap--c-restore---restore-snaptovol"></a>테스트 DR 장애 조치 (failover) 수행 `azacsnap -c restore --restore snaptovol`
+## <a name="perform-a-test-dr-failover-azacsnap--c-restore---restore-snaptovol"></a>테스트 DR 장애 조치 `azacsnap -c restore --restore snaptovol` 수행
 
-이 명령은 "full" DR 장애 조치 (Failover) 명령 ()과 유사 `--restore restorevolume` 하지만 기본 사이트와 재해 복구 사이트 간의 복제를 중단 하는 대신, 복제 볼륨이 재해 복구 볼륨에서 만들어지므로 DR 사이트에서 최신 스냅숏이 복원 될 수 있습니다. 그런 다음이 복제 된 볼륨을 사용 하 여 기본 사이트와 재해 복구 사이트 간의 복제 계약을 위반 하는 HANA 환경의 전체 장애 조치 (failover)를 실행 하지 않고도 재해 복구를 테스트할 수 있습니다.
+이 명령은 "전체" DR 장애 조치 명령(`--restore restorevolume`)과 유사하지만 기본 사이트와 재해 복구 사이트 간의 복제를 중단하는 대신 복제 볼륨이 재해 복구 볼륨에서 만들어지므로 DR 사이트에서 최신 스냅숏이 복원됩니다. 사용자는 그런 다음 이 복제된 볼륨을 사용하여 기본 사이트와 재해 복구 사이트 간의 복제 계약을 위반하는 HANA 환경의 전체 장애 조치를 실행하지 않고도 재해 복구를 테스트할 수 있습니다.
 
-- 이러한 방식으로 여러 다른 복원 지점을 테스트 하 여 각각 자체 복원 지점을 사용할 수 있습니다.
-- 복제본은 명령이 실행 될 때의 타임 스탬프에 의해 지정 되 고, 실행 시 사용할 수 있는 가장 최근 데이터 및 기타 스냅숏을 나타냅니다.
+- 이러한 방식으로 여러 다른 복원 지점을 테스트하여 각각 자체 복원 지점을 사용할 수 있습니다.
+- 복제본은 명령이 실행될 때의 타임 스탬프에 의해 지정되고, 실행 시 사용할 수 있는 가장 최근 데이터 및 기타 스냅숏을 나타냅니다.
 
 > [!IMPORTANT]
-> 이 작업은 Azure Large 인스턴스에만 적용 됩니다.
+> 이 작업은 Azure Large Instance에만 적용됩니다.
 >
-> - 이 명령을 실행 하면 4 주 후에 복제본을 삭제 하기 전에 liaise 작업에 대 한 연락처 전자 메일을 사용 해야 합니다.
-> - 이 명령을 실행 하면 테스트가 완료 될 때 Microsoft 작업에서 삭제 해야 하는 새 복제본이 생성 됩니다.
-> - 생성 된 모든 복제 볼륨은 4 주 후 자동으로 삭제 됩니다.
+> - 이 명령을 실행하면 4주 후에 복제본을 삭제하기 전에 연락을 위해 작업에 연락처 이메일을 사용해야 합니다.
+> - 이 명령을 실행하면 테스트가 완료될 때 Microsoft 작업에서 삭제해야 하는 새 복제본이 생성됩니다.
+> - 생성된 모든 복제 볼륨은 4주 후 자동으로 삭제됩니다.
 
-구성 파일 (예:)에는 `DR.json` 프로덕션 볼륨이 아닌 DR 볼륨만 포함 되어야 합니다. 그렇지 않으면 프로덕션 볼륨에 복제본이 생성 될 수 있습니다.
+구성 파일(예: `DR.json`)에는 프로덕션 볼륨이 아닌 DR 볼륨만 포함되어야 합니다. 그렇지 않으면 프로덕션 볼륨에 복제본이 생성될 수 있습니다.
 
-### <a name="output-of-the-azacsnap--c-restore---restore-snaptovol-command-for-single-node-scenario"></a>`azacsnap -c restore --restore snaptovol`명령의 출력 (Single-Node 시나리오의 경우)
+### <a name="output-of-the-azacsnap--c-restore---restore-snaptovol-command-for-single-node-scenario"></a>`azacsnap -c restore --restore snaptovol` 명령의 출력(단일 노드 시나리오의 경우)
 
 ```output
 > azacsnap --configfile DR.json -c restore --restore snaptovol --dbsid H80
@@ -108,33 +108,33 @@ Displaying Mount Points by Volume as follows:
 ```
 
 > [!IMPORTANT]
-> "볼륨당 탑재 위치 표시" 출력은 다양 한 시나리오에서 서로 다릅니다.
+> "볼륨당 탑재 지점 표시 출력"은 다양한 시나리오에서 서로 다르게 작용합니다.
 
-## <a name="perform-full-dr-failover-azacsnap--c-restore---restore-revertvolume"></a>전체 DR 장애 조치 (failover) 수행 `azacsnap -c restore --restore revertvolume`
+## <a name="perform-full-dr-failover-azacsnap--c-restore---restore-revertvolume"></a>전체 DR 장애 조치 `azacsnap -c restore --restore revertvolume` 수행
 
-이 명령은 기본 사이트에서 보조 사이트로의 저장소 복제를 **중지** 하 고 dr 볼륨에서 최신 스냅숏을 복원 하 고 dr 볼륨에 대 한 탑재 지점이을 제공 합니다.
+이 명령은 기본 사이트에서 보조 사이트로의 스토리지 복제를 **중지** 하고 DR 볼륨에서 최신 스냅샷을 복원하며 DR 볼륨에 대한 탑재 지점을 제공합니다.
 
-DR 볼륨만 포함 된 구성 파일 (예:)을 사용 하 여 DR 서버에서이 명령을 실행 해야 합니다 `DR.json` .
+DR 볼륨만 포함된 구성 파일(예: `DR.json`)을 사용하여 DR 서버에서 이 명령을 실행해야 합니다.
 
-명령을 실행 하 여 DR 사이트로의 장애 조치 (failover)를 수행 `azacsnap -c restore --restore revertvolume` 합니다.  이 명령을 사용 하려면 매개 변수로 SID를 추가 해야 합니다. DR 사이트에서 복구 해야 하는 HANA 인스턴스의 SID입니다.
+`azacsnap -c restore --restore revertvolume` 명령을 실행하여 DR 사이트로의 장애 조치를 수행합니다.  이 명령을 사용하려면 매개 변수로 SID를 추가해야 합니다. DR 사이트에서 복구해야 하는 HANA 인스턴스의 SID입니다.
 
 > [!IMPORTANT]
-> DR 연습 또는 테스트를 수행할 계획인 경우에만이 명령을 실행 합니다. 이 명령은 복제를 중단 합니다. 복제를 다시 사용 하도록 설정 하려면 Microsoft 작업에 문의 해야 합니다.
+> DR 연습 또는 테스트를 수행할 계획인 경우에만 이 명령을 실행합니다. 이 명령을 사용하면 복제가 중단됩니다. 복제를 다시 사용하도록 설정하려면 Microsoft Operations에 문의해야 합니다.
 
-높은 수준에서 DR 장애 조치 (failover)를 실행 하는 단계는 다음과 같습니다.
+높은 수준에서 DR 장애 조치를 실행하는 단계는 다음과 같습니다.
 
-- **기본** 사이트에서 HANA 인스턴스를 종료 해야 합니다. 이 작업은 데이터 불일치를 방지 하기 위해 DR 사이트로의 장애 조치 (failover)를 수행 하는 경우에만 필요 합니다.
-- 프로덕션 SID에 대 한 DR 노드의 HANA 인스턴스를 종료 합니다.
-- 복구할 SID를 사용 하 여 DR 노드에서 명령을 실행 합니다 `azacsnap -c restore --restore revertvolume` .
-  - 명령은 저장소 복제 링크를 기본에서 DR 사이트로 중단 합니다.
-  - 이 명령은 "data" 및 "other" 볼륨을 구성 된 대로 복원 합니다.  일반적으로이 작업은 및 파일 시스템 볼륨에 대 한 `/hana/data` 것 `/hana/logbackups` 입니다.  `/hana/shared`파일 시스템은 복구 되지 않고 `/hana/shared` DR 위치에서 SID에 대 한 기존를 사용 합니다.
-  - `/hana/data`및 볼륨 탑재 `/hana/logbackups` – 파일에 추가 되는지 확인 합니다. `/etc/fstab`
-- HANA SYSTEMDB 스냅숏을 복원 합니다. HANA studio는 스냅숏 명령 실행의 일부로 복원 된 저장소 스냅숏에서 사용 가능한 최신 HANA 스냅숏으로 표시 합니다 `azacsnap -c restore --restore revertvolume` .
-- 테 넌 트 데이터베이스를 복구 합니다.
-- 프로덕션 SID에 대 한 DR 사이트에서 HANA 인스턴스를 시작 합니다 (예:이 경우 H80).
-- 데이터베이스 테스트를 수행 합니다.
+- **기본** 사이트에서 HANA 인스턴스를 종료해야 합니다. 이 작업은 데이터 불일치를 방지하기 위해 실제로 DR 사이트로 장애 조치를 수행하는 경우에만 필요합니다.
+- 프로덕션 SID에 대한 DR 노드의 HANA 인스턴스를 종료합니다.
+- 복구하려는 SID를 사용하여 DR 노드에서 명령 `azacsnap -c restore --restore revertvolume`을 실행합니다.
+  - 해당 명령은 기본 사이트에서 DR 사이트로의 스토리지 복제 링크를 중단합니다.
+  - 이 명령을 사용하면 "data" 및 "other" 볼륨을 구성된 대로 복원합니다.  일반적으로 이 작업은 `/hana/data` 및 `/hana/logbackups` 파일 시스템 볼륨에 대한 작업입니다.  `/hana/shared` 파일 시스템은 복구되지 않고 DR 위치에서 SID에 대한 기존 `/hana/shared`를 사용합니다.
+  - `/hana/data` 및 `/hana/logbackups` 볼륨 탑재 – `/etc/fstab` 파일에 추가되는지 확인합니다.
+- HANA SYSTEMDB 스냅샷을 복원합니다. HANA studio는 스냅샷 명령 `azacsnap -c restore --restore revertvolume` 실행의 일부로 복원된 스토리지 스냅샷에서 사용 가능한 최신 HANA 스냅샷만을 표시합니다.
+- 테넌트 데이터베이스를 복구합니다.
+- 프로덕션 SID에 대한 DR 사이트에서 HANA 인스턴스를 시작합니다(예: 이 경우 H80).
+- 데이터베이스 테스트를 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [백업 만들기](azacsnap-cmd-ref-backup.md)
-- [스냅숏 정보 가져오기](azacsnap-cmd-ref-details.md)
+- [스냅샷 정보 가져오기](azacsnap-cmd-ref-details.md)

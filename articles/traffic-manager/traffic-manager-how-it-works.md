@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: duau
-ms.openlocfilehash: a1e1bd107e8b3b9209f99d1abfc4d7e391c3c4a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 376aa04228113c56f0f797f737833802c9eca021
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98184342"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107029491"
 ---
 # <a name="how-traffic-manager-works"></a>Traffic Manager 작동 방식
 
@@ -30,7 +30,7 @@ Traffic Manager는 다음과 같은 두 가지 주요 이점을 제공합니다.
 
 클라이언트가 서비스에 연결하려고 시도하면 먼저 IP 주소에 대한 서비스의 DNS 이름을 확인합니다. 그런 다음, 클라이언트는 해당 IP 주소에 연결하여 서비스에 액세스합니다.
 
-**가장 중요한 사항은 Traffic Manager가 DNS 수준에서 작동한다는 점입니다.**  Traffic Manager는 DNS를 사용하여 트래픽 라우팅 메서드의 규칙에 따라 클라이언트를 특정 서비스 엔드포인트에 연결합니다. 클라이언트는 선택한 엔드포인트에 **직접** 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아닙니다. Traffic Manager는 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
+**이해해야 할 가장 중요한 점은 Traffic Manager가 애플리케이션 계층(계층-7)에 있는 DNS 수준에서 작동한다는 것입니다.**  Traffic Manager는 DNS를 사용하여 트래픽 라우팅 메서드의 규칙에 따라 클라이언트를 특정 서비스 엔드포인트에 연결합니다. 클라이언트는 선택한 엔드포인트에 **직접** 연결됩니다. Traffic Manager는 프록시 또는 게이트웨이가 아닙니다. Traffic Manager는 클라이언트와 서비스 간에 전달되는 트래픽을 표시하지 않습니다.
 
 ## <a name="traffic-manager-example"></a>Traffic Manager 예제
 
@@ -60,10 +60,10 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
     - 각 엔드포인트의 구성된 상태(사용하지 않는 엔드포인트는 반환되지 않음)
     - Traffic Manager 상태 검사에서 확인된 각 엔드포인트의 현재 상태. 자세한 내용은 [Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 참조하세요.
-    - 선택된 트래픽 라우팅 메서드. 자세한 내용은 [Traffic Manager 라우팅 메서드](traffic-manager-routing-methods.md)를 참조 하세요.
+    - 선택된 트래픽 라우팅 메서드. 자세한 내용은 [Traffic Manager 라우팅 메서드](traffic-manager-routing-methods.md)를 참조하세요.
 
-5. 선택한 엔드포인트는 다른 DNS CNAME 레코드로 반환됩니다. 이 경우 contoso-eu.cloudapp.net이 반환 된다고 가정해 보겠습니다.
-6. 다음으로 재귀 DNS 서비스가 'cloudapp.net' 도메인에 대한 이름 서버를 찾습니다. 이러한 이름 서버에 연결 하 여 ' contoso-eu.cloudapp.net ' DNS 레코드를 요청 합니다. EU 기반 서비스 끝점의 IP 주소를 포함 하는 DNS ' A ' 레코드가 반환 됩니다.
+5. 선택한 엔드포인트는 다른 DNS CNAME 레코드로 반환됩니다. 이 경우 contoso-eu.cloudapp.net을 반환한다고 가정하겠습니다.
+6. 다음으로 재귀 DNS 서비스가 'cloudapp.net' 도메인에 대한 이름 서버를 찾습니다. 이러한 이름 서버에 연결하여 'contoso-eu.cloudapp.net' DNS 레코드를 요청합니다. EU 기반 서비스 엔드포인트의 IP 주소를 포함하는 DNS 'A' 레코드가 반환됩니다.
 7. 재귀 DNS 서비스는 결과를 통합하고 클라이언트에 단일 DNS 응답을 반환합니다.
 8. 클라이언트는 DNS 결과를 받고 지정 IP 주소에 연결합니다. 클라이언트는 Traffic Manager를 통해서가 아니라 직접 애플리케이션 서비스 엔드포인트에 연결합니다. 해당 엔드포인트는 HTTPS 엔드포인트이므로 클라이언트는 필요한 SSL/TLS 핸드셰이크를 수행한 다음 ‘/login.aspx’ 페이지에 대해 HTTP GET 요청을 합니다.
 
@@ -75,7 +75,7 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
 * [Traffic Manager를 사용하여 라우팅할 수 있는 트래픽 유형은 무엇입니까?](./traffic-manager-faqs.md#what-types-of-traffic-can-be-routed-using-traffic-manager)
 
-* ["고정" 세션을 지원할 Traffic Manager 있나요?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
+* [Traffic Manager는 "고정" 세션을 지원하나요?](./traffic-manager-faqs.md#does-traffic-manager-support-sticky-sessions)
 
 * [Traffic Manager를 사용할 때 HTTP 오류가 나타나는 이유는 무엇인가요?](./traffic-manager-faqs.md#why-am-i-seeing-an-http-error-when-using-traffic-manager)
 
@@ -83,7 +83,7 @@ Contoso Corp에서 새 파트너 포털을 개발했습니다. 이 포털의 URL
 
 * [Traffic Manager에는 어떤 애플리케이션 프로토콜을 사용할 수 있나요?](./traffic-manager-faqs.md#what-application-protocols-can-i-use-with-traffic-manager)
 
-* ["Naked" 도메인 이름과 함께 Traffic Manager를 사용할 수 있나요?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-a-naked-domain-name)
+* ["naked" 도메인 이름으로 Traffic Manager를 사용할 수 있나요?](./traffic-manager-faqs.md#can-i-use-traffic-manager-with-a-naked-domain-name)
 
 * [DNS 쿼리를 처리할 때 Traffic Manager는 클라이언트 서브넷 주소를 고려하나요?](./traffic-manager-faqs.md#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
 

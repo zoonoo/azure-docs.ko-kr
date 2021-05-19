@@ -1,16 +1,16 @@
 ---
-title: Azure Data Lake Storage Gen1 시작-포털
-description: Azure Portal를 사용 하 여 Data Lake Storage Gen1 계정을 만들고 계정에서 기본 작업을 수행 합니다.
+title: Azure Data Lake Storage Gen1 시작 - 포털
+description: Azure Portal을 사용하여 Data Lake Storage Gen1 계정을 만들고 계정에서 기본 작업을 수행할 수 있습니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91578583"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
@@ -24,7 +24,7 @@ ms.locfileid: "91578583"
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행 하는 방법에 대해 알아봅니다. 자세한 내용은 [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조 하세요.
+Azure Portal을 사용하여 Data Lake Storage Gen1 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법을 알아봅니다. 자세한 내용은 [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -34,7 +34,7 @@ Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 �
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Data Lake Storage Gen1 계정 만들기
 
-1. 새 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
+1. 새로운 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기 &gt; 스토리지 &gt; Data Lake Storage Gen1** 을 클릭합니다.
 3. **새 Data Lake Storage Gen1** 블레이드에서 아래 스크린샷에 표시된 대로 값을 제공합니다.
 
@@ -50,7 +50,7 @@ Azure Portal 사용 하 여 Data Lake Storage Gen1 계정을 만들고 폴더 �
      * Data Lake Storage Gen1에서 암호화 키를 관리하려는 경우 **Data Lake Storage Gen1에서 관리하는 키를 사용** 합니다.
      * **고유한 Key Vault의 키를 사용합니다**. 기존 Azure Key Vault를 선택하거나 새 Key Vault를 선택할 수 있습니다. Key Vault의 키를 사용하려면 Data Lake Storage Gen1 계정이 Azure Key Vault에 액세스할 수 있는 권한을 할당해야 합니다. 자세한 내용은 [Azure Key Vault에 권한 할당](#assign-permissions-to-azure-key-vault)을 참조하세요.
 
-        ![새 Data Lake Storage Gen 1 블레이드 및 암호화 설정 블레이드의 스크린샷](./media/data-lake-store-get-started-portal/adls-encryption-2.png "암호화 Data Lake Storage Gen1")
+        ![새 Data Lake Storage Gen1 블레이드 및 암호화 설정 블레이드 스크린샷](./media/data-lake-store-get-started-portal/adls-encryption-2.png "Data Lake Storage Gen1 암호화")
 
         **암호화 설정** 블레이드에서 **확인** 을 클릭합니다.
 
@@ -64,10 +64,10 @@ Azure Key Vault의 키를 사용하여 Data Lake Storage Gen1 계정의 암호�
 
 1. Azure Key Vault의 키를 사용한 경우 Data Lake Storage Gen1 계정의 블레이드는 맨 위에 경고를 표시합니다. 경고를 클릭하여 **암호화** 를 엽니다.
 
-    !["Key vault 권한 구성 필요" 라는 경고를 표시 하는 Data Lake Storage Gen1 계정 블레이드의 스크린샷 설정 하려면 여기를 클릭 하세요.](./media/data-lake-store-get-started-portal/adls-encryption-3.png "암호화 Data Lake Storage Gen1")
+    ![“키 자격 증명 모음 권한 구성이 필요합니다. 설정하려면 여기를 클릭하세요.”라는 경고가 표시된 Data Lake Storage Gen1 계정 블레이드 스크린샷](./media/data-lake-store-get-started-portal/adls-encryption-3.png "Data Lake Storage Gen1 암호화")
 2. 블레이드는 액세스를 구성하는 두 가지 옵션을 보여 줍니다.
 
-    ![암호화 블레이드의 스크린샷.](./media/data-lake-store-get-started-portal/adls-encryption-4.png "암호화 Data Lake Storage Gen1")
+    ![암호화 블레이드 스크린샷](./media/data-lake-store-get-started-portal/adls-encryption-4.png "Data Lake Storage Gen1 암호화")
 
    * 첫 번째 옵션에서 **사용 권한 부여** 를 클릭하여 액세스를 구성합니다. 첫 번째 옵션은 Data Lake Storage Gen1 계정을 만든 사용자가 Azure Key Vault의 관리자인 경우에만 활성화됩니다.
    * 다른 옵션은 블레이드에 표시되는 PowerShell cmdlet을 실행하는 것입니다. Azure Key Vault의 소유자이거나 Azure Key Vault에 대한 사용 권한을 부여할 수 있어야 합니다. cmdlet을 실행한 후에 블레이드로 다시 돌아가서 **사용** 을 클릭하여 액세스를 구성합니다.
@@ -84,17 +84,17 @@ Azure Key Vault의 키를 사용하여 Data Lake Storage Gen1 계정의 암호�
 
 Data Lake Storage Gen1 계정에서 폴더를 만들어 데이터를 관리하고 저장할 수 있습니다.
 
-1. 사용자가 만든 Data Lake Storage Gen1 계정을 엽니다. 왼쪽 창에서 **모든 리소스** 를 클릭 한 다음 **모든 리소스** 블레이드에서 폴더를 만들려는 계정 이름을 클릭 합니다. 시작 보드에 계정을 고정한 경우 해당 계정 타일을 클릭합니다.
+1. 사용자가 만든 Data Lake Storage Gen1 계정을 엽니다. 왼쪽 창에서 **모든 리소스** 를 클릭한 다음, **모든 리소스** 블레이드에서 폴더를 만들려는 계정 이름을 클릭합니다. 시작 보드에 계정을 고정한 경우 해당 계정 타일을 클릭합니다.
 2. Data Lake Storage Gen1 계정 블레이드에서 **데이터 탐색기** 를 클릭합니다.
 
-    ![데이터 탐색기 옵션이 out 인 Data Lake Storage Gen 1 계정 블레이드의 스크린샷](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Data Lake Storage Gen1 계정에 폴더 만들기")
+    ![데이터 탐색기 옵션이 설명선으로 표시된 Data Lake Storage Gen1 계정 블레이드 스크린샷](./media/data-lake-store-get-started-portal/ADL.Create.Folder.png "Data Lake Storage Gen1 계정에 폴더 만들기")
 3. 데이터 탐색기 블레이드에서 **새 폴더** 를 클릭하고 새 폴더에 대한 이름을 입력한 다음 **확인** 을 클릭합니다.
 
-    ![새 폴더 옵션과 새 폴더 만들기 텍스트 상자를 호출 하는 데이터 탐색기 블레이드의 스크린샷](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Data Lake Storage Gen1 계정에 폴더 만들기")
+    ![새 폴더 옵션과 새 폴더 만들기 텍스트 상자가 설명선으로 표시된 데이터 탐색기 블레이드 스크린샷](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "Data Lake Storage Gen1 계정에 폴더 만들기")
 
     새로 만든 폴더가 **데이터 탐색기** 블레이드에 나열되어 있습니다. 원하는 수준으로 중첩된 폴더를 만들 수 있습니다.
 
-    ![Data Lake 계정에 폴더 만들기](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Data Lake 계정에 폴더 만들기")
+    ![Data Lake 계정에서 폴더 만들기](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "Data Lake 계정에서 폴더 만들기")
 
 ## <a name="upload-data"></a><a name="uploaddata"></a>데이터 업로드
 

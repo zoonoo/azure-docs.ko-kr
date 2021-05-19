@@ -1,14 +1,14 @@
 ---
 title: 포털에서 기존 할당 업데이트
-description: Azure 청사진의 포털에서 기존 청사진 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
-ms.date: 01/27/2021
+description: Azure Blueprints의 포털에서 기존 청사진 할당을 업데이트하는 메커니즘에 대해 알아봅니다.
+ms.date: 05/01/2021
 ms.topic: how-to
-ms.openlocfilehash: c383ebedaf83b3a52062c91f98b816c3baf6618e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 67ce41d6d7b4497d84d960e96813f20db940c965
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98919396"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108323738"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -24,19 +24,19 @@ ms.locfileid: "98919396"
 
 1. 왼쪽 페이지에서 **할당된 청사진** 을 선택합니다.
 
-1. 청사진 목록에서 청사진 할당을 선택 합니다. 그런 다음 **업데이트 할당** 단추를 사용 하거나 청사진 할당을 마우스 오른쪽 단추로 클릭 하 고 **할당 업데이트** 를 선택 합니다.
+1. 청사진 목록에서 청사진 할당을 선택합니다. **할당 업데이트** 단추를 사용하거나, 청사진 할당을 마우스 오른쪽 단추로 클릭하고 **할당 업데이트** 를 선택합니다.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="' 할당 업데이트 ' 단추가 강조 표시 된 청사진 할당 페이지의 스크린샷" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="'할당 업데이트' 단추가 강조 표시된 청사진 할당 페이지의 스크린샷" border="false":::
 
-1. **청사진 할당** 페이지는 원래 할당의 모든 값으로 미리 채워져 있습니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당** 을 선택 합니다.
+1. 원래 할당의 모든 값으로 미리 채워진 **청사진 할당** 페이지가 로드됩니다. **청사진 정의 버전**, **잠금 할당** 상태, 청사진 정의에 있는 동적 매개 변수를 변경합니다. 변경을 마쳤으면 **할당** 을 선택합니다.
 
 1. 업데이트된 할당 세부 정보 페이지에서 새 상태를 확인합니다. 이 예제에서는 할당에 **잠금** 을 추가했습니다.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="잠금 모드가 변경 된 것을 보여 주는 업데이트 된 청사진 할당의 스크린샷" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="잠금 모드가 변경된 것을 보여 주는 업데이트된 청사진 할당의 스크린샷" border="false":::
 
-1. 드롭다운을 사용 하 여 다른 **할당 작업** 에 대 한 세부 정보를 탐색 합니다. 선택한 할당 작업에서 **관리 되는 리소스** 를 업데이트 하는 테이블입니다.
+1. 드롭다운을 사용하여 다른 **할당 작업** 에 대한 세부 정보를 살펴봅니다. 선택한 할당 작업으로 업데이트된 **관리되는 리소스** 테이블.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="할당 작업 및 해당 상태를 보여 주는 업데이트 된 청사진 할당의 스크린샷" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="할당 작업 및 해당 상태를 보여 주는 업데이트된 청사진 할당의 스크린샷" border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>할당 업데이트에 대한 규칙
 
@@ -54,13 +54,13 @@ ms.locfileid: "98919396"
 
 ## <a name="possible-errors-on-updating-assignments"></a>할당 업데이트 시 발생 가능한 오류
 
-할당을 업데이트할 때 변경한 내용으로 인해 실행 시 오류가 발생할 수 있습니다. 이미 배포된 리소스 그룹의 위치를 변경하는 경우를 예로 들 수 있습니다. [리소스 관리자](../../../azure-resource-manager/management/overview.md) 에서 지원 되는 모든 변경 작업을 수행할 수 있지만 리소스 관리자를 통해 오류가 발생 하는 경우에도 할당 오류가 발생 합니다.
+할당을 업데이트할 때 변경한 내용으로 인해 실행 시 오류가 발생할 수 있습니다. 이미 배포된 리소스 그룹의 위치를 변경하는 경우를 예로 들 수 있습니다. [Resource Manager](../../../azure-resource-manager/management/overview.md)에서 지원되는 모든 변경 작업을 수행할 수 있지만 Resource Manager에서 오류가 발생하는 경우에는 할당 오류도 발생하게 됩니다.
 
 할당을 업데이트할 수 있는 횟수에는 제한이 없습니다. 오류가 발생할 경우 오류를 확인하고 할당에 대해 다른 업데이트를 수행합니다.  오류 시나리오 예제:
 
 - 잘못된 매개 변수
 - 기존 개체
-- 리소스 관리자에서 지원 하지 않는 변경 내용
+- Resource Manager에서 지원하지 않는 변경 내용
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Application Gateway URL 기반 콘텐츠 라우팅 개요
-description: 이 문서에서는 Azure 애플리케이션 게이트웨이 URL 기반 콘텐츠 라우팅, UrlPathMap 구성 및 PathBasedRouting 규칙에 대 한 개요를 제공 합니다.
+description: 이 문서에서는 Azure Application Gateway URL 기반 콘텐츠 라우팅, UrlPathMap 구성 및 PathBasedRouting 규칙에 대한 개요를 제공합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: a9b2e8148586ec58ea6a7a033099e726920857b6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "84987925"
 ---
 # <a name="url-path-based-routing-overview"></a>URL 경로 기반 라우팅 개요
@@ -27,7 +27,7 @@ URL 경로 기반 라우팅을 사용하여 요청의 URL 경로에 따라 트�
 http\://contoso.com/video/*에 대한 요청은 VideoServerPool로 라우팅되고 http\://contoso.com/images/*에 대한 요청은 ImageServerPool로 라우팅됩니다. 경로 패턴과 일치하는 항목이 없는 경우 DefaultServerPool이 선택됩니다.
 
 > [!IMPORTANT]
-> V1 SKU의 경우 규칙은 포털에 나열 된 순서 대로 처리 됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. V2 SKU의 경우 정확한 일치는 우선 순위가 높습니다. 그러나 기본 수신기를 구성 하기 전에 먼저 다중 사이트 수신기를 구성 하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
+> v1 SKU의 경우 규칙은 포털에 나열된 순서대로 처리됩니다. 기본 수신기가 먼저 나열되고 들어오는 요청과 일치하면 해당 수신기에서 처리합니다. v2 SKU에서는 정확한 일치의 우선 순위가 더 높습니다. 그러나 기본 수신기를 구성하기 전에 먼저 다중 사이트 수신기를 구성하는 것이 좋습니다. 그러면 트래픽이 올바른 백 엔드로 라우팅됩니다.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap 구성 요소
 
@@ -76,9 +76,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |아니요|
+|`/*.jpg`     |아니요|
+|`/Repos/*/Comments/*`     |아니요|
 |`/CurrentUser/Comments/*`     |예|
 
 #### <a name="v2"></a>v2
@@ -89,9 +89,9 @@ PathPattern은 일치시킬 경로 패턴의 목록입니다. 각각은 /로 시
 |---------|---------|
 |`/images/*`     |예|
 |`/images*`     |예|
-|`/images/*.jpg`     |no|
-|`/*.jpg`     |no|
-|`/Repos/*/Comments/*`     |no|
+|`/images/*.jpg`     |아니요|
+|`/*.jpg`     |아니요|
+|`/Repos/*/Comments/*`     |아니요|
 |`/CurrentUser/Comments/*`     |예|
 
 자세한 내용은 [URL 기반 라우팅을 사용하는 Resource Manager 템플릿](https://azure.microsoft.com/documentation/templates/201-application-gateway-url-path-based-routing)을 참조하세요.

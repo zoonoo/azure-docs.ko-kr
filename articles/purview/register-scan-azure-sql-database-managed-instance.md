@@ -6,13 +6,13 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 12/01/2020
-ms.openlocfilehash: aaca73d71731ee18eb8f12468ec26ece746f1b8f
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.date: 05/08/2021
+ms.openlocfilehash: 3ead96a49e2bacca526cd9ee3b8c8e00abbba426
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288367"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656293"
 ---
 # <a name="register-and-scan-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance 등록 및 검사
 
@@ -119,7 +119,7 @@ Purview에서 서비스 주체를 사용하여 Azure SQL Database Managed Instan
 
 1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
 
-1. **퍼블릭 엔드포인트 정규화된 도메인 이름** 및 **포트 번호** 를 제공합니다. 그런 다음, **마침** 을 선택하여 데이터 원본을 등록합니다.
+1. **퍼블릭 엔드포인트 정규화된 도메인 이름** 및 **포트 번호** 를 제공합니다. **등록** 을 선택하여 데이터 원본을 등록합니다.
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Azure SQL Database Managed Instance 추가":::
 

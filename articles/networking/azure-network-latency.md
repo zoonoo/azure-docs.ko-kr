@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 12/07/2020
 ms.author: kumud
 ms.openlocfilehash: bc2d7bb7ba17a4a47fecf2144157f79f5367fca7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98059175"
 ---
 # <a name="azure-network-round-trip-latency-statistics"></a>Azure 네트워크 왕복 대기 시간 통계
 
-Azure는 [ThousandEyes](https://thousandeyes.com)에서 수집 하는 측정, 내부 모니터링 도구를 사용 하 여 네트워크의 핵심 영역에 대 한 대기 시간 (속도)을 지속적으로 모니터링 합니다.
+Azure는 [ThousandEyes](https://thousandeyes.com)(제3자 종합 모니터링 서비스)에서 수집하는 측정과 내부 모니터링 도구를 사용하여 자체 네트워크의 핵심 영역에 대한 대기 시간(속도)을 지속적으로 모니터링합니다.
 
-## <a name="how-are-the-measurements-collected"></a>측정값이 어떻게 수집 되나요?
+## <a name="how-are-the-measurements-collected"></a>측정값이 어떻게 수집되나요?
 
-대기 시간 측정값은 전 세계 Azure 클라우드 지역에서 호스트 되는 ThousandEyes 에이전트에서 수집 되며, 1 분 간격으로 자체적으로 네트워크 프로브를 지속적으로 보냅니다. 월간 대기 시간 통계는 해당 월에 수집 된 샘플의 평균을 계산 하 여 파생 됩니다.
+대기 시간 측정값은 전 세계 Azure 클라우드 지역에서 호스트되는 ThousandEyes 에이전트들에서 수집 되며, 이 에이전트들에서 1분 간격으로 자체 에이전트들 사이에 네트워크 프로브를 지속적으로 보냅니다. 월간 대기 시간 통계는 해당 월에 수집된 샘플의 평균을 계산하여 파생됩니다.
 
-## <a name="december-2020-round-trip-latency-figures"></a>12 월 2020 왕복 대기 시간 수치
+## <a name="december-2020-round-trip-latency-figures"></a>2020년 12월 왕복 대기 시간 수치
 
-지난 30 일간 Azure 지역 간의 월별 평균 왕복 시간 (2020 년 12 월 31 일에 종료)은 다음과 같습니다. 다음 측정은 [ThousandEyes](https://thousandeyes.com)에 의해 구동 됩니다.
+지난 30일간(2020 년 12월 31일에 종료) Azure 지역들 간의 월별 평균 왕복 시간은 다음과 같습니다. 다음 측정은 [ThousandEyes](https://thousandeyes.com)에 의해 구동됩니다.
 
 [![Azure 지역 간 대기 시간 통계](media/azure-network-latency/azure-network-latency.png)](media/azure-network-latency/azure-network-latency.png#lightbox)
 

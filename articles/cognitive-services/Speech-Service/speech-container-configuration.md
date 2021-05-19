@@ -1,7 +1,7 @@
 ---
 title: 음성 컨테이너 구성
 titleSuffix: Azure Cognitive Services
-description: Speech service는 컨테이너에 대 한 저장소, 로깅 및 원격 분석 및 보안 설정을 쉽게 구성 하 고 관리할 수 있도록 각 컨테이너에 공통 구성 프레임 워크를 제공 합니다.
+description: Speech Service는 각 컨테이너에 공통된 구성 프레임워크를 제공하므로, 사용자는 컨테이너에 대한 스토리지, 로깅 및 원격 분석은 물론, 보안 설정을 쉽게 구성하고 관리할 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
 ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96012172"
 ---
-# <a name="configure-speech-service-containers"></a>음성 서비스 컨테이너 구성
+# <a name="configure-speech-service-containers"></a>Speech Service 컨테이너 구성
 
-음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 에지 위치를 활용하기 위해 최적화된 단일 음성 애플리케이션 아키텍처를 구축할 수 있습니다. 이제 지원 되는 다섯 가지 음성 컨테이너는 **음성 텍스트**, **사용자 지정 음성-텍스트**, **텍스트 음성 변환**, 텍스트 음성 **변환** 및 **사용자 지정 텍스트** 음성 변환입니다.
+음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 에지 위치를 활용하기 위해 최적화된 단일 음성 애플리케이션 아키텍처를 구축할 수 있습니다. 현재 지원되는 5가지 음성 컨테이너는 **음성 텍스트 변환**, **사용자 지정 음성 텍스트 변환**, **텍스트 음성 변환**, **인공신경망 텍스트 음성 변환** 및 **사용자 지정 텍스트 음성 변환** 입니다.
 
-**음성** 컨테이너 런타임 환경은 명령 인수를 사용 하 여 구성 됩니다 `docker run` . 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다.
+**Speech** 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다.
 
 ## <a name="configuration-settings"></a>구성 설정
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정이 함께 사용 되며, 그 중 세 가지 모두에 대해 유효한 값을 제공 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](speech-container-howto.md#billing)를 참조하세요.
+> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정은 함께 사용됩니다. 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](speech-container-howto.md#billing)를 참조하세요.
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대 한 값을 지정 해야 하며 값은 구성 설정에 대해 지정 된 _음성_ 리소스의 유효한 키 여야 합니다 [`Billing`](#billing-configuration-setting) .
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 이 값은 [`Billing`](#billing-configuration-setting) 구성 설정에 대해 지정된 _Speech_ 리소스에 대한 유효한 키여야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-- Azure Portal: **음성의** 리소스 관리, **키** 아래
+- Azure Portal: **Speech** 의 리소스 관리, **키** 아래
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 
@@ -44,15 +44,15 @@ ms.locfileid: "96012172"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing`설정은 컨테이너의 청구 정보를 측정 하는 데 사용 되는 Azure의 _음성_ 리소스의 끝점 URI를 지정 합니다. 이 구성 설정의 값을 지정 해야 하며,이 값은 Azure의 _음성_ 리소스에 대 한 올바른 끝점 URI 여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Speech_ 리소스에 대한 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure의 _Speech_ 리소스에 대한 유효한 엔드포인트 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-- Azure Portal: **음성의** 개요, 레이블 `Endpoint`
+- Azure Portal: **Speech** 개요, `Endpoint` 레이블
 
-| 필수 | Name | 데이터 형식 | 설명 |
+| 필수 | 이름 | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
-| 예 | `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
+| 예 | `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI 가져오기에 대한 자세한 정보는 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -74,26 +74,26 @@ ms.locfileid: "96012172"
 
 바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
 
-표준 음성 컨테이너는 학습 또는 서비스 데이터를 저장 하기 위해 입력 또는 출력 탑재를 사용 하지 않습니다. 그러나 사용자 지정 음성 컨테이너는 볼륨 탑재를 사용 합니다.
+표준 Speech 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 그러나 Custom Speech 컨테이너는 볼륨 탑재를 사용합니다.
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](speech-container-howto.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
 
-| 선택 사항 | Name | 데이터 형식 | Description |
+| Optional | 이름 | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
-| 허용되지 않음 | `Input` | String | 표준 음성 컨테이너는이를 사용 하지 않습니다. 사용자 지정 음성 컨테이너는 [볼륨 탑재](#volume-mount-settings)를 사용 합니다.                                                                                    |
-| 선택 | `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output` |
+| 허용되지 않음 | `Input` | String | 표준 Speech 컨테이너는 사용하지 않습니다. Custom Speech 컨테이너는 [볼륨 탑재](#volume-mount-settings)를 사용합니다.                                                                                    |
+| 선택 | `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>볼륨 탑재 설정
 
-사용자 지정 음성 컨테이너는 [볼륨 탑재](https://docs.docker.com/storage/volumes/) 를 사용 하 여 사용자 지정 모델을 유지 합니다. `-v`(또는 `--volume` ) 옵션을 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령에 추가 하 여 볼륨 탑재를 지정할 수 있습니다.
+Custom Speech 컨테이너는 [볼륨 탑재](https://docs.docker.com/storage/volumes/)를 사용하여 사용자 지정 모델을 유지합니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령에 `-v`(또는 `--volume`) 옵션을 추가하여 볼륨 탑재를 지정할 수 있습니다.
 
-사용자 지정 모델은 사용자 지정 음성 컨테이너 docker run 명령의 일부로 새 모델을 처음으로 수집 때 다운로드 됩니다. `ModelId`사용자 지정 음성 컨테이너에 대해 동일한의 순차적 실행은 이전에 다운로드 한 모델을 사용 합니다. 볼륨 탑재를 제공 하지 않으면 사용자 지정 모델을 지속할 수 없습니다.
+사용자 지정 모델은 Custom Speech 컨테이너 docker run 명령의 일부로 새 모델을 수집할 때 처음 다운로드됩니다. Custom Speech 컨테이너에 대해 동일한 `ModelId`를 순차적으로 실행하면 이전에 다운로드한 모델이 사용됩니다. 볼륨 탑재를 제공하지 않으면 사용자 지정 모델을 유지할 수 없습니다.
 
-볼륨 탑재 설정은 다음과 같은 세 가지 색으로 구분 된 필드로 구성 됩니다 `:` .
+볼륨 탑재 설정은 세 가지 색상의 `:`로 구분된 필드로 구성됩니다.
 
-1. 첫 번째 필드는 호스트 컴퓨터의 볼륨 이름입니다 (예: _C:\input_).
-2. 두 번째 필드는 컨테이너의 디렉터리 (예: _/usr/local/models_)입니다.
-3. 세 번째 필드 (선택 사항)는 쉼표로 구분 된 옵션 목록입니다. 자세한 내용은 [볼륨 사용](https://docs.docker.com/storage/volumes/)을 참조 하세요.
+1. 첫 번째 필드는 호스트 컴퓨터의 볼륨 이름입니다(예: _C:\input_).
+2. 두 번째 필드는 컨테이너의 디렉터리입니다(예: _/usr/local/models_).
+3. 세 번째 필드(선택 사항)는 쉼표로 구분된 옵션 목록입니다. 자세한 내용은 [볼륨 사용](https://docs.docker.com/storage/volumes/)을 참조하세요.
 
 ### <a name="volume-mount-example"></a>볼륨 탑재 예
 
@@ -101,38 +101,38 @@ ms.locfileid: "96012172"
 -v C:\input:/usr/local/models
 ```
 
-이 명령은 호스트 컴퓨터 _C:\input_ 디렉터리를 컨테이너 _/usr/local/models_ 디렉터리에 탑재 합니다.
+이 명령은 호스트 컴퓨터 _C:\input_ 디렉터리를 컨테이너 _/usr/local/models_ 디렉터리에 탑재합니다.
 
 > [!IMPORTANT]
-> 볼륨 탑재 설정은 **Custom Speech 텍스트** 및 **사용자 지정 텍스트 음성 변환** 컨테이너에만 적용 됩니다. **음성 텍스트**, **신경망, 음성** 및 **텍스트** 음성 변환 컨테이너는 볼륨 탑재를 사용 하지 않습니다.
+> 볼륨 탑재 설정은 **사용자 지정 음성 텍스트 변환** 및 **사용자 지정 텍스트 음성 변환** 컨테이너에만 적용됩니다. **음성 텍스트 변환**, **인공신경망 텍스트 음성 변환** 및 **텍스트 음성 변환** 컨테이너는 볼륨 탑재를 사용하지 않습니다.
 
 ## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다. 한번 실행되면 컨테이너는 [중지](speech-container-howto.md#stop-the-container)할 때까지 계속 실행됩니다.
 
-- **줄 연속 문자**: 다음 섹션의 Docker 명령은 백슬래시를 `\` 줄 연속 문자로 사용 합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다.
-- **인수 순서**: Docker 컨테이너에 익숙하지 않은 경우 인수의 순서를 변경 하지 마세요.
+- **줄 연속 문자**: 다음 섹션에서 Docker 명령은 줄 연속 문자로 백슬래시(`\`)를 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다.
+- **인수 순서**: Docker 컨테이너 사용법을 잘 아는 경우가 아니라면 인수 순서를 변경하지 마세요.
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
 | 자리 표시자 | 값 | 형식 또는 예 |
 | ----------- | ----- | ----------------- |
-| **{API_KEY}** | `Speech`Azure 키 페이지에 있는 리소스의 끝점 키 `Speech` 입니다.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
-| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure 개요 페이지에서 사용할 수 있습니다 `Speech` . | 명시적 예제에 대 한 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters) 을 참조 하세요. |
+| **{API_KEY}** | Azure `Speech` 키 페이지에 있는 `Speech` 리소스의 엔드포인트 키입니다.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
+| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `Speech` 개요 페이지에 있습니다. | [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)에서 명시적 예를 참조하세요. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다. 자세한 내용은 [Billing](#billing-configuration-setting)를 참조하세요.
-> ApiKey 값은 Azure 음성 리소스 키 페이지의 **키** 입니다.
+> ApiKey 값은 Azure Speech 리소스 키 페이지의 **키** 입니다.
 
-## <a name="speech-container-docker-examples"></a>Speech container Docker 예
+## <a name="speech-container-docker-examples"></a>Speech 컨테이너 Docker 예
 
-다음 Docker 예제는 음성 컨테이너를 위한 것입니다.
+아래에는 Speech 컨테이너용 Docker 예가 나와 있습니다.
 
 ## <a name="speech-to-text"></a>[음성 텍스트 변환](#tab/stt)
 
-### <a name="basic-example-for-speech-to-text"></a>음성 텍스트에 대 한 기본 예
+### <a name="basic-example-for-speech-to-text"></a>음성 텍스트 변환의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -142,7 +142,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-speech-to-text"></a>음성 텍스트에 대 한 로깅 예제
+### <a name="logging-example-for-speech-to-text"></a>음성 텍스트 변환의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -155,7 +155,7 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="custom-speech-to-text"></a>[사용자 지정 음성 텍스트 변환](#tab/cstt)
 
-### <a name="basic-example-for-custom-speech-to-text"></a>Custom Speech 텍스트에 대 한 기본 예
+### <a name="basic-example-for-custom-speech-to-text"></a>사용자 지정 음성 텍스트 변환의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -167,7 +167,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-custom-speech-to-text"></a>Custom Speech 텍스트에 대 한 로깅 예제
+### <a name="logging-example-for-custom-speech-to-text"></a>사용자 지정 음성 텍스트 변환의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -182,7 +182,7 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="text-to-speech"></a>[텍스트 음성 변환](#tab/tss)
 
-### <a name="basic-example-for-text-to-speech"></a>텍스트 음성 변환에 대 한 기본 예
+### <a name="basic-example-for-text-to-speech"></a>텍스트 음성 변환의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -192,7 +192,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-text-to-speech"></a>텍스트 음성 변환에 대 한 로깅 예제
+### <a name="logging-example-for-text-to-speech"></a>텍스트 음성 변환의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -203,9 +203,9 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="custom-text-to-speech"></a>[사용자 지정 텍스트 음성 변환](#tab/ctts)
+## <a name="custom-text-to-speech"></a>[텍스트 음성 변환 사용자 지정](#tab/ctts)
 
-### <a name="basic-example-for-custom-text-to-speech"></a>사용자 지정 텍스트 음성 변환에 대 한 기본 예
+### <a name="basic-example-for-custom-text-to-speech"></a>사용자 지정 텍스트 음성 변환의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -217,7 +217,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-custom-text-to-speech"></a>사용자 지정 텍스트 음성 변환에 대 한 로깅 예제
+### <a name="logging-example-for-custom-text-to-speech"></a>사용자 지정 텍스트 음성 변환의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -232,7 +232,7 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="neural-text-to-speech"></a>[인공신경망 텍스트 음성 변환](#tab/ntts)
 
-### <a name="basic-example-for-neural-text-to-speech"></a>신경망 음성 변환에 대 한 기본 예
+### <a name="basic-example-for-neural-text-to-speech"></a>인공신경망 텍스트 음성 변환의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -242,7 +242,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-neural-text-to-speech"></a>신경망 음성 변환에 대 한 로깅 예제
+### <a name="logging-example-for-neural-text-to-speech"></a>인공신경망 텍스트 음성 변환의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -255,7 +255,7 @@ Logging:Console:LogLevel:Default=Information
 
 ## <a name="speech-language-detection"></a>[음성 언어 감지](#tab/lid)
 
-### <a name="basic-example-for-speech-language-detection"></a>음성 언어 검색에 대 한 기본 예
+### <a name="basic-example-for-speech-language-detection"></a>음성 언어 검색의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -265,7 +265,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-speech-language-detection"></a>음성 언어 검색에 대 한 로깅 예제
+### <a name="logging-example-for-speech-language-detection"></a>음성 언어 검색의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \

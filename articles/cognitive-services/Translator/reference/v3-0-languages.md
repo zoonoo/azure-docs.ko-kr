@@ -1,7 +1,7 @@
 ---
-title: Translator 언어 메서드
+title: Translator Languages 메서드
 titleSuffix: Azure Cognitive Services
-description: 언어 메서드는 변환기의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다.
+description: Languages 메서드는 Translator의 다른 작업에서 현재 지원되는 언어 집합을 가져옵니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: lajanuar
 ms.openlocfilehash: 8471983d24cfed39e6521e19366f6023e519adaf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895478"
 ---
-# <a name="translator-30-languages"></a>Translator 3.0: 언어
+# <a name="translator-30-languages"></a>Translator 3.0: Languages
 
-변환기의 다른 작업에서 현재 지원 되는 언어 집합을 가져옵니다. 
+현재 Translator의 다른 작업에서 지원되는 언어 집합을 가져옵니다. 
 
 ## <a name="request-url"></a>요청 URL
 
@@ -52,12 +52,12 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   <th>Description</th>
   <tr>
     <td>Accept-Language</td>
-    <td>*선택적 요청 헤더* 입니다.<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
+    <td>*선택적 요청 헤더*<br/>사용자 인터페이스 문자열에 사용할 언어입니다. 응답에 있는 필드 중 일부는 언어의 이름 또는 지역 이름입니다. 이 매개 변수를 사용하여 이러한 이름을 반환하는 언어를 정의합니다. 언어는 올바른 형식의 BCP 47 언어 태그를 제공하여 지정됩니다. 예를 들어, `fr` 값을 사용하여 프랑스어로 이름을 요청하거나 `zh-Hant` 값을 사용하여 중국어 번체로 이름을 요청합니다.<br/>대상 언어를 지정하지 않거나 지역화를 사용할 수 없는 경우 이름은 영어로 제공됩니다.
     </td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*선택적 요청 헤더* 입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다.</td>
+    <td>*선택적 요청 헤더*<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다.</td>
   </tr>
 </table> 
 
@@ -263,7 +263,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>클라이언트에서 요청 제한을 초과 하 여 서버가 요청을 거부 했습니다.</td>
+    <td>클라이언트가 요청 한도를 초과했기 때문에 서버가 요청을 거부했습니다.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -275,9 +275,9 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
   </tr>
 </table> 
 
-오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [V3 변환기 참조 페이지](./v3-0-reference.md#errors)에서 찾을 수 있습니다. 
+오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator 참조 페이지](./v3-0-reference.md#errors)에서 확인할 수 있습니다. 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 다음 예제에서는 텍스트 번역에 지원되는 언어를 검색하는 방법을 보여줍니다.
 

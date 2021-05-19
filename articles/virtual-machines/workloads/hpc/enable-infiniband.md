@@ -1,19 +1,19 @@
 ---
-title: HPC VM에서 InifinBand 사용 - Azure 가상 머신 | Microsoft Docs
+title: HPC VM에서 InfiniBand 사용 - Azure Virtual Machines | Microsoft Docs
 description: Azure HPC VM에서 InfiniBand를 사용하도록 설정하는 방법을 알아봅니다.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 04/28/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 089976f2009e006f53dd2a77f09f57d5090429b7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6f2a9502074543272b69f01b567da89b421f6fa6
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721233"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108227761"
 ---
 # <a name="enable-infiniband"></a>InfiniBand 사용
 
@@ -22,9 +22,7 @@ ms.locfileid: "104721233"
 지원되는 VM 크기에서 InfiniBand를 사용하도록 설정하는 방법은 다양합니다.
 
 ## <a name="vm-images-with-infiniband-drivers"></a>InfiniBand 드라이버를 사용하는 VM 이미지
-Marketplace에서 지원되는 VM 이미지 목록은 [VM 이미지](configure.md#vm-images)를 참조하세요. 이는 InfiniBand 드라이버(SR-IOV 또는 SR-IOV 이외 VM용)를 이용하여 미리 로드된 상태로 제공되거나, [RDMA 지원 VM](../../sizes-hpc.md#rdma-capable-instances)에 적절한 드라이버를 사용하여 구성할 수 있습니다.
-- Marketplace의 [CentOS-HPC](configure.md#centos-hpc-vm-images) VM 이미지는 사용하기에 가장 쉬운 방법입니다.
-- [Ubuntu](configure.md#ubuntu-vm-images) VM 이미지는 적합한 IB 드라이버를 사용하여 구성할 수 있습니다.
+Marketplace에서 지원되는 VM 이미지 목록은 [VM 이미지](configure.md#vm-images)를 참조하세요. 이는 InfiniBand 드라이버(SR-IOV 또는 SR-IOV 이외 VM용)를 이용하여 미리 로드된 상태로 제공되거나, [RDMA 지원 VM](../../sizes-hpc.md#rdma-capable-instances)에 적절한 드라이버를 사용하여 구성할 수 있습니다.  Marketplace의 [CentOS-HPC](configure.md#centos-hpc-vm-images) 및 [Ubuntu-HPC](configure.md#ubuntu-hpc-vm-images) VM 이미지는 사용하기에 가장 쉬운 방법입니다.
 
 ## <a name="infiniband-driver-vm-extensions"></a>InfiniBand 드라이버 VM 확장
 Linux에서는 [InfiniBandDriverLinux VM 확장](../../extensions/hpc-compute-infiniband-linux.md)을 사용하여 Mellanox OFED 드라이버를 설치하고, SR-IOV 사용 H 시리즈/N 시리즈 VM에서 InfiniBand를 사용하도록 설정할 수 있습니다.
@@ -67,7 +65,7 @@ sudo systemctl restart waagent
 
 ## <a name="next-steps"></a>다음 단계
 
-- 다양한 [지원 MPI 라이브러리](setup-mpi.md) 및 VM에 최적화된 구성을 설치하는 방법에 대해 자세히 알아봅니다.
+- VM에서 [지원되는 다양한 MPI 라이브러리](setup-mpi.md)를 설치하고 실행하는 방법에 대해 자세히 알아봅니다.
 - [HBv3 시리즈 개요](hbv3-series-overview.md) 및 [HC 시리즈 개요](hc-series-overview.md)를 검토합니다.
 - [Azure Compute 기술 커뮤니티 블로그](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute)에서 최신 공지 사항, HPC 워크로드 예제 및 성능 결과에 대해 읽어보세요.
 - HPC 워크로드를 실행하는 상위 수준의 아키텍처 보기는 [Azure의 HPC(고성능 컴퓨팅)](/azure/architecture/topics/high-performance-computing/)를 참조하세요.

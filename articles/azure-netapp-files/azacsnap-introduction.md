@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 4ba679459686340396e0e4d65344295c0fa9c4be
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 86783df03a395e287a6656b52099cffc579ee31f
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869959"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108226285"
 ---
-# <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅샷 도구란(미리 보기)
+# <a name="what-is-azure-application-consistent-snapshot-tool"></a>Azure Application Consistent Snapshot Tool이란?
 
 AzAcSnap(Azure 애플리케이션 일치 스냅샷 도구)은 스토리지 스냅샷을 만들기 전에 애플리케이션을 일관된 상태에 배치하는 데 필요한 모든 오케스트레이션을 처리하여 타사 데이터베이스에 대해 데이터 보호를 사용하도록 설정하고 그 후에는 운영 상태로 되돌리는 명령줄 도구입니다.
 
@@ -44,7 +44,7 @@ AzAcSnap은 Azure NetApp Files 및 Azure 대규모 인스턴스의 볼륨 스냅
 - **스토리지 볼륨 복제** 이 기능은 개발 및 테스트를 위해 공간 효율성이 뛰어난 스토리지 볼륨 복제본을 제공합니다.
 - **재해 복구 지원** AzAcSnap은 스토리지 볼륨 복제를 활용하여 원격 사이트에서 복제된 애플리케이션 일치 스냅샷을 복구하는 옵션을 제공합니다.
 
-AzAcSnap은 단일 이진 파일입니다.  데이터베이스 또는 스토리지(Azure Resource Manager를 통한 Azure NetApp Files, SSH를 통한 Azure Large Instance)와 상호 작용하는 추가 에이전트 또는 플러그 인은 필요하지 않습니다.  AzAcSnap은 데이터베이스와 스토리지에 연결된 시스템에 설치해야 합니다.  그러나 설치 및 구성의 유연성을 통해 단일 중앙 집중식 설치 또는 각 데이터베이스 설치 시 복사본이 설치된 완전 분산 설치를 수행할 수 있습니다.
+AzAcSnap은 단일 이진 파일입니다.  데이터베이스 또는 스토리지(Azure Resource Manager를 통한 Azure NetApp Files, SSH를 통한 Azure Large Instance)와 상호 작용하는 추가 에이전트 또는 플러그 인은 필요하지 않습니다.  AzAcSnap은 데이터베이스와 스토리지에 연결된 시스템에 설치해야 합니다.  그러나 설치 및 구성의 유연성을 통해 단일 중앙 집중식 설치(Azure NetApp Files에만 해당) 또는 각 데이터베이스 설치 시 복사본이 설치된 완전 분산 설치(Azure NetApp Files 및 Azure Large Instance)를 수행할 수 있습니다.
 
 ## <a name="architecture-overview"></a>아키텍처 개요
 
@@ -80,7 +80,7 @@ AzAcSnap은 일반적으로 외부 스케줄러에서 실행되는 간단한 애
   - [자세한 명령 참조](azacsnap-cmd-ref-details.md)를 참조하세요.
 - **`-c delete`** 은 스토리지 스냅샷 또는 스냅샷 세트를 삭제합니다. HANA Studio에 있는 SAP HANA 백업 ID 또는 스토리지 스냅샷 이름을 사용할 수 있습니다. 백업 ID는 데이터 및 공유 볼륨에 대해 생성된 `hana` 스냅샷에만 연결됩니다. 그렇지 않고 스냅샷 이름을 입력하는 경우 입력한 스냅샷 이름과 일치하는 모든 스냅샷을 검색합니다.
   - [삭제](azacsnap-cmd-ref-delete.md)를 참조하세요.
-- **`-c restore`** 에서는 스냅샷을 기반으로 새 볼륨을 만들거나 볼륨을 미리 보기 상태로 롤백하여 볼륨에 스냅샷을 복원하는 두 가지 방법을 제공합니다.
+- **`-c restore`** 에서는 스냅샷을 기반으로 새 볼륨을 만들거나 볼륨을 이전 상태로 롤백하여 스냅샷을 기반으로 볼륨을 복원하는 두 가지 방법을 제공합니다.
   - **`--restore snaptovol`** 은 대상 볼륨의 최신 스냅샷을 기반으로 새 볼륨을 만듭니다.
   - **`-c restore --restore revertvolume`** 은 가장 최근의 스냅샷을 기반으로 대상 볼륨을 이전 상태로 되돌립니다.
   - [복원 명령 참조](azacsnap-cmd-ref-restore.md)를 참조하세요.

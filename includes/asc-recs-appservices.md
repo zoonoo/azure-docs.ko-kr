@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 05/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 4817a68ad74ed9a51f8b9ea67f3d271bbaa3423b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8be9c97e23b579acf138a2861a77a5b8f219b886
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466222"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766483"
 ---
 이 범주에는 **31** 개의 권장 사항이 있습니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "103466222"
 |Python을 최신 함수 앱 버전으로 업데이트해야 합니다. |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다.<br>최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 함수 앱에 최신 Python 버전을 사용하는 것이 좋습니다.<br />(관련 정책: [함수 앱의 일부로 사용되는 경우 최신 'Python 버전'인지 확인](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7238174a-fd10-4ef0-817e-fc820a951d73)) |중간 |
 |Python을 최신 웹앱 버전으로 업데이트해야 합니다. |보안 결함이 있거나 추가 기능을 포함하기 위해 Python 소프트웨어에 대한 최신 버전이 주기적으로 릴리스됩니다.<br>최신 버전의 보안 픽스(있는 경우) 및/또는 새로운 기능을 활용하려면 웹앱에 최신 Python 버전을 사용하는 것이 좋습니다.<br />(관련 정책: [웹앱의 일부로 사용되는 경우 최신 'Python 버전'인지 확인](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7008174a-fd10-4ef0-817e-fc820a951d73)) |중간 |
 |API 앱에 대해 원격 디버깅을 해제해야 함 |원격으로 디버깅하려면 API 앱에서 인바운드 포트를 열어야 합니다. 원격 디버깅을 해제해야 합니다.<br />(관련 정책: [API Apps에 대해 원격 디버깅을 해제해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fe9c8d085-d9cc-4b17-9cdc-059f1f01f19e)) |낮음 |
-|함수 앱에 대해 원격 디버깅을 해제해야 함 |원격 디버깅에 함수 앱에서 열리는 인바운드 포트가 필요합니다. 원격 디버깅을 해제해야 합니다.<br />(관련 정책: [함수 앱에 대해 원격 디버깅을 해제해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f0e60b895-3786-45da-8377-9c6b4b6ac5f9)) |낮음 |
+|함수 앱에 대해 원격 디버깅을 해제해야 함 |원격 디버깅에 Azure Function 앱에서 열리는 인바운드 포트가 필요합니다. 원격 디버깅을 해제해야 합니다.<br />(관련 정책: [함수 앱에 대해 원격 디버깅을 해제해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2f0e60b895-3786-45da-8377-9c6b4b6ac5f9)) |낮음 |
 |웹 애플리케이션에 대해 원격 디버깅을 해제해야 합니다. |원격 디버깅에 웹 애플리케이션에서 열리는 인바운드 포트가 필요합니다. 현재 원격 디버깅이 설정되어 있습니다. 원격 디버깅을 더 이상 사용할 필요가 없으면 해제해야 합니다.<br />(관련 정책: [웹 애플리케이션에 대해 원격 디버깅을 해제해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicydefinitions%2fcb510bfd-1cba-4d9f-a230-cb0976f4bb71)) |낮음 |
 |TLS를 최신 API 앱 버전으로 업데이트해야 합니다. |최신 TLS 버전으로 업그레이드<br />(관련 정책: [API 앱에서 최신 TLS 버전을 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f8cb6aa8b-9e41-4f4e-aa25-089a7ac2581e)) |높음 |
 |TLS를 최신 함수 앱 버전으로 업데이트해야 합니다. |최신 TLS 버전으로 업그레이드<br />(관련 정책: [함수 앱에서 최신 TLS 버전을 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ff9d614c5-c173-4d56-95a7-b4437057d193)) |높음 |

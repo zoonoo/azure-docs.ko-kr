@@ -1,14 +1,14 @@
 ---
-title: Azure Service Fabric 컨테이너 응용 프로그램 만들기
-description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다. Python 응용 프로그램을 사용 하 여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리에 푸시한 다음, 컨테이너를 빌드하고 Azure Service Fabric에 배포 합니다.
+title: Azure Service Fabric 컨테이너 애플리케이션 만들기
+description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다. Python 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시한 다음 컨테이너를 빌드하고 Azure Service Fabric에 배포합니다.
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 197423670ffe05f15fdc5bfd351efdfba33b53cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96533777"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
@@ -17,7 +17,7 @@ ms.locfileid: "96533777"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램이 포함 된 Docker 이미지를 만들고 Azure Service Fabric 클러스터에 배포 하는 과정을 안내 합니다. 또한 [Azure Container Registry](../container-registry/index.yml)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션을 포함하는 Docker 이미지를 만들어 Azure Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](../container-registry/index.yml)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Windows 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Windows 컨테이너는 Linux 클러스터에서 실행할 수 없습니다.
@@ -25,18 +25,18 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2019.
-  * [SDK 및 도구를 Service Fabric](service-fabric-get-started.md)합니다.
-  *  Windows용 Docker [Windows용 Docker CE (안정화)을 가져옵니다](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환** 을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
+  * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
+  *  Windows용 Docker [Windows용 Docker CE 가져오기(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환** 을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
 * 3개 이상의 노드가 있는 Windows 클러스터는 컨테이너가 포함된 Windows Server에서 실행됩니다. 
 
   이 문서의 경우 클러스터 노드에서 실행되는 컨테이너가 포함된 Windows Server의 버전은 개발 컴퓨터와 일치해야 합니다. 이는 개발 컴퓨터에 docker 이미지를 작성하고 컨테이너 OS 버전과 해당 OS가 배포된 호스트 OS 버전 간의 호환성 제약 조건이 있기 때문입니다. 자세한 내용은 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 
   
-    클러스터에 필요한 컨테이너를 포함 하는 Windows Server 버전을 확인 하려면 `ver` 개발 컴퓨터의 windows 명령 프롬프트에서 명령을 실행 합니다. [클러스터를 만들기](service-fabric-cluster-creation-via-portal.md)전에 [WINDOWS Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility) 을 참조 하세요.
+    클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다. [클러스터를 만들기](service-fabric-cluster-creation-via-portal.md) 전에 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility)을 참조하세요.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
@@ -105,12 +105,12 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 
-## <a name="login-to-docker-and-build-the-image"></a>Docker에 로그인 하 고 이미지를 빌드합니다.
+## <a name="login-to-docker-and-build-the-image"></a>Docker에 로그인 및 이미지 빌드
 
-다음으로, 웹 응용 프로그램을 실행 하는 이미지를 만듭니다. Docker에서 공용 이미지를 끌어올 때 (예: `python:2.7-windowsservercore` Dockerfile) 익명 끌어오기 요청을 수행 하는 대신 Docker 허브 계정으로 인증 하는 것이 좋습니다.
+다음으로 웹 애플리케이션을 실행하는 이미지를 만들어 보겠습니다. Docker에서 공용 이미지를 끌어올 때(예: Dockerfile의 `python:2.7-windowsservercore`) 익명 끌어오기 요청을 수행하는 것보다 Docker 허브 계정으로 인증하는 것이 가장 좋습니다.
 
 > [!NOTE]
-> 빈번 하 게 익명 끌어오기 요청을 만드는 경우 `ERROR: toomanyrequests: Too Many Requests.` `You have reached your pull rate limit.` 이러한 오류를 방지 하기 위해 docker 허브와 유사한 docker 오류가 표시 될 수 있습니다. 자세한 내용은 [Azure Container Registry를 사용 하 여 공용 콘텐츠 관리](../container-registry/buffer-gate-public-content.md) 를 참조 하세요.
+> 익명 끌어오기 요청을 자주 수행할 경우 `ERROR: toomanyrequests: Too Many Requests.` 또는 `You have reached your pull rate limit.`과 같은 Docker 오류가 표시될 수 있습니다. 이러한 오류가 발생하지 않도록 Docker Hub에 인증하세요. 자세한 내용은 [Azure Container Registry를 사용하여 공용 콘텐츠 관리](../container-registry/buffer-gate-public-content.md)를 참조하세요.
 
 PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 그런 다음, 다음 명령을 실행합니다.
 
@@ -146,12 +146,12 @@ docker run -d --name my-web-site helloworldapp
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-해당 명령이 아무것도 반환 하지 않는 경우 다음 명령을 실행 하 고  -> IP 주소에 대 한 networksettings **Networks** 요소를 검사 합니다.
+해당 명령이 아무 결과도 반환하지 않는 경우 다음 명령을 실행하고 IP 주소에 대한 **NetworkSettings**->**Networks** 요소를 검사합니다.
 ```
 docker inspect my-web-site
 ```
 
-실행 중인 컨테이너에 연결합니다. 반환 된 IP 주소 (예: "http:/172.31.194.61")를 가리키는 웹 브라우저를 엽니다 \/ . 제목인 "Hello World!"가 브라우저에 표시됩니다.
+실행 중인 컨테이너에 연결합니다. 반환된 IP 주소(예: "http:\//172.31.194.61")를 가리키는 웹 브라우저를 엽니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 컨테이너를 중지하려면 다음을 실행합니다.
 
@@ -170,9 +170,9 @@ docker rm my-web-site
 
 컨테이너가 개발 컴퓨터에서 실행되었는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-``docker login``을 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+``docker login``을 실행하여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)으로 컨테이너 레지스트리에 로그인합니다.
 
-다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
+다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용하여 로그인할 수 있습니다.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -260,7 +260,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 
 ## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
 
-컨테이너 이미지 다운로드에 대해 다양 한 유형의 인증을 구성 하는 방법을 알아보려면 [컨테이너 리포지토리 인증](configure-container-repository-credentials.md)을 참조 하세요.
+컨테이너 이미지 다운로드에 대해 다양한 유형의 인증을 구성하는 방법을 알아보려면 [컨테이너 리포지토리 인증](configure-container-repository-credentials.md)을 참조하세요.
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
 Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 프로세스 격리 모드를 사용하여 동일한 호스트 컴퓨터에서 실행되는 모든 컨테이너는 호스트와 커널을 공유합니다. Hyper-V 격리 모드를 사용하여 커널은 각 Hyper-V 컨테이너와 컨테이너 호스트 간에 격리됩니다. 격리 모드는 애플리케이션 매니페스트 파일의 `ContainerHostPolicies` 요소에 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 Windows Server 호스트에서 프로세스 격리 모드입니다. Windows 10 호스트에서는 Hyper-V 격리 모드만 지원되므로 격리 모드 설정에 관계없이 컨테이너가 Hyper-V 격리 모드로 실행됩니다. 다음 코드 조각은 격리 모드가 애플리케이션 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
@@ -289,11 +289,11 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 
 v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK** 를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status* 가 *healthy* 이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status* 가 *unhealthy* 이면 **경고** 가 표시됩니다. 
 
-V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상* 상태 이면 **오류가** 표시 됩니다.
+최신 릴리스 v6.4부터는 docker HEALTHCHECK 평가를 오류로 보고하도록 지정할 수 있는 옵션이 있습니다. 이 옵션을 사용할 경우, *health_status* 가 *정상* 상태이면 **OK** 상태 보고서가 표시되고 *health_status* 가 *비정상* 상태이면 **ERROR** 가 표시됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
-![배포 된 서비스 패키지 NodeServicePackage의 세부 정보를 보여 주는 스크린샷][3]
+![배포된 서비스 패키지 NodeServicePackage의 세부 정보를 보여 주는 스크린샷.][3]
 
 ![HealthCheckUnhealthyApp][4]
 
@@ -313,18 +313,18 @@ ApplicationManifest에서 **ContainerHostPolicies** 의 일부로 **HealthConfig
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true** 로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false** 로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 **false** 로 설정 됩니다. 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true** 로 설정되고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false** 로 설정되며, *TreatContainerUnhealthyStatusAsError* 는 **false** 로 설정됩니다. 
 
 *RestartContainerOnUnhealthyDockerHealthStatus* 가 **true** 로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
-*TreatContainerUnhealthyStatusAsError* 가 **true** 로 설정 된 경우 컨테이너의 *health_status* *비정상* 이면 **오류** 상태 보고서가 표시 됩니다.
+*TreatContainerUnhealthyStatusAsError* 가 **true** 로 설정된 경우 컨테이너의 *health_status* 가 *비정상* 일 때 **ERROR** 상태 보고서가 표시됩니다.
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false** 로 설정해야 합니다.
 
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer** 를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다.
 
-**연결 엔드포인트** 에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000` [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트** 에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예들 들어 `containercluster.westus2.cloudapp.azure.com:19000`입니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시** 를 클릭합니다.
 
@@ -350,7 +350,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예를 들면 다음과 같습니다.
  
 - Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
-- Windows server 2016를 사용 하 여 빌드된 windows Server 컨테이너는 Windows Server 버전 1709을 실행 하는 호스트 에서만 Hyper-v 격리 모드로 작동 합니다. 
+- Windows Server 버전 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709를 실행하는 호스트에서 HyperV 격리 모드로만 작동합니다. 
 - Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 2016을 실행하는 호스트에서 프로세스 격리 모드로 실행할 때 컨테이너 OS와 호스트 OS의 수정 버전이 동일한지 확인해야 할 수 있습니다.
  
 자세한 내용은 [Windows 컨테이너 버전 호환성](/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
@@ -500,7 +500,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>컨테이너를 강제로 종료하기 전 시간 간격 구성
 
-서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. `Hosting`섹션은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
+서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. `Hosting` 섹션은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
 
 ```json
 "fabricSettings": [
@@ -577,7 +577,7 @@ Service Fabric 런타임은 대부분의 컨테이너 이미지에 대해 작동
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정 하지 않으면 컨테이너가 유지 되지 않습니다. 또한 **ContainersRetentionCount** 특성은 애플리케이션 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 애플리케이션 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>사용자 지정 인수로 Docker 디먼 시작
 

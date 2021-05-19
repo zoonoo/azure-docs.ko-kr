@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9863ed24da9e427f885a4794bda7e103b0c1cc8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: ed8f5b8567e5808ebccfdc2a6d2d3b5d530da5cc
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96455454"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884015"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>파트너 센터에서 Azure 앱을 온보딩하기 위한 파트너 센터 제출 API
 
@@ -29,7 +29,7 @@ Azure 제품에 파트너 센터 API를 사용하려면 몇 가지 프로그래�
 
 파트너 센터 제출 API를 호출하는 코드를 작성하기 전에 다음 필수 조건을 완료했는지 확인합니다.
 
-- 사용자(또는 조직)는 Azure AD 디렉터리가 있어야 하고 디렉터리에 대한 [전역 관리자](../../active-directory/roles/permissions-reference.md) 권한이 있어야 합니다. Microsoft에서 이미 Microsoft 365 또는 다른 비즈니스 서비스를 사용 하는 경우 Azure AD 디렉터리가 이미 있습니다. 그렇지 않은 경우 추가 비용 없이 [파트너 센터에서 새 Azure AD를 만들면 됩니다](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account).
+- 사용자(또는 조직)는 Azure AD 디렉터리가 있어야 하고 디렉터리에 대한 [전역 관리자](../../active-directory/roles/permissions-reference.md) 권한이 있어야 합니다. Microsoft 365 또는 Microsoft의 다른 비즈니스 서비스를 이미 사용하는 경우 이미 Azure AD 디렉터리가 있습니다. 그렇지 않은 경우 추가 비용 없이 [파트너 센터에서 새 Azure AD를 만들면 됩니다](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account).
 
 - [Azure AD 애플리케이션을 파트너 센터 계정에 연결](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account)하고 테넌트 ID, 클라이언트 ID 및 키를 가져와야 합니다. Microsoft Store 제출 API를 호출하는 데 사용할 Azure AD 액세스 토큰을 얻으려면 이러한 값이 필요합니다.
 
@@ -73,5 +73,5 @@ https://apidocs.microsoft.com/services/partneringestion/
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure VM 기술 자산](../create-azure-container-technical-assets.md)을 만드는 방법에 대해 알아봅니다.
-* [Azure Container 제품](../create-azure-container-offer.md)을 만드는 방법에 대해 알아봅니다.
+* [Azure Container 기술 자산 만들기](../azure-container-technical-assets.md)
+* [Azure Container 제품 만들기](../azure-container-offer-setup.md)

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/11/2021
-ms.openlocfilehash: c35a9045bf809c03630fbb7c57f9d31e7b143422
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 7c8aa496d44ba72c5a8d62631108b8e332dd4fbf
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107876460"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795819"
 ---
 # <a name="overview-of-azure-iot-device-sdks"></a>Azure IoT 디바이스 SDK 개요
 
@@ -49,7 +49,7 @@ Azure IoT 디바이스 SDK는 여러 언어로 구현되므로 선호하는 언�
 
 ## <a name="how-can-i-get-started"></a>어떻게 시작하나요?
 
-먼저 Azure 디바이스 SDK의 GitHub 리포지토리를 검색합니다. SDK를 사용하여 원격 분석을 Azure IoT에 빠르게 보내는 방법을 보여 주는 [빠른 시작](quickstart-send-telemetry-python.md)을 사용해 볼 수도 있습니다.
+먼저 Azure 디바이스 SDK의 GitHub 리포지토리를 검색합니다. SDK를 사용하여 원격 분석을 Azure IoT에 빠르게 보내는 방법을 보여 주는 [빠른 시작](quickstart-send-telemetry-central.md)을 사용해 볼 수도 있습니다.
 
 시작 옵션은 사용하는 디바이스의 종류에 따라 달라집니다.
 - 제한된 디바이스의 경우 [Embedded C SDK](#embedded-c-sdk)를 사용합니다. 
@@ -163,7 +163,7 @@ IoT Hub DPS(Device Provisioning Service)는 IoT Hub용 도우미 서비스로, �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [빠른 시작: IoT Central에 디바이스 연결(Python)](quickstart-send-telemetry-python.md)
-* [빠른 시작: IoT Hub에 디바이스 연결(Python)](quickstart-send-telemetry-cli-python.md)
+* [빠른 시작: IoT Central로 원격 분석 전송](quickstart-send-telemetry-central.md)
+* [빠른 시작: IoT Hub로 원격 분석 전송](quickstart-send-telemetry-iot-hub.md)
 * [임베디드 개발 시작](quickstart-device-development.md)
 * [Azure IoT SDK를 사용한 개발의 이점](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)에 대해 자세히 알아보기

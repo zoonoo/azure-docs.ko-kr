@@ -3,22 +3,22 @@ title: Datadog 만들기 - Azure 파트너 솔루션
 description: 이 문서에서는 Azure Portal을 사용하여 Datadog 인스턴스를 만드는 방법을 설명합니다.
 ms.service: partner-services
 ms.topic: quickstart
-ms.date: 02/19/2021
+ms.date: 05/05/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.custom: references_regions
-ms.openlocfilehash: 7af8b82c5da6c60527b45b6e8e292b9f067016ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3d9c364c1367986f4ebe47cc00b4cb8b2434b90c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747586"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517463"
 ---
 # <a name="quickstart-get-started-with-datadog"></a>빠른 시작: Datadog 시작
 
-이 빠른 시작에서는 Datadog 인스턴스를 만듭니다. 새 Datadog 조직을 만들 수도 있고 기존 Datadog 조직에 연결할 수도 있습니다.
+이 빠른 시작에서는 Datadog 인스턴스를 만듭니다. 새 Datadog 조직을 만들 수도 있고 기존 Datadog 조직에 연결할 수도 있습니다. Azure는 **US3** 의 기존 Datadog 조직에만 연결됩니다.
 
-## <a name="pre-requisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure Datadog 통합을 설정하려면 Azure 구독에 대한 **소유자** 액세스 권한이 있어야 합니다. 설치를 시작하기 전에 적절한 액세스 권한이 있는지 확인합니다.
 
@@ -85,7 +85,7 @@ Azure Portal을 사용하여 Datadog을 찾습니다.
 
 ## <a name="link-to-existing-datadog-organization"></a>기존 Datadog 조직에 연결
 
-Azure의 새 Datadog 리소스를 기존 Datadog 조직에 연결할 수 있습니다.
+Azure의 새 Datadog 리소스를 **US3** 의 기존 Datadog 조직에 연결할 수 있습니다.
 
 데이터 조직으로 **기존 조직** 을 선택한 다음, **Datadog 조직에 연결** 을 선택합니다.
 
@@ -127,7 +127,7 @@ Azure에서 Datadog으로 내보낼 수 있는 두 가지 유형의 로그가 �
 
 Datadog에 구독 수준 로그를 보내려면 **구독 활동 로그 보내기** 를 선택합니다. 이 옵션을 선택하지 않은 상태로 두면 구독 수준 로그가 Datadog으로 전송되지 않습니다.
 
-Datadog에 Azure 리소스 로그를 보내려면 **정의된 모든 리소스에 대한 Azure 리소스 로그 보내기** 를 선택합니다. Azure 리소스 로그의 유형은 [Azure Monitor 리소스 로그 범주](../../azure-monitor/essentials/resource-logs-categories.md)에 나열되어 있습니다.  Datadog으로 로그를 보내는 Azure 리소스 세트를 필터링하려면 Azure 리소스 태그를 사용합니다.  
+Datadog에 Azure 리소스 로그를 보내려면 **정의된 모든 리소스에 대한 Azure 리소스 로그 보내기** 를 선택합니다. Azure 리소스 로그의 유형은 [Azure Monitor 리소스 로그 범주](../../azure-monitor/essentials/resource-logs-categories.md)에 나열되어 있습니다.  Datadog으로 로그를 보내는 Azure 리소스 세트를 필터링하려면 Azure 리소스 태그를 사용합니다.
 
 Azure는 Datadog으로 전송된 로그에 대한 요금을 청구합니다. 자세한 내용은 Azure Marketplace 파트너에게 전송된 [플랫폼 로그의 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조하세요.
 

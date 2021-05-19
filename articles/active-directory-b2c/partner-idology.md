@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2b6001932b6f53a60eda76b6136611a10011391a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: df0fcaf7987e30f9c2599346aaef5fcabb4f04e9
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96928684"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256653"
 ---
 # <a name="tutorial-for-configuring-idology-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 IDology를 구성하기 위한 자습서 
 
@@ -41,7 +41,7 @@ IDology 통합에는 다음 구성 요소가 포함됩니다.
 
 ![IDology 아키텍처 다이어그램](media/partner-idology/idology-architecture-diagram.png)
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|------|
 |1     | 사용자가 로그인 페이지에 도착합니다. |
 |2     | 사용자가 등록을 선택하여 새 계정을 만들고 페이지에 정보를 입력합니다. Azure AD B2C가 사용자 특성을 수집합니다. |
@@ -75,7 +75,7 @@ IDology 통합에는 다음 구성 요소가 포함됩니다.
 
 애플리케이션 설정은 [Azure의 App Service에서 구성](../app-service/configure-common.md#configure-app-settings)할 수 있습니다. 이 방법을 사용하면 설정을 리포지토리로 체크인하지 않고도 안전하게 구성할 수 있습니다. Rest API에 대한 다음 설정을 제공해야 합니다.
 
-| 애플리케이션 설정 | 원본 | 참고 |
+| 애플리케이션 설정 | 원본 | 메모 |
 | :-------- | :------------| :-----------|
 |IdologySettings:ApiUsername | IDology 계정 구성 |     |
 |IdologySettings:ApiPassword | IDology 계정 구성 |     |
@@ -93,7 +93,7 @@ IDology 통합에는 다음 구성 요소가 포함됩니다.
 
 ### <a name="part-4---configure-the-azure-ad-b2c-policy"></a>4부 - Azure AD B2C 정책 구성
 
-1. 이 [문서](custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack)를 참조하여 [LocalAccount 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드하고 Azure AD B2C 테넌트에 대한 정책을 구성합니다. **사용자 지정 정책 테스트** 섹션을 완료할 때까지 지침을 따릅니다.
+1. 이 [문서](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack)를 참조하여 [LocalAccount 스타터 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts)을 다운로드하고 Azure AD B2C 테넌트에 대한 정책을 구성합니다. **사용자 지정 정책 테스트** 섹션을 완료할 때까지 지침을 따릅니다.
 
 2. [여기](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/IDology/policy)에서 두 개의 샘플 정책을 다운로드합니다.
 
@@ -141,8 +141,8 @@ IDology 통합에는 다음 구성 요소가 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요:
+자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure AD B2C의 사용자 지정 정책](custom-policy-overview.md)
 
-- [Azure AD B2C의 사용자 지정 정책 시작하기](custom-policy-get-started.md?tabs=applications)
+- [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

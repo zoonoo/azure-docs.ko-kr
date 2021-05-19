@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/05/2021
+ms.date: 04/16/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d01e125ef3e905191d76c9f4888e790958211dff
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 115587cc567aed42153fcd0b4af404392853d8c7
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105607323"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127338"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -73,9 +73,9 @@ ZRS는 데이터를 일시적으로 사용할 수 없는 경우 탁월한 성능
 
 | Storage 계정 유형 | 지원되는 지역 | 지원되는 서비스 |
 |--|--|--|
-| 범용 v2<sup>1</sup> | (아프리카) 남아프리카 북부<br /> (아시아 태평양) 동아시아<br /> (아시아 태평양) 동남아시아<br /> (아시아 태평양) 오스트레일리아 동부<br /> (아시아 태평양) 인도 중부<br /> (아시아 태평양) 일본 동부<br /> (아시아 태평양) 한국 중부<br /> (캐나다) 캐나다 중부<br /> (유럽) 북유럽<br /> (유럽) 서유럽<br /> (유럽) 프랑스 중부<br /> (유럽) 독일 중서부<br /> (유럽) 노르웨이 동부<br /> (유럽) 스위스 북부<br /> (유럽) 영국 남부<br /> (중동) UAE 북부<br /> (남미) 브라질 남부<br /> (미국) 미국 중부<br /> (미국) 미국 동부<br /> (미국) 미국 동부 2<br /> (미국) 미국 중북부<br />(미국) 미국 중남부<br /> (미국) 미국 서부<br /> (미국) 미국 서부 2 | 블록 Blob<br /> 페이지 Blob<sup>2</sup><br /> 파일 공유(표준)<br /> 테이블<br /> 큐<br /> |
-| BlockBlobStorage<sup>1</sup> | (아프리카) 남아프리카 북부<br /> (아시아 태평양) 동아시아<br /> (아시아 태평양) 동남아시아<br /> (아시아 태평양) 오스트레일리아 동부<br /> (아시아 태평양) 인도 중부<br /> (아시아 태평양) 일본 동부<br /> (아시아 태평양) 한국 중부<br /> (캐나다) 캐나다 중부<br /> (유럽) 북유럽<br /> (유럽) 서유럽<br /> (유럽) 프랑스 중부<br /> (유럽) 독일 중서부<br /> (유럽) 노르웨이 동부<br /> (유럽) 스위스 북부<br /> (유럽) 영국 남부<br /> (중동) UAE 북부<br /> (남미) 브라질 남부<br /> (미국) 미국 중부<br /> (미국) 미국 동부<br /> (미국) 미국 동부 2<br /> (미국) 미국 중북부<br />(미국) 미국 중남부<br /> (미국) 미국 서부<br /> (미국) 미국 서부 2 | 프리미엄 블록 Blob 전용 |
-| FileStorage | (아프리카) 남아프리카 북부<br /> (아시아 태평양) 동아시아<br /> (아시아 태평양) 동남아시아<br /> (아시아 태평양) 오스트레일리아 동부<br /> (아시아 태평양) 인도 중부<br /> (아시아 태평양) 일본 동부<br /> (아시아 태평양) 한국 중부<br /> (캐나다) 캐나다 중부<br /> (유럽) 북유럽<br /> (유럽) 서유럽<br /> (유럽) 프랑스 중부<br /> (유럽) 독일 중서부<br /> (유럽) 노르웨이 동부<br /> (유럽) 스위스 북부<br /> (유럽) 영국 남부<br /> (중동) UAE 북부<br /> (남미) 브라질 남부<br /> (미국) 미국 중부<br /> (미국) 미국 동부<br /> (미국) 미국 동부 2<br /> (미국) 미국 중북부<br />(미국) 미국 중남부<br /> (미국) 미국 서부<br /> (미국) 미국 서부 2 | 프리미엄 파일 공유 전용 |
+| 범용 v2<sup>1</sup> | (아프리카) 남아프리카 북부<br /> (아시아 태평양) 동남아시아<br /> (아시아 태평양) 오스트레일리아 동부<br /> (아시아 태평양) 일본 동부<br /> (캐나다) 캐나다 중부<br /> (유럽) 북유럽<br /> (유럽) 서유럽<br /> (유럽) 프랑스 중부<br /> (유럽) 독일 중서부<br /> (유럽) 영국 남부<br /> (남미) 브라질 남부<br /> (미국) 미국 중부<br /> (미국) 미국 동부<br /> (미국) 미국 동부 2<br /> (미국) 미국 중남부<br /> (미국) 미국 서부 2 | 블록 Blob<br /> 페이지 Blob<sup>2</sup><br /> 파일 공유(표준)<br /> 테이블<br /> 큐<br /> |
+| BlockBlobStorage<sup>1</sup> | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 프랑스 중부 <br /> 일본 동부<br /> 영국 남부 <br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2| 프리미엄 블록 Blob 전용 |
+| FileStorage | 동남아시아<br /> 오스트레일리아 동부<br /> 북유럽<br /> 서유럽<br /> 프랑스 중부 <br /> 일본 동부<br /> 영국 남부 <br /> 미국 동부 <br /> 미국 동부 2 <br /> 미국 서부 2 | 프리미엄 파일 공유 전용 |
 
 <sup>1</sup> 보관 계층은 현재 ZRS 계정에 지원되지 않습니다.<br />
 <sup>2</sup> 가상 컴퓨터에 대한 Azure 관리 디스크를 포함하는 저장소 계정은 항상 LRS를 사용합니다. Azure 비관리 디스크는 LRS도 사용해야 합니다. GRS를 사용하는 Azure 비관리 디스크에 대한 저장소 계정을 만들 수 있지만 비동기 지역에서 복제에 대한 일관성 문제로 인해 권장되지는 않습니다. 관리 디스크 및 비관리 디스크는 모두 ZRS 또는 GZRS를 지원하지 않습니다. 관리 디스크에 대한 자세한 내용은 [Azure 관리 디스크의 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요.
@@ -139,17 +139,13 @@ GZRS 및 RA-GZRS는 다음 지역에서 지원됩니다.
 - (유럽) 서유럽
 - (유럽) 프랑스 중부
 - (유럽) 독일 중서부
-- (유럽) 노르웨이 동부
-- (유럽) 스위스 북부
 - (유럽) 영국 남부
-- (중동) UAE 북부
 - (남미) 브라질 남부
 - (미국) 미국 중부
 - (미국) 미국 동부
 - (미국) 미국 동부 2
 - (미국) 미국 중북부
 - (미국) 미국 중남부
-- (미국) 미국 서부
 - (미국) 미국 서부 2
 
 가격 책정에 대한 자세한 내용은 [Blob](https://azure.microsoft.com/pricing/details/storage/blobs), [파일](https://azure.microsoft.com/pricing/details/storage/files/), [큐](https://azure.microsoft.com/pricing/details/storage/queues/) 및 [테이블](https://azure.microsoft.com/pricing/details/storage/tables/)에 대한 가격 책정을 참조하세요.

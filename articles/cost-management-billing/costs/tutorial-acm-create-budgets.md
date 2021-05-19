@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 757de37fdc3f55170d8c620a69adf104b8884b14
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 4669edd4b812eaf1dba4324c46ba97ab71392592
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204282"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628269"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -37,7 +37,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 > * PowerShell을 사용하여 예산 만들기 및 편집
 > * Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 예산은 다음과 같은 유형의 Azure 계정 유형 및 범위에 대해 지원됩니다.
 
@@ -198,7 +198,7 @@ Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-예산을 만들고, 더 이상 사용되지 않는 경우 세부 정보를 보고 삭제합니다.
+예산을 만든 후 더 이상 필요하지 않게 된 경우 세부 정보를 보고 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

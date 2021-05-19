@@ -3,12 +3,12 @@ title: Azure 관리 개요 - Azure 거버넌스
 description: Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 애플리케이션 및 리소스 관리 영역에 대한 개요입니다.
 ms.date: 05/01/2021
 ms.topic: overview
-ms.openlocfilehash: 88611e7663599432dc0599e2840768d6746579d8
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: cc6758ffa98f14b12e25e7fdb443a29cb5d788a5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324008"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747560"
 ---
 # <a name="what-are-the-azure-management-areas"></a>Azure Management 영역이란?
 

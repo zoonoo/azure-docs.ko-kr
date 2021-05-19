@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: a64564887fa2738fd3c0586d1040be3c95193927
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 050512da539e08d029786983fbda46da0fea27ce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205794"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789626"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
-**Azure Digital Twins** 는 전체 환경의 디지털 모델을 기반으로 기술 자료 그래프를 만들 수 있는 PaaS(Platform as a Service) 제품입니다. 이러한 환경에는 건물, 공장, 농장, 에너지 네트워크, 철로, 경기장 - 심지어 도시 전체가 포함될 수 있습니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
+**Azure Digital Twins** 는 전체 환경의 디지털 모델을 기반으로 트윈 그래프를 만들 수 있는 PaaS(Platform as a Service) 제품입니다. 이러한 환경에는 건물, 공장, 농장, 에너지 네트워크, 철로, 경기장 - 심지어 도시 전체가 포함될 수 있습니다. 이러한 디지털 모델을 사용하 여 더 나은 제품, 최적화된 작업, 비용 절감 및 혁신적인 고객 환경을 구동하는 정보를 얻을 수 있습니다.
 
 Azure Digital Twins 위에 도메인 전문 지식을 활용하여 다음과 같은 사용자 지정, 연결된 솔루션을 빌드합니다:
 * 모든 환경을 모델링하고 디지털 쌍을 확장 가능하고 안전한 방식으로 생활 속으로 가져옵니다.
@@ -32,12 +32,12 @@ Azure Digital Twins에서 제공하는 기능에 대한 요약은 다음과 같�
 
 Azure Digital Twins에서 [모델](concepts-models.md)이라는 사용자 지정 쌍 유형을 사용하여 실제 환경에서 사람, 장소 및 사물을 나타내는 디지털 엔터티를 정의합니다. 
 
-이러한 모델 정의를 비즈니스를 설명하는 특수 어휘로 간주할 수 있습니다. 예를 들어 빌딩 관리 솔루션의 경우 "빌딩", "플로어" 및 "엘리베이터"와 같은 모델을 정의할 수 있습니다. 그런 다음 이러한 모델을 기반으로 한 **디지털 쌍** 을 만들어 특정 환경을 나타낼 수 있습니다.
+이러한 모델 정의를 비즈니스를 설명하는 특수 어휘로 간주할 수 있습니다. 예를 들어 빌딩 관리 솔루션의 경우 빌딩, 층 및 엘리베이터와 같은 모델을 정의할 수 있습니다. 그런 다음 이러한 모델을 기반으로 한 **디지털 쌍** 을 만들어 특정 환경을 나타낼 수 있습니다.
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
 모델은 [DTDL(Digital Twins 정의 언어)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)라는 JSON과 같은 언어로 정의되며, 상태 속성, 원격 분석 이벤트, 명령, 구성 요소 및 관계를 기준으로 쌍을 설명합니다.
-* 모델은 엔터티 간에 의미 체계 **관계** 를 정의하여 해당 상호 작용을 반영하는 지식 그래프에 쌍을 연결할 수 있도록 합니다. 모델을 세계 설명에서 명사로, 관계를 동사로 간주할 수 있습니다.
+* 모델은 엔터티 간에 의미 체계 **관계** 를 정의하여 해당 상호 작용을 반영하는 그래프에 트윈을 연결할 수 있도록 합니다. 모델을 세계 설명에서 명사로, 관계를 동사로 간주할 수 있습니다.
 * 또한 모델 상속을 사용하여 쌍을 특수화할 수도 있습니다. 한 모델은 다른 모델에서 상속할 수 있습니다.
 
 DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play.md) 및 [TSI(Time Series Insights)](../time-series-insights/overview-what-is-tsi.md)를 비롯한 다른 Azure IoT 서비스 전체에서 데이터 모델에 사용됩니다. 이렇게 하면 Azure Digital Twins 솔루션을 Azure 에코시스템의 다른 부분과 연결하고 호환되도록 유지할 수 있습니다.
@@ -94,11 +94,11 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="service-limits"></a>서비스 제한
 
-[Azure Digital Twins 서비스 제한](reference-service-limits.md)에서 Azure Digital Twins의 **서비스 제한** 에 대해 읽을 수 있습니다. 서비스를 사용하여 서비스의 기능 및 요율 제한 사항을 이해하고 필요한 경우 조정할 수 있는 제한을 이해하는 데에도 유용할 수 있습니다.
+[Azure Digital Twins 서비스 제한 문서](reference-service-limits.md)에서 Azure Digital Twins의 **서비스 제한** 에 대해 읽을 수 있습니다. 서비스를 사용하여 서비스의 기능 및 요율 제한 사항을 이해하고 필요한 경우 조정할 수 있는 제한을 이해하는 데에도 유용할 수 있습니다.
 
 ## <a name="terminology"></a>용어
 
-[Azure IoT 용어집](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json)의 Azure Digital Twins를 포함하여 Azure IoT 서비스에서 **일반적인 IoT 용어** 및 해당 사용의 목록을 볼 수 있습니다. Azure Digital Twins를 시작하고 IoT 솔루션을 구축하는 동안 유용한 참조일 수 있습니다.
+[Azure IoT 용어집](../iot-fundamentals/iot-glossary.md?toc=/azure/digital-twins/toc.json&bc=/azure/digital-twins/breadcrumb/toc.json)의 Azure Digital Twins를 포함하여 Azure IoT 서비스에서 **일반적인 IoT 용어** 및 해당 사용의 목록을 볼 수 있습니다. 이 리소스는 Azure Digital Twins를 시작하고 IoT 솔루션을 구축하는 동안 유용한 참조일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

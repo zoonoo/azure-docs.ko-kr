@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 49c69a79b4841f13623c9e6ab3daea72dd7fde26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aabb4806dd709236af9e5b25a14cf3e1e8799dee
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583657"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713453"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>빠른 시작: Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -112,12 +112,6 @@ Microsoft ID 플랫폼에서 애플리케이션에 토큰을 제공할 수 있�
 
 MSAL([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal))은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다. Gradle 3.0 이상에서는 다음을 **Gradle Scripts** > **build.gradle(Module: app)** 의 **Dependencies**(종속성) 아래에 추가하면 라이브러리를 설치합니다.
 
-```gradle
-implementation 'com.microsoft.identity.client:msal:2.+'
-```
-
-샘플 프로젝트의 build.gradle(Module: app)에서 다음을 확인할 수 있습니다.
-
 ```java
 dependencies {
     ...
@@ -127,6 +121,30 @@ dependencies {
 ```
 
 여기서는 maven central에서 MSAL을 다운로드하고 빌드하도록 Gradle에 지시합니다.
+
+또한 maven에 대한 참조를 다음과 같이 **build.gradle(Module: app)** 의 **allprojects** > **repositories** 부분에 추가해야 합니다.
+
+```java
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        mavenLocal()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+        maven {
+            name "vsts-maven-adal-android"
+            url "https://identitydivision.pkgs.visualstudio.com/_packaging/AndroidADAL/maven/v1"
+            credentials {
+                username System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") : project.findProperty("vstsUsername")
+                password System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") : project.findProperty("vstsMavenAccessToken")
+            }
+        }
+        jcenter()
+    }
+}
+```
 
 ### <a name="msal-imports"></a>MSAL 가져오기
 

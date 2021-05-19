@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f190d59a95fe71cb17d1bccd220d0a2171aba7e6
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100373609"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108228589"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>온-프레미스 SSIS 워크로드를 ADF의 SSIS로 마이그레이션
 
@@ -61,7 +61,7 @@ DMA는 현재 **DMA 버전 v5.0** 이후 **파일 시스템**, **패키지 저�
 
 | **패키지 스토리지 유형** |SSIS 패키지를 일괄로 마이그레이션하는 방법|SSIS 작업을 일괄로 마이그레이션하는 방법|
 |-|-|-|
-|SSISDB|[**SSISDB** 마이그레이션](scenario-ssis-migration-ssisdb-mi.md)|<li>[SSIS 작업을 Azure SQL Managed Instance 에이전트로 마이그레이션](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li>scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
+|SSISDB|<li> SSDT/SSMS를 통해 패키지를 Azure Managed Instance에 호스트된 SSISDB에 다시 배포합니다. 자세한 내용은 [Azure에서 SSIS 패키지 배포](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)를 참조하세요. <li> [**SSISDB** 마이그레이션](scenario-ssis-migration-ssisdb-mi.md)|<li>[SSIS 작업을 Azure SQL Managed Instance 에이전트로 마이그레이션](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li>scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
 |파일 시스템|dtinstall/dtutil/manual copy를 통해 file shares/Azure Files에 다시 배포하거나 VNet/자체 호스팅 IR을 통해 파일 시스템에 액세스할 수 있도록 유지합니다. 자세한 내용은 [dtutil 유틸리티](/sql/integration-services/dtutil-utility)를 참조하세요.|<li>[SSIS 작업을 Azure SQL Managed Instance 에이전트로 마이그레이션](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li> [SSMS에서 SSIS 작업 마이그레이션 마법사](how-to-migrate-ssis-job-ssms.md)로 마이그레이션 <li>scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
 |SQL Server(MSDB)|SSMS/dtutil을 통해 file systems/file shares/Azure Files로 내보냅니다. 자세한 내용은 [SSIS 패키지 내보내기](/sql/integration-services/service/package-management-ssis-service#import-and-export-packages)를 참조하세요.|scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
 |패키지 저장소|SSMS/dtutil을 통해 패키지 저장소로 내보내거나 dtinstall/dtutil/manual copy를 통해 패키지 저장소에 다시 배포합니다. 자세한 내용은 [Azure-SSIS Integration Runtime 패키지 저장소를 사용하여 패키지 관리](azure-ssis-integration-runtime-package-store.md)를 참조하세요.|<li>[SSIS 작업을 Azure SQL Managed Instance 에이전트로 마이그레이션](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent) <li> scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
@@ -70,7 +70,7 @@ DMA는 현재 **DMA 버전 v5.0** 이후 **파일 시스템**, **패키지 저�
 
 | **패키지 스토리지 유형** |SSIS 패키지를 일괄로 마이그레이션하는 방법|작업을 일괄로 마이그레이션하는 방법|
 |-|-|-|
-|SSISDB|SSDT/SSMS를 통해 Azure-SSISDB에 다시 배포합니다. 자세한 내용은 [Azure에서 SSIS 패키지 배포](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)를 참조하세요.|scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
+|SSISDB|SSDT/SSMS를 통해 패키지를 Azure SQL Database에 호스트된 SSISDB에 다시 배포합니다. 자세한 내용은 [Azure에서 SSIS 패키지 배포](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)를 참조하세요.|scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
 |파일 시스템|dtinstall/dtutil/manual copy를 통해 file shares/Azure Files에 다시 배포하거나 VNet/자체 호스팅 IR을 통해 파일 시스템에 액세스할 수 있도록 유지합니다. 자세한 내용은 [dtutil 유틸리티](/sql/integration-services/dtutil-utility)를 참조하세요.|<li> [SSMS에서 SSIS 작업 마이그레이션 마법사](how-to-migrate-ssis-job-ssms.md)로 마이그레이션 <li> scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
 |SQL Server(MSDB)|SSMS/dtutil을 통해 file systems/file shares/Azure Files로 내보냅니다. 자세한 내용은 [SSIS 패키지 내보내기](/sql/integration-services/service/package-management-ssis-service#import-and-export-packages)를 참조하세요.|scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|
 |패키지 저장소|SSMS/dtutil을 통해 file systems/file shares/Azure Files로 내보내거나, dtinstall/dtutil/manual copy를 통해 file shares/Azure Files에 다시 배포하거나, VNet/자체 호스팅 IR을 통해 액세스하도록 파일 시스템에 유지합니다. 자세한 내용은 dtutil 유틸리티를 참조하세요. 자세한 내용은 [dtutil 유틸리티](/sql/integration-services/dtutil-utility)를 참조하세요.|scripts/SSMS/ADF 포털을 통해 ADF pipelines/activities/triggers로 변환합니다. 자세한 내용은 [SSMS 예약 기능](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms)을 참조하세요.|

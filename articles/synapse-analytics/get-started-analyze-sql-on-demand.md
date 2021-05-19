@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 04/15/2021
-ms.openlocfilehash: acae55ca82b82de8459068bb1ac4363d6a9faafe
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 8a8e8fae151b0d9be318d4dfad832ead34ef04da
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206640"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738089"
 ---
 # <a name="analyze-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 데이터 분석
 
@@ -28,6 +28,9 @@ ms.locfileid: "108206640"
 모든 작업 영역에는 **기본 제공** 이라는 미리 구성된 서버리스 SQL 풀이 제공됩니다. 
 
 ## <a name="analyze-nyc-taxi-data-with-a-serverless-sql-pool"></a>서버리스 SQL 풀을 사용하여 NYC Taxi 데이터 분석
+ 
+> [!NOTE]
+> [샘플 데이터를 기본 스토리지 계정에 배치](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account)했는지 확인합니다.
 
 1. Synapse Studio에서 **개발** 허브로 이동합니다.
 1. 새 SQL 스크립트를 만듭니다.
@@ -97,7 +100,7 @@ ms.locfileid: "108206640"
     FROM
         OPENROWSET(
                 BULK '/users/NYCTripSmall.parquet',
-                DATA_SOURCE = 'ContosoLake'
+                DATA_SOURCE = 'ContosoLake',
                 FORMAT='PARQUET'
         ) AS [result]
     ```

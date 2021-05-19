@@ -10,10 +10,10 @@ ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
 ms.openlocfilehash: 8fe21ce5b92d672a2e025e0b45b8cbaea5951a8b
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105043906"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>VMware VM 또는 물리적 머신을 Azure로 장애 조치(failover) 시 발생하는 오류 해결
@@ -78,14 +78,14 @@ Azure의 모든 머신을 표시하려면 Azure 환경에는 부팅 시작 상�
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
 
-RDP 문제에 대 한 자세한 문제 해결 지침은 [여기](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)에서 설명서를 참조 하세요.
+RDP 문제에 대한 자세한 문제 해결 지침은 [여기](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection) 설명서를 참조하세요.
 
-SSH 문제에 대 한 자세한 문제 해결 지침은 [여기](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)에서 설명서를 참조 하세요.
+SSH 문제에 대한 자세한 문제 해결 지침은 [여기](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection) 설명서를 참조하세요.
 
 Azure에서 장애 조치(failover)된 VM의 **연결** 단추가 회색으로 표시되고 Express 경로 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우에는 다음을 수행합니다.
 
-1. **가상 머신** > **네트워킹** 으로 차례로 이동하고, 필요한 네트워크 인터페이스의 이름을 클릭합니다.  ![스크린샷 선택한 네트워크 인터페이스 이름을 사용 하는 가상 컴퓨터에 대 한 네트워킹 페이지를 표시 합니다.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. **IP 구성** 으로 이동한 다음, 필요한 IP 구성의 이름 필드를 클릭합니다. ![I P 구성 이름이 선택 된 네트워크 인터페이스에 대 한 I P 구성 페이지를 보여 주는 스크린샷](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. **가상 머신** > **네트워킹** 으로 차례로 이동하고, 필요한 네트워크 인터페이스의 이름을 클릭합니다.  ![네트워크 인터페이스 이름이 선택된 가상 머신의 네트워킹 페이지를 보여 주는 스크린샷](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. **IP 구성** 으로 이동한 다음, 필요한 IP 구성의 이름 필드를 클릭합니다. ![IP 구성 이름이 선택된 네트워크 인터페이스에 대한 IP 구성 페이지를 보여 주는 스크린샷](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. 공용 IP 주소를 사용하도록 설정하려면 **사용** 을 클릭합니다. ![IP 사용](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. **필수 설정 구성** > **새로 만들기** 를 차례로 클릭합니다. ![새로 만들기](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. 공용 주소의 이름을 입력하고, **SKU** 및 **할당** 에 대한 기본 옵션을 선택한 다음, **확인** 을 클릭합니다.

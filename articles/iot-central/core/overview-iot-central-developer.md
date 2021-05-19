@@ -10,16 +10,14 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: ebd2759d4dfb8ee79130f9b4876eba8d45226d04
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 7cb52dba88d94ed52baa8272c7f20fed4bcde0fd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107718794"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787548"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
-
-*이 문서는 디바이스 개발자에게 적용됩니다.*
 
 IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 수명 주기 전체 동안 모니터링하고 관리할 수 있습니다. 이 가이드는 IoT Central에 연결하는 디바이스에서 실행되는 코드를 구현하는 디바이스 개발자를 위해 작성되었습니다.
 
@@ -35,27 +33,25 @@ IoT Central 애플리케이션을 사용하면 수백만 대의 디바이스를 
 
 다음 섹션에서는 IoT Central 애플리케이션에 연결할 수 있는 주요 디바이스 유형을 설명합니다.
 
-### <a name="standalone-device"></a>독립 실행형 디바이스
+### <a name="iot-device"></a>IoT 디바이스
 
-독립 실행형 디바이스는 IoT Central에 직접 연결합니다. 독립 실행형 디바이스는 일반적으로 온보드 또는 연결된 센서의 원격 분석 데이터를 IoT Central 애플리케이션으로 보냅니다. 또한 독립 실행형 디바이스는 속성 값을 보고하고, 쓰기 가능한 속성 값을 수신하고, 명령에 응답할 수 있습니다.
+IoT 디바이스는 IoT Central에 직접 연결하는 독립 실행형 디바이스입니다. IoT 디바이스는 일반적으로 온보드 또는 연결된 센서의 원격 분석 데이터를 IoT Central 애플리케이션으로 보냅니다. 또한 독립 실행형 디바이스는 속성 값을 보고하고, 쓰기 가능한 속성 값을 수신하고, 명령에 응답할 수 있습니다.
 
-### <a name="gateway-device"></a>게이트웨이 디바이스
+### <a name="iot-edge-device"></a>IoT Edge 디바이스
 
-게이트웨이 디바이스는 IoT Central 애플리케이션에 연결하는 하나 이상의 다운스트림 디바이스를 관리합니다. IoT Central을 사용하여 다운스트림 디바이스와 게이트웨이 디바이스 간의 관계를 구성합니다. 자세한 내용은 [Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의](./tutorial-define-gateway-device-type.md)를 참조하세요.
+IoT Edge 디바이스는 IoT Central에 직접 연결합니다. 뿐만 아니라 IoT Edge 디바이스는 자체 원격 분석 데이터를 전송하고, 속성을 보고하고, 쓰기 가능한 속성 업데이트 및 명령에 응답할 수 있습니다. IoT Edge 모듈은 IoT Edge 디바이스에서 로컬로 데이터를 처리할 수 있습니다. IoT Edge 디바이스는 리프 디바이스라고 하는 다른 디바이스의 중개자 역할도 합니다. 다음은 IoT Edge 디바이스를 사용하는 시나리오입니다.
 
-### <a name="edge-device"></a>에지 디바이스
-
-에지 디바이스는 IoT Central에 직접 연결하지만, _리프 디바이스_ 라고 하는 다른 디바이스의 중개자 역할을 합니다. 에지 디바이스는 일반적으로 중개자 역할을 하는 리프 디바이스와 가까이에 있습니다. 다음은 에지 디바이스를 사용하는 시나리오입니다.
-
-- IoT Central에 직접 연결할 수 없는 디바이스는 에지 디바이스를 통해 연결하도록 설정합니다. 예를 들어 리프 디바이스는 bluetooth를 사용하여 에지 디바이스에 연결한 다음, 인터넷을 통해 IoT Central에 연결할 수 있습니다.
-- IoT Central로 전송되기 전에 원격 분석 데이터를 집계합니다. 이 방법은 IoT Central로 데이터를 보내는 비용을 줄이는 데 도움이 될 수 있습니다.
+- IoT Central로 전송되기 전에 원격 분석 데이터를 집계 또는 필터링합니다. 이 방법은 IoT Central로 데이터를 보내는 비용을 줄이는 데 도움이 될 수 있습니다.
+- IoT Central에 직접 연결할 수 없는 디바이스는 IoT Edge 디바이스를 통해 연결하도록 설정합니다. 예를 들어 리프 디바이스는 bluetooth를 사용하여 IoT Edge 디바이스에 연결한 다음, 인터넷을 통해 IoT Central에 연결할 수 있습니다.
 - 인터넷을 통해 IoT Central에 연결할 때 발생하는 대기 시간을 없애기 위해 리프 디바이스를 로컬로 제어합니다.
 
-뿐만 아니라 에지 디바이스는 자체 원격 분석 데이터를 전송하고, 속성을 보고하고, 쓰기 가능한 속성 업데이트 및 명령에 응답할 수 있습니다.
-
-IoT Central은 에지 디바이스만 볼 수 있고, 에지 디바이스에 연결된 리프 디바이스는 볼 수 없습니다.
+IoT Central은 IoT Edge 디바이스만 볼 수 있고, IoT Edge 디바이스에 연결된 리프 디바이스는 볼 수 없습니다.
 
 자세한 내용은 [Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가](./tutorial-add-edge-as-leaf-device.md)를 참조하세요.
+
+### <a name="gateways"></a>게이트웨이
+
+게이트웨이 디바이스는 IoT Central 애플리케이션에 연결하는 하나 이상의 다운스트림 디바이스를 관리합니다. IoT Central을 사용하여 다운스트림 디바이스와 게이트웨이 디바이스 간의 관계를 구성합니다. IoT 디바이스와 IoT Edge 디바이스는 게이트웨이 역할을 할 수 있습니다. 자세한 내용은 [Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의](./tutorial-define-gateway-device-type.md)를 참조하세요.
 
 ## <a name="connect-a-device"></a>디바이스 연결
 

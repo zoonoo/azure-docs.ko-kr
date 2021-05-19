@@ -2,17 +2,17 @@
 title: 템플릿 사양 만들기 및 배포
 description: ARM 템플릿에서 템플릿 사양을 만드는 방법에 대해 알아봅니다. 그런 다음 구독에서 리소스 그룹에 템플릿 사양을 배포합니다.
 author: tfitzmac
-ms.date: 12/14/2020
+ms.date: 05/04/2021
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: 28987486726f5a88d20efe9fe8a766e536062c2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0775d58bebaf487d5a536818aec788fabdace909
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889963"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108754184"
 ---
-# <a name="quickstart-create-and-deploy-template-spec-preview"></a>빠른 시작: 템플릿 사양 만들기 및 배포(미리 보기)
+# <a name="quickstart-create-and-deploy-template-spec"></a>빠른 시작: 템플릿 사양 만들기 및 배포
 
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 [템플릿 사양](template-specs.md)으로 패키징하는 방법을 보여줍니다. 그런 다음, 해당 템플릿 사양을 배포합니다. 템플릿 사양에는 스토리지 계정을 배포하는 ARM 템플릿이 포함되어 있습니다.
 
@@ -21,13 +21,13 @@ ms.locfileid: "104889963"
 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> 템플릿 사양은 현재 미리 보기 상태입니다. Azure PowerShell에서 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
+> Azure PowerShell에서 템플릿 사양을 사용하려면 [버전 5.0.0 이상](/powershell/azure/install-az-ps)을 설치해야 합니다. Azure CLI에서 사용하려면 [버전 2.14.2 이상](/cli/azure/install-azure-cli)을 사용합니다.
 
 ## <a name="create-template"></a>템플릿 만들기
 
 로컬 템플릿에서 템플릿 사양을 만듭니다. 다음 템플릿을 복사하고 **azuredeploy.json** 이라는 파일에 로컬로 저장합니다. 이 빠른 시작에서는 **c:\Templates\azuredeploy.json** 경로에 저장했지만 모든 경로를 사용할 수 있다고 가정합니다.
 
-:::code language="json" source="~/quickstart-templates/101-storage-account-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json":::
 
 ## <a name="create-template-spec"></a>템플릿 사양 만들기
 
@@ -126,7 +126,7 @@ ms.locfileid: "104889963"
       "resources": [
         {
           "type": "Microsoft.Resources/templateSpecs",
-          "apiVersion": "2019-06-01-preview",
+          "apiVersion": "2021-05-01",
           "name": "storageSpec",
           "location": "westus2",
           "properties": {
@@ -136,12 +136,12 @@ ms.locfileid: "104889963"
           "resources": [
             {
               "type": "versions",
-              "apiVersion": "2019-06-01-preview",
+              "apiVersion": "2021-05-01",
               "name": "1.0",
               "location": "westus2",
               "dependsOn": [ "storageSpec" ],
               "properties": {
-                "template": {
+                "mainTemplate": {
                   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                   "contentVersion": "1.0.0.0",
                   "parameters": {
@@ -490,7 +490,7 @@ ms.locfileid: "104889963"
       "resources": [
         {
           "type": "Microsoft.Resources/templateSpecs",
-          "apiVersion": "2019-06-01-preview",
+          "apiVersion": "2021-05-01",
           "name": "storageSpec",
           "location": "westus2",
           "properties": {
@@ -500,12 +500,12 @@ ms.locfileid: "104889963"
           "resources": [
             {
               "type": "versions",
-              "apiVersion": "2019-06-01-preview",
+              "apiVersion": "2021-05-01",
               "name": "2.0",
               "location": "westus2",
               "dependsOn": [ "storageSpec" ],
               "properties": {
-                "template": {
+                "mainTemplate": {
                   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
                   "contentVersion": "1.0.0.0",
                   "parameters": {

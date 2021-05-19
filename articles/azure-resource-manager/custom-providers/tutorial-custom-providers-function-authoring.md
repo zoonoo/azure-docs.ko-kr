@@ -5,19 +5,19 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jobreen
-ms.openlocfilehash: 54d0df287865d5d92403bf68227a2d4c5faa8bb4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49a2d242ef5cdb9304a9b94d29328c8379a05f46
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98200212"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755624"
 ---
 # <a name="author-a-restful-endpoint-for-custom-providers"></a>사용자 지정 공급자를 위한 RESTful 엔드포인트 작성
 
 사용자 지정 공급자는 Azure와 엔드포인트 사이의 계약입니다. 사용자 지정 공급자를 사용하면 Azure에서 사용자 지정할 수 있습니다. 이 자습서에서는 사용자 지정 공급자 RESTful 엔드포인트를 작성하는 방법을 보여줍니다. Azure 사용자 지정 공급자에 익숙하지 않은 경우 [사용자 지정 리소스 공급자에 대한 개요](overview.md)를 참조하세요.
 
 > [!NOTE]
-> 이 자습서는 [Azure 사용자 지정 공급자를 위한 Azure Functions 설정](./tutorial-custom-providers-function-setup.md) 자습서를 기반으로 합니다. 이 자습서의 일부 단계는 Azure 함수 앱이 사용자 지정 공급자에서 작동하도록 설정된 경우에만 작동합니다.
+> 이 자습서는 [Azure 사용자 지정 공급자를 위한 Azure Functions 설정](./tutorial-custom-providers-function-setup.md) 자습서를 기반으로 합니다. 이 자습서의 일부 단계는 Azure Functions에서 함수 앱이 사용자 지정 공급자에서 작동하도록 설정된 경우에만 작동합니다.
 
 ## <a name="work-with-custom-actions-and-custom-resources"></a>사용자 지정 작업 및 사용자 지정 리소스 사용
 
@@ -259,7 +259,7 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 
 ```csharp
 /// <summary>
-/// Entry point for the Azure function app webhook that acts as the service behind a custom provider.
+/// Entry point for the function app webhook that acts as the service behind a custom provider.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>

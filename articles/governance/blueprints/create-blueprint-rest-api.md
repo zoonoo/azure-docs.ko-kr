@@ -3,18 +3,18 @@ title: '빠른 시작: REST API를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 REST API를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: 37f67e6db753969344b8c442de78b867dd41ecd6
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5b65350f47e470fc9f4797d768a32acded241266
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323828"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761510"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>빠른 시작: REST API로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - `Microsoft.Blueprint` 리소스 공급자를 등록합니다. 지침은 [리소스 공급자 및 형식](../../azure-resource-manager/management/resource-providers-and-types.md)을 참조하세요.
@@ -124,7 +124,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 구독 시 역할 할당을 추가합니다. **요청 본문** 은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
+1. 구독 시 역할 할당을 추가합니다. **요청 본문** 은 아티팩트의 종류를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 다음 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
 
    - REST API URI
 
@@ -435,4 +435,4 @@ REST API를 사용하여 청사진을 게시하고 나면 구독에 할당할 �
 이 빠른 시작에서는 REST API를 사용하여 청사진을 생성, 할당 및 제거했습니다. Azure Blueprints에 대해 자세히 알아보려면 청사진 수명 주기 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [청사진 수명 주기에 대해 알아보기](./concepts/lifecycle.md)
+> [청사진 수명 주기에 대해 알아보기](./concepts/lifecycle.md) 

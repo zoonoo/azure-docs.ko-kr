@@ -9,12 +9,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
 adobe-target: true
-ms.openlocfilehash: 48c4b2a73628ab2105e23054d747e28acc105d01
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ca53c42c5c80a86e50db5ac52e6efee75c17cd8e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103563194"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770644"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Azure Machine Learning Studio란?
 
@@ -105,8 +105,10 @@ Azure Machine Learning으로 전환하면 다음과 같은 이점이 있습니�
 
 [스튜디오](https://ml.azure.com)를 방문하거나 다음 자습서를 통해 다양한 제작 옵션을 살펴보세요.  
 
-- + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
-  + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
+[빠른 시작: Azure Machine Learning 서비스 시작](quickstart-create-resources.md)으로 시작합니다.  그런 다음 이러한 리소스를 사용하여 원하는 방법으로 첫 번째 실험을 만듭니다.
+
+  + ["Hello World!" Python 스크립트 실행(1/3부)](tutorial-1st-experiment-hello-world.md)
+  + [Jupyter Notebook을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
   + [자동화된 기계 학습을 사용하여 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md)  
   + [디자이너를 사용하여 모델 학습 및 배포](tutorial-designer-automobile-price-train-score.md)
   + [보안 가상 네트워크에서 스튜디오 사용](how-to-enable-studio-virtual-network.md)

@@ -4,10 +4,10 @@ description: 이 문서에서는 Azure Event Grid에 대한 사용자 지정 토
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ed126487938e524264c94544903460854ffc4d41
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98681620"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Azure Event Grid에 대한 사용자 지정 토픽에 게시
@@ -71,7 +71,7 @@ PowerShell에서 사용자 지정 토픽에 대한 키를 가져오려면 다음
 ]
 ```
 
-이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 이벤트에 허용 되는 최대 크기는 1mb입니다. 64 KB를 초과 하는 이벤트는 64 KB 단위로 요금이 부과 됩니다. 
+이 속성에 대한 설명은 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조하세요. 이벤트를 Event Grid 항목에 게시할 때 배열은 최대 1MB의 전체 크기를 가질 수 있습니다. 이벤트에 허용되는 최대 크기는 1MB입니다. 64KB를 초과하는 이벤트는 64KB 단위로 요금이 부과됩니다. 
 
 예를 들어 올바른 이벤트 데이터 스키마는 다음과 같습니다.
 

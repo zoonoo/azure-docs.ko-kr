@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Python을 사용하여 비규격 리소�
 ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c9a0d6bb00d82748505304264aeaefa409c4b06
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: f68e114571ea241f2051125862f89a7dc77dfce3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107379403"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747614"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>빠른 시작: Python을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 

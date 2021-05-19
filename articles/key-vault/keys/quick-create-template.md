@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 66d41ed1bb900f55db0d3670c1ce312950ff165d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 261b939d62c4952b7dc6d1f1a4b0e91c2922b4ce
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147052"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108744932"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 키 자격 증명 모음 및 키 만들기 
 
@@ -166,6 +166,17 @@ ms.locfileid: "108147052"
 - Microsoft.KeyVault/vaults/keys
 
 추가 Azure Key Vault 템플릿 샘플은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
+
+## <a name="parameters-and-definitions"></a>매개 변수 및 정의
+
+|매개 변수  |정의  |
+|---------|---------|
+|**Keysize**  | 키를 사용하여 수행할 수 있는 작업을 지정합니다. 이 매개 변수를 지정하지 않으면 모든 작업을 수행할 수 있습니다. 이 매개 변수에 허용되는 값은 [JWK(JSON Web Key) 사양](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)에 정의된 쉼표로 구분된 키 작업 목록입니다. <br> `["sign", "verify", "encrypt", "decrypt", " wrapKey", "unwrapKey"]` |
+|**CurveName**  |  EC 키 형식의 타원 곡선 이름입니다. [JsonWebKeyCurveName](/rest/api/keyvault/createkey/createkey#jsonwebkeycurvename)을 참조하세요. |
+|**Kty**  |  만들 키의 유형입니다. 유효한 값은 [JsonWebKeyType](/rest/api/keyvault/createkey/createkey#jsonwebkeytype)을 참조하세요. |
+|**태그** | 키/값 쌍 형식의 애플리케이션 특정 메타데이터입니다.  |
+|**nbf**  |  키를 사용할 수 없는 시간을 DateTime 개체로 지정합니다. 형식은 Unix 타임스탬프(UTC에서 1970년 1월 1일 Unix Epoch 이후의 초)입니다.  |
+|**exp**  |  만료 시간을 DateTime 개체로 지정합니다. 형식은 Unix 타임스탬프(UTC에서 1970년 1월 1일 Unix Epoch 이후의 초)입니다. |
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 [Azure Portal](../../azure-resource-manager/templates/deploy-portal.md), Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 배포 방법에 대해 알아보려면 [템플릿 배포](../../azure-resource-manager/templates/deploy-powershell.md)를 참조하세요.

@@ -1,16 +1,16 @@
 ---
-title: REST를 사용 하 여 Azure Data Lake Storage Gen1 계정 관리
-description: WebHDFS REST API를 사용 하 여 Azure Data Lake Storage Gen1 계정에서 계정 관리 작업을 수행 합니다.
+title: REST를 사용하여 Azure Data Lake Storage Gen1 계정 관리
+description: WebHDFS REST API를 사용하여 Azure Data Lake Storage Gen1 계정에서 계정 관리 작업을 수행할 수 있습니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 13467a51b2a06dbc0ca0ec5eadd139fde8b82ad0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92103495"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>REST API를 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
@@ -21,12 +21,12 @@ ms.locfileid: "92103495"
 >
 >
 
-이 문서에서는 REST API를 사용하여 Azure Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법을 알아봅니다. 계정 관리 작업에는 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등이 포함 됩니다. REST API를 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업을 수행 하는 방법에 대 한 지침은 [REST API를 사용 하 여 Data Lake Storage Gen1의 filesystem 작업](data-lake-store-data-operations-rest-api.md)
+이 문서에서는 REST API를 사용하여 Azure Data Lake Storage Gen1에서 계정 관리 작업을 수행하는 방법을 알아봅니다. 계정 관리 작업에는 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 삭제 등이 포함됩니다. REST API를 사용하여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법에 대한 지침은 [REST API를 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-rest-api.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **[말아](https://curl.haxx.se/)**. 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
+* **[cURL](https://curl.haxx.se/)** . 이 문서에서는 cURL을 사용하여 Data Lake Storage Gen1 계정에 대해 REST API 호출을 수행하는 방법을 설명합니다.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory를 사용하여 인증하려면 어떻게 해야 하나요?
 Azure Active Directory를 사용한 인증에는 두 가지 접근 방식이 있습니다.

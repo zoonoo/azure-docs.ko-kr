@@ -1,26 +1,26 @@
 ---
 title: 온-프레미스에서 Azure Cognitive Services 컨테이너 사용
 titleSuffix: Azure Cognitive Services
-description: Docker 컨테이너를 사용 하 여 온-프레미스 Cognitive Services를 사용 하는 방법을 알아봅니다.
+description: Docker 컨테이너를 사용하여 온-프레미스에서 Cognitive Services를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 04/16/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, Kubernetes
-ms.openlocfilehash: f5caac0a0da3595075dddd5a273a6883a0cca468
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: c40e91d81df448021be74af768bc9d5952b263dd
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97861815"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588227"
 ---
 # <a name="azure-cognitive-services-containers"></a>Azure Cognitive Services 컨테이너
 
-Azure Cognitive Services는 Azure, 온-프레미스에서 사용할 수 있는 것과 동일한 Api를 사용할 수 있는 여러 [Docker 컨테이너](https://www.docker.com/what-container) 를 제공 합니다. 이러한 컨테이너를 사용 하면 규정 준수, 보안 또는 기타 운영 상의 이유로 데이터에 더 가깝게 Cognitive Services를 제공할 수 있습니다. 컨테이너 지원은 현재 Azure Cognitive Services의 하위 집합에 대해 사용할 수 있습니다.
+Azure Cognitive Services는 Azure, 온-프레미스에서 사용할 수 있는 것과 동일한 API를 사용할 수 있는 여러 [Docker 컨테이너](https://www.docker.com/what-container)를 제공합니다. 이러한 컨테이너를 사용하면 규정 준수, 보안 또는 기타 운영상의 이유로 Cognitive Services를 데이터에 더 가깝게 가져올 수 있는 유연성이 제공됩니다. 컨테이너 지원은 현재 Azure Cognitive Services 하위 집합에 사용할 수 있습니다.
 
 > [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
@@ -28,22 +28,22 @@ Azure Cognitive Services는 Azure, 온-프레미스에서 사용할 수 있는 �
 
 ## <a name="features-and-benefits"></a>기능 및 혜택
 
-- 변경할 수 없는 **인프라**: devops 팀을 사용 하도록 설정 하 여 일관 되 고 신뢰할 수 있는 알려진 시스템 매개 변수 집합을 활용할 수 있습니다. 컨테이너는 예측 가능한 에코 시스템 내에서 피벗을 위한 유연성을 제공 하 고 구성 드리프트를 방지 합니다.
-- **데이터 제어**: Cognitive Services에서 데이터를 처리할 위치를 선택 합니다. 클라우드로 데이터를 보낼 수는 없지만 Cognitive Services API에 대 한 액세스 권한이 필요한 경우에는이를 반드시 사용 해야 합니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
-- **모델 업데이트 제어**: 솔루션에 배포 된 모델의 버전 관리 및 업데이트를 유연 하 게 수행할 수 있습니다.
-- **이식 가능한 아키텍처**: Azure, 온-프레미스 및에 지에 배포할 수 있는 이식 가능한 응용 프로그램 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](/azure-stack/operator)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
-- **높은 처리량/짧은 대기 시간**: Cognitive Services을 사용 하 여 응용 프로그램 논리 및 데이터에 물리적으로 가깝게 실행 되도록 하 여 높은 처리량 및 짧은 대기 시간 요구 사항에 맞게 확장할 수 있는 기능을 고객에 게 제공 합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다.
-- **확장성**: 컨테이너 화 및 컨테이너 오케스트레이션 소프트웨어 (예: Kubernetes)의 인기를 활용 합니다. 확장성은 기술적으로 발전 하 고 있습니다. 확장성 있는 클러스터 파운데이션을 기반으로 하는 응용 프로그램 개발은 고가용성을 맞춘 합니다.
+- **변경할 수 없는 인프라**: DevOps 팀이 일관되고 신뢰할 수 있는 알려진 시스템 매개 변수 집합을 활용하면서 변경에 적응할 수 있도록 합니다. 컨테이너는 예측 가능한 에코시스템 내에서 피벗하고 구성 드리프트를 방지할 수 있는 유연성을 제공합니다.
+- **데이터 컨트롤**: Cognitive Services가 데이터를 처리하는 위치를 선택합니다. 사용자가 클라우드로 데이터를 보낼 수 없지만 Cognitive Services API에 액세스해야 하는 경우에 중요할 수 있습니다. 하이브리드 환경의 데이터, 관리, ID 및 보안에 걸쳐 일관성을 지원합니다.
+- **모델 업데이트 컨트롤**: 사용자가 솔루션에 배포된 모델의 버전 관리 및 업데이트를 유연하게 처리할 수 있습니다.
+- **이식 가능한 아키텍처**: Azure, 온-프레미스 및 에지에 배포할 수 있는 이식 가능한 애플리케이션 아키텍처를 만들 수 있습니다. 컨테이너는 [Azure Kubernetes Service](../aks/index.yml), [Azure Container Instances](../container-instances/index.yml) 또는 [Azure Stack](/azure-stack/operator)에 배포된 [Kubernetes](https://kubernetes.io/) 클러스터에 직접 배포할 수 있습니다. 자세한 내용은 [Azure Stack에 Kubernetes 배포](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)를 참조하세요.
+- **높은 처리량/짧은 대기 시간**: Cognitive Services가 애플리케이션 로직 및 데이터와 물리적으로 가까운 거리에서 실행되게 만들어서 높은 처리량과 짧은 대기 시간이라는 요구 사항에 맞게 크기를 조정하는 기능을 고객에게 제공합니다. 컨테이너는 TPS(초당 트랜잭션 수)를 제한하지 않으며, 고객이 필요한 하드웨어 리소스를 제공한다면 스케일업 및 스케일아웃이 가능합니다.
+- **확장성**: 컨테이너화 및 컨테이너 오케스트레이션 소프트웨어(예: Kubernetes)의 인기가 계속 증가함에 따라 확장성은 기술 발전을 선도하고 있습니다. 확장성 있는 클러스터 기반을 바탕으로 하는 애플리케이션 개발은 고가용성에 부합합니다.
 
 ## <a name="containers-in-azure-cognitive-services"></a>Azure Cognitive Services의 컨테이너
 
-Azure Cognitive Services 컨테이너는 Azure Cognitive Services 서비스의 기능 하위 집합을 포함 하는 다음과 같은 Docker 컨테이너 집합을 제공 합니다. 아래 표에서 지침 및 이미지 위치를 찾을 수 있습니다. [컨테이너 이미지](containers/container-image-tags.md) 의 목록도 사용할 수 있습니다.
+Azure Cognitive Services 컨테이너는 다음과 같은 Docker 컨테이너 집합을 제공하며, 각각은 Azure Cognitive Services 서비스의 기능 하위 집합을 포함하고 있습니다. 아래 표에서 지침 및 이미지 위치를 찾을 수 있습니다. [컨테이너 이미지](containers/container-image-tags.md) 목록도 확인할 수 있습니다.
 
 ### <a name="decision-containers"></a>의사 결정 컨테이너
 
 | 서비스 |  컨테이너 | Description | 가용성 |
 |--|--|--|--|
-| [변칙 탐지기][ad-containers] | **변칙 탐지기** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다. | 일반 공급 |
+| [Anomaly detector][ad-containers] | **Anomaly Detector** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-decision-anomaly-detector))  | Anomaly Detector API를 사용하면 기계 학습을 통해 시계열 데이터에서 변칙을 검색하고 모니터링할 수 있습니다. | 일반 공급 |
 
 ### <a name="language-containers"></a>언어 컨테이너
 
@@ -51,23 +51,23 @@ Azure Cognitive Services 컨테이너는 Azure Cognitive Services 서비스의 �
 |--|--|--|--|
 | [LUIS][lu-containers] |  **LUIS**([이미지](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | LUIS 앱으로 알려진 학습된 또는 게시된 Language Understanding 모델을 Docker 컨테이너로 로드하고, 컨테이너의 API 엔드포인트에서 쿼리 예측에 대한 액세스를 제공합니다. 컨테이너에서 쿼리 로그를 수집하고 [LUIS 포털](https://www.luis.ai)에 다시 업로드하여 앱의 예측 정확도를 개선할 수 있습니다. | 일반 공급 |
 | [텍스트 분석][ta-containers-keyphrase] | **핵심 구 추출**([이미지](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | 핵심 구를 추출하여 주요 요소를 식별합니다. 예를 들어 "The food was delicious and there were wonderful staff"라는 입력 텍스트에 대해 이 API는 "food" 및 "wonderful staff"이라는 주요 논점을 반환합니다. | 미리 보기 |
-| [텍스트 분석][ta-containers-language] |  **텍스트 언어 감지** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | 미리 보기 |
-| [텍스트 분석][ta-containers-sentiment] | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석에서는 각 문서와 문장에 대해 감정 레이블 (예: *긍정* 또는 *음수*)을 반환 합니다. |  일반 공급 |
-| [텍스트 분석][ta-containers-health] |  **의료 분야 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출 하 고 레이블을 기록 합니다. | 제어 된 미리 보기입니다. [액세스를 요청][request-access]합니다. |
+| [텍스트 분석][ta-containers-language] |  **텍스트 언어 감지**([이미지](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | 최대 120개 언어에 대해, 입력 텍스트를 쓴 언어를 감지하고 요청에 따라 제출된 모든 문서에 대해 단일 언어 코드를 보고합니다. 언어 코드가 점수와 쌍을 이루어 점수의 강도를 나타냅니다. | 일반 공급 |
+| [텍스트 분석][ta-containers-sentiment] | **감정 분석 v3** ([이미지](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | 원시 텍스트를 분석하여 긍정 또는 부정적인 감정에 대한 단서를 찾습니다. 이 버전의 감정 분석은 각 문서 및 문서 속 문장에 대한 감정 레이블(예: *긍정* 또는 *부정*)을 반환합니다. |  일반 공급 |
+| [텍스트 분석][ta-containers-health] |  **의료 분야 Text Analytics** | 비구조적 임상 텍스트에서 의료 정보를 추출하고 레이블을 지정합니다. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. |
 
 ### <a name="speech-containers"></a>음성 컨테이너
 
 > [!NOTE]
-> 음성 컨테이너를 사용 하려면 [온라인 요청 양식을](https://aka.ms/csgate)작성 해야 합니다.
+> 음성 컨테이너를 사용하려면 [온라인 요청 양식](https://aka.ms/csgate)을 완료해야 합니다.
 
 | 서비스 |  컨테이너 | Description | 가용성 |
 |--|--|--|
-| [Speech Service API][sp-containers-stt] |  **음성 텍스트** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | 연속적인 실시간 음성을 텍스트로 변환합니다. | 일반 공급 |
-| [Speech Service API][sp-containers-cstt] | **Custom Speech 텍스트** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | 사용자 지정 모델을 사용 하 여 연속 실시간 음성을 텍스트로 speech. | 일반 공급 |
-| [Speech Service API][sp-containers-tts] | **텍스트 음성 변환** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-text-to-speech)) | 텍스트를 자연스럽게 들리는 음성으로 변환합니다. | 일반 공급 |
-| [Speech Service API][sp-containers-ctts] | **사용자 지정 텍스트 음성 변환** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-text-to-speech)) | 사용자 지정 모델을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 제어 된 미리 보기 |
-| [Speech Service API][sp-containers-ntts] | **신경망 텍스트 음성 변환** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-neural-text-to-speech)) | 심층 신경망 기술을 사용 하 여 텍스트를 자연 스런 음성으로 변환 하 여 보다 자연스럽 게 합성 되는 음성을 사용할 수 있도록 합니다. | 일반 공급 |
-| [Speech Service API][sp-containers-lid] | **음성 언어 검색** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-language-detection)) | 음성 오디오의 언어를 결정 합니다. | 제어 된 미리 보기 |
+| [Speech Service API][sp-containers-stt] |  **음성 텍스트 변환**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | 연속적인 실시간 음성을 텍스트로 변환합니다. | 일반 공급 |
+| [Speech Service API][sp-containers-cstt] | **사용자 지정 음성 텍스트 변환**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | 사용자 지정 모델을 사용하여 실시간으로 음성 텍스트를 연속 변환합니다. | 일반 공급 |
+| [Speech Service API][sp-containers-tts] | **텍스트 음성 변환**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-text-to-speech)) | 텍스트를 자연스럽게 들리는 음성으로 변환합니다. | 일반 공급 |
+| [Speech Service API][sp-containers-ctts] | **사용자 지정 텍스트 음성 변환**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-text-to-speech)) | 사용자 지정 모델을 사용하여 텍스트를 자연스러운 음성으로 변환합니다. | 게이트 미리 보기 |
+| [Speech Service API][sp-containers-ntts] | **인공신경망 텍스트 음성 변환**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-neural-text-to-speech)) | 심층 신경망 기술을 사용하여 텍스트를 자연스러운 음성으로 변환함으로써 보다 자연스러운 합성 음성을 사용할 수 있도록 합니다. | 일반 공급 |
+| [Speech Service API][sp-containers-lid] | **음성 언어 검색**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-language-detection)) | 음성 오디오의 언어를 결정합니다. | 게이트 미리 보기 |
 
 ### <a name="vision-containers"></a>비전 컨테이너
 
@@ -76,24 +76,24 @@ Azure Cognitive Services 컨테이너는 Azure Cognitive Services 서비스의 �
 
 | 서비스 |  컨테이너 | Description | 가용성 |
 |--|--|--|--|
-| [Computer Vision][cv-containers] | **OCR 읽기** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | 읽기 OCR 컨테이너를 사용 하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대 한 지원이 포함 된 이미지와 문서에서 인쇄 된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [READ API 설명서](./computer-vision/concept-recognizing-text.md)를 참조 하세요. | 제어 된 미리 보기입니다. [액세스를 요청][request-access]합니다. |
-| [공간 분석][spa-containers] | **공간 분석** ([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | 실시간 스트리밍 비디오를 분석 하 여 사용자, 이동 및 물리적 환경 개체와의 상호 작용 간의 공간 관계를 파악 합니다. | 제어 된 미리 보기입니다. [액세스를 요청][request-access]합니다. |
-| [Face][fa-containers] | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. | Unavailable |
-| [폼 인식기][fr-containers] | **Form Recognizer** | 양식 이해는 기계 학습 기술을 적용 하 여 양식에서 키-값 쌍 및 테이블을 식별 하 고 추출 합니다. | Unavailable | 
+| [Computer Vision][cv-containers] | **Read OCR**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | Read OCR 컨테이너를 사용하면 JPEG, PNG, BMP, PDF 및 TIFF 파일 형식에 대한 지원이 포함된 이미지와 문서로부터 인쇄된 텍스트 및 필기 텍스트를 추출할 수 있습니다. 자세한 내용은 [Read API 설명서](./computer-vision/overview-ocr.md)를 참조하세요. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. |
+| [공간 분석][spa-containers] | **공간 분석**([이미지](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-spatial-analysis)) | 실시간 스트리밍 비디오를 분석하여 사람 사이의 공간적 관계, 이들의 움직임 및 물리적 환경에서 물체와의 상호 작용을 이해할 수 있습니다. | 게이트를 미리 봅니다. [액세스를 요청합니다][request-access]. |
+| [Face][fa-containers] | **Face** | 이미지에서 사람의 얼굴을 감지하고, 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 신뢰도 점수를 사용하여 동일하거나 다른 이미지의 두 얼굴이 동일한지 확인하거나, 얼굴을 데이터베이스와 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 확인합니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다. | 사용할 수 없음 |
+| [Form recognizer][fr-containers] | **Form Recognizer** | Form Understanding은 기계 학습 기술을 적용하여 양식에서 키-값 쌍과 테이블을 식별하고 추출합니다. | 사용할 수 없음 | 
 
 
 <!--
 |[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
-또한 일부 컨테이너는 Cognitive Services [다중 서비스 리소스](cognitive-services-apis-create-account.md) 제공에서 지원 됩니다. 하나의 단일 Cognitive Services 단일 리소스를 만들고 다음 서비스에 대해 지원 되는 서비스에서 동일한 청구 키를 사용할 수 있습니다.
+또한 일부 컨테이너는 Cognitive Services [다중 서비스 리소스](cognitive-services-apis-create-account.md) 제공에서 지원됩니다. 하나의 단일 Cognitive Services 올인원 리소스를 만들고 다음 서비스에 대해 지원되는 서비스 전반에서 동일한 청구 키를 사용할 수 있습니다.
 
 * Computer Vision
 * Face
 * LUIS
 * Text Analytics
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure Cognitive Services 컨테이너를 사용하려면 다음 필수 조건을 충족해야 합니다.
 
@@ -115,15 +115,15 @@ Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.
 
 ## <a name="next-steps"></a>다음 단계
 
-Cognitive Services에서 사용할 수 있는 [컨테이너 조리법](containers/container-reuse-recipe.md) 에 대해 알아봅니다.
+Cognitive Services에서 사용할 수 있는 [컨테이너 레시피](containers/container-reuse-recipe.md)에 대해 알아봅니다.
 
 Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하고 탐색합니다.
 
-* [변칙 탐지기 컨테이너][ad-containers]
+* [Anomaly Detector 컨테이너][ad-containers]
 * [Computer Vision 컨테이너][cv-containers]
 * [Face 컨테이너][fa-containers]
-* [양식 인식기 컨테이너][fr-containers]
-* [LUIS (Language Understanding) 컨테이너][lu-containers]
+* [Form Recognizer 컨테이너][fr-containers]
+* [LUIS(Language Understanding) 컨테이너][lu-containers]
 * [Speech Service API 컨테이너][sp-containers]
 * [Text Analytics 컨테이너][ta-containers]
 
@@ -148,4 +148,4 @@ Azure Cognitive Services의 컨테이너에서 제공하는 기능을 설치하�
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
 [ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
 [ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
-[request-access]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
+[request-access]: https://aka.ms/csgate

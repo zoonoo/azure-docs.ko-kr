@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/18/2020
+ms.date: 04/19/2021
 ms.author: alkohli
-ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6da5dfcded067420fd6d43f4a5b2841da060898a
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389810"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738125"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box란?
 
@@ -99,6 +99,17 @@ Data Box는 다음과 같은 구성 요소를 포함합니다.
 * **로컬 웹 사용자 인터페이스** – 로컬 네트워크에 연결할 수 있도록 디바이스를 구성한 다음, Data Box 서비스에 디바이스를 등록하는 데 사용되는 웹 기반 UI입니다. 로컬 웹 UI를 사용하여 Data Box 디바이스를 종료 및 다시 시작하고, 복사 로그를 보고, 서비스 요청을 위해 Microsoft 지원에 문의하세요.
 
     ![Data Box 로컬 웹 UI](media/data-box-overview/data-box-local-web-ui.png)
+
+    현재 디바이스의 로컬 웹 UI는 해당 언어 코드로 다음과 같은 언어를 지원합니다.
+
+    | 언어             | 코드 | 언어                | 코드   | 언어                | 코드         |
+    |----------------------|------|-------------------------|--------|-------------------------|--------------|
+    | 영어 {기본값}    | en   |  체코어                  | cs     | 독일어                  | de           |
+    | 스페인어              | es   | 프랑스어                  | fr     | 헝가리어               | hu           |
+    | 이탈리아어              | it   | 일본어                | ja     | 한국어                  | ko           |
+    | 네덜란드어                | nl   | 폴란드어                  | pl     | 포르투갈어 - 브라질     | pt-br        |
+    | 포르투갈어 - 포르투갈| pt-pt| 러시아어                 | ru     | 스웨덴어                 | sv           |
+    | 터키어              | tr   | 중국어 - 간체    | zh-hans|    |       |    
 
     웹 기반 UI 사용에 대한 자세한 내용은 [웹 기반 UI를 사용하여 Data Box 관리](data-box-portal-ui-admin.md)로 이동하세요.
 

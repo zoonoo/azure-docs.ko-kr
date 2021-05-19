@@ -1,5 +1,5 @@
 ---
-title: 'VPN Gateway를 사용 하 여 여러 사이트에 VNet 연결: 클래식'
+title: 'VPN Gateway를 사용하여 VNet을 여러 사이트에 연결: 클래식'
 description: VPN Gateway를 사용하여 여러 로컬 온-프레미스 사이트를 클래식 가상 네트워크에 연결합니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: yushwang
 ms.openlocfilehash: 168bb9e06c73ec27ec1304813023889c9549b8e6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94660698"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>기존 VPN Gateway 연결이 있는 VNet에 사이트 간 연결 추가(클래식)
@@ -74,9 +74,9 @@ ms.locfileid: "94660698"
 1. [사이트 간 VPN 연결을 사용하여 Virtual Network 만들기](./vpn-gateway-howto-site-to-site-classic-portal.md)를 참조하여 사이트 간 가상 네트워크를 만듭니다.  
 2. [VPN Gateway 구성](./vpn-gateway-howto-site-to-site-classic-portal.md)을 참조하여 동적 라우팅 게이트웨이를 구성하십시오. 사용 중인 게이트웨이 유형에 맞는 **동적 라우팅** 을 선택해야 합니다.
 
-## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일 내보내기
+## <a name="2-export-the-network-configuration-file"></a><a name="export"></a>2. 네트워크 구성 파일을 내보내기
 
-관리자 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환 하려면 다음 명령을 사용 합니다.
+상승된 권한으로 PowerShell 콘솔을 엽니다. 서비스 관리로 전환하려면 다음 명령을 사용합니다.
 
 ```powershell
 azure config mode asm
@@ -94,7 +94,7 @@ Add-AzureAccount
 Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
-## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일을 엽니다.
+## <a name="3-open-the-network-configuration-file"></a>3. 네트워크 구성 파일 열기
 마지막 단계에서 다운로드한 네트워크 구성 파일을 엽니다. 원하는 xml 편집기를 사용합니다. 파일은 다음과 유사하게 나타납니다.
 
 ```xml
@@ -168,7 +168,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
   </Gateway>
 ```
 
-## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일을 가져옵니다.
+## <a name="5-import-the-network-configuration-file"></a>5. 네트워크 구성 파일을 가져오기
 네트워크 구성 파일을 가져옵니다. 변경 내용과 함께 이 파일을 가져오면 새 터널이 추가됩니다. 터널은 이전에 만든 동적 게이트웨이를 사용합니다. PowerShell을 사용하여 파일을 가져올 수 있습니다.
 
 ## <a name="6-download-keys"></a>6. 키 다운로드

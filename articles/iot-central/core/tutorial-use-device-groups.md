@@ -1,22 +1,22 @@
 ---
 title: 자습서 - Azure IoT Central 애플리케이션에서 디바이스 그룹 사용 | Microsoft Docs
-description: 자습서 - 운영자로서, 디바이스 그룹을 사용하여 Azure IoT Central 애플리케이션의 디바이스에서 원격 분석을 분석하는 방법을 알아봅니다.
+description: 자습서 - 디바이스 그룹을 사용하여 Azure IoT Central 애플리케이션의 디바이스에서 원격 분석을 분석하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 0cc9c0825761099f7f5f665cd3a7f27c88f9cdbc
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: ce02c86fff5ccece1528e0d08413acb5c0a7f9c6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325322"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743384"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>자습서: 디바이스 그룹을 사용하여 디바이스 원격 분석 수행
 
-이 문서에서는 운영자로서 디바이스 그룹을 사용하여 Azure IoT Central 애플리케이션에서 디바이스 원격 분석을 분석하는 방법을 설명합니다.
+이 문서에서는 디바이스 그룹을 사용하여 Azure IoT Central 애플리케이션에서 디바이스 원격 분석을 분석하는 방법을 설명합니다.
 
 디바이스 그룹은 지정된 특정 기준이 일치하기 때문에 함께 그룹화된 디바이스 목록입니다. 디바이스 그룹은 디바이스를 더 작은 논리 그룹으로 그룹화하여 디바이스를 대규모로 관리하고 시각화하고 분석하는 데 도움을 줍니다. 예를 들어 기술자가 자신의 책임 하에 있는 디바이스를 찾을 수 있도록 시애틀의 모든 공조 디바이스를 나열하는 디바이스 그룹을 만들 수 있습니다.
 

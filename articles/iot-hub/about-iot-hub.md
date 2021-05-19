@@ -1,9 +1,9 @@
 ---
-title: Azure IoT Hub 소개 | Microsoft Docs
-description: Azure IoT Hub에 대해 알아봅니다. 이 IoT 서비스는 확장성 있는 데이터 수집, 디바이스 관리 및 보안을 위해 구축되었습니다.
-author: nberdy
-ms.author: nberdy
-ms.date: 08/08/2019
+title: Azure IoT Hub란? | Microsoft Docs
+description: 이 문서에서는 Azure IoT Hub의 용도를 설명합니다. 이를 통해 확장 가능한 방식으로 데이터를 읽을 수 있으며 디바이스를 안전하게 관리할 수 있습니다.
+author: robinsh
+ms.author: robinsh
+ms.date: 05/03/2021
 ms.topic: overview
 ms.custom:
 - mvc
@@ -11,20 +11,21 @@ ms.custom:
 - mqtt
 - 'role: Direction'
 - 'role: System Architecture'
+- contentperf:fy21q3
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 86a373844b370cc9f9ce31dc65b2039a81279803
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95247a1485bac7282ffe95ddcc2ddd37883738dd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454773"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783823"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT Hub란?
 
-IoT Hub는 클라우드에서 호스팅되는 관리 서비스이며, IoT 애플리케이션과 이를 통해 관리하는 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. Azure IoT Hub를 사용하여 수백만 개의 IoT 디바이스와 클라우드 호스팅 솔루션 백 엔드 간에 안정적이고 안전한 통신을 통해 IoT 솔루션을 구축할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다.
+IoT Hub는 클라우드에서 호스트되는 관리 서비스이며, IoT 애플리케이션과 연결된 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다. 수백만 개의 디바이스와 백 엔드 솔루션을 안정적으로 안전하게 연결할 수 있습니다. 거의 모든 디바이스를 IoT Hub에 연결할 수 있습니다. 
 
-IoT Hub는 디바이스에서 클라우드로, 클라우드에서 디바이스로의 통신을 모두 지원합니다. IoT Hub는 디바이스-클라우드 원격 분석, 디바이스에서 파일 업로드 및 클라우드에서 디바이스를 제어하는 요청-회신 방법과 같은 여러 메시징 패턴을 지원합니다. IoT Hub 모니터링을 사용하면 디바이스 만들기, 디바이스 오류 및 디바이스 연결과 같은 이벤트를 추적하여 솔루션의 상태를 유지 관리할 수 있습니다.
+디바이스-클라우드 원격 분석, 디바이스에서 파일 업로드 및 클라우드에서 디바이스를 제어하는 요청-회신 방법과 같은 여러 메시징 패턴이 지원됩니다. 또한 IoT Hub는 디바이스 만들기, 디바이스 연결 및 디바이스 오류를 추적하는 데 도움이 되는 모니터링을 지원합니다.
 
 IoT Hub의 기능을 사용하면 제조에 사용된 산업 장비 관리, 의료 분야의 중요한 자산 추적 및 오피스 빌딩 사용 모니터링과 같이 모든 기능을 갖춘 확장성 있는 IoT 솔루션을 구축할 수 있습니다.
 
@@ -34,7 +35,7 @@ IoT Hub는 수백만 개의 동시 연결 디바이스와 초당 수백만 개�
 
 ## <a name="secure-your-communications"></a>통신 보안
 
-IoT Hub는 디바이스에서 데이터를 보낼 수 있도록 안전한 통신 채널을 제공합니다.
+IoT Hub를 사용하여 데이터를 안전하게 보낼 수 있습니다.
 
 * 디바이스별 인증을 사용하면 각 디바이스에서 IoT Hub에 안전하게 연결할 수 있으며 각 디바이스를 안전하게 관리할 수 있습니다.
 
@@ -44,11 +45,11 @@ IoT Hub는 디바이스에서 데이터를 보낼 수 있도록 안전한 통신
 
 * 여러 인증 유형을 통해 다양한 디바이스 기능을 지원합니다.
 
-  * IoT 솔루션을 빠르게 시작할 수 있는 SAS 토큰 기반 인증
+  * SAS 토큰 기반 인증을 통해 IoT 솔루션을 빠르게 시작할 수 있습니다.
 
-  * 안전한 표준 기반 인증을 위한 개별 X.509 인증서 인증
+  * 안전한 표준 기반 인증을 위해 개별 X.509 인증서 인증을 사용할 수 있습니다.
 
-  * 간단한 표준 기반 등록을 위한 X.509 CA 인증
+  * X.509 CA 인증은 간단한 표준 기반 등록에 사용할 수 있습니다.
 
 ## <a name="route-device-data"></a>디바이스 데이터 라우팅
 
@@ -58,7 +59,7 @@ IoT Hub는 디바이스에서 데이터를 보낼 수 있도록 안전한 통신
 
 * 메시지를 여러 엔드포인트에 라우팅하는 데 추가 비용이 들지 않습니다.
 
-* 코드 없는 라우팅 규칙이 사용자 지정 메시지 디스패처 코드 대신 사용됩니다.
+* 코드를 작성하지 않고도 해당 메시지의 내용을 기반으로 메시지를 자동으로 보내도록 라우팅 규칙을 구성할 수 있습니다.
 
 ## <a name="integrate-with-other-services"></a>다른 서비스와 통합
 
@@ -84,7 +85,7 @@ IoT Hub를 다른 Azure 서비스와 통합하여 완전한 엔드투엔드 솔�
 
 ## <a name="make-your-solution-highly-available"></a>고가용성 솔루션 만들기
 
-[IoT Hub에 대한 99.9% 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/iot-hub/)이 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
+IoT Hub에는 99.9%의 [IoT Hub에 대한 서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/iot-hub/)이 있습니다. 전체 [Azure SLA](https://azure.microsoft.com/support/legal/sla/)는 Azure의 보장된 가용성에 대해 전반적으로 설명합니다.
 
 ## <a name="connect-your-devices"></a>사용자 디바이스 연결
 
@@ -117,7 +118,7 @@ IoT Hub 및 디바이스 SDK는 디바이스를 연결하기 위한 [Azure IoT �
 
 ## <a name="quotas-and-limits"></a>할당량 및 제한
 
-Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있으며, 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 50개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 자세한 내용은 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. 할당량 한도에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
+Azure 구독마다 서비스 남용을 방지하기 위해 기본 할당량 한도가 적절히 설정되어 있습니다. 이러한 제한은 IoT 솔루션의 범위에 영향을 줄 수 있습니다. 구독별 기준의 현재 제한은 구독당 50개 IoT 허브입니다. 지원 센터에 문의하여 할당량 증가를 요청할 수 있습니다. 자세한 내용은 [IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조하세요. 할당량 한도에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
 
 * [Azure 구독 및 서비스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md)
 

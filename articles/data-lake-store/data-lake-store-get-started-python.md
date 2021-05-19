@@ -1,6 +1,6 @@
 ---
-title: Python을 사용 하 여 Azure Data Lake Storage Gen1 계정 관리
-description: Azure Data Lake Storage Gen1 계정 관리 작업을 위해 Python SDK를 사용 하는 방법을 알아봅니다.
+title: Python을 사용하여 Azure Data Lake Storage Gen1 계정 관리
+description: Python SDK를 사용하여 Azure Data Lake Storage Gen1 계정 관리 작업을 수행하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
 ms.topic: how-to
@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
 ms.openlocfilehash: 35e71b80c6f47bb13f7a2b490b493b0cb42acf04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92103512"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Python을 사용한 Azure Data Lake Storage Gen1에서의 계정 관리 작업
@@ -22,7 +22,7 @@ ms.locfileid: "92103512"
 >
 >
 
-Azure Data Lake Storage Gen1 용 Python SDK를 사용 하 여 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 나열 등의 기본 계정 관리 작업을 수행 하는 방법에 대해 알아봅니다. Python을 사용 하 여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행 하는 방법에 대 한 지침은 [python을 사용 하 여 Data Lake Storage Gen1에 대 한 파일 시스템 작업](data-lake-store-data-operations-python.md)
+Azure Data Lake Storage Gen1용 Python SDK를 사용하여 Data Lake Storage Gen1 계정 만들기, Data Lake Storage Gen1 계정 나열 등과 같은 기본 계정 관리 작업을 수행하는 방법을 알아봅니다. Python을 사용하여 Data Lake Storage Gen1에서 파일 시스템 작업을 수행하는 방법에 대한 지침은 [Python을 사용한 Data Lake Storage Gen1의 파일 시스템 작업](data-lake-store-data-operations-python.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -30,7 +30,7 @@ Azure Data Lake Storage Gen1 용 Python SDK를 사용 하 여 Data Lake Storage 
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-* **Azure 리소스 그룹** 입니다. 지침에 대해서는 [Azure 리소스 그룹 만들기](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
+* **Azure 리소스 그룹** 지침에 대해서는 [Azure 리소스 그룹 만들기](../azure-resource-manager/management/manage-resource-groups-portal.md)를 참조하세요.
 
 ## <a name="install-the-modules"></a>모듈 설치
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
 ms.openlocfilehash: e8502b1d01e0f3fbf5d42e924511cc978690bce4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96342195"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
@@ -30,7 +30,7 @@ Azure에서 Microsoft Cognitive Services용 Bing Image Search API와 관련된 �
 
 Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
-| 특성           | 설명   |
+| attribute           | Description   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |Bing에서 사용자에게 할당한 고유한 ID |
 | `BingAPIs-Market`   |요청을 이행하는 데 사용된 지역/국가 |
@@ -40,7 +40,7 @@ Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 
 그러나 JavaScript에서 Bing Image Search API를 호출하면 브라우저의 기본 제공 보안 기능(CORS)이 이러한 헤더 값으로의 액세스를 차단할 수 있습니다.
 
-헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Image Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 `Access-Control-Expose-Headers` 응답 헤더를 필터링 하 고 JavaScript에서 사용할 수 있도록 하는 헤더가 있습니다.
+헤더에 액세스하기 위해 CORS 프록시를 통해 Bing Image Search API 요청을 만들 수 있습니다. 이러한 프록시의 응답에는 응답 헤더를 필터링하고 JavaScript에서 응답 헤더를 사용할 수 있게 해주는 `Access-Control-Expose-Headers` 헤더가 포함됩니다.
 
 [자습서 앱](tutorial-bing-image-search-single-page-app.md)이 선택적 클라이언트 헤더에 액세스할 수 있도록 CORS 프록시를 쉽게 설치할 수 있습니다. 먼저 [Node.js가 없는 경우 설치](https://nodejs.org/en/download/)합니다. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다.
 
@@ -48,7 +48,7 @@ Bing Image Search API의 응답에 다음 헤더가 발생할 수 있습니다.
 npm install -g cors-proxy-server
 ```
 
-다음으로 HTML 파일의 Bing Image Search API 끝점을: \로 변경 합니다.
+다음으로, HTML 파일에서 Bing Image Search API 엔드포인트를 다음으로 변경합니다.
 `http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 마지막으로 다음 명령을 사용하여 CORS 프록시를 시작합니다.

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 64f18d3217d7f5b7c2feb28190475ef885d4e72b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: bacf9682e8ac9587a664eb7f363f505faa73b383
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203508"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787710"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -96,9 +96,9 @@ dotnet add package Azure.Identity
 
 이 앱이 수행할 첫 번째 작업은 Azure Digital Twins 서비스에 대해 인증하는 것입니다. 그런 다음, 서비스 클라이언트 클래스를 만들어 SDK 함수에 액세스할 수 있습니다.
 
-인증하려면 Azure Digital Twins 인스턴스의 *hostName* 이 필요합니다.
+인증하려면 Azure Digital Twins 인스턴스의 *호스트 이름* 이 필요합니다.
 
-*Program.cs* 에서 "Hello, World!" 출력 줄 아래의 `Main` 메서드에 다음 코드를 붙여넣습니다. `adtInstanceUrl` 값을 Azure Digital Twins 인스턴스 *hostName* 으로 설정합니다.
+*Program.cs* 에서 "Hello, World!" 출력 줄 아래의 `Main` 메서드에 다음 코드를 붙여넣습니다. `adtInstanceUrl` 값을 Azure Digital Twins 인스턴스 *호스트 이름* 으로 설정합니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Authentication_code":::
 
@@ -120,7 +120,7 @@ Azure Digital Twins에는 내장 도메인 어휘가 없습니다. Azure Digital
 
 Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 DTDL 파일에 하나 이상의 모델을 정의하는 것입니다.
 
-프로젝트를 만든 디렉터리에서 *SampleModel.json* 이라는 새 *.json* 파일을 만듭니다. 다음 파일 본문을 붙여넣습니다. 
+프로젝트를 만든 디렉터리에서 SampleModel.json이라는 새 *.json* 파일을 만듭니다. 다음 파일 본문을 붙여넣습니다. 
 
 :::code language="json" source="~/digital-twins-docs-samples/models/SampleModel.json":::
 
@@ -192,7 +192,7 @@ Azure Digital Twins에 모델을 업로드했으므로 이제 이 모델 정의�
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp.cs" id="Initialize_twins":::
 
-명령 창에서 `dotnet run`을 사용하여 프로그램을 실행합니다. 출력에서 *sampleTwin-0*, *sampleTwin-1* 및 *sampleTwin-2* 가 생성된 인쇄 메시지를 찾습니다. 
+명령 창에서 `dotnet run`을 사용하여 프로그램을 실행합니다. 출력에서 sampleTwin-0, sampleTwin-1 및 sampleTwin-2가 생성된 인쇄 메시지를 찾습니다. 
 
 그런 다음, 프로그램을 다시 실행합니다. 
 

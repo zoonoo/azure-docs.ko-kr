@@ -1,6 +1,6 @@
 ---
 title: 인증서 생성 방법
-description: Azure Key Vault에서 Key Vault 인증서를 만들거나 가져올 수 있는 다양 한 옵션에 대해 알아봅니다. Key Vault 인증서를 만드는 방법에는 여러 가지가 있습니다.
+description: Azure Key Vault의 Key Vault 인증서를 만들거나 가져오는 여러 옵션에 대해 알아봅니다. Key Vault 인증서를 만드는 방법에는 여러 가지가 있습니다.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93289583"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
@@ -32,7 +32,7 @@ ms.locfileid: "93289583"
 1. 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.
 2. Key Vault는 애플리케이션 CSR(Certificate Signing Request)에 반환됨
 3. 애플리케이션은 선택한 CA에 CSR을 전달합니다.
-4. 선택한 CA는 X509 인증서를 사용 하 여 응답 합니다.
+4. 선택한 CA가 X509 인증서로 응답합니다.
 5. 애플리케이션이 CA에서 X509 인증서를 병합해 인증서 만들기를 완료합니다.
 
 -   **알려진 인증서 발급자 공급자를 통해 인증서 만들기:** 이 방법을 사용하면 발급자 개체를 만드는 일회성 작업을 수행해야 합니다. 키 자격 증명 모음에서 발급자 개체를 만든 후에 해당 이름을 KV 인증서 정책에서 참조할 수 있습니다. KV 인증서 같은 인증서 만들기를 요청하면 자격 증명 모음에서 키 쌍을 만들고 x509 인증서를 가져오기 위해 참조된 발급자 개체의 정보를 사용하여 발급자 공급자 서비스와 통신합니다. x509 인증서는 인증서 발급자 서비스에서 검색되며, KV 인증서 생성을 완료하기 위해 키 쌍과 병합됩니다.  
@@ -42,10 +42,10 @@ ms.locfileid: "93289583"
 다음 설명은 위의 다이어그램에서 녹색 글자로 된 단계에 해당합니다.
 
 1. 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.
-2. Key Vault는 CA에 TLS/SSL 인증서 요청을 보냅니다.
+2. Key Vault에서 TLS/SSL 인증서 요청을 CA에 보냅니다.
 3. 애플리케이션은 인증서 완료를 위해 Key Vault를 루프 및 대기 프로세스로 폴링합니다. Key Vault가 x509 인증서로 CA의 응답을 받으면 인증서 작성이 완료된 것입니다.
-4. CA는 TLS/SSL x.509 인증서를 사용 하 여 Key Vault의 TLS/SSL 인증서 요청에 응답 합니다.
-5. 새 인증서 만들기는 CA에 대 한 TLS/SSL x.509 인증서의 합병을 사용 하 여 완료 됩니다.
+4. CA가 TLS/SSL X.509 인증서를 사용하여 Key Vault의 TLS/SSL 인증서 요청에 응답합니다.
+5. 새 인증서 만들기는 CA에 대한 TLS/SSL X.509 인증서를 병합하여 완료합니다.
 
 ## <a name="asynchronous-process"></a>비동기 처리
 KV 인증서 만들기는 비동기 프로세스입니다. 이 작업은 KV 인증서 요청을 만들고 http 상태 코드 202(수락)를 반환합니다. 이 작업에서 생성한 보류 중인 개체를 폴링하여 요청 상태를 추적할 수 있습니다. 보류 중인 개체의 전체 URI이 위치 헤더에서 반환됩니다.  

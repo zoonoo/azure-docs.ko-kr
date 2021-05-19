@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: mbullwin
 ms.openlocfilehash: fcd4f73a9cea75877360b2b537776bf59fb22363
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98704459"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Anomaly Detector API에 대한 추천 사용자 생성 콘텐츠
 
-이 문서에서 다른 고객의 의견 및 Anomaly Detector API 사용 방법을 알아봅니다. Anomaly Detector 사용자 커뮤니티에서 다음 리소스를 만들었습니다. 여기에는 오픈 소스 프로젝트 및 Microsoft와 타사 사용자가 만든 기타 기여를 포함 합니다. 다음 링크 중 일부는 Microsoft 외부의 웹 사이트에서 호스트되며 Microsoft에는 해당 콘텐츠에 대한 책임이 없습니다. 이러한 리소스를 참조하는 경우에는 주의해야 합니다.
+이 문서에서 다른 고객의 의견 및 Anomaly Detector API 사용 방법을 알아봅니다. Anomaly Detector 사용자 커뮤니티에서 다음 리소스를 만들었습니다. 여기에는 오픈 소스 프로젝트와 Microsoft 및 타사 사용자가 만든 기타 기여가 포함됩니다. 다음 링크 중 일부는 Microsoft 외부의 웹 사이트에서 호스트되며 Microsoft에는 해당 콘텐츠에 대한 책임이 없습니다. 이러한 리소스를 참조하는 경우에는 주의해야 합니다.
 
 ## <a name="technical-blogs"></a>기술 블로그
 
-* [인식 서비스 시도: 변칙 탐지기 API (일본어)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
+* [Cognitive Service 시도: Anomaly Detector API(일본어)](https://azure-recipe.kc-cloud.jp/2019/04/cognitive-service-anomaly-detector-api/)
 
 ## <a name="open-source-projects"></a>오픈 소스 프로젝트
 

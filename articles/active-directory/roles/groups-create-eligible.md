@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 역할을 할당 하기 위한 그룹 만들기 Microsoft Docs
+title: Azure Active Directory에서 역할을 할당할 그룹 만들기 | Microsoft Docs
 description: Azure AD에서 역할 할당 가능 그룹을 만드는 방법에 대해 알아봅니다. Azure Portal, PowerShell 또는 Graph API에서 Azure 역할을 관리합니다.
 services: active-directory
 author: rolyon
@@ -13,63 +13,63 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bf0a9ca193be9fd61d0b284338c0f581c9f91e3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: d69662ca24ab135db549ee108e93f9276e154e58
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103012057"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106106911"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Azure Active Directory에서 역할 할당 가능 그룹 만들기
 
-' IsAssignableToRole ' 속성을 True로 설정 하 여 만든 그룹에만 역할을 할당할 수 있으며, azure ad 역할을 사용 하 여 azure ad 포털에서 만든 그룹에는 설정 된 **그룹** 에 역할을 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당 될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수 한 종류의 그룹을 만드는 방법을 설명 합니다. **참고:** IsAssignableToRole 속성이 true로 설정 된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [그룹을 사용 하 여 AZURE AD 역할 할당 관리](groups-concept.md)를 참조 하세요.
+'isAssignableToRole' 속성을 True로 설정하여 만든 그룹에만 역할을 할당할 수 있으며, **Azure AD 역할이 그룹** 에 설정된 Azure AD 포털에서만 할당할 수 있습니다. 이 그룹 특성은 Azure Active Directory (Azure AD)에서 역할에 할당될 수 있는 그룹을 만듭니다. 이 문서에서는 이러한 특수한 종류의 그룹을 만드는 방법을 설명합니다. **참고:** isAssignableToRole 속성이 true로 설정된 그룹은 동적 멤버 자격 형식일 수 없습니다. 자세한 내용은 [Azure AD 역할 할당 관리를 위한 그룹 사용](groups-concept.md)을 참조하세요.
 
 ## <a name="using-azure-ad-admin-center"></a>Azure AD 관리 센터 사용
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다.
-1. **그룹**  >  **모든 그룹**  >  **새 그룹** 을 선택 합니다.
+1. Azure AD 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [Azure AD 관리 센터](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)에 로그인합니다.
+1. **그룹**  >  **모든 그룹**  >  **새 그룹** 을 선택합니다.
 
-    [![Azure Active Directory를 열고 새 그룹을 만듭니다.](./media/groups-create-eligible/new-group.png "Azure Active Directory를 열고 새 그룹을 만듭니다.")](./media/groups-create-eligible/new-group.png#<lightbox>)
+    [![Azure Active Directory에 액세스하여 새 그룹 만들기.](./media/groups-create-eligible/new-group.png "Azure Active Directory를 열고 새 그룹 만들기.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
-1. **새 그룹** 탭에서 그룹 유형, 이름 및 설명을 입력 합니다.
-1. Azure AD 역할에 대 한 사용 **을 그룹에 할당할 수 있습니다**. 이 스위치는 스위치를 설정할 수 있는 두 개의 역할만 있으므로 권한 있는 역할 관리자 및 전역 관리자 에게만 표시 됩니다.
+1. **새 그룹** 탭에서 그룹 형식, 이름 및 설명을 입력합니다.
+1. **Azure AD 역할을 그룹에 할당하기** 를 켭니다. 이 스위치는 스위치를 설정할 수 있는 두 개의 역할만 있으므로 권한 있는 역할 관리자 및 전역 관리자에게만 표시됩니다.
 
-    [![새 그룹을 역할 할당에 적합 하도록 설정](./media/groups-create-eligible/eligible-switch.png "새 그룹을 역할 할당에 적합 하도록 설정")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
+    [![새 그룹을 역할 할당에 적합하도록 설정](./media/groups-create-eligible/eligible-switch.png "새 그룹을 역할 할당에 적합하도록 설정")](./media/groups-create-eligible/eligible-switch.png#<lightbox>)
 
-1. 그룹의 멤버 및 소유자를 선택 합니다. 그룹에 역할을 할당 하는 옵션도 있지만 여기에서는 역할을 할당할 필요가 없습니다.
+1. 그룹의 멤버 및 소유자를 선택합니다. 그룹에 역할을 할당하는 옵션도 있지만, 여기에서는 역할을 할당할 필요가 없습니다.
 
-    [![역할 할당 가능 그룹에 멤버를 추가 하 고 역할을 할당 합니다.](./media/groups-create-eligible/specify-members.png "역할 할당 가능 그룹에 멤버를 추가 하 고 역할을 할당 합니다.")](./media/groups-create-eligible/specify-members.png#<lightbox>)
+    [![역할 할당 가능 그룹에 멤버를 추가하고 역할을 할당합니다.](./media/groups-create-eligible/specify-members.png "역할 할당 가능 그룹에 멤버를 추가하고 역할을 할당합니다.")](./media/groups-create-eligible/specify-members.png#<lightbox>)
 
-1. 멤버 및 소유자를 지정한 후 **만들기** 를 선택 합니다.
+1. 멤버 및 소유자를 지정한 후 **만들기** 를 선택합니다.
 
-    [![페이지 맨 아래에 만들기 단추가 있습니다.](./media/groups-create-eligible/create-button.png "페이지 맨 아래에 만들기 단추가 있습니다.")](./media/groups-create-eligible/create-button.png#<lightbox>)
+    [![만들기 버튼은 페이지의 맨 아래에 있습니다.](./media/groups-create-eligible/create-button.png "만들기 버튼은 페이지의 맨 아래에 있습니다.")](./media/groups-create-eligible/create-button.png#<lightbox>)
 
-사용자가 할당 했을 수 있는 모든 역할로 그룹이 만들어집니다.
+사용자가 할당했을 수 있는 모든 역할로 그룹이 만들어집니다.
 
 ## <a name="using-powershell"></a>PowerShell 사용
 
-### <a name="install-the-azure-ad-preview-module"></a>Azure AD 미리 보기 모듈 설치
+### <a name="install-the-azure-ad-preview-module"></a>Azure AD preview 모듈 설치
 
 ```powershell
 Install-Module -Name AzureADPreview
 Import-Module -Name AzureADPreview
 ```
 
-모듈을 사용할 준비가 되었는지 확인 하려면 다음 명령을 실행 합니다.
+모듈을 사용할 수 있는지 확인하려면 다음 명령을 사용합니다.
 
 ```powershell
 Get-Module -Name AzureADPreview
 ```
 
-### <a name="create-a-group-that-can-be-assigned-to-role"></a>역할에 할당 될 수 있는 그룹 만들기
+### <a name="create-a-group-that-can-be-assigned-to-role"></a>역할에 할당 가능한 그룹 만들기
 
 ```powershell
 $group = New-AzureADMSGroup -DisplayName "Contoso_Helpdesk_Administrators" -Description "This group is assigned to Helpdesk Administrator built-in role in Azure AD." -MailEnabled $true -SecurityEnabled $true -MailNickName "contosohelpdeskadministrators" -IsAssignableToRole $true
 ```
 
-이 유형의 그룹에 대해는 `isPublic` 항상 false가 되며 `isSecurityEnabled` 항상 true입니다.
+이 형식의 그룹에 대해는 `isPublic`이 항상 false가 되며 `isSecurityEnabled`는 항상 true입니다.
 
-### <a name="copy-one-groups-users-and-service-principals-into-a-role-assignable-group"></a>한 그룹의 사용자 및 서비스 사용자를 역할 할당 가능 그룹에 복사 합니다.
+### <a name="copy-one-groups-users-and-service-principals-into-a-role-assignable-group"></a>한 그룹의 사용자 및 서비스 사용자를 역할 할당 가능 그룹에 복사합니다.
 
 ```powershell
 #Basic set up
@@ -105,24 +105,25 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 
 ## <a name="using-microsoft-graph-api"></a>Microsoft Graph API 사용
 
-### <a name="create-a-role-assignable-group-in-azure-ad"></a>Azure AD에서 역할 할당 가능 그룹 만들기
+### <a name="create-a-role-assignable-group-in-azure-ad"></a>Azure AD에서 역할 할당 가능 그룹을 만드는 방법에 대해 알아봅니다.
 
 ```http
 POST https://graph.microsoft.com/beta/groups
 {
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
-"displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [
-"Unified"
-],
-"mailEnabled": true,
-"securityEnabled": true
-"mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true,
+  "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
+  "displayName": "Contoso_Helpdesk_Administrators",
+  "groupTypes": [
+    "Unified"
+  ],
+  "isAssignableToRole": true,
+  "mailEnabled": true,
+  "securityEnabled": true,
+  "mailNickname": "contosohelpdeskadministrators",
+  "visibility" : "Private"
 }
 ```
 
-이 유형의 그룹에 대해는 `isPublic` 항상 false가 되며 `isSecurityEnabled` 항상 true입니다.
+이 형식의 그룹에 대해는 `isPublic`이 항상 false가 되며 `isSecurityEnabled`는 항상 true입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

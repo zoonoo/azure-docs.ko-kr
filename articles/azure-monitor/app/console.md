@@ -6,10 +6,10 @@ ms.date: 05/21/2020
 ms.custom: devx-track-csharp
 ms.reviewer: lmolkova
 ms.openlocfilehash: aa39a1eca04621fc4db75f755402d3679403e814
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96920598"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
@@ -19,12 +19,12 @@ ms.locfileid: "96920598"
 [Microsoft Azure](https://azure.com)를 구독해야 합니다. Microsoft 계정으로 로그인합니다. Windows, Xbox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다. 팀에서 Azure를 단체 구독할 수도 있습니다. 소유자에게 Microsoft 계정을 사용하여 추가해 달라고 요청하세요.
 
 > [!NOTE]
-> 콘솔 응용 프로그램에 대해서는 [여기에 나와](./worker-service.md) 있는 관련 지침과 [Microsoft applicationinsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 를 사용 하는 것이 *좋습니다* . 이 패키지 [`NetStandard2.0`](/dotnet/standard/net-standard) 는를 대상으로 하므로 .Net Core 2.1 이상에서 사용할 수 있으며 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
+> 콘솔 애플리케이션의 경우 [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 패키지와 [여기](./worker-service.md)의 관련 지침을 사용할 것을 *적극 권장합니다*. 이 패키지는 [`NetStandard2.0`](/dotnet/standard/net-standard)를 대상으로 하므로 .NET Core 2.1 이상 및 .NET Framework 4.7.2 이상에서 사용할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 사용 **해야** 합니다. [연결 문자열](./sdk-connection-string.md?tabs=net) 원격 분석 데이터를 연결 하려는 리소스를 식별 합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=net)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 * [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](./create-new-resource.md). 애플리케이션 유형으로 **일반** 을 선택합니다.
 * 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다.

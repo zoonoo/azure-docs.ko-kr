@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/17/2021
-ms.openlocfilehash: 96b52c80fa06be8c157ad39fd65be4e491e0cbe3
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 548d7ee7495d579557cfff89f415298326807338
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874858"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803731"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database와 Azure SQL Managed Instance 연결 및 쿼리 문서
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -78,6 +78,20 @@ TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database의 데이터베이�
 
 타사 드라이버는 기본적으로 TLS를 사용할 수 있습니다. Azure SQL Database 또는 Azure SQL Managed Instance에 연결 시 고려해 볼 수 있습니다. 포함된 드라이버가 있는 애플리케이션은 이러한 연결 설정을 제어하도록 허용할 수 없습니다. 중요한 데이터와 상호 작용하는 시스템에서 사용하기 전에 이러한 드라이버와 애플리케이션의 보안을 검사하는 것이 좋습니다.
 
+## <a name="drivers"></a>드라이버
+
+Azure SQL 데이터베이스에 연결하려면 다음과 같은 버전 이상의 도구와 드라이버를 사용하는 것이 좋습니다.
+
+| 드라이버/도구 | 버전 |
+| --- | --- |
+|.NET Framework | 4.6.1(또는 .NET Core) |
+|ODBC 드라이버| v17 |
+|PHP 드라이버| 5.2.0 |
+|JDBC 드라이버| 6.4.0 |
+|Node.js 드라이버| 2.1.1 |
+|OLEDB 드라이버| 18.0.2.0 |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 이상 |
+
 ## <a name="libraries"></a>라이브러리
 
 다양한 라이브러리 및 프레임워크를 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결할 수 있습니다. C#, Java, Node.js, PHP 및 Python과 같은 프로그래밍 언어를 빠르게 시작하려면 [자습서 시작](https://aka.ms/sqldev)을 확인하세요. 그런 다음 Linux 또는 Windows 또는 macOS의 Docker에서 SQL Server를 사용하여 앱을 빌드합니다.
@@ -93,6 +107,8 @@ TLS(전송 계층 보안)는 Microsoft가 Azure SQL Database의 데이터베이�
 | Python | Windows, Linux, macOS | [Python SQL 드라이버](/sql/connect/python/python-driver-for-sql-server/) | 다음 선택 항목을 설치합니다. <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [시작](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [SQL Server용 Ruby 드라이버](/sql/connect/ruby/ruby-driver-for-sql-server/) | [설치](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [시작](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
 | C++ | Windows, Linux, macOS | [Microsoft ODBC driver for SQL Server](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) | [다운로드](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server/) |  
+
+### <a name="data-access-frameworks"></a>데이터 액세스 프레임워크
 
 다음 표는 클라이언트 애플리케이션이 SQL Server, Azure SQL Database, Azure SQL Managed Instance 또는 Azure Synapse Analytics에서 사용할 수 있는 ORM(개체-관계형 매핑) 프레임워크 및 웹 프레임워크의 예를 나열합니다. Linux, Windows 또는 Docker에서 프레임워크를 사용할 수 있습니다.
 

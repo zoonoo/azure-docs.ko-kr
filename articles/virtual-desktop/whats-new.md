@@ -3,17 +3,17 @@ title: Windows Virtual Desktop의 새로운 기능 - Azure
 description: Windows Virtual Desktop에 대한 새로운 기능 및 제품 업데이트.
 author: Heidilohr
 ms.topic: overview
-ms.date: 04/08/2021
+ms.date: 05/03/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
 ms.custom: references_regions
-ms.openlocfilehash: da93da4c08a23e158d5a22c4552d5e5754ceb01a
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: b2ab740134ab41a76bd0170eabfda2167efb678c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107988049"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108740288"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Windows Virtual Desktop의 새로운 기능
 
@@ -42,6 +42,7 @@ Windows Virtual Desktop 에이전트는 한 달에 한 번 이상 업데이트�
 
 Windows Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습니다.
 
+- 프로덕션용 버전 1.0.2944.1400 및 모든 유효성 검사 호스트 풀용 버전 1.0.2990.800: 이 업데이트는 2021년 4월 27일에 출시되었습니다.
 - 버전 1.0.2990.800: 이 업데이트는 2021년 4월 13일에 릴리스되었으며 다음과 같이 변경되었습니다.
     - 에이전트 오류 메시지가 업데이트되었습니다.
     - Windows 7 VM에 비 Windows 7 에이전트를 설치할 수 없도록 하는 예외를 추가합니다.
@@ -59,6 +60,45 @@ Windows Virtual Desktop 에이전트에서 변경된 내용은 다음과 같습�
 ## <a name="fslogix-updates"></a>FSLogix 업데이트
 
 FSLogix의 최신 업데이트가 궁금하신가요? [FSLogix의 새로운 기능](/fslogix/whats-new)을 확인하세요.
+
+## <a name="april-2021"></a>2021년 4월
+
+4월 버전의 새로운 기능은 다음과 같습니다.
+
+### <a name="use-the-start-vm-on-connect-feature-preview-in-the-azure-portal"></a>Azure Portal에서 연결 시 VM 시작 기능(미리 보기) 사용
+
+이제 Azure Portal에서 연결 시 VM 시작(미리보기)을 구성할 수 있습니다. 이 업데이트를 사용하면 사용자가 Android 및 macOS 클라이언트에서 VM에 액세스할 수 있습니다. 자세한 내용은 [연결 시 VM 시작](start-virtual-machine-connect.md#use-the-azure-portal)을 참조하세요.
+
+### <a name="required-url-check-tool"></a>필수 URL 확인 도구 
+
+Windows Virtual Desktop 에이전트, 버전 1.0.2944.400에는 URL의 유효성을 검사하고 가상 시스템이 작동해야 하는 URL에 액세스할 수 있는지 여부를 표시하는 도구가 포함되어 있습니다. 필수 URL에 액세스할 수 있는 경우 도구에 해당 URL이 나열되므로 필요하다면 차단 해제할 수 있습니다. 자세한 내용은 [안전 URL 목록](safe-url-list.md#required-url-check-tool)을 참조하세요.
+
+### <a name="updates-to-the-azure-portal-ui-for-windows-virtual-desktop"></a>Windows Virtual Desktop에 대한 Azure Portal UI 업데이트
+
+Windows Virtual Desktop용 Azure Portal UI의 최신 업데이트에서 변경된 내용은 다음과 같습니다.
+
+- 드레이닝 모드가 사용하도록 설정된 상태에서 세션 호스트를 검색할 때 오류가 나타나는 문제가 해결되었습니다.
+- 포털 SDK가 버전 7.161.0으로 업그레이드되었습니다.
+- 사용자 세션 탭에 리소스 ID 누락된 오류 메시지가 나타나는 문제가 해결되었습니다.
+- 이제 Azure Portal에 세션 호스트에 대한 자세한 하위 상태 메시지가 표시됩니다.
+
+### <a name="april-2021-updates-for-teams-on-windows-virtual-desktop"></a>Windows Virtual Desktop의 Teams에 대한 2021년 4월 업데이트
+
+Windows Virtual Desktop의 Teams에 대한 새로운 기능은 다음과 같습니다.
+
+- Windows 10 기반 클라이언트용 출력 비디오 스트림의 비디오 처리를 위한 하드웨어 가속화가 추가되었습니다.
+- 전면 카메라와 후면 또는 외부 카메라를 둘 다 사용하여 회의에 참석하면 전면 카메라가 기본적으로 선택됩니다.
+- Teams가 x86 기반 컴퓨터에서 충돌하는 문제가 해결되었습니다.
+- 화면 공유 중에 줄무늬가 생기는 문제가 해결되었습니다.
+- 회의 구성원이 수신 영상 또는 화면 공유를 볼 수 없는 문제가 해결되었습니다.
+
+### <a name="msix-app-attach-is-now-generally-available"></a>이제 MSIX 앱 연결을 일반적으로 사용할 수 있음
+
+이제 Windows Virtual Desktop에 대한 MSIX 앱 연결이 공개 미리 보기로 제공되며 모든 사용자가 사용할 수 있습니다. MSIX 앱 연결에 대한 자세한 내용은 [TechCommunity 공지](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/msix-app-attach-is-now-generally-available/m-p/2270468)를 참조하세요.
+
+### <a name="the-macos-client-now-supports-apple-silicon-and-big-sur"></a>이제 macOS 클라이언트가 Apple Silicon과 Big Sur을 지원함
+
+이제 macOS Windows Virtual Desktop 클라이언트가 Apple Silicon과 Big Sur을 지원합니다. 전체 업데이트 목록은 [macOS 클라이언트의 새로운 기능](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)에서 제공됩니다.
 
 ## <a name="march-2021"></a>2021년 3월
 

@@ -3,12 +3,12 @@ title: 리소스 속성 검색
 description: 리소스 속성을 검색하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: aaa7bb13f49c1c742e44a255d4bbdbd2b1730939
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736688"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91327751"
 ---
 # <a name="discover-resource-properties"></a>리소스 속성 검색
 
@@ -69,7 +69,7 @@ Azure Resource Manager 템플릿 참조는 템플릿 스키마를 위한 가장 
 
 리소스 탐색기는 Azure Portal에 포함됩니다. 이 방법을 사용하려면 스토리지 계정이 필요합니다. 스토리지 계정이 없는 경우 다음 단추를 선택하여 새로 만듭니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
+[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 검색 상자에 **리소스 탐색기** 를 입력하고 **리소스 탐색기** 를 선택합니다.
@@ -97,7 +97,7 @@ resources.azure.com은 Azure 구독의 모든 사용자가 액세스할 수 있�
 
 이 도구를 사용하여 스키마 정보를 검색하는 방법을 보여 주려면 스토리지 계정이 필요합니다. 스토리지 계정이 없는 경우 다음 단추를 선택하여 새로 만듭니다.
 
-[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.storage%2Fstorage-account-create%2Fazuredeploy.json)
+[![Azure에 배포](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json)
 
 1. [resources.azure.com](https://resources.azure.com/)으로 이동합니다. 도구가 왼쪽 창에 표시되는 데 몇 분 정도 걸립니다.
 1. **구독** 을 선택합니다.

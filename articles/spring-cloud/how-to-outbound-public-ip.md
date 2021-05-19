@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 04174b9cffb7e853dee235a4141ccda74a7847c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f2781c159ca79b09afd2f700981a19c59865cce2
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878217"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634242"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 아웃바운드 공용 IP 주소를 확인하는 방법
 
@@ -40,10 +40,10 @@ Azure 스프링 클라우드 서비스에는 하나 이상의 아웃바운드 �
 Cloud Shell에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
 ```Azure CLI
-az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIPs.publicIPs --output tsv
+az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
 ```
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
 * [Azure 리소스의 관리 ID에 대해 자세히 알아보기](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Azure Spring Cloud의 키 자격 증명 모음에 대해 자세히 알아보기](spring-cloud-tutorial-managed-identities-key-vault.md)
+* [Azure Spring Cloud의 키 자격 증명 모음에 대해 자세히 알아보기](./tutorial-managed-identities-key-vault.md)

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 02ea87bba8c28f0217479ffc65ccc65903fc0442
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 68127a7603db2d408ed1bbdb244f49de4eb21031
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903041"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108208494"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
-사용자 환경의 엔터티는 [디지털 트윈](concepts-twins-graph.md)으로 표현됩니다. 디지털 트윈 관리에는 만들기, 수정 및 제거가 포함될 수 있습니다. 이러한 작업을 수행하기 위해 [**DigitalTwins API**](/rest/api/digital-twins/dataplane/twins), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용할 수 있습니다.
+사용자 환경의 엔터티는 [디지털 트윈](concepts-twins-graph.md)으로 표현됩니다. 디지털 트윈 관리에는 만들기, 수정 및 제거가 포함될 수 있습니다. 이러한 작업을 수행하기 위해 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용할 수 있습니다.
 
-이 문서에서는 디지털 트윈을 관리하는 방법을 중점적으로 설명합니다. 관계 및 [트윈 그래프](concepts-twins-graph.md) 전체를 사용하려면 [*방법: 관계를 사용하여 트윈 그래프 관리*](how-to-manage-graph.md)를 참조하세요.
+이 문서에서는 디지털 트윈을 관리하는 방법을 중점적으로 설명합니다. 관계 및 [트윈 그래프](concepts-twins-graph.md) 전체를 사용하려면 [방법: 관계를 사용하여 트윈 그래프 관리](how-to-manage-graph.md)를 참조하세요.
 
 > [!TIP]
 > 모든 SDK 함수는 동기 및 비동기 버전으로 제공됩니다.
@@ -55,7 +55,7 @@ ms.locfileid: "107903041"
 
 트윈이 생성될 때 트윈의 속성을 초기화할 수 있습니다. 
 
-트윈 생성 API는 트윈 속성의 유효한 JSON 설명으로 직렬화된 개체를 허용합니다. 트윈의 JSON 형식에 대한 설명은 [*개념: 디지털 트윈 및 트윈 그래프*](concepts-twins-graph.md)를 참조하세요. 
+트윈 생성 API는 트윈 속성의 유효한 JSON 설명으로 직렬화된 개체를 허용합니다. 트윈의 JSON 형식에 대한 설명은 [개념: 디지털 트윈 및 트윈 그래프](concepts-twins-graph.md)를 참조하세요. 
 
 먼저 트윈 및 해당 속성 데이터를 나타내는 데이터 개체를 만들 수 있습니다. 매개 변수 개체는 수동으로 만들거나 제공된 도우미 클래스를 사용하여 만들 수 있습니다. 각각의 예는 다음과 같습니다.
 
@@ -93,7 +93,7 @@ ms.locfileid: "107903041"
 >[!TIP]
 >트윈의 `displayName`은 해당 모델 메타데이터의 일부이므로 트윈 인스턴스에 대한 데이터를 가져올 때 표시되지 않습니다. 이 값은 [모델에서 검색](how-to-manage-model.md#retrieve-models)하여 확인할 수 있습니다.
 
-단일 API 호출을 사용하여 여러 트윈을 검색하려면 [*방법: 트윈 그래프 쿼리*](how-to-query-graph.md)의 쿼리 API 예를 참조하세요.
+단일 API 호출을 사용하여 여러 트윈을 검색하려면 [방법: 트윈 그래프 쿼리](how-to-query-graph.md)의 쿼리 API 예를 참조하세요.
 
 *문식 선문자* 를 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL))로 작성됨)을 고려합니다.
 
@@ -135,7 +135,7 @@ ms.locfileid: "107903041"
   - 쓰기 가능한 각 속성의 동기화 상태입니다. 디바이스에 가장 유용합니다. 이 경우 서비스와 디바이스에 분기된 상태가 있을 수 있습니다(예: 디바이스가 오프라인 상태인 경우). 현재 이 속성은 IoT Hub에 연결된 물리적 디바이스에만 적용됩니다. 메타데이터 섹션의 데이터를 사용하여 마지막으로 수정한 타임스탬프뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대한 자세한 내용은 디바이스 상태 동기화에 대한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md)를 참조하세요.
   - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타데이터. 
 
-[*방법: Azure Digital Twins API 및 SDK 사용*](how-to-use-apis-sdks.md)에서 `BasicDigitalTwin`과 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
+[방법: Azure Digital Twins API 및 SDK 사용](how-to-use-apis-sdks.md)에서 `BasicDigitalTwin`과 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="view-all-digital-twins"></a>모든 디지털 트윈 보기
 
@@ -214,7 +214,7 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리되도록 �
 
 ### <a name="delete-all-digital-twins"></a>모든 디지털 트윈 삭제
 
-한 번에 모든 트윈을 삭제하는 방법에 대한 예를 보려면 [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)에서 사용된 샘플 앱을 다운로드합니다. *CommandLoop.cs* 파일은 `CommandDeleteAllTwins()` 함수에서 이를 수행합니다.
+한 번에 모든 트윈을 삭제하는 방법에 대한 예를 보려면 [자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)에서 사용된 샘플 앱을 다운로드합니다. *CommandLoop.cs* 파일은 `CommandDeleteAllTwins()` 함수에서 이를 수행합니다.
 
 ## <a name="runnable-digital-twin-code-sample"></a>실행 가능한 디지털 트윈 코드 샘플
 
@@ -222,7 +222,7 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리되도록 �
 
 ### <a name="set-up-the-runnable-sample"></a>실행 가능한 샘플 설정
 
-이 코드 조각은 [*자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기*](tutorial-command-line-app.md)에서 [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) 모델 정의를 사용합니다. 이 링크를 사용하여 파일로 직접 이동하거나 [여기](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)에서 전체 엔드투엔드 샘플 프로젝트의 일부로 다운로드할 수 있습니다.
+이 코드 조각은 [자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기](tutorial-command-line-app.md)에서 [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) 모델 정의를 사용합니다. 이 링크를 사용하여 파일로 직접 이동하거나 전체 [엔드투엔드 샘플 프로젝트](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부로 다운로드할 수 있습니다.
 
 샘플을 실행하려면 먼저 다음을 수행합니다.
 1. 모델 파일을 다운로드하고 프로젝트에 배치한 다음 아래 코드의 `<path-to>` 자리 표시자를 바꿔서 찾는 위치를 프로그램에 알립니다.
@@ -250,4 +250,4 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리되도록 �
 ## <a name="next-steps"></a>다음 단계
 
 디지털 트윈 간의 관계를 만들고 관리하는 방법을 참조하세요.
-* [*방법: 관계를 사용하여 쌍 그래프 관리*](how-to-manage-graph.md)
+* [방법: 관계를 사용하여 쌍 그래프 관리](how-to-manage-graph.md)

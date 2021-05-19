@@ -1,18 +1,19 @@
 ---
 title: ExpressRoute 개인 피어링을 통한 사이트 간 VPN 연결
-description: 이 문서는 트래픽을 암호화하기 위해 ExpressRoute 개인 피어링을 통해 사이트 간 VPN을 사용하도록 설정하는 데 도움이 됩니다.
+titleSuffix: Azure VPN Gateway
+description: 트래픽을 암호화하기 위해 ExpressRoute 개인 피어링을 통해 사이트 간 VPN 연결을 구성하는 방법을 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/16/2020
+ms.date: 04/28/2021
 ms.author: cherylmc
-ms.openlocfilehash: 01d87bcb5697326fa87b25b20354897049900d9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c84b46fe3265b5ada792cbe47d92768e602fa20
+ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98880528"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108229039"
 ---
 # <a name="configure-a-site-to-site-vpn-connection-over-expressroute-private-peering"></a>ExpressRoute 개인 피어링을 통한 사이트 간 VPN 구성
 

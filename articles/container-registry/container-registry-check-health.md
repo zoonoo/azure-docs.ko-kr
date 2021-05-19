@@ -3,12 +3,12 @@ title: 레지스트리 상태 확인
 description: 빠른 진단 명령을 사용하여 로컬 Docker 구성 및 레지스트리 연결을 포함한 Azure 컨테이너 레지스트리를 사용할 때 일반적인 문제를 식별하는 방법을 알아봅니다
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: f27a99818260553cbd7ba26158db0064c145a21f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fec05efe67f5c502f36ee90eec57ba283b15a4a0
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88245386"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107761748"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Azure 컨테이너 레지스트리 상태 확인
 
@@ -89,4 +89,4 @@ Azure Container Registry에 대한 질문과 대답 및 알려진 문제는 [FAQ
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-check-health]: /cli/azure/acr#az-acr-check-health
+[az-acr-check-health]: /cli/azure/acr#az_acr_check_health

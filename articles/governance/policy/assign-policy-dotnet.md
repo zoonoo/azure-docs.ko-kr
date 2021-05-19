@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 .NET Core를 사용하여 미준수 리�
 ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b89a0db419b1e7213e9742e4a39d073445d05189
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 8ed5fd2013f3efd02961c486363042b30c7ad98f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091789"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773992"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-net-core"></a>빠른 시작: .NET Core를 사용하여 미준수 리소스를 식별하는 정책 할당 만들기
 
@@ -55,7 +55,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
    using Microsoft.Rest;
    using Microsoft.Azure.Management.ResourceManager;
    using Microsoft.Azure.Management.ResourceManager.Models;
-   
+
    namespace policyAssignment
    {
        class Program
@@ -71,7 +71,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
                string strPolicyDefID = args[6];
                string strDescription = args[7];
                string strScope = args[8];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                    "https://management.core.windows.net",
@@ -168,7 +168,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
    using Microsoft.Rest;
    using Microsoft.Azure.Management.PolicyInsights;
    using Microsoft.Azure.Management.PolicyInsights.Models;
-   
+
    namespace policyAssignment
    {
        class Program
@@ -180,12 +180,12 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
                string strClientSecret = args[2];
                string strSubscriptionId = args[3];
                string strName = args[4];
-   
+
                var authContext = new AuthenticationContext($"https://login.microsoftonline.com/{strTenant}");
                var authResult = await authContext.AcquireTokenAsync(
                    "https://management.core.windows.net",
                    new ClientCredential(strClientId, strClientSecret));
-   
+
                using (var client = new PolicyInsightsClient(new TokenCredentials(authResult.AccessToken)))
                {
                    var policyQueryOptions = new QueryOptions
@@ -193,7 +193,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
                        Filter = $"IsCompliant eq false and PolicyAssignmentId eq '{strName}'",
                        Apply = "groupby(ResourceId)"
                    };
-   
+
                    var response = await client.PolicyStates.ListQueryResultsForSubscriptionAsync(
                        "latest", strSubscriptionId, policyQueryOptions);
                    Console.WriteLine(response.Odatacount);

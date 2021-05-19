@@ -7,10 +7,10 @@ ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fea9deae3948b36732b5ea5203fceea6bec07fb9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99594081"
 ---
 # <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided"::: 렌더링
@@ -19,14 +19,14 @@ ms.locfileid: "99594081"
 
 이 문제를 안정적으로 방지하는 방법은 ‘양면’ 삼각형을 렌더링하는 것입니다. 뒷면 선별을 사용하지 않으면 성능에 영향을 미치므로 Azure Remote Rendering은 기본적으로 잘린 평면과 교차하는 메시의 양면 렌더링으로만 전환합니다.
 
-*:::no-loc text="single-sided"::: 렌더링* 설정을 사용 하 여이 동작을 사용자 지정할 수 있습니다.
+*:::no-loc text="single-sided"::: 렌더링* 설정을 사용하여 이 동작을 사용자 지정할 수 있습니다.
 
 > [!CAUTION]
-> :::no-loc text="single-sided":::렌더링 설정은 실험적 기능입니다. 이후에 다시 제거될 수 있습니다. 실제로 애플리케이션에서 중요한 문제를 해결하는 경우가 아니면 기본 설정을 변경하지 마세요.
+> :::no-loc text="single-sided"::: 렌더링 설정은 실험적 기능입니다. 이후에 다시 제거될 수 있습니다. 실제로 애플리케이션에서 중요한 문제를 해결하는 경우가 아니면 기본 설정을 변경하지 마세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-:::no-loc text="single-sided":::렌더링 설정은 옵션을로 설정 하 여 [변환](../../how-tos/conversion/configure-model-conversion.md) 된 메시에만 적용 `opaqueMaterialDefaultSidedness` `SingleSided` 됩니다. 기본적으로 이 옵션은 `DoubleSided`로 설정됩니다.
+:::no-loc text="single-sided"::: 렌더링 설정은 `opaqueMaterialDefaultSidedness` 옵션을 `SingleSided`로 설정하여 [변환된](../../how-tos/conversion/configure-model-conversion.md) 메시에만 적용됩니다. 기본적으로 이 옵션은 `DoubleSided`로 설정됩니다.
 
 ## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided"::: 렌더링 설정
 
@@ -36,9 +36,9 @@ ms.locfileid: "99594081"
 
 **DynamicDoubleSiding:** 이 모드에서 잘린 평면은 메시와 교차하는 경우 자동으로 양면 렌더링으로 전환됩니다. 이 모드가 기본 모드입니다.
 
-**AlwaysDoubleSided:** 항상 모든 단면 기하 도형을 양면으로 렌더링합니다. 이 모드는 대부분 표시 되므로 및 렌더링 간의 성능 영향을 쉽게 비교할 수 있습니다 :::no-loc text="single-sided"::: :::no-loc text="double-sided"::: .
+**AlwaysDoubleSided:** 항상 모든 단면 기하 도형을 양면으로 렌더링합니다. 이 모드는 주로 :::no-loc text="single-sided"::: 렌더링과 :::no-loc text="double-sided"::: 렌더링 간에 성능 영향을 쉽게 비교할 수 있도록 공개됩니다.
 
-:::no-loc text="single-sided":::렌더링 설정을 변경 하는 작업은 다음과 같이 수행할 수 있습니다.
+:::no-loc text="single-sided"::: 렌더링 설정을 변경하는 작업은 다음과 같이 수행할 수 있습니다.
 
 ```cs
 void ChangeSingleSidedRendering(RenderingSession session)
@@ -68,8 +68,8 @@ void ChangeSingleSidedRendering(ApiHandle<RenderingSession> session)
 
 ## <a name="api-documentation"></a>API 설명서
 
-* [C # RenderingConnection SingleSidedSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.singlesidedsettings)
-* [C + + RenderingConnection:: SingleSidedSettings ()](/cpp/api/remote-rendering/renderingconnection#singlesidedsettings)
+* [C# RenderingConnection.SingleSidedSettings 속성](/dotnet/api/microsoft.azure.remoterendering.renderingconnection.singlesidedsettings)
+* [C++ RenderingConnection::SingleSidedSettings()](/cpp/api/remote-rendering/renderingconnection#singlesidedsettings)
 
 ## <a name="next-steps"></a>다음 단계
 

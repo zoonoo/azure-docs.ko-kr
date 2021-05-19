@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.openlocfilehash: 724b94a44ae289063bbb1c6ebf53b38c0a617b88
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104799330"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
@@ -22,15 +22,15 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 ## <a name="multi-language-luis-apps"></a>다국어 LUIS 앱
 
-챗봇과 같은 다국어 LUIS 클라이언트 애플리케이션이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. LUIS에서 지원 하지 않는 언어에 대 한 언어 이해를 제공 해야 하는 경우 [변환기 서비스](../Translator/translator-info-overview.md) 를 사용 하 여 utterance를 지원 되는 언어로 변환 하 고 UTTERANCE를 LUIS 끝점에 제출한 후 결과 점수를 받을 수 있습니다.
+챗봇과 같은 다국어 LUIS 클라이언트 애플리케이션이 필요한 경우, 몇 가지 옵션이 있습니다. LUIS가 모든 언어를 지원하는 경우에는 언어별로 LUIS 앱을 개발합니다. 각 LUIS 앱에는 고유한 앱 ID와 엔드포인트 로그가 있습니다. 지원되지 않는 언어 LUIS에 대한 Language Understanding을 제공해야 하는 경우, [Translator 서비스](../Translator/translator-info-overview.md)를 사용하여 발화를 지원되는 언어로 번역하고, 발화를 LUIS 엔드포인트에 제출하고, 결과 점수를 받을 수 있습니다.
 
 ## <a name="languages-supported"></a>지원되는 언어
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| 언어 |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[텍스트 분석](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
+| 언어 |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 문구 목록 권장 사항 | \**[Text Analytics](../text-analytics/language-support.md)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
-| 아랍어 (미리 보기-최신 표준 아랍어) |`ar-AR`|-|-|-|-|
+| 아랍어(미리 보기 - 최신 표준 아랍어) |`ar-AR`|-|-|-|-|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | 네덜란드어 |`nl-NL` |✔|-|-|✔|
 | 영어(미국) |`en-US` | ✔ | ✔  |✔|✔|
@@ -105,19 +105,19 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](.
 |터키어|✔|||
 
 
-### <a name="custom-tokenizer-versions"></a>사용자 지정 토크 버전
+### <a name="custom-tokenizer-versions"></a>사용자 지정 토크나이저 버전
 
-다음 문화권에는 사용자 지정 토크 버전이 있습니다.
+다음 문화권에는 사용자 지정 토크나이저 버전이 있습니다.
 
-|문화권|버전|용도|
+|문화권|Version|목적|
 |--|--|--|
-|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 `Ich fahre einen krankenwagen` utterance으로 들어가면로 설정 됩니다 `Ich fahre einen kranken wagen` . `kranken`및를 `wagen` 다른 엔터티로 독립적으로 표시할 수 있습니다.|
-|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 `Ich fahre einen krankenwagen` utterance으로 들어가면 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 는 단일 엔터티로 표시 됩니다. |
-|네덜란드어<br>`nl-nl`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 `Ik ga naar de kleuterschool` utterance으로 들어가면로 설정 됩니다 `Ik ga naar de kleuter school` . `kleuter`및를 `school` 다른 엔터티로 독립적으로 표시할 수 있습니다.|
-|네덜란드어<br>`nl-nl`|1.0.1|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 `Ik ga naar de kleuterschool` utterance으로 들어가면 단일 토큰으로 유지 됩니다. 따라서 `kleuterschool` 는 단일 엔터티로 표시 됩니다. |
+|독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할하는 기계 학습 기반 토크나이저를 사용하여 단어를 분할하여 토큰화합니다.<br>사용자가 `Ich fahre einen krankenwagen`을 발화로 입력하면 `Ich fahre einen kranken wagen`으로 전환됩니다. `kranken` 및 `wagen`을 다른 엔터티로 독립적으로 표시할 수 있습니다.|
+|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할하여 토큰화합니다.<br> 사용자가 `Ich fahre einen krankenwagen`을 발화로 입력하면 단일 토큰으로 유지됩니다. 따라서 `krankenwagen`은 단일 엔터티로 표시됩니다. |
+|네덜란드어<br>`nl-nl`|1.0.0|복합 단어를 단일 구성 요소로 분할하는 기계 학습 기반 토크나이저를 사용하여 단어를 분할하여 토큰화합니다.<br>사용자가 `Ik ga naar de kleuterschool`을 발화로 입력하면 `Ik ga naar de kleuter school`로 전환됩니다. `kleuter` 및 `school`을 다른 엔터티로 독립적으로 표시할 수 있습니다.|
+|네덜란드어<br>`nl-nl`|1.0.1|단어를 공백으로 분할하여 토큰화합니다.<br> 사용자가 `Ik ga naar de kleuterschool`을 발화로 입력하면 단일 토큰으로 유지됩니다. 따라서 `kleuterschool`은 단일 엔터티로 표시됩니다. |
 
 
-### <a name="migrating-between-tokenizer-versions"></a>토크 버전 간 마이그레이션
+### <a name="migrating-between-tokenizer-versions"></a>토크나이저 버전 간 마이그레이션
 <!--
 Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
@@ -220,6 +220,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-토큰화는 앱 수준에서 발생 합니다. 버전 수준 토큰화는 지원 되지 않습니다.
+토큰화는 앱 수준에서 발생합니다. 버전 수준 토큰화는 지원되지 않습니다.
 
-버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md). 이 작업은 새 앱의 앱 ID가 다르지만 파일에 지정 된 토크 토크 버전을 사용 함을 의미 합니다.
+버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md). 이 작업은 새 앱의 앱 ID가 다르지만 이 앱에서 파일에 지정된 토크나이저 버전이 사용됨을 의미합니다.

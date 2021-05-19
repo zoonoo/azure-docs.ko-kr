@@ -3,18 +3,18 @@ title: Azure Cost Management 범위의 이해 및 사용
 description: 이 문서에서는 Azure에서 사용할 수 있는 청구 및 리소스 관리 범위와 Cost Management 및 API에서 범위를 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/19/2021
+ms.date: 05/05/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: f1b98cdf662f6f518e0bc1c3e869de3774c1bf7e
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: afa2811fe6e0dab3bc5c114febeec8aae25bd891
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204156"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765578"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -186,7 +186,7 @@ Microsoft 고객 계약 청구 계정의 범위는 다음과 같습니다.
 
 - **고객** - 파트너에 의해 Microsoft 고객 계약에 등록된 특정 고객과 연결된 구독 그룹을 나타냅니다. 이 범위는 CSP(클라우드 솔루션 공급자)와 관련이 있습니다.
 
-EA 청구 범위와 달리, 고객 계약 청구 계정은 단일 디렉터리에 바인딩 _되며_ 여러 Azure AD 디렉터리에 걸쳐 구독을 가질 수 없습니다.
+EA 청구 범위와 달리 고객 계약 청구 계정은 단일 디렉터리에서 _관리됩니다._ Microsoft 고객 계약 청구 계정에는 다른 Azure AD 디렉터리에 있을 수 있는 *연결된* 구독이 있을 수 있습니다.
 
 고객 계약 청구 범위는 파트너에게 적용되지 않습니다. 파트너 역할 및 사용 권한은 [사용자 역할 및 권한 할당](/partner-center/permissions-overview)에 설명되어 있습니다.
 

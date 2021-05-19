@@ -1,19 +1,19 @@
 ---
 title: Synapse Studio에서 원본 제어
 description: Azure Synapse Studio에서 원본 제어를 구성하는 방법을 알아봅니다.
-services: synapse-analytics
 author: liud
 ms.service: synapse-analytics
+ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: 3564609d869bef090f0a3db5e6040ba0f5ad80b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ece05601efb515b3eab0f884aeff3d8add1bed0
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98796967"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108128904"
 ---
 # <a name="source-control-in-azure-synapse-studio"></a>Azure Synapse Studio에서 원본 제어
 
@@ -156,15 +156,15 @@ GitHub 조직에 연결하려면 조직이 Synapse Studio에 권한을 부여해
 
 버전 제어 시스템(_원본 제어_ 라고도 함)을 사용하면 개발자가 코드를 공동으로 작업하고 변경 사항을 추적할 수 있습니다. 원본 제어는 다중 개발자 프로젝트를 위한 필수 도구입니다.
 
-### <a name="creating-feature-branches"></a>기능 분기 생성
+### <a name="creating-feature-branches"></a>기능 분기 만들기
 
 Synapse Studio와 연결된 각 Git 리포지토리에는 공동 작업 분기가 있습니다. (`main` 또는 `master`는 기본 협업 분기입니다). 분기 드롭다운에서 **+ 새 분기** 를 클릭하여 기능 분기를 만들 수도 있습니다. 새 분기 창이 나타나면 기능 분기의 이름을 입력합니다.
 
-![새 분기 생성](media/create-new-branch.png)
+![새 분기 만들기](media/create-new-branch.png)
 
-기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 생성** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Git 공급자로 이동합니다. 협업 분기에서 Synapse 서비스에 게시할 수만 있습니다. 
+기능 분기의 변경 내용을 협업 분기에 병합할 준비가 되면, 분기 드롭다운을 클릭하고 **끌어오기 요청 만들기** 를 선택합니다. 이 작업을 통해 끌어오기 요청을 수행하고, 코드 검토를 수행하고, 협업 분기에 변경 내용을 병합할 수 있는 Git 공급자로 이동합니다. 협업 분기에서 Synapse 서비스에 게시할 수만 있습니다. 
 
-![새 끌어오기 요청 생성](media/create-pull-request.png)
+![새 끌어오기 요청 만들기](media/create-pull-request.png)
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 

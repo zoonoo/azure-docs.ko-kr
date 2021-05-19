@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2560c294b63d0554708eda1f804bf279d16d7d74
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107257962"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "87489518"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 itsme OpenID Connect (OIDC) 구성
 
@@ -40,7 +40,7 @@ Itsme digital ID 앱을 사용하면 카드 판독기, 암호, 2-단계 인증 �
 Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
 -->
 
-| 단계 | Description |
+| 단계 | 설명 |
 |------|------|
 |1     | 웹 사이트 또는 애플리케이션에서 Azure AD B2C 사용자 흐름을 조정하여 **itsme에 로그인** 단추를 포함합니다. 사용자가 이 단추를 클릭하면 상호 작용 흐름이 시작됩니다.  |
 |2     | Azure AD B2C는 itsme 클라이언트 암호 API에 권한 부여 요청을 전송하여 OpenID connect 흐름을 시작합니다. 잘 알려진/OpenID-구성 엔드포인트는 엔드포인트에 대한 정보를 포함하고 있습니다.  |
@@ -94,7 +94,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |표시 이름 | name |
    |이름 | given_name |
    |Surname | family_name |
-   |메일 | 이메일|
+   |Email | 이메일|
 
 5. **저장** 을 선택합니다.
 
@@ -153,8 +153,8 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음 문서를 참조하세요:
 
 * [Azure AD B2C의 사용자 지정 정책](custom-policy-overview.md)
 
-* [Azure AD B2C의 사용자 지정 정책 시작하기](tutorial-create-user-flows.md?pivots=b2c-custom-policy)
+* [Azure AD B2C의 사용자 지정 정책 시작하기](custom-policy-get-started.md?tabs=applications)

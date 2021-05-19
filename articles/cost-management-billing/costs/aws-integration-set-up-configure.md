@@ -3,17 +3,17 @@ title: Azure Cost Management와 AWS 통합 설정
 description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2020
+ms.date: 05/10/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 2b8a008decc41a5686fb2c8d9fee271f95f0fef3
-ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
+ms.openlocfilehash: e1d332ba3ff2da50db9f59ce844844ac4c87cc0b
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96122415"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738449"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
@@ -149,12 +149,20 @@ AWS 조직에 대한 권한을 추가합니다.
 
 다음 정보를 사용하여 AWS 커넥터를 만들고 AWS 비용 모니터링을 시작합니다.
 
+### <a name="prerequisites"></a>필수 구성 요소
+
+- 하나 이상의 관리 그룹을 사용하도록 설정했는지 확인합니다. 구독을 AWS 서비스에 연결하려면 관리 그룹이 필요합니다. 관리 그룹을 만드는 방법에 대한 자세한 내용은 [Azure에서 관리 그룹 만들기](../../governance/management-groups/create-management-group-portal.md)를 참조하세요. 
+- 본인이 해당 구독의 관리자인지 확인합니다.
+- [AWS에서 비용 및 사용 보고서 만들기](#create-a-cost-and-usage-report-in-aws) 섹션에 설명된 대로 새 AWS 커넥터에 필요한 설정을 완료합니다.
+
+
+### <a name="create-a-new-connector"></a>새 커넥터 만들기
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽의 메뉴에서 **홈**(3줄이 있는 "햄버거" 메뉴 아이콘)을 클릭하여 Azure Home으로 이동합니다.
-3. 페이지 하단에 있는 **도구** > **Cost Management** 로 이동합니다.
-3. **설정** 에서 **AWS용 커넥터** 를 선택합니다.  
-4. 페이지 맨 위에 있는 **+ 추가** 를 선택하여 커넥터를 만듭니다.  
-    :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="AWS용 커넥터 설정을 보여주는 예제" :::
+1. **Cost Management + Billing** 으로 이동하여 필요한 경우 청구 범위를 선택합니다.
+1. **비용 분석** 을 선택한 다음 **설정** 을 선택합니다. 
+1. **AWS용 커넥터** 를 선택합니다.
+1. **커넥터 추가** 를 선택합니다.
 1. **커넥터 만들기** 페이지의 **표시 이름** 에 커넥터 이름을 입력합니다.  
     :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="AWS 커넥터를 만드는 페이지의 예제" :::
 1. 필요에 따라 기본 관리 그룹을 선택합니다. 검색된 모든 연결 계정이 저장됩니다. 나중에 설정할 수 있습니다.

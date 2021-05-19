@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 사용자 활동 보고서 찾기 Microsoft Docs
+title: Azure Portal에서 사용자 작업 보고서 찾기 | Microsoft Docs
 description: Azure Portal에서 Azure Active Directory 사용자 작업 보고서가 어디에 위치하는지 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96013034"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
@@ -48,7 +48,7 @@ ms.locfileid: "96013034"
 
 ### <a name="filtering-on-audit-logs"></a>감사 로그 필터링
 
-감사 보고서에서 고급 필터링을 사용 하 여 **범주** 필터에 지정 하는 방식으로 감사 데이터의 특정 범주에 액세스할 수 있습니다. 예를 들어 사용자와 관련 된 모든 활동을 보려면 **Usermanagement** 범주를 선택 합니다. 
+감사 보고서의 고급 필터링을 사용하여 **범주** 필터에서 지정하면 특정 범주의 감사 데이터에 액세스할 수 있습니다. 예를 들어 사용자와 관련된 모든 작업을 보려면 **UserManagement** 범주를 선택합니다. 
 
 범주는 다음과 같습니다.
 
@@ -69,19 +69,19 @@ ms.locfileid: "96013034"
 - RoleManagement
 - UserManagement
 
-**서비스** 드롭다운 필터를 사용 하 여 특정 서비스에 대해 필터링 할 수도 있습니다. 예를 들어 셀프 서비스 암호 관리와 관련 된 모든 감사 이벤트를 가져오려면 **셀프 서비스 암호 관리** 필터를 선택 합니다.
+**서비스** 드롭다운 필터를 사용하여 특정 서비스에 대해 필터링할 수도 있습니다. 예를 들어 셀프 서비스 암호 관리와 관련된 모든 감사 이벤트를 가져오려면 **셀프 서비스 암호 관리** 필터를 선택합니다.
 
 서비스는 다음과 같습니다.
 
 - 모두
 - 액세스 검토
 - 계정 프로비전 
-- 응용 프로그램 SSO
+- 애플리케이션 SSO
 - 인증 방법
 - B2C
 - 조건부 액세스
 - 핵심 디렉터리
-- 자격 관리
+- 권한 관리
 - ID 보호
 - 사용자 초대
 - PIM
@@ -106,18 +106,18 @@ ms.locfileid: "96013034"
 
 로그인 보고서를 사용하여 사용자 이름 또는 애플리케이션 이름을 필터링하여 애플리케이션 사용량에 대한 세부 정보를 볼 수 있습니다.
 
-![Sign-In 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "Sign-In 이벤트 필터링 페이지")
+![로그인 이벤트 필터링 페이지](./media/howto-find-activity-reports/07.png "로그인 이벤트 필터링 페이지")
 
 ## <a name="security-reports"></a>보안 보고서
 
 ### <a name="anomalous-activity-reports"></a>비정상적인 활동 보고서
 
-비정상적인 활동 보고서는 Azure AD에서 검색 하 고 보고할 수 있는 보안 관련 위험 검색에 대 한 정보를 제공 합니다.
+비정상 작업 보고서는 Azure AD가 검색하고 보고할 수 있는 보안 관련 위험 검색에 대한 정보를 제공합니다.
 
-다음 표에서는 Azure AD 비정상 작업 보안 보고서 및 Azure Portal의 해당 위험 검색 유형을 나열 합니다. 자세한 내용은 [Azure Active Directory 위험 탐지](../identity-protection/overview-identity-protection.md)를 참조하세요.  
+다음 표에는 Azure Portal의 Azure AD 비정상 작업 보안 보고서 및 해당하는 위험 검색 형식이 나열되어 있습니다. 자세한 내용은 [Azure Active Directory 위험 탐지](../identity-protection/overview-identity-protection.md)를 참조하세요.  
 
 
-| Azure AD 비정상 작업 보고서 |  Id 보호 위험 검색 유형|
+| Azure AD 비정상 작업 보고서 |  ID 보호 위험 검색 형식|
 | :--- | :--- |
 | 자격 증명이 손실된 사용자 | 유출된 자격 증명 |
 | 비정상적인 로그인 작업 | 비정상적 위치로 불가능한 이동 |
@@ -126,15 +126,15 @@ ms.locfileid: "96013034"
 | 의심스러운 작업이 있는 IP 주소에서 로그인 | 의심스러운 작업이 있는 IP 주소에서 로그인 |
 | - | 알 수 없는 위치에서 로그인 |
 
-다음 Azure AD 비정상 작업 보안 보고서는 Azure Portal에서 위험 감지로 포함 되지 않습니다.
+다음 Azure AD 비정상 작업 보안 보고서는 Azure Portal에서 위험 검색으로 포함되지 않습니다.
 
 * 여러 번의 실패 후 로그인
 * 여러 지역에서의 로그인
 
 
-### <a name="detected-risk-detections"></a>검색 된 위험 검색
+### <a name="detected-risk-detections"></a>검색된 위험 검색
 
-[Azure Portal](https://portal.azure.com) **Azure Active Directory** 블레이드의 **보안** 섹션에서 검색 된 위험 검색에 대 한 보고서에 액세스할 수 있습니다. 검색 된 위험 검색은 다음 보고서에서 추적 됩니다.   
+[Azure Portal](https://portal.azure.com)의 **Azure Active Directory** 블레이드 **보안** 섹션에서 검색된 위험 검색에 대한 보고서에 액세스할 수 있습니다. 검색된 위험 검색은 다음과 같은 보고서에서 추적됩니다.   
 
 - [위험에 노출된 사용자](../identity-protection/overview-identity-protection.md)
 - [위험한 로그인](../identity-protection/overview-identity-protection.md)
@@ -147,13 +147,13 @@ ms.locfileid: "96013034"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 이유 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
 
- ![작업 보고서의 다운로드 단추를 보여 주는 스크린샷](./media/troubleshoot-missing-data-download/01.png)
+ ![작업 보고서의 다운로드 단추를 보여 주는 스크린샷.](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>원인
 
-Azure Portal에서 활동 로그를 다운로드 하는 경우 가장 최근의 가장 먼저 정렬 된 25만 레코드로 크기를 제한 합니다. 
+Azure Portal에서 활동 로그를 다운로드할 경우, 크기는 최근 레코드 순으로 정렬된 250000개로 제한됩니다. 
 
 #### <a name="resolution"></a>해결 방법
 
@@ -165,7 +165,7 @@ Azure Portal에서 활동 로그를 다운로드 하는 경우 가장 최근의 
 
 Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` 블레이드에서 해당 작업에 대한 감사 로그가 표시될 것을 예상했지만 찾을 수 없습니다.
 
- ![작업 보고서를 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/01.png)
+ ![작업 보고서를 보여 주는 스크린샷.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>원인
 
@@ -186,7 +186,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 최근에 Azure Portal에 로그인했고 `Activity logs > Sign-ins` 블레이드에 이 작업에 대한 로그인 로그가 표시될 것으로 예상했지만 찾을 수 없습니다.
 
- ![Azure Active Directory에 대 한 로그인을 보여 주는 스크린샷](./media/troubleshoot-missing-audit-data/02.png)
+ ![Azure Active Directory에 대한 로그인을 보여 주는 스크린샷.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>원인
 
@@ -205,9 +205,9 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 
 
- ![스크린샷 날짜 메뉴를 표시 합니다.](./media/troubleshoot-missing-audit-data/03.png)
+ ![날짜 메뉴를 보여 주는 스크린샷.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>원인
 

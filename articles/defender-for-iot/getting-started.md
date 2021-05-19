@@ -2,13 +2,13 @@
 title: '빠른 시작: 시작'
 description: 이 빠른 시작에서는 Defender for IoT 배포의 기본 워크플로를 시작하는 방법에 대해 알아봅니다.
 ms.topic: quickstart
-ms.date: 04/17/2021
-ms.openlocfilehash: b1e7686e1d68d5a3f239320930d69f22c78e13cb
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.date: 05/10/2021
+ms.openlocfilehash: 97d08d1911634db0a2d1ce4583f7b61090d01bfc
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107750449"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664765"
 ---
 # <a name="quickstart-get-started-with-defender-for-iot"></a>빠른 시작: Defender for IoT 시작
 
@@ -20,9 +20,12 @@ ms.locfileid: "107750449"
 
 ## <a name="permission-requirements"></a>사용 권한 요구 사항
 
+### <a name="for-sensors-and-on-premises-management-consoles"></a>센서 및 온-프레미스 관리 콘솔의 경우
+
 일부 설정 단계는 특정 사용자 권한이 필요합니다.
 
 관리 사용자 권한은 센서 및 관리 콘솔을 활성화하고, SSL/TLS 인증서를 업로드하고, 새 암호를 생성하는 데 필요합니다.
+### <a name="for-the-defender-for-iot-portal"></a>Defender for IoT 포털의 경우
 
 다음 표에는 Azure Defender for IoT 포털 도구에 대한 사용자 액세스 권한이 설명되어 있습니다.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
 ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91268046"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
@@ -18,7 +18,7 @@ DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위
 
 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 서비스 이름은 명명 서비스를 통해 확인되어 서비스 엔드포인트가 반환됩니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 다음 다이어그램은 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
-![Dns 이름이 상태 비저장 서비스에 대 한 DNS 서비스에서 서비스 이름에 매핑되는 방법을 보여 주는 다이어그램입니다.](./media/service-fabric-dnsservice/stateless-dns.png)
+![상태 비저장 서비스의 DNS 서비스에서 DNS 이름을 서비스 이름에 매핑하는 방법을 보여 주는 다이어그램](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정 체계를 포함하도록 Service Fabric DNS 프로토콜이 확장되었습니다. 이러한 확장을 통해 상태 저장 서비스 DNS 이름과 파티션 이름을 조합하여 특정 파티션 IP 주소를 확인할 수 있습니다. 세 가지 파티션 구성표가 모두 지원됩니다.
 
@@ -28,7 +28,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 
 다음 다이어그램은 분할된 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
-![Dns 이름이 분할 된 상태 비저장 서비스에 대해 DNS 서비스에서 서비스 이름에 매핑되는 방법을 보여 주는 다이어그램입니다.](./media/service-fabric-dnsservice/stateful-dns.png)
+![분할된 상태 비저장 서비스의 DNS 서비스에서 DNS 이름을 서비스 이름에 매핑하는 방법을 보여 주는 다이어그램](./media/service-fabric-dnsservice/stateful-dns.png)
 
 동적 포트는 DNS 서비스에서 지원되지 않습니다. 동적 포트에서 노출되는 서비스를 확인하려면 [역방향 프록시 서비스](./service-fabric-reverseproxy.md)를 사용합니다.
 
@@ -104,10 +104,10 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 3. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다. 
 
 > [!NOTE]
-> DNS를 사용 안 함에서 사용으로 업그레이드 하는 경우 Service Fabric Explorer 새 상태를 반영 하지 않을 수 있습니다. 해결 하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정 하 여 노드를 다시 시작 합니다. 자세한 내용은 [Service Fabric 템플릿 참조](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications) 를 참조 하세요.
+> DNS를 사용 안 함에서 사용으로 업그레이드하는 경우 Service Fabric Explorer에 새 상태가 반영되지 않을 수 있습니다. 해결하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정하여 노드를 다시 시작합니다. 자세한 내용은 [Service Fabric 템플릿 참조](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications)를 참조하세요.
 
 > [!NOTE]
-> 로컬 컴퓨터에서 개발할 때 DNS 서비스를 사용 하도록 설정 하면 일부 DNS 설정이 재정의 됩니다. 인터넷에 연결 하는 데 문제가 발생 하는 경우 DNS 설정을 확인 합니다.
+> 로컬 머신에서 개발할 때 DNS 서비스를 사용하도록 설정하면 일부 DNS 설정이 재정의됩니다. 인터넷 연결과 관련된 이슈가 발생하는 경우 DNS 설정을 확인합니다.
 
 ## <a name="setting-the-dns-name-for-your-service"></a>서비스에 대한 DNS 이름 설정
 ApplicationManifest.xml 파일에서 기본 서비스에 대해 선언적으로 또는 PowerShell 명령을 통해 서비스에 대한 DNS 이름을 설정할 수 있습니다.
@@ -171,10 +171,10 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 ```
     <First-Label-Of-Partitioned-Service-DNSName><PartitionPrefix><Target-Partition-Name>< PartitionSuffix>.<Remaining- Partitioned-Service-DNSName>
 ```
-여기서 다음이 적용됩니다.
+위치:
 
 - *First-Label-Of-Partitioned-Service-DNSName* 은 서비스 DNS 이름의 첫 번째 부분입니다.
-- *PartitionPrefix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 "--"입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
+- *PartitionPrefix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 “--”입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
 - *Target-Partition-Name* 은 파티션의 이름입니다. 
 - *PartitionSuffix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 빈 문자열입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
 - *Remaining-Partitioned-Service-DNSName* 은 서비스 DNS 이름의 나머지 부분입니다.

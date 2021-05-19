@@ -5,18 +5,18 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-api
-ms.openlocfilehash: 8c568e223e12a6315e7fa5e63431f8102211f71a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 51fbac59aef82d0f7a8edbb7ce271e2eb049b699
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323414"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747584"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - 아직 설치되지 않은 경우 [Az.Blueprint 모듈 추가](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)를 수행하여 PowerShell 갤러리에서 **Az.Blueprint** 모듈을 설치하고 유효성을 검사합니다.
@@ -108,7 +108,7 @@ ms.locfileid: "108323414"
 
      청사진 개체는 기본적으로 기본 구독에 생성됩니다. 관리 그룹을 지정하려면 매개 변수 **ManagementGroupId** 를 사용합니다. 구독을 지정하려면 **SubscriptionId** 매개 변수를 사용합니다.
 
-1. 구독 시 역할 할당을 추가합니다. **ArtifactFile** 은 아티팩트의 _종류_ 를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
+1. 구독 시 역할 할당을 추가합니다. **ArtifactFile** 은 아티팩트의 _종류_ 를 정의하고 속성은 역할 정의 식별자에 정렬되며 주체 ID는 값 배열의 형태로 전달됩니다. 다음 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
 
    - JSON 파일 - \artifacts\roleContributor.json
 

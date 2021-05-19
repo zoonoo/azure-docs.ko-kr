@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 45269c964c2114c31ca6bfeeb6a48cb0c1329937
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 0b45c23bc7d8679ce1fa2135efc2a99fc443e57d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203544"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788893"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Digital Twins 그래프 만들기
 
 [!INCLUDE [digital-twins-tutorial-selector.md](../../includes/digital-twins-tutorial-selector.md)]
 
-이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 [Azure CLI에 대한 Azure Digital Twines 명령 집합](how-to-use-cli.md)입니다. 
+이 자습서에서는 모델, 트윈 및 관계를 사용하여 Azure Digital Twins에서 그래프를 작성합니다. 이 자습서의 도구는 [Azure CLI에 대한 Azure Digital Twines 명령 집합](concepts-cli.md)입니다. 
 
 CLI 명령을 사용하여 모델 업로드, 트윈 만들기/수정 및 관계 만들기와 같은 필수 Azure Digital Twins 작업을 수행할 수 있습니다. [az dt 명령 세트에 대한 참조 설명서](/cli/azure/dt)를 참조하여 CLI 명령의 전체 세트를 확인할 수도 있습니다.
 
@@ -33,7 +33,7 @@ CLI 명령을 사용하여 모델 업로드, 트윈 만들기/수정 및 관계 
 
 이 자습서의 단계를 완료하려면 먼저 다음 필수 구성 요소를 완료해야 합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 **[체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** 을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ### <a name="download-the-sample-models"></a>샘플 모델 다운로드
 
@@ -61,7 +61,7 @@ Azure Digital Twins 인스턴스를 설정한 후 나중에 인스턴스에 연�
 인스턴스에 대한 이러한 값은 모두 다음 Azure CLI 명령의 출력에서 가져올 수 있습니다. 
 
 ```azurecli-interactive
-az dt show -n <ADT_instance_name>
+az dt show --dt-name <ADT_instance_name>
 ```
 
 :::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="az dt show 명령의 출력을 보여 주는 Cloud Shell 브라우저 창의 스크린샷. hostName 필드와 구독 ID(id 필드의 일부)가 강조 표시되어 있습니다.":::
@@ -91,11 +91,11 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경
     
     컴퓨터에서 *Room.json* 파일로 이동하여 "열기"를 선택합니다. 그런 다음, *Floor.json* 에 대해 이 단계를 반복합니다.
 
-1. 다음으로 [az dt model create](/cli/azure/dt/model#az_dt_model_create) 명령을 아래와 같이 사용하여 업데이트된 *Room* 모델을 Azure Digital Twins 인스턴스에 업로드합니다. 두 번째 명령은 다른 모델인 *Floor* 를 업로드합니다. 이 모델은 다음 섹션에서도 다른 유형의 트윈을 만드는 데 사용합니다.
+1. 다음으로 [az dt model create](/cli/azure/dt/model#az_dt_model_create) 명령을 아래와 같이 사용하여 업데이트된 Room 모델을 Azure Digital Twins 인스턴스에 업로드합니다. 두 번째 명령은 다른 모델인 Floor를 업로드합니다. 이 모델은 다음 섹션에서도 다른 유형의 트윈을 만드는 데 사용합니다.
 
     ```azurecli-interactive
-    az dt model create -n <ADT_instance_name> --models Room.json
-    az dt model create -n <ADT_instance_name> --models Floor.json
+    az dt model create --dt-name <ADT_instance_name> --models Room.json
+    az dt model create --dt-name <ADT_instance_name> --models Floor.json
     ```
     
     각 명령의 출력에는 성공적으로 업로드된 모델에 대한 정보가 표시됩니다.
@@ -106,10 +106,10 @@ Azure Digital Twins 솔루션을 만드는 첫 번째 단계는 사용자 환경
 1. [azdt model list](/cli/azure/dt/model#az_dt_model_list) 명령을 아래와 같이 사용하여 모델이 만들어졌는지 확인합니다. 그러면 Azure Digital Twins 인스턴스에 업로드된 모든 모델의 목록이 전체 정보와 함께 출력됩니다. 
 
     ```azurecli-interactive
-    az dt model list -n <ADT_instance_name> --definition
+    az dt model list --dt-name <ADT_instance_name> --definition
     ```
     
-    결과에서 편집된 *Room* 모델을 찾습니다.
+    결과에서 편집된 Room 모델을 찾습니다.
     
     :::image type="content" source="media/tutorial-command-line/cli/output-get-models.png" alt-text="업데이트된 Room 모델이 포함된 model list 명령의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-get-models.png":::
 
@@ -120,7 +120,7 @@ CLI는 서비스의 오류도 처리합니다.
 `az dt model create` 명령을 다시 실행하여 방금 업로드한 동일한 모델 중 하나를 다시 업로드해 봅니다.
 
 ```azurecli-interactive
-az dt model create -n <ADT_instance_name> --models Room.json
+az dt model create --dt-name <ADT_instance_name> --models Room.json
 ```
 
 모델을 덮어쓸 수 없으므로 이제 `ModelIdAlreadyExists` 오류 코드가 반환됩니다.
@@ -131,21 +131,21 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
 디지털 트윈을 만들려면 [az dt twin create](/cli/azure/dt/twin#az_dt_twin_create) 명령을 사용합니다. 트윈이 기반으로 하는 모델을 참조해야 하며, 필요에 따라 모델의 속성에 대한 초기 값을 정의할 수 있습니다. 이 단계에서는 관계 정보를 전달할 필요가 없습니다.
 
-1. Cloud Shell에서 이 코드를 실행하여 이전에 업데이트한 *Room* 모델 및 또 다른 모델인 *Floor* 를 기반으로 하여 여러 개의 트윈을 만듭니다. *Room* 에는 세 가지 속성이 있으므로 인수에 이들 속성에 대한 초기 값을 제공할 수 있습니다. (속성 값 초기화는 일반적으로 선택 사항이지만 이 자습서에는 필요합니다.)
+1. Cloud Shell에서 이 코드를 실행하여 이전에 업데이트한 Room 모델 및 또 다른 모델인 Floor를 기반으로 하여 여러 개의 트윈을 만듭니다. Room에는 세 가지 속성이 있으므로 인수에 이들 속성에 대한 초기 값을 제공할 수 있습니다. (속성 값 초기화는 일반적으로 선택 사항이지만 이 자습서에는 필요합니다.)
 
     ```azurecli-interactive
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
-    az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{"RoomName":"Room0", "Temperature":70, "HumidityLevel":30}'
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{"RoomName":"Room1", "Temperature":"80", "HumidityLevel":"60"}'
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor0
+    az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Floor;1" --twin-id floor1
     ```
 
     >[!NOTE]
     > PowerShell 환경에서 Cloud Shell을 사용하는 경우 `--properties` JSON 값을 올바르게 구문 분석하려면 따옴표 문자를 이스케이프해야 할 수 있습니다. 이 편집을 통해 방 트윈을 만드는 명령은 다음과 같습니다.
     >
     > ```azurecli-interactive
-    > az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{\"RoomName\":\"Room0\", \"Temperature\":70, \"HumidityLevel\":30}'
-    > az dt twin create -n <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{\"RoomName\":\"Room1\", \"Temperature\":80, \"HumidityLevel\":60}'
+    > az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room0 --properties '{\"RoomName\":\"Room0\", \"Temperature\":70, \"HumidityLevel\":30}'
+    > az dt twin create --dt-name <ADT_instance_name> --dtmi "dtmi:example:Room;2" --twin-id room1 --properties '{\"RoomName\":\"Room1\", \"Temperature\":80, \"HumidityLevel\":60}'
     > ```
     > 이는 아래의 스크린샷에 반영되어 있습니다.
     
@@ -154,10 +154,10 @@ az dt model create -n <ADT_instance_name> --models Room.json
 1. [azd twin query](/cli/azure/dt/twin#az_dt_twin_query) 명령을 아래와 같이 사용하여 트윈이 만들어졌는지 확인할 수 있습니다. 표시된 쿼리는 Azure Digital Twins 인스턴스에서 모든 디지털 트윈을 찾습니다.
     
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
     
-    결과에서 *room0*, *room1*, *floor0*, *floor1* 트윈을 찾습니다. 이 쿼리의 결과 일부를 보여 주는 발췌 부분은 다음과 같습니다.
+    결과에서 room0, room1, floor0, floor1 트윈을 찾습니다. 이 쿼리의 결과 일부를 보여 주는 발췌 부분은 다음과 같습니다.
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="room0 및 room1이 포함된 트윈 쿼리의 부분 결과를 보여 주는 Cloud Shell 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
@@ -168,14 +168,14 @@ az dt model create -n <ADT_instance_name> --models Room.json
 1. 이 [az dt twin update](/cli/azure/dt/twin#az_dt_twin_update) 명령을 실행하여 *room0* 의 RoomName을 *Room0* 에서 *PresidentialSuite* 로 변경합니다.
 
     ```azurecli-interactive
-    az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
+    az dt twin update --dt-name <ADT_instance_name> --twin-id room0 --json-patch '{"op":"add", "path":"/RoomName", "value": "PresidentialSuite"}'
     ```
     
     >[!NOTE]
     > PowerShell 환경에서 Cloud Shell을 사용하는 경우 `--json-patch` JSON 값을 올바르게 구문 분석하려면 따옴표 문자를 이스케이프해야 할 수 있습니다. 이 편집을 통해 트윈을 업데이트하는 명령은 다음과 같습니다.
     >
     > ```azurecli-interactive
-    > az dt twin update -n <ADT_instance_name> --twin-id room0 --json-patch '{\"op\":\"add\", \"path\":\"/RoomName\", \"value\": \"PresidentialSuite\"}'
+    > az dt twin update --dt-name <ADT_instance_name> --twin-id room0 --json-patch '{\"op\":\"add\", \"path\":\"/RoomName\", \"value\": \"PresidentialSuite\"}'
     > ```
     > 이는 아래의 스크린샷에 반영되어 있습니다.
     
@@ -183,10 +183,10 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="PresidentialSuite의 RoomName이 포함된 update 명령의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
-1. [az dt twin show](/cli/azure/dt/twin#az_dt_twin_show) 명령을 실행하여 *room0* 의 정보를 확인하면 업데이트가 성공했는지 확인할 수 있습니다.
+1. [az dt twin show](/cli/azure/dt/twin#az_dt_twin_show) 명령을 실행하여 room0의 정보를 확인하면 업데이트가 성공했는지 확인할 수 있습니다.
 
     ```azurecli-interactive
-    az dt twin show -n <ADT_instance_name> --twin-id room0
+    az dt twin show --dt-name <ADT_instance_name> --twin-id room0
     ```
     
     출력에 업데이트된 이름이 반영되어야 합니다.
@@ -195,15 +195,15 @@ az dt model create -n <ADT_instance_name> --models Room.json
 
 다음으로, 이러한 트윈 간의 몇 가지 **관계** 를 만들어 [트윈 그래프](concepts-twins-graph.md)로 연결할 수 있습니다. 트윈 그래프는 전체 환경을 나타내는 데 사용됩니다. 
 
-한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [Floor에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 *Floor* 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
+한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [Floor에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 Floor 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
 
 관계를 추가하려면 [az dt twin relationship create](/cli/azure/dt/twin/relationship#az_dt_twin_relationship_create) 명령을 사용합니다. 관계가 시작되는 트윈, 관계 유형 및 관계가 연결되는 트윈을 지정합니다. 마지막으로 관계에 고유한 ID를 지정합니다. 관계가 속성으로 정의된 경우 이 명령에서도 관계 속성을 초기화할 수 있습니다.
 
-1. 다음 코드를 실행하여 이전에 만든 각 *Floor* 트윈의 *contains* 형식 관계를 해당 *Room* 트윈에 추가합니다. 관계 이름은 *relationship0* 및 *relationship1* 입니다.
+1. 다음 코드를 실행하여 이전에 만든 각 Floor 트윈의 *contains* 형식 관계를 해당 Room 트윈에 추가합니다. 관계 이름은 relationship0 및 relationship1입니다.
 
     ```azurecli-interactive
-    az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
-    az dt twin relationship create -n <ADT_instance_name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
+    az dt twin relationship create --dt-name <ADT_instance_name> --relationship-id relationship0 --relationship contains --twin-id floor0 --target room0
+    az dt twin relationship create --dt-name <ADT_instance_name> --relationship-id relationship1 --relationship contains --twin-id floor1 --target room1
     ```
     
     >[!TIP]
@@ -220,18 +220,18 @@ az dt model create -n <ADT_instance_name> --models Room.json
 1. Azure Digital Twins 인스턴스의 관계를 쿼리하는 다음 명령 중 하나를 사용하여 관계를 확인할 수 있습니다.
     * 각 floor에서 시작되는 모든 관계를 보려면 다음 명령을 실행합니다(한 쪽에서 관계 보기).
         ```azurecli-interactive
-        az dt twin relationship list -n <ADT_instance_name> --twin-id floor0
-        az dt twin relationship list -n <ADT_instance_name> --twin-id floor1
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id floor0
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id floor1
         ```
     * 각 room에 도착하는 모든 관계를 보려면 다음 명령을 실행합니다("다른" 쪽에서 관계 보기).
         ```azurecli-interactive
-        az dt twin relationship list -n <ADT_instance_name> --twin-id room0 --incoming
-        az dt twin relationship list -n <ADT_instance_name> --twin-id room1 --incoming
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id room0 --incoming
+        az dt twin relationship list --dt-name <ADT_instance_name> --twin-id room1 --incoming
         ```
     * 이러한 관계를 ID별로 개별적으로 찾으려면 다음 명령을 실행합니다.
         ```azurecli-interactive
-        az dt twin relationship show -n <ADT_instance_name> --twin-id floor0 --relationship-id relationship0
-        az dt twin relationship show -n <ADT_instance_name> --twin-id floor1 --relationship-id relationship1
+        az dt twin relationship show --dt-name <ADT_instance_name> --twin-id floor0 --relationship-id relationship0
+        az dt twin relationship show --dt-name <ADT_instance_name> --twin-id floor1 --relationship-id relationship1
         ```
 
 이 자습서에서 설정한 트윈과 관계는 다음과 같은 개념적 그래프를 만듭니다.
@@ -247,7 +247,7 @@ Cloud Shell에서 다음 쿼리를 실행하여 샘플 환경에 대한 몇 가�
 1. **Azure Digital Twins에 표시되는 내 환경의 모든 엔터티는 무엇인가요?** (모두 쿼리)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DIGITALTWINS"
     ```
 
     이를 통해 환경을 한눈에 파악하고 모든 것이 Azure Digital Twins 내에 원하는 대로 표시되는지 확인할 수 있습니다. 이 쿼리의 결과는 각 디지털 트윈에 세부 정보가 포함된 출력입니다. 발췌 내용은 다음과 같습니다.
@@ -260,45 +260,45 @@ Cloud Shell에서 다음 쿼리를 실행하여 샘플 환경에 대한 몇 가�
 1. **내 환경의 모든 room은 무엇인가요?** (모델로 쿼리)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')"
     ```
 
-    특정 유형의 트윈으로 쿼리를 제한하여 표시되는 항목에 대한 보다 구체적인 정보를 얻을 수 있습니다. 이 쿼리의 결과는 *room0* 과 *room1* 을 표시하지만 *floor0* 이나 *floor1* 을 표시하지 **않습니다**(room이 아닌 floor이기 때문에).
+    특정 유형의 트윈으로 쿼리를 제한하여 표시되는 항목에 대한 보다 구체적인 정보를 얻을 수 있습니다. 이 쿼리의 결과는 room0과 room1을 표시하지만 floor0이나 floor1을 표시하지 **않습니다**(room이 아닌 floor이기 때문에).
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-model.png" alt-text="room0 및 room1만 포함된 모델 쿼리의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-model.png":::
 
-1. ***floor0* 의 모든 room은 무엇인가요?** (관계로 쿼리)
+1. **floor0의 모든 room은 무엇인가요?** (관계로 쿼리)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0'"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0'"
     ```
 
-    그래프의 관계를 기반으로 쿼리하여 트윈 연결 방식에 대한 정보를 얻거나 쿼리를 특정 영역으로 제한할 수 있습니다. *room0* 만 *floor0* 에 있으므로 이것이 결과의 유일한 room입니다.
+    그래프의 관계를 기반으로 쿼리하여 트윈 연결 방식에 대한 정보를 얻거나 쿼리를 특정 영역으로 제한할 수 있습니다. room0만 floor0에 있으므로 이것이 결과의 유일한 room입니다.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="room0이 포함된 관계 쿼리의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > 트윈의 ID(예: 위 쿼리의 *floor0*)는 `$dtId` 메타데이터 필드를 사용하여 쿼리됩니다. 
+    > 트윈의 ID(예: 위 쿼리의 floor0)는 `$dtId` 메타데이터 필드를 사용하여 쿼리됩니다. 
     >
     >Cloud Shell에서 `$`로 시작하는 것과 같은 메타데이터 필드를 사용하여 쿼리를 실행하는 경우, Cloud Shell에서 이 필드가 변수가 아니고 쿼리 텍스트에서 리터럴로 사용되어야 함을 인식할 수 있도록 `$`를 백틱으로 이스케이프해야 합니다. 이는 위의 스크린샷에 반영되어 있습니다.
 
 1. **온도가 75도가 넘는 내 환경의 모든 트윈은 무엇인가요?** (속성으로 쿼리)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT * FROM DigitalTwins T WHERE T.Temperature > 75"
     ```
 
-    속성을 기반으로 그래프를 쿼리하여 환경에서 주의가 필요한 이상값을 찾는 등 다양한 질문에 답할 수 있습니다. 다른 비교 연산자( *<* , *>* , *=* 또는 *!=* )도 지원됩니다. *room1* 이 온도가 80도이기 때문에 다음 결과에 표시됩니다.
+    속성을 기반으로 그래프를 쿼리하여 환경에서 주의가 필요한 이상값을 찾는 등 다양한 질문에 답할 수 있습니다. 다른 비교 연산자( *<* , *>* , *=* 또는 *!=* )도 지원됩니다. room1이 온도가 80도이기 때문에 다음 결과에 표시됩니다.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-property.png" alt-text="room1만 포함된 속성 쿼리의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-property.png":::
 
 1. **온도가 75도가 넘는 *floor0* 의 모든 room은 무엇인가요?** (복합 쿼리)
 
     ```azurecli-interactive
-    az dt twin query -n <ADT_instance_name> -q "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
+    az dt twin query --dt-name <ADT_instance_name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.`$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75"
     ```
 
-    `AND`, `OR`, `NOT`과 같은 조합 연산자를 사용하여 SQL에서와 같이 이전 쿼리를 결합할 수도 있습니다. 이 쿼리는 `AND`를 사용하여 트윈 온도에 대한 이전 쿼리를 더 구체화합니다. 이제 결과에는 *floor0* 에서 온도가 75도가 넘는 room만 포함됩니다(이 경우에는 없음). 결과 집합이 비어 있습니다.
+    `AND`, `OR`, `NOT`과 같은 조합 연산자를 사용하여 SQL에서와 같이 이전 쿼리를 결합할 수도 있습니다. 이 쿼리는 `AND`를 사용하여 트윈 온도에 대한 이전 쿼리를 더 구체화합니다. 이제 결과에는 floor0에서 온도가 75도가 넘는 room만 포함됩니다(이 경우에는 없음). 결과 집합이 비어 있습니다.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-compound.png" alt-text="항목이 포함되지 않은 복합 쿼리의 결과를 보여 주는 Cloud Shell의 스크린샷" lightbox="media/tutorial-command-line/cli/output-query-compound.png":::
 

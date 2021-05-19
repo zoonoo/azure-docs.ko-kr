@@ -6,12 +6,12 @@ ms.author: edoyle
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
-ms.openlocfilehash: bce61a00ae1b6b451927b43dbcf19ddb615f79a5
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 1b59d482b8b88e37da2d61636ff3f254a46ba5c2
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861178"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99626090"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Service Fabric Mesh 애플리케이션을 다른 지역으로 이동
 
@@ -22,9 +22,9 @@ ms.locfileid: "107861178"
 
 이 문서에서는 Service Fabric Mesh 애플리케이션 및 해당 리소스를 다른 Azure 지역으로 이동하는 방법을 설명합니다. 여러 가지 이유로 리소스를 다른 지역으로 이동시킬 수도 있습니다. 예를 들어, 정전에 대응하거나, 특정 지역에서만 사용할 수 있는 기능 또는 서비스를 얻거나, 내부 정책 및 거버넌스 요구사항을 충족하거나, 용량 계획 요구사항에 대응하기 위해서입니다.
 
- [Service Fabric Mesh](../azure-resource-manager/management/move-support-resources.md#microsoftservicefabricmesh) 는 Azure 지역에서 리소스를 직접 이동하는 기능을 지원하지 않습니다. 그러나 현재 Azure Resource Manager 템플릿의 복사본을 새 대상 영역에 배포한 다음, 수신 트래픽과 종속성을 새로 만든 Service Fabric Mesh 애플리케이션으로 리디렉션하여 리소스를 간접적으로 이동할 수 있습니다.
+ [Service Fabric Mesh](../azure-resource-manager/management/region-move-support.md#microsoftservicefabricmesh) 는 Azure 지역에서 리소스를 직접 이동하는 기능을 지원하지 않습니다. 그러나 현재 Azure Resource Manager 템플릿의 복사본을 새 대상 영역에 배포한 다음, 수신 트래픽과 종속성을 새로 만든 Service Fabric Mesh 애플리케이션으로 리디렉션하여 리소스를 간접적으로 이동할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 클라이언트와 Service Fabric Mesh 애플리케이션 간의 트래픽 라우팅에 대한 중개자 역할을 하는 수신 컨트롤러 (예: [Application Gateway](../application-gateway/index.yml))
 * 대상 Azure 지역 (`westus`, `eastus` 또는 `westeurope`)에서 Service Fabric Mesh (미리 보기) 가용성
@@ -43,13 +43,13 @@ ms.locfileid: "107861178"
 
 2. 내보낸 템플릿으로 Azure Portal을 사용하여 [사용자 지정 템플릿에서 리소스 배포](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) 의 단계를 따릅니다. [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [REST API](../azure-resource-manager/templates/deploy-rest.md)도 사용할 수 있습니다.
 
-3. [Azure Storage 계정과](../storage/common/storage-account-move.md)같은 관련 리소스를 이동하는 방법에 대한 참고 자료는 [지역 간에 Azure 리소스 이동](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions) 항목에 나열된 개별 서비스에 대한 지침을 참조하세요.
+3. [Azure Storage 계정과](../storage/common/storage-account-move.md)같은 관련 리소스를 이동하는 방법에 대한 참고 자료는 [지역 간에 Azure 리소스 이동](../azure-resource-manager/management/move-region.md) 항목에 나열된 개별 서비스에 대한 지침을 참조하세요.
 
 ## <a name="verify"></a>확인
 
 1. 배포가 완료되면 애플리케이션 엔드포인트를 테스트하여 애플리케이션의 기능을 확인합니다.
 
-2. 애플리케이션 상태 ([az mesh app show](/cli/azure/mesh/app#az_mesh_app_show))를 확인하고 [Azure Service Fabric Mesh CLI](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli)를 사용하여 애플리케이션 로그 및 ([az mesh code-package-log](/cli/azure/mesh/code-package-log)) 명령을 검토하여 애플리케이션의 상태를 확인할 수도 있습니다.
+2. 애플리케이션 상태 ([az mesh app show](/cli/azure/ext/mesh/mesh/app#ext-mesh-az-mesh-app-show))를 확인하고 [Azure Service Fabric Mesh CLI](./service-fabric-mesh-quickstart-deploy-container.md#set-up-service-fabric-mesh-cli)를 사용하여 애플리케이션 로그 및 ([az mesh code-package-log](/cli/azure/ext/mesh/mesh/code-package-log)) 명령을 검토하여 애플리케이션의 상태를 확인할 수도 있습니다.
 
 ## <a name="commit"></a>Commit
 
@@ -61,8 +61,8 @@ Service Fabric Mesh 애플리케이션의 이동을 완료하려면 [원본 애�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [지역 간에 Azure 리소스 이동](../azure-resource-manager/management/move-resources-overview.md#move-resources-across-regions)
-* [지역 간에 Azure 리소스 이동을 위한 지원](../azure-resource-manager/management/move-support-resources.md)
+* [지역 간에 Azure 리소스 이동](../azure-resource-manager/management/move-region.md)
+* [지역 간에 Azure 리소스 이동을 위한 지원](../azure-resource-manager/management/region-move-support.md)
 * [리소스를 새 리소스 그룹 또는 구독으로 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [리소스에 대한 이동 작업 지원](../azure-resource-manager/management/move-support-resources.md
 )

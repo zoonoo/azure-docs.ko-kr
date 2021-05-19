@@ -15,10 +15,10 @@ ms.date: 06/12/2018
 ms.author: allensu
 ms.custom: mvc
 ms.openlocfilehash: 7bbd54ed68863a4704319a25af96b6463ad2377b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98539698"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Azure CDN 엔드포인트 만들기
@@ -32,11 +32,11 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
 
 ## <a name="create-a-new-cdn-endpoint"></a>새 CDN 엔드포인트 만들기
 
-1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동 합니다. 이전 단계에서 대시보드에 고정해 놓았을 수 있습니다. 그러지 않은 경우 **모든 서비스**, **CDN 프로필** 을 차례로 선택하여 찾을 수 있습니다. **CDN 프로필** 창에서 엔드포인트에 추가하려는 프로필을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com)에서 CDN 프로필로 이동합니다. 이전 단계에서 대시보드에 고정해 놓았을 수 있습니다. 그러지 않은 경우 **모든 서비스**, **CDN 프로필** 을 차례로 선택하여 찾을 수 있습니다. **CDN 프로필** 창에서 엔드포인트에 추가하려는 프로필을 선택합니다. 
    
     CDN 프로필 창이 나타납니다.
 
-2. **엔드포인트** 를 선택 합니다.
+2. **엔드포인트** 를 선택합니다.
    
     ![CDN 엔드포인트 선택](./media/cdn-create-endpoint-how-to/cdn-select-endpoint.png)
    
@@ -44,7 +44,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
    
     ![[엔드포인트 추가] 페이지](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. **이름** 에 새 CDN 엔드포인트의 고유한 이름을 입력합니다. 이 이름은 azureedge.net의 캐시 된 리소스에 액세스 하는 데 사용 됩니다. _\<endpointname>_
+3. **이름** 에 새 CDN 엔드포인트의 고유한 이름을 입력합니다. 이 이름은 _\<endpointname>_ .azureedge.net 도메인의 캐시된 리소스에 액세스하기 위해 사용됩니다.
 
 4. **원본 형식** 으로는 다음 원본 형식 중 하나를 선택합니다. 
    - Azure Storage용 **스토리지**
@@ -62,7 +62,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
    > Azure Storage 및 Web Apps 등 일부 유형의 원본은 해당 원본의 도메인과 일치하는 호스트 헤더가 필요합니다. 해당 도메인과 다른 호스트 헤더를 필요로 하는 원본이 아니면 기본값을 유지해야 합니다.
    > 
     
-8. **프로토콜** 및 **원본 포트** 에서는 원본 서버의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다. CDN 제공 도메인 ( _\<endpointname>_ . azureedge.net)을 사용 하 여 HTTPS 콘텐츠에 액세스 합니다. 
+8. **프로토콜** 및 **원본 포트** 에서는 원본 서버의 리소스에 액세스하는 데 사용되는 프로토콜과 포트를 지정합니다. 프로토콜을 적어도 하나는(HTTP 또는 HTTPS) 선택해야 합니다. CDN 제공 도메인( _\<endpointname>_ .azureedge.net)을 사용하여 HTTPS 콘텐츠에 액세스합니다. 
    
    > [!NOTE]
    > **원본 포트** 값은 엔드포인트가 원본 서버에서 정보를 검색하는 데 사용하는 포트에만 영향을 줍니다. 엔드포인트 자체는 **원본 포트** 값에 관계없이 기본 HTTP 및 HTTPS 포트(80 및 443)의 최종 클라이언트에만 사용할 수 있습니다.  
@@ -74,18 +74,18 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
 9. **최적화 기준** 에서는 엔드포인트를 제공하려는 시나리오 및 콘텐츠 형식과 가장 잘 맞는 최적화 형식을 선택합니다. 자세한 내용은 [콘텐츠 전송 형식에 맞게 Azure CDN 최적화](cdn-optimization-overview.md)를 참조하세요.
 
     프로필 형식에 따라 다음과 같은 최적화 형식 설정이 지원됩니다.
-    - **Microsoft 프로필의 Azure CDN 표준** :
-       - [**일반 웹 배달**](cdn-optimization-overview.md#general-web-delivery)
+    - **Microsoft의 Azure CDN 표준** 프로필:
+       - [**일반 웹 전송**](cdn-optimization-overview.md#general-web-delivery)
 
     - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필:
-       - [**일반 웹 배달**](cdn-optimization-overview.md#general-web-delivery)
+       - [**일반 웹 전송**](cdn-optimization-overview.md#general-web-delivery)
        - [**동적 사이트 가속**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
-    - **Akamai의 Azure CDN Standard** 프로필:
-       - [**일반 웹 배달**](cdn-optimization-overview.md#general-web-delivery)
+    - **Akamai의 Azure CDN 표준** 프로필:
+       - [**일반 웹 전송**](cdn-optimization-overview.md#general-web-delivery)
        - [**일반 미디어 스트리밍**](cdn-optimization-overview.md#general-media-streaming)
        - [**주문형 비디오 미디어 스트리밍**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**대량 파일 다운로드**](cdn-optimization-overview.md#large-file-download)
+       - [**대용량 파일 다운로드**](cdn-optimization-overview.md#large-file-download)
        - [**동적 사이트 가속**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. 새 엔드포인트를 만들려면 **추가** 를 선택합니다.
@@ -97,7 +97,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그�
     등록이 전파되는 등록에 시간이 걸리기 때문에, 엔드포인트를 즉시 사용할 수는 없습니다. 
     - **Microsoft의 Azure CDN 표준** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
     - **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
-    - **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN Premium** 프로필의 경우 일반적으로 30 분 내에 전파가 완료 됩니다. 
+    - **Verizon의 Azure CDN Standard** 및 **Verizon의 Azure CDN Premium** 프로필의 경우 일반적으로 30분 이내에 전파가 완료됩니다. 
    
     엔드포인트 구성이 POP(point-of-presence) 서버에 전파되기 전에 CDN 도메인 이름을 사용하려고 시도하면 HTTP 404 응답 상태가 수신될 수 있습니다. 엔드포인트를 만든 후 몇 시간이 지난 후에도 404 응답 상태가 계속 수신되는 경우 [404 상태 코드를 반환하는 Azure CDN 엔드포인트 문제 해결](cdn-troubleshoot-endpoint.md)을 참조하세요.
 

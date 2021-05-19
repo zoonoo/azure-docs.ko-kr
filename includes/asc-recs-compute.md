@@ -2,17 +2,17 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 04/06/2021
+ms.date: 05/11/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 7098a6f31b78d8a37b4c6104f6027313df33ae7b
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 7187599a269b37c1eb2b305bbcd8346a53bfb2e2
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504817"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784287"
 ---
-이 범주에는 **49** 개의 권장 사항이 있습니다.
+이 범주에는 **50** 개의 권장 사항이 있습니다.
 
 |권장 |Description |심각도 |
 |---|---|---|
@@ -48,7 +48,6 @@ ms.locfileid: "106504817"
 |가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함 |Azure Security Center에서 네트워크 보안 그룹의 관리 포트에 대한 인바운드 규칙 중 일부가 너무 관대하다는 사실을 식별했습니다. 인터넷 기반 무차별 암호 대입 공격으로부터 VM을 보호하려면 Just-In-Time 액세스 제어를 사용하세요. <a href="https://docs.microsoft.com/azure/security-center/security-center-just-in-time">자세한 정보</a><br />(관련 정책: [가상 머신의 관리 포트는 Just-In-Time 네트워크 액세스 제어로 보호해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fb0f33259-77d7-4c9e-aac6-3aabcfae693c)) |높음 |
 |Linux 가상 머신에 네트워크 트래픽 데이터 수집 에이전트를 설치해야 함 |Security Center에서는 Microsoft Dependency Agent를 사용하여 Azure 가상 머신에서 네트워크 트래픽 데이터를 수집함으로써 네트워크 맵의 트래픽 시각화, 네트워크 강화 권장 사항 및 특정 네트워크 위협과 같은 고급 네트워크 보호 기능을 활성화합니다.<br />(관련 정책: [Linux 가상 머신에 네트워크 트래픽 데이터 수집 에이전트를 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f04c4380f-3fae-46e8-96c9-30193528f602)) |중간 |
 |Windows 가상 머신에 네트워크 트래픽 데이터 수집 에이전트를 설치해야 함 |Security Center에서는 Microsoft Dependency Agent를 사용하여 Azure 가상 머신에서 네트워크 트래픽 데이터를 수집함으로써 네트워크 맵의 트래픽 시각화, 네트워크 강화 권장 사항 및 특정 네트워크 위협과 같은 고급 네트워크 보호 기능을 활성화합니다.<br />(관련 정책: [Windows 가상 머신에 네트워크 트래픽 데이터 수집 에이전트를 설치해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2f2ee1de-44aa-4762-b6bd-0893fc3f306d)) |중간 |
-|클라우드 서비스 역할에 대한 OS 버전을 업데이트해야 함 |클라우드 서비스 역할의 OS(운영 체제) 버전을 OS 제품군의 사용 가능한 최신 버전으로 업데이트합니다.<br />(관련 정책: [운영 체제 버전은 클라우드 서비스 역할의 최신 버전이어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5a913c68-0590-402c-a531-e57e19379da3)) |높음 |
 |Kubernetes 서비스에 Pod 보안 정책을 정의해야 함(더 이상 사용되지 않음). |(더 이상 사용되지 않음) Pod 보안 정책을 정의하여 불필요한 애플리케이션 권한을 제거함으로써 공격 벡터를 줄일 수 있습니다. 허용되지 않은 리소스를 요청하는 Pod가 AKS 클러스터에서 실행될 수 없도록 Pod 보안 정책을 구성하는 것이 좋습니다.<br />(관련 정책 없음) |높음 |
 |Linux 가상 머신에서 보안 부팅을 사용하도록 설정해야 함 |가상 머신에서 보안 부팅을 사용하도록 설정하면 부트 체인에 대한 악의적인 무단 변경을 완화하는 데 도움이 됩니다. 사용하도록 설정하면 VM 또는 서버에서 서명된 코드만 실행될 수 있습니다.<br />(관련 정책 없음) |낮음 |
 |Service Fabric 클러스터의 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 합니다. |Service Fabric은 기본 클러스터 인증서를 사용하여 노드 간 통신을 위한 3단계 보호(None, Sign 및 EncryptAndSign)를 제공합니다. 모든 노드 간 메시지가 암호화되고 디지털로 서명될 수 있게 보호 수준을 설정합니다.<br />(관련 정책: [Service Fabric 클러스터는 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f617c02be-7f02-4efd-8836-3180d47b6c68)) |높음 |
@@ -60,8 +59,10 @@ ms.locfileid: "106504817"
 |가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 합니다. |Virtual Machines(클래식)는 사용이 중단되었으며 이러한 VM은 Azure Resource Manager로 마이그레이션해야 합니다.<br>Azure Resource Manager는 이제 전체 IaaS 기능 및 기타 고급 기능을 제공하기 때문에 2020년 2월 28일부로 ASM(Azure Service Manager)을 통한 IaaS VM(가상 머신) 관리에 대한 지원이 중단되었습니다. 이 기능은 2023년 3월 1일부로 완전히 사용 중지됩니다.<br><br>이 도구 및 마이그레이션에 사용 가능한 리소스 및 관련 정보:<br><a href='https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'>가상 머신(클래식) 사용 중단, 단계별 마이그레이션 프로세스 및 사용 가능한 Microsoft 리소스에 대한 개요</a><br><a href='https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-deep-dive?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json'>Azure Resource Manager 마이그레이션 도구로 마이그레이션하는 방법에 대한 세부 정보</a><br><a href='https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps'>PowerShell을 사용하여 Azure Resource Manager 마이그레이션 도구로 마이그레이션</a><br />(관련 정책: [가상 머신을 새 Azure Resource Manager 리소스로 마이그레이션해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f1d84d5fb-01f6-4d12-ba4f-4a26081d403d)) |높음 |
 |가상 머신의 게스트 구성 확장은 시스템이 할당한 관리 ID를 사용하여 배포해야 함 |게스트 구성 확장에는 시스템이 할당한 관리 ID가 필요합니다. 게스트 구성 확장이 설치되어 있지만 시스템이 할당한 관리 ID가 없는 경우 이 정책 범위에 속한 Azure 가상 머신은 비준수입니다. <a href='https://aka.ms/gcpol'>자세한 정보</a><br />(관련 정책: [게스트 구성 확장은 시스템이 할당한 관리 ID를 사용하여 Azure 가상 머신에 배포되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fd26f7642-7545-4e18-9b75-8c9bbdee3a9a)) |중간 |
 |컨테이너 보안 구성의 취약성을 수정해야 합니다. |Docker가 설치된 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br />(관련 정책: [컨테이너 보안 구성의 취약성을 수정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe8cbc669-f12d-49eb-93e7-9273119e9933)) |높음 |
+|Linux 머신의 보안 구성 취약성을 수정해야 함(게스트 구성에서 제공) |Linux 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br />(관련 정책: [Linux 머신은 Azure 보안 기준에 대한 요구 사항을 충족해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc9b3da7-8347-4380-8e70-0a0361d8dedd)) |낮음 |
 |머신 보안 구성의 취약성을 수정해야 합니다. |머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br />(관련 정책: [머신 보안 구성의 취약성을 수정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe1e5fd5d-3e4c-4ce1-8661-7d1873ae6b15)) |낮음 |
 |가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다. |가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br />(관련 정책: [가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f3c735d8a-a4ba-4a3a-b7cf-db7754cf57f4)) |높음 |
+|Windows 머신의 보안 구성 취약성을 수정해야 함(게스트 구성에서 제공) |Windows 머신의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다.<br />(관련 정책 없음) |낮음 |
 |가상 머신의 취약성을 수정해야 함 |Azure Security Center의 기본 제공 취약성 평가 솔루션(Qualys 제공)에서 발견한 가상 머신의 취약성 결과를 모니터링합니다.<br />(관련 정책: [가상 머신에서 취약성 평가 솔루션을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)) |낮음 |
 |Windows Defender Exploit Guard를 머신에서 사용하도록 설정해야 함 |Windows Defender Exploit Guard는 Azure Policy 게스트 구성 에이전트를 사용합니다. Exploit Guard에는 다양한 공격 벡터에 대해 디바이스를 잠그고 맬웨어 공격에서 일반적으로 사용되는 동작을 차단하면서 기업에서 보안 위험과 생산성 요구 사항 사이의 균형을 맞출 수 있도록 설계된 네 가지 구성 요소가 있습니다(Windows에만 해당).<br />(관련 정책: [Windows Defender Exploit Guard를 사용하도록 설정되지 않은 Windows 머신 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fmicrosoft.authorization%2fpolicyDefinitions%2fbed48b13-6647-468e-aa2f-1af1d3f4dd40)) |중간 |
 |Windows 웹 서버는 보안 통신 프로토콜을 사용하도록 구성해야 함 |인터넷을 통해 전달되는 정보의 개인 정보를 보호하려면 웹 서버에서 최신 버전의 업계 표준 암호화 프로토콜인 TLS(전송 계층 보안)를 사용해야 합니다. TLS는 보안 인증서를 사용하여 컴퓨터 간의 연결을 암호화하여 네트워크를 통한 통신을 보호합니다. TLS 1.3은 모두 레거시 프로토콜로 간주되는 이전 버전(TLS 1.0-1.2 및 SSL 2-3)보다 빠르고 안전합니다.<br />(관련 정책: [보안 통신 프로토콜을 사용하지 않는 Windows 웹 서버 감사](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f5752e6d6-1206-46d8-8ab1-ecc2f71a8112)) |높음 |

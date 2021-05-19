@@ -1,24 +1,24 @@
 ---
-title: Azure AD에서 자동화된 SaaS 앱 사용자 프로비저닝이란?
-description: Azure AD를 사용하여 여러 타사 SaaS 애플리케이션에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
+title: Azure Active Directory에서 자동화된 SaaS 앱 사용자 프로비저닝이란?
+description: Azure Active Directory를 사용하여 여러 타사 SaaS 애플리케이션에서 사용자 계정을 자동으로 프로비저닝, 프로비저닝 해제, 지속적으로 업데이트하는 방법을 소개합니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview
 ms.workload: identity
-ms.date: 02/08/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: f899c4d67321482dab62729632fe031bb23f71ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87b74ecb8517ac54327eff189c4b32e989a748af
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99830671"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784704"
 ---
-# <a name="what-is-automated-saas-app-user-provisioning-in-azure-ad"></a>Azure AD에서 자동화된 SaaS 앱 사용자 프로비저닝이란?
+# <a name="what-is-automated-saas-app-user-provisioning-in-azure-active-directory"></a>Azure Active Directory에서 자동화된 SaaS 앱 사용자 프로비저닝이란?
 
 Azure AD(Azure Active Directory)에서 **앱 프로비저닝** 이라는 용어는 사용자가 액세스해야 하는 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
 

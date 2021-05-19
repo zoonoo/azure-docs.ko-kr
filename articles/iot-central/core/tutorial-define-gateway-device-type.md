@@ -9,18 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7d2321189e32c77d9360ff6d772fcebf9c6abb1d
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: d1a730a20ef2ab0fe5e455ef86a428aa1d83fc19
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324566"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683932"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>자습서 - Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
-*이 문서는 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
-
-이 자습서에서는 솔루션 빌더가 IoT Central 애플리케이션에서 게이트웨이 디바이스 템플릿을 사용하여 게이트웨이 디바이스를 정의하는 방법을 보여줍니다. 그런 다음, 게이트웨이 디바이스를 통해 IoT Central 애플리케이션에 연결하는 여러 다운스트림 디바이스를 구성합니다. 
+이 자습서에서는 IoT Central 애플리케이션에서 게이트웨이 디바이스 템플릿을 사용하여 게이트웨이 디바이스를 정의하는 방법을 보여 줍니다. 그런 다음, 게이트웨이 디바이스를 통해 IoT Central 애플리케이션에 연결하는 여러 다운스트림 디바이스를 구성합니다. 
 
 이 자습서에서는 **스마트 빌딩** 게이트웨이 디바이스 템플릿을 만듭니다. **스마트 빌딩** 게이트웨이 디바이스는 다른 다운스트림 디바이스와 관계가 있습니다.
 
@@ -37,7 +35,9 @@ ms.locfileid: "108324566"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 [Azure IoT Central 애플리케이션을 만들어야 합니다](./quick-deploy-iot-central.md).
+이 자습서를 완료하려면 다음이 필요합니다.
+
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 ## <a name="create-downstream-device-templates"></a>다운스트림 디바이스 템플릿
 
@@ -221,7 +221,7 @@ ms.locfileid: "108324566"
 * 관계를 추가합니다.
 * 디바이스 템플릿을 게시합니다.
 
-다음으로, 디바이스 개발자로서 다음 작업 방법을 알아볼 수 있습니다.
+이제 다음 방법을 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가](tutorial-add-edge-as-leaf-device.md)

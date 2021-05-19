@@ -1,17 +1,16 @@
 ---
-title: Azure Resource Manager를 사용하여 Service Fabric 관리형 클러스터(미리 보기) 배포
+title: Azure Resource Manager를 사용하여 Service Fabric 관리형 클러스터 배포
 description: Azure Resource Manager 템플릿을 통해 Service Fabric 관리형 클러스터의 만드는 방법을 알아봅니다.
 ms.topic: quickstart
-ms.date: 09/28/2020
-ms.custom: references_regions
-ms.openlocfilehash: 079e8e3e39bd306332abb43fa2ae1f8cc04e305b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: 0775d5f6874de8fafb1d9a32cf19071f4a7a99b4
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91410422"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685210"
 ---
-# <a name="quickstart-deploy-a-service-fabric-managed-cluster-preview-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 통해 Service Fabric 관리형 클러스터(미리 보기) 배포
+# <a name="quickstart-deploy-a-service-fabric-managed-cluster-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 통해 Service Fabric 관리형 클러스터 배포
 
 Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다. Service Fabric 관리형 클러스터는 Service Fabric 클러스터를 구성하는 모든 기본 리소스를 배포하지 않고 단일 Service Fabric 클러스터 리소스를 배포할 수 있는 완전히 캡슐화된 리소스입니다. 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure에서 테스트용 Service Fabric 관리형 클러스터를 배포하는 방법을 설명합니다.
 
@@ -47,7 +46,7 @@ Service Fabric 관리형 클러스터는 클라이언트 인증서를 액세스 
 
     * **구독**: Azure 구독을 선택합니다.
     * **리소스 그룹**: **새로 만들기** 를 선택합니다. 리소스 그룹에 대한 고유 이름(예: *myResourceGroup*)을 입력한 다음, **확인** 을 선택합니다.
-    * **위치**: 위치(예: **eastus2**)를 선택합니다. Service Fabric 관리형 클러스터 미리 보기에 지원되는 지역에는 `centraluseuap`, `eastus2euap`, `eastasia`, `northeurope`, `westcentralus` 및 `eastus2`가 포함됩니다.
+    * **위치**: 위치를 선택합니다.
     * **클러스터 이름**: 클러스터에 대한 고유 이름(예: *mysfcluster*)을 입력합니다.
     * **관리자 사용자 이름**: 클러스터의 기본 VM에서 RDP에 사용할 관리자에 대한 이름을 입력합니다.
     * **관리자 암호**: 클러스터의 기본 VM에서 RDP에 사용할 관리자에 대한 암호를 입력합니다.

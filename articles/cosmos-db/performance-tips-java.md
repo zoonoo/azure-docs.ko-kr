@@ -10,10 +10,10 @@ ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: 6e7b01ae88645d8b16c3a43e21e40b53d242fdde
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96549245"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Azure Cosmos DB Sync Java SDK v2에 관한 성능 팁
@@ -67,14 +67,14 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
       DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
       ```
 
-      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="다이어그램에는 Azure Cosmos D B 연결 정책이 표시 됩니다." border="false":::
+      :::image type="content" source="./media/performance-tips-java/connection-policy.png" alt-text="Azure Cosmos DB 연결 정책을 보여 주는 다이어그램." border="false":::
 
    <a id="same-region"></a>
 2. **성능을 위해 동일한 Azure 지역에 클라이언트 배치**
 
     가능한 경우 Azure Cosmos DB를 호출하는 모든 애플리케이션을 Azure Cosmos 데이터베이스와 동일한 지역에 배치합니다. 대략적으로 비교한다면, 동일한 지역 내의 Azure Cosmos DB 호출은 1-2밀리초 내에 완료되지만 미국 서부와 동부 해안 간의 대기 시간은 50밀리초보다 큽니다. 클라이언트에서 Azure 데이터 센터 경계로 요청이 전달되는 경로에 따라 이러한 요청 간 대기 시간은 달라질 수 있습니다. 호출하는 애플리케이션이 프로비전된 Azure Cosmos DB 엔드포인트와 동일한 Azure 지역 내에 있도록 하면 가능한 최저 대기 시간을 얻을 수 있습니다. 사용 가능한 영역 목록은 [Azure 지역](https://azure.microsoft.com/regions/#services)을 참조하세요.
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="다이어그램은 두 지역의 요청 및 응답을 보여 줍니다. 여기서 컴퓨터는 중간 계층 서비스를 통해 Cosmos D B 계정에 연결 합니다." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="컴퓨터가 중간 계층 서비스를 통해 Cosmos DB 계정에 연결되는 두 지역의 요청과 응답을 보여 주는 다이어그램." border="false":::
    
 ## <a name="sdk-usage"></a>SDK 사용
 1. **최신 SDK 설치**

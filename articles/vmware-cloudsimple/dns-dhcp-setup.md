@@ -1,19 +1,19 @@
 ---
 title: CloudSimple의 Azure VMware 솔루션-프라이빗 클라우드에 대한 워크로드 DNS 및 DHCP 설정
 description: CloudSimple 프라이빗 클라우드 환경에서 실행되는 애플리케이션 및 워크로드에 대해 DNS 및 DHCP를 설정하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4b8e5cddb8616cc346cce16cc64c6770699a94c6
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: cdcb3cd7afa660909fad416ca455c041dc50321e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176903"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97896995"
 ---
 # <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드에서 DNS 및 DHCP 애플리케이션 및 워크로드 설정
 

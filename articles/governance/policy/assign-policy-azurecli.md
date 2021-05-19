@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure CLI를 사용하여 비규격 리�
 ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b7dad3eba18966a78fd35211ce40ea48234da30
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 7dd0ca2e1462b03c5a8e3807dd90d424e4b12be4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106090184"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733610"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
@@ -51,7 +51,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 이 명령은 다음 정보를 사용합니다.
 
 - **이름** - 할당의 실제 이름입니다. 이 예제에서는 _audit-vm-manageddisks_ 가 사용되었습니다.
-- **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다. 
+- **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다.
 - **정책** – 할당을 만드는 데 기준으로 사용되는 정책 정의 ID입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다.  정책 정의 ID를 가져오려면 이 명령을 실행합니다. `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 리소스 그룹의 이름으로 &lt;범위&gt;를 바꿉니다.
 

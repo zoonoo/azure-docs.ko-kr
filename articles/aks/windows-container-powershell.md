@@ -1,15 +1,15 @@
 ---
-title: PowerShell을 사용 하 여 AKS 클러스터에서 Windows Server 컨테이너 만들기
+title: PowerShell을 사용하여 AKS 클러스터에 Windows Server 컨테이너 만들기
 description: PowerShell을 사용하여 Kubernetes 클러스터를 빠르게 만들고 AKS(Azure Kubernetes Service)의 Windows Server 컨테이너에 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 03/12/2021
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: b877ecbdca06ff73d152e1b491e993798a99f98a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103233517"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>PowerShell을 사용하여 AKS(Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
@@ -24,7 +24,7 @@ AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치][install-azure-powershell]를 참조하세요. 또한 Aks PowerShell 모듈을 설치 해야 합니다. 
+PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치][install-azure-powershell]를 참조하세요. 또한 Az.Aks PowerShell 모듈을 설치해야 합니다. 
 
 ```azurepowershell-interactive
 Install-Module Az.Aks

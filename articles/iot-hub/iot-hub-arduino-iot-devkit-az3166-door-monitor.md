@@ -1,5 +1,5 @@
 ---
-title: Azure Functions를 사용 하 여 도어를 열 때 전자 메일 보내기
+title: Azure Functions를 사용하여 도어가 열릴 때 메일 보내기
 description: 자기 센서를 모니터링하여 문이 열릴 때를 감지하고 Azure Functions를 사용하여 이메일 알림을 보냅니다.
 author: liydu
 ms.service: iot-hub
@@ -9,13 +9,13 @@ ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
 ms.openlocfilehash: e3649ac786c07459695a1e6ca6ad52620e23d59f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92148803"
 ---
-# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터-Azure Functions 및 SendGrid를 사용 하 여 도어를 열 때 전자 메일 보내기           
+# <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>도어 모니터 - Azure Functions 및 SendGrid를 사용하여 도어가 열릴 때 메일 보내기           
 
 MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다. 이 프로젝트에서 주변의 강력한 자기 필드 유무를 검색할 있습니다. 이 경우에는 작은 영구 자석입니다.
 
@@ -39,7 +39,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 활성화된 Azure 구독. 구독이 없으면 다음과 같은 방법 중 하나를 통해 등록할 수 있습니다.
 
-* [30 일 무료 평가판 Microsoft Azure 계정을](https://azure.microsoft.com/free/)활성화 합니다.
+* [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/)을 활성화합니다.
 * MSDN 또는 Visual Studio 구독자인 경우 [Azure 크레딧](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 신청합니다.
 
 ## <a name="deploy-the-sendgrid-service-in-azure"></a>Azure에서 SendGrid 서비스 배포
@@ -53,7 +53,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합니다. 이 단추를 사용하면 Microsoft Azure에 오픈 소스 프로젝트를 빠르고 쉽게 배포할 수 있습니다.
 
-아래 **Azure에 배포** 단추를 클릭 합니다. 
+아래에서 **Azure에 배포** 단추를 클릭합니다. 
 
 [![Azure에 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2FSendGridDeploy%2Fazuredeploy.json)
 
@@ -81,7 +81,7 @@ Azure 서비스를 프로비전하려면 **Azure에 배포** 단추를 사용합
 
 ![SendGrid 관리](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-manage.png)
 
-SendGrid 페이지에서 **설정**  >  **api 키**  >  **api 키 만들기** 를 클릭 합니다.
+SendGrid 페이지에서 **설정** > **API 키** > **API 키 만들기** 를 클릭합니다.
 
 ![SendGrid API 처음 만들기](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/sendgrid-create-api-first.png)
 
@@ -95,7 +95,7 @@ API 키는 한 번만 표시됩니다. 다음 단계에서 사용되므로 복�
 
 다음 단계에서는 다른 Azure IoT 관련 서비스를 프로비전하고 이 프로젝트에 Azure Functions를 배포합니다.
 
-아래 **Azure에 배포** 단추를 클릭 합니다. 
+아래에서 **Azure에 배포** 단추를 클릭합니다. 
 
 [![Azure에 배포](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FVSChina%2Fdevkit-door-monitor%2Fmaster%2Fazuredeploy.json)
 
@@ -171,7 +171,7 @@ VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프�
 
 그런 다음, VS Code가 Arduino 스케치를 확인하고 DevKit에 업로드합니다.
 
-![Arduino 스케치를 확인 하 고 업로드 하 Visual Studio Code를 보여 주는 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
+![Arduino 스케치를 확인하고 업로드하는 Visual Studio Code 스크린샷](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/device-upload.png)
 
 DevKit이 다시 부팅되고 코드 실행이 시작됩니다.
 
@@ -184,9 +184,9 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 초기화 후에 `Door closed`가 화면에 표시됩니다. 자기 필드가 상태가 변경된 경우 상태가 `Door opened`로 변경됩니다. 문 상태가 변경될 때마다 이메일 알림을 수신합니다. (이러한 이메일 메시지를 수신하는 데 최대 5분이 걸릴 수 있습니다.)
 
-![센서 가까운 자석 가까이: 도어 닫힘](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "센서 가까운 자석 가까이: 도어 닫힘")
+![자석이 센서와 가까이 있음: 도어 닫힘](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-closed.jpg "자석이 센서와 가까이 있음: 도어 닫힘")
 
-![센서에서 떨어진 자석 이동: 문 열림](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "센서에서 떨어진 자석 이동: 문 열림")
+![자석이 센서와 떨어져 있음: 도어 열림](media/iot-hub-arduino-iot-devkit-az3166-door-monitor/test-door-opened.jpg "자석이 센서와 떨어져 있음: 도어 열림")
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
@@ -197,4 +197,4 @@ DevKit가 안정적인 자기 필드가 있는 경우 프로그램이 먼저 초
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 제안 된 다음 단계는 다음과 같습니다.[Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)
+Azure IoT 원격 모니터링 솔루션 가속기에 DevKit 디바이스를 연결하는 방법에 대해 알아보고 SendGrid 서비스를 사용하여 이메일을 보냈습니다. 제안된 다음 단계는 [Azure IoT 원격 모니터링 솔루션 가속기 개요](/azure/iot-suite/)입니다.

@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metang
-ms.openlocfilehash: 80da6776412e0df7b5b9ae5759ac770c04673992
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c36933a13bf3373930acf5dbb36513aa171748f9
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631073"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108768898"
 ---
 # <a name="language-support-for-immersive-reader"></a>몰입형 리더를 위한 언어 지원
 
@@ -53,6 +53,7 @@ ms.locfileid: "92631073"
 | 덴마크어 | da |
 | 덴마크어(덴마크) | da-DK |
 | 네덜란드어 | nl |
+| 독일어(벨기에) | nl-BE |
 | 네덜란드어(네덜란드) | nl-NL |
 | 영어 | en |
 | 영어(오스트레일리아) | en-AU |
@@ -61,11 +62,14 @@ ms.locfileid: "92631073"
 | 영어(인도) | en-IN |
 | 영어(아일랜드) | en-IE |
 | 영어(뉴질랜드) | en-NZ |
+| 영어(필리핀) | en-PH |
 | 영어(영국) | en-GB |
 | 영어(미국) | ko-KR |
+| 에스토니아어 | et-EE |
 | 핀란드어 | fi |
 | 핀란드어(핀란드) | fi-FI |
 | 프랑스어 | fr |
+| 프랑스어(벨기에) | fr-BE |
 | 프랑스어(캐나다) | fr-CA |
 | 프랑스어(프랑스) | fr-FR |
 | 프랑스어(스위스) | fr-CH |
@@ -83,14 +87,18 @@ ms.locfileid: "92631073"
 | 헝가리어(헝가리) | hu-HU |
 | 인도네시아어 | id |
 | 인도네시아어(인도네시아) | id-ID |
+| 아일랜드어 | ga-IE |
 | 이탈리아어 | it |
 | 이탈리아어(이탈리아) | it-IT |
 | 일본어 | ja |
 | 일본어(일본) | ja-JP |
 | 한국어 | ko |
 | 한국어(한국) | en-US |
+| 라트비아어 | Lv-LV |
+| 리투아니아어 | lt-LT |
 | 말레이어 | ms |
 | 말레이어(말레이시아) | ms-MY |
+| 몰타어 | Mt-MT |
 | 노르웨이어 복말| nb |
 | 노르웨이어 복말(노르웨이) | nb-NO |
 | 폴란드어 | pl |
@@ -120,21 +128,29 @@ ms.locfileid: "92631073"
 | 태국어(태국) | th-TH |
 | 터키어 | tr |
 | 터키어(터키) | tr-TR |
+| 우크라이나어 | ur-PK |
 | 베트남어 | vi |
 | 베트남어(베트남) | vi-VN |
+| 웨일스어 | Cy-GB |
 
 ## <a name="translation"></a>Translation
 
 | 언어 | 태그 |
 |----------|-----|
 | 아프리칸스어 | af |
+| 알바니아어 | sq |
+| 암하라어 | am |
 | 아랍어 | ar |
 | 아랍어(이집트어) | ar-EG |
 | 아랍어(사우디아라비아) | ar-SA |
+| 아르메니아어 | hy |
+| 아제르바이잔어 | az |
+| 아프리칸스어 | af |
 | 벵골어 | bn |
 | 보스니아어 | bs |
 | 불가리아어 | bg |
 | 불가리아어(불가리아) | bg-BG |
+| Burmese | my |
 | 카탈로니아어 | ca |
 | 카탈로니아어(카탈로니아) | ca-ES |
 | 중국어 | zh |
@@ -202,11 +218,14 @@ ms.locfileid: "92631073"
 | 일본어 | ja |
 | 일본어(일본) | ja-JP |
 | 칸나다어 | kn |
+| 카자흐어 | kk |
+| 크메르어 | km |
 | 스와힐리어 | sw |
 | 한국어 | ko |
 | 한국어(한국) | en-US |
 | 쿠르드어(중부) | ku |
 | 쿠르드어(북부) | kmr |
+| 라오어 | lo |
 | 라트비아어 | lv |
 | 리투아니아어 | lt |
 | 마다가스카르어 | mg |
@@ -216,6 +235,7 @@ ms.locfileid: "92631073"
 | 몰타어 | mt |
 | 마오리어 | mi |
 | 마라티어 | mr |
+| 네팔어 | ne |
 | 노르웨이어 복말| nb |
 | 노르웨이어 복말(노르웨이) | nb-NO |
 | 오리야어 | 또는 |
@@ -253,6 +273,7 @@ ms.locfileid: "92631073"
 | 텔루구어(인도) | te-IN |
 | 태국어 | th |
 | 태국어(태국) | th-TH |
+| 티그리냐어 | ti |
 | 통가어 | to |
 | 터키어 | tr |
 | 터키어(터키) | tr-TR |
@@ -548,31 +569,3 @@ ms.locfileid: "92631073"
 | 스페인어(스페인) | es-ES |
 | 스웨덴어 | sv |
 | 스웨덴어(스웨덴) | sv-SE |
-
-## <a name="dictionary"></a>Dictionary
-
-| 언어 | 태그 |
-|----------|-----|
-| 영어 | en |
-| 영어(오스트레일리아) | en-AU |
-| 영어(캐나다) | en-CA |
-| 영어(홍콩 특별 행정구) | en-HK |
-| 영어(인도) | en-IN |
-| 영어(아일랜드) | en-IE |
-| 영어(뉴질랜드) | en-NZ |
-| 영어(영국) | en-GB |
-| 영어(미국) | ko-KR |
-| 프랑스어 | fr |
-| 프랑스어(캐나다) | fr-CA |
-| 프랑스어(프랑스) | fr-FR |
-| 프랑스어(스위스) | fr-CH |
-| 독일어 | de |
-| 독일어(오스트리아) | de-AT |
-| 독일어(독일) | de-DE |
-| 독일어(스위스)| de-CH |
-| 이탈리아어 | it |
-| 이탈리아어(이탈리아) | it-IT |
-| 스페인어 | es |
-| 스페인어(라틴 아메리카) | es-419 |
-| 스페인어(멕시코) | es-MX |
-| 스페인어(스페인) | es-ES |

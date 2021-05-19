@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: ruturajd
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 71ba1d6e1e45c5c2e72e2be620158b1aa4b71582
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 8750ad846b832eb4fe037568d3b99f299cfe121b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430815"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790634"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -231,7 +231,7 @@ Azure 선불을 초과분에 적용하려면 다음 조건을 충족해야 합�
 - 사용 가능한 Azure 선불 금액에는 과거의 모든 미결제 Azure 청구서를 포함하여 발생한 전체 요금이 포함됩니다.
 - 완료하려는 청구 기간은 완전히 종결되어야 합니다. 청구는 매월 5일 이후에 완전히 종결됩니다.
 - 오프셋하려는 청구 기간은 완전히 종결되어야 합니다.
-- ACD(Azure 선불 할인)는 실제 신규 선불에서 이전 사용량에 계획된 자금을 뺀 금액을 기준으로 합니다. 이 요구 사항은 발생한 초과분 요금에만 적용됩니다. 이는 Azure 선불을 사용하는 서비스에만 유효하므로 Azure Marketplace 요금에는 적용되지 않습니다. Azure Marketplace 요금은 별도로 청구됩니다.
+- APD(Azure 선불 할인)는 실제 신규 선불에서 이전 사용량에 계획된 자금을 뺀 금액을 기준으로 합니다. 이 요구 사항은 발생한 초과분 요금에만 적용됩니다. 이는 Azure 선불을 사용하는 서비스에만 유효하므로 Azure Marketplace 요금에는 적용되지 않습니다. Azure Marketplace 요금은 별도로 청구됩니다.
 
 초과분 오프셋을 완료하기 위해 사용자 또는 계정 팀에서 지원 요청을 열 수 있습니다. 엔터프라이즈 관리자 또는 대금 청구 담당자의 이메일 승인이 필요합니다.
 

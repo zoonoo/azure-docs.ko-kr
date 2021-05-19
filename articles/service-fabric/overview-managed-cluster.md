@@ -1,16 +1,16 @@
 ---
-title: Service Fabric 관리형 클러스터(미리 보기)
+title: Service Fabric 관리형 클러스터
 description: Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다.
 ms.topic: overview
-ms.date: 02/15/2021
-ms.openlocfilehash: 271852214097ee96ba6b10de7a94904981cd8ef8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 5/10/2021
+ms.openlocfilehash: a412899f4aa37ce2257a3351c3e27da4d5d3add2
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041232"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685264"
 ---
-# <a name="service-fabric-managed-clusters-preview"></a>Service Fabric 관리형 클러스터(미리 보기)
+# <a name="service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터
 
 Service Fabric 관리형 클러스터는 배포 및 클러스터 관리 환경을 간소화하는 Azure Service Fabric 클러스터 리소스 모델의 진화입니다.
 
@@ -47,7 +47,10 @@ Service Fabric 관리형 클러스터는 기존 클러스터에 비해 여러 �
 **기본 모범 사례**
 - 단순화된 안정성 및 내구성 설정
 
-클러스터에 필요한 기본 리소스의 비용 외에 Service Fabric 관리형 클러스터에 대한 추가 비용은 없습니다.
+클러스터에 필요한 기본 리소스의 비용 외에 Service Fabric 관리형 클러스터에 대한 추가 비용은 없으며 관리형 클러스터에도 동일한 Service Fabric SLA가 적용됩니다.
+
+> [!NOTE]
+> 기존 Service Fabric 클러스터에서 관리형 클러스터로의 마이그레이션 경로가 없습니다. 이 새 리소스 유형을 사용하려면 새 Service Fabric 관리형 클러스터를 만들어야 합니다.
 
 ## <a name="service-fabric-managed-cluster-skus"></a>Service Fabric 관리형 클러스터 SKU
 
@@ -62,30 +65,26 @@ Service Fabric 관리형 클러스터는 기본 및 표준 SKU에서 모두 사�
 | 노드 형식 추가/제거 | 예 | 예 |
 | 영역 중복 | 예 | 예 |
 
-## <a name="whats-new-for-service-fabric-managed-clusters"></a>Service Fabric 관리형 클러스터의 새로운 기능
+## <a name="feature-support"></a>기능 지원
 
-Service Fabric 관리형 클러스터 미리 보기의 최신 기능에는 다음에 대한 지원이 포함됩니다.
+관리형 클러스터의 기능은 계속 확장됩니다. 현재 지원되는 기능은 다음과 같습니다.
 
-* [ARM 템플릿을 사용하여 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
-* [자동 OS 업그레이드](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
-* [디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md)
-* [NSG 규칙 적용](how-to-managed-cluster-networking.md)
-
-향후 릴리스에 추가될 기능은 다음과 같습니다.
-
-* Visual Studio를 사용하여 애플리케이션 배포
-* 관리 ID 지원
-* 가용성 영역
-* 역방향 프록시
-* 자동 확장
+* [ARM 템플릿을 사용한 애플리케이션 배포](how-to-managed-cluster-app-deployment-template.md)
+* [애플리케이션 비밀](how-to-managed-cluster-application-secrets.md)
+* [자동 OS 이미지 업그레이드](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [가용성 영역 확장](how-to-managed-cluster-availability-zones.md)
+* [디스크 암호화](how-to-enable-managed-cluster-disk-encryption.md) 및 [관리 디스크 유형](how-to-managed-cluster-managed-disk.md) 선택
+* 관리형 클러스터 [노드 유형](how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md) 및 [애플리케이션 인증](how-to-managed-cluster-application-managed-identity.md)에 대한 관리 ID 지원
+* [NSG 규칙 및 기타 네트워킹 옵션](how-to-managed-cluster-networking.md)
+* [상태 비저장 전용 노드 형식](how-to-managed-cluster-stateless-node-type.md)
+* 노드 형식에 대한 [가상 머신 확장 집합 확장](how-to-managed-cluster-vmss-extension.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 Service Fabric 관리형 클러스터를 시작하려면 빠른 시작:
 
 > [!div class="nextstepaction"]
-> [Service Fabric 관리형 클러스터 만들기(미리 보기)](quickstart-managed-cluster-template.md)를 사용해 보세요.
-
+> [Service Fabric 관리형 클러스터 만들기](quickstart-managed-cluster-template.md)
 
 [sf-composition]: ./media/overview-managed-cluster/sfrp-composition-resource.png
 [sf-encapsulation]: ./media/overview-managed-cluster/sfrp-encapsulated-resource.png

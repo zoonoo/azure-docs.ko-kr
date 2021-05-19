@@ -14,18 +14,18 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce1900ca1ca04923f98642f0783925f2dd06619b
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533573"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91529697"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>Privileged Identity Management용 Microsoft Graph API(미리 보기)
 
 Azure Active Directory용 [Microsoft Graph API](/graph/overview)를 사용하여 Privileged Identity Management 작업을 수행할 수 있습니다. 이 문서에서는 Privileged Identity Management용 Microsoft Graph API를 사용하기 위한 중요한 개념을 설명합니다.
 
-Microsoft Graph API에 대한 자세한 내용은 [Azure AD Privileged Identity Management API 참고 자료](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)를 참조하세요.
+Microsoft Graph API에 대한 자세한 내용은 [Azure AD Privileged Identity Management API 참고 자료](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)를 참조하세요.
 
 > [!IMPORTANT]
 > Microsoft Graph의 /베타 버전 아래에 있는 API는 미리 보기 상태이며 변경될 가능성이 있습니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다.
@@ -61,4 +61,4 @@ Graph Explorer를 사용하여 호출을 테스트하는 경우 도구에서 사
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD Privileged Identity Management API 참고 자료](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta&preserve-view=true)
+- [Azure AD Privileged Identity Management API 참고 자료](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

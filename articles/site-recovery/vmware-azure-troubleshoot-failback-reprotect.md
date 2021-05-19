@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 VMware VM 재해 복구에서 장애 복구 문제 해결
+title: Azure Site Recovery를 사용한 VMware VM 재해 복구에서 Failback 문제 해결
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
 author: Sharmistha-Rai
 manager: gaggupta
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sharrai
 ms.openlocfilehash: ed4e52470264441a99c5ccf0a736bb00233510c1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87423119"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
@@ -64,16 +64,16 @@ ms.locfileid: "87423119"
 이 문제를 해결하려면:
 
 * 다시 보호에서 이름이 충돌하지 않는 다른 호스트에 컴퓨터를 만들 수 있도록 다른 호스트에 있는 다른 마스터 대상 서버를 선택합니다.
-* VMotion를 사용 하 여 이름 충돌이 발생 하지 않는 다른 호스트로 마스터 대상을 이동할 수도 있습니다. 기존 VM이 이탈된 컴퓨터인 경우 새 VM을 동일한 ESXi 호스트에 만들 수 있도록 이름을 변경합니다.
+* VMotion을 사용하여 이름 충돌이 발생하지 않는 다른 호스트로 마스터 대상을 이동시킬 수도 있습니다. 기존 VM이 이탈된 컴퓨터인 경우 새 VM을 동일한 ESXi 호스트에 만들 수 있도록 이름을 변경합니다.
 
 
 ### <a name="error-code-78093"></a>오류 코드 78093
 
-**VM이 실행 되 고 있지 않거나 응답 하지 않거나 액세스할 수 없습니다.**
+**VM이 실행 중이지 않거나, 응답하지 않거나, 액세스할 수 없습니다.**
 
 이 문제를 해결하려면:
 
-장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못 된 네트워크에 있거나 실행 중이 아닌 경우 (응답 없음 또는 종료) 구성 서버에서 VM의 모바일 서비스에 연결 하 여 다시 보호를 시작할 수 없습니다.
+장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못된 네트워크에 있거나 실행되지 않는 경우(무응답 또는 종료), 구성 서버에서 VM의 Mobility Service에 연결하여 다시 보호를 시작할 수 없습니다.
 
 * 온-프레미스와의 통신을 다시 시작할 수 있도록 VM을 다시 시작합니다.
 * Azure 가상 머신을 시작한 후에 다시 보호 작업을 다시 시작합니다.
@@ -91,11 +91,11 @@ ms.locfileid: "87423119"
 
 ### <a name="error-code-8038"></a>오류 코드 8038
 
-**오류로 인해 온-프레미스 가상 컴퓨터를 가져오지 못했습니다.**
+**오류로 인해 온-프레미스 가상 머신을 불러오지 못했습니다.**
 
 이 문제는 메모리가 충분히 프로비전되지 않은 호스트에서 온-프레미스 VM을 가동하는 경우에 발생합니다. 
 
 이 문제를 해결하려면:
 
 * ESXi 호스트에 더 많은 메모리를 프로비전합니다.
-* 또한 VMotion를 사용 하 여 vm을 부팅 하는 데 충분 한 메모리가 있는 다른 ESXi 호스트로 VM을 이동할 수 있습니다.
+* 또한 VMotion을 사용하여 VM을 부팅하는 데 충분한 메모리가 있는 다른 ESXi 호스트로 VM을 이동시킬 수 있습니다.

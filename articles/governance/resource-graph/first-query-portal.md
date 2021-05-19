@@ -5,12 +5,12 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: fddf208a51254d70fb8cc2aa1c9322a22506003a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: b01bc4ceefd1d0c645ed584648a34851d741aed1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324278"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108751772"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -18,7 +18,7 @@ Azure Resource Graph의 강력한 기능은 Azure Resource Graph Explorer를 통
 
 이 빠른 시작의 끝부분에서는 Azure Portal 및 Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리를 실행하고 결과를 대시보드에 고정했습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -115,7 +115,7 @@ Azure Portal 환경에서 Resource Graph 샘플 대시보드를 제거하려면 
 
 1. 왼쪽 창에서 **대시보드** 를 선택합니다.
 
-1. 대시보드 드롭다운에서 삭제하려는 Resource Graph 샘플 대시보드를 선택합니다.
+1. 대시보드 드롭다운 목록에서 삭제하려는 Resource Graph 샘플 대시보드를 선택합니다.
 
 1. 대시보드 위쪽의 대시보드 메뉴에서 **삭제** 를 선택하고, **확인** 을 선택하여 확인합니다.
 

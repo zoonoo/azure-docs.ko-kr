@@ -1,25 +1,21 @@
 ---
-title: Resource Manager 마이그레이션에 대한 VPN Gateway 클래식 | Microsoft Docs
-description: 이 페이지에서는 Resource Manager 마이그레이션에 대한 VPN Gateway 클래식의 개요를 제공합니다.
-documentationcenter: na
+title: 클래식에서 Resource Manager로 VPN Gateway 마이그레이션
+titleSuffix: Azure VPN Gateway
+description: 클래식 배포 모델에서 Resource Manager 배포 모델로 VPN Gateway 리소스를 마이그레이션하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: amsriva
 manager: rossort
-editor: amsriva
-ms.assetid: caa8eb19-825a-4031-8b49-18fbf3ebc04e
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/06/2020
 ms.author: amsriva
-ms.openlocfilehash: c9d7fb8be1894ffa5f8c35e16e1ed3aa0949b3ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d7d4dda75fba86bf5d624ea277b8866490ea608
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96488207"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291193"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Resource Manager 마이그레이션에 대한 VPN Gateway 클래식
 이제 VPN Gateway을 클래식에서 Resource Manager 배포 모델로 마이그레이션할 수 있습니다. [Azure Resource Manager 기능 및 이점](../azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 이 문서에서는 클래식 배포에서 새로운 Resource Manager 기반 모델로 마이그레이션하는 방법을 자세히 설명합니다. 

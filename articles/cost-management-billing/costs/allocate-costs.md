@@ -3,17 +3,17 @@ title: Azure 비용 할당
 description: 이 문서에서는 구독, 리소스 그룹 또는 태그 비용을 다른 부서에 분산하도록 비용 할당 규칙을 만드는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/23/2021
+ms.date: 05/10/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: e7afef7e0a10bb4be3c30112fc207467167e4a17
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: b837e5819318707b44932f5915746479e27646ec
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726523"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734903"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Azure 비용 할당 규칙 만들기 및 관리(미리 보기)
 
@@ -76,6 +76,10 @@ ms.locfileid: "107726523"
 > [!NOTE] 
 > 새 규칙 처리가 완료되어 활성화될 때까지 최대 2시간이 걸릴 수 있습니다.
 
+다음은 비용 할당 규칙을 만드는 방법을 보여주는 비디오입니다.
+
+>[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+
 ## <a name="verify-the-cost-allocation-rule"></a>비용 할당 규칙 확인
 
 비용 할당 규칙이 활성화되면 선택한 원본의 비용은 지정된 할당 대상에 분산됩니다. 다음 정보를 사용하여 비용이 대상에 올바르게 할당되었는지 확인합니다.
@@ -96,10 +100,17 @@ Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용
 
 :::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="태그가 지정된 항목의 비용을 보여주는 예제" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
-다음은 비용 할당 규칙을 만드는 방법을 보여주는 비디오입니다.
+### <a name="view-cost-allocation-in-the-downloaded-usage-details-and-in-exports-csv-files"></a>다운로드한 사용량 세부 정보 및 CSV 파일 내보내기에서 비용 할당 보기
 
->[!VIDEO https://www.youtube.com/embed/nYzIIs2mx9Q]
+비용 할당 규칙은 다운로드한 사용량 세부 정보 파일 및 내보낸 데이터에서도 사용할 수 있습니다. 데이터 파일에는 열 이름 `costAllocationRuleName`이 있습니다. 비용 할당 규칙을 사용량 세부 정보 또는 내보내기 파일의 항목에 적용할 수 있는 경우 행은 비용 할당 규칙 이름으로 채워집니다. 다음 이미지 예는 소스 구독에 대한 항목이 있는 음수 요금을 보여 줍니다. 이는 할당된 비용의 요금입니다. 비용 할당 규칙의 목표에 대한 양수 요금도 있습니다.
 
+:::image type="content" source="./media/allocate-costs/rule-costs-allocated.png" alt-text="사용량 세부 정보 파일에 할당된 비용을 보여 주는 스크린샷." lightbox="./media/allocate-costs/rule-costs-allocated.png" :::
+
+#### <a name="azure-invoice-reconciliation"></a>Azure 청구서 조정 
+
+사용량 세부 정보는 Azure 송장 조정에도 사용됩니다. 조정 시 내부 할당된 비용을 표시하는 것은 혼란을 야기할 수 있습니다. 잠재적인 혼란을 줄이고 청구서에 표시된 데이터에 맞추기 위해 비용 할당 규칙을 필터링할 수 있습니다. 비용 할당 규칙을 제거하면 사용량 세부 정보 파일은 청구된 구독 청구서에 표시된 비용과 일치할 것입니다.
+
+:::image type="content" source="./media/allocate-costs/rule-name-filtered.png" alt-text="규칙 이름을 제외하고 할당된 비용을 보여 주는 스크린샷" lightbox="./media/allocate-costs/rule-name-filtered.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>기존 비용 할당 규칙 편집
 
@@ -111,7 +122,6 @@ Azure Portal에서 **Cost Management + 청구** > **Cost Management** > **비용
 
 다음 항목은 현재 비용 할당 공개 미리 보기에서 지원되지 않습니다.
 
-- 예약된 [내보내기](tutorial-export-acm-data.md)
 - [사용량 세부 정보](/rest/api/consumption/usagedetails/list) API에서 공개하는 데이터
 - 청구 구독 영역
 - [Cost Management Power BI 앱](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)

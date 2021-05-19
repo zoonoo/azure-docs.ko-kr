@@ -4,13 +4,13 @@ description: LUIS 앱 모델에서 최상의 결과를 얻기 위한 모범 사�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 2f6ed85416cc5d7c3c2baba2b2cfe489e301d7e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: d5fa2a1e865a4f54de268e7ad756d1d4363f3b78
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788488"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107500212"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>LUIS(Language Understanding) 앱 빌드에 대한 모범 사례
 앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다.
@@ -81,7 +81,7 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 
 기계 학습 엔터티는 다른 엔터티를 기능으로 사용할 수 있습니다. 이러한 다른 엔터티는 정규식 엔터티 또는 목록 엔터티와 같은 사용자 지정 엔터티가 될 수도 있고 미리 빌드된 엔터티를 기능으로 사용할 수도 있습니다.
 
-[효과적인 기계 학습 엔터티](luis-concept-entity-types.md#effective-machine-learned-entities)에 대해 알아보세요.
+[효과적인 기계 학습 엔터티](luis-concept-entity-types.md#machine-learned-ml-entity)에 대해 알아보세요.
 
 <a name="#do-build-the-app-iteratively"></a>
 

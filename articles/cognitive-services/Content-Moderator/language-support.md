@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Content Moderator API에서 지 원하는 자연어 목록입니다.
+description: Azure Cognitive Services Content Moderator API에서 지원하는 자연어 목록입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 043e61f498417b74831cd49f046f78b02e907964
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "84310311"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API를 위한 언어 지원
@@ -40,7 +40,7 @@ ms.locfileid: "84310311"
 | 체코어 |  벨라루스어 | 그리스어(현대)         | 폴란드어 |
 | 디베히어 | 보스니아어 - 키릴 자모 | 헝가리어      | 포르투갈어 |
 | 네덜란드어 | 보스니아어 - 라틴 문자 | 이탈리아어             | 루마니아어 |
-| 영어 (크리올) | 브르타뉴어[비 GeoPol] | 일본어  | 러시아어 |
+| 영어(크리올어) | 브르타뉴어[비 GeoPol] | 일본어  | 러시아어 |
 | 페르시아어 | 불가리아어 | 한국어                        | 슬로바키아어 |
 | 프랑스어 | 카탈로니아어 | 노르웨이어                        | 스페인어 |
 | 독일어 | 소라니 쿠르드어 | 폴란드어        | 터키어 |
@@ -113,7 +113,7 @@ ms.locfileid: "84310311"
 | | 러시아어 | | |
 | | 스코틀랜드 게일어 | | |
 | | 세르비아어(키릴 자모) | | |
-| | 세르비아어 (키릴 자모, 보스니아 헤르체고비나) | | |
+| | 세르비아어(키릴 자모, 보스니아 헤르체고비나) | | |
 | | 세르비아어(라틴 문자) | | |
 | | 세소토어 | | |
 | | 북부 소토어 | | |

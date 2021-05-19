@@ -1,6 +1,6 @@
 ---
 title: Azure API Management 정책을 설정 및 편집하는 방법 | Microsoft Docs
-description: Azure API Management 정책을 설정 하거나 편집 하는 방법에 대해 알아봅니다. 이러한 정책은 인바운드 및 아웃 바운드 문의 시퀀스를 설명 하는 XML 문서입니다.
+description: Azure API Management 정책을 설정하거나 편집하는 방법을 알아봅니다. 이 정책은 인바운드 및 아웃바운드 문의 시퀀스를 설명하는 XML 문서입니다.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: a737fada3e019029967bc752aaa0dedc354fa880
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92078326"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Azure API Management 정책을 설정 및 편집하는 방법
@@ -38,7 +38,7 @@ ms.locfileid: "92078326"
 4. 이전에 가져온 API 중 하나를 선택합니다.
 5. **디자인** 탭을 선택합니다.
 6. 정책을 적용하려는 작업을 선택합니다. 모든 작업에 정책을 적용하려는 경우 **모든 작업** 을 선택합니다.
-7. **</>** **인바운드 처리** 또는 **아웃 바운드 처리** 섹션에서 (코드 편집기) 아이콘을 선택 합니다.
+7. **인바운드 처리** 또는 **아웃바운드 처리** 섹션에서 **</>** (코드 편집기) 아이콘을 선택합니다.
 8. 원하는 정책 코드를 적절한 블록 중 하나에 붙여넣습니다.
 
     ```xml
@@ -120,7 +120,7 @@ API 범위는 선택한 API의 **모든 작업** 에 대해 구성됩니다.
 
 작업 범위는 선택한 작업에 대해 구성됩니다.
 
-1. **API** 를 선택 합니다.
+1. **API** 를 선택합니다.
 2. 정책을 적용하려는 작업을 선택합니다.
 
     ![작업 범위](./media/api-management-howto-policies/operation-scope.png)

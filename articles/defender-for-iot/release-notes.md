@@ -2,13 +2,13 @@
 title: Azure Defender for IoT의 새로운 기능
 description: 이 문서에서는 최신 Defender for IoT 릴리스의 새로운 기능을 확인할 수 있습니다.
 ms.topic: overview
-ms.date: 04/25/2021
-ms.openlocfilehash: f7631caedcb26227abf65d6fad216fc629d41dd4
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.date: 05/05/2021
+ms.openlocfilehash: e731d45d527a3bb2a59e532065fefc78a3237fd5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107987096"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755264"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>Azure Defender for IoT의 새로운 기능이란?  
 
@@ -104,11 +104,6 @@ Microsoft는 분기별로 한 번 이상 Azure Defender for IoT 업데이트를 
 
 이 기능은 버전 10.2 릴리스의 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
 
-### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>온-프레미스 관리 콘솔에 두 번째 네트워크 인터페이스 추가(공개 미리 보기)
-
-이제 두 번째 네트워크 인터페이스를 온-프레미스 관리 콘솔에 추가하여 배포의 보안을 향상시킬 수 있습니다. 이 기능을 사용하면 온-프레미스 관리에서 센서를 하나의 보안 네트워크에 연결하고, 사용자가 별도의 두 번째 네트워크 인터페이스를 통해 온-프레미스 관리 콘솔에 액세스할 수 있습니다.
-
-이 기능은 버전 10.2 릴리스의 온-프레미스 관리 콘솔에서 사용할 수 있습니다.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>디바이스 빌더 - 새 마이크로 에이전트(공개 미리 보기)
 
 새 디바이스 빌더 모듈을 사용할 수 있습니다. 마이크로 에이전트라고 하는 모듈에서 수행할 수 있는 기능은 다음과 같습니다.

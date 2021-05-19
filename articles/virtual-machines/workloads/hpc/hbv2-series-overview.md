@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 59dd953b2116bc1ec7bd0a581cc181df64fbf49e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 965e7c92e17d5ba689fccc0ee6eb321fe2a36695
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721149"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108138083"
 ---
 # <a name="hbv2-series-virtual-machine-overview"></a>HBv2 시리즈 가상 머신 개요 
 
@@ -59,7 +59,7 @@ VM 자체는 pNUMA 0 및 16이 예약되어 있음을 인식하지 못합니다.
 | 오케스트레이터 지원        | CycleCloud, 배치, AKS; [클러스터 구성 옵션](../../sizes-hpc.md#cluster-configuration-options)  |
 
 > [!NOTE] 
-> Windows Server 2012 R2는 HBv2 및 64개 가상 또는 물리적 코어를 초과하는 기타 VM에서 지원되지 않습니다. 자세한 내용은 [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
+> Windows Server 2012 R2는 HBv2 및 64개 가상 또는 물리적 코어를 초과하는 기타 VM에서 지원되지 않습니다. 자세한 내용은 [여기](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

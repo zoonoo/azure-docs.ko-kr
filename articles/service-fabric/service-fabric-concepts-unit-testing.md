@@ -1,13 +1,13 @@
 ---
-title: Azure Service Fabric에서 상태 저장 서비스 단위 테스트
+title: Azure Service Fabric의 상태 저장 서비스 단위 테스트
 description: Service Fabric 상태 저장 서비스의 단위 테스트 개념 및 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.openlocfilehash: 12e8a47d9685dee12594f4e2afaa848d9688d185
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "75433919"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Service Fabric의 상태 저장 서비스 단위 테스트
@@ -76,7 +76,7 @@ Service Fabric 상태 저장 서비스의 단위 테스트를 위해서는 몇 �
 
 - [상태 저장 서비스 시작](service-fabric-reliable-services-lifecycle.md#stateful-service-startup)
 - [상태 저장 서비스 종료](service-fabric-reliable-services-lifecycle.md#stateful-service-shutdown)
-- [상태 저장 서비스 기본 교환](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
+- [상태 저장 서비스 주 교환](service-fabric-reliable-services-lifecycle.md#stateful-service-primary-swaps)
 
 #### <a name="run-replica-role-changes"></a>복제본 역할 변경 실행
 단위 테스트는 Service Fabric 오케스트레이션과 동일한 방식으로 서비스 인스턴스의 역할을 변경해야 합니다. 역할 상태 컴퓨터는 다음 문서에 설명되어 있습니다.

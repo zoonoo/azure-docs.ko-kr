@@ -1,24 +1,24 @@
 ---
 title: ONNX를 통해 배포 및 예측
 titleSuffix: SQL machine learning
-description: 모델을 학습하고, ONNX로 변환하고, Azure SQL Edge 또는 Azure SQL Managed Instance(미리 보기)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행하는 방법에 대해 알아봅니다.
+description: 모델을 학습하고, ONNX로 변환하고, Azure SQL Edge 또는 Azure SQL Managed Instance에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행하는 방법에 대해 알아봅니다.
 keywords: SQL Edge 배포
 ms.prod: sql
 ms.technology: machine-learning
 ms.topic: quickstart
 author: dphansen
 ms.author: davidph
-ms.date: 10/13/2020
-ms.openlocfilehash: 755111b2fc48ec119c30d09f2e51b9db6c333848
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/06/2021
+ms.openlocfilehash: bd85ab065e7b3e2500cbbee262c5f7f4ddfb5c39
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100653213"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634008"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>ONNX 모델 및 SQL 기계 학습을 통해 배포 및 예측
 
-이 빠른 시작에서는 모델을 학습하고, ONNX로 변환하고, [Azure SQL Edge](onnx-overview.md) 또는 [Azure SQL Managed Instance(미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 모델을 학습하고, ONNX로 변환하고, [Azure SQL Edge](onnx-overview.md) 또는 [Azure SQL Managed Instance](../azure-sql/managed-instance/machine-learning-services-overview.md)에 배포한 다음, 업로드된 ONNX 모델을 사용하여 데이터에 대한 네이티브 PREDICT를 실행하는 방법에 대해 알아봅니다.
 
 이 빠른 시작은 **scikit-learn** 을 기반으로 하며, [보스턴 하우징 데이터 세트](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)를 사용합니다.
 
@@ -398,4 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>다음 단계
 
 * [SQL Edge에서 ONNX를 통한 Machine Learning 및 AI](onnx-overview.md)
-* [Azure SQL Managed Instance의 Machine Learning Services(미리 보기)](../azure-sql/managed-instance/machine-learning-services-overview.md)
+* [Azure SQL Managed Instance의 Machine Learning Services](../azure-sql/managed-instance/machine-learning-services-overview.md)

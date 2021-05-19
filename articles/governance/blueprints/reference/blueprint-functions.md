@@ -1,18 +1,18 @@
 ---
 title: Azure Blueprints 함수
 description: Azure Blueprints 정의 및 할당의 청사진 아티팩트와 함께 사용할 수 있는 함수를 설명합니다.
-ms.date: 01/27/2021
+ms.date: 05/01/2021
 ms.topic: reference
-ms.openlocfilehash: 92cb906e87179073b7a69aa0bd4eab22c77087f9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 0712051ef91ad114380f4f51063e31e4fc01f1b2
+ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98919277"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108326494"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure Blueprints와 사용할 수 있는 함수
 
-Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제공합니다. 이러한 함수는 청사진 정의 및 청사진 아티팩트와 함께 사용됩니다. Azure Resource Manager 템플릿 (ARM 템플릿) 아티팩트는 청사진 매개 변수를 통해 동적 값을 가져오는 것 외에도 리소스 관리자 함수를 모두 사용할 수 있도록 지원 합니다.
+Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제공합니다. 이러한 함수는 청사진 정의 및 청사진 아티팩트와 함께 사용됩니다. ARM 템플릿(Azure Resource Manager 템플릿) 아티팩트는 청사진 매개 변수를 통해 동적 값을 가져오는 것 외에도 Resource Manager 함수를 모두 사용할 수 있도록 지원합니다.
 
 지원되는 함수는 다음과 같습니다.
 
@@ -30,7 +30,7 @@ Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제
 청사진 아티팩트 출력과 함께 채워진 속성의 개체를 반환합니다.
 
 > [!NOTE]
-> `artifacts()`함수는 ARM 템플릿 내에서 사용할 수 없습니다. Azure PowerShell 또는 REST API를 사용하여 청사진을 [코드형 청사진](https://github.com/Azure/azure-blueprints/blob/master/README.md)의 일부로 관리할 때 청사진 정의 JSON 또는 아티팩트 JSON에서만 함수를 사용할 수 있습니다.
+> `artifacts()` 함수는 ARM 템플릿 내부에서 사용할 수 없습니다. Azure PowerShell 또는 REST API를 사용하여 청사진을 [코드형 청사진](https://github.com/Azure/azure-blueprints/blob/master/README.md)의 일부로 관리할 때 청사진 정의 JSON 또는 아티팩트 JSON에서만 함수를 사용할 수 있습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -62,7 +62,7 @@ Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제
 
 #### <a name="arm-template-artifact"></a>ARM 템플릿 아티팩트
 
-반환 된 개체의 **출력** 속성은 ARM 템플릿 내에 정의 되 고 배포에서 반환 됩니다.
+반환된 개체의 **outputs** 속성은 ARM 템플릿 내부에서 정의되고 배포 시 반환됩니다.
 
 #### <a name="role-assignment-artifact"></a>역할 할당 아티팩트
 
@@ -78,7 +78,7 @@ Azure Blueprints는 더욱 동적인 청사진 정의를 만드는 함수를 제
 
 ### <a name="example"></a>예제
 
-다음 샘플 출력 속성을 포함 하는 ID _mytemplate 아티팩트가_ 있는 ARM 템플릿 아티팩트:
+다음 샘플 출력 속성이 포함된 ID _myTemplateArtifact_ 가 있는 ARM 템플릿 아티팩트:
 
 ```json
 {
@@ -134,7 +134,7 @@ _myTemplateArtifact_ 샘플에서의 데이터 검색 예시 중 일부는 다�
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 ARM 템플릿 함수와 다릅니다.
+Azure Blueprint 함수는 문자열에서만 작동한다는 점에서 ARM 템플릿 함수와 다릅니다.
 
 ### <a name="example"></a>예제
 
@@ -158,7 +158,7 @@ Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 ARM 템
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점에서 ARM 템플릿 함수와 다릅니다.
+Azure Blueprint 함수는 청사진 매개 변수에서만 작동한다는 점에서 ARM 템플릿 함수와 다릅니다.
 
 ### <a name="example"></a>예제
 

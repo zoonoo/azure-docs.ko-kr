@@ -1,7 +1,7 @@
 ---
-title: Microsoft id 플랫폼을 사용 하는 앱 로그인 흐름 | Microsoft
+title: Microsoft ID 플랫폼을 사용하는 앱 로그인 흐름 | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft id 플랫폼에서 웹, 데스크톱 및 모바일 앱의 로그인 흐름에 대해 알아봅니다.
+description: Microsoft ID 플랫폼에서 웹, 데스크톱 및 모바일 앱의 로그인 흐름에 대해 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,13 +14,13 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 1f9f330ab140fa66b5a66a112c47ca2a68ba56bf
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98755692"
 ---
-# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Microsoft id 플랫폼을 사용 하는 앱 로그인 흐름
+# <a name="app-sign-in-flow-with-the-microsoft-identity-platform"></a>Microsoft ID 플랫폼을 사용하는 앱 로그인 흐름
 
 이 항목에서는 Microsoft ID 플랫폼을 사용하는 웹, 데스크톱 및 모바일 앱에 대한 기본 로그인 흐름에 대해 설명합니다. Microsoft ID 플랫폼에서 지원하는 로그인 시나리오에 대한 자세한 내용은 [인증 흐름 및 앱 시나리오](authentication-flows-app-scenarios.md)를 참조하세요.
 
@@ -30,12 +30,12 @@ ms.locfileid: "98755692"
 
 * 웹앱은 사용자가 인증되었는지 여부를 확인합니다.
 * 사용자가 인증되지 않은 경우 웹앱은 사용자를 로그인하도록 Azure AD에 위임합니다. 해당 로그인은 조직의 정책을 준수합니다. 따라서 사용자에게 자격 증명을 입력하도록 요구하거나, [다단계 인증](../authentication/concept-mfa-howitworks.md)(2단계 인증 또는 2FA라고도 함)을 사용하거나, 암호를 전혀 사용하지 않을 수 있습니다(예: Windows Hello 사용).
-* 사용자는 클라이언트 앱에 필요한 액세스에 동의하라는 요청을 받습니다. 이 때문에 Microsoft id 플랫폼이 사용자가 동의한 액세스를 나타내는 토큰을 제공할 수 있도록 클라이언트 앱을 Azure AD에 등록 해야 합니다.
+* 사용자는 클라이언트 앱에 필요한 액세스에 동의하라는 요청을 받습니다. 이 때문에 클라이언트 앱을 Azure AD에 등록해야 하며, Microsoft ID 플랫폼은 사용자가 동의한 액세스를 나타내는 토큰을 제공할 수 있습니다.
 
 사용자가 인증되면 다음 결과가 나타납니다.
 
-* Microsoft id 플랫폼은 웹 앱에 토큰을 보냅니다.
-* 쿠키가 저장되고, 브라우저의 쿠키 보관함에 있는 사용자의 ID를 포함하는 Azure AD의 도메인과 연결됩니다. 다음에 앱이 브라우저를 사용 하 여 Microsoft id 플랫폼 권한 부여 끝점으로 이동 하면 브라우저는 사용자가 다시 로그인 할 필요가 없도록 쿠키를 표시 합니다. 이것은 SSO가 구현되는 방식이기도 합니다. 쿠키는 Azure AD에서 생성되며 Azure AD에서만 이해할 수 있습니다.
+* Microsoft ID 플랫폼이 웹앱에 토큰을 보냅니다.
+* 쿠키가 저장되고, 브라우저의 쿠키 보관함에 있는 사용자의 ID를 포함하는 Azure AD의 도메인과 연결됩니다. 다음번에 앱이 브라우저를 사용하여 Microsoft ID 플랫폼 권한 부여 엔드포인트로 이동되면 브라우저는 사용자가 다시 로그인할 필요가 없도록 쿠키를 표시합니다. 이것은 SSO가 구현되는 방식이기도 합니다. 쿠키는 Azure AD에서 생성되며 Azure AD에서만 이해할 수 있습니다.
 * 그런 후에 웹앱에서 토큰의 유효성을 검사합니다. 유효성 검사가 성공하면 웹앱은 보호된 페이지를 표시하고 세션 쿠키를 브라우저의 쿠키 보관함에 저장합니다. 사용자가 다른 페이지로 이동하면 웹앱은 세션 쿠키에 따라 사용자가 인증되었음을 알게 됩니다.
 
 다음 시퀀스 다이어그램은 이러한 상호 작용을 요약해서 보여 줍니다.
@@ -48,12 +48,12 @@ ms.locfileid: "98755692"
 
 이 특성을 사용하면 ASP.NET은 사용자의 ID가 포함된 세션 쿠키의 존재 여부를 확인합니다. 쿠키가 없는 경우 ASP.NET은 인증을 지정된 ID 공급자로 리디렉션합니다. ID 공급자가 Azure AD인 경우 웹앱은 인증을 `https://login.microsoftonline.com`으로 리디렉션하고 로그인 대화 상자를 표시합니다.
 
-### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>웹 앱이 Microsoft id 플랫폼에 로그인을 위임 하 고 토큰을 가져오는 방법
+### <a name="how-a-web-app-delegates-sign-in-to-the-microsoft-identity-platform-and-obtains-a-token"></a>웹앱이 Microsoft ID 플랫폼에 로그인을 위임하고 토큰을 가져오는 방법
 
 브라우저를 통해 사용자 인증이 수행됩니다. OpenID 프로토콜은 표준 HTTP 프로토콜 메시지를 사용합니다.
 
 * 웹앱은 Microsoft ID 플랫폼을 사용하기 위해 HTTP 302(리디렉션)를 브라우저로 보냅니다.
-* 사용자가 인증 되 면 Microsoft id 플랫폼은 브라우저를 통해 리디렉션을 사용 하 여 웹 앱에 토큰을 보냅니다.
+* 사용자가 인증되면 Microsoft ID 플랫폼은 브라우저를 통해 리디렉션을 사용하여 웹앱에 토큰을 보냅니다.
 * 리디렉션은 웹앱에서 리디렉션 URI 형식으로 제공됩니다. 이 리디렉션 URI는 Azure AD 애플리케이션 개체에 등록됩니다. 애플리케이션을 여러 URI에 배포할 수 있기 때문에 여러 리디렉션 URI가 있을 수 있습니다. 따라서 웹앱은 사용할 리디렉션 URI도 지정해야 합니다.
 * Azure AD는 웹앱에서 보낸 리디렉션 URI가 앱에 대해 등록된 리디렉션 URI 중 하나인지 확인합니다.
 

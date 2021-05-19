@@ -1,6 +1,6 @@
 ---
-title: 토픽 및 구독과 함께 미리 보기 JavaScript azure/service-bus 사용
-description: '@azure/service-bus 패키지의 최신 미리 보기 버전을 사용하여 메시지를 Service Bus 토픽으로 보내고 구독에서 토픽으로 메시지를 받는 JavaScript 프로그램을 작성하는 방법에 대해 알아봅니다.'
+title: Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(JavaScript)
+description: '@azure/service-bus 패키지의 최신 버전을 사용하여 메시지를 Service Bus 토픽으로 보내고 구독에서 토픽으로 메시지를 받는 JavaScript 프로그램을 작성하는 방법에 대해 알아봅니다.'
 author: spelluru
 ms.author: spelluru
 ms.date: 11/09/2020
@@ -9,14 +9,14 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: 59f1bb29099f2b921e687ca9de46365bc34f1b91
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: e9d53c312f6e61d6384afc17dce023742ab6bd98
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537254"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743294"
 ---
-# <a name="quickstart-service-bus-topics-and-subscriptions-with-nodejs-and-the-preview-azureservice-bus-package"></a>빠른 시작: Node.js 및 미리 보기 azure/service-bus 패키지를 사용하는 Service Bus 토픽 및 구독
+# <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-javascript"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 해당 토픽으로 메시지를 받는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
@@ -208,6 +208,7 @@ Azure Portal에서 Service Bus 네임스페이스로 이동하고 아래쪽 창�
 ## <a name="next-steps"></a>다음 단계
 다음 설명서와 샘플을 참조하세요. 
 
-- [Python용 Azure Service Bus 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/README.md)
-- [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). **javascript** 폴더에는 JavaScript 샘플이 있고 **typescript** 에는 TypeScript 샘플이 있습니다. 
-- [azure-servicebus 참조 설명서](/javascript/api/overview/azure/service-bus)
+- [JavaScript용 Azure Service Bus 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/service-bus)
+- [JavaScript 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [API 참조 설명서](/javascript/api/overview/azure/service-bus)

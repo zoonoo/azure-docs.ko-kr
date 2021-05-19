@@ -1,35 +1,35 @@
 ---
-title: CloudSimple 사설 클라우드에서 Azure VMware 솔루션 삭제
-description: CloudSimple 사설 클라우드를 삭제 하는 방법에 대해 알아봅니다. 사설 클라우드를 삭제 하면 모든 클러스터가 삭제 됩니다.
-author: Ajayan1008
-ms.author: v-hborys
+title: Azure VMware Solution by CloudSimple 프라이빗 클라우드 삭제
+description: CloudSimple 프라이빗 클라우드를 삭제하는 방법에 대해 알아봅니다. 프라이빗 클라우드를 삭제하면 모든 클러스터가 삭제됩니다.
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7db967955dc86db39db4dcb2b3a2baf8906efb20
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8ff5d251daca97ab5f0557f016ef47c7d77c2b2e
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97896263"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108182375"
 ---
-# <a name="delete-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드를 삭제 합니다.
+# <a name="delete-a-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드 삭제
 
-CloudSimple은 사설 클라우드를 삭제할 수 있는 유연성을 제공 합니다.  사설 클라우드는 하나 이상의 vSphere 클러스터로 구성 됩니다. 각 클러스터에는 3 ~ 16 개의 노드가 있을 수 있습니다. 사설 클라우드를 삭제 하면 모든 클러스터가 삭제 됩니다.
+CloudSimple은 프라이빗 클라우드를 삭제할 수 있는 유연성을 제공합니다.  프라이빗 클라우드는 하나 이상의 vSphere 클러스터로 구성됩니다. 각 클러스터에는 3~16개의 노드가 있을 수 있습니다. 프라이빗 클라우드를 삭제하면 모든 클러스터가 삭제됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-사설 클라우드 삭제는 전체 사설 클라우드를 삭제 합니다.  사설 클라우드의 모든 구성 요소가 삭제 됩니다.  데이터를 유지 하려면 온-프레미스 저장소 또는 Azure storage에 데이터를 백업 했는지 확인 합니다.
+프라이빗 클라우드 삭제는 프라이빗 클라우드 전체를 삭제합니다.  프라이빗 클라우드의 모든 구성 요소가 삭제됩니다.  데이터를 유지하려면 온-프레미스 스토리지 또는 Azure Storage에 데이터를 백업했는지 확인합니다.
 
-사설 클라우드의 구성 요소는 다음과 같습니다.
+프라이빗 클라우드의 구성 요소는 다음과 같습니다.
 
 * CloudSimple 노드
 * 가상 머신
 * VLAN/서브넷
-* 사설 클라우드에 저장 된 모든 사용자 데이터
-* VLAN/서브넷에 대 한 모든 방화벽 규칙 첨부 파일
+* 프라이빗 클라우드에 저장된 모든 사용자 데이터
+* VLAN/서브넷에 대한 모든 방화벽 규칙 첨부 파일
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -41,20 +41,20 @@ CloudSimple은 사설 클라우드를 삭제할 수 있는 유연성을 제공 �
 
 2. **리소스** 페이지를 엽니다.
 
-3. 삭제 하려는 사설 클라우드를 클릭 합니다.
+3. 삭제할 프라이빗 클라우드를 클릭합니다.
 
-4. 요약 페이지에서 **삭제** 를 클릭 합니다.
+4. 요약 페이지에서 **삭제** 를 클릭합니다.
 
-    ![사설 클라우드 삭제](media/delete-private-cloud.png)
+    ![프라이빗 클라우드 삭제](media/delete-private-cloud.png)
 
-5. 확인 페이지에서 사설 클라우드의 이름을 입력 하 고 **삭제** 를 클릭 합니다. 
+5. 확인 페이지에서 프라이빗 클라우드의 이름을 입력하고 **삭제** 를 클릭합니다. 
 
-    ![사설 클라우드 삭제-확인](media/delete-private-cloud-confirm.png)
+    ![프라이빗 클라우드 삭제 - 확인](media/delete-private-cloud-confirm.png)
 
-사설 클라우드가 삭제 되도록 표시 되어 있습니다.  삭제 프로세스는 3 시간 후에 시작 하 고 사설 클라우드를 삭제 합니다.
+프라이빗 클라우드는 삭제를 위해 표시되었습니다.  삭제 프로세스는 3시간 후에 시작되며 프라이빗 클라우드를 삭제합니다.
 
 > [!CAUTION]
-> 사설 클라우드를 삭제 한 후 노드를 삭제 해야 합니다.  노드의 측정은 노드가 구독에서 삭제 될 때까지 계속 됩니다.
+> 프라이빗 클라우드를 삭제한 후에는 노드를 삭제해야 합니다.  노드의 측정은 노드가 구독에서 삭제될 때까지 계속됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

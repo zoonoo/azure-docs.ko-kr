@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: c0a4156fb0015c6d319700c82f6285dbf0ed1443
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 0111e0a37f1684ab764160d64231ea5dde2547a6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947882"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108758990"
 ---
 # <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
 
@@ -37,7 +37,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 - 자동으로 갱신되는 **무료 SSL 인증서**.
 - 앱에 브랜드 사용자 지정을 제공하는 **사용자 지정 도메인**.
 - CORS 구성이 필요 없는 API를 호출할 때 역방향 프록시를 사용하는 **원활한 보안 모델**.
-- Azure Active Directory, Facebook, Google, GitHub 및 Twitter와 **인증 공급자 통합**.
+- Azure Active Directory, GitHub 및 Twitter와 **인증 공급자 통합**.
 - **사용자 지정 가능한 권한 부여 역할 정의** 및 할당.
 - **백 엔드 라우팅 규칙** 을 사용하여 사용자가 제공하는 콘텐츠와 경로를 완전히 제어할 수 있습니다.
 - 게시하기 전에 사이트의 미리 보기 버전을 사용하도록 설정하는 끌어오기 요청으로 구동되는 **생성된 스테이징 버전**.

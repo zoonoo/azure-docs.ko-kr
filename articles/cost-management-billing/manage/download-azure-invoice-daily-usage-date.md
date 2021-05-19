@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 05/05/2021
 ms.author: banders
-ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 96ebde17272929cca424a4dddce55b194c974157
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911293"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750602"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
 
@@ -77,7 +77,7 @@ Microsoft 고객 계약의 [청구 프로필](../understand/mca-overview.md#bill
 
 ## <a name="get-your-invoice-in-email-pdf"></a>전자 메일로 청구서 받기(.pdf)
 
-Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 제안, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다. Microsoft 고객 계약이 있는 경우 이메일로 청구 프로필 청구서 받기를 참조하세요.
+Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 제안, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다. Microsoft 고객 계약이 있는 경우 [이메일로 청구 프로필 청구서 받기](../understand/download-azure-invoice.md#get-your-billing-profiles-invoice-in-email)를 참조하세요.
 
 ### <a name="get-your-subscriptions-invoices-in-email"></a>이메일로 구독의 청구서 받기
 

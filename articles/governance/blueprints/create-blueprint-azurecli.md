@@ -3,18 +3,18 @@ title: '빠른 시작: Azure CLI를 사용하여 청사진 만들기'
 description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 Azure CLI를 통해 아티팩트를 만들고 정의하고 배포합니다.
 ms.date: 05/01/2021
 ms.topic: quickstart
-ms.openlocfilehash: df21354f1ce60c23a5a6e232422fc03c105b9715
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 2b5f9fe3ff8d2c43d3e0744e358c52240006e830
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323450"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747686"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>빠른 시작: Azure CLI로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 - 이전에 Azure Blueprints를 사용하지 않은 경우 Azure CLI를 통해 리소스 공급자를 `az provider register --namespace Microsoft.Blueprint`로 등록합니다.
@@ -130,7 +130,7 @@ Azure CLI를 사용하여 청사진 정의 및 할당을 관리하려면 확장�
       --description 'Contains the resource template deployment and a role assignment.'
    ```
 
-1. 구독 시 역할 할당을 추가합니다. 아래 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
+1. 구독 시 역할 할당을 추가합니다. 다음 예에서 지정된 역할에 부여된 주체 ID는 청사진 할당 중에 설정되는 매개 변수로 구성됩니다. 이 예제에서는 `b24988ac-6180-42a0-ab88-20f7382dd24c`의 GUID와 함께 _기여자_ 기본 제공 역할을 사용합니다.
 
    ```azurecli-interactive
    az blueprint artifact role create \

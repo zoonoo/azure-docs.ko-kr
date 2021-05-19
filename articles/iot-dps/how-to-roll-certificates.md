@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스에서 x.509 인증서 롤
-description: DPS (장치 프로 비전 서비스) 인스턴스로 X. x.509 인증서를 롤백하는 방법
+title: Azure IoT Hub Device Provisioning Service에서 X.509 인증서를 배포
+description: DPS(디바이스 프로비저닝 서비스) 인스턴스로 X.509 인증서를 배포하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.openlocfilehash: bf8b1e04e11dee4e636826430838a467fe034e3f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94951131"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>X.509 디바이스 인증서 배포 방법
@@ -20,7 +20,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 인증서 배포는 위반 발생 시 시스템을 보호할 수 있는 보안 모범 사례입니다. [보안 위험 가정 방법론](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf)의 일환으로 Microsoft는 예방 조치와 함께 사후 보안 프로세스의 필요성을 강조하고 있습니다. 디바이스 인증서 배포는 이러한 보안 프로세스의 일환으로 포함되어야 합니다. 인증서의 배포 빈도는 솔루션의 보안 요구 사항에 따라 달라집니다. 중요도 높은 데이터가 포함된 솔루션을 사용하는 고객은 매일 인증서를 배포하기도 하며 어떤 고객은 2년마다 인증서를 배포할 수도 있습니다.
 
-디바이스 인증서 배포에는 디바이스 및 IoT Hub에 저장된 인증서 업데이트가 포함됩니다. 그런 다음, 장치는 DPS (장치 프로 비전 서비스)를 사용 하는 정상적인 [프로 비전](about-iot-dps.md#provisioning-process) 을 사용 하 여 IoT hub를 통해 다시 구축 수 있습니다.
+디바이스 인증서 배포에는 디바이스 및 IoT Hub에 저장된 인증서 업데이트가 포함됩니다. 이후 디바이스는 DPS(디바이스 프로비저닝 서비스)를 통해 일반 [프로비전](about-iot-dps.md#provisioning-process)을 사용하여 IoT Hub로 스스로 다시 프로비전합니다.
 
 
 ## <a name="obtain-new-certificates"></a>새 인증서 가져오기
@@ -51,7 +51,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 새 리프 인증서가 디바이스에 배포되면 새 인증서를 사용하여 연결하므로 더 이상 IoT Hub에 연결할 수 없습니다. IoT Hub는 이전 인증서가 있는 디바이스만 인식합니다. 디바이스의 연결 시도 결과는 "권한 없음" 연결 오류입니다. 이 오류를 해결하려면 디바이스의 새 리프 인증서에 부합하게 디바이스에 대한 등록 항목을 업데이트해야 합니다. 그러면 디바이스가 다시 프로비전될 때 프로비전 서비스가 IoT Hub 디바이스 레지스트리 정보를 필요에 따라 업데이트할 수 있습니다. 
 
-이 연결 실패의 가능한 예외 하나는 프로비전서비스에서 디바이스에 대해 [등록 그룹](concepts-service.md#enrollment-group)을 만드는 시나리오입니다. 이 상황에서는 디바이스의 인증서 신뢰 체인에 루트 또는 중간 인증서를 배포하지 않는 경우, 새 인증서가 등록 그룹에 정의된 신뢰 체인의 일부일 때 디바이스가 인식됩니다. 이 시나리오가 보안 위반에 대 한 반응으로 발생 하는 경우, 그룹에서 위반으로 간주 되는 특정 장치 인증서를 최소한으로 허용 하지 않아야 합니다. 자세한 내용은 [등록 그룹에서 특정 장치 허용 안 함](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group)을 참조 하세요.
+이 연결 실패의 가능한 예외 하나는 프로비전서비스에서 디바이스에 대해 [등록 그룹](concepts-service.md#enrollment-group)을 만드는 시나리오입니다. 이 상황에서는 디바이스의 인증서 신뢰 체인에 루트 또는 중간 인증서를 배포하지 않는 경우, 새 인증서가 등록 그룹에 정의된 신뢰 체인의 일부일 때 디바이스가 인식됩니다. 이 시나리오는 보안 위반에 대한 조치로 발생하며 최소한 위반된 것으로 간주되는 그룹의 특정 디바이스 인증서를 허용하지 않아야 합니다. 자세한 내용은 [등록 그룹에서 특정 디바이스 허용하지 않음](./how-to-revoke-device-access-portal.md#disallow-specific-devices-in-an-enrollment-group)을 참조하세요.
 
 등록된 인증서에 대한 등록 항목 업데이트는 **등록 관리** 페이지에서 수행됩니다. 이 페이지에 액세스하려면 다음 단계를 따르세요.
 
@@ -75,7 +75,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
     기본 인증서와 보조 인증서가 모두 손상된 경우 두 인증서 모두에 대해 이 단계를 완료해야 합니다.
 
-    ![보안 위반으로 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![보안 위반이 있는 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 디바이스 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 디바이스를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
 
@@ -96,7 +96,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 2. **보조 인증서** 를 클릭한 다음, 폴더 아이콘을 클릭하여 등록 항목에 대해 업로드할 새 인증서를 선택합니다. **저장** 을 클릭합니다.
 
-    ![보조 인증서 만료를 사용 하 여 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![만료된 보조 인증서를 사용하는 개별 등록 관리](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. 나중에 기본 인증서가 만료되면 다시 돌아와 **현재 인증서 삭제** 단추를 클릭하여 기본 인증서를 삭제합니다.
 
@@ -108,7 +108,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 1. 디바이스 프로비저닝 서비스 인스턴스에 대해 **인증서** 탭을 클릭합니다.
 
-2. 목록에서 손상된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력 하 여 삭제를 확인 하 고 **확인** 을 클릭 합니다. 손상된 모든 인증서에 대해 이 프로세스를 반복합니다.
+2. 목록에서 손상된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력하여 삭제를 확인하고 **확인** 을 클릭합니다. 손상된 모든 인증서에 대해 이 프로세스를 반복합니다.
 
     ![루트 CA 인증서 삭제](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -118,7 +118,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 5. **CA 인증서** 를 클릭하고 새 루트 CA 인증서를 선택합니다. 그런 다음 **Save** 를 클릭합니다. 
 
-    ![손상 된 인증서에 대 한 새 루트 CA 인증서를 선택 합니다.](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![손상된 인증서에 대한 새 루트 CA 인증서를 선택합니다.](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 디바이스 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 디바이스를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
 
@@ -138,7 +138,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
     이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md#x509-certificates)를 참조하세요.
 
-    ![손상 된 중간의 개별 등록 관리](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![손상된 중간 인증서에 대한 개별 등록 관리](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. 손상된 인증서가 프로비전 서비스에서 제거된 후, IoT 허브에 대한 디바이스 등록이 존재하는 한 인증서를 계속 사용하여 IoT 허브에 디바이스를 연결할 수 있습니다. 이 문제는 두 가지 방법으로 해결할 수 있습니다. 
@@ -164,7 +164,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 3. **CA 인증서** 를 클릭하고 **보조 인증서** 구성에서 새 루트 CA 인증서를 선택합니다. 그런 다음 **Save** 를 클릭합니다. 
 
-    ![만료에 대 한 새 루트 CA 인증서를 선택 합니다.](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![만료에 대한 새 루트 CA 인증서를 선택합니다.](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. 나중에 기본 인증서가 만료되면 디바이스 프로비저닝 서비스 인스턴스에 대한 **인증서** 탭을 클릭합니다. 목록에서 만료된 인증서를 클릭한 다음, **삭제** 단추를 클릭합니다. 인증서 이름을 입력하여 삭제를 확인하고 **확인** 을 클릭합니다.
 
@@ -181,7 +181,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
     이 새 중간 인증서는 이미 프로비전 서비스에 추가된 인증된 루트 CA 인증서로 서명해야 합니다. 자세한 내용은 [X.509 인증서](concepts-x509-attestation.md#x509-certificates)를 참조하세요.
 
-   ![보조 인증서 만료를 사용 하 여 등록 그룹 관리](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![보조 인증서 만료를 사용하는 등록 그룹 관리](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. 나중에 기본 인증서가 만료되면 다시 돌아와 **현재 인증서 삭제** 단추를 클릭하여 기본 인증서를 삭제합니다.
 
@@ -199,7 +199,7 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 ## <a name="disallow-certificates"></a>인증서 허용 안 함
 
-보안 위반에 대 한 응답으로 장치 인증서를 허용 하지 않도록 해야 할 수 있습니다. 장치 인증서를 허용 하지 않으려면 대상 장치/인증서에 대 한 등록 항목을 사용 하지 않도록 설정 합니다. 자세한 내용은 [이기도 관리](how-to-revoke-device-access-portal.md) 문서에서 장치 허용 안 함을 참조 하세요.
+보안 위반에 대한 대처로 디바이스 인증서를 허용하지 않아야 할 수 있습니다. 디바이스 인증서를 허용하지 않으려면 대상 디바이스/인증서에 대한 등록 항목을 사용하지 않게 설정합니다. 자세한 내용은 [등록 취소 관리](how-to-revoke-device-access-portal.md) 문서에서 디바이스 허용하지 않기를 참조하세요.
 
 인증서가 사용하지 않는 등록 항목의 일부가 되면 다른 등록 항목의 일부로 사용하게 설정되었다 하더라도 해당 인증서를 사용하는 IoT Hub를 통한 모든 등록 시도가 실패합니다.
  
@@ -208,6 +208,6 @@ IoT 솔루션의 수명 주기 동안 인증서를 배포해야 합니다. 인�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 장치 프로 비전 서비스에서 x.509 인증서에 대해 자세히 알아보려면 [x.509 인증서 증명](concepts-x509-attestation.md) 을 참조 하세요. 
+- 디바이스 프로비저닝 서비스의 X.509 인증서에 대한 자세한 내용은 [X.509 인증서 증명](concepts-x509-attestation.md)을 참조하세요. 
 - Azure IoT Hub Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법은 [인증서 확인 방법](how-to-verify-certificates.md)을 참조하세요.
 - 포털을 사용하여 등록 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 디바이스 등록 관리](how-to-manage-enrollments.md)를 참조하세요.

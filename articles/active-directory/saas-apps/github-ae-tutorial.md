@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
-ms.openlocfilehash: 537378ef11333bd8942a61ab2bbb4e8a251c2b59
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 721c13ea31f812dd5f5b5c335373884766764c80
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103196852"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750764"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github-ae"></a>자습서: GitHub AE와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자 특성 및 클레임** 을 편집합니다.
 
-1. **새 클레임 추가** 를 클릭하고 텍스트 상자에 **관리자** 이름을 입력합니다.
+1. **새 클레임 추가** 를 클릭하고 텍스트 상자에 **administrator** 로 이름을 입력합니다(**administrator** 값은 대/소문자를 구분함).
 
 1. **클레임 조건** 을 확장하고 **사용자 유형** 에서 **멤버** 를 선택합니다.
 

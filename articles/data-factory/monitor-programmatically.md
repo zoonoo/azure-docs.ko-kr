@@ -4,15 +4,15 @@ description: 다른 SDK(소프트웨어 개발 키트)를 사용하여 Data Fact
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/16/2018
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.custom: devx-track-python
-ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 1c466aa53670a129d051e639d0a1bf2aaa32e76d
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740446"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107905687"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Azure Data Factory를 프로그래밍 방식으로 모니터링
 
@@ -24,13 +24,13 @@ ms.locfileid: "101740446"
 
 ## <a name="data-range"></a>데이터 범위
 
-Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만 합니다. Data Factory 파이프라인 실행에 대한 데이터를 프로그래밍 방식으로 쿼리할 때(예: PowerShell 명령 `Get-AzDataFactoryV2PipelineRun` 사용) 선택적 `LastUpdatedAfter` 및 `LastUpdatedBefore` 매개 변수에 대한 최대 날짜가 없습니다. 그러나 지난 해에 대 한 데이터를 쿼리 하는 경우 오류는 발생 하지 않지만 파이프라인은 지난 45 일 동안의 데이터만 실행 합니다.
+Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만 합니다. Data Factory 파이프라인 실행에 대한 데이터를 프로그래밍 방식으로 쿼리할 때(예: PowerShell 명령 `Get-AzDataFactoryV2PipelineRun` 사용) 선택적 `LastUpdatedAfter` 및 `LastUpdatedBefore` 매개 변수에 대한 최대 날짜가 없습니다. 하지만 예를 들어 작년 데이터를 쿼리하는 경우 쿼리는 오류를 반환하지 않지만 최근 45일 동안의 파이프라인 실행 데이터만 반환합니다.
 
-파이프라인 실행 데이터를 45 일 넘게 유지 하려면 [Azure Monitor](monitor-using-azure-monitor.md)를 사용 하 여 고유한 진단 로깅을 설정 합니다.
+45일보다 오래된 파이프라인 실행 데이터를 유지하려는 경우 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 고유한 진단 로깅을 설정합니다.
 
 ## <a name="pipeline-run-information"></a>파이프라인 실행 정보
 
-파이프라인 실행 속성은 [PIPELINERUN API 참조](/rest/api/datafactory/pipelineruns/get#pipelinerun)를 참조 하세요. 파이프라인 실행은 수명 주기 중에 다른 상태를 가지 며, 가능한 실행 상태 값은 다음과 같습니다.
+파이프라인 실행 속성은 [PipelineRun API 참조](/rest/api/datafactory/pipelineruns/get#pipelinerun)를 참조하세요. 파이프라인 실행은 수명 주기 중에 다른 상태를 가지며, 가능한 실행 상태 값은 다음과 같습니다.
 
 * Queued
 * InProgress
@@ -40,7 +40,7 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 * 취소됨
 
 ## <a name="net"></a>.NET
-.NET SDK를 사용 하 여 파이프라인을 만들고 모니터링 하는 전체 연습에 대해서는 [.net을 사용 하 여 데이터 팩터리 및 파이프라인 만들기](quickstart-create-data-factory-dot-net.md)를 참조 하세요.
+.NET SDK를 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [.NET을 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-dot-net.md)를 참조하세요.
 
 1. 다음 코드를 추가하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행의 상태를 검사합니다.
 
@@ -78,7 +78,7 @@ Data Factory는 45일 동안 파이프라인 실행 데이터를 저장하기만
 .NET SDK에 대한 전체 설명서를 보려면 [Data Factory .NET SDK 참조](/dotnet/api/microsoft.azure.management.datafactory)를 참조하세요.
 
 ## <a name="python"></a>Python
-Python SDK를 사용 하 여 파이프라인을 만들고 모니터링 하는 전체 연습에 대해서는 [python을 사용 하 여 데이터 팩터리 및 파이프라인 만들기](quickstart-create-data-factory-python.md)를 참조 하세요.
+Python SDK를 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [Python을 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-python.md)를 참조하세요.
 
 파이프라인 실행을 모니터링하려면 다음 코드를 추가합니다.
 
@@ -96,7 +96,7 @@ print_activity_run_details(activity_runs_paged[0])
 Python SDK에 대한 전체 설명서를 보려면 [Data Factory Python SDK 참조](/python/api/overview/azure/datafactory)를 참조하세요.
 
 ## <a name="rest-api"></a>REST API
-REST API를 사용 하 여 파이프라인을 만들고 모니터링 하는 전체 연습을 보려면 [REST API를 사용 하 여 데이터 팩터리 및 파이프라인 만들기](quickstart-create-data-factory-rest-api.md)를 참조 하세요.
+REST API를 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [REST API를 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-rest-api.md)를 참조하세요.
  
 1. 다음 스크립트를 실행하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행 상태를 검사합니다.
 
@@ -126,7 +126,7 @@ REST API를 사용 하 여 파이프라인을 만들고 모니터링 하는 전�
 REST API에 대한 전체 설명서를 보려면 [Data Factory REST API 참조](/rest/api/datafactory/)를 참조하세요.
 
 ## <a name="powershell"></a>PowerShell
-PowerShell을 사용 하 여 파이프라인을 만들고 모니터링 하는 전체 연습을 보려면 [powershell을 사용 하 여 데이터 팩터리 및 파이프라인 만들기](quickstart-create-data-factory-powershell.md)를 참조 하세요.
+PowerShell을 사용하여 파이프라인을 만들고 모니터링하는 전체 연습 과정을 보려면 [PowerShell을 사용하여 Data Factory 및 파이프라인 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 1. 다음 스크립트를 실행하여 데이터 복사가 완료될 때까지 지속적으로 파이프라인 실행 상태를 검사합니다.
 

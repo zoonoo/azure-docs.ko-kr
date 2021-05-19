@@ -1,5 +1,5 @@
 ---
-title: 다른 Azure Storage 위치의 샘플 데이터-팀 데이터 과학 프로세스
+title: 서로 다른 Azure Storage 위치의 샘플 데이터 - Team Data Science Process
 description: 작지만 대표적이며 보다 관리하기 쉬운 크기로 줄이기 위한 Azure Blob 컨테이너, SQL Server 및 Hive 테이블의 샘플 데이터
 services: machine-learning
 author: marktab
@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 878a2a47dfaddf1d3399a1dbd98865332838e148
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "93321748"
 ---
 # <a name="sample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Azure Blob 컨테이너, SQL Server 및 Hive 테이블의 데이터 샘플링
@@ -30,4 +30,4 @@ ms.locfileid: "93321748"
 
 **데이터를 샘플링하는 이유**
 
-분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 크기를 조정 하면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해 보일 수 있습니다. Cortana 분석 프로세스의이 샘플링 역할은 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입을 사용 하도록 설정 하는 것입니다.
+분석할 데이터 세트가 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 크기를 줄이면 데이터 해석, 탐색 및 기능 엔지니어링이 용이해질 수 있습니다. Cortana 분석 프로세스의 이 샘플링 역할은 데이터 처리 기능 및 기계 학습 모델의 빠른 프로토타입 제작을 지원하는 역할을 합니다.

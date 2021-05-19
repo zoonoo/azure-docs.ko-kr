@@ -2,15 +2,15 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 05/05/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 2c096953fd89b902d1567399e36fc0fbf1b89572
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acd5ad2ce7689c54751bc52f3aff86e9b9be2a41
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466195"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766496"
 ---
 이 범주에는 **14** 개의 권장 사항이 있습니다.
 
@@ -29,5 +29,5 @@ ms.locfileid: "103466195"
 |네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함 |NSG(네트워크 보안 그룹)를 통해 액세스를 제한하여 잠재적인 위협으로부터 비인터넷 연결 가상 머신을 보호합니다. NSG는 동일한 서브넷 안팎에 있는 다른 인스턴스에서 VM 인스턴스로 들어오는 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙 목록을 포함합니다.<br>머신을 최대한 안전하게 유지하려면 VM의 인터넷 액세스를 제한하고 서브넷에 NSG를 사용하도록 설정해야 합니다.<br />(관련 정책: [네트워크 보안 그룹을 사용하여 비인터넷 연결 가상 머신을 보호해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fbb91dfba-c30d-4263-9add-9c2384e659a6)) |낮음 |
 |Storage 계정에 보안 전송을 사용하도록 설정해야 합니다. |보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS를 사용하여 서버와 서비스 간 인증을 보장하고 전송 중인 데이터를 메시지 가로채기(man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격으로부터 보호합니다.<br />(관련 정책: [스토리지 계정에 보안 전송을 사용하도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f404c3081-a854-4457-ae30-26a93ef643f9)) |높음 |
 |서브넷을 네트워크 보안 그룹과 연결해야 함 |NSG(네트워크 보안 그룹)를 통해 VM에 대한 액세스를 제한하여 잠재적인 위협으로부터 서브넷을 보호합니다. NSG는 서브넷에 대한 네트워크 트래픽을 허용 또는 거부하는 ACL(액세스 제어 목록) 규칙의 목록을 포함합니다. NSG가 서브넷에 연결된 경우 ACL 규칙은 해당 서브넷의 모든 VM 인스턴스 및 통합 서비스에 적용되지만 서브넷 내부 트래픽에는 적용되지 않습니다. 동일한 서브넷에 있는 리소스를 보호하려면 리소스에 대한 NSG도 직접 사용하도록 설정합니다.<br />(관련 정책: [서브넷을 네트워크 보안 그룹과 연결해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fe71308d3-144b-4262-b144-efdc3cc90517)) |낮음 |
-|가상 네트워크는 Azure Firewall로 보호해야 합니다. |일부 가상 네트워크는 방화벽으로 보호되지 않습니다. Azure Firewall을 사용하여 가상 네트워크에 대한 액세스를 제한하고 잠재적인 위협을 방지합니다. <a href=https://azure.microsoft.com/pricing/details/azure-firewall>Azure Firewall에 대해 자세히 알아보기.</a><br />(관련 정책: [모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)) |낮음 |
+|가상 네트워크는 Azure Firewall로 보호해야 합니다. |일부 가상 네트워크는 방화벽으로 보호되지 않습니다. Azure Firewall을 사용하여 가상 네트워크에 대한 액세스를 제한하고 잠재적인 위협을 방지합니다. Azure Firewall에 대해 자세히 알아보려면 <br> <a href="https://azure.microsoft.com/pricing/details/azure-firewall">여기</a>를 클릭하세요.<br />(관련 정책: [모든 인터넷 트래픽은 배포된 Azure Firewall을 통해 라우팅되어야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2ffc5e4038-4584-4632-8c85-c0448d374b2c)) |낮음 |
 |||

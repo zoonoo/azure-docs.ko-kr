@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, H1Hack27Feb2017
-ms.openlocfilehash: 97036266911a8ffd7dca00ad2eaeeed32e620dba
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 31d5c528112ccacab47282729b1b5f8a72f19af0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166382"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91999279"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
 
@@ -301,7 +301,7 @@ public static CreateMessageOptions Run(
 {
     ...
 }
-```
+ ```
 
 전체 예제는 [C# 예제](#example)를 참조하세요.
 
@@ -336,7 +336,7 @@ Python에서는 특성을 지원하지 않습니다.
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| 이 값은 Twilio 인증 토큰(`TwilioAccountAuthToken`)이 포함된 앱 설정의 이름으로 설정해야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAuthToken"입니다. |
 |**to**| 해당 없음 - 코드에서 지정 | **수행할 작업**| 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.|
 |**from**|**from** | **From**| 이 값은 SMS 텍스트 메시지를 보낸 전화 번호로 설정됩니다.|
-|**body**|**body** | **본문**| 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. |
+|**body**|**body** | **본문**| 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

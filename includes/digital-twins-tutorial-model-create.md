@@ -4,12 +4,12 @@ description: Azure Digital Twins용 파일 포함 - 명령행 자습서용 모�
 ms.topic: include
 ms.date: 3/5/2021
 ms.author: baanders
-ms.openlocfilehash: a94b9304ecd6c6630f6ad45652e76d2879bbc1b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 784dde0790633adbbae0ae315ce0fd5c271bdb4c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463788"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766776"
 ---
 1. **버전 번호를 업데이트** 하여 이 모델의 최신 버전을 제공하고 있음을 나타냅니다. 이렇게 하려면 `@id` 값의 끝에 있는 *1* 을 *2* 로 변경합니다. 현재 버전 번호보다 큰 번호도 사용할 수 있습니다.
 1. **속성을 편집** 합니다. `Humidity` 속성의 이름을 *HumidityLevel* 로 변경합니다. 원하는 경우 다른 이름을 사용할 수 있습니다. *HumidityLevel* 이 아닌 다른 이름을 사용하는 경우 해당 이름을 기억하여 자습서 전체에서 *HumidityLevel* 대신 사용합니다.

@@ -4,10 +4,10 @@ description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트�
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98704417"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
@@ -20,10 +20,10 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 
 이 섹션에서는 **웹앱** 템플릿으로 Azure 리소스 그룹 프로젝트를 만듭니다.
 
-1. Visual Studio에서 **파일** > **새로 만들기** > **프로젝트** 를 선택 합니다.
+1. Visual Studio에서 **파일**>**새로 만들기**>**프로젝트** 를 선택합니다.
 1. **Azure 리소스 그룹** 프로젝트 템플릿 및 **다음** 을 선택합니다.
 
-    ![Azure 리소스 그룹을 사용 하 여 새 프로젝트 창 만들기 및 다음 단추가 강조 표시 된 스크린샷](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Azure 리소스 그룹 및 다음 단추가 강조 표시된 새 프로젝트 창 만들기를 보여 주는 스크린샷입니다.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. 프로젝트 이름을 지정합니다. 다른 기본 설정은 정상이지만 사용자 환경에 맞게 작동하는지 검토하세요. 완료되면 **만들기** 를 선택합니다.
 
@@ -65,7 +65,7 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
 
 1. JSON 개요 창의 맨 위에 있는 **리소스 추가** 버튼을 선택하거나 **리소스** 를 마우스 오른쪽 단추로 클릭하고 **새 리소스 추가** 를 선택하여 리소스를 추가할 수 있습니다.
 
-   ![스크린 샷에서는 새 리소스 추가 옵션이 강조 표시 된 JSON 개요 창을 보여 줍니다.](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![새 리소스 추가 옵션이 강조 표시된 JSON 개요 창을 보여 주는 스크린샷입니다.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. **스토리지 계정** 을 선택하고 이름을 입력합니다. 11개 미만의 문자이며 숫자 및 소문자만을 포함하는 이름을 제공합니다.
 
@@ -139,7 +139,7 @@ Az 모듈 스크립트의 경우 PowerShell 콘솔을 열고 다음을 실행합
 
 AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
-1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포**  >  **새로 만들기** 를 선택 합니다.
+1. 배포 프로젝트 노드의 바로 가기 메뉴에서 **배포** > **새 배포** 를 선택합니다.
 
     ![새 배포 메뉴 항목](./media/create-visual-studio-deployment-project/deploy.png)
 
@@ -167,7 +167,7 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
 이 시점에서 앱에 대한 인프라를 배포했지만 프로젝트와 함께 배포된 실제 코드가 없습니다.
 
-1. Visual Studio 솔루션에 프로젝트를 추가합니다. 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **추가**  >  **새 프로젝트** 를 선택 합니다.
+1. Visual Studio 솔루션에 프로젝트를 추가합니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 **추가** > **새 프로젝트** 를 선택합니다.
 
     ![프로젝트 추가](./media/create-visual-studio-deployment-project/add-project.png)
 
@@ -189,7 +189,7 @@ AzureRM 모듈 스크립트의 경우 Visual Studio를 사용합니다.
 
 1. 이제, 리소스 그룹 프로젝트가 새 프로젝트를 인식하는지 확인해야 합니다. 리소스 그룹 프로젝트(ExampleAppDeploy)로 돌아갑니다. **참조** 를 마우스 오른쪽 단추로 클릭하고 **참조 추가** 를 선택합니다.
 
-    ![참조 추가 옵션이 강조 표시 된 ExampleAppDeploy 메뉴가 표시 됩니다.](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![참조 추가 옵션이 강조 표시된 ExampleAppDeploy 메뉴를 보여 주는 스크린샷입니다.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. 만든 웹앱 프로젝트를 선택합니다.
 
@@ -364,13 +364,13 @@ Visual Studio 인터페이스를 통해 사용할 수 있는 리소스로만 제
 
 1. 배포가 완료된 후 포털에서 대시보드를 확인합니다. **대시보드** 를 선택하고 배포한 항목을 하나 선택합니다.
 
-   ![예제 사용자 지정 대시보드가 강조 표시 된 대시보드 페이지를 보여 주는 스크린샷](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![사용자 지정 대시보드 예가 강조 표시된 대시보드 페이지를 보여 주는 스크린샷입니다.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. 사용자 지정 대시보드가 표시됩니다.
 
    ![사용자 지정 대시보드](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-Azure RBAC (역할 기반 액세스 제어)를 사용 하 여 대시보드에 대 한 액세스를 관리할 수 있습니다. 또한 배포 후 대시보드의 모양을 사용자 지정할 수 있습니다. 그러나 리소스 그룹을 다시 배포하는 경우 대시보드는 템플릿에서 기본 상태로 다시 설정됩니다. 대시보드 만들기에 대한 자세한 내용은 [Azure 대시보드를 프로그래밍 방식으로 만들기](../../azure-portal/azure-portal-dashboards-create-programmatically.md)를 참조하세요.
+Azure RBAC(역할 기반 액세스 제어)를 사용하여 대시보드에 대한 액세스를 관리할 수 있습니다. 또한 배포 후 대시보드의 모양을 사용자 지정할 수 있습니다. 그러나 리소스 그룹을 다시 배포하는 경우 대시보드는 템플릿에서 기본 상태로 다시 설정됩니다. 대시보드 만들기에 대한 자세한 내용은 [Azure 대시보드를 프로그래밍 방식으로 만들기](../../azure-portal/azure-portal-dashboards-create-programmatically.md)를 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -384,7 +384,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Visual Studio를 사용 하 여 템플릿을 만들고 배포 하는 방법을 알아보았습니다. 템플릿 개발에 대해 자세히 알아보려면 새로운 초보자용 자습서 시리즈를 참조하세요.
+이 문서에서는 Visual Studio를 사용하여 템플릿을 만들고 배포하는 방법을 알아보았습니다. 템플릿 개발에 대해 자세히 알아보려면 새로운 초보자용 자습서 시리즈를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [초보자용 자습서](./template-tutorial-create-first-template.md)

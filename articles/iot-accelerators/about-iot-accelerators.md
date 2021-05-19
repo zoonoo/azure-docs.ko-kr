@@ -9,18 +9,18 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: c966051ed5699d408fe83f1e9c862ca78b3282c4
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 8a89462ca132ddbf20ecc7f70502747d4a664b58
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714545"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486020"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기란?
 
 일반적으로 클라우드 기반 IoT 솔루션은 사용자 지정 코드 및 클라우드 서비스를 사용하여 디바이스 연결, 데이터 처리와 분석 및 표시를 관리합니다.
 
-IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 시나리오에는 연결된 팩터리 및 디바이스 시뮬레이션이 포함되어 있습니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
+IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전하고 배포 준비가 완료된 IoT 솔루션입니다. 솔루션 가속기를 배포할 때 배포에는 필수 애플리케이션 코드와 함께 모든 필수 클라우드 기반 서비스가 포함됩니다.
 
 솔루션 가속기는 고유한 IoT 솔루션에 대한 시작점입니다. 모든 솔루션 가속기의 소스 코드는 오픈 소스이며 GitHub에서 사용할 수 있습니다. 요구 사항에 맞게 솔루션 가속기를 다운로드하고 사용자 지정하는 것이 좋습니다.
 
@@ -33,7 +33,7 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 
 ## <a name="supported-iot-scenarios"></a>지원되는 IoT 시나리오
 
-현재 두 가지 솔루션 가속기를 배포에 사용할 수 있습니다.
+현재 한 가지 솔루션 가속기를 배포에 사용할 수 있습니다.
 
 ### <a name="connected-factory"></a>연결된 팩터리
 
@@ -42,14 +42,6 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 연결된 팩터리 대시보드를 사용하여 산업용 디바이스를 모니터링하고 관리할 수 있습니다.
 
 :::image type="content" source="./media/about-iot-accelerators/cf-dashboard-inline.png" alt-text="연결된 팩터리 솔루션 대시보드를 보여주는 스크린샷." lightbox="./media/about-iot-accelerators/cf-dashboard-expanded.png":::
-
-### <a name="device-simulation"></a>디바이스 시뮬레이션
-
-[디바이스 시뮬레이션 솔루션 가속기](iot-accelerators-device-simulation-overview.md)를 사용하여 사실적 원격 분석을 생성하는 시뮬레이션된 디바이스를 실행합니다. 이 솔루션 가속기를 사용하여 다른 솔루션 가속기의 동작을 테스트하거나 고유한 사용자 지정 IoT 솔루션을 테스트할 수 있습니다.
-
-디바이스 시뮬레이션 웹앱을 사용하여 시뮬레이션을 구성하고 실행할 수 있습니다.
-
-:::image type="content" source="./media/about-iot-accelerators/ds-dashboard-inline.png" alt-text="디바이스 시뮬레이션 솔루션 대시보드를 보여주는 스크린샷." lightbox="./media/about-iot-accelerators/ds-dashboard-expanded.png":::
 
 ## <a name="design-principles"></a>디자인 원칙
 
@@ -68,7 +60,6 @@ IoT 솔루션 가속기는 일반적인 IoT 시나리오를 구현하는 완전�
 | 솔루션 가속기   | Architecture  | 언어     |
 | ---------------------- | ------------- | ------------- |
 | 연결된 팩터리      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
-| 디바이스 시뮬레이션      | 마이크로 서비스 | [.NET](https://github.com/Azure/azure-iot-pcs-device-simulation)          |
 
 마이크로서비스 아키텍처에 대해 자세히 알아보려면 [Azure IoT 참조 아키텍처 소개](/azure/architecture/reference-architectures/iot/)를 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
 title: DistCp를 사용하여 Azure Data Lake Storage Gen2에 데이터 복사 | Microsoft Docs
-description: DistCp (Apache Hadoop distributed copy tool)를 사용 하 여 Azure Data Lake Storage Gen2 간에 데이터를 복사 합니다.
+description: Apache Hadoop 분산 복사 도구(DistCp)를 사용하여 Azure Data Lake Storage Gen2로/에서 데이터를 복사합니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,10 +9,10 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: e69a97a86a357fb36dde572f292b5cac7963d14a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95912487"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>DistCp를 사용하여 Azure Storage Blob과 Azure Data Lake Storage Gen2 간에 데이터 복사
@@ -85,7 +85,7 @@ hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.w
 
 * **2단계: 매퍼 수 계산** - **m** 값은 총 YARN 메모리 양을 YARN 컨테이너 크기로 나눈 몫과 같습니다. YARN 컨테이너 크기 정보도 Ambari 포털에서 사용할 수 있습니다. YARN으로 이동한 후 Configs 탭을 확인합니다. 이 창에 YARN 컨테이너 크기가 표시됩니다. 매퍼 수(**m**)를 구하는 수식은 다음과 같습니다.
 
-    m = (노드 수 * 각 노드에 대 한 YARN 메모리)/YARN 컨테이너 크기
+    m = (노드 수 * 각 노드에 대한 YARN 메모리) / YARN 컨테이너 크기
 
 **예제**
 
@@ -93,11 +93,11 @@ hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.w
 
 * **총 YARN 메모리 양**: Ambari 포털에서 하나의 D14 노드에 대한 YARN 메모리 양이 96GB임을 확인할 수 있습니다. 따라서 4노드 클러스터의 전체 YARN 메모리는 다음과 같습니다. 
 
-    YARN memory = 4 * 96GB = 384GB
+    YARN 메모리 = 4 * 96GB = 384GB
 
 * **매퍼 수**: Ambari 포털에서 하나의 D14 클러스터 노드에 대한 YARN 컨테이너 크기가 3,072MB임을 확인할 수 있습니다. 따라서 매퍼 수는 다음과 같습니다.
 
-    m = (4 개 노드 * 96GB)/3072MB = 128 매퍼
+    m = (4개 노드 * 96GB) / 3072MB = 128 매퍼
 
 다른 애플리케이션에서 메모리를 사용하고 있으면 DistCp에 대한 클러스터 YARN 메모리 중에서 일부만 사용하도록 선택할 수 있습니다.
 

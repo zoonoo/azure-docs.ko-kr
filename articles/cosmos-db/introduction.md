@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 10/23/2020
-ms.openlocfilehash: 9df5c63ef175d0cf736ce16036466158ab6565f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 05/07/2021
+ms.openlocfilehash: 4432de4bb5f156ed1be0230759fcf3cd86adfe60
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618307"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634314"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -82,6 +82,7 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 - [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)
 - [Azure Cosmos DB Gremlin API 시작](create-graph-dotnet.md)
 - [Azure Cosmos DB Table API 시작](create-table-dotnet.md)
+- [Azure Cosmos DB를 사용한 차세대 앱 개발에 대한 백서](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)

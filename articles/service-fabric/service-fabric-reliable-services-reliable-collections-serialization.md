@@ -1,14 +1,14 @@
 ---
 title: 신뢰할 수 있는 컬렉션 개체 serialization
-description: 기본 전략과 사용자 지정 serialization을 정의 하는 방법을 포함 하 여 Azure Service Fabric 신뢰할 수 있는 컬렉션 개체 serialization에 대해 알아봅니다.
+description: 기본 전략과 사용자 지정 serialization을 정의하는 방법을 포함하여 Azure Service Fabric 신뢰할 수 있는 컬렉션 개체 serialization에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 5/8/2017
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 29bb9a2dfb028d223d63559b35735e78d7e6bcf8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98784362"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric의 신뢰할 수 있는 컬렉션 개체 serialization
@@ -24,7 +24,7 @@ Reliable State Manager에는 일부 공용 형식에 대한 기본 제공 직렬
 기본 제공 직렬 변환기는 해당 형식이 변경될 수 없음을 알고 있으며 형식 이름 등의 형식 정보를 포함할 필요가 없으므로 더 효율적입니다.
 
 Reliable State Manager에는 다음 형식에 대한 기본 제공 직렬 변환기가 있습니다. 
-- Guid
+- GUID
 - bool
 - byte
 - sbyte
@@ -139,10 +139,10 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 그러면 각 버전이 가능한 양만큼 읽고 스트림의 나머지 부분을 건너뛸 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-  * [Serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
+  * [serialization 및 업그레이드](service-fabric-application-upgrade-data-serialization.md)
   * [신뢰할 수 있는 컬렉션에 대한 개발자 참조](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
-  * [Visual studio를 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial.md) 하면 visual studio를 사용 하 여 응용 프로그램을 업그레이드할 수 있습니다.
-  * [Powershell을 사용 하 여 응용 프로그램을 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md) 하려면 powershell을 사용 하 여 응용 프로그램을 업그레이드 합니다.
+  * [Visual Studio를 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial.md)에서는 Visual Studio를 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
+  * [Powershell을 사용하여 애플리케이션 업그레이드](service-fabric-application-upgrade-tutorial-powershell.md)에서는 PowerShell을 사용하여 애플리케이션 업그레이드를 진행하는 방법을 안내합니다.
   * [업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md)를 사용하여 애플리케이션 업그레이드 방법을 제어합니다.
-  * [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조 하 여 응용 프로그램을 업그레이드 하는 동안 고급 기능을 사용 하는 방법에 대해 알아봅니다.
-  * 응용 프로그램 [업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조 하 여 응용 프로그램 업그레이드의 일반적인 문제를 해결 합니다.
+  * [고급 항목](service-fabric-application-upgrade-advanced.md)을 참조하여 애플리케이션을 업그레이드하는 동안 고급 기능을 사용하는 방법에 대해 알아봅니다.
+  * [애플리케이션 업그레이드 문제 해결](service-fabric-application-upgrade-troubleshooting.md)의 단계를 참조하여 애플리케이션 업그레이드 중 발생하는 일반적인 문제를 해결합니다.

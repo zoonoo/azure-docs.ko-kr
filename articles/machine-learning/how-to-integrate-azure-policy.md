@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Policy를 사용하여 Azure Machine Learning에 대한 기본 제공 정책을 사용하여 작업 영역이 요구 사항을 준수하는지 확인하는 방법을 알아봅니다.
 author: aashishb
 ms.author: aashishb
-ms.date: 03/25/2021
+ms.date: 05/03/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: f708e2181511da97ecffcd6f1636a2b232b4fbc6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 688af6bbc4de786c36011312f64fb6d67e34183f
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105544369"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633810"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Azure Policy를 사용하여 Azure Machine Learning 감사 및 관리
 

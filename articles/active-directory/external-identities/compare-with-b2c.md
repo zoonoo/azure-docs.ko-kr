@@ -12,12 +12,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78fd91e2ba7badb1936b8603c8ed089130b29ffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d64fd91d3f033c0a04c4936f11d096aa640942a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644068"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743888"
 ---
 # <a name="what-are-external-identities-in-azure-active-directory"></a>Azure Active Directory의 외부 ID란?
 
@@ -39,7 +39,7 @@ Azure AD 외부 ID는 조직에 대한 사용자의 관계보다는 사용자가
 | ---- | --- | --- |
 | **기본 시나리오** | Microsoft 애플리케이션(Microsoft 365, Teams 등) 또는 사용자 고유의 애플리케이션(SaaS 앱, 사용자 지정 개발 앱 등)을 사용하는 협업  | 최신 SaaS 또는 사용자 지정 개발 애플리케이션에 대한 ID 및 액세스 관리(자사 Microsoft 앱이 아님)   |
 | **대상 사용자**    | 공급자, 파트너, 공급업체와 같은 외부 조직의 비즈니스 파트너와 협업. 사용자는 디렉터리에서 게스트 사용자로 표시됩니다. 이러한 사용자는 IT를 관리하거나 관리하지 않았을 수 있습니다.  | 제품의 고객. 이러한 사용자는 별도의 Azure AD 디렉터리에서 관리됩니다.  |
-| **지원되는 ID 공급자** | 외부 사용자는 회사 계정, 학교 계정, 모든 이메일 주소, SAML 및 WS-Fed 기반 ID 공급자, Gmail 및 Facebook을 사용하여 협업할 수 있습니다.  | 로컬 애플리케이션 계정(이메일 주소 또는 사용자 이름)이 있는 소비자 사용자, 지원되는 다양한 소셜 ID, 직접 페더레이션을 통해 기업 및 정부에서 발급한 ID가 있는 사용자       |
+| **지원되는 ID 공급자** | 외부 사용자는 회사 계정, 학교 계정, 모든 이메일 주소, SAML 및 WS-Fed 기반 ID 공급자, Gmail 및 Facebook을 사용하여 협업할 수 있습니다.  | 로컬 애플리케이션 계정(이메일 주소 또는 사용자 이름)이 있는 소비자 사용자, 지원되는 다양한 소셜 ID, SAML/WS-Fed 기반 ID 공급자 페더레이션을 통해 기업 및 정부에서 발급한 ID가 있는 사용자       |
 | **외부 사용자 관리**   | 외부 사용자는 직원과 동일한 디렉터리에서 관리되지만 일반적으로 게스트 사용자라는 주석이 추가됩니다. 게스트 사용자는 직원과 동일한 방식으로 관리하고 동일한 그룹에 추가할 수 있습니다.    | 외부 사용자는 Azure AD B2C 디렉터리에서 관리됩니다. 이들은 조직의 직원 및 파트너 디렉터리(있는 경우)와 별도로 관리됩니다.  |
 | **SSO(Single Sign-On)**      | 모든 Azure AD 연결 앱에 대한 SSO가 지원됩니다. 예를 들어 Microsoft 365 또는 온-프레미스 앱 및 다른 SaaS 앱(예: Salesforce 또는 Workday)에 대한 액세스를 제공할 수 있습니다.    | Azure AD B2C 테넌트 내의 고객 소유 앱에 대한 SSO가 지원됩니다. Microsoft 365 또는 다른 Microsoft SaaS 앱에 대한 SSO는 지원되지 않습니다.    |
 | **보안 정책 및 규정 준수**        | 호스트/초대한 조직에 의해 관리됩니다(예: [조건부 액세스 정책](conditional-access.md) 사용). | 조직에서 조건부 액세스 및 ID 보호를 통해 관리합니다.        |

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/01/2021
+ms.date: 04/26/2021
 ms.author: alkohli
-ms.openlocfilehash: e7c8653b39a3e0333ff6e98783a6e9a1437dba22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 19b30681632c63657accf130888ee1251366fee6
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739214"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072707"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure Data Box Gateway 시스템 요구 사항
 
@@ -32,7 +32,7 @@ Data Box Gateway용 기본 호스트 시스템은 다음 리소스를 전용으�
 | 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 가상 프로세서(코어)   | 최소 4개 |
-| 메모리  | 최소 8gb 16gb 이상을 권장 합니다. |
+| 메모리  | 최소 8GB입니다. 16GB 이상을 권장합니다. |
 | 가용성|단일 노드|
 | 디스크| OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
 | 네트워크 인터페이스|가상 네트워크 인터페이스 하나 이상|
@@ -81,11 +81,11 @@ Data Box Gateway 고정 IP 주소에 따라 대부분의 경우에서 자유롭�
 
 > [!NOTE]
 > - 디바이스(원본) IP는 항상 클라우드를 사용하도록 설정된 네트워크 인터페이스로 설정해야 합니다.
-> - 대상 ip는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로 설정 되어야 합니다.
+> - 대상 IP는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653)로 설정해야 합니다.
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-azure-government"></a>Azure Government에 대 한 URL 패턴
+### <a name="url-patterns-for-azure-government"></a>Azure Government의 URL 패턴
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 

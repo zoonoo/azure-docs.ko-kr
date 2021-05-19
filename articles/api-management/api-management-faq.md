@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: eea3c8525d31a3ca551e9cbc7d21d7dde163b5cc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8b0c977a2dd754c12e476c724afa591695b7f822
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94697988"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108330677"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Management FAQ
 Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 가져옵니다.
@@ -37,8 +38,8 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 * [AD FS 보안을 통해 OAuth 2.0 권한 부여 서버를 구성할 수 있습니까?](#can-i-configure-an-oauth-20-authorization-server-with-ad-fs-security)
 * [여러 지리적 위치에 배포할 때 API Management에서 사용하는 라우팅 방법은 무엇입니까?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
-* [백 엔드에 대해 자체 서명 된 TLS/SSL 인증서를 사용할 수 있나요?](#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)
-* [GIT 리포지토리를 복제 하려고 할 때 인증 실패가 발생 하는 이유는 무엇 인가요?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
+* [백 엔드에 대해 자체 서명된 TLS/SSL 인증서를 사용할 수 있나요?](#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)
+* [GIT 리포지토리를 복제하려고 할 때 인증 실패가 발생하는 이유는 무엇입니까?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 * [API Management는 Azure ExpressRoute와 함께 작동합니까?](#does-api-management-work-with-azure-expressroute)
 * [API Management가 배포될 때 리소스 관리자 스타일 VNET에 전용 서브넷이 필요한 이유는 무엇인가요?](#why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them)
 * [VNET에 API Management를 배포할 때 필요한 최소 서브넷 크기는 어떻게 되나요?](#what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet)
@@ -49,15 +50,15 @@ Azure API Management에 대한 일반적인 질문과 대답, 패턴 및 모범 
 기능이 미리 보기 상태인 경우 기능 작동 방법에 대한 피드백을 찾고 있음을 의미합니다. 기능이 미리 보기 상태인 경우 기능적으로 완전하지만 고객 피드백에 대한 응답으로 변경 내용을 만들 가능성이 있습니다. 프로덕션 환경에서 미리 보기에 있는 기능에 의존하지 않는 것이 좋습니다.
 
 ### <a name="how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services"></a>API Management 게이트웨이와 백 엔드 서비스 간의 연결을 어떻게 보호할 수 있습니까?
-API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음을 할 수 있습니다.
+API Management 게이트웨이와 백 엔드 서비스 간의 연결을 보호하는 몇 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 * HTTP 기본 인증을 사용할 수 있습니다. 자세한 내용은 [첫 번째 API 가져오기 및 게시](import-and-publish.md)를 참조하세요.
-* [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스를 보호 하는 방법](api-management-howto-mutual-certificates.md)에 설명 된 대로 TLS 상호 인증을 사용 합니다.
-* 백 엔드 서비스에서 IP 필터링을 사용 합니다. 소비 계층을 제외 하 고 API Management의 모든 계층에서 게이트웨이의 IP 주소는 일정 하 게 유지 되며, [ip 설명서 문서](api-management-howto-ip-addresses.md)에 설명 된 몇 가지 주의 사항이 있습니다.
+* [Azure API Management에서 클라이언트 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법](api-management-howto-mutual-certificates.md)에 설명된 대로 TLS 상호 인증을 사용할 수 있습니다.
+* 백 엔드 서비스에서 IP 필터링을 사용합니다. 소비 계층을 제외하고 API Management의 모든 계층에서는 [IP 설명서 문서](api-management-howto-ip-addresses.md)에 설명된 몇 가지 주의 사항이 있으나 게이트웨이의 IP 주소가 일정하게 유지됩니다.
 * API Management 인스턴스를 Azure Virtual Network에 연결합니다.
 
 ### <a name="how-do-i-copy-my-api-management-service-instance-to-a-new-instance"></a>API Management 서비스 인스턴스를 새 인스턴스에 복사하려면 어떻게 해야 합니까?
-API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음을 할 수 있습니다.
+API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 * API Management의 백업 및 복원 기능을 사용할 수 있습니다. 자세한 내용은 [Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법](api-management-howto-disaster-recovery-backup-restore.md)을 참조하세요.
 * 사용자 고유의 백업을 만들고 [API Management REST API](/rest/api/apimanagement/)를 사용하여 기능을 복원합니다. REST API를 사용하여 원하는 서비스 인스턴스에서 엔터티를 저장 및 복원합니다.
@@ -71,13 +72,13 @@ API Management 인스턴스를 새 인스턴스로 복사하려는 경우 몇 �
 * [서비스 배포](/powershell/module/wds) 및 [서비스 관리](/powershell/azure/servicemanagement/overview) PowerShell cmdlet
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>관리자 그룹에 사용자를 추가하려면 어떻게 해야 합니까?
-Administrators 그룹은 변경할 수 없는 시스템 그룹입니다. Azure 구독 관리자는이 그룹의 구성원입니다. 사용자를이 그룹에 추가할 수 없습니다. 자세한 내용은 [Azure에서 개발자 계정을 관리 하는 그룹을 만들고 사용 하는 방법 API Management](./api-management-howto-create-groups.md) 을 참조 하세요.
+관리자 그룹은 변경이 불가능한 시스템 그룹입니다. Azure 구독 관리자가 이 그룹의 구성원입니다. 이 그룹에 사용자를 추가할 수 없습니다. 자세한 내용은 [Azure API Management에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법](./api-management-howto-create-groups.md)을 참조하세요.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>추가하려는 정책을 정책 편집기에서 사용할 수 없는 이유는 무엇입니까?
 추가하려는 정책이 정책 편집기에서 흐리게 표시되거나 음영으로 표시되는 경우 정책에 대해 올바른 범위에 있는지 확인합니다. 각 정책 문은 특정 범위 및 정책 섹션에서 사용하도록 되어 있습니다. 정책의 정책 섹션 및 범위를 검토하려면 [API Management 정책](./api-management-policies.md)에서 정책의 사용 섹션을 확인하세요.
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>단일 API에서 여러 환경을 설정하려면 어떻게 해야 합니까?
-단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음을 할 수 있습니다.
+단일 API에서 여러 환경(예: 테스트 환경 및 프로덕션 환경)을 설정하는 두 가지 옵션이 있습니다. 다음 작업을 수행할 수 있습니다.
 
 * 동일한 테넌트에 다른 API를 호스팅할 수 있습니다.
 * 다른 테넌트에 동일한 API를 호스팅할 수 있습니다.
@@ -92,13 +93,13 @@ AD FS(Active Directory Federation Services) 보안으로 OAuth 2.0 권한 부여
 API Management는 여러 지리적 위치에 배포할 때 [성능 트래픽 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#performance)을 사용합니다. 들어오는 트래픽은 가장 가까운 API 게이트웨이로 라우팅됩니다. 한 지역이 오프라인 상태가 되면, 들어오는 트래픽은 다음으로 가까운 게이트웨이로 자동으로 라우팅됩니다. [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)에서 라우팅 방법에 대해 자세히 알아봅니다.
 
 ### <a name="can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance"></a>Azure Resource Manager 템플릿을 사용하여 API Management 서비스 인스턴스를 만들 수 있습니까?
-예. [Azure API Management Service](https://aka.ms/apimtemplate) 빠른 시작 템플릿을 참조 하세요.
+예. [Azure API Management 서비스](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/) 빠른 시작 템플릿을 참조하세요.
 
-### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>백 엔드에 대해 자체 서명 된 TLS/SSL 인증서를 사용할 수 있나요?
+### <a name="can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end"></a>백 엔드에 대해 자체 서명된 TLS/SSL 인증서를 사용할 수 있나요?
 예. PowerShell을 통해 또는 API에 직접 전송하여 수행할 수 있습니다. 이렇게 하면 인증서 체인 유효성 검사가 사용하지 않도록 설정되며 API Management에서 백 엔드 서비스로 통신할 때 자체 서명 또는 비공개로 서명된 인증서를 사용할 수 있습니다.
 
 #### <a name="powershell-method"></a>Powershell 메서드 ####
-[`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend)(새로운 백 엔드) 또는 [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (기존 백 엔드) PowerShell cmdlet을 사용 하 고 `-SkipCertificateChainValidation` 매개 변수를로 설정 `True` 합니다.
+[`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend)(새로운 백 엔드) 또는 [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend)(기존 백 엔드) PowerShell cmdlet을 사용하고 `-SkipCertificateChainValidation` 매개 변수를 `True`로 설정할 수 있습니다.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'

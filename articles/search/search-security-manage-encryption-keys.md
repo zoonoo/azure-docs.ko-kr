@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 6b1079797f1a753fa8362d6e920f3394087d7e9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9679157e7871b043711fff688a8cbb69cf9bb4d8
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98119291"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107813617"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Azure Cognitive Search에서 데이터 암호화에 사용할 고객 관리형 키 구성
 
@@ -124,11 +124,11 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 구독에 대한 Azure Active Directory 리소스를 찾습니다.
 
-1. 왼쪽의 **관리** 페이지에서 **앱 등록** 을 선택한 다음, **새 등록** 을 선택합니다.
+1. 왼쪽의 **관리** 에서 **앱 등록** 을 선택한 다음 **새 등록** 을 선택하세요.
 
-1. 검색 애플리케이션 이름과 비슷한 이름을 등록 이름으로 지정합니다. **등록** 을 선택합니다.
+1. 검색 애플리케이션 이름과 유사한 이름으로 등록 이름을 지정하세요. **등록** 을 선택합니다.
 
-1. 앱 등록을 만들면 애플리케이션(클라이언트) ID를 복사합니다. 애플리케이션에 이 문자열을 제공해야 합니다. 
+1. 앱 등록을 생성하면 애플리케이션 ID를 복사하세요. 애플리케이션에 이 문자열을 제공해야 합니다. 
 
    [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)를 단계별로 실행하는 경우 이 값을 **appsettings.js** 파일에 붙여 넣습니다.
 
@@ -146,7 +146,7 @@ Azure Key Vault에 키가 이미 있는 경우이 단계를 건너뜁니다.
 
 이 단계에서는 Key Vault에서 액세스 정책을 만듭니다. 이 정책은 사용자가 등록한 애플리케이션에 고객 관리형 키를 사용할 수 있도록 Active Directory 권한을 부여합니다.
 
-지정된 시간에 액세스 권한이 해지될 수 있습니다. 해지되면 해당 키 자격 증명 모음을 사용하는 모든 검색 서비스 인덱스 또는 동의어 맵을 사용할 수 없게 됩니다. 나중에 Key vault 액세스 권한을 복원하면 index\synonym 맵 액세스가 복원됩니다. 자세한 내용은 [키 자격 증명 모음에 대한 보안 액세스](../key-vault/general/secure-your-key-vault.md)를 참조하세요.
+지정된 시간에 액세스 권한이 해지될 수 있습니다. 해지되면 해당 키 자격 증명 모음을 사용하는 모든 검색 서비스 인덱스 또는 동의어 맵을 사용할 수 없게 됩니다. 나중에 Key vault 액세스 권한을 복원하면 index\synonym 맵 액세스가 복원됩니다. 자세한 내용은 [키 자격 증명 모음에 대한 보안 액세스](../key-vault/general/security-features.md)를 참조하세요.
 
 1. 계속 Azure Portal에서 키 자격 증명 모음 **개요** 페이지를 엽니다. 
 

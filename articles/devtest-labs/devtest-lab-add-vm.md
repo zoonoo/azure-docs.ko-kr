@@ -1,13 +1,13 @@
 ---
 title: Azure DevTest Labs에서 랩에 VM 추가 | Microsoft Docs
-description: Azure Portal를 사용 하 여 Azure DevTest Labs에서 랩에 가상 머신을 추가 하는 방법에 대해 알아봅니다. 사용자 지정 이미지 또는 수식 중 하나를 선택할 수 있습니다.
+description: Azure portal을 사용하여 Azure DevTest Labs에서 랩에 가상 머신을 추가하는 방법을 알아봅니다. 사용자 지정 이미지 또는 수식 중 하나를 기준으로 선택할 수 있습니다.
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 07efcf93b963009494021b90e6c730c4615301ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91297626"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 VM 추가
@@ -30,7 +30,7 @@ ms.locfileid: "91297626"
     2. 가상 머신에서 관리자 권한이 부여된 **사용자 이름** 을 입력합니다. 컴퓨터에 대한 **사용자 이름** 은 자동으로 생성된 고유한 이름으로 미리 채워집니다. 이 이름은 이메일 주소 내의 사용자 이름에 해당합니다. 이 기능을 사용하면 새 컴퓨터를 만들 때마다 사용자 이름을 결정하는 시간이 절약됩니다. 다시 이 자동으로 채워진 필드를 재정의하려는 경우 선택한 사용자 이름으로 재정의할 수 있습니다. 사용자 이름에 대해 자동으로 채워진 값을 재정의하려면 **사용자 이름** 텍스트 상자에 값을 입력합니다. 이 사용자에게 가상 머신에서 **관리자** 권한이 부여됩니다.
     3. 랩에서 첫 번째 VM을 만드는 경우 사용자에 대한 **암호** 를 입력합니다. 랩과 연결 된 Azure 키 자격 증명 모음에 이 암호를 기본 암호로 저장하려면 **기본 암호로 저장** 을 선택합니다. 기본 암호는 **VmPassword** 라는 이름으로 키 자격 증명 모음에 저장됩니다. 랩에서 후속 VM을 만들려는 경우 **암호** 에 대해 **VmPassword** 가 자동으로 선택됩니다. 값을 재정의하려면 **저장된 비밀 사용** 확인란을 선택 취소하고 암호를 입력합니다.
 
-        !["기본 설정"을 선택 하 고 "사용자 설정" 값을 입력 하 여 "랩 리소스 만들기" 페이지를 보여 주는 스크린샷](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![“기본 설정”이 선택되고 “사용자 설정” 값이 입력된 “랩 리소스 만들기” 페이지 스크린샷](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
         먼저 키 자격 증명 모음에 비밀을 저장한 다음, 랩에서 VM을 만드는 동안 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요. 키 자격 증명 모음에 저장된 암호를 사용하려면 **저장된 비밀 사용** 을 선택하고 비밀(암호)에 해당하는 키 값을 지정합니다.
     4. **기타 옵션** 섹션에서 **크기 변경** 을 선택합니다. 만드는 VM의 프로세서 코어 수, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "91297626"
 VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 각 랩에는 공용 DevTest Lab 아티팩트 리포지토리의 아티팩트 및 사용자가 만들어서 사용자 고유 아티팩트 리포지토리에 추가한 아티팩트가 포함되어 있습니다.
 
 * Windows PowerShell 스크립트 실행, Bash 명령 실행 및 소프트웨어 설치 등 Azure DevTest Labs *아티팩트* 를 통해 VM을 프로비전할 때 수행하는 *작업* 을 지정할 수 있습니다.
-* 아티팩트 *매개 변수* 를 사용 하 여 특정 시나리오에 대 한 아티팩트를 사용자 지정할 수 있습니다.
+* 아티팩트 *매개 변수* 를 통해 특정 시나리오에 대한 아티팩트를 사용자 지정할 수 있습니다.
 
 아티팩트를 만드는 방법을 알아보려면 [DevTest Labs와 함께 사용할 사용자 고유의 아티팩트를 저작하는 방법 알아보기](devtest-lab-artifact-author.md)문서를 참조하세요.
 
@@ -111,4 +111,4 @@ Azure Resource Manager 템플릿을 사용하면 반복 가능한 배포를 선�
 ## <a name="next-steps"></a>다음 단계
 * VM을 만든 후에는 해당 VM의 창에서 **연결** 을 선택하여 VM에 연결할 수 있습니다.
 * [DevTest Labs VM용 사용자 지정 아티팩트 작성](devtest-lab-artifact-author.md)방법을 알아봅니다.
-* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색 합니다.
+* [DevTest Labs Azure Resource Manager 빠른 시작 템플릿 갤러리](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)를 탐색합니다.

@@ -1,6 +1,6 @@
 ---
 title: Azure Disk Encryption 및 Azure 가상 머신 확장 집합 확장 시퀀싱
-description: 이 문서에서는 Linux IaaS Vm에 대해 Microsoft Azure 디스크 암호화를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Linux IaaS VM에 대해 Microsoft Azure Disk Encryption을 사용하도록 설정하는 방법을 알아봅니다.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -10,28 +10,28 @@ ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.openlocfilehash: 1aff05e51bcbc99f33325efb905ade819ae22e02
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90988025"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>가상 머신 확장 집합 확장 시퀀싱을 통한 Azure Disk Encryption 사용
 
-Azure disk encryption과 같은 확장은 지정 된 순서에 따라 Azure 가상 머신 확장 집합에 추가할 수 있습니다. 이렇게 하려면 [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md)을 사용 합니다. 
+Azure 가상 머신 확장 집합에 Azure Disk Encryption과 같은 확장을 지정된 순서대로 추가할 수 있습니다. 이렇게 하려면 [확장 시퀀싱](virtual-machine-scale-sets-extension-sequencing.md)을 사용합니다. 
 
-일반적으로 디스크에는 암호화를 적용 해야 합니다.
+일반적으로 디스크에 암호화를 적용해야 하는 시기는 다음과 같습니다.
 
-- 디스크 또는 볼륨을 준비 하는 확장 또는 사용자 지정 스크립트
-- 암호화 된 디스크 또는 볼륨에서 데이터를 액세스 하거나 사용 하는 확장 또는 사용자 지정 스크립트
+- 디스크 또는 볼륨을 준비하는 확장 또는 사용자 지정 스크립트 이후
+- 암호화된 디스크 또는 볼륨의 데이터에 액세스하거나 사용하는 확장 또는 사용자 지정 스크립트 이전
 
-어떤 경우 든 속성은 `provisionAfterExtensions` 시퀀스에서 나중에 추가 해야 하는 확장을 지정 합니다.
+두 경우 모두, `provisionAfterExtensions` 속성은 시퀀스에서 이후에 추가해야 하는 확장을 지정합니다.
 
 ## <a name="sample-azure-templates"></a>샘플 Azure 템플릿
 
-다른 확장 후에 Azure Disk Encryption 적용 하려면 `provisionAfterExtensions` AzureDiskEncryption 확장 블록에 속성을 추가 합니다. 
+다른 확장 이후에 Azure Disk Encryption을 적용하려면 AzureDiskEncryption 확장 블록에 `provisionAfterExtensions` 속성을 넣습니다. 
 
-다음은 Windows 디스크를 초기화 하 고 포맷 한 다음 "AzureDiskEncryption"을 사용 하는 Powershell 스크립트인 "CustomScriptExtension"을 사용 하는 예입니다.
+다음은 Windows 디스크를 초기화하고 포맷하는 PowerShell 스크립트인 “CustomScriptExtension” 이후에 “AzureDiskEncryption”을 사용하는 예제입니다.
 
 ```json
 "virtualMachineProfile": {
@@ -87,9 +87,9 @@ Azure disk encryption과 같은 확장은 지정 된 순서에 따라 Azure 가�
 }
 ```
 
-다른 확장 이전에 Azure Disk Encryption 적용 하려면 `provisionAfterExtensions` 다음에 사용할 확장의 블록에 속성을 추가 합니다.
+다른 확장 이전에 Azure Disk Encryption을 적용하려면 이후 확장 블록에 `provisionAfterExtensions` 속성을 넣습니다.
 
-Windows 기반 Azure VM에서 모니터링 및 진단 기능을 제공 하는 확장인 "AzureDiskEncryption" 다음에 "Microsoft.insights.vmdiagnosticssettings로"를 사용 하는 예제는 다음과 같습니다.
+다음은 “AzureDiskEncryption” 이후에 Windows 기반 Azure VM에서 모니터링 및 진단 기능을 제공하는 확장인 “VMDiagnosticsSettings”를 사용하는 예제입니다.
 
 
 ```json
@@ -154,13 +154,13 @@ Windows 기반 Azure VM에서 모니터링 및 진단 기능을 제공 하는 �
 }
 ```
 
-자세한 내용은 다음을 참조 하세요.
-* 디스크를 포맷 하는 사용자 지정 셸 스크립트 뒤에 Azure Disk Encryption 확장 적용 (Linux): [deploy-extseq-linux-ADE-after-customscript.js](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+템플릿에 대한 자세한 내용은 다음을 참조하세요.
+* 디스크를 포맷하는 사용자 지정 셸 스크립트 이후에 Azure Disk Encryption 확장 적용(Linux): [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
 ## <a name="next-steps"></a>다음 단계
-- 확장 시퀀싱에 대 한 자세한 내용은 [가상 머신 확장 집합의 시퀀스 확장 프로 비전을](virtual-machine-scale-sets-extension-sequencing.md)확인 하세요.
-- 속성에 대 한 자세한 내용은 `provisionAfterExtensions` [virtualMachineScaleSets/extensions 템플릿 참조를 참조](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)하세요.
+- 확장 시퀀싱에 대한 자세한 정보: [가상 머신 확장 집합의 시퀀스 확장 프로비저닝](virtual-machine-scale-sets-extension-sequencing.md)
+- `provisionAfterExtensions` 속성에 대한 자세한 정보: [Microsoft.Compute virtualMachineScaleSets/extensions 템플릿 참조](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions)
 - [가상 머신 확장 집합을 위한 Azure Disk Encryption](disk-encryption-overview.md)
 - [Azure CLI를 사용하는 가상 머신 확장 집합 암호화](disk-encryption-cli.md)
 - [Azure PowerShell을 사용하는 가상 머신 확장 집합 암호화](disk-encryption-powershell.md)

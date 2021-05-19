@@ -4,19 +4,20 @@ description: 온-프레미스 데이터 게이트웨이를 설치 및 구성하�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 04/27/2021
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 64bd9e4a4cf78d2628e946af30c2d290ff002cf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3128b9f7ae628a0a1974bb30cf87014e269ea466
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93081147"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130334"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
-동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다.  설치하는 게이트웨이는 Power BI, Power Apps 및 Logic Apps와 같은 다른 서비스에서 사용하는 것과 동일하지만 Azure Analysis Services용으로 설치할 때는 몇 가지 추가 단계를 완료해야 합니다. 이 설치 문서는 **Azure Analysis Services** 에만 적용됩니다. 
+동일한 지역에 하나 이상의 Azure Analysis Services 서버를 온-프레미스 데이터 원본에 연결하는 경우 온-프레미스 데이터 게이트웨이가 필요합니다. 설치하는 게이트웨이는 Power BI, Power Apps 및 Logic Apps와 같은 다른 서비스에서 사용하는 것과 동일하지만 Azure Analysis Services용으로 설치할 때는 몇 가지 추가 단계를 완료해야 합니다. 이 설치 문서는 **Azure Analysis Services** 에만 적용됩니다. 
 
 Azure Analysis Services가 게이트웨이와 작동하는 방법에 대해 자세히 알아보려면 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조하세요. 고급 설치 시나리오 및 일반적인 게이트웨이에 대한 자세한 내용은 [온-프레미스 데이터 게이트웨이 설명서](/data-integration/gateway/service-gateway-onprem)를 참조하세요.
 
@@ -151,10 +152,11 @@ Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -Gatew
 ```
 ---
 
-정말 간단하죠. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+이제 끝났습니다! 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Analysis Services 관리](analysis-services-manage.md)   
-* [Azure Analysis Services에서 데이터 가져오기](analysis-services-connect.md)   
-* [Azure Virtual Network에서 데이터 원본에 게이트웨이 사용](analysis-services-vnet-gateway.md)
+* [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)   
+* [Azure Analysis Services에서 지원되는 데이터 원본](analysis-services-datasource.md)   
+* [Azure Virtual Network에서 데이터 원본에 게이트웨이 사용](analysis-services-vnet-gateway.md)   
+* [Analysis Services 네트워크 연결과 관련된 질문과 대답](analysis-services-network-faq.md) 

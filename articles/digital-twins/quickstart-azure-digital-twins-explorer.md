@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: ca50c0221843b4e24a6287177f36608b86a0a1a9
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: d56c4b8fc17dc29578366e3d84e9ba20ca95a9dd
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075773"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789716"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
 
@@ -41,7 +41,7 @@ Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들�
 
 또한 머신에 **Node.js** 가 필요합니다. 최신 버전을 받으려면 [Node.js](https://nodejs.org/)를 참조하세요.
 
-마지막으로 빠른 시작에서 사용할 샘플을 다운로드해야 합니다. 샘플 애플리케이션은 **Azure Digital Twins Explorer** 입니다. 이 샘플에는 빠른 시작에서 Azure Digital Twins 시나리오를 로드하고 살펴보는 데 사용할 앱이 포함되어 있습니다. 샘플 시나리오 파일도 들어 있습니다. 샘플을 받으려면 [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)로 이동합니다. 제목 아래에 있는 **코드 찾아보기** 단추를 선택하면 샘플에 대한 GitHub 리포지토리로 이동합니다. **코드** 단추와 **ZIP 다운로드** 를 선택하여 샘플을 *.ZIP* 파일로 다운로드합니다. 
+마지막으로 빠른 시작에서 사용할 샘플을 다운로드해야 합니다. 샘플 애플리케이션은 **Azure Digital Twins Explorer** 입니다. 이 샘플에는 빠른 시작에서 Azure Digital Twins 시나리오를 로드하고 살펴보는 데 사용할 앱이 포함되어 있습니다. 샘플 시나리오 파일도 들어 있습니다. 샘플을 받으려면 [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)로 이동합니다. 제목 아래에 있는 **코드 찾아보기** 단추를 선택하면 샘플에 대한 GitHub 리포지토리로 이동합니다. **코드** 단추와 **ZIP 다운로드** 를 선택하여 샘플을 .zip 파일로 다운로드합니다. 
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="GitHub의 digital-twins-explorer 리포지토리 스크린샷. 코드 단추를 선택하면 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자가 생성됩니다." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
 
@@ -155,7 +155,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 
 이제 일부 모델이 Azure Digital Twins 인스턴스에 업로드되었으므로 모델 정의를 따르는 [디지털 쌍](concepts-twins-graph.md)을 추가할 수 있습니다.
 
-디지털 트윈은 비즈니스 환경 내의 실제 엔터티를 나타냅니다. 팜의 센서, 자동차의 조명, 이 빠른 시작에 나오는 건물의 방을 예로 들 수 있습니다. 모두 *Room* 모델을 사용하는 여러 채팅방처럼 지정된 모델 형식의 여러 트윈을 만들 수 있습니다. 전체 환경을 나타내는 **트윈 그래프** 에 관계를 연결합니다.
+디지털 트윈은 비즈니스 환경 내의 실제 엔터티를 나타냅니다. 팜의 센서, 자동차의 조명, 이 빠른 시작에 나오는 건물의 방을 예로 들 수 있습니다. 모두 Room 모델을 사용하는 여러 채팅방처럼 지정된 모델 형식의 여러 트윈을 만들 수 있습니다. 전체 환경을 나타내는 **트윈 그래프** 에 관계를 연결합니다.
 
 이 섹션에서는 미리 만들어진 그래프에 연결된 미리 만들어진 트윈을 업로드합니다. 그래프에는 다음 레이아웃으로 연결된 두 개의 층과 두 개의 방이 있습니다.
 
@@ -212,7 +212,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 
 :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="내부에 트윈 그래프가 있는 [그래프 보기] 패널의 보기입니다. 'floor1'이라는 레이블이 지정된 원은 'contains'라는 레이블이 지정된 화살표를 통해 'room1'이라는 레이블이 지정된 원에 연결됩니다. 'floor0'이라는 레이블이 지정된 원은 'contains'라는 레이블이 지정된 화살표를 통해 'room0'이라는 레이블이 지정된 원에 연결됩니다.":::
 
-원(그래프 "노드")은 디지털 트윈을 나타냅니다. 선은 관계를 나타냅니다. **Floor0** 트윈에는 **Room0** 이 포함되고, **Floor1** 트윈에는 **Room1** 이 포함됩니다.
+원(그래프 "노드")은 디지털 트윈을 나타냅니다. 선은 관계를 나타냅니다. Floor0 트윈에는 Room0이 포함되고, Floor1 트윈에는 Room1이 포함됩니다.
 
 마우스를 사용하는 경우 그래프 조각을 끌어서 이동할 수 있습니다.
 
@@ -283,7 +283,7 @@ Azure Digital Twins Explorer를 사용하여 그래프에 표시된 쌍의 속�
     :::column-end:::
 :::row-end:::
 
-이제 업데이트하기 위해 Azure Digital Twins [API](how-to-use-apis-sdks.md)를 사용하여 백그라운드에서 사용된 패치 코드를 표시하는 **패치 정보** 창이 표시됩니다. **닫기** 를 선택합니다.
+이제 업데이트하기 위해 Azure Digital Twins [API](concepts-apis-sdks.md)를 사용하여 백그라운드에서 사용된 패치 코드를 표시하는 **패치 정보** 창이 표시됩니다. **닫기** 를 선택합니다.
 
 ### <a name="query-to-see-the-result"></a>결과를 확인하는 쿼리
 

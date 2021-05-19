@@ -1,25 +1,24 @@
 ---
-title: 자습서 - Azure AD에서 앱에 대한 사용자 프로비저닝을 위한 SCIM 엔드포인트 개발
+title: 자습서 - Azure Active Directory에서 앱에 대한 사용자 프로비저닝을 위한 SCIM 엔드포인트 개발
 description: SCIM(도메인 간 ID 관리를 위한 시스템)은 자동 사용자 프로비저닝을 표준화합니다. 이 자습서에서는 SCIM 엔드포인트를 개발하고, SCIM API를 Azure Active Directory와 통합하고, 프로비저닝 사용자 및 그룹을 클라우드 애플리케이션으로 자동화하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/28/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9a39a1b0df364aeed970f3ed0e0d99d4d31585b2
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: ddc50ab8c72017160a7032e35a69eedf85ebac95
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175481"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784812"
 ---
-# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint"></a>자습서: SCIM 엔드포인트 프로비저닝 개발 및 계획
+# <a name="tutorial-develop-and-plan-provisioning-for-a-scim-endpoint-in-azure-active-directory"></a>자습서: Azure Active Directory에서 SCIM 엔드포인트에 대한 프로비저닝 개발 및 계획
 
 애플리케이션 개발자는 SCIM(System for Cross-Domain Identity Management) 사용자 관리 API를 사용하여 애플리케이션과 AAD(Azure AD) 간에 사용자 및 그룹을 자동으로 프로비저닝할 수 있습니다. 이 문서에서는 SCIM 엔드포인트를 빌드하고 AAD 프로비저닝 서비스와 통합하는 방법에 대해 설명합니다. SCIM 사양에서는 프로비저닝을 위한 일반 사용자 스키마를 제공합니다. SCIM은 SAML 또는 OpenID Connect와 같은 페더레이션 표준과 함께 사용하면 액세스 관리를 위한 전반적인 표준 기반 솔루션을 관리자에게 제공합니다.
 
@@ -84,7 +83,7 @@ SCIM 표준은 **core** 사용자 스키마 외에도 애플리케이션의 요�
 |lastName|name.familyName|surName|
 |workMail|emails[type eq “work”].value|Mail|
 |manager|manager|manager|
-|tag|urn:ietf:params:scim:schemas:extension:2.0:CustomExtension:tag|extensionAttribute1|
+|tag|urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:tag|extensionAttribute1|
 |상태|활성|isSoftDeleted(사용자에 저장되지 않은 계산된 값)|
 
 **필수 특성의 예제 목록**
@@ -104,7 +103,7 @@ SCIM 표준은 **core** 사용자 스키마 외에도 애플리케이션의 요�
      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
      "Manager": "123456"
    },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User": {
      "tag": "701984",
    },
    "meta": {

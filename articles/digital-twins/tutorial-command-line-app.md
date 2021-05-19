@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 419e609c4b78007f215d67ab4a69671bc9cbb198
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 1cee1a33f74b11793d9b12db0b8bc6f65fda29a3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205632"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787696"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>자습서: 샘플 클라이언트 앱을 사용하여 Azure Digital Twins 그래프 만들기
 
@@ -72,7 +72,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
 
 모델을 설계한 후에는 Azure Digital Twins 인스턴스에 업로드해야 합니다. 그러면 고유의 사용자 지정 도메인 어휘로 Azure Digital Twins 서비스 인스턴스가 구성됩니다. 모델을 업로드한 후에는 이를 사용하는 트윈 인스턴스를 만들 수 있습니다.
 
-1. 프로젝트 콘솔 창에서 다음 명령을 실행하여 업데이트된 *Room* 모델과 다음 섹션에서도 사용할 *Floor* 모델을 업로드하여 여러 유형의 트윈을 만듭니다.
+1. 프로젝트 콘솔 창에서 다음 명령을 실행하여 업데이트된 Room 모델과 다음 섹션에서도 사용할 Floor 모델을 업로드하여 여러 유형의 트윈을 만듭니다.
 
     ```cmd/sh
     CreateModels Room Floor
@@ -80,7 +80,7 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 *솔루
     
     출력에 모델이 성공적으로 만들어졌다고 표시되어야 합니다.
 
-1. 명령 `GetModels true`를 실행하여 모델이 만들어졌는지 확인합니다. 이를 통해 업로드된 모든 모델에 대해 Azure Digital Twins 인스턴스가 쿼리되고 해당하는 전체 정보가 출력됩니다. 결과에서 편집된 *Room* 모델을 찾습니다.
+1. 명령 `GetModels true`를 실행하여 모델이 만들어졌는지 확인합니다. 이를 통해 업로드된 모든 모델에 대해 Azure Digital Twins 인스턴스가 쿼리되고 해당하는 전체 정보가 출력됩니다. 결과에서 편집된 Room 모델을 찾습니다.
 
     :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="업데이트된 Room 모델을 보여주는 GetModels의 결과 스크린샷." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
@@ -116,7 +116,7 @@ Content-Type: application/json; charset=utf-8
 
 디지털 트윈을 만들려면 `CreateDigitalTwin` 명령을 사용합니다. 트윈이 기반으로 하는 모델을 참조해야 하며, 필요에 따라 모델의 속성에 대한 초기 값을 정의할 수 있습니다. 이 단계에서는 관계 정보를 전달할 필요가 없습니다.
 
-1. 실행 중인 프로젝트 콘솔에서 이 코드를 실행하여 이전에 업데이트한 *Room* 모델과 또 다른 모델인 *Floor* 를 기반으로 여러 개의 트윈을 만듭니다. *Room* 에는 세 가지 속성이 있으므로 인수에 이들 속성에 대한 초기 값을 제공할 수 있습니다. (속성 값 초기화는 일반적으로 선택 사항이지만 이 자습서에는 필요합니다.)
+1. 실행 중인 프로젝트 콘솔에서 이 코드를 실행하여 이전에 업데이트한 Room 모델과 또 다른 모델인 Floor를 기반으로 여러 개의 트윈을 만듭니다. Room에는 세 가지 속성이 있으므로 인수에 이들 속성에 대한 초기 값을 제공할 수 있습니다. (속성 값 초기화는 일반적으로 선택 사항이지만 이 자습서에는 필요합니다.)
 
     ```cmd/sh
     CreateDigitalTwin dtmi:example:Room;2 room0 RoomName string Room0 Temperature double 70 HumidityLevel double 30
@@ -129,7 +129,7 @@ Content-Type: application/json; charset=utf-8
     
     :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="floor0, floor1, room0 및 room1을 포함하는 CreateDigitalTwin 명령의 결과에서 발췌한 스크린샷." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
-1. `Query` 명령을 실행하여 트윈이 만들어졌는지 확인할 수 있습니다. 이 명령은 Azure Digital Twins 인스턴스에 포함된 모든 디지털 트윈을 쿼리합니다. 결과에서 *room0*, *room1*, *floor0*, *floor1* 트윈을 찾습니다.
+1. `Query` 명령을 실행하여 트윈이 만들어졌는지 확인할 수 있습니다. 이 명령은 Azure Digital Twins 인스턴스에 포함된 모든 디지털 트윈을 쿼리합니다. 결과에서 room0, room1, floor0, floor1 트윈을 찾습니다.
 
 ### <a name="modify-a-digital-twin"></a>디지털 트윈 수정
 
@@ -138,7 +138,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > 기본 REST API는 [JSON 패치](http://jsonpatch.com/) 형식을 사용하여 트윈에 대한 업데이트를 정의합니다. 명령줄 앱도 이 형식을 사용하여 기본 API가 기대하는 바를 보다 정확하게 경험할 수 있습니다.
 
-1. 이 명령을 실행하여 *room0* 의 RoomName을 *Room0* 에서 *PresidentialSuite* 로 변경합니다.
+1. 이 명령을 실행하여 room0의 RoomName을 "Room0"에서 "PresidentialSuite"로 변경합니다.
     
     ```cmd/sh
     UpdateDigitalTwin room0 add /RoomName string PresidentialSuite
@@ -159,11 +159,11 @@ Content-Type: application/json; charset=utf-8
 
 다음으로, 이러한 트윈 간의 몇 가지 **관계** 를 만들어 [트윈 그래프](concepts-twins-graph.md)로 연결할 수 있습니다. 트윈 그래프는 전체 환경을 나타내는 데 사용됩니다. 
 
-한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [Floor에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 *Floor* 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
+한 트윈에서 다른 트윈으로 작성할 수 있는 관계 유형은 이전에 업로드한 [모델](#model-a-physical-environment-with-dtdl) 내에서 정의됩니다. [Floor에 대한 모델 정의](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)는 *포함* 이라는 관계 유형이 있는 floor를 지정합니다. 이를 통해 각 Floor 트윈에서 포함된 해당 room으로의 *포함* 유형 관계를 만들 수 있습니다.
 
 관계를 추가하려면 `CreateRelationship` 명령을 사용합니다. 관계가 시작되는 트윈, 관계 유형 및 관계가 연결되는 트윈을 지정합니다. 마지막으로 관계에 고유한 ID를 지정합니다.
 
-1. 다음 코드를 실행하여 앞에서 만든 각 *Floor* 트윈의 "포함" 관계를 해당 *Room* 트윈에 추가합니다. 관계 이름은 *relationship0* 및 *relationship1* 입니다.
+1. 다음 코드를 실행하여 앞에서 만든 각 Floor 트윈의 "포함" 관계를 해당 Room 트윈에 추가합니다. 관계 이름은 relationship0 및 relationship1입니다.
 
     ```cmd/sh
     CreateRelationship floor0 contains room0 relationship0
@@ -172,7 +172,7 @@ Content-Type: application/json; charset=utf-8
 
     >[!TIP]
     >또한 [Floor 모델](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json)의 *포함* 관계는 두 문자열 속성(`ownershipUser` 및 `ownershipDepartment`)으로도 정의되었기 때문에 관계를 만들 때 이에 대한 초기값으로 인수를 제공할 수도 있습니다.
-    > 다음은 이러한 속성에 대한 초기값도 지정하는 *relationship0* 을 만드는 위 명령의 대체 버전입니다.
+    > 다음은 이러한 속성에 대한 초기값도 지정하는 relationship0을 만드는 위 명령의 대체 버전입니다.
     > ```cmd/sh
     > CreateRelationship floor0 contains room0 relationship0 ownershipUser string MyUser ownershipDepartment string myDepartment
     > ``` 
@@ -219,7 +219,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="room0 및 floor1을 포함하여 쌍 쿼리의 부분적인 결과를 보여주는 스크린샷.":::
 
     >[!NOTE]
-    >샘플 프로젝트에서 추가 인수가 없는 명령 `Query`는 `Query SELECT * FROM DIGITALTWINS`와 같습니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](how-to-use-cli.md)을 사용하여 인스턴스의 모든 쌍을 쿼리하려면 더 긴(전체) 쿼리를 사용합니다.
+    >샘플 프로젝트에서 추가 인수가 없는 명령 `Query`는 `Query SELECT * FROM DIGITALTWINS`와 같습니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](concepts-cli.md)을 사용하여 인스턴스의 모든 쌍을 쿼리하려면 더 긴(전체) 쿼리를 사용합니다.
 
 1. **내 환경의 모든 room은 무엇인가요?** (모델로 쿼리)
 
@@ -227,7 +227,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     Query SELECT * FROM DIGITALTWINS T WHERE IS_OF_MODEL(T, 'dtmi:example:Room;2')
     ```
 
-    특정 유형의 트윈으로 쿼리를 제한하여 표시되는 항목에 대한 보다 구체적인 정보를 얻을 수 있습니다. 이 쿼리의 결과는 *room0* 과 *room1* 을 표시하지만 *floor0* 이나 *floor1* 을 표시하지 **않습니다**(room이 아닌 floor이기 때문에).
+    특정 유형의 트윈으로 쿼리를 제한하여 표시되는 항목에 대한 보다 구체적인 정보를 얻을 수 있습니다. 이 쿼리의 결과는 room0과 room1을 표시하지만 floor0이나 floor1을 표시하지 **않습니다**(room이 아닌 floor이기 때문에).
     
     :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="room0 및 room1만 보여주는 모델 쿼리의 결과 스크린샷.":::
 
@@ -237,7 +237,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0'
     ```
 
-    그래프의 관계를 기반으로 쿼리하여 트윈 연결 방식에 대한 정보를 얻거나 쿼리를 특정 영역으로 제한할 수 있습니다. *room0* 만 *floor0* 에 있으므로 이것이 결과의 유일한 room입니다.
+    그래프의 관계를 기반으로 쿼리하여 트윈 연결 방식에 대한 정보를 얻거나 쿼리를 특정 영역으로 제한할 수 있습니다. room0만 floor0에 있으므로 이것이 결과의 유일한 room입니다.
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="room0을 보여주는 관계 쿼리의 결과 스크린샷.":::
 
@@ -247,7 +247,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     Query SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
     ```
 
-    속성을 기반으로 그래프를 쿼리하여 환경에서 주의가 필요한 이상값을 찾는 등 다양한 질문에 답할 수 있습니다. 다른 비교 연산자( *<* , *>* , *=* 또는 *!=* )도 지원됩니다. *room1* 이 온도가 80도이기 때문에 다음 결과에 표시됩니다.
+    속성을 기반으로 그래프를 쿼리하여 환경에서 주의가 필요한 이상값을 찾는 등 다양한 질문에 답할 수 있습니다. 다른 비교 연산자( *<* , *>* , *=* 또는 *!=* )도 지원됩니다. room1이 온도가 80도이기 때문에 다음 결과에 표시됩니다.
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="room1만 보여주는 속성 쿼리의 결과 스크린샷.":::
 
@@ -257,7 +257,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
     Query SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.$dtId = 'floor0' AND IS_OF_MODEL(room, 'dtmi:example:Room;2') AND room.Temperature > 75
     ```
 
-    `AND`, `OR`, `NOT`과 같은 조합 연산자를 사용하여 SQL에서와 같이 이전 쿼리를 결합할 수도 있습니다. 이 쿼리는 `AND`를 사용하여 트윈 온도에 대한 이전 쿼리를 더 구체화합니다. 이제 결과에는 *floor0* 에서 온도가 75도가 넘는 room만 포함됩니다(이 경우에는 없음). 결과 집합이 비어 있습니다.
+    `AND`, `OR`, `NOT`과 같은 조합 연산자를 사용하여 SQL에서와 같이 이전 쿼리를 결합할 수도 있습니다. 이 쿼리는 `AND`를 사용하여 트윈 온도에 대한 이전 쿼리를 더 구체화합니다. 이제 결과에는 floor0에서 온도가 75도가 넘는 room만 포함됩니다(이 경우에는 없음). 결과 집합이 비어 있습니다.
 
     :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="결과 없음을 보여주는 복합 쿼리의 결과 스크린샷." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 

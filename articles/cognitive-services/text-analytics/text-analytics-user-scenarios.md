@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: aahi
 ms.openlocfilehash: a4c551a6e9b8d79fdeb7b5219f311c7c7c969757
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "97505361"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
@@ -29,7 +29,7 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>녹음된 인바운드 고객 전화 분석
 
-음성 텍스트, 감정 분석 및 핵심 구 추출를 사용 하 여 고객 서비스 호출에서 정보를 추출 합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [GitHub의](https://github.com/rlagh2/callcenteranalytics)샘플 코드를 참조 하세요.
+음성 텍스트 변환, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [GitHub](https://github.com/rlagh2/callcenteranalytics)의 샘플 코드를 참조하세요.
 
 ![감정 분석을 사용하여 고객 서비스 전화에서 인사이트를 획득하는 과정을 자동화하는 방법을 설명하는 이미지](media/use-cases/azure-inbound.svg)
 
@@ -41,22 +41,22 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 
 ## <a name="monitor-your-products-social-media-feeds"></a>제품의 소셜 미디어 피드 모니터링
 
-제품의 twitter 또는 Facebook 페이지에서 사용자 제품 피드백을 모니터링 합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. [Microsoft Power 자동화 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)예제를 참조 하세요.
+제품의 twitter 또는 Facebook 페이지에 올라오는 사용자 제품 피드백을 모니터링합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. [Microsoft Power Automate 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/) 예를 참조하세요.
 
 ![핵심 구 추출을 사용하여 소셜 미디어의 제품 및 회사 피드백을 모니터링하는 방법을 설명하는 이미지](media/use-cases/social-feed.svg)
 
-## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>중요 한 정보가 있는 문서 분류 및 교정
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>중요한 정보가 있는 문서 분류 및 수정
 
-명명 된 엔터티 인식을 사용 하 여 문서에서 개인 정보 및 중요 한 정보를 식별 합니다. 데이터를 사용 하 여 문서를 분류 하거나 안전 하 게 공유할 수 있도록 교정 합니다.
+명명된 엔터티 인식을 사용하여 문서에서 개인 정보와 중요한 정보를 식별합니다. 데이터를 사용하여 문서를 분류하거나 교정하여 안전하게 공유할 수 있도록 합니다.
 
-![NER를 사용 하 여 개인 정보를 검색 하 고 문서를 분류 및 교정 하는 방법을 설명 하는 이미지](media/use-cases/sensitive-docs.jpg)
+![NER을 사용하여 개인 정보를 검색하고 문서를 분류 및 수정하는 방법을 설명하는 이미지](media/use-cases/sensitive-docs.jpg)
 
-## <a name="perform-opinion-mining"></a>의견 마이닝 수행
+## <a name="perform-opinion-mining"></a>오피니언 마이닝 수행
 
-설문 조사, 고객 의견 또는 텍스트에 대 한 의견이 있는 경우 제품 또는 서비스의 특정 측면과 관련 된 의견을 그룹화 합니다. 이 정보를 사용 하 여 제품 시작, 개선, 마케팅 활동을 안내 하거나 제품 또는 서비스의 수행 방식을 강조 합니다. 
+설문 조사, 고객 피드백 또는 특정 측면에 대한 의견이 포함된 텍스트에서 제품 또는 서비스의 특정 측면과 관련된 의견을 그룹화합니다. 제품 출시 및 개선, 마케팅 행사를 안내하거나 제품 또는 서비스의 실적을 강조하는 데 사용합니다. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="호텔에 대 한 예제 의견입니다.":::
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="호텔에 대한 의견 예":::
 
 ## <a name="next-steps"></a>다음 단계
 

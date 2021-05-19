@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: cd395f0ff29eed1e09f5bdac882482b201052c90
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 086c1f6ebd1b9e448a8f5e229bc6706493729422
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814834"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108762896"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -126,9 +126,10 @@ Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 선호하는 방법으로 첫 번째 실험을 만드세요.
-- + [자체 개발 환경에서 시작](tutorial-1st-experiment-sdk-setup-local.md)
-  + [컴퓨팅 인스턴스에서 Jupyter Notebooks를 사용하여 ML 모델 학습 및 배포](tutorial-1st-experiment-sdk-setup.md)
+[빠른 시작: Azure Machine Learning 서비스 시작](quickstart-create-resources.md)으로 시작합니다.  그런 다음 이러한 리소스를 사용하여 원하는 방법으로 첫 번째 실험을 만듭니다.
+
+  + ["Hello World!" Python 스크립트 실행(1/3부)](tutorial-1st-experiment-hello-world.md)
+  + [Jupyter Notebook을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
   + [자동화된 기계 학습을 사용하여 ML 모델 학습 및 배포](tutorial-first-experiment-automated-ml.md) 
   + [Visual Studio Code에서 리소스 관리](how-to-manage-resources-vscode.md)
   + [Visual Studio Code를 사용하여 이미지 분류 모델 학습 및 배포](tutorial-train-deploy-image-classification-model-vscode.md)

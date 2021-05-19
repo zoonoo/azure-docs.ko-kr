@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 28d5bdc788e3b292545fd4c016fae36149f3a600
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 56f340a8d64346fd8934e9cfbae26079d4ee7f29
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589451"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104576566"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azure Storage에 대한 Azure 보안 기준
 
@@ -38,7 +38,7 @@ Azure Storage가 Azure Security Benchmark에 완전히 매핑되는 방식을 �
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark)는 Security Center에 대한 기본 정책 이니셔티브이며, [Security Center 권장 사항](/azure/security-center/security-center-recommendations)의 기초입니다. 이 컨트롤과 관련된 Azure Policy 정의는 Security Center에서 자동으로 사용하도록 설정됩니다. 이 컨트롤과 관련된 경고에는 관련 서비스에 대한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md)는 Security Center에 대한 기본 정책 이니셔티브이며 [Security Center 권장 사항](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)의 기초입니다. 이 컨트롤과 관련된 Azure Policy 정의는 Security Center에서 자동으로 사용하도록 설정됩니다. 이 컨트롤과 관련된 경고에는 관련 서비스에 대한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의 - Microsoft.Storage**:
 
@@ -291,7 +291,7 @@ Azure Storage가 Azure Security Benchmark에 완전히 매핑되는 방식을 �
 
 - [PowerShell을 사용하여 Azure AD에서 디렉터리 역할을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [PowerShell을 사용하여 Azure AD에서 디렉터리 역할의 멤버를 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
+- [PowerShell을 사용하여 Azure AD에서 디렉터리 역할의 구성원을 가져오는 방법](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **책임**: Customer
 
@@ -562,7 +562,7 @@ Azure Storage 계정에 대한 인증 오류를 모니터링하려면 스토리�
 
 **책임**: 공유됨
 
-**Azure Security Center 모니터링**: [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark)는 Security Center에 대한 기본 정책 이니셔티브이며 [Security Center 권장 사항](/azure/security-center/security-center-recommendations)의 기초입니다. 이 컨트롤과 관련된 Azure Policy 정의는 Security Center에서 자동으로 사용하도록 설정됩니다. 이 컨트롤과 관련된 경고에는 관련 서비스에 대한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md)는 Security Center에 대한 기본 정책 이니셔티브이며 [Security Center 권장 사항](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)의 기초입니다. 이 컨트롤과 관련된 Azure Policy 정의는 Security Center에서 자동으로 사용하도록 설정됩니다. 이 컨트롤과 관련된 경고에는 관련 서비스에 대한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의 - Microsoft.Storage**:
 
@@ -759,7 +759,7 @@ Azure Storage 계정에 대한 인증 오류를 모니터링하려면 스토리�
 
 **책임**: Customer
 
-**Azure Security Center 모니터링**: [Azure Security Benchmark](/azure/governance/policy/samples/azure-security-benchmark)는 Security Center에 대한 기본 정책 이니셔티브이며, [Security Center 권장 사항](/azure/security-center/security-center-recommendations)의 기초입니다. 이 컨트롤과 관련된 Azure Policy 정의는 Security Center에서 자동으로 사용하도록 설정됩니다. 이 컨트롤과 관련된 경고에는 관련 서비스에 대한 [Azure Defender](/azure/security-center/azure-defender) 계획이 필요할 수 있습니다.
+**Azure Security Center 모니터링**: [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md)는 Security Center에 대한 기본 정책 이니셔티브이며 [Security Center 권장 사항](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md)의 기초입니다. 이 컨트롤과 관련된 Azure Policy 정의는 Security Center에서 자동으로 사용하도록 설정됩니다. 이 컨트롤과 관련된 경고에는 관련 서비스에 대한 [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) 계획이 필요할 수 있습니다.
 
 **Azure Policy 기본 제공 정의 - Microsoft.ClassicStorage**:
 
@@ -958,7 +958,7 @@ Restore-AzKeyVaultSecret
 
 - [Key Vault 키를 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
-- [Key Vault 관리 스토리지 계정을 복원하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
+- [Key Vault 관리되는 스토리지 계정을 복원하는 방법](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
 - [Key Vault 비밀을 복원하는 방법](/powershell/module/az.keyvault/restore-azkeyvaultsecret)
 

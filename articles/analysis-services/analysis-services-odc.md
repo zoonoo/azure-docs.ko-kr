@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버에서 데이터에 연결하고 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 12/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7cabf82c38d0b167f151af6c0abb22048d9a3786
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 8fa657f3b343cdf49723dc68601bb1c9513ff504
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108130290"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "96487340"
 ---
 # <a name="create-an-office-data-connection-file"></a>Office 데이터 연결 파일 만들기
 

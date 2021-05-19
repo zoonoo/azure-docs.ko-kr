@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 5550c53289228f154fab485b4b7bbff17555aad7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 84567f9667619bb9208f066460b3c4483123b3fc
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045742"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331451"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -33,7 +33,7 @@ ms.locfileid: "105045742"
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure 컨테이너 레지스트리를 만들 수 있나요?
 
-예. 레지스트리를 만드는 데 사용할 수 있는 [템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry)이 있습니다.
+예. 레지스트리를 만드는 데 사용할 수 있는 [템플릿](https://azure.microsoft.com/resources/templates/101-container-registry/)이 있습니다.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR에서 이미지를 검사하는 보안 취약성이 있나요?
 
@@ -274,6 +274,7 @@ az acr update --name myregistry --anonymous-pull-enabled
 > * 익명 풀 작업을 시도하기 전에 `docker logout`을 실행하여 기존 Docker 자격 증명을 지웁니다.
 > * 인증되지 않은 클라이언트에서는 데이터 평면 작업만 사용할 수 있습니다.
 > * 레지스트리는 높은 비율의 인증되지 않은 요청을 제한할 수 있습니다.
+> * 현재 [지역 복제](container-registry-geo-replication.md) 레지스트리 지역에서 익명 풀 액세스는 지원되지 않습니다.
 
 > [!WARNING]
 > 익명 풀 액세스는 현재 레지스트리의 모든 리포지토리에 적용됩니다. [리포지토리 범위 토큰](container-registry-repository-scoped-permissions.md)을 사용하여 리포지토리 액세스를 관리하는 경우 모든 사용자가 익명 풀이 사용 가능한 레지스트리의 해당 리포지토리에서 풀할 수 있습니다. 익명 풀 액세스가 사용하도록 설정된 경우 토큰을 삭제하는 것이 좋습니다.
@@ -484,7 +485,7 @@ Microsoft Edge/IE 브라우저를 사용하는 경우 최대 100개의 리포지
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>허용되지 않은 작업으로 인해 풀 또는 푸시 요청이 실패하는 이유는 무엇인가요?
 
 작업이 허용될 수 없는 몇 가지 시나리오는 다음과 같습니다.
-* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr#az-acr-update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](./container-registry-skus.md)으로 업그레이드하세요.
+* 클래식 레지스트리가 더 이상 지원되지 않습니다. [az acr update](/cli/azure/acr#az_acr_update) 또는 Azure Portal을 사용하여 지원되는 [서비스 계층](./container-registry-skus.md)으로 업그레이드하세요.
 * 이미지 또는 리포지토리가 잠겨 있어 삭제하거나 업데이트할 수 없습니다. [az acr show repository](./container-registry-image-lock.md) 명령을 사용하여 현재 특성을 볼 수 있습니다.
 * 이미지가 격리 모드에 있는 경우 일부 작업이 허용되지 않습니다. [격리](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)에 대해 자세히 알아보세요.
 * 레지스트리가 [스토리지 한도](container-registry-skus.md#service-tier-features-and-limits)에 도달했을 수 있습니다.

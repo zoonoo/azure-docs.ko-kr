@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 05/05/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: dc34d0f12430838be29897ccc5cbeee382ecaa2b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: a1d66e1a28717feb66bc223d10ae44e8d5457728
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107485636"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108747866"
 ---
 # <a name="manage-tenants-in-your-microsoft-customer-agreement-billing-account"></a>Microsoft 고객 계약 청구 계정에서 테넌트 관리
 
@@ -43,6 +43,24 @@ Microsoft 고객 계약(청구 계정)에서 비용을 추적하고 청구를 �
 
 - 다른 테넌트의 구독을 내 Microsoft 고객 계약 청구 계정에 연결할 수 있습니다. 구독에 대한 청구 소유권을 획득하면 청구 정보만 변경됩니다. 서비스 테넌트 또는 Azure RBAC 역할에는 영향을 주지 않습니다.
 - 서비스 테넌트에서 구독 소유자를 변경하려면 [다른 Azure Active Directory 디렉터리로 구독](../../role-based-access-control/transfer-subscription.md)을 양도해야 합니다.
+
+MCA 청구 계정은 단일 테넌트/디렉터리에서 관리됩니다. 청구 계정은 테넌트의 구독에 대한 청구서만 통제합니다. 그러나 청구 소유권 이전을 사용하여 다른 테넌트의 청구 계정에 구독을 연결할 수 있습니다.
+
+### <a name="billing-ownership-transfer"></a>청구 소유권 이전
+
+청구 소유권 이전은 단일 구독에 대한 청구서 배열만 변경합니다. 구독에 대한 사용자 및 자원 관리는 변경되지 않습니다.
+
+청구 소유권 이전은 다음과 같은 두 가지 영향을 미칩니다.
+
+- 구독의 원래 청구 소유권이 제거됩니다.
+- 구독 청구 소유권은 다른 테넌트/디렉터리에 있을 수 있는 대상 청구 계정에 *링크됩니다*.
+
+청구 소유권 이전은 다음에 영향을 주지 않습니다.
+
+- 사용자
+- 리소스
+- Azure RBAC 권한
+
 
 ## <a name="add-guest-users-to-your-microsoft-customer-agreement-tenant"></a>Microsoft 고객 계약 테넌트에 게스트 사용자 추가
 

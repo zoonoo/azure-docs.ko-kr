@@ -1,6 +1,6 @@
 ---
 title: IoT Device Provisioning Service의 보안 엔드포인트 | Microsoft Docs
-description: 개념-백 엔드 앱에 대 한 IoT 장치 프로 비전 서비스에 대 한 액세스를 제어 하는 방법입니다. 보안 토큰에 대한 정보가 포함됩니다.
+description: 개념 - 백 엔드 앱용 IoT DPS (Device Provisioning Service)에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -10,10 +10,10 @@ ms.date: 04/09/2019
 ms.author: wesmc
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 024dbf6518748a4048873de4eb54a53f9d9a6362
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94954327"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service에 대한 액세스 제어
@@ -80,7 +80,7 @@ Device Provisioning Service는 네트워크에서 키가 전송되는 것을 피
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
-| {URL-encoded-resourceURI} | 소문자 리소스 URI의 소문자 URL 인코딩. 이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Device Provisioning Service의 호스트 이름으로 시작합니다(프로토콜 없음). 예: `mydps.azure-devices-provisioning.net` |
+| {URL-encoded-resourceURI} | 소문자 리소스 URI의 소문자 URL 인코딩. 이 토큰으로 액세스할 수 있는 엔드포인트의 URI 접두사(세그먼트별)이며 IoT Device Provisioning Service의 호스트 이름으로 시작합니다(프로토콜 없음). 예들 들어 `mydps.azure-devices-provisioning.net`입니다. |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. |
 
 **접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.

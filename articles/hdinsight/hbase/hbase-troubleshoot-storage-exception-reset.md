@@ -1,19 +1,19 @@
 ---
-title: Azure HDInsight에서 연결을 다시 설정한 후의 저장소 예외
-description: Azure HDInsight에서 연결을 다시 설정한 후의 저장소 예외
+title: Azure HDInsight에서 연결을 초기화한 후의 스토리지 예외
+description: Azure HDInsight에서 연결을 초기화한 후의 스토리지 예외
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/08/2019
 ms.openlocfilehash: 82cad7fc68d650e5f525a8722d3e2f3e9865f456
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98936754"
 ---
-# <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 연결을 다시 설정한 후 저장소 예외
+# <a name="scenario-storage-exception-after-connection-reset-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 연결을 초기화한 후의 스토리지 예외
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대한 문제 해결 단계 및 가능한 해결 방법을 설명합니다.
 
 ## <a name="issue"></a>문제
 
@@ -21,17 +21,17 @@ ms.locfileid: "98936754"
 
 ## <a name="cause"></a>원인
 
-테이블 잘림 프로세스가 진행 되는 동안 저장소 연결 문제가 발생 했습니다. HBase 메타 데이터 테이블에서 테이블 항목이 삭제 되었습니다. Blob 파일이 하나 이지만 모두 삭제 되었습니다.
+테이블 잘림 프로세스가 진행되는 동안 스토리지 연결 문제가 발생했습니다. HBase 메타데이터 테이블에서 테이블 항목이 삭제되었습니다. Blob 파일이 하나만 남고 모두 삭제되었습니다.
 
-`/hbase/data/default/ThatTable`저장소에 저장 된 폴더 blob은 없지만 WASB 드라이버는 위의 blob 파일에 존재 하는 것을 발견 하 고 `/hbase/data/default/ThatTable` 부모 폴더를 사용 하는 것으로 가정 하므로 이라는 blob을 만들 수 없습니다. 따라서 테이블을 만드는 작업이 실패 합니다.
+스토리지에 `/hbase/data/default/ThatTable`이라는 폴더 blob이 없습니다. WASB 드라이버는 위에 있는 blob 파일의 존재를 발견했으며 `/hbase/data/default/ThatTable`이라는 blob을 만들 수 없습니다. 부모 폴더를 사용하는 것으로 가정했으므로 테이블을 만드는 작업이 실패합니다.
 
 ## <a name="resolution"></a>해결 방법
 
-1. Apache Ambari UI에서 활성 HMaster를 다시 시작 합니다. 이렇게 하면 두 개의 대기 HMaster 중 하나가 활성 상태가 되 고 새 활성 HMaster가 메타 데이터 테이블 정보를 다시 로드 합니다. 따라서 `already-deleted` HMaster UI에는 테이블이 표시 되지 않습니다.
+1. Apache Ambari UI에서 활성 HMaster를 다시 시작합니다. 이렇게 하면 두 개의 대기 HMaster 중 하나가 활성 상태가 되고 새 활성 HMaster가 메타데이터 테이블 정보를 다시 로드합니다. 따라서 HMaster UI의 `already-deleted` 테이블은 표시되지 않습니다.
 
-1. 클라우드 탐색기 또는와 같은 명령을 실행 하는 등의 UI 도구에서 고아 blob 파일을 찾을 수 있습니다 `hdfs dfs -ls /xxxxxx/yyyyy` . 을 실행 `hdfs dfs -rmr /xxxxx/yyyy` 하 여 해당 blob을 삭제 합니다. 예: `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`
+1. 클라우드 탐색기 또는 `hdfs dfs -ls /xxxxxx/yyyyy`와 같은 명령을 실행하는 등의 UI 도구에서 연결 없는 blob 파일을 찾을 수 있습니다. `hdfs dfs -rmr /xxxxx/yyyy`을 실행하여 해당 blob을 삭제합니다. 예들 들어 `hdfs dfs -rmr /hbase/data/default/ThatTable/ThatFile`입니다.
 
-이제 HBase에서 동일한 이름을 사용 하 여 새 테이블을 만들 수 있습니다.
+이제 HBase에서 동일한 이름을 사용하여 새 테이블을 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

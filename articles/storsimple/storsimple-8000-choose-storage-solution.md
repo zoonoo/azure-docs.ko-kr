@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 1345486e6bda7501a862612652b722b0075e190f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4fc92146d6f076287fe37f64734bb07e8250792b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107791180"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "98882215"
 ---
 # <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>StorSimple을 Azure 파일 동기화 및 Data Box Edge 데이터 전송 옵션과 비교 
 
@@ -21,7 +21,7 @@ ms.locfileid: "107791180"
 이 문서에서는 온-프레미스 데이터를 Azure로 전송하는 옵션의 개요를 제공하고 Data Box Edge, Azure 파일 동기화, StorSimple 8000 시리즈를 비교합니다.
 
 - **[Data Box Edge](../databox-online/azure-stack-edge-overview.md)** – Data Box Edge는 Azure와 데이터를 주고 받을 수 있는 온-프레미스 네트워크 디바이스로, 업로드하는 동안 데이터를 사전 처리하는 AI 지원 Edge 컴퓨팅을 제공합니다. Data Box Gateway는 동일한 데이터 전송 기능을 제공하는 가상 디바이스 버전입니다.
-- **[Azure 파일 동기화](../storage/file-sync/file-sync-deployment-guide.md)** – Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. Azure 파일 동기화의 일반 공급은 2018년 초에 발표되었습니다.
+- **[Azure 파일 동기화](../storage/files/storage-sync-files-deployment-guide.md)** – Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. Azure 파일 동기화의 일반 공급은 2018년 초에 발표되었습니다.
 - **[StorSimple](./storsimple-overview.md)** – StorSimple은 기업에서 기본 스토리지, 데이터 보호, 보관 및 재해 복구를 위해 Azure 스토리지와 긴밀하게 통합하여 스토리지 인프라를 단일 솔루션에 통합할 수 있도록 도와주는 하이브리드 디바이스입니다. StorSimple의 제품 수명 주기는 [여기](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series)서 찾을 수 있습니다.
 
 ## <a name="comparison-summary"></a>비교 요약
@@ -40,4 +40,4 @@ ms.locfileid: "107791180"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Data Box Edge](../databox-online/azure-stack-edge-overview.md) 및 [Azure Data Box Gateway](../databox-gateway/data-box-gateway-overview.md)에 대한 자세한 정보
-- [Azure 파일 동기화](../storage/file-sync/file-sync-deployment-guide.md)에 대한 자세한 정보
+- [Azure 파일 동기화](../storage/files/storage-sync-files-deployment-guide.md)에 대한 자세한 정보

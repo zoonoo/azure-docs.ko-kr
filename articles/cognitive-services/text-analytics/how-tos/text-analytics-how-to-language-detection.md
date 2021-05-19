@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 04/02/2021
 ms.author: aahi
-ms.openlocfilehash: d7f62082d860d8ec39a5937af5c1bae81b372caa
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: b1af48aa2aad3daa37a3ca4073d44574b5b05e6c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906587"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108742124"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
 
@@ -91,9 +91,9 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다.
 
-예제 요청의 결과는 다음 JSON과 같습니다. 하나의 문서에 여러 항목이 포함되어 있습니다. 출력은 영어로 되어 있습니다. 언어 식별자에는 친숙한 이름과 [ISO 639-1](https://www.iso.org/standard/22109.html) 형식의 언어 코드가 포함됩니다.
+예제 요청의 결과는 다음 JSON 문서와 같습니다. 여러 항목이 있는 하나의 JSON 문서이며, 각 항목이 제출하는 모든 문서에 대한 탐지 결과를 나타냅니다. 출력은 영어로 되어 있습니다. 
 
-긍정적인 1.0 점수는 분석에 가능한 가장 높은 신뢰도 수준을 나타냅니다.
+언어 감지는 하나의 문서에 대해 하나의 주된 언어를 반환합니다. [ISO 639-1](https://www.iso.org/standard/22109.html) 이름, 식별 이름 및 신뢰 점수도 함께 반환합니다. 긍정적인 1.0 점수는 분석에 가능한 가장 높은 신뢰도 수준을 나타냅니다.
 
 ```json
 {

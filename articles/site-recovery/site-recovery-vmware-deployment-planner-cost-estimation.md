@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery Deployment Planner에서 비용 추정치 검토
-description: 이 문서에서는 VMware 재해 복구에 대 한 Azure Site Recovery Deployment Planner의 비용 추정치를 검토 하는 방법을 설명 합니다.
+title: Azure Site Recovery Deployment Planner의 비용 예측 검토
+description: 이 문서에서는 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 비용 예측을 검토하는 방법을 설명합니다.
 author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: ramamill
 ms.openlocfilehash: dba585fbadca479c146ad42ac1bc5aa9d5349f49
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93186708"
 ---
-# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 추정치 검토 
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 예측 검토 
 
 Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 시트에 비용 예측 요약을 제공하고 비용 예측 시트에 자세한 비용 분석을 제공합니다. VM당 자세한 비용 분석이 있습니다. 
 
 >[!Note]
->최신 버전의 Deployment planner tool v 2.5는 Managed Disks로 복제 되는 Vm에 대 한 비용 예측을 제공 합니다.
+>최신 버전의 Deployment Planner 도구 v2.5는 Managed Disks로 복제되는 VM에 대한 비용 예측을 제공합니다.
 
 ### <a name="cost-estimation-summary"></a>비용 예측 요약 
 이 그래프는 사용자가 선택한 대상 지역에 대해 예측한 총 DR(재해 복구) 비용 및 사용자가 보고서 생성을 위해 지정한 통화의 요약 보기를 보여줍니다.
@@ -101,7 +101,7 @@ VM을 수동으로 추가하려면:
 
 * VM 수, IaaS 크기(사용자 선택)
 * 스토리지 유형(표준/프리미엄)
-* VM 원본 컴퓨터의 총 저장소 크기 (GB)
+* 원본 컴퓨터의 VM 총 스토리지 크기(GB)
 * 연간 DR 드릴 횟수 
 * 각 DR 드릴 지속 시간(일) 
 * OS 유형
@@ -122,7 +122,7 @@ VM을 수동으로 추가하려면:
 
 **스토리지 유형**: VM에 사용되는 스토리지 유형입니다. Standard Storage 또는 Premium Storage입니다.
 
-**Vm 총 저장소 크기 (GB)**: 원본 VM의 총 저장소입니다.
+**VM 총 스토리지 크기(GB)** : 원본 VM의 총 스토리지입니다.
 
 **연간 DR 드릴 횟수**: 연간 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간에 따라 총 DR 드릴 비용이 계산됩니다.  
 
@@ -150,7 +150,7 @@ eastus, eastus2, westus, centralus, northcentralus, southcentralus, northeurope,
 ## <a name="supported-currencies"></a>지원되는 통화
 Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보고서를 생성할 수 있습니다.
 
-|통화|Name|통화|Name|통화|Name|
+|통화|이름|통화|이름|통화|이름|
 |---|---|---|---|---|---|---|---|
 |ARS|아르헨티나 페소($)|AUD|호주 달러($)|BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)|CHF|스위스 프랑. (chf)|DKK|덴마크 크론(kr)|

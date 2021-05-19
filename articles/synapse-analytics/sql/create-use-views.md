@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0948c7c82d7577bae07057bff9d1be4d7e09f978
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3de7a322d90f3a6a45a0965da72a1f53d5edc3a2
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462281"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751854"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 뷰 만들기 및 사용
 
@@ -55,7 +55,11 @@ WITH (
 ) AS [r];
 ```
 
-이 예제의 보기에서는 기본 파일에 대한 절대 경로를 사용하는 `OPENROWSET` 함수를 사용합니다. 스토리지의 루트 URL을 사용하는 `EXTERNAL DATA SOURCE`가 있는 경우 `DATA_SOURCE` 및 상대 파일 경로와 함께 `OPENROWSET`를 사용할 수 있습니다.
+뷰는 스토리지의 루트 URL과 `EXTERNAL DATA SOURCE`를 `DATA_SOURCE`로 사용하고 파일에 상대 파일 경로를 추가합니다.
+
+## <a name="create-a-partitioned-view"></a>분할된 뷰 만들기
+
+계층 폴더 구조로 분할된 파일 세트가 있는 경우 파일 경로에 와일드 카드를 사용하여 파티션 패턴을 설명할 수 있습니다. `FILEPATH` 함수를 사용하여 폴더 경로의 일부를 분할 열로 노출합니다.
 
 ```sql
 CREATE VIEW TaxiView
@@ -67,6 +71,8 @@ FROM
         FORMAT='PARQUET'
     ) AS nyc
 ```
+
+분할 열의 필터를 사용하여 이 뷰를 쿼리하는 경우 파티션된 뷰는 폴더 파티션 제거를 수행합니다. 이렇게 하면 쿼리 성능이 향상될 수 있습니다.
 
 ## <a name="use-a-view"></a>뷰 사용
 

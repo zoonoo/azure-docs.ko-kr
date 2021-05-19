@@ -11,10 +11,10 @@ ms.date: 08/26/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: 267a69486dc91ef95c0de704346eeb1d1780ef48
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89013761"
 ---
 # <a name="get-started-with-device-twins-net"></a>디바이스 쌍 시작(.NET)
@@ -234,7 +234,7 @@ ms.locfileid: "89013761"
 
 1. **퍼블릭 속성** > **시작 프로젝트** 에서 **여러 개의 시작 프로젝트** 를 선택합니다. **ReportConnectivity** 의 경우 **작업** 으로 **시작** 을 선택합니다. **확인** 을 선택하여 변경 내용을 저장합니다.  
 
-1. **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 를 선택한 후 **새 인스턴스 시작** 을 선택하여 이 앱을 실행합니다. 응용 프로그램에서 쌍 정보를 가져온 다음 연결을 **_보고 된 속성_** 으로 보내는 것을 볼 수 있습니다.
+1. **ReportConnectivity** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **디버그** 를 선택한 후 **새 인스턴스 시작** 을 선택하여 이 앱을 실행합니다. 앱이 쌍 정보를 가져오면 연결을 **_보고된 속성_** 으로 보내는 메시지가 표시됩니다.
 
     ![디바이스 앱을 실행하여 연결 보고](./media/iot-hub-csharp-csharp-twin-getstarted/rundeviceapp.png)
 

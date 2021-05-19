@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 가속화 된 네트워킹을 사용 하는 Azure VM 만들기
+title: Azure CLI를 통해 가속화된 네트워킹을 사용하여 Azure VM 만들기
 description: 가속화된 네트워킹을 사용하는 Linux 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -17,10 +17,10 @@ ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
 ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98919955"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI을 사용하여 가속 네트워킹을 사용하는 Linux 가상 머신 만들기
@@ -42,26 +42,26 @@ ms.locfileid: "98919955"
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
 다음 배포는 즉시 Azure Gallery에서 기본으로 지원됩니다. 
-* **Linux에서 Ubuntu 14.04-azure 커널**
+* **linux-azure 커널을 사용하는 Ubuntu 14.04**
 * **Ubuntu 16.04 이상** 
 * **SLES12 SP3 이상** 
 * **RHEL 7.4 이상**
 * **CentOS 7.4 이상**
 * **CoreOS Linux**
-* **Backports 커널, Debian "Buster" 이상으로 "Stretch" Debian**
-* **RHCK (Red Hat 호환 커널)를 사용 하 Oracle Linux 7.4 이상**
-* **UEK 버전 5를 사용 하 Oracle Linux 7.5 이상**
-* **FreeBSD 10.4, 11.1 & 12.0 이상**
+* **Debian "Stretch"(백 포트 커널, Debian "Buster"이상 포함)**
+* **Oracle Linux 7.4 이상(RHCK(Red Hat 호환 커널) 포함)**
+* **Oracle Linux 7.5 이상(UEK 버전 5 포함)**
+* **FreeBSD 10.4, 11.1 및 12.0 이상**
 
 ## <a name="limitations-and-constraints"></a>제한 및 제약 조건
 
 ### <a name="supported-vm-instances"></a>지원되는 VM 인스턴스
 가속 네트워킹은 가장 일반적인 용도로 2개 이상의 vCPU가 포함된 계산 최적화 인스턴스 크기에서 지원됩니다. 하이퍼스레딩을 지원하는 인스턴스에서 가속 네트워킹은 4개 이상의 vCPU가 포함된 VM 인스턴스에서 지원됩니다. 
 
-가속 네트워킹에 대 한 지원은 개별 [가상 머신 크기](../virtual-machines/sizes.md) 설명서에서 찾을 수 있습니다. 
+가속화된 네트워킹에 대한 지원은 개별 [가상 머신 크기](../virtual-machines/sizes.md) 설명서에서 확인할 수 있습니다. 
 
 ### <a name="custom-images"></a>사용자 지정 이미지
-사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 Azure에서 Mellanox Connectx-3-3 및 Connectx-3-4 Lx Nic와 함께 작동 하는 데 필요한 드라이버가 있는지 확인 하세요.
+사용자 지정 이미지를 사용 중이고 이미지가 가속화된 네트워킹을 지원하는 경우 Azure에서 Mellanox ConnectX-3 및 ConnectX-4 Lx NIC와 함께 작동하는 데 필요한 드라이버가 있어야 합니다.
 
 ### <a name="regions"></a>영역
 모든 공용 Azure 지역 및 Azure Government 클라우드에서 사용할 수 있습니다.
@@ -76,13 +76,13 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Azure 가속 네트워킹을 사용하여 Linux VM 만들기
 ## <a name="portal-creation"></a>포털 만들기
-이 문서에서는 Azure CLI를 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 가상 컴퓨터를 만들 때 **가상 컴퓨터 만들기** 블레이드에서 **네트워킹** 탭을 선택 합니다.  이 탭에는 **가속화 된 네트워킹** 옵션이 있습니다.  [지원 되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택한 경우이 옵션은 "설정"으로 자동으로 채워집니다.  그렇지 않은 경우에는 가속화 된 네트워킹에 대해 "Off" 옵션을 채우고 사용자에 게 사용 하지 않는 이유를 제공 합니다.   
+이 문서에서는 Azure CLI를 통해 가속 네트워킹을 사용하는 가상 머신을 만드는 단계를 안내하지만, [Azure Portal을 통해 가속 네트워킹을 사용하는 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)도 가능합니다. 포털에서 가상 머신을 만들 때 **가상 머신 만들기** 블레이드에서 **네트워킹** 탭을 선택합니다. 이 탭에는 **가속화된 네트워킹** 옵션이 있습니다.  [지원되는 운영 체제](#supported-operating-systems) 및 [VM 크기](#supported-vm-instances)를 선택한 경우 이 옵션은 자동으로 "On"으로 설정됩니다.  그러지 않은 경우 가속화된 네트워킹에 대해 "Off" 옵션을 채우고 사용자에게 사용하지 않는 이유를 제공합니다.   
 
-* *참고:* 지원 되는 운영 체제만 포털을 통해 사용 하도록 설정할 수 있습니다.  사용자 지정 이미지를 사용 하 고 이미지가 가속화 된 네트워킹을 지 원하는 경우 CLI 또는 PowerShell을 사용 하 여 VM을 만듭니다. 
+* *참고:*  지원되는 운영 체제만 포털을 통해 사용하도록 설정할 수 있습니다.  사용자 지정 이미지를 사용하고 이미지가 가속화된 네트워킹을 지원하는 경우 CLI 또는 PowerShell을 사용하여 VM을 만듭니다. 
 
-가상 머신을 만든 후 [가속화 된 네트워킹을 사용할](#confirm-that-accelerated-networking-is-enabled)수 있는지 확인의 지침에 따라 가속화 된 네트워킹을 사용할 수 있는지 확인할 수 있습니다.
+가상 머신을 만든 후 [가속화된 네트워킹을 사용할 수 있는지 확인](#confirm-that-accelerated-networking-is-enabled)의 지침에 따라 가속화된 네트워킹이 사용할 수 있는지 확인할 수 있습니다.
 
-## <a name="cli-creation"></a>CLI 생성
+## <a name="cli-creation"></a>CLI 만들기
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
 최신 [Azure CLI](/cli/azure/install-azure-cli)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인합니다. 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에는 *myResourceGroup*, *myNic*, *myVm* 이 포함됩니다.
@@ -226,9 +226,9 @@ vf_tx_dropped: 0
 ```
 이제 가속화된 네트워킹을 VM에 사용할 수 있습니다.
 
-## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>가상 함수에 대 한 동적 바인딩 및 해지를 처리 합니다. 
-응용 프로그램은 VM에서 노출 되는 가상 NIC를 통해 실행 해야 합니다. 응용 프로그램이 VF NIC를 통해 직접 실행 되는 경우 일부 패킷이 가상 인터페이스를 통해 표시 되기 때문에 VM으로 향하는 패킷을 **모두** 수신 하지는 않습니다.
-가상 NIC를 통해 응용 프로그램을 실행 하는 경우 응용 프로그램이 대상으로 하는 **모든** 패킷을 수신 하도록 보장 합니다. 또한 호스트가 서비스 될 때 VF가 해지 되더라도 응용 프로그램이 계속 실행 되도록 합니다. 응용 프로그램에서 가상 NIC에 바인딩하는 것은 **가속화 된 네트워킹** 을 활용 하는 모든 응용 프로그램의 **필수** 요구 사항입니다.
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>가상 함수의 동적 바인딩 및 해지를 처리합니다. 
+애플리케이션은 VM에 노출된 가상 NIC를 통해 실행해야 합니다. 애플리케이션이 직접 VF NIC에서 실행되는 경우 일부 패킷이 가상 인터페이스에 표시되므로 VM을 대상으로 한 **모든** 패킷을 수신하지는 않습니다.
+가상 NIC를 통해 애플리케이션을 실행하면 애플리케이션이 해당 애플리케이션으로 향하는 **모든** 패킷을 수신하도록 보장합니다. 또한 호스트에 서비스가 제공될 때 VF가 호출되더라도 애플리케이션은 계속 실행됩니다. 합성 NIC에 대한 애플리케이션 바인딩은 **가속화된 네트워킹** 을 활용하는 모든 애플리케이션에 대한 **필수** 요구 사항입니다.
 
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.

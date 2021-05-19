@@ -7,10 +7,10 @@ keywords: 인벤토리, 자동화, 변경, 추적
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.openlocfilehash: 2acf22ba76acdfa6152ef8966f4000aa325a9e91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92209905"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>VM에서 인벤토리 컬렉션 관리
@@ -87,7 +87,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 |경로 입력     | 파일을 확인할 경로입니다(예: **/etc/*.conf**).       |
 |경로 유형     | 추적할 항목의 유형입니다. 값은 파일 및 디렉터리입니다.        |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되면 True이고, 그렇지 않으면 False입니다.        |
-|Sudo 사용     | 항목을 확인할 때 sudo가 사용되었으면 True이고, 그렇지 않으면 False입니다.         |
+|sudo 사용     | 항목을 확인할 때 sudo가 사용되었으면 True이고, 그렇지 않으면 False입니다.         |
 |링크     | 디렉터리를 트래버스할 때 바로 가기 링크가 처리되는 방식을 나타내는 값입니다. 가능한 값은 다음과 같습니다. <br> 무시 - 바로 가기 링크가 무시되고 참조된 파일/디렉터리가 포함되지 않습니다.<br>팔로우 - 재귀 중에 바로 가기 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>관리 - 바로 가기 링크를 따르고 반환된 콘텐츠의 취급을 변경할 수 있도록 허용합니다.      |
 
 ## <a name="manage-machine-groups"></a>머신 그룹 관리
@@ -100,7 +100,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ![인벤토리 페이지에서 머신 그룹 보기](./media/manage-inventory-vms/inventory-machine-groups.png)
 
-목록에서 머신 그룹을 선택하면 머신 그룹 페이지가 열립니다. 이 페이지에서는 머신 그룹에 대한 정보를 보여 줍니다. 이러한 세부 정보에는 그룹을 정의 하는 데 사용 되는 Azure Monitor 로그 쿼리가 포함 됩니다. 페이지의 맨 아래에서 해당 그룹의 일부인 머신의 페이징된 목록입니다.
+목록에서 머신 그룹을 선택하면 머신 그룹 페이지가 열립니다. 이 페이지에서는 머신 그룹에 대한 정보를 보여 줍니다. 이러한 세부 정보에는 그룹을 정의하는 데 사용되는 Azure Monitor 로그 쿼리가 포함됩니다. 페이지의 맨 아래에서 해당 그룹의 일부인 머신의 페이징된 목록입니다.
 
 ![머신 그룹 페이지 보기](./media/manage-inventory-vms/machine-group-page.png)
 
@@ -126,7 +126,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 6. 확인 창에서 **예** 를 클릭하여 관리에서 머신의 연결을 끊습니다.
 
 >[!NOTE]
->최근 24 시간 동안 인벤토리에 포함 된 모든 컴퓨터를 보고 하기 때문에 컴퓨터가 등록 취소 된 후에도 계속 표시 됩니다. 컴퓨터 연결을 끊은 후에는 더 이상 나열 되지 않도록 24 시간 동안 기다려야 합니다.
+>지난 24시간 동안 인벤토리에 있는 모든 컴퓨터에 대해 보고하므로 등록을 취소한 후에도 컴퓨터가 계속 표시됩니다. 컴퓨터의 연결을 끊은 후 더 이상 목록에 표시되지 않을 때까지 24시간을 기다려야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

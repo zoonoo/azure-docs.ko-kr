@@ -12,18 +12,45 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 46e84814e27562097a4c5dc4e3daa1e5b36669f7
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c1c0545d333a27c9a7d78f0363dc00a905bd4aa6
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287835"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481862"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
+
+## <a name="may-2021"></a>2021년 5월
+
+* [용량 풀 청구 태그 지원](manage-billing-tags.md)   
+
+    이제 Azure NetApp Files는 사업부 또는 기타 내부 소비자와의 상호 참조 비용을 파악하는 데 도움이 되는 청구 태그를 지원합니다. 청구 태그는 볼륨 수준에서 할당되지 않고 용량 풀 수준에서 할당되며, 고객 청구서에 표시됩니다.
+
+* [TLS를 통해 ADDS LDAP](configure-ldap-over-tls.md)(미리 보기) 
+
+    기본적으로 클라이언트와 서버 애플리케이션 간의 LDAP 통신은 암호화되지 않습니다. 즉, 네트워크 모니터링 디바이스나 소프트웨어를 사용하여 LDAP 클라이언트와 서버 컴퓨터 간의 통신을 볼 수 있습니다. LDAP 클라이언트를 LDAP 서버에 바인딩하는 데 사용된 자격 증명(사용자 이름 및 암호)이 네트워크를 통해 암호화되지 않은 상태로 전달되기 때문에 이 시나리오는 LDAP 단순 바인딩을 사용하는 경우 격리되지 않거나 공유된 VNet에서 문제가 될 수 있습니다. TLS를 통한 LDAP(LDAPS라고도 함)는 TLS를 사용하여 LDAP 클라이언트와 LDAP 서버 간의 통신을 보호하는 프로토콜입니다. 이제 Azure NetApp Files는 TLS를 통한 LDAP를 사용하여 ADDS(Active Directory 도메인 서버) 간의 보안 통신을 지원합니다. 이제 Azure NetApp Files는 Active Directory 통합 LDAP 서버 간에 인증된 세션을 설정하는 데 TLS를 통한 LDAP를 사용할 수 있습니다. NFS, SMB 및 이중 프로토콜 볼륨의 경우 TLS 기능을 통해 LDAP를 사용하도록 설정할 수 있습니다. 기본적으로 Azure NetApp Files에서 TLS를 통한 LDAP를 사용할 수 없습니다.  
+
+* 처리량 [메트릭](azure-netapp-files-metrics.md) 지원    
+
+    Azure NetApp Files는 다음 메트릭에 대한 지원을 추가합니다.   
+    * 용량 풀 처리량 메트릭
+        * *볼륨 처리량에 할당된 풀*
+        * *풀 사용 처리량*
+        * *볼륨에 할당된 풀 처리량 비율*
+        * *풀 사용 처리량 비율*
+    * 볼륨 처리량 메트릭
+        * *볼륨 할당 처리량*
+        * *볼륨 사용 처리량*
+        * *볼륨 사용 처리량 비율*
+
+* 복제 볼륨의 [서비스 수준 동적 변경](dynamic-change-volume-service-level.md) 지원   
+
+    이제 Azure NetApp Files를 사용하면 복제 원본 및 대상 볼륨의 서비스 수준을 동적으로 변경할 수 있습니다.
 
 ## <a name="april-2021"></a>2021년 4월
 
@@ -117,9 +144,9 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
     Azure NetApp Files는 이제 AES-256 암호화를 사용하는 Kerberos 모드(krb5, krb5i 및 krb5p)에서 NFS 클라이언트 암호화를 지원하여 추가 데이터 보안을 제공합니다. 이 기능은 무료이며(일반 [Azure NetApp Files 스토리지 비용](https://azure.microsoft.com/pricing/details/netapp/)은 계속 적용됨) 일반 공급됩니다. [NFS v4.1 Kerberos 암호화 설명서](configure-kerberos-encryption.MD)에서 자세히 알아보세요.
 
-* [동적 볼륨 서비스 수준 변경](dynamic-change-volume-service-level.MD)
+* [동적 볼륨 서비스 수준 변경](dynamic-change-volume-service-level.MD)(미리 보기) 
 
-    클라우드는 IT 지출의 유연성을 보장합니다. 이제 볼륨에 대해 원하는 서비스 수준을 사용하는 다른 용량 풀로 볼륨을 이동하여 기존 Azure NetApp Files 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대한 이러한 내부 서비스 수준 변경에서는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대한 데이터 평면 액세스에도 영향을 주지 않습니다. 더 높은 서비스 수준을 사용하여 성능을 향상시키거나 더 낮은 서비스 수준을 사용하여 비용을 최적화하도록 기존 볼륨을 변경할 수 있습니다. 이 기능은 무료이며(일반 [Azure NetApp Files 스토리지 비용](https://azure.microsoft.com/pricing/details/netapp/)은 계속 적용됨) 현재 공개 미리 보기 상태입니다. [동적 볼륨 서비스 수준 변경 설명서](dynamic-change-volume-service-level.md)에 따라 기능 미리 보기에 등록할 수 있습니다.
+    클라우드는 IT 지출의 유연성을 보장합니다. 이제 볼륨에 대해 원하는 서비스 수준을 사용하는 다른 용량 풀로 볼륨을 이동하여 기존 Azure NetApp Files 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대한 이러한 내부 서비스 수준 변경에서는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대한 데이터 평면 액세스에도 영향을 주지 않습니다. 더 높은 서비스 수준을 사용하여 성능을 향상시키거나 더 낮은 서비스 수준을 사용하여 비용을 최적화하도록 기존 볼륨을 변경할 수 있습니다. 이 기능은 무료입니다(일반 [Azure NetApp Files 스토리지 비용](https://azure.microsoft.com/pricing/details/netapp/)은 계속 적용됨). 현재 미리 보기로 제공되고 있습니다. [동적 볼륨 서비스 수준 변경 설명서](dynamic-change-volume-service-level.md)에 따라 기능 미리 보기에 등록할 수 있습니다.
 
 * [볼륨 스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)(미리 보기) 
 

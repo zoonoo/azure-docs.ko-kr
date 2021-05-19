@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 4bc5732c1b2349f34297ecaacc7eb3176fdba611
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 39b21a849f13af39731c31590cf92f8ffc12cd7d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100570486"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783606"
 ---
 # <a name="what-is-azure-sentinel"></a>Azure Sentinel이란?
 
@@ -31,7 +31,7 @@ Azure Sentinel은 점점 더 정교해지는 공격, 점점 늘어나는 경고�
 
 - 온-프레미스와 여러 클라우드의 모든 사용자, 디바이스, 애플리케이션 및 인프라에서 **클라우드 규모로 데이터를 수집** 합니다. 
 
-- Microsoft의 분석 및 업계 최고의 위협 인텔리전스를 사용하여 **이전에 미검사된 위협을 탐지** 하고 가양성을 최소화합니다. 
+- Microsoft의 분석 및 업계 최고의 위협 인텔리전스를 사용하여 **이전에 미검사된 위협을 탐지** 하고 [가양성을 최소화](false-positives.md)합니다. 
 
 - Microsoft의 수년 간의 사이버 보안 성과물을 활용하여 **인공 지능을 통해 위협을 조사** 하고 대규모로 의심스러운 활동을 헌팅합니다. 
 

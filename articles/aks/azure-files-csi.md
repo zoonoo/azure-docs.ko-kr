@@ -1,59 +1,59 @@
 ---
-title: AKS (Azure Kubernetes Service)의 Azure Files에 대 한 CSI (Container Storage Interface) 드라이버 사용
-description: AKS (Azure Kubernetes Service) 클러스터에서 Azure Files에 CSI (Container Storage Interface) 드라이버를 사용 하는 방법에 대해 알아봅니다.
+title: AKS(Azure Kubernetes Service)에서 Azure Files용 CSI(Container Storage Interface) 드라이버 사용
+description: AKS(Azure Kubernetes Service) 클러스터에서 Azure Files용 CSI(Container Storage Interface) 드라이버를 사용하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 93f7f7a3c59beca362145ac16f7cf727df773f81
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 2595dc95e4e7f489553548b7cfbf4f64bb9c82af
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102174064"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108166130"
 ---
-# <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS (Azure Kubernetes Service) (미리 보기)에서 CSI (Azure Files Container Storage Interface) 드라이버 사용
+# <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>AKS(Azure Kubernetes Service)에서 Azure Files CSI(Container Storage Interface) 드라이버 사용(미리 보기)
 
-CSI (Azure Files Container Storage Interface) 드라이버는 AKS (Azure Kubernetes Service)에서 Azure Files 공유의 수명 주기를 관리 하는 데 사용 하는 [CSI 사양](https://github.com/container-storage-interface/spec/blob/master/spec.md)규격 드라이버입니다.
+Azure Files CSI(Container Storage Interface) 드라이버는 Azure Files 공유의 수명 주기를 관리하기 위해 AKS(Azure Kubernetes Service)에서 사용하는 [CSI 사양](https://github.com/container-storage-interface/spec/blob/master/spec.md) 호환 드라이버입니다.
 
-CSI은 임의 블록 및 파일 저장소 시스템을 Kubernetes의 컨테이너 화 된 워크 로드에 노출 하는 표준입니다. AKS는 CSI을 채택 하 고 사용 하 여 코어 Kubernetes 코드를 터치 하 고 해당 릴리스 주기를 기다릴 필요 없이 Kubernetes의 기존 저장소 시스템을 새로 제공 하거나 향상 시킬 수 있도록 플러그 인을 작성, 배포 및 반복할 수 있습니다.
+CSI는 임의 블록과 파일 스토리지 시스템을 Kubernetes의 컨테이너화된 워크로드에 공개하는 표준입니다. CSI를 채택하고 사용하면 이제 AKS는 플러그인을 작성, 배포 및 반복하여 핵심 Kubernetes 코드를 조정하고 릴리스 주기를 기다릴 필요없이 Kubernetes에서 새로운 스토리지 시스템을 공개하거나 기존 스토리지 시스템을 개선할 수 있습니다.
 
-CSI driver를 지 원하는 AKS 클러스터를 만들려면 [Azure 디스크에 대 한 CSI 드라이버 사용 및 AKS에서 Azure Files](csi-storage-drivers.md)을 참조 하세요.
+CSI 드라이버를 지원하는 AKS 클러스터를 만들려면 [AKS에서 Azure 디스크와 Azure Files에 CSI 드라이버 사용](csi-storage-drivers.md)을 참조하세요.
 
->[!NOTE]
-> *트리 내 드라이버* 는 핵심 Kubernetes 코드의 일부인 현재 저장소 드라이버와 플러그 인 새 CSI 드라이버를 나타냅니다.
+> [!NOTE]
+> *인트리 드라이버* 는 플러그 인인 새로운 CSI 드라이버와 비교하여 핵심 Kubernetes 코드의 일부인 현재 스토리지 드라이버를 나타냅니다.
 
 ## <a name="use-a-persistent-volume-with-azure-files"></a>Azure Files에서 영구적 볼륨 사용
 
-[영구적 볼륨 (PV)](concepts-storage.md#persistent-volumes) 은 Kubernetes pod와 함께 사용 하기 위해 프로 비전 된 저장소 부분을 나타냅니다. PV는 하나 이상의 pod에서 사용할 수 있으며 동적 또는 정적으로 프로 비전 할 수 있습니다. 여러 pod가 동일한 저장소 볼륨에 동시에 액세스 해야 하는 경우 Azure Files를 사용 하 여 SMB ( [서버 메시지 블록) 프로토콜][smb-overview]을 사용 하 여 연결할 수 있습니다. 이 문서에서는 AKS 클러스터의 여러 pod에서 사용할 Azure Files 공유를 동적으로 만드는 방법을 보여 줍니다. 정적 프로 비전의 경우 [Azure Files 공유를 사용 하 여 볼륨 수동 만들기 및 사용](azure-files-volume.md)을 참조 하세요.
+[PV(영구 볼륨)](concepts-storage.md#persistent-volumes)는 Kubernetes Pod와 함께 사용하기 위해 프로비저닝된 스토리지 부분을 나타냅니다. PV는 하나 이상의 Pod에서 사용할 수 있으며 동적 또는 정적으로 프로비저닝할 수 있습니다. 여러 Pod에서 동일한 스토리지 볼륨에 동시에 액세스해야 하는 경우 Azure Files에서 [SMB(서버 메시지 블록) 프로토콜][smb-overview]을 사용하여 연결할 수 있습니다. 이 문서에서는 AKS 클러스터에서 여러 Pod에 사용할 Azure Files공유를 동적으로 만드는 방법을 설명합니다. 고정 프로비저닝의 경우 [Azure Files 공유를 사용하여 수동으로 볼륨 만들기 및 사용](azure-files-volume.md)을 참조하세요.
 
 Kubernetes 볼륨에 대한 자세한 내용은 [AKS의 애플리케이션에 대한 스토리지 옵션][concepts-storage]을 참조하세요.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>기본 제공 저장소 클래스를 사용 하 여 동적으로 Azure Files PVs 만들기
+## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>기본 제공 스토리지 클래스를 사용하여 동적으로 Azure Files PV 만들기
 
-저장소 클래스는 Azure Files 공유를 만드는 방법을 정의 하는 데 사용 됩니다. 저장소 계정은 Azure Files 공유를 저장 하기 위해 저장소 클래스와 함께 사용 하기 위해 [노드 리소스 그룹][node-resource-group] 에 자동으로 만들어집니다. 다음 [Azure storage 중복 sku][storage-skus] *에 대해 다음 중 하나를 선택* 합니다.
+스토리지 클래스는 Azure Files 공유를 만드는 방법을 정의하는 데 사용됩니다. 스토리지 계정은 Azure Files 공유를 보관할 스토리지 클래스에서 사용할 수 있도록 자동으로 [노드 리소스 그룹][node-resource-group]에 생성됩니다. *skuName* 으로 다음 [Azure Storage 중복도 SKU][storage-skus] 중 하나를 선택합니다.
 
-* **Standard_LRS**: 표준 로컬 중복 저장소
-* **Standard_GRS**: 표준 지역 중복 저장소
-* **Standard_ZRS**: 표준 영역 중복 저장소
-* **Standard_RAGRS**: 표준 읽기 액세스 지역 중복 저장소
-* **Premium_LRS**: 프리미엄 로컬 중복 저장소
+* **Standard_LRS**: 표준 로컬 중복 스토리지
+* **Standard_GRS**: 표준 지역 중복 스토리지
+* **Standard_ZRS**: 표준 영역 중복 스토리지
+* **Standard_RAGRS**: 표준 읽기 액세스 지역 중복 스토리지
+* **Premium_LRS**: 프리미엄 로컬 중복 스토리지
 
 > [!NOTE]
-> Azure Files는 Azure Premium Storage를 지원 합니다. 최소 프리미엄 파일 공유는 100 GB입니다.
+> Azure Files는 Azure Premium Storage를 지원합니다. 최소 프리미엄 파일 공유는 100GB입니다.
 
-AKS에서 storage CSI 드라이버를 사용 하 `StorageClasses` 는 경우 AZURE FILES CSI storage 드라이버를 사용 하는 두 가지 추가 기본 제공이 있습니다. 추가 CSI 저장소 클래스는 클러스터에서 트리 내 기본 저장소 클래스와 함께 생성 됩니다.
+AKS에서 스토리지 CSI 드라이버를 사용하는 경우 Azure Files CSI 스토리지 드라이버를 사용하는 두 개의 추가 기본 제공 `StorageClasses`가 있습니다. 추가 CSI 스토리지 클래스는 인트리 기본 스토리지 클래스와 함께 클러스터에서 생성됩니다.
 
-- `azurefile-csi`: Azure Standard Storage를 사용 하 여 Azure Files 공유를 만듭니다.
-- `azurefile-csi-premium`: Azure Premium Storage를 사용 하 여 Azure Files 공유를 만듭니다.
+- `azurefile-csi`: Azure Standard Storage를 사용하여 Azure Files 공유를 만듭니다.
+- `azurefile-csi-premium`: Azure Premium Storage를 사용하여 Azure Files 공유를 만듭니다.
 
-두 저장소 클래스의 회수 정책은 해당 PV를 삭제할 때 기본 Azure Files 공유가 삭제 되도록 합니다. 저장소 클래스는 또한 확장 가능 하도록 파일 공유를 구성 하므로 새 크기의 PVC (영구적 볼륨 클레임)만 편집 하면 됩니다.
+두 스토리지 클래스의 회수 정책 때문에 각 PV가 삭제될 때 기본 Azure Files 공유가 삭제됩니다. 또한 스토리지 클래스는 파일 공유를 확장 가능하도록 구성하므로 사용자는 영구적 볼륨 클레임(PVC)을 새 크기로 편집하기만 하면 됩니다.
 
-이러한 저장소 클래스를 사용 하려면 해당 클래스를 참조 하 고 사용 하는 [PVC](concepts-storage.md#persistent-volume-claims) 및 해당 pod를 만듭니다. PVC는 저장소 클래스를 기반으로 저장소를 자동으로 프로 비전 하는 데 사용 됩니다. PVC는 미리 만든 저장소 클래스 또는 사용자 정의 저장소 클래스 중 하나를 사용 하 여 원하는 SKU 및 크기에 대 한 Azure Files 공유를 만들 수 있습니다. Pod 정의를 만들 때 필요한 저장소를 요청 하도록 PVC가 지정 됩니다.
+스토리지 클래스를 사용하려면 해당 클래스를 참조하고 사용하는 [PVC](concepts-storage.md#persistent-volume-claims)와 해당 Pod를 만듭니다. PVC를 사용하여 스토리지 클래스를 기반으로 하는 스토리지를 자동으로 프로비저닝합니다. PVC는 미리 만든 스토리지 클래스 중 하나 또는 사용자 정의 스토리지 클래스를 사용하여 원하는 SKU와 크기에 맞는 Azure Files 공유를 만들 수 있습니다. Pod 정의를 만들 때 원하는 스토리지를 요청하는 PVC가 지정됩니다.
 
-[Kubectl apply][kubectl-apply] 명령을 사용 하 여 [현재 날짜를 `outfile` 에 출력 하는 예제 PVC 및 pod](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 를 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 [현재 날짜를 `outfile`에 사용하는 예제 PVC 및 Pod](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml)를 만듭니다.
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/pvc-azurefile-csi.yaml
@@ -63,7 +63,7 @@ persistentvolumeclaim/pvc-azurefile created
 pod/nginx-azurefile created
 ```
 
-Pod가 실행 중 상태가 된 후에는 다음 명령을 실행 하 고 출력에이 포함 되어 있는지 확인 하 여 파일 공유가 올바르게 탑재 되었는지 확인할 수 있습니다 `outfile` .
+Pod가 실행 중 상태가 된 후에는 다음 명령을 실행하고 출력에 `outfile`이 포함되어 있는지 확인하여 파일 공유가 올바르게 탑재되었는지 확인할 수 있습니다.
 
 ```console
 $ kubectl exec nginx-azurefile -- ls -l /mnt/azurefile
@@ -72,13 +72,13 @@ total 29
 -rwxrwxrwx 1 root root 29348 Aug 31 21:59 outfile
 ```
 
-## <a name="create-a-custom-storage-class"></a>사용자 지정 저장소 클래스 만들기
+## <a name="create-a-custom-storage-class"></a>사용자 지정 스토리지 클래스 만들기
 
-기본 저장소 클래스는 가장 일반적인 시나리오에 적합 하지만 모든 것은 아닙니다. 경우에 따라 고유한 매개 변수를 사용 하 여 고유한 저장소 클래스를 사용자 지정 해야 할 수 있습니다. 예를 들어 다음 매니페스트를 사용 하 여 `mountOptions` 파일 공유의를 구성 합니다.
+기본 스토리지 클래스는 가장 일반적인 시나리오에 적합하지만, 일부는 아닙니다. 경우에 따라 고유한 매개 변수를 사용하여 고유 스토리지 클래스를 사용자 지정해야 할 수 있습니다. 예를 들어 다음 매니페스트를 사용하여 파일 공유의 `mountOptions`을 구성합니다.
 
-*FileMode* 및 *dimode* 의 기본값은 Kubernetes 탑재 된 파일 공유의 경우 *0777* 입니다. 저장소 클래스 개체에 다른 탑재 옵션을 지정할 수 있습니다.
+*fileMode* 및 *dirMode* 의 기본값은 Kubernetes 탑재 파일 공유의 경우 *0777* 입니다. 스토리지 클래스 개체에 다른 탑재 옵션을 지정할 수 있습니다.
 
-이라는 파일을 만들고 `azure-file-sc.yaml` 다음 예제 매니페스트를 붙여넣습니다.
+`azure-file-sc.yaml`이라는 파일을 만들고 다음 예제 매니페스트를 붙여넣습니다.
 
 ```yaml
 kind: StorageClass
@@ -109,9 +109,9 @@ kubectl apply -f azure-file-sc.yaml
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-Azure Files CSI 드라이버는 영구적 볼륨 및 기본 파일 공유 [의 스냅숏을](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) 만드는 것을 지원 합니다.
+Azure Files CSI 드라이버는 [영구적 볼륨의 스냅샷](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) 및 기본 파일 공유 의 스냅샷 생성을 지원합니다.
 
-[Kubectl apply][kubectl-apply] 명령을 사용 하 여 [볼륨 스냅숏 클래스](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) 를 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 [볼륨 스냅샷 클래스](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml)를 만듭니다.
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml
@@ -119,17 +119,15 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 ```
 
-[이 자습서의 시작 부분에서 동적으로 만든](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes)PVC에서 [볼륨 스냅숏을](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) 만듭니다 `pvc-azurefile` .
-
+[이 자습서의 시작부분에서 동적으로 만든](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes) PVC의 [볼륨 스냅샷](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) `pvc-azurefile`을 만듭니다.
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml
 
-
 volumesnapshot.snapshot.storage.k8s.io/azurefile-volume-snapshot created
 ```
 
-스냅숏이 올바르게 만들어졌는지 확인 합니다.
+스냅샷을 올바르게 만들었는지 확인합니다.
 
 ```bash
 $ kubectl describe volumesnapshot azurefile-volume-snapshot
@@ -158,23 +156,23 @@ Status:
 Events:                                <none>
 ```
 
-## <a name="resize-a-persistent-volume"></a>영구적 볼륨 크기 조정
+## <a name="resize-a-persistent-volume"></a>영구 볼륨 크기 조정
 
-PVC에 대해 더 큰 볼륨을 요청할 수 있습니다. PVC 개체를 편집 하 고 더 큰 크기를 지정 합니다. 이 변경으로 인해 PV를 지 원하는 기본 볼륨의 확장이 트리거됩니다.
+더 큰 용량의 PVC를 요청할 수 있습니다. PVC 개체를 편집하고 더 큰 크기를 지정합니다. 이 변경때문에 PV를 지원하는 기본 볼륨의 확장이 트리거됩니다.
 
 > [!NOTE]
-> 새 PV는 클레임을 충족 하기 위해 생성 되지 않습니다. 대신 기존 볼륨의 크기가 조정 됩니다.
+> 클레임을 충족하기 위해 새 PV를 만들지 않습니다. 대신 기존 볼륨의 크기가 조정됩니다.
 
-AKS에서 기본 제공 `azurefile-csi` 저장소 클래스는 이미 확장을 지원 하므로 [이 저장소 클래스를 사용 하 여 이전에 만든 PVC](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes)를 사용 합니다. PVC가 100Gi 파일 공유를 요청 했습니다. 다음을 실행 하 여 확인할 수 있습니다.
+AKS에서 기본 제공 `azurefile-csi` 스토리지 클래스는 이미 확장을 지원하므로 [이 스토리지 클래스로 이전에 만든 PVC ](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes)를 사용합니다. PVC가 100Gi 파일 공유를 요청했습니다. 다음을 실행하여 확인할 수 있습니다.
 
-```console 
+```console
 $ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
 
 Filesystem                                                                                Size  Used Avail Use% Mounted on
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  100G  128K  100G   1% /mnt/azurefile
 ```
 
-필드를 늘려서 PVC를 확장 합니다 `spec.resources.requests.storage` .
+`spec.resources.requests.storage` 필드를 늘려 PVC를 확장합니다.
 
 ```console
 $ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {"requests": {"storage": "200Gi"}}}}'
@@ -182,7 +180,7 @@ $ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {
 persistentvolumeclaim/pvc-azurefile patched
 ```
 
-Pod 내의 PVC와 파일 시스템이 모두 새 크기를 표시 하는지 확인 합니다.
+Pod 내의 PVC와 파일 시스템이 모두 새 크기를 나타내는지 확인합니다.
 
 ```console
 $ kubectl get pvc pvc-azurefile
@@ -194,17 +192,17 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
-
 ## <a name="nfs-file-shares"></a>NFS 파일 공유
-[Azure Files 이제 NFS v 4.1 프로토콜을 지원](../storage/files/storage-files-how-to-create-nfs-shares.md)합니다. NFS 4.1에 대 한 지원 Azure Files는 완벽 하 게 관리 되는 NFS 파일 시스템을 사용 가능 하 고 내구성이 뛰어난 분산 복원 력 저장소 플랫폼에 구축 된 서비스로 제공 합니다.
 
- 이 옵션은 내부 데이터 업데이트를 사용 하는 임의 액세스 워크 로드에 최적화 되며 전체 POSIX 파일 시스템 지원을 제공 합니다. 이 섹션에서는 AKS 클러스터에서 Azure 파일 CSI 드라이버를 사용 하 여 NFS 공유를 사용 하는 방법을 보여 줍니다.
+[이제 Azure Files가 NFS v4.1 프로토콜을 지원합니다](../storage/files/storage-files-how-to-create-nfs-shares.md). Azure Files에 대한 NFS 4.1 지원은 완벽하게 관리되는 NFS 파일 시스템을 사용 가능하고 내구성이 뛰어난 배포 복원력 스토리지 플랫폼에 구축된 서비스로 제공합니다.
 
-미리 보기 단계에서 [제한 사항](../storage/files/storage-files-compare-protocols.md#limitations) 및 [지역 가용성](../storage/files/storage-files-compare-protocols.md#regional-availability) 을 확인 해야 합니다.
+ 이 옵션은 내부 데이터 업데이트를 사용하는 임의 액세스 워크로드에 최적화되며 전체 POSIX 파일 시스템 지원을 제공합니다. 이 섹션에서는 AKS 클러스터에서 Azure 파일 CSI 드라이버를 사용하여 NFS 공유를 사용하는 방법을 보여 줍니다.
 
-### <a name="register-the-allownfsfileshares-preview-feature"></a>`AllowNfsFileShares`미리 보기 기능 등록
+미리 보기 단계에서 [제한 사항](../storage/files/storage-files-compare-protocols.md#limitations) 및 [지역 가용성](../storage/files/storage-files-compare-protocols.md#regional-availability)을 확인해야 합니다.
 
-NFS 4.1를 활용 하는 파일 공유를 만들려면 `AllowNfsFileShares` 구독에서 기능 플래그를 사용 하도록 설정 해야 합니다.
+### <a name="register-the-allownfsfileshares-preview-feature"></a>`AllowNfsFileShares` 미리 보기 기능 등록
+
+NFS 4.1을 활용하는 파일 공유를 만들려면 구독에서 `AllowNfsFileShares` 기능 플래그를 사용하도록 설정해야 합니다.
 
 `AllowNfsFileShares`다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 기능 플래그를 등록 합니다.
 
@@ -218,22 +216,22 @@ az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
 ```
 
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *Microsoft 저장소* 리소스 공급자 등록을 새로 고칩니다.
+준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.Storage* 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Storage
 ```
 
-### <a name="create-a-storage-account-for-the-nfs-file-share"></a>NFS 파일 공유에 대 한 저장소 계정 만들기
+### <a name="create-a-storage-account-for-the-nfs-file-share"></a>NFS 파일 공유에 대한 스토리지 계정 만들기
 
-[만들기 `Premium_LRS` ](../storage/files/storage-how-to-create-file-share.md) NFS 공유를 지원 하기 위해 다음 구성이 포함 된 Azure storage 계정:
+NFS 공유를 지원하기 위해 다음 구성이 포함된 [`Premium_LRS` Azure Storage 계정을 만듭니다.](../storage/files/storage-how-to-create-file-share.md)
 - 계정 종류: FileStorage
-- 보안 전송 필요 (HTTPS 트래픽만 사용): false
-- 방화벽 및 가상 네트워크에서 에이전트 노드의 가상 네트워크를 선택 합니다. 따라서 MC_ 리소스 그룹에서 저장소 계정을 만들 수 있습니다.
+- 보안 전송 필요(HTTPS 트래픽만 사용): false
+- 방화벽 및 가상 네트워크에서 에이전트 노드의 가상 네트워크를 선택합니다. 따라서 MC_ 리소스 그룹에서 스토리지 계정을 만들 수 있습니다.
 
-### <a name="create-nfs-file-share-storage-class"></a>NFS 파일 공유 저장소 클래스 만들기
+### <a name="create-nfs-file-share-storage-class"></a>NFS 파일 공유 스토리지 클래스 만들기
 
-`nfs-sc.yaml`각 자리 표시자 편집 아래에 매니페스트가 있는 파일을 저장 합니다.
+각 자리 표시자 편집 아래에 매니페스트가 있는 `nfs-sc.yaml` 파일을 저장합니다.
 
 ```yml
 apiVersion: storage.k8s.io/v1
@@ -247,7 +245,7 @@ parameters:
   protocol: nfs
 ```
 
-파일을 편집 하 고 저장 한 후에 [kubectl apply][kubectl-apply] 명령을 사용 하 여 저장소 클래스를 만듭니다.
+파일을 편집하고 저장한 후 [kubectl apply][kubectl-apply] 명령을 사용하여 스토리지 클래스를 만듭니다.
 
 ```console
 $ kubectl apply -f nfs-sc.yaml
@@ -255,16 +253,17 @@ $ kubectl apply -f nfs-sc.yaml
 storageclass.storage.k8s.io/azurefile-csi created
 ```
 
-### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>NFS 지원 파일 공유를 사용 하 여 배포 만들기
-Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` [][kubectl-apply] .
+### <a name="create-a-deployment-with-an-nfs-backed-file-share"></a>NFS 지원 파일 공유를 사용하여 배포 만들기
 
- ```console
+[kubectl apply][kubectl-apply] 명령과 함께 다음 명령을 배포하여 파일 `data.txt`에 타임스탬프를 저장하는 [상태 저장 세트](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) 예제를 배포할 수 있습니다.
+
+```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```
 
-다음을 실행 하 여 볼륨 콘텐츠의 유효성을 검사 합니다.
+다음을 실행하여 볼륨 콘텐츠의 유효성을 검사합니다.
 
 ```console
 $ kubectl exec -it statefulset-azurefile-0 -- df -h
@@ -276,23 +275,22 @@ accountname.file.core.windows.net:/accountname/pvc-fa72ec43-ae64-42e4-a8a2-55660
 ...
 ```
 
->[!NOTE]
-> NFS 파일 공유는 프리미엄 계정 이므로 최소 파일 공유 크기는 100GB입니다. 저장소 크기가 작은 PVC를 만들 경우 "파일 공유를 만들지 못했습니다." 오류가 발생할 수 있습니다. size (5) ... "
-
+> [!NOTE]
+> NFS 파일 공유는 프리미엄 계정이므로 최소 파일 공유 크기는 100GB입니다. 스토리지 크기가 작은 PVC를 만들 경우 "파일 공유를 만들지 못했습니다. ... size (5)..." 오류가 발생할 수 있습니다.
 
 ## <a name="windows-containers"></a>Windows 컨테이너
 
-Azure Files CSI 드라이버는 Windows 노드와 컨테이너도 지원 합니다. Windows 컨테이너를 사용 하려면 windows [컨테이너 자습서](windows-container-cli.md) 에 따라 windows 노드 풀을 추가 합니다.
+Azure Files CSI 드라이버는 Windows 노드와 컨테이너도 지원합니다. Windows 컨테이너를 사용하려면 [Windows 컨테이너 자습서](windows-container-cli.md)에 따라 Windows 노드 풀을 추가합니다.
 
-Windows 노드 풀을 만든 후와 같은 기본 제공 저장소 클래스를 사용 `azurefile-csi` 하거나 사용자 지정 저장소 클래스를 만듭니다. Kubectl apply 명령을 사용 하 여 다음 명령을 배포 하 여 타임 스탬프를 파일에 저장 하는 예제 [Windows 기반 상태 저장 집합](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 을 배포할 수 있습니다 `data.txt` . [][kubectl-apply]
+Windows 노드 풀이 있으면 이제 `azurefile-csi`와 같은 기본 제공 스토리지 클래스를 사용할 수 있습니다. [kubectl apply][kubectl-apply] 명령으로 다음 명령을 배포하여 `data.txt` 파일에 타임스탬프를 저장하는 [Windows 기반 상태 저장 세트](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) 예제를 배포할 수 있습니다.
 
- ```console
+```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
 
 statefulset.apps/busybox-azurefile created
 ```
 
-다음을 실행 하 여 볼륨 콘텐츠의 유효성을 검사 합니다.
+다음을 실행하여 볼륨 콘텐츠의 유효성을 검사합니다.
 
 ```console
 $ kubectl exec -it busybox-azurefile-0 -- cat c:\\mnt\\azurefile\\data.txt # on Linux/MacOS Bash
@@ -306,9 +304,8 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 디스크에 CSI 드라이버를 사용 하는 방법을 알아보려면 [CSI 드라이버에서 Azure 디스크 사용](azure-disk-csi.md)을 참조 하세요.
-- 저장소 모범 사례에 대 한 자세한 내용은 [Azure Kubernetes Service의 저장소 및 백업 모범 사례][operator-best-practices-storage]를 참조 하세요.
-
+- Azure 디스크의 CSI 드라이버를 사용하는 방법을 알아보려면 [CSI 드라이버로 Azure 디스크 사용](azure-disk-csi.md)을 참조하세요.
+- 스토리지 모범 사례에 대한 자세한 내용은 [Azure Kubernetes Service의 스토리지 및 백업 모범 사례][operator-best-practices-storage]를 참조하세요.
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
@@ -319,25 +316,24 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
-
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md
-[az-disk-list]: /cli/azure/disk#az-disk-list
-[az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
-[az-disk-create]: /cli/azure/disk#az-disk-create
-[az-disk-show]: /cli/azure/disk#az-disk-show
+[az-disk-list]: /cli/azure/disk#az_disk_list
+[az-snapshot-create]: /cli/azure/snapshot#az_snapshot_create
+[az-disk-create]: /cli/azure/disk#az_disk_create
+[az-disk-show]: /cli/azure/disk#az_disk_show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md

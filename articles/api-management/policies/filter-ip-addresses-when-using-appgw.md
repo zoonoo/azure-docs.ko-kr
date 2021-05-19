@@ -1,7 +1,7 @@
 ---
-title: 샘플 API management 정책-Application Gateway를 사용 하는 경우 IP 주소를 필터링 합니다.
+title: 샘플 API Management 정책 - Application Gateway를 사용하는 경우 IP 주소를 필터링합니다.
 titleSuffix: Azure API Management
-description: Azure API management 정책 샘플-Application Gateway를 사용 하는 경우 요청 IP 주소를 필터링 하는 방법을 보여 줍니다.
+description: Azure API Management 정책 샘플 - Application Gateway를 사용하는 경우 요청 IP 주소를 필터링하는 방법을 보여 줍니다.
 services: api-management
 documentationcenter: ''
 author: jftl6y
@@ -13,15 +13,15 @@ ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
 ms.openlocfilehash: 8249cc543c6334841c8e5152d5d1ceb84d4097dc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92076116"
 ---
-# <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Application Gateway를 사용 하는 경우 요청 IP 주소에 대 한 필터링
+# <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Application Gateway를 사용하는 경우 요청 IP 주소 필터링
 
-이 문서에서는 Application Gateway 또는 다른 중개자를 통해 API Management 인스턴스에 액세스할 때 요청 IP 주소에 대해 필터링 하는 방법을 보여 주는 Azure API management 정책 샘플을 보여 줍니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-reference.md)을 참조하세요.
+이 문서에서는 Application Gateway 또는 다른 중개자를 통해 API Management 인스턴스에 액세스할 때 요청 IP 주소를 필터링하는 방법을 안내하는 Azure API Management 정책 샘플을 보여 줍니다. 정책 코드를 설정하거나 편집하려면 [정책 설정 또는 편집](../set-edit-policies.md)에 설명된 단계를 따릅니다. 다른 예제를 보려면 [정책 샘플](../policy-reference.md)을 참조하세요.
 
 ## <a name="policy"></a>정책
 

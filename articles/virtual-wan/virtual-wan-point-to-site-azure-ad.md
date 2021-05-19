@@ -1,35 +1,35 @@
 ---
-title: '사용자 VPN 연결에 대 한 Azure AD 인증 구성: 가상 WAN'
-description: 사용자 VPN에 대 한 Azure Active Directory 인증을 구성 하는 방법을 알아봅니다.
+title: '사용자 VPN 연결에 대한 Azure AD 인증 구성: Virtual WAN'
+description: Virtual WAN 사용자 VPN(지점-사이트)에 대해 Azure Active Directory 인증을 구성하는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alzam
-ms.openlocfilehash: 9cc68eb60096c4431acfc988c87ca9bf99f1f045
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: f16a7675805fa2665c25b5d4a9c3847b710ec71b
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93043399"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164204"
 ---
-# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대 한 Azure Active Directory 인증 구성
+# <a name="configure-azure-active-directory-authentication-for-user-vpn"></a>사용자 VPN에 대한 Azure Active Directory 인증 구성
 
-이 문서에서는 OpenVPN VPN 연결을 통해 Azure에서 리소스에 연결 하도록 가상 WAN의 사용자 VPN에 대 한 Azure AD 인증을 구성 하는 방법을 보여 줍니다. Azure Active Directory 인증은 OpenVPN 프로토콜을 사용하는 게이트웨이와 Windows를 실행하는 클라이언트에서만 사용할 수 있습니다.
+이 문서에서는 OpenVPN VPN 연결을 통해 Azure에서 리소스에 연결하도록 Virtual WAN의 사용자 VPN에 대한 Azure AD 인증을 구성하는 방법을 보여 줍니다. Azure Active Directory 인증은 OpenVPN 프로토콜을 사용하는 게이트웨이와 Windows를 실행하는 클라이언트에서만 사용할 수 있습니다.
 
 이 연결 유형은 클라이언트 컴퓨터에서 클라이언트를 구성해야 합니다. Virtual WAN에 대한 자세한 내용은 [Virtual WAN 개요](virtual-wan-about.md)를 참조하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 
-* 가상 WAN 만들기
+* Virtual WAN 생성
 * 가상 허브 만들기
 * 사용자 VPN 구성 만들기
-* 가상 WAN 사용자 VPN 프로필 다운로드
+* Virtual WAN 사용자 VPN 프로필 다운로드
 * 가상 허브에 사용자 VPN 구성 적용
 * 가상 허브에 VNet 연결
 * 사용자 VPN 클라이언트 구성 다운로드 및 적용
-* 가상 WAN 보기
+* Virtual WAN 보기
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "93043399"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-virtual-wan"></a><a name="wan"></a>가상 WAN 만들기
+## <a name="create-a-virtual-wan"></a><a name="wan"></a>Virtual WAN 만들기
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
@@ -65,9 +65,9 @@ ms.locfileid: "93043399"
 
 ## <a name="create-an-empty-virtual-hub"></a><a name="site"></a>빈 가상 허브 만들기
 
-1. 가상 WAN 아래에서 허브를 선택 하 고 **+ 새 허브** 를 클릭 합니다.
+1. 가상 WAN 아래에서 허브를 선택하고, **+ 새 허브** 를 클릭합니다.
 
-   ![스크린샷 새 허브가 선택 된 허브 구성 대화 상자를 보여 줍니다.](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
+   ![새 허브가 선택된 허브 구성 대화 상자를 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. [가상 허브 만들기] 페이지에서 다음 필드를 채웁니다.
 
    **영역** - 가상 허브를 배포할 영역을 선택합니다.
@@ -76,43 +76,43 @@ ms.locfileid: "93043399"
 
    **허브 프라이빗 주소 공간** - CIDR 표기법으로 된 허브의 주소 범위입니다.
 
-   ![값을 입력할 수 있는 가상 허브 만들기 창이 스크린샷 화면에 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
+   ![값을 입력할 수 있는 가상 허브 만들기 창을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/hub2.jpg)  
 3. **검토 + 만들기** 를 클릭합니다.
-4. **유효성 검사 통과** 페이지에서 **만들기** 를 클릭 합니다.
+4. **유효성 검사 통과** 페이지에서 **만들기** 를 클릭합니다.
 
 ## <a name="create-a-new-user-vpn-configuration"></a><a name="site"></a>새 사용자 VPN 구성 만들기
 
-사용자 VPN 구성은 원격 클라이언트 연결에 대 한 매개 변수를 정의 합니다.
+사용자 VPN 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합니다.
 
 1. 가상 WAN 아래에서 **사용자 VPN 구성** 을 선택합니다.
 
-   ![스크린샷 선택한 사용자 V P N 구성 메뉴 항목을 보여 줍니다.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
+   ![선택된 사용자 VPN 구성 메뉴 항목을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
 2. **+사용자 VPN 구성 만들기** 를 클릭합니다.
 
-   ![사용자 만들기 V P N 구성 링크를 보여 주는 스크린샷](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+   ![사용자 VPN 구성 만들기 링크를 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
 
-3. 정보를 입력 하 고 **만들기** 를 클릭 합니다.
+3. 정보를 입력하고 **만들기** 를 클릭합니다.
 
-   * **구성 이름** -사용자 VPN 구성을 호출 하려는 이름을 입력 합니다.
-   * **터널 유형** -openvpn을 선택 합니다.
-   * **인증 방법** -Azure Active Directory를 선택 합니다.
-   * **대상** -azure AD 테 넌 트에 등록 된 [Azure VPN](openvpn-azure-ad-tenant.md) 엔터프라이즈 응용 프로그램의 응용 프로그램 ID를 입력 합니다. 
-   * **발행** - `https://sts.windows.net/<your Directory ID>/`
-   * **AAD 테 넌 트** - `https://login.microsoftonline.com/<your Directory ID>`
+   * **구성 이름** - 사용자 VPN 구성을 호출하려는 이름을 입력합니다.
+   * **터널 유형** - OpenVPN을 선택합니다.
+   * **인증 방법**: Azure Active Directory를 선택합니다.
+   * **대상** - Azure AD 테넌트에 등록된 [Azure VPN](openvpn-azure-ad-tenant.md) 엔터프라이즈 애플리케이션의 애플리케이션 ID를 입력합니다. 
+   * **발급자** - `https://sts.windows.net/<your Directory ID>/`
+   * **AAD 테넌트** - `https://login.microsoftonline.com/<your Directory ID>`
   
-   ![스크린샷에는 값을 입력할 수 있는 새 사용자 만들기 V P N 구성 창이 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
+   ![값을 입력할 수 있는 새 사용자 만들기 VPN 구성 창을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="edit-hub-assignment"></a><a name="hub"></a>허브 할당 편집
 
-1. 가상 WAN 아래의 **허브** 블레이드로 이동 합니다.
+1. 가상 WAN 아래의 **허브** 블레이드로 이동합니다.
 2. vpn 서버 구성을 연결할 허브를 선택하고, 줄임표(...)를 클릭합니다.
 
-   ![메뉴에서 선택한 가상 허브 편집이 스크린샷으로 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+   ![메뉴에서 선택한 가상 허브 편집을 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
 3. **가상 허브 편집** 을 클릭합니다.
 4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위** 를 선택합니다.
 
-   ![게이트웨이 배율 단위를 선택할 수 있는 가상 허브 편집 대화 상자가 표시 됩니다.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+   ![게이트웨이 확장 단위를 선택할 수 있는 가상 허브 편집 대화 상자를 보여 주는 스크린샷.](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
 5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀** 를 입력합니다.
 6. **확인** 을 클릭합니다.
 7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.
@@ -121,7 +121,7 @@ ms.locfileid: "93043399"
 
 VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
-1. 가상 WAN에 대 한 페이지에서 **사용자 VPN 구성** 을 클릭 합니다.
+1. 가상 WAN에 대한 페이지에서 **사용자 VPN 구성** 을 클릭합니다.
 2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드** 를 클릭합니다.
 3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
 4. 프로필 파일을 사용하여 VPN 클라이언트를 구성합니다.
@@ -131,7 +131,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 연결하려면 Azure VPN Client를 다운로드하고, 이전 단계에서 VNet에 연결하려는 모든 컴퓨터에 다운로드한 VPN 클라이언트 프로필을 가져와야 합니다.
 
 > [!NOTE]
-> Azure AD 인증은 OpenVPN 프로토콜 연결에 대해서만 지원 됩니다 &reg; .
+> Azure AD 인증은 OpenVPN&reg; 프로토콜 연결에만 지원됩니다.
 >
 
 #### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드하려면,
@@ -142,51 +142,51 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 페이지에서 **가져오기** 를 선택합니다.
 
-    ![더하기 메뉴에서 선택한 가져오기가 스크린샷 화면에 표시 됩니다.](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+    ![\+ 메뉴에서 선택한 가져오기 작업을 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
 
 2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기** 를 선택합니다.
 
-    ![스크린샷 파일을 선택할 수 있는 열기 대화 상자를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
+    ![파일을 선택할 수 있는 열기 대화 상자를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
 3. 프로필 이름을 지정하고, **저장** 을 선택합니다.
 
-    ![추가 된 연결 이름 및 저장 단추가 선택 된 스크린샷을 보여 주는 스크린샷](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
+    ![추가된 연결 이름과 선택한 저장 단추를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
 4. **연결** 을 선택하여 VPN에 연결합니다.
 
-    ![스크린샷는 방금 만든 연결에 대 한의 연결 단추를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
+    ![방금 만든 연결에 대한 연결 단추를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
 5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨** 으로 표시됩니다.
 
-    ![스크린샷 연결 된 상태에서 연결을 끊을 수 있는 옵션을 보여 줍니다.](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![연결된 상태의 연결과 연결 해제 옵션을 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
 1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거** 를 선택합니다.
 
-    ![메뉴에서 선택한 제거를 보여 주는 스크린샷](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
+    ![메뉴에서 선택한 제거 작업을 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
 2. **제거** 를 선택하여 삭제합니다.
 
-    ![스크린샷 제거 하거나 취소 하는 옵션을 포함 하는 확인 대화 상자를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
+    ![제거하거나 취소하는 옵션이 있는 확인 대화 상자를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
 #### <a name="diagnose-connection-issues"></a><a name="diagnose"></a>연결 문제 진단
 
 1. 연결 문제를 진단하려면 **진단** 도구를 사용할 수 있습니다. 진단하려는 VPN 연결 옆에 있는 줄임표(...)를 선택하여 메뉴를 표시합니다. 그런 다음, **진단** 을 선택합니다.
 
-    ![메뉴에서 선택한 진단을 보여 주는 스크린샷](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
+    ![메뉴에서 선택한 진단 작업을 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
 2. **연결 속성** 페이지에서 **진단 실행** 을 선택합니다.
 
-    ![스크린샷에는 연결에 대 한 진단 실행 단추가 표시 됩니다.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
+    ![연결에 대한 진단 실행 단추를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 
 3. 자격 증명을 사용하여 로그인합니다.
 
-    ![스크린샷이 작업에 대 한 로그인 대화 상자를 표시 합니다.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
+    ![이 작업에 대한 로그인 대화 상자를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
 
 4. 진단 결과를 살펴봅니다.
 
-    ![스크린샷에는 진단 결과가 표시 됩니다.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
+    ![진단의 결과를 보여 주는 스크린샷.](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
 ## <a name="view-your-virtual-wan"></a><a name="viewwan"></a>가상 WAN 보기
 

@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
 ms.date: 04/28/2021
-ms.openlocfilehash: ea115d42f84562e67adb7e6f45ce8d35be21d6b0
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1ff7ba5e3835fccb2f67fa56cf3737adb9d36b45
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292595"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738899"
 ---
 # <a name="quickstart-create-an-integration-workflow-using-azure-logic-apps-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Logic Apps를 사용하여 통합 워크플로 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "108292595"
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정에 등록합니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -51,7 +51,7 @@ ms.locfileid: "108292595"
 
 * 특정 IP 주소로 트래픽을 제한하는 방화벽이 있을 경우, 논리 앱이 있는 Azure 지역의 Logic Apps 서비스에서 사용하는 [인바운드](logic-apps-limits-and-config.md#inbound) 및 [아웃바운드](logic-apps-limits-and-config.md#outbound) IP 주소 *모두* 에 대한 액세스를 허용하도록 방화벽을 설정합니다.
 
-  또한 이 예제에서는 [Microsoft에서 관리](/connectors/managed.md)하는 RSS 및 Office 365 Outlook 커넥터를 사용합니다. 이러한 커넥터를 사용하려면 논리 앱의 Azure 지역에서 *모든* [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound)에 대한 액세스를 허용하도록 방화벽을 설정해야 합니다.
+  또한 이 예에서는 [Microsoft에서 관리](../connectors/managed.md)하는 RSS 및 Office 365 Outlook 커넥터를 사용합니다. 이러한 커넥터를 사용하려면 논리 앱의 Azure 지역에서 *모든* [관리형 커넥터 아웃바운드 IP 주소](logic-apps-limits-and-config.md#outbound)에 대한 액세스를 허용하도록 방화벽을 설정해야 합니다.
 
 <a name="create-logic-app-resource"></a>
 
@@ -117,10 +117,10 @@ ms.locfileid: "108292595"
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **RSS 피드 URL** | Yes | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
-   | **선택한 속성을 사용하여 확인** | 아니요 | PublishDate | 새 항목을 결정하는 속성입니다. |
+   | **RSS 피드 URL** | 예 | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
+   | **선택한 속성을 사용하여 확인** | 예 | PublishDate | 새 항목을 결정하는 속성입니다. |
    | **간격** | 예 | 1 | 피드 확인 간에 대기하는 간격(숫자)입니다. <p><p>이 예제에서는 `1`을 간격으로 사용합니다. |
-   | **빈도** | 예 | 분 | 모든 간격에 사용할 빈도 단위입니다. <p><p>이 예제에서는 `Minute`를 빈도로 사용합니다. |
+   | **빈도** | 예 | Minute | 모든 간격에 사용할 빈도 단위입니다. <p><p>이 예제에서는 `Minute`를 빈도로 사용합니다. |
    |||||
 
    ![RSS URL, 빈도 및 간격을 비롯한 RSS 트리거 설정을 보여 주는 스크린샷.](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)

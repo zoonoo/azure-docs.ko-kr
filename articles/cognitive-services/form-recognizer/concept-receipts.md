@@ -1,70 +1,70 @@
 ---
-title: 수신-양식 인식기
+title: 영수증 - Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: 인식기 API 사용 및 제한으로 수신 분석과 관련 된 개념을 알아봅니다.
+description: Form Recognizer API 사용 및 제한으로 영수증 분석과 관련된 개념을 알아봅니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 96625959c089c46b04b13216bbb9ea4b74ef4feb
+ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467360"
+ms.lasthandoff: 05/01/2021
+ms.locfileid: "108331865"
 ---
-# <a name="form-recognizer-prebuilt-receipt-model"></a>양식 인식기 미리 빌드된 수신 모델
+# <a name="form-recognizer-prebuilt-receipt-model"></a>Form Recognizer 미리 빌드된 영수증 모델
 
-Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판매 영수증에서 정보를 분석 하 고 추출할 수 있습니다. 강력한 [OCR (광학 인식)](../computer-vision/concept-recognizing-text.md) 기능을 심층 학습 모델과 결합 하 여 영어로 작성 된 수령에서 주요 정보를 추출 합니다.
+Azure Form Recognizer는 미리 빌드된 영수증 모델을 사용하여 판매 영수증에서 정보를 분석하고 추출할 수 있습니다. 강력한 [OCR(광학 인식)](../computer-vision/overview-ocr.md) 기능을 심층 학습 모델과 결합하여 영어로 작성된 영수증에서 주요 정보를 추출합니다.
 
-## <a name="understanding-receipts"></a>수신 확인 이해
+## <a name="understanding-receipts"></a>영수증 이해하기
 
-많은 기업과 개인은 여전히 판매 영수증에서 수동으로 추출 된 데이터를 사용 합니다. 이러한 수신 확인에서 데이터를 자동으로 추출 하는 것은 복잡할 수 있습니다. 수신 확인은 crumpled 하 고, 필기 하는 부분은 적고, 품질이 낮은 스마트폰 이미지를 포함 합니다. 또한 수신 템플릿 및 필드는 시장, 지역 및 판매자에 따라 크게 다를 수 있습니다. 이러한 데이터 추출 및 현장 검색 문제는 고유한 문제를 확인 하는 데 사용 됩니다.  
+많은 기업과 개인은 여전히 판매 영수증에서 수동으로 추출된 데이터를 사용합니다. 이러한 영수증에서 데이터를 자동으로 추출하는 것은 복잡할 수 있습니다. 영수증은 구겨져서 내용을 이해하기 어려울 수 있고, 손으로 필기된 부분이 있을 수 있으며, 품질이 낮은 스마트폰 이미지일 수 있습니다. 또한 영수증의 템플릿 및 필드는 시장, 지역 및 판매자에 따라 크게 다를 수 있습니다. 이러한 데이터 추출 및 현장 검색과 관련된 문제는 영수증 처리를 고유한 문제로 만듭니다.
 
-수신 API는 OCR (광학 문자 인식) 및 미리 작성 된 모델을 사용 하 여 방대한 수신 처리 시나리오를 가능 하 게 합니다. 수신 API를 사용 하면 모델을 학습 하지 않아도 됩니다. 수신 확인 이미지를 분석 수신 API로 보내고 데이터를 추출 합니다.
+Receipt API는 OCR(광학 인식) 및 미리 빌드된 모델을 사용하여 방대한 영수증 처리 시나리오를 가능하게 합니다. Receipt API를 사용하면 모델을 학습하지 않아도 됩니다. 영수증의 이미지를 분석 Receipt API로 보내고 데이터를 추출합니다.
 
 ![샘플 영수증](./media/receipts-example.jpg)
 
 
-## <a name="what-does-the-receipt-service-do"></a>수신 서비스에서 수행 하는 작업은 무엇 인가요? 
+## <a name="what-does-the-receipt-service-do"></a>영수증 서비스에서 수행하는 작업은 무엇인가요?
 
-미리 작성 된 수신 확인 서비스는 &mdash; 식당, 소매점 또는 식료품 스토어에서 일반적으로 받게 되는 수신의 유형으로 판매 영수증의 콘텐츠를 추출 합니다.
+미리 빌드된 영수증 서비스는 판매 영수증의 콘텐츠&mdash;식당, 소매점 또는 식료품 스토어에서 일반적으로 받게 되는 영수증의 유형을 추출합니다.
 
-### <a name="fields-extracted"></a>추출 된 필드
+### <a name="fields-extracted"></a>추출된 필드
 
-|Name| Type | Description | 텍스트 | 값 (표준화 된 출력) |
+|이름| 유형 | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | 문자열 | 판매 확인 유형 | 항목별 |  |
-| MerchantName | 문자열 | 영수증을 발급 하는 판매자의 이름 | Contoso |  |
-| MerchantPhoneNumber | phoneNumber | 나열 된 전화 판매 수 | 987-654-3210 | + 19876543210 |
-| MerchantAddress | 문자열 | 판매 된 판매 주소 | 123 Main St Redmond WA 98052 |  |
-| TransactionDate | date | 영수증이 발급 된 날짜 | June 06, 2019 | 2019-06-26  |
-| TransactionTime | time | 수신이 발행 된 시간 | 오후 4:49 | 16:49:00  |
-| 합계 | number | 전체 트랜잭션 수신 총 트랜잭션 | $14.34 | 14.34 |
-| 소계 | number | 수령의 부분합 (보통 세금이 적용 되기 전) | $12.34 | 12.34 |
-| 세금 | number | 수령 on 수령, 자주 판매 세금 또는 동급 | $2.00 | 2.00 |
-| 팁 | number | 구매자에 의해 포함 된 팁 | $1.00 | 1.00 |
-| 항목 | 개체의 배열 | 추출 된 품목 (이름, 수량, 단가 및 총 가격) | |
+| ReceiptType | 문자열 | 판매 영수증의 유형 | 항목화 |  |
+| MerchantName | 문자열 | 영수증을 발급한 판매자의 이름 | Contoso |  |
+| MerchantPhoneNumber | phoneNumber | 판매자 전화 번호 나열 | 987-654-3210 | +19876543210 |
+| MerchantAddress | 문자열 | 판매자의 주소 나열 | 123 Main St Redmond WA 98052 |  |
+| TransactionDate | date | 영수증이 발급된 날짜 | 2019년 6월 6일 | 2019년 6월 26일  |
+| TransactionTime | time | 영수증이 발급된 시간 | 오후 4시 49분 | 16:49:00  |
+| 합계 | number | 영수증의 총 트랜잭션 합계 | $14.34 | 14.34 |
+| 소계 | number | 영수증의 소계(보통 세금이 적용되기 전) | $12.34 | 12.34 |
+| 세금 | number | 영수증에 대한 세금(보통 판매 세금 또는 이에 상응하는 금액) | $2.00 | 2.00 |
+| 팁 | number | 구매자에 의해 포함된 팁 | $1.00 | 1.00 |
+| Items | 개체의 배열 | 추출된 품목(이름, 수량, 단가 및 총 가격) | |
 | 이름 | string | 항목 이름 | Surface Pro 6 | |
 | 수량 | number | 각 항목의 수량 | 1 | |
 | 가격 | number | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |
-| 총 가격 | number | 품목의 총 가격 | $999.00 | 999.00 |
+| 총 가격 | number | 품목에 대한 총 가격 | $999.00 | 999.00 |
 
 ### <a name="additional-features"></a>추가 기능
 
-또한 수신 API는 다음 정보를 반환 합니다.
+또한 Receipt API는 다음 정보를 반환합니다.
 
-* 필드 신뢰 수준 (각 필드는 연결 된 신뢰도 값을 반환)
-* OCR 원시 텍스트 (전체 수신에 대 한 OCR 추출 된 텍스트 출력)
-* 각 값, 줄 및 단어에 대 한 경계 상자
+* 필드 신뢰 수준(각 필드는 연결된 신뢰도의 값을 반환)
+* OCR 원시 텍스트(영수증 전체에 대해 OCR 추출된 텍스트 출력)
+* 각 값, 줄 및 단어에 대한 경계 상자
 
 ## <a name="try-it-out"></a>사용해 보기
 
-양식 인식기 수신 서비스를 사용해 보려면 온라인 샘플 UI 도구로 이동 합니다.
+Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
 
 > [!div class="nextstepaction"]
 > [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
@@ -73,72 +73,73 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-locales"></a>지원 되는 로캘 
+## <a name="supported-locales"></a>지원되는 로캘
 
-* GA ( **미리 작성 된 수신** )는 en-us 로캘의 판매 영수증을 지원 합니다.
-* **미리 작성 된 수령 v 2.1-preview. 3** (공개 미리 보기)에는 다음 EN 수신 로캘에 대 한 추가 지원이 추가 되었습니다. 
-  * EN-오스트레일리아 
-  * EN-CA 
-  * EN-US 
-  * EN-US 
+* **미리 빌드된 영수증 v2.0**(GA)은 **en-us** 로캘의 판매 영수증을 지원합니다.
+* **미리 빌드된 영수증 v2.1-preview.3**(공개 미리 보기)에는 다음 영어로 된 영수증 로캘에 대한 지원이 추가됩니다.
+
+* **en-au**
+* **en-ca**
+* **en-gb**
+* **en-in**
 
   > [!NOTE]
-  > 언어 입력 
+  > 언어 입력
   >
-  > 미리 작성 된 수신 v 2.1-preview. 3에는 추가 영어 시장에서 수신 로캘을 지정 하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아 (EN-US), 캐나다 (EN-US), 뛰어난 Britain (en-us) 및 인도 (EN-US)의 영어로 판매 영수증을 위해 로캘을 지정 하 여 향상 된 결과를 얻을 수 있습니다. V 2.1-preview. 3에 지정 된 로캘이 없으면 모델은 기본적으로 EN-US 모델로 지정 됩니다.
+  > 미리 빌드된 영수증 v2.1-preview.3에는 추가적인 영어권 시장에서 영수증 로캘을 지정하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아(EN-US), 캐나다(EN-CA), 영국(EN-GB) 및 인도(EN-IN) 각국의 영어로 된 판매 영수증을 위해 로캘을 지정하여 향상된 결과를 얻을 수 있습니다. v2.1-preview.3에 지정된 로캘이 없으면 모델은 기본적으로 EN-US(미국 영어) 모델로 지정됩니다.
 
 
-## <a name="the-analyze-receipt-operation"></a>분석 확인 작업
+## <a name="the-analyze-receipt-operation"></a>영수증 분석 작업
 
-[분석 확인](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync) 은 확인의 이미지나 PDF를 입력으로 사용 하 고 관심 및 텍스트의 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[영수증 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)은 영수증의 이미지나 PDF를 입력으로 사용하고 이율 및 텍스트의 값을 추출합니다. 호출은 `Operation-Location`이라는 응답 헤더 필드를 반환합니다. `Operation-Location` 값은 다음 단계에서 사용할 결과 ID를 포함하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/analyzeResults/56a36454-fc4d-4354-aa07-880cfbf0064f` |
 
-## <a name="the-get-analyze-receipt-result-operation"></a>수신 결과 분석 가져오기 작업
+## <a name="the-get-analyze-receipt-result-operation"></a>영수증 결과 분석 가져오기 작업
 
-두 번째 단계는 [분석 수신 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) 작업을 호출 하는 것입니다. 이 작업은 확인 분석 작업으로 만들어진 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
+두 번째 단계는 [영수증 분석 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) 작업을 호출하는 것입니다. 이 작업은 영수증 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다. **성공한** 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청) 속도를 초과하지 않도록 합니다.
 
-|필드| Type | 가능한 값 |
+|필드| 형식 | 가능한 값 |
 |:-----|:----:|:----|
-|상태 | 문자열 | notStarted: 작업이 시작 되지 않았습니다. |
-| |  | 실행 중: 분석 작업이 진행 중입니다. |
-| |  | 실패: 분석 작업이 실패 했습니다. |
-| |  | 성공: 분석 작업이 성공 했습니다. |
+|상태 | 문자열 | notStarted: 작업이 시작되지 않았습니다. |
+| |  | running: 분석 작업이 진행 중입니다. |
+| |  | failed: 분석 작업이 실패했습니다. |
+| |  | succeeded: 분석 작업이 성공했습니다. |
 
-**상태** 필드의 **성공** 값이 이면 JSON 응답에는 수신 이해 및 텍스트 인식 결과가 포함 됩니다. 수신 확인 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 word 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
+**상태** 필드의 값이 **성공** 이면 JSON 응답에는 영수증 해석 및 텍스트 인식 결과가 포함됩니다. 영수증 해석 결과는 명명된 필드 값의 사전으로 구성됩니다. 각 값에는 추출된 텍스트, 정규화된 값, 경계 상자, 신뢰도 및 해당하는 단어 요소가 포함됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용하여 줄과 단어의 계층 구조로 정리됩니다.
 
-![샘플 수신 결과](./media/contoso-receipt-2-information.png)
+![샘플 영수증 결과](./media/contoso-receipt-2-information.png)
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
 
-수신 분석 수신 결과 가져오기 작업에 대 한 응답은 모든 정보가 추출 된 수신 확인을 구조화 된 방식으로 표현한 것입니다.  [샘플 수신 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) 및 해당 구조화 된 출력 [샘플 수신 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)은 여기를 참조 하세요.
+영수증 분석 결과 가져오기 작업에 대한 응답은 모든 정보가 추출된 영수증을 구조화된 방식으로 표현한 것입니다.  [샘플 영수증 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) 및 해당 구조화된 출력 [샘플 영수증 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)은 여기를 참조하세요.
 
-성공적인 JSON 응답의 다음 예를 참조 하세요.
-* `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. 
-* `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기에서 이름, 성, 회사 이름 등의 유용한 키/값 쌍을 찾을 수 있습니다.
+성공적인 JSON 응답의 다음 예를 참조하세요.
+* `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다.
+* `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 이름, 성, 회사 이름 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
 
 ```json
-{ 
+{
   "status":"succeeded",
   "createdDateTime":"2019-12-17T04:11:24Z",
   "lastUpdatedDateTime":"2019-12-17T04:11:32Z",
-  "analyzeResult":{ 
+  "analyzeResult":{
     "version":"2.0.0",
-    "readResults":[ 
-      { 
+    "readResults":[
+      {
         "page":1,
         "angle":0.6893,
         "width":1688,
         "height":3000,
         "unit":"pixel",
         "language":"en",
-        "lines":[ 
-          { 
+        "lines":[
+          {
             "text":"Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               635,
               510,
               1086,
@@ -148,10 +149,10 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
               643,
               604
             ],
-            "words":[ 
-              { 
+            "words":[
+              {
                 "text":"Contoso",
-                "boundingBox":[ 
+                "boundingBox":[
                   639,
                   510,
                   1087,
@@ -169,24 +170,24 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
         ]
       }
     ],
-    "documentResults":[ 
-      { 
+    "documentResults":[
+      {
         "docType":"prebuilt:receipt",
-        "pageRange":[ 
+        "pageRange":[
           1,
           1
         ],
-        "fields":{ 
-          "ReceiptType":{ 
+        "fields":{
+          "ReceiptType":{
             "type":"string",
             "valueString":"Itemized",
             "confidence":0.692
           },
-          "MerchantName":{ 
+          "MerchantName":{
             "type":"string",
             "valueString":"Contoso Contoso",
             "text":"Contoso Contoso",
-            "boundingBox":[ 
+            "boundingBox":[
               378.2,
               292.4,
               1117.7,
@@ -198,16 +199,16 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.613,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/0/words/0",
               "#/readResults/0/lines/1/words/0"
             ]
           },
-          "MerchantAddress":{ 
+          "MerchantAddress":{
             "type":"string",
             "valueString":"123 Main Street Redmond, WA 98052",
             "text":"123 Main Street Redmond, WA 98052",
-            "boundingBox":[ 
+            "boundingBox":[
               302,
               675.8,
               848.1,
@@ -219,7 +220,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/2/words/0",
               "#/readResults/0/lines/2/words/1",
               "#/readResults/0/lines/2/words/2",
@@ -228,11 +229,11 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
               "#/readResults/0/lines/3/words/2"
             ]
           },
-          "MerchantPhoneNumber":{ 
+          "MerchantPhoneNumber":{
             "type":"phoneNumber",
             "valuePhoneNumber":"+19876543210",
             "text":"987-654-3210",
-            "boundingBox":[ 
+            "boundingBox":[
               278,
               1004,
               656.3,
@@ -244,15 +245,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/4/words/0"
             ]
           },
-          "TransactionDate":{ 
+          "TransactionDate":{
             "type":"date",
             "valueDate":"2019-06-10",
             "text":"6/10/2019",
-            "boundingBox":[ 
+            "boundingBox":[
               265.1,
               1228.4,
               525,
@@ -264,15 +265,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.99,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/0"
             ]
           },
-          "TransactionTime":{ 
+          "TransactionTime":{
             "type":"time",
             "valueTime":"13:59:00",
             "text":"13:59",
-            "boundingBox":[ 
+            "boundingBox":[
               541,
               1248,
               677.3,
@@ -284,20 +285,20 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.977,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/5/words/1"
             ]
           },
-          "Items":{ 
+          "Items":{
             "type":"array",
-            "valueArray":[ 
-              { 
+            "valueArray":[
+              {
                 "type":"object",
-                "valueObject":{ 
-                  "Quantity":{ 
+                "valueObject":{
+                  "Quantity":{
                     "type":"number",
                     "text":"1",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       245.1,
                       1581.5,
                       300.9,
@@ -309,15 +310,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
                     ],
                     "page":1,
                     "confidence":0.92,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/0"
                     ]
                   },
-                  "Name":{ 
+                  "Name":{
                     "type":"string",
                     "valueString":"Cappuccino",
                     "text":"Cappuccino",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       322,
                       1586,
                       654.2,
@@ -329,15 +330,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
                     ],
                     "page":1,
                     "confidence":0.923,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/7/words/1"
                     ]
                   },
-                  "TotalPrice":{ 
+                  "TotalPrice":{
                     "type":"number",
                     "valueNumber":2.2,
                     "text":"$2.20",
-                    "boundingBox":[ 
+                    "boundingBox":[
                       1107.7,
                       1584,
                       1263,
@@ -349,7 +350,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
                     ],
                     "page":1,
                     "confidence":0.918,
-                    "elements":[ 
+                    "elements":[
                       "#/readResults/0/lines/8/words/0"
                     ]
                   }
@@ -358,11 +359,11 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
               ...
             ]
           },
-          "Subtotal":{ 
+          "Subtotal":{
             "type":"number",
             "valueNumber":11.7,
             "text":"11.70",
-            "boundingBox":[ 
+            "boundingBox":[
               1146,
               2221,
               1297.3,
@@ -374,15 +375,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.955,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/13/words/1"
             ]
           },
-          "Tax":{ 
+          "Tax":{
             "type":"number",
             "valueNumber":1.17,
             "text":"1.17",
-            "boundingBox":[ 
+            "boundingBox":[
               1190,
               2359,
               1304,
@@ -394,15 +395,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.979,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/15/words/1"
             ]
           },
-          "Tip":{ 
+          "Tip":{
             "type":"number",
             "valueNumber":1.63,
             "text":"1.63",
-            "boundingBox":[ 
+            "boundingBox":[
               1094,
               2479,
               1267.7,
@@ -414,15 +415,15 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.941,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/17/words/1"
             ]
           },
-          "Total":{ 
+          "Total":{
             "type":"number",
             "valueNumber":14.5,
             "text":"$14.50",
-            "boundingBox":[ 
+            "boundingBox":[
               1034.2,
               2617,
               1387.5,
@@ -434,7 +435,7 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
             ],
             "page":1,
             "confidence":0.985,
-            "elements":[ 
+            "elements":[
               "#/readResults/0/lines/19/words/0"
             ]
           }
@@ -445,37 +446,37 @@ Azure 양식 인식기는 미리 작성 된 수신 모델을 사용 하 여 판�
 }
 ```
 
-## <a name="customer-scenarios"></a>고객 시나리오  
+## <a name="customer-scenarios"></a>고객 시나리오
 
-수신 API를 사용 하 여 추출 된 데이터를 사용 하 여 다양 한 작업을 수행할 수 있습니다. 다음은 고객이 수신 API를 사용 하 여 수행 하는 작업의 몇 가지 예입니다.
+Receipt API를 사용하여 추출된 데이터를 사용하여 다양한 작업을 수행할 수 있습니다. 다음은 고객이 Receipt API를 사용하여 수행하는 작업의 몇 가지 예입니다.
 
-### <a name="business-expense-reporting"></a>비즈니스 비용 보고  
+### <a name="business-expense-reporting"></a>비즈니스 경비 보고
 
-비즈니스 경비를 확인 하는 것은 종종 수신 이미지에서 데이터를 수동으로 입력 하는 시간을 지출 합니다. 수신 API를 사용 하면 추출 된 필드를 사용 하 여이 프로세스를 부분적으로 자동화 하 고 확인을 신속 하 게 분석할 수 있습니다.  
+비즈니스 경비를 확인하는 데에는 종종 영수증 이미지의 데이터를 수동으로 입력하는 시간이 필요합니다. Receipt API를 사용하면 추출된 필드를 사용하여 이 프로세스를 부분적으로 자동화하고 영수증을 신속하게 분석할 수 있습니다.
 
-수신 API는 추출 된 필드 값을 여러 가지 방법으로 사용할 수 있도록 하는 간단한 JSON 출력입니다. 내부 비용 응용 프로그램과 통합 하 여 경비 보고서를 미리 채웁니다. 이 시나리오에 대 한 자세한 내용은 Acumatica에서 수신 API를 활용 하 여 [비용을 보고](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 확인 하는 방법을 참조 하세요.  
+Receipt API는 추출된 필드 값을 여러 가지 방법으로 사용할 수 있도록 하는 간단한 JSON 출력입니다. 내부 비용 애플리케이션과 통합하여 경비 보고서를 미리 작성합니다. 이 시나리오에 대한 자세한 내용은 Acumatica에서 Receipt API를 활용하여 [덜 힘든 방식으로 비용을 보고](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 참조하세요.
 
-### <a name="auditing-and-accounting"></a>감사 및 계정
+### <a name="auditing-and-accounting"></a>감사 및 회계
 
-수신 API 출력은 expense reporting 및 보상 프로세스의 다양 한 지점에서 많은 비용을 분석 하는 데 사용할 수도 있습니다. 수신 확인을 처리 하 여 수동 감사 또는 빠른 승인에 대해 심사를 수행할 수 있습니다.  
+Receipt API 출력은 지출 보고 및 보상 프로세스의 다양한 지점에서 많은 비용을 분석하는 데 사용할 수도 있습니다. 영수증을 처리하여 수동 감사 또는 빠른 승인에 대비해 심사해 볼 수 있습니다.
 
-수신 출력은 업무용 또는 개인용 사용을 위한 일반 책에도 유용 합니다. 수신 API를 사용 하 여 원시 수신 이미지/PDF 데이터를 실행 가능한 디지털 출력으로 변환 합니다.
+Receipt 출력은 업무용 또는 개인용 사용을 위한 일반 부기에도 유용합니다. Receipt API를 사용하여 원시 영수증 이미지/PDF 데이터를 작업 가능한 디지털 출력으로 변환합니다.
 
-### <a name="consumer-behavior"></a>소비자 동작 
+### <a name="consumer-behavior"></a>소비자 행동
 
-수신 확인에는 소비자 동작 및 쇼핑 추세를 분석 하는 데 사용할 수 있는 유용한 데이터가 포함 되어 있습니다.
+영수증에는 소비자 동작 및 쇼핑 추세 분석에 사용할 수 있는 유용한 데이터가 포함되어 있습니다.
 
-또한 수신 API는 [AI 작성기 수신 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상 시킵니다.
+또한 Receipt API는 [AI Builder 영수증 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 
- . 선택한 개발 언어로 폼 인식기를 사용 하 여 수신 처리 앱을 작성 하기 시작 합니다.
+ 사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 영수증 처리 앱 작성을 시작합니다.
 
 > [!div class="nextstepaction"]
-> [양식 인식기 빠른 시작 완료](quickstarts/client-library.md)
+> [Form Recognizer 빠른 시작 완료](quickstarts/client-library.md)
 
 ## <a name="see-also"></a>참조
 
 * [Form Recognizer란?](overview.md)
-* [양식 인식기 API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
+* [Form Recognizer API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
 >

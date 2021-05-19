@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: b-juche
-ms.openlocfilehash: a61d6ba1f908a7dae56db066bfae329fc26f1c5c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e37b0a2657c3e3f388ad94eb7da864c1b03023bb
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97696132"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790022"
 ---
 # <a name="register-for-azure-netapp-files"></a>Azure NetApp Files에 등록
 
@@ -53,13 +53,13 @@ ms.locfileid: "97696132"
 
 2. Azure 계정에 여러 구독이 있는 경우 Azure NetApp Files의 허용된 구독을 선택합니다.
     
-    ```azurepowershell
+    ```azurecli
     az account set --subscription <subscriptionId>
     ```
 
 3. Azure Cloud Shell 콘솔에서 구독이 허용되었는지 확인하려면 다음 명령을 입력합니다.
     
-    ```azurepowershell
+    ```azurecli
     az feature list | grep NetApp
     ```
 
@@ -76,7 +76,7 @@ ms.locfileid: "97696132"
 
 4. Azure Cloud Shell 콘솔에서 다음 명령을 입력하여 Azure 리소스 공급자를 등록합니다. 
     
-    ```azurepowershell
+    ```azurecli
     az provider register --namespace Microsoft.NetApp --wait
     ```
 
@@ -84,7 +84,7 @@ ms.locfileid: "97696132"
 
 5. Azure Cloud Shell 콘솔에서 다음 명령을 입력하여 Azure 리소스 공급자가 등록되었는지 확인합니다. 
     
-    ```azurepowershell
+    ```azurecli
     az provider show --namespace Microsoft.NetApp
     ```
 

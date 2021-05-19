@@ -6,14 +6,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: 15aa3acab9fe98a4c2f5103ba211dde34220c54e
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: af9a56dd52a0ee70a457e4e53fd37962dca9c90d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107255687"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108739909"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
 
@@ -60,9 +60,9 @@ ms.locfileid: "107255687"
 
 - Microsoft 고객 계약에 서명할 때 전송된 이메일의 링크를 사용하여 Azure Portal에 로그인합니다.
 
-- 이메일이 없는 경우 다음 링크를 사용하여 로그인합니다. `enrollmentNumber`를 갱신된 기업계약의 등록 번호로 바꿉니다.
+- 이메일이 없는 경우 다음 링크를 사용하여 로그인합니다.
 
-  `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+  `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
 엔터프라이즈 관리자 역할과 청구 계정 소유자 역할 또는 청구 프로필 역할이 둘 다 있는 경우 Azure Portal에 다음 페이지가 표시됩니다. 전환을 위해 EA 등록 및 Microsoft 고객 계약 청구 계정을 계속 설정할 수 있습니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "107255687"
 
 기업 계약에 대한 엔터프라이즈 관리자 역할이 없거나 Microsoft 고객 계약에 대한 청구 프로필 소유자 역할을 보유하고 있지 않은 경우 다음 정보를 사용하여 설정을 완료하는 데 필요한 액세스 권한을 얻으세요.
 
-### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>등록의 엔터프라이즈 관리자가 아닌 경우
+#### <a name="if-youre-not-an-enterprise-administrator-on-the-enrollment"></a>등록의 엔터프라이즈 관리자가 아닌 경우
 
 청구 계정 또는 청구 프로필 소유자 역할이 있지만 엔터프라이즈 관리자가 아닌 경우 Azure Portal에 다음 페이지가 표시됩니다.
 
@@ -83,9 +83,9 @@ ms.locfileid: "107255687"
 
 엔터프라이즈 관리자 역할을 부여받았으면 청구 계정 설정 페이지에서 링크를 복사합니다. Microsoft 고객 계약을 계속 설정하려면 링크를 웹 브라우저에서 엽니다. 그렇지 않으면 엔터프라이즈 관리자에게 보냅니다.
 
-### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>청구 프로필의 소유자가 아닌 경우
+#### <a name="if-youre-not-an-owner-of-the-billing-profile"></a>청구 프로필의 소유자가 아닌 경우
 
-엔터프라이즈 관리자이지만 Microsoft 고객 계약에 대한 청구 계정 소유자 역할 또는 청구 프로필 소유자 역할이 없으면 Azure Portal에 다음 페이지가 표시됩니다.
+엔터프라이즈 관리자가 있지만 청구 계정이 없으면 Azure Portal에서 다음 오류가 표시되며 전환이 방지됩니다.
 
 올바른 Microsoft 고객 계약에 대한 청구 프로필 소유자 액세스 권한이 있고 다음 메시지가 표시되는 경우 조직의 올바른 테넌트에 있는지 확인합니다. 디렉터리를 변경해야 할 수도 있습니다.
 
@@ -97,6 +97,42 @@ ms.locfileid: "107255687"
 - 기존 청구 계정 소유자에게 엔터프라이즈 관리자 역할을 부여합니다. 자세한 내용은 [다른 엔터프라이즈 관리자 만들기](ea-portal-administration.md#create-another-enterprise-administrator)를 참조하세요.
 
 청구 계정 소유자 역할 또는 청구 프로필 소유자 역할을 부여받았으면 청구 계정 설정 페이지에서 링크를 복사합니다. Microsoft 고객 계약을 계속 설정하려면 링크를 웹 브라우저에서 엽니다. 그렇지 않으면 청구 계정 소유자에게 링크를 보냅니다.
+
+#### <a name="prepare-enrollment-for-transition"></a>전환을 위한 등록을 준비합니다.
+
+EA 등록 및 청구 프로필 모두에 대한 소유자 액세스 권한을 얻은 후 이를 전환할 수 있도록 준비합니다.
+
+이전에 제시된 마이그레이션을 열거나 이메일로 받은 링크를 엽니다. 링크는 `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`입니다.
+
+다음 이미지는 전환을 위한 엔터프라이즈 계약 등록 준비 창을 보여 줍니다.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" alt-text="청구 계정 설정 페이지를 보여 주는 스크린샷 - 선택 항목에 대한 전환 준비를 위해 기업 계약 등록 준비." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition.png" :::
+
+그런 다음 전환할 소스 등록을 선택합니다. 그런 다음 청구 계정 및 청구 프로필을 선택합니다. 유효성 검사가 다음 화면과 유사하게 문제 없이 전달되면 **계속** 을 선택하여 진행합니다.
+
+:::image type="content" source="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" alt-text="청구 계정 설정 페이지를 보여 주는 스크린샷 - 검증된 선택 항목으로 전환을 위해 기업 계약 등록 준비." lightbox="./media/mca-setup-account/setup-billing-account-prepare-enrollment-transition-continue.png" :::
+
+**오류 조건**
+
+엔터프라이즈 관리자(읽기 전용) 역할이 있는 경우 전환을 방지하는 다음 오류가 표시됩니다. 등록을 전환하려면 엔터프라이즈 관리자 역할이 있어야 합니다.
+
+`Select another enrollment. You do not hve Enterprise Administrator write permission to the enrollment.`
+
+등록이 끝날 때까지 60일 이상의 시간이 남아 있는 경우 전환을 방지하는 다음 오류가 표시됩니다. 등록을 전환하려면 현재 날짜가 등록이 끝나기 60일 이내여야 합니다.
+
+`Select another enrollment. This enrollment has more than 60 days before its end date.`
+
+등록에 여전히 크레딧이 있는 경우 전환을 방지하는 다음 오류가 표시됩니다. 등록을 전환하기 전에 모든 크레딧을 사용해야 합니다.
+
+`Select another enrollment. This enrollment still has credits and can't be transitioned to a billing account.`
+
+청구 프로필에 대한 소유자 권한이 없으면 전환을 방지하는 다음 오류가 표시됩니다. 등록을 전환하려면 청구 프로필 소유자 역할이 있어야 합니다.
+
+`Select another Billing Profile. You do not have owner permission to this profile.`
+
+새 청구 프로필에 새 계획이 사용하도록 설정되어 있지 않으면 다음 오류가 표시됩니다. 등록을 전환하려면 먼저 계획을 사용하도록 설정해야 합니다.
+
+`Select another Billing Profile. The current selection does not have Azure Plan and Azure dev test plan enabled on it.`
 
 ## <a name="understand-changes-to-your-billing-hierarchy"></a>달라지는 청구 계층 구조 이해
 
@@ -197,9 +233,9 @@ Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 설정된 Azure
 
 1. Microsoft 고객 계약에 서명할 때 전송된 이메일의 링크를 사용하여 Azure Portal에 로그인합니다.
 
-2. 이메일이 없는 경우 다음 링크를 사용하여 로그인합니다. `<enrollmentNumber>`를 갱신된 기업계약의 등록 번호로 바꿉니다.
+2. 이메일이 없는 경우 다음 링크를 사용하여 로그인합니다.
 
-   `https://portal.azure.com/#blade/Microsoft_Azure_EA/EATransitionToMCA/enrollmentId/<enrollmentNumber>`
+   `https://portal.azure.com/#blade/Microsoft_Azure_SubscriptionManagement/TransitionEnrollment`
 
 3. 설정의 마지막 단계에서 **전환 시작** 을 선택합니다. 전환 시작을 선택하면 다음과 같은 작업이 수행됩니다.
 

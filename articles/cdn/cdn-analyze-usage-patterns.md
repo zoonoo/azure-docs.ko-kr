@@ -1,6 +1,6 @@
 ---
 title: Verizon의 코어 보고서 | Microsoft Docs
-description: Verizon 프로필에 대 한 관리 포털을 통해 Verizon 코어 보고서에 액세스 하 고 보는 방법에 대해 알아봅니다.
+description: Verizon 프로필 관리 포털을 통해 Verizon 코어 보고서에 액세스하고 확인하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "90985535"
 ---
 # <a name="core-reports-from-verizon"></a>Verizon의 코어 보고서
@@ -119,7 +119,7 @@ Verizon 프로필에 대한 관리 포털을 통해 Verizon 코어 보고서를 
 
 보고서에 포함되지 않는 정보는 다음과 같습니다.
 
-* 국가/지역 필터링 옵션으로 인해 거부 된 요청입니다.
+* 국가/지역 필터링 옵션으로 인해 거부된 요청
 * 헤더에 캐시하지 않도록 표시된 자산에 대한 요청 예를 들어 `Cache-Control: private`, `Cache-Control: no-cache` 또는 `Pragma: no-cache` 헤더는 자산이 캐시되지 않도록 합니다.
 * 부분적으로 캐시된 콘텐츠에 대한 바이트 범위 요청.
 

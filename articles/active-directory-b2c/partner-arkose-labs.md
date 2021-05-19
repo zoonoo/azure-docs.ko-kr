@@ -8,15 +8,15 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 04/22/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c10a39b050fa66192f762ba642b4c8ac2e080250
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 5abe1755e22ac20e210aece956056ea647393dc1
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258145"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107896246"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 Arkose Labs 구성
 
@@ -87,7 +87,7 @@ Arkose Labs 통합에는 다음 구성 요소가 포함됩니다.
 
 사용자 흐름은 **등록** 및 **로그인** 하거나 **등록** 만 할 수 있습니다. Arkose Labs 사용자 흐름은 등록하는 동안에만 표시됩니다.
 
-1. 사용자 흐름을 만드는 방법에 대한 [지침](./tutorial-create-user-flows.md)을 참조하세요. 기존 사용자 흐름을 사용하는 경우 **권장되는(차세대 미리 보기)** 버전 유형이어야 합니다.
+1. 사용자 흐름을 만드는 방법에 대한 [지침](./tutorial-create-user-flows.md)을 참조하세요. 기존 사용자 흐름을 사용하는 경우 **권장되는** 버전 유형이어야 합니다.
 
 2. 사용자 흐름 설정에서 **사용자 특성** 으로 이동하여 **ArkoseSessionToken** 클레임을 선택합니다.
 

@@ -1,18 +1,18 @@
 ---
 title: 예제를 통해 Azure Data Factory 가격 책정 이해
 description: 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
-author: shirleywangmsft
-ms.author: shwang
+author: dcstwh
+ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 48c0f47b3b8ca5eddef76c66ad220a18018dc321
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 3bb9574c74aaa3c2589d0ca93fb906168ca99095
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107904896"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104783373"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 

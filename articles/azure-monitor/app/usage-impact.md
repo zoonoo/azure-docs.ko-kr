@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 8ce49488124f07f05b8df2d9f4eae41e041aa0aa
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105026192"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights를 사용하여 영향 분석
@@ -36,7 +36,7 @@ Impact는 사이트의 느린 속도가 사용자의 관심도 유지에 미치�
 
 Impact 도구로 질문에 대답하기 전에, 초기 페이지 보기, 사용자 지정 이벤트 또는 요청을 선택합니다.
 
-![초기 페이지 보기, 사용자 지정 이벤트 또는 요청을 선택할 수 있는 위치를 보여 주는 스크린샷](./media/usage-impact/0002-dropdown.png)
+![초기 페이지 보기, 사용자 지정 이벤트 또는 요청을 선택할 수 있는 위치를 보여 주는 스크린샷입니다.](./media/usage-impact/0002-dropdown.png)
 
 1. **페이지 보기에 대한 항목** 드롭다운에서 페이지 보기를 선택합니다.
 2. **기간** 의 기본 섹션에서 **분석 대상** 은 그대로 둡니다(이 컨텍스트에서 **기간** 은 **페이지 로드 시간** 의 별칭).

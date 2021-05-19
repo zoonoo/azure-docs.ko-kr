@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 69d23b9d02eb176a2e42985ef5c3673e83d9bb7e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bb2de2c9076ae17598b761ba7dc2c17286d1352d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102607903"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750792"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>빠른 시작: 3D 모델에서 Object Anchors 모델 만들기
 
@@ -125,6 +125,9 @@ Azure Object Anchors는 3D 모델을 HoloLens에 대한 개체 인식 혼합 현
    나중에 참조할 수 있도록 **작업 ID** 를 기록해 둡니다. 디버깅 또는 문제 해결에 유용할 수 있습니다.
 
 4. 작업이 성공적으로 완료되면 지정된 출력 위치에 `<Model-Filename-Without-Extension>_<JobID>.ou` 형식의 파일이 표시되어야 합니다. 예를 들어 3D 모델 파일 이름이 `chair.ply`이고 작업 ID가 `00000000-0000-0000-0000-000000000000`인 경우 서비스 출력 파일 이름은 `chair_00000000-0000-0000-0000-000000000000.ou`입니다.
+
+## <a name="error-codes"></a>오류 코드
+실패한 자산 변환 작업에서 발생할 수 있는 다양한 오류 코드와 각 오류를 처리하는 방법에 대한 자세한 내용은 [변환 오류 코드 페이지](..\model-conversion-error-codes.md)를 참조하세요.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

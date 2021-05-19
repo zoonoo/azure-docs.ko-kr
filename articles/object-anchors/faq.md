@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: aebc1013dcead6c32dab55512ce915e25f60f94a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1430095861b4e8232127fe6d22b87afe5babcf67
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047578"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750738"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Azure Object Anchors FAQ
 
@@ -33,11 +33,11 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 * 어수선한 물체가 없거나 최소화된 명확한 배경
 * 스캔한 개체가 학습한 모델과 1:1 일치
 
-**Q: 모델 수집을 위해 처리할 수 있는 최대 개체 치수는 얼마인가요?**
+**Q: 모델 변환을 위해 처리할 수 있는 최대 개체 치수는 얼마인가요?**
 
 **A:** CAD 모델의 각 치수는 10미터 미만이어야 합니다.
 
-**Q: 수집을 위해 처리할 수 있는 최대 CAD 모델 크기는 얼마인가요?**
+**Q: 변환을 위해 처리할 수 있는 최대 CAD 모델 크기는 얼마인가요?**
 
 **A:** 모델 파일 크기는 150MB보다 작아야 합니다.
 
@@ -45,17 +45,21 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **A:** 현재 `fbx`, `ply`, `obj`, `glb` 및 `gltf` 파일 형식을 지원합니다.
 
-**Q: 모델 수집 서비스에 필요한 중력 방향 및 단위는 무엇이며 어떻게 확인할 수 있나요?**
+**Q: 모델 변환 서비스에 필요한 중력 방향 및 단위는 무엇이며 어떻게 확인할 수 있나요?**
 
 **A:** 중력 방향은 지구를 가리키는 하향 벡터입니다. CAD 모델의 경우 중력 방향은 일반적으로 위쪽 방향의 반대입니다. 예를 들어, 대부분의 경우 +Z는 위쪽 방향을 나타내며 -Z 또는 `Vector3(0.0, 0.0, -1.0)`가 중력 방향을 나타냅니다. 중력을 결정할 때는 모델을 고려해야 할 뿐만 아니라 런타임 중에 모델이 표시되는 방향도 고려해야 합니다. 실제 세계에서 평면 위의 의자를 검색하려는 경우에는 중력이 `Vector3(0.0, 0.0, -1.0)`일 수 있습니다. 그러나 의자가 45도 기울어 있는 경우 중력은 `Vector3(0.0, -Sqrt(2)/2, -Sqrt(2)/2)`이 될 수 있습니다.
 
 중력 방향은 [MeshLab](http://www.meshlab.net/) 같은 3D 렌더링 도구를 사용하여 추론할 수 있습니다.
 
-단위는 모델의 측정 단위를 나타냅니다. 지원되는 단위는 **Microsoft.Azure.ObjectAnchors.Ingestion.Unit** 열거형을 사용하여 확인할 수 있습니다.
+단위는 모델의 측정 단위를 나타냅니다. 지원되는 단위는 **Microsoft.Azure.ObjectAnchors.Conversion.AssetLengthUnit** 열거형을 사용하여 찾을 수 있습니다.
 
-**Q: CAD 모델을 수집하는 데 얼마나 걸리나요?**
+**Q: CAD 모델을 변환하는 데 얼마나 걸리나요?**
 
 **A:** `ply` 모델의 경우 일반적으로 3~15분입니다. 다른 형식으로 모델을 제출하는 경우 파일 크기에 따라 15~60분이 소요될 수 있습니다.
+
+**Q: 모델 변환 오류에서 어떻게 복구하나요?**
+
+**A:** 실패한 모델 변환 작업으로 인해 발생할 수 있는 다양한 오류 코드와 각 오류를 처리하는 방법에 대한 자세한 내용은 [변환 오류 코드 페이지](.\model-conversion-error-codes.md)를 참조하세요.
 
 **Q: Object Anchors가 지원하는 디바이스는 무엇인가요?**
 
@@ -144,7 +148,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 **Q: 인터넷에 연결하지 않고 Object Anchors를 사용할 수 있나요?**
 
 **A:** 
-* 모델 수집 및 학습의 경우 클라우드에서 수행되므로 연결이 필요합니다.
+* 모델 변환 및 학습의 경우 클라우드에서 수행되므로 연결이 필요합니다.
 * 런타임 세션은 전적으로 디바이스 기반이고 모든 계산이 HoloLens 2에서 수행되므로 연결이 필요하지 않습니다.
 
 ## <a name="privacy-faq"></a>개인 정보 보호 FAQ

@@ -8,18 +8,18 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 0f48856f085737040ca16afcca1e56be1da4843e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816749"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91978988"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Azure에 VHD 업로드 또는 다른 지역에 관리 디스크 복사 - Azure CLI
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 최신 [AzCopy v10 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드합니다.
 - [Azure CLI를 설치합니다](/cli/azure/install-azure-cli).
@@ -44,7 +44,7 @@ Azure에 VHD를 업로드하려면 이 업로드 프로세스를 위해 구성�
 
 업로드할 빈 표준 HDD를 만들려면 먼저 업로드할 VHD의 파일 크기(바이트)를 알아야 합니다. 파일 크기를 확인하려면 `wc -c <yourFileName>.vhd` 또는 `ls -al <yourFileName>.vhd`를 사용할 수 있습니다. 이 값은 **--upload-size-bytes** 매개 변수를 지정할 때 사용됩니다.
 
-[disk create](/cli/azure/disk#az_disk_create) cmdlet에서 **-–for-upload** 매개 변수와 **--upload-size-bytes** 매개 변수를 둘 다 지정하여 업로드할 빈 표준 HDD를 만듭니다.
+[disk create](/cli/azure/disk#az-disk-create) cmdlet에서 **-–for-upload** 매개 변수와 **--upload-size-bytes** 매개 변수를 둘 다 지정하여 업로드할 빈 표준 HDD를 만듭니다.
 
 `<yourdiskname>`, `<yourresourcegroupname>`, `<yourregion>`을 선택한 값으로 바꿉니다. `--upload-size-bytes` 매개 변수에는 `34359738880`의 예제 값이 포함되어 있으므로 해당 값을 적절한 값으로 바꿉니다.
 
@@ -122,7 +122,7 @@ targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-le
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
-azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
+.\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 
 az disk revoke-access -n $sourceDiskName -g $sourceRG
 

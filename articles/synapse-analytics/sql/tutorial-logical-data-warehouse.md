@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4e408832affd84fcde41c79d33ec7f157611ef08
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: aba837ab590ae941e161e10e88782dcce944c085
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166812"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760466"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀을 사용하여 Logical Data Warehouse 만들기
 
@@ -52,9 +52,9 @@ CREATE EXTERNAL DATA SOURCE ecdc_cases WITH (
 데이터 원본 소유자가 Azure AD ID에 대한 호출자의 익명 액세스를 허용했거나 명시적 액세스 권한을 부여하면 호출자는 자격 증명 없이 데이터 원본에 액세스할 수 있습니다.
 
 외부 데이터 원본의 데이터에 액세스하는 동안 사용되는 사용자 지정 자격 증명을 명시적으로 정의할 수 있습니다.
-- Synapse 작업 영역의 관리 ID
-- Azure Storage의 공유 액세스 서명
-- 읽기 전용 Cosmos DB 계정 키
+- Synapse 작업 영역의 [관리 ID](develop-storage-files-storage-access-control.md?tabs=managed-identity)
+- Azure Storage의 [공유 액세스 서명](develop-storage-files-storage-access-control.md?tabs=shared-access-signature)
+- Cosmos DB 분석 스토리지를 읽을 수 있는 읽기 전용 Cosmos DB 계정 키입니다.
 
 필수 조건으로, 데이터베이스에 마스터 키를 만들어야 합니다.
 ```sql
@@ -77,7 +77,8 @@ Cosmos DB 분석 스토리지에 액세스하려면 읽기 전용 Cosmos DB 계�
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
-WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+     SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
 ```
 
 ### <a name="define-external-file-formats"></a>외부 파일 형식 정의
@@ -118,19 +119,19 @@ create schema ecdc_adls;
 
 ```sql
 create external table ecdc_adls.cases (
-    date_rep        date,
-    day    smallint,
-    month             smallint,
-    year  smallint,
-    cases smallint,
-    deaths            smallint,
-    countries_and_territories       varchar(256),
-    geo_id             varchar(60),
-    country_territory_code           varchar(16),
-    pop_data_2018           int,
-    continent_exp             varchar(32),
-    load_date      datetime2(7),
-    iso_country   varchar(16)
+    date_rep                   date,
+    day                        smallint,
+    month                      smallint,
+    year                       smallint,
+    cases                      smallint,
+    deaths                     smallint,
+    countries_and_territories  varchar(256),
+    geo_id                     varchar(60),
+    country_territory_code     varchar(16),
+    pop_data_2018              int,
+    continent_exp              varchar(32),
+    load_date                  datetime2(7),
+    iso_country                varchar(16)
 ) with (
     data_source= ecdc_cases,
     location = 'latest/ecdc_cases.parquet',
@@ -195,6 +196,12 @@ GO
 - 새 사용자가 준비한 외부 테이블 및 뷰만 사용하여 데이터를 읽을 수 있도록 해야 하기 때문에 해당 사용자에 대한 `ADMINISTER DATABASE BULK OPERATIONS` 권한은 거부해야 합니다.
 - 일부 사용자가 사용하도록 할 테이블에만 `SELECT` 권한을 제공해야 합니다.
 - 뷰를 사용하여 데이터에 대한 액세스 권한을 제공하는 경우 외부 데이터 원본에 액세스하는 데 사용되는 자격 증명에 `REFERENCES` 권한을 부여해야 합니다.
+
+이 사용자에게는 외부 데이터를 쿼리하는 데 필요한 최소한의 권한이 있습니다. 권한, 외부 테이블 및 뷰를 설정할 수 있는 고급 사용자를 만들려면 사용자에게 `CONTROL` 권한을 부여할 수 있습니다.
+
+```sql
+GRANT CONTROL TO [jovan@contoso.com]
+```
 
 ## <a name="next-steps"></a>다음 단계
 

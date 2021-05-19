@@ -1,6 +1,6 @@
 ---
-title: Azure 방호를 사용 하 여 Windows 가상 머신 확장 집합에 연결 | Microsoft Docs
-description: 이 문서에서는 Azure 방호를 사용 하 여 Azure 가상 머신 확장 집합에 연결 하는 방법을 알아봅니다.
+title: Azure Bastion을 사용하여 Windows 가상 머신 확장 집합에 연결 | Microsoft Docs
+description: 이 문서에서는 Azure Bastion을 사용하여 Azure 가상 머신 확장 집합에 연결하는 방법을 알아봅니다.
 services: bastion
 author: charwen
 ms.service: bastion
@@ -8,32 +8,32 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: charwen
 ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92077782"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Azure Bastion을 사용하여 가상 머신 확장 집합에 연결
 
-이 문서에서는 Azure 방호를 사용 하 여 Azure 가상 네트워크에서 Windows 가상 머신 확장 집합 인스턴스에 안전 하 고 원활 하 게 RDP 하는 방법을 보여 줍니다. Azure Portal에서 직접 가상 머신 확장 집합 인스턴스에 연결할 수 있습니다. Azure 방호를 사용 하는 경우 Vm에는 클라이언트, 에이전트 또는 추가 소프트웨어가 필요 하지 않습니다. Azure 방호에 대 한 자세한 내용은 [개요](bastion-overview.md)를 참조 하세요.
+이 문서에서는 Azure Bastion을 사용하여 Azure 가상 네트워크의 Windows 가상 머신 확장 집합 인스턴스에 안전하고 원활하게 RDP하는 방법을 보여 줍니다. Azure Portal에서 직접 가상 머신 확장 집합 인스턴스에 연결할 수 있습니다. Azure Bastion을 사용하는 경우 VM에는 클라이언트, 에이전트 또는 추가 소프트웨어가 필요하지 않습니다. Azure Bastion에 대한 자세한 내용은 [개요](bastion-overview.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-가상 머신 확장 집합이 있는 가상 네트워크에 대해 Azure 방호 호스트를 설정 했는지 확인 합니다. 자세한 내용은 [Azure 방호 호스트 만들기](./tutorial-create-host-portal.md)를 참조 하세요. 가상 네트워크에 방호 서비스가 프로 비전 되 고 배포 되 면이를 사용 하 여이 가상 네트워크의 가상 머신 확장 집합 인스턴스에 연결할 수 있습니다. 요새는 RDP를 사용 하 여 Windows 가상 머신 확장 집합에 연결 하 고 SSH를 사용 하 여 Linux 가상 머신 확장 집합에 연결 하는 것으로 가정 합니다. Linux VM에 연결 하는 방법에 대 한 자세한 내용은 [VM에 연결-Linux](bastion-connect-vm-ssh.md)를 참조 하세요.
+가상 머신 확장 집합이 상주하는 가상 네트워크에 대해 Azure Bastion 호스트를 설정했는지 확인합니다. 자세한 내용은 [Azure Bastion 호스트 만들기](./tutorial-create-host-portal.md)를 참조하세요. Bastion 서비스가 가상 네트워크에서 프로비저닝되어 배포되면 서비스를 사용하여 이 가상 네트워크의 가상 머신 확장 집합 인스턴스에 연결할 수 있습니다. Bastion은 RDP를 사용하여 Windows 가상 머신 확장 집합에 연결하고 SSH를 사용하여 Linux 가상 머신 확장 집합에 연결한다고 가정합니다. Linux VM에 연결에 대한 자세한 내용은 [VM에 연결 - Linux](bastion-connect-vm-ssh.md)을 참조하세요.
 
-## <a name="connect-using-rdp"></a><a name="rdp"></a>RDP를 사용 하 여 연결
+## <a name="connect-using-rdp"></a><a name="rdp"></a>RDP를 사용하여 연결
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결 하려는 가상 머신 확장 집합으로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다. 연결할 가상 머신 확장 집합으로 이동합니다.
 
    ![이동](./media/bastion-connect-vm-scale-set/1.png)
-2. 연결 하려는 가상 머신 확장 집합 인스턴스로 이동한 다음 **연결** 을 선택 합니다. RDP 연결을 사용 하는 경우 가상 머신 확장 집합은 Windows 가상 머신 확장 집합 이어야 합니다.
+2. 연결할 가상 머신 확장 집합 인스턴스로 이동한 다음 **연결** 을 선택합니다. RDP 연결을 사용하는 경우 가상 머신 확장 집합은 Windows 가상 머신 확장 집합이어야 합니다.
 
    ![가상 머신 확장 집합](./media/bastion-connect-vm-scale-set/2.png)
-3. **연결** 을 선택 하면 RDP, SSH 및 방호의 3 개 탭이 있는 사이드 막대가 나타납니다. 세로 막대에서 **요새** 탭을 선택 합니다. 가상 네트워크에 대 한 방호를 프로 비전 하지 않은 경우에는 링크를 선택 하 여 방호를 구성할 수 있습니다. 구성 지침은 [요새 구성](./tutorial-create-host-portal.md)을 참조 하세요.
+3. **연결** 을 선택하면 세 개의 탭(RDP, SSH, Bastion)이 있는 사이드바가 나타납니다. 사이드바에서 **Bastion** 탭을 선택합니다. 가상 네트워크에 대해 Bastion을 프로비저닝하지 않은 경우 Bastion 구성 링크를 선택할 수 있습니다. 구성 지침은 [Bastion 구성](./tutorial-create-host-portal.md)을 참조하세요.
 
-   ![요새 탭](./media/bastion-connect-vm-scale-set/3.png)
-4. 요새 탭에서 가상 머신 확장 집합에 대 한 사용자 이름 및 암호를 입력 하 고 **연결** 을 선택 합니다.
+   ![Bastion 탭](./media/bastion-connect-vm-scale-set/3.png)
+4. Bastion 탭에서 가상 머신 확장 집합의 사용자 이름 및 암호를 입력하고 **계속** 을 선택합니다.
 
    ![연결](./media/bastion-connect-vm-scale-set/4.png)
 5. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해).

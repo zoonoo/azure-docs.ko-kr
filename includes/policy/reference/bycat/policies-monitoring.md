@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 04/28/2021
+ms.date: 05/04/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f3496df2276e7f2bbf3d7cb4b1b82b426392ca7a
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 4898ebf01e6796daa23e26e8801072ec485f83d0
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108183182"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746016"
 ---
-|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[\[미리 보기\]: \[ASC 프라이빗 미리 보기\] 배포 - VM에서 Azure Monitor 할당을 사용하도록 시스템이 할당한 관리 ID 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17b3de92-f710-4cf4-aa55-0e7859f1ed7b) |[ASC 프라이빗 미리 보기] 시스템 할당 관리 ID가 없는 Azure Monitor에서 지원하는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 구성합니다. 시스템 할당 관리 ID는 모든 Azure Monitor 할당에 대한 필수 구성 요소이며 Azure Monitor 확장을 사용하기 전에 머신에 추가해야 합니다. 대상 가상 머신은 지원되는 위치에 있어야 합니다. |수정 |[1.2.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/AzureMonitoring_AddSystemIdentity_Prerequisite.json) |
+|[\[미리 보기\]: \[ASC 프라이빗 미리 보기\] VM에서 Azure Monitor 할당을 사용하도록 시스템이 할당한 관리 ID 구성](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17b3de92-f710-4cf4-aa55-0e7859f1ed7b) |[ASC 프라이빗 미리 보기] 시스템 할당 관리 ID가 없는 Azure Monitor에서 지원하는 Azure에서 호스트되는 가상 머신에 시스템 할당 관리 ID를 구성합니다. 시스템 할당 관리 ID는 모든 Azure Monitor 할당에 대한 필수 구성 요소이며 Azure Monitor 확장을 사용하기 전에 머신에 추가해야 합니다. 대상 가상 머신은 지원되는 위치에 있어야 합니다. |수정, 사용 안 함 |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/AzureMonitoring_AddSystemIdentity_Prerequisite.json) |
 |[활동 로그는 1년 이상 보존되어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb02aacc0-b073-424e-8298-42b22829ee0a) |이 정책은 보존이 365일 또는 계속(보존 기간이 0으로 설정)으로 설정되지 않은 경우 활동 로그를 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLogRetention_365orGreater.json) |
 |[특정 관리 작업의 활동 로그 경고가 있어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb954148f-4c11-4c38-8221-be76711e194a) |이 정책은 활동 로그 경고가 구성되지 않은 특정 관리 작업을 감사합니다. |AuditIfNotExists, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_AdministrativeOperations_Audit.json) |
 |[특정 정책 작업의 활동 로그 경고가 있어야 합니다.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc5447c04-a4d7-4ba8-a263-c9ee321a6858) |이 정책은 활동 로그 경고가 구성되지 않은 특정 정책 작업을 감사합니다. |AuditIfNotExists, 사용 안 함 |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ActivityLog_PolicyOperations_Audit.json) |

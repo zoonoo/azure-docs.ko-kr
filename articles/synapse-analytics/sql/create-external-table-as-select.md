@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12841c747116cc9e14f348dfcf81acaa5da5e8c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 93a8a4d2e7f4f8a455f6437c69dee4c44c2e29f3
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98165368"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751926"
 ---
 # <a name="store-query-results-to-storage-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지에 쿼리 결과 저장
 
@@ -104,6 +104,8 @@ ORDER BY
 - [외부 테이블에서 데이터 삭제 사용](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/15158034-polybase-delete-from-external-tables)
 - [CETAS에서 파티션 지정](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/19520860-polybase-partitioned-by-functionality-when-creati)
 - [파일 크기 및 개수 지정](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/42263617-cetas-specify-number-of-parquet-files-file-size)
+
+유일하게 지원되는 출력 형식은 Parquet 및 CSV입니다. [Azure 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions)에서 다른 유형에 투표할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

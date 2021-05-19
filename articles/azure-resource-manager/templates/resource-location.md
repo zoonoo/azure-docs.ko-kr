@@ -3,13 +3,13 @@ title: 템플릿 리소스 위치
 description: Azure 리소스 관리자 템플릿 (ARM 템플릿)에서 리소스 위치를 설정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.custom: ''
-ms.openlocfilehash: 84a818109e6681b8d0e18de4d2d7969310582818
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b2eba8e48a9b5ccc1ddb731690e99dcbbaa8f6fb
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96922405"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108321630"
 ---
 # <a name="set-resource-location-in-arm-template"></a>ARM 템플릿에서 리소스 위치 설정
 

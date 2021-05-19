@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 04/09/2021
-ms.openlocfilehash: 24c4686306aff9d84fe7bf74ddfdccff987244d9
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: c15e7261587952c93d059cfcfadd06c7d204d80d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368515"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135676"
 ---
 # <a name="control-egress-traffic-for-your-azure-red-hat-openshift-aro-cluster-preview"></a>ARO(Azure Red Hat OpenShift) 클러스터에 대한 송신 트래픽 제어(미리 보기)
 
@@ -19,7 +19,7 @@ ms.locfileid: "107368515"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 새 클러스터를 만든다고 가정합니다. 기본 ARO 클러스터가 필요한 경우 [ARO 빠른 시작](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster)을 참조하세요.
+이 문서에서는 새 클러스터를 만든다고 가정합니다. 기본 ARO 클러스터가 필요한 경우 [ARO 빠른 시작](./tutorial-create-cluster.md)을 참조하세요.
 
 > [!IMPORTANT]
 > ARO 미리 보기 기능은 셀프 서비스에서 사용할 수 있습니다(옵트인 방식). 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공되며 서비스 수준 계약 및 제한적 보증에서 제외됩니다. ARO 미리 보기의 일부는 고객 지원 팀에서 최선을 다해 지원합니다.
@@ -99,7 +99,7 @@ OpenShift 컨테이너 플랫폼에서 고객은 상태 및 사용 현황 정보
 
 ### <a name="azure-monitor-for-containers"></a>컨테이너용 Azure Monitor
 
-컨테이너를 위한 Azure Monitor에 액세스할 수 있게 하는 옵션이 두 가지 있습니다. Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags)를 허용할 수도 있고 **또는** 필수 FQDN/애플리케이션 규칙에 대한 액세스를 제공할 수도 있습니다.  기존 ARO 클러스터에 Azure Monitor를 추가하는 방법에 대한 [지침](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-azure-redhat4-setup)은 여기에 있습니다.
+컨테이너를 위한 Azure Monitor에 액세스할 수 있게 하는 옵션이 두 가지 있습니다. Azure Monitor [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags)를 허용할 수도 있고 **또는** 필수 FQDN/애플리케이션 규칙에 대한 액세스를 제공할 수도 있습니다.  기존 ARO 클러스터에 Azure Monitor를 추가하는 방법에 대한 [지침](../azure-monitor/containers/container-insights-azure-redhat4-setup.md)은 여기에 있습니다.
 
 #### <a name="required-network-rules"></a>필수 네트워크 규칙
 
@@ -126,7 +126,7 @@ Azure Firewall을 통해 송신 트래픽을 라우팅하여 ARO 클러스터를
 ### <a name="before"></a>이전:
 ![이전](media/concepts-networking/aro-private.jpg)
 ### <a name="after"></a>이후:
-![After](media/concepts-networking/aro-fw.jpg)
+![이러한](media/concepts-networking/aro-fw.jpg)
 
 ## <a name="create-a-private-aro-cluster"></a>프라이빗 ARO 클러스터 만들기
 

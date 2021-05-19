@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: bcbf2f88409dba5d0f3e0955345c298de9961ca4
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: cf143af4bba7b26aa1fec5ed6e18ab41fbc65dd5
+ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289061"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109664837"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -285,7 +285,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
     * **퍼블릭 엔드포인트:** 제공된 프로젝트 목록에서 `api-gateway`에 해당하는 숫자를 입력합니다.  공용 액세스 권한을 부여합니다.
 
 1. POM 파일의 `appName` 요소가 올바른지 확인합니다.
-    ```
+    ```xml
     <build>
         <plugins>
             <plugin>
@@ -298,7 +298,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
                     <appName>customers-service</appName>
     
     ```
-    `appName` 텍스트를 다음과 같이 수정해야 할 수 있습니다.
+    `appName` 텍스트가 다음과 일치하는지 확인하고 필요한 경우 접두사를 제거하고 파일을 저장합니다.
     * api-gateway
     * customers-service
 
@@ -307,6 +307,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
     ```azurecli
     mvn azure-spring-cloud:deploy
     ```
+    
 ## <a name="verify-the-services"></a>서비스 확인
 
 배포 명령이 성공하면 "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io" 형식의 URL이 반환됩니다.  이를 사용하여 실행 중인 서비스로 이동합니다.
@@ -321,12 +322,12 @@ Azure Portal로 이동하여 URL을 찾을 수도 있습니다.
 
 ## <a name="deploy-extra-apps"></a>추가 앱 배포
 
-PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함께 작동하도록 하려면 다른 마이크로 서비스 앱을 배포하면 됩니다.   구성 명령을 다시 실행하고 다음 마이크로 서비스를 선택합니다.
+PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함께 작동하도록 하려면 다른 마이크로 서비스 앱을 배포하면 됩니다. 구성 명령을 다시 실행하고 다음 마이크로 서비스를 선택합니다.
 * admin-server
 * vets-service
 * visits-service
 
-그런 다음, `deploy` 명령을 다시 실행합니다.
+각 `pom.xml`에서 위의 모듈에 대한 앱 이름을 수정한 다음 `deploy` 명령을 다시 실행합니다.
 
 #### <a name="intellij"></a>[IntelliJ](#tab/IntelliJ)
 
@@ -354,7 +355,7 @@ Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정
 1. **퍼블릭 엔드포인트** 를 *사용* 으로 설정합니다.
 1. **App:** 텍스트 상자에서 **앱 만들기...** 를 선택합니다.
 1. *api-gateway* 를 입력한 다음, **확인** 을 클릭합니다.
-1. 메모리 및 JVM 옵션을 지정합니다.
+1. 메모리를 2GB로 지정하고 JVM 옵션을 `-Xms2048m -Xmx2048m`으로 지정합니다.
 
      ![메모리 JVM 옵션](media/spring-cloud-intellij-howto/memory-jvm-options.png)
 

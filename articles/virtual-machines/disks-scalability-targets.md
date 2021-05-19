@@ -1,6 +1,6 @@
 ---
 title: VM 디스크의 확장성 및 성능 목표
-description: Vm에 연결 된 가상 머신 디스크의 확장성 및 성능 목표에 대해 알아봅니다.
+description: VM에 연결된 가상 머신 디스크의 확장성 및 성능 목표를 알아봅니다.
 author: roygara
 ms.author: rogarana
 ms.date: 01/15/2021
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: eec11ce53177ce7ecd10d1ce06cc60217293cb8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98574410"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks"></a>VM 디스크의 확장성 및 성능 목표
 
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-자세한 내용은 [VM 크기](sizes.md) 를 참조 하세요.
+자세한 내용은 [VM 크기](sizes.md)를 참조하세요.
 
 ## <a name="managed-virtual-machine-disks"></a>관리되는 가상 머신 디스크
 

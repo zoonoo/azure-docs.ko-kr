@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9b332b18930d58ebb1d155c35a74eed69a90ce73
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 90bc724ac6184943415ae0d86cb5ccd1b34c35d3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788784"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108733322"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 
@@ -281,7 +281,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
     --sku Standard
 ```
 
-영역 1에서 영역 중복 공용 IP 주소를 만들려면 다음 명령을 사용합니다.
+영역 1에서 공용 IP 주소를 만들려면:
 
 ```azurecli-interactive
   az network public-ip create \

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105646248"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>연결된 팩터리 솔루션이 OPC UA 서버의 데이터를 표시하는 방식 사용자 지정
@@ -21,7 +21,7 @@ ms.locfileid: "105646248"
 > [!IMPORTANT]
 > 이 문서를 업데이트하는 동안 최신 콘텐츠는 [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/)를 참조하세요.
 
-연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대 한 자세한 내용은 [연결 된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조 하세요.
+연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 집계하고 표시합니다. 솔루션에서 OPC UA 서버를 찾아 명령을 보낼 수 있습니다. OPC UA에 대한 자세한 내용은 [연결된 팩터리 FAQ](iot-accelerators-faq-cf.md)를 참조하세요.
 
 솔루션에서 집계된 데이터의 예로 팩터리, 라인 및 스테이션 수준의 대시보드에서 볼 수 있는 OEE(Overall Equipment Efficiency) 및 KPI(핵심 성과 지표)를 들 수 있습니다. 다음 스크린샷은 **Munich** 공장, **Production line 1** 의 **Assembly** 스테이션에 대한 OEE 및 KPI 값을 보여 줍니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "105646248"
 
 ## <a name="data-sources"></a>데이터 원본
 
-연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 표시합니다. 기본 설치는 공장 시뮬레이션을 실행하는 여러 OPC UA 서버를 포함합니다. [게이트웨이를 통해 연결] [.lnk-connect-cf] 하는 고유한 OPC UA 서버를 솔루션에 추가할 수 있습니다.
+연결된 팩터리 솔루션은 솔루션에 연결된 OPC UA 서버의 데이터를 표시합니다. 기본 설치는 공장 시뮬레이션을 실행하는 여러 OPC UA 서버를 포함합니다. 솔루션에 [게이트웨이 통해 연결][lnk-connect-cf]하는 사용자 고유의 OPC UA 서버를 추가할 수 있습니다.
 
 대시보드에서 연결된 OPC UA 서버가 솔루션에 보낼 수 있는 데이터 항목을 찾아볼 수 있습니다.
 
@@ -59,7 +59,7 @@ ms.locfileid: "105646248"
 
     ![게시된 항목][img-published]
 
-1. 솔루션의 *관리자* 는 데이터 항목을 게시 하 여 연결 된 팩터리 솔루션에서 사용할 수 있도록 선택할 수 있습니다. 관리자는 OPC UA 서버에서 데이터 항목의 값을 변경하고 메서드를 호출할 수도 있습니다.
+1. 솔루션의 *관리자* 는 데이터 항목을 게시하여 연결된 팩터리 솔루션에 제공되도록 선택할 수 있습니다. 관리자는 OPC UA 서버에서 데이터 항목의 값을 변경하고 메서드를 호출할 수도 있습니다.
 
 ## <a name="map-the-data"></a>데이터 매핑
 
@@ -74,7 +74,7 @@ ms.locfileid: "105646248"
 
 ## <a name="deploy-the-changes"></a>변경 내용 배포
 
-파일 **의ContosoTopologyDescription.js** 를 변경한 후에는 연결 된 팩터리 솔루션을 Azure 계정에 다시 배포 해야 합니다.
+**ContosoTopologyDescription.json** 파일에 대한 변경이 끝나면 연결된 팩터리 솔루션을 Azure 계정에 다시 배포해야 합니다.
 
 **azure-iot-connected-factory** 리포지토리에는 솔루션을 다시 빌드하고 배포하는 데 사용할 수 있는 **build.ps1** PowerShell 스크립트가 포함되어 있습니다.
 

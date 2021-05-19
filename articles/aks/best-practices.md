@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/07/2018
 ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94686262"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 클러스터 운영자 및 개발자의 모범 사례
@@ -21,7 +21,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 
 클러스터 운영자는 애플리케이션 소유자 및 개발자와 협력하여 요구 사항을 파악합니다. 그런 다음, 다음과 같은 모범 사례를 사용하여 필요에 따라 AKS 클러스터를 구성합니다.
 
-**다중 테 넌 트**
+**다중 테넌트 지원**
 
 * [클러스터 격리에 대한 모범 사례](operator-best-practices-cluster-isolation.md)
     * 다중 테넌트 핵심 구성 요소 및 네임스페이스를 통한 논리적 격리와 관련이 있습니다.
@@ -30,14 +30,14 @@ AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축
 * [고급 스케줄러 기능에 대한 모범 사례](operator-best-practices-advanced-scheduler.md)
     * 흔적 및 허용 오차, 노드 선택기 및 선호도, Pod 간 선호도 및 선호도 방지를 사용합니다.
 * [인증 및 권한 부여에 대한 모범 사례](operator-best-practices-identity.md)
-    * Kubernetes Azure Active Directory와의 통합, Kubernetes RBAC (역할 기반 액세스 제어), Azure RBAC 사용, pod id 사용 등이 포함 됩니다.
+    * Kubernetes RBAC(Kubernetes 역할 기반 액세스 제어), Azure RBAC 및 Pod ID를 사용하여 Azure Active Directory와 통합합니다.
 
 **보안**
 
 * [클러스터 보안 및 업그레이드에 대한 모범 사례](operator-best-practices-cluster-security.md)
     * API 서버에 대한 액세스를 보호하고, 컨테이너 액세스를 제한하며, 업그레이드 및 노드 재부팅을 관리합니다.
 * [컨테이너 이미지 관리 및 보안에 대한 모범 사례](operator-best-practices-container-image-management.md)
-    * 기본 이미지 업데이트에 대 한 이미지 및 런타임 보안 및 자동화 된 빌드를 포함 합니다.
+    * 이미지와 런타임을 보호하고, 기본 이미지 업데이트를 자동으로 빌드합니다.
 * [Pod 보안에 대한 모범 사례](developer-best-practices-pod-security.md)
     * 리소스에 대한 액세스를 보호하고, 자격 증명 노출을 제한하며, Pod ID와 디지털 키 자격 증명 모음을 사용합니다.
 

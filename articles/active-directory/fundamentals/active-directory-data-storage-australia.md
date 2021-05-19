@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 498b75a6541da97e57e23465ae6eb23a6c854727
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4bb095e93a3728835e26cbe283f79569c91b7487
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94836957"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107479069"
 ---
 # <a name="identity-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>오스트레일리아 및 뉴질랜드 고객을 위한 Azure Active Directory의 ID 데이터 스토리지
 
@@ -30,7 +30,7 @@ ID 데이터는 Microsoft 365 및 Azure와 같은 Microsoft 온라인 서비스�
 - Azure AD 디렉터리 관리 
 - 인증
 
-다른 모든 Azure AD 서비스는 고객 데이터를 글로벌 데이터 센터에 저장합니다. 서비스의 데이터 센터를 찾으려면, [Azure Active Directory – 데이터가 어디에 있나요?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)를 참조하세요.
+다른 모든 Azure AD 서비스는 고객 데이터를 글로벌 데이터 센터에 저장합니다. 서비스의 데이터 센터를 찾으려면, [Azure Active Directory – 데이터가 어디에 있나요?](https://aka.ms/AADDataMap)를 참조하세요.
 
 ## <a name="microsoft-azure-ad-multi-factor-authentication-mfa"></a>Microsoft Azure AD MFA(Multi-Factor Authentication)
 

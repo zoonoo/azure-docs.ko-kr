@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Azure Digital Twins 서비스의 한도를 보여 주는 차트입니다.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 04/08/2021
 ms.topic: article
 ms.service: digital-twins
-ms.openlocfilehash: 165fa23cf3965d3017b15c27fedc2846f97d8d11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 651922837b2193f7a8387c4dec6a1e20b84a41a5
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99054402"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107728041"
 ---
 # <a name="azure-digital-twins-service-limits"></a>Azure Digital Twins 서비스 제한
 
@@ -26,6 +26,14 @@ Azure Digital Twins의 서비스 제한입니다.
 ## <a name="limits-by-type"></a>유형별 한도
 
 [!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
+
+## <a name="working-with-limits"></a>제한 작업
+
+제한에 도달하면 서비스는 추가 요청을 제한합니다. 이로 인해 이러한 요청에서 429 오류 응답이 발생합니다.
+
+이를 관리하기 위해 제한 작업에 대한 몇 가지 권장 사항은 다음과 같습니다.
+* **재시도 논리 사용.** [Azure Digital Twins SDK](how-to-use-apis-sdks.md)는 실패한 요청에 대한 재시도 논리를 구현하므로 제공된 SDK로 작업하는 경우 이미 기본 제공됩니다. 그렇지 않으면 자체 애플리케이션에서 재시도 논리를 구현하는 것이 좋습니다. 서비스는 다시 시도하기 전에 대기하는 시간을 결정하는 데 사용할 수 있는 오류 응답의 `Retry-After` 헤더를 다시 보냅니다.
+* **임계값 및 알림을 사용하여 근접 한도에 대해 경고합니다.** Azure Digital Twins에 대한 서비스 제한 중 일부에는 이러한 영역에서 사용량을 추적하는 데 사용할 수 있는 해당 [메트릭](troubleshoot-metrics.md)이 있습니다. 임계값에 도달했을 때 임계값을 구성하고 메트릭에 대한 경고를 설정하려면 [*문제 해결: 경고 설정*](troubleshoot-alerts.md)의 지침을 참조하세요. 메트릭이 제공되지 않는 기타 제한에 대한 알림을 설정하려면 고유한 애플리케이션 코드에서 이 논리를 구현하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

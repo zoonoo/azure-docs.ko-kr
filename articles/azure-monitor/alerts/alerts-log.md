@@ -5,13 +5,13 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: c362603771744cf94f3e1d70a9f636f31bbd399a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7451d1f16bc6c129afcd44a80580005ffacff444
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750972"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320298"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -55,7 +55,7 @@ ms.locfileid: "109750972"
 
 1. 로그 경고는 다음 두 가지 유형의 [**측정값**](./alerts-unified-log.md#measure)을 기반으로 할 수 있습니다.
     1. **결과 수** - 쿼리에서 반환하는 전체 레코드의 수입니다.
-    1. **메트릭 측정** - 선택한 식과 [bin()](/azure/kusto/query/binfunction) 선택에 의해 그룹화된 요약을 사용하여 계산된 집계 값입니다. 예를 들어:
+    1. **메트릭 측정** - 선택한 식과 [bin()](/azure/kusto/query/binfunction) 선택에 의해 그룹화된 요약을 사용하여 계산된 집계 값입니다. 예를 들면 다음과 같습니다.
 
     ```Kusto
     // Reported errors

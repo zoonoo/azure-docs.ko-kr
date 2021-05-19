@@ -11,12 +11,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8919285f31e04a51ce10afe3313b28cf86b64ee0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f15fd789264922865acb792bdb766b9624665d91
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102055194"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109654763"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Azure AD B2C에서 ID 보호로 위험 조사
 
@@ -70,7 +70,7 @@ ID 보호를 사용하는 경우 다음 사항을 고려하세요.
 
 관리자는 위험한 사용자 보고서에 제공되는 정보를 통해 다음을 확인할 수 있습니다.
 
-- 위험에 노출된 사용자, 위험을 해결한 사용자 또는 위험을 해제한 사용자
+- **위험 상태**, **위험에 노출된** 사용자, 위험을 **해결한** 사용자 또는 위험을 **해제한** 사용자를 보여 줍니다.
 - 탐지 항목에 대한 세부 정보
 - 모든 위험한 로그인 기록
 - 위험 기록
@@ -82,6 +82,8 @@ ID 보호를 사용하는 경우 다음 사항을 고려하세요.
 - 사용자 위험 해제
 - 사용자가 로그인하지 못하도록 차단
 - Azure ATP를 사용하여 자세히 조사
+
+관리자는 Azure Portal에서 또는 프로그래밍 방식으로 Microsoft Graph API [사용자 위험 해제](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true)를 통해 사용자의 위험을 해제하도록 선택할 수 있습니다. 사용자의 위험을 해제하려면 관리자 권한이 필요합니다. 위험 수정은 위험한 사용자 또는 사용자 대신 관리자가 수행할 수 있습니다(예: 암호 재설정을 통해).
 
 ### <a name="navigating-the-risky-users-report"></a>위험한 사용자 보고서 탐색
 
@@ -107,8 +109,8 @@ ID 보호를 사용하는 경우 다음 사항을 고려하세요.
 관리자는 위험 검색 보고서에 제공되는 정보를 통해 다음을 확인할 수 있습니다.
 
 - 각 위험 검색에 대한 정보(예: 유형)
-- 동시에 트리거되는 기타 위험.
-- 로그인 시도 위치.
+- 동시에 트리거되는 기타 위험
+- 로그인 시도 위치
 
 그러면 관리자는 사용자의 위험 또는 로그인 보고서로 돌아가서 수집된 정보에 따라 작업을 수행하도록 선택할 수 있습니다.
 

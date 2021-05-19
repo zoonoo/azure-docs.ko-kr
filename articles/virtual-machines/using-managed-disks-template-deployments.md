@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: af47182219441a373fd3e05585dbbb9484d06b37
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753036"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91976669"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 디스크 사용
 
@@ -168,7 +168,7 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 }
 ```
 
-그런 다음 VM 개체 내에서 이 디스크 개체를 참조하여 연결합니다. `managedDisk` 속성에서 만든 관리 디스크의 리소스 ID를 지정하면 VM이 생성될 때 디스크를 첨부할 수 있습니다. 위 코드에서 VM 리소스의 `apiVersion`은 `2017-03-30`으로 설정되어 있습니다. VM이 만들어지기 전에 리소스가 만들어졌는지 확인하는 디스크 리소스에 대한 종속성이 추가되었습니다.
+그런 다음 VM 개체 내에서 이 디스크 개체를 참조하여 연결합니다. `managedDisk` 속성에서 만든 관리 디스크의 리소스 ID를 지정하면 VM이 생성될 때 디스크를 첨부할 수 있습니다. 위 코드에서 VM 리소스의 `apiVersion`은 `2017-03-30`으로 설정되어 있습니다. VM이 만들어지기 전에 리소스가 만들어졌는지 확인하는 디스크 리소스에 대한 종속성이 추가되었습니다. 
 
 ```json
 {
@@ -252,11 +252,11 @@ Azure Managed Disks를 사용하면 디스크가 최상위 리소스가 되며 �
 }
 ```
 
-템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-with-standardssd-disk/)를 참조하세요.
+템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
 
 ### <a name="additional-scenarios-and-customizations"></a>추가 시나리오 및 사용자 지정
 
-REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST API 설명서 만들기](/rest/api/manageddisks/disks/disks-create-or-update)를 검토하세요. 추가 시나리오는 물론 템플릿 배포를 통해 API에 전송할 수 있는 허용되는 값 및 기본값을 확인합니다.
+REST API 사양에 대한 전체 정보를 찾으려면 [관리 디스크 REST API 설명서 만들기](/rest/api/manageddisks/disks/disks-create-or-update)를 검토하세요. 추가 시나리오는 물론 템플릿 배포를 통해 API에 전송할 수 있는 허용되는 값 및 기본값을 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

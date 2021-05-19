@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 38d0c350718480506e1267c161a85505ece4b69d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ac0b1b78291d895e97cb967e047ae36da6ff7469
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452257"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746840"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 탐색
 
@@ -37,7 +37,7 @@ ms.locfileid: "96452257"
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스에 대한 샘플 가져오기
 
-샘플을 시작하는 가장 쉬운 방법은 [자습서: 환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 완료하는 것입니다. 완료되면 전용 Notebook 서버에 SDK 및 샘플 리포지토리가 사전 로드됩니다. 다운로드 또는 설치가 필요 없습니다.
+샘플을 시작하는 가장 쉬운 방법은 [빠른 시작: Azure Machine Learning 시작](quickstart-create-resources.md)을 완료하는 것입니다. 완료되면 전용 Notebook 서버에 SDK 및 샘플 리포지토리가 사전 로드됩니다. 다운로드 또는 설치가 필요 없습니다.
 
 <a name="byo"></a>
 

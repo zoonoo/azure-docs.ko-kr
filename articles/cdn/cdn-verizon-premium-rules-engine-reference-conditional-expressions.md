@@ -1,6 +1,6 @@
 ---
-title: Azure CDN-Verizon 프리미엄 규칙 엔진에 대 한 조건식
-description: Verizon 프리미엄 규칙 엔진 일치 조건 및 기능 Azure CDN에 대 한 참조 설명서입니다.
+title: Azure CDN - Verizon Premium 규칙 엔진의 조건식
+description: Verizon Premium의 Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서입니다.
 services: cdn
 author: asudbring
 ms.service: azure-cdn
@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 10/09/2020
 ms.author: allensu
 ms.openlocfilehash: c498a3d69b24fd104d24a3627a8e9d88b495c053
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91873968"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Verizon 프리미엄 규칙 엔진 조건 식에서 Azure CDN
+# <a name="azure-cdn-from-verizon-premium-rules-engine-conditional-expressions"></a>Verizon Premium의 Azure CDN 규칙 엔진 조건식
 
-Verizon 프리미엄 규칙 엔진 식에 대 한 자세한 내용은 [독립 조건식](https://docs.vdms.com/cdn/index.html#Whats_New/Whats-New-RE.htm#RuleSetup)을 참조 하세요.
+Verizon Premium 규칙 엔진 식에 대한 자세한 내용은 [독립 조건식](https://docs.vdms.com/cdn/index.html#Whats_New/Whats-New-RE.htm#RuleSetup)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

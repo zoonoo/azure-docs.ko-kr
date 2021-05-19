@@ -11,15 +11,15 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96002003"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 
-Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) 를 사용 하 여 텍스트 콘텐츠를 검색 하 고 사용자 지정 및 공유 목록과 비교할 수 있습니다.
+Azure Content Moderator에서 [Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)를 사용하여 텍스트 콘텐츠를 욕설에 대해 검사하고 사용자 지정 및 공유 목록과 비교합니다.
 
 ## <a name="get-your-api-key"></a>API key 가져오기
 
@@ -69,7 +69,7 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP:
 
 ## <a name="analyze-the-response"></a>응답 분석
 
-다음과 같은 응답이 API에서 다양한 인사이트를 보여줍니다. 잠재적인 불경, 개인 데이터, 분류 (미리 보기) 및 자동 수정 버전이 포함 되어 있습니다.
+다음과 같은 응답이 API에서 다양한 인사이트를 보여줍니다. 잠재적인 욕설, 개인 데이터, 분류(미리 보기) 및 자동 수정 버전이 포함됩니다.
 
 > [!NOTE]
 > 컴퓨터 지원 ‘분류’ 기능은 현재 미리 보기로 제공되며 영어만 지원합니다.
@@ -133,8 +133,8 @@ Is this a grabage or crap email abcdef@abcd.com, phone: 4255550111, IP:
 }
 ```
 
-JSON 응답의 모든 섹션에 대 한 자세한 설명은 [텍스트 중재](text-moderation-api.md) 개념 가이드를 참조 하세요.
+JSON 응답의 모든 섹션에 대한 자세한 내용은 [텍스트 조정](text-moderation-api.md) 개념 가이드를 참조합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 따라 응용 프로그램과 통합 합니다.
+코드에 REST API를 사용하거나 [.NET SDK 빠른 시작](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)을 따라 애플리케이션을 통합합니다.

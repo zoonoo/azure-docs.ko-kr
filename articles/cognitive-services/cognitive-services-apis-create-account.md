@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: af957758918b99dcb44732eb536c0ca031231a7a
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: de855e53f6d54c9175963b34d8cd3da572e02790
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868225"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736541"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Cognitive Services 리소스 만들기
 
@@ -42,7 +42,7 @@ Azure Cognitive Services는 REST API가 있는 클라우드 기반 서비스이�
 * **Vision** - Computer Vision, Custom Vision, Form Recognizer, Face
 * **음성** - 음성
 * **언어** - Language Understanding(LUIS), Text Analytics, Translator
-* **의사 결정** - Personalizer, Content Moderator
+* **결정** - Content Moderator
 
 ### <a name="single-service-resource"></a>[단일 서비스 리소스](#tab/singleservice)
 

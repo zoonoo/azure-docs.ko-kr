@@ -10,10 +10,10 @@ ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
 ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "98895937"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
@@ -26,7 +26,7 @@ ms.locfileid: "98895937"
 
 [테스트] 탭에는 다음과 같은 항목이 표시됩니다.
 
-1.  **시스템 테스트 결과:** 학습에 있는 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
+1.  **시스템 테스트 결과:** 학습에 포함된 테스트 프로세스의 결과입니다. 테스트 프로세스는 BLEU 점수를 생성합니다.
 
     **문장 개수:** 테스트 세트에 사용된 병렬 문장의 개수입니다.
 
@@ -54,11 +54,11 @@ ms.locfileid: "98895937"
 
 다운로드한 zip 아카이브에는 파일 3개가 들어 있습니다.
 
-1.  **custom.mt.txt:** 이 파일에는 사용자 데이터를 사용 하 여 학습 한 모델에서 수행 하는 대상 언어로 원본 언어 문장의 기계 번역이 포함 됩니다.
+1.  **custom.mt.txt:** 이 파일에는 사용자 데이터로 학습된 모델이 원본 언어를 대상 언어로 기계 번역한 결과가 포함되어 있습니다.
 
-2.  **ref.txt:** 이 파일에는 대상 언어로 된 소스 언어 문장의 번역이 사용자에 게 포함 되어 있습니다.
+2.  **ref.txt:** 이 파일에는 사용자가 제공한 원본 언어 문장에 대한 대상 언어 번역이 포함되어 있습니다.
 
-3.  **source.txt:** 이 파일은 소스 언어의 문장을 포함 합니다.
+3.  **source.txt:** 이 파일에는 원본 언어 문장이 포함되어 있습니다.
 
     ![다운로드한 시스템 테스트 결과](media/how-to/how-to-download-system-test.png)
 
@@ -70,17 +70,17 @@ ms.locfileid: "98895937"
 
 2. 성공적으로 훈련된 모델에는 (아직 배포되지 않은 경우) “배포” 단추가 표시됩니다.
 
-    ![모델 배포에 대 한 배포 단추를 강조 표시 하는 스크린샷](media/how-to/how-to-deploy-model.png)
+    ![모델 배포를 위한 배포 단추가 강조 표시된 스크린샷](media/how-to/how-to-deploy-model.png)
 
 3.  [배포]를 클릭합니다.
 4.  모델을 배포할 지역에 대해 **배포됨** 을 선택하고 [저장]을 클릭합니다. 여러 개의 지역에 대해 **배포됨** 을 선택할 수 있습니다.
 
-    ![모델을 배포 하거나 배포 취소할 수 있는 위치를 보여 주는 스크린샷](media/how-to/how-to-deploy-model-regions.png)
+    ![모델을 배포 또는 배포 취소할 수 있는 위치를 보여 주는 스크린샷](media/how-to/how-to-deploy-model-regions.png)
 
 5.  “상태” 열에서 모델의 상태를 확인할 수 있습니다.
 
 >[!Note]
->사용자 지정 변환기는 언제 든 지 작업 영역 내에서 10 개의 배포 된 모델을 지원 합니다.
+>Custom Translator는 언제든지 한 작업 영역 내에서 10개의 배포 모델을 지원합니다.
 
 ## <a name="update-deployment-settings"></a>배포 설정 업데이트
 
@@ -90,7 +90,7 @@ ms.locfileid: "98895937"
 
 2. 성공적으로 배포된 모델에는 **업데이트** 단추가 표시됩니다.
 
-    ![배포 설정 업데이트를 위한 업데이트 단추를 강조 표시 하는 스크린샷](media/how-to/how-to-update-undeploy-model.png)
+    ![배포 설정 업데이트를 위한 업데이트 단추가 강조 표시된 스크린샷](media/how-to/how-to-update-undeploy-model.png)
 
 3.  **업데이트** 를 선택합니다.
 4.  모델을 배포 또는 배포 취소할 지역에 대해 **배포됨** 또는 **배포 취소됨** 을 선택하고 **저장** 을 클릭합니다.

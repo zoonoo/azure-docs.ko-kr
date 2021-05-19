@@ -5,14 +5,14 @@ author: nkuntjoro
 ms.author: nikuntjo
 ms.service: certification
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 05/04/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: f4f3d045a2530fa54d22bec789918454cba80097
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: be6bcf84ebb9c979cd60e6ca6803b7a24a0944a1
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107310430"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108736305"
 ---
 # <a name="tutorial-add-device-details"></a>자습서: 디바이스 세부 정보 추가
 
@@ -29,24 +29,32 @@ ms.locfileid: "107310430"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * 로그인되어 있고 [Azure Certified Device 포털](https://certify.azure.com)에서 만든 디바이스용 프로젝트가 있어야 합니다. 자세한 내용은 [자습서](tutorial-01-creating-your-project.md)를 참조하세요.
-* PDF 형식의 디바이스용 시작 가이드가 있어야 합니다. 인증 프로그램과 선호하는 언어에 따라 사용할 수 있는 다양한 시작 템플릿이 제공됩니다. 이러한 템플릿은 [시작 템플릿](https://aka.ms/GSTemplate "시작 템플릿") GitHub 위치에서 사용할 수 있습니다.
+* PDF 형식의 디바이스용 시작 가이드가 있어야 합니다. 인증 프로그램과 선호하는 언어에 따라 사용할 수 있는 많은 시작 템플릿이 제공됩니다. 이러한 템플릿은 [시작 템플릿](https://aka.ms/GSTemplate "시작 템플릿") GitHub 위치에서 사용할 수 있습니다.
 
 ## <a name="adding-technical-device-details"></a>기술적 디바이스 세부 정보 추가
 
 프로젝트 페이지의 첫 번째 섹션인 '디바이스 세부 정보 입력'에서는 디바이스의 핵심 하드웨어 기능에 대한 정보(디바이스 이름, 설명, 프로세서, 운영 체제, 연결 옵션, 하드웨어 인터페이스, 산업 프로토콜, 물리적 크기 등)를 제공할 수 있습니다. 많은 필드가 선택 사항이지만 디바이스가 인증된 후 게시하기로 선택하면 이 정보의 대부분이 Azure Certified Device 카탈로그에서 잠재 고객에게 제공됩니다.
 
-1. 프로젝트 요약 페이지의 '디바이스 세부 정보 입력' 섹션에서 `Add`를 클릭하여 디바이스 세부 정보 섹션을 엽니다. 완료해야 할 5개의 섹션이 보입니다.
+1. 프로젝트 요약 페이지의 '디바이스 세부 정보 입력' 섹션에서 `Add`를 클릭하여 디바이스 세부 정보 섹션을 엽니다. 완료해야 할 6개 섹션이 표시됩니다.
 
 ![프로젝트 세부 정보 페이지의 이미지](./media/images/device-details-menu.png)
 
 2. `Basics` 탭에서 프로젝트를 만들 때 이전에 제공한 정보를 검토합니다.
 1. `Certifications` 탭에서 디바이스에 대해 적용하려는 인증서를 검토합니다.
-1. `Product details` 탭을 열고 하나 이상의 운영 체제를 선택합니다.
-1. 디바이스를 설명하는 개별 구성 요소를 하나 **이상** 추가합니다. 구성 요소 사용에 대한 추가 지침은 [여기](how-to-using-the-components-feature.md)에서 볼 수 있습니다.
+1. `Hardware` 탭을 열고 디바이스를 설명하는 하나 **이상** 의 개별 구성 요소를 추가합니다. [구성 요소 사용](how-to-using-the-components-feature.md)에서 지침을 확인할 수도 있습니다.
 1. `Save`을 클릭합니다. 그런 다음, 구성 요소 디바이스를 편집하고 고급 세부 정보를 더 추가할 수 있습니다.
-1. 구성 요소 세부 정보로 캡처되지 않은 추가 디바이스 세부 정보를 `Additional product details` 아래에 나열합니다.
+1. 운영 조건(예: IP 등급, 작동 온도 또는 안전 인증)과 관련된 정보를 추가합니다.
+
+![하드웨어 섹션의 이미지](./media/images/hardware-section.png)
+
+7. 구성 요소 세부 정보로 캡처되지 않은 추가 디바이스 세부 정보를 `Additional product details` 아래에 나열합니다.
 1. 구성 요소 필드에 `Other`를 표시했거나 Azure 인증 팀으로 플래그를 지정하려는 특별한 상황이 있는 경우 `Comments for reviewer` 섹션에 명확한 설명을 남깁니다.
-1. Azure에 데이터를 보내기 위해 디바이스에 추가 하드웨어나 서비스가 필요한 경우 `Dependencies` 탭을 사용하여 종속성을 나열합니다. 종속성 나열에 대한 추가 지침은 [여기](how-to-indirectly-connected-devices.md)에서 볼 수 있습니다.
+1. `Software` 탭을 열고 하나 **이상** 의 운영 체제를 선택합니다.
+1. (**개발자 키트 디바이스에 필요** 및 모든 다른 디바이스에 권장) 디바이스를 Azure에 연결하는 데 필요한 설정 프로세스를 나타내는 수준을 선택합니다. 수준 2를 선택하는 경우 사용 가능한 소프트웨어 이미지의 링크를 제공해야 합니다.
+
+![소프트웨어 섹션의 이미지](./media/images/software-section.png)
+
+11. Azure에 데이터를 보내기 위해 디바이스에 추가 하드웨어나 서비스가 필요한 경우 `Dependencies` 탭을 사용하여 종속성을 나열합니다. 또한 [종속성 나열](how-to-indirectly-connected-devices.md)에 관한 추가 지침을 볼 수 있습니다.
 1. 제공한 정보에 만족하면 `Review` 탭을 사용하여 입력한 전체 디바이스 세부 정보 집합에 대한 읽기 전용 개요를 볼 수 있습니다.
 1. 페이지 위쪽에서 `Project summary`를 클릭하여 요약 페이지로 돌아갑니다.
 
@@ -81,8 +89,8 @@ ms.locfileid: "107310430"
     > [!Note]
     > 제공된 모든 URL은 유효하거나, 승인 후 게시될 때 활성 상태여야 합니다.*)
 
-1. 디바이스가 최적화된 대상 산업을 최대 3개까지 표시합니다.
-1. 디바이스의 유통업체 최대 5곳에 대한 정보를 제공합니다. 여기에는 제조업체의 자체 사이트가 포함될 수 있습니다.
+1. 디바이스가 최적화된 대상 산업을 3개까지 표시합니다.
+1. 디바이스의 유통업체 최대 5곳에 관한 정보를 제공합니다. 여기에는 제조업체의 자체 사이트가 포함될 수 있습니다.
 
     > [!Note]
     > 유통업체 제품 페이지 URL이 제공되지 않으면, 카탈로그의 `Shop` 단추는 `Distributor page`에 제공된 링크로 기본 설정되며, 디바이스용 특정 페이지가 아닐 수 있습니다. 유통업체 URL은 고객이 디바이스를 구매할 수 있는 특정 페이지로 연결되는 것이 가장 좋지만 필수는 아닙니다. 유통업체가 제조업체와 동일하면 이 URL이 제조업체의 마케팅 페이지와 동일할 수 있습니다.*)

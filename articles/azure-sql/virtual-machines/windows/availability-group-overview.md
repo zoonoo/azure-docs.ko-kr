@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8bbd56499c9b62248662fc5e8df0d5b3e1b672d4
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4b6f991c9620703d83906a44965434d3ccffb07c
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504170"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769726"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 Always On 가용성 그룹
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,6 +35,8 @@ Azure Virtual Machines의 Always On 가용성 그룹은 [온-프레미스의 Alw
 
 ![가용성 그룹](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
+> [!NOTE]
+> 이제 Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 가용성 그룹 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [가용성 그룹 마이그레이션](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md)을 참조하세요. 
 
 ## <a name="vm-redundancy"></a>VM 중복성 
 

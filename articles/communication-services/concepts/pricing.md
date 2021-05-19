@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5f7b1e6d600f5d3652ce6a66a72cbfbf33b336c4
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 0615d95c922ef3f04618d9f2339e82b53bd359df
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106091874"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108763688"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -85,13 +85,15 @@ Alice와 Bob은 VOIP 통화 중입니다. Bob은 `+1-425`로 시작하는 미국
 Alice는 환자 Bob과 면담 예정인 의사입니다. Alice가 Teams 데스크톱 애플리케이션을 통해 진료에 참여합니다. Bob은 Communication Services JavaScript SDK를 사용하여 모임에 연결하는 의료 공급자 웹 사이트를 사용하여 참여하는 링크를 받습니다. Bob은 휴대폰을 사용한 웹 브라우저(iPhone의 Safari)를 사용하여 모임에 참여합니다. 가상 진료 중에 채팅을 사용할 수 있습니다.
 
 - 통화는 총 30분 동안 진행되었습니다.
-- Alice와 Bob은 전체 통화에 참여했습니다. Alice는 통화가 시작된 후 5분 동안 비디오를 켜고 13분 동안 화면을 공유했습니다. Bob은 통화 내내 비디오를 켰습니다.
+- Bob이 회의에 참여하면 Teams 정책에 따라 Teams 대기실에 배치됩니다. 1분 후, Alice가 그를 회의에 허가합니다.
+- Bob이 회의에 허가된 후 Alice와 Bob은 전체 통화에 참여합니다. Alice는 통화가 시작된 후 5분 동안 비디오를 켜고 13분 동안 화면을 공유했습니다. Bob은 통화 내내 비디오를 켰습니다.
 - Alice는 메시지 5개를 보내고 Bob은 메시지 3개에 응답했습니다.
 
 
 **비용 계산**
 
-- 참가자 1명(Bob) x 30분 x 참가자별로 분당 $0.004 = $0.12[영상 통화와 음성 통화는 모두 동일한 요율로 청구됨]
+- Teams 대기실로 연결된 1명의 참가자(Bob) x 1분 x 분당 참가자별 $0.004(대기실 비용은 통상 회의 비율로 청구됨) = $0.004
+- 참가자 1명(Bob) x 29분 x 참가자별로 분당 $0.004 = $0.116[영상 통화와 음성 통화는 모두 동일한 요율로 청구됨]
 - 참가자 1명(Alice) x 30분 x 참가자별로 분당 $0.000 = $0.0*
 - 참가자 1명(Bob) x 채팅 메시지 3개 x $0.0008 = $0.0024
 - 참가자 1명(Alice) x 채팅 메시지 5개 x $0.000 = $0.0*
@@ -99,7 +101,7 @@ Alice는 환자 Bob과 면담 예정인 의사입니다. Alice가 Teams 데스�
 *Alice의 참여에는 Teams 라이선스가 적용됩니다. Azure 청구서에는 편의를 위해 Teams 사용자가 Communication Services 사용자에게 사용한 통화 시간(분) 및 채팅 메시지가 표시되지만 Teams 클라이언트에서 시작된 통화 시간(분) 및 메시지에는 요금이 청구되지 않습니다.
 
 **총 진료 비용**:
-- Communication Services JavaScript SDK를 사용한 사용자 참여: $0.12 + $0.0024 = $0.1224
+- Communication Services JavaScript SDK를 사용한 사용자 참여: $0.004 + $0.116 + $0.0024 = $0.1224
 - Teams 데스크톱 애플리케이션의 사용자 참여: $0(Teams 라이선스 적용)
 
 

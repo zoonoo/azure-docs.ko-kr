@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "92912942"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
 
-Azure Content Moderator의 [이미지 조정 API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) 를 사용 하 여 이미지 콘텐츠에 대 한 검사 및 검토 중재 워크플로를 시작 합니다. 중재 작업을 통해 콘텐츠를 검색 하 여 사용자 지정 및 공유 블록 목록과 비교할 수 있습니다.
+Azure Content Moderator의 [Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)를 사용하여 이미지 콘텐츠에 대한 검사-검토 조정 워크플로를 시작합니다. 조정 작업은 콘텐츠에서 비속어를 검색하여 사용자 지정 및 공유 차단 목록과 비교합니다.
 
 ## <a name="use-the-api-console"></a>API 콘솔 사용
 온라인 콘솔에서 API를 테스트하려면 구독 키가 필요합니다. 구독 키는 **Ocp-Apim-Subscription-Key** 상자의 **설정** 탭에 있습니다. 자세한 내용은 [개요](overview.md)를 참조하세요.
@@ -102,4 +102,4 @@ Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) 를 따라 응용 프로그램에 이미지 조정을 추가 합니다.
+코드에 REST API를 사용하거나 [.NET SDK 빠른 시작](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)을 따라 애플리케이션에 이미지 조정을 추가합니다.

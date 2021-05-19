@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 111d3d48680523f334c67d9a1a02043f1ed35233
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: bbc068db59bb0a5cd4ef334d3e8ce0a63f74079d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286567"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109752664"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft ID 플랫폼 코드 샘플(v2.0 엔드포인트)
 
@@ -87,6 +87,8 @@ GitHub의 샘플에 참여할 수도 있습니다. 자세한 방법은 [Microsof
 | 바탕 화면 자습서(.NET Core) - 필요에 따라 다음을 사용합니다.</p>- 플랫폼 간 토큰 캐시</p>- 사용자 지정 웹 UI | ![이 이미지는 .NET/C# 로고를 보여 줍니다.](media/sample-v2-code/logo_NETcore.png) | [인증 코드](msal-authentication-flows.md#authorization-code)| [ms-identity-dotnet-desktop-tutorial](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
 | 데스크톱(WPF)      | ![이 이미지는 .NET 데스크톱/C# 로고를 보여줍니다.](media/sample-v2-code/logo_NET.png) | [인증 코드](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | 데스크톱(콘솔)   | ![.NET/C#(데스크톱) 로고를 보여주는 이미지](media/sample-v2-code/logo_NET.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| 데스크톱(콘솔) | ![.NET/C#(데스크톱) 로고를 보여주는 이미지](media/sample-v2-code/logo_NET.png) |  [인증 코드](msal-authentication-flows.md#authorization-code) | [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph) |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/master/2-Call-OwnApi/README.md)  |
+| 데스크톱(콘솔) <br> 비밀 대신 인증서 사용 | ![.NET/C#(데스크톱) 로고를 보여주는 이미지](media/sample-v2-code/logo_NET.png) |  [인증 코드](msal-authentication-flows.md#authorization-code) | [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/1-Call-MSGraph#variation-daemon-application-using-client-credentials-with-certificates) |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi#variation-daemon-application-using-client-credentials-with-certificates)  |
 | 데스크톱(콘솔)   | ![이 이미지는 Java 로고를 표시](media/sample-v2-code/logo_java.png) | [Windows 통합 인증](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identity-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | 데스크톱(콘솔)   | ![.NET/C#(데스크톱) 로고입니다.](media/sample-v2-code/logo_NETcore.png) | [사용자 이름/암호](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
 | WAM을 사용하는 데스크톱(콘솔)  | ![.NET/C#(데스크톱)의 로고입니다.](media/sample-v2-code/logo_NETcore.png) | [웹 계정 관리자](/windows/uwp/security/web-account-manager)(WAM)를 사용하는 대화형 |[dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) |  |

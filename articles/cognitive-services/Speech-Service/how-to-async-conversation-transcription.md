@@ -1,7 +1,7 @@
 ---
-title: 비동기 대화 기록-음성 서비스
+title: 비동기 대화 전사 - Speech Service
 titleSuffix: Azure Cognitive Services
-description: '음성 서비스를 사용 하 여 비동기 대화 기록을 사용 하는 방법을 알아봅니다. Java 및 c #에만 사용할 수 있습니다.'
+description: Speech Service를 사용하여 비동기 대화 전사를 사용하는 방법을 알아봅니다. Java 및 C#에서만 사용할 수 있습니다.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -13,23 +13,23 @@ ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-one
 ms.openlocfilehash: 4b2dfa8d474f10d6b4ca1c46ac2b575e8d8407ff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "88934647"
 ---
 # <a name="asynchronous-conversation-transcription"></a>비동기 대화 전사
 
-이 문서에서는 **RemoteConversationTranscriptionClient** API를 사용 하 여 비동기 대화 기록을 보여 줍니다. 비동기 기록을 수행 하는 대화 기록을 구성 하 고을 포함 하는 경우 `conversationId` `conversationId` **RemoteConversationTranscriptionClient** API를 사용 하 여 이와 관련 된 기록을 가져올 수 있습니다.
+이 문서에서는 **RemoteConversationTranscriptionClient** API를 사용하여 비동기 대화 전사를 보여 줍니다. 비동기 전사를 수행하도록 대화 전사를 구성하고 `conversationId`가 있는 경우 **RemoteConversationTranscriptionClient** API를 사용하여 해당 `conversationId`와 관련된 전사를 가져올 수 있습니다.
 
-## <a name="asynchronous-vs-real-time--asynchronous"></a>비동기 및 실시간 + 비동기
+## <a name="asynchronous-vs-real-time--asynchronous"></a>비동기 및 실시간+비동기
 
-비동기 기록을 사용 하면 대화 오디오를 스트리밍하 고 실시간으로 반환 되는 기록을 필요로 하지 않습니다. 대신, 오디오가 전송 된 후의를 사용 `conversationId` 하 여 `Conversation` 비동기 기록의 상태를 쿼리 합니다. 비동기 기록을 준비 하면를 얻게 됩니다 `RemoteConversationTranscriptionResult` .
+비동기 전사를 사용하면 대화 오디오를 스트리밍할 수 있지만 실시간으로 전사를 반환할 필요는 없습니다. 대신 오디오를 전송한 후 `Conversation`의 `conversationId`를 사용하여 비동기 전사 상태를 쿼리합니다. 비동기 전사가 준비되면 `RemoteConversationTranscriptionResult`가 표시됩니다.
 
-실시간 및 비동기를 사용 하면 실시간으로 기록을 가져올 수 있지만 비동기 시나리오와 비슷한를 사용 하 여 기록을 가져올 수도 있습니다 `conversationId` .
+실시간+비동기 전사를 사용하면 실시간으로 전사를 얻을 수 있지만 `conversationId`로 쿼리하여 전사를 얻을 수도 있습니다(비동기 시나리오와 유사).
 
-비동기 기록을 수행 하려면 두 단계가 필요 합니다. 첫 번째 단계는 비동기 전용 또는 실시간 및 비동기를 선택 하 여 오디오를 업로드 하는 것입니다. 두 번째 단계는 기록 결과를 가져오는 것입니다.
+비동기 전사를 수행하려면 두 단계가 필요합니다. 첫 번째 단계는 비동기식만으로 또는 실시간+비동기식으로 오디오를 업로드하는 것입니다. 두 번째 단계는 전사 결과를 가져오는 것입니다.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/remote-conversation/csharp/examples.md)]
