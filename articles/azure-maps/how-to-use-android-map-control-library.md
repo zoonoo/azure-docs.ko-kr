@@ -147,7 +147,7 @@ Azure Maps Android SDK는 Azure Government 클라우드를 지원합니다. Azur
 
 Azure Maps 인증 세부 정보가 지정된 위치에서 다음 코드 줄을 추가하여 맵에 Azure Maps 정부 클라우드 도메인을 사용하도록 지시합니다.
 
-::: zone pivot=&quot;programming-language-java-android&quot;
+::: zone pivot="programming-language-java-android"
 
 ```java
 AzureMaps.setDomain(&quot;atlas.azure.us");
