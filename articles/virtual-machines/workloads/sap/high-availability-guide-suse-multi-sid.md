@@ -1,6 +1,6 @@
 ---
-title: SLES 다중 SID 가이드의 SAP NetWeaver에 대 한 Azure Vm 고가용성 Microsoft Docs
-description: Sap NetWeaver on SUSE Linux Enterprise Server sap 응용 프로그램에 대 한 다중 SID 고가용성 가이드
+title: SLES의 SAP NetWeaver에 대한 다중 SID Azure VM 고가용성 가이드 | Microsoft Docs
+description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 다중 SID 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
 ms.openlocfilehash: 74606909a0bc87caa6acfb0eaf35c05cf35b1858
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101676936"
 ---
-# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
+# <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 다중 SID 고가용성 가이드
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -54,16 +54,16 @@ ms.locfileid: "101676936"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-이 문서에서는 SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server를 사용 하 여 Azure Vm의 두 노드 클러스터에 여러 SAP NetWeaver 또는 S4HANA 항상 사용 가능한 시스템 (즉, 다중 SID)을 배포 하는 방법을 설명 합니다.  
+이 문서에서는 SAP 애플리케이션용 SUSE Linux Enterprise Server를 사용하는 Azure VM의 2노드 클러스터에 여러 SAP NetWeaver 또는 S4HANA 고가용성 시스템(즉, 다중 SID)을 배포하는 방법에 대해 설명합니다.  
 
-예제 구성, 설치 명령 등 세 가지 SAP NetWeaver 7.50 시스템은 단일 노드 고가용성 클러스터에 배포 됩니다. SAP 시스템 Sid는 다음과 같습니다.
-* **N w 1**: ascs 인스턴스 번호 **00** 및 가상 호스트 이름 **msnw1ascs**; ERS 인스턴스 번호 **02** 및 가상 호스트 이름 **msnw1ers**.  
-* **N w 2**: ascs 인스턴스 번호 **10** 및 가상 호스트 이름 **msnw2ascs**; ERS 인스턴스 번호 **12** 및 가상 호스트 이름 **msnw2ers**.  
-* **NW3**: ascs 인스턴스 번호 **20** 및 가상 호스트 이름 **msnw3ascs**; ERS 인스턴스 번호 **22** 및 가상 호스트 이름 **msnw3ers**.  
+예제 구성, 설치 명령 등에서 세 개의 SAP NetWeaver 7.50 시스템이 단일 2노드 고가용성 클러스터에 배포됩니다. SAP 시스템 SID는 다음과 같습니다.
+* **NW1**: ASCS 인스턴스 번호 **00** 및 가상 호스트 이름 **msnw1ascs**, ERS 인스턴스 번호 **02** 및 가상 호스트 이름 **msnw1ers**.  
+* **NW2**: ASCS 인스턴스 번호 **10** 및 가상 호스트 이름 **msnw2ascs**, ERS 인스턴스 번호 **12** 및 가상 호스트 이름 **msnw2ers**.  
+* **NW3**: ASCS 인스턴스 번호 **20** 및 가상 호스트 이름 **msnw3ascs**, ERS 인스턴스 번호 **22** 및 가상 호스트 이름 **msnw3ers**.  
 
-이 문서에서는 데이터베이스 계층과 SAP NFS 공유의 배포에 대해 다루지 않습니다. 이 문서의 예제에서는 NFS 클러스터가 배포 된 것으로 가정 하 여 N W 2 NFS 공유에 대 한 가상 이름 n w 2-nfs를 사용 하 고 NW3 NFS 공유에는 nw3를 사용 합니다.  
+이 문서에서는 데이터베이스 계층과 SAP NFS 공유 배포에 대해 설명하지 않습니다. 이 문서의 예제에서는 NFS 클러스터가 배포되었다고 가정하여 NW2 NFS 공유에 대해 nw2-nfs, NW3 NFS 공유 대해 nw3-nfs라는 가상 이름을 사용합니다.  
 
-시작 하기 전에 먼저 다음 SAP 참고 사항 및 백서를 참조 하세요.
+시작하기 전에 다음 SAP Note 및 백서를 참조하세요.
 
 * SAP Note [1928533][1928533], 다음 항목을 포함합니다.
   * SAP 소프트웨어 배포에 지원되는 Azure VM 크기 목록
@@ -85,36 +85,36 @@ ms.locfileid: "101676936"
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보를 포함하고 있습니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
 * [SUSE High Availability Extension 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
-* [SLES 12 및 SLES 15 용 SUSE 다중 SID 클러스터 가이드](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
+* [SLES 12 및 SLES 15에 대한 SUSE 다중 SID 클러스터 가이드](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 * [Azure NetApp Files를 사용하는 Microsoft Azure의 NetApp SAP 애플리케이션][anf-sap-applications-azure]
 ## <a name="overview"></a>개요
 
-장애 조치 (failover)가 발생 하는 경우 클러스터에 참여 하는 가상 컴퓨터의 크기를 조정 하 여 모든 리소스를 실행할 수 있어야 합니다. 각 SAP SID는 다중 SID 고가용성 클러스터에서 서로 독립적인 장애 조치 (failover) 될 수 있습니다.  SBD fence를 사용 하는 경우 여러 클러스터 간에 SBD 장치를 공유할 수 있습니다.  
+장애 조치(failover)가 발생하는 경우 클러스터에 참가하는 가상 머신은 모든 리소스를 실행할 수 있도록 크기를 조정해야 합니다. 각 SAP SID는 다중 SID 고가용성 클러스터에서 서로 독립적으로 장애 조치(failover)할 수 있습니다.  SBD 펜싱을 사용하는 경우 SBD 디바이스를 여러 클러스터 간에 공유할 수 있습니다.  
 
-고가용성을 위해 SAP NetWeaver에는 항상 사용 가능한 NFS 공유가 필요 합니다. 이 예에서는 SAP NFS 공유가 항상 사용 가능한 [NFS 파일 서버](./high-availability-guide-suse-nfs.md)에 호스트 되는 것으로 가정 합니다 .이 서버는 여러 sap 시스템에서 사용할 수 있습니다. 또는 공유가 [AZURE NETAPP FILES NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 배포 됩니다.  
+고가용성을 달성하려면 SAP NetWeaver에 고가용성 NFS 공유가 필요합니다. 다음 예에서는 SAP NFS 공유가 여러 SAP 시스템에서 사용할 수 있는 고가용성 [NFS 파일 서버](./high-availability-guide-suse-nfs.md)에서 호스팅된다고 가정합니다. 또는 공유가 [Azure NetApp Files NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 배포됩니다.  
 
-![Pacemaker 클러스터는 두 개의 다중 SID 클러스터 msidcl1 및 msidcl2에 대 한 자세한 정보를 표시 합니다.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
+![Pacemaker 클러스터는 두 개의 다중 SID 클러스터(msidcl1 및 msidcl2)에 대한 자세한 정보를 보여 줍니다.](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
 > [!IMPORTANT]
-> Azure Vm에서 SUSE Linux를 게스트 운영 체제로 사용 하는 SAP ASCS/ERS의 다중 SID 클러스터링에 대 한 지원은 동일한 클러스터에서 **5 개의** sap sid로 제한 됩니다. 각 새 SID는 복잡성이 증가 합니다. 동일한 클러스터에서 SAP 큐에서 복제 서버 1과 큐에 넣기 복제 서버 2를 혼합 하 여 **사용할 수 없습니다**. 다중 SID 클러스터링은 하나의 Pacemaker 클러스터에서 서로 다른 Sid를 사용 하 여 여러 SAP ASCS/ERS 인스턴스를 설치 하는 방법을 설명 합니다. 현재 다중 SID 클러스터링은 ASCS/ERS에 대해서만 지원 됩니다.  
+> Azure VM에서 SUSE Linux를 게스트 운영 체제로 사용하는 SAP ASCS/ERS의 다중 SID 클러스터링에 대한 지원은 동일한 클러스터에서 **5개** 의 SAP SID로 제한됩니다. 각각의 새 SID는 복잡성을 증가시킵니다. 동일한 클러스터에서 SAP 큐에 넣기 복제 서버 1과 큐에 넣기 복제 서버 2를 함께 사용하는 것은 **지원되지 않습니다**. 다중 SID 클러스터링은 서로 다른 SID가 있는 여러 SAP ASCS/ERS 인스턴스를 하나의 Pacemaker 클러스터에 설치하는 방법을 설명합니다. 현재 다중 SID 클러스터링은 ASCS/ERS에만 지원됩니다.  
 
 > [!TIP]
-> SAP ASCS/ERS의 다중 SID 클러스터링은 더 복잡 한 솔루션입니다. 구현 하는 것이 더 복잡 합니다. 또한 유지 관리 작업 (예: OS 패치)을 실행할 때 더 높은 관리 노력이 수반 됩니다. 실제 구현을 시작 하기 전에 배포 및 Vm, NFS 탑재, Vip, 부하 분산 장치 구성 등의 관련 된 모든 구성 요소를 신중 하 게 계획 해야 합니다.  
+> SAP ASCS/ERS의 다중 SID 클러스터링은 더 복잡한 솔루션입니다. 구현하는 것이 더 복잡합니다. 또한 유지 관리 작업(예: OS 패치 적용)을 실행할 때 더 많은 관리 작업이 필요합니다. 실제 구현을 시작하기 전에 배포 및 모든 관련 구성 요소(예: VM, NFS 탑재, VIP, 부하 분산 장치 구성 등)를 신중하게 계획하세요.  
 
 NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md)를 사용하는 것이 좋습니다.  
 
-다음 목록에서는 세 가지 SAP 시스템을 사용 하는이 다중 SID 클러스터 예제에 대 한 (A) SCS 및 ERS 부하 분산 장치 구성을 보여 줍니다. 각 Sid에 대 한 각 ASCS 및 ERS 인스턴스에 대해 별도의 프런트 엔드 IP, 상태 프로브 및 부하 분산 규칙이 필요 합니다. ASCS/ASCS 클러스터의 일부인 모든 Vm을 하나의 백 엔드 풀에 할당 합니다.  
+다음 목록에서는 세 개의 SAP 시스템을 사용하는 이 다중 SID 클러스터 예제에 대한 (A)SCS 및 ERS 부하 분산 장치의 구성을 보여 줍니다. 각 SID에 대한 각 ASCS 및 ERS 인스턴스에 대해 별도의 프런트 엔드 IP, 상태 프로브 및 부하 분산 규칙이 필요합니다. ASCS/ASCS 클러스터의 일부인 모든 VM을 하나의 백 엔드 풀에 할당합니다.  
 
 ### <a name="ascs"></a>(A)SCS
 
 * 프런트 엔드 구성
-  * N W 1에 대 한 IP 주소: 10.3.1.14
-  * N W 2에 대 한 IP 주소: 10.3.1.16
-  * NW3에 대 한 IP 주소: 10.3.1.13
+  * NW1에 대한 IP 주소: 10.3.1.14
+  * NW2에 대한 IP 주소: 10.3.1.16
+  * NW3에 대한 IP 주소: 10.3.1.13
 * 프로브 포트
-  * 포트 620 <strong> &lt; NR &gt;</strong>, N W 1, n w 2 및 NW3 프로브 포트 620 **00**, 620 **10** 및 620 **20**
-* 부하 분산 규칙- 
-* 각 인스턴스, 즉 N W 1/ASCS, N W 2/ASCS 및 NW3/ASCS에 대해 하나를 만듭니다.
+  * 620 <strong>&lt;nr&gt;</strong> 포트, 따라서 NW1, NW2 및 NW3에 대한 프로브 포트는 각각 620 **00**, 620 **10** 및 620 **20** 임
+* 부하 분산 규칙 - 
+* 각 인스턴스(즉, NW1/ASCS, NW2/ASCS 및 NW3/ASCS)에 대해 하나씩 만듭니다.
   * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
@@ -128,12 +128,12 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 ### <a name="ers"></a>ERS
 
 * 프런트 엔드 구성
-  * N W 1 10.3.1.15에 대 한 IP 주소
-  * N W 2 10.3.1.17에 대 한 IP 주소
-  * NW3 10.3.1.19에 대 한 IP 주소
+  * NW1에 대한 IP 주소: 10.3.1.15
+  * NW2에 대한 IP 주소: 10.3.1.17
+  * NW3에 대한 IP 주소: 10.3.1.19
 * 프로브 포트
-  * 포트 621 <strong> &lt; NR &gt;</strong>, N w 1, n w 2 및 N # 프로브 포트 621 **02**, 621 **12** 및 621 **22**
-* 부하 분산 규칙-각 인스턴스, 즉 N W 1/ERS, N W 2/ERS 및 NW3/ERS에 대해 하나를 만듭니다.
+  * 621 <strong>&lt;nr&gt;</strong> 포트, 따라서 NW1, NW2 및 N#에 대한 프로브 포트는 각각 621 **02**, 621 **12** and 621 **22** 임
+* 부하 분산 규칙 - 각 인스턴스(즉, NW1/ERS, NW2/ERS 및 NW3/ERS)에 대해 하나씩 만듭니다.
   * 표준 Load Balancer를 사용하는 경우 **HA 포트** 를 선택합니다.
   * 기본 Load Balancer를 사용하는 경우 다음 포트에 대한 부하 분산 규칙을 만듭니다.
     * 32<strong>&lt;nr&gt;</strong> TCP
@@ -146,7 +146,7 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
   * (A)SCS/ERS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -156,44 +156,44 @@ NFS 서버, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HAN
 
 ## <a name="sap-nfs-shares"></a>SAP NFS 공유
 
-SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장소가 필요 합니다. 항상 사용 가능한 SAP 시스템의 경우 항상 사용 가능한 NFS 공유를 사용 하는 것이 중요 합니다. SAP NFS 공유에 대 한 아키텍처를 결정 해야 합니다. 한 가지 옵션은 여러 SAP 시스템 간에 공유 될 수 있는 [SUSE Linux Enterprise Server의 Azure vm에서 항상 사용 가능한 NFS 클러스터][nfs-ha]를 빌드하는 것입니다. 
+SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대한 공유 스토리지가 필요합니다. 고가용성 SAP 시스템의 경우 고가용성 NFS 공유를 사용해야 합니다. SAP NFS 공유의 아키텍처를 결정해야 합니다. 한 가지 옵션은 여러 SAP 시스템 간에 공유할 수 있는 [고가용성 NFS 클러스터를 SUSE Linux Enterprise Server의 Azure VM][nfs-ha]에 구축하는 것입니다. 
 
-또 다른 옵션은 [AZURE NETAPP FILES NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 공유를 배포 하는 것입니다.  Azure NetApp Files를 사용 하 여 SAP NFS 공유에 대 한 고가용성을 제공 합니다.
+또 다른 옵션은 공유를 [Azure NetApp Files NFS 볼륨](../../../azure-netapp-files/azure-netapp-files-create-volumes.md)에 배포하는 것입니다.  Azure NetApp Files를 사용하면 SAP NFS 공유에 대한 기본 제공 고가용성이 제공됩니다.
 
 ## <a name="deploy-the-first-sap-system-in-the-cluster"></a>클러스터에 첫 번째 SAP 시스템 배포
 
-이제 SAP NFS 공유에 대 한 아키텍처를 결정 했으므로 해당 설명서에 따라 클러스터에 첫 번째 SAP 시스템을 배포 합니다.
+이제 SAP NFS 공유에 대한 아키텍처를 결정했으므로 해당 설명서에 따라 첫 번째 SAP 시스템을 클러스터에 배포합니다.
 
-* 항상 사용 가능한 NFS 서버를 사용 하는 경우 [sap 응용 프로그램 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse.md)을 따릅니다.  
-* NFS 볼륨 Azure NetApp Files 사용 하는 경우 [sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) 을 따릅니다.
+* 고가용성 NFS 서버를 사용하는 경우 [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse.md)을 따릅니다.  
+* Azure NetApp Files NFS 볼륨을 사용하는 경우 [SAP 애플리케이션용 Azure NetApp Files를 사용하는 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse-netapp-files.md)을 따릅니다.
 
-위에 나열 된 문서에서는 필요한 인프라를 준비 하 고, 클러스터를 빌드하고, SAP 응용 프로그램을 실행 하기 위해 OS를 준비 하는 단계를 안내 합니다.  
+위에 나열된 문서는 필요한 인프라를 준비하고, 클러스터를 구축하고, SAP 애플리케이션을 실행하기 위해 OS를 준비하는 단계를 안내합니다.  
 
 > [!TIP]
-> 클러스터에 추가 SAP Sid를 추가 하기 전에 첫 번째 시스템이 배포 된 후 클러스터의 장애 조치 (failover) 기능을 항상 테스트 합니다. 이렇게 하면 클러스터에 추가 SAP 시스템의 복잡성을 추가 하기 전에 클러스터 기능이 작동 한다는 것을 알 수 있습니다.   
+> 첫 번째 시스템이 배포되면 추가 SAP SID를 클러스터에 추가하기 전에 항상 클러스터의 장애 조치(failover) 기능을 테스트하세요. 이렇게 하면 추가 SAP 시스템의 복잡성을 클러스터에 추가하기 전에 클러스터 기능이 작동하는지 알 수 있습니다.   
 
 ## <a name="deploy-additional-sap-systems-in-the-cluster"></a>클러스터에 추가 SAP 시스템 배포
 
-이 예제에서는 system **n w 1** 가 클러스터에 이미 배포 되어 있다고 가정 합니다. **N w 2** 및 **NW3** 클러스터에서 배포 하는 방법을 보여 줍니다. 
+이 예에서는 **NW1** 시스템이 이미 클러스터에 배포되었다고 가정합니다. 이제 **NW2** 및 **NW3** 클러스터 SAP 시스템에 배포하는 방법을 보여 줍니다. 
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
 ### <a name="prerequisites"></a>필수 구성 요소 
 
 > [!IMPORTANT]
-> 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  
+> 첫 번째 시스템 배포 중에만 필요한 단계가 있으므로 지침에 따라 추가 SAP 시스템을 클러스터에 배포하기 전에 지침에 따라 첫 번째 SAP 시스템을 클러스터에 배포합니다.  
 
-이 문서에서는 다음을 가정 합니다.
-* Pacemaker 클러스터가 이미 구성 되어 실행 되 고 있습니다.  
-* 하나 이상의 SAP 시스템 (ASCS/ERS 인스턴스)이 이미 배포 되어 클러스터에 실행 되 고 있습니다.  
-* 클러스터 장애 조치 (failover) 기능이 테스트 되었습니다.  
-* 모든 SAP 시스템에 대 한 NFS 공유를 배포 합니다.  
+이 설명서에서는 다음을 가정합니다.
+* Pacemaker 클러스터가 이미 구성되어 실행되고 있습니다.  
+* 하나 이상의 SAP 시스템(ASCS / ERS 인스턴스)이 이미 배포되어 클러스터에서 실행되고 있습니다.  
+* 클러스터 장애 조치(failover) 기능이 테스트되었습니다.  
+* 모든 SAP 시스템에 대한 NFS 공유가 배포됩니다.  
 
 ### <a name="prepare-for-sap-netweaver-installation"></a>SAP NetWeaver 설치 준비
 
-1. 새로 배포한 시스템 (즉, **n w 2**, **NW3**)에 대 한 구성을 기존 Azure Load Balancer에 추가 합니다. 지침에 따라 [Azure Portal를 통해 수동으로 배포 Azure Load Balancer](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal)합니다. 구성에 대 한 IP 주소, 상태 프로브 포트, 부하 분산 규칙을 조정 합니다.  
+1. [Azure Portal을 통해 수동으로 Azure Load Balancer 배포](./high-availability-guide-suse-netapp-files.md#deploy-azure-load-balancer-manually-via-azure-portal) 지침에 따라 새로 배포된 시스템(즉, **NW2**, **NW3**)에 대한 구성을 기존 Azure Load Balancer에 추가합니다. 구성에 대한 IP 주소, 상태 프로브 포트, 부하 분산 규칙을 조정합니다.  
 
-2. **[A]** 추가 SAP 시스템에 대 한 이름 확인을 설정 합니다. DNS 서버를 사용 하거나 모든 노드에서를 수정할 수 있습니다 `/etc/hosts` . 이 예제에서는 파일을 사용 하는 방법을 보여 줍니다 `/etc/hosts` .  사용자 환경에 대 한 IP 주소 및 호스트 이름을 조정 합니다. 
+2. **[A]** 추가 SAP 시스템에 대한 이름 확인을 설정합니다. DNS 서버를 사용하거나 모든 노드에서 `/etc/hosts`를 수정할 수 있습니다. 다음 예제에서는 `/etc/hosts` 파일을 사용하는 방법을 보여 줍니다.  IP 주소 및 호스트 이름을 환경에 맞게 조정합니다. 
 
     ```
     sudo vi /etc/hosts
@@ -211,7 +211,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     10.3.1.32 nw3-nfs
    ```
 
-3. **[A]** 클러스터에 배포 하는 추가 **n w 2** 및 **NW3** SAP 시스템에 대 한 공유 디렉터리를 만듭니다. 
+3. **[A]** 클러스터에 배포하는 추가 **NW2** 및 **NW3** SAP 시스템에 대한 공유 디렉터리를 만듭니다. 
 
     ```
     sudo mkdir -p /sapmnt/NW2
@@ -234,18 +234,18 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     sudo chattr +i /usr/sap/NW3/ERS22
    ```
 
-4. **[A]** `autofs` 클러스터에 배포 하는 추가 sap 시스템에 대 한/sapmnt/SID 및/usr/sap/SID/SYS 파일 시스템을 탑재 하도록를 구성 합니다. 이 예제에서는 **n w 2** 및 **NW3** 입니다.  
+4. **[A]** 클러스터에 배포하는 추가 SAP 시스템에 대해 /sapmnt/SID 및 /usr/sap/SID/SYS 파일 시스템을 탑재하도록 `autofs`를 구성합니다. 이 예제에서는 **NW2** 및 **NW3** 입니다.  
 
-   `/etc/auto.direct`클러스터에 배포 하는 추가 SAP 시스템의 파일 시스템을 사용 하 여 파일을 업데이트 합니다.  
+   `/etc/auto.direct` 파일을 클러스터에 배포하는 추가 SAP 시스템에 대한 파일 시스템으로 업데이트합니다.  
 
-   * NFS 파일 서버를 사용 하는 경우 [여기](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요.
-   * Azure NetApp Files 사용 하는 경우 [여기](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation) 에 있는 지침을 따르세요. 
+   * NFS 파일 서버를 사용하는 경우 [여기](./high-availability-guide-suse.md#prepare-for-sap-netweaver-installation)의 지침을 따릅니다.
+   * Azure NetApp Files를 사용하는 경우 [여기](./high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation)의 지침을 따릅니다. 
 
-   `autofs`새로 추가 된 공유를 탑재 하려면 서비스를 다시 시작 해야 합니다.  
+   새로 추가된 공유를 탑재하려면 `autofs` 서비스를 다시 시작해야 합니다.  
 
 ### <a name="install-ascs--ers"></a>ASCS/ERS 설치
 
-1. 클러스터에 배포 하는 추가 SAP 시스템의 ASCS 인스턴스에 대 한 가상 IP 및 상태 프로브 클러스터 리소스를 만듭니다. 여기에 표시 된 예제는 항상 사용 가능한 NFS 서버를 사용 하 여 **n w 2** 및 **NW3** ascs에 대 한 것입니다.  
+1. 클러스터에 배포하는 추가 SAP 시스템의 ASCS 인스턴스에 대한 가상 IP 및 상태 프로브 클러스터 리소스를 만듭니다. 여기에 표시된 예제는 고가용성 NFS 서버를 사용하는 **NW2** 및 **NW3** ASCS에 대한 것입니다.  
 
    > [!IMPORTANT]
    > 최근 테스트 결과, 백로그와 하나의 연결만 처리하는 제한으로 인해 netcat이 요청에 응답하지 않는 것으로 확인되었습니다. netcat 리소스가 Azure Load Balancer 요청 수신을 중지하고 부동 IP를 사용할 수 없게 됩니다.  
@@ -286,21 +286,21 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
         meta resource-stickiness=3000
     ```
 
-   리소스를 만들 때 다른 클러스터 리소스에 할당 될 수 있습니다. 그룹화 하는 경우 클러스터 노드 중 하나로 마이그레이션됩니다. 클러스터 상태가 양호 이며 모든 리소스가 시작 되었는지 확인 합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
+   리소스를 만들 때 리소스를 다른 클러스터 리소스에 할당할 수 있습니다. 이러한 리소스를 그룹화하면 클러스터 노드 중 하나로 마이그레이션됩니다. 클러스터 상태가 정상이고 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
 
 2. **[1]** SAP NetWeaver ASCS 설치  
 
-   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 SAP NetWeaver ASCS를 루트로 설치 합니다. 예를 들어 시스템 **n w 2** 의 경우 가상 호스트 이름은 <b>msnw2ascs</b>, <b>10.3.1.16</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>10</b>)입니다. 시스템 **NW3** 경우 가상 호스트 이름은 <b>msnw3ascs</b>, <b>10.3.1.13</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>20</b>)입니다.
+   ASCS에 대한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용하여 루트 권한으로 SAP NetWeaver ASCS를 설치합니다. 예를 들어 **NW2** 시스템의 경우 가상 호스트 이름은 <b>msnw2ascs</b>, <b>10.3.1.16</b> 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호(예: <b>10</b>)입니다. **NW3** 시스템의 경우 가상 호스트 이름은 <b>msnw3ascs</b>, <b>10.3.1.13</b> 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호(예: <b>20</b>)입니다.
 
-   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. 매개 변수 SAPINST_USE_HOSTNAME를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.  
+   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAPINST_USE_HOSTNAME 매개 변수를 통해 가상 호스트 이름을 사용하여 SAP를 설치할 수 있습니다.  
 
      ```
       sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
      ```
 
-   /Usr/sap/**sid**/ASCS **instance #** 에서 하위 폴더를 만들지 못한 경우에는 소유자를 **SID** adm으로 설정 하 고 sapsys를 ascs **인스턴스 #** 로 설정 하 고 다시 시도 하세요.
+   설치에서 하위 폴더를 /usr/sap/**SID**/ASCS **Instance#** 에 만들지 못하는 경우 소유자를 **sid** adm으로 설정하고, 그룹을 ASCS **Instance#** 의 sapsys로 설정하고, 다시 시도합니다.
 
-3. **[1]** 클러스터에 배포 하는 추가 SAP 시스템의 ERS 인스턴스에 대 한 가상 IP 및 상태 프로브 클러스터 리소스를 만듭니다. 여기에 표시 된 예제는 항상 사용 가능한 NFS 서버를 사용 하 여 **n w 2** 및 **NW3** ERS에 대 한 것입니다. 
+3. **[1]** 클러스터에 배포하는 추가 SAP 시스템의 ERS 인스턴스에 대한 가상 IP 및 상태 프로브 클러스터 리소스를 만듭니다. 여기에 표시된 예제는 고가용성 NFS 서버를 사용하는 **NW2** 및 **NW3** ERS에 대한 것입니다. 
 
    ```
     sudo crm configure primitive fs_NW2_ERS Filesystem device='nw2-nfs:/NW2/ASCSERS' directory='/usr/sap/NW2/ERS12' fstype='nfs4' \
@@ -330,9 +330,9 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     sudo crm configure group g-NW3_ERS fs_NW3_ERS nc_NW3_ERS vip_NW3_ERS
    ```
 
-   리소스를 만들 때 다른 클러스터 노드에 할당 될 수 있습니다. 그룹화 하는 경우 클러스터 노드 중 하나로 마이그레이션됩니다. 클러스터 상태가 양호 이며 모든 리소스가 시작 되었는지 확인 합니다.  
+   리소스를 만들 때 리소스를 다른 클러스터 노드에 할당할 수 있습니다. 이러한 리소스를 그룹화하면 클러스터 노드 중 하나로 마이그레이션됩니다. 클러스터 상태가 정상이고 모든 리소스가 시작되었는지 확인합니다.  
 
-   그런 다음, 새로 만든 ERS 그룹의 리소스가 동일한 SAP 시스템의 ASCS 인스턴스가 설치 된 클러스터 노드와 반대 되는 클러스터 노드에서 실행 되 고 있는지 확인 합니다.  예를 들어 N W 2 ASCS가에 설치 된 경우 `slesmsscl1` N W 2 ERS 그룹이에서 실행 중인지 확인 `slesmsscl2` 합니다.  다음 명령을 실행 하 여 N W 2 ERS 그룹을로 마이그레이션할 수 있습니다 `slesmsscl2` . 
+   다음으로, 새로 만든 ERS 그룹의 리소스가 동일한 SAP 시스템의 ASCS 인스턴스가 설치된 클러스터 노드의 반대쪽에 있는 클러스터 노드에서 실행되고 있는지 확인합니다.  예를 들어 NW2 ASCS가 `slesmsscl1`에 설치된 경우 NW2 ERS 그룹이 `slesmsscl2`에서 실행되고 있는지 확인합니다.  다음 명령을 실행하여 NW2 ERS 그룹을 `slesmsscl2`로 마이그레이션할 수 있습니다. 
 
     ```
       crm resource migrate g-NW2_ERS slesmsscl2 force
@@ -340,9 +340,9 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 4. **[2]** SAP NetWeaver ERS 설치
 
-   해당 ERS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용 하 여 다른 노드에 SAP NetWeaver ERS를 루트로 설치 합니다. 예를 들어 system **n w 2** 의 경우 가상 호스트 이름은 <b>msnw2ers</b>, <b>10.3.1.17</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>12</b>)가 됩니다. 시스템 **NW3** 경우 가상 호스트 이름 <b>msnw3ers</b>, <b>10.3.1.19</b> 및 부하 분산 장치 프로브에 사용한 인스턴스 번호 (예: <b>22</b>). 
+   ERS에 대한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름을 사용하여 루트 권한으로 SAP NetWeaver ERS를 다른 노드에 설치합니다. 예를 들어 **NW2** 시스템의 경우 가상 호스트 이름은 <b>msnw2ers</b>, <b>10.3.1.17</b> 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호(예: <b>12</b>)입니다. **NW3** 시스템의 경우 가상 호스트 이름은 <b>msnw3ers</b>, <b>10.3.1.19</b> 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호(예: <b>22</b>)입니다. 
 
-   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. 매개 변수 SAPINST_USE_HOSTNAME를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.  
+   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAPINST_USE_HOSTNAME 매개 변수를 통해 가상 호스트 이름을 사용하여 SAP를 설치할 수 있습니다.  
 
     ```
      sudo swpm/sapinst SAPINST_REMOTE_ACCESS_USER=sapadmin SAPINST_USE_HOSTNAME=virtual_hostname
@@ -351,16 +351,16 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
    > [!NOTE]
    > SWPM SP 20 PL 05 이상을 사용합니다. 그 이전 버전은 권한을 올바르게 설정하지 않으므로 설치가 실패합니다.
 
-   /Usr/sap/**n w 2**/ers **인스턴스 #** 에서 하위 폴더를 만들지 못한 경우에는 소유자를 **sid** adm으로 설정 하 고 그룹을 ERS **인스턴스 #** 폴더의 sapsys로 설정 하 고 다시 시도 하세요.
+   설치에서 하위 폴더를 /usr/sap/**NW2**/ERS **Instance#** 에 만들지 못하는 경우 소유자를 **sid** adm으로 설정하고, 그룹을 ERS **Instance#** 폴더의 sapsys로 설정하고, 다시 시도합니다.
 
-   새로 배포 된 SAP 시스템의 ERS 그룹을 다른 클러스터 노드로 마이그레이션하려는 경우에는 해당 그룹에 대 한 위치 제약 조건을 제거 해야 합니다. 다음 명령을 실행 하 여 제약 조건을 제거할 수 있습니다. 예는 SAP systems **n w 2** and **NW3** 에 대해 제공 됩니다.  
+   새로 배포된 SAP 시스템의 ERS 그룹을 다른 클러스터 노드로 마이그레이션해야 하는 경우 ERS 그룹에 대한 위치 제약 조건을 제거해야 합니다. 다음 명령을 실행하여 제약 조건을 제거할 수 있습니다(예제는 **NW2** and **NW3** SAP 시스템에 대해 제공됨).  
 
     ```
       crm resource unmigrate g-NW2_ERS
       crm resource unmigrate g-NW3_ERS
     ```
 
-5. **[1]** 새로 설치 된 SAP 시스템에 대 한 ASCS/SCS 및 ERS 인스턴스 프로필을 조정 합니다. 아래에 표시 된 예제는 N W 2에 대 한 것입니다. 클러스터에 추가 된 모든 SAP 인스턴스에 대 한 ASCS/SCS 및 ERS 프로필을 조정 해야 합니다.  
+5. **[1]** ASCS/SCS 및 ERS 인스턴스 프로필을 새로 설치된 SAP 시스템에 맞게 조정합니다. 아래에 표시된 예제는 NW2에 대한 것입니다. ASCS/SCS 및 ERS 프로필을 클러스터에 추가된 모든 SAP 인스턴스에 맞게 조정해야 합니다.  
  
  * ASCS/SCS 프로필
 
@@ -379,7 +379,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
    enque/encni/set_so_keepalive = true
    ```
 
-   ENSA1 및 ENSA2 둘 다에 대해 `keepalive` SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에 설명 된 대로 OS 매개 변수를 설정 해야 합니다.  
+   ENSA1 및 ENSA2 모두에 대해 `keepalive` OS 매개 변수가 SAP note [1410736](https://launchpad.support.sap.com/#/notes/1410736)에서 설명한 대로 설정되어 있는지 확인합니다.  
 
  * ERS 프로필
 
@@ -398,7 +398,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
    # Autostart = 1
    ```
 
-6. **[A]** 새로 배포 된 sap 시스템 (이 예제에서는 **n w 2** 및 **NW3**)에 대 한 sap 사용자를 구성 합니다. 
+6. **[A]** 새로 배포된 SAP 시스템(이 예제에서는 **NW2** and **NW3**)에 대한 SAP 사용자를 구성합니다. 
 
    ```
    # Add sidadm to the haclient group
@@ -406,9 +406,9 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
    sudo usermod -aG haclient nw3adm
    ```
 
-7. 새로 설치 된 SAP 시스템용 ASCS 및 ERS SAP 서비스를 파일에 추가 합니다 `sapservice` . 아래에 표시 된 예제는 SAP systems **n w 2** 및 **NW3** 에 대 한 것입니다.  
+7. 새로 설치된 SAP 시스템에 대한 ASCS 및 ERS SAP 서비스를 `sapservice` 파일에 추가합니다. 아래에 표시된 예제는 **NW2** 및 **NW3** SAP 시스템에 대한 것입니다.  
 
-   ASCS 서비스 항목을 두 번째 노드에 추가하고 ERS 서비스 항목을 첫 번째 노드에 복사합니다. SAP 시스템의 ASCS 인스턴스가 설치 된 노드에서 각 SAP 시스템에 대 한 명령을 실행 합니다.  
+   ASCS 서비스 항목을 두 번째 노드에 추가하고 ERS 서비스 항목을 첫 번째 노드에 복사합니다. SAP 시스템에 대한 ASCS 인스턴스가 설치된 노드의 각 SAP 시스템에 대한 명령을 실행합니다.  
 
     ```
      # Execute the following commands on slesmsscl1,assuming the NW2 ASCS instance was installed on slesmsscl1
@@ -419,9 +419,9 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
      sudo ssh slesmsscl1 "cat /usr/sap/sapservices" | grep ERS22 | sudo tee -a /usr/sap/sapservices
     ```
 
-8. **[1]** 새로 설치 된 sap 시스템에 대 한 sap 클러스터 리소스를 만듭니다. 
+8. **[1]** 새로 설치된 SAP 시스템에 대한 SAP 클러스터 리소스를 만듭니다. 
 
-   ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 같이 SAP systems **n w 2** 및 **NW3** 에 대 한 리소스를 정의 합니다.
+   큐에 넣기 서버 1 아키텍처(ENSA1)를 사용하는 경우 **NW2** 및 **NW3** SAP 시스템에 대한 리소스를 다음과 같이 정의합니다.
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -469,7 +469,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     ```
 
    SAP는 SAP NW 7.52부터 복제를 비롯하여 큐에 넣기 서버 2에 대한 지원을 도입했습니다. ABAP Platform 1809부터 큐에 넣기 서버 2가 기본적으로 설치됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416)을 참조하세요.
-   [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 다음과 같이 SAP systems **n w 2** 및 **NW3** 에 대 한 리소스를 정의 합니다.
+   큐에 넣기 서버 2 아키텍처([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html))를 사용하는 경우 **NW2** 및 **NW3** SAP 시스템에 대한 리소스를 다음과 같이 정의합니다.
 
     ```
      sudo crm configure property maintenance-mode="true"
@@ -515,7 +515,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
    이전 버전에서 업그레이드하고 큐에 넣기 서버 2로 전환하는 경우 SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019)를 참조하세요. 
 
    클러스터 상태가 정상이며 모든 리소스가 시작되었는지 확인합니다. 리소스가 실행되는 노드는 중요하지 않습니다.
-   다음 예에서는 SAP systems **n w 2** 및 **NW3** 가 클러스터에 추가 된 후의 클러스터 리소스 상태를 보여 줍니다. 
+   다음 예제에서는 **NW2** 및 **NW3** SAP 시스템이 클러스터에 추가된 후의 클러스터 리소스 상태를 보여 줍니다. 
 
     ```
      sudo crm_mon -r
@@ -557,30 +557,30 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     #     rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl2
     ```
 
-   다음 그림에서는 Hawk (HA 웹 Konsole)에서 리소스를 표시 하는 방법을 보여 줍니다. 여기에는 SAP system **n w 2** 의 리소스가 확장 되어 있습니다.  
+   다음 그림에서는 **NW2** SAP 시스템의 리소스를 확장한 상태에서 HA 웹 콘솔(Hawk)의 리소스 모양을 보여 줍니다.  
 
    [![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk.png)](./media/high-availability-guide-suse/ha-suse-multi-sid-hawk-detail.png#lightbox)
 
-### <a name="proceed-with-the-sap-installation"></a>SAP 설치를 진행 합니다. 
+### <a name="proceed-with-the-sap-installation"></a>SAP 설치 진행 
 
-다음을 수행 하 여 SAP 설치를 완료 합니다.
+다음을 수행하여 SAP 설치를 완료합니다.
 
-* [SAP NetWeaver 응용 프로그램 서버 준비](./high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)
+* [SAP NetWeaver 애플리케이션 서버 준비](./high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7)
 * [DBMS 인스턴스 설치](./high-availability-guide-suse.md#install-database)
-* [기본 SAP 응용 프로그램 서버 설치](./high-availability-guide-suse.md#sap-netweaver-application-server-installation)
-* 하나 이상의 추가 SAP 응용 프로그램 인스턴스 설치
+* [기본 SAP 애플리케이션 서버 설치](./high-availability-guide-suse.md#sap-netweaver-application-server-installation)
+* 하나 이상의 추가 SAP 애플리케이션 인스턴스 설치
 
 ## <a name="test-the-multi-sid-cluster-setup"></a>다중 SID 클러스터 설정 테스트
 
-다음 테스트는 SUSE의 모범 사례 가이드에서 테스트 사례의 하위 집합입니다. 사용자 편의를 위해 포함 되었습니다. 클러스터 테스트의 전체 목록은 다음 설명서를 참조 하세요.
+다음 테스트는 SUSE의 모범 사례 가이드에 있는 테스트 사례의 하위 세트입니다. 이는 편의를 위해 포함되었습니다. 클러스터 테스트의 전체 목록은 다음 설명서를 참조하세요.
 
-* 항상 사용 가능한 NFS 서버를 사용 하는 경우 [sap 응용 프로그램 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse.md)을 따릅니다.  
-* NFS 볼륨 Azure NetApp Files 사용 하는 경우 [sap 응용 프로그램에 대 한 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server에서 Azure vm의 Sap NetWeaver에 대 한 고가용성](./high-availability-guide-suse-netapp-files.md) 을 따릅니다.
+* 고가용성 NFS 서버를 사용하는 경우 [SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse.md)을 따릅니다.  
+* Azure NetApp Files NFS 볼륨을 사용하는 경우 [SAP 애플리케이션용 Azure NetApp Files를 사용하는 SUSE Linux Enterprise Server의 Azure VM 기반 SAP NetWeaver에 대한 고가용성](./high-availability-guide-suse-netapp-files.md)을 따릅니다.
 
-항상 SUSE 모범 사례 가이드를 읽고 추가 될 수 있는 모든 추가 테스트를 수행 합니다.  
-표시 되는 테스트는 3 개의 SAP 시스템이 설치 된 다중 SID 클러스터의 두 노드에 있습니다.  
+항상 SUSE 모범 사례 가이드를 참조하고, 추가되었을 수 있는 모든 추가 테스트를 수행합니다.  
+제공되는 테스트는 세 개의 SAP 시스템이 설치된 2노드 다중 SID 클러스터에 있습니다.  
 
-1. HAGetFailoverConfig 및 HACheckFailoverConfig 테스트
+1. HAGetFailoverConfig 및 HACheckFailoverConfig를 테스트합니다.
 
    ASCS 인스턴스를 현재 실행 중인 노드에서 <sapsid>adm으로 다음 명령을 실행합니다. 이러한 명령이 실패: 메모리 부족을 나타내며 실패할 경우 호스트 이름의 대시 때문일 수 있습니다. 이것은 알려진 문제로, SUSE에서는 sap-suse-cluster-connector 패키지에서 이 문제를 수정할 예정입니다.
 
@@ -646,8 +646,8 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
     # SUCCESS, SAP CONFIGURATION, SAPInstance RA sufficient version, SAPInstance includes is-ers patch
    ```
 
-2. ASCS 인스턴스를 수동으로 마이그레이션합니다. 이 예에서는 SAP 시스템 N W 2 ASCS 인스턴스를 마이그레이션하는 방법을 보여 줍니다.  
-   리소스 상태, 테스트를 시작 하기 전:
+2. 수동으로 ASCS 인스턴스를 마이그레이션합니다. 다음 예제에서는 SAP 시스템 NW2에 대한 ASCS 인스턴스를 마이그레이션하는 방법을 보여 줍니다.  
+   테스트 시작 전 리소스 상태:
    ```
     Full list of resources:
     stonith-sbd     (stonith:external/sbd): Started slesmsscl1
@@ -683,7 +683,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   N W 2 ASCS 인스턴스를 마이그레이션하려면 루트로 다음 명령을 실행 합니다.
+   다음 명령을 루트 권한으로 실행하여 NW2 ASCS 인스턴스를 마이그레이션합니다.
 
    ```
     crm resource migrate rsc_sap_NW2_ASCS10 force
@@ -733,7 +733,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-1. 테스트 HAFailoverToNode. 여기에 제공 된 테스트는 SAP 시스템 N W 2 ASCS 인스턴스 마이그레이션을 보여 줍니다.  
+1. HAFailoverToNode를 테스트합니다. 여기에 제공된 테스트는 SAP 시스템 NW2에 대한 ASCS 인스턴스 마이그레이션을 보여 줍니다.  
 
    테스트 시작 전 리소스 상태:
 
@@ -772,7 +772,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   **N w 2** adm으로 다음 명령을 실행 하 여 N W 2 ascs 인스턴스를 마이그레이션합니다.
+   다음 명령을 **nw2** adm 권한으로 실행하여 NW2 ASCS 인스턴스를 마이그레이션합니다.
 
    ```
     slesmsscl2:nw2adm 53> sapcontrol -nr 10 -host msnw2ascs -user nw2adm password -function HAFailoverToNode ""
@@ -861,7 +861,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
          rsc_sap_NW3_ERS22  (ocf::heartbeat:SAPInstance):   Started slesmsscl1
    ```
 
-   하나 이상의 ASCS 인스턴스가 실행 되 고 있는 노드의 루트로 다음 명령을 실행 합니다. 이 예제에서는 `slesmsscl2` n w 1 및 NW3에 대 한 ASCS 인스턴스가 실행 되는에서 명령을 실행 했습니다.  
+   하나 이상의 ASCS 인스턴스가 실행되는 노드에서 루트 권한으로 다음 명령을 실행합니다. 다음 예제에서는 NW1 및 NW3에 대한 ASCS 인스턴스가 실행되는 `slesmsscl2`에서 명령을 실행했습니다.  
 
    ```
     slesmsscl2:~ # echo b > /proc/sysrq-trigger

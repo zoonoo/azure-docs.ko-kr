@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 04/06/2021
 ms.author: jeedes
-ms.openlocfilehash: af001ddd8dc468d06706e63eaf092d1179fe3fdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db6df5f89a380f6a570b4aa2bbb0e317c38b57ac
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181376"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767823"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -74,7 +74,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **Workday** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -97,9 +97,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 여기에서는 기본적으로 UPN(user.userprincipalname)을 사용하여 이름 ID를 매핑했습니다. SSO를 성공적으로 수행하려면 Workday 계정(이메일, UPN 등)에서 이름 ID를 실제 사용자 ID와 매핑해야 합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
-   ![인증서 다운로드 링크](common/certificatebase64.png)
+   ![인증서 다운로드 링크](common/metadataxml.png)
 
 1. 요구 사항에 따라 **서명** 옵션을 수정하려면 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
@@ -115,7 +115,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="create-an-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
@@ -127,7 +127,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 Workday에 대한 액세스 권한을 부여합니다.
 
@@ -136,62 +136,51 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-workday"></a>Workday 구성
+## <a name=&quot;configure-workday&quot;></a>Workday 구성
 
 1. 다른 웹 브라우저 창에서 Workday 회사 사이트에 관리자 권한으로 로그인합니다.
 
-1. **검색 상자** 에서 홈페이지 왼쪽 상단의 이름 **테넌트 설정 편집 - 보안** 으로 검색합니다.
+1. **검색 상자** 에서 홈페이지 왼쪽 상단에 있는 이름 **테넌트 설정 편집 - 보안** 으로 검색합니다.
 
-    ![테넌트 보안 편집](./media/workday-tutorial/IC782925.png "테넌트 보안 편집")
-
-
-1. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
-
-    ![SAML 설정](./media/workday-tutorial/IC782926.png "SAML 설정")
-
-    a.  **SAML 인증 사용** 을 선택합니다.
-
-    b.  **행 추가** 를 클릭합니다.
-
-1. **SAML ID 제공자** 섹션에서 새로 생성된 행에 대해 다음 작업을 수행합니다.
-
-    a. 아래 표시된 필드에 대해 다음 작업을 수행합니다.
-
-    ![SAML ID 공급자 1](./media/workday-tutorial/IC7829271.png "SAML ID 공급자")
-
-    * **ID 공급 기업 이름** 텍스트 상자에 공급 기업 이름(예: *SPInitiatedSSO*)을 입력합니다.
-
-    * Azure Portal의 **Workday 설정** 섹션에서 **Azure AD 식별자** 값을 복사한 다음, **발급자** 텍스트 상자에 붙여넣습니다.
-
-    * Azure Portal에서 다운로드한 **인증서** 를 메모장으로 열고, 콘텐츠를 **x.509 인증서** 텍스트 상자에 붙여넣습니다.
-
-    b. 아래 표시된 필드에 대해 다음 작업을 수행합니다.
-
-    ![SAML ID 공급자 2](./media/workday-tutorial/saml-identity-provider-2.png "SAML ID 공급자")
-
-    * **IDP 시작 로그아웃 사용** 확인란을 클릭합니다.
-
-    * **로그아웃 응답 URL** 텍스트 상자에 **http://www.workday.com** 를 입력합니다.
-
-    * Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 요청 URL** 텍스트 상자에 붙여넣습니다.
-
-    * **SP 시작** 확인란을 클릭합니다.
-
-    * **서비스 공급자 ID** 텍스트 상자에 **http://www.workday.com** 을 입력합니다.
+    ![테넌트 보안 편집](./media/workday-tutorial/search-box.png &quot;테넌트 보안 편집")
 
 
-    * **SP에서 시작한 인증 요청을 수축하지 않음** 을 선택합니다.
+1. **SAML 설정** 섹션에서 **ID 공급자 가져오기** 를 클릭합니다.
 
-    다. 아래 표시된 필드에 대해 다음 작업을 수행합니다.
+    ![SAML 설정](./media/workday-tutorial/saml-setup.png "SAML 설정")
 
-    ![SAML ID 공급자 3](./media/workday-tutorial/saml-identity-provider-3.png "SAML ID 공급자")
+1. **ID 공급자 가져오기** 섹션에서 다음 단계를 수행합니다.
 
-    * Azure Portal의 **Workday 설정** 섹션에서 **로그인 URL** 값을 복사한 다음, **IdP SSO 서비스 URL** 텍스트 상자에 붙여넣습니다.
+    ![ID 공급자 가져오기](./media/workday-tutorial/import-identity-provider.png)
 
-    * **환경에 사용됨** 텍스트 상자의 드롭다운에서 적절한 환경 이름을 선택합니다.
+    a. 텍스트 상자에 `AzureAD`와 같은 **ID 공급자 이름** 을 지정합니다.
+
+    b. **환경에 사용됨** 텍스트 상자의 드롭다운에서 적절한 환경 이름을 선택합니다.
+
+    다. **파일 선택** 을 클릭하여 다운로드한 **페더레이션 메타데이터 XML** 파일을 업로드합니다.
+
+    d. **확인** 을 클릭한 다음, **완료** 를 클릭합니다.
+
+1. **완료** 를 클릭하면 새 행이 **SAML ID 공급자** 에 추가된 다음, 새로 만든 행에 대해 아래 단계를 추가할 수 있습니다.
+
+    ![SAML ID 공급자.](./media/workday-tutorial/saml-identity-providers.png "SAML ID 공급자")
+
+    a. **IDP 시작 로그아웃 사용** 확인란을 클릭합니다.
+
+    b. **로그아웃 응답 URL** 텍스트 상자에 **http://www.workday.com** 를 입력합니다.
+
+    다. **Workday 시작 로그아웃 사용** 확인란을 클릭합니다.
+
+    d. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 요청 URL** 텍스트 상자에 붙여넣습니다.
+
+    e. **SP 시작** 확인란을 클릭합니다.
+
+    f. **서비스 공급자 ID** 텍스트 상자에 **http://www.workday.com** 을 입력합니다.
+
+    **SP 시작 인증 요청을 Deflate하지 않음** 을 선택합니다.
 
 1. 아래 이미지에서 다음 단계를 수행합니다.
 
@@ -233,11 +222,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-1. Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Workday 로그온 URL로 리디렉션됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Workday 로그온 URL로 리디렉션됩니다. 
 
-2. Workday 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
+* Workday 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-3. Microsoft 액세스 패널을 사용할 수 있습니다. 액세스 패널에서 Workday 타일을 클릭하면 SSO를 설정한 Workday에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 Workday 타일을 클릭하면 SSO를 설정한 Workday에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,32 +3,30 @@ title: Azure Private Link 서비스와 Azure Service Bus 통합
 description: Azure Private Link Service와 Azure Service Bus를 통합하는 방법을 알아봅니다.
 author: spelluru
 ms.author: spelluru
-ms.date: 10/07/2020
+ms.date: 03/29/2021
 ms.topic: article
-ms.openlocfilehash: 66de9a4ff65c73264257cb6f7f215fc15820c95f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 833d7e9fb4d517b71aab5039ae9081407eed84cd
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94427150"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960540"
 ---
-# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>전용 끝점을 통해 Azure Service Bus 네임 스페이스에 대 한 액세스 허용
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>프라이빗 엔드포인트를 통한 Azure Service Bus 네임스페이스 액세스 허용
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure 서비스(예: Azure Service Bus, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
-
-> [!IMPORTANT]
-> 이 기능은 Azure Service Bus의 **프리미엄** 계층에서 지원됩니다. 프리미엄 계층에 대한 자세한 내용은 [Service Bus 프리미엄 및 표준 메시징 계층](service-bus-premium-messaging.md) 문서를 참조하세요.
 
 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 VNet의 개인 IP 주소를 사용하여 서비스를 VNet으로 효과적으로 가져옵니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
->[!WARNING]
-> 프라이빗 엔드포인트를 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하는 것을 방지할 수 있습니다. 단, 개인 끝점을 사용 하는 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Service Bus에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
->
-> 다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
-> - Azure App Service
-> - Azure 기능
+## <a name="important-points"></a>중요 사항
+- 이 기능은 Azure Service Bus의 **프리미엄** 계층에서 지원됩니다. 프리미엄 계층에 대한 자세한 내용은 [Service Bus 프리미엄 및 표준 메시징 계층](service-bus-premium-messaging.md) 문서를 참조하세요.
+- 프라이빗 엔드포인트를 구현하면 다른 Azure 서비스가 Service Bus와 상호 작용하는 것을 방지할 수 있습니다. 예외적으로 프라이빗 엔드포인트가 활성화된 경우에도 특정 **신뢰할 수 있는 서비스** 에서 Service Bus 리소스에 대한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조하세요.
 
+    다음 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
+    - Azure App Service
+    - Azure 기능
+- 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 **하나 이상의 IP 규칙 또는 가상 네트워크 규칙** 을 지정합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용하여 공용 인터넷을 통해 네임스페이스에 액세스할 수 있습니다. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 추가
@@ -51,19 +49,20 @@ Service Bus 네임스페이스를 Azure Private Link와 통합하려면 다음 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. 검색 표시줄에 **Service Bus** 를 입력합니다.
 3. 목록에서 프라이빗 엔드포인트를 추가하려는 **네임스페이스** 를 선택합니다.
-2. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 옵션을 선택 합니다. 
-
+2. 왼쪽 메뉴의 **설정** 아래에서 **네트워킹** 옵션을 선택합니다.     기본적으로 **선택된 네트워크** 옵션이 선택됩니다.
+ 
     > [!NOTE]
-    > **프리미엄** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다.  
-    
-    기본적으로 **선택한 네트워크** 옵션이 선택 되어 있습니다. 이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가 하지 않으면 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다 (액세스 키 사용).
+    > **프리미엄** 네임스페이스에 대해서만 **네트워킹** 탭이 표시됩니다.  
+   
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지 - 기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
 
-    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="네트워킹 페이지-기본값" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
-    
-    **모든 네트워크** 옵션을 선택 하면 Service Bus 네임 스페이스가 액세스 키를 사용 하 여 모든 IP 주소의 연결을 허용 합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
+    > [!WARNING]
+    > 이 페이지에 하나 이상의 IP 방화벽 규칙 또는 가상 네트워크를 추가하지 않으면 액세스 키를 사용하여 공용 인터넷을 통해 네임스페이스에 액세스할 수 있습니다.
+   
+    **모든 네트워크** 옵션을 선택하면 Service Bus 네임스페이스가 액세스 키를 사용하여 모든 IP 주소의 연결을 허용합니다. 이러한 기본 설정은 0.0.0.0/0 IP 주소 범위를 수락하는 규칙과 같습니다. 
 
     ![방화벽 - 모든 네트워크 옵션 선택됨](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
-5. 개인 끝점을 통해 네임 스페이스에 대 한 액세스를 허용 하려면 페이지 맨 위에 있는 **개인 끝점 연결** 탭을 선택 합니다.
+5. 프라이빗 엔드포인트를 통해 네임스페이스에 대한 액세스를 허용하려면 페이지 맨 위에 있는 **프라이빗 엔드포인트 연결** 탭을 선택합니다.
 6. 페이지 위쪽에서 **+ 프라이빗 엔드포인트** 단추를 선택합니다.
 
     ![프라이빗 엔드포인트 추가 단추](./media/private-link-service/private-link-service-3.png)
@@ -229,7 +228,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName  `
 
 ## <a name="validate-that-the-private-link-connection-works"></a>프라이빗 링크 연결이 작동하는지 확인
 
-개인 끝점의 가상 네트워크 내에 있는 리소스가 개인 IP 주소를 통해 Service Bus 네임 스페이스에 연결 되어 있고 올바른 개인 DNS 영역 통합이 있는지 확인 해야 합니다.
+프라이빗 엔드포인트의 가상 네트워크 내에 있는 리소스가 개인 IP 주소를 통해 Service Bus 네임스페이스에 연결되고 프라이빗 DNS 영역 통합이 올바르게 통합되었는지 확인해야 합니다.
 
 먼저 [Azure Portal에서 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)의 단계에 따라 가상 머신을 만듭니다.
 

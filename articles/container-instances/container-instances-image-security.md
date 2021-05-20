@@ -4,12 +4,12 @@ description: Azure Container Instances의 보안 이미지 및 비밀에 대한 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: cbceeea24501bc9815cb07e1b0a054914ba8e964
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40284c6e42cf1060906c6248495d08e133bda5bb
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579268"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812663"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 컨테이너 인스턴스에 대한 보안 고려 사항
 
@@ -40,7 +40,7 @@ ms.locfileid: "100579268"
 
 ### <a name="protect-credentials"></a>자격 증명 보호
 
-컨테이너는 여러 클러스터 및 Azure 지역에 걸쳐 분산될 수 있습니다. 따라서 암호나 토큰 등의 로그인 또는 API 액세스에 필요한 자격 증명을 보호해야 합니다. 권한 있는 사용자만 전송 중 및 휴지 상태의 컨테이너에 액세스할 수 있도록 합니다. 모든 자격 증명 비밀의 인벤토리를 수집한 다음, 개발자가 컨테이너 플랫폼용으로 설계된 새로운 비밀 관리 도구를 사용해야 합니다.  솔루션에 암호화된 데이터베이스, 전송 중인 비밀 데이터에 대한 TLS 암호화 및 최소 권한 [Azure RBAC(Azure Role-based Access Control)](../role-based-access-control/overview.md)가 포함되어 있는지 확인합니다. [Azure Key Vault](../key-vault/general/secure-your-key-vault.md)는 컨테이너화된 애플리케이션에 대한 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 애플리케이션과 사용자만 액세스할 수 있도록 하여 키 자격 증명 모음에 대한 액세스를 보호합니다.
+컨테이너는 여러 클러스터 및 Azure 지역에 걸쳐 분산될 수 있습니다. 따라서 암호나 토큰 등의 로그인 또는 API 액세스에 필요한 자격 증명을 보호해야 합니다. 권한 있는 사용자만 전송 중 및 휴지 상태의 컨테이너에 액세스할 수 있도록 합니다. 모든 자격 증명 비밀의 인벤토리를 수집한 다음, 개발자가 컨테이너 플랫폼용으로 설계된 새로운 비밀 관리 도구를 사용해야 합니다.  솔루션에 암호화된 데이터베이스, 전송 중인 비밀 데이터에 대한 TLS 암호화 및 최소 권한 [Azure RBAC(Azure Role-based Access Control)](../role-based-access-control/overview.md)가 포함되어 있는지 확인합니다. [Azure Key Vault](../key-vault/general/security-features.md)는 컨테이너화된 애플리케이션에 대한 암호화 키와 비밀(예: 인증서, 연결 문자열 및 암호)을 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 애플리케이션과 사용자만 액세스할 수 있도록 하여 키 자격 증명 모음에 대한 액세스를 보호합니다.
 
 ## <a name="considerations-for-the-container-ecosystem"></a>컨테이너 에코시스템에 대한 고려 사항
 

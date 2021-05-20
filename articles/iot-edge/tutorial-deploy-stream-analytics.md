@@ -3,16 +3,16 @@ title: 자습서 - Azure IoT Edge를 사용하는 에지에 있는 Stream Analyt
 description: 이 자습서에서는 IoT Edge 디바이스에 Azure Stream Analytics를 모듈로 배포합니다.
 author: kgremban
 ms.author: kgremban
-ms.date: 07/29/2020
+ms.date: 05/03/2021
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 323973b7646acee07a0c4dbc59834e0aceca75ee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cafb9cdbc5ca9851130ea4d9b2ef60c1616d213
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462051"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109790724"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 
@@ -89,7 +89,7 @@ IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들
    | Subscription | IoT Hub와 동일한 구독을 선택합니다. |
    | Resource group | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources** 를 사용합니다. |
    | 위치 | 가까운 위치를 선택합니다. |
-   | 호스팅 환경 | **Edge** 를 선택합니다. |
+   | 호스팅 환경 | **Edge** 를 선택합니다. 이 옵션은 작업이 클라우드에서 호스팅되는 대신 IoT Edge 디바이스에 배포될 것임을 나타냅니다. |
 
 1. **만들기** 를 선택합니다.
 
@@ -106,6 +106,8 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
    ![Azure Stream Analytics - 입력 추가](./media/tutorial-deploy-stream-analytics/asa-input.png)
 
 1. 드롭다운 목록에서 **Edge Hub** 를 선택합니다.
+
+   목록에 **Edge Hub** 옵션이 표시되지 않으면 클라우드 호스팅 작업으로 Stream Analytics 작업을 만들었을 수 있습니다. 새 작업을 만들고 **Edge** 를 호스팅 환경으로 선택해야 합니다.
 
 1. **새 입력** 창에 입력 별칭으로 **온도** 를 입력합니다.
 
@@ -140,15 +142,15 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 ### <a name="configure-iot-edge-settings"></a>IoT Edge 설정 구성
 
-IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 작업을 스토리지 계정의 컨테이너에 연결해야 합니다. 작업을 배포하려고 이동하면 작업 정의가 스토리지 컨테이너로 내보내집니다.
+IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 작업을 스토리지 계정에 연결해야 합니다. 작업 배포로 이동하면 작업 정의가 컨테이너 형식의 스토리지 계정으로 내보내집니다.
 
 1. **구성** 아래에서 **스토리지 계정 설정** 을 선택한 다음, **스토리지 계정 추가** 를 선택합니다.
 
    ![Azure Stream Analytics - 스토리지 계정 추가](./media/tutorial-deploy-stream-analytics/add-storage-account.png)
 
-1. 드롭다운 메뉴에서 이 자습서의 시작 부분에서 만든 **스토리지 계정** 을 선택합니다.
+1. **구독에서 Blob 스토리지/ADLS Gen 2 선택** 옵션을 선택합니다.
 
-1. **컨테이너** 필드에 대해 **새로 만들기** 를 선택하고 스토리지 컨테이너에 대한 이름을 제공합니다.
+1. 드롭다운 메뉴를 사용하여 이 자습서의 시작 부분에서 설정한 **구독** 및 **스토리지 계정** 을 선택합니다.
 
 1. **저장** 을 선택합니다.
 

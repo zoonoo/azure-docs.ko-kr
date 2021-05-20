@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: d86cc6af34036f5bd638b4fc78abdb54d71e6859
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 3c938e7fe180e6a9cf08031a2a4565486f3f77a9
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107306520"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504637"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>스트리밍 수집 처리량 제한
 
@@ -59,7 +59,7 @@ Azure Time Series Insights Gen2 환경을 계획하는 경우 Azure Time Series 
 
 *파티션* 은 허브에서 저장되는 순서가 지정된 이벤트 시퀀스입니다. 파티션 수는 허브 만들기 중에 설정되며 변경할 수 없습니다.
 
-Event Hubs 분할 모범 사례는 [필요한 파티션은 몇 개인가요?](../event-hubs/event-hubs-faq.yml#how-many-partitions-do-i-need-)를 검토하세요.
+Event Hubs 분할 모범 사례는 [필요한 파티션은 몇 개인가요?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)를 검토하세요.
 
 > [!NOTE]
 > Azure Time Series Insights Gen2에서 사용되는 대부분의 IoT Hub에는 4개의 파티션만 필요합니다.

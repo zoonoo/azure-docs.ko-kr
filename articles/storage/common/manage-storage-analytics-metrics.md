@@ -1,6 +1,6 @@
 ---
-title: Azure 스토리지 분석 메트릭 사용 및 관리 (클래식) | Microsoft Docs
-description: Azure 스토리지 분석 메트릭을 사용 하도록 설정 하 고, 편집 하 고, 보는 방법에 대해 알아봅니다.
+title: Azure Storage Analytics 메트릭(클래식) 사용 및 관리 | Microsoft Docs
+description: Azure Storage Analytics 메트릭을 활성화, 편집 및 보는 방법에 대해 알아봅니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
@@ -10,22 +10,22 @@ ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
 ms.openlocfilehash: 784929e50d25a07ae92cf388be5ac14f6fa820a6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99221642"
 ---
-# <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Azure 스토리지 분석 메트릭 사용 및 관리 (클래식)
+# <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Azure Storage Analytics 메트릭(클래식) 사용 및 관리
 
-[Azure 스토리지 분석](storage-analytics.md) 는 blob, 큐 및 테이블에 대 한 모든 저장소 서비스에 대 한 메트릭을 제공 합니다. [Azure Portal](https://portal.azure.com) 를 사용 하 여 계정에 대해 기록 되는 메트릭을 구성 하 고 메트릭 데이터의 시각적 표현을 제공 하는 차트를 구성할 수 있습니다. 이 문서에서는 메트릭을 사용 하도록 설정 하 고 관리 하는 방법을 보여 줍니다. 로그를 사용 하도록 설정 하는 방법을 알아보려면 [Azure 스토리지 분석 로그 설정 및 관리 (클래식)](manage-storage-analytics-logs.md)를 참조 하세요.
+[Azure Storage Analytics](storage-analytics.md)는 Blob, 큐 및 테이블에 대한 모든 스토리지에 대한 메트릭을 제공합니다. [Azure Portal](https://portal.azure.com)을 사용하여 계정에 기록되는 메트릭을 구성하고, 메트릭 데이터를 시각적으로 표현하는 차트를 구성할 수 있습니다. 이 문서에서는 메트릭을 활성화하고 관리하는 방법을 보여줍니다. 로그를 사용하도록 설정하는 방법을 알아보려면 [Azure Storage Analytics 로그(클래식) 사용 및 관리](manage-storage-analytics-logs.md)를 참조하세요.
 
 [스토리지용 Azure Monitor](../../azure-monitor/insights/storage-insights-overview.md)(미리 보기)를 검토하는 것이 좋습니다. 이는 Azure Monitor의 기능으로 Azure Storage 서비스 성능, 용량 및 가용성에 대한 통합 보기를 제공하여 Azure Storage 계정의 포괄적인 모니터링을 제공합니다. 사용 설정이나 구성이 전혀 필요하지 않으며, 미리 정의된 대화형 차트 및 포함된 기타 시각화에서 이러한 메트릭을 즉시 볼 수 있습니다.
 
 > [!NOTE]
 > Azure Portal에서 모니터링 데이터를 검사하는 데 관련된 비용이 있습니다. 자세한 정보는 [스토리지 분석](storage-analytics.md)을 참조하세요.
 >
-> 프리미엄 성능 블록 blob 저장소 계정은 스토리지 분석 메트릭을 지원 하지 않습니다. 프리미엄 성능 블록 blob storage 계정을 사용 하 여 메트릭을 보려면 [Azure Monitor에서 Azure Storage 메트릭을](../blobs/monitor-blob-storage.md)사용 하는 것이 좋습니다.
+> 프리미엄 성능 블록 Blob Storage 계정은 Storage Analytics 메트릭을 지원하지 않습니다. 프리미엄 성능 블록 Blob 스토리지 계정을 사용하여 메트릭을 보려면 [Azure Monitor에서 Azure Storage 메트릭](../blobs/monitor-blob-storage.md)을 사용하는 것이 좋습니다.
 >
 > 스토리지 분석 및 기타 도구를 사용하여 Azure Storage 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 >
@@ -38,9 +38,9 @@ ms.locfileid: "99221642"
 
 1. [Azure Portal](https://portal.azure.com)에서 **Storage 계정**, Storage 계정 이름을 차례로 선택하여 계정 대시보드를 엽니다.
 
-2. 메뉴 블레이드의 **모니터링 (클래식)** 섹션에서 **진단 설정 (클래식)** 을 선택 합니다.
+2. 메뉴 블레이드의 **모니터링(클래식)** 섹션에서 **진단 설정(클래식)** 을 선택합니다.
    
-   ![모니터링 (클래식) 섹션에서 진단 설정 (클래식) 옵션을 강조 표시 하는 스크린샷](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
+   ![모니터링(클래식) 섹션 아래의 진단 설정(클래식) 옵션을 강조 표시하는 스크린샷.](./media/manage-storage-analytics-metrics/storage-enable-metrics-00.png)
 
 3. 모니터링하려는 각 **서비스** 에 대한 메트릭 데이터 **유형** 과 데이터에 대한 **보존 정책** 을 선택합니다. 또한 **상태** 를 **해제**(Off)로 설정하여 모니터링을 사용하지 않도록 설정할 수 있습니다.
 
@@ -50,12 +50,12 @@ ms.locfileid: "99221642"
    데이터 보존 정책을 설정하려면 1-365일 중에서 **보존(일)** 슬라이더를 이동하거나 데이터 보존 기간(일)을 입력합니다. 새 스토리지 계정의 기본값은 7일입니다. 보존 정책을 설정하지 않으려면 0을 입력합니다. 보존 정책이 없는 경우 언제든 모니터링 데이터를 삭제할 수 있습니다.
 
    > [!WARNING]
-   > 메트릭은 계정에 데이터로 저장 됩니다. 메트릭 데이터는 시간 경과에 따라 계정에 누적 되어 저장소 비용을 늘릴 수 있습니다. 적은 기간 동안만 메트릭 데이터가 필요한 경우 데이터 보존 정책을 수정 하 여 비용을 줄일 수 있습니다. 부실 메트릭 데이터 (보존 정책 보다 오래 된 데이터)는 시스템에 의해 삭제 됩니다. 계정에 대 한 메트릭 데이터를 보존 하려는 기간에 따라 보존 정책을 설정 하는 것이 좋습니다. 자세한 내용은 [스토리지 메트릭에 대한 청구](storage-analytics-metrics.md#billing-on-storage-metrics)를 참조하세요.
+   > 메트릭은 계정에 데이터로 저장됩니다. 메트릭 데이터는 시간이 지남에 따라 계정에 누적되어 스토리지 비용을 가중시킬 수 있습니다. 단기간에만 메트릭 데이터가 필요한 경우, 데이터 보존 정책을 수정하여 비용을 줄일 수 있습니다. 오래된 메트릭 데이터(보존 정책의 기간을 초과한 데이터)는 시스템에서 삭제됩니다. 계정에 대한 메트릭 데이터를 얼마나 오래 보존하고자 하는지에 따라 보존 정책을 설정하는 것이 좋습니다. 자세한 내용은 [스토리지 메트릭에 대한 청구](storage-analytics-metrics.md#billing-on-storage-metrics)를 참조하세요.
    >
 
 4. 모니터링 구성을 완료하면 **저장** 을 선택합니다.
 
-메트릭 **(클래식)** 블레이드 뿐만 아니라 **개요** 블레이드의 차트에는 기본 메트릭 집합이 표시 됩니다. 서비스에 대한 메트릭을 사용하도록 설정하면 차트에 데이터를 표시하는 데 최대 1시간이 걸릴 수 있습니다. 메트릭 차트에서 **편집** 을 선택하여 차트에 표시되는 메트릭을 구성할 수 있습니다.
+기본 메트릭 세트는 **메트릭(클래식) 블레이드** 뿐만 아니라 **개요** 블레이드의 차트에 표시됩니다. 서비스에 대한 메트릭을 사용하도록 설정하면 차트에 데이터를 표시하는 데 최대 1시간이 걸릴 수 있습니다. 메트릭 차트에서 **편집** 을 선택하여 차트에 표시되는 메트릭을 구성할 수 있습니다.
 
 **상태** 를 **해제** 로 설정하여 메트릭 수집 및 로깅을 사용하지 않도록 설정할 수 있습니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "99221642"
    Connect-AzAccount
    ```
 
-3. Id가 둘 이상의 구독과 연결 된 경우 활성 구독을 설정 합니다.
+3. ID가 둘 이상의 구독과 연결되어 있으면 활성 구독을 설정합니다.
 
    ```powershell
    $context = Get-AzSubscription -SubscriptionId <subscription-id>
@@ -92,15 +92,15 @@ ms.locfileid: "99221642"
 
    * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다. 
 
-6. 로컬 컴퓨터에서 PowerShell을 사용 하 여 저장소 계정에서 저장소 메트릭을 구성할 수 있습니다. Azure PowerShell cmdlet **AzStorageServiceMetricsProperty** 을 사용 하 여 현재 설정을 변경 합니다. 
+6. 로컬 머신에서 PowerShell을 사용하여 스토리지 계정에서 스토리지 메트릭을 구성할 수 있습니다. Azure PowerShell cmdlet **Set-AzStorageServiceMetricsProperty** 를 사용하여 현재 설정을 변경합니다. 
 
-   다음 명령은 보존 기간을 5 일로 설정 하 여 저장소 계정의 blob 서비스에 대 한 분 메트릭을 전환 합니다.
+   다음 명령은 보존 기간을 5일로 설정된 스토리지 계정의 Blob 서비스에 대해 분 메트릭을 설정합니다.
 
    ```powershell
    Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $ctx
    ```   
 
-   이 cmdlet은 다음 매개 변수를 사용 합니다.  
+   이 cmdlet은 다음 매개 변수를 사용합니다.  
 
    - **ServiceType**: 가능한 값은 **Blob**, **Queue**, **Table** 및 **File** 입니다.
    - **MetricsType**: 가능한 값은 **Hour** 및 **Minute** 입니다.  
@@ -152,7 +152,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 
 다음 절차를 사용하여 메트릭 차트에 표시할 스토리지 메트릭을 선택합니다.
 
-1. Azure Portal에서 스토리지 메트릭 차트를 표시하여 시작합니다. **저장소 계정 블레이드** 및 **메트릭 (클래식)** 블레이드에서 차트를 찾을 수 있습니다.
+1. Azure Portal에서 스토리지 메트릭 차트를 표시하여 시작합니다. **스토리지 계정 블레이드** 및 **메트릭(클래식)** 블레이드에서 차트를 찾을 수 있습니다.
 
    여기서는 **스토리지 계정 블레이드** 에 나타나는 다음과 같은 차트를 사용합니다.
 
@@ -183,7 +183,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 * **집계** 모니터링은 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 제공합니다. 이러한 메트릭은 Blob, 테이블, 파일 및 큐 서비스에서 집계됩니다.
 * **API당** 은 서비스 수준 집계 외에도 개별 스토리지 작업에 사용할 수 있는 메트릭과 함께 보다 세밀한 해상도를 제공합니다.
 
-## <a name="download-metrics-to-archive-or-analyze-locally"></a>로컬에서 보관 또는 분석 하기 위해 메트릭 다운로드
+## <a name="download-metrics-to-archive-or-analyze-locally"></a>로컬로 보관 또는 분석할 메트릭 다운로드
 
 장기 스토리지용 메트릭을 다운로드하거나 메트릭을 로컬에서 분석하려는 경우에는 테이블을 읽는 코드를 작성하거나 도구를 사용해야 합니다. 스토리지 계정의 모든 테이블을 나열해도 테이블은 표시되지 않지만 테이블 이름을 통해 직접 액세스할 수는 있습니다. 스토리지 찾아보기 도구는 대체로 해당 테이블을 인식하며 테이블을 직접 보는 기능을 제공합니다. 사용 가능한 도구의 목록은 [Azure Storage 클라이언트 도구](./storage-explorers.md)를 참조하세요.
 
@@ -214,7 +214,7 @@ Storage 계정을 모니터링하도록 스토리지 분석 메트릭을 구성�
 다음 목록에서는 특정 시간(분) 범위에 대한 분 메트릭에 액세스하여 결과를 콘솔 창에 표시하는 샘플 C# 코드를 보여 줍니다. 코드 샘플은 스토리지의 메트릭 테이블 액세스를 간소화하는 **CloudAnalyticsClient** 클래스가 포함된 Azure Storage 클라이언트 라이브러리 버전 4.x 이상을 사용합니다. 
 
 > [!NOTE]
-> **Cloudanalyticsclient 클래스가** 클래스는 .Net 용 Azure Blob storage 클라이언트 라이브러리 v12에 포함 되어 있지 않습니다. **2023 년 8 월 31** 일에는 스토리지 분석 메트릭을 사용 하 *는 것이 좋습니다* . 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용 하는 경우 해당 날짜 이전의 Azure Monitor로 전환 하는 것이 좋습니다. 
+> **CloudAnalyticsClient** 클래스는 .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12에 포함되어 있지 않습니다. **2023년 8월 31일** 에 *클래식 메트릭* 이라고도 하는 스토리지 분석 메트릭이 사용 중지됩니다. 자세한 내용은 [공식 공지](https://azure.microsoft.com/updates/azure-storage-classic-metrics-will-be-retired-on-31-august-2023/)를 참조하세요. 클래식 메트릭을 사용하는 경우 해당 날짜 이전에 Azure Monitor의 메트릭으로 전환하는 것이 좋습니다. 
 
 ```csharp
 private static void PrintMinuteMetrics(CloudAnalyticsClient analyticsClient, DateTimeOffset startDateTime, DateTimeOffset endDateTime)  
@@ -278,6 +278,6 @@ private static string MetricsString(MetricsEntity entity, OperationContext opCon
 
 ## <a name="next-steps"></a>다음 단계
 
-* 스토리지 분석에 대 한 자세한 내용은 스토리지 분석 [스토리지 분석](storage-analytics.md) 를 참조 하세요.
-* [스토리지 분석 로그를 구성](manage-storage-analytics-logs.md)합니다.
-* 메트릭 스키마에 대해 자세히 알아보세요. [스토리지 분석 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조 하세요.
+* Storage Analytics에 대한 자세한 내용은 스토리지 분석을 위한 [Storage Analytics](storage-analytics.md)를 참조하세요.
+* [Storage Analytics 로그를 구성](manage-storage-analytics-logs.md)합니다.
+* 메트릭 스키마에 대해 자세히 알아보세요. [Storage Analytics 메트릭 테이블 스키마](/rest/api/storageservices/storage-analytics-metrics-table-schema)를 참조하세요.

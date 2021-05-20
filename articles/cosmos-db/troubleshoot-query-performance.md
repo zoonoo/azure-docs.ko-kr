@@ -9,25 +9,25 @@ ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100559978"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB 사용 시 문제 해결
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. MongoDB에 대 한 Azure Cosmos DB API를 사용 하는 경우 [MongoDB 용 api 쿼리 문제 해결 가이드를 Azure Cosmos DB](mongodb-troubleshoot-query.md) 사용 해야 합니다.
+이 문서에서는 Azure Cosmos DB의 쿼리 문제를 해결하기 위한 일반적인 권장 방법을 안내합니다. 이 문서에 설명된 단계가 잠재적 쿼리 문제에 대한 완전한 방어로 간주할 수는 없지만 여기에는 가장 일반적인 성능 팁이 포함되어 있습니다. 이 문서를 사용하여 Azure Cosmos DB Core(SQL) API에서 속도가 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 또한 [진단 로그](cosmosdb-monitor-resource-logs.md)를 사용하여 속도가 느리거나 상당한 처리량을 사용하는 쿼리를 식별할 수도 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하는 경우 [Azure Cosmos DB의 API for MongoDB 쿼리 문제 해결 가이드](mongodb-troubleshoot-query.md)를 사용해야 합니다.
 
-Azure Cosmos DB의 쿼리 최적화는 광범위 하 게 다음과 같이 분류 됩니다.
+Azure Cosmos DB의 쿼리 최적화는 다음과 같이 광범위하게 분류됩니다.
 
 - 쿼리의 RU(요청 단위) 비용을 낮추는 최적화
 - 단지 대기 시간을 단축하는 최적화
 
-쿼리 비용을 줄이는 경우 일반적으로 대기 시간도 줄일 수 있습니다.
+쿼리의 RU 비용을 낮출 경우 일반적으로 대기 시간도 단축됩니다.
 
-이 문서에서는 [영양 데이터 집합](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)을 사용 하 여 다시 만들 수 있는 예제를 제공 합니다.
+이 문서에서는 [영양 데이터 세트](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)를 사용하여 다시 만들 수 있는 예제를 제공합니다.
 
 ## <a name="common-sdk-issues"></a>일반적인 SDK 문제
 
@@ -41,7 +41,7 @@ Azure Cosmos DB의 쿼리 최적화는 광범위 하 게 다음과 같이 분류
 - 이후 페이지에 결과가 있더라도 간혹 쿼리에 빈 페이지가 있을 수 있습니다. 그 이유는 다음과 같습니다.
     - SDK에서 여러 네트워크 호출을 수행할 수 있습니다.
     - 쿼리가 문서를 검색하는 데 시간이 오래 걸릴 수 있습니다.
-- 모든 쿼리에는 쿼리가 지속되도록 허용하는 연속 토큰이 있습니다. 쿼리를 완전히 드레이닝해야 합니다. [결과의 여러 페이지 처리](sql-query-pagination.md#handling-multiple-pages-of-results) 에 대 한 자세한 정보
+- 모든 쿼리에는 쿼리가 지속되도록 허용하는 연속 토큰이 있습니다. 쿼리를 완전히 드레이닝해야 합니다. [여러 페이지의 결과 처리](sql-query-pagination.md#handling-multiple-pages-of-results)에 대한 자세한 정보
 
 ## <a name="get-query-metrics"></a>쿼리 메트릭 가져오기
 
@@ -63,7 +63,7 @@ Azure Cosmos DB에서 쿼리를 최적화하는 경우 첫 번째 단계는 항�
 
 - [인덱스를 사용하는 시스템 함수를 파악합니다.](#understand-which-system-functions-use-the-index)
 
-- [문자열 시스템 함수 실행을 향상 시킵니다.](#improve-string-system-function-execution)
+- [문자열 시스템 함수 실행을 개선합니다.](#improve-string-system-function-execution)
 
 - [인덱스를 사용하는 집계 쿼리를 파악합니다.](#understand-which-aggregate-queries-use-the-index)
 
@@ -194,51 +194,51 @@ WHERE c.description = "Malabar spinach, cooked"
 
 **RU 요금:** 2.98RU
 
-쓰기 또는 읽기 가용성에 영향을 주지 않고 언제 든 지 인덱싱 정책에 속성을 추가할 수 있습니다. [인덱스 변환 진행률을 추적](./how-to-manage-indexing-policy.md#dotnet-sdk)할 수 있습니다.
+쓰기 또는 읽기 가능성에 영향을 주지 않고 언제든지 인덱싱 정책에 속성을 추가할 수 있습니다. [인덱스 변환 진행률을 추적](./how-to-manage-indexing-policy.md#dotnet-sdk)할 수 있습니다.
 
 ### <a name="understand-which-system-functions-use-the-index"></a>인덱스를 사용하는 시스템 함수를 파악
 
-대부분의 시스템 함수는 인덱스를 사용 합니다. 인덱스를 사용 하는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
+대부분의 시스템 함수는 인덱스를 사용합니다. 인덱스를 사용하는 몇 가지 일반적인 문자열 함수 목록은 다음과 같습니다.
 
 - StartsWith
 - 포함
 - RegexMatch
 - 왼쪽
-- 부분 문자열-하지만 첫 번째 num_expr 0 인 경우에만
+- Substring - 첫 번째 num_expr이 0인 경우에만 해당
 
-다음은 인덱스를 사용 하지 않으며 절에서 사용 될 때 각 문서를 로드 해야 하는 몇 가지 일반적인 시스템 함수입니다 `WHERE` .
+`WHERE` 절에 사용될 때 인덱스를 사용하지 않고 각 문서를 로드해야 하는 몇 가지 일반적인 시스템 함수는 다음과 같습니다.
 
 | **시스템 함수**                     | **최적화 아이디어**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| 위쪽/아래쪽                         | 시스템 함수를 사용하여 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화합니다. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```과 같은 쿼리는 ```SELECT * FROM c WHERE c.name = 'BOB'```이 됩니다. |
-| GetCurrentDateTime/Getcurrentdatetime/Getcurrentdatetime | 쿼리 실행 전 현재 시간을 계산 하 고 절에서 해당 문자열 값을 사용 `WHERE` 합니다. |
+| 상/하                         | 시스템 함수를 사용하여 비교를 위해 데이터를 정규화하는 대신 삽입 시 대/소문자를 정규화합니다. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'```과 같은 쿼리는 ```SELECT * FROM c WHERE c.name = 'BOB'```이 됩니다. |
+| GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | 쿼리 실행 전 현재 시간을 계산하고 `WHERE` 절에서 해당 문자열 값을 사용합니다. |
 | 수학 함수(비집계) | 쿼리에서 값을 자주 계산해야 하는 경우 JSON 문서에 속성으로 값을 저장하는 것이 좋습니다. |
 
-이러한 시스템 함수는 집계를 사용 하는 쿼리에 사용 되는 경우를 제외 하 고 인덱스를 사용할 수 있습니다.
+이러한 시스템 함수는 집계가 있는 쿼리에 사용되는 경우를 제외하고 인덱스를 사용할 수 있습니다.
 
 | **시스템 함수**                     | **최적화 아이디어**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| 공간 시스템 함수                        | 쿼리 결과를 실시간 구체화 뷰에 저장 합니다. |
+| 공간 시스템 함수                        | 실시간 구체화된 뷰에 쿼리 결과 저장 |
 
-절에서 사용 되는 경우 `SELECT` 비효율적인 시스템 함수는 쿼리에서 인덱스를 사용 하는 방법에 영향을 주지 않습니다.
+`SELECT` 절에서 사용되는 경우 비효율적인 시스템 함수는 쿼리에서 인덱스를 사용하는 방법에 영향을 주지 않습니다.
 
-### <a name="improve-string-system-function-execution"></a>문자열 시스템 함수 실행 향상
+### <a name="improve-string-system-function-execution"></a>문자열 시스템 함수 실행 개선
 
-인덱스를 사용 하는 일부 시스템 함수의 경우 쿼리에 절을 추가 하 여 쿼리 실행을 향상 시킬 수 있습니다 `ORDER BY` . 
+인덱스를 사용하는 일부 시스템 함수의 경우 쿼리에 `ORDER BY` 절을 추가하여 쿼리 실행을 개선할 수 있습니다. 
 
-더 구체적으로 말해서, 속성의 카디널리티에 따라 더 많은 시스템 함수는 쿼리를 통해 얻을 수 있는 이점을 얻을 수 있습니다 `ORDER BY` . 이러한 쿼리는 인덱스 검색을 수행 하므로 쿼리 결과를 정렬 하 여 쿼리를 보다 효율적으로 만들 수 있습니다.
+더 구체적으로, 속성의 카디널리티에 따라 RU 요금이 증가하는 시스템 함수는 쿼리에 `ORDER BY`를 포함하는 것이 유리할 수 있습니다. 이러한 쿼리는 인덱스 검색을 수행하므로 쿼리 결과를 정렬하여 쿼리의 효율성을 높일 수 있습니다.
 
-이러한 최적화는 다음과 같은 시스템 함수에 대 한 실행을 향상 시킬 수 있습니다.
+이러한 최적화는 다음과 같은 시스템 함수의 실행을 향상시킬 수 있습니다.
 
-- StartsWith (대/소문자 구분 안 함 = true)
-- StringEquals (대/소문자 구분 안 함 = true)
+- StartsWith(대/소문자 구분 안 함 = true)
+- StringEquals(대/소문자 구분 안 함 = true)
 - 포함
 - RegexMatch
 - EndsWith
 
-예를 들어를 사용 하는 다음 쿼리를 살펴보세요 `CONTAINS` . `CONTAINS` 는 인덱스를 사용 하지만 경우에 따라 관련 된 인덱스를 추가한 후에도 아래 쿼리를 실행할 때 매우 높은 수준의 요금이 계속 표시 될 수 있습니다.
+예를 들어 `CONTAINS`를 사용하는 아래 쿼리를 고려하세요. `CONTAINS`는 인덱스를 사용하지만 경우에 따라 관련 인덱스를 추가한 후에도 아래 쿼리를 실행할 때 여전히 매우 높은 RU 요금이 발생할 수 있습니다.
 
-원본 쿼리:
+원래 쿼리:
 
 ```sql
 SELECT *
@@ -246,7 +246,7 @@ FROM c
 WHERE CONTAINS(c.town, "Sea")
 ```
 
-다음을 추가 하 여 쿼리 실행을 향상 시킬 수 있습니다 `ORDER BY` .
+`ORDER BY`를 추가하여 쿼리 실행을 향상시킬 수 있습니다.
 
 ```sql
 SELECT *
@@ -255,9 +255,9 @@ WHERE CONTAINS(c.town, "Sea")
 ORDER BY c.town
 ```
 
-추가 필터를 사용 하는 쿼리에서는 동일한 최적화를 사용할 수 있습니다. 이 경우 같음 필터를 사용 하는 속성을 절에 추가 하는 것이 좋습니다 `ORDER BY` .
+추가 필터가 있는 쿼리에서는 동일한 최적화를 사용할 수 있습니다. 이 경우 같음 필터가 있는 속성도 `ORDER BY` 절에 추가하는 것이 좋습니다.
 
-원본 쿼리:
+원래 쿼리:
 
 ```sql
 SELECT *
@@ -265,7 +265,7 @@ FROM c
 WHERE c.name = "Samer" AND CONTAINS(c.town, "Sea")
 ```
 
-`ORDER BY`(C.name, c. 타운)에 대 한 [복합 인덱스](index-policy.md#composite-indexes) 를 추가 하 여 쿼리 실행을 향상 시킬 수 있습니다.
+(c.name, c.town)에 대한 `ORDER BY` 및 [복합 인덱스](index-policy.md#composite-indexes)를 추가하여 쿼리 실행을 개선할 수 있습니다.
 
 ```sql
 SELECT *
@@ -528,7 +528,7 @@ WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
 
 ## <a name="optimizations-that-reduce-query-latency"></a>쿼리 대기 시간을 줄이는 최적화
 
-많은 경우에 RU 요금은 감수할만한 수준이지만 쿼리 대기 시간은 매우 높을 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁을 개략적으로 설명합니다. 동일한 쿼리를 동일한 데이터 집합에서 여러 번 실행 하는 경우에는 일반적으로 매번 동일한 실행 요금이 발생 합니다. 하지만 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
+많은 경우에 RU 요금은 감수할만한 수준이지만 쿼리 대기 시간은 매우 높을 수 있습니다. 다음 섹션에서는 쿼리 대기 시간을 줄이기 위한 팁을 개략적으로 설명합니다. 동일한 쿼리를 동일한 데이터 세트에서 여러 번 실행하는 경우 매번 RU 요금은 일반적으로 동일합니다. 하지만 쿼리 대기 시간은 쿼리 실행마다 다를 수 있습니다.
 
 ### <a name="improve-proximity"></a>근접성 향상
 
@@ -552,4 +552,4 @@ Azure Cosmos DB에서 프로비전된 처리량은 RU(요청 단위)로 측정�
 * [.NET SDK를 사용하여 SQL 쿼리 실행 메트릭 가져오기](profile-sql-api-query.md)
 * [Azure Cosmos DB와 함께 쿼리 성능 튜닝](./sql-api-query-metrics.md)
 * [.NET SDK용 성능 팁](performance-tips.md)
-* [Java v4 SDK에 대 한 성능 팁](performance-tips-java-sdk-v4-sql.md)
+* [Java v4 SDK용 성능 팁](performance-tips-java-sdk-v4-sql.md)

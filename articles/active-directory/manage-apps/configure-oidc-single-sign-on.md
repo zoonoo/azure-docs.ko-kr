@@ -2,22 +2,22 @@
 title: Azure Active Directory의 앱에서 사용되는 OIDC 기반 SSO(Single Sign-On) 이해
 description: Azure Active Directory의 앱에서 사용되는 OIDC 기반 SSO(Single Sign-On)를 이해합니다.
 services: active-directory
-author: iantheninja
-manager: CelesteDG
+author: kenwith
+manager: daveba
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/19/2020
-ms.author: iangithinji
+ms.author: kenwith
 ms.reviewer: arajpathak7
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 990e0c09f8a49b83bc68d7123f5f8146a3551575
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ffaa55d4aa482e8f0eda93b1b32db6310d17e2a3
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374542"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99255252"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>OIDC 기반 Single Sign On 이해
 애플리케이션 관리에 대한 [빠른 시작 시리즈](view-applications-portal.md)에서는 애플리케이션용 IdP(ID 공급자)로 Azure AD를 사용하는 방법을 알아보았습니다. 이 문서에서는 OpenID Connect 표준을 사용하여 Single Sign-On을 구현하는 앱에 대해 자세히 설명합니다. 

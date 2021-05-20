@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 55f375c83affea8585ec7ebf881a80315ff7a38c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d2a77a1e1079a7f9b013ad4cf0810989835ed73
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100361324"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107790549"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>CLI를 사용하여 Azure Database for MariaDB의 프라이빗 링크 만들기 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "100361324"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 요건
 
 - [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)가 필요합니다. 
 
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 [네트워크 정책](../private-link/disable-private-endpoint-network-policy.md)을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 [네트워크 정책](../private-link/disable-private-endpoint-network-policy.md)을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)를 사용하여 *mySubnet* 이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -171,7 +171,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 3. 사용 가능한 모든 클라이언트를 사용하여 MariaDB 서버의 프라이빗 링크 연결을 테스트합니다. 아래 예제에서는 [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html)를 사용하여 작업을 수행했습니다.
 
-4. **새 연결** 에서 다음 정보를 입력하거나 선택합니다.
+4. **새 연결** 에서 다음 정보를 입력하거나 선택합니다:
 
     | 설정 | 값 |
     | ------- | ----- |

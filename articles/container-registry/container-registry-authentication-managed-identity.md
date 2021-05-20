@@ -3,16 +3,16 @@ title: 관리 ID를 사용하여 인증
 description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: e6c0d21f7bdefa94241655225589a52c02110f70
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 2ab27e8548882b5bd296dc45e4bb74d3d6ba357b
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102041470"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106285487"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
-레지스트리 자격 증명을 제공하거나 관리할 필요 없이 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 다른 Azure 리소스의 Azure Container Registry에 인증할 수 있습니다. 예를 들어 Linux VM에서 사용자 할당 또는 시스템 할당 관리 ID를 설정하면 공용 레지스트리를 사용하는 것처럼 쉽게 컨테이너 레지스트리의 컨테이너 이미지에 액세스할 수 있습니다.
+레지스트리 자격 증명을 제공하거나 관리할 필요 없이 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 다른 Azure 리소스의 Azure Container Registry에 인증할 수 있습니다. 예를 들어 Linux VM에서 사용자 할당 또는 시스템 할당 관리 ID를 설정하면 공용 레지스트리를 사용하는 것처럼 쉽게 컨테이너 레지스트리의 컨테이너 이미지에 액세스할 수 있습니다. 또는 [관리 ID](../aks/use-managed-identity.md)를 사용하여 Pod 배포를 위해 Azure Container Registry에서 컨테이너 이미지를 가져오도록 Azure Kubernetes Service 클러스터를 설정합니다.
 
 이 문서에서는 관리 ID 및 다음과 같은 방법에 대해 자세히 알아봅니다.
 
@@ -27,27 +27,18 @@ Azure 리소스를 만들려면 이 문서에서는 Azure CLI 버전 2.0.55 이�
 
 ## <a name="why-use-a-managed-identity"></a>관리 ID를 사용하는 이유
 
-Azure 리소스에 대한 관리 ID는 Azure AD(Azure Active Directory)에서 자동으로 관리 ID를 Azure 서비스에 제공합니다. 관리 ID를 사용하여 가상 머신을 포함하여 [특정 Azure 리소스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)를 구성할 수 있습니다. 그런 다음, ID를 사용하여 코드 또는 스크립트에서 자격 증명을 전달하지 않고 다른 Azure 리소스에 액세스할 수 있습니다.
+Azure 리소스에 대한 관리 ID 기능이 익숙하지 않은 경우 [개요](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
-관리 ID에는 다음과 같은 두 가지 유형이 있습니다.
+관리 ID로 선택한 Azure 리소스를 설정한 후에는 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 프라이빗 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. (레지스트리 역할의 전체 목록은 [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요.) ID에 하나 이상의 리소스에 대한 액세스 권한을 부여할 수 있습니다.
 
-* *사용자 할당 ID* 는 여러 리소스에 할당할 수 있으며 원하는 만큼 오랫동안 유지할 수 있습니다. 사용자 할당 ID는 현재 미리 보기 중입니다.
+그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 
 
-* *시스템 관리 ID* 는 단일 가상 머신과 같은 특정 리소스에 고유하며 해당 리소스의 수명만큼 지속됩니다.
-
-관리 ID를 사용하여 Azure 리소스를 설정한 후에 모든 보안 주체와 마찬가지로 다른 리소스에 대한 액세스 권한을 해당 ID에 제공합니다. 예를 들어 관리 ID에 Azure의 프라이빗 레지스트리에 대한 풀, 푸시 및 풀 또는 기타 권한이 있는 역할을 할당합니다. 레지스트리 역할의 전체 목록은 [Azure Container Registry 역할 및 사용 권한](container-registry-roles.md)을 참조 하세요. 하나 이상의 리소스에 대 한 id 액세스를 제공할 수 있습니다.
-
-그런 다음, 해당 ID를 사용하면 모든 [Azure AD 인증을 지원하는 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. ID를 사용하여 가상 머신에서 Azure Container Registry에 액세스하려면 Azure Resource Manager를 사용하여 인증합니다. 시나리오에 따라 관리 ID를 사용하여 인증하는 방법을 선택합니다.
-
-* HTTP 또는 REST 호출을 사용하여 프로그래밍 방식으로 [Azure AD 액세스 토큰 획득](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
-
-* [Azure SDK](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md) 사용
-
-* ID를 사용하여 [Azure CLI 또는 PowerShell에 로그인](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md)합니다. 
+> [!NOTE]
+> 현재 Azure Web App for Containers 또는 Azure Container Instances와 같은 서비스는 컨테이너 리소스 자체를 배포하기 위해 컨테이너 이미지를 끌어올 때 관리 ID를 사용하여 Azure Container Registry를 인증할 수 없습니다. ID는 컨테이너가 실행된 후에만 사용할 수 있습니다. Azure Container Registry의 이미지를 사용하여 이러한 리소스를 배포하려면 [서비스 주체](container-registry-auth-service-principal.md)와 같은 다른 인증 방법을 사용하는 것이 좋습니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
+Azure Container Registry가 아직 없는 경우 레지스트리를 만들어 샘플 컨테이너 이미지를 레지스트리에 푸시합니다. 단계는 [빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요.
 
 이 문서에서는 레지스트리에 `aci-helloworld:v1` 컨테이너 이미지가 저장되어 있다고 가정합니다. 이 예제에서는 *myContainerRegistry* 라는 레지스트리 이름을 사용합니다. 이후 단계에서 사용자 고유의 레지스트리 및 이미지 이름으로 바꿉니다.
 
@@ -103,7 +94,7 @@ This message shows that your installation appears to be working correctly.
 
 SSH 세션을 종료합니다.
 
-## <a name="example-1-access-with-a-user-assigned-identity"></a>예제 1: 사용자 할당 id를 사용 하 여 액세스
+## <a name="example-1-access-with-a-user-assigned-identity"></a>예제 1: 사용자 할당 ID를 사용하여 액세스
 
 ### <a name="create-an-identity"></a>ID 만들기
 
@@ -113,7 +104,7 @@ SSH 세션을 종료합니다.
 az identity create --resource-group myResourceGroup --name myACRId
 ```
 
-다음 단계에서 id를 구성 하려면 [az identity show] [az_identity_show] 명령을 사용 하 여 id의 리소스 ID 및 서비스 주체 ID를 변수에 저장 합니다.
+다음 단계에서 ID를 구성하려면 [az identity show][az_identity_show] 명령을 사용하여 ID의 리소스 ID 및 서비스 주체 ID를 변수에 저장합니다.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -123,7 +114,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-가상 머신에서 CLI에 로그인 할 때 이후 단계에서 id ID가 필요 하기 때문에 값을 표시 합니다.
+가상 머신에서 CLI에 로그인할 때 이후 단계에서 ID의 ID가 필요하므로 다음 값을 표시합니다.
 
 ```bash
 echo $userID
@@ -161,13 +152,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 VM에 구성 된 id를 사용 하 여 [az login][az-login]을 사용 하 여 Azure CLI에 인증 합니다. `<userID>`의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
+먼저 VM에서 구성한 ID를 사용하여 [az login][az-login]으로 Azure CLI에 인증합니다. `<userID>`의 경우 이전 단계에서 검색한 ID의 ID로 대체합니다. 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-그런 다음 [az acr login][az-acr-login]을 사용 하 여 레지스트리에 인증 합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
+그런 다음, [az acr login][az-acr-login]을 사용하여 레지스트리에 인증합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -179,7 +170,7 @@ az acr login --name myContainerRegistry
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
 
-## <a name="example-2-access-with-a-system-assigned-identity"></a>예 2: 시스템 할당 id로 액세스
+## <a name="example-2-access-with-a-system-assigned-identity"></a>예제 2: 시스템 할당 ID를 사용하여 액세스
 
 ### <a name="configure-the-vm-with-a-system-managed-identity"></a>시스템 관리 ID를 사용하여 VM을 구성합니다.
 
@@ -213,13 +204,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 ID를 사용하여 구성된 Docker 가상 머신에 SSH를 수행합니다. VM에 설치된 Azure CLI를 사용하여 다음 Azure CLI 명령을 실행합니다.
 
-먼저 VM에서 시스템 할당 id를 사용 하 여 [az login][az-login]을 사용 하 여 Azure CLI을 인증 합니다.
+먼저 VM에서 시스템 할당 ID를 사용하여 [az login][az-login]으로 Azure CLI에 인증합니다.
 
 ```azurecli
 az login --identity
 ```
 
-그런 다음 [az acr login][az-acr-login]을 사용 하 여 레지스트리에 인증 합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
+그런 다음, [az acr login][az-acr-login]을 사용하여 레지스트리에 인증합니다. 이 명령을 사용하는 경우 CLI는 `az login`을 실행할 때 만든 Active Directory 토큰을 사용하여 원활하게 컨테이너 레지스트리로 세션을 인증합니다. (VM의 설정에 따라 `sudo`를 사용하여 이 명령 및 docker 명령을 실행해야 합니다.)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -230,8 +221,6 @@ az acr login --name myContainerRegistry
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
-> [!NOTE]
-> 시스템 할당 관리 서비스 id를 사용 하 여 Acr와 상호 작용 하 고 시스템 할당 관리 서비스 id를 사용할 수 App Service. 그러나이 경우에는 MSI를 사용 하 여 ACR App Service와 통신할 수 없으므로 이러한를 결합할 수 없습니다. 유일한 방법은 ACR에서 관리자를 사용 하도록 설정 하 고 관리자 사용자 이름/암호를 사용 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -242,7 +231,7 @@ docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 > * Azure Container Registry에 ID 액세스 권한 부여
 > * 관리 ID를 사용하여 레지스트리에 액세스하고 컨테이너 이미지 가져오기
 
-* [Azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/index.yml)에 대해 자세히 알아보세요.
+* [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/index.yml)에 대해 자세히 알아보세요.
 
 
 <!-- LINKS - external -->

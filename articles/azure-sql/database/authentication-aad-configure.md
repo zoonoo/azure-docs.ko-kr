@@ -5,19 +5,19 @@ description: Azure AD를 구성한 후 Azure Active Directory 인증을 사용�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
+ms.custom: azure-synapse, has-adal-ref, sqldbrb=2, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: c75364f2565611b6738996c082610229db0cb2a8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9e7b337d4358f9685d683c308d6df9110607207a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762230"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105643417"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Azure SQL에서 Azure AD 인증 구성 및 관리
 
@@ -77,7 +77,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
 SQL Managed Instance에는 보안 그룹 멤버 자격을 통한 사용자 인증 또는 새 사용자 만들기와 같은 작업을 성공적으로 수행하기 위해 Azure AD를 읽을 수 있는 권한이 필요합니다. 이를 위해 Azure AD를 읽을 수 있는 SQL Managed Instance 권한을 부여해야 합니다. 이 작업은 Azure Portal 또는 PowerShell을 사용하여 수행할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Portal을 사용하여 SQL Managed Instance Azure AD 읽기 권한을 부여하려면 Azure AD에서 전역 관리자 권한으로 로그인하고 다음 단계를 수행합니다.
 
@@ -218,12 +218,12 @@ Remove-AzSqlInstanceActiveDirectoryAdministrator -ResourceGroupName "ResourceGro
 
 다음 CLI 명령을 호출하여 SQL Managed Instance에 대한 Azure AD 관리자를 프로비전할 수도 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
-|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_create) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 프로비전합니다(현재 구독에 있어야 함). |
-|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_delete) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 제거합니다. |
-|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_list) | 현재 SQL Managed Instance에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
-|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az_sql_mi_ad_admin_update) | SQL Managed Instance에 대한 Active Directory 관리자를 업데이트합니다. |
+|[az sql mi ad-admin create](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-create) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 프로비전합니다(현재 구독에 있어야 함). |
+|[az sql mi ad-admin delete](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-delete) | SQL Managed Instance에 대한 Azure Active Directory 관리자를 제거합니다. |
+|[az sql mi ad-admin list](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-list) | 현재 SQL Managed Instance에 대해 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
+|[az sql mi ad-admin update](/cli/azure/sql/mi/ad-admin#az-sql-mi-ad-admin-update) | SQL Managed Instance에 대한 Active Directory 관리자를 업데이트합니다. |
 
 CLI 명령에 대한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참조하세요.
 
@@ -236,7 +236,7 @@ CLI 명령에 대한 자세한 내용은 [az sql mi](/cli/azure/sql/mi)를 참�
 
 다음 두 절차에서는 Azure Portal 및 PowerShell을 사용하여 서버에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계에서는 구독에 연결된 Active Directory를 서버와 연결하여 동일한 구독이 두 Azure AD 및 서버 모두에 사용되도록 합니다.
 
@@ -285,7 +285,7 @@ SQL Database 및 Azure Synapse에 대한 Azure AD 관리자를 프로비전하�
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 제거합니다.|
 | [Get-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator) |SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대해 현재 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
 
-get-help PowerShell 명령을 이러한 각 명령에 대한 자세한 정보를 확인합니다. 예: `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
+get-help PowerShell 명령을 이러한 각 명령에 대한 자세한 정보를 확인합니다. 예들 들어 `get-help Set-AzSqlServerActiveDirectoryAdministrator`입니다.
 
 다음 스크립트는 리소스 그룹 **Group-23** 에서 **demo_server** 서버에 대해 이름이 **DBA_Group**(개체 ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`)인 Azure AD 관리자 그룹을 프로비전합니다.
 
@@ -293,7 +293,7 @@ get-help PowerShell 명령을 이러한 각 명령에 대한 자세한 정보를
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 및 ``DisplayName="johns@contoso.com"``를 지정합니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
+**DisplayName** 입력 매개 변수에는 Azure AD 표시 이름이나 사용자 계정 이름이 허용됩니다. 예를 들어 ``DisplayName="John Smith"`` 또는 ``DisplayName="johns@contoso.com"``입니다. Azure AD 그룹에는 Azure AD 표시 이름만 지원됩니다.
 
 > [!NOTE]
 > Azure PowerShell 명령 ```Set-AzSqlServerActiveDirectoryAdministrator```는 지원되지 않는 사용자에 대한 Azure AD 관리자 프로비전을 차단하지 않습니다. 지원되지 않는 사용자를 프로비전할 수는 있지만 데이터베이스에 연결할 수는 없습니다.
@@ -324,12 +324,12 @@ Remove-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -Se
 
 다음 CLI 명령을 호출하여 Azure AD 관리자를 프로비전할 수 있습니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
-|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_create) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독에 있어야 함) |
-|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_delete) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 제거합니다. |
-|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대해 현재 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
-|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_update) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Active Directory 관리자를 업데이트합니다. |
+|[az sql server ad-admin create](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 프로비전합니다. (현재 구독에 있어야 함) |
+|[az sql server ad-admin delete](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-delete) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Azure Active Directory 관리자를 제거합니다. |
+|[az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대해 현재 구성된 Azure Active Directory 관리자에 대한 정보를 반환합니다. |
+|[az sql server ad-admin update](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-update) | SQL Database 또는 Azure Synapse를 호스팅하는 서버에 대한 Active Directory 관리자를 업데이트합니다. |
 
 CLI 명령에 대한 자세한 내용은 [az sql server](/cli/azure/sql/server)를 참조하세요.
 

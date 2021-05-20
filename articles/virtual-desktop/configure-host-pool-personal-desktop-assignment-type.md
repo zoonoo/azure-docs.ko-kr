@@ -1,17 +1,17 @@
 ---
 title: Windows Virtual Desktop 개인 데스크톱 할당 유형 - Azure
-description: Windows 가상 데스크톱 개인 데스크톱 호스트 풀에 대해 자동 또는 직접 할당을 구성 하는 방법입니다.
+description: Windows Virtual Desktop 개인 데스크톱 호스트 풀에 대한 자동 또는 직접 할당을 구성하는 방법입니다.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 446dae3c064f5f23d35cb12b2b24bdfea9e27012
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 11fbbe4d816c9f50afc879d74991976a467a9013
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88007814"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448137"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
 
@@ -23,9 +23,9 @@ ms.locfileid: "88007814"
 >[!NOTE]
 > 이 문서의 지침은 풀링된 호스트 풀이 아닌 개인 데스크톱 호스트 풀에만 적용됩니다. 풀링된 호스트 풀의 사용자는 특정 세션 호스트에 할당되지 않기 때문입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-이 문서에서는 Windows 가상 데스크톱 PowerShell 모듈을 이미 다운로드 하 여 설치 했다고 가정 합니다. 그렇지 않은 경우 [PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
+이 문서에서는 Windows Virtual Desktop PowerShell 모듈을 이미 다운로드하여 설치했다고 가정합니다. 그렇지 않은 경우 [PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
 
 ## <a name="configure-automatic-assignment"></a>자동 할당 구성
 
@@ -67,20 +67,20 @@ New-AzRoleAssignment -SignInName <userupn> -RoleDefinitionName "Desktop Virtuali
 Update-AzWvdSessionHost -HostPoolName <hostpoolname> -Name <sessionhostname> -ResourceGroupName <resourcegroupname> -AssignedUser <userupn>
 ```
 
-Azure Portal에서 세션 호스트에 사용자를 직접 할당 하려면 다음을 수행 합니다.
+Azure Portal에서 세션 호스트에 사용자를 직접 할당하려면 다음을 수행합니다.
 
 1. <https://portal.azure.com> 에서 Azure Portal에 로그인합니다.
-2. 검색 창에 **Windows 가상 데스크톱** 을 입력 합니다.
-3. **서비스** 에서 **Windows 가상 데스크톱** 을 선택 합니다.
-4. Windows 가상 데스크톱 페이지에서 창의 왼쪽에 있는 메뉴로 이동 하 여 **호스트 풀** 을 선택 합니다.
-5. 업데이트 하려는 호스트 풀의 이름을 선택 합니다.
-6. 다음으로 창의 왼쪽에 있는 메뉴로 이동 하 고 **응용 프로그램 그룹** 을 선택 합니다.
-7. 편집할 데스크톱 앱 그룹의 이름을 선택 하 고 창의 왼쪽에 있는 메뉴에서 **할당** 을 선택 합니다.
-8. **+ 추가** 를 선택 하 고이 데스크톱 앱 그룹을 게시할 사용자 또는 사용자 그룹을 선택 합니다.
-9. 알림 표시줄에서 **VM 할당** 을 선택 하 여 세션 호스트를 사용자에 게 할당 합니다.
-10. 사용자에 게 할당 하려는 세션 호스트를 선택 하 고 **할당** 을 선택 합니다.
-11. 사용 가능한 사용자 목록에서 세션 호스트를 할당 하려는 사용자를 선택 합니다.
-12. 완료 되 면 **선택** 을 선택 합니다.
+2. 검색 창에 **Windows Virtual Desktop** 을 입력합니다.
+3. **서비스** 에서 **Windows Virtual Desktop** 을 선택합니다.
+4. Windows Virtual Desktop 페이지에서 창의 왼쪽에 있는 메뉴로 이동하여 **호스트 풀** 을 선택합니다.
+5. 업데이트할 풀의 이름을 선택합니다.
+6. 다음으로, 창 왼쪽에 있는 메뉴로 이동하여 **애플리케이션 그룹** 을 선택합니다.
+7. 편집할 데스크톱 앱 그룹의 이름을 선택한 다음, 창 왼쪽에 있는 메뉴에서 **할당** 을 선택합니다.
+8. **+ 추가** 를 선택한 다음, 이 데스크톱 앱 그룹을 게시할 사용자 또는 사용자 그룹을 선택합니다.
+9. 알림 표시줄에서 **VM 할당** 을 선택하여 세션 호스트를 사용자에게 할당합니다.
+10. 사용자에게 할당할 세션 호스트를 선택한 다음, **할당** 을 선택합니다.
+11. 사용 가능한 사용자 목록에서 세션 호스트를 할당할 사용자를 선택합니다.
+12. 완료되면 **선택** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
