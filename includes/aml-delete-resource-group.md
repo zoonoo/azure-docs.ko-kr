@@ -8,12 +8,12 @@ ms.topic: include
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 9c6d29287f86cd6334692e2be5376caf9dd98bdd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8aeff540c323905f91af94af29a8be9a980afc19
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91372574"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108760658"
 ---
 >[!IMPORTANT]
 >사용자가 만든 리소스는 다른 Azure Machine Learning 자습서 및 방법 문서의 필수 구성 요소로 사용할 수 있습니다. 

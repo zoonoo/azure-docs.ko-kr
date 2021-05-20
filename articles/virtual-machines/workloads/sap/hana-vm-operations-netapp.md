@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/23/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de8af71928ad6a83d4930e4e6e0b8dd257148111
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09fc8f9697f418533131e86c069afd3157a71c78
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101666615"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142984"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>SAP HANA용 Azure NetApp Files 기반 NFS v4.1 볼륨
 
@@ -73,7 +73,7 @@ LIF와 단일 Linux 세션의 최대 처리량은 1.2~1.4GB/초입니다. /hana/
 | --- | --- | --- | --- |
 | 1TB | 16MB/초 | 64MB/초 | 128MB/초 |
 | 2TB | 32MB/초 | 128MB/초 | 256MB/초 |
-| 4TB | 64MB/초 | 256MB/초 | 512MB/초 |
+| 4 TB | 64MB/초 | 256MB/초 | 512MB/초 |
 | 10TB | 160MB/초 | 640MB/초 | 1,280MB/초 |
 | 15TB | 240MB/초 | 960MB/초 | 1,400MB/초 |
 | 20TB | 320MB/초 | 1,280MB/초 | 1,400MB/초 |
@@ -86,8 +86,8 @@ Azure에서 SAP용 인프라를 설계할 때 다음의 최소 처리량 특성�
 
 | 볼륨 유형 및 I/O 유형 | SAP에서 요구하는 최소 KPI | Premium 서비스 계층 | Ultra 서비스 수준 |
 | --- | --- | --- | --- |
-| 로그 볼륨 쓰기 | 250MB/초 | 4TB | 2TB |
-| 데이터 볼륨 쓰기 | 250MB/초 | 4TB | 2TB |
+| 로그 볼륨 쓰기 | 250MB/초 | 4 TB | 2TB |
+| 데이터 볼륨 쓰기 | 250MB/초 | 4 TB | 2TB |
 | 데이터 볼륨 읽기 | 400MB/초 | 6.3TB | 3.2TB |
 
 세 가지 KPI가 모두 요구되므로 최소 읽기 요구 사항을 충족하려면 **/hana/data** 볼륨의 크기를 더 큰 용량으로 조정해야 합니다.
@@ -136,8 +136,8 @@ ANF를 사용하는 경우, 기본 인프라가 구축되는 방식을 이해하
 전체 HANA 데이터베이스 백업 쓰기를 사용하는 볼륨에도 동일하게 적용됩니다.  
  
 
-## <a name="backup"></a>백업
-[Azure Virtual Machines의 SAP HANA 백업 가이드](./sap-hana-backup-guide.md)에 설명된 대로 스트리밍 백업 및 Azure Backup 서비스의 SAP HANA 데이터베이스 백업 외에도 Azure NetApp Files는 스토리지 기반 스냅샷 백업을 수행할 수 있는 가능성을 열어줍니다. 
+## <a name="backup"></a>Backup
+[Azure Virtual Machines의 SAP HANA 백업 가이드](../../../backup/sap-hana-db-about.md)에 설명된 대로 스트리밍 백업 및 Azure Backup 서비스의 SAP HANA 데이터베이스 백업 외에도 Azure NetApp Files는 스토리지 기반 스냅샷 백업을 수행할 수 있는 가능성을 열어줍니다. 
 
 SAP HANA는 다음을 지원합니다.
 

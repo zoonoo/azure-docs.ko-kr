@@ -1,13 +1,13 @@
 ---
 title: Azure Service Fabric에서 Linux 클러스터 이벤트 모니터링
-description: Syslog에 Service Fabric 플랫폼 이벤트를 작성 하 여 Service Fabric Linux 클러스터 이벤트를 모니터링 하는 방법을 알아봅니다.
+description: Syslog에 Service Fabric 플랫폼 이벤트를 작성하여 Service Fabric Linux 클러스터 이벤트를 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.openlocfilehash: 895ff340c1b649c1ba8a20bf95edcefb9a72e246
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626965"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog의 Service Fabric Linux 클러스터 이벤트
@@ -24,9 +24,9 @@ Service Fabric은 사용자에게 클러스터의 중요한 작업에 대해 알
 * Facility
 * ID
 * 메시지
-* Severity
+* 심각도
 
-SyslogConsumer는 Facility `Local0`를 사용하여 모든 플랫폼 이벤트를 씁니다. 구성 구성을 변경 하 여 모든 유효한 기능으로 업데이트할 수 있습니다. 사용 되는 Id는 `ServiceFabric` 입니다. 메시지 필드에는 다양한 도구에서 쿼리하고 사용할 수 있도록 JSON으로 직렬화된 전체 이벤트가 포함됩니다. 
+SyslogConsumer는 Facility `Local0`를 사용하여 모든 플랫폼 이벤트를 씁니다. 구성을 변경하여 유효한 시설을 업데이트할 수 있습니다. 사용된 ID는 `ServiceFabric`입니다. 메시지 필드에는 다양한 도구에서 쿼리하고 사용할 수 있도록 JSON으로 직렬화된 전체 이벤트가 포함됩니다. 
 
 ## <a name="enable-syslogconsumer"></a>SyslogConsumer 사용
 
@@ -74,7 +74,7 @@ SyslogConsumer를 사용하려면 클러스터를 업그레이드해야 합니�
 
 실행할 변경 작업은 다음과 같습니다.
 1. [일반] 섹션에는 `LinuxStructuredTracesEnabled`라는 새로운 매개 변수가 있습니다. **Syslog로 전송되는 Linux 이벤트를 정형화 및 직렬화하는 데 필요합니다.**
-2. 진단 섹션에서 새 ConsumerInstance: SyslogConsumer가 추가 되었습니다. 플랫폼에 또 다른 이벤트 소비자가 생긴 것입니다. 
+2. 진단 섹션에 새 ConsumerInstance: SyslogConsumer가 추가되었습니다. 플랫폼에 또 다른 이벤트 소비자가 생긴 것입니다. 
 3. 새로운 SyslogConsumer 섹션은 `IsEnabled`를 `true`로 설정해야 합니다. 이 항목은 Local0 시설을 사용하도록 자동으로 구성됩니다. 또 다른 매개 변수를 추가하여 이 설정을 재정의할 수 있습니다.
 
 ```json
@@ -85,7 +85,7 @@ SyslogConsumer를 사용하려면 클러스터를 업그레이드해야 합니�
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Azure Monitor 로그 통합
-Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 읽을 수 있습니다. 이러한 [지침]을 사용 하 여 Azure Marketplace를 사용 하 여 Log Analytics 작업 영역을 만들 수 있습니다. (.. /azure-monitor/logs/quick-create-workspace.md) 또한이 데이터를 수집 하 고 작업 영역에 전송 하려면 클러스터에 Log Analytics 에이전트를 추가 해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
+Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤트를 쓸 수 있습니다. 다음 [지침](../azure-monitor/logs/quick-create-workspace.md)을 사용하는 Azure Marketplace를 통해 Log Analytics 작업 영역을 만들 수 있습니다. 또한 이 데이터를 수집하여 작업 영역으로 전송하려면 클러스터에 Log Analytics 에이전트를 추가해야 합니다. 성능 카운터를 수집하기 위해 사용되는 에이전트와 동일한 에이전트입니다. 
 
 1. `Advanced Settings` 블레이드로 이동합니다.
 
@@ -93,7 +93,7 @@ Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤
 
 2. `Data`을 클릭합니다.
 3. `Syslog`을 클릭합니다.
-4. 추적할 기능으로 Local0을 구성 합니다. FabricSettings에서 변경한 경우 다른 기능을 추가할 수 있습니다.
+4. 추적할 기능으로 Local0을 구성합니다. fabricSettings에서 변경한 경우 다른 기능을 추가할 수 있습니다.
 
     ![Syslog 구성](media/service-fabric-diagnostics-oms-syslog/syslog-configure.png)
 5. 작업 영역 리소스의 쿼리 시작 메뉴에서 `Logs`를 클릭하여 쿼리 탐색기로 이동합니다.
@@ -112,5 +112,5 @@ Azure Monitor 로그와 같은 모니터링 도구에서 이러한 Syslog 이벤
 ## <a name="next-steps"></a>다음 단계
 * 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
 * Azure Monitor 로그의 일부로 제공되는 [로그 검색 및 쿼리](../azure-monitor/logs/log-query-overview.md) 기능을 알아봅니다.
-* [뷰 디자이너를 사용 하 여 Azure Monitor 로그에 사용자 지정 보기 만들기](../azure-monitor/visualize/view-designer.md)
-* [Syslog와 로그 통합을 Azure Monitor](../azure-monitor/agents/data-sources-syslog.md)하는 방법에 대 한 참조입니다.
+* [뷰 디자이너를 사용하여 Azure Monitor 로그에서 사용자 지정 보기 만들기](../azure-monitor/visualize/view-designer.md)
+* [Syslog와 Azure Monitor 로그를 통합](../azure-monitor/agents/data-sources-syslog.md)하는 방법에 대한 참조

@@ -1,6 +1,6 @@
 ---
 title: 데이터 변환
-description: Hadoop, Azure Machine Learning Studio (클래식) 또는 Azure Data Lake Analytics를 사용 하 여 Azure Data Factory 데이터를 변환 하거나 데이터를 처리 합니다.
+description: Hadoop, Azure Machine Learning Studio(클래식) 또는 Azure Data Lake Analytics를 사용하여 Azure Data Factory에서 데이터를 변환하거나 데이터를 처리합니다.
 ms.service: data-factory
 ms.topic: conceptual
 author: nabhishek
@@ -8,10 +8,10 @@ ms.author: abnarain
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
 ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100361403"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
@@ -23,10 +23,10 @@ ms.locfileid: "100361403"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight 스트리밍](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Azure Machine Learning Studio (클래식)](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio(클래식)](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
-> * [Databricks 노트북](transform-data-databricks-notebook.md)
+> * [Databricks Notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
 > * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)
@@ -34,23 +34,23 @@ ms.locfileid: "100361403"
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="overview"></a>개요
-이 문서에서는 원시 데이터를 대규모의 예측 및 통찰력으로 변환 하 고 처리 하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 작업을 설명 합니다. 변환 작업은 Azure Databricks 또는 Azure HDInsight와 같은 컴퓨팅 환경에서 실행 됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
+이 문서에서는 원시 데이터를 대규모로 예측하고 인사이트로 변환하고 처리하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 작업을 설명합니다. 변환 작업은 Azure Databricks 또는 Azure HDInsight 클러스터와 같은 컴퓨팅 환경에서 실행됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
 
 Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인](concepts-pipelines-activities.md)에 추가할 수 있는 다음 데이터 변환 작업을 지원합니다.
 
-## <a name="transform-natively-in-azure-data-factory-with-data-flows"></a>데이터 흐름을 사용 하 여 Azure Data Factory에서 기본적으로 변환
+## <a name="transform-natively-in-azure-data-factory-with-data-flows"></a>데이터 흐름을 통해 Azure Data Factory에서 기본적으로 변환
 
 ### <a name="mapping-data-flows"></a>데이터 흐름 매핑
 
-데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 된 Spark 클러스터를 사용 하는 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 기존 Data Factory 일정, 제어, 흐름 및 모니터링 기능을 통해 데이터 흐름 활동을 조작 가능한 수 있습니다. 자세한 내용은 [데이터 흐름 매핑](concepts-data-flow-overview.md)을 참조 하세요.
+매핑 데이터 흐름은 Azure Data Factory에서 시각적으로 디자인된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 스케일 아웃 Spark 클러스터를 사용하는 Azure Data Factory 파이프라인 내에서 작업으로 실행됩니다. 데이터 흐름 작업은 기존 Data Factory 일정, 제어, 흐름, 모니터링 기능을 통해 운용할 수 있습니다. 자세한 내용은 [매핑 데이터 흐름](concepts-data-flow-overview.md)을 참조하세요.
 
-### <a name="data-wrangling"></a>데이터 랭 글 링
+### <a name="data-wrangling"></a>데이터 랭글링
 
-Azure Data Factory에서 파워 쿼리 클라우드 규모의 데이터 랭 글 링를 사용 하 여 클라우드 규모의 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 데이터 랭 글 링은 [온라인 파워 쿼리](/power-query/) 와 통합 되며 spark 실행을 통해 클라우드 규모의 데이터 랭 글 링 사용할 수 있는 파워 쿼리 M 함수를 제공 합니다. 자세한 내용은 [data 랭 글 링 IN ADF](wrangling-overview.md)항목을 참조 하세요.
+Azure Data Factory의 Power Query는 클라우드 규모의 데이터 랭글링을 활성화하여 클라우드 규모의 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 데이터 랭글링은 [Power Query Online](/power-query/)과 통합되며 Spark 실행을 통해 클라우드 규모의 데이터 랭글링에 Power Query M 함수를 사용할 수 있습니다. 자세한 내용은 [ADF의 데이터 랭글링](wrangling-overview.md)을 참조하세요.
 
 ## <a name="external-transformations"></a>외부 변환
 
-필요에 따라 변환을 직접 코딩 하 고 외부 계산 환경을 직접 관리할 수 있습니다.
+필요에 따라 변환을 직접 코딩하고 외부 컴퓨팅 환경을 직접 관리할 수 있습니다.
 
 ### <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
 Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 작업에 대한 자세한 내용은 [Hive 작업](transform-data-using-hadoop-hive.md) 문서를 참조하세요. 
@@ -67,22 +67,22 @@ Data Factory 파이프라인의 HDInsight 스트리밍 작업은 사용자 고�
 ### <a name="hdinsight-spark-activity"></a>HDInsight Spark 작업
 Data Factory 파이프라인에서 HDInsight Spark 작업은 사용자 고유 HDInsight 클러스터에서 Spark 프로그램을 실행합니다. 자세한 내용은 [Azure Data Factory에서 Spark 프로그램 호출](transform-data-using-spark.md) 을 참조하세요. 
 
-### <a name="azure-machine-learning-studio-classic-activities"></a>Azure Machine Learning Studio (클래식) 활동
-Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 처리 실행 작업](transform-data-using-machine-learning.md) 을 사용 하 여 Studio (클래식) 웹 서비스를 호출 하 여 일괄 처리에서 데이터에 대 한 예측을 만들 수 있습니다.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Azure Machine Learning Studio(클래식) 작업
+Azure Data Factory를 사용하면 예측 분석을 위해 게시된 Azure Machine Learning Studio(클래식) 웹 서비스를 사용하는 파이프라인을 쉽게 만들 수 있습니다. Azure Data Factory 파이프라인에서 [일괄 실행 작업](transform-data-using-machine-learning.md)을 사용하면 Studio(클래식) 웹 서비스를 호출하여 데이터를 일괄적으로 예측할 수 있습니다.
 
-시간이 지남에 따라 스튜디오 (클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 집합을 사용 하 여 다시 학습 해야 합니다. 재 학습을 완료 한 후에는 다시 학습 machine learning 모델을 사용 하 여 점수 매기기 웹 서비스를 업데이트 하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
+시간이 지남에 따라 Studio(클래식) 점수 매기기 실험의 예측 모델은 새 입력 데이터 세트를 사용하여 다시 학습되어야 합니다. 재학습으로 완료한 후에는 재학습한 기계 학습 모델로 점수 매기기 웹 서비스를 업데이트하려고 합니다. [업데이트 리소스 작업](update-machine-learning-models.md)을 사용하여 새로 학습된 모델로 웹 서비스를 업데이트합니다.  
 
-이러한 Studio (클래식) 활동에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 활동 사용](transform-data-using-machine-learning.md) 을 참조 하세요. 
+이러한 Studio(클래식) 작업에 대한 자세한 내용은 [Azure Machine Learning Studio(클래식) 작업 사용](transform-data-using-machine-learning.md)을 참조하세요. 
 
 ### <a name="stored-procedure-activity"></a>저장 프로시저 작업
-Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용 하 여 엔터프라이즈 또는 Azure VM의 데이터 저장소 Azure SQL Database, Azure Synapse Analytics, SQL Server 데이터베이스 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
+Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사용하여 엔터프라이즈 또는 Azure VM의 Azure SQL Database, Azure Synapse Analytics, SQL Server Database의 데이터 저장소 중 하나에서 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [저장 프로시저 작업](transform-data-using-stored-procedure.md) 문서를 참조하세요.  
 
 ### <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](transform-data-using-data-lake-analytics.md) 문서를 참조하세요. 
 
 ### <a name="databricks-notebook-activity"></a>Databricks Notebook 활동
 
-Data Factory 파이프라인의 Azure Databricks 노트북 작업은 Azure Databricks 작업 영역에서 Databricks 노트북을 실행 합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Databricks Notebook을 실행하여 데이터 변환](transform-data-databricks-notebook.md)을 참조하세요.
+Data Factory 파이프라인의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Databricks Notebook을 실행하여 데이터 변환](transform-data-databricks-notebook.md)을 참조하세요.
 
 ### <a name="databricks-jar-activity"></a>Databricks Jar 활동
 

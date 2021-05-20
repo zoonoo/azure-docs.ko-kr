@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5dddaabf47a261f741b3b1cb8d3319d589c4e474
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 03917b332d6ce204cda0ec072d213a0844690b94
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480772"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787836"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 데이터 처리를 위한 함수 앱 연결
 
@@ -132,14 +132,14 @@ Azure CLI 또는 Azure Portal을 사용하여 함수 앱에 대한 보안 액세
 1. 다음 명령을 사용하여 함수에 대한 시스템 관리 ID의 세부 정보를 확인합니다. 출력에서 `principalId` 필드를 기록해 둡니다.
 
     ```azurecli-interactive 
-    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>   
     ```
 
     >[!NOTE]
     > ID의 세부 정보를 표시하지 않고 결과가 비어 있는 경우 다음 명령을 사용하여 함수에 대한 시스템 관리 ID를 새로 만듭니다.
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
     >```
     >
     > 출력에는 다음 단계에 필요한 `principalId` 값을 포함하여 ID의 세부 정보가 표시됩니다. 
@@ -158,7 +158,7 @@ Azure CLI 또는 Azure Portal을 사용하여 함수 앱에 대한 보안 액세
 > Azure Digital Twins 인스턴스의 URL은 인스턴스의 호스트 이름 앞에 *https://* 가 추가되어 만들어집니다. 인스턴스의 모든 속성과 함께 호스트 이름을 확인하려면 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` 명령을 실행합니다.
 
 ```azurecli-interactive 
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)

@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: d8dee086f55c5596af50245b5271d98536eb7e57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe58822755959b35fce2a7e714b6e81c2ca58c2c
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95026202"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518129"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
 
@@ -62,6 +62,9 @@ CREATE TABLE campaigns (
   PRIMARY KEY (company_id, id)
 );
 ```
+
+>[!NOTE]
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *blacklisted* 라는 용어가 언급되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
 
 각 캠페인에는 광고를 실행하기 위한 비용이 지불됩니다. psql에서 위의 코드 뒤에 다음 코드를 실행하여 광고에 대한 테이블도 추가합니다.
 

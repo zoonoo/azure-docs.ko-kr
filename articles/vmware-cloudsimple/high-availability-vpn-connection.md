@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 온-프레미스에서 CloudSimple VPN 게이트웨이로의 고가용성 구성
 description: 온-프레미스 환경에서 고가용성을 위해 사용하도록 설정된 CloudSimple VPN 게이트웨이로 고가용성 연결을 구성하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44bbee4e179cd77159cd269e69dba4cd0812624e
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 80805aaa172518c40c7ad123ca24361ee0f15e69
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176795"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97895702"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>온-프레미스에서 CloudSimple VPN 게이트웨이로의 고가용성 연결 구성
 

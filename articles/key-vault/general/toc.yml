@@ -49,8 +49,6 @@
       items:
         - name: 보안 기능
           href: security-features.md
-        - name: Key Vault 인증 기본 사항
-          href: authentication.md
         - name: Key Vault 인증
           href: authentication.md
         - name: 보안 권역 및 지역

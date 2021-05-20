@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 8fca05f8718fc5e44da33b19447895f5daafc905
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 1e5a61bd4e3287c1100ff1f54fda797c1add438b
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107716766"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103466414"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -43,9 +43,9 @@ Azure Backup은 백업된 데이터를 자격 증명 모음(Recovery Services �
 - Azure VM 및 온-프레미스 컴퓨터를 포함하여 자격 증명 모음에 백업된 항목을 모니터링할 수 있습니다.
 - [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS(로컬 중복 스토리지)** : 데이터 센터의 장애로부터 보호하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **GRS(지역 중복 스토리지)** : 지역 전체의 중단으로부터 보호하기 위해 GRS를 사용할 수 있습니다. GRS는 데이터를 보조 지역에 복제합니다. [자세한 정보를 알아보세요](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **ZRS(영역 중복 스토리지)** : [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **LRS(로컬 중복 스토리지)** : 데이터 센터의 장애로부터 보호하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **GRS(지역 중복 스토리지)** : 지역 전체의 중단으로부터 보호하기 위해 GRS를 사용할 수 있습니다. GRS는 데이터를 보조 지역에 복제합니다. [자세히 알아보기](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **ZRS(영역 중복 스토리지)** : [가용성 영역](../availability-zones/az-overview.md#availability-zones)에서 데이터를 복제하여 동일한 지역에 데이터 상주 및 복원력을 보장합니다. [자세한 정보](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용합니다.
 
 Recovery Services 자격 증명 모음에는 다음과 같은 추가 기능이 있습니다.
@@ -137,12 +137,28 @@ DPM/MABS 디스크에 백업 한 다음, Azure에 백업 | | | ![예][green]
 - Azure 파일 공유: 정책을 [만들고](./backup-afs.md) [수정](./manage-afs-backup.md#modify-policy)하는 방법입니다.
 - SAP HANA: 정책을 [만들고](./backup-azure-sap-hana-database.md#create-a-backup-policy) [수정](./sap-hana-db-manage.md#change-policy)하는 방법입니다.
 - MARS: 정책을 [만들고](./backup-windows-with-mars-agent.md#create-a-backup-policy) [수정](./backup-azure-manage-mars.md#modify-a-backup-policy)하는 방법입니다.
-- [워크로드 유형에 따라 백업 예약에 제한이 있나요?](./backup-azure-backup-faq.yml#are-there-limits-on-backup-scheduling-)
-- [보존 정책을 변경하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.yml#what-happens-when-i-change-my-backup-policy-)
+- [워크로드 유형에 따라 백업 예약에 제한이 있나요?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [보존 정책을 변경하는 경우 기존 복구 지점은 어떻게 되나요?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 
-[!INCLUDE [azure-vm-backup-process.md](../../includes/azure-vm-backup-process.md)]
+1. Azure VM에 백업을 사용하도록 설정하면 지정하는 일정에 따라 백업이 실행됩니다.
+1. 첫 번째 백업 중에 VM이 실행되고 있으면 백업 확장이 VM에 설치됩니다.
+    - Windows VM의 경우 VMSnapshot 확장이 설치됩니다.
+    - Linux VM의 경우 VMSnapshot Linux 확장이 설치됩니다.
+1. 확장은 스토리지 수준의 스냅샷을 만듭니다.
+    - 실행 중인 Windows VM의 경우 Backup이 Windows VSS(볼륨 섀도 복사본 서비스)와 조정되어 VM의 일관성 있는 앱 스냅샷을 생성합니다. 기본적으로 Backup은 전체 VSS 백업을 수행합니다. Backup에서 앱 일관성이 있는 스냅샷을 만들 수 없는 경우에는 일관성 있는 파일 스냅샷을 만듭니다.
+    - Linux VM의 경우 Backup에서 파일 일관성이 있는 스냅샷을 수행합니다. 일관성 있는 앱 스냅샷의 경우 수동으로 사전/사후 스크립트를 사용자 지정해야 합니다.
+    - 각 VM 디스크를 병렬로 백업하여 백업이 최적화됩니다. 백업 중인 각 디스크에 대해 Azure Backup은 디스크의 블록을 읽고 변경된 데이터만 저장합니다.
+1. 스냅샷을 만든 후에는 데이터가 자격 증명 모음으로 전송됩니다.
+    - 마지막 백업 이후 변경된 데이터 블록만 복사됩니다.
+    - 데이터가 암호화되지 않습니다. Azure Backup은 Azure Disk Encryption을 사용하여 암호화된 Azure VM을 백업할 수 있습니다.
+    - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수도 있습니다. 사용량이 많은 시간에는 백업에 몇 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24시간 미만입니다.
+1. 자격 증명 모음에 데이터가 전송된 후에는 복구 지점이 생성됩니다. 기본적으로 스냅샷은 삭제되기 전 2일간 보존됩니다. 이 기능을 사용하면 복원 시간을 줄여 스냅샷에서 복원 작업을 수행할 수 있습니다. 자격 증명 모음에서 데이터를 다시 변환하고 복사하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](./backup-instant-restore-capability.md)을 참조하세요.
+
+Azure VM을 백업하기 위해 인터넷 연결을 명시적으로 허용할 필요는 없습니다.
+
+![Azure VM의 백업](./media/backup-architecture/architecture-azure-vm.png)
 
 ## <a name="architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders"></a>아키텍처: 온-프레미스 Windows Server 컴퓨터나 Azure VM 파일 또는 폴더의 직접 백업
 

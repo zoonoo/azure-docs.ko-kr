@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: f6f00075c7c66679281d776f9472ec4a1a590d76
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 3e9baedafb436bc92f734bf39519918686cec58d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231019"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124476"
 ---
 # <a name="azure-storage-migration-overview"></a>Azure Storage 마이그레이션 개요
 
@@ -28,7 +28,7 @@ ms.locfileid: "106231019"
 - NAS(네트워크 연결 스토리지)에서 Azure 파일 제품 중 하나로 파일 마이그레이션:
   - [Azure 파일](https://azure.microsoft.com/services/storage/files/)
   - [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)
-  - [ISV(Independent Software Vendor) 솔루션](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)
+  - [ISV(Independent Software Vendor) 솔루션](../solution-integration/validated-partners/primary-secondary-storage/partner-overview.md)
 - 개체 스토리지 솔루션에서 Azure 개체 스토리지 플랫폼으로 개체 마이그레이션:
   - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
   - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
@@ -66,7 +66,7 @@ ms.locfileid: "106231019"
 - 성능 특징
 - 대상 스토리지 서비스의 제한 사항
 
-다음 다이어그램은 권장되는 Azure 파일 서비스를 안내해 주는 간소화된 의사 결정 트리입니다. 기본 Azure 서비스가 요구 사항을 충족하지 않는 경우, 요구 사항을 충족해 줄 다양한 [ISV(Independent Software Vendor) 솔루션](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)이 있습니다.
+다음 다이어그램은 권장되는 Azure 파일 서비스를 안내해 주는 간소화된 의사 결정 트리입니다. 기본 Azure 서비스가 요구 사항을 충족하지 않는 경우, 요구 사항을 충족해 줄 다양한 [ISV(Independent Software Vendor) 솔루션](../solution-integration/validated-partners/primary-secondary-storage/partner-overview.md)이 있습니다.
 
 기술 평가를 완료하고 적절한 대상을 선택한 후 비용 평가를 수행하여 가장 비용 효율적인 옵션을 결정합니다.
 
@@ -74,31 +74,31 @@ ms.locfileid: "106231019"
 
 의사 결정 트리를 단순하게 유지하기 위해 대상 스토리지 서비스의 제한 사항은 다이어그램에 통합되어 있지 않습니다. 현재 제한 사항에 대한 자세한 내용을 확인하고 이에 따라 선택을 수정해야 하는지 여부를 확인하려면 다음을 참조하세요.
 
-- [Storage 계정 제한](/azure/azure-resource-manager/management/azure-subscription-service-limits#storage-limits)
-- [Blob Storage 제한 사항](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-blob-storage-limits)
-- [Azure Files 확장성 및 성능 목표](/azure/storage/files/storage-files-scale-targets)
-- [Azure NetApp Files 리소스 제한 사항](/azure/azure-netapp-files/azure-netapp-files-resource-limits)
+- [Storage 계정 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)
+- [Blob Storage 제한 사항](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-blob-storage-limits)
+- [Azure Files 확장성 및 성능 목표](../files/storage-files-scale-targets.md)
+- [Azure NetApp Files 리소스 제한 사항](../../azure-netapp-files/azure-netapp-files-resource-limits.md)
 
-서비스 사용 차단을 유발하는 제한 사항이 하나라도 있을 경우 Azure는 Azure Marketplace에 관련 솔루션을 제공하는 여러 스토리지 공급업체를 지원합니다. 파일 서비스를 제공하는 검증된 ISV 파트너에 대한 자세한 내용은 [기본 및 보조 스토리지에 대한 Azure Storage 파트너](/azure/storage/solution-integration/validated-partners/primary-secondary-storage/partner-overview)를 참조하세요.
+서비스 사용 차단을 유발하는 제한 사항이 하나라도 있을 경우 Azure는 Azure Marketplace에 관련 솔루션을 제공하는 여러 스토리지 공급업체를 지원합니다. 파일 서비스를 제공하는 검증된 ISV 파트너에 대한 자세한 내용은 [기본 및 보조 스토리지에 대한 Azure Storage 파트너](../solution-integration/validated-partners/primary-secondary-storage/partner-overview.md)를 참조하세요.
 
 ##### <a name="select-the-migration-method"></a>마이그레이션 방법 선택
 
 스토리지 마이그레이션을 위한 기본 마이그레이션 방법에는 두 가지가 있습니다.
 
-- **온라인**. 온라인 방법은 데이터 마이그레이션에 네트워크를 사용합니다. 공용 인터넷 또는 [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) 중 하나를 사용할 수 있습니다. 서비스에 공용 엔드포인트가 없으면 공용 인터넷에서 VPN을 사용해야 합니다.
+- **온라인**. 온라인 방법은 데이터 마이그레이션에 네트워크를 사용합니다. 공용 인터넷 또는 [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) 중 하나를 사용할 수 있습니다. 서비스에 공용 엔드포인트가 없으면 공용 인터넷에서 VPN을 사용해야 합니다.
 - **오프라인.** 오프라인 방법은 [Azure Data Box](https://azure.microsoft.com/services/databox/) 디바이스 중 하나를 사용합니다.
 
 온라인 방법과 오프라인 방법 중 어느 방법을 사용할지는 사용 가능한 네트워크 대역폭에 따라 달라집니다. 필요한 타임라인 내에서 마이그레이션을 수행하는 데 충분한 네트워크 대역폭이 있는 경우 온라인 방법이 권장됩니다.
 
 초기 대량 마이그레이션에는 오프라인 방법을, 변경 내용의 증분 마이그레이션에는 온라인 방법을 사용하는 등, 두 방법을 조합하여 사용할 수 있습니다. 두 방법을 동시에 사용하려면 높은 수준의 조정이 필요하므로 권장되지 않습니다. 두 방법을 모두 사용하도록 선택하는 경우 오프라인으로 마이그레이션된 데이터 세트에서 온라인으로 마이그레이션된 데이터 세트를 격리합니다.
 
-여러 마이그레이션 방법 및 지침에 대한 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](/azure/storage/common/storage-choose-data-transfer-solution) 및 [Azure 파일 공유로 마이그레이션](/azure/storage/files/storage-files-migration-overview)을 참조하세요.
+여러 마이그레이션 방법 및 지침에 대한 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](./storage-choose-data-transfer-solution.md) 및 [Azure 파일 공유로 마이그레이션](../files/storage-files-migration-overview.md)을 참조하세요.
 
 ##### <a name="choose-the-best-migration-tool-for-the-job"></a>작업에 가장 적합한 마이그레이션 도구 선택
 
 마이그레이션을 수행하는 데 사용할 수 있는 다양한 마이그레이션 도구가 있습니다. AzCopy, robocopy, xcopy 및 rsync와 같은 오픈 소스 도구도 있고, 상용 도구도 있습니다. 사용 가능한 상용 도구를 비교한 목록은 [비교 행렬](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)에서 볼 수 있습니다.
 
-오픈 소스 도구는 소규모 마이그레이션에 적합합니다. Windows 파일 서버에서 Azure Files로 마이그레이션하는 경우 Azure Files 기본 기능으로 시작하고 [Azure 파일 동기화](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-file-sync)를 사용하는 것이 좋습니다. 서로 다른 원본, 대용량 또는 대역폭 제한이나 감사 기능을 사용한 상세 보고와 같은 특별한 요구 사항으로 구성된 더 복잡한 마이그레이션은 상용 도구를 선택하는 것이 가장 좋습니다. 이러한 도구를 사용하면 마이그레이션을 더 쉽게 수행하고 위험을 크게 줄일 수 있습니다. 대부분의 상용 도구는 평가에 중요한 입력을 제공하는 검색을 수행할 수도 있습니다.
+오픈 소스 도구는 소규모 마이그레이션에 적합합니다. Windows 파일 서버에서 Azure Files로 마이그레이션하는 경우 Azure Files 기본 기능으로 시작하고 [Azure 파일 동기화](/windows-server/manage/windows-admin-center/azure/azure-file-sync)를 사용하는 것이 좋습니다. 서로 다른 원본, 대용량 또는 대역폭 제한이나 감사 기능을 사용한 상세 보고와 같은 특별한 요구 사항으로 구성된 더 복잡한 마이그레이션은 상용 도구를 선택하는 것이 가장 좋습니다. 이러한 도구를 사용하면 마이그레이션을 더 쉽게 수행하고 위험을 크게 줄일 수 있습니다. 대부분의 상용 도구는 평가에 중요한 입력을 제공하는 검색을 수행할 수도 있습니다.
 
 #### <a name="migration-phase"></a>마이그레이션 단계
 
@@ -114,13 +114,13 @@ ms.locfileid: "106231019"
 
 블록 기반 디바이스의 마이그레이션은 일반적으로 가상 머신 또는 물리적 호스트 마이그레이션의 일부로 수행됩니다. 마이그레이션 후까지 블록 스토리지 결정을 미루어야 한다는 것은 일반적인 오해입니다. 워크로드 요구 사항을 적절히 고려하여 이러한 결정을 미리 내리면 클라우드로 더욱 원활하게 마이그레이션할 수 있습니다.
 
-마이그레이션할 워크로드 및 사용할 접근법에 대한 자세한 내용은 [Azure Disk Storage 설명서](/azure/virtual-machines/disks-types) 및 [Disk Storage 제품 페이지](https://azure.microsoft.com/services/storage/disks/#resources)의 리소스를 참조하세요. 요구 사항에 적합한 디스크 및 [디스크 버스팅](/azure/virtual-machines/disk-bursting)과 같은 최신 기능에 대해 알아볼 수 있습니다. 기본 블록 기반 디바이스와 함께 가상 머신을 마이그레이션하는 방법에 대한 자세한 내용은 [Azure Migrate](/azure/migrate/) 설명서를 참조하세요.
+마이그레이션할 워크로드 및 사용할 접근법에 대한 자세한 내용은 [Azure Disk Storage 설명서](../../virtual-machines/disks-types.md) 및 [Disk Storage 제품 페이지](https://azure.microsoft.com/services/storage/disks/#resources)의 리소스를 참조하세요. 요구 사항에 적합한 디스크 및 [디스크 버스팅](../../virtual-machines/disk-bursting.md)과 같은 최신 기능에 대해 알아볼 수 있습니다. 기본 블록 기반 디바이스와 함께 가상 머신을 마이그레이션하는 방법에 대한 자세한 내용은 [Azure Migrate](../../migrate/index.yml) 설명서를 참조하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
-- [데이터 전송에 사용할 Azure 솔루션 선택](/azure/storage/common/storage-choose-data-transfer-solution)
+- [데이터 전송에 사용할 Azure 솔루션 선택](./storage-choose-data-transfer-solution.md)
 - [상용 마이그레이션 도구 비교](../solution-integration/validated-partners/data-management/migration-tools-comparison.md)
-- [Azure 파일 공유로 마이그레이션](/azure/storage/files/storage-files-migration-overview)
-- [Azure용 WANdisco LiveData Platform을 사용하여 Data Lake Storage로 마이그레이션](/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
-- [AzCopy를 사용하여 Azure Storage로 데이터 복사 또는 이동](https://aka.ms/azcopy)
+- [Azure 파일 공유로 마이그레이션](../files/storage-files-migration-overview.md)
+- [Azure용 WANdisco LiveData 플랫폼을 사용하여 Data Lake Storage로 마이그레이션](../blobs/migrate-gen2-wandisco-live-data-platform.md)
+- [AzCopy를 사용하여 Azure Storage로 데이터 복사 또는 이동](./storage-use-azcopy-v10.md)
 - [AzReplicate를 사용하여 Azure Blob Storage로 대량 데이터 세트 마이그레이션](https://github.com/Azure/AzReplicate/tree/master/)

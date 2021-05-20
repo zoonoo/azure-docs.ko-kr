@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - vSphere 클라이언트에 액세스
 description: 프라이빗 클라우드의 vCenter에 액세스하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/30/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e3f827bbd1e500c9cea809939194757bb9fe7881
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 2e62042a84f7ac2615762e3d9b036e4340bd8c73
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181061"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97899119"
 ---
 # <a name="access-your-private-cloud-vcenter-portal"></a>프라이빗 클라우드 vCenter 포털에 액세스
 

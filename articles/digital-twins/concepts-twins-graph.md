@@ -1,93 +1,93 @@
 ---
 title: Digital Twins 및 쌍 그래프
 titleSuffix: Azure Digital Twins
-description: 디지털 쌍의 개념과 관계가 어떻게 그래프를 만드는 지를 이해 합니다.
+description: 디지털 트윈의 개념과 관계가 어떻게 그래프를 만드는지를 이해합니다.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 00058f75a2c4378371c427ff9ebabe7e2336b06a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99576551"
 ---
-# <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 쌍 및 쌍 그래프 이해
+# <a name="understand-digital-twins-and-their-twin-graph"></a>디지털 트윈 및 트윈 그래프 이해
 
-Azure digital 쌍 솔루션에서 환경의 엔터티는 **디지털** 쌍으로 표시 됩니다. 디지털 쌍은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 쌍에 연결 하 여 쌍 **그래프** 를 형성할 수 있습니다 .이 쌍 그래프는 전체 환경에 대 한 표현입니다.
+Azure Digital Twins 솔루션에서 환경의 엔터티는 **디지털 트윈** 으로 표시됩니다. 디지털 트윈은 사용자 정의 [모델](concepts-models.md)중 하나의 인스턴스입니다. 이는 **관계** 를 통해 다른 디지털 트윈에 연결하여 **트윈 그래프** 를 형성할 수 있습니다. 이 트윈 그래프는 전체 환경에 대한 표현입니다.
 
 > [!TIP]
-> "Azure Digital Twins"는 전체 Azure 서비스를 의미 합니다. "Digital 쌍" 또는 "쌍"은 서비스 인스턴스 내의 개별 쌍 노드를 나타냅니다.
+> "Azure Digital Twins"는 전체 Azure 서비스를 의미합니다. "Digital 트윈" 또는 "트윈"은 서비스 인스턴스 내의 개별 트윈 노드를 나타냅니다.
 
 ## <a name="digital-twins"></a>Digital Twins
 
-Azure Digital Twins 인스턴스에서 디지털 쌍을 만들려면 먼저 서비스에 *모델* 을 업로드 해야 합니다. 모델은 특정 쌍에 포함 될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명 합니다. 모델에 정의 된 정보 유형은 [*개념: 사용자 지정 모델*](concepts-models.md)을 참조 하세요.
+Azure Digital Twins 인스턴스에서 디지털 트윈을 만들려면 먼저 서비스에 *모델* 을 업로드해야 합니다. 모델은 특정 트윈에 포함될 수 있는 속성, 원격 분석 메시지 및 관계 집합을 설명합니다. 모델에 정의된 정보 유형은 [*개념: 사용자 지정 모델*](concepts-models.md)을 참조하세요.
 
-모델을 만들고 업로드 한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 디지털 쌍입니다. 예를 들어 *바닥* 의 모델을 만든 후이 유형을 사용 하는 하나 또는 여러 개의 디지털 쌍을 만들 수 있습니다 (예: *GroundFloor* 이라는 *Floor* 쌍, *Floor2* 라는 다른 유형의 쌍).
+모델을 만들고 업로드한 후 클라이언트 앱에서 형식의 인스턴스를 만들 수 있습니다. 이는 디지털 트윈입니다. 예를 들어 *Floor* 의 모델을 만든 후 이 형식을 사용하는 하나 또는 여러 개의 디지털 트윈을 만들 수 있습니다(예: *GroundFloor* 라는 *Floor* 형식 트윈, *Floor2* 라는 다른 형식의 트윈).
 
 [!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
 
-## <a name="relationships-a-graph-of-digital-twins"></a>관계: 디지털 쌍의 그래프
+## <a name="relationships-a-graph-of-digital-twins"></a>관계: 디지털 트윈의 그래프
 
-Twins는 해당 관계에 따라 쌍으로 연결 됩니다. 쌍이 가질 수 있는 관계는 해당 모델의 일부로 정의 됩니다.  
+트윈은 해당 관계에 따라 트윈으로 연결됩니다. 트윈이 가질 수 있는 관계는 해당 모델의 일부로 정의됩니다.  
 
-예를 들어 모델 *층* 은 *대화방* 형식의 쌍를 대상으로 하는 *포함* 관계를 정의할 수 있습니다. 이 정의를 사용 하 여 Azure Digital 쌍는 모든 *층* 쌍에서 *대화방* 쌍으로의 관계 ( *대화방* 하위 형식의 쌍 포함)를 만들 *수 있습니다.* 
+예를 들어 모델 *Floor* 는 *room* 형식의 트윈을 대상으로 하는 *contains* 관계를 정의할 수 있습니다. 이 정의를 사용하여 Azure Digital Twins는 모든 *Floor* 트윈에서 *Room* 트윈으로의 *contains* 관계(*Room* 하위 형식의 트윈 포함)를 만들 수 있습니다. 
 
-이 프로세스의 결과는 그래프의 가장자리 (해당 관계)를 통해 연결 된 노드 (디지털 쌍) 집합입니다.
+이 프로세스의 결과는 그래프의 가장자리(해당 관계)를 통해 연결된 노드(디지털 트윈) 집합입니다.
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
-## <a name="create-with-the-apis"></a>Api를 사용 하 여 만들기
+## <a name="create-with-the-apis"></a>API로 만들기
 
-이 섹션에서는 클라이언트 응용 프로그램에서 디지털 쌍 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins api](/rest/api/digital-twins/dataplane/twins)를 활용 하는 .net 코드 예제를 포함 하 여 이러한 각 개념 내에서 수행 되는 작업에 대 한 추가 컨텍스트를 제공 합니다.
+이 섹션에서는 클라이언트 애플리케이션에서 디지털 트윈 및 관계를 만드는 방법을 보여 줍니다. [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 활용하는 .NET 코드 예제를 포함하여 이러한 각 개념 내에서 수행되는 작업에 대한 추가 컨텍스트를 제공합니다.
 
 ### <a name="create-digital-twins"></a>디지털 트윈 만들기
 
-다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 *대화방* 형식의 쌍을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
+다음은 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 사용하여 *Room* 형식의 트윈을 인스턴스화하는 클라이언트 코드의 코드 조각입니다.
 
-쌍을 만들 때 쌍의 속성을 초기화 하거나 나중에 설정할 수 있습니다. 초기화 된 속성이 있는 쌍을 만들려면 필요한 초기화 값을 제공 하는 JSON 문서를 만듭니다.
+트윈을 만들 때 트윈의 속성을 초기화하거나 나중에 설정할 수 있습니다. 초기화된 속성이 있는 트윈을 만들려면 필요한 초기화 값을 제공하는 JSON 문서를 만듭니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="CreateTwin_noHelper":::
 
-사전을 사용 하는 대신, 라는 도우미 클래스를 사용 `BasicDigitalTwin` 하 여 "쌍" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대 한 자세한 내용은 *방법: 디지털* 쌍 관리 [*섹션을*](how-to-manage-twin.md#create-a-digital-twin) 참조 하세요.
+사전을 사용하는 대신, `BasicDigitalTwin`이라는 도우미 클래스를 사용하여 "트윈" 개체에 속성 필드를 더 직접 저장할 수도 있습니다. 도우미 클래스 및 사용 예제에 대한 자세한 내용은 *방법: 디지털 트윈 관리* 의 [*디지털 트윈 만들기*](how-to-manage-twin.md#create-a-digital-twin) 섹션을 참조하세요.
 
 >[!NOTE]
->쌍 속성은 선택적으로 처리 되므로 초기화할 필요가 없습니다. 쌍을 만들 때 쌍의 모든 [구성 요소](concepts-models.md#elements-of-a-model) 를 **설정 해야 합니다** . 비어 있는 개체 일 수 있지만 구성 요소 자체는 존재 해야 합니다.
+>트윈 속성은 선택적으로 처리되므로 초기화할 필요가 없지만 트윈을 만들 때 트윈의 모든 [구성 요소](concepts-models.md#elements-of-a-model)를 **설정해야 합니다**. 비어 있는 개체일 수 있지만 구성 요소 자체는 존재해야 합니다.
 
 ### <a name="create-relationships"></a>관계 만들기
 
-다음은 [DigitalTwins api](/rest/api/digital-twins/dataplane/twins) 를 사용 하 여 하나의 디지털 쌍 ("원본" 쌍)에서 다른 디지털 쌍 ("대상" 쌍)으로의 관계를 만드는 클라이언트 코드 예제입니다.
+다음은 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins)를 사용하여 하나의 디지털 트윈("원본" 트윈)에서 다른 디지털 트윈("대상" 트윈)으로의 관계를 만드는 클라이언트 코드 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
 
 ## <a name="json-representations-of-graph-elements"></a>그래프 요소의 JSON 표현
 
-디지털 쌍 데이터 및 관계 데이터는 모두 JSON 형식으로 저장 됩니다. 즉, Azure digital 쌍 인스턴스에서 쌍 [그래프를 쿼리하면](how-to-query-graph.md) 생성 된 디지털 쌍 및 관계의 JSON 표현이 생성 됩니다.
+디지털 트윈 데이터 및 관계 데이터는 모두 JSON 형식으로 저장됩니다. 즉, Azure Digital Twins 인스턴스에서 [트윈 그래프를 쿼리](how-to-query-graph.md)하면 생성된 디지털 트윈 및 관계의 JSON 표현이 생성됩니다.
 
-### <a name="digital-twin-json-format"></a>디지털 쌍 JSON 형식
+### <a name="digital-twin-json-format"></a>디지털 트윈 JSON 형식
 
-JSON 개체로 표시 되는 경우 디지털 쌍은 다음 필드를 표시 합니다.
+JSON 개체로 표시되는 경우 디지털 트윈은 다음 필드를 표시합니다.
 
 | 필드 이름 | Description |
 | --- | --- |
-| `$dtId` | 디지털 쌍의 ID를 나타내는 사용자 제공 문자열입니다. |
-| `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
-| `$conformance` | 이 디지털 쌍의 규칙 상태를 포함 하는 열거형입니다 (*준수*, 일치 *하지 않음*, *알 수 없음*). |
-| `{propertyName}` | JSON ( `string` , number 형식 또는 object)의 속성 값입니다. |
-| `$relationships` | 관계 컬렉션에 대 한 경로 URL입니다. 디지털 쌍에 나가는 관계 가장자리가 없으면이 필드가 없습니다. |
-| `$metadata.$model` | 필드 이 디지털 쌍의 특징을 나타내는 모델 인터페이스의 ID입니다. |
-| `$metadata.{propertyName}.desiredValue` | [쓰기 가능한 속성에만 해당] 지정 된 속성의 원하는 값입니다. |
-| `$metadata.{propertyName}.desiredVersion` | [쓰기 가능한 속성에만 해당] 원하는 값의 버전입니다. |
-| `$metadata.{propertyName}.ackVersion` | 디지털 쌍을 구현 하는 장치 앱에서 인정 하는 버전 |
-| `$metadata.{propertyName}.ackCode` | [쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 된 코드 |
-| `$metadata.{propertyName}.ackDescription` | [쓰기 가능한 속성에만 해당] `ack` 디지털 쌍을 구현 하는 장치 앱에서 반환 하는 설명입니다. |
-| `{componentName}` | 루트 개체의 속성 값과 메타 데이터를 포함 하는 JSON 개체입니다. 이 개체는 구성 요소에 속성이 없는 경우에도 존재 합니다. |
-| `{componentName}.{propertyName}` | JSON의 구성 요소 속성 값 ( `string` , 숫자 형식 또는 개체)입니다. |
-| `{componentName}.$metadata` | 루트 수준과 비슷한 구성 요소에 대 한 메타 데이터 정보입니다. `$metadata` |
+| `$dtId` | 디지털 트윈의 ID를 나타내는 사용자 제공 문자열 |
+| `$etag` | 웹 서버에서 할당한 표준 HTTP 필드 |
+| `$conformance` | 이 디지털 트윈의 규칙 상태를 포함하는 열거형(*준수*, *비준수*, *알 수 없음*) |
+| `{propertyName}` | JSON의 속성 값(`string`, 숫자 형식 또는 개체) |
+| `$relationships` | 관계 컬렉션에 대한 경로 URL입니다. 디지털 트윈에 나가는 관계 가장자리가 없으면 이 필드가 없습니다. |
+| `$metadata.$model` | [선택 사항] 이 디지털 트윈의 특징을 나타내는 모델 인터페이스의 ID |
+| `$metadata.{propertyName}.desiredValue` | [쓰기 가능한 속성에만 해당] 지정된 속성의 원하는 값 |
+| `$metadata.{propertyName}.desiredVersion` | [쓰기 가능한 속성에만 해당] 원하는 값의 버전 |
+| `$metadata.{propertyName}.ackVersion` | 디지털 트윈을 구현하는 디바이스 앱에서 인정하는 버전 |
+| `$metadata.{propertyName}.ackCode` | [쓰기 가능한 속성에만 해당] 디지털 트윈을 구현하는 디바이스 앱에서 반환된 `ack` 코드 |
+| `$metadata.{propertyName}.ackDescription` | [쓰기 가능한 속성에만 해당] 디지털 트윈을 구현하는 디바이스 앱에서 반환된 `ack` 설명 |
+| `{componentName}` | 구성 요소의 속성 값과 메타데이터를 포함하는 JSON 개체입니다(루트 개체와 유사함). 이 개체는 구성 요소에 속성이 없는 경우에도 존재합니다. |
+| `{componentName}.{propertyName}` | JSON의 구성 요소 속성 값(`string`, 숫자 형식 또는 개체) |
+| `{componentName}.$metadata` | 루트 수준 `$metadata`와 비슷한 구성 요소에 대한 메타데이터 정보 |
 
-JSON 개체로 형식이 지정 된 디지털 쌍의 예는 다음과 같습니다.
+JSON 개체로 형식이 지정된 디지털 트윈의 예제는 다음과 같습니다.
 
 ```json
 {
@@ -135,18 +135,18 @@ JSON 개체로 형식이 지정 된 디지털 쌍의 예는 다음과 같습니�
 
 ### <a name="relationship-json-format"></a>관계 JSON 형식
 
-JSON 개체로 표시 되는 경우 디지털 쌍의 관계에 다음 필드가 표시 됩니다.
+JSON 개체로 표시되는 경우 디지털 트윈의 관계는 다음 필드를 표시합니다.
 
 | 필드 이름 | Description |
 | --- | --- |
-| `$relationshipId` | 이 관계의 ID를 나타내는 사용자 제공 문자열입니다. 이 문자열은 원본 디지털 쌍의 컨텍스트에서 고유 하며,이는 `sourceId`  +  `relationshipId` Azure digital twins 인스턴스의 컨텍스트에서 고유한 것을 의미 하기도 합니다. |
-| `$etag` | 웹 서버에서 할당 한 표준 HTTP 필드 |
-| `$sourceId` | 원본 디지털 쌍의 ID입니다. |
-| `$targetId` | 대상 디지털 쌍의 ID입니다. |
-| `$relationshipName` | 관계의 이름입니다. |
-| `{propertyName}` | 필드 이 관계의 속성 값 (JSON ( `string` , 숫자 형식 또는 개체))입니다. |
+| `$relationshipId` | 이 관계의 ID를 나타내는 사용자 제공 문자열입니다. 이 문자열은 원본 디지털 트윈의 컨텍스트에서 고유하며, 이는 `sourceId` + `relationshipId`가 Azure Digital Twins 인스턴스의 컨텍스트에서 고유한 것을 의미하기도 합니다. |
+| `$etag` | 웹 서버에서 할당한 표준 HTTP 필드 |
+| `$sourceId` | 원본 디지털 트윈의 ID |
+| `$targetId` | 대상 디지털 트윈의 ID |
+| `$relationshipName` | 관계의 이름 |
+| `{propertyName}` | [선택 사항] 이 관계의 속성 값(JSON)(`string`, 숫자 형식 또는 개체) |
 
-JSON 개체로 형식이 지정 된 관계의 예는 다음과 같습니다.
+JSON 개체로 형식이 지정된 관계의 예제는 다음과 같습니다.
 
 ```json
 {
@@ -161,9 +161,9 @@ JSON 개체로 형식이 지정 된 관계의 예는 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 디지털 쌍 Api를 사용 하 여 그래프 요소를 관리 하는 방법을 참조 하세요.
-* [*방법: digital 쌍 관리*](how-to-manage-twin.md)
-* [*방법: 관계로 쌍 그래프 관리*](how-to-manage-graph.md)
+Azure Digital Twin API를 사용하여 그래프 요소를 관리하는 방법을 참조하세요.
+* [*방법: 디지털 트윈 관리*](how-to-manage-twin.md)
+* [*방법: 관계를 사용하여 트윈 그래프 관리*](how-to-manage-graph.md)
 
-또는 정보에 대 한 Azure Digital Twins 쌍 그래프를 쿼리 하는 방법에 대해 알아봅니다.
+또는 정보에 대한 Azure Digital Twins 트윈 그래프를 쿼리하는 방법에 대해 알아봅니다.
 * [*개념: 쿼리 언어*](concepts-query-language.md)

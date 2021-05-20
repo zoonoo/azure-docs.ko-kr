@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: 024de5acfbc4e6c4aaa510de84c0bceb6bde2b3d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f000cf2b58bb9f9b3c2077dbad490e6a4ff3da43
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92672968"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735911"
 ---
 # <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>자습서: Azure Active Directory와 SecureW2 JoinNow Connector 연결
 
@@ -25,8 +25,6 @@ ms.locfileid: "92672968"
 * SecureW2 JoinNow Connector에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 SecureW2 JoinNow Connector에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
-
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,48 +37,43 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* SecureW2 JoinNow Connector에서 **SP** 시작 SSO를 지원합니다
+* SecureW2 JoinNow Connector에서 **SP** 시작 SSO를 지원합니다.
 
-
-
-
-
-## <a name="adding-securew2-joinnow-connector-from-the-gallery"></a>갤러리에서 SecureW2 JoinNow Connector 추가
+## <a name="add-securew2-joinnow-connector-from-the-gallery"></a>갤러리에서 SecureW2 JoinNow Connector 추가
 
 SecureW2 JoinNow Connector가 Azure AD에 통합되도록 구성하려면 갤러리의 SecureW2 JoinNow Connector를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **SecureW2 JoinNow Connector** 를 입력합니다.
 1. 결과 패널에서 **SecureW2 JoinNow Connector** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-securew2-joinnow-connector"></a>SecureW2 JoinNow Connector에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 SecureW2 JoinNow Connector에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 SecureW2 JoinNow Connector의 관련 사용자 간에 연결 관계를 설정해야 합니다.
 
-SecureW2 JoinNow Connector에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+SecureW2 JoinNow Connector에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[SecureW2 JoinNow Connector SSO 구성](#configure-securew2-joinnow-connector-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[SecureW2 JoinNow Connector 테스트 사용자 만들기](#create-securew2-joinnow-connector-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 SecureW2 JoinNow Connector에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[SecureW2 JoinNow Connector SSO 구성](#configure-securew2-joinnow-connector-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[SecureW2 JoinNow Connector 테스트 사용자 만들기](#create-securew2-joinnow-connector-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 SecureW2 JoinNow Connector에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **SecureW2 JoinNow Connector** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **SecureW2 JoinNow Connector** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **로그온 URL** 텍스트 상자에서 `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO` 패턴을 사용하는 URL을 입력합니다.
 
@@ -97,9 +90,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-securew2-joinnow-connector-sso"></a>SecureW2 JoinNow Connector SSO 구성
-
-**SecureW2 JoinNow Connector** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML** 및 Azure Portal에서 적절히 복사한 URL을 [SecureW2 JoinNow Connector 지원 팀](mailto:support@securew2.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -119,31 +109,29 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **SecureW2 JoinNow Connector** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-securew2-joinnow-connector-sso"></a>SecureW2 JoinNow Connector SSO 구성
+
+**SecureW2 JoinNow Connector** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML** 및 Azure Portal에서 적절히 복사한 URL을 [SecureW2 JoinNow Connector 지원 팀](mailto:support@securew2.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-securew2-joinnow-connector-test-user"></a>SecureW2 JoinNow Connector 테스트 사용자 만들기
 
 이 섹션에서는 SecureW2 JoinNow Connector에서 Britta Simon이라는 사용자를 만듭니다. [SecureW2 JoinNow Connector 지원 팀](mailto:support@securew2.com)과 협력하여 SecureW2 JoinNow Connector 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 SecureW2 JoinNow Connector 타일을 클릭하면 SSO를 설정한 SecureW2 JoinNow Connector에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 SecureW2 JoinNow Connector 로그온 URL로 리디렉션됩니다. 
 
-## <a name="additional-resources"></a>추가 리소스
+* SecureW2 JoinNow Connector 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+* Microsoft 내 앱을 사용할 수 있습니다. 내 앱에서 SecureW2 JoinNow Connector 타일을 클릭하면 SecureW2 JoinNow Connector 로그온 URL로 리디렉션됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+SecureW2 JoinNow Connector가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
