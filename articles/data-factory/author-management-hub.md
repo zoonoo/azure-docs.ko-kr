@@ -3,15 +3,15 @@ title: 관리 허브
 description: Azure Data Factory 관리 허브에서 연결, 소스 제어 구성 및 전역 작성 속성 관리
 ms.service: data-factory
 ms.topic: conceptual
-author: dcstwh
-ms.author: weetok
-ms.date: 02/01/2021
-ms.openlocfilehash: b4b9ecef84f8ffcc82107299ad6603466380d1c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: minhe-msft
+ms.author: hemin
+ms.date: 04/27/2021
+ms.openlocfilehash: db87372ab4dd56d8b6a00ca42cb1cf4a8729db69
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100371501"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178289"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Azure Data Factory의 관리 허브
 

@@ -11,10 +11,10 @@ author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4cd0febe5ffbc1b17718043d5fc97b804f87cc46
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103199733"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
@@ -27,20 +27,20 @@ ms.locfileid: "103199733"
    > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
    > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
 
-## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>공통 끝점을 통한 상환 및 로그인
+## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>공통 엔드포인트를 통한 상환 및 로그인
 
-예를 들어, 이제 게스트 사용자는 공통 끝점 (URL)을 통해 다중 테 넌 트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다 `https://myapps.microsoft.com` . 이전에는 공용 URL이 인증을 위해 리소스 테 넌 트 대신 게스트 사용자를 해당 홈 테 넌 트로 리디렉션하 므로 테 넌 트 별 링크가 필요 합니다 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` ). 이제 게스트 사용자는 응용 프로그램의 공통 URL로 이동 하 여 **로그인 옵션** 을 선택한 다음 **조직에 로그인** 을 선택할 수 있습니다. 그런 다음 사용자에 게 조직의 이름을 입력 합니다.
+이제 게스트 사용자는 공통 엔드포인트(URL)를 통해 다중 테넌트 또는 Microsoft 자사 앱에 로그인 할 수 있습니다(예: `https://myapps.microsoft.com`). 이전에는 공통 URL이 인증을 위해 리소스 테넌트 대신 게스트 사용자를 해당 홈 테넌트로 리디렉션하므로 테넌트별 링크가 필요했습니다(예: `https://myapps.microsoft.com/?tenantid=<tenant id>`). 이제 게스트 사용자는 애플리케이션의 공통 URL로 이동하여 **로그인 옵션** 을 선택한 다음, **조직에 로그인** 을 선택할 수 있습니다. 그런 다음, 사용자는 조직의 이름을 입력합니다.
 
-![공통 끝점 로그인](media/redemption-experience/common-endpoint-flow-small.png)
+![공통 엔드포인트 로그인](media/redemption-experience/common-endpoint-flow-small.png)
 
-그러면 사용자가 전자 메일 주소로 로그인 하거나 구성한 id 공급자를 선택할 수 있는 테 넌 트 끝점으로 리디렉션됩니다.
+그러면 사용자는 해당 이메일 주소로 로그인하거나 구성한 ID 공급자를 선택할 수 있는 테넌트 엔드포인트로 리디렉션됩니다.
 
 ## <a name="redemption-through-a-direct-link"></a>직접 링크를 통해 상환
 
-초대 전자 메일 또는 응용 프로그램의 공통 URL 대신 게스트에 앱 또는 포털에 대 한 직접 링크를 제공할 수 있습니다. 그러려면 먼저 [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) 또는 [PowerShell](./b2b-quickstart-invite-powershell.md)을 통해 게스트 사용자를 디렉터리에 추가해야 합니다. 그런 다음, 직접 로그온 링크를 비롯한 [사용자 지정 가능한 방법을 사용하여 사용자에게 애플리케이션을 배포](../manage-apps/end-user-experiences.md)할 수 있습니다. 게스트가 초대 이메일 대신 직접 링크를 사용하더라도 최초 동의 과정을 거치게 됩니다.
+초대 이메일 또는 애플리케이션의 공통 URL 대신 게스트에게 앱 또는 포털의 직접 링크를 제공할 수 있습니다. 그러려면 먼저 [Azure Portal](./b2b-quickstart-add-guest-users-portal.md) 또는 [PowerShell](./b2b-quickstart-invite-powershell.md)을 통해 게스트 사용자를 디렉터리에 추가해야 합니다. 그런 다음, 직접 로그온 링크를 비롯한 [사용자 지정 가능한 방법을 사용하여 사용자에게 애플리케이션을 배포](../manage-apps/end-user-experiences.md)할 수 있습니다. 게스트가 초대 이메일 대신 직접 링크를 사용하더라도 최초 동의 과정을 거치게 됩니다.
 
 > [!NOTE]
-> 직접 링크는 테 넌 트에만 해당 됩니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 하므로, 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. 다음은 테넌트 컨텍스트가 포함된 직접 링크의 예입니다.
+> 직접 링크는 테넌트에 따라 다릅니다. 즉, 공유 앱이 있는 테넌트에서 게스트를 인증할 수 있도록 테넌트 ID 또는 확인된 도메인이 포함됩니다. 다음은 테넌트 컨텍스트가 포함된 직접 링크의 예입니다.
  > - 앱 액세스 패널: `https://myapps.microsoft.com/?tenantid=<tenant id>`
  > - 확인된 도메인의 앱 액세스 패널: `https://myapps.microsoft.com/<;verified domain>`
  > - Azure Portal: `https://portal.azure.com/<tenant id>`
@@ -65,7 +65,7 @@ ms.locfileid: "103199733"
 
 ![사용 흐름 다이어그램을 보여주는 스크린샷](media/redemption-experience/invitation-redemption-flow.png)
 
-**사용자의 UPN (사용자 계정 이름)이 기존 Azure AD 및 개인 MSA 계정과 일치 하는 경우 사용자에 게 사용할 계정을 선택 하 라는 메시지가 표시 됩니다.*
+**사용자의 UPN(사용자 계정 이름)이 기존 Azure AD 및 개인 MSA 계정과 일치하면 사용자에게 사용할 계정을 선택하라는 메시지가 표시됩니다.*
 
 1. Azure AD가 사용자 기반 검색을 수행하여 [기존 Azure AD 테넌트](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal)에 사용자가 있는지 확인합니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "103199733"
 
 3. 관리자가 [Google 페더레이션](./google-federation.md)을 사용하도록 설정했으면 Azure AD는 사용자의 도메인 접미사가 gmail.com인지 아니면 googlemail.com인지 확인한 후 사용자를 Google로 리디렉션합니다.
 
-4. 상환 프로세스는 사용자에 게 JIT (just-in-time) 횟수가에 대 한 기존 MSA (개인 [Microsoft 계정)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 가 있는지를 확인 하지만 초대 전자 메일을 상환 하는 경우에는 연결 하지 않습니다. 사용자에 게 기존 MSA가 이미 있는 경우 기존 MSA를 사용 하 여 로그인 합니다.
+4. 상환 프로세스는 사용자에게 JIT(Just-In-Time) 상환을 위한 기존 개인 [Microsoft 계정(MSA)](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create)이 있는지를 확인하지만 초대 이메일 링크 상환은 확인하지 않습니다. 사용자에게 기존 MSA가 이미 있는 경우 기존 MSA로 로그인합니다.
 
 5. 사용자의 **홈 디렉터리** 가 확인되면 로그인을 위해 사용자가 해당 ID 공급자로 전송됩니다.  
 

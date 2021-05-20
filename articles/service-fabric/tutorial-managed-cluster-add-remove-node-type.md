@@ -1,16 +1,16 @@
 ---
-title: Service Fabric 관리형 클러스터의 노드 유형 추가 및 제거(미리 보기)
+title: Service Fabric 관리형 클러스터의 노드 유형 추가 및 제거
 description: 이 자습서에서는 Service Fabric 관리형 클러스터의 노드 유형을 추가 및 제거하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: bb33512652677fc4e46d8ba3668dca985bbcfe01
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 73e6f7676f398287b607deb80f490267a7665733
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822424"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685804"
 ---
-# <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터에서 노드 유형 추가 및 제거(미리 보기)
+# <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터에서 노드 유형 추가 및 제거
 
 이 자습서 시리즈에서는 다음을 설명합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Application Insights Profiler를 사용 하 여 Azure에서 프로덕션 앱 프로 파일링
+title: Application Insights Profiler를 사용하여 Azure에서 프로덕션 앱 프로파일링
 description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
 ms.topic: conceptual
 author: cweining
@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 0d3074d58560df5cb5bd6bdc2c0437a4be828918
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "86499395"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
@@ -24,7 +24,7 @@ Profiler는 다음과 같은 Azure 서비스에 배포된 .NET 애플리케이�
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines 및 Virtual Machine Scale Sets](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**미리 보기** Azure Linux Web Apps ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [ASP.NET Core Azure Linux Web Apps **미리 보기**](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
 Profiler를 사용하도록 설정해도 추적이 표시되지 않으면 [문제 해결 가이드](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)를 확인하세요.
 
@@ -85,13 +85,13 @@ Microsoft 서비스 프로파일러는 샘플링 메서드와 계측의 조합�
 
 **AWAIT\_TIME** 은 코드가 다른 작업이 완료되기를 기다리고 있음을 나타냅니다. 이러한 지연은 일반적으로 C# **AWAIT** 문과 함께 발생합니다. 코드가 C# **AWAIT** 를 수행하는 경우 스레드는 스레드 풀에 대한 컨트롤을 해제 및 반환하고 **AWAIT** 가 끝나기를 기다리는 것이 차단된 스레드는 없습니다. 그러나 논리적으로 **AWAIT** 를 수행한 스레드는 작업이 완료되길 기다리는 것이 "차단"됩니다. **AWAIT\_TIME** 문은 작업이 완료되기를 기다리는 차단된 시간을 나타냅니다.
 
-### <a name="blocked-time"></a><a id="block"></a>차단 된 시간
+### <a name="blocked-time"></a><a id="block"></a>차단된 시간
 
 **BLOCKED_TIME** 은 코드가 다른 리소스를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 예를 들어, 동기화 개체를 기다리거나, 스레드를 사용할 수 있거나 요청이 완료될 때까지 기다릴 수 있습니다.
 
-### <a name="unmanaged-async"></a>관리 되지 않는 비동기
+### <a name="unmanaged-async"></a>관리되지 않는 비동기
 
-.NET framework는 ETW 이벤트를 내보내고 스레드 간에 작업 id를 전달 하 여 스레드 간에 비동기 호출을 추적할 수 있도록 합니다. 관리 되지 않는 코드 (네이티브 코드)와 비동기 코드의 일부 이전 스타일에는 이러한 이벤트와 활동 id가 없으므로 프로파일러에서는 스레드 및 스레드에서 실행 되는 함수를 알 수 없습니다. 호출 스택에서 ' 관리 되지 않는 Async '로 레이블이 지정 됩니다. ETW 파일을 다운로드 하는 경우 [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)  를 사용 하 여 발생 하는 상황에 대 한 자세한 정보를 얻을 수 있습니다.
+.NET 프레임워크는 ETW 이벤트를 내보내고 스레드 간에 작업 ID를 전달하여 스레드 전반에서 비동기 호출을 추적할 수 있도록 합니다. 비관리 코드(네이티브 코드)와 비동기 코드의 일부 이전 스타일에는 이러한 이벤트와 작업 ID가 없으므로 프로파일러에서는 스레드 및 스레드에서 실행되는 함수를 파악할 수 없습니다. 호출 스택에서 '관리되지 않는 비동기'로 레이블이 지정됩니다. ETW 파일을 다운로드하는 경우 [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md)를 사용하여 발생하는 상황에 대한 자세한 정보를 얻을 수 있습니다.
 
 ### <a name="cpu-time"></a><a id="cpu"></a>CPU 시간
 

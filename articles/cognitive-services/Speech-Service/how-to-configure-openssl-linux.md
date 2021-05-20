@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0aee0030937a6e11860907e27b775c2671137f71
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331109"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104577447"
 ---
 # <a name="configure-openssl-for-linux"></a>Linux용 OpenSSL 구성
 
@@ -54,7 +53,7 @@ export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
 
 ## <a name="certificate-revocation-checks"></a>인증서 해지 확인
-Speech Service에 연결할 때 Speech SDK는 Speech Service에서 사용하는 TLS 인증서가 해지되지 않았는지 확인합니다. 이 확인을 수행하려면 Speech SDK가 Azure에서 사용하는 인증 기관의 CRL 배포 지점에 액세스해야 합니다. 가능한 CRL 다운로드 위치 목록은 [이 문서](../../security/fundamentals/tls-certificate-changes.md)에서 확인할 수 있습니다. 인증서가 해지되었거나 CRL을 다운로드할 수 없는 경우 Speech SDK에서 연결을 중단하고 '취소됨' 이벤트가 실행됩니다.
+Speech Service에 연결할 때 Speech SDK는 Speech Service에서 사용하는 TLS 인증서가 해지되지 않았는지 확인합니다. 이 확인을 수행하려면 Speech SDK가 Azure에서 사용하는 인증 기관의 CRL 배포 지점에 액세스해야 합니다. 가능한 CRL 다운로드 위치 목록은 [이 문서](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes)에서 확인할 수 있습니다. 인증서가 해지되었거나 CRL을 다운로드할 수 없는 경우 Speech SDK에서 연결을 중단하고 '취소됨' 이벤트가 실행됩니다.
 
 Speech SDK를 사용하는 네트워크에서 CRL 다운로드 위치에 대한 액세스를 허용하지 않는 방식으로 구성된 경우 CRL 확인을 사용하지 않도록 설정하거나 CRL을 검색할 수 없는 경우 실패하지 않도록 설정할 수 있습니다. 이 구성은 Recognizer 개체를 만드는 데 사용되는 구성 개체를 통해 수행됩니다.
 

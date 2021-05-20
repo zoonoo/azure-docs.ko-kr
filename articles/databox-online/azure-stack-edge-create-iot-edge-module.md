@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107870844"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "91951148"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Azure Stack Edge Pro로 파일을 이동하는 C# IoT Edge 모듈 개발
 
@@ -42,7 +42,7 @@ Azure Stack Edge Pro 디바이스는 IoT Edge 모듈을 배포 및 실행할 수
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하기 전에 다음을 확인합니다.
 
@@ -57,7 +57,7 @@ Azure Stack Edge Pro 디바이스는 IoT Edge 모듈을 배포 및 실행할 수
     - [Visual Studio Code](https://code.visualstudio.com/)
     - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
     - [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
-    - [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
+    - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). 소프트웨어를 다운로드 및 설치할 계정을 만들어야 할 수 있습니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기

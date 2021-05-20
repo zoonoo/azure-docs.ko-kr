@@ -1,6 +1,6 @@
 ---
-title: StorSimple 가상 배열에 대 한 장애 조치 (Failover) 및 재해 복구
-description: 다른 가상 배열로 장애 조치 (failover) 하는 자세한 단계를 포함 하 여 Microsoft Azure StorSimple 가상 배열에 대 한 재해 복구에 대해 알아봅니다.
+title: StorSimple 가상 배열에 대한 장애 조치(failover) 및 재해 복구
+description: 다른 가상 배열에 장애 조치(failover)하는 자세한 단계를 포함하여 Microsoft Azure StorSimple 가상 배열의 재해 복구에 대해 알아봅니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6a321b2eb79ea01bbf94e1a413c189ac7f4614ad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99096426"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Azure Portal을 통해 StorSimple 가상 배열에 대한 재해 복구 및 디바이스 장애 조치
@@ -40,11 +40,11 @@ DR은 열 지도 기반 계층화 및 추적을 사용하여 전체 디바이스
 > 
 > 
 
-재해 복구는 장치 장애 조치 (failover) 기능을 통해 오케스트레이션 **장치** 블레이드에서 시작 됩니다. 이 블레이드는 StorSimple 디바이스 관리자 서비스에 연결된 모든 StorSimple 디바이스를 표로 작성합니다. 각 디바이스에 대해 친숙한 이름, 상태, 프로비전된 용량 및 최대 용량, 유형 및 모델이 표시됩니다.
+재해 복구는 디바이스 장애 조치(failover) 기능을 통해 조정되며 **디바이스** 블레이드에서 시작됩니다. 이 블레이드는 StorSimple 디바이스 관리자 서비스에 연결된 모든 StorSimple 디바이스를 표로 작성합니다. 각 디바이스에 대해 친숙한 이름, 상태, 프로비전된 용량 및 최대 용량, 유형 및 모델이 표시됩니다.
 
 ## <a name="prerequisites-for-device-failover"></a>디바이스 장애 조치에 대한 필수 조건
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>사전 요구 사항
 
 모든 디바이스 장애 조치에 대해 다음과 같은 필수 조건을 충족했는지 확인합니다.
 
@@ -57,12 +57,12 @@ DR은 열 지도 기반 계층화 및 추적을 사용하여 전체 디바이스
   > 
 * 대상 디바이스는 원본 디바이스와 동일한 이름을 가질 수 없습니다.
 * 원본 및 대상 디바이스는 같은 형식이어야 합니다. 파일 서버로 구성된 가장 배열에서는 또 다른 파일 서버로만 장애 조치를 할 수 있습니다. iSCSI 서버에도 같은 내용이 적용됩니다.
-* 파일 서버 DR의 경우 대상 디바이스를 원본과 동일한 도메인에 조인하는 것이 좋습니다. 이 구성을 통해 공유 사용 권한을 자동으로 확인할 수 있습니다. 동일한 도메인에 있는 대상 장치에 대 한 장애 조치 (failover)만 지원 됩니다.
+* 파일 서버 DR의 경우 대상 디바이스를 원본과 동일한 도메인에 조인하는 것이 좋습니다. 이 구성을 통해 공유 사용 권한을 자동으로 확인할 수 있습니다. 동일한 도메인에 있는 대상 디바이스에 대한 장애 조치(failover)만 지원됩니다.
 * DR에 사용할 수 있는 대상 디바이스는 원본 디바이스와 용량이 같거나 더 큰 디바이스입니다. 서비스에 연결되어 있지만 충분한 공간 조건을 충족하지 않는 디바이스는 대상 디바이스로 사용할 수 없습니다.
 
 ### <a name="other-considerations"></a>기타 고려 사항
 
-* 계획 된 장애 조치 (failover)의 경우:
+* 계획된 장애 조치(Failover)의 경우:
   
   * 원본 디바이스의 모든 볼륨 또는 공유를 오프라인으로 전환하는 것이 좋습니다.
   * 데이터 손실을 최소화하기 위해 디바이스의 백업을 수행한 후에 장애 조치를 진행하는 것이 좋습니다.
@@ -122,12 +122,12 @@ DR이 성공적으로 완료된 후에는, 원본 디바이스에 있는 클라�
 
 5. **비활성화** 블레이드에서 확인 메시지가 표시됩니다. 디바이스 비활성화는 *영구적인* 프로세스이며 취소할 수 없습니다. 호스트의 공유/볼륨을 오프라인으로 전환하라는 알림이 표시됩니다. 디바이스 이름을 입력하여 **비활성화** 를 확인하고 클릭합니다.
    
-    ![비활성화 블레이드의 스크린샷. 장치 이름 상자가 채워지고 비활성화 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![비활성화 블레이드의 스크린샷. 디바이스 이름 상자가 채워지고 비활성화 단추가 강조 표시됩니다.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. 비활성화가 시작됩니다. 비활성화가 성공적으로 완료된 후에 알림이 표시됩니다.
    
-    ![장치를 비활성화 하는 중임을 나타내는 진행률 표시줄의 스크린샷](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![디바이스가 비활성화되고 있음을 나타내는 진행률 표시줄의 스크린샷.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. 디바이스 페이지의 디바이스 상태가 이제 **비활성화됨** 으로 변경됩니다.
-    ![장치 페이지의 스크린샷 비활성화 된 장치의 속성은 비활성화 됨으로 표시 되는 상태를 포함 하 여 표시 됩니다.](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![디바이스 페이지의 스크린샷. 비활성화됨으로 나열된 상태를 포함하여 비활성화된 디바이스의 속성이 표시됩니다.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. **디바이스** 블레이드에서 장애 조치(failover)를 위한 비활성화된 디바이스를 선택하고 클릭합니다. 
 9. **디바이스 대시보드** 블레이드에서 **장애 조치** 를 클릭합니다. 
 10. **디바이스 장애 조치** 블레이드에서 다음을 수행합니다.
@@ -138,31 +138,31 @@ DR이 성공적으로 완료된 후에는, 원본 디바이스에 있는 클라�
 
     3. **이 작업이 대상 디바이스에 대한 데이터를 장애 조치한다는 것을 이해합니다.** 를 확인합니다. 
 
-    4. 장애 조치 ( **failover)를** 클릭 합니다.
+    4. **장애 조치** 를 클릭합니다.
     
-        ![원본 및 대상 장치를 채운 상태에서 장애 조치 (failover) 장치 블레이드의 스크린샷, 선택 된 옵션 및 장애 조치 (failover) 단추가 강조 표시 됩니다.](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![원본 및 대상 디바이스가 채워지고, 옵션이 선택된 장애 조치(failover) 단추가 강조 표시된 장애 조치(failover) 블레이드의 스크린샷.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. 장애 조치 작업을 시작하면 알림이 표시됩니다. **디바이스 &gt; 작업** 을 이동하여 장애 조치를 모니터링할 수 있습니다.
     
-     ![장치가 장애 조치 (failover) 중임을 나타내는 진행률 표시줄의 스크린샷](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![디바이스가 장애 조치(failover) 중임을 나타내는 진행률 표시줄의 스크린샷.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. **작업** 블레이드에 원본 디바이스에 대해 만들어진 장애 조치(failover) 작업이 표시됩니다. 이 작업이 DR 사전 검사를 수행합니다.
     
-    ![장애 조치 (failover) 작업이 성공적으로 시작 되었음을 보여 주는 스크린샷](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![장애 조치(failover) 작업이 성공적으로 시작되었음을 보여주는 스크린샷.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      DR 사전 검사가 성공적으로 완료된 후에, 장애 조치 작업은 원본 디바이스에 존재하는 각 공유/볼륨에 대한 복원 작업을 생성합니다.
     
-    ![상태, 장치 및 기간과 같은 장애 조치 (failover) 작업의 세부 정보를 보여 주는 스크린샷](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![상태, 디바이스 및 기간과 같은 장애 조치(failover) 작업의 세부 정보를 보여주는 스크린샷.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. 장애 조치를 완료한 후 **디바이스** 블레이드로 이동합니다.
     
     1. 장애 조치 프로세스에 대한 대상 디바이스로 사용된 StorSimple 디바이스를 선택하고 클릭합니다.
     2. **설정 > 관리 > 공유**(또는 iSCSI 서버의 경우 **볼륨**)으로 이동합니다. **공유** 블레이드의 예전 디바이스에서 모든 공유(볼륨)를 볼 수 있습니다.
-        ![장치 블레이드의 스크린샷. 대상 장치가 온라인 상태로 나열 됩니다.](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![디바이스 블레이드의 스크린샷. 대상 디바이스가 온라인 상태로 나열됩니다.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. 연결하려는 모든 애플리케이션이 새 디바이스에 리디렉션되도록 [DNS 별칭을 만들](https://web.archive.org/web/20150307000707/http://support.microsoft.com:80/kb/168322)어야 합니다.
 
 ## <a name="errors-during-dr"></a>DR 중 오류
 
 **DR 중 클라우드 연결 중단**
 
-DR이 시작된 후와 디바이스 복원이 완료되기 전에 클라우드 연결이 중단되면, DR이 실패합니다. 실패 알림이 표시 됩니다. DR에 대한 대상 디바이스는 *사용할 수 없음* 으로 표시됩니다. 동일한 대상 디바이스를 향후 DR에 사용할 수 없습니다.
+DR이 시작된 후와 디바이스 복원이 완료되기 전에 클라우드 연결이 중단되면, DR이 실패합니다. 실패 알림을 받게 됩니다. DR에 대한 대상 디바이스는 *사용할 수 없음* 으로 표시됩니다. 동일한 대상 디바이스를 향후 DR에 사용할 수 없습니다.
 
 **호환되는 대상 디바이스 없음**
 

@@ -1,63 +1,63 @@
 ---
-title: Azure 리소스 이동의 이동 컬렉션에서 리소스 제거
-description: Azure 리소스 이동의 이동 컬렉션에서 리소스를 제거 하는 방법에 대해 알아봅니다.
+title: Azure Resource Mover의 이동 컬렉션에서 리소스 제거
+description: Azure Resource Mover의 이동 컬렉션에서 리소스를 제거하는 방법에 대해 알아봅니다.
 manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: how-to
 ms.date: 02/22/2020
 ms.author: raynew
-ms.openlocfilehash: 25311e93e1081b3c7638c275c39153b2c357048d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 067aa245223bce0e8fa009b88af760a26f7ce3dc
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102559127"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107739029"
 ---
-# <a name="manage-move-collections-and-resource-groups"></a>컬렉션 및 리소스 그룹 이동 관리
+# <a name="manage-move-collections-and-resource-groups"></a>이동 컬렉션 및 리소스 그룹 관리
 
-이 문서에서는 [Azure 리소스](overview.md)에서 이동 컬렉션에서 리소스를 제거 하거나 이동 컬렉션/리소스 그룹을 제거 하는 방법을 설명 합니다. 컬렉션 이동은 azure 지역 간에 Azure 리소스를 이동할 때 사용 됩니다.
+이 문서에서는 [Azure Resource Mover](overview.md)에 있는 이동 컬렉션에서 리소스를 제거하거나 이동 컬렉션/리소스 그룹을 제거하는 방법을 설명합니다. 이동 컬렉션은 Azure 지역 간에 Azure 리소스를 이동할 때 사용됩니다.
 
-## <a name="remove-a-resource-portal"></a>리소스 제거 (포털)
+## <a name="remove-a-resource-portal"></a>리소스(포털) 제거
 
-리소스 이동 (move) 포털의 이동 컬렉션에서 다음과 같이 리소스를 제거할 수 있습니다.
+다음과 같이 Resource Mover 포털에서 이동 컬렉션의 리소스를 제거할 수 있습니다.
 
-1. **여러 지역** 에서 컬렉션에서 제거 하려는 모든 리소스를 선택 하 고 **제거** 를 선택 합니다. 
+1. **전체 지역** 의 컬렉션에서 제거하려는 모든 리소스를 선택하고 **제거** 를 선택합니다. 
 
-    ![제거 하도록 선택 하는 단추](./media/remove-move-resources/portal-select-resources.png)
+    ![제거하기 위해 선택하는 단추](./media/remove-move-resources/portal-select-resources.png)
 
-2. **리소스 제거** 에서 **제거** 를 클릭 합니다.
+2. **리소스 제거** 에서 **제거** 를 클릭합니다.
 
-    ![이동 컬렉션에서 리소스를 제거 하도록 선택 하는 단추](./media/remove-move-resources/remove-portal.png)
+    ![이동 컬렉션에서 리소스를 제거하기 위해 선택하는 단추](./media/remove-move-resources/remove-portal.png)
 
-## <a name="remove-a-move-collectionresource-group-portal"></a>컬렉션/리소스 그룹 이동 제거 (포털)
+## <a name="remove-a-move-collectionresource-group-portal"></a>이동 컬렉션/리소스 그룹 제거(포털)
 
-포털에서 컬렉션/리소스 그룹 이동을 제거할 수 있습니다.
+포털에서 이동 컬렉션/리소스 그룹을 제거할 수 있습니다.
 
-1. 위의 절차에 설명 된 지침에 따라 컬렉션에서 리소스를 제거 합니다. 리소스 그룹을 제거 하는 경우 리소스를 포함 하지 않는지 확인 합니다.
-2. 이동 컬렉션 또는 리소스 그룹을 삭제 합니다.  
+1. 위 절차의 지침에 따라 컬렉션에서 리소스를 제거합니다. 리소스 그룹을 제거하는 경우 리소스가 포함되어 있지 않은지 확인합니다.
+2. 이동 컬렉션 또는 리소스 그룹을 삭제합니다.  
 
-## <a name="remove-a-resource-powershell"></a>리소스 제거 (PowerShell)
+## <a name="remove-a-resource-powershell"></a>리소스 제거(PowerShell)
 
-PowerShell cmdlet을 사용 하 여 MoveCollection에서 단일 리소스를 제거 하거나 여러 리소스를 제거할 수 있습니다.
+PowerShell cmdlet을 사용하면 MoveCollection에서 단일 리소스를 제거하거나 여러 리소스를 제거할 수 있습니다.
 
 ### <a name="remove-a-single-resource"></a>단일 리소스 제거
 
-다음과 같이 리소스 (이 예제에서는 가상 네트워크 *psdemorm*)를 제거 합니다.
+다음과 같이 리소스(이 예제에서는 가상 네트워크 *psdemorm-vnet*)를 제거합니다.
 
 ```azurepowershell-interactive
 # Remove a resource using the resource ID
 Remove-AzResourceMoverMoveResource -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS" -Name "psdemorm-vnet"
 ```
-**Cmdlet을 실행 한 후 출력**
+**cmdlet 실행 후 출력**
 
-![이동 컬렉션에서 리소스를 제거한 후 출력 텍스트](./media/remove-move-resources/powershell-remove-single-resource.png)
+![이동 컬렉션에서 리소스를 제거한 후 텍스트 출력](./media/remove-move-resources/powershell-remove-single-resource.png)
 
 ### <a name="remove-multiple-resources"></a>여러 리소스 제거
 
-다음과 같이 여러 리소스를 제거 합니다.
+다음과 같이 여러 리소스를 제거합니다.
 
-1. 종속성 유효성 검사:
+1. 종속성의 유효성을 검사합니다.
 
     ````azurepowershell-interactive
     $resp = Invoke-AzResourceMoverBulkRemove -ResourceGroupName "RG-MoveCollection-demoRMS" -MoveCollectionName "PS-centralus-westcentralus-demoRMS"  -MoveResource $('psdemorm-vnet') -ValidateOnly
@@ -124,6 +124,7 @@ What happens when you remove a VM resource from a move collection depends on the
 **Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there.
 **Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.  | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
 **Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region.
+**Move completed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region. |  Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region.
 
 ## SQL resource state after removing
 
@@ -143,6 +144,7 @@ What happens when you remove an Azure SQL resource from a move collection depend
 **Discard failed** | We recommend that you discard the moves so that the target resources are deleted first.<br/><br/> After that, the resource goes back to the **Initiate move pending** state, and you can continue from there. 
 **Delete source pending** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
 **Delete source failed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target region. 
+**Move completed** | Deleted from the move collection.<br/><br/> It doesn't delete anything created in the target or source region.
 
 ## Next steps
 

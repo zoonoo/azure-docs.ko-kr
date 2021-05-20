@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 12/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 88240f9b46997d11f1e7c2d93fa880b004615a11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a720b1b51c2f1bafa581e75cb8ab00b15a4b2d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97725023"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750432"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning 소버린 클라우드 패리티
 
@@ -145,7 +145,7 @@ ms.locfileid: "97725023"
     * 둘 모두의 경우: `graph.windows.net` 
 
 
-## <a name="azure-china-21vianet"></a>Azure 중국 21Vianet 
+## <a name="azure-china-21vianet"></a>Azure China 21Vianet 
 
 | 기능                                       | 퍼블릭 클라우드 상태 | CH-East-2 | CH-North-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
@@ -180,7 +180,7 @@ ms.locfileid: "97725023"
 | 학습을 위한 VNet(Virtual Network) 지원                                | GA               | YES       | 해당 없음        |
 | 유추를 위한 VNet(Virtual Network) 지원                               | GA               | YES       | 해당 없음        |
 | 엔드포인트 인증 점수 매기기                                            | 공개 미리 보기   | YES       | 해당 없음        |
-| 작업 공간 프라이빗 링크                                                     | 공개 미리 보기   | 아니요        | 해당 없음        |
+| 작업 공간 프라이빗 링크                                                     | GA               | 아니요        | 해당 없음        |
 | VNet 뒤에 있는 ACI                                                            | 공개 미리 보기   | 아니요        | 해당 없음        |
 | VNet 뒤에 있는 ACR                                                            | 공개 미리 보기   | 아니요        | 해당 없음        |
 | AKS 클러스터의 개인 IP                                                  | 공개 미리 보기   | 아니요        | 해당 없음        |

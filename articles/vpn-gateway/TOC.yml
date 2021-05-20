@@ -172,7 +172,11 @@
             - name: MFA(Multi-Factor Authentication) 구성
               href: openvpn-azure-ad-mfa.md
             - name: VPN 클라이언트 구성
-              href: openvpn-azure-ad-client.md
+              items:
+                - name: Windows
+                  href: openvpn-azure-ad-client.md
+                - name: macOS - 미리 보기
+                  href: openvpn-azure-ad-client-mac.md
             - name: VPN 클라이언트 프로필 파일 작업
               href: about-vpn-profile-download.md
             - name: Intune - VPN 클라이언트 프로필 배포

@@ -9,19 +9,19 @@ ms.workload: infrastructure
 ms.date: 12/07/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 8824ea38121b8f440f1b0ef1f07737f46e8b7295
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 46de182c7acfaf75b2e65fa318717348dd1c4b73
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732887"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101667347"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure Dedicated Host
 
 Azure Dedicated Host는 하나의 Azure 구독 전용 물리적 서버(하나 이상의 가상 머신을 호스트)를 제공하는 서비스입니다. 전용 호스트는 리소스로 제공되는, 데이터 센터에서 사용되는 것과 동일한 물리적 서버입니다. 지역, 가용성 영역 및 장애 도메인 내에서 전용 호스트를 프로비저닝할 수 있습니다. 그런 다음 사용자의 요구에 가장 적합한 구성으로 프로비저닝된 호스트에 직접 VM을 배치할 수 있습니다.
 
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>이점 
 
 전체 호스트를 예약하면 다음과 같은 이점이 있습니다.
 
@@ -30,7 +30,7 @@ Azure Dedicated Host는 하나의 Azure 구독 전용 물리적 서버(하나 �
 -   Azure 하이브리드 혜택을 통해 Windows 및 SQL에 대한 자체 라이선스를 Azure로 가져올 수 있습니다. 하이브리드 혜택을 사용하면 추가 혜택이 제공됩니다. 자세한 내용은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)을 참조하세요.
 
 
-## <a name="groups-hosts-and-vms"></a>그룹, 호스트 및 VM
+## <a name="groups-hosts-and-vms"></a>그룹, 호스트 및 VM  
 
 ![전용 호스트의 새 리소스 보기](./media/virtual-machines-common-dedicated-hosts/dedicated-hosts2.png)
 
@@ -39,7 +39,7 @@ Azure Dedicated Host는 하나의 Azure 구독 전용 물리적 서버(하나 �
 **호스트** 는 Azure 데이터 센터의 물리적 서버에 매핑된 리소스입니다. 호스트가 만들어질 때 물리적 서버가 할당됩니다. 호스트는 호스트 그룹 내에 만들어집니다. 호스트에는 만들 수 있는 VM 크기를 설명하는 SKU가 있습니다. 각 호스트는 같은 크기의 시리즈에 속하는 서로 다른 크기의 여러 VM을 호스팅할 수 있습니다.
 
 
-## <a name="high-availability-considerations"></a>고가용성 고려 사항
+## <a name="high-availability-considerations"></a>고가용성 고려 사항 
 
 고가용성을 위해 여러 호스트(최소 2개)에 분산된 여러 VM을 배포해야 합니다. Azure Dedicated Host를 사용하면 인프라를 프로비전하여 오류 격리 경계를 형성하는 여러 옵션이 있습니다.
 
@@ -63,45 +63,45 @@ Azure Dedicated Host는 하나의 Azure 구독 전용 물리적 서버(하나 �
 
 두 기능을 함께 사용하여 더 많은 오류를 격리할 수 있습니다. 이 경우 각 호스트 그룹에 대해 가용성 영역과 장애 도메인 수를 지정하고, 그룹의 각 호스트에 장애 도메인을 할당하고, 각 VM에 가용성 영역을 할당합니다.
 
-[여기](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md)에 있는 Resource Manager 샘플 템플릿은 영역 및 장애 도메인을 사용하여 지역의 최대 복원력을 위해 호스트를 분산합니다.
+[여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에 있는 Resource Manager 샘플 템플릿은 영역 및 장애 도메인을 사용하여 지역의 최대 복원력을 위해 호스트를 분산합니다.
 
 
-## <a name="manual-vs-automatic-placement"></a>수동 및 자동 배치
+## <a name="manual-vs-automatic-placement"></a>수동 및 자동 배치 
 
-Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습니다. 호스트 그룹 내의 기존 호스트에 VM을 자동으로 배치하는 옵션도 사용할 수 있습니다.
+Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습니다. 호스트 그룹 내의 기존 호스트에 VM을 자동으로 배치하는 옵션도 사용할 수 있습니다. 
 
-새 호스트 그룹을 만들 때 자동 VM 배치 설정이 선택되어 있는지 확인 합니다. VM을 만들 때 호스트 그룹을 선택하고 Azure에서 VM에 가장 적합한 호스트를 선택하도록 합니다.
+새 호스트 그룹을 만들 때 자동 VM 배치 설정이 선택되어 있는지 확인 합니다. VM을 만들 때 호스트 그룹을 선택하고 Azure에서 VM에 가장 적합한 호스트를 선택하도록 합니다. 
 
-자동 배치를 사용하도록 설정 된 호스트 그룹의 경우 모든 VM을 자동으로 배치할 필요는 없습니다. 호스트 그룹에 대해 자동 배치를 선택하는 경우에도 호스트를 명시적으로 선택할 수 있습니다.
+자동 배치를 사용하도록 설정 된 호스트 그룹의 경우 모든 VM을 자동으로 배치할 필요는 없습니다. 호스트 그룹에 대해 자동 배치를 선택하는 경우에도 호스트를 명시적으로 선택할 수 있습니다. 
 
 ### <a name="limitations"></a>제한 사항
 
 자동 VM 배치를 사용하는 경우 알려진 문제 및 제한 사항:
 
 - 전용 호스트에는 Azure 하이브리드 혜택을 적용할 수 없습니다.
-- VM을 다시 배포할 수 없습니다.
-- 전용 호스트가 있는 Lsv2, NVasv4, NVsv3, Msv2 또는 M 시리즈 VM을 사용할 수 없습니다.
+- VM을 다시 배포할 수 없습니다. 
+- 전용 호스트가 있는 Lsv2, NVasv4, NVsv3, Msv2 또는 M 시리즈 VM을 사용할 수 없습니다. 
 
 
 ## <a name="virtual-machine-scale-set-support"></a>가상 머신 확장 집합 지원
 
-가상 머신 확장 집합을 사용하면 가상 머신 그룹을 단일 리소스로 처리하고 가용성, 관리, 크기 조정 및 오케스트레이션 정책을 그룹으로 적용할 수 있습니다. 기존 전용 호스트를 가상 머신 확장 집합에 사용할 수도 있습니다.
+가상 머신 확장 집합을 사용하면 가상 머신 그룹을 단일 리소스로 처리하고 가용성, 관리, 크기 조정 및 오케스트레이션 정책을 그룹으로 적용할 수 있습니다. 기존 전용 호스트를 가상 머신 확장 집합에 사용할 수도 있습니다. 
 
 가상 머신 확장 집합을 만들 때 전용 호스트에 모든 VM 인스턴스를 만들도록 기존 호스트 그룹을 지정할 수 있습니다.
 
 전용 호스트 그룹에서 가상 머신 확장 집합을 만들 때 다음과 같은 요구 사항이 적용됩니다.
 
 - 자동 VM 배치를 사용하도록 설정해야 합니다.
-- 호스트 그룹의 가용성 설정이 확장 집합과 일치해야 합니다.
+- 호스트 그룹의 가용성 설정이 확장 집합과 일치해야 합니다. 
     - 지역 확장 집합에는 지역 호스트 그룹(가용성 영역을 지정하지 않고 만듦)을 사용해야 합니다.
-    - 호스트 그룹과 확장 집합은 동일한 가용성 영역을 사용해야 합니다.
+    - 호스트 그룹과 확장 집합은 동일한 가용성 영역을 사용해야 합니다. 
     - 호스트 그룹 수준의 장애 도메인 수는 확장 집합의 장애 도메인 수와 일치해야 합니다. Azure Portal을 사용하면 확장 집합에 대해 *최대 분산* 을 지정할 수 있으며, 이는 장애 도메인 수를 1로 설정합니다.
 - 충분한 용량과 확장 집합 영역 및 장애 도메인에 대한 동일한 설정으로 전용 호스트를 먼저 만들어야 합니다.
 - 전용 호스트에 지원되는 VM 크기는 확장 집합에 사용되는 크기와 일치해야 합니다.
 
-모든 확장 집합 오케스트레이션 및 최적화 설정이 전용 호스트에서 지원되는 것은 아닙니다. 확장 집합에 다음 설정을 적용합니다.
-- 오버프로비전은 권장되지 않으며 기본적으로 사용하지 않도록 설정됩니다. 오버프로비저닝을 사용하도록 설정할 수 있지만, 호스트 그룹에 오버프로비전된 인스턴스를 포함하여 모든 VM에 대한 용량이 없는 경우 확장 집합 할당이 실패합니다.
-- ScaleSetVM 오케스트레이션 모드 사용
+모든 확장 집합 오케스트레이션 및 최적화 설정이 전용 호스트에서 지원되는 것은 아닙니다. 확장 집합에 다음 설정을 적용합니다. 
+- 오버프로비전은 권장되지 않으며 기본적으로 사용하지 않도록 설정됩니다. 오버프로비저닝을 사용하도록 설정할 수 있지만, 호스트 그룹에 오버프로비전된 인스턴스를 포함하여 모든 VM에 대한 용량이 없는 경우 확장 집합 할당이 실패합니다. 
+- ScaleSetVM 오케스트레이션 모드 사용 
 - 공동 배치에 근접 배치 그룹을 사용하지 않습니다.
 
 
@@ -123,7 +123,7 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 전용 호스트를 배포할 때 사용되는 두 가지 형식의 할당량이 있습니다.
 
 1. 전용 호스트 vCPU 할당량. 기본 할당량 한도는 지역당 vCPU 3,000개입니다.
-1. VM 크기 패밀리 할당량. 예를 들어 **종량제** 구독의 경우 미국 동부 지역에서 Dsv3 크기 시리즈에 사용할 수 있는 vCPU 10개의 할당량만 가능합니다. Dsv3 전용 호스트를 배포하려면 vCPU 64개 이상으로 할당량 증가를 요청해야 전용 호스트를 배포할 수 있습니다.
+1. VM 크기 패밀리 할당량. 예를 들어 **종량제** 구독의 경우 미국 동부 지역에서 Dsv3 크기 시리즈에 사용할 수 있는 vCPU 10개의 할당량만 가능합니다. Dsv3 전용 호스트를 배포하려면 vCPU 64개 이상으로 할당량 증가를 요청해야 전용 호스트를 배포할 수 있습니다. 
 
 할당량 증가를 요청하려면 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)에서 지원 요청을 만듭니다.
 
@@ -147,17 +147,17 @@ Azure에서 VM을 만들 때 사용할 전용 호스트를 선택할 수 있습�
 자세한 내용은 [Azure Dedicated Host 가격 책정](https://aka.ms/ADHPricing)을 참조하세요.
 
 [Azure Dedicated Host의 예약 인스턴스](prepay-dedicated-hosts-reserved-instances.md)를 사용하여 비용을 절감할 수도 있습니다.
-
+ 
 ## <a name="sizes-and-hardware-generations"></a>크기 및 하드웨어 세대
 
-SKU는 호스트에 대해 정의되며 VM 크기 시리즈와 형식을 나타냅니다. 동일한 크기 시리즈에 속하는 경우 단일 호스트 내에서 크기가 다른 여러 VM을 혼합할 수 있습니다.
+SKU는 호스트에 대해 정의되며 VM 크기 시리즈와 형식을 나타냅니다. 동일한 크기 시리즈에 속하는 경우 단일 호스트 내에서 크기가 다른 여러 VM을 혼합할 수 있습니다. 
 
-*형식* 은 하드웨어 세대입니다. 동일한 VM 시리즈에 대해 다양한 하드웨어 형식이 여러 CPU 공급업체에서 제공되며 서로 다른 CPU 세대 및 코어 수를 갖습니다.
+*형식* 은 하드웨어 세대입니다. 동일한 VM 시리즈에 대해 다양한 하드웨어 형식이 여러 CPU 공급업체에서 제공되며 서로 다른 CPU 세대 및 코어 수를 갖습니다. 
 
 크기와 하드웨어 형식은 지역에 따라 다릅니다. 자세히 알아보려면 호스트 [가격 책정 페이지](https://aka.ms/ADHPricing)를 참조하세요.
 
 > [!NOTE]
-> 전용 호스트가 프로비전되면 크기 또는 형식을 변경할 수 없습니다. 다른 크기의 형식이 필요한 경우 새 호스트를 만들어야 합니다.
+> 전용 호스트가 프로비전되면 크기 또는 형식을 변경할 수 없습니다. 다른 크기의 형식이 필요한 경우 새 호스트를 만들어야 합니다.  
 
 ## <a name="host-life-cycle"></a>호스트 수명 주기
 
@@ -176,6 +176,6 @@ Azure는 호스트의 상태를 모니터하고 관리합니다. 호스트를 �
 
 - [Azure PowerShell](./windows/dedicated-hosts-powershell.md), [포털](./dedicated-hosts-portal.md) 및 [Azure CLI](./linux/dedicated-hosts-cli.md)를 사용하여 전용 호스트를 배포할 수 있습니다.
 
-- 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.
+- 지역의 복원력을 극대화하기 위해 영역 및 장애 도메인을 모두 사용하는 샘플 템플릿을 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에서 확인할 수 있습니다.
 
 - [Azure Dedicated Host의 예약 인스턴스](prepay-dedicated-hosts-reserved-instances.md)를 사용하여 비용을 절감할 수도 있습니다.
