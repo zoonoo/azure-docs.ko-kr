@@ -5,22 +5,22 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.subservice: autoscale
 ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100617634"
 ---
 # <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Azure Monitor 자동 크기 조정 작업 리소스 로그 스키마
 
-예제 데이터가 포함 된 자동 크기 조정 리소스 로그의 일반적인 형식은 다음과 같습니다. 아래의 모든 예제에는 지정 된 필드에 유효 하 게 사용할 수 있는 여러 값이 포함 될 수 있으므로 올바른 형식의 JSON이 있습니다. 
+예제 데이터가 포함된 자동 크기 조정 리소스 로그의 일반적인 형식은 다음과 같습니다. 아래의 일부 예제에는 지정된 필드에 유효하게 사용할 수 있는 여러 값이 포함될 수 있으므로 올바르게 구성된 JSON입니다. 
 
-자동 크기 조정에서 발생 하는 문제를 해결 하려면이 유형의 이벤트를 사용 합니다. 자세한 내용은 [자동 크기 조정 문제 해결](autoscale-troubleshoot.md)을 참조 하세요.
+이 유형의 이벤트를 사용하여 자동 크기 조정에서 발생할 수 있는 문제를 해결합니다. 자세한 내용은 [자동 크기 조정 문제 해결](autoscale-troubleshoot.md)을 참조하세요.
 
 
 ## <a name="profile-evaluation"></a>프로필 평가
 
-자동 크기 조정에서 처음으로 자동 크기 조정 프로필을 볼 때 기록 됨
+자동 크기 조정에서 처음으로 자동 크기 조정 프로필을 볼 때 기록됨
 
 ```json
 {
@@ -37,9 +37,9 @@ ms.locfileid: "100617634"
 }
 ```
 
-## <a name="profile-cooldown-evaluation"></a>프로필 쿨 평가
+## <a name="profile-cooldown-evaluation"></a>프로필 cooldown 평가
 
-자동 크기 조정이 쿨 다운 시간으로 인해 규모를 수행 하지 않아야 하는 경우에 기록 됩니다. 
+자동 크기 조정이 쿨 다운 기간으로 인해 스케일링을 수행하지 않아야 하는지 여부를 평가할 때 기록됩니다. 
 
 ```json
 {
@@ -62,7 +62,7 @@ ms.locfileid: "100617634"
 
 ## <a name="rule-evaluation"></a>규칙 평가
 
-자동 크기 조정이 먼저 특정 크기 조정 규칙의 평가를 시작할 때 기록 됩니다. 
+자동 크기 조정이 특정 스케일링 규칙 평가를 처음 시작할 때 기록됩니다. 
 
 ```json
 {
@@ -89,7 +89,7 @@ ms.locfileid: "100617634"
 
 ## <a name="metric-evaluation"></a>메트릭 평가
 
-크기 자동 조정에서 크기 조정 작업을 트리거하는 데 사용 되는 메트릭을 평가할 때 기록 됩니다. 
+크기 자동 조정이 스케일링 작업을 트리거하는 데 사용되는 메트릭을 평가할 때 기록됩니다. 
 
 ```json
 {
@@ -113,7 +113,7 @@ ms.locfileid: "100617634"
 
 ## <a name="instance-count-evaluation"></a>인스턴스 수 계산
 
-자동 크기 조정에서 이미 실행 중인 인스턴스 수를 계산 하 여 더 이상 시작 하거나 일부를 종료 하거나 아무 작업도 수행 하지 않을 지를 결정할 때 기록 됩니다. 
+자동 크기 조정이 추가로 시작해야 하는지, 일부를 종료해야 하는지 또는 아무 작업도 수행하지 않아야 하는지 결정하기 위해 이미 실행 중인 인스턴스 수를 계산할 때 기록됩니다. 
 
 ```json
 {
@@ -132,9 +132,9 @@ ms.locfileid: "100617634"
 }
 ```
 
-## <a name="scale-action-evaluation"></a>크기 조정 작업 계산
+## <a name="scale-action-evaluation"></a>스케일링 작업 계산
 
-크기 조정 작업을 수행 해야 하는 경우 자동 크기 조정에서 평가를 시작할 때 기록 됩니다. 
+스케일링 작업을 수행해야 하는 경우 자동 크기 조정이 평가를 시작할 때 기록됩니다. 
 
 ```json
 {
@@ -154,7 +154,7 @@ ms.locfileid: "100617634"
 
 ## <a name="instance-update-evaluation"></a>인스턴스 업데이트 평가
 
-자동 크기 조정 시 실행 되는 계산 인스턴스 수를 위 또는 아래로 업데이트할 때 기록 됩니다.
+자동 크기 조정이 실행 중인 컴퓨팅 인스턴스의 수를 상향 또는 하향으로 업데이트할 때 기록됩니다.
 
 ```json
 {
@@ -173,9 +173,9 @@ ms.locfileid: "100617634"
 }
 ```
 
-## <a name="scale-action"></a>크기 조정 작업
+## <a name="scale-action"></a>스케일링 작업
 
-자동 크기 조정이 확장 작업을 시작 하거나 축소할 때 기록 됩니다. 
+자동 크기 조정이 스케일링 작업(상향 또는 하향)을 시작할 때 기록됩니다. 
 ```json
 {
   "time": "2018-09-10 18:12:00.6132593",
@@ -196,9 +196,9 @@ ms.locfileid: "100617634"
 }
 ```
 
-## <a name="scale-action-tracking"></a>작업 추적 크기 조정
+## <a name="scale-action-tracking"></a>스케일링 작업 추적
 
-인스턴스 크기 조정 작업의 다른 간격으로 기록 됩니다.
+인스턴스 스케일링 작업의 다른 간격으로 기록됩니다.
 
 ```json
 {
@@ -217,4 +217,4 @@ ms.locfileid: "100617634"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[자동 크기 조정](autoscale-overview.md) 에 대해 알아보기
+[자동 크기 조정](autoscale-overview.md)에 대해 알아보기

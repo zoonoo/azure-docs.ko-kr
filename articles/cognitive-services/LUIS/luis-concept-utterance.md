@@ -1,20 +1,20 @@
 ---
-title: 좋은 예 길이 발언-LUIS
+title: 발화 모범 예제 - LUIS
 description: 발언은 앱이 해석해야 하는 사용자의 입력입니다. 사용자가 입력할 것으로 생각되는 구를 수집합니다. 같은 내용을 의미하지만, 단어 길이 및 단어 배치가 다르게 구성된 발언을 포함합니다.
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "101706761"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
-**발언** 은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 적극적인 학습 또는 새로운 길이 발언을 계속 학습 하는 과정은 LUIS에서 제공 하는 기계 학습 인텔리전스에 필수적입니다.
+**발언** 은 앱이 해석해야 하는 사용자의 입력입니다. 여기에서 의도와 엔터티를 추출하도록 LUIS를 학습시키려면 각 의도에 대한 다양한 예제 발언을 캡처하는 것이 중요합니다. 활성 학습 또는 새 발언에 대한 지속적인 학습 프로세스는 LUIS에서 제공하는 기계 학습 인텔리전스에 반드시 필요합니다.
 
 사용자가 입력할만한 발언을 수집합니다. 같은 의미를 갖지만 다르게 구성된 다양한 발언을 포함시킵니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "101706761"
 * 복수형
 * 형태소 분석
 * 명사 및 동사 선택
-* [문장 부호](luis-reference-application-settings.md#punctuation-normalization) -정확 하 고 잘못 된 문법 및 문법을 사용 하지 않는 다양 한 기능을 사용 합니다.
+* [문장 부호](luis-reference-application-settings.md#punctuation-normalization) - 올바른 문법, 틀린 문법이 사용되거나 문법이 사용되지 않은 다양한 경우
 
 ## <a name="how-to-choose-varied-utterances"></a>다양한 발언을 선택하는 방법
 
@@ -54,11 +54,11 @@ LUIS 모델에 [예제 발언을 추가](./luis-how-to-add-entities.md)하여 �
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?|
 
-여기에서 핵심 용어는 *컴퓨터* 와 다릅니다. 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 간단히 머신과 같은 대체 용어를 사용합니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추할 수 있지만 교육용 길이 발언을 만드는 경우에는 항상 변경 하는 것이 좋습니다.
+여기서 핵심 용어인 *computer* 는 변형되지 않습니다. 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 간단히 머신과 같은 대체 용어를 사용합니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추하지만 학습을 위해 발언을 만들 때는 변형하는 것이 더 좋습니다.
 
 ## <a name="example-utterances-in-each-intent"></a>각 의도의 예제 발언
 
-각 의도에는 15개 이상의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 길이 발언 예를 하나 이상 사용 하는 경우 LUIS가 의도를 정확 하 게 예측 하지 못할 수 있습니다.
+각 의도에는 15개 이상의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 의도에 하나 또는 소수의 예제 발언만 있으면 LUIS는 의도를 정확히 예측하지 못할 수도 있습니다.
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>각 작성 반복에 대해 15개의 소규모 발언 그룹 추가
 
@@ -68,54 +68,54 @@ LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적�
 
 처음에는 소수의 발언으로 시작한 후 정확한 의도 예측 및 엔터티 추출을 위해 [엔드포인트 발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다.
 
-## <a name="utterance-normalization"></a>Utterance 정규화
+## <a name="utterance-normalization"></a>발화 정규화
 
-Utterance 표준화는 학습 및 예측 중에 문장 부호 및 분음 부호와 같은 텍스트 형식의 효과를 무시 하는 프로세스입니다.
+발화 정규화는 학습 및 예측 중에 문장 부호 및 분음 부호와 같은 텍스트 형식의 효과를 무시하는 프로세스입니다.
 
-Utterance 정규화 설정은 기본적으로 해제 되어 있습니다. 설정에는 다음이 포함됩니다.
+발화 정규화 설정은 기본적으로 해제되어 있습니다. 이러한 설정은 다음과 같습니다.
 
-* Word 양식
-* 부호가
+* 단어 양식
+* 분음 부호
 * 문장 부호
 
-정규화 설정을 켜면 **테스트** 창, 일괄 처리 테스트 및 끝점 쿼리의 점수가 해당 정규화 설정에 대 한 모든 길이 발언에 대해 변경 됩니다.
+정규화 설정을 켜면 **테스트** 창, 일괄 처리 테스트 및 엔드포인트 쿼리의 점수가 해당 정규화 설정에 대한 모든 발화에 대해 변경됩니다.
 
-LUIS 포털에서 버전을 복제 하는 경우 버전 설정은 복제 된 새 버전으로 계속 됩니다.
+LUIS 포털에서 버전을 복제하는 경우 버전 설정은 복제된 새 버전으로 계속됩니다.
 
-LUIS 포털, **관리** 섹션, **응용 프로그램 설정** 페이지 또는 [업데이트 버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 통해 버전 설정을 설정 합니다. [참조](luis-reference-application-settings.md)의 이러한 정규화 변경 내용에 대해 자세히 알아보세요.
+LUIS 포털, **관리** 섹션, **애플리케이션 설정** 페이지 또는 [업데이트 버전 설정 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)를 통해 버전 설정을 설정합니다. [참조](luis-reference-application-settings.md)에서 이러한 정규화 변경에 대해 자세히 알아봅니다.
 
-### <a name="word-forms"></a>Word 양식
+### <a name="word-forms"></a>단어 양식
 
-**단어 형식** 표준화는 루트를 벗어나 확장 되는 단어의 차이를 무시 합니다.
+**단어 형식** 을 정규화하면 루트를 벗어나 확장되는 단어의 차이를 무시합니다.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 
-### <a name="diacritics"></a>부호가
+### <a name="diacritics"></a>분음 부호
 
-분음 부호는 다음과 같이 텍스트에서 표시 되거나 서명 됩니다.
+분음 부호는 다음과 같은 텍스트 내의 표시 또는 부호입니다.
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
 ### <a name="punctuation-marks"></a>문장 부호
-**문장 부호** 표준화는 모델이 학습 되 고 끝점 쿼리가 예측 되기 전에 길이 발언에서 문장 부호가 제거 된다는 것을 의미 합니다.
+**문장 부호** 정규화는 모델이 학습되고 엔드포인트 쿼리가 예측되기 전에 발화에서 문장 부호가 제거됨을 의미합니다.
 
-문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표를 포함 하지 않는 end와 utterance를 포함 하는 utterance는 두 개의 개별 길이 발언 이며 두 개의 다른 예측을 받을 수 있습니다.
+문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표가 포함된 발화와 끝에 마침표가 포함되지 않은 발화는 별도의 두 발화이며 두 가지 다른 예측이 이루어질 수 있습니다.
 
-문장 부호가 정규화 되지 않은 경우에는 일부 클라이언트 응용 프로그램이 이러한 표시에 중요 한 영향을 줄 수 있으므로 LUIS는 기본적으로 문장 부호를 무시 하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다.
+문장 부호가 정규화되지 않은 경우 일부 클라이언트 애플리케이션은 이러한 표시에 대해 의미를 부여할 수 있으므로 LUIS는 문장 부호를 무시하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다.
 
 모델이 예제 발언(문장 부호를 포함하거나 포함하지 않음) 또는 [패턴](luis-concept-patterns.md)(`I am applying for the {Job} position[.]` 특수 구문을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
 
-클라이언트 응용 프로그램에서 문장 부호에 특정 한 의미가 없으면 문장 부호를 정규화 하 여 문장 부호를 [무시](#utterance-normalization) 하는 것이 좋습니다.
+사용자의 클라이언트 애플리케이션에서 문장 부호에 특별한 의미를 두지 않는다면 문장 부호를 정규화하여 [문장 부호를 무시](#utterance-normalization)하는 것이 좋습니다.
 
 ### <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
 
-패턴에서 특정 단어나 문장 부호를 무시 하려면 대괄호의 _ignore_ 구문과 함께 [패턴](luis-concept-patterns.md#pattern-syntax) 을 사용 `[]` 합니다.
+패턴의 특정 단어 또는 문장 부호를 무시하려는 경우 대괄호 `[]`의 _ignore_ 구문과 함께 [패턴](luis-concept-patterns.md#pattern-syntax)을 사용합니다.
 
 <a name="training-utterances"></a>
 
-## <a name="training-with-all-utterances"></a>모든 길이 발언으로 교육
+## <a name="training-with-all-utterances"></a>모든 발화로 학습
 
 학습은 일반적으로 비결정적입니다. 발언 예측은 버전이나 앱마다 약간 다를 수 있습니다.
 모든 교육 데이터를 사용하기 위해 `UseAllTrainingData` 이름/값 쌍으로 [버전 설정](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API를 업데이트하여 비결정적 학습을 제거할 수 있습니다.

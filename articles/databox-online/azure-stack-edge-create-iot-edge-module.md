@@ -1,6 +1,6 @@
 ---
-title: 'Edge Pro Azure Stack c # IoT Edge 모듈 Microsoft Docs'
-description: 'Edge Pro Azure Stack에 배포할 수 있는 c # IoT Edge 모듈을 개발 하는 방법에 대해 알아봅니다.'
+title: Azure Stack Edge Pro용 C# IoT Edge 모듈 | Microsoft Docs
+description: Azure Stack Edge Pro에 배포될 수 있는 C# IoT Edge 모듈을 개발하는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,56 +9,56 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96a6692524eca3a2845d648ab3df2932d00ce823
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 4519bc187c4ec53294e5eef15c4ad1954b691224
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91951148"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107870844"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Azure Stack Edge Pro를 사용 하 여 파일을 이동 하는 c # IoT Edge 모듈 개발
+# <a name="develop-a-c-iot-edge-module-to-move-files-with-azure-stack-edge-pro"></a>Azure Stack Edge Pro로 파일을 이동하는 C# IoT Edge 모듈 개발
 
-이 문서에서는 Azure Stack Edge Pro 장치를 사용 하 여 배포용 IoT Edge 모듈을 만드는 방법을 단계별로 안내 합니다. Azure Stack Edge Pro는 데이터를 처리 하 고 네트워크를 통해 Azure에 보낼 수 있는 저장소 솔루션입니다.
+이 문서에서는 Azure Stack Edge Pro 디바이스를 사용하여 배포용 IoT Edge 모듈을 만드는 방법을 단계별로 안내합니다. Azure Stack Edge Pro는 데이터를 처리하고 네트워크를 통해 Azure에 보낼 수 있는 스토리지 솔루션입니다.
 
-Azure IoT Edge 모듈을 Azure Stack Edge Pro와 함께 사용 하 여 Azure로 이동 되는 데이터를 변환할 수 있습니다. 이 문서에 사용 된 모듈은 로컬 공유에서 Azure Stack Edge Pro 장치의 클라우드 공유로 파일을 복사 하는 논리를 구현 합니다.
+Azure Stack Edge Pro에서 Azure IoT Edge 모듈을 사용하여 데이터를 Azure로 이동할 수 있습니다. 이 문서에서 사용되는 모듈은 로컬 공유에서 Azure Stack Edge Pro 디바이스의 클라우드 공유로 파일을 복사하는 논리를 구현합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 >
 > * 모듈을 저장하고 관리하는 컨테이너 레지스트리를 만듭니다(Docker 이미지).
-> * Azure Stack Edge Pro 장치에 배포할 IoT Edge 모듈을 만듭니다. 
+> * Azure Stack Edge Pro 디바이스에 배포하는 IoT Edge 모듈을 만듭니다. 
 
 
 ## <a name="about-the-iot-edge-module"></a>IoT Edge 모듈 정보
 
-Azure Stack Edge Pro 장치는 IoT Edge 모듈을 배포 하 고 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 로컬 공유에서 Azure Stack Edge Pro 장치의 클라우드 공유로 파일을 복사 하는 모듈을 만듭니다.
+Azure Stack Edge Pro 디바이스는 IoT Edge 모듈을 배포 및 실행할 수 있습니다. Edge 모듈은 기본적으로 디바이스에서 메시지를 수집하고, 메시지를 변환하거나 IoT Hub에 메시지를 전송하는 등의 특정 작업을 수행하는 Docker 컨테이너입니다. 이 문서에서는 로컬 공유에서 Azure Stack Edge Pro 디바이스의 클라우드 공유로 파일을 복사하는 모듈을 만듭니다.
 
-1. 파일은 Azure Stack Edge Pro 장치의 로컬 공유에 기록 됩니다.
-2. 파일 이벤트 생성기는 로컬 공유에 작성된 각 파일에 대한 파일 이벤트를 만듭니다. 파일 이벤트는 파일이 수정 되는 경우에도 생성 됩니다. 그런 다음, 파일 이벤트는 IoT Edge 허브에 전송됩니다(IoT Edge 런타임).
+1. 파일은 Azure Stack Edge Pro 디바이스의 로컬 공유에 기록됩니다.
+2. 파일 이벤트 생성기는 로컬 공유에 작성된 각 파일에 대한 파일 이벤트를 만듭니다. 파일 이벤트는 파일이 수정될 때도 생성됩니다. 그런 다음, 파일 이벤트는 IoT Edge 허브에 전송됩니다(IoT Edge 런타임).
 3. IoT Edge 사용자 지정 모듈은 파일에 대한 상대 경로를 포함하는 파일 이벤트 개체를 만들도록 파일 이벤트를 처리합니다. 모듈은 상대 파일 경로를 사용하여 절대 경로를 생성하고 로컬 공유에서 클라우드 공유로 파일을 복사합니다. 그런 다음, 모듈은 로컬 공유에서 파일을 삭제합니다.
 
-![Edge Pro Azure Stack에서 Azure IoT Edge 모듈이 작동 하는 방식](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Azure Stack Edge Pro에서 Azure IoT Edge 모듈이 작동하는 방식](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 파일이 클라우드 공유에 있으면 Azure Storage 계정으로 자동으로 업로드됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인합니다.
 
-- 을 실행 하는 Azure Stack Edge Pro 장치입니다.
+- 실행 중인 Azure Stack Edge Pro 디바이스입니다.
 
     - 디바이스에는 연결된 IoT Hub 리소스가 있습니다.
     - 디바이스에 Edge 컴퓨팅 역할이 구성되어 있습니다.
-    자세한 내용은 Azure Stack Edge Pro에 대 한 [계산 구성](azure-stack-edge-deploy-configure-compute.md#configure-compute) 으로 이동 하세요.
+    자세한 내용은 Azure Stack Edge Pro의 [컴퓨팅 구성](azure-stack-edge-deploy-configure-compute.md#configure-compute)을 참조하세요.
 
 - 다음 개발 리소스:
 
     - [Visual Studio Code](https://code.visualstudio.com/)
     - [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-    - [Visual Studio Code에 대 한 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)입니다.
-    - [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-    - [DOCKER CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). 소프트웨어를 다운로드 및 설치할 계정을 만들어야 할 수 있습니다.
+    - [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+    - [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
+    - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). 소프트웨어를 다운로드 및 설치할 계정을 만들어야 할 수 있습니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
@@ -69,9 +69,9 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 3. 다음을 제공합니다.
 
    1. 5~50의 영숫자 문자를 포함하는 Azure 내의 고유한 **레지스트리 이름**
-   2. **구독** 을 선택 합니다.
+   2. **구독** 을 선택합니다.
    3. 새 리소스 그룹을 만들거나 기존 **리소스 그룹** 을 선택합니다.
-   4. **위치** 를 선택합니다. 이 위치는 Azure Stack Edge 리소스와 연결 된 것과 동일 하 게 사용 하는 것이 좋습니다.
+   4. **위치** 를 선택합니다. 이 위치는 Azure Stack Edge 리소스와 연결된 것과 동일한 것이 좋습니다.
    5. **관리 사용자** 를 **사용** 으로 전환합니다.
    6. SKU를 **기본** 으로 설정합니다.
 
@@ -102,7 +102,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     
         ![새 솔루션 1 만들기](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-1.png)
 
-    3. 모듈 템플릿으로 **c # 모듈** 을 선택 합니다.
+    3. **C# 모듈** 을 모듈 템플릿으로 선택합니다.
     4. 기본 모듈 이름을 할당하려는 이름으로 바꿉니다. 이 예제의 경우 **FileCopyModule** 입니다.
     
         ![새 솔루션 2 만들기](./media/azure-stack-edge-create-iot-edge-module/create-new-solution-2.png)
@@ -125,7 +125,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
 ### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-1. VS Code 탐색기에서 **모듈 > FileCopyModule > Program .cs** 를 엽니다.
+1. VS Code 탐색기에서 **모듈 > FileCopyModule > Program.cs** 를 차례로 엽니다.
 2. **FileCopyModule 네임스페이스** 의 맨 위에서 나중에 사용되는 유형에 다음 using 문을 추가합니다. **Microsoft.Azure.Devices.Client.Transport.Mqtt** 는 IoT Edge Hub에 메시지를 보내는 프로토콜입니다.
 
     ```
@@ -144,7 +144,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. 이전 단계 바로 다음에 **Fileevent** 클래스를 추가 하 여 메시지 본문을 정의 합니다.
+4. 이전 단계를 완료한 직후에 **FileEvent** 클래스를 추가하여 메시지 본문을 정의합니다.
 
     ```
     /// <summary>
@@ -160,7 +160,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     }
     ```
 
-5. **Init 메서드에서** 코드는 **ModuleClient** 개체를 만들고 구성 합니다. 이 개체를 사용하면 메시지를 주고받기 위해 MQTT 프로토콜을 사용하여 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. Init 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈에 제공됩니다. 코드는 **input1** 엔드포인트를 통해 IoT Edge 허브에서 메시지를 수신하는 FileCopy 콜백을 등록합니다. **Init 메서드** 를 다음 코드로 바꿉니다.
+5. **Init 메서드** 에서 코드는 **ModuleClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 MQTT 프로토콜을 사용하여 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. Init 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈에 제공됩니다. 코드는 **input1** 엔드포인트를 통해 IoT Edge 허브에서 메시지를 수신하는 FileCopy 콜백을 등록합니다. **Init 메서드** 를 다음 코드로 바꿉니다.
 
     ```
     /// <summary>
@@ -182,7 +182,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     }
     ```
 
-6. **PipeMessage 메서드에** 대 한 코드를 제거 하 고, **FileCopy** 에 대 한 코드를 삽입 합니다.
+6. **PipeMessage 메서드** 용 코드를 제거하고, 그 대신 **FileCopy** 용 코드를 삽입합니다.
 
     ```
         /// <summary>
@@ -240,14 +240,14 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
     ```
 
 7. 이 파일을 저장합니다.
-8. 이 프로젝트에 대 한 [기존 코드 샘플을 다운로드할](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) 수도 있습니다. 그런 다음이 샘플의 **program .cs** 파일에 대해 저장 한 파일의 유효성을 검사할 수 있습니다.
+8. 이 프로젝트를 위한 [기존 코드 샘플을 다운로드](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable)할 수도 있습니다. 그러면 이 샘플의 **program.cs** 파일에 대한 저장 파일의 유효성을 검사할 수 있습니다.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge 솔루션 빌드
 
 이전 섹션에서는 IoT Edge 솔루션을 만들고 FileCopyModule에 코드를 추가하여 로컬 공유에서 클라우드 공유로 파일을 복사했습니다. 이제 솔루션을 컨테이너 이미지로 빌드하고 컨테이너 레지스트리로 푸시해야 합니다.
 
-1. VSCode에서 Terminal > New Terminal로 이동 하 여 새 Visual Studio Code 통합 터미널을 엽니다.
-2. 통합 터미널에서 다음 명령을 입력 하 여 Docker에 로그인 합니다.
+1. VSCode에서 터미널 > 새 터미널로 이동하고 새로운 Visual Studio Code 통합 터미널을 엽니다.
+2. 통합 터미널에 다음 명령을 입력하여 Docker에 로그인합니다.
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -259,7 +259,7 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
  
 3. 자격 증명이 제공되면 Azure 컨테이너 레지스트리에 모듈 이미지를 푸시할 수 있습니다. VS Code 탐색기에서 **module.json** 파일을 마우스 오른쪽 단추로 클릭하고 **IoT Edge 솔루션 빌드 및 푸시** 를 선택합니다.
 
-    ![빌드 및 푸시 IoT Edge 솔루션 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
+    ![IoT Edge 솔루션 빌드 및 푸시 2](./media/azure-stack-edge-create-iot-edge-module/build-iot-edge-solution-2.png)
  
     Visual Studio Code에 솔루션을 빌드하도록 지정하는 경우 통합 터미널에서 두 개의 명령을 실행합니다. docker 빌드 및 docker 푸시 이 두 명령은 코드를 빌드하고, CSharpModule.dll을 컨테이너화한 다음, 솔루션을 초기화할 때 지정한 컨테이너 레지스트리로 코드를 푸시합니다.
 
@@ -272,10 +272,10 @@ Azure Container Registry는 프라이빗 Docker 컨테이너 이미지를 저장
 
     무시할 수 있는 다음과 같은 경고가 나타날 수 있습니다.
 
-    *Program .cs (77, 44): 경고 CS1998:이 비동기 메서드에는 ' wait ' 연산자가 없으며 동기적으로 실행 됩니다. ' Wait ' 연산자를 사용 하 여 차단 되지 않는 API 호출을 대기 하거나 ' wait a w o s.. '를 사용 하 여 CPU 바인딩된 작업을 백그라운드 스레드에서 수행 하는 것이 좋습니다.*
+    *Program.cs(77,44): 경고 CS1998: 이 비동기 메서드에는 ‘await’ 연산자가 없으며 메서드가 동시에 실행됩니다. ‘await’ 연산자를 사용하여 비블로킹 API 호출을 대기하거나 ‘await Task.Run(...)’을 사용하여 백그라운드 스레드에서 CPU 바인딩된 작업을 수행하세요.*
 
 4. VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주소를 볼 수 있습니다. 이미지 주소는 `<repository>:<version>-<platform>` 형식으로 module.json 파일에 있는 정보에서 빌드됩니다. 이 문서의 경우 `mycontreg2.azurecr.io/filecopymodule:0.0.1-amd64`처럼 보여야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Edge Pro Azure Stack에서이 모듈을 배포 하 고 실행 하려면 [모듈 추가](azure-stack-edge-deploy-configure-compute.md#add-a-module)의 단계를 참조 하세요.
+Azure Stack Edge Pro에서 이 모듈을 배포하고 실행하려면 [모듈 추가](azure-stack-edge-deploy-configure-compute.md#add-a-module) 단계를 참조하세요.

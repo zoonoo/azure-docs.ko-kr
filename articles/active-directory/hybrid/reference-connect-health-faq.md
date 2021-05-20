@@ -17,19 +17,19 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100367999"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
 
 ## <a name="general-questions"></a>일반적인 질문
-**Q: 여러 Azure AD 디렉터리를 관리 합니다. Azure Active Directory Premium 있는 항목으로 전환 어떻게 할까요??**
+**Q: 여러 Azure AD 디렉터리를 관리합니다. Azure Active Directory Premium을 사용하는 것으로 전환하려면 어떻게 해야 하나요?**
 
-오른쪽 위 모서리에 있는 현재 로그인한 **사용자 이름** 을 선택하고 적절한 계정을 선택하면 여러 Azure AD 테넌트 간에 전환할 수 있습니다. 계정이 여기에 나열 되어 있지 않으면 **로그 아웃** 을 선택한 다음 Azure Active Directory Premium (P1 또는 P2)를 사용 하도록 설정 된 디렉터리의 전역 관리자 자격 증명을 사용 하 여 로그인 합니다.
+오른쪽 위 모서리에 있는 현재 로그인한 **사용자 이름** 을 선택하고 적절한 계정을 선택하면 여러 Azure AD 테넌트 간에 전환할 수 있습니다. 계정이 여기에 나열되어 있지 않으면 **로그아웃** 을 선택한 다음, Azure Active Directory Premium(P1 또는 P2)을 사용하도록 설정된 디렉터리의 전역 관리자 자격 증명을 사용하여 로그인합니다.
 
 **Q: Azure AD Connect Health에서 어떤 버전의 ID 역할을 지원하나요?**
 
@@ -41,20 +41,20 @@ ms.locfileid: "100367999"
 |Azure AD Connect | 버전 1.0.9125 이상|
 |AD DS(Active Directory Domain Services)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 
-Windows Server Core 설치는 지원 되지 않습니다.
+Windows Server Core 설치는 지원되지 않습니다.
 
 서비스에서 제공하는 기능은 역할 및 운영 체제에 따라 다를 수 있습니다. 즉, 운영 체제 버전에 따라 일부 기능이 제공되지 않을 수도 있습니다. 자세한 내용은 기능 설명을 참조하세요.
 
 **Q: 내 인프라를 모니터링하려면 라이선스가 몇 개 필요한가요?**
 
-* 첫 번째 Connect Health 에이전트에는 하나 이상의 Azure AD Premium (P1 또는 P2) 라이선스가 필요 합니다.
-* 등록 된 추가 에이전트에는 각각 25 개의 추가 Azure AD Premium (P1 또는 P2) 라이선스가 필요 합니다.
+* 첫 번째 Connect Health 에이전트에는 하나 이상의 Azure AD Premium(P1 또는 P2) 라이선스가 필요합니다.
+* 등록된 추가 에이전트에는 각각 25개의 추가 Azure AD Premium(P1 또는 P2) 라이선스가 필요합니다.
 * 에이전트 수는 모든 모니터링된 역할(AD FS, Azure AD Connect 및/또는 AD DS)에 등록된 에이전트의 총 수와 같습니다.
 * AAD Connect 상태 라이선스의 경우 특정 사용자에게 라이선스를 할당할 필요가 없습니다. 필요한 수의 유효한 라이선스만 있으면 됩니다.
 
 라이선스 정보는 [Azure AD 가격 책정 페이지](https://aka.ms/aadpricing)에서 찾을 수 있습니다.
 
-예제:
+예:
 
 | 등록된 에이전트 | 필요한 라이선스 | 모니터링 구성 예제 |
 | ------ | --------------- | --- |
@@ -70,10 +70,10 @@ Windows Server Core 설치는 지원 되지 않습니다.
 
 | 역할 | 기능 | 독일 클라우드에서 지원됨 |
 | ------ | --------------- | --- |
-| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
 |  | 동기화 오류 보고서 | 예 |
-| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
-| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니요 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 예 |
 
 동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.
 
@@ -109,8 +109,8 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 
 에이전트를 등록하는 동안 프록시를 구성해야 하는 경우 Internet Explorer 프록시 설정을 미리 수정해야 할 수도 있습니다.
 
-1. Internet Explorer > **설정**  >  **인터넷 옵션**  >  **연결**  >  **LAN 설정** 을 엽니다.
-2. **사용자 LAN에 프록시 서버 사용** 을 선택 합니다.
+1. Internet Explorer > **설정** > **인터넷 옵션** > **연결** > **LAN 설정** 으로 이동합니다.
+2. **사용자 LAN의 프록시 서버 사용** 을 선택합니다.
 3. HTTP 및 HTTPS/보안의 프록시 포트가 다른 경우 **고급** 을 선택합니다.
 
 **Q: Azure AD Connect Health는 HTTP 프록시에 연결할 때 기본 인증을 지원하나요?**
@@ -129,9 +129,9 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 
 이 경우 이전 서버에 소속된 항목을 수동으로 삭제해야 합니다. 이 서버에 대한 데이터는 오래된 정보입니다.
 
-**Q: Windows Server Core에 Azure AD Connect health agent를 설치할 수 있나요?**
+**Q: Windows Server Core에 Azure AD Connect 상태 에이전트를 설치할 수 있나요?**
 
-아니요.  Server Core에 설치 하는 것은 지원 되지 않습니다.
+아니요.  Server Core에서의 설치는 지원되지 않습니다.
 
 ## <a name="health-agent-registration-and-data-freshness"></a>Health Agent 등록 및 데이터 새로 고침
 
@@ -139,11 +139,11 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 애플리케이션 �
 
 Health Agent는 다음과 같은 원인으로 등록에 실패할 수 있습니다.
 
-* 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 엔드포인트와 통신할 수 없습니다. 특히 웹 애플리케이션 프록시 서버에서 자주 발생하는 문제입니다. 필수 엔드포인트 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements) 을 참조 하세요.
-* 아웃 바운드 통신은 네트워크 계층에서 TLS 검사를 합니다. 이로 인해 에이전트에서 사용하는 인증서가 검사 서버/엔터티로 교체되고, 에이전트 등록을 완료하는 단계가 실패합니다.
-* 사용자는 에이전트의 등록을 수행하기 위한 액세스 권한이 없습니다. 전역 관리자는 기본적으로 액세스 권한이 있습니다. Azure [RBAC (역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) 를 사용 하 여 다른 사용자에 게 액세스 권한을 위임할 수 있습니다.
+* 방화벽이 트래픽을 차단하고 있어서 에이전트가 필수 엔드포인트와 통신할 수 없습니다. 특히 웹 애플리케이션 프록시 서버에서 자주 발생하는 문제입니다. 필수 엔드포인트 및 포트에 아웃바운드 통신을 허용해야 합니다. 자세한 내용은 [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 참조하세요.
+* 아웃바운드 통신은 네트워크 계층에서 TLS 검사를 받습니다. 이로 인해 에이전트에서 사용하는 인증서가 검사 서버/엔터티로 교체되고, 에이전트 등록을 완료하는 단계가 실패합니다.
+* 사용자는 에이전트의 등록을 수행하기 위한 액세스 권한이 없습니다. 전역 관리자는 기본적으로 액세스 권한이 있습니다. [Azure RBAC(Azure 역할 기반 액세스 제어)](how-to-connect-health-operations.md#manage-access-with-azure-rbac)를 사용하여 다른 사용자에게 액세스 권한을 위임할 수 있습니다.
 
-**Q: "상태 관리 서비스 데이터가 최신 상태가 아닙니다." 라는 경고 메시지가 표시 됩니다. 어떻게 할까요? 문제를 해결 하 시겠습니까?**
+**Q: "Health Service 데이터가 최신 상태가 아닙니다."라는 경고가 표시됩니다. 문제를 해결하려면 어떻게 해야 하나요?**
 
 Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수신하지 않으면 이 경고를 생성합니다. [자세히 알아봅니다](how-to-connect-health-data-freshness.md).
 
@@ -156,13 +156,13 @@ Azure AD Connect Health는 2시간 동안 서버에서 데이터 지점을 수�
 
 Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD Connect Health 에이전트가 정기적으로 성공 조건을 검색하여 서비스에 보고합니다. 일부 경고의 경우 시간을 기준으로 경고가 제거됩니다. 즉, 동일한 오류 조건이 경고 생성으로부터 72시간 내에 관찰되지 않으면 경고가 자동으로 해결됩니다.
 
-**Q: "테스트 인증 요청 (가상 트랜잭션)이 토큰을 가져오지 못했습니다." 라는 경고가 표시 됩니다. 어떻게 할까요? 문제를 해결 하 시겠습니까?**
+**Q: "테스트 인증 요청(가상 트랜잭션)이 토큰을 가져오지 못했습니다."라는 경고가 표시됩니다. 문제를 해결하려면 어떻게 해야 하나요?**
 
 AD FS용 Azure AD Connect Health는 AD FS 서버에 설치된 상태 에이전트가 상태 에이전트에서 시작되는 가상 트랜잭션의 일부로 토큰을 가져오는 데 실패한 경우 이 경고를 생성합니다. 상태 에이전트는 로컬 시스템 컨텍스트를 사용하고 자체 신뢰 당사자에 대한 토큰을 가져오려고 합니다. 이는 AD FS가 토큰을 발급 중인 상태인지 확인하는 범용 테스트입니다.
 
 종종 이 테스트는 상태 에이전트가 AD FS 팜 이름을 확인할 수 없기 때문에 실패합니다. 이는 AD FS 서버가 네트워크 부하 분산 장치 뒤에 있고 요청이 부하 분산 장치 뒤에 있는 노드에서 시작하는 경우 발생할 수 있습니다(부하 분산 장치 앞에 있는 일반 클라이언트와는 대조적으로). 이는 AD FS 팜 이름(예: sts.contoso.com)에 대해 AD FS 서버의 IP 주소 또는 루프백 IP 주소(127.0.0.1)를 포함하도록 "C:\Windows\System32\drivers\etc" 아래에 있는 "hosts" 파일을 업데이트하여 해결할 수 있습니다. 호스트 파일을 추가하면 네트워크 호출을 단락(short-circuit)하므로 상태 에이전트에서 토큰을 가져올 수 있도록 합니다.
 
-**Q: 최근 랜 섬 웨어 공격에 대해 내 컴퓨터에 패치가 적용 되지 않음을 나타내는 이메일이 나타났습니다. 이 전자 메일이 수신 되는 이유는 무엇 인가요?**
+**Q: 내 컴퓨터가 최근 랜섬웨어 공격에 대해 패치되지 않았다는 이메일을 받았습니다. 이 이메일을 받은 이유가 무엇인가요?**
 
 Azure AD Connect Health 서비스는 필요한 패치가 설치되었는지 확인하기 위해 모니터링하는 모든 컴퓨터를 검색했습니다. 하나 이상의 컴퓨터에 중요한 패치가 없는 경우 테넌트 관리자에게 전자 메일이 전송되었습니다. 이를 결정하기 위해 다음 논리가 사용되었습니다.
 1. 컴퓨터에 설치된 모든 핫픽스를 찾습니다.
@@ -200,16 +200,16 @@ CheckForMS17-010
 
 PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i>을 사용하여 감사 로그가 사용하지 않음 상태가 되도록 합니다. [ADFS 감사 로그](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)에 대해 자세히 알아보세요. ADFS 서버에 푸시된 고급 감사 설정이 있을 경우 auditpol.exe 관련 변경 내용이 덮어써진다는 점을 참고하세요(애플리케이션 생성됨이 구성되지 않은 경우의 이벤트). 이 경우 애플리케이션 생성됨 실패 및 성공을 기록하도록 로컬 보안 정책을 설정하세요.
 
-**Q: 에이전트 인증서가 만료 되기 전에 자동으로 갱신 되는 경우는 언제 인가요?**
-에이전트 인증은 만료 날짜 로부터 **6 개월** 전에 자동으로 갱신 됩니다. 갱신 되지 않은 경우 에이전트의 네트워크 연결이 안정적인 지 확인 하세요. 에이전트 서비스를 다시 시작 하거나 최신 버전으로 업데이트 하면 문제가 해결 될 수도 있습니다.
+**Q: 에이전트 인증서가 만료되기 전에 언제 자동 갱신되나요?**
+에이전트 인증은 만료일 **6개월** 전에 자동으로 갱신됩니다. 갱신되지 않은 경우 에이전트의 네트워크 연결이 안정적인지 확인하세요. 에이전트 서비스를 다시 시작하거나 최신 버전으로 업데이트하면 문제가 해결될 수도 있습니다.
 
 
 
 ## <a name="related-links"></a>관련 링크
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
-* [에이전트 설치 Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Azure AD Connect Health 에이전트 설치](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)
 * [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)
 * [동기화에 대한 Azure AD Connect Health 사용](how-to-connect-health-sync.md)
 * [AD DS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adds.md)
-* [Azure AD Connect Health 버전 기록](reference-connect-health-version-history.md)
+* [Azure AD Connect Health 버전 내역](reference-connect-health-version-history.md)

@@ -1,60 +1,60 @@
 ---
 author: baanders
-description: Azure Digital Twins 제한에 대 한 포함 파일
+description: Azure Digital Twins 제한에 대한 포함 파일
 ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
 ms.openlocfilehash: 4a69b2ff15fc4857e9fb292d2f753aa68ed875d4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "100370110"
 ---
 ### <a name="functional-limits"></a>기능 제한
 
-다음 표에는 Azure Digital Twins의 기능 한도가 정리 되어 있습니다. 
+다음 표에는 Azure Digital Twins의 기능 제한이 나와 있습니다. 
 
 > [!TIP]
-> 모델링 권장 구성이 이러한 기능 제한 내에서 작동 하려면 [모델 디자인에 대 한 모범 사례](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models)를 참조 하세요.
+> 이러한 기능 제한 내에서 작동하는 모델링 권장 사항은 [모델 설계 모범 사례](../articles/digital-twins/concepts-models.md#best-practices-for-designing-models)를 참조하세요.
 
-| 영역형 | 기능 | 기본 제한 | 빗변? |
+| 영역형 | 기능 | 기본 제한 | 조정 가능 |
 | --- | --- | --- | --- |
-| Azure 리소스 | 구독 당 지역의 Azure Digital Twins 인스턴스 수 | 10 | 예 |
-| Digital Twins | Azure Digital 쌍 인스턴스의 쌍 수 | 200,000 | 예 |
-| Digital Twins | 단일 쌍으로 들어오는 관계의 수 | 5,000 | 아니요 |
-| Digital Twins | 단일 쌍의 나가는 관계 수 | 5,000 | 아니요 |
-| Digital Twins | 단일 쌍의 최대 크기 (PUT 또는 PATCH 요청의 JSON 본문) | 32KB | 아니요 |
+| Azure 리소스 | 구독당 지역의 Azure Digital Twins 인스턴스 수 | 10 | 예 |
+| Digital Twins | Azure Digital Twins 인스턴스의 트윈 수 | 200,000 | 예 |
+| Digital Twins | 단일 쌍으로 들어오는 관계 수 | 5,000 | 아니요 |
+| Digital Twins | 단일 쌍에서 나가는 관계 수 | 5,000 | 아니요 |
+| Digital Twins | 단일 쌍의 최대 크기(PUT 또는 PATCH 요청의 JSON 본문) | 32KB | 아니요 |
 | Digital Twins | 최대 요청 페이로드 크기 | 32KB | 아니요 | 
-| 라우팅 | 단일 Azure Digital Twins 인스턴스의 끝점 수 | 6 | 아니요 |
+| 라우팅 | 단일 Azure Digital Twins 인스턴스의 엔드포인트 수 | 6 | 아니요 |
 | 라우팅 | 단일 Azure Digital Twins 인스턴스의 경로 수 | 6 | 예 |
 | 모델 | 단일 Azure Digital Twins 인스턴스 내의 모델 수 | 10000 | 예 |
 | 모델 | 단일 API 호출에서 업로드할 수 있는 모델 수 | 250 | 아니요 |
-| 모델 | 단일 모델의 최대 크기 (PUT 또는 PATCH 요청의 JSON 본문) | 1MB | 아니요 |
-| 모델 | 단일 페이지에 반환 된 항목 수 | 100 | 아니요 |
-| 쿼리 | 단일 페이지에 반환 된 항목 수 | 100 | 예 |
-| 쿼리 | `AND`  /  `OR` 쿼리의 식 수 | 50 | 예 |
-| 쿼리 | 절의 배열 항목 수 `IN`  /  `NOT IN` | 50 | 예 |
+| 모델 | 단일 모델의 최대 크기(PUT 또는 PATCH 요청의 JSON 본문) | 1MB | 아니요 |
+| 모델 | 단일 페이지에 반환된 항목 수 | 100 | 아니요 |
+| 쿼리 | 단일 페이지에 반환된 항목 수 | 100 | 예 |
+| 쿼리 | 쿼리의 `AND` / `OR` 식 수 | 50 | 예 |
+| 쿼리 | `IN` / `NOT IN` 절의 배열 항목 수 | 50 | 예 |
 | 쿼리 | 쿼리의 문자 수 | 8,000 | 예 |
-| 쿼리 | 쿼리의 수 `JOINS` | 5 | 예 |
+| 쿼리 | 쿼리의 `JOINS` 수 | 5 | 예 |
 
 ### <a name="rate-limits"></a>속도 제한
 
-다음 표에서는 다양 한 Api의 요율 제한을 반영 합니다.
+다음 표에서는 다양한 API의 속도 제한을 반영합니다.
 
-| API | 기능 | 기본 제한 | 빗변? |
+| API | 기능 | 기본 제한 | 조정 가능 |
 | --- | --- | --- | --- |
 | 모델 API | 초당 요청 수 | 100 | 예 |
 | Digital Twins API | 초당 요청 수 | 2,000 | 예 |
-| Digital Twins API | **모든 쌍 및 관계** 에서 초당 생성/삭제 작업 수 | 50 | 예 |
-| Digital Twins API | **단일** 쌍 또는 해당 관계에서 초당 생성/업데이트/삭제 작업 수입니다. | 10 | 예 |
+| Digital Twins API | **모든 트윈 및 관계** 에서 초당 생성/삭제 작업 수 | 50 | 예 |
+| Digital Twins API | **단일 쌍** 또는 해당 관계에서 초당 생성/업데이트/삭제 작업 수 | 10 | 예 |
 | 쿼리 API | 초당 요청 수 | 500 | 예 |
 | 쿼리 API | 초당 [쿼리 단위](../articles/digital-twins/concepts-query-units.md) | 4,000 | 예 |
 | 이벤트 경로 API | 초당 요청 수 | 100 | 예 |
 
 ### <a name="other-limits"></a>기타 제한
 
-Azure Digital Twins 모델의 DTDL 문서 내에 있는 데이터 형식 및 필드에 대 한 제한은 GitHub: [*DTDL (디지털 Twins 정의 언어)-버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)의 사양 설명서 내에서 찾을 수 있습니다.
+Azure Digital Twins 모델의 DTDL 문서 내에 있는 데이터 형식 및 필드에 대한 제한은 GitHub: [*DTDL(Digital Twins 정의 언어) - 버전 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md)의 사양 설명서 내에서 찾을 수 있습니다.
  
-쿼리 대기 시간 정보 및 기타 쿼리 제한은 [*방법: 쌍 그래프 쿼리*](../articles/digital-twins/how-to-query-graph.md)에서 찾을 수 있습니다.
+쿼리 대기 시간 정보 및 기타 쿼리 제한은 [*방법: 트윈 그래프 쿼리*](../articles/digital-twins/how-to-query-graph.md)에서 찾을 수 있습니다.

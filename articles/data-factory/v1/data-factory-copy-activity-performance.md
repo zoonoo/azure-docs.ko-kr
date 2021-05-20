@@ -8,10 +8,10 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 9a890719de39a71d8336d39f9932e73f7baccf87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100377213"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
@@ -23,11 +23,11 @@ ms.locfileid: "100377213"
 > [!NOTE]
 > 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에 대한 복사 작업 성능 및 조정 가이드](../copy-activity-performance.md)를 참조하세요.
 
-Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고성능 데이터 로드 솔루션을 제공합니다. 풍부하게 다양한 클라우드 및 온-프레미스 데이터 저장소에서 매일 수십 테라바이트의 데이터를 복사할 수 있습니다. 매우-빠른 데이터 로드 성능은 핵심 "빅 데이터" 문제에 초점을 맞출 수 있도록 하는 핵심입니다. 고급 분석 솔루션을 구축 하 고 모든 데이터에서 심층 통찰력을 얻는 것입니다.
+Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고성능 데이터 로드 솔루션을 제공합니다. 풍부하게 다양한 클라우드 및 온-프레미스 데이터 저장소에서 매일 수십 테라바이트의 데이터를 복사할 수 있습니다. 초고속 데이터 로드 성능은 핵심적인 "빅 데이터" 문제인 고급 분석 솔루션을 구축하고 모든 데이터에서 깊은 인사이트를 얻는 데 집중할 수 있도록 하는 열쇠입니다.
 
 Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우스 솔루션 세트를 제공하고 복사 작업은 쉽게 구성 및 설정할 수 있는 고도로 최적화된 데이터 로드 환경을 제공합니다. 단일 복사 작업 만을 사용하여 다음을 수행할 수 있습니다.
 
-* **1.2 GBps** 에서 **Azure Synapse Analytics** 로 데이터를 로드 하는 중입니다. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+* 데이터를 **1.2 GBps** 의 **Azure Synapse Analytics** 에 로드하는 중입니다. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
 * **1.0 Gbps** 속도로 **Azure Blob Storage** 에 데이터 로드
 * **1.0 Gbps** 속도로 **Azure Data Lake Store** 에 데이터 로드
 
@@ -178,9 +178,9 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 ## <a name="staged-copy"></a>준비된 복사
 원본 데이터 스토리지에서 싱크 데이터 스토리지에 데이터를 복사할 경우 중간 준비 스토리지로 Blob Storage를 사용하도록 선택할 수 있습니다. 준비는 다음과 같은 경우에 특히 유용합니다.
 
-1. **PolyBase를 통해 다양 한 데이터 저장소의 데이터를 Azure Synapse Analytics로 수집 하려고 합니다**. Azure Synapse Analytics는 많은 양의 데이터를 Azure Synapse Analytics로 로드 하기 위해 PolyBase를 처리량이 높은 메커니즘으로 사용 합니다. 단, 원본 데이터가 Blob Storage에 있어야 하고 추가 조건을 충족해야 합니다. Blob Storage가 아닌 데이터 스토리지에서 데이터를 로드하는 경우 중간 준비 Blob Storage를 통해 데이터 복사를 활성화할 수 있습니다. 이 경우 Data Factory는 PolyBase의 요구 사항을 충족하는지 확인하기 위해 필요한 데이터 변환을 수행합니다. 그런 다음 PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터를 로드 합니다. 자세한 내용은 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 참조 하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+1. **PolyBase를 통해 다양한 데이터 저장소에서 Azure Synapse Analytics에 데이터를 수집하고자 합니다.** Azure Synapse Analytics는 PolyBase를 높은 처리량 메커니즘으로 사용하여 Azure Synapse Analytics에 대량의 데이터를 로드합니다. 단, 원본 데이터가 Blob Storage에 있어야 하고 추가 조건을 충족해야 합니다. Blob Storage가 아닌 데이터 스토리지에서 데이터를 로드하는 경우 중간 준비 Blob Storage를 통해 데이터 복사를 활성화할 수 있습니다. 이 경우 Data Factory는 PolyBase의 요구 사항을 충족하는지 확인하기 위해 필요한 데이터 변환을 수행합니다. 그런 다음, PolyBase를 사용하여 Azure Synapse Analytics에 데이터를 로드합니다. 자세한 내용은 [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 참조하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
 2. **때로는 느린 네트워크 연결을 통해 하이브리드 데이터 이동(즉, 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 복사하려면)을 수행하는 데 오랜 시간이 걸립니다.** 성능을 개선하기 위해 온-프레미스 데이터를 압축하면 데이터를 클라우드의 준비 데이터 저장소로 이동하는 데 소요되는 시간이 단축됩니다. 그런 다음 준비 저장소에서 데이터의 압축을 해제한 후 대상 데이터 저장소에 로드할 수 있습니다.
-3. **기업 IT 정책 때문에 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다**. 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure Synapse Analytics 싱크로 데이터를 복사 하는 경우 Windows 방화벽과 회사 방화벽 모두에 대해 포트 1433에서 아웃 바운드 TCP 통신을 활성화 해야 합니다. 이 시나리오에서는 게이트웨이를 활용하여 포트 443에서 HTTP 또는 HTTPS를 통해 데이터를 Blob Storage 준비 인스턴스로 처음 복사합니다. 그런 다음 Blob storage 스테이징에서 SQL Database 또는 Azure Synapse Analytics로 데이터를 로드 합니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
+3. **기업 IT 정책 때문에 포트 80 및 포트 443 이외의 포트를 열지 않으려고 합니다**. 예를 들어 온-프레미스 데이터 저장소에서 Azure SQL Database 싱크 또는 Azure Synapse Analytics 싱크에 데이터를 복사하는 경우 Windows 방화벽 및 회사 방화벽 모두에 대한 포트 1433에서 아웃바운드 TCP 통신을 활성화해야 합니다. 이 시나리오에서는 게이트웨이를 활용하여 포트 443에서 HTTP 또는 HTTPS를 통해 데이터를 Blob Storage 준비 인스턴스로 처음 복사합니다. 그런 다음, Blob 스토리지 스테이징에서 SQL Database 또는 Azure Synapse Analytics로 데이터를 로드합니다. 이 흐름에서는 포트 1433을 사용하도록 설정하지 않아도 됩니다.
 
 ### <a name="how-staged-copy-works"></a>준비 복사의 작동 방법
 준비 기능을 활성화하면 먼저 데이터가 원본 데이터 저장소에서 준비 데이터 저장소(직접 준비)로 복사됩니다. 그 다음, 데이터가 준비 데이터 저장소에서 싱크 데이터 저장소로 복사됩니다. Data Factory는 사용자에 대한 2단계 흐름을 자동으로 관리합니다. 또한 Data Factory는 데이터 이동이 완료된 후에 준비 스토리지에서 임시 데이터도 정리합니다.
@@ -198,13 +198,13 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 현재는 준비 저장소를 사용하여 두 온-프레미스 데이터 저장소 간에 데이터를 복사할 수 없습니다. 이 옵션은 곧 제공될 예정입니다.
 
 ### <a name="configuration"></a>구성
-복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. 없는 경우 준비를 위해 Azure Storage 또는 저장소 공유 액세스 서명 연결 된 서비스를 만들어야 합니다.
+복사 작업에 **enableStaging** 설정을 구성하여 데이터를 대상 데이터 스토리지에 로드하기 전에 Blob Storage에서 준비할지 여부를 지정합니다. **enableStaging** 을 TRUE로 설정한 경우 다음 표에 나열된 추가 속성을 지정해야 합니다. Azure Storage 또는 준비를 위한 Storage 공유 액세스 서명 연결 서비스가 아직 없는 경우 만들어야 합니다.
 
 | 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
 | **enableStaging** |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |예 |
-| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 포함 된 저장소를 사용 하 여 PolyBase를 통해 Azure Synapse Analytics로 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
-| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
+| **linkedServiceName** |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) 또는 [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) 연결된 서비스로 지정합니다. <br/><br/> 공유 액세스 서명이 있는 스토리지를 사용하여 PolyBase를 통해 Azure Synapse Analytics에 데이터를 로드할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging** 이 TRUE로 설정된 경우입니다. |
+| **path** |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공하지 않으면 서비스는 임시 데이터를 저장하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |예 |
 | **enableCompression** |대상에 복사하기 전에 데이터를 압축할지 여부를 지정합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |예 |
 
 앞의 표에 설명된 속성이 있는 복사 작업의 샘플 정의는 다음과 같습니다.
@@ -249,7 +249,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
    ![작업 실행 세부 정보](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
-   이 문서의 뒷부분에서 시나리오의 성능과 구성을 테스트의 작업 [성능 참조](#performance-reference) 와 비교할 수 있습니다.
+   문서의 뒷부분에서는 시나리오의 성능 및 구성을 테스트에서 복사 작업의 [성능 참조](#performance-reference)와 비교할 수 있습니다.
 2. **성능 진단 및 최적화**. 확인되는 성능이 기대에 미치지 못하는 경우 성능 병목 상태를 식별해야 합니다. 그런 다음 성능을 최적화하여 병목 현상의 효과를 제거하거나 줄입니다. 성능 진단에 대한 자세한 내용은 이 문서의 범위를 벗어나지만 다음과 같이 몇 가지 일반적인 고려 사항이 있습니다.
 
    * 성능 기능:
@@ -260,7 +260,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
    * [데이터 관리 게이트웨이](#considerations-for-data-management-gateway)
    * [원본](#considerations-for-the-source)
    * [싱크](#considerations-for-the-sink)
-   * [직렬화 및 deserialization](#considerations-for-serialization-and-deserialization)
+   * [직렬화 및 역직렬화](#considerations-for-serialization-and-deserialization)
    * [압축](#considerations-for-compression)
    * [열 매핑](#considerations-for-column-mapping)
    * [기타 고려 사항](#other-considerations)
@@ -277,7 +277,7 @@ Azure는 엔터프라이즈급 데이터 스토리지 및 데이터 웨어하우
 
 Microsoft 데이터 저장소의 경우 데이터 저장소 성능 특성을 이해하고 응답 시간을 최소화하며 처리량을 최대화할 수 있도록 하는 데이터 저장소 특정 [모니터링 및 튜닝 항목](#performance-reference)을 참조하세요.
 
-Blob storage에서 Azure Synapse Analytics로 데이터를 복사 하는 경우, **PolyBase** 를 사용 하 여 성능을 향상 하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드를](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+Blob 스토리지에서 Azure Synapse Analytics로 데이터를 복사하는 경우에는 **PolyBase** 를 사용하여 성능을 높이는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 참조하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 ### <a name="file-based-data-stores"></a>파일 기반 데이터 저장소
 *(Blob Storage, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS 포함)*
@@ -287,7 +287,7 @@ Blob storage에서 Azure Synapse Analytics로 데이터를 복사 하는 경우,
 * **데이터 관리 게이트웨이** 가 필요한 **온-프레미스 파일 시스템** 시나리오는 [데이터 관리 게이트웨이에 대한 고려 사항](#considerations-for-data-management-gateway) 섹션을 참조하세요.
 
 ### <a name="relational-data-stores"></a>관계형 데이터 저장소
-*(SQL Database 포함 Azure Synapse 분석 Amazon Redshift; 데이터베이스 SQL Server 그리고 Oracle, MySQL, DB2, Teradata, Sybase 및 PostgreSQL 데이터베이스 등이 있습니다.*
+*(SQL Database, Azure Synapse Analytics, Amazon Redshift, SQL Server 데이터베이스, Oracle, MySQL, DB2, Teradata, Sybase 및 PostgreSQL 데이터베이스 등 포함)*
 
 * **데이터 패턴**: 테이블 스키마는 복사본 처리량에 영향을 줍니다. 행 크기가 크면 동일한 양의 데이터를 복사하는 데 작은 행 크기보다 더 나은 성능을 제공합니다. 원인은 데이터베이스가 적은 수의 행을 포함하는 더 적은 배치의 데이터보다 더욱 효율적으로 검색할 수 있기 때문입니다.
 * **쿼리 또는 저장 프로시저**: 데이터를 보다 효율적으로 가져오기 위해 복사 작업 원본에서 지정한 쿼리 또는 저장 프로시저의 논리를 최적화합니다.
@@ -299,7 +299,7 @@ Blob storage에서 Azure Synapse Analytics로 데이터를 복사 하는 경우,
 
 Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터링 및 튜닝 항목](#performance-reference)을 참조하세요. 이러한 항목에서 데이터 저장소 성능 특성을 이해하고 응답 시간을 최소화하고 처리량을 최대화하는 방법을 파악할 수 있습니다.
 
-**Blob storage** 에서 **Azure Synapse Analytics** 로 데이터를 복사 하는 경우에는 **PolyBase** 를 사용 하 여 성능을 향상 하는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용 하 여 Azure Synapse Analytics로 데이터 로드를](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) 참조 하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
+**Blob 스토리지** 에서 **Azure Synapse Analytics** 로 데이터를 복사하는 경우 **PolyBase** 를 사용하여 성능을 높이는 것이 좋습니다. 자세한 내용은 [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics)를 참조하세요. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](data-factory-load-sql-data-warehouse.md)를 참조하세요.
 
 ### <a name="file-based-data-stores"></a>파일 기반 데이터 저장소
 *(Blob Storage, Data Lake Store, Amazon S3, 온-프레미스 파일 시스템, 온-프레미스 HDFS 포함)*
@@ -361,12 +361,12 @@ Microsoft 데이터 저장소의 경우 데이터 저장소에 대한 [모니터
 
 Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하는 데이터 집합 및 복사 작업 수에 주의하세요. 많은 동시 복사 작업은 데이터 저장소를 제한하고 성능 저하, 복사 작업 내부 재시도 및 일부 경우 실행 오류를 발생시킬 수 있습니다.
 
-## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>샘플 시나리오: SQL Server 데이터베이스에서 Blob 저장소로 복사
-**시나리오**: SQL Server 데이터베이스에서 Blob 저장소로 CSV 형식으로 데이터를 복사 하도록 파이프라인이 작성 됩니다. 복사 작업을 더 빠르게 하려면 CSV 파일이 bzip2 형식으로 압축되어야 합니다.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>샘플 시나리오: SQL Server 데이터베이스에서 Blob 스토리지로 복사
+**시나리오**: 파이프라인은 CSV 형식으로 SQL Server 데이터베이스의 데이터를 Blob 스토리지로 복사하도록 빌드됩니다. 복사 작업을 더 빠르게 하려면 CSV 파일이 bzip2 형식으로 압축되어야 합니다.
 
 **테스트 및 분석**: 복사 작업의 처리량이 2MBps보다 적고 성능 벤치마크보다 훨씬 더 느립니다.
 
-**성능 분석 및 튜닝**: 성능 문제를 해결 하기 위해 데이터를 처리 하 고 이동 하는 방법을 살펴보겠습니다.
+**성능 분석 및 튜닝**: 성능 문제를 해결하기 위해 데이터가 처리되고 이동되는 방법을 살펴보겠습니다.
 
 1. **데이터 읽기**: 게이트웨이는 SQL Server에 연결을 열고 쿼리를 보냅니다. SQL Server는 데이터 스트림을 인트라넷을 통해 게이트웨이로 전송하여 응답합니다.
 2. **데이터 직렬화 및 압축**: 게이트웨이는 데이터 스트림을 CSV 형식으로 직렬화하고 데이터를 bzip2 스트림으로 압축합니다.
@@ -380,7 +380,7 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 
 * **원본**: SQL Server 자체가 과도한 로드로 인해 처리량이 낮아집니다.
 * **데이터 관리 게이트웨이**:
-  * **LAN**: 게이트웨이가 SQL Server 컴퓨터에서 멀리 떨어져 있고 낮은 대역폭 연결을 포함 합니다.
+  * **LAN**: 게이트웨이가 SQL Server 컴퓨터에서 멀리 떨어져 있고 낮은 대역폭 연결을 사용합니다.
   * **게이트웨이**: 게이트웨이는 다음 작업을 수행하는 로드 제한에 도달했습니다.
     * **직렬화**: CSV 형식에 대한 데이터 스트림을 직렬화하면 처리량이 느려집니다.
     * **압축**: 느린 압축 코덱을 선택했습니다(예: Core i7 2.8MBps의 bzip2).
@@ -411,10 +411,10 @@ Data Factory에서 동시에 동일한 데이터 저장소에 연결해야 하�
 ## <a name="reference"></a>참조
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
-* Azure Blob storage: blob 저장소에 [대 한 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md) 와 [blob 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/blobs/storage-performance-checklist.md)입니다.
-* Azure 테이블 저장소: 테이블 저장소에 [대 한 확장성 및 성능 목표](../../storage/tables/scalability-targets.md) 와 [테이블 저장소에 대 한 성능 및 확장성 검사 목록](../../storage/tables/storage-performance-checklist.md)입니다.
+* Azure Blob 스토리지: [Blob 스토리지의 확장성 및 성능 목표](../../storage/blobs/scalability-targets.md) 및 [Blob 스토리지의 확장성 검사 목록](../../storage/blobs/storage-performance-checklist.md)입니다.
+* Azure 테이블 스토리지: [테이블 스토리지의 확장성 및 성능 목표](../../storage/tables/scalability-targets.md) 및 [테이블 스토리지의 확장성 검사 목록](../../storage/tables/storage-performance-checklist.md)입니다.
 * Azure SQL Database: [성능을 모니터링](../../azure-sql/database/monitor-tune-overview.md) 하고 DTU(데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
-* Azure Synapse Analytics: 해당 기능은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다. [Azure Synapse Analytics에서 계산 능력 관리 (개요)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) 를 참조 하세요.
+* Azure Synapse Analytics: 해당 기능은 DWU(데이터 웨어하우스 단위)로 측정됩니다. [Azure Synapse Analytics의 컴퓨팅 능력 관리(개요)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조하세요.
 * Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../../cosmos-db/performance-levels.md)
 * 온-프레미스 SQL Server: [성능에 대한 모니터링 및 튜닝](/sql/relational-databases/performance/monitor-and-tune-for-performance)
 * 온-프레미스 파일 서버: [파일 서버에 대한 성능 튜닝](/previous-versions//dn567661(v=vs.85))

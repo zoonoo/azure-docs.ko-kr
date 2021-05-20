@@ -1,165 +1,166 @@
 ---
-title: 텍스트 분석 API의 새로운 기능
+title: Text Analytics API의 새로운 기능
 titleSuffix: Text Analytics - Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive Services Text Analytics의 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 Azure Cognitive Services Text Analytics의 새 릴리스와 기능에 관한 정보를 제공합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: a2b001d34d265c8e7246b03875c32168f2c5c962
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: f1e509156beea0b3da3539306dc055291cbff0c8
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598901"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107314187"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
-텍스트 분석 API는 지속적으로 업데이트 됩니다. 최신 개발을 최신 상태로 유지 하기 위해이 문서에서는 새로운 릴리스 및 기능에 대 한 정보를 제공 합니다.
+Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정보를 항상 파악할 수 있게 이 문서에서는 새 릴리스 및 기능 관련 정보를 제공합니다.
 
 ## <a name="march-2021"></a>2021년 3월
 
 ### <a name="general-api-updates"></a>일반 API 업데이트
-* 다음을 포함 하는 새 API v 3.1-preview. 4 릴리스 
-   * 의견 마이닝 JSON 응답 본문의 변경 내용: 
-      * `aspects` 현재이 `targets` 고 `opinions` 가입니다 `assessments` . 
-   * 상태에 대 한 Text Analytics 호스트 된 웹 API의 JSON 응답 본문 변경 내용: 
-      * `isNegated`부정에 대해 검색 된 엔터티 개체의 부울 이름은 더 이상 사용 되지 않으며 어설션 검색으로 대체 됩니다.
-      * 라는 새 속성 `role` 은 이제 특성과 엔터티 간의 추출 된 관계와 엔터티 간의 관계에 속합니다.  이렇게 하면 검색 된 관계 유형에 특이성가 추가 됩니다.
-   * 이제 끝점에서 엔터티 링크를 비동기 작업으로 사용할 수 있습니다 `/analyze` .
-   * `pii-categories`이제 끝점에서 새 매개 변수를 사용할 수 있습니다 `/pii` .
-      * 이 매개 변수를 사용 하 여 선택 된 PII 엔터티 뿐만 아니라 입력 언어에 대해 기본적으로 지원 되지 않는 엔터티를 지정할 수 있습니다.
-* 비동기 분석 및 상태 작업 Text Analytics를 포함 하는 업데이트 된 클라이언트 라이브러리입니다. GitHub에 대 한 예제를 찾을 수 있습니다.
+* 다음을 포함하는 새 API v3.1-preview.4 릴리스 
+   * 오피니언 마이닝 JSON 응답 본문의 변경: 
+      * 이제 `aspects`는 `targets`, `opinions`는 `assessments`입니다. 
+   * Text Analytics for Health의 호스트된 웹 API에서 JSON 응답 본문 변경: 
+      * 부정에 대해 검색된 엔터티 개체의 `isNegated` 부울 이름은 이제 사용되지 않으며 어설션 검색으로 바뀝니다.
+      * `role`이라는 새 속성이 이제 특성과 엔터티 간의 추출된 관계와 엔터티 간의 관계에 속합니다.  이로 인해 검색된 관계 유형에 특이성이 추가됩니다.
+   * 이제 `/analyze` 엔드포인트에서 엔터티 링크 설정을 비동기 작업으로 사용할 수 있습니다.
+   * 이제 `/pii` 엔드포인트에서 새 `pii-categories` 매개 변수를 사용할 수 있습니다.
+      * 이 매개 변수를 사용하여 PII 엔터티 선택과, 기본적으로 입력 언어로 지원되지 않는 엔터티를 지정할 수 있습니다.
+* 비동기 분석 및 Text Analytics for Health를 포함하는 클라이언트 라이브러리가 업데이트되었습니다. GitHub에서 예를 찾을 수 있습니다.
 
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
-    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/javascript)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript)
     
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3.1-Preview. 4에 대해 자세히 알아보세요. 4](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
+> [Text Analytics API v3.1-Preview.4에 대한 자세한 정보](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-4/operations/Languages)
 
-### <a name="text-analytics-for-health-updates"></a>상태 업데이트에 대 한 Text Analytics
+### <a name="text-analytics-for-health-updates"></a>Text Analytics for Health 업데이트
 
-* 에서 제공 하는 `2021-03-01` `/health` 끝점 및 온-프레미스 컨테이너의 새 모델 버전
-    * 엔터티 형식의 이름 바꾸기 `Gene` `GeneOrProtein` 입니다.
-    * 새 `Date` 엔터티 형식입니다.
-    * 부정 검색을 대체 하는 어설션 검색 (API v 3.1-preview. 4 에서만 사용 가능).
-    * `name`다양 한 온톨로지 및 코딩 시스템에서 정규화 된 연결 된 엔터티에 대 한 새로운 기본 설정 속성입니다 (API v 3.1-preview 에서만 사용 가능). 
-* 태그를 포함 하는 새 컨테이너 이미지가 `3.0.015370001-onprem-amd64` `2021-03-01` 컨테이너 미리 보기 리포지토리에 릴리스 되었습니다. 
-* 상태 컨테이너 이미지에 대 한 Text Analytics는 다음 달에 새 리포지토리로 이동 하 게 됩니다.  새 홈의 위치에서 전자 메일 통신을 시청 하세요.
+* 다음을 제공하는 `/health` 엔드포인트 및 온-프레미스 컨테이너의 새 모델 버전 `2021-03-01`
+    * `Gene` 엔터티 유형의 이름이 `GeneOrProtein`으로 변경되었습니다.
+    * 새 `Date` 엔터티 유형
+    * 부정 검색을 바꾸는 어설션 검색(API v3.1-preview.4에서만 사용 가능)
+    * 다양한 온톨로지 및 코딩 시스템에서 정규화된 연결된 엔터티에 대한 새로운 기본 설정 `name` 속성(API v3.1-preview.4에서만 사용 가능) 
+* 새 모델-버전 `2021-03-01` 및 `3.0.015490002-onprem-amd64` 태그가 있는 새 컨테이너 이미지가 컨테이너 미리 보기 리포지토리에 릴리스되었습니다. 
+    * 이 컨테이너 이미지는 2021년 4월 26일 이후 더 이상 `containerpreview.azurecr.io`에서 다운로드할 수 없습니다.
+* 이제 동일한 모델-버전을 사용하는 새 Text Analytics for Health 컨테이너 이미지를 `mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare`에서 사용할 수 있습니다. 4월 26일부터 이 리포지토리에서 컨테이너를 다운로드할 수 있습니다.
+
 > [!div class="nextstepaction"]
-> [상태 Text Analytics에 대 한 자세한 정보](how-tos/text-analytics-for-health.md)
->
+> [Text Analytics for Health에 대한 자세한 정보](how-tos/text-analytics-for-health.md)
 
 ### <a name="text-analytics-resource-portal-update"></a>Text Analytics 리소스 포털 업데이트
-* **처리 된 텍스트 레코드** 는 이제 Azure Portal의 Text Analytics 리소스에 대 한 **모니터링** 섹션에서 메트릭으로 사용할 수 있습니다.  
+* **처리된 텍스트 레코드** 는 이제 Azure Portal에서 Text Analytics 리소스에 대한 **모니터링** 섹션의 메트릭으로 사용할 수 있습니다.  
 
 ## <a name="february-2021"></a>2021년 2월
 
-* `2021-01-15`에서 제공 하는 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v 3.1-preview. x의 PII 끝점에 대 한 모델 버전 
-  * 9 개의 새로운 언어에 대 한 확장 된 지원
-  * 지원 되는 언어에 대 한 명명 된 엔터티 범주의 AI 품질 향상
-* S0 ~ S4 가격 책정 계층은 2021 년 3 월 8 일에 사용 중지 됩니다. S0 ~ S4 가격 책정 계층을 사용 하는 기존 Text Analytics 리소스가 있는 경우 표준 [가격 책정 계층](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)을 사용 하도록 업데이트 해야 합니다.
-* [언어 검색 컨테이너가](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) 이제 일반 공급 됩니다.
-* API의 v 2.1을 사용 중지 하는 중입니다. 
+* 다음을 제공하는 [명명된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x의 PII 엔드포인트에 대한 `2021-01-15` 모델 버전 
+  * 9개의 새 언어에 대한 지원 확장
+  * 지원되는 언어에 대한 명명된 엔터티 범주의 AI 품질 향상
+* S0~S4 가격 책정 계층은 2021년 3월 8일에 사용 중지됩니다. S0~S4 가격 책정 계층을 사용하는 기존 Text Analytics 리소스가 있는 경우 표준(S) [가격 책정 계층](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)을 사용하도록 업데이트해야 합니다.
+* [언어 검색 컨테이너](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment)가 이제 일반 공급됩니다.
+* API의 v2.1을 사용 중지하는 과정에 있습니다. 
 
 ## <a name="january-2021"></a>2021년 1월
 
-* 에서 `2021-01-15` 제공 하는 [명명 된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v3. x에 대 한 모델 버전 
-  * [몇 가지 일반 엔터티 범주](named-entity-types.md)에 대 한 확장 된 언어 지원 
-  * 지원 되는 모든 v3 언어에 대 한 일반 엔터티 범주의 향상 된 AI 품질 
+* 다음을 제공하는 [명명된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v3.x의 `2021-01-15` 모델 버전 
+  * [몇 가지 일반 엔터티 범주](named-entity-types.md)에 대한 언어 지원 확장 
+  * 지원되는 모든 v3 언어에 대한 일반 엔터티 범주의 AI 품질 향상 
 
-* `2021-01-05` [언어 검색](how-tos/text-analytics-how-to-language-detection.md)에 대 한 모델 버전으로, 추가 [언어 지원을](language-support.md?tabs=language-detection)제공 합니다.
+* [언어 검색](how-tos/text-analytics-how-to-language-detection.md)에 대한 `2021-01-05` 모델 버전으로, 추가적인 [언어 지원](language-support.md?tabs=language-detection)을 제공합니다.
 
-이러한 모델 버전은 현재 미국 동부 지역에서 사용할 수 없습니다. 
+이 모델 버전은 현재 미국 동부 지역에서 사용할 수 없습니다. 
 
 > [!div class="nextstepaction"]
-> [새 NER 모델에 대 한 자세한 정보](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
+> [새 NER 모델에 대한 자세한 정보](https://azure.microsoft.com/updates/text-analytics-ner-improved-ai-quality)
 
 ## <a name="december-2020"></a>2020년 12월
 
-* 텍스트 분석 API에 대 한 [가격 정보가 업데이트 되었습니다](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) .
+* Text Analytics API에 대한 [가격 정보가 업데이트되었습니다](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 ## <a name="november-2020"></a>2020년 11월
 
-* NER, PII 및 키 구 추출 작업을 위한 일괄 처리를 지 원하는 새로운 비동기 [분석 API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)에 대 한 텍스트 분석 API v 3.1-preview. 3의 [새 끝점](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze) 입니다.
-* 일괄 처리를 지 원하는 상태 호스팅 API [에 대 한](how-tos/text-analytics-for-health.md) 새로운 비동기 Text Analytics에 대 한 텍스트 분석 API v 3.1-preview. 3의 [새 끝점](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health) 입니다.
-* 위에 나열 된 새 기능은 `West US 2` ,, `East US 2` `Central US` `North Europe` 및 `West Europe` 지역 에서만 사용할 수 있습니다.
-* 포르투갈어 (브라질) `pt-BR` 는 이제 모델 버전부터 실행 되는 [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md) v3. x에서 지원 됩니다 `2020-04-01` . 이는 `pt-PT` 포르투갈어에 대 한 기존 지원을 추가 합니다.
-* 비동기 분석 및 상태 작업 Text Analytics를 포함 하는 업데이트 된 클라이언트 라이브러리입니다. GitHub에 대 한 예제를 찾을 수 있습니다.
+* NER, PII, 핵심 구 추출 작업의 일괄 처리를 지원하는 비동기 [분석 API](how-tos/text-analytics-how-to-call-api.md?tabs=analyze)에 대한 Text Analytics API v3.1-preview.3의 [새 엔드포인트](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Analyze)
+* 일괄 처리를 지원하는 새 비동기 [Text Analytics for Health](how-tos/text-analytics-for-health.md) 호스트 API에 대한 Text Analytics API v3.1-preview.3이 포함된 [새 엔드포인트](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health)
+* 위 목록의 새 기능은 `West US 2`, `East US 2`, `Central US`, `North Europe` 및 `West Europe` 지역에서만 사용할 수 있습니다.
+* 이제 모델 버전 `2020-04-01`부터 [감정 분석](how-tos/text-analytics-how-to-sentiment-analysis.md) v3.x에서 포르투갈어(브라질)`pt-BR`가 지원됩니다. 이는 포르투갈어에 대한 기존 `pt-PT` 지원을 추가합니다.
+* 비동기 분석 및 Text Analytics for Health를 포함하는 클라이언트 라이브러리가 업데이트되었습니다. GitHub에서 예를 찾을 수 있습니다.
 
     * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
     * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
     * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)
     * 
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+> [Text Analytics API v3.1-Preview.3에 대한 자세한 정보](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
 
 ## <a name="october-2020"></a>2020년 10월
 
-* 모델 버전부터 시작 하 여 감정 분석 v3. x에 대 한 힌디어 지원 `2020-04-01` . 
-* 향상 된 `2020-09-01` 언어 검색 및 정확도 기능이 추가 된 v3/언어 끝점에 대 한 모델 버전입니다.
-* 인도 중부 및 아랍에미리트 북부의 v3 가용성.
+* 모델 버전 `2020-04-01`부터 감정 분석 v3.x에서 힌디어 지원 
+* 언어 검색 및 정확도가 향상된 v3/언어 엔드포인트의 모델 버전 `2020-09-01`
+* 인도 중부 및 아랍에미리트 북부의 v3 가용성
 
 ## <a name="september-2020"></a>2020년 9월
 
 ### <a name="general-api-updates"></a>일반 API 업데이트
 
-* 다음 명명 된 엔터티 인식 v3 끝점에 대 한 업데이트를 지원 하기 위해 Text Analytics v 3.1 공개 미리 보기에 대 한 새 URL을 해제 합니다. 
-    * `/pii` 이제 끝점 `redactedText` 은 입력 텍스트에서 검색 된 PII 엔터티가 `*` 해당 엔터티의 각 문자에 대해로 대체 되는 응답 JSON에 새로운 속성을 포함 합니다.
-    * `/linking` 이제 끝점은 `bingID` 연결 된 엔터티에 대 한 응답 JSON에 속성을 포함 합니다.
-* 다음 Text Analytics preview API 끝점은 2020 년 9 월 4 일에 사용이 중지 되었습니다.
-    * v 2.1-미리 보기
+* 다음 명명된 엔터티 인식 v3 엔드포인트에 대한 업데이트를 지원하기 위한 Text Analytics v3.1 공개 미리 보기의 새 URL 릴리스 
+    * 이제 `/pii` 엔드포인트의 응답 JSON에 새 `redactedText` 속성이 포함되어, 입력 텍스트의 검색된 PII 엔터티가 엔터티의 각 문자에 대해 `*`로 바뀝니다.
+    * `/linking` 엔드포인트는 이제 연결된 엔터티에 대해 응답 JSON에 `bingID` 속성을 포함합니다.
+* 다음 Text Analytics 미리 보기 API 엔드포인트는 2020년 9월 4일에 사용이 중지되었습니다.
+    * v2.1-preview
     * v3.0-미리 보기
-    * v. 3.0-preview. 1
+    * v3.0-preview.1
     
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3.1-미리 보기에 대해 자세히 알아보세요. 2](quickstarts/client-libraries-rest-api.md)
+> [Text Analytics API v3.1-Preview.2에 대한 자세한 정보](quickstarts/client-libraries-rest-api.md)
 
-### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
+### <a name="text-analytics-for-health-container-updates"></a>Text Analytics for Health 컨테이너 업데이트
 
-다음 업데이트는 상태 컨테이너에 대 한 Text Analytics 9 월 릴리스에만 적용 됩니다.
-* 새 모델 버전의 태그가 있는 새 컨테이너 이미지가 `1.1.013530001-amd64-preview` `2020-09-03` 컨테이너 미리 보기 리포지토리에 릴리스 되었습니다. 
-* 이 모델 버전은 엔터티 인식, 약어 검색 및 대기 시간 향상의 향상 된 기능을 제공 합니다.
+다음 업데이트는 Text Analytics for Health 컨테이너에 대한 9월 릴리스에만 적용됩니다.
+* 새 모델 버전 `2020-09-03` 및 `1.1.013530001-amd64-preview` 태그가 있는 새 컨테이너 이미지가 컨테이너 미리 보기 리포지토리에 릴리스되었습니다. 
+* 이 모델 버전은 엔터티 인식, 약어 검색 및 대기 시간 단축에서 향상된 기능을 제공합니다.
 
 > [!div class="nextstepaction"]
-> [상태 Text Analytics에 대 한 자세한 정보](how-tos/text-analytics-for-health.md)
+> [Text Analytics for Health에 대한 자세한 정보](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>2020년 8월
 
 ### <a name="general-api-updates"></a>일반 API 업데이트
 
-* `2020-07-01`V3 및 끝점에 대 한 모델 버전은 `/keyphrases` `/pii` 다음을 추가 합니다 `/languages` .
-    * 명명 된 엔터티 인식을 위한 추가 정부 및 국가 별 [엔터티 범주](named-entity-types.md?tabs=personal) 입니다.
-    * 감정 분석 v3의 노르웨이어 및 터키어 지원.
-* 이제 게시 된 [데이터 제한을](concepts/data-limits.md)초과 하는 v3 API 요청에 대해 HTTP 400 오류가 반환 됩니다. 
-* 이제 오프셋을 반환 하는 끝점은 선택적 `stringIndexType` 매개 변수를 지원 하며,이 매개 변수는 반환 된 `offset` 및 `length` 값을 지원 되는 [문자열 인덱스 체계](concepts/text-offsets.md)와 일치 하도록 조정 합니다.
+* 다음을 추가하는 v3 `/keyphrases`, `/pii` 및 `/languages` 엔드포인트에 대한 모델 버전 `2020-07-01`
+    * 명명된 엔터티 인식에서 추가적인 정부 및 국가별 [엔터티 범주](named-entity-types.md?tabs=personal)
+    * 감정 분석 v3에서 노르웨이어 및 터키어 지원
+* 이제 게시된 [데이터 한도](concepts/data-limits.md)를 초과하는 v3 API 요청에 대해 HTTP 400 오류가 반환됩니다. 
+* 이제 오프셋을 반환하는 엔드포인트는 선택적 `stringIndexType` 매개 변수를 지원하며, 이 매개 변수는 반환된 `offset` 및 `length` 값을 지원되는 [문자열 인덱스 체계](concepts/text-offsets.md)에 맞게 조정합니다.
 
-### <a name="text-analytics-for-health-container-updates"></a>상태 컨테이너 업데이트에 대 한 Text Analytics
+### <a name="text-analytics-for-health-container-updates"></a>Text Analytics for Health 컨테이너 업데이트
 
-다음 업데이트는 상태 컨테이너에 대해서만 Text Analytics의 8 월 릴리스와 관련 됩니다.
+다음 업데이트는 Text Analytics for Health 컨테이너에 대한 8월 릴리스에만 적용됩니다.
 
-* 새 모델-상태 Text Analytics의 버전: `2020-07-24`
-* 상태 요청에 대 한 Text Analytics를 보내기 위한 새 URL: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health` (이 새 컨테이너 이미지에 포함 된 데모 웹 앱을 사용 하기 위해 브라우저 캐시를 지우도록 요구 됩니다.)
+* Text Analytics for Health의 새 모델-버전: `2020-07-24`
+* Text Analytics for Health 요청을 보내기 위한 새 URL: `http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health`(이 새 컨테이너 이미지에 포함된 데모 웹 앱을 사용하려면 브라우저 캐시 지우기 필요)
 
-JSON 응답의 다음 속성이 변경 되었습니다.
+JSON 응답에서 다음 속성이 변경되었습니다.
 
 * `type`는 `category`로 이름이 변경되었습니다. 
 * `score`는 `confidenceScore`로 이름이 변경되었습니다.
-* `category`JSON 출력의 필드에 있는 엔터티는 이제 파스칼식 대/소문자로 되어 있습니다. 다음 엔터티의 이름이 변경 되었습니다.
+* JSON 출력의 `category` 필드에 있는 엔터티는 이제 파스칼식 대/소문자입니다. 다음 클래스의 이름이 변경되었습니다.
     * `EXAMINATION_RELATION` 이름이 `RelationalOperator`으로 바뀌었습니다.
     * `EXAMINATION_UNIT` 이름이 `MeasurementUnit`으로 바뀌었습니다.
     * `EXAMINATION_VALUE` 이름이 `MeasurementValue`으로 바뀌었습니다.
-    * `ROUTE_OR_MODE` 의 이름이 변경 되었습니다 `MedicationRoute` .
-    * 관계형 엔터티의 `ROUTE_OR_MODE_OF_MEDICATION` 이름이로 바뀌었습니다 `RouteOfMedication` .
+    * `ROUTE_OR_MODE` 이름이 `MedicationRoute`로 바뀌었습니다.
+    * 관계형 엔터티 `ROUTE_OR_MODE_OF_MEDICATION`의 이름이 `RouteOfMedication`으로 바뀌었습니다.
 
-추가 된 엔터티는 다음과 같습니다.
+다음과 같은 엔터티가 추가되었습니다.
 
 * NER
     * `AdministrativeEvent`
@@ -173,15 +174,15 @@ JSON 응답의 다음 속성이 변경 되었습니다.
     * `DirectionOfTreatment`
 
 > [!div class="nextstepaction"]
-> [상태 컨테이너 Text Analytics에 대 한 자세한 정보](how-tos/text-analytics-for-health.md)
+> [Text Analytics for Health 컨테이너에 대한 자세한 정보](how-tos/text-analytics-for-health.md)
 
 ## <a name="july-2020"></a>2020년 7월 
 
-### <a name="text-analytics-for-health-container---public-gated-preview"></a>상태 컨테이너에 대 한 Text Analytics-공용 제어 된 미리 보기
+### <a name="text-analytics-for-health-container---public-gated-preview"></a>Text Analytics for Health - 제어된 공개 미리 보기
 
-상태 컨테이너에 대 한 Text Analytics는 이제 환자 흡입구 양식, 의사 (정보), 연구 용지 및 방전 요약 등의 임상 문서에서 구조화 되지 않은 영어 텍스트의 정보를 추출할 수 있는 공용 제어 미리 보기입니다. 현재 상태 컨테이너 사용에 대 한 Text Analytics에 대해서는 요금이 청구 되지 않습니다.
+Text Analytics for Health 컨테이너는 이제 제어된 공개 미리 보기 상태로, 환자 문진 양식, 의사 메모, 연구 논문, 퇴원서 등의 의료 문서에 사용된 구조화되지 않은 영어 텍스트에서 정보를 추출할 수 있습니다. 현재 Text Analytics for Health 컨테이너 사용에 대해서는 요금이 청구되지 않습니다.
 
-컨테이너는 다음과 같은 기능을 제공 합니다.
+이 컨테이너는 다음과 같은 기능을 제공합니다.
 
 * 명명된 엔터티 인식
 * 관계 추출
@@ -190,77 +191,77 @@ JSON 응답의 다음 속성이 변경 되었습니다.
 
 ## <a name="may-2020"></a>2020년 5월
 
-### <a name="text-analytics-api-v3-general-availability"></a>텍스트 분석 API v3 일반 공급
+### <a name="text-analytics-api-v3-general-availability"></a>Text Analytics API v3 일반 공급
 
-이제 텍스트 분석 API v3은 다음과 같은 업데이트를 사용 하 여 일반 공급 됩니다.
+이제 Text Analytics API v3은 다음과 같은 업데이트와 함께 일반 공급됩니다.
 
 * 모델 버전 `2020-04-01`
-* 각 기능에 대 한 새로운 [데이터 제한](concepts/data-limits.md)
-* [SA (감정 분석) v3](how-tos/text-analytics-how-to-sentiment-analysis.md) 의 업데이트 된 [언어 지원](language-support.md)
-* 엔터티 링크를 위한 별도의 끝점 
-* [NER (명명 된 엔터티 인식) v3](how-tos/text-analytics-how-to-entity-linking.md)의 새 "Address" 엔터티 범주입니다.
+* 각 기능에 대한 새로운 [데이터 제한](concepts/data-limits.md)
+* [SA(감정 분석) v3](how-tos/text-analytics-how-to-sentiment-analysis.md)의 [언어 지원](language-support.md) 업데이트
+* 엔터티 링크 설정을 위한 별도의 엔드포인트 
+* [NER(명명된 엔터티 인식) v3](how-tos/text-analytics-how-to-entity-linking.md)의 새 "Address" 엔터티 범주
 * NER v3의 새 하위 범주:
-   * 위치-지리적 위치
-   * 위치-구조적
-   * 조직-주식 교환
-   * 조직-의료
-   * 조직-스포츠
-   * 이벤트-문화권
-   * 이벤트-자연
-   * 이벤트-스포츠
+   * 위치 - 지리적 위치
+   * 위치 - 구조적
+   * 조직 - 증권 거래
+   * 조직 - 의료
+   * 조직 - 스포츠
+   * 이벤트 - 문화
+   * 이벤트 - 자연
+   * 이벤트 - 스포츠
 
-JSON 응답의 다음 속성이 추가 되었습니다.
-   * `SentenceText` 감정 분석에서
-   * `Warnings` 각 문서에 대해 
+JSON 응답에서 다음 속성이 추가되었습니다.
+   * 감정 분석의 `SentenceText`
+   * 각 문서에 대한 `Warnings` 
 
-JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하는 경우).
+JSON 응답에서 다음 속성의 이름이 변경되었습니다(해당하는 경우).
 
 * `score`는 `confidenceScore`로 이름이 변경되었습니다.
-    * `confidenceScore` 에는 두 개의 소수점 자릿수가 있습니다. 
+    * `confidenceScore`의 소수점 자릿수는 2자리입니다. 
 * `type`는 `category`로 이름이 변경되었습니다.
 * `subtype`는 `subcategory`로 이름이 변경되었습니다.
 
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3에 대 한 자세한 정보](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
+> [Text Analytics API v3에 대한 자세한 정보](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)
 
-### <a name="text-analytics-api-v31-public-preview"></a>텍스트 분석 API v 3.1 공개 미리 보기
-   * 새 감정 분석 기능- [의견 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
-   * `PII`보호 된 상태 정보 ()에 대 한 새 개인 () 도메인 필터 `PHI` 입니다.
+### <a name="text-analytics-api-v31-public-preview"></a>Text Analytics API v3.1 공개 미리 보기
+   * 새 감정 분석 기능 - [오피니언 마이닝](how-tos/text-analytics-how-to-sentiment-analysis.md#opinion-mining)
+   * 보호 대상 의료 정보(`PHI`)에 대한 새 개인(`PII`) 도메인 필터
 
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v 3.1 Preview에 대 한 자세한 정보](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
+> [Text Analytics API v3.1 미리 보기에 대한 자세한 정보](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ## <a name="february-2020"></a>2020년 2월
 
-### <a name="sdk-support-for-text-analytics-api-v3-public-preview"></a>텍스트 분석 API v3 공개 미리 보기에 대 한 SDK 지원
+### <a name="sdk-support-for-text-analytics-api-v3-public-preview"></a>Text Analytics API v3 공개 미리 보기의 SDK 지원
 
-[통합 된 AZURE sdk 릴리스의](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)일부로 텍스트 분석 API v3 SDK는 이제 다음과 같은 프로그래밍 언어에 대 한 공개 미리 보기로 제공 됩니다.
+[통합 Azure SDK 릴리스](https://techcommunity.microsoft.com/t5/azure-sdk/january-2020-unified-azure-sdk-release/ba-p/1097290)의 일부로, Text Analytics API v3 SDK가 이제 다음 프로그래밍 언어에 대해 공개 미리 보기로 제공됩니다.
    * [C#](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-csharp&tabs=version-3)
    * [Python](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-python&tabs=version-3)
    * [JavaScript(Node.js)](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-javascript&tabs=version-3)
    * [Java](./quickstarts/client-libraries-rest-api.md?pivots=programming-language-java&tabs=version-3)
    
 > [!div class="nextstepaction"]
-> [텍스트 분석 API v3 SDK에 대해 자세히 알아보기](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
+> [Text Analytics API v3 SDK에 대한 자세한 정보](./quickstarts/client-libraries-rest-api.md?tabs=version-3)
 
-### <a name="named-entity-recognition-v3-public-preview"></a>명명 된 엔터티 인식 v3 공개 미리 보기
+### <a name="named-entity-recognition-v3-public-preview"></a>명명된 엔터티 인식 v3 공개 미리 보기
 
-이제 추가 엔터티 형식은 텍스트에 있는 일반 및 개인 정보 엔터티 검색을 확장할 때 NER (명명 된 엔터티 인식) v3 공개 미리 보기 서비스에서 사용할 수 있습니다. 이 업데이트 [](concepts/model-versioning.md) `2020-02-01` 에서는 다음을 포함 하는 모델 버전을 소개 합니다.
+이제 텍스트에 있는 일반 및 개인 정보 엔터티 검색을 확장할 때 NER(명명된 엔터티 인식) v3 공개 미리 보기 서비스에서 추가적인 엔터티 유형을 사용할 수 있습니다. 이 업데이트에는 다음을 포함하는 [모델 버전 ](concepts/model-versioning.md) `2020-02-01`이 도입되었습니다.
 
-* 다음과 같은 일반 엔터티 형식 인식 (영어만 해당):
+* 다음과 같은 일반 엔터티 유형 인식(영어만 해당):
     * PersonType
-    * 제품
+    * Product
     * 이벤트
-    * 지정 학적 엔터티 (GPE)를 위치 아래의 하위 형식으로
+    * GPE(지정학적 엔터티)를 위치 아래의 하위 유형으로
     * 기술
 
-* 다음 개인 정보 엔터티 형식 인식 (영어만 해당):
+* 다음 개인 정보 엔터티 유형 인식(영어만 해당):
     * 사람
     * 조직
-    * 수량 아래의 하위 형식으로 사용 기간
-    * DateTime 아래의 하위 형식으로 날짜
-    * Email 
-    * 전화 번호 (미국에만 해당)
+    * 사용 기간을 수량 아래의 하위 유형으로
+    * 날짜를 DateTime 아래의 하위 유형으로
+    * 메일 
+    * 전화 번호(미국에만 해당)
     * URL
     * IP 주소
 
@@ -268,31 +269,31 @@ JSON 응답에서 다음 속성의 이름이 변경 되었습니다 (해당 하�
 
 #### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
 
-* 개인 정보 엔터티 형식을 인식 하기 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) (영어만 해당)
+* 개인 정보 엔터티 유형 인식을 위한 [새 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)(영어만 해당)
 
-* [엔터티 인식](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)를 위한 별도의 끝점.
+* [엔터티 인식](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크 설정](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)을 위한 별도의 엔드포인트
 
-* [](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
-    * 텍스트에 있는 엔터티의 확장 된 검색 및 분류 
-    * 다음과 같은 새로운 엔터티 유형을 인식 합니다.
+* 다음을 포함하는 [모델 버전](concepts/model-versioning.md) `2019-10-01`:
+    * 텍스트에 있는 엔터티의 확장된 검색 및 분류 
+    * 다음과 같은 새로운 엔터티 유형 인식:
         * 전화 번호
         * IP 주소
 
-엔터티 연결은 영어와 스페인어를 지원 합니다. NER 언어 지원은 엔터티 형식에 따라 달라 집니다.
+엔터티 링크 설정에서 영어와 스페인어를 지원합니다. NER 언어 지원은 엔터티 형식에 따라 다릅니다.
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 v3 공개 미리 보기
 
-* 감정 분석을 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) 입니다.
-* [](concepts/model-versioning.md) `2019-10-01` 다음을 포함 하는 모델 버전:
+* 감정 분석을 위한 [새 엔드포인트](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment).
+* 다음을 포함하는 [모델 버전](concepts/model-versioning.md) `2019-10-01`:
 
-    * API의 텍스트 분류 및 점수 매기기의 정확성과 세부 정보에 상당한 기능이 향상 되었습니다.
-    * 텍스트의 다른 정서에 대 한 자동 레이블 지정
-    * 문서 및 문장 수준에서 분석 및 출력을 감정 합니다. 
+    * API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보가 크게 향상되었습니다.
+    * 텍스트에서 다양한 감정에 대해 자동으로 레이블을 지정합니다.
+    * 문서 및 문장 수준에서 감정 분석 및 출력을 수행합니다. 
 
-영어 ( `en` ), 일본어 ( `ja` ), 중국어 간체 ( `zh-Hans` ), 중국어 번체 ( `zh-Hant` ), 프랑스어 (), 이탈리아어 (), 스페인어 (), 네덜란드어 (), 포르투갈어 () 및 독일어 ()를 지원 하며,,,,,,,,,, `fr` `it` `es` `nl` `pt` `de` `Australia East` `Central Canada` `Central US` `East Asia` `East US` `East US 2` `North Europe` `Southeast Asia` `South Central US` `UK South` `West Europe` 및 `West US 2` 지역에서 사용할 수 있습니다. 
+영어(`en`), 일본어(`ja`), 중국어 간체(`zh-Hans`), 중국어 번체(`zh-Hant`), 프랑스어(`fr`), 이탈리아어(`it`), 스페인어(`es`), 네덜란드어(`nl`), 포르투갈어(`pt`) 및 독일어(`de`)를 지원하며 `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe` 및 `West US 2` 등의 지역에서 사용할 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [감정 분석 v 3에 대 한 자세한 정보](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
+> [감정 분석 v3에 대한 자세한 정보](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features)
 
 ## <a name="next-steps"></a>다음 단계
 
