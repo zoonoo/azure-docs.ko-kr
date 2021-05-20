@@ -213,7 +213,7 @@
               href: storage-files-migration-storsimple-8000.md
             - name: StorSimple 1200 마이그레이션 가이드
               href: storage-files-migration-storsimple-1200.md
-    - name: 성능 향상
+    - name: 성능
       items:
         - name: SMB 다중 채널 사용
           href: storage-files-enable-smb-multichannel.md

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 04/04/2021
 ms.author: memildin
-ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: a1dfc08447ccf37355342f29be3a0b12b6492be7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634705"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108764876"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능 보관
 
@@ -24,6 +24,274 @@ ms.locfileid: "102634705"
 - 버그 수정
 - 사용되지 않는 기능
 
+
+## <a name="november-2020"></a>2020년 11월
+
+11월의 업데이트는 다음과 같습니다.
+
+- [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 추천 사항이 추가됨](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
+- [Security Center의 규정 준수 대시보드에 NIST SP 800 171 R2가 추가됨](#nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard)
+- [이제 추천 목록에 필터가 포함됨](#recommendations-list-now-includes-filters)
+- [자동 프로비저닝 환경 향상 및 확장](#auto-provisioning-experience-improved-and-expanded)
+- [이제 연속 내보내기(미리 보기)에서 보안 점수를 사용할 수 있습니다.](#secure-score-is-now-available-in-continuous-export-preview)
+- ["시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.](#system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations)
+- [이제 기본 정책 할당의 상태를 보여주는 Azure Portal의 정책 관리 페이지](#policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments)
+
+### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 권장 사항 추가됨
+
+Azure 보안 벤치마크는 일반적인 규정 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침 세트입니다. [Azure 보안 벤치마크에 대해 자세히 알아보세요](/security/benchmark/azure/introduction).
+
+이 벤치마크의 적용 범위를 넓히기 위해 다음 29개의 새로운 추천 사항이 Security Center에 추가되었습니다.
+
+미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
+
+| 보안 컨트롤                     | 새로운 권장 사항                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 전송 중인 데이터 암호화              | - PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br>- MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.<br>- TLS를 최신 API 앱 버전으로 업데이트해야 합니다.<br>- TLS를 최신 함수 앱 버전으로 업데이트해야 합니다.<br>- TLS를 최신 웹앱 버전으로 업데이트해야 합니다.<br>- API 앱에서 FTPS를 요구해야 합니다.<br>- 함수 앱에서 FTPS를 요구해야 합니다.<br>- 웹앱에서 FTPS를 요구해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 액세스 및 사용 권한 관리        | - 웹앱에서 들어오는 모든 요청에 대해 SSL 인증서를 요청해야 합니다.<br>- API 앱에서 관리 ID를 사용해야 합니다.<br>- 함수 앱에서 관리 ID를 사용해야 합니다.<br>- 웹앱에서 관리 ID를 사용해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| 무단 네트워크 액세스 제한 | - 프라이빗 엔드포인트를 PostgreSQL 서버에서 사용할 수 있어야 합니다.<br>- 프라이빗 엔드포인트를 MariaDB 서버에서 사용할 수 있어야 합니다.<br>- 프라이빗 엔드포인트를 MySQL 서버에서 사용할 수 있어야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| 감사 및 로깅 사용          | - App Services에서 진단 로그를 사용하도록 설정해야 합니다.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 보안 모범 사례 구현    | - Azure Backup을 가상 머신에 사용하도록 설정해야 합니다.<br>- Azure Database for MariaDB에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.<br>- Azure Database for MySQL에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.<br>- Azure Database for PostgreSQL에 대해 지역 중복 백업을 사용하도록 설정해야 합니다.<br>- PHP를 최신 API 앱 버전으로 업데이트해야 합니다.<br>- PHP를 최신 웹앱 버전으로 업데이트해야 합니다.<br>- Java를 최신 API 앱 버전으로 업데이트해야 합니다.<br>- Java를 최신 함수 앱 버전으로 업데이트해야 합니다.<br>- Java를 최신 웹앱 버전으로 업데이트해야 합니다.<br>- Python을 최신 API 앱 버전으로 업데이트해야 합니다.<br>- Python을 최신 함수 앱 버전으로 업데이트해야 합니다.<br>- Python을 최신 웹앱 버전으로 업데이트해야 합니다.<br>- SQL 서버에 대한 감사 보존 기간은 90일 이상으로 설정해야 합니다. |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+관련 링크:
+
+- [Azure 보안 벤치마크에 대한 자세한 정보](/security/benchmark/azure/introduction)
+- [Azure API 앱에 대한 자세한 정보](../app-service/app-service-web-tutorial-rest-api.md)
+- [Azure 함수 앱에 대한 자세한 정보](../azure-functions/functions-overview.md)
+- [Azure 웹앱에 대한 자세한 정보](../app-service/overview.md)
+- [Azure Database for MariaDB에 대한 자세한 정보](../mariadb/overview.md)
+- [Azure Database for MySQL에 대한 자세한 정보](../mysql/overview.md)
+- [Azure Database for PostgreSQL에 대한 자세한 정보](../postgresql/overview.md)
+
+
+### <a name="nist-sp-800-171-r2-added-to-security-centers-regulatory-compliance-dashboard"></a>Security Center의 규정 준수 대시보드에 NIST SP 800 171 R2가 추가됨
+
+NIST SP 800-171 R2 표준은 이제 Azure Security Center의 규정 준수 대시보드에서 사용할 수 있는 기본 이니셔티브로 제공됩니다. 제어에 대한 매핑은 [NIST SP 800-171 R2 규정 준수 기본 제공 이니셔티브의 세부 정보](../governance/policy/samples/nist-sp-800-171-r2.md)에 설명되어 있습니다. 
+
+표준을 구독에 적용하고 규정 준수 상태를 지속적으로 모니터링하려면 [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)의 지침을 사용합니다.
+
+:::image type="content" source="media/release-notes/nist-sp-800-171-r2-standard.png" alt-text="Security Center 규정 준수 대시보드의 NIST SP 800 171 R2 표준":::
+
+이 규정 준수 표준에 대한 자세한 내용은 [NIST SP 800-171 R2](https://csrc.nist.gov/publications/detail/sp/800-171/rev-2/final)를 참조하세요.
+
+
+### <a name="recommendations-list-now-includes-filters"></a>이제 추천 목록에 필터가 포함됨
+
+이제 일련의 조건에 따라 보안 추천 목록을 필터링할 수 있습니다. 다음 예에서는 다음과 같은 추천을 보여주기 위해 추천 목록이 필터링되었습니다.
+
+- **일반 공급**(즉, 미리 보기 아님)
+- **스토리지 계정** 에 대한 추천
+- **빠른 수정** 수정을 지원하는 추천
+
+:::image type="content" source="media/release-notes/recommendations-filters.png" alt-text="추천 목록에 대한 필터":::
+
+
+### <a name="auto-provisioning-experience-improved-and-expanded"></a>자동 프로비저닝 환경 향상 및 확장
+
+자동 프로비저닝 기능은 신규 및 기존 Azure VM에 필요한 확장을 설치하여 관리 오버헤드를 줄이는 데 도움이 되므로 Security Center의 보호 기능을 활용할 수 있습니다. 
+
+Azure Security Center가 성장함에 따라 더 많은 확장이 개발되었으며 보안 센터에서 더 많은 리소스 유형을 모니터링할 수 있습니다. 자동 프로비저닝 도구는 이제 Azure Policy의 기능을 활용하여 다른 확장 및 리소스 종류를 지원하도록 확장되었습니다.
+
+이제 다음 항목의 자동 프로비저닝을 구성할 수 있습니다.
+
+- Log Analytics 에이전트
+- (신규) Kubernetes에 대한 Azure Policy 추가 기능
+- (신규) Microsoft Dependency Agent
+
+[Azure Security Center에서 에이전트 및 확장 자동 프로비저닝](security-center-enable-data-collection.md)에서 자세히 알아보세요.
+
+
+### <a name="secure-score-is-now-available-in-continuous-export-preview"></a>이제 연속 내보내기(미리 보기)에서 보안 점수를 사용할 수 있습니다.
+
+보안 점수를 연속적으로 내보내면 점수 변경 내용을 Azure Event Hubs 또는 Log Analytics 작업 영역에 실시간으로 스트리밍할 수 있습니다. 이 기능을 사용하여 다음을 수행할 수 있습니다.
+
+- 동적 보고서로 시간 경과에 따른 보안 점수 추적
+- 보안 점수 데이터를 Azure Sentinel(또는 기타 SIEM)로 내보내기
+- 이 데이터를 조직에서 보안 점수를 모니터링하는 데 이미 사용하고 있을 수 있는 프로세스와 통합
+
+[Security Center 데이터를 연속적으로 내보내는](continuous-export.md) 방법에 대해 자세히 알아보세요.
+
+
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-now-includes-subrecommendations"></a>"시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다." 권장 사항이 이제 하위 권장 사항을 포함합니다.
+
+**시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다.** 권장 사항이 향상되었습니다. 새 버전에는 누락된 각 업데이트에 대한 하위 권장 사항이 포함되어 있으며 다음과 같은 기능이 향상되었습니다.
+
+- Azure Portal의 Azure Security Center 페이지에서 새롭게 디자인된 환경. **시스템 업데이트는 머신에 설치되어야 합니다** 에 대한 권장 사항 세부 정보 페이지에는 아래와 같은 결과 목록이 포함되어 있습니다. 단일 찾기를 선택하면 재구성 정보 및 영향을 받는 리소스의 목록에 대한 링크가 포함된 세부 정보 창이 열립니다.
+
+    :::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="업데이트된 권장 사항에 대한 포털 환경에서 하위 권장 사항 중 하나 열기":::
+
+- ARG(Azure Resource Graph)의 권장 사항에 대한 보강 데이터. ARG는 효율적인 리소스 탐색을 제공하도록 디자인된 Azure 서비스입니다. ARG를 사용하여 사용자 환경을 효과적으로 관리할 수 있도록 지정된 구독 세트에서 대규모로 쿼리할 수 있습니다. 
+
+    Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다.
+
+    이전에는 ARG에서 이 권장 사항을 쿼리한 경우 권장 사항을 머신에서 수정해야 한다는 정보만 제공되었습니다. 향상된 버전의 다음 쿼리는 누락된 각 시스템 업데이트를 머신별로 그룹화하여 반환합니다.
+
+    ```kusto
+    securityresources
+    | where type =~ "microsoft.security/assessments/subassessments"
+    | where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+    | where properties.status.code == "Unhealthy"
+    ```
+
+### <a name="policy-management-page-in-the-azure-portal-now-shows-status-of-default-policy-assignments"></a>이제 기본 정책 할당의 상태를 보여주는 Azure Portal의 정책 관리 페이지
+
+이제 Azure Portal의 Security Center **보안 정책** 페이지에서 구독에 기본 Security Center 정책이 할당되었는지 여부를 확인할 수 있습니다.
+
+:::image type="content" source="media/release-notes/policy-assignment-info-per-subscription.png" alt-text="기본 정책 할당을 보여주는 Azure Security Center의 정책 관리 페이지":::
+
+
+
+## <a name="october-2020"></a>2020년 10월
+
+10월의 업데이트는 다음과 같습니다.
+- [온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Azure Firewall 권장 사항 추가(미리 보기)](#azure-firewall-recommendation-added-preview)
+- [[Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항의 빠른 픽스가 업데이트됨](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [이제 규정 준수 대시보드에는 표준을 제거하는 옵션이 포함됨](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
+- [ARG(Azure Resource Graph)에서 Microsoft.Security/securityStatuses 테이블이 제거됨](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>온-프레미스 및 다중 클라우드 머신의 취약성 평가(미리 보기)
+
+[서버용 Azure Defender](defender-for-servers-introduction.md)의 통합 취약성 평가 스캐너(Qualys 기반)는 이제 Azure Arc 사용 서버를 검색합니다.
+
+Azure가 아닌 머신에서 Azure Arc를 사용하도록 설정한 경우 Security Center는 이러한 머신에 통합 취약성 스캐너를 수동 및 대규모로 배포할 수 있습니다.
+
+이번 업데이트를 통해 모든 Azure 및 비-Azure 자산의 취약성 관리 프로그램을 통합하는 **서버용 Azure Defender** 의 강력한 성능을 발휘할 수 있습니다.
+
+주요 기능:
+
+- Azure Arc 머신의 VA(취약성 평가) 스캐너 프로비저닝 상태 모니터링
+- 보호되지 않는 Windows 및 Linux Azure Arc 머신에 통합 VA 에이전트 프로비저닝(수동 및 대규모로)
+- 배포된 에이전트에서 탐지된 취약성 수신 및 분석(수동 및 대규모로)
+- Azure VM 및 Azure Arc 머신에 대한 통합 환경
+
+[하이브리드 머신에 통합 취약성 스캐너를 배포하는 내용을 자세히 알아보세요](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Azure Arc 사용 서버에 대해 자세히 알아보세요](../azure-arc/servers/index.yml).
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>Azure Firewall 권장 사항 추가(미리 보기)
+
+Azure Firewall을 통해 모든 가상 네트워크를 보호하기 위해 새로운 권장 사항이 추가되었습니다.
+
+**가상 네트워크는 Azure Firewall로 보호해야 합니다** 권장 사항은 Azure Firewall을 사용하여 가상 네트워크에 대한 액세스를 제한하고 잠재적 위협을 차단할 것을 조언합니다.
+
+[Azure Firewall](https://azure.microsoft.com/services/azure-firewall/)에 대해 자세히 알아보세요.
+
+
+### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>[Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항의 빠른 픽스가 업데이트됨
+
+**Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함** 권장 사항은 이제 빠른 픽스 옵션을 제공합니다.
+
+이 권장 사항 및 기타 모든 Security Center 권장 사항에 대한 자세한 내용은 [보안 권장 사항 - 참조 가이드](recommendations-reference.md)를 참조하세요.
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="빠른 픽스 옵션을 제공하는 [Kubernetes 서비스에서 권한 있는 IP 범위를 정의해야 함] 권장 사항":::
+
+
+### <a name="regulatory-compliance-dashboard-now-includes-option-to-remove-standards"></a>이제 규정 준수 대시보드에는 표준을 제거하는 옵션이 포함됨
+
+Security Center의 규정 준수 대시보드는 특정 규정 준수 제어 및 요구 사항을 충족하는 방법에 따라 규정 준수 상태에 대한 인사이트를 제공합니다.
+
+대시보드에는 규정 표준의 기본 세트가 포함되어 있습니다. 제공된 표준이 조직과 관련이 없는 경우 이제 구독에 대한 UI에서 해당 표준을 제거할 수 있는 간단한 프로세스입니다. 표준은 관리 그룹 범위가 아닌 *구독* 수준에서만 제거할 수 있습니다.
+
+[대시보드에서 표준 제거](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard)에서 자세히 알아봅니다.
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>ARG(Azure Resource Graph)에서 Microsoft.Security/securityStatuses 테이블이 제거됨
+
+Azure Resource Graph는 작업 환경을 효과적으로 관리할 수 있도록 특정 구독 세트에서 대규모로 쿼리를 수행할 수 있는 효율적인 리소스 탐색 기능을 제공하도록 디자인된 Azure 서비스입니다. 
+
+Azure Security Center의 경우 ARG 및 [KQL(Kusto Query Language)](/azure/data-explorer/kusto/query/)을 사용하여 다양한 보안 태세 데이터를 쿼리할 수 있습니다. 예를 들어:
+
+- 자산 인벤토리 활용(ARG)
+- [MFA(다단계 인증)를 사용하지 않고 계정을 식별](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)하는 방법에 대한 샘플 ARG 쿼리가 문서로 준비되어 있습니다.
+
+ARG 내에는 쿼리에 사용할 수 있는 데이터 테이블이 들어 있습니다.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer 및 사용 가능한 테이블":::
+
+> [!TIP]
+> ARG 설명서에는 [Azure Resource Graph 테이블 및 리소스 종류 참조](../governance/resource-graph/reference/supported-tables-resources.md)에서 사용 가능한 모든 테이블이 나열되어 있습니다.
+
+이번 업데이트에서 **Microsoft.Security/securityStatuses** 테이블이 제거되었습니다. securityStatuses API는 계속 사용할 수 있습니다.
+
+데이터 교체는 Microsoft.Security/Assessments에서 사용할 수 있습니다.
+
+Microsoft.Security/securityStatuses는 평가의 집계를 보여주고 Microsoft.Security/Assessments는 각 평가에 대한 단일 레코드를 포함한다는 것이 가장 큰 차이점입니다.
+
+예를 들어 Microsoft.Security/securityStatuses는 다음과 같은 두 개의 policyAssessments 배열이 포함된 결과를 반환합니다.
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
+}
+```
+반면 Microsoft.Security/Assessments는 다음과 같이 각 정책 평가에 대한 레코드를 보유합니다.
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**이제 assessments 테이블을 사용하도록 securityStatuses를 사용하여 기존 ARG 쿼리를 변환하는 예제:**
+
+SecurityStatuses를 참조하는 쿼리:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Assessments 테이블의 대체 쿼리:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+다음 링크에서 자세한 내용을 알아보세요.
+- [Azure Resource Graph Explorer를 사용하여 쿼리를 만드는 방법](../governance/resource-graph/first-query-portal.md)
+- [Kusto Query Language(KQL)](/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>2020년 9월
@@ -298,8 +566,8 @@ Security Center는 VM을 검사하여 해당 VM에서 취약성 평가 솔루션
 
 |통합 추천 사항|변경 내용 설명|
 |----|:----|
-|**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**|다음 두 가지 추천 사항을 대체합니다.<br> **•** 가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공)(현재 사용되지 않음)(표준 계층에 포함됨)<br> **•** 가상 머신에 취약성 평가 솔루션을 설치해야 함(현재 사용되지 않음)(표준 및 체험 계층)|
-|**가상 머신의 취약성을 수정해야 함**|다음 두 가지 추천 사항을 대체합니다.<br>**•** 가상 머신에서 발견한 취약성 수정(Qualys 제공)(현재 사용되지 않음)<br>**•** 취약성 평가 솔루션으로 취약성을 수정해야 함(현재 사용되지 않음)|
+|**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**|다음 두 가지 추천 사항을 대체합니다.<br> ***** 가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공(현재 사용되지 않음)(표준 계층에 포함됨))<br> ***** 가상 머신에 취약성 평가 솔루션을 설치해야 함(현재 사용되지 않음)(표준 및 체험 계층)|
+|**가상 머신의 취약성을 수정해야 함**|다음 두 가지 추천 사항을 대체합니다.<br>***** 가상 머신에서 발견한 취약성 수정(Qualys 제공)(현재 사용되지 않음)<br>***** 취약성 평가 솔루션으로 취약성을 수정해야 함(현재 사용되지 않음)|
 |||
 
 이제 동일한 추천 사항을 사용하여 Qualys 또는 Rapid7과 같은 파트너로부터 Security Center의 취약성 평가 확장 또는 개인적으로 사용이 허가된 솔루션("BYOL")을 배포합니다.
@@ -312,20 +580,20 @@ Security Center는 VM을 검사하여 해당 VM에서 취약성 평가 솔루션
 
 ##### <a name="before-august-2020"></a>2020년 8월 이전
 
-|권장|Scope|
+| 권장|Scope|
 |----|:----|
 |**가상 머신에서 기본 제공 취약성 평가 솔루션 사용(Qualys에서 제공)**<br>키: 550e890b-e652-4d22-8274-60b3bdb24c63|기본 제공|
 |**가상 머신에서 발견한 취약성 수정(Qualys 제공)**<br>키: 1195afff-c881-495e-9bc5-1486211ae03f|기본 제공|
 |**가상 머신에 취약성 평가 솔루션을 설치해야 함**<br>키: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
 |**취약성 평가 솔루션으로 취약성을 수정해야 합니다.**<br>키: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
+|||
 
 
 |정책|Scope|
 |----|:----|
 |**가상 머신에서 취약성 평가를 사용하도록 설정해야 함**<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|기본 제공|
 |**취약성 평가 솔루션으로 취약성을 수정해야 함**<br>정책 ID: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
+|||
 
 
 ##### <a name="from-august-2020"></a>2020년 8월부터
@@ -334,12 +602,12 @@ Security Center는 VM을 검사하여 해당 VM에서 취약성 평가 솔루션
 |----|:----|
 |**취약성 평가 솔루션을 가상 머신에서 사용하도록 설정해야 함**<br>키: ffff0522-1e88-47fc-8382-2a80ba848f5d|기본 제공 + BYOL|
 |**가상 머신의 취약성을 수정해야 함**<br>키: 1195afff-c881-495e-9bc5-1486211ae03f|기본 제공 + BYOL|
-||||
+|||
 
 |정책|Scope|
 |----|:----|
 |[**가상 머신에서 취약성 평가를 사용하도록 설정해야 함**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>정책 ID: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |기본 제공 + BYOL|
-||||
+|||
 
 
 ### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>새 AKS 보안 정책이 ASC_default 이니셔티브에 추가됨 - 프라이빗 미리 보기 고객만 사용
@@ -475,7 +743,7 @@ SQL 컴퓨터의 고급 데이터 보안과 관련된 6가지 정책은 더 이�
 6월의 업데이트는 다음과 같습니다.
 
 - [보안 점수 API(미리 보기)](#secure-score-api-preview)
-- [SQL 컴퓨터 (Azure, 다른 클라우드 및 온-프레미스)에 대 한 고급 데이터 보안 (미리 보기)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
+- [SQL 컴퓨터(Azure, 기타 클라우드 및 온-프레미스)에 대한 Advanced Data Security(미리 보기)](#advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview)
 - [Log Analytics 에이전트를 Azure Arc 컴퓨터에 배포하기 위한 두 가지 새 추천 사항(미리 보기)](#two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview)
 - [연속 내보내기 및 워크플로 자동화 구성을 규모에 맞게 만들기 위한 새 정책](#new-policies-to-create-continuous-export-and-workflow-automation-configurations-at-scale)
 - [NSG를 사용하여 인터넷에 연결되지 않은 가상 머신을 보호하기 위한 새 추천 사항](#new-recommendation-for-using-nsgs-to-protect-non-internet-facing-virtual-machines)
@@ -493,7 +761,7 @@ SQL 컴퓨터의 고급 데이터 보안과 관련된 6가지 정책은 더 이�
 
 
 
-### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview"></a>SQL 컴퓨터 (Azure, 다른 클라우드 및 온-프레미스)에 대 한 고급 데이터 보안 (미리 보기)
+### <a name="advanced-data-security-for-sql-machines-azure-other-clouds-and-on-premises-preview"></a>SQL 컴퓨터(Azure, 기타 클라우드 및 온-프레미스)에 대한 Advanced Data Security(미리 보기)
 
 SQL 컴퓨터에 대한 Azure Security Center의 고급 데이터 보안 기능은 이제 Azure, 다른 클라우드 환경 및 심지어 온-프레미스 컴퓨터에서 호스팅되는 SQL Server를 보호합니다. 이렇게 하면 Azure 네이티브 SQL Server에 대한 보호 기능이 확장되어 하이브리드 환경을 완벽하게 지원합니다.
 
@@ -740,7 +1008,7 @@ Security Center 보안 정책 페이지에서 구독 또는 관리 그룹에 동
 - **캐나다 연방 PBMM**
 - **Azure CIS 1.1.0(신규)** (Azure CIS 1.1.0을 보다 완벽하게 표현)
 
-또한 최근 일반 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침인 **Azure 보안 벤치마크** 를 추가했습니다. 추가 표준은 사용할 수 있게 되면 대시보드에서 지원될 예정입니다.  
+또한 최근 일반 준수 프레임워크를 기반으로 하는 보안 및 규정 준수 모범 사례에 대해 Microsoft에서 작성한 Azure 관련 지침인 [Azure 보안 벤치마크](/security/benchmark/azure/introduction)를 추가했습니다. 추가 표준은 사용할 수 있게 되면 대시보드에서 지원될 예정입니다.  
  
 [규정 준수 대시보드의 표준 집합 사용자 지정](update-regulatory-compliance-packages.md)에 대해 자세히 알아보세요.
 
@@ -759,7 +1027,7 @@ ID 및 액세스 권장 사항의 예는 다음과 같습니다.
 
 [ID 및 액세스 권장 사항](recommendations-reference.md#recs-identityandaccess)에 대해 자세히 알아보세요.
 
-[구독에 대 한 MFA (multi-factor authentication) 적용을 관리 하](security-center-identity-access.md)는 방법에 대해 자세히 알아보세요.
+[구독에 대한 MFA(다단계 인증) 적용 관리](security-center-identity-access.md)에 대해 자세히 알아보세요.
 
 
 
@@ -862,14 +1130,14 @@ Security Center 방어에는 다음이 포함됩니다.
 
 미리 보기 단계에서 보안 점수 변경을 숙지하고 환경을 보다 안전하게 보호하는 데 도움이 되는 다른 수정을 결정합니다.
 
-[향상 된 보안 점수 (미리 보기)](secure-score-security-controls.md)에 대해 자세히 알아보세요.
+[향상된 보안 점수(미리 보기)](secure-score-security-controls.md)에 대해 자세히 알아보세요.
 
 
 
 ## <a name="november-2019"></a>2019년 11월
 
 11월의 업데이트는 다음과 같습니다.
- - [북아메리카 지역에서 Azure Key Vault에 대 한 위협 방지 (미리 보기)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
+ - [북아메리카 지역의 Azure Key Vault에 대한 위협 방지(미리 보기)](#threat-protection-for-azure-key-vault-in-north-america-regions-preview)
  - [Azure Storage에 대한 위협 방지에 맬웨어 평판 차단 포함](#threat-protection-for-azure-storage-includes-malware-reputation-screening)
  - [Logic Apps로 워크플로 자동화(미리 보기)](#workflow-automation-with-logic-apps-preview)
  - [대량 리소스에 대한 빠른 수정 일반 공급](#quick-fix-for-bulk-resources-generally-available)
@@ -883,11 +1151,11 @@ Security Center 방어에는 다음이 포함됩니다.
  - [권장 사항 및 경고 내보내기와의 고급 통합(미리 보기)](#advanced-integrations-with-export-of-recommendations-and-alerts-preview)
  - [Windows 관리 센터에서 Security Center에 온-프레미스 서버 온보딩(미리 보기)](#onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview)
 
-### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>북아메리카 지역에서 Azure Key Vault에 대 한 위협 방지 (미리 보기)
+### <a name="threat-protection-for-azure-key-vault-in-north-america-regions-preview"></a>북아메리카 지역의 Azure Key Vault에 대한 위협 방지(미리 보기)
 
 Azure Key Vault는 클라우드에서 키, 비밀, 암호화 키 및 정책을 중앙에서 관리하는 기능을 제공하여 데이터를 보호하고 클라우드 애플리케이션의 성능을 향상시키는 데 필수적인 서비스입니다. Azure Key Vault는 중요한 데이터와 중요 비즈니스용 데이터를 저장하므로 키 자격 증명 모음 및 여기에 저장된 데이터에 대한 보안을 최대화해야 합니다.
 
-Azure Key Vault에 대한 위협 방지를 지원하는 Azure Security Center는 키 자격 증명 모음에 액세스하거나 악용하려는 비정상적인 잠재적 유해 시도를 탐지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 새로운 보호 계층을 통해 고객은 보안 전문가가 되거나 보안 모니터링 시스템을 관리하지 않고도 키 자격 증명 모음에 대한 위협을 해결할 수 있습니다. 이 기능은 북아메리카 지역에서 공개 미리 보기로 제공됩니다.
+Azure Key Vault에 대한 위협 방지를 지원하는 Azure Security Center는 키 자격 증명 모음에 액세스하거나 악용하려는 비정상적인 잠재적 유해 시도를 감지하는 추가 보안 인텔리전스 계층을 제공합니다. 이 새로운 보호 계층을 통해 고객은 보안 전문가가 되거나 보안 모니터링 시스템을 관리하지 않고도 키 자격 증명 모음에 대한 위협을 해결할 수 있습니다. 이 기능은 북아메리카 지역에서 공개 미리 보기로 제공됩니다.
 
 
 ### <a name="threat-protection-for-azure-storage-includes-malware-reputation-screening"></a>Azure Storage에 대한 위협 방지에 맬웨어 평판 차단 포함
@@ -899,7 +1167,7 @@ Azure Storage에 대한 위협 방지는 해시 평판 분석 및 활성 Tor 종
 
 중앙에서 관리되는 보안 및 IT/운영을 보유한 조직은 내부 워크플로 프로세스를 구현하여 환경에서 불일치가 발견될 때 조직 내에서 필요한 작업을 수행합니다. 대부분의 경우 이러한 워크플로는 반복 가능한 프로세스이며 자동화는 조직 내의 프로세스를 대폭 간소화할 수 있습니다.
 
-고객이 Azure Logic Apps를 활용하는 자동화 구성을 만들고 권장 사항 또는 경고와 같은 특정 ASC 결과에 따라 자동으로 트리거하는 정책을 만들 수 있도록 하는 Security Center의 새로운 기능을 소개하겠습니다. Azure Logic App은 다양한 Logic App 커넥터 커뮤니티에서 지원하는 모든 사용자 지정 작업을 수행하거나, 이메일 보내기 또는 ServiceNow™ 티켓 열기와 같은 Security Center에서 제공하는 템플릿 중 하나를 사용하도록 구성할 수 있습니다.
+고객이 Azure Logic Apps를 활용하는 자동화 구성을 만들고 권장 사항 또는 경고와 같은 특정 ASC 결과에 따라 자동으로 트리거하는 정책을 만들 수 있도록 하는 Security Center의 새로운 기능을 소개하겠습니다. Azure Logic App은 다양한 Logic App 커넥터 커뮤니티에서 지원하는 모든 사용자 지정 작업을 수행하거나, 이메일 보내기 또는 ServiceNow&trade; 티켓 열기와 같은 Security Center에서 제공하는 템플릿 중 하나를 사용하도록 구성할 수 있습니다.
 
 워크플로를 실행하기 위한 자동 및 수동 Security Center 기능에 대한 자세한 내용은 [워크플로 자동화](workflow-automation.md)를 참조하세요.
 
@@ -943,14 +1211,14 @@ Kubernetes는 클라우드에서 소프트웨어를 배포하고 관리하기 �
 
 이 공개 미리 보기 릴리스의 새로운 기능은 다음과 같습니다.
 
-- **검색 & 표시 유형** - Security Center의 등록된 구독 내에서 관리되는 AKS 인스턴스를 지속적으로 검색합니다.
-- 보안 **점수 권장 사항** -고객이 AKS에 대 한 보안 모범 사례를 준수 하 고 보안 점수를 늘리는 데 도움이 되는 조치 가능한 항목입니다. 권장 사항에는 "역할 기반 액세스 제어를 사용 하 여 Kubernetes 서비스 클러스터에 대 한 액세스를 제한 해야 합니다."와 같은 항목이 포함 됩니다.
+- **검색 및 표시 유형** - Security Center의 등록된 구독 내에서 관리되는 AKS 인스턴스를 지속적으로 검색합니다.
+- **보안 점수 권장 사항** - 고객이 AKS에 대한 보안 모범 사례를 준수하고 보안 점수를 높이는 데 도움이 되는 실행 가능한 항목입니다. 권장 사항에는 "역할 기반 액세스 제어를 사용하여 Kubernetes Service 클러스터에 대한 액세스를 제한해야 합니다."와 같은 항목이 포함됩니다.
 - **위협 탐지** - "권한 있는 컨테이너 탐지"와 같은 호스트 및 클러스터 기반 분석입니다.
 
 
 ### <a name="virtual-machine-vulnerability-assessment-preview"></a>가상 머신 취약성 평가(미리 보기)
 
-가상 머신에 설치된 애플리케이션에는 가상 머신의 위험으로 이어질 수 있는 취약성이 있을 수 있습니다. Security Center 표준 계층에는 추가 비용 없이 가상 컴퓨터에 대 한 기본 제공 취약성 평가가 포함 되어 있습니다. 공개 미리 보기에서 Qualys가 제공하는 취약성 평가를 통해 가상 머신에 설치된 모든 애플리케이션을 지속적으로 검사하여 취약한 애플리케이션을 찾고 Security Center 포털의 환경에 대한 결과를 제공할 수 있습니다. Security Center는 모든 배포 작업을 처리하므로 사용자의 추가 작업이 필요하지 않습니다. 향후 고객의 고유한 비즈니스 요구 사항을 지원하기 위한 취약성 평가 옵션을 제공할 계획입니다.
+가상 머신에 설치된 애플리케이션에는 가상 머신의 위험으로 이어질 수 있는 취약성이 있을 수 있습니다. Security Center 표준 계층에는 추가 비용 없이 가상 머신에 대한 기본 제공 취약성 평가가 포함되어 있습니다. 공개 미리 보기에서 Qualys가 제공하는 취약성 평가를 통해 가상 머신에 설치된 모든 애플리케이션을 지속적으로 검사하여 취약한 애플리케이션을 찾고 Security Center 포털의 환경에 대한 결과를 제공할 수 있습니다. Security Center는 모든 배포 작업을 처리하므로 사용자의 추가 작업이 필요하지 않습니다. 향후 고객의 고유한 비즈니스 요구 사항을 지원하기 위한 취약성 평가 옵션을 제공할 계획입니다.
 
 [Azure Virtual Machines에 대한 취약성 평가에 대해 자세히 알아보세요](deploy-vulnerability-assessment-vm.md).
 
@@ -970,7 +1238,7 @@ Azure Security Center에서 이제 사용자 지정 정책을 지원합니다(�
 
 고객은 Azure Policy에서 만든 정책을 기반으로 자체 보안 평가를 사용하여 Security Center의 현재 보안 평가 범위를 확장했습니다. 사용자 지정 정책에 대한 지원을 통해 이제 이 기능을 사용할 수 있습니다.
 
-이러한 새 정책은 Security Center 권장 사항 환경, Secure Score 및 규정 준수 표준 대시보드에 포함됩니다. 사용자 지정 정책 지원을 통해 이제 Azure Policy에서 사용자 지정 이니셔티브를 만든 다음 Security Center에서 정책으로 추가하고 권장 사항으로 시각화할 수 있습니다.
+이러한 새 정책은 Security Center 권장 사항 환경, Secure Score 및 규정 준수 표준 대시보드에 포함됩니다. 사용자 지정 정책 지원을 통해 이제 Azure Policy에서 사용자 지정 이니셔티브를 만든 다음, Security Center에서 정책으로 추가하고 권장 사항으로 시각화할 수 있습니다.
 
 
 ### <a name="extending-azure-security-center-coverage-with-platform-for-community-and-partners"></a>커뮤니티 및 파트너를 위한 플랫폼으로 Azure Security Center 적용 범위 확장
@@ -986,7 +1254,7 @@ Security Center를 사용하면 Microsoft뿐만 아니라 Check Point, Tenable �
 Security Center 맨 위에서 엔터프라이즈 수준 시나리오를 사용하도록 설정하기 위해 이제 Azure Portal 또는 API를 제외하고 추가 위치에서 Security Center 경고 및 권장 사항을 사용할 수 있습니다. 이를 이벤트 허브 및 Log Analytics 작업 영역으로 직접 내보낼 수 있습니다. 다음은 이러한 새 기능을 중심으로 만들 수 있는 몇 가지 워크플로입니다.
 
 - Log Analytics 작업 영역으로 내보내기를 사용하면 Power BI를 사용하여 사용자 지정 대시보드를 만들 수 있습니다.
-- 이벤트 허브로 내보내기를 사용하면 Security Center 경고 및 권장 사항을 타사 SIEM, 실시간으로 타사 솔루션 또는 Azure Data Explorer로 내보낼 수 있습니다.
+- Event Hub로 내보내기를 사용하면 Security Center 경고 및 권장 사항을 타사 SIEM, 실시간으로 타사 솔루션 또는 Azure Data Explorer로 내보낼 수 있습니다.
 
 
 ### <a name="onboard-on-prem-servers-to-security-center-from-windows-admin-center-preview"></a>Windows 관리 센터에서 Security Center에 온-프레미스 서버 온보딩(미리 보기)

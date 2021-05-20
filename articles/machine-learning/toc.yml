@@ -500,6 +500,9 @@
         - name: 고급 항목 스크립트 작성
           displayName: swagger inference schema binary cors
           href: how-to-deploy-advanced-entry-script.md
+        - name: 유추 HTTP 서버
+          href: how-to-inference-server-http.md
+          displayName: local debug
         - name: 웹 서비스 모니터링
           items:
             - name: 모델 데이터 수집 및 평가

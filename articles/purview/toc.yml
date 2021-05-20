@@ -112,6 +112,8 @@ items:
                 displayName: Register and scan Azure SQL DB Managed Instance
               - name: Azure 전용 SQL 풀(이전 SQL DW)
                 href: register-scan-azure-synapse-analytics.md
+              - name: Hive 메타스토어 데이터베이스
+                href: register-scan-hive-metastore-source.md
               - name: 온-프레미스 SQL Server
                 href: register-scan-on-premises-sql-server.md
               - name: Oracle
@@ -184,6 +186,8 @@ items:
         items:
           - name: 프라이빗 엔드포인트 관리
             href: catalog-private-link.md
+          - name: Azure Purview 프라이빗 엔드포인트 FAQ
+            href: catalog-private-link-faqs.md
       - name: 재해 복구
         items:
           - name: 재해 복구

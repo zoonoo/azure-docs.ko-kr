@@ -209,8 +209,6 @@
               href: azure-disk-csi.md
             - name: Azure Files CSI 드라이버(미리 보기)
               href: azure-files-csi.md
-            - name: CSI 비밀 저장소 드라이버(미리 보기)
-              href: csi-secrets-store-driver.md
     - name: 네트워킹 구성
       items:
         - name: 기존 가상 네트워크 만들기 또는 사용
@@ -295,6 +293,8 @@
           href: azure-disk-customer-managed-keys.md
         - name: 호스트 기반 암호화 사용
           href: enable-host-encryption.md
+        - name: CSI 비밀 저장소 드라이버(미리 보기)
+          href: csi-secrets-store-driver.md
     - name: 모니터링 및 로깅
       items:
         - name: 클러스터 메트릭 보기

@@ -1,31 +1,33 @@
 ### YamlMime:Landing
 title: Anomaly Detector API 설명서
-summary: Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색하는 방법을 알아봅니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.
+summary: Anomaly Detector 일변량 및 다변량 API를 사용하여 시간에 따라 데이터를 모니터링하고 기계 학습에서 변칙을 검색하는 방법을 알아봅니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.
 metadata:
   title: Anomaly Detector API - 자습서, 빠른 시작, API 참조
   titleSuffix: Azure Cognitive Services
-  description: Anomaly Detector API를 사용하여 시간이 지남에 따라 데이터를 모니터링하고 기계 학습 관련 변칙을 검색합니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.
+  description: Anomaly Detector 일변량 및 다변량 API를 사용하여 시간에 따라 데이터를 모니터링하고 기계 학습에서 변칙을 검색합니다. 볼륨, 업계 또는 시나리오에 관계없이 데이터에 대한 인사이트를 얻습니다.
   services: cognitive-services
-  author: aahill
+  author: mrbullwinkle
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: anomaly-detector
   ms.topic: landing-page
-  ms.date: 09/10/2019
-  ms.author: aahi
-  ms.openlocfilehash: 24f6ec0afc0760b2f57f7ac9409f0b84f2e630da
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.date: 05/12/2021
+  ms.author: mbullwin
+  ms.openlocfilehash: 5737b7c44231053a3de0665bd4fd147729b53a3a
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107789108"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110082309"
 landingContent:
 - title: Anomaly Detector API 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Anomaly Detector API란?
+    - text: Anomaly Detector 일변량이란?
       url: overview.md
+    - text: Anomaly Detector 다변량이란?
+      url: overview-multivariate.md
   - linkListType: get-started
     links:
     - text: Anomaly Detector 데모
@@ -48,12 +50,20 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: C# 사용
+    - text: C# 사용(일변량)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-csharp
-    - text: JavaScript 사용
+    - text: JavaScript 사용(일변량)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
-    - text: Python 사용
+    - text: Python 사용(일변량)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+    - text: C# 사용(다변량)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp
+    - text: JavaScript 사용(다변량)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-javascript
+    - text: Python 사용(다변량)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-python
+    - text: Java 사용(다변량)
+      url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java
   - linkListType: tutorial
     links:
     - text: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
