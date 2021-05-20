@@ -1,7 +1,7 @@
 ---
-title: 음성 텍스트에 자동 언어 검색을 사용 하는 방법
+title: 음성 텍스트 변환에 자동 언어 검색을 사용하는 방법
 titleSuffix: Azure Cognitive Services
-description: Speech SDK는 음성 텍스트에 대 한 자동 언어 검색을 지원 합니다. 이 기능을 사용 하는 경우 제공 된 오디오가 제공 된 언어 목록과 비교 되며 가장 가능성이 높은 항목이 결정 됩니다. 그러면 반환 된 값을 사용 하 여 음성 텍스트에 사용 되는 언어 모델을 선택할 수 있습니다.
+description: Speech SDK는 음성 텍스트 변환에 대한 자동 언어 검색을 지원합니다. 이 기능을 사용하면 제공된 오디오가 제공된 언어 목록과 비교하여 일치 가능성이 가장 높은 항목이 결정됩니다. 그런 다음, 반환된 값을 사용하여 음성 텍스트에 사용되는 언어 모델을 선택할 수 있습니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -13,29 +13,29 @@ ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: b558d4b3be64f82775eb9caf2f3ea8c5a8f95c6d
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025223"
 ---
-# <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
+# <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트 변환에 대한 자동 언어 검색
 
-자동 언어 검색은 제공 된 언어 목록과 비교할 때 음성 SDK에 전달 되는 오디오에 대해 가장 가능성이 높은 일치 항목을 확인 하는 데 사용 됩니다. 자동 언어 검색에서 반환 되는 값은 음성 텍스트에 대 한 언어 모델을 선택 하 여 더 정확한 기록을 제공 하는 데 사용 됩니다. 사용할 수 있는 언어를 확인 하려면 [언어 지원](language-support.md)을 참조 하세요.
+자동 언어 검색은 제공된 언어 목록과 비교했을 때 Speech SDK에 전달되는 오디오와 일치할 가능성이 가장 큰 항목을 결정하는 데 사용됩니다. 그런 다음, 자동 언어 검색에서 반환되는 값을 사용하여 음성 텍스트 변환의 언어 모델을 선택하여 더 정확한 기록을 제공합니다. 사용할 수 있는 언어를 확인하려면 [언어 지원](language-support.md)을 참조하세요.
 
-이 문서에서는를 사용 하 여 `AutoDetectSourceLanguageConfig` 개체를 생성 하 `SpeechRecognizer` 고 검색 된 언어를 검색 하는 방법을 배웁니다.
+이 문서에서는 `AutoDetectSourceLanguageConfig`를 사용하여 `SpeechRecognizer` 개체를 생성하고 감지된 언어를 검색하는 방법을 알아봅니다.
 
 > [!IMPORTANT]
-> 이 기능은 c #, c + +, Java, Python, JavaScript 및 객관적인-C를 사용 하는 음성 SDK에만 사용할 수 있습니다.
+> 이 기능은 C#, C++, Java, Python, JavaScript 및 Objective-C가 포함된 Speech SDK에서만 사용할 수 있습니다.
 
-## <a name="automatic-language-detection-with-the-speech-sdk"></a>음성 SDK를 사용 하 여 자동 언어 검색
+## <a name="automatic-language-detection-with-the-speech-sdk"></a>Speech SDK를 통한 자동 언어 검색
 
-자동 언어 검색에는 현재 검색 당 4 개 언어의 서비스 쪽 제한이 있습니다. 개체를 생성할 때 이러한 제한을 염두에 두십시오 `AutoDetectSourceLanguageConfig` . 아래 샘플에서는를 만든 `AutoDetectSourceLanguageConfig` 다음이를 사용 하 여를 생성 `SpeechRecognizer` 합니다.
+자동 언어 검색에는 현재 검색당 4개 언어의 서비스 쪽 제한이 있습니다. `AutoDetectSourceLanguageConfig` 개체를 구성할 때 이러한 제한을 염두에 두세요. 아래 샘플에서는 `AutoDetectSourceLanguageConfig`를 만든 다음, 이를 사용하여 `SpeechRecognizer`를 생성합니다.
 
 > [!TIP]
-> 음성 텍스트를 수행할 때 사용할 사용자 지정 모델을 지정할 수도 있습니다. 자세한 내용은 [자동 언어 검색에 사용자 지정 모델 사용](#use-a-custom-model-for-automatic-language-detection)을 참조 하세요.
+> 음성 텍스트 변환을 수행할 때 사용할 사용자 지정 모델을 지정할 수도 있습니다. 자세한 내용은 [자동 언어 검색에 사용자 지정 모델 사용](#use-a-custom-model-for-automatic-language-detection)을 참조하세요.
 
-다음 코드 조각은 앱에서 자동 언어 검색을 사용 하는 방법을 보여 줍니다.
+다음 코드 조각은 앱에서 자동 언어 검색을 사용하는 방법을 보여줍니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -153,9 +153,9 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 
 ## <a name="use-a-custom-model-for-automatic-language-detection"></a>자동 언어 검색에 사용자 지정 모델 사용
 
-음성 서비스 모델을 사용 하는 언어 검색 외에도, 향상 된 인식을 위한 사용자 지정 모델을 지정할 수 있습니다. 사용자 지정 모델을 제공 하지 않으면 서비스에서 기본 언어 모델을 사용 합니다.
+Speech Service 모델을 사용하는 언어 검색 외에도 향상된 인식을 위한 사용자 지정 모델을 지정할 수 있습니다. 사용자 지정 모델이 제공되지 않으면 서비스에서 기본 언어 모델을 사용합니다.
 
-아래 코드 조각은 음성 서비스 호출에서 사용자 지정 모델을 지정 하는 방법을 보여 줍니다. 검색 된 언어가 이면 `en-US` 기본 모델이 사용 됩니다. 검색 된 언어가 이면 `fr-FR` 사용자 지정 모델의 끝점이 사용 됩니다.
+아래 코드 조각은 Speech Service 호출에서 사용자 지정 모델을 지정하는 방법을 보여줍니다. 검색된 언어가 `en-US`이면 기본 모델이 사용됩니다. 검색된 언어가 `fr-FR`이면 사용자 지정 모델의 엔드포인트가 사용됩니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -242,23 +242,23 @@ var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLangua
 ## <a name="next-steps"></a>다음 단계
 
 ::: zone pivot="programming-language-csharp"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741) 를 참조 하세요.
+* 자동 언어 검색은 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#L741)를 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507) 를 참조 하세요.
+* 자동 언어 검색은 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#L507)를 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521) 를 참조 하세요.
+* 자동 언어 검색은 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#L521)를 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L458) 를 참조 하세요.
+* 자동 언어 검색은 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#L458)를 참조하세요.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-* 자동 언어 검색에 대 한 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525) 를 참조 하세요.
+* 자동 언어 검색은 GitHub의 [샘플 코드](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#L525)를 참조하세요.
 ::: zone-end
 
 * [Speech SDK 참조 설명서](speech-sdk.md)

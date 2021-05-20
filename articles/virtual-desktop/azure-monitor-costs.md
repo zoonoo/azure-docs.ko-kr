@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/29/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: d3c65c08691a234934a1641af9cc8203f655ef8c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5bd89a734a20c913bacca1f5531aa76d76418c80
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144316"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448222"
 ---
 # <a name="estimate-azure-monitor-costs"></a>Azure Monitor 비용 예측
 
@@ -35,7 +35,7 @@ Azure Monitor for Windows Virtual Desktop에 대해 미리 정의된 데이터 �
 - 세션 호스트의 Windows 이벤트 로그
 - 서비스 인프라의 Windows Virtual Desktop 진단
 
-데이터 수집 및 스토리지 비용은 환경 크기, 상태 및 사용량에 따라 달라집니다. 이 문서에서 예상할 수 있는 비용 범위를 계산하는 데 사용하는 예측 예는 전력 사용량이 적은 정상적인 가상 머신을 기반으로 합니다. 즉, [가상 머신 크기 조정 지침](/windows-server/remote/remote-desktop-services/virtual-machine-recs)에 따라 예상할 수 있는 데이터 수집 및 스토리지 비용의 범위를 계산합니다.
+데이터 수집 및 스토리지 비용은 환경 크기, 상태 및 사용량에 따라 달라집니다. 이 문서에서 예상할 수 있는 비용 범위를 계산하는 데 사용하는 예측 예는 전력 사용량이 적은 정상적인 가상 머신을 기반으로 합니다. 즉, [가상 머신 크기 조정 지침](/remote/remote-desktop-services/virtual-machine-recs)에 따라 예상할 수 있는 데이터 수집 및 스토리지 비용의 범위를 계산합니다.
 
 이 예에서 사용하는 전력 사용량이 적은 VM에 포함된 구성 요소는 다음과 같습니다.
 
@@ -180,7 +180,7 @@ Windows 이벤트에 대한 자세한 내용은 [Windows 이벤트 레코드 속
 Log Analytics 설정을 최적화하여 데이터 수집을 관리하기 위한 몇 가지 제안 사항은 다음과 같습니다.
 
 - Windows Virtual Desktop 리소스에 대해 지정된 Log Analytics 작업 영역을 사용하여 Log Analytics에서 Windows Virtual Desktop 배포의 가상 머신에 대한 성능 카운터 및 이벤트만 수집하도록 합니다.
-- Log Analytics 스토리지 설정을 조정하여 비용을 관리합니다. 보존 기간을 줄이거나, 고정 스토리지 가격 책정 계층이 더 비용 효율적인지 여부를 평가하거나, 비정상 배포의 영향을 제한하기 위해 수집할 수 있는 데이터 양에 대한 경계를 설정할 수 있습니다. 자세한 내용은 [Azure Monitor 로그의 사용량 및 비용 관리](../azure-monitor/logs/manage-cost-storage.md)를 참조하세요.
+- Log Analytics 스토리지 설정을 조정하여 비용을 관리합니다. 보존 기간을 줄이거나, 고정 스토리지 가격 책정 계층이 더 비용 효율적인지 여부를 평가하거나, 비정상 배포의 영향을 제한하기 위해 수집할 수 있는 데이터 양에 대한 경계를 설정할 수 있습니다. 자세한 내용은 [Azure Monitor 로그의 사용량 및 비용 관리](../azure-monitor/platform/manage-cost-storage.md)를 참조하세요.
 
 ### <a name="remove-excess-data"></a>초과 데이터 제거
 
@@ -208,7 +208,7 @@ Perf
 
 이 쿼리는 Azure Monitor for Windows Virtual Desktop에 대한 기본 카운터뿐만 아니라 환경에서 사용하도록 설정한 모든 성능 카운터를 표시합니다. 이 정보는 카운터의 빈도를 줄이거나 카운터를 완전히 제거하는 것처럼 비용을 절감하기 위해 대상으로 지정할 영역을 파악하는 데 도움이 됩니다.
 
-또한 성능 카운터를 제거하여 비용을 절감할 수도 있습니다. 성능 카운터를 제거하거나 빈도를 줄이도록 기존 카운터를 편집하는 방법에 대한 자세한 내용은 [성능 카운터 구성](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)을 참조하세요.
+또한 성능 카운터를 제거하여 비용을 절감할 수도 있습니다. 성능 카운터를 제거하거나 빈도를 줄이도록 기존 카운터를 편집하는 방법에 대한 자세한 내용은 [성능 카운터 구성](../azure-monitor/platform/data-sources-performance-counters.md#configuring-performance-counters)을 참조하세요.
 
 ### <a name="manage-windows-event-logs"></a>Windows 이벤트 로그 관리
 

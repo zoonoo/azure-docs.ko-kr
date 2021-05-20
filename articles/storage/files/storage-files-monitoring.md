@@ -10,12 +10,12 @@ ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 620ee3bc5978da4b274aed9a412679ae0835f0b9
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 16a899b7f0e40c2eee91d1dd445f0992572a9dda
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107759830"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103418167"
 ---
 # <a name="monitoring-azure-files"></a>Azure Files 모니터링
 
@@ -23,7 +23,7 @@ Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 �
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
-각 Azure Files 리소스에 대한 Azure Portal의 **개요** 페이지에는 요청 및 시간당 청구와 같은 리소스 사용에 대한 간략한 보기가 있습니다. 이 정보는 유용하지만, 사용할 수 있는 모니터링 데이터의 양이 적습니다. 이 데이터 중 일부는 자동으로 수집되며 리소스를 만드는 즉시 분석에 사용할 수 있습니다. 약간의 구성을 통해 추가적인 데이터 수집 형식을 사용할 수 있습니다.
+각 Azure Files 리소스에 대한 Azure Portal의 **개요** 페이지에는 요청 및 시간당 청구와 같은 리소스 사용에 대한 간략한 보기가 있습니다. 이 정보는 유용하지만, 사용할 수 있는 모니터링 데이터의 양이 적습니다. 이 데이터 중 일부는 자동으로 수집되며, 리소스를 만드는 즉시 분석에 사용할 수 있습니다. 약간의 구성을 통해 추가적인 데이터 수집 형식을 사용할 수 있습니다.
 
 ## <a name="what-is-azure-monitor"></a>Azure Monitor란?
 Azure Files는 Azure의 전체 스택 모니터링 서비스인 [Azure Monitor](../../azure-monitor/overview.md)를 사용하여 모니터링 데이터를 만듭니다. Azure Monitor는 Azure 리소스와 다른 클라우드 및 온-프레미스의 리소스를 모니터링하는 완전한 기능 세트를 제공합니다. 
@@ -96,32 +96,32 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 1. **스토리지 계정에 보관** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
 
    > [!div class="mx-imgBorder"]   
    > ![진단 설정 페이지 보관 스토리지](media/storage-files-monitoring/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. **스토리지 계정** 드롭다운 목록에서 로그를 보관할 스토리지 계정을 선택하고, **확인** 단추를 클릭한 다음, **저장** 단추를 클릭합니다.
+2. **스토리지 계정** 드롭다운 목록에서 로그를 보관하려는 스토리지 계정을 선택하고, **확인** 단추, **저장** 단추를 차례로 클릭합니다.
 
    [!INCLUDE [no retention policy](../../../includes/azure-storage-logs-retention-policy.md)]
 
    > [!NOTE]
-   > 스토리지 계정을 내보내기 대상으로 선택하기 전에 스토리지 계정에 대한 사전 요구 사항을 파악하려면 [Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)을 참조하세요.
+   > 스토리지 계정을 내보내기 대상으로 선택하기 전에 스토리지 계정에 대한 필수 구성 요소를 파악하려면 [Azure 리소스 로그 보관](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)을 참조하세요.
 
-#### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs에 로그 스트림
+#### <a name="stream-logs-to-azure-event-hubs"></a>Azure Event Hubs로 로그 스트리밍
 
-로그를 이벤트 허브에 스트리밍하도록 선택하는 경우 이벤트 허브로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
+로그를 이벤트 허브로 스트림하도록 선택하는 경우 이벤트 허브로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
-1. **이벤트 허브에 스트림** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
+1. **이벤트 허브로 스트리밍** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
 
 2. **이벤트 허브 선택** 창에서 로그를 스트림할 이벤트 허브의 네임스페이스, 이름 및 정책 이름을 선택합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 이벤트 허브](media/storage-files-monitoring/diagnostic-logs-settings-pane-event-hub.png)
 
-3. **확인** 단추를 클릭한 다음, **저장** 단추를 클릭합니다.
+3. **확인** 단추, **저장** 단추를 차례로 클릭합니다.
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Azure Log Analytics에 로그 보내기
 
@@ -132,13 +132,13 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Windows PowerShell 명령 창을 열고, `Connect-AzAccount` 명령을 사용하여 Azure 구독에 로그인합니다. 그런 다음, 화면에 나타나는 지침에 따릅니다.
+1. Windows PowerShell 명령 창을 열고, `Connect-AzAccount` 명령을 사용하여 Azure 구독에 로그인합니다. 그런 다음, 화면의 지시를 따릅니다.
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. 활성 구독을 로깅을 사용하도록 설정할 스토리지 계정에 대한 구독으로 설정합니다.
+2. 활성 구독을 로깅을 사용하도록 설정하려는 스토리지 계정에 대한 구독으로 설정합니다.
 
    ```powershell
    Set-AzContext -SubscriptionId <subscription-id>
@@ -146,7 +146,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
+로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 `StorageAccountId` 매개 변수와 함께 [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용하여 로그를 사용하도록 설정합니다.
 
@@ -168,7 +168,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccoun
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
-로그를 이벤트 허브에 스트리밍하도록 선택하는 경우 이벤트 허브로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
+로그를 이벤트 허브로 스트림하도록 선택하는 경우 이벤트 허브로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 `EventHubAuthorizationRuleId` 매개 변수와 함께 [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) PowerShell cmdlet을 사용하여 로그를 사용하도록 설정합니다.
 
@@ -180,7 +180,7 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAutho
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-각 매개 변수에 대한 설명은 [PowerShell cmdlet을 통해 Event Hubs에 데이터 스트림](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)을 참조하세요.
+각 매개 변수에 대한 설명은 [PowerShell cmdlet을 통해 Event Hubs로 데이터 스트리밍](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)을 참조하세요.
 
 #### <a name="send-logs-to-log-analytics"></a>Log Analytics에 로그 보내기
 
@@ -194,13 +194,13 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역에 Azure 리소스 로그 스트림](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)을 참조하세요.
+자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그 스트리밍](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)을 참조하세요.
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. 먼저 [Azure Cloud Shell](../../cloud-shell/overview.md)을 열거나 Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli)한 경우 Windows PowerShell과 같은 명령 콘솔 애플리케이션을 엽니다.
 
-2. ID가 둘 이상의 구독과 연결된 경우 활성 구독을 로그를 사용하도록 설정할 스토리지 계정에 대한 구독으로 설정합니다.
+2. ID가 둘 이상의 구독과 연결된 경우 활성 구독을 로그를 사용하도록 설정하려는 스토리지 계정에 대한 구독으로 설정합니다.
 
    ```azurecli-interactive
    az account set --subscription <subscription-id>
@@ -210,15 +210,15 @@ Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
+로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
-[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 로그를 사용하도록 설정합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용하여 로그를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true}]'
 ```
 
-이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Blob Storage 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
+이 코드 조각의 `<storage-service-resource--id>` 자리 표시자를 Blob 스토리지 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지를 열어 확인할 수 있습니다.
 
 **category** 매개 변수의 값으로 `StorageRead`, `StorageWrite` 및 `StorageDelete`를 사용할 수 있습니다.
 
@@ -232,9 +232,9 @@ az monitor diagnostic-settings create --name <setting-name> --storage-account <s
 
 #### <a name="stream-logs-to-an-event-hub"></a>이벤트 허브에 로그 스트림
 
-로그를 이벤트 허브에 스트리밍하도록 선택하는 경우 이벤트 허브로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 **Azure Monitor 가격 책정** 페이지의 [플랫폼 로그](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 섹션을 참조하세요.
+로그를 이벤트 허브로 스트림하도록 선택하는 경우 이벤트 허브로 보내는 로그의 양에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
-[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 로그를 사용하도록 설정합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용하여 로그를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -244,11 +244,11 @@ az monitor diagnostic-settings create --name <setting-name> --event-hub <event-h
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-각 매개 변수에 대한 설명은 [Azure CLI를 통해 Event Hubs에 데이터 스트림](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)을 참조하세요.
+각 매개 변수에 대한 설명은 [Azure CLI를 통해 Event Hubs로 데이터 스트리밍](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)을 참조하세요.
 
 #### <a name="send-logs-to-log-analytics"></a>Log Analytics에 로그 보내기
 
-[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) 명령을 사용하여 로그를 사용하도록 설정합니다.
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) 명령을 사용하여 로그를 사용하도록 설정합니다.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -258,7 +258,7 @@ az monitor diagnostic-settings create --name <setting-name> --workspace <log-ana
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역에 Azure 리소스 로그 스트림](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)을 참조하세요.
+ 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그 스트리밍](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)을 참조하세요.
 
 ### <a name="template"></a>[템플릿](#tab/template)
 
@@ -308,7 +308,7 @@ Azure Files를 포함한 모든 Azure Monitor 지원 메트릭의 목록은 [Azu
 
 #### <a name="list-the-account-level-metric-definition"></a>계정 수준 메트릭 정의 나열
 
-스토리지 계정 또는 Azure Files 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) 명령을 사용합니다.
+스토리지 계정 또는 Azure Files 서비스의 메트릭 정의를 나열할 수 있습니다. [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions) 명령을 사용합니다.
  
 다음 예제에서는 `<resource-ID>` 자리 표시자를 전체 스토리지 계정 또는 Azure Files 서비스의 리소스 ID로 바꿉니다. 리소스 ID는 Azure Portal에서 스토리지 계정의 **속성** 페이지에서 확인할 수 있습니다.
 
@@ -318,7 +318,7 @@ Azure Files를 포함한 모든 Azure Monitor 지원 메트릭의 목록은 [Azu
 
 #### <a name="read-account-level-metric-values"></a>계정 수준 메트릭 값 읽기
 
-스토리지 계정 또는 Azure Files 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) 명령을 사용합니다.
+스토리지 계정 또는 Azure Files 서비스의 메트릭 값을 읽을 수 있습니다. [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) 명령을 사용합니다.
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -521,7 +521,7 @@ Azure Monitor 로그 쿼리를 사용하여 Log Analytics 작업 영역으로 �
 Azure Files를 모니터링하는 데 도움이 되는 **로그 검색** 창에 입력할 수 있는 몇 가지 쿼리는 다음과 같습니다. 이러한 쿼리는 [새 언어](../../azure-monitor/logs/log-query-overview.md)에서 작동합니다.
 
 > [!IMPORTANT]
-> 스토리지 계정 리소스 그룹 메뉴에서 **로그** 를 선택하면 현재 리소스 그룹으로 설정된 쿼리 범위가 포함된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함됩니다. 다른 리소스의 데이터 또는 다른 Azure 리소스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../../azure-monitor/logs/scope.md)를 참조하세요.
+> 스토리지 계정 리소스 그룹 메뉴에서 **로그** 를 선택하면 현재 리소스 그룹으로 설정된 쿼리 범위가 포함된 Log Analytics가 열립니다. 즉, 로그 쿼리에는 해당 리소스 그룹의 데이터만 포함됩니다. 다른 서비스 또는 다른 Azure 리소스의 데이터를 포함하는 쿼리를 실행하려면 **Azure Monitor** 메뉴에서 **로그** 를 선택합니다. 자세한 내용은 [Azure Monitor Log Analytics의 로그 쿼리 범위 및 시간 범위](../../azure-monitor/logs/scope.md)를 참조하세요.
 
 다음 쿼리를 사용하여 Azure 파일 공유를 모니터링할 수 있습니다.
 
@@ -601,13 +601,13 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
 
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>파일 공유가 제한되는 경우 경고를 만드는 방법
 
-1. **Azure portal** 에서 **스토리지 계정** 으로 이동합니다.
-2. **모니터링** 섹션에서 **경고** 를 클릭한 다음, **+ 새 경고 규칙** 을 클릭합니다.
-3. **리소스 편집** 을 클릭하고 스토리지 계정에 대 한 **파일 리소스 유형을** 선택한 다음, **완료** 를 클릭합니다. 예를 들어 스토리지 계정 이름이 `contoso`인 경우 `contoso/file` 리소스를 선택합니다.
+1. **Azure Portal** 에서 **스토리지 계정** 으로 이동합니다.
+2. **모니터링** 섹션에서 **경고**, **+ 새 경고 규칙** 을 차례로 클릭합니다.
+3. **리소스 편집** 을 클릭하고, 스토리지 계정에 대한 **파일 리소스 종류** 를 선택한 다음, **완료** 를 클릭합니다. 예를 들어 스토리지 계정 이름이 `contoso`인 경우 `contoso/file` 리소스를 선택합니다.
 4. **조건 추가** 를 클릭하여 조건을 추가합니다.
-5. 스토리지 계정에 지원되는 신호 목록이 표시되면 **트랜잭션** 메트릭을 선택합니다.
+5. 스토리지 계정에 지원되는 신호 목록이 표시되면 **트랜잭션 수** 메트릭을 선택합니다.
 6. **신호 논리 구성** 블레이드에서 **차원 이름** 드롭다운을 클릭하고, **응답 형식** 을 선택합니다.
-7. **차원 값** 드롭다운을 클릭하고 파일 공유에 대한 적절한 응답 형식을 선택합니다.
+7. **차원 값** 드롭다운을 클릭하고, 파일 공유에 적절한 응답 형식을 선택합니다.
 
     표준 파일 공유의 다음 응답 형식을 선택합니다.
 
@@ -615,7 +615,7 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
     - SuccessWithThrottling
     - ClientShareIopsThrottlingError
 
-    프리미엄 파일 공유의 경우 다음과 같은 응답 형식을 선택합니다.
+    프리미엄 파일 공유의 경우 다음 응답 형식을 선택합니다.
 
     - SuccessWithShareEgressThrottling
     - SuccessWithShareIngressThrottling
@@ -625,18 +625,18 @@ Azure Monitor 경고는 모니터링 데이터에서 중요한 조건이 발견�
     - ClientShareIopsThrottlingError
 
    > [!NOTE]
-   > 응답 형식이 **차원 값** 드롭다운에 나열되지 않는 경우는 리소스가 제한되지 않았음을 의미합니다. 차원 값을 추가하려면 **차원 값** 드롭다운 목록 옆에 있는 **사용자 지정 값 추가** 를 선택하고 응답 형식(예: **SuccessWithThrottling**)을 입력한 다음, **확인** 을 선택하고 이 단계를 반복하여 해당 파일 공유에 적용 가능한 모든 응답 형식을 추가합니다.
+   > 응답 형식이 **차원 값** 드롭다운에 나열되지 않는 경우 리소스가 제한되지 않았음을 의미합니다. 차원 값을 추가하려면 **차원 값** 드롭다운 목록 옆에 있는 **사용자 지정 값 추가** 를 선택하고, 응답 형식(예: **SuccessWithThrottling**)을 입력하고, **확인** 을 선택한 다음, 이러한 단계를 반복하여 파일 공유에 적용 가능한 모든 응답 형식을 추가합니다.
 
-8. **프리미엄 파일 공유** 의 경우 **차원 이름** 드롭다운을 클릭하고 **파일 공유** 를 선택합니다. **표준 파일 공유** 의 경우 **#10단계** 로 건너뜁니다.
+8. **프리미엄 파일 공유** 의 경우 **차원 이름** 드롭다운을 클릭하고, **파일 공유** 를 선택합니다. **표준 파일 공유** 의 경우 **#10 단계** 로 건너뜁니다.
 
    > [!NOTE]
-   > 파일 공유가 표준 파일 공유인 경우 표준 파일 공유에 대한 공유 메트릭을 사용할 수 없으므로 **파일 공유** 차원에 파일 공유가 나열되지 않습니다. 표준 파일 공유에 대한 제한 경고는 스토리지 계정 내의 파일 공유가 제한되는 경우 트리거되며 이 경고는 제한된 파일 공유를 식별하지 않습니다. 표준 파일 공유에는 공유별 메트릭을 사용할 수 없으므로 스토리지 계정마다 하나의 파일 공유를 사용하는 것이 좋습니다.
+   > 파일 공유가 표준 파일 공유인 경우 공유당 메트릭을 표준 파일 공유에 사용할 수 없으므로 **파일 공유** 차원에 파일 공유가 나열되지 않습니다. 스토리지 계정 내의 파일 공유가 제한되는 경우 표준 파일 공유에 대한 경고 제한이 트리거되고 경고는 제한된 파일 공유를 식별하지 않습니다. 표준 파일 공유에는 공유당 메트릭을 사용할 수 없으므로 스토리지 계정당 하나의 파일 공유를 사용하는 것이 좋습니다.
 
-9. **차원 값** 드롭다운을 클릭하고 경고를 표시할 파일 공유를 선택합니다.
-10. **경고 매개 변수**(임계값, 연산자, 집계 세분성 및 평가 빈도)를 정의하고 **완료** 를 클릭합니다.
+9. **차원 값** 드롭다운을 클릭하고, 경고를 표시하려는 파일 공유를 선택합니다.
+10. **경고 매개 변수**(임계값, 연산자, 집계 세분성 및 평가 빈도)를 정의하고, **완료** 를 클릭합니다.
 
     > [!TIP]
-    > 정적 임계값을 사용하는 경우 메트릭 차트는 파일 공유가 현재 제한되는 경우 적절한 임계값을 결정하는 데 도움이 될 수 있습니다. 동적 임계값을 사용하는 경우 메트릭 차트는 최근 데이터를 기반으로 계산한 임계값을 표시합니다.
+    > 정적 임계값을 사용하는 경우 메트릭 차트는 파일 공유가 현재 제한되고 있는 경우 적절한 임계값을 결정하는 데 도움이 될 수 있습니다. 동적 임계값을 사용하는 경우 메트릭 차트는 최근 데이터를 기반으로 하여 계산된 임계값을 표시합니다.
 
 11. **작업 그룹 추가** 를 클릭하고, 기존 작업 그룹을 선택하거나 새 작업 그룹을 만들어 **작업 그룹**(이메일, SMS 등)을 경고에 추가합니다.
 12. **경고 세부 정보**(예: **경고 규칙 이름**, **설명** 및 **심각도**)를 입력합니다.

@@ -1,5 +1,5 @@
 ---
-title: 신뢰도 점수-QnA Maker
+title: 신뢰도 점수 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다.
 services: cognitive-services
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/27/2020
 ms.custom: seodec18
 ms.openlocfilehash: fcfc70f7bfb9e2bb1b1a0edbffdc1282056e5fa7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102214051"
 ---
 # <a name="the-confidence-score-of-an-answer"></a>답변의 신뢰도 점수
@@ -44,22 +44,22 @@ ms.locfileid: "102214051"
 |0|일치하는 부분이 없으므로 응답은 반환되지 않습니다.|“서비스 비용은 얼마나 되나요?”|
 
 ## <a name="choose-a-score-threshold"></a>점수 임계값 선택
-위의 표에서는 대부분의 기술 자료에서 예상되는 점수를 보여 줍니다. 그러나 모든 KB는 서로 다르며 서로 다른 유형의 단어, 의도 및 목표가 있으므로 가장 적합 한 임계값을 테스트 하 고 선택 하는 것이 좋습니다. 기본적으로 임계값은 0으로 설정 되므로 가능한 모든 대답이 반환 됩니다. 가장 Kb에 대해 작동 해야 하는 권장 되는 임계값은 **50** 입니다.
+위의 표에서는 대부분의 기술 자료에서 예상되는 점수를 보여 줍니다. 그러나 모든 KB가 다르며 단어 유형, 의도 및 목적도 다르므로, 테스트를 통해 본인에게 가장 적합한 임계값을 선택하는 것이 좋습니다. 기본적으로 임계값은 0으로 설정되므로 가능한 모든 대답이 반환됩니다. 대부분의 KB에 적합한 권장 임계값은 **50** 입니다.
 
 임계값을 선택할 때 정확도와 적용 범위 간에 균형을 맞추고 요구 사항에 맞게 임계값을 조정해야 합니다.
 
 - 사용자 시나리오에서 **정확도**(또는 정밀도)가 더 중요한 경우 임계값을 늘립니다. 이러한 방식으로 진행하면 응답을 반환할 때마다 훨씬 더 신뢰할 수 있는 사례가 되고, 사용자가 원하는 응답이 될 가능성이 높아집니다. 이 경우 더 많은 질문에 응답이 제공되지 않을 수 있습니다. *예제:* 임계값 **70** 을 지정하면 “저장 및 학습이란 무엇인가요?”와 같은 모호한 예제는 누락될 수 있습니다.
 
-- **적용 범위**(또는 재현율)가 좀 더 중요하고 가능한 한 많은 질문에 응답하려는 경우(사용자 질문에 부분적으로만 연관되어 있더라도) 임계값을 낮춥니다. 응답이 사용자의 실제 쿼리에 대한 응답이 아니지만 관련된 다른 응답을 제공하는 경우가 더 많을 수 있습니다. *예를 들어* , 임계값을 **30** 으로 설정 하면 "내 KB를 편집할 수 있는 위치"와 같은 쿼리에 대 한 답을 제공할 수 있습니다.
+- **적용 범위**(또는 재현율)가 좀 더 중요하고 가능한 한 많은 질문에 응답하려는 경우(사용자 질문에 부분적으로만 연관되어 있더라도) 임계값을 낮춥니다. 응답이 사용자의 실제 쿼리에 대한 응답이 아니지만 관련된 다른 응답을 제공하는 경우가 더 많을 수 있습니다. *예제:* 임계값 **30** 을 지정하면 “내 KB를 어디에서 편집할 수 있나요?”와 같은 쿼리에 대한 답변을 제공할 수 있습니다.
 
 > [!NOTE]
 > QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)를 참조하세요.
 
 ## <a name="set-threshold"></a>임계값 설정
 
-이 임계값 점수를 [Generateanswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 설정 합니다. 즉, GenerateAnswer를 호출할 때마다이를 설정 합니다.
+[GenerateAnswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 임계값 점수를 설정합니다. 즉, GenerateAnswer를 호출할 때마다 이를 설정합니다.
 
-Bot 프레임 워크에서 옵션 개체의 일부로 점수를 [c #](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 또는 [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)로 설정 합니다.
+봇 프레임워크에서 [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) 또는 [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)를 사용하여 옵션 개체로 일부로 점수를 설정합니다.
 
 ## <a name="improve-confidence-scores"></a>신뢰도 점수 개선
 사용자 쿼리에 대한 특정 응답의 신뢰도 점수를 향상하기 위해 사용자 쿼리를 해당 응답의 대체 질문으로 기술 자료에 추가할 수 있습니다. 대/소문자를 구분하지 않는 [단어 변경](/rest/api/cognitiveservices/qnamaker/alterations/replace)을 사용하여 KB의 키워드에 동의어를 추가할 수도 있습니다.
@@ -69,22 +69,22 @@ Bot 프레임 워크에서 옵션 개체의 일부로 점수를 [c #](../how-to/
 여러 응답의 신뢰도 점수가 유사한 경우 쿼리가 너무 일반적이어서 여러 답변과 동일한 가능성으로 일치할 수 있습니다. 모든 QnA 엔터티에 고유한 의도가 있도록 QnA를 더 효과적으로 구성합니다.
 
 
-## <a name="confidence-score-differences-between-test-and-production"></a>테스트와 프로덕션의 신뢰도 점수 차이
-콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 콘텐츠와 게시 된 기술 자료가 서로 다른 Azure Cognitive Search 인덱스에 있기 때문입니다.
+## <a name="confidence-score-differences-between-test-and-production"></a>테스트와 프로덕션 간의 신뢰도 점수 차이
+콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 및 게시된 기술 자료 콘텐츠가 서로 다른 Azure Cognitive Search 인덱스에 있기 때문입니다.
 
-테스트 인덱스에는 기술 자료의 모든 QnA 쌍이 포함 되어 있습니다. 테스트 인덱스를 쿼리할 때 쿼리는 전체 인덱스에 적용 된 다음 해당 특정 기술 자료에 대 한 파티션으로 결과가 제한 됩니다. 테스트 쿼리 결과가 기술 자료의 유효성을 검사 하는 기능에 부정적인 영향을 주는 경우 다음을 수행할 수 있습니다.
-* 다음 중 하나를 사용 하 여 기술 자료를 구성 합니다.
-    * 1 KB로 제한 된 리소스: 단일 QnA 리소스 (및 결과 Azure Cognitive Search 테스트 인덱스)를 단일 기술 자료로 제한 합니다.
-    * 2 리소스-테스트의 경우 1, 프로덕션의 경우 1: 테스트 (자체 테스트 및 프로덕션 인덱스 사용) 및 제품 (자체 테스트 및 프로덕션 인덱스도 있음)에 대해 하나를 사용 하는 두 개의 QnA Maker 리소스가 있습니다.
-* 그리고 테스트와 프로덕션 기술 자료를 모두 쿼리할 때 항상 **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** 과 같은 동일한 매개 변수를 사용 합니다.
+테스트 인덱스에는 기술 자료의 모든 QnA 쌍이 포함되어 있습니다. 테스트 인덱스를 쿼리할 때 쿼리는 전체 인덱스에 적용되고 해당 특정 기술 자료에 대한 파티션으로 결과가 제한됩니다. 테스트 쿼리 결과가 기술 자료의 유효성을 검사하는 기능에 부정적인 영향을 주는 경우 다음을 수행할 수 있습니다.
+* 다음 중 하나를 사용하여 기술 자료를 구성합니다.
+    * 1개의 리소스가 1KB로 제한됨: 단일 QnA 리소스(및 결과 Azure Cognitive Search 테스트 인덱스)를 단일 기술 자료로 제한합니다.
+    * 2개의 리소스 - 테스트용 1개, 프로덕션용 1개: 테스트용(자체 테스트 및 프로덕션 인덱스 포함) 및 제품용(자체 테스트 및 프로덕션 인덱스도 포함)에 사용하는 2개의 QnA Maker 리소스가 있습니다.
+* 그리고 테스트와 프로덕션 기술 자료를 모두 쿼리할 때 항상 **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** 과 같은 동일한 매개 변수를 사용합니다.
 
 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 작업의 작동 방식을 알아보세요.
 
-다른 지역에 기술 자료가 있는 경우 각 지역은 자체 Azure Cognitive Search 인덱스를 사용 합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다.
+다른 지역에 기술 자료가 있는 경우 각 지역은 고유한 Azure Cognitive Search 인덱스를 사용합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다.
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
-순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 끝점을 호출 하는 bot 또는 응용 프로그램 코드에서이 [기본 응답](../How-To/metadata-generateanswer-usage.md) 을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
+순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 엔드포인트를 호출하는 봇 또는 애플리케이션 코드에서 이 [기본 응답](../How-To/metadata-generateanswer-usage.md)을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]

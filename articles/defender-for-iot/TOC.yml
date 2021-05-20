@@ -120,14 +120,6 @@
             - name: 소프트웨어 설치
               displayName: 'setup, deployment, virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, DL20, EL300, R340,enterprise, SMB, corporate, NIC, second, secondary, network, interface, network interface, appliance, Nuvo 5006LP, Fitlet2, BIOS, sanity, mirroring, port, ports'
               href: how-to-install-software.md
-        - name: 센서 준비
-          items:
-            - name: 온보드 센서
-              displayName: 'onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected'
-              href: how-to-manage-sensors-on-the-cloud.md
-            - name: 센서 활성화 및 설정
-              displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'
-              href: how-to-activate-and-set-up-your-sensor.md
         - name: 온-프레미스 관리 콘솔 준비
           items:
             - name: 구독 관리
@@ -142,7 +134,7 @@
         - name: 센서 준비
           items:
             - name: 온보드 센서
-              displayName: 'onboard, cloud, register, activate, offboard, subscription, subscriptions'
+              displayName: 'onboard, cloud, register, version, activate, offboard, subscription, threat intelligence, packages, connected'
               href: how-to-manage-sensors-on-the-cloud.md
             - name: 센서 활성화 및 설정
               displayName: 'deployment, onboard, register, activation, SSL, TLS, certificate, cloud connected, sign in, login, setup, learning mode, initial'

@@ -1,6 +1,6 @@
 ---
-title: 모듈 쌍 모니터링-Azure IoT Edge
-description: 장치 쌍 및 모듈 쌍을 해석 하 여 연결 및 상태를 확인 하는 방법입니다.
+title: 모듈 쌍 모니터 - Azure IoT Edge
+description: 연결 및 상태 확인을 위해 디바이스 쌍 및 모듈 쌍을 해석하는 방법을 설명합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -10,37 +10,37 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201593"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Hub의 모듈 쌍은 IoT Edge 배포의 연결 및 상태를 모니터링할 수 있도록 합니다. 모듈 쌍은 IoT hub에 실행 중인 모듈의 성능에 대 한 유용한 정보를 저장 합니다. [IoT Edge 에이전트](iot-edge-runtime.md#iot-edge-agent) 및 [IoT Edge 허브](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈은 각각 해당 모듈 쌍을 유지 관리 합니다 `$edgeAgent` `$edgeHub` .
+Azure IoT Hub의 모듈 쌍은 IoT Edge 배포의 연결 및 상태를 모니터할 수 있게 해줍니다. 모듈 쌍은 실행 중인 모듈의 성능에 대한 유용한 정보를 IoT 허브에 저장합니다. [IoT Edge 에이전트](iot-edge-runtime.md#iot-edge-agent) 및 [IoT Edge 허브](iot-edge-runtime.md#iot-edge-hub) 런타임 모듈은 각각 모듈 쌍 `$edgeAgent` 및 `$edgeHub`를 유지 관리합니다.
 
-* `$edgeAgent` IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈과 사용자 지정 모듈에 대 한 상태 및 연결 데이터를 포함 합니다. IoT Edge 에이전트는 모듈을 배포 하 고, 모니터링 하 고, Azure IoT hub에 연결 상태를 보고 하는 일을 담당 합니다.
-* `$edgeHub` 장치에서 실행 되는 IoT Edge 허브와 Azure IoT hub 간의 통신에 대 한 데이터를 포함 합니다. 여기에는 다운스트림 장치에서 들어오는 메시지를 처리 하는 작업이 포함 됩니다. IoT Edge 허브는 Azure IoT Hub와 IoT Edge 장치 및 모듈 간의 통신 처리를 담당 합니다.
+* `$edgeAgent`에는 IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈과 사용자 지정 모듈에 대한 상태 및 연결 데이터가 포함됩니다. IoT Edge 에이전트는 모듈 배포, 모니터링, Azure IoT Hub에 대한 연결 상태 보고를 처리합니다.
+* `$edgeHub`에는 디바이스에서 실행되는 IoT Edge 허브와 Azure IoT Hub 사이의 통신에 대한 데이터가 포함됩니다. 여기에는 다운스트림 디바이스에서 들어오는 메시지의 처리가 포함됩니다. IoT Edge 허브는 Azure IoT Hub와 IoT Edge 디바이스 및 모듈 사이의 통신을 처리합니다.
 
-데이터는 모듈 쌍의 JSON 구조에서 desired 및 보고 된 속성 집합과 함께 메타 데이터 및 태그로 구성 됩니다. deployment.js파일에 지정 된 원하는 속성이 모듈 쌍에 복사 됩니다. IoT Edge 에이전트 및 IoT Edge 허브는 각 모듈에 대해 보고 된 속성을 업데이트 합니다.
+데이터는 모듈 쌍의 JSON 구조에 있는 원하는 속성 집합 및 보고된 속성 집합과 함께 메타데이터, 태그로 구성됩니다. deployment.json 파일에 지정한 원하는 속성은 모듈 쌍에 복사됩니다. IoT Edge 에이전트 및 IoT Edge 허브는 각각 해당 모듈에 대해 보고된 속성을 업데이트합니다.
 
-마찬가지로 deployment.js파일의 사용자 지정 모듈에 대해 지정 된 desired 속성은 해당 모듈 쌍으로 복사 되지만 솔루션은 보고 된 속성 값을 제공 해야 합니다.
+마찬가지로 deployment.json 파일에 있는 사용자 지정 모듈에 대해 지정된 원하는 속성이 모듈 쌍에 복사되지만, 해당 솔루션이 보고된 속성 값을 제공합니다.
 
-이 문서에서는 Azure Portal, Azure CLI 및 Visual Studio Code에서 모듈 쌍을 검토 하는 방법을 설명 합니다. 장치에서 배포를 수신 하는 방법을 모니터링 하는 방법에 대 한 자세한 내용은 [IoT Edge 배포 모니터링](how-to-monitor-iot-edge-deployments.md)을 참조 하세요. 모듈 쌍의 개념에 대 한 개요는 [IoT Hub에서 모듈 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-module-twins.md)을 참조 하세요.
+이 문서에서는 Azure portal, Azure CLI 및 Visual Studio Code에서 모듈 쌍을 검토하는 방법을 설명합니다. 디바이스가 배포를 수신하는 방법을 모니터하려면 [IoT Edge 배포 모니터](how-to-monitor-iot-edge-deployments.md)를 참조하세요. 모듈 쌍에 대한 개념은 [IoT Hub에서 모듈 쌍 이해 및 사용](../iot-hub/iot-hub-devguide-module-twins.md)을 참조하세요.
 
 > [!TIP]
-> IoT Edge 장치를 IoT hub에서 분리 한 경우 런타임 모듈의 보고 된 속성이 부실 할 수 있습니다. 모듈을 [ping](how-to-edgeagent-direct-method.md#ping) `$edgeAgent` 하 여 연결이 끊어진 경우를 확인할 수 있습니다.
+> IoT Edge 디바이스가 해당 IoT 허브에서 분리되면 런타임 모듈의 보고된 속성이 오래될 수 있습니다. `$edgeAgent` 모듈에 [ping](how-to-edgeagent-direct-method.md#ping)을 수행하여 연결이 끊어졌는지 확인할 수 있습니다.
 
-## <a name="monitor-runtime-module-twins"></a>런타임 모듈 쌍 모니터링
+## <a name="monitor-runtime-module-twins"></a>런타임 모듈 쌍 모니터
 
-배포 연결 문제를 해결 하려면 IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈 쌍을 검토 한 후 다른 모듈로 드릴 다운 합니다.
+배포 연결 문제를 해결하려면 IoT Edge 에이전트 및 IoT Edge 허브 런타임 모듈 쌍을 검토한 후 다른 모듈로 드릴다운합니다.
 
-### <a name="monitor-iot-edge-agent-module-twin"></a>IoT Edge 에이전트 모듈 쌍 모니터링
+### <a name="monitor-iot-edge-agent-module-twin"></a>IoT Edge 에이전트 모듈 쌍 모니터
 
-다음 JSON에서는 대부분의 `$edgeAgent` json 섹션이 축소 된 Visual Studio Code의 모듈 쌍을 보여 줍니다.
+다음 JSON은 Visual Studio Code에서 대부분의 JSON 섹션이 축소된 상태로 `$edgeAgent` 모듈 쌍을 보여줍니다.
 
 ```json
 {
@@ -81,41 +81,41 @@ Azure IoT Hub의 모듈 쌍은 IoT Edge 배포의 연결 및 상태를 모니터
 }
 ```
 
-JSON은 위쪽에서 시작 하 여 다음 섹션에서 설명할 수 있습니다.
+JSON에 대해서는 위쪽부터 시작하여 다음 섹션에서 설명합니다.
 
-* 메타 데이터-연결 데이터를 포함 합니다. 흥미롭게도 IoT Edge 에이전트의 연결 상태는 항상 연결이 끊어진 상태 `"connectionState": "Disconnected"` 입니다. 연결 상태가 D2C (장치-클라우드) 메시지와 관련 된 이유 이며 IoT Edge 에이전트는 D2C 메시지를 보내지 않습니다.
-* 속성-및 하위 `desired` 섹션을 포함 `reported` 합니다.
-* 속성 (축소 표시 됨)은 deployment.js파일의 연산자에 의해 설정 된 속성 값이 필요 합니다.
-* 속성. 보고 됨-IoT Edge 에이전트에서 보고 한 최신 속성 값입니다.
+* 메타데이터 - 연결 데이터를 포함합니다. 흥미롭게도 IoT Edge 에이전트의 연결 상태는 항상 연결이 끊어진 상태 `"connectionState": "Disconnected"`입니다. 연결 상태 이유는 D2C(디바이스-클라우드) 메시지와 관련이 있고 IoT Edge 에이전트가 D2C 메시지를 보내지 않습니다.
+* 속성 - `desired` 및 `reported` 하위 섹션을 포함합니다.
+* Properties.desired - (축소된 상태로 표시) deployment.json 파일에서 연산자로 설정된 예상된 속성 값입니다.
+* Properties.reported - IoT Edge 에이전트에서 보고된 최신 속성 값입니다.
 
-`properties.desired`및 섹션은 모두 `properties.reported` 비슷한 구조를 가지 며 스키마, 버전 및 런타임 정보에 대 한 추가 메타 데이터를 포함 합니다. 또한 `modules` 사용자 지정 모듈 (예:)에 대 한 섹션과 `SimulatedTemperatureSensor` `systemModules` 및 런타임 모듈에 대 한 섹션이 포함 되어 `$edgeAgent` `$edgeHub` 있습니다.
+`properties.desired` 및 `properties.reported` 섹션 모두 비슷한 구조를 가지며, 스키마, 버전, 런타임 정보에 대한 추가 메타데이터를 포함합니다. 또한 사용자 지정 모듈에 대한 `modules` 섹션(예: `SimulatedTemperatureSensor`), `$edgeAgent` 및 `$edgeHub` 런타임 모듈에 대한 `systemModules` 섹션이 포함됩니다.
 
-보고 된 속성 값을 원하는 값과 비교 하 여 불일치를 확인 하 고 문제 해결에 도움이 될 수 있는 연결이 있는지 확인할 수 있습니다. 이러한 비교를 수행 하는 `$lastUpdated` `metadata` 동안 조사 중인 속성에 대 한 섹션에서 보고 된 값을 확인 합니다.
+보고된 속성 값을 원하는 값과 비교하여 차이를 확인하고 문제 해결에 도움이 되는 연결 해제를 식별할 수 있습니다. 이러한 비교를 수행할 때는 조사 중인 속성에 대해 `metadata` 섹션에서 `$lastUpdated` 보고된 값을 확인합니다.
 
-문제 해결을 위해 다음 속성을 확인 해야 합니다.
+문제 해결을 위해서는 다음 속성을 조사하는 것이 중요합니다.
 
-* **exitcode** -0이 아닌 값은 모듈이 오류로 인해 중지 되었음을 나타냅니다. 그러나 모듈이 의도적으로 중지 됨 상태로 설정 된 경우에는 오류 코드 137 또는 143이 사용 됩니다.
+* **exitcode** - 값이 0이 아니면 모듈이 오류로 인해 중지된 것입니다. 하지만 오류 코드 137 또는 143은 모듈이 의도적으로 중지된 상태로 설정된 경우에 사용됩니다.
 
-* **Laststarttimeutc** -컨테이너가 마지막으로 시작 된 **날짜/시간** 을 표시 합니다. 컨테이너를 시작 하지 않은 경우이 값은 0001-01-01T00:00:00Z입니다.
+* **lastStartTimeUtc** - 컨테이너가 마지막으로 시작된 **DateTime** 을 표시합니다. 컨테이너가 시작되지 않았으면 이 값이 0001-01-01T00:00:00Z입니다.
 
-* **Lastexittimeutc** -컨테이너가 마지막으로 완료 된 **날짜/시간** 을 표시 합니다. 컨테이너가 실행 중이 고 중지 되지 않은 경우이 값은 0001-01-01T00:00:00Z입니다.
+* **lastExitTimeUtc** - 컨테이너가 마지막으로 완료된 **DateTime** 을 표시합니다. 컨테이너가 실행 중이고 이전에 중지되지 않았으면 이 값이 0001-01-01T00:00:00Z입니다.
 
-* **Runtimestatus** -다음 값 중 하나일 수 있습니다.
+* **runtimeStatus** - 다음 값 중 하나일 수 있습니다.
 
     | 값 | Description |
     | --- | --- |
-    | 알 수 없음 | 배포를 만들 때까지 기본 상태입니다. |
-    | 백오프 | 모듈이 시작 되도록 예약 되었지만 현재 실행 되 고 있지 않습니다. 이 값은 다시 시작 시 상태를 변경 하는 모듈에 유용 합니다. 실패 모듈이 휴지 기간 동안 다시 시작을 대기 하는 경우 모듈은 백오프 상태가 됩니다. |
+    | 알 수 없음 | 배포가 생성될 때까지의 기본 상태입니다. |
+    | 백오프 | 모듈 시작이 예약되었지만 현재 실행 중이 아닙니다. 이 값은 다시 시작할 때 상태가 변경되는 모듈에 유용합니다. 실패한 모듈이 휴지 기간 중 다시 시작되도록 기다리는 동안 이 모듈은 백오프 상태가 됩니다. |
     | 실행 중 | 모듈이 현재 실행 중임을 나타냅니다. |
-    | 상태가 | 상태 프로브 검사에 실패 했거나 시간이 초과 되었음을 나타냅니다. |
-    | 중지됨 | 모듈이 성공적으로 종료 되었음을 나타냅니다. 종료 코드는 0입니다. |
-    | 실패 | 모듈이 실패 종료 코드 (0이 아닌)로 종료 되었음을 나타냅니다. 이 모듈은 적용 되는 다시 시작 정책에 따라이 상태에서 백오프로 다시 전환할 수 있습니다. 이 상태는 모듈에서 복구할 수 없는 오류가 발생 했음을 나타낼 수 있습니다. Microsoft Monitoring Agent (MMA)가 더 이상 모듈을 resuscitate 수 없어 새 배포가 필요 하면 오류가 발생 합니다. |
+    | 비정상 | 상태 프로브 검사가 실패했거나 시간이 초과되었음을 나타냅니다. |
+    | 중지됨 | 모듈이 성공적으로 종료되었음을 나타냅니다(종료 코드 0). |
+    | 실패 | 0이 아닌 오류 종료 코드와 함께 모듈이 종료되었음을 나타냅니다. 이 모듈은 실제 다시 시작 정책에 따라 이 상태에서 백오프로 다시 전환될 수 있습니다. 이 상태는 모듈에 복구할 수 없는 오류가 발생했음을 나타낼 수 있습니다. MMA(Microsoft Monitoring Agent)가 모듈을 더 이상 되살릴 수 없어서 새 배포가 필요한 경우 오류가 발생합니다. |
 
-자세한 내용은 [EdgeAgent 보고 된 속성](module-edgeagent-edgehub.md#edgeagent-reported-properties) 을 참조 하세요.
+자세한 내용은 [EdgeAgent 보고된 속성](module-edgeagent-edgehub.md#edgeagent-reported-properties)을 참조하세요.
 
-### <a name="monitor-iot-edge-hub-module-twin"></a>IoT Edge 허브 모듈 쌍 모니터링
+### <a name="monitor-iot-edge-hub-module-twin"></a>IoT Edge 허브 모듈 쌍 모니터
 
-다음 JSON에서는 대부분의 `$edgeHub` json 섹션이 축소 된 Visual Studio Code의 모듈 쌍을 보여 줍니다.
+다음 JSON은 Visual Studio Code에서 대부분의 JSON 섹션이 축소된 상태로 `$edgeHub` 모듈 쌍을 보여줍니다.
 
 ```json
 {
@@ -156,70 +156,70 @@ JSON은 위쪽에서 시작 하 여 다음 섹션에서 설명할 수 있습니�
 
 ```
 
-JSON은 위쪽에서 시작 하 여 다음 섹션에서 설명할 수 있습니다.
+JSON에 대해서는 위쪽부터 시작하여 다음 섹션에서 설명합니다.
 
-* 메타 데이터-연결 데이터를 포함 합니다.
+* 메타데이터 - 연결 데이터를 포함합니다.
 
-* 속성-및 하위 `desired` 섹션을 포함 `reported` 합니다.
-* 속성 (축소 표시 됨)은 deployment.js파일의 연산자에 의해 설정 된 속성 값이 필요 합니다.
-* 속성. 보고 됨-IoT Edge 허브가 보고 한 최신 속성 값입니다.
+* 속성 - `desired` 및 `reported` 하위 섹션을 포함합니다.
+* Properties.desired - (축소된 상태로 표시) deployment.json 파일에서 연산자로 설정된 예상된 속성 값입니다.
+* Properties.reported - IoT Edge 허브에서 보고된 최신 속성 값입니다.
 
-다운스트림 장치에 문제가 발생 하는 경우이 데이터를 검토 하는 것이 좋습니다.
+다운스트림 디바이스에 문제가 있는 경우 이 데이터를 검토하는 것으로 시작하는 것이 좋습니다.
 
-## <a name="monitor-custom-module-twins"></a>사용자 지정 모듈 쌍 모니터링
+## <a name="monitor-custom-module-twins"></a>사용자 지정 모듈 쌍 모니터
 
-사용자 지정 모듈의 연결에 대 한 정보는 IoT Edge 에이전트 모듈 쌍에서 유지 관리 됩니다. 사용자 지정 모듈에 대 한 모듈 쌍은 주로 솔루션에 대 한 데이터를 유지 관리 하는 데 사용 됩니다. 파일의 deployment.js에서 정의한 desired 속성은 모듈 쌍에 반영 되 고 모듈은 필요한 경우 보고 된 속성 값을 업데이트할 수 있습니다.
+사용자 지정 모듈의 연결에 대한 정보는 IoT Edge 에이전트 모듈 쌍에서 유지 관리됩니다. 사용자 지정 모듈의 모듈 쌍은 주로 솔루션 데이터를 유지 관리하기 위해 사용됩니다. deployment.json 파일에 정의한 원하는 속성이 모듈 쌍에 반영되고, 모듈이 필요에 따라 보고된 속성 값을 업데이트할 수 있습니다.
 
-[Azure IoT Hub 장치 sdk](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) 에서 선호 하는 프로그래밍 언어를 사용 하 여 모듈의 응용 프로그램 코드에 따라 모듈 쌍의 보고 된 속성 값을 업데이트할 수 있습니다. 다음 절차에서는 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 모듈의 코드를 사용 하 여 .Net 용 Azure SDK를 사용 합니다.
+모듈의 애플리케이션 코드에 따라 [Azure IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks)와 원하는 프로그래밍 언어를 사용하여 모듈 쌍에서 보고된 속성 값을 업데이트할 수 있습니다. 다음 절차에서는 이를 수행하기 위해 Azure SDK for .NET을 사용하여 [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) 모듈의 코드가 사용됩니다.
 
-1. [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 메서드를 사용 하 여 [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) 의 인스턴스를 만듭니다.
+1. [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) 메서드를 사용하여 [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient)의 인스턴스를 만듭니다.
 
-1. [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) 메서드를 사용 하 여 모듈 쌍의 속성 컬렉션을 가져옵니다.
+1. [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync) 메서드를 사용하여 모듈 쌍의 속성 컬렉션을 가져옵니다.
 
-1. [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) 메서드를 사용 하 여 desired 속성의 변경 내용을 catch 하기 위해 수신기 (콜백 전달)를 만듭니다.
+1. [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync) 메서드를 사용하여 원하는 속성에 대해 변경 사항을 catch하기 위해 리스너를 만듭니다(콜백 전달).
 
-1. 콜백 메서드에서 [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) 메서드를 사용 하 여 모듈 쌍의 보고 된 속성을 업데이트 하 고 설정 하려는 속성 값의 [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) 을 전달 합니다.
+1. 콜백 메서드에서 [UpdateReportedPropertiesAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient) 메서드를 사용하여 모듈 쌍에서 보고된 속성을 업데이트하고 설정하려는 속성 값의 [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection)을 전달합니다.
 
 ## <a name="access-the-module-twins"></a>모듈 쌍 액세스
 
-Azure IoT Hub, Visual Studio Code 및 Azure CLI에서 모듈 쌍에 대 한 JSON을 검토할 수 있습니다.
+Azure IoT Hub, Visual Studio Code 및 Azure CLI를 사용하여 모듈 쌍에 대해 JSON을 검토할 수 있습니다.
 
-### <a name="monitor-in-azure-iot-hub"></a>Azure IoT Hub 모니터
+### <a name="monitor-in-azure-iot-hub"></a>Azure IoT Hub에서 모니터
 
-모듈 쌍에 대 한 JSON을 보려면 다음을 수행 합니다.
+모듈 쌍에 대해 JSON을 보려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 IoT Hub로 이동합니다.
 1. 왼쪽 창 메뉴에서 **IoT Edge** 를 선택합니다.
-1. **IoT Edge 장치** 탭에서 모니터링 하려는 모듈이 있는 장치의 **장치 ID** 를 선택 합니다.
-1. **모듈 탭에서** 모듈 이름을 선택한 다음 위쪽 메뉴 모음에서 **모듈 id** 쌍을 선택 합니다.
+1. **IoT Edge 디바이스** 탭에서 모니터하려는 모듈이 있는 디바이스의 **디바이스 ID** 를 선택합니다.
+1. **모듈** 탭에서 모듈 이름을 선택한 후 위쪽 메뉴 모음에서 **모듈 ID 쌍** 을 선택합니다.
 
-  ![Azure Portal에서 볼 모듈 쌍을 선택 합니다.](./media/how-to-monitor-module-twins/select-module-twin.png)
+  ![Azure Portal에서 확인할 모듈 쌍 선택](./media/how-to-monitor-module-twins/select-module-twin.png)
 
-"이 모듈에 대 한 모듈 id가 없습니다." 라는 메시지가 표시 되는 경우이 오류는 원래 id를 만든 백 엔드 솔루션을 더 이상 사용할 수 없음을 나타냅니다.
+“이 모듈에 대한 모듈 ID가 존재하지 않습니다” 메시지가 표시되는 경우, 이 오류는 원래 ID를 만든 백엔드 솔루션을 더 이상 사용할 수 없음을 나타냅니다.
 
-### <a name="monitor-module-twins-in-visual-studio-code"></a>Visual Studio Code에서 모듈 쌍 모니터링
+### <a name="monitor-module-twins-in-visual-studio-code"></a>Visual Studio Code에서 모듈 쌍 모니터
 
-모듈 쌍을 검토 하 고 편집 하려면 다음을 수행 합니다.
+모듈 쌍을 검토하고 편집하려면 다음을 수행합니다.
 
-1. 아직 설치 하지 않은 경우 Visual Studio Code 용 [Azure IoT 도구 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 을 설치 합니다.
-1. **탐색기** 에서 **Azure IoT Hub** 을 확장 한 다음 모니터링 하려는 모듈이 포함 된 장치를 확장 합니다.
-1. 모듈을 마우스 오른쪽 단추로 클릭 하 고 **모듈 쌍 편집** 을 선택 합니다. 모듈 쌍의 임시 파일은 컴퓨터에 다운로드 되 고 Visual Studio Code 표시 됩니다.
+1. 아직 설치되지 않았으면 Visual Studio Code용 [Azure IoT Tools 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)을 설치합니다.
+1. **탐색기** 에서 **Azure IoT Hub** 를 확장한 후 모니터하려는 모듈로 디바이스를 확장합니다.
+1. 모듈을 마우스 오른쪽 단추로 클릭하고 **모듈 쌍 편집** 을 선택합니다. 모듈 쌍의 임시 파일이 컴퓨터에 다운로드되고 Visual Studio Code에 표시됩니다.
 
   ![Visual Studio Code에서 편집할 모듈 쌍 가져오기](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
 
-변경을 수행 하는 경우 편집기에서 코드 위의 **모듈 쌍 업데이트** 를 선택 하 여 IoT hub에 대 한 변경 내용을 저장 합니다.
+항목을 변경한 편집기의 코드 위에서 **모듈 쌍 업데이트** 를 선택하여 변경 사항을 IoT 허브에 저장합니다.
 
   ![Visual Studio Code에서 모듈 쌍 업데이트](./media/how-to-monitor-module-twins/update-module-twin-vscode.png)
 
-### <a name="monitor-module-twins-in-azure-cli"></a>Azure CLI에서 모듈 쌍 모니터링
+### <a name="monitor-module-twins-in-azure-cli"></a>Azure CLI에서 모듈 쌍 모니터
 
-IoT Edge 실행 중인지 확인 하려면 [az IoT hub invoke-module 메서드](how-to-edgeagent-direct-method.md#ping) 를 사용 하 여 IoT Edge 에이전트를 ping 합니다.
+IoT Edge가 실행 중인지 확인하려면 [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping)를 사용하여 IoT Edge 에이전트에 ping을 수행합니다.
 
-[Az iot hub 모듈](/cli/azure/ext/azure-iot/iot/hub/module-twin) 쌍 구조는 다음 명령을 제공 합니다.
+[az iot hub module-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) 구조는 다음 명령을 제공합니다.
 
-* **az iot hub module-쌍 표시** -모듈 쌍 정의를 표시 합니다.
-* **az iot hub module-쌍 업데이트** -모듈 쌍 정의를 업데이트 합니다.
-* **az iot hub module-쌍 replace** -모듈 쌍 정의를 대상 JSON으로 바꿉니다.
+* **az iot hub module-twin show** - 모듈 쌍 정의를 표시합니다.
+* **az iot hub module-twin update** - 모듈 쌍 정의를 업데이트합니다.
+* **az iot hub module-twin replace** - 모듈 쌍 정의를 대상 JSON으로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 

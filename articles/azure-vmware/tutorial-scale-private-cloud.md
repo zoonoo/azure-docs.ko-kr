@@ -1,16 +1,16 @@
 ---
-title: 자습서 - 프라이빗 클라우드 크기 조정
+title: 자습서 - 프라이빗 클라우드의 클러스터 확장 또는 축소
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure VMware Solution 프라이빗 클라우드의 크기를 조정합니다.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 2129a3f5d04311883369b7b708689a13f07ec118
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 23fa38f41a1effab212896e59118978202ef17a7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463621"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108769294"
 ---
-# <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>자습서: Azure VMware Solution 프라이빗 클라우드 크기 조정
+# <a name="tutorial-expand-or-shrink-clusters-in-a-private-cloud"></a>자습서: 프라이빗 클라우드의 클러스터 확장 또는 축소
 
 Azure VMware Solution 프라이빗 클라우드 환경을 최대한 활용하려면 계획된 워크로드에 필요한 사항을 반영하도록 클러스터와 호스트 크기를 조정합니다. 애플리케이션 워크로드에 필요한 만큼 프라이빗 클라우드의 클러스터 및 호스트를 확장할 수 있습니다. 특정 서비스의 성능 및 가용성 제한은 사례별로 다루어야 합니다. 클러스터 및 호스트 제한은 [프라이빗 클라우드 개념](concepts-private-clouds-clusters.md) 문서에 제공됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 정적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 앱을 배포 합니다. | Microsoft Docs
-description: Azure Stack Edge Pro GPU 장치에서 kubectl를 사용 하 여 정적으로 프로 비전 된 공유를 통해 Kubernetes 상태 저장 응용 프로그램 배포를 만들고 관리 하는 방법을 설명 합니다.
+title: kubectl을 사용하여 Azure Stack Edge Pro 디바이스에서 정적으로 프로비전된 공유를 통해 Kubernetes 상태 저장 앱 배포 | Microsoft Docs
+description: Azure Stack Edge Pro GPU 디바이스에서 kubectl을 사용하여 정적으로 프로비전된 공유를 통해 Kubernetes 상태 저장 애플리케이션 배포를 만들고 관리하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,85 +9,85 @@ ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: alkohli
 ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102610487"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Kubectl를 사용 하 여 Azure Stack Edge Pro 장치에서 PersistentVolume로 Kubernetes 상태 저장 응용 프로그램을 실행 합니다.
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>kubectl을 사용하여 Azure Stack Edge Pro 디바이스에서 PersistentVolume으로 Kubernetes 상태 저장 애플리케이션 실행
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-이 문서에서는 PersistentVolume (PV) 및 배포를 사용 하 여 Kubernetes에서 단일 인스턴스 상태 저장 응용 프로그램을 배포 하는 방법을 보여 줍니다. 배포는 `kubectl` 기존 Kubernetes 클러스터에서 명령을 사용 하 고 MySQL 응용 프로그램을 배포 합니다. 
+이 문서에서는 PV(PersistentVolume) 및 배포를 사용하여 Kubernetes에서 단일 인스턴스 상태 저장 애플리케이션을 배포하는 방법을 보여 줍니다. 배포는 기존 Kubernetes 클러스터에서 `kubectl` 명령을 사용하고 MySQL 애플리케이션을 배포합니다. 
 
-이 절차는 [Azure Stack Edge Pro 장치에서 Kubernetes 저장소](azure-stack-edge-gpu-kubernetes-storage.md) 를 검토 하 고 [Kubernetes 저장소](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위한 것입니다. 
+이 절차는 [Azure Stack Edge Pro 디바이스의 Kubernetes 스토리지](azure-stack-edge-gpu-kubernetes-storage.md)를 검토했으며 [Kubernetes 스토리지](https://kubernetes.io/docs/concepts/storage/)의 개념에 대해 잘 알고 있는 사용자를 위해 제공됩니다. 
 
-Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원 하며, MySQL에 대 한 여기에 설명 된 것과 비슷한 방식으로 배포할 수 있습니다. 자세한 내용은 [AZURE SQL Edge](../azure-sql-edge/overview.md)를 참조 하세요.
+Azure Stack Edge Pro는 Azure SQL Edge 컨테이너의 실행도 지원하며, MySQL에서 여기에 자세히 설명된 것과 비슷한 방식으로 이를 배포할 수 있습니다. 자세한 내용은 [Azure SQL Edge](../azure-sql-edge/overview.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-상태 저장 응용 프로그램을 배포 하기 전에 장치 및 장치에 액세스 하는 데 사용할 클라이언트에서 다음 필수 구성 요소를 완료 합니다.
+상태 저장 애플리케이션을 배포하기 전에 디바이스에 액세스하는 데 사용할 디바이스 및 클라이언트에 대한 다음 필수 구성 요소를 완료합니다.
 
 ### <a name="for-device"></a>디바이스의 경우
 
-- 1 노드 Azure Stack Edge Pro 장치에 로그인 자격 증명이 있어야 합니다.
-    - 장치가 활성화 됩니다. [장치 활성화를](azure-stack-edge-gpu-deploy-activate.md)참조 하세요.
-    - 장치에 Azure Portal를 통해 구성 된 계산 역할이 있으며, Kubernetes 클러스터가 있습니다. [Compute 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조 하세요.
+- 1노드 Azure Stack Edge Pro 디바이스에 대한 로그인 자격 증명이 있습니다.
+    - 디바이스가 활성화되어야 있습니다. [디바이스 활성화](azure-stack-edge-gpu-deploy-activate.md)를 참조하세요.
+    - 디바이스에 Azure Portal을 통해 구성된 컴퓨팅 역할이 있으며, Kubernetes 클러스터가 있습니다. [컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
 
-### <a name="for-client-accessing-the-device"></a>장치에 액세스 하는 클라이언트
+### <a name="for-client-accessing-the-device"></a>디바이스에 액세스하는 클라이언트의 경우
 
-- Azure Stack Edge Pro 장치에 액세스 하는 데 사용 되는 Windows 클라이언트 시스템이 있습니다.
-    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행 하 고 있습니다. 최신 버전의 Windows PowerShell을 다운로드 하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동 합니다.
+- Azure Stack Edge Pro 디바이스에 액세스하는 데 사용되는 Windows 클라이언트 시스템이 있습니다.
+    - 클라이언트에서 Windows PowerShell 5.0 이상을 실행하고 있습니다. 최신 버전의 Windows PowerShell을 다운로드하려면 [Windows Powershell 설치](/powershell/scripting/install/installing-windows-powershell)로 이동합니다.
     
-    - [지원 되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) 를 사용 하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용 하는 절차에 대해 설명 합니다. 
+    - [지원되는 운영 체제](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device)를 사용하는 다른 클라이언트도 있을 수 있습니다. 이 문서에서는 Windows 클라이언트를 사용하는 절차에 대해 설명합니다. 
     
-    - [Azure Stack Edge Pro 장치에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명 된 절차를 완료 했습니다. 수행한 작업은 다음과 같습니다.
-      - `userns1`명령을 통해 네임 스페이스를 만들었습니다 `New-HcsKubernetesNamespace` . 
-      - `user1`명령을 통해 사용자를 만들었습니다 `New-HcsKubernetesUser` . 
-      - `user1`명령을 통해에 대 한 액세스 권한이 부여 `userns1` `Grant-HcsKubernetesNamespaceAccess` 됩니다.       
-      - `kubectl`클라이언트에 설치 되 고 `kubeconfig` 사용자 구성으로 파일을 C: \\ Users 사용자 \\ &lt; 이름 &gt; \\ . kube에 저장 합니다. 
+    - [Azure Stack Edge Pro 디바이스에서 Kubernetes 클러스터에 액세스](azure-stack-edge-gpu-create-kubernetes-cluster.md)에 설명된 절차를 완료했습니다. 수행한 작업은 다음과 같습니다.
+      - `New-HcsKubernetesNamespace` 명령을 통해 `userns1` 네임스페이스를 만들었습니다. 
+      - `New-HcsKubernetesUser` 명령을 통해 `user1` 사용자를 만들었습니다. 
+      - `Grant-HcsKubernetesNamespaceAccess` 명령을 통해 `userns1`에 대한 `user1` 액세스 권한을 부여했습니다.       
+      - 클라이언트에 `kubectl`을 설치하고 사용자 구성이 포함된 `kubeconfig` 파일을 C:\\Users\\&lt;username&gt;\\.kube에 저장했습니다. 
     
-    - `kubectl`클라이언트 버전이 Azure Stack Edge Pro 장치에서 실행 되는 Kubernetes 마스터 버전에서 둘 이상의 버전을 사용 하지 않는지 확인 합니다. 
-        - `kubectl version`클라이언트에서 실행 되는 kubectl의 버전을 확인 하는 데 사용 합니다. 전체 버전을 기록해 둡니다.
-        - Azure Stack Edge Pro 장치의 로컬 UI에서 **개요** 로 이동 하 여 Kubernetes 소프트웨어 번호를 확인 합니다. 
-        - 지원 되는 Kubernetes 버전에서 제공 되는 매핑과 호환 되는지 확인 합니다.<!-- insert link--> 
+    - `kubectl` 클라이언트 버전이 Azure Stack Edge Pro 디바이스에서 실행되는 Kubernetes 마스터 버전보다 두 버전 이상 차이 나지 않는지 확인합니다. 
+        - `kubectl version`을 사용하여 클라이언트에서 실행되는 kubectl의 버전을 확인합니다. 전체 버전을 기록해 둡니다.
+        - Azure Stack Edge Pro 디바이스의 로컬 UI에서 **개요** 로 이동하여 Kubernetes 소프트웨어 번호를 확인합니다. 
+        - 이 두 개의 버전이 지원되는 Kubernetes 버전에서 제공되는 매핑과 호환되는지 확인합니다.<!-- insert link--> 
 
 
-Azure Stack Edge Pro 장치에 상태 저장 응용 프로그램을 배포할 준비가 되었습니다. 
+Azure Stack Edge Pro 디바이스에 상태 저장 애플리케이션을 배포할 준비가 되었습니다. 
 
-## <a name="provision-a-static-pv"></a>정적 PV 프로 비전
+## <a name="provision-a-static-pv"></a>정적 PV 프로비전
 
-PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합니다. 다음 단계를 수행 하 여 SMB 공유에 대해 PV를 프로 비전 합니다. 
+PV를 정적으로 프로비전하려면 디바이스에 공유를 만들어야 합니다. 다음 단계를 수행하여 SMB 공유에 대해 PV를 프로비전합니다. 
 
 > [!NOTE]
-> - 이 방법 문서에 사용 된 특정 예제는 NFS 공유에서 작동 하지 않습니다. 일반적으로 NFS 공유는 데이터베이스가 아닌 응용 프로그램을 사용 하 여 Azure Stack Edge 장치에 프로 비전 할 수 있습니다.
-> - 저장소 볼륨을 사용 하 여 영구 저장소를 제공 하는 상태 저장 응용 프로그램을 배포 하려면를 사용 하는 것이 좋습니다 `StatefulSet` . 이 예제에서는 `Deployment` 하나의 복제본만 사용 하 고 개발 및 테스트에 적합 합니다. 
+> - 이 방법 문서에 사용된 특정 예제는 NFS 공유에서 작동하지 않습니다. 일반적으로 NFS 공유는 데이터베이스가 아닌 애플리케이션을 사용하여 Azure Stack Edge 디바이스에 프로비전할 수 있습니다.
+> - 스토리지 볼륨을 사용하여 영구 스토리지를 제공하는 상태 저장 애플리케이션을 배포하려면`StatefulSet`를 사용하는 것이 좋습니다. 이 예제는 복제본이 하나만 있는 `Deployment`를 사용하며 개발 및 테스트에 적합합니다. 
 
-1. 에 지 공유 또는에 지 로컬 공유를 만들지 여부를 선택 합니다. 공유 [추가](azure-stack-edge-manage-shares.md#add-a-share) 의 지침에 따라 공유를 만듭니다. **Edge 계산에 공유 사용** 에 대 한 확인란을 선택 해야 합니다.
+1. Edge 공유를 만들지, Edge 로컬 공유를 만들지 선택합니다. [공유 추가](azure-stack-edge-manage-shares.md#add-a-share)의 지침에 따라 공유를 만듭니다. **Edge 컴퓨팅과 공유 사용** 확인란을 선택해야 합니다.
 
-    ![PV에 대 한 Edge 로컬 공유](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/edge-local-share-static-provision-1.png)
+    ![PV용 Edge 로컬 공유](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/edge-local-share-static-provision-1.png)
 
-    1. 새 공유를 만드는 대신 기존 공유를 사용 하기로 결정 한 경우 공유를 탑재 해야 합니다.
+    1. 새 공유를 만드는 대신 기존 공유를 사용하기로 결정한 경우 공유를 탑재해야 합니다.
     
-        Azure Stack에 지 리소스에 대 한 Azure Portal에서 **공유** 로 이동 합니다. 기존 공유 목록에서 사용 하려는 공유를 선택 하 고 클릭 합니다.
+        Azure Portal에서 Azure Stack Edge 리소스의 **공유** 로 이동합니다. 기존 공유 목록에서 사용하려는 공유를 선택하고 클릭합니다.
 
-        ![PV에 대 한 기존 로컬 공유 선택](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-1.png)
+        ![PV용 기존 로컬 공유 선택](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-1.png)
 
-    1. **탑재** 를 선택 하 고 메시지가 표시 되 면 탑재를 확인 합니다.  
+    1. **탑재** 를 선택하고 메시지가 표시되면 탑재를 확인합니다.  
 
-        ![PV에 대 한 기존 로컬 공유 탑재](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
+        ![PV용 기존 로컬 공유 탑재](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. 공유 이름을 적어 둡니다. 이 공유를 만들 때 생성 된 SMB 공유에 해당 하는 Kubernetes 클러스터에 영구적 볼륨 개체가 자동으로 생성 됩니다. 
+1. 공유 이름을 적어 둡니다. 이 공유를 만들 때 생성된 SMB 공유에 해당하는 Kubernetes 클러스터에 영구 볼륨 개체가 자동으로 생성됩니다. 
 
 ## <a name="deploy-mysql"></a>MySQL 배포
 
-이제 Kubernetes 배포를 만들고 PersistentVolumeClaim (PVC)를 사용 하 여 이전 단계에서 만든 PV에 연결 하 여 상태 저장 응용 프로그램을 실행 합니다. 
+이제 Kubernetes 배포를 만들고 이전 단계에서 PVC(PersistentVolumeClaim)를 사용하여 만든 PV에 연결하여 상태 저장 애플리케이션을 실행합니다. 
 
-`kubectl`상태 저장 응용 프로그램 배포를 만들고 관리 하는 데 사용 하는 모든 명령은 구성과 연결 된 네임 스페이스를 지정 해야 합니다. Kubectl 명령에서 네임 스페이스를 지정 하려면를 사용 `kubectl <command> -n <your-namespace>` 합니다.
+상태 저장 애플리케이션 배포를 만들고 관리하는 데 사용하는 모든 `kubectl` 명령은 구성과 연결된 네임스페이스를 지정해야 합니다. kubectl 명령에서 네임스페이스를 지정하려면 `kubectl <command> -n <your-namespace>`를 사용합니다.
 
-1. 네임 스페이스의 Kubernetes 클러스터에서 실행 중인 pod의 목록을 가져옵니다. Pod는 Kubernetes 클러스터에서 실행 되는 응용 프로그램 컨테이너 또는 프로세스입니다.
+1. 네임스페이스의 Kubernetes 클러스터에서 실행되는 Pod 목록을 가져옵니다. Pod는 Kubernetes 클러스터에서 실행되는 애플리케이션 컨테이너 또는 프로세스입니다.
 
    ```powershell
    kubectl get pods -n <your-namespace>
@@ -101,13 +101,13 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
     C:\Users\user>
    ```
     
-   출력에는 클러스터에서 실행 중인 응용 프로그램이 없기 때문에 리소스 (pod)가 없다는 것을 명시 해야 합니다.
+   클러스터에서 실행 중인 애플리케이션이 없기 때문에 리소스(Pod)가 없다는 내용이 출력에 표시되어야 합니다.
 
-1. 다음 YAML 파일을 사용 합니다. `mysql-deployment.yml`이 파일은 MySQL을 실행 하 고 PVC를 참조 하는 배포를 설명 합니다. 파일은에 대 한 볼륨 탑재를 정의한 `/var/lib/mysql` 후 20gb 볼륨을 검색 하는 PVC를 만듭니다. 
+1. 다음 YAML 파일을 사용하게 됩니다. `mysql-deployment.yml` 파일은 MySQL을 실행하고 PVC를 참조하는 배포를 설명합니다. 이 파일은 `/var/lib/mysql`의 볼륨 탑재를 정의한 후 20GB 볼륨을 검색하는 PVC를 만듭니다. 
 
-    이 클레임은 이전 단계에서 공유를 만들 때 정적으로 프로 비전 된 기존 PV에 의해 충족 됩니다. 장치에서 각 공유에 대해 32 TB의 긴 PV가 만들어집니다. PV는 PVC에 의해 설정 된 요구 사항을 충족 하 고 PVC는이 PV에 바인딩되어야 합니다.
+    이 클레임은 이전 단계에서 공유를 만들 때 정적으로 프로비전된 기존 PV에 의해 충족됩니다. 디바이스에서 각 공유에 대해 32TB의 큰 PV가 생성됩니다. PV는 PVC에 의해 설정된 요구 사항을 충족하며, PVC는 이 PV에 바인딩되어야 합니다.
 
-    `mysql-deployment.yml`Azure Stack Edge Pro 장치에 액세스 하는 데 사용 하는 Windows 클라이언트의 폴더에 다음 파일을 복사 하 여 저장 합니다.
+    Azure Stack Edge Pro 디바이스에 액세스하는 데 사용하는 Windows 클라이언트의 폴더에 다음 `mysql-deployment.yml` 파일을 복사하여 저장합니다.
     
     ```yml
     apiVersion: v1
@@ -155,10 +155,10 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
               claimName: mysql-pv-claim
     ```
     
-2. `mysql-pv.yml`을 저장 한 폴더와 동일한 폴더에 파일을 복사 하 고 저장 `mysql-deployment.yml` 합니다. 이전에에서 만든 SMB 공유를 사용 하려면 `kubectl` `volumeName` PVC 개체의 필드를 공유 이름으로 설정 합니다. 
+2. `mysql-deployment.yml`을 저장한 폴더와 동일한 폴더에 `mysql-pv.yml` 파일을 복사하고 저장합니다. 이전에 `kubectl`을 사용하여 만든 SMB 공유를 사용하려면 PVC 개체의 `volumeName` 필드를 공유 이름으로 설정합니다. 
 
     > [!NOTE] 
-    > YAML 파일의 들여쓰기가 올바른지 확인 합니다. [Yaml 보풀이](http://www.yamllint.com/) 있는지 확인 하 여 유효성을 검사 한 후 저장할 수 있습니다.
+    > YAML 파일의 들여쓰기가 올바른지 확인합니다. [YAML lint](http://www.yamllint.com/)로 확인하여 유효성을 검사한 후 저장할 수 있습니다.
    
     ```yml
     apiVersion: v1
@@ -175,7 +175,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
           storage: 20Gi
     ```
 
-3. 파일을 배포 `mysql-pv.yaml` 합니다.
+3. `mysql-pv.yaml` 파일을 배포합니다.
 
     `kubectl apply -f <URI path to the mysql-pv.yml file> -n <your-user-namespace>`
     
@@ -188,9 +188,9 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
     
     C:\Users\user>
     ```
-   만든 PVC의 이름을 적어둡니다. 이후 단계에서 사용 합니다. 
+   만든 PVC의 이름을 적어둡니다. 이후 단계에서 사용하게 됩니다. 
 
-4. 파일의 콘텐츠를 배포 `mysql-deployment.yml` 합니다.
+4. `mysql-deployment.yml` 파일의 콘텐츠를 배포합니다.
 
     `kubectl apply -f <URI path to mysql-deployment.yml file> -n <your-user-namespace>`
 
@@ -202,7 +202,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
         deployment.apps/mysql created
     ```
     
-5. 배포에 대 한 정보를 표시 합니다.
+5. 사용자에 대한 정보를 표시합니다.
 
     `kubectl describe deployment <app-label> -n <your-user-namespace>`
     
@@ -251,7 +251,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
     ```
     
 
-6. 배포에 의해 생성 된 pod를 나열 합니다.
+6. 배포에 의해 생성된 Pod를 나열합니다.
 
     `kubectl get pods -l <app=label> -n <your-user-namespace>`
 
@@ -266,7 +266,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
     C:\Users\user>
     ```
     
-7. PersistentVolumeClaim를 검사 합니다.
+7. PersistentVolumeClaim을 조사합니다.
 
     `kubectl describe pvc <your-pvc-name>`
 
@@ -298,7 +298,7 @@ PV를 정적으로 프로 비전 하려면 장치에 공유를 만들어야 합�
 ## <a name="verify-mysql-is-running"></a>MySQL이 실행 중인지 확인
 
 
-MySQL을 실행 하는 pod의 컨테이너에 대해 명령을 실행 하려면 다음을 입력 합니다.
+MySQL을 실행하는 Pod의 컨테이너에 대해 명령을 실행하려면 다음을 입력합니다.
 
 `kubectl exec <your-pod-with-the-app> -i -t -n <your-namespace> -- mysql`
 
@@ -323,14 +323,14 @@ mysql>
 
 ## <a name="delete-a-deployment"></a>배포 삭제
 
-배포를 삭제 하려면 배포 된 개체를 이름으로 삭제 합니다. 이러한 개체에는 배포, 서비스 및 PVC가 포함 됩니다.
+배포를 삭제하려면 배포된 개체를 이름으로 삭제합니다. 이러한 개체에는 배포, 서비스 및 PVC가 포함됩니다.
  
 ```powershell
 kubectl delete deployment <deployment-name>,svc <service-name> -n <your-namespace>
 kubectl delete pvc <your-pvc-name> -n <your-namespace>
 ```
 
-배포 및 서비스를 삭제 하는 경우의 샘플 출력은 다음과 같습니다.
+배포 및 서비스를 삭제하는 경우의 샘플 출력은 다음과 같습니다.
 
 ```powershell
 C:\Users\user>kubectl delete deployment,svc mysql -n userns1
@@ -346,17 +346,17 @@ persistentvolumeclaim "mysql-pv-claim" deleted
 C:\Users\user>
 ```
 
-PVC가 삭제 된 후에는 더 이상 해당 PV를 PVC에 바인딩하지 않습니다. 공유가 생성 될 때 PV가 프로 비전 되 면 공유를 삭제 해야 합니다. 다음 단계를 수행합니다.
+PVC가 삭제되었기 때문에 PV가 더 이상 PVC에 바인딩되지 않습니다. 공유가 생성될 때 PV가 프로비전되었기 때문에 공유를 삭제해야 합니다. 다음 단계를 수행합니다.
 
-1. 공유를 탑재 해제 합니다. Azure Portal에서 **Azure Stack Edge 리소스 > 공유** 로 이동 하 여 분리 하려는 공유를 선택 하 고 클릭 합니다. **분리** 를 선택 하 고 작업을 확인 합니다. 공유가 분리 될 때까지 기다립니다. 탑재 해제는 Kubernetes 클러스터에서 공유 (따라서 연결 된 PersistentVolume)를 해제 합니다. 
+1. 공유를 분리합니다. Azure Portal에서 **Azure Stack Edge 리소스 > 공유** 로 이동하여 분리하려는 공유를 선택하고 클릭합니다. **분리** 를 선택하고 작업을 확인합니다. 공유가 분리될 때까지 기다립니다. 분리하면 공유(및 연결된 PersistentVolume)가 Kubernetes 클러스터에서 해제됩니다. 
 
-    ![PV에 대 한 로컬 공유 분리](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/unmount-edge-local-share-1.png)
+    ![PV용 로컬 공유 분리](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/unmount-edge-local-share-1.png)
 
-1. 이제 **삭제** 를 선택 하 고 삭제를 확인 하 여 공유를 삭제할 수 있습니다. 또한 공유 및 해당 PV를 삭제 해야 합니다.
+1. 이제 **삭제** 를 선택하고 삭제를 확인하여 공유를 삭제할 수 있습니다. 또한 공유 및 해당 PV도 삭제해야 합니다.
 
-    ![PV에 대 한 로컬 공유 삭제](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/delete-edge-local-share-1.png)
+    ![PV용 로컬 공유 삭제](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/delete-edge-local-share-1.png)
 
 
 ## <a name="next-steps"></a>다음 단계
 
-저장소를 동적으로 프로 비전 하는 방법을 이해 하려면 [Azure Stack Edge Pro 장치에서 동적 프로 비전을 통해 상태 저장 응용 프로그램 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md) 를 참조 하세요.
+스토리지를 동적으로 프로비전하는 방법을 이해하려면 [Azure Stack Edge Pro 디바이스에서 동적 프로비저닝을 통해 상태 저장 애플리케이션 배포](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)를 참조하세요.
