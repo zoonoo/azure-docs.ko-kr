@@ -1,19 +1,19 @@
 ---
 title: 빠른 시작 - 프라이빗 클라우드에서 Azure VMware VM 만들기 - Azure VMware Solution by CloudSimple
 description: CloudSimple 프라이빗 클라우드에서 VMware 가상 머신을 만드는 방법에 대해 알아봅니다. Azure Portal에서 CloudSimple 포털에 액세스합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 76dd3e6796b49cda5ae2a55582b102e41d231d07
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: c741f01ccc3e34ec991aa77fc850fd9f60c4d8aa
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176327"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97899289"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>프라이빗 클라우드에서 VMware 가상 머신 만들기
 
@@ -102,7 +102,7 @@ CloudSimple은 기본 vCenter 사용자 계정에 `cloudowner@cloudsimple.local`
 
 프라이빗 클라우드 환경에서 실행되는 애플리케이션 및 워크로드에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 프라이빗 클라우드 환경에서 이러한 서비스를 제공하려면 vCenter에 가상 머신을 구성하면 됩니다.
 
-사전 요구 사항
+필수 구성 요소
 
 * VLAN이 구성된 분산 포트 그룹
 
@@ -139,7 +139,7 @@ CloudSimple 포털의 네트워크 페이지를 사용하여 VM의 방화벽 테
 5. 원하는 경우 슬라이더를 사용하여 유휴 시간 제한을 변경합니다.
 6. 공용 IP 주소를 할당할 로컬 IP 주소를 입력합니다.
 7. 원하는 경우 관련 DNS 이름을 입력합니다.
-8. **완료** 를 클릭합니다.
+8. **Done** 을 클릭합니다.
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure IoT Central에 Azure IoT Edge 디바이스 추가 | Microsoft Docs
-description: 자습서 - 운영자로서, Azure IoT Edge 디바이스를 Azure IoT Central 애플리케이션에 추가합니다.
+description: 자습서 - Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,16 +11,14 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: 373d144b4df818a075f0088e9cbf31cb5027e747
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2adae8a99e9e0f3626f444c1c6dd13d29bad3b64
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101724883"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683986"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 Azure IoT Edge 디바이스 추가
-
-*이 문서는 운영자, 솔루션 빌더 및 디바이스 개발자에게 적용됩니다.*
 
 이 자습서에서는 Azure IoT Edge 디바이스를 구성하고 Azure IoT Central 애플리케이션에 추가하는 방법을 보여 줍니다. 자습서에서 IoT Edge 사용 Linux VM(가상 머신)을 사용하여 IoT Edge 디바이스를 시뮬레이션합니다. IoT Edge 디바이스는 시뮬레이션된 환경 원격 분석을 생성하는 모듈을 사용합니다. 원격 분석은 IoT Central 애플리케이션의 대시보드에서 볼 수 있습니다.
 
@@ -33,11 +31,9 @@ ms.locfileid: "101724883"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-[Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작을 완료하여 **사용자 지정 앱 > 사용자 지정 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
-이 자습서의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+[!INCLUDE [iot-central-prerequisites-basic](../../../includes/iot-central-prerequisites-basic.md)]
 
 GitHub에서 IoT Edge 매니페스트 파일을 다운로드합니다. 다음 링크를 마우스 오른쪽 단추로 클릭하고 **다른 이름으로 링크 저장** 을 선택합니다. [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json)
 
@@ -289,14 +285,9 @@ IoT Edge VM을 계속 사용하려는 경우 이 자습서에서 사용한 리�
 * IoT Edge VM 및 관련 리소스를 삭제하려면 Azure Portal에서 **contoso-edge-rg** 리소스 그룹을 삭제합니다.
 * IoT Central 애플리케이션을 삭제하려면 애플리케이션 **관리** 섹션의 **애플리케이션** 페이지로 이동하여 **삭제** 를 선택합니다.
 
-솔루션 개발자 또는 운영자로서, 이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계를 수행하세요.
-
-> [!div class="nextstepaction"]
-> [디바이스 그룹을 사용하여 디바이스 원격 분석 수행](./tutorial-use-device-groups.md)
-
 ## <a name="next-steps"></a>다음 단계
 
-디바이스 개발자로서, 이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 제안되는 다음 단계를 읽어보세요.
+이제 IoT Central에서 IoT Edge 디바이스를 사용하고 관리하는 방법을 알아보았으므로 다음 단계를 읽어 보는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
 > [Azure IoT Edge 모듈 개발](../../iot-edge/tutorial-develop-for-linux.md)

@@ -3,13 +3,12 @@ title: Azure Monitor Application Insights 클래식 리소스를 작업 영역 �
 description: Azure Monitor Application Insights 클래식 리소스를 새 작업 영역 기반 모델로 업그레이드하는 데 필요한 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 329cfed646a2dbc2a417c1468895de62088058f6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108316698"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100584253"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>작업 영역 기반 Application Insights 리소스로 마이그레이션
 
@@ -62,7 +61,7 @@ ms.locfileid: "108316698"
 
     ![빨간색 상자에 강조 표시된 속성](./media/convert-classic-resource/properties.png)
 
-2. **`Migrate to Workspace-based`** 를 선택합니다.
+2. **`Migrate to Workspace-based`** 을 선택합니다.
     
      ![리소스 마이그레이션 단추](./media/convert-classic-resource/migrate.png)
 
@@ -115,7 +114,7 @@ az monitor app-insights component update --app
 az monitor app-insights component update --app your-app-insights-resource-name -g your_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/monitor/app-insights/component#az_monitor_app_insights_component_update)를 참조하세요.
+이 명령에 대한 전체 Azure CLI 설명서는 [Azure CLI 설명서](/cli/azure/ext/application-insights/monitor/app-insights/component#ext-application-insights-az-monitor-app-insights-component-update)를 참조하세요.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 

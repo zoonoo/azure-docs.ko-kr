@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 04/17/2021
 ms.author: sstein
-ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7746b8aa84bea9ec8c18b4c4af0851ca3e5e3957
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640094"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108132020"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 새로운 기능은 무엇인가요?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,8 +61,8 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 
 | 기능 | 세부 정보 |
 | ---| --- |
-| [분산 트랜잭션](/azure/azure-sql/database/elastic-transactions-overview) | 관리되는 인스턴스 간의 분산 트랜잭션 |
-| [인스턴스 풀](/azure/sql-database/sql-database-instance-pools) | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
+| [분산 트랜잭션](./elastic-transactions-overview.md) | 관리되는 인스턴스 간의 분산 트랜잭션 |
+| [인스턴스 풀](../managed-instance/instance-pools-overview.md) | 작은 SQL 인스턴스를 클라우드로 마이그레이션하는 편리하고 비용 효율적인 방법입니다. |
 | [인스턴스 수준 Azure AD 서버 보안 주체(로그인)](/sql/t-sql/statements/create-login-transact-sql) | [CREATE LOGIN FROM EXTERNAL PROVIDER](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) 문을 사용하여 인스턴스 수준 로그인을 만듭니다. |
 | [트랜잭션 복제](../managed-instance/replication-transactional-overview.md) | 테이블의 변경 내용을 SQL Managed Instance, SQL Database 또는 SQL Server의 다른 데이터베이스로 복제합니다. 또는 SQL Managed Instance 또는 SQL Server의 다른 인스턴스에서 일부 행이 변경될 때 테이블을 업데이트합니다. 자세한 내용은 [Azure SQL Managed Instance에서 복제 구성](../managed-instance/replication-between-two-instances-configure-tutorial.md)을 참조하세요. |
 | 위협 탐지 |자세한 내용은 [Azure SQL Managed Instance에서 위협 탐지 구성](../managed-instance/threat-detection-configure.md)을 참조하세요.|
@@ -95,6 +95,7 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 
 |문제  |발견된 날짜  |상태  |해결된 날짜  |
 |---------|---------|---------|---------|
+|[연결 유형을 변경해도 장애 조치(failover) 그룹 엔드포인트를 통한 연결에는 영향을 주지 않습니다.](#changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint)|2021년 1월|해결 방법 있음||
 |[ @query매개 변수를 사용할 때 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있습니다.](#procedure-sp_send_dbmail-may-transiently-fail-when--parameter-is-used)|2021년 1월|해결 방법 있음||
 |[서버 신뢰 그룹에서 관리되는 인스턴스를 제거한 후 분산 트랜잭션을 실행할 수 있습니다.](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|2020년 10월|해결 방법 있음||
 |[관리되는 인스턴스 확장 작업 후에 분산 트랜잭션을 실행할 수 없습니다.](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|2020년 10월|해결 방법 있음||
@@ -126,6 +127,12 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 |원본 데이터베이스에 메모리 내 OLTP 개체가 포함되어 있으면 중요 비즈니스용 계층에서 범용 계층으로 특정 시점 데이터베이스 복원에 실패함||해결됨|2019년 10월|
 |보안 연결을 사용하는 외부(비 Azure) 메일 서버와 데이터베이스 메일 기능||해결됨|2019년 10월|
 |포함된 데이터베이스는 SQL Managed Instance에서 지원되지 않습니다.||해결됨|2019년 8월|
+
+### <a name="changing-the-connection-type-does-not-affect-connections-through-the-failover-group-endpoint"></a>연결 유형을 변경해도 장애 조치(failover) 그룹 엔드포인트를 통한 연결에는 영향을 주지 않습니다.
+
+인스턴스가 [자동 장애 조치(failover) 그룹](./auto-failover-group-overview.md)에 참여하는 경우 인스턴스의 [연결 유형](../managed-instance/connection-types-overview.md)을 변경해도 장애 조치(failover) 그룹 수신기 엔드포인트를 통해 설정된 연결에는 적용되지 않습니다.
+
+**해결 방법**: 연결 유형을 변경한 후 자동 장애 조치(failover) 그룹을 삭제하고 다시 만듭니다.
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>@query 매개 변수를 사용하면 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있음
 

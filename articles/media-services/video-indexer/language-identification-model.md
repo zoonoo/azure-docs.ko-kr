@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: ellbe
-ms.openlocfilehash: 3a71a29fdf4af10162e2f7961fb457d0e99b18e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40f2e146956919e154f59d90b56a1b03379abbb2
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81687134"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107600640"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용하여 음성 언어 자동 식별
 
@@ -27,7 +27,7 @@ Video Indexer는 오디오에서 음성 언어 콘텐츠를 자동으로 식별�
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>인덱싱할 때 자동 언어 식별 선택
 
-API를 사용하여 비디오를 인덱싱하거나 [다시 인덱싱](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?)할 때 `sourceLanguage` 매개 변수에서 `auto detect` 옵션을 선택합니다.
+API를 사용하여 비디오를 인덱싱하거나 [다시 인덱싱](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video)할 때 `sourceLanguage` 매개 변수에서 `auto detect` 옵션을 선택합니다.
 
 포털을 사용하는 경우 [Video Indexer](https://www.videoindexer.ai/) 홈페이지의 **계정 비디오** 로 이동하여 다시 인덱싱하려는 비디오의 이름을 마우스로 가리킵니다. 오른쪽 아래 모서리에서 다시 인덱싱 단추를 클릭합니다. **비디오 다시 인덱싱** 대화 상자의 **비디오 원본 언어** 드롭다운 상자에서 *자동 검색* 을 선택합니다.
 

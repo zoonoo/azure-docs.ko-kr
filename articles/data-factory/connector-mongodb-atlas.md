@@ -1,18 +1,18 @@
 ---
 title: MongoDB Atlas에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 MongoDB Atlas에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
-author: jianleishen
-ms.author: jianleishen
+author: linda33wj
+ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 09/28/2020
-ms.openlocfilehash: 517f32a526ed6695c7890a330359f52667367979
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: b2f77e4bd8df66084937da3dd203ebb71d9a3511
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487676"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100368798"
 ---
 # <a name="copy-data-from-mongodb-atlas-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB Atlas에서 데이터 복사
 
@@ -26,13 +26,13 @@ MongoDB Atlas 데이터베이스에서 지원되는 모든 싱크 데이터 저�
 
 특히 이 MongoDB Atlas 커넥터는 **버전 4.2까지** 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 복사에 Azure Integration Runtime을 사용하는 경우 유효한 지역의 [Azure Integration Runtime](azure-integration-runtime-ip-addresses.md) IP를 MongoDB Atlas IP 액세스 목록에 추가해야 합니다.
 
 ## <a name="getting-started"></a>시작
 
-[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 MongoDB Atlas 커넥터와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 
@@ -40,10 +40,10 @@ MongoDB Atlas 데이터베이스에서 지원되는 모든 싱크 데이터 저�
 
 MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type |형식 속성은 **MongoDbAtlas** 로 설정해야 합니다. |예 |
-| connectionString |MongoDB Atlas 연결 문자열을 지정합니다(예: `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>`). <br/><br /> Azure Key Vault에 연결 문자열을 넣을 수도 있습니다. 자세한 내용은 [Azure Key Vault의 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. |예 |
+| connectionString |MongoDB Atlas 연결 문자열을 지정합니다(예: `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>`). <br/><br /> Azure Key Vault에 연결 문자열을 넣을 수도 있습니다. 자세한 내용은 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)을 참조하세요. |예 |
 | 데이터베이스 | 액세스하려는 데이터베이스 이름입니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |예 |
 
@@ -70,7 +70,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)를 참조하세요. MongoDB Atlas 데이터 세트에 대해 다음 속성을 지원합니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **MongoDbAtlasCollection** 으로 설정해야 합니다. | 예 |
 | collectionName |MongoDB Atlas 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
@@ -102,7 +102,7 @@ MongoDB Atlas 연결된 서비스에 다음 속성이 지원됩니다.
 
 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **MongoDbAtlasSource** 로 설정해야 합니다. | 예 |
 | filter | 쿼리 연산자를 사용하여 선택 영역 필터를 지정합니다. 컬렉션의 모든 문서를 반환하려면 이 매개 변수를 생략하거나 빈 문서({})를 전달합니다. | 예 |

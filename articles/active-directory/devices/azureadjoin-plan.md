@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory join 구현을 계획 하는 방법
+title: Azure Active Directory 조인 구현을 계획하는 방법
 description: 환경에서 Azure AD 조인 디바이스를 구현하는 데 필요한 단계를 설명합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3acaf4929158b24ff50655aa18c05b41aeec4b53
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 383bd00bb0daf165f37ed98e48a5d36708367920
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96435453"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130866"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -24,13 +24,13 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](./overview.md)를 잘 알고 있다고 가정합니다.
 
 ## <a name="plan-your-implementation"></a>구현 계획
 
-Azure AD 조인 구현을 계획 하려면 다음을 숙지 해야 합니다.
+Azure AD 조인 구현을 계획하려면 다음 사항을 숙지해야 합니다.
 
 > [!div class="checklist"]
 > - 시나리오 검토
@@ -77,7 +77,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. 
 
 >[!NOTE]
-> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
+> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자로 구성된 AD FS 2019](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정하므로 이 시나리오에서 인증 오류가 발생합니다.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>스마트 카드 및 인증서 기반 인증
@@ -95,7 +95,7 @@ ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD �
 
 Azure AD UPN과는 다른 온-프레미스 UPN은 Azure AD 가입 디바이스에서 지원되지 않습니다. 사용자가 온-프레미스 UPN을 사용하는 경우 Azure AD에서 사용자의 기본 UPN을 사용하도록 전환할 계획을 세워야 합니다.
 
-UPN 변경은 Windows 10 2004 업데이트를 시작 하는 경우에만 지원 됩니다. 이 업데이트를 사용 하는 장치의 사용자에 게는 Upn을 변경한 후에 문제가 발생 하지 않습니다. Windows 10 2004 업데이트 이전 장치의 경우 사용자에 게 장치에 대 한 SSO 및 조건부 액세스 문제가 있습니다. 이 문제를 해결 하려면 새 UPN을 사용 하 여 "기타 사용자" 타일을 통해 Windows에 로그인 해야 합니다. 
+UPN 변경은 Windows 10 2004 업데이트를 시작하는 경우에만 지원됩니다. 이 업데이트가 적용된 디바이스의 사용자에게 UPN을 변경한 후 문제가 발생하지 않습니다. Windows 10 2004 업데이트 이전 디바이스의 경우 사용자 디바이스에서 SSO 및 조건부 액세스 문제가 발생할 수 있습니다. 이 문제를 해결하려면 새 UPN을 사용하여 "다른 사용자" 타일을 통해 Windows에 로그인해야 합니다. 
 
 ## <a name="assess-your-device-management"></a>디바이스 관리 평가
 
@@ -105,23 +105,23 @@ Azure AD 조인:
 
 - Windows 10 디바이스에만 적용됩니다. 
 - 이전 버전의 Windows 또는 다른 운영 체제에는 적용되지 않습니다. Windows 7/8.1 디바이스의 경우 Azure AD 조인을 배포하려면 Windows 10으로 업그레이드해야 합니다.
-- 는 FIPS 규격 TPM 2.0에 대해 지원 되지만 TPM 1.2에는 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2가 있는 경우 Azure AD 조인을 계속 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 tpm에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요.
+- FIPS 규격 TPM 2.0에서는 지원되지만 TPM 1.2에서는 지원되지 않습니다. 디바이스에 FIPS 규격 TPM 1.2가 있는 경우 Azure AD 조인을 진행하기 전에 디바이스를 사용하지 않도록 설정해야 합니다. TPM은 TPM 제조업체에 따라 다르므로 Microsoft에서 FIPS 모드를 사용하지 않도록 설정하는 도구를 제공하지 않습니다. 하드웨어 OEM에 지원을 문의하세요.
  
 **권장 사항:** 항상 최신 Windows 10 릴리스를 사용하여 업데이트된 기능을 활용하는 것이 좋습니다.
 
 ### <a name="management-platform"></a>관리 플랫폼
 
-Azure AD 가입 장치에 대 한 장치 관리는 Intune 및 MDM Csp와 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
+Azure AD 조인 디바이스에 대한 디바이스 관리는 Intune 및 MDM CSP 같은 MDM 플랫폼을 기반으로 합니다. Windows 10에는 모든 호환 MDM 솔루션과 함께 작동하는 MDM 에이전트가 기본적으로 제공됩니다.
 
 > [!NOTE]
-> 그룹 정책은 온-프레미스 Active Directory에 연결 되어 있지 않으므로 Azure AD 조인 장치에서 지원 되지 않습니다. MDM을 통해서만 Azure AD 조인 장치를 관리할 수 있습니다.
+> 그룹 정책은 온-프레미스 Active Directory에 연결되어 있지 않으므로 Azure AD 조인 디바이스에서 지원되지 않습니다. Azure AD 조인 디바이스의 관리는 MDM을 통해서만 가능합니다.
 
 Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
 - **MDM 전용** - Intune 같은 MDM 공급자를 통해서만 디바이스를 관리합니다. 모든 정책은 MDM 등록 프로세스의 일부로 전달됩니다. Azure AD Premium 또는 EMS 고객의 경우 MDM 등록 단계가 Azure AD 조인의 일부이며 자동화되어 있습니다.
 - **공동 관리** - MDM 공급자와 SCCM이 디바이스를 함께 관리합니다. 이 방법에서는 특정 측면을 관리하기 위해 SCCM 에이전트가 MDM 관리 디바이스에 설치됩니다.
 
-그룹 정책을 사용 하는 경우 Microsoft Endpoint Manager의 [그룹 정책 analytics](/mem/intune/configuration/group-policy-analytics) 를 사용 하 여 GPO 및 MDM 정책 패리티를 평가 합니다. 
+그룹 정책을 사용하는 경우 Microsoft Endpoint Manager의 [그룹 정책 분석](/mem/intune/configuration/group-policy-analytics)을 사용하여 GPO 및 MDM 정책 패리티를 평가합니다. 
 
 지원되는 정책과 지원되지 않는 정책을 검토하여 그룹 정책 대신 MDM 솔루션을 사용할 수 있는지 확인합니다. 지원되지 않는 정책의 경우 다음 사항을 고려합니다.
 
@@ -130,7 +130,7 @@ Azure AD 조인 디바이스를 관리하는 두 가지 방법이 있습니다.
 
 Azure AD 앱 갤러리를 통해 MDM 솔루션을 사용할 수 없는 경우 [MDM과 Azure Active Directory 통합](/windows/client-management/mdm/azure-active-directory-integration-with-mdm)에 설명된 프로세스에 따라 추가할 수 있습니다. 
 
-공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 장치에 대 한 공동 관리에 대 한 자세한 내용은 [공동 관리 란?](/configmgr/core/clients/manage/co-management-overview)을 참조 하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
+공동 관리를 통해 SCCM을 사용하여 디바이스의 특정 측면을 관리할 수 있으며, 정책은 MDM 플랫폼을 통해 제공됩니다. Microsoft Intune은 SCCM을 사용한 공동 관리를 지원합니다. Windows 10 디바이스의 공동 관리에 대한 자세한 내용은 [공동 관리란?](/configmgr/core/clients/manage/co-management-overview)을 참조하세요. Intune이 아닌 MDM 제품을 사용하는 경우 해당하는 공동 관리 시나리오에서 MDM 공급자를 확인하세요.
 
 **권장 사항:** Azure AD 조인 디바이스에는 MDM 전용 관리를 고려해 보세요.
 
@@ -168,13 +168,11 @@ AD FS를 사용하는 경우 [AD FS를 사용하여 Single Sign-On 확인 및 �
 
 ### <a name="on-premises-network-shares"></a>온-프레미스 네트워크 공유
 
-디바이스가 온-프레미스 도메인 컨트롤러에 액세스할 수 있는 경우 사용자는 Azure AD 조인 디바이스에서 SSO를 얻습니다.
+디바이스가 온-프레미스 도메인 컨트롤러에 액세스할 수 있는 경우 사용자는 Azure AD 조인 디바이스에서 SSO를 얻습니다. [작동 방법 알아보기](azuread-join-sso.md)
 
 ### <a name="printers"></a>프린터
 
-프린터의 경우 Azure AD 조인 디바이스에서 프린터를 검색하기 위한 [하이브리드 클라우드 인쇄](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)를 배포해야 합니다. 
-
-클라우드 전용 환경에서는 프린터를 자동으로 검색할 수 없지만, 사용자가 프린터의 UNC 경로를 사용하여 프린터를 직접 추가할 수도 있습니다. 
+온-프레미스 종속성 없이 클라우드 기반 인쇄 관리 솔루션을 사용하려면 [유니버설 인쇄](/universal-print/fundamentals/universal-print-whatis)를 배포하는 것이 좋습니다. 
 
 ### <a name="on-premises-applications-relying-on-machine-authentication"></a>머신 인증에 의존하는 온-프레미스 애플리케이션
 
@@ -186,10 +184,10 @@ Azure AD 조인 디바이스는 머신 인증에 의존하는 온-프레미스 �
 
 Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 호스트 머신이 Azure AD에 조인되거나 하이브리드 Azure AD에 조인되어야 합니다. 조인되지 않은 디바이스 또는 Windows 이외의 디바이스에서 원격 데스크톱으로 연결하는 기능은 지원되지 않습니다. 자세한 내용은 [원격 Azure AD 조인 pc에 연결](/windows/client-management/connect-to-remote-aadj-pc)을 참조하세요.
 
-Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 된 Windows 10 장치에서 Azure AD 조인 된 장치로 원격 데스크톱을 사용할 수도 있습니다. 
+Windows 10 2004 업데이트를 시작하면 사용자는 Azure AD에 등록된 Windows 10 디바이스에서 Azure AD 조인 디바이스로 원격 데스크톱을 사용할 수도 있습니다. 
 
 ## <a name="understand-your-provisioning-options"></a>프로비전 옵션 이해
-**참고**: 시스템 준비 도구 (Sysprep) 또는 이와 유사한 이미징 도구를 사용 하 여 Azure AD 가입 장치를 배포할 수 없음
+**참고**: 시스템 준비 도구(Sysprep) 또는 이와 유사한 이미징 도구를 사용하여 Azure AD 조인 디바이스를 배포할 수 없습니다.
 
 다음 방법을 사용하여 Azure AD 조인을 프로비전할 수 있습니다.
 
@@ -221,7 +219,7 @@ Windows 10 2004 업데이트를 시작 하면 사용자가 Azure ad에 등록 �
 
 ## <a name="configure-your-device-settings"></a>디바이스 설정 구성
 
-Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 수 있습니다. 관련 설정을 구성하려면 **Azure Active Directory 페이지** 에서 `Devices > Device settings`을 선택합니다.
+Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 수 있습니다. 관련 설정을 구성하려면 **Azure Active Directory 페이지** 에서 `Devices > Device settings`을 선택합니다. [자세한 정보](device-management-azure-portal.md)
 
 ### <a name="users-may-join-devices-to-azure-ad"></a>사용자가 디바이스를 Azure AD에 조인할 수 있음
 
@@ -235,11 +233,13 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 
 ![Azure AD 조인 디바이스의 추가 로컬 관리자](./media/azureadjoin-plan/02.png)
 
-### <a name="require-multi-factor-auth-to-join-devices"></a>디바이스를 조인하려면 다단계 인증 필요
+### <a name="require-multi-factor-authentication-mfa-to-join-devices"></a>디바이스에 조인하려면 MFA(다단계 인증) 필요
 
 디바이스를 Azure AD에에 조인하는 동안 사용자에게 MFA를 요구하려면 **"예"** 를 선택합니다. MFA를 사용하여 디바이스를 Azure AD에 조인하는 사용자의 경우 디바이스 자체가 두 번째 요소입니다.
 
 ![디바이스를 조인하려면 다단계 인증 필요](./media/azureadjoin-plan/03.png)
+
+**권장 사항:** 디바이스 조인을 위해 MFA를 적용하려면 조건부 액세스에서 사용자 작업 [등록 또는 디바이스 조인](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions)을 사용합니다.
 
 ## <a name="configure-your-mobility-settings"></a>모바일 설정 구성
 
@@ -251,7 +251,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 1. **애플리케이션 추가** 를 클릭합니다.
 1. 목록에서 MDM 공급자를 선택합니다.
 
-   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="응용 프로그램 추가 페이지 Azure Active Directory의 스크린샷 몇 개의 M D M 공급자가 나열 됩니다." border="false":::
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Azure Active Directory 애플리케이션 추가 페이지의 스크린샷. 여러 MDM 공급자가 나열됩니다." border="false":::
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
@@ -274,7 +274,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="M D M 사용 약관, 검색 및 규정 준수에 대 한 U R L 필드가 있는 Azure Active Directory M D M 구성 섹션의 스크린샷" border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="MDM 사용 약관, 검색 및 규정 준수에 대한 URL 필드가 있는 일부 Azure Active Directory MDM 구성 섹션의 스크린샷." border="false":::
 
 각 URL에는 사전 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 
@@ -294,13 +294,13 @@ Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급�
 
 ![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
 
-이 구현을 사용 하 여 [조건부 액세스를 통해 클라우드 앱 액세스를 위한 관리 되는 장치를 요구할](../conditional-access/require-managed-devices.md)수 있습니다.
+이 구현을 사용하여 [조건부 액세스를 사용하는 클라우드 앱 액세스에 대한 관리 디바이스를 요구](../conditional-access/require-managed-devices.md)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [처음 실행 하는 동안 AZURE AD에 새 Windows 10 장치 조인](azuread-joined-devices-frx.md) 
->  회사 [장치를 조직의 네트워크에 연결](../user-help/user-help-join-device-on-network.md)
+> [첫 번째 실행 동안 새 Windows 10 디바이스를 Azure AD에 조인](azuread-joined-devices-frx.md)
+> [회사 디바이스를 조직의 네트워크에 조인](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

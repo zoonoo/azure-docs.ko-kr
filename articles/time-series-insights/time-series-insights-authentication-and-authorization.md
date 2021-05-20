@@ -10,13 +10,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref, devx-track-azurecli
-ms.openlocfilehash: c174504ea48330821d7734def5b6a5904d3ec2b8
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883925"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103009269"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -36,7 +36,7 @@ ms.locfileid: "107883925"
 
 - Azure VM
 - Azure App Services
-- Azure 기능
+- Azure Functions
 - Azure Container Instances
 - 기타 등등...
 
@@ -48,7 +48,7 @@ ms.locfileid: "107883925"
 
 앱 등록을 완료하면 홈 테넌트 또는 디렉터리 내에 상주하는 앱의 전역적으로 고유한 인스턴스(애플리케이션 개체)가 확보됩니다. 앱의 전역적으로 고유한 ID(앱 또는 클라이언트 ID)도 있습니다. 그런 다음, 포털에서 비밀 또는 인증서 및 범위를 추가하여 앱이 작동하도록 하고, 로그인 대화 상자에서 앱의 브랜딩을 사용자 지정하는 등의 작업을 수행할 수 있습니다.
 
-포털에 애플리케이션을 등록하는 경우 애플리케이션 개체 및 서비스 사용자 개체가 홈 테넌트에 자동으로 만들어집니다. Microsoft Graph API를 사용하여 애플리케이션을 등록/생성할 경우 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다. 토큰을 요청하려면 서비스 사용자 개체가 필요합니다.
+포털에 애플리케이션을 등록하는 경우 애플리케이션 개체 및 서비스 주체 개체가 홈 테넌트에 자동으로 만들어집니다. Microsoft Graph API를 사용하여 애플리케이션을 등록/생성할 경우 별도의 단계를 통해 서비스 주체 개체를 만들 수 있습니다. 토큰을 요청하려면 서비스 사용자 개체가 필요합니다.
 
 애플리케이션의 [보안](../active-directory/develop/identity-platform-integration-checklist.md#security) 검사 목록을 검토해야 합니다. 모범 사례로, 암호 자격 증명(클라이언트 암호)이 아닌 [인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)을 사용해야 합니다.
 
@@ -79,7 +79,7 @@ Azure Time Series Insights 환경은 요청이 수신되면 먼저 호출자의 
 
 - [Azure Portal](https://portal.azure.com/) UI를 통해 액세스 권한을 부여하려면 [환경에 데이터 액세스 권한 부여](concepts-access-policies.md) 문서에 나와 있는 지침을 따르세요. 사용자를 선택할 때 이름 또는 ID로 관리 ID 또는 앱 등록을 검색할 수 있습니다.
 
-- Azure CLI를 사용하여 액세스 권한을 부여하려면 다음 명령을 실행합니다. [여기](/cli/azure/tsi/access-policy)에서 설명서를 검토하여 액세스를 관리하는 데 사용할 수 있는 명령의 전체 목록을 확인하세요.
+- Azure CLI를 사용하여 액세스 권한을 부여하려면 다음 명령을 실행합니다. [여기](/cli/azure/ext/timeseriesinsights/tsi/access-policy)에서 설명서를 검토하여 액세스를 관리하는 데 사용할 수 있는 명령의 전체 목록을 확인하세요.
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"

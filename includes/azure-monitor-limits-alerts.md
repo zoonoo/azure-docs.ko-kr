@@ -5,15 +5,15 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 10/01/2020
+ms.date: 05/03/2021
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 071f2849a877f4ea1e8a84eff6ccfb8343be3ec7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a56be93309fd68f73bd542222ff14b8b99f3e5e
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101734067"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108791719"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -22,3 +22,13 @@ ms.locfileid: "101734067"
 | 활동 로그 경고 | 구독당 100개 활성 경고 규칙(늘릴 수 없음) | 기본값과 동일 |
 | 로그 경고 | 구독당 512개 활성 경고 규칙 리소스당 200개 활성 경고 규칙 | 지원 요청 |
 | 경고 규칙 및 작업 규칙 설명 길이| 로그 검색 경고 4096자<br/>다른 모든 경고 2048자 | 기본값과 동일 |
+
+### <a name="alerts-api"></a>경고 API
+Azure Monitor 경고에는 과도한 수의 호출을 하는 사용자로부터 보호하기 위한 몇 가지 제한 한도가 있습니다. 이러한 동작은 잠재적으로 시스템 백 엔드 리소스에 과부하를 일으키고 서비스 응답성을 저하시킬 수 있습니다. 다음 제한은 중단으로부터 고객을 보호하고 일관된 서비스 수준을 보장하기 위해 마련되었습니다. 사용자 제한은 극단적인 사용 시나리오에만 영향을 주도록 설계되었으며 일반적인 사용과 관련이 없어야 합니다.
+
+| 리소스 | 기본 제한 | 최대 제한 |
+| --- | --- | --- |
+| GET alertsSummary | 구독당 50개 호출(분당) | 기본값과 동일 | 
+|   GET 경고(경고 ID를 지정하지 않음) | 구독당 100개 호출(분당) | 기본값과 동일 | 
+|   기타 모든 호출 | 구독당 1000개 호출(분당) | 기본값과 동일 | 
+

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: dc66e20023081caa85ec24956790472e21a3a2fb
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3f52dc502233cbab42ae5decff70b77c41c38e0e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773308"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102609688"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 앱의 엔터프라이즈 전략
 엔터프라이즈 앱의 이러한 디자인 전략을 검토합니다.
@@ -72,7 +72,7 @@ LUIS 앱이 단일 키 할당량이 허용하는 것보다 많은 엔드포인�
 * [Bot 프레임워크 SDK](https://github.com/Microsoft/botframework)
 * [디스패치 모델 자습서](/azure/bot-service/bot-builder-tutorial-dispatch?tabs=cs)
 * [디스패치 CLI](https://github.com/Microsoft/botbuilder-tools)
-* 디스패치 모델 봇 샘플- [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/csharp_dotnetcore/14.nlp-with-orchestrator), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/main/samples/javascript_nodejs/14.nlp-with-orchestrator)
+* 디스패치 모델 봇 샘플- [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch), [Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>다음 단계
 

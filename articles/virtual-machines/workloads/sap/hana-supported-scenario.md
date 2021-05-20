@@ -3,7 +3,7 @@ title: Azure(대규모 인스턴스)의 SAP HANA 지원 시나리오 | Microsoft
 description: Azure(큰 인스턴스)의 SAP HANA에 대해 지원되는 시나리오 및 해당 아키텍처 세부 정보
 services: virtual-machines-linux
 documentationcenter: ''
-author: Ajayan1008
+author: saghorpa
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/26/2019
-ms.author: madhukan
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6e1868514919cdb40a0ac607b446ab944e8c36da
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a49c55da0bb8018b3faa7c6f70b02e79d9478603
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738845"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101666686"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA 큰 인스턴스의 지원되는 시나리오
 이 문서에서는 HLI(HANA 대규모 인스턴스)에 대해 지원되는 시나리오 및 아키텍처 세부 정보를 설명합니다.
@@ -74,7 +74,7 @@ HANA 대규모 인스턴스는 사용자가 비즈니스 요구 사항을 충족
 
 HLI 단위에 구성된 토폴로지에 따라 인터페이스를 선택합니다. 예를 들어, 인터페이스 "B"는 스케일 아웃 토폴로지를 구성한 경우에 유용한 노드 간 통신을 위해 설정됩니다. 이 인터페이스는 단일 노드, 수직 확장 구성에 사용되지 않습니다. 인터페이스 사용에 대한 자세한 내용은 이 문서 뒷부분에서 필요한 시나리오를 검토하세요. 
 
-필요한 경우 추가 NIC 카드를 직접 정의할 수 있습니다. 그러나 기존 NIC의 구성은 변경할 수 ‘없습니다’.
+필요한 경우 추가 NIC 카드를 직접 정의할 수 있습니다. 그러나 기존 NIC의 구성은 변경할 수 *없습니다*.
 
 >[!NOTE]
 >실제 인터페이스 또는 결합에 해당하는 추가 인터페이스를 찾을 수도 있습니다. 사용 사례에 대해서는 앞에서 언급한 인터페이스만 고려해야 합니다. 다른 항목은 모두 무시해도 됩니다.

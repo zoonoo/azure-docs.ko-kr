@@ -120,14 +120,14 @@
               items:
                 - name: 사용자 지정 신경망 음성이란?
                   href: custom-neural-voice.md
-                - name: Custom Voice 시작
+                - name: 사용자 지정 신경망 음성 시작
                   displayName: 'custom voice, neural voice'
                   href: how-to-custom-voice.md
-                - name: 데이터 준비
+                - name: 학습을 위한 데이터 준비
                   href: how-to-custom-voice-prepare-data.md
-                - name: Custom Voice 모델 만들기 및 사용
+                - name: 음성 모델 만들기 및 사용
                   href: how-to-custom-voice-create-voice.md
-                - name: 음성 샘플 기록
+                - name: 음성 샘플 녹음 방법
                   href: record-custom-voice-samples.md
             - name: 오디오 콘텐츠 만들기
               items:
@@ -295,12 +295,16 @@
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
-- name: 사용자 지정 키워드
+- name: 키워드 인식
   items:
-    - name: 사용자 지정 키워드 개요
-      href: custom-keyword-overview.md
-    - name: 사용자 지정 키워드 기본 사항
+    - name: 키워드 인식 개요
+      href: keyword-recognition-overview.md
+    - name: 사용자 지정 키워드 빠른 시작
       href: custom-keyword-basics.md
+    - name: 권장 사항 및 지침
+      href: keyword-recognition-guidelines.md
+    - name: 지역 지원
+      href: keyword-recognition-region-support.md
 - name: 시나리오 심층 분석
   items:
     - name: 대화 시나리오
