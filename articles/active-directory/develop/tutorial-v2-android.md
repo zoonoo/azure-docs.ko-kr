@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7d297d96ba764c812a3d4db6d9383122c73cfe31
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f54d4a704779aab1b84a92ef3b152e9319c55e89
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100103144"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713363"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -152,18 +152,36 @@ MSAL은 자동으로 토큰을 갱신하고, 디바이스의 다른 앱 간에 S
 
 ### <a name="add-msal-to-your-project"></a>프로젝트에 MSAL 추가
 
-1. Android Studio 프로젝트 창에서 **app** > **src** > **build.gradle** 로 이동하여 다음을 추가합니다.
+1. Android Studio 프로젝트 창에서 **app** > **build.gradle** 로 이동하여 다음을 추가합니다.
 
     ```gradle
-    repositories{
+    apply plugin: 'com.android.application'
+   
+    allprojects {
+     repositories {
+        mavenCentral()
+        google()
+        mavenLocal()
+        maven {
+            url 'https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1'
+        }
+        maven {
+            name "vsts-maven-adal-android"
+            url "https://identitydivision.pkgs.visualstudio.com/_packaging/AndroidADAL/maven/v1"
+            credentials {
+                username System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_USERNAME") : project.findProperty("vstsUsername")
+                password System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") != null ? System.getenv("ENV_VSTS_MVN_ANDROIDADAL_ACCESSTOKEN") : project.findProperty("vstsMavenAccessToken")
+            }
+        }
         jcenter()
+     }
     }
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:2.+'
-        implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
-    }
+     implementation 'com.microsoft.identity.client:msal:2.+'
+     implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
+     }
     packagingOptions{
-        exclude("META-INF/jersey-module-version")
+     exclude("META-INF/jersey-module-version")
     }
     ```
     [Microsoft Graph SDK에 대한 자세한 정보](https://github.com/microsoftgraph/msgraph-sdk-java/)

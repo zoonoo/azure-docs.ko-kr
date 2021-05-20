@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Synapse Analytics 시작 - Power BI를 사용하여 작업 영역 데이터 시각화'
-description: 이 자습서에서는 Power BI 작업 영역을 만들고, Azure Synapse 작업 영역을 연결하고, Azure Synapse 작업 영역에서 데이터를 활용하는 Power BI 데이터 세트를 만드는 방법에 대해 알아봅니다.
+description: 이 자습서에서는 Power BI를 사용하여 Azure Synapse Analytics에서 데이터를 시각화하는 방법을 알아봅니다.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,18 +10,18 @@ ms.service: synapse-analytics
 ms.subservice: business-intelligence
 ms.topic: tutorial
 ms.date: 03/25/2021
-ms.openlocfilehash: 829daaa9c739657528a9085201c61c88635931d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fe830d277fa2e2ff57661500c3c56c0927637ab4
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608445"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109516906"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 
 이 자습서에서는 Power BI 작업 영역을 만들고, Azure Synapse 작업 영역을 연결하고, Azure Synapse 작업 영역에서 데이터를 활용하는 Power BI 데이터 세트를 만드는 방법에 대해 알아봅니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 [Power BI Desktop을 설치](https://aka.ms/pbidesktopstore)합니다.
 
 ## <a name="overview"></a>개요

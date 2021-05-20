@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/10/2019
+ms.date: 05/10/2021
 ms.author: jeedes
-ms.openlocfilehash: b3b62e7c16106fd9d94d4a3438331dab4ce8b6e8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afad903734fded062681f18683cb74492993fe1c
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99539046"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109684220"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 ServiceNow 구성
 
@@ -162,6 +162,8 @@ Azure AD에서 ServiceNow에 대한 자동 사용자 프로비저닝을 구성�
   그래도 문제가 해결되지 않으면 ServiceNow 지원에 문의하여 문제 해결에 도움이 되도록 SOAP 디버깅을 켜 달라고 요청하세요. 
 
 * Azure AD 프로비저닝 서비스는 현재 특정 [IP 범위](../app-provisioning/use-scim-to-provision-users-and-groups.md#ip-ranges)에서 작동합니다. 필요한 경우 다른 IP 범위를 제한하고 해당 IP 범위를 애플리케이션의 허용 목록에 추가할 수 있습니다. 이 기술은 Azure AD 프로비저닝 서비스에서 애플리케이션으로의 트래픽 흐름을 허용합니다.
+
+* 자체 호스팅된 ServiceNow 인스턴스는 지원되지 않습니다. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

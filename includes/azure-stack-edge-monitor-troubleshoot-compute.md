@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 08/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89272159"
 ---
-계산 역할이 구성 된 Azure Stack Edge 장치에서 두 가지 명령 집합을 사용 하 여 장치를 문제를 해결 하거나 모니터링할 수 있습니다.
+컴퓨팅 역할이 구성된 Azure Stack Edge 디바이스에서 두 가지 다른 명령 세트를 사용하여 문제를 해결하거나 디바이스를 모니터링할 수 있습니다.
 
-- `iotedge`명령을 사용 합니다. 이러한 명령은 장치에 대 한 기본 작업에 사용할 수 있습니다.
-- `dkrdbe`명령을 사용 합니다. 이러한 명령은 장치에 대 한 광범위 한 작업 집합에서 사용할 수 있습니다.
+- `iotedge` 명령 사용. 이러한 명령은 디바이스에 대한 기본 작업에 사용할 수 있습니다.
+- `dkrdbe` 명령 사용. 이러한 명령은 디바이스에 대한 광범위한 작업에 사용할 수 있습니다.
 
-위의 명령 집합 중 하나를 실행 하려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)해야 합니다.
+위의 명령 세트 중 하나를 실행하려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)해야 합니다.
 
-### <a name="use-iotedge-commands"></a>`iotedge`명령 사용
+### <a name="use-iotedge-commands"></a>`iotedge` 명령 사용
 
-사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface) 하 고 함수를 사용 `iotedge` 합니다.
+사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)하고 `iotedge` 함수를 사용합니다.
 
 ```powershell
 [10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
@@ -34,19 +34,19 @@ Commands:
 [10.100.10.10]: PS>
 ```
 
-다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `iotedge` .
+다음 표에서는 `iotedge`에 사용할 수 있는 명령에 대해 간략히 설명합니다.
 
 |명령을 사용합니다.  |설명 |
 |---------|---------|
-|`check`     | 일반적인 구성 및 연결 문제에 대 한 자동화 된 검사 수행       |
+|`check`     | 일반적인 구성 및 연결 문제에 대한 자동화된 검사 수행       |
 |`list`     | 모듈 목록 표시         |
-|`logs`     | 모듈의 로그 가져오기        |
-|`restart`     | 모듈을 중지 했다가 다시 시작 합니다.         |
+|`logs`     | 모듈 로그 가져오기        |
+|`restart`     | 모듈 중지 및 다시 시작         |
 
 
-### <a name="use-dkrdbe-commands"></a>`dkrdbe`명령 사용
+### <a name="use-dkrdbe-commands"></a>`dkrdbe` 명령 사용
 
-사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface) 하 고 함수를 사용 `dkrdbe` 합니다.
+사용 가능한 명령 목록을 보려면 [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)하고 `dkrdbe` 함수를 사용합니다.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -70,28 +70,28 @@ Commands:
 
 [10.100.10.10]: PS>
 ```
-다음 표에는에서 사용할 수 있는 명령에 대 한 간략 한 설명이 나와 있습니다 `dkrdbe` .
+다음 표에서는 `dkrdbe`에 사용할 수 있는 명령에 대해 간략히 설명합니다.
 
 |명령을 사용합니다.  |설명 |
 |---------|---------|
-|`image`     | 이미지를 관리 합니다. 사용 하지 않는 이미지를 제거 하려면 다음을 사용 합니다. `dkrdbe image prune -a -f`       |
+|`image`     | 이미지 관리. 사용하지 않는 이미지를 제거하려면 `dkrdbe image prune -a -f`를 사용합니다.       |
 |`images`     | 이미지 나열         |
-|`inspect`     | Docker 개체에 대 한 하위 수준 정보 반환         |
+|`inspect`     | Docker 개체에 대한 하위 수준 정보 반환         |
 |`login`     | Docker 레지스트리에 로그인         |
-|`logout`     | Docker 레지스트리에서 로그 아웃         |
-|`logs`     | 컨테이너의 로그 가져오기        |
-|`port`     | 컨테이너에 대 한 포트 매핑 또는 특정 매핑을 나열 합니다.        |
+|`logout`     | Docker 레지스트리에서 로그아웃         |
+|`logs`     | 컨테이너 로그 가져오기        |
+|`port`     | 컨테이너에 대한 포트 매핑 또는 특정 매핑 나열        |
 |`ps`     | 컨테이너 나열        |
 |`pull`     | 레지스트리에서 이미지 또는 리포지토리 끌어오기         |
-|`start`     | 하나 이상의 중지 된 컨테이너 시작         |
-|`stats`     | 컨테이너 리소스 사용 통계의 라이브 스트림 표시         |
-|`stop`     | 하나 이상의 실행 중인 컨테이너를 중지 합니다.        |
+|`start`     | 하나 이상의 중지된 컨테이너 시작         |
+|`stats`     | 컨테이너 리소스 사용량 통계의 라이브 스트림 표시         |
+|`stop`     | 하나 이상의 실행 중인 컨테이너 중지        |
 |`system`     | Docker 관리         |
-|`top`     | 컨테이너의 실행 중인 프로세스를 표시 합니다.         |
+|`top`     | 실행 중인 컨테이너 프로세스 표시         |
 
-사용 가능한 명령에 대 한 도움말을 보려면를 사용 `dkrdbe <command-name> --help` 합니다.
+사용 가능한 명령에 대한 도움말을 보려면 `dkrdbe <command-name> --help`를 사용합니다.
 
-예를 들어 명령 사용법을 이해 하려면 `port` 다음을 입력 합니다.
+예를 들어 `port` 명령을 사용하는 방법을 이해하려면 다음을 입력합니다.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe port --help
@@ -113,13 +113,13 @@ Options:
 [10.100.10.10]: PS>
 ```
 
-함수에 사용할 수 있는 명령은 `dkrdbe` 일반 docker 명령에 사용 된 것과 동일한 매개 변수를 사용 합니다. Docker 명령에 사용 되는 옵션 및 매개 변수를 보려면 [docker Commandline 사용](https://docs.docker.com/engine/reference/commandline/docker/)으로 이동 합니다.
+`dkrdbe` 함수에 사용할 수 있는 명령은 일반 docker 명령에 사용되는 것과 동일한 매개 변수를 사용합니다. docker 명령과 함께 사용되는 옵션 및 매개 변수를 보려면 [Docker 명령줄 사용](https://docs.docker.com/engine/reference/commandline/docker/)으로 이동합니다.
 
-### <a name="to-check-if-the-module-deployed-successfully"></a>모듈이 성공적으로 배포 되었는지 확인 하려면
+### <a name="to-check-if-the-module-deployed-successfully"></a>모듈이 성공적으로 배포되었는지 확인
 
-계산 모듈은 비즈니스 논리를 구현 하는 컨테이너입니다. 계산 모듈이 성공적으로 배포 되었는지 확인 하려면 명령을 실행 하 `ps` 고 컨테이너 (계산 모듈에 해당)가 실행 중인지 확인 합니다.
+컴퓨팅 모듈은 비즈니스 논리가 구현된 컨테이너입니다. 컴퓨팅 모듈이 성공적으로 배포되었는지 확인하려면 `ps` 명령을 실행하고 컴퓨팅 모듈에 해당하는 컨테이너가 실행 중인지 확인합니다.
 
-일시 중지 된 모든 컨테이너를 포함 하 여 모든 컨테이너의 목록을 가져오려면 `ps -a` 명령을 실행 합니다.
+일시 중지된 컨테이너를 포함하여 모든 컨테이너의 목록을 가져오려면 `ps -a` 명령을 실행합니다.
 
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
@@ -131,9 +131,9 @@ acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/s
 [10.100.10.10]: PS>
 ```
 
-컨테이너 이미지를 만드는 동안 또는 이미지를 끌어오는 동안 오류가 발생 한 경우를 실행 `logs edgeAgent` 합니다.  `EdgeAgent` 는 다른 컨테이너의 프로 비전을 담당 하는 IoT Edge 런타임 컨테이너입니다.
+컨테이너 이미지를 만들 때 또는 이미지를 끌어오는 동안 오류가 발생한 경우 `logs edgeAgent`를 실행합니다.  `EdgeAgent`는 다른 컨테이너를 프로비전하는 IoT Edge 런타임 컨테이너입니다.
 
-는 `logs edgeAgent` 모든 로그를 덤프 하므로 최근 오류를 확인 하는 좋은 방법은 옵션을 사용 하는 것입니다 `--tail 20` .
+`logs edgeAgent`는 모든 로그를 덤프하므로 최근 오류를 확인할 수 있는 좋은 방법은 `--tail 20` 옵션을 사용하는 것입니다.
 
 
 ```powershell
@@ -152,12 +152,12 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 2019-02-28 23:38:28.480 +00:00 [DBG] [Microsoft.Azure.Devices.Edge.Agent.Core.Planners.HealthRestartPlanner] - HealthRestartPlanner created Plan, with 0 command(s).
 ```
 
-### <a name="to-get-container-logs"></a>컨테이너 로그를 가져오려면
+### <a name="to-get-container-logs"></a>컨테이너 로그 가져오기
 
-특정 컨테이너에 대 한 로그를 가져오려면 먼저 컨테이너를 나열 한 다음 관심 있는 컨테이너에 대 한 로그를 가져옵니다.
+특정 컨테이너에 대한 로그를 가져오려면 먼저 컨테이너를 나열한 다음, 관심 있는 컨테이너에 대한 로그를 가져옵니다.
 
-1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 실행 중인 컨테이너 목록을 가져오려면 `ps` 명령을 실행 합니다.
+1. [PowerShell 인터페이스에 연결하세요](#connect-to-the-powershell-interface).
+2. 실행 중인 컨테이너 목록을 가져오려면 `ps` 명령을 실행합니다.
 
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
@@ -170,7 +170,7 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
 
 3. 로그가 필요한 컨테이너의 컨테이너 ID를 적어 둡니다.
 
-4. 특정 컨테이너에 대 한 로그를 가져오려면 `logs` 컨테이너 ID를 제공 하는 명령을 실행 합니다.
+4. 특정 컨테이너에 대한 로그를 가져오려면 컨테이너 ID를 제공하는 `logs` 명령을 실행합니다.
 
     ```powershell
     [10.100.10.10]: PS>dkrdbe logs d99e2f91d9a8
@@ -185,18 +185,18 @@ reateOptions":"{\"HostConfig\":{\"Binds\":[\"/home/hcsshares/share4-dl460:/home/
     02/26/2019 18:23:38: Info: Processed event.
     ```
 
-### <a name="to-monitor-the-usage-statistics-of-the-device"></a>장치의 사용 통계를 모니터링 하려면
+### <a name="to-monitor-the-usage-statistics-of-the-device"></a>디바이스의 사용량 통계 모니터링
 
-장치에서 메모리, CPU 사용량 및 IO를 모니터링 하려면 `stats` 명령을 사용 합니다.
+디바이스의 메모리, CPU 사용량 및 I/O를 모니터링하려면 `stats` 명령을 사용합니다.
 
-1. [PowerShell 인터페이스에 연결](#connect-to-the-powershell-interface)합니다.
-2. 명령을 실행 `stats` 하 여 라이브 스트림을 사용 하지 않도록 설정 하 고 첫 번째 결과만 끌어옵니다.
+1. [PowerShell 인터페이스에 연결하세요](#connect-to-the-powershell-interface).
+2. `stats` 명령을 실행하여 라이브 스트림을 사용하지 않도록 설정하고 첫 번째 결과만 끌어옵니다.
 
    ```powershell
    dkrdbe stats --no-stream
    ```
 
-   다음 예에서는이 cmdlet을 사용 하는 방법을 보여 줍니다.
+   다음 예제에서는 이 cmdlet의 사용법을 보여 줍니다.
 
     ```
     [10.100.10.10]: P> dkrdbe stats --no-stream

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: f0397921b4ab29a16ee5259ce19502cad092eb83
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7cb3eb259cc21a5a10b426e4da53513d1f42fb56
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713034"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488702"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 
@@ -46,6 +46,9 @@ ms.locfileid: "101713034"
 * [.NET CLI를 사용하여 Newtonsoft.Json을 추가합니다](https://www.nuget.org/packages/Newtonsoft.Json/).
 * 프로젝트 디렉터리에서 프로그램을 실행합니다(``dotnet run``).
 
+> [!div class="nextstepaction"]
+> [프로젝트를 만들었습니다.](#headers) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # <a name="go"></a>[Go](#tab/go)
 
 * 원하는 코드 편집기에서 Go 프로젝트를 새로 만듭니다.
@@ -55,6 +58,9 @@ ms.locfileid: "101713034"
 * Go가 설치된 컴퓨터에서 명령 프롬프트를 엽니다.
 * 파일을 빌드합니다(예: 'go build example-code.go').
 * 파일을 실행합니다(예: 'example-code').
+
+> [!div class="nextstepaction"]
+> [프로젝트를 만들었습니다.](#headers) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -80,6 +86,9 @@ ms.locfileid: "101713034"
 * Java 파일을 만들고, 제공된 샘플의 코드를 복사합니다. 구독 키를 추가하는 것을 잊지 마세요.
 * 샘플을 실행합니다(`gradle run`).
 
+> [!div class="nextstepaction"]
+> [프로젝트를 만들었습니다.](#headers) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 * 즐겨찾는 IDE 또는 편집기에서 새 프로젝트를 만듭니다.
@@ -87,12 +96,18 @@ ms.locfileid: "101713034"
 * 구독 키를 설정합니다.
 * 프로그램을 실행합니다. 예: `node Translate.js`
 
+> [!div class="nextstepaction"]
+> [프로젝트를 만들었습니다.](#headers) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # <a name="python"></a>[Python](#tab/python)
 
 * 즐겨찾는 IDE 또는 편집기에서 새 프로젝트를 만듭니다.
 * 샘플 중 하나의 코드를 프로젝트에 복사합니다.
 * 구독 키를 설정합니다.
 * 프로그램을 실행합니다. 예: `python translate.py`
+
+> [!div class="nextstepaction"]
+> [프로젝트를 만들었습니다.](#headers) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 ---
 
@@ -175,6 +190,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [텍스트를 번역했습니다.](#detect-language) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -240,6 +258,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [텍스트를 번역했습니다.](#detect-language) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -304,6 +325,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [텍스트를 번역했습니다.](#detect-language) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```Javascript
@@ -340,6 +364,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [텍스트를 번역했습니다.](#detect-language) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -380,6 +408,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [텍스트를 번역했습니다.](#detect-language) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 ---
 
@@ -456,6 +487,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 소스 언어를 감지했습니다.](#detect-source-language-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # <a name="go"></a>[Go](#tab/go)
 
@@ -521,6 +555,10 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 소스 언어를 감지했습니다.](#detect-source-language-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -583,6 +621,10 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 소스 언어를 감지했습니다.](#detect-source-language-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -619,6 +661,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [번역 중에 소스 언어를 감지했습니다.](#detect-source-language-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -658,6 +704,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [번역 중에 소스 언어를 감지했습니다.](#detect-source-language-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 ---
 
@@ -734,6 +784,10 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 소스 언어를 감지했습니다.](#transliterate-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -797,6 +851,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 소스 언어를 감지했습니다.](#transliterate-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -857,6 +914,9 @@ public class Detect {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 소스 언어를 감지했습니다.](#transliterate-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -891,6 +951,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [번역 없이 소스 언어를 감지했습니다.](#transliterate-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -929,6 +992,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [번역 없이 소스 언어를 감지했습니다.](#transliterate-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 ---
 
 `/detect` 엔드포인트를 사용하는 경우 응답에서 대체 감지를 포함하며 감지된 모든 언어에 대해 번역 및 음역이 지원되는지 여부를 알려줍니다. 성공적으로 호출되면 다음과 같은 응답이 표시됩니다. 
@@ -1017,6 +1084,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 텍스트를 음역했습니다.](#transliterate-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1081,6 +1151,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 텍스트를 음역했습니다.](#transliterate-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1143,6 +1216,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 텍스트를 음역했습니다.](#transliterate-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -1179,6 +1255,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [번역 중에 텍스트를 음역했습니다.](#transliterate-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```Python
@@ -1218,6 +1297,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [번역 중에 텍스트를 음역했습니다.](#transliterate-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 ---
 
@@ -1298,6 +1380,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 텍스트를 음역했습니다.](#get-sentence-length) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1363,6 +1448,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 텍스트를 음역했습니다.](#get-sentence-length) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1426,6 +1514,9 @@ public class Transliterate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 텍스트를 음역했습니다.](#get-sentence-length) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -1463,6 +1554,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [번역 없이 텍스트를 음역했습니다.](#get-sentence-length) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -1504,6 +1598,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [번역 없이 텍스트를 음역했습니다.](#get-sentence-length) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 ---
 
@@ -1573,6 +1670,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 문장 길이를 가져왔습니다.](#get-sentence-length-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1637,6 +1737,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 문장 길이를 가져왔습니다.](#get-sentence-length-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1699,6 +1802,9 @@ public class Translate {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 중에 문장 길이를 가져왔습니다.](#get-sentence-length-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -1735,6 +1841,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [번역 중에 문장 길이를 가져왔습니다.](#get-sentence-length-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -1774,6 +1883,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [번역 중에 문장 길이를 가져왔습니다.](#get-sentence-length-without-translation) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 ---
 
@@ -1859,6 +1971,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 문장 길이를 가져왔습니다.](#dictionary-lookup-alternate-translations) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -1921,6 +2036,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 문장 길이를 가져왔습니다.](#dictionary-lookup-alternate-translations) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -1981,6 +2099,9 @@ public class BreakSentence {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [번역 없이 문장 길이를 가져왔습니다.](#dictionary-lookup-alternate-translations) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -2015,6 +2136,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [번역 없이 문장 길이를 가져왔습니다.](#dictionary-lookup-alternate-translations) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -2053,6 +2177,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [번역 없이 문장 길이를 가져왔습니다.](#dictionary-lookup-alternate-translations) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 ---
 
@@ -2124,6 +2251,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [대체 번역을 가져왔습니다.](#dictionary-examples-translations-in-context) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -2188,6 +2318,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [대체 번역을 가져왔습니다.](#dictionary-examples-translations-in-context) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -2250,6 +2383,9 @@ public class DictionaryLookup {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [대체 번역을 가져왔습니다.](#dictionary-examples-translations-in-context) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -2286,6 +2422,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [대체 번역을 가져왔습니다.](#dictionary-examples-translations-in-context) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -2325,6 +2464,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [대체 번역을 가져왔습니다.](#dictionary-examples-translations-in-context) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 ---
 
@@ -2420,6 +2562,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [문맥에 맞는 번역을 가져왔습니다.](#next-steps) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # <a name="go"></a>[Go](#tab/go)
 
 ```go
@@ -2488,6 +2633,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [문맥에 맞는 번역을 가져왔습니다.](#next-steps) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # <a name="java"></a>[Java](#tab/java)
 
 ```java
@@ -2550,6 +2698,9 @@ public class DictionaryExamples {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [문맥에 맞는 번역을 가져왔습니다.](#troubleshooting) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 ```javascript
@@ -2587,6 +2738,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [문맥에 맞는 번역을 가져왔습니다.](#next-steps) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # <a name="python"></a>[Python](#tab/python)
 ```python
@@ -2628,6 +2782,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [문맥에 맞는 번역을 가져왔습니다.](#next-steps) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 ---
 

@@ -1,23 +1,23 @@
 ---
 title: App Service 계획 관리
-description: 만들기, 이동, 크기 조정 및 삭제와 같은 App Service 계획을 관리 하는 다양 한 작업을 수행 하는 방법을 알아봅니다.
+description: 만들기, 이동, 크기 조정 및 삭제와 같은 다양한 작업을 수행하여 App Service 계획을 관리하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 규모, App Service 계획, 변경, 만들기, 관리, 운영
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
 ms.openlocfilehash: 58ddf60a842a9583eae25a875f55227cee772a8a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100582530"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
 [Azure App Service 계획](overview-hosting-plans.md)은 App Service 앱이 실행해야 하는 리소스를 제공합니다. 이 가이드에서는 App Service 계획의 관리 방법을 보여 줍니다.
 
-## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
+## <a name="create-an-app-service-plan"></a>App Service 요금제 만들기
 
 > [!TIP]
 > App Service 환경이 있는 경우 [App Service 환경에서 App Service 계획 만들기](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)를 참조하세요.
@@ -28,17 +28,17 @@ ms.locfileid: "100582530"
 
    ![Azure Portal에서 리소스를 만듭니다.][createResource] 
 
-1. **새**  >  **웹 앱** 또는 다른 종류의 app service 앱을 선택 합니다.
+1. **새로 만들기** > **웹앱** 또는 다른 종류의 App Service 앱을 선택합니다.
 
    ![Azure Portal에서 앱을 만듭니다.][createWebApp] 
 
-2. App Service 계획을 구성 하기 전에 **인스턴스 세부 정보** 섹션을 구성 하십시오. **게시** 및 **운영** 체제와 같은 설정은 App Service 요금제에 대 한 사용 가능한 가격 책정 계층을 변경할 수 있습니다. **지역은** App Service 요금제가 생성 되는 위치를 결정 합니다. 
+2. App Service 계획을 구성하기 전에 **인스턴스 세부 정보** 섹션을 구성합니다. **게시** 및 **운영 체제** 와 같은 설정은 App Service 계획에 대해 사용 가능한 가격 책정 계층을 변경할 수 있습니다. **지역** 은 App Service 계획이 생성되는 위치를 결정합니다. 
    
-3. **App Service 계획** 섹션에서 기존 계획을 선택 하거나 **새로 만들기** 를 선택 하 여 계획을 만듭니다.
+3. **App Service 계획** 섹션에서 기존 계획을 선택하거나 **새로 만들기** 를 선택하여 계획을 만듭니다.
 
    ![App Service 계획을 만듭니다.][createASP] 
 
-4. 계획을 만들 때 새 계획의 가격 책정 계층을 선택할 수 있습니다. **Sku 및 크기** 에서 **크기 변경** 을 선택 하 여 가격 책정 계층을 변경 합니다. 
+4. 계획을 만들 때 새 계획의 가격 책정 계층을 선택할 수 있습니다. **Sku 및 크기** 에서 **크기 변경** 을 선택하여 가격 책정 계층을 변경합니다. 
 
 <a name="move"></a>
 
@@ -52,16 +52,16 @@ ms.locfileid: "100582530"
 > 계획을 만들 때 원하는 웹 공간을 지정할 수 없지만 계획이 기존 계획과 동일한 웹 공간에 만들어졌는지 확인할 수 있습니다. 간단히, 동일한 리소스 그룹 및 지역 조합으로 만들어진 모든 계획은 동일한 웹 공간에 배포됩니다. 예를 들어, 리소스 그룹 A 및 지역 B에 계획을 만든 경우 이후에 리소스 그룹 A 및 지역 B에서 만드는 모든 계획은 동일한 웹 공간에 배포됩니다. 계획이 만들어진 후에는 계획을 이동할 수 없으므로, 계획을 또 다른 리소스 그룹으로 이동해도 이 계획을 또 다른 계획으로 “동일한 웹 공간”에 이동할 수는 없습니다.
 > 
 
-1. [Azure Portal](https://portal.azure.com)에서 **app services** 를 검색 하 고 선택 하 여 이동 하려는 앱을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **App Services** 를 검색 및 선택하여 이동할 앱을 선택합니다.
 
-2. 왼쪽 메뉴에서 **App Service 계획 변경** 을 선택 합니다.
+2. 왼쪽 메뉴에서 **App Service 계획 변경** 을 선택합니다.
 
-3. **App Service 계획** 드롭다운에서 앱을 이동할 기존 계획을 선택 합니다. 드롭다운에는 현재 App Service 계획과 동일한 리소스 그룹 및 지역에 있는 계획만 표시 됩니다. 이러한 계획이 없는 경우 기본적으로 계획을 만들 수 있습니다. **새로 만들기** 를 선택 하 여 새 계획을 수동으로 만들 수도 있습니다.
+3. **App Service 계획** 드롭다운에서 앱을 이동할 기존 계획을 선택합니다. 드롭다운에는 현재 App Service 계획과 동일한 리소스 그룹 및 지역에 있는 계획만 표시됩니다. 이러한 계획이 없는 경우 기본적으로 계획을 만들 수 있습니다. **새로 만들기** 를 선택하여 새 계획을 수동으로 만들 수도 있습니다.
 
-4. 계획을 만드는 경우 새 계획의 가격 책정 계층을 선택할 수 있습니다. **가격 책정 계층** 에서 기존 계층을 선택 하 여 변경 합니다. 
+4. 계획을 만드는 경우 새 계획의 가격 책정 계층을 선택할 수 있습니다. **가격 책정 계층** 에서 기존 계층을 선택하여 변경합니다. 
    
    > [!IMPORTANT]
-   > 더 높은 계층의 계획에서 하위 계층의 계획으로 앱을 이동 하는 경우 (예: **D1** 에서 **F1** 로) 앱은 대상 계획의 특정 기능을 잃을 수 있습니다. 예를 들어 앱에서 TLS/SSL 인증서를 사용 하는 경우 다음 오류 메시지가 표시 될 수 있습니다.
+   > 상위 계층 계획에서 하위 계층 계획으로 앱을 이동하는 경우(예: **D1** 에서 **F1** 로) 앱은 대상 계획의 특정 기능을 잃을 수 있습니다. 예를 들어, 앱에서 TLS/SSL 인증서를 사용하는 경우 다음 오류 메시지가 표시될 수 있습니다.
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 

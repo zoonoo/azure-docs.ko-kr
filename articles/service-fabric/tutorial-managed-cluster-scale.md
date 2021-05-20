@@ -1,16 +1,16 @@
 ---
-title: Service Fabric 관리형 클러스터 확장 방법(미리 보기)
+title: Service Fabric 관리형 클러스터 확장 방법
 description: 이 자습서에서는 Service Fabric 관리형 클러스터의 노드 유형을 확장하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 09/28/2020
-ms.openlocfilehash: 769bcb339b2cc1419c7a3d92d0f08130029a9f95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 5/10/2021
+ms.openlocfilehash: ebce8b0506866e52d79395a3abfcda280c460532
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821412"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685768"
 ---
-# <a name="tutorial-scale-out-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터 확장 방법(미리 보기)
+# <a name="tutorial-scale-out-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터 스케일 아웃
 
 이 자습서 시리즈에서는 다음을 설명합니다.
 

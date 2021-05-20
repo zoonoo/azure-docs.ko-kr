@@ -4,37 +4,37 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: alkohli
-ms.openlocfilehash: e459ea1e9d8d7d51a62ba3ed1d2de8815a1b4222
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
-ms.translationtype: MT
+ms.openlocfilehash: f166413507afb9aff814eaddaade099d2e34ae68
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105104863"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106554392"
 ---
-Azure Stack Edge 장치에서 Vm을 배포 하려면 먼저 Azure PowerShell를 통해 Azure Resource Manager를 통해 장치에 연결 하도록 클라이언트를 구성 해야 합니다. 자세한 지침은 [Azure Stack Edge 장치에서 Azure Resource Manager에 연결을](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md)참조 하세요.
+Azure Stack Edge 디바이스에서 VM을 배포하려면 먼저 Azure PowerShell에 대한 Azure Resource Manager를 통해 디바이스에 연결하도록 클라이언트를 구성해야 합니다. 자세한 지침은 [Azure Stack Edge 디바이스에서 Azure Resource Manager에 연결](../articles/databox-online/azure-stack-edge-gpu-connect-resource-manager.md)을 참조하세요.
 
-클라이언트에서 장치에 액세스 하려면 다음 단계를 사용할 수 있는지 확인 합니다. Azure Resource Manager에 연결 했을 때이 구성을 이미 완료 했 고 이제 구성이 완료 되었는지 확인 하는 중입니다. 
+다음 단계를 사용하여 클라이언트에서 디바이스에 액세스할 수 있는지 확인합니다. Azure Resource Manager에 연결할 때 이 구성을 이미 수행했으며, 이제 구성이 성공했는지 확인하는 중입니다. 
 
-1. 다음 명령을 실행 하 여 Azure Resource Manager 통신이 작동 하는지 확인 합니다.     
+1. 다음 명령을 실행하여 Azure Resource Manager 통신이 작동하는지 확인합니다.     
 
     ```powershell
     Add-AzureRmEnvironment -Name <Environment Name> -ARMEndpoint "https://management.<appliance name>.<DNSDomain>"
     ```
 
-1. 인증을 위해 로컬 장치 Api를 호출 하려면 다음을 입력 합니다. 
+1. 인증할 로컬 디바이스 API를 호출하려면 다음을 입력합니다. 
 
-    `login-AzureRMAccount -EnvironmentName <Environment Name>`
+    `login-AzureRMAccount -EnvironmentName <Environment Name> -TenantId c0257de7-538f-415c-993a-1b87a031879d`
 
-    Azure Resource Manager를 통해 연결 하려면 사용자 이름 및 암호를 제공 *EdgeARMuser* .
+    Azure Resource Manager를 통해 연결하려면 사용자 이름 *EdgeArmUser* 와 암호를 제공합니다.
 
-1. Kubernetes에 대 한 계산을 구성한 경우이 단계를 건너뛸 수 있습니다. 그렇지 않으면 다음을 수행 하 여 계산에 대 한 네트워크 인터페이스를 사용 하도록 설정 했는지 확인 합니다. 
+1. Kubernetes용 컴퓨팅을 구성한 경우 이 단계를 건너뛸 수 있습니다. 그렇지 않으면 다음을 수행하여 컴퓨팅용 네트워크 인터페이스를 사용하도록 설정했는지 확인합니다. 
 
-   a. 로컬 사용자 인터페이스에서 **계산** 설정으로 이동 합니다.  
-   b. 가상 스위치를 만드는 데 사용 하려는 네트워크 인터페이스를 선택 합니다. 만든 Vm은이 포트 및 연결 된 네트워크에 연결 된 가상 스위치에 연결 됩니다. VM에 사용할 IP 주소와 일치 하는 네트워크를 선택 해야 합니다.  
+   a. 로컬 사용자 인터페이스에서 **컴퓨팅** 설정으로 이동합니다.  
+   b. 가상 스위치를 만드는 데 사용할 네트워크 인터페이스를 선택합니다. 사용자가 만든 VM은 이 포트 및 관련 네트워크에 연결된 가상 스위치에 연결됩니다. VM에 사용할 IP 주소와 일치하는 네트워크를 선택해야 합니다.  
 
-    ![계산 구성 네트워크 설정 창의 스크린샷](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
+    ![컴퓨팅 구성 네트워크 설정 창의 스크린샷.](../articles/databox-online/media/azure-stack-edge-gpu-deploy-virtual-machine-templates/enable-compute-setting.png)
 
-   다. 네트워크 인터페이스에서 **계산 사용** 에서 **예** 를 선택 합니다. Azure Stack Edge는 해당 네트워크 인터페이스에 해당 하는 가상 스위치를 만들고 관리 합니다. 현재 Kubernetes에 대 한 특정 Ip를 입력 하지 마세요. 계산을 사용 하도록 설정 하는 데 몇 분 정도 걸릴 수 있습니다.
+   c. 네트워크 인터페이스의 **컴퓨팅 사용** 에서 **예** 를 선택합니다. Azure Stack Edge는 해당 네트워크 인터페이스에 해당하는 가상 스위치를 만들고 관리합니다. 지금은 Kubernetes에 대한 특정 IP를 입력하지 마세요. 컴퓨팅을 활성화하는 데 몇 분 정도 걸릴 수 있습니다.
 
     > [!NOTE]
-    > GPU Vm을 만드는 경우 인터넷에 연결 된 네트워크 인터페이스를 선택 합니다. 이렇게 하면 장치에 GPU 확장을 설치할 수 있습니다.
+    > GPU VM을 만드는 경우 인터넷에 연결된 네트워크 인터페이스를 선택합니다. 이렇게 하면 디바이스에 GPU 확장을 설치할 수 있습니다.

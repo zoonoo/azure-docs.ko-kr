@@ -1,6 +1,6 @@
 ---
-title: Azure 이미지 작성기 서비스 문제 해결
-description: Azure VM 이미지 작성기 서비스를 사용할 때 발생 하는 일반적인 문제 해결
+title: Azure Image Builder Service 문제 해결
+description: Azure VM Image Builder Service를 사용할 때 발생하는 일반적인 문제와 오류를 해결합니다.
 author: cynthn
 ms.author: danis
 ms.date: 10/02/2020
@@ -9,23 +9,23 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.openlocfilehash: f76c3e6c739ae4dd13355d350a01b878e4d4f360
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101666211"
 ---
-# <a name="troubleshoot-azure-image-builder-service"></a>Azure 이미지 작성기 서비스 문제 해결
+# <a name="troubleshoot-azure-image-builder-service"></a>Azure Image Builder Service 문제 해결
 
-이 문서는 Azure 이미지 작성기 서비스를 사용 하는 경우 발생할 수 있는 일반적인 문제를 해결 하는 데 도움이 됩니다.
+이 문서는 Azure Image Builder Service를 사용할 때 발생할 수 있는 일반적인 문제를 확인하고 해결하는 데 도움이 됩니다.
 
-AIB 오류는 다음과 같은 두 영역에서 발생할 수 있습니다.
+AIB 오류는 다음 두 영역에서 발생할 수 있습니다.
 - 이미지 템플릿 전송
 - 이미지 빌드
 
 ## <a name="troubleshoot-image-template-submission-errors"></a>이미지 템플릿 전송 오류 문제 해결
 
-전송 시에만 이미지 템플릿 전송 오류가 반환 됩니다. 이미지 템플릿 전송 오류에 대 한 오류 로그가 없습니다. 제출 하는 동안 오류가 발생 한 경우 템플릿 상태를 확인 하 고 특히 및를 검토 하 여 오류를 반환할 수 `ProvisioningState` 있습니다 `ProvisioningErrorMessage` / `provisioningError` .
+이미지 템플릿 전송 오류는 전송 시에만 반환됩니다. 이미지 템플릿 전송 오류에 대한 오류 로그가 없습니다. 전송 중에 오류가 발생한 경우 템플릿 상태를 확인하여, 특히 `ProvisioningState` 및 `ProvisioningErrorMessage`/`provisioningError`를 검토하여 오류를 반환할 수 있습니다.
 
 ```azurecli
 az image builder show --name $imageTemplateName  --resource-group $imageResourceGroup
@@ -35,11 +35,11 @@ az image builder show --name $imageTemplateName  --resource-group $imageResource
 Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGroupName <imageTemplateResourceGroup> | Select-Object ProvisioningState, ProvisioningErrorMessage
 ```
 > [!NOTE]
-> PowerShell의 경우 [Azure 이미지 작성기 PowerShell 모듈](../windows/image-builder-powershell.md#prerequisites)을 설치 해야 합니다.
+> PowerShell의 경우 [Azure Image Builder PowerShell 모듈](../windows/image-builder-powershell.md#prerequisites)을 설치해야 합니다.
 
-다음 섹션에는 일반적인 이미지 템플릿 전송 오류에 대 한 문제 해결 지침이 포함 되어 있습니다.
+다음 섹션에는 일반적인 이미지 템플릿 전송 오류에 대한 문제 해결 지침을 포함되어 있습니다.
 
-### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>이미지 템플릿의 업데이트/업그레이드는 현재 지원 되지 않습니다.
+### <a name="updateupgrade-of-image-templates-is-currently-not-supported"></a>이미지 템플릿 업데이트/업그레이드가 현재 지원되지 않음
 
 #### <a name="error"></a>오류
 
@@ -51,11 +51,11 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 템플릿이 이미 있습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-이미지 구성 템플릿을 제출 하 고 전송에 실패 하면 실패 한 템플릿 아티팩트가 여전히 존재 합니다. 실패 한 템플릿을 삭제 합니다.
+이미지 구성 템플릿을 전송했지만 전송이 실패하면 실패한 템플릿 아티팩트가 여전히 있습니다. 실패한 템플릿을 삭제합니다.
 
-### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>리소스 작업이 ' 실패 ' 터미널 프로 비전 상태로 완료 되었습니다.
+### <a name="the-resource-operation-completed-with-terminal-provisioning-state-failed"></a>리소스 작업이 '실패' 터미널 프로비저닝 상태로 완료되었음
 
 #### <a name="error"></a>오류
 
@@ -72,18 +72,18 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 ```
 #### <a name="cause"></a>원인
 
-대부분의 경우 권한 누락으로 인해 리소스 배포 실패 오류가 발생 합니다.
+대부분의 경우 권한 누락으로 인해 리소스 배포 실패 오류가 발생합니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-시나리오에 따라 Azure 이미지 작성기에는 다음에 대 한 권한이 필요할 수 있습니다.
-- 원본 이미지 또는 공유 이미지 갤러리 리소스 그룹
-- 배포 이미지 또는 공유 이미지 갤러리 리소스
-- 파일 사용자 지정자가 액세스 하는 저장소 계정, 컨테이너 또는 blob입니다. 
+시나리오에 따라 Azure Image Builder에 다음 권한이 필요할 수 있습니다.
+- 원본 이미지 또는 Shared Image Gallery 리소스 그룹
+- 배포 이미지 또는 Shared Image Gallery 리소스
+- 파일 사용자 지정자에서 액세스하는 스토리지 계정, 컨테이너 또는 Blob 
 
-권한 구성에 대 한 자세한 내용은 PowerShell을 사용 하 [여 Azure 이미지 작성기 서비스 권한 구성 Azure CLI](image-builder-permissions-cli.md) 또는 [Azure 이미지 작성기 서비스 권한 구성](image-builder-permissions-powershell.md) 을 참조 하세요.
+권한을 구성하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-powershell.md)을 참조하세요.
 
-### <a name="error-getting-managed-image"></a>관리 되는 이미지를 가져오는 동안 오류 발생
+### <a name="error-getting-managed-image"></a>관리되는 이미지를 가져오는 동안 오류 발생
 
 #### <a name="error"></a>오류
 
@@ -96,16 +96,16 @@ Status=403 Code="AuthorizationFailed" Message="The client '......' with object i
 
 권한이 없습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-시나리오에 따라 Azure 이미지 작성기에는 다음에 대 한 권한이 필요할 수 있습니다.
-* 원본 이미지 또는 공유 이미지 갤러리 리소스 그룹
-* 배포 이미지 또는 공유 이미지 갤러리 리소스
-* 파일 사용자 지정자가 액세스 하는 저장소 계정, 컨테이너 또는 blob입니다. 
+시나리오에 따라 Azure Image Builder에 다음 권한이 필요할 수 있습니다.
+* 원본 이미지 또는 Shared Image Gallery 리소스 그룹
+* 배포 이미지 또는 Shared Image Gallery 리소스
+* 파일 사용자 지정자에서 액세스하는 스토리지 계정, 컨테이너 또는 Blob 
 
-권한 구성에 대 한 자세한 내용은 PowerShell을 사용 하 [여 Azure 이미지 작성기 서비스 권한 구성 Azure CLI](image-builder-permissions-cli.md) 또는 [Azure 이미지 작성기 서비스 권한 구성](image-builder-permissions-powershell.md) 을 참조 하세요.
+권한을 구성하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-powershell.md)을 참조하세요.
 
-### <a name="build--step-failed-for-image-version"></a>이미지 버전에 대 한 빌드 단계가 실패 했습니다.
+### <a name="build--step-failed-for-image-version"></a>이미지 버전에 대한 빌드 단계가 실패함
 
 #### <a name="error"></a>오류
 ```text
@@ -114,13 +114,13 @@ Status=404 Code="ResourceNotFound" Message="The Resource 'Microsoft.Compute/gall
 ```
 #### <a name="cause"></a>원인
 
-Azure 이미지 작성기에서 원본 이미지를 찾을 수 없습니다.
+Azure Image Builder에서 원본 이미지를 찾을 수 없습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-원본 이미지가 올바르고 Azure 이미지 작성기 서비스의 위치에 있는지 확인 하세요.
+원본 이미지가 올바르고 Azure Image Builder Service의 위치에 있는지 확인합니다.
 
-### <a name="downloading-external-file-to-local-file"></a>로컬 파일에 외부 파일을 다운로드 하는 중
+### <a name="downloading-external-file-to-local-file"></a>외부 파일을 로컬 파일에 다운로드하는 중
 
 #### <a name="error"></a>오류
 
@@ -130,15 +130,15 @@ Downloading external file (<myFile>) to local file (xxxxx.0.customizer.fp) [atte
 
 #### <a name="cause"></a>원인
 
-파일 이름 또는 위치가 잘못 되었거나 위치에 연결할 수 없습니다.
+파일 이름 또는 위치가 잘못되었거나 위치에 연결할 수 없습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-파일에 연결할 수 있는지 확인 합니다. 이름 및 위치가 올바른지 확인 합니다.
+파일에 연결할 수 있는지 확인합니다. 이름 및 위치가 올바른지 확인합니다.
 
-## <a name="troubleshoot-build-failures"></a>빌드 오류 문제 해결
+## <a name="troubleshoot-build-failures"></a>빌드 실패 문제 해결
 
-이미지 빌드에 실패 하는 경우에서 오류를 가져온 `lastrunstatus` 다음 사용자 지정 .log에서 세부 정보를 검토할 수 있습니다.
+이미지 빌드가 실패하는 경우 `lastrunstatus`에서 오류를 가져온 다음, customization.log에서 세부 정보를 검토할 수 있습니다.
 
 
 ```azurecli
@@ -151,22 +151,22 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 ### <a name="customization-log"></a>사용자 지정 로그
 
-이미지 빌드를 실행 하면 로그가 만들어지고 저장소 계정에 저장 됩니다. Azure 이미지 작성기는 이미지 템플릿 아티팩트를 만들 때 임시 리소스 그룹에 저장소 계정을 만듭니다.
+이미지 빌드를 실행하면 로그가 만들어지고 스토리지 계정에 저장됩니다. Azure Image Builder는 이미지 템플릿 아티팩트를 만들 때 스토리지 계정을 임시 리소스 그룹에 만듭니다.
 
-저장소 계정 이름은 다음 패턴을 사용 합니다. **IT_ \<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>**
+스토리지 계정 이름은 **IT_\<ImageResourceGroupName\> _\<TemplateName\>_ \<GUID\>** 패턴을 사용합니다.
 
-예를 들어 *IT_aibmdi_helloImageTemplateLinux01* 합니다.
+예를 들어 *IT_aibmdi_helloImageTemplateLinux01* 입니다.
 
-**저장소** 계정  >  **blob** 을 선택 하 여 리소스 그룹의 저장소 계정에서 사용자 지정 .log를 볼 수  >  있습니다. `packerlogs`  그런 다음 **디렉터리 > 사용자 지정 .log** 를 선택 합니다.
+**스토리지 계정** > **Blob** > `packerlogs`울 차례로 선택하여 리소스 그룹의 스토리지 계정에서 customization.log를 볼 수 있습니다.  그런 다음 **디렉터리 > customization.log** 를 차례로 선택합니다.
 
 
 ### <a name="understanding-the-customization-log"></a>사용자 지정 로그 이해
 
-로그는 자세한 정보를 표시 합니다. 공유 이미지 갤러리 복제와 같은 이미지 배포 문제를 포함 하 여 이미지 빌드에 대해 설명 합니다. 이러한 오류는 이미지 템플릿 상태의 오류 메시지에 표시 됩니다.
+로그는 자세한 정보입니다. Shared Image Gallery 복제와 같은 이미지 배포 관련 문제를 포함하여 이미지 빌드에 대해 설명합니다. 이러한 오류는 이미지 템플릿 상태의 오류 메시지에 표시됩니다.
 
-사용자 지정 .log에는 다음 단계가 포함 됩니다.
+customization.log에 포함되는 단계는 다음과 같습니다.
 
-1. ARM 템플릿을 사용 하 여 빌드 VM 및 종속성을 IT_ 준비 리소스 그룹 단계에 배포 합니다. 이 단계에는 Azure 이미지 작성기 리소스 공급자에 대 한 여러 게시물이 포함 되어 있습니다.
+1. ARM 템플릿을 사용하여 빌드 VM 및 종속성을 IT_ staging 리소스 그룹 단계에 배포합니다. 이 단계에는 Azure Image Builder 리소스 공급자에 대한 여러 POST가 포함됩니다.
     ```text
     Azure request method="POST" request="https://management.azure.com/subscriptions/<subID>/resourceGroups/IT_aibImageRG200_window2019VnetTemplate01_dec33089-1cc3-cccc-cccc-ccccccc/providers/Microsoft.Storage/storageAccounts
     ..
@@ -174,28 +174,28 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
     ..
     ```
 
-2. 배포 단계의 상태입니다. 이 단계에는 각 리소스 배포의 상태가 포함 됩니다.
+2. 배포 단계의 상태입니다. 이 단계에는 각 리소스 배포의 상태가 포함됩니다.
     ```text
     PACKER ERR 2020/04/30 23:28:50 packer: 2020/04/30 23:28:50 Azure request method="GET" request="https://management.azure.com/subscriptions/<subID>/resourcegroups/IT_aibImageRG200_window2019VnetTemplate01_dec33089-1cc3-4505-ae28-6661e43fac48/providers/Microsoft.Resources/deployments/pkrdp51lc0339jg/operationStatuses/08586133176207523519?[REDACTED]" body=""
     ```
 
-3. 빌드 VM 단계에 연결 합니다.
+3. VM 빌드 단계에 연결합니다.
 
-    Windows 인 경우 Azure 이미지 작성기 서비스는 WinRM을 사용 하 여 연결 합니다.
+    Windows의 경우 Azure Image Builder Service는 WinRM을 사용하여 연결합니다.
     ```text
     PACKER ERR 2020/04/30 23:30:50 packer: 2020/04/30 23:30:50 Waiting for WinRM, up to timeout: 10m0s
     ..
     PACKER OUT     azure-arm: WinRM connected.
     ```
 
-    Linux 인 경우 Azure 이미지 작성기 서비스는 SSH를 사용 하 여 연결 합니다.
+    Linux의 경우 Azure Image Builder Service는 SSH를 사용하여 연결합니다.
     ```text
     PACKER OUT ==> azure-arm: Waiting for SSH to become available...
     PACKER ERR 2019/12/10 17:20:51 packer: 2020/04/10 17:20:51 [INFO] Waiting for SSH, up to timeout: 20m0s
     PACKER OUT ==> azure-arm: Connected to SSH!
     ```
 
-4. 사용자 지정 단계를 실행 합니다. 사용자 지정을 실행 하면 사용자 지정 .log를 검토 하 여 사용자 지정을 식별할 수 있습니다. *(원격 분석)* 를 검색 합니다.
+4. 사용자 지정 단계를 실행합니다. 사용자 지정이 실행되면 customization.log를 검토하여 해당 사용자 지정을 식별할 수 있습니다. *(telemetry)* 를 검색합니다.
     ```text
     (telemetry) Starting provisioner windows-update
     (telemetry) ending windows-update
@@ -208,26 +208,26 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
     
     (telemetry) Finalizing. - This means the build hasfinished
     ```
-5. 프로 비전 해제 단계입니다. Azure 이미지 작성기는 숨겨진 사용자 지정자를 추가 합니다. 이 프로 비전 해제 단계는 프로 비전 해제를 위해 VM을 준비 하는 일을 담당 합니다. Windows Sysprep (c:\DeprovisioningScript.ps1 사용) 또는 Linux waagent 프로 비전 해제 (/tmp/DeprovisioningScript.sh 사용)를 실행 합니다. 
+5. 프로비저닝 해제 단계입니다. Azure Image Builder는 숨겨진 사용자 지정자를 추가합니다. 이 프로비저닝 해제 단계는 프로비저닝 해제를 위해 VM을 준비하는 작업을 담당합니다. Windows의 경우 Sysprep(c:\DeprovisioningScript.ps1 사용)을 실행하거나 Linux의 경우 waagent deprovision(/tmp/DeprovisioningScript.sh 사용)을 실행합니다. 
 
-    예를 들면 다음과 같습니다.
+    예:
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
     ```
 
-6. 정리 단계입니다. 빌드가 완료 되 면 Azure 이미지 작성기 리소스가 삭제 됩니다.
+6. 정리 단계입니다. 빌드가 완료되면 Azure Image Builder 리소스가 삭제됩니다.
     ```text
     PACKER ERR 2020/02/04 02:04:23 packer: 2020/02/04 02:04:23 Azure request method="DELETE" request="https://management.azure.com/subscriptions/<subId>/resourceGroups/IT_aibDevOpsImg_t_vvvvvvv_yyyyyy-de5f-4f7c-92f2-xxxxxxxx/providers/Microsoft.Network/networkInterfaces/pkrnijamvpo08eo?[REDACTED]" body=""
     ```
 ## <a name="tips-for-troubleshooting-scriptinline-customization"></a>스크립트/인라인 사용자 지정 문제 해결을 위한 팁
-- 이미지 작성기에 제공 하기 전에 코드 테스트
-- Azure Policy의 및 방화벽이 원격 리소스에 대 한 연결을 허용 하는지 확인 합니다.
-- 또는를 사용 하 여 콘솔에 주석을 출력 합니다. `Write-Host` `echo` 이렇게 하면 사용자 지정 .log를 검색할 수 있습니다.
+- Image Builder에 제공하기 전에 코드를 테스트합니다.
+- Azure Policy 및 Firewall에서 원격 리소스에 대한 연결을 허용하는지 확인합니다.
+- 주석을 콘솔에 출력합니다(예: `Write-Host` 또는 `echo` 사용). 그러면 customization.log를 검색할 수 있습니다.
 
 ## <a name="troubleshoot-common-build-errors"></a>일반적인 빌드 오류 문제 해결
 
-### <a name="packer-build-command-failure"></a>팩 er 빌드 명령 실패
+### <a name="packer-build-command-failure"></a>packer 빌드 명령 실패
 
 #### <a name="error"></a>오류
 
@@ -244,11 +244,11 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 
 사용자 지정 오류입니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-로그를 검토 하 여 오류 지정자를 찾습니다. *(원격 분석)* 를 검색 합니다. 
+로그를 검토하여 사용자 지정자 오류를 찾습니다. *(telemetry)* 를 검색합니다. 
 
-예를 들면 다음과 같습니다.
+예:
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update
@@ -262,7 +262,7 @@ Get-AzImageBuilderTemplate -ImageTemplateName  <imageTemplateName> -ResourceGrou
 (telemetry) Finalizing. - This means the build has finished
 ```
 
-### <a name="timeout-exceeded"></a>제한 시간 초과
+### <a name="timeout-exceeded"></a>시간 제한 초과
 
 #### <a name="error"></a>오류
 
@@ -272,21 +272,21 @@ Deployment failed. Correlation ID: xxxxx-xxxx-xxxx-xxxx-xxxxxxxxx. Failed in bui
 
 #### <a name="cause"></a>원인
 
-빌드가 빌드 시간 제한을 초과 했습니다. 이 오류는 ' lastrunstatus '에 표시 됩니다.
+빌드에서 빌드 시간 제한을 초과했습니다. 이 오류는 'lastrunstatus'에 표시됩니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-1. 사용자 지정 .log를 검토 합니다. 실행할 마지막 사용자 지정을 식별 합니다. `(telemetry)`로그 아래쪽부터 검색 합니다. 
+1. customization.log를 검토합니다. 실행할 마지막 사용자 지정자를 식별합니다. 로그 아래쪽부터 `(telemetry)`를 식별합니다. 
 
-2. 스크립트 사용자 지정을 선택 합니다. 사용자 지정은 옵션과 같은 명령에 대 한 사용자 상호 작용을 억제 하지 않을 수 있습니다 `quiet` . 예를 들어를 사용 하면 `apt-get install -y` 사용자 상호 작용을 기다리는 스크립트 실행이 발생 합니다.
+2. 스크립트 사용자 지정을 확인합니다. 사용자 지정은 `quiet` 옵션과 같은 명령에 대한 사용자 상호 작용을 억제하지 않을 수 있습니다. 예를 들어 `apt-get install -y`는 스크립트 실행에서 사용자 상호 작용을 기다리도록 합니다.
 
-3. 사용자 지정자를 사용 하 여 `File` 20mb 보다 큰 아티팩트를 다운로드 하는 경우 해결 방법 섹션을 참조 하세요.
+3. `File` 사용자 지정자를 사용하여 20MB를 초과하는 아티팩트를 다운로드하는 경우 해결 방법 섹션을 참조하세요.
 
-4. 스크립트를 대기 시킬 수 있는 스크립트의 오류 및 종속성을 검토 합니다.
+4. 스크립트 대기가 발생할 수 있는 스크립트의 오류 및 종속성을 검토합니다.
 
-5. 사용자 지정에 시간이 더 필요한 경우 [buildTimeoutInMinutes](image-builder-json.md)를 늘립니다. 기본값은 4 시간입니다.
+5. 사용자 지정에 더 많은 시간이 필요한 경우 [buildTimeoutInMinutes](image-builder-json.md)를 늘립니다. 기본값은 4시간입니다.
 
-6. Gb 파일 다운로드와 같이 리소스를 많이 사용 하는 작업이 있는 경우 기본 빌드 VM 크기를 고려 합니다. 서비스는 Standard_D1_v2 VM을 사용 합니다. VM에는 1 개의 vCPU 및 3.5 GB의 메모리가 있습니다. 50 GB를 다운로드 하는 경우 VM 리소스가 고갈 되 고 Azure 이미지 작성기 서비스와 빌드 VM 간에 통신 오류가 발생할 수 있습니다. [VM_Size](image-builder-json.md#vmprofile)를 설정 하 여 더 큰 메모리 VM으로 빌드를 다시 시도 합니다.
+6. 기가바이트 단위의 파일을 다운로드하는 것과 같이 리소스를 많이 사용하는 작업이 있는 경우 기본 빌드 VM 크기를 고려합니다. 이 서비스는 Standard_D1_v2 VM을 사용합니다. VM에는 1개의 vCPU 및 3.5GB의 메모리가 있습니다. 50GB를 다운로드하는 경우 이로 인해 VM 리소스가 고갈되고 Azure Image Builder Service와 빌드 VM 간에 통신 오류가 발생할 수 있습니다. [VM_Size](image-builder-json.md#vmprofile)를 설정하여 더 큰 메모리 VM을 사용하여 빌드를 다시 시도합니다.
 
 ### <a name="long-file-download-time"></a>긴 파일 다운로드 시간
 
@@ -305,13 +305,13 @@ myBigFile.zip 826000 B / 826000 B  100.00%
 ```
 #### <a name="cause"></a>원인 
 
-파일 사용자 지정자에서 많은 파일을 다운로드 하 고 있습니다.
+파일 사용자 지정자에서 큰 파일을 다운로드하고 있습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-파일 사용자 지정자는 20mb 미만의 작은 파일 다운로드에만 적합 합니다. 더 큰 파일을 다운로드 하려면 스크립트나 인라인 명령을 사용 합니다. 예를 들어 Linux에서는 또는을 사용할 수 있습니다 `wget` `curl` . Windows에서는를 사용할 수 있습니다 `Invoke-WebRequest` .
+파일 사용자 지정자는 20MB 미만의 작은 파일을 다운로드하는 데만 적합합니다. 큰 파일을 다운로드하려면 스크립트 또는 인라인 명령을 사용합니다. 예를 들어 Linux에서 `wget` 또는 `curl`를 사용할 수 있습니다. Windows에서는 `Invoke-WebRequest`를 사용할 수 있습니다.
 
-### <a name="error-waiting-on-shared-image-gallery"></a>공유 이미지 갤러리에서 대기 하는 동안 오류 발생
+### <a name="error-waiting-on-shared-image-gallery"></a>Shared Image Gallery에서 기다리는 동안 오류 발생
 
 #### <a name="error"></a>오류
 
@@ -321,7 +321,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 #### <a name="cause"></a>원인
 
-이미지를 추가 하 여 SIG (공유 이미지 갤러리)에 복제할 때까지 기다리는 동안 이미지 작성기 시간이 초과 되었습니다. 이미지가 SIG에 삽입 되는 경우 이미지 빌드에 성공 했다고 간주할 수 있습니다. 그러나 이미지 작성기가 공유 이미지 갤러리에서 복제를 완료 하기를 기다리고 있기 때문에 전체 프로세스가 실패 했습니다. 빌드가 실패 하더라도 복제는 계속 됩니다. 배포 *Runoutput* 을 확인 하 여 이미지 버전의 속성을 가져올 수 있습니다.
+Image Builder에서 이미지를 SIG(Shared Image Gallery)에 추가하고 복제할 때까지 기다리는 동안 시간 제한이 초과되었습니다. 이미지가 SIG에 삽입되는 경우 이미지 빌드에 성공했다고 가정할 수 있습니다. 그러나 Image Builder에서 복제를 완료할 때까지 Shared Image Gallery를 기다리고 있으므로 전체 프로세스가 실패했습니다. 빌드가 실패하더라도 복제는 계속됩니다. 배포 *runOutput* 을 확인하여 이미지 버전의 속성을 가져올 수 있습니다.
 
 ```bash
 $runOutputName=<distributionRunOutput>
@@ -330,9 +330,9 @@ az resource show \
     --api-version=2019-05-01-preview
 ```
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-**BuildTimeoutInMinutes** 를 늘립니다.
+**buildTimeoutInMinutes** 를 늘립니다.
  
 ### <a name="low-windows-resource-information-events"></a>낮은 Windows 리소스 정보 이벤트
 
@@ -383,13 +383,13 @@ az resource show \
 ```
 #### <a name="cause"></a>원인
 
-리소스 소모. 이 문제는 일반적으로 기본 빌드 VM 크기 D1_V2를 사용 하 여 실행 되는 Windows 업데이트에 표시 됩니다.
+리소스가 고갈되었습니다. 이 문제는 일반적으로 D1_V2 기본 빌드 VM 크기를 사용하여 실행되는 Windows 업데이트에 표시됩니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 빌드 VM 크기를 늘립니다.
 
-### <a name="builds-finished-but-no-artifacts-were-created"></a>빌드가 완료 되었지만 생성 된 아티팩트가 없습니다.
+### <a name="builds-finished-but-no-artifacts-were-created"></a>빌드가 완료되었지만 만들어진 아티팩트가 없음
 
 #### <a name="error"></a>오류
 
@@ -410,11 +410,11 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 ```
 #### <a name="cause"></a>원인
 
-필요한 Azure 리소스가 생성 될 때까지 대기 하 여 발생 하는 제한 시간입니다.
+필요한 Azure 리소스가 만들어질 때까지 대기하여 시간 제한이 초과되었습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-빌드를 다시 실행 하 여 다시 시도 합니다.
+빌드를 다시 실행하여 다시 시도합니다.
 
 ### <a name="resource-not-found"></a>리소스를 찾을 수 없음
 
@@ -433,11 +433,11 @@ Done exporting Packer logs to Azure for Packer prefix: [a170b40d-2d77-4ac3-8719-
 
 권한이 없습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-Azure 이미지 작성기 다시 확인은 필요한 모든 권한을가지고 있습니다. 
+필요한 모든 권한이 Azure Image Builder에 있는지 다시 확인합니다. 
 
-권한 구성에 대 한 자세한 내용은 PowerShell을 사용 하 [여 Azure 이미지 작성기 서비스 권한 구성 Azure CLI](image-builder-permissions-cli.md) 또는 [Azure 이미지 작성기 서비스 권한 구성](image-builder-permissions-powershell.md) 을 참조 하세요.
+권한을 구성하는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-cli.md) 또는 [PowerShell을 사용하여 Azure Image Builder Service 권한 구성](image-builder-permissions-powershell.md)을 참조하세요.
 
 ### <a name="sysprep-timing"></a>Sysprep 타이밍
 
@@ -497,13 +497,13 @@ Azure 이미지 작성기 다시 확인은 필요한 모든 권한을가지고 �
 ```
 #### <a name="cause"></a>원인
 
-D1_V2 VM 크기로 인해 타이밍 문제가 발생할 수 있습니다. 사용자 지정이 제한 되 고 3 초 미만으로 실행 되는 경우 Azure 이미지 작성기에서 sysprep 명령을 실행 하 여 프로 비전을 해제 합니다. Azure 이미지 작성기를 프로 비전 할 때 sysprep 명령은 *WindowsAzureGuestAgent* 를 확인 합니다 .이는 전체 설치 되지 않아 타이밍 문제가 발생 하지 않을 수 있습니다. 
+D1_V2 VM 크기로 인해 타이밍 문제가 발생할 수 있습니다. 사용자 지정이 제한되고 3초 미만 내에 실행되는 경우 Azure Image Builder에서 sysprep 명령을 실행하여 프로비저닝을 해제합니다. Azure Image Builder에서 프로비저닝을 해제할 때 sysprep 명령은 완전히 설치되지 않아 타이밍 문제가 발생할 수 있는 *WindowsAzureGuestAgent* 를 확인합니다. 
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-VM 크기를 늘립니다. 또는 타이밍 문제를 방지 하기 위해 60 초의 PowerShell 절전 모드 사용자 지정을 추가할 수 있습니다.
+VM 크기를 늘립니다. 또는 60초의 PowerShell 절전 모드 사용자 지정을 추가하여 타이밍 문제를 방지할 수 있습니다.
 
-### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>컨텍스트 취소 컨텍스트가 취소 된 후 작성기를 취소 하는 중
+### <a name="cancelling-builder-after-context-cancellation-context-canceled"></a>컨텍스트 취소 컨텍스트가 취소된 후 작성기를 취소하는 중
 
 #### <a name="error"></a>오류
 ```text
@@ -520,17 +520,17 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC client: Communicator ended with: 23002
 PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 2300218
 ```
 #### <a name="cause"></a>원인
-이미지 작성기 서비스는 포트 22 (Linux) 또는 5986 (Windows)를 사용 하 여 빌드 VM에 연결 합니다 .이는 이미지를 빌드하는 동안 빌드 VM에서 서비스의 연결이 끊어질 때 발생 합니다. 연결 끊기의 이유는 다양할 수 있지만 스크립트에서 방화벽을 사용 하도록 설정 하거나 구성 하면 위의 포트를 차단할 수 있습니다.
+Image Builder Service는 22 포트(Linux) 또는 5986 포트(Windows)를 사용하여 빌드 VM에 연결합니다. 이는 이미지 빌드 중에 서비스의 연결이 빌드 VM에서 끊길 때 발생합니다. 연결이 끊기는 이유는 다양할 수 있지만 스크립트에서 방화벽을 사용하도록 설정하거나 구성하면 위의 포트를 차단할 수 있습니다.
 
-#### <a name="solution"></a>솔루션
-방화벽 변경/사용 또는 SSH 또는 WinRM 변경에 대 한 스크립트를 검토 하 고 위의 포트에서 서비스와 VM을 연결 하는 일정을 변경 해야 합니다. 이미지 작성기 네트워킹에 대 한 자세한 내용은 [요구 사항](./image-builder-networking.md)을 참조 하세요.
+#### <a name="solution"></a>해결 방법
+스크립트를 검토하여 방화벽 변경/사용 또는 SSH 또는 WinRM에 대한 변경을 확인하고, 모든 변경이 위의 포트에서 서비스와 빌드 VM 간의 지속적인 연결을 허용하는지 확인합니다. Image Builder 네트워킹에 대한 자세한 내용은 [요구 사항](./image-builder-networking.md)을 검토하세요.
 
 ## <a name="devops-task"></a>DevOps 작업 
 
 ### <a name="troubleshooting-the-task"></a>작업 문제 해결
-사용자 지정 중에 오류가 발생 하는 경우에만 작업이 실패 합니다 .이 경우 작업에서 오류를 보고 하 고 준비 리소스 그룹을 로그와 함께 유지 하 여 문제를 식별할 수 있습니다. 
+사용자 지정 중에 오류가 발생하는 경우에만 작업이 실패합니다. 이 경우 작업에서 오류를 보고하고 로그와 함께 준비 리소스 그룹에서 나가므로 문제를 식별할 수 있습니다. 
 
-로그를 찾으려면 템플릿 이름을 알고 있어야 합니다. 파이프라인 > 빌드를 실패 한 빌드 > AIB DevOps 작업을 드릴 다운 합니다. 그러면 로그 및 템플릿 이름이 표시 됩니다.
+로그를 찾으려면 템플릿 이름을 알고 있어야 합니다. [파이프라인 > 실패한 빌드 > AIB DevOps 작업으로 드릴다운]으로 차례로 이동합니다. 그러면 로그와 템플릿 이름이 표시됩니다.
 ```text
 start reading task parameters...
 found build at:  /home/vsts/work/r1/a/_ImageBuilding/webapp
@@ -542,15 +542,15 @@ Source for image:  { type: 'SharedImageVersion',
 template name:  t_1556938436xxx
 ``` 
 
-포털로 이동 하 여 리소스 그룹에서 템플릿 이름을 검색 한 다음 IT_ *를 사용 하 여 리소스 그룹을 찾습니다.
-저장소 계정 > blob > 컨테이너 > 로그로 이동 합니다.
+포털로 이동하여 리소스 그룹에서 템플릿 이름을 검색한 다음, IT_*를 사용하여 리소스 그룹을 찾습니다.
+[스토리지 계정 > Blob > 컨테이너 > 로그]로 차례로 이동합니다.
 
 ### <a name="troubleshooting-successful-builds"></a>성공한 빌드 문제 해결
-성공적인 빌드를 조사 하 고 로그를 검토 해야 하는 경우도 있습니다. 앞서 언급 했 듯이, 이미지 빌드에 성공 하면 로그가 포함 된 준비 리소스 그룹이 정리의 일부로 삭제 됩니다. 그러나 수행할 수 있는 작업은 인라인 명령 후에 절전 모드를 도입 하 고 빌드가 일시 중지 될 때 로그를 가져옵니다. 이렇게 하려면 다음 단계를 수행 합니다.
+성공한 빌드를 조사하고 로그를 검토해야 하는 경우가 있을 수 있습니다. 앞에서 설명한 대로 이미지 빌드가 성공하면 정리 단계의 일환으로 로그가 포함된 준비 리소스 그룹이 삭제됩니다. 그러나 수행할 수 있는 작업은 인라인 명령 뒤에 절전 모드를 도입한 다음, 빌드가 일시 중지될 때 로그를 가져오는 것입니다. 이렇게 하려면 다음 단계를 수행합니다.
  
-1. 인라인 명령을 업데이트 하 고: Write-Host/Echo "절전"을 추가 합니다. 이렇게 하면 로그에서 검색할 수 있습니다.
-2. 절전 모드를 10 분 이상 추가 합니다. [절전 모드 또는](/powershell/module/microsoft.powershell.utility/start-sleep)Linux 명령을 사용할 수 있습니다 `Sleep` .
-3. 위의 방법을 사용 하 여 로그 위치를 확인 한 다음, 절전 모드로 전환 될 때까지 로그를 다운로드 하 고 확인 합니다.
+1. 인라인 명령을 업데이트하고, Write-Host / Echo "Sleep"을 추가합니다. 그러면 로그에서 검색할 수 있습니다.
+2. 10분 이상의 절전 모드를 추가하고, [Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep) 또는 `Sleep` Linux 명령을 사용할 수 있습니다.
+3. 위의 방법을 사용하여 로그 위치를 확인한 다음, 절전 모드로 전환될 때까지 계속 다운로드/확인합니다.
 
 
 ### <a name="operation-was-canceled"></a>작업이 취소되었습니다.
@@ -585,36 +585,36 @@ template name:  t_1556938436xxx
 ```
 #### <a name="cause"></a>원인
 
-사용자가 빌드를 취소 하지 않은 경우 Azure DevOps 사용자 에이전트에서 빌드를 취소 했습니다. Azure DevOps 기능으로 인해 1 시간 제한이 발생 했을 가능성이 높습니다. 개인 프로젝트 및 에이전트를 사용 하는 경우 60 분의 빌드 시간을 얻을 수 있습니다. 빌드가 시간 제한을 초과 하는 경우 DevOps는 실행 중인 작업을 취소 합니다.
+사용자가 빌드를 취소하지 않은 경우 Azure DevOps 사용자 에이전트에서 빌드를 취소한 것입니다. Azure DevOps 기능으로 인해 1시간 제한이 발생했을 가능성이 높습니다. 프라이빗 프로젝트 및 에이전트를 사용하는 경우 60분의 빌드 시간이 제공됩니다. 빌드에서 시간 제한을 초과하면 DevOps는 실행 중인 작업을 취소합니다.
 
-Azure DevOps 기능 및 제한 사항에 대 한 자세한 내용은 [Microsoft 호스팅 에이전트](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations) 를 참조 하세요.
+Azure DevOps 기능 및 제한 사항에 대한 자세한 내용은 [Microsoft 호스팅 에이전트](/azure/devops/pipelines/agents/hosted#capabilities-and-limitations)를 참조하세요.
  
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
-사용자 고유의 DevOps 에이전트를 호스팅하거나 빌드 시간을 줄일 수 있습니다. 예를 들어 공유 이미지 갤러리에 배포 하는 경우 한 지역에 복제 합니다. 비동기식으로 복제 하려는 경우 
+사용자 고유의 DevOps 에이전트를 호스팅하거나 빌드 시간을 줄일 수 있습니다. 예를 들어 Shared Image Gallery에 배포하는 경우 한 지역에 복제합니다. 비동기적으로 복제하려는 경우입니다. 
 
-### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>저속 Windows 로그온: ' Windows 모듈 설치 관리자를 기다려 주세요. '
+### <a name="slow-windows-logon-please-wait-for-the-windows-modules-installer"></a>느린 Windows 로그온: 'Windows 모듈 설치 관리자를 기다려 주세요.'
 
 #### <a name="error"></a>오류
-이미지 작성기를 사용 하 여 Windows 10 이미지를 만든 다음, RDP를 사용 하 여 이미지에서 VM을 만들고, 첫 번째 로그온 시 다음 메시지와 함께 파란색 화면을 표시 하는 데 몇 분 정도 기다려야 합니다.
+Image Builder를 사용하여 Windows 10 이미지가 만들어지면 이미지에서 VM을 만들고, RDP를 수행하고, 첫 번째 로그온에서 몇 분 정도 기다려야 다음과 같은 메시지가 포함된 블루 스크린이 표시됩니다.
 ```text
 Please wait for the Windows Modules Installer
 ```
 
-#### <a name="solution"></a>솔루션
-먼저 이미지 빌드에서 마지막 사용자 지정으로 Windows 다시 시작 사용자 지정을 추가 하 고 모든 소프트웨어 설치가 완료 되었는지 확인 하는 데 필요한 미해결 다시 부팅이 없는지 확인 합니다. 마지막으로 [/mode: vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) 옵션을 AIB에서 사용 하는 기본 sysprep에 추가 합니다. 아래를 참조 하십시오. ' AIB 이미지에서 만든 vm은 ' > ' 명령을 재정의 하지 않습니다. '  
+#### <a name="solution"></a>해결 방법
+먼저 이미지 빌드에서 Windows 다시 시작 사용자 지정자를 마지막 사용자 지정으로 추가하여 필요한 미해결 다시 부팅이 없는지 확인한 다음, 모든 소프트웨어 설치가 완료되었는지 확인합니다. 마지막으로 [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) 옵션을 AIB에서 사용하는 기본 sysprep에 추가합니다. 아래의 'AIB 이미지에서 만든 VM이 성공적으로 만들어지지 않음' > '명령 재정의'를 차례로 참조하세요.  
 
  
-## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>AIB 이미지에서 만든 Vm을 만들지 못했습니다.
+## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>AIB 이미지에서 만든 VM이 성공적으로 만들어지지 않음
 
-기본적으로 Azure 이미지 작성기는 각 이미지 사용자 지정 단계 끝에서 *프로 비전* 해제 코드를 실행 하 여 이미지를 *일반화* 합니다. 일반화는 여러 Vm을 만드는 데 이미지를 다시 사용 하도록 설정 하 고 호스트 이름, 사용자 이름 등의 VM 설정을 전달할 수 있는 프로세스입니다. Windows의 경우 Azure 이미지 작성기는 *Sysprep* 을 실행 하 고 Linux Azure 이미지 작성기를 실행 `waagent -deprovision` 합니다. 
+기본적으로 Azure Image Builder는 이미지를 *일반화* 하기 위해 각 이미지 사용자 지정 단계가 끝날 때 *프로비저닝 해제* 코드를 실행합니다. 일반화는 이미지가 여러 VM을 만드는 데 다시 사용하도록 설정되고 호스트 이름, 사용자 이름 등과 같은 VM 설정을 전달할 수 있는 프로세스입니다. Windows의 경우 Azure Image Builder에서 *Sysprep* 을 실행하고, Linux Azure Image Builder에서는 `waagent -deprovision`을 실행합니다. 
 
-Windows의 경우 Azure 이미지 작성기는 일반 Sysprep 명령을 사용 합니다. 그러나이는 모든 성공적인 Windows 일반화에 적합 하지 않을 수 있습니다. Azure 이미지 작성기를 사용 하 여 Sysprep 명령을 사용자 지정할 수 있습니다. 참고 Azure 이미지 작성기는 이미지 자동화 도구입니다. Sysprep 명령을 성공적으로 실행 해야 합니다. 그러나 이미지를 다시 사용할 수 있도록 하려면 다른 Sysprep 명령이 필요할 수 있습니다. Linux의 경우 Azure 이미지 작성기는 일반 `waagent -deprovision+user` 명령을 사용 합니다. 자세한 내용은 [Microsoft Azure Linux Agent 설명서](https://github.com/Azure/WALinuxAgent#command-line-options)를 참조 하세요.
+Windows의 경우 Azure Image Builder는 일반 Sysprep 명령을 사용합니다. 그러나 이는 성공적인 모든 Windows 일반화에 적합하지 않을 수 있습니다. Azure Image Builder를 사용하면 Sysprep 명령을 사용자 지정할 수 있습니다. 참고: Azure Image Builder는 이미지 자동화 도구입니다. Sysprep 명령을 성공적으로 실행해야 합니다. 그러나 이미지를 다시 사용할 수 있도록 하려면 다른 Sysprep 명령이 필요할 수 있습니다. Linux의 경우 Azure Image Builder는 일반 `waagent -deprovision+user` 명령을 사용합니다. 자세한 내용은 [Microsoft Azure Linux 에이전트 설명서](https://github.com/Azure/WALinuxAgent#command-line-options)를 참조하세요.
 
-기존 사용자 지정을 마이그레이션하는 경우 다른 Sysprep/waagent 명령을 사용 하면 이미지 작성기 일반 명령을 사용해 볼 수 있습니다. VM을 만들 때 오류가 발생 하면 이전 Sysprep/waagent 명령을 사용 합니다.
+기존 사용자 지정을 마이그레이션하고 다른 Sysprep/waagent 명령을 사용하는 경우 Image Builder 일반 명령을 시도할 수 있습니다. VM을 만들 때 오류가 발생하면 이전 Sysprep/waagent 명령을 사용합니다.
 
 > [!NOTE]
-> AIB에서 Windows 사용자 지정 이미지를 만들고이 이미지에서 VM을 만든 후 vm을 만들지 않는 경우 (예: VM 만들기 명령이 완료 되지 않았거나 시간이 초과 되지 않는 경우) Windows Server Sysprep 설명서를 검토 해야 합니다. 또는 올바른 Sysprep 명령에 대 한 문제를 해결 하 고 advise 할 수 있는 Windows Server Sysprep 고객 서비스 지원 팀과 함께 지원 요청을 발생 시킬 수 있습니다.
+> AIB에서 Windows 사용자 지정 이미지를 성공적으로 만들고, 이 이미지에서 VM을 만든 다음, VM이 성공적으로 만들어지지 않는 경우(예: VM 만들기 명령이 완료되지 않음/시간 제한 초과) Windows Server Sysprep 설명서를 검토해야 합니다. 또는 올바른 Sysprep 명령에 대한 문제를 해결하고 조언할 수 있는 Windows Server Sysprep 고객 서비스 지원 팀에 지원 요청을 제기할 수 있습니다.
 
 ### <a name="command-locations-and-filenames"></a>명령 위치 및 파일 이름
 
@@ -652,7 +652,7 @@ while($true) {
 Write-Output '>>> Sysprep complete ...'
 ```
 
-### <a name="deprovision-command-linux"></a>프로 비전 해제 명령: Linux
+### <a name="deprovision-command-linux"></a>프로비저닝 해제 명령: Linux
 
 ```bash
 /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
@@ -660,10 +660,10 @@ Write-Output '>>> Sysprep complete ...'
 
 ### <a name="overriding-the-commands"></a>명령 재정의
 
-명령을 재정의 하려면 PowerShell 또는 shell 스크립트 provisioners를 사용 하 여 정확한 파일 이름으로 명령 파일을 만들고 앞에 나열 된 디렉터리에 배치 합니다. Azure 이미지 작성기는 이러한 명령을 읽고 출력은 *사용자 지정 .log* 에 기록 됩니다.
+명령을 재정의하려면 PowerShell 또는 셸 스크립트 프로비저닝 프로그램에서 정확한 파일 이름을 사용하여 명령 파일을 만들고, 이전에 나열된 디렉터리에 배치합니다. Azure Image Builder는 이러한 명령을 읽고, 출력은 *customization.log* 에 기록됩니다.
 
 ## <a name="getting-support"></a>지원 받기
-이 지침을 참조 했지만 여전히 문제를 해결할 수 없는 경우 지원 사례를 열 수 있습니다. 이 작업을 수행 하는 경우 적절 한 제품 및 지원 항목을 선택 하세요. 이렇게 하면 Azure VM 이미지 작성기 지원 팀에 참여 하 게 됩니다.
+지침을 참조했지만 여전히 문제를 해결할 수 없는 경우 지원 사례를 열 수 있습니다. 이 경우 적절한 제품 및 지원 항목을 선택하세요. 이렇게 하면 Azure VM Image Builder 지원 팀이 참여하게 됩니다.
 
 사례 제품 선택:
 ```bash
@@ -675,4 +675,4 @@ Support Subtopic: Azure Image Builder
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure 이미지 작성기 개요](../image-builder-overview.md)를 참조 하세요.
+자세한 내용은 [Azure Image Builder 개요](../image-builder-overview.md)를 참조하세요.

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 5585eb210b54dfa016d25c430256508e1b0b9f61
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9285928c94f0e1ce3de37f357aed57c32b5be01d
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076890"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713039"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
@@ -83,6 +83,9 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 * 원본 SQL Server 인스턴스를 실행 중인 서비스 계정에 본인이 만든 네트워크 공유에 대한 쓰기 권한이 있고, 원본 서버의 컴퓨터 계정에 동일한 공유에 대한 읽기/쓰기 액세스 권한이 있는지 확인합니다.
 * 이전에 만든 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다.
 * Azure Database Migration Service가 대상 Azure Database Managed Instance 및 Azure Storage 컨테이너에 연결하는 데 사용할 수 있는 애플리케이션 ID 키를 생성하는 Azure Active Directory 애플리케이션 ID를 만듭니다. 자세한 내용은 [포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조하세요.
+
+  > [!NOTE]
+  > Azure Database Migration Service에서 사용하는 애플리케이션 ID는 서비스 주체에 대한 비밀(암호 기반) 인증을 지원합니다. 인증서 기반 인증을 지원하지 않습니다.
 
   > [!NOTE]
   > Azure Database Migration Service를 사용하려면 지정된 애플리케이션 ID용 구독에 대한 기여자 권한이 필요합니다. 또는 Azure Database Migration Service에 필요한 특정 권한을 부여하는 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할을 사용하는 방법에 대한 단계별 지침은 [SQL Server에서 SQL Managed Instance로 온라인 마이그레이션하기 위한 사용자 지정 역할](./resource-custom-roles-sql-db-managed-instance.md) 문서를 참조하세요.
@@ -209,7 +212,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 1. **마이그레이션 설정 구성** 화면에서 다음 세부 정보를 입력합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--------|---------|
     |**SMB 네트워크 위치 공유** | Azure Database Migration Service에서 마이그레이션에 사용할 수 있는 전체 데이터베이스 백업 파일과 트랜잭션 로그 백업 파일이 포함된 로컬 SMB 네트워크 공유 및 Azure 파일 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 읽기/쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder'). 성능 향상을 위해 마이그레이션할 각 데이터베이스마다 별도의 폴더를 사용하는 것이 좋습니다. **고급 설정** 옵션을 사용하여 데이터베이스 수준 파일 공유 경로를 제공할 수 있습니다. SMB 공유에 연결하는 데 문제가 발생하는 경우 [SMB 공유](known-issues-azure-sql-db-managed-instance-online.md#smb-file-share-connectivity)를 참조하세요. |
     |**사용자 이름** | Windows 사용자가 위에서 입력한 네트워크 공유에 대한 전체 제어 권한을 갖고 있는지 확인합니다. Azure Database Migration Service는 사용자 자격 증명을 가장하여 복원 작업을 위한 Azure Storage 컨테이너에 백업 파일을 업로드합니다. Azure 파일 공유를 사용하는 경우 AZURE\가 앞에 나오는 스토리지 계정 이름을 사용자 이름으로 사용합니다. |

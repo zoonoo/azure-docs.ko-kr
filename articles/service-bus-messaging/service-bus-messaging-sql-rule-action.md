@@ -1,18 +1,18 @@
 ---
-title: Azure Service Bus Subscription Rule SQL 작업 구문 | Microsoft Docs
-description: 이 문서에서는 SQL 규칙 작업 구문에 대 한 참조를 제공 합니다. 작업은 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
+title: Azure Service Bus 구독 규칙 SQL 작업 구문 | Microsoft Docs
+description: 이 문서에서는 SQL 규칙 작업 구문에 대한 참조를 제공합니다. 작업은 메시지에 대해 수행되는 SQL 언어 기반 구문으로 작성됩니다.
 ms.topic: article
 ms.date: 11/24/2020
 ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100652839"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문
 
-*SQL 작업* 은 구독 규칙의 필터에서 메시지를 선택한 후 메시지 메타 데이터를 조작 하는 데 사용 됩니다. SQL-92 표준의 하위 집합을 기울어집니다 하는 텍스트 식입니다. 작업 식은 `sqlExpression` Azure Resource Manager 템플릿에서 Service Bus ' action ' 속성의 요소 `Rule` 또는 Azure CLI [](service-bus-resource-manager-namespace-topic-with-rule.md) `az servicebus topic subscription rule create` 명령의 [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용 하는 여러 SDK 함수에 사용 됩니다.
+*SQL 작업* 은 구독 규칙의 필터로 메시지를 선택한 후 메시지 메타데이터를 조작하는 데 사용됩니다. SQL-92 표준의 하위 집합에 의존하는 텍스트 식입니다. 작업 식은 [Azure Resource Manager 템플릿](service-bus-resource-manager-namespace-topic-with-rule.md)에 있는 Service Bus `Rule`의 'action' 속성 `sqlExpression` 요소 또는 Azure CLI `az servicebus topic subscription rule create` 명령의 [`--action-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) 인수 및 구독 규칙 관리를 허용하는 여러 SDK 함수에 사용됩니다.
   
   
 ```  
@@ -53,11 +53,11 @@ ms.locfileid: "100652839"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `user` 범위는가 지정 되지 않은 경우의 기본 범위입니다 `<scope>` .  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
   
 ### <a name="remarks"></a>설명  
 
-존재 하지 않는 시스템 속성에 액세스 하려고 하면 오류가 발생 하는 반면, 존재 하지 않는 사용자 속성에 액세스 하려고 하면 오류가 발생 하지 않습니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
+존재하지 않는 시스템 속성에 대한 액세스 시도는 오류이지만 존재하지 않는 사용자 속성에 대한 액세스 시도는 오류가 아닙니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
   
 ## <a name="property_name"></a>property_name  
   
@@ -84,7 +84,7 @@ ms.locfileid: "100652839"
   
  `[:IsDigit:]`는 10진수 문자로 분류된 유니코드 문자를 의미합니다. `System.Char.IsDigit(c)`에서는 `c`가 유니코드 숫자인 경우 `true`를 반환합니다.  
   
- 는 `<regular_identifier>` 예약 된 키워드가 될 수 없습니다.  
+ `<regular_identifier>`는 예약된 키워드일 수 없습니다.  
   
  `<delimited_identifier>`는 왼쪽/오른쪽 대괄호([])로 묶인 문자열입니다. 오른쪽 대괄호는 두 개의 오른쪽 대괄호로 표시됩니다. 다음은 `<delimited_identifier>`에 대한 예입니다.  
   
@@ -94,7 +94,7 @@ ms.locfileid: "100652839"
   
 ```  
   
- `<quoted_identifier>`는 큰따옴표로 묶인 문자열입니다. 식별자에서 큰따옴표는 두 개의 큰따옴표로 표시됩니다. 문자열 상수와 쉽게 혼동 될 수 있으므로 따옴표 붙은 식별자를 사용 하지 않는 것이 좋습니다. 가능하면 구분된 식별자를 사용하세요. 다음은 `<quoted_identifier>`의 예입니다.  
+ `<quoted_identifier>`는 큰따옴표로 묶인 문자열입니다. 식별자에서 큰따옴표는 두 개의 큰따옴표로 표시됩니다. 문자열 상수와 혼동될 수 있으므로 따옴표가 있는 식별자를 사용하지 않는 것이 좋습니다. 가능하면 구분된 식별자를 사용하세요. 다음은 `<quoted_identifier>`의 예입니다.  
   
 ```  
 "Contoso & Northwind"  
@@ -137,7 +137,7 @@ ms.locfileid: "100652839"
   
 ### <a name="arguments"></a>인수  
   
--   `<integer_constant>` 는 따옴표로 묶지 않고 소수점을 포함 하지 않는 숫자의 문자열입니다. 값은 내부적으로는 `System.Int64`로 저장되며 동일한 범위를 따릅니다.  
+-   `<integer_constant>`는 따옴표로 묶이지 않고 소수점을 포함하지 않는 숫자의 문자열입니다. 값은 내부적으로는 `System.Int64`로 저장되며 동일한 범위를 따릅니다.  
   
      다음은 long 상수에 대한 예입니다.  
   
@@ -146,9 +146,9 @@ ms.locfileid: "100652839"
     2  
     ```  
   
--   `<decimal_constant>` 는 따옴표로 묶지 않고 소수점이 포함 된 숫자의 문자열입니다. 값은 내부적으로는 `System.Double`로 저장되며 동일한 범위/자릿수를 따릅니다.  
+-   `<decimal_constant>`는 따옴표로 묶이지 않고 소수점을 포함하는 숫자의 문자열입니다. 값은 내부적으로는 `System.Double`로 저장되며 동일한 범위/자릿수를 따릅니다.  
   
-     이후 버전에서이 숫자는 정확한 숫자 의미 체계를 지원 하기 위해 다른 데이터 형식에 저장 될 수 있으므로 기본 데이터 형식이에 대 한 팩트를 사용 하면 안 `System.Double` 됩니다 `<decimal_constant>` .  
+     이후 버전에서는 이 숫자가 정확한 숫자 의미 체계를 지원하기 위해 다른 데이터 형식으로 저장될 수 있으므로 `<decimal_constant>`에 대한 기본 데이터 형식이 `System.Double`이라는 사실이 해당되지 않습니다.  
   
      다음은 10진수 상수에 대한 예입니다.  
   
@@ -195,12 +195,12 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
   
 ### <a name="remarks"></a>설명  
 
-`newid()`함수는 `System.Guid` 메서드에 의해 생성 된을 반환 합니다 `System.Guid.NewGuid()` .  
+`newid()` 함수는 `System.Guid.NewGuid()` 메서드에 의해 생성된 `System.Guid`를 반환합니다.  
   
 `property(name)` 함수는 `name`으로 참조되는 속성 값을 반환합니다. `name` 값은 문자열 값을 반환하는 유효한 식일 수 있습니다.  
 
-## <a name="examples"></a>예제
-예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조 하세요.
+## <a name="examples"></a>예
+예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조하세요.
   
 ## <a name="considerations"></a>고려 사항
 
@@ -208,14 +208,14 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 - REMOVE는 속성을 제거하는 데 사용됩니다.
 - SET은 식 형식과 기존 속성 형식이 다른 경우 암시적 변환을 수행합니다(가능한 경우).
 - 존재하지 않는 시스템 속성을 참조하면 작업에 실패합니다.
-- 존재 하지 않는 사용자 속성을 참조 하는 경우에는 작업이 실패 하지 않습니다.
+- 존재하지 않는 사용자 속성을 참조한 경우 작업이 실패하지 않습니다.
 - 연산자를 평가할 때 [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)와 동일한 의미 체계에 따라 존재하지 않는 사용자 속성이 내부적으로 "알 수 없음"으로 평가됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [SQLRuleAction 클래스 (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLRuleAction 클래스 (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
-- [SqlRuleAction 클래스 (Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
-- [SqlRuleAction (JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
+- [SQLRuleAction 클래스(.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLRuleAction 클래스(.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
+- [SqlRuleAction 클래스(Java)](/java/api/com.microsoft.azure.servicebus.rules.sqlruleaction)
+- [SqlRuleAction(JavaScript)](/javascript/api/@azure/service-bus/sqlruleaction)
 - [`az servicebus topic subscription rule`](/cli/azure/servicebus/topic/subscription/rule)
-- [AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)
+- [New-AzServiceBusRule](/powershell/module/az.servicebus/new-azservicebusrule)

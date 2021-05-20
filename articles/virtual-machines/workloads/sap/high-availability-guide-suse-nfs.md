@@ -1,5 +1,5 @@
 ---
-title: SLES에서 Azure Vm의 NFS에 대 한 고가용성 | Microsoft Docs
+title: SLES의 Azure VM에서 NFS에 대한 고가용성 | Microsoft Docs
 description: SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -12,14 +12,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/16/2020
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 993baa521530ffa6a702f8324a1691850687c366
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a08d82103986435593cd73a0728e7426f205a90d
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101668693"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107307540"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 NFS의 고가용성
 
@@ -55,7 +55,7 @@ ms.locfileid: "101668693"
 
 
 > [!NOTE]
-> 이 문서에는 Microsoft에서 더 이상 사용 하지 않는 사용 약관 *종속* 및 *마스터* 용어에 대 한 참조가 포함 되어 있습니다. 소프트웨어에서 용어를 제거 하는 경우이 문서에서 제거 합니다.
+> 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 *종속* 및 *마스터* 용어에 대한 참조가 포함되어 있습니다. 용어가 소프트웨어에서 제거되면 이 문서에서 제거하겠습니다.
 
 먼저 다음 SAP 참고와 문서 읽기
 
@@ -98,7 +98,7 @@ SAP NetWeaver의 가용성을 높이려면 NFS 서버가 필요합니다. NFS �
 * 프로브 포트
   * NW1의 경우 포트 61000
   * NW2의 경우 포트 61001
-* 부하 분산 규칙 (기본 부하 분산 장치를 사용 하는 경우)
+* 부하 분산 규칙(기본 부하 분산 장치를 사용하는 경우)
   * NW1의 경우 2049 TCP
   * NW1의 경우 2049 UDP
   * NW2의 경우 2049 TCP
@@ -111,20 +111,20 @@ GitHub의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 ### <a name="deploy-linux-via-azure-template"></a>Azure 템플릿을 통해 Linux 배포
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 SAP Applications 12용 SUSE Linux Enterprise Server의 이미지가 포함되어 있습니다.
-GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
+GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 부하 분산 장치, 가용성 집합 등을 배포합니다. 다음 단계에 따라 템플릿을 배포합니다.
 
 1. Azure Portal에서 [SAP 파일 서버 템플릿][template-file-server]을 엽니다.   
 1. 다음 매개 변수를 입력합니다.
    1. 리소스 접두사 -  
       사용할 접두사를 입력합니다. 이 값은 배포되는 리소스의 접두사로 사용됩니다.
    2. SAP 시스템 수 -  
-      이 파일 서버를 사용할 SAP 시스템 수를 입력합니다. 이렇게 하면 필요한 프런트 엔드 구성, 부하 분산 규칙, 프로브 포트, 디스크 등을 배포 합니다.
+      이 파일 서버를 사용할 SAP 시스템 수를 입력합니다. 이렇게 하면 프런트 엔드 구성, 부하 분산 규칙, 프로브 포트, 디스크 등이 필요한 만큼 배포됩니다.
    3. OS 종류 -  
       Linux 배포판 중 하나를 선택합니다. 이 예제에서는 SLES 12를 선택합니다.
    4. 관리자 사용자 이름 및 관리자 암호 -  
       컴퓨터에 로그온하는 데 사용할 수 있게 만들어진 새 사용자입니다.
    5. 서브넷 ID  
-      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 일반적으로/subscriptions/**&lt; subscription &gt; ID**/Resourcegroups//**&lt; 리소스 그룹 이름 &gt;**/providers/Microsoft.Network/virtualNetworks/**&lt; 가상 네트워크 이름 &gt;**/subnets/**&lt; 서브넷 이름 &gt;** 처럼 보입니다.
+      서브넷이 VM을 할당하도록 정의된 기존 VNet에 VM을 배포하려는 경우 해당 서브넷의 ID 이름을 지정합니다. ID는 대개 /subscriptions/ **&lt;구독 ID&gt;** /resourceGroups/ **&lt;리소스 그룹 이름&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;가상 네트워크 이름&gt;** /subnets/ **&lt;서브넷 이름&gt;** 과 같은 형식입니다.
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
@@ -140,8 +140,8 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    SAP 애플리케이션 12 SP3용 SLES(BYOS)가 사용됨  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신의 각 SAP 시스템에 하나의 데이터 디스크를 추가합니다.
-1. Load Balancer (내부)를 만듭니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
-   1. 표준 부하 분산 장치를 만들려면 다음 지침을 따르세요.
+1. Load Balancer(내부)를 만듭니다. [표준 부하 분산 장치](../../../load-balancer/load-balancer-overview.md)를 만드는 것이 좋습니다.  
+   1. 다음 지침에 따라 표준 Load Balancer를 만듭니다.
       1. 프런트 엔드 IP 주소 만들기
          1. NW1의 경우 IP 주소 10.0.0.4
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -153,10 +153,10 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 백 엔드 풀 만들기
          1. NFS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
             1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-            1. 새 백 엔드 풀의 이름 입력 (예: **nw-백엔드**)
+            1. 새 백 엔드 풀의 이름 입력(예: **nw-backend**)
             1. Virtual Network 선택
             1. 가상 머신 추가 클릭
-            1. NFS 클러스터의 가상 컴퓨터와 해당 IP 주소를 선택 합니다.
+            1. NFS 클러스터의 가상 머신과 해당 IP 주소를 선택합니다.
             1. 추가를 클릭합니다.
       1. 상태 프로브 만들기
          1. NW1의 경우 포트 61000
@@ -167,15 +167,14 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. NW2의 경우 포트 61001
             * 위의 단계를 반복하여 NW2용 상태 프로브 만들기
       1. 부하 분산 규칙
-         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
-         1. 새 부하 분산 장치 규칙의 이름 입력 (예: **n w 1-lb**)
-         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **n w 1**)를 선택 합니다. **nw-백 엔드** 및 **n w 1-hp**)
+         1. 부하 분산 장치를 열고, 부하 분산 규칙을 설정하고, 추가를 클릭합니다.
+         1. 새 부하 분산 장치 규칙의 이름 입력(예: **nw1-lb**)
+         1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **nw1-frontend** **nw-backend** 및 **nw1-hp**).
          1. **HA 포트** 를 선택합니다.
-         1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
          1. 확인 클릭
-         * 위의 단계를 반복 하 여 N W 2에 대 한 부하 분산 규칙 만들기
-   1. 또는 시나리오에 기본 부하 분산 장치가 필요한 경우 다음 지침을 따르세요.
+         * 위의 단계를 반복하여 NW2에 대한 부하 분산 규칙 만들기
+   1. 또는 시나리오에 기본 부하 분산 장치가 필요한 경우 다음 지침을 따릅니다.
       1. 프런트 엔드 IP 주소 만들기
          1. NW1의 경우 IP 주소 10.0.0.4
             1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -187,7 +186,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 백 엔드 풀 만들기
          1. NFS 클러스터의 일부분이어야 하는 모든 가상 머신의 주 네트워크 인터페이스에 연결됨
             1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
-            1. 새 백 엔드 풀의 이름 입력 (예: **nw-백엔드**)
+            1. 새 백 엔드 풀의 이름 입력(예: **nw-backend**)
             1. 가상 머신 추가 클릭
             1. 이전에 만든 가용성 집합 선택
             1. NFS 클러스터의 가상 머신 선택
@@ -217,7 +216,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
             * NW2의 UDP 및 포트 2049에 대하 위 단계 반복
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원 되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조 하세요. VM에 대 한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포 합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 추가 IP 주소가 필요한 경우 보조 NIC를 배포합니다.  
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -469,7 +468,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 1. **[A]** drbd 분할 브레인(split-brain) 검색 설정
 
-   drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 두뇌는 두 클러스터 노드가 drbd 장치를 주 복제본으로 승격 하 고 동기화 되지 않은 시나리오입니다. 드문 경우 이지만 가능한 한 빨리 분할을 처리 하 고 해결 하려고 합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
+   drbd를 사용하여 한 호스트에서 다른 호스트로 데이터를 동기화 할 때 소위 분할 브레인(split-brain)이 발생할 수 있습니다. 분할 브레인은 두 클러스터 노드가 drbd 디바이스를 기본 디바이스로 승격시키고 동기화되지 않은 시나리오입니다. 드문 상황이지만 분할 브레인을 최대한 빨리 처리하고 해결해야 합니다. 따라서 분할 브레인(split-brain)이 발생하면 알림을 받는 것이 중요합니다.
 
    분할 브레인(split-brain) 알림을 설정하는 방법은 [공식 drbd 설명서](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification)를 참조하세요.
 
@@ -578,7 +577,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-   `crossmnt`클러스터 리소스의 옵션은 `exportfs` 이전 SLES 버전과의 호환성을 위해 설명서에 제공 됩니다.  
+   `exportfs` 클러스터 리소스의 `crossmnt` 옵션은 이전 SLES 버전과의 호환성을 위해 설명서에 나와 있습니다.  
 
 1. **[1]** 유지 관리 모드 사용 중지
    

@@ -3,12 +3,12 @@ title: 뉴질랜드 ISM 제한 청사진 샘플
 description: 뉴질랜드 ISM 제한 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 03/22/2021
 ms.topic: sample
-ms.openlocfilehash: c406ec453cf980c1e065c70e69151b692a878596
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 1a7f50853c00336df584d210330860889e3f6881
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125772"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757107"
 ---
 # <a name="new-zealand-ism-restricted-blueprint-sample"></a>뉴질랜드 ISM 제한 청사진 샘플
 

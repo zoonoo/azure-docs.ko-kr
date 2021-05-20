@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/23/2020
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 24b1be2ca55b057c887c8782ce7eea1150f143da
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 814824fb6708abaf549bb3de19b4aced4774a244
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762626"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "102485761"
 ---
 # <a name="ephemeral-os-disks-for-azure-vms"></a>Azure VM을 위한 임시 OS 디스크
 
@@ -40,7 +40,7 @@ ms.locfileid: "107762626"
 | **지역 지원**              | 모든 지역                                                                                  | 모든 지역                              |
 | **데이터 지속성**            | OS 디스크에 기록된 OS 디스크 데이터는 Azure Storage에 저장됩니다.                                  | OS 디스크에 기록된 데이터는 로컬 VM 스토리지에 저장되며, Azure Storage에 유지되지 않습니다. |
 | **중지-할당 취소됨 상태**      | VM 및 확장 집합 인스턴스는 중지-할당 취소됨 상태일 수 있고, 중지-할당 취소됨 상태에서 다시 시작될 수 있습니다. | VM 및 확장 집합 인스턴스는 중지-할당 취소됨 상태일 수 없습니다.                                  |
-| **특수 OS 디스크 지원** | 예                                                                                          | 예                                                                                 |
+| **특수 OS 디스크 지원** | 예                                                                                          | 아니요                                                                                 |
 | **OS 디스크 크기 조정**              | VM 만들기 중에 그리고 VM이 중지-할당 취소됨 상태인 후에 지원됩니다.                                | VM 만들기 중에만 지원됩니다.                                                  |
 | **새 VM 크기로 크기 조정**   | OS 디스크 데이터가 유지됩니다.                                                                    | OS 디스크의 데이터가 삭제되고 OS가 다시 프로비전됩니다.       
 | **페이지 파일 배치**   | Windows의 경우 페이지 파일이 리소스 디스크에 저장됩니다.                                              | Windows의 경우 페이지 파일이 OS 디스크에 저장됩니다.   |
@@ -71,7 +71,7 @@ Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
 
 ## <a name="cli"></a>CLI
 
-CLI VM 배포에 임시 디스크를 사용하려면 [az vm create](/cli/azure/vm#az_vm_create)의 `--ephemeral-os-disk` 매개 변수를 `true`로 설정하고 `--os-disk-caching` 매개 변수를 `ReadOnly`로 설정합니다.
+CLI VM 배포에 임시 디스크를 사용하려면 [az vm create](/cli/azure/vm#az-vm-create)의 `--ephemeral-os-disk` 매개 변수를 `true`로 설정하고 `--os-disk-caching` 매개 변수를 `ReadOnly`로 설정합니다.
 
 ```azurecli-interactive
 az vm create \
@@ -84,7 +84,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-확장 집합의 경우 [az-vmss-create](/cli/azure/vmss#az_vmss_create)에 대해 동일한 `--ephemeral-os-disk true` 매개 변수를 사용하고 `--os-disk-caching` 매개 변수를 `ReadOnly`로 설정합니다.
+확장 집합의 경우 [az-vmss-create](/cli/azure/vmss#az-vmss-create)에 대해 동일한 `--ephemeral-os-disk true` 매개 변수를 사용하고 `--os-disk-caching` 매개 변수를 `ReadOnly`로 설정합니다.
 
 ## <a name="portal"></a>포털
 
@@ -251,4 +251,4 @@ A: 임시 디스크는 다음을 지원하지 않습니다.
 > 
  
 ## <a name="next-steps"></a>다음 단계
-[Azure CLI](/cli/azure/vm#az_vm_create)를 사용하여 임시 OS 디스크가 있는 VM을 만들 수 있습니다.
+[Azure CLI](/cli/azure/vm#az-vm-create)를 사용하여 임시 OS 디스크가 있는 VM을 만들 수 있습니다.

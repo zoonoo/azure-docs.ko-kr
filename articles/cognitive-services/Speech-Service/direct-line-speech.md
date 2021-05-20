@@ -1,7 +1,7 @@
 ---
-title: 직접 줄 음성-음성 서비스
+title: Direct Line Speech - Speech Service
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK (소프트웨어 개발 키트)와 직접 줄 음성을 사용 하는 음성 도우미의 기능, 기능 및 제한 사항에 대 한 개요입니다.
+description: Speech SDK(소프트웨어 개발 키트)와 함께 Direct Line Speech를 사용하는 음성 도우미의 기능, 성능 및 제한 사항에 대한 개요입니다.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -11,51 +11,51 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
 ms.openlocfilehash: 6eb689c2e93b5a9cac932e428245410ba35e77d6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102611796"
 ---
 # <a name="what-is-direct-line-speech"></a>Direct Line Speech란?
 
-**직접 라인 음성** 은 유연 하 고 확장 가능한 음성 도우미를 만들기 위한 강력 하 고 종단 간 솔루션입니다. 봇 프레임 워크와 봇과의 음성 출력 상호 작용에 최적화 된 봇 프레임 워크 및 직접 라인 음성 채널을 기반으로 합니다.
+**Direct Line Speech** 는 유연하고 확장 가능한 음성 도우미를 만들기 위한 강력한 엔드투엔드 솔루션입니다. Bot Framework 및 해당 Direct Line Speech 채널을 통해 구동되며, 봇과의 음성 입력, 출력 상호 작용에 최적화되어 있습니다.
 
-[음성 도우미](voice-assistants.md) 는 사용자를 수신 하 고 응답으로 작업을 수행 하 여 자주 말하는 경우를 말합니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다.
+[음성 도우미](voice-assistants.md)는 사용자의 말을 듣고 대응 조치를 수행하며, 되묻는 경우가 많습니다. [음성 텍스트 변환](speech-to-text.md)을 사용하여 사용자의 음성을 전사한 다음, 텍스트에 대한 자연어 이해에 대한 작업을 수행합니다. 이 작업에는 [텍스트 음성 변환](text-to-speech.md)으로 생성된 도우미의 음성 출력이 포함되는 경우가 많습니다.
 
-직접 라인 음성은 음성 도우미에 대해 가장 높은 수준의 사용자 지정 및 복잡성을 제공 합니다. 작업 완료 또는 명령 및 제어를 사용 하는 두 가지 기능을 사용 하 여 열린 종료, 자연 또는 hybrids 대화형 시나리오용으로 설계 되었습니다. 이러한 높은 수준의 유연성은 더 복잡 해지고, 자연어 입력을 사용 하 여 잘 정의 된 작업으로 범위가 지정 되는 시나리오에서는 간소화 된 솔루션 환경을 위한 [사용자 지정 명령을](custom-commands.md) 고려해 야 할 수 있습니다.
+Direct Line Speech는 음성 도우미에 대해 가장 높은 수준의 사용자 지정 및 정교함을 제공합니다. 작업 완료 또는 명령 및 제어 사용이 있는 두 가지의 무한, 자연적 또는 하이브리드인 대화형 시나리오를 위해 설계되었습니다. 이러한 높은 수준의 유연성은 더 큰 복잡성을 가져오며, 자연어 입력을 사용하여 잘 정의된 작업으로 범위가 지정되는 시나리오는 간소화된 솔루션 환경을 위한 [사용자 지정 명령](custom-commands.md)을 고려할 수 있습니다.
 
-## <a name="getting-started-with-direct-line-speech"></a>직접 선 음성 시작
+## <a name="getting-started-with-direct-line-speech"></a>Direct Line Speech 시작
 
-직접 줄 음성을 사용 하 여 음성 도우미를 만드는 첫 번째 단계는 [음성 구독 키를 가져오고](overview.md#try-the-speech-service-for-free)해당 구독과 연결 된 새 봇을 만든 다음 직접 선 음성 채널에 봇을 연결 하는 것입니다.
+Direct Line Speech를 사용하여 음성 도우미를 만드는 첫 번째 단계는 [음성 구독 키를 가져오고](overview.md#try-the-speech-service-for-free), 해당 구독과 연결된 새 봇을 만들고, 봇을 Direct Line Speech 채널에 연결하는 것입니다.
 
-   ![직접 라인 음성 오케스트레이션 서비스 흐름의 개념적 다이어그램](media/voice-assistants/overview-directlinespeech.png "음성 채널 흐름")
+   ![Direct Line Speech 오케스트레이션 서비스 흐름의 개념 다이어그램](media/voice-assistants/overview-directlinespeech.png "음성 채널 흐름")
 
-직접 라인 음성을 사용 하 여 간단한 음성 도우미를 만드는 방법에 대 한 전체 단계별 가이드는 음성 SDK를 사용 하 여 [봇 사용에 대 한 자습서 및 직접 선 음성 채널](tutorial-voice-enable-your-bot-speech-sdk.md)을 참조 하세요.
+Direct Line Speech를 사용하여 간단한 음성 도우미를 만드는 전체 단계별 가이드는 [Speech SDK 및 Direct Line Speech 채널을 사용하여 음성을 지원하도록 봇 설정에 대한 자습서](tutorial-voice-enable-your-bot-speech-sdk.md)를 참조하세요.
 
-또한 코드를 실행 하 고 Api를 빠르게 학습할 수 있도록 설계 된 퀵 스타트를 제공 합니다. 이 표에는 언어 및 플랫폼 별로 구성 된 음성 도우미 빠른 시작 목록이 포함 되어 있습니다.
+또한 코드를 실행하고 API를 빠르게 학습할 수 있도록 설계된 빠른 시작도 제공합니다. 이 표에는 언어 및 플랫폼별로 구성된 음성 도우미 빠른 시작 목록이 포함되어 있습니다.
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
-| C #, UWP | Windows | [찾아보기](/dotnet/api/microsoft.cognitiveservices.speech) |
+| C#, UWP | Windows | [찾아보기](/dotnet/api/microsoft.cognitiveservices.speech) |
 | Java | Windows, macOS, Linux | [찾아보기](/java/api/com.microsoft.cognitiveservices.speech) |
 | Java | Android | [찾아보기](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## <a name="sample-code"></a>샘플 코드
 
-음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 몇 가지 인기 있는 프로그래밍 언어로 도우미에 연결 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
+음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플을 사용하면 클라이언트 애플리케이션에서 여러 인기 프로그래밍 언어로 도우미에 연결할 수 있습니다.
 
 * [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples/#voice-assistants-quickstarts)
-* [자습서: 음성 SDK를 사용 하 여 길잡이 활성화, C #](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [자습서: 음성 SDK, C#으로 음성을 지원하도록 도우미 설정](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>사용자 지정
 
-Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](./custom-keyword-basics.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
+Speech Service를 사용하여 빌드된 음성 도우미는 [음성 텍스트 변환](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md) 및 [사용자 지정 키워드 선택](./custom-keyword-basics.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](./language-support.md)참조).
+> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다([지원되는 언어](./language-support.md) 참조).
 
-음성 도우미에 대 한 직접 줄 음성 및 관련 기능은 [가상 길잡이 솔루션 및 엔터프라이즈 템플릿에](/azure/bot-service/bot-builder-enterprise-template-overview)적합 합니다. 직접 라인 음성은 호환 봇에서 작동할 수 있지만 이러한 리소스는 고품질의 대화형 환경 뿐만 아니라 빠르게 시작할 수 있는 일반적인 지원 기술 및 모델에 재사용 가능한 기준을 제공 합니다.
+음성 도우미에 대한 Direct Line Speech 및 관련 기능은 [Virtual Assistant 솔루션 및 엔터프라이즈 템플릿](/azure/bot-service/bot-builder-enterprise-template-overview)에 적합합니다. Direct Line Speech는 호환 봇에서 작동할 수 있지만 이러한 리소스는 고품질의 대화형 환경뿐만 아니라 빠르게 시작할 수 있는 일반적인 지원 기술 및 모델에 재사용 가능한 기준을 제공합니다.
 
 ## <a name="reference-docs"></a>참조 문서
 
@@ -67,4 +67,4 @@ Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트
 * [평가판 Speech Service 구독 키 받기](overview.md#try-the-speech-service-for-free)
 * [Speech SDK 가져오기](speech-sdk.md)
 * [기본 봇 만들기 및 배포](/azure/bot-service/bot-builder-tutorial-basic-deploy)
-* [가상 길잡이 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)
+* [Virtual Assistant 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)

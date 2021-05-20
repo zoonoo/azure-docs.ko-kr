@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
 ms.openlocfilehash: 2be8a9c7476bda6952ed1eaa15d29fe9c01b59a5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100371314"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure Data Factory를 사용하여 Amazon S3에서 Azure Storage로 데이터 마이그레이션 
@@ -33,7 +33,7 @@ ADF는 서로 다른 수준에서 병렬 처리를 허용하는 서버리스 아
 
 고객은 2GBps 이상의 처리량을 유지하면서 수억 개의 파일로 구성된 페타바이트 크기 데이터를 Amazon S3에서 Azure Blob 스토리지로 마이그레이션했습니다. 
 
-![다이어그램은 Azure Blob Storage D L S Gen2에 연결 된 복사 작업을 포함 하는 W S S3 저장소의 여러 파일 파티션을 보여줍니다.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
+![다이어그램은 Azure Blob Storage ADLS Gen2에 연결된 복사 작업을 포함하는 AWS S3 저장소의 여러 파일 파티션을 보여줍니다.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
 위의 그림은 다양한 병렬 처리 수준을 통해 뛰어난 데이터 이동 속도를 달성할 수 있는 방법을 보여 줍니다.
  
@@ -57,7 +57,7 @@ S3에서 Blob으로, S3에서 ADLS Gen2로 이진 복사를 수행하면 ADF는 
 
 퍼블릭 인터넷을 통해 데이터 마이그레이션:
 
-![다이어그램은 D F Azure의 Azure Integration Runtime를 통해 W S P 2에서 H T P로 인터넷을 통해 Azure Storage에 대 한 마이그레이션을 보여 줍니다. 런타임에는 Data Factory 있는 컨트롤 채널이 있습니다.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![다이어그램은 AWS S3 저장소에서 ADF Azure의 Azure Integration Runtime을 통해 Azure Storage로 HTTP별 인터넷을 통한 마이그레이션을 보여줍니다. 런타임에는 Data Factory가 포함된 컨트롤 채널이 있습니다.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - 이 아키텍처에서 데이터는 퍼블릭 인터넷을 통해 HTTPS를 사용하여 안전하게 전송됩니다. 
 - 원본 Amazon S3 뿐만 아니라 대상 Azure Blob 스토리지 또는 Azure Data Lake Storage Gen2는 모두 모든 네트워크 IP 주소의 트래픽을 허용하도록 구성되어 있습니다.  특정 IP 범위로 네트워크 액세스를 제한하는 방법은 아래의 두 번째 아키텍처를 참조하세요. 
@@ -66,11 +66,11 @@ S3에서 Blob으로, S3에서 ADLS Gen2로 이진 복사를 수행하면 ADF는 
 
 프라이빗 링크를 통해 데이터 마이그레이션: 
 
-![다이어그램은 Azure virtual machines에서 자체 호스팅 통합 런타임을 통해 A W S S3 저장소에서 Azure Storage로의 개인 피어 링 연결을 통한 마이그레이션을 보여 줍니다. 런타임에는 Data Factory 있는 컨트롤 채널이 있습니다.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![다이어그램은 Azure 가상 머신의 자체 호스팅 통합 런타임을 통해 AWS S3 저장소에서 Azure Storage로 개인 피어링 연결을 통한 마이그레이션을 보여줍니다. 런타임에는 Data Factory가 포함된 컨트롤 채널이 있습니다.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - 이 아키텍처에서 데이터 마이그레이션은 데이터가 퍼블릭 인터넷을 통해 트래버스되지 않도록 AWS Direct Connect와 Azure Express 경로 간의 프라이빗 피어링 링크를 통해 수행됩니다.  AWS VPC 및 Azure Virtual Network를 사용해야 합니다. 
 - 이 아키텍처를 구현하려면 Azure Virtual Network 내의 Windows VM에 ADF 자체 호스팅 Integration Runtime을 설치해야 합니다.  자체 호스팅 IR VM을 수동으로 스케일 업하거나 여러 VM(최대 4개 노드)으로 스케일 아웃하여 네트워크 및 스토리지 IOPS/대역폭을 최대한 활용할 수 있습니다. 
-- HTTPS를 통해 데이터를 전송하는 것이 허용되지만, 원본 S3에 대한 네트워크 액세스를 특정 IP 범위로 잠그려는 경우 AWS VPC를 제거하고 프라이빗 링크를 HTTPS로 바꾸어 이 아키텍처의 변형을 채택할 수 있습니다.  필터링 목적으로 공개적으로 라우팅할 수 있는 고정 IP를 사용할 수 있도록 azure VM에서 Azure 가상 및 자체 호스팅 IR을 유지 하려고 합니다. 
+- HTTPS를 통해 데이터를 전송하는 것이 허용되지만, 원본 S3에 대한 네트워크 액세스를 특정 IP 범위로 잠그려는 경우 AWS VPC를 제거하고 프라이빗 링크를 HTTPS로 바꾸어 이 아키텍처의 변형을 채택할 수 있습니다.  필터링하기 위해 공개적으로 라우팅 가능한 정적 IP를 유지할 수 있도록 Azure VM에서 Azure Virtual 및 자체 호스팅 IR을 유지합니다. 
 - 초기 스냅샷 데이터 마이그레이션과 델타 데이터 마이그레이션은 모두 이 아키텍처를 사용하여 달성할 수 있습니다. 
 
 ## <a name="implementation-best-practices"></a>구현 모범 사례 
@@ -118,7 +118,7 @@ ADF 복사 작업에서 보고하는 제한 오류가 발생하는 경우 ADF에
 
 S3에서 Azure Blob 스토리지로 데이터를 마이그레이션하기 위해 생성된 다음 파이프라인을 고려하세요. 
 
-![다이어그램은 데이터를 마이그레이션하기 위한 파이프라인을 보여 주고, ForEach로 이동 하는 수동 트리거를 조회로 이동 하 여 저장 프로시저로의 복사를 포함 하는 각 파티션의 하위 파이프라인으로 이동 합니다. 파이프라인 외부에서 저장 프로시저는 Azure SQL D B로 이동 하며,이는 조회로 이동 하 고, 복사할 W S S3 흐름이 Blob storage로 흐릅니다.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![다이어그램은 Lookup으로, ForEach으로, 저장 프로시저로 흐르는 Copy를 포함하는 각 파티션의 하위 파이프라인으로 차례로 흐르는 수동 트리거가 있는 데이터를 마이그레이션하기 위한 파이프라인을 보여줍니다. 파이프라인 외부에서 저장 프로시저는 Lookup으로 흐르는 Azure SQL DB로 흐르고, AWS S3는 Blob 스토리지로 흐르는 Copy로 흐릅니다.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
 다음을 가정해 보세요. 
 
@@ -131,7 +131,7 @@ S3에서 Azure Blob 스토리지로 데이터를 마이그레이션하기 위해
 
 다음은 위의 가정에 따라 예상되는 가격입니다. 
 
-![예상 가격은 표 스크린샷에 표시 됩니다.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![표의 스크린샷은 예상 가격을 보여줍니다.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>추가 참조 
 - [Amazon Simple Storage Service 커넥터](./connector-amazon-simple-storage-service.md)

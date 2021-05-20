@@ -3,16 +3,17 @@ title: HIPAA HITRUST 9.2 청사진 샘플 개요
 description: HIPAA HITRUST 9.2 청사진 샘플의 개요 이 청사진 샘플은 고객이 특정 HIPAA HITRUST 9.2 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 168946319c11f31ee41594d82d9ff186dea232cd
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: eda98807a48a43132b9bbf6c7f9b6293aefdbacb
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386587"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757154"
 ---
 # <a name="hipaa-hitrust-92-blueprint-sample"></a>HIPAA HITRUST 9.2 청사진 샘플
 
-HIPAA HITRUST 9.2 청사진 샘플은 특정 HIPAA HITRUST 9.2 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 HIPAA HITRUST 9.2 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 집합을 배포하는 데 도움이 됩니다.
+HIPAA HITRUST 9.2 청사진 샘플은 특정 HIPAA HITRUST 9.2 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다.
+이 청사진은 고객이 HIPAA HITRUST 9.2 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 집합을 배포하는 데 도움이 됩니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 

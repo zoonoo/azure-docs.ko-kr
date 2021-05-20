@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/16/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f808c9d01ecbd125e2ef0e3a7b61152767b1b4b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5ac851c54a17893082d70bec5d96e8b8cf63b482
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124026"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517895"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Key Vault에 액세스 
 
@@ -97,10 +97,10 @@ ms.locfileid: "108124026"
 
 >[!IMPORTANT]
 > 모든 Azure SDK는 Azure AD 토큰을 쉽게 획득하여 대상 서비스에 액세스할 수 있는 Azure.Identity 라이브러리를 지원합니다. [Azure SDK](https://azure.microsoft.com/downloads/)에 대해 자세히 알아보고 Azure.Identity 라이브러리를 활용하세요.
-> - [.NET](/dotnet/api/overview/azure/identity-readme?view=azure-dotnet)
-> - [JAVA](/java/api/overview/azure/identity-readme?view=azure-java-stable)
-> - [Javascript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-> - [Python](/python/api/overview/azure/identity-readme?view=azure-python)
+> - [.NET](/dotnet/api/overview/azure/identity-readme)
+> - [JAVA](/java/api/overview/azure/identity-readme)
+> - [Javascript](/javascript/api/overview/azure/identity-readme)
+> - [Python](/python/api/overview/azure/identity-readme)
 
 
 1. Portal에서 Linux VM으로 이동한 다음 **개요** 에서 **연결** 을 클릭합니다. 

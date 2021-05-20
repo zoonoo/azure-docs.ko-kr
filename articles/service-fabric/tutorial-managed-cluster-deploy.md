@@ -1,17 +1,17 @@
 ---
-title: Service Fabric 관리형 클러스터 배포(미리 보기)
+title: Service Fabric 관리형 클러스터 배포
 description: 이 자습서에서는 테스트를 위해 Service Fabric 관리형 클러스터를 배포합니다.
 ms.topic: tutorial
-ms.date: 08/27/2020
+ms.date: 5/10/2021
 ms.custom: references_regions
-ms.openlocfilehash: fd54e6f8c5272c3a8fe0e0162ca2e57968b24642
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48332bd8115a48497157b846f02db49c96e61001
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821945"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685786"
 ---
-# <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>자습서: Service Fabric 관리형 클러스터 배포(미리 보기)
+# <a name="tutorial-deploy-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터 배포
 
 이 자습서 시리즈에서는 다음을 설명합니다.
 

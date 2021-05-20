@@ -3,12 +3,12 @@ title: PCI-DSS v3.2.1 청사진 샘플 제어
 description: Azure Policy 및 Azure RBAC에 대한 지불 카드 업계 데이터 보안 표준 v3.2.1 청사진 샘플의 제어 매핑입니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 7011f0b55e73f193fb85881ed18812de97876fda
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 5d45e78af9bb07d433ea5aa52581fdbda6d1efea
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166670"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108756956"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 청사진 샘플의 제어 매핑
 
@@ -59,12 +59,11 @@ ms.locfileid: "108166670"
 Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않습니다. 반대로, Azure 구독 소유자가 너무 많으면 손상된 소유자 계정을 통한 위반 가능성이 증가할 수 있습니다. 이 청사진은 Azure 구독의 소유자 수를 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 적절한 수의 Azure 구독 소유자를 유지 관리하는 데 도움이 됩니다. 구독 소유자 권한을 관리하면 적절한 임무 분리를 구현하는 데 도움이 될 수 있습니다.
 
 - 구독에 둘 이상의 소유자를 할당해야 합니다.
-- 구독에 최대 3명의 소유자를 지정해야 합니다. 
+- 구독에 최대 3명의 소유자를 지정해야 합니다.
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a 및 8.3.1.b 권한 있는 액세스 권한 관리
 
-이 청사진은 소유자, 쓰기 및/또는 읽기 권한이 있는 외부 계정과 다단계 인증을 사용하도록 설정되지 않은 소유자 및/또는 쓰기 권한이 있는 직원 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 권한 있는 액세스 권한을 제한하고 제어하는 데 도움이 됩니다. Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하는 데 도움이 됩니다. 사용자 지정 Azure RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 Azure RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다. 또한 이 청사진은 SQL Server에 대한 Azure Active Directory 인증 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 권한 관리가 간소화되고 데이터베이스 사용자 및 기타 Microsoft  
-서비스의 ID 관리가 중앙 집중화됩니다.
+이 청사진은 소유자, 쓰기 및/또는 읽기 권한이 있는 외부 계정과 다단계 인증을 사용하도록 설정되지 않은 소유자 및/또는 쓰기 권한이 있는 직원 계정을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당하여 권한 있는 액세스 권한을 제한하고 제어하는 데 도움이 됩니다. Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하는 데 도움이 됩니다. 사용자 지정 Azure RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 Azure RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다. 또한 이 청사진은 SQL Server에 대한 Azure Active Directory 인증 사용을 감사하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다. Azure Active Directory 인증을 사용하면 권한 관리가 간소화되고 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID 관리를 중앙 집중화할 수 있습니다.
 
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 - 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
@@ -87,7 +86,8 @@ Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure에서 리소스에 액
 
 ## <a name="813-removal-or-adjustment-of-access-rights"></a>8.1.3 액세스 권한 제거 또는 조정
 
-Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure에서 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 됩니다. Azure Active Directory 및 Azure RBAC를 사용하여 조직 변경 내용을 반영하도록 사용자 역할을 업데이트할 수 있습니다. 필요한 경우 계정을 로그인하지 못하게 차단하거나 제거하여 Azure 리소스에 대한 액세스 권한을 즉시 제거할 수 있습니다. 이 청사진은 제거할 대상으로 고려해야 하는 사용 중단된 계정을 감사하는 두 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure에서 리소스에 액세스할 수 있는 사용자를 관리하는 데 도움이 됩니다.
+Azure Active Directory 및 Azure RBAC를 사용하여 조직 변경 내용을 반영하도록 사용자 역할을 업데이트할 수 있습니다. 필요한 경우 계정을 로그인하지 못하게 차단하거나 제거하여 Azure 리소스에 대한 액세스 권한을 즉시 제거할 수 있습니다. 이 청사진은 제거할 대상으로 고려해야 하는 사용 중단된 계정을 감사하는 두 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 더 이상 사용되지 않는 계정은 구독에서 제거해야 합니다.
 - 소유자 권한이 있는 사용되지 않는 계정은 구독에서 제거해야 합니다.
