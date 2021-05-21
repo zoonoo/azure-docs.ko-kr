@@ -101,7 +101,7 @@ Azure Portal의 복원 지점 시간을 입력할 때 복원 지점을 파악하
 
 복원 작업을 시작한 후 포털의 오른쪽 상단 모서리에 있는 **알림** 벨 아이콘을 선택합니다. 그러면 복원 중인 계정의 상태를 표시하는 링크가 제공됩니다. 복원이 진행 중인 동안에는 계정 상태가 *생성 중* 이고, 복원 작업이 완료된 후에는 계정 상태가 *온라인* 으로 변경됩니다.
 
-:::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="" border="true":::작업이 완료되면 복원된 계정의 상태가 생성 중에서 온라인으로 변경됩니다.
+:::image type="content" source="./media/continuous-backup-restore-portal/track-restore-operation-status.png" alt-text="-" border="true":::작업이 완료되면 복원된 계정의 상태가 생성 중에서 온라인으로 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
