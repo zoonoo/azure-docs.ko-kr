@@ -55,7 +55,7 @@
 - name: 방법 가이드
   items:
     - name: Azure VMware Solution에 대한 호스트 할당량 요청
-      href: enable-azure-vmware-solution.md
+      href: request-host-quota-azure-vmware-solution.md
     - name: 리소스 이동
       items:
         - name: Azure VMware solution 구독 이동
@@ -64,8 +64,10 @@
       href: reserved-instance.md
     - name: Azure VMware Solution 평가 만들기
       href: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
-    - name: DHCP 관리
-      href: manage-dhcp.md
+    - name: DHCP 구성 및 관리
+      href: configure-dhcp-azure-vmware-solution.md
+    - name: L2 확장 VMware HCX 네트워크에서 DHCP 구성
+      href: configure-l2-stretched-vmware-hcx-networks.md
     - name: NSX 네트워크 구성 요소 구성
       href: configure-nsx-network-components-azure-portal.md
     - name: GitHub Enterprise 서버 구성
@@ -147,7 +149,7 @@
     - name: FAQ
       items:
         - name: 일반
-          href: /azure/azure-vmware/faq#general
+          href: faq.yml
         - name: 고객 커뮤니케이션
           href: /azure/azure-vmware/faq#customer-communication
         - name: 구성 및 설정

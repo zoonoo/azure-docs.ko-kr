@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0aa0dab7b512c85fbbdf374c962e6ee8e1c7d616
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faecba93fbbc9e25ea85b644e0254f07747611dc
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92456290"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -128,39 +128,38 @@ Cezanne HR Software에서 Azure AD Single Sign-on을 구성하려면 다음 단�
 
 1. 다른 웹 브라우저 창에서 Cezanne HR Software 테넌트에 관리자로 로그인합니다.
 
-2. 왼쪽 탐색 창에서 **시스템 설정** 을 클릭합니다. **보안 설정** 으로 이동합니다. 그런 다음 **Single Sign-On 구성** 으로 이동합니다.
+2. 사이드 메뉴에서 **관리** 를 선택합니다. 그런 다음, **보안 설정** 으로 이동하여 **Single Sign-On** 을 클릭합니다.
 
-    ![[보안 설정] 및 [Single Sign-On 구성]이 선택된 Cezanne H R Software 테넌트를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
+    ![[보안 설정] 및 [Single Sign-On 구성]이 선택된 Cezanne H R Software 테넌트를 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115692888-4c266900-a357-11eb-867d-7408b0ef16aa.png)
 
 3. **다음 SSO(Single Sign-On) Service를 사용한 사용자 로그온 허용** 패널에서 **SAML 2.0** 상자를 선택하고 **고급 구성** 옵션을 선택합니다.
 
-    ![SAML 2.0 및 [고급 구성]이 선택된 [사용자 허용] 창을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
+    ![SAML 2.0 및 [고급 구성]이 선택된 [사용자 허용] 창을 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115693054-72e49f80-a357-11eb-93c7-9986770ac17e.png)
 
 4. **새로 추가** 단추를 클릭합니다.
 
     ![[새로 추가] 단추를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-5. **SAML 2.0 ID 공급자** 섹션에서 다음 단계를 수행합니다.
+5. **SAML 2.0 IDENTITY PROVIDERS** 섹션에서 다음 필드를 입력하고 **확인** 을 클릭합니다.
 
     ![이 단계에서 설명한 값을 입력할 수 있는 창을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
-    a. **표시 이름** 으로 ID 공급자의 이름을 입력합니다.
+    a. **표시 이름** - ID 공급자의 이름을 표시 이름으로 입력합니다.
 
-    b. Azure Portal에서 복사한 **Azure Ad 식별자** 값을 **엔터티 식별자** 텍스트 상자에 붙여넣습니다.
+    b. **엔터티 식별자** - Azure Portal에서 복사한 Azure Ad 식별자 값을 엔터티 식별자 텍스트 상자에 붙여넣습니다.
 
-    다. **SAML 바인딩** 을 'POST'로 변경합니다.
+    다. **SAML 바인딩** - SAML 바인딩을 'POST'로 변경합니다.
 
-    d. Azure Portal에서 복사한 **로그인 URL** 의 값을 **보안 토큰 서비스 엔드포인트** 텍스트 상자에 붙여넣습니다.
+    d. **보안 토큰 서비스 엔드포인트** - Azure Portal에서 복사한 로그인 URL의 값을 보안 토큰 서비스 엔드포인트 텍스트 상자에 붙여넣습니다.
 
-    e. 사용자 ID 특성 이름 텍스트 상자에 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`을 입력합니다.
+    e. **사용자 ID 특성 이름** - 사용자 ID 특성 이름 텍스트 상자에 http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress 를 입력합니다.
 
-    f. **업로드** 아이콘을 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
+    f. **공개 키 인증서** - 업로드 아이콘을 클릭하여 Azure Portal에서 다운로드한 인증서를 업로드합니다.
 
-    g. **확인** 단추를 클릭합니다.
+6. 확인을 클릭합니다.
 
-6. **저장** 단추를 클릭합니다.
+7. 저장 단추를 클릭합니다. 
 
-    ![Single Sign-On 구성의 [저장] 단추를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -221,25 +220,25 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
 1. Cezanne HR Software 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 왼쪽 탐색 창에서 **시스템 설정** 을 클릭합니다. **사용자 관리** 로 이동합니다. 그런 다음 **새 사용자 추가** 로 이동합니다.
+2. 사이드 메뉴에서 **관리** 를 선택합니다. 그런 다음, **사용자** 로 이동하여 **새 사용자 추가** 를 클릭합니다.
 
-    ![[사용자 관리] 및 [새 사용자 추가]가 선택된 Cezanne H R Software 테넌트를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "새 사용자")
+    ![[사용자 관리] 및 [새 사용자 추가]가 선택된 Cezanne H R Software 테넌트를 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115694050-6ad92f80-a358-11eb-81be-148de665e185.png)
 
 3. **사람 세부 정보** 섹션에서 다음 단계를 수행합니다.
 
-    ![이 단계에서 설명한 값을 입력할 수 있는 [사용자 세부 정보] 섹션을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "새 사용자")
+    ![이 단계에서 설명한 값을 입력할 수 있는 [사용자 세부 정보] 섹션을 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115694321-a70c9000-a358-11eb-8325-de2582d135ec.png)
 
     a. **내부 사용자** 를 OFF로 설정합니다.
 
-    b. **이름** 텍스트 상자에 사용자의 이름(예: **Britta**)을 입력합니다.  
+    b. 이름 입력   
 
-    다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
+    다. 성 입력
 
-    d. **전자 메일** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 전자 메일 주소를 입력합니다.
+    d. 이메일 주소를 입력합니다.
 
 4. **계정 정보** 섹션에서 다음 단계를 수행합니다.
 
-    ![이 단계에서 설명한 값을 입력할 수 있는 [계정 정보]를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "새 사용자")
+    ![이 단계에서 설명한 값을 입력할 수 있는 [계정 정보]를 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115694501-d3c0a780-a358-11eb-8873-0fc778b43775.png)
 
     a. **사용자 이름** 텍스트 상자에서 Brittasimon@contoso.com과 같은 사용자의 이메일 주소를 입력합니다.
 
@@ -248,18 +247,19 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
     다. **보안 역할** 로 **HR 전문가** 를 선택합니다.
 
     d. **확인** 을 클릭합니다.
+    ![스크린샷은 확인 단추를 보여줍니다.](https://user-images.githubusercontent.com/80324891/115694644-f6eb5700-a358-11eb-9b23-a87a24921052.png)
 
 5. **Single Sign-On** 탭으로 이동하고 **SAML 2.0 식별자** 영역에서 **새로 추가** 를 선택합니다.
 
-    ![[새로 추가]를 선택할 수 있는 Single Sign-On 탭을 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "사용자")
+    ![[새로 추가]를 선택할 수 있는 Single Sign-On 탭을 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115694716-0b2f5400-a359-11eb-9192-d31f6c9d3e3e.png)
 
-6. **ID 공급자** 에 대해 사용자의 ID 공급자를 선택하고 **사용자 식별자** 텍스트 상자에서 Britta Simon 계정의 전자 메일 주소를 입력합니다.
+6. **ID 공급자** 에 대해 ID 공급자를 선택하고 **사용자 식별자** 텍스트 상자에 사용자 이메일 주소를 입력합니다.
 
-    ![ID 공급자 및 사용자 식별자를 선택할 수 있는 SAML 2.0 식별자를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "사용자")
+    ![ID 공급자 및 사용자 식별자를 선택할 수 있는 SAML 2.0 식별자를 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115694865-28fcb900-a359-11eb-9cd3-496a93124cc4.png)
 
 7. **저장** 단추를 클릭합니다.
 
-    ![[사용자 설정]의 [저장] 단추를 보여주는 스크린샷](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "사용자")
+    ![[사용자 설정]의 [저장] 단추를 보여주는 스크린샷](https://user-images.githubusercontent.com/80324891/115694880-3023c700-a359-11eb-85d4-83d057660cfb.png)
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

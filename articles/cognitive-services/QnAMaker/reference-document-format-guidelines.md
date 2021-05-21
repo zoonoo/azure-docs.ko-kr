@@ -1,40 +1,40 @@
 ---
-title: 문서 형식 가져오기 지침-QnA Maker
-description: 문서 가져오기에 대 한 지침을 사용 하 여 콘텐츠에 대 한 최상의 결과를 얻을 수 있습니다.
+title: 가져오기 문서 형식 지침 - QnA Maker
+description: 이러한 지침을 가져오는 문서에 사용하여 콘텐츠에 대한 최상의 결과를 얻습니다.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
 ms.openlocfilehash: 15ff2ec296cedc37b086a9ca2d0825fb20b4f05a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "99549544"
 ---
-# <a name="format-guidelines-for-imported-documents-and-urls"></a>가져온 문서와 Url에 대 한 형식 지침
+# <a name="format-guidelines-for-imported-documents-and-urls"></a>가져오는 문서 및 URL에 대한 형식 지침
 
-이러한 서식 지정 지침을 검토 하 여 콘텐츠에 대 한 최상의 결과를 얻을 수 있습니다.
+다음 서식 지정 지침을 검토하여 콘텐츠에 대한 최상의 결과를 얻습니다.
 
 ## <a name="formatting-considerations"></a>서식 지정 고려 사항
 
-파일이 나 URL을 가져온 후 QnA Maker는 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환 하 고 저장 합니다. 변환 프로세스는와 같이 텍스트에 새 줄을 추가 합니다 `\n\n` . Markdown 형식에 대 한 정보는 변환 된 콘텐츠를 이해 하 고 기술 자료 콘텐츠를 관리 하는 데 도움이 됩니다.
+파일 또는 URL을 가져오면 QnA Maker에서 콘텐츠를 [markdown 형식](https://en.wikipedia.org/wiki/Markdown)으로 변환하고 저장합니다. 변환 프로세스는 `\n\n`과 같이 새 줄을 텍스트에 추가합니다. markdown 형식에 대한 지식은 변환된 콘텐츠를 이해하고 기술 자료 콘텐츠를 관리하는 데 도움이 됩니다.
 
-기술 자료에서 직접 콘텐츠를 추가 하거나 편집 하는 경우 **markdown 서식 지정** 을 사용 하 여 서식 있는 텍스트 콘텐츠를 만들거나 답변에 이미 있는 markdown 서식 콘텐츠를 변경 합니다. QnA Maker는 풍부한 텍스트 기능을 콘텐츠에 제공 하는 많은 markdown 형식을 지원 합니다. 그러나 채팅 봇과 같은 클라이언트 응용 프로그램은 동일한 markdown 형식 집합을 지원 하지 않을 수 있습니다. 클라이언트 응용 프로그램의 답변 표시를 테스트 하는 것이 중요 합니다.
+기술 자료의 콘텐츠를 직접 추가하거나 편집하는 경우 **markdown 서식 지정** 을 사용하여 서식 있는 텍스트 콘텐츠를 만들거나 이미 답변에 있는 markdown 형식 콘텐츠를 변경합니다. QnA Maker는 대부분의 markdown 형식을 지원하여 서식 있는 텍스트 기능을 콘텐츠에 제공합니다. 그러나 챗봇과 같은 클라이언트 애플리케이션에서 동일한 markdown 형식 집합을 지원하지 않을 수 있습니다. 클라이언트 애플리케이션의 답변 표시를 테스트하는 것이 중요합니다.
 
-[콘텐츠 형식 및 예제](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)에 대 한 전체 목록을 확인 하세요.
+[콘텐츠 형식 및 예제](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)의 전체 목록을 참조하세요.
 
 ## <a name="basic-document-formatting"></a>기본 문서 서식 지정
 
-QnA Maker는 다음과 같은 시각적 단서를 기준으로 파일의 섹션과 하위 섹션 및 관계를 식별 합니다.
+QnA Maker는 다음과 같은 시각적 단서를 기반으로 하여 파일의 섹션, 하위 섹션 및 관계를 식별합니다.
 
 * 글꼴 크기
 * 글꼴 스타일
-* 매기기
+* 번호 매기기
 * 색
 
 > [!NOTE]
-> 현재 업로드 된 문서에서 이미지 추출을 지원 하지 않습니다.
+> 현재 업로드된 문서에서의 이미지 추출은 지원되지 않습니다.
 
 ### <a name="product-manuals"></a>제품 설명서
 
@@ -49,7 +49,7 @@ QnA Maker는 다음과 같은 시각적 단서를 기준으로 파일의 섹션�
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>브로슈어, 지침, 논문 및 기타 파일
 
-그 외의 문서 유형도 구조와 레이아웃이 명확하다면 QA 쌍을 생성하도록 처리할 수 있습니다. 여기에는 브로슈어, 지침, 보고서, 백서, 과학적 용지, 정책, 책 등이 포함 됩니다. [여기](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)에서 예제를 참조 하세요.
+그 외의 문서 유형도 구조와 레이아웃이 명확하다면 QA 쌍을 생성하도록 처리할 수 있습니다. 여기에는 브로슈어, 지침, 보고서, 백서, 과학 논문, 정책, 서적 등이 포함됩니다. 예는 [여기](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)서 참조하세요.
 
 아래는 인덱스 없는 반 구조화된 문서의 예입니다.
 
@@ -77,47 +77,47 @@ Answer2
 
 또한 구조화된 *.txt*, *.tsv* 또는 *.xls* 파일 양식의 QnA를 QnA Maker에 업로드하여 기술 자료를 만들거나 보강할 수 있습니다.  이러한 자료는 일반 텍스트일 수도 있고, RTF 또는 HTML 콘텐츠를 가질 수도 있습니다.
 
-| 질문  | Answer  | 메타 데이터 (1 개 키: 1 값) |
+| 질문  | Answer  | 메타데이터(1개 키: 1개 값) |
 |-----------|---------|-------------------------|
 | Question1 | Answer1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 |      `Key:Value`           |
 
 원본 파일의 추가 열은 무시됩니다.
 
-#### <a name="example-of-structured-excel-file"></a>구조적 Excel 파일의 예
+#### <a name="example-of-structured-excel-file"></a>구조화된 Excel 파일의 예
 
 아래는 HTML 콘텐츠가 포함된 구조화된 QnA *.xls* 파일의 예입니다.
 
  ![기술 자료를 위한 구조화된 QnA 문서 예제](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
-#### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Excel 파일의 단일 답변에 대 한 대체 질문 예제
+#### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Excel 파일의 단일 답변에 대한 대체 질문의 예
 
-다음은 단일 답변에 대 한 몇 가지 대체 질문이 있는 구조화 *된 QnA 파일* 의 예입니다.
+다음은 단일 답변에 대한 몇 가지 대체 질문이 있는 구조화된 QnA *.xls* 파일의 예입니다.
 
- ![Excel 파일의 단일 답변에 대 한 대체 질문 예제](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+ ![Excel 파일의 단일 답변에 대한 대체 질문의 예](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
-파일을 가져온 후에는 다음과 같이 질문 및 답변 쌍이 기술 자료에 있습니다.
+파일을 가져오면 아래와 같이 질문-답변 쌍이 기술 자료에 있습니다.
 
- ![기술 자료로 가져온 단일 답변에 대 한 대체 질문 스크린샷](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+ ![기술 자료로 가져온 단일 답변에 대한 대체 질문의 스크린샷](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ### <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 
 기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
 
-| 질문  | Answer  | 원본| 메타 데이터 (1 개 키: 1 값) |
+| 질문  | Answer  | 원본| 메타데이터(1개 키: 1개 값) |
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editorial|    `Key:Value`       |
 
 <a href="#formatting-considerations"></a>
 
-### <a name="multi-turn-document-formatting"></a>다중 문서 서식 지정
+### <a name="multi-turn-document-formatting"></a>다중 전환 문서 서식 지정
 
-* 머리글 및 하위 머리글을 사용 하 여 계층을 나타냅니다. 예를 들어, 부모 QnA 및 h2를 표시 하 여 프롬프트로 사용 해야 하는 QnA를 나타낼 수 있습니다. 작은 머리글 크기를 사용 하 여 후속 계층을 나타냅니다. 문서에서 구조를 의미 하는 스타일, 색 또는 기타 메커니즘을 사용 하지 않습니다. QnA Maker는 다중 전환 프롬프트를 추출 하지 않습니다.
-* 제목의 첫 번째 문자는 대문자 여야 합니다.
-* 물음표,로 제목을 끝에 표시 하지 않습니다 `?` .
+* 제목 및 부제목을 사용하여 계층 구조를 나타냅니다. 예를 들어 h1은 부모 QnA를 나타내고, h2는 프롬프트로 사용해야 하는 QnA를 나타냅니다. 작은 제목 크기를 사용하여 후속 계층 구조를 나타냅니다. 문서의 구조는 스타일, 색 또는 기타 메커니즘을 사용하여 암시하지 않습니다. QnA Maker는 다중 전환 프롬프트를 추출하지 않습니다.
+* 제목의 첫 번째 문자는 대문자여야 합니다.
+* 제목 끝에 물음표(`?`)를 사용하지 않습니다.
 
-**예제 문서**:<br>[.Docx (Surface Pro)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso 이점 (.docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso 이점 (pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
+**샘플 문서**:<br>[Surface Pro(docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso 혜택(docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso 혜택(pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)
 
 ## <a name="faq-urls"></a>FAQ URL
 
@@ -125,7 +125,7 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
 
 * 일반 FAQ 페이지
 * 링크가 포함된 FAQ 페이지
-* 토픽 홈페이지를 사용 하는 FAQ 페이지
+* 항목 홈페이지가 포함된 FAQ 페이지
 
 ### <a name="plain-faq-pages"></a>일반 FAQ 페이지
 
@@ -145,11 +145,11 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
  ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
-### <a name="parent-topics-page-links-to-child-answers-pages"></a>부모 항목 페이지 자식 응답 페이지에 대 한 링크
+### <a name="parent-topics-page-links-to-child-answers-pages"></a>자식 답변 페이지에 대한 부모 항목 페이지 링크
 
-이 유형의 FAQ에는 각 항목이 다른 페이지에서 해당 질문 및 답변 집합에 연결 된 항목 페이지가 있습니다. QnA Maker 연결 된 모든 페이지를 탐색 하 여 해당 질문 & 답변을 추출 합니다.
+이 형식의 FAQ에는 각 항목이 다른 페이지의 해당 질문 및 답변 세트에 연결되는 항목 페이지가 있습니다. QnA Maker는 연결된 모든 페이지를 크롤링하여 해당 질문과 답변을 추출합니다.
 
-다음은 여러 페이지의 FAQ 섹션에 대 한 링크가 포함 된 항목 페이지의 예입니다.
+여러 페이지의 FAQ 섹션에 대한 링크가 포함된 항목 페이지의 예는 아래와 같습니다.
 
  ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/topics-faq.png)
 
@@ -164,11 +164,11 @@ QnA Maker는 지정된 태스크를 수행하는 방법, 지정된 문제를 진
 
 ## <a name="import-and-export-knowledge-base"></a>기술 자료 가져오기 및 내보내기
 
-내보낸 기술 자료의 **TSV 및 XLS 파일** 은 QnA Maker 포털의 **설정** 페이지에서 파일을 가져오는 방법 으로만 사용할 수 있습니다. 이러한 파일은 기술 자료 생성 중에 데이터 원본으로 사용 하거나 **설정** 페이지의 **+ 파일 추가** 또는 **+ URL 추가** 기능에서 사용할 수 없습니다. 
+내보낸 기술 자료의 **TSV 및 XLS 파일** 은 QnA Maker 포털의 **설정** 페이지에서 파일을 가져와야만 사용할 수 있습니다. 이러한 파일은 기술 자료를 만드는 중에 또는 **설정** 페이지의 **+ 파일 추가** 또는 **+ URL 추가** 기능에서 데이터 원본으로 사용할 수 없습니다. 
 
-이러한 **TSV 및 XLS 파일** 을 통해 기술 자료를 가져오는 경우 QnA 쌍이 내보낸 기술 자료에서 qnas가 추출 된 원본이 아닌 편집 원본에 추가 됩니다. 
+이러한 **TSV 및 XLS 파일** 을 통해 기술 자료를 가져오면 QnA 쌍이 내보낸 기술 자료에서 QnA가 추출된 원본이 아니라 편집 원본에 추가됩니다. 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-[콘텐츠 형식 및 예제의](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base) 전체 목록 보기
+[콘텐츠 형식 및 예제](./concepts/data-sources-and-content.md#content-types-of-documents-you-can-add-to-a-knowledge-base)의 전체 목록을 참조하세요.

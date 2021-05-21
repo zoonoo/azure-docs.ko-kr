@@ -147,8 +147,8 @@
         - name: 모니터
           expanded: false
           items:
-            - name: 진단 및 감사 로그
-              href: container-registry-diagnostics-audit-logs.md
+            - name: Container Registry 모니터링
+              href: monitor-service.md
             - name: Azure Policy를 사용하여 규정 준수 감사
               href: container-registry-azure-policy.md
         - name: 문제 해결
@@ -257,6 +257,8 @@
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: 데이터 모니터링
+      href: monitor-service-reference.md
 - name: 리소스
   expanded: false
   items:

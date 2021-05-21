@@ -203,8 +203,8 @@
           href: core/howto-create-iot-central-application.md
         - name: 디바이스 템플릿 설정
           href: core/howto-set-up-template.md
-        - name: 버전 디바이스 템플릿
-          href: core/howto-version-device-template.md
+        - name: 디바이스 템플릿 편집
+          href: core/howto-edit-device-template.md
         - name: 속성을 사용하는 방법
           href: core/howto-use-properties.md
         - name: 명령을 사용하는 방법

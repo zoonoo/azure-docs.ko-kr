@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: ea679023b2b5bb620bb9684a0e841f6cc4fa310d
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 5285de1a8481f37238ce3e3f3038d0d4f4c3d54a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109847007"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078540"
 ---
 # <a name="running-a-reindex-job"></a>다시 인덱스 작업 실행
 
@@ -91,7 +91,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 ```
 
 > [!NOTE]
-> 또는 의 상태를 확인하여 다시 인덱스 작업을 취소하려면 다시 인덱스 ID가 필요합니다. 이는 결과 매개 변수 리소스의 ID입니다(위 참조). 다시 인덱스 ID는 Content-Location 문자열의 끝에서도 찾을 수 있습니다. 위의 예제에서는 `560c7c61-2c70-4c54-b86d-c53a9d29495e` 입니다.
+> 상태를 확인하거나 다시 인덱스 작업을 취소하려면 다시 인덱스 ID가 필요합니다. 결과 매개 변수 리소스의 ID입니다. 위의 예제에서 다시 인덱스 작업의 ID는 `560c7c61-2c70-4c54-b86d-c53a9d29495e` 입니다.
 
  ## <a name="how-to-check-the-status-of-a-reindex-job"></a>다시 인덱스 작업의 상태를 확인하는 방법
 
@@ -161,7 +161,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
     {
 ```
 
-다음 정보는 재 인덱싱 작업 결과에 표시 됩니다.
+다음 정보가 다시 인덱스 작업 결과에 표시됩니다.
 
 * **totalResourcesToReindex**: 작업의 일부로 인덱싱해야 되는 총 리소스 수를 포함 합니다.
 
@@ -190,7 +190,7 @@ Content-Location: https://{{FHIR URL}}/_operations/reindex/560c7c61-2c70-4c54-b8
 
 | **매개 변수**                     | **설명**              | **기본값**        | **권장 범위**           |
 | --------------------------------- | ---------------------------- | ------------------ | ------------------------------- |
-| QueryDelayIntervalInMilliseconds  | 이는 일괄 처리 작업을 수행 하는 동안 시작 되는 각 리소스 일괄 처리 사이의 지연입니다. | 500MS(.5초) | 50에서 5000: 50은 다시 인덱스 작업의 속도를 증가시키고 5000은 기본값에서 속도가 느려집니다. |
+| QueryDelayIntervalInMilliseconds  | 이는 일괄 처리 작업을 수행 하는 동안 시작 되는 각 리소스 일괄 처리 사이의 지연입니다. | 500 밀리초 (5 초) | 50에서 5000: 50은 다시 인덱스 작업의 속도를 증가시키고 5000은 기본값에서 속도가 느려집니다. |
 | MaximumResourcesPerQuery  | 이는 다시 인덱스할 리소스 일괄 처리에 포함된 최대 리소스 수입니다.  | 100 | 1-500 |
 | MaximumConcurreny  | 한 번에 수행되는 일괄 처리 수입니다.  | 1 | 1-5 |
 | targetDataStoreUsagePercentrage | 이렇게 하면 다시 인덱스 작업에 사용할 데이터 저장소의 백분율을 지정할 수 있습니다. 예를 들어 50%를 지정할 수 있으며, 이를 통해 Cosmos DB 사용 가능한 RU의 50%를 다시 인덱스 작업에서 사용할 수 있습니다.  | 존재하지 않습니다. 즉, 최대 100%를 사용할 수 있습니다. | 1-100 |
