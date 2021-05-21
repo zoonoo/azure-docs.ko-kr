@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션 - 
 description: Azure Machine Learning 디자이너에서 Studio(클래식) 실험을 다시 빌드합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: bb944cb034fdd7cc51648314154a654bc1265533
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35a68d1a2883d0631f90cd8009e272bca0c66278
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103565168"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311841"
 ---
 # <a name="rebuild-a-studio-classic-experiment-in-azure-machine-learning"></a>Azure Machine Learning 디자이너에서 Studio(클래식) 실험 다시 빌드
 
@@ -24,7 +24,7 @@ Studio(클래식) **실험** 은 Azure Machine Learning의 **파이프라인** �
 SDK를 사용한 파이프라인 빌드에 대한 자세한 내용은 [Azure Machine Learning 파이프라인이란](../concept-ml-pipelines.md#building-pipelines-with-the-python-sdk)을 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역을 만듭니다](../how-to-manage-workspace.md#create-a-workspace).
@@ -95,8 +95,8 @@ Studio(클래식) 실험을 다시 만든 후에는 **파이프라인 실행** �
 Studio(클래식) 마이그레이션 시리즈의 다른 문서를 참조하세요.
 
 1. [마이그레이션 개요](migrate-overview.md).
-1. [마이그레이션 데이터 세트](migrate-register-dataset.md).
-1. **Studio(클래식) 학습 파이프라인 다시 빌드**.
-1. [Studio(클래식) 웹 서비스 다시 빌드](migrate-rebuild-web-service.md).
-1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md).
-1. [R 스크립트 실행 마이그레이션](migrate-execute-r-script.md).
+1. [마이그레이션 데이터세트](migrate-register-dataset.md)
+1. **Studio(클래식) 학습 파이프라인 다시 빌드**
+1. [Studio(클래식) 웹 서비스 다시 빌드](migrate-rebuild-web-service.md)
+1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md)
+1. [R 스크립트 실행 마이그레이션](migrate-execute-r-script.md)

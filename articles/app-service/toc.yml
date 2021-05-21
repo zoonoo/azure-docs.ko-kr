@@ -32,8 +32,6 @@
       href: quickstart-custom-container.md
     - name: 다중 컨테이너 앱
       href: quickstart-multi-container.md
-    - name: Azure Arc의 앱(미리 보기)
-      href: quickstart-arc.md
 - name: 자습서
   items:
     - name: 보안 앱이 스토리지 및 Microsoft Graph에 액세스
@@ -88,6 +86,10 @@
       href: tutorial-send-email.md
     - name: 오류 문제 해결
       href: tutorial-troubleshoot-monitor.md
+    - name: GitHub 작업
+      items:
+        - name: 컨테이너가 있는 ASP.NET Core
+          href: app-service-sql-github-actions.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -108,8 +110,6 @@
       href: operating-system-functionality.md
     - name: 배포 모범 사례
       href: deploy-best-practices.md
-    - name: Azure Arc 호스팅(미리 보기)
-      href: overview-arc-integration.md
     - name: 보안
       items:
         - name: 권장 사항
@@ -279,8 +279,6 @@
           href: app-service-undelete.md
         - name: 다운된 영역에서 복원
           href: manage-disaster-recovery.md
-        - name: Azure Arc에서 사용
-          href: manage-create-arc-environment.md
     - name: 앱 이동
       items:
         - name: 영역 간 이동

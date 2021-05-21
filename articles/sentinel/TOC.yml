@@ -387,3 +387,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-sentinel/'
     - name: 미국 정부 클라우드의 기능 가용성
       href: /azure/security/fundamentals/feature-availability
+    - name: 새로운 기능 보관(6개월 이전)
+      href: whats-new-archive.md

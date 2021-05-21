@@ -1,23 +1,23 @@
 ---
-title: FHIR 용 Azure API에 대 한 규정 준수 제어 Azure Policy
-description: FHIR 용 Azure API에 사용할 수 있는 규정 준수 제어 Azure Policy를 나열 합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/04/2021
+title: Azure API for FHIR 대한 규정 준수 제어 Azure Policy
+description: Azure API for FHIR 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
+ms.date: 05/14/2021
 ms.topic: sample
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 55958b2d6243a9809d7d0f1424e8504b8014c628
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e470fd12cc08893e5694f13c0beeaf80fcb717c6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756841"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094752"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 규정 준수 제어 Azure Policy
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>Azure API for FHIR 대한 규정 준수 제어 Azure Policy
 
-[Azure Policy의 규정 준수](../../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어** 에 대해 _기본 제공_ 으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 FHIR 용 Azure API에 대 한 **준수 도메인** 및 **보안 제어가** 나열 됩니다. **보안 제어** 에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
+[Azure Policy의 규정 준수](../../governance/policy/concepts/regulatory-compliance.md)는 서로 다른 규정 준수 표준과 관련된 **규정 준수 도메인** 및 **보안 제어** 에 대해 _기본 제공_ 으로 알려진 Microsoft 생성 및 관리형 이니셔티브 정의를 제공합니다. 이 페이지에는 Azure API for FHIR **대한 규정 준수 도메인** 및 보안 **제어가 나열되어 있습니다.** **보안 제어** 에 대한 기본 제공 기능을 개별적으로 할당하여 Azure 리소스가 특정 표준을 준수하도록 할 수 있습니다.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

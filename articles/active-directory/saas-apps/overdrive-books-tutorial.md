@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/15/2021
+ms.date: 05/06/2021
 ms.author: jeedes
-ms.openlocfilehash: 390ccfa828ebaa0d3dec15990ffeb60cbb24360e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f94c19f52ab5b49f63d02296f30108f643f5c66d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101648597"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>자습서: Overdrive와 Azure Active Directory 통합
 
@@ -82,9 +82,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Overdrive 클라이언트 지원 팀](https://help.overdrive.com/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **페더레이션 메타데이터 XML** 을 다운로드하고 컴퓨터에 저장합니다.
+5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **앱 페더레이션 메타데이터 URL** 을 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/metadataxml.png)
+    ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
 6. **Overdrive 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -123,7 +123,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-overdrive-sso"></a>Overdrive SSO 구성
 
-**Overdrive** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Overdrive 지원 팀](https://help.overdrive.com/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Overdrive** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL** 을 [Overdrive 지원 팀](https://help.overdrive.com/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-overdrive-test-user"></a>Overdrive 테스트 사용자 만들기
 
