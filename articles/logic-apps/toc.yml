@@ -66,11 +66,19 @@
     - name: 단일 테넌트 Azure Logic Apps(미리 보기)
       items:
         - name: 단일 테넌트 개요(미리 보기)
-          href: logic-apps-overview-preview.md
-        - name: 미리 보기 논리 앱 만들기 - 포털
-          href: create-stateful-stateless-workflows-azure-portal.md
-        - name: 미리 보기 논리 앱 만들기 - Visual Studio Code
-          href: create-stateful-stateless-workflows-visual-studio-code.md
+          href: single-tenant-overview-compare.md
+        - name: 단일 테넌트 워크플로 만들기 - 포털
+          href: create-single-tenant-workflows-azure-portal.md
+        - name: 단일 테넌트 워크플로 만들기 - Visual Studio Code
+          href: create-single-tenant-workflows-visual-studio-code.md
+        - name: 단일 테넌트용 DevOps 배포
+          href: devops-deployment-single-tenant-azure-logic-apps.md
+        - name: 단일 테넌트용 DevOps 배포 설정
+          href: set-up-devops-deployment-single-tenant-azure-logic-apps.md
+        - name: 단일 테넌트 워크플로와 가상 네트워크 간의 트래픽 보호
+          href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+        - name: 단일 테넌트 워크플로에 대한 스토리지 비용 예측
+          href: estimate-storage-costs.md
     - name: 개발
       items:
         - name: 미리 빌드된 템플릿에서 만들기
@@ -350,7 +358,7 @@
           href: test-logic-apps-mock-data-static-results.md
     - name: 배포
       items:
-        - name: 개요 - 논리 앱 배포 자동화
+        - name: 자동화된 배포 정보(다중 테넌트)
           href: logic-apps-azure-resource-manager-templates-overview.md
         - name: 논리 앱 템플릿 만들기
           href: logic-apps-create-azure-resource-manager-templates.md

@@ -128,7 +128,7 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-작업 상태가 `Succeeded`을 표시하면 반환된 OperationStatus 인스턴스의 `ResourceLocation` 필드를 구문 분석하여 스냅샷 ID를 가져옵니다.
+작업 상태가 `Succeeded`를 표시하면 반환된 OperationStatus 인스턴스의 `ResourceLocation` 필드를 구문 분석하여 스냅샷 ID를 가져옵니다.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);

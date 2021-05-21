@@ -5,14 +5,14 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/3/2021
+ms.date: 5/17/2021
 ms.author: cavoeg
-ms.openlocfilehash: 37e75fb4f1e63e52bf81458641e56da9ae677b91
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 93468d2be1c9ab8fbdbce1e82a58f04f0676f260
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770896"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071185"
 ---
 # <a name="overview-of-fhir-search"></a>FHIR 검색 개요
 
@@ -32,28 +32,28 @@ GET {{FHIR_URL}}/Patient
 
 ## <a name="search-parameters"></a>검색 매개 변수
 
-검색을 수행 하는 경우 리소스의 다양 한 특성에 따라 검색 합니다. 이러한 특성을 검색 매개 변수 라고 합니다. 각 리소스에는 정의 된 검색 매개 변수 집합이 있습니다. 검색을 성공적으로 검색 하려면 검색 매개 변수를 정의 하 고 데이터베이스에서 인덱싱해야 합니다.
+검색을 수행 하는 경우 리소스의 다양 한 특성에 따라 검색 합니다. 이러한 특성을 검색 매개 변수라고 합니다. 각 리소스에는 정의된 검색 매개 변수 집합이 있습니다. 검색 매개 변수를 성공적으로 검색하려면 데이터베이스에서 검색 매개 변수를 정의하고 인덱싱해야 합니다.
 
-각 검색 매개 변수에는 정의 된 [데이터 형식이](https://www.hl7.org/fhir/search.html#ptypes)있습니다. 다양 한 데이터 형식에 대 한 지원은 아래에 설명 되어 있습니다.
+각 검색 매개 변수에는 정의된 [데이터 형식이 있습니다.](https://www.hl7.org/fhir/search.html#ptypes) 다양한 데이터 형식에 대한 지원은 아래에 설명되어 있습니다.
 
 
-| **검색 매개 변수 유형**  | **지원 됨-PaaS** | **지원 됨-OSS (SQL)** | **지원 됨-OSS (Cosmos DB)** | **설명**|
+| **검색 매개 변수 유형**  | **지원됨 - PaaS** | **지원됨 - OSS(SQL)** | **지원됨 - OSS(Cosmos DB)** | **설명**|
 | -------------------------  | -------------------- | ------------------------- | ------------------------------- |------------|
 |  number                    | 예                  | 예                       | 예                             |
 |  date                      | 예                  | 예                       | 예                             |
 |  문자열                    | 예                  | 예                       | 예                             |
 |  token                     | 예                  | 예                       | 예                             |
 |  reference                 | 예                  | 예                       | 예                             |
-|  복합                 | Partial              | Partial                   | Partial                         | 지원 되는 복합 형식 목록에 대해서는이 문서의 뒷부분에서 설명 합니다. |
+|  복합                 | Partial              | Partial                   | Partial                         | 지원되는 복합 형식 목록은 이 문서의 후반부에서 설명합니다. |
 |  quantity                  | 예                  | 예                       | 예                             |
 |  uri                       | 예                  | 예                       | 예                             |
 |  특수                   | 예                   | 예                        | 예                              |
 
-### <a name="common-search-parameters"></a>공통 검색 매개 변수
+### <a name="common-search-parameters"></a>일반 검색 매개 변수
 
-모든 리소스에 적용 되는 [일반적인 검색 매개 변수가](https://www.hl7.org/fhir/search.html#all) 있습니다. 이러한 내용은 아래에 나와 있습니다. 이러한 기능은 FHIR 용 Azure API 내에서의 지원과 함께 제공 됩니다.
+모든 리소스에 적용되는 [일반적인 검색 매개 변수가](https://www.hl7.org/fhir/search.html#all) 있습니다. 다음은 Azure API for FHIR 내에서의 지원과 함께 나열됩니다.
 
-| **공통 검색 매개 변수** | **지원 됨-PaaS** | **지원 됨-OSS (SQL)** | **지원 됨-OSS (Cosmos DB)** | **설명** |
+| **일반 검색 매개 변수** | **지원됨 - PaaS** | **지원됨 - OSS(SQL)** | **지원됨 - OSS(Cosmos DB)** | **설명** |
 | --------------------------  | -------------------- | ------------------------- | ------------------------------- | ------------|
 | _id                         | 예                  | 예                       | 예                             |             |
 | _lastUpdated                | 예                  | 예                       | 예                             |             |
@@ -88,9 +88,9 @@ GET {{FHIR_URL}}/metadata
 > FHIR 용 Azure API는 FHIR 사양에 정의 되지 않은 검색 매개 변수를 자동으로 만들거나 인덱싱하지 않습니다. 그러나 사용자 고유의 [검색 매개 변수](how-to-do-custom-search.md)를 정의할 수 있도록 지원 합니다.
 
 ### <a name="composite-search-parameters"></a>복합 검색 매개 변수
-복합 검색을 사용 하면 값 쌍을 검색할 수 있습니다. 예를 들어 사용자가 60 인치 였던 높이 관찰을 검색 하는 경우, 관찰의 단일 구성 요소에는 높이 코드 **와** 60 값이 포함 되어 있는지 확인 하는 것이 좋습니다. 다른 구성 요소 섹션에서와 같이 60 및 높이 코드의 값에 대 한 정규화 된 항목을 포함 하는 경우에도 60의 가중치와 높이가 48로 저장 된 지점을 관찰 하지 않으려고 합니다. 
+복합 검색을 사용하면 값 쌍을 검색할 수 있습니다. 예를 들어 사람이 60인치인 높이 관찰을 검색하는 경우 관찰의 단일 구성 요소에 높이 **코드와** 값 60이 포함되어 있는지 확인할 수 있습니다. 다른 구성 요소 섹션에서만 값 60 및 높이 코드로 한정된 항목이 관찰에 있더라도 가중치 60 및 높이 48이 저장된 위치를 관찰하고 싶지는 않을 것입니다. 
 
-FHIR 용 Azure API를 사용 하 여 다음과 같은 검색 매개 변수 형식 쌍을 지원 합니다.
+Azure API for FHIR 통해 다음과 같은 검색 매개 변수 형식 페어링을 지원합니다.
 
 * 참조, 토큰
 * 토큰, 날짜
@@ -99,25 +99,25 @@ FHIR 용 Azure API를 사용 하 여 다음과 같은 검색 매개 변수 형�
 * 토큰, 문자열
 * 토큰, 토큰
 
-자세한 내용은 HL7 [복합 검색 매개 변수](https://www.hl7.org/fhir/search.html#composite)를 참조 하세요. 
+자세한 내용은 HL7 복합 검색 매개 변수 를 [참조하세요.](https://www.hl7.org/fhir/search.html#composite) 
 
 > [!NOTE]
-> 복합 검색 매개 변수는 FHIR 사양에 따라 한정자를 지원 하지 않습니다.
+> 복합 검색 매개 변수는 FHIR 사양에 따라 한정자를 지원하지 않습니다.
 
- ### <a name="modifiers--prefixes"></a>한정자 & 접두사
+ ### <a name="modifiers--prefixes"></a>접두사 & 한정자
 
-[한정자](https://www.hl7.org/fhir/search.html#modifiers) 를 사용 하 여 검색 매개 변수를 수정할 수 있습니다. 다음은 FHIR 용 Azure API의 모든 FHIR 한정자 및 지원에 대 한 개요입니다. 
+[한정자를](https://www.hl7.org/fhir/search.html#modifiers) 사용하면 검색 매개 변수를 수정할 수 있습니다. 다음은 모든 FHIR 한정자와 Azure API for FHIR 지원에 대한 개요입니다. 
 
-| **한정자** | **지원 됨-PaaS** | **지원 됨-OSS (SQL)** | **지원 됨-OSS (Cosmos DB)** |
+| **한정자** | **지원됨 - PaaS** | **지원됨 - OSS(SQL)** | **지원됨 - OSS(Cosmos DB)** |
 | ------------- | -------------------- | ------------------------- | ------------------------------- |
-|  : 없음     | 예                  | 예                       | 예                             |
-|  : 정확히       | 예                  | 예                       | 예                             | 
+|  :missing     | 예                  | 예                       | 예                             |
+|  :exact       | 예                  | 예                       | 예                             | 
 |  : contains    | 예                  | 예                       | 예                             | 
 |  : 텍스트        | 예                  | 예                       | 예                             | 
 |  : 형식 (참조) | 예             | 예                       | 예                             | 
 |  : 아님         | 예                  | 예                       | 예                             | 
 |  : 아래 (uri) | 예                  | 예                       | 예                             |  
-|  : 위 (uri) | 예                   | 예                        | 예                              | 
+|  : 위 (uri) | 예                  | 예                       | 예                             | 
 |  : in (토큰)  | 예                   | 예                        | 예                              | 
 |  : 아래 (토큰) | 예                 | 예                        | 예                              | 
 |  : 위 (토큰) | 예                 | 예                        | 예                              | 
@@ -130,18 +130,18 @@ FHIR 용 Azure API를 사용 하 여 다음과 같은 검색 매개 변수 형�
 
 | **검색 결과 매개 변수**  | **지원 됨-PaaS** | **지원 됨-OSS (SQL)** | **지원 됨-OSS (Cosmos DB)** | **설명**                 |
 | ----------------------------  | -------------------- | ------------------------- | ------------------------------- | -----------------------------|
-| _elements                     | 예                  | 예                       | 예                             |  문제 [1256](https://github.com/microsoft/fhir-server/issues/1256)                              |
-| _count                        | 예                  | 예                       | 예                             | _count는 1000 리소스로 제한 됩니다. 1000 보다 높게 설정 된 경우 1000만 반환 되 고 번들에 경고가 반환 됩니다.                               |
-| _include                      | 예                  | 예                       | 예                             | 포함 된 항목은 100 개로 제한 됩니다. PaaS 및 Cosmos DB의 OSS _include은 반복 지원 [(#1313)](https://github.com/microsoft/fhir-server/issues/1313)을 포함 하지 않습니다.                               |
-| _revinclude                   | 예                  | 예                       | 예                             |  포함 된 항목은 100 개로 제한 됩니다. PaaS 및 Cosmos DB의 OSS _revinclude은 반복 지원 [(#1313)](https://github.com/microsoft/fhir-server/issues/1313)을 포함 하지 않습니다.  문제 [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
+| _elements                     | 예                  | 예                       | 예                             |                                |
+| _count                        | 예                  | 예                       | 예                             | _count 1,000개의 리소스로 제한됩니다. 1000보다 높게 설정된 경우 1,000개만 반환되고 번들에 경고가 반환됩니다.                               |
+| _include                      | 예                  | 예                       | 예                             | 포함된 항목은 100으로 제한됩니다. Cosmos DB PaaS 및 OSS의 _include :iterate [지원(#1313)](https://github.com/microsoft/fhir-server/issues/1313)을 포함하지 않습니다.                               |
+| _revinclude                   | 예                  | 예                       | 예                             |  포함된 항목은 100으로 제한됩니다. Cosmos DB PaaS 및 OSS의 _revinclude [:iterate 지원(#1313)을](https://github.com/microsoft/fhir-server/issues/1313)포함하지 않습니다.  문제 [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | 예             | 예                   | 예                        |                               |
-| _total                        | Partial              | Partial                   | Partial                         | _total = none 및 _total = 정확도                               |
-| _sort                         | Partial              | Partial                   | Partial                         | sort = _lastUpdated 지원 됩니다. FHIR 및 OSS 용 Azure API Cosmos DB 4 월 20 일 이후에 생성 된 데이터베이스의 경우 이름, 성 및 임상 날짜에서 2021 정렬도 지원 됩니다.                               |
+| _total                        | Partial              | Partial                   | Partial                         | _total=none 및 _total=정확도                               |
+| _sort                         | Partial              | Partial                   | Partial                         | sort=_lastUpdated 지원됩니다. 2021년 4월 20일 이후에 생성된 Azure API for FHIR 및 OSS Cosmos DB 데이터베이스의 경우 이름, 성 및 임상 날짜에서도 정렬이 지원됩니다.                               |
 | _contained                    | 예                   | 예                        | 예                              |                                |
 | _containedType                | 예                   | 예                        | 예                              |                                |
 | _score                        | 예                   | 예                        | 예                              |                                |
 
-기본적으로 FHIR 용 Azure API는 관대 처리로 설정 됩니다. 즉, 서버에서 알 수 없거나 지원 되지 않는 매개 변수를 무시 합니다. 엄격한 처리를 사용 하려면 **선호** 하는 헤더 및 집합을 사용할 수 있습니다 `handling=strict` .
+기본적으로 Azure API for FHIR 일시적인 처리로 설정됩니다. 즉, 서버는 알 수 없거나 지원되지 않는 매개 변수를 무시합니다. 엄격한 처리를 사용 하려면 **선호** 하는 헤더 및 집합을 사용할 수 있습니다 `handling=strict` .
 
  ## <a name="chained--reverse-chained-searching"></a>체인 & 역방향 연결 된 검색
 
