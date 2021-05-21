@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services에 대 한 질문과 대답 (연장 지원)
-description: Azure Cloud Services에 대 한 질문과 대답 (연장 지원)
+title: Azure Cloud Services(추가 지원)에 대한 질문과 대답
+description: Azure Cloud Services(추가 지원)에 대한 질문과 대답
 ms.topic: conceptual
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -8,121 +8,124 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9cac6cdd8e68af77b611c89e8b62e6f8d8845fd0
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
-ms.translationtype: MT
+ms.openlocfilehash: 8707578eef3467cc24cfeb3cd1c5156d7f5b3b1d
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107519"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288763"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 대한 질문과 대답
-이 문서에서는 Azure Cloud Services (확장 지원)와 관련 된 질문과 대답을 다룹니다.
+이 문서에서는 Azure Cloud Services(추가 지원)와 관련된 질문과 대답을 살펴봅니다.
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-the-resource-name-for-cloud-services-classic--cloud-services-extended-support"></a>Cloud Services (클래식) & Cloud Services (확장 지원)에 대 한 리소스 이름은 무엇 인가요?
-- Cloud Services (클래식): `microsoft.classiccompute/domainnames`
-- Cloud Services (확장 지원): `microsoft.compute/cloudservices`
+### <a name="what-is-the-resource-name-for-cloud-services-classic--cloud-services-extended-support"></a>Cloud Services(클래식) 및 Cloud Services(추가 지원)의 리소스 이름은 무엇인가요?
+- Cloud Services(클래식): `microsoft.classiccompute/domainnames`
+- Cloud Services(추가 지원): `microsoft.compute/cloudservices`
 
-### <a name="what-locations-are-available-to-deploy-cloud-services-extended-support"></a>Cloud Services (확장 지원)을 배포 하는 데 사용할 수 있는 위치
-모든 공용 클라우드 지역에서 Cloud Services (확장 지원)을 사용할 수 있습니다.
+### <a name="what-locations-are-available-to-deploy-cloud-services-extended-support"></a>Cloud Services(추가 지원) 배포에 사용 가능한 위치는 무엇인가요?
+Cloud Services(추가 지원)는 모든 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
 
-### <a name="how-does-my-quota-change"></a>할당량이 어떻게 변경 되나요? 
-고객은 다른 Azure Resource Manager 제품과 동일한 프로세스를 사용 하 여 할당량을 요청 해야 합니다. Azure Resource Manager 할당량은 지역 이며 각 지역에 별도의 할당량 요청이 필요 합니다.
+### <a name="how-does-my-quota-change"></a>할당량은 어떻게 변경되나요? 
+다른 Azure Resource Manager 제품과 동일한 프로세스를 사용하여 고객이 할당량을 요청해야 합니다. Azure Resource Manager의 할당량은 지역별로 달라지며 각 지역마다 개별 할당량 요청이 필요합니다.
 
-### <a name="why-dont-i-see-a-production--staging-slot-anymore"></a>프로덕션 & 스테이징 슬롯이 더 이상 표시 되지 않는 이유는 무엇 인가요?
-Cloud Services (확장 지원)는 두 개의 슬롯 (프로덕션 & 준비)을 포함 하는 호스 티 드 서비스의 논리적 개념을 지원 하지 않습니다. 각 배포는 독립 된 클라우드 서비스 (확장 지원) 배포입니다. 클라우드 서비스의 새 릴리스를 테스트 하 고 준비 하려면 클라우드 서비스 (확장 된 지원)를 배포 하 고 다른 클라우드 서비스 (확장 지원)를 사용 하 여 VIP로 스왑로 태그를 추가 합니다.
+### <a name="why-dont-i-see-a-production--staging-slot-anymore"></a>프로덕션 및 스테이징 슬롯이 더 이상 표시되지 않는 이유는 무엇인가요?
+Cloud Services(추가 지원)는 2개 슬롯(프로덕션 및 스테이징)이 포함된 호스트된 서비스의 논리 개념을 지원하지 않습니다. 각 배포는 독립된 Cloud Service(추가 지원) 배포입니다. 클라우드 서비스의 새 릴리스를 테스트하고 스테이징하려면 Cloud Service(추가 지원)를 배포하고 다른 Cloud Service(추가 지원)로 스왑 가능한 VIP로 태그를 지정합니다.
 
-### <a name="why-cant-i-create-an-empty-cloud-service-anymore"></a>빈 클라우드 서비스를 더 이상 만들 수 없는 이유는 무엇입니까?
-호스팅된 서비스 이름의 개념이 더 이상 존재 하지 않습니다. 빈 클라우드 서비스 (확장 지원)를 만들 수 없습니다.
+### <a name="why-cant-i-create-an-empty-cloud-service-anymore"></a>빈 Cloud Service를 더 이상 만들 수 없는 이유는 무엇인가요?
+호스트된 서비스 이름의 개념이 더 이상 존재하지 않으면 빈 Cloud Service(추가 지원)를 만들 수 없습니다.
 
-### <a name="does-cloud-services-extended-support-support-resource-health-check-rhc"></a>Cloud Services (확장 지원) 지원 Resource Health 확인 (RHC)을 지원 하나요?
-아니요, Cloud Services (확장 지원)는 Resource Health 확인 (RHC)을 지원 하지 않습니다.
+### <a name="does-cloud-services-extended-support-support-resource-health-check-rhc"></a>Cloud Services(추가 지원)에서 RHC(리소스 상태 검사)가 지원되나요?
+아니요, Cloud Services(추가 지원)는 RHC(리소스 상태 검사)를 지원하지 않습니다.
 
-### <a name="how-are-role-instance-metrics-changing"></a>역할 인스턴스 메트릭은 어떻게 변경 되나요?
-역할 인스턴스 메트릭에는 변경 내용이 없습니다. 
+### <a name="how-are-role-instance-metrics-changing"></a>역할 인스턴스 메트릭은 어떻게 변경되나요?
+역할 인스턴스 메트릭에는 변경 사항이 없습니다. 
 
-### <a name="how-are-web--worker-roles-changing"></a>웹 & 작업자 역할은 어떻게 변경 되나요?
-웹 및 작업자 역할의 디자인, 아키텍처 또는 구성 요소에는 변경 내용이 없습니다. 
+### <a name="how-are-web--worker-roles-changing"></a>웹 및 작업자 역할은 어떻게 변경되나요?
+웹 및 작업자 역할의 설계, 아키텍처 또는 구성 요소에는 변경 사항이 없습니다. 
 
-### <a name="how-are-role-instances-changing"></a>역할 인스턴스는 어떻게 변경 되나요?
-역할 인스턴스의 디자인, 아키텍처 또는 구성 요소에는 변경 내용이 없습니다. 
+### <a name="how-are-role-instances-changing"></a>역할 인스턴스는 어떻게 변경되나요?
+역할 인스턴스의 설계, 아키텍처 또는 구성 요소에는 변경 사항이 없습니다. 
 
-### <a name="how-will-guest-os-updates-change"></a>게스트 os 업데이트는 어떻게 변경 되나요?
- 롤아웃 방법에 대 한 변경 사항은 없습니다. Cloud Services (클래식) 및 Cloud Services (확장 지원)는 동일한 업데이트를 받습니다.
+### <a name="how-will-guest-os-updates-change"></a>게스트 OS 업데이트는 어떻게 변경되나요?
+ 출시 방법에 변경 사항이 없습니다. Cloud Services(클래식) 및 Cloud Services(추가 지원)에 동일한 업데이트가 적용됩니다.
  
-### <a name="does-cloud-services-extended-support-support-stopped-allocated-and-stopped-deallocated-states"></a>Cloud Services (확장 지원)는 중지 할당 및 중지 된 할당 취소 상태를 지원 하나요?
+### <a name="does-cloud-services-extended-support-support-stopped-allocated-and-stopped-deallocated-states"></a>Cloud Services(추가 지원)에서 중지-할당됨 및 중지-할당 취소됨 상태가 지원되나요?
 
-Cloud Services (확장 지원) 배포는 Azure Portal에서 "중지 됨"으로 표시 되는 중지 된 할당 상태만 지원 합니다. 중지 됨-할당 취소 된 상태는 지원 되지 않습니다. 
+Cloud Services(추가 지원) 배포에서는 Azure Portal에서 “중지됨”으로 표시되는 중지-할당 상태만 지원됩니다. 중지-할당 취소됨 상태는 지원되지 않습니다. 
 
-### <a name="do-cloud-services-extended-support-deployments-support-scaling-across-clusters-availability-zones-and-regions"></a>Cloud Services (확장 지원) 배포는 클러스터, 가용성 영역 및 지역 전체의 확장을 지원 하나요?
-Cloud Services (확장 지원) 배포는 여러 클러스터, 가용성 영역 및 지역에서 확장할 수 없습니다. 
+### <a name="do-cloud-services-extended-support-deployments-support-scaling-across-clusters-availability-zones-and-regions"></a>Cloud Services(추가 지원) 배포에서 클러스터, 가용성 영역 및 지역 간 확장이 지원되나요?
+Cloud Services(추가 지원) 배포는 여러 클러스터, 가용성 영역 및 지역 간에 확장될 수 없습니다. 
 
-### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Cloud Services (클래식)와 Cloud Services (확장 지원) 간의 가격 차이가 있나요?
-Cloud Services (확장 지원)는 ARM (Azure Key Vault 및 기본) 공용 IP 주소를 사용 합니다.인증서를 요구 하는 고객은 인증서 관리를 위해 Azure Key Vault를 사용 해야 합니다 (Azure Key Vault 가격 책정에 대해[자세히 알아보세요](https://azure.microsoft.com/pricing/details/key-vault/) ).   Cloud Services (확장 지원)에 대 한 각 공용 IP 주소는 별도로 청구 됩니다 (공용 IP 주소 가격에 대 한[자세한](https://azure.microsoft.com/pricing/details/ip-addresses/) 정보). 
+### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>내 Cloud Service(추가 지원)에 대해 배포 ID를 어떻게 가져올 수 있나요?
+배포 ID 즉, 프라이빗 ID는 [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API를 사용하여 액세스될 수 있습니다. Azure Portal의 Cloud Service(추가 지원)의 역할 및 인스턴스 블레이드 아래에서도 제공됩니다.
+
+### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Cloud Services(클래식) 및 Cloud Services(추가 지원)의 가격이 서로 다른가요?
+Cloud Services(추가 지원)에는 Azure Key Vault 및 Basic(ARM) 공용 IP 주소가 사용됩니다.인증서가 필요한 고객은 인증서 관리를 위해 Azure Key Vault를 사용해야 합니다(Azure Key Vault 가격 책정에 대해 [자세히 알아보기](https://azure.microsoft.com/pricing/details/key-vault/)). Cloud Services(추가 지원)의 각 공용 IP 주소는 별도로 청구됩니다(공용 IP 주소 가격 책정에 대해 [자세히 알아보기](https://azure.microsoft.com/pricing/details/ip-addresses/)). 
 ## <a name="resources"></a>리소스 
 
-### <a name="what-resources-linked-to-a-cloud-services-extended-support-deployment-need-to-live-in-the-same-resource-group"></a>Cloud Services (확장 지원) 배포에 연결 된 리소스는 동일한 리소스 그룹 내에 있어야 합니다.
-부하 분산 장치, 네트워크 보안 그룹 및 경로 테이블은 동일한 지역 및 리소스 그룹에 있어야 합니다. 
+### <a name="what-resources-linked-to-a-cloud-services-extended-support-deployment-need-to-live-in-the-same-resource-group"></a>동일한 리소스 그룹에 존재해야 하는 Cloud Services(추가 지원) 배포에는 어떤 리소스가 연결되나요?
+부하 분산 장치, 네트워크 보안 그룹 및 라우팅 테이블이 동일한 지역 및 리소스 그룹에 존재해야 합니다. 
 
-### <a name="what-resources-linked-to-a-cloud-services-extended-support-deployment-need-to-live-in-the-same-region"></a>Cloud Services (확장 지원) 배포에 연결 된 리소스는 동일한 지역에 있어야 하나요?
-Key Vault, 가상 네트워크, 공용 IP 주소, 네트워크 보안 그룹 및 경로 테이블은 동일한 지역에 있어야 합니다.
+### <a name="what-resources-linked-to-a-cloud-services-extended-support-deployment-need-to-live-in-the-same-region"></a>동일한 지역에 존재해야 하는 Cloud Services(추가 지원)에는 어떤 리소스가 연결되나요?
+Key Vault, 가상 네트워크, 공용 IP 주소, 네트워크 보안 그룹 및 라우팅 테이블이 동일한 지역에 존재해야 합니다.
 
-### <a name="what-resources-linked-to-a-cloud-services-extended-support-deployment-need-to-live-in-the-same-virtual-network"></a>Cloud Services (확장 지원) 배포에 연결 된 리소스는 동일한 가상 네트워크에 있어야 합니다.
-공용 IP 주소, 부하 분산 장치, 네트워크 보안 그룹 및 경로 테이블은 동일한 가상 네트워크에 있어야 합니다. 
+### <a name="what-resources-linked-to-a-cloud-services-extended-support-deployment-need-to-live-in-the-same-virtual-network"></a>동일한 가상 네트워크에 존재해야 하는 Cloud Services(추가 지원) 배포에 어떤 리소스가 연결되나요?
+공용 IP 주소, 부하 분산 장치, 네트워크 보안 그룹 및 라우팅 테이블이 동일한 가상 네트워크에 존재해야 합니다. 
 
 ## <a name="deployment-files"></a>배포 파일 
 
-### <a name="how-can-i-use-a-template-to-deploy-or-manage-my-deployment"></a>템플릿을 사용 하 여 배포를 배포 하거나 관리 하려면 어떻게 해야 하나요?
-REST, PowerShell 및 CLI를 사용 하 여 템플릿 및 매개 변수 파일을 매개 변수로 전달할 수 있습니다. 또한 Azure Portal를 사용 하 여 업로드할 수 있습니다.  
+### <a name="how-can-i-use-a-template-to-deploy-or-manage-my-deployment"></a>내 배포의 배포 또는 관리를 위해 템플릿을 어떻게 사용해야 하나요?
+REST, PowerShell 및 CLI를 사용하여 템플릿 및 매개변수 파일을 매개변수로 전달할 수 있습니다. 또한 Azure Portal을 사용하여 업로드될 수도 있습니다.  
 
-### <a name="do-i-need-to-maintain-four-files-now-template-parameter-csdef-cscfg"></a>4 개의 파일을 유지 관리 해야 하나요? (템플릿, 매개 변수, .csdef, .cscfg)
-템플릿 및 매개 변수 파일은 배포 자동화에만 사용 됩니다. Cloud Services (클래식) 처럼 먼저 종속 리소스를 수동으로 만든 다음 PowerShell, CLI 명령 또는 기존 .csdef, .cscfg를 사용 하는 포털을 통해 Cloud Services (확장 지원) 배포를 수행할 수 있습니다.
+### <a name="do-i-need-to-maintain-four-files-now-template-parameter-csdef-cscfg"></a>현재 4개 파일을 유지 관리해야 하나요? (템플릿, 매개변수, csdef, cscfg)
+배포 자동화를 위해서는 템플릿 및 매개변수 파일만 사용됩니다. Cloud Services(클래식)와 같이, 종속된 리소스를 먼저 수동으로 만든 후 PowerShell, CLI 명령 또는 기존 csdef, cscfg와 함께 Portal을 통해 Cloud Services(추가 지원) 배포를 만들 수 있습니다.
 
-### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Cloud Services에서 응용 프로그램 코드를 변경 하는 방법 (확장 지원)
-Cspkg에 패키지 된 응용 프로그램 코드에 필요한 변경 사항은 없습니다. 기존 응용 프로그램은 이전 처럼 계속 작동 합니다. 
+### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Cloud Services(추가 지원)에서 애플리케이션 코드가 어떻게 변경되나요?
+cspkg로 패키지된 애플리케이션 코드에는 필요한 변경 사항이 없습니다. 기존 애플리케이션은 기존과 동일하게 계속 작동합니다. 
 
-### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>CTP 패키지 형식을 허용 하는 Cloud Services (확장 지원)
-CTP 패키지 형식은 Cloud Services (확장 지원)에서 지원 되지 않습니다. 그러나 800 MB의 향상 된 패키지 크기 제한을 허용 합니다.
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>Cloud Services(추가 지원)에서 CTP 패키지 형식이 허용되나요?
+CTP 패키지 형식은 Cloud Services(추가 지원)에서 지원되지 않습니다. 하지만 800MB의 향상된 패키지 크기 제한을 허용합니다.
 
 ## <a name="migration"></a>마이그레이션
 
-### <a name="will-cloud-services-extended-support-mitigate-the-failures-due-to-allocation-failures"></a>할당 오류로 인 한 실패를 완화 (확장 지원) Cloud Services 합니다.
-아니요, 클라우드 서비스 (확장 지원) 배포는 Cloud Services (클래식)와 같은 클러스터에 연결 됩니다. 따라서 클러스터가 가득 찬 경우에는 할당 실패가 계속 존재 합니다. 
+### <a name="will-cloud-services-extended-support-mitigate-the-failures-due-to-allocation-failures"></a>Cloud Services(추가 지원)에서 할당 실패로 인한 문제를 해결할 수 있나요?
+아니요, Cloud Service(추가 지원) 배포는 Cloud Services(클래식)와 같은 클러스터에 연결되어 있습니다. 따라서 클러스터가 가득 차면 할당 오류가 계속 발생합니다. 
 
-### <a name="when-do-i-need-to-migrate"></a>마이그레이션이 필요한 경우 
-필요한 시간을 예측 하 고 복잡성을 예측 하는 것은 변수의 범위에 따라 다릅니다. 계획은 작업의 범위, 차단 및 마이그레이션 복잡성을 이해 하는 가장 효과적인 단계입니다.
+### <a name="when-do-i-need-to-migrate"></a>언제 마이그레이션해야 하나요? 
+마이그레이션에 필요한 시간 및 복잡성에 대한 예측은 다양한 변수에 따라 달라집니다. 작업 범위, 마이그레이션 방해 요소 및 복잡성을 이해하기 위해서는 계획이 가장 효과적입니다.
 
 ## <a name="networking"></a>네트워킹 
 
-### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>가상 네트워크가 없는 배포를 만들 수 없는 이유는 무엇입니까?
-가상 네트워크는 Azure Resource Manager에 배포 하는 데 필요한 리소스입니다. Cloud Services (확장 지원) 배포는 가상 네트워크 내에 있어야 합니다. 
+### <a name="why-cant-i-create-a-deployment-without-virtual-network"></a>가상 네트워크 없이 배포를 만들 수 없는 이유는 무엇인가요?
+Azure Resource Manager에서 모든 배포를 만들기 위해서는 가상 네트워크가 필수 리소스입니다. Cloud Services(추가 지원) 배포는 가상 네트워크 내에 있어야 합니다. 
 
-### <a name="why-am-i-now-seeing-so-many-networking-resources"></a>이제 많은 네트워킹 리소스가 표시 되는 이유는 무엇 인가요? 
-Azure Resource Manager에서는 향상 된 가시성과 향상 된 제어를 위해 Cloud Services (확장 된 지원) 배포의 구성 요소가 리소스로 노출 됩니다. 동일한 유형의 리소스가 Cloud Services (클래식)에서 사용 되었지만 숨겨져 있습니다. 이러한 리소스의 한 가지 예는 공용 Load Balancer입니다 .이는 이제 플랫폼에서 자동으로 생성 된 명시적인 ' 읽기 전용 ' 리소스입니다.
+### <a name="why-am-i-now-seeing-so-many-networking-resources"></a>표시되는 네트워킹 리소스가 많아진 이유는 무엇인가요? 
+Azure Resource Manager에서 가시성 및 제어 기능 향상을 위해 Cloud Services(추가 지원) 배포 구성 요소가 리소스로 노출되었습니다. 동일한 유형의 리소스가 Cloud Services(클래식)에 사용되었지만, 여기에서는 단순히 숨겨져 있습니다. 이러한 리소스 중 한 가지 예는 플랫폼에서 자동으로 생성되어 이제 명시적인 ‘읽기 전용’ 리소스인 공용 부하 분산 장치입니다.
 
-### <a name="what-restrictions-apply-for-a-subnet-with-respective-to-cloud-services-extended-support"></a>Cloud Services에 대 한 서브넷에 적용 되는 제한 사항 (확장 지원)
-Cloud Services (확장 지원) 배포를 포함 하는 서브넷은 Virtual Machines, Virtual Machines 크기 집합, Service Fabric 등과 같은 다른 계산 제품의 배포와 공유할 수 없습니다.
+### <a name="what-restrictions-apply-for-a-subnet-with-respective-to-cloud-services-extended-support"></a>Cloud Services(추가 지원)와 관련해서 서브넷에 어떤 제한이 적용되나요?
+Cloud Services(추가 지원) 배포를 포함하는 서브넷은 Virtual Machines, Virtual Machines Scale Sets, Service Fabric 등과 같은 다른 컴퓨팅 제품의 배포와 공유될 수 없습니다.
 
-### <a name="what-ip-allocation-methods-are-supported-on-cloud-services-extended-support"></a>클라우드 서비스에서 지원 되는 IP 할당 방법 (연장 된 지원)은 무엇 인가요?
-Cloud Services (확장 지원)는 동적 & 고정 IP 할당 방법을 지원 합니다. 고정 IP 주소는 .cscfg 파일에 예약 된 ip로 참조 됩니다.
+### <a name="what-ip-allocation-methods-are-supported-on-cloud-services-extended-support"></a>Cloud Services(추가 지원)에서 지원되는 IP 할당 방법은 무엇인가요?
+Cloud Services(추가 지원)는 동적 및 정적 IP 할당 방법을 지원합니다. 고정 IP 주소는 cscfg 파일에서 예약된 IP라고 부릅니다.
 
-### <a name="why-am-i-getting-charged-for-ip-addresses"></a>IP 주소에 대 한 요금이 청구 되는 이유는 무엇 인가요?
-사용자에 게는 가상 컴퓨터와 연결 된 IP 주소에 대 한 요금이 청구 되는 것 처럼 Cloud Services (확장 지원)에서 IP 주소 사용에 대 한 요금이 청구 됩니다. 
+### <a name="why-am-i-getting-charged-for-ip-addresses"></a>IP 주소에 대한 비용이 청구되는 이유는 무엇인가요?
+가상 머신과 연결된 IP 주소의 비용이 청구되는 것과 같이 Cloud Services(추가 지원)에서의 IP 사용에 대한 비용이 고객에게 청구됩니다. 
 
-### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Cloud Services (확장 지원)에서 DNS 이름을 사용할 수 있나요? 
-예. Cloud Services (확장 지원)에 DNS 이름을 지정할 수도 있습니다. Azure Resource Manager DNS 레이블은 클라우드 서비스에 할당 된 공용 IP 주소의 선택적 속성입니다. Azure Resource Manager 기반 배포에 대 한 DNS 이름 형식은입니다. `<userlabel>.<region>.cloudapp.azure.com`
+### <a name="can-i-use-a-dns-name-with-cloud-services-extended-support"></a>Cloud Services(추가 지원)에 DNS 이름을 사용할 수 있나요? 
+예. Cloud Services(추가 지원)에는 DNS 이름도 지정할 수 있습니다. Azure Resource Manager에서 DNS 레이블은 Cloud Service에 할당되는 공용 IP 주소의 선택적 속성입니다. Azure Resource Manager 기반 배포의 DNS 이름 형식은 `<userlabel>.<region>.cloudapp.azure.com`입니다.
 
-### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>기존 클라우드 서비스에 대 한 가상 네트워크 참조 (확장 지원)를 업데이트 하거나 변경할 수 있나요? 
-아니요. 클라우드 서비스를 만드는 동안 가상 네트워크 참조가 필수입니다. 기존 클라우드 서비스의 경우 가상 네트워크 참조를 변경할 수 없습니다. VNet Api를 사용 하 여 가상 네트워크 주소 공간 자체를 수정할 수 있습니다. 
+### <a name="can-i-update-or-change-the-virtual-network-reference-for-an-existing-cloud-service-extended-support"></a>기존 Cloud Services(추가 지원)에 대해 가상 네트워크 참조를 업데이트하거나 변경할 수 있나요? 
+아니요. 가상 네트워크 참조는 클라우드 서비스를 만들 때 필수입니다. 기존 클라우드 서비스에 대해 가상 네트워크 참조를 변경할 수 없습니다. 가상 네트워크 주소 공간 자체는 VNet API를 사용하여 수정할 수 있습니다. 
 
-## <a name="certificates--key-vault"></a>인증서 & Key Vault
+## <a name="certificates--key-vault"></a>인증서 및 Key Vault
 
-### <a name="why-do-i-need-to-manage-my-certificates-on-cloud-services-extended-support"></a>Cloud Services (확장 지원)에서 내 인증서를 관리 해야 하는 이유는 무엇 인가요?
-Cloud Services (확장 지원)는 고객이 관리 하는 주요 자격 증명 모음 내에 인증서가 있는 다른 계산 제품으로 동일한 프로세스를 채택 했습니다. 이를 통해 고객은 암호 & 인증서를 완전히 제어할 수 있습니다. 
+### <a name="why-do-i-need-to-manage-my-certificates-on-cloud-services-extended-support"></a>Cloud Services(추가 지원)에서 내 인증서를 관리해야 하는 이유는 무엇인가요?
+Cloud Services(추가 지원)에는 고객 관리 Key Vaults 내에 인증서가 상주하는 다른 컴퓨팅 제공과 동일한 프로세스가 채택되었습니다. 그 결과 고객이 자신의 비밀 및 인증서를 완전히 제어할 수 있습니다. 
 
-### <a name="can-i-use-one-key-vault-for-all-my-deployments-in-all-regions"></a>모든 지역의 모든 배포에 대해 하나의 Key Vault 사용할 수 있나요?
-아니요. Key Vault은 지역 리소스 이며, 고객은 각 지역에 하나의 Key Vault 필요 합니다. 그러나 지정 된 지역 내의 모든 배포에 대해 하나의 Key Vault 사용할 수 있습니다.
+### <a name="can-i-use-one-key-vault-for-all-my-deployments-in-all-regions"></a>하나의 Key Vault를 모든 지역의 모든 배포에 사용할 수 있나요?
+아니요. Key Vault는 지역별 리소스이며 각 지역에 하나의 Key Vault가 필요합니다. 하지만 특정 지역 내의 모든 배포에 하나의 Key Vault를 사용하는 것은 가능합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Cloud Services (확장 지원) 사용을 시작 하려면 [PowerShell을 사용 하 여 클라우드 서비스 배포 (확장 지원)](deploy-powershell.md) 를 참조 하세요.
+Cloud Services(추가 지원)를 사용하려면 [PowerShell을 사용하여 Cloud Service(추가 지원)](deploy-powershell.md)를 참조하세요.

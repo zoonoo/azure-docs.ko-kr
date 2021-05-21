@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6db43acda679c6c1c1edd6336f693cc4757b6d45
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 58377252e163894cdfee83d9c68146a9131f94c5
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220920"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288781"
 ---
 # <a name="extensions-for-cloud-services-extended-support"></a>Cloud Services용 확장(추가 지원)
 
@@ -40,9 +40,9 @@ ms.locfileid: "106220920"
 ## <a name="anti-malware-extension"></a>맬웨어 방지 확장
 Azure 애플리케이션 또는 서비스는 PowerShell cmdlet을 사용하여 Azure Cloud Services에 대해 Microsoft 맬웨어 방지를 활성화하고 구성할 수 있습니다. Microsoft Antimalware는 Windows Server 2012 R2 및 이전 버전을 실행하는 Cloud Services 플랫폼에서 비활성화된 상태로 설치되고 Azure 애플리케이션에서 동작을 필요로 하여 활성화됩니다. Windows Server 2016 이상에서는 Windows Defender가 기본적으로 활성화되어 있으므로 이러한 cmdlet을 사용하여 맬웨어 방지를 구성할 수 있습니다.
 
-자세한 내용은 [추가 지원(CS-ES)을 사용하여 Azure Cloud Service에 Microsoft Antimalware 추가](https://docs.microsoft.com/azure/security/fundamentals/antimalware-code-samples#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)를 참조하세요.
+자세한 내용은 [추가 지원(CS-ES)을 사용하여 Azure Cloud Service에 Microsoft Antimalware 추가](../security/fundamentals/antimalware-code-samples.md#add-microsoft-antimalware-to-azure-cloud-service-using-extended-support)를 참조하세요.
 
-Azure Antimalware에 대해 자세히 알아보려면 [여기](https://docs.microsoft.com/azure/security/fundamentals/antimalware)를 방문하세요.
+Azure Antimalware에 대해 자세히 알아보려면 [여기](../security/fundamentals/antimalware.md)를 방문하세요.
 
 
 

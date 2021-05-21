@@ -1,5 +1,5 @@
 ---
-title: DPS를 사용 하 여 Windows 장치를 자동으로 프로 비전-Azure IoT Edge | Microsoft Docs
+title: DPS를 사용하여 자동으로 Windows 디바이스 프로비전 - Azure IoT Edge | Microsoft Docs
 description: Windows 컴퓨터에서 시뮬레이션된 디바이스를 사용하여 Device Provisioning Service로 Azure IoT Edge에 대한 자동 디바이스 프로비전 테스트
 author: kgremban
 manager: philmea
@@ -8,22 +8,22 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 11279c552cb599c24b72473d6574175450ca7ab0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 82bd027773a5759caee19228f56ba4b3dfe8c2cf
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200858"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107482010"
 ---
-# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전
+# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용하여 시뮬레이션된 IoT Edge 디바이스 만들기 및 프로비전
 
 [!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
 
-Azure IoT Edge 장치는 [장치 프로 비전 서비스](../iot-dps/index.yml) 를 사용 하 여 자동 프로 비전 할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
+Edge를 사용하지 않는 디바이스와 마찬가지로 [Device Provisioning Service](../iot-dps/index.yml)를 사용하여 Azure IoT Edge 디바이스를 자동 프로비전할 수 있습니다. 자동 프로비저닝 프로세스에 익숙하지 않은 경우 계속하기 전에 [프로비저닝](../iot-dps/about-iot-dps.md#provisioning-process) 개요를 검토하세요.
 
-DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 대칭 키 증명을 지원 합니다. 그룹 등록의 경우 대칭 키 증명에서 "IoT Edge 장치" 옵션을 true로 선택 하면 해당 등록 그룹에 등록 된 모든 장치가 IoT Edge 장치로 표시 됩니다.
+DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 디바이스에 대한 대칭 키 증명을 지원합니다. 그룹 등록의 경우 대칭 키 증명에서 "IoT Edge 디바이스임" 옵션을 true로 선택하면 해당 등록 그룹에 등록된 모든 디바이스가 IoT Edge 디바이스로 표시됩니다.
 
-이 문서에서는 다음 단계를 사용 하 여 시뮬레이트된 IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다.
+이 문서에서는 다음 단계를 사용하여 시뮬레이션된 IoT Edge 디바이스에서 자동 프로비전을 테스트하는 방법을 보여 줍니다.
 
 * IoT Hub DPS(Device Provisioning Service)의 인스턴스를 만듭니다.
 * 하드웨어 보안을 위해 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Windows 컴퓨터에서 시뮬레이션된 디바이스를 만듭니다.
@@ -31,15 +31,15 @@ DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 장치에 대 한 �
 * IoT Edge 런타임을 설치하고 IoT Hub에 디바이스를 연결합니다.
 
 > [!TIP]
-> 이 문서에서는 가상 장치에서 TPM 증명을 사용 하 여 자동 프로 비전 테스트에 대해 설명 하지만, 실제 TPM 하드웨어를 사용 하는 경우에도 대부분 적용 됩니다.
+> 이 문서에서는 가상 디바이스에서 TPM 증명을 사용하여 자동 프로비전을 테스트하는 방법에 대해 설명하지만, 물리적 TPM 하드웨어를 사용하는 경우에도 대부분 적용됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 * 활성 IoT Hub
 
 > [!NOTE]
-> Tpm 2.0는 DPS에서 TPM 증명을 사용 하는 경우 필요 하며, 개별 그룹, 등록 그룹을 만드는 데만 사용할 수 있습니다.
+> TPM 2.0은 DPS에서 TPM 증명을 사용할 때 필요하며 그룹이 아닌 개별 등록을 만드는 데만 사용할 수 있습니다.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service 설정
 
@@ -48,22 +48,22 @@ Azure에서 IoT Hub Device Provisioning Service의 새 인스턴스를 만들어
 Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위** 값을 복사합니다. IoT Edge 런타임을 구성하는 경우 이 값을 사용합니다.
 
 > [!TIP]
-> 물리적 TPM 장치를 사용 하는 경우 각 TPM 칩에 고유한 **인증 키** 를 확인 해야 하며,이는 연결 된 tpm 칩 제조업체에서 가져옵니다. 예를 들어 인증 키의 SHA-256 해시를 만들어 TPM 장치에 대 한 고유한 **등록 ID** 를 파생할 수 있습니다.
+> 물리적 TPM 디바이스를 사용하는 경우 각 TPM 칩에서 고유하고 연결된 TPM 칩 제조업체에서 가져온 **인증 키** 를 확인해야 합니다. 예를 들어 인증 키의 SHA-256 해시를 만들어 TPM 디바이스에 고유한 **등록 ID** 를 파생할 수 있습니다.
 >
-> [Azure Portal을 사용 하 여 장치 등록을 관리 하는 방법](../iot-dps/how-to-manage-enrollments.md) 문서의 지침에 따라 DPS에서 등록을 만든 다음이 문서의 [IoT Edge runtime 설치](#install-the-iot-edge-runtime) 섹션을 계속 진행 합니다.
+> [Azure Portal을 사용하여 디바이스 등록을 관리하는 방법](../iot-dps/how-to-manage-enrollments.md) 문서의 지침에 따라 DPS에서 등록을 만든 다음, 이 문서의 [IoT Edge 런타임 설치](#install-the-iot-edge-runtime) 섹션으로 계속 진행합니다.
 
 ## <a name="simulate-a-tpm-device"></a>TPM 디바이스 시뮬레이션
 
-Windows 개발 머신에서 시뮬레이션된 TPM 디바이스를 만듭니다. 장치에 대 한 **등록 ID** 및 **인증 키** 를 검색 하 고이를 사용 하 여 DPS에서 개별 등록 항목을 만듭니다.
+Windows 개발 머신에서 시뮬레이션된 TPM 디바이스를 만듭니다. 디바이스의 **등록 ID** 및 **인증 키** 를 검색하고, 이를 사용하여 DPS에서 개별 등록 항목을 만듭니다.
 
 DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭을 기준으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-at-scale.md)를 만드는 데 사용됩니다.
 
 시뮬레이션된 디바이스를 만드는 데 사용할 SDK 언어를 선택하고 개별 등록을 만들 때까지 단계를 진행합니다.
 
-개별 등록을 만들 때 **True** 를 선택 하 여 Windows 개발 컴퓨터의 시뮬레이트된 TPM 장치가 **IoT Edge 장치** 임을 선언 합니다.
+개별 등록을 만들 때 **True** 를 선택하여 Windows 개발 컴퓨터에서 시뮬레이션된 TPM 다바이스가 **IoT Edge 디바이스** 임을 선언합니다.
 
 > [!TIP]
-> Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group) 을 만들고,에 **지 사용** 플래그를 사용 하 여 장치 또는 장치 그룹이 IoT Edge 장치 임을 지정할 수 있습니다.
+> Azure CLI에서 [등록](/cli/azure/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
 
 시뮬레이션된 디바이스 및 개별 등록 가이드:
 
@@ -77,33 +77,33 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 
-IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다. 시뮬레이션 된 TPM을 실행 하는 장치에 IoT Edge 런타임을 설치 합니다.
+IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 디바이스에 추가 컨테이너의 배포를 허용합니다. 시뮬레이션된 TPM을 실행하는 디바이스에 IoT Edge 런타임을 설치합니다.
 
-[Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 수행한 다음이 문서로 돌아와서 장치를 프로 비전 합니다.
+[Azure IoT Edge 런타임 설치](how-to-install-iot-edge.md)의 단계를 수행한 다음, 이 문서로 돌아와서 디바이스를 프로비전합니다.
 
 > [!TIP]
 > 설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다.
 
-## <a name="configure-the-device-with-provisioning-information"></a>프로 비전 정보를 사용 하 여 장치 구성
+## <a name="configure-the-device-with-provisioning-information"></a>프로비전 정보를 사용하여 디바이스 구성
 
-런타임이 장치에 설치 되 면 장치 프로 비전 서비스에 연결 하는 데 사용 하는 정보를 사용 하 여 장치를 구성 하 고 IoT Hub 합니다.
+런타임이 디바이스에 설치되면 디바이스를 Device Provisioning Service 및 IoT Hub에 연결하는 데 사용되는 정보로 구성합니다.
 
-1. 이전 섹션에서 수집 된 DPS **Id 범위** 및 장치 **등록 id** 를 확인 합니다.
+1. 이전 섹션에서 수집한 DPS **ID 범위** 및 디바이스 **등록 ID** 를 확인합니다.
 
-1. 관리자 모드에서 PowerShell 창을 엽니다. PowerShell이 아닌 IoT Edge 설치 하는 경우 (x86) PowerShell의 AMD64 세션을 사용 해야 합니다.
+1. 관리자 모드에서 PowerShell 창을 엽니다. PowerShell(x86)이 아닌 IoT Edge를 설치하는 경우 PowerShell의 AMD64 세션을 사용해야 합니다.
 
-1. **배포-IoTEdge** 명령은 Windows 컴퓨터가 지원 되는 버전에 있는지 확인 하 고 컨테이너 기능을 설정한 다음 moby 런타임 및 IoT Edge 런타임을 다운로드 합니다. 이 명령은 기본적으로 Windows 컨테이너를 사용 합니다.
+1. **Deploy-IoTEdge** 명령은 지원되는 버전의 Windows 컴퓨터인지 확인하고, 컨테이너 기능을 설정한 다음, moby 런타임 및 IoT Edge 런타임을 다운로드합니다. 명령은 기본적으로 Windows 컨테이너를 사용하도록 설정됩니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Deploy-IoTEdge
    ```
 
-1. 이 시점에서 IoT Core 장치가 자동으로 다시 시작 될 수 있습니다. Windows 10 또는 Windows Server 장치를 다시 시작 하 라는 메시지가 표시 될 수 있습니다. 그렇다면 장치를 지금 다시 시작 하세요. 장치가 준비 되 면 관리자 권한으로 PowerShell을 다시 실행 합니다.
+1. 이 시점에서 IoT Core 디바이스가 자동으로 다시 시작될 수 있습니다. Windows 10 또는 Windows Server 디바이스에서 다시 시작하라는 메시지를 표시할 수 있습니다. 그렇다면 지금 디바이스를 다시 시작합니다. 디바이스가 준비되면 관리자 권한으로 PowerShell을 다시 실행합니다.
 
-1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. `-Dps`수동 프로 비전 대신 장치 프로 비전 서비스를 사용 하려면 플래그를 사용 합니다.
+1. **Initialize IoTEdge** 명령은 사용자의 머신에서 IoT Edge 런타임을 구성합니다. 이 명령은 Windows 컨테이너를 통한 수동 프로비저닝으로 기본 설정됩니다. 수동 프로비전 대신 Device Provisioning Service를 사용하려면 `-Dps` 플래그를 사용합니다.
 
-   및에 대 한 자리 표시자 값을 `{scope_id}` `{registration_id}` 앞에서 수집한 데이터로 바꿉니다.
+   `{scope_id}` 및 `{registration_id}`의 자리 표시자 값을 이전에 수집한 데이터로 바꿉니다.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `

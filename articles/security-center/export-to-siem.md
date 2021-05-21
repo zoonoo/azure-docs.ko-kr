@@ -59,7 +59,7 @@ Security Center는 기본적으로 Microsoft Graph Security API와 통합되어 
 
 이 API를 사용하여 **전체 테넌트**(및 기타 여러 Microsoft 보안 제품의 데이터)에서 타사 SIEM 및 기타 인기 있는 플랫폼으로 경고를 스트리밍할 수 있습니다.
 
-- **Splunk Enterprise and Splunk Cloud** - [Splunk용 Microsoft Graph Security API 추가 항목 사용](https://splunkbase.splunk.com/app/4564/) 
+- **Splunk Enterprise 및 Splunk Cloud** - [Splunk용 Microsoft Graph Security API 추가 항목 사용](https://splunkbase.splunk.com/app/4564/) 
 - **Power BI** - [Power BI Desktop에서 Microsoft Graph Security API에 연결](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow** - [지침에 따라 ServiceNow Store에서 Microsoft Graph Security API 애플리케이션 설치 및 구성](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar** - [Microsoft Graph API를 통한 Azure Security Center용 IBM의 디바이스 지원 모듈](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 

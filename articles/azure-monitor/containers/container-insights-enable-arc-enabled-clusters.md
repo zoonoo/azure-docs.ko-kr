@@ -1,293 +1,189 @@
 ---
-title: 컨테이너 insights를 사용 하 여 Azure Arc enabled Kubernetes 클러스터 구성 | Microsoft Docs
-description: 이 문서에서는 Azure Arc 사용 Kubernetes 클러스터에서 Container insights를 사용 하 여 모니터링을 구성 하는 방법을 설명 합니다.
-ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 307f9d9928042410dc9b4443aba5c019c592980c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+title: Azure Arc 지원 Kubernetes 클러스터 모니터링
+ms.date: 04/05/2021
+ms.topic: article
+author: shashankbarsin
+ms.author: shasb
+description: Azure Monitor를 사용하여 Azure Arc 지원 Kubernetes 클러스터의 메트릭 및 로그 수집
+ms.openlocfilehash: 0a983f6d7032310d02d35e713482de942bfbfd70
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101711300"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443853"
 ---
-# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Azure Arc 지원 Kubernetes 클러스터의 모니터링 사용
+# <a name="azure-monitor-container-insights-for-azure-arc-enabled-kubernetes-clusters"></a>Azure Arc 지원 Kubernetes 클러스터에 대한 Azure Monitor Container Insights
 
-컨테이너 정보 활용은 Azure Kubernetes 서비스 (AKS) 및 AKS 엔진 클러스터에 대 한 풍부한 모니터링 환경을 제공 합니다. 이 문서에서는 azure Arc에서 사용 하도록 설정 된 Azure 외부에서 호스트 되는 Kubernetes 클러스터의 모니터링을 사용 하도록 설정 하 여 비슷한 모니터링 환경을 구현 하는 방법을 설명 합니다.
+[Azure Monitor Container Insights](container-insights-overview.md)는 Azure Arc 지원 Kubernetes 클러스터에 대한 풍부한 모니터링 환경을 제공합니다.
 
-PowerShell 또는 Bash 스크립트를 사용 하 여 Kubernetes의 기존 배포 하나 이상에 대해 컨테이너 insights를 사용 하도록 설정할 수 있습니다.
+[!INCLUDE [preview features note](../../azure-arc/kubernetes/includes/preview/preview-callout.md)]
 
 ## <a name="supported-configurations"></a>지원되는 구성
 
-컨테이너 insights는 [개요](container-insights-overview.md) 문서에 설명 된 대로 다음 기능을 제외 하 고 Azure Arc enabled Kubernetes (미리 보기) 모니터링을 지원 합니다.
-
-- 라이브 데이터 (미리 보기)
-
-다음은 컨테이너 정보를 사용 하 여 공식적으로 지원 됩니다.
-
-- Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다.
-
-- 다음 컨테이너 런타임이 지원 됩니다. Docker, Moby 및 CRI compatible runtime (CRI 및 ContainerD).
-
-- 지원 되는 마스터 및 작업자 노드에 대 한 Linux OS 릴리스는 Ubuntu (18.04 LTS 및 16.04 LTS)입니다.
+- Azure Monitor Container Insights는 라이브 데이터(미리 보기) 기능을 제외하고 [개요](container-insights-overview.md) 문서에 설명된 대로 Azure Arc 지원 Kubernetes(미리 보기) 모니터링을 지원합니다. 또한 사용자에게는 [메트릭을 사용하도록 설정](container-insights-update-metrics.md)하기 위한 [소유자](../../role-based-access-control/built-in-roles.md#owner) 권한이 필요하지 않습니다.
+- `Docker`, `Moby` 및 CRI 호환 컨테이너 런타임(예: `CRI-O` 및 `containerd`)
+- 인증이 없는 아웃바운드 프록시 및 기본 인증이 있는 아웃바운드 프록시가 지원됩니다. 신뢰할 수 있는 인증서가 필요한 아웃바운드 프록시는 현재 지원되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-시작하기 전에 다음 항목이 있는지 확인하십시오.
+- [일반 클러스터 확장 설명서](../../azure-arc/kubernetes/extensions.md#prerequisites)에 나열된 필수 구성 요소를 충족했습니다.
+- Log Analytics 작업 영역: Azure Monitor Container Insights는 [지역별 Azure 제품 페이지](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열된 지역에서 Log Analytics 작업 영역을 지원합니다. [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md) 또는 [Azure Portal](../logs/quick-create-workspace.md)을 통해 사용자 고유의 작업 영역을 만들 수 있습니다.
+- Azure Arc 지원 Kubernetes 리소스를 포함하는 Azure 구독에 대한 [기여자](../../role-based-access-control/built-in-roles.md#contributor) 역할 할당이 있어야 합니다. Log Analytics 작업 영역이 다른 구독에 있는 경우 Log Analytics 작업 영역에 [Log Analytics 기여자](../logs/manage-access.md#manage-access-using-azure-permissions) 역할 할당이 필요합니다.
+- 모니터링 데이터를 보려면 Log Analytics 작업 영역에 대한 [Log Analytics 읽기 권한자](../logs/manage-access.md#manage-access-using-azure-permissions) 역할 할당이 있어야 합니다.
+- [Kubernetes 클러스터를 Azure Arc에 연결](../../azure-arc/kubernetes/quickstart-connect-cluster.md#meet-network-requirements)에서 언급한 것 외에도 아웃바운드 액세스를 위해 다음 엔드포인트를 사용하도록 설정해야 합니다.
 
-- Log Analytics 작업 영역.
+    | 엔드포인트 | 포트 |
+    |----------|------|
+    | `*.ods.opinsights.azure.com` | 443 |
+    | `*.oms.opinsights.azure.com` | 443 |
+    | `dc.services.visualstudio.com` | 443 |
+    | `*.monitoring.azure.com` | 443 |
+    | `login.microsoftonline.com` | 443 |
 
-    컨테이너 insights는 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor)에 나열 된 지역에서 Log Analytics 작업 영역을 지원 합니다. 사용자 고유의 작업 영역을 만들려면 [Azure Resource Manager](../logs/resource-manager-workspace.md), [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)또는 [Azure Portal](../logs/quick-create-workspace.md)를 통해 만들 수 있습니다.
+    Arc 지원 Kubernetes 리소스가 Azure US Government 환경에 있는 경우 아웃바운드 액세스를 위해 다음 엔드포인트를 사용하도록 설정해야 합니다.
 
-- 컨테이너 인 사이트의 기능을 사용 하도록 설정 하 고 액세스 하려면 최소한 Azure 구독에서 Azure *참가자* 역할의 멤버이 고, container insights로 구성 된 Log Analytics 작업 영역의 [*Log Analytics 참여자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할의 구성원 이어야 합니다.
+    | 엔드포인트 | 포트 |
+    |----------|------|
+    | `*.ods.opinsights.azure.us` | 443 |
+    | `*.oms.opinsights.azure.us` | 443 |
+    | `dc.services.visualstudio.com` | 443 |
+    
 
-- 사용자는 Azure Arc 클러스터 리소스에서 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원입니다.
+- 이전에 클러스터 확장 없이 스크립트를 사용하여 이 클러스터에 Azure Monitor Container Insights를 배포한 경우 이 Helm 차트를 삭제하려면 [여기](container-insights-optout-hybrid.md)에 나열된 지침을 따르세요. 그런 다음, Azure Monitor Container Insights에 대한 클러스터 확장 인스턴스를 계속 만들 수 있습니다.
 
-- 모니터링 데이터를 보려면 컨테이너 insights로 구성 된 Log Analytics 작업 영역에 대 한 [*Log Analytics 읽기 권한자*](../logs/manage-access.md#manage-access-using-azure-permissions) 역할 권한의 멤버입니다.
+    >[!NOTE]
+    > Azure Monitor Container Insights(미리 보기)를 배포하는 스크립트 기반 버전은 배포의 [클러스터 확장](../../azure-arc/kubernetes/extensions.md) 형식으로 대체됩니다. 이전에 스크립트를 통해 배포된 Azure Monitor는 2021년 6월까지만 지원되므로 가장 빠른 배포의 클러스터 확장 형식으로 마이그레이션하는 것이 좋습니다.
 
-- 지정 된 Kubernetes 클러스터에 대 한 컨테이너 insights 차트를 등록 하는 [클라이언트 투구](https://helm.sh/docs/using_helm/) .
+### <a name="identify-workspace-resource-id"></a>작업 영역 리소스 ID 식별
 
-- 다음 프록시 및 방화벽 구성 정보는 Linux 용 Log Analytics 에이전트의 컨테이너 화 된 버전이 Azure Monitor와 통신 하는 데 필요 합니다.
+다음 명령을 실행하여 Log Analytics 작업 영역의 전체 Azure Resource Manager 식별자를 찾습니다. 
 
-    |에이전트 리소스|포트 |
-    |------|---------|
-    |`*.ods.opinsights.azure.com` |포트 443 |
-    |`*.oms.opinsights.azure.com` |포트 443 |
-    |`*.dc.services.visualstudio.com` |포트 443 |
-
-- 컨테이너 화 된 에이전트는 `cAdvisor secure port: 10250` `unsecure port :10255` 성능 메트릭을 수집 하기 위해 클러스터의 모든 노드에서 Kubelet 또는를 열어야 합니다. `secure port: 10250`아직 구성 되지 않은 경우 Kubelet의 cAdvisor에서 구성 하는 것이 좋습니다.
-
-- 컨테이너 화 된 에이전트는 인벤토리 데이터를 수집 하기 위해 클러스터 내의 Kubernetes API 서비스와 통신 하기 위해 컨테이너에서 다음 환경 변수를 지정 해야 합니다 `KUBERNETES_SERVICE_HOST` `KUBERNETES_PORT_443_TCP_PORT` .
-
-    >[!IMPORTANT]
-    >Arc 사용 Kubernetes 클러스터 모니터링에 대해 지원 되는 최소 에이전트 버전은 ciprod04162020 이상입니다.
-
-- Powershell [Core](/powershell/scripting/install/installing-powershell?view=powershell-6&preserve-view=true) 는 powershell 스크립팅된 메서드를 사용 하 여 모니터링을 사용 하도록 설정 하는 경우에 필요 합니다.
-
-- Bash 스크립팅된 메서드를 사용 하 여 모니터링을 사용 하도록 설정 하는 경우 [bash 버전 4](https://www.gnu.org/software/bash/) 가 필요 합니다.
-
-## <a name="identify-workspace-resource-id"></a>작업 영역 리소스 ID 식별
-
-이전에 다운로드 한 PowerShell 또는 bash 스크립트를 사용 하 여 클러스터의 모니터링을 사용 하도록 설정 하 고 기존 Log Analytics 작업 영역에 통합 하려면 다음 단계를 수행 하 여 Log Analytics 작업 영역의 전체 리소스 ID를 먼저 확인 합니다. `workspaceResourceId`지정 된 작업 영역에 대해 모니터링 추가 기능을 사용 하도록 설정 하는 명령을 실행할 때 매개 변수에 필요 합니다. 지정할 작업 영역이 없는 경우 `workspaceResourceId` 매개 변수 포함을 건너뛰고 스크립트에서 새 작업 영역을 만들도록 할 수 있습니다.
-
-1. 다음 명령을 사용 하 여 액세스 권한이 있는 모든 구독을 나열 합니다.
+1. 다음 명령을 사용하여 액세스 권한이 있는 모든 구독을 나열합니다.
 
     ```azurecli
     az account list --all -o table
     ```
 
-    출력은 다음과 유사합니다.
-
-    ```azurecli
-    Name                                  CloudName    SubscriptionId                        State    IsDefault
-    ------------------------------------  -----------  ------------------------------------  -------  -----------
-    Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
-    ```
-
-    **SubscriptionId** 의 값을 복사 합니다.
-
-2. 다음 명령을 사용 하 여 Log Analytics 작업 영역을 호스팅하는 구독으로 전환 합니다.
+2. 다음 명령을 사용하여 Log Analytics 작업 영역을 호스트하는 구독으로 전환합니다.
 
     ```azurecli
     az account set -s <subscriptionId of the workspace>
     ```
 
-3. 다음 예에서는 구독의 작업 영역 목록을 기본 JSON 형식으로 표시 합니다.
+3. 다음 예제는 기본 JSON 형식의 구독에 있는 작업 영역 목록을 표시합니다.
 
     ```
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    출력에서 작업 영역 이름을 찾은 다음, 해당 Log Analytics 작업 영역의 전체 리소스 ID를 필드 **ID** 로 복사 합니다.
+    출력에서 관심 있는 작업 영역 이름을 찾습니다. 해당 Log Analytics 작업 영역의 Azure Resource Manager 식별자를 나타내는 `id`필드입니다.
 
-## <a name="enable-monitoring-using-powershell"></a>PowerShell을 사용 하 여 모니터링 사용
+    >[!TIP]
+    > 이 `id`는 Azure Portal을 통해 Log Analytics 작업 영역의 *개요* 블레이드에서도 찾을 수 있습니다.
 
-1. 다음 명령을 사용 하 여 모니터링 추가 기능을 사용 하 여 클러스터를 구성 하는 로컬 폴더에 스크립트를 다운로드 하 고 저장 합니다.
+## <a name="create-extension-instance-using-azure-cli"></a>Azure CLI를 사용하여 확장 인스턴스 만들기
 
-    ```powershell
-    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
-    ```
+### <a name="option-1---with-default-values"></a>옵션 1 - 기본값 사용
 
-2. `$azureArcClusterResourceId`에 해당 하는 값을 설정 하 `subscriptionId` `resourceGroupName` 고 `clusterName` Azure Arc 사용 Kubernetes 클러스터 리소스의 리소스 ID를 나타내는 변수를 구성 합니다.
+이 옵션은 다음 기본값을 사용합니다.
 
-    ```powershell
-    $azureArcClusterResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
-    ```
+- 클러스터의 지역에 해당하는 기존 기본 로그 분석 작업 영역을 만들거나 사용
+- Azure Monitor 클러스터 확장에 자동 업그레이드가 사용하도록 설정됨
 
-3. `$kubeContext`명령을 실행 하 여 클러스터의 **kube 컨텍스트로** 변수를 구성 합니다 `kubectl config get-contexts` . 현재 컨텍스트를 사용 하려면 값을로 설정 `""` 합니다.
-
-    ```powershell
-    $kubeContext = "<kubeContext name of your k8s cluster>"
-    ```
-
-4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `$logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region>* 의 형식과 유사 합니다.
-
-    ```powershell
-    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
-    ```
-
-5. Arc 사용 Kubernetes 클러스터가 프록시 서버를 통해 통신 하는 경우 `$proxyEndpoint` 프록시 서버의 URL을 사용 하 여 변수를 구성 합니다. 클러스터가 프록시 서버를 통해 통신 하지 않는 경우이 값을로 설정할 수 있습니다 `""` .  자세한 내용은이 문서의 뒷부분에 있는 [프록시 끝점 구성](#configure-proxy-endpoint) 을 참조 하세요.
-
-6. 다음 명령을 실행 하 여 모니터링을 사용 하도록 설정 합니다.
-
-    ```powershell
-    .\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
-    ```
-
-모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다.
-
-### <a name="using-service-principal"></a>서비스 주체 사용
-스크립트 *enable-monitoring.ps1* 는 대화형 장치 로그인을 사용 합니다. 비 대화형 로그인을 선호 하는 경우 기존 서비스 주체를 사용 하거나 [필수 구성 요소](#prerequisites)에 설명 된 대로 필요한 권한이 있는 새 서비스 주체를 만들 수 있습니다. 서비스 주체를 사용 하려면 스크립트를 *enable-monitoring.ps1* 하는 데 사용할 서비스 주체의 값을 사용 하 여 $servicePrincipalClientId, $servicePrincipalClientSecret 및 $tenantId 매개 변수를 전달 해야 합니다.
-
-```powershell
-$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
-$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+```console
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers
 ```
 
-아래 역할 할당은 Arc K8s 연결 된 클러스터 리소스와 다른 Azure 구독에서 기존 Log Analytics 작업 영역을 사용 하는 경우에만 적용할 수 있습니다.
+### <a name="option-2---with-existing-azure-log-analytics-workspace"></a>옵션 2 - 기존 Azure Log Analytics 작업 영역 사용
 
-```powershell
-$logAnalyticsWorkspaceResourceId = "<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
-New-AzRoleAssignment -RoleDefinitionName 'Log Analytics Contributor'  -ObjectId $servicePrincipal.Id -Scope  $logAnalyticsWorkspaceResourceId
+*기여자* 또는 더 허용적인 역할 할당이 있는 모든 구독에서 기존 Azure Log Analytics 작업 영역을 사용할 수 있습니다.
 
-$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
-$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
-$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```console
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<armResourceIdOfExistingWorkspace>
 ```
 
-예를 들면 다음과 같습니다.
+### <a name="option-3---with-advanced-configuration"></a>옵션 3 - 고급 구성 사용
 
-```powershell
-.\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
+기본 리소스 요청 및 제한을 조정하려는 경우 고급 구성 설정을 사용할 수 있습니다.
+
+```console
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings  omsagent.resources.daemonset.limits.cpu=150m omsagent.resources.daemonset.limits.memory=600Mi omsagent.resources.deployment.limits.cpu=1 omsagent.resources.deployment.limits.memory=750Mi
 ```
 
+사용 가능한 구성 설정에 대해 [Helm 차트의 리소스 요청 및 제한 섹션](https://github.com/helm/charts/blob/master/incubator/azuremonitor-containers/values.yaml)을 확인하세요.
 
+### <a name="option-4---on-azure-stack-edge"></a>옵션 4 - Azure Stack Edge에서
 
-## <a name="enable-using-bash-script"></a>Bash 스크립트를 사용 하도록 설정
+Azure Arc 지원 Kubernetes 클러스터가 Azure Stack Edge에 있는 경우 사용자 지정 탑재 경로 `/home/data/docker`를 사용해야 합니다.
 
-제공 된 bash 스크립트를 사용 하 여 모니터링을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+```console
+az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.logsettings.custommountpath=/home/data/docker
+```
 
-1. 다음 명령을 사용 하 여 모니터링 추가 기능을 사용 하 여 클러스터를 구성 하는 로컬 폴더에 스크립트를 다운로드 하 고 저장 합니다.
+>[!NOTE]
+> create 명령에 설치할 확장의 버전을 명시적으로 지정하는 경우 지정된 버전이 >= 2.8.2인지 확인합니다.
 
-    ```bash
-    curl -o enable-monitoring.sh -L https://aka.ms/enable-monitoring-bash-script
+## <a name="create-extension-instance-using-azure-portal"></a>Azure Portal을 사용하여 확장 인스턴스 만들기
+
+>[!IMPORTANT]
+>  Azure Stack Edge에서 실행되는 Kubernetes 클러스터에 Azure Monitor를 배포하는 경우 이러한 클러스터에 대해 사용자 지정 탑재 경로를 설정해야 하므로 Azure Portal 옵션 대신 Azure CLI 옵션을 따라야 합니다.    
+
+### <a name="onboarding-from-the-azure-arc-enabled-kubernetes-resource-blade"></a>Azure Arc 사용 Kubernetes 리소스 블레이드에서 온보딩
+
+1. Azure Portal에서 모니터링하려는 Arc 지원 Kubernetes 클러스터를 선택합니다.
+
+2. 리소스 블레이드의 '모니터링' 섹션 아래에서 '인사이트(미리 보기)' 항목을 선택합니다.
+
+3. 온보딩 페이지에서 'Azure Monitor 구성' 단추를 선택합니다.
+
+4. 이제 [Log Analytics 작업 영역](../logs/quick-create-workspace.md)을 선택하여 메트릭 및 로그 데이터를 보낼 수 있습니다.
+
+5. '구성' 단추를 선택하여 Azure Monitor Container Insights 클러스터 확장을 배포합니다.
+
+### <a name="onboarding-from-azure-monitor-blade"></a>Azure Monitor 블레이드에서 온보딩
+
+1. Azure Portal에서 '모니터' 블레이드로 이동하고 '인사이트' 메뉴 아래에서 '컨테이너' 옵션을 선택합니다.
+
+2. 모니터링을 사용하도록 설정할 수 있는 Azure Arc 지원 Kubernetes 클러스터를 보려면 '모니터링 되지 않은 클러스터' 탭을 선택합니다.
+
+3. 모니터링을 사용하도록 설정할 클러스터 옆의 '사용' 링크를 클릭합니다.
+
+4. Log Analytics 작업 영역을 선택하고 '구성' 단추를 선택하여 계속합니다.
+
+## <a name="create-extension-instance-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 확장 인스턴스 만들기
+
+1. Azure Resource Manager 템플릿 및 매개 변수를 다운로드합니다.
+
+    ```console
+    curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template -o arc-k8s-azmon-extension-arm-template.json
+    curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
     ```
 
-2. `azureArcClusterResourceId`에 해당 하는 값을 설정 하 `subscriptionId` `resourceGroupName` 고 `clusterName` Azure Arc 사용 Kubernetes 클러스터 리소스의 리소스 ID를 나타내는 변수를 구성 합니다.
+2. arc-k8s-azmon-extension-arm-template-params.json 파일의 매개 변수 값을 업데이트합니다. Azure 퍼블릭 클라우드의 경우 `opinsights.azure.com`을 workspaceDomain 값으로 사용해야 합니다.
 
-    ```bash
-    export azureArcClusterResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+3. 템플릿을 배포하여 Azure Monitor Container Insights 확장 만들기 
+
+    ```console
+    az login
+    az account set --subscription "Subscription Name"
+    az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
 
-3. `kubeContext`명령을 실행 하 여 클러스터의 **kube 컨텍스트로** 변수를 구성 합니다 `kubectl config get-contexts` . 현재 컨텍스트를 사용 하려면 값을로 설정 `""` 합니다.
+## <a name="delete-extension-instance"></a>확장 인스턴스 삭제
 
-    ```bash
-    export kubeContext="<kubeContext name of your k8s cluster>"
-    ```
-
-4. 기존 Azure Monitor Log Analytics 작업 영역을 사용 하려면 `logAnalyticsWorkspaceResourceId` 작업 영역의 리소스 ID를 나타내는 해당 값을 사용 하 여 변수를 구성 합니다. 그렇지 않으면 변수를로 설정 하 `""` 고, 해당 지역에 아직 없는 경우 스크립트는 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만듭니다. 만든 기본 작업 영역은 *defaultworkspace \<SubscriptionID> - \<Region>* 의 형식과 유사 합니다.
-
-    ```bash
-    export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
-    ```
-
-5. Arc 사용 Kubernetes 클러스터가 프록시 서버를 통해 통신 하는 경우 `proxyEndpoint` 프록시 서버의 URL을 사용 하 여 변수를 구성 합니다. 클러스터가 프록시 서버를 통해 통신 하지 않는 경우이 값을로 설정할 수 있습니다 `""` . 자세한 내용은이 문서의 뒷부분에 있는 [프록시 끝점 구성](#configure-proxy-endpoint) 을 참조 하세요.
-
-6. 클러스터에 대 한 모니터링을 사용 하도록 설정 하려면 배포 시나리오에 따라 다양 한 명령이 제공 됩니다.
-
-    다음 명령을 실행 하 여 기본 옵션으로 모니터링을 사용 하도록 설정 합니다. 예를 들어 현재 kube 컨텍스트를 사용 하 고, 기본 Log Analytics 작업 영역을 만들고, 프록시 서버를 지정 하지 않아도 됩니다.
-
-    ```bash
-    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId
-    ```
-
-    다음 명령을 실행 하 여 프록시 서버를 지정 하지 않고 기본 Log Analytics 작업 영역을 만듭니다.
-
-    ```bash
-   bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
-    ```
-
-    다음 명령을 실행 하 여 프록시 서버를 지정 하지 않고 기존 Log Analytics 작업 영역을 사용 합니다.
-
-    ```bash
-    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId
-    ```
-
-    다음 명령을 실행 하 여 기존 Log Analytics 작업 영역을 사용 하 고 프록시 서버를 지정 합니다.
-
-    ```bash
-    bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
-    ```
-
-모니터링을 사용하도록 설정하고 약 15분 후에 클러스터에 대한 상태 메트릭을 볼 수 있습니다.
-
-### <a name="using-service-principal"></a>서비스 주체 사용
-Bash 스크립트 *enable-monitoring.sh* 는 대화형 장치 로그인을 사용 합니다. 비 대화형 로그인을 선호 하는 경우 기존 서비스 주체를 사용 하거나 [필수 구성 요소](#prerequisites)에 설명 된 대로 필요한 권한이 있는 새 서비스 주체를 만들 수 있습니다. 서비스 주체를 사용 하려면 bash 스크립트를 *enable-monitoring.sh* 하는 데 사용할 서비스 주체의--클라이언트 id,--클라이언트 암호 및--테 넌 트 id 값을 전달 해야 합니다.
+다음 명령은 확장 인스턴스만 삭제하고 Log Analytics 작업 영역을 삭제하지는 않습니다. Log Analytics 리소스 내의 데이터는 그대로 유지됩니다.
 
 ```bash
-subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
-servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
-servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+az k8s-extension delete --name azuremonitor-containers --cluster-type connectedClusters --cluster-name <cluster-name> --resource-group <resource-group>
 ```
 
-아래 역할 할당은 Arc K8s 연결 된 클러스터 리소스와 다른 Azure 구독에서 기존 Log Analytics 작업 영역을 사용 하는 경우에만 적용할 수 있습니다.
-
-```bash
-logAnalyticsWorkspaceResourceId="<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
-az role assignment create --role 'Log Analytics Contributor' --assignee $servicePrincipalClientId --scope $logAnalyticsWorkspaceResourceId
-
-servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
-tenantId=$(echo $servicePrincipal | jq -r '.tenant')
-```
-
-예를 들면 다음과 같습니다.
-
-```bash
-bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
-```
-
-## <a name="configure-proxy-endpoint"></a>프록시 끝점 구성
-
-컨테이너 화 된 agent for Container insights를 사용 하 여 프록시 끝점을 구성 하 여 프록시 서버를 통해 통신할 수 있습니다. 컨테이너 화 된 에이전트와 Azure Monitor 간의 통신은 HTTP 또는 HTTPS 프록시 서버가 될 수 있으며 익명 및 기본 인증 (사용자 이름/암호)이 모두 지원 됩니다.
-
-프록시 구성 값의 구문은 다음과 같습니다. `[protocol://][user:password@]proxyhost[:port]`
-
-> [!NOTE]
->프록시 서버에 인증이 필요 하지 않은 경우에도 유사 사용자 이름/암호를 지정 해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
-
-|속성| Description |
-|--------|-------------|
-|프로토콜 | HTTP 또는 HTTPS |
-|사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
-|password | 프록시 인증을 위한 선택적 암호 |
-|proxyhost | 프록시 서버의 주소 또는 FQDN |
-|포트 | 프록시 서버에 대 한 선택적 포트 번호 |
-
-`http://user01:password@proxy01.contoso.com:3128`
-
-프로토콜을 **http** 로 지정 하는 경우에는 SSL/TLS 보안 연결을 사용 하 여 http 요청을 만듭니다. 프록시 서버는 SSL/TLS 프로토콜을 지원 해야 합니다.
-
-### <a name="configure-using-powershell"></a>PowerShell을 사용한 구성
-
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
-
-```powershell
-$proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>
-```
-
-### <a name="configure-using-bash"></a>Bash를 사용 하 여 구성
-
-프록시 서버에 대 한 사용자 이름 및 암호, IP 주소 또는 FQDN 및 포트 번호를 지정 합니다. 예를 들면 다음과 같습니다.
-
-```bash
-export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
-```
+## <a name="disconnected-cluster"></a>연결이 끊긴 클러스터
+> 48시간 동안 Azure에서 클러스터의 연결이 끊어지면 Azure Resource Graph에 클러스터에 대한 정보가 없습니다. 결과적으로 인사이트 블레이드에 클러스터 상태에 대한 잘못된 정보가 표시될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 모니터링을 사용 하 여 Arc 사용 Kubernetes 클러스터 및 작업에서 실행 되는 작업의 상태 및 리소스 사용률을 수집할 수 있습니다. 컨테이너 insights를 [사용 하는 방법을](container-insights-analyze.md) 알아보세요.
+- Arc 지원 Kubernetes 클러스터 및 여기에서 실행되는 워크로드의 상태 및 리소스 사용률을 수집할 수 있도록 모니터링을 사용해서 Container Insights를 [사용하는 방법](container-insights-analyze.md)을 알아보세요.
 
-- 기본적으로 컨테이너 화 된 에이전트는 kube를 제외한 모든 네임 스페이스에서 실행 중인 모든 컨테이너의 stdout/stderr 컨테이너 로그를 수집 합니다. 특정 네임 스페이스 또는 네임 스페이스에 특정 한 컨테이너 로그 컬렉션을 구성 하려면 [컨테이너 Insights 에이전트 구성](container-insights-agent-config.md) 을 검토 하 여 원하는 데이터 수집 설정을 configmap 구성 파일에 구성 합니다.
+- 기본적으로 컨테이너화된 에이전트는 kube 시스템을 제외한 모든 네임스페이스에서 실행 중인 모든 컨테이너의 stdout/stderr 컨테이너 로그를 수집합니다. 특정 네임스페이스 또는 네임스페이스와 관련된 컨테이너 로그 컬렉션을 구성하려면 [컨테이너 인사이트 에이전트 구성](container-insights-agent-config.md)을 검토하여 ConfigMap 구성 파일에 대해 원하는 데이터 수집 설정을 구성합니다.
 
-- 클러스터에서 프로메테우스 메트릭을 스크랩 하 고 분석 하려면 [프로메테우스 메트릭 구성](container-insights-prometheus-integration.md) 을 검토 하세요.
-
-- 컨테이너 insights를 사용 하 여 Arc 사용 Kubernetes 클러스터의 모니터링을 중지 하는 방법을 알아보려면 [하이브리드 클러스터 모니터링을 중지 하는 방법](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes)을 참조 하세요.
+- 클러스터에서 Prometheus 메트릭을 스크랩하고 분석하려면 [Prometheus 메트릭 스크래핑 구성](container-insights-prometheus-integration.md)을 검토합니다.

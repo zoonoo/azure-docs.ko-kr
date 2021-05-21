@@ -1,7 +1,7 @@
 ---
-title: 언어 지원-번역기
+title: 언어 지원 - Translator
 titleSuffix: Azure Cognitive Services
-description: Cognitive Services Translator는 NMT (신경망 변환)를 사용 하 여 텍스트를 텍스트로 변환 하기 위한 다음 언어를 지원 합니다.
+description: Cognitive Services Translator는 NMT(Neural Machine Translation)를 사용하여 텍스트 간 번역을 위한 다음 언어를 지원합니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,29 +10,29 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a195567117378a118b9bea8d15a7cb0a661d284a
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738143"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107303528"
 ---
-# <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환에 대 한 언어 및 지역 지원
+# <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환을 위한 언어 및 지역 지원
 
-Translator를 사용 하 여 90 텍스트 번역 언어 및 언어와 변환 합니다. NMT (신경망 변환)는 고품질 AI 기반 컴퓨터 번역을 위한 새로운 표준 이며, 신경망을 사용할 수 있을 때 변환기의 V3을 사용 하 여 기본값으로 사용할 수 있습니다.
+Translator를 사용하여 90개의 텍스트 번역 언어 및 방언을 변환합니다. NMT(Neural Machine Translation)는 고품질의 AI 지원 기계 번역을 위한 새로운 표준으로, 인공신경망 시스템을 사용할 수 있을 때 Translator의 V3를 통해 기본 방식으로 사용할 수 있습니다.
 
-또한 사용자 지정 변환기와 함께 번역기를 사용 하 여 사용자의 비즈니스 및 업계에서 사용 되는 용어를 이해 하 고 Microsoft Speech Service를 사용 하 여 앱에 음성 번역을 추가 하는 신경망을 빌드할 수 있습니다.
+또한 Custom Translator와 함께 Translator를 사용하여 사용자의 비즈니스 및 업계에서 사용되는 용어를 이해하는 인공신경망 번역 시스템을 빌드하고 Microsoft Speech Service를 사용하여 앱에 음성 번역을 추가할 수 있습니다.
 
 [기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
 ## <a name="text-translation"></a>텍스트 번역
-텍스트 번역은 변환기에서 사용 가능한 모든 언어로 변환 작업을 통해 사용할 수 있습니다. 또한 API는 검색 작업을 사용 하 여 언어 검색을 제공 하 고, 음 차 작업을 사용 하 여 음을, 사전 조회 및 사전 예제 작업을 사용 하 여 사전을 제공 합니다. 이러한 각 작업에 사용할 수 있는 언어는 다음과 같습니다. 
+텍스트 번역은 Translator에서 사용할 수 있는 모든 언어로/에서 변환 작업을 통해 사용할 수 있습니다. API는 검색 작업을 사용한 언어 검색, Transliterate 작업을 사용한 음역, 사전 조회 및 사전 예제 작업을 사용하는 이중 언어 사전도 제공합니다. 이러한 각 작업에 사용할 수 있는 언어는 다음과 같습니다. 
 
-### <a name="translate"></a>번역
+### <a name="translate"></a>Translate
 
-Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 지원 합니다. 
+Translator는 텍스트 간 번역을 위해 다음 언어를 지원합니다. 
 
-[변환 작업 참조 문서 보기](reference/v3-0-translate.md)
+[번역 작업 참조 설명서 보기](reference/v3-0-translate.md)
 
 | 언어 | 언어 코드 |
 |:-|:-:|
@@ -52,8 +52,8 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 중국어 번체 | `zh-Hant` |
 | 크로아티아어 | `hr` |
 | 체코어 | `cs` |
-| 다리어 | `prs` |
 | 덴마크어 | `da` |
+| 다리어 | `prs` |
 | 네덜란드어 | `nl` |
 | 영어 | `en` |
 | 에스토니아어 | `et` |
@@ -128,13 +128,13 @@ Translator는 텍스트-텍스트 번역을 위해 다음과 같은 언어를 �
 | 유카텍 마야어 | `yua` |
 
 > [!NOTE]
-> 언어 코드 `pt` 는 기본적으로 `pt-br` 포르투갈어 (브라질)로 바뀝니다.
+> 언어 코드 `pt`는 기본적으로 `pt-br`, 포르투갈어(브라질)로 설정됩니다.
 
 ### <a name="detect"></a>Detect
 
-Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니다.
+Translator는 변역 및 음역에 위해 다음 언어를 검색합니다.
 
-[작업 참조 검색 설명서 보기](reference/v3-0-detect.md)
+[검색 작업 참조 설명서 보기](reference/v3-0-detect.md)
 
 | 언어 | 언어 코드 |
 |:-|:-:|
@@ -200,7 +200,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 
 음역 방법은 다음과 같은 언어를 지원합니다. "대상/원본"에서 "<-->"은 언어가 나열된 스크립트에서/로 음역될 수 있음을 나타냅니다. "-->"은 언어가 한 스크립트에서 다른 스크립트로만 음역될 수 있음을 나타냅니다.
 
-[음 차 작업 참조 설명서 보기](reference/v3-0-translate.md)
+[Transliterate 작업 참조 설명서 보기](reference/v3-0-translate.md)
 
 
 | 언어    | 언어 코드 | 스크립트 | 끝/시작 | 스크립트|
@@ -247,7 +247,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 
 사전은 조회 및 예제 방법을 사용하여 다음 언어를 영어로 또는 영어를 다음 언어로 나타내도록 지원합니다.
 
-[사전 조회](reference/v3-0-dictionary-lookup.md) 및 [사전 예제](reference/v3-0-dictionary-examples.md) 작업에 대 한 참조 설명서를 봅니다.
+[사전 조회](reference/v3-0-dictionary-lookup.md) 및 [사전 예제](reference/v3-0-dictionary-examples.md) 작업에 대한 참조 설명서를 봅니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
@@ -302,15 +302,15 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 베트남어      | `vi`          |
 | 웨일스어      | `cy`          |
 
-### <a name="access-the-translator-language-list-programmatically"></a>프로그래밍 방식으로 번역기 언어 목록 액세스
+### <a name="access-the-translator-language-list-programmatically"></a>프로그래밍 방식으로 Translator 언어 목록에 액세스
 
-언어 메서드를 사용 하 여 번역기에 대해 지원 되는 언어 목록을 검색할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
+언어 메서드를 사용하여 Translator에 대해 지원되는 언어 목록을 검색할 수 있습니다. 영어 또는 지원되는 다른 언어의 언어 이름 뿐만 아니라 기능, 언어 코드별로 목록을 볼 수 있습니다. 이 목록은 새 언어를 사용할 수 있을 때 Microsoft Translator 서비스에서 자동으로 업데이트됩니다.
 
 [언어 작업 참조 설명서 보기](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>사용자 지정
 
-[사용자 지정 변환기](https://aka.ms/CustomTranslator)를 사용 하 여 영어로 사용자 지정 하는 데 사용할 수 있는 언어는 다음과 같습니다.
+다음 언어는 [Custom Translator](https://aka.ms/CustomTranslator)를 사용하여 영어로 또는 영어에서 사용자 지정할 수 있습니다.
 
 | 언어    | 언어 코드 |
 |:----------- |:-------------:|
@@ -340,6 +340,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 헝가리어      | `hu`          |
 | 아이슬란드어 | `is` |
 | 인도네시아어|   `id`    |
+| 이눅티투트어|    `iu`    |
 | 아일랜드어 | `ga`  |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
@@ -376,10 +377,10 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 | 웨일스어 | `cy` |
 
 ## <a name="speech-translation"></a>Speech Translation
-음성 변환은 Cognitive Services 음성 서비스와 함께 번역기를 사용 하 여 사용할 수 있습니다. 음성 번역을 사용 하는 방법에 대해 자세히 알아보고 [사용 가능한 모든 언어 옵션](../speech-service/language-support.md)을 보려면 [음성 서비스 설명서](../speech-service/index.yml) 를 참조 하세요.
+Speech Translation은 Cognitive Services Speech Service와 함께 Translator를 통해 사용할 수 있습니다. 음성 번역을 사용하는 방법에 대해 자세히 알아보고 [사용 가능한 언어 옵션](../speech-service/language-support.md)을 모두 보려면 [Speech Service 설명서](../speech-service/index.yml)를 확인하세요.
 
 ### <a name="speech-to-text"></a>음성 텍스트 변환
-선택한 텍스트 언어로 번역 하기 위해 음성을 텍스트로 변환 합니다. 음성 텍스트 변환은 음성 합성과 함께 사용 될 경우 음성 변환 또는 음성 변환에 사용 됩니다.
+선택한 텍스트 언어로 번역하기 위해 음성을 텍스트로 변환합니다. 음성 텍스트 변환은 음성 합성과 함께 사용될 경우 음성 텍스트 변환 또는 음성 간 변환에 사용됩니다.
 
 | 언어    |
 |:----------- |
@@ -414,7 +415,7 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 |터키어|
 
 ### <a name="text-to-speech"></a>텍스트 음성 변환
-텍스트를 음성으로 변환 합니다. 텍스트 음성 변환은 번역 결과의 가청 출력을 추가 하거나 음성-텍스트와 함께 사용 하는 경우 음성-음성 변환에 사용 됩니다. 
+텍스트를 음성으로 변환합니다. 텍스트 음성 변환은 번역 결과의 가청 출력을 추가하거나 음성 텍스트 변환과 함께 사용하는 경우 음성 간 변환에 사용됩니다. 
 
 | 언어 |
 |:-|
@@ -460,6 +461,6 @@ Translator는 변환 및 음에 대해 다음과 같은 언어를 검색 합니�
 
 ## <a name="view-the-language-list-on-the-microsoft-translator-website"></a>Microsoft Translator 웹 사이트에서 언어 목록 보기
 
-언어에 대 한 간략 한 개요를 보려면 Microsoft Translator 웹 사이트에서 음성 번역을 위해 텍스트 번역 및 음성 서비스에 대해 번역기에서 지 원하는 모든 언어를 표시 합니다. 이 목록에는 언어 코드와 같은 개발자별 정보는 포함되지 않습니다.
+언어를 빠르게 확인하려는 경우 Microsoft Translator 웹 사이트는 텍스트 번역용 Translator Text 및 음성 번역용 Speech Service에서 지원하는 모든 언어를 표시합니다. 이 목록에는 언어 코드와 같은 개발자별 정보는 포함되지 않습니다.
 
 [언어 목록을 참조하세요](https://www.microsoft.com/translator/languages.aspx).

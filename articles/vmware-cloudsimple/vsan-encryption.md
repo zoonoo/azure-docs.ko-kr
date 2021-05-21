@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 프라이빗 클라우드의 vSAN 암호화 구성
 description: CloudSimple 프라이빗 클라우드가 Azure Virtual Network에서 실행되는 키 관리 서버와 함께 작동할 수 있도록 vSAN 소프트웨어 암호화 기능을 구성하는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/19/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f5da05c7f3c6878b0804799360e512676b9002d3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de2c3d889dd7f8bae4c50dee1c68d039e26e52d4
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899051"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108181079"
 ---
 # <a name="configure-vsan-encryption-for-cloudsimple-private-cloud"></a>CloudSimple 프라이빗 클라우드에 대한 vSAN 암호화 구성
 

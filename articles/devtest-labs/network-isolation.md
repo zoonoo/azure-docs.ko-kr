@@ -1,96 +1,96 @@
 ---
-title: Azure DevTest Labs의 네트워크 격리
-description: Azure DevTest Labs의 네트워크 격리에 대해 알아봅니다.
+title: Azure DevTest Labs 네트워크 격리
+description: Azure DevTest Labs 네트워크 격리에 대해 알아보세요.
 ms.topic: article
 ms.date: 08/25/2020
 ms.openlocfilehash: 28bfa048a8a6666deb58a8ecfff38779c91d95b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96352935"
 ---
-# <a name="network-isolation-in-devtest-labs"></a>DevTest Labs의 네트워크 격리
+# <a name="network-isolation-in-devtest-labs"></a>DevTest Labs 네트워크 격리
 
-[Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 는 보안 경계 역할을 하 여 공용 인터넷에서 azure 리소스를 격리 합니다. Azure 가상 네트워크를 온-프레미스 네트워크에 가입 하 여 온-프레미스 리소스에 안전 하 게 연결할 수도 있습니다. DevTest Labs에서 랩 리소스가 조직 네트워킹 정책을 따르도록 하기 위해 [모든 랩 가상 컴퓨터](devtest-lab-configure-vnet.md) 및 [환경을 네트워크에](connect-environment-lab-virtual-network.md) 격리 하도록 선택할 수 있습니다. 
+[Azure 가상 네트워크 ](../virtual-network/virtual-networks-overview.md)는 보안 경계 역할을 하여 Azure 리소스를 공용 인터넷에서 격리합니다. 또한 Azure 가상 네트워크를 온-프레미스 네트워크에 조인하여 온-프레미스 리소스에 안전하게 연결할 수 있습니다. DevTest Labs에서 [모든 랩 가상 머신](devtest-lab-configure-vnet.md) 및 [환경을 네트워크에](connect-environment-lab-virtual-network.md) 격리하여 랩 리소스가 조직 네트워킹 정책을 따르도록 할 수 있습니다. 
 
-랩 소유자는 랩을 완전히 격리 하도록 선택할 수도 있습니다. 즉, 가상 컴퓨터와 환경을 선택한 네트워크로 격리 하는 것 처럼 랩 저장소 계정 및 구독에서 생성 된 키 자격 증명 모음을 격리할 수도 있습니다. 이 문서에서는 네트워크 격리 랩을 만드는 과정을 안내 합니다. 
+또한 랩 소유자는 랩을 완전히 격리하도록 선택할 수 있습니다. 즉, 선택한 네트워크에 가상 머신 및 환경을 격리하는 것과 동시에 랩 스토리지 계정 및 구독에 생성된 키 자격 증명 모음을 격리할 수도 있습니다. 이 기사에서는 네트워크 격리 랩의 생성 과정을 안내합니다. 
 
-또한 다음 문서를 검토 합니다.
+또한 다음 문서를 검토하세요.
 
-- [DevTest Labs에서 랩 저장소 계정을 사용 하는 방법](encrypt-storage.md)
-- [DevTest Labs에서 주요 자격 증명 모음을 사용 하는 방법](devtest-lab-store-secrets-in-key-vault.md)
+- [DevTest Lab의 랩 스토리지 계정 사용 방법](encrypt-storage.md)
+- [DevTest Labs의 키 자격 증명 모음 사용 방법](devtest-lab-store-secrets-in-key-vault.md)
  
 > [!NOTE]
-> 네트워크 격리는 현재 새 랩 만들기에만 지원 됩니다.
+> 네트워크 격리는 현재 새 랩 생성에만 지원됩니다.
 
-## <a name="steps-to-enable-network-isolation-during-lab-creation"></a>랩을 만드는 동안 네트워크 격리를 사용 하도록 설정 하는 단계
+## <a name="steps-to-enable-network-isolation-during-lab-creation"></a>랩 생성 중 네트워크 격리 활성화 단계
 
-1. 랩 생성 중에 **네트워킹** 탭으로 이동 합니다.
-1. 랩에서 만들 **기본** 네트워크를 선택 하거나 드롭다운에서 기존 네트워크를 선택할 수 있습니다. 랩의 경우와 동일한 지역 및 구독에 있는 네트워크를 선택할 수 있습니다. 
+1. 랩을 생성하는 동안 **네트워킹** 탭으로 이동하세요.
+1. 랩에서 생성할 **기본값** 네트워크를 선택하거나 드롭다운에서 기존 네트워크를 선택할 수 있습니다. 랩과 동일한 지역 및 구독에 있는 네트워크를 선택할 수 있습니다. 
 
     > [!div class="mx-imgBorder"]
     > ![랩 만들기](./media/network-isolation/create-lab.png)
-1. 서브넷을 선택 하십시오.
+1. 서브넷을 선택하세요.
 
     > [!div class="mx-imgBorder"]
-    > ![서브넷 만들기](./media/network-isolation/create-lab-subnet.png)
-1. 랩 리소스 (lab storage 계정 및 키 자격 증명 모음)를 기본 네트워크로 격리 하도록 선택 하면 추가 작업이 필요 하지 않으며 랩에서 앞으로의 리소스 격리를 처리 합니다.
+    > ![서브넷 생성](./media/network-isolation/create-lab-subnet.png)
+1. 랩 리소스(랩 스토리지 계정 및 키 자격 증명 모음)를 기본 네트워크로 격리하도록 선택하는 경우 추가 작업이 필요하지 않으며 향후의 리소스 격리를 랩에서 처리합니다.
  
     > [!div class="mx-imgBorder"]
     > ![네트워크 격리](./media/network-isolation/isolate-lab-resources.png)
-1. 랩 리소스 (랩 저장소 계정 및 키 자격 증명 모음)를 선택한 기존 네트워크로 격리 하도록 선택 하는 경우 랩 생성 후 다음 단계를 완료 하 여 랩이 격리 모드에서 계속 작동 하는지 확인 해야 합니다. 
+1. 랩 리소스(랩 스토리지 계정 및 키 자격 증명 모음)를 선택한 기존 네트워크에 격리하도록 선택한 경우, 랩이 격리 모드에서 계속 작동하도록 하려면 랩 생성 후 다음 단계를 완료해야 합니다. 
  
     > [!div class="mx-imgBorder"]
-    > ![자원 배정 격리](./media/network-isolation/isolate-my-vnet.png)
+    > ![리소스 격리](./media/network-isolation/isolate-my-vnet.png)
 
     > [!IMPORTANT]
-    > 랩 소유자는 랩에서 리소스를 구성 및/또는 만들기 전에 이러한 단계를 완료 해야 합니다.
+    > 랩 소유자는 랩에서 리소스를 구성 및/또는 생성하기 전에 이 단계를 완료해야 합니다.
 
-### <a name="steps-to-follow-post-lab-creation"></a>랩 생성 후에 수행 하는 단계
+### <a name="steps-to-follow-post-lab-creation"></a>랩 생성 이후 수행할 단계
 
-1. 랩의 홈 페이지에 있는 **개요** 페이지에서 **리소스 그룹** 을 선택 합니다. 랩을 포함 하는 리소스 그룹에 대 한 **리소스 그룹** 페이지가 표시 되어야 합니다. 
+1. 랩 홈페이지의 **개요** 페이지에서 **리소스 그룹** 을 선택하세요. 랩이 포함된 리소스 그룹의 **리소스 그룹** 페이지가 표시됩니다. 
  
    > [!div class="mx-imgBorder"]
    > ![Contoso 랩](./media/network-isolation/contoso-lab.png)
-1. 랩의 Azure storage 계정을 선택 합니다. 랩 저장소 계정에 대 한 명명 규칙은<*labNameWithoutInvalidCharacters* > *<4 자리 숫자*>입니다. 예를 들어 랩 이름이 contosolab 인 경우 저장소 계정 이름은 acontosolab1234 수 있습니다.
+1. 연구소의 Azure Storage 계정을 선택하세요. 랩 스토리지 계정에 대한 명명 규칙은 a<*labNameWithoutInvalidCharacters*> *<4-digit number*>입니다. 예를 들어, 랩 이름이 contosolab인 경우 스토리지 계정 이름은 contosolab1234일 수 있습니다.
  
    > [!div class="mx-imgBorder"]
    > ![Contoso 테스트](./media/network-isolation/contoso-test.png)
-1. 저장소 계정에서 방화벽 및 가상 네트워크로 이동 하 고 ' 신뢰할 수 있는 Microsoft 서비스가이 저장소 계정에 액세스 하도록 허용 ' 확인란을 선택 했는지 확인 합니다. [DevTest Labs는 신뢰할 수 있는 Microsoft 서비스 이므로](../storage/common/storage-network-security.md#trusted-microsoft-services)이 옵션을 사용 하면 랩을 네트워크 격리 모드에서 정상적으로 작동할 수 있습니다. 
+1. 스토리지 계정에서 방화벽 및 가상 네트워크로 이동하여 '스토리지 계정에 대한 신뢰할 수 있는 Microsoft 서비스의 액세스 허용' 확인란이 선택되어 있는지 확인하세요. [DevTest Labs는 신뢰할 수 있는 Microsoft 서비스](../storage/common/storage-network-security.md#trusted-microsoft-services)이므로 이 옵션을 사용하면 네트워크 격리 모드에서 랩이 정상적으로 작동할 수 있습니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![Contoso lab 방화벽](./media/network-isolation/contoso-lab-firewalls-vnets.png)
-1. 그런 다음, **기존 가상 네트워크 추가** 를 클릭 하 고 랩을 만들 때 선택한 가상 네트워크 및 서브넷을 선택 하 고 **사용** 을 클릭 합니다. 
+   > ![Contoso 랩 방화벽](./media/network-isolation/contoso-lab-firewalls-vnets.png)
+1. 그런 다음 **기존 가상 네트워크 추가** 를 클릭하고 랩을 생성하는 동안 선택한 가상 네트워크 및 서브넷을 선택한 다음 **사용** 을 클릭합니다. 
 
    > [!div class="mx-imgBorder"]
-   > ![Contoso 내 vnet](./media/network-isolation/contoso-lab-my-vnet.png)
-5.  선택한 가상 네트워크에 대해 서비스 끝점이 성공적으로 설정 되 면 **추가** 를 클릭 합니다. 
+   > ![Contoso 나의 vnet](./media/network-isolation/contoso-lab-my-vnet.png)
+5.  선택한 가상 네트워크에 대해 서비스 엔드포인트 사용이 성공적으로 설정되면 **추가** 를 클릭하세요. 
 
    > [!div class="mx-imgBorder"]
    > ![추가](./media/network-isolation/contoso-firewall-add.png)
  
-이를 통해 Azure storage는 추가 된 가상 네트워크에서 인바운드 연결을 허용 하 고 랩을 네트워크 격리 모드에서 성공적으로 작동할 수 있도록 합니다. 
+이를 통해 Azure Storage는 추가된 가상 네트워크에서 인바운드 연결을 허용하고 랩이 네트워크 격리 모드에서 성공적으로 작동할 수 있도록 합니다. 
 
-이러한 단계를 자동화 하 여 여러 랩에 대해이 설정을 구성 하도록 선택할 수도 있습니다. 
+또한 이러한 단계를 자동화하여 여러 랩에 이 설정을 구성할 수 있습니다. 
 
-[PowerShell 및 CLI를 사용 하 여 Azure Storage에 대 한 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보세요.](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
+[PowerShell 및 CLI를 사용하여 Azure Storage의 기본 네트워크 액세스 규칙 관리에 대해 자세히 알아보기](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#powershell)
 
-## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>네트워크 격리 모드에서 랩을 사용 하는 동안 기억할 사항
+## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>네트워크 격리 모드에서 랩을 사용하는 동안 기억해야 할 사항
 
-### <a name="accessing-labs-storage-account-outside-the-lab"></a>랩 외부 랩의 저장소 계정 액세스 
+### <a name="accessing-labs-storage-account-outside-the-lab"></a>랩 외부의 랩 스토리지 계정에 액세스 
 
-네트워크 격리 랩 내에서 랩의 저장소 계정에 VHD를 업로드 하 여에서 사용자 지정 이미지를 만드는 등의 작업을 위해 랩 소유자는 허용 된 끝점에서 저장소 계정에 대 한 액세스를 명시적으로 사용 하도록 설정 해야 합니다. 가상 컴퓨터를 만들고 해당 가상 컴퓨터에서 랩의 저장소 계정에 안전 하 게 액세스 하 여이 작업을 수행할 수 있습니다. 
+네트워크 격리 랩 내에서 VHD를 랩의 스토리지 계정에 업로드하여 사용자 지정 이미지를 생성하는 등의 작업을 수행하려면 랩 소유자는 허용된 엔드포인트에서 스토리지 계정에 대한 액세스 사용을 명시적으로 설정해야 합니다. 가상 머신을 생성하여 이 작업을 수행하고 해당 가상 머신에서 랩의 스토리지 계정에 안전하게 액세스할 수 있습니다. 
 
-[가상 머신에서 개인적으로 저장소 계정에 액세스 하는 방법에 대해 자세히 알아보세요.](../private-link/tutorial-private-endpoint-storage-portal.md)
+[가상 머신에서 스토리지 계정에 비공개로 액세스하는 방법에 대해 자세히 알아보기](../private-link/tutorial-private-endpoint-storage-portal.md)
 
-### <a name="exporting-usage-data-from-the-lab"></a>랩에서 사용 현황 데이터 내보내기 
+### <a name="exporting-usage-data-from-the-lab"></a>랩에서 사용량 데이터 내보내기 
 
-네트워크 격리 랩 내에서 [랩에 대 한 개인 사용 데이터를 내보내려면](personal-data-delete-export.md)랩 소유자는 명시적으로 저장소 계정을 제공 하 고 계정 내에서 데이터를 저장할 blob을 생성 해야 합니다. 
+네트워크 격리 랩 내에서 [랩에 대한 개인 사용량 데이터 내보내기](personal-data-delete-export.md)를 수행하려면 랩 소유자는 명시적으로 스토리지 계정을 제공하고 해당 계정 내에서 데이터를 저장할 BLOB을 생성해야 합니다. 
 
-저장소 계정이 제공 되지 않은 경우 랩의 저장소 계정에 액세스할 수 없기 때문에이 작업은 네트워크 격리 모드에서 실패 합니다 .이는 랩에서 고객이 제공한 저장소 계정이 없는 경우에 사용할 수 있습니다. 
+스토리지 계정이 제공되지 않는다면 고객이 제공한 스토리지 계정이 없는 경우 랩에서 사용할 수 있는 랩의 스토리지 계정에 액세스할 수 없으므로 이 작업은 네트워크 격리 모드에서 실패합니다. 
 
-[지정 된 저장소 계정에서 랩 사용 데이터 내보내기에 대 한 자세한 정보](personal-data-delete-export.md#azure-powershell)
+[지정된 스토리지 계정의 랩 사용량 데이터 내보내기에 대한 자세한 정보 알아보기](personal-data-delete-export.md#azure-powershell)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: justinha
-ms.openlocfilehash: 694ed5304e838057141b7df043565d58188fc870
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 93ad9fc33f3faf599d442a922f18d76e838f82c0
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013042"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285739"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 Resource Manager로 Azure Active Directory Domain Services 마이그레이션
 
@@ -153,7 +154,7 @@ Resource Manager 배포 모델 및 가상 네트워크로의 마이그레이션�
 
 | 단계    | 수행 방법  | 예상 시간  | 가동 중지 시간  | 롤백/복원 |
 |---------|--------------------|-----------------|-----------|-------------------|
-| [1단계 - 새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
+| [1단계 - 새 가상 네트워크 업데이트 및 찾기](#update-and-verify-virtual-network-settings) | Azure Portal | 15분 | 가동 중지 시간 없음 | 해당 없음 |
 | [2단계 - 마이그레이션할 관리되는 도메인 준비](#prepare-the-managed-domain-for-migration) | PowerShell | 평균적으로 15~30분 | 이 명령이 완료된 후 Azure AD DS의 가동 중지 시간이 시작됩니다. | 롤백 및 복원을 사용할 수 있습니다. |
 | [3단계 - 관리되는 도메인을 기존 가상 네트워크로 이동](#migrate-the-managed-domain) | PowerShell | 평균적으로 1~3시간 | 이 명령이 완료되면 하나의 도메인 컨트롤러를 사용할 수 있습니다. | 이 명령이 실패하면 롤백(셀프 서비스) 및 복원을 사용할 수 있습니다. |
 | [4단계 - 복제본 도메인 컨트롤러 테스트 및 대기](#test-and-verify-connectivity-after-the-migration)| PowerShell 및 Azure Portal | 테스트 수에 따라 1시간 이상 | 두 개의 도메인 컨트롤러가 모두 사용 가능하고 정상적으로 작동하며, 가동 중지 시간이 종료됩니다. | 해당 없음. 첫 번째 VM이 성공적으로 마이그레이션되면 롤백 또는 복원 옵션이 없습니다. |

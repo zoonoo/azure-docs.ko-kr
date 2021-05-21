@@ -1,22 +1,22 @@
 ---
 title: 템플릿 함수
-description: Azure Resource Manager 템플릿 (ARM 템플릿)에서 값을 검색 하 고, 문자열과 숫자를 작업 하 고, 배포 정보를 검색 하는 데 사용 하는 함수에 대해 설명 합니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707322"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106220184"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
-이 문서에서는 Azure Resource Manager 템플릿 (ARM 템플릿)에서 사용할 수 있는 모든 함수에 대해 설명 합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조 하세요.
+이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용하는 방법에 대한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조하세요.
 
 함수를 직접 만들려면 [사용자 정의 함수](template-syntax.md#functions)를 참조하세요.
 
-리소스 그룹, 구독, 관리 그룹 또는 테 넌 트에 배포 될 때 대부분의 함수는 동일 하 게 작동 합니다. 일부 함수는 일부 범위에서 사용할 수 없습니다. 아래 목록에 나와 있습니다.
+대부분의 함수는 리소스 그룹, 구독, 관리 그룹 또는 테넌트에 배포될 때 동일하게 작동합니다. 일부 함수는 일부 범위에서 사용할 수 없습니다. 아래 목록에 나와 있습니다.
 
 <a id="array" aria-hidden="true"></a>
 <a id="concatarray" aria-hidden="true"></a>
@@ -36,11 +36,11 @@ ms.locfileid: "101707322"
 
 ## <a name="any-function"></a>모든 함수
 
-[Any 함수](template-functions-any.md) 는 Bicep에서 데이터 형식 경고와 관련 된 문제를 해결 하는 데 사용할 수 있습니다.
+[any 함수](template-functions-any.md)는 Bicep에서 데이터 형식 경고와 관련된 문제를 해결하는 데 사용할 수 있습니다.
 
 ## <a name="array-functions"></a>배열 함수
 
-리소스 관리자는 배열을 사용 하기 위한 몇 가지 함수를 제공 합니다.
+Resource Manager는 배열 작업을 위한 여러 함수를 제공합니다.
 
 * [array](template-functions-array.md#array)
 * [concat](template-functions-array.md#concat)
@@ -82,7 +82,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 ## <a name="date-functions"></a>날짜 함수
 
-리소스 관리자는 날짜 작업을 위한 다음 함수를 제공 합니다.
+Resource Manager는 날짜 작업을 위한 다음 함수를 제공합니다.
 
 * [dateTimeAdd](template-functions-date.md#datetimeadd)
 * [utcNow](template-functions-date.md#utcnow)
@@ -91,7 +91,7 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 
-* [배포가](template-functions-deployment.md#deployment)
+* [deployment](template-functions-deployment.md#deployment)
 * [environment](template-functions-deployment.md#environment)(환경)
 * [parameters](template-functions-deployment.md#parameters)
 * [variables](template-functions-deployment.md#variables)
@@ -144,7 +144,7 @@ Resource Manager는 정수 작업을 위한 다음 함수를 제공합니다.
 
 ## <a name="object-functions"></a>개체 함수
 
-리소스 관리자는 개체 작업을 위한 몇 가지 함수를 제공 합니다.
+Resource Manager는 개체 작업을 위한 여러 함수를 제공합니다.
 
 * [contains](template-functions-object.md#contains)
 * [createObject](template-functions-object.md#createobject)
@@ -176,11 +176,10 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 * [listSecrets](template-functions-resource.md#list)
 * [list*](template-functions-resource.md#list)
 * [pickZones](template-functions-resource.md#pickzones)
-* [providers](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup) -리소스 그룹에 대 한 배포에만 사용할 수 있습니다.
-* [resourceId](template-functions-resource.md#resourceid) -모든 범위에서 사용할 수 있지만 유효한 매개 변수는 범위에 따라 변경 됩니다.
-* [구독](template-functions-resource.md#subscription) -리소스 그룹 또는 구독에 대 한 배포에만 사용할 수 있습니다.
+* [resourceGroup](template-functions-resource.md#resourcegroup) - 리소스 그룹에 대한 배포에서만 사용할 수 있습니다.
+* [resourceId](template-functions-resource.md#resourceid) - 모든 범위에서 사용할 수 있지만 유효한 매개 변수는 범위에 따라 변경됩니다.
+* [구독](template-functions-resource.md#subscription) - 리소스 그룹 또는 구독에 대한 배포에서만 사용할 수 있습니다.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -254,7 +253,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대 한 설명은 [arm 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조 하세요.
-* 여러 템플릿을 병합 하려면 [Azure 리소스를 배포할 때 연결 된 템플릿 및 중첩 된 템플릿 사용](linked-templates.md)을 참조 하세요.
-* 리소스 형식을 만들 때 지정 된 횟수 만큼 반복 하려면 [ARM 템플릿에서 리소스 반복](copy-resources.md)을 참조 하세요.
-* 만든 템플릿을 배포 하는 방법에 대 한 자세한 내용은 [ARM 템플릿을 사용 하 여 리소스 배포 및 Azure PowerShell](deploy-powershell.md)을 참조 하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* 여러 템플릿을 병합하려면 [Azure 리소스를 배포할 때 연결된 템플릿 및 중첩된 템플릿 사용](linked-templates.md)을 참조하세요.
+* 리소스 형식을 만들 때 지정된 횟수만큼 반복하려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.
+* 만든 템플릿을 배포하는 방법을 보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.

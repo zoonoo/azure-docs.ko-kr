@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 04/19/2021
+ms.topic: article
+ms.date: 04/05/2021
 tags: connectors
-ms.openlocfilehash: a19253e117f748b4d4045bfd2a29552018bba91e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 5eae6b48a65f919ea233ad77a215ed5672425175
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781562"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385856"
 ---
 # <a name="create-and-manage-sftp-files-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 만들기 및 관리
 
@@ -53,15 +53,15 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면 이 항목의
   |--------|------------------|-----------------------------|
   | **파일 복사** | 아니요 | 해당 없음 |
   | **파일 만들기** | 예 | 예 |
-  | **폴더 만들기** | 해당 사항 없음 | 해당 사항 없음 |
-  | **파일 삭제** | 해당 사항 없음 | 해당 사항 없음 |
-  | **폴더에 보관 추출** | 해당 사항 없음 | 해당 사항 없음 |
+  | **폴더 만들기** | 해당 없음 | 해당 없음 |
+  | **파일 삭제** | 해당 없음 | 해당 없음 |
+  | **폴더에 보관 추출** | 해당 없음 | 해당 없음 |
   | **파일 콘텐츠 가져오기** | 예 | 예 |
   | **경로를 사용하여 파일 콘텐츠 가져오기** | 예 | 예 |
-  | **파일 메타데이터 가져오기** | 해당 사항 없음 | 해당 사항 없음 |
-  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 사항 없음 | 해당 사항 없음 |
-  | **폴더의 파일 나열** | 해당 사항 없음 | 해당 사항 없음 |
-  | **파일 이름 바꾸기** | 해당 사항 없음 | 해당 사항 없음 |
+  | **파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
+  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 | 해당 없음 |
+  | **폴더의 파일 나열** | 해당 없음 | 해당 없음 |
+  | **파일 이름 바꾸기** | 해당 없음 | 해당 없음 |
   | **파일 업데이트** | 아니요 | 해당 없음 |
   ||||
 
@@ -85,9 +85,9 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면 이 항목의
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 이 기능은 성능을 개선하고 커넥터에서 서버에 연결을 시도하는 빈도를 줄입니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval** 속성](https://man.openbsd.org/sshd_config#ClientAliveInterval)을 편집합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 워크플로에서 SFTP 계정에 액세스할 수 있도록 하는 SFTP 서버 주소 및 계정 자격 증명. SSH 프라이빗 키 및 SSH 프라이빗 키 암호에 대한 액세스도 필요합니다. 청크를 사용하여 대용량 파일을 업로드하려면 SFTP 서버의 루트 폴더에 대한 읽기 및 쓰기 권한이 모두 필요합니다. 그렇지 않으면 "401 권한 없음" 오류가 발생합니다.
 
@@ -123,7 +123,7 @@ SFTP-SSH 트리거는 SFTP 파일 시스템을 폴링하여 마지막 폴링 이
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>트리거 되풀이 이동 및 드리프트
 
-SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거](../connectors/connectors-native-recurrence.md)와 같이 기본적으로 Azure Logic Apps에서 실행되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어하는 유일한 드라이버가 아니며, 표준 시간대는 최초 시작 시간만 결정합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 런타임 시 예기치 않은 동작을 발생시킬 수 있는 기타 요인에 따라 달라집니다. 예를 들어 예기치 않은 동작에는 DST(일광 절약 시간제)가 시작되고 끝날 때 지정된 일정을 유지하지 못하는 오류가 포함될 수 있습니다. DST가 적용될 때 되풀이 시간이 이동하지 않게 하려면 되풀이를 수동으로 조정합니다. 이렇게 하면 워크플로가 예상 시간에 계속 실행됩니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-for-connection-based-triggers)를 참조하세요.
+SFTP-SSH 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거](../connectors/connectors-native-recurrence.md)와 같이 기본적으로 Azure Logic Apps에서 실행되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어하는 유일한 드라이버가 아니며, 표준 시간대는 최초 시작 시간만 결정합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 런타임 시 예기치 않은 동작을 발생시킬 수 있는 기타 요인에 따라 달라집니다. 예를 들어 예기치 않은 동작에는 DST(일광 절약 시간제)가 시작되고 끝날 때 지정된 일정을 유지하지 못하는 오류가 포함될 수 있습니다. DST가 적용될 때 되풀이 시간이 이동하지 않게 하려면 되풀이를 수동으로 조정합니다. 이렇게 하면 워크플로가 예상 시간에 계속 실행됩니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-connection-based)를 참조하세요.
 
 <a name="convert-to-openssh"></a>
 
@@ -141,7 +141,7 @@ PuTTY 형식 및 OpenSSH 형식은 서로 다른 파일 이름 확장명을 사�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   예를 들면 다음과 같습니다.
+   예:
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -231,7 +231,7 @@ SFTP 서버에서 파일을 만들려면 SFTP-SSH **파일 만들기** 동작을
 
 1. 완료되면 **완료** 를 선택합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 <a name="file-added-modified"></a>
 

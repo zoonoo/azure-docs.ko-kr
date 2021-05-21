@@ -71,6 +71,8 @@
           href: enable-rdp.md
         - name: WAD 확장 적용
           href: enable-wad.md
+        - name: Key Vault 확장 적용
+          href: enable-key-vault-virtual-machine.md
     - name: 경고 사용
       href: enable-alerts.md
     - name: 크기 조정 구성

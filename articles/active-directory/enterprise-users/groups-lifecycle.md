@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af1a5e73592dc1c3392f0bc1fecfe6139a54710
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 34ac4a3b7f55c42711e4bc33c75bba964b49c65e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529841"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551631"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Microsoft 365 그룹에 대한 만료 정책 구성
 
@@ -111,7 +111,7 @@ Azure AD 인텔리전스를 사용하여 이제 그룹은 최근에 사용되었
 
 ## <a name="how-to-retrieve-microsoft-365-group-expiration-date"></a>Microsoft 365 그룹 만료 날짜를 검색하는 방법
 
-사용자가 만료 날짜 및 마지막으로 갱신된 날짜를 비롯한 그룹 세부 정보를 볼 수 있는 액세스 패널 외에도 Microsoft 365 그룹의 만료 날짜는 Microsoft Graph REST API 베타에서 검색할 수 있습니다. Microsoft Graph 베타에서는 그룹 속성으로 expirationDateTime을 사용할 수 있습니다. GET 요청을 사용하여 검색할 수 있습니다. 자세한 내용은 [이 예제](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true)를 참조하세요.
+사용자가 만료 날짜 및 마지막으로 갱신된 날짜를 비롯한 그룹 세부 정보를 볼 수 있는 액세스 패널 외에도 Microsoft 365 그룹의 만료 날짜는 Microsoft Graph REST API 베타에서 검색할 수 있습니다. Microsoft Graph 베타에서는 그룹 속성으로 expirationDateTime을 사용할 수 있습니다. GET 요청을 사용하여 검색할 수 있습니다. 자세한 내용은 [이 예제](/graph/api/group-get?view=graph-rest-beta#example)를 참조하세요.
 
 > [!NOTE]
 > 액세스 패널에서 그룹 멤버 자격을 관리하려면 Azure Active Directory 그룹 일반 설정에서 "액세스 패널의 그룹에 대한 액세스 제한"을 "아니요"로 설정해야 합니다.

@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f88a0818d93c33b6265cc8c695479d2a42678ada
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2ad8cce8375ecd670a481541a091e36aacb41240
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103011037"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107505295"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Azure Active Directory의 관리 단위에서 그룹 추가 및 관리
 
@@ -68,7 +68,7 @@ Azure Portal, PowerShell 또는 Microsoft Graph를 사용하여 관리 단위에
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
 $GroupObj = Get-AzureADGroup -Filter "displayname eq 'TestGroup'"
-Add-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId -RefObjectId $GroupObj.ObjectId
+Add-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id -RefObjectId $GroupObj.ObjectId
 ```
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
@@ -115,13 +115,13 @@ POST /administrativeUnits/{admin-unit-id}/members/$ref
 
 ```powershell
 $adminUnitObj = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'Test administrative unit 2'"
-Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId
+Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id
 ```
 
 관리 단위의 구성원인 모든 그룹을 표시하려면 다음 코드 조각을 사용합니다.
 
 ```powershell
-foreach ($member in (Get-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitObj.ObjectId)) 
+foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)) 
 {
 if($member.ObjectType -eq "Group")
 {
@@ -132,7 +132,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 요청
 
@@ -162,7 +162,7 @@ GET /directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.gro
 
 ### <a name="use-powershell"></a>PowerShell 사용
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
@@ -170,7 +170,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 ```http
 https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -202,7 +202,7 @@ https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.Ad
 
 ### <a name="use-powershell"></a>PowerShell 사용
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 ```powershell
 Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $memberGroupObjId
@@ -210,7 +210,7 @@ Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $membe
 
 ### <a name="use-microsoft-graph"></a>Microsoft Graph 사용
 
-다음 명령 실행:
+다음 명령을 실행합니다.
 
 ```http
 https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref

@@ -1,24 +1,24 @@
 ---
-title: Azure Monitor에서 사용 하는 IP 주소
+title: Azure Monitor에서 사용하는 IP 주소
 description: Application Insights에 필요한 서버 방화벽 예외
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.openlocfilehash: 56ff33cc0a34cb254ca88f96d69a07bc131bebf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101714037"
 ---
-# <a name="ip-addresses-used-by-azure-monitor"></a>Azure Monitor에서 사용 하는 IP 주소
+# <a name="ip-addresses-used-by-azure-monitor"></a>Azure Monitor에서 사용하는 IP 주소
 
-[Azure Monitor](../overview.md) 는 여러 개의 IP 주소를 사용 합니다. Azure Monitor은 Log Analytics 및 Application Insights 외에도 핵심 플랫폼 메트릭과 로그로 구성 됩니다. 모니터링 하는 응용 프로그램 또는 인프라를 방화벽 뒤에서 호스트 하는 경우 이러한 주소를 알아야 할 수 있습니다.
+[Azure Monitor](../overview.md)는 여러 IP 주소를 사용합니다. Azure Monitor는 Log Analytics 및 Application Insights 외에도 핵심 플랫폼 메트릭과 로그로 구성됩니다. 모니터링 중인 앱 또는 인프라가 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
 
 > [!NOTE]
 > 이러한 주소는 고정이지만 경우에 따라 변경해야 할 수 있습니다. 모든 Application Insights 트래픽은 인바운드 방화벽 규칙을 필요로 하는 가용성 모니터링 및 웹후크를 제외하고 아웃바운드 트래픽을 나타냅니다.
 
 > [!TIP]
-> Azure 네트워크 보안 그룹을 사용하는 경우 Azure [네트워크 서비스 태그](../../virtual-network/service-tags-overview.md)를 사용하여 액세스를 관리할 수 있습니다. 하이브리드/온-프레미스 리소스에 대한 액세스를 관리하는 경우 매주 업데이트되는 [JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)과 동일한 IP 주소 목록을 다운로드할 수 있습니다. 이 문서의 모든 예외를 포함 하려면 서비스 태그, 및를 사용 해야 `ActionGroup` `ApplicationInsightsAvailability` `AzureMonitor` 합니다.
+> Azure 네트워크 보안 그룹을 사용하는 경우 Azure [네트워크 서비스 태그](../../virtual-network/service-tags-overview.md)를 사용하여 액세스를 관리할 수 있습니다. 하이브리드/온-프레미스 리소스에 대한 액세스를 관리하는 경우 매주 업데이트되는 [JSON 파일](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)과 동일한 IP 주소 목록을 다운로드할 수 있습니다. 이 문서의 모든 예외를 처리하려면 `ActionGroup`, `ApplicationInsightsAvailability` 및 `AzureMonitor` 서비스 태그를 사용해야 합니다.
 
 또는 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom 을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독할 수 있습니다.
 
@@ -53,7 +53,7 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 
 > [!NOTE]
-> 공용 Azure의 가용성 테스트 에이전트와의 직접 인바운드 통신을 허용할 수 없는 개인 가상 네트워크 내에 있는 리소스의 경우 유일한 옵션은 [고유한 사용자 지정 가용성 테스트를 만들고 호스트](availability-azure-functions.md)하는 것입니다.
+> 공용 Azure의 가용성 테스트 에이전트와 직접 인바운드 통신을 허용할 수 없는 프라이빗 가상 네트워크 내에 있는 리소스의 경우 유일한 옵션은 [고유한 사용자 지정 가용성 테스트를 만들고 호스트](availability-azure-functions.md)하는 것입니다.
 
 ### <a name="service-tag"></a>서비스 태그
 
@@ -182,7 +182,7 @@ East US
 
 #### <a name="azure-government"></a>Azure Government
 
-Azure 공용 클라우드 고객 인 경우 필요 하지 않습니다.
+Azure 퍼블릭 클라우드 고객인 경우에는 필요하지 않습니다.
 
 ```
 USGov Virginia
@@ -247,32 +247,32 @@ USDoD East
 
 ## <a name="action-group-webhooks"></a>작업 그룹 웹후크
 
-[AzNetworkServiceTag PowerShell 명령을](/powershell/module/az.network/Get-AzNetworkServiceTag)사용 하 여 작업 그룹에 사용 되는 IP 주소 목록을 쿼리할 수 있습니다.
+[Get-AzNetworkServiceTag PowerShell 명령](/powershell/module/az.network/Get-AzNetworkServiceTag)을 사용하여 작업 그룹에 사용되는 IP 주소 목록을 쿼리할 수 있습니다.
 
 ### <a name="action-groups-service-tag"></a>작업 그룹 서비스 태그
-원본 IP 주소에 대 한 변경 내용을 관리 하는 데 시간이 많이 걸릴 수 있습니다. **서비스 태그** 를 사용 하면 구성을 업데이트할 필요가 없습니다. 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서 IP 주소를 관리 하 고 주소가 변경 되 면 서비스 태그를 자동으로 업데이트 하 여 작업 그룹에 대 한 네트워크 보안 규칙을 업데이트할 필요가 없습니다.
+원본 IP 주소에 대한 변경 내용을 관리하는 데 상당한 시간이 걸릴 수 있습니다. **서비스 태그** 를 사용하면 구성을 업데이트할 필요가 없습니다. 서비스 태그는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft에서 IP 주소를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하므로 작업 그룹에 대한 네트워크 보안 규칙을 업데이트할 필요가 없습니다.
 
-1. Azure 서비스의 Azure Portal에서 *네트워크 보안 그룹* 을 검색 합니다.
-2. **추가** 를 클릭 하 고 네트워크 보안 그룹을 만듭니다.
+1. Azure Services의 Azure Portal에서 *네트워크 보안 그룹* 을 검색합니다.
+2. **추가** 를 클릭하고 네트워크 보안 그룹을 만듭니다.
 
-   1. 리소스 그룹 이름을 추가 하 고 *인스턴스 세부 정보* 를 입력 합니다.
-   1. **검토 + 만들기** 를 클릭 한 다음 *만들기* 를 클릭 합니다.
+   1. 리소스 그룹 이름을 추가한 다음, *인스턴스 세부 정보* 를 입력합니다.
+   1. **검토 + 만들기** 를 클릭한 다음, *만들기* 를 클릭합니다.
    
-   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="네트워크 보안 그룹을 만드는 방법에 대 한 예입니다."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="네트워크 보안 그룹을 만드는 방법에 대한 예."border="true":::
 
-3. 리소스 그룹으로 이동한 다음 만든 *네트워크 보안 그룹* 을 클릭 합니다.
+3. 리소스 그룹으로 이동한 다음, 사용자가 만든 *네트워크 보안 그룹* 을 클릭합니다.
 
-    1. *인바운드 보안 규칙* 을 선택 합니다.
+    1. *인바운드 보안 규칙* 을 선택합니다.
     1. **추가** 를 클릭합니다.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다." border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="서비스 태그를 추가하는 방법에 대한 예." border="true":::
 
 4. 오른쪽 창에 새 창이 열립니다.
     1.  원본 선택: **서비스 태그**
-    1.  원본 서비스 태그: **Actiongroup**
+    1.  원본 서비스 태그: **ActionGroup**
     1.  **추가** 를 클릭합니다.
     
-    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="서비스 태그를 추가 하는 방법에 대 한 예입니다." border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="서비스 태그를 추가하는 방법에 대한 예." border="true":::
 
 
 ## <a name="profiler"></a>프로파일러

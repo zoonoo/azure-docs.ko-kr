@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - 프라이빗 클라우드 권한 모델
 description: CloudSimple 프라이빗 클라우드 권한 모델, 그룹 및 범주에 대해 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/16/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: be77be14acf05aa543c1494f16e499f00598e2b4
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1c8cfeda008955006f2fbad1df58c8047bd36541
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108184517"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97898048"
 ---
 # <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 프라이빗 클라우드 권한 모델
 
@@ -32,7 +32,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 
 ### <a name="pre-created-groups"></a>미리 만든 그룹
 
-| 그룹 이름 | 용도 | 역할 |
+| 그룹 이름 | 목적 | 역할 |
 | -------- | ------- | ------ |
 | 클라우드 소유자 그룹 | 이 그룹의 구성원은 프라이빗 클라우드 vCenter에 대한 관리 권한을 가집니다. | [클라우드 소유자 역할](#cloud-owner-role) |
 | 클라우드 글로벌 클러스터 관리자 그룹 | 이 그룹의 구성원은 프라이빗 클라우드 vCenter 클러스터에 대한 관리 권한을 가집니다. | [클라우드 클러스터 관리자 역할](#cloud-cluster-admin-role) |
@@ -61,7 +61,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 | **내선 번호** | 확장 등록 <br> 확장 등록 취소 <br> 확장 업데이트 |
 | **외부 통계 공급자**| 등록 <br> 등록 취소 <br> 업데이트 |
 | **폴더** | 폴더 만들기 <br> 폴더 삭제 <br> 폴더 이동 <br> 폴더 이름 바꾸기 |
-| **Global** | 태스크 취소 <br> 용량 계획 <br> 진단 <br> 메서드 사용 안 함 <br> 메서드 사용 <br> 글로벌 태그 <br> 의료 <br> 라이선스 <br> 이벤트 로그 <br> 사용자 지정 특성 관리 <br> 프록시 <br> 스크립트 작업 <br> 서비스 관리자 <br> 사용자 지정 특성 설정 <br> 시스템 태그 |
+| **Global** | 태스크 취소 <br> 용량 계획 <br> 진단 <br> 메서드 사용 안 함 <br> 메서드 사용 <br> 글로벌 태그 <br> 의료 <br> 라이선스 <br> 이벤트 로그 <br> 사용자 지정 특성 관리 <br> Proxy (프록시) <br> 스크립트 작업 <br> 서비스 관리자 <br> 사용자 지정 특성 설정 <br> 시스템 태그 |
 | **상태 업데이트 공급자** | 등록 <br> 등록 취소 <br> 업데이트 |
 | **호스트 > 구성** | 스토리지 파티션 구성 |
 | **호스트 > 인벤토리** | 클러스터 수정 |
@@ -70,7 +70,7 @@ CloudSimple은 프라이빗 클라우드 환경에 대한 모든 관리 액세�
 | **성능** | 간격 수정 |
 | **호스트 프로필** | 보기 |
 | **리소스** | 권장 구성 적용 <br> 리소스 풀에 vApp 할당 <br> Assign virtual machine to resource pool <br> 리소스 풀 만들기 <br> 전원이 꺼진 가상 머신 마이그레이션 <br> 전원이 켜진 가상 머신 마이그레이션 <br> 리소스 풀 수정 <br> 리소스 풀 이동 <br> vMotion 쿼리 <br> 리소스 풀 제거 <br> 리소스 풀 이름 바꾸기 |
-| **예약된 작업** | 태스크 만들기 <br> 작업 수정 <br> 작업 제거 <br> 작업 실행 |
+| **예약된 작업** | 작업 만들기 <br> 작업 수정 <br> 작업 제거 <br> 작업 실행 |
 | **세션** | 사용자 가장 <br> 메시지 <br> 세션 유효성 검사 <br> 세션 보기 및 중지 |
 | **데이터 저장소 클러스터** | 데이터 저장소 클러스터 구성 |
 | **프로필 기반 스토리지** | 프로필 기반 스토리지 업데이트 <br> 프로필 기반 스토리지 보기 |

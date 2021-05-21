@@ -10,67 +10,71 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: af220106c415165a0dbe7cda64a31a6068f53164
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981785"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284705"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
-공간 분석을 사용하면 카메라 디바이스에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성하는 각 카메라 디바이스에 대해 공간 분석 작업이 Azure IoT Hub 인스턴스로 전송되는 JSON 메시지의 출력 스트림을 생성합니다. 
+공간 분석을 사용하면 카메라 디바이스에서 실시간 스트리밍 비디오를 분석할 수 있습니다. 구성하는 각 카메라 디바이스의 경우 공간 분석 작업에서 Azure IoT Hub 인스턴스로 보내는 JSON 메시지의 출력 스트림을 생성합니다. 
 
-공간 분석 컨테이너는 다음과 같은 작업을 구현 합니다.
-
-| 작업 식별자| 설명|
-|---------|---------|
-| cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. PersonCount가 정확한 합계를 기록 하도록 하려면 단일 카메라에서 영역을 완전히 검사 해야 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
-| cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
-| cognitiveservices account spatialanalysis-personcrossingpolygon | 사용자가 영역을 입력 하거나 종료 하 고 교차 된 영역의 번호가 매겨진 쪽에 방향 정보를 제공 하는 경우 _personZoneEnterExitEvent_ 이벤트를 내보냅니다. 개인이 영역을 종료 하 고 방향 정보 뿐만 아니라 해당 영역 내에서 사용자가 소비한 시간 (밀리초)을 제공 하는 경우 _personZoneDwellTimeEvent_ 을 내보냅니다. |
-| cognitiveservices account spatialanalysis-persondistance | 사용자가 거리 규칙을 위반 하는 경우를 추적 합니다. <br> 각 거리 위반의 위치를 사용 하 여 주기적으로 _personDistanceEvent_ 을 내보냅니다. |
-
-위의 모든 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 있는 버전 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서을 (를) 실행 해야 합니다.
+공간 분석 컨테이너에서 구현하는 작업은 다음과 같습니다.
 
 | 작업 식별자| 설명|
 |---------|---------|
-| cognitiveservices account spatialanalysis-personcount | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
-| cognitiveservices account spatialanalysis-personcrossingline | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
-| cognitiveservices account spatialanalysis-personcrossingpolygon | 사용자가 영역을 입력 하거나 종료 하 고 교차 된 영역의 번호가 매겨진 쪽에 방향 정보를 제공 하는 경우 _personZoneEnterExitEvent_ 이벤트를 내보냅니다. 개인이 영역을 종료 하 고 방향 정보 뿐만 아니라 해당 영역 내에서 사용자가 소비한 시간 (밀리초)을 제공 하는 경우 _personZoneDwellTimeEvent_ 을 내보냅니다. |
-| cognitiveservices account spatialanalysis-persondistance | 사용자가 거리 규칙을 위반 하는 경우를 추적 합니다. <br> 각 거리 위반의 위치를 사용 하 여 주기적으로 _personDistanceEvent_ 을 내보냅니다. |
+| cognitiveservices.vision.spatialanalysis-personcount | 카메라 시야의 지정된 영역에 있는 사람을 계산합니다. PersonCount에서 정확한 합계를 기록하려면 단일 카메라에서 영역 전체를 완전히 포함해야 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음, 개수가 변경되면 _personCountEvent_ 이벤트를 내보냅니다.  |
+| cognitiveservices.vision.spatialanalysis-personcrossingline | 카메라의 시야에서 사람이 지정된 선을 벗어나는 경우를 추적합니다. <br>사람이 선을 벗어날 때 _personLineEvent_ 이벤트를 내보내고, 방향 정보를 제공합니다. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon | 사람이 영역에 들어오거나 나갈 때 _personZoneEnterExitEvent_ 이벤트를 내보내고, 교차된 영역의 번호가 매겨진 변이 포함된 방향 정보를 제공합니다. 사용자가 영역을 나갈 때 _personZoneDwellTimeEvent_ 를 내보내고, 방향 정보와 사람이 영역 내에서 머문 시간(밀리초)을 제공합니다. |
+| cognitiveservices.vision.spatialanalysis-persondistance | 거리 규칙을 위반하는 경우를 추적합니다. <br> 각 거리 위반 위치가 포함된 _personDistanceEvent_ 를 정기적으로 내보냅니다. |
+| cognitiveservices.vision.spatialanalysis | 위에서 언급한 모든 시나리오를 실행하는 데 사용할 수 있는 일반 작업입니다. 이 옵션은 동일한 카메라에서 여러 시나리오를 실행하거나 시스템 리소스(예: GPU)를 더 효율적으로 사용하려는 경우에 유용합니다. |
 
-비디오 AI 모듈로 [라이브 비디오 분석](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) 으로 공간 분석을 실행할 수도 있습니다. 
+위의 모든 작업은 처리되는 비디오 프레임을 시각화하는 기능이 있는 `.debug` 버전에서도 사용할 수 있습니다. 비디오 프레임 및 이벤트의 시각화를 사용하도록 설정하려면 호스트 컴퓨터에서 `xhost +`를 실행해야 합니다.
+
+| 작업 식별자| 설명|
+|---------|---------|
+| cognitiveservices.vision.spatialanalysis-personcount.debug | 카메라 시야의 지정된 영역에 있는 사람을 계산합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음, 개수가 변경되면 _personCountEvent_ 이벤트를 내보냅니다.  |
+| cognitiveservices.vision.spatialanalysis-personcrossingline.debug | 카메라의 시야에서 사람이 지정된 선을 벗어나는 경우를 추적합니다. <br>사람이 선을 벗어날 때 _personLineEvent_ 이벤트를 내보내고, 방향 정보를 제공합니다. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.debug | 사람이 영역에 들어오거나 나갈 때 _personZoneEnterExitEvent_ 이벤트를 내보내고, 교차된 영역의 번호가 매겨진 변이 포함된 방향 정보를 제공합니다. 사용자가 영역을 나갈 때 _personZoneDwellTimeEvent_ 를 내보내고, 방향 정보와 사람이 영역 내에서 머문 시간(밀리초)을 제공합니다. |
+| cognitiveservices.vision.spatialanalysis-persondistance.debug | 거리 규칙을 위반하는 경우를 추적합니다. <br> 각 거리 위반 위치가 포함된 _personDistanceEvent_ 를 정기적으로 내보냅니다. |
+| cognitiveservices.vision.spatialanalysis.debug | 위에서 언급한 모든 시나리오를 실행하는 데 사용할 수 있는 일반 작업입니다. 이 옵션은 동일한 카메라에서 여러 시나리오를 실행하거나 시스템 리소스(예: GPU)를 더 효율적으로 사용하려는 경우에 유용합니다. |
+
+공간 분석은 [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md)에서 비디오 AI 모듈로 실행할 수도 있습니다. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
 | 작업 식별자| 설명|
 |---------|---------|
-| cognitiveservices account spatialanalysis-personcount. livevideoanalytics | 카메라의 보기 필드에서 지정 된 영역에 있는 사용자 수를 계산 합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음 개수가 변경 되 면 이벤트를 _personCountEvent_ 합니다.  |
-| cognitiveservices account spatialanalysis-personcrossingline. livevideoanalytics | 사용자가 카메라의 보기 필드에서 지정 된 선을 교차할 때를 추적 합니다. <br>사용자가 줄을 _personLineEvent_ 방향 정보를 제공 하면 해당 이벤트를 내보냅니다. 
-| cognitiveservices account spatialanalysis-personcrossingpolygon. livevideoanalytics | 사용자가 영역을 입력 하거나 종료 하 고 교차 된 영역의 번호가 매겨진 쪽에 방향 정보를 제공 하는 경우 _personZoneEnterExitEvent_ 이벤트를 내보냅니다. 개인이 영역을 종료 하 고 방향 정보 뿐만 아니라 해당 영역 내에서 사용자가 소비한 시간 (밀리초)을 제공 하는 경우 _personZoneDwellTimeEvent_ 을 내보냅니다.  |
-| cognitiveservices account spatialanalysis-persondistance. livevideoanalytics | 사용자가 거리 규칙을 위반 하는 경우를 추적 합니다. <br> 각 거리 위반의 위치를 사용 하 여 주기적으로 _personDistanceEvent_ 을 내보냅니다. |
+| cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | 카메라 시야의 지정된 영역에 있는 사람을 계산합니다. <br> 초기 _personCountEvent_ 이벤트를 내보낸 다음, 개수가 변경되면 _personCountEvent_ 이벤트를 내보냅니다.  |
+| cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | 카메라의 시야에서 사람이 지정된 선을 벗어나는 경우를 추적합니다. <br>사람이 선을 벗어날 때 _personLineEvent_ 이벤트를 내보내고, 방향 정보를 제공합니다. 
+| cognitiveservices.vision.spatialanalysis-personcrossingpolygon.livevideoanalytics | 사람이 영역에 들어오거나 나갈 때 _personZoneEnterExitEvent_ 이벤트를 내보내고, 교차된 영역의 번호가 매겨진 변이 포함된 방향 정보를 제공합니다. 사용자가 영역을 나갈 때 _personZoneDwellTimeEvent_ 를 내보내고, 방향 정보와 사람이 영역 내에서 머문 시간(밀리초)을 제공합니다.  |
+| cognitiveservices.vision.spatialanalysis-persondistance.livevideoanalytics | 거리 규칙을 위반하는 경우를 추적합니다. <br> 각 거리 위반 위치가 포함된 _personDistanceEvent_ 를 정기적으로 내보냅니다. |
+| cognitiveservices.vision.spatialanalysis.livevideoanalytics | 위에서 언급한 모든 시나리오를 실행하는 데 사용할 수 있는 일반 작업입니다. 이 옵션은 동일한 카메라에서 여러 시나리오를 실행하거나 시스템 리소스(예: GPU)를 더 효율적으로 사용하려는 경우에 유용합니다. |
 
-라이브 비디오 분석 작업은 `.debug` 처리 중인 비디오 프레임을 시각화 하는 기능이 포함 된 버전 (예: spatialanalysis-personcount. cognitiveservices account) 에서도 사용할 수 있습니다. `xhost +`비디오 프레임 및 이벤트의 시각화를 사용 하도록 설정 하려면 호스트 컴퓨터에서를 실행 해야 합니다.
+Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하는 기능이 있는 `.debug` 버전(예: cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics.debug)에서도 사용할 수 있습니다. 비디오 프레임 및 이벤트의 시각화를 사용하도록 설정하려면 호스트 컴퓨터에서 `xhost +`를 실행해야 합니다.
 
 > [!IMPORTANT]
-> 컴퓨터 시각 AI 모델은 휴먼 본문 주위의 경계 상자를 사용 하 여 비디오 푸티지와 사용자의 현재 상태를 검색 하 고 찾습니다. AI 모델은 개인의 id 또는 인구 통계 검색을 시도 하지 않습니다.
+> 컴퓨터 비전 AI 모델은 인체 주위의 경계 상자를 사용하여 비디오 장면과 출력에서 인간의 현재 상태를 검색하여 찾습니다. AI 모델은 개인의 ID 또는 인구 통계를 검색하려고 시도하지 않습니다.
 
 이러한 각 공간 분석 작업에 필요한 매개 변수는 다음과 같습니다.
 
 | 조작 매개 변수| 설명|
 |---------|---------|
-| OperationID | 위의 테이블에 있는 작업 식별자입니다.|
+| OperationID | 위 표의 작업 식별자입니다.|
 | 사용 | 부울: true 또는 false|
-| VIDEO_URL| 카메라 장치에 대 한 RTSP url입니다 (예: `rtsp://username:password@url` ). 공간 분석은 RTSP, http 또는 mp4를 통해 h.264로 인코딩된 스트림을 지원 합니다. AES 암호화를 사용 하 여 난독 처리 된 base64 문자열 값으로 Video_URL를 제공할 수 있으며, 비디오 URL이 난독 처리 된 후 `KEY_ENV` `IV_ENV` 환경 변수로 제공 되어야 합니다. 키 및 암호화를 생성 하는 샘플 유틸리티는 [여기](/dotnet/api/system.security.cryptography.aesmanaged)에서 찾을 수 있습니다. |
-| VIDEO_SOURCE_ID | 카메라 장치 또는 비디오 스트림의 이름입니다. 이는 이벤트 JSON 출력과 함께 반환 됩니다.|
-| VIDEO_IS_LIVE| 카메라 장치에 대해 True 기록 된 비디오의 경우 false입니다.|
-| VIDEO_DECODE_GPU_INDEX| 비디오 프레임을 디코딩하는 GPU입니다. 기본적으로 0입니다. 는와 같은 `gpu_index` 다른 노드 구성의와 동일 해야 합니다 `VICA_NODE_CONFIG` `DETECTOR_NODE_CONFIG` .|
-| INPUT_VIDEO_WIDTH | 입력 비디오/스트림의 프레임 너비 (예: 1920)입니다. 선택적 필드입니다. 제공 된 프레임은이 차원으로 크기가 조정 되지만 가로 세로 비율이 유지 됩니다.|
-| DETECTOR_NODE_CONFIG | 탐지기 노드를 실행할 GPU를 나타내는 JSON입니다. 는 다음과 같은 형식 이어야 합니다. `"{ \"gpu_index\": 0 }",`|
-| SPACEANALYTICS_CONFIG | 아래에 설명 된 영역 및 줄에 대 한 JSON 구성|
-| ENABLE_FACE_MASK_CLASSIFIER | `True` 비디오 스트림에 얼굴 마스크를 입고 있는 사용자를 검색 하 `False` 여 사용 하지 않도록 설정할 수 있습니다. 기본적으로이 기능은 사용 되지 않습니다. 얼굴 마스크 검색을 사용 하려면 입력 비디오 너비 매개 변수가 1920 이어야 `"INPUT_VIDEO_WIDTH": 1920` 합니다. 검색 된 사람이 카메라를 연결 하지 않거나 너무 멀리 떨어져 있는 경우 얼굴 마스크 특성은 반환 되지 않습니다. 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조 하세요. |
+| VIDEO_URL| 카메라 디바이스에 대한 RTSP URL(예: `rtsp://username:password@url`)입니다. 공간 분석은 RTSP, http 또는 mp4를 통해 H.264로 인코딩된 스트림을 지원합니다. Video_URL은 AES 암호화를 이용하여 난독 처리된 base64 문자열 값으로 제공할 수 있으며, 비디오 URL이 난독 처리된 경우 `KEY_ENV` 및 `IV_ENV`를 환경 변수로 제공해야 합니다. 키 및 암호화를 생성하는 샘플 유틸리티는 [여기](/dotnet/api/system.security.cryptography.aesmanaged)서 확인할 수 있습니다. |
+| VIDEO_SOURCE_ID | 카메라 디바이스 또는 비디오 스트림에 대한 식별 이름입니다. 이벤트 JSON 출력과 함께 반환됩니다.|
+| VIDEO_IS_LIVE| 카메라 디바이스의 경우 true이고, 기록된 비디오의 경우 false입니다.|
+| VIDEO_DECODE_GPU_INDEX| 비디오 프레임을 디코딩하는 GPU입니다. 기본값은 0입니다. `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`와 같은 다른 노드 구성의 `gpu_index`와 동일해야 합니다.|
+| INPUT_VIDEO_WIDTH | 입력 비디오/스트림의 프레임 너비(예: 1920)입니다. 선택적인 필드이며, 제공되는 경우 프레임은 가로 세로 비율을 유지하면서 이 크기로 조정됩니다.|
+| DETECTOR_NODE_CONFIG | 탐지기 노드를 실행할 GPU를 나타내는 JSON입니다. `"{ \"gpu_index\": 0 }",` 형식이어야 합니다.|
+| SPACEANALYTICS_CONFIG | 아래에서 설명한 대로 영역 및 선에 대한 JSON 구성입니다.|
+| ENABLE_FACE_MASK_CLASSIFIER | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 `True`이고, 사용하지 않도록 설정하려면 `False`입니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 `"INPUT_VIDEO_WIDTH": 1920`이어야 합니다. 감지된 사람이 카메라를 향하고 있지 않거나 카메라에서 너무 멀리 떨어져 있으면 얼굴 마스크 특성이 반환되지 않습니다. 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조하세요. |
 
-모든 공간 분석 작업에 대 한 DETECTOR_NODE_CONFIG 매개 변수의 예입니다.
+### <a name="detector-node-parameter-settings"></a>탐지기 노드 매개 변수 설정
+다음은 모든 공간 분석 작업에 대한 DETECTOR_NODE_CONFIG 매개 변수의 예제입니다.
 
 ```json
 {
@@ -78,64 +82,58 @@ ms.locfileid: "99981785"
 "do_calibration": true,
 "enable_recalibration": true,
 "calibration_quality_check_frequency_seconds":86400,
-"calibration_quality_check_sampling_num": 80,
-"calibration_quality_check_sampling_times": 5,
 "calibration_quality_check_sample_collect_frequency_seconds": 300,
 "calibration_quality_check_one_round_sample_collect_num":10,
-"calibration_quality_check_queue_max_size":1000,
-"recalibration_score": 75
+"calibration_quality_check_queue_max_size":1000
 }
 ```
 
-| Name | Type| Description|
+| Name | 유형| Description|
 |---------|---------|---------|
-| `gpu_index` | 문자열| 이 작업이 실행 될 GPU 인덱스입니다.|
-| `do_calibration` | 문자열 | 보정 기능이 설정 되어 있음을 나타냅니다. `do_calibration`**spatialanalysis-persondistance** 가 제대로 작동 하려면 true 여야 합니다. do_calibration는 기본적으로 True로 설정 됩니다. |
-| `enable_recalibration` | bool | 자동 보정할가 설정 되어 있는지 여부를 나타냅니다. 기본값은 `true`입니다.|
-| `calibration_quality_check_frequency_seconds` | int | 보정할가 필요한 지 여부를 확인 하기 위해 각 품질 검사 사이의 최소 시간 (초)입니다. 기본값은 `86400` (24 시간)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sampling_num` | int | 품질 검사 오류 측정 당 사용 하기 위해 임의로 선택 된 저장 된 데이터 샘플 수입니다. 기본값은 `80`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sampling_times` | int | 품질 검사 당 임의로 선택 된 여러 데이터 샘플 집합에서 오류 측정이 수행 되는 횟수입니다. 기본값은 `5`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_sample_collect_frequency_seconds` | int | 보정할 및 품질 검사를 위한 새 데이터 샘플 수집 사이의 최소 시간 (초)입니다. 기본값은 `300`(5분)입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 컬렉션의 라운드 당 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정 될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다.|
-| `recalibration_score` | int | 보정할을 시작 하기 위한 최대 품질 임계값입니다. 기본값은 `75`입니다. 인 경우에만 사용 `enable_recalibration=True` 됩니다. 보정 품질은 이미지 대상 reprojection 오류와의 역 관계에 따라 계산 됩니다. 2D 이미지 프레임에서 검색 된 대상이 지정 된 경우 대상은 3D 공간에 투영 되 고 기존 카메라 보정 매개 변수를 사용 하 여 2D 이미지 프레임으로 다시 투영 됩니다. 재 프로젝션 오류는 검색 된 대상과 다시 프로젝션 된 대상 사이의 평균 거리 만큼 측정 됩니다.|
-| `enable_breakpad`| bool | 디버그 사용을 위해 크래시 덤프를 생성 하는 데 사용 되는 간 채움을 사용할지 여부를 나타냅니다. `false`기본적으로입니다. 로 설정 하면 `true` `"CapAdd": ["SYS_PTRACE"]` 컨테이너의 파트에도 추가 해야 `HostConfig` `createOptions` 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) appcenter 앱에 업로드 되며, 사용자의 appcenter 앱에 크래시 덤프를 업로드 하려면 `RTPT_APPCENTER_APP_SECRET` 앱의 앱 암호를 사용 하 여 환경 변수를 재정의할 수 있습니다.
+| `gpu_index` | 문자열| 이 작업이 실행되는 GPU 인덱스입니다.|
+| `do_calibration` | 문자열 | 보정이 설정되어 있음을 나타냅니다. **cognitiveservices.vision.spatialanalysis-persondistance** 가 제대로 작동하려면 `do_calibration`이 true여야 합니다. do_calibration은 기본적으로 True로 설정됩니다. |
+| `enable_recalibration` | bool | 자동 다시 보정이 설정되어 있는지 여부를 나타냅니다. 기본값은 `true`입니다.|
+| `calibration_quality_check_frequency_seconds` | int | 다시 보정이 필요한지 여부를 결정하기 위한 각 품질 검사 사이의 최소 시간(초)입니다. 기본값은 `86400`(24시간)입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
+| `calibration_quality_check_sample_collect_frequency_seconds` | int | 다시 보정할 새 데이터 샘플 수집과 품질 검사 사이의 최소 시간(초)입니다. 기본값은 `300`(5분)입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
+| `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 수집 라운드 단위로 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
+| `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
+| `enable_breakpad`| bool | 디버그에서 사용할 크래시 덤프를 생성하는 데 사용되는 breakpad를 사용하도록 설정할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.
 
+## <a name="spatial-analysis-operations-configuration-and-output"></a>공간 분석 작업 구성 및 출력
+### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>cognitiveservices.vision.spatialanalysis-personcount에 대한 영역 구성
 
-### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>Cognitiveservices account에 대 한 영역 구성 spatialanalysis-personcount
-
- 영역을 구성 하는 SPACEANALYTICS_CONFIG 매개 변수에 대 한 JSON 입력의 예입니다. 이 작업에 대 한 여러 영역을 구성할 수 있습니다.
+ 다음은 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 영역을 구성할 수 있습니다.
 
 ```json
 {
 "zones":[{
-    "name": "lobbycamera",
-    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-    "events":[{
-        "type": "count",
-        "config":{
-            "trigger": "event",
+       "name": "lobbycamera",
+       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+       "events":[{
+              "type": "count",
+              "config":{
+                     "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
       }
-    }]
+       }]
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
-| `name` | 문자열| 이 영역의 이름입니다.|
-| `polygon` | list| 각 값 쌍은 다각형의 꼭 짓 점에 대 한 x, y를 나타냅니다. 다각형은 사람들이 추적 하거나 계산 하는 영역을 나타내며, 다각형 지점은 정규화 된 좌표 (0-1)를 기반으로 합니다. 여기서 왼쪽 위 모퉁이는 (0.0, 0.0)이 고 오른쪽 아래 모퉁이는 (1.0, 1.0)입니다.   
-| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. |
-| `type` | 문자열| Cognitiveservices account의 경우 **spatialanalysis-personcount** 여야 `count` 합니다.|
-| `trigger` | 문자열| 이벤트를 보내기 위한 트리거의 유형입니다. 지원 되는 값은 개수가 변경 `event` `interval` 되었는지 여부에 관계 없이 이벤트가 변경 되거나 정기적으로 이벤트를 보낼 때 이벤트를 전송 하는 데 사용할 수 있습니다.
-| `output_frequency` | int | 이벤트가 egressed는 속도입니다. `output_frequency`= X 인 경우 x 이벤트는 모두 egressed, 예: `output_frequency` = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. 는 `output_frequency` 및에 모두 적용 `event` 됩니다 `interval` . |
-| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
+| `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
+| `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 추적되거나 계산되는 영역을 나타내며, 다각형 점은 정규화된 좌표(0-1)를 기반으로 합니다. 여기서 왼쪽 위 모서리는 (0.0, 0.0)이고, 오른쪽 아래 모서리는 (1.0, 1.0)입니다.   
+| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. |
+| `type` | 문자열| **cognitiveservices.vision.spatialanalysis-personcount** 의 경우 `count`여야 합니다.|
+| `trigger` | 문자열| 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 `event` 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 `interval`입니다.
+| `output_frequency` | int | 이벤트가 송신되는 속도입니다. `output_frequency` = X이면 모든 X 이벤트가 송신됩니다. 예를 들어 `output_frequency` = 2는 다른 모든 이벤트가 출력됨을 의미합니다. `output_frequency`는 `event` 및 `interval` 모두에 적용됩니다. |
+| `focus` | 문자열| 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 `footprint`(사람의 공간), `bottom_center`(사람의 경계 상자의 아래쪽 가운데), `center`(사람의 경계 상자의 중심)일 수 있습니다.|
 
-### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>Cognitiveservices account에 대 한 줄 구성 spatialanalysis-personcrossingline
+### <a name="line-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingline"></a>cognitiveservices.vision.spatialanalysis-personcrossingline에 대한 선 구성
 
-줄을 구성 하는 SPACEANALYTICS_CONFIG 매개 변수에 대 한 JSON 입력의 예입니다. 이 작업에 대 한 여러 줄을 구성할 수 있습니다.
+다음은 선을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 교차 선을 구성할 수 있습니다.
 
 ```json
 {
@@ -167,21 +165,21 @@ ms.locfileid: "99981785"
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
-| `lines` | list| 줄 목록입니다.|
-| `name` | 문자열| 이 줄에 대 한 친숙 한 이름입니다.|
-| `line` | list| 줄의 정의입니다. "항목"과 "종료"를 이해할 수 있는 방향 줄입니다.|
-| `start` | 값 쌍| 선의 시작점에 대 한 x, y 좌표입니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. |
-| `end` | 값 쌍| 선의 끝 지점에 대 한 x, y 좌표입니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. |
-| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. 기본값은 16입니다. 최대 정확도를 얻기 위해 권장 되는 값입니다. |
-| `type` | 문자열| Cognitiveservices account의 경우 **spatialanalysis-personcrossingline** 여야 `linecrossing` 합니다.|
-|`trigger`|문자열|이벤트를 보내기 위한 트리거의 유형입니다.<br>지원 되는 값: "event": 누군가가 선을 교차할 때 발생 합니다.|
-| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다. 기본값은 공간입니다.|
+| `lines` | list| 선 목록입니다.|
+| `name` | 문자열| 이 선에 대한 식별 이름입니다.|
+| `line` | list| 선의 정의입니다. "진입" 및 "진출"을 이해할 수 있도록 하는 방향 선입니다.|
+| `start` | 값 쌍| 선의 시작 지점에 대한 x, y 좌표입니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. |
+| `end` | 값 쌍| 선의 끝 지점에 대한 x, y 좌표입니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. |
+| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. 기본값은 16입니다. 이는 최대 정확도를 얻기 위해 권장되는 값입니다. |
+| `type` | 문자열| **cognitiveservices.vision.spatialanalysis-personcrossingline** 의 경우 `linecrossing`이어야 합니다.|
+|`trigger`|문자열|이벤트를 보내는 트리거의 형식입니다.<br>지원되는 값: "event": 누군가가 선을 벗어날 때 발생합니다.|
+| `focus` | 문자열| 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 `footprint`(사람의 공간), `bottom_center`(사람의 경계 상자의 아래쪽 가운데), `center`(사람의 경계 상자의 중심)일 수 있습니다. 기본값은 footprint입니다.|
 
-### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>Cognitiveservices account에 대 한 영역 구성 spatialanalysis-personcrossingpolygon
+### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon"></a>cognitiveservices.vision.spatialanalysis-personcrossingpolygon에 대한 영역 구성
 
-영역을 구성 하는 SPACEANALYTICS_CONFIG 매개 변수에 대 한 JSON 입력의 예입니다. 이 작업에 대 한 여러 영역을 구성할 수 있습니다.
+다음은 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 영역을 구성할 수 있습니다.
 
  ```json
 {
@@ -213,19 +211,19 @@ ms.locfileid: "99981785"
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
-| `name` | 문자열| 이 영역의 이름입니다.|
-| `polygon` | list| 각 값 쌍은 다각형의 꼭 짓 점에 대 한 x, y를 나타냅니다. 다각형은 사람들이 추적 하거나 계산 하는 영역을 나타냅니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. 
-| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. Zonecrossing가 DwellTime 인 경우 기본값은 48이 고, time이 인 경우 16입니다. 최대 정확도를 얻기 위해 권장 되는 값은 다음과 같습니다.  |
-| `type` | 문자열| **Cognitiveservices account의 spatialanalysis-personcrossingpolygon** 는 또는 여야 합니다. `zonecrossing` `zonedwelltime`|
-| `trigger`|문자열|이벤트를 보내기 위한 트리거의 유형입니다.<br>지원 되는 값: "event": 누군가가 영역을 입력 하거나 종료할 때 발생 합니다.|
-| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다. 기본값은 공간입니다.|
+| `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
+| `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 추적되거나 계산되는 영역을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. 
+| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. 기본값은 type이 zonecrossing인 경우 48이고, time이 DwellTime인 경우 16입니다. 이러한 값은 최대 정확도를 얻기 위해 권장되는 값입니다.  |
+| `type` | 문자열| **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** 의 경우 `zonecrossing` 또는 `zonedwelltime`이어야 합니다.|
+| `trigger`|문자열|이벤트를 보내는 트리거의 형식입니다.<br>지원되는 값: "event": 누군가가 영역에 들어오거나 나갈 때 발생합니다.|
+| `focus` | 문자열| 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 `footprint`(사람의 공간), `bottom_center`(사람의 경계 상자의 아래쪽 가운데), `center`(사람의 경계 상자의 중심)일 수 있습니다. 기본값은 footprint입니다.|
 
-### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>Cognitiveservices account에 대 한 영역 구성 spatialanalysis-persondistance
+### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-persondistance"></a>cognitiveservices.vision.spatialanalysis-persondistance에 대한 영역 구성
 
-Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONFIG 매개 변수에 대 한 JSON 입력의 예입니다. **spatialanalysis-persondistance**. 이 작업에 대 한 여러 영역을 구성할 수 있습니다.
+다음은 **cognitiveservices.vision.spatialanalysis-persondistance** 에 대한 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 영역을 구성할 수 있습니다.
 
 ```json
 {
@@ -233,42 +231,120 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
    "name": "lobbycamera",
    "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
    "events":[{
-    "type": "persondistance",
-    "config":{
-        "trigger": "event",
-        "output_frequency":1,
-        "minimum_distance_threshold":6.0,
-        "maximum_distance_threshold":35.0,
+       "type": "persondistance",
+       "config":{
+           "trigger": "event",
+           "output_frequency":1,
+           "minimum_distance_threshold":6.0,
+           "maximum_distance_threshold":35.0,
+        "aggregation_method": "average"
            "threshold": 16.00,
            "focus": "footprint"
-            }
-    }]
+                   }
+          }]
    }]
 }
 ```
 
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
-| `name` | 문자열| 이 영역의 이름입니다.|
-| `polygon` | list| 각 값 쌍은 다각형의 꼭 짓 점에 대 한 x, y를 나타냅니다. 다각형은 사용자가 계산 되는 영역을 나타내며 사용자 간의 거리를 측정 합니다. Float 값은 왼쪽 위 모퉁이를 기준으로 하는 꼭 짓 점의 위치를 나타냅니다. 절대 x, y 값을 계산 하려면 이러한 값을 프레임 크기와 곱합니다. 
-| `threshold` | float| AI 모델의 신뢰도가이 값 보다 크거나 같으면 이벤트가 egressed 됩니다. |
-| `type` | 문자열| Cognitiveservices account의 경우 **spatialanalysis-persondistance** 여야 `people_distance` 합니다.|
-| `trigger` | 문자열| 이벤트를 보내기 위한 트리거의 유형입니다. 지원 되는 값은 개수가 변경 `event` `interval` 되었는지 여부에 관계 없이 이벤트가 변경 되거나 정기적으로 이벤트를 보낼 때 이벤트를 전송 하는 데 사용할 수 있습니다.
-| `output_frequency` | int | 이벤트가 egressed는 속도입니다. `output_frequency`= X 인 경우 x 이벤트는 모두 egressed, 예: `output_frequency` = 2는 다른 모든 이벤트가 출력 됨을 의미 합니다. 는 `output_frequency` 및에 모두 적용 `event` 됩니다 `interval` .|
-| `minimum_distance_threshold` | float| 사용자가 멀리 떨어져 있을 때 "TooClose" 이벤트를 트리거할 거리 (미터)입니다.|
-| `maximum_distance_threshold` | float| 사용자가 멀리 떨어져 있을 때 "TooFar" 이벤트를 트리거하는 거리 (미터)입니다.|
-| `focus` | 문자열| 이벤트를 계산 하는 데 사용 되는 개인의 경계 상자 내 지점 위치입니다. 포커스의 값은 (person의 `footprint` 공간) (사용자의 `bottom_center` 경계 상자 가운데), ( `center` 사용자의 경계 상자 가운데) 일 수 있습니다.|
+| `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
+| `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 계산되고 사람 사이의 거리가 측정되는 영역을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. 
+| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. |
+| `type` | 문자열| **cognitiveservices.vision.spatialanalysis-persondistance** 의 경우 `people_distance`여야 합니다.|
+| `trigger` | 문자열| 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 `event` 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 `interval`입니다.
+| `output_frequency` | int | 이벤트가 송신되는 속도입니다. `output_frequency` = X이면 모든 X 이벤트가 송신됩니다. 예를 들어 `output_frequency` = 2는 다른 모든 이벤트가 출력됨을 의미합니다. `output_frequency`는 `event` 및 `interval` 모두에 적용됩니다.|
+| `minimum_distance_threshold` | float| 사람이 이 거리보다 덜 떨어져 있을 때 "TooClose" 이벤트를 트리거하는 거리(피트)입니다.|
+| `maximum_distance_threshold` | float| 사람이 이 거리보다 더 떨어져 있을 때 "TooFar"이벤트를 트리거하는 거리(피트)입니다.|
+| `aggregation_method` | 문자열| 집계된 persondistance 결과에 대한 메서드입니다. aggregation_method는 `mode` 및 `average` 모두에 적용됩니다.|
+| `focus` | 문자열| 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 `footprint`(사람의 공간), `bottom_center`(사람의 경계 상자의 아래쪽 가운데), `center`(사람의 경계 상자의 중심)일 수 있습니다.|
 
-영역 및 선 구성에 대해 알아보려면 [카메라 배치](spatial-analysis-camera-placement.md) 지침을 참조 하세요.
+### <a name="configuration-for-cognitiveservicesvisionspatialanalysis"></a>cognitiveservices.vision.spatialanalysis에 대한 구성
+다음은 **cognitiveservices.vision.spatialanalysis** 에 대한 선과 영역을 구성하는 SPACEANALYTICS_CONFIG 매개 변수에 대한 JSON 입력의 예제입니다. 이 작업에서는 여러 선/영역을 구성할 수 있으며, 각 선/영역마다 다른 이벤트가 있을 수 있습니다.
+
+ ```
+{
+  "lines": [
+    {
+      "name": "doorcamera",
+      "line": {
+        "start": {
+          "x": 0,
+          "y": 0.5
+        },
+        "end": {
+          "x": 1,
+          "y": 0.5
+        }
+      },
+      "events": [
+        {
+          "type": "linecrossing",
+          "config": {
+            "trigger": "event",
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        }
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "name": "lobbycamera",
+      "polygon": [[0.3, 0.3],[0.3, 0.9],[0.6, 0.9],[0.6, 0.3],[0.3, 0.3]],
+      "events": [
+        {
+          "type": "persondistance",
+          "config": {
+            "trigger": "event",
+            "output_frequency": 1,
+            "minimum_distance_threshold": 6.0,
+            "maximum_distance_threshold": 35.0,
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "count",
+          "config": {
+            "trigger": "event",
+            "output_frequency": 1,
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "zonecrossing",
+          "config": {
+            "threshold": 48.00,
+            "focus": "footprint"
+          }
+        },
+        {
+          "type": "zonedwelltime",
+          "config": {
+            "threshold": 16.00,
+            "focus": "footprint"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+## <a name="camera-configuration"></a>카메라 구성
+
+영역 및 선을 구성하는 방법에 대한 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조하세요.
 
 ## <a name="spatial-analysis-operation-output"></a>공간 분석 작업 출력
 
-각 작업의 이벤트는 JSON 형식의 Azure IoT Hub egressed 됩니다.
+각 작업의 이벤트는 JSON 형식으로 Azure IoT Hub로 송신됩니다.
 
-### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcount-ai-insights"></a>Cognitiveservices account에 대 한 JSON 형식 spatialanalysis-personcount AI Insights
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcount-ai-insights"></a>cognitiveservices.vision.spatialanalysis-personcount AI 인사이트에 대한 JSON 형식
 
-이 작업에의 한 이벤트 출력에 대 한 샘플 JSON입니다.
+이 작업의 event 출력에 대한 JSON 샘플입니다.
 
 ```json
 {
@@ -325,7 +401,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
             },
             "metadata": {
             "attributes": {
-                "face_Mask": 0.99
+                "face_mask": 0.99
             }
         }
         },
@@ -352,37 +428,37 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
             },
             "metadata":{
             "attributes": {
-                "face_noMask": 0.99
+            "face_nomask": 0.99
             }
             }
-    }
+       }
     ],
     "schemaVersion": "1.0"
 }
 ```
 
-| 이벤트 필드 이름 | Type| Description|
+| event 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
-| `detectionsId` | array| 이 이벤트를 트리거한 사용자 검색의 고유 식별자 크기 1의 배열입니다.|
+| `detectionsId` | array| 이 이벤트를 트리거한 사람 감지의 고유 식별자 크기 1의 배열|
 | `properties` | collection| 값 컬렉션|
-| `trackinId` | 문자열| 검색 된 사용자의 고유 식별자입니다.|
-| `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
-| `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
+| `trackinId` | 문자열| 감지된 사람의 고유 식별자|
+| `zone` | 문자열 | 교차된 영역을 나타내는 다각형의 "name" 필드|
+| `trigger` | 문자열| SPACEANALYTICS_CONFIG의 `trigger` 값에 따라 'event' 또는 'interval'인 트리거 형식|
 
-| 검색 필드 이름 | Type| Description|
+| detections 필드 이름 | 형식| Description|
 |---------|---------|---------|
-| `id` | 문자열| 검색 ID|
+| `id` | 문자열| 감지 ID|
 | `type` | 문자열| 검색 유형|
 | `region` | collection| 값 컬렉션|
 | `type` | 문자열| 영역 유형|
-| `points` | collection| 영역 형식이 사각형 인 경우 왼쪽 위 및 오른쪽 아래 요소 |
+| `points` | collection| 영역 유형이 RECTANGLE인 경우 왼쪽 위 및 오른쪽 아래 지점 |
 | `confidence` | float| 알고리즘 신뢰도|
-| `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
-| `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
+| `face_mask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있음을 나타냅니다. |
+| `face_nomask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있지 **않음** 을 나타냅니다. |
 
-| SourceInfo 필드 이름 | Type| Description|
+| sourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -390,23 +466,15 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
 | `cameraCallibrationInfo` | collection | 값 컬렉션|
-| `status` | 문자열 | 형식의 보정 상태입니다 `state[;progress description]` . 상태는 `Calibrating` , `Recalibrating` (보정할가 사용 하도록 설정 된 경우) 또는이 될 수 있습니다 `Calibrated` . 진행률 설명 부분은 `Calibrating` `Recalibrating` 현재 보정 프로세스의 진행률을 표시 하는 데 사용 되는 및 상태인 경우에만 유효 합니다.|
-| `cameraHeight` | float | 접지 위에 있는 카메라의 높이 (피트)입니다. 자동 보정에서 유추 됩니다. |
-| `focalLength` | float | 카메라의 초점 길이 (픽셀)입니다. 자동 보정에서 유추 됩니다. |
-| `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 자동 보정에서 유추 됩니다.|
-
-| SourceInfo 필드 이름 | Type| Description|
-|---------|---------|---------|
-| `id` | 문자열| 카메라 ID|
-| `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
-| `width` | int | 비디오 프레임 너비|
-| `height` | int | 비디오 프레임 높이|
-| `frameId` | int | 프레임 식별자|
+| `status` | 문자열 | `state[;progress description]` 형식의 보정 상태입니다. 상태는 `Calibrating`, `Recalibrating`(다시 보정이 사용하도록 설정된 경우) 또는 `Calibrated`일 수 있습니다. 현재 보정 프로세스의 진행률을 표시하는 데 사용되는 `Calibrating` 및 `Recalibrating` 상태인 경우에만 진행률 설명 부분이 유효합니다.|
+| `cameraHeight` | float | 지면 위의 카메라 높이(피트)입니다. 이는 자동 보정에서 유추됩니다. |
+| `focalLength` | float | 카메라의 초점 길이(픽셀)입니다. 이는 자동 보정에서 유추됩니다. |
+| `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 이는 자동 보정에서 유추됩니다.|
 
 
-### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingline-ai-insights"></a>Cognitiveservices account에 대 한 JSON 형식 spatialanalysis-personcrossingline AI Insights
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingline-ai-insights"></a>cognitiveservices.vision.spatialanalysis-personcrossingline AI 인사이트에 대한 JSON 형식
 
-이 작업의 검색 출력에 대 한 샘플 JSON입니다.
+이 작업의 detections 출력에 대한 JSON 샘플입니다.
 
 ```json
 {
@@ -452,7 +520,7 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
             "confidence": 0.9005028605461121,
             "metadata": {
             "attributes": {
-                "face_Mask": 0.99
+                "face_mask": 0.99
             }
         }
         }
@@ -460,28 +528,28 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
     "schemaVersion": "1.0"
 }
 ```
-| 이벤트 필드 이름 | Type| Description|
+| event 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
-| `detectionsId` | array| 이 이벤트를 트리거한 사용자 검색의 고유 식별자 크기 1의 배열입니다.|
+| `detectionsId` | array| 이 이벤트를 트리거한 사람 감지의 고유 식별자 크기 1의 배열|
 | `properties` | collection| 값 컬렉션|
-| `trackinId` | 문자열| 검색 된 사용자의 고유 식별자입니다.|
-| `status` | 문자열| 줄 교차의 방향 (' 왼쪽으로 왼쪽 ' 또는 '가는 오른쪽 ')입니다.|
-| `zone` | 문자열 | 교차 된 줄의 "이름" 필드|
+| `trackinId` | 문자열| 감지된 사람의 고유 식별자|
+| `status` | 문자열| 선 교차 방향('CrossLeft' 또는 'CrossRight')입니다. 방향은 선의 "끝"을 향하여 "시작"에 위치해 있는 상상을 기반으로 합니다. CrossRight는 왼쪽에서 오른쪽으로 교차합니다. CrossLeft는 오른쪽에서 왼쪽으로 교차합니다.|
+| `zone` | 문자열 | 교차된 선의 "name" 필드|
 
-| 검색 필드 이름 | Type| Description|
+| detections 필드 이름 | 형식| Description|
 |---------|---------|---------|
-| `id` | 문자열| 검색 ID|
+| `id` | 문자열| 감지 ID|
 | `type` | 문자열| 검색 유형|
 | `region` | collection| 값 컬렉션|
 | `type` | 문자열| 영역 유형|
-| `points` | collection| 영역 형식이 사각형 인 경우 왼쪽 위 및 오른쪽 아래 요소 |
+| `points` | collection| 영역 유형이 RECTANGLE인 경우 왼쪽 위 및 오른쪽 아래 지점 |
 | `confidence` | float| 알고리즘 신뢰도|
-| `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
-| `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
+| `face_mask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있음을 나타냅니다. |
+| `face_nomask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있지 **않음** 을 나타냅니다. |
 
-| SourceInfo 필드 이름 | Type| Description|
+| sourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -491,11 +559,11 @@ Cognitiveservices account에 대 한 영역을 구성 하는 SPACEANALYTICS_CONF
 
 
 > [!IMPORTANT]
-> AI 모델은 사용자가 카메라를 향해 떨어져 있는지 여부와 관계 없이 사용자를 검색 합니다. AI 모델은 얼굴 인식을 실행 하지 않으며 생체 인식 정보를 내보내지 않습니다. 
+> AI 모델은 사람이 카메라를 향하고 있는지 또는 멀리 떨어져 있는지 여부에 관계없이 사람을 감지합니다. AI 모델은 얼굴 인식을 실행하지 않으며 생체 인식 정보를 내보내지 않습니다. 
 
-### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon-ai-insights"></a>Cognitiveservices account에 대 한 JSON 형식 spatialanalysis-personcrossingpolygon AI Insights
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-personcrossingpolygon-ai-insights"></a>cognitiveservices.vision.spatialanalysis-personcrossingpolygon AI 인사이트에 대한 JSON 형식
 
-SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 한 샘플 JSON `zonecrossing` 입니다.
+`zonecrossing` 형식 SPACEANALYTICS_CONFIG를 사용하는 이 작업의 detections 출력에 대한 JSON 샘플입니다.
 
 ```json
 {
@@ -542,7 +610,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
             "confidence": 0.6267998814582825,
         "metadata": {
         "attributes": {
-        "face_Mask": 0.99
+        "face_mask": 0.99
         }
         }
            
@@ -552,7 +620,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 한 샘플 JSON `zonedwelltime` 입니다.
+`zonedwelltime` 형식 SPACEANALYTICS_CONFIG를 사용하는 이 작업의 detections 출력에 대한 JSON 샘플입니다.
 
 ```json
 {
@@ -567,7 +635,7 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-        "durationMs": 7132.0
+              "durationMs": 7132.0
             },
             "zone": "queuecamera"
         }
@@ -605,32 +673,32 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-| 이벤트 필드 이름 | Type| Description|
+| event 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
-| `type` | 문자열| 이벤트 유형입니다. 값은 _personZoneDwellTimeEvent_ 또는 _personZoneEnterExitEvent_ 수 있습니다.|
-| `detectionsId` | array| 이 이벤트를 트리거한 사용자 검색의 고유 식별자 크기 1의 배열입니다.|
+| `type` | 문자열| 이벤트 유형입니다. 값은 _personZoneDwellTimeEvent_ 또는 _personZoneEnterExitEvent_ 일 수 있습니다.|
+| `detectionsId` | array| 이 이벤트를 트리거한 사람 감지의 고유 식별자 크기 1의 배열|
 | `properties` | collection| 값 컬렉션|
-| `trackinId` | 문자열| 검색 된 사용자의 고유 식별자입니다.|
-| `status` | 문자열| ' Enter ' 또는 ' Exit ' 인 polygon 교차의 방향입니다.|
-| `side` | int| 사용자가 교차 한 다각형의 변의 수입니다. 각 측면은 영역을 나타내는 다각형의 두 꼭 짓 점 사이에 번호가 매겨진 가장자리입니다. 다각형의 처음 두 꼭 짓 점 사이에 있는 가장자리는 첫 번째 면을 나타냅니다.|
-| `durationMs` | float | 사용자가 영역에서 소비한 시간을 나타내는 밀리초 수입니다. 이 필드는 이벤트 유형이 _personZoneDwellTimeEvent_ 때 제공 됩니다.|
-| `zone` | 문자열 | 교차 된 영역을 나타내는 polygon의 "이름" 필드|
+| `trackinId` | 문자열| 감지된 사람의 고유 식별자|
+| `status` | 문자열| 다각형 교차의 방향('Enter' 또는 'Exit')입니다.|
+| `side` | int| 사람이 교차한 다각형 변의 번호입니다. 각 변은 영역을 나타내는 다각형의 두 꼭짓점 사이에 번호가 매겨진 가장자리입니다. 다각형의 처음 두 꼭짓점 사이의 가장자리는 첫 번째 변을 나타냅니다. 폐색으로 인해 이벤트가 특정 변과 연결되지 않은 경우 'side'는 비어 있습니다. 예를 들어 사람이 사라졌지만 영역의 한 변을 교차하지 않은 것으로 확인되면 진출이 발생했거나, 영역에 사람이 나타났지만 변을 교차하지 않은 것으로 확인되면 진입이 발생했습니다.|
+| `durationMs` | float | 사용자가 영역에서 머문 시간을 나타내는 밀리초 수입니다. 이벤트 형식이 _personZoneDwellTimeEvent_ 인 경우 이 필드가 제공됩니다.|
+| `zone` | 문자열 | 교차된 영역을 나타내는 다각형의 "name" 필드|
 
-| 검색 필드 이름 | Type| Description|
+| detections 필드 이름 | 형식| Description|
 |---------|---------|---------|
-| `id` | 문자열| 검색 ID|
+| `id` | 문자열| 감지 ID|
 | `type` | 문자열| 검색 유형|
 | `region` | collection| 값 컬렉션|
 | `type` | 문자열| 영역 유형|
-| `points` | collection| 영역 형식이 사각형 인 경우 왼쪽 위 및 오른쪽 아래 요소 |
+| `points` | collection| 영역 유형이 RECTANGLE인 경우 왼쪽 위 및 오른쪽 아래 지점 |
 | `confidence` | float| 알고리즘 신뢰도|
-| `face_Mask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크를 입고 있음을 나타냅니다. |
-| `face_noMask` | float | 범위 (0-1)가 있는 특성 신뢰도 값은 검색 된 사용자가 얼굴 마스크 **를 입고 없음을** 나타냅니다. |
+| `face_mask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있음을 나타냅니다. |
+| `face_nomask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있지 **않음** 을 나타냅니다. |
 
-### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights"></a>Cognitiveservices account에 대 한 JSON 형식 spatialanalysis-persondistance AI Insights
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-persondistance-ai-insights"></a>cognitiveservices.vision.spatialanalysis-persondistance AI 인사이트에 대한 JSON 형식
 
-이 작업의 검색 출력에 대 한 샘플 JSON입니다.
+이 작업의 detections 출력에 대한 JSON 샘플입니다.
 
 ```json
 {
@@ -720,39 +788,39 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 }
 ```
 
-| 이벤트 필드 이름 | Type| Description|
+| event 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 이벤트 ID|
 | `type` | 문자열| 이벤트 유형|
-| `detectionsId` | array| 이 이벤트를 트리거한 사용자 검색의 고유 식별자 크기 1의 배열입니다.|
+| `detectionsId` | array| 이 이벤트를 트리거한 사람 감지의 고유 식별자 크기 1의 배열|
 | `properties` | collection| 값 컬렉션|
-| `personCount` | int| 이벤트를 내보낼 때 검색 된 사용자 수|
-| `averageDistance` | float| 검색 된 모든 사용자 사이의 평균 거리 (미터)|
-| `minimumDistanceThreshold` | float| 사용자가 멀리 떨어져 있을 때 "TooClose" 이벤트를 트리거할 거리 (미터)입니다.|
-| `maximumDistanceThreshold` | float| 거리가 떨어져 있는 경우 "TooFar" 이벤트를 트리거할 거리 (미터)입니다.|
-| `eventName` | 문자열| 이벤트 이름이 `TooClose` (가) `minimumDistanceThreshold` 위반 되거나 `TooFar` 가 `maximumDistanceThreshold` 위반 되거나 `unknown` 자동 보정이 완료 되지 않은 경우|
-| `distanceViolationPersonCount` | int| 또는 위반 시 검색 된 사용자 수 `minimumDistanceThreshold``maximumDistanceThreshold`|
-| `zone` | 문자열 | 사용자 간 distancing 대해 모니터링 된 영역을 나타내는 polygon의 "이름" 필드|
-| `trigger` | 문자열| 트리거 형식은의 값에 따라 ' event ' 또는 ' interval '입니다 `trigger` SPACEANALYTICS_CONFIG|
+| `personCount` | int| 이벤트를 내보냈을 때 감지된 사람 수|
+| `averageDistance` | float| 감지된 모든 사람 사이의 평균 거리(피트)|
+| `minimumDistanceThreshold` | float| 사람이 이 거리보다 덜 떨어져 있을 때 "TooClose" 이벤트를 트리거하는 거리(피트)입니다.|
+| `maximumDistanceThreshold` | float| 사람이 이 거리보다 더 떨어져 있을 때 "TooFar"이벤트를 트리거하는 거리(피트)입니다.|
+| `eventName` | 문자열| 이벤트 이름은 `minimumDistanceThreshold`를 위반하는 경우 `TooClose`이거나, `maximumDistanceThreshold`를 위반하는 경우 `TooFar`이거나, 자동 보정을 완료하지 않은 경우 `unknown`입니다.|
+| `distanceViolationPersonCount` | int| `minimumDistanceThreshold` 또는 `maximumDistanceThreshold`를 위반하여 감지된 사람 수|
+| `zone` | 문자열 | 사람 사이의 거리를 모니터링한 영역을 나타내는 다각형의 "name" 필드|
+| `trigger` | 문자열| SPACEANALYTICS_CONFIG의 `trigger` 값에 따라 'event' 또는 'interval'인 트리거 형식|
 
-| 검색 필드 이름 | Type| Description|
+| detections 필드 이름 | 형식| Description|
 |---------|---------|---------|
-| `id` | 문자열| 검색 ID|
+| `id` | 문자열| 감지 ID|
 | `type` | 문자열| 검색 유형|
 | `region` | collection| 값 컬렉션|
 | `type` | 문자열| 영역 유형|
-| `points` | collection| 영역 형식이 사각형 인 경우 왼쪽 위 및 오른쪽 아래 요소 |
+| `points` | collection| 영역 유형이 RECTANGLE인 경우 왼쪽 위 및 오른쪽 아래 지점 |
 | `confidence` | float| 알고리즘 신뢰도|
-| `centerGroundPoint` | float 값 2 개| `x`- `y` 땅에서 개인의 유추 된 위치 좌표를 포함 하는 값입니다. `x` 및는 층 `y` 이 수준 이라고 가정 하 고 바닥 평면의 좌표입니다. 카메라의 위치는 원점입니다. |
+| `centerGroundPoint` | 2개의 부동 소수점 값| `x`, `y` 값은 지면에 있는 사람에 대해 유추된 위치의 좌표입니다. `x` 및 `y`는 바닥이 수평이라고 가정한 바닥 평면의 좌표입니다. 카메라의 위치가 원점입니다. |
 
-계산할 때 `centerGroundPoint` 카메라 `x` 에서 카메라 이미지 평면에 수직인 선을 따라 떨어져 있는 거리입니다. `y` 카메라에서 카메라 이미지 평면에 대 한 선을 따라 떨어져 있는 사람 까지의 거리입니다. 
+`centerGroundPoint`를 계산할 때 `x`는 카메라 이미지 평면의 수직선을 따라 카메라에서 사람까지의 거리입니다. `y`는 카메라 이미지 평면의 수평선을 따라 카메라에서 사람까지의 거리입니다. 
 
-![예제 중심 그라운드 지점](./media/spatial-analysis/x-y-chart.png) 
+![지면 중심 지점의 예](./media/spatial-analysis/x-y-chart.png) 
 
-이 예에서 `centerGroundPoint`는 `{x: 4, y: 5}`입니다. 즉, 카메라에서 4 피트 떨어진 사람이 있고 오른쪽이 5 미터 떨어져 있음을 의미 합니다.
+이 예에서 `centerGroundPoint`는 `{x: 4, y: 5}`입니다. 즉, 카메라에서 4피트, 오른쪽으로 5피트 떨어진 사람이 방을 위에서 아래로 보고 있습니다.
 
 
-| SourceInfo 필드 이름 | Type| Description|
+| sourceInfo 필드 이름 | 형식| Description|
 |---------|---------|---------|
 | `id` | 문자열| 카메라 ID|
 | `timestamp` | date| JSON 페이로드를 내보낸 UTC 날짜|
@@ -760,23 +828,26 @@ SPACEANALYTICS_CONFIG 형식으로이 작업에서 출력 하는 검색에 대 �
 | `height` | int | 비디오 프레임 높이|
 | `frameId` | int | 프레임 식별자|
 | `cameraCallibrationInfo` | collection | 값 컬렉션|
-| `status` | 문자열 | 형식의 보정 상태입니다 `state[;progress description]` . 상태는 `Calibrating` , `Recalibrating` (보정할가 사용 하도록 설정 된 경우) 또는이 될 수 있습니다 `Calibrated` . 진행률 설명 부분은 `Calibrating` `Recalibrating` 현재 보정 프로세스의 진행률을 표시 하는 데 사용 되는 및 상태인 경우에만 유효 합니다.|
-| `cameraHeight` | float | 접지 위에 있는 카메라의 높이 (피트)입니다. 자동 보정에서 유추 됩니다. |
-| `focalLength` | float | 카메라의 초점 길이 (픽셀)입니다. 자동 보정에서 유추 됩니다. |
-| `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 자동 보정에서 유추 됩니다.|
+| `status` | 문자열 | `state[;progress description]` 형식의 보정 상태입니다. 상태는 `Calibrating`, `Recalibrating`(다시 보정이 사용하도록 설정된 경우) 또는 `Calibrated`일 수 있습니다. 현재 보정 프로세스의 진행률을 표시하는 데 사용되는 `Calibrating` 및 `Recalibrating` 상태인 경우에만 진행률 설명 부분이 유효합니다.|
+| `cameraHeight` | float | 지면 위의 카메라 높이(피트)입니다. 이는 자동 보정에서 유추됩니다. |
+| `focalLength` | float | 카메라의 초점 길이(픽셀)입니다. 이는 자동 보정에서 유추됩니다. |
+| `tiltUpAngle` | float | 세로 방향의 카메라 기울기 각도입니다. 이는 자동 보정에서 유추됩니다.|
 
+### <a name="json-format-for-cognitiveservicesvisionspatialanalysis-ai-insights"></a>cognitiveservices.vision.spatialanalysis AI 인사이트에 대한 JSON 형식
 
-## <a name="use-the-output-generated-by-the-container"></a>컨테이너에 의해 생성 된 출력 사용
+이 작업의 출력은 구성된 `events`에 따라 달라집니다. 예를 들어 이 작업에 대해 구성된 `zonecrossing` 이벤트가 있는 경우 출력은 `cognitiveservices.vision.spatialanalysis-personcrossingpolygon`과 동일합니다.
 
-공간 분석 검색 또는 이벤트를 응용 프로그램에 통합 하는 것이 좋습니다. 고려해 야 할 몇 가지 방법은 다음과 같습니다. 
+## <a name="use-the-output-generated-by-the-container"></a>컨테이너에서 생성된 출력 사용
 
-* 선택한 프로그래밍 언어에 대 한 Azure Event Hub SDK를 사용 하 여 Azure IoT Hub 끝점에 연결 하 고 이벤트를 수신 합니다. 자세한 내용은 [기본 제공 끝점에서 장치-클라우드 메시지 읽기](../../iot-hub/iot-hub-devguide-messages-read-builtin.md) 를 참조 하세요. 
-* Azure IoT Hub에 대 한 **메시지 라우팅을** 설정 하 여 이벤트를 다른 끝점으로 보내거나 데이터 저장소에 이벤트를 저장 합니다. 자세한 내용은 [IoT Hub 메시지 라우팅](../../iot-hub/iot-hub-devguide-messages-d2c.md) 을 참조 하세요. 
-* 이벤트를 수신 하 고 시각화를 만들 때 실시간으로 이벤트를 처리 하는 Azure Stream Analytics 작업을 설정 합니다. 
+공간 분석 감지 또는 이벤트를 애플리케이션에 통합할 수 있습니다. 고려해야 할 몇 가지 방법은 다음과 같습니다. 
 
-## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>대규모로 공간 분석 작업 배포 (여러 카메라)
+* Azure IoT Hub 엔드포인트에 연결하고 이벤트를 받을 수 있도록 Azure Event Hub SDK를 선택한 프로그래밍 언어에 사용합니다. 자세한 내용은 [기본 제공 엔드포인트에서 디바이스-클라우드 메시지 읽기](../../iot-hub/iot-hub-devguide-messages-read-builtin.md)를 참조하세요. 
+* 이벤트를 다른 엔드포인트에 보내거나 이벤트를 데이터 스토리지에 저장하도록 Azure IoT Hub에서 **메시지 라우팅** 을 설정합니다. 자세한 내용은 [IoT Hub 메시지 라우팅](../../iot-hub/iot-hub-devguide-messages-d2c.md)을 참조하세요. 
+* 이벤트가 도착하면 해당 이벤트를 실시간으로 처리하고 시각화를 만들도록 Azure Stream Analytics 작업을 설정합니다. 
 
-Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 사용 하 여 여러 카메라에 공간 분석 작업을 배포할 수 있습니다. 다음은 `cognitiveservices.vision.spatialanalysis-personcrossingline` 15 개 카메라에서 작업을 실행 하는 샘플입니다.
+## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>대규모 공간 분석 작업 배포(여러 카메라)
+
+GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사용하여 모든 공간 분석 작업을 여러 카메라에 배포할 수 있습니다. 아래는 15대의 카메라에서 `cognitiveservices.vision.spatialanalysis-personcrossingline` 작업을 실행하는 샘플입니다.
 
 ```json
   "properties.desired": {
@@ -963,13 +1034,13 @@ Gpu의 최고 성능 및 사용률을 얻기 위해 그래프 인스턴스를 �
       }
   }
   ```
-| Name | Type| 설명|
+| Name | 유형| 설명|
 |---------|---------|---------|
-| `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size` 해당 작업에 사용할 카메라 수로 설정 되 고, 그렇지 않으면 1로 설정 하 고, `batch_size` 일괄 처리가 지원 되지 않음을 나타내는 기본값 (1)으로 그대로 둡니다. |
+| `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size`를 해당 작업에 사용할 카메라 수로 설정하고, 그렇지 않으면 `batch_size`를 1로 설정하거나 일괄 처리가 지원되지 않음을 나타내는 기본값(1)으로 둡니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사용자를 계산 하는 웹 응용 프로그램 배포](spatial-analysis-web-app.md)
+* [인원 수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
 * [로깅 및 문제 해결](spatial-analysis-logging.md)
 * [카메라 배치 가이드](spatial-analysis-camera-placement.md)
-* [영역 및 줄 배치 가이드](spatial-analysis-zone-line-placement.md)
+* [영역 및 선 배치 가이드](spatial-analysis-zone-line-placement.md)

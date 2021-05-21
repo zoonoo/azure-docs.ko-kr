@@ -1,6 +1,6 @@
 ---
-title: SQL IaaS 에이전트 확장을 사용 하 여 Azure에 여러 SQL Vm 등록
-description: SQL IaaS 에이전트 확장을 사용 하 여 Vm을 대량 SQL Server 등록 하면 관리 효율성을 향상 시킬 수 있습니다.
+title: SQL IaaS 에이전트 확장을 통해 Azure에 여러 SQL VM 등록
+description: SQL IaaS 에이전트 확장을 통해 SQL Server VM을 대량 등록하여 관리 효율성을 개선합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,34 +14,34 @@ ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 558daede55f6563155d3f54e97d77c0a3ca4de59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: ebf835cad79f8c011be2fec91f6f4644ecd0941f
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97357231"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284127"
 ---
-# <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 사용 하 여 Azure에 여러 SQL Vm 등록
+# <a name="register-multiple-sql-vms-in-azure-with-the-sql-iaas-agent-extension"></a>SQL IaaS 에이전트 확장을 통해 Azure에 여러 SQL VM 등록
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-이 문서에서는 Azure PowerShell cmdlet을 사용 하 여 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md) 을 사용 하 여 Azure에 대량으로 SQL Server vm (가상 머신)을 등록 하는 방법을 설명 합니다 `Register-SqlVMs` . 
+이 문서에서는 `Register-SqlVMs` Azure PowerShell cmdlet을 사용하여 Azure에서 [SQL IaaS 에이전트 확장](sql-server-iaas-agent-extension-automate-management.md)에 SQL Server VM(가상 머신)을 대량 등록하는 방법을 설명합니다. 
 
 
-이 문서에서는 대량으로 SQL Server Vm을 수동으로 등록 하는 방법을 설명 합니다. 또는 [모든 SQL Server vm을 자동으로](sql-agent-extension-automatic-registration-all-vms.md) 또는 [개별 SQL Server vm을 수동으로](sql-agent-extension-manually-register-single-vm.md)등록할 수 있습니다. 
+이 문서에서는 SQL Server VM을 대량으로 수동 등록하는 방법을 설명합니다. 또는 [모든 SQL Server VM을 자동으로](sql-agent-extension-automatic-registration-all-vms.md) 등록하거나 [개별 SQL Server VM을 수동으로](sql-agent-extension-manually-register-single-vm.md) 등록할 수 있습니다. 
 
 ## <a name="overview"></a>개요
 
-`Register-SqlVMs` cmdlet을 사용하여 지정된 구독, 리소스 그룹 목록 또는 특정 가상 머신 목록에 있는 모든 가상 머신을 등록할 수 있습니다. 이 cmdlet은 [lightweight_ 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서 가상 컴퓨터를 등록 한 다음 [보고서와 로그 파일](#output-description)을 모두 생성 합니다. 
+`Register-SqlVMs` cmdlet을 사용하여 지정된 구독, 리소스 그룹 목록 또는 특정 가상 머신 목록에 있는 모든 가상 머신을 등록할 수 있습니다. 이 cmdlet은 [lightweight_ management 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)에서 가상 머신을 등록한 다음, [보고서 및 로그 파일](#output-description)을 둘 다 생성합니다. 
 
-등록 프로세스에는 위험이 없으며, 가동 중지 시간이 없으며, SQL Server 서비스 또는 가상 머신을 다시 시작 하지 않습니다. 
+등록 프로세스는 위험 없이 진행되고, 가동 중지 시간이 없으며, SQL Server 서비스 또는 가상 머신을 다시 시작하지 않습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-확장을 사용 하 여 SQL Server VM를 등록 하려면 다음이 필요 합니다. 
+확장에 SQL Server VM을 등록하려면 다음이 필요합니다. 
 
-- [ **SqlVirtualMachine** 공급자에 등록](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-rp) 되었으며 등록 되지 않은 SQL Server 가상 컴퓨터를 포함 하는 [Azure 구독](https://azure.microsoft.com/free/) 입니다. 
-- 가상 컴퓨터를 등록 하는 데 사용 되는 클라이언트 자격 증명은 Azure 역할 ( **가상 컴퓨터 참가자**, **참가자** 또는 **소유자**) 중 하나에 존재 합니다. 
-- Az PowerShell의 최신 버전 [(5.0 이상)](/powershell/azure/new-azureps-module-az) 
+- [**Microsoft.SqlVirtualMachine** 공급자](sql-agent-extension-manually-register-single-vm.md#register-subscription-with-resource-provider)에 등록되었으며 등록되지 않은 SQL Server 가상 머신을 포함하는 [Azure 구독](https://azure.microsoft.com/free/)입니다. 
+- 가상 머신을 등록하는 데 사용되는 클라이언트 자격 증명은 **Virtual Machine 기여자**, **기여자** 또는 **소유자** 와 같은 Azure 역할 중 하나에 존재합니다. 
+- 최신 버전의 [Az PowerShell](/powershell/azure/new-azureps-module-az)(최소 5.0). 
 
 
 ## <a name="get-started"></a>시작하기
@@ -71,7 +71,7 @@ Connect-AzAccount
 ```
 
 
-## <a name="all-vms-in-a-list-of-subscriptions"></a>구독 목록의 모든 Vm 
+## <a name="all-vms-in-a-list-of-subscriptions"></a>구독 목록의 모든 VM 
 
 다음 cmdlet을 사용하여 구독 목록의 모든 SQL Server 가상 머신을 등록합니다.
 
@@ -95,7 +95,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-a-single-subscription"></a>단일 구독의 모든 Vm
+## <a name="all-vms-in-a-single-subscription"></a>단일 구독의 모든 VM
 
 다음 cmdlet을 사용하여 단일 구독의 모든 SQL Server 가상 머신을 등록합니다. 
 
@@ -117,7 +117,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-multiple-resource-groups"></a>여러 리소스 그룹의 모든 Vm
+## <a name="all-vms-in-multiple-resource-groups"></a>여러 리소스 그룹의 모든 VM
 
 다음 cmdlet을 사용하여 단일 구독 내 여러 리소스 그룹의 모든 SQL Server 가상 머신을 등록합니다.
 
@@ -138,7 +138,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="all-vms-in-a-resource-group"></a>리소스 그룹의 모든 Vm
+## <a name="all-vms-in-a-resource-group"></a>리소스 그룹의 모든 VM
 
 다음 cmdlet을 사용하여 단일 리소스 그룹의 모든 SQL Server 가상 머신을 등록합니다. 
 
@@ -159,7 +159,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## <a name="specific-vms-in-a-single-resource-group"></a>단일 리소스 그룹의 특정 Vm
+## <a name="specific-vms-in-a-single-resource-group"></a>단일 리소스 그룹의 특정 VM
 
 다음 cmdlet을 사용하여 단일 리소스 그룹 내에 있는 특정 SQL Server 가상 머신을 등록합니다.
 
@@ -210,9 +210,9 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 | **출력 값** | **설명** |
 | :--------------  | :-------------- | 
 | 액세스 권한이 없거나 자격 증명이 잘못되었기 때문에 많은 구독을 등록하지 못함 | 여기에는 제공된 인증에 문제가 발생한 구독의 수와 목록이 제공됩니다. 자세한 오류는 로그에서 구독 ID를 검색하여 찾을 수 있습니다. | 
-| 리소스 공급자에 등록 되지 않았기 때문에 시도 하지 못한 구독 수입니다. | 이 섹션에는 SQL IaaS 에이전트 확장에 등록 되지 않은 구독 개수 및 목록이 포함 되어 있습니다. |
+| 리소스 공급자에 등록되지 않았기 때문에 시도할 수 없는 구독 수 | 이 섹션에는 SQL IaaS 에이전트 확장에 등록되지 않은 구독 수와 목록이 포함됩니다. |
 | 찾은 총 VM 수 | cmdlet에 전달된 매개 변수 범위에서 발견된 가상 머신 개수입니다. | 
-| VM이 이미 등록됨 | 확장에 이미 등록 되어 있는 가상 컴퓨터의 수입니다. |
+| VM이 이미 등록됨 | 확장에 이미 등록되었기 때문에 건너뛴 가상 머신의 수입니다. |
 | 성공적으로 등록된 VM 수 | cmdlet을 실행한 후 성공적으로 등록된 가상 머신 개수입니다. `SubscriptionID, Resource Group, Virtual Machine` 형식으로 등록된 가상 머신을 나열합니다. | 
 | 오류로 인해 등록하지 못한 VM 수 | 일부 오류로 인해 등록하지 못한 가상 머신 개수입니다. 오류 세부 정보는 로그 파일에서 찾을 수 있습니다. | 
 | VM 또는 VM의 게스트 에이전트가 실행되고 있지 않아 건너뛴 VM 수 | 가상 머신 또는 가상 머신의 게스트 에이전트가 실행되고 있지 않아 등록할 수 없는 가상 머신의 개수 및 목록입니다. 가상 머신 또는 게스트 에이전트가 시작된 후 이 작업을 다시 시도할 수 있습니다. 세부 정보는 로그 파일에서 찾을 수 있습니다. |
@@ -225,14 +225,14 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 ## <a name="remarks"></a>설명
 
-제공 된 스크립트를 사용 하 여 확장에 SQL Server Vm을 등록 하는 경우 다음 사항을 고려 하세요.
+제공된 스크립트를 사용하여 확장에 SQL Server VM을 등록하는 경우 다음을 고려하세요.
 
-- 확장을 사용 하 여 등록 하려면 SQL Server VM에서 실행 되는 게스트 에이전트가 필요 합니다. Windows Server 2008 이미지에는 게스트 에이전트가 없으므로 이 가상 머신은 실패하며 [NoAgent 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)를 사용하여 수동으로 등록해야 합니다.
+- 확장을 등록하려면 SQL Server VM에서 실행되는 게스트 에이전트가 필요합니다. Windows Server 2008 이미지에는 게스트 에이전트가 없으므로 이 가상 머신은 실패하며 [NoAgent 관리 모드](sql-server-iaas-agent-extension-automate-management.md#management-modes)를 사용하여 수동으로 등록해야 합니다.
 - 투명 오류를 해결하기 위한 재시도 논리가 기본 제공됩니다. 가상 머신이 성공적으로 등록된 경우 이는 신속한 작업입니다. 그러나 등록에 실패하면 각 가상 머신이 다시 시도됩니다.  따라서 실제 시간 요구 사항은 오류 유형 및 수에 따라 다르지만 등록 프로세스를 완료하는 데 상당한 시간을 허용해야 합니다. 
 
 ## <a name="full-script"></a>전체 스크립트
 
-GitHub에 대 한 전체 스크립트는 [Az PowerShell을 사용 하 여 vm SQL Server 대량 등록](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1)을 참조 하세요. 
+GitHub에 있는 전체 스크립트는 [Az PowerShell을 사용하여 SQL Server VM 대량 등록](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1)을 참조하세요. 
 
 전체 스크립트를 복사하고 `RegisterSqLVMs.psm1`로 저장합니다.
 
