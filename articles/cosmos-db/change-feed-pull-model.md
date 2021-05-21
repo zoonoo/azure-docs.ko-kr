@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.reviewer: sngun
 ms.openlocfilehash: 9279dddc92629b17a2a73f3a41fe261d322d677e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103463683"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 끌어오기 모델
@@ -31,13 +31,13 @@ ms.locfileid: "103463683"
 하지만 연속 토큰을 임대 컨테이너로(또는 그 반대로) 변환할 수 없습니다.
 
 > [!NOTE]
-> 대부분의 경우 변경 피드에서 읽어야 할 경우 가장 간단한 방법은 [변경 피드 프로세서](change-feed-processor.md)를 사용 하는 것입니다.
+> 대부분의 경우 변경 피드에서 읽어야 하는 경우 가장 간단한 옵션은 [변경 피드 프로세서](change-feed-processor.md)를 사용하는 것입니다.
 
 다음 시나리오에서는 끌어오기 모델 사용을 고려해야 합니다.
 
 - 특정 파티션 키에서 변경 내용 읽기
-- 클라이언트에서 처리를 위해 변경 내용을 받는 속도 제어
-- 변경 피드의 기존 데이터를 한 번 읽습니다 (예: 데이터 마이그레이션을 수행 하는 경우).
+- 클라이언트에서 변경 내용을 받아 처리하는 속도 제어
+- 변경 피드에서 기존 데이터를 한 번 읽음(예: 데이터 마이그레이션 수행)
 
 변경 피드 프로세서와 끌어오기 모델의 주요 차이는 다음과 같습니다.
 
@@ -46,19 +46,19 @@ ms.locfileid: "103463683"
 | 처리 중인 변경 피드의 현재 지점 추적 | 임대(Azure Cosmos DB 컨테이너에 저장됨) | 연속 토큰(메모리에 저장되거나 수동으로 유지됨) |
 | 이전 변경 내용 재생 가능 여부 | 예, 밀어넣기 모델 사용 | 예, 끌어오기 모델 사용|
 | 이후 변경 내용 폴링 | 사용자 지정 `WithPollInterval`에 기반하여 변경 내용을 자동으로 확인 | 설명서 |
-| 새 변경 내용이 없는 동작 | 자동으로 대기 `WithPollInterval` 및 다시 확인 | 예외를 catch 하 고 수동으로 다시 확인 해야 합니다. |
+| 새로운 변경 내용이 없는 동작 | 자동으로 `WithPollInterval`을 기다렸다가 다시 확인 | 예외를 포착하고 수동으로 다시 확인해야 합니다. |
 | 전체 컨테이너의 변경 내용 처리 | 예, 동일한 컨테이너에서 사용하는 여러 스레드/머신을 자동으로 병렬화| 예, FeedToken을 사용하여 수동으로 병렬화 |
 | 단일 파티션 키의 변경 내용 처리 | 지원되지 않음 | 예|
 | 지원 수준 | 일반 공급 | 미리 보기 |
 
 > [!NOTE]
-> 변경 피드 프로세서를 사용 하 여 읽는 경우와 달리 새로운 변경 내용이 없는 경우를 명시적으로 처리 해야 합니다. 
+> 변경 피드 프로세서를 사용하여 읽을 때와 달리 새로운 변경 내용이 없는 경우를 명시적으로 처리해야 합니다. 
 
 ## <a name="consuming-an-entire-containers-changes"></a>전체 컨테이너의 변경 내용 사용
 
-끌어오기 모델을 사용하여 변경 피드를 처리하는 `FeedIterator`를 만들 수 있습니다. 를 처음 만들 때 `FeedIterator` `ChangeFeedStartFrom` 변경 내용 읽기의 시작 위치와 원하는를 모두 구성 하는 데 필요한 값을 지정 해야 합니다 `FeedRange` . 는 `FeedRange` 파티션 키 값의 범위 이며 특정을 사용 하 여 변경 피드에서 읽어올 항목을 지정 합니다 `FeedIterator` .
+끌어오기 모델을 사용하여 변경 피드를 처리하는 `FeedIterator`를 만들 수 있습니다. `FeedIterator`를 처음 만들 때는 변경 내용을 읽기 위한 시작 위치와 원하는 `FeedRange`로 구성된 필수 `ChangeFeedStartFrom` 값을 지정해야 합니다. `FeedRange`는 파티션 키 값의 범위이며, 특정 `FeedIterator`를 사용하여 변경 피드에서 읽을 항목을 지정합니다.
 
-선택적으로를 지정 `ChangeFeedRequestOptions` 하 여를 설정할 수 있습니다 `PageSizeHint` . 는 `PageSizeHint` 단일 페이지에서 반환 되는 최대 항목 수입니다.
+필요에 따라 `ChangeFeedRequestOptions`를 지정하여 `PageSizeHint`를 설정할 수 있습니다. `PageSizeHint`는 단일 페이지에 반환되는 최대 항목 수입니다.
 
 `FeedIterator`는 두 가지 버전으로 제공됩니다. 엔터티 개체를 반환하는 아래 예제 외에, `Stream` 지원을 통해 응답을 얻을 수도 있습니다. 스트림을 사용하면 데이터를 먼저 역직렬화하지 않고도 읽을 수 있어서, 클라이언트 리소스를 절약할 수 있습니다.
 
@@ -74,7 +74,7 @@ FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(Ch
 FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
-에를 제공 하지 않는 경우 `FeedRange` `FeedIterator` 고유한 속도로 전체 컨테이너의 변경 피드를 처리할 수 있습니다. 다음은 현재 시간에서 시작 하는 모든 변경 내용 읽기를 시작 하는 예제입니다.
+`FeedIterator`에 `FeedRange`를 제공하지 않으면 전체 컨테이너의 변경 피드를 고유한 속도로 처리할 수 있습니다. 다음은 현재 시간부터 시작하는 모든 변경 내용 읽기를 시작하는 예제입니다.
 
 ```csharp
 FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
@@ -96,7 +96,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 }
 ```
 
-변경 피드는 실제로 모든 쓰기 및 업데이트를 포괄 하는 항목의 무한 목록이 기 때문에의 값은 `HasMoreResults` 항상 true입니다. 변경 피드를 읽으려고 할 때 새 변경 내용을 사용할 수 없으면 예외가 발생 합니다. 위의 예제에서 예외는 변경에 대해 rechecking 하기 전에 5 초 동안 대기 하 여 처리 됩니다.
+변경 피드는 사실상 향후의 모든 쓰기 및 업데이트를 포괄하는 항목의 무한 목록이기 때문에`HasMoreResults`의 값은 항상 true입니다. 변경 피드를 읽으려고 할 때 사용 가능한 새 변경 내용이 없으면 예외가 발생합니다. 위의 예제에서 예외는 변경 내용을 다시 확인하기 전에 5초 동안 대기하여 처리됩니다.
 
 ## <a name="consuming-a-partition-keys-changes"></a>파티션 키의 변경 내용 사용
 
@@ -136,7 +136,7 @@ IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 
 컨테이너에 대한 FeedRanges 목록을 가져올 때 [실제 파티션](partitioning-overview.md#physical-partitions)당 하나의 `FeedRange`를 가져옵니다.
 
-`FeedRange`를 사용하면 여러 머신 또는 스레드의 변경 피드 처리를 병렬화하는 `FeedIterator`를 만들 수 있습니다. 전체 컨테이너 또는 단일 파티션 키에 대해를 가져오는 방법을 보여 준 이전 예제와는 달리 `FeedIterator` FeedRanges를 사용 하 여 변경 피드를 병렬로 처리할 수 있는 여러 FeedIterators 얻을 수 있습니다.
+`FeedRange`를 사용하면 여러 머신 또는 스레드의 변경 피드 처리를 병렬화하는 `FeedIterator`를 만들 수 있습니다. 전체 컨테이너에 또는 단일 파티션 키에 대한 `FeedIterator`를 얻는 방법을 보여주는 이전 예제와 달리 FeedRanges를 사용하여 변경 피드를 병렬로 처리할 수 있는 여러 FeedIterators를 얻을 수 있습니다.
 
 FeedRanges를 사용하려는 경우에는 FeedRanges를 가져와서 해당 머신에 배포하는 오케스트레이터 프로세스가 필요합니다. 이러한 배포는 다음과 같을 수 있습니다.
 

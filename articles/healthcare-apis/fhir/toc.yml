@@ -1,4 +1,4 @@
-- name: Azure API for FHIR
+- name: FHIR용 Azure API
   href: index.yml
 - name: 개요
   items:
@@ -106,6 +106,8 @@
           href: export-data.md
         - name: 개인 식별 정보가 제거된 내보내기
           href: de-identified-export.md
+        - name: Synapse로 데이터 내보내기
+          href: export-to-synapse.md
     - name: 데이터 변환
       expanded: false
       items:

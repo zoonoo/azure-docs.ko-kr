@@ -10,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 57f5da06909436e0cbce92559c29c309ca9e20e3
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 584e421b6beac0e4ecfab5b3e3cb735b8465e1b4
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107819235"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102503524"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인이란?
 
@@ -47,7 +47,7 @@ Azure Machine Learning 파이프라인은 기계 학습 작업 전체에 대한 
 
 파이프라인을 사용하여 작업마다 다른 하드웨어를 사용하도록 선택할 수 있습니다. Azure는 사용하는 다양한 [컴퓨팅 대상](concept-azure-machine-learning-architecture.md)을 조정하므로 중간 데이터가 다운스트림 컴퓨팅 대상으로 원활하게 흐릅니다.
 
-Azure Portal 또는 [작업 영역 방문 페이지(미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적](./how-to-log-view-metrics.md)할 수 있습니다. 파이프라인이 게시된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 엔드포인트를 구성할 수 있습니다.
+Azure Portal 또는 [작업 영역 방문 페이지(미리 보기)](https://ml.azure.com)에서 직접 [파이프라인 실험의 메트릭을 추적](./how-to-track-experiments.md)할 수 있습니다. 파이프라인이 게시된 후에는 모든 플랫폼 또는 스택에서 파이프라인을 다시 실행할 수 있는 REST 엔드포인트를 구성할 수 있습니다.
 
 간단히 말해서, 기계 학습 수명 주기의 모든 복잡한 작업은 파이프라인을 통해 도움을 받을 수 있습니다. 다른 Azure 파이프라인 기술에는 고유의 강점이 있습니다. [Azure Data Factory 파이프라인](../data-factory/concepts-pipelines-activities.md)은 데이터 작업에 탁월하며, [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)는 연속 통합과 지속적인 배포에 적합한 도구입니다. 그러나 기계 학습에 초점을 맞추고 있다면 Azure Machine Learning 파이프라인이 워크플로 요구에 가장 적합한 선택이 될 수 있습니다. 
 
@@ -145,7 +145,7 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로에서 파이프라인을 사용하여 얻을 수 있는 주요 장점은 다음과 같습니다.
 
-|주요 장점|Description|
+|주요 장점|설명|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적인 무인 방식을 통해 병렬로 또는 순차적으로 실행되도록 단계를 예약합니다. 데이터 준비 및 모델링은 며칠 또는 몇 주 동안 지속될 수 있으며 프로세스가 실행 중인 동안 파이프라인을 통해 다른 작업에 집중할 수 있습니다. |
 |**이종 컴퓨팅**|확장성 있는 이종 컴퓨팅 리소스 및 스토리지 위치에서 안정적으로 조정되는 여러 파이프라인을 사용합니다. 개별 파이프라인 단계를 HDInsight, GPU Data Science VM, Databricks 등의 서로 다른 컴퓨팅 대상에서 실행하여 가용 컴퓨팅 리소스를 효율적으로 사용합니다.|

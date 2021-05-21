@@ -9,17 +9,17 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 디바이스 애플리케이션 개발 시작
+    - name: 디바이스 애플리케이션 개발
       items:
         - name: IoT Central로 원격 분석 전송
           href: quickstart-send-telemetry-central.md
         - name: IoT Hub로 원격 분석 전송
           href: quickstart-send-telemetry-iot-hub.md
-    - name: 임베디드 개발 시작
+    - name: 포함 디바이스 개발
       items:
         - name: 임베디드 디바이스 개발 빠른 시작
           href: quickstart-device-development.md
-        - name: MXCHIP AZ3166을 IoT Central에 연결
+        - name: MXCHIP AZ3166
           href: quickstart-devkit-mxchip-az3166.md
 - name: 자습서
   items:

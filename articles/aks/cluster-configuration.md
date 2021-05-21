@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5740c1c299e8a6a2e8874bd13aae76b0353cc6a2
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100572780"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107775873"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -106,7 +106,7 @@ AKS 노드에 `containerd`를 사용하면 Pod 시작 대기 시간이 개선되
   * Moby/Docker를 사용하는 경우에도 위의 방법을 통해 이미지를 빌드하고 Docker 엔진을 직접 활용하는 것은 권장되지 않습니다. Kubernetes는 사용된 리소스를 완전히 인식하지 못하며 이러한 접근 방식은 예를 들어 [여기](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)와 [여기](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)에 자세히 설명된 수많은 문제를 야기합니다.
 * 이미지 빌드 - AKS 클러스터 내에서 이미지를 빌드하지 않는 한 현재 Docker 빌드 워크플로를 정상적으로 계속 사용할 수 있습니다. 이 경우 [ACR 작업](../container-registry/container-registry-quickstart-task-cli.md) 또는 [docker buildx](https://github.com/docker/buildx)와 같은 보다 안전한 클러스터 내 옵션을 사용하여 이미지를 빌드하는 데 권장되는 접근 방식으로 전환하는 것이 좋습니다.
 
-## <a name="generation-2-virtual-machines"></a>2세대 가상 머신
+## <a name="generation-2-virtual-machines"></a>2세대 가상 컴퓨터
 
 Azure는 [Gen2(2세대) VM(가상 머신)](../virtual-machines/generation-2.md)을 지원합니다. 2세대 VM은 1세대 VM(Gen1)에서 지원되지 않는 주요 기능을 지원합니다. 이러한 기능에는 메모리 증가, Intel SGX(Software Guard Extensions) 및 vPMEM(가상화된 영구 메모리)이 포함됩니다.
 
@@ -189,11 +189,11 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --node-resour
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register

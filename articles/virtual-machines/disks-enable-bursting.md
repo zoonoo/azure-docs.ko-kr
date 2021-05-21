@@ -1,30 +1,30 @@
 ---
-title: 주문형 디스크 버스트 사용
-description: 관리 디스크에서 주문형 디스크 버스트를 사용 하도록 설정 합니다.
+title: 주문형 디스크 버스팅 사용
+description: 관리 디스크에서 주문형 디스크 버스팅을 사용하도록 설정합니다.
 author: albecker1
 ms.author: albecker
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 7be60cb8c9863878cc4ba2f57098556ccedde01d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596402"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107892061"
 ---
 # <a name="enable-on-demand-bursting"></a>주문형 버스트 사용
 
-프리미엄 SSD (반도체 드라이브)에는 사용 가능한 두 개의 버스트 모델이 있습니다. 신용 기반 버스트 및 주문형 버스트 이 문서에서는 주문형 버스트로 전환 하는 방법을 설명 합니다. 요청 시 모델을 사용 하는 디스크는 원래 프로 비전 된 대상 이상으로 버스트 될 수 있습니다. 주문형 버스트는 최대 버스트 대상까지 워크 로드에 필요한 만큼 자주 발생 합니다. 주문형 버스트에는 추가 요금이 발생 합니다.
+프리미엄 SSD(반도체 드라이브)에는 크레딧 기반 버스팅과 주문형 버스팅이라는 사용 가능한 두 가지 버스팅 모델이 있습니다. 이 문서에서는 주문형 버스팅으로 전환하는 방법을 설명합니다. 주문형 모델을 사용하는 디스크는 원래 프로비전된 대상을 벗어나 버스트할 수 있습니다. 주문형 버스팅은 최대 버스트 대상까지 워크로드에 필요한 만큼 자주 발생합니다. 주문형 버스팅에는 추가 요금이 발생합니다.
 
-디스크 버스트에 대 한 자세한 내용은 [관리 디스크 버스트](disk-bursting.md)를 참조 하세요.
+디스크 버스팅에 대한 자세한 내용은 [관리 디스크 버스팅](disk-bursting.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서의 단계에 따라 신용 기반 버스트를 사용할 필요가 없습니다. 기본적으로 신용 기반 버스트는 모든 적격 디스크에서 사용 하도록 설정 됩니다.
+> 크레딧 기반 버스팅을 사용하기 위해 이 문서의 단계를 따를 필요가 없습니다. 기본적으로 크레딧 기반 버스팅은 모든 적격 디스크에서 활성화됩니다.
 
-주문형 버스트를 사용 하도록 설정 하기 전에 다음 사항을 이해 해야 합니다.
+주문형 버스팅을 사용하도록 설정하기 전에 다음 사항을 이해해야 합니다.
 
 [!INCLUDE [managed-disk-bursting-regions-limitations](../../includes/managed-disk-bursting-regions-limitations.md)]
 
@@ -32,16 +32,16 @@ ms.locfileid: "104596402"
 
 [!INCLUDE [managed-disk-bursting-availability](../../includes/managed-disk-bursting-availability.md)]
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
-주문형 버스트는 Azure PowerShell 모듈, Azure CLI 또는 Azure Resource Manager 템플릿 중 하나를 사용 하 여 사용 하도록 설정할 수 있습니다. 다음 예에서는 요청 시 버스트를 사용 하 고 기존 디스크에서 주문형 버스트를 사용 하도록 설정 하 여 새 디스크를 만드는 방법을 설명 합니다.
+주문형 버스팅은 Azure PowerShell 모듈, Azure CLI 또는 Azure Resource Manager 템플릿 중 하나를 사용하여 활성화할 수 있습니다. 다음 예제에서는 주문형 버스팅이 활성화된 새 디스크를 생성하고 기존 디스크에서 주문형 버스팅을 활성화하는 방법을 설명합니다.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-주문형 버스트 cmdlet은 Az module 버전 5.5.0 이상에서 사용할 수 있습니다. 또는 [Azure Cloud Shell](https://shell.azure.com/)를 사용할 수 있습니다.
-### <a name="create-an-empty-data-disk-with-on-demand-bursting"></a>주문형 버스트를 사용 하 여 빈 데이터 디스크 만들기
+주문형 버스팅 cmdlet은 버전 5.5.0 이상의 Az 모듈에서 사용할 수 있습니다. 또는 [Azure Cloud Shell](https://shell.azure.com/)을 사용할 수 있습니다.
+### <a name="create-an-empty-data-disk-with-on-demand-bursting"></a>주문형 버스팅을 사용하여 빈 데이터 디스크 만들기
 
-주문형 버스트를 사용 하려면 관리 되는 디스크가 512 GiB 커야 합니다. `<myResourceGroupDisk>`및 `<myDataDisk>` 매개 변수를 바꾼 후 다음 스크립트를 실행 하 여 요청 시 버스트로 프리미엄 SSD를 만듭니다.
+주문형 버스팅을 사용하려면 관리 디스크가 512GiB보다 커야 합니다. `<myResourceGroupDisk>` 및 `<myDataDisk>` 매개 변수를 바꾼 후, 다음 스크립트를 실행하여 주문형 버스트팅으로 프리미엄 SSD를 만듭니다.
 
 ```azurepowershell
 Set-AzContext -SubscriptionName <yourSubscriptionName>
@@ -51,9 +51,9 @@ $diskConfig = New-AzDiskConfig -Location 'WestCentralUS' -CreateOption Empty -Di
 $dataDisk = New-AzDisk -ResourceGroupName <myResourceGroupDisk> -DiskName <myDataDisk> -Disk $diskConfig
 ```
 
-### <a name="enable-on-demand-bursting-on-an-existing-disk"></a>기존 디스크에서 주문형 버스트 사용
+### <a name="enable-on-demand-bursting-on-an-existing-disk"></a>기존 디스크에서 주문형 버스팅 사용
 
-주문형 버스트를 사용 하려면 관리 되는 디스크가 512 GiB 커야 합니다. `<myResourceGroupDisk>`, `<myDataDisk>` 매개 변수를 바꾸고이 명령을 실행 하 여 기존 디스크에서 요청 시 버스트를 사용 하도록 설정 합니다.
+주문형 버스팅을 사용하려면 관리 디스크가 512GiB보다 커야 합니다. `<myResourceGroupDisk>`, `<myDataDisk>` 매개 변수를 바꾸고 이 명령을 실행하여 기존 디스크에서 주문형 버스팅을 사용하도록 설정합니다.
 
 ```azurepowershell
 New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName <myResourceGroupDisk> -DiskName <myDataDisk> //Set the flag to $false to disable on-demand bursting
@@ -61,11 +61,11 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-주문형 버스트 cmdlet은 2.19.0 이상 버전의 [Azure CLI 모듈](/cli/azure/install-azure-cli)에서 사용할 수 있습니다. 또는 [Azure Cloud Shell](https://shell.azure.com/)를 사용할 수 있습니다.
+주문형 버스팅 cmdlet은 버전 2.19.0 이상의 [Azure CLI 모듈](/cli/azure/install-azure-cli)에서 사용할 수 있습니다. 또는 [Azure Cloud Shell](https://shell.azure.com/)을 사용할 수 있습니다.
 
-### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>주문형 버스트 데이터 디스크 만들기 및 연결
+### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>주문형 버스팅 데이터 디스크 만들기 및 연결
 
-주문형 버스트를 사용 하려면 관리 되는 디스크가 512 GiB 커야 합니다. `<yourDiskName>`, `<yourResourceGroup>` 및 `<yourVMName>` 매개 변수를 바꾼 후 다음 명령을 실행 하 여 요청 시 버스트로 프리미엄 SSD를 만듭니다.
+주문형 버스팅을 사용하려면 관리 디스크가 512GiB보다 커야 합니다. `<yourDiskName>`, `<yourResourceGroup>` 및 `<yourVMName>` 매개 변수를 바꾼 후, 다음 명령을 실행하여 주문형 버스트팅으로 프리미엄 SSD를 만듭니다.
 
 ```azurecli
 az disk create -g <yourResourceGroup> -n <yourDiskName> --size-gb 1024 --sku Premium_LRS -l westcentralus --enable-bursting true
@@ -73,9 +73,9 @@ az disk create -g <yourResourceGroup> -n <yourDiskName> --size-gb 1024 --sku Pre
 az vm disk attach --vm-name <yourVMName> --name <yourDiskName> --resource-group <yourResourceGroup>
 ```
 
-### <a name="enable-on-demand-bursting-on-an-existing-disk---cli"></a>기존 디스크에서 주문형 버스트 사용-CLI
+### <a name="enable-on-demand-bursting-on-an-existing-disk---cli"></a>기존 디스크에서 주문형 버스팅 사용 - CLI
 
-주문형 버스트를 사용 하려면 관리 되는 디스크가 512 GiB 커야 합니다. `<myResourceGroupDisk>`및 `<yourDiskName>` 매개 변수를 바꾸고이 명령을 실행 하 여 기존 디스크에서 요청 시 버스트를 사용 하도록 설정 합니다.
+주문형 버스팅을 사용하려면 관리 디스크가 512GiB보다 커야 합니다. `<myResourceGroupDisk>` 및 `<yourDiskName>` 매개 변수를 바꾸고 이 명령을 실행하여 기존 디스크에서 주문형 버스팅을 사용하도록 설정합니다.
 
 ```azurecli
 az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enable-bursting true //Set the flag to false to disable on-demand bursting
@@ -83,7 +83,7 @@ az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enab
 
 # <a name="azure-resource-manager"></a>[Azure Resource Manager](#tab/azure-resource-manager)
 
-`2020-09-30`디스크 API를 사용 하 여 새로 만들었거나 기존 프리미엄 ssd를 512 GiB 큼 이상에서 주문형 버스트를 사용 하도록 설정할 수 있습니다. API에는 `2020-09-30` 새 속성인가 도입 `burstingEnabled` 되었습니다. 기본적으로이 속성은 false로 설정 됩니다. 다음 샘플 템플릿은 디스크 버스트를 사용 하 여 미국 서 부에 1TiB premium SSD를 만듭니다.
+`2020-09-30` 디스크 API를 사용하면 새로 만들거나 512GiB보다 큰 기존 프리미엄 SSD에서 주문형 버스팅을 활성화할 수 있습니다. `2020-09-30` API에서는 새로운 속성인 `burstingEnabled`를 도입했습니다. 기본적으로 이 속성은 false로 설정됩니다. 다음 샘플 템플릿은 미국 중서부에서 디스크 버스팅이 활성화된 1TiB 프리미엄 SSD를 만듭니다.
 
 ```
 {
@@ -130,4 +130,4 @@ az disk update --name <yourDiskName> --resource-group <yourResourceGroup> --enab
  
 ## <a name="next-steps"></a>다음 단계
 
-버스트 리소스를 파악 하는 방법을 알아보려면 [디스크 버스트 메트릭](disks-metrics.md)을 참조 하세요.
+버스팅 리소스에 대한 인사이트를 얻는 방법을 알아보려면 [디스크 버스팅 메트릭](disks-metrics.md)을 참조하세요.

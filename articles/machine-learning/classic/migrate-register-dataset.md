@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션 - 
 description: Azure Machine Learning 디자이너에서 Studio(클래식) 데이터 세트를 다시 빌드
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio-classic
+ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 02/04/2021
-ms.openlocfilehash: 9604fc9d862d94ba5e566753d2186d7d28aa37ee
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 4c04dd5a2b41b3db54b20c9e514767453951cc35
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308849"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103565045"
 ---
 # <a name="migrate-a-studio-classic-dataset-to-azure-machine-learning"></a>Studio(클래식) 데이터 세트를 Azure Machine Learning로 마이그레이션
 
@@ -30,7 +30,7 @@ ms.locfileid: "107308849"
 > [!NOTE]
 > Azure Machine Learning은 데이터 세트 생성 및 관리를 위한 [코드 우선 워크플로](../how-to-create-register-datasets.md)도 지원합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역을 만듭니다](../how-to-manage-workspace.md#create-a-workspace).
@@ -152,6 +152,6 @@ Studio(클래식) 마이그레이션 시리즈의 다른 문서를 참조하세�
 1. [마이그레이션 개요](migrate-overview.md)입니다.
 1. **데이터 세트 마이그레이션**
 1. [Studio(클래식) 학습 파이프라인을 다시 빌드](migrate-rebuild-experiment.md)합니다.
-1. [Studio(클래식) 웹 서비스를 다시 빌드](migrate-rebuild-web-service.md)합니다.
+1. [Studio(클래식) 웹 서비스 다시 빌드](migrate-rebuild-web-service.md)
 1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md)합니다.
 1. [R 스크립트 실행을 마이그레이션](migrate-execute-r-script.md)합니다.

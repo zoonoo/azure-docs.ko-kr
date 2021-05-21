@@ -9,12 +9,12 @@ ms.author: prakulka
 ms.date: 03/26/2021
 ms.topic: reference
 ms.service: azure-communication-services
-ms.openlocfilehash: cd35ccc7399580c0bc83d8668ea932c3a800f700
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 1ba7c730542adb74356d71f2482cce57e633cb65
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290563"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105646315"
 ---
 # <a name="sms-faq"></a>SMS FAQ
 
@@ -29,7 +29,7 @@ SLA와 일치하는 고품질 서비스를 계속 제공할 수 있도록 Azure 
 
 SMS의 속도 제한:
 
-|작업(Operation)|Scope|시간 범위| 제한(요청 #) | 분당 메시지 단위|
+|작업|범위|시간 범위| 제한(요청 #) | 분당 메시지 단위|
 |---------|-----|-------------|-------------------|-------------------------|
 |메시지 보내기|숫자당|60|200|200|
 
@@ -43,7 +43,7 @@ SMS의 속도 제한:
 
 ## <a name="how-can-i-receive-messages-using-azure-communication-services"></a>Azure Communication Services를 사용하여 메시지를 받으려면 어떻게 해야 하나요?
 
-Azure Communication Services 고객은 Azure Event Grid를 사용하여 들어오는 메시지를 받을 수 있습니다. 이 [빠른 시작](../../quickstarts/telephony-sms/handle-sms-events.md)에 따라 메시지를 받도록 이벤트 그리드를 설정합니다.
+Azure Communication Services 고객은 Azure Event Grid를 사용하여 들어오는 메시지를 받을 수 있습니다. 이 [빠른 시작](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/handle-sms-events)에 따라 메시지를 받도록 이벤트 그리드를 설정합니다.
 
 ## <a name="can-i-sendreceive-long-messages-2048-chars"></a>긴 메시지(2048자 미만)를 보내거나 받을 수 있나요?
 
@@ -56,4 +56,4 @@ Azure Communication Services는 SMS를 통해 긴 메시지의 송수신을 지�
 ## <a name="can-i-send-messages-to-multiple-recipients"></a>여러 수신자에게 메시지를 보낼 수 있나요?
 
 
-예, 여러 수신자에게 하나의 요청을 할 수 있습니다. 이 [빠른 시작](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp)에 따라 여러 수신자에게 메시지를 보냅니다.
+예, 여러 수신자에게 하나의 요청을 할 수 있습니다. 이 [빠른 시작](https://docs.microsoft.com/azure/communication-services/quickstarts/telephony-sms/send?pivots=programming-language-csharp)에 따라 여러 수신자에게 메시지를 보냅니다.

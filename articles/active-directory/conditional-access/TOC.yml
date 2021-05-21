@@ -39,6 +39,8 @@
       href: service-dependencies.md
     - name: 위치 조건
       href: location-condition.md
+    - name: 디바이스에 대한 필터
+      href: concept-condition-filters-for-devices.md
     - name: What if 도구
       href: what-if-tool.md
     - name: 지속적인 액세스 평가

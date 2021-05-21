@@ -9,13 +9,12 @@ ms.topic: how-to
 ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 11323f2aec05935b9dc45187ed54597e61af924d
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: a1698a56ad7e92a59b664ce8f8bca2355fb44fb1
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106554123"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074712"
 ---
 # <a name="enable-soft-delete-for-blobs"></a>Blob에 일시 삭제를 사용하도록 설정
 
@@ -62,7 +61,7 @@ $properties.DeleteRetentionPolicy.Days
 
 # <a name="cli"></a>[CLI](#tab/azure-CLI)
 
-Azure CLI를 사용하여 Blob 일시 삭제를 사용하도록 설정하려면 [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) 명령을 호출하여 보존 기간(일)을 지정합니다.
+Azure CLI를 사용하여 Blob 일시 삭제를 사용하도록 설정하려면 [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) 명령을 호출하여 보존 기간(일)을 지정합니다.
 
 다음 예제에서는 Blob 일시 삭제를 사용하도록 설정하고 보존 기간을 7일로 설정합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
@@ -73,7 +72,7 @@ az storage account blob-service-properties update --account-name <storage-accoun
     --delete-retention-days 7
 ```
 
-Blob 일시 삭제에 대한 현재 설정을 확인하려면 [az storage account blob-service-properties show](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_show) 명령을 호출합니다.
+Blob 일시 삭제에 대한 현재 설정을 확인하려면 [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_show) 명령을 호출합니다.
 
 ```azurecli-interactive
 az storage account blob-service-properties show --account-name <storage-account> \

@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션 - 
 description: 파이프라인 엔드포인트를 Azure Machine Learning의 클라이언트 애플리케이션과 통합합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio-classic
+ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: fc7e222d400c2ded602e3d26d504896302fff014
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: bf0624e0667c9fc6998fb28898a3376ca409180d
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311790"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103565245"
 ---
 # <a name="consume-pipeline-endpoints-from-client-applications"></a>클라이언트 애플리케이션에서 파이프라인 엔드포인트 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "107311790"
 
 이 문서는 Azure Machine Learning 마이그레이션 시리즈에 대한 Studio(클래식)의 일부입니다. Azure Machine Learning으로 마이그레이션하는 방법에 대한 자세한 내용은 [마이그레이션 개요 문서](migrate-overview.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역을 만듭니다](../how-to-manage-workspace.md#create-a-workspace).
@@ -69,8 +69,8 @@ Azure Data Factory 파이프라인의 단계로 Azure Machine Learning 파이프
 
 Azure Machine Learning 마이그레이션 시리즈의 나머지 문서를 참조하세요. 
 1. [마이그레이션 개요](migrate-overview.md).
-1. [마이그레이션 데이터세트](migrate-register-dataset.md)
-1. [Studio(클래식) 학습 파이프라인 다시 빌드](migrate-rebuild-experiment.md)
-1. [Studio(클래식) 웹 서비스 다시 빌드](migrate-rebuild-web-service.md)
-1. **Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합**
-1. [R 스크립트 실행 마이그레이션](migrate-execute-r-script.md)
+1. [데이터 세트를 마이그레이션](migrate-register-dataset.md)합니다.
+1. [Studio(클래식) 학습 파이프라인을 다시 빌드](migrate-rebuild-experiment.md)합니다.
+1. [Studio(클래식) 웹 서비스를 다시 빌드](migrate-rebuild-web-service.md)합니다.
+1. **Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합** 합니다.
+1. [R 스크립트 실행을 마이그레이션](migrate-execute-r-script.md)합니다.

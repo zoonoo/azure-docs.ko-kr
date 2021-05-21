@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: dec4eec16ba24baf31d911db882625479c33fb3b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 44ab9e4ff83fec2ddfbd1cb44f503298d12789d1
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278629"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107766302"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services의 라이브 이벤트 및 라이브 출력
 
@@ -169,13 +169,13 @@ Media Services에서 라이브 인코딩을 사용하는 경우 단일 비트 �
     |언어|정적 호스트 이름 URL을 사용하도록 설정|액세스 토큰 설정|
     |---|---|---|
     |REST|[properties.useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
+    |CLI|[--use-static-hostname](/cli/azure/ams/live-event#az_ams_live_event_create)|[--access-token](/cli/azure/ams/live-event#optional-parameters)|
     |.NET|[LiveEvent.useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 
 * 아래 *임의* 문자열은 128비트 16진수 숫자입니다(0-9 a-f의 32문자로 구성됨).
-* *your access token*: 정적 호스트 이름 설정을 사용하는 경우 설정하는 유효한 GUID 문자열입니다. 예들 들어 `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`입니다.
+* *your access token*: 정적 호스트 이름 설정을 사용하는 경우 설정하는 유효한 GUID 문자열입니다. 예: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *stream name*: 특정 연결에 대한 스트림 이름을 나타냅니다. 스트림 이름 값은 일반적으로 사용하는 라이브 인코더에 의해 추가됩니다. 연결을 설명하는 이름을 사용하도록 라이브 인코더를 구성할 수 있습니다(예: "video1_audio1", "video2_audio1", "stream").
 
 #### <a name="non-static-hostname-ingest-url"></a>비정적 호스트 이름 수집 URL

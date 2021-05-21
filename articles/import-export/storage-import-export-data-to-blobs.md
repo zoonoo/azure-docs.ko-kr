@@ -9,18 +9,18 @@ ms.date: 03/15/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
-ms.openlocfilehash: 74f5565ba9dfa48dabfe56c25e3ef30a8caafe14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39eb6c164751ebdfa293798850a8d663fe988b82
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563286"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107875686"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
 이 문서에서는 Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 많은 양의 데이터를 안전하게 가져오는 방법에 대한 단계별 지침을 제공합니다. 데이터를 Azure Blob으로 가져오려면 서비스를 사용하여 데이터가 포함된 암호화된 디스크 드라이브를 Azure 데이터 센터로 배송해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다.
 다음이 필요합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "103563286"
 
     다음 표에는 사용되는 매개 변수가 나와 있습니다.
 
-    |옵션  |설명  |
+    |옵션  |Description  |
     |---------|---------|
     |/j:     |확장명이 .jrn인 저널 파일의 이름입니다. 저널 파일은 드라이브마다 생성됩니다. 디스크 일련 번호를 저널 파일 이름으로 사용하는 것이 좋습니다.         |
     |/id:     |세션 ID. 명령의 각 인스턴스마다 고유한 세션 번호를 사용합니다.      |
@@ -166,7 +166,7 @@ ms.locfileid: "103563286"
 
 ### <a name="create-a-job"></a>작업 만들기
 
-1. [az extension add](/cli/azure/extension#az_extension_add) 명령을 사용하여 [az import-export](/cli/azure/ext/import-export/import-export) 확장을 추가합니다.
+1. [az extension add](/cli/azure/extension#az_extension_add) 명령을 사용하여 [az import-export](/cli/azure/import-export) 확장을 추가합니다.
 
     ```azurecli
     az extension add --name import-export
@@ -184,19 +184,19 @@ ms.locfileid: "103563286"
     az storage account create --resource-group myierg --name myssdocsstorage --https-only
     ```
 
-1. 디스크를 제공할 수 있는 위치 목록을 가져오려면 [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) 명령을 사용합니다.
+1. 디스크를 제공할 수 있는 위치 목록을 가져오려면 [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) 명령을 사용합니다.
 
     ```azurecli
     az import-export location list
     ```
 
-1. [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) 명령을 사용하여 해당 지역의 위치를 가져옵니다.
+1. [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) 명령을 사용하여 해당 지역의 위치를 가져옵니다.
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. 다음 [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) 명령을 실행하여 가져오기 작업을 만듭니다.
+1. 다음 [az import-export create](/cli/azure/import-export#az_import_export_create) 명령을 실행하여 가져오기 작업을 만듭니다.
 
     ```azurecli
     az import-export create \
@@ -223,13 +223,13 @@ ms.locfileid: "103563286"
    > [!TIP]
    > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
 
-1. [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) 명령을 사용하여 myierg 리소스 그룹에 대한 모든 작업을 확인합니다.
+1. [az import-export list](/cli/azure/import-export#az_import_export_list) 명령을 사용하여 myierg 리소스 그룹에 대한 모든 작업을 확인합니다.
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. 작업을 업데이트하거나 취소하려면 [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) 명령을 실행합니다.
+1. 작업을 업데이트하거나 취소하려면 [az import-export update](/cli/azure/import-export#az_import_export_update) 명령을 실행합니다.
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true

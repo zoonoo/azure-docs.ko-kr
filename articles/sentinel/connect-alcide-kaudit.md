@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: b146e228de13109975a76b0e4c6c9fd183fd362d
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 6d1314b79f09f1bed2de5d6964b0a6224b5962ca
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600407"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100096874"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Alcide kAudit를 Azure Sentinel에 연결
 
@@ -32,7 +32,7 @@ ms.locfileid: "107600407"
 > [!NOTE]
 > 데이터는 Azure Sentinel을 실행하는 작업 영역의 지리적 위치에 저장됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Sentinel 작업 영역에 대한 읽기 및 쓰기 권한이 있어야 합니다.
 
@@ -46,7 +46,7 @@ Alcide kAudit는 로그를 Azure Sentinel로 직접 내보낼 수 있습니다.
 
 1. 갤러리에서 **Alcide kAudit** 를 선택한 다음, **커넥터 페이지 열기** 단추를 클릭합니다.
 
-1. [Alcide kAudit 설치 가이드](https://awesomeopensource.com/project/alcideio/kaudit?categoryPage=29#before-installing-alcide-kaudit)에 제공된 단계별 지침을 따릅니다.
+1. [Alcide kAudit 설치 가이드](https://get.alcide.io/hubfs/Azure%20Sentinel%20Integration%20with%20kAudit.pdf)에 제공된 단계별 지침을 따릅니다.
 
 1. 작업 영역 ID 및 기본 키를 묻는 메시지가 표시되면 Alcide kAudit 데이터 커넥터 페이지에서 복사할 수 있습니다.
 

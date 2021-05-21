@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/08/2021
-ms.topic: troubleshooting
-ms.custom: devx-track-python, automl, references_regions
-ms.openlocfilehash: 6f64d3511da8fbf953a50eab44702c7356ad3c5b
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 03/08/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python, automl, references_regions
+ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140482"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103563677"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 문제 해결
 
@@ -189,6 +189,6 @@ PyJWT의 버전은 다음과 같이 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [자동화된 Machine Learning을 사용하여 회귀 모델을 학습시키는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](concept-automated-ml.md#local-remote)에 대해 자세히 알아봅니다.
++ [자동화된 Machine Learning을 사용하여 회귀 모델을 학습시키는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아봅니다.
 
 + [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.

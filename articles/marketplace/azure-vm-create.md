@@ -1,34 +1,34 @@
 ---
-title: Azure Marketplace에서 가상 컴퓨터 제품을 만듭니다.
-description: Microsoft 상업적 marketplace에서 virtual machine 제품을 만드는 방법에 대해 알아봅니다.
+title: Azure Marketplace에서 가상 머신 제품을 만듭니다.
+description: Microsoft 상업용 Marketplace에서 가상 머신 제품을 테스트하고 만드는 방법을 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 03/10/2021
-ms.openlocfilehash: ffc09daa15e742ca2b5b8a2fa9323e33fe317c60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.date: 04/08/2021
+ms.openlocfilehash: f0c1d9d528ed4fbf61786042fb6fb34f05fec5d5
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200401"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812596"
 ---
-# <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 가상 컴퓨터 제품을 만드는 방법
+# <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 가상 머신 제품을 만드는 방법
 
-이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)에 대 한 Azure 가상 머신 제품을 만드는 방법을 설명 합니다. 운영 체제, VHD(가상 하드 디스크) 및 최대 16개의 데이터 디스크가 포함된 Windows 기반 및 Linux 기반 가상 머신을 모두 처리합니다.
+이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)용 Azure 가상 머신 제품을 만드는 방법을 설명합니다. 운영 체제, VHD(가상 하드 디스크) 및 최대 16개의 데이터 디스크가 포함된 Windows 기반 및 Linux 기반 가상 머신을 모두 처리합니다.
 
-시작 하기 전에 [파트너 센터에서 상용 marketplace 계정을 만듭니다](partner-center-portal/create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만듭니다](create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-아직 수행 하지 않은 경우 [가상 머신 제안 계획](marketplace-virtual-machines.md)을 검토 합니다. 여기에서는 가상 머신에 대 한 기술 요구 사항을 설명 하 고 제품을 만들 때 필요한 정보 및 자산을 나열 합니다.
+아직 수행하지 않은 경우 [가상 머신 제품 계획](marketplace-virtual-machines.md)을 검토합니다. 가신 머신에 대한 기술 요구 사항을 설명하고 제품을 만들 때 필요한 정보 및 자산을 나열합니다.
 
 ## <a name="create-a-new-offer"></a>새 제안 만들기
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
 2. 왼쪽 창에서 **상업용 마켓플레이스** > **개요** 를 차례로 선택합니다.
-3. **개요** 페이지에서 **+ 새로 만들기 제품**  >  **Azure Virtual Machine** 을 선택 합니다.
+3. **개요** 페이지에서 **+ 새 제품** > **Azure Virtual Machine** 을 차례로 선택합니다.
 
     ![왼쪽 창 메뉴 옵션과 "새 제품" 단추를 보여 주는 스크린샷](./media/create-vm/new-offer-azure-virtual-machine.png)
 
@@ -43,39 +43,26 @@ ms.locfileid: "103200401"
 
 **별칭** 을 입력합니다. 제품 별칭은 파트너 센터에서 제품에 사용되는 이름입니다.
 
-- 이 이름은 Azure Marketplace에서 사용 되지 않습니다. 고객에게 표시되는 제품 이름 및 다른 값과는 다릅니다.
+- 이 이름은 Azure Marketplace에서 사용되지 않습니다. 고객에게 표시되는 제품 이름 및 다른 값과는 다릅니다.
 
-**만들기** 를 선택하여 제품을 생성하고 계속 진행합니다. 파트너 센터에서 **제품 설치** 페이지를 엽니다.
+**만들기** 를 선택하여 제품을 생성하고 계속 진행합니다. 파트너 센터에서 **제품 설정** 페이지를 엽니다.
 
-## <a name="enable-a-test-drive-optional"></a>테스트 드라이브 사용 (선택 사항)
+## <a name="enable-a-test-drive-optional"></a>시험 사용 지원(선택 사항)
 
-시험 사용은 고정 된 시간 동안 미리 구성 된 환경에 대 한 액세스 권한을 부여 하 여 잠재 고객에 게 제품을 소개 하는 좋은 방법입니다. 테스트 드라이브를 제공 하면 변환 비율이 증가 하 고 우량으로 선별 된 잠재 고객을 생성 합니다. 테스트 드라이브에 대 한 자세한 내용은 [test drive 란?](./what-is-test-drive.md)을 참조 하세요.
+시험 사용은 잠재 고객에게 정해진 시간 동안 미리 구성된 환경에 대한 액세스 권한을 부여하여 제품을 소개하는 좋은 방법입니다. 시험 사용을 제공하면 전환율이 증가하고 충분한 자격을 갖춘 잠재 고객이 생성됩니다. 시험 사용에 대한 자세한 내용은 [시험 사용이란?](./what-is-test-drive.md)을 참조하세요.
 
 > [!TIP]
-> 시험 사용은 평가판과 다릅니다. 시험 사용, 평가판 또는 둘 다를 제공할 수 있습니다. 둘 다 고객에 게 고정 기간에 대 한 솔루션을 제공 합니다. 그러나 테스트 드라이브에는 실제 구현 시나리오에서 설명 하는 제품의 주요 기능 및 이점에 대 한 실습 자체 둘러보기도 포함 되어 있습니다.
+> 시험 사용은 평가판과 다릅니다. 시험 사용이나 평가판 또는 둘 다를 제공할 수 있습니다. 둘 다 정해진 기간에 고객에게 솔루션을 제공합니다. 하지만 시험 사용에는 실제 구현 시나리오에서 입증된 제품의 주요 기능과 이점에 대한 실습 중심의 자기 주도형 체험도 포함됩니다.
 
-테스트 드라이브를 사용 하도록 설정 하려면 **테스트 드라이브 사용** 확인란을 선택 합니다. 나중에 테스트 드라이브를 구성 합니다. 시험 사용을 사용 하려면 CRM을 구성 해야 합니다 (다음 섹션 참조).
+시험 사용을 사용하도록 설정하려면 **시험 사용 지원** 확인란을 선택합니다. 나중에 시험 사용을 구성합니다. 시험 사용을 통해 CRM을 구성해야 합니다(다음 섹션 참조).
 
-## <a name="configure-customer-leads-management"></a>고객 리드 관리 구성
+## <a name="configure-customer-leads-management"></a>잠재 고객 관리 구성
 
-파트너 센터를 사용 하 여 상업적 marketplace에 제품을 게시 하는 경우 CRM (고객 관계 관리) 시스템에 연결 합니다. 이렇게 하면 누군가 제품에 관심을 보이거나 제품을 사용하는 즉시 고객 연락처 정보를 받을 수 있습니다. 테스트 드라이브를 사용 하도록 설정 하려면 CRM에 연결 해야 합니다 (이전 섹션 참조). 그렇지 않으면 CRM에 연결하는 것은 선택 사항입니다.
+[!INCLUDE [Customer leads](includes/customer-leads.md)] 
 
-1. **고객 리드** 에서 **연결** 링크를 선택 합니다.
-1. **연결 정보** 대화 상자에서 리드 대상을 선택 합니다.
-1. 표시 되는 필드를 완료 합니다. 자세한 단계는 다음 문서를 참조 하세요.
-
-   - [Azure 테이블로 잠재 고객을 보내도록 제품 구성](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
-   - [Dynamics 365 고객 참여를 보내도록 제품 구성](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (이전의 Dynamics CRM Online)
-   - [제품을 구성 하 여 HTTPS 끝점으로 잠재 고객 보내기](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
-   - [Marketo로 잠재 고객을 보내도록 제품 구성](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
-   - [Salesforce로 잠재 고객을 보내도록 제품 구성](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
-
-1. 제공 된 구성의 유효성을 검사 하려면 **유효성 검사** 링크를 선택 합니다.
-1. **연결** 을 선택합니다.
-
-왼쪽 탐색 메뉴에서 다음 탭을 계속 하려면 **초안 저장** 을 선택 하 고 **속성** 을 선택 합니다.
+왼쪽 탐색 메뉴에서 다음 탭을 계속하려면 **초안 저장** 을 선택하고 **속성** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [가상 컴퓨터 제품 속성을 구성 하는 방법](azure-vm-create-properties.md)
+- [가상 머신 제품 속성을 구성하는 방법](azure-vm-create-properties.md)
 - [목록에 제품 추가 모범 사례](gtm-offer-listing-best-practices.md)

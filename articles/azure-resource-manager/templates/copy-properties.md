@@ -3,12 +3,12 @@ title: 속성의 여러 인스턴스 정의
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 복사 작업을 사용하여 리소스에서 속성을 만들 때 여러 번 반복합니다.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 94bc153a49f80694ab9b2d5b04fdf57e8a12e8c8
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 3f6eeac8b32e0fb34b973e82557cc48bab532ffd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385754"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736937"
 ---
 # <a name="property-iteration-in-arm-templates"></a>ARM 템플릿의 속성 반복
 
@@ -18,7 +18,7 @@ ms.locfileid: "106385754"
 
 [리소스](copy-resources.md), [변수](copy-variables.md) 및 [출력](copy-outputs.md)과 함께 복사 루프를 사용할 수도 있습니다.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>구문
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -49,7 +49,7 @@ ms.locfileid: "106385754"
   ```bicep
   <property-name>: [for <item> in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - 배열의 요소 반복
@@ -57,7 +57,7 @@ ms.locfileid: "106385754"
   ```bicep
   <property-name>: [for (<item>, <index>) in <collection>: {
     <properties>
-  }
+  }]
   ```
 
 - 루프 인덱스 사용
@@ -65,7 +65,7 @@ ms.locfileid: "106385754"
   ```bicep
   <property-name>: [for <index> in range(<start>, <stop>): {
     <properties>
-  }
+  }]
   ```
 
 ---
@@ -370,9 +370,9 @@ resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for
 
 다음 예제에서는 속성에 대한 값을 두 개 이상 만드는 일반적인 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
-|[가변적인 수의 데이터 디스크를 사용한 VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |가상 머신을 사용하여 여러 데이터 디스크를 배포합니다. |
+|[가변적인 수의 데이터 디스크를 사용한 VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |가상 머신을 사용하여 여러 데이터 디스크를 배포합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

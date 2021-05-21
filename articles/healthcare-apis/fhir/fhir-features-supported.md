@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: 92f6f5c449b5f47b0a9a59f432c130446b324091
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: b36937b61b5508dfc933ef15b316d1d1da7b7acc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109783570"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078637"
 ---
 # <a name="features"></a>기능
 
@@ -32,7 +32,7 @@ Azure API for FHIR Azure용 Microsoft FHIR 서버의 완전 관리형 배포를 
 | 읽기                           | 예       | 예       | 예       |                                                     |
 | vread                          | 예       | 예       | 예       |                                                     |
 | update                         | 예       | 예       | 예       |                                                     |
-| 낙관적 잠금을 통해 업데이트 | 예       | 예       | 예       |                                                     |
+| 낙관적 잠금으로 업데이트 | 예       | 예       | 예       |                                                     |
 | update(조건부)           | 예       | 예       | 예       |                                                     |
 | 패치                          | 예        | 예        | 예        |                                                     |
 | delete                         | 예       | 예       | 예       |  아래 참고를 참조하세요.                                   |
@@ -88,8 +88,6 @@ FHIR 서버는 액세스 제어에 [Azure Active Directory](https://azure.micros
 
 * [**요청 단위(RUS)**](../../cosmos-db/concepts-limits.md) - 포털에서 Azure API for FHIR 최대 10,000개까지 구성할 수 있습니다. 최소 400 RUs 또는 40 RUs/GB 중 더 큰 값이 필요 합니다. 1만 명 이상의 RUs가 필요한 경우 지원 티켓에 추가 하 여이를 늘릴 수 있습니다. 사용 가능한 최대값은 100만입니다.
 
-* **동시 연결** 및 **인스턴스** -기본적으로 클러스터의 두 인스턴스에 대해 5 개의 동시 연결이 있습니다 (총 10 개의 동시 요청). 더 많은 동시 요청이 필요 하다 고 생각 되는 경우 요구 사항에 대 한 세부 정보가 포함 된 지원 티켓을 엽니다.
-
 * **번들 크기** -각 번들은 500 항목으로 제한 됩니다.
 
 * **데이터 크기** -데이터/문서는 각각 2mb 보다 약간 작아야 합니다.
@@ -107,9 +105,9 @@ FHIR 서버는 액세스 제어에 [Azure Active Directory](https://azure.micros
 | 400      | 5-10          |     10   |
 | 1,000    | 100-150       |      25  |
 | 10000   | 225-400       |      250  |
-| 100,000  | 2,500-4,000   |      2,500  |
+| 100,000  | 2500-4000   |      2,500  |
 
-참고: Cosmos DB 요구 사항에 따라 스토리지의 GB당 40 RU/s의 최소 처리량 요구 사항이 있습니다. 
+참고: Cosmos DB 요구 사항에 따라 저장소의 GB 당 최소 처리량 40 r u/초를 요구 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
