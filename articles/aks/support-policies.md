@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 지원 정책, 공유 책임 및 미�
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d30e2aa5ab13c5d7676ca7cb455a2372981e4a46
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91892713"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714479"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -62,10 +62,11 @@ Microsoft는 다음과 같은 사례에 대한 기술 지원을 제공합니다.
   * 다른 Azure 서비스 및 애플리케이션에 대한 연결
   * 수신 컨트롤러 및 수신 또는 부하 분산 장치 구성
   * 네트워크 성능 및 대기 시간
+  * [네트워크 정책](use-network-policies.md#differences-between-azure-and-calico-policies-and-their-capabilities)
 
 
 > [!NOTE]
-> Microsoft/AKS에서 수행하는 모든 클러스터 작업은 기본 제공 Kubernetes 역할 `aks-service` 및 기본 제공 역할 바인딩 `aks-service-rolebinding`하에서 사용자 동의에 따라 수행됩니다. 이 역할을 통해 AKS는 클러스터 문제를 해결하고 진단할 수 있지만 권한을 수정하거나 역할 또는 역할 바인딩이나 기타 높은 권한 작업을 만들 수 없습니다. 역할 액세스는 JIT(Just-In-Time) 액세스를 사용하는 활성 지원 티켓에서만 허용됩니다.
+> Microsoft/AKS에서 수행하는 모든 클러스터 작업은 기본 제공되는 Kubernetes 역할 `aks-service`및 기본 제공 역할 바인딩`aks-service-rolebinding` 하에서 사용자 동의에 따라 수행됩니다. 이 역할을 통해 AKS는 클러스터 문제를 해결하고 진단할 수 있지만, 권한을 수정하거나 역할 또는 역할 바인딩, 혹은 기타 높은 권한 작업을 생성할 수 없습니다. 역할 액세스는 JIT(Just-In-Time) 액세스를 사용하는 활성 지원 티켓에서만 허용됩니다.
 
 Microsoft는 다음 사례에 대한 기술 지원을 제공하지 않습니다.
 

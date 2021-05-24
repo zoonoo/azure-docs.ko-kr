@@ -4,12 +4,12 @@ description: Azure 컨테이너 레지스트리의 저장 데이터 암호화 �
 ms.topic: article
 ms.date: 03/03/2021
 ms.custom: ''
-ms.openlocfilehash: aad9419fdb139ff615bfe07075be78a2ca4ee4ac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ec32e32d187a3db07f023c78efbd301ef578cbc
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489075"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107817038"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>고객 관리형 키를 사용하여 레지스트리 암호화
 
@@ -48,7 +48,7 @@ ms.locfileid: "102489075"
 
 자세한 내용은 이 도움말 뒷부분에 있는 [키 버전이 있거나 없는 키 ID 선택](#choose-key-id-with-or-without-key-version) 및 [키 버전 업데이트](#update-key-version)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 Azure CLI 단계를 사용하려면 Azure CLI 버전 2.2.0 이상 또는 Azure Cloud Shell이 필요합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -62,7 +62,7 @@ ms.locfileid: "102489075"
 az group create --name <resource-group-name> --location <location>
 ```
 
-### <a name="create-a-user-assigned-managed-identity"></a>사용자가 할당한 관리 ID 만들기
+### <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
 
 [az identity create][az-identity-create] 명령을 사용하여 [Azure 리소스에 대해 사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 만듭니다. 이 ID는 레지스트리에서 Key Vault 서비스에 액세스하는 데 사용됩니다.
 
@@ -127,7 +127,7 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-또는 [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md)를 사용하여 키 자격 증명 모음에 액세스 할 수 있는 권한을 ID에 할당합니다. 예를 들어 [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) 명령을 사용하여 Key Vault Crypto Service 암호화 역할을 ID에 할당합니다.
+또는 [Azure RBAC for Key Vault](../key-vault/general/rbac-guide.md)를 사용하여 키 자격 증명 모음에 액세스 할 수 있는 권한을 ID에 할당합니다. 예를 들어 [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) 명령을 사용하여 Key Vault Crypto Service 암호화 역할을 ID에 할당합니다.
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
@@ -241,7 +241,7 @@ az acr encryption show --name <registry-name>
 
 ### <a name="create-a-managed-identity"></a>관리 ID 만들기
 
-Azure Portal에서 [Azure 리소스에 대해 사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 만듭니다. 단계는 [사용자가 할당한 ID 만들기](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)를 참조하세요.
+Azure Portal에서 [Azure 리소스에 대해 사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 만듭니다. 단계는 [사용자 할당 ID 만들기](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)를 참조하세요.
 
 ID 이름은 이후 단계에서 사용합니다.
 
@@ -585,7 +585,7 @@ Azure resource '/subscriptions/xxxx/resourcegroups/myGroup/providers/Microsoft.C
 
 **사용자가 할당한 ID**
 
-사용자가 할당한 ID에서 이 문제가 발생하면 먼저 오류 메시지에 표시된 GUID를 사용하여 ID를 다시 할당합니다. 예:
+사용자가 할당한 ID에서 이 문제가 발생하면 먼저 오류 메시지에 표시된 GUID를 사용하여 ID를 다시 할당합니다. 예를 들어:
 
 ```azurecli
 az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx
@@ -601,26 +601,26 @@ az acr identity assign -n myRegistry --identities xxxxxxxxx-xxxx-xxxx-xxxx-xxxxx
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure에서 저장 데이터 암호화](../security/fundamentals/encryption-atrest.md)에 대해 자세히 알아봅니다.
-* 액세스 정책 및 [키 자격 증명 모음에 대한 액세스를 보호하는 방법](../key-vault/general/secure-your-key-vault.md)에 대해 자세히 알아봅니다.
+* 액세스 정책 및 [키 자격 증명 모음에 대한 액세스를 보호하는 방법](../key-vault/general/security-features.md)에 대해 자세히 알아봅니다.
 
 
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
 
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-show]: /cli/azure/feature#az-feature-show
-[az-group-create]: /cli/azure/group#az-group-create
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-deployment-group-create]: /cli/azure/deployment/group#az-deployment-group-create
-[az-keyvault-create]: /cli/azure/keyvault#az-keyvault-create
-[az-keyvault-key-create]: /cli/azure/keyvault/key#az-keyvault-key-create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-show]: /cli/azure/feature#az_feature_show
+[az-group-create]: /cli/azure/group#az_group_create
+[az-identity-create]: /cli/azure/identity#az_identity_create
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-keyvault-create]: /cli/azure/keyvault#az_keyvault_create
+[az-keyvault-key-create]: /cli/azure/keyvault/key#az_keyvault_key_create
 [az-keyvault-key]: /cli/azure/keyvault/key
-[az-keyvault-set-policy]: /cli/azure/keyvault#az-keyvault-set-policy
-[az-keyvault-delete-policy]: /cli/azure/keyvault#az-keyvault-delete-policy
-[az-resource-show]: /cli/azure/resource#az-resource-show
-[az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
-[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az-acr-encryption-rotate-key
-[az-acr-encryption-show]: /cli/azure/acr/encryption#az-acr-encryption-show
+[az-keyvault-set-policy]: /cli/azure/keyvault#az_keyvault_set_policy
+[az-keyvault-delete-policy]: /cli/azure/keyvault#az_keyvault_delete_policy
+[az-resource-show]: /cli/azure/resource#az_resource_show
+[az-acr-create]: /cli/azure/acr#az_acr_create
+[az-acr-show]: /cli/azure/acr#az_acr_show
+[az-acr-encryption-rotate-key]: /cli/azure/acr/encryption#az_acr_encryption_rotate_key
+[az-acr-encryption-show]: /cli/azure/acr/encryption#az_acr_encryption_show

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: 365ba9df39b4b3bd7397e86e6a51b285bf049242
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b2a98e92630fcdc46228cc36579cfe9787b92daf
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600631"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786648"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
 
@@ -36,7 +36,7 @@ ms.locfileid: "104600631"
 
 ## <a name="what-are-automation-rules-and-playbooks"></a>자동화 규칙 및 플레이북이란?
 
-자동화 규칙은 Azure Sentinel에서 인시던트를 심사하는 데 도움이 됩니다. 자동화 규칙을 사용하여 적절한 직원에게 인시던트를 자동으로 할당하고, 잡음이 있는 인시던트 또는 알려진 가양성을 종결하고, 심각도를 변경하고, 태그를 추가할 수 있습니다. 자동화 규칙은 인시던트에 대응하여 플레이북을 실행할 수 있는 메커니즘이기도 합니다.
+자동화 규칙은 Azure Sentinel에서 인시던트를 심사하는 데 도움이 됩니다. 자동화 규칙을 사용하여 적절한 직원에게 인시던트를 자동으로 할당하고, 잡음이 있는 인시던트 또는 알려진 [가양성](false-positives.md)을 종결하고, 심각도를 변경하고, 태그를 추가할 수 있습니다. 자동화 규칙은 인시던트에 대응하여 플레이북을 실행할 수 있는 메커니즘이기도 합니다.
 
 플레이북은 경고 또는 인시던트에 대응하여 Azure Sentinel에서 실행할 수 있는 프로시저 컬렉션입니다. 플레이북은 대응을 자동화하고 오케스트레이션하는 데 도움이 될 수 있으며, 각각 분석 규칙 또는 자동화 규칙에 연결하여 특정 경고나 인시던트가 생성될 때 자동으로 실행되도록 설정할 수 있습니다. 요청 시 수동으로 실행할 수도 있습니다.
 

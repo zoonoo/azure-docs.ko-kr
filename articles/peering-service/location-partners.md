@@ -1,6 +1,6 @@
 ---
-title: Azure 피어 링 서비스 위치 및 파트너
-description: Azure 피어 링 서비스 위치 및 파트너에 대해 알아보기
+title: Azure Peering Service 위치 및 파트너
+description: Azure Peering Service 위치 및 파트너에 대해 알아보기
 services: peering-service
 author: derekolo
 ms.service: peering-service
@@ -11,22 +11,22 @@ ms.workload: Infrastructure-services
 ms.date: 11/06/2020
 ms.author: derekol
 ms.openlocfilehash: cd57825172f69811dfa63e1d1dea048bbf1d5c82
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105626200"
 ---
-# <a name="peering-service-partners"></a>피어 링 서비스 파트너
+# <a name="peering-service-partners"></a>Peering Service 파트너
 
-Microsoft는 Isp (인터넷 서비스 공급자), IXPs (internet exchange 공급자) 및 Microsoft SDCI (소프트웨어 정의 클라우드 interconnect) 공급자와 협력 하 여 고객 으로부터 Microsoft 네트워크에 대 한 최적의 라우팅을 통해 안정적이 고 성능이 뛰어난 공용 연결을 제공 합니다.
+Microsoft는 전 세계 ISP(인터넷 서비스 공급자), IXP(인터넷 교환 공급자) 및 SDCI(소프트웨어 정의 클라우드 인터커넥터) 공급자와 제휴하여 고객에게 최적의 라우팅을 통해 안정적이고 성능이 뛰어난 공용 연결을 Microsoft 네트워크로 제공합니다.
 
-이 문서에서는 Microsoft와 협력 하 여 고객에 게 Azure 피어 링 서비스 연결을 제공 하는 연결 공급자에 대 한 정보를 제공 합니다.
+이 문서에서는 고객에게 Azure Peering Service 연결을 제공하기 위해 Microsoft와 제휴한 연결 공급자에 대한 정보를 제공합니다.
 
 
-## <a name="peering-service-partners-list"></a>피어 링 서비스 파트너 목록
+## <a name="peering-service-partners-list"></a>Peering Service 파트너 목록
 
-이 문서의 표에서는 피어 링 서비스 연결 파트너와 연결 된 시장의 정보를 제공 합니다.
+이 문서의 표에서는 Peering Service 연결 파트너 및 관련 시장에 대한 정보를 제공합니다.
 
 | **파트너** | **시장**|
 |-----------|---------|
@@ -48,14 +48,14 @@ Microsoft는 Isp (인터넷 서비스 공급자), IXPs (internet exchange 공급
 | [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |아프리카|
 
 > [!NOTE]
->피어 링 서비스 파트너 프로그램을 등록 하는 방법에 대 한 자세한 내용은을 (를) 확인 peeringservice@microsoft.com 하세요.
+>Peering Service 파트너 프로그램을 등록하는 방법에 대한 자세한 내용은 peeringservice@microsoft.com에 문의하세요.
 >
 
 ## <a name="next-steps"></a>다음 단계
 
-- 피어 링 서비스에 대해 알아보려면 [피어 링 서비스 개요](about.md)를 참조 하세요.
-- 피어 링 서비스 Faq에 대 한 자세한 내용은 [피어 링 서비스 faq](faq.md)를 참조 하세요.
-- 파트너 온 보 딩 및 피어 링 서비스 구성에 대해 알아보려면 [피어 링 서비스 구성](connection.md)을 참조 하세요.
+- Peering Service에 대해 알아보려면 [Peering Service 개요](about.md)를 참조하세요.
+- Peering Service FAQ에 대해 알아보려면 [Peering Service FAQ](faq.md)를 참조하세요.
+- 파트너 온보딩 및 Peering Service 구성에 대해 알아보려면 [Peering Service 구성](connection.md)을 참조하세요.
 - Peering Service 연결에 대해 알아보려면 [Peering Service 연결](connection.md)을 참조하세요.
 - Peering Service 연결 원격 분석에 대해 알아보려면 [Peering Service 연결 원격 분석](connection-telemetry.md)을 참조하세요.
-- 피어 링 서비스 연결을 등록 하는 방법에 대 한 자세한 내용은 [온 보 딩 서비스](onboarding-model.md)연결을 참조 하세요.
+- Peering Service 온보딩에 대해 알아보려면 [Peering Service 온보딩](onboarding-model.md)을 참조하세요.

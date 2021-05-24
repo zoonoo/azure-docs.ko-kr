@@ -1,15 +1,15 @@
 ---
 title: 참조 - Linux의 Azure Policy 게스트 구성 기준
 description: Azure Policy 게스트 구성을 통해 구현되는 Azure의 Linux 기준에 대한 세부 정보입니다.
-ms.date: 04/05/2021
+ms.date: 05/11/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: adee82dd9802be47a777a9666a7c680d5b5c6204
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: b22f8f2d40470ed436f8502ea41351e59e7afc8b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106448731"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789062"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Linux의 Azure Policy 게스트 구성 기준
 
@@ -17,7 +17,7 @@ ms.locfileid: "106448731"
 
 ## <a name="general-security-controls"></a>일반 보안 컨트롤
 
-|Name<br /><sub>(ID)</sub> |세부 정보 |수정 확인 |
+|속성<br /><sub>(ID)</sub> |세부 정보 |수정 확인 |
 |---|---|---|
 |/home 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.4)</sub> |설명: 공격자가 /home 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /home 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 실행합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
 |/tmp 파티션에서 nodev 옵션을 설정합니다.<br /><sub>(1.1.5)</sub> |설명: 공격자가 /tmp 파티션에 특수 디바이스(예: 블록 또는 문자 디바이스)를 탑재할 수 있습니다. |/etc/fstab 파일을 편집하고 /tmp 파티션의 네 번째 필드(탑재 옵션)에 대해 nodev를 실행합니다. 자세한 내용은 fstab(5) 설명서 페이지를 참조하세요. |
@@ -95,11 +95,11 @@ ms.locfileid: "106448731"
 |시스템이 네트워크 스니퍼로 작동하면 안 됩니다.<br /><sub>(48)</sub> |설명: 공격자가 무차별 인터페이스를 사용하여 네트워크 트래픽을 찾아낼 수 있습니다. |무차별 모드는 '/etc/network/interfaces' 또는 '/etc/rc.local'의 'promisc' 항목을 통해 설정됩니다. 두 파일을 확인하여 이 항목을 제거합니다. |
 |무선 인터페이스를 사용하면 안 됩니다.<br /><sub>(49)</sub> |설명: 공격자가 가짜 AP를 만들어서 전송을 가로챌 수 있습니다. |'/etc/network/interfaces'에서 모든 무선 인터페이스를 사용하지 않도록 설정되었는지 확인합니다. |
 |IPv6 프로토콜을 사용해야 합니다.<br /><sub>(50)</sub> |설명: 최신 네트워크에서 통신하는 데 필요합니다. |/etc/sysctl.conf를 열고 'net.ipv6.conf.all.disable_ipv6' 및 'net.ipv6.conf.default.disable_ipv6'가 0으로 설정되었는지 확인합니다. |
-|DCCP를 사용하지 않습니다.<br /><sub>(54)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install dccp /bin/true`를 추가하고, dccp 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
-|SCTP를 사용하지 않습니다.<br /><sub>(55)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install sctp /bin/true`를 추가하고, sctp 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
+|DCCP가 사용하지 않도록 설정되었는지 확인<br /><sub>(54)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install dccp /bin/true`를 추가하고, dccp 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
+|SCTP가 사용하지 않도록 설정되었는지 확인<br /><sub>(55)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install sctp /bin/true`를 추가하고, sctp 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
 |RDS 지원을 사용하지 않습니다.<br /><sub>(56)</sub> |설명: 공격자가 RDS의 취약성을 사용하여 시스템을 손상시킬 수 있습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install rds /bin/true`를 추가하고, rds 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
-|TIPC를 사용하지 않습니다.<br /><sub>(57)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install tipc /bin/true`를 추가하고, tipc 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
-|로깅을 구성합니다.<br /><sub>(60)</sub> |설명: 보안과 관련된 수많은 중요 정보(예: 성공 및 실패한 su 시도, 실패한 로그인 시도, 루트 로그인 시도 등)가 `rsyslog`를 통해 전송됩니다. |syslog, rsyslog 또는 syslog-ng를 적절하게 구성합니다. |
+|TIPC가 사용하지 않도록 설정되었는지 확인<br /><sub>(57)</sub> |설명: 프로토콜이 필요 없는 경우 잠재적인 공격 노출 영역을 줄이기 위해 드라이버를 설치하지 않는 것이 좋습니다. |`/etc/modprobe.d/` 디렉터리에 있는 파일을 .conf로 끝나도록 편집하거나 이러한 파일을 새로 만들고, `install tipc /bin/true`를 추가하고, tipc 모듈을 언로드하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r disable-unnecessary-kernel-mods'를 실행합니다. |
+|로깅이 구성되어 있는지 확인<br /><sub>(60)</sub> |설명: 보안과 관련된 수많은 중요 정보(예: 성공 및 실패한 su 시도, 실패한 로그인 시도, 루트 로그인 시도 등)가 `rsyslog`를 통해 전송됩니다. |syslog, rsyslog 또는 syslog-ng를 적절하게 구성합니다. |
 |syslog, rsyslog 또는 syslog-ng 패키지를 설치해야 합니다.<br /><sub>(61)</sub> |설명: 안정성 및 보안 이슈가 로깅되지 않아 적절한 진단이 어렵습니다. |rsyslog 패키지를 설치하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r install-rsyslog'를 실행합니다. |
 |로깅 서비스를 사용합니다.<br /><sub>(62)</sub> |설명: 노드에 이벤트를 기록하는 기능이 있어야 합니다. |rsyslog 패키지를 사용하거나 '/opt/microsoft/omsagent/plugin/omsremediate -r enable-rsyslog'를 실행합니다. |
 |모든 rsyslog 로그 파일에 대한 파일 권한을 640 또는 600으로 설정해야 합니다.<br /><sub>(63)</sub> |설명: 공격자가 로그를 조작하여 작업을 숨길 수 있습니다. |'$FileCreateMode 0640' 줄을 '/etc/rsyslog.conf' 파일에 추가합니다. |

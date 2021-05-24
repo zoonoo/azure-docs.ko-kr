@@ -1,7 +1,7 @@
 ---
-title: 여러 리소스에 대 한 동의 얻기 (MSAL.NET) | Microsoft
+title: 여러 리소스에 대한 동의 얻기(MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: 사용자가 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 여러 리소스에 대 한 사전 동의를 얻는 방법에 대해 알아봅니다.
+description: 사용자가 .NET용 Microsoft 인증 라이브러리(MSAL.NET)를 사용하여 여러 리소스에 대한 사전 동의를 얻는 방법에 대해 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,24 +14,24 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: d22b4109cdcdc965b1b2e03aba592022c58f773b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99583793"
 ---
-# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>사용자가 MSAL.NET를 사용 하 여 여러 리소스에 대 한 동의를 가져옵니다.
-Microsoft id 플랫폼에서는 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하는 경우 획득 토큰 메서드의 범위 매개 변수는 단일 리소스에 대 한 범위만 포함 해야 합니다. 그러나 작성기 메서드를 사용 하 여 추가 범위를 지정 하 여 사전에 여러 리소스에 동의할 수 있습니다 `.WithExtraScopeToConsent` .
+# <a name="user-gets-consent-for-several-resources-using-msalnet"></a>사용자가 MSAL.NET을 사용하여 여러 리소스에 대한 동의를 얻습니다.
+Microsoft ID 플랫폼에서는 여러 리소스에 대한 토큰을 한 번에 가져올 수 없습니다. .NET용 Microsoft 인증 라이브러리(MSAL.NET)를 사용하는 경우 토큰 획득 메서드의 범위 매개 변수에는 단일 리소스에 대한 범위만 포함되어야 합니다. 그러나 `.WithExtraScopeToConsent` 작성기 메서드를 사용해 추가 범위를 지정하여 사전에 여러 리소스에 동의할 수 있습니다.
 
 > [!NOTE]
-> 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에는 적용 되지만 Azure AD B2C에는 적용 되지 않습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
+> 여러 리소스에 대한 동의를 얻는 것은 Microsoft ID 플랫폼에는 적용되지만 Azure AD B2C에는 적용되지 않습니다. Azure AD B2C는 사용자 동의가 아닌 관리자 동의만 지원합니다.
 
-예를 들어 두 개의 범위가 있는 두 개의 리소스가 있는 경우 다음을 수행 합니다.
+예를 들어 각각 범위가 2개인 리소스가 2개가 있는 경우 다음을 수행합니다.
 
-- https: \/ /mytenant.onmicrosoft.com/customerapi (2 개 범위 `customer.read` 포함 `customer.write` )
-- https: \/ /mytenant.onmicrosoft.com/vendorapi (2 개 범위 `vendor.read` 포함 `vendor.write` )
+- https:\//mytenant.onmicrosoft.com/customerapi(2개 범위 `customer.read` 및 `customer.write` 포함)
+- https:\//mytenant.onmicrosoft.com/vendorapi(2개 범위 `vendor.read` 및 `vendor.write` 포함)
 
-`.WithExtraScopeToConsent`다음 예제와 같이 *extraScopesToConsent* 매개 변수를 포함 하는 한정자를 사용 해야 합니다.
+다음 예제에 표시된 대로 *extraScopesToConsent* 매개 변수를 포함하는 `.WithExtraScopeToConsent` 한정자를 사용해야 합니다.
 
 ```csharp
 string[] scopesForCustomerApi = new string[]
@@ -52,7 +52,7 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
-이렇게 하면 첫 번째 web API에 대 한 액세스 토큰을 얻을 수 있습니다. 그런 다음 두 번째 web API에 액세스 하기 위해 토큰 캐시에서 토큰을 자동으로 가져올 수 있습니다.
+이렇게 하면 첫 번째 웹 API에 대한 액세스 토큰을 가져올 수 있습니다. 그러면 두 번째 웹 API에 액세스하기 위해 토큰 캐시에서 토큰을 자동으로 가져올 수 있습니다.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
