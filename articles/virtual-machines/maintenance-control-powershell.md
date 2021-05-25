@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 Azure 가상 머신에 대 한 유지 관리 제어
-description: 유지 관리 제어 및 PowerShell을 사용 하 여 Azure Vm에 유지 관리를 적용 하는 시기를 제어 하는 방법을 알아봅니다.
+title: PowerShell을 사용하여 Azure 가상 머신에 대한 유지 관리 제어
+description: 유지 관리 제어 및 PowerShell을 사용하여 Azure VM에 유지 관리가 적용되는 시점을 제어하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: maintenance-control
@@ -9,38 +9,38 @@ ms.workload: infrastructure-services
 ms.date: 11/19/2020
 ms.author: cynthn
 ms.openlocfilehash: 2868d559f0d848095fa7fec174e09e1b9376c4ae
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102552459"
 ---
-# <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
+# <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>유지 관리 제어 및 Azure PowerShell을 사용하여 업데이트 제어
 
-유지 관리 제어를 통해 격리 된 Vm 및 Azure 전용 호스트의 호스트 인프라에 플랫폼 업데이트를 적용 하는 시기를 결정할 수 있습니다. 이 항목에서는 유지 관리 제어를 위한 Azure PowerShell 옵션을 설명 합니다. 유지 관리 제어, 제한 사항 및 기타 관리 옵션을 사용 하는 이점에 대 한 자세한 내용은 [유지 관리 제어를 사용 하 여 플랫폼 업데이트 관리](maintenance-control.md)를 참조 하세요.
+유지 관리 제어를 통해 격리된 VM 및 Azure 전용 호스트의 호스트 인프라에 플랫폼 업데이트를 적용하는 시기를 결정할 수 있습니다. 이 항목에서는 Azure PowerShell의 유지 관리 제어 옵션에 대해 설명합니다. 유지 관리 제어 사용의 이점, 제한 사항 및 기타 관리 옵션에 대한 자세한 내용은 [유지 관리 제어를 사용하여 플랫폼 업데이트 관리](maintenance-control.md)를 참조하세요.
  
 ## <a name="enable-the-powershell-module"></a>PowerShell 모듈 사용
 
-최신 상태 인지 확인 `PowerShellGet` 합니다.    
+`PowerShellGet`이 최신 상태인지 확인합니다.    
 
 ```azurepowershell-interactive  
 Install-Module -Name PowerShellGet -Repository PSGallery -Force 
 ``` 
 
-`Az.Maintenance`PowerShell 모듈을 설치 합니다.     
+`Az.Maintenance` PowerShell 모듈을 설치합니다.     
 
 ```azurepowershell-interactive  
 Install-Module -Name Az.Maintenance
 ``` 
 
-로컬로 설치 하는 경우 관리자 권한으로 PowerShell 프롬프트를 열어야 합니다.
+로컬에 설치하는 경우 관리자 권한으로 PowerShell 프롬프트를 열어야 합니다.
 
-신뢰할 수 없는 *리포지토리에서* 설치할지를 확인 하는 메시지가 표시 될 수도 있습니다. `Y` **모두 예를** 입력 하거나 선택 하 여 모듈을 설치 합니다.
+*신뢰할 수 없는 리포지토리* 에서 설치할 것인지 확인하는 메시지가 표시될 수도 있습니다. `Y`를 입력하거나 **모두 예** 를 선택하여 모듈을 설치합니다.
 
 
 ## <a name="create-a-maintenance-configuration"></a>유지 관리 구성을 만듭니다.
 
-구성에 대 한 컨테이너로 리소스 그룹을 만듭니다. 이 예제에서는 *myMaintenanceRG* 이라는 리소스 그룹을 *에서는 eastus* 에 만듭니다. 사용 하려는 리소스 그룹이 이미 있는 경우이 부분을 건너뛰고 나머지 예에서는 리소스 그룹 이름을 자신의 이름으로 바꿀 수 있습니다.
+구성의 컨테이너로 리소스 그룹을 만듭니다. 이 예제에서는 *myMaintenanceRG* 라는 리소스 그룹이 *eastus* 에 생성됩니다. 사용하려는 리소스 그룹이 이미 있는 경우 이 부분을 건너뛰고 나머지 예제에서는 리소스 그룹 이름을 고유한 이름으로 바꿀 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup `
@@ -48,7 +48,7 @@ New-AzResourceGroup `
    -Name myMaintenanceRG
 ```
 
-[AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) 를 사용 하 여 유지 관리 구성을 만듭니다. 이 예제에서는 호스트로 범위가 지정 된 *Myconfig* 라는 유지 관리 구성을 만듭니다. 
+[New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration)을 사용하여 유지 관리 구성을 만듭니다. 이 예제에서는 호스트로 범위가 지정된 *myConfig* 라는 유지 관리 구성을 만듭니다. 
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -58,19 +58,19 @@ $config = New-AzMaintenanceConfiguration `
    -Location  eastus
 ```
 
-를 사용 하면 `-MaintenanceScope host` 호스트에 대 한 업데이트를 제어 하는 데 유지 관리 구성이 사용 됩니다.
+`-MaintenanceScope host`를 사용하면 유지 관리 구성이 호스트 업데이트를 제어하는 데 사용됩니다.
 
-이름이 같은 구성을 만들려고 하지만 다른 위치에 있는 경우 오류가 발생 합니다. 구성 이름은 리소스 그룹에서 고유 해야 합니다.
+다른 위치에서 동일한 이름의 구성을 만들려고 하면 오류가 발생합니다. 구성 이름은 리소스 그룹에서 고유해야 합니다.
 
-[AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration)를 사용 하 여 사용 가능한 유지 관리 구성에 대해 쿼리할 수 있습니다.
+[Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration)을 사용하여 사용 가능한 유지 관리 구성을 쿼리할 수 있습니다.
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
 
-### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약 된 기간을 사용 하 여 유지 관리 구성 만들기
+### <a name="create-a-maintenance-configuration-with-scheduled-window"></a>예약된 기간을 사용하여 유지 관리 구성 만들기
 
-Azure가 리소스에 대 한 업데이트를 적용 하는 경우 예약 된 기간을 선언할 수도 있습니다. 이 예제에서는 매월 네 번째 월요일에 예약 된 기간이 5 시간인 myConfig 라는 유지 관리 구성을 만듭니다. 예약 된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
+Azure가 리소스에 대한 업데이트를 적용하는 예약된 기간을 선언할 수도 있습니다. 이 예제에서는 매달 네 번째 월요일에 5시간 동안 예약된 myConfig라는 유지 관리 구성을 만듭니다. 예약된 기간을 만든 후에는 더 이상 수동으로 업데이트를 적용할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -84,21 +84,21 @@ $config = New-AzMaintenanceConfiguration `
    -RecurEvery "Month Fourth Monday"
 ```
 > [!IMPORTANT]
-> 유지 관리 **기간은** *2 시간* 이상 이어야 합니다. 유지 관리 **되풀이** 는 35 일에 한 번 이상 발생 하도록 설정 되어야 합니다.
+> 유지 관리 **기간** 은 *2시간* 이상이어야 합니다. 유지 관리 **되풀이** 는 35일에 1회 이상으로 설정되어야 합니다.
 
-유지 관리 **되풀이** 는 매일, 매주 또는 매월로 표시 될 수 있습니다. 몇 가지 예는 다음과 같습니다.
- - **매일**-RecurEvery "Day" **또는** "3days" 
- - **주간**-RecurEvery "3weeks" **또는** "Week 토요일, 일요일" 
- - **매월**-RecurEvery "month day23, day24" **또는** "month Last 일요일" **또는** "month 4 월요일"  
+유지 관리 **되풀이** 는 일별, 주별 또는 월별로 표시될 수 있습니다. 몇 가지 예는 다음과 같습니다.
+ - **일별**- RecurEvery "Day" **또는** "3Days" 
+ - **주별**- RecurEvery "3Weeks" **또는** "Week Saturday,Sunday" 
+ - **월별**- RecurEvery "Month day23,day24" **또는** "Month Last Sunday" **또는** "Month Fourth Monday"  
       
 
 ## <a name="assign-the-configuration"></a>구성 할당
 
-[AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) 를 사용 하 여 격리 된 VM 또는 Azure 전용 호스트에 구성을 할당 합니다.
+[New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment)를 사용하여 격리된 VM 또는 Azure Dedicated Host에 구성을 할당합니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-구성의 ID를 사용 하 여 VM에 구성을 적용 합니다. 에 `-ResourceType VirtualMachines` vm의 이름과 `-ResourceName` 에 대 한 vm의 리소스 그룹을 지정 하 고 제공 `-ResourceGroupName` 합니다. 
+구성의 ID를 사용하여 VM에 구성을 적용합니다. `-ResourceType VirtualMachines`를 지정하고 VM의 이름을 `-ResourceName`으로 제공하고, VM의 리소스 그룹을 `-ResourceGroupName`으로 제공합니다. 
 
 ```azurepowershell-interactive
 New-AzConfigurationAssignment `
@@ -113,7 +113,7 @@ New-AzConfigurationAssignment `
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트에 구성을 적용 하려면 `-ResourceType hosts` `-ResourceParentName` 호스트 그룹의 이름 및를 포함 하는도 포함 해야 `-ResourceParentType hostGroups` 합니다. 
+전용 호스트에 구성을 적용하려면 `-ResourceType hosts`, `-ResourceParentName`에 호스트 그룹의 이름 및 `-ResourceParentType hostGroups`를 포함해야 합니다. 
 
 
 ```azurepowershell-interactive
@@ -131,9 +131,9 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>보류 중인 업데이트 확인
 
-[AzMaintenanceUpdate](/powershell/module/az.maintenance/get-azmaintenanceupdate) 를 사용 하 여 보류 중인 업데이트가 있는지 확인 합니다. `-subscription`사용자가 로그인 하는 것과 다른 VM의 Azure 구독을 지정 하려면를 사용 합니다.
+[Get-AzMaintenanceUpdate](/powershell/module/az.maintenance/get-azmaintenanceupdate)를 사용하여 보류 중인 업데이트가 있는지 확인합니다. `-subscription`을 사용하여 VM의 Azure 구독을 지정합니다(로그인한 것과 다른 경우).
 
-표시할 업데이트가 없는 경우이 명령은 아무것도 반환 하지 않습니다. 그렇지 않으면 PSApplyUpdate 개체를 반환 합니다.
+표시할 업데이트가 없는 경우 이 명령은 아무 것도 반환하지 않습니다. 그렇지 않은 경우 PSApplyUpdate 개체를 반환합니다.
 
 ```json
 {
@@ -147,9 +147,9 @@ New-AzConfigurationAssignment `
 } 
 ```
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-격리 된 VM에 대 한 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다.
+격리된 VM에 대해 보류 중인 업데이트를 확인합니다. 이 예제에서 가독성을 위해 출력이 테이블 형식으로 지정됩니다.
 
 ```azurepowershell-interactive
 Get-AzMaintenanceUpdate `
@@ -162,7 +162,7 @@ Get-AzMaintenanceUpdate `
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트의 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다. 리소스의 값을 고유한 값으로 바꿉니다.
+전용 호스트에 대한 보류 중인 업데이트를 확인합니다. 이 예제에서 가독성을 위해 출력이 테이블 형식으로 지정됩니다. 리소스에 대한 값을 고유한 값으로 대체합니다.
 
 ```azurepowershell-interactive
 Get-AzMaintenanceUpdate `
@@ -177,11 +177,11 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>업데이트 적용
 
-[AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) 를 사용 하 여 보류 중인 업데이트를 적용 합니다.
+[New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate)를 사용하여 보류 중인 업데이트를 적용합니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-격리 된 VM에 업데이트를 적용 하는 요청을 만듭니다.
+격리된 VM에 업데이트를 적용하는 요청을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzApplyUpdate `
@@ -191,11 +191,11 @@ New-AzApplyUpdate `
    -ProviderName Microsoft.Compute
 ```
 
-성공 하면이 명령은 개체를 반환 `PSApplyUpdate` 합니다. 명령에서 Name 특성을 사용 하 여 `Get-AzApplyUpdate` 업데이트 상태를 확인할 수 있습니다. [업데이트 상태 확인](#check-update-status)을 참조 하세요.
+성공하면 이 명령은 `PSApplyUpdate` 개체를 반환합니다. `Get-AzApplyUpdate` 명령의 Name 특성을 사용하여 업데이트 상태를 확인할 수 있습니다. [업데이트 상태 확인](#check-update-status)을 참조하세요.
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트에 업데이트를 적용 합니다.
+전용 호스트에 업데이트를 적용합니다.
 
 ```azurepowershell-interactive
 New-AzApplyUpdate `
@@ -208,7 +208,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>업데이트 상태 확인
-[AzApplyUpdate](/powershell/module/az.maintenance/get-azapplyupdate) 를 사용 하 여 업데이트 상태를 확인 합니다. 아래에 표시 된 명령은를 사용 하 여 매개 변수의 최신 업데이트 상태를 보여 줍니다 `default` `-ApplyUpdateName` . 업데이트 이름 ( [AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) 명령에 의해 반환 됨)을 대체 하 여 특정 업데이트의 상태를 가져올 수 있습니다.
+[Get-AzApplyUpdate](/powershell/module/az.maintenance/get-azapplyupdate)를 사용하여 업데이트의 상태를 확인합니다. 아래에 표시된 명령은 `-ApplyUpdateName` 매개 변수에 대해 `default`를 사용하여 최신 업데이트의 상태를 보여줍니다. 업데이트의 이름([New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) 명령으로 반환됨)을 대체하여 특정 업데이트의 상태를 가져올 수 있습니다.
 
 ```text
 Status         : Completed
@@ -220,11 +220,11 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
-LastUpdateTime은 자동 유지 관리 기간을 사용 하지 않는 경우 사용자 또는 플랫폼에 의해 시작 된 업데이트가 완료 된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용 한 적이 없는 경우 기본값을 표시 합니다.
+셀프 유지 관리 기간을 사용하지 않는 경우 LastUpdateTime은 사용자 또는 플랫폼에 의해 시작된 업데이트가 완료된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용한 적이 없는 경우 기본값을 보여줍니다.
 
-### <a name="isolated-vm"></a>격리 된 VM
+### <a name="isolated-vm"></a>격리된 VM
 
-특정 가상 컴퓨터에 대 한 업데이트를 확인 합니다.
+특정 가상 머신에 대한 업데이트를 확인합니다.
 
 ```azurepowershell-interactive
 Get-AzApplyUpdate `
@@ -237,7 +237,7 @@ Get-AzApplyUpdate `
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트에 대 한 업데이트를 확인 합니다.
+전용 호스트에 대한 업데이트를 확인합니다.
 
 ```azurepowershell-interactive
 Get-AzApplyUpdate `
@@ -252,7 +252,7 @@ Get-AzApplyUpdate `
 
 ## <a name="remove-a-maintenance-configuration"></a>유지 관리 구성 제거
 
-[AzMaintenanceConfiguration](/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) 를 사용 하 여 유지 관리 구성을 삭제 합니다.
+[Remove-AzMaintenanceConfiguration](/powershell/module/az.maintenance/remove-azmaintenanceconfiguration)을 사용하여 유지 관리 구성을 삭제합니다.
 
 ```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `
@@ -261,4 +261,4 @@ Remove-AzMaintenanceConfiguration `
 ```
 
 ## <a name="next-steps"></a>다음 단계
-자세히 알아보려면 [유지 관리 및 업데이트](maintenance-and-updates.md)를 참조 하세요.
+자세히 알아보려면 [유지 관리 및 업데이트](maintenance-and-updates.md)를 참조하세요.

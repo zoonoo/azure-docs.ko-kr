@@ -3,12 +3,12 @@ title: Azure Service Bus 미사용 데이터를 암호화하기 위한 고유 �
 description: 이 문서에서는 Azure Service Bus 미사용 데이터를 암호화하기 위해 고유 키를 구성하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de716b9f14191ba057c83a060104e64937c4192a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100378318"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107816011"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Service Bus 미사용 데이터를 암호화하기 위한 고객 관리형 키 구성
 Azure Service Bus 프리미엄은 Azure SSE(스토리지 서비스 암호화)를 사용하여 미사용 데이터의 암호화를 제공합니다. Service Bus 프리미엄은 Azure Storage를 사용하여 데이터를 저장합니다. Azure Storage에 저장되는 모든 데이터는 Microsoft 관리형 키를 사용하여 암호화됩니다. 사용자 고유의 키(BYOK(Bring Your Own Key) 또는 고객 관리형 키라고도 함)를 사용하는 경우 데이터는 Microsoft 관리형 키를 사용하여 계속 암호화되지만, 그 외의 Microsoft 관리형 키는 고객 관리형 키를 사용하여 암호화됩니다. 이 기능을 사용하면 Microsoft 관리형 키를 암호화하는 데 사용되는 고객 관리형 키의 액세스를 만들고, 회전시키고, 사용하지 않도록 설정하며, 철회할 수 있습니다. BYOK를 사용하도록 설정하는 기능은 네임스페이스에서 한 번만 설정하면 됩니다.
@@ -39,12 +39,12 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 고객 관리형 키를 사용하도록 설정한 후에는 고객 관리형 키를 Azure Service Bus 네임스페이스와 연결해야 합니다. Service Bus는 Azure Key Vault만 지원합니다. 이전 섹션에서 **고객 관리형 키로 암호화** 옵션을 사용하도록 설정하는 경우 키를 Azure Key Vault로 가져와야 합니다. 또한 키에는 키를 위해 구성된 **일시 삭제** 및 **제거 안 함** 속성이 있어야 합니다. 해당 설정은 [PowerShell](../key-vault/general/key-vault-recovery.md) 또는 [CLI](../key-vault/general/key-vault-recovery.md)를 이용해 구성할 수 있습니다.
 
 1. 새로운 키 자격 증명 모음을 만들려면 Azure Key Vault [빠른 시작](../key-vault/general/overview.md)을 따릅니다. 기존 키를 가져오는 방법에 대한 자세한 내용은 [키, 비밀, 인증서 정보](../key-vault/general/about-keys-secrets-certificates.md)를 참조하세요.
-1. 자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 설정하려면 [az keyvault create](/cli/azure/keyvault#az-keyvault-create) 명령을 사용합니다.
+1. 자격 증명 모음을 만들 때 일시 삭제 및 제거 보호를 모두 설정하려면 [az keyvault create](/cli/azure/keyvault#az_keyvault_create) 명령을 사용합니다.
 
     ```azurecli-interactive
     az keyvault create --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
     ```    
-1. 이미 일시 삭제를 사용하는 기존 자격 증명 모음에 제거 보호를 추가하려면 [az keyvault update](/cli/azure/keyvault#az-keyvault-update) 명령을 사용합니다.
+1. 이미 일시 삭제를 사용하는 기존 자격 증명 모음에 제거 보호를 추가하려면 [az keyvault update](/cli/azure/keyvault#az_keyvault_update) 명령을 사용합니다.
 
     ```azurecli-interactive
     az keyvault update --name contoso-SB-BYOK-keyvault --resource-group ContosoRG --enable-purge-protection true
@@ -70,7 +70,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
     > [!IMPORTANT]
     > 지역 재해 복구에 고객 관리형 키를 사용하려는 경우 이 섹션을 검토하세요. 
     >
-    > 고객 관리형 키를 통한 Microsoft 관리형 키의 암호화를 사용하도록 설정하려면 지정한 Azure KeyVault에서 Service Bus의 관리 ID에 대해 [액세스 정책](../key-vault/general/secure-your-key-vault.md)을 설정해야 합니다. 이렇게 하면 Azure Service Bus 네임스페이스에서 Azure KeyVault에 대한 제어된 액세스가 보장됩니다.
+    > 고객 관리형 키를 통한 Microsoft 관리형 키의 암호화를 사용하도록 설정하려면 지정한 Azure KeyVault에서 Service Bus의 관리 ID에 대해 [액세스 정책](../key-vault/general/security-features.md)을 설정해야 합니다. 이렇게 하면 Azure Service Bus 네임스페이스에서 Azure KeyVault에 대한 제어된 액세스가 보장됩니다.
     >
     > 이런 이유로
     > 
@@ -91,7 +91,7 @@ Azure Key Vaults 회전 메커니즘을 사용하여 키 자격 증명 모음에
 
 ## <a name="revoke-access-to-keys"></a>키 액세스 철회
 
-암호화 키에 대한 액세스를 철회해도 Service Bus의 데이터는 제거되지 않습니다. 그러나 Service Bus 네임스페이스에서 데이터에 액세스할 수 없습니다. 액세스 정책을 통해, 또는 키를 삭제하여 암호화 키를 철회할 수 있습니다. [키 자격 증명 모음에 대한 보안 액세스](../key-vault/general/secure-your-key-vault.md)에서 액세스 정책 및 키 자격 증명 모음 보안에 대해 자세히 알아보세요.
+암호화 키에 대한 액세스를 철회해도 Service Bus의 데이터는 제거되지 않습니다. 그러나 Service Bus 네임스페이스에서 데이터에 액세스할 수 없습니다. 액세스 정책을 통해, 또는 키를 삭제하여 암호화 키를 철회할 수 있습니다. [키 자격 증명 모음에 대한 보안 액세스](../key-vault/general/security-features.md)에서 액세스 정책 및 키 자격 증명 모음 보안에 대해 자세히 알아보세요.
 
 암호화 키가 해지되면 암호화된 네임스페이스의 Service Bus 서비스가 작동하지 않게 됩니다. 키에 대한 액세스를 사용하도록 설정하거나 삭제 키가 복원된 경우, 암호화된 Service Bus 네임스페이스의 데이터에 액세스할 수 있도록 Service Bus 서비스에서 키를 선택합니다.
 

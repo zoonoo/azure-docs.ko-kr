@@ -3,18 +3,18 @@ title: Azure Batch 풀 만들기 이벤트
 description: 풀을 만든 후 내보내는 Batch 풀 만들기 이벤트에 대한 참조입니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다.
 ms.topic: reference
 ms.date: 10/08/2020
-ms.openlocfilehash: f8b020401443b2a9e80837599d6fd4b2a3001d27
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e75b56a6fd5de5fd17107c3960004e0edb1b799
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97609006"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988265"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 
  이 이벤트는 풀이 생성되면 내보내집니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다. 풀의 대상 크기가 0 컴퓨팅 노드보다 큰 경우 이 이벤트 직 후 풀 크기 조정 시작 이벤트가 수행됩니다.
 
- 다음 예에서는 `CloudServiceConfiguration` 속성을 사용하여 만든 풀의 풀 만들기 이벤트 본문을 보여 줍니다.
+ 다음 예제에서는 풀 만들기 이벤트 본문을 보여줍니다.
 
 ```
 {
@@ -68,6 +68,9 @@ ms.locfileid: "97609006"
 |`vmFillType`|String|Batch 서비스는 풀의 컴퓨팅 노드 간에 태스크를 분배하는 방법을 정의합니다. 유효한 값은 Spread 또는 Pack입니다.|
 
 ###  <a name="cloudserviceconfiguration"></a><a name="bk_csconf"></a> cloudServiceConfiguration
+
+> [!WARNING]
+> Cloud Services 구성 풀은 [사용되지 않습니다](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). 대신 Virtual Machine 구성 풀을 사용하세요.
 
 |요소 이름|Type|메모|
 |------------------|----------|-----------|

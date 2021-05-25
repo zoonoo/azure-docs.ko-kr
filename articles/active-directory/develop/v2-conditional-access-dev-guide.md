@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: e4021f0ca2c1c9ca9434744a4aebb4b7938315f0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9e74f35a99bb57fff6d7134fb1fb4b596306a21b
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99584233"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108072426"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스에 대한 개발자 지침
 
@@ -43,9 +43,9 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 ### <a name="app-types-impacted"></a>영향을 받는 앱 형식
 
-대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스에 대 한 토큰을 간접적으로 요청 하거나 자동으로 요청 하는 경우에만 앱에서 조건부 액세스 문제를 처리 하기 위해 코드를 변경 해야 합니다.  이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
+대부분의 경우, 조건부 액세스는 앱의 동작을 변경하지 않으며 개발자의 변경이 필요하지 않습니다. 앱에서 서비스의 토큰을 간접적으로 또는 자동으로 요청하는 특정한 경우에만 앱에서 조건부 액세스 챌린지를 처리하도록 코드를 변경해야 합니다.  이것은 대화형 로그인 요청을 수행하는 것처럼 간단할 수도 있습니다.
 
-특히 다음 시나리오에서는 조건부 액세스 문제를 처리 하는 코드가 필요 합니다.
+특히 다음 시나리오에는 조건부 액세스 챌린지를 처리하는 코드가 필요합니다.
 
 * On-Behalf-Of 흐름을 수행하는 앱
 * 여러 서비스/리소스에 액세스하는 앱
@@ -54,7 +54,7 @@ Azure AD(Azure Active Directory)의 조건부 액세스 기능은 앱의 보안�
 
 조건부 액세스 정책은 앱뿐만 아니라 사용자 앱이 액세스하는 웹 API에도 적용할 수 있습니다. 조건부 액세스 정책을 구성하는 방법을 자세히 알아보려면 [빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](../authentication/tutorial-enable-azure-mfa.md)를 참조하세요.
 
-시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다. 새 정책이 적용 될 때 앱이 계속 작동 하려면 챌린지 처리를 구현 합니다. 다음 예에서는 챌린지 처리를 보여 줍니다.
+시나리오에 따라 기업 고객은 언제든지 조건부 액세스 정책을 적용하고 제거할 수 있습니다. 새 정책이 적용된 경우 앱이 계속 작동할 수 있도록 챌린지 처리를 구현합니다. 다음 예에서는 챌린지 처리를 보여 줍니다.
 
 ### <a name="conditional-access-examples"></a>조건부 액세스 예제
 
@@ -72,10 +72,10 @@ Microsoft Graph는 조건부 액세스 환경에서 앱을 빌드할 때 특별�
 예를 들어 앱이 다음 Microsoft Graph 범위를 요청하는 경우
 
 ```
-scopes="Bookings.Read.All Mail.Read"
+scopes="ChannelMessages.Read.All Mail.Read"
 ```
 
-앱은 사용자가 예약 및 교환에 설정된 모든 정책을 충족하도록 할 수 있습니다. 일부 범위는 액세스 권한을 부여하는 경우 여러 데이터 세트에 매핑될 수 있습니다.
+앱은 사용자가 Teams 및 Exchange에 설정된 모든 정책을 충족하도록 할 수 있습니다. 일부 범위는 액세스 권한을 부여하는 경우 여러 데이터 세트에 매핑될 수 있습니다.
 
 ### <a name="complying-with-a-conditional-access-policy"></a>조건부 액세스 정책 준수
 
@@ -152,15 +152,14 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ## <a name="scenario-single-page-app-spa-using-msaljs"></a>시나리오: MSAL.js를 사용하는 SPA(단일 페이지 앱)
 
-이 시나리오에서는 MSAL.js를 사용하여 조건부 액세스 보호된 웹 API를 호출하는 SPA(단일 페이지 앱)가 있는 경우를 살펴봅니다. 간단한 아키텍처이지만 조건부 액세스를 기반으로 개발할 때 고려해야 하는 미묘한 차이가 있습니다.
+이 시나리오에서는 MSAL.js를 사용하여 조건부 액세스 보호 웹 API를 호출하는 SPA(단일 페이지 앱)가 있는 경우를 살펴봅니다. 간단한 아키텍처이지만 조건부 액세스를 기반으로 개발할 때 고려해야 하는 미묘한 차이가 있습니다.
 
-MSAL.js에는 토큰을 얻기 위한 몇 가지 함수가 있습니다(예: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)` 및 `acquireTokenRedirect(…)`).
+MSAL.js에는 토큰을 가져오는 몇 가지 함수가 있습니다(예: `acquireTokenSilent()`, `acquireTokenPopup()` 및 `acquireTokenRedirect()`).
 
-* `loginPopup()`은 대화형 로그인 요청을 통해 ID 토큰을 가져오지만 조건부 액세스 보호되는 웹 API를 비롯한 모든 서비스에 대한 액세스 토큰을 가져오지는 않습니다.
-* 그런 다음 `acquireTokenSilent(…)`을 사용하여 액세스 토큰을 자동으로 얻을 수 있는데, 이는 어떤 상황에서도 UI가 표시되지 않음을 의미합니다.
-* `acquireTokenPopup(…)` 및 `acquireTokenRedirect(…)`는 리소스에 대한 토큰을 대화형으로 요청하는 데 사용되며 이는 항상 로그인 UI가 표시됨을 의미합니다.
+* `acquireTokenSilent()`를 사용하여 액세스 토큰을 자동으로 가져올 수 있습니다. 즉, 어떠한 상황에서도 UI가 표시되지 않습니다.
+* `acquireTokenPopup()` 및 `acquireTokenRedirect()`는 리소스에 대한 토큰을 대화형으로 요청하는 데 사용되며 이는 항상 로그인 UI가 표시됨을 의미합니다.
 
-앱에서 웹 API를 호출하는 데 액세스 토큰이 필요한 경우 `acquireTokenSilent(…)`을 시도합니다. 토큰 세션이 만료되거나 조건부 액세스 정책을 준수해야 하는 경우 *acquireToken* 함수가 실패하며 앱은 `acquireTokenPopup()` 또는 `acquireTokenRedirect()`를 사용합니다.
+앱에서 웹 API를 호출하는 데 액세스 토큰이 필요한 경우 `acquireTokenSilent()`을 시도합니다. 토큰이 만료되거나 조건부 액세스 정책을 준수해야 하는 경우 *acquireToken* 함수가 실패하며 앱은 `acquireTokenPopup()` 또는 `acquireTokenRedirect()`를 사용합니다.
 
 ![MSAL 흐름 다이어그램을 사용하는 단일 페이지 앱](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -176,12 +175,12 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 앱은 `error=interaction_required`를 catch해야 합니다. 그러면 애플리케이션은 동일한 리소스에서 `acquireTokenPopup()` 또는 `acquireTokenRedirect()`를 사용할 수 있습니다. 사용자는 다단계 인증을 수행해야 합니다. 사용자가 다단계 인증을 완료하면 앱에는 요청된 리소스에 대한 새로운 액세스 토큰이 발급됩니다.
 
-이 시나리오를 사용해 보려면 [JS SPA On-behalf-of 샘플 코드](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md)를 참조하세요. 이 샘플 코드에서는 이 시나리오를 설명하기 위해 JS SPA와 함께 이전에 등록한 조건부 액세스 정책 및 웹 API를 사용합니다. 클레임 챌린지를 올바르게 처리하고 웹 API에 사용할 수 있는 액세스 토큰을 가져오는 방법을 보여 줍니다. 또한 Angular SPA에 대한 지침은 일반 [Angular.js 샘플 코드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2)를 확인하세요.
+이 시나리오를 수행하려면 [On-Behalf-Of 흐름을 사용하여 Node.js 웹 API를 호출하는 JavaScript SPA](https://github.com/Azure-Samples/ms-identity-javascript-tutorial/tree/main/4-AdvancedGrants/2-call-api-api-ca) 코드 샘플을 참조하세요. 이 샘플 코드에서는 이 시나리오를 설명하기 위해 JavaScript SPA와 함께 이전에 등록한 조건부 액세스 정책과 웹 API를 사용합니다. 클레임 챌린지를 올바르게 처리하고 웹 API에 사용할 수 있는 액세스 토큰을 가져오는 방법을 보여 줍니다.
 
 ## <a name="see-also"></a>참고 항목
 
 * 기능에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스](../conditional-access/overview.md)를 참조하세요.
 * 더 많은 Azure AD 샘플 코드를 보려면 [샘플](sample-v2-code.md)을 참조하세요.
-* MSAL SDK의 및 참조 설명서에 대 한 자세한 내용은 [Microsoft 인증 라이브러리 개요](msal-overview.md)를 참조 하세요.
+* MSAL SDK에 대한 자세한 내용과 참조 문서에 액세스하는 방법은 [Microsoft 인증 라이브러리 개요](msal-overview.md)를 참조하세요.
 * 다중 테넌트 시나리오에 대한 자세한 내용은 [다중 테넌트 패턴을 사용하여 사용자를 로그인하는 방법](howto-convert-app-to-be-multi-tenant.md)을 참조하세요.
 * [조건부 액세스 및 IoT 앱에 대한 액세스 보안](/azure/architecture/example-scenario/iot-aad/iot-aad)에 대해 자세히 알아보세요.
