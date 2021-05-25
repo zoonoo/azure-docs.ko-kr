@@ -1,35 +1,32 @@
 ---
-title: NP 시리즈-Azure Virtual Machines
-description: NP 시리즈 Vm에 대 한 사양입니다.
+title: NP 시리즈 - Azure Virtual Machines
+description: NP 시리즈 VM의 사양입니다.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: 09adb19623ea866091e1b949e78263661eddbb52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: aa67a858d0396badc25a625b23dc2f2fdf1bdff9
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102551150"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551376"
 ---
-# <a name="np-series-preview"></a>NP 시리즈 (미리 보기) 
-NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스 코딩 및 데이터베이스 검색 & 분석을 비롯 한 워크 로드를 가속화 하기 위해 [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) fpgas 구동 됩니다. NP 시리즈 Vm은 모든 코어 터보 클록 속도 3.2 g h z를 사용 하 여 Intel Xeon 8171M (Skylake) Cpu로도 제공 됩니다.
+# <a name="np-series"></a>NP 시리즈 
+NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스코딩 및 데이터베이스 검색 & 분석을 비롯한 워크로드를 가속화하기 위해 [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGA를 통해 구동됩니다. NP 시리즈 VM은 Intel Xeon 8171M(Skylake) CPU에서 구동되며 모든 코어 turbo 클록 속도는 3.2GHz입니다.
 
-소개 시리즈 미리 보기 프로그램의 일부가 될 [미리 보기 양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9x_QCQkJXxHl4qOI4jC9YtUOVI0VkgwVjhaTFFQMTVBTDFJVFpBMzJSSCQlQCN0PWcu) 사용 하 여 요청을 제출 합니다.
-
-
-[Premium Storage](premium-storage-performance.md): 지원 됨<br>
-[Premium Storage 캐싱](premium-storage-performance.md): 지원 됨<br>
-[실시간 마이그레이션](maintenance-and-updates.md): 지원 되지 않음<br>
-[메모리 보존 업데이트](maintenance-and-updates.md): 지원 되지 않음<br>
-VM 생성 지원: 1 세대<br>
-[가속 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원 됨<br>
-[삭제 되는 OS 디스크](ephemeral-os-disks.md): 지원 되지 않음 <br>
+[Premium Storage](premium-storage-performance.md): 지원됨<br>
+[Premium Storage 캐싱](premium-storage-performance.md): 지원됨<br>
+[실시간 마이그레이션](maintenance-and-updates.md): 지원되지 않음<br>
+[메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
+VM 생성 지원: 1세대<br>
+[가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | FPGA | FPGA memory: GiB | 최대 데이터 디스크 수 | 최대 Nic/예상 네트워크 대역폭 (MBps) | 
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | FPGA | FPGA 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수/예상 네트워크 대역폭(MBps) | 
 |---|---|---|---|---|---|---|---|
 | Standard_NP10s | 10 | 168 | 736  | 1 | 64  | 8 | 1 / 7500 | 
 | Standard_NP20s | 20 | 336 | 1474 | 2 | 128 | 16 | 2 / 15000 | 
@@ -39,10 +36,105 @@ VM 생성 지원: 1 세대<br>
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
-[Xilinx Runtime (XRT) 릴리스 정보](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf) 를 방문 하 여 지원 되는 운영 체제의 전체 목록을 확인 하세요.
 
-미리 보기 프로그램 Microsoft Azure 엔지니어링 팀은 드라이버 설치에 대 한 특정 지침을 공유 합니다.
+##  <a name="frequently-asked-questions"></a>질문과 대답
+
+**Q:** 어떤 버전의 Vitis를 사용해야 하나요? 
+
+**A:** Xilinx는 [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)를 권장합니다.
+
+
+**Q:** NP VM을 사용하여 솔루션을 개발해야 하나요? 
+
+**A:** 아니요, 온-프레미스를 개발하고 클라우드에 배포할 수 있습니다. 이 증명 설명서를 따라 NP VM에 배포해야 합니다. 
+
+**Q:** 어떤 버전의 XRT를 사용해야 하나요?
+
+**A:** xrt_202020.2.8.832 
+
+**Q:** 대상 배포 플랫폼은 무엇인가요?
+
+**A:** 다음 플랫폼을 사용합니다.
+- xilinx-u250-gen3x16-xdma-platform-2.1-3_all
+- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1 
+
+**Q:** 개발 대상으로 지정해야 하는 플랫폼은 무엇인가요?
+
+**A:** xilinx-u250-gen3x16-xdma-2.1-202010-1-dev_1-2954688_all 
+
+**Q:** 지원되는 OS(운영 체제)는 무엇인가요? 
+
+**A:** Xilinx 및 Microsoft는 Ubuntu 18.04 LTS 및 CentOS 7.8의 유효성을 검사했습니다.
+
+ Xilinx는 이러한 VM의 배포를 간소화하도록 다음 마켓플레이스 이미지를 만들었습니다. 
+
+[Xilinx Alveo U250 Deployment VM – Ubuntu18.04](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_ubuntu1804_032321)
+
+[Xilinx Alveo U250 Deployment VM – CentOS7.8](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryItemDetailsBladeNopdl/id/xilinx.xilinx_alveo_u250_deployment_vm_centos78_032321)
+
+**Q:** 나만의 Ubuntu/CentOS VM을 배포하고 XRT/배포 대상 플랫폼을 설치할 수 있나요? 
+
+**A:** 예.
+
+**Q:** 나만의 Ubuntu 18.04 VM을 배포하는 경우 필요한 패키지 및 단계는 무엇인가요?
+
+**A:** [Xilinx XRT 설명서](https://www.xilinx.com/support/documentation/sw_manuals/xilinx2020_2/ug1451-xrt-release-notes.pdf)당 Kernel 4.1X 사용
+       
+다음 패키지를 설치합니다.
+- xrt_202020.2.8.832_18.04-amd64-xrt.deb
+       
+- xrt_202020.2.8.832_18.04-amd64-azure.deb
+       
+- xilinx-u250-gen3x16-xdma-platform-2.1-3_all_18.04.deb.tar.gz
+       
+- xilinx-u250-gen3x16-xdma-validate_2.1-3005608.1_all.deb  
+
+**Q:** Ubuntu에서 VM을 다시 부팅한 후 FPGA를 찾을 수 없습니다. 
+
+**A:** 커널이 업그레이드되지 않았는지 확인하세요(uname -a). 그렇다면 커널 4.1X로 다운그레이드하세요. 
+
+**Q:** 나만의 CentOS 7.8 VM을 배포하는 경우 필요한 패키지 및 단계는 무엇인가요?
+
+**A:** 3.10.0-1160.15.2.el7.x86_64 커널 버전 사용
+
+ 다음 패키지를 설치합니다.
+   
+ - xrt_202020.2.8.832_7.4.1708-x86_64-xrt.rpm 
+      
+ - xrt_202020.2.8.832_7.4.1708-x86_64-azure.rpm 
+     
+ - xilinx-u250-gen3x16-xdma-platform-2.1-3.noarch.rpm.tar.gz 
+      
+ - xilinx-u250-gen3x16-xdma-validate-2.1-3005608.1.noarch.rpm  
+
+**Q:** CentOS에서 xbutil 유효성 검사를 실행할 때 다음 경고가 표시됩니다. "경고: 커널 버전 3.10.0-1160.15.2.el7.x86_64는 공식적으로 지원되지 않습니다. 4.18.0-193이 지원되는 최신 버전입니다." 
+
+**A:** 무시해도 됩니다. 
+
+**Q:** XRT와 관련된 OnPrem 및 NP VM 간의 차이점은 무엇인가요? 
+
+**A:** Azure에서 XDMA 2.1 플랫폼은 Host_Mem(SB) 및 DDR 데이터 보존 기능만 지원합니다. 
+
+Host_Mem(SB)(1Gb RAM)을 사용하도록 설정하려면: sudo xbutil host_mem --enable --size 1g 
+
+Host_Mem(SB)를 사용하지 않도록 설정하려면: sudo xbutil host_mem --disable 
+
+**Q:** xbmgmt 명령을 실행할 수 있나요? 
+
+**A:** 아니요, Azure VM에는 Azure VM에서 직접 관리 지원이 없습니다. 
+
+ **Q:** PLP를 로드해야 하나요? 
+
+**A:** 아니요, PLP는 자동으로 로드되므로 xbmgmt 명령을 통해 로드할 필요가 없습니다. 
+
+ 
+**Q:** Azure에서 서로 다른 PLP를 지원하나요? 
+
+**A:** 현재는 지원하지 않습니다. 배포 플랫폼 패키지에 제공된 PLP만 지원합니다. 
+
+**Q:** PLP 정보를 쿼리하려면 어떻게 해야 하나요? 
+
+**A:** xbutil 쿼리를 실행하고 하위 부분을 확인해야 합니다. 
 
 ## <a name="other-sizes"></a>기타 크기
 

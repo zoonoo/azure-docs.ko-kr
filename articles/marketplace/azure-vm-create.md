@@ -6,19 +6,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/08/2021
-ms.openlocfilehash: f0c1d9d528ed4fbf61786042fb6fb34f05fec5d5
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 03/10/2021
+ms.openlocfilehash: 827e4d883fd9e80ae84845d620cc4ca00816f56e
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812596"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551319"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Azure Marketplace에서 가상 머신 제품을 만드는 방법
 
 이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com/)용 Azure 가상 머신 제품을 만드는 방법을 설명합니다. 운영 체제, VHD(가상 하드 디스크) 및 최대 16개의 데이터 디스크가 포함된 Windows 기반 및 Linux 기반 가상 머신을 모두 처리합니다.
 
-시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만듭니다](create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
+시작하기 전에 [파트너 센터에서 상업용 Marketplace 계정을 만듭니다](partner-center-portal/create-account.md). 계정이 상업용 마켓플레이스 프로그램에 등록되어 있는지 확인합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -52,7 +52,7 @@ ms.locfileid: "107812596"
 시험 사용은 잠재 고객에게 정해진 시간 동안 미리 구성된 환경에 대한 액세스 권한을 부여하여 제품을 소개하는 좋은 방법입니다. 시험 사용을 제공하면 전환율이 증가하고 충분한 자격을 갖춘 잠재 고객이 생성됩니다. 시험 사용에 대한 자세한 내용은 [시험 사용이란?](./what-is-test-drive.md)을 참조하세요.
 
 > [!TIP]
-> 시험 사용은 평가판과 다릅니다. 시험 사용이나 평가판 또는 둘 다를 제공할 수 있습니다. 둘 다 정해진 기간에 고객에게 솔루션을 제공합니다. 하지만 시험 사용에는 실제 구현 시나리오에서 입증된 제품의 주요 기능과 이점에 대한 실습 중심의 자기 주도형 체험도 포함됩니다.
+> 시험 사용은 평가판과 다릅니다. 시험 사용, 평가판 또는 둘 다를 제공할 수 있습니다. 둘 다 정해진 기간 동안 고객에게 솔루션을 제공합니다. 하지만 시험 사용에는 실제 구현 시나리오에서 입증된 제품의 주요 기능과 이점에 대한 실습 중심의 자기 주도형 체험도 포함됩니다.
 
 시험 사용을 사용하도록 설정하려면 **시험 사용 지원** 확인란을 선택합니다. 나중에 시험 사용을 구성합니다. 시험 사용을 통해 CRM을 구성해야 합니다(다음 섹션 참조).
 

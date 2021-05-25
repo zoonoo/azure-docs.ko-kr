@@ -3,7 +3,7 @@ title: Azure(큰 인스턴스)의 SAP HANA에서 HANA 백업 및 복원 | Micros
 description: Azure(큰 인스턴스)의 SAP HANA에서 HANA 백업 및 복원을 수행하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: Ajayan1008
+author: saghorpa
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
-ms.author: madhukan
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4b7ac968564c6c2e734fe48cca27c617eb82533
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 3244cbca3df717d3432670a366147408cf2b2c0e
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737279"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101669114"
 ---
 # <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>HANA 대규모 인스턴스에서 SAP HANA 백업 및 복원
 
@@ -463,7 +463,7 @@ SAP HANA에 SnapCenter을 통합하는 단계는 다음과 같습니다.
    * **문제 하위 유형:** HLI에 대한 SnapCenter 설정
 
 
-1. 지원 티켓의 **설명** 에 있는 **세부 정보** 탭에 다음 정보를 입력합니다. 
+1. 지원 티켓의 **설명** 에 있는 **세부 정보** 탭에서 다음 정보를 입력합니다. 
    
    * HLI에 대한 SnapCenter 설정
    * SnapCenter 사용자의 공개 키(snapcenter.pem) - 아래의 공개 키 만들기 예제 참조

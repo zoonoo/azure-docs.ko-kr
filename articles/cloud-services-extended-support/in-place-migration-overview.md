@@ -9,26 +9,26 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 96315899f80d0bd02ac3d2108b7cd76876025218
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: f3b41bed481ff36ec1f2fef8e699e57f6138474c
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286793"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108285937"
 ---
 # <a name="migrate-azure-cloud-services-classic-to-azure-cloud-services-extended-support"></a>Azure Cloud Services(클래식)를 Azure Cloud Services(확장 지원)로 마이그레이션
 
 이 문서에서는 플랫폼 지원 마이그레이션 도구 및 이를 사용하여 [Azure Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md)를 [Azure Cloud Services(확장 지원)](overview.md)로 마이그레이션하는 방법에 대해 간략하게 설명합니다.
 
-마이그레이션 도구는 동일한 API를 활용하고, [가상 머신(클래식) 마이그레이션](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview)과 동일한 환경을 제공합니다. 
+마이그레이션 도구는 동일한 API를 활용하고, [가상 머신(클래식) 마이그레이션](../virtual-machines/migration-classic-resource-manager-overview.md)과 동일한 환경을 제공합니다. 
 
 > [!IMPORTANT]
 > 마이그레이션 도구를 사용하여 Cloud Services(클래식)에서 Cloud Services(확장 지원)로 마이그레이션하는 것은 현재 공개 미리 보기에 있습니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 마이그레이션에 대한 도움이 필요한 경우 다음 리소스를 참조하세요. 
 
-- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html): 마이그레이션에 대한 Microsoft 및 커뮤니티 지원
-- [Azure 마이그레이션 지원](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%22e79dcabe-5f77-3326-2112-74487e1e5f78%22,%22supportTopicId%22:%22fca528d2-48bd-7c9f-5806-ce5d5b1d226f%22%7D): 마이그레이션 중에 기술을 지원하기 전용 지원 팀. 기술 지원이 없는 고객은 이 마이그레이션을 위해 특별히 제공되는 [무료 지원 기능](https://aka.ms/cs-migration-errors)을 사용할 수 있습니다.
+- [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html): 마이그레이션에 대한 Microsoft 및 커뮤니티 지원
+- [Azure 마이그레이션 지원](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%22pesId%22:%22e79dcabe-5f77-3326-2112-74487e1e5f78%22,%22supportTopicId%22:%22fca528d2-48bd-7c9f-5806-ce5d5b1d226f%22%7D): 마이그레이션 기간의 기술 지원을 위한 전용 지원팀. 기술 지원이 없는 고객은 이 마이그레이션을 위해 특별히 제공되는 [무료 지원 기능](https://aka.ms/cs-migration-errors)을 사용할 수 있습니다.
 - 회사/조직에서 Microsoft와 파트너 관계를 맺고 있거나 클라우드 솔루션 설계자 또는 기술 계정 관리자와 같은 Microsoft 담당자와 협력하는 경우 마이그레이션에 필요한 추가 리소스를 요청합니다.
 - Cloud Services(확장 지원) 제품 팀에 피드백을 제공하거나 문제를 제기하려면 [이 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR--AgudUMwJKgRGMO84rHQtUQzZYNklWUk4xOTFXVFBPOFdGOE85RUIwVC4u)를 완료합니다. 
 
@@ -68,7 +68,7 @@ ms.locfileid: "106286793"
     ```
 
 ## <a name="how-is-migration-for-cloud-services-classic-different-from-virtual-machines-classic"></a>Cloud Services(클래식) 마이그레이션은 Virtual Machines(클래식)와 어떻게 다른가요?
-Azure Service Manager는 [Azure Virtual Machines(클래식)](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) 및 [Azure Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md) 또는 웹/작업자 역할의 두 가지 컴퓨팅 제품을 지원합니다. 두 제품은 Cloud Service 내의 배포 유형에 따라 달라집니다. Azure Cloud Services(클래식)는 웹/작업자 역할을 사용하는 배포가 포함된 Cloud Service를 사용합니다. Azure Virtual Machines(클래식)는 IaaS VM을 사용하는 배포가 포함된 클라우드 서비스를 사용합니다.
+Azure Service Manager는 [Azure Virtual Machines(클래식)](/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic) 및 [Azure Cloud Services(클래식)](../cloud-services/cloud-services-choose-me.md) 또는 웹/작업자 역할의 두 가지 컴퓨팅 제품을 지원합니다. 두 제품은 Cloud Service 내의 배포 유형에 따라 달라집니다. Azure Cloud Services(클래식)는 웹/작업자 역할을 사용하는 배포가 포함된 Cloud Service를 사용합니다. Azure Virtual Machines(클래식)는 IaaS VM을 사용하는 배포가 포함된 클라우드 서비스를 사용합니다.
 
 지원되는 시나리오 목록은 배포 유형의 차이로 인해 Cloud Services(클래식)와 Virtual Machines(클래식) 간에 다릅니다.
 
@@ -113,7 +113,7 @@ Azure Service Manager는 [Azure Virtual Machines(클래식)](https://docs.micros
 
 | 서비스 | 구성 | 의견 | 
 |---|---|---|
-| [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/migrate-from-classic-vnet) | Azure Active Directory Domain Services가 포함된 가상 네트워크 | Cloud Service 배포 및 Azure AD Domain Services가 모두 포함된 가상 네트워크를 지원합니다. 고객은 먼저 Azure AD Domain Services를 별도로 마이그레이션한 다음, Cloud Service 배포만 남아 있는 가상 네트워크를 마이그레이션해야 합니다. |
+| [Azure AD Domain Services](../active-directory-domain-services/migrate-from-classic-vnet.md) | Azure Active Directory Domain Services가 포함된 가상 네트워크 | Cloud Service 배포 및 Azure AD Domain Services가 모두 포함된 가상 네트워크를 지원합니다. 고객은 먼저 Azure AD Domain Services를 별도로 마이그레이션한 다음, Cloud Service 배포만 남아 있는 가상 네트워크를 마이그레이션해야 합니다. |
 | 클라우드 서비스 | 단일 슬롯에만 배포가 포함된 Cloud Service | 프로덕션 또는 스테이징 슬롯 배포가 포함된 Cloud Services를 마이그레이션할 수 있습니다. |
 | 클라우드 서비스 | 공개적으로 표시되는 가상 네트워크에 없는 배포(기본 가상 네트워크 배포) | Cloud Service는 공개적으로 표시되는 가상 네트워크, 숨겨진 가상 네트워크에 있을 수 있거나 가상 네트워크에 없을 수 있습니다.  숨겨진 가상 네트워크 및 공개적으로 표시되는 가상 네트워크의 Cloud Services는 마이그레이션에 지원됩니다. 고객은 유효성 검사 API를 사용하여 배포가 기본 가상 네트워크 내에 있는지 여부를 파악할 수 있습니다. 그러면 마이그레이션할 수 있는지 여부를 결정할 수 있습니다. |
 |클라우드 서비스 | XML 확장(BGInfo, Visual Studio 디버거, 웹 배포 및 원격 디버깅) | 모든 xml 확장이 마이그레이션에 지원됩니다. 
@@ -127,13 +127,13 @@ Azure Service Manager는 [Azure Virtual Machines(클래식)](https://docs.micros
 
 | 리소스 | 다음 단계/해결 방법 | 
 |---|---|
-| 자동 크기 조정 규칙 | 마이그레이션은 진행되지만 규칙이 삭제됩니다. Cloud Services(확장 지원)에 대한 마이그레이션 후 [규칙을 다시 만듭니다](https://docs.microsoft.com/azure/cloud-services-extended-support/configure-scaling). | 
-| 경고 | 마이그레이션은 진행되지만 경고가 삭제됩니다. Cloud Services(확장 지원)에 대한 마이그레이션 후 [규칙을 다시 만듭니다](https://docs.microsoft.com/azure/cloud-services-extended-support/enable-alerts). | 
+| 자동 크기 조정 규칙 | 마이그레이션은 진행되지만 규칙이 삭제됩니다. Cloud Services(확장 지원)에 대한 마이그레이션 후 [규칙을 다시 만듭니다](./configure-scaling.md). | 
+| 경고 | 마이그레이션은 진행되지만 경고가 삭제됩니다. Cloud Services(확장 지원)에 대한 마이그레이션 후 [규칙을 다시 만듭니다](./enable-alerts.md). | 
 | VPN Gateway | 마이그레이션을 시작하기 전에 VPN Gateway를 제거한 후 마이그레이션이 완료되면 VPN Gateway를 다시 만듭니다. | 
 | ExpressRoute 게이트웨이(Virtual Network와 동일한 구독에서만) | 마이그레이션을 시작하기 전에 게이트웨이를 제거한 다음, 마이그레이션이 완료되면 ExpressRoute 게이트웨이를 다시 만듭니다. | 
-| 할당량  | 할당량은 마이그레이션되지 않습니다. 유효성 검사가 성공하려면 마이그레이션하기 전에 Azure Resource Manager에서 [새 할당량을 요청](https://docs.microsoft.com/azure/azure-resource-manager/templates/error-resource-quota#solution)합니다. | 
+| 할당량  | 할당량은 마이그레이션되지 않습니다. 유효성 검사가 성공하려면 마이그레이션하기 전에 Azure Resource Manager에서 [새 할당량을 요청](../azure-resource-manager/templates/error-resource-quota.md#solution)합니다. | 
 | 선호도 그룹 | 지원 안 됨 마이그레이션하기 전에 선호도 그룹을 제거합니다.  | 
-| [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 사용하는 가상 네트워크| 피어링된 가상 네트워크를 다른 가상 네트워크로 마이그레이션하기 전에 피어링을 삭제하고, 가상 네트워크를 Resource Manager로 마이그레이션하고, 피어링을 다시 만듭니다. 이로 인해 아키텍처에 따라 가동 중지 시간이 발생할 수 있습니다. | 
+| [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)을 사용하는 가상 네트워크| 피어링된 가상 네트워크를 다른 가상 네트워크로 마이그레이션하기 전에 피어링을 삭제하고, 가상 네트워크를 Resource Manager로 마이그레이션하고, 피어링을 다시 만듭니다. 이로 인해 아키텍처에 따라 가동 중지 시간이 발생할 수 있습니다. | 
 | App Service 환경이 포함된 가상 네트워크 | 지원되지 않음 | 
 | HDInsight Services가 포함된 가상 네트워크 | 지원 안 됨 
 | Azure API Management 배포가 포함된 가상 네트워크 | 지원 안 됨 <br><br> 가상 네트워크를 마이그레이션하려면 API Management 배포의 가상 네트워크를 변경합니다. 가동 중지 시간이 없는 작업입니다. | 
@@ -150,7 +150,7 @@ Azure Service Manager는 [Azure Virtual Machines(클래식)](https://docs.micros
 | 예약된 IP 주소를 사용하여 프로덕션 및 스테이징 슬롯 배포가 모두 포함된 배포 마이그레이션 | 지원 안 됨 | 
 | 다른 가상 네트워크에서 프로덕션 및 스테이징 배포 마이그레이션|2슬롯 Cloud Service를 마이그레이션하려면 스테이징 슬롯을 삭제해야 합니다. 스테이징 슬롯이 삭제되면 Azure Resource Manager에서 프로덕션 슬롯을 독립 Cloud Service(확장 지원)로 마이그레이션합니다. 그런 다음, 새 Cloud Services(확장 지원) 배포를 스왑 가능한 속성을 사용하도록 설정한 마이그레이션된 배포에 연결할 수 있습니다. 이전 스테이징 슬롯 배포의 배포 파일을 다시 사용하여 이 새 스왑 가능한 배포를 만들 수 있습니다. | 
 | 빈 Cloud Service 마이그레이션(배포가 없는 Cloud Service) | 지원 안 됨 | 
-| 원격 데스크톱 플러그 인 및 원격 데스크톱 확장이 포함된 배포 마이그레이션 | 옵션 1: 마이그레이션하기 전에 원격 데스크톱 플러그 인을 제거합니다. 이렇게 하려면 배포 파일을 변경해야 합니다. 그러면 마이그레이션이 진행됩니다. <br><br> 옵션 2: 원격 데스크톱 확장을 제거하고 배포를 마이그레이션합니다. 마이그레이션 후 플러그 인을 제거하고 확장을 설치합니다. 이렇게 하려면 배포 파일을 변경해야 합니다. <br><br> 마이그레이션하기 전에 플러그 인 및 확장을 제거합니다. 플러그 인은 Cloud Services(확장 지원)에서 [사용하지 않는 것이 좋습니다](https://docs.microsoft.com/azure/cloud-services-extended-support/deploy-prerequisite#required-service-definition-file-csdef-updates).| 
+| 원격 데스크톱 플러그 인 및 원격 데스크톱 확장이 포함된 배포 마이그레이션 | 옵션 1: 마이그레이션하기 전에 원격 데스크톱 플러그 인을 제거합니다. 이렇게 하려면 배포 파일을 변경해야 합니다. 그러면 마이그레이션이 진행됩니다. <br><br> 옵션 2: 원격 데스크톱 확장을 제거하고 배포를 마이그레이션합니다. 마이그레이션 후 플러그 인을 제거하고 확장을 설치합니다. 이렇게 하려면 배포 파일을 변경해야 합니다. <br><br> 마이그레이션하기 전에 플러그 인 및 확장을 제거합니다. 플러그 인은 Cloud Services(확장 지원)에서 [사용하지 않는 것이 좋습니다](./deploy-prerequisite.md#required-service-definition-file-csdef-updates).| 
 | PaaS 및 IaaS 배포가 모두 포함된 가상 네트워크 |지원되지 않음 <br><br> PaaS 또는 IaaS 배포를 다른 가상 네트워크로 이동합니다. 이로 인해 가동 중지 시간이 발생합니다. | 
 레거시 역할 크기(예: Small 또는 ExtraLarge)를 사용하는 Cloud Service 배포 | 마이그레이션이 완료되지만, 최신 역할 크기를 사용하도록 역할 크기가 업데이트됩니다. 비용 또는 SKU 속성은 변경되지 않으며, 이 변경으로 인해 가상 머신이 다시 부팅되지 않습니다. 이러한 최신 역할 크기를 참조하도록 모든 배포 아티팩트를 업데이트합니다. 자세한 내용은 [사용 가능한 VM 크기](available-sizes.md)를 참조하세요.|
 | 다른 가상 네트워크로 Cloud Service 마이그레이션 | 지원되지 않음 <br><br> 1. 마이그레이션하기 전에 배포를 다른 클래식 가상 네트워크로 이동합니다. 이로 인해 가동 중지 시간이 발생합니다. <br> 2. 새 가상 네트워크를 Azure Resource Manager로 마이그레이션합니다. <br><br> 또는 <br><br> 1. 가상 네트워크를 Azure Resource Manager로 마이그레이션합니다. <br>2. Cloud Service를 새 가상 네트워크로 이동합니다. 이로 인해 가동 중지 시간이 발생합니다. | 
@@ -169,9 +169,9 @@ Cloud Services(클래식) 배포는 Cloud Service(확장 지원) 배포로 변�
 - Small, Large, ExtraLarge와 같은 클래식 크기는 새 크기 이름(Standard_A*)으로 바뀝니다. 크기 이름은 .csdef 파일에서 새 이름으로 변경해야 합니다. 자세한 내용은 [Cloud Services(확장 지원) 배포 필수 구성 요소](deploy-prerequisite.md#required-service-definition-file-csdef-updates)를 참조하세요.
 
 - 가져오기 API를 사용하여 배포 파일의 최신 복사본을 가져옵니다. 
-    - [Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell#export-resource-groups-to-templates), [CLI](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-cli#export-resource-groups-to-templates) 및 [Rest API](https://docs.microsoft.com/rest/api/resources/resourcegroups/exporttemplate)를 사용하여 템플릿을 가져옵니다. 
-    - [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) 또는 [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package)를 사용하여 .csdef 파일을 가져옵니다. 
-    - [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) 또는 [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/rest-get-package)를 사용하여 .cscfg 파일을 가져옵니다. 
+    - [Portal](../azure-resource-manager/templates/export-template-portal.md), [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [CLI](../azure-resource-manager/management/manage-resource-groups-cli.md#export-resource-groups-to-templates) 및 [Rest API](/rest/api/resources/resourcegroups/exporttemplate)를 사용하여 템플릿을 가져옵니다. 
+    - [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) 또는 [Rest API](/rest/api/compute/cloudservices/rest-get-package)를 사용하여 .csdef 파일을 가져옵니다. 
+    - [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) 또는 [Rest API](/rest/api/compute/cloudservices/rest-get-package)를 사용하여 .cscfg 파일을 가져옵니다. 
     
  
 

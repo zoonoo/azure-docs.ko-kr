@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: a3c20dd85c94c359259cf69e25bb9083d56857fc
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 01/29/2021
+ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777152"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101699031"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Azure Logic Apps의 가격 책정 및 청구 모델
 
@@ -27,9 +27,9 @@ ms.locfileid: "107777152"
 
 | 항목 | 설명 |
 |-------|-------------|
-| [기본 제공](../connectors/built-in.md) 트리거 및 작업 | Logic Apps 서비스에서 기본적으로 실행되며 [**작업** 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. <p><p>예를 들어, HTTP 트리거와 요청 트리거는 기본 제공 트리거이고 HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 루프, 조건, 스위치, 병렬 분기 등과 같은 데이터 작업, 일괄 처리 작업, 변수 작업 및 [워크플로 제어 작업](../connectors/built-in.md)도 기본 제공 작업입니다. |
-| [표준 커넥터](../connectors/managed.md) 트리거 및 작업 <p><p>[사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 트리거 및 작업 | [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
-| [엔터프라이즈 커넥터](../connectors/managed.md) 트리거 및 작업 | [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. 그러나 공개 미리 보기 중에는 엔터프라이즈 커넥터가 [*표준* 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
+| [기본 제공](../connectors/apis-list.md#built-in) 트리거 및 작업 | Logic Apps 서비스에서 기본적으로 실행되며 [**작업** 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. <p><p>예를 들어, HTTP 트리거와 요청 트리거는 기본 제공 트리거이고 HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 루프, 조건, 스위치, 병렬 분기 등과 같은 데이터 작업, 일괄 처리 작업, 변수 작업 및 [워크플로 제어 작업](../connectors/apis-list.md#control-workflow)도 기본 제공 작업입니다. |
+| [표준 커넥터](../connectors/apis-list.md#managed-connectors) 트리거 및 작업 <p><p>[사용자 지정 커넥터](../connectors/apis-list.md#custom) 트리거 및 작업 | [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
+| [엔터프라이즈 커넥터](../connectors/apis-list.md#managed-connectors) 트리거 및 작업 | [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. 그러나 공개 미리 보기 중에는 엔터프라이즈 커넥터가 [*표준* 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
 | [루프](logic-apps-control-flow-loops.md) 내부의 작업 | 루프에서 실행되는 각 작업은 실행되는 각 루프 주기에 대해 측정됩니다. <p><p>예를 들어, 목록을 처리하는 작업을 포함하는 "for each" 루프가 있다고 가정합니다. Logic Apps 서비스는 목록 항목의 수를 루프의 작업 수와 곱하여 해당 루프에서 실행되는 각각의 작업을 측정하고, 루프를 시작하는 작업을 추가합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. |
 | 다시 시도 횟수 | 가장 기본적인 예외 및 오류를 처리하기 위해 지원되는 트리거 및 작업에 대한 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정할 수 있습니다. 원래의 요청과 함께 이러한 재시도는 트리거 또는 작업에 기본 제공, 표준 또는 엔터프라이즈 유형이 있는지 여부에 따라 요금이 청구됩니다. 예를 들어, 두 번의 재시도로 실행되는 작업은 3개의 작업 실행에 대해 요금이 청구됩니다. |
 | [데이터 보존 및 스토리지 소비](#data-retention) | 데이터 보존 가격을 사용하여 측정되며, [Logic Apps 가격 책정 페이지](https://azure.microsoft.com/pricing/details/logic-apps/)의 **가격 책정 세부 정보** 표에서 확인할 수 있습니다. |
@@ -70,7 +70,7 @@ ms.locfileid: "107777152"
 
 고정 가격 책정 모델은 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행되는 논리 앱에 적용됩니다. ISE는 생성하는 [ISE 수준 또는 *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 달라지는 [통합 서비스 환경 가격](https://azure.microsoft.com/pricing/details/logic-apps)을 사용하여 청구됩니다. 이 가격은 사용 여부에 관계없이 예약된 용량과 전용 리소스에 대한 요금을 지불하므로 다중 테넌트 가격 책정과 다릅니다.
 
-| ISE SKU | Description |
+| ISE SKU | 설명 |
 |---------|-------------|
 | **Premium** | 기준 단위는 [고정 용량](logic-apps-limits-and-config.md#integration-service-environment-ise)이며, [프리미엄 SKU에 대한 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구됩니다. 더 많은 처리량이 필요한 경우 ISE를 만들 때 또는 나중에 [배율 단위를 더 추가](../logic-apps/ise-manage-integration-service-environment.md#add-capacity)할 수 있습니다. 각 배율 단위는 [기준 단위 요금의 약 절반에 해당하는 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구됩니다. <p><p>용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. |
 | **개발자** | 기준 단위는 [고정 용량](logic-apps-limits-and-config.md#integration-service-environment-ise)이며, [개발자 SKU에 대한 시간당 요금](https://azure.microsoft.com/pricing/details/logic-apps)으로 청구됩니다. 그러나 이 SKU는 SLA(서비스 수준 계약), 스케일 업 기능 또는 재활용 시 중복성이 없으므로, 지연 또는 가동 중지 시간이 발생할 수 있습니다. 백 엔드 업데이트로 인해 서비스가 간헐적으로 중단될 수 있습니다. <p><p>**중요**: 이 SKU는 프로덕션 또는 성능 테스트가 아닌 탐색, 실험, 개발 및 테스트에만 사용해야 합니다. <p><p>용량 및 한도 정보는 [Azure Logic Apps의 ISE 한도](logic-apps-limits-and-config.md#integration-service-environment-ise)를 참조하세요. |
@@ -80,8 +80,8 @@ ms.locfileid: "107777152"
 
 | 항목 | 설명 |
 |-------|-------------|
-| [기본 제공](../connectors/built-in.md) 트리거 및 작업 | **Core** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행합니다. |
-| [표준 커넥터](../connectors/managed.md) <p><p>[엔터프라이즈 커넥터](../connectors/managed.md#enterprise-connectors) | - **ISE** 레이블을 표시하는 관리형 커넥터는 온-프레미스 데이터 게이트웨이 없이 작동하고, 논리 앱과 동일한 ISE에서 실행되도록 특별히 설계되었습니다. ISE 가격 책정에는 사용자가 원하는 만큼의 엔터프라이즈 연결이 포함됩니다. <p><p>- ISE 레이블을 표시하지 않는 커넥터는 다중 테넌트 Logic Apps 서비스에서 실행됩니다. 그러나 ISE 가격 책정에는 ISE에서 실행되는 논리 앱에 대한 이러한 실행이 포함됩니다. |
+| [기본 제공](../connectors/apis-list.md#built-in) 트리거 및 작업 | **Core** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행합니다. |
+| [표준 커넥터](../connectors/apis-list.md#managed-connectors) <p><p>[엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors) | - **ISE** 레이블을 표시하는 관리형 커넥터는 온-프레미스 데이터 게이트웨이 없이 작동하고, 논리 앱과 동일한 ISE에서 실행되도록 특별히 설계되었습니다. ISE 가격 책정에는 사용자가 원하는 만큼의 엔터프라이즈 연결이 포함됩니다. <p><p>- ISE 레이블을 표시하지 않는 커넥터는 다중 테넌트 Logic Apps 서비스에서 실행됩니다. 그러나 ISE 가격 책정에는 ISE에서 실행되는 논리 앱에 대한 이러한 실행이 포함됩니다. |
 | [루프](logic-apps-control-flow-loops.md) 내부의 작업 | ISE 가격 책정에는 실행되는 각 루프 주기에 대해 루프에서 실행되는 각 작업이 포함됩니다. <p><p>예를 들어, 목록을 처리하는 작업을 포함하는 "for each" 루프가 있다고 가정합니다. 총 작업 실행 수를 가져오려면 목록 항목 수와 루프의 작업 수를 곱하고 루프를 시작하는 작업을 더합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. |
 | 다시 시도 횟수 | 가장 기본적인 예외 및 오류를 처리하기 위해 지원되는 트리거 및 작업에 대한 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정할 수 있습니다. ISE 가격 책정에는 원래 요청과 함께 재시도가 포함됩니다. |
 | [데이터 보존 및 스토리지 소비](#data-retention) | ISE의 논리 앱은 보존 및 스토리지 비용을 발생시키지 않습니다. |

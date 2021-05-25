@@ -3,12 +3,12 @@ title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419850"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107256092"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -454,7 +454,7 @@ FOR_EACH filter IN (a, b, c)
 ```
 
 ## <a name="stringin"></a>StringIn
-**StringIn** 연산자는 **키** 값이 지정된 **필터** 값 중 하나와 **정확히 일치** 하는지 여부를 확인합니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `exact`, `string` 또는 `matches`인지 여부를 확인합니다. 
+**StringIn** 연산자는 **키** 값이 지정된 **필터** 값 중 하나와 **정확히 일치** 하는지 여부를 확인합니다. 다음 예제에서는 `data` 섹션에서 `key1` 특성의 값이 `contoso`, `fabrikam` 또는 `factory`인지 여부를 확인합니다. 
 
 ```json
 "advancedFilters": [{

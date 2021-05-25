@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: 75c657236b6e06a7e0f6c717d746bcc8c034d423
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2e06616914f1e78a71a540fbd64021c0e1bfcbab
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98013450"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107785976"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SQL 데이터베이스에 대한 워크플로 자동화
 
@@ -189,7 +189,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 ### <a name="trigger-recurrence-shift-and-drift"></a>트리거 반복 교대 및 드리프트
 
-SQL 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거](../connectors/connectors-native-recurrence.md)와 같이 기본적으로 Azure Logic Apps에서 실행되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어하는 유일한 드라이버가 아니며, 표준 시간대는 최초 시작 시간만 결정합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 예기치 않은 동작을 드리프트하거나 생성하는 런타임으로 이어질 수 있는 다른 요소(예: DST(일광 절약 시간)가 시작되고 끝날 때 지정된 일정을 유지하지 않을 수 있음)에 따라 달라집니다. DST가 적용될 때 되풀이 시간이 바뀌지 않도록 하려면 되풀이를 수동으로 조정하여 논리 앱이 예상 시간에 계속 실행되도록 합니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-connection-based)를 참조하세요.
+SQL 트리거와 같이 먼저 연결을 만들어야 하는 연결 기반 트리거는 [되풀이 트리거](../connectors/connectors-native-recurrence.md)와 같이 기본적으로 Azure Logic Apps에서 실행되는 기본 제공 트리거와 다릅니다. 되풀이 연결 기반 트리거에서 되풀이 일정은 실행을 제어하는 유일한 드라이버가 아니며, 표준 시간대는 최초 시작 시간만 결정합니다. 후속 실행은 되풀이 일정, 마지막 트리거 실행 *및* 예기치 않은 동작을 드리프트하거나 생성하는 런타임으로 이어질 수 있는 다른 요소(예: DST(일광 절약 시간)가 시작되고 끝날 때 지정된 일정을 유지하지 않을 수 있음)에 따라 달라집니다. DST가 적용될 때 되풀이 시간이 바뀌지 않도록 하려면 되풀이를 수동으로 조정하여 논리 앱이 예상 시간에 계속 실행되도록 합니다. 그렇지 않으면 DST가 시작될 때 시작 시간이 1시간 앞으로 이동하고, DST가 종료되면 1시간 뒤로 이동합니다. 자세한 내용은 [연결 기반 트리거의 되풀이](../connectors/apis-list.md#recurrence-for-connection-based-triggers)를 참조하세요.
 
 <a name="add-sql-action"></a>
 
@@ -269,7 +269,7 @@ SQL Server 커넥터를 사용하여 저장 프로시저를 호출할 때 반환
 
 ### <a name="connection-problems"></a>연결 문제
 
-일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토하세요. 다음은 몇 가지 예입니다.
+일반적으로 연결 문제가 발생할 수 있으므로 이러한 종류의 문제를 해결하려면 [SQL Server 연결 오류 해결](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)을 검토하세요. 몇 가지 예제는 다음과 같습니다.
 
 * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 

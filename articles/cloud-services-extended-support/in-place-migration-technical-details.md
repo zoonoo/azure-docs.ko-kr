@@ -8,12 +8,12 @@ ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 4ff7d9aa2075b675a7ecd979c08d5621bbdd831a
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 4898c0ec17766d0bcbd89176194aec9dee7157ea
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286788"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108293047"
 ---
 # <a name="technical-details-of-migrating-to-azure-cloud-services-extended-support"></a>Azure Cloud Services(확장 지원)로 마이그레이션하는 경우에 대한 기술 세부 정보   
 
@@ -36,7 +36,7 @@ ms.locfileid: "106286788"
 ### <a name="service-configuration-and-service-definition-files"></a>서비스 구성 및 서비스 정의 파일
 - Cloud Services(확장 지원)를 사용하려면 사소한 변경 내용으로 .cscfg 및 .csdef 파일을 업데이트해야 합니다. 
 - 가상 네트워크 및 VM SKU와 같은 리소스의 이름이 다릅니다. [마이그레이션 후 리소스의 변환과 명명 규칙](#translation-of-resources-and-naming-convention-post-migration)을 참조하세요.
-- 고객은 [PowerShell](https://docs.microsoft.com/powershell/module/az.cloudservice/?view=azps-5.4.0#cloudservice&preserve-view=true) 및 [Rest API](https://docs.microsoft.com/rest/api/compute/cloudservices/get)를 통해 새 배포를 검색할 수 있습니다. 
+- 고객은 [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) 및 [Rest API](/rest/api/compute/cloudservices/get)를 통해 새 배포를 검색할 수 있습니다. 
 
 ### <a name="cloud-service-and-deployments"></a>클라우드 서비스 및 배포
 - 각 Cloud Services(확장 지원) 배포는 독립된 클라우드 서비스입니다. 배포는 더 이상 슬롯을 사용하여 클라우드 서비스로 그룹화되지 않습니다.
@@ -67,7 +67,7 @@ ms.locfileid: "106286788"
 ## <a name="translation-of-resources-and-naming-convention-post-migration"></a>마이그레이션 후 리소스의 변환과 명명 규칙
 마이그레이션 과정에서 리소스 이름이 변경되고 몇몇 Cloud Services 기능이 Azure Resource Manager 리소스로 노출됩니다. 이 표에는 Cloud Services 마이그레이션과 관련된 변경 내용이 요약되어 있습니다.
 
-| Cloud Services(클래식) <br><br> 리소스 이름 | Cloud Services(클래식) <br><br> Syntax| Cloud Services(추가 지원) <br><br> 리소스 이름| Cloud Services(추가 지원) <br><br> Syntax | 
+| Cloud Services(클래식) <br><br> 리소스 이름 | Cloud Services(클래식) <br><br> 구문| Cloud Services(추가 지원) <br><br> 리소스 이름| Cloud Services(추가 지원) <br><br> 구문 | 
 |---|---|---|---|
 | 클라우드 서비스 | `cloudservicename` | 연결되지 않음| 연결되지 않음 |
 | 배포(포털에서 생성) <br><br> 배포(포털 외부에서 생성)  | `deploymentname` | Cloud Services(추가 지원) | `deploymentname` |  
@@ -100,4 +100,4 @@ ms.locfileid: "106286788"
 - 고객은 PowerShell 또는 Rest API를 사용하여 중단하거나 커밋할 수 있습니다. 
 
 ### <a name="how-much-time-can-the-operations-takebr"></a>작업에 소요되는 시간은 얼마나 됩니까?<br>
-유효성 검사는 빠르게 진행되도록 설계되었습니다. 준비는 가장 오래 실행되며 마이그레이션하는 역할 인스턴스의 총 수에 따라 다소 시간이 소요됩니다. 중단 및 커밋도 시간이 걸릴 수 있지만 준비보다는 시간이 덜 걸립니다. 모든 작업은 24시간 후 만료됩니다. 
+유효성 검사는 빠르게 진행되도록 설계되었습니다. 준비는 가장 오래 실행되며 마이그레이션하는 역할 인스턴스의 총 수에 따라 다소 시간이 소요됩니다. 중단 및 커밋도 시간이 걸릴 수 있지만 준비보다는 시간이 덜 걸립니다. 모든 작업은 24시간 후 만료됩니다.

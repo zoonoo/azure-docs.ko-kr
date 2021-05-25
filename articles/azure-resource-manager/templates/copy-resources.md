@@ -3,12 +3,12 @@ title: 리소스의 여러 인스턴스 배포
 description: ARM 템플릿(Azure Resource Manager 템플릿)의 복사 작업 및 배열을 사용하여 리소스 형식을 여러 번 배포합니다.
 ms.topic: conceptual
 ms.date: 04/01/2021
-ms.openlocfilehash: 5ddb0cabf0acae1ffe9b9e77e6defa70f9cbd61b
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 3af676cce544c125e441857f06556b9ff7eee697
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107479970"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106385714"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>ARM 템플릿의 리소스 반복
 
@@ -18,7 +18,7 @@ ms.locfileid: "107479970"
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
-## <a name="syntax"></a>구문
+## <a name="syntax"></a>Syntax
 
 # <a name="json"></a>[JSON](#tab/json)
 
@@ -47,7 +47,7 @@ ms.locfileid: "107479970"
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <item> in <collection>: {
     <resource-properties>
-  }]
+  }
   ```
 
 - 배열 요소 반복
@@ -56,7 +56,7 @@ ms.locfileid: "107479970"
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for (<item>, <index>) in <collection>: {
     <resource-properties>
-  }]
+  }
   ```
 
 - 루프 인덱스 사용
@@ -65,7 +65,7 @@ ms.locfileid: "107479970"
   @batchSize(<number>)
   resource <resource-symbolic-name> '<resource-type>@<api-version>' = [for <index> in range(<start>, <stop>): {
     <resource-properties>
-  }]
+  }
   ```
 
 ---

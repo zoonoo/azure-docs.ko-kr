@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: a195567117378a118b9bea8d15a7cb0a661d284a
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303528"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "101738143"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환을 위한 언어 및 지역 지원
 
@@ -52,8 +52,8 @@ Translator는 텍스트 간 번역을 위해 다음 언어를 지원합니다.
 | 중국어 번체 | `zh-Hant` |
 | 크로아티아어 | `hr` |
 | 체코어 | `cs` |
-| 덴마크어 | `da` |
 | 다리어 | `prs` |
+| 덴마크어 | `da` |
 | 네덜란드어 | `nl` |
 | 영어 | `en` |
 | 에스토니아어 | `et` |
@@ -340,7 +340,6 @@ Translator는 변역 및 음역에 위해 다음 언어를 검색합니다.
 | 헝가리어      | `hu`          |
 | 아이슬란드어 | `is` |
 | 인도네시아어|   `id`    |
-| 이눅티투트어|    `iu`    |
 | 아일랜드어 | `ga`  |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |

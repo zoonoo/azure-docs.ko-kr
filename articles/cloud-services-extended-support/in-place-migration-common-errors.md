@@ -9,12 +9,12 @@ ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 2/08/2021
 ms.custom: ''
-ms.openlocfilehash: 2e56e3d6b5f29996d8fe9606ac9a1b3778201803
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 58203730793202649c401d96182469fa1eac6ef1
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288727"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106286817"
 ---
 # <a name="common-errors-and-known-issues-when-migration-to-azure-cloud-services-extended-support"></a>Azure Cloud Services로 마이그레이션할 때 발생하는 일반적인 오류 및 알려진 문제(추가 지원)
 
@@ -42,8 +42,8 @@ ms.locfileid: "108288727"
 | 오류 메시지 | 세부 정보 | 
 |---|---|
 | API 버전 '2020-10-01-preview'의 `Microsoft.Compute` 네임스페이스에서 리소스 종류를 찾을 수 없습니다. | CloudServices 기능 플래그에 대한 [구독을 등록](in-place-migration-overview.md#setup-access-for-migration)하여 공개 미리 보기에 액세스합니다. | 
-| 서버에 내부 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
-| 서버에서 클라우드 서비스에 대한 네트워크 리소스를 할당하는 동안 예기치 않은 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| 서버에 내부 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| 서버에서 클라우드 서비스에 대한 네트워크 리소스를 할당하는 동안 예기치 않은 오류가 발생했습니다. 요청을 다시 시도하십시오. | 작업을 다시 시도하고, [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
 | 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)는 마이그레이션할 가상 네트워크 내에 있어야 합니다. | 가상 네트워크에서 배포를 찾을 수 없습니다. 자세한 내용은 [이](in-place-migration-technical-details.md#migration-of-deployments-not-in-a-virtual-network) 문서를 참조하세요. | 
 | 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)가 지역(지역-이름)에 있기 때문에 마이그레이션이 지원되지 않습니다. 허용되는 영역: [사용 가능한 지역 목록] | 지역은 아직 마이그레이션을 지원하지 않습니다. | 
 | 역할(역할-이름)과 연결된 서브넷이 없으므로 클라우드 서비스(클라우드-서비스-이름)의 배포(배포-이름)를 마이그레이션할 수 없습니다. 모든 역할을 서브넷과 연결한 다음, 클라우드 서비스의 마이그레이션을 다시 시도합니다. | 마이그레이션 전에 서브넷에 배치하여 클라우드 서비스(클래식) 배포를 업데이트합니다. |  
@@ -62,11 +62,11 @@ ms.locfileid: "108288727"
 | 기본 VNet 대상 옵션이 구현되어 있지 않습니다. | REST 요청 본문의 DestinationVirtualNetwork 속성에는 "기본" 값이 지원되지 않습니다. | 
 | CSPKG를 사용할 수 없으므로 배포 {0}을(를) 마이그레이션할 수 없습니다. | 배포를 업그레이드하고 다시 시도하세요. | 
 | ID가 '{0}'인 서브넷이 호스트된 서비스 '{2}'의 배포 '{1}'와(과) 다른 위치에 있습니다. 서브넷의 위치는 '{3}'이고 호스트된 서비스의 위치는 '{4}'입니다.  배포와 동일한 위치에 서브넷을 지정합니다. | 마이그레이션 전 동일한 위치에 서브넷 및 클라우드 서비스를 모두 포함하도록 클라우드 서비스를 업데이트합니다. | 
-| HostedService {1}에 배포 {0}의 마이그레이션이 중단되고 있는 중이며 작업이 완료될 때까지 변경할 수 없습니다. | 중단이 완료될 때까지 기다리거나 중단을 다시 시도합니다. [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 그렇지 않으면 지원에 문의하세요. | 
+| HostedService {1}에 배포 {0}의 마이그레이션이 중단되고 있는 중이며 작업이 완료될 때까지 변경할 수 없습니다. | 중단이 완료될 때까지 기다리거나 중단을 다시 시도합니다. [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 그렇지 않으면 지원에 문의하세요. | 
 | HostedService {1}의 배포 {0}(은)는 마이그레이션할 준비가 되지 않았습니다. | 커밋 작업을 실행하기 전에 클라우드 서비스에서 준비를 실행합니다. | 
-| UnknownExceptionInEndExecute: Contract.Assert failed: rgName이 Null이거나 비어 있습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. |   [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
-| UnknownExceptionInEndExecute: 작업이 취소되었습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. | [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
-| XrpVirtualNetworkMigrationError: 가상 네트워크 마이그레이션 오류가 발생했습니다. | [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| UnknownExceptionInEndExecute: Contract.Assert failed: rgName이 Null이거나 비어 있습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. |   [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| UnknownExceptionInEndExecute: 작업이 취소되었습니다. EndExecute에서 RdfeException이 아닌 예외가 수신되었습니다. | [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
+| XrpVirtualNetworkMigrationError: 가상 네트워크 마이그레이션 오류가 발생했습니다. | [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-cloud-services-extended-support.html)를 사용하거나 지원에 문의하세요. | 
 | HostedService {1}의 배포 {0}은(는) Virtual Network {2}에 속합니다. 이 HostedService {1}을(를) 마이그레이션하려면 Virtual Network {2}을(를) 마이그레이션합니다. | [Virtual Network 마이그레이션](in-place-migration-technical-details.md#virtual-network-migration)을 참조하세요. | 
 | Azure Resource Manager의 리소스 이름에 대한 현재 할당량이 부족하여 마이그레이션을 완료할 수 없습니다. 현재 할당량은 {0}이고 추가 필요는 {1}입니다. 할당량을 올린 후 할당량을 올리고 마이그레이션을 다시 시도하는 지원 요청을 제출합니다.    | 적절한 채널을 따라 할당량 증가를 요청합니다. <br>[네트워킹 리소스에 대한 할당량 증가](../azure-portal/supportability/networking-quota-requests.md) <br>[컴퓨팅 리소스에 대한 할당량 증가](../azure-portal/supportability/per-vm-quota-requests.md) | 
 

@@ -12,7 +12,7 @@ ms.locfileid: "81737185"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Linkerd linkerd 클라이언트 이진 파일 다운로드 및 설치
 
-Windows의 PowerShell 기반 셸에서 `Invoke-WebRequest`을 사용하여 다음과 같이 Linkerd 릴리스를 다운로드합니다.
+Windows의 PowerShell 기반 셸에서 `Invoke-WebRequest`를 사용하여 다음과 같이 Linkerd 릴리스를 다운로드합니다.
 
 ```powershell
 # Specify the Linkerd version that will be leveraged throughout these instructions

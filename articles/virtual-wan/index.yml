@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: 가상 WAN 설명서
-summary: Azure 가상 WAN을 구성하고, 만들고, 관리하는 방법을 알아봅니다. 안전한 전역 규모 분기 연결을 빌드합니다.
+summary: Azure 가상 WAN을 구성하고, 만들고, 관리하는 방법을 알아봅니다. Azure Virtual WAN은 많은 네트워킹, 보안 및 라우팅 기능을 결합하여 단일 운영 인터페이스를 제공하는 네트워킹 서비스입니다.
 metadata:
   title: 가상 WAN 설명서
   description: 가상 WAN에 대한 자세한 정보
@@ -11,12 +11,12 @@ metadata:
   ms.author: cherylmc
   ms.date: 01/15/2020
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: a6a0660d960ad04145288475986f1bd40143b0aa
-  ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+  ms.openlocfilehash: 8a5db17d58a96f3669d824d78ba11061cf758e75
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/27/2021
-  ms.locfileid: "108071838"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110080599"
 landingContent:
 - title: 가상 WAN 정보
   linkLists:

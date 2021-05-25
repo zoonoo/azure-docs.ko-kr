@@ -7,14 +7,14 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: msangapu
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 654b0f842a3165926242d1ef03f2dfe4e5bacfdc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6519f3fe7335ed41f4d5ef67771aaa738a33e4a8
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643357"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107782606"
 ---
 # <a name="continuous-deployment-with-custom-containers-in-azure-app-service"></a>Azure App Service에서 사용자 지정 컨테이너를 사용한 지속적인 배포
 
@@ -176,7 +176,7 @@ App Service는 Azure Container Registry 및 Docker Hub와의 CI/CD 통합을 지
 
 이 선택적 구성은 생성된 워크플로 파일의 게시 프로필로 기본 인증을 대체합니다.
 
-[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 사용하여 서비스 주체를 **생성** 합니다. 다음 예제에서는 *\<subscription-id>* , *\<group-name>* 및 *\<app-name>* 값을 사용자 고유의 값으로 바꿉니다. 다음 단계에 대한 전체 JSON 출력을 최상위 수준(`{}`)을 포함하여 **저장** 합니다.
+[Azure CLI](/cli/azure/)에서 [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) 명령을 사용하여 서비스 주체를 **생성** 합니다. 다음 예제에서는 *\<subscription-id>* , *\<group-name>* 및 *\<app-name>* 값을 사용자 고유의 값으로 바꿉니다. 다음 단계에 대한 전체 JSON 출력을 최상위 수준(`{}`)을 포함하여 **저장** 합니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
@@ -213,7 +213,7 @@ az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
 
 ## <a name="automate-with-cli"></a>CLI로 자동화
 
-컨테이너 레지스트리 및 Docker 이미지를 구성하려면 [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set)를 **실행** 합니다.
+컨테이너 레지스트리 및 Docker 이미지를 구성하려면 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set)를 **실행** 합니다.
 
 # <a name="azure-container-registry"></a>[Azure Container Registry](#tab/acr)
 
@@ -240,14 +240,14 @@ az webapp config container set --name <app-name> --resource-group <group-name> -
 -----
 
 ::: zone pivot="container-linux"
-다중 컨테이너(Docker Compose) 앱을 구성하려면 Docker Compose 파일을 로컬로 **준비** 한 후 `--multicontainer-config-file` 매개 변수를 사용하여 [az webapp config container set](/cli/azure/webapp/config/container#az-webapp-config-container-set)를 **실행** 합니다. Docker Compose 파일에 프라이빗 이미지가 포함된 경우 이전 예시에 표시된 것처럼 `--docker-registry-server-*` 매개 변수를 **추가** 합니다.
+다중 컨테이너(Docker Compose) 앱을 구성하려면 Docker Compose 파일을 로컬로 **준비** 한 후 `--multicontainer-config-file` 매개 변수를 사용하여 [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set)를 **실행** 합니다. Docker Compose 파일에 프라이빗 이미지가 포함된 경우 이전 예시에 표시된 것처럼 `--docker-registry-server-*` 매개 변수를 **추가** 합니다.
 
 ```azurecli-interactive
 az webapp config container set --resource-group <group-name> --name <app-name> --multicontainer-config-file <docker-compose-file>
 ```
 ::: zone-end
 
-컨테이너 레지스트리에서 앱으로의 CI/CD를 구성하려면 `--enable-cd` 매개 변수를 사용하여 [az webapp deployment container config](/cli/azure/webapp/deployment/container#az-webapp-deployment-container-config)를 **실행** 합니다. 이 명령은 웹후크 URL을 출력하지만 개별 단계로 레지스트리에 웹후크를 수동으로 만들어야 합니다. 다음 예제는 앱에서 CI/CD를 사용하도록 설정한 후 출력에서 웹후크 URL을 사용하여 Azure Container Registry에 웹후크를 만듭니다.
+컨테이너 레지스트리에서 앱으로의 CI/CD를 구성하려면 `--enable-cd` 매개 변수를 사용하여 [az webapp deployment container config](/cli/azure/webapp/deployment/container#az_webapp_deployment-container-config)를 **실행** 합니다. 이 명령은 웹후크 URL을 출력하지만 개별 단계로 레지스트리에 웹후크를 수동으로 만들어야 합니다. 다음 예제는 앱에서 CI/CD를 사용하도록 설정한 후 출력에서 웹후크 URL을 사용하여 Azure Container Registry에 웹후크를 만듭니다.
 
 ```azurecli-interactive
 ci_cd_url=$(az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true --query CI_CD_URL --output tsv)

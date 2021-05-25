@@ -3,7 +3,7 @@ title: Azure(큰 인스턴스)에서 SAP HANA의 운영 체제 백업 및 복원
 description: Azure의 SAP HANA(대규모 인스턴스)의 운영 체제 백업 및 복원 수행
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
@@ -11,20 +11,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/12/2019
-ms.author: juergent
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c044d09626fe4c1d4409f98fc615b5a7d70c7cc8
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: c624f2cdee61d138722632869901e2c59110b1a9
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108230108"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109735121"
 ---
 # <a name="os-backup-and-restore"></a>OS 백업 및 복원
 
 이 문서에서는 운영 체제 파일 수준의 백업 및 복원을 수행하는 단계에 대해 설명합니다. 프로시저는 형식 I 또는 형식 II, 수정 버전 3 이상, 위치 등의 특정 매개 변수에 따라 다릅니다. 리소스에 대해 이러한 매개 변수에 대한 정확한 값을 얻으려면 Microsoft 작업을 확인하세요.
 
-## <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 유형 II SKU에 대한 OS 백업 및 복원
+## <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 Type II SKU에 대한 OS 백업 및 복원
 
 아래 정보에서는 수정 버전 3의 HANA 대규모 인스턴스의 **형식 II SKU** 의 운영 체제 파일 수준 백업 및 복원 수행 단계를 설명합니다.
 
@@ -73,7 +73,7 @@ Microsoft `Service Management` 팀이 프로비저닝을 완료한 뒤에는 기
 
 다음 스크린샷은 전체 백업의 복원을 보여 줍니다.
 
-![복원 관련 명령 프롬프트 창을 보여 주는 스크린샷.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![스크린샷에 복원 관련 명령 프롬프트 창이 표시됩니다.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
 ### <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>ReaR 도구를 설치하고 구성을 변경하는 방법 
 
@@ -125,7 +125,7 @@ BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/cra
 ```
 
 추가 참조 -
-- [스토리지 스냅샷 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)
+- [스토리지 스냅샷 설정](hana-backup-restore.md#set-up-storage-snapshots)
 - [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md)의 SAP HANA용 Microsoft 스냅샷 도구 가이드
 
 ### <a name="how-to-restore-a-backup"></a>백업을 복원하는 방법

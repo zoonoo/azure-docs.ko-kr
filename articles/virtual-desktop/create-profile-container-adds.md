@@ -3,21 +3,21 @@ title: FSLogix 프로필 컨테이너 Azure Files Active Directory Domain Servic
 description: 이 문서에서는 Azure Files 및 Azure Active Directory Domain Services를 사용하여 FSLogix 프로필 컨테이너를 만드는 방법을 설명합니다.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 04/09/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 21db49ade3b6727775c10321e10aff2e0bf231f1
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 59e2fc1f528040515398e51d359840f6ef1bbefc
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447950"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107255803"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Azure Files 및 Azure AD DS를 사용하여 프로필 컨테이너 만들기
 
 이 문서에서는 Azure Files 및 AD DS(Azure Active Directory Domain Services)를 사용하여 FSLogix 프로필 컨테이너를 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서에서는 Azure AD DS 인스턴스를 이미 설정했다고 가정합니다. 아직 없는 경우 먼저 [기본 관리되는 도메인 만들기](../active-directory-domain-services/tutorial-create-instance.md)의 지침을 따라 만든 다음, 여기로 돌아옵니다.
 
@@ -96,7 +96,7 @@ ms.locfileid: "106447950"
 
 6. VM에 로그인했으면 관리자 권한으로 명령 프롬프트를 실행합니다.
 
-7. 다음 명령 실행:
+7. 다음 명령을 실행합니다.
 
      ```cmd
      net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
@@ -107,10 +107,10 @@ ms.locfileid: "106447950"
     - `<share-name>`을 앞서 만든 공유의 이름으로 바꿉니다.
     - `<storage-account-key>`를 Azure의 스토리지 계정 키로 바꿉니다.
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
      ```cmd
-     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
+     net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile
      ```
 
 8. 다음 명령을 실행하여 Windows Virtual Desktop 사용자가 다른 사용자의 프로필 컨테이너에 대한 액세스를 차단하면서 자신의 프로필 컨테이너를 만들도록 할 수 있습니다.
@@ -125,7 +125,7 @@ ms.locfileid: "106447950"
     - `<mounted-drive-letter>`를 드라이브를 매핑하는 데 사용한 드라이브의 문자로 바꿉니다.
     - `<user-email>`을 사용자의 UPN 또는 공유에 대한 액세스 권한이 필요한 사용자를 포함하는 Active Directory 그룹으로 바꿉니다.
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
      ```cmd
      icacls <mounted-drive-letter>: /grant john.doe@contoso.com:(M)
@@ -206,7 +206,7 @@ FSLogix 프로필 컨테이너를 구성하려면 다음을 수행합니다.
 
     이전 cmdlet과 마찬가지로, `<your-wvd-tenant>`, `<wvd-pool>` 및 `<user-principal>`을 관련 값으로 바꾸어야 합니다.
 
-    예를 들어:
+    예를 들면 다음과 같습니다.
 
      ```powershell
      $pool1 = "contoso"

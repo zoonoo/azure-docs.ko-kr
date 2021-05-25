@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8707578eef3467cc24cfeb3cd1c5156d7f5b3b1d
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 33bafac9247f007978fef568469d643f1a1098df
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108288763"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383589"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Azure Cloud Services(추가 지원)에 대한 질문과 대답
 이 문서에서는 Azure Cloud Services(추가 지원)와 관련된 질문과 대답을 살펴봅니다.
@@ -59,7 +59,7 @@ Cloud Services(추가 지원) 배포에서는 Azure Portal에서 “중지됨”
 Cloud Services(추가 지원) 배포는 여러 클러스터, 가용성 영역 및 지역 간에 확장될 수 없습니다. 
 
 ### <a name="how-can-i-get-the-deployment-id-for-my-cloud-service-extended-support"></a>내 Cloud Service(추가 지원)에 대해 배포 ID를 어떻게 가져올 수 있나요?
-배포 ID 즉, 프라이빗 ID는 [CloudServiceInstanceView](/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API를 사용하여 액세스될 수 있습니다. Azure Portal의 Cloud Service(추가 지원)의 역할 및 인스턴스 블레이드 아래에서도 제공됩니다.
+배포 ID 즉, 프라이빗 ID는 [CloudServiceInstanceView](https://docs.microsoft.com/rest/api/compute/cloudservices/getinstanceview#cloudserviceinstanceview) API를 사용하여 액세스될 수 있습니다. Azure Portal의 Cloud Service(추가 지원)의 역할 및 인스턴스 블레이드 아래에서도 제공됩니다.
 
 ### <a name="are-there-any-pricing-differences-between-cloud-services-classic-and-cloud-services-extended-support"></a>Cloud Services(클래식) 및 Cloud Services(추가 지원)의 가격이 서로 다른가요?
 Cloud Services(추가 지원)에는 Azure Key Vault 및 Basic(ARM) 공용 IP 주소가 사용됩니다.인증서가 필요한 고객은 인증서 관리를 위해 Azure Key Vault를 사용해야 합니다(Azure Key Vault 가격 책정에 대해 [자세히 알아보기](https://azure.microsoft.com/pricing/details/key-vault/)). Cloud Services(추가 지원)의 각 공용 IP 주소는 별도로 청구됩니다(공용 IP 주소 가격 책정에 대해 [자세히 알아보기](https://azure.microsoft.com/pricing/details/ip-addresses/)). 

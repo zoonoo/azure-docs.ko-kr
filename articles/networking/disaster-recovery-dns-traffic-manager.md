@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/08/2018
+ms.date: 04/06/2021
 ms.author: kumud
-ms.openlocfilehash: 8cb1a490ac8edf2630253b45d99c3394bbe721b8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 077e92b67f0cf6dac673cc870b7ff8c86fbe60dd
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98234157"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551291"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS 및 Traffic Manager를 사용하여 재해 복구
 
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 재해 복구 솔루션을 선택하려면 비즈니스 및 기술 소유자는 먼저 사용 불가능, 축소된 기능이나 지연된 가용성을 통한 부분 사용 가능 또는 완전 사용 가능과 같이 재해 중에 필요한 기능 수준을 결정해야 합니다.
 대부분의 기업 고객은 애플리케이션 또는 인프라 수준 장애 조치(failover)에 대한 복원력을 위해 다중 지역 아키텍처를 선택하고 있습니다. 고객은 중복 아키텍처를 통해 장애 조치(failover) 및 고가용성을 얻기 위해 여러 가지 방법을 선택할 수 있습니다. 다음은 몇 가지 인기 있는 방법입니다.
 
-- **활성-수동(수동 대기)**: 이 장애 조치(failover) 솔루션에서는 대기 지역에서 실행되는 VM 및 기타 어플라이언스가 장애 조치(failover)를 수행해야 할 때까지 활성 상태가 아닙니다. 그러나 프로덕션 환경은 백업, VM 이미지 또는 Resource Manager 템플릿의 형식으로 다른 지역에 복제됩니다. 이 장애 조치(failover) 메커니즘은 비용 효율적이지만 완전한 장애 조치(failover)를 수행하는 데 시간이 더 오래 걸립니다.
+- **활성-수동(수동 대기)** : 이 장애 조치(failover) 솔루션에서는 대기 지역에서 실행되는 VM 및 기타 어플라이언스가 장애 조치(failover)를 수행해야 할 때까지 활성 상태가 아닙니다. 그러나 프로덕션 환경은 백업, VM 이미지 또는 Resource Manager 템플릿의 형식으로 다른 지역에 복제됩니다. 이 장애 조치(failover) 메커니즘은 비용 효율적이지만 완전한 장애 조치(failover)를 수행하는 데 시간이 더 오래 걸립니다.
  
     ![활성/수동(수동 대기)](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
@@ -39,7 +39,7 @@ ms.locfileid: "98234157"
     
     *‘그림: 활성/수동(표시등) 재해 복구 구성’*
 
-- **활성/수동(웜 대기)**: 이 장애 조치(failover)에서는 대기 지역이 미리 준비되어 기본 부하를 수용할 준비가 되고, 자동 크기 조정이 켜지고, 모든 인스턴스가 실행됩니다. 이 솔루션은 전체 프로덕션 부하를 수용하도록 크기가 조정되지만 작동하며, 모든 서비스가 실행됩니다. 이 솔루션은 표시등 방법의 확장 버전입니다.
+- **활성/수동(웜 대기)** : 이 장애 조치(failover) 솔루션에서는 대기 지역이 미리 준비되어 기본 부하를 수용할 준비가 되고, 자동 크기 조정이 켜지고, 모든 인스턴스가 실행됩니다. 이 솔루션은 전체 프로덕션 부하를 수용하도록 크기가 조정되지 않지만 작동 가능하며, 모든 서비스가 실행됩니다. 이 솔루션은 표시등 방법의 확장 버전입니다.
     
     ![활성/수동(웜 대기)](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
@@ -58,7 +58,7 @@ ms.locfileid: "98234157"
 DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있으며 지역 또는 AZ(가용성 영역) 수준 장애로부터 격리되어 있으므로 네트워크 트래픽을 전환하는 데 가장 효율적인 메커니즘 중 하나입니다. DNS 기반 장애 조치(failover) 메커니즘을 사용할 수 있고, Azure에서는 두 개의 DNS 서비스인 Azure DNS(신뢰할 수 있는 DNS) 및 Azure Traffic Manager(DNS 기반 스마트 트래픽 라우팅)가 어떤 방식으로 동일한 작업을 수행할 수 있습니다. 
 
 이 문서에 제공된 솔루션을 설명하는 데 광범위하게 사용되는 DNS의 몇 가지 개념을 이해해야 합니다.
-- **DNS a 레코드** – a 레코드는 도메인을 IPv4 주소로 가리키는 포인터입니다. 
+- **DNS A 레코드** - A 레코드는 도메인을 IPv4 주소로 가리키는 포인터입니다. 
 - **CNAME 또는 정식 이름** - 이 레코드 유형은 다른 DNS 레코드를 가리키는 데 사용됩니다. CNAME은 IP 주소로 응답하지 않고, IP 주소를 포함하는 레코드에 대한 포인터로 응답합니다. 
 - **가중 라우팅** - 서비스 엔드포인트에 가중치를 연결한 다음, 할당된 가중치를 기준으로 트래픽을 분배하도록 선택할 수 있습니다. 이 라우팅 방법은 Traffic Manager 내에서 사용할 수 있는 네 개의 트래픽 라우팅 메커니즘 중 하나입니다. 자세한 내용은 [가중 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#weighted)을 참조하세요.
 - **우선 순위 라우팅** - 우선 순위 라우팅은 엔드포인트의 상태 확인을 기반으로 합니다. 기본적으로 Azure Traffic Manager는 우선순위가 가장 높은 엔드포인트에 모든 트래픽을 보내고, 장애 또는 재해 발생 시 Traffic Manager는 트래픽을 보조 엔드포인트로 라우팅합니다. 자세한 내용은 [우선 순위 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)을 참조하세요.
@@ -72,7 +72,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 솔루션에 대한 가정은 다음과 같습니다.
 - 기본 및 보조 엔드포인트에는 자주 변경되지 않는 정적 IP가 있습니다. 주 사이트의 IP가 100.168.124.44이고 보조 사이트의 IP가 100.168.124.43이라고 가정해 보겠습니다.
-- Azure DNS 영역은 주 사이트와 보조 사이트에 모두 있습니다. 주 사이트의 엔드포인트는 prod.contoso.com이고 백업 사이트의 엔드포인트는 dr.contoso.com이라고 가정해 보겠습니다. Www contoso.com로 알려진 주 응용 프로그램에 대 한 DNS 레코드도 \. 존재 합니다.   
+- Azure DNS 영역은 주 사이트와 보조 사이트에 모두 있습니다. 주 사이트의 엔드포인트는 prod.contoso.com이고 백업 사이트의 엔드포인트는 dr.contoso.com이라고 가정해 보겠습니다. www\.contoso.com이라고 하는 기본 애플리케이션에 대한 DNS 레코드도 있습니다.   
 - TTL은 조직에서 설정된 RTO SLA 수준 이하입니다. 예를 들어, 기업에서 애플리케이션 재해 응답의 RTO를 60분으로 설정하는 경우, TTL은 60분 미만이어야 하고 낮을수록 더 좋습니다. 
   다음과 같이 수동 장애 조치(failover)에 대한 Azure DNS를 설정할 수 있습니다.
 - DNS 영역 만들기
@@ -80,7 +80,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 - CNAME 레코드 업데이트
 
 ### <a name="step-1-create-a-dns"></a>1단계: DNS 만들기
-아래와 같이 DNS 영역 (예: www \. contoso.com)을 만듭니다.
+다음과 같이 DNS 영역을 만듭니다(예: www\.contoso.com).
 
 ![Azure에서 DNS 영역 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +88,13 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 ### <a name="step-2-create-dns-zone-records"></a>2단계: DNS 영역 레코드 만들기
 
-이 영역 내에서 아래와 같이 3 개의 레코드 (예:-www \. contoso.com, prod.contoso.com 및 dr.consoto.com)를 만듭니다.
+이 영역 내에서 다음과 같이 세 개의 레코드(예 - www\.contoso.com, prod.contoso.com 및 dr.consoto.com)를 만듭니다.
 
 ![DNS 영역 레코드 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 ‘그림 - Azure에서 DNS 영역 레코드 만들기’
 
-이 시나리오에서 사이트 www contoso.com는 \. 30 분의 TTL을 가지 며,이는 규정 된 RTO 아래에 있으며 프로덕션 사이트 prod.contoso.com를 가리킵니다. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있고, 애플리케이션 또는 가상 인프라 수준 장애를 모니터링하거나 감지할 수 있는 자사 솔루션도 사용할 수 있습니다.
+이 시나리오에서 사이트 www.\.contoso.com은 명시된 RTO보다 훨씬 낮은 30분의 TTL을 포함하고 프로덕션 사이트 prod.contoso.com을 가리키고 있습니다. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있습니다. 애플리케이션 또는 가상 인프라 수준의 오류를 모니터링하거나 검색할 수 있는 자체 개발 솔루션을 사용할 수도 있습니다.
 
 ### <a name="step-3-update-the-cname-record"></a>3단계: CNAME 레코드 업데이트
 
@@ -104,7 +104,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 ‘그림 - Azure에서 CNAME 레코드 업데이트’
 
-30 분 이내에 대부분의 해결 프로그램이 캐시 된 영역 파일을 새로 고치는 동안 www contoso.com에 대 한 쿼리는 \. dr.contoso.com로 리디렉션됩니다.
+대부분의 확인자가 캐시된 영역 파일을 새로 고치는 30분 내에 www\.contoso.com에 대한 쿼리는 dr.contoso.com으로 리디렉션됩니다.
 다음 Azure CLI 명령을 실행하여 CNAME 값을 변경할 수도 있습니다.
  ```azurecli
    az network dns record-set cname set-record \
@@ -142,7 +142,7 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 
 ![Traffic Manager 프로필 만들기](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-*그림-Traffic Manager 프로필 만들기*
+*그림 - Traffic Manager 프로필 만들기*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>2단계: Traffic Manager 프로필 내에서 엔드포인트 만들기
 
@@ -165,8 +165,8 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 
 ### <a name="how-automatic-failover-works-using-traffic-manager"></a>Azure Traffic Manager를 사용한 자동 장애 조치(failover)의 작동 방식
 
-재해가 발생하는 동안 기본 엔드포인트가 프로브되고 상태가 **성능 저하** 로 변경되고 재해 복구 사이트는 **온라인** 상태로 유지됩니다. 기본적으로 Traffic Manager는 모든 트래픽을 기본(가장 높은 우선 순위) 엔드포인트로 전송합니다. 기본 엔드포인트의 성능이 저하된 것으로 보이면 Traffic Manager는 트래픽을 정상 상태인 두 번째 엔드포인트로 라우팅합니다. 추가적인 장애 조치(failover) 엔드포인트로 또는 엔드포인트 간에 부하를 공유하는 부하 분산 장치로 사용할 수 있는 추가적인 장애 조치(failover) 엔드포인트를 Traffic Manager 내에 구성하는 옵션이 제공됩니다.
+재해가 발생하는 동안 기본 엔드포인트가 프로브되고 상태가 **성능 저하** 로 변경되고 재해 복구 사이트는 **온라인** 상태로 유지됩니다. 기본적으로 Traffic Manager는 모든 트래픽을 기본(가장 높은 우선 순위) 엔드포인트로 전송합니다. 기본 엔드포인트의 성능이 저하된 것으로 보이면 Traffic Manager는 트래픽을 정상 상태인 두 번째 엔드포인트로 라우팅합니다. 추가 장애 조치(failover) 엔드포인트로 또는 엔드포인트 간에 부하를 공유하는 부하 분산 장치로 사용할 수 있는 Traffic Manager 내에서 더 많은 엔드포인트를 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)에 대해 자세히 알아보세요.
-- [Azure DNS](../dns/dns-overview.md)에 대해 자세히 알아보세요.
+- [Azure DNS](../dns/dns-overview.md)에 대해 자세히 알아봅니다.

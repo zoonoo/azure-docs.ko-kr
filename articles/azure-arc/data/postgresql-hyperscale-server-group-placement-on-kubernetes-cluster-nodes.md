@@ -1,6 +1,6 @@
 ---
-title: Kubernetes 클러스터 노드에서 PostgreSQL Hyperscale 서버 그룹 배치
-description: PostgreSQL Hyperscale 서버 그룹을 형성 하는 PostgreSQL 인스턴스가 Kubernetes 클러스터 노드에 배치 되는 방법을 설명 합니다.
+title: Kubernetes 클러스터 노드에 PostgreSQL 하이퍼스케일 서버 그룹 배치
+description: PostgreSQL 하이퍼스케일 서버 그룹을 구성하는 PostgreSQL 인스턴스가 Kubernetes 클러스터 노드에 배치되는 방법을 설명합니다.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,31 +10,31 @@ ms.reviewer: mikeray
 ms.date: 02/11/2021
 ms.topic: how-to
 ms.openlocfilehash: b88b36ba8ec1d2d612adbbf19a6cf1e91fbb2cfd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100377757"
 ---
-# <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 배치
+# <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 배치
 
-이 문서에서는 Azure Arc enabled PostgreSQL Hyperscale server 그룹의 PostgreSQL 인스턴스를 호스트 하는 Kubernetes 클러스터의 실제 노드에 배치 하는 방법을 보여 주는 예제를 제공 합니다. 
+이 문서에서는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 PostgreSQL 인스턴스가 해당 인스턴스를 호스팅하는 Kubernetes 클러스터의 실제 노드에 배치되는 방법을 설명하는 예제를 사용합니다. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="configuration"></a>구성
 
-이 예제에서는 네 개의 실제 노드가 있는 AKS (Azure Kubernetes Service) 클러스터를 사용 합니다. 
+이 예제에서는 4개의 실제 노드가 있는 AKS(Azure Kubernetes Service) 클러스터를 사용하고 있습니다. 
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="Azure Portal의 4 노드 AKS 클러스터":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="Azure Portal의 4개 노드 AKS 클러스터":::
 
-Kubernetes 클러스터의 실제 노드를 나열 합니다. 명령 실행:
+Kubernetes 클러스터의 실제 노드를 나열합니다. 명령 실행:
 
 ```console
 kubectl get nodes
 ```
 
-`kubectl` Kubernetes 클러스터 내에서 4 개의 실제 노드를 반환 합니다.
+`kubectl`은 Kubernetes 클러스터 안에 있는 4개의 실제 노드를 반환합니다.
 
 ```output
 NAME                                STATUS   ROLES   AGE   VERSION
@@ -46,11 +46,11 @@ aks-agentpool-42715708-vmss000003   Ready    agent   11h   v1.17.9
 
 아키텍처는 다음과 같이 나타낼 수 있습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Kubernetes 클러스터에 그룹화 된 4 개 노드의 논리적 표현":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/2_logical_cluster.png" alt-text="Kubernetes 클러스터에 그룹화된 4개 노드의 논리적 표현":::
 
-Kubernetes 클러스터는 하나의 Azure Arc 데이터 컨트롤러와 하나의 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 호스팅합니다. 이 서버 그룹은 하나의 코디네이터와 두 작업자 라는 세 개의 PostgreSQL 인스턴스를 구성 된 합니다.
+Kubernetes 클러스터는 하나의 Azure Arc 데이터 컨트롤러와 하나의 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 호스팅합니다. 이 서버 그룹은 3개의 PostgreSQL 인스턴스(코디네이터 1개와 작업자 2개)로 구성됩니다.
 
-명령을 사용 하 여 pod를 나열 합니다.
+다음 명령을 사용하여 pod를 나열합니다.
 
 ```console
 kubectl get pods -n arc3
@@ -64,7 +64,7 @@ postgres01c-0         3/3     Running   0          9h
 postgres01w-0         3/3     Running   0          9h
 postgres01w-1         3/3     Running   0          9h
 ```
-이러한 각 pod는 PostgreSQL 인스턴스를 호스팅합니다. Pod는 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 형성 합니다.
+이러한 각 pod는 PostgreSQL 인스턴스를 호스팅합니다. 이와 함께 pod는 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 구성합니다.
 
 ```output
 Pod name        Role in the server group
@@ -74,7 +74,7 @@ postgres01w-1   Worker
 ```
 
 ## <a name="placement"></a>배치
-Kubernetes가 서버 그룹의 pod을 배치 하는 방법을 살펴보겠습니다. 각 pod를 설명 하 고 해당 pod가 배치 된 Kubernetes 클러스터의 실제 노드를 식별 합니다. 예를 들어 코디네이터의 경우 다음 명령을 실행 합니다.
+Kubernetes가 서버 그룹의 pod을 배치하는 방법을 살펴보겠습니다. 각 pod를 설명하고 해당 pod가 배치된 Kubernetes 클러스터의 실제 노드를 식별합니다. 예를 들어 코디네이터의 경우 다음 명령을 실행합니다.
 
 ```console
 kubectl describe pod postgres01c-0 -n arc3
@@ -91,14 +91,14 @@ Start Time:   Thu, 17 Sep 2020 00:40:33 -0700
 …
 ```
 
-각 pod에 대해이 명령을 실행 하면 현재 배치가 다음과 같이 요약 됩니다.
+각 pod에 대해 이 명령을 실행하면 현재 배치가 다음과 같이 요약됩니다.
 
-| 서버 그룹 역할|서버 그룹 pod|Pod를 호스트 하는 Kubernetes 실제 노드 |
+| 서버 그룹 역할|서버 그룹 pod|pod를 호스팅하는 Kubernetes 실제 노드 |
 |--|--|--|
 | 작업자|postgres01-1|aks-agentpool-42715708-vmss000002 |
 | 작업자|postgres01-2|aks-agentpool-42715708-vmss000003 |
 
-또한 pod에 대 한 설명에서 각 pod가 호스트 하는 컨테이너의 이름을 확인 합니다. 예를 들어 두 번째 작업자의 경우 다음 명령을 실행 합니다.
+또한 pod 설명에서 각 pod가 호스팅하는 컨테이너의 이름을 확인합니다. 예를 들어 두 번째 작업자에 대해 다음 명령을 실행합니다.
 
 ```console
 kubectl describe pod postgres01w-1 -n arc3
@@ -119,43 +119,43 @@ Containers:
 …
 ```
 
-Azure Arc enabled PostgreSQL Hyperscale 서버 그룹의 일부인 각 pod는 다음 세 가지 컨테이너를 호스팅합니다.
+Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 일부인 각 pod는 다음 세 가지 컨테이너를 호스팅합니다.
 
 |컨테이너|설명
 |----|----|
 |`Fluentbit` |데이터 * 로그 수집기: https://fluentbit.io/
-|`Postgres`|Azure Arc enabled PosgreSQL Hyperscale 서버 그룹의 PostgreSQL 인스턴스 부분
+|`Postgres`|Azure Arc 지원 PosgreSQL 하이퍼스케일 서버 그룹의 PostgreSQL 인스턴스 부분
 |`Telegraf` |메트릭 수집기: https://www.influxdata.com/time-series-platform/telegraf/
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 pod 개별 노드에 배치 됩니다.":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="각각 별도의 노드에 배치된 3개의 pod":::
 
-즉,이 시점에서 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 백업을 위해 각 PostgreSQL 인스턴스는 Kubernetes 컨테이너 내의 특정 실제 호스트에서 호스팅됩니다. 이 구성은 각 역할 (코디네이터 및 작업자)이 각 실제 노드의 리소스를 사용 하므로 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹에서 가장 높은 성능을 제공 합니다. 이러한 리소스는 여러 PostgreSQL 역할 간에 공유 되지 않습니다.
+즉, 이 시점에서 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 구성하는 각 PostgreSQL 인스턴스는 Kubernetes 컨테이너 내의 특정 실제 호스트에서 호스팅됩니다. 이 구성은 각 역할(코디네이터 및 작업자)이 각 실제 노드의 리소스를 사용하므로 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에서 가장 높은 성능을 제공합니다. 이러한 리소스는 여러 PostgreSQL 역할 간에 공유되지 않습니다.
 
-## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 사용 PostgreSQL Hyperscale 확장
+## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 스케일 아웃
 
-이제 서버 그룹에 세 번째 작업자 노드를 추가 하 고 어떻게 되는지 관찰 해 보겠습니다. 네 번째 pod에서 호스트 되는 네 번째 PostgreSQL 인스턴스를 만듭니다.
-규모를 확장 하려면 다음 명령을 실행 합니다.
+이제 스케일 아웃하여 서버 그룹에 세 번째 작업자 노드를 추가하고 어떻게 되는지 살펴보겠습니다. 네 번째 pod에서 호스트되는 네 번째 PostgreSQL 인스턴스가 만들어집니다.
+스케일 아웃하려면 다음 명령을 실행합니다.
 
 ```console
 azdata arc postgres server edit --name postgres01 --workers 3
 ```
 
-그러면 다음과 같은 출력이 생성 됩니다.
+다음 출력이 생성됩니다.
 
 ```output
 Updating postgres01 in namespace `arc3`
 postgres01 is Ready
 ```
 
-Azure Arc 데이터 컨트롤러에 배포 된 서버 그룹을 나열 하 고 이제 서버 그룹이 세 개의 작업자와 함께 실행 되는지 확인 합니다. 명령 실행:
+Azure Arc 데이터 컨트롤러에 배포된 서버 그룹을 나열하고 이제 서버 그룹이 작업자 3개와 함께 실행되는지 확인합니다. 명령 실행:
 
 ```console
 azdata arc postgres server list
 ```
 
-그리고 두 작업자에서 3 개의 작업자로 규모를 확장 했는지 확인 합니다.
+그리고 작업자 2개에서 3개로 스케일 아웃했는지 확인합니다.
 
 ```output
 Name        State    Workers
@@ -163,7 +163,7 @@ Name        State    Workers
 postgres01  Ready    3
 ```
 
-앞에서 설명한 것 처럼 서버 그룹은 이제 총 4 개의 pod를 사용 합니다.
+앞에서 설명한 것처럼 서버 그룹은 이제 총 4개의 pod를 사용합니다.
 
 ```console
 kubectl get pods -n arc3
@@ -178,14 +178,14 @@ postgres01w-1         3/3     Running   0          11h
 postgres01w-2         3/3     Running   0          5m2s
 ```
 
-및는 새 pod를 설명 하 여 호스트 되는 Kubernetes 클러스터의 실제 노드를 식별 합니다.
+그리고 새 pod를 설명하여 해당 pod가 호스트되는 Kubernetes 클러스터의 실제 노드를 식별합니다.
 명령 실행:
 
 ```console
 kubectl describe pod postgres01w-2 -n arc3
 ```
 
-호스팅 노드의 이름을 식별 하려면 다음을 수행 합니다.
+호스팅 노드의 이름을 식별하려면 다음을 수행합니다.
 
 ```output
 Name:         postgres01w-2
@@ -194,60 +194,60 @@ Priority:     0
 Node:         aks-agentpool-42715708-vmss000000
 ```
 
-클러스터의 실제 노드에 PostgreSQL 인스턴스를 배치 하는 것은 이제 다음과 같습니다.
+이제 클러스터의 실제 노드에서 PostgreSQL 인스턴스의 배치는 다음과 같습니다.
 
-|서버 그룹 역할|서버 그룹 pod|Pod를 호스트 하는 Kubernetes 실제 노드
+|서버 그룹 역할|서버 그룹 pod|pod를 호스팅하는 Kubernetes 실제 노드
 |-----|-----|-----
-|코디네이터가|postgres01-0|aks-agentpool-42715708-vmss000000
+|코디네이터|postgres01-0|aks-agentpool-42715708-vmss000000
 |작업자|postgres01-1|aks-agentpool-42715708-vmss000002
 |작업자|postgres01-2|aks-agentpool-42715708-vmss000003
 |작업자|postgres01-3|aks-agentpool-42715708-vmss000000
 
-새 작업자 (postgres01w-2)의 pod가 코디네이터와 동일한 노드에 배치 되었는지 확인 합니다. 
+새 작업자(postgres01w-2)의 pod가 코디네이터와 동일한 노드에 배치되었는지 확인합니다. 
 
 아키텍처는 다음과 같습니다.
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/4_pod_placement_.png" alt-text="코디네이터와 동일한 노드의 네 번째 pod":::
 
-Kubernetes cluster aks-42715708-vmss000003의 나머지 실제 노드에 새로운 worker/pod가 배치 되지 않는 이유는 무엇 인가요?
+새 작업자/pod가 Kubernetes 클러스터 aks-agentpool-42715708-vmss000003의 나머지 실제 노드에 배치되지 않는 이유는 무엇인가요?
 
-그 이유는 Kubernetes 클러스터의 마지막 실제 노드가 Azure Arc 사용 데이터 서비스를 실행 하는 데 필요한 추가 구성 요소를 호스트 하는 몇 가지 pod를 실제로 호스팅하는 것입니다. Kubernetes가 추가 작업자를 호스트 하는 데 가장 적합 한 후보는 42715708 aks-vmss000000 실제 노드입니다. 
+그 이유는 Kubernetes 클러스터의 마지막 실제 노드가 Azure Arc 지원 Data Services를 실행하는 데 필요한 추가 구성 요소를 호스트하는 여러 pod를 호스트하기 때문입니다. Kubernetes는 예약 시점에 추가 작업자를 호스트할 가장 적합한 후보가 aks-agentpool-42715708-vmss000000 실제 노드라고 평가했습니다. 
 
-위와 동일한 명령을 사용 하 여 각 실제 노드가 호스트 하는 항목을 볼 수 있습니다.
+위와 동일한 명령을 사용하여 각 실제 노드가 무엇을 호스트하는지 확인합니다.
 
-|기타 pod 이름\* |사용량|Pod를 호스트 하는 Kubernetes 실제 노드
+|다른 pod 이름\* |사용량|pod를 호스트하는 Kubernetes 실제 노드
 |----|----|----
-|부트스트래퍼-jh48b|들어오는 요청을 처리 하 여 SQL 관리 되는 인스턴스, PostgreSQL Hyperscale 서버 그룹 및 데이터 컨트롤러와 같은 사용자 지정 리소스를 만들고, 편집 하 고, 삭제 하는 서비스입니다.|aks-agentpool-42715708-vmss000003
-|제어-gwmbs||aks-agentpool-42715708-vmss000002
-|controldb-0|데이터 컨트롤러의 구성 및 상태를 저장 하는 데 사용 되는 컨트롤러 데이터 저장소입니다.|aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7|데이터 컨트롤러의 가용성을 눈에 유지 하는 컨트롤러 "watch dog" 서비스입니다.|aks-agentpool-42715708-vmss000000
-|logsdb-0|모든 Arc data services pod에서 수집 된 모든 로그를 저장 하는 데 사용 되는 탄력적 검색 인스턴스입니다. Elasticsearch, `Fluentbit` 각 pod의 컨테이너에서 데이터를 수신 합니다.|aks-agentpool-42715708-vmss000003
-|logsui-5fzv5|로그 분석 GUI를 제공 하기 위해 탄력적 검색 데이터베이스 위에 있는 Kibana 인스턴스입니다.|aks-agentpool-42715708-vmss000003
-|metricsdb-0|모든 Arc data services pod에서 수집한 모든 메트릭을 저장 하는 데 사용 되는 InfluxDB 인스턴스입니다. InfluxDB는 `Telegraf` 각 pod의 컨테이너에서 데이터를 수신 합니다.|aks-agentpool-42715708-vmss000000
-|metricsdc-47d47|노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 디먼 집합입니다.|aks-agentpool-42715708-vmss000002
-|metricsdc-864kj|노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 디먼 집합입니다.|aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf|노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 디먼 집합입니다.|aks-agentpool-42715708-vmss000003
-|metricsdc-nxm4l|노드에 대 한 노드 수준 메트릭을 수집 하기 위해 클러스터의 모든 Kubernetes 노드에 배포 된 디먼 집합입니다.|aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l|InfluxDB 데이터베이스 위에 있는 Grafana 인스턴스로, 모니터링 대시보드 GUI를 제공 합니다.|aks-agentpool-42715708-vmss000003
-|mgmtproxy-4qppp|Grafana 및 Kibana 인스턴스 앞에 있는 웹 응용 프로그램 프록시 계층입니다.|aks-agentpool-42715708-vmss000002
+|bootstrapper-jh48b|SQL 관리되는 인스턴스, PostgreSQL 하이퍼스케일 서버 그룹 및 데이터 컨트롤러와 같은 사용자 지정 리소스를 생성, 편집 및 삭제하기 위해 들어오는 요청을 처리하는 서비스|aks-agentpool-42715708-vmss000003
+|control-gwmbs||aks-agentpool-42715708-vmss000002
+|controldb-0|데이터 컨트롤러의 구성 및 상태를 저장하는 데 사용되는 컨트롤러 데이터 저장소|aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7|데이터 컨트롤러의 가용성을 감시하는 컨트롤러 "워치독" 서비스|aks-agentpool-42715708-vmss000000
+|logsdb-0|모든 Arc Data Services pod에서 수집된 모든 로그를 저장하는 데 사용되는 Elastic Search 인스턴스 Elasticsearch, 각 pod의 `Fluentbit` 컨테이너에서 데이터 수신|aks-agentpool-42715708-vmss000003
+|logsui-5fzv5|로그 분석 GUI를 제공하기 위해 Elastic Search 데이터베이스 위에 있는 Kibana 인스턴스|aks-agentpool-42715708-vmss000003
+|metricsdb-0|모든 Arc Data Services pod에서 수집된 모든 메트릭을 저장하는 데 사용되는 InfluxDB 인스턴스 InfluxDB, 각 pod의 `Telegraf` 컨테이너에서 데이터 수신|aks-agentpool-42715708-vmss000000
+|metricsdc-47d47|노드에 대한 노드 수준 메트릭을 수집하기 위해 클러스터의 모든 Kubernetes 노드에 배포된 디먼 집합|aks-agentpool-42715708-vmss000002
+|metricsdc-864kj|노드에 대한 노드 수준 메트릭을 수집하기 위해 클러스터의 모든 Kubernetes 노드에 배포된 디먼 집합|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|노드에 대한 노드 수준 메트릭을 수집하기 위해 클러스터의 모든 Kubernetes 노드에 배포된 디먼 집합|aks-agentpool-42715708-vmss000003
+|metricsdc-nxm4l|노드에 대한 노드 수준 메트릭을 수집하기 위해 클러스터의 모든 Kubernetes 노드에 배포된 디먼 집합|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|모니터링 대시보드 GUI를 제공하기 위해 InfluxDB 데이터베이스 위에 있는 Grafana 인스턴스|aks-agentpool-42715708-vmss000003
+|mgmtproxy-4qppp|Grafana 및 Kibana 인스턴스 앞에 있는 웹 애플리케이션 프록시 계층|aks-agentpool-42715708-vmss000002
 
-> \* Pod 이름의 접미사는 다른 배포에 따라 달라 집니다. 또한 Azure Arc 데이터 컨트롤러의 Kubernetes 네임 스페이스 내에서 호스트 되는 pod 여기에 나열 됩니다.
+> \* pod 이름의 접미사는 다른 배포에 따라 다릅니다. 또한 Azure Arc 데이터 컨트롤러의 Kubernetes 네임스페이스 내에서 호스트되는 pod만 여기에 나열됩니다.
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="다양 한 노드의 네임 스페이스에 있는 모든 pod":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="다양한 노드의 네임스페이스에 있는 모든 pod":::
 
-위에서 설명한 것 처럼 Azure Arc enabled Postgres Hyperscale 서버 그룹의 코디네이터 노드 (Pod 1)는 서버 그룹의 세 번째 작업자 노드 (Pod 4)와 동일한 물리적 리소스를 공유 합니다. 코디네이터 노드가 일반적으로 작업자 노드에 사용 될 수 있는 것과 비교 하 여 매우 적은 리소스를 사용 하기 때문에 허용 됩니다. 이러한 이유로 신중 하 게 다음을 선택 합니다.
-- Kubernetes 클러스터의 크기 및 각 실제 노드의 특성 (메모리, vCore)
-- Kubernetes 클러스터 내의 실제 노드 수
-- Kubernetes 클러스터에서 호스트 하는 응용 프로그램 또는 작업입니다.
+위에서 설명한 대로 Azure Arc 지원 Postgres 하이퍼스케일 서버 그룹의 코디네이터 노드(Pod 1)는 서버 그룹의 세 번째 작업자 노드(Pod 4)와 동일한 물리적 리소스를 공유합니다. 이는 코디네이터 노드가 일반적으로 작업자 노드가 사용할 수 있는 것과 비교할 때 매우 적은 리소스를 사용하기 때문에 허용됩니다. 이러한 이유로 신중하게 다음을 선택합니다.
+- Kubernetes 클러스터의 크기 및 각 실제 노드(메모리, vCore)의 특징
+- Kubernetes 클러스터 안에 있는 실제 노드의 수
+- Kubernetes 클러스터에서 호스트하는 애플리케이션 또는 워크로드
 
-Kubernetes 클러스터에서 너무 많은 워크 로드를 호스트 하는 것은 Azure Arc enabled PostgreSQL Hyperscale 서버 그룹에 대해 제한이 발생할 수 있습니다. 이런 경우에는 해당 기능을 수평으로 확장 하는 것이 더 효율적이 지 않습니다. 시스템에서 얻을 수 있는 성능은 실제 노드나 저장소 시스템의 배치 나 물리적 특성에 대 한 것이 아닙니다. 또한 Kubernetes 클러스터 내에서 실행 되는 각 리소스를 구성 하는 방법 (예를 들어, 메모리 및 vCore에 대해 설정 하는 요청 및 제한)에 대 한 정보를 얻을 수 있습니다. 지정 된 Kubernetes 클러스터에서 호스트할 수 있는 작업 양은 Kubernetes 클러스터의 특성, 워크 로드의 특성, 사용자 수, Kubernetes 클러스터의 작업을 수행 하는 방법 등을 기준으로 합니다.
+Kubernetes 클러스터에서 너무 많은 워크로드를 호스트한다는 것은 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대해 제한이 발생할 수 있다는 의미입니다. 이러한 경우 수평 크기 조정 기능이 크게 유용하지 않습니다. 시스템에서 얻을 수 있는 성능은 실제 노드 또는 스토리지 시스템의 배치 또는 물리적 특징에 대한 것이 아닙니다. 또한 얻을 수 있는 성능은 Kubernetes 클러스터(Azure Arc 지원 PostgreSQL 하이퍼스케일 포함) 내에서 실행되는 각 리소스(예: 메모리 및 vCore에 대해 설정한 요청 및 제한)를 구성하는 방법에 대한 것입니다. 지정된 Kubernetes 클러스터에서 호스트할 수 있는 워크로드의 양은 Kubernetes 클러스터의 특징, 워크로드의 특성, 사용자 수, Kubernetes 클러스터의 작업이 수행되는 방식 등에 따라 다릅니다.
 
-## <a name="scale-out-aks"></a>규모 확장 AKS
+## <a name="scale-out-aks"></a>AKS 스케일 아웃
 
-AKS 클러스터와 Azure Arc enabled PostgreSQL Hyperscale 서버 모두 수평 확장을 통해 Azure Arc 사용 PostgreSQL Hyperscale의 높은 성능을 활용 하는 방법을 살펴보겠습니다.
-AKS 클러스터에 다섯 번째 노드를 추가 해 보겠습니다.
+AKS 클러스터와 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 모두 수평으로 크기 조정하는 것이 Azure Arc 지원 PostgreSQL 하이퍼스케일의 고성능을 최대한 활용하는 방법임을 보여드리겠습니다.
+AKS 클러스터에 다섯 번째 노드를 추가해보겠습니다.
 
 :::row:::
     :::column:::
@@ -259,10 +259,10 @@ AKS 클러스터에 다섯 번째 노드를 추가 해 보겠습니다.
 :::row-end:::
 :::row:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="이전 Azure Portal 레이아웃":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/6_layout_before.png" alt-text="이전의 Azure Portal 레이아웃":::
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="다음 이후 레이아웃 Azure Portal":::
+        :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/7_layout_after.png" alt-text="이후의 Azure Portal 레이아웃":::
     :::column-end:::
 :::row-end:::
 
@@ -270,40 +270,40 @@ AKS 클러스터에 다섯 번째 노드를 추가 해 보겠습니다.
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/8_logical_layout_after.png" alt-text="업데이트 후 Kubernetes 클러스터의 논리적 레이아웃":::
 
-명령을 실행 하 여 new AKS 실제 노드에 호스트 되는 Arc Data Controller 네임 스페이스의 pod을 살펴보겠습니다.
+다음 명령을 실행하여 새 AKS 실제 노드에서 호스트되는 Arc 데이터 컨트롤러 네임스페이스의 pod를 살펴보겠습니다.
 
 ```console
 kubectl describe node aks-agentpool-42715708-vmss000004
 ```
 
-시스템 아키텍처의 표현을 업데이트 해 보겠습니다.
+시스템 아키텍처의 표현을 업데이트해 보겠습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="클러스터의 논리적 다이어그램에 대 한 모든 pod":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/9_updated_list_of_pods.png" alt-text="클러스터의 논리적 다이어그램에 있는 모든 pod":::
 
-Kubernetes 클러스터의 새 실제 노드가 Azure Arc data services에 필요한 메트릭 pod만 호스트 하 고 있음을 확인할 수 있습니다. 이 예제에서는 Arc 데이터 컨트롤러의 네임 스페이스에만 중점을 두고 있으며, 다른 pod를 나타내지 않습니다.
+Kubernetes 클러스터의 새 실제 노드가 Azure Arc Data Services에 필요한 메트릭 pod만 호스트하고 있음을 확인할 수 있습니다. 이 예에서는 Arc 데이터 컨트롤러의 네임스페이스에만 초점을 맞추고 있으며 다른 pod는 나타내지 않습니다.
 
-## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale-again"></a>Azure Arc 사용 PostgreSQL Hyperscale을 다시 확장
+## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale-again"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 다시 스케일 아웃
 
-다섯 번째 실제 노드가 아직 작업을 호스팅하지 않습니다. Azure Arc enabled PostgreSQL Hyperscale을 확장 하면 Kubernetes는 새 PostgreSQL pod의 배치를 최적화 하 고 더 많은 작업을 이미 호스팅하고 있는 실제 노드에서이를 배치 해서는 안 됩니다. 다음 명령을 실행 하 여 Azure Arc enabled PostgreSQL Hyperscale을 3에서 4 작업자로 조정 합니다. 작업이 끝날 때 서버 그룹은 하나의 코디네이터와 4 개의 작업자로 구성 된 되 고 5 개의 PostgreSQL 인스턴스 간에 분산 됩니다.
+다섯 번째 실제 노드는 워크로드를 아직 호스트하고 있지 않습니다. Azure Arc 지원 PostgreSQL 하이퍼스케일을 스케일 아웃하면 Kubernetes는 새 PostgreSQL pod의 배치를 최적화하며 이미 더 많은 워크로드를 호스트하고 있는 실제 노드에 이를 배치해서는 안 됩니다. 다음 명령을 실행하여 Azure Arc 지원 PostgreSQL 하이퍼스케일을 작업자 3개에서 4개로 조정합니다. 작업이 끝나면 서버 그룹이 구성되고 PostgreSQL 인스턴스 5개, 코디네이터 1개 및 작업자 4개에 배포됩니다.
 
 ```console
 azdata arc postgres server edit --name postgres01 --workers 4
 ```
 
-그러면 다음과 같은 출력이 생성 됩니다.
+다음 출력이 생성됩니다.
 
 ```output
 Updating postgres01 in namespace `arc3`
 postgres01 is Ready
 ```
 
-데이터 컨트롤러에 배포 된 서버 그룹을 나열 하 고 이제 4 개의 작업자를 사용 하 여 서버 그룹을 실행 하는지 확인 합니다.
+데이터 컨트롤러에 배포된 서버 그룹을 나열하고 이제 서버 그룹이 작업자 4개와 함께 실행되는지 확인합니다.
 
 ```console
 azdata arc postgres server list
 ```
 
-그리고 3 개에서 4 개의 작업자로 규모를 확장 했는지 관찰 합니다. 
+그리고 작업자 3개에서 4개로 스케일 아웃했는지 관찰합니다. 
 
 ```console
 Name        State    Workers
@@ -311,7 +311,7 @@ Name        State    Workers
 postgres01  Ready    4
 ```
 
-앞에서 설명한 것 처럼 이제 서버 그룹에서 4 개의 pod를 사용 합니다.
+이전처럼 서버 그룹이 이제 4개의 pod를 사용함을 확인합니다.
 
 ```output
 kubectl get pods -n arc3
@@ -329,23 +329,23 @@ postgres01w-3         3/3     Running   0          3m13s
 
 |서버 그룹 역할|서버 그룹 pod
 |----|-----
-|코디네이터가|postgres01c-0
+|코디네이터|postgres01c-0
 |작업자|postgres01w-0
 |작업자|postgres01w-1
 |작업자|postgres01w-2
 |작업자|postgres01w-3
 
-Postgres01w pod를 설명 하 여 호스팅된 실제 노드를 식별 합니다.
+postgres01w-3 pod를 설명하여 pod가 호스트되는 실제 노드를 식별합니다.
 
 ```console
 kubectl describe pod postgres01w-3 -n arc3
 ```
 
-Pod이 실행 되는 항목을 확인 합니다.
+그리고 이 노드에서 실행하는 pod를 관찰합니다.
 
 |서버 그룹 역할|서버 그룹 pod| Pod
 |----|-----|------
-|코디네이터가|postgres01c-0|aks-agentpool-42715708-vmss000000
+|코디네이터|postgres01c-0|aks-agentpool-42715708-vmss000000
 |작업자|postgres01w-0|aks-agentpool-42715708-vmss000002
 |작업자|postgres01w-1|aks-agentpool-42715708-vmss000003
 |작업자|postgres01w-2|aks-agentpool-42715708-vmss000000
@@ -353,21 +353,21 @@ Pod이 실행 되는 항목을 확인 합니다.
 
 아키텍처는 다음과 같습니다.
 
-:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes 가장 낮은 사용량으로 노드의 최신 pod를 예약 합니다.":::
+:::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/10_kubernetes_schedules_newest_pod.png" alt-text="Kubernetes에서 사용량이 가장 적은 노드의 최신 pod 예약":::
 
-Kubernetes는 Kubernetes 클러스터의 최소 로드 된 실제 노드에서 새 PostgreSQL pod를 예약 했습니다.
+Kubernetes가 Kubernetes 클러스터의 부하가 가장 적은 실제 노드에서 새 PostgreSQL pod를 예약했습니다.
 
 ## <a name="summary"></a>요약
 
-Azure Arc 사용 서버 그룹을 수평으로 확장 하는 확장성과 성능을 최대한 활용 하려면 Kubernetes 클러스터 내에서 리소스 경합이 발생 하지 않도록 해야 합니다.
-- Azure Arc enabled PostgreSQL Hyperscale 서버 그룹 및 동일한 Kubernetes 클러스터에 호스트 되는 다른 워크 로드
-- Azure Arc enabled PostgreSQL Hyperscale 서버 그룹을 구성 하는 모든 PostgreSQL 인스턴스 간
+Azure Arc 지원 서버 그룹의 수평 크기 조정 성능과 확장성을 최대한 활용하려면 다음의 Kubernetes 클러스터 내에서 리소스 경합이 발생하지 않도록 해야 합니다.
+- Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹과 동일한 Kubernetes 클러스터에서 호스트되는 다른 워크로드 간
+- Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 구성하는 모든 PostgreSQL 인스턴스 간
 
-여러 가지 방법으로이 작업을 수행할 수 있습니다.
-- Kubernetes 및 Azure Arc 사용 설정 Postgres Hyperscale 모두 확장: Azure Arc enabled PostgreSQL Hyperscale 서버 그룹의 크기를 조정 하는 것과 동일한 방식으로 Kubernetes 클러스터를 수평으로 확장 하는 것을 고려 합니다. 서버 그룹에 추가 하는 각 작업자에 대 한 실제 노드를 클러스터에 추가 합니다.
-- Kubernetes에서 호스트 되는 워크 로드에 대 한 적절 한 리소스 제약 조건 (메모리 및 vCore에 대 한 요청 및 제한)을 설정 하 여 Kubernetes 확장 없이 Azure Arc 사용 가능 Postgres Hyperscale 사용: Kubernetes에서 워크 로드의 공동 배치를 사용 하도록 설정 하 고 리소스 경합 위험을 줄입니다. Kubernetes 클러스터의 실제 노드에 대 한 물리적 특성이 사용자가 정의한 리소스 제약 조건을 준수 하는지 확인 해야 합니다. 또한 시간이 지남에 따라 워크 로드가 진화 하거나 더 많은 작업이 Kubernetes 클러스터에 추가 될 때 평형 상태를 유지 하도록 해야 합니다.
-- Kubernetes 메커니즘 (pod 선택기, 선호도, 선호도 방지)을 사용 하 여 pod 배치에 영향을 줍니다.
+방법은 여러 가지입니다.
+- Kubernetes 및 Azure Arc 지원 Postgres 하이퍼스케일 모두 스케일 아웃: Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 크기를 조정하는 것과 동일한 방식으로 Kubernetes 클러스터 크기를 수평으로 조정하는 것을 고려합니다. 서버 그룹에 추가하는 각 작업자에 대한 실제 노드를 클러스터에 추가합니다.
+- Kubernetes를 스케일 아웃하지 않고 Azure Arc 지원 Postgres 하이퍼스케일 스케일 아웃: Kubernetes(Azure Arc 지원 PostgreSQL 하이퍼스케일 포함)에서 호스트되는 워크로드에 올바른 리소스 제약 조건(메모리와 vCore에 대한 요청 및 제한)을 설정하여 Kubernetes에서 워크로드의 공동 배치를 사용하고 리소스 경합의 위험을 줄입니다. Kubernetes 클러스터의 실제 노드에 대한 물리적 특징이 사용자가 정의한 리소스 제약 조건을 준수하는지 확인해야 합니다. 또한 시간 경과에 따라 워크로드가 진화하거나 더 많은 워크로드가 Kubernetes 클러스터에 추가될 때 균형이 유지되도록 해야 합니다.
+- Kubernetes 메커니즘(pod 선택기, 선호도, 반선호도)을 사용하여 pod 배치에 영향을 줍니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[작업자 노드를 더 추가 하 여 Azure Arc 사용 PostgreSQL Hyperscale 서버 그룹 확장](scale-out-postgresql-hyperscale-server-group.md)
+[작업자 노드를 더 추가하여 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)

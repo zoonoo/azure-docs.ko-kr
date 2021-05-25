@@ -1,33 +1,33 @@
 ---
 title: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
-description: 이 문서에서는 Azure Automation의 특정 기능과 관련이 있으므로 Automation 계정과 Log Analytics 작업 영역 간에 지원 되는 지역 매핑을 설명 합니다.
-ms.date: 02/17/2021
+description: 이 문서에서는 Azure Automation의 특정 기능과 관련된 Automation 계정과 Log Analytics 작업 영역 간에 지원되는 지역 매핑을 설명합니다.
+ms.date: 04/01/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 4ac2a575c9fe551d5b1b396ab06b2735a749f9da
+ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101720174"
+ms.lasthandoff: 04/02/2021
+ms.locfileid: "106221877"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>연결된 Log Analytics 작업 영역에 대해 지원되는 지역
 
-Azure Automation에서 서버 및 가상 컴퓨터에 대 한 업데이트 관리, 변경 내용 추적 및 인벤토리 및 작업 시간 외 VM 시작/중지 기능을 사용 하도록 설정할 수 있습니다. 이러한 기능은 Log Analytics 작업 영역에 종속 되므로 작업 영역을 Automation 계정과 연결 해야 합니다. 그러나 특정 영역만 함께 연결할 수 있습니다. 일반적으로 이러한 기능을 사용 하지 않는 작업 영역에 Automation 계정을 연결 하려는 경우에는 매핑을 적용할 수 *없습니다* .
+Azure Automation에서 서버 및 가상 머신에 대한 업데이트 관리, 변경 내용 추적 및 인벤토리, 작업 시간 외 VM 시작/중지 기능을 사용하도록 설정할 수 있습니다. 이러한 기능은 Log Analytics 작업 영역에 종속되므로 작업 영역을 Automation 계정과 연결해야 합니다. 그러나 특정 지역만 함께 연결할 수 있습니다. 일반적으로 이러한 기능을 사용하지 않는 작업 영역에 Automation 계정을 연결하려는 경우에는 매핑이 적용되지 *않습니다*.
 
-여기에 설명 된 매핑은 Log Analytics 작업 영역을 Automation 계정에 연결 하는 경우에만 적용 됩니다. Automation 계정에 연결 된 작업 영역에 연결 된 Vm (가상 컴퓨터)에는 적용 되지 않습니다. Vm은 지정 된 Log Analytics 작업 영역에서 지원 되는 지역으로 제한 되지 않습니다. 모든 지역에 있을 수 있습니다. 다른 지역에 있는 Vm은 상태, 지역 및 국가 규정 요구 사항 또는 회사의 규정 준수 요구 사항에 영향을 줄 수 있습니다. 다른 지역에 Vm을 포함 하는 경우에도 데이터 대역폭 요금이 발생할 수 있습니다.
+여기에 설명된 매핑은 Log Analytics 작업 영역을 Automation 계정에 연결하는 경우에만 적용됩니다. Automation 계정에 연결된 작업 영역에 연결한 VM(가상 머신)에는 적용되지 않습니다. VM은 지정된 Log Analytics 작업 영역에서 지원하는 지역으로 제한되지 않습니다. 모든 지역이 지원됩니다. VM이 다른 지역에 있는 경우 주, 지역 및 국가 규정 요구 사항 또는 회사의 규정 준수 요구 사항에 영향을 줄 수 있습니다. 다른 지역에 VM이 있으면 데이터 대역폭 요금이 부과될 수도 있습니다.
 
-Vm을 다른 지역의 작업 영역에 연결 하기 전에 요구 사항 및 잠재적인 비용을 검토 하 여 법률 및 비용의 영향을 확인 하 고 이해 해야 합니다.
+VM을 다른 지역의 작업 영역에 연결하기 전에 요구 사항 및 잠재적인 비용을 검토하여 법률 및 비용의 영향을 확인하고 이해해야 합니다.
 
-이 문서에서는 Automation 계정에서 이러한 기능을 사용 하도록 설정 하 고 사용할 수 있도록 지원 되는 매핑을 제공 합니다.
+이 문서에서는 Automation 계정에서 이러한 기능을 사용하도록 설정하고 사용할 수 있도록 지원되는 매핑을 제공합니다.
 
-자세한 내용은 [Log Analytics 작업 영역 및 Automation 계정](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)을 참조 하세요.
+자세한 내용은 [Log Analytics 작업 영역 및 Automation 계정](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account)을 참조하세요.
 
 ## <a name="supported-mappings"></a>지원되는 매핑
 
 > [!NOTE]
-> 다음 표에서 볼 수 있듯이 Log Analytics와 Azure Automation 사이에는 하나의 매핑만 있을 수 있습니다.
+> 다음 표에 표시된 것처럼 Log Analytics와 Azure Automation 사이에는 하나의 매핑만 있을 수 있습니다.
 
 다음 표에 지원되는 매핑이 나와 있습니다.
 
@@ -38,36 +38,50 @@ Vm을 다른 지역의 작업 영역에 연결 하기 전에 요구 사항 및 �
 |EastUS2<sup>2</sup>|EastUS|
 |WestUS|WestUS|
 |WestUS2|WestUS2|
+|NorthCentralUS|NorthCentralUS|
 |CentralUS|CentralUS|
 |SouthCentralUS|SouthCentralUS|
 |WestCentralUS|WestCentralUS|
+|**브라질**||
+|BrazilSouth|BrazilSouth|
 |**캐나다**||
 |CanadaCentral|CanadaCentral|
+|**중국**||
+|ChinaEast2<sup>3</sup>|ChinaEast2|
 |**아시아 태평양**||
-|AustraliaEast|AustraliaEast|
-|AustraliaSoutheast|AustraliaSoutheast|
 |EastAsia|EastAsia|
 |SoutheastAsia|SoutheastAsia|
+|**인도**||
 |CentralIndia|CentralIndia|
-|ChinaEast2<sup>3</sup>|ChinaEast2|
+|**일본**||
 |JapanEast|JapanEast|
+|**오스트레일리아**||
+|AustraliaEast|AustraliaEast|
+|AustraliaSoutheast|AustraliaSoutheast|
+|**한국**||
+|KoreaCentral|KoreaCentral|
+|**노르웨이**||
+|NorwayEast|NorwayEast|
 |**유럽**||
 |NorthEurope|NorthEurope|
-|FranceCentral|FranceCentral|
-|UKSouth|UKSouth|
 |WestEurope|WestEurope|
+|**프랑스**||
+|FranceCentral|FranceCentral|
+|**영국**
+|UKSouth|UKSouth|
+|**스위스**||
 |SwitzerlandNorth|SwitzerlandNorth|
+|**아랍에미리트연합국**||
+|UAENorth|UAENorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>3</sup>|USGovArizona|
 
-
-
 <sup>1</sup> Automation 계정에 대한 Log Analytics 작업 영역의 EastUS 매핑은 정확한 지역 간 매핑이 아니라 올바른 매핑입니다.
 
-<sup>2</sup> Automation 계정에 Log Analytics 작업 영역에 대 한 EastUS2 매핑은 정확한 지역 간 매핑이 아니라 올바른 매핑입니다.
+<sup>2</sup> Automation 계정에 대한 Log Analytics 작업 영역의 EastUS2 매핑은 정확한 지역 간 매핑이 아니라 올바른 매핑입니다.
 
-<sup>3</sup> 이 지역에서 업데이트 관리만 지원 되며 지금은 변경 내용 추적 및 인벤토리 같은 다른 기능을 사용할 수 없습니다.
+<sup>3</sup> 이 지역에서는 업데이트 관리만 지원되며 변경 내용 추적 및 인벤토리 같은 다른 기능을 현재 사용할 수 없습니다.
 
 ## <a name="unlink-a-workspace"></a>작업 영역 연결 해제
 

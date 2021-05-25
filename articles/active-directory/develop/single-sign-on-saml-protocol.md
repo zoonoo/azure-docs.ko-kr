@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 40bf202e0f14f18d817e4e918f8372ba3c0a4ad8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91950672"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
@@ -32,25 +32,25 @@ ms.locfileid: "91950672"
 > [!NOTE]
 > 이 문서에서는 Single Sign-On용 SAML 사용 방법에 대해 설명합니다. Single Sign-On을 처리할 수 있는 다른 방법(예: OpenID Connect 또는 Windows 통합 인증 사용)에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
-## <a name="authnrequest"></a>AuthnRequest
+## <a name="authnrequest&quot;></a>AuthnRequest
 
 사용자 인증을 요청하기 위해 클라우드 서비스는 `AuthnRequest` 요소를 Azure AD에 보냅니다. `AuthnRequest` SAML 2.0 샘플은 다음 예제와 같습니다.
 
 ```
 <samlp:AuthnRequest
-xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
-ID="id6c1c178c166d486687be4aaf5e482730"
-Version="2.0" IssueInstant="2013-03-18T03:28:54.1839884Z"
-xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">https://www.contoso.com</Issuer>
+xmlns=&quot;urn:oasis:names:tc:SAML:2.0:metadata&quot;
+ID=&quot;id6c1c178c166d486687be4aaf5e482730&quot;
+Version=&quot;2.0&quot; IssueInstant=&quot;2013-03-18T03:28:54.1839884Z&quot;
+xmlns:samlp=&quot;urn:oasis:names:tc:SAML:2.0:protocol&quot;>
+<Issuer xmlns=&quot;urn:oasis:names:tc:SAML:2.0:assertion&quot;>https://www.contoso.com</Issuer>
 </samlp:AuthnRequest>
 ```
 
-| 매개 변수 | Type | 설명 |
+| 매개 변수 | Type | Description |
 | --- | --- | --- |
-| ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 "id"와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
+| ID | 필수 | Azure AD는 이 특성을 사용하여 반환된 응답의 `InResponseTo` 특성을 채웁니다. ID는 숫자로 시작할 수 없으므로 GUID의 문자열 표현에 &quot;id&quot;와 같은 문자열을 앞에 추가합니다. 예를 들어 `id6c1c178c166d486687be4aaf5e482730` 은 유효한 ID입니다. |
 | 버전 | 필수 | 이 매개 변수는 **2.0** 으로 설정해야 합니다. |
-| IssueInstant | 필수 | UTC 값과 [라운드 트립 형식("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
+| IssueInstant | 필수 | UTC 값과 [라운드 트립 형식(&quot;o")](/dotnet/standard/base-types/standard-date-and-time-format-strings)을 포함하는 DateTime 문자열입니다. Azure AD에는 이 형식의 DateTime 값이 필요하지만, 값을 평가하거나 사용하지 않습니다. |
 | AssertionConsumerServiceURL | 옵션 | 제공되는 경우 이 매개 변수는 Azure AD에서 클라우드 서비스의 `RedirectUri`와 일치해야 합니다. |
 | ForceAuthn | 옵션 | 부울 값입니다. true이면 Azure AD에 유효한 세션이 있어도 사용자를 다시 인증해야 합니다. |
 | IsPassive | 옵션 | 사용자 상호 작용 없이 세션 쿠키(있는 경우)를 사용하여 Azure AD가 사용자를 자동으로 인증할지를 지정하는 부울 값입니다. True이면 Azure AD는 세션 쿠키를 사용하여 사용자 인증을 시도합니다. |
@@ -86,7 +86,7 @@ Azure AD도 `AuthnRequest`에서 `Conditions` 요소를 무시합니다.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: 이 값을 사용하면 Active Directory에서 클레임 형식을 선택할 수 있습니다. Azure Active Directory는 쌍별 식별자로 NameID를 발급합니다.
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: Azure Active Directory에서 NameID 클레임을 현재 SSO 작업에 고유하게 임의로 생성된 값으로 발급합니다. 따라서 임시 값이며 인증 사용자를 식별하는 데 사용할 수 없습니다.
 
-`SPNameQualifier`을 지정 하면 AZURE AD는 응답에 동일한을 포함 합니다 `SPNameQualifier` .
+`SPNameQualifier`를 지정하면 Azure AD는 응답에 동일한 `SPNameQualifier`를 포함합니다.
 
 Azure AD는 `AllowCreate` 특성을 무시합니다.
 
@@ -99,7 +99,7 @@ ID 공급자 목록을 포함하는 `Scoping` 요소는 Azure AD로 전송되는
 제공되는 경우 `ProxyCount` 특성, `IDPListOption` 또는 `RequesterID` 요소는 지원되지 않으므로 포함하지 않습니다.
 
 ### <a name="signature"></a>서명
-요소의 `Signature` 요소는 `AuthnRequest` 선택 사항입니다. 서명이 존재 하는 경우 Azure AD는 서명 된 인증 요청의 유효성을 검사 하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
+`AuthnRequest` 요소의 `Signature` 요소는 선택 사항입니다. 서명이 있으면 Azure AD는 서명된 인증 요청의 유효성을 검사하지 않습니다. 요청자 확인은 등록된 Assertion Consumer Service URL에만 응답하여 제공됩니다.
 
 ### <a name="subject"></a>제목
 `Subject` 요소를 포함하지 마세요. Azure AD는 요청 주제 지정을 지원하지 않고, 요청이 제공되면 오류를 반환합니다.

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 03/24/2021
-ms.openlocfilehash: 3070083040424b877159955dc2138f15319f05c8
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 01/11/2021
+ms.openlocfilehash: 4d83609eea57c2350881360ef757b1a291627c23
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107766392"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100374731"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -33,7 +33,7 @@ ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입* �
 
 * 가상 네트워크 내부에 있거나 가상 네트워크에 연결된 리소스에 직접 액세스
 
-  ISE에서 만들고 실행하는 논리 앱은 [ISE에서 실행되는 특별히 설계된 커넥터](../connectors/managed.md#ise-connectors)를 사용할 수 있습니다. 온-프레미스 시스템 또는 데이터 원본에 ISE 커넥터가 있는 경우 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용하지 않고 직접 연결할 수 있습니다. 자세한 내용은 이 항목 뒷부분의 [전용 테넌트와 다중 테넌트 비교](#difference) 및 [온-프레미스 시스템에 액세스](#on-premises)를 참조하세요.
+  ISE에서 만들고 실행하는 논리 앱은 [ISE에서 실행되는 특별히 설계된 커넥터](../connectors/apis-list.md#ise-connectors)를 사용할 수 있습니다. 온-프레미스 시스템 또는 데이터 원본에 ISE 커넥터가 있는 경우 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용하지 않고 직접 연결할 수 있습니다. 자세한 내용은 이 항목 뒷부분의 [전용 테넌트와 다중 테넌트 비교](#difference) 및 [온-프레미스 시스템에 액세스](#on-premises)를 참조하세요.
 
 * 가상 네트워크 외부에 있거나 가상 네트워크에 연결되지 않은 리소스에 계속 액세스
 
@@ -53,7 +53,7 @@ ISE에서 논리 앱을 만들고 실행하는 경우 다중 테넌트 Logic App
 
 * HTTP와 같은 기본 제공 트리거 및 작업은 **CORE** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행됩니다.
 
-* **ISE** 레이블을 표시하는 관리되는 커넥터는 특별히 ISE용으로 설계되었으며 항상 논리 앱과 동일한 ISE에서 실행됩니다. 예를 들어 [ISE 버전을 제공하는 일부 커넥터](../connectors/managed.md#ise-connectors)는 다음과 같습니다.<p>
+* **ISE** 레이블을 표시하는 관리되는 커넥터는 특별히 ISE용으로 설계되었으며 항상 논리 앱과 동일한 ISE에서 실행됩니다. 예를 들어 [ISE 버전을 제공하는 일부 커넥터](../connectors/apis-list.md#ise-connectors)는 다음과 같습니다.<p>
 
   * Azure Blob Storage, File Storage 및 Table Storage
   * Azure Service Bus, Azure Queues, Azure Event Hubs
@@ -79,7 +79,7 @@ ISE 내에서 실행되는 논리 앱은 다음 항목을 사용하여 Azure 가
 
 * 온-프레미스 시스템 또는 데이터 원본의 **ISE** 커넥터(사용할 수 있는 경우)
 
-  ISE 커넥터를 사용할 수 있는 경우 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md) 없이 시스템 또는 데이터 원본에 직접 액세스할 수 있습니다. 그러나 ISE에서 SQL Server에 액세스하고 Windows 인증을 사용해야 하는 경우에는 커넥터의 비 ISE 버전 및 온-프레미스 데이터 게이트웨이를 사용해야 합니다. 커넥터의 ISE 버전은 Windows 인증을 지원하지 않습니다. 자세한 내용은 [ISE 커넥터](../connectors/managed.md#ise-connectors) 및 [통합 서비스 환경에서 연결](../connectors/managed.md#integration-account-connectors)을 참조하세요.
+  ISE 커넥터를 사용할 수 있는 경우 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md) 없이 시스템 또는 데이터 원본에 직접 액세스할 수 있습니다. 그러나 ISE에서 SQL Server에 액세스하고 Windows 인증을 사용해야 하는 경우에는 커넥터의 비 ISE 버전 및 온-프레미스 데이터 게이트웨이를 사용해야 합니다. 커넥터의 ISE 버전은 Windows 인증을 지원하지 않습니다. 자세한 내용은 [ISE 커넥터](../connectors/apis-list.md#ise-connectors) 및 [통합 서비스 환경에서 연결](../connectors/apis-list.md#integration-service-environment)을 참조하세요.
 
 * 사용자 지정 커넥터
 

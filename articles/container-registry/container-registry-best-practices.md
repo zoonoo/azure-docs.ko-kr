@@ -3,12 +3,12 @@ title: 레지스트리 모범 사례
 description: 다음 모범 사례에 따라 Azure Container Registry를 효과적으로 사용하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 01/07/2021
-ms.openlocfilehash: 0811cc4a5bffc21ffba19e64a3887eab6bc36fbb
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784140"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "100578133"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Azure Container Registry의 모범 사례
 
@@ -63,7 +63,7 @@ Azure Container Registry에서 인증할 때 두 가지 기본 시나리오, 즉
 
 | Type | 예제 시나리오 | 권장 방법 |
 |---|---|---|
-| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr#az_acr_login) |
+| 개별 ID | 개발자가 개발 컴퓨터로 이미지를 끌어오거나 개발 컴퓨터에서 이미지를 푸시함 | [az acr login](/cli/azure/acr#az-acr-login) |
 | 헤드리스/서비스 ID | 사용자가 직접 참여하지 않은 파이프라인 빌드 및 배포 | [서비스 주체](container-registry-authentication.md#service-principal) |
 
 이러한 Azure Container Registry 인증 시나리오에 대한 자세한 내용은 [Azure 컨테이너 레지스트리로 인증](container-registry-authentication.md)을 참조하세요.
@@ -108,8 +108,8 @@ Azure Container Registry는 다양한 기능을 제공하는 SKU라고도 하는
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
-[az-acr-show-usage]: /cli/azure/acr#az_acr_show_usage
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

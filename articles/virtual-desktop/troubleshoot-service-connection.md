@@ -1,17 +1,17 @@
 ---
 title: 서비스 연결 문제 해결 Windows Virtual Desktop - Azure
-description: Windows 가상 데스크톱 테 넌 트 환경에서 서비스 연결을 설정 하는 동안 문제를 해결 하는 방법입니다.
+description: Windows Virtual Desktop 테넌트 환경에서 서비스 연결을 설정하는 동안 발생하는 문제를 해결하는 방법입니다.
 author: Heidilohr
 ms.topic: troubleshooting
 ms.date: 10/15/2020
 ms.author: helohr
-manager: lizross
-ms.openlocfilehash: 42502864cfed177adfe487e9c59247579628fec8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+manager: femila
+ms.openlocfilehash: 68468276546eade7c068f1aa48d3ac65fc8aadaa
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98539084"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106445383"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Windows Virtual Desktop 서비스 연결
 
@@ -38,26 +38,26 @@ ms.locfileid: "98539084"
 
 3. 웹 클라이언트를 사용하는 경우 캐시된 자격 증명 문제가 없는지 확인합니다.
 
-4. 사용자가 AD (Azure Active Directory) 사용자 그룹의 일부인 경우에는 사용자 그룹이 메일 그룹 대신 보안 그룹 인지 확인 합니다. Windows 가상 데스크톱은 Azure AD 메일 그룹을 지원 하지 않습니다.
+4. 사용자가 Azure AD(Active Directory) 사용자 그룹의 일부인 경우에는 사용자 그룹이 배포 그룹이 아닌 보안 그룹인지 확인합니다. Windows Virtual Desktop은 Azure AD 배포 그룹을 지원하지 않습니다.
 
-## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>사용자가 기존 피드를 잃고 원격 리소스가 표시 되지 않습니다 (피드 없음).
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>사용자가 기존 피드를 잃고 원격 리소스가 표시되지 않음(피드 없음)
 
-이 오류는 일반적으로 사용자가 한 Azure AD 테 넌 트에서 다른 Azure AD 테 넌 트에서 구독을 이동한 후에 표시 됩니다. 따라서 서비스는 여전히 이전 Azure AD 테 넌 트에 연결 되어 있기 때문에 사용자 할당을 추적 하지 않습니다.
+이 오류는 일반적으로 사용자가 Azure AD 테넌트 간에 구독을 이동한 후에 나타납니다. 따라서 서비스는 여전히 이전 Azure AD 테넌트에 연결되어 있으므로 사용자 할당을 추적하지 못합니다.
 
-이 문제를 해결 하려면 사용자를 앱 그룹에 다시 할당 하기만 하면 됩니다.
+이 문제를 해결하려면 사용자를 앱 그룹에 다시 할당하기만 하면 됩니다.
 
-이는 CSP 공급자가 구독을 만든 다음 고객에 게 전송한 경우에도 발생할 수 있습니다. 이 문제를 해결 하려면 리소스 공급자를 다시 등록 합니다.
+이는 CSP 공급자가 구독을 만든 다음, 고객에게 전송한 경우에도 발생할 수 있습니다. 이 문제를 해결하려면 리소스 공급자를 다시 등록합니다.
 
 1. Azure Portal에 로그인합니다.
-2. **구독** 으로 이동한 다음 구독을 선택 합니다.
-3. 페이지의 왼쪽에 있는 메뉴에서 **리소스 공급자** 를 선택 합니다.
-4. **Microsoft DesktopVirtualization** 을 찾아 선택한 다음 **다시 등록** 을 선택 합니다.
+2. **구독** 으로 이동한 다음, 구독을 선택합니다.
+3. 페이지 왼쪽에 있는 메뉴에서 **리소스 공급자** 를 선택합니다.
+4. **Microsoft.DesktopVirtualization** 을 찾아 선택한 다음, **다시 등록** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Windows Virtual Desktop 및 에스컬레이션 트랙 문제 해결에 대한 개요는 [문제 해결 개요, 피드백 및 지원](troubleshoot-set-up-overview.md)을 참조하세요.
 - Windows Virtual Desktop 환경에서 Windows Virtual Desktop 환경 및 호스트 풀을 만드는 데 발생하는 문제를 해결하려면 [환경 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조하세요.
 - Windows Virtual Desktop에서 VM(가상 머신)을 구성하면서 생기는 문제를 해결하려면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조하세요.
-- Windows 가상 데스크톱 에이전트 또는 세션 연결과 관련 된 문제를 해결 하려면 [일반적인 Windows 가상 데스크톱 에이전트 문제 해결](troubleshoot-agent.md)을 참조 하세요.
+- Windows Virtual Desktop 에이전트 또는 세션 연결과 관련된 문제를 해결하려면 [일반적인 Windows Virtual Desktop 에이전트 문제 해결](troubleshoot-agent.md)을 참조하세요.
 - Windows Virtual Desktop과 함께 PowerShell을 사용할 때 발생하는 문제를 해결하려면 [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)을 참조하세요.
 - 문제 해결 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포 문제 해결](../azure-resource-manager/templates/template-tutorial-troubleshoot.md)을 참조하세요.

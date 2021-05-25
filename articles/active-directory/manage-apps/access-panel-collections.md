@@ -3,23 +3,23 @@ title: Azure Active Directory에서 내 앱 포털에 대한 컬렉션 만들기
 description: 내 앱 컬렉션을 사용하여 최종 사용자에게 더 간단한 내 앱 환경을 위해 내 앱 페이지를 사용자 지정할 수 있습니다. 별도의 탭을 사용하여 애플리케이션을 그룹으로 구성합니다.
 services: active-directory
 documentationcenter: ''
-author: kenwith
-manager: daveba
+author: iantheninja
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/10/2020
-ms.author: kenwith
+ms.author: iangithinji
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7743a1af54b01f848c4ac6f0cb1d4526d66f8132
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc79e8026cb91b8ef3eac2addbb097b9db83afa7
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99254985"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377686"
 ---
 # <a name="create-collections-on-the-my-apps-portal"></a>내 앱 포털에서 컬렉션 만들기
 

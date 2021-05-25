@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션 - 
 description: Studio(클래식)를 다시 빌드하여 Azure Machine Learning에서 실행할 R 스크립트 모듈을 실행합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: ac9ad296029451d624345d8b3bb365d881ba9a84
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18d9013b1a5afcf57b54cffc01a15948382210bb
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103565032"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311042"
 ---
 # <a name="migrate-execute-r-script-modules-in-studio-classic"></a>Studio(클래식)에서 R 스크립트 실행 모듈 마이그레이션
 
@@ -107,9 +107,9 @@ Azure Machine Learning 디자이너를 사용하면 CRAN에서 직접 패키지�
 
 Studio(클래식) 마이그레이션 시리즈의 다른 문서를 참조하세요.
 
-1. [마이그레이션 개요](migrate-overview.md).
-1. [데이터 세트를 마이그레이션합니다](migrate-register-dataset.md).
-1. [Studio(클래식) 학습 파이프라인을 다시 빌드합니다](migrate-rebuild-experiment.md).
-1. [Studio(클래식) 웹 서비스를 다시 빌드합니다](migrate-rebuild-web-service.md).
+1. [마이그레이션 개요](migrate-overview.md)입니다.
+1. [마이그레이션 데이터세트](migrate-register-dataset.md)
+1. [Studio(클래식) 학습 파이프라인을 다시 빌드](migrate-rebuild-experiment.md)합니다.
+1. [Studio(클래식) 웹 서비스를 다시 빌드](migrate-rebuild-web-service.md)합니다.
 1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md)합니다.
 1. **R 스크립트 실행 모듈을 마이그레이션합니다**.
