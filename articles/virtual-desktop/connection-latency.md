@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 2fa03fa948c7768f5e74cc68b528e847c5351273
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 18fc276ec9d95a52c5bb5890cda313fc14fc7c5f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447861"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144334"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 사용자 연결 대기 시간 확인
 
@@ -38,4 +38,4 @@ Windows Virtual Desktop은 [Azure Front Door](https://azure.microsoft.com/servic
 
 - 최적의 대기 시간을 위한 최적의 위치를 확인하려면 [Windows Virtual Desktop Experience Estimator 도구](https://azure.microsoft.com/services/virtual-desktop/assessment/)를 참조하세요.
 - 가격 책정 계획은 [Windows Virtual Desktop 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/)을 참조하세요.
-- Windows Virtual Desktop 배포를 시작하려면 [자습서](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)를 확인하세요.
+- Windows Virtual Desktop 배포를 시작하려면 [자습서](./create-host-pools-azure-marketplace.md)를 확인하세요.

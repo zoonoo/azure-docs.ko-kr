@@ -1,44 +1,44 @@
 ---
 title: 프라이빗 Python 패키지 사용
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 환경에서 개인 Python 패키지로 안전 하 게 작업 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning 환경에서 프라이빗 Python 패키지를 사용하여 안전하게 작업하는 방법을 알아봅니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
 ms.reviewer: laobri
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 5cc1025528959f8c81aa80703e3fc26d59c5266f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 6d199eb684802de948451bd376feda4a254aa06f
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618103"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884213"
 ---
-# <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 전용 Python 패키지 사용
+# <a name="use-private-python-packages-with-azure-machine-learning"></a>Azure Machine Learning에서 프라이빗 Python 패키지 사용
 
 
-이 문서에서는 Azure Machine Learning 내에서 안전 하 게 개인 Python 패키지를 사용 하는 방법에 대해 알아봅니다. 개인 Python 패키지에 대 한 사용 사례는 다음과 같습니다.
+이 문서에서는 Azure Machine Learning 내에서 프라이빗 Python 패키지를 안전하게 사용하는 방법을 알아봅니다. 프라이빗 Python 패키지 사용 사례는 다음과 같습니다.
 
- * 공개적으로 공유 하지 않으려는 개인 패키지를 개발 했습니다.
- * 엔터프라이즈 방화벽 내에 저장 된 패키지의 큐 레이트 리포지토리를 사용 하려고 합니다.
+ * 공개적으로 공유하지 않으려는 프라이빗 패키지를 개발했습니다.
+ * 엔터프라이즈 방화벽 내에 저장된 패키지의 큐레이팅된 리포지토리를 사용하려고 합니다.
 
-권장 되는 방법은 단일 Azure Machine Learning 작업 영역에 대 한 패키지를 몇 개 사용 하는지 아니면 조직 내의 모든 작업 영역에 대 한 전체 패키지 리포지토리를 사용 하는지에 따라 달라 집니다.
+권장 방식은 단일 Azure Machine Learning 작업 영역에 대한 패키지가 몇 개 있거나 조직 내 모든 작업 영역에 대한 패키지의 전체 리포지토리가 있는지 여부에 따라 달라집니다.
 
-[환경](/python/api/azureml-core/azureml.core.environment.environment) 클래스를 통해 개인 패키지를 사용 합니다. 환경 내에서 개인용 패키지를 포함 하 여 사용할 Python 패키지를 선언 합니다. 일반적인 Azure Machine Learning 환경에 대해 알아보려면 [환경을 사용 하는 방법](how-to-use-environments.md)을 참조 하세요. 
+[환경](/python/api/azureml-core/azureml.core.environment.environment) 클래스를 통해 프라이빗 패키지를 사용합니다. 환경 내에서 프라이빗 Python 패키지 등 사용할 Python 패키지를 선언합니다. 일반적인 Azure Machine Learning의 환경은 [환경 사용 방식](how-to-use-environments.md)을 참조하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
- * [Python 용 AZURE MACHINE LEARNING SDK](/python/api/overview/azure/ml/install)
+ * [Python용 Azure Machine Learning SDK](/python/api/overview/azure/ml/install)
  * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
 
-## <a name="use-small-number-of-packages-for-development-and-testing"></a>개발 및 테스트에 적은 수의 패키지 사용
+## <a name="use-small-number-of-packages-for-development-and-testing"></a>개발 및 테스트에 소수의 패키지 사용
 
-단일 작업 영역에 대 한 소수의 개인 패키지의 경우 정적 메서드를 사용 [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 합니다. 이 접근 방식을 사용 하면 작업 영역에 개인 패키지를 신속 하 게 추가할 수 있으며 개발 및 테스트 목적으로 적합 합니다.
+단일 작업 영역에 대한 소수의 프라이빗 패키지에 정적 [`Environment.add_private_pip_wheel()`](/python/api/azureml-core/azureml.core.environment.environment#add-private-pip-wheel-workspace--file-path--exist-ok-false-) 메서드를 사용합니다. 이 방식을 사용하면 프라이빗 패키지를 작업 영역에 빠르게 추가할 수 있으므로 이 방식은 개발 및 테스트 용도로 매우 적합합니다.
 
-로컬 휠 파일의 파일 경로 인수를 가리키고 ```add_private_pip_wheel``` 명령을 실행 합니다. 이 명령은 작업 영역 내에서 패키지의 위치를 추적 하는 데 사용 되는 URL을 반환 합니다. 저장소 URL을 캡처하고 메서드를 전달 `add_pip_package()` 합니다.
+파일 경로 인수를 로컬 휠 파일로 가리키고 ```add_private_pip_wheel``` 명령을 실행합니다. 이 명령은 작업 영역 내에서 패키지 위치를 추적하는 데 사용된 URL을 반환합니다. 스토리지 URL을 캡처하고 `add_pip_package()` 메서드를 전달합니다.
 
 ```python
 whl_url = Environment.add_private_pip_wheel(workspace=ws,file_path = "my-custom.whl")
@@ -48,17 +48,17 @@ conda_dep.add_pip_package(whl_url)
 myenv.python.conda_dependencies=conda_dep
 ```
 
-내부적으로 Azure Machine Learning 서비스는 보안 SAS URL로 URL을 대체 하므로 휠 파일은 개인 및 안전 하 게 유지 됩니다.
+내부적으로 Azure Machine Learning Service는 URL을 보안 SAS URL로 대체하므로 휠 파일은 안전하게 비공개 상태로 유지됩니다.
 
-## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Azure DevOps 피드의 패키지 리포지토리 사용
+## <a name="use-a-repository-of-packages-from-azure-devops-feed"></a>Azure DevOps 피드에서 패키지 리포지토리 사용
 
-기계 학습 응용 프로그램에 대 한 Python 패키지를 적극적으로 개발 하는 경우 Azure DevOps 리포지토리에서 아티팩트로 호스팅하고 피드로 게시할 수 있습니다. 이 접근 방식을 사용 하면 Azure Machine Learning 작업 영역를 사용 하 여 패키지를 빌드하기 위한 DevOps 워크플로를 통합할 수 있습니다. Azure DevOps를 사용 하 여 Python 피드를 설정 하는 방법을 알아보려면 [Azure Artifacts에서 Python 패키지 시작](/azure/devops/artifacts/quickstarts/python-packages) 을 참조 하세요.
+기계 학습 애플리케이션에 사용될 Python 패키지를 적극적으로 개발하는 경우 이 패키지를 아티팩트로 Azure DevOps 리포지토리에 호스팅하고 피드로 게시할 수 있습니다. 이 방식을 사용하면 패키지 빌드에 사용되는 DevOps 워크플로를 Azure Machine Learning 작업 영역에 통합할 수 있습니다. Azure DevOps를 사용하여 Python 피드를 설정하는 방법은 [Azure Artifacts에서 Python 패키지 시작](/azure/devops/artifacts/quickstarts/python-packages)을 참조하세요.
 
-이 방법은 개인용 액세스 토큰을 사용 하 여 리포지토리에 대해 인증 합니다. 동일한 접근 방식은 개인 GitHub 리포지토리와 같이 토큰 기반 인증을 사용 하는 다른 리포지토리에 적용할 수 있습니다. 
+이 방식에서는 개인용 액세스 토큰을 사용하여 리포지토리를 인증합니다. 같은 방식을 프라이빗 GitHub 리포지토리와 같은 토큰 기반 인증이 있는 다른 리포지토리에 적용할 수 있습니다. 
 
- 1. Azure DevOps 인스턴스에 대해 [PAT (개인용 액세스 토큰)를 만듭니다](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?tabs=preview-page#create-a-pat) . 토큰의 범위를 __패키징을 > 읽기__ 로 설정 합니다. 
+ 1. Azure DevOps 인스턴스의 [PAT(개인용 액세스 토큰)를 만듭니다](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?tabs=preview-page#create-a-pat). 토큰 범위를 __패키징 > 읽기__ 로 설정합니다. 
 
- 2. [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) 메서드를 사용 하 여 Azure DEVOPS URL 및 PAT를 작업 영역 속성으로 추가 합니다.
+ 2. [Workspace.set_connection](/python/api/azureml-core/azureml.core.workspace.workspace#set-connection-name--category--target--authtype--value-) 메서드를 사용하여 Azure DevOps URL과 PAT를 작업 영역 속성으로 추가합니다.
 
      ```python
     from azureml.core import Workspace
@@ -72,7 +72,7 @@ myenv.python.conda_dependencies=conda_dep
         value = pat_token) 
      ```
 
- 3. Azure Machine Learning 환경을 만들고 피드에서 Python 패키지를 추가 합니다.
+ 3. Azure Machine Learning 환경을 만들고 피드에서 Python 패키지를 추가합니다.
     
     ```python
     from azureml.core import Environment
@@ -85,19 +85,19 @@ myenv.python.conda_dependencies=conda_dep
     env.python.conda_dependencies=cd
     ```
 
-이제 환경을 학습 실행 또는 웹 서비스 끝점 배포에 사용할 준비가 되었습니다. 환경을 구축할 때 Azure Machine Learning 서비스는 PAT를 사용 하 여 일치 하는 기준 URL로 피드에 대해 인증 합니다.
+이제 환경을 학습 실행이나 웹 서비스 엔드포인트 배포에서 사용할 수 있습니다. 환경을 구축할 경우 Azure Machine Learning Service는 PAT를 사용하여 기준 URL과 일치하는 피드를 인증합니다.
 
-## <a name="use-a-repository-of-packages-from-private-storage"></a>개인 저장소의 패키지 리포지토리 사용
+## <a name="use-a-repository-of-packages-from-private-storage"></a>프라이빗 스토리지에서 패키지 리포지토리 사용
 
-조직의 방화벽 내에 있는 Azure storage 계정에서 패키지를 사용할 수 있습니다. 저장소 계정은 큐 레이트 패키지 집합 또는 공개적으로 사용 가능한 패키지의 내부 미러를 보유할 수 있습니다.
+조직 방화벽 내에 있는 Azure 스토리지 계정에서 패키지를 사용할 수 있습니다. 스토리지 계정은 큐레이팅된 패키지 세트나 공개적으로 사용 가능한 패키지의 미러를 저장할 수 있습니다.
 
-이러한 개인 저장소를 설정 하려면 [Azure Machine Learning 작업 영역 보안 및 관련 리소스](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)를 참조 하세요. 또한 [VNet 뒤에 Azure Container Registry (ACR)를 넣어야](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)합니다.
+이러한 프라이빗 스토리지를 설정하려면 [Azure Machine Learning 작업 영역과 관련 리소스 보호](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints)를 참조하세요. 또한 [VNet 뒤에 ACR(Azure Container Registry)을 배치](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr)해야 합니다.
 
 > [!IMPORTANT]
-> 개인 패키지 리포지토리를 사용 하 여 모델을 학습 하거나 배포 하려면이 단계를 완료 해야 합니다.
+> 프라이빗 패키지 리포지토리를 사용하여 모델을 학습시키거나 배포할 수 있으려면 이 단계를 완료해야 합니다.
 
-이러한 구성을 완료 한 후에는 Azure blob storage에서 전체 URL로 Azure Machine Learning 환경 정의의 패키지를 참조할 수 있습니다.
+이러한 구성을 완료하면 Azure BLOB 스토리지의 전체 URL을 사용하여 Azure Machine Learning 환경 정의에서 패키지를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
- * [Azure Machine Learning의 엔터프라이즈 보안](concept-enterprise-security.md) 에 대해 자세히 알아보세요.
+ * [Azure Machine Learning의 엔터프라이즈 보안](concept-enterprise-security.md)에 대해 자세히 알아보기

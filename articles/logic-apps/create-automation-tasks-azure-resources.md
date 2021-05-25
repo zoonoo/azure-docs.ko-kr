@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 04/05/2021
-ms.openlocfilehash: 0a98f9e4b108d2498fa19bc0b041f9d52272c7d2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107774921"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101719052"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>자동화 작업을 만들어 Azure 리소스 관리 및 비용 모니터링(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "107774921"
 
 이 미리 보기에서 현재 사용 가능한 작업 템플릿은 다음과 같습니다.
 
-| 리소스 종류 | 자동화 작업 템플릿 |
+| 리소스 유형 | 자동화 작업 템플릿 |
 |---------------|---------------------------|
 | Azure 리소스 그룹 | **리소스가 삭제되는 경우** |
 | 모든 Azure 리소스 | **리소스에 대한 월별 비용 보내기** |
@@ -150,7 +150,7 @@ ms.locfileid: "107774921"
 
    **논리 앱 실행** 창이 열리고, 실행된 기본 워크플로가 표시됩니다.
 
-   * 워크플로는 항상 [*트리거*](../connectors/apis-list.md#triggers)로 시작합니다. 이 작업의 경우 워크플로는 [**되풀이**](../connectors/connectors-native-recurrence.md) 트리거로 시작합니다.
+   * 워크플로는 항상 [*트리거*](../connectors/apis-list.md#triggers-actions)로 시작합니다. 이 작업의 경우 워크플로는 [**되풀이**](../connectors/connectors-native-recurrence.md) 트리거로 시작합니다.
 
    * 각 단계에는 상태 및 실행 기간이 표시됩니다. 기간이 0초인 단계를 실행하는 데 1초 미만이 걸렸습니다.
 

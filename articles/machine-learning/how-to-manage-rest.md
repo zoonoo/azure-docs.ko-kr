@@ -1,60 +1,60 @@
 ---
-title: REST를 사용 하 여 ML 리소스 관리
+title: REST를 사용하여 ML 리소스 관리
 titleSuffix: Azure Machine Learning
-description: REST Api를 사용 하 여 작업 영역과 같은 Azure Machine Learning 리소스를 만들고 실행 하 고 삭제 하는 방법 또는 모델을 등록 하는 방법입니다.
+description: REST API를 사용하여 작업 영역 등의 Azure Machine Learning 리소스를 만들고, 실행하고, 삭제하거나 모델을 등록하는 방법을 설명합니다.
 author: lobrien
 ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 01/31/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: dcab70d75ca5a46242b1d43d28e148dc5f54b2d2
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520322"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107888965"
 ---
-# <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
+# <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용하여 Azure ML 리소스 만들기, 실행 및 삭제
 
 
 
-Azure ML 리소스를 관리 하는 방법에는 여러 가지가 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](/cli/azure)또는 [Python SDK](/python/api/overview/azure/ml/intro)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용 하 여 리소스를 만들고, 검색 하 고, 업데이트 하 고, 삭제 합니다. REST API는 HTTP 요청을 수행할 수 있는 모든 언어 또는 도구와 함께 작동 합니다. REST의 간단한 구조를 사용 하면 스크립팅 환경 및 MLOps 자동화에 적합 합니다. 
+몇 가지 방법으로 Azure ML 리소스를 관리할 수 있습니다. [포털](https://portal.azure.com/), [명령줄 인터페이스](/cli/azure) 또는 [Python SDK](/python/api/overview/azure/ml/intro)를 사용할 수 있습니다. 또는 REST API를 선택할 수 있습니다. REST API는 표준 방식으로 HTTP 동사를 사용하여 리소스를 만들고, 검색하고, 업데이트하고, 삭제합니다. REST API는 HTTP 요청을 만들 수 있는 모든 언어 또는 도구에서 작동합니다. REST는 구조가 간단하기 때문에 스크립팅 환경 및 MLOps 자동화에 적합합니다. 
 
 이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * 권한 부여 토큰 검색
-> * 서비스 주체 인증을 사용 하 여 올바른 형식의 REST 요청 만들기
-> * GET 요청을 사용 하 여 Azure ML의 계층 구조 리소스에 대 한 정보 검색
-> * PUT 및 POST 요청을 사용 하 여 리소스 만들기 및 수정
-> * DELETE 요청을 사용 하 여 리소스 정리 
-> * 키 기반 권한 부여를 사용 하 여 배포 된 모델 점수 매기기
+> * 서비스 주체 인증을 사용하여 올바른 형식의 REST 요청 만들기
+> * GET 요청을 사용하여 Azure ML의 계층 구조 리소스에 대한 정보 검색
+> * PUT 및 POST 요청을 사용하여 리소스 만들기 및 수정
+> * DELETE 요청을 사용하여 리소스 정리 
+> * 키 기반 권한 부여를 사용하여 배포된 모델 채점
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 관리 권한이 있는 **Azure 구독** . 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 을 사용해 보세요.
+- 본인에게 관리 권한이 있는 **Azure 구독** 이러한 구독이 없는 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)을 사용해 보세요.
 - [Azure Machine Learning 작업 영역](./how-to-manage-workspace.md)
-- 관리 REST 요청은 서비스 주체 인증을 사용 합니다. [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication) 의 단계에 따라 작업 영역에서 서비스 주체를 만듭니다.
-- **말아 넘기기** 유틸리티입니다. **말아 넘기기** 프로그램은 [Linux 용 Windows 하위 시스템](/windows/wsl/install-win10) 또는 UNIX 배포에서 사용할 수 있습니다. PowerShell에서 **말아 넘기기** 는 **호출 WebRequest** 의 별칭이 며가 됩니다 `curl -d "key=val" -X POST uri` `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri` . 
+- 관리 REST 요청은 서비스 사용자 인증을 사용합니다. [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)의 단계에 따라 작업 영역에서 서비스 주체를 만듭니다.
+- **curl** 유틸리티. **curl** 프로그램은 [Linux용 Windows 하위 시스템](/windows/wsl/install-win10) 또는 모든 UNIX에서 사용할 수 있습니다. PowerShell에서 **curl** 은 **Invoke-WebRequest** 의 별칭으로, `curl -d "key=val" -X POST uri`는 `Invoke-WebRequest -Body "key=val" -Method POST -Uri uri`가 됩니다. 
 
-## <a name="retrieve-a-service-principal-authentication-token"></a>서비스 주체 인증 토큰 검색
+## <a name="retrieve-a-service-principal-authentication-token"></a>서비스 사용자 인증 토큰 검색
 
-관리 REST 요청은 OAuth2 암시적 흐름으로 인증 됩니다. 이 인증 흐름은 구독의 서비스 사용자가 제공 하는 토큰을 사용 합니다. 이 토큰을 검색 하려면 다음이 필요 합니다.
+관리 REST 요청은 OAuth2 암시적 흐름으로 인증됩니다. 이 인증 흐름은 구독의 서비스 사용자가 제공하는 토큰을 사용합니다. 이 토큰을 검색하려면 다음이 필요합니다.
 
-- 사용자의 테 넌 트 ID (구독이 속한 조직을 식별 하는)
-- 클라이언트 ID (생성 된 토큰과 연결 됨)
-- 클라이언트 암호 (보호 해야 함)
+- 사용자의 테넌트 ID(구독이 속한 조직 식별)
+- 클라이언트 ID(생성된 토큰과 연결됨)
+- 클라이언트 암호(보호해야 함)
 
-서비스 사용자를 만들기 위한 응답에서 이러한 값이 있어야 합니다. 이러한 값을 가져오는 방법에 [대 한 자세한 내용은 Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)에 설명 되어 있습니다. 회사 구독을 사용 하는 경우 서비스 주체를 만들 수 있는 권한이 없는 것일 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree)중 하나를 사용 해야 합니다.
+서비스 사용자 생성에 대한 응답에 이 값이 있어야 합니다. 이러한 값을 가져오는 방법은 [Azure Machine Learning 리소스 및 워크플로에 대한 인증 설정](./how-to-setup-authentication.md#service-principal-authentication)에서 설명합니다. 회사 구독을 사용할 경우 서비스 사용자를 만들 권한이 없을 수 있습니다. 이 경우 [무료 또는 유료 개인 구독](https://aka.ms/AMLFree) 중 하나를 사용해야 합니다.
 
-토큰을 검색 하려면:
+토큰을 검색하려면:
 
 1. 터미널 창 열기
-1. 명령줄에 다음 코드를 입력 합니다.
-1. , 및에 대 한 고유한 값 `{your-tenant-id}` 을 대체 `{your-client-id}` `{your-client-secret}` 합니다. 이 문서 전체에서 중괄호로 묶은 문자열은 적절 한 값으로 바꿔야 하는 변수입니다.
+1. 명령줄에서 다음 코드를 입력합니다.
+1. `{your-tenant-id}`, `{your-client-id}` 및 `{your-client-secret}`에 대한 고유한 값을 대체합니다. 이 문서 전체에서 중괄호로 묶은 문자열은 적절한 고유의 값으로 바꿔야 하는 변수입니다.
 1. 명령 실행
 
 ```bash
@@ -62,7 +62,7 @@ curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
 -d "grant_type=client_credentials&resource=https%3A%2F%2Fmanagement.azure.com%2F&client_id={your-client-id}&client_secret={your-client-secret}" \
 ```
 
-응답은 1 시간 동안 유효한 액세스 토큰을 제공 해야 합니다.
+응답은 1시간 동안 유효한 액세스 토큰을 제공할 것입니다.
 
 ```json
 {
@@ -76,25 +76,25 @@ curl -X POST https://login.microsoftonline.com/{your-tenant-id}/oauth2/token \
 }
 ```
 
-토큰을 기록해 둡니다 .이 토큰을 사용 하 여 모든 후속 관리 요청을 인증할 수 있습니다. 모든 요청에 권한 부여 헤더를 설정 하 여이 작업을 수행 합니다.
+이 토큰을 사용하여 이후의 모든 관리 요청을 인증해야 하므로 토큰을 기록해 둡니다. 모든 요청에서 권한 부여 헤더를 설정하여 이 작업을 수행하게 됩니다.
 
 ```bash
 curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
-토큰을 추가 하기 전에 단일 공백을 포함 하는 문자열 "전달자"로 시작 하는 값을 확인 합니다.
+토큰을 추가하기 전에 단일 공백을 포함하여 문자열 "전달자"로 시작하는 값을 확인합니다.
 
-## <a name="get-a-list-of-resource-groups-associated-with-your-subscription"></a>구독과 연결 된 리소스 그룹 목록 가져오기
+## <a name="get-a-list-of-resource-groups-associated-with-your-subscription"></a>구독과 연결된 리소스 그룹 목록 가져오기
 
-구독과 연결 된 리소스 그룹 목록을 검색 하려면 다음을 실행 합니다.
+구독과 연결된 리소스 그룹 목록을 가져오려면 다음을 실행합니다.
 
 ```bash
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups?api-version=2019-11-01 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Azure 전체에서 많은 REST Api가 게시 됩니다. 각 서비스 공급자는 자체의 주기에서 API를 업데이트 하지만 기존 프로그램을 중단 하지 않습니다. 서비스 공급자는 인수를 사용 하 여 `api-version` 호환성을 보장 합니다. `api-version`인수는 서비스에 따라 다릅니다. 예를 들어 Machine Learning 서비스의 경우 현재 API 버전은 `2019-11-01` 입니다. 저장소 계정의 경우 `2019-06-01` 입니다. 키 자격 증명 모음의 경우 `2019-09-01` 입니다. 모든 REST 호출은 `api-version` 인수를 예상 값으로 설정 해야 합니다. API가 계속 진화 하더라도 지정 된 버전의 구문 및 의미 체계를 사용할 수 있습니다. 인수 없이 공급자에 게 요청을 보내는 경우 `api-version` 응답에는 지원 되는 값의 사람이 읽을 수 있는 목록이 포함 됩니다. 
+Azure 전체에서 많은 REST API가 게시됩니다. 각 서비스 공급자는 자체 케이던스에 대해 API를 업데이트하지만 기존 프로그램을 중단하지는 않습니다. 서비스 공급자는 `api-version` 인수를 사용하여 호환성을 보장합니다. `api-version` 인수는 서비스마다 다릅니다. 예를 들어 Machine Learning Service의 경우 최신 API 버전은 `2019-11-01`입니다. 스토리지 계정의 경우에는 `2019-06-01`입니다. 키 자격 증명 모음의 경우 `2019-09-01`이 됩니다. 모든 REST 호출은 `api-version` 인수를 기대값으로 설정해야 합니다. API가 계속 진화하더라도 지정된 버전의 구문 및 의미 체계를 사용할 수 있습니다. `api-version` 인수 없이 공급자에게 요청을 보내는 경우 응답에는 지원되는 값의 사람이 읽을 수 있는 목록이 포함됩니다. 
 
-위의 호출로 인해 다음과 같은 형식의 JSON 응답이 압축 됩니다. 
+위 호출의 결과는 다음과 같은 양식의 압축된 JSON 응답입니다. 
 
 ```json
 {
@@ -122,16 +122,16 @@ Azure 전체에서 많은 REST Api가 게시 됩니다. 각 서비스 공급자�
 ```
 
 
-## <a name="drill-down-into-workspaces-and-their-resources"></a>작업 영역 및 해당 리소스로 드릴 다운
+## <a name="drill-down-into-workspaces-and-their-resources"></a>작업 영역 및 해당 리소스 드릴다운
 
-리소스 그룹의 작업 영역 집합을 검색 하려면 다음을 실행 하 고, 및를 대체 합니다 `{your-subscription-id}` `{your-resource-group}` `{your-access-token}` . 
+리소스 그룹에서 작업 영역 집합을 검색하려면 `{your-subscription-id}` `{your-resource-group}` 및 `{your-access-token}`을 대체하여 다음을 실행합니다. 
 
 ```
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/?api-version=2019-11-01 \
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-여기서는 작업 영역에 대 한 세부 정보를 나열 하는 목록이 포함 된 JSON 목록을 받게 됩니다.
+여기서도 JSON 목록을 받게 되지만 이번에는 각 항목이 작업 영역을 상세히 설명하는 목록이 포함됩니다.
 
 ```json
 {
@@ -167,7 +167,7 @@ curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceG
 }
 ```
 
-작업 영역 내에서 리소스를 사용 하려면 일반 **management.azure.com** 서버에서 작업 영역의 위치와 관련 된 REST API 서버로 전환 합니다. `discoveryUrl`위의 JSON 응답에서 키 값을 확인 합니다. 해당 URL을 가져오면 다음과 같은 응답을 받게 됩니다.
+작업 영역 안에서 리소스를 작업하려면 일반 **management.azure.com** 서버에서 작업 영역의 위치와 관련된 REST API 서버로 전환합니다. 위의 JSON 응답에서 `discoveryUrl` 키 값을 확인합니다. 해당 URL을 GET하면 다음과 같은 응답을 받게 됩니다.
 
 ```json
 {
@@ -184,7 +184,7 @@ curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceG
 }
 ```
 
-응답의 값은 `api` 추가 요청에 사용할 서버의 URL입니다. 예를 들어 실험을 나열 하려면 다음 명령을 보냅니다. `regional-api-server` `api` 응답 값 (예를 들어,)으로 대체 `centralus.api.azureml.ms` 합니다. 또한 `your-subscription-id` ,, `your-resource-group` 및는 `your-workspace-name` `your-access-token` 평소와 같이 바꿉니다.
+응답의 `api` 값은 추가 요청에 사용할 서버의 URL입니다. 예를 들어 실험을 나열하려면 다음 명령을 보냅니다. `api` 응답의 값으로 `regional-api-server`를 바꿉니다(예: `centralus.api.azureml.ms`). 평소와 같이 `your-subscription-id`, `your-resource-group`, `your-workspace-name` 및 `your-access-token`도 바꿉니다.
 
 ```bash
 curl https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -192,7 +192,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/exp
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-마찬가지로 작업 영역에서 등록 된 모델을 검색 하려면 다음을 보냅니다.
+마찬가지로 작업 영역에서 등록된 모델을 검색하려면 다음을 보냅니다.
 
 ```bash
 curl https://{regional-api-server}/modelmanagement/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -200,35 +200,35 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-모델을 나열 하는 동안 경로가로 시작 하는 실험을 나열 `history/v1.0` 합니다. 경로는로 시작 `modelmanagement/v1.0` 합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분 됩니다. 
+실험을 나열하려면 경로가 `history/v1.0`으로 시작하지만 모델을 나열할 때는 `modelmanagement/v1.0`으로 시작합니다. REST API는 각각 고유한 경로를 가진 여러 작업 그룹으로 구분됩니다. 
 
-|영역형|경로|
+|영역|경로|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |데이터 저장소|/azure/machine-learning/how-to-access-data|
-|하이퍼 매개 변수 조정|hyperdrive/v 1.0/|
-|모델|modelmanagement/v 1.0/|
-|실행 기록|실행/v 1.0/및 기록/v 1.0/|
+|하이퍼 매개 변수 조정|hyperdrive/v1.0/|
+|모델|modelmanagement/v1.0/|
+|실행 기록|execution/v1.0/ 및 history/v1.0/|
 
-의 일반적인 패턴을 사용 하 여 REST API를 탐색할 수 있습니다.
+다음의 일반적인 패턴을 사용하여 REST API를 검색할 수 있습니다.
 
 |URL 구성 요소|예제|
 |-|-|
 | https://| |
-| 지역-api-서버/ | centralus.api.azureml.ms/ |
-| 작업-경로/ | 기록/v 1.0/ |
-| 구독/{구독 id}/ | subscription/abcde123-abab-1234-0123456789abc/ |
-| resourceGroups/{리소스 그룹}/ | resourceGroups/MyResourceGroup/ |
-| 공급자/작업-공급자/ | 공급자/MachineLearningServices/ |
-| 공급자-리소스 경로/ | workspace/MLWorkspace/MyWorkspace/FirstExperiment/실행/1/ |
-| 작업-끝점/ | 아티팩트/메타 데이터/ |
+| regional-api-server/ | centralus.api.azureml.ms/ |
+| operations-path/ | history/v1.0/ |
+| subscriptions/{your-subscription-id}/ | subscriptions/abcde123-abab-abab-1234-0123456789abc/ |
+| resourceGroups/{your-resource-group}/ | resourceGroups/MyResourceGroup/ |
+| providers/operation-provider/ | providers/Microsoft.MachineLearningServices/ |
+| provider-resource-path/ | workspaces/MLWorkspace/MyWorkspace/FirstExperiment/runs/1/ |
+| operations-endpoint/ | artifacts/metadata/ |
 
 
-## <a name="create-and-modify-resources-using-put-and-post-requests"></a>PUT 및 POST 요청을 사용 하 여 리소스 만들기 및 수정
+## <a name="create-and-modify-resources-using-put-and-post-requests"></a>PUT 및 POST 요청을 사용하여 리소스 만들기 및 수정
 
-GET 동사를 사용 하 여 리소스를 검색 하는 것 외에도 REST API는 ML 솔루션을 학습, 배포 및 모니터링 하는 데 필요한 모든 리소스를 만들 수 있도록 지원 합니다. 
+REST API는 GET 동사를 통한 리소스 검색 외에도 ML 솔루션의 교육, 배포, 모니터링에 필요한 모든 리소스의 생성을 지원합니다. 
 
-ML 모델을 학습 하 고 실행 하려면 계산 리소스가 필요 합니다. 다음을 사용 하 여 작업 영역의 계산 리소스를 나열할 수 있습니다. 
+ML 모델을 학습 및 실행하려면 컴퓨팅 리소스가 필요합니다. 다음을 통해 작업 영역의 컴퓨팅 리소스를 나열할 수 있습니다. 
 
 ```bash
 curl https://management.azure.com/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/\
@@ -236,7 +236,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/com
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-명명 된 계산 리소스를 만들거나 덮어쓰려면 PUT 요청을 사용 합니다. 다음에서,,, `your-subscription-id` `your-resource-group` `your-workspace-name` 및 `your-access-token` `your-compute-name` 에 대 한 `location` `vmSize` `vmPriority` `scaleSettings` `adminUserName` `adminUserPassword` ,,,,,,,,,,,,,,,, 및 값의 대체를 추가 합니다. [Machine Learning 컴퓨팅-SDK 참조 만들기 또는 업데이트](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)에서 참조에 지정 된 대로 다음 명령은 30 분 후에 규모를 축소 하는 전용 단일 노드 Standard_D1 (기본 CPU 계산 리소스)를 만듭니다.
+명명된 컴퓨팅 리소스를 만들거나 덮어쓰려면 PUT 요청을 사용합니다. 다음에서 친숙하지 않은 `your-subscription-id`, `your-resource-group`, `your-workspace-name` 및 `your-access-token`을 대체하고 `your-compute-name`와 `location`, `vmSize`, `vmPriority`, `scaleSettings`, `adminUserName` 및 `adminUserPassword`에 대한 값도 대체합니다. [Machine Learning 컴퓨팅 - SDK 참조 만들기 또는 업데이트](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/createorupdate)의 참조에서 명시한 것처럼 다음 명령은 30분 후 규모가 축소되는 전용 단일 노드 Standard_D1(기본 CPU 컴퓨팅 리소스)을 만듭니다.
 
 ```bash
 curl -X PUT \
@@ -265,13 +265,13 @@ curl -X PUT \
 ```
 
 > [!Note]
-> Windows 터미널에서 JSON 데이터를 보낼 때 큰따옴표 기호를 이스케이프 해야 할 수 있습니다. 즉,와 같은 텍스트는가 됩니다 `"location"` `\"location\"` . 
+> Windows 터미널에서는 JSON 데이터를 보낼 때 큰따옴표 기호를 이스케이프해야 할 수 있습니다. 즉, `"location"` 같은 텍스트는 `\"location\"`가 됩니다. 
 
-요청에 성공 하면 응답을 받게 `201 Created` 되지만이 응답은 단순히 프로 비전 프로세스가 시작 되었음을 의미 합니다. 성공적으로 완료 되었는지 확인 하려면 폴링을 수행 하거나 포털을 사용 해야 합니다.
+요청에 성공하면 `201 Created` 응답을 받지만 이 응답은 단순히 프로비저닝 프로세스가 시작되었음을 의미합니다. 성공적으로 완료되었는지 확인하려면 폴링을 수행하거나 포털을 사용해야 합니다.
 
-### <a name="create-an-experimental-run"></a>실험적 실행 만들기
+### <a name="create-an-experimental-run"></a>실험 실행 만들기
 
-실험 내에서 실행을 시작 하려면 학습 스크립트 및 관련 파일을 포함 하는 zip 폴더와 실행 정의 JSON 파일이 필요 합니다. Zip 폴더의 루트 디렉터리에는 Python 항목 파일이 있어야 합니다. 예를 들어 다음과 같은 간단한 Python 프로그램을 **train.zip** 라는 폴더에 압축 합니다.
+실험 내에서 실행을 시작하려면 학습 스크립트와 관련 파일을 포함하는 zip 폴더와 실행 정의 JSON 파일이 필요합니다. zip 폴더의 루트 디렉터리에는 Python 항목 파일이 있어야 합니다. 예를 들어 다음과 같은 간단한 Python 프로그램을 **train.zip** 라는 폴더에 압축합니다.
 
 ```python
 # hello.py
@@ -279,7 +279,7 @@ curl -X PUT \
 print("Hello, REST!")
 ```
 
-이 다음 코드 조각을 **definition.js** 로 저장 합니다. "스크립트" 값이 방금 압축 한 Python 파일의 이름과 일치 하는지 확인 합니다. "대상" 값이 사용 가능한 계산 리소스의 이름과 일치 하는지 확인 합니다. 
+다음 코드 조각을 **definition.json** 으로 저장합니다. "스크립트" 값이 방금 압축한 Python 파일의 이름과 일치하는지 확인합니다. "대상" 값이 사용 가능한 컴퓨팅 리소스의 이름과 일치하는지 확인합니다. 
 
 ```json
 {
@@ -321,7 +321,7 @@ print("Hello, REST!")
 }
 ```
 
-콘텐츠를 사용 하 여 서버에 다음 파일을 게시 합니다 `multipart/form-data` .
+`multipart/form-data` 콘텐츠를 사용하여 서버에 파일을 게시합니다.
 
 ```bash
 curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-name}/startrun?api-version=2019-11-01 \
@@ -332,7 +332,7 @@ curl https://{regional-api-server}/execution/v1.0/subscriptions/{your-subscripti
   -F runDefinitionFile=@runDefinition.json
 ```
 
-POST 요청이 성공 하면 `200 OK` 생성 된 실행의 식별자를 포함 하는 응답 본문이 포함 된 상태가 생성 됩니다.
+POST 요청에 성공하면 `200 OK` 상태가 생성되며 응답 본문에는 만든 실행의 식별자가 포함됩니다.
 
 ```json
 {
@@ -340,16 +340,16 @@ POST 요청이 성공 하면 `200 OK` 생성 된 실행의 식별자를 포함 �
 }
 ```
 
-이제 친숙 한 나머지 패턴을 사용 하 여 실행을 모니터링할 수 있습니다.
+이제 친숙한 REST 패턴을 사용하여 실행을 모니터링할 수 있습니다.
 
 ```bash
 curl 'https://{regional-api-server}/history/v1.0/subscriptions/{your-subscription-id}/resourceGroups/{your-resource-group}/providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/experiments/{your-experiment-names}/runs/{your-run-id}?api-version=2019-11-01' \
   -H 'Authorization:Bearer {your-access-token}'
 ```
 
-### <a name="delete-resources-you-no-longer-need"></a>더 이상 필요 하지 않은 리소스를 삭제 합니다.
+### <a name="delete-resources-you-no-longer-need"></a>더 이상 필요하지 않은 리소스 삭제
 
-일부 리소스는 삭제 동사를 지원 합니다. 삭제 사용 사례에 대 한 REST API 커밋하기 전에 [API 참조](/rest/api/azureml/) 를 확인 하세요. 예를 들어 모델을 삭제 하려면 다음을 사용할 수 있습니다.
+전체는 아니지만 일부 리소스는 DELETE 동사를 지원합니다. 삭제 사용 사례에 대해 REST API를 커밋하기 전에 [API 참조](/rest/api/azureml/)를 확인하세요. 예를 들어 모델을 삭제하려면 다음을 사용할 수 있습니다.
 
 ```bash
 curl
@@ -358,9 +358,9 @@ curl
   -H 'Authorization:Bearer {your-access-token}' 
 ```
 
-## <a name="use-rest-to-score-a-deployed-model"></a>REST를 사용 하 여 배포 된 모델 점수 매기기
+## <a name="use-rest-to-score-a-deployed-model"></a>REST를 사용하여 배포된 모델 채점
 
-서비스 사용자로 인증 되도록 모델을 배포할 수 있지만 대부분의 클라이언트 연결 배포는 키 기반 인증을 사용 합니다. 스튜디오의 **끝점** 탭에 있는 배포 페이지에서 적절 한 키를 찾을 수 있습니다. 동일한 위치에 끝점의 점수 매기기 URI가 표시 됩니다. 모델의 입력은 라는 JSON 배열로 모델링 되어야 합니다 `data` .
+서비스 사용자로 인증되도록 모델을 배포할 수 있지만 대부분의 클라이언트 측 배포에서는 키 기반 인증을 사용합니다. 배포 페이지에서, Studio의 **엔드포인트** 탭 안에 있는 적합한 키를 확인할 수 있습니다. 엔드포인트의 채점 URI도 같은 위치에 표시됩니다. 모델의 입력은 이름이 `data`인 JSON 배열로 모델링되어야 합니다.
 
 ```bash
 curl 'https://{scoring-uri}' \
@@ -369,11 +369,11 @@ curl 'https://{scoring-uri}' \
   -d '{ "data" : [ {model-specific-data-structure} ] }
 ```
 
-## <a name="create-a-workspace-using-rest"></a>REST를 사용 하 여 작업 영역 만들기 
+## <a name="create-a-workspace-using-rest"></a>REST를 사용하여 작업 영역 만들기 
 
-모든 Azure ML 작업 영역은 다른 4 개의 Azure 리소스 (관리를 사용 하도록 설정 된 컨테이너 레지스트리, 주요 자격 증명 모음, Application Insights 리소스 및 저장소 계정)에 종속 됩니다. 이러한 리소스가 있어야 작업 영역을 만들 수 있습니다. 이러한 각 리소스를 만드는 방법에 대 한 자세한 내용은 REST API 참조를 참조 하세요.
+모든 Azure ML 작업 영역은 관리를 사용하도록 설정된 컨테이너 레지스트리, 키 자격 증명 모음, Application Insights, 스토리지 계정 등 다른 4개의 Azure 리소스와 종속 관계가 있습니다. 이러한 리소스가 있어야 작업 영역을 만들 수 있습니다. 각각의 리소스를 만드는 방법에 대한 자세한 내용은 REST API 참조에서 확인하세요.
 
-작업 영역을 만들려면 다음과 유사한 호출을로 전환 `management.azure.com` 합니다. 이 호출에서는 많은 수의 변수를 설정 해야 하지만이 문서에서 설명 하는 다른 호출과 구조적으로 동일 합니다. 
+작업 영역을 만들려면 `management.azure.com`에 대해 다음과 유사한 호출을 PUT 합니다. 이 호출에서는 대규모 변수를 설정해야 하지만 이 문서에서 논의하는 다른 호출과 구조적으로는 동일합니다. 
 
 ```bash
 curl -X PUT \
@@ -401,7 +401,7 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 }'
 ```
 
-응답을 수신 하 `202 Accepted` 고 반환 된 헤더에 URI를 제공 해야 합니다 `Location` . 종속 리소스 중 하나에 문제가 있는 경우 (예를 들어 컨테이너 레지스트리에서 관리자 액세스를 사용 하도록 설정 하지 않은 경우) 유용한 디버깅 정보를 포함 하 여 배포에 대 한 정보에 대 한이 URI를 가져올 수 있습니다. 
+`202 Accepted` 응답을 수신하고, 반환되는 헤더에 `Location` URI가 있어야 합니다. 종속 리소스 중 하나에 문제가 있는 경우(예: 컨테이너 레지스트리에서 관리자 액세스를 사용하도록 설정하지 않은 경우) 유용한 디버깅 정보를 포함하여 배포 관련 정보에 대해 이 URI를 GET할 수 있습니다. 
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -423,5 +423,5 @@ Azure Machine Learning 작업 영역에서는 일부 작업에 ACR(Azure Contain
 ## <a name="next-steps"></a>다음 단계
 
 - 전체 [AzureML REST API 참조](/rest/api/azureml/)를 살펴봅니다.
-- 디자이너를 사용 하 여 [자동차 가격을 디자이너와 예측](./tutorial-designer-automobile-price-train-score.md)하는 방법을 알아봅니다.
-- [Jupyter 노트북을 사용 하 여 Azure Machine Learning을](..//machine-learning/samples-notebooks.md)탐색 합니다.
+- 디자이너를 사용하여 [디자이너로 자동차 가격을 예측](./tutorial-designer-automobile-price-train-score.md)하는 방법을 알아봅니다.
+- [Jupyter Notebook을 사용하여 Azure Machine Learning](..//machine-learning/samples-notebooks.md)을 살펴봅니다.

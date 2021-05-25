@@ -1,20 +1,7 @@
 ---
-title: 포함 파일
-description: 포함 파일
-services: app-service
-author: cephalin
-ms.service: app-service
-ms.topic: include
-ms.date: 04/27/2021
-ms.author: cephalin
-ms.custom: include file
-ms.openlocfilehash: 4bc789435d99c5faed80ffdb13a8bbf4ac6d48a4
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
-ms.translationtype: HT
-ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108121222"
+제목: "포함 파일" 설명: "포함 파일" 서비스: 앱 서비스 작성자: cephalinms.service: 앱 서비스 ms.topic: "include" ms.date: 2021/04/27 ms.author: cephalin ms.custom: "포함 파일", devx-track-azurecli
 ---
+
 Cloud Shell에서 [`az appservice plan create`](/cli/azure/appservice/plan) 명령을 사용하여 App Service 계획을 만듭니다.
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->

@@ -6,13 +6,13 @@ ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/21/2021
+ms.openlocfilehash: 7d807a15d358bd621baedbff253f0c731e43ed26
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "83848231"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107874174"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub IP 주소
 
@@ -45,7 +45,7 @@ IoT Hub 공용 엔드포인트의 IP 주소 접두사는 _AzureIoTHub_ [서비�
 
 ## <a name="limitations-and-workarounds"></a>제한 사항 및 해결 방법
 
-* IoT Hub IP 필터 기능에는 10개의 규칙 제한이 있습니다. 이 제한은 Azure 고객 지원을 통한 요청을 통해 발생할 수 있습니다. 
+* IoT Hub IP 필터 기능에는 규칙 100개 제한이 있습니다. 이 제한은 Azure 고객 지원을 통한 요청을 통해 발생할 수 있습니다. 
 
 * 구성된 [IP 필터링 규칙](iot-hub-ip-filtering.md)은 IoT Hub의 기본 제공 이벤트 허브 엔드포인트가 아니라 IoT Hub IP 엔드포인트에만 적용됩니다. 또한 메시지가 저장되는 이벤트 허브에 IP 필터링을 적용해야 하는 경우 원하는 IP 필터링 규칙을 직접 구성할 수 있는 사용자 고유의 이벤트 허브 리소스를 가져올 수 있습니다. 이렇게 하려면 사용자 고유의 이벤트 허브 리소스를 프로비저닝하고 [메시지 라우팅](./iot-hub-devguide-messages-d2c.md)을 설정하여 IoT Hub의 기본 제공 이벤트 허브 대신 해당 리소스로 메시지를 전송해야 합니다. 마지막으로 위의 표에서 설명한 것처럼 메시지 라우팅 기능을 사용하도록 설정하려면 IoT Hub의 IP 주소 접두사에서 프로비저닝된 이벤트 허브 리소스로의 연결을 허용해야 합니다.
 

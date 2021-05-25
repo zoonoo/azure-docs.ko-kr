@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 04/23/2021
 ms.author: rohink
-ms.openlocfilehash: 962f1f98ad610c953368b351c1859e8e738340f9
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 6236c92037c0a5706e99eb2ef25c8453a4b91c2d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949383"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745238"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 별칭 레코드 개요
 
@@ -81,4 +81,4 @@ Traffic Manager 프로필과 마찬가지로 별칭 레코드를 사용하여 DN
 
 - [자습서: Azure 공용 IP 주소를 참조하도록 별칭 레코드 구성](tutorial-alias-pip.md)
 - [자습서: Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성](tutorial-alias-tm.md)
-- [DNS FAQ](./dns-faq.md#alias-records)
+- [DNS FAQ](./dns-faq.yml)
