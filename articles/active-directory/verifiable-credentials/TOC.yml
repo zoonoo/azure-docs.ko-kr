@@ -48,3 +48,13 @@
       href: verifiable-credentials-faq.md
     - name: 개발자 계정을 만드는 방법
       href: how-to-create-a-free-developer-account.md
+    - name: 모든 DID(탈중앙화 ID)를 위한 업계 작업 그룹
+      href: 'https://identity.foundation'
+    - name: Microsoft DID 백서
+      href: 'http://aka.ms/didwhitepaper'
+    - name: DID 마케팅 개요
+      href: 'http://aka.ms/didexplained'
+    - name: 탈중앙화 ID 블로그
+      href: 'https://techcommunity.microsoft.com/t5/tag/decentralized%20identity/tg-p'
+    - name: 탈중앙화 ID의 비디오 개요
+      href: 'https://www.youtube.com/watch?v=Whc9Im-U0Wg'

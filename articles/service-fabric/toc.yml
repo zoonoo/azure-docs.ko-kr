@@ -136,7 +136,7 @@
       href: service-fabric-content-roadmap.md
     - name: 애플리케이션 시나리오
       href: service-fabric-application-scenarios.md
-    - name: 아키텍처
+    - name: Architecture
       href: service-fabric-architecture.md
     - name: 보안
       items:
@@ -398,14 +398,20 @@
   items:
     - name: Service Fabric 관리형 클러스터 사용
       items:
+        - name: 관리형 클러스터 구성
+          href: how-to-managed-cluster-configuration.md
         - name: 관리형 클러스터 노드 형식에 VM 확장 집합 확장 추가
           href: how-to-managed-cluster-vmss-extension.md
         - name: NSG 규칙 및 기타 관리형 클러스터 네트워킹 옵션 추가
           href: how-to-managed-cluster-networking.md
         - name: 관리형 클러스터 가용성 영역 스패닝 구성
           href: how-to-managed-cluster-availability-zones.md
-        - name: 관리형 클러스터 구성
-          href: how-to-managed-cluster-configuration.md
+        - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
+          href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: 관리형 클러스터 노드에 대한 관리 디스크 유형 선택
+          href: how-to-managed-cluster-managed-disk.md
+        - name: 관리형 클러스터 업그레이드 옵션 구성
+          href: how-to-managed-cluster-upgrades.md
         - name: 관리형 클러스터 애플리케이션 비밀 배포
           href: how-to-managed-cluster-application-secrets.md
         - name: ARM 템플릿을 사용하여 관리형 클러스터 애플리케이션 배포
@@ -414,10 +420,6 @@
           href: how-to-managed-cluster-application-managed-identity.md
         - name: 상태 비저장 전용 노드 형식을 관리형 클러스터에 배포
           href: how-to-managed-cluster-stateless-node-type.md
-        - name: 관리형 클러스터 노드에 대해 디스크 암호화 사용
-          href: how-to-enable-managed-cluster-disk-encryption.md
-        - name: 관리형 클러스터 노드에 대한 관리 디스크 유형 선택
-          href: how-to-managed-cluster-managed-disk.md
         - name: 관리형 클러스터 노드에 관리 ID 사용
           href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: 개발 환경 설정
@@ -954,13 +956,11 @@
       href: release-notes.md
     - name: 예제 코드
       href: /samples/browse/?products=azure
-    - name: 지원 옵션
-      href: service-fabric-support.md
     - name: Service Fabric 버전
       href: service-fabric-versions.md
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=service-fabric'
-    - name: 문제 해결 가이드
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric'
+- name: 지원 및 문제 해결
+  href: service-fabric-support.md
