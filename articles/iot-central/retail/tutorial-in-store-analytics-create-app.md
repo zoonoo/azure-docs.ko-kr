@@ -11,16 +11,16 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: caa61170504c3ee4b7162cc06db4df16d1232395
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 183693963d66a5df13cbb4dd1e561b26f5495f08
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103014369"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685696"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기
 
-이 자습서에서는 솔루션 빌더를 대상으로, Azure IoT Central 매장 내 분석 애플리케이션을 만드는 방법을 보여 줍니다. 샘플 애플리케이션은 소매점용입니다. 이 애플리케이션은 점유 및 환경 조건을 모니터링하고 이에 맞게 조정하려는 일반적인 비즈니스 요구를 위한 솔루션입니다.
+이 자습서에서는 Azure IoT Central 매장 내 분석 애플리케이션을 만드는 방법을 보여줍니다. 샘플 애플리케이션은 소매점용입니다. 이 애플리케이션은 점유 및 환경 조건을 모니터링하고 이에 맞게 조정하려는 일반적인 비즈니스 요구를 위한 솔루션입니다.
 
 빌드하는 샘플 애플리케이션에는 3가지 실제 디바이스인 Rigado Cascade 500 게이트웨이 1개와 RuuviTag 센서 2개가 포함되어 있습니다. 또한 이 자습서에서는 테스트 목적으로 애플리케이션 템플릿에 포함된 시뮬레이트된 점유 센서 사용 방법을 보여 줍니다. Rigado C500 게이트웨이는 애플리케이션에서 통신 허브로 사용됩니다. 매장의 센서와 통신하고 클라우드에 대한 연결을 관리합니다. RuuviTag는 온도, 습도 및 압력을 포함하는 원격 분석을 제공하는 환경 센서입니다. 시뮬레이트된 점유 센서는 매장의 체크 아웃 영역에서 동작 및 현재 상태를 추적하는 방법을 제공합니다. 
 
@@ -72,8 +72,6 @@ ms.locfileid: "103014369"
     > 친숙한 **애플리케이션 이름** 을 사용하는 경우에도 애플리케이션 **URL** 에 대해 고유한 값을 사용해야 합니다.
 
 1. Azure 구독이 있는 경우 *디렉터리, Azure 구독 및 지역* 을 입력합니다. 구독이 없는 경우 **7일 평가판** 을 사용하도록 설정하고 필요한 연락처 정보를 작성할 수 있습니다.  
-
-    디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기 빠른 시작](../core/quick-deploy-iot-central.md)을 참조하세요.
 
 1. **만들기** 를 선택합니다.
 

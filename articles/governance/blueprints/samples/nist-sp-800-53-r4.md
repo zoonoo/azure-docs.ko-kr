@@ -3,16 +3,17 @@ title: NIST SP 800-53 R4 청사진 샘플 개요
 description: NIST SP 800-53 R4 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 NIST SP 800-53 R4 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 9fc387fc444acf5c2ead4cc8983013a50d42907f
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 9632ca6e33f8e6df39f3861f3f056d285da0613f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386112"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757010"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>NIST SP 800-53 R4 청사진 샘플
 
-NIST SP 800-53 R4 청사진 샘플은 특정 NIST SP 800-53 R4 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다. 이 청사진은 고객이 NIST SP 800-53 R4 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
+NIST SP 800-53 R4 청사진 샘플은 특정 NIST SP 800-53 R4 컨트롤을 평가하는 데 도움이 되는 [Azure Policy](../../policy/overview.md)를 사용하여 거버넌스 가드 레일을 제공합니다.
+이 청사진은 고객이 NIST SP 800-53 R4 컨트롤을 구현해야 하는 Azure 배포 아키텍처에 대한 핵심 정책 세트를 배포하는 데 도움이 됩니다.
 
 ## <a name="control-mapping"></a>컨트롤 매핑
 
@@ -113,11 +114,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: Windows VMSS(VM Scale Sets)용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|Windows VM용 Log Analytics 작업 영역|이 작업 영역이 할당 범위를 벗어나는 경우 ‘Log Analytics 기여자’ 권한(또는 그와 유사한 권한)을 정책 할당의 Principal ID에 수동으로 부여해야 합니다.|
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포|정책 할당|선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록|빈 배열(\[\])을 사용하여 선택적 매개 변수가 없음을 나타낼 수 있습니다.|
-|스토리지 계정에 Advanced Threat Protection 배포|정책 할당|영향|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../policy/concepts/effects.md)에서 찾을 수 있습니다.|
-|SQL Server에 감사 배포|정책 할당|보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시)|보존 일 수(선택 사항, 지정하지 않는 경우 180일)|
+|스토리지 계정에 Advanced Threat Protection 배포|정책 할당|영향|정책의 영향에 대한 내용은 [Azure Policy의 영향 파악](../../policy/concepts/effects.md)에서 찾을 수 있습니다. |
+|SQL Server에 감사 배포|정책 할당|보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시) |보존 일 수(선택 사항, 지정하지 않는 경우 180일) |
 |SQL Server에 감사 배포|정책 할당|SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름|감사에서는 데이터베이스 이벤트를 Azure Storage 계정의 감사 로그에 씁니다(스토리지 계정은 한 지역의 모든 서버에서 공유할 수 있는 SQL Server가 만들어진 각 지역에 만들어짐). 중요 - 적절한 감사 작업을 위해 리소스 그룹 또는 스토리지 계정을 삭제하거나 이름을 바꾸지 마세요.|
 |네트워크 보안 그룹에 대한 진단 설정 배포|정책 할당|네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사|이 접두사와 네트워크 보안 그룹 위치가 결합되어 스토리지 계정 이름이 구성됩니다.|
-|네트워크 보안 그룹에 대한 진단 설정 배포|정책 할당|네트워크 보안 그룹 진단을 위한 스토리지 계정의 리소스 그룹 이름(있어야 함)|스토리지 계정이 생성될 리소스 그룹. 이 리소스 그룹은 이미 있어야 합니다.|
+|네트워크 보안 그룹에 대한 진단 설정 배포|정책 할당|네트워크 보안 그룹 진단을 위한 스토리지 계정의 리소스 그룹 이름(있어야 함) |스토리지 계정이 생성될 리소스 그룹. 이 리소스 그룹은 이미 있어야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

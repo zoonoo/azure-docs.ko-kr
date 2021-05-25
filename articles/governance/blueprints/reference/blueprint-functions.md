@@ -3,12 +3,12 @@ title: Azure Blueprints 함수
 description: Azure Blueprints 정의 및 할당의 청사진 아티팩트와 함께 사용할 수 있는 함수를 설명합니다.
 ms.date: 05/01/2021
 ms.topic: reference
-ms.openlocfilehash: 0712051ef91ad114380f4f51063e31e4fc01f1b2
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 88ccb5bc7c19fb6686a566a12e5a9a5e508b7b12
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326494"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757910"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure Blueprints와 사용할 수 있는 함수
 

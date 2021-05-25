@@ -3,25 +3,24 @@ title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
+ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94427754"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105960846"
 ---
-# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>개인 끝점을 통해 Azure Event Hubs 네임 스페이스에 대 한 액세스 허용 
+# <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>프라이빗 엔드포인트를 통한 Azure Event Hubs 네임스페이스 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
 
-프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 개인 끝점은 가상 네트워크의 개인 IP 주소를 사용 하 여 서비스를 가상 네트워크에 효과적으로 제공 합니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
+프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 프라이빗 엔드포인트는 가상 네트워크의 개인 IP 주소를 사용하여 효과적으로 가상 네트워크에 서비스를 제공합니다. 서비스에 대한 모든 트래픽은 프라이빗 엔드포인트를 통해 라우팅할 수 있으므로 게이트웨이, NAT 디바이스, ExpressRoute 또는 VPN 연결 또는 공용 IP 주소가 필요하지 않습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. Azure 리소스의 인스턴스에 연결하여 액세스 제어에서 가장 높은 수준의 세분성을 제공할 수 있습니다.
 
 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
-> [!WARNING]
-> 프라이빗 엔드포인트를 사용하여 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 할 수 있습니다.  차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 단, 개인 끝점을 사용 하는 경우에도 신뢰할 수 있는 특정 서비스의 리소스 Event Hubs에 대 한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조 하세요.
-
->[!NOTE]
-> 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원 됩니다. **기본** 계층에서는 지원 되지 않습니다.
+## <a name="important-points"></a>중요 사항
+- 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원됩니다. **기본** 계층에서는 지원되지 않습니다.
+- 프라이빗 엔드포인트를 사용하여 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 할 수 있습니다.  차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 예외적으로 프라이빗 엔드포인트가 활성화된 경우에도 특정 **신뢰할 수 있는 서비스** 에서 Event Hubs 리소스에 대한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조하세요.
+- 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 **하나 이상의 IP 규칙 또는 가상 네트워크 규칙** 을 지정합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용하여 공용 인터넷을 통해 네임스페이스에 액세스할 수 있습니다. 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Azure Portal을 사용하여 프라이빗 엔드포인트 추가
 
@@ -44,19 +43,19 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. 검색 표시줄에 **event hubs** 를 입력합니다.
 3. 목록에서 프라이빗 엔드포인트를 추가하려는 **네임스페이스** 를 선택합니다.
-4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택 합니다.
+4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다.
 
     > [!NOTE]
-    > **표준** 또는 **전용** 네임 스페이스에 대 한 **네트워킹** 탭만 표시 됩니다. 
+    > **표준** 또는 **전용** 네임스페이스에 대해서만 **네트워킹** 탭이 표시됩니다. 
 
-    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="네트워크 탭-선택한 네트워크 옵션" lightbox="./media/private-link-service/selected-networks-page.png":::    
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="네트워크 탭 - 선택한 네트워크 옵션" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
-    > [!NOTE]
-    > 기본적으로 **선택한 네트워크** 옵션이 선택 되어 있습니다. IP 방화벽 규칙을 지정 하지 않거나 가상 네트워크를 추가 하는 경우 공용 인터넷을 통해 네임 스페이스에 액세스할 수 있습니다. 
+    > [!WARNING]
+    > 기본적으로 **선택된 네트워크** 옵션이 선택됩니다. IP 방화벽 규칙을 지정하지 않거나 가상 네트워크를 추가하는 경우 액세스 키를 사용하여 공용 인터넷을 통해 네임스페이스에 액세스할 수 있습니다. 
 1. 페이지 위쪽에서 **프라이빗 엔드포인트 연결** 탭을 선택합니다. 
 1. 페이지 위쪽에서 **+ 프라이빗 엔드포인트** 단추를 선택합니다.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="네트워킹 페이지-개인 끝점 연결 탭-개인 끝점 추가 링크":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="네트워킹 페이지 - 프라이빗 엔드포인트 연결 탭 - 프라이빗 엔드포인트 링크 추가":::
 7. **기본** 페이지에서 다음 단계를 수행합니다. 
     1. 프라이빗 엔드포인트를 만들려는 **Azure 구독** 을 선택합니다. 
     2. 프라이빗 엔드포인트 리소스에 대한 **리소스 그룹** 을 선택합니다.
@@ -97,7 +96,7 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
-트러스트 된 서비스에서 네임 스페이스에 액세스할 수 있도록 하려면 **네트워킹** 페이지에서 **방화벽 및 가상 네트워크** 탭으로 전환 하 고 **신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 우회 하도록 허용 하 시겠습니까?** 에서 **예** 를 선택 합니다. 
+신뢰할 수 있는 서비스가 네임스페이스에 액세스할 수 있도록 하려면 **네트워킹** 페이지에서 **방화벽 및 가상 네트워크** 탭으로 전환하고 **신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용하시겠습니까?** 에 대해 **예** 를 선택합니다. 
 
 ## <a name="add-a-private-endpoint-using-powershell"></a>PowerShell을 사용하여 프라이빗 엔드포인트 추가
 다음 예에서는 Azure PowerShell을 사용하여 프라이빗 엔드포인트 연결을 만드는 방법을 보여 줍니다. 자동으로 전용 클러스터를 만들지 않습니다. 이 [문서](event-hubs-dedicated-cluster-create-portal.md)의 단계에 따라 전용 Event Hubs 클러스터를 만듭니다. 
@@ -221,7 +220,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 1. 보류 중인 요청 또는 기존 연결인지 여부에 관계없이 거부하려는 프라이빗 엔드포인트 연결이 있으면 연결을 선택하고 **거부** 단추를 클릭합니다.
 
-    ![전용 끝점 거부](./media/private-link-service/private-endpoint-reject-button.png)
+    ![프라이빗 엔드포인트 거부](./media/private-link-service/private-endpoint-reject-button.png)
 2. **연결 거부** 페이지에서 설명(선택 사항)을 입력하고 **예** 를 선택합니다. **아니요** 를 선택하면 아무 작업도 수행되지 않습니다. 
 3. 목록에서 프라이빗 엔드포인트 연결 상태가 **거부됨** 으로 변경되어 있어야 합니다. 
 
@@ -233,7 +232,7 @@ foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
 
 ## <a name="validate-that-the-private-link-connection-works"></a>프라이빗 링크 연결이 작동하는지 확인
 
-개인 끝점의 가상 네트워크 내에 있는 리소스가 개인 IP 주소를 통해 Event Hubs 네임 스페이스에 연결 되어 있고 올바른 개인 DNS 영역 통합이 있는지 확인 해야 합니다.
+프라이빗 엔드포인트의 가상 네트워크 내에 있는 리소스가 개인 IP 주소를 통해 Event Hubs 네임스페이스에 연결되고 올바른 프라이빗 DNS 영역 통합이 있는지 확인해야 합니다.
 
 먼저 [Azure Portal에서 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)의 단계에 따라 가상 머신을 만듭니다.
 
