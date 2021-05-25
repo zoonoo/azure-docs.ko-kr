@@ -3,12 +3,12 @@ title: FedRAMP Moderate 청사진 샘플 컨트롤
 description: FedRAMP Moderate 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure Policy 정의에 매핑됩니다.
 ms.date: 04/02/2021
 ms.topic: sample
-ms.openlocfilehash: 7c8b2524958be1a4b5e49ff870c7c01a8f89f305
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 27db1fdc8fc6f1c51f2cf708fe2e5cfc8a2c4026
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106386672"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108757298"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 컨트롤 매핑
 
@@ -276,7 +276,7 @@ JIT(Just-In-Time) 가상 머신 액세스를 사용하면 Azure 가상 머신으
 - SQL 서버에 위협 탐지 배포
 
 > [!NOTE]
-> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다. 
+> 특정 Azure Policy 정의의 가용성은 Azure Government 및 기타 국가 클라우드에 따라 다를 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

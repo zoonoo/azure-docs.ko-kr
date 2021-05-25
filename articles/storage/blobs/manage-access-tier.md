@@ -1,27 +1,27 @@
 ---
-title: Azure Storage 계정에서 blob의 액세스 계층 관리
-description: GPv2 또는 Blob Storage 계정에서 blob의 계층을 변경 하는 방법에 대해 알아봅니다.
-author: mhopkins-msft
-ms.author: mhopkins
+title: Azure Storage 계정에서 Blob의 액세스 계층 관리
+description: GPv2 또는 Blob Storage 계정의 Blob 계층을 변경하는 방법 알아보기
+author: twooley
+ms.author: twooley
 ms.date: 01/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 183593022c934eaf52ffe18649c23e8deced34d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: cd46f5b5a8847150bd56c1daeaac470f9afd2d19
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98166520"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106278544"
 ---
-# <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Azure Storage 계정에서 blob의 액세스 계층 관리
+# <a name="manage-the-access-tier-of-a-blob-in-an-azure-storage-account"></a>Azure Storage 계정에서 Blob의 액세스 계층 관리
 
-각 blob에는 핫, 쿨 또는 archive의 기본 액세스 계층이 있습니다. Blob는 만들어진 Azure Storage 계정의 기본 액세스 계층을 사용 합니다. Blob Storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출 합니다. 이 특성은 개체 수준에서 명시적으로 설정 되지 않은 모든 blob에 대 한 기본 액세스 계층을 지정 합니다. 개체 수준에서 계층이 설정 된 개체의 경우 계정 계층이 적용 되지 않습니다. 보관 계층은 개체 수준 에서만 적용할 수 있습니다. 다음 단계를 수행 하 여 언제 든 지 액세스 계층 간을 전환할 수 있습니다.
+각 Blob에는 핫, 쿨 또는 보관의 기본 액세스 계층이 있습니다. Blob은 만들어진 Azure Storage 계정의 기본 액세스 계층을 사용합니다. Blob Storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성을 노출합니다. 이 특성은 개체 수준에서 명시적으로 설정되지 않은 모든 Blob에 대한 기본 액세스 계층을 지정합니다. 개체 수준에서 계층이 설정된 개체의 경우 계정 계층이 적용되지 않습니다. 보관 계층은 개체 수준에서만 적용할 수 있습니다. 아래 단계에 따라 언제든지 액세스 계층 간에 전환할 수 있습니다.
 
-## <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정에서 blob의 계층 변경
+## <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>GPv2 또는 Blob Storage 계정의 Blob 계층을 변경합니다.
 
-다음 시나리오에서는 Azure Portal 또는 PowerShell을 사용 합니다.
+다음 시나리오에서는 Azure Portal 또는 PowerShell을 사용합니다.
 
 # <a name="portal"></a>[포털](#tab/portal)
 
@@ -35,15 +35,15 @@ ms.locfileid: "98166520"
 
 1. **Blob 속성** 에서 **계층 변경** 을 선택합니다.
 
-1. **핫**, **쿨** 또는 **보관** 액세스 계층을 선택 합니다. Blob이 현재 보관 된 상태이 고 온라인 계층으로 리하이드레이션 하는 경우 **표준** 또는 **높음** 의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
+1. **핫**, **쿨** 또는 **보관** 액세스 계층을 선택합니다. Blob이 현재 보관된 상태이고 온라인 계층으로 리하이드레이션하는 경우 **표준** 또는 **높음** 의 리하이드레이션 우선 순위를 선택할 수도 있습니다.
 
 1. 아래쪽에서 **저장** 을 선택합니다.
 
-![Azure Portal에서 blob 계층 변경](media/storage-tiers/blob-access-tier.png)
+![Azure Portal에서 Blob 계층 변경](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-다음 PowerShell 스크립트를 사용 하 여 blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화해야 합니다. `$blobName` 변수는 Blob 이름으로 초기화해야 합니다.
+다음 PowerShell 스크립트를 사용하여 Blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화해야 합니다. `$accountName` 변수는 스토리지 계정 이름으로 초기화해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화해야 합니다. `$blobName` 변수는 Blob 이름으로 초기화해야 합니다.
 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
@@ -67,6 +67,6 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Storage 계정의 기본 계정 액세스 계층을 관리 하는 방법](../common/manage-account-default-access-tier.md)
-- [보관 계층에서 blob 데이터 리하이드레이션에 대 한 자세한 정보](storage-blob-rehydration.md)
+- [Blob Storage 계정의 기본 계정 액세스 계층을 관리하는 방법](../common/manage-account-default-access-tier.md)
+- [보관 계층에서 Blob 데이터 리하이드레이션에 대해 자세히 알아보기](storage-blob-rehydration.md)
 - [지역별 Blob Storage 및 GPv2 계정에서 핫, 쿨 및 보관 가격 책정 확인](https://azure.microsoft.com/pricing/details/storage/)

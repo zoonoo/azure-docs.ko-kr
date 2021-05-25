@@ -2,13 +2,13 @@
 title: 자격 증명 모음에서 여러 SQL Server VM 백업
 description: 이 문서에서는 Recovery Services 자격 증명 모음에서 Azure Backup을 사용하여 Azure 가상 머신의 SQL Server 데이터베이스를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: c03b833be6c5e4c352125f31ad8c5ed072674b49
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.date: 09/11/2019
+ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107258472"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105567216"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 여러 SQL Server VM 백업
 
@@ -23,6 +23,10 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 > * 자격 증명 모음을 만들고 구성합니다.
 > * 데이터베이스를 검색하고 백업을 설정합니다.
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
+
+>[!NOTE]
+>**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제** 는 이제 미리 보기로 제공됩니다.<br>
+>미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

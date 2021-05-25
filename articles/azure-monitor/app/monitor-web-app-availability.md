@@ -5,42 +5,42 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.reviewer: sdash
 ms.openlocfilehash: d7c610e374dcb7b97850d815ba8bb927cdebacfc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103012567"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>모든 웹 사이트의 가용성 모니터링
 
-웹 앱/웹 사이트를 배포한 후에는 가용성 및 응답성을 모니터링 하도록 되풀이 테스트를 설정할 수 있습니다. [Azure Application Insights](./app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 응용 프로그램이 응답 하지 않거나 너무 느리게 응답 하는 경우 사용자에 게 경고할 수 있습니다.
+웹앱/웹 사이트를 배포한 후 가용성 및 응답성을 모니터링하도록 반복 테스트를 설정할 수 있습니다. [Azure Application Insights](./app-insights-overview.md)는 전세계 지점에서 정기적인 간격으로 애플리케이션에 웹 요청을 보냅니다. 애플리케이션이 응답하지 않거나 응답이 너무 느린 경우 사용자에게 경고할 수 있습니다.
 
-공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 엔드포인트에 대해 가용성 테스트를 설정할 수 있습니다. 테스트 하는 웹 사이트를 변경할 필요가 없습니다. 실제로 사용자가 소유 하는 사이트 일 필요는 없습니다. 서비스가 종속 된 REST API의 가용성을 테스트할 수 있습니다.
+공용 인터넷에서 액세스 가능한 모든 HTTP 또는 HTTPS 엔드포인트에 대해 가용성 테스트를 설정할 수 있습니다. 테스트하는 웹 사이트를 변경할 필요가 없습니다. 실제로 사용자가 소유하는 사이트일 필요는 없습니다. 서비스에서 사용하는 REST API의 가용성을 테스트할 수 있습니다.
 
-### <a name="types-of-availability-tests"></a>가용성 테스트의 유형:
+### <a name="types-of-availability-tests"></a>가용성 테스트 유형:
 
-가용성 테스트에는 세 가지 유형이 있습니다.
+가용성 테스트는 다음과 같은 세 종류가 있습니다.
 
 * [URL ping 테스트](#create-a-url-ping-test): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
-* [다단계 웹 테스트](availability-multistep.md): 더 복잡 한 시나리오를 테스트 하기 위해 재생할 수 있는 웹 요청 시퀀스의 기록입니다. 다중 단계 웹 테스트는 Visual Studio Enterprise에서 만들어지고 실행을 위해 포털에 업로드 됩니다.
-* [사용자 지정 추적 가용성 테스트](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): 가용성 테스트를 실행 하는 사용자 지정 응용 프로그램을 만들려는 경우 `TrackAvailability()` 메서드를 사용 하 여 Application Insights에 결과를 보낼 수 있습니다.
+* [다단계 웹 테스트](availability-multistep.md): 웹 요청 시퀀스의 기록을 재생하여 더욱 복잡한 시나리오를 테스트할 수 있습니다. 다단계 웹 테스트는 Visual Studio Enterprise에서 만들고 포털에 업로드하여 실행할 수 있습니다.
+* [사용자 지정 추적 가용성 테스트](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability): 가용성 테스트 실행을 위한 사용자 지정 애플리케이션을 만들기로 결정한 경우 `TrackAvailability()` 메서드를 사용하여 결과를 Application Insights에 보낼 수 있습니다.
 
-**Application Insights 리소스 당 최대 100 개의 가용성 테스트를 만들 수 있습니다.**
+**Application Insights 리소스당 최대 100개의 가용성 테스트를 만들 수 있습니다.**
 
 > [!IMPORTANT]
-> [URL ping 테스트](#create-a-url-ping-test) 및 [다단계 웹 테스트](availability-multistep.md) 는 모두 공용 인터넷 DNS 인프라를 사용 하 여 테스트 된 끝점의 도메인 이름을 확인 합니다. 즉, 사설 DNS를 사용 하는 경우 공용 도메인 이름 서버 에서도 테스트의 모든 도메인 이름을 확인할 수 있는지 확인 해야 합니다. 그렇지 않으면 [사용자 지정 추적 가용성 테스트](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) 를 대신 사용할 수 있습니다.
+> [URL ping 테스트](#create-a-url-ping-test)와 [다단계 웹 테스트](availability-multistep.md) 모두 공용 인터넷 DNS 인프라를 활용하여 테스트하는 엔드포인트의 도메인 이름을 확인합니다. 다시 말해 프라이빗 DNS를 사용하는 경우 공용 도메인 이름 서버에서도 테스트의 모든 도메인 이름을 확인할 수 있는지 확인해야 합니다. 확인할 수 없는 경우 [사용자 지정 추적 가용성 테스트](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability)를 대신 사용할 수 있습니다.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
-가용성 테스트를 만들려면 먼저 Application Insights 리소스를 만들어야 합니다. 리소스를 이미 만든 경우 다음 섹션으로 이동 하 여 [URL Ping 테스트를 만듭니다](#create-a-url-ping-test).
+가용성 테스트를 만들려면 먼저 Application Insights 리소스를 만들어야 합니다. 이미 리소스를 만든 경우 다음 섹션으로 이동하여 [URL ping 테스트를 만듭니다](#create-a-url-ping-test).
 
-Azure Portal에서 **리소스 만들기**  >  **개발자 도구**  >  **Application Insights** 를 선택 하 고 [Application Insights 리소스를 만듭니다](create-new-resource.md).
+Azure Portal에서 **리소스 만들기** > **개발자 도구** > **Application Insights** 및 [Application Insights 리소스 만들기](create-new-resource.md)를 선택합니다.
 
 ## <a name="create-a-url-ping-test"></a>URL ping 테스트 만들기
 
-"URL ping 테스트" 이름은 점에서 명칭입니다. 명확 하 게 하기 위해이 테스트에서는 ICMP (Internet Control Message Protocol)를 사용 하 여 사이트의 가용성을 확인 하지 않습니다. 대신, 끝점이 응답 하는지 여부를 확인 하는 고급 HTTP 요청 기능을 사용 합니다. 또한 해당 응답과 관련 된 성능을 측정 하 고, 종속 요청 구문 분석과 같은 고급 기능을 사용 하 여 사용자 지정 성공 조건을 설정 하 고 다시 시도를 허용 하는 기능을 추가 합니다.
+"URL ping 테스트"는 다소 잘못된 명칭입니다. 정확히 말하면 이 테스트는 ICMP(Internet Control Message Protocol)를 사용하여 사이트의 가용성을 확인하지 않습니다. 대신 고급 HTTP 요청 기능을 사용하여 엔드포인트가 응답하는지 여부를 확인합니다. 또한 해당 응답과 관련된 성능을 측정하고, 종속 요청 구문 분석, 재시도 허용과 같은 고급 기능과 결합된 사용자 지정 성공 조건을 설정하는 기능을 추가합니다.
 
-첫 번째 가용성 요청을 만들려면 가용성 창을 열고 **테스트 만들기** 를 선택 합니다.
+첫 번째 가용성 요청을 만들려면 가용성 창을 열고 **테스트 만들기** 를 선택합니다.
 
 ![웹 사이트의 최소 URL 채우기](./media/monitor-web-app-availability/availability-create-test-001.png)
 
@@ -49,15 +49,15 @@ Azure Portal에서 **리소스 만들기**  >  **개발자 도구**  >  **Applic
 |설정| 설명
 |----|----|----|
 |**URL** |  URL은 테스트하려는 웹 페이지일 수 있지만 공용 인터넷에서 볼 수 있어야 합니다. URL에 쿼리 문자열을 포함할 수 있습니다. 따라서 데이터베이스 사용 등을 연습해 볼 수 있습니다. URL이 리디렉션으로 확인되면 최대 10개의 리디렉션을 따릅니다.|
-|**종속 요청 구문 분석**| 테스트에서 테스트 중인 웹 페이지의 일부인 이미지, 스크립트, 스타일 파일 및 기타 파일을 요청 합니다. 기록된 응답 시간에는 이러한 파일을 가져오는 데 걸리는 시간이 포함됩니다. 전체 테스트에 대 한 시간 제한 내에 이러한 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패 합니다. 옵션을 선택하지 않으면 테스트는 지정한 URL에서만 파일을 요청합니다. 이 옵션을 사용 하면 더 엄격한 검사를 수행할 수 있습니다. 사례에 대해 테스트가 실패할 수 있으며,이는 사이트를 수동으로 검색할 때 눈에 띄지 않을 수 있습니다.
-|**다시 시도 사용**|테스트에 실패 하면 잠시 후에 다시 시도 됩니다. 연속 된 세 번의 시도가 실패하는 경우에 실패가 보고됩니다. 후속 테스트는 일반적인 테스트 빈도로 수행됩니다. 다음 성공까지 다시 시도는 일시적으로 중단됩니다. 이 규칙은 각 테스트 위치에서 독립적으로 적용됩니다. **이 옵션을 선택 하는 것이 좋습니다**. 평균 실패의 약 80%는 다시 시도에서 사라집니다.|
+|**종속 요청 구문 분석**| 테스트에서 테스트 대상 웹 페이지의 일부인 이미지, 스크립트, 스타일 파일 및 기타 파일을 요청합니다. 기록된 응답 시간에는 이러한 파일을 가져오는 데 걸리는 시간이 포함됩니다. 전체 테스트의 시간 제한 내에서 이러한 모든 리소스를 성공적으로 다운로드할 수 없는 경우 테스트에 실패합니다. 옵션을 선택하지 않으면 테스트는 지정한 URL에서만 파일을 요청합니다. 이 옵션을 사용하면 더 엄격한 검사를 실시할 수 있습니다. 수동으로 사이트를 검색할 때 눈에 띄지 않는 경우에는 테스트가 실패할 수 있습니다.
+|**재시도 사용**|테스트에 실패하면 잠시 후에 다시 시도합니다. 연속 된 세 번의 시도가 실패하는 경우에 실패가 보고됩니다. 후속 테스트는 일반적인 테스트 빈도로 수행됩니다. 다음 성공까지 다시 시도는 일시적으로 중단됩니다. 이 규칙은 각 테스트 위치에서 독립적으로 적용됩니다. **이 옵션을 권장합니다**. 평균 실패의 약 80%는 다시 시도에서 사라집니다.|
 |**테스트 빈도**| 각 테스트 위치에서 테스트를 실행하는 빈도를 설정합니다. 5분에 5번의 테스트를 하는 기본 빈도로 사이트를 평균 1분마다 테스트합니다.|
 |**테스트 위치**| 서버가 URL로 웹 요청을 보내는 곳입니다. 웹 사이트 문제를 네트워크 문제와 구분할 수 있도록 적어도 **5개 이상의 테스트 위치를 권장** 합니다. 최대 16 개의 위치를 선택할 수 있습니다.
 
-**공용 인터넷에서 URL을 볼 수 없는 경우를 통해 테스트 트랜잭션만 허용 하도록 방화벽을 선택적으로 열 수** 있습니다. 가용성 테스트 에이전트에 대 한 방화벽 예외에 대해 자세히 알아보려면 [IP 주소 가이드](./ip-addresses.md#availability-tests)를 참조 하세요.
+**공용 인터넷에서 URL을 볼 수 없는 경우 테스트 트랜잭션만 허용하도록 방화벽을 열 수 있습니다**. 가용성 테스트 에이전트에 대한 방화벽 예외에 대해 자세히 알아보려면 [IP 주소 가이드](./ip-addresses.md#availability-tests)를 참조하세요.
 
 > [!NOTE]
-> **최소 5 개 위치** 를 사용 하 여 여러 위치에서 테스트 하는 것이 좋습니다. 이렇게 하면 특정 위치의 일시적인 문제 때문에 잘못된 경보가 발생하지 않도록 예방할 수 있습니다. 또한 최적의 구성이 **테스트 위치 수를 경고 위치 임계값 + 2와 동일** 하 게 설정 하는 것을 발견 했습니다.
+> **적어도 5개 이상의 위치** 에서 테스트하는 것이 좋습니다. 이렇게 하면 특정 위치의 일시적인 문제 때문에 잘못된 경보가 발생하지 않도록 예방할 수 있습니다. 또한 경험에 비추어볼 때 **테스트 위치 수를 경고 위치 임계값 + 2** 로 하는 것이 최적의 구성입니다.
 
 ### <a name="success-criteria"></a>성공 조건
 
@@ -76,48 +76,48 @@ Azure Portal에서 **리소스 만들기**  >  **개발자 도구**  >  **Applic
 
 ### <a name="location-population-tags"></a>위치 채우기 태그
 
-Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포할 때 지리적 위치 특성에 대해 다음과 같은 모집단 태그를 사용할 수 있습니다.
+Azure Resource Manager를 사용하여 가용성 URL ping 테스트를 배포할 때 지리적 위치 특성에 대해 다음과 같은 채우기 태그를 사용할 수 있습니다.
 
-#### <a name="azure-gov"></a>Azure .Gov
+#### <a name="azure-gov"></a>Azure Gov
 
 | 표시 이름   | 채우기 이름     |
 |----------------|---------------------|
-| USGov 버지니아 | 미국 정부-ms-azr-0017p        |
-| USGov 애리조나  | 미국 정부-phx-ms-azr-0017p       |
-| USGov 텍사스    | 미국 정부-tx-ms-azr-0017p        |
-| 미국 국방부 동부     | 미국 정부-ddeast-ms-azr-0017p    |
-| 미국 국방부 중부  | 미국 정부-ddcentral-ms-azr-0017p |
+| USGov 버지니아 | usgov-va-azr        |
+| USGov 애리조나  | usgov-phx-azr       |
+| USGov 텍사스    | usgov-tx-azr        |
+| 미국 국방부 동부     | usgov-ddeast-azr    |
+| 미국 국방부 중부  | usgov-ddcentral-azr |
 
 #### <a name="azure"></a>Azure
 
 | 표시 이름                           | 채우기 이름   |
 |----------------------------------------|-------------------|
-| 오스트레일리아 동부                         | emea-syd-edge  |
-| 브라질 남부                           | latam-에 지 |
-| 미국 중부                             | 미국-fl-mia-edge    |
-| 동아시아                              | apac-hk-hkn-ms-azr-0017p   |
-| 미국 동부                                | 미국-va-ms-azr-0017p     |
-| 프랑스 남부 (이전 프랑스 중부) | emea-ch-zrh-edge  |
-| 프랑스 중부                         | emea-pra-edge  |
-| 일본 동부                             | apac-kaw-edge  |
-| 북유럽                           | emea-gb-db3-ms-azr-0017p   |
-| 미국 중북부                       | 미국-il-ch1-ms-azr-0017p     |
-| 미국 중남부                       | us-tx-sn1-ms-azr-0017p     |
-| 동남 아시아                         | apac-sg-ms-azr-0017p   |
-| 영국 서부                                | emea-최첨단  |
-| 서유럽                            | emea-nl-ms-azr-0017p   |
-| 미국 서부                                | 미국-ca-sjc-ms-azr-0017p     |
-| 영국 남부                               | emea-에 지  |
+| 오스트레일리아 동부                         | emea-au-syd-edge  |
+| 브라질 남부                           | latam-br-gru-edge |
+| 미국 중부                             | us-fl-mia-edge    |
+| 동아시아                              | apac-hk-hkn-azr   |
+| 미국 동부                                | us-va-ash-azr     |
+| 프랑스 남부(이전 프랑스 중부) | emea-ch-zrh-edge  |
+| 프랑스 중부                         | emea-fr-pra-edge  |
+| 일본 동부                             | apac-jp-kaw-edge  |
+| 북유럽                           | emea-gb-db3-azr   |
+| 미국 중북부                       | us-il-ch1-azr     |
+| 미국 중남부                       | us-tx-sn1-azr     |
+| 동남 아시아                         | apac-sg-sin-azr   |
+| 영국 서부                                | emea-se-sto-edge  |
+| 서유럽                            | emea-nl-ams-azr   |
+| 미국 서부                                | us-ca-sjc-azr     |
+| 영국 남부                               | emea-ru-msa-edge  |
 
 ## <a name="see-your-availability-test-results"></a>가용성 테스트 결과 참조
 
-가용성 테스트 결과는 선 및 산 점도 뷰를 사용 하 여 시각화할 수 있습니다.
+가용성 테스트 결과는 선 보기와 산점도 보기 모두를 사용하여 시각화할 수 있습니다.
 
-몇 분 후에 **새로 고침** 을 클릭 하 여 테스트 결과를 확인 합니다.
+몇 분 후에 **새로 고침** 을 클릭하여 테스트 결과를 볼 수 있습니다.
 
-![스크린샷 강조 표시 된 새로 고침 단추를 사용 하 여 가용성 페이지를 표시 합니다.](./media/monitor-web-app-availability/availability-refresh-002.png)
+![스크린샷에는 가용성 페이지가 표시되며, 새로 고침 단추가 강조 표시됩니다.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
-산 점도 보기에는 진단 테스트가 포함 된 테스트 결과 샘플이 표시 됩니다. 테스트 엔진은 실패한 테스트에 대한 진단 정보를 저장합니다. 성공한 테스트의 경우 실행의 하위 집합에 대한 진단 정보가 저장됩니다. 녹색/빨간색 점을 마우스로 가리켜서 테스트, 테스트 이름 및 위치를 확인 합니다.
+산점도 보기에서는 진단 테스트 단계의 세부 정보가 포함된 테스트 결과 샘플을 보여줍니다. 테스트 엔진은 실패한 테스트에 대한 진단 정보를 저장합니다. 성공한 테스트의 경우 실행의 하위 집합에 대한 진단 정보가 저장됩니다. 녹색/빨간색 점 위로 마우스를 이동하면 테스트, 테스트 이름 및 위치를 볼 수 있습니다.
 
 ![줄 뷰](./media/monitor-web-app-availability/availability-scatter-plot-003.png)
 
@@ -125,9 +125,9 @@ Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포�
 
 ## <a name="inspect-and-edit-tests"></a>테스트 검사 및 편집
 
-테스트를 편집 하거나 일시적으로 사용 하지 않도록 설정 하거나 삭제 하려면 테스트 이름 옆의 줄임표를 클릭 합니다. 변경을 수행한 후에 구성 변경 내용이 모든 테스트 에이전트로 전파 되는 데 최대 20 분이 걸릴 수 있습니다.
+테스트를 편집하거나 일시적으로 사용하지 않도록 설정하거나 삭제하려면 테스트 이름 옆에 있는 줄임표를 클릭합니다. 구성 변경 내용이 모든 테스트 에이전트로 전파되는 데 최대 20분이 걸릴 수 있습니다.
 
-![테스트 세부 정보를 봅니다. 웹 테스트 편집 및 사용 안 함](./media/monitor-web-app-availability/edit.png)
+![테스트 세부 정보를 봅니다. 웹 테스트 편집 또는 사용하지 않도록 설정](./media/monitor-web-app-availability/edit.png)
 
 서비스에 대한 유지 관리를 수행하는 동안 가용성 테스트 또는 관련된 경고 규칙을 사용하지 않도록 설정할 수 있습니다.
 
@@ -150,7 +150,7 @@ Azure Resource Manager를 사용 하 여 가용성 URL ping 테스트를 배포�
 
 ![서버 쪽 진단](./media/monitor-web-app-availability/open-instance-4.png)
 
-원시 결과 외에도 [메트릭 탐색기](../essentials/metrics-getting-started.md)의 두 가지 주요 가용성 메트릭을 볼 수 있습니다.
+원시 결과 외에도 [메트릭 탐색기](../essentials/metrics-getting-started.md)에서 두 가지 주요 가용성 메트릭을 볼 수 있습니다.
 
 1. 가용성: 모든 테스트 실행에서 성공한 테스트의 비율입니다.
 2. 테스트 지속 시간: 모든 테스트 실행에서의 평균 테스트 지속 시간입니다.

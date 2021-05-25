@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: ba75af247888a2404619ec0a3db3b0a5d3310502
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142426"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048207"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>일반적인 Azure SignalR Service 문제 해결 가이드
 
@@ -34,7 +34,7 @@ HTTP/1.1 또는 C# 클라이언트의 경우 최대 URI 길이는 **12K** 이고
 
 SDK 버전 **1.0.6** 이상에서는 생성된 액세스 토큰이 **4K** 보다 큰 경우 `/negotiate`에서 `413 Payload Too Large`를 throw합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 기본적으로 **ASRS**(**A** zure **S** ignal **R** **S** ervice)에 대한 JWT 액세스 토큰을 생성할 때 `context.User.Claims`의 클레임이 포함되므로 클라이언트에서 `Hub`에 연결할 때 클레임이 보존되고 **ASRS** 에서 `Hub`로 전달될 수 있습니다.
 
@@ -102,7 +102,7 @@ Azure Service는 보안 문제에 대한 TLS 1.2만 지원합니다. .NET 프레
     GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
     ```
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 코드를 Startup에 추가합니다.
 
@@ -132,7 +132,7 @@ ASP.NET Core SignalR의 다른 전송 형식인 SSE 및 긴 폴링의 경우 연
 
 ASP.NET SignalR의 경우 클라이언트에서 `/ping` KeepAlive(연결 유지) 요청을 서비스에 전송하는 경우가 있습니다. `/ping`이 실패하면 클라이언트에서 연결을 **중단** 하고 다시 연결하지 않습니다. 즉, ASP.NET SignalR의 경우 기본 토큰 수명으로 인해 모든 전송 형식에 대해 연결이 **최대** 1시간 동안 지속됩니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 보안 문제를 해결하기 위해 TTL을 확장하는 것은 권장되지 않습니다. 이러한 401이 발생하면 연결을 다시 시작하기 위해 클라이언트에서 다시 연결 논리를 추가하는 것이 좋습니다. 클라이언트에서 연결을 다시 시작하면 앱 서버와 협상하여 JWT 토큰을 다시 가져오고 갱신된 토큰을 받습니다.
 
@@ -284,11 +284,11 @@ SignalR 클라이언트 연결의 `DisposeAsync`가 호출되지 않고 연결�
 
 SignalR 클라이언트가 **닫히지 않았는지** 확인합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 연결을 닫았는지 확인합니다. `HubConnection.DisposeAsync()`를 수동으로 호출하여 사용 후 연결을 중지합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```csharp
 var connection = new HubConnectionBuilder()
@@ -312,7 +312,7 @@ finally
 
 누군가가 Function 클래스에 대한 정적 멤버로 만드는 대신 Azure Function 메서드에서 SignalR 클라이언트 연결을 설정할 때 이 문제가 발생하는 경우가 많습니다. 하나의 클라이언트 연결만 설정되는 것으로 예상할 수 있지만, Azure Portal 리소스 메뉴의 [모니터링] 섹션에 있는 [메트릭]에서 클라이언트 연결 수가 지속적으로 증가하는 것을 볼 수 있습니다. 이러한 모든 연결은 Azure Function 또는 Azure SignalR Service가 다시 시작된 후에만 끊어집니다. 이는 **각** 요청에 대해 Azure Function에서 **하나** 의 클라이언트 연결을 만들고, Function 메서드에서 클라이언트 연결을 중지하지 않으면 클라이언트에서 Azure SignalR Service에 대한 연결을 유지하기 때문입니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 * Azure 함수에서 SignalR 클라이언트를 사용하거나 SignalR 클라이언트를 싱글톤으로 사용하는 경우 클라이언트 연결을 닫아야 합니다.
 * Azure 함수에서 SignalR 클라이언트를 사용하는 대신, 다른 곳에서 SignalR 클라이언트를 만들고, [Azure SignalR Service에 대한 Azure Functions 바인딩](https://github.com/Azure/azure-functions-signalrservice-extension)을 사용하여 클라이언트를 Azure SignalR과 [협상](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L22)할 수 있습니다. 또한 바인딩을 활용하여 [메시지를 보낼](https://github.com/Azure/azure-functions-signalrservice-extension/blob/dev/samples/simple-chat/csharp/FunctionApp/Functions.cs#L40) 수도 있습니다. 클라이언트를 협상하고 메시지를 보내는 샘플은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension/tree/dev/samples)서 찾을 수 있습니다. 자세한 내용은 [여기](https://github.com/Azure/azure-functions-signalrservice-extension)서 확인할 수 있습니다.
@@ -354,7 +354,7 @@ ASP.NET SignalR의 경우 알려진 문제가 SDK 1.6.0에서 수정되었습니
 
 [ASP.NET Core 성능 모범 사례](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls)를 참조하세요.
 
-[스레드 풀 결핍](/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)에 대해 자세히 알아보세요.
+[스레드 풀 결핍](https://docs.microsoft.com/archive/blogs/vancem/diagnosing-net-core-threadpool-starvation-with-perfview-why-my-service-is-not-saturating-all-cores-or-seems-to-stall)에 대해 자세히 알아보세요.
 
 ### <a name="how-to-detect-thread-pool-starvation"></a>스레드 풀 결핍을 검색하는 방법
 
@@ -363,8 +363,8 @@ ASP.NET SignalR의 경우 알려진 문제가 SDK 1.6.0에서 수정되었습니
     
   :::image type="content" source="media/signalr-howto-troubleshoot-guide/metrics-thread-count.png" alt-text="Azure App Service의 최대 스레드 수 창에 대한 스크린샷":::
 
-* .NET Framework를 사용하는 경우 서버 VM의 성능 모니터에서 [메트릭](/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters)을 확인할 수 있습니다.
-* 컨테이너에서 .NET Core를 사용하는 경우 [컨테이너에서 진단 수집](/dotnet/core/diagnostics/diagnostics-in-containers)을 참조하세요.
+* .NET Framework를 사용하는 경우 서버 VM의 성능 모니터에서 [메트릭](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/performance-counters#lock-and-thread-performance-counters)을 확인할 수 있습니다.
+* 컨테이너에서 .NET Core를 사용하는 경우 [컨테이너에서 진단 수집](https://docs.microsoft.com/dotnet/core/diagnostics/diagnostics-in-containers)을 참조하세요.
 
 또한 코드를 사용하여 스레드 풀 결핍을 검색할 수 있습니다.
 

@@ -2,20 +2,19 @@
 title: Azure Key Vault 모니터링 및 경고 | Microsoft Docs
 description: 대시보드를 만들어 키 자격 증명 모음의 상태를 모니터링하고 경고를 구성합니다.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/06/2020
-ms.author: sudbalas
-ms.openlocfilehash: 684c2f3bc7a15d7652ef271fd01872dc2149827d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.date: 03/31/2021
+ms.author: mbaldwin
+ms.openlocfilehash: 51a354bfc6df43938d8e2117a7d93f9bd6749225
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059601"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108140788"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault 모니터링 및 경고
 
@@ -27,7 +26,7 @@ ms.locfileid: "106059601"
 + 메트릭을 구성하고 대시보드를 만드는 방법
 + 지정된 임계값에 대한 경고를 만드는 방법
 
-Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. [Azure Monitor의 Key Vault에 대한 자세한 정보](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview#introduction-to-azure-monitor-for-key-vault)
+Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. [Azure Monitor의 Key Vault에 대한 자세한 정보](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-azure-monitor-for-key-vault)
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>모니터링할 기본 Key Vault 메트릭
 
@@ -211,6 +210,4 @@ Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모
 
 ## <a name="next-steps"></a>다음 단계
 
-축하합니다. 이제 모니터링 대시보드를 만들고 키 자격 증명 모음에 대한 경고를 구성했습니다. 위의 모든 단계를 수행한 후에는, 키 자격 증명 모음이 구성한 경고 기준에 부합하면 이메일 경고를 받게 됩니다. 아래에 예제가 나와 있습니다. 이 문서에서 설정한 도구를 사용하여 키 자격 증명 모음의 상태를 적극적으로 모니터링합니다. 
-
-
+축하합니다. 이제 모니터링 대시보드를 만들고 키 자격 증명 모음에 대한 경고를 구성했습니다. 위의 모든 단계를 수행한 후에는, 키 자격 증명 모음이 구성한 경고 기준에 부합하면 이메일 경고를 받게 됩니다. 아래에 예제가 나와 있습니다. 이 문서에서 설정한 도구를 사용하여 키 자격 증명 모음의 상태를 적극적으로 모니터링합니다.

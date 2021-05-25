@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 05/11/2021
-  ms.openlocfilehash: ae12f4ed9d356eb7a196164574766868ea469f1a
-  ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+  ms.openlocfilehash: 43baa8884bb7ab649ddba0e0516d828837a529ec
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/11/2021
-  ms.locfileid: "109754338"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110086845"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -107,15 +107,17 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure VMware Solution에 대한 호스트 할당량 요청
-      url: enable-azure-vmware-solution.md
+      url: request-host-quota-azure-vmware-solution.md
     - text: 예약 인스턴스로 비용 절감
       url: reserved-instance.md
     - text: Azure VMware Solution 평가 만들기
       url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
   - linkListType: how-to-guide
     links:
-    - text: DHCP 관리
-      url: manage-dhcp.md
+    - text: DHCP 구성 및 관리
+      url: configure-dhcp-azure-vmware-solution.md
+    - text: L2 확장 VMware HCX 네트워크에서 DHCP 구성
+      url: configure-l2-stretched-vmware-hcx-networks.md
     - text: NSX 네트워크 구성 요소 구성
       url: configure-nsx-network-components-azure-portal.md
     - text: GitHub Enterprise 서버 구성

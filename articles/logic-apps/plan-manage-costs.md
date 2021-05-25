@@ -5,13 +5,13 @@ ms.service: logic-apps
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 03/24/2021
-ms.openlocfilehash: ec2e1098df4c21704ee7c17852b893630cd3fd27
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 01/29/2021
+ms.openlocfilehash: 44351497ed58c8d49404c094f6800b52186edabb
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107761820"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "101709634"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Azure Logic Apps에 대한 비용 계획 및 관리
 
@@ -19,7 +19,7 @@ ms.locfileid: "107761820"
 
 Logic Apps에 대한 비용은 Azure 청구서 월별 비용의 일부일 뿐입니다. 이 문서에서는 Logic Apps에 대한 비용을 예측하고 관리하는 방법에 대해 설명하지만, 타사 서비스를 포함하여 Azure 구독에 사용되는 모든 Azure 서비스 및 리소스에 대한 요금이 청구됩니다. Logic Apps에 대한 비용 관리에 익숙해지면 비슷한 방법을 적용하여 구독에 사용되는 모든 Azure 서비스에 대한 비용을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>전제 조건
 
 <!--Note for Azure service writer: This section covers prerequisites for the Cost Management's Cost Analysis feature. Add other prerequisites needed for your service after the Cost Management prerequisites. -->
 
@@ -210,7 +210,7 @@ Otherwise, if no other cost-saving recommendations or best practices exist to re
 
 논리 앱 및 관련 리소스에 대한 비용을 줄이려면 다음 옵션을 사용해 보세요.
 
-* 가능하면 실행당 실행 비용이 [관리형 커넥터 트리거 및 작업](../connectors/managed.md)보다 더 저렴한 [기본 제공 트리거 및 작업](../connectors/built-in.md)을 사용합니다.
+* 가능하면 실행당 실행 비용이 [관리형 커넥터 트리거 및 작업](../connectors/apis-list.md#managed-connectors)보다 더 저렴한 [기본 제공 트리거 및 작업](../connectors/apis-list.md#built-in)을 사용합니다.
 
   예를 들어 [HTTP 작업](../connectors/connectors-native-http.md)을 사용하거나 [Azure Functions 서비스](../azure-functions/functions-overview.md)에서 [기본 제공 Azure Functions 작업](../logic-apps/logic-apps-azure-functions.md)을 사용하여 만든 함수를 호출하여 다른 리소스에 액세스할 때 발생하는 비용을 줄일 수 있습니다. 그러나 Azure Functions를 사용하면 비용이 발생하므로 옵션을 비교해야 합니다.
 
