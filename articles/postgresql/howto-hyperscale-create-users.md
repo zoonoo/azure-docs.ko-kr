@@ -7,17 +7,14 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3772918d1a7e505b3994afa7849568bb309bd0cf
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91295739"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109715415"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-하이퍼스케일(Citus)에서 사용자 만들기
-
-> [!NOTE]
-> “사용자”라는 용어는 하이퍼스케일(Citus) 서버 그룹 내의 사용자를 나타냅니다. Azure 구독 사용자 및 해당 권한에 대한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어) 문서](../role-based-access-control/built-in-roles.md) 또는 [역할을 사용자 지정하는 방법](../role-based-access-control/custom-roles.md)을 참조하세요.
 
 ## <a name="the-server-admin-account"></a>서버 관리자 계정
 
@@ -58,7 +55,7 @@ PostgreSQL 엔진은 [역할](https://www.postgresql.org/docs/current/sql-create
 
 ## <a name="how-to-modify-privileges-for-user-role"></a>사용자 역할의 권한을 수정하는 방법
 
-새 사용자 역할은 일반적으로 제한된 권한을 가진 데이터베이스 액세스를 제공하는 데 사용됩니다. 사용자 권한을 수정하려면 PgAdmin 또는 psql과 같은 도구를 통해 표준 PostgreSQL 명령을 사용합니다. 하이퍼스케일(Citus) 빠른 시작에서 [psql로 연결](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)을 참조하세요.
+새 사용자 역할은 일반적으로 제한된 권한을 가진 데이터베이스 액세스를 제공하는 데 사용됩니다. 사용자 권한을 수정하려면 PgAdmin 또는 psql과 같은 도구를 사용하여 표준 PostgreSQL 명령을 사용합니다. 하이퍼스케일(Citus) 빠른 시작에서 [psql로 연결](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)을 참조하세요.
 
 예를 들어 `db_user`가 `mytable`을 읽을 수 있도록 하려면 다음 권한을 부여합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 알려진 문제-Azure Digital Twins
-description: Azure Digital Twins의 알려진 문제를 인식 하 고 완화 하는 데 도움을 받으세요.
+title: 알려진 문제 - Azure Digital Twins
+description: Azure Digital Twins의 알려진 문제를 인식하고 완화하는 데 도움을 받으세요.
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
@@ -8,50 +8,50 @@ ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 641b44a5e21e6646c07e6e1511e1c4ff01707f79
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102434103"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Azure Digital Twins의 알려진 문제
 
-이 문서에서는 Azure Digital Twins와 관련 된 알려진 문제에 대 한 정보를 제공 합니다.
+이 문서에서는 Azure Digital Twins와 관련된 알려진 문제에 대한 정보를 제공합니다.
 
-## <a name="400-client-error-bad-request-in-cloud-shell"></a>Cloud Shell의 "400 클라이언트 오류: 잘못 된 요청"
+## <a name="400-client-error-bad-request-in-cloud-shell"></a>Cloud Shell의 "400 클라이언트 오류: 잘못된 요청"
 
-**문제 설명:** 에서 실행 중인 Cloud Shell의 명령은 *https://shell.azure.com* "400 클라이언트 오류: url에 대 한 잘못 된 요청 http://localhost:50342/oauth2/token " 및 전체 스택 추적으로 인해 간헐적으로 실패할 수 있습니다.
+**문제 설명:** *https://shell.azure.com* 에서 Cloud Shell을 실행하는 명령이 간헐적으로 실패하고 "URL http://localhost:50342/oauth2/token 에 대한 400 클라이언트 오류: 잘못된 요청"과 전체 스택 추적이 표시될 수 있습니다.
 
-| 이는 영향을 미칩니까? | 원인 | 해결 방법 |
+| 어떤 영향이 있나요? | 원인 | 해결 방법 |
 | --- | --- | --- |
-| &nbsp;Azure &nbsp; Digital &nbsp; twins에서이는 다음 명령 그룹에 영향을 줍니다.<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | 이는 Cloud Shell의 알려진 문제에 대 한 결과입니다. [*Cloud Shell에서 토큰을 일시적으로 가져오지 못했습니다. 400 클라이언트 오류: 잘못 된 요청*](https://github.com/Azure/azure-cli/issues/11749)입니다.<br><br>이렇게 하면 Azure Digital Twins 인스턴스 인증 토큰과 Cloud Shell의 기본 [관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 기반 인증에 문제가 발생 합니다. <br><br>이는 또는 명령 그룹의 Azure Digital Twins 명령에는 영향을 주지 않습니다 `az dt` `az dt endpoint` . 다른 유형의 인증 토큰 (Azure Resource Manager 기반)을 사용 하므로 Cloud Shell의 관리 되는 id 인증에 문제가 없는 것입니다. | 이 문제를 해결 하는 한 가지 방법은 `az login` Cloud Shell에서 명령을 다시 실행 하 고 후속 로그인 단계를 완료 하는 것입니다. 그러면 세션이 관리 되는 id 인증 외부로 전환 되어 근본 문제가 방지 됩니다. 그런 다음 명령을 다시 실행할 수 있습니다.<br><br>또는 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료할 수 있습니다.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Azure Portal 아이콘 표시줄의 Cloud Shell 아이콘 이미지" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>마지막으로, Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI을 설치](/cli/azure/install-azure-cli) 하는 것이 또 다른 해결 방법입니다. 로컬 CLI에는이 문제가 발생 하지 않습니다. |
+| &nbsp;Azure&nbsp;Digital&nbsp;Twins에서 이는 다음 명령 그룹에 영향을 미칩니다.<br><br>`az dt route`<br><br>`az dt model`<br><br>`az dt twin` | 이는 Cloud Shell의 알려진 문제, [*Cloud Shell에서 토큰 가져오기가 400 클라이언트 오류: 잘못된 요청과 함께 간헐적으로 실패*](https://github.com/Azure/azure-cli/issues/11749)로 인한 결과입니다.<br><br>이는 Azure Digital Twins 인터페이스 인증 토큰과 Cloud Shell의 기본 [관리 ID](../active-directory/managed-identities-azure-resources/overview.md) 기반 인증의 문제를 나타냅니다. <br><br>`az dt` 또는 `az dt endpoint` 명령 그룹의 Azure Digital Twins 명령에 영향을 미치지 않는데, Cloud Shell의 관리 ID 인증 관련 문제가 없는 다른 유형의 인증 토큰(Azure Resource Manager 기반)을 사용하기 때문입니다. | 이를 해결하는 한 가지 방법은 Cloud Shell에서 `az login` 명령을 다시 실행하고 후속 로그인 단계를 완료하는 것입니다. 이를 통해 관리 ID 인증 외부로 세션이 전환되어 근본적인 문제가 방지됩니다. 이후에는 명령을 다시 실행할 수 있습니다.<br><br>또는 Azure Portal에서 Cloud Shell 창을 열고 여기에서 Cloud Shell 작업을 완료합니다.<br>:::image type="content" source="media/troubleshoot-known-issues/portal-launch-icon.png" alt-text="Azure Portal 아이콘 모음의 Cloud Shell 아이콘 이미지" lightbox="media/troubleshoot-known-issues/portal-launch-icon.png":::<br><br>마지막 해결 방법은 Azure CLI 명령을 로컬로 실행할 수 있도록 컴퓨터에 [Azure CLI를 설치](/cli/azure/install-azure-cli)하는 것입니다. 로컬 CLI에서는 이 문제가 발생하지 않습니다. |
 
 
-## <a name="missing-role-assignment-after-scripted-setup"></a>스크립팅된 설치 후 역할 할당이 누락 되었습니다.
+## <a name="missing-role-assignment-after-scripted-setup"></a>스크립팅된 설정 이후 역할 할당 누락
 
-**문제 설명:** 일부 사용자에 게 [*는 방법: 인스턴스 및 인증 (스크립팅된) 설정*](how-to-set-up-instance-scripted.md)의 역할 할당 부분과 관련 된 문제가 발생할 수 있습니다. 이 스크립트는 실패를 나타내지는 않지만 *Azure Digital Twins 데이터 소유자* 역할은 사용자에 게 할당 되지 않으며,이 문제는 다른 리소스를 다른 리소스를 만들 수 있는 기능에 영향을 줍니다.
+**문제 설명:** 일부 사용자가 [*방법: 인스턴스 및 인증 설정(스크립팅)* ](how-to-set-up-instance-scripted.md)의 역할 할당 부분에서 문제를 겪을 수 있습니다. 스크립트는 실패를 나타내지는 않지만 *Azure Digital Twins 데이터 소유자* 역할이 사용자에게 할당되지 않으며, 이 문제는 향후 다른 리소스를 만드는 데 영향을 미칩니다.
 
-| 이는 영향을 미칩니까? | 원인 | 해결 방법 |
+| 어떤 영향이 있나요? | 원인 | 해결 방법 |
 | --- | --- | --- |
-| 스크립트를 실행 한 후 역할 할당이 성공적으로 설정 되었는지 확인 하려면 설치 문서의 [*사용자 역할 할당 확인*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) 섹션에 있는 지침을 따르세요. 사용자가이 역할에 표시 되지 않는 경우이 문제가 영향을 받습니다. | 사용자가 [MSA (개인 Microsoft 계정)](https://account.microsoft.com/account)로 로그인 한 사용자의 경우 사용자의 로그인 메일과 다를 수 있습니다. 사용자의 로그인 메일과 같이 스크립트를 검색 하 여 역할을 적절 하 게 할당 하는 데 사용 하기 어려울 수 있습니다. | 해결 하려면 [CLI 명령](how-to-set-up-instance-cli.md#set-up-user-access-permissions) 또는 [Azure Portal 지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)을 사용 하 여 수동으로 역할 할당을 설정할 수 있습니다. |
+| 스크립트를 실행한 후 역할 할당이 성공적으로 설정되었는지 확인하려면 설정 문서의 [*사용자 역할 할당 확인*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) 섹션에 있는 지침을 따릅니다. 사용자에게 이 역할이 표시되지 않는 경우 이 문제가 영향을 미치는 것입니다. | 개인 [Microsoft 계정(MSA)](https://account.microsoft.com/account)으로 로그인한 사용자의 경우 명령에서 사용자를 식별하는 사용자의 보안 주체 ID가 사용자의 로그인 이메일과 다를 수 있으며, 이로 인해 스크립트에서 검색하여 적절하게 역할을 할당하는 데 사용하기 어려울 수 있습니다. | 이를 해결하려면 [CLI 지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions) 또는 [Azure Portal 지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)을 사용하여 수동으로 역할 할당을 설정할 수 있습니다. |
 
-## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Azure의 대화형 브라우저 인증에 문제가 있습니다. Identity 1.2.0
+## <a name="issue-with-interactive-browser-authentication-on-azureidentity-120"></a>Azure.Identity 1.2.0의 대화형 브라우저 인증 문제
 
-**문제 설명:** Azure **1.2.0** **[](/dotnet/api/azure.identity) 라이브러리** 의 버전을 사용 하 여 azure Digital twins 응용 프로그램에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential) 메서드와 관련 된 문제가 발생할 수 있습니다. 이는 브라우저 창에서 인증을 시도할 때 "AuthenticationFailedException"의 오류 응답으로 표시 됩니다. 브라우저 창이 완전히 시작 되지 않거나 사용자를 성공적으로 인증 하는 것 처럼 보이지만 클라이언트 응용 프로그램은 오류와 함께 실패 합니다.
+**문제 설명:** **[Azure.Identity](/dotnet/api/azure.identity) 라이브러리** 버전 **1.2.0** 을 사용하여 Azure Digital Twins 애플리케이션에서 인증 코드를 작성할 때 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential) 메서드에 문제가 발생할 수 있습니다. 브라우저 창에서 인증을 시도할 때 "Azure.Identity.AuthenticationFailedException" 오류 응답으로 표시됩니다. 브라우저 창이 완전히 시작되지 않거나 사용자를 성공적으로 인증하는 것처럼 보일 수 있지만 클라이언트 애플리케이션이 오류와 함께 실패합니다.
 
-| 이는 영향을 미칩니까? | 원인 | 해결 방법 |
+| 어떤 영향이 있나요? | 원인 | 해결 방법 |
 | --- | --- | --- |
-| &nbsp;영향을 받는 &nbsp; 메서드는 &nbsp; &nbsp; &nbsp; &nbsp; 다음 문서에서 사용 됩니다 &nbsp; .<br><br>[*자습서: 클라이언트 앱 코딩*](tutorial-code.md)<br><br>[*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)<br><br>[*방법: Azure Digital Twins Api 및 Sdk 사용*](how-to-use-apis-sdks.md) | 일부 사용자에 게는 라이브러리의 버전 **1.2.0** 문제가 있습니다 `Azure.Identity` . | 이 문제를 해결 하려면 [최신 버전](https://www.nuget.org/packages/Azure.Identity) 의를 사용 하도록 응용 프로그램을 업데이트 `Azure.Identity` 합니다. 라이브러리 버전을 업데이트 한 후 브라우저에서 예상 대로 로드 하 고 인증 해야 합니다. |
+| &nbsp;영향을 받는&nbsp;메서드는&nbsp;&nbsp;다음&nbsp;&nbsp;문서에서&nbsp;사용됩니다.<br><br>[*자습서: 클라이언트 앱 코딩*](tutorial-code.md)<br><br>[*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)<br><br>[*방법: Azure Digital Twins API 및 SDK 사용*](how-to-use-apis-sdks.md) | 일부 사용자는 `Azure.Identity` 라이브러리 버전 **1.2.0** 에서 문제를 겪습니다. | 해결하려면 `Azure.Identity`의 [최신 버전](https://www.nuget.org/packages/Azure.Identity)을 사용하도록 애플리케이션을 업데이트합니다. 라이브러리 버전을 업데이트한 후 브라우저에서 예상대로 로드하고 인증해야 합니다. |
 
-## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Azure에서 기본 Azure 자격 증명 인증에 문제가 있습니다. Identity 1.3.0
+## <a name="issue-with-default-azure-credential-authentication-on-azureidentity-130"></a>Azure.Identity 1.3.0의 기본 Azure 자격 증명 인증 문제
 
-**문제 설명:** **1.3.0** 라이브러리의 버전을 사용 하 여 인증 **[](/dotnet/api/azure.identity)** 코드를 작성 하는 경우 일부 사용자는 이러한 azure 디지털 쌍 문서 전체에서 많은 샘플에서 사용 되는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 방법과 관련 된 문제가 발생 했습니다. 이는 코드에서 인증을 시도할 때 "AuthenticationFailedException: SharedTokenCacheCredential authentication failed"의 오류 응답으로 표시 됩니다.
+**문제 설명:** **[Azure.Identity](/dotnet/api/azure.identity) 라이브러리** 의 **1.3.0** 버전을 사용하여 인증 코드를 작성할 때 일부 사용자가Azure Digital Twins 문서의 많은 예제에서 사용되는 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) 메서드 관련 문제를 겪습니다. 코드에서 인증을 시도할 때 "Azure.Identity.AuthenticationFailedException: SharedTokenCacheCredential authentication failed" 오류 응답으로 표시됩니다.
 
-| 이는 영향을 미칩니까? | 원인 | 해결 방법 |
+| 어떤 영향이 있나요? | 원인 | 해결 방법 |
 | --- | --- | --- |
-| `DefaultAzureCredential` 는 인증을 포함 하는이 서비스에 대 한 대부분의 설명서 예제에서 사용 됩니다. 라이브러리의 버전 1.3.0을 사용 하 여 인증 코드를 작성 하 `DefaultAzureCredential` `Azure.Identity` 고이 오류 메시지가 표시 되 면이에 영향을 줍니다. | 이는의 일부 구성 문제로 인해 발생할 수 있습니다 `Azure.Identity` . | 이 문제를 해결 하는 한 가지 전략은에 `SharedTokenCacheCredential` 대해 현재 열려 있는이 [DefaultAzureCredential 문제](https://github.com/Azure/azure-sdk/issues/1970) 에 설명 된 대로 자격 증명에서 제외 하는 것입니다 `Azure.Identity` .<br>또 다른 옵션은 `Azure.Identity` [버전 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3)등의 이전 버전을 사용 하도록 응용 프로그램을 변경 하는 것입니다. 이는 Azure Digital Twins에 기능에 영향을 주지 않으므로 수락 된 솔루션 이기도 합니다. |
+| `DefaultAzureCredential`은 인증을 포함하는 서비스의 대부분 설명서 예제에서 사용됩니다. `Azure.Identity` 라이브러리 버전 1.3.0과 함께 `DefaultAzureCredential`을 사용하여 인증 코드를 작성하고 이 오류 메시지가 표시되는 경우 영향이 있는 것입니다. | 이는 `Azure.Identity`를 사용한 일부 구성 문제로 인해 발생할 수 있습니다. | 이 문제를 해결하는 한 가지 방법은 현재 `Azure.Identity`에 대해 열려 있는 [DefaultAzureCredential 문제](https://github.com/Azure/azure-sdk/issues/1970)에서 설명하는 것과 같이 자격 증명에서 `SharedTokenCacheCredential`을 제외하는 것입니다.<br>또 다른 옵션은 이전 버전의 `Azure.Identity`(예: [버전 1.2.3](https://www.nuget.org/packages/Azure.Identity/1.2.3))를 사용하도록 애플리케이션을 변경하는 것입니다. 이는 Azure Digital Twins의 기능에 영향을 미치지 않으며, 그에 따라 허용된 해결책이기도 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins의 보안 및 사용 권한에 대해 자세히 알아보세요.
-* [*개념: Azure Digital Twins 솔루션에 대 한 보안*](concepts-security.md)
+* [*개념: Azure Digital Twins 솔루션 보안*](concepts-security.md)

@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: 151e97123c2704a06a994b3b6fd742ba9373af21
-  ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+  ms.openlocfilehash: ec0a4ebaebecf9cf5fac95ca1b3bded1ba759958
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/13/2021
-  ms.locfileid: "109845567"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110092281"
 landingContent:
 - title: Azure Communication Services 정보
   linkLists:
@@ -64,20 +64,14 @@ landingContent:
       url: concepts/voice-video-calling/calling-sdk-features.md
     - text: 호출 흐름
       url: concepts/call-flows.md
-- title: UI 프레임워크
+- title: UI 라이브러리
   linkLists:
-  - linkListType: quickstart
-    links:
-    - text: 구성 요소 시작
-      url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-composites--page
-    - text: UI 구성 요소 시작
-      url: https://azure.github.io/communication-ui-sdk/?path=/docs/quickstarts-get-started-with-ui-components--page
   - linkListType: concept
     links:
-    - text: UI 프레임워크 개요
-      url: concepts/ui-framework/ui-sdk-overview.md
-    - text: UI 프레임워크 기능
-      url: concepts/ui-framework/ui-sdk-features.md
+    - text: UI 라이브러리 개요
+      url: concepts/ui-library/ui-library-overview.md
+    - text: UI 라이브러리 사용 사례
+      url: concepts/ui-library/ui-library-use-cases.md
 - title: 전화 통신 및 SMS
   linkLists:
   - linkListType: quickstart

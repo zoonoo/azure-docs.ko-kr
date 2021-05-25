@@ -41,7 +41,7 @@
             - name: 자동 크기 조정 소개
               href: provision-throughput-autoscale.md
             - name: 자동 스케일링 FAQ
-              href: autoscale-faq.md
+              href: autoscale-faq.yml
         - name: 서버를 사용하지 않음
           href: serverless.md
         - name: 처리량 자동 크기 조정과 표준(수동) 처리량 중에 선택
@@ -116,6 +116,8 @@
           href: optimize-dev-test.md
         - name: 예약 용량으로 비용 최적화
           href: cosmos-db-reserved-capacity.md
+        - name: 속도 제한을 사용하여 최적화
+          href: rate-limiting-requests.md
     - name: 변경 피드 개요
       href: change-feed.md
     - name: 기본 제공 Jupyter Notebook
@@ -637,21 +639,6 @@
           href: sql-sdk-connection-modes.md
     - name: 방법 가이드
       items:
-        - name: Azure Cosmos DB 리소스 관리
-          items:
-            - name: Azure Cosmos 계정 관리
-              href: how-to-manage-database-account.md
-            - name: PowerShell 사용
-              href: manage-with-powershell.md
-            - name: Azure CLI 사용
-              href: manage-with-cli.md
-            - name: Resource Manager 템플릿 사용
-              href: manage-with-templates.md
-              displayName: ARM
-            - name: 영역 간 이동
-              href: how-to-move-regions.md
-            - name: 변경 또는 삭제 방지
-              href: resource-locks.md
         - name: 글로벌 분포
           items:
             - name: 다중 지역 쓰기 구성
@@ -924,7 +911,7 @@
             - name: Java 대량 실행기 라이브러리 v2
               href: sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
-          href: /cli/azure/cosmosdb
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
         - name: Node.js
           href: sql-api-sdk-node.md
         - name: Python
@@ -1055,6 +1042,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: MongoDB API
   items:
     - name: 개요
@@ -1110,7 +1099,7 @@
         - name: API 버전 3.2
           href: mongodb-feature-support.md
         - name: FAQ
-          href: mongodb-api-faq.md
+          href: mongodb-api-faq.yml
         - name: 매핑 일관성 수준
           href: mongodb-consistency.md
     - name: 방법 가이드
@@ -1187,6 +1176,8 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Gremlin API
   displayName: 'graph, graph database'
   items:
@@ -1217,7 +1208,7 @@
     - name: 개념
       items:
         - name: FAQ
-          href: gremlin-api-faq.md
+          href: gremlin-api-faq.yml
         - name: 응답 헤더
           href: gremlin-headers.md
         - name: 제한
@@ -1267,6 +1258,8 @@
           href: /rest/api/cosmos-db-resource-provider/2021-03-15/gremlinresources
         - name: Resource Manager 템플릿
           href: /azure/templates/microsoft.documentdb/allversions
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: 테이블 API
   items:
     - name: 개요
@@ -1316,7 +1309,7 @@
     - name: 개념
       items:
         - name: FAQ
-          href: table-api-faq.md
+          href: table-api-faq.yml
     - name: 방법 가이드
       items:
         - name: Table API를 사용하여 앱 빌드
@@ -1351,8 +1344,25 @@
           href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
         - name: Table Storage REST API
           href: /rest/api/storageservices/table-service-rest-api
+        - name: Azure CLI
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: 방법 가이드
   items:
+    - name: Azure Cosmos DB 리소스 관리
+      items:
+        - name: Azure Cosmos 계정 관리
+          href: how-to-manage-database-account.md
+        - name: PowerShell 사용
+          href: manage-with-powershell.md
+        - name: Azure CLI 사용
+          href: manage-with-cli.md
+        - name: Resource Manager 템플릿 사용
+          href: manage-with-templates.md
+          displayName: ARM
+        - name: 영역 간 이동
+          href: how-to-move-regions.md
+        - name: 변경 또는 삭제 방지
+          href: resource-locks.md
     - name: 개발자 도구 사용
       items:
         - name: 에뮬레이터를 사용하여 로컬로 개발
@@ -1471,7 +1481,7 @@
     - name: SQL 실습
       href: 'https://www.documentdb.com/sql/demo'
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: 백서
       href: whitepapers.md
     - name: 파트너

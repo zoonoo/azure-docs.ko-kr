@@ -89,7 +89,7 @@ conceptualContent:
       links:
         - itemType: overview
           text: 사용자 지정 키워드 정보
-          url: custom-keyword-overview.md
+          url: keyword-recognition-overview.md
         - itemType: quickstart
           text: 사용자 지정 키워드 시작
           url: custom-keyword-basics.md
