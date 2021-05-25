@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2021
 ms.author: jeedes
-ms.openlocfilehash: 493ec8ccc46ea5c2763f3a0159891fe9cbea142c
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 7622b3bb50139ddfdce53bb7e765db5aac90eff3
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209250"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766064"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-saba-cloud"></a>자습서: Saba Cloud와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -79,9 +79,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에서 `<CUSTOMER_NAME>_SPLN_PRINCIPLE` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에 `<CUSTOMER_NAME>_sp` 패턴을 사용하여 URL을 입력합니다(6단계의 Saba Cloud SSO 구성 섹션에서 이 값을 가져올 수 있지만 일반적으로 `<CUSTOMER_NAME>_sp` 형식임).
 
-    b. **회신 URL** 텍스트 상자에서 `https://<SIGN-ON URL>/Saba/saml/SSO/alias/<ENTITY_ID>` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에 `https://<CUSTOMER_NAME>.sabacloud.com/Saba/saml/SSO/alias/<ENTITY_ID>` 패턴을 사용하여 URL을 입력합니다(ENTITY_ID는 일반적으로 `<CUSTOMER_NAME>_sp`인 이전 단계를 나타냄).
+    
+    > [!NOTE]
+    > 회신 URL을 잘못 지정하는 경우 **엔터프라이즈 애플리케이션** 섹션이 아닌 Azure AD의 **앱 등록** 섹션에서 조정해야 할 수 있습니다. **기본 SAML 구성** 섹션을 변경해도 회신 URL이 항상 업데이트되지는 않습니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
@@ -90,10 +93,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     b. **릴레이 상태** 텍스트 상자에서 `IDP_INIT---SAML_SSO_SITE=<SITE_ID> ` 패턴을 사용하는 URL을 입력하거나, SAML이 마이크로사이트에 대해 구성된 경우 `IDP_INIT---SAML_SSO_SITE=<SITE_ID>---SAML_SSO_MICRO_SITE=<MicroSiteId>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 릴레이 상태를 구성하는 방법에 대한 자세한 내용은 [이](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html) 링크를 참조하세요.
-
-    > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL, 로그온 URL 및 릴레이 상태로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Saba Cloud 클라이언트 지원 팀](mailto:support@saba.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 
+    > RelayState 구성에 대한 자세한 내용은 [마이크로 사이트에 대한 IdP 및 SP 시작 SSO](https://help.sabacloud.com/sabacloud/help-system/topics/help-system-idp-and-sp-initiated-sso-for-a-microsite.html)를 참조하세요.
+
+1. **사용자 특성 및 클레임** 섹션에서는 조직에서 Saba 사용자의 기본 사용자 이름으로 사용하려는 모든 항목에 대해 고유 사용자 식별자를 조정합니다.
+
+   이 단계는 사용자 이름/암호에서 SSO로 변환하려는 경우에만 필요합니다. 기존 사용자가 없는 새 Saba Cloud 배포인 경우 이 단계를 건너뛸 수 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -153,6 +159,8 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. **Configure Properties(속성 구성)** 섹션에서 채워진 필드를 확인하고 **SAVE(저장)** 를 클릭합니다. 
 
     ![속성 구성의 스크린샷](./media/saba-cloud-tutorial/configure-properties.png) 
+    
+    Azure AD에서 로그인에 허용하는 기본 최대 롤링 기간과 일치하도록 **최대 인증 기간(초)** 을 **7776000(90일)** 으로 설정해야 할 수 있습니다. 이렇게 하지 않으면 오류 `(109) Login failed. Please contact system administrator.`가 발생할 수 있습니다.
 
 ### <a name="create-saba-cloud-test-user"></a>Saba Cloud 테스트 사용자 만들기
 

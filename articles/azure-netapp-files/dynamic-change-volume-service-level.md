@@ -12,19 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 05/06/2021
 ms.author: b-juche
-ms.openlocfilehash: 21233d946ba3cb1ae2c47ccf63582ef832408635
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: d75bd3580f66d7948d28b0d9ff34e247bc51c6b5
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903437"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108795027"
 ---
 # <a name="dynamically-change-the-service-level-of-a-volume"></a>볼륨의 서비스 수준을 동적으로 변경
-
-> [!IMPORTANT] 
-> 복제 대상 볼륨의 서비스 수준을 동적으로 변경하는 것은 현재 지원되지 않습니다.
 
 볼륨에 대해 원하는 [서비스 수준](azure-netapp-files-service-levels.md)을 사용하는 다른 용량 풀로 볼륨을 이동하여 기존 볼륨의 서비스 수준을 변경할 수 있습니다. 볼륨에 대한 이러한 내부 서비스 수준 변경에서는 데이터를 마이그레이션할 필요가 없습니다. 또한 볼륨에 대한 액세스에도 영향을 주지 않습니다.  
 
@@ -40,7 +37,7 @@ ms.locfileid: "107903437"
 
 ## <a name="register-the-feature"></a>기능 등록
 
-볼륨을 다른 용량 풀로 이동하는 기능은 현재 미리 보기 상태입니다. 이 기능을 처음 사용하는 경우 먼저 기능을 등록해야 합니다.
+볼륨을 다른 용량 풀로 이동하는 기능이 현재 미리 보기 상태입니다. 이 기능을 처음 사용하는 경우 먼저 기능을 등록해야 합니다.
 
 Azure 구독이 여러 개 있는 경우 ['Set-AzContext'](/powershell/module/az.accounts/set-azcontext) 명령을 사용하여 의도한 구독을 등록하는지 확인합니다. <!-- GitHub #74191 --> 
 
@@ -50,7 +47,7 @@ Azure 구독이 여러 개 있는 경우 ['Set-AzContext'](/powershell/module/az
     Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFTierChange
     ```
 
-2. 다음 기능의 등록 상태를 확인합니다. 
+2. 기능 등록 상태를 확인합니다. 
 
     > [!NOTE]
     > **RegistrationState** 는 `Registered`로 변경하기 전까지 최대 60분 동안 `Registering` 상태가 될 수 있습니다. 상태가 **Registered** 가 될 때까지 기다린 후에 계속하세요.

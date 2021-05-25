@@ -5,6 +5,8 @@
   items:
     - name: Custom Vision이란?
       href: overview.md
+    - name: 가격 책정 및 제한
+      href: limits-and-quotas.md
     - name: 새로운 기능
       href: whats-new.md
 - name: 빠른 시작
@@ -97,8 +99,6 @@
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/custom-vision-service/context/context
     - name: 샘플
       href: /samples/browse/?products=azure&term=vision
-    - name: 한도 및 할당량
-      href: limits-and-quotas.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 릴리스 정보

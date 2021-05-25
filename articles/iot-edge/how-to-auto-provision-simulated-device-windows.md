@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 82bd027773a5759caee19228f56ba4b3dfe8c2cf
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 11279c552cb599c24b72473d6574175450ca7ab0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107482010"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103200858"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Windows에서 가상 TPM을 사용하여 시뮬레이션된 IoT Edge 디바이스 만들기 및 프로비전
 
@@ -33,7 +33,7 @@ DPS는 개별 등록 및 그룹 등록 모두에서 IoT Edge 디바이스에 대
 > [!TIP]
 > 이 문서에서는 가상 디바이스에서 TPM 증명을 사용하여 자동 프로비전을 테스트하는 방법에 대해 설명하지만, 물리적 TPM 하드웨어를 사용하는 경우에도 대부분 적용됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Windows 개발 컴퓨터. 이 문서에서는 Windows 10을 사용합니다.
 * 활성 IoT Hub
@@ -63,7 +63,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 개별 등록을 만들 때 **True** 를 선택하여 Windows 개발 컴퓨터에서 시뮬레이션된 TPM 다바이스가 **IoT Edge 디바이스** 임을 선언합니다.
 
 > [!TIP]
-> Azure CLI에서 [등록](/cli/azure/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
+> Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
 
 시뮬레이션된 디바이스 및 개별 등록 가이드:
 

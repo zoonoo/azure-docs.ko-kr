@@ -94,7 +94,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 1. 컨테이너를 사용하고 나면 LUIS 포털의 출력 탑재에서 [엔드포인트 로그를 가져오고](#import-the-endpoint-logs-for-active-learning) 컨테이너를 [중지](#stop-the-container)합니다.
 1. **엔드포인트 발화 검토** 페이지에서 LUIS 포털의 [활성 학습](luis-how-to-review-endpoint-utterances.md)을 사용하여 앱을 개선합니다.
 
-컨테이너에서 실행되는 앱은 변경할 수 없습니다. 컨테이너에서 앱을 변경하려면 [LUIS](https://www.luis.ai) 포털을 사용하는 LUIS 서비스에서 앱을 변경하거나 [작성 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 사용해야 합니다. 그 다음 학습 및/또는 게시한 다음, 새 패키지를 다운로드하고 컨테이너를 다시 실행합니다.
+컨테이너에서 실행되는 앱은 변경할 수 없습니다. 컨테이너에서 앱을 변경하려면 [LUIS](https://www.luis.ai) 포털을 사용하는 LUIS 서비스에서 앱을 변경하거나 LUIS [작성 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 사용해야 합니다. 그 다음 학습 및/또는 게시한 다음, 새 패키지를 다운로드하고 컨테이너를 다시 실행합니다.
 
 컨테이너 내에서 LUIS 앱은 LUIS 서비스로 다시 내보낼 수 없습니다. 쿼리 로그만 업로드할 수 있습니다.
 

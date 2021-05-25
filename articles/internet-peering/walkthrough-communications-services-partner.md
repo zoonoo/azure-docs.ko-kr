@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: how-to
 ms.date: 03/30/2021
 ms.author: gatharej
-ms.openlocfilehash: ff6750883a904ff5ddbddd3ddfd1ed82e72aebbc
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 4c4e3e2331ce334fbdd1c273fecd899bcd24612b
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106498904"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124566"
 ---
 # <a name="azure-internet-peering-for-communications-services-walkthrough"></a>Communication Services에 대한 Azure Internet 피어링 연습
 
@@ -47,7 +47,7 @@ Azure Internet 피어링을 사용하여 직접 연결을 설정하려면 다음
 
 피어가 이미 공용 ASN을 Azure 구독에 연결한 경우에는 이 단계를 무시하세요.
 
-[포털을 사용하여 피어 ASN을 Azure 구독에 연결 - Azure | Microsoft Docs](https://docs.microsoft.com/azure/internet-peering/howto-subscription-association-portal)
+[포털을 사용하여 피어 ASN을 Azure 구독에 연결 - Azure | Microsoft Docs](./howto-subscription-association-portal.md)
 
 다음 단계는 Peering Service에 대한 직접 피어링 연결을 만드는 것입니다.
 
@@ -56,7 +56,7 @@ Azure Internet 피어링을 사용하여 직접 연결을 설정하려면 다음
 
 **2. Peering Service에 대한 직접 피어링 연결을 만듭니다.**
 
-[포털을 사용하여 직접 피어링 만들기 또는 수정](https://docs.microsoft.com/azure/internet-peering/howto-direct-portal)에 대한 지침을 따릅니다.
+[포털을 사용하여 직접 피어링 만들기 또는 수정](./howto-direct-portal.md)에 대한 지침을 따릅니다.
 
 고가용성 요구 사항을 충족하는지 확인합니다.
 
@@ -83,10 +83,10 @@ Peering Service에 사용: **사용**
   **2a. Peering Service에 기존 직접 피어링 연결 사용**
 
 Peering Service를 지원하는 데 사용하려는 기존 직접 피어링이 있는 경우 Azure Portal에서 활성화할 수 있습니다.
-1.  [포털을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환](https://docs.microsoft.com/azure/internet-peering/howto-legacy-direct-portal)에 대한 지침을 따릅니다.
+1.  [포털을 사용하여 레거시 직접 피어링을 Azure 리소스로 변환](./howto-legacy-direct-portal.md)에 대한 지침을 따릅니다.
 필요에 따라 고가용성 요구 사항을 충족하기 위해 추가 회로를 주문합니다.
 
-2.  포털을 사용하여 직접 피어링에 [Peering Service 사용](https://docs.microsoft.com/azure/internet-peering/howto-peering-service-portal)에 대한 단계를 따릅니다.
+2.  포털을 사용하여 직접 피어링에 [Peering Service 사용](./howto-peering-service-portal.md)에 대한 단계를 따릅니다.
 
 
 
@@ -94,7 +94,7 @@ Peering Service를 지원하는 데 사용하려는 기존 직접 피어링이 �
 **3. 최적화된 라우팅에 대한 접두사 등록**
 
 통신 서비스 인프라 접두사에 대해 최적화된 라우팅의 경우 피어링 상호 연결을 사용하여 모든 접두사를 등록해야 합니다.
-[Azure Peering Service 등록 - Azure Portal | Microsoft Docs](https://docs.microsoft.com/azure/peering-service/azure-portal)
+[Azure Peering Service 등록 - Azure Portal | Microsoft Docs](../peering-service/azure-portal.md)
 
 접두사 키는 통신 서비스 파트너에 대해 자동으로 채워지므로 파트너는 등록할 접두사 키를 사용할 필요가 없습니다. 
 
@@ -141,4 +141,4 @@ Peering Service를 지원하는 데 사용하려는 기존 직접 피어링이 �
 
 **Q.** 온보딩에 API를 사용할 수 있나요?
 
-**A.** 현재는 API를 지원하지 않으며 웹 포털을 통해 구성을 수행해야 합니다. 
+**A.** 현재는 API를 지원하지 않으며 웹 포털을 통해 구성을 수행해야 합니다.

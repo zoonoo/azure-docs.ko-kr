@@ -3,24 +3,23 @@ title: Azure RBAC를 사용하여 애플리케이션에 Azure 키 자격 증명 
 description: Azure 역할 기반 액세스 제어를 사용하여 키, 비밀 및 인증서에 대한 액세스를 제공하는 방법을 알아봅니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 8/30/2020
+ms.date: 04/15/2021
 ms.author: mbaldwin
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 216df0d128e0557345db8f82f6010e1ef681593c
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: e2a8e8f2abeb58cdfce53cc4578d15ace1fbff5f
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105968784"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109634602"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어를 사용하여 Key Vault 키, 인증서 및 비밀에 대한 액세스 제공
 
 > [!NOTE]
-> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리되는 HSM** 이라는 두 가지 리소스 유형을 지원합니다. 이 문서에서 설명하는 액세스 제어는 **자격 증명 모음** 에만 적용됩니다. 관리되는 HSM에 대한 액세스 제어에 대해 자세히 알아보려면 [관리되는 HSM 액세스 제어](../managed-hsm/access-control.md)를 참조하세요.
+> Key Vault 리소스 공급자는 **자격 증명 모음** 과 **관리되는 HSM** 이라는 두 가지 리소스 종류를 지원합니다. 이 문서에서 설명하는 액세스 제어는 **자격 증명 모음** 에만 적용됩니다. 관리되는 HSM에 대한 액세스 제어에 대해 자세히 알아보려면 [관리되는 HSM 액세스 제어](../managed-hsm/access-control.md)를 참조하세요.
 
 Azure RBAC(Azure 역할 기반 액세스 제어)는 Azure 리소스의 세밀한 액세스를 관리하는 [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 기반의 권한 부여 시스템입니다.
 
@@ -42,7 +41,7 @@ Azure RBAC 모델은 관리 그룹, 구독, 리소스 그룹 또는 개별 리�
 
 Azure Key Vault 관리 지침에 대한 자세한 내용은 다음을 참조하세요.
 
-- [Azure Key Vault 보안 개요](security-overview.md)
+- [Azure Key Vault 모범 사례](best-practices.md)
 - [Azure Key Vault 서비스 제한 사항](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations"></a>Key Vault 데이터 평면 작업을 위한 Azure 기본 제공 역할
@@ -51,14 +50,14 @@ Azure Key Vault 관리 지침에 대한 자세한 내용은 다음을 참조하�
 
 | 기본 제공 역할 | Description | ID |
 | --- | --- | --- |
-| Key Vault 관리자| 인증서, 키, 비밀을 포함하여 키 자격 증명 모음 및 해당 키 자격 증명 모음에 있는 모든 개체에 대한 모든 데이터 평면 작업을 수행합니다. 키 자격 증명 모음 리소스를 관리하거나 역할 할당을 관리할 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
-| Key Vault 인증서 책임자 | 권한 관리를 제외한 키 자격 증명 모음의 인증서에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | a4417e6f-fecd-4de8-b567-7b0420556985 |
-| Key Vault 암호화 책임자 | 권한 관리를 제외한 키 자격 증명 모음 키에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
-| Key Vault 암호화 서비스 암호화 사용자 | 키의 메타데이터를 읽고 래핑/래핑 해제 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
-| Key Vault 암호화 사용자  | 키를 사용하여 암호화 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | 12338af0-0e69-4776-bea7-57ae8d297424 |
-| Key Vault 읽기 권한자 | 키 자격 증명 모음 및 해당 인증서, 키, 비밀의 메타데이터를 읽습니다. 비밀 콘텐츠 또는 키 자료와 같은 중요한 값을 읽을 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | 21090545-7ca7-4776-b22c-e363652d74d2 |
-| Key Vault 비밀 책임자| 권한 관리를 제외한 키 자격 증명 모음의 비밀에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Key Vault 비밀 사용자 | 비밀 콘텐츠를 읽습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 키 자격 증명 모음에만 적용됩니다. | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Key Vault 관리자| 인증서, 키, 비밀을 포함하여 키 자격 증명 모음 및 해당 키 자격 증명 모음에 있는 모든 개체에 대한 모든 데이터 평면 작업을 수행합니다. Key Vault 리소스를 관리하거나 역할 할당을 관리할 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
+| Key Vault 인증서 책임자 | 권한 관리를 제외한 Key Vault의 인증서에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | a4417e6f-fecd-4de8-b567-7b0420556985 |
+| Key Vault 암호화 책임자 | 권한 관리를 제외한 Key Vault 키에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | 14b46e9e-c2b7-41b4-b07b-48a6ebf60603 |
+| Key Vault 암호화 서비스 암호화 사용자 | 키의 메타데이터를 읽고 래핑/래핑 해제 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | e147488a-f6f5-4113-8e2d-b22465e65bf6 |
+| Key Vault 암호화 사용자  | 키를 사용하여 암호화 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | 12338af0-0e69-4776-bea7-57ae8d297424 |
+| Key Vault 읽기 권한자 | Key Vault 및 해당 인증서, 키, 비밀의 메타데이터를 읽습니다. 비밀 내용 또는 키 자료와 같은 중요한 값을 읽을 수 없습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | 21090545-7ca7-4776-b22c-e363652d74d2 |
+| Key Vault 비밀 책임자| 권한 관리를 제외한 Key Vault의 비밀에 대한 작업을 수행합니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
+| Key Vault 비밀 사용자 | 비밀 내용을 읽습니다. 'Azure 역할 기반 액세스 제어' 권한 모델을 사용하는 Key Vault에만 적용됩니다. | 4633458b-17de-408a-b874-0445c86b69e6 |
 
 Azure 기본 제공 역할 정의에 대한 자세한 정보는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
@@ -237,7 +236,7 @@ New-AzRoleAssignment -RoleDefinitionName 'Key Vault Secrets Officer' -Applicatio
 
 ### <a name="creating-custom-roles"></a>사용자 지정 역할 만들기 
 
-[az role definition create command](/cli/azure/role/definition#az-role-definition-create)
+[az role definition create command](/cli/azure/role/definition#az_role_definition_create)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
