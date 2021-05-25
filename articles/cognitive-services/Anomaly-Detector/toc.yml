@@ -60,8 +60,6 @@
       href: concepts/anomaly-detection-best-practices.md
     - name: 예측 유지 관리 아키텍처(다변량)
       href: concepts/multivariate-architecture.md
-    - name: 다변량 문제 해결
-      href: concepts/troubleshoot.md
     - name: SR(Spectral Residual) 및 CNN(Convolutional Neural Net) 변칙 검색
       href: 'https://arxiv.org/abs/1906.03821'
     - name: 그래프 어텐션 네트워크를 통한 다변량 시계열 변칙 검색
@@ -104,7 +102,9 @@
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
-    - name: 기술 블로그
+    - name: 다변량 문제 해결
+      href: concepts/troubleshoot.md
+    - name: 기술 문서
       items:
         - name: Azure Anomaly Detector API 소개
           href: 'https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162'

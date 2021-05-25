@@ -90,6 +90,12 @@
           href: howto-feature-filters-aspnet-core.md
         - name: 지정된 사용자/그룹에 대해 기능 사용
           href: howto-targetingfilter-aspnet-core.md
+    - name: Azure 모니터링 사용
+      items:
+        - name: App Configuration 모니터링
+          href: monitor-app-configuration.md
+        - name: 데이터 참조 모니터링
+          href: monitor-app-configuration-reference.md
 - name: 샘플
   items:
     - name: Azure CLI

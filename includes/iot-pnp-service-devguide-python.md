@@ -5,13 +5,13 @@ ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/20/2020
 ms.openlocfilehash: a925c3a17988ef6f4b95a1e3cf4dd5fb8baa4829
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102510977"
 ---
-다음 리소스도 사용할 수 있습니다.
+다음 리소스를 사용할 수도 있습니다.
 
 - [Python SDK 참조 설명서](/python/api/azure-iot-hub/azure.iot.hub)
 - [서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)
@@ -19,11 +19,11 @@ ms.locfileid: "102510977"
 
 ## <a name="iot-hub-service-client-examples"></a>IoT Hub 서비스 클라이언트 예제
 
-이 섹션에서는 IoT Hub 서비스 클라이언트와 **IoTHubRegistryManager** 및 **CloudToDeviceMethod** 클래스를 사용 하는 Python 예제를 보여 줍니다. 장치 쌍을 사용 하 여 장치 상태와 상호 작용 하려면 **IoTHubRegistryManager** 클래스를 사용 합니다. **IoTHubRegistryManager** 클래스를 사용 하 여 IoT Hub에서 [장치 등록을 쿼리할](../articles/iot-hub/iot-hub-devguide-query-language.md) 수도 있습니다. **CloudToDeviceMethod** 클래스를 사용 하 여 장치에서 명령을 호출 합니다. 장치의 [Dtdl](../articles/iot-pnp/concepts-digital-twin.md) 모델은 장치가 구현 하는 속성과 명령을 정의 합니다. 코드 조각에서 변수는 iot `device_id` hub에 등록 된 iot 플러그 앤 플레이 장치의 장치 ID를 포함 합니다.
+이 섹션에서는 IoT Hub 서비스 클라이언트와 **IoTHubRegistryManager** 및 **CloudToDeviceMethod** 클래스를 사용하는 Python 예제를 보여줍니다. **IoTHubRegistryManager** 클래스를 사용하여 디바이스 쌍을 통해 디바이스 상태와 상호 작용합니다. **IoTHubRegistryManager** 클래스를 사용하여 IoT Hub에서 [디바이스 등록을 쿼리](../articles/iot-hub/iot-hub-devguide-query-language.md)할 수도 있습니다. **CloudToDeviceMethod** 클래스를 사용하여 디바이스에서 명령을 호출합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다. 코드 조각에서 `device_id` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
 
-### <a name="get-the-device-twin-and-model-id"></a>장치 쌍 및 모델 ID 가져오기
+### <a name="get-the-device-twin-and-model-id"></a>디바이스 쌍 및 모델 ID 가져오기
 
-Iot hub에 연결 된 IoT 플러그 앤 플레이 장치의 장치 쌍 및 모델 ID를 가져오려면 다음을 수행 합니다.
+IoT 허브에 연결된 IoT 플러그 앤 플레이 디바이스의 디바이스 쌍 및 모델 ID를 가져오려면 다음을 수행합니다.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
@@ -48,7 +48,7 @@ if "modelId" in additional_props:
 
 ### <a name="update-device-twin"></a>디바이스 쌍 업데이트
 
-다음 코드 조각에서는 장치에서 속성을 업데이트 하는 방법을 보여 줍니다 `targetTemperature` . 이 샘플에서는 업데이트 하기 전에 쌍을 가져오는 방법을 보여 줍니다 `etag` . 속성은 장치의 기본 구성 요소에 정의 되어 있습니다.
+다음 코드 조각은 디바이스에서 `targetTemperature` 속성을 업데이트하는 방법을 보여줍니다. 이 샘플에서는 업데이트하기 전에 트윈의 `etag`를 가져오는 방법을 보여줍니다. 속성은 디바이스의 기본 구성 요소에 정의되어 있습니다.
 
 ```python
 iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
@@ -63,7 +63,7 @@ twin_patch.properties = TwinProperties(
 updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
 ```
 
-다음 코드 조각에서는 구성 요소의 속성을 업데이트 하는 방법을 보여 줍니다 `targetTemperature` . 이 샘플에서는 업데이트 하기 전에 쌍을 가져오는 방법을 보여 줍니다 `ETag` . 속성은 **thermostat1** 구성 요소에 정의 되어 있습니다.
+다음 코드 조각에서는 구성 요소의 `targetTemperature` 속성을 업데이트하는 방법을 보여줍니다. 이 샘플에서는 업데이트하기 전에 트윈의 `ETag`를 가져오는 방법을 보여줍니다. 속성은 **thermostat1** 구성 요소에 정의되어 있습니다.
 
 ```python
 iothub_registry_manager = IoTHubRegistryManager(iothub_connection_str)
@@ -81,7 +81,7 @@ twin_patch.properties = TwinProperties(
 updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.etag)
 ```
 
-구성 요소의 속성에 대 한 속성 패치는 다음 예제와 같습니다.
+구성 요소의 속성에 대한 속성 패치는 다음 예제와 같습니다.
 
 ```json
 {
@@ -93,9 +93,9 @@ updated_twin = iothub_registry_manager.update_twin(device_id, twin_patch, twin.e
 }
 ```
 
-### <a name="call-command"></a>Call 명령
+### <a name="call-command"></a>호출 명령
 
-다음 코드 조각에서는 `getMaxMinReport` 기본 구성 요소에 정의 된 명령을 호출 하는 방법을 보여 줍니다.
+다음 코드 조각에서는 기본 구성 요소에 정의된 `getMaxMinReport` 명령을 호출하는 방법을 보여줍니다.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
@@ -111,7 +111,7 @@ result = iothub_registry_manager.invoke_device_method(device_id, device_method)
 print(result.payload)
 ```
 
-다음 코드 조각에서는 `getMaxMinReport` 구성 요소에서 명령을 호출 하는 방법을 보여 줍니다. 명령은 **thermostat1** 구성 요소에 정의 되어 있습니다.
+다음 코드 조각에서는 구성 요소에서 `getMaxMinReport` 명령을 호출하는 방법을 보여줍니다. 명령은 **thermostat1** 구성 요소에 정의되어 있습니다.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager
@@ -127,15 +127,15 @@ result = iothub_registry_manager.invoke_device_method(device_id, device_method)
 print(result.payload)
 ```
 
-## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 쌍 예
+## <a name="iot-hub-digital-twin-examples"></a>IoT Hub 디지털 트윈 예
 
-디지털 쌍을 사용 하 여 장치 상태와 상호 작용 하려면 **DigitalTwinClient** 클래스를 사용 합니다. 장치의 [Dtdl](../articles/iot-pnp/concepts-digital-twin.md) 모델은 장치가 구현 하는 속성과 명령을 정의 합니다.
+**DigitalTwinClient** 클래스를 사용하여 디지털 트윈을 통해 디바이스와 상호 작용합니다. 디바이스의 [DTDL](../articles/iot-pnp/concepts-digital-twin.md) 모델은 디바이스에서 구현하는 속성과 명령을 정의합니다.
 
-변수는 iot `device_id` hub에 등록 된 iot 플러그 앤 플레이 장치의 장치 ID를 포함 합니다.
+`device_id` 변수는 IoT 허브에 등록된 IoT 플러그 앤 플레이 디바이스의 디바이스 ID를 보유합니다.
 
-### <a name="get-the-digital-twin-and-model-id"></a>디지털 쌍 및 모델 ID 가져오기
+### <a name="get-the-digital-twin-and-model-id"></a>디지털 트윈 및 모델 ID 가져오기
 
-Iot hub에 연결 된 IoT 플러그 앤 플레이 장치의 디지털 쌍 및 모델 ID를 가져오려면 다음을 수행 합니다.
+IoT 허브에 연결된 IoT 플러그 앤 플레이 디바이스의 디지털 트윈 및 모델 ID를 가져오려면 다음을 수행합니다.
 
 ```python
 from azure.iot.hub import DigitalTwinClient
@@ -150,20 +150,9 @@ else:
     print("No digital_twin found")
 ```
 
-### <a name="update-digital-twin"></a>디지털 쌍 업데이트
+### <a name="update-digital-twin"></a>디지털 트윈 업데이트
 
-다음 코드 조각에서는 장치에서 속성을 업데이트 하는 방법을 보여 줍니다 `targetTemperature` . 속성은 장치의 기본 구성 요소에 정의 되어 있습니다.
-
-```python
-from azure.iot.hub import DigitalTwinClient
-
-digital_twin_client = DigitalTwinClient(iothub_connection_str)
-
-patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
-digital_twin_client.update_digital_twin(device_id, patch)
-```
-
-다음 코드 조각에서는 구성 요소의 속성을 업데이트 하는 방법을 보여 줍니다 `targetTemperature` . 속성은 **thermostat1** 구성 요소에 정의 되어 있습니다.
+다음 코드 조각은 디바이스에서 `targetTemperature` 속성을 업데이트하는 방법을 보여줍니다. 속성은 디바이스의 기본 구성 요소에 정의되어 있습니다.
 
 ```python
 from azure.iot.hub import DigitalTwinClient
@@ -174,9 +163,20 @@ patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
 digital_twin_client.update_digital_twin(device_id, patch)
 ```
 
-### <a name="call-command"></a>Call 명령
+다음 코드 조각에서는 구성 요소의 `targetTemperature` 속성을 업데이트하는 방법을 보여줍니다. 속성은 **thermostat1** 구성 요소에 정의되어 있습니다.
 
-다음 코드 조각에서는 `getMaxMinReport` 기본 구성 요소에 정의 된 명령을 호출 하는 방법을 보여 줍니다.
+```python
+from azure.iot.hub import DigitalTwinClient
+
+digital_twin_client = DigitalTwinClient(iothub_connection_str)
+
+patch = [{"op": "add", "path": "/targetTemperature", "value": 42}]
+digital_twin_client.update_digital_twin(device_id, patch)
+```
+
+### <a name="call-command"></a>호출 명령
+
+다음 코드 조각에서는 기본 구성 요소에 정의된 `getMaxMinReport` 명령을 호출하는 방법을 보여줍니다.
 
 ```python
 from azure.iot.hub import DigitalTwinClient
@@ -198,7 +198,7 @@ else:
     print("No invoke_command_result found")
 ```
 
-다음 코드 조각에서는 `getMaxMinReport` 구성 요소에서 명령을 호출 하는 방법을 보여 줍니다. 명령은 **thermostat1** 구성 요소에 정의 되어 있습니다.
+다음 코드 조각에서는 구성 요소에서 `getMaxMinReport` 명령을 호출하는 방법을 보여줍니다. 명령은 **thermostat1** 구성 요소에 정의되어 있습니다.
 
 ```python
 from azure.iot.hub import DigitalTwinClient
@@ -220,11 +220,11 @@ else:
     print("No invoke_command_result found")
 ```
 
-## <a name="read-device-telemetry"></a>장치 원격 분석 읽기
+## <a name="read-device-telemetry"></a>디바이스 원격 분석 읽기
 
-IoT 플러그 앤 플레이 장치는 DTDL 모델에 정의 된 원격 분석을 IoT Hub 보냅니다. 기본적으로 IoT Hub는 원격 분석을 사용할 수 있는 Event Hubs 끝점으로 라우팅합니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기를](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)참조 하세요.
+IoT 플러그 앤 플레이 디바이스는 DTDL 모델에 정의된 원격 분석을 IoT Hub로 보냅니다. 기본적으로 IoT Hub는 원격 분석을 사용할 수 있는 Event Hubs 엔드포인트로 라우팅합니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)를 참조하세요.
 
-다음 코드 조각에서는 기본 Event Hubs 끝점에서 원격 분석을 읽는 방법을 보여 줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작에서 [장치에서 IoT Hub로 원격 분석을 보내고 백 엔드 응용 프로그램을 사용](../articles/iot-hub/quickstart-send-telemetry-python.md)하 여 읽습니다.
+다음 코드 조각에서는 기본 Event Hubs 엔드포인트에서 원격 분석을 읽는 방법을 보여줍니다. 이 코드 조각의 코드는 IoT Hub 빠른 시작 [디바이스에서 IoT 허브로 원격 분석을 보내고 백 엔드 애플리케이션으로 읽기](../articles/iot-hub/quickstart-send-telemetry-python.md)에서 가져왔습니다.
 
 ```python
 import asyncio
@@ -259,7 +259,7 @@ finally:
     loop.stop()
 ```
 
-이전 코드의 다음 출력은 기본 구성 요소만 있는 구성 요소가 없는 **자동 온도 조절기** IoT 플러그 앤 플레이 장치에서 보낸 온도 원격 분석을 보여 줍니다. `dt-dataschema`System 속성은 모델 ID를 표시 합니다.
+이전 코드의 다음 출력에서는 기본 구성 요소 외에는 구성 요소가 없는 **자동 온도 조절기** IoT 플러그 앤 플레이 디바이스에서 보낸 온도 원격 분석을 보여줍니다. `dt-dataschema` 시스템 속성은 모델 ID를 표시합니다.
 
 ```cmd/sh
 Received event from partition: 1.
@@ -268,7 +268,7 @@ Properties (set by device):  None
 System properties (set by IoT Hub):  {b'content-type': b'application/json', b'content-encoding': b'utf-8', b'iothub-connection-device-id': b'my-pnp-device', b'iothub-connection-auth-method': b'{"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}', b'iothub-connection-auth-generation-id': b'637388855582764406', b'iothub-enqueuedtime': 1603288810715, b'iothub-message-source': b'Telemetry', b'dt-dataschema': b'dtmi:com:example:Thermostat;1', b'x-opt-sequence-number': 13280, b'x-opt-offset': b'12890070640', b'x-opt-enqueued-time': 1603288810824}
 ```
 
-이전 코드의 다음 출력에서는 다중 구성 요소 **TemperatureController** IoT 플러그 앤 플레이 장치에서 보낸 온도 원격 분석을 보여 줍니다. `dt-subject`System 속성은 원격 분석을 보낸 구성 요소의 이름을 표시 합니다. 이 예에서 두 구성 요소는 `thermostat1` `thermostat2` dtdl 모델에 정의 된 및입니다. `dt-dataschema`System 속성은 모델 ID를 표시 합니다.
+이전 코드의 다음 출력에서는 다중 구성 요소 **TemperatureController** IoT 플러그 앤 플레이 디바이스에서 보낸 온도 원격 분석을 보여줍니다. `dt-subject` 시스템 속성은 원격 분석을 보낸 구성 요소의 이름을 표시합니다. 이 예제에서 두 구성 요소는 DTDL 모델에 정의된 대로 `thermostat1` 및 `thermostat2`입니다. `dt-dataschema` 시스템 속성은 모델 ID를 표시합니다.
 
 ```cmd/sh
 Received event from partition: 1.
@@ -282,11 +282,11 @@ Properties (set by device):  None
 System properties (set by IoT Hub):  {b'content-type': b'application/json', b'content-encoding': b'utf-8', b'iothub-connection-device-id': b'my-pnp-device', b'iothub-connection-auth-method': b'{"scope":"device","type":"sas","issuer":"iothub","acceptingIpFilterRule":null}', b'iothub-connection-auth-generation-id': b'637388858939631652', b'iothub-enqueuedtime': 1603289133017, b'iothub-message-source': b'Telemetry', b'dt-subject': b'thermostat2', b'dt-dataschema': b'dtmi:com:example:TemperatureController;1', b'x-opt-sequence-number': 13329, b'x-opt-offset': b'12890095928', b'x-opt-enqueued-time': 1603289133173}
 ```
 
-## <a name="read-device-twin-change-notifications"></a>장치 쌍 변경 알림 읽기
+## <a name="read-device-twin-change-notifications"></a>디바이스 쌍 변경 알림 읽기
 
-지원 되는 끝점으로 라우팅하기 위해 장치 쌍 변경 알림을 생성 하도록 IoT Hub를 구성할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용 하 여 비 원격 분석 이벤트 > 다른 끝점으로 장치-클라우드 메시지 보내기를](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)참조 하세요.
+지원되는 엔드포인트로 라우팅할 디바이스 쌍 변경 알림을 생성하도록 IoT Hub를 구성할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트 > 비원격 분석 이벤트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)를 참조하세요.
 
-이전 Python 코드 조각에 표시 된 코드는 IoT Hub 구성 요소 자동 온도 조절기 장치에 대 한 장치 쌍 변경 알림을 생성할 때 다음 출력을 생성 합니다. 응용 프로그램 속성 `iothub-message-schema` 및 `opType` 변경 알림 유형에 대 한 정보를 제공 합니다.
+이전 Python 코드 조각에 표시된 코드는 IoT Hub가 구성 요소가 없는 자동 온도 조절 디바이스에 대한 디바이스 쌍 변경 알림을 생성할 때 다음과 같은 출력을 생성합니다. 애플리케이션 속성 `iothub-message-schema` 및 `opType`은 변경 알림 유형에 대한 정보를 제공합니다.
 
 ```cmd/sh
 Received event from partition: 1.
@@ -295,7 +295,7 @@ Properties (set by device):  {b'hubName': b'my-pnp-hub', b'deviceId': b'my-pnp-d
 System properties (set by IoT Hub):  {b'user-id': b'my-pnp-hub\x81\x0e\xa4\x7f', b'correlation-id': b'12104ced5402', b'content-type': b'application/json', b'content-encoding': b'utf-8', b'iothub-connection-device-id': b'my-pnp-device', b'iothub-enqueuedtime': 1603289442519, b'iothub-message-source': b'twinChangeEvents', b'x-opt-sequence-number': 13332, b'x-opt-offset': b'12890097392', b'x-opt-enqueued-time': 1603289442738}
 ```
 
-이전 Python 코드 조각에 표시 된 코드는 IoT Hub 구성 요소를 사용 하 여 장치에 대 한 장치 쌍 변경 알림을 생성할 때 다음과 같은 출력을 생성 합니다. 이 예제에서는 자동 온도 조절기 구성 요소가 있는 온도 센서 장치가 알림을 생성할 때 출력을 보여 줍니다. 응용 프로그램 속성 `iothub-message-schema` 및 `opType` 변경 알림 유형에 대 한 정보를 제공 합니다.
+이전 Python 코드 조각에 표시된 코드는 IoT Hub가 구성 요소가 있는 디바이스에 대한 디바이스 쌍 변경 알림을 생성할 때 다음과 같은 출력을 생성합니다. 이 예제에서는 자동 온도 조절기 구성 요소가 있는 온도 센서 디바이스가 알림을 생성할 때의 출력을 보여줍니다. 애플리케이션 속성 `iothub-message-schema` 및 `opType`은 변경 알림 유형에 대한 정보를 제공합니다.
 
 ```cmd/sh
 Received event from partition: 1.
@@ -304,11 +304,11 @@ Properties (set by device):  {b'hubName': b'my-pnp-hub', b'deviceId': b'my-pnp-d
 System properties (set by IoT Hub):  {b'user-id': b'my-pnp-hub', b'correlation-id': b'1210b664ab83', b'content-type': b'application/json', b'content-encoding': b'utf-8', b'iothub-connection-device-id': b'my-pnp-device', b'iothub-enqueuedtime': 1603289619481, b'iothub-message-source': b'twinChangeEvents', b'x-opt-sequence-number': 13341, b'x-opt-offset': b'12890102216', b'x-opt-enqueued-time': 1603289619668}
 ```
 
-## <a name="read-digital-twin-change-notifications"></a>디지털 쌍 변경 알림 읽기
+## <a name="read-digital-twin-change-notifications"></a>디지털 트윈 변경 알림 읽기
 
-지원 되는 끝점으로 라우팅하도록 디지털 쌍 변경 알림을 생성 하도록 IoT Hub를 구성할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용 하 여 비 원격 분석 이벤트 > 다른 끝점으로 장치-클라우드 메시지 보내기를](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)참조 하세요.
+지원되는 엔드포인트로 라우팅할 디지털 트윈 변경 알림을 생성하도록 IoT Hub를 구성할 수 있습니다. 자세한 내용은 [IoT Hub 메시지 라우팅을 사용하여 디바이스-클라우드 메시지를 다른 엔드포인트 > 비원격 분석 이벤트에 보내기](../articles/iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)를 참조하세요.
 
-이전 Python 코드 조각에 표시 된 코드는 IoT Hub 구성 요소 자동 온도 조절기 장치에 대 한 디지털 쌍 변경 알림을 생성할 때 다음 출력을 생성 합니다. 응용 프로그램 속성 `iothub-message-schema` 및 `opType` 변경 알림 유형에 대 한 정보를 제공 합니다.
+이전 Python 코드 조각에 표시된 코드는 IoT Hub가 구성 요소가 없는 자동 온도 조절 디바이스에 대한 디지털 트윈 변경 알림을 생성할 때 다음과 같은 출력을 생성합니다. 애플리케이션 속성 `iothub-message-schema` 및 `opType`은 변경 알림 유형에 대한 정보를 제공합니다.
 
 ```cmd/sh
 Received event from partition: 1.
@@ -317,7 +317,7 @@ Properties (set by device):  {b'hubName': b'my-pnp-hub', b'deviceId': b'my-pnp-d
 System properties (set by IoT Hub):  {b'user-id': b'my-pnp-hub\x81\x0e\xa4\x7f', b'correlation-id': b'12104ced5402', b'content-type': b'application/json-patch+json', b'content-encoding': b'utf-8', b'iothub-connection-device-id': b'my-pnp-device', b'iothub-enqueuedtime': 1603289442519, b'iothub-message-source': b'digitalTwinChangeEvents', b'x-opt-sequence-number': 13333, b'x-opt-offset': b'12890098024', b'x-opt-enqueued-time': 1603289442738}
 ```
 
-이전 Python 코드 조각에 표시 된 코드는 IoT Hub 구성 요소를 사용 하 여 장치에 대 한 디지털 쌍 변경 알림을 생성할 때 다음과 같은 출력을 생성 합니다. 이 예제에서는 자동 온도 조절기 구성 요소가 있는 온도 센서 장치가 알림을 생성할 때 출력을 보여 줍니다. 응용 프로그램 속성 `iothub-message-schema` 및 `opType` 변경 알림 유형에 대 한 정보를 제공 합니다.
+이전 Python 코드 조각에 표시된 코드는 IoT Hub가 구성 요소가 있는 디바이스에 대한 디지털 트윈 변경 알림을 생성할 때 다음과 같은 출력을 생성합니다. 이 예제에서는 자동 온도 조절기 구성 요소가 있는 온도 센서 디바이스가 알림을 생성할 때의 출력을 보여줍니다. 애플리케이션 속성 `iothub-message-schema` 및 `opType`은 변경 알림 유형에 대한 정보를 제공합니다.
 
 ```cmd/sh
 Received event from partition: 1.

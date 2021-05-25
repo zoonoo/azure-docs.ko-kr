@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션 - 
 description: Azure Machine Learning에서 파이프라인 엔드포인트로 Studio(클래식) 웹 서비스 다시 빌드
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio-classic
+ms.subservice: studio
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 35ee5bf22aa88c18bade0ebdcd961b7687d24e7f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 5e467d22cc3230bd9945fb276dc16cf1fa765bb6
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107311824"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103565248"
 ---
 # <a name="rebuild-a-studio-classic-web-service-in-azure-machine-learning"></a>Azure Machine Learning에서 Studio(클래식) 웹 서비스 다시 빌드
 
@@ -26,7 +26,7 @@ Azure Machine Learning 파이프라인 엔드포인트를 사용하여 예측을
 > [!NOTE]
 > 이 마이그레이션 시리즈는 끌어서 놓기 디자이너를 집중적으로 다룹니다. 프로그래밍 방식으로 모델을 배포하는 방법에 대한 자세한 내용은 [Azure에서 기계 학습 모델 배포](../how-to-deploy-and-where.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure Machine Learning 작업 영역 [Azure Machine Learning 작업 영역을 만듭니다](../how-to-manage-workspace.md#create-a-workspace).
@@ -66,7 +66,7 @@ Azure Machine Learning에서 모델을 배포하는 방법에는 여러 가지�
 
     다음 표에서는 디자이너의 배포 컴퓨팅 옵션에 대해 설명합니다.
 
-    | 컴퓨팅 대상 | 사용 대상 | Description | 만들기 |
+    | 컴퓨팅 대상 | 사용 대상 | Description | 생성 |
     | ----- |  ----- | ----- | -----  |
     |[AKS(Azure Kubernetes Service)](../how-to-deploy-azure-kubernetes-service.md) |실시간 유추|대규모 프로덕션 배포. 빠른 응답 시간 및 서비스 자동 크기 조정| 사용자가 생성함. 자세한 내용은 [컴퓨팅 대상 만들기](../how-to-create-attach-compute-studio.md#inference-clusters)를 참조하세요. |
     |[Azure Container Instances ](../how-to-deploy-azure-container-instance.md)|테스트 또는 개발 | 48GB 미만의 RAM이 필요한 소규모 CPU 기반 워크로드| Azure Machine Learning에 의해 자동으로 생성됨
@@ -154,7 +154,7 @@ Azure Machine Learning에서 모델을 배포하는 방법에는 여러 가지�
 Studio(클래식) 마이그레이션 시리즈의 다른 문서를 참조하세요.
 
 1. [마이그레이션 개요](migrate-overview.md)입니다.
-1. [마이그레이션 데이터세트](migrate-register-dataset.md)
+1. [데이터 세트를 마이그레이션](migrate-register-dataset.md)합니다.
 1. [Studio(클래식) 학습 파이프라인을 다시 빌드](migrate-rebuild-experiment.md)합니다.
 1. **Studio(클래식) 웹 서비스를 다시 빌드** 합니다.
 1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md)합니다.

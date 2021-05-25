@@ -1,5 +1,5 @@
 ---
-title: 개인 정보에 대 한 명명 된 엔터티
+title: 개인 정보에 대한 명명된 엔터티
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
@@ -9,39 +9,39 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599327"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096972"
 ---
 > [!NOTE]
-> 보호 된 상태 정보 (화)를 검색 하려면 `domain=phi` 매개 변수 및 모델 버전 이상을 사용 `2020-04-01` 합니다.
+> PHI(보호된 상태 정보)를 검색하려면 `domain=phi` 매개 변수 및 모델 버전 `2020-04-01` 이상을 사용합니다.
 >
-> `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+> 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-끝점에 요청을 보낼 때 다음 엔터티 범주가 반환 됩니다 `/v3.1-preview.3/entities/recognition/pii` .
+`/v3.1-preview.3/entities/recognition/pii` 엔드포인트에 요청을 보낼 때 다음 엔터티 범주가 반환됩니다.
 
 
-| 범주   |  설명                          |
+| 범주   |  Description                          |
 |------------|-------------|
-| [Person](#category-person)      |  사람의 이름입니다.  |
-| [PersonType](#category-persontype) | 사용자가 보유 한 작업 유형 또는 역할 |
-| [전화 번호](#category-phonenumber) |전화 번호 (미국과 EU 전화 번호만 해당). |
-| [조직](#category-organization) |  회사, 그룹, 정부 기관 및 기타 조직  |
-| [주소](#category-address) | 전체 우편 주소  |
-| [전자 메일](#category-email) | 전자 메일 주소.   |
-| [URL](#category-url) | 웹 사이트에 대 한 Url입니다.  |
-| [TCP/IP](#category-ip) | 네트워크 IP 주소.  |
-| [DateTime](#category-datetime) | 날짜 및 시간입니다. | 
+| [Person](#category-person)      |  사용자의 이름.  |
+| [PersonType](#category-persontype) | 사용자가 보유한 작업 유형 또는 역할. |
+| [전화 번호](#category-phonenumber) |전화 번호(미국과 유럽 전화 번호만 해당). |
+| [조직](#category-organization) |  회사, 그룹, 정부 기관 및 기타 조직.  |
+| [주소](#category-address) | 전체 우편 주소.  |
+| [Email](#category-email) | 이메일 주소.   |
+| [URL](#category-url) | 웹 사이트에 대한 URL입니다.  |
+| [IP](#category-ip) | 네트워크 IP 주소.  |
+| [DateTime](#category-datetime) | 날짜 및 하루 중 시간. | 
 | [수량](#category-quantity) | 숫자 및 숫자 수량.  |
-| [Azure 정보](#azure-information) | 식별 가능한 Azure 정보 (예: 인증 정보).  |
-| [ID](#identification) | 재무 및 국가 관련 id입니다.  |
+| [Azure 정보](#azure-information) | 식별 가능한 Azure 정보(예: 인증 정보).  |
+| [ID](#identification) | 재무 및 국가별 ID.  |
 
-### <a name="category-person"></a>범주: Person
+### <a name="category-person"></a>범주: 사람
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -53,14 +53,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        사람의 이름입니다. 
+        사용자의 이름. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `Person` 매개 변수에를 추가 `pii-categories` 합니다. `Person` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Person`을 추가합니다. 검색되는 경우 `Person`이 API 응답에 반환됩니다.
       
     :::column-end:::
     
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
@@ -69,7 +69,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-persontype"></a>범주: PersonType
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 
 :::row:::
@@ -82,14 +82,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        사용자가 보유 한 작업 유형 또는 역할
+        사용자가 보유한 작업 유형 또는 역할.
 
-        이 엔터티 범주를 가져오려면 `PersonType` 매개 변수에를 추가 `pii-categories` 합니다. `PersonType` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `PersonType`을 추가합니다. 검색되는 경우 `PersonType`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
       
@@ -98,7 +98,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-phonenumber"></a>범주: PhoneNumber
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -110,14 +110,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        전화 번호 (미국과 EU 전화 번호만 해당). 또한로 반환 `domain=phi` 됩니다.
+        전화 번호(미국과 유럽 전화 번호만 해당). `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `PhoneNumber` 매개 변수에를 추가 `pii-categories` 합니다. `PhoneNumber` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `PhoneNumber`를 추가합니다. 검색되는 경우 `PhoneNumber`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
       
@@ -128,7 +128,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-organization"></a>범주: 조직
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -140,14 +140,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        회사, 정치적 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. Nationalities 및 religions는이 엔터티 형식에 포함 되지 않습니다.
+        회사, 정치 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. 국적 및 종교는 이 엔터티 형식에 포함되지 않습니다. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `Organization` 매개 변수에를 추가 `pii-categories` 합니다. `Organization` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Organization`을 추가합니다. 검색되는 경우 `Organization`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
       
@@ -155,7 +155,7 @@ ms.locfileid: "104599327"
 
 :::row-end:::
 
-#### <a name="subcategories"></a>범주가
+#### <a name="subcategories"></a>하위 범주
 
 이 범주의 엔터티에는 다음과 같은 하위 범주가 있을 수 있습니다.
 
@@ -171,12 +171,12 @@ ms.locfileid: "104599327"
 
         의료 회사 및 그룹.
 
-        이 엔터티 범주를 가져오려면 `OrganizationMedical` 매개 변수에를 추가 `pii-categories` 합니다. `OrganizationMedical` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `OrganizationMedical`을 추가합니다. 검색되는 경우 `OrganizationMedical`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`   
       
@@ -186,14 +186,14 @@ ms.locfileid: "104599327"
 :::row:::
     :::column span="":::
 
-        재고 교환
+        증권 거래소
 
     :::column-end:::
     :::column span="2":::
 
-        재고 교환 그룹. 
+        증권 거래소 그룹. 
 
-        이 엔터티 범주를 가져오려면 `OrganizationStockExchange` 매개 변수에를 추가 `pii-categories` 합니다. `OrganizationStockExchange` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `OrganizationStockExchange`를 추가합니다. 검색되는 경우 `OrganizationStockExchange`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -212,9 +212,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        스포츠 관련 조직.
+        스포츠 관련 단체.
 
-        이 엔터티 범주를 가져오려면 `OrganizationSports` 매개 변수에를 추가 `pii-categories` 합니다. `OrganizationSports` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `OrganizationSports`를 추가합니다. 검색되는 경우 `OrganizationSports`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -229,7 +229,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-address"></a>범주: 주소
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -241,14 +241,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        전체 우편 주소입니다.
+        전체 우편 주소. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `Address` 매개 변수에를 추가 `pii-categories` 합니다. `Address` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Address`를 추가합니다. 검색되는 경우 `Address`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
@@ -256,27 +256,27 @@ ms.locfileid: "104599327"
 
 :::row-end:::
 
-### <a name="category-email"></a>범주: 전자 메일
+### <a name="category-email"></a>범주: 이메일
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
         **엔터티**
 
-        Email
+        메일
 
     :::column-end:::
     :::column span="2":::
         **세부 정보**
 
-        전자 메일 주소.
+        이메일 주소. `domain=phi` 또한 반환됩니다.
       
-        이 엔터티 범주를 가져오려면 `Email` 매개 변수에를 추가 `pii-categories` 합니다. `Email` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Email`을 추가합니다. 검색되는 경우 `Email`이 API 응답에 반환됩니다.
 
     :::column-end:::
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
@@ -286,7 +286,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-url"></a>범주: URL
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -298,14 +298,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        웹 사이트에 대 한 Url입니다. 
+        웹 사이트에 대한 URL입니다. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `URL` 매개 변수에를 추가 `pii-categories` 합니다. `URL` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `URL`을 추가합니다. 검색되는 경우 `URL`이 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
@@ -315,7 +315,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-ip"></a>범주: IP
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -327,14 +327,14 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        네트워크 IP 주소. 
+        네트워크 IP 주소. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `IP` 매개 변수에를 추가 `pii-categories` 합니다. `IP` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `IP`를 추가합니다. 검색되는 경우 `IP`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
@@ -343,7 +343,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-datetime"></a>범주: DateTime
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -355,20 +355,20 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        날짜 및 시간입니다. 
+        날짜 및 하루 중 시간. 
 
-        이 엔터티 범주를 가져오려면 `DateTime` 매개 변수에를 추가 `pii-categories` 합니다. `DateTime` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `DateTime`을 추가합니다. 검색되는 경우 `DateTime`이 API 응답에 반환됩니다.
       
     :::column-end:::
 :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
    :::column-end:::
 :::row-end:::
 
-#### <a name="subcategories"></a>범주가
+#### <a name="subcategories"></a>하위 범주
 
 이 범주의 엔터티에는 다음과 같은 하위 범주가 있을 수 있습니다.
 
@@ -376,19 +376,19 @@ ms.locfileid: "104599327"
     :::column span="":::
         **엔터티 하위 범주**
 
-        날짜
+        Date
 
     :::column-end:::
     :::column span="2":::
         **세부 정보**
 
-        일정 날짜
+        달력 날짜. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `Date` 매개 변수에를 추가 `pii-categories` 합니다. `Date` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Date`를 추가합니다. 검색되는 경우 `Date`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="2":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
       
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
@@ -397,7 +397,7 @@ ms.locfileid: "104599327"
 
 ### <a name="category-quantity"></a>범주: 수량
 
-이 범주에는 다음 엔터티가 포함 됩니다.
+이 범주에는 다음 엔터티가 포함됩니다.
 
 :::row:::
     :::column span="":::
@@ -411,18 +411,18 @@ ms.locfileid: "104599327"
 
         숫자 및 숫자 수량.
 
-        이 엔터티 범주를 가져오려면 `Quantity` 매개 변수에를 추가 `pii-categories` 합니다. `Quantity` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Quantity`를 추가합니다. 검색되는 경우 `Quantity`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="2":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
     :::column-end:::
 :::row-end:::
 
-#### <a name="subcategories"></a>범주가
+#### <a name="subcategories"></a>하위 범주
 
 이 범주의 엔터티에는 다음과 같은 하위 범주가 있을 수 있습니다.
 
@@ -436,13 +436,13 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        에이징을.
+        나이. 
 
-        이 엔터티 범주를 가져오려면 `Age` 매개 변수에를 추가 `pii-categories` 합니다. `Age` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Age`를 추가합니다. 검색되는 경우 `Age`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="2":::
-        **지원 되는 문서 언어**
+        **지원 문서 언어**
 
       `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
       
@@ -451,7 +451,7 @@ ms.locfileid: "104599327"
 
 ### <a name="azure-information"></a>Azure 정보
 
-이러한 엔터티 범주는 인증 정보 및 연결 문자열을 포함 하 여 식별 가능한 Azure 정보를 포함 합니다. 매개 변수를 사용 하 여 반환 되지 않습니다 `domain=phi` .
+이러한 엔터티 범주에는 인증 정보 및 연결 문자열을 비롯한 식별 가능한 Azure 정보가 포함됩니다. `domain=phi` 매개 변수와 함께 반환되지 않습니다.
 
 :::row:::
     :::column span="":::
@@ -463,13 +463,13 @@ ms.locfileid: "104599327"
     :::column span="2":::
         **세부 정보**
 
-        Azure Cosmos DB 서버에 대 한 권한 부여 키입니다.   
+        Azure Cosmos DB 서버에 대한 권한 부여 키입니다.   
 
-        이 엔터티 범주를 가져오려면 `AzureDocumentDBAuthKey` 매개 변수에를 추가 `pii-categories` 합니다. `AzureDocumentDBAuthKey` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureDocumentDBAuthKey`를 추가합니다. 검색되는 경우 `AzureDocumentDBAuthKey`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
-      **지원 되는 문서 언어**
+      **지원 문서 언어**
 
       `en` 
 
@@ -478,15 +478,15 @@ ms.locfileid: "104599327"
 :::row:::
     :::column span="":::
 
-        Azure IAAS 데이터베이스 연결 문자열 및 Azure SQL 연결 문자열입니다.
+        Azure IAAS 데이터베이스 연결 문자열 및 Azure SQL 연결 문자열.
         
 
     :::column-end:::
     :::column span="2":::
 
-        Azure IaaS (infrastructure as a service) 데이터베이스에 대 한 연결 문자열 및 SQL 연결 문자열입니다.
+        Azure IaaS(Infrastructure as a Service) 데이터베이스에 대한 연결 문자열 및 SQL 연결 문자열입니다.
 
-        이 엔터티 범주를 가져오려면 `AzureIAASDatabaseConnectionAndSQLString` 매개 변수에를 추가 `pii-categories` 합니다. `AzureIAASDatabaseConnectionAndSQLString` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureIAASDatabaseConnectionAndSQLString`을 추가합니다. 검색되는 경우 `AzureIAASDatabaseConnectionAndSQLString`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -503,9 +503,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        Azure IoT에 대 한 연결 문자열입니다. 
+        Azure IoT에 대한 연결 문자열입니다. 
       
-        이 엔터티 범주를 가져오려면 `AzureIoTConnectionString` 매개 변수에를 추가 `pii-categories` 합니다. `AzureIoTConnectionString` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureIoTConnectionString`을 추가합니다. 검색되는 경우 `AzureIoTConnectionString`이 API 응답에 반환됩니다.
 
     :::column-end:::
     :::column span="":::
@@ -522,9 +522,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        Azure 게시 설정에 대 한 암호입니다.
+        Azure 게시 설정에 대한 암호입니다.
 
-        이 엔터티 범주를 가져오려면 `AzurePublishSettingPassword` 매개 변수에를 추가 `pii-categories` 합니다. `AzurePublishSettingPassword` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzurePublishSettingPassword`를 추가합니다. 검색되는 경우 `AzurePublishSettingPassword`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -541,9 +541,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        Redis cache에 대 한 연결 문자열입니다.
+        Redis 캐시에 대한 연결 문자열입니다.
 
-        이 엔터티 범주를 가져오려면 `AzureRedisCacheString` 매개 변수에를 추가 `pii-categories` 합니다. `AzureRedisCacheString` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureRedisCacheString`을 추가합니다. 검색되는 경우 `AzureRedisCacheString`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -560,9 +560,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        Azure SaaS (software as a service)에 대 한 연결 문자열입니다.
+        Azure SaaS(Software as a Service)에 대한 연결 문자열입니다.
 
-        이 엔터티 범주를 가져오려면 `AzureSAS` 매개 변수에를 추가 `pii-categories` 합니다. `AzureSAS` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureSAS`를 추가합니다. 검색되는 경우 `AzureSAS`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -579,9 +579,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        Azure 서비스 버스에 대 한 연결 문자열입니다.
+        Azure 서비스 버스에 대한 연결 문자열입니다.
 
-        이 엔터티 범주를 가져오려면 `AzureServiceBusString` 매개 변수에를 추가 `pii-categories` 합니다. `AzureServiceBusString` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureServiceBusString`을 추가합니다. 검색되는 경우 `AzureServiceBusString`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -593,14 +593,14 @@ ms.locfileid: "104599327"
 :::row:::
     :::column span="":::
 
-        계정 키 Azure Storage 
+        Azure Storage 계정 키 
 
     :::column-end:::
     :::column span="2":::
 
-        Azure storage 계정에 대 한 계정 키입니다. 
+        Azure 스토리지 계정에 대한 계정 키입니다. 
 
-        이 엔터티 범주를 가져오려면 `AzureStorageAccountKey` 매개 변수에를 추가 `pii-categories` 합니다. `AzureStorageAccountKey` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureStorageAccountKey`를 추가합니다. 검색되는 경우 `AzureStorageAccountKey`가 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -617,9 +617,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        Azure 저장소 계정에 대 한 일반 계정 키입니다.
+        Azure 스토리지 계정에 대한 일반 계정 키입니다.
 
-        이 엔터티 범주를 가져오려면 `AzureStorageAccountGeneric` 매개 변수에를 추가 `pii-categories` 합니다. `AzureStorageAccountGeneric` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `AzureStorageAccountGeneric`을 추가합니다. 검색되는 경우 `AzureStorageAccountGeneric`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::
@@ -636,9 +636,9 @@ ms.locfileid: "104599327"
     :::column-end:::
     :::column span="2":::
 
-        SQL Server를 실행 하는 컴퓨터에 대 한 연결 문자열입니다.
+        SQL Server를 실행하는 컴퓨터의 연결 문자열입니다.
 
-        이 엔터티 범주를 가져오려면 `SQLServerConnectionString` 매개 변수에를 추가 `pii-categories` 합니다. `SQLServerConnectionString` 가 검색 되 면 API 응답에서 반환 됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `SQLServerConnectionString`을 추가합니다. 검색되는 경우 `SQLServerConnectionString`이 API 응답에 반환됩니다.
       
     :::column-end:::
     :::column span="":::

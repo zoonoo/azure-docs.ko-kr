@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 67e807e948caf1fec014457814c1b7f105630f9f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 0dcffe6731c177d1d45c569361fcb200f23af86c
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784428"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "99095361"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Azure SQL Database에서 서버에 대한 Virtual Network 서비스 엔드포인트 및 규칙 사용
 
@@ -108,7 +108,7 @@ Azure Storage는 사용자가 Azure Storage 계정에 대한 연결성을 제한
 
 PolyBase 및 COPY 문은 일반적으로 높은 처리량의 데이터 수집을 위해 Azure Storage 계정에서 Azure Synapse Analytics로 데이터를 로드하는 데 사용됩니다. 데이터를 로드하는 Azure Storage 계정에서 가상 네트워크 서브넷 세트에만 액세스하도록 제한하는 경우 PolyBase 및 COPY 문을 사용하면 스토리지 계정으로의 연결이 끊어집니다. 가상 네트워크로 보안이 유지되는 Azure Storage에 연결하는 Azure Synapse Analytics를 통해 COPY 및 PolyBase를 사용하여 가져오기 및 내보내기 시나리오를 사용하도록 설정하는 경우 이 섹션의 단계를 따르세요.
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - [이 가이드](/powershell/azure/install-az-ps)를 사용하여 Azure PowerShell을 설치합니다.
 - 범용 v1 또는 Azure Blob Storage 계정이 있는 경우 먼저 [범용 v2 스토리지 계정으로 업그레이드](../../storage/common/storage-account-upgrade.md)의 단계를 수행하여 범용 v2로 업그레이드해야 합니다.
@@ -225,7 +225,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 ## <a name="powershell-alternative"></a>PowerShell 대체
 
-또한 스크립트는 PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** 또는 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 가상 네트워크 규칙을 만들 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 SQL Database에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
+또한 스크립트는 PowerShell cmdlet **New-AzSqlServerVirtualNetworkRule** 또는 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 가상 네트워크 규칙을 만들 수 있습니다. 자세한 내용은 [PowerShell을 사용하여 SQL Database에 대한 가상 네트워크 서비스 엔드포인트 및 규칙 만들기][sql-db-vnet-service-endpoint-rule-powershell-md-52d]를 참조하세요.
 
 ## <a name="rest-api-alternative"></a>REST API 대체
 
@@ -233,7 +233,7 @@ PowerShell을 사용하여 **IgnoreMissingVNetServiceEndpoint** 플래그를 설
 
 - [가상 네트워크 규칙: 작업][rest-api-virtual-network-rules-operations-862r]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Database에 관련된 특정 가상 네트워크 서비스 엔드포인트 *형식 이름* 으로 태그가 지정된 서브넷이 있어야 합니다.
 

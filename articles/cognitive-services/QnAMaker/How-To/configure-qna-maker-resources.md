@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 48a56500646e4bd5e24cdcf3e076f46f1de94741
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3c6f75eafad51c99f60b78ce49862d2488d5926f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743906"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102220158"
 ---
 # <a name="configure-qna-maker-resources"></a>QnA Maker 리소스 구성
 
@@ -18,7 +18,7 @@ ms.locfileid: "108743906"
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용하도록 QnA Maker 구성
+### <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용하도록 QnA Maker 구성
 
 포털을 통해 QnA 서비스 및 해당 종속성(예: Search)을 만드는 경우 Search Service가 만들어지고 QnA Maker 서비스에 연결됩니다. 이러한 리소스가 만들어지면 이전에 기존 Search Service를 사용하고 방금 만든 서비스를 제거하도록 App Service 설정을 업데이트할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure Resource Manager 템플릿을 통해 QnA 서비스를 만드는 경우, �
 
 App Service [애플리케이션 설정](../../../app-service/configure-common.md#configure-app-settings)을 구성하는 방법에 대해 자세히 알아보세요.
 
-## <a name="get-the-latest-runtime-updates"></a>최신 런타임 업데이트 받기
+### <a name="get-the-latest-runtime-updates"></a>최신 런타임 업데이트 받기
 
 QnAMaker 런타임은 Azure Portal에서 [QnAMaker 서비스를 만들](./set-up-qnamaker-service-azure.md) 때 배포한 Azure App Service 인스턴스의 일부입니다. 런타임은 주기적으로 업데이트됩니다. QnA Maker App Service 인스턴스는 2019년 4월 사이트 확장 릴리스(버전 5 이상) 이후 자동 업데이트 모드에 있습니다. 이 업데이트는 업그레이드하는 동안 가동 중지 시간을 0으로 처리하도록 설계되었습니다.
 
@@ -68,7 +68,7 @@ https://www.qnamaker.ai/UserSettings 에서 현재 버전을 확인할 수 있�
 
     ![QnAMaker App Service 인스턴스 다시 시작](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>시간 초과를 방지하도록 App Service 유휴 설정 구성
+### <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>시간 초과를 방지하도록 App Service 유휴 설정 구성
 
 게시된 기술 자료에 대한 QnA Maker 예측 런타임을 제공하는 App Service에는 서비스가 유휴 상태이면 자동으로 시간이 초과되도록 기본적으로 설정되는 유휴 시간 제한 구성이 있습니다. QnA Maker의 경우, 이는 트래픽이 없는 기간 후에도 예측 런타임 generateAnswer API가 때때로 시간 초과되는 것을 의미합니다.
 
@@ -87,7 +87,7 @@ https://www.qnamaker.ai/UserSettings 에서 현재 버전을 확인할 수 있�
 
 App Service [일반 설정](../../../app-service/configure-common.md#configure-general-settings)을 구성하는 방법에 대해 자세히 알아보세요.
 
-## <a name="business-continuity-with-traffic-manager"></a>Traffic Manager를 통한 비즈니스 연속성
+### <a name="business-continuity-with-traffic-manager"></a>Traffic Manager를 통한 비즈니스 연속성
 
 비즈니스 연속성 계획의 주요 목표는 Bot 또는 이를 사용하는 애플리케이션에 대한 작동 중지 시간이 없도록 보장하는 복원력 있는 기술 자료 엔드포인트를 만드는 것입니다.
 
@@ -112,7 +112,7 @@ App Service [일반 설정](../../../app-service/configure-common.md#configure-g
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
 
-## <a name="configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용하도록 QnA Maker 관리(미리 보기) 서비스 구성
+### <a name="configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용하도록 QnA Maker 관리(미리 보기) 서비스 구성
 
 포털을 통해 QnA 서비스 관리(미리 보기) 및 해당 종속성(예: Search)을 만드는 경우 Search Service가 만들어지고 QnA Maker 관리(미리 보기) 서비스에 연결됩니다. 이러한 리소스를 만든 후 **구성** 탭에서 Search Service를 업데이트할 수 있습니다.
 

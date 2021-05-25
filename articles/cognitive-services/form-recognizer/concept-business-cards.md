@@ -1,7 +1,7 @@
 ---
-title: 명함-양식 인식기
+title: 명함 - 양식 인식기
 titleSuffix: Azure Cognitive Services
-description: 인식기 API 사용 및 제한을 사용 하 여 비즈니스 카드 분석과 관련 된 개념을 알아봅니다.
+description: Form Recognizer API - 사용 및 제한으로 명함 분석과 관련된 개념을 알아봅니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -11,76 +11,76 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103466997"
 ---
-# <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기 미리 작성 한 비즈니스 카드 모델 
+# <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기로 미리 작성된 명함 모델 
 
-Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용 하 여 비즈니스 카드에서 연락처 정보를 분석 하 고 추출할 수 있습니다. 또한 강력한 OCR (광학 문자 인식) 기능을 비즈니스 카드 이해 모델과 결합 하 여 영어로 된 비즈니스 카드의 주요 정보를 추출 합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출 합니다. 미리 작성 된 비즈니스 카드 API는 인식기 v 2.1 preview에서 공개적으로 사용할 수 있습니다. 
+Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함에서 연락처 정보를 분석하고 추출할 수 있습니다. 강력한 OCR(광학 문자 인식) 기능을 명함 이해 모델과 결합하여 영어로 된 명함의 주요 정보를 추출합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출합니다. 미리 작성된 비즈니스 카드 API는 양식 인식기 v2.1 미리 보기에서 공개적으로 사용할 수 있습니다. 
 
-## <a name="what-does-the-business-card-service-do"></a>비즈니스 카드 서비스는 무엇을 하나요?
+## <a name="what-does-the-business-card-service-do"></a>비즈니스 카드 서비스란 무엇인가요?
 
-미리 작성 된 비즈니스 카드 API는 비즈니스 카드에서 키 필드를 추출 하 여 구성 된 JSON 응답으로 반환 합니다.
+미리 작성된 비즈니스 카드 API는 명함에서 키 필드를 추출하여 구성된 JSON 응답으로 반환합니다.
 
-![FOTT + JSON 출력의 Contoso 항목별로 이미지](./media/business-card-example.jpg)
+![FOTT + JSON으로 출력된 Contoso의 항목별 이미지](./media/business-card-example.jpg)
 
 
 
-### <a name="fields-extracted"></a>추출 된 필드:
+### <a name="fields-extracted"></a>추출된 필드
 
-|Name| Type | Description | 텍스트 | 
+|이름| Type | Description | 텍스트 | 
 |:-----|:----|:----|:----|
-| ContactNames | 개체의 배열 | 비즈니스 카드에서 추출 된 연락처 이름 | [{"FirstName": "John", "LastName": "Doe"}] |
-| FirstName | 문자열 | 연락처의 첫 번째 (지정 된) 이름 | "John" | 
-| LastName | 문자열 | 연락처의 마지막 (패밀리) 이름 |     "Doe" | 
-| CompanyNames | 문자열 배열 | 비즈니스 카드에서 추출 된 회사 이름 | ["Contoso"] | 
-| Departments | 문자열 배열 | 부서 또는 연락처 조직 | ["R&D"] | 
-| JobTitles | 문자열 배열 | 연락처의 나열 된 작업 제목 | ["소프트웨어 엔지니어"] | 
-| 전자 메일 | 문자열 배열 | 비즈니스 카드에서 추출 된 연락처 전자 메일 | ["johndoe@contoso.com"] | 
-| Websites | 문자열 배열 | 비즈니스 카드에서 추출 된 웹 사이트 | ["https://www.contoso.com"] | 
-| 주소 | 문자열 배열 | 비즈니스 카드에서 추출 된 주소 | ["123 주 주소, Redmond, WA 98052"] | 
-| MobilePhones | 전화 번호 배열 | 명함에서 추출한 휴대폰 번호 | ["+ 19876543210"] |
-| 없으며 | 전화 번호 배열 | 명함에서 추출 된 팩스 번호 | ["+ 19876543211"] |
-| 근무 전화 | 전화 번호 배열 | 회사 카드에서 추출한 회사 전화 번호 | ["+ 19876543231"] |
-| OtherPhones     | 전화 번호 배열 | 명함에서 추출 된 기타 전화 번호 | ["+ 19876543233"] |
+| ContactNames | 개체의 배열 | 명함에서 추출 된 연락처 이름 | [{ "FirstName": "John", "LastName": "Doe" }] |
+| FirstName | 문자열 | 연락처의 이름 | "John" | 
+| LastName | 문자열 | 연락처의 성 |     "Doe" | 
+| CompanyNames | 문자열 배열 | 명함에서 추출된 회사 이름 | ["Contoso"] | 
+| Departments | 문자열 배열 | 연락처의 부서 또는 조직 | ["R&D"] | 
+| JobTitles | 문자열 배열 | 연락처의 나열된 직함 | ["Software Engineer"] | 
+| 전자 메일 | 문자열 배열 | 명함에서 추출된 연락처 이메일 | ["johndoe@contoso.com"] | 
+| Websites | 문자열 배열 | 명함에서 추출된 웹사이트 | ["https://www.contoso.com"] | 
+| 주소 | 문자열 배열 | 명함에서 추출된 주소 | ["123 Main Street, Redmond, WA 98052"] | 
+| MobilePhones | 전화 번호 배열 | 명함에서 추출된 휴대폰 번호 | ["+19876543210"] |
+| Faxes | 전화 번호 배열 | 명함에서 추출된 팩스 번호 | ["+19876543211"] |
+| WorkPhones | 전화 번호 배열 | 명함에서 추출된 회사 전화 번호 | ["+19876543231"] |
+| OtherPhones     | 전화 번호 배열 | 명함에서 추출된 기타 전화 번호 | ["+19876543233"] |
 
 
-비즈니스 카드 API는 비즈니스 카드에서 인식 된 모든 텍스트를 반환할 수도 있습니다. 이 OCR 출력은 JSON 응답에 포함 됩니다.  
+비즈니스 카드 API는 명함에서 인식된 모든 텍스트를 반환할 수도 있습니다. 이 OCR 출력은 JSON 응답에 포함됩니다.  
 
 ### <a name="input-requirements"></a>입력 요구 사항 
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="the-analyze-business-card-operation"></a>비즈니스 카드 분석 작업
+## <a name="the-analyze-business-card-operation"></a>명함 분석 작업
 
-[분석 회사 카드](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) 는 회사 카드의 이미지나 PDF를 입력으로 사용 하 고 원하는 값을 추출 합니다. 호출은 라는 응답 헤더 필드를 반환 합니다 `Operation-Location` . `Operation-Location`값은 다음 단계에서 사용할 결과 ID를 포함 하는 URL입니다.
+[명함 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)은 명함의 이미지 또는 PDF를 입력으로 사용하여 관심 있는 값을 추출합니다. 호출은 `Operation-Location`이라는 응답 헤더 필드를 반환합니다. `Operation-Location` 값은 다음 단계에서 사용할 결과 ID를 포함하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1-preview.3/prebuilt/businessCard/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="the-get-analyze-business-card-result-operation"></a>비즈니스 카드 분석 결과 가져오기 작업
+## <a name="the-get-analyze-business-card-result-operation"></a>명함 분석 결과 가져오기 작업
 
-두 번째 단계는 [Get The Business Card Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult) 작업을 호출 하는 것입니다. 이 작업은 비즈니스 카드 분석 작업에서 만든 결과 ID를 입력으로 사용 합니다. 이 메서드는 다음과 같은 가능한 값을 포함 하는 **상태** 필드를 포함 하는 JSON 응답을 반환 합니다. **성공** 값이 반환 될 때까지이 작업을 반복적으로 호출 합니다. 초당 요청 수 (RPS)를 초과 하지 않도록 3 ~ 5 초 간격을 사용 합니다.
+두 번째 단계는 [명함 분석 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult) 작업을 호출하는 것입니다. 이 작업은 명함 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다. **succeeded** 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청 수) 속도를 초과하지 않도록 합니다.
 
 |필드| Type | 가능한 값 |
 |:-----|:----:|:----|
-|상태 | 문자열 | notStarted: 분석 작업이 시작 되지 않았습니다.<br /><br />실행 중: 분석 작업이 진행 중입니다.<br /><br />실패: 분석 작업이 실패 했습니다.<br /><br />성공: 분석 작업이 성공 했습니다.|
+|상태 | 문자열 | notStarted: 분석 작업이 시작되지 않았습니다.<br /><br />running: 분석 작업이 진행 중입니다.<br /><br />failed: 분석 작업이 실패했습니다.<br /><br />succeeded: 분석 작업이 성공했습니다.|
 
-**상태** 필드에 **성공** 값이 있는 경우 JSON 응답에는 비즈니스 카드의 이해 및 선택적 텍스트 인식 결과가 포함 됩니다 (요청한 경우). 비즈니스 카드 이해 결과는 명명 된 필드 값의 사전으로 구성 됩니다. 여기서 각 값에는 추출 된 텍스트, 정규화 된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함 됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보를 사용 하 여 선과 단어의 계층 구조로 구성 됩니다.
+**상태** 필드의 값이 **succeeded** 이면 JSON 응답에는 요청된 경우 명함 해석 및 선택적 텍스트 인식 결과가 포함됩니다. 명함 해석 결과는 명명된 필드 값의 사전으로 구성됩니다. 여기서 각 값에는 추출된 텍스트, 정규화된 값, 경계 상자, 신뢰도 및 해당 단어 요소가 포함됩니다. 텍스트 인식 결과는 텍스트, 경계 상자 및 신뢰도 정보와 함께 줄과 단어의 계층 구조로 구성됩니다.
 
-![샘플 비즈니스 카드 출력](./media/business-card-results.png)
+![명함 출력 샘플](./media/business-card-results.png)
 
-### <a name="sample-json-output"></a>샘플 JSON 출력
+### <a name="sample-json-output"></a>JSON 출력 샘플
 
-비즈니스 카드 분석 가져오기 작업에 대 한 응답은 압축 된 모든 정보를 포함 하는 명함을 구조화 된 방식으로 표현한 것입니다.  [샘플 비즈니스 카드 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) 및 해당 구조화 된 출력 [샘플 비즈니스 카드 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)은 여기를 참조 하세요.
+명함 분석 결과 가져오기 작업에 대한 응답은 모든 정보가 추출된 명함을 구조화된 방식으로 표현한 것입니다.  [명함 파일 샘플](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) 및 구조화된 출력 [명함 출력 샘플](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)은 여기를 참조하세요.
 
-성공적인 JSON 응답의 다음 예를 참조 하세요.
+성공적인 JSON 응답의 다음 예제를 참조하세요.
 * `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. 
-* `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기에서 이름, 성, 회사 이름 등의 유용한 연락처 정보를 찾을 수 있습니다.
+* `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 이름, 성, 회사 이름 등과 같은 유용한 연락처 정보를 볼 수 있습니다.
 
 ```json
 {
@@ -382,22 +382,22 @@ Azure 양식 인식기는 미리 작성 된 비즈니스 카드 모델을 사용
 }
 ```
 
-[빠른](./QuickStarts/client-library.md) 시작 빠른 시작을 따라 Python 및 REST API를 사용 하 여 비즈니스 카드 데이터 추출을 구현 합니다.
+[빠른 시작](./QuickStarts/client-library.md)에 따라 Python 및 REST API 사용하여 명함 데이터 추출을 구현합니다.
 
 ## <a name="customer-scenarios"></a>고객 시나리오  
 
-비즈니스 카드 API를 사용 하 여 추출 된 데이터를 사용 하 여 다양 한 작업을 수행할 수 있습니다. 이 연락처 정보를 추출 하면 클라이언트 쪽 역할의 사용자에 대 한 시간이 자동으로 절약 됩니다. 다음은 고객이 비즈니스 카드 API를 사용 하 여 수행한 작업의 몇 가지 예입니다.
+비즈니스 카드 API를 사용하여 추출된 데이터를 사용하여 다양한 작업을 수행할 수 있습니다. 이 연락처 정보를 추출하면 클라이언트 관련 역할을 하는 사용자의 시간이 자동으로 절감됩니다. 다음은 고객이 비즈니스 카드 API를 통해 달성한 몇 가지 예입니다.
 
-* 비즈니스 카드에서 연락처 정보를 추출 하 고 전화 연락처를 빠르게 만듭니다. 
-* CRM과 통합 하 여 비즈니스 카드 이미지를 사용 하 여 연락처를 자동으로 만듭니다. 
-* 판매 잠재 고객을 추적 합니다.  
-* 기존 비즈니스 카드 이미지에서 연락처 정보를 대량으로 추출 합니다. 
+* 명함에서 연락처 정보를 추출하고 신속하게 전화 연락처를 만듭니다. 
+* CRM과 통합하여 명함 이미지를 사용해 연락처를 자동으로 만듭니다. 
+* 판매 잠재 고객을 계속 추적합니다.  
+* 기존 명함 이미지에서 연락처 정보를 대량으로 추출합니다. 
 
-또한 비즈니스 카드 API는 [AI Builder 비즈니스 카드 처리 기능](/ai-builder/prebuilt-business-card)을 향상 시킵니다.
+또한 비즈니스 카드 API는 [AI 빌더 명함 처리 기능](/ai-builder/prebuilt-business-card)을 강화합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른](./quickstarts/client-library.md) 시작을 따라 비즈니스 카드 인식을 시작 합니다.
+- [빠른 시작](./quickstarts/client-library.md)에 따라 명함 인식을 시작합니다.
 
 ## <a name="see-also"></a>참조
 

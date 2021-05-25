@@ -1,7 +1,7 @@
 ---
-title: 기밀 클라이언트 앱 인스턴스화 (MSAL.NET) | Microsoft
+title: 기밀 클라이언트 앱 인스턴스화(MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 방법에 대해 알아봅니다.
+description: .NET용 Microsoft 인증 라이브러리(MSAL.NET)를 사용하여 구성 옵션으로 기밀 클라이언트 애플리케이션을 인스턴스화하는 방법을 알아봅니다.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,28 +14,28 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: d477c419bb677a6b8f24a3aae26c403e47cc96cb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99583945"
 ---
-# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+# <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET을 사용하여 구성 옵션으로 기밀 클라이언트 애플리케이션 인스턴스화
 
-이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)를 사용 하 여 [기밀 클라이언트 응용 프로그램](msal-client-applications.md) 을 인스턴스화하는 방법을 설명 합니다.  응용 프로그램은 설정 파일에 정의 된 구성 옵션을 사용 하 여 인스턴스화됩니다.
+이 문서에서는 .NET용 Microsoft 인증 라이브러리(MSAL.NET)를 사용하여 [기밀 클라이언트 애플리케이션](msal-client-applications.md)을 인스턴스화하는 방법을 설명합니다.  애플리케이션은 설정 파일에 정의된 구성 옵션으로 인스턴스화됩니다.
 
-응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다. 등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
+애플리케이션을 초기화하려면 먼저 앱이 Microsoft ID 플랫폼과 통합될 수 있도록 해당 애플리케이션을 [등록](quickstart-register-app.md)해야 합니다. 등록 후에는 다음 정보가 필요할 수 있으며 해당 정보는 Azure Portal에서 찾을 수 있습니다.
 
-- 클라이언트 ID (GUID를 나타내는 문자열)
-- 응용 프로그램에 대 한 id 공급자 URL (인스턴스 이름) 및 로그인 대상이 됩니다. 이러한 두 매개 변수를 통칭 하 여 기관 이라고 합니다.
-- 조직 전용 lob (기간 업무) 응용 프로그램을 작성 하는 경우 (단일 테 넌 트 응용 프로그램이 라고도 하는) 테 넌 트 ID입니다.
-- 기밀 클라이언트 앱 인 경우 응용 프로그램 암호 (클라이언트 암호 문자열) 또는 인증서 (X509Certificate2 형식)입니다.
-- 웹 앱 및 공용 클라이언트 앱의 경우 (특히 앱에서 broker를 사용 해야 하는 경우) id 공급자가 응용 프로그램에 보안 토큰을 다시 연결 하는 redirectUri도 설정 해야 합니다.
+- 클라이언트 ID(GUID를 나타내는 문자열)
+- ID 공급자 URL(인스턴스 이름) 및 애플리케이션의 로그인 대상. 이러한 두 매개 변수를 통칭하여 권한이라고 합니다.
+- 조직 전용 기간 업무 애플리케이션(단일 테넌트 애플리케이션이라고도 함)을 작성하는 경우 테넌트 ID.
+- 기밀 클라이언트 앱인 경우 애플리케이션 비밀(클라이언트 암호 문자열) 또는 인증서(X509Certificate2 형식).
+- 웹앱의 경우와 때로 공용 클라이언트 앱의 경우(특히 앱에서 broker를 사용해야 하는 경우) ID 공급자가 애플리케이션에 보안 토큰을 다시 연결할 redirectUri도 설정해야 합니다.
 
-## <a name="configure-the-application-from-the-config-file"></a>구성 파일에서 응용 프로그램 구성
-MSAL.NET에 있는 옵션의 속성 이름은 ASP.NET Core의 속성 이름과 일치 `AzureADOptions` 하므로 glue 코드를 작성할 필요가 없습니다.
+## <a name="configure-the-application-from-the-config-file"></a>구성 파일에서 애플리케이션 구성
+MSAL.NET에 있는 옵션의 속성 이름은 ASP.NET Core의 `AzureADOptions` 속성 이름과 일치하므로 glue 코드를 작성할 필요가 없습니다.
 
-ASP.NET Core 응용 프로그램 구성은 파일 *의appsettings.js* 에 설명 되어 있습니다.
+ASP.NET Core 애플리케이션 구성은 *appsettings.json* 파일에 설명되어 있습니다.
 
 ```json
 {
@@ -58,9 +58,9 @@ ASP.NET Core 응용 프로그램 구성은 파일 *의appsettings.js* 에 설명
 }
 ```
 
-MSAL.NET v3. x부터 구성 파일에서 기밀 클라이언트 응용 프로그램을 구성할 수 있습니다.
+MSAL.NET v3.x부터 구성 파일에서 기밀 클라이언트 애플리케이션을 구성할 수 있습니다.
 
-응용 프로그램을 구성 하 고 인스턴스화하 려는 클래스에서 개체를 선언 `ConfidentialClientApplicationOptions` 합니다.  Microsoft.Extensions.Configuration의 메서드를 사용 하 여 소스 (파일에 appconfig.js포함)에서 응용 프로그램 옵션 인스턴스로 읽은 구성을 바인딩합니다 `IConfigurationRoot.Bind()` [ . 바인더 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+애플리케이션을 구성하고 인스턴스화하려는 클래스에서 `ConfidentialClientApplicationOptions` 개체를 선언합니다.  [Microsoft.Extensions.Configuration.Binder NuGet 패키지](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder)의 `IConfigurationRoot.Bind()` 메서드를 사용하여 원본(appconfig.json 파일 포함)에서 읽은 구성을 애플리케이션 옵션의 인스턴스에 바인딩합니다
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -70,7 +70,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-이렇게 하면 *appsettings.js파일에* 있는 "AzureAD" 섹션의 내용이 개체의 해당 속성에 바인딩될 수 있습니다 `ConfidentialClientApplicationOptions` .  다음으로 개체를 빌드합니다 `ConfidentialClientApplication` .
+이렇게 하면 *appsettings.json* 파일의 "AzureAD" 섹션의 콘텐츠가 `ConfidentialClientApplicationOptions` 개체의 해당 속성에 바인딩될 수 있습니다.  다음으로, `ConfidentialClientApplication` 개체를 빌드합니다.
 
 ```csharp
 IConfidentialClientApplication app;
@@ -79,7 +79,7 @@ app = ConfidentialClientApplicationBuilder.CreateWithApplicationOptions(_applica
 ```
 
 ## <a name="add-runtime-configuration"></a>런타임 구성 추가
-기밀 클라이언트 응용 프로그램에서는 일반적으로 사용자 당 캐시가 있습니다. 따라서 사용자와 연결 된 캐시를 가져와서 사용 하려는 응용 프로그램 빌더를 알려 주어 야 합니다. 동일한 방식으로 동적으로 계산 된 리디렉션 URI가 있을 수 있습니다. 이 경우 코드는 다음과 같습니다.
+기밀 클라이언트 애플리케이션에서는 일반적으로 사용자마다 캐시가 있습니다. 따라서 사용자와 연결된 캐시를 가져와서 사용하겠다는 것을 애플리케이션 작성기에 알려야 합니다. 동일한 방식으로 동적으로 계산된 리디렉션 URI가 있을 수 있습니다. 이 경우 코드는 다음과 같습니다.
 
 ```csharp
 IConfidentialClientApplication app;

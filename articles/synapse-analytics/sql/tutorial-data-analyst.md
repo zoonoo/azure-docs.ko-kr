@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 11/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: d37597f8667c461e8d61f8214483f57eb702c2a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91f9bab7ca85275f914b8421cb4eb7517396ff8a
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97007554"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109685012"
 ---
 # <a name="tutorial-explore-and-analyze-data-lakes-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀로 데이터 레이크 탐색 및 분석
 
@@ -25,6 +25,13 @@ OPENROWSET(BULK...) 함수를 사용하면 Azure Storage의 파일에 액세스�
 ## <a name="automatic-schema-inference"></a>자동 스키마 유추
 
 데이터는 Parquet 파일 형식으로 저장되므로 자동 스키마 유추를 사용할 수 있습니다. 파일에 있는 모든 열의 데이터 형식을 나열할 필요 없이 데이터를 쉽게 쿼리할 수 있습니다. 또한 가상 열 메커니즘과 filepath 함수를 활용하여 파일의 특정 하위 집합을 필터링할 수 있습니다.
+
+> [!NOTE]
+> 기본값이 아닌 데이터 정렬(기본 데이터 정렬 SQL_Latin1_General_CP1_CI_AS)이 있는 데이터베이스를 사용하는 경우 대/소문자 구분을 고려해야 합니다. 
+> 
+> 대/소문자를 구분하는 데이터 정렬을 사용하여 데이터베이스를 만든 경우 열을 지정할 때 올바른 열 이름을 사용해야 합니다.
+> 
+> 열 이름 'tpepPickupDateTime'의 예는 적합하지만 'tpeppickupdatetime'은 기본이 아닌 데이터 정렬에서 작동하지 않습니다.
 
 먼저 다음 쿼리를 실행하여 NYC 택시 데이터를 살펴보도록 하겠습니다.
 

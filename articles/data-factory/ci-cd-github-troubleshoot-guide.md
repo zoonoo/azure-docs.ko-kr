@@ -1,6 +1,6 @@
 ---
-title: ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결
-description: 다른 방법을 사용 하 여 ADF에서 CI-CD 문제를 해결 합니다.
+title: ADF에서 CI-CD, Azure DevOps 및 GitHub 문제 해결
+description: 여러 방법을 사용하여 ADF에서 CI-CD 문제를 해결할 수 있습니다.
 author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
@@ -8,48 +8,48 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/12/2021
 ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104802036"
 ---
-# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF의 CI-CD, Azure DevOps 및 GitHub 문제 해결 
+# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>ADF에서 CI-CD, Azure DevOps 및 GitHub 문제 해결 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-이 문서에서는 Azure Data Factory의 CI (지속적인 Integration-Continuous 배포), Azure DevOps 및 GitHub 문제에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
+이 문서에서는 Azure Data Factory에서 CI-CD(연속 통합-지속적인 배포), Azure DevOps 및 GitHub 문제에 대한 일반적인 문제 해결 방법을 살펴봅니다.
 
-원본 제어 또는 DevOps 기술 사용에 대 한 질문이 나 문제가 있는 경우 다음과 같은 몇 가지 문서를 유용 하 게 사용할 수 있습니다.
+소스 제어 또는 DevOps 기술 사용에 관한 질문 또는 문제가 있으면 다음 문서에서 유용한 정보를 찾아볼 수 있습니다.
 
-- Adf에서 원본 제어를 연습 하는 방법을 알아보려면 [adf의 원본 제어](source-control.md) 를 참조 하세요. 
-- Adf에서 DevOps CI-CD를 연습 하는 방법에 대 한 자세한 내용은  [adf의 ci-cd](continuous-integration-deployment.md) 를 참조 하세요.
+- ADF에서 소스 제어가 수행되는 방법은 [ADF의 소스 제어](source-control.md)를 참조하세요. 
+- ADF에서 DevOps CI-CD가 수행되는 방법은 [ADF의 CI-CD](continuous-integration-deployment.md)를 참조하세요.
  
 ## <a name="common-errors-and-messages"></a>일반적인 오류 및 메시지
 
-### <a name="connect-to-git-repository-failed-due-to-different-tenant"></a>다른 테 넌 트 때문에 Git 리포지토리에 연결 하지 못했습니다.
+### <a name="connect-to-git-repository-failed-due-to-different-tenant"></a>다른 테넌트로 인해 Git 리포지토리 연결이 실패함
 
 #### <a name="issue"></a>문제
     
-경우에 따라 HTTP 상태 401 등의 인증 문제가 발생할 수 있습니다. 특히 게스트 계정을 사용 하는 테 넌 트가 여러 개 있는 경우 더 복잡 해질 수 있습니다.
+경우에 따라 HTTP 상태 401과 같은 인증 문제가 발생할 수 있습니다. 특히 게스트 계정을 사용하는 여러 테넌트가 있는 경우 상황이 더 복잡해질 수 있습니다.
 
 #### <a name="cause"></a>원인
 
-토큰은 원래 테 넌 트에서 가져오지만 ADF는 게스트 테 넌 트에 있으며 토큰을 사용 하 여 게스트 테 넌 트에서 DevOps를 방문 하려고 합니다. 이는 예상 된 동작이 아닙니다.
+원래 테넌트에서 토큰을 가져왔지만 ADF가 게스트 테넌트에 있고 이 토큰을 사용하여 게스트 테넌트의 DevOps에 연결하려고 시도하는 중입니다. 이것은 예상된 동작이 아닙니다.
 
 #### <a name="recommendation"></a>권장
 
-대신 게스트 테 넌 트에서 발급 된 토큰을 사용 해야 합니다. 예를 들어, 동일한 Azure Active Directory를 게스트 테 넌 트 뿐만 아니라 DevOps에 할당 해야 합니다. 따라서 토큰 동작을 올바르게 설정 하 고 올바른 테 넌 트를 사용할 수 있습니다.
+대신 게스트 테넌트에서 발급된 토큰을 사용해야 합니다. 예를 들어 토큰 동작을 올바르게 설정하고 올바른 테넌트를 사용할 수 있도록 DevOps는 물론 동일한 Azure Active Directory를 게스트 테넌트로 할당해야 합니다.
 
-### <a name="template-parameters-in-the-parameters-file-are-not-valid"></a>매개 변수 파일의 템플릿 매개 변수가 잘못 되었습니다.
+### <a name="template-parameters-in-the-parameters-file-are-not-valid"></a>매개변수 파일에 있는 템플릿 매개변수가 올바르지 않음
 
 #### <a name="issue"></a>문제
 
-**동일한** 구성 (빈도 및 간격)을 사용 하는 테스트 또는 프로덕션 분기에서 이미 사용할 수 있는 Dev 분기에서 트리거를 삭제 하면 릴리스 파이프라인 배포가 성공 하 고 해당 하는 트리거가 해당 환경에서 삭제 됩니다. 그러나 테스트/프로덕션 환경에서 트리거에 대해 **다른** 구성 (빈도 및 간격)을 사용 하 고 Dev에서 동일한 트리거를 삭제 하면 배포에 실패 하 고 오류가 발생 합니다.
+테스트 또는 프로덕션 분기에서 이미 **동일한** 구성(빈도 및 간격 등)으로 제공되는 트리거를 개발 분기에서 삭제하면 릴리스 파이프라인 배포가 성공하고 해당 트리거가 해당 환경에서 삭제됩니다. 하지만 테스트/프로덕션 환경에서 트리거에 대해 **다른** 구성(빈도 및 간격 등)이 있고 개발 환경에서 동일한 트리거를 삭제하면 해당 배포가 오류와 함께 실패합니다.
 
 #### <a name="cause"></a>원인
 
-다음 오류가 발생 하 여 CI/CD 파이프라인이 실패 합니다.
+CI/CD 파이프라인이 다음 오류와 함께 실패합니다.
 
 `
 2020-07-20T11:19:02.1276769Z ##[error]Deployment template validation failed: 'The template parameters 'Trigger_Salesforce_properties_typeProperties_recurrence_frequency, Trigger_Salesforce_properties_typeProperties_recurrence_interval, Trigger_Salesforce_properties_typeProperties_recurrence_startTime, Trigger_Salesforce_properties_typeProperties_recurrence_timeZone' in the parameters file are not valid; they are not present in the original template and can therefore not be provided at deployment time. The only supported parameters for this template are 'factoryName, PlanonDWH_connectionString, PlanonKeyVault_properties_typeProperties_baseUrl
@@ -57,13 +57,13 @@ ms.locfileid: "104802036"
 
 #### <a name="recommendation"></a>권장
 
-이 오류는 종종 매개 변수화 된 트리거를 삭제 하기 때문에 발생 합니다. 즉, 트리거가 더 이상 존재 하지 않기 때문에 ARM 템플릿에서 매개 변수를 사용할 수 없습니다. 매개 변수가 ARM 템플릿에 더 이상 포함 되어 있지 않으므로 DevOps 파이프라인에서 재정의 된 매개 변수를 업데이트 해야 합니다. 그렇지 않고 ARM 템플릿의 매개 변수가 변경 될 때마다 배포 작업에서 DevOps 파이프라인의 재정의 된 매개 변수를 업데이트 해야 합니다.
+이 오류는 매개변수화된 트리거를 자주 삭제하기 때문에 발생합니다. 따라서 트리거가 더 이상 존재하지 않기 때문에 ARM 템플릿에서 해당 매개변수를 사용할 수 없게 됩니다. 매개변수가 ARM 템플릿에 더 이상 존재하지 않기 때문에 DevOps 파이프라인에서 재정의된 매개변수를 업데이트해야 합니다. 그렇지 않으면 ARM 템플릿에서 매개변수가 변경될 때마다 DevOps 파이프라인(배포 작업)에서 재정의된 매개변수를 업데이트해야 합니다.
 
-### <a name="updating-property-type-is-not-supported"></a>속성 유형 업데이트가 지원 되지 않습니다.
+### <a name="updating-property-type-is-not-supported"></a>속성 유형 업데이트가 지원되지 않음
 
 #### <a name="issue"></a>문제
 
-다음 오류로 인해 CI/CD 릴리스 파이프라인이 실패 합니다.
+다음 오류와 함께 CI/CD 릴리스 파이프라인이 실패합니다.
 
 `
 2020-07-06T09:50:50.8716614Z There were errors in your deployment. Error code: DeploymentFailed.
@@ -77,21 +77,21 @@ ms.locfileid: "104802036"
 
 #### <a name="cause"></a>원인
 
-이는 대상 팩터리에 이름이 같지만 형식이 다른 통합 런타임 때문입니다. Integration Runtime를 배포할 때 동일한 유형 이어야 합니다.
+이는 대상 팩터리에 있는 이름이 동일하지만 유형이 다른 통합 런타임 때문입니다. Integration Runtime은 배포할 때와 동일한 유형이어야 합니다.
 
 #### <a name="recommendation"></a>권장
 
-- 아래의 CI/CD에 대 한 모범 사례를 참조 하세요.
+- 아래의 CI/CD 모범 사례를 참조하세요.
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Integration runtime은 자주 변경 되지 않으며 CI/CD의 모든 단계에서 유사 하므로 Data Factory는 CI/CD의 모든 단계에서 동일한 이름 및 유형의 통합 런타임을 사용할 것으로 예상 합니다. 이름 및 형식 & 속성이 다르면 원본 및 대상 integration runtime 구성과 일치 하는지 확인 하 고 릴리스 파이프라인을 배포 합니다.
+- 통합 런타임은 자주 변경되지 않으며 CI/CD의 모든 스테이지에서 비슷합니다. 따라서 Data Factory는 모든 CI/CD 스테이지에서 통합 런타임의 이름과 유형이 동일할 것으로 예상합니다. 이름과 유형 및 속성이 다르면 소스 및 대상 통합 런타임 구성이 일치하는지 확인한 후 릴리스 파이프라인을 배포합니다.
 - 모든 단계에서 통합 런타임을 공유하려면 공유 통합 런타임을 포함하기 위해 3개로 구성된 팩터리를 사용하는 것이 좋습니다. 모든 환경에서 이 공유 팩터리를 연결된 통합 런타임 형식으로 사용할 수 있습니다.
 
-### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>잘못 된 참조로 인해 문서를 만들거나 업데이트 하지 못했습니다.
+### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>잘못된 참조로 인해 문서 만들기 또는 업데이트가 실패함
 
 #### <a name="issue"></a>문제
 
-Data Factory에 변경 내용을 게시 하려고 하면 다음과 같은 오류 메시지가 표시 됩니다.
+Data Factory에 변경 사항을 게시하려고 시도할 때 다음 오류 메시지가 표시됩니다.
 
 `
 "error": {
@@ -103,17 +103,17 @@ Data Factory에 변경 내용을 게시 하려고 하면 다음과 같은 오류
 `
 ### <a name="cause"></a>원인
 
-Git 구성을 분리 하 고 "리소스 가져오기" 플래그를 선택 하 여 다시 설정 하 여 Data Factory를 "동기화 된"로 설정 합니다. 이는 게시할 변경 내용이 없음을 의미 합니다.
+Git 구성을 분리하고 “리소스 가져오기” 플래그가 선택된 상태로 다시 설정하여 Data Factory가 “동기화 상태”로 설정되었습니다. 이것은 게시할 변경 사항이 없음을 의미합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-Git 구성을 분리 하 고 다시 설정 하 고 "기존 리소스 가져오기" 확인란을 선택 하지 않았는지 확인 합니다.
+Git 구성을 분리하고 다시 설정하고, “기존 리소스 가져오기” 확인란을 선택하지 않아야 합니다.
 
-### <a name="data-factory-move-failing-from-one-resource-group-to-another"></a>한 리소스 그룹에서 다른 리소스 그룹으로 이동 실패 Data Factory
+### <a name="data-factory-move-failing-from-one-resource-group-to-another"></a>한 리소스 그룹에서 다른 리소스로 Data Factory 이동 실패
 
 #### <a name="issue"></a>문제
 
-한 리소스 그룹에서 다른 리소스 그룹으로 Data Factory 이동할 수 없습니다. 다음 오류를 표시 하며 실패 합니다.
+Data Factory를 한 리소스 그룹에서 다른 그룹으로 이동할 수 없고 다음 오류가 발생합니다.
 
 `
 {
@@ -131,94 +131,94 @@ Git 구성을 분리 하 고 다시 설정 하 고 "기존 리소스 가져오�
 
 #### <a name="resolution"></a>해결 방법
 
-이동 작업을 허용 하려면 SSIS-IR 및 공유 IRs를 삭제 해야 합니다. 통합 런타임을 삭제 하지 않으려는 경우, 복사 및 복제 문서에 따라 복사를 수행 하 고 완료 한 후에는 이전 Data Factory를 삭제 하는 것이 가장 좋습니다.
+이동 작업을 수행하기 위해서는 SSIS-IR 및 공유 IR을 삭제해야 합니다. 통합 런타임을 삭제하지 않으려는 경우 최선의 방법은 복사 및 클론 문서에 따라 복사를 수행하고 완료되면 이전 Data Factory를 삭제하는 것입니다.
 
-###  <a name="unable-to-export-and-import-arm-template"></a>ARM 템플릿을 내보내고 가져올 수 없습니다.
+###  <a name="unable-to-export-and-import-arm-template"></a>ARM 템플릿을 내보내고 가져올 수 없음
 
 #### <a name="issue"></a>문제
 
-ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 없지만 브라우저 추적에서 다음 오류를 확인할 수 있습니다.
+ARM 템플릿을 내보내고 가져올 수 없습니다. 포털에 오류가 없지만 브라우저 추적에서 다음 오류가 표시될 수 있습니다.
 
 `Failed to load resource: the server responded with a status code of 401 (Unauthorized)`
 
 #### <a name="cause"></a>원인
 
-사용자로 서 고객 역할을 만들었으며 필요한 권한이 없습니다. 팩터리가 UI에서 로드 되 면 팩터리에 대 한 일련의 노출 제어 값이 확인 됩니다. 이 경우 사용자의 액세스 역할에는 *queryFeaturesValue* API에 액세스할 수 있는 권한이 없습니다. 이 API에 액세스 하기 위해 전역 매개 변수 기능이 꺼집니다. ARM 내보내기 코드 경로는 부분적으로 전역 매개 변수 기능에 의존 합니다.
+고객 역할을 사용자로 만들었지만 필요한 권한이 없습니다. UI에서 팩터리가 로드되면 팩터리에 대해 일련의 노출 제어 값이 확인됩니다. 여기에서는 사용자의 액세스 역할에 *queryFeaturesValue* API 액세스 권한이 없습니다. 이 API에 액세스하기 위해 전역 매개변수 기능이 해제되어 있습니다. ARM 코드 내보내기 경로에 부분적으로 전역 매개변수 기능이 사용됩니다.
 
 #### <a name="resolution"></a>해결 방법
 
-이 문제를 해결 하려면 *DataFactory/factory/queryFeaturesValue/action* 역할에 다음 권한을 추가 해야 합니다. 이 권한은 기본적으로 "Data Factory 참여자" 역할에 포함 되어야 합니다.
+이 문제를 해결하려면 역할에 다음 권한을 추가해야 합니다. *Microsoft.DataFactory/factories/queryFeaturesValue/action*. 이 권한은 기본적으로 "Data Factory 기여자" 역할에 포함되어야 합니다.
 
-###  <a name="cannot-automate-publishing-for-cicd"></a>CI/CD에 대 한 게시를 자동화할 수 없습니다. 
+###  <a name="cannot-automate-publishing-for-cicd"></a>CI/CD에 대해 게시를 자동화할 수 없음 
 
 #### <a name="cause"></a>원인
 
-최근에 까지는 배포를 위해 ADF 파이프라인을 게시 하는 방법만 ADF 포털 단추를 클릭 합니다. 이제 프로세스를 자동으로 만들 수 있습니다. 
+최근까지 배포에 대해 ADF 파이프라인을 게시하는 유일한 방법은 ADF 포털 단추 클릭을 사용하는 것이었습니다. 이제는 이 프로세스를 자동화할 수 있습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
-CI/CD 프로세스가 향상 되었습니다. **자동화 된 게시** 기능은 ADF UX의 모든 AZURE RESOURCE MANAGER (ARM) 템플릿 기능을 사용 하 고 유효성을 검사 하 고 내보냅니다. 이를 통해 공개적으로 사용할 수 있는 npm 패키지를 통해 논리를 사용할 수 있습니다 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . 이렇게 하면 ADF UI로 이동 하 여 단추를 클릭 하는 대신 프로그래밍 방식으로 이러한 작업을 트리거할 수 있습니다. 그러면 CI/CD 파이프라인이 **진정한** 연속 통합 환경을 제공 합니다. 자세한 내용은 [ADF CI/CD 게시 개선 사항](./continuous-integration-deployment-improvements.md) 을 참조 하세요. 
+CI/CD 프로세스가 향상되었습니다. **자동화된 게시** 기능은 ADF UX에서 모든 ARM(Azure Resource Manager) 템플릿 기능을 가져오고, 검증하고 내보냅니다. 이렇게 해서 공개적으로 사용 가능한 npm 패키지 [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities)를 통해 논리를 사용할 수 있게 만듭니다. 따라서 ADF UI로 이동하여 단추 클릭을 수행할 필요 없이 이러한 작업을 프로그래밍 방식으로 트리거할 수 있습니다. 이렇게 하여 CI/CD 파이프라인에 **진정한** 연속 통합 환경을 제공합니다. 자세한 내용은 [ADF CI/CD 게시 향상](./continuous-integration-deployment-improvements.md)을 참조하세요. 
 
-###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>4mb ARM 템플릿 제한 때문에 게시할 수 없습니다.  
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>4MB ARM 템플릿 제한으로 인해 게시할 수 없음  
 
 #### <a name="issue"></a>문제
 
-최대 4mb의 템플릿 크기 Azure Resource Manager에 도달 하 여 배포할 수 없습니다. 제한을 초과 하 고 나면 배포할 솔루션이 필요 합니다. 
+Azure Resource Manager의 4MB 총 템플릿 크기 제한에 도달하여 배포할 수 없습니다. 제한을 초과한 다음, 배포할 솔루션이 필요합니다. 
 
 #### <a name="cause"></a>원인
 
-Azure Resource Manager 템플릿 크기를 4mb로 제한 합니다. 템플릿의 크기를 4mb로 제한 하 고 각 매개 변수 파일을 64 KB로 제한 합니다. 4mb 제한은 반복 리소스 정의를 사용 하 여 확장 된 템플릿의 최종 상태와 변수 및 매개 변수의 값에 적용 됩니다. 그러나 제한을 초과 했습니다. 
+Azure Resource Manager는 템플릿 크기를 4MB로 제한합니다. 템플릿의 크기는 4MB로, 각 매개 변수 파일의 크기는 64KB로 제한됩니다. 4MB 제한은 반복 리소스 정의로 확장된 다음 템플릿의 최종 상태에 적용되며, 변수 및 매개 변수의 값에 적용됩니다. 하지만 이 제한이 초과되었습니다. 
 
 #### <a name="resolution"></a>해결 방법
 
-중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결 된 템플릿과 중첩 된 템플릿 사용](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)에 대 한 모범 사례를 따르세요.
+중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 사용하여 솔루션을 대상 구성 요소로 분할할 수 있습니다. [연결된 템플릿 및 중첩된 템플릿 사용](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell)의 모범 사례를 따르세요.
 
 ### <a name="cannot-connect-to-git-enterprise"></a>GIT Enterprise에 연결할 수 없음  
 
 ##### <a name="issue"></a>문제
 
-권한 문제로 인해 GIT Enterprise에 연결할 수 없습니다. **422-처리할 수 없는 엔터티** 와 같은 오류를 볼 수 있습니다.
+권한 문제로 인해 GIT Enterprise에 연결할 수 없습니다. **422 - 처리할 수 없는 엔터티** 와 같은 오류가 표시될 수 있습니다.
 
 #### <a name="cause"></a>원인
 
-* ADF에 대해 Oauth를 구성 하지 않았습니다. 
-* URL이 잘못 구성 되었습니다.
+* ADF에 Oauth를 구성하지 않았습니다. 
+* URL이 잘못 구성되었습니다.
 
 ##### <a name="resolution"></a>해결 방법
 
-먼저 ADF에 Oauth 액세스를 부여 합니다. 그런 다음 올바른 URL을 사용 하 여 GIT Enterprise에 연결 해야 합니다. 구성을 고객 조직으로 설정 해야 합니다. 예를 들어 ADF는 처음 *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> 에 시도 하* 고 실패 합니다. 그런 *https://hostname/api/v3/orgs/ <org> / <repo> 다음 시도 하* 고 성공 합니다. 
+먼저 ADF에 Oauth 액세스 권한을 부여합니다. 그런 후 올바른 URL을 사용하여 GIT Enterprise에 연결해야 합니다. 구성을 고객 조직으로 설정해야 합니다. 예를 들어 ADF가 *https://hostname/api/v3/search/repositories?q=user%3<customer credential>....* 를 먼저 시도하고 실패합니다. 그런 후 *https://hostname/api/v3/orgs/<org>/<repo>...* 를 실패하고 성공합니다. 
  
-### <a name="cannot-recover-from-a-deleted-data-factory"></a>삭제 된 데이터 팩터리에서 복구할 수 없습니다.
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>삭제된 데이터 팩터리에서 복구할 수 없음
 
 #### <a name="issue"></a>문제
-고객이 데이터 팩터리 또는 Data Factory 포함 하는 리소스 그룹을 삭제 했습니다. 삭제 된 데이터 팩터리를 복원 하는 방법을 알고 싶습니다.
+고객이 데이터 팩터리 또는 데이터 팩터리가 포함된 리소스 그룹을 삭제했습니다. 삭제된 데이터 팩터리를 복원하는 방법을 알고 싶습니다.
 
 #### <a name="cause"></a>원인
 
-고객이 원본 제어 (DevOps 또는 Git)를 구성한 경우에만 Data Factory를 복구할 수 있습니다. 그러면 게시 된 모든 리소스가 최신 상태로 표시 되 고 게시 **되지 않은** 파이프라인, 데이터 집합 및 연결 된 서비스가 복원 되지 않습니다.
+고객이 소스 제어를 구성한 경우에만(DevOps 또는 Git) 데이터 팩터리를 복구할 수 있습니다. 이렇게 하면 모든 최근에 게시된 리소스가 표시되고 게시되지 않은 파이프라인, 데이터 세트 및 연결된 서비스는 복원되지 **않습니다**.
 
-원본 컨트롤이 없으면 백 엔드에서 삭제 된 Data Factory를 복구할 수 없습니다. 서비스에서 삭제 된 명령을 받으면 인스턴스가 삭제 되 고 백업이 저장 되지 않기 때문입니다.
+소스 제어가 없으면 서비스에 삭제됨 명령이 수신된 후 인스턴스가 삭제되고 백업이 저장되지 않았기 때문에 백엔드에서 삭제된 데이터 팩터리를 복구하는 것이 불가능합니다.
 
 #### <a name="resolution"></a>해결 방법
 
-원본 제어를 포함 하는 삭제 된 Data Factory를 복구 하려면 다음 단계를 참조 하세요.
+소스 제어가 포함된 삭제된 데이터 팩터리를 복구하려면 아래 단계를 참조하세요.
 
- * 새 Azure Data Factory을 만듭니다.
+ * 새 Azure Data Factory를 만듭니다.
 
- * 동일한 설정으로 Git를 다시 구성 하지만 기존 Data Factory 리소스를 선택한 리포지토리로 가져와서 새 분기를 선택 해야 합니다.
+ * 동일한 설정을 사용하여 Git를 다시 구성하지만 선택한 리포지토리로 기존 데이터 팩터리 리소스를 가져오고 새 분기를 선택해야 합니다.
 
- * 변경 내용을 공동 작업 분기에 병합 하 고 게시 하는 끌어오기 요청을 만듭니다.
+ * 변경 사항을 협업 분기로 병합하기 위해 끌어오기 요청을 만들고 게시합니다.
 
- * 사용자가 삭제 된 ADF에 자체 호스트 된 Integration Runtime 있는 경우 새 ADF에 새 인스턴스를 만들어야 합니다. 또한 새로운 키가 있는 온-프레미스 machine/VM에서 인스턴스를 제거 하 고 다시 설치 해야 합니다. IR 설정이 완료 된 후 고객은 새 IR을 가리키도록 연결 된 서비스를 변경 하 고 연결을 테스트 해야 **합니다. 그렇지 않으면 잘못 된 참조** 로 인해 실패 합니다.
+ * 고객이 삭제된 ADF에 자체 호스팅 통합 런타임을 갖고 있으면 새 ADF에서 새 인스턴스를 만들고 새로 얻은 키를 사용해서 온-프레미스 머신/VM에서 인스턴스를 제거하고 다시 설치해야 합니다. IR 설정이 완료되었으면 고객이 새 IR을 가리키도록 연결된 서비스를 변경하고 연결을 테스트해야 합니다. 그렇지 않으면 **잘못된 참조** 오류와 함께 실패합니다.
 
 
 
 ## <a name="next-steps"></a>다음 단계
 
-문제 해결에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
+문제 해결에 대한 도움이 필요한 경우 다음 리소스를 참조하세요.
 
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Data Factory에 대 한 스택 오버플로 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Data Factory에 대한 스택 오버플로 포럼](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Data Factory에 대한 Twitter 정보](https://twitter.com/hashtag/DataFactory)

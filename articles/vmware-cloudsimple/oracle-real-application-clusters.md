@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - Oracle RAC용 CloudSimple 프라이빗 클라우드 최적화
 description: 새 클러스터를 배포하고 Oracle RAC(Real Application Clusters) 설치 및 구성을 위해 VM을 최적화하는 방법을 설명합니다.
-author: shortpatti
-ms.author: v-patsho
+author: Ajayan1008
+ms.author: v-hborys
 ms.date: 08/06/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a563067c62f56905d88186db77cbe2e039cfa409
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 3959aae5f490af10c6747cfa67d9960e0c4a203f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108177461"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "97899272"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Oracle RAC 설치를 위해 CloudSimple 프라이빗 클라우드 최적화
 
@@ -44,16 +44,16 @@ Oracle RAC 가상 머신에는 특정 기능에 사용되는 여러 디스크가
 
 다음 예에서는 아래 표에 정의된 디스크를 사용합니다.
 
-| 디스크                                      | 용도                                       | 공유 디스크 |
+| 디스크                                      | 목적                                       | 공유 디스크 |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| OS                                        | 운영 체제 디스크                         | 아니요          |
-| GRID                                      | Oracle Grid 소프트웨어의 설치 위치     | 아니요          |
-| DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 아니요          |
-| ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 아니요          |
-| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | Yes         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 다시 실행 로그 디스크                                | Yes         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | Yes         |
-| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | Yes         |
+| OS                                        | 운영 체제 디스크                         | 예          |
+| GRID                                      | Oracle Grid 소프트웨어의 설치 위치     | 예          |
+| DATABASE                                  | Oracle 데이터베이스 소프트웨어의 설치 위치 | 예          |
+| ORAHOME                                   | Oracle 데이터베이스 이진 파일의 기본 위치    | 예          |
+| DATA1, DATA2, DATA3, DATA4                | Oracle 데이터베이스 파일이 저장되는 디스크   | 예         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | 다시 실행 로그 디스크                                | 예         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | 투표 디스크                                  | 예         |
+| FRA1, FRA2                                | 빠른 복구 영역 디스크                      | 예         |
 
 ![Oracle 가상 머신 디스크 구성](media/oracle-vmdk.png)
 

@@ -1,19 +1,19 @@
 ---
 title: Azure VMware Solution by CloudSimple - VPN 게이트웨이 설정
 description: 지점 및 사이트 간 VPN 게이트웨이 및 사이트 간 VPN 게이트웨이를 설정하고 온-프레미스 네트워크와 CloudSimple 프라이빗 클라우드 간에 연결을 만드는 방법을 설명합니다.
-author: Ajayan1008
-ms.author: v-hborys
+author: shortpatti
+ms.author: v-patsho
 ms.date: 08/14/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 78f78bfbf885cbae7708a75cb54ce2d41e7b526c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d67958b05bd07e97b46a8ad3812b7ff0ca41f03
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97899102"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108178145"
 ---
 # <a name="set-up-vpn-gateways-on-cloudsimple-network"></a>CloudSimple 네트워크에서 VPN 게이트웨이 설정
 

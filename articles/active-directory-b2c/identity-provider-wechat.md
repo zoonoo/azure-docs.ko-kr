@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0baf0e7f6d0a81aabd6c2db459572b6a3b10ca61
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: c7538cf052fcf51d03d1ac854d4da50db02004ea
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028813"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "103488565"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 WeChat 계정으로 등록 설정 및 로그인
 
@@ -27,7 +27,7 @@ ms.locfileid: "107028813"
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -63,7 +63,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 WeChat 계정으로 
 1. **소셜 ID 공급자** 아래에서 **WeChat** 을 선택합니다.
 1. **저장** 을 선택합니다.
 1. 정책을 테스트하려면 **사용자 흐름 실행** 을 선택합니다.
-1. **애플리케이션** 에서 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 의 경우 이전에 등록한 *testapp1* 이라는 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **사용자 흐름 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **WeChat** 을 선택하여 WeChat 계정으로 로그인합니다.
 
@@ -170,7 +170,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 사용자가 WeChat 계정으로 
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록](troubleshoot-custom-policies.md#troubleshoot-the-runtime)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 등록 또는 로그인 페이지에서 **WeChat** 을 선택하여 WeChat 계정으로 로그인합니다.
 

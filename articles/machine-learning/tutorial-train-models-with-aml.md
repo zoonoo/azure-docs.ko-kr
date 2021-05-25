@@ -8,17 +8,16 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 09/28/2020
+ms.date: 04/26/2021
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 6c5691759983d8ec40598834e5dbcd507ccf00cf
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 41f7870bdab36de69251bb1274472ec16d05d0a5
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816875"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773866"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
-
 
 이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부** 입니다.  
 
@@ -41,15 +40,56 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 이 자습서를 시작하기 전에 [자습서: 첫 번째 Azure ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
-    * 작업 영역 만들기
-    * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
-    * 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
+* [빠른 시작: Azure Machine Learning 시작](quickstart-create-resources.md)을 완료하여 다음을 수행합니다.
+    * 작업 영역을 만듭니다.
+    * 개발 환경에 사용할 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
+    * 모델 학습에 사용할 클라우드 기반 컴퓨팅 클러스터를 만듭니다.
 
-* 복제된 *tutorials/image-classification-mnist-data* 폴더에서 *img-classification-part1-training.ipynb* Notebook을 엽니다. 
+## <a name="run-a-notebook-from-your-workspace"></a><a name="azure"></a>작업 영역에서 Notebook 실행
+
+Azure Machine Learning의 작업 영역에는 설치할 필요가 없는 미리 구성된 환경을 위해 클라우드 Notebook 서버가 포함됩니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
+
+ 다음 비디오를 따르거나 자세한 단계를 사용하여 작업 영역에서 자습서 Notebook을 복제하고 실행합니다.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Notebook 폴더 복제
+
+Azure Machine Learning 스튜디오에서 다음 실험 설정 및 실행 단계를 완료합니다. 이 통합 인터페이스에는 모든 기술 수준의 데이터 과학 전문가를 위한 데이터 과학 시나리오를 수행하는 기계 학습 도구가 포함되어 있습니다.
+
+1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
+
+1. 해당 구독과 직접 만든 작업 영역을 선택합니다.
+
+1. 왼쪽에서 **Notebook** 을 선택합니다.
+
+1. 위쪽에서 **샘플** 탭을 선택합니다.
+
+1. **Python** 폴더를 엽니다.
+
+1. 버전 번호가 있는 폴더를 엽니다. 이 번호는 Python SDK의 현재 릴리스를 나타냅니다.
+
+1. **tutorials** 폴더의 오른쪽에 있는 **...** 단추를 선택한 다음, **복제** 를 선택합니다.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="tutorials 폴더 복제를 보여 주는 스크린샷":::
+
+1. 작업 영역에 액세스하는 각 사용자가 폴더 목록에 표시됩니다. **tutorials** 폴더를 복제할 폴더를 선택합니다.
+
+### <a name="open-the-cloned-notebook"></a><a name="open"></a> 복제된 Notebook 열기
+
+1. **사용자 파일** 섹션에서 닫혀 있던 **tutorials** 폴더를 엽니다.
+
+    > [!IMPORTANT]
+    > **samples** 폴더에서는 Notebook을 볼 수 있지만 실행할 수는 없습니다. Notebook을 실행하려면 **사용자 파일** 섹션에서 복제된 버전의 Notebook을 열어야 합니다.
+    
+1. **tutorials/image-classification-mnist-data** 폴더에서 **img-classification-part1-training.ipynb** 파일을 선택합니다.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="tutorials 폴더 열기를 보여 주는 스크린샷":::
+
+1. 위쪽 바에서 Notebook을 실행하는 데 사용할 컴퓨팅 인스턴스를 선택합니다.
 
 
-자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다. `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib`를 실행하여 이 자습서에 대한 종속성을 설치합니다.
+자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다. 컴퓨팅 인스턴스를 사용하지 않는 경우 `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib`를 실행하여 이 자습서에 대한 종속성을 설치합니다. 
 
 > [!Important]
 > 이 문서의 나머지 부분에는 Notebook에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다.  
@@ -110,9 +150,12 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 이 자습서의 뒷부분에서 이 VM에서 실행할 Python 코드를 제출합니다. 
 
-아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다. 사용하지 않을 때는 0으로 축소되는 클러스터를 설정하고 최대 4개의 노드로 확장할 수 있습니다. 
+아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다. 사용하지 않을 때는 0으로 축소되는 클러스터를 설정하고 최대 4개의 노드로 확장할 수 있습니다.
 
- **컴퓨팅 대상을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅 리소스가 있으면 코드는 해당 컴퓨팅 리소스를 사용하고 만들기 프로세스를 건너뜁니다.
+ **컴퓨팅 대상을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅 리소스가 있으면 코드는 해당 컴퓨팅 리소스를 사용하고 만들기 프로세스를 건너뜁니다.  
+
+> [!TIP]
+> 빠른 시작에서 컴퓨팅 클러스터를 만든 경우 아래 코드의 `compute_name`이 동일한 이름을 사용하는지 확인합니다.
 
 ```python
 from azureml.core.compute import AmlCompute

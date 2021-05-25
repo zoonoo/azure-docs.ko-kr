@@ -6,12 +6,12 @@ ms.author: valls
 ms.date: 2/11/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c330cc4e5721fab9d7336fd5b111d8cef67e170c
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 05b42a3dd6d5df7bf4484e23b2780732d55ab731
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070230"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109789158"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-raspberry-pi-3-b-reference-image"></a>Raspberry Pi 3 B+ 참조 Yocto 이미지를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -35,7 +35,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 
 ## <a name="download-image"></a>이미지 다운로드
 
-[디바이스 업데이트 GitHub 릴리스 페이지](https://github.com/Azure/iot-hub-device-update/releases)의 "자산"에 샘플 이미지가 있습니다. swUpdate 파일은 Raspberry Pi B3+ 보드에서 플래시할 수 있는 기본 이미지이며 .gz 파일은 Device Update for IoT Hub를 통해 가져올 업데이트입니다. 
+[디바이스 업데이트 GitHub 릴리스 페이지](https://github.com/Azure/iot-hub-device-update/releases)의 "자산"에 샘플 이미지가 있습니다. .gz 파일은 Raspberry Pi B3+ 보드에서 플래시할 수 있는 기본 이미지이며, swUpdate 파일은 Device Update for IoT Hub를 통해 가져올 업데이트입니다. 
 
 ## <a name="flash-sd-card-with-image"></a>이미지를 사용하여 SD 카드 플래시
 
@@ -143,11 +143,11 @@ Azure IoT Hub에 대한 디바이스 업데이트 소프트웨어에는 다음 �
 
 ## <a name="import-update"></a>업데이트 가져오기
 
-1. 이러한 [지침](import-update.md)에 따라 가져오기 매니페스트를 만듭니다.
-2. 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
+1. [샘플 가져오기 매니페스트](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) 및 [샘플 이미지 업데이트](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu)를 다운로드합니다.
+2. [Azure Portal](https://portal.azure.com/)에 로그인하고 디바이스 업데이트를 사용하여 IoT Hub로 이동합니다. 그런 다음, 왼쪽 탐색 모음에서 자동 디바이스 관리 아래에 있는 디바이스 업데이트 옵션을 선택합니다.
 3. 업데이트 탭을 선택합니다.
 4. "+ 새 업데이트 가져오기"를 선택합니다.
-5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위에서 만든 가져오기 매니페스트를 선택합니다.  다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. IoT 디바이스에 배포할 업데이트 파일을 선택합니다.
+5. "매니페스트 파일 가져오기 선택"에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위의 1단계에서 다운로드한 _샘플 가져오기 매니페스트_ 를 선택합니다.  다음으로 "하나 이상의 업데이트 파일 선택" 아래에서 폴더 아이콘 또는 텍스트 상자를 선택합니다. 파일 선택기 대화 상자가 표시됩니다. 위의 1단계에서 다운로드한 _샘플 업데이트 파일_ 을 선택합니다.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="파일 선택을 보여 주는 스크린샷" lightbox="media/import-update/select-update-files.png":::
 

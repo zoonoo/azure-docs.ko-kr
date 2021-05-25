@@ -47,8 +47,6 @@
       href: logs/get-started-queries.md
     - name: 로그 쿼리에서 대시보드 만들기
       href: visualize/tutorial-logs-dashboards.md
-    - name: 로그 쿼리에서 경고 만들기
-      href: alerts/tutorial-response.md
     - name: 성능 및 일정에 대한 자동 크기 조정
       href: autoscale/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
@@ -372,6 +370,9 @@
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: FAQ
+              displayname: Azure Monitor agent FAQ
+              href: faq.md#azure-monitor-agent-preview
         - name: Log Analytics 에이전트
           items:
             - name: 개요
@@ -649,15 +650,15 @@
               items:
                 - name: 웹 앱
                   displayname: java
-                  href: app/java-get-started.md
+                  href: app/java-2x-get-started.md
                 - name: 로그 추적
-                  href: app/java-trace-logs.md
+                  href: app/java-2x-trace-logs.md
                 - name: 종속성
-                  href: app/java-agent.md
+                  href: app/java-2x-agent.md
                 - name: 필터 원격 분석
-                  href: app/java-filter-telemetry.md
+                  href: app/java-2x-filter-telemetry.md
                 - name: 문제 해결
-                  href: app/java-troubleshoot.md
+                  href: app/java-2x-troubleshoot.md
             - name: Node.js
               href: app/nodejs.md
             - name: Python
@@ -787,6 +788,8 @@
             - name: 다단계 테스트
               displayname: 'availability, GSM, visual studio web test, web test'
               href: app/availability-multistep.md
+            - name: 프라이빗 테스트
+              href: app/availability-private-test.md
             - name: 가용성 + Azure Functions
               href: app/availability-azure-functions.md
               displayname: 'availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch'
@@ -1442,10 +1445,10 @@
         - name: Key Vault Analytics(사용되지 않음)
           href: insights/azure-key-vault-deprecated.md
         - name: Unix 메트릭
-          href: app/java-collectd.md
+          href: app/java-2x-collectd.md
         - name: 마이크로미터 메트릭
           displayname: java
-          href: app/micrometer-java.md
+          href: app/java-2x-micrometer.md
         - name: 보기
           items:
             - name: 뷰 디자이너
