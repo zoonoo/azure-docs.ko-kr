@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2dfa5c637265071fa76119b930020f8aed60037f
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: a77a8e72dcbd74eb05340e7dd48d3ab6516f8043
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714821"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465420"
 ---
 # <a name="face-detection-with-computer-vision"></a>Computer Vision으로 얼굴 감지
 
@@ -115,4 +115,4 @@ Computer Vision은 이미지에서 사람 얼굴을 감지하고 감지된 각 �
 
 얼굴 감지 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Faces`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"faces"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
-* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

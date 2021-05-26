@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c2daed4a8df89ed176749900dc75eb231c00af87
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6affeacd119682a76f648feff05429f1e3173b1c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049273"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461899"
 ---
 # <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Blob 암호화 및 해독
 
@@ -90,11 +90,11 @@ AppSettings를 App.Config에 추가합니다.
 
 다음 `using` 지시문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -113,11 +113,11 @@ using System.IO;
 
 다음 메서드는 사용자 키 자격 증명 모음에 대한 액세스를 인증해야 하는 키 자격 증명 모음 클래스에 의해 사용됩니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 private async static Task<string> GetToken(string authority, string resource, string scope)
@@ -140,11 +140,11 @@ private async static Task<string> GetToken(string authority, string resource, st
 
 Main() 메서드에서 다음 코드를 추가합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 // This is standard code to interact with Blob storage.
@@ -178,11 +178,11 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 Blob을 암호화하고 Azure Storage 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 // Retrieve the key that you created previously.
@@ -216,11 +216,11 @@ RSA 키의 프라이빗 키는 키 자격 증명 모음에 남아 있으므로 �
 
 방금 업로드한 Blob을 암호 해독하려면 다음을 추가합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 // In this case, we will not pass a key and only pass the resolver because
@@ -262,11 +262,11 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret
 
 사용자의 콘솔 애플리케이션에서는 이전과 동일한 호출을 사용하여 SymmetricKey로 이 비밀을 검색할 수 있습니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 현재 Azure Storage 클라이언트 라이브러리의 버전 12.x를 반영하는 코드 조각을 만드는 작업을 하고 있습니다. 자세한 내용은 [Azure Storage v12 클라이언트 라이브러리 발표](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394)를 참조하세요.
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(

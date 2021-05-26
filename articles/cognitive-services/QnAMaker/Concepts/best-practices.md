@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b3f12881bd0cb7114f32cab5b7a67d80a73f4fe
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102123312"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372845"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -119,8 +119,8 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 영어에서는 동의어를 일부 지원하지만, [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace)를 통해 대/소문자를 구분하지 않는 단어 변경을 사용하여 다른 형식의 키워드에 동의어를 추가합니다. 동의어는 QnA Maker 서비스 수준에서 추가되고 **서비스의 모든 기술 자료에서 공유됩니다.**
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
-영어에서는 동의어를 일부 지원하지만, [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace)를 통해 대/소문자를 구분하지 않는 단어 변경을 사용하여 다른 형식의 키워드에 동의어를 추가합니다. QnA Maker 관리(미리 보기)의 동의어는 **기술 자료에 따라 추가** 됩니다.
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+영어에서는 동의어를 일부 지원하지만, [Alterations API](/rest/api/cognitiveservices/qnamaker/alterations/replace)를 통해 대/소문자를 구분하지 않는 단어 변경을 사용하여 다른 형식의 키워드에 동의어를 추가합니다. 사용자 지정 질문 답변(미리 보기)의 동의어는 **기술 자료별로 추가** 됩니다.
 
 |원래 단어|동의어|
 |--|--|

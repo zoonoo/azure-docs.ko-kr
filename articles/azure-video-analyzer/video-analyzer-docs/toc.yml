@@ -152,7 +152,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/updates/?category=media'
     - name: 가격 책정
-      href: 'https://azure.microsoft.com/services/media-services/live-video-analytics/'
+      href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
     - name: FAQ
       href: faq-edge.md
     - name: 할당량 및 제한 사항

@@ -8,17 +8,17 @@ ms.author: shipatel
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 12/23/2020
+ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
-ms.openlocfilehash: a8f19a9c731b24b5c839a29035aab118b91cf891
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 593d7177938149e581786d5a6236efc97d1fe323
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885383"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378740"
 ---
-# <a name="deploy-mlflow-models-as-azure-web-services-preview"></a>MLflow 모델을 Azure 웹 서비스로 배포(미리 보기)
+# <a name="deploy-mlflow-models-as-azure-web-services"></a>MLflow 모델을 Azure 웹 서비스로 배포
 
 이 문서에서는 [Mlflow](https://www.mlflow.org) 모델을 Azure 웹 서비스로 배포하는 방법에 대해 설명하여, 프로덕션 모델에 Azure Machine Learning의 모델 관리 및 데이터 드리프트 검색 기능을 활용하고 적용할 수 있습니다.
 
@@ -27,6 +27,7 @@ Azure Machine Learning은 다음에 대한 배포 구성을 제공합니다.
 * AKS (Azure Kubernetes Service)는 확장 가능한 프로덕션 배포에 권장됩니다.
 > [!TIP]
 > 이 문서의 정보는 주로 Azure Machine Learning 웹 서비스 엔드포인트에 MLflow 모델을 배포하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료된 학습 실행 또는 완료된 모델 배포와 같이 Azure Machine Learning의 리소스 사용과 이벤트를 모니터링하는 데 관심이 있는 관리자는 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조하세요.
+
 ## <a name="mlflow-with-azure-machine-learning-deployment"></a>Azure Machine Learning 배포를 사용한 MLflow
 
 MLflow는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. Azure Machine Learning과 통합되어 모델 교육 이상으로 이 관리를 프로덕션 모델의 배포 단계로 확장할 수 있습니다.
@@ -34,10 +35,6 @@ MLflow는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 �
 다음 다이어그램은 MLflow 배포 API 및 Azure Machine Learning을 사용하여 PyTorch, Tensorflow, scikit-learn 등의 인기 있는 프레임워크를 사용하여 만든 모델을 Azure 웹 서비스로 배포하고 작업 영역에서 이를 관리하는 것을 보여 줍니다. 
 
 ![ Azure Machine Learning을 사용하여 MLflow 모델 배포](./media/how-to-deploy-mlflow-models/mlflow-diagram-deploy.png)
-
-
->[!NOTE]
-> 오픈 소스 라이브러리로서 MLflow는 자주 변경됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공되는 기능은 미리 보기로 간주해야 하며, Microsoft에서 완벽하게 지원하지 않습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,7 +48,10 @@ MLflow는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 �
 
 Azure Machine Learning 웹 서비스에 MLflow 모델을 배포하려면, [Azure Machine Learning에 연결하기 위한 Mlflow 추적 URI](how-to-use-mlflow.md)를 사용하여 모델을 설정해야 합니다. 
 
-[Deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용하여 배포 구성을 설정합니다. 웹 서비스를 추적하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+ACI에 배포하기 위해 배포 구성을 정의할 필요가 없습니다. 구성이 제공되지 않을 경우 서비스는 기본적으로 ACI 배포로 설정됩니다.
+
+> [!NOTE] 
+> 배포 매개 변수를 사용자 지정하려는 경우 [deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드 값을 참조로 사용하여 배포 구성을 설정할 수 있습니다. 
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -69,16 +69,22 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
 
 그런 다음 Azure Machine Learning에 대해 MLflow의 [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) 메서드를 사용하여 한 번에 모델을 등록하고 배포합니다. 
 
-```python
-(webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
-                      workspace=ws,
-                      model_name='sklearn-model', 
-                      service_name='diabetes-model-1', 
-                      deployment_config=aci_config, 
-                      tags=None, mlflow_home=None, synchronous=True)
 
-webservice.wait_for_deployment(show_output=True)
+```python
+from mlflow.deployments import get_deploy_client
+
+# set the tracking uri as the deployment client
+client = get_deploy_client(mlflow.get_tracking_uri())
+
+# set the model path 
+model_path = "model"
+
+# define the model path and the name is the service name
+# the model gets registered automatically and a name is autogenerated using the "name" parameter below 
+client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                         name="mlflow-test-aci")
 ```
+
 
 ## <a name="deploy-to-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 배포
 
@@ -104,35 +110,32 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-[Deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) 메서드를 사용하여 배포 구성을 설정합니다. 웹 서비스를 추적하는 데 도움이 되는 태그와 설명을 추가할 수도 있습니다.
+[deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration#parameters) 메서드 값을 참조로 사용하여 배포 구성 json을 만듭니다. 각 배포 구성 매개 변수는 사전으로 정의하기만 하면 됩니다. 아래 예는 다음과 같습니다.
 
-```python
-from azureml.core.webservice import Webservice, AksWebservice
-
-# Set the web service configuration (using default here with app insights)
-aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
-
+```json
+{'computeType': 'aks', 'computeTargetName': 'aks-mlflow'}
 ```
 
-그런 다음 Azure Machine Learning에 대해 MLflow의 [deploy](https://www.mlflow.org/docs/latest/python_api/mlflow.azureml.html#mlflow.azureml.deploy) 메서드를 사용하여 한 번에 모델을 등록하고 배포합니다. 
+그런 다음, MLflow의 [배포 클라이언트](https://www.mlflow.org/docs/latest/python_api/mlflow.deployments.html)를 사용하여 한 번에 모델을 등록하고 배포합니다. 
 
 ```python
+from mlflow.deployments import get_deploy_client
 
-# Webservice creation using single command
-from azureml.core.webservice import AksWebservice, Webservice
+# set the tracking uri as the deployment client
+client = get_deploy_client(mlflow.get_tracking_uri())
 
 # set the model path 
 model_path = "model"
 
-(webservice, model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
-                      workspace=ws,
-                      model_name='sklearn-model', 
-                      service_name='my-aks', 
-                      deployment_config=aks_config, 
-                      tags=None, mlflow_home=None, synchronous=True)
+# set the deployment config
+deploy_path = "deployment_config.json"
+test_config = {'deploy-config-file': deploy_path}
 
-
-webservice.wait_for_deployment()
+# define the model path and the name is the service name
+# the model gets registered automatically and a name is autogenerated using the "name" parameter below 
+client.create_deployment(model_uri='runs:/{}/{}'.format(run.id, model_path),
+                         config=test_config,
+                         name="mlflow-test-aci")
 ```
 
 서비스 배포에는 몇 분 정도 걸릴 수 있습니다.
@@ -153,4 +156,3 @@ webservice.wait_for_deployment()
 * [모델 관리](concept-model-management-and-deployment.md).
 * [데이터 드리프트](./how-to-enable-data-collection.md)를 위한 프로덕션 모델 모니터링.
 * [MLflow를 사용하여 Azure Databricks 실행 추적](how-to-use-mlflow-azure-databricks.md)
-

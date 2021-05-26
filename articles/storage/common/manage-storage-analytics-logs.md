@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7634a07ab3a0026a06f959c99e7b104a9dc91650
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701708"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459725"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Azure Storage Analytics 로그(클래식) 사용 및 관리
 
@@ -113,11 +113,11 @@ Azure Storage에서 Blob, 테이블 및 큐 서비스에 대한 읽기, 쓰기 �
 
    Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
 
-### <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
-### <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+### <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -210,7 +210,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
    Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/)을 참조하세요.  
 
-### <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 다음의 예제에서는 Blob 스토리지 서비스와 큐 스토리지 서비스의 보존 기간을 콘솔에 출력합니다.
 
@@ -220,7 +220,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_ModifyRetentionPeriod":::
 
-### <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+### <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 다음의 예제에서는 Blob 스토리지 서비스와 큐 스토리지 서비스의 보존 기간을 콘솔에 출력합니다.
 

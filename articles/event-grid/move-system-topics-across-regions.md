@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Grid 시스템 토픽을 한 지역
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: eb6029b206e7d47789371ee81e75c4e05c69ee65
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b8db19b1ef99d81f47ec19254e1f6622c6a4ba2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89086184"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481053"
 ---
 # <a name="move-azure-event-grid-system-topics-to-another-region"></a>Azure Event Grid 시스템 토픽을 다른 지역으로 이동
 여러 이유로 리소스를 다른 지역으로 이동하는 것이 좋습니다. 예를 들어 새 Azure 지역을 활용하거나 내부 정책 및 거버넌스 요구 사항을 충족하기 위해 이동하거나 용량 계획 요구 사항에 대한 응답으로 이동할 수 있습니다. 
@@ -118,6 +118,5 @@ Azure 이벤트 원본 및 연결된 시스템 토픽을 한 지역에서 다른
 
 - [지역 간 사용자 지정 토픽 이동](move-custom-topics-across-regions.md). 
 - [지역 간 도메인 이동](move-domains-across-regions.md). 
-- [지역 간 파트너 네임스페이스 이동](move-partner-namespaces-across-regions.md). 
 
 지역 간 리소스를 이동하는 방법과 Azure의 재해 복구에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조하세요.

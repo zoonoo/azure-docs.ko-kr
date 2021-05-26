@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4310c724707548cd55df5591504736d8f3c3857
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100097639"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460055"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Azure Cognitive Search에 대한 보안 개요
 
@@ -109,7 +109,7 @@ Azure Cognitive Search에서 개별 인덱스는 보안 개체가 아닙니다. 
 
 Azure Cognitive Search에서 Resource Manager는 서비스를 만들거나 삭제하고, API 키를 관리하며, 서비스를 스케일링하는 데 사용됩니다. 따라서 Azure 역할 할당은 [포털](search-manage.md), [PowerShell](search-manage-powershell.md) 또는 [관리 REST API](/rest/api/searchmanagement/search-howto-management-rest-api)를 사용하는지 여부에 관계없이 이러한 작업을 수행할 수 있는 사용자를 결정합니다.
 
-검색 서비스 관리에 대한 [세 가지 기본 역할](search-security-rbac.md#management-tasks-by-role)이 정의됩니다. 역할 할당은 지원되는 모든 방법(포털, PowerShell 등)을 사용하여 수행할 수 있으며 서비스 전체에 적용됩니다. 소유자 및 기여자 역할은 다양한 관리 기능을 수행할 수 있습니다. 읽기 권한자 역할은 필수 정보만 보는 사용자에게 할당할 수 있습니다.
+검색 서비스 관리에 대한 [세 가지 기본 역할](search-security-rbac.md)이 정의됩니다. 역할 할당은 지원되는 모든 방법(포털, PowerShell 등)을 사용하여 수행할 수 있으며 서비스 전체에 적용됩니다. 소유자 및 기여자 역할은 다양한 관리 기능을 수행할 수 있습니다. 읽기 권한자 역할은 필수 정보만 보는 사용자에게 할당할 수 있습니다.
 
 > [!Note]
 > Azure 전체 메커니즘을 사용하여 구독 또는 리소스를 잠가서 관리자 권한이 있는 사용자가 검색 서비스를 실수로 삭제하거나 무단으로 삭제하는 것을 방지할 수 있습니다. 자세한 내용은 [예기치 않은 삭제를 방지하기 위해 리소스 잠그기](../azure-resource-manager/management/lock-resources.md)를 참조하세요.

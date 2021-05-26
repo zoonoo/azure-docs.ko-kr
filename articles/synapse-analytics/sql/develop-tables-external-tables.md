@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a02938d2c294d80b2c3f4a98aea905a4d431199
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 41825ceed38203c88ddfc28eca9a738663b9d7e6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070194"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378669"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
@@ -22,19 +22,23 @@ ms.locfileid: "108070194"
 
 외부 데이터 원본의 유형에 따라 다음과 같은 두 가지 유형의 외부 테이블을 사용할 수 있습니다.
 - CSV, Parquet 및 ORC와 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 Hadoop 외부 테이블. Hadoop 외부 테이블은 전용 Synapse SQL 풀에서 사용할 수 있지만 서버리스 SQL 풀에서는 사용할 수 없습니다.
-- CSV 및 Parquet과 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 네이티브 외부 테이블. 네이티브 외부 테이블은 서버리스 Synapse SQL 풀에서 사용할 수 있지만 전용 SQL 풀에서는 사용할 수 없습니다.
+- CSV 및 Parquet과 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 네이티브 외부 테이블. 네이티브 외부 테이블은 서버리스 Synapse SQL 풀에서 사용할 수 있으며 전용 SQL 풀에서는 미리 보기 상태입니다.
 
 Hadoop과 네이티브 외부 테이블의 주요 차이점은 다음 표에 정리되어 있습니다.
 
 | 외부 테이블 유형 | Hadoop은 | 기본 |
 | --- | --- | --- |
-| 전용 SQL 풀 | 사용 가능 | 사용할 수 없음 |
+| 전용 SQL 풀 | 사용 가능 | Parquet 테이블은 **제어된 미리 보기** 로 제공됩니다. 전용 풀이 미리 보기에 참여할 수 있는지 확인하려면 Microsoft 기술 계정 관리자 또는 클라우드 솔루션 설계자에게 문의하세요. |
 | 서버리스 SQL 풀 | 사용할 수 없음 | 사용 가능 |
-| 지원되는 형식 | 구분 기호로 분리됨/CSV, Parquet, ORC, Hive RC 및 RC | 구분 기호로 분리됨/CSV 및 Parquet |
-| 폴더 파티션 제거 | No | Synapse 작업 영역에서 Apache Spark 풀과 동기화된 분할된 테이블에만 해당 |
-| 위치의 사용자 지정 형식 | No | 예. `/year=*/month=*/day=*`와 같은 와일드카드 사용 |
-| 재귀 폴더 검색 | 항상 | 위치 경로에 `/**`가 지정된 경우에만 |
+| 지원되는 형식 | 구분 기호로 분리됨/CSV, Parquet, ORC, Hive RC 및 RC | 서버리스 풀: 구분 기호로 분리됨/CSV, Parquet 및 Delta Lake(미리 보기)<br/>전용 풀: Parquet |
+| 폴더 파티션 제거 | No | Synapse 작업 영역의 Apache Spark 풀에서 서버리스 SQL 풀과 동기화된 분할된 테이블에만 해당 |
+| 위치의 사용자 지정 형식 | 예 | 예. `/year=*/month=*/day=*`와 같은 와일드카드 사용 |
+| 재귀 폴더 검색 | No | 위치 경로의 끝에 `/**`가 지정된 경우 서버리스 SQL 풀에만 해당 |
+| 스토리지 필터 푸시다운 | No | 서버리스 SQL 풀에만 해당. 문자열 푸시다운의 경우 `VARCHAR` 열에서 `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용해야 합니다. |
 | 스토리지 인증 | SAK(스토리지 액세스 키), AAD 통과, 관리 ID, 사용자 지정 애플리케이션 Azure AD ID | SAS(공유 액세스 서명), AAD 통과, 관리 ID |
+
+> [!NOTE]
+> Delta Lake 형식의 네이티브 외부 테이블은 공개 미리 보기로 제공됩니다. [CETAS](develop-tables-cetas.md)는 Delta Lake 형식의 콘텐츠 내보내기를 지원하지 않습니다.
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>전용 SQL 풀 및 서버리스 SQL 풀의 외부 테이블
 
@@ -51,9 +55,9 @@ Hadoop과 네이티브 외부 테이블의 주요 차이점은 다음 표에 정
 
 다음 단계를 통해 Synapse SQL 풀에 외부 테이블을 만들 수 있습니다.
 
-1. CREATE EXTERNAL DATA SOURCE
-2. CREATE EXTERNAL FILE FORMAT
-3. CREATE EXTERNAL TABLE
+1. [외부 데이터 원본 만들기](#create-external-data-source) - 외부 Azure Storage를 참조하고, 스토리지에 액세스할 때 사용해야 하는 자격 증명을 지정합니다.
+2. [외부 파일 형식 만들기](#create-external-file-format) - CSV 또는 Parquet 파일의 형식을 설명합니다.
+3. [외부 테이블 만들기](#create-external-table) - 데이터 원본에 배치된 파일을 기반으로 동일한 파일 형식을 사용하여 만듭니다.
 
 ### <a name="security"></a>보안
 
@@ -84,7 +88,7 @@ WITH
 
 #### <a name="native"></a>[기본](#tab/native)
 
-`TYPE=HADOOP`이 아닌 외부 데이터 원본은 서버리스 SQL 풀에서만 사용할 수 있습니다.
+`TYPE=HADOOP`를 사용하지 않는 외부 데이터 원본은 서버리스 SQL 풀에 일반 공급되며 전용 풀에 공개 미리 보기로 제공됩니다.
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -99,7 +103,7 @@ WITH
 
 ### <a name="arguments-for-create-external-data-source"></a>CREATE EXTERNAL DATA SOURCE 인수
 
-data_source_name
+#### <a name="data_source_name"></a>data_source_name
 
 데이터 원본에 대한 사용자 정의 이름을 지정합니다. 이름은 반드시 데이터베이스 내에서 고유해야 합니다.
 
@@ -154,7 +158,7 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yel
 
 #### <a name="native"></a>[기본](#tab/native)
 
-다음 예제에서는 SAS 자격 증명을 사용하여 액세스 가능한 Azure Data Lake Gen2에 대한 외부 데이터 원본을 서버리스 SQL 풀에 만듭니다.
+다음 예제에서는 SAS 자격 증명을 사용하여 액세스 가능한 Azure Data Lake Gen2에 대한 외부 데이터 원본을 서버리스 또는 전용 SQL 풀에 만듭니다.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
@@ -366,7 +370,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ### <a name="prerequisites"></a>필수 구성 요소
 
-- 작업 영역에 대한 액세스 권한(ADLS Gen2 계정에 대한 `Storage Blob Data Contributor` 액세스 역할 이상)이 있어야 합니다.
+- ADLS Gen2 계정 또는 ACL(액세스 제어 목록)에서 파일을 쿼리할 수 있는 `Storage Blob Data Contributor` 이상의 액세스 역할을 사용하여 작업 영역에 액세스할 수 있어야 합니다.
 
 - Synapse SQL 풀(전용 또는 서버리스)에서 외부 테이블을 [만들고 쿼리할 수 있는 권한](/sql/t-sql/statements/create-external-table-transact-sql?view=azure-sqldw-latest#permissions-2&preserve-view=true)이 최소한 있어야 합니다.
 

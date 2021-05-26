@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: 295a46f6d1074ddf8422233ea3ccfa4d65c28fd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f52796cd5477ecd692296213e337ded4f52503cd
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571591"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110189598"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath(미리 보기)
 
@@ -57,6 +57,7 @@ RDP Shortpath는 세션 호스트의 인증서를 사용하여 클라이언트�
 
 RDP Shortpath를 지원하려면 Windows Virtual Desktop 클라이언트에서 세션 호스트에 대한 직접적인 가시선을 사용해야 합니다. 다음 기술 중 하나를 사용하여 직접적인 가시선을 얻을 수 있습니다.
 
+* 원격 클라이언트 머신은 Windows 10 또는 Windows 7을 실행하고 있어야 하며 [Windows 데스크톱 클라이언트](/windows-server/remote/remote-desktop-services/clients/windowsdesktop)가 설치되어 있어야 합니다. 현재 웹 클라이언트는 지원되지 않습니다.
 * [ExpressRoute 개인 피어링](../expressroute/expressroute-circuit-peerings.md)
 * [사이트 간 VPN(IPsec 기반)](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [지점 및 사이트 간 VPN(IPsec 기반)](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)

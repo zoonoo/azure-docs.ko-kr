@@ -4,20 +4,17 @@ description: Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용�
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/30/2021
+ms.date: 05/25/2021
 ms.author: thweiss
-ms.openlocfilehash: 1a6bdf55e52a7060423d2a016f07eee3608f50d4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 35e3d4668fc3a5eb260bc187ec1cb6177f91911b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063477"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378477"
 ---
-# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성(미리 보기)
+# <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account"></a>Azure Cosmos DB 계정에 대해 Azure Active Directory를 사용하여 역할 기반 액세스 제어 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-
-> [!IMPORTANT]
-> Azure Cosmos DB 역할 기반 액세스 제어는 현재 미리 보기 상태입니다. 이 미리 보기 버전은 Service Level Agreement(서비스 수준 약정) 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 Microsoft Azure Preview에 대한 [추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 > [!NOTE]
 > 이 문서에서는 Azure Cosmos DB에서 데이터 평면 작업을 위한 역할 기반 액세스 제어에 대해 설명합니다. 관리 평면 작업을 사용하는 경우 해당 관리 평면 작업 문서에 적용되는 [역할 기반 액세스 제어](role-based-access-control.md)를 참조하세요.
@@ -40,10 +37,17 @@ Azure Cosmos DB 데이터 평면 RBAC는 [Azure RBAC](../role-based-access-contr
 
   :::image type="content" source="./media/how-to-setup-rbac/concepts.png" alt-text="RBAC 개념":::
 
-> [!NOTE]
-> Azure Cosmos DB RBAC는 현재까지 기본 제공 역할 정의를 제공하지 않습니다.
-
 ## <a name="permission-model"></a><a id="permission-model"></a> 권한 모델
+
+> [!IMPORTANT]
+> 이 권한 모델은 데이터 읽기 및 쓰기를 수행할 수 있게 해주는 데이터베이스 작업만 지원합니다. 컨테이너 만들기 또는 처리량 변경과 같은 관리 작업은 지원하지 **않습니다**. 즉, **Azure Cosmos DB 데이터 평면 SDK** 를 사용하여 AAD ID로 관리 작업을 인증할 수 없습니다. 그 대신, 다음을 통해 [Azure RBAC](role-based-access-control.md)를 사용해야 합니다.
+> - [ARM(Azure Resource Manager) 템플릿](manage-with-templates.md)
+> - [Azure PowerShell 스크립트](manage-with-powershell.md),
+> - [Azure CLI 스크립트](manage-with-cli.md),
+> - 다음에서 사용할 수 있는 Azure 관리 라이브러리
+>   - [.NET](https://www.nuget.org/packages/Azure.ResourceManager.CosmosDB)
+>   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
+>   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
 
 다음 표에서는 권한 모델에서 제공되는 모든 작업을 보여줍니다.
 
@@ -65,9 +69,6 @@ Azure Cosmos DB 데이터 평면 RBAC는 [Azure RBAC](../role-based-access-contr
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`
 - `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*`
 
-> [!IMPORTANT]
-> 이 권한 모델은 데이터 읽기 및 쓰기를 수행할 수 있게 해주는 데이터베이스 작업만 지원합니다. 컨테이너 만들기 또는 처리량 변경과 같은 관리 작업은 지원하지 **않습니다**. AAD ID로 관리 작업을 인증하려면 대신 [Azure RBAC](role-based-access-control.md)를 사용합니다.
-
 ### <a name="metadata-requests"></a><a id="metadata-requests"></a> 메타데이터 요청
 
 Azure Cosmos DB SDK를 사용할 때 이러한 SDK는 초기화 중 읽기 전용 메타데이터 요청을 수행하고 특정 데이터 요청을 처리합니다. 이러한 메타데이터 요청은 다음과 같은 여러 구성 세부 정보를 페치합니다. 
@@ -88,13 +89,22 @@ Azure Cosmos DB SDK를 사용할 때 이러한 SDK는 초기화 중 읽기 전�
 | 데이터베이스 | - 데이터베이스 메타데이터 읽기<br>- 데이터베이스 아래의 컨테이너 나열<br>- 데이터베이스 아래의 각 컨테이너에 대한 컨테이너 범위에서 허용되는 작업 |
 | 컨테이너 | - 컨테이너 메타데이터 읽기<br>- 컨테이너 아래의 실제 파티션 나열<br>- 각 물리적 파티션의 주소 확인 |
 
-## <a name="create-role-definitions"></a><a id="role-definitions"></a> 역할 정의 만들기
+## <a name="built-in-role-definitions"></a>기본 제공 역할 정의
 
-역할 정의를 만들 때는 다음을 제공해야 합니다.
+Azure Cosmos DB에는 다음 두 개의 기본 제공 역할 정의가 표시됩니다.
+
+| ID | 속성 | 포함된 작업 |
+|---|---|---|
+| 00000000-0000-0000-0000-000000000001 | Cosmos DB 기본 제공 데이터 판독기 | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed` |
+| 00000000-0000-0000-0000-000000000002 | Cosmos DB 기본 제공 데이터 기여자 | `Microsoft.DocumentDB/databaseAccounts/readMetadata`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/*`<br>`Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/*` |
+
+## <a name="create-custom-role-definitions"></a><a id="role-definitions"></a> 사용자 지정 역할 정의 만들기
+
+사용자 지정 역할 정의를 만들 때는 다음을 제공해야 합니다.
 
 - Azure Cosmos DB 계정의 이름.
 - 계정이 포함된 리소스 그룹.
-- 지원되는 역할 정의 유형. 현재까지는 `CustomRole`만 지원됩니다.
+- 역할 정의의 유형: `CustomRole`.
 - 역할 정의의 이름.
 - 역할에 허용할 [작업](#permission-model) 목록.
 - 역할 정의를 할당할 수 있는 하나 이상의 범위. 지원되는 범위:
@@ -266,9 +276,13 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 ]
 ```
 
+### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
+
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroledefinition)를 참조해 Azure Resource Manager를 사용해 역할 정의를 만드는 예제를 확인하세요.
+
 ## <a name="create-role-assignments"></a><a id="role-assignments"></a> 역할 할당 만들기
 
-역할 정의를 만든 후 이를 AAD ID와 연결할 수 있습니다. 역할 할당을 만들 때 다음을 제공해야 합니다.
+기본 제공 또는 사용자 지정 역할 정의를 Azure AD ID와 연결할 수 있습니다. 역할 할당을 만들 때 다음을 제공해야 합니다.
 
 - Azure Cosmos DB 계정의 이름.
 - 계정이 포함된 리소스 그룹.
@@ -317,6 +331,10 @@ principalId = '<aadPrincipalId>'
 az cosmosdb sql role assignment create --account-name $accountName --resource-group $resourceGroupName --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
+### <a name="using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿 사용
+
+[이 페이지](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/sqlresources2/createupdatesqlroleassignment)를 참조해 Azure Resource Manager 템플릿을 사용하여 역할 할당을 만드는 예제를 확인하세요.
+
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Azure AD로 SDK 초기화
 
 애플리케이션에서 Azure Cosmos DB RBAC를 사용하려면 Azure Cosmos DB SDK를 초기화하는 방법을 업데이트해야 합니다. 계정의 기본 키를 전달하는 대신 `TokenCredential` 클래스의 인스턴스를 전달해야 합니다. 이 인스턴스는 사용하려는 ID 대신 AAD 토큰을 페치하기 위해 필요한 컨텍스트를 Azure Cosmos DB SDK에 제공합니다.
@@ -324,8 +342,8 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 `TokenCredential` 인스턴스를 만드는 방법은 이 문서의 범위를 벗어납니다. 사용자 보안 주체, 서비스 보안 제출, 그룹 등 사용하려는 AAD ID의 유형에 따라 이러한 인스턴스를 만드는 여러 방법이 있습니다. 가장 중요한 것은 `TokenCredential` 인스턴스가 역할이 할당된 ID(보안 주체 ID)로 확인되어야 한다는 것입니다. 다음 위치에서 `TokenCredential` 클래스 만들기 예시를 찾아볼 수 있습니다.
 
 - [.NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [Java](/java/api/overview/azure/identity-readme#credential-classes)
-- [JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [Java에서](/java/api/overview/azure/identity-readme#credential-classes)
+- [JavaScript에서](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 아래 예시에서는 `ClientSecretCredential` 인스턴스에 서비스 보안 주체를 사용합니다.
 
@@ -373,7 +391,20 @@ const client = new CosmosClient({
 });
 ```
 
-## <a name="auditing-data-requests"></a>데이터 요청 감사
+## <a name="authenticate-requests-on-the-rest-api"></a>REST API에서 요청 인증
+
+Azure Cosmos DB RBAC는 현재 REST API의 `2021-03-15` 버전에서 지원됩니다. [인증 헤더](/rest/api/cosmos-db/access-control-on-cosmosdb-resources)를 생성할 때 다음 예제와 같이 **유형** 매개 변수를 **aad** 로 설정하고, 해시 서명 **(sig)** 을 **oauth 토큰** 으로 설정합니다.
+
+`type=aad&ver=1.0&sig=<token-from-oauth>`
+
+## <a name="use-data-explorer"></a>데이터 탐색기 사용
+
+> [!NOTE]
+> Azure Portal에서 표시되는 데이터 탐색기는 아직 Azure Cosmos DB RBAC를 지원하지 않습니다. 데이터를 탐색할 때 Azure AD ID를 사용하려면 [Azure Cosmos DB Explorer](https://cosmos.azure.com/)를 사용해야 합니다.
+
+계정에 저장된 데이터를 검색하면 [Azure Cosmos DB Explorer](https://cosmos.azure.com/)가 먼저 로그인한 사용자를 대신하여 계정의 기본 키를 가져오려고 시도하고, 이 키를 사용하여 데이터에 액세스합니다. 해당 사용자가 기본 키를 가져올 수 없는 경우에는 데이터에 액세스하는 대신 해당 사용자의 Azure AD ID가 사용됩니다.
+
+## <a name="audit-data-requests"></a>데이터 요청 감사
 
 Azure Cosmos DB RBAC를 사용하면, [진단 로그](cosmosdb-monitor-resource-logs.md)가 각 데이터 작업의 ID 및 권한 부여 정보로 강화됩니다. 이를 통해 세부 감사를 수행하고 Azure Cosmos DB 계정에 전송되는 모든 데이터 요청에 사용되는 AAD ID를 검색할 수 있습니다.
 
@@ -388,7 +419,6 @@ Azure Cosmos DB RBAC를 사용하면, [진단 로그](cosmosdb-monitor-resource-
 - 또한 Azure Cosmos DB 계정과 동일한 Azure AD 테넌트에 속하는 Azure AD ID에만 역할 정의를 할당할 수 있습니다.
 - 200개를 초과하는 그룹에 속하는 ID에 대해서는 현재까지 Azure AD 그룹 확인이 지원되지 않습니다.
 - Azure AD 토큰은 현재까지 Azure Cosmos DB 서비스로 전송되는 개별 요청의 헤더로 전달되어, 전체 페이로드 크기를 늘립니다.
-- [Azure Cosmos DB 탐색기](data-explorer.md)를 통해 Azure AD로 데이터에 액세스하는 것은 아직 지원되지 않습니다. Azure Cosmos DB 탐색기를 사용하려면 아직까지 계정의 기본 키에 대한 액세스 권한이 사용자에게 있어야 합니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -402,15 +432,15 @@ Azure Cosmos DB RBAC를 사용하면, [진단 로그](cosmosdb-monitor-resource-
 
 ### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Azure Cosmos DB SQL API에서 RBAC를 지원하는 SDK는 무엇인가요?
 
-[.NET V3](sql-api-sdk-dotnet-standard.md) 및 [Java V4](sql-api-sdk-java-v4.md) SDK가 현재 지원됩니다.
+현재 [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md) 및 [JavaScript V3](sql-api-sdk-node.md) SDK가 지원됩니다.
 
 ### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>Azure AD 토큰이 만료될 때 Azure Cosmos DB SDK에 의해 자동으로 새로 고쳐지나요?
 
 예.
 
-### <a name="is-it-possible-to-disable-the-usage-of-the-account-primary-key-when-using-rbac"></a>RBAC를 사용할 때 계정 기본 키를 사용하지 않도록 설정할 수 있나요?
+### <a name="is-it-possible-to-disable-the-usage-of-the-account-primarysecondary-keys-when-using-rbac"></a>RBAC를 사용할 때 계정의 기본/보조 키를 사용하지 않도록 설정할 수 있나요?
 
-현재 계정 기본 키를 사용하지 않도록 설정할 수 없습니다.
+현재는 계정 기본/보조 키를 사용하지 않도록 설정할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,24 +1,24 @@
 ---
 title: 예약 용량으로 Azure App Service 비용 절감
-description: Azure App Service Premium v3 예약 인스턴스 및 격리 인지세에 대한 비용을 절감할 수 있는 방법을 알아봅니다.
+description: Azure App Service Premium v3 및 Premium v2 예약 인스턴스 및 격리 인지세에 대한 비용을 절감할 수 있는 방법을 알아봅니다.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 02/01/2021
+ms.date: 05/13/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f80619f1eeb7cdd970e4e3ee64491453c790149d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374544"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378529"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Azure App Service 예약 인스턴스를 사용하여 비용 절감
 
-이 문서에서는 Azure App Service 예약 인스턴스를 사용하여 Premium v3 인스턴스 및 격리 인지세 비용을 절감할 수 있는 방법에 대해 설명합니다.
+이 문서에서는 Azure App Service 예약 인스턴스를 사용하여 Premium v3 및 Premium v2 인스턴스 및 격리 인지세 비용을 절감할 수 있는 방법에 대해 설명합니다.
 
 ## <a name="save-with-premium-v3-reserved-instances"></a>Premium v3 예약 인스턴스를 사용하여 비용 절감
 
@@ -42,7 +42,6 @@ Azure App Service Premium v3 예약 인스턴스에 커밋하면 비용을 절�
 사용량 정보를 분석하여 구매해야 하는 예약을 결정합니다. 사용량 데이터는 사용량 파일 및 API에서 사용할 수 있습니다. 모두 사용하여 구매할 예약을 결정합니다. 매일 사용량이 많은 Premium v3 인스턴스를 확인하여 구매할 예약 수량을 결정합니다.
 
 사용량 파일에는 청구 기간 및 일별 사용량을 기준으로 요금이 표시됩니다. 사용량 파일을 다운로드하는 방법에 대한 자세한 내용은 [Azure 사용량 및 요금 보기 및 다운로드](../understand/download-azure-daily-usage.md)를 참조하세요. 그런 다음, 사용량 파일 정보를 사용하여 [구매할 예약을 결정](determine-reservation-purchase.md)할 수 있습니다.
-
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Premium v3 예약 인스턴스 구매
 
@@ -69,6 +68,32 @@ EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 �
 | Premium v3 예약 인스턴스 크기 | Premium v3 예약 인스턴스의 크기입니다. |
 | 용어 | 1년 또는 3년입니다. HBv2 Premium v3 예약 인스턴스에만 사용할 수 있는 5년 기간도 있습니다. |
 | 수량 | 예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 Premium v3 예약 인스턴스의 수입니다. 예를 들어 미국 동부에서 10개의 Standard\_D2 Premium v3 예약 인스턴스를 실행하는 경우 실행 중인 모든 Premium v3 예약 인스턴스에 대한 혜택을 극대화하려면 수량을 10으로 지정합니다. |
+
+## <a name="buy-an-isolated-v2-reserved-instance"></a>Isolated v2 예약 인스턴스 구매
+
+예약된 Isolated v2 예약 인스턴스는 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D)에서 구매할 수 있습니다. 예약 요금은 [사전 결제 또는 월별 결제](prepare-buy-reservation.md)로 처리할 수 있습니다. Isolated v2 예약 인스턴스 구매에 적용되는 요구 사항은 다음과 같습니다.
+
+- 하나 이상의 EA 구독 또는 종량제 요금이 적용되는 구독에 대한 소유자 역할에 속해야 합니다.
+- EA 구독의 경우 [EA 포털](https://ea.azure.com/)에서 **예약 인스턴스 추가** 옵션을 사용하도록 설정해야 합니다. 또는 해당 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
+- CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트는 예약 구매를 할 수 있습니다.
+
+인스턴스를 구매하려면
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. **모든 서비스** > **예약** 을 선택합니다.
+3. **추가** 를 선택하여 새 예약을 구매한 다음, **인스턴스** 를 클릭합니다.
+4. 필수 필드를 입력합니다. 선택한 특성과 일치하는 Isolated v2 예약 인스턴스를 실행하면 예약 할인을 받을 수 있습니다. 할인을 받는 Isolated v2 예약 인스턴스의 실제 수는 선택한 범위와 수량에 따라 달라집니다.
+
+EA 계약이 있는 경우 **추가 옵션** 을 사용하여 인스턴스를 빠르게 더 추가할 수 있습니다. 이 옵션은 다른 구독 유형에 사용할 수 없습니다.
+
+| **필드** | **설명** |
+| --- | --- |
+| Subscription | 예약에 대해 비용을 지불하는 데 사용하는 구독입니다. 구독의 결제 방법으로 예약 요금이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P or MS-AZR-0148P)이나 Microsoft 고객 계약 또는 종량제 요금의 개별 구독(제품 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다. 요금은 약정 잔액에서 차감되거나(있는 경우) 초과분 요금으로 청구됩니다. 종량제 요금이 적용되는 구독의 경우 요금은 구독의 신용 카드 또는 청구서 결제 방법으로 청구됩니다. |
+| 범위 | 예약 범위에는 하나의 구독 또는 여러 구독(공유 범위)이 포함될 수 있습니다. 다음을 선택하는 경우:<UL><LI>**단일 리소스 그룹 범위** - 선택한 리소스 그룹의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**단일 구독 범위** - 선택한 구독의 일치하는 리소스에만 예약 할인을 적용합니다.</li><li>**공유 범위** - 청구 컨텍스트에 있는 적격 구독의 일치하는 리소스에 예약 할인을 적용합니다. EA 고객의 경우 청구 컨텍스트는 등록입니다. 종량제 요금이 적용되는 개별 구독의 경우 청구 범위는 계정 관리자가 만든 모든 적격 구독입니다.</li> |
+| 지역 | 예약이 적용되는 Azure 지역입니다. |
+| Isolated v2 예약 인스턴스 크기 | Isolated v2 예약 인스턴스의 크기입니다. |
+| 용어 | 1년 또는 3년입니다. HBv2 Isolated v2 예약 인스턴스에만 사용할 수 있는 5년 기간도 있습니다. |
+| 수량 | 예약 내에서 구매하는 인스턴스의 수입니다. 수량은 청구 할인을 받을 수 있는 실행 중인 Isolated v2 예약 인스턴스의 수입니다. 예를 들어 미국 동부에서 10개의 Standard\_D2 Isolated v2 예약 인스턴스를 실행하는 경우 실행 중인 모든 Isolated v2 예약 인스턴스에 대한 혜택을 극대화하려면 수량을 10으로 지정합니다. |
 
 ## <a name="save-with-isolated-stamp-fees"></a>격리 인지세를 사용하여 비용 절감
 

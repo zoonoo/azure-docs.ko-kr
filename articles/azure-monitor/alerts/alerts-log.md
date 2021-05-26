@@ -5,13 +5,13 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7451d1f16bc6c129afcd44a80580005ffacff444
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 03c6697f07f66cd1d12cae55ddc5f4c73db70505
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320298"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461693"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -35,7 +35,7 @@ ms.locfileid: "108320298"
 
 1. 경고하려는 리소스로 이동합니다. 가능하면 구독 또는 리소스 그룹 범위를 선택하여 여러 리소스에 대한 경고 규칙을 설정하는 것이 좋습니다. 여러 리소스에 대한 경고를 사용하면 여러 경고 규칙을 관리하는 데 따른 비용과 필요성이 감소합니다.
 1. **모니터** 에서 **로그** 를 선택합니다.
-1. 문제를 나타낼 수 있는 로그 데이터를 쿼리합니다. [경고 쿼리 예제 토픽](../logs/example-queries.md)을 사용하여 발견할 수 있는 항목 또는 [쿼리 작성 시작하기](../logs/log-analytics-tutorial.md)에 대해 이해할 수 있습니다. 또한 [최적화된 경고 쿼리를 만드는 방법에 대해 알아봅니다](alerts-log-query.md).
+1. 문제를 나타낼 수 있는 로그 데이터를 쿼리합니다. [경고 쿼리 예제 토픽](../logs/queries.md)을 사용하여 발견할 수 있는 항목 또는 [쿼리 작성 시작하기](../logs/log-analytics-tutorial.md)에 대해 이해할 수 있습니다. 또한 [최적화된 경고 쿼리를 만드는 방법에 대해 알아봅니다](alerts-log-query.md).
 1. '+ 새 경고 규칙' 단추를 눌러 경고 생성 흐름을 시작합니다.
 
     ![Log Analytics - 경고 설정](media/alerts-log/AlertsAnalyticsCreate.png)
