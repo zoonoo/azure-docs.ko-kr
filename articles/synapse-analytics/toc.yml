@@ -507,6 +507,8 @@ items:
                 href: sql/query-json-files.md
               - name: 중첩 형식 쿼리
                 href: sql/query-parquet-nested-types.md
+              - name: Delta Lake 쿼리(미리 보기)
+                href: sql/query-delta-lake-format.md
               - name: 폴더 및 여러 파일 쿼리
                 href: sql/query-folders-multiple-csv-files.md
                 displayname: csv
@@ -893,7 +895,7 @@ items:
                 href: ../data-factory/connector-presto.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: QuickBooks Online
                 href: ../data-factory/connector-quickbooks.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: REST
+              - name: REST (영문)
                 href: ../data-factory/connector-rest.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Salesforce
                 href: ../data-factory/connector-salesforce.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

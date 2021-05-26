@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 15ff2ec296cedc37b086a9ca2d0825fb20b4f05a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 40b9d9e665aacf3024e409ef6bf1b5596ad28ca9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99549544"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372541"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져오는 문서 및 URL에 대한 형식 지침
 
@@ -42,7 +42,8 @@ QnA Maker는 다음과 같은 시각적 단서를 기반으로 하여 파일의 
 
 아래는 인덱스 페이지와 계층적 콘텐츠가 포함된 설명서의 예입니다.
 
- ![기술 자료를 위한 제품 설명서 예제](./media/qnamaker-concepts-datasources/product-manual.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료를 위한 제품 설명서 예제](./media/qnamaker-concepts-datasources/product-manual.png)
 
 > [!NOTE]
 > 추출은 목차 및/또는 색인 페이지와 계층적 제목이 있는 명확한 구조를 가진 설명서에서 가장 잘 작동합니다.
@@ -53,7 +54,22 @@ QnA Maker는 다음과 같은 시각적 단서를 기반으로 하여 파일의 
 
 아래는 인덱스 없는 반 구조화된 문서의 예입니다.
 
- ![Azure Blob Storage 반 구조화된 Doc](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+> [!div class="mx-imgBorder"]
+> ![Azure Blob Storage 반 구조화된 Doc](./media/qnamaker-concepts-datasources/semi-structured-doc.png)
+
+### <a name="unstructured-document-support"></a>비정형 문서 지원
+
+이제 사용자 지정 질문 대답은 비정형 문서를 지원합니다. 잘 정의된 계층적 방식으로 구성된 콘텐츠가 없거나, 집합 구조가 없거나, 콘텐츠가 자유롭게 흐르는 문서는 비정형 문서로 간주될 수 있습니다.
+
+다음은 비정형 PDF 문서의 예입니다.
+
+> [!div class="mx-imgBorder"]
+> ![기술 자료에 대한 비정형 문서 예제](./media/qnamaker-concepts-datasources/unstructured-qna-pdf.png)
+
+ 현재 이 기능은 문서 업로드를 통해서만 사용할 수 있으며 PDF 및 DOC 파일 형식에만 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> 비정형 파일/콘텐츠에 대한 지원은 사용자 지정 질문 답변(미리 보기)에서만 사용할 수 있습니다.
 
 ### <a name="structured-qna-document"></a>구조화된 QnA 문서
 
@@ -71,7 +87,8 @@ Answer2
 
 아래는 구조화된 QnA Word 문서의 예입니다.
 
- ![기술 자료를 위한 구조화된 QnA 문서 예제](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료를 위한 구조화된 QnA 문서 예제](./media/qnamaker-concepts-datasources/structured-qna-doc.png)
 
 ### <a name="structured-txt-tsv-and-xls-files"></a>구조화된 *TXT*, *TSV* 및 *XLS* 파일
 
@@ -88,17 +105,20 @@ Answer2
 
 아래는 HTML 콘텐츠가 포함된 구조화된 QnA *.xls* 파일의 예입니다.
 
- ![기술 자료를 위한 구조화된 QnA 문서 예제](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료를 위한 구조화된 QnA 문서 예제](./media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 #### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Excel 파일의 단일 답변에 대한 대체 질문의 예
 
 다음은 단일 답변에 대한 몇 가지 대체 질문이 있는 구조화된 QnA *.xls* 파일의 예입니다.
 
- ![Excel 파일의 단일 답변에 대한 대체 질문의 예](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+> [!div class="mx-imgBorder"]
+> ![Excel 파일의 단일 답변에 대한 대체 질문의 예](./media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
 파일을 가져오면 아래와 같이 질문-답변 쌍이 기술 자료에 있습니다.
 
- ![기술 자료로 가져온 단일 답변에 대한 대체 질문의 스크린샷](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료로 가져온 단일 답변에 대한 대체 질문의 스크린샷](./media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ### <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 
@@ -113,7 +133,7 @@ Answer2
 
 ### <a name="multi-turn-document-formatting"></a>다중 전환 문서 서식 지정
 
-* 제목 및 부제목을 사용하여 계층 구조를 나타냅니다. 예를 들어 h1은 부모 QnA를 나타내고, h2는 프롬프트로 사용해야 하는 QnA를 나타냅니다. 작은 제목 크기를 사용하여 후속 계층 구조를 나타냅니다. 문서의 구조는 스타일, 색 또는 기타 메커니즘을 사용하여 암시하지 않습니다. QnA Maker는 다중 전환 프롬프트를 추출하지 않습니다.
+* 제목 및 부제목을 사용하여 계층 구조를 나타냅니다. 예를 들어 h1은 부모 QnA를 나타내고, h2는 프롬프트로 사용해야 하는 QnA를 나타냅니다. 작은 제목 크기를 사용하여 후속 계층 구조를 나타냅니다. 스타일, 색 또는 기타 메커니즘을 사용하여 문서의 구조체를 암시하지 마세요. QnA Maker는 멀티 턴 프롬프트를 추출하지 않습니다.
 * 제목의 첫 번째 문자는 대문자여야 합니다.
 * 제목 끝에 물음표(`?`)를 사용하지 않습니다.
 
@@ -133,7 +153,8 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
 
 아래는 일반 FAQ 페이지의 예입니다.
 
-![기술 자료를 위한 일반 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/plain-faq.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료를 위한 일반 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/plain-faq.png)
 
 
 ### <a name="faq-pages-with-links"></a>링크가 포함된 FAQ 페이지
@@ -142,7 +163,8 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
 
 아래는 동일한 페이지에 있는 섹션의 링크가 포함된 FAQ 페이지의 예입니다.
 
- ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료를 위한 섹션 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/sectionlink-faq.png)
 
 
 ### <a name="parent-topics-page-links-to-child-answers-pages"></a>자식 답변 페이지에 대한 부모 항목 페이지 링크
@@ -151,7 +173,8 @@ QnA Maker는 3가지 형식으로 FAQ 웹 페이지를 지원할 수 있습니�
 
 여러 페이지의 FAQ 섹션에 대한 링크가 포함된 항목 페이지의 예는 아래와 같습니다.
 
- ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/topics-faq.png)
+> [!div class="mx-imgBorder"]
+> ![기술 자료를 위한 딥 링크 FAQ 페이지 예제](./media/qnamaker-concepts-datasources/topics-faq.png)
 
 ### <a name="support-urls"></a>지원 URL
 
@@ -160,7 +183,8 @@ QnA Maker는 지정된 태스크를 수행하는 방법, 지정된 문제를 진
 > [!NOTE]
 > 지원 문서에 대한 추출은 새 기능이며 초기 단계에 있습니다. 잘 구조화된 단순 페이지에서 최적으로 작동하며 복잡한 헤더/바닥글을 포함하지 않습니다.
 
-![QnA Maker는 계층 제목과 함께 명확한 구조가 제시되는 반정형화된 웹 페이지에서 추출을 지원합니다.](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+> [!div class="mx-imgBorder"]
+> ![QnA Maker는 계층 제목과 함께 명확한 구조가 제시되는 반정형화된 웹 페이지에서 추출을 지원합니다.](./media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
 
 ## <a name="import-and-export-knowledge-base"></a>기술 자료 가져오기 및 내보내기
 

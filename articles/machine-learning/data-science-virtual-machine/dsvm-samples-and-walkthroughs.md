@@ -5,16 +5,16 @@ description: 이러한 샘플 및 연습을 통해 Data Science Virtual Machine�
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
 ms.service: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: timoklimmer
+ms.author: tklimmer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/12/2021
+ms.openlocfilehash: 5ce6b2d80341a9c6ebb8afcbbe8f7072b54ca93c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100519765"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087907"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Azure Data Science Virtual Machines 샘플
 
@@ -35,8 +35,6 @@ Azure DSVM(Data Science Virtual Machines)에는 포괄적인 샘플 코드 집�
 | Azure Machine Learning  | Machine Learning을 사용하여 기계 학습 및 딥 러닝 모델을 빌드하는 방법을 보여 줍니다. 어디서든지 모델을 배포합니다. 자동화된 기계 학습 및 지능형 하이퍼 매개 변수 조정을 사용합니다. 또한 모델 관리 및 분산 학습을 사용합니다. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | PyTorch 노트북  | PyTorch 기반 신경망을 사용하는 딥 러닝 샘플입니다. 노트북은 초급부터 고급 시나리오까지 포함합니다.  <br/> [PyTorch 노트북](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  TensorFlow 프레임워크를 사용하여 구현된 다양한 신경망 샘플 및 기법입니다. <br/> [Tensorflow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
-| Microsoft Cognitive 도구 키트 <br/>   | Microsoft의 Cognitive Toolkit 팀에서 게시한 딥 러닝 샘플입니다.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|
-| Caffe2 | Caffe2 기반 신경망을 사용하는 딥 러닝 샘플입니다. 몇 가지 Notebook을 사용하여 Caffe2 및 효과적인 사용 방법을 숙지할 수 있습니다. 예제로는 이미지 전처리 및 데이터 세트 생성이 포함됩니다. 또한 회귀 및 미리 학습된 모델 사용 방법도 포함되어 있습니다. <br/> [Caffe2](#caffe2) | <br/>`~notebooks/Deep_learning_frameworks/caffe2`<br/><br/> |
 | H2O   | 실제 문제 시나리오에 H2O를 사용하는 Python 기반 샘플입니다. <br/> [H2O](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | SparkML 언어  | pySpark 및 MMLSpark(Apache Spark 2.x의 Apache Spark용 Microsoft Machine Learning)를 통해 Apache Spark MLLib 도구 키트의 기능을 사용하는 샘플입니다.  <br/> [SparkML 언어](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/>`~notebooks/MMLSpark`<br/><br/>  |
 | XGBoost | 분류, 회귀와 같은 시나리오에 대해 XGBoost에 들어 있는 표준 기계 학습 샘플입니다. <br/> [XGBoost](#xgboost) | <br/>Windows:<br/>`\dsvm\samples\xgboost\demo`<br/><br/> |
@@ -77,14 +75,6 @@ Data Science Virtual Machine에 로그인하는 데 사용하는 것과 동일�
 ## <a name="tensorflow"></a>TensorFlow 
 <br/>![TensorFlow 샘플](./media/tensorflow-samples.png)<br/>
 
-
-## <a name="cntk"></a>CNTK 
-<br/>![CNTK 샘플](./media/cntk-samples.png)<br/>
-
-
-## <a name="caffe2"></a>Caffe2 
-<br/>![caffe2 샘플](./media/caffe2-samples.png)<br/>
-
 ## <a name="h2o"></a>H2O 
 <br/>![H2O 샘플](./media/h2o-samples.png)<br/>
 
@@ -93,4 +83,3 @@ Data Science Virtual Machine에 로그인하는 데 사용하는 것과 동일�
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![XGBoost 샘플](./media/xgboost-samples.png)<br/>
-

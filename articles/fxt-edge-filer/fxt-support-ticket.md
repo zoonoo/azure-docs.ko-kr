@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: rohogue
-ms.openlocfilehash: 0b23bd81f7b527f578bfd0adcedc79caed7c60fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: v-erkel
+ms.openlocfilehash: 71c0c1cf014333799821f87a6532ded8d50b8340
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92217374"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455888"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Azure FXT Edge Filer에 대한 지원 티켓 열기
 
@@ -35,4 +35,4 @@ Azure Portal에서 Microsoft 고객 지원을 통해 지원 티켓을 열 수 �
 1. **세부 정보** 탭에서 문제에 대한 추가 정보 및 요청자에게 연락하는 방법을 추가합니다. 문제와 관련된 파일을 업로드할 수 있습니다.
 1. **검토 + 만들기** 에서 정보를 확인하고 **만들기** 단추를 클릭하여 요청을 제출합니다.
 
-요청을 제출하면 티켓번호가 포함된 확인 메일을 받게 됩니다. 지원 직원이 요청과 관련해 연락을 드릴 것입니다.
+요청을 제출하면 티켓번호가 포함된 확인 메일을 받게 됩니다. 지원 담당자가 요청과 관련해 연락을 드릴 것입니다.

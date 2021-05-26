@@ -3,12 +3,12 @@ title: Azure Service Bus 제한 개요 | Microsoft Docs
 description: 표준 계층 및 프리미엄 계층의 Service Bus 제한에 대한 개요입니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 436f9a40269f7eea4e31b55b9657d38849876eb4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 95b03859b26d97c1089b6112b41511618abdcffe
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85340943"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191112"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Azure Service Bus의 작업 제한
 
@@ -89,7 +89,7 @@ Service Bus 프리미엄의 전용 리소스 할당을 사용하면 제한은 �
 ### <a name="how-will-i-know-that-im-being-throttled"></a>작업이 제한되는지 알 수 있는 방법은 무엇인가요?
 
 Azure Service Bus 프리미엄에서 제한을 확인하는 방법은 여러 가지가 있습니다. 
-  * [Azure Monitor 요청 메트릭](service-bus-metrics-azure-monitor.md#request-metrics)에 **제한된 요청** 이 표시되므로 제한된 요청 수를 확인합니다.
+  * [Azure Monitor 요청 메트릭](monitor-service-bus-reference.md#request-metrics)에 **제한된 요청** 이 표시되므로 제한된 요청 수를 확인합니다.
   * 높은 **CPU 사용** 은 현재 리소스 할당이 높으며 현재 워크로드가 감소하지 않으면 요청이 제한될 수 있음을 나타냅니다.
   * 높은 **메모리 사용** 은 현재 리소스 할당이 높으며 현재 워크로드가 감소하지 않으면 요청이 제한될 수 있음을 나타냅니다.
 

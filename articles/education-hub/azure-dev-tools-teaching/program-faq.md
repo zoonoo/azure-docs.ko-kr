@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2c2690b625454c7767619ba756f61383fc8f509c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92675706"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481035"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Education Hub에 대한 질문과 대답
 
@@ -22,7 +22,7 @@ ms.locfileid: "92675706"
 
 ### <a name="what-happens-after-i-use-my-100-credit-or-im-at-the-end-of-12-months"></a>100달러 크레딧을 사용하거나 12개월이 지나면 어떻게 되나요?
 
-사용 가능한 크레딧이 소진되거나 12개월이 지나면 Azure 구독을 사용할 수 없게 됩니다. [Azure](https://account.azure.com/)를 계속 사용하려면 Azure 계정 포털에서 종량제 구독으로 업그레이드할 수 있습니다. Azure for Students에 대한 자세한 사용 약관을 보려면 [제안 사용 약관](https://azure.microsoft.com/offers/ms-azr-0170p/)을 방문하세요.
+사용 가능한 크레딧이 소진되거나 12개월이 지나면 Azure 구독을 사용할 수 없게 됩니다. Azure를 계속 사용하려면 Azure Portal에서 종량제 구독으로 업그레이드할 수 있습니다. Azure for Students에 대한 자세한 사용 약관을 보려면 [제안 사용 약관](https://azure.microsoft.com/offers/ms-azr-0170p/)을 방문하세요.
 
 ### <a name="can-i-get-azure-for-students-again-next-year"></a>내년에 Azure for Students를 다시 구할 수 있나요?
 

@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: mlearned
-ms.openlocfilehash: 3fafbe3f4b1c53f929682f4ca160fb19a5e91918
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 7f754aa8d454949c74ccd31e3f52423f755b2fa4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105309"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372397"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -45,15 +45,15 @@ Kubernetes RBAC(역할 기반 액세스 제어) 및 Azure RBAC를 사용하여 A
 ## <a name="node-security"></a>노드 보안
 
 AKS 노드는 사용자가 관리하고 유지하는 Azure VM(가상 머신)입니다. 
-* Linux 노드는 `containerd` 또는 Moby 컨테이너 런타임을 사용하여 최적화된 Ubuntu 배포를 실행합니다. 
-* Windows Server 노드는 `containerd` 또는 Moby 컨테이너 런타임을 사용하여 최적화된 Windows Server 2019 릴리스를 실행합니다. 
+* Linux 노드는 `containerd` 또는 Docker 컨테이너 런타임을 사용하여 최적화된 Ubuntu 배포를 실행합니다. 
+* Windows Server 노드는 `containerd` 또는 Docker 컨테이너 런타임을 사용하여 최적화된 Windows Server 2019 릴리스를 실행합니다.
 
 AKS 클러스터가 생성되거나 강화되면 노드는 최신 OS 보안 업데이트 및 구성을 사용하여 자동으로 배포됩니다.
 
 > [!NOTE]
 > AKS 클러스터는 다음과 같이 사용됩니다.
-> * Kubernetes 버전 1.19 노드 풀 이상을 사용하는 AKS 클러스터는 `containerd`를 컨테이너 런타임으로 사용합니다. 
-> * Kubernetes v1.19 이전 노드 풀을 사용하는 AKS 클러스터는 [Moby](https://mobyproject.org/)(업스트림 docker)를 컨테이너 런타임으로 사용합니다.
+> * Linux 노드 풀에 대해 Kubernetes 버전 1.19 이상을 사용하는 AKS 클러스터는 `containerd`를 컨테이너 런타임으로 사용합니다. Windows Server 2019 노드 풀을 통한 `containerd` 사용은 현재 미리 보기로 제공됩니다. 자세한 내용은 [`containerd`를 사용하여 Windows Server 노드 풀 추가][aks-add-np-containerd]를 참조하세요.
+> * Linux 노드 풀에 대한 Kubernetes 버전이 1.19 이전일 경우에는 Docker를 컨테이너 런타임으로 사용합니다. Windows Server 2019 노드 풀의 경우 Docker가 기본 컨테이너 런타임입니다.
 
 ### <a name="node-security-patches"></a>노드 보안 패치
 
@@ -124,7 +124,7 @@ AKS 클러스터에 고유한 서브넷을 제공하는 경우 AKS에서 관리�
 Kubernetes ‘비밀’을 사용하여 액세스 자격 증명이나 키와 같은 중요한 데이터를 Pod에 삽입합니다. 
 1. Kubernetes API를 사용하여 비밀을 만듭니다. 
 1. Pod 또는 배포를 정의하고 특정 비밀을 요청합니다. 
-    * 비밀은 비밀을 요구하는 예약된 Pod가 있는 노드에만 제공됩니다.
+    * 비밀은 비밀을 요구하는 예약된 pod가 있는 노드에만 제공됩니다.
     * 비밀은 디스크에 기록되지 않고 *tmpfs* 에 저장됩니다. 
 1. 비밀을 요구하는 노드에서 마지막 Pod를 삭제하면 해당 비밀이 노드의 tmpfs에서 삭제됩니다. 
    * 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
@@ -160,6 +160,7 @@ AKS 클러스터의 보안을 유지하려면 [AKS 클러스터 업그레이드]
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
 [aks-aad]: ./managed-aad.md
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md

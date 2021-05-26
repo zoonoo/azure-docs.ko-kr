@@ -1,20 +1,20 @@
 ---
 title: Azure Functions 프리미엄 플랜
 description: Azure Functions 프리미엄 플랜에 대한 세부 정보 및 구성 옵션(VNet, 콜드 부팅 없음, 무제한 실행 기간).
-author: jeffhollan
+author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.author: jehollan
+ms.author: cachai
 ms.custom:
 - references_regions
 - fasttrack-edit
 - devx-track-azurecli
-ms.openlocfilehash: 3061329ad9dcb368dab586acc2146e6fb4e23028
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e53089c2287d255fd3dbe6ca7961646e0e3de05a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708716"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457427"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
