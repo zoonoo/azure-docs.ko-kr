@@ -1,0 +1,31 @@
+- name: Azure Applied AI Services 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Applied AI Services란?
+      href: what-are-applied-ai-services.md
+    - name: Applied AI Services를 사용하는 이유
+      href: why-applied-ai-services.md
+- name: 빠른 시작
+  items:
+    - name: Azure Form Recognizer
+      href: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+    - name: Azure Metrics Advisor
+      href: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+    - name: Azure 몰입형 리더
+      href: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+    - name: Azure Cognitive Search
+      href: ../search/search-get-started-portal.md
+    - name: Azure Video Analyzer
+      href: 'https://aka.ms/video-analytics-qs'
+    - name: Azure Bot Service
+      href: 'https://docs.microsoft.com/composer/quickstart-create-bot'
+- name: 리소스
+  items:
+    - name: 파트너 스포트라이트
+      href: applied-ai-services-customer-spotlight-use-cases.md
+    - name: UserVoice
+      href: 'https://aka.ms/AppliedAIUserVoice'
+    - name: StackOverflow
+      href: 'https://aka.ms/AppliedAIStackOverflow'

@@ -8,18 +8,21 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 366b0fa70fd5229310d0f999acd07a49c45f0da0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87015224"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375445"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Azure Kubernetes Service에 배포
 
-이 문서에서는 Azure API Management의 자체 호스팅 게이트웨이 구성 요소를 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포하는 단계를 제공합니다. Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포하려면 이 [문서](how-to-deploy-self-hosted-gateway-kubernetes.md)를 참조하세요.
+이 문서에서는 Azure API Management의 자체 호스팅 게이트웨이 구성 요소를 [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/)에 배포하는 단계를 제공합니다. 
+
+> [!NOTE]
+> 자체 호스팅 게이트웨이를 [Azure Arc 지원 Kubernetes 클러스터](how-to-deploy-self-hosted-gateway-azure-arc.md)에 [클러스터 확장](../azure-arc/kubernetes/extensions.md)으로 배포할 수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -62,7 +65,8 @@ contosogateway   NodePort    10.110.230.87   <none>        80:32504/TCP,443:3004
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
-* [Azure Kubernetes Service](../aks/intro-kubernetes.md)에 대해 알아보기
-* [클라우드에서 로그를 구성하고 유지하는 방법](how-to-configure-cloud-metrics-logs.md) 알아보기
-* * [로그를 로컬로 구성하고 유지하는 방법](how-to-configure-local-metrics-logs.md) 알아보기
+* 자체 호스팅 게이트웨이에 대한 자세한 내용은 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
+* [API Management 자체 호스팅 게이트웨이를 Azure Arc 지원 Kubernetes 클러스터에 배포하는 방법](how-to-deploy-self-hosted-gateway-azure-arc.md)에 대해 알아봅니다.
+* [Azure Kubernetes Service](../aks/intro-kubernetes.md)에 대해 자세히 알아봅니다.
+* [클라우드에서 로그를 구성하고 유지하는 방법](how-to-configure-cloud-metrics-logs.md)을 알아봅니다.
+* [로그를 로컬로 구성하고 유지하는 방법](how-to-configure-local-metrics-logs.md)을 알아봅니다.

@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3aff7b99dad910a9691eef2004df856ca883789
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 08aad681160a4f0d369fd312ba58c3ea6c7e8780
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103224387"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454126"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 
@@ -210,7 +210,7 @@ Azure AD Connect를 성공적으로 설치한 후 동기화용 Azure AD Connect 
 
 다음 PowerShell 명령을 사용하여 동기화용 Azure AD Connect Health 에이전트를 수동으로 등록합니다. Azure AD Connect Health 서비스는 에이전트가 성공적으로 등록된 후에 시작됩니다.
 
-`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $false -StagingMode $false`
+`Register-AzureADConnectHealthSyncAgent -AttributeFiltering $true -StagingMode $false`
 
 이 명령은 다음 매개 변수를 사용합니다.
 

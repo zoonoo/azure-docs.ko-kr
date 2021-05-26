@@ -2,15 +2,15 @@
 title: VM v2 시작/중지(미리 보기) 제거 개요
 description: 이 문서에서는 VM v2 시작/중지(미리 보기) 기능을 제거하는 방법을 설명합니다.
 services: azure-functions
-ms.subservice: ''
+ms.subservice: start-stop-vms
 ms.date: 03/30/2021
 ms.topic: conceptual
-ms.openlocfilehash: b4308be8f7494c1cb6f6b4839fc5a2e9717668e3
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: fd24de679781cda37ba9489eb7acad6332896659
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111104"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076855"
 ---
 # <a name="how-to-remove-startstop-vms-v2-preview"></a>VM v2 시작/중지(미리 보기)를 제거하는 방법
 

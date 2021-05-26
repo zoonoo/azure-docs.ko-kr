@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: 7b7ac20672ee653cbf6d2b82b7a9454c1d742b2c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7b4bbafd5630c2c116e002ee6ebafaa5444ce2d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102612697"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369323"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker의 문제 해결
 
@@ -49,7 +49,7 @@ QnA Maker 서비스와 관련하여 가장 자주 묻는 질문의 큐레이팅�
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 <details>
 <summary><b>쿼리 예측의 처리량 성능을 향상하려면 어떻게 해야 하나요?</b></summary>
@@ -173,7 +173,7 @@ QnA 쌍이 기술 자료에 있으면 답변의 마크다운 텍스트를 편집
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 <details>
 <summary><b>URL/파일이 질문-답변 쌍을 추출하지 않는 이유는 무엇인가요?</b></summary>
@@ -349,7 +349,7 @@ QnA 쌍이 기술 자료에 있으면 답변의 마크다운 텍스트를 편집
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 
 <details>
@@ -432,7 +432,7 @@ ABS 서비스에서 기술 자료의 엔드포인트 키에는 `QnAAuthkey`라�
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 
 <details>
@@ -494,7 +494,7 @@ QnA Maker 서비스를 만들 때 Azure 지역을 선택했습니다. 기술 자
 
 </details>
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 <details>
 <summary><b>어떤 데이터가 저장되고 어디에 저장되나요?</b></summary>

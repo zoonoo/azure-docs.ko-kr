@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.author: egeaney
-ms.openlocfilehash: 19dc0f3a676d5373b28e4b7055050477c426f847
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84f95e4c1d24ee100efbd0572dfe0dc88aca22d3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100524463"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369490"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker 미사용 데이터 암호화
 
@@ -28,9 +28,9 @@ QnA Maker는 데이터가 클라우드에 유지될 때 자동으로 암호화�
 
 QnA Maker는 Azure Search의 CMK 지원을 사용합니다. [Azure Key Vault를 사용하여 Azure Search에서 CMK를 구성](../../search/search-security-manage-encryption-keys.md)합니다. CMK를 사용하도록 설정하려면 이 Azure 인스턴스를 QnA Maker 서비스와 연결해야 합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-QnA Maker는 [Azure Search의 CMK 지원](../../search/search-security-manage-encryption-keys.md)을 사용하고, 제공된 CMK를 자동으로 연결하여 Azure Search 인덱스에 저장된 데이터를 암호화합니다.
+사용자 지정 질문 답변은 [Azure 검색의 CMK 지원](../../search/search-security-manage-encryption-keys.md)을 사용하고, 제공된 CMK를 자동으로 연결하여 Azure 검색 인덱스에 저장된 데이터를 암호화합니다.
 
 ---
 
@@ -59,17 +59,18 @@ QnA Maker 서비스는 Azure Search Service의 CMK를 사용합니다. 다음 �
 
 4. 완료되면 런타임을 다시 시작합니다. 이제 QnA Maker 서비스에서 CMK를 사용할 수 있습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-1.  QnA Maker 관리형(미리 보기) 서비스의 **암호화** 탭으로 이동합니다.
+1.  사용자 지정 질문 답변(미리 보기) 기능이 사용하도록 설정된 Text Analytics 서비스의 **암호화** 탭으로 이동합니다.
 2.  **고객 관리형 키** 옵션을 선택합니다. [고객 관리형 키](../../storage/common/customer-managed-keys-configure-key-vault.md?tabs=portal)에 대한 세부 정보를 제공하고, **저장** 을 클릭합니다.
 
-     :::image type="content" source="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png" alt-text="QnA Maker 관리형(미리 보기) CMK 설정" lightbox="../media/cognitive-services-encryption/qnamaker-v2-encryption-cmk.png":::
-
+> [!div class="mx-imgBorder"]
+> ![질문 답변 CMK](media/question-answering-cmk.png)
+   
 3.  성공적으로 저장되면 CMK가 Azure Search 인덱스에 저장된 데이터를 암호화하는 데 사용됩니다.
 
 > [!IMPORTANT]
-> 기술 자료를 만들기 전에 새 Azure Cognitive Search 서비스에서 CMK를 설정하는 것이 좋습니다. QnA Maker 서비스에서 기존 기술 자료를 사용하여 CMK를 설정하면 해당 서비스에 대한 액세스 권한이 손실될 수 있습니다. Azure Cognitive Search의 [암호화된 콘텐츠 작업](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content)에 대해 자세히 알아보세요.
+> 기술 자료를 만들기 전에 새 Azure Cognitive Search 서비스에서 CMK를 설정하는 것이 좋습니다. Text Analytics 서비스에서 기존 기술 자료를 사용하여 CMK를 설정하면 해당 서비스에 대한 액세스 권한이 손실될 수 있습니다. Azure Cognitive Search의 [암호화된 콘텐츠 작업](../../search/search-security-manage-encryption-keys.md#work-with-encrypted-content)에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > 고객 관리형 키를 사용하는 기능을 요청하려면 [Cognitive Services 고객 관리형 키 요청 양식](https://aka.ms/cogsvc-cmk)을 작성하여 제출합니다.

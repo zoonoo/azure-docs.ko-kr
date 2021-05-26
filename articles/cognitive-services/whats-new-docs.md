@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 03/08/2021
-ms.openlocfilehash: 4334166f435612370e7e0b7b380814fe85075f78
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 75efcbd5a037729570da6912d7929951aa5b73e0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105046626"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376155"
 ---
 # <a name="cognitive-services-docs-whats-new-for-february-1-2021---february-28-2021"></a>Cognitive Services 문서: 2021년 2월 1일 ~ 2021년 2월 28일자 새로운 소식
 
@@ -40,7 +40,7 @@ ms.locfileid: "105046626"
 
 - [샘플 레이블 지정 도구 배포](./form-recognizer/deploy-label-tool.md)
 - [Form Recognizer란?](./form-recognizer/overview.md)
-- [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](./form-recognizer/quickstarts/label-tool.md)
+- [샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습](./form-recognizer/label-tool.md)
 
 ## <a name="text-analytics"></a>텍스트 분석
 

@@ -7,12 +7,12 @@ metadata:
   ms.topic: landing-page
   ms.service: app-service
   ms.date: 08/06/2020
-  ms.openlocfilehash: 2709081bd38acb1cc3aab1ae7b9c35e58e97b16f
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.openlocfilehash: 9ed958c7656d6101824a14ed8e39f41df2ce63e5
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110461590"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110375236"
 landingContent:
 - title: App Service 정보
   linkLists:
@@ -196,11 +196,11 @@ landingContent:
     links:
     - text: Azure Arc의 App Service, Functions 및 Logic Apps(미리 보기)
       url: overview-arc-integration.md
-  - linkListType: quickstart
-    links:
-    - text: Azure Arc의 App Service 앱 만들기(미리 보기)
-      url: quickstart-arc.md
   - linkListType: tutorial
     links:
     - text: Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
       url: manage-create-arc-environment.md
+  - linkListType: quickstart
+    links:
+    - text: Azure Arc의 App Service 앱 만들기(미리 보기)
+      url: quickstart-arc.md
