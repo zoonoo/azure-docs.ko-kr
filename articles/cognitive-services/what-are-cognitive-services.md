@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/16/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: c6b83a25816c29f1642625618e66624aa3e0a6de
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 09279e476f2d130c4938937e2c9e60df863c688d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289807"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450609"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -42,8 +42,6 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 |[Computer Vision](./computer-vision/index.yml "Computer Vision")|Computer Vision 서비스는 이미지를 처리하고 정보를 반환하는 고급 인지 알고리즘에 대한 액세스를 제공합니다. 서비스를 시작하려면 [Computer Vision 빠른 시작](./computer-vision/quickstarts-sdk/client-library.md)을 참조하세요.|
 |[Custom Vision Service](./custom-vision-service/index.yml "사용자 지정 시각 서비스")|Custom Vision Service를 사용하면 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있습니다. 이미지 분류자는 해당 시각적 특성에 따라 이미지에 레이블을 적용하는 AI 서비스입니다. |
 |[Face](./face/index.yml "Face")| Face 서비스는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다. 서비스를 시작하려면 [Face 빠른 시작](./face/quickstarts/client-libraries.md)을 참조하세요.|
-|[Form Recognizer](./form-recognizer/index.yml "Form Recognizer")|Form Recognizer는 양식 문서에서 키-값 쌍 및 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계를 포함한 정형 데이터를 출력합니다. 시작하려면 [Form Recognizer 빠른 시작](./form-recognizer/quickstarts/client-library.md)을 참조하세요.|
-|[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "비디오 인덱서")|Video Indexer를 사용하여 비디오에서 인사이트를 추출할 수 있습니다. 시작하려면 [Video Indexer 빠른 시작](../media-services/video-indexer/video-indexer-get-started.md)을 참조하세요.|
 
 ## <a name="speech-apis"></a>Speech API
 
@@ -63,7 +61,6 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker를 사용하여 반구조화된 콘텐츠로부터 질문 및 답변 서비스를 작성할 수 있습니다. 서비스를 시작하려면 [QnA Maker 빠른 시작을 참조](./qnamaker/quickstarts/create-publish-knowledge-base.md)하세요.|
 |[Text Analytics](./text-analytics/index.yml "텍스트 분석")| Text Analytics는 감정 분석, 핵심 구 추출 및 언어 감지를 위한 원시 텍스트의 자연어 처리를 제공합니다. 서비스를 시작하려면 [Text Analytics 빠른 시작](./text-analytics/quickstarts/client-libraries-rest-api.md)을 참조하세요.|
 |[Translator](./translator/index.yml "변환기")|Translator는 거의 실시간으로 머신 기반 텍스트 번역을 제공합니다.|
-| [몰입형 리더](./immersive-reader/index.yml "몰입형 리더") | 몰입형 리더는 애플리케이션에 화면 읽기 및 이해력 기능을 추가합니다. 서비스를 시작하려면 [몰입형 리더 빠른 시작](./immersive-reader/quickstarts/client-libraries.md)을 참조하세요. |
 
 ## <a name="decision-apis"></a>Decision API
 
@@ -71,7 +68,6 @@ Azure Cognitive Services는 애플리케이션에 인식 인텔리전스를 빌�
 |:-----------|:------------------|
 |[Anomaly Detector](./anomaly-detector/index.yml "Anomaly Detector") |Anomaly Detector를 사용하면 시계열 데이터에서 변칙을 모니터링하고 감지할 수 있습니다. 서비스를 시작하려면 [Anomaly Detector 빠른 시작](./anomaly-detector/quickstarts/client-libraries.md)을 참조하세요.|
 |[Content Moderator](./content-moderator/overview.md "Content Moderator")|Content Moderator는 불쾌감을 주거나, 원치 않거나, 위험한 콘텐츠를 모니터링하는 프로세스를 제공합니다. 서비스를 시작하려면 [Content Moderator 빠른 시작](./content-moderator/client-libraries.md)을 참조하세요.|
-|[Metrics Advisor](./metrics-advisor/index.yml)(미리 보기) | Metrics Advisor는 다변형 시계열 데이터에 대한 사용자 지정 변칙 검색과 서비스를 사용하는 데 도움이 되는 완전한 기능을 갖춘 웹 포털을 제공합니다. 서비스를 시작하려면 [Metrics Advisor 빠른 시작](./metrics-advisor/quickstarts/rest-api-and-client-library.md)을 참조하세요. |
 |[Personalizer](./personalizer/index.yml "Personalizer")|Personalizer를 사용하면 사용자의 실시간 동작을 통해 학습함으로써 사용자에게 표시할 최상의 환경을 선택할 수 있습니다. 서비스를 시작하려면 [Personalizer 빠른 시작을](./personalizer/quickstart-personalizer-sdk.md) 참조하세요.|
 
 ## <a name="search-apis"></a>Search API

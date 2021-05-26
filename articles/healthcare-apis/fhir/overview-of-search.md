@@ -1,18 +1,18 @@
 ---
 title: Azure API for FHIR의 검색 개요
 description: 이 문서에서는 FHIR 용 Azure API에서 구현 된 FHIR 검색의 개요를 설명 합니다.
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 5/17/2021
 ms.author: cavoeg
-ms.openlocfilehash: 93468d2be1c9ab8fbdbce1e82a58f04f0676f260
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2d1bccbd40689a06a13b7a2283ad02a0ac43ce84
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071185"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477830"
 ---
 # <a name="overview-of-fhir-search"></a>FHIR 검색 개요
 
@@ -47,7 +47,7 @@ GET {{FHIR_URL}}/Patient
 |  복합                 | Partial              | Partial                   | Partial                         | 지원되는 복합 형식 목록은 이 문서의 후반부에서 설명합니다. |
 |  quantity                  | 예                  | 예                       | 예                             |
 |  uri                       | 예                  | 예                       | 예                             |
-|  특수                   | 예                   | 예                        | 예                              |
+|  특수                   | 아니요                   | 아니요                        | 아니요                              |
 
 ### <a name="common-search-parameters"></a>일반 검색 매개 변수
 
@@ -61,12 +61,12 @@ GET {{FHIR_URL}}/Patient
 | _type                       | 예                  | 예                       | 예                             |             |
 | _security                   | 예                  | 예                       | 예                             |             |
 | _profile                    | 예                  | 예                       | 예                             | 2021 년 2 월 20 일 이전에는 데이터베이스를 만든 경우에는 [인덱스 작업](how-to-run-a-reindex.md) 을 실행 하 여 **_profile** 를 사용 하도록 설정 해야 합니다.|
-| _has                        | 부분              | 예                       | 부분                         | _Has에 대 한 지원은 Azure API for FHIR 및 Cosmos DB에서 지원 되는 OSS 버전의 MVP에 있습니다. 자세한 내용은 아래 체인 섹션에 포함 되어 있습니다. |
-| _query                      | 예                   | 예                        | 예                              |             |
-| _filter                     | 예                   | 예                        | 예                              |             |
-| _list                       | 예                   | 예                        | 예                              |             |
-| _text                       | 예                   | 예                        | 예                              |             |
-| _content                    | 예                   | 예                        | 예                              |             |
+| _has                        | Partial              | 예                       | 부분                         | _Has에 대 한 지원은 Azure API for FHIR 및 Cosmos DB에서 지원 되는 OSS 버전의 MVP에 있습니다. 자세한 내용은 아래 체인 섹션에 포함 되어 있습니다. |
+| _query                      | 아니요                   | 아니요                        | 아니요                              |             |
+| _filter                     | 아니요                   | 아니요                        | 아니요                              |             |
+| _list                       | 아니요                   | 아니요                        | 아니요                              |             |
+| _text                       | 아니요                   | 아니요                        | 아니요                              |             |
+| _content                    | 아니요                   | 아니요                        | 아니요                              |             |
 
 ### <a name="resource-specific-parameters"></a>리소스 관련 매개 변수
 
@@ -118,10 +118,10 @@ Azure API for FHIR 통해 다음과 같은 검색 매개 변수 형식 페어링
 |  : 아님         | 예                  | 예                       | 예                             | 
 |  : 아래 (uri) | 예                  | 예                       | 예                             |  
 |  : 위 (uri) | 예                  | 예                       | 예                             | 
-|  : in (토큰)  | 예                   | 예                        | 예                              | 
-|  : 아래 (토큰) | 예                 | 예                        | 예                              | 
-|  : 위 (토큰) | 예                 | 예                        | 예                              | 
-|  : 안 함 (토큰) | 예                | 예                        | 예                              | 
+|  : in (토큰)  | 아니요                   | 아니요                        | 아니요                              | 
+|  : 아래 (토큰) | 아니요                 | 아니요                        | 아니요                              | 
+|  : 위 (토큰) | 아니요                 | 아니요                        | 아니요                              | 
+|  : 안 함 (토큰) | 아니요                | 아니요                        | 아니요                              | 
 
 특정 순서 (숫자, 날짜 및 수량)가 있는 검색 매개 변수의 경우 매개 변수에 대 한 [접두사](https://www.hl7.org/fhir/search.html#prefix) 를 사용 하 여 일치 항목을 찾는 데 도움이 될 수 있습니다. FHIR 용 Azure API는 모든 접두사를 지원 합니다.
 
@@ -137,9 +137,9 @@ Azure API for FHIR 통해 다음과 같은 검색 매개 변수 형식 페어링
 | _summary                      | 예             | 예                   | 예                        |                               |
 | _total                        | Partial              | Partial                   | Partial                         | _total=none 및 _total=정확도                               |
 | _sort                         | Partial              | Partial                   | Partial                         | sort=_lastUpdated 지원됩니다. 2021년 4월 20일 이후에 생성된 Azure API for FHIR 및 OSS Cosmos DB 데이터베이스의 경우 이름, 성 및 임상 날짜에서도 정렬이 지원됩니다.                               |
-| _contained                    | 예                   | 예                        | 예                              |                                |
-| _containedType                | 예                   | 예                        | 예                              |                                |
-| _score                        | 예                   | 예                        | 예                              |                                |
+| _contained                    | 아니요                   | 아니요                        | 아니요                              |                                |
+| _containedType                | 아니요                   | 아니요                        | 아니요                              |                                |
+| _score                        | 아니요                   | 아니요                        | 아니요                              |                                |
 
 기본적으로 Azure API for FHIR 일시적인 처리로 설정됩니다. 즉, 서버는 알 수 없거나 지원되지 않는 매개 변수를 무시합니다. 엄격한 처리를 사용 하려면 **선호** 하는 헤더 및 집합을 사용할 수 있습니다 `handling=strict` .
 

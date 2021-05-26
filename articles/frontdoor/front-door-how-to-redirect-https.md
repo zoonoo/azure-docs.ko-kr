@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: edc1ebe53969ceac0452818bee016e35de1e9322
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: e3e2de040c80692824c648ee15f6ae0c97e2786c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167841"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110453321"
 ---
 # <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP에서 HTTPS로 리디렉션하는 Front Door 만들기
 
@@ -29,7 +29,7 @@ Azure Portal을 사용하여 TLS 종료를 위한 인증서로 [Front Door를 �
 1. *구독* 을 선택한 다음 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. **다음** 을 선택하여 구성 탭을 입력합니다.
 
     > [!NOTE]
-    > UI에서 요청된 위치는 리소스 그룹에만 해당됩니다. Front Door 구성은 모든 [Azure Front Door의 POP 위치](front-door-faq.yml#what-are-the-pop-locations-for-azure-front-door-)에 배포됩니다.
+    > UI에서 요청된 위치는 리소스 그룹에만 해당됩니다. Front Door 구성은 모든 [Azure Front Door의 POP 위치](front-door-faq.yml#where-are-the-edge-locations-for-azure-front-door-)에 배포됩니다.
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-create-basics.png" alt-text="새 Front Door에 대한 기본 사항 구성":::
 

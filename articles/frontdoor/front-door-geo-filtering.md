@@ -13,21 +13,21 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: amsriva
-ms.openlocfilehash: ceacd210fa02594ff8b54996c1d87d560f244a7f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 0ab6dfb61800bba91b52edd5b07fa918c85ba73b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634620"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085009"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Azure Front Door에 대한 도메인의 지역 필터링
 
-기본적으로 Azure Front Door는 요청이 발생하는 위치에 관계 없이 모든 사용자 요청에 응답합니다. 일부 시나리오에서는 국가/지역에 따라 웹 애플리케이션에 대한 액세스를 제한하는 것이 좋습니다. Front Door의 WAF(웹 애플리케이션 방화벽) 서비스를 통해 엔드포인트의 특정 경로에 사용자 지정 액세스 규칙을 사용하는 정책을 정의하여 지정된 국가/지역에서 들어오는 트래픽을 허용하거나 차단할 수 있습니다. 
+기본적으로 Azure Front Door는 요청이 발생하는 위치에 관계 없이 모든 사용자 요청에 응답합니다. 일부 시나리오에서는 국가/지역에 따라 웹 애플리케이션에 대한 액세스를 제한하는 것이 좋습니다. Front Door의 WAF(웹 애플리케이션 방화벽) 서비스를 통해 엔드포인트의 특정 경로에 사용자 지정 액세스 규칙을 사용하는 정책을 정의하여 지정된 국가/지역에서 들어오는 트래픽을 허용하거나 차단할 수 있습니다.
 
-WAF 정책에는 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다. 지역 필터링 규칙의 경우 일치 변수는 REMOTE_ADDR이고, 연산자는 GeoMatch이며, 값은 관심 있는 2문자 국가/지역 코드입니다. "ZZ" 국가 번호 또는 "알 수 없음" 국가는 데이터 세트의 국가에 아직 매핑되지 않은 IP 주소를 캡처합니다. 일치 조건에 ZZ를 추가하여 가양성을 방지할 수 있습니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다. 
+WAF 정책에는 사용자 지정 규칙 집합이 포함됩니다. 규칙은 일치 조건, 작업 및 우선 순위로 구성됩니다. 일치 조건에서는 일치 변수, 연산자, 일치 값을 정의합니다. 지역 필터링 규칙의 경우 일치 변수는 REMOTE_ADDR이고, 연산자는 GeoMatch이며, 값은 관심 있는 2문자 국가/지역 코드입니다. "ZZ" 국가 번호 또는 "알 수 없음" 국가는 데이터 세트의 국가에 아직 매핑되지 않은 IP 주소를 캡처합니다. 일치 조건에 ZZ를 추가하여 가양성을 방지할 수 있습니다. GeoMatch 조건과 REQUEST_URI 문자열 일치 조건을 결합하여 경로 기준 지역 필터링 규칙을 만들 수 있습니다.
 
 
-[Azure PowerShell](front-door-tutorial-geo-filtering.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)을 사용하여 Front Door에 대한 지역 필터링 정책을 구성할 수 있습니다.
+[Azure PowerShell](front-door-tutorial-geo-filtering.md) 또는 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering)을 사용하여 Front Door에 대한 지역 필터링 정책을 구성할 수 있습니다.
 
 ## <a name="countryregion-code-reference"></a>국가/지역 코드 참조
 

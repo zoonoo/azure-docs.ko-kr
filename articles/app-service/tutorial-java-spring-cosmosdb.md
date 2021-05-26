@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 87dff97f6e086803413cb86b8374793361f77008
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: fae722934f22503cd37f7d48569fd52667fa5e0c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109732707"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457928"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -80,7 +80,7 @@ yes | cp -rf .prep/* .
 4. Azure Cosmos DB 키를 가져와서 앱에 연결합니다. 다음 단계에서 필요하므로 `primaryMasterKey`, `documentEndpoint`를 가까운 위치에 유지합니다.
 
     ```azurecli
-    az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
+    az cosmosdb keys list -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
     ```
 
 ## <a name="configure-the-todo-app-properties"></a>TODO 앱 속성 구성
@@ -193,12 +193,12 @@ bash-3.2$ mvn package spring-boot:run
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
-
+            <pricingTier>P1V2</princingTier>
             <!-- Java Runtime Stack for Web App on Linux-->
             <runtime>
                  <os>linux</os>
-                 <javaVersion>jre8</javaVersion>
-                 <webContainer>jre8</webContainer>
+                 <javaVersion>Java 8</javaVersion>
+                 <webContainer>Java SE</webContainer>
              </runtime>
              <deployment>
                  <resources>
@@ -299,9 +299,9 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다. 
+다른 자습서에서 이러한 리소스가 필요하지 않으면([다음 단계](#next) 참조) Cloud Shell에서 다음 명령을 실행하여 삭제할 수 있습니다.
 ```azurecli
-az group delete --name <your-azure-group-name>
+az group delete --name <your-azure-group-name> --yes
 ```
 
 <a name="next"></a>

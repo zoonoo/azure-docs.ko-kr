@@ -10,12 +10,12 @@ ms.date: 03/27/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d5ef85d947ae999fd94ba5a6e9cdb00baec9786
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 7e951de46b5220e5c2edde2fcd84673c9a16cebc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106555897"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477709"
 ---
 # <a name="manage-and-restore-soft-deleted-blobs"></a>일시 삭제된 Blob 관리 및 복원
 
@@ -70,7 +70,7 @@ Azure Storage 클라이언트 라이브러리를 사용하여 일시 삭제된 B
 
 ### <a name="restore-soft-deleted-objects-when-versioning-is-disabled"></a>버전 관리를 사용하지 않는 경우 일시 삭제된 개체 복원하기
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 버전 관리를 사용하지 않을 때 삭제된 Blob을 복원하려면 해당 Blob에 대한 [Blob 삭제 취소](/rest/api/storageservices/undelete-blob) 작업을 호출합니다. **Blob 삭제 취소** 작업은 일시 삭제된 Blob 및 해당 Blob와 연결된 삭제된 스냅샷을 복원합니다.
 
@@ -82,7 +82,7 @@ Azure Storage 클라이언트 라이브러리를 사용하여 일시 삭제된 B
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobSnapshot":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 버전 관리를 사용하지 않을 때 삭제된 Blob을 복원하려면 해당 Blob에 대한 [Blob 삭제 취소](/rest/api/storageservices/undelete-blob) 작업을 호출합니다. **Blob 삭제 취소** 작업은 일시 삭제된 Blob 및 해당 Blob와 연결된 삭제된 스냅샷을 복원합니다.
 
@@ -118,11 +118,11 @@ blockBlob.StartCopy(copySource);
 
 버전 관리를 사용하는 경우 일시 삭제된 Blob을 복원하려면 [Blob 복사](/rest/api/storageservices/copy-blob) 또는 [URL에서 Blob 복사](/rest/api/storageservices/copy-blob-from-url) 작업을 사용하여 기본 Blob을 통해 이전 버전을 복사합니다.  
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RestorePreviousVersion":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 해당 사항 없음 Blob 버전 관리는 Azure Storage 클라이언트 라이브러리 버전 12.x 이상에서만 지원됩니다.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 8400fcacbfa4c76aceb079b788255e3d3b83ce33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ebfe1d4bba7b9b0629f800ec311dfb80770a4d6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878296"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087817"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>GitHub Actions를 사용하는 Azure Spring Cloud CI/CD
 
@@ -26,14 +26,14 @@ GitHub Actions는 자동화된 소프트웨어 개발 수명 주기 워크플로
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
 Azure 로그인 작업에 권한을 부여하려면 Azure 서비스 사용자 자격 증명이 필요 합니다. Azure 자격 증명을 가져오려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
 
-```
+```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 
 특정 리소스 그룹에 액세스하기 위해 범위를 줄일 수 있습니다.
 
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 
@@ -57,7 +57,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
-[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./spring-cloud-github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
+[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
 
 ## <a name="provision-service-instance"></a>서비스 인스턴스 프로비저닝
 Azure Spring Cloud 서비스 인스턴스를 프로비저닝하려면 Azure CLI를 사용하 여 다음 명령을 실행합니다.
@@ -148,12 +148,12 @@ jobs:
 ::: zone pivot="programming-language-java"
 ## <a name="set-up-github-repository-and-authenticate"></a>GitHub 리포지토리 설정 및 인증
 Azure 로그인 작업에 권한을 부여하려면 Azure 서비스 사용자 자격 증명이 필요 합니다. Azure 자격 증명을 가져오려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
-```
+```azurecli
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 
 ```
 특정 리소스 그룹에 액세스하기 위해 범위를 줄일 수 있습니다.
-```
+```azurecli
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
 ```
 명령은 JSON 개체를 출력해야 합니다.
@@ -175,7 +175,7 @@ az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTIO
 
  ![비밀 데이터 설정](./media/github-actions/actions2.png)
 
-[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./spring-cloud-github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
+[GitHub Actions에서 Key Vault를 사용하여 Azure Spring 인증](./github-actions-key-vault.md)에 설명된 대로 GitHub Actions의 Key Vault에서 Azure 로그인 자격 증명도 가져올 수 있습니다.
 
 ## <a name="provision-service-instance"></a>서비스 인스턴스 프로비저닝
 Azure Spring Cloud 서비스 인스턴스를 프로비저닝하려면 Azure CLI를 사용하 여 다음 명령을 실행합니다.
@@ -192,7 +192,7 @@ az spring-cloud config-server git set -n <service instance name> --uri https://g
 `az spring-cloud app create` 명령이 현재 idempotent가 아닙니다.  기존 Azure Spring Cloud 앱 및 인스턴스에서 이 워크플로를 권장합니다.
 
 준비 시 다음 Azure CLI 명령을 사용합니다.
-```
+```azurecli
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 az spring-cloud app create --name gateway
@@ -203,7 +203,7 @@ az spring-cloud app create --name account-service
 ### <a name="deploy-with-azure-cli-directly"></a>Azure CLI를 사용하여 직접 배포
 리포지토리에서 `.github/workflow/main.yml` 파일을 만듭니다.
 
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -250,7 +250,7 @@ az `run` 명령은 최신 버전의 Azure CLI를 사용합니다. 호환성이 �
 > 이 명령은 새 컨테이너에서 실행되므로, `env`이(가) 작동하지 않고 상호 작업 파일 액세스에 추가 제한이 있을 수 있습니다.
 
 리포지토리에서 .github/workflow/main.yml 파일을 만듭니다.
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -289,9 +289,9 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Maven 플러그인을 사용하여 배포
-또 다른 옵션은 [Maven 플러그인](./spring-cloud-quickstart.md)을 사용하여 Jar를 배포하고 앱 설정을 업데이트하는 것입니다. `mvn azure-spring-cloud:deploy` 명령은 idempotent이며 필요한 경우 앱을 자동으로 만듭니다. 해당 앱을 미리 만들 필요는 없습니다.
+또 다른 옵션은 [Maven 플러그인](./quickstart.md)을 사용하여 Jar를 배포하고 앱 설정을 업데이트하는 것입니다. `mvn azure-spring-cloud:deploy` 명령은 idempotent이며 필요한 경우 앱을 자동으로 만듭니다. 해당 앱을 미리 만들 필요는 없습니다.
 
-```
+```yaml
 name: AzureSpringCloud
 on: push
 
@@ -339,6 +339,6 @@ Github에 `.github/workflow/main.yml`을(를) 푸시하면 GitHub **Actions** �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Spring Cloud GitHub Actions용 Key Vault](./spring-cloud-github-actions-key-vault.md)
-* [Azure Active Directory 서비스 사용자](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
+* [Spring Cloud GitHub Actions용 Key Vault](./github-actions-key-vault.md)
+* [Azure Active Directory 서비스 사용자](/cli/azure/ad/sp#az_ad_sp_create_for_rbac)
 * [Azure에 대한 GitHub 작업](https://github.com/Azure/actions/)

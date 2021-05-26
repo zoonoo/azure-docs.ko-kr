@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 0775df0d5ca1061bff127ba5491040a90ddb8597
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 98f9ffdfa7addd8689b01332b88261311a525c81
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447015"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469332"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>진단 기능에 Log Analytics 사용
 
@@ -134,7 +134,7 @@ Azure Monitor Log Analytics UI를 통해 예시 쿼리에 액세스합니다.
 1. **Windows Virtual Desktop** 을 선택하여 사용 가능한 쿼리를 검토합니다.
 1. **실행** 을 선택하여 선택한 쿼리를 실행합니다.
 
-[Azure Monitor Log Analytics에 저장된 쿼리](../azure-monitor/logs/example-queries.md)에서 샘플 쿼리 인터페이스에 대해 자세히 알아보세요.
+[Azure Monitor Log Analytics에 저장된 쿼리](../azure-monitor/logs/queries.md)에서 샘플 쿼리 인터페이스에 대해 자세히 알아보세요.
 
 다음 쿼리 목록을 통해 단일 사용자의 연결 정보 또는 문제를 검토할 수 있습니다. 이러한 쿼리는 [Log Analytics 쿼리 편집기](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query)에서 실행할 수 있습니다. 각 쿼리에 대해 `userupn`을 조회하려는 사용자의 UPN으로 바꿉니다.
 

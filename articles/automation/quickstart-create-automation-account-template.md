@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 50a8c057a6fdf6350a18225cd2dc538942d6686d
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: effdb8ec511a6060fffb571864273a1f84901ab6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538409"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081301"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Automation 계정 만들기
 
@@ -26,7 +26,7 @@ Azure Automation은 Azure 및 Azure 이외의 환경에서 일관된 관리를 �
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-automation/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.automation/101-automation/azuredeploy.json":::
 
 ### <a name="api-versions"></a>API 버전
 
@@ -92,7 +92,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
 1. 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿은 Azure Automation 계정, Log Analytics 작업 영역을 만들고 Automation 계정을 작업 영역에 연결합니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-automation%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.automation%2F101-automation%2Fazuredeploy.json)
 
 2. 값을 입력합니다.
 
@@ -104,7 +104,7 @@ Azure Automation 및 Azure Monitor를 처음 접하는 경우 다음 구성 정�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. Azure Portal에서 방금 만든 Automation 계정을 엽니다. 
+2. Azure Portal에서 방금 만든 Automation 계정을 엽니다.
 
 3. 왼쪽 창에서 **Runbook** 을 선택합니다. **Runbook** 페이지에서 Automation 계정을 사용하여 만든 세 가지 자습서 Runbook이 나열됩니다.
 

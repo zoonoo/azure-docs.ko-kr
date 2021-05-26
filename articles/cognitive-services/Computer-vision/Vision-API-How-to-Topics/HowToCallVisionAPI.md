@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 39db32a7ee7eb8fed1da9ac8c9eb609efcf57c74
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 5feb16227653bdc7e51925b7a327c3eb50c88491
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070824"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453813"
 ---
 # <a name="call-the-image-analysis-api"></a>이미지 분석 API 호출
 
@@ -71,7 +71,7 @@ ms.locfileid: "108070824"
 > [!NOTE]
 > **범위가 지정된 API 호출**
 >
-> 이미지 분석 기능 중 일부는 직접 호출하거나 분석 API 호출을 통해 호출할 수 있습니다. 예를 들어, `https://{endpoint}/vision/v3.2-preview.3/tag`에 요청을 보내 이미지 태그로 범위가 지정된 분석을 수행할 수 있습니다. 별도로 호출할 수 있는 다른 기능은 [참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 확인하세요.
+> 이미지 분석 기능 중 일부는 직접 호출하거나 분석 API 호출을 통해 호출할 수 있습니다. 예를 들어, `https://{endpoint}/vision/v3.2/tag`에 요청을 보내 이미지 태그로 범위가 지정된 분석을 수행할 수 있습니다. 별도로 호출할 수 있는 다른 기능은 [참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 확인하세요.
 
 ## <a name="get-results-from-the-service"></a>서비스에서 결과 가져오기
 

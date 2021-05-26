@@ -1,18 +1,18 @@
 ---
 title: 자습서 - 샘플 앱을 사용하여 Azure Active Directory 확인 가능한 자격 증명 시작(미리 보기)
 description: 이 자습서에서는 샘플 앱 및 테스트 테넌트를 사용하여 확인 가능한 자격 증명을 발급하는 방법에 대해 알아봅니다.
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 04/01/2021
-ms.openlocfilehash: deebaf31197d8b7335f887ae447f05add45278b2
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 2fba830b93be35b1bc55ad85531737ebe8a8c982
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222888"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466235"
 ---
 #  <a name="tutorial---get-started-with-azure-active-directory-verifiable-credentials-using-a-sample-app-preview"></a>자습서 - 샘플 앱을 사용하여 Azure Active Directory 확인 가능한 자격 증명 시작(미리 보기)
 

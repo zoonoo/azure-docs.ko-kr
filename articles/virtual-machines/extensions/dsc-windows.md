@@ -8,12 +8,12 @@ author: bobbytreed
 ms.author: robreed
 ms.collection: windows
 ms.date: 03/26/2018
-ms.openlocfilehash: 5d2591fa3b6d69e403935faeca075a2c747026c1
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: a782d94b40be7fb07009f46cc69883cc529d91c6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734741"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081517"
 ---
 # <a name="powershell-dsc-extension"></a>Powershell DSC 확장
 
@@ -92,7 +92,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신
 
 ### <a name="property-values"></a>속성 값
 
-| 속성 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | 문자열 |
@@ -125,7 +125,7 @@ Windows용 DSC 확장을 사용하려면 대상 가상 머신이 Azure와 통신
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다.
 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다.
-Windows용 DSC 확장을 포함하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/automation-configuration/automation-configuration/nested/provisionServer.json#L91)에서 찾을 수 있습니다.
+Windows용 DSC 확장을 포함하는 Resource Manager 템플릿 샘플은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration/nested/provisionServer.json#L91)에서 찾을 수 있습니다.
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
