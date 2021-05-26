@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 784929e50d25a07ae92cf388be5ac14f6fa820a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90dc5ee9dcd9df500f9a5e593c3e6ee83b7f916e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221642"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452587"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-metrics-classic"></a>Azure Storage Analytics 메트릭(클래식) 사용 및 관리
 
@@ -117,7 +117,7 @@ ms.locfileid: "99221642"
 
    Azure 구독에서 작동하도록 Azure PowerShell cmdlet을 구성하고 사용할 기본 스토리지 계정을 선택하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](/powershell/azure/)을 참조하세요.  
 
-### <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+### <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/Monitoring.cs" id="snippet_EnableDiagnosticLogs":::
 
@@ -125,7 +125,7 @@ ms.locfileid: "99221642"
 
 REST API를 사용하여 스토리지 메트릭을 구성하는 방법에 대한 일반적인 내용은 [스토리지 분석 설정 및 구성](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics)을 참조하세요. 
 
-### <a name="net-v11"></a>[.NET v11](#tab/dotnet11)  
+### <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  

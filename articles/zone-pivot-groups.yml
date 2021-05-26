@@ -776,6 +776,14 @@ groups:
     title: Java
   - id: programming-language-more
     title: 언어 자세히 보기...
+- id: video-analyzer-programming-languages
+  title: Azure 비디오 분석기 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: ams-lva-edge-programming-languages
   title: IoT Edge 프로그래밍 언어에 대한 Live Video Analytics
   prompt: 프로그래밍 언어 선택
@@ -1117,7 +1125,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: rest-api
-    title: REST
+    title: REST (영문)
 - id: app-service-webjob
   title: WebJob 형식
   prompt: WebJob 유형 선택
@@ -1193,9 +1201,9 @@ groups:
   - id: programming-language-java
     title: Java
 metadata:
-  ms.openlocfilehash: 1ce7b672204fefdff6def450ba50d38981e67bed
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: adcb769a1cf52dc86ee60349463caa078fb31a4b
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110084973"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110373530"

@@ -3,14 +3,14 @@ title: 지속성 오케스트레이션 - Azure Functions
 description: Azure Durable Functions의 오케스트레이션 기능을 소개합니다.
 author: cgillum
 ms.topic: overview
-ms.date: 09/08/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: ba314963058389e171601407ff00411049eecd45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9820f22e92bfc6f4743b205fc4cf36a1baa580d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97845419"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375914"
 ---
 # <a name="durable-orchestrations"></a>지속성 오케스트레이션
 
@@ -43,12 +43,12 @@ Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니
 
 오케스트레이터 함수는 [이벤트 소싱](/azure/architecture/patterns/event-sourcing) 디자인 패턴을 사용하여 실행 상태를 안정적으로 유지합니다. 지속성 작업 프레임워크는 오케스트레이션의 현재 상태를 직접 저장하는 대신, 추가 전용 저장소를 사용하여 함수 오케스트레이션에서 수행하는 일련의 작업 전체를 기록합니다. 추가 전용 저장소는 전체 런타임 상태를 "덤프"하는 것에 비해 많은 이점을 누릴 수 있습니다. 즉 향상된 성능, 확장성 및 응답성을 얻을 수 있습니다. 또한 트랜잭션 데이터와 전체 감사 내역 및 기록에 대한 최종 일관성을 얻을 수 있습니다. 감사 내역은 안정적인 보정 작업을 지원합니다.
 
-Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스트레이터 함수의 `await`(C#) 또는 `yield`(JavaScript/Python) 연산자는 내부적으로 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 스토리지에 커밋합니다. 투명한 커밋 작업은 오케스트레이션 인스턴스의 실행 기록에 추가됩니다. 기록은 스토리지 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다.
+Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스트레이터 함수의 `await`(C#) 또는 `yield`(JavaScript/Python) 연산자는 내부적으로 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 스토리지에 커밋합니다. 투명한 커밋 작업은 추가 전용 로그와 마찬가지로 모든 새 이벤트를 스토리지에 추가하여 오케스트레이션 인스턴스의 실행 기록을 업데이트합니다. 마찬가지로 커밋 작업은 실제 작업을 예약하기 위해 스토리지에 메시지를 만듭니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. 기본적으로 Durable Functions는 Azure Storage를 런타임 상태의 저장소로 사용하지만, 다른 [스토리지 공급자도 지원됩니다](durable-functions-storage-providers.md).
 
 오케스트레이션 함수에서 더 많은 작업을 수행하는 경우(예: 응답 메시지를 받거나 지속성 타이머가 만료되는 경우), 오케스트레이터는 전체 함수를 처음부터 다시 시작하고 다시 실행하여 로컬 상태를 다시 작성합니다. 재생 중에 코드에서 함수를 호출하거나 다른 비동기 작업을 수행하려고 하는 경우, 지속성 작업 프레임워크는 현재 오케스트레이션의 실행 기록을 참조합니다. [활동 함수](durable-functions-types-features-overview.md#activity-functions)가 이미 실행되어 결과를 생성한 경우, 해당 함수의 결과를 재생하고 오케스트레이터 코드가 계속 실행됩니다. 함수 코드가 완료되거나 새 비동기 작업이 예약될 때까지 재생이 계속됩니다.
 
 > [!NOTE]
-> 재생 패턴이 정확하고 안정적으로 작동하려면 오케스트레이터 함수 코드가 *결정적* 이어야 합니다. 오케스트레이터 함수의 코드 제한 사항에 대한 자세한 내용은 [오케스트레이터 함수 코드 제약 조건](durable-functions-code-constraints.md) 항목을 참조하세요.
+> 재생 패턴이 정확하고 안정적으로 작동하려면 오케스트레이터 함수 코드가 *결정적* 이어야 합니다. 결정적이지 않은 오케스트레이터 코드로 인해 런타임 오류 또는 기타 예기치 않은 동작이 발생할 수 있습니다. 오케스트레이터 함수의 코드 제한 사항에 대한 자세한 내용은 [오케스트레이터 함수 코드 제약 조건](durable-functions-code-constraints.md) 설명서를 참조하세요.
 
 > [!NOTE]
 > 오케스트레이터 함수에서 로그 메시지를 내보내는 경우 재생 동작으로 인해 중복된 로그 메시지를 내보낼 수 있습니다. 이 동작이 발생하는 이유와 해결하는 방법에 대한 자세한 내용은 [로깅](durable-functions-diagnostics.md#app-logging) 항목을 참조하세요.
@@ -105,43 +105,57 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Tokyo'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'Seattle'
+$output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'London'
+
+$output
+```
 ---
 
-각 `await`(C#) 또는 `yield`(JavaScript/Python) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(일반적으로 Azure Table 스토리지)에 설정합니다. 이 상태를 *오케스트레이션 기록* 이라고 합니다.
+각 `await`(C#) 또는 `yield`(JavaScript/Python) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(기본적으로 Azure Table Storage)에 설정합니다. 이 상태를 *오케스트레이션 기록* 이라고 합니다.
 
 ### <a name="history-table"></a>기록 테이블
 
 일반적으로 지속성 작업 프레임워크는 각 검사점에서 다음을 수행합니다.
 
-1. 실행 기록을 Azure Storage 테이블에 저장합니다.
+1. 실행 기록을 지속성 스토리지에 저장합니다.
 2. 오케스트레이터에서 호출하려고 하는 함수의 메시지를 큐에 넣습니다.
 3. 오케스트레이터 자체의 메시지(예: 지속성 타이머 메시지)를 큐에 넣습니다.&mdash;
 
 검사점이 완료되면 오케스트레이터 함수는 더 많은 작업이 수행될 때까지 메모리에서 자유롭게 제거할 수 있습니다.
 
 > [!NOTE]
-> Azure Storage는 테이블 스토리지와 큐 간의 데이터 저장에 대한 트랜잭션 보장을 제공하지 않습니다. 지속성 함수 스토리지 공급자는 실패를 처리하기 위해 *최종 일관성* 패턴을 사용합니다. 이러한 패턴은 검사점 중간에 연결이 충돌하거나 손실되는 경우 데이터가 손실되지 않도록 합니다.
+> Azure Storage는 테이블 스토리지와 큐 간의 데이터 저장에 대한 트랜잭션 보장을 제공하지 않습니다. [Durable Functions Azure Storage](durable-functions-storage-providers.md#azure-storage) 공급자는 실패를 처리하기 위해 *최종 일관성* 패턴을 사용합니다. 이러한 패턴은 검사점 중간에 연결이 충돌하거나 손실되는 경우 데이터가 손실되지 않도록 합니다. [Durable Functions MSSQL 스토리지 공급자](durable-functions-storage-providers.md#mssql)와 같은 대체 스토리지 공급자는 보다 강력한 일관성 보장을 제공할 수 있습니다.
 
 완료되면 앞에서 보여 준 함수의 기록은 Azure Table Storage에서 다음 표와 비슷합니다(예시를 위해 간략히 설명함).
 
 | PartitionKey(InstanceId)                     | EventType             | 타임스탬프               | 입력 | Name             | 결과                                                    | 상태 |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:32.362Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:32.670Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2021-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | OrchestratorStarted   | 2021-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2021-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2021-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
 
 열 값에 대한 몇 가지 참고 사항:
 
@@ -278,6 +292,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     if res.status_code >= 400:
         # handing of error code goes here
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+이 기능은 현재 PowerShell에서 지원되지 않습니다.
+
 ---
 
 이 메서드는 기본 요청/응답 패턴을 지원하는 것 외에도 일반적인 비동기 HTTP 202 폴링 패턴을 자동으로 처리하도록 지원하고, [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용한 외부 서비스 인증도 지원합니다.
@@ -388,6 +406,33 @@ def main(location: Location) -> str:
     return f"Hello {city}, {state}!"
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+#### <a name="orchestrator"></a>오케스트레이터
+
+```powershell
+param($Context)
+
+$output = @()
+
+$location = @{
+    City = 'Seattle'
+    State  = 'WA'
+}
+
+Invoke-ActivityFunction -FunctionName 'GetWeather' -Input $location
+
+# ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather` 작업
+
+```powershell
+param($location)
+
+"Hello $($location.City), $($location.State)!"
+# ...
+```
 ---
 
 ## <a name="next-steps"></a>다음 단계

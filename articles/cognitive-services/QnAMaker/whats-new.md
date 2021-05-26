@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
-ms.openlocfilehash: 3bb7311a16b71b9bb76f14b4ba7a29dd2dae4a96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 341ce0d0400bb1b56f96182e13d526da32d9729e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010000"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369271"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -22,6 +22,12 @@ ms.locfileid: "103010000"
 ## <a name="release-notes"></a>릴리스 정보
 
 QnA Maker의 새로운 기능에 대해 알아봅니다.
+
+### <a name="may-2021"></a>2021년 5월
+
+* QnA Maker 관리형이 [Text Analytics 리소스](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics)의 사용자 지정 질문 응답 기능으로 다시 도입되었습니다.
+* 사용자 지정 질문 답변은 비정형 문서를 지원합니다.
+* [미리 빌드된 API](how-to/using-prebuilt-api.md)는 API를 통해 전달된 문서 텍스트에서 사용자 쿼리에 대한 답변을 생성하기 위해 도입되었습니다.
 
 ### <a name="november-2020"></a>2020년 11월
 

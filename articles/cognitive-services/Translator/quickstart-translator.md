@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator 서비스, 텍스트 번역, 텍스트 음역, 언어 감지
-ms.openlocfilehash: 7cb3eb259cc21a5a10b426e4da53513d1f42fb56
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 87e67e5c62180c9120aaf7a426a4195960d9bcf8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488702"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076531"
 ---
 # <a name="quickstart-get-started-with-translator"></a>빠른 시작: Translator 시작
 
@@ -2833,10 +2833,5 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ## <a name="next-steps"></a>다음 단계
 
-* [API에서 문자 수를 계산하는 방법 알아보기](character-counts.md)
-* [번역 사용자 지정 및 개선](customization.md)
-
-## <a name="see-also"></a>참고 항목
-
-* [Translator v3 API 참조](reference/v3-0-reference.md)
-* [언어 지원](language-support.md)
+> [!div class="nextstepaction"]
+> [번역 사용자 지정 및 개선](customization.md)

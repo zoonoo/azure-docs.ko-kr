@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: c89ab375cb02824a08ff57e6b5278dd9299126ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e1cff5a82870c5491b262f5ced95f688d5ee4ac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96350928"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369513"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>내보내기-가져오기를 사용하여 기술 자료 마이그레이션
 
@@ -25,14 +25,25 @@ ms.locfileid: "96350928"
 > [!NOTE]
 > 아래 지침에 따라 기존 기술 자료를 관리되는 새 QnA Maker(미리 보기)로 마이그레이션합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
-* 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
-* 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
+> * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/cognitive-services/) 계정을 만듭니다.
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+
+> * Azure Portal에서 만든 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+> * 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
+
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+
+> * Azure Portal에서 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독 및 Text Analytics 리소스 이름을 기억하세요.
+> * 새 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md) 설정
+
+---
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>QnA Maker에서 기술 자료 마이그레이션
 1. [QnA Maker 포털](https://qnamaker.ai)에 로그인합니다.
-1. 마이그레이션할 원본 기술 자료를 선택합니다.
+1. 마이그레이션할 기술 자료를 선택합니다.
 
 1. **설정** 페이지에서 **기술 자료 내보내기** 를 선택하여 원본 기술 자료의 콘텐츠(질문, 답변, 메타데이터, 후속 프롬프트 및 추출된 데이터 원본 이름)가 포함된 .tsv 파일을 다운로드합니다. 질문 및 답변과 함께 내보낸 QnA ID는 [업데이트 API](/rest/api/cognitiveservices/qnamaker/knowledgebase/update)를 사용하여 특정 QnA 쌍을 업데이트하는 데 사용할 수 있습니다. 특정 QnA 쌍의 QnA ID는 여러 내보내기 작업에서 변경되지 않고 유지됩니다.
 

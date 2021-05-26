@@ -3,16 +3,16 @@ title: 전용 이벤트 허브 개요 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Event Hub의 단일 테넌트 배포를 제공하는 전용 Azure Event Hubs에 대한 개요를 제공합니다.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 721acf354c7d14c1362b4f760982af37d59115f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5468588c0dc1dc8660c2ddfbb44c554029cffa0c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715618"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376121"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Event Hubs Dedicated의 개요
 
-*Event Hubs 클러스터* 는 스트리밍 요구 사항이 가장 까다로운 고객을 위한 단일 테넌트 배포를 제공합니다. 이 단일 테넌트 제품은 99.99% SLA를 보장하며 당사의 전용 가격 책정 계층에서만 사용할 수 있습니다. 보장된 용량을 제공하고 대기 시간이 1초 미만에 불과한 Event Hubs 클러스터는 초당 수백만 개의 이벤트를 수신할 수 있습니다. 전용 클러스터 내부에 만들어지는 네임스페이스 및 이벤트 허브는 표준 제품의 모든 기능을 포함하고 있으며, 거기에 수신 제한도 없습니다. 여기에는 또한 추가 비용 없이 인기 있는 [Event Hubs 캡처](event-hubs-capture-overview.md) 기능이 포함됩니다. 이 기능을 사용하면 데이터 스트림을 자동으로 일괄처리하고 Azure Storage 또는 Azure Data Lake에 기록할 수 있습니다. 
+*Event Hubs 클러스터* 는 스트리밍 요구 사항이 가장 까다로운 고객을 위한 단일 테넌트 배포를 제공합니다. 이 단일 테넌트 제품은 99.99% SLA를 보장하며 당사의 전용 가격 책정 계층에서만 사용할 수 있습니다. 보장된 용량을 제공하고 대기 시간이 1초 미만에 불과한 Event Hubs 클러스터는 초당 수백만 개의 이벤트를 수신할 수 있습니다. 전용 클러스터 내에서 생성된 네임스페이스 및 이벤트 허브는 프리미엄 제품의 모든 기능을 포함하지만 수신 제한은 없습니다. 여기에는 또한 추가 비용 없이 인기 있는 [Event Hubs 캡처](event-hubs-capture-overview.md) 기능이 포함됩니다. 이 기능을 사용하면 데이터 스트림을 자동으로 일괄처리하고 Azure Storage 또는 Azure Data Lake에 기록할 수 있습니다. 
 
 클러스터는 미리 할당된 CPU 및 메모리 리소스의 양을 의미하는 **CU(용량 단위)** 로 프로비저닝 및 청구됩니다. 각 클러스터에 1, 2, 4, 8, 12, 16 또는 20개 CU를 구매할 수 있습니다. CU당 수집하고 스트리밍할 수 있는 양은 다음과 같은 다양한 요인에 따라 다릅니다. 
 
@@ -31,29 +31,12 @@ ms.locfileid: "101715618"
 
 전용 클러스터는 전체 규모에서 용량을 보장합니다. 이는 트래픽 버스트를 수용하기 위해 완전 지속성 스토리지와 1초 미만의 대기 시간으로 최대 기가바이트의 스트리밍 데이터를 수신할 수 있습니다. 
 
-#### <a name="inclusive-and-exclusive-access-to-features"></a>기능에 대한 포괄적이고 독점적인 액세스 
-전용 제품에는 추가 비용 없이 캡처와 같은 기능이 포함되고, BYOK (Bring Your Own Key)와 같은 예정된 기능에 대한 독점적 액세스도 포함됩니다. 또한 이 서비스가 부하 분산, OS 업데이트, 보안 패치 및 분할을 관리합니다. 따라서 인프라 유지 관리에 더 적은 시간을 소비하고, 클라이언트 쪽 기능 빌드에 더 많은 시간을 소비할 수 있습니다.  
+#### <a name="inclusive-and-exclusive-access-to-features"></a>기능에 대한 포괄적이고 독점적인 액세스
 
-#### <a name="cost-savings"></a>비용 절감
-대량 수신 볼륨(>100 처리량 단위)에서는 표준 제품에서 비슷한 처리량 단위를 구입하는 것 보다 클러스터 비용이 시간당 훨씬 더 적습니다.
-
+전용 제품에는 추가 비용 없이 캡처와 같은 기능과 BYOK(Bring Your Own Key)와 같은 기능에 대한 독점적 액세스가 포함됩니다. 또한 이 서비스가 부하 분산, OS 업데이트, 보안 패치 및 분할을 관리합니다. 따라서 인프라 유지 관리에 더 적은 시간을 소비하고, 클라이언트 쪽 기능 빌드에 더 많은 시간을 소비할 수 있습니다.  
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Event Hubs Dedicated 할당량 및 제한
-
-Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최소 사용량은 4시간입니다. 전용 계층은 표준 요금제의 모든 기능을 제공합니다. 하지만 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량 및 제한을 제공합니다. 
-
-| 기능 | Standard | 전용 |
-| --- |:---|:---|
-| 대역폭 | 20개의 TU(최대 40개의 TU) | 20개 CU |
-| 네임스페이스 |  1 | CU당 50개 |
-| Event Hubs |  네임스페이스당 10개 | 네임스페이스당 1,000개 |
-| 수신 이벤트 | 100만 이벤트당 요금 부과 | 포함 |
-| 메시지 크기 | 100만 바이트 | 100만 바이트 |
-| 파티션 | 이벤트 허브당 32 | 이벤트 허브당 1024<br/>CU당 2,000개 |
-| 소비자 그룹 | 이벤트 허브당 20 | CU당 제한 없음, 이벤트 허브당 1,000개 |
-| 조정된 연결 | 1000 포함, 최대 5000 | 100 K 포함 및 최대 |
-| [이벤트 보존](event-hubs-features.md#event-retention) | 7일, TU당 84GB 포함 | 90일, CU당 10TB 포함 |
-| 캡처 | 시간당 요금 부과 | 포함 |
+Event Hubs Dedicated 제품은 고정된 월별 가격으로 청구되며, 최소 사용량은 4시간입니다. 전용 계층은 프리미엄 요금제의 모든 기능을 제공하지만, 워크로드가 까다로운 고객을 위해 엔터프라이즈급 용량 및 제한을 제공합니다. 
 
 할당량 및 제한에 대한 자세한 내용은 [Event Hubs 할당량 및 제한](event-hubs-quotas.md)을 참조하세요.
 
@@ -71,4 +54,4 @@ Event Hubs Dedicated에 대한 추가 정보를 얻으려면, Microsoft 영업 �
 
 - [Azure Portal](https://aka.ms/eventhubsclusterquickstart)을 통해 Event Hub 클러스터 만들기 
 - [Event Hubs Dedicated 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/) Microsoft 영업 담당자 또는 Microsoft 지원 서비스에서 Event Hubs Dedicated 용량에 대한 추가 정보를 얻을 수도 있습니다.
-- [Event Hubs FAQ](event-hubs-faq.md)에서는 가격 책정 정보를 설명하고 이벤트 허브에 대해 일부 자주 묻는 질문에 대한 답변을 제공합니다.
+- [Event Hubs FAQ](event-hubs-faq.yml)에서는 가격 책정 정보를 설명하고 이벤트 허브에 대해 일부 자주 묻는 질문에 대한 답변을 제공합니다.

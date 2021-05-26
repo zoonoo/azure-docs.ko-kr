@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
-ms.openlocfilehash: 6a77cfd933b79e3ada02e90f900467cedf08e406
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: b3f313000bf66162cd4abffa18fd2b7bfbfb0693
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107889973"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458572"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용하여 기계 학습 파이프라인 만들기 및 실행
 
@@ -32,7 +32,7 @@ ML 파이프라인은 컴퓨팅 대상에서 실행됩니다([Azure Machine Lear
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
@@ -286,7 +286,7 @@ ws = Run.get_context().experiment.workspace
 
 파이프라인의 동작을 최적화하고 사용자 지정하려면 캐싱 및 재사용과 관련된 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 수행하도록 선택할 수 있습니다.
 + [단계 정의](/python/api/azureml-pipeline-steps/) 중에 `allow_reuse=False`를 설정하여 **단계 실행 출력의 기본 재사용을 해제** 합니다. 불필요하게 실행할 필요가 없어지면 민첩성이 제공되므로 협업 환경에서 파이프라인을 사용할 때 재사용하는 것이 중요합니다. 그러나 재사용을 옵트아웃할 수 있습니다.
-+ `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`를 사용하여 **실행의 모든 ​​단계에 대한 출력 강제 재생성**
++ `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`를 사용하여 **실행의 모든 ​​단계에 대한 출력 강제 재생성**
 
 기본적으로 단계에 대해 `allow_reuse`가 사용 가능하고 단계 정의에 지정된 `source_directory`가 해시됩니다. 따라서 지정된 단계에 대한 스크립트가 동일하게 유지되고(`script_name`, 입력 및 매개 변수) ` source_directory`의 다른 항목이 변경되지 않으면 이전 단계 실행의 출력이 재사용되고 컴퓨팅에 작업이 제출되지 않으며, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 05/18/2021
 ms.author: aahi
-ms.openlocfilehash: 38fda578a2151d1d5cf306095b3be49cb916977b
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b1af4e147f960e8e241a2d49ac94b7fb2594207f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287431"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078205"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Text Analytics API v3 언어 지원 
 
@@ -233,9 +233,17 @@ Text Analytics API는 다양한 언어, 변형, 방언 및 일부 지역/문화 
 |통가어|`to`|✓|2020-09-01|
 |터키어|`tr`|✓|2021-01-05|
 |투르크멘어|`tk`|✓|2021-01-05|
+|우크라이나어|`uk`|✓||
+|우르두어|`ur`|✓||
+|우즈베크어|`uz`|✓||
+|베트남어|`vi`|✓||
+|웨일스어|`cy`|✓|| 
 |코사어|`xh`|✓|2021-01-05|
+|이디시어|`yi`|✓||
 |요루바어|`yo`|✓|2021-01-05|
+|유카텍 마야어| `yua` | ✓| |
 |줄루어|`zu`|✓|2021-01-05|
+
 
 ---
 

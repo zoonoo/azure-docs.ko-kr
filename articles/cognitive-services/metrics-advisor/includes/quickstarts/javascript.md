@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: include
 ms.date: 11/09/2020
 ms.author: mbullwin
-ms.openlocfilehash: f34720697e545a4d8a5119605db2db70dff6c233
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6ed565c624e542771bdb4f205e618f8fb2b53ed5
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444411"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109844417"
 ---
 [참조 설명서](/java/api/overview/azure/ai-metricsadvisor-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/README.md) | [패키지(npm)](https://www.npmjs.com/package/@azure/ai-metrics-advisor) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples)
 
@@ -60,7 +60,7 @@ npm install @azure/ai-metrics-advisor@1.0.0-beta.2
 파일 `index.js`를 만들고 다음 라이브러리를 가져옵니다.
 
 > [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples/javascript)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
+> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/metricsadvisor/ai-metrics-advisor/samples/v1/javascript)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 
 

@@ -1,6 +1,6 @@
 ---
 title: 영수증 - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: Form Recognizer API 사용 및 제한으로 영수증 분석과 관련된 개념을 알아봅니다.
 services: cognitive-services
 author: laujan
@@ -10,33 +10,55 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 96625959c089c46b04b13216bbb9ea4b74ef4feb
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 9d37811c89cd42053333bfb8ddc17dfbb47b907c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331865"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374706"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Form Recognizer 미리 빌드된 영수증 모델
 
-Azure Form Recognizer는 미리 빌드된 영수증 모델을 사용하여 판매 영수증에서 정보를 분석하고 추출할 수 있습니다. 강력한 [OCR(광학 인식)](../computer-vision/overview-ocr.md) 기능을 심층 학습 모델과 결합하여 영어로 작성된 영수증에서 주요 정보를 추출합니다.
-
-## <a name="understanding-receipts"></a>영수증 이해하기
-
 많은 기업과 개인은 여전히 판매 영수증에서 수동으로 추출된 데이터를 사용합니다. 이러한 영수증에서 데이터를 자동으로 추출하는 것은 복잡할 수 있습니다. 영수증은 구겨져서 내용을 이해하기 어려울 수 있고, 손으로 필기된 부분이 있을 수 있으며, 품질이 낮은 스마트폰 이미지일 수 있습니다. 또한 영수증의 템플릿 및 필드는 시장, 지역 및 판매자에 따라 크게 다를 수 있습니다. 이러한 데이터 추출 및 현장 검색과 관련된 문제는 영수증 처리를 고유한 문제로 만듭니다.
 
-Receipt API는 OCR(광학 인식) 및 미리 빌드된 모델을 사용하여 방대한 영수증 처리 시나리오를 가능하게 합니다. Receipt API를 사용하면 모델을 학습하지 않아도 됩니다. 영수증의 이미지를 분석 Receipt API로 보내고 데이터를 추출합니다.
+Azure Form Recognizer는 미리 빌드된 영수증 모델을 사용하여 판매 영수증에서 정보를 분석하고 추출할 수 있습니다. 또한 강력한 [OCR(광학 문자 인식)](../computer-vision/overview-ocr.md) 기능을 딥 러닝 모델과 결합하여 영어로 작성된 판매자 이름, 판매자 전화 번호, 거래 날짜, 거래 총액, 영수증 내용 등에서 주요 정보를 추출합니다.
 
-![샘플 영수증](./media/receipts-example.jpg)
+## <a name="customer-scenarios"></a>고객 시나리오
 
+### <a name="business-expense-reporting"></a>비즈니스 경비 보고
+
+비즈니스 경비를 확인하는 데에는 종종 영수증 이미지의 데이터를 수동으로 입력하는 시간이 필요합니다. Receipt API를 사용하면 추출된 필드를 사용하여 이 프로세스를 부분적으로 자동화하고 영수증을 신속하게 분석할 수 있습니다.
+
+Receipt API는 추출된 필드 값을 여러 가지 방법으로 사용할 수 있도록 하는 간단한 JSON 출력입니다. 내부 비용 애플리케이션과 통합하여 경비 보고서를 미리 작성합니다. 이 시나리오에 대한 자세한 내용은 Acumatica에서 Receipt API를 활용하여 [덜 힘든 방식으로 비용을 보고](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 참조하세요.
+
+### <a name="auditing-and-accounting"></a>감사 및 회계
+
+Receipt API 출력은 지출 보고 및 보상 프로세스의 다양한 지점에서 많은 비용을 분석하는 데 사용할 수도 있습니다. 영수증을 처리하여 수동 감사 또는 빠른 승인에 대비해 심사해 볼 수 있습니다.
+
+Receipt 출력은 업무용 또는 개인용 사용을 위한 일반 부기에도 유용합니다. Receipt API를 사용하여 원시 영수증 이미지/PDF 데이터를 작업 가능한 디지털 출력으로 변환합니다.
+
+### <a name="consumer-behavior"></a>소비자 행동
+
+영수증에는 소비자 동작 및 쇼핑 추세 분석에 사용할 수 있는 유용한 데이터가 포함되어 있습니다.
+
+또한 Receipt API는 [AI Builder 영수증 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상시킵니다.
+
+## <a name="try-it-out"></a>사용해 보기
+
+Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [미리 빌드된 모델 사용해보기](https://aka.ms/fott-2.1-ga)
 
 ## <a name="what-does-the-receipt-service-do"></a>영수증 서비스에서 수행하는 작업은 무엇인가요?
 
 미리 빌드된 영수증 서비스는 판매 영수증의 콘텐츠&mdash;식당, 소매점 또는 식료품 스토어에서 일반적으로 받게 되는 영수증의 유형을 추출합니다.
 
+![샘플 영수증](./media/receipts-example.jpg)
+
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| 유형 | Description | 텍스트 | 값(표준화된 출력) |
+|이름| Type | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----| :----|
 | ReceiptType | 문자열 | 판매 영수증의 유형 | 항목화 |  |
 | MerchantName | 문자열 | 영수증을 발급한 판매자의 이름 | Contoso |  |
@@ -62,21 +84,14 @@ Receipt API는 OCR(광학 인식) 및 미리 빌드된 모델을 사용하여 �
 * OCR 원시 텍스트(영수증 전체에 대해 OCR 추출된 텍스트 출력)
 * 각 값, 줄 및 단어에 대한 경계 상자
 
-## <a name="try-it-out"></a>사용해 보기
-
-Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
-
-> [!div class="nextstepaction"]
-> [미리 빌드된 모델 사용해보기](https://fott-preview.azurewebsites.net/)
-
 ## <a name="input-requirements"></a>입력 요구 사항
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="supported-locales"></a>지원되는 로캘
 
-* **미리 빌드된 영수증 v2.0**(GA)은 **en-us** 로캘의 판매 영수증을 지원합니다.
-* **미리 빌드된 영수증 v2.1-preview.3**(공개 미리 보기)에는 다음 영어로 된 영수증 로캘에 대한 지원이 추가됩니다.
+* **미리 빌드된 영수증 v2.0** 은 **en-us** 로캘의 판매 영수증을 지원합니다.
+* **미리 빌드된 영수증 v2.1** 에는 다음 영어로 된 영수증 로캘에 대한 지원이 추가됩니다.
 
 * **en-au**
 * **en-ca**
@@ -86,12 +101,11 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
   > [!NOTE]
   > 언어 입력
   >
-  > 미리 빌드된 영수증 v2.1-preview.3에는 추가적인 영어권 시장에서 영수증 로캘을 지정하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아(EN-US), 캐나다(EN-CA), 영국(EN-GB) 및 인도(EN-IN) 각국의 영어로 된 판매 영수증을 위해 로캘을 지정하여 향상된 결과를 얻을 수 있습니다. v2.1-preview.3에 지정된 로캘이 없으면 모델은 기본적으로 EN-US(미국 영어) 모델로 지정됩니다.
-
+  > 미리 빌드된 영수증 v2.1에는 추가적인 영어권 시장에서 영수증 로캘을 지정하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아(en-au), 캐나다(en-ca), 영국(en-gb) 및 인도(en-in) 각국의 영어로 된 판매 영수증을 위해 로캘을 지정하여 향상된 결과를 얻을 수 있습니다. v2.1에 지정된 로캘이 없으면 모델은 기본적으로 en-us 모델로 지정됩니다.
 
 ## <a name="the-analyze-receipt-operation"></a>영수증 분석 작업
 
-[영수증 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)은 영수증의 이미지나 PDF를 입력으로 사용하고 이율 및 텍스트의 값을 추출합니다. 호출은 `Operation-Location`이라는 응답 헤더 필드를 반환합니다. `Operation-Location` 값은 다음 단계에서 사용할 결과 ID를 포함하는 URL입니다.
+[영수증 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)은 영수증의 이미지나 PDF를 입력으로 사용하고 이율 및 텍스트의 값을 추출합니다. 호출은 `Operation-Location`이라는 응답 헤더 필드를 반환합니다. `Operation-Location` 값은 다음 단계에서 사용할 결과 ID를 포함하는 URL입니다.
 
 |응답 헤더| 결과 URL |
 |:-----|:----|
@@ -99,9 +113,9 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>영수증 결과 분석 가져오기 작업
 
-두 번째 단계는 [영수증 분석 결과 가져오기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) 작업을 호출하는 것입니다. 이 작업은 영수증 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다. **성공한** 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청) 속도를 초과하지 않도록 합니다.
+두 번째 단계는 [영수증 분석 결과 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/GetAnalyzeReceiptResult) 작업을 호출하는 것입니다. 이 작업은 영수증 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다. **succeeded** 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청 수) 속도를 초과하지 않도록 합니다.
 
-|필드| 형식 | 가능한 값 |
+|필드| Type | 가능한 값 |
 |:-----|:----:|:----|
 |상태 | 문자열 | notStarted: 작업이 시작되지 않았습니다. |
 | |  | running: 분석 작업이 진행 중입니다. |
@@ -113,7 +127,6 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 ![샘플 영수증 결과](./media/contoso-receipt-2-information.png)
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
-
 
 영수증 분석 결과 가져오기 작업에 대한 응답은 모든 정보가 추출된 영수증을 구조화된 방식으로 표현한 것입니다.  [샘플 영수증 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) 및 해당 구조화된 출력 [샘플 영수증 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)은 여기를 참조하세요.
 
@@ -446,37 +459,7 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 }
 ```
 
-## <a name="customer-scenarios"></a>고객 시나리오
-
-Receipt API를 사용하여 추출된 데이터를 사용하여 다양한 작업을 수행할 수 있습니다. 다음은 고객이 Receipt API를 사용하여 수행하는 작업의 몇 가지 예입니다.
-
-### <a name="business-expense-reporting"></a>비즈니스 경비 보고
-
-비즈니스 경비를 확인하는 데에는 종종 영수증 이미지의 데이터를 수동으로 입력하는 시간이 필요합니다. Receipt API를 사용하면 추출된 필드를 사용하여 이 프로세스를 부분적으로 자동화하고 영수증을 신속하게 분석할 수 있습니다.
-
-Receipt API는 추출된 필드 값을 여러 가지 방법으로 사용할 수 있도록 하는 간단한 JSON 출력입니다. 내부 비용 애플리케이션과 통합하여 경비 보고서를 미리 작성합니다. 이 시나리오에 대한 자세한 내용은 Acumatica에서 Receipt API를 활용하여 [덜 힘든 방식으로 비용을 보고](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure)하는 프로세스를 참조하세요.
-
-### <a name="auditing-and-accounting"></a>감사 및 회계
-
-Receipt API 출력은 지출 보고 및 보상 프로세스의 다양한 지점에서 많은 비용을 분석하는 데 사용할 수도 있습니다. 영수증을 처리하여 수동 감사 또는 빠른 승인에 대비해 심사해 볼 수 있습니다.
-
-Receipt 출력은 업무용 또는 개인용 사용을 위한 일반 부기에도 유용합니다. Receipt API를 사용하여 원시 영수증 이미지/PDF 데이터를 작업 가능한 디지털 출력으로 변환합니다.
-
-### <a name="consumer-behavior"></a>소비자 행동
-
-영수증에는 소비자 동작 및 쇼핑 추세 분석에 사용할 수 있는 유용한 데이터가 포함되어 있습니다.
-
-또한 Receipt API는 [AI Builder 영수증 처리 기능](/ai-builder/prebuilt-receipt-processing)을 향상시킵니다.
-
 ## <a name="next-steps"></a>다음 단계
 
- 사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 영수증 처리 앱 작성을 시작합니다.
-
-> [!div class="nextstepaction"]
-> [Form Recognizer 빠른 시작 완료](quickstarts/client-library.md)
-
-## <a name="see-also"></a>참조
-
-* [Form Recognizer란?](overview.md)
-* [Form Recognizer API 참조](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeReceiptAsync)
->
+* 사용자 고유의 영수증과 샘플을 [Form Recognizer 샘플 UI](https://fott-preview.azurewebsites.net/)에서 사용해 보세요.
+* 사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 영수증 처리 앱 작성을 시작하려면 [Form Recognizer 빠른 시작](quickstarts/client-library.md)을 완료하세요.
