@@ -133,6 +133,8 @@
           href: zone-redundancy.md
         - name: 자체 호스팅 게이트웨이 프로비전
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Azure Arc에 Azure API Management 게이트웨이 배포
+          href: how-to-deploy-self-hosted-gateway-azure-arc.md
         - name: Azure Kubernetes Service에 자체 호스팅 게이트웨이 배포
           href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Kubernetes에 자체 호스팅 게이트웨이 배포

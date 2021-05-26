@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80472aad39e5d1b23cd92519076e0c8b94d67ac
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600720"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478885"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -251,13 +251,13 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 스토리�
 >
 >
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 아래 코드 샘플은 사용자 지정 클라이언트 요청 ID를 사용하는 방법을 보여 줍니다. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_UseCustomRequestID":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 스토리지 클라이언트 라이브러리가 클라이언트에서 **StorageException** 을 throw하는 경우 **RequestInformation** 속성은 **RequestResult** 개체를 포함하며, 이 개체에는 **ServiceRequestID** 속성이 포함됩니다. **OperationContext** 인스턴스에서 **RequestResult** 개체에 액세스할 수도 있습니다.
 
@@ -363,11 +363,11 @@ catch (StorageException storageException)
 
 테이블 및 큐 서비스의 경우 Nagle 알고리즘으로 인해 **AverageServerLatency** 에 비해 **AverageE2ELatency** 가 길어질 수 있습니다. 자세한 내용은 [소규모 요청에는 적합하지 않은 Nagle 알고리즘](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests) 게시물을 참조하세요. **System.Net** 네임스페이스에서 **ServicePointManager** 클래스를 사용하여 코드에서 Nagle 알고리즘을 사용하지 않도록 설정할 수 있습니다. 이 작업은 이미 열려 있는 연결에는 영향을 주지 않으므로 애플리케이션에서 테이블 또는 큐 서비스를 호출하기 전에 이 작업을 수행해야 합니다. 아래에는 작업자 역할의 **Application_Start** 메서드 예제가 나와 있습니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_DisableNagle":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -601,11 +601,11 @@ JavaScript 문제를 해결하려면 클라이언트가 액세스하는 스토�
 
 다음 코드 샘플에서는 Contoso 도메인에서 실행되는 JavaScript가 Blob Storage 서비스의 Blob에 액세스할 수 있도록 Blob 서비스를 구성하는 방법을 보여 줍니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Monitoring.cs" id="Snippet_ConfigureCORS":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));

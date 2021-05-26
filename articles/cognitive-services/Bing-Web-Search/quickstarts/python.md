@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-python
-ms.openlocfilehash: 5a9eff1ef012e66f661ee99852a8d82f117a45c4
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: c1393b599b990cce055740c1ae55079168c36a86
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350520"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479411"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>빠른 시작: Python을 사용하여 Bing Web Search API 호출  
 
@@ -49,7 +49,7 @@ ms.locfileid: "96350520"
 2. Bing Web Search API 엔드포인트를 선언합니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
 
    ```python
-   search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+   search_url = "https://api.bing.microsoft.com/v7.0/search"
    ```
 
 3. 필요에 따라 `search_term`의 값을 바꿔 검색 쿼리를 사용자 지정합니다.

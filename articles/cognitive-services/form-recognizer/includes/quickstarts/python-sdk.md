@@ -7,25 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/09/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 606755333856f6dd97ab6c5158ac67f122a1237d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 0210ef3d82997887cd306098d4db7934443cd300
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516467"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374240"
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 >
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요.
 
 [참조 설명서](/python/api/azure-ai-formrecognizer) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/azure/ai/formrecognizer) | [패키지(PyPi)](https://pypi.org/project/azure-ai-formrecognizer/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
@@ -41,7 +42,7 @@ ms.locfileid: "107516467"
 
 Python을 설치한 후 다음을 사용하여 최신 버전의 Form Recognizer 클라이언트 라이브러리를 설치할 수 있습니다.
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 ```console
 pip install azure-ai-formrecognizer --pre
@@ -50,7 +51,7 @@ pip install azure-ai-formrecognizer --pre
 > [!NOTE]
 > Form Recognizer 3.1.0b4는 최신 SDK 미리 보기 버전이며 _API 버전 2.1 preview.3_ 을 반영합니다.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 ```console
 pip install azure-ai-formrecognizer
@@ -76,7 +77,7 @@ pip install azure-ai-formrecognizer
 
 ## <a name="object-model"></a>개체 모델
 
-Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만들 수 있습니다. 첫 번째, `form_recognizer_client`는 양식 필드 및 콘텐츠를 인식하는 서비스를 쿼리하는 데 사용됩니다. 두 번째, `form_training_client`는 인식을 향상시키는 데 사용할 수 있는 사용자 지정 모델을 만들고 관리하는 데 사용됩니다. 
+Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만들 수 있습니다. 첫 번째, `form_recognizer_client`는 양식 필드 및 콘텐츠를 인식하는 서비스를 쿼리하는 데 사용됩니다. 두 번째, `form_training_client`는 인식을 향상시키는 데 사용할 수 있는 사용자 지정 모델을 만들고 관리하는 데 사용됩니다.
 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 
@@ -96,14 +97,14 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * 하나의 Form Recognizer 리소스에서 다른 리소스로 사용자 지정 모델을 복사합니다.
 
 > [!NOTE]
-> [Form Recognizer 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
+> [Form Recognizer 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 여기에 나와 있는 코드 조각에서는 Python용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [레이아웃 분석](#analyze-layout)
@@ -113,16 +114,16 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [ID 문서 분석](#analyze-identity-documents)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
 * [사용자 지정 모델 학습](#train-a-custom-model)
-* [사용자 지정 모델 관리](#manage-your-custom-models)
+* [사용자 지정 모델 관리](#manage-custom-models)
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [레이아웃 분석](#analyze-layout)
 * [영수증 분석](#analyze-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-your-custom-models)
+* [사용자 지정 모델 관리](#manage-custom-models)
 
 ---
 
@@ -140,7 +141,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 
-* 아래 샘플에 포함된 샘플 양식 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다. 
+* 아래 샘플에 포함된 샘플 양식 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다.
 
 > [!NOTE]
 > 이 가이드의 코드 조각은 URL을 통해 액세스되는 원격 양식을 사용합니다. 로컬 양식 문서를 대신 처리하려는 경우 [참조 설명서](/python/api/azure-ai-formrecognizer) 및 [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 관련 메서드를 참조하세요.
@@ -212,9 +213,9 @@ Total: 1203.39 has confidence 0.774
 
 ## <a name="analyze-business-cards"></a>명함 분석
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
-이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요. 
+이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요.
 
 URL에서 명함을 분석하려면 `begin_recognize_business_cards_from_url` 메서드를 사용합니다.
 
@@ -223,7 +224,7 @@ URL에서 명함을 분석하려면 `begin_recognize_business_cards_from_url` �
 > [!TIP]
 > 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_business_cards`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
@@ -232,9 +233,9 @@ URL에서 명함을 분석하려면 `begin_recognize_business_cards_from_url` �
 
 ## <a name="analyze-invoices"></a>송장 분석
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
-이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요. 
+이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요.
 
 URL에서 청구서를 분석하려면 `begin_recognize_invoices_from_url` 메서드를 사용합니다.
 
@@ -243,7 +244,7 @@ URL에서 청구서를 분석하려면 `begin_recognize_invoices_from_url` 메�
 > [!TIP]
 > 로컬 청구서 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: `begin_recognize_invoices`)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
@@ -252,7 +253,7 @@ URL에서 청구서를 분석하려면 `begin_recognize_invoices_from_url` 메�
 
 ## <a name="analyze-identity-documents"></a>ID 문서 분석
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 
@@ -263,7 +264,7 @@ URL에서 ID 문서를 분석하려면 `begin_recognize_id_documents_from_url` �
 > [!TIP]
 > ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true#methods) 메서드(예: `begin_recognize_id_documents`)를 _참조_ 하세요. _또_ 한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples)의 샘플 코드를 참조하세요.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
@@ -275,7 +276,7 @@ URL에서 ID 문서를 분석하려면 `begin_recognize_id_documents_from_url` �
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
+> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -324,7 +325,7 @@ Document errors: []
 학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 반환된 `CustomFormModel`은 각 필드의 예상 정확도와 함께 모델이 추출할 수 있는 필드를 표시합니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
 > [!IMPORTANT]
-> 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *use_training_labels* 매개 변수를 통해 `begin_training` 함수를 호출할 수 있습니다.
+> 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *use_training_labels* 매개 변수를 통해 `begin_training` 함수를 호출할 수 있습니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_trainlabels)]
 
@@ -400,8 +401,7 @@ Field 'Tax' has label 'Tax' with value 'None' and a confidence score of None
 Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 ```
 
-
-## <a name="manage-your-custom-models"></a>사용자 지정 모델 관리
+## <a name="manage-custom-models"></a>사용자 지정 모델 관리
 
 이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다.
 
@@ -410,7 +410,6 @@ Field 'Total' has label 'Total' with value 'None' and a confidence score of None
 다음 코드 블록은 Form Recognizer 계정에 저장된 모델 수를 확인하고 이를 계정 제한과 비교합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_count)]
-
 
 ### <a name="output"></a>출력
 
@@ -423,7 +422,6 @@ Our account has 5 custom models, and we can have at most 5000 custom models
 다음 코드 블록은 계정의 현재 모델을 나열하고 해당 세부 정보를 콘솔에 출력합니다. 첫 번째 모델에 대한 참조도 저장합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_list)]
-
 
 ### <a name="output"></a>출력
 
@@ -444,7 +442,6 @@ c6309148-6b64-4fef-aea0-d39521452699
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_getmodel)]
 
-
 ### <a name="output"></a>출력
 
 이는 이전 예제에서 만든 사용자 지정 모델에 대한 샘플 출력입니다.
@@ -461,7 +458,6 @@ Training completed on: 2020-08-20 23:20:57+00:00
 해당 ID를 참조하여 계정에서 모델을 삭제할 수도 있습니다. 이 코드는 이전 섹션에서 사용된 모델을 삭제합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_manage_delete)]
-
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
@@ -492,10 +488,23 @@ Form Recognizer 클라이언트 라이브러리에서 [Azure Core](https://aka.m
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerLogging.py?name=snippet_logging)]
 
-
 마찬가지로 `logging_enable`은 클라이언트에 대해 상세 로깅을 사용하지 않는 경우에도 한 작업에만 사용하게 설정할 수 있습니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerLogging.py?name=snippet_example)]
+
+## <a name="rest-samples-on-github"></a>GitHub의 REST 샘플
+
+* 문서에서 텍스트, 선택 표시 및 표 구조 추출
+  * [레이아웃 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
+* 사용자 지정 모델 학습 및 양식 데이터 추출
+  * [레이블 없이 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
+  * [레이블을 사용하여 학습 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
+* 송장에서 데이터 추출
+  * [송장 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-invoices.md)
+* 판매 영수증에서 데이터 추출
+  * [영수증 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-receipts.md)
+* 비즈니스 카드에서 데이터 추출
+  * [명함 데이터 추출 - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-business-cards.md)
 
 ## <a name="next-steps"></a>다음 단계
 

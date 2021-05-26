@@ -1,26 +1,27 @@
 ---
 title: '빠른 시작: Java용 Form Recognizer 클라이언트 라이브러리'
-description: Java용 Form Recognizer 클라이언트 라이브러리를 사용하여 사용자 지정 문서에서 키/값 쌍 및 테이블 데이터를 추출하는 양식 처리 앱을 만듭니다.
+description: Form Recognizer Java 클라이언트 라이브러리를 사용하여 사용자 지정 문서에서 키/값 쌍 및 테이블 데이터를 추출하는 양식 처리 앱을 만듭니다.
 services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/12/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: cd5e6383e71e3f37a26b866156b64c86302f6990
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: fa98977d25f6c1c406b95d0817e841d25c28394f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107516403"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374213"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 > 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
 
@@ -60,7 +61,7 @@ gradle init --type basic
 
 프로젝트의 *build.gradle.kts* 파일에서 필요한 플러그 인 및 설정과 함께 클라이언트 라이브러리를 `implementation` 문으로 포함합니다.
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 ```kotlin
 plugins {
@@ -81,7 +82,7 @@ dependencies {
 > [!NOTE]
 > Form Recognizer 3.1.0-beta.3 SDK는 _API 버전 2.1-preview.3_ 을 반영합니다.
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 ```kotlin
 plugins {
@@ -106,7 +107,6 @@ dependencies {
 
 ### <a name="create-a-java-file"></a>Java 파일 만들기
 
-
 작업 디렉터리에서 다음 명령을 실행합니다.
 
 ```console
@@ -119,7 +119,6 @@ mkdir -p src/main/java
 
 > [!TIP]
 > 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
-
 
 애플리케이션의 **FormRecognizer** 클래스에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
 
@@ -138,13 +137,13 @@ mkdir -p src/main/java
 * 테스트할 양식의 URL을 가져오려면 위의 단계를 따라 Blob Storage에 있는 개별 문서의 SAS URL을 가져오면 됩니다. 또는 다른 위치에 있는 문서의 URL을 가져옵니다.
 * 위의 방법을 사용하여 영수증 이미지의 URL도 가져올 수 있습니다.
 <!-- markdownlint-disable MD024 -->
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
 
@@ -174,13 +173,13 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * 하나의 Form Recognizer 리소스에서 다른 리소스로 사용자 지정 모델을 복사합니다.
 
 > [!NOTE]
-> [Form Recognizer 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
+> [Form Recognizer 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
 여기에 나와 있는 코드 조각에서는 Java용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
 <!-- markdownlint-disable MD001 -->
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [레이아웃 분석](#analyze-layout)
@@ -190,16 +189,16 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [ID 문서 분석](#analyze-identity-documents)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-your-custom-models)
+* [사용자 지정 모델 관리](#manage-custom-models)
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 * [클라이언트 인증](#authenticate-the-client)
 * [레이아웃 분석](#analyze-layout)
 * [영수증 분석](#analyze-receipts)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-your-custom-models)
+* [사용자 지정 모델 관리](#manage-custom-models)
 
 ---
 
@@ -223,6 +222,7 @@ Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 �
 그러면 제출된 문서의 각 페이지당 하나씩 **FormPage** 개체 컬렉션이 반환됩니다. 다음 코드는 이러한 개체에서 반복되고 추출된 키/값 쌍 및 테이블 데이터를 출력합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
+
 ### <a name="output"></a>출력
 
 ```console
@@ -241,6 +241,7 @@ Cell has text 4/16/2018.
 Cell has text $89,024.34.
 Cell has text ET.
 ```
+
 ## <a name="analyze-receipts"></a>영수증 분석
 
 이 섹션에서는 사전 학습된 영수증 모델을 사용하여 미국 영수증의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 영수증 분석에 대한 자세한 내용은 [영수증 개념 가이드](../../concept-receipts.md)를 참조하세요.
@@ -279,7 +280,7 @@ Total Price: null, confidence: 0.93
 
 ## <a name="analyze-business-cards"></a>명함 분석
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요.
 
@@ -294,7 +295,7 @@ URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서�
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
@@ -303,7 +304,7 @@ URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서�
 
 ## <a name="analyze-invoices"></a>송장 분석
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요.
 
@@ -318,7 +319,7 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
@@ -327,7 +328,7 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 
 ## <a name="analyze-identity-documents"></a>ID 문서 분석
 
-#### <a name="v21-preview"></a>[v2.1 미리 보기](#tab/preview)
+#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 
@@ -342,7 +343,7 @@ URI에서 ID 문서를 분석하려면 `beginRecognizeIdDocumentsFromUrl` 메서
 
 :::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
 
-#### <a name="v20"></a>[v2.0](#tab/ga)
+#### <a name="v20"></a>[v2.0](#tab/2-0)
 
 > [!IMPORTANT]
 > 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
@@ -354,7 +355,7 @@ URI에서 ID 문서를 분석하려면 `beginRecognizeIdDocumentsFromUrl` 메서
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
+> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -394,15 +395,13 @@ The model found field 'field-6' with label: VAT ID
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *useTrainingLabels* 매개 변수를 사용하여 **beginTraining** 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습시키려면 학습 문서와 별도로 Blob Storage 컨테이너에 특별한 레이블 정보 파일( *\<filename\>.pdf.labels.json*)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 *useTrainingLabels* 매개 변수를 사용하여 **beginTraining** 메서드를 호출할 수 있습니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
-
 
 반환된 **CustomFormModel** 은 각 필드의 예상 정확도와 함께 모델이 추출할 수 있는 필드를 표시합니다. 다음 코드 블록은 이 정보를 콘솔에 출력합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
-
 
 ### <a name="output"></a>출력
 
@@ -442,7 +441,6 @@ The model found field 'field-6' with label: VAT ID
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
-
 ### <a name="output"></a>출력
 
 ```console
@@ -458,21 +456,17 @@ Field 'field-5' has label 'Charges' with a confidence score of 1.00.
 Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 ```
 
-
-
 ## <a name="manage-custom-models"></a>사용자 지정 모델 관리
 
 이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다. 다음 코드는 단일 메서드의 모든 모델 관리 작업을 수행하는 예를 보여 줍니다. 우선 아래의 메서드 시그니처를 복사하세요.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage)]
 
-
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>FormRecognizer 리소스 계정의 모델 수 확인
 
 다음 코드 블록은 Form Recognizer 계정에 저장된 모델 수를 확인하고 이를 계정 제한과 비교합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
-
 
 #### <a name="output"></a>출력
 
@@ -485,7 +479,6 @@ The account has 12 custom models, and we can have at most 250 custom models
 다음 코드 블록은 계정의 현재 모델을 나열하고 해당 세부 정보를 콘솔에 출력합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
-
 
 #### <a name="output"></a>출력
 

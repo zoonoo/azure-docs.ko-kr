@@ -7,12 +7,12 @@ ms.reviewer: logicappspm, azla
 ms.topic: conceptual
 ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb8e97dfd929be96d51c761ff91c91cc033d5127
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367421"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847838"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Azure Logic Apps 및 Azure Service Bus를 사용하여 클라우드에서 메시지 교환
 
@@ -33,11 +33,11 @@ ms.locfileid: "100367421"
 
 * Azure 계정 및 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* Service Bus 네임스페이스 및 메시징 엔터티(예: 큐). 이러한 항목과 논리 앱은 동일한 Azure 구독을 사용해야 합니다. 이러한 항목에 없는 경우 [Service Bus 네임스페이스 및 큐를 만드는](../service-bus-messaging/service-bus-create-namespace-portal.md) 방법을 알아봅니다.
+* Service Bus 네임스페이스 및 메시징 엔터티(예: 큐). 이러한 항목에 없는 경우 [Service Bus 네임스페이스 및 큐를 만드는](../service-bus-messaging/service-bus-create-namespace-portal.md) 방법을 알아봅니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
-* Service Bus 네임스페이스 및 메시징 엔터티를 사용하는 논리 앱입니다. 논리 앱과 Service Bus는 동일한 Azure 구독을 사용해야 합니다. Service Bus 트리거로 워크플로를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). 워크플로에 Service Bus 동작을 사용하려면 [되풀이 트리거](../connectors/connectors-native-recurrence.md) 같은 다른 트리거를 통해 논리 앱을 시작합니다.
+* Service Bus 네임스페이스 및 메시징 엔터티를 사용하는 논리 앱입니다. Service Bus 트리거로 워크플로를 시작하려면 [빈 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). 워크플로에 Service Bus 동작을 사용하려면 [되풀이 트리거](../connectors/connectors-native-recurrence.md) 같은 다른 트리거를 통해 논리 앱을 시작합니다.
 
 <a name="permissions-connection-string"></a>
 

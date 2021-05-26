@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 2acf5178e7d1cfdf907146d733150a48e9696a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d47d93c7e1456cbd589aec34c2840a4b8257c8eb
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101712354"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109848162"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -560,7 +560,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | 클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  `x-ms-correlationid`  | 클라이언트의 작업에 대한 고유한 문자열 값입니다.  이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결합니다.  이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  `authorization`     |  이 API 호출을 수행하는 게시자를 식별하는 고유한 액세스 토큰입니다.  [Azure AD 앱에 따라 토큰 가져오기](./pc-saas-registration.md#get-the-token-with-an-http-post)에 설명된 대로 게시자가 토큰 값을 검색하는 경우 `"Bearer <access_token>"` 형식입니다. |
+|  `authorization`     |  이 API 호출을 수행하는 게시자를 식별하는 고유한 액세스 토큰입니다.  `"Bearer <access_token>"`Azure AD 앱에 따라 토큰 가져오기[에 설명된 대로 게시자가 토큰 값을 검색하는 경우 ](./pc-saas-registration.md#get-the-token-with-an-http-post) 형식입니다. |
 
 *요청 페이로드 예제:*
 
@@ -625,7 +625,7 @@ Code: 200 이미 구매한 플랜을 포함하여 기존 SaaS 구독에 대해 �
 |  `content-type`      | `application/json`  |
 |  `x-ms-requestid`    | 클라이언트의 요청을 추적하기 위한 고유한 문자열 값(기본적으로 GUID)입니다.  이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
 |  `x-ms-correlationid`  | 클라이언트의 작업에 대한 고유한 문자열 값입니다.  이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상호 연결합니다.  이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다.  |
-|  `authorization`     | 이 API 호출을 수행하는 게시자를 식별하는 고유한 액세스 토큰입니다.  [Azure AD 앱에 따라 토큰 가져오기](./pc-saas-registration.md#get-the-token-with-an-http-post)에 설명된 대로 게시자가 토큰 값을 검색하는 경우 `"Bearer <access_token>"` 형식입니다.  |
+|  `authorization`     | 이 API 호출을 수행하는 게시자를 식별하는 고유한 액세스 토큰입니다.  `"Bearer <access_token>"`Azure AD 앱에 따라 토큰 가져오기[에 설명된 대로 게시자가 토큰 값을 검색하는 경우 ](./pc-saas-registration.md#get-the-token-with-an-http-post) 형식입니다.  |
 
 *요청 페이로드 예제:*
 
@@ -945,7 +945,7 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
   "quantity": " 20",
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
-  "status": "In Progress"
+  "status": "InProgress"
 }
 ```
 

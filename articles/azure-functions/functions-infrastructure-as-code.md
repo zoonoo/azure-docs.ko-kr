@@ -5,16 +5,16 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: e5de54384d59423ac5e4b8ab851faf98070d027d
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 072aa17783382c7d46298b2757b3bda9390e5e29
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278851"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368754"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
-Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있습니다. 이 문서에서는 이 작업을 수행하는 데 필요한 리소스와 매개 변수를 간략히 설명합니다. 함수 앱의 [트리거 및 바인딩](functions-triggers-bindings.md)에 따라 추가 리소스를 배포해야 할 수 있습니다.
+Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있습니다. 이 문서에서는 이 작업을 수행하는 데 필요한 리소스와 매개 변수를 간략히 설명합니다. 함수 앱의 [트리거 및 바인딩](functions-triggers-bindings.md)에 따라 다른 리소스를 배포해야 할 수 있습니다.
 
 템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/templates/template-syntax.md)를 참조하십시오.
 
@@ -56,7 +56,7 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성됩니다.
 }
 ```
 
-또한 속성 `AzureWebJobsStorage`가 사이트 구성에서 앱 설정으로 지정되어야 합니다. 함수 앱이 Application Insights를 모니터링에 사용하지 않으면 `AzureWebJobsDashboard`도 앱 설정으로 지정되어야 합니다.
+또한 사이트 구성에서 `AzureWebJobsStorage` 속성을 앱 설정으로 지정해야 합니다. 함수 앱이 Application Insights를 모니터링에 사용하지 않으면 `AzureWebJobsDashboard`도 앱 설정으로 지정되어야 합니다.
 
 Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사용하여 내부 큐를 만듭니다.  Application Insights가 활성화되지 않은 경우 런타임은 `AzureWebJobsDashboard` 연결 문자열을 사용하여 Azure Table Storage에 로그온하고 포털의 **모니터** 탭에 전원을 공급합니다.
 
@@ -186,16 +186,16 @@ Application Insights는 함수 앱 모니터링에 권장됩니다. Application 
 소비 계획은 특수한 유형의 "서버 팜" 리소스입니다. Windows의 경우 `computeMode` 및 `sku` 속성에 `Dynamic` 값을 사용하여 지정할 수 있습니다.
 
 ```json
-{  
+{
    "type":"Microsoft.Web/serverfarms",
    "apiVersion":"2016-09-01",
    "name":"[variables('hostingPlanName')]",
    "location":"[resourceGroup().location]",
-   "properties":{  
+   "properties":{
       "name":"[variables('hostingPlanName')]",
       "computeMode":"Dynamic"
    },
-   "sku":{  
+   "sku":{
       "name":"Y1",
       "tier":"Dynamic",
       "size":"Y1",
@@ -212,11 +212,11 @@ Application Insights는 함수 앱 모니터링에 권장됩니다. Application 
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-소비 계획에서 실행되는 함수 앱에 필요한 설정은 Windows와 Linux 간에 다릅니다. 
+소비 계획에서 실행되는 함수 앱에 필요한 설정은 Windows와 Linux 간에 다릅니다.
 
 #### <a name="windows"></a>Windows
 
-Windows에서 소비 계획을 사용하려면 사이트 구성에 추가 설정 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)이 필요합니다. 이 속성은 함수 앱 코드 및 구성이 저장되는 스토리지 계정을 구성합니다.
+Windows에서 소비 계획을 사용하려면 사이트 구성에 기타 설정인 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)이 필요합니다. 이 속성은 함수 앱 코드 및 구성이 저장되는 스토리지 계정을 구성합니다.
 
 ```json
 {
@@ -258,11 +258,11 @@ Windows에서 소비 계획을 사용하려면 사이트 구성에 추가 설정
 ```
 
 > [!IMPORTANT]
-> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 사이트를 처음 만들 때 자동으로 생성되므로 지정하지 마세요.  
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 사이트를 처음 만들 때 자동으로 생성되므로 지정하지 마세요.
 
 #### <a name="linux"></a>Linux
 
-Linux에서 함수 앱의 `kind`는 `functionapp,linux`로 설정되어 있어야 하며 `reserved` 속성은 `true`로 설정되어 있어야 합니다. 
+Linux에서 함수 앱의 `kind`는 `functionapp,linux`로 설정되어 있어야 하며 `reserved` 속성은 `true`로 설정되어 있어야 합니다.
 
 ```json
 {
@@ -334,7 +334,7 @@ Linux에서 함수 앱의 `kind`는 `functionapp,linux`로 설정되어 있어�
 
 ### <a name="create-a-function-app"></a>함수 앱 만들기
 
-프리미엄 계획의 함수 앱에는 `serverFarmId` 속성이 이전에 만든 계획의 리소스 ID로 설정되어 있어야 합니다. 또한 프리미엄 계획을 사용하려면 사이트 구성에 추가 설정 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)이 필요합니다. 이 속성은 함수 앱 코드 및 구성이 저장되는 스토리지 계정을 구성합니다.
+프리미엄 계획의 함수 앱에는 `serverFarmId` 속성이 이전에 만든 계획의 리소스 ID로 설정되어 있어야 합니다. 또한 프리미엄 계획을 사용하려면 사이트 구성에 추가 설정인 [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](functions-app-settings.md#website_contentazurefileconnectionstring)이 필요합니다. 이 속성은 함수 앱 코드 및 구성이 저장되는 스토리지 계정을 구성합니다.
 
 ```json
 {
@@ -342,7 +342,7 @@ Linux에서 함수 앱의 `kind`는 `functionapp,linux`로 설정되어 있어�
     "type": "Microsoft.Web/sites",
     "name": "[variables('functionAppName')]",
     "location": "[resourceGroup().location]",
-    "kind": "functionapp",            
+    "kind": "functionapp",
     "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
@@ -377,7 +377,7 @@ Linux에서 함수 앱의 `kind`는 `functionapp,linux`로 설정되어 있어�
 }
 ```
 > [!IMPORTANT]
-> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 사이트를 처음 만들 때 자동으로 생성되므로 지정하지 마세요.  
+> [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) 설정은 사이트를 처음 만들 때 자동으로 생성되므로 지정하지 마세요.
 
 <a name="app-service-plan"></a>
 
@@ -569,6 +569,109 @@ App Service 계획의 함수 앱에는 `serverFarmId` 속성이 이전에 만든
 }
 ```
 
+## <a name="deploy-to-azure-arc"></a>Azure Arc로 배포
+
+Azure Functions는 [Azure Arc 지원 Kubernetes](../app-service/overview-arc-integration.md)에 배포할 수 있습니다. 이 프로세스는 주로 [App Service 계획에 대한 배포](#deploy-on-app-service-plan)를 따르며, 몇 가지 차이점이 눈에 띕니다.
+
+앱 및 계획 리소스를 만들려면 Azure Arc 지원 Kubernetes 클러스터에 대해 이미 [App Service Kubernetes 환경이 만들어져](../app-service/manage-create-arc-environment.md) 있어야 합니다. 이 예에서는 배포하려는 App Service Kubernetes 환경과 사용자 지정 위치의 리소스 ID가 있는 것으로 가정합니다. 대부분의 템플릿에서는 이를 매개 변수로 제공할 수 있습니다.
+
+```json
+{
+    "parameters": {
+        "kubeEnvironmentId" : {
+            "type": "string"
+        },
+        "customLocationId" : {
+            "type": "string"
+        }
+    }
+}
+```
+
+사이트와 계획 둘 다 `extendedLocation` 필드를 통해 사용자 지정 위치를 참조해야 합니다. 이 블록은 `properties` 외부에서 `kind` 및 `location`에 피어링됩니다.
+
+```json
+{
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+}
+```
+
+계획 리소스는 Kubernetes(K1) SKU를 사용해야 하며 해당 `kind` 필드는 ‘inux,kubernetes’여야 합니다. `properties` 안에서 `reserved`는 ‘true’여야 하며 `kubeEnvironmentProfile.id`는 App Service Kubernetes 환경 리소스 ID로 설정되어야 합니다. 예제 계획은 다음과 유사할 수 있습니다.
+
+```json
+{
+    "type": "Microsoft.Web/serverfarms",
+    "name": "[variables('hostingPlanName')]",
+    "location": "[parameters('location')]",
+    "apiVersion": "2020-12-01",
+    "kind": "linux,kubernetes",
+    "sku": {
+        "name": "K1",
+        "tier": "Kubernetes"
+    },
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+    "properties": {
+        "name": "[variables('hostingPlanName')]",
+        "location": "[parameters('location')]",
+        "workerSizeId": "0",
+        "numberOfWorkers": "1",
+        "kubeEnvironmentProfile": {
+            "id": "[parameters('kubeEnvironmentId')]"
+        },
+        "reserved": true
+    }
+}
+```
+
+함수 앱 리소스에는 코드를 통해 배포할지 또는 컨테이너를 통해 배포할지 여부에 따라 ‘functionapp,linux,kubernetes’ 또는 ‘functionapp,linux,kubernetes,container’로 설정되는 `kind` 필드가 있어야 합니다. 예제 함수 앱은 다음과 유사할 수 있습니다.
+
+```json
+ {
+    "apiVersion": "2018-11-01",
+    "type": "Microsoft.Web/sites",
+    "name": "[variables('appName')]",
+    "kind": "kubernetes,functionapp,linux,container",
+    "location": "[parameters('location')]",
+    "extendedLocation": {
+        "type": "customlocation",
+        "name": "[parameters('customLocationId')]"
+    },
+    "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
+        "[variables('hostingPlanId')]"
+    ],
+    "properties": {
+        "serverFarmId": "[variables('hostingPlanId')]",
+        "siteConfig": {
+            "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice-quickstart",
+            "appSettings": [
+                {
+                    "name": "FUNCTIONS_EXTENSION_VERSION",
+                    "value": "~3"
+                },
+                {
+                    "name": "AzureWebJobsStorage",
+                    "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('storageAccountName'), ';AccountKey=', listKeys(variables('storageAccountid'),'2015-05-01-preview').key1)]"
+
+                },
+                {
+                    "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
+                    "value": "[reference(resourceId('microsoft.insights/components/', variables('appInsightsName')), '2015-05-01').InstrumentationKey]"
+                }
+            ],
+            "alwaysOn": true
+        }
+    }
+}
+```
+
 ## <a name="customizing-a-deployment"></a>배포 사용자 지정
 
 함수 앱에는 앱 설정 및 소스 제어 옵션을 포함하여 배포에 사용할 수 있는 자식 리소스가 많이 있습니다. 또한 **sourcecontrols** 자식 리소스를 제거하고 대신에 다른 [배포 옵션](functions-continuous-deployment.md)을 사용하도록 선택할 수 있습니다.
@@ -697,4 +800,4 @@ Azure Functions를 개발하고 구성하는 방법에 대해 자세히 알아�
 <!-- LINKS -->
 
 [소비 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
-[Azure App Service 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Azure App Service 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azuredeploy.json

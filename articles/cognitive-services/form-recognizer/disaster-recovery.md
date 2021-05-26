@@ -1,6 +1,6 @@
 ---
 title: Azure Form Recognizer에 대한 재해 복구 지침
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 모델 복사 API를 사용하여 Form Recognizer 리소스를 백업하는 방법을 알아봅니다.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: b5eb776a7807f48ae6c1a0e3c5879da1f6823830
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ddf13e190f80ddbda0c5b97be4e55e2ca963aef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466918"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374530"
 ---
 # <a name="back-up-and-recover-your-form-recognizer-models"></a>Form Recognizer 모델 백업 및 복구
 
@@ -162,4 +162,4 @@ curl -i GET "https://<SOURCE_FORM_RECOGNIZER_RESOURCE_ENDPOINT>/formrecognizer/v
 ## <a name="next-steps"></a>다음 단계
 
 이 가이드에서는 복사 API를 사용하여 사용자 지정 모델을 보조 Form Recognizer 리소스에 백업하는 방법을 배웠습니다. 다음으로, API 참조 문서를 탐색하여 Form Recognizer로 할 수 있는 다른 작업을 살펴봅니다.
-* [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)
+* [REST API 참조 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

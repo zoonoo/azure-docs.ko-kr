@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68fa8b6d798bb649e7eb3646443bd5edd8f17147
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101695127"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847964"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 첫 번째 검색 앱 만들기
 
@@ -111,7 +111,7 @@ model.resultList = searchResult.Value.GetResults().ToList();
 
     ```csharp
     {
-        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceUri": "<YOUR-SEARCH-SERVICE-URI>",
         "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
@@ -317,14 +317,16 @@ Index.cshtml의 콘텐츠 전체를 삭제하고, 다음 단계에 따라 파일
         {
             // Show the result count.
             <p class="sampleText">
-                @Model.resultList.Count Results
+                @Model.resultList.TotalCount Results
             </p>
 
-            @for (var i = 0; i < Model.resultList.Count; i++)
+            var results = Model.resultList.GetResults().ToList();
+
+            @for (var i = 0; i < results.Count; i++)
             {
                 // Display the hotel name and description.
-                @Html.TextAreaFor(m => m.resultList[i].Document.HotelName, new { @class = "box1" })
-                @Html.TextArea($"desc{i}", Model.resultList[i].Document.Description, new { @class = "box2" })
+                @Html.TextAreaFor(m => results[i].Document.HotelName, new { @class = "box1" })
+                @Html.TextArea($"desc{i}", results[i].Document.Description, new { @class = "box2" })
             }
         }
     }
@@ -512,7 +514,10 @@ Azure Cognitive Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니�
     {
         InitSearch();
 
-        var options = new SearchOptions() { };
+        var options = new SearchOptions() 
+        { 
+            IncludeTotalCount = true
+        };
 
         // Enter Hotel property names into this list so only these values will be returned.
         // If Select is empty, all values will be returned, which can be inefficient.
@@ -520,8 +525,7 @@ Azure Cognitive Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니�
         options.Select.Add("Description");
 
         // For efficiency, the search call should be asynchronous, so use SearchAsync rather than Search.
-        var searchResult = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);
-        model.resultList = searchResult.Value.GetResults().ToList();
+        model.resultList = await _searchClient.SearchAsync<Hotel>(model.searchText, options).ConfigureAwait(false);          
 
         // Display the results.
         return View("Index", model);

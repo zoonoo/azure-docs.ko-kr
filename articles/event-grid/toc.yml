@@ -270,6 +270,8 @@
           href: move-custom-topics-across-regions.md
         - name: 지역 간에 도메인 이동
           href: move-domains-across-regions.md
+        - name: 지역 간에 파트너 네임스페이스 이동
+          href: move-partner-namespaces-across-regions.md
     - name: 보안
       items:
         - name: 프라이빗 링크를 통해 안전하게 이벤트 게시
