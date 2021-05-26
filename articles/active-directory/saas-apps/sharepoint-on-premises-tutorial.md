@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: ccb58f94045d69dc1cfcfed830fdd401881ecd3f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: be61dad30d7c8670442612faf928d5aa82e64d56
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108746324"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065749"
 ---
 # <a name="tutorial-implement-federated-authentication-between-azure-active-directory-and-sharepoint-on-premises"></a>자습서: Azure Active Directory와 SharePoint 온-프레미스 간에 페더레이션 인증 구현
 
@@ -105,7 +105,7 @@ $realm = "urn:sharepoint:federation"
 $loginUrl = "https://login.microsoftonline.com/dc38a67a-f981-4e24-ba16-4443ada44484/wsfed"
 
 # Define the claim types used for the authorization
-$userIdentifier = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
+$userIdentifier = New-SPClaimTypeMapping -IncomingClaimType `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
 $role = New-SPClaimTypeMapping "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
 
 # Let SharePoint trust the Azure AD signing certificate
@@ -301,7 +301,7 @@ Azure AD 보안 그룹은 GUID인 특성 `Id`(예: `E89EF0A3-46CC-45BF-93A4-E078
 
     1. **고유한 사용자 ID(이름 ID)** 를 선택하고, **원본 특성** 속성을 **user.localuserprincipalname** 으로 변경하고, **저장** 을 클릭합니다.
     
-    1. **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name** 을 선택하고, **원본 특성** 속성을 **user.localuserprincipalname** 으로 변경하고, **저장** 을 클릭합니다.
+    1. `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` 을 선택하고, **원본 특성** 속성을 **user.localuserprincipalname** 으로 변경하고, **저장** 을 클릭합니다.
     
     1. **사용자 특성 및 클레임** 섹션은 다음과 같이 표시됩니다.
     

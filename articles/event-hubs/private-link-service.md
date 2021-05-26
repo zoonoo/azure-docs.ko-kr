@@ -1,14 +1,14 @@
 ---
 title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
-ms.date: 08/22/2020
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: f5c01788044f3c3a5d875a24172e7222ff195f81
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: d19060f96a1a6912dd0f1c8791689a61cd2b2293
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105960846"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371367"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>프라이빗 엔드포인트를 통한 Azure Event Hubs 네임스페이스 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -18,7 +18,7 @@ Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗
 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
 
 ## <a name="important-points"></a>중요 사항
-- 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원됩니다. **기본** 계층에서는 지원되지 않습니다.
+- 이 기능은 **기본** 계층에서 지원되지 않습니다.
 - 프라이빗 엔드포인트를 사용하여 다른 Azure 서비스가 Event Hubs와 상호 작용하지 않도록 할 수 있습니다.  차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 예외적으로 프라이빗 엔드포인트가 활성화된 경우에도 특정 **신뢰할 수 있는 서비스** 에서 Event Hubs 리소스에 대한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조하세요.
 - 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 **하나 이상의 IP 규칙 또는 가상 네트워크 규칙** 을 지정합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용하여 공용 인터넷을 통해 네임스페이스에 액세스할 수 있습니다. 
 
@@ -44,9 +44,6 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 2. 검색 표시줄에 **event hubs** 를 입력합니다.
 3. 목록에서 프라이빗 엔드포인트를 추가하려는 **네임스페이스** 를 선택합니다.
 4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다.
-
-    > [!NOTE]
-    > **표준** 또는 **전용** 네임스페이스에 대해서만 **네트워킹** 탭이 표시됩니다. 
 
     :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="네트워크 탭 - 선택한 네트워크 옵션" lightbox="./media/private-link-service/selected-networks-page.png":::    
 
@@ -77,7 +74,7 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
         1. **리소스 ID** 또는 **별칭** 을 입력합니다. 다른 사람과 공유한 리소스 ID 또는 별칭일 수 있습니다. 리소스 ID를 가져오는 가장 쉬운 방법은 Azure Portal에서 Event Hubs 네임스페이스로 이동하여 `/subscriptions/`부터 URI의 일부를 복사하는 것입니다. 예를 보려면 다음 이미지를 참조하세요. 
         2. **대상 하위 리소스** 에 **namespace** 를 입력합니다. 프라이빗 엔드포인트에서 액세스할 수 있는 하위 리소스의 형식입니다.
         3. (선택 사항) **요청 메시지** 를 입력합니다. 리소스 소유자는 프라이빗 엔드포인트 연결을 관리하는 동안 이 메시지를 확인합니다.
-        4. 그런 다음, **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다.
+        4. 그런 다음, **다음: 구성 >** 단추(페이지 맨 아래)를 선택합니다.
 
             ![프라이빗 엔드포인트 만들기 - 리소스 ID를 사용하여 연결](./media/private-link-service/connect-resource-id.png)
 9. **구성** 페이지에서 프라이빗 엔드포인트를 배포하려는 가상 네트워크의 서브넷을 선택합니다. 

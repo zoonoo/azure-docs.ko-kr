@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 2a7cc864366bd9a35c96dd453c0dc68f77d8abd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4080fc274f03cbc4e5ba48b3c3e2ac5699886c96
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171451"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377212"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>자습서: 로컬로 이벤트 게시, 구독
 
@@ -94,9 +95,9 @@ IoT Edge 디바이스에 모듈을 배포하는 방법은 여러 가지이며 �
 1. 드롭다운 목록의 모듈 유형에서 **IoT Edge 모듈** 을 선택합니다.
 1. 컨테이너의 이름, 이미지, 컨테이너 만들기 옵션을 제공합니다.
 
-   * **이름**: subscriber
+   * **이름**: 구독자
    * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
-   * **컨테이너 만들기 옵션**: None
+   * **컨테이너 만들기 옵션**: 없음
 1. 페이지 맨 아래에 있는 **저장**
 1. **다음** 을 클릭하여 경로 섹션에서 계속합니다.
 

@@ -2,13 +2,13 @@
 title: 개념 - 프라이빗 클라우드와 클러스터
 description: Azure VMware Solution 소프트웨어 정의 데이터 센터 및 vSphere 클러스터의 주요 기능에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/27/2021
-ms.openlocfilehash: 71cd3c80f5ada0d8e21fbf1696896fe03368babe
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 05/13/2021
+ms.openlocfilehash: 7b32752e368f9aac003a45f96f7c0477e9221481
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161648"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089617"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution 프라이빗 클라우드 및 클러스터 개념
 
@@ -85,7 +85,7 @@ Azure VMware 솔루션은 언더레이 및 VMware 구성 요소의 상태를 지
 
 - [Azure VMware Solution 네트워킹 및 상호 연결 개념](concepts-networking.md)
 - [Azure VMware Solution 스토리지 개념](concepts-storage.md)
-- [Azure VMware Solution 리소스를 사용하는 방법](enable-azure-vmware-solution.md)
+- [Azure VMware Solution 리소스를 사용하는 방법](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - internal -->
 [concepts-networking]: ./concepts-networking.md

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: acb497b2f0111d36650ec415c8f1f580d116b55e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 67b8881b71166233d6a692feb897f738a36781b7
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863295"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190257"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -42,7 +42,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
 1. **기본** 탭에서 다음 정보를 제공합니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |Subscription    |  드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다. |
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
@@ -64,7 +64,7 @@ HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사�
 
 1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-    |속성  |Description  |
+    |속성  |설명  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage** 를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택** 을 사용합니다.|
@@ -174,7 +174,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `<zookeepername1>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,<zookeepername2>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
 1. Apache Kafka broker 호스트 정보를 사용하여 환경 변수를 설정하려면 다음 명령을 사용합니다.
 
@@ -193,7 +193,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
-    `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+    `<brokername1>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,<brokername2>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>Apache Kafka 토픽 관리
 

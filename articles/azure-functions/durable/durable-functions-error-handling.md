@@ -4,20 +4,20 @@ description: Azure Functions의 지속성 함수 확장에서 오류를 처리�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 023f9dfcc421935c3f7515e847108925d5e5521e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 7a2a95a25bc42de9f4c93200d4fdd1e5d558549a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97673650"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377436"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
-지 속성 함수 오케스트레이션은 코드로 구현 되며 프로그래밍 언어의 기본 제공 오류 처리 기능을 사용할 수 있습니다. 오케스트레이션에 오류 처리 및 보정을 추가 하기 위해 배워야 하는 새로운 개념은 없습니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
+Durable Function 오케스트레이션은 코드로 구현되며, 프로그래밍 언어의 기본 제공 오류 처리 기능을 사용할 수 있습니다. 오케스트레이션에 오류 처리 및 보정을 추가하는 데 필요한 새로운 개념은 없습니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
 
 ## <a name="errors-in-activity-functions"></a>작업 함수의 오류
 
-작업 함수에서 throw 되는 모든 예외는 오 케 스트레이 터 함수로 마샬링되 고로 throw 됩니다 `FunctionFailedException` . 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
+작업 함수에서 throw되는 모든 예외는 오케스트레이터 함수에 다시 마샬링되고 `FunctionFailedException`으로 throw됩니다. 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
 
 예를 들어 한 계정에서 다른 계정으로 자금을 이체하는 다음 오케스트레이터 함수를 살펴보세요.
 
@@ -60,7 +60,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -124,10 +124,25 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+$transferDetails = $Context.Input
+
+Invoke-DurableActivity -FunctionName 'DebitAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
+
+try {
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.destinationAccount; amount = transferDetails.amount }
+} catch {
+    Invoke-DurableActivity -FunctionName 'CreditAccount' -Input @{ account = transferDetails.sourceAccount; amount = transferDetails.amount }
+}
+```
+
 
 ---
 
-첫 번째 **CreditAccount** 함수 호출이 실패 하면 오 케 스트레이 터 함수는 자금을 원본 계정에 다시 연결 하 여 보상 합니다.
+첫 번째 **CreditAccount** 함수 호출이 실패하면 오케스트레이터 함수는 자금을 원본 계정에 다시 크레딧하여 보정합니다.
 
 ## <a name="automatic-retry-on-failure"></a>실패 시 자동 다시 시도
 
@@ -150,7 +165,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -187,24 +202,36 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$retryOptions = New-DurableRetryOptions `
+                    -FirstRetryInterval (New-Timespan -Seconds 5) `
+                    -MaxNumberOfAttempts 3
+
+Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
+```
+
 ---
 
-이전 예제의 작업 함수 호출은 자동 재시도 정책 구성에 대 한 매개 변수를 사용 합니다. 자동 재시도 정책을 사용자 지정 하는 몇 가지 옵션이 있습니다.
+이전 예제의 작업 함수 호출은 자동 재시도 정책을 구성하기 위한 매개 변수를 사용합니다. 자동 재시도 정책을 사용자 지정하기 위한 몇 가지 옵션이 있습니다.
 
 * **최대 시도 횟수**: 최대 다시 시도 횟수입니다.
 * **첫 번째 다시 시도 간격**: 첫 번째 다시 시도를 수행할 때까지 기다리는 시간입니다.
 * **백오프 계수**: 백오프의 증가율을 결정하는 데 사용되는 계수입니다. 기본값은 1입니다.
 * **최대 다시 시도 간격**: 다시 시도 간에 기다리는 최대 시간입니다.
 * **다시 시도 시간 제한**: 다시 시도하는 데 소요되는 최대 시간입니다. 기본 동작은 무기한으로 다시 시도하는 것입니다.
-* **핸들**: 사용자 정의 콜백을 지정 하 여 함수를 다시 시도해 야 하는지 여부를 결정할 수 있습니다. 
+* **처리**: 사용자 정의 콜백을 지정하여 함수를 다시 시도해야 하는지 여부를 결정할 수 있습니다. 
 
 > [!NOTE]
-> 사용자 정의 콜백은 현재 JavaScript ()의 Durable Functions에서 지원 되지 않습니다 `context.df.RetryOptions` .
+> 사용자 정의 콜백은 현재 JavaScript(`context.df.RetryOptions`)의 Durable Functions에서 지원되지 않습니다.
 
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 
-완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재이 작업을 수행 하는 적절 한 방법은 다음 예제와 같이 (.net), (javascript) 또는 ( [](durable-functions-timers.md) `context.CreateTimer` `context.df.createTimer` `context.create_timer` python)과 함께 ( `Task.WhenAny` .net), `context.df.Task.any` (javascript) 또는 (python `context.task_any` )를 사용 하 여 내구성이 있는 타이머를 만드는 것입니다.
+오케스트레이터 함수가 완료되는 데 시간이 너무 오래 걸리는 경우 함수 호출을 중단할 수도 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `Task.WhenAny`(.NET), `context.df.Task.any`(JavaScript) 또는 `context.task_any`(Python)와 함께 `context.CreateTimer`(.NET), `context.df.createTimer`(JavaScript) 또는 `context.create_timer`(Python)를 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -237,7 +264,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> 이전 c # 예제는 Durable Functions 2.x에 대 한 것입니다. 1.x Durable Functions의 경우 대신를 사용 해야 합니다 `DurableOrchestrationContext` `IDurableOrchestrationContext` . 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -285,6 +312,27 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 main = df.Orchestrator.create(orchestrator_function)
 ```
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+$expiryTime =  New-TimeSpan -Seconds 30
+
+$activityTask = Invoke-DurableActivity -FunctionName 'FlakyFunction'-NoWait
+$timerTask = Start-DurableTimer -Duration $expiryTime -NoWait
+
+$winner = Wait-DurableTask -Task @($activityTask, $timerTask) -NoWait
+
+if ($winner -eq $activityTask) {
+    Stop-DurableTimerTask -Task $timerTask
+    return $True
+}
+else {
+    return $False
+}
+```
+
 ---
 
 > [!NOTE]
@@ -297,7 +345,7 @@ main = df.Orchestrator.create(orchestrator_function)
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [영구 오케스트레이션에 대 한 자세한 정보](durable-functions-eternal-orchestrations.md)
+> [영구 오케스트레이션에 대해 알아보기](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [문제 진단](durable-functions-diagnostics.md)

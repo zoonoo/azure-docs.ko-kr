@@ -3,14 +3,14 @@ title: 지속성 함수의 진단 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 62cc5e1762a2a54b26cbebae5aa7cfbf64204ba5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1125c2de0f548f1a6086819573acf1a2ac9c3c9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584628"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370895"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -154,10 +154,12 @@ traces
 
 지속성 확장 로그는 오케스트레이션 논리의 동작을 이해하는 데 유용합니다. 그러나 이러한 로그에는 프레임워크 수준 성능 및 안정성 문제를 디버깅하는 데 충분한 정보가 항상 포함되지는 않습니다. 지속성 확장 **v2.3.0** 에서 시작하여 기본 지속성 작업 프레임워크(DTFx)에서 내보낸 로그를 컬렉션에도 사용할 수 있습니다.
 
-DTFx에서 내보낸 로그를 확인하는 경우 DTFx 엔진은 두 가지 구성 요소, 즉 핵심 디스패치 엔진(`DurableTask.Core`)과 지원되는 여러 스토리지 공급자(Durable Funtions가 `DurableTask.AzureStorage`를 기본적으로 사용) 중 하나로 구성됩니다.
+DTFx에서 내보낸 로그를 확인하는 경우 DTFx 엔진은 두 가지 구성 요소, 즉 핵심 디스패치 엔진(`DurableTask.Core`)과 지원되는 여러 스토리지 공급자(Durable Funtions가 `DurableTask.AzureStorage`를 기본적으로 사용하지만 [다른 옵션을 사용할 수 있음](durable-functions-storage-providers.md)) 중 하나로 구성됩니다.
 
-* **DurableTask.Core**: 오케스트레이션 실행 및 낮은 수준의 예약에 대한 정보를 포함합니다.
-* **DurableTask.AzureStorage**: 내부 오케스트레이션 상태를 저장하고 가져오는 데 사용되는 내부 큐, Blob 및 스토리지 테이블을 포함하여 Azure Storage 아티팩트와의 상호 작용과 관련된 정보를 포함합니다.
+* **DurableTask.Core**: 핵심 오케스트레이션 실행 및 하위 수준 일정 로그 및 원격 분석입니다.
+* **DurableTask.AzureStorage**: Azure Storage 상태 공급자와 관련된 백 엔드 로그입니다. 이러한 로그에는 내부 오케스트레이션 상태를 저장하고 가져오는 데 사용되는 내부 큐, Blob 및 스토리지 테이블과의 자세한 상호 작용이 포함됩니다.
+* **DurableTask.Netherite**: 활성화된 경우 [Netherite 스토리지 공급자](https://microsoft.github.io/durabletask-netherite)와 관련된 백 엔드 로그입니다.
+* **DurableTask.SqlServer**: 활성화된 경우 [Microsoft SQL(MSSQL) 스토리지 공급자](https://microsoft.github.io/durabletask-mssql)와 관련된 백 엔드 로그입니다.
 
 함수 앱 **host.js** 파일의 `logging/logLevel` 섹션을 업데이트하여 이러한 로그를 사용하도록 설정할 수 있습니다. 다음 예에서는 `DurableTask.Core` 및 `DurableTask.AzureStorage` 모두에서 경고 및 오류 로그를 사용하도록 설정하는 방법을 보여줍니다.
 
@@ -176,7 +178,7 @@ DTFx에서 내보낸 로그를 확인하는 경우 DTFx 엔진은 두 가지 구
 Application Insights를 사용하도록 설정한 경우 이러한 로그는 `trace` 컬렉션에 자동으로 추가됩니다. Kusto 쿼리를 사용하여 다른 `trace` 로그를 검색하는 것과 동일한 방식으로 검색할 수 있습니다.
 
 > [!NOTE]
-> 프로덕션 애플리케이션의 경우 `"Warning"` 필터를 사용하여 `DurableTask.Core` 및 `DurableTask.AzureStorage` 로그를 사용하도록 설정하는 것이 좋습니다. `"Information"`과 같은 더 높은 세부 정보 표시 필터는 성능 문제를 디버깅하는 데 매우 유용합니다. 그러나 이러한 로그 이벤트는 대용량이며 Application Insights 데이터 스토리지 비용이 많이 증가할 수 있습니다.
+> 프로덕션 애플리케이션의 경우 `"Warning"` 필터를 사용하여 `DurableTask.Core` 및 적절한 스토리지 공급자(예: `DurableTask.AzureStorage`) 로그를 활성화하는 것이 좋습니다. `"Information"`과 같은 더 높은 세부 정보 표시 필터는 성능 문제를 디버깅하는 데 매우 유용합니다. 그러나 이러한 로그 이벤트는 대용량일 수 있으며 Application Insights 데이터 스토리지 비용이 많이 증가할 수 있습니다.
 
 다음 Kusto 쿼리는 DTFx 로그를 쿼리하는 방법을 보여줍니다. 쿼리의 가장 중요한 부분은 `where customerDimensions.Category startswith "DurableTask"`인데, 그 이유는 `DurableTask.Core` 및 `DurableTask.AzureStorage` 범주에서 결과를 로그로 필터링하기 때문입니다.
 
@@ -314,7 +316,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 예제는 Durable Functions 2.x에 대한 것입니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -386,7 +388,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 ```
 
 > [!NOTE]
-> 이전 C# 예제는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableOrchestrationContext` 대신 `IDurableOrchestrationContext`를 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 예제는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableOrchestrationContext` 대신 `IDurableOrchestrationContext`를 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -471,6 +473,13 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 
 > [!WARNING]
 > Table Storage의 실행 기록을 확인하는 것이 편리하지만 이 테이블에 대한 종속성은 사용하지 마세요. 지속성 함수 확장이 진화함에 따라 변경될 수 있습니다.
+
+> [!NOTE]
+> 기본 Azure Storage 공급자 대신 다른 스토리지 공급자를 구성할 수 있습니다. 앱에 대해 구성된 스토리지 공급자에 따라 다른 도구를 사용하여 기본 상태를 검사해야 할 수 있습니다. 자세한 내용은 [Durable Functions Storage 공급자](durable-functions-storage-providers.md) 설명서를 참조하세요.
+
+## <a name="3rd-party-tools"></a>타사 도구
+
+Durable Functions 커뮤니티는 디버깅, 진단 또는 모니터링에 유용할 수 있는 다양한 도구를 게시합니다. 이러한 도구 중 하나는 오케스트레이션 인스턴스를 모니터링, 관리 및 디버깅하기 위한 그래픽 도구인 오픈 소스 [Durable Functions Monitor](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor)입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

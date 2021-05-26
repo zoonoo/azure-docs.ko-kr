@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: c3c99ea746baef2c9569277c1816a9740e217d29
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 4b90d02d5cef2e43f08916889cf4ba99bee0160c
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279679"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190199"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
     |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|
@@ -108,7 +108,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `<zookeepername1>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,<zookeepername2>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
 1. Kafka broker 호스트 정보를 사용하여 환경 변수를 설정하려면 다음 명령을 사용합니다.
 
@@ -126,7 +126,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
 
     이 명령은 다음 텍스트와 유사한 정보를 반환합니다.
 
-    `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+    `<brokername1>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,<brokername2>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>Apache Kafka 토픽 관리
 

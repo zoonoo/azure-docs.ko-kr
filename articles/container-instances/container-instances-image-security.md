@@ -4,12 +4,12 @@ description: Azure Container Instances의 보안 이미지 및 비밀에 대한 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 40284c6e42cf1060906c6248495d08e133bda5bb
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 721e3f27af768bd3a31d069100d1f3b84fb5e624
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812663"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091453"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Azure 컨테이너 인스턴스에 대한 보안 고려 사항
 
@@ -140,7 +140,7 @@ Kubernetes 클러스터, 컨테이너 레지스트리 및 컨테이너 이미지
 
 * 클러스터 환경의 보안 구성을 모니터링하고 보안 권장 사항을 생성하기 위한 [Azure Kubernetes Service와 Azure Security Center 통합](../security-center/defender-for-kubernetes-introduction.md)
 * [Azure Container Monitoring 솔루션](../azure-monitor/containers/containers.md)
-* [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)에 대한 리소스 로그
+* [Azure Container Instances](container-instances-log-analytics.md) 및 [Azure Container Registry](../container-registry/monitor-service.md)에 대한 리소스 로그
 
 ## <a name="next-steps"></a>다음 단계
 

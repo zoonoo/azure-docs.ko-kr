@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bddb03094b73dbd6d3b8d44c76ab242caa515dc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: efd71944d0c29b9e796c4e5508f6b5116df99ec2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727861"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092821"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Azure Active Directory의 역할 기반 액세스 제어 개요
 
@@ -79,9 +79,9 @@ Azure portal, Azure AD PowerShell 또는 Graph API를 사용하여 [역할 할�
 
 범위는 역할 할당의 일부로 허용되는 작업을 특정 Azure AD 리소스로 제한하는 것입니다. 역할을 할당할 때 관리자의 액세스를 특정 리소스로 제한하는 범위를 지정할 수 있습니다. 예를 들어 개발자에게 특정 애플리케이션 등록만 관리하는 사용자 지정 역할을 부여하려면 특정 애플리케이션 등록을 역할 할당의 범위로 포함하면 됩니다.
 
-## <a name="required-license-plan"></a>필요한 라이선스 계획
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-Azure AD에서 기본 제공 역할을 사용하는 것은 무료이지만, 사용자 지정 역할에는 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory)를 참조하세요.
+Azure AD에서 기본 제공 역할을 사용하는 것은 무료이지만, 사용자 지정 역할에는 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [체험판 및 프리미엄 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.custom: devx-track-python, automl
-ms.openlocfilehash: 4a045d7475c2380c9e591e18a37c4f9e99501097
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 22b8126ffcb573f2ec276e589a261ac14ec72c99
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107951939"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191603"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Python의 Azure Machine Learning 파이프라인에서 자동화된 ML 사용
 
@@ -248,7 +248,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 |`OutputTabularDatasetConfig`| 성능 향상 | 
 || `OutputFileDatasetConfig`의 일반 경로 | 
 || 파이프라인 실행 후 데이터가 유지되지 않음 |
-|| [`OutputTabularDatasetConfig` 기술을 보여 주는 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb) |
+||  |
 | 등록된 `Dataset` | 낮은 성능 |
 | | 다양한 방법으로 생성할 수 있음 | 
 | | 데이터가 유지되고 작업 영역 전체에서 표시됨 |

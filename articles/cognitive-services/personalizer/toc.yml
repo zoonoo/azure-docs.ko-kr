@@ -31,6 +31,8 @@
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
     - name: 실습생 모드 사용
       href: how-to-learning-behavior.md
+    - name: 다중 슬롯 사용
+      href: how-to-multi-slot.md
     - name: 모델 및 학습 설정 관리
       href: how-to-manage-model.md
     - name: 오프라인 평가를 사용하여 분석
@@ -67,6 +69,9 @@
         - name: 보상
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
+        - name: 다중 슬롯 개인 지정
+          href: concept-multi-slot-personalization.md
+          displayName: 'multi-slot, multi slot, multi slot personalizer, multi-slot personalizer'
         - name: 보충 학습
           href: concepts-reinforcement-learning.md
           displayName: 'RL, contextual bandits, Vowpal Wabbit'
@@ -77,6 +82,8 @@
       displayName: 'learning policy, Counterfactual, features'
     - name: 기능 평가
       href: concept-feature-evaluation.md
+    - name: 자동 최적화
+      href: concept-auto-optimization.md
     - name: 확장성 및 성능
       href: concepts-scalability-performance.md
 - name: 자습서

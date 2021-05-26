@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 6e391ca79c9dcf9ab533a7e67961c654b5f8630b
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 25cfca98857d33a90b2c1f11692d83ae30911bb7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107103371"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480876"
 ---
 # <a name="plan-a-virtual-machine-offer"></a>가상 머신 제품 계획
 
@@ -59,12 +59,7 @@ VM에는 다음 두 가지 구성 요소가 포함됩니다.
 
 ## <a name="preview-audience"></a>미리 보기 대상 그룹
 
-Azure Marketplace에서 라이브로 게시되기 전에 미리 보기 대상 그룹은 VM 제품에 액세스하여 VM 제품을 라이브로 게시하기 전에 엔드투엔드 기능을 테스트할 수 있습니다. **미리 보기 대상 그룹** 페이지에서 제한된 미리 보기 대상 그룹을 정의할 수 있습니다. 
-
-> [!NOTE]
-> 미리 보기 대상 그룹은 프라이빗 플랜 대상 그룹과 다릅니다. 프라이빗 플랜은 선택한 특정 대상만 사용할 수 있습니다. 이를 통해 특정 고객과 사용자 지정 플랜에 대해 협상할 수 있습니다. 자세한 내용은 다음 플랜 섹션을 확인하세요.
-
-MSA(Microsoft 계정) 또는 Azure AD(Azure Active Directory) 메일 주소로 초대를 보낼 수 있습니다. 최대 10개의 메일 주소를 수동으로 추가하거나 .csv 파일로 최대 20개를 가져옵니다. 제품이 이미 출시된 경우에도 제품의 변경 내용 또는 업데이트 내용을 테스트하기 위한 미리 보기 대상 그룹을 정의할 수 있습니다.
+[!INCLUDE [Test drives section](includes/preview-audience.md)]
 
 ## <a name="plans-and-pricing"></a>플랜 및 가격 책정
 
@@ -75,9 +70,9 @@ VM은 종량제 또는 BYOL(사용자 라이선스 필요) 라이선스 모델�
 > [!NOTE]
 > 기업계약과 관련된 Azure 선불(이전의 현금 약정 금액)은 VM의 Azure 사용량에 대해 사용할 수 있지만 소프트웨어 라이선스 요금에는 사용할 수 없습니다.
 
-### <a name="licensing-options"></a>라이선스 옵션
+### <a name="licensing-options"></a>라이선싱 옵션
 
-새 VM 제품 게시를 준비할 때 선택할 라이선스 옵션을 결정해야 합니다. 파트너 센터에서 제품을 만들 때 나중에 제공해야 할 추가 정보를 결정합니다.
+새 제품 게시를 준비할 때 선택할 라이선싱 옵션을 결정해야 합니다. 파트너 센터에서 제품을 만들 때 나중에 제공해야 할 추가 정보를 결정합니다.
 
 VM 제품에 사용할 수 있는 라이선스 옵션은 다음과 같습니다.
 
@@ -106,23 +101,16 @@ VM 제품에 사용할 수 있는 라이선스 옵션은 다음과 같습니다.
 
 VM에 대한 시험 사용을 사용하도록 선택할 수 있습니다. 시험 사용을 통해 고객은 일정 시간 동안 사전 구성된 환경에 액세스할 수 있습니다. 모든 게시 옵션에 대해 시험 사용을 사용할 수 있지만 이 기능에는 추가 요구 사항이 있습니다. 시험 사용에 대한 자세한 내용은 [시험 사용이란?](what-is-test-drive.md)을 참조하세요. 다양한 종류의 시험 사용을 구성하는 방법에 대한 자세한 내용은 [시험 사용 기술 구성](test-drive-technical-configuration.md)을 참조하세요.
 
-> [!TIP]
-> 시험 사용은 [평가판](plans-pricing.md#free-trials)과 다릅니다. 시험 사용 또는 평가판을 제공하거나 둘 다 제공할 수도 있습니다. 두 제품 모두 일정 기간 고객에게 솔루션을 제공합니다. 하지만 시험 사용에는 실제 구현 시나리오에서 입증된 제품의 주요 기능과 이점에 대한 실습 중심의 자기 주도형 체험도 포함됩니다.
+[!INCLUDE [Test drives section](includes/test-drives.md)]
 
 ## <a name="customer-leads"></a>잠재 고객
 
-제품을 CRM(고객 관계 관리) 시스템에 연결하여 고객 정보를 수집해야 합니다. 고객에게 정보를 공유할 수 있는 권한을 요청합니다. 고객 세부 정보는 제품명, ID, 고객이 찾는 제품이 있는 온라인 스토어와 함께 구성된 CRM 시스템으로 전송됩니다. 상업용 Marketplace는 Azure 테이블을 사용하거나 Power Automate를 사용하여 HTTPS 엔드포인트를 구성하는 옵션을 비롯한 다양한 CRM 시스템을 지원합니다.
-
-제품을 만드는 도중 또는 만든 이후, 언제든지 CRM 연결을 추가하거나 수정할 수 있습니다. 자세한 내용은 [상업용 Marketplace 제품의 잠재 고객](partner-center-portal/commercial-marketplace-get-customer-leads.md)을 참조하세요.
+[!INCLUDE [Customer leads section](includes/customer-leads.md)]
 
 ## <a name="legal-contracts"></a>법적 계약
 
-고객을 위한 조달 프로세스를 간소화하고 소프트웨어 공급업체의 법적 복잡성을 줄이기 위해 Microsoft는 상업용 Marketplace에서 제품에 사용할 수 있는 표준 계약을 제공합니다. 표준 계약에 따라 소프트웨어를 제공하는 경우 고객은 이 계약을 한 번 읽고 동의만 하면 되고 사용자 지정 사용 약관을 만들 필요는 없습니다.
-
-표준 계약을 사용하도록 선택할 경우 표준 계약에 범용 수정계약 사용 약관과 최대 10개의 사용자 지정 수정계약을 추가할 수 있습니다. 표준 계약 대신 사용자 고유의 사용 약관을 사용할 수도 있습니다. 이러한 세부 정보는 **속성** 페이지에서 관리합니다. 자세한 내용은 [Microsoft 상업용 Marketplace 표준 계약](standard-contract.md)을 참조하세요.
-
-> [!NOTE]
-> 상업용 Marketplace 표준 계약을 사용하여 제품이 게시되면 사용자 고유의 사용자 지정 사용 약관을 이용할 수 없습니다. 이는 "또는" 시나리오입니다. 표준 계약 또는 고유의 사용 약관에 따라 솔루션을 제공합니다. 표준 계약의 사용 약관을 수정하려면 표준 계약 수정계약을 통해 이 작업을 수행할 수 있습니다.
+[!INCLUDE [Legal contracts section](includes/legal-contracts-intro.md)]
+[!INCLUDE [Legal section for Standard contracts](includes/legal-contracts-standard.md)]
 
 ## <a name="cloud-solution-providers"></a>클라우드 솔루션 공급자
 

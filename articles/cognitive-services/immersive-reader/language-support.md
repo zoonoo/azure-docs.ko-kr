@@ -1,6 +1,6 @@
 ---
 title: 언어 지원 - 몰입형 리더
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 몰입형 리더에서 사용할 수 있는 인간 언어에 대해 자세히 알아봅니다.
 services: cognitive-services
 author: metanMSFT
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metang
-ms.openlocfilehash: c36933a13bf3373930acf5dbb36513aa171748f9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a706f3b7cde5e7f3a19d82ff4b2bb7a7d2fa7913
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108768898"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377713"
 ---
 # <a name="language-support-for-immersive-reader"></a>몰입형 리더를 위한 언어 지원
 

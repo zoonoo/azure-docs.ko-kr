@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: overview
 ms.date: 02/15/2021
-ms.openlocfilehash: 536b9092a7bddd353b58874e7aa97291839bafcc
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 613a537dc01262a111c8db70a5013b3346c7aab0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589536"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091615"
 ---
 # <a name="getting-started-with-azure-iot-embedded-device-development"></a>Azure IoT 임베디드 디바이스 개발 시작
 
@@ -35,7 +35,6 @@ ms.locfileid: "107589536"
 |[NXP MIMXRT1060-EVK Evaluation 키트 시작](https://go.microsoft.com/fwlink/p/?linkid=2129821) |[NXP MIMXRT1060-EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1060-evk-i-mx-rt1060-evaluation-kit:MIMXRT1060-EVK)|
 |[NXP MIMXRT1050-EVKB Evaluation 키트 시작](https://github.com/azure-rtos/getting-started/tree/master/NXP/MIMXRT1050-EVKB) |[NXP MIMXRT1050-EVKB](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/i-mx-rt1050-evaluation-kit:MIMXRT1050-EVK)|
 |[Microchip ATSAME54-XPRO Evaluation 키트 시작](https://go.microsoft.com/fwlink/p/?linkid=2129537) |[Microchip ATSAME54-XPRO](https://www.microchip.com/developmenttools/productdetails/atsame54-xpro)|
-|[MXChip AZ3166 IoT DevKit 시작](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166) |[MXChip AZ3166 IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)|
 |[RX65N-2MB용 Renesas 스타터 키트 + 시작](https://github.com/azure-rtos/getting-started/tree/master/Renesas/RSK_RX65N_2MB) |[RX65N-2MB용 Renesas 스타터 키트+](https://www.renesas.com/us/en/products/microcontrollers-microprocessors/rx-32-bit-performance-efficiency-mcus/rx65n-2mb-starter-kit-plus-renesas-starter-kit-rx65n-2mb)|
 
 ## <a name="next-steps"></a>다음 단계

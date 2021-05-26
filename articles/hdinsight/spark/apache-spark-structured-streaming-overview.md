@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: fd65177fb6202b0396545043c2e63a87c7f01bbb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9ac4e44a3bb21c746865b4aa3d86a75501f9cde0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864604"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064903"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 구조적 스트리밍 개요
 
@@ -73,7 +73,7 @@ Spark 구조적 스트리밍은 데이터 스트림을 자세히 제한되지 �
 
 먼저 데이터 원본 및 해당 원본에 필요한 모든 설정을 설명하는 데이터 프레임을 구성합니다. 다음 예제에서는 Azure Storage의 JSON 파일에서 가져오고 읽기 시간에 스키마를 적용합니다.
 
-```sql
+```scala
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.functions._
 
@@ -91,7 +91,7 @@ val streamingInputDF = spark.readStream.schema(jsonSchema).json(inputPath)
 
 다음으로, 스트리밍 데이터 프레임에 대해 원하는 작업이 포함된 쿼리를 적용합니다. 이 경우 집계는 모든 행을 1시간 범위로 그룹화한 다음, 해당 1시간 범위에서 최소, 평균 및 최대 온도를 계산합니다.
 
-```sql
+```scala
 val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min($"temp"), avg($"temp"), max($"temp"))
 ```
 
@@ -99,7 +99,7 @@ val streamingAggDF = streamingInputDF.groupBy(window($"time", "1 hour")).agg(min
 
 다음으로, 각 트리거 간격 내에서 결과 테이블에 추가되는 행의 대상을 정의합니다. 다음 예제에서는 나중에 SparkSQL을 사용하여 쿼리할 수 있는 `temps` 메모리 내 테이블에 모든 행을 출력합니다. 전체 출력 모드를 사용하면 매번 모든 시간 범위에 대한 모든 행이 출력됩니다.
 
-```sql
+```scala
 val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temps").outputMode("complete")
 ``` 
 
@@ -107,7 +107,7 @@ val streamingOutDF = streamingAggDF.writeStream.format("memory").queryName("temp
 
 스트리밍 쿼리를 시작하고 종료 신호를 받을 때까지 실행합니다.
 
-```sql
+```scala
 val query = streamingOutDF.start() 
 ``` 
 

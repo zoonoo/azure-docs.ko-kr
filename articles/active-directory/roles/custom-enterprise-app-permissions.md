@@ -12,20 +12,20 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: d2159540c688a63082efb792fd4d261062ef65d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc3db3de91c9fbf059c56fb1f2770381265d82de
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466796"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090644"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 엔터프라이즈 애플리케이션 권한
 
 이 문서에는 Azure AD(Azure Active Directory)의 사용자 지정 역할 정의에 대해 현재 사용 가능한 엔터프라이즈 애플리케이션 권한이 포함되어 있습니다. 이 문서에서는 몇 가지 일반적인 시나리오에 대한 권한 목록과 엔터프라이즈 앱 권한의 전체 목록을 확인할 수 있습니다. 애플리케이션 프록시 권한은 현재 이 릴리스에서 롤아웃되지 않습니다.
 
-## <a name="required-license-plan"></a>필요한 라이선스 계획
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-이 기능을 사용하려면 Azure AD 조직에 대한 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="enterprise-application-permissions"></a>엔터프라이즈 애플리케이션 권한
 
