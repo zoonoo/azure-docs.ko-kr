@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9f9626ebdcc52f9aeb2b9283dac6c5790e3df8cf
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 7503c0ffff064f0fee0352beb0955c964c7770b9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179963"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368355"
 ---
 # <a name="query-storage-files-with-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 스토리지 파일 쿼리
 
@@ -34,6 +34,7 @@ ms.locfileid: "108179963"
 - [여러 파일 또는 폴더 쿼리](#query-multiple-files-or-folders)
 - [PARQUET 파일 형식](#query-parquet-files)
 - [CSV 및 구분 기호로 분리된 텍스트 쿼리(필드 종결자, 행 종결자, 이스케이프 문자)](#query-csv-files)
+- [DELTA LAKE 형식](#query-delta-lake-format)
 - [선택한 열 하위 집합 읽기](#read-a-chosen-subset-of-columns)
 - [스키마 유추](#schema-inference)
 - [filename 함수](#filename-function)
@@ -46,7 +47,7 @@ Parquet 원본 데이터를 쿼리하려면 FORMAT = 'PARQUET'를 사용합니�
 
 ```syntaxsql
 SELECT * FROM
-OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net//mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ```
 
@@ -67,6 +68,19 @@ WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
 ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 - FIELDTERMINATOR ='field_terminator' - 사용할 필드 종결자를 지정합니다. 기본 필드 종결자는 쉼표(" **,** ")입니다.
 - ROWTERMINATOR ='row_terminator' - 사용할 행 종결자를 지정합니다. 기본 행 종결자는 줄 바꿈 문자( **\r\n**)입니다.
+
+
+## <a name="query-delta-lake-format"></a>DELTA LAKE 형식 쿼리
+
+Delta Lake 원본 데이터를 쿼리하려면 FORMAT = 'DELTA'를 사용하고 Delta Lake 파일이 포함된 루트 폴더를 참조합니다.
+
+```syntaxsql
+SELECT * FROM
+OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder', FORMAT = 'DELTA') 
+WITH (C1 int, C2 varchar(20), C3 varchar(max)) as rows
+```
+
+루트 폴더에는 `_delta_log`라는 하위 폴더가 있어야 합니다. 사용 예제는 [Delta Lake 형식 쿼리](query-delta-lake-format.md) 문서를 검토하세요.
 
 ## <a name="file-schema"></a>파일 스키마
 
@@ -101,7 +115,7 @@ SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
-최적의 성능을 위해 [적절한 유추된 데이터 형식](./best-practices-serverless-sql-pool.md#check-inferred-data-types)이 사용되는지 확인합니다. 
+최적의 성능을 위해 [적절한 유추된 데이터 형식](best-practices-sql-on-demand.md#check-inferred-data-types)이 사용되는지 확인합니다. 
 
 ## <a name="query-multiple-files-or-folders"></a>여러 파일 또는 폴더 쿼리
 
