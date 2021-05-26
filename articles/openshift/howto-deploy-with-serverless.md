@@ -7,12 +7,12 @@ ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 4/5/2021
 keywords: aro, openshift, red hat, serverless
-ms.openlocfilehash: 6db87e752745e3df919c93b2ffc8144e5886b319
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 0cd6ac8ae31c43bf1fe1be1d42ec27f183512442
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107532818"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063629"
 ---
 # <a name="deploy-an-application-to-azure-red-hat-openshift-using-openshift-serverless"></a>OpenShift Serverless를 사용하여 Azure Red Hat OpenShift에 애플리케이션 배포
 
@@ -53,7 +53,7 @@ echo 'export PATH=$PATH:~/knative' >> ~/.bashrc && source ~/.bashrc
     --query "consoleProfile.url" -o tsv
 ```
 
-다음과 유사한 URL이 표시됩니다.
+다음과 유사한 URL이 표시되어야 합니다.
 
 ```output
 https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
@@ -127,7 +127,7 @@ to build a new example application in Python. Or use kubectl to deploy a simple 
 
 ## <a name="deploying-using-the-web-console"></a>웹 콘솔을 사용하여 배포
 
-애플리케이션 배포 옵션에서 ‘Git에서’를 선택합니다. 그러면 ‘Git에서 가져오기’ 페이지가 표시됩니다. `https://github.com/sclorg/django-ex.git`를 **Git 리포지토리 URL** 로 사용합니다. 샘플 웹 애플리케이션은 Python 프로그래밍 언어를 사용하여 구현됩니다.
+애플리케이션 배포를 위해 표시된 옵션에서 *Git에서* 를 선택합니다. 그러면 *Git에서 가져오기* 페이지가 표시됩니다. `https://github.com/sclorg/django-ex.git`를 **Git Repo URL** 로 사용합니다. 샘플 웹 애플리케이션은 Python 프로그래밍 언어를 사용하여 구현됩니다.
 
 ![Git의 Azure Red Hat OpenShift 프로젝트](media/serverless/serverless-from-git.png)
 
@@ -139,7 +139,7 @@ to build a new example application in Python. Or use kubectl to deploy a simple 
 ![Azure Red Hat OpenShift 프로젝트 - Knative](media/serverless/serverless-knative.png)
 
 
-준비가 되면 페이지 아래쪽에서 **만들기** 를 클릭합니다. 그러면 애플리케이션의 빌드 및 배포를 관리하는 리소스가 생성됩니다. 그런 다음, 프로젝트의 토폴로지 개요로 리디렉션됩니다.
+준비가 되면 페이지 아래쪽에서 **만들기** 를 클릭합니다. 그러면 애플리케이션의 빌드 및 배포를 관리하는 리소스가 만들어집니다. 그런 다음, 프로젝트의 토폴로지 개요로 리디렉션됩니다.
 
 토폴로지 개요는 배포한 애플리케이션을 시각적으로 표시합니다. 이 보기를 통해 전체 애플리케이션 구조를 볼 수 있습니다.
 
@@ -377,4 +377,4 @@ oc delete project demoserverless
 > * Knative CLI(kn)를 사용하여 서버리스 프로젝트 배포
 > * Knative CLI(kn)를 사용하여 파란색/녹색 배포 및 카나리아 배포 구성
 
-[OpenShift Serverless](https://www.openshift.com/learn/topics/serverless)를 사용하여 Azure Red Hat OpenShift에서 서버리스, 이벤트 기반 애플리케이션을 빌드 및 배포하는 방법에 관해 자세히 알아보고, [OpenShift Serverless 시작](https://docs.openshift.com/container-platform/4.6/serverless/serverless-getting-started.html) 설명서와 [서버리스 애플리케이션 만들기 및 관리](https://docs.openshift.com/container-platform/4.6/serverless/serving-creating-managing-apps.html) 설명서를 참조하세요.
+[OpenShift Serverless](https://www.openshift.com/learn/topics/serverless)를 사용하여 Azure Red Hat OpenShift에서 서버리스, 이벤트 기반 애플리케이션을 빌드 및 배포하는 방법에 관해 자세히 알아보고, [OpenShift Serverless 시작](https://docs.openshift.com/container-platform/4.6/serverless/serverless-getting-started.html) 설명서와 [서버리스 애플리케이션 만들기 및 관리](https://docs.openshift.com/container-platform/4.5/serverless/serving-creating-managing-apps.html) 설명서를 참조하세요.

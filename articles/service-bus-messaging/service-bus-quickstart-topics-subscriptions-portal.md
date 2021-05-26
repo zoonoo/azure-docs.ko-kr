@@ -7,12 +7,12 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 25b0579f05c1f7669a8dfc1df02e9a1f575ea066
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 48a2ee6b817a16cf85768ab047dd9e1c361a79df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537144"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466479"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 하나 이상의 구독 만들기
 이 빠른 시작에서는 Azure Portal를 사용하여 Service Bus 토픽을 만든 다음, 해당 토픽에 대한 구독을 만듭니다. 
@@ -41,4 +41,3 @@ Service Bus 토픽 및 구독을 사용하면 다수의 사용자와 애플리�
 - [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 - [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 - [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
-- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

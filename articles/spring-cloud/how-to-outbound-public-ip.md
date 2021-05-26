@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f2781c159ca79b09afd2f700981a19c59865cce2
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: bea1c156df381d8f3b53ce0eb08173d385b6eada
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634242"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080653"
 ---
 # <a name="how-to-identify-outbound-public-ip-addresses-in-azure-spring-cloud"></a>Azure 스프링 클라우드에서 아웃바운드 공용 IP 주소를 확인하는 방법
 
@@ -39,7 +39,7 @@ Azure 스프링 클라우드 서비스에는 하나 이상의 아웃바운드 �
 
 Cloud Shell에서 다음 명령을 실행하면 동일한 정보를 찾을 수 있습니다.
 
-```Azure CLI
+```azurecli
 az spring-cloud show --resource-group <group_name> --name <service_name> --query properties.networkProfile.outboundIps.publicIps --output tsv
 ```
 

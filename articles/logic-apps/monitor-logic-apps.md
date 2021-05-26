@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 174f177080a421ec65f4ba79c550292737284de4
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: d6d497d241a91c0125f5ebe1c8437e90679768b8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734795"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064993"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>실행 상태를 모니터링하고, 트리거 기록을 검토하고, Azure Logic Apps에 대한 경고를 설정합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "109734795"
 
    다음은 가능한 실행 상태입니다.
 
-   | 실행 상태 | Description |
+   | 실행 상태 | 설명 |
    |------------|-------------|
    | **중단됨** | 시스템이 중단되거나 Azure 구독이 만료되는 등의 외부 문제로 인해 실행이 중지되었거나 완료되지 않았습니다. |
    | **취소** | 실행이 트리거되고 시작되었지만 취소 요청이 수신되었습니다. |
@@ -124,7 +124,7 @@ ms.locfileid: "109734795"
 
    가능한 트리거 시도 상태는 다음과 같습니다.
 
-   | 트리거 상태 | Description |
+   | 트리거 상태 | 설명 |
    |----------------|-------------|
    | **실패** | 오류가 발생했습니다. 실패한 트리거에 생성된 오류 메시지를 검토하려면 해당 트리거 시도를 선택하고 **출력** 을 선택합니다. 예를 들어 유효하지 않은 입력을 찾을 수 있습니다. |
    | **생략** | 트리거가 엔드포인트를 확인했지만 지정된 기준을 충족하는 데이터를 찾지 못했습니다. |
@@ -193,7 +193,7 @@ ms.locfileid: "109734795"
 > [!TIP]
 > 경고에서 논리 앱을 실행하기 위해 워크플로에서 다음 예제와 같은 작업을 수행할 수 있도록 하는 [요청 트리거](../connectors/connectors-native-reqres.md)를 포함할 수 있습니다.
 >
-> * [Slack에 게시](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app)
+> * [Slack에 게시](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app)
 > * [텍스트 보내기](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app)
 > * [큐에 메시지 추가](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app)
 

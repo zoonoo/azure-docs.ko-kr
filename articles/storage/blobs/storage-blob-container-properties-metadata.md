@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fb77179a00969da7a3dc372dc70c99cfe4220ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1e2a8e6893fbcc10fc1c528438034fd36d5b745f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92091001"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477658"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>.NET을 사용하여 컨테이너 속성 및 메타데이터 관리
 
@@ -30,7 +30,7 @@ BLOB 컨테이너는 포함된 데이터 외에도 시스템 속성 및 사용�
 
 ## <a name="retrieve-container-properties"></a>컨테이너 속성 검색
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 컨테이너 속성을 검색하려면 다음 메서드 중 하나를 호출합니다.
 
@@ -41,7 +41,7 @@ BLOB 컨테이너는 포함된 데이터 외에도 시스템 속성 및 사용�
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerProperties":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Blob Storage 리소스에 대한 속성 및 메타데이터 값 검색은 두 단계로 이루어집니다. 이러한 값을 읽으려면 먼저 **FetchAttributes** 또는 **FetchAttributesAsync** 메서드를 호출하여 명시적으로 가져와야 합니다. 이 규칙의 예외는 **Exists** 및 **ExistsAsync** 메서드가 커버에서 적절한 **FetchAttributes** 메서드를 호출하는 것입니다. 이러한 메서드 중 하나를 호출할 때 **FetchAttributes** 를 호출할 필요가 없습니다.
 
@@ -81,7 +81,7 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## <a name="set-and-retrieve-metadata"></a>메타데이터 설정 및 검색
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메타 데이터를 지정할 수 있습니다. 메타데이터를 설정하려면 [IDictionary](/dotnet/api/system.collections.idictionary) 개체에 이름-값 쌍을 추가하고 다음 메서드 중 하나를 호출하여 값을 씁니다.
 
@@ -103,7 +103,7 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadContainerMetadata":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메타 데이터를 지정할 수 있습니다. 메타데이터를 설정하려면 이름-값 쌍을 리소스의 **메타데이터** 컬렉션에 추가하고 다음 메서드 중 하나를 호출하여 값을 씁니다.
 

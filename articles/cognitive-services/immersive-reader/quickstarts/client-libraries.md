@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 몰입형 리더 클라이언트 라이브러리'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 몰입형 리더 클라이언트 라이브러리를 사용하면 몰입형 리더 서비스를 웹 애플리케이션에 쉽게 통합하여 읽기 이해도를 높일 수 있습니다. 이 빠른 시작에서는 텍스트 선택, 음성 부분 인식, 선택한 텍스트 소리내어 읽기, 번역 등을 위해 몰입형 리더를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: nitinme
@@ -13,12 +13,12 @@ ms.date: 03/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 keywords: 사진 표시, 음성 부분, 선택한 텍스트 읽기, 단어 번역, 독해력
-ms.openlocfilehash: 78270700c49e3f0943940db3271a6605d583308c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 2b368e23063a921b9a7f1cd22d404414b2e9f91d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619230"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376599"
 ---
 # <a name="quickstart-get-started-with-immersive-reader"></a>빠른 시작: 몰입형 리더 시작
 
