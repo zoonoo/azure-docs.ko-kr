@@ -6,19 +6,16 @@ ms.author: vlvinogr
 ms.date: 02/18/2021
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 051bf4398555f318f613c66d58ec65be1d30e215
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d12945642e4a948df7f81da3ac89d5f8814fa4b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101646812"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472737"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management Dapr 통합 정책
 
 이 항목에서는 Dapr 통합 API Management 정책에 대한 참조를 제공합니다. Dapr는 모든 언어나 프레임워크를 사용하여 상태 비저장 및 상태 저장 마이크로 서비스 기반 애플리케이션을 빌드하기 위한 이식 가능 런타임입니다. 이는 서비스 검색 및 내장 재시도 논리를 사용한 호출, 배달 의미 체계를 최소 한 번 사용한 게시 및 구독 혹은 외부 서비스를 사용하여 쉽게 컴퍼지션하기 위한 플러그형 바인딩 리소스와 같은 일반적인 마이크로 서비스 패턴을 체계화합니다. [dapr.io](https://dapr.io)로 이동하여 자세한 정보를 확인하고 Dapr를 시작하는 방법에 대한 지침을 제공합니다. 정책의 추가 및 구성에 대한 자세한 내용은 [API Management 정책](api-management-howto-policies.md)을 참조하세요.
-
-> [!CAUTION]
-> 이 항목에서 참조하는 정책은 퍼블릭 미리 보기 상태이며 [Microsoft Azure Previews에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)이 적용됩니다.
 
 > [!IMPORTANT]
 > 이 항목에서 참조하는 정책은 Dapr를 지원하는 [API Management 게이트웨이의 자체 호스팅 버전](self-hosted-gateway-overview.md)에서만 사용할 수 있습니다.
@@ -83,13 +80,13 @@ template:
 
 ### <a name="elements"></a>요소
 
-| 요소             | 설명  | 필수 |
+| 요소             | Description  | 필수 |
 |---------------------|--------------|----------|
 | set-backend-service | 루트 요소 | 예      |
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | 기본값 |
+| attribute        | Description                     | 필수 | 기본값 |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | “dapr”로 설정해야 합니다.           | 예      | 해당 없음     |
 | dapr-app-id      | 대상 마이크로 서비스 이름입니다. Dapr에서 [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) 매개 변수를 구성하는 데 사용됩니다.| 예 | 해당 없음 |
@@ -152,13 +149,13 @@ template:
 
 ### <a name="elements"></a>요소
 
-| 요소             | 설명  | 필수 |
+| 요소             | Description  | 필수 |
 |---------------------|--------------|----------|
 | publish-to-dapr     | 루트 요소 | 예      |
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | 기본값 |
+| attribute        | Description                     | 필수 | 기본값 |
 |------------------|---------------------------------|----------|---------|
 | pubsub-name      | 대상 PubSub 구성 요소의 이름입니다. Dapr에서 [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) 매개 변수에 매핑됩니다. 표시되지 않는 경우 __토픽__ 특성 값은 `pubsub-name/topic-name` 형식이어야 합니다.    | 예       | None    |
 | 토픽            | 항목의 이름입니다. Dapr에서 [토픽](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) 매개 변수에 매핑됩니다.               | 예      | 해당 없음     |
@@ -235,7 +232,7 @@ template:
 
 ### <a name="elements"></a>요소
 
-| 요소             | 설명  | 필수 |
+| 요소             | Description  | 필수 |
 |---------------------|--------------|----------|
 | invoke-dapr-binding | 루트 요소 | 예      |
 | metadata            | 특정 메타데이터를 키/값 쌍의 형식으로 바인딩합니다. Dapr의 [메타데이터](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 |
@@ -244,7 +241,7 @@ template:
 
 ### <a name="attributes"></a>특성
 
-| attribute        | 설명                     | 필수 | 기본값 |
+| attribute        | Description                     | 필수 | 기본값 |
 |------------------|---------------------------------|----------|---------|
 | name            | 대상 바인딩 이름입니다. Dapr에서 [정의된](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) 바인딩의 이름과 일치해야 합니다.           | 예      | 해당 없음     |
 | operation       | 대상 작업 이름(바인딩별)입니다. Dapr의 [작업](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) 속성에 매핑됩니다. | 예 | None |

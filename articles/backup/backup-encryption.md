@@ -2,14 +2,14 @@
 title: Azure Backup에서 암호화
 description: 백업 데이터를 보호하고 비즈니스의 보안 요구를 충족하는 데 도움이 되는 Azure Backup의 암호화 기능에 대해 알아 봅니다.
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: 3163962bb1c7435c96bc46c2d7514561ca0bb37a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 0906ba078c04247122331bc41de11c871810877f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108325484"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472425"
 ---
 # <a name="encryption-in-azure-backup"></a>Azure Backup에서 암호화
 
@@ -25,9 +25,6 @@ Azure Backup은 다음과 같은 두 가지 수준의 암호화를 포함합니�
   - **인프라 수준 암호화**: 고객 관리형 키를 사용하여 Recovery Services 자격 증명 모음에서 데이터를 암호화할 수도 있지만 스토리지 인프라에 추가적인 암호화 계층을 구성하도록 선택할 수도 있습니다. 이 인프라 암호화는 플랫폼에서 관리됩니다. 고객 관리형 키를 사용하는 미사용 암호화와 함께 백업 데이터를 2계층 암호화할 수 있습니다. 미사용 암호화에 먼저 고유한 키를 사용하도록 선택하는 경우 인프라 암호화만 구성할 수 있습니다. 인프라 암호화는 데이터 암호화에 플랫폼 관리형 키를 사용합니다.
 - **백업 중인 워크로드에만 적용되는 암호화**  
   - **Azure 가상 머신 백업**: Azure Backup은 사용자가 소유하고 관리하는 [고객 관리형 키](../virtual-machines/disk-encryption.md#customer-managed-keys) 뿐만 아니라 [플랫폼 관리형 키](../virtual-machines/disk-encryption.md#platform-managed-keys)를 사용하여 암호화된 디스크가 있는 VM의 백업을 지원합니다. 또한 [Azure Disk Encryption](backup-azure-vms-encryption.md#encryption-support-using-ade)를 사용하여 암호화된 OS 또는 데이터 디스크를 포함하는 Azure 가상 머신을 백업할 수도 있습니다. ADE는 Windows VM에 BitLocker를 사용하고 Linux VM의 DM-Crypt를 사용하여 게스트 간 암호화를 수행합니다.
-
->[!NOTE]
->인프라 암호화는 현재 제한된 미리 보기로 제공되며 미국 동부, 미국 서부 2, 미국 중남부, US Gov 애리조나 및 US GOV 버지니아 지역에서만 사용할 수 있습니다. 해당 지역에서 이 기능을 사용하려는 경우 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0H3_nezt2RNkpBCUTbWEapUN0VHNEpJS0ZUWklUNVdJSTEzR0hIOVRMVC4u)을 작성하여 [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com)에 이메일을 보내주세요.
 
 ## <a name="next-steps"></a>다음 단계
 
