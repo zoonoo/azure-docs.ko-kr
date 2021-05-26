@@ -3,16 +3,16 @@ title: 빠른 시작 - Visual Studio Code에서 Azure Logic Apps를 사용하여
 description: Visual Studio Code에서 다중 테넌트 Azure Logic Apps를 사용하여 워크플로 정의를 만들고 관리합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, deli, logicappspm
+ms.reviewer: azla
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/25/2021
-ms.openlocfilehash: 001a97f07655c4af78e14e07d9204045cec9502b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 41ed5f3e85390a51fa30316bc9f95c8b320c4468
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372553"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474469"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-multi-tenant-azure-logic-apps-and-visual-studio-code"></a>빠른 시작: 다중 테넌트 Azure Logic Apps 및 Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 

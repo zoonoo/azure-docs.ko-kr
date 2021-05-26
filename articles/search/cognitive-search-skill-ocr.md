@@ -8,19 +8,19 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: aa9c8e1d5579538df11358edc08eb7e2043cea74
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 12b6c8e71052d8d821d4b253d5f921bbff82e02d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285844"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473881"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
 **OCR(광학 인식)** 기술은 이미지 파일에서 인쇄 및 필기한 텍스트를 인식합니다. 이 기술은 Cognitive Services의 [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005)에서 제공하는 기계 학습 모델을 사용합니다. **OCR** 기술은 다음 기능에 해당됩니다.
 
 + 영어, 스페인어, 독일어, 프랑스어, 이탈리아어, 포르투갈어 및 네덜란드어의 경우 새로운 ["Read"](../cognitive-services/computer-vision/overview-ocr.md#read-api) API가 사용됩니다.
-+ 다른 모든 언어의 경우 [레거시 OCR](../cognitive-services/computer-vision/overview-ocr.md#ocr-api) API가 사용됩니다.
++ 다른 모든 언어의 경우 [레거시 OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f20d) API가 사용됩니다.
 
 **OCR** 기술은 이미지 파일에서 텍스트를 추출합니다. 지원 파일 형식은 다음과 같습니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "106285844"
 
 ## <a name="skill-inputs"></a>기술 입력
 
-| 입력 이름      | 설명                                          |
+| 입력 이름      | Description                                          |
 |---------------|------------------------------------------------------|
 | `image`         | 복합 형식입니다. ```imageAction```이 ```none``` 이외의 값으로 설정된 경우 현재 Azure Blob 인덱서에서 생성된 “/document/normalized_images” 필드에만 작동합니다. 자세한 내용은 [샘플](#sample-output)을 참조하세요.|
 

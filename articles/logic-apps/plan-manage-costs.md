@@ -5,13 +5,13 @@ ms.service: logic-apps
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 01/29/2021
-ms.openlocfilehash: 44351497ed58c8d49404c094f6800b52186edabb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 5fbf0d8f713785c7ec37e48fbf78e6d95a21ca4b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709634"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379580"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Azure Logic Apps에 대한 비용 계획 및 관리
 
@@ -39,9 +39,11 @@ Azure Logic Apps는 새 리소스를 배포할 때 [비용이 발생](https://az
 
 ### <a name="costs-that-typically-accrue-with-azure-logic-apps"></a>Azure Logic Apps에서 일반적으로 발생하는 비용
 
-Logic Apps 서비스는 사용자가 만들고 사용하는 리소스에 따라 다양한 가격 책정 모델을 적용합니다.
+Azure Logic Apps 서비스는 사용자가 만들고 사용하는 리소스에 따라 다양한 가격 책정 모델을 적용합니다.
 
-* 다중 테넌트 Logic Apps 서비스에서 만들고 실행하는 논리 앱 리소스는 [사용량 가격 책정 모델](../logic-apps/logic-apps-pricing.md#consumption-pricing)을 사용합니다.
+* 다중 테넌트 Azure Logic Apps에서 만들고 실행하는 논리 앱 리소스는 [사용량(유료) 가격 책정 모델](../logic-apps/logic-apps-pricing.md#consumption-pricing)을 사용합니다.
+
+* 단일 테넌트 Azure Logic Apps 서비스에서 만들고 실행하는 논리 앱 리소스는 [호스팅 플랜 가격 책정 모델](../logic-apps/logic-apps-pricing.md#standard-pricing)을 사용합니다.
 
 * [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 만들고 실행하는 논리 앱 리소스는 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용합니다.
 
@@ -49,13 +51,19 @@ Logic Apps 서비스는 사용자가 만들고 사용하는 리소스에 따라 
 
 * [통합 계정](../logic-apps/logic-apps-pricing.md#integration-accounts)은 B2B 통합을 구축하기 위해 사용자가 만들고 논리 앱에 연결하는 별도의 리소스입니다. 통합 계정은 사용하는 통합 계정 유형 또는 *계층* 을 기반으로 하여 요율이 책정되는 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts)을 사용합니다.
 
-* [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing)는 가상 네트워크의 리소스에 직접 액세스해야 하는 논리 앱의 배포 위치에 만드는 별도의 리소스입니다. ISE는 요율이 사용자가 만든 ISE SKU 및 기타 설정을 기반으로 하여 요율이 책정되는 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용합니다.
+* [ISE](../logic-apps/logic-apps-pricing.md#fixed-pricing)는 가상 네트워크의 리소스에 직접 액세스해야 하는 논리 앱의 배포 위치에 만드는 별도의 리소스입니다. ISE는 요율이 사용자가 만든 ISE SKU 및 기타 설정을 기반으로 하여 요율이 책정되는 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용합니다. 그렇지만 데이터 보존 및 스토리지 사용량에는 비용이 발생하지 않습니다.
 
 * [사용자 지정 커넥터](../logic-apps/logic-apps-pricing.md#consumption-pricing)는 논리 앱에서 사용할 수 있도록 미리 빌드된 커넥터가 없는 REST API에 대해 만드는 별도의 리소스입니다. 사용자 지정 커넥터 실행은 ISE에서 커넥터를 사용하는 경우를 제외하고 [사용량 가격 책정 모델](../logic-apps/logic-apps-pricing.md#consumption-pricing)을 사용합니다.
 
-* 다중 테넌트 Logic Apps 서비스에서 [데이터 보존 및 스토리지 사용량](../logic-apps/logic-apps-pricing.md#data-retention)은 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용하여 비용을 계산합니다. 예를 들어 실행 기록의 입력 및 출력은 논리 앱에서 독립적으로 만들고 관리하고 액세스하는 스토리지 리소스와는 다른 백그라운드 스토리지에 유지됩니다.
+<a name="storage-operations-costs"></a>
 
-  ISE의 데이터 보존 및 스토리지 사용량에는 비용이 발생하지 않습니다.
+#### <a name="storage-operations-and-costs"></a>스토리지 작업 및 비용
+
+Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](/storage)를 사용합니다. 다중 테넌트 Azure Logic Apps를 사용하여 스토리지 사용량 및 비용을 논리 앱에 연결합니다. [데이터 보존 및 스토리지 사용량](../logic-apps/logic-apps-pricing.md#data-retention)은 [고정 가격 책정 모델](../logic-apps/logic-apps-pricing.md#fixed-pricing)을 사용하여 비용을 계산합니다. 예를 들어 실행 기록의 입력 및 출력은 논리 앱에서 독립적으로 만들고 관리하고 액세스하는 스토리지 리소스와는 다른 백그라운드 스토리지에 유지됩니다.
+
+단일 테넌트 Azure Logic Apps를 사용하여 고유한 Azure [Storage 계정](../azure-functions/storage-considerations.md#storage-account-requirements)을 사용할 수 있습니다. 이 기능은 Logic Apps 데이터에 대해 더 많은 제어와 유연성을 제공합니다. *상태 저장* 워크플로가 작업을 실행할 때 Azure Logic Apps 런타임은 스토리지 트랜잭션을 수행합니다. 예를 들어 큐는 예약에 사용되고 테이블 및 Blob은 워크플로 상태를 저장하는 데 사용됩니다. 스토리지 비용은 워크플로 콘텐츠에 따라 변경됩니다. 트리거, 작업 및 페이로드가 다르면 스토리지 작업 및 요구 사항도 다릅니다. 스토리지 트랜잭션은 [Azure Storage 가격 책정 모델](https://azure.microsoft.com/pricing/details/storage/)을 따릅니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다.
+
+단일 테넌트 Azure Logic Apps의 경우, [Logic Apps 스토리지 계산기](https://logicapps.azure.com/calculator)를 사용하여 워크플로가 실행할 수 있는 스토리지 작업 수와 해당 비용을 파악할 수 있습니다. 샘플 워크플로를 선택하거나 기존 워크플로 정의를 사용할 수 있습니다. 첫 번째 계산은 워크플로의 스토리지 작업 수를 예측합니다. 그런 다음, 이러한 수치를 사용하여 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)에서 가능한 비용을 예상할 수 있습니다. 자세한 내용은 [단일 테넌트 Azure Logic Apps 워크플로에 대한 스토리지 요구 사항 및 비용 예측](estimate-storage-costs.md)을 검토하세요.
 
 <a name="costs-after-resource-deletion"></a>
 
@@ -210,7 +218,7 @@ Otherwise, if no other cost-saving recommendations or best practices exist to re
 
 논리 앱 및 관련 리소스에 대한 비용을 줄이려면 다음 옵션을 사용해 보세요.
 
-* 가능하면 실행당 실행 비용이 [관리형 커넥터 트리거 및 작업](../connectors/apis-list.md#managed-connectors)보다 더 저렴한 [기본 제공 트리거 및 작업](../connectors/apis-list.md#built-in)을 사용합니다.
+* 가능하면 실행당 실행 비용이 [관리형 커넥터 트리거 및 작업](../connectors/managed.md)보다 더 저렴한 [기본 제공 트리거 및 작업](../connectors/built-in.md)을 사용합니다.
 
   예를 들어 [HTTP 작업](../connectors/connectors-native-http.md)을 사용하거나 [Azure Functions 서비스](../azure-functions/functions-overview.md)에서 [기본 제공 Azure Functions 작업](../logic-apps/logic-apps-azure-functions.md)을 사용하여 만든 함수를 호출하여 다른 리소스에 액세스할 때 발생하는 비용을 줄일 수 있습니다. 그러나 Azure Functions를 사용하면 비용이 발생하므로 옵션을 비교해야 합니다.
 

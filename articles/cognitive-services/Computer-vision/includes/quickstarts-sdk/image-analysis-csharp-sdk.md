@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 03/29/2021
 ms.author: pafarley
-ms.openlocfilehash: 0af6c97d6179a645b078f2335ff38f48890c42a3
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 5fc3c2848fd05c28e63f56f5507d9efb6a6095c3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728197"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486999"
 ---
 <a name="HOLTop"></a>
 
@@ -100,7 +100,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
 
 > [!div class="nextstepaction"]
-> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client)
+> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client&product=computer-vision&page=image-analysis-csharp-sdk)
 
 ## <a name="object-model"></a>개체 모델
 
@@ -129,14 +129,14 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client)
+> [클라이언트를 인증했습니다.](?success=authenticate-client#analyze-an-image) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client&product=computer-vision&page=image-analysis-csharp-sdk)
 
 ## <a name="analyze-an-image"></a>이미지 분석
 
 다음 코드는 클라이언트 개체를 사용하여 원격 이미지를 분석하고 결과를 출력하는 `AnalyzeImageUrl` 메서드를 정의합니다. 이 메서드는 텍스트 설명, 분류, 태그 목록, 감지된 얼굴, 성인 콘텐츠 플래그, 기본 색 및 이미지 형식을 반환합니다.
 
 > [!TIP]
-> 로컬 이미지를 분석할 수도 있습니다. [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) 메서드(예: **AnalyzeImageInStreamAsync**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
+> 로컬 이미지를 분석할 수도 있습니다. [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) 메서드(예: **AnalyzeImageInStreamAsync**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#L302)의 샘플 코드를 참조하세요.
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 
@@ -231,7 +231,7 @@ dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --ver
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [이미지를 분석했습니다.](?success=analyze-image#run-the-application) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=analyze-image)
+> [이미지를 분석했습니다.](?success=analyze-image#run-the-application) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=analyze-image&product=computer-vision&page=image-analysis-csharp-sdk)
 
 
 

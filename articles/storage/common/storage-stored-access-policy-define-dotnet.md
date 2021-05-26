@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cd6147fbe38710bcefd580e71be1d6f5d446a21
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a68697d6dffad6aad857bb59d66beeb42dec62d2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89010752"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475399"
 ---
 # <a name="create-a-stored-access-policy-with-net"></a>.NET을 사용하여 저장된 액세스 정책 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "89010752"
 
 다음 코드 예제에서는 컨테이너에 대한 저장된 액세스 정책을 만듭니다. 액세스 정책을 사용하여 컨테이너나 해당 Blob에 서비스 SAS에 대한 제약 조건을 지정할 수 있습니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 Azure Storage용 .NET 클라이언트 라이브러리 버전 12를 사용하여 컨테이너에 대한 저장된 액세스 정책을 만들려면 다음 메서드 중 하나를 호출합니다.
 
@@ -93,7 +93,7 @@ async static Task CreateStoredAccessPolicyAsync(string containerName)
 }
 ```
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Azure Storage용 .NET 클라이언트 라이브러리 버전 12를 사용하여 컨테이너에 대한 저장된 액세스 정책을 만들려면 다음 메서드 중 하나를 호출합니다.
 

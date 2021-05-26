@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4721598961ae912e8f0a9ef2f61022e5feb39e6c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86257056"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462253"
 ---
 # <a name="sfctl"></a>sfctl
 Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은 Service Fabric 7.0 런타임과 호환됩니다.
@@ -27,7 +27,6 @@ Service Fabric 클러스터 및 엔터티 관리를 위한 명령. 이 버전은
 | [container](service-fabric-sfctl-container.md) | 클러스터 노드에서 컨테이너 관련 명령을 실행합니다. |
 | [events](service-fabric-sfctl-events.md) | 이벤트 저장소에서 이벤트를 검색합니다(EventStore 서비스가 이미 설치된 경우). |
 | [is](service-fabric-sfctl-is.md) | 쿼리하고 인프라 서비스에 명령을 보냅니다. |
-| [메시](service-fabric-sfctl-mesh.md) | Service Fabric Mesh 애플리케이션을 삭제하고 관리합니다. |
 | [node](service-fabric-sfctl-node.md) | 클러스터를 형성하는 노드를 관리합니다. |
 | [partition](service-fabric-sfctl-partition.md) | 모든 서비스에 대한 파티션을 쿼리 및 관리합니다. |
 | [property](service-fabric-sfctl-property.md) | Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다. |

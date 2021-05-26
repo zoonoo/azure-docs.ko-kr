@@ -393,8 +393,6 @@
       items:
         - name: 일반적인 문제
           href: troubleshooting.md
-        - name: 모범 사례에 대한 확인
-          href: kube-advisor-tool.md
         - name: SSH 노드 액세스
           href: ssh.md
         - name: Linux 성능 도구
@@ -405,7 +403,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/aks
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/aks
     - name: PowerShell
       href: /powershell/module/az.aks#aks

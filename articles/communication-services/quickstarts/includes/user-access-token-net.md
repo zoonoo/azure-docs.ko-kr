@@ -10,12 +10,12 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 653692812507c05c6cfc58b00d3c93ece19019bb
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 34ce87c1370a7c184eb96c5f2a295be34f73520d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113208"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110486344"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -60,7 +60,8 @@ dotnet add package Azure.Communication.Identity --version 1.0.0
 
 ```csharp
 using System;
-using Azure.Communication;
+using Azure;
+using Azure.Core;
 using Azure.Communication.Identity;
 
 namespace AccessTokensQuickstart
@@ -101,7 +102,7 @@ var client = new CommunicationIdentityClient(new Uri(endpoint), new AzureKeyCred
 관리 ID가 설정된 경우([관리 ID 사용](../managed-identity.md) 참조) 관리 ID로 인증할 수도 있습니다.
 ```csharp
 TokenCredential tokenCredential = new DefaultAzureCredential();
-var client = new CommunicationIdentityClient(endpoint, tokenCredential);
+var client = new CommunicationIdentityClient(new Uri(endpoint), tokenCredential);
 ```
 
 ## <a name="create-an-identity"></a>ID 만들기
