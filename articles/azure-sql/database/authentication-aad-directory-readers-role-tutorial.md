@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: bc809cf02b827b7498890cb7d929c44bd360ab53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14f21939e53a284619f18049df84706cab6fd594
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821952"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087063"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>자습서: Azure AD 그룹에 디렉터리 읽기 권한자 역할 할당 및 역할 할당 관리
 
@@ -94,7 +94,7 @@ SQL Managed Instance의 경우 [관리형 인스턴스에 대한 Azure AD 관리
 ## <a name="directory-readers-role-assignment-using-powershell"></a>PowerShell을 사용하여 디렉터리 읽기 권한자 역할 할당
 
 > [!IMPORTANT]
-> [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)는 다음과 같은 초기 단계를 실행해야 합니다. PowerShell 외에도, Azure AD는 [Azure AD에서 역할 할당 가능 그룹을 만드는](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api) Microsoft Graph API를 제공합니다.
+> [전역 관리자](../../active-directory/roles/permissions-reference.md#global-administrator) 또는 [권한 있는 역할 관리자](../../active-directory/roles/permissions-reference.md#privileged-role-administrator)는 다음과 같은 초기 단계를 실행해야 합니다. PowerShell 외에도, Azure AD는 [Azure AD에서 역할 할당 가능 그룹을 만드는](../../active-directory/roles/groups-create-eligible.md#microsoft-graph-api) Microsoft Graph API를 제공합니다.
 
 1. 다음 명령을 사용하여 Azure AD Preview PowerShell 모듈을 다운로드합니다. 관리자 권한으로 PowerShell을 실행해야 할 수도 있습니다.
 

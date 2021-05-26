@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53549869098504396d1fa1039ed43b5ff02d2a9b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100558906"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083641"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>스테이징 또는 프로덕션 엔드포인트에 활성 상태의 학습된 앱 게시
 
@@ -44,7 +44,7 @@ ms.locfileid: "100558906"
 
 ### <a name="publishing-regions"></a>게시 지역
 
-앱은 **관리** ->  **[Azure 리소스](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** 페이지에서 LUIS 포털에 추가된 LUIS 예측 엔드포인트 리소스와 연결된 모든 지역에 게시됩니다.
+앱은 **관리** ->  **[Azure 리소스](luis-how-to-azure-subscription.md#assign-luis-resources)** 페이지에서 LUIS 포털에 추가된 LUIS 예측 엔드포인트 리소스와 연결된 모든 지역에 게시됩니다.
 
 예를 들어, [www.luis.ai](https://www.luis.ai)에서 만든 앱의 경우 **westus** 와 **eastus** 의 두 지역에서 LUIS 리소스를 만들고 이를 앱에 리소스로 추가하면 두 지역 모두에 해당 앱이 게시됩니다. LUIS 지역에 대한 자세한 내용은 [지역](luis-reference-regions.md)을 참조하세요.
 

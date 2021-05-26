@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: fac66e8f82ea4c04e866b28fed5f8d0860ab81ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b11b2591ad90111c7a2d96ae1f7bf7bdde0673d5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755975"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110471419"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
 
@@ -118,7 +118,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> 계정 개체에서 사용할 수 있는 클레임 목록을 보려면 [id_token의 클레임](./id-tokens.md#claims-in-an-id_token)을 참조하세요.
+> 계정 개체에서 사용할 수 있는 클레임 목록을 보려면 [id_token의 클레임](./id-tokens.md#claims-in-an-id-token)을 참조하세요.
 
 > [!TIP]
 > id_token에 추가 클레임을 포함하려면 [방법: Azure AD 앱에 선택적 클레임 제공](./active-directory-optional-claims.md)의 선택적 클레임 설명서를 참조하세요.

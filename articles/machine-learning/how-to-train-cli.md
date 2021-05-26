@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.openlocfilehash: 38b166818f9f27a2905647518c36296965dc953d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 92397e1648afe8e92cd810827b75cb23c2dac09f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382646"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458279"
 ---
 # <a name="train-models-create-jobs-with-the-20-cli-preview"></a>2\.0 CLI를 사용한 모델 학습(작업 만들기) (미리 보기)
 
@@ -23,7 +23,8 @@ Machine Learning에 대한 Azure 2.0 CLI 확장(미리 보기)을 사용하면 �
 
 기계 학습 모델을 학습시키는 과정은 반복 프로세스입니다. 최신 도구를 사용하면 더 많은 모델에 더 많은 데이터를 전보다 훨씬 더 빠르게 학습시킬 수 있습니다. 하이퍼 매개 변수 튜닝과 알고리즘 선택 같은 이전의 지루한 수동 프로세스가 자동화되는 경우가 많습니다. Azure Machine Learning CLI를 사용하면 하이퍼 매개 변수 스윕을 통해 [작업 영역](concept-workspace.md)에서 작업(및 모델)을 추적하고, 고성능 Azure 컴퓨팅을 스케일 업하고, 분산 학습을 활용하여 스케일 아웃할 수 있습니다.
 
-모든 기능을 갖춘 개발 환경을 위해서는 Visual Studio Code 및 [Azure Machine Learning 확장](how-to-setup-vs-code.md)을 사용하여 [Azure Machine Learning 리소스를 관리](how-to-manage-resources-vscode.md)하고 [기계 학습 모델을 학습](tutorial-train-deploy-image-classification-model-vscode.md)시킵니다.
+> [!TIP]
+> 모든 기능을 갖춘 개발 환경을 위해서는 Visual Studio Code 및 [Azure Machine Learning 확장](how-to-setup-vs-code.md)을 사용하여 [Azure Machine Learning 리소스를 관리](how-to-manage-resources-vscode.md)하고 [기계 학습 모델을 학습](tutorial-train-deploy-image-classification-model-vscode.md)시킵니다.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -48,7 +49,7 @@ Azure Machine Learning CLI에서 작업은 YAML 형식으로 작성됩니다. �
 
 "hello world" 작업에는 세 항목이 모두 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
 
 이는 로그 파일에서 한 줄만 출력하는 예제 작업입니다. 일반적으로 시스템 생성 로그 외에 모델 이진 파일 및 함께 제공되는 메타데이터와 같은 추가 아티팩트를 생성하는 것이 좋습니다.
 
@@ -74,11 +75,11 @@ Azure Machine Learning은 다음 아티팩트를 자동으로 캡처합니다.
 
 기본 명령 작업은 `job.yml`을 통해 구성됩니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
 이 작업은 `--file/-f` 매개 변수를 사용하는 `az ml job create`를 통해 만들고 실행할 수 있습니다. 그러나 이 작업은 아직 존재하지 않는 `cpu-cluster`라는 컴퓨팅을 대상으로 합니다. 작업을 로컬에서 먼저 실행하려면 `--set`를 사용하여 컴퓨팅 대상을 재정의하면 됩니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_local":::
 
 이 작업을 로컬로 실행할 경우 필요한 패키지가 설치된 로컬 Python 환경에서 `python main.py`를 실행하는 것보다 속도가 느리지만 위에서는 다음을 수행할 수 있습니다.
 
@@ -98,7 +99,7 @@ Azure Machine Learning은 다음 아티팩트를 자동으로 캡처합니다.
 
 명령줄에서 Azure Machine Learning 컴퓨팅 클러스터를 만들 수 있습니다. 예를 들어 다음 명령은 `cpu-cluster`라는 클러스터 하나와 `gpu-cluster`라는 클러스터 하나를 만듭니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="create_computes":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="create_computes":::
 
 이때 컴퓨팅 요금은 청구되지 않습니다. `cpu-cluster` 및 `gpu-cluster`는 작업이 제출될 때까지 0개 노드에 유지되기 때문입니다. [AmlCompute의 비용을 계획하고 관리](concept-plan-manage-cost.md#use-azure-machine-learning-compute-cluster-amlcompute)하는 방법에 대해 자세히 알아보세요.
 
@@ -108,7 +109,7 @@ Azure Machine Learning은 다음 아티팩트를 자동으로 캡처합니다.
 
 `cpu-cluster`가 생성되면 모델 및 해당 메타데이터를 출력하는 기본 학습 작업을 실행할 수 있습니다. 작업 YAML 파일을 자세히 살펴보겠습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job.yml":::
 
 | 키 | 설명 |
 | --- | ----------- |
@@ -125,11 +126,11 @@ Azure Machine Learning은 다음 아티팩트를 자동으로 캡처합니다.
 
 lightgbm/iri 학습 작업을 실행하려면 다음을 수행합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris":::
 
 작업이 완료되면 출력을 다운로드할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_outputs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_outputs":::
 
 > [!IMPORTANT]
 > `$run_id`를 콘솔 출력 또는 스튜디오의 실행 세부 정보 페이지에서 찾을 수 있는 실행 ID로 바꿉니다.
@@ -142,7 +143,7 @@ lightgbm/iri 학습 작업을 실행하려면 다음을 수행합니다.
 
 `job.yml`을 `job-sweep.yml`로 수정하여 하이퍼 매개 변수를 스윕할 수 있습니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/lightgbm/iris/job-sweep.yml":::
 
 | 키 | 설명 |
 | --- | ----------- |
@@ -159,7 +160,7 @@ lightgbm/iri 학습 작업을 실행하려면 다음을 수행합니다.
 
 작업을 만들고 스튜디오에서 엽니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="lightgbm_iris_sweep":::
 
 > [!TIP]
 > 하이퍼 매개 변수 스윕은 분산 명령 작업과 함께 사용할 수 있습니다.
@@ -174,25 +175,25 @@ lightgbm/iri 학습 작업을 실행하려면 다음을 수행합니다.
 
 CIFAR-10 데이터 세트에 대한 분산 PyTorch 학습을 위한 YAML 파일 예제:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/pytorch/cifar-distributed/job.yml":::
 
 이는 복제된 예제 리포지토리에 없는 로컬 데이터를 참조합니다. 먼저 CIFAR-10 데이터 세트를 로컬에서 다운로드하고, 추출하고, 프로젝트 디렉터리의 적절한 위치로 다시 배치해야 합니다.
 
-:::code language="bash" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="download_cifar":::
+:::code language="bash" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="download_cifar":::
 
 작업을 만들고 스튜디오에서 엽니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="pytorch_cifar":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="pytorch_cifar":::
 
 ### <a name="tensorflow"></a>TensorFlow
 
 MNIST 데이터 세트에 대한 분산형 TensorFlow 학습용 예제 YAML 파일:
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed/job.yml":::
 
 작업을 만들고 스튜디오에서 엽니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist":::
 
 ### <a name="mpi"></a>MPI
 
@@ -202,13 +203,13 @@ MPI 작업을 시작하려면 유형으로 `mpi`를 지정하고 `distribution` 
 
 Horovod를 사용하여 MNIST에서 TensorFlow 작업을 실행하는 YAML 사양의 예입니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/train/tensorflow/mnist-distributed-horovod/job.yml":::
 
 작업을 만들고 스튜디오에서 엽니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-train-cli.sh" id="tensorflow_mnist_horovod":::
 
 ## <a name="next-steps"></a>다음 단계
 
 - [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점](how-to-deploy-managed-online-endpoints.md)
-- [REST를 사용한 모델 학습(미리 보기)][how-to-train-with-rest.md]
+- [REST를 사용하여 모델 학습(미리 보기)](how-to-train-with-rest.md)

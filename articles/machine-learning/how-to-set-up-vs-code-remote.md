@@ -5,17 +5,16 @@ description: Visual Studio Code에서 Azure Machine Learning 컴퓨팅 인스턴
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 04/08/2021
-ms.openlocfilehash: 14f0d15d48193267c224f3497c24651ca3249b0b
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 534becdfcba1ccc992daadc5007e2eb56337a45e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028593"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379271"
 ---
 # <a name="connect-to-an-azure-machine-learning-compute-instance-in-visual-studio-code-preview"></a>Visual Studio Code에서 Azure Machine Learning 컴퓨팅 인스턴스에 연결(미리 보기)
 
@@ -32,7 +31,7 @@ Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두
 
 개발용 원격 컴퓨팅 인스턴스를 구성하려면 몇 가지 필수 구성 요소가 필요합니다.
 
-* Azure Machine Learning Visual Studio Code 확장. 자세한 내용은 [Azure Machine Learning Visual Studio Code 확장 설정](tutorial-setup-vscode-extension.md)을 참조하세요.
+* Azure Machine Learning Visual Studio Code 확장. 자세한 내용은 [Azure Machine Learning Visual Studio Code 확장 설정](how-to-setup-vs-code.md)을 참조하세요.
 * Azure Machine Learning 작업 영역. 아직 없는 경우 [Azure Machine Learning Visual Studio Code 확장을 사용하여 새 작업 영역을 만듭니다](how-to-manage-resources-vscode.md#create-a-workspace).
 * Azure Machine Learning 컴퓨팅 인스턴스. 아직 없는 경우 [Azure Machine Learning Visual Studio Code 확장을 사용하여 새 컴퓨팅 인스턴스를 만듭니다](how-to-manage-resources-vscode.md#create-compute-instance).
 
@@ -56,14 +55,14 @@ Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두
 1. 작업 영역을 선택합니다.
 1. 컴퓨팅 인스턴스를 선택하거나 새로운 컴퓨팅 인스턴스를 만듭니다.
 
-# <a name="studio"></a>[Studio](#tab/studio)
+# <a name="studio"></a>[스튜디오](#tab/studio)
 
 [ml.azure.com](https://ml.azure.com)으로 이동합니다.
 
 > [!IMPORTANT]
 > Visual Studio Code에서 원격 컴퓨팅 인스턴스에 연결하려면 Azure Machine Learning 스튜디오에서 로그인한 계정이 Visual Studio Code에서 사용하는 계정과 동일한지 확인합니다.
 
-### <a name="compute"></a>컴퓨팅
+### <a name="compute"></a>Compute
 
 1. **컴퓨팅** 탭을 선택합니다.
 1. *애플리케이션 URI* 열에서 연결하려는 컴퓨팅 인스턴스에 대한 **VS Code** 를 선택합니다.
@@ -99,7 +98,7 @@ Visual Studio Code에서 컴퓨팅 인스턴스에 연결하는 방법에는 두
 
 컴퓨팅 인스턴스를 원격 Jupyter Notebook 서버로 구성하려면 몇 가지 필수 구성 요소가 필요합니다.
 
-* Azure Machine Learning Visual Studio Code 확장. 자세한 내용은 [Azure Machine Learning Visual Studio Code 확장 설정](tutorial-setup-vscode-extension.md)을 참조하세요.
+* Azure Machine Learning Visual Studio Code 확장. 자세한 내용은 [Azure Machine Learning Visual Studio Code 확장 설정](how-to-setup-vs-code.md)을 참조하세요.
 * Azure Machine Learning 작업 영역. 아직 없는 경우 [Azure Machine Learning Visual Studio Code 확장을 사용하여 새 작업 영역을 만듭니다](how-to-manage-resources-vscode.md#create-a-workspace).
 
 컴퓨팅 인스턴스에 연결하려면:

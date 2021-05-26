@@ -2,14 +2,14 @@
 title: 에이전트 및 확장 문제 해결
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 05/25/2021
 ms.service: backup
-ms.openlocfilehash: 0313394ad149460f82c98c63cab95b922b4a3da2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 57a0002d353ebb75570dc3b70c55d2f17f70db35
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519608"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472477"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -34,7 +34,7 @@ ms.locfileid: "102519608"
     - Azure VM 에이전트는 포털, PowerShell, 명령줄 인터페이스 또는 Azure Resource Manager 템플릿의 Azure Marketplace 이미지에서 배포된 모든 Windows VM에 기본적으로 설치됩니다. Azure에 배포된 사용자 지정 VM 이미지를 만들 때 [에이전트의 수동 설치](../virtual-machines/extensions/agent-windows.md#manual-installation)가 필요할 수 있습니다.
     - 지원 매트릭스를 검토하여 [지원되는 Windows 운영 체제](backup-support-matrix-iaas.md#operating-system-support-windows)에서 VM이 실행되는지 확인합니다.
   - Linux VM에서
-    - `ps-e` 명령을 실행하여 Azure VM 게스트 에이전트 서비스가 실행 중인지 확인합니다. 또한 [최신 버전](../virtual-machines/extensions/update-linux-agent.md)이 설치되어 있는지 확인합니다. 자세한 내용은 [Linux VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)를 참조하세요.
+    - `ps -e` 명령을 실행하여 Azure VM 게스트 에이전트 서비스가 실행 중인지 확인합니다. 또한 [최신 버전](../virtual-machines/extensions/update-linux-agent.md)이 설치되어 있는지 확인합니다. 자세한 내용은 [Linux VM 게스트 에이전트 문제](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)를 참조하세요.
     - [시스템 패키지에 대한 Linux VM 에이전트 종속성](../virtual-machines/extensions/agent-linux.md#requirements)에 지원되는 구성이 있는지 확인합니다. 예를 들어 지원되는 Python 버전은 2.6 이상입니다.
     - 지원 매트릭스를 검토하여 [지원되는 Linux 운영 체제](backup-support-matrix-iaas.md#operating-system-support-linux)에서 VM이 실행되는지 확인합니다.
 
