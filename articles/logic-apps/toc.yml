@@ -63,14 +63,18 @@
           href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: 방법 가이드
   items:
-    - name: 단일 테넌트 Azure Logic Apps(미리 보기)
+    - name: 단일 테넌트 Azure Logic Apps
       items:
-        - name: 단일 테넌트 개요(미리 보기)
+        - name: 단일 테넌트 개요
           href: single-tenant-overview-compare.md
         - name: 단일 테넌트 워크플로 만들기 - 포털
           href: create-single-tenant-workflows-azure-portal.md
         - name: 단일 테넌트 워크플로 만들기 - Visual Studio Code
           href: create-single-tenant-workflows-visual-studio-code.md
+        - name: 단일 테넌트에서 논리 앱에 대한 호스트 및 앱 설정 편집
+          href: edit-app-settings-host-settings.md
+        - name: 단일 테넌트 워크플로에 대한 매개 변수 만들기
+          href: parameterize-workflow-app.md
         - name: 단일 테넌트용 DevOps 배포
           href: devops-deployment-single-tenant-azure-logic-apps.md
         - name: 단일 테넌트용 DevOps 배포 설정
@@ -79,6 +83,12 @@
           href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
         - name: 단일 테넌트 워크플로에 대한 스토리지 비용 예측
           href: estimate-storage-costs.md
+    - name: Azure Arc 지원 Logic Apps
+      items:
+        - name: Azure Arc 지원 Logic Apps 정보
+          href: azure-arc-enabled-logic-apps-overview.md
+        - name: Arc 지원 논리 앱 만들기 및 배포
+          href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
     - name: 개발
       items:
         - name: 미리 빌드된 템플릿에서 만들기
