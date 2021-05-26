@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3765229fccb00f6e19fd3cf2b6b1a39919abcf05
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 2270d9569f2638cd08e81e26cff4a4605011ffbb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321810"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070141"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "108321810"
 
 이 자습서에서는 관리형 애플리케이션을 만들고, 사용자 지정 공급자 인스턴스, 스토리지 계정 및 함수가 해당 관리형 리소스 그룹에 포함됩니다. 이 예제에서 사용되는 Azure Function은 작업 및 리소스에 대한 사용자 지정 공급자 작업을 처리하는 API를 구현합니다. Azure Storage 계정은 사용자 지정 공급자 리소스에 대한 기본 스토리지로 사용됩니다.
 
-관리형 애플리케이션 인스턴스를 만들기 위한 사용자 인터페이스 정의에는 `funcname` 및 `storagename` 입력 요소가 포함됩니다. 스토리지 계정 이름 및 함수 이름은 전역적으로 고유해야 합니다. 기본적으로 함수 파일은 [함수 패키지 샘플](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)에서 배포되지만 *createUiDefinition.json* 의 패키지 링크에 대한 입력 요소를 추가하여 변경할 수 있습니다.
+관리형 애플리케이션 인스턴스를 만들기 위한 사용자 인터페이스 정의에는 `funcname` 및 `storagename` 입력 요소가 포함됩니다. 스토리지 계정 이름 및 함수 이름은 전역적으로 고유해야 합니다. 기본적으로 함수 파일은 [함수 패키지 샘플](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip)에서 배포되지만 *createUiDefinition.json* 의 패키지 링크에 대한 입력 요소를 추가하여 변경할 수 있습니다.
 
 ```json
 {
@@ -67,7 +67,7 @@ ms.locfileid: "108321810"
 {
   "name": "zipFileBlobUri",
   "type": "Microsoft.Common.TextBox",
-  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
+  "defaultValue": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.customproviders/custom-rp-with-function/artifacts/functionzip/functionpackage.zip",
   "label": "The Uri to the uploaded function zip file",
   "toolTip": "The Uri to the uploaded function zip file",
   "visible": true
@@ -185,7 +185,7 @@ ms.locfileid: "108321810"
 * mainTemplate.json
 * viewDefinition.json
 
-모든 파일은 루트 수준에 있어야 합니다. 아티팩트가 포함된 패키지는 모든 스토리지(예: GitHub Blob 또는 Azure Storage 계정 Blob)에 저장할 수 있습니다. 다음은 애플리케이션 패키지를 스토리지 계정에 업로드하는 스크립트입니다. 
+모든 파일은 루트 수준에 있어야 합니다. 아티팩트가 포함된 패키지는 모든 스토리지(예: GitHub Blob 또는 Azure Storage 계정 Blob)에 저장할 수 있습니다. 다음은 애플리케이션 패키지를 스토리지 계정에 업로드하는 스크립트입니다.
 
 ```powershell
 $resourceGroup="appResourcesGroup"
@@ -210,7 +210,7 @@ Set-AzStorageBlobContent `
   -File "path_to_your_zip_package" `
   -Container appcontainer `
   -Blob app.zip `
-  -Context $ctx 
+  -Context $ctx
 
 # Get blob absolute uri
 $blobUri=(Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx).ICloudBlob.uri.AbsoluteUri
@@ -248,8 +248,8 @@ az managedapp definition create \
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터** 를 입력하고 선택합니다.
-2. **관리형 애플리케이션 센터** 에서 **서비스 카탈로그 애플리케이션 정의** 를 선택하고, **추가** 를 클릭합니다. 
-    
+2. **관리형 애플리케이션 센터** 에서 **서비스 카탈로그 애플리케이션 정의** 를 선택하고, **추가** 를 클릭합니다.
+
     ![서비스 카탈로그 추가](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
 3. 서비스 카탈로그 정의를 만드는 데 필요한 값을 제공합니다.
@@ -304,7 +304,7 @@ az managedapp create \
 # <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. Azure Portal에서 **모든 서비스** 를 선택합니다. 리소스 목록에서 **관리형 애플리케이션 센터** 를 입력하고 선택합니다.
-2. **관리형 애플리케이션 센터** 에서 **서비스 카탈로그 애플리케이션** 을 선택하고, **추가** 를 클릭합니다. 
+2. **관리형 애플리케이션 센터** 에서 **서비스 카탈로그 애플리케이션** 을 선택하고, **추가** 를 클릭합니다.
 
     ![관리형 애플리케이션 추가](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 
@@ -319,8 +319,8 @@ az managedapp create \
 
     ![애플리케이션 설정](./media/tutorial-create-managed-app-with-custom-provider/application-settings.png)
 
-5. 유효성 검사가 통과되면 **확인** 을 클릭하여 관리형 애플리케이션의 인스턴스를 배포합니다. 
-    
+5. 유효성 검사가 통과되면 **확인** 을 클릭하여 관리형 애플리케이션의 인스턴스를 배포합니다.
+
     ![관리형 애플리케이션 배포](./media/tutorial-create-managed-app-with-custom-provider/deploy-managed-application.png)
 
 ---
@@ -349,7 +349,7 @@ az managedapp create \
 
 ## <a name="looking-for-help"></a>도움말 찾기
 
-Azure Managed Applications에 대한 질문이 있는 경우 azure-managed-app 태그가 있는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) 또는 azure-managed-application 태그가 있는 [Microsoft Q&A](/answers/topics/azure-managed-applications.html)에서 질문할 수 있습니다. 이미 비슷한 질문을 받고 답변했을 수 있으므로 게시하기 전에 먼저 확인하세요. 더 빠른 응답을 위해 각 태그를 사용하세요. 
+Azure Managed Applications에 대한 질문이 있는 경우 azure-managed-app 태그가 있는 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-managed-app) 또는 azure-managed-application 태그가 있는 [Microsoft Q&A](/answers/topics/azure-managed-applications.html)에서 질문할 수 있습니다. 이미 비슷한 질문을 받고 답변했을 수 있으므로 게시하기 전에 먼저 확인하세요. 더 빠른 응답을 위해 각 태그를 사용하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/28/2020
+ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: 7966cbe44fc8984cf3c3d9e2d08a11bf599ff158
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5491ec58b87d799376ade3775b3dbfc0d3a8dab
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89079135"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814715"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---arm-template"></a>빠른 시작: Azure Firewall 및 IP 그룹 만들기 - ARM 템플릿
 
@@ -23,7 +23,7 @@ ms.locfileid: "89079135"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -35,7 +35,7 @@ ms.locfileid: "89079135"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -55,17 +55,17 @@ Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 2. 포털의 **IpGroups를 사용하여 Azure Firewall 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
-   - 구독: 기존 구독에서 선택 
+   - 구독: 기존 구독에서 선택
    - 리소스 그룹:  기존 리소스 그룹에서 선택하거나 **새로 만들기** 를 선택하고 **확인** 을 선택합니다.
    - 위치: 위치 선택
-   - Virtual Network 이름: 새 가상 네트워크(VNet)의 이름 입력 
-   - IP 그룹 이름 1: IP 그룹 1의 유형 이름 
-   - IP 그룹 이름 2: IP 그룹 2의 유형 이름 
-   - 관리자 사용자 이름: 관리자 사용자 계정에 대한 사용자 이름 입력 
-   - 인증: sshPublicKey 또는 암호 선택 
+   - Virtual Network 이름: 새 가상 네트워크(VNet)의 이름 입력
+   - IP 그룹 이름 1: IP 그룹 1의 유형 이름
+   - IP 그룹 이름 2: IP 그룹 2의 유형 이름
+   - 관리자 사용자 이름: 관리자 사용자 계정에 대한 사용자 이름 입력
+   - 인증: sshPublicKey 또는 암호 선택
    - 관리자 암호: 관리자 암호 또는 키 입력
 
 3. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.

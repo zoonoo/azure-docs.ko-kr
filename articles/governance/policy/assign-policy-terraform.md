@@ -3,12 +3,12 @@ title: '빠른 시작: Terraform을 사용하여 새 정책 할당'
 description: 이 빠른 시작에서는 Terraform 및 HCL 구문을 사용하여 비규격 리소스를 식별하는 정책 할당을 만듭니다.
 ms.date: 03/31/2021
 ms.topic: quickstart
-ms.openlocfilehash: 7530ad1c4e87fb2df00e1fa81e324bb9bd0c4034
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c9e33fc8070adc2685e26272565d95716c0df8db
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763040"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094765"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-terraform"></a>빠른 시작: Terraform을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -85,7 +85,7 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 1. Terraform에 대한 [Azure CLI](/cli/azure/)를 사용하여 인증합니다. 자세한 내용은 해당 [Azure 공급자: Azure CLI를 사용하여 인증](https://www.terraform.io/docs/providers/azurerm/guides/azure_cli.html)을 참조하세요.
 
-   ```bash
+   ```azurecli
    az login
    ```
 

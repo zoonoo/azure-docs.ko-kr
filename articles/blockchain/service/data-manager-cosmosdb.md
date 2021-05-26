@@ -4,16 +4,20 @@ description: Azure Blockchain Service용 Blockchain Data Manager를 사용하여
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b054688fb524d82e758f2ac1a9ff643293bc3b29
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91283459"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110465751"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>자습서: Blockchain Data Manager를 사용하여 Azure Cosmos DB로 데이터 보내기
 
-이 자습서에서는 Azure Blockchain Service에 Blockchain Data Manager를 사용하여 블록체인 트랜잭션 데이터를 Azure Cosmos DB에 기록합니다. Blockchain Data Manager는 블록체인 데이터를 캡처하고, 변환하고, Azure Event Grid 토픽으로 전송합니다. Azure Event Grid에서 Azure 논리 앱 커넥터를 사용하여 Azure Cosmos DB 데이터베이스에 문서를 만듭니다. 이 자습서를 완료하면 Azure Cosmos DB Data Explorer에서 블록체인 트랜잭션 데이터를 검색할 수 있습니다.
+이 자습서에서는 Azure Blockchain Service에 Blockchain Data Manager를 사용하여 블록체인 트랜잭션 데이터를 Azure Cosmos DB에 기록합니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
+
+Blockchain Data Manager는 블록체인 데이터를 캡처하고, 변환하고, Azure Event Grid 토픽으로 전송합니다. Azure Event Grid에서 Azure 논리 앱 커넥터를 사용하여 Azure Cosmos DB 데이터베이스에 문서를 만듭니다. 이 자습서를 완료하면 Azure Cosmos DB Data Explorer에서 블록체인 트랜잭션 데이터를 검색할 수 있습니다.
 
 [![스크린샷은 블록체인 트랜잭션 세부 정보를 보여줍니다.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 

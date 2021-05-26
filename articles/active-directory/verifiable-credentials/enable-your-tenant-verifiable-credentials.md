@@ -4,18 +4,18 @@ description: 이 자습서에서는 테넌트에서 확인 가능한 자격 증�
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 05/18/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: c289e69345b2fe537fd80f2cd8b59bc13ce8287b
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 4b48d23a7122c82cf149bdd80335afe0aaf896cb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017304"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466409"
 ---
 # <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>자습서 - 확인 가능한 자격 증명을 발급하도록 Azure Active Directory 구성(미리 보기)
 
@@ -340,7 +340,7 @@ ms.locfileid: "108017304"
 
 이제 인증에 B2C 테넌트를 계속 사용하면서 테넌트를 사용하여 확인 가능한 자격 증명을 발급하여 vc를 생성했습니다.
 
-  ![Azure AD에서 발급되고 Azure B2C 인스턴스에서 인증된 vc](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
+  ![Azure AD에서 발급되고 Azure B2C 인스턴스에서 인증된 VC](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## <a name="test-verifying-the-vc-using-the-sample-app"></a>샘플 앱을 사용하여 VC 확인 테스트
