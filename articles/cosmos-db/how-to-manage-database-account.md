@@ -5,17 +5,17 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/06/2021
+ms.date: 05/13/2021
 ms.author: mjbrown
-ms.openlocfilehash: d542e2b4e5db86fd3354514790e718f0694a09a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4a33fab54f56c7b510afdddb1bc21c8e6033302
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489755"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084649"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 이 문서에서는 Azure Portal, Azure PowerShell, Azure CLI 및 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos 계정에서 다양한 작업을 관리하는 방법을 설명합니다.
 
@@ -38,6 +38,9 @@ ms.locfileid: "102489755"
 [Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정 만들기](./manage-with-templates.md)를 참조하세요.
 
 ## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
+
+> [!TIP]
+> 새 지역이 추가되면 해당 지역이 사용 가능으로 표시되기 전에 모든 데이터를 완전히 복제하고 새 지역에 커밋해야 합니다. 이 작업에 걸리는 시간은 해당 계정 내에 저장된 데이터 양에 따라 달라집니다.
 
 ### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Azure Portal
 
@@ -115,7 +118,7 @@ ms.locfileid: "102489755"
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2019-08-01",
+            "apiVersion": "2021-03-15",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {

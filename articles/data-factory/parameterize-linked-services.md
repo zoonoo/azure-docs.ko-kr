@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 author: chez-charlie
 ms.author: chez
-ms.openlocfilehash: 2bbb4017d0f5bd700bfbc9964f8949d59999ea4d
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 48e8c9ff5111b6b67e835676e3bc56e4536248a0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903707"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091489"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Azure Data Factory의 연결된 서비스 매개 변수화
 
@@ -38,6 +38,7 @@ UI에서 연결된 서비스를 작성할 때 Data Factory는 다음 유형의 �
 
 - Amazon Redshift
 - Amazon S3
+- Amazon S3 호환 스토리지
 - Azure Blob Storage
 - Azure Cosmos DB(SQL API)
 - Azure Data Lake Storage Gen2
@@ -52,6 +53,7 @@ UI에서 연결된 서비스를 작성할 때 Data Factory는 다음 유형의 �
 - 일반 REST
 - MySQL
 - Oracle
+- Oracle Cloud Storage
 - SQL Server
 
 위 목록에 없는 다른 연결된 서비스 유형의 경우 UI에서 JSON을 편집하여 연결된 서비스를 매개 변수화할 수 있습니다.

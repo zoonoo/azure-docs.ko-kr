@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/17/2021
+ms.date: 5/25/2021
 ms.author: cavoeg
-ms.openlocfilehash: 50f79d8b73b6c716e14504d6d763d900a7bed488
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 54dadb47018b474bb7651ddb17b0170a2c07e29a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078665"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477848"
 ---
 # <a name="how-to-export-fhir-data"></a>FHIR 데이터를 내보내는 방법
 
@@ -67,7 +67,7 @@ Azure API for FHIR 다음 쿼리 매개 변수를 지원합니다. 이러한 매
 | \_since | 예 | 제공 된 시간 이후 수정 된 리소스만 내보낼 수 있습니다. |
 | \_입력할 | 예 | 포함할 리소스의 형식을 지정할 수 있습니다. 예를 들어, \_ type = 환자는 환자 리소스만 반환 합니다.|
 | \_typefilter | 예 | 보다 세분화 된 필터링을 요청 하기 위해 \_ 형식 매개 변수와 함께 typefilter를 사용할 수 있습니다 \_ . _TypeFilter 매개 변수의 값은 결과를 추가로 제한 하는 쉼표로 구분 된 FHIR 쿼리 목록입니다. |
-| \_컨테이너 | 예 |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 이름이 인 새 폴더의 해당 컨테이너로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 타임 스탬프 및 작업 ID를 사용 하 여 새 컨테이너로 내보냅니다. |
+| \_컨테이너 | 아니요 |  구성 된 저장소 계정 내에서 데이터를 내보내야 하는 컨테이너를 지정 합니다. 컨테이너를 지정 하면 해당 컨테이너에 대 한 폴더로 데이터가 내보내집니다. 컨테이너를 지정 하지 않으면 데이터를 새 컨테이너로 내보냅니다. |
 
 > [!Note]
 > FHIR 용 Azure API와 동일한 구독의 저장소 계정만 $export 작업에 대 한 대상으로 등록할 수 있습니다.

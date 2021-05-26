@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/22/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: ead8bf6620bbe53af6c28870fa94b7a16490fcb1
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: c5d98afb3bc228cc3eb8789aa242b3dc3b129e5d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108202788"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367436"
 ---
 # <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -28,12 +28,12 @@ API for MongoDB는 [Azure Cosmos DB](introduction.md)를 기반으로 하기 때
 * **99.999%의 가용성**: [99.999%](high-availability.md)의 가용성을 간편하게 구성할 수 있어 언제든지 필요할 때 데이터를 사용할 수 있습니다.  
 * **비용 효율적이고, 세부적이며, 무제한의 확장성**: 다른 MongoDB 서비스 제품과 달리 분할된 컬렉션이 무제한 크기로 확장될 수 있습니다. API for MongoDB 사용자는 현재 600TB가 넘는 스토리지를 사용하여 데이터베이스를 실행하고 있습니다. 다른 MongoDB 서비스 제품과 달리 크기 조정이 비용 효율적으로 수행되므로 경제적인 크기 조정 및 리소스 거버넌스 때문에 VM의 1/100 수준의 작은 단위로 Cosmos DB 플랫폼의 크기를 조정할 수 있습니다.
 * **서버리스 배포**: MongoDB Atlas와 달리 API for MongoDB는 [서버리스 용량 모드](serverless.md)를 제공하는 클라우드 네이티브 데이터베이스입니다. [서버리스](serverless.md)의 경우 작업당 요금만 청구되며, 사용하지 않을 때는 데이터베이스에 대한 요금을 지불하지 않습니다.
-* **무료 계층**: Microsoft Azure Cosmos DB 무료 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정 수준에서 계속 무료로 제공됩니다.
+* **무료 계층**: Microsoft Azure Cosmos DB 무료 계층을 사용하는 경우 처음에는 1000RU/s 및 25GB의 스토리지가 계정 수준에서 계속 무료로 제공됩니다.
 * **몇 초만에 업그레이드**: 모든 API 버전이 하나의 코드베이스에 포함되어 있기 때문에 [스위치만 누르면](mongodb-version-upgrade.md) 가동 중지 시간 없이 간단하게 버전을 변경할 수 있습니다.
 * **모든 규모의 실시간 분석(HTAP)** : API for MongoDB는 데이터베이스에 영향을 주지 않고 실시간으로 데이터베이스 데이터에 대한 비즈니스 인텔리전스 같은 사용 사례에서 복잡한 분석 쿼리를 실행하는 기능을 제공합니다. 이는 ETL 파이프라인 없이 활용할 수 있는 클라우드 네이티브 분석 열 형식 저장소로 인해 빠르고 저렴합니다. [Azure Synapse Link](synapse-link.md)에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> [무료 계층에서 무료로 Azure Cosmos DB API for MongoDB를 사용할 수 있습니다](how-pricing-works.md). Microsoft Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정 수준에서 무료로 제공됩니다.
+> [무료 계층에서 무료로 Azure Cosmos DB API for MongoDB를 사용할 수 있습니다](free-tier.md). Microsoft Azure Cosmos DB 무료 계층을 사용하는 경우 처음에는 1000RU/s 및 25GB의 스토리지가 계정 수준에서 무료로 제공됩니다.
 
 
 ## <a name="how-the-api-works"></a>API의 작동 원리
@@ -53,7 +53,7 @@ API for MongoDB의 모든 버전이 동일한 코드베이스에서 실행되므
 
 ## <a name="what-you-need-to-know-to-get-started"></a>시작하기 전에 알아야 할 사항
 
-* 클러스터의 가상 머신에 대해서는 비용이 청구되지 않습니다. [가격](how-pricing-works.md)은 데이터베이스당 또는 컬렉션별로 구성된 RU(요청 단위)의 처리량을 기준으로 책정됩니다. 첫 400개 RU/초는 [무료 계층](how-pricing-works.md)을 통해 무료로 제공됩니다.
+* 클러스터의 가상 머신에 대해서는 비용이 청구되지 않습니다. [가격](how-pricing-works.md)은 데이터베이스당 또는 컬렉션별로 구성된 RU(요청 단위)의 처리량을 기준으로 책정됩니다. 첫 1000RU/s는 [무료 계층](free-tier.md)을 통해 무료로 제공됩니다.
 
 * Azure Cosmos DB API for MongoDB는 다음 세 가지 방법 중 하나로 배포할 수 있습니다.
      * [프로비전된 처리량](set-throughput.md): RU/초 수를 설정하고 수동으로 변경합니다. 이 모델은 일관된 워크로드에 적합합니다.

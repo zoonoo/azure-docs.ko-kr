@@ -3,16 +3,16 @@ title: Azure Defender for Resource Manager - 이점 및 기능
 description: Azure Defender for Resource Manager의 이점 및 기능에 대해 알아봅니다.
 author: memildin
 ms.author: memildin
-ms.date: 12/07/2020
+ms.date: 05/12/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 71209d9e20ec0f0cbc263e84d04bf8eba6e98b99
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: a7292d08d2505b63e97c76ca3f40ad573690c173
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279067"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846417"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -26,7 +26,7 @@ Azure Defender for Resource Manager는 Azure Portal, Azure REST API, Azure CLI �
 
 |양상|세부 정보|
 |----|:----|
-|릴리스 상태:|미리 보기<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
+|릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Resource Manager** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
 |클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
 |||

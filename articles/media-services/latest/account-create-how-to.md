@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 11/4/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b9234b27e2f08e65f569393bde342cba3f37adee
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 7c6486c156cfc9cec9065854c55b2d8e2788fdc0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963821"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062568"
 ---
 # <a name="create-a-media-services-account"></a>Media Services 계정 만들기
 
@@ -52,6 +52,12 @@ Azure에서 암호화, 인코딩, 분석, 관리 및 스트리밍을 시작하�
 [!INCLUDE [Create a resource group with CLI](./includes/task-create-resource-group-cli.md)]
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
+
+Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 스토리지 계정은 Media Services 계정에 연결됩니다. Media Services에서 스토리지 계정을 사용하는 방법에 대한 자세한 내용은 [스토리지 계정](storage-account-concept.md)을 참조하세요.
+
+**기본** 스토리지 계정이 하나 있어야 하며 미디어 서비스 계정과 연결된 **보조** 스토리지 계정이 여러 개 있을 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. Blob 전용 계정은 **기본** 으로 허용되지 않습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 옵션](../../storage/common/storage-account-overview.md)을 참조하세요.
+
+다음 예제에서는 범용 v2, 표준 LRS 계정을 만듭니다. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 자세한 내용은 [스토리지 계정](/cli/azure/storage/account)을 참조하세요.
 
 [!INCLUDE [Create a storage account with CLI](./includes/task-create-storage-account-cli.md)]
 

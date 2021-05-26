@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 222ae284f77950c729a6a790e2ad29453a9ce34a
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 671c86790a3c90f948edb574bc015c0f41c5fbdf
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903172"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858069"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services Teams Embed 라이브러리를 사용하여 Microsoft Teams 미팅에 참가하는 방법을 알아봅니다.
 
@@ -86,7 +86,7 @@ end
 
 ### <a name="add-the-teams-embed-framework"></a>Teams 포함 프레임워크 추가
 
-1. [`MicrosoftTeamsSDK` iOS 패키지](https://github.com/Azure/communication-teams-embed/releases)를 다운로드합니다.
+1. `MicrosoftTeamsSDK` iOS 패키지를 다운로드합니다.
 2. 프로젝트 루트에서 `Frameworks` 폴더를 만듭니다. 예: `\TeamsEmbedGettingStarted\Frameworks\`
 3. 다운로드한 `TeamsAppSDK.framework` 및 `MeetingUIClient.framework`, 릴리스 번들에서 제공된 기타 프레임워크를 이 폴더에 복사합니다.
 4. 프레임워크를 일반 탭 아래의 프로젝트 대상에 추가합니다. `Add Other` -> `Add Files...`를 사용하여 프레임워크 파일로 이동하고 추가합니다.

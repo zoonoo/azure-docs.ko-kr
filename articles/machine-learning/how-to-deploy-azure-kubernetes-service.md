@@ -1,152 +1,152 @@
 ---
-title: Kubernetes Service에 ML 모델 배포
+title: Kubernetes 서비스에 ML 모델 배포
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes Service를 사용 하 여 Azure Machine Learning 모델을 웹 서비스로 배포 하는 방법을 알아봅니다.
+description: Azure Kubernetes Service를 사용하여 Azure Machine Learning 모델을 웹 서비스로 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, deploy
+ms.topic: how-to
+ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: ef9c03b687bbc9b8fe736c872bbde14b8daba899
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7b25aaf6d151b840571a562819fb804f4af5c8dd
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519387"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371088"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 
-Azure Machine Learning를 사용 하 여 AKS (Azure Kubernetes Service)에서 웹 서비스로 모델을 배포 하는 방법에 대해 알아봅니다. Azure Kubernetes 서비스는 대규모 프로덕션 배포에 적합 합니다. 다음 기능이 하나 이상 필요한 경우 Azure Kubernetes service를 사용 합니다.
+Azure Machine Learning을 사용하여 AKS(Azure Kubernetes Service)에서 모델을 웹 서비스로 배포하는 방법을 알아봅니다. Azure Kubernetes Service는 대규모 프로덕션 배포에 적합합니다. 다음 기능 중 하나 이상이 필요한 경우 Azure Kubernetes 서비스를 사용하세요.
 
 - __빠른 응답 시간__
-- 배포 __된 서비스의 자동__ 크기 조정
+- 배포 서비스 __자동 스케일링__
 - __Logging__
 - __모델 데이터 수집__
 - __인증__
 - __TLS 종료__
-- GPU 및 필드 프로그래밍 가능 게이트 배열 (FPGA)과 같은 __하드웨어 가속__ 옵션
+- __하드웨어 가속__ 옵션, 예: GPU 및 FPGA(필드 프로그래머블 게이트 어레이)
 
-Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__ 된 AKS 클러스터에 배포 합니다. AKS 클러스터를 작업 영역에 연결 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
+Azure Kubernetes Service에 배포하는 경우 __작업 영역에 연결__ 된 AKS 클러스터에 배포합니다. AKS 클러스터를 작업 영역에 연결하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 웹 서비스로 배포 하기 전에 로컬로 디버그 하는 것이 좋습니다. 자세한 내용은 [로컬로 디버그](./how-to-troubleshoot-deployment-local.md) 를 참조 하세요.
+> 웹 서비스에 배포하기 전에 로컬에서 디버그하는 것이 좋습니다. 자세한 내용은 [로컬에서 디버그](./how-to-troubleshoot-deployment-local.md)를 참조하세요.
 >
 > 또한 Azure Machine Learning - [로컬 Notebook에 배포](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)를 참조할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+- Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
-- 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+- 작업 영역에 등록된 기계 학습 모델. 등록된 모델이 없는 경우 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](/python/api/overview/azure/ml/intro)또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+- [Machine Learning Service용 Azure CLI 확장](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning Visual Studio Code 확장](how-to-setup-vs-code.md).
 
-- 이 문서의 __Python__ 코드 조각에서는 다음 변수가 설정 되었다고 가정 합니다.
+- 이 문서의 __Python__ 코드 조각에서는 다음 변수가 설정되었다고 가정합니다.
 
-    * `ws` -작업 영역으로 설정 합니다.
-    * `model` -등록 된 모델로 설정 합니다.
-    * `inference_config` -모델에 대 한 유추 구성으로 설정 합니다.
+    * `ws` - 작업 영역으로 설정.
+    * `model` - 등록된 모델로 설정.
+    * `inference_config` - 모델에 대한 유추 구성으로 설정.
 
-    이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+    이러한 변수를 설정하는 방법에 대한 자세한 내용은 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
-- 이 문서의 __CLI__ 코드 조각은 문서를 만든 것으로 가정 합니다 `inferenceconfig.json` . 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+- 이 문서의 __CLI__ 코드 조각에서는 `inferenceconfig.json` 문서를 만들었다고 가정합니다. 이 문서 만들기에 대한 자세한 내용은 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
-- 작업 영역에 연결 된 Azure Kubernetes 서비스 클러스터입니다. 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조 하세요.
+- 작업 영역에 연결된 Azure Kubernetes Service 클러스터입니다. 자세한 내용은 [Azure Kubernetes Service 클러스터 만들기 및 연결](how-to-create-attach-kubernetes.md)을 참조하세요.
 
-    - GPU 노드나 FPGA 노드 (또는 특정 SKU)에 모델을 배포 하려면 특정 SKU를 사용 하 여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포 하는 것은 지원 되지 않습니다.
+    - GPU 노드나 FPGA 노드(또는 특정 SKU)에 모델을 배포하려면 특정 SKU를 사용하여 클러스터를 만들어야 합니다. 기존 클러스터에 보조 노드 풀을 만들고 보조 노드 풀에 모델을 배포하는 것은 지원되지 않습니다.
 
 ## <a name="understand-the-deployment-processes"></a>배포 프로세스 이해
 
-단어 "deployment"는 Kubernetes 및 Azure Machine Learning 모두에 사용 됩니다. 이러한 두 컨텍스트에서는 "배포"의 의미가 다릅니다. Kubernetes에서는 `Deployment` 선언적 YAML 파일을 사용 하 여 지정 된 구체적인 엔터티입니다. Kubernetes에는 `Deployment` 및와 같은 다른 Kubernetes 엔터티와의 정의 된 수명 주기와 구체적 관계가 있습니다 `Pods` `ReplicaSets` . 문서 및 비디오의 Kubernetes에 대 한 자세한 내용은 [Kubernetes?를](https://aka.ms/k8slearning)살펴보세요.
+"배포"라는 단어는 Kubernetes와 Azure Machine Learning 모두에 사용됩니다. 이러한 두 가지 컨텍스트에서 "배포"의 의미는 다릅니다. Kubernetes에서 `Deployment`는 구체적인 엔터티이며, 선언적 YAML 파일을 사용하여 지정됩니다. Kubernetes `Deployment`에는 정의된 수명 주기 및 다른 Kubernetes 엔터티(예: `Pods` 및 `ReplicaSets`)와의 구체적인 관계가 있습니다. [Kubernetes란?](https://aka.ms/k8slearning)의 문서와 비디오를 통해 Kubernetes에 대해 자세히 알아볼 수 있습니다.
 
-Azure Machine Learning에서 "배포"는 보다 일반적으로 사용 가능 하 고 프로젝트 리소스를 정리 하는 데 사용 됩니다. 배포의 일부를 고려 하 Azure Machine Learning 단계는 다음과 같습니다.
+Azure Machine Learning에서 "배포"는 프로젝트 리소스를 제공하고 정리하는 보다 일반적인 의미로 사용됩니다. Azure Machine Learning에서 배포의 일부로 간주되는 단계는 다음과 같습니다.
 
-1. Amlignore 또는. .gitignore에 지정 된 파일을 무시 하 고 프로젝트 폴더의 파일을 압축 합니다.
-1. 계산 클러스터 확장 (Kubernetes과 관련)
-1. Dockerfile을 계산 노드에 빌드 또는 다운로드 (Kubernetes와 관련 됨)
-    1. 시스템은 다음의 해시를 계산 합니다. 
+1. 프로젝트 폴더에 파일 압축(.amlignore 또는 .gitignore에 지정된 항목 무시)
+1. 컴퓨팅 클러스터 스케일 업(Kubernetes 관련)
+1. dockerfile을 컴퓨팅 노드로 다운로드 또는 빌드(Kubernetes 관련)
+    1. 시스템에서 다음 해시가 계산됩니다. 
         - 기본 이미지 
-        - 사용자 지정 docker 단계 ( [사용자 지정 docker 기본 이미지를 사용 하 여 모델 배포](./how-to-deploy-custom-docker-image.md)참조)
-        - Conda definition YAML ( [Azure Machine Learning에서 소프트웨어 환경 만들기 & 사용](./how-to-use-environments.md)을 참조 하세요.)
-    1. 시스템은 작업 영역 Azure Container Registry (ACR) 조회에서이 해시를 키로 사용 합니다.
-    1. 찾을 수 없는 경우 전역 ACR에서 일치 하는 항목을 찾습니다.
-    1. 이 파일을 찾을 수 없는 경우 시스템은 캐시 되 고 작업 영역 ACR로 푸시되는 새 이미지를 작성 합니다.
-1. 계산 노드의 임시 저장소에 압축 된 프로젝트 파일 다운로드
+        - 사용자 지정 docker 단계([사용자 지정 Docker 기본 이미지를 사용하여 모델 배포](./how-to-deploy-custom-docker-image.md) 참조)
+        - conda 정의 YAML ([Azure Machine Learning에서 소프트웨어 환경 만들기 및 사용](./how-to-use-environments.md) 참조)
+    1. 시스템은 작업 영역 ACR(Azure Container Registry) 조회에서 이 해시를 키로 사용합니다.
+    1. 찾을 수 없는 경우 전역 ACR에서 일치하는 항목을 찾습니다.
+    1. 찾을 수 없는 경우 시스템은 새 이미지(캐시되고 작업 영역 ACR로 푸시될)를 작성합니다.
+1. 압축된 프로젝트 파일을 컴퓨팅 노드의 임시 스토리지에 다운로드
 1. 프로젝트 파일 압축 풀기
-1. 실행 하는 계산 노드 `python <entry script> <arguments>`
-1. `./outputs`작업 영역과 연결 된 저장소 계정에 기록 된 로그, 모델 파일 및 기타 파일 저장
-1. 임시 저장소 제거를 포함 하 여 계산 축소 (Kubernetes와 관련 됨)
+1. `python <entry script> <arguments>`를 실행하는 컴퓨팅 노드
+1. `./outputs`에 기록된 로그, 모델 파일 및 기타 파일을 작업 영역과 연결된 스토리지 계정에 저장
+1. 컴퓨팅 스케일 다운(임시 스토리지 제거 포함)(Kubernetes 관련)
 
 ### <a name="azure-ml-router"></a>Azure ML 라우터
 
-들어오는 유추 요청을 배포 된 서비스로 라우팅하는 프런트 엔드 구성 요소 (azureml-fe)는 필요에 따라 자동으로 크기를 조정 합니다. Azureml-fe의 크기 조정은 AKS 클러스터 용도 및 크기 (노드 수)를 기반으로 합니다. 클러스터 용도 및 노드는 [AKS 클러스터를 만들거나 연결할](how-to-create-attach-kubernetes.md)때 구성 됩니다. 클러스터 마다 하나의 azureml-fe 서비스가 있으며,이는 여러 pod에서 실행 될 수 있습니다.
+들어오는 유추 요청을 배포된 서비스로 라우팅하는 프런트 엔드 구성 요소(azureml-fe)는 필요에 따라 자동으로 스케일링됩니다. azureml-fe의 스케일링은 AKS 클러스터 용도 및 크기(노드 수)에 기반합니다. 클러스터 용도 및 노드는 [AKS 클러스터를 만들거나 연결](how-to-create-attach-kubernetes.md)할 때 구성됩니다. azureml-fe 서비스는 클러스터당 하나이며, 여러 Pod에서 실행될 수 있습니다.
 
 > [!IMPORTANT]
-> __개발-테스트__ 로 구성 된 클러스터를 사용 하는 경우 자체 scaler 사용 **하지 않도록 설정** 됩니다.
+> __dev-test__ 로 구성된 클러스터를 사용하는 경우 자체 스케일러를 **사용하지 않도록 설정** 됩니다.
 
-Azureml-fe는 더 많은 코어를 사용 하도록 수직으로 확장 하 고 더 많은 pod를 사용 하기 위해 수평으로 확장 합니다. 수직 확장을 결정할 때 들어오는 유추 요청을 라우팅하는 데 걸리는 시간이 사용 됩니다. 이 시간이 임계값을 초과 하면 확장이 발생 합니다. 들어오는 요청을 라우팅하는 데 걸리는 시간이 임계값을 계속 초과 하면 확장이 발생 합니다.
+Azureml-fe는 더 많은 코어를 사용하도록 스케일 업(세로)하고 더 많은 포드를 사용하도록 스케일 아웃(가로)합니다. 스케일 업을 결정할 때는 들어오는 유추 요청을 라우팅하는 데 걸리는 시간이 사용됩니다. 이 시간이 임계값을 초과하면 스케일 업이 발생합니다. 들어오는 요청을 라우팅하는 데 걸리는 시간이 임계값을 계속 초과하면 스케일 아웃이 발생합니다.
 
-규모를 축소 하는 경우 CPU 사용량이 사용 됩니다. CPU 사용 임계값에 도달 하면 프런트 엔드는 먼저 축소 됩니다. CPU 사용량이 확장 임계값으로 떨어지면 확장 작업이 수행 됩니다. 규모를 확장 및 축소 하는 것은 사용 가능한 클러스터 리소스가 충분 한 경우에만 발생 합니다.
+스케일 다운 및 스케일 인하는 경우에는 CPU 사용량이 사용됩니다. CPU 사용량 임계값에 도달하면 프런트 엔드가 먼저 스케일 다운됩니다. CPU 사용량이 스케일 인 임계값으로 떨어지면 스케일 인 작업이 발생합니다. 스케일 업 및 스케일 아웃은 사용 가능한 클러스터 리소스가 충분한 경우에만 발생합니다.
 
 ## <a name="understand-connectivity-requirements-for-aks-inferencing-cluster"></a>AKS 추론 클러스터에 대한 연결 요구 사항 이해
 
-Azure Machine Learning에서 AKS 클러스터를 만들거나 연결할 때 AKS 클러스터는 다음 두 가지 네트워크 모델 중 하나를 사용 하 여 배포 됩니다.
+Azure Machine Learning이 AKS 클러스터를 만들거나 연결할 때 AKS 클러스터는 다음 두 가지 네트워크 모델 중 하나로 배포됩니다.
 * Kubenet 네트워킹 - 네트워크 리소스는 일반적으로 AKS 클러스터가 배포될 때 만들어지고 구성됩니다.
 * Azure CNI(컨테이너 네트워킹 인터페이스) 네트워킹 - AKS 클러스터가 기존 가상 네트워크 리소스 및 구성에 연결됩니다.
 
-첫 번째 네트워크 모드의 경우에는 Azure Machine Learning 서비스에 대해 네트워킹이 만들어지고 적절히 구성 됩니다. 클러스터가 기존 가상 네트워크에 연결 되어 있기 때문에 두 번째 네트워킹 모드의 경우, 특히 기존 가상 네트워크에 사용자 지정 DNS를 사용 하는 경우 고객은 AKS 추론 클러스터에 대 한 연결 요구 사항에 특히 주의를 기울여야 하며 AKS 추론에 대 한 DNS 확인 및 아웃 바운드 연결을 보장 해야 합니다.
+첫 번째 네트워크 모드의 경우, 네트워킹은 Azure Machine Learning 서비스에 적절하게 생성 및 구성됩니다. 두 번째 네트워킹 모드의 경우, 클러스터가 기존 가상 네트워크에 연결되어 있기 때문에, 특히 사용자 지정 DNS가 기존 가상 네트워크에 사용되는 경우, 고객은 AKS 유추 클러스터에 대한 연결 요구 사항에 특별히 주의를 기울이고 AKS 유추를 위한 DNS 확인 및 아웃바운드 연결을 보장해야 합니다.
 
-다음 다이어그램은 AKS 추론에 대 한 모든 연결 요구 사항을 캡처합니다. 검은색 화살표는 실제 통신을 나타내고 파란색 화살표는 고객이 제어 하는 DNS가 확인 해야 하는 도메인 이름을 나타냅니다.
+다음 다이어그램은 AKS 유추에 대한 모든 연결 요구 사항을 포함합니다. 검은색 화살표는 실제 통신을 나타내고 파란색 화살표는 도메인 이름(고객이 제어하는 DNS가 확인해야 함)을 나타냅니다.
 
- ![AKS 추론에 대 한 연결 요구 사항](./media/how-to-deploy-aks/aks-network.png)
+ ![AKS 유추에 대한 연결 요구 사항](./media/how-to-deploy-aks/aks-network.png)
 
 ### <a name="overall-dns-resolution-requirements"></a>전체 DNS 확인 요구 사항
-기존 VNET 내 DNS 확인은 고객의 통제를 받고 있습니다. 다음 DNS 항목을 확인할 수 있어야 합니다.
-* AKS 형식으로 API \<cluster\> 서버를. \<region\> azmk8s.io
-* MCR (Microsoft Container Registry): mcr.microsoft.com
-* Azurecr.io 형식으로 된 고객의 Azure Container Registry (ARC) \<ACR name\>
-* \<account\>Table.core.windows.net 및. blob.core.windows.net 형식의 Azure Storage 계정 \<account\>
-* 필드 AAD 인증의 경우: api.azureml.ms
-* Azure ML 또는 사용자 지정 도메인 이름으로 자동 생성 되는 점수 매기기 끝점 도메인 이름입니다. 자동 생성 된 도메인 이름은와 \<leaf-domain-label \+ auto-generated suffix\> 같습니다. \<region\> cloudapp.azure.com
+기존 VNET 내 DNS 확인은 고객이 제어합니다. 다음 DNS 항목을 확인할 수 있어야 합니다.
+* AKS API 서버(\<cluster\>.hcp.\<region\>.azmk8s.io 형식)
+* MCR(Microsoft Container Registry): mcr.microsoft.com
+* 고객의 ARC(Azure Container Registry)(\<ACR name\>.azurecr.io 형식)
+* Azure Storage 계정(\<account\>.table.core.windows.net 및 \<account\>.blob.core.windows.net 형식)
+* (선택 사항) AAD 인증의 경우 : api.azureml.ms
+* 채점 엔드포인트 도메인 이름(Azure ML 또는 사용자 지정 도메인 이름을 통해 자동 생성됨) 자동 생성된 도메인 이름은 다음과 유사합니다. \<leaf-domain-label \+ auto-generated suffix\>.\<region\>.cloudapp.azure.com
 
-### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>시간 순서 대로 연결 요구 사항: 클러스터 만들기에서 모델 배포까지
+### <a name="connectivity-requirements-in-chronological-order-from-cluster-creation-to-model-deployment"></a>연결 요구 사항(시간순): 클러스터 만들기부터 모델 배포까지
 
-AKS 만들기 또는 연결 과정에서 Azure ML 라우터 (azureml-fe)는 AKS 클러스터에 배포 됩니다. Azure ML 라우터를 배포 하기 위해 AKS 노드에서 다음을 수행할 수 있어야 합니다.
-* AKS API 서버에 대 한 DNS 확인
-* Azure ML 라우터에 대 한 docker 이미지를 다운로드 하기 위해 MCR에 대 한 DNS를 확인 합니다.
-* 아웃 바운드 연결이 필요한 MCR에서 이미지 다운로드
+AKS 만들기 또는 연결 과정에서 Azure ML 라우터(azureml-fe)는 AKS 클러스터에 배포됩니다. Azure ML 라우터를 배포하려면 AKS 노드가 다음을 수행할 수 있어야 합니다.
+* AKS API 서버에 대한 DNS 확인
+* MCR에 대한 DNS 확인(Azure ML 라우터용 docker 이미지를 다운로드하는 데 필요)
+* 아웃바운드 연결이 필요한 MCR에서 이미지 다운로드
 
-Azureml-fe를 배포한 후에는를 시작 하 고 다음을 수행 해야 합니다.
-* AKS API 서버에 대 한 DNS 확인
-* AKS API 서버를 쿼리하여 다른 인스턴스 (multi-factor service)를 검색 합니다.
+azureml-fe가 배포된 직후 시작이 시도되며, 그러려면 다음 작업이 필요합니다.
+* AKS API 서버에 대한 DNS 확인
+* AKS API 서버를 쿼리하여 다른 인스턴스 검색(여러 Pod 서비스임)
 * 다른 인스턴스에 연결
 
-Azureml-fe를 시작한 후에는 추가 연결이 제대로 작동 해야 합니다.
-* Azure Storage에 연결 하 여 동적 구성을 다운로드 합니다.
-* AAD 인증 서버 api.azureml.ms에 대 한 DNS를 확인 하 고 배포 된 서비스가 AAD 인증을 사용 하는 경우 통신 합니다.
-* 배포 된 모델을 검색 하는 AKS API 서버 쿼리
-* 배포 된 모델 Pod 통신
+azureml-fe가 시작되면 제대로 작동하기 위해 추가 연결이 필요합니다.
+* Azure Storage에 연결하여 동적 구성 다운로드
+* AAD 인증 서버 api.azureml.ms에 대한 DNS를 확인하고 배포된 서비스가 AAD 인증을 사용할 때 통신합니다.
+* AKS API 서버를 쿼리하여 배포된 모델 검색
+* 배포된 모델 POD와 통신
 
-모델 배포 시 성공적인 모델 배포 AKS 노드는 다음을 수행할 수 있어야 합니다. 
-* 고객의 ACR에 대 한 DNS 확인
+모델 배포 시 성공적인 모델 배포를 위해 AKS 노드는 다음을 수행할 수 있어야 합니다. 
+* 고객의 ACR에 대한 DNS 확인
 * 고객의 ACR에서 이미지 다운로드
-* 모델이 저장 되는 Azure Blob에 대 한 DNS를 확인 합니다.
+* 모델이 저장된 Azure Blob에 대한 DNS 확인
 * Azure Blob에서 모델 다운로드
 
-모델을 배포 하 고 서비스를 시작한 후 azureml-fe는 AKS API를 사용 하 여 자동으로 검색 하 고 요청을 라우팅할 준비가 됩니다. 모델 Pod 통신할 수 있어야 합니다.
+모델이 배포되고 서비스가 시작되면 azureml-fe는 AKS API를 사용하여 모델을 자동으로 검색하고 요청을 라우팅할 준비가 됩니다. 모델 POD와 통신할 수 있어야 합니다.
 >[!Note]
->배포 된 모델에 연결 (예: 외부 데이터베이스 또는 기타 REST 서비스 쿼리, 블로그 다운로드 등)이 필요한 경우 이러한 서비스에 대 한 DNS 확인 및 아웃 바운드 통신을 모두 사용 하도록 설정 해야 합니다.
+>배포된 모델에 연결이 필요한 경우(예: 외부 데이터베이스 또는 기타 REST 서비스 쿼리, BLOB 다운로드 등) 해당 서비스에 대한 DNS 확인 및 아웃바운드 통신을 모두 사용하도록 설정해야 합니다.
 
 ## <a name="deploy-to-aks"></a>AKS에 배포
 
-Azure Kubernetes Service에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__ 도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+Azure Kubernetes Service에 모델을 배포하려면 필요한 컴퓨팅 리소스를 설명하는 __배포 구성__ 을 만듭니다. 예를 들어 코어 수 및 메모리입니다. 모델 및 웹 서비스를 호스트하는 데 필요한 환경을 설명하는 __유추 구성__ 도 필요합니다. 유추 구성을 만드는 방법에 대한 자세한 내용은 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
 > [!NOTE]
-> 배포할 모델 수는 배포 당 1000 모델 (컨테이너 당)으로 제한 됩니다.
+> 배포할 모델 수는 배포당(컨테이너당) 모델 1,000개로 제한됩니다.
 
 <a id="using-the-cli"></a>
 
@@ -167,44 +167,44 @@ print(service.state)
 print(service.get_logs())
 ```
 
-이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
+이 예제에 사용된 클래스, 메서드 및 매개 변수에 대한 자세한 내용은 다음 참조 문서를 확인하세요.
 
 * [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute)
 * [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration)
-* [모델. 배포](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Model.deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. `myaks`AKS 계산 대상의 이름으로 대체 합니다. `mymodel:1`를 등록 된 모델의 이름 및 버전으로 바꿉니다. `myservice`이 서비스를 제공할 이름으로 대체 합니다.
+CLI를 사용하여 배포하려면 다음 명령을 사용합니다. `myaks`는 AKS 컴퓨팅 대상의 이름으로 바꿉니다. `mymodel:1`은 등록된 모델의 이름과 버전으로 바꿉니다. `myservice`는 이 서비스를 제공할 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
+az ml model deploy --ct myaks -m mymodel:1 -n myservice --ic inferenceconfig.json --dc deploymentconfig.json
 ```
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요.
+자세한 내용은 [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) 참조를 확인하세요.
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 배포를](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)참조 하세요.
+VS Code 사용에 대한 자세한 내용은 [VS Code 확장을 통해 AKS에 배포](how-to-manage-resources-vscode.md)를 참조하세요.
 
 > [!IMPORTANT]
-> VS Code를 통해 배포 하려면 AKS 클러스터를 미리 만들거나 작업 영역에 미리 연결 해야 합니다.
+> VS Code를 통해 배포하려면 AKS 클러스터를 미리 만들거나 작업 영역에 미리 연결해야 합니다.
 
 ---
 
 ### <a name="autoscaling"></a>자동 확장
 
-Azure ML 모델 배포에 대 한 자동 크기 조정을 처리 하는 구성 요소는 azureml-fe 이며 스마트 요청 라우터입니다. 모든 유추 요청은이를 통과 하므로 배포 된 모델의 크기를 자동으로 조정 하는 데 필요한 데이터가 있습니다.
+Azure ML 모델 배포에 대한 자동 스케일링을 처리하는 구성 요소는 azureml-fe이며, 이것은 스마트 요청 라우터입니다. 모든 유추 요청이 여기를 거치기 때문에, 여기에는 배포된 모델을 자동으로 스케일링하는 데 필요한 데이터가 있습니다.
 
 > [!IMPORTANT]
-> * **모델 배포에 대해 HPA (Kubernetes 수평 Pod Autoscaler)를 사용 하지 마십시오**. 이렇게 하면 두 개의 자동 크기 조정 구성 요소가 서로 경쟁 하 게 됩니다. Azureml-fe는 Azure ML에 의해 배포 된 모델의 크기를 자동으로 조정 하도록 설계 되었습니다. 여기서 HPA는 CPU 사용량 또는 사용자 지정 메트릭 구성과 같은 일반 메트릭에 대해 추측 하거나 대략적인 모델 사용률을 가져야 합니다.
+> * **모델 배포에 Kubernetes HPA(Horizontal Pod Autoscaler)를 사용하도록 설정하지 마십시오**. 그러면 두 가지 자동 스케일링 구성 요소가 서로 경쟁하게 됩니다. Azureml-fe는 Azure ML에 의해 배포된 모델을 자동 스케일링하도록 설계되었으며, HPA는 CPU 사용량 또는 사용자 지정 메트릭 구성과 같은 일반 메트릭에서 모델 사용률을 추측하거나 대략적으로 추정해야 합니다.
 > 
-> * **Azureml-fe는 AKS 클러스터의 노드 수를 조정 하지** 않습니다 .이로 인해 예기치 않은 비용 증가가 발생할 수 있습니다. 대신 실제 클러스터 경계 내에서 **모델에 대 한 복제본 수를 조정** 합니다. 클러스터 내에서 노드 수를 조정 해야 하는 경우 수동으로 클러스터의 크기를 조정 하거나 [AKS cluster autoscaler을 구성할](../aks/cluster-autoscaler.md)수 있습니다.
+> * **Azureml-fe는 AKS 클러스터의 노드 수를 스케일링하지 않습니다.** 예상치 못한 비용 증가로 이어질 수 있기 때문입니다. 대신 물리적 클러스터 경계 내에서 **모델의 복제본 수를 스케일링** 합니다. 클러스터 내 노드 수를 스케일링해야 하는 경우 클러스터를 수동으로 스케일링하거나 [AKS 클러스터 자동 스케일러를 구성](../aks/cluster-autoscaler.md)할 수 있습니다.
 
-자동 크기 조정은 `autoscale_target_utilization` `autoscale_min_replicas` `autoscale_max_replicas` AKS 웹 서비스에 대해, 및를 설정 하 여 제어할 수 있습니다. 다음 예제에서는 자동 크기 조정을 사용 하도록 설정 하는 방법을 보여 줍니다.
+자동 스케일링은 AKS 웹 서비스에 대해 `autoscale_target_utilization`, `autoscale_min_replicas`, `autoscale_max_replicas`를 설정하여 제어할 수 있습니다. 다음 예는 자동 스케일링을 사용하도록 설정하는 방법을 보여줍니다.
 
 ```python
 aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
@@ -213,11 +213,11 @@ aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
                                                 autoscale_max_replicas=4)
 ```
 
-수직 확장/축소 결정은 현재 컨테이너 복제본의 사용률을 기준으로 합니다. 현재 복제본의 총 수로 나눈 사용 중인 복제본 수 (요청 처리)가 현재 사용량입니다. 이 수가 초과 `autoscale_target_utilization` 되 면 더 많은 복제본이 생성 됩니다. 이보다 낮으면 복제본이 줄어듭니다. 기본적으로 대상 사용률은 70%입니다.
+스케일 업/다운 결정은 현재 컨테이너 복제본의 사용률에 기반합니다. 사용 중인(요청을 처리하는) 복제본 수를 현재 복제본의 총 수로 나눈 값이 현재 사용률입니다. 이 수가 `autoscale_target_utilization`을 초과하면 더 많은 복제본이 생성됩니다. 이보다 낮으면 복제본이 감소됩니다. 기본적으로 목표 사용률은 70%입니다.
 
-복제본 추가에 대 한 결정은 신속 하 고 빠르게 진행 됩니다 (약 1 초). 복제본 제거에 대 한 결정은 매우 보수적인 결정입니다 (약 1 분).
+복제본 추가에 대한 결정은 열성적이고 빠릅니다(약 1초). 복제본 제거에 대한 결정은 보수적입니다(약 1분).
 
-다음 코드를 사용 하 여 필요한 복제본을 계산할 수 있습니다.
+필요한 복제본은 다음 코드를 사용하여 계산할 수 있습니다.
 
 ```python
 from math import ceil
@@ -236,31 +236,31 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-, 및를 설정 하는 방법에 대 한 자세한 내용은 `autoscale_target_utilization` `autoscale_max_replicas` `autoscale_min_replicas` [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) 모듈 참조를 참조 하세요.
+`autoscale_target_utilization`, `autoscale_max_replicas`, `autoscale_min_replicas` 설정에 대한 자세한 내용은 [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice) 모듈 참조를 확인하세요.
 
-## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>제어 된 롤아웃 (미리 보기)을 사용 하 여 AKS에 모델 배포
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>제어된 롤아웃을 사용하여 AKS에 모델 배포(미리 보기)
 
-끝점을 사용 하 여 제어 된 방식으로 모델 버전을 분석 하 고 승격 합니다. 단일 끝점 뒤에 최대 6 개의 버전을 배포할 수 있습니다. 끝점은 다음과 같은 기능을 제공 합니다.
+엔드포인트를 사용하여 제어된 방식으로 모델 버전을 분석하고 승격합니다. 단일 엔드포인트 뒤에 최대 6개의 버전을 배포할 수 있습니다. 엔드포인트는 다음과 같은 기능을 제공합니다.
 
-* __각 끝점으로 전송 되는 점수 매기기 트래픽의 백분율__ 을 구성 합니다. 예를 들어 트래픽의 20%를 끝점 ' 테스트 '로, 80%를 ' 프로덕션 '으로 라우팅합니다.
+* __각 엔드포인트로 전송되는 채점 트래픽의 백분율__ 을 구성합니다. 예를 들어 트래픽의 20%는 엔드포인트 '테스트'로, 80%는 '프로덕션'으로 라우팅합니다.
 
     > [!NOTE]
-    > 트래픽의 100%를 고려 하지 않는 경우 남은 백분율은 __기본__ 끝점 버전으로 라우팅됩니다. 예를 들어 ' test ' 끝점 버전을 구성 하 여 트래픽의 10%를 가져오고, 30%의 경우 ' r u p '를 구성 하는 경우 나머지 60%는 기본 끝점 버전으로 전송 됩니다.
+    > 트래픽의 100%를 차지하지 않는 경우 나머지 비율은 __기본__ 엔드포인트 버전으로 라우팅됩니다. 예를 들어 엔드포인트 버전 'test'가 트래픽의 10%를 차지하도록 구성하고 'prod'에는 30%를 구성하면 나머지 60%는 기본 엔드포인트 버전으로 보내집니다.
     >
-    > 만든 첫 번째 끝점 버전이 자동으로 기본값으로 구성 됩니다. `is_default=True`끝점 버전을 만들거나 업데이트할 때를 설정 하 여이를 변경할 수 있습니다.
+    > 생성된 첫 번째 엔드포인트 버전이 자동으로 기본값으로 구성됩니다. 이 내용은 엔드포인트 버전을 만들거나 업데이트할 때 `is_default=True`를 설정하여 변경할 수 있습니다.
      
-* 끝점 버전을 __제어__ 또는 __처리__ 중 하나로 태그를 합니다. 예를 들어 현재 프로덕션 끝점 버전은 컨트롤이 될 수 있지만 잠재적 새 모델은 처리 버전으로 배포 됩니다. 처리 버전의 성능을 평가한 후에는 현재 컨트롤이 우수함 새 프로덕션/컨트롤로 승격 될 수 있습니다.
+* 엔드포인트 버전에 __control__ 또는 __treatment__ 중 하나로 태그를 지정합니다. 예를 들어 현재 프로덕션 엔드포인트 버전은 control이 될 수 있지만 잠재적 새 모델은 treatment 버전으로 배포됩니다. treatment 버전의 성능을 평가한 후 현재 control보다 성능이 뛰어나면 새 프로덕션/control로 승격될 수 있습니다.
 
     > [!NOTE]
-    > __컨트롤은 하나만 사용할__ 수 있습니다. 여러 처리가를 사용할 수 있습니다.
+    > control은 __하나__ 만 있을 수 있습니다. treatment는 여러 개 있을 수 있습니다.
 
-App insights를 사용 하도록 설정 하 여 끝점 및 배포 된 버전의 작업 메트릭을 볼 수 있습니다.
+App insights를 사용하도록 설정하여 엔드포인트 및 배포된 버전의 운영 메트릭을 볼 수 있습니다.
 
 ### <a name="create-an-endpoint"></a>엔드포인트 만들기
-모델을 배포할 준비가 되 면 점수 매기기 끝점을 만들고 첫 번째 버전을 배포 합니다. 다음 예제에서는 SDK를 사용 하 여 끝점을 배포 하 고 만드는 방법을 보여 줍니다. 첫 번째 배포는 기본 버전으로 정의 됩니다. 즉, 모든 버전에서 지정 되지 않은 트래픽 백분위 수가 기본 버전으로 이동 합니다.  
+모델을 배포할 준비가 되면 채점 엔드포인트를 만들고 첫 번째 버전을 배포합니다. 다음 예제는 SDK를 사용하여 엔드포인트를 배포하고 만드는 방법을 보여줍니다. 첫 번째 배포는 기본 버전으로 정의됩니다. 즉, 모든 버전에서 지정되지 않은 트래픽 백분위 수가 기본 버전으로 이동합니다.  
 
 > [!TIP]
-> 다음 예제에서는 구성에서 초기 끝점 버전을 설정 하 여 트래픽의 20%를 처리 합니다. 이 끝점은 첫 번째 끝점 이므로 기본 버전 이기도 합니다. 또한 다른 80%의 트래픽에 대 한 다른 버전은 없으므로 기본값으로 라우팅됩니다. 트래픽의 백분율을 사용 하는 다른 버전을 배포할 때까지이는 트래픽 100%를 효과적으로 수신 합니다.
+> 다음 예제에서 구성은 초기 엔드포인트 버전이 트래픽의 20%를 처리하도록 설정합니다. 이 엔드포인트는 첫 번째 엔드포인트이므로 기본 버전이기도 합니다. 그리고 나머지 80%의 트래픽에 대한 다른 버전은 없기 때문에 기본값으로 라우팅됩니다. 트래픽의 일정 비율을 차지하는 다른 버전이 배포될 때까지 이 버전이 사실상 트래픽의 100%를 수신합니다.
 
 ```python
 import azureml.core,
@@ -286,12 +286,12 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
  endpoint.wait_for_deployment(True)
  ```
 
-### <a name="update-and-add-versions-to-an-endpoint"></a>끝점에 버전 업데이트 및 추가
+### <a name="update-and-add-versions-to-an-endpoint"></a>업데이트 및 엔드포인트에 버전 추가
 
-다른 버전을 끝점에 추가 하 고 버전으로 이동 하는 점수 매기기 트래픽 백분위 수를 구성 합니다. 두 가지 유형의 버전, 즉 컨트롤과 처리 버전이 있습니다. 단일 컨트롤 버전을 비교 하는 데 도움이 되는 여러 처리 버전이 있을 수 있습니다.
+엔드포인트에 다른 버전을 추가하고 그 버전으로 이동하는 채점 트래픽 백분위 수를 구성합니다. 버전의 유형에는 두 가지, 즉 control과 treatment 버전이 있습니다. control 버전 하나와 비교하는 데 도움이 되는 여러 treatment 버전이 있을 수 있습니다.
 
 > [!TIP]
-> 다음 코드 조각에 의해 생성 된 두 번째 버전은 트래픽의 10%를 허용 합니다. 첫 번째 버전은 20%로 구성 되므로 특정 버전에 대 한 트래픽의 30%만 구성 됩니다. 나머지 70%는 기본 버전 이기도 하기 때문에 첫 번째 끝점 버전으로 전송 됩니다.
+> 다음 코드 조각으로 생성된 두 번째 버전은 트래픽의 10%를 받습니다. 첫 번째 버전은 20%로 구성되어 있기 때문에 트래픽의 30%만 특정 버전에 대해 구성됩니다. 나머지 70%는 첫 번째 엔드포인트 버전으로 보내집니다. 첫 번째 엔드포인트가 기본 버전이기도 하기 때문입니다.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -307,10 +307,10 @@ endpoint.create_version(version_name = version_name_add,
 endpoint.wait_for_deployment(True)
 ```
 
-기존 버전을 업데이트 하거나 끝점에서 삭제 합니다. 버전의 기본 형식, 컨트롤 형식 및 트래픽 백분위 수를 변경할 수 있습니다. 다음 예제에서 두 번째 버전은 트래픽을 40%로 늘리고 이제는 기본값입니다.
+기존 버전을 업데이트하거나 엔드포인트에서 삭제합니다. 버전의 기본 유형, 컨트롤 형식 및 트래픽 백분위 수를 변경할 수 있습니다. 다음 예제에서는 두 번째 버전의 트래픽이 40%로 증가하여 이제는 기본값입니다.
 
 > [!TIP]
-> 다음 코드 조각 후에는 이제 두 번째 버전이 기본값입니다. 이제 40%에 대해 구성 되지만 원래 버전은 20%로 구성 되어 있습니다. 즉, 버전 구성에서 40%의 트래픽이 고려 되지 않습니다. 남아 있는 트래픽은 이제 기본값 이기 때문에 두 번째 버전으로 라우팅됩니다. 실제로 트래픽의 80%를 수신 합니다.
+> 다음 코드 조각 후에는 이제 두 번째 버전이 기본값입니다. 이제 40%로 구성되어 있지만 원래 버전은 아직 20%로 구성되어 있습니다. 즉, 버전 구성에서는 트래픽의 40%를 차지하지 않습니다. 남은 트래픽은 두 번째 버전으로 라우팅됩니다. 이제 기본값이기 때문입니다. 사실상 트래픽의 80%를 받습니다.
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -330,19 +330,19 @@ endpoint.delete_version(version_name="versionb")
 
 ## <a name="web-service-authentication"></a>웹 서비스 인증
 
-Azure Kubernetes Service에 배포 하는 경우 __키 기반__ 인증은 기본적으로 사용 하도록 설정 됩니다. __토큰 기반__ 인증을 사용 하도록 설정할 수도 있습니다. 토큰 기반 인증을 사용 하려면 클라이언트가 Azure Active Directory 계정을 사용 하 여 배포 된 서비스에 대 한 요청을 수행 하는 데 사용 되는 인증 토큰을 요청 해야 합니다.
+Azure Kubernetes Service에 배포할 때 __키 기반__ 인증이 기본적으로 사용하도록 설정되어 있습니다. __토큰 기반__ 인증을 사용하도록 설정할 수도 있습니다. 토큰 기반 인증을 사용하려면 클라이언트가 Azure Active Directory 계정을 사용하여 인증 토큰(배포된 서비스에 대한 요청을 수행하는 데 사용됨)을 요청해야 합니다.
 
-인증을 __사용 하지 않도록__ 설정 하려면 `auth_enabled=False` 배포 구성을 만들 때 매개 변수를 설정 합니다. 다음 예제에서는 SDK를 사용 하 여 인증을 사용 하지 않도록 설정 합니다.
+인증을 __사용하지 않도록 설정__ 하려면 배포 구성을 만들 때 `auth_enabled=False` 매개 변수를 설정합니다. 다음 예제에서는 SDK를 사용하여 인증을 사용하지 않도록 설정합니다.
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-클라이언트 응용 프로그램에서 인증 하는 방법에 대 한 자세한 내용은 [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)을 참조 하세요.
+클라이언트 애플리케이션에서 인증하는 방법에 대한 정보는 [웹 서비스로 배포된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)을 참조하세요.
 
-### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
+### <a name="authentication-with-keys"></a>키로 인증
 
-키 인증을 사용 하는 경우 메서드를 사용 하 여 `get_keys` 기본 및 보조 인증 키를 검색할 수 있습니다.
+키 인증을 사용하도록 설정한 경우 `get_keys` 메서드를 사용하여 기본 및 보조 인증 키를 검색할 수 있습니다.
 
 ```python
 primary, secondary = service.get_keys()
@@ -350,17 +350,17 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우 다음을 사용 합니다. [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29)
+> 키를 다시 생성해야 하는 경우 [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29)를 사용합니다.
 
-### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
+### <a name="authentication-with-tokens"></a>토큰으로 인증
 
-토큰 인증을 사용 하도록 설정 하려면 `token_auth_enabled=True` 배포를 만들거나 업데이트할 때 매개 변수를 설정 합니다. 다음 예제에서는 SDK를 사용 하 여 토큰 인증을 사용 하도록 설정 합니다.
+토큰 인증을 사용하도록 설정하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled=True` 매개 변수를 설정합니다. 다음 예제에서는 SDK를 사용하여 토큰 인증을 사용하도록 설정합니다.
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-토큰 인증을 사용 하는 경우 메서드를 사용 하 여 `get_token` JWT 토큰 및 해당 토큰의 만료 시간을 검색할 수 있습니다.
+토큰 인증을 사용하도록 설정하면 `get_token` 메서드를 사용하여 JWT 토큰 및 이 토큰의 만료 시간을 검색할 수 있습니다.
 
 ```python
 token, refresh_by = service.get_token()
@@ -368,22 +368,22 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> 토큰의 시간 이후에 새 토큰을 요청 해야 합니다 `refresh_by` .
+> 토큰의 `refresh_by` 시간 후 새 토큰을 요청해야 합니다.
 >
-> Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다. 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역을 사용할 수 없는 경우에는 클러스터가 작업 영역과 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 이로 인해 작업 영역을 다시 사용할 수 있을 때까지 토큰 기반 인증을 사용할 수 없습니다. 또한 클러스터의 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
+> Azure Machine Learning 작업 영역은 Azure Kubernetes Service 클러스터와 동일한 지역에 만드는 것이 좋습니다. 토큰으로 인증하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성되는 지역을 호출합니다. 작업 영역의 지역을 사용할 수 없는 경우에는 클러스터가 작업 영역과 다른 지역에 있더라도 웹 서비스에 대한 토큰을 가져올 수 없습니다. 따라서 작업 영역의 지역을 다시 사용할 수 있을 때까지 사실상 토큰 기반 인증을 사용할 수 없습니다. 또한 클러스터 지역과 작업 영역의 지역 간 거리가 멀수록 토큰을 가져오는 데 시간이 오래 걸립니다.
 >
-> 토큰을 검색 하려면 Azure Machine Learning SDK 또는 [az ml service get-token](/cli/azure/ext/azure-cli-ml/ml/service#ext-azure-cli-ml-az-ml-service-get-access-token) 명령을 사용 해야 합니다.
+> 토큰을 검색하려면 Azure Machine Learning SDK 또는 [az ml service get-access-token](/cli/azure/ml/service#az_ml_service_get_access_token) 명령을 사용해야 합니다.
 
 
 ### <a name="vulnerability-scanning"></a>취약성 검색
 
-Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center에서 리소스를 검색 하 고 권장 사항을 따를 수 있도록 해야 합니다. 자세한 내용은 [Azure Kubernetes Services와 Security Center 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조 하세요.
+Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 고급 위협 방지를 제공합니다. Azure Security Center가 리소스를 검색할 수 있게 허용하고 권장 사항에 따라야 합니다. 자세한 내용은 [Security Center와 Azure Kubernetes Services 통합](../security-center/defender-for-kubernetes-introduction.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Kubernetes 권한 부여에 Azure RBAC 사용](../aks/manage-azure-rbac.md)
-* [Azure Virtual Network를 사용 하 여 추론 환경 보호](how-to-secure-inferencing-vnet.md)
-* [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
+* [Azure Virtual Network를 사용한 보안 추론 환경](how-to-secure-inferencing-vnet.md)
+* [사용자 지정 Docker 이미지를 사용하여 모델을 배포하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [웹 서비스 업데이트](how-to-deploy-update-web-service.md)
 * [TLS를 사용하여 Azure Machine Learning을 통해 웹 서비스 보호](how-to-secure-web-service.md)

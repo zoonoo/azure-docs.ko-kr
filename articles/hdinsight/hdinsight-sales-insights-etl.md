@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: f41f202ede49892608e1ca3c5fdfbe703b6a5293
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 8fc2654dfb41ef4b9e1e2491f6c130229b856682
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074946"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091705"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 판매 인사이트를 파생하는 엔드투엔드 데이터 파이프라인 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "108074946"
 
 :::image type="content" source="./media/hdinsight-sales-insights-etl/architecture.png" alt-text="ETL 아키텍처" border="false":::
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -168,7 +168,7 @@ ADLSGen2StorageName=$(cat resourcesoutputs_storage.json | jq -r '.properties.out
 이 스크립트에서 수행하는 작업은 다음과 같습니다.
 
 1. Data Lake Storage Gen2 스토리지 계정에 대한 `Storage Blob Data Contributor` 권한이 있는 서비스 주체를 만듭니다.
-1. [Data Lake Storage Gen2 파일 시스템 REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create)에 대한 POST 요청에 권한을 부여하기 위한 인증 토큰을 가져옵니다.
+1. [Data Lake Storage Gen2 파일 시스템 REST API](/rest/api/storageservices/datalakestoragegen2/filesystem/create)에 대한 POST 요청에 권한을 부여하기 위한 인증 토큰을 가져옵니다.
 1. Data Lake Storage Gen2 스토리지 계정의 실제 이름을 `sparktransform.py` 및 `query.hql` 파일에 채웁니다.
 1. Data Lake Storage Gen2 및 Blob 스토리지 계정에 대한 스토리지 키를 가져옵니다.
 1. 연결된 서비스 및 활동을 사용하여 Azure Data Factory 파이프라인을 만드는 다른 리소스 배포를 만듭니다. 연결된 서비스에서 스토리지 계정에 올바르게 액세스할 수 있도록 스토리지 키를 매개 변수로 템플릿 파일에 전달합니다.
@@ -265,8 +265,8 @@ HDInsight를 사용하여 데이터를 변환하는 다른 방법은 [Jupyter No
 
 1. **탐색기** 에서 `sales` 및/또는 `sales_raw`를 선택하여 데이터를 미리 봅니다. 데이터가 로드되면 만들려는 대시보드를 사용하여 실험할 수 있습니다. Power BI 대시보드를 시작하려면 다음 링크를 참조하세요.
 
-* [Power BI 디자이너용 대시보드 소개](https://docs.microsoft.com/power-bi/service-dashboards)
-* [자습서: Power BI 서비스 시작](https://docs.microsoft.com/power-bi/service-get-started)
+* [Power BI 디자이너용 대시보드 소개](/power-bi/service-dashboards)
+* [자습서: Power BI 서비스 시작](/power-bi/service-get-started)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

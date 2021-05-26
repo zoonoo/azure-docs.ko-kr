@@ -3,15 +3,15 @@ title: TLS/SSL 바인딩으로 사용자 지정 DNS 보호
 description: 인증서로 TLS/SSL 바인딩을 만들어 사용자 지정 도메인에 대한 HTTPS 액세스를 보호합니다. HTTPS 또는 TLS 1.2를 적용하여 웹 사이트의 보안을 향상시킵니다.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: a713d869a754f17f4030c531999c822a2cbb76ee
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ae0ca07d0aad72a38ee4eccbefbdb826da9627b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102039804"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373036"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -42,7 +42,7 @@ ms.locfileid: "102039804"
 - [앱에 프라이빗 인증서 추가](configure-ssl-certificate.md)
 
 > [!NOTE]
-> 프라이빗 인증서를 추가하는 가장 쉬운 방법은 [무료 App Service Managed Certificate 만들기](configure-ssl-certificate.md#create-a-free-managed-certificate-preview)(미리 보기)입니다.
+> 프라이빗 인증서를 추가하는 가장 쉬운 방법은 [무료 App Service 관리형 인증서를 만드는 것입니다](configure-ssl-certificate.md#create-a-free-managed-certificate).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -73,7 +73,7 @@ ms.locfileid: "102039804"
 - **App Service Certificate 가져오기** - [App Service 인증서 가져오기](configure-ssl-certificate.md#import-an-app-service-certificate)의 워크플로를 따르고 여기에서 이 옵션을 선택합니다.
 
 > [!NOTE]
-> [무료 인증서 만들기](configure-ssl-certificate.md#create-a-free-managed-certificate-preview)(미리 보기) 또는 [Key Vault 인증서 가져오기](configure-ssl-certificate.md#import-a-certificate-from-key-vault)를 수행할 수도 있지만 별도로 수행한 다음 **TLS/SSL 바인딩** 대화 상자로 돌아가야 합니다.
+> [무료 인증서 만들기](configure-ssl-certificate.md#create-a-free-managed-certificate) 또는 [Key Vault 인증서 가져오기](configure-ssl-certificate.md#import-a-certificate-from-key-vault)를 수행할 수도 있지만 별도로 수행한 다음, **TLS/SSL 바인딩** 대화 상자로 돌아가야 합니다.
 
 ### <a name="create-binding"></a>바인딩 만들기
 

@@ -1,0 +1,48 @@
+- name: Azure Confidential Ledger
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Confidential Ledger 정보
+      href: overview.md
+- name: 빠른 시작
+  items:
+    - name: Python
+      href: quickstart-python.md
+    - name: ARM 템플릿
+      href: quickstart-template.md
+- name: 개념
+  items:
+    - name: Architecture
+      href: architecture.md
+    - name: Ledger 노드 인증
+      href: authenticate-ledger-nodes.md
+- name: 방법 가이드
+  items:
+    - name: 클라이언트 인증서 만들기
+      href: create-client-certificate.md
+    - name: 원장 서비스 주체 등록
+      href: register-ledger-service-principal.md
+    - name: Confidential Ledger 리소스 공급자 등록
+      href: register-ledger-resource-provider.md
+- name: 참조
+  items:
+    - name: FAQ
+      href: faq.md
+    - name: .NET 클라이언트 라이브러리
+      href: /dotnet/api/overview/azure/storage.confidentialledger-readme-pre
+    - name: Java 미리 보기 클라이언트 라이브러리
+      href: /java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/browse/
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing'
+    - name: 지역 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: SLA(서비스 수준 계약)
+      href: 'https://azure.microsoft.com/support/legal/sla/'
+    - name: 서비스 상태
+      href: 'https://azure.microsoft.com/status/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/'

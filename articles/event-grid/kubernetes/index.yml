@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure Arc를 사용하는 Kubernetes의 Event Grid(미리 보기) 설명서
+summary: Kubernetes의 Event Grid를 사용하여 Azure Arc에 연결된 Kubernetes 클러스터에서 생성된 관련 이벤트에 거의 실시간으로 반응하는 방법을 알아봅니다.
+metadata:
+  title: Azure Arc를 사용하는 Kubernetes의 Event Grid(미리 보기) 설명서
+  description: Kubernetes의 Event Grid를 사용하여 Azure Arc에 연결된 Kubernetes 클러스터에서 생성된 관련 이벤트에 거의 실시간으로 반응하는 방법을 알아봅니다.
+  services: event-grid
+  ms.service: event-grid
+  ms.subservice: kubernetes
+  ms.topic: landing-page
+  ms.collection: collection
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 05/25/2021
+  ms.openlocfilehash: 6403b71a1b29a41b47915e8d76cff75535a92066
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383592"
+landingContent:
+- title: Kubernetes의 Event Grid 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Kubernetes의 Event Grid란?
+      url: overview.md
+    - text: 기능
+      url: features.md
+- title: 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Kubernetes의 Event Grid 개념
+      url: concepts.md
+    - text: 이벤트 처리기
+      url: event-handlers.md
+    - text: 이벤트 스키마
+      url: event-schemas.md
+    - text: 이벤트 스키마
+      url: event-schemas.md
+    - text: 일괄 처리 이벤트 전달
+      url: batch-event-delivery.md
+    - text: 일괄 처리 이벤트 전달
+      url: delivery-retry.md
+    - text: 이벤트 필터링
+      url: filter-events.md
+- title: 빠른 시작 및 방법
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 항목 및 구독 만들기
+      url: create-topic-subscription.md
+    - text: Kubernetes 클러스터에 Event Grid 확장 설치
+      url: install-k8s-extension.md
+    - text: 지원 받기
+      url: get-support.md

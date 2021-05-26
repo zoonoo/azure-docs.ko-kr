@@ -8,12 +8,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 975f7eec31839aefcb1782f573d0210df29a4d00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6c09389628e1a9648d827eb5562a06c4f746db2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98873572"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370946"
 ---
 # <a name="cognitive-services-development-options"></a>Cognitive Services 개발 옵션
 
@@ -89,7 +89,7 @@ Cognitive Services용 빅 데이터에 대해 자세히 알아보려면 먼저 [
 
 Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자동화된 워크플로를 만드는 데 도움이 되는 [Power Platform](/power-platform/) 서비스입니다. Power Automate 솔루션에서는 Cognitive Services 리소스와 쉽게 상호 작용할 수 있도록 여러 커넥터를 제공합니다. Power Automate는 Logic Apps를 기반으로 빌드됩니다. 
 
-* **대상 사용자**: 비즈니스 사용자(분석가) 및 Sharepoint 관리자
+* **대상 사용자**: 비즈니스 사용자(분석가) 및 SharePoint 관리자
 * **이점**: 데스크톱에서 마우스 클릭, 키 입력 및 복사/붙여넣기 단계를 기록하여 반복적인 수동 작업을 자동화합니다.
 * **UI 도구**: 예 - UI 전용
 * **구독**: Azure 계정 + Cognitive Services 리소스 + Power Automate 구독 + Office 365 구독
@@ -98,7 +98,7 @@ Power Automate는 코드를 작성하지 않고도 앱과 서비스 간에 자�
 
 [AI Builder](/ai-builder/overview)는 프로세스를 자동화하고 결과를 예측하여 비즈니스 성과를 개선하는 데 사용할 수 있는 Microsoft Power Platform 기능입니다. AI Builder는 포인트 앤 클릭 환경을 통해 AI의 강력한 기능을 솔루션에 제공합니다. Form Recognizer, Text Analytics 및 Computer Vision과 같은 많은 Cognitive Services가 직접 통합되어 있으므로 자체 Cognitive Services를 만들 필요가 없습니다. 
 
-* **대상 사용자**: 비즈니스 사용자(분석가) 및 Sharepoint 관리자
+* **대상 사용자**: 비즈니스 사용자(분석가) 및 SharePoint 관리자
 * **이점**: 포인트 클릭 환경을 통해 AI 기능을 제공하는 턴키 솔루션입니다. 코딩이나 데이터 과학 기술이 필요하지 않습니다.
 * **UI 도구**: 예 - UI 전용
 * **구독**: AI Builder
@@ -125,7 +125,7 @@ Cognitive Services를 사용하여 애플리케이션 또는 워크플로를 빌
 | 핵심 요소 | 서비스 | 사용자 지정 UI | 빠른 시작 |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [빠른 시작](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Vision | Form Recognizer | [샘플 레이블 지정 도구](https://fott-preview.azurewebsites.net/) | [빠른 시작](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Vision | Form Recognizer | [샘플 레이블 지정 도구](https://aka.ms/fott-2.1-ga) | [방법 문서](./form-recognizer/label-tool.md?tabs=v2-0) |
 | 의사 결정 | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [빠른 시작](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | 의사 결정 | Metrics Advisor | https://metricsadvisor.azurewebsites.net/  | [빠른 시작](./metrics-advisor/quickstarts/web-portal.md) |
 | 의사 결정 | Personalizer | UI는 Azure Portal의 Personalizer 리소스에서 사용할 수 있습니다. | [빠른 시작](./personalizer/quickstart-personalizer-sdk.md) |

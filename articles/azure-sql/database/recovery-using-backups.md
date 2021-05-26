@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 670176d7478ddab3d17e15526df512dfa7e99fd4
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 800fa34901ee63434d3f4798ec4c16dd52479fa6
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762086"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191849"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화된 데이터베이스 백업을 사용하여 복구 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음과 같습니다.
+다음 옵션은 [자동화된 데이터베이스 백업](automated-backups-overview.md)을 사용한 데이터베이스 복구에 사용할 수 있습니다. 다음을 할 수 있습니다.
 
 - 동일한 서버에 보존 기간 내의 지정된 시점으로 복구된 새 데이터베이스를 만듭니다.
 - 동일한 서버에 삭제된 데이터베이스의 삭제 시간으로 복구된 데이터베이스를 만듭니다.
@@ -191,7 +191,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 ### <a name="geo-restore-considerations"></a>지리적 복원 고려 사항
 
-지역 보조 데이터베이스에서는 지정 시간 복원을 수행할 수 없습니다. 주 데이터베이스에서만 수행할 수 있습니다. 지역 복원 기능을 사용하여 가동 중단에서 복구하는 방법에 대한 자세한 내용은 [가동 중단에서 복구](../../key-vault/general/disaster-recovery-guidance.md)를 참조하세요.
+지역 보조 데이터베이스에서는 지정 시간 복원을 수행할 수 없습니다. 주 데이터베이스에서만 수행할 수 있습니다. 지역 복원 기능을 사용하여 가동 중단에서 복구하는 방법에 대한 자세한 내용은 [가동 중단에서 복구](disaster-recovery-guidance.md#recover-using-geo-restore)를 참조하세요.
 
 > [!IMPORTANT]
 > 지역 복원은 SQL Database 및 SQL Managed Instance에서 사용할 수 있는 가장 기본적인 재해 복구 솔루션입니다. RPO(복구 지점 목표)가 최대 1시간이고 예상 복구 시간이 최대 12시간인 지역에서 복제된 자동 생성 백업을 사용합니다. 지역 가동 중단 후에는 수요가 갑작스럽게 증가할 가능성이 있으므로 대상 지역에서 데이터베이스를 복원할 수 있는 용량이 보장되지 않습니다. 지리적 복원은 애플리케이션에서 비교적 작은 데이터베이스를 사용하고 비즈니스에 중요하지 않은 경우 적절한 재해 복구 솔루션입니다. 

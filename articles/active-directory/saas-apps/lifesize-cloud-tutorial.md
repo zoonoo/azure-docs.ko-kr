@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
-ms.openlocfilehash: 483377d0376a5a98d822392af1fa2d84ad8498e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37a116752062e722f65acb6ca01431b5176ea60e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92458594"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>자습서: Lifesize Cloud와 Azure Active Directory 통합
 
@@ -115,7 +115,7 @@ Lifesize Cloud에서 Azure AD Single Sign-On을 구성하려면 다음 단계를
     d. **릴레이 상태** 텍스트 상자에서 `https://webapp.lifesizecloud.com/?ent=<identifier>` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 릴레이 상태로 업데이트합니다. 로그온 URL 및 식별자 값을 얻으려면 [Lifesize Cloud 클라이언트 지원 팀](https://www.lifesize.com/en/support)에 문의하세요. 릴레이 상태 값은 자습서의 뒷부분에서 설명하는 SSO 구성에서 얻을 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 로그온 URL, 식별자 및 릴레이 상태로 업데이트합니다. 로그온 URL 및 식별자 값을 얻으려면 [Lifesize Cloud 클라이언트 지원 팀](https://legacy.lifesize.com/en/support)에 문의하세요. 릴레이 상태 값은 자습서의 뒷부분에서 설명하는 SSO 구성에서 얻을 수 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 5. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드** 를 클릭하여 요구 사항에 따라 제공된 옵션에서 **인증서(Base64)** 를 다운로드한 다음, 컴퓨터에 저장합니다.
 

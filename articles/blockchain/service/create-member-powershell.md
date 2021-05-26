@@ -8,16 +8,18 @@ ms.custom:
 - references_regions
 - devx-track-azurepowershell
 - mode-api
-ms.openlocfilehash: 9087bda9c1979a98f4bbf9f8343d012c4cf3098c
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 82451b94c83c0883beed66fac1f8e1b6b7132d3a
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529631"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "110094207"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 Azure Blockchain Service에 새 블록체인 멤버 및 컨소시엄을 배포합니다.
+
+[!INCLUDE [Retirement note](./includes/retirement.md)]
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

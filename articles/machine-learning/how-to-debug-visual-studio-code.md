@@ -9,12 +9,12 @@ ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: d3c4438cdfa8ddd41cb306e84623ccd569ac1680
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 49954224fbdb2d100a809ea5c1d975e1b2e46f56
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107885581"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372933"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
 
@@ -28,7 +28,7 @@ Azure Machine Learning 확장을 사용하여 기계 학습 실험을 클라우�
 
 ### <a name="prerequisites"></a>사전 요구 사항
 
-* Azure Machine Learning VS Code 확장(미리 보기). 자세한 내용은 [Azure Machine Learning VS Code 확장 설정](tutorial-setup-vscode-extension.md)을 참조하세요.
+* Azure Machine Learning VS Code 확장(미리 보기). 자세한 내용은 [Azure Machine Learning VS Code 확장 설정](how-to-setup-vs-code.md)을 참조하세요.
 * [Docker](https://www.docker.com/get-started)
   * Mac 및 Windows용 Docker Desktop
   * Linux용 Docker 엔진

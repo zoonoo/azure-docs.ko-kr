@@ -2,13 +2,13 @@
 title: Azure Event Hubs - Resource Manager 예외 | Microsoft Docs
 description: Azure Resource Manager 및 제안된 작업으로 표시되는 Azure Event Hubs 예외 목록입니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cec24696d0d49ba408860f6562c34dd14876c311
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 5ca80024e317063acacd3fe54a1eb57cc3115a95
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91334211"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371244"
 ---
 # <a name="azure-event-hubs---resource-manager-exceptions"></a>Azure Event Hubs - Resource Manager 예외
 이 문서에서는 템플릿 또는 직접 호출을 통해 Azure Resource Manager를 사용하여 Azure Event Hubs와 상호 작용할 때 생성되는 예외가 나열되어 있습니다.
@@ -37,14 +37,14 @@ ms.locfileid: "91334211"
 
 | 오류 코드 | 오류 하위 코드 | 오류 메시지 | Description | 권장 |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| BadRequest | 40,000 | 이벤트 허브의 파티션 수를 변경할 수 없습니다. | Azure Event Hubs의 기본 또는 표준 계층은 파티션 변경을 지원하지 않습니다. | 기본 또는 표준 계층 네임스페이스에서 원하는 수의 파티션을 사용하여 새 이벤트 허브를 만듭니다. [전용 클러스터](event-hubs-dedicated-overview.md)에 파티션 확장이 지원됩니다. |
+| BadRequest | 40,000 | 이벤트 허브의 파티션 수를 변경할 수 없습니다. | Azure Event Hubs의 기본, 표준 또는 프리미엄 계층은 파티션 변경을 지원하지 않습니다. | 기본, 표준 또는 프리미엄 계층 네임스페이스에서 원하는 수의 파티션을 사용하여 새 이벤트 허브를 만듭니다. [전용 클러스터](event-hubs-dedicated-overview.md)에 파티션 확장이 지원됩니다. |
 | BadRequest | 40,000 | MessageRetentionInDays의 '#' 값은 기본 계층에 대해 유효하지 않습니다. 값은 '1'일(들)을 초과할 수 없습니다. | 기본 계층 Event Hubs 네임스페이스는 최대 1일의 메시지 보존만 지원합니다. | 하루 이상의 메시지 보존이 필요한 경우 [표준 Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). | 
 | BadRequest | 없음 | 지정된 이름을 사용할 수 없습니다. | 네임스페이스 이름은 고유해야 하며, 지정된 이름이 이미 사용되었습니다. | 지정된 이름을 사용하는 기존 네임스페이스의 소유자인 경우, 이를 삭제할 수 있지만, 이로 인해 데이터 손실을 초래할 것입니다. 그런 다음 같은 이름으로 다시 시도합니다. 네임스페이스를 삭제하는 것이 안전하지 않은 경우(또는 소유자가 아닌 경우), 다른 네임스페이스 이름을 선택합니다. |
 | BadRequest | 없음 | 지정된 구독이 네임스페이스의 할당량에 도달했습니다. | 구독이 보유할 수 있는 네임스페이스 수의 [할당량](event-hubs-quotas.md)에 도달했습니다. | 이 구독에서 사용하지 않는 네임스페이스를 삭제하거나, 다른 구독을 만들거나, [전용 클러스터](event-hubs-dedicated-overview.md)로 업그레이드하는 것이 좋습니다. |
 | BadRequest | 없음 | 보조 네임스페이스를 업데이트할 수 없습니다. | 네임스페이스는 [GeoDR 페어링](event-hubs-geo-dr.md)의 보조 네임스페이스이므로 업데이트할 수 없습니다. | 대신에 해당하는 경우 이 페어링의 기본 네임스페이스로 변경합니다. 그렇지 않으면 GeoDR 페어링을 중단하여 변경합니다. |
-| BadRequest | 없음 | 기본 SKU에서 자동 확장을 설정할 수 없습니다. | 기본 계층 Event Hubs 네임스페이스에서 자동 확장을 사용하도록 설정할 수 없습니다. | 네임스페이스에서 [자동 확장을 사용](event-hubs-auto-inflate.md)하려면 표준 계층인지 확인합니다. |
+| BadRequest | 없음 | 기본 SKU에서 자동 확장을 설정할 수 없습니다. | 기본 계층 Event Hubs 네임스페이스에서 자동 확장을 사용하도록 설정할 수 없습니다. | 네임스페이스에서 [자동 확장을 사용](event-hubs-auto-inflate.md)하려면 표준 또는 프리미엄 계층인지 확인합니다. |
 | BadRequest | 없음 | 용량이 부족하여 네임스페이스를 만들 수 없습니다. Event Hubs 관리자에게 문의하십시오. | 선택한 지역이 최대 용량에 도달했고, 더 이상 네임스페이스를 만들 수 없습니다. | 네임스페이스를 저장할 다른 지역을 선택합니다. |
-| BadRequest | 없음 | 네임스페이스 ‘네임스페이스 이름’에서 '기본' 계층을 사용하고 있으므로 엔터티 형식 'ConsumerGroup'에서 작업을 수행할 수 없습니다.  | 기본 계층 Event Hubs 네임스페이스에는 하나의 소비자 그룹(기본값)의 할당량(event-hubs-quotas.md)이 있습니다. 추가 소비자 그룹을 만드는 것은 지원되지 않습니다. | 기본 소비자 그룹($Default)을 계속 사용하거나 추가 그룹이 필요한 경우, 표준 계층 Event Hubs 네임스페이스를 대신 사용하는 것이 좋습니다. | 
+| BadRequest | 없음 | 네임스페이스 ‘네임스페이스 이름’에서 '기본' 계층을 사용하고 있으므로 엔터티 형식 'ConsumerGroup'에서 작업을 수행할 수 없습니다.  | 기본 계층 Event Hubs 네임스페이스에는 하나의 소비자 그룹(기본값)의 할당량(event-hubs-quotas.md)이 있습니다. 추가 소비자 그룹을 만드는 것은 지원되지 않습니다. | 기본 소비자 그룹($Default)을 계속 사용하거나 추가 그룹이 필요한 경우, 표준 또는 프리미엄 계층 Event Hubs 네임스페이스를 대신 사용하는 것이 좋습니다. | 
 | BadRequest | 없음 | 네임스페이스 'namespace name'이 없습니다. | 제공된 네임스페이스를 찾을 수 없습니다. | 네임스페이스 이름이 올바르고 구독에서 찾을 수 있는지 철저히 확인합니다. 그렇지 않으면, [Event Hubs 네임스페이스를 만듭니다](event-hubs-create.md). | 
 | BadRequest | 없음 | 리소스의 위치 속성이 자신이 포함하는 네임스페이스와 일치하지 않습니다. | 특정 지역에 이벤트 허브를 만들지 못했습니다. 이는 해당 지역이 네임스페이스의 지역과 일치하지 않기 때문입니다. | 네임스페이스와 동일한 지역에 이벤트 허브를 만들어 보세요. | 
 

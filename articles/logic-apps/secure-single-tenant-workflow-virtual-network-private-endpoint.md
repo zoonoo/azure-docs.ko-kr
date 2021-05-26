@@ -1,0 +1,172 @@
+---
+title: 단일 테넌트 워크플로와 가상 네트워크 간의 트래픽 보호
+description: Azure Logic Apps에서 가상 네트워크, 스토리지 계정 및 단일 테넌트 워크플로 사이의 트래픽을 보호합니다.
+services: logic-apps
+ms.suite: integration
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 05/25/2021
+ms.openlocfilehash: 28d602f5edebaa122ec873338d99e31a4f755d14
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372467"
+---
+# <a name="secure-traffic-between-virtual-networks-and-single-tenant-workflows-in-azure-logic-apps-using-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 Azure Logic Apps에서 가상 네트워크와 단일 테넌트 워크플로 간의 트래픽 보호
+
+논리 앱 워크플로와 가상 네트워크 사이에서 안전하고 비공개로 통신하려면 인바운드 트래픽에 대한 프라이빗 엔드포인트를 설정하고 아웃바운드 트래픽에 가상 네트워크 통합을 사용할 수 있습니다.
+
+프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비스에 비공개로 안전하게 연결하는 네트워크 인터페이스입니다. 서비스는 Azure Logic Apps, Azure Storage, Azure Cosmos DB, SQL 또는 자체 Private Link 서비스와 같은 Azure 서비스일 수 있습니다. 프라이빗 엔드포인트는 가상 네트워크의 개인 IP 주소를 사용하여 효과적으로 가상 네트워크에 서비스를 제공합니다.
+
+이 문서에서는 인바운드 트래픽, 아웃바운드 트래픽 및 스토리지 계정에 대한 연결에 대한 프라이빗 엔드포인트를 통해 액세스를 설정하는 방법을 보여 줍니다.
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+- [Azure 프라이빗 엔드포인트란?](../private-link/private-endpoint-overview.md)
+
+- [Azure Private Link란?](../private-link/private-link-overview.md)
+
+- [Azure Logic Apps의 단일 테넌트 논리 앱 워크플로란?](single-tenant-overview-compare.md)
+
+## <a name="prerequisites"></a>필수 구성 요소
+
+위임 없이 서브넷을 포함하는 신규 또는 기존 Azure 가상 네트워크가 있어야 합니다. 서브넷은 가상 네트워크에서 개인 IP 주소를 배포 및 할당하는 데 사용됩니다.
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+- [빠른 시작: Azure 포털을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md)
+
+- [서브넷 위임이란?](../virtual-network/subnet-delegation-overview.md)
+
+- [서브넷 위임 추가 또는 제거](../virtual-network/manage-subnet-delegation.md)
+
+<a name="set-up-inbound"></a>
+
+## <a name="set-up-inbound-traffic-through-private-endpoints"></a>프라이빗 엔드포인트를 통해 인바운드 트래픽 설정
+
+워크플로에 대한 인바운드 트래픽을 보호하려면 다음과 같은 상위 수준 단계를 완료합니다.
+
+1. 요청 트리거 또는 HTTP + 웹후크 트리거와 같은 인바운드 요청을 수신하고 처리할 수 있는 기본 제공 트리거를 통해 워크플로를 시작합니다. 이 트리거는 호출 가능한 엔드포인트를 통해 워크플로를 설정합니다.
+
+1. 가상 네트워크에 프라이빗 엔드포인트를 추가합니다.
+
+1. 테스트 호출을 통해 엔드포인트에 대한 액세스를 확인합니다. 이 엔드포인트를 설정한 후 논리 앱 워크플로를 호출하려면 가상 네트워크에 연결되어 있어야 합니다.
+
+### <a name="prerequisites-for-inbound-traffic-through-private-endpoints"></a>프라이빗 엔드포인트를 통한 인바운드 트래픽에 대한 사전 요구 사항
+
+[최상위 사전 요구 사항에서의 가상 네트워크 설정](#prerequisites) 외에도 요청을 수신할 수 있는 기본 제공 트리거로 시작되는 신규 또는 기존 단일 테넌트 기반 논리 앱 워크플로가 있어야 합니다.
+
+예를 들어 요청 트리거는 워크플로를 포함하여 다른 호출자의 인바운드 요청을 수신하고 처리할 수 있는 엔드포인트를 워크플로에 만듭니다. 이 엔드포인트는 워크플로를 호출하고 트리거하는 데 사용할 수 있는 URL을 제공합니다. 이 예제에서는 요청 트리거를 계속 진행합니다.
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+- [Azure Logic Apps에서 단일 테넌트 논리 앱 워크플로 만들기](create-single-tenant-workflows-azure-portal.md)
+
+- [Azure Logic Apps를 사용하여 인바운드 HTTPS 요청 수신 및 응답](../connectors/connectors-native-reqres.md)
+
+### <a name="create-the-workflow"></a>워크플로 만들기
+
+1. 아직 없는 경우 단일 테넌트 기반 논리 앱과 빈 워크플로를 만듭니다.
+
+1. 디자이너가 열리면 워크플로에서 첫 번째 단계로 요청 트리거를 추가합니다.
+
+   > [!NOTE]
+   > 가상 네트워크 내부에서만 요청 트리거와 웹후크 트리거를 호출할 수 있습니다. 관리 API 웹후크 트리거 및 작업은 호출을 수신하기 위해 퍼블릭 엔드포인트가 필요하므로 작동하지 않습니다. 
+
+1. 시나리오 요구 사항에 따라 워크플로에서 실행하려는 다른 작업을 추가합니다.
+
+1. 완료되면 워크플로를 저장합니다.
+
+자세한 내용은 [Azure Logic Apps에서 단일 테넌트 논리 앱 워크플로 만들기](create-single-tenant-workflows-azure-portal.md)를 검토하세요.
+
+#### <a name="copy-the-endpoint-url"></a>엔드포인트 URL 복사
+
+1. 워크플로 메뉴에서 **개요** 를 선택합니다.
+
+1. **개요** 페이지에서 나중에 사용하도록 **워크플로 URL** 을 복사하고 저장합니다.
+
+   워크플로를 트리거하려면 이 URL을 호출하거나 요청을 보냅니다.
+
+1. URL을 호출하거나 요청을 보내 URL이 작동하는지 확인합니다. 도구(예: Postman)를 사용하여 요청을 보낼 수 있습니다.
+
+### <a name="set-up-private-endpoint-connection"></a>프라이빗 엔드포인트 연결 설정
+
+1. 논리 앱 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다.
+
+1. **네트워킹** 페이지의 **프라이빗 엔드포인트 연결** 에서 **프라이빗 엔드포인트 연결 구성** 을 선택합니다.
+
+1. **프라이빗 엔드포인트 연결 페이지** 에서 **추가** 를 선택합니다.
+
+1. **프라이빗 엔드포인트 추가** 창이 열리면 엔드포인트에 대해 요청된 정보를 제공합니다.
+
+   자세한 내용은 [프라이빗 엔드포인트 속성](../private-link/private-endpoint-overview.md#private-endpoint-properties)을 검토하세요.
+
+1. Azure가 프라이빗 엔드포인트를 성공적으로 프로비전한 후에는 워크플로 URL 호출을 다시 시도합니다.
+
+   이번에는 예상대로 `403 Forbidden` 오류가 발생합니다. 프라이빗 엔드포인트가 설정되어 제대로 작동함을 의미합니다.
+
+1. 연결이 제대로 작동하는지 확인하려면 프라이빗 엔드포인트가 있는 동일한 가상 네트워크에 가상 머신을 만들고 논리 앱 워크플로 호출을 시도합니다.
+
+### <a name="considerations-for-inbound-traffic-through-private-endpoints"></a>프라이빗 엔드포인트를 통한 인바운드 트래픽에 대한 고려 사항
+
+- 가상 네트워크 외부에서 액세스하는 경우 모니터링 보기는 트리거와 작업의 입력 및 출력에 액세스할 수 없습니다.
+
+- Visual Studio Code 또는 Azure CLI로부터의 배포는 가상 네트워크 내부에서만 작동합니다. 배포 센터를 사용하여 논리 앱을 GitHub 리포지토리에 연결할 수 있습니다. 이후 Azure 인프라를 사용하여 코드를 빌드하고 배포할 수 있습니다. 
+
+  GitHub 통합이 작동하려면 논리 앱에서 `WEBSITE_RUN_FROM_PACKAGE` 설정을 제거하거나 값을 `0`으로 설정합니다.
+
+- Private Link를 사용하도록 설정해도 App Service 인프라를 통과하는 아웃바운드 트래픽에는 영향을 미치지 않습니다.
+
+<a name="set-up-outbound"></a>
+
+## <a name="set-up-outbound-traffic-through-private-endpoints"></a>프라이빗 엔드포인트를 통해 아웃바운드 트래픽 설정
+
+논리 앱에서 아웃바운드 트래픽을 보호하려면 논리 앱을 가상 네트워크와 통합할 수 있습니다. 기본적으로 논리 앱의 아웃바운드 트래픽은 `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`과 같은 프라이빗 주소로 이동할 때 네트워크 보안 그룹(NSG) 및 사용자 정의 경로(UDR)의 영향을 받습니다. 하지만 자체 가상 네트워크를 통해 모든 아웃바운드 트래픽을 라우팅하여 모든 아웃바운드 트래픽을 NSG, 경로 및 방화벽에 적용할 수 있습니다. 모든 아웃바운드 트래픽이 통합 서브넷의 NSG 및 UDR의 영향을 받도록 하려면 논리 앱 설정 `WEBSITE_VNET_ROUTE_ALL`을 `1`로 설정합니다.
+
+> [!IMPORTANT]
+> Logic Apps 런타임이 작동하려면 백 엔드 스토리지에 중단 없이 연결해야 합니다. Azure 호스팅 관리 커넥터가 작동하려면 관리 API 서비스에 중단 없이 연결해야 합니다.
+
+논리 앱이 가상 네트워크에서 프라이빗 도메인 이름 서버(DNS) 영역을 사용하는지 확인하려면 WEBSITE_DNS_SERVER를 168.63.129.16으로 설정하여 앱이 vNET에서 프라이빗 DNS 영역을 사용하는지 확인합니다.
+
+### <a name="considerations-for-outbound-traffic-through-private-endpoints"></a>프라이빗 엔드포인트를 통한 아웃바운드 트래픽에 대한 고려 사항
+
+가상 네트워크 통합 설정은 App Service 공유 엔드포인트를 계속 사용하는 인바운드 트래픽에 영향을 미치지 않습니다. 인바운드 트래픽을 보호하려면 [프라이빗 엔드포인트를 통해 인바운드 트래픽 설정](#set-up-inbound)을 검토하세요.
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+- [Azure 가상 네트워크에 앱 통합](../app-service/web-sites-integrate-with-vnet.md)
+- [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md)
+- [가상 네트워크 트래픽 라우팅](../virtual-network/virtual-networks-udr-overview.md)
+
+## <a name="connect-to-storage-account-with-private-endpoints"></a>프라이빗 엔드포인트를 사용하여 스토리지 계정에 연결
+
+가상 네트워크 내의 리소스만 연결할 수 있도록 스토리지 계정 액세스를 제한할 수 있습니다. Azure Storage는 스토리지 계정에 프라이빗 엔드포인트를 추가하는 것을 지원합니다. 논리 앱 워크플로는 이러한 엔드포인트를 사용하여 스토리지 계정과 통신할 수 있습니다.
+
+논리 앱 설정에서 다음 옵션 중 하나를 선택하여 프라이빗 엔드포인트가 있는 스토리지 계정에 대한 연결 문자열로 `AzureWebJobsStorage`를 설정합니다.
+
+- **Azure Portal**: 논리 앱 메뉴에서 **구성** 을 선택합니다. `AzureWebJobsStorage` 설정을 스토리지 계정에 대한 연결 문자열로 업데이트합니다.
+
+- **Visual Studio Code**: 프로젝트 루트 수준 **local.settings.json** 파일에서 `AzureWebJobsStorage` 설정을 스토리지 계정에 대한 연결 문자열로 업데이트합니다.
+
+ 자세한 내용은 [Azure Storage에 프라이빗 엔드포인트 사용 설명서](../storage/common/storage-private-endpoints.md)를 검토하세요.
+
+### <a name="considerations-for-private-endpoints-on-storage-accounts"></a>스토리지 계정의 프라이빗 엔드포인트에 대한 고려 사항
+
+- 각 테이블, 큐 및 Blob 스토리지 서비스에 대해 서로 다른 프라이빗 엔드포인트를 만듭니다.
+
+- 이 설정을 사용하여 가상 네트워크를 통해 모든 아웃바운드 트래픽을 라우팅합니다.
+
+  `"WEBSITE_VNET_ROUTE_ALL": "1"`
+
+- 논리 앱이 가상 네트워크의 개인 도메인 이름 서버(DNS) 영역을 사용하도록 하려면 논리 앱의 `WEBSITE_DNS_SERVER` 설정을 `168.63.129.16`으로 설정합니다.
+
+- 논리 앱을 배포할 때 공개적으로 액세스할 수 있는 별도의 스토리지 계정이 있어야 합니다. `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` 설정을 스토리지 계정에 대한 연결 문자열로 설정해야 합니다.
+
+- 논리 앱에서 프라이빗 엔드포인트를 사용하는 경우 [GitHub 통합](https://docs.github.com/en/github/customizing-your-github-workflow/about-integrations)을 사용하여 배포합니다.
+
+  논리 앱에서 프라이빗 엔드포인트를 사용하지 않는 경우 Visual Studio Code에서 배포하고 `WEBSITE_RUN_FROM_PACKAGE` 설정을 `1`로 설정할 수 있습니다. 
+
+## <a name="next-steps"></a>다음 단계
+
+- [어디서나 Logic Apps 사용: Logic Apps(단일 테넌트)를 사용한 네트워킹 가능성](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)

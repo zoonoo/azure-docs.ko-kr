@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: jpalma
 ms.date: 01/12/2021
 author: palma21
-ms.openlocfilehash: bf006c6ade92cc2d1286dc1173d09efea0294f50
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: e5f71566d3e31858a60f805bf45fe95793dd9b20
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108754472"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094261"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 클러스터 노드의 송신 트래픽 제어
 
@@ -166,7 +166,7 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 
 | 대상 엔드포인트                                                             | 프로토콜 | 포트    | 사용  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureMonitor:443`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
+| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureMonitor:443`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
 
 #### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙
 
@@ -178,26 +178,6 @@ Windows Server 기반 노드 풀을 사용하려면 다음 FQDN/애플리케이�
 | *.ods.opinsights.azure.com    | **`HTTPS:443`**    | 이 엔드포인트는 Azure Monitor가 로그 분석 데이터를 수집하는 데 사용됩니다. |
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | 이 엔드포인트는 로그 분석 서비스를 인증하는 데 사용되는 omsagent에서 사용됩니다. |
 | *.monitoring.azure.com | **`HTTPS:443`** | 이 엔드포인트는 Azure Monitor에 메트릭 데이터를 전송하는 데 사용됩니다. |
-
-### <a name="azure-dev-spaces"></a>Azure Dev 공간
-
-아래의 모든 FQDN 및 [Azure Dev Spaces 인프라 서비스 ][dev-spaces-service-tags] 간의 네트워크 트래픽을 허용하도록 방화벽 또는 보안 구성을 업데이트합니다.
-
-#### <a name="required-network-rules"></a>필수 네트워크 규칙
-
-| 대상 엔드포인트                                                             | 프로토콜 | 포트    | 사용  |
-|----------------------------------------------------------------------------------|----------|---------|------|
-| [서비스 태그](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureDevSpaces`**  | TCP           | 443      | 이 엔드포인트는 Azure Monitor 및 Log Analytics에 메트릭 데이터와 로그를 전송하는 데 사용됩니다. |
-
-#### <a name="required-fqdn--application-rules"></a>필수 FQDN/애플리케이션 규칙
-
-Azure Dev Spaces를 사용하도록 설정된 AKS 클러스터에는 다음 FQDN/애플리케이션 규칙이 필요합니다.
-
-| FQDN                                    | 포트      | 사용      |
-|-----------------------------------------|-----------|----------|
-| `cloudflare.docker.com` | **`HTTPS:443`** | 이 주소는 Linux alpine 및 기타 Azure Dev Spaces 이미지를 끌어오는 데 사용됩니다. |
-| `gcr.io` | **`HTTPS:443`** | 이 주소는 Helm/Tiller 이미지를 끌어오는 데 사용됩니다. |
-| `storage.googleapis.com` | **`HTTPS:443`** | 이 주소는 Helm/Tiller 이미지를 끌어오는 데 사용됩니다. |
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -802,4 +782,3 @@ Pod가 자체적으로 및 클러스터 내 동-서 트래픽 제한 간에 통�
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations
