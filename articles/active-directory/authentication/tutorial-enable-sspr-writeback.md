@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 05/19/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 444ca19732921b336cae32a9b1eb5755a08e4bd3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1572b0a9822f340887c512c5cc20448fe0729109
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97028056"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461727"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용
 > * Azure AD SSPR에서 비밀번호 쓰기 저장 사용
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -87,7 +87,7 @@ SSPR 쓰기 저장을 제대로 사용하려면 Azure AD Connect에 지정된 �
 
 권한을 업데이트하는 경우 이러한 권한으로 디렉터리의 모든 개체를 복제하는 데 한 시간 이상 걸릴 수 있습니다.
 
-온-프레미스 AD DS 환경의 암호 정책에 따라 암호 재설정이 올바르게 처리되지 않을 수 있습니다. 비밀번호 쓰기 저장이 가장 효율적으로 작동하려면 *최소 암호 사용 기간* 에 대한 그룹 정책을 0으로 설정해야 합니다. 이 설정은 `gpedit.msc`의 **컴퓨터 구성 > 정책 > Windows 설정 > 보안 설정 > 계정 정책** 에서 확인할 수 있습니다.
+온-프레미스 AD DS 환경의 암호 정책에 따라 암호 재설정이 올바르게 처리되지 않을 수 있습니다. 비밀번호 쓰기 저장이 가장 효율적으로 작동하려면 *최소 암호 사용 기간* 에 대한 그룹 정책을 0으로 설정해야 합니다. 이 설정은 `gpmc.msc`의 **컴퓨터 구성 > 정책 > Windows 설정 > 보안 설정 > 계정 정책** 에서 확인할 수 있습니다.
 
 그룹 정책을 업데이트하는 경우 업데이트된 정책이 복제될 때까지 기다리거나 `gpupdate /force` 명령을 사용합니다.
 
