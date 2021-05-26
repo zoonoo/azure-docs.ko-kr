@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: e5a3459c0264d087759572bffc497430cdb69ac9
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: beb77517a953163c9d1dd34b59fa429b5d58cdd2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966948"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478039"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)을 사용하여 합성 향상
 
@@ -27,11 +27,9 @@ SSML의 Speech Service 구현은 World Wide Web 컨소시엄의 [Speech Synthesi
 > [!IMPORTANT]
 > 중국어, 일본어 및 한국어 문자는 요금 청구 시 두 글자로 계산됩니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
-## <a name="standard-neural-and-custom-voices"></a>표준, 인공신경망 및 사용자 지정 음성
+## <a name="neural-and-custom-voices"></a>인공신경망 및 사용자 지정 음성
 
-표준 음성 및 인공신경망 음성 중에 선택하거나 제품 또는 브랜드의 고유한 사용자 지정 음성을 만들 수 있습니다. 75개가 넘는 표준 음성을 45개가 넘는 언어 및 로캘에서 사용할 수 있으며, 5개의 인공신경망 음성을 4개 언어 및 로캘에서 사용할 수 있습니다. 지원되는 언어, 로캘 및 음성(인공신경망 및 표준)의 전체 목록은 [언어 지원](language-support.md)을 참조하세요.
-
-표준, 인공신경망 및 사용자 지정 음성에 대한 자세한 내용은 [텍스트 음성 변환 개요](text-to-speech.md)를 참조하세요.
+인간과 유사한 신경망 음성을 사용하거나 제품 또는 브랜드에 고유한 사용자 지정 음성을 만듭니다. 지원되는 언어, 로캘 및 음성의 전체 목록은 [언어 지원](language-support.md)을 참조하세요. 인공신경망 및 사용자 지정 음성에 대한 자세한 내용은 [텍스트 음성 변환 개요](text-to-speech.md)를 참조하세요.
 
 
 > [!NOTE]
@@ -194,10 +192,7 @@ speechConfig!.setPropertyTo(
 
 ## <a name="adjust-speaking-styles"></a>말하기 스타일 조정
 
-> [!IMPORTANT]
-> 말하기 스타일 조정은 인공신경망 음성에만 적용됩니다.
-
-기본적으로 텍스트 음성 변환 서비스는 표준 음성과 인공신경망 음성 모두에 중립 음성 스타일을 사용하여 텍스트를 합성합니다. 인공신경망 음성을 사용하면 `mstts:express-as` 요소를 통해 말하기 스타일을 조정하여 명랑함, 공감, 차분함 등의 다양한 감정을 표현하거나 고객 서비스, 뉴스캐스트, 음성 도우미 등의 다양한 시나리오에 맞게 음성을 최적화할 수 있습니다. 이 요소는 Speech Service의 고유한 선택적 요소입니다.
+기본적으로 텍스트 음성 변환 서비스는 인공신경망 음성에 중립 음성 스타일을 사용하여 텍스트를 합성합니다. `mstts:express-as` 요소를 통해 말하기 스타일을 조정하여 명랑함, 공감, 차분함 등의 다양한 감정을 표현하거나 고객 서비스, 뉴스캐스트, 음성 도우미 등의 다양한 시나리오에 맞게 음성을 최적화할 수 있습니다. 이 요소는 Speech Service의 고유한 선택적 요소입니다.
 
 현재 말하기 스타일 조정을 지원하는 인공신경망 음성은 다음과 같습니다.
 * `en-US-AriaNeural`
@@ -207,19 +202,19 @@ speechConfig!.setPropertyTo(
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural`(미리 보기)
-* `zh-CN-XiaohanNeural`(미리 보기)
-* `zh-CN-XiaomoNeural`(미리 보기)
-* `zh-CN-XiaoxuanNeural`(미리 보기)
-* `zh-CN-XiaoruiNeural`(미리 보기)
+* `zh-CN-YunxiNeural` 
+* `zh-CN-XiaohanNeural` 
+* `zh-CN-XiaomoNeural` 
+* `zh-CN-XiaoxuanNeural` 
+* `zh-CN-XiaoruiNeural`
 
 사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. `styledegree`에서 더 강한 스타일 또는 더 부드러운 스타일을 지정하여 음성에 감정을 더 싣거나 더 차분하게 말할 수 있습니다. 현재 중국어(북경어, 간체) 인공신경망 음성에 대한 말하기 스타일 조정을 지원합니다.
 
-말하기 스타일과 스타일 정도를 조정하는 기능 외에도, `role` 음성을 조정하여 다른 연령 및 성별을 모방할 수 있습니다. 예를 들어 남자 음성의 피치를 높이고 억양을 변경하여 여자 음성을 모방할 수 있지만 음성 이름은 변경되지 않습니다. 현재 중국어(북경어, 간체) 인공신경망 음성에 대한 롤플레이 조정을 지원합니다.
+말하기 스타일과 스타일 정도를 조정하는 기능 외에도, `role` 음성을 조정하여 다른 연령 및 성별을 모방할 수 있습니다. 예를 들어 남자 음성의 피치를 높이고 억양을 변경하여 여자 음성을 모방할 수 있지만 음성 이름은 변경되지 않습니다. 현재 중국어(북경어, 간체) 인공신경망 음성에 대한 역할 조정을 지원합니다.
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
-위의 변경 내용은 문장 수준에서 적용되며 스타일 및 롤플레이는 음성에 따라 다릅니다. 스타일 또는 롤플레이가 지원되지 않는 경우 서비스에서는 기본적인 중립적 말하기 스타일로 음성을 반환합니다. [음성 목록 API](rest-text-to-speech.md#get-a-list-of-voices) 또는 코드 없는 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 플랫폼을 통해 각 음성에 지원되는 스타일 및 롤플레이를 확인할 수 있습니다.
+위의 변경 내용은 문장 수준에서 적용되며 스타일 및 롤플레이는 음성에 따라 다릅니다. 스타일 또는 롤플레이가 지원되지 않는 경우 서비스에서는 기본적인 중립적 말하기 스타일로 음성을 반환합니다. [음성 목록 API](rest-text-to-speech.md#get-a-list-of-voices) 또는 코드 없는 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 플랫폼을 통해 각 음성에 지원되는 스타일 및 역할을 확인할 수 있습니다.
 
 **구문**
 
@@ -233,7 +228,7 @@ speechConfig!.setPropertyTo(
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> 현재 `styledegree`는 중국어(북경어, 간체) 인공신경망 음성만 지원합니다. `role`은 zh-CN-XiaomoNeural 및 zh-CN-XiaoxuanNeural만 지원합니다.
+> 현재 `styledegree`는 중국어(북경어, 간체) 인공신경망 음성만 지원합니다. `role`은 zh-CN-XiaomoNeural 및 zh-CN-XiaoxuanNeural만 지원합니다. 
 
 **특성**
 
@@ -282,7 +277,8 @@ speechConfig!.setPropertyTo(
 |                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                          |
 |                         | `style="disgruntled"`     | 언짢고 불쾌한 톤을 표현합니다. 이 감정의 음성은 불쾌감과 무시를 나타냅니다.              |
 |                         | `style="serious"`         | 엄격한 명령조 톤을 표현합니다. 딱딱한 억양으로 말하는 사람은 더 강경하고 경직된 것처럼 들립니다.          |
-| `zh-CN-YunxiNeural`     | `style="cheerful"`        | 더 높은 음과 에너지 넘치는 목소리로 긍정적이고 열정적인 톤을 표현합니다.                         |
+|   `zh-CN-YunxiNeural`   | `style="assistant"`       | 디지털 비서에 적합한 따뜻하고 편안한 톤을 표현합니다.    |
+|                         | `style="cheerful"`        | 더 높은 음과 에너지 넘치는 목소리로 긍정적이고 열정적인 톤을 표현합니다.                         |
 |                         | `style="sad"`             | 높은 음, 낮은 강도, 낮은 에너지의 목소리로 슬픈 톤을 표현합니다. 이 감정을 표현하는 일반적인 방법은 말하는 중에 훌쩍이거나 우는 것입니다.            |
 |                         | `style="angry"`           | 낮은 음, 높은 강도, 높은 에너지의 목소리로 화가 나고 짜증이 난 톤을 표현합니다. 말하는 사람이 화가 나고 기분이 상한 상태입니다.       |
 |                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                          |
@@ -299,23 +295,25 @@ speechConfig!.setPropertyTo(
 |                         | `style="embarrassed"`     | 말하는 사람이 불편함을 느낄 때 불확실하고 망설이는 톤을 표현합니다.   |
 |                         | `style="affectionate"`    | 높은 음과 에너지 넘치는 목소리로 따뜻하고 다정한 톤을 표현합니다. 말하는 사람이 듣는 사람의 주의를 집중시키는 상태입니다. 이와 같은 "개성"을 보이는 사람은 매력을 타고난 경우가 많습니다.          |
 |                         | `style="gentle"`          | 낮은 음과 에너지 넘치는 목소리로 부드럽고 공손하고 상냥한 톤을 표현합니다.         |
-| `zh-CN-XiaomoNeural`    | `style="cheerful"`        | 더 높은 음과 에너지 넘치는 목소리로 긍정적이고 열정적인 톤을 표현합니다.                         |
+| `zh-CN-XiaomoNeural`    | `style="calm"`            | 말할 때 냉정하고 침착하고 차분한 태도를 표현합니다. 톤, 피치 및 운율은 다른 종류의 음성에 비해 훨씬 균일합니다.                         |
+|                         | `style="cheerful"`        | 더 높은 음과 에너지 넘치는 목소리로 긍정적이고 열정적인 톤을 표현합니다.                 |
 |                         | `style="angry"`           | 낮은 음, 높은 강도, 높은 에너지의 목소리로 화가 나고 짜증이 난 톤을 표현합니다. 말하는 사람이 화가 나고 기분이 상한 상태입니다.       |
-|                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                          |
-|                         | `style="disgruntled"`     | 언짢고 불쾌한 톤을 표현합니다. 이 감정의 음성은 불쾌감과 무시를 나타냅니다.              |
-|                         | `style="serious"`         | 엄격한 명령조 톤을 표현합니다. 딱딱한 억양으로 말하는 사람은 더 강경하고 경직된 것처럼 들립니다.    |
+|                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                       |
+|                         | `style="disgruntled"`     | 언짢고 불쾌한 톤을 표현합니다. 이 감정의 음성은 불쾌감과 무시를 나타냅니다.         |
+|                         | `style="serious"`         | 엄격한 명령조 톤을 표현합니다. 딱딱한 억양으로 말하는 사람은 더 강경하고 경직된 것처럼 들립니다.  |
 |                         | `style="depressed"`       | 낮은 음과 힘 없는 목소리로 우울하고 낙담한 톤을 표현합니다.    |
 |                         | `style="gentle"`          | 낮은 음과 에너지 넘치는 목소리로 부드럽고 공손하고 상냥한 톤을 표현합니다.         |
-| `zh-CN-XiaoxuanNeural`  | `style="cheerful"`        | 더 높은 음과 에너지 넘치는 목소리로 긍정적이고 열정적인 톤을 표현합니다.                         |
+| `zh-CN-XiaoxuanNeural`  | `style="calm"`            | 말할 때 냉정하고 침착하고 차분한 태도를 표현합니다. 톤, 피치 및 운율은 다른 종류의 음성에 비해 훨씬 균일합니다.                         |
+|                         | `style="cheerful"`        | 더 높은 음과 에너지 넘치는 목소리로 긍정적이고 열정적인 톤을 표현합니다.                              |
 |                         | `style="angry"`           | 낮은 음, 높은 강도, 높은 에너지의 목소리로 화가 나고 짜증이 난 톤을 표현합니다. 말하는 사람이 화가 나고 기분이 상한 상태입니다.       |
-|                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                          |
-|                         | `style="disgruntled"`     | 언짢고 불쾌한 톤을 표현합니다. 이 감정의 음성은 불쾌감과 무시를 나타냅니다.              |
-|                         | `style="serious"`         | 엄격한 명령조 톤을 표현합니다. 딱딱한 억양으로 말하는 사람은 더 강경하고 경직된 것처럼 들립니다.    |
+|                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                       |
+|                         | `style="disgruntled"`     | 언짢고 불쾌한 톤을 표현합니다. 이 감정의 음성은 불쾌감과 무시를 나타냅니다.         |
+|                         | `style="serious"`         | 엄격한 명령조 톤을 표현합니다. 딱딱한 억양으로 말하는 사람은 더 강경하고 경직된 것처럼 들립니다.  |
 |                         | `style="depressed"`       | 낮은 음과 힘 없는 목소리로 우울하고 낙담한 톤을 표현합니다.    |
 |                         | `style="gentle"`          | 낮은 음과 에너지 넘치는 목소리로 부드럽고 공손하고 상냥한 톤을 표현합니다.         |
-| `zh-CN-XiaoruiNeural`    | `style="sad"`             | 높은 음, 낮은 강도, 낮은 에너지의 목소리로 슬픈 톤을 표현합니다. 이 감정을 표현하는 일반적인 방법은 말하는 중에 훌쩍이거나 우는 것입니다.            |
+| `zh-CN-XiaoruiNeural`   | `style="sad"`             | 높은 음, 낮은 강도, 낮은 에너지의 목소리로 슬픈 톤을 표현합니다. 이 감정을 표현하는 일반적인 방법은 말하는 중에 훌쩍이거나 우는 것입니다.         |
 |                         | `style="angry"`           | 낮은 음, 높은 강도, 높은 에너지의 목소리로 화가 나고 짜증이 난 톤을 표현합니다. 말하는 사람이 화가 나고 기분이 상한 상태입니다.       |
-|                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                          |
+|                         | `style="fearful"`         | 높은 음, 높은 에너지의 목소리로 빠르게 말하여 무섭고 초초한 톤을 표현합니다. 말하는 사람이 긴장하고 불안한 상태입니다.                       |
 
 다음 표를 사용하여 지원되는 역할 및 해당 정의를 확인하세요.
 
@@ -371,6 +369,63 @@ speechConfig!.setPropertyTo(
         <mstts:express-as role="OlderAdultMale" style="calm">
             “刚打车过来的，路上还挺顺畅。”
         </mstts:express-as>
+    </voice>
+</speak>
+```
+
+## <a name="adjust-speaking-languages"></a>말하기 언어 조정
+
+> [!IMPORTANT]
+>  인공신경망 음성에 대해 말하기 언어만 조정할 수 있습니다.
+> `<lang xml:lang>` 요소를 사용하여 한 가지 음성으로 다른 언어(예: 영어, 스페인어 및 중국어)를 유창하게 말할 수 있습니다. 이 요소는 Speech Service의 고유한 선택적 요소입니다. 이 요소가 없으면 음성이 주 언어를 사용합니다.
+> 현재 말하기 언어 조정을 지원하는 인공신경망 음성은 `en-US-JennyMultilingualNeural`입니다. 위의 변경 사항은 문장 수준 및 단어 수준에서 적용됩니다. 언어가 지원되지 않는 경우 서비스는 오디오 스트림을 반환하지 않습니다.
+
+**구문**
+
+```xml
+<lang xml:lang="string"></lang>
+```
+
+**특성**
+
+| attribute | Description | 필수/선택 |
+|-----------|-------------|---------------------|
+| `lang` | 말하기 언어를 지정합니다. 현재 다른 언어로 말하는 것은 음성에 따라 다릅니다. | 인공신경망 음성의 말하기 언어를 조정하는 경우에 필요합니다. `lang xml:lang`을 사용하는 경우 로캘을 제공해야 합니다. |
+
+다음 표를 사용하여 각 인공신경망 음성에서 지원할 말하기 언어를 결정하세요.
+
+| 음성                            | 로캘 언어           | 설명                                                 |
+|----------------------------------|---------------------------|-------------------------------------------------------------|
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | en-us 로캘 말하기(이 음성의 주 로캘) |
+|                                  | `lang="en-CA"`            | en-CA 로캘 언어 말하기                                  |
+|                                  | `lang="en-AU"`            | en-AU 로캘 언어 말하기                                  |
+|                                  | `lang="en-GB"`            | en-GB 로캘 언어 말하기                                  |
+|                                  | `lang="de-DE"`            | de-DE 로캘 언어 말하기                                  |
+|                                  | `lang="fr-FR"`            | fr-FR 로캘 언어 말하기                                  |
+|                                  | `lang="fr-CA"`            | fr-CA 로캘 언어 말하기                                  |
+|                                  | `lang="es-ES"`            | es-ES 로캘 언어 말하기                                  |
+|                                  | `lang="es-MX"`            | es-MX 로캘 언어 말하기                                  |
+|                                  | `lang="zh-CN"`            | zh-CN 로캘 언어 말하기                                  |
+|                                  | `lang="ko-KR"`            | ko-KR 로캘 언어 말하기                                  |
+|                                  | `lang="ja-JP"`            | ja-JP 로캘 언어 말하기                                  |
+|                                  | `lang="it-IT"`            | it-IT 로캘 언어 말하기                                  |
+|                                  | `lang="pt-BR"`            | pt-BR 로캘 언어 말하기                                  |
+
+**예제**
+
+이 SSML 조각은 `<lang xml:lang>`을 사용하여 말하기 언어를 `en-US`, `es-MX` 및 `de-DE`로 변경하는 방법을 보여 줍니다.
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
+    <voice name="en-US-JennyMultilingualNeural">
+        I am looking forward to the exciting things.
+        <lang xml:lang="es-MX">
+            Estoy deseando que lleguen las cosas emocionantes.
+        </lang>
+        <lang xml:lang="de-DE">
+            Ich freue mich auf die spannenden Dinge.
+        </lang>
     </voice>
 </speak>
 ```
@@ -452,7 +507,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 `p` 요소에는 텍스트와 `audio`, `break`, `phoneme`, `prosody`, `say-as`, `sub`, `mstts:express-as` 및 `s` 요소가 포함될 수 있습니다.
 
-`s` 요소에는 텍스트와 `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as` 및 `sub` 요소가 포함될 수 있습니다.
+`s` 요소에는 텍스트와 `audio`, `break`, `phoneme`, `prosody`, `say-as`, `mstts:express-as`, `sub` 요소가 포함될 수 있습니다.
 
 **구문**
 
@@ -505,7 +560,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-JennyNeural">
-        <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
+        <phoneme alphabet="ipa" ph="təˈmeɪtoʊ"> tomato </phoneme>
     </voice>
 </speak>
 ```
@@ -528,7 +583,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>사용자 지정 어휘집을 사용하여 발음 개선
 
-텍스트 음성 변환 서비스가 단어를 정확하게 발음하지 못하는 경우가 있습니다. 회사 이름 또는 의료 용어를 예로 들 수 있습니다. 개발자는 `phoneme` 및 `sub` 태그를 사용하여 SSML에서 단일 엔터티를 읽는 방법을 정의할 수 있습니다. 그러나 여러 엔터티를 읽는 방법을 정의해야 하는 경우 `lexicon` 태그를 사용하여 사용자 지정 어휘집을 만들면 됩니다.
+텍스트 음성 변환 서비스가 단어를 정확하게 발음하지 못하는 경우가 있습니다. 회사 이름, 의료 용어 또는 이모지를 예로 들 수 있습니다. 개발자는 `phoneme` 및 `sub` 태그를 사용하여 SSML에서 단일 엔터티를 읽는 방법을 정의할 수 있습니다. 그러나 여러 엔터티를 읽는 방법을 정의해야 하는 경우 `lexicon` 태그를 사용하여 사용자 지정 어휘집을 만들면 됩니다.
 
 > [!NOTE]
 > 현재 사용자 지정 어휘는 UTF-8 인코딩을 지원합니다.
@@ -569,10 +624,16 @@ A good place to start is by trying out the slew of educational apps that are hel
     <grapheme> Benigni </grapheme>
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
+  <lexeme>
+    <grapheme>😀</grapheme> 
+    <alias>test emoji</alias> 
+  </lexeme>
 </lexicon>
 ```
 
-`lexicon` 요소에는 하나 이상의 `lexeme` 요소가 포함됩니다. 각 `lexeme` 요소에는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme`, `alias` 및 `phoneme` 요소가 포함됩니다. `grapheme` 요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">표기법</a>을 설명하는 텍스트를 포함합니다. `alias` 요소는 머리글자어 또는 축약된 용어의 발음을 나타내는 데 사용됩니다. `phoneme` 요소는 `lexeme`를 어떻게 발음하는지 설명하는 텍스트를 제공합니다.
+`lexicon` 요소에는 하나 이상의 `lexeme` 요소가 포함됩니다. 각 `lexeme` 요소에는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme`, `alias` 및 `phoneme` 요소가 포함됩니다. `grapheme` 요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">표기법</a>을 설명하는 텍스트를 포함합니다. `alias` 요소는 머리글자어 또는 축약된 용어의 발음을 나타내는 데 사용됩니다. `phoneme` 요소는 `lexeme`를 어떻게 발음하는지 설명하는 텍스트를 제공합니다. `alias` 및 `phoneme` 요소가 `grapheme`에 제공되는 경우 `alias`의 우선 순위가 더 높습니다.
+
+어휘집에는 필요한 `xml:lang` 특성이 포함되어 어떤 로캘이 적용되어야 하는지 나타냅니다. 하나의 사용자 지정 어휘집은 설계상 하나의 로캘로 제한되므로 다른 로캘에 적용하면 작동하지 않습니다.
 
 사용자 지정 어휘집을 사용하여 구의 발음을 직접 설정할 수 없다는 점에 유의해야 합니다. 머리글자어 또는 축약된 용어의 발음을 설정해야 하는 경우 `alias`를 제공한 다음, `phoneme`을 해당 `alias`와 연결합니다. 예를 들면 다음과 같습니다.
 
@@ -631,7 +692,7 @@ A good place to start is by trying out the slew of educational apps that are hel
 
 IPA를 기억하는 것이 쉽지 않다는 점을 고려하여 Speech Service는 7개 언어(`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN` 및 `zh-TW`)의 음성 세트를 정의합니다.
 
-아래와 같이 사용자 지정 어휘집을 통해 `sapi`를 `alphabet` 특성의 값으로 사용할 수 있습니다.
+아래와 같이 사용자 지정 어휘집을 통해 `x-microsoft-sapi`를 `alphabet` 특성의 값으로 사용할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -640,7 +701,7 @@ IPA를 기억하는 것이 쉽지 않다는 점을 고려하여 Speech Service�
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon
         http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
-      alphabet="sapi" xml:lang="en-US">
+      alphabet="x-microsoft-sapi" xml:lang="en-US">
   <lexeme>
     <grapheme>BTW</grapheme>
     <alias> By the way </alias>
@@ -717,7 +778,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-    <voice name="en-US-Guy24kRUS">
+    <voice name="en-US-AriaNeural">
         Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
     </voice>
 </speak>
@@ -775,7 +836,7 @@ Speech Service 발음 기호에 대한 자세한 내용은 [Speech Service 음�
 
 **사용 현황**
 
-`say-as` 요소는 텍스트만 포함할 수 있습니다.
+`say-as` 요소에는 텍스트만 포함될 수 있습니다.
 
 **예제**
 
@@ -914,7 +975,7 @@ Speech SDK에서 `BookmarkReached` 이벤트를 구독하여 책갈피 오프셋
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
+자세한 내용은 <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkreached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
 
 ```csharp
 synthesizer.BookmarkReached += (s, e) =>
@@ -933,7 +994,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-자세한 내용은 <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
+자세한 내용은 <a href="/cpp/cognitive-services/speech/speechsynthesizer#bookmarkreached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
 
 ```cpp
 synthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
@@ -953,7 +1014,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="java"></a>[Java](#tab/java)
 
-자세한 내용은 <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
+자세한 내용은 <a href="/java/api/com.microsoft.cognitiveservices.speech.speechsynthesizer.bookmarkReached#com_microsoft_cognitiveservices_speech_SpeechSynthesizer_BookmarkReached" target="_blank"> `BookmarkReached` </a>를 참조하세요.
 
 ```java
 synthesizer.BookmarkReached.addEventListener((o, e) -> {
@@ -971,7 +1032,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="python"></a>[Python](#tab/python)
 
-자세한 내용은 <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>를 참조하세요.
+자세한 내용은 <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechsynthesizer#bookmark-reached" target="_blank"> `bookmark_reached` </a>를 참조하세요.
 
 ```python
 # The unit of evt.audio_offset is tick (1 tick = 100 nanoseconds), divide it by 10,000 to convert to milliseconds.
@@ -987,7 +1048,7 @@ Bookmark reached, audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-자세한 내용은 <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>를 참조하세요.
+자세한 내용은 <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer#bookmarkReached" target="_blank"> `bookmarkReached`</a>를 참조하세요.
 
 ```javascript
 synthesizer.bookmarkReached = function (s, e) {
@@ -1003,7 +1064,7 @@ synthesizer.bookmarkReached = function (s, e) {
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-자세한 내용은 <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>를 참조하세요.
+자세한 내용은 <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>를 참조하세요.
 
 ```objectivec
 [synthesizer addBookmarkReachedEventHandler: ^ (SPXSpeechSynthesizer *synthesizer, SPXSpeechSynthesisBookmarkEventArgs *eventArgs) {
@@ -1020,7 +1081,7 @@ Bookmark reached. Audio offset: 1462.5ms, bookmark text: flower_2.
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-자세한 내용은 <a href="https://docs.microsoft.com/swift/cognitive-services/speech/spxspeechsynthesizer#addbookmarkreachedeventhandler" target="_blank"> `addBookmarkReachedEventHandler` </a>를 참조하세요.
+자세한 내용은 <a href="/objectivec/cognitive-services/speech/spxspeechsynthesizer" target="_blank"> `addBookmarkReachedEventHandler` </a>를 참조하세요.
 
 ---
 

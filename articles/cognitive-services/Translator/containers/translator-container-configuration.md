@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: f379a66d2175fa42102a118693daae21925e0b0e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 42376cc7c1e1745e3db3ce3467ea02221fb7b834
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382767"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478108"
 ---
 # <a name="configure-translator-docker-containers-preview"></a>Translator Docker 컨테이너 구성(미리 보기)
 
@@ -26,7 +26,18 @@ Cognitive Services는 각 컨테이너에 공통 구성 프레임워크를 제�
 
 ## <a name="configuration-settings"></a>구성 설정
 
-[!INCLUDE [Container shared configuration settings table](../../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+컨테이너에는 다음 구성 설정이 있습니다.
+
+|필수|설정|목적|
+|--|--|--|
+|예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적합니다.|
+|예|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
+|예|[Billing](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
+|예|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
+|예|[Fluentd](#fluentd-settings)|로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 씁니다.|
+|예|HTTP 프록시|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
+|예|[Logging](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
+|예|[Mounts](#mount-settings)|호스트 컴퓨터에서 컨테이너로, 컨테이너에서 호스트 컴퓨터로 데이터를 읽고 씁니다.|
 
  > [!IMPORTANT]
 > [**ApiKey**](#apikey-configuration-setting), [**Billing**](#billing-configuration-setting) 및 [**EULA**](#eula-setting) 설정은 함께 사용되며, 세 가지 설정 모두에 대해 유효한 값을 제공해야 합니다. 그렇지 않으면 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 다음을 참조하세요.

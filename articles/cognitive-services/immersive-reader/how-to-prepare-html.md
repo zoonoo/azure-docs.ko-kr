@@ -1,6 +1,6 @@
 ---
 title: 몰입형 리더용 HTML 콘텐츠를 준비하는 방법
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: HTML, JavaScript, Python, Android 또는 iOS를 사용하여 몰입형 리더를 시작하는 방법을 알아봅니다. 몰입형 리더는 입증된 기술을 사용하여 언어 학습자, 신흥 독자 및 학습 차이가 있는 학생을 위해 독해력을 향상시킵니다.
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 03/04/2021
 ms.author: erhopf
-ms.openlocfilehash: 40aab9510eb90c405f92be49a3b4c0a3f756c872
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 35fa7067a8aaf669bd2487465cfa7f0ba5315aa9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102620168"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373844"
 ---
 # <a name="how-to-prepare-html-content-for-immersive-reader"></a>몰입형 리더용 HTML 콘텐츠를 준비하는 방법
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 87dde7662050794a24cf976a0bae6237b91d29b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d346610ecb4e0552a52775c086eeb16e6e11680
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102213711"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373019"
 ---
 # <a name="active-learning"></a>능동적 학습
 
@@ -130,9 +130,9 @@ QnA Maker에는 어떤 대답이 가장 좋은 대답인지에 대한 명시적�
 
 활성 학습은 런타임 버전 4.4.0 이상에서 지원됩니다. 기술 자료가 이전 버전에서 작성된 경우 이 기능을 사용하려면 [런타임을 업그레이드](configure-QnA-Maker-resources.md#get-the-latest-runtime-updates)합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-QnA Maker 관리(미리 보기)에서 런타임이 QnA Maker 서비스에 의해 호스팅되므로 수동으로 런타임을 업그레이드할 필요가 없습니다.
+사용자 지정 질문 답변(미리 보기)에서 런타임을 수동으로 업그레이드할 필요가 없습니다.
 
 ---
 
@@ -159,9 +159,9 @@ QnA Maker 관리(미리 보기)에서 런타임이 QnA Maker 서비스에 의해
 
     **활성 학습** 이 사용하도록 설정되면 사용자가 제출한 질문에 따라 기술 자료에서 일정한 간격으로 새 질문을 제안합니다. 설정을 다시 전환하여 **활성 학습** 을 사용하지 않도록 설정할 수 있습니다.
     
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-기본적으로 QnA Maker 관리형(미리 보기)에서는 활성 학습이 **설정** 되어 있습니다. 제안된 대체 질문을 보려면 편집 페이지의 [보기 옵션을 사용](../How-To/improve-knowledge-base.md#view-suggested-questions)합니다.
+기본적으로 활성 학습은 사용자 지정 질문 답변(미리 보기)에 **있습니다**. 제안된 대체 질문을 보려면 편집 페이지의 [보기 옵션을 사용](../How-To/improve-knowledge-base.md#view-suggested-questions)합니다.
 
 ---
 

@@ -3,18 +3,18 @@ title: 추적 심각도 비율의 저하 - Azure Application Insights
 description: Azure Application Insights에서 스마트 검색을 통해 추적 원격 분석의 비정상적인 패턴을 검색하여 애플리케이션 추적을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 2b27860adfc1652b58fe9c51d4d0b0a6c271fc0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8432ce53a4d630839a62d29833e3863fff4e8afa
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86539876"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072427"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>추적 심각도 비율의 저하(미리 보기)
 
 추적은 배후 상황에서 수행되는 작업을 설명하는 데 도움이 되기 때문에 애플리케이션에서 널리 사용됩니다. 오류가 발생하는 경우 추적은 원치 않는 상태로 전환되는 이벤트 시퀀스에 중요한 가시성을 제공합니다. 추적이 일반적으로 구조화되지 않는 동안 여기에서 구체적으로 확인할 수 있는 한 가지는 심각도 수준입니다. 애플리케이션이 안정 상태인 경우 "올바른" 추적(*정보* 및 *자세한 정보 표시*) 및 "잘못된" 추적(*경고*, *오류* 및 *위험*) 간의 비율을 안정적으로 유지합니다. "잘못된" 추적이 여러 가지 이유로 인해 정기적으로 어느 정도까지 발생할 수 있습니다(예: 일시적인 네트워크 문제). 하지만 진짜 문제가 증가하기 시작하면 일반적으로 "잘못된" 추적 및 "올바른" 추적의 상대적 비율이 증가합니다. Application Insights 스마트 검색은 자동으로 애플리케이션에 의해 기록된 추적을 분석하고, 추적 원격 분석의 심각도에 표시된 비정상적인 패턴에 대해 경고할 수 있습니다.
 
-이 기능에는 앱에 대한 추적 로깅 구성 이외의 특별한 설정이 필요하지 않습니다([.NET](./asp-net-trace-logs.md) 또는 [Java](./java-trace-logs.md)에 추적 로그 수신기를 구성하는 방법 참조 ). 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
+이 기능에는 앱에 대한 추적 로깅 구성 이외의 특별한 설정이 필요하지 않습니다([.NET](./asp-net-trace-logs.md) 또는 [Java](java-2x-trace-logs.md)에 추적 로그 수신기를 구성하는 방법 참조 ). 앱에서 충분한 예외 원격 분석을 생성하면 이 기능은 활성화됩니다.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>이 형식의 스마트 검색 알림은 언제 받게 되나요?
 “올바른” 추적(‘정보’ 또는 ‘자세한 정보’ 수준으로 기록된 추적) 및 “잘못된” 추적(‘경고’, ‘오류’ 또는 ‘심각한 오류’ 수준으로 기록된 추적) 간 비율이 지난 7일에 대해 계산한 기준과 비교할 때 특정 일에 저하되는 경우 이 유형의 알림이 발생할 수 있습니다.    

@@ -4,12 +4,12 @@ description: App Service의 인증 및 권한 부여를 다양한 시나리오�
 ms.topic: article
 ms.date: 03/29/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 9335bb62e494fab50f7beadf3d7bbc423d80cf14
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 7209f5176480577f14ba5b02fafc5a249c58fd1c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775730"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452225"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 고급 인증 및 권한 부여 사용
 
@@ -302,9 +302,6 @@ V2 API는 V1에서 수행된 것과 같이 Microsoft 계정을 고유한 공급�
    ```azurecli
    # For Web Apps
    az webapp auth show -g <group_name> -n <site_name>
-
-   # For Azure Functions
-   az functionapp auth show -g <group_name> -n <site_name>
    ```
 
    결과로 발생한 JSON 페이로드에 구성한 각 공급자에 사용되는 비밀 값을 기록해 둡니다.
@@ -407,7 +404,7 @@ V2 API는 V1에서 수행된 것과 같이 Microsoft 계정을 고유한 공급�
 
 #### <a name="support-for-microsoft-account-provider-registrations"></a>Microsoft 계정 공급자 등록 지원
 
-기존 구성에 Microsoft 계정 공급자가 포함되어 있고 Azure Active Directory 공급자가 포함되어 있지 않은 경우 구성을 Azure Active Directory 공급자로 전환한 후 마이그레이션을 수행할 수 있습니다. 이렇게 하려면 다음을 수행합니다.
+기존 구성에 Microsoft 계정 공급자가 포함되어 있고 Azure Active Directory 공급자가 포함되어 있지 않은 경우 구성을 Azure Active Directory 공급자로 전환한 후 마이그레이션을 수행할 수 있습니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
 
 1. Azure Portal에서 [**앱 등록**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)으로 이동하여 Microsoft 계정 공급자와 연결된 등록을 찾습니다. "개인 계정의 애플리케이션" 제목 아래에 있을 수 있습니다.
 1. 등록 관련 "인증" 페이지로 이동합니다. "리디렉션 URI"에서 `/.auth/login/microsoftaccount/callback`으로 끝나는 항목이 표시됩니다. 이 URI를 복사합니다.

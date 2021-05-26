@@ -3,13 +3,13 @@ title: Azure VMware Solution 배포 계획
 description: 이 문서에서는 Azure VMware Solution 배포 워크플로를 간략하게 설명합니다.  결국에는 VM(가상 머신)을 만들고 마이그레이션할 수 있는 환경이 준비됩니다.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
-ms.openlocfilehash: bc78830180f12c947b195b8525ea9b100b123836
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/13/2021
+ms.openlocfilehash: 0b8826582957e02ec3f18d09dec7283cc92188a1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108179542"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097123"
 ---
 # <a name="plan-the-azure-vmware-solution-deployment"></a>Azure VMware Solution 배포 계획
 
@@ -24,15 +24,15 @@ ms.locfileid: "108179542"
 ## <a name="request-a-host-quota"></a>호스트 할당량 요청 
 
 Azure VMware Solution 리소스를 만들기 위해 준비할 때 초기에 호스트 할당량을 요청하는 것이 중요합니다. 지금 호스트 할당량을 요청할 수 있으므로 계획 프로세스가 완료되면 Azure VMware Solution 프라이빗 클라우드를 배포할 준비가 된 것입니다. 지원 팀에서 호스트 할당량 요청을 받으면 요청을 확인하고 호스트를 할당하는 데 최대 5일(영업일 기준)이 걸립니다. 기존 Azure VMware Solution 프라이빗 클라우드가 있고 더 많은 호스트를 할당하려는 경우에도 동일한 프로세스를 완료합니다. 자세한 내용은 구독 유형에 따라 다음 링크를 참조하세요.
-- [EA 고객](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-ea-customers)
-- [CSP 고객](enable-azure-vmware-solution.md?tabs=azure-portal#request-host-quota-for-csp-customers)
+- [EA 고객](request-host-quota-azure-vmware-solution.md#request-host-quota-for-ea-customers)
+- [CSP 고객](request-host-quota-azure-vmware-solution.md#request-host-quota-for-csp-customers)
 
 ## <a name="identify-the-subscription"></a>구독 식별
 
 Azure VMware Solution을 배포하는 데 사용할 구독을 확인합니다.  새 구독을 만들거나 기존 구독을 다시 사용할 수 있습니다.
 
 >[!NOTE]
->구독은 Microsoft 기업계약 또는 클라우드 솔루션 공급자 Azure 플랜과 연결되어야 합니다. 자세한 내용은 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](enable-azure-vmware-solution.md)을 참조하세요.
+>구독은 Microsoft 기업계약 또는 클라우드 솔루션 공급자 Azure 플랜과 연결되어야 합니다. 자세한 내용은 [Azure VMware Solution 리소스를 사용하도록 설정하는 방법](deploy-azure-vmware-solution.md#step-1-register-the-microsoftavs-resource-provider)을 참조하세요.
 
 ## <a name="identify-the-resource-group"></a>리소스 그룹 식별
 

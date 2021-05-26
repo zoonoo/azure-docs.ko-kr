@@ -11,12 +11,12 @@ ms.date: 12/01/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea0bed0884a3a03e2cd15b274b2afb0f054b0cbd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 53005bffde698030221751ec0638a6cc6cbd98c7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96523519"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478937"
 ---
 # <a name="managing-concurrency-in-blob-storage"></a>Blob Storage에서 동시성 관리
 
@@ -49,11 +49,11 @@ Azure Storage는 저장되는 모든 개체에 식별자를 할당합니다. 이
 
 다음 코드 예제에서는 Blob의 ETag 값을 확인하는 쓰기 요청에서 **If-Match** 조건을 생성하는 방법을 보여 줍니다. Azure Storage는 Blob의 현재 ETag가 요청에 제공된 ETag와 동일한지 여부를 평가하고 두 ETag 값이 일치하는 경우에만 쓰기 작업을 수행합니다. 그 사이 다른 프로세스가 Blob을 업데이트한 경우 Azure Storage는 HTTP 412(전제 조건 실패) 상태 메시지를 반환합니다.  
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstrateOptimisticConcurrencyBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 public void DemonstrateOptimisticConcurrencyBlob(string containerName, string blobName)
@@ -116,11 +116,11 @@ Azure Storage는 **If-Modified-Since**, **If-Unmodified-Since**, **If-None-Match
 
 다음 코드 예제에서는 Blob에 대한 배타적 임대를 획득하고 임대 ID를 제공하여 Blob의 내용을 업데이트한 다음 임대를 해제하는 방법을 보여 줍니다. 임대가 활성 상태이고 임대 ID가 쓰기 요청에서 제공되지 않으면 오류 코드 412(전제 조건 실패)가 발생하면서 쓰기 작업이 실패합니다.  
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Concurrency.cs" id="Snippet_DemonstratePessimisticConcurrencyBlob":::
 
-# <a name="net-v11"></a>[\.NET v11](#tab/dotnetv11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
 ```csharp
 public void DemonstratePessimisticConcurrencyBlob(string containerName, string blobName)

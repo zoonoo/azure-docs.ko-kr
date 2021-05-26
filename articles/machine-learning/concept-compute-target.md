@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: f421274513cc3d76f7e8c1119cf98e4e5d36b1f9
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: a0644342c417cb06c257372e526fff55df62f9b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950277"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095431"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 컴퓨팅 대상은 무엇인가요?
 
@@ -56,7 +56,7 @@ Azure Machine Learning에는 다양한 컴퓨팅 대상에 대한 다양한 지�
     * [컴퓨팅 인스턴스](how-to-create-manage-compute-instance.md)
     * [컴퓨팅 클러스터](how-to-create-attach-compute-cluster.md)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets)(미리 보기)
-* Azure Resource Manager 템플릿 예제 템플릿은 [Azure Machine Learning 컴퓨팅 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)를 참조하세요.
+* Azure Resource Manager 템플릿 예제 템플릿은 [Azure Machine Learning 컴퓨팅 클러스터 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute)를 참조하세요.
 * [Azure CLI용 기계 학습 확장](reference-azure-machine-learning-cli.md#resource-management)
 
 만들면 이러한 컴퓨팅 리소스는 다른 종류의 컴퓨팅 대상과 달리 자동으로 작업 영역에 포함됩니다.
@@ -103,11 +103,11 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 | NC | 없음 |  GPU | 컴퓨팅 클러스터와 인스턴스 |
 | NC Promo | 없음 | GPU | 컴퓨팅 클러스터와 인스턴스 |
 | NCsv2 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
-| NCsv3 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |  
-| ND | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 | 
-| NDv2 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 | 
-| NV | 없음 | GPU | 컴퓨팅 클러스터와 인스턴스 | 
-| NVv3 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 | 
+| NCsv3 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
+| ND | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
+| NDv2 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
+| NV | 없음 | GPU | 컴퓨팅 클러스터와 인스턴스 |
+| NVv3 | 승인 필요 | GPU | 컴퓨팅 클러스터와 인스턴스 |
 
 
 Azure Machine Learning에서 이러한 VM 시리즈를 지원하지만 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다. VM 시리즈 사용 가능 여부를 확인하려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)을 참조하세요.

@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service)에서 API 서버에 액세스할 수 
 services: container-service
 ms.topic: article
 ms.date: 09/21/2020
-ms.openlocfilehash: 9b6ee4a17c15b6ada39798db40408d1d26971dfe
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: e97ed38d3491ace658a92e2abfbc7cd417ca9cf1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108016350"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110100561"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 권한 있는 IP 주소 범위를 사용하는 안전한 API 서버 액세스
 
@@ -61,7 +61,6 @@ az aks create \
 > 해당 범위를 허용 목록에 추가해야 합니다.
 > - 방화벽 공용 IP 주소
 > - 클러스터를 관리할 네트워크를 나타내는 모든 범위
-> - AKS 클러스터에서 Azure Dev Spaces를 사용 중인 경우 [내 지역에 따른 추가 범위][dev-spaces-ranges]를 허용해야 합니다.
 >
 > 지정할 수 있는 IP 범위의 최대 개수는 200개입니다.
 >
