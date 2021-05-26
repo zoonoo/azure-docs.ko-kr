@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: df71c1a92840ae0e7fa263e2ababcf5b3e059789
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 11761a7ec3716703d6714b515957d3a085791354
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107832539"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068251"
 ---
 # <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 App Service 앱 만들기 및 프라이빗 엔드포인트 배포
 
@@ -32,13 +32,13 @@ ms.locfileid: "107832539"
 
 ### <a name="review-the-template"></a>템플릿 검토
 
-:::code language="json" source="~/quickstart-templates/101-private-endpoint-webapp/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/private-endpoint-webapp/azuredeploy.json" :::
 
 ### <a name="deploy-the-template"></a>템플릿 배포
 
 Azure Resource Manager 템플릿을 Azure에 배포하는 방법은 다음과 같습니다.
 
-1. Azure에 로그인하고 템플릿을 열려면 다음 링크를 선택합니다.  [Azure에 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). 템플릿은 가상 네트워크, 웹앱, 프라이빗 엔드포인트 및 프라이빗 DNS 영역을 만듭니다.
+1. Azure에 로그인하고 템플릿을 열려면 다음 링크를 선택합니다.  [Azure에 배포](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.web%2Fprivate-endpoint-webapp%2Fazuredeploy.json). 템플릿은 가상 네트워크, 웹앱, 프라이빗 엔드포인트 및 프라이빗 DNS 영역을 만듭니다.
 2. 리소스 그룹을 선택하거나 만듭니다.
 3. 웹앱, Azure App Service 계획 및 프라이빗 엔드포인트의 이름을 입력합니다.
 5. 사용 약관에 대한 설명을 읽습니다. 동의하는 경우 **위에 명시된 사용 약관에 동의함** > **구매** 를 선택합니다. 배포가 완료하는 데 몇 분 정도 걸릴 수 있습니다.

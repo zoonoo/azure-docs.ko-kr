@@ -3,16 +3,16 @@ title: 컨테이너 그룹의 정적 IP 주소
 description: 가상 네트워크에서 컨테이너 그룹을 만들고 Azure 애플리케이션 게이트웨이를 사용하여 컨테이너화된 웹앱에 정적 프런트 엔드 IP 주소를 노출합니다.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: de9e06b457a9ea5485fe268bd2b7cf206f0a6c0e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: c0401c0b6ec4aae124ee1954762d22c16cacb994
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790944"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084226"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>컨테이너 그룹에 대한 정적 IP 주소 노출
 
-이 문서에서는 Azure [애플리케이션 게이트웨이](../application-gateway/overview.md)를 사용하여 [컨테이너 그룹](container-instances-container-groups.md)에 대한 정적 공용 IP 주소를 노출하는 한 가지 방법을 보여 줍니다. Azure Container Instances에서 실행되는 외부 연결 컨테이너화된 앱에 대한 정적 진입점이 필요한 경우 다음 단계를 수행합니다. 
+이 문서에서는 Azure [애플리케이션 게이트웨이](../application-gateway/overview.md)를 사용하여 [컨테이너 그룹](container-instances-container-groups.md)에 대한 정적 공용 IP 주소를 노출하는 한 가지 방법을 보여 줍니다. Azure Container Instances에서 실행되는 외부 연결 컨테이너화된 앱에 대한 정적 진입점이 필요한 경우 다음 단계를 수행합니다.
 
 이 문서에서는 Azure CLI를 사용하여 다음 시나리오를 위한 리소스를 만듭니다.
 
@@ -69,9 +69,9 @@ az network public-ip create \
 
 ## <a name="create-container-group"></a>컨테이너 그룹 만들기
 
-다음 [az container create][az-container-create]를 실행하여 이전 단계에서 구성한 가상 네트워크에 컨테이너 그룹을 만듭니다. 
+다음 [az container create][az-container-create]를 실행하여 이전 단계에서 구성한 가상 네트워크에 컨테이너 그룹을 만듭니다.
 
-이 그룹은 *myACISubnet* 서브넷에 배포되며 `aci-helloworld` 이미지를 끌어오는 *appcontainer* 라는 단일 인스턴스를 포함합니다. 설명서의 다른 문서에 표시된 것처럼 이 이미지는 정적 HTML 페이지를 제공하는, Node.js로 작성된 작은 웹앱을 패키지합니다. 
+이 그룹은 *myACISubnet* 서브넷에 배포되며 `aci-helloworld` 이미지를 끌어오는 *appcontainer* 라는 단일 인스턴스를 포함합니다. 설명서의 다른 문서에 표시된 것처럼 이 이미지는 정적 HTML 페이지를 제공하는, Node.js로 작성된 작은 웹앱을 패키지합니다.
 
 ```azurecli
 az container create \
@@ -119,14 +119,14 @@ az network application-gateway create \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
-  --servers "$ACI_IP" 
+  --servers "$ACI_IP"
 ```
 
 
-Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 15분이 걸릴 수 있습니다. 
+Azure가 애플리케이션 게이트웨이를 만들 때까지 최대 15분이 걸릴 수 있습니다.
 
 ## <a name="test-public-ip-address"></a>공용 IP 주소 테스트
-  
+
 이제 애플리케이션 게이트웨이 뒤에 있는 컨테이너 그룹에서 실행되는 웹앱에 대한 액세스를 테스트할 수 있습니다.
 
 [Az network public-ip show][az-network-public-ip-show] 명령을 실행하여 게이트웨이의 프런트 엔드 공용 IP 주소를 검색합니다.
@@ -147,7 +147,7 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 애플리케이션 게이트웨이 뒤에 백 엔드 서버로 WordPress container 인스턴스를 사용하여 컨테이너 그룹을 만들려면 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)을 참조하세요.
+* 애플리케이션 게이트웨이 뒤에 백 엔드 서버로 WordPress container 인스턴스를 사용하여 컨테이너 그룹을 만들려면 [빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet)을 참조하세요.
 * SSL 종료를 위한 인증서로 애플리케이션 게이트웨이를 구성할 수도 있습니다. [개요](../application-gateway/ssl-overview.md) 및 [자습서](../application-gateway/create-ssl-portal.md)를 참조하세요.
 * 시나리오에 따라 다른 Azure 부하 분산 솔루션을 Azure Container Instances와 함께 사용하는 것이 좋습니다. 예를 들어 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 여러 컨테이너 인스턴스 및 여러 지역에 걸쳐 트래픽을 배포합니다. 이 [블로그 게시물](https://aaronmsft.com/posts/azure-container-instances/)을 참조하세요.
 

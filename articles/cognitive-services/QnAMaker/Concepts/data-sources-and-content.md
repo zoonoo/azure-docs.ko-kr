@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 0d4d32aba34a97c6a060c999694f66d79933d011
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff1ce49395a5a7374a0dc739eb26fb7b4a6f72af
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99556046"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372811"
 ---
 # <a name="importing-from-data-sources"></a>데이터 원본에서 가져오기
 
@@ -20,7 +20,9 @@ ms.locfileid: "99556046"
 
 콘텐츠를 데이터 원본에서 기술 자료로 가져옵니다. 데이터 원본 위치는 인증이 필요하지 않은 **공용 URL 또는 파일** 입니다.
 
-인증으로 보안이 설정된 [SharePoint 파일](../how-to/add-sharepoint-datasources.md)은 예외입니다. SharePoint 리소스는 웹 페이지가 아닌 파일이어야 합니다. URL은 .ASPX와 같은 웹 확장명으로 끝나는 경우 SharePoint에서 QnA Maker로 가져오지 않습니다.
+인증으로 보안이 설정된 [SharePoint 파일](../how-to/add-sharepoint-datasources.md)은 예외입니다. SharePoint 리소스는 웹 페이지가 아닌 파일이어야 합니다. 
+
+QnA Maker는 인증으로 보호되지 않는 .ASPX 웹 확장자로 끝나는 공개 URL을 지원합니다.
 
 ## <a name="chit-chat-content"></a>잡담 콘텐츠
 
@@ -62,6 +64,13 @@ ms.locfileid: "99556046"
 * [GitHub에서 이 다운로드 가능한 예제](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true) 사용
 * 또는 쌍을 나타내는 방법에 대한 예제는 QnA Maker 포털에서 쌍을 만든 다음, 기술 자료를 내보냅니다.
 
+## <a name="unstructured-data-format"></a>비정형 데이터 형식 
+
+파일을 통해 가져온 비정형 콘텐츠를 기반으로 기술 자료도 만들 수 있습니다. 현재 이 기능은 지원되는 파일 형식의 문서에 대한 문서 업로드를 통해서만 사용할 수 있습니다.
+
+> [!IMPORTANT]
+> 파일 업로드를 통한 비정형 콘텐츠 지원은 사용자 지정 질문 답변(미리 보기 릴리스)에서만 사용할 수 있습니다.
+
 ## <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>기술 자료에 추가할 수 있는 문서의 콘텐츠 형식
 콘텐츠 형식에는 PDF, DOC 및 TXT와 같은 많은 표준 구조적 문서가 포함됩니다.
 
@@ -71,15 +80,15 @@ ms.locfileid: "99556046"
 
 |원본 유형|콘텐츠 유형| 예|
 |--|--|--|
-|URL|FAQ<br> (플랫, 섹션 또는 토픽 홈페이지 포함)<br>지원 페이지 <br> (단일 페이지 방법 문서, 문제 해결 문서 등)|[일반 FAQ](../troubleshooting.md), <br>[하이퍼링크가 있는 FAQ](https://www.microsoft.com/en-us/software-download/faq),<br> [토픽 홈페이지가 있는 FAQ](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[지원 문서](./best-practices.md)|
-|PDF/DOC|FAQ,<br> 제품 설명서,<br> 브로슈어,<br> 페이퍼,<br> 전단 정책,<br> 지원 가이드,<br> 구조화된 QnA,<br> 기타|**멀티 턴 없이**<br>[구조화된 QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [샘플 semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [샘플 white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br><br>**멀티 턴**:<br>[Surface Pro(docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso 혜택(docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso 혜택(pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
+|URL|FAQ<br> (플랫, 섹션 또는 토픽 홈페이지 포함)<br>지원 페이지 <br> (단일 페이지 방법 문서, 문제 해결 문서 등)|[일반 FAQ](../troubleshooting.md), <br>[하이퍼링크가 있는 FAQ](https://www.microsoft.com/software-download/faq),<br> [토픽 홈페이지가 있는 FAQ](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[지원 문서](./best-practices.md)|
+|PDF/DOC|FAQ,<br> 제품 설명서,<br> 브로슈어,<br> 페이퍼,<br> 전단 정책,<br> 지원 가이드,<br> 구조화된 QnA,<br> 기타|**멀티 턴 없이**<br>[구조화된 QnA.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [샘플 semi-structured.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [샘플 white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br> [비정형 blog.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Introducing-surface-laptop-4-and-new-access.pdf),<br> [비정형 white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/sample-unstructured-paper.pdf)<br><br>**멀티 턴**:<br>[Surface Pro(docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)<br>[Contoso 혜택(docx)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.docx)<br>[Contoso 혜택(pdf)](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-ContosoBenefits.pdf)|
 |*Excel|구조화된 QnA 파일<br> (RTF, HTML 지원 포함)|**멀티 턴 없이**:<br>[샘플 QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)<br><br>**멀티 턴**:<br>[구조화된 단순 FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx)<br>[Surface 노트북 FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Multiturn-Surface-Pro.xlsx)|
 |*TXT/TSV|구조화된 QnA 파일|[샘플 chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 데이터 원본에 대한 인증이 필요한 경우 다음 방법을 고려하여 해당 콘텐츠를 QnA Maker로 가져와야 합니다.
 
 * 수동으로 파일을 다운로드하고 QnA Maker로 가져오기
-* 인증된 [Sharepoint 위치](../how-to/add-sharepoint-datasources.md)에서 파일 추가
+* 인증된 [SharePoint 위치](../how-to/add-sharepoint-datasources.md)에서 파일 추가
 
 ### <a name="url-content"></a>URL 콘텐츠
 

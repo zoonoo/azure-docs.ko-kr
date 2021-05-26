@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-ms.openlocfilehash: 8964248bb23b2b615c7e73e26d730fbd79b4e9e7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4b15d683a54f665e948dc31b51df039d20c58f7a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102184460"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081374"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
@@ -69,7 +69,7 @@ VM을 만든 후 Azure CLI는 다음 예제와 비슷한 정보를 표시합니�
 ## <a name="create-and-attach-a-new-disk-for-oracle-datafiles-and-fra"></a>Oracle 데이터 파일 및 FRA용 새 디스크 새 디스크 만들기 및 연결
 
 ```bash
-az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 128 --sku StandardSSD_LRS --vm-name vmoracle19c
+az vm disk attach --name oradata01 --new --resource-group rg-oracle --size-gb 64 --sku StandardSSD_LRS --vm-name vmoracle19c
 ```
 
 ## <a name="open-ports-for-connectivity"></a>연결을 위한 포트 열기

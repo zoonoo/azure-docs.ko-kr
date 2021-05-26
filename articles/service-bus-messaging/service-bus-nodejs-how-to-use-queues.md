@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: aee67becf7519f03839eafbd897838f938871307
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d2c861757b72f630f88d62ba50723ed1b6fc25ed
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107537237"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462355"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Azure Service Bus 큐에서 메시지 보내기 및 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 방법에 대해 알아봅니다.
@@ -164,7 +164,7 @@ npm install @azure/service-bus
         });
     
         // Waiting long enough before closing the sender to send messages
-        await delay(5000);
+        await delay(20000);
     
         await receiver.close(); 
         await sbClient.close();

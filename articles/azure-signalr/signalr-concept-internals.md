@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: afb63b76666f47217f9c19376d81aa4ed73991bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ffbe207109143956f6c5a56d8560925d93661bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98572564"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459073"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service 내부 기능
 
@@ -57,21 +57,21 @@ SignalR Service를 사용하는 경우 클라이언트는 애플리케이션 서
 
 1. 클라이언트가 애플리케이션 서버에 협상 요청을 보냅니다. Azure SignalR Service SDK를 사용하여 애플리케이션 서버가 SignalR Service의 URL 및 액세스 토큰으로 리디렉션 응답을 반환합니다.
 
-- ASP.NET Core SignalR의 경우 일반적인 리디렉션 응답은 다음과 같습니다.
-    ```
-    {
-        "url":"https://test.service.signalr.net/client/?hub=chat&...",
-        "accessToken":"<a typical JWT token>"
-    }
-    ```
-- ASP.NET SignalR의 경우 일반적인 리디렉션 응답은 다음과 같습니다.
-    ```
-    {
-        "ProtocolVersion":"2.0",
-        "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-        "AccessToken":"<a typical JWT token>"
-    }
-    ```
+    - ASP.NET Core SignalR의 경우 일반적인 리디렉션 응답은 다음과 같습니다.
+        ```
+        {
+            "url":"https://test.service.signalr.net/client/?hub=chat&...",
+            "accessToken":"<a typical JWT token>"
+        }
+        ```
+    - ASP.NET SignalR의 경우 일반적인 리디렉션 응답은 다음과 같습니다.
+        ```
+        {
+            "ProtocolVersion":"2.0",
+            "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
+            "AccessToken":"<a typical JWT token>"
+        }
+        ```
 
 1. 리디렉션 응답을 받으면, 클라이언트는 새 URL과 액세스 토큰을 사용하여 정상적인 프로세스를 시작하고 SignalR Service에 연결합니다.
 

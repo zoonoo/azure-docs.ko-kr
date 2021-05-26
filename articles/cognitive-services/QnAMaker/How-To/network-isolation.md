@@ -5,18 +5,20 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: fa24347c8fcc0550dc6dc86c96624d1b1f6dcf25
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043362"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376326"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>네트워크 격리에 대한 권장 설정
 
 QnA Maker 리소스에 대한 퍼블릭 액세스를 제한하려면 다음 단계를 수행해야 합니다. [가상 네트워크를 구성](../../cognitive-services-virtual-networks.md?tabs=portal)하여 퍼블릭 액세스에서 Cognitive Services 리소스를 보호합니다.
 
 ## <a name="restrict-access-to-app-service-qna-runtime"></a>App Service(QnA 런타임)에 대한 액세스 제한
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
 App Service 허용 목록에 IP를 추가하여 액세스를 제한하거나 QnA Maker App Service를 호스트하도록 App Service Environment를 구성할 수 있습니다.
 
@@ -50,6 +52,10 @@ App Service Environment(ASE)는 QnA Maker App Service를 호스트하는 데 사
 
 4.  Azure Resource Manager를 사용하여 QnA Maker Cognitive Service 인스턴스(Microsoft.CognitiveServices/accounts)를 만듭니다. 여기서는 QnA Maker 엔드포인트를 앞에서 만든 App Service 엔드포인트로 설정해야 합니다(https:// mywebsite.myase.p.azurewebsite.net).
     
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+
+앱 서비스는 사용자 지정 질문 답변과 함께 배포되지 않습니다.
+
 ---
 
 ## <a name="restrict-access-to-cognitive-search-resource"></a>Cognitive Search 리소스에 대한 액세스 제한
@@ -62,8 +68,9 @@ App Service Environment를 사용하여 QnA Maker App Service를 제한한 경�
 
 QnA Maker App Service에 App Service Environment를 사용하지 않는 경우 먼저 새 VNet 리소스를 만든 다음, Cognitive Search 인스턴스에 대한 프라이빗 엔드포인트 연결을 만듭니다. 이 경우 QnA Maker App Service를 [VNet과 통합](../../../app-service/web-sites-integrate-with-vnet.md)하여 Cognitive Search 인스턴스에 연결해야 합니다. 
 
-#  <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 Azure Search 리소스에 대한 [프라이빗 엔드포인트를 만듭니다](../reference-private-endpoint.md).
 
 ---
+

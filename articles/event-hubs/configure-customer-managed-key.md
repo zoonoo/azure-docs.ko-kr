@@ -2,32 +2,31 @@
 title: Azure Event Hubs 미사용 데이터를 암호화하기 위한 고유한 키 구성
 description: 이 문서에서는 Azure Event Hubs 미사용 데이터를 암호화하기 위한 고유한 키를 구성하는 방법에 대한 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 33587812121051d93aa8b939c3df70530ba65c5e
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.date: 05/04/2021
+ms.openlocfilehash: 89d12079195406e4b3c6da77105dc359cc1dacae
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107812447"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377246"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Event Hubs 미사용 데이터를 암호화하기 위한 고객 관리형 키 구성
-Azure Event Hubs는 Azure SSE(Azure Storage 서비스 암호화)를 사용하여 미사용 데이터의 암호화를 제공합니다. Event Hubs 서비스는 Azure Storage를 사용하여 데이터를 저장합니다. Azure Storage에 저장되는 모든 데이터는 Microsoft 관리형 키를 사용하여 암호화됩니다. 사용자 고유의 키(BYOK(Bring Your Own Key) 또는 고객 관리형 키라고도 함)를 사용하는 경우 데이터는 Microsoft 관리형 키를 사용하여 계속 암호화되지만, 그 외의 Microsoft 관리형 키는 고객 관리형 키를 사용하여 암호화됩니다. 이 기능을 사용하면 Microsoft 관리형 키를 암호화하는 데 사용되는 고객 관리형 키의 액세스를 만들고, 회전시키고, 사용하지 않고, 철회하도록 설정할 수 있습니다. BYOK 기능을 사용하도록 설정하는 작업은 네임스페이스에서 한 번만 설정하면 됩니다.
+Azure Event Hubs는 Azure SSE(Azure Storage 서비스 암호화)를 사용하여 미사용 데이터의 암호화를 제공합니다. Event Hubs 서비스는 Azure Storage를 사용하여 데이터를 저장합니다. Azure Storage에 저장되는 모든 데이터는 Microsoft 관리형 키를 사용하여 암호화됩니다. 사용자 고유의 키(BYOK(Bring Your Own Key) 또는 고객 관리형 키라고도 함)를 사용하는 경우 데이터는 Microsoft 관리형 키를 사용하여 계속 암호화되지만, 그 외의 Microsoft 관리형 키는 고객 관리형 키를 사용하여 암호화됩니다. 이 기능을 사용하면 Microsoft 관리형 키를 암호화하는 데 사용되는 고객 관리형 키의 액세스를 만들고, 회전시키고, 사용하지 않도록 설정하며, 철회할 수 있습니다. BYOK를 사용하도록 설정하는 기능은 네임스페이스에서 한 번만 설정하면 됩니다.
 
-> [!NOTE]
-> - BYOK 기능은 [Event Hubs 전용 단일 테넌트](event-hubs-dedicated-overview.md) 클러스터에서 지원됩니다. 표준 Event Hubs 네임스페이스에는 사용할 수 없습니다.
+> [!IMPORTANT]
+> - BYOK 기능은 Event Hubs의 **프리미엄** 및 **전용** 계층에서 지원됩니다.
 > - 암호화는 새 네임스페이스 또는 빈 네임스페이스에서만 사용할 수 있습니다. 네임스페이스에 이벤트 허브가 포함되어 있으면 암호화 작업이 불가능합니다.
 
 Azure Key Vault를 사용하여 키를 관리하고 키 사용을 감사할 수 있습니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장할 수도 있고, Azure Key Vault API를 사용하여 키를 생성할 수도 있습니다. Azure Key Vault에 대한 자세한 내용은 [Azure Key Vault란?](../key-vault/general/overview.md)
 
-이 문서에서는 Azure Portal을 사용하여 고객 관리형 키로 키 자격 증명 모음을 구성하는 방법을 보여 줍니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조하세요.
+이 문서에서는 Azure Portal을 사용하여 고객 관리형 키로 키 자격 증명 모음을 구성하는 방법을 보여줍니다. Azure Portal을 사용하여 키 자격 증명 모음을 만드는 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Key Vault 만들기](../key-vault/general/quick-create-portal.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure Event Hubs에서 고객 관리형 키를 사용하려면 키 자격 증명 모음에 두 가지 필수 속성이 구성되어 있어야 합니다. 바로 **일시 삭제** 와 **제거 안 함** 입니다. 이러한 속성은 Azure Portal에서 새 키 자격 증명 모음을 만들 때 기본적으로 사용하도록 설정됩니다. 그러나 기존 키 자격 증명 모음에서 이러한 속성을 사용하도록 설정해야 하는 경우에는 PowerShell 또는 Azure CLI를 사용해야 합니다.
 
 ## <a name="enable-customer-managed-keys"></a>고객 관리형 키 사용
-Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다음 단계를 수행합니다.
+Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다음 단계를 수행합니다. 전용 계층을 사용하는 경우 먼저 Event Hubs Dedicated 클러스터로 이동합니다.
 
-1. Event Hubs Dedicated 클러스터로 이동합니다.
 1. BYOK를 사용할 네임스페이스를 선택합니다.
 1. Event Hubs 네임스페이스의 **설정** 페이지에서 **암호화** 를 선택합니다. 
 1. 다음 이미지에 표시된 것처럼 **미사용 고객 관리형 키 암호화** 를 선택합니다. 
@@ -51,7 +50,7 @@ Azure Portal에서 고객 관리형 키를 사용하도록 설정하려면 다�
 1. 다음 단계에 따라 키를 만듭니다.
     1. 새 키를 만들려면 **설정** 아래 **키** 메뉴에서 **생성/가져오기** 를 선택합니다.
         
-        ![생성/가져오기 단추를 선택합니다](./media/configure-customer-managed-key/select-generate-import.png)
+        ![생성/가져오기 단추 선택](./media/configure-customer-managed-key/select-generate-import.png)
     1. **옵션** 을 **생성** 으로 설정하고 키에 이름을 지정합니다.
 
         ![키 만들기](./media/configure-customer-managed-key/create-key.png) 
@@ -90,7 +89,7 @@ BYOK를 사용하는 네임스페이스에 대한 진단 로그를 설정하면 
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명된 형식을 사용하는 문자열 필드가 있습니다. 
 
-| Name | Description |
+| 이름 | Description |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용되는 내부 ID입니다. |
@@ -275,7 +274,7 @@ BYOK를 사용하는 네임스페이스에 대한 진단 로그를 설정하면 
 ### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>키 자격 증명 모음의 고객 관리형 키를 사용하여 Event Hubs 네임스페이스의 데이터 암호화
 지금까지 다음 단계를 완료했습니다. 
 
-1. 관리형 ID를 사용하여 프리미엄 네임스페이스를 만들었습니다.
+1. 관리 ID를 사용하여 프리미엄 네임스페이스를 만들었습니다.
 2. 키 자격 증명 모음을 만들고 관리형 ID에 키 자격 증명 모음에 대한 액세스 권한을 부여했습니다. 
 
 이 단계에서는 키 자격 증명 모음 정보를 사용하여 Event Hubs 네임스페이스를 업데이트합니다. 
@@ -385,7 +384,7 @@ BYOK를 사용하는 네임스페이스에 대한 진단 로그를 설정하면 
        }
     }
     ```             
-3. Resource Manager 템플릿을 배포하려면 다음 PowerShell 명령을 실행하세요. 명령을 실행하기 전에`{MyRG}`를 사용자 리소스 그룹의 이름으로 대체합니다. 
+3. 다음 PowerShell 명령을 실행하여 Resource Manager 템플릿을 배포합니다. 명령을 실행하기 전에`{MyRG}`를 사용자 리소스 그룹의 이름으로 대체합니다. 
 
     ```powershell
     New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 

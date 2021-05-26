@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 6f29fa55389e181eaabf1d6e7c51e0862702c63e
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 08ff6b7de1305dffc598d6f118b77469de07082c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551960"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165920"
 ---
 이 가이드에서는 C# .NET Core용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 NuGet 콘솔에서 `Install-Package Microsoft.CognitiveServices.Speech`를 실행합니다.
 
@@ -35,8 +35,6 @@ ms.locfileid: "100551960"
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Visual Studio 프로젝트를 만들고 Speech SDK를 설치합니다.
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
-
-이제 아래의 [다음 단계](#next-steps)로 이동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

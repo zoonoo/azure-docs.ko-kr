@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
-ms.openlocfilehash: 5aab021ab5194b4af18e3ff1b2c154ed74710353
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: abc33a405975db9484d204c51df0a67697c2f8f8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96346123"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370808"
 ---
 # <a name="change-default-answer-for-a-qna-maker-resource"></a>QnA Maker 리소스의 기본 대답 변경
 
@@ -27,11 +27,11 @@ ms.locfileid: "96346123"
 |대답을 결정할 수 없는 경우의 KB 대답|`No good match found in KB.` - [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)가 질문에 일치하는 대답을 찾지 못하면 앱 서비스의 `DefaultAnswer` 설정이 반환됩니다. 동일한 QnA Maker 리소스의 모든 기술 자료는 동일한 기본 대답 텍스트를 공유합니다.<br>설정을 [가져오거나](/rest/api/appservice/webapps/listapplicationsettings) [업데이트](/rest/api/appservice/webapps/updateapplicationsettings)하기 위해 앱 서비스를 통하거나 REST API를 사용하여 Azure Portal에서 설정을 관리할 수 있습니다.|
 |후속 프롬프트 지침 텍스트|대화 흐름에서 후속 프롬프트를 사용할 경우 사용자가 후속 프롬프트에서 선택하기를 원하기 때문에 QnA 쌍에 대답이 필요하지 않을 수 있습니다. 이 경우 후속 프롬프트에 대한 각 예측과 함께 반환되는 기본 대답 텍스트를 설정하여 특정 텍스트를 설정합니다. 텍스트는 후속 프롬프트 선택에 대한 지침 텍스트로 표시됩니다. 이 기본 대답 텍스트의 예는 `Please select from the following choices`입니다. 이 문서의 다음 섹션에서 이 구성에 대해 설명합니다. [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용하여 `defaultAnswerUsedForExtraction`의 기술 자료 정의의 일부로 설정할 수도 있습니다.|
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 |기본 대답 유형|대답에 대한 설명|
 |--|--|
-|대답을 결정할 수 없는 경우의 KB 대답|`No good match found in KB.` - [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)에서 질문과 일치하는 대답을 찾지 못하면 기본 텍스트 대답이 표시됩니다. QnA Maker 관리형(미리 보기)에서는 기술 자료의 **설정** 에서 이 텍스트를 설정할 수 있습니다. <br><br> ![QnA Maker 관리형(미리 보기) 기본 대답 설정](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
+|대답을 결정할 수 없는 경우의 KB 대답|`No good match found in KB.` - [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)에서 질문과 일치하는 대답을 찾지 못하면 기본 텍스트 대답이 표시됩니다. 사용자 지정 질문 답변(미리 보기)에서는 기술 자료의 **설정** 에서 이 텍스트를 설정할 수 있습니다. <br><br> ![QnA Maker 관리형(미리 보기) 기본 대답 설정](../media/qnamaker-how-change-default-answer/qnamaker-v2-change-default-answer.png)|
 |후속 프롬프트 지침 텍스트|대화 흐름에서 후속 프롬프트를 사용할 경우 사용자가 후속 프롬프트에서 선택하기를 원하기 때문에 QnA 쌍에 대답이 필요하지 않을 수 있습니다. 이 경우 후속 프롬프트에 대한 각 예측과 함께 반환되는 기본 대답 텍스트를 설정하여 특정 텍스트를 설정합니다. 텍스트는 후속 프롬프트 선택에 대한 지침 텍스트로 표시됩니다. 이 기본 대답 텍스트의 예는 `Please select from the following choices`입니다. 이 문서의 다음 섹션에서 이 구성에 대해 설명합니다. [REST API](/rest/api/cognitiveservices/qnamaker/knowledgebase/create)를 사용하여 `defaultAnswerUsedForExtraction`을 통해 기술 자료 정의의 일부로 설정할 수도 있습니다.|
 
 ---

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 05/13/2021
 ms.author: alkohli
-ms.openlocfilehash: 90925f30e84ec3c06e715669ebd982c823dfaf5a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 94ebfcab77b6db579b263dc11f856612bb2c630a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568327"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086323"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-device-via-azure-powershell"></a>Azure PowerShell을 통해 Azure Stack Edge 디바이스에 VM 배포
 
@@ -456,6 +456,13 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 Linux VM에 연결하려면 다음을 수행합니다.
 
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+  VM을 만들 때 공용 IP 주소를 사용한 경우 해당 IP를 사용하여 VM에 연결할 수 있습니다. 공용 IP를 가져오려면 다음 명령을 실행합니다. 
+
+  ```powershell
+  $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
+  ```
+  이 인스턴스에서 공용 IP는 가상 네트워크 인터페이스를 만드는 동안 전달한 개인 IP와 동일합니다.
 
 ### <a name="connect-to-a-windows-vm"></a>Windows VM에 연결
 
