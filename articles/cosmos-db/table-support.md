@@ -8,12 +8,12 @@ ms.date: 01/08/2021
 author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: c2b2a9a03a654e8ccba58e62a1d017cd11db5abc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6c38ed9767f92eaaa53b7b95eba9e455130606b3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98050762"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063955"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -38,7 +38,7 @@ Azure Cosmos DB 테이블 API와 Azure Table storage는 동일한 테이블 데�
 * [Node.js SDK](table-sdk-nodejs.md): 이 Azure Storage SDK에는 Table API를 사용하여 Azure Cosmos DB 계정에 연결할 수 있는 기능이 있습니다.
 
 
-Table API를 사용하여 작업하는 방법에 관한 추가 정보는 [FAQ: Table API를 사용하여 개발](table-api-faq.md) 문서에서 제공됩니다.
+Table API를 사용하여 작업하는 방법에 관한 추가 정보는 [FAQ: Table API를 사용하여 개발](table-api-faq.yml) 문서에서 제공됩니다.
 
 ## <a name="developing-with-azure-table-storage"></a>Azure Table 스토리지를 사용하여 개발
 

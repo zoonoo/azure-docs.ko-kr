@@ -6,12 +6,12 @@ author: renatosalas
 ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: dbd892498675b8a672104a045f5c9f66b1740caf
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 830e0904d6aa905a621b245adae2b2d94b46e243
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017873"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847169"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Application Insights Profiler 및 스냅샷 디버거에 대한 BYOS(Bring Your Own Storage)를 구성합니다.
 
@@ -95,7 +95,7 @@ BYOS에서 코드 수준 진단(Profiler/디버거)을 구성하려면 다음 �
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
     ```
 
-    예제:
+    예:
     ```powershell
     $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
     Remove-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id
@@ -110,7 +110,7 @@ BYOS에서 코드 수준 진단(Profiler/디버거)을 구성하려면 다음 �
     New-AzApplicationInsightsLinkedStorageAccount -ResourceId $appInsights.Id -LinkedStorageAccountResourceId $storageAccount.Id
     ```
 
-    예제:
+    예:
     ```powershell
     $storageAccount = Get-AzStorageAccount -ResourceGroupName "byos-test" -Name "byosteststoragewestus2"
     $appInsights = Get-AzApplicationInsights -ResourceGroupName "byos-test" -Name "byos-test-westus2-ai"
@@ -124,19 +124,19 @@ BYOS에서 코드 수준 진단(Profiler/디버거)을 구성하려면 다음 �
     Azure CLI를 설치하려면 [공식 Azure CLI 설명서](/cli/azure/install-azure-cli)를 참조하세요.
 
 1. Application Insights CLI 확장을 설치합니다.
-    ```powershell
+    ```azurecli
     az extension add -n application-insights
     ```
 
 1. 스토리지 계정을 Application Insights 리소스와 연결합니다.
 
     패턴
-    ```powershell
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "{resource_group_name}" --app "{application_insights_name}" --storage-account "{storage_account_name}"
     ```
     
-    예제:
-    ```powershell
+    예:
+    ```azurecli
     az monitor app-insights component linked-storage link --resource-group "byos-test" --app "byos-test-westus2-ai" --storage-account "byosteststoragewestus2"
     ```
     
@@ -191,14 +191,14 @@ BYOS에서 코드 수준 진단(Profiler/디버거)을 구성하려면 다음 �
     New-AzResourceGroupDeployment -ResourceGroupName "{your_resource_name}" -TemplateFile "{local_path_to_arm_template}"
     ```
 
-    예제:
+    예:
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName "byos-test" -TemplateFile "D:\Docs\byos.template.json"
     ```
 
 1. PowerShell 콘솔에서 메시지가 표시되면 다음 매개 변수를 제공합니다.
     
-    |           매개 변수           |                                Description                               |
+    |           매개 변수           |                                설명                               |
     |-------------------------------|--------------------------------------------------------------------------|
     | application_insights_name     | BYOS를 사용하도록 설정할 Application Insights 리소스의 이름입니다.            |
     | storage_account_name          | BYOS로 사용할 스토리지 계정 리소스의 이름입니다. |

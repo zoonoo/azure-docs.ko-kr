@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: 34993ad3d3d0494f89bd264a8b7194f52129ad7c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1b66fcd8f4810e55de49bbc6fd085a60a64812f
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555060"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109815021"
 ---
 # <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 링크 서비스 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "102555060"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fprivatelink-service%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -37,7 +37,7 @@ ms.locfileid: "102555060"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-privatelink-service/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/privatelink-service/azuredeploy.json":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -56,7 +56,7 @@ Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
 
 1. Azure에 로그인하고 템플릿을 열려면 **Azure에 배포** 를 선택합니다. 템플릿은 가상 머신, 표준 부하 분산 장치, 프라이빗 링크 서비스, 프라이빗 엔드포인트, 네트워킹 및 유효성을 검사할 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fprivatelink-service%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만듭니다.
 3. 가상 머신 관리자 사용자 이름과 암호를 입력합니다.
@@ -82,7 +82,7 @@ Azure에 ARM 템플릿을 배포하는 방법은 다음과 같습니다.
     a. 메시지가 표시되면 **연결** 을 선택합니다.
 
     b. VM을 만들 때 지정한 사용자 이름 및 암호를 입력합니다.
-    
+
     > [!NOTE]
     > **추가 선택 사항** > **다른 계정 사용** 을 차례로 선택하여 VM을 만들 때 입력한 자격 증명을 지정해야 할 수도 있습니다.
 

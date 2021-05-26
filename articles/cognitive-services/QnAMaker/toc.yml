@@ -6,6 +6,8 @@
       href: Overview/overview.md
     - name: 새로운 기능
       href: whats-new.md
+    - name: 사용자 지정 질문 답변(미리 보기)
+      href: custom-question-answering.md
 - name: 빠른 시작
   items:
     - name: 기술 자료 만들기 및 쿼리
@@ -93,6 +95,9 @@
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: 메타데이터별로 QnA 필터링
           href: How-To/query-knowledge-base-with-metadata.md
+    - name: 미리 빌드된 API를 사용하여 텍스트 쿼리
+      href: How-to/using-prebuilt-api.md
+      displayName: 'prebuilt, query, answer, text, prebuilt api, ingest, no storage, call, response'
     - name: 활성 학습을 통해 추천된 대체 질문 가져오기
       href: How-to/improve-knowledge-base.md
       displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
@@ -148,7 +153,9 @@
         - name: QnA Maker 4.0
           href: /rest/api/cognitiveservices/qnamaker4.0/alterations
         - name: QnA Maker 5.0 미리 보기 1
-          href: /rest/api/cognitiveservices/qnamakerv5.0-preview.1/alterations
+          href: /rest/api/cognitiveservices-qnamaker/qnamaker5.0preview1/alterations
+        - name: QnA Maker 5.0 미리 보기 2
+          href: /rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/alterations
     - name: SDK
       items:
         - name: C#

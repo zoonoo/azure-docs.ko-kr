@@ -5,18 +5,18 @@ description: Azure Machine Learning 작업 영역에서 컴퓨팅 클러스터�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, devx-track-azurecli
+ms.topic: how-to
+ms.custom: devx-track-azurecli
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 1e3549a6f5f4f9d7f6a6da574378c90c20e42dcf
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: b397115f6e84b414d9224134b7b6999228064407
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169575"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373248"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Azure Machine Learning 컴퓨팅 클러스터 만들기
 
@@ -34,7 +34,15 @@ Azure Machine Learning 컴퓨팅 클러스터를 사용하여 클라우드의 CP
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.
 
-* [Machine Learning 서비스에 대한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md).
+* [Machine Learning 서비스를 위한 Azure CLI 확장](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning Visual Studio Code 확장](how-to-setup-vs-code.md).
+
+* Python SDK를 사용하는 경우 작업 영역으로 [개발 환경을 설정](how-to-configure-environment.md)합니다.  환경이 설정되면 Python 스크립트의 작업 영역에 연결합니다.
+
+    ```python
+    from azureml.core import Workspace
+    
+    ws = Workspace.from_config() 
+    ```
 
 ## <a name="what-is-a-compute-cluster"></a>컴퓨팅 클러스터란?
 
@@ -53,7 +61,7 @@ Azure Machine Learning 컴퓨팅 클러스터는 사용자가 단일 또는 다�
 * Azure를 사용하면 리소스를 삭제할 수 없도록 하거나 읽기 전용이 되도록 리소스에 _잠금_ 을 설정할 수 있습니다. __작업 영역을 포함하는 리소스 그룹에 리소스 잠금을 적용하지 마세요__. 작업 영역을 포함하는 리소스 그룹에 잠금을 적용하면 Azure ML 컴퓨팅 클러스터에 대한 스케일링 작업을 할 수 없습니다. 리소스를 잠그는 방법에 대한 자세한 내용은 [예기치 않은 변경을 방지하기 위해 리소스 잠금](../azure-resource-manager/management/lock-resources.md)을 참조하세요.
 
 > [!TIP]
-> 필요한 코어 수만큼 할당량이 있는 경우 일반적으로 클러스터를 최대 100노드까지 스케일 업할 수 있습니다. 예를 들어 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용하도록 설정하여 MPI 작업을 지원합니다. 그러나 간단하게 [지원 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)하고 노드 간 통신을 사용하지 않도록 구독, 작업 영역 또는 특정 클러스터를 허용 목록에 추가해 달라고 요청하여 클러스터를 수천 개의 노드로 스케일링할 수 있습니다. 
+> 필요한 코어 수만큼 할당량이 있는 경우 일반적으로 클러스터를 최대 100노드까지 스케일 업할 수 있습니다. 예를 들어 기본적으로 클러스터 노드 간에는 노드 간 통신을 사용하도록 설정하여 MPI 작업을 지원합니다. 그러나 간단하게 [지원 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)하고 노드 간 통신을 사용하지 않도록 구독, 작업 영역 또는 특정 클러스터를 허용 목록에 추가해 달라고 요청하여 클러스터를 수천 개의 노드로 스케일링할 수 있습니다.
 
 
 ## <a name="create"></a>생성
@@ -70,11 +78,11 @@ Azure Machine Learning 컴퓨팅은 실행 전반에서 다시 사용할 수 있
     
 # <a name="python"></a>[Python](#tab/python)
 
-Python에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다. 
+
+Python에서 영구적 Azure Machine Learning 컴퓨팅 리소스를 만들려면 **vm_size** 및 **max_nodes** 속성을 지정합니다. 그런 다음, Azure Machine Learning은 다른 속성에 스마트 기본값을 사용합니다.
     
 * **vm_size**: Azure Machine Learning 컴퓨팅에서 만든 노드의 VM 제품군입니다.
 * **max_nodes**: Azure Machine Learning 컴퓨팅에서 작업을 실행할 때 자동으로 확장할 최대 노드 수입니다.
-
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
@@ -88,7 +96,7 @@ Azure Machine Learning 컴퓨팅을 만들 때 여러 고급 속성을 구성할
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)를 참조하세요.
+자세한 내용은 [az ml computetarget create amlcompute](/cli/azure/ml/computetarget/create#az_ml_computetarget_create_amlcompute)를 참조하세요.
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -132,16 +140,18 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
 
 * 프로비저닝 구성에서 관리 ID를 구성:  
 
-    * 시스템 할당 관리 ID
+    * `ws`라는 작업 영역에서 만든 시스템 할당 관리 ID
         ```python
         # configure cluster with a system-assigned managed identity
         compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
                                                                 max_nodes=5,
                                                                 identity_type="SystemAssigned",
                                                                 )
+        cpu_cluster_name = "cpu-cluster"
+        cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
     
-    * 사용자가 할당한 관리형 ID:
+    * `ws`라는 작업 영역에서 만든 사용자 할당 관리 ID
     
         ```python
         # configure cluster with a user-assigned managed identity
@@ -154,7 +164,7 @@ az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_N
         cpu_cluster = ComputeTarget.create(ws, cpu_cluster_name, compute_config)
         ```
 
-* 기존 컴퓨팅 클러스터에 관리 ID를 추가 
+* `cpu_cluster`라는 기존 컴퓨팅 클러스터에 관리 ID 추가
     
     * 시스템이 할당한 관리형 ID:
     

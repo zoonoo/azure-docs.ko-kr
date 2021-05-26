@@ -10,12 +10,12 @@ author: sakash279
 ms.author: akshanka
 ms.reviewer: sngun
 ms.custom: devx-track-python
-ms.openlocfilehash: 055455c868438d421ef4f7e716657f96f2bbe1e6
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e03df1dceb840c7ccdf530201d2653349003de7b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108142174"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064273"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Python을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -249,7 +249,7 @@ table_service.delete_table('tasktable')
 
 ## <a name="next-steps"></a>다음 단계
 
-* [FAQ - Table API를 사용하여 개발](./faq.md)
+* [FAQ - Table API를 사용하여 개발](./faq.yml)
 * [Azure Cosmos DB SDK for Python API 참조](/python/api/overview/azure/cosmosdb)
 * [Python 개발자 센터](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): Windows, macOS, 및 Linux에서 Azure Storage 데이터를 시각적으로 사용하기 위한 플랫폼 간 무료 애플리케이션입니다.

@@ -52,6 +52,14 @@
           href: dynamic-dictionary.md
         - name: 방화벽 뒤에서 변환
           href: firewalls.md
+        - name: Translator 컨테이너 사용
+          items:
+            - name: 컨테이너 설치 및 실행
+              href: containers/translator-how-to-install-container.md
+            - name: 컨테이너 구성
+              href: containers/translator-container-configuration.md
+            - name: '컨테이너: 변환'
+              href: containers/translator-container-supported-parameters.md
     - name: 자습서
       items:
         - name: 'Translator용 WPF 앱 만들기, C#'
@@ -128,7 +136,7 @@
           href: custom-translator/how-to-view-document-details.md
         - name: 모델 학습
           href: custom-translator/how-to-train-model.md
-        - name: 모델 세부 정보 보기
+        - name: Viewmodel 세부 정보
           href: custom-translator/how-to-view-model-details.md
         - name: 시스템 테스트 결과 보기
           href: custom-translator/how-to-view-system-test-results.md

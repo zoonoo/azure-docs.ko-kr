@@ -4,12 +4,12 @@ description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와
 services: container-service
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 5e505ed44d221b20178ea5ffb1d9125fb2bddd4c
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: b8a342730a6f37a5498e59e883b0f77b8bfabbb2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107105938"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372433"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -72,10 +72,9 @@ AKS는 전용 API 서버, 스케줄러 등이 포함된 단일 테넌트 컨트�
 
 | 구성 요소 | Description |  
 | ----------------- | ------------- |  
-| `kubelet`                                                                                 | 컨트롤 플레인의 오케스트레이션 요청을 처리하고 요청된 컨테이너를 실행하도록 예약하는 Kubernetes 에이전트입니다.                                                        |  
-| *kube-proxy* | 각 노드에서 가상 네트워킹을 처리합니다. 프록시는 네트워크 트래픽을 라우팅하고 서비스와 Pod에 대한 IP 주소 지정을 관리합니다.                                      |  
-| *컨테이너 런타임*                                                                            | 컨테이너화된 애플리케이션에서 가상 네트워크 및 스토리지와 같은 추가 리소스를 실행하고 상호 작용할 수 있도록 합니다. Kubernetes 버전 1.19 이상 노드 풀을 사용하는 AKS 클러스터는 `containerd`를 컨테이너 런타임으로 사용합니다. 노드 풀 버전 1.19 이전의 Kubernetes를 노드 풀에 사용하는 AKS 클러스터는 [Moby](https://mobyproject.org/)(업스트림 docker)를 컨테이너 런타임으로 사용합니다.                                                                                    |  
-
+| `kubelet` | 컨트롤 플레인의 오케스트레이션 요청을 처리하고 요청된 컨테이너를 실행하도록 예약하는 Kubernetes 에이전트입니다. |  
+| *kube-proxy* | 각 노드에서 가상 네트워킹을 처리합니다. 프록시는 네트워크 트래픽을 라우팅하고 서비스와 Pod에 대한 IP 주소 지정을 관리합니다. |  
+| *컨테이너 런타임* | 컨테이너화된 애플리케이션에서 가상 네트워크 및 스토리지와 같은 추가 리소스를 실행하고 상호 작용할 수 있도록 합니다. Linux용 Kubernetes 버전 1.19 이상 노드 풀을 사용하는 AKS 클러스터는 `containerd`를 컨테이너 런타임으로 사용합니다. Windows용 Kubernetes 버전 1.20 노드 풀부터 `containerd`는 컨테이너 런타임에 대한 미리 보기에서 사용할 수 있지만 Docker는 여전히 기본 컨테이너 런타임입니다. 노드 풀에 이전 버전의 Kubernetes를 사용하는 AKS 클러스터는 Docker를 컨테이너 런타임으로 사용합니다. |  
 
 ![Kubernetes 노드용 Azure 가상 머신 및 지원 리소스](media/concepts-clusters-workloads/aks-node-resource-interactions.png)
 
@@ -83,7 +82,7 @@ AKS는 전용 API 서버, 스케줄러 등이 포함된 단일 테넌트 컨트�
 
 AKS에서 클러스터 노드의 VM 이미지는 Ubuntu Linux 또는 Windows Server 2019를 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 스케일 아웃하면 Azure 플랫폼에서 요청된 수의 VM을 자동으로 만들고 구성합니다. 에이전트 노드는 표준 VM으로 청구되므로 VM 크기 할인([Azure Reservations][reservation-discounts] 포함)이 자동으로 적용됩니다.
 
-다른 호스트 OS, 컨테이너 런타임을 사용하거나 다른 사용자 지정 패키지를 포함하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포합니다. 업스트림 `aks-engine`은 기능을 릴리스하고, AKS 클러스터에서 지원하기 전에 구성 옵션을 제공합니다. 따라서 `containerd` 또는 [Moby](https://mobyproject.org/) 이외의 컨테이너 런타임을 사용하려는 경우 `aks-engine`을 실행하여 현재 요구 사항에 맞게 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
+다른 호스트 OS, 컨테이너 런타임을 사용하거나 다른 사용자 지정 패키지를 포함하는 경우 [aks-engine][aks-engine]을 사용하여 사용자 고유의 Kubernetes 클러스터를 배포합니다. 업스트림 `aks-engine`은 기능을 릴리스하고, AKS 클러스터에서 지원하기 전에 구성 옵션을 제공합니다. 따라서 `containerd` 또는 Docker 이외의 컨테이너 런타임을 사용하려는 경우 `aks-engine`을 실행하여 현재 요구 사항에 맞게 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 

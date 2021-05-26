@@ -185,7 +185,7 @@
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: Java
       href: /java/api/com.microsoft.azure.management.cdn
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/cdn/
 - name: 리소스
   items:
@@ -194,7 +194,11 @@
         - name: 지역별 POP 위치
           href: cdn-pop-locations.md
         - name: 약어별 POP 위치
-          href: cdn-pop-abbreviations.md
+          items:
+            - name: Microsoft
+              href: microsoft-pop-abbreviations.md
+            - name: Verizon
+              href: cdn-pop-abbreviations.md
     - name: Azure Content Delivery Network 청구
       href: cdn-billing.md
     - name: Azure 로드맵

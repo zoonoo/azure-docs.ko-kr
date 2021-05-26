@@ -15,12 +15,12 @@ ms.devlang: na
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: de8a592f6eecbb43b58a044096e8ba2e0f9b5973
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: db51e7ca844ee9d4e36b522e21d395bf9544acf3
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538998"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847457"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Front Door 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "107538998"
 
 이 빠른 시작에서는 단일 백 엔드 및 `/*`와 일치하는 단일 기본 경로를 사용하여 Front Door 구성을 만듭니다.
 
-:::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json":::
 
 템플릿에 다음과 같은 Azure 리소스 하나가 정의되어 있습니다.
 

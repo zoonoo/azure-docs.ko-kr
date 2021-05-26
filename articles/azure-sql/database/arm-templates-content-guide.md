@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
 ms.topic: guide
-author: danimir
-ms.author: danil
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: sstein
-ms.date: 02/04/2019
-ms.openlocfilehash: fdcaabf98d4559ae6ec59a4ca7c1652329217032
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.date: 05/24/2021
+ms.openlocfilehash: 4c9cf08ad0a048c0c37f2c9943e455914ecc21fd
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754464"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456931"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance용 Azure Resource Manager 템플릿
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,9 +38,9 @@ Azure Resource Manager 템플릿을 사용하여 인프라를 코드로 정의�
 | [Azure Event Hub 감사](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-auditing-server-policy-to-eventhub) | 이 템플릿에서는 기존 이벤트 허브에 감사 로그를 쓰도록 설정된 감사를 통해 서버를 배포할 수 있습니다. 감사 이벤트를 Event Hubs로 보내려면 감사 설정을 `Enabled` `State`로 설정하고 `IsAzureMonitorTargetEnabled`를 `true`로 설정합니다. 또한 `master` 데이터베이스에서 `SQLSecurityAuditEvents` 로그 범주를 사용하여 진단 설정을 구성합니다(서버 수준 감사인 경우). 감사는 데이터베이스 이벤트를 추적하여 Azure 스토리지 계정, OMS 작업 영역 또는 Event Hubs에 배치할 수 있는 감사 로그에 기록합니다.|
 | [SQL Database를 사용하는 Azure 웹앱](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-sql-database) | 이 샘플은 "기본" 서비스 수준에서 체험판 Azure 웹앱과 Azure SQL Database를 만듭니다.|
 | [SQL Database를 사용하는 Azure 웹앱 및 Redis Cache](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | 이 템플릿은 동일한 리소스 그룹에 웹앱, Redis Cache 및 데이터베이스를 만들고, 웹앱에 데이터베이스 및 Redis Cache에 대한 두 개의 연결 문자열을 만듭니다.|
-| [ADF V2를 사용하여 Blob 스토리지에서 데이터 가져오기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/101-data-factory-v2-blob-to-sql-copy) | 이 Azure Resource Manager 템플릿은 Azure Blob 스토리지에서 SQL Database로 데이터를 복사하는 Azure Data Factory V2 인스턴스를 만듭니다.|
-| [데이터베이스를 사용하는 HDInsight 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | 이 템플릿을 사용하면 HDInsight 클러스터, 논리적 SQL 서버, 데이터베이스 및 두 개의 테이블을 만들 수 있습니다. 이 템플릿은 [HDInsight에서 Hadoop과 Sqoop 사용 문서](../../hdinsight/hadoop/hdinsight-use-sqoop.md)에서 사용됩니다. |
-| [일정에 따라 SQL 저장 프로시저를 실행하는 Azure 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | 이 템플릿을 사용하면 일정에 따라 SQL 저장 프로시저를 실행하는 논리 앱을 만들 수 있습니다. 프로시저에 대한 인수를 템플릿의 본문 섹션에 삽입할 수 있습니다.|
+| [ADF V2를 사용하여 Blob 스토리지에서 데이터 가져오기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | 이 Azure Resource Manager 템플릿은 Azure Blob 스토리지에서 SQL Database로 데이터를 복사하는 Azure Data Factory V2 인스턴스를 만듭니다.|
+| [데이터베이스를 사용하는 HDInsight 클러스터](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-with-sql-database) | 이 템플릿을 사용하면 HDInsight 클러스터, 논리적 SQL 서버, 데이터베이스 및 두 개의 테이블을 만들 수 있습니다. 이 템플릿은 [HDInsight에서 Hadoop과 Sqoop 사용 문서](../../hdinsight/hadoop/hdinsight-use-sqoop.md)에서 사용됩니다. |
+| [일정에 따라 SQL 저장 프로시저를 실행하는 Azure 논리 앱](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-sql-proc) | 이 템플릿을 사용하면 일정에 따라 SQL 저장 프로시저를 실행하는 논리 앱을 만들 수 있습니다. 프로시저에 대한 인수를 템플릿의 본문 섹션에 삽입할 수 있습니다.|
 
 ## <a name="azure-sql-managed-instance"></a>[Azure SQL Managed Instance](#tab/managed-instance)
 

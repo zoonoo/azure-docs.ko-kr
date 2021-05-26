@@ -5,22 +5,32 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: eee4d23b17bf852946b31912eb81fd4f897e0f56
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 049cbc6f28e4a405b20eaf37e85e31bd1eb4dfb9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108803875"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367327"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
-FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
+FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 질문에 답변하는 예가 포함되어 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+
 > [!div class="checklist"]
-> * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
-> * Azure Portal에서 만든 QnA Maker [리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+> * Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+> * Azure Portal에서 만든 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA Maker 리소스 이름을 기억하세요.
+
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+
+> [!div class="checklist"]
+> * Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+> * 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, Text Analytics 리소스 이름을 기억하세요.
+
+---
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>첫 번째 QnA Maker 기술 자료 만들기
 
@@ -32,9 +42,9 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 3. **만들기** 페이지에서 QnA Maker 리소스가 이미 있는 경우 **1단계** 를 건너뜁니다.
 
-    리소스를 아직 만들지 않은 경우 **QnA 서비스 만들기** 를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+서비스를 아직 만들지 않은 경우 **안전성** 및 **QnA 서비스 만들기** 를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
 
-    Azure Portal에서 리소스 만들기를 완료하면 QnA Maker 포털로 돌아가서 브라우저 페이지를 새로 고치고 **2단계** 를 계속 진행합니다.
+Azure Portal에서 리소스 만들기를 완료하면 QnA Maker 포털로 돌아가서 브라우저 페이지를 새로 고치고 **2단계** 를 계속 진행합니다.
 
 4. **2단계** 에서는 Active 디렉터리, 구독, 서비스(리소스) 및 서비스에서 만든 모든 기술 자료에 대한 언어를 선택합니다.
 
@@ -57,23 +67,32 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
     QnA Maker가 기술 자료를 성공적으로 만들면 **기술 자료** 페이지가 열립니다. 이 페이지에서 기술 자료의 내용을 편집할 수 있습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 1. Azure 자격 증명으로 [QnAMaker.ai](https://QnAMaker.ai) 포털에 로그인합니다.
 
 2. QnA Maker 포털에서 **기술 자료 만들기** 를 선택합니다.
 
-3. **만들기** 페이지에서 QnA Maker 리소스가 이미 있는 경우 **1단계** 를 건너뜁니다.
+3. Text Analytics 서비스에 사용자 지정 질문 답변이 이미 추가된 경우 **만들기** 페이지에서 **1단계** 를 건너뜁니다.
 
-    리소스를 아직 만들지 않은 경우 **QnA 서비스 만들기** 를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+    서비스를 아직 만들지 않은 경우 **미리 보기** 및 **QnA 서비스 만들기** 를 선택합니다. 
 
-    Azure Portal에서 리소스 만들기를 완료하면 QnA Maker 포털로 돌아가서 브라우저 페이지를 새로 고치고 **2단계** 를 계속 진행합니다.
+> [!div class="mx-imgBorder"]
+> ![서비스 만들기](../media/qnamaker-create-publish-knowledge-base/create-qna-service.png) 
+    
+그러면 구독에서 Text Analytics 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)로 연결됩니다. 생성 시 서비스에 사용자 지정 질문 대답 기능을 추가해야 합니다. 
+    
+> [!div class="mx-imgBorder"]
+> ![TA에 QnA 추가](../media/qnamaker-how-to-setup-service/select-qna-feature-create-flow.png)
+ 
+   리소스를 만들 때 선택한 Azure Active Directory ID, 구독, Text Analytics 리소스 이름을 기억하세요. Azure Portal에서 리소스 만들기를 완료하면 QnA Maker 포털로 돌아가서 브라우저 페이지를 새로 고치고 **2단계** 를 계속 진행합니다.
 
 4. **2단계** 에서는 Active 디렉터리, 구독, 서비스(리소스) 및 서비스에서 만든 모든 기술 자료에 대한 언어를 선택합니다.
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/connect-your-knowledge-base.png" alt-text="QnA Maker 서비스 기술 자료 관리형 미리 보기를 선택하는 스크린샷":::
+> [!div class="mx-imgBorder"]
+> ![KB 만들기](../media/qnamaker-create-publish-knowledge-base/connect-knowledgebase-custom-qna.png) 
 
-5. **2단계** 에서 서비스에 대한 첫 번째 기술 자료를 만드는 경우 모든 기술 자료에 적용되는 언어 설정을 만들 수 있습니다. 첫 번째 기술 자료에 대한 언어 설정이 정의되면 나중에 서비스 설정을 수정할 수 없습니다.
+5. **2단계** 에서 서비스에 대한 첫 번째 기술 자료를 만드는 경우 **이 서비스에 여러 언어로 된 기술 자료 추가** 속성을 확인하여 동일한 서비스에 다른 언어로 된 기술 자료를 추가할 수 있는 기능을 허용할 수 있습니다. 이 정보는 나중에 수정할 수 없습니다.
 
 6.  **3단계** 에서는 기술 자료의 이름을  **내 샘플 QnA KB** 로 지정합니다. 
 
@@ -90,7 +109,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
     추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
 
-    QnA Maker가 기술 자료를 성공적으로 만들면 **기술 자료** 페이지가 열립니다. 이 페이지에서 기술 자료의 내용을 편집할 수 있습니다.
+    기술 자료를 성공적으로 만들면 **기술 자료** 페이지가 열립니다. 이 페이지에서 기술 자료의 내용을 편집할 수 있습니다.
 
 ---
 
@@ -130,7 +149,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 4. **테스트** 를 다시 선택하여 **테스트** 패널을 닫습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 1. QnA Maker 포털의 오른쪽 위에서 **테스트** 를 선택하여 변경 내용이 적용되었는지 테스트합니다.
 2. 텍스트 상자에 예제 사용자 쿼리를 입력합니다.

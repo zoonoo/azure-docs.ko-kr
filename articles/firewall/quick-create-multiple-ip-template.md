@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 33d110f327a381241fd9dbf55996a6e3f9fd3a43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a894f8760ed3012b8bd46cc73eef1935850512e6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92057980"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094783"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---arm-template"></a>빠른 시작: 여러 공용 IP 주소로 Azure Firewall 만들기 - ARM 템플릿
 
@@ -25,7 +25,7 @@ ms.locfileid: "92057980"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffw-docs-qs%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -37,7 +37,7 @@ ms.locfileid: "92057980"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/fw-docs-qs)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/fw-docs-qs/azuredeploy.json":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -57,20 +57,20 @@ Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 Azure Firewall, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Ffw-docs-qs%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffw-docs-qs%2Fazuredeploy.json)
 
 2. 포털의 **여러 IP 주소로 Azure Firewall 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
-   - 구독: 기존 구독에서 선택 
+   - 구독: 기존 구독에서 선택
    - 리소스 그룹:  기존 리소스 그룹에서 선택하거나 **새로 만들기** 를 선택하고 **확인** 을 선택합니다.
    - 위치: 위치 선택
-   - 관리자 사용자 이름: 관리자 사용자 계정에 대한 사용자 이름 입력 
+   - 관리자 사용자 이름: 관리자 사용자 계정에 대한 사용자 이름 입력
    - 관리자 암호: 관리자 암호 또는 키 입력
 
 3. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.
 
 ## <a name="validate-the-deployment"></a>배포 유효성 검사
 
-Azure Portal에서 배포된 리소스를 검토합니다. 방화벽 공용 IP 주소를 확인합니다.  
+Azure Portal에서 배포된 리소스를 검토합니다. 방화벽 공용 IP 주소를 확인합니다.
 
 원격 데스크톱 연결을 사용하여 방화벽 공용 IP 주소에 연결합니다. 성공적인 연결에서는 백 엔드 서버에 대한 연결을 허용하는 방화벽 NAT 규칙을 보여줍니다.
 

@@ -2,13 +2,14 @@
 title: 에지의 이벤트 기반 아키텍처 — IoT Edge의 Azure Event Grid
 description: IoT Edge의 모듈로 Azure Event Grid를 사용하여 모듈, 에지 디바이스 및 클라우드 간에 이벤트를 전달할 수 있습니다.
 ms.topic: overview
-ms.date: 07/08/2020
-ms.openlocfilehash: 82a68f6ab32d8ad18c3af506c810b01d12cf794d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.subservice: iot-edge
+ms.openlocfilehash: 945c8a9c7c25242fbc155fce4ce0c2b4782a41a3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171519"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367782"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Azure IoT Edge의 Azure Event Grid란?
 IoT Edge의 Event Grid는 Azure Event Grid의 강력한 성능과 유연성을 에지에 제공합니다. 토픽을 만들고 이벤트를 게시할 수 있으며, 대상이 동일한 디바이스의 모듈이든, 다른 에지 디바이스의 모듈이든 또는 클라우드의 서비스든 상관없이 여러 대상을 구독할 수 있습니다.

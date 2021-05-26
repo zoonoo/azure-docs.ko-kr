@@ -3,14 +3,15 @@ title: Azure Automation Runbook 형식
 description: 이 문서에서는 Azure Automation에서 사용할 수 있는 Runbook의 유형 및 사용할 형식을 결정하기 위한 고려 사항을 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/17/2021
+ms.date: 05/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9528443e7e89ecb91db70736d2051f813b130cce
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100634892"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073183"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 
@@ -121,7 +122,6 @@ Python 3 Runbook은 다음과 같은 Azure 글로벌 인프라에서 지원됩�
 * Python 스크립팅에 대해 잘 알아야 합니다.
 * 타사 라이브러리를 사용하려면 Automation 계정으로 [패키지를 가져와야](python-packages.md) 합니다.
 * PowerShell/PowerShell Workflow에서 **Start-AutomationRunbook** cmdlet을 사용하여 Python 3 Runbook(미리 보기)을 시작할 수 없습니다. 이 제한 사항을 해결하려면 Az.Automation 모듈의  **Start-AzAutomationRunbook** cmdlet 또는 AzureRm.Automation 모듈의  **Start-AzureRmAutomationRunbook** cmdlet을 사용하면 됩니다.  
-* Python 3 Runbook(미리 보기) 및 패키지는 PowerShell에서 작동하지 않습니다.
 * Azure Automation은  **sys.stderr** 를 지원하지 않습니다.
 
 ### <a name="known-issues"></a>알려진 문제

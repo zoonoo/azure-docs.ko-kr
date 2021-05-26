@@ -11,12 +11,13 @@ ms.workload: integration
 ms.topic: article
 ms.date: 03/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 98237efae89e7d88dd23cb7e8fc9f7e9f05bca70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1dc0c67a173333f2d2bcabd71d92ec88fa5a467d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521546"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071779"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Azure API Management의 관리 ID 사용
 
@@ -43,7 +44,7 @@ Azure Portal에서 관리 ID를 설정하려면 먼저 API Management 인스턴�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-다음 단계에서는 API Management 인스턴스를 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다. 
+다음 단계에서는 API Management 인스턴스를 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다.
 
 1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/install-az-ps)의 지침에 따라 Azure PowerShell을 설치합니다. 그런 다음, `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
 
@@ -297,7 +298,7 @@ API Management는 다음 리소스에 대한 신뢰할 수 있는 Microsoft 서�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-다음 단계에서는 API Management 인스턴스를 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다. 
+다음 단계에서는 API Management 인스턴스를 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다.
 
 1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/install-az-ps)의 지침에 따라 Azure PowerShell을 설치합니다. 그런 다음, `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
 
@@ -371,7 +372,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
                 "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]": {}
              }
         },
-         "dependsOn": [       
+         "dependsOn": [
           "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', variables('identityName'))]"
         ]
     }]
@@ -400,7 +401,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 ## <a name="supported-scenarios-using-user-assigned-managed-identity"></a>사용자 할당 관리 ID 사용의 지원되는 시나리오
 
 ### <a name="obtain-a-custom-tlsssl-certificate-for-the-api-management-instance-from-azure-key-vault"></a><a name="use-ssl-tls-certificate-from-azure-key-vault-ua"></a>Azure Key Vault에서 API Management 인스턴스에 대한 사용자 지정 TLS/SSL 인증서 가져오기
-사용자 할당 ID를 사용하여 API Management 인스턴스와 KeyVault 간의 트러스트를 설정할 수 있습니다. 그런 다음, 이 트러스트를 사용하여 Azure Key Vault에 저장된 사용자 지정 TLS/SSL 인증서를 검색할 수 있습니다. 그런 다음, API Management 인스턴스의 사용자 지정 도메인에 이러한 인증서를 할당할 수 있습니다. 
+사용자 할당 ID를 사용하여 API Management 인스턴스와 KeyVault 간의 트러스트를 설정할 수 있습니다. 그런 다음, 이 트러스트를 사용하여 Azure Key Vault에 저장된 사용자 지정 TLS/SSL 인증서를 검색할 수 있습니다. 그런 다음, API Management 인스턴스의 사용자 지정 도메인에 이러한 인증서를 할당할 수 있습니다.
 
 다음 고려 사항을 염두에 두십시오.
 
@@ -410,7 +411,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 > [!Important]
 > 인증서의 개체 버전을 제공하지 않으면 API Management가 Key Vault에서 업데이트된 후 4시간 이내에 최신 버전의 인증서를 자동으로 가져옵니다.
 
-전체 템플릿은 [사용자 할당 ID 방식의 KeyVault 기반 SSL을 사용하는 API Management](https://github.com/Azure/azure-quickstart-templates/blob/master/101-api-management-key-vault-create/azuredeploy.json)를 참조하세요.
+전체 템플릿은 [사용자 할당 ID 방식의 KeyVault 기반 SSL을 사용하는 API Management](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.apimanagement/api-management-key-vault-create/azuredeploy.json)를 참조하세요.
 
 이 서식 파일에서 다음을 배포합니다:
 
@@ -420,7 +421,7 @@ API Management 인스턴스는 ID를 사용하여 리소스 정의에 다음 속
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-api-management-key-vault-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-key-vault-create%2Fazuredeploy.json)
 
 ### <a name="authenticate-to-the-back-end-by-using-a-user-assigned-identity"></a>사용자 할당 ID를 사용하여 백 엔드에 인증
 

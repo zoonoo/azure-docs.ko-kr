@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 지원 정책, 공유 책임 및 미�
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: d30e2aa5ab13c5d7676ca7cb455a2372981e4a46
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 3e4f5e4411eb81ab14d844adf03433e9de0d73b2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714479"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368113"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대한 지원 정책
 
@@ -92,7 +92,7 @@ Microsoft와 사용자는 다음과 같은 Kubernetes 에이전트 노드에 대
   * `Kube-proxy`
   * Kubernetes 마스터 구성 요소에 대한 통신 경로를 제공하는 네트워킹 터널
   * `Kubelet`
-  * `Moby` 또는 `ContainerD`
+  * Docker 또는 `containerd`
 
 > [!NOTE]
 > 에이전트 노드가 작동하지 않는 경우 AKS는 개별 구성 요소나 전체 에이전트 노드를 다시 시작할 수 있습니다. 이러한 다시 시작 작업은 자동으로 이루어지며 일반적인 문제를 자동으로 수정합니다. 자동 수정 메커니즘에 대해 자세히 알아보려면 [노드 자동 복구](node-auto-repair.md)를 참조하세요.
