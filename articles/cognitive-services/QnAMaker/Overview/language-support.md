@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
-ms.openlocfilehash: 1edd5ffc2578a27a53c7e9a46a4a5f1cf61331ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3718a4255e8b58202c723bccbbfb1aa3459e1ce2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97605062"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372325"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대한 언어 지원
 
@@ -25,11 +25,11 @@ ms.locfileid: "97605062"
 
 언어는 QnA Maker가 사용자 쿼리에 대한 응답으로 제공하는 결과의 관련성을 결정합니다. QnA Maker 리소스 및 해당 리소스 내의 모든 기술 자료는 단일 언어를 지원합니다. 쿼리에 대한 최상의 응답 결과를 제공하려면 단일 언어가 필요합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-QnAMaker 관리형에서는 개별 기술 자료 수준에서 언어 설정을 선택합니다. 이 설정은 서비스의 기술 자료에서만 활성화할 수 있습니다. 서비스에 대한 언어 설정을 설정한 후에는 변경할 수 없습니다. 
+사용자 지정 질문 답변에는 동일한 서비스 내에서 다양한 언어로 된 기술 자료를 추가할 수 있는 옵션이 있습니다. 기술 자료별로 언어 설정을 사용하도록 선택한 후에는 이 설정을 사용하지 않도록 설정할 수 없습니다. 서비스 내에서 만드는 모든 기술 자료의 언어를 선택해야 합니다.
 
-언어 설정을 기술 자료별로 선택할 경우 서비스 자체에서 다른 언어의 기술 자료를 만들 수 있습니다. 
+이 설정은 사용자가 동일한 서비스 내에서 기술 자료별로 언어 설정이 다른 여러 기술 자료를 가질 수 있도록 유연성을 제공합니다.
 
 ---
 
@@ -45,15 +45,16 @@ QnAMaker 관리형에서는 개별 기술 자료 수준에서 언어 설정을 �
 * 서비스의 다른 기술 자료에 대해서는 언어를 변경할 수 없습니다.
 * 언어는 Cognitive Search 서비스(순위 #1)와 QnA Maker 서비스(순위 #2)에서 쿼리에 대한 최상의 응답을 생성하기 위해 사용됩니다.
 
-# <a name="qnamaker-managed-preview"></a>[QnAMaker 관리형(미리 보기)](#tab/v2)
-![QnA Maker 관리형의 언어 설정](../media/language-support/language-setting-managed.png)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+> [!div class="mx-imgBorder"]
+> ![다국어 기술 자료 선택](../media/language-support/language-support-custom-qna.png)
 
-**기술 자료별로 언어 설정을 사용하도록 선택하지 않은** 경우 다음을 고려하세요. 
-* QnA Maker 서비스 및 모든 기술 자료는 한 가지 언어만 지원합니다.
+**여러 언어로 된 기술 자료를 활성화하는 확인란을 선택하지 않은** 경우 다음을 고려하세요. 
+* Text Analytics 서비스 및 모든 기술 자료는 한 가지 언어만 지원합니다.
 * 언어는 서비스의 첫 번째 기술 자료 작성 시 명시적으로 설정됩니다.
 * 언어는 기술 자료를 만들 때 추가된 파일 및 URL에서 결정됩니다.
 * 서비스의 다른 기술 자료에 대해서는 언어를 변경할 수 없습니다.
-* 언어는 Cognitive Search 서비스(순위 #1)와 QnA Maker 서비스(순위 #2)에서 쿼리에 대한 최상의 응답을 생성하기 위해 사용됩니다.
+* 이 언어는 Cognitive Search 서비스(순위 #1)와 사용자 지정 질문과 대답(순위 #2)에서 쿼리에 대한 최상의 응답을 생성하는 데 사용됩니다.
 
 ---
 
@@ -62,12 +63,13 @@ QnAMaker 관리형에서는 개별 기술 자료 수준에서 언어 설정을 �
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 이 기능은 현재 GA(일반 공급) 안정적인 릴리스에서는 지원되지 않습니다. 이 기능을 테스트하려면 관리 QnA Maker를 체크 아웃하세요. 
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
-* 서비스에서 첫 번째 기술 자료를 작성할 때 기술 자료별로 언어 설정을 사용하도록 선택할 수 있습니다. 하나의 서비스 내에서 서로 다른 언어에 속하는 기술 자료를 작성하려면 확인란을 선택합니다.
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+* 서비스에서 첫 번째 기술 자료를 만들 때 서비스별로 여러 언어를 사용하도록 선택할 수 있습니다. 하나의 서비스 내에서 서로 다른 언어에 속하는 기술 자료를 작성하려면 확인란을 선택합니다.
 * 첫 번째 기술 자료를 작성한 후에는 서비스에 대한 언어 설정 옵션을 수정할 수 없습니다.
-* 기술 자료마다 다른 언어를 사용하도록 설정하면 서비스에 대해 하나의 테스트 인덱스가 생성되지 않고 기술 자료당 하나의 테스트 인덱스가 생성됩니다. 
+* 기술 자료에 대해 여러 언어를 사용하는 경우 서비스에 대해 하나의 테스트 인덱스를 갖는 대신 기술 자료당 하나의 테스트 인덱스를 갖게 됩니다. 
 
-![QnA Maker 관리형의 언어 설정](../media/language-support/language-setting-managed.png)
+> [!div class="mx-imgBorder"]
+> ![다국어 기술 자료 설정](../media/language-support/language-support-custom-qna-chkd.png)
 
 ---
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 23615daf4a07e02b01bbd5a9cdf57ec9a81a2b76
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 241b7c0c07d1fbaa6a43c6be4b264424612f538a
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347410"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107869044"
 ---
 ::: zone target="docs"
 
@@ -52,11 +52,11 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
 > [!div class="checklist"]
 >
-> - **필수 구성 요소 검토** : 디스크 및 케이블, 운영 체제 및 기타 소프트웨어의 수를 확인합니다.
-> - **연결 및 잠금 해제** : 디바이스를 연결하고 디스크를 잠금 해제하여 데이터를 복사합니다.
-> - **디스크에 데이터 복사 및 유효성 검사** : 디스크에 데이터를 미리 생성된 폴더로 복사합니다.
-> - **디스크 반환** : 데이터가 스토리지 계정에 업로드되는 Azure 데이터 센터에 디스크를 반환합니다.
-> - **Azure에서 데이터 확인** : 원본 데이터 서버에서 데이터를 삭제하기 전에 스토리지 계정에 데이터가 업로드되었는지 확인합니다.
+> - **필수 구성 요소 검토**: 디스크 및 케이블, 운영 체제 및 기타 소프트웨어의 수를 확인합니다.
+> - **연결 및 잠금 해제**: 디바이스를 연결하고 디스크를 잠금 해제하여 데이터를 복사합니다.
+> - **디스크에 데이터 복사 및 유효성 검사**: 디스크에 데이터를 미리 생성된 폴더로 복사합니다.
+> - **디스크 반환**: 데이터가 스토리지 계정에 업로드되는 Azure 데이터 센터에 디스크를 반환합니다.
+> - **Azure에서 데이터 확인**: 원본 데이터 서버에서 데이터를 삭제하기 전에 스토리지 계정에 데이터가 업로드되었는지 확인합니다.
 
 ::: zone-end
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) 명령을 실행하여 SKU DataBoxDisk를 통해 Data Box 작업을 만듭니다.
+1. [az databox job create](/cli/azure/databox/job#az_databox_job_create) 명령을 실행하여 SKU DataBoxDisk를 통해 Data Box 작업을 만듭니다.
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxdisk-job \
@@ -104,37 +104,37 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
        --storage-account databoxtestsa --expected-data-size 1
    ```
 
-1. 연락처 이름과 이메일을 변경하는 이 예제에서와 같이 [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update)를 실행하여 작업을 업데이트합니다.
+1. 연락처 이름과 이메일을 변경하는 이 예제에서와 같이 [az databox job update](/cli/azure/databox/job#az_databox_job_update)를 실행하여 작업을 업데이트합니다.
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) 명령을 실행하여 작업에 대한 정보를 가져옵니다.
+   [az databox job show](/cli/azure/databox/job#az_databox_job_show) 명령을 실행하여 작업에 대한 정보를 가져옵니다.
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) 명령을 사용하여 리소스 그룹에 대한 모든 Data Box 작업을 확인합니다.
+   [az databox job list]( /cli/azure/databox/job#az_databox_job_list) 명령을 사용하여 리소스 그룹에 대한 모든 Data Box 작업을 확인합니다.
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) 명령을 실행하여 작업을 취소합니다.
+   [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) 명령을 실행하여 작업을 취소합니다.
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) 명령을 실행하여 작업을 삭제합니다.
+   [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) 명령을 실행하여 작업을 삭제합니다.
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) 명령을 사용하여 Data Box 작업에 대한 자격 증명을 나열합니다.
+1. [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) 명령을 사용하여 Data Box 작업에 대한 자격 증명을 나열합니다.
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"
@@ -170,7 +170,7 @@ Data Box Disk는 UPS Express 상자에 배송됩니다. 상자를 열고 상자�
 
 이 작업을 완료하는 시간은 데이터 크기에 따라 달라집니다.
 
-1. 드라이브에 *PageBlob* , *BlockBlob* , *AzureFile* , *ManagedDisk* 및 *DataBoxDiskImport* 폴더가 포함됩니다. 블록 Blob으로 가져와야 하는 데이터를 *BlockBlob* 폴더로 끌어서 놓아 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 *PageBlob* 폴더로 끌어다 놓고 해당 데이터를 *AzureFile* 로 끌어다 놓습니다. Managed Disks로 업로드하려는 VHD를 *ManagedDisk* 아래의 폴더에 복사합니다.
+1. 드라이브에 *PageBlob*, *BlockBlob*, *AzureFile*, *ManagedDisk* 및 *DataBoxDiskImport* 폴더가 포함됩니다. 블록 Blob으로 가져와야 하는 데이터를 *BlockBlob* 폴더로 끌어서 놓아 복사합니다. 마찬가지로 VHD/VHDX와 같은 데이터를 *PageBlob* 폴더로 끌어다 놓고 해당 데이터를 *AzureFile* 로 끌어다 놓습니다. Managed Disks로 업로드하려는 VHD를 *ManagedDisk* 아래의 폴더에 복사합니다.
 
     *BlockBlob* 및 *PageBlob* 폴더 아래에 각 하위 폴더에 대한 Azure Storage 계정에 컨테이너가 만들어집니다. *AzureFile* 아래의 하위 폴더에 대해 파일 공유가 생성됩니다.
 

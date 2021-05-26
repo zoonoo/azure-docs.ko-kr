@@ -8,13 +8,13 @@ ms.custom: seodec18, devx-track-js
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 09/05/2019
-ms.openlocfilehash: 58eb92f4d0bc3de4671ca2ece14a178a876e4a6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: cce44bde0985be1943b44e0e7edd34ca62f50fe5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91541047"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090733"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
@@ -24,7 +24,7 @@ LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-how-to-azure-subscription.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
+* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-how-to-azure-subscription.md)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
 * Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 * 이 문서는 가상 회사의 사용자 요청 로그 파일에 대한 CSV에서 시작합니다. [여기](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)에서 다운로드하세요.
 * NPM을 사용하는 최신 Node.js를 설치합니다. [여기](https://nodejs.org/en/download/)에서 다운로드하세요.

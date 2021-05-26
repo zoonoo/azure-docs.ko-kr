@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 3ff48ff5a3f46d8ec0fbf81b4cd20d20c217344b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 54c0d8aa8ba17beb5a2f5a51c4a19795f767733a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98787640"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089438"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 작성 키로 마이그레이션
 
@@ -33,7 +33,7 @@ LUIS(Language Understanding) 작성 인증이 이메일 계정에서 Azure 리�
 마이그레이션은 [LUIS 포털](https://www.luis.ai)에서 수행해야 합니다. 예를 들어 LUIS CLI를 사용하여 작성 키를 만드는 경우 LUIS 포털에서 마이그레이션 프로세스를 완료해야 합니다. 마이그레이션 후에도 애플리케이션에 공동 작성자가 있을 수 있지만 이들은 애플리케이션 수준 대신 Azure 리소스 수준에 추가됩니다. 계정 마이그레이션은 취소할 수 없습니다.
 
 > [!Note]
-> * 예측 런타임 리소스를 만들어야 하는 경우에는 [별도의 프로세스](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal)를 수행해야 합니다.
+> * 예측 런타임 리소스를 만들어야 하는 경우에는 [별도의 프로세스](luis-how-to-azure-subscription.md#create-luis-resources)를 수행해야 합니다.
 > * 애플리케이션 및 기여자가 어떻게 영향을 받는지에 대한 자세한 내용은 아래의 [마이그레이션 참고 사항](#migration-notes) 섹션을 참조하세요. 
 > * F0 계층에 표시된 대로 LUIS 앱 작성은 무료입니다. [가격 책정 계층에 대한 자세한 정보](luis-limits.md#key-limits)를 알아봅니다.
 

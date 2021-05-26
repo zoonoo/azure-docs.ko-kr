@@ -3,22 +3,22 @@ title: 사이드카 컨테이너로 TLS 사용
 description: 사이드카 컨테이너에서 Nginx를 실행하여 Azure Container Instances에서 실행되는 컨테이너 그룹에 대한 SSL 또는 TLS 엔드포인트를 만듭니다.
 ms.topic: article
 ms.date: 07/02/2020
-ms.openlocfilehash: 6587a84e7cbe655c509f74e9e39e93010e7058be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17467cab93f3a930c8290f73c5f4c971b53f12b5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96558082"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090553"
 ---
 # <a name="enable-a-tls-endpoint-in-a-sidecar-container"></a>사이드카 컨테이너에서 TLS 엔드포인트 사용
 
 이 문서는 TLS/SSL 공급자를 실행하는 애플리케이션 컨테이너 및 사이드카 컨테이너를 사용하여 [컨테이너 그룹](container-instances-container-groups.md)을 만드는 방법을 보여 줍니다. 별도의 TLS 엔드포인트를 사용하여 컨테이너 그룹을 설정하여 애플리케이션 코드를 변경하지 않고 애플리케이션에 대한 TLS 연결을 사용하도록 설정합니다.
 
 두 개의 컨테이너로 구성된 예제 컨테이너 그룹을 설정합니다.
-* 퍼블릭 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 이미지를 사용하여 간단한 웹앱을 실행하는 애플리케이션 컨테이너입니다. 
-* TLS를 사용하도록 구성된 퍼블릭 [Nginx](https://hub.docker.com/_/nginx) 이미지를 실행하는 사이드카 컨테이너입니다. 
+* 퍼블릭 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 이미지를 사용하여 간단한 웹앱을 실행하는 애플리케이션 컨테이너입니다.
+* TLS를 사용하도록 구성된 퍼블릭 [Nginx](https://hub.docker.com/_/nginx) 이미지를 실행하는 사이드카 컨테이너입니다.
 
-이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용하여 Nginx 포트 443만 노출합니다. Nginx는 포트 80에서 내부적으로 수신 대기하는 도우미 웹앱에 대한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기하는 컨테이너 앱에 대한 예제를 적용할 수 있습니다. 
+이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용하여 Nginx 포트 443만 노출합니다. Nginx는 포트 80에서 내부적으로 수신 대기하는 도우미 웹앱에 대한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기하는 컨테이너 앱에 대한 예제를 적용할 수 있습니다.
 
 컨테이너 그룹에서 TLS를 사용하도록 설정하는 다른 방법은 [다음 단계](#next-steps)를 참조하세요.
 
@@ -112,7 +112,7 @@ http {
 
         location / {
             proxy_pass http://localhost:80; # TODO: replace port if app listens on port other than 80
-            
+
             proxy_set_header Connection "";
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
@@ -193,13 +193,13 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="deploy-the-container-group"></a>컨테이너 그룹 배포
 
-[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다.
+[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-[az container create](/cli/azure/container#az-container-create) 명령을 사용하여 컨테이너 그룹을 배포하고, YAML 파일을 인수로 전달합니다.
+[az container create](/cli/azure/container#az_container_create) 명령을 사용하여 컨테이너 그룹을 배포하고, YAML 파일을 인수로 전달합니다.
 
 ```azurecli
 az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
@@ -207,7 +207,7 @@ az container create --resource-group <myResourceGroup> --file deploy-aci.yaml
 
 ### <a name="view-deployment-state"></a>배포 상태 확인
 
-배포 상태를 확인하려면 다음 [az container show](/cli/azure/container#az-container-show) 명령을 사용합니다.
+배포 상태를 확인하려면 다음 [az container show](/cli/azure/container#az_container_show) 명령을 사용합니다.
 
 ```azurecli
 az container show --resource-group <myResourceGroup> --name app-with-ssl --output table
@@ -242,4 +242,4 @@ app-with-ssl  myresourcegroup  Running   nginx, mcr.microsoft.com/azuredocs/aci-
 
 * [Azure Functions 프록시](../azure-functions/functions-proxies.md)
 * [Azure API Management](../api-management/api-management-key-concepts.md)
-* [Azure Application Gateway](../application-gateway/overview.md) - 샘플 [배포 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)을 참조하세요.
+* [Azure Application Gateway](../application-gateway/overview.md) - 샘플 [배포 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wordpress/aci-wordpress-vnet)을 참조하세요.

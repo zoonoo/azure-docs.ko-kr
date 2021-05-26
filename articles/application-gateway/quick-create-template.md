@@ -9,12 +9,12 @@ ms.date: 01/20/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell - mvc - subject-armqs - mode-arm
-ms.openlocfilehash: 09efb78251e6ca385a2bd45be722aa267736d318
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: ab9a586e657652c50f182fd1dcb7e085e2e8dac7
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321324"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839170"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - ARM 템플릿
 
@@ -28,7 +28,7 @@ ms.locfileid: "108321324"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -40,7 +40,7 @@ ms.locfileid: "108321324"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/ag-docs-qs/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/ag-docs-qs/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/ag-docs-qs/azuredeploy.json":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -58,7 +58,7 @@ Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 IIS를 실행하는 백 엔드 풀에 애플리케이션 게이트웨이, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만들고, 가상 머신 관리자의 사용자 이름 및 암호를 입력합니다.
 3. **검토 + 만들기** 를 선택한 다음, **만들기** 를 선택합니다.

@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 2ba824f72c560fb94b6e2af6964b0431e587d6f6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 192d4c6ac47516a16e3f913b695422a62b05e6f3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736674"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089784"
 ---
-|Name<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
+|이름<br /><sub>(Azure Portal)</sub> |Description |효과 |버전<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
 |[Azure SignalR Service는 공용 네트워크 액세스를 사용하지 않도록 설정해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F21a9766a-82a5-4747-abb5-650b6dbba6d0) |Azure SignalR Service 리소스의 보안을 향상하려면 공용 인터넷에 노출되지 않고 프라이빗 엔드포인트에서만 액세스할 수 있는지 확인합니다. [https://aka.ms/asrs/networkacls](https://aka.ms/asrs/networkacls)에 설명된 대로 공용 네트워크 액세스 속성을 사용하지 않도록 설정합니다. 이 옵션은 Azure IP 범위를 벗어나는 공용 주소 공간에서의 액세스를 사용하지 않도록 설정하고, IP 또는 가상 네트워크 기반 방화벽 규칙과 일치하는 모든 로그인을 거부합니다. 이로 인해 데이터 누출 위험이 줄어듭니다. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_PublicNetworkAccessDisabled_AuditDeny.json) |
 |[Azure SignalR Service는 Private Link 지원 SKU를 사용해야 함](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F464a1620-21b5-448d-8ce6-d4ac6d1bc49a) |Azure Private Link를 통해 원본 또는 대상의 공용 IP 주소가 없어도 가상 네트워크를 Azure 서비스에 연결할 수 있어 공용 데이터 유출 위험으로부터 리소스를 보호할 수 있습니다. 정책은 Azure SignalR Service에 대한 Private Link 지원 SKU로 제한됩니다. [https://aka.ms/asrs/privatelink](https://aka.ms/asrs/privatelink)에서 프라이빗 링크에 대해 자세히 알아보세요. |감사, 거부, 사용 안 함 |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SignalR/SignalR_AllowedSKU_AuditDeny.json) |

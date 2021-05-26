@@ -7,12 +7,12 @@ ms.topic: guide
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 2975d1f1558bc7f9e4a12c18882e43a163b97982
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 867b9dfefd47e38b5bcfd54ae54aab607e7acea5
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104593427"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814913"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Azure Marketplace의 VM에 대한 일반적인 질문
 
@@ -474,8 +474,8 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 ## <a name="how-do-i-test-a-hidden-preview-image"></a>숨겨진 미리 보기 이미지를 테스트하려면 어떻게 하나요?
 
 빠른 시작 템플릿을 사용하여 숨겨진 미리 보기 이미지를 배포할 수 있습니다.
-미리 보기 이미지를 배포하려면, 
-1. [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux) 또는 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)용 빠른 시작 템플릿으로 각각 이동하여 "Azure에 배포"를 선택합니다. 그러면 Azure Portal로 이동합니다.
+미리 보기 이미지를 배포하려면,
+1. [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-linux/) 또는 [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)용 빠른 시작 템플릿으로 각각 이동하여 "Azure에 배포"를 선택합니다. 그러면 Azure Portal로 이동합니다.
 2. Azure Portal에서 "템플릿 편집"을 선택합니다.
 3. JSON 템플릿에서 imageReference를 검색하고 이미지의 publisherid, offerid, skuid 및 버전을 업데이트합니다. 미리 보기 이미지를 테스트하려면 offerid에 "-PREVIEW"를 추가합니다.
  ![image](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)

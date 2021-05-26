@@ -3,12 +3,12 @@ title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 25d28bb0fc35ef76231c085dc1d9d8a1234a264c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7627ae6dabb75782549ed17fc6e590b7bc7da77d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587753"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092749"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용하여 [Azure Application Insights][start]에서 Azure SQL Database로 원격 분석 데이터를 이동하는 방법을 보여 줍니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "100587753"
 
 1. [웹 페이지용 Application Insights를 설치합니다](./javascript.md). 
    
-    (이 예제에서는 클라이언트 브라우저에서 페이지 보기 데이터를 처리하는 데 초점을 두었지만 [Java](./java-get-started.md) 또는 [ASP.NET](./asp-net.md) 앱의 서버 쪽에 대한 Application Insights, 프로세스 요청, 종속성 및 기타 서버 원격 분석도 설정할 수 있습니다.)
+    (이 예제에서는 클라이언트 브라우저에서 페이지 보기 데이터를 처리하는 데 초점을 두었지만 [Java](./java-in-process-agent.md) 또는 [ASP.NET](./asp-net.md) 앱의 서버 쪽에 대한 Application Insights, 프로세스 요청, 종속성 및 기타 서버 원격 분석도 설정할 수 있습니다.)
 2. 앱을 게시하고 Application Insights 리소스에 표시되는 원격 분석 데이터를 확인합니다.
 
 ## <a name="create-storage-in-azure"></a>Azure에서 스토리지 만들기

@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16d5fe90be71f39d448e4c1ce10c0373f6bfc86c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73e4edd25946f71cfb6d14a379d5b004343cc4e3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463105"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367240"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
 
@@ -36,7 +36,7 @@ Machine Learning Studio는 기계 학습 모델을 실험, 학습 및 배포하�
 > * 학습된 기계 학습 모델을 컨테이너화합니다.
 > * 컨테이너화된 기계 학습 모델에서 IoT Edge 모듈을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서는 IoT Edge에서 Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 시리즈의 각 문서는 이전 문서의 작업을 기반으로 합니다. 시리즈의 다른 문서를 참조하지 않고 이 문서를 직접 참조한 경우 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)를 참조하세요.
 
@@ -52,7 +52,7 @@ Machine Learning Studio를 사용하여 두 개의 Jupyter Notebook 및 지원 �
 
 ### <a name="install-azure-machine-learning-visual-studio-code-extension"></a>Azure Machine Learning Visual Studio Code 확장 설치
 
-개발 VM의 Visual Studio Code에는 이 확장이 설치되어 있어야 합니다. 다른 인스턴스에서 실행되는 경우 [Visual Studio Code 확장 설정](../machine-learning/tutorial-setup-vscode-extension.md)에서 설명한 대로 확장을 다시 설치합니다.
+개발 VM의 Visual Studio Code에는 이 확장이 설치되어 있어야 합니다. 다른 인스턴스에서 실행되는 경우 [Visual Studio Code 확장 설정](../machine-learning/how-to-setup-vs-code.md)에서 설명한 대로 확장을 다시 설치합니다.
 
 ### <a name="create-an-azure-machine-learning-account"></a>Azure Machine Learning 계정 만들기
 

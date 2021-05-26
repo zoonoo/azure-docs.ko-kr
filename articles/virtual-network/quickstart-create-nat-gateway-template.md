@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: 6a0f7e0e1421242e68f156754a9cbf42b57a2ef3
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 13d419623bd6c2939ddfedd29f29527028ced74c
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071229"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813257"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>빠른 시작: NAT 게이트웨이 만들기 - ARM 템플릿
 
@@ -30,7 +30,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Virtual Network 
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Ubuntu VM은 NAT 게이트웨이 리소스와 연결된 서브넷에 배포됩니다.
 
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-1-vm/azuredeploy.json":::
 
 템플릿에는 아홉 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -69,7 +69,7 @@ Ubuntu VM은 NAT 게이트웨이 리소스와 연결된 서브넷에 배포됩�
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupNAT"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json"
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/nat-gateway-1-vm/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -84,7 +84,7 @@ az deployment group create \
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/nat-gateway-1-vm/azuredeploy.json"
 
 $resourceGroupName = "myResourceGroupNAT"
 
@@ -94,7 +94,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 **Azure Portal**
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>배포된 리소스 검토
 

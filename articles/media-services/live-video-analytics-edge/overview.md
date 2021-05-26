@@ -3,14 +3,16 @@ title: Live Video Analytics on IoT Edge란? - Azure
 description: 이 항목에서는 Live Video Analytics on IoT Edge의 개요를 제공합니다. 이 플랫폼은 IoT 솔루션을 개선하는 데 사용할 수 있는 기능을 제공합니다. 예를 들어 라이브 비디오를 캡처, 기록, 분석하고 결과(비디오 및/또는 비디오 분석)를 Azure 서비스에 게시합니다.
 ms.topic: overview
 ms.date: 05/27/2020
-ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 577a3397f1ac6df59e87b55ec7aa6e24395ae92b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90904355"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372100"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>Live Video Analytics on IoT Edge란? (미리 보기)
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 Live Video Analytics on IoT Edge는 Edge 및 클라우드를 포괄하는 인텔리전트 비디오 애플리케이션을 빌드하기 위한 플랫폼을 제공합니다. 이 플랫폼은 라이브 비디오를 캡처, 녹화 및 분석하는 기능과 결과(비디오 및/또는 비디오 분석)를 Azure 서비스(클라우드 및/또는 Edge)에 게시하는 기능을 제공합니다. 이 플랫폼을 사용하여 비디오 분석을 통해 IoT 솔루션을 개선할 수 있습니다. Live Video Analytics on IoT Edge 기능을 Stream Analytics on IoT Edge, Cognitive Services on IoT Edge와 같은 다른 Azure IoT Edge 모듈은 물론 Media Services, Event Hub, Cognitive Services 등과 같은 클라우드의 Azure 서비스와 결합하여 강력한 하이브리드(예: 에지 + 클라우드) 애플리케이션을 빌드할 수 있습니다.
 

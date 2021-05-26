@@ -4,17 +4,17 @@ description: 이 문서에서는 개발자 계정을 만드는 방법을 보여�
 services: active-directory
 author: barclayn
 manager: davba
-ms.service: identity
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: 5d6386d7ed97868f73d994f272c8069f922a1f04
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 2a6b2f9b464a7776b3c0dd58736ca64878e0b65c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108207270"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466149"
 ---
 # <a name="how-to-create-a-free-azure-active-directory-developer-tenant"></a>무료 Azure Active Directory 개발자 테넌트를 만드는 방법
 
