@@ -1,16 +1,16 @@
 ---
-title: Azure Event Grid에 게시하는 Durable Functions(미리 보기)
+title: Azure Event Grid에 게시하는 Durable Functions
 description: Durable Functions에 대한 자동 Azure Event Grid 게시를 구성하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 04/25/2020
-ms.openlocfilehash: 44df100a5c794abf918a09dea0f94d30ddf916d3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 05/11/2020
+ms.openlocfilehash: 51069504bef29d9761d5c36be77fef33fd3d1ca6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175960"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377556"
 ---
-# <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid에 게시하는 Durable Functions(미리 보기)
+# <a name="durable-functions-publishing-to-azure-event-grid"></a>Azure Event Grid에 게시하는 Durable Functions
 
 이 문서에서는 오케스트레이션 수명 주기 이벤트(예: 만들어짐, 완료됨 및 실패)를 사용자 지정 [Azure Event Grid 토픽](../../event-grid/overview.md)에 게시하도록 Durable Functions를 설정하는 방법을 설명합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "102175960"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Durable Functions 프로젝트에서 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)를 설치합니다.
-* [Azure Storage 에뮬레이터](../../storage/common/storage-use-emulator.md)(Windows에만 해당)를 설치하거나 기존 Azure Storage 계정을 사용합니다.
+* [Azure Storage Emulator](../../storage/common/storage-use-emulator.md)를 설치하거나 기존 Azure Storage 계정을 사용합니다.
 * [Azure CLI](/cli/azure/)를 설치하거나 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
 
 ## <a name="create-a-custom-event-grid-topic"></a>사용자 지정 Event Grid 토픽 만들기
@@ -103,22 +103,21 @@ Durable Functions 프로젝트에서 `host.json` 파일을 찾습니다.
 
 가능한 Azure Event Grid 구성 속성은 [host.json 문서](../functions-host-json.md#durabletask)에서 찾을 수 있습니다. `host.json` 파일을 구성한 후 함수 앱은 Event Grid 토픽에 수명 주기 이벤트를 보냅니다. 로컬 및 Azure 모두에서 함수 앱을 실행하면 이 작업이 시작됩니다.
 
-함수 앱 및 `local.settings.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
+함수 앱 및 `local.settings.json`에서 토픽 키에 대한 앱 설정을 지정합니다. 다음 JSON은 Azure Storage 에뮬레이터를 사용하는 로컬 디버깅에 대한 `local.settings.json` 샘플입니다. `<topic_key>`를 토픽 키로 바꿉니다.  
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
         "EventGridKey": "<topic_key>"
     }
 }
 ```
 
-[스토리지 에뮬레이터](../../storage/common/storage-use-emulator.md)(Windows에만 해당)를 사용하는 경우 작동하는지 확인합니다. 실행하기 전에 `AzureStorageEmulator.exe clear all` 명령을 실행하는 것이 좋습니다.
+실제 Azure Storage 계정 대신 [Storage Emulator](../../storage/common/storage-use-emulator.md)를 사용하는 경우 실행 중인지 확인합니다. 실행하기 전에 기존 스토리지 데이터를 지우는 것이 좋습니다.
 
-기존 Azure Storage 계정을 사용하는 경우 `local.settings.json`의 `UseDevelopmentStorage=true`를 해당 연결 문자열로 바꿉니다.
+실제 Azure Storage 계정을 사용하는 경우 `local.settings.json`의 `UseDevelopmentStorage=true`를 해당 연결 문자열로 바꿉니다.
 
 ## <a name="create-functions-that-listen-for-events"></a>이벤트를 수신 대기하는 함수 만들기
 

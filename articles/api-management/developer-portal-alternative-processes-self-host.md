@@ -7,12 +7,12 @@ ms.author: apimpm
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
-ms.openlocfilehash: cb14ecd05c1590667ac9b5618b3f0de9da30ce96
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 207f5cbfb0e8f6d9d52920f7e4c72d7e663489fc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741362"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459353"
 ---
 # <a name="alternative-approaches-to-self-host-developer-portal"></a>자체 호스팅 개발자 포털의 대안
 
@@ -52,7 +52,7 @@ npm run build-publisher
 
 Azure 함수 앱을 사용하여 게시를 구현하려면 먼저 다음과 같은 작업을 수행해야 합니다.
 
-- [Azure 함수를 만듭니다](../azure-functions/functions-create-first-azure-function.md). 함수는 JavaScript 언어 함수여야 합니다.
+- [Azure 함수를 만듭니다](../azure-functions/functions-get-started.md). 함수는 JavaScript 언어 함수여야 합니다.
 - Install Azure Functions Core Tools를 설치합니다.
     ```console
     npm install –g azure-function-core-tools
@@ -81,7 +81,7 @@ npm run build-function
 
 그런 다음 Azure CLI에 로그인하여 함수를 배포합니다.
 
-```sh
+```azurecli
 az login
 cd ./dist/function
 func azure functionapp publish <function app name>

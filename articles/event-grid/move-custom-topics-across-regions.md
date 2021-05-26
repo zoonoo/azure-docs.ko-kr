@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Grid 사용자 지정 토픽을 한
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a8e4283b0b9ed2a6bb7080e9a0fa05bf8f409cc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89145345"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472218"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Azure Event Grid 사용자 지정 토픽을 다른 지역으로 이동
 여러 이유로 리소스를 다른 지역으로 이동하는 것이 좋습니다. 예를 들어 새 Azure 지역을 활용하거나 내부 정책 및 거버넌스 요구 사항을 충족하기 위해 이동하거나 용량 계획 요구 사항에 대한 응답으로 이동할 수 있습니다. 
@@ -46,7 +46,7 @@ ms.locfileid: "89145345"
     > [!IMPORTANT]
     > 토픽만 템플릿으로 내보내집니다. 토픽 구독은 내보내지지 않습니다. 따라서 토픽을 대상 지역으로 이동한 후에 토픽 구독을 만들어야 합니다. 
 5. 포털에서 다운로드한 **.zip** 파일을 찾은 다음, 선택한 폴더에 파일 압축을 풉니다. zip 파일에는 템플릿 및 매개 변수 JSON 파일이 포함되어 있습니다. 
-1. 선택한 텍스트 편집기에서 **template.json** 을 엽니다. 
+1. 선택한 편집기에서 **template.json** 을 엽니다. 
 8. **토픽** 리소스의 `location`을 대상 지역 또는 위치로 업데이트합니다. 위치 코드를 확인하려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요. 지역 코드는 공백이 없는 지역 이름입니다. 예를 들어 `West US`는 `westus`와 같습니다.
 
     ```json
@@ -66,8 +66,8 @@ ms.locfileid: "89145345"
 4. **만들기** 를 선택합니다.
 5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 6. **파일 로드** 를 선택한 다음, 지침에 따라 마지막 섹션에서 다운로드한 **template.json** 파일을 로드합니다.
-7. **저장** 을 선택하여 템플릿을 사용합니다. 
-8. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다. 
+7. **저장** 을 선택하여 템플릿을 저장합니다. 
+8. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다: 
     1. Azure **구독** 을 선택합니다. 
     1. 대상 지역에서 기존 **리소스 그룹** 을 선택하거나 새로 만듭니다. 
     1. **지역** 에서 대상 지역을 선택합니다. 기존 리소스 그룹을 선택한 경우 이 설정은 읽기 전용입니다. 
@@ -106,7 +106,6 @@ Azure Portal을 사용하여 사용자 지정 토픽이 포함된 리소스 그�
 Event Grid 사용자 지정 토픽을 한 지역에서 다른 지역으로 이동하는 방법을 배웠습니다. 지역 간에 시스템 토픽, 도메인, 파트너 네임스페이스를 이동하려면 다음 문서를 참조하세요.
 
 - [지역 간에 시스템 토픽 이동](move-system-topics-across-regions.md) 
-- [지역 간에 도메인 이동](move-domains-across-regions.md) 
-- [지역 간에 파트너 네임스페이스 이동](move-partner-namespaces-across-regions.md)
+- [지역 간 도메인 이동](move-domains-across-regions.md). 
 
-지역 간에 리소스를 이동하는 방법과 Azure의 재해 복구에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조하세요.
+지역 간 리소스를 이동하는 방법과 Azure의 재해 복구에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조하세요.

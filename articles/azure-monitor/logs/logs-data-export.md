@@ -2,16 +2,16 @@
 title: Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 description: Log Analytics 데이터 내보내기를 사용하면 데이터를 수집하는 동안 선택한 테이블의 데이터를 Log Analytics 작업 영역에서 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다.
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: bwren
 ms.author: bwren
-ms.date: 02/07/2021
-ms.openlocfilehash: 981ebbecd4783ae529c5b0d97c82ea052511f77f
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.date: 05/07/2021
+ms.openlocfilehash: 827e860c0b25945339a9e1640b94863697e04f88
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384190"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377144"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기(미리 보기)
 Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기를 사용하면 데이터를 수집하는 동안 Log Analytics 작업 영역에서 선택한 테이블의 데이터를 Azure Storage 계정 또는 Azure Event Hubs로 계속 내보낼 수 있습니다. 이 문서에서는 이 기능 및 작업 영역에서 데이터 내보내기를 구성하는 단계에 대한 세부 정보를 제공합니다.
@@ -34,26 +34,21 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 ## <a name="limitations"></a>제한 사항
 
 - 현재 CLI 또는 REST 요청을 사용하여 구성을 수행할 수 있습니다. Azure Portal 또는 PowerShell은 아직 지원되지 않습니다.
-- CLI 및 REST의 ```--export-all-tables``` 옵션은 지원되지 않으며 제거될 예정입니다. 내보내기 규칙에서 테이블 목록을 명시적으로 제공해야 합니다.
-- 지원되는 테이블은 현재 아래의 [지원되는 테이블](#supported-tables) 섹션에 한정되어 있습니다. 예를 들어 사용자 지정 로그 테이블은 현재 지원되지 않습니다.
+- CLI 및 REST의 `--export-all-tables` 옵션은 지원되지 않으며 제거될 예정입니다. 내보내기 규칙에서 테이블 목록을 명시적으로 제공해야 합니다.
+- 지원되는 테이블은 현재 아래의 [지원되는 테이블](#supported-tables) 섹션에 명시된 항목으로 한정됩니다. 예를 들어 사용자 지정 로그 테이블은 현재 지원되지 않습니다.
 - 데이터 내보내기 규칙에 지원되지 않는 테이블이 포함되어 있으면 작업이 성공하지만 테이블이 지원될 때까지 해당 테이블에 대한 데이터를 내보내지 않습니다. 
-- 데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 ```Table <tableName> does not exist in the workspace``` 오류와 함께 실패합니다.
-- Log Analytics 작업 영역은 다음을 제외하고 모든 지역에 있을 수 있습니다.
-  - Azure Government 지역
-  - 일본 서부
-  - 브라질 남동부
-  - 노르웨이 동부
-  - 아랍에미리트 북부
-- 하나의 작업 영역에 두 개의 내보내기 규칙을 만들 수 있습니다. 하나는 이벤트 허브에 대한 규칙이고 하나는 스토리지 계정에 대한 규칙일 수 있습니다.
+- 데이터 내보내기 규칙에 존재하지 않는 테이블이 포함되어 있으면 `Table <tableName> does not exist in the workspace` 오류와 함께 실패합니다.
+- 데이터 내보내기는 모든 지역에서 사용할 수 있지만 현재 Azure Government 지역, 일본 서부, 브라질 남동부, 노르웨이 동부, 노르웨이 서부, 아랍에미리트 북부, 아랍에미리트 중부, 오스트레일리아 중부 2, 스위스 북부, 스위스 서부, 독일 중서부, 인도 남부, 프랑스 남부, 일본 서부에서는 사용할 수 없습니다.
+- 작업 영역에 활성화된 규칙을 최대 10개까지 정의할 수 있습니다. 추가 규칙은 허용되지만 비활성 상태입니다. 
+- 대상은 작업 영역에 있는 모든 내보내기 규칙에서 고유해야 합니다.
 - 대상 스토리지 계정 또는 이벤트 허브는 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다.
 - 내보낼 테이블의 이름은 스토리지 계정의 경우 60자를 넘지 않아야 하며 이벤트 허브의 경우는 47자를 넘지 않아야 합니다. 이름이 긴 테이블은 내보내지 않습니다.
-- Azure Data Lake Storage에 대한 추가 Blob 지원은 현재 [제한된 공개 미리 보기](https://azure.microsoft.com/updates/append-blob-support-for-azure-data-lake-storage-preview/)로 제공됩니다.
 
 ## <a name="data-completeness"></a>데이터 완성도
 데이터 내보내기는 대상을 사용할 수 없는 경우 최대 30분 동안 데이터 전송을 계속 다시 시도합니다. 30분 후에도 계속 사용할 수 없는 경우 대상을 사용할 수 있을 때까지 데이터를 버리게 됩니다.
 
 ## <a name="cost"></a>비용
-현재 데이터 내보내기 기능에 대한 추가 요금은 없습니다. 데이터 내보내기에 대한 가격 책정은 나중에 발표될 예정이며 청구를 시작하기 전에 공지합니다. 알림 기간 후에도 계속 데이터 내보내기를 사용하도록 선택하면 해당되는 요금이 청구됩니다.
+현재 데이터 내보내기 기능에 대한 추가 요금은 없습니다. 데이터 내보내기에 대한 가격 책정은 나중에 발표될 예정이며 청구 시작 전에 미리 공지될 예정입니다. 알림 기간 후에도 계속 데이터 내보내기를 사용하도록 선택하면 해당되는 요금이 청구됩니다.
 
 ## <a name="export-destinations"></a>내보내기 대상
 
@@ -68,23 +63,20 @@ Log Analytics 작업 영역 데이터 내보내기는 Log Analytics 작업 영�
 
 Log Analytics 데이터 내보내기에서는 시간 기반 보존 정책에서 *allowProtectedAppendWrites* 설정을 사용하도록 설정한 경우 변경이 불가능한 스토리지 계정에 추가 Blob을 쓸 수 있습니다. 이를 통해 추가 Blob에 새 블록을 쓸 수 있으며 불변성 보호 및 규정 준수를 유지 관리할 수 있습니다. [보호된 추가 Blob 쓰기 허용](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes)을 참조하세요.
 
-> [!NOTE]
-> 이제 모든 Azure 지역의 미리 보기에서 Azure Data Lake 스토리지에 대한 추가 Blob 지원이 제공됩니다. Azure Data Lake 스토리지에 내보내기 규칙을 만들기 전에 [제한된 공개 미리 보기에 등록](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pURDk2NjMzUTVEVzU5UU1XUlRXSTlHSlkxQS4u)합니다. 이 등록이 없으면 내보내기가 작동하지 않습니다.
-
 ### <a name="event-hub"></a>이벤트 허브
 데이터는 Azure Monitor에 도달하면 거의 실시간으로 이벤트 허브로 전송됩니다. 이벤트 허브는 내보내는 각 데이터 형식에 대해 생성되며 이름은 *am-* 뒤에 테이블 이름이 지정됩니다. 예를 들어 *SecurityEvent* 테이블은 *am-SecurityEvent* 라는 이름의 이벤트 허브로 전송됩니다. 내보낸 데이터를 특정 이벤트 허브에 연결하려는 경우 또는 이름이 47자 제한을 초과하는 테이블이 있는 경우, 고유한 이벤트 허브 이름을 제공하고 정의된 테이블의 모든 데이터를 내보낼 수 있습니다.
 
 > [!IMPORTANT]
-> [네임스페이스당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개를 넘는 테이블을 내보내는 경우 모든 테이블을 해당 이벤트 허브로 내보내려면 사용자 고유의 이벤트 허브 이름을 제공합니다.
+> ['기본' 및 '표준' 네임스페이스 계층당 지원되는 이벤트 허브 수는 10개입니다](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). 10개가 넘는 테이블을 내보내는 경우, 여러 이벤트 허브 네임스페이스에 대한 여러 내보내기 규칙으로 테이블을 분할하거나, 내보내기 규칙에 이벤트 허브 이름을 지정하고 모든 테이블을 해당 이벤트 허브로 내보냅니다.
 
 고려 사항:
-1. '기본' 이벤트 허브 SKU는 낮은 이벤트 크기 [제한](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers)을 지원하며 작업 영역의 일부 로그는 이를 초과하여 삭제될 수 있습니다. '표준' 또는 '전용' 이벤트 허브를 내보내기 대상으로 사용하는 것이 좋습니다.
-2. 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하는 경우가 많으며, 높은 전송 속도를 처리하고 제한 시나리오 및 데이터 대기 시간을 방지하려면 이벤트 허브 규모를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용하여 처리량 단위 수를 자동으로 스케일 업하여 늘리고 사용량 요구 사항을 충족해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md)을 참조하세요.
+1. '기본' 이벤트 허브 SKU는 낮은 이벤트 크기 [제한](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers)을 지원하며 작업 영역의 일부 로그는 이를 초과하여 삭제될 수 있습니다. '표준' 또는 '전용' 이벤트 허브를 내보내기 대상으로 사용하는 것이 좋습니다.
+2. 내보낸 데이터의 볼륨은 시간이 지남에 따라 증가하는 경우가 많으며, 높은 전송 속도를 처리하고 제한 시나리오 및 데이터 대기 시간을 방지하려면 이벤트 허브 규모를 늘려야 합니다. Event Hubs의 자동 확장 기능을 사용하여 처리량 단위 수를 자동으로 스케일 업하여 늘려서 사용량 요구 사항을 충족해야 합니다. 자세한 내용은 [Azure Event Hubs 처리량 단위 자동 확장](../../event-hubs/event-hubs-auto-inflate.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 다음은 Log Analytics 데이터 내보내기 구성 전에 완료해야 하는 필수 조건입니다.
 
-- 스토리지 계정 및 이벤트 허브는 이미 만들어져 있고 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 스토리지 계정에 복제해야 하는 경우 [Azure Storage 중복 옵션](../../storage/common/storage-redundancy.md) 중 원하는 옵션을 사용할 수 있습니다.  
+- 대상은 내보내기 규칙 구성 전에 생성되어야 하며 Log Analytics 작업 영역과 동일한 지역에 있어야 합니다. 데이터를 다른 스토리지 계정에 복제해야 하는 경우 [Azure Storage 중복 옵션](../../storage/common/storage-redundancy.md) 중 원하는 옵션을 사용할 수 있습니다.  
 - 스토리지 계정은 StorageV1 또는 StorageV2여야 합니다. 클래식 스토리지는 지원되지 않습니다.  
 - 선택한 네트워크에서 액세스할 수 있도록 스토리지 계정을 구성한 경우 스토리지 계정 설정에 예외를 추가하여 Azure Monitor가 스토리지에 쓸 수 있도록 해야 합니다.
 
@@ -114,7 +106,12 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 [![스토리지 계정 방화벽 및 가상 네트워크](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
 ### <a name="create-or-update-data-export-rule"></a>데이터 내보내기 규칙 만들기 또는 업데이트
-데이터 내보내기 규칙은 데이터를 내보낼 테이블과 대상을 정의합니다. 현재는 각 대상에 대해 하나의 규칙을 만들 수 있습니다.
+데이터 내보내기 규칙은 데이터를 내보낼 테이블과 대상을 정의합니다. 작업 영역에 활성화된 규칙이 10개 있을 수 있으며, 이때 10개를 초과하는 추가 규칙은 비활성 상태가 되어야 합니다. 대상은 작업 영역에 있는 모든 내보내기 규칙에서 고유해야 합니다.
+
+> [!NOTE]
+> 데이터 내보내기는 [스토리지 계정 확장성](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts), [이벤트 허브 네임스페이스 할당량](../../event-hubs/event-hubs-quotas.md) 등의 몇 가지 제한 사항이 있지만 사용자가 소유한 대상에 로그를 보냅니다. 제한에 거의 도달한 경우에는 제한할 대상을 모니터링하고 측정값을 적용하는 것이 좋습니다. 예를 들면 다음과 같습니다. 
+> - 이벤트 허브의 자동 확장 기능을 자동으로 스케일 업되도록 설정하고 TU(처리량 단위) 수를 늘립니다. 자동 확장이 최대치일 경우 추가 TU를 요청할 수 있습니다.
+> - 서로 다른 대상에 대한 여러 내보내기 규칙으로 테이블 분할
 
 내보내기 규칙은 작업 영역에 있는 테이블을 포함해야 합니다. 작업 영역에서 사용 가능한 테이블 목록에 대해 이 쿼리를 실행합니다.
 
@@ -149,7 +146,7 @@ az monitor log-analytics workspace data-export create --resource-group resourceG
 CLI를 사용하여 특정 이벤트 허브로 데이터 내보내기 규칙을 만들려면 다음 명령을 사용합니다. 제공된 이벤트 허브 이름으로 모든 테이블을 내보냅니다. 
 
 ```azurecli
-$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventHubName/eventhub-name'
+$eventHubResourceId = '/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.EventHub/namespaces/namespaces-name/eventhubs/eventhub-name'
 az monitor log-analytics workspace data-export create --resource-group resourceGroupName --workspace-name workspaceName --name ruleName --tables SecurityEvent Heartbeat --destination $eventHubResourceId
 ```
 
@@ -620,7 +617,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | DnsEvents |  |
 | DnsInventory |  |
 | Dynamics365Activity |  |
-| 이벤트 | 부분 지원 – 이 테이블에 대한 일부 데이터가 스토리지 계정을 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| 이벤트 | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다. |
 | ExchangeAssessmentRecommendation |  |
 | FailedIngestion |  |
 | FunctionAppLogs |  |
@@ -656,7 +653,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SecurityBaseline |  |
 | SecurityBaselineSummary |  |
 | SecurityDetection |  |
-| SecurityEvent | 부분 지원 – 이 테이블에 대한 일부 데이터가 스토리지 계정을 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| SecurityEvent | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다. |
 | SecurityIncident |  |
 | SecurityIoTRawEvent |  |
 | SecurityNestedRecommendation |  |
@@ -681,7 +678,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 | SynapseSqlPoolRequestSteps |  |
 | SynapseSqlPoolSqlRequests |  |
 | SynapseSqlPoolWaits |  |
-| syslog | 부분 지원 – 이 테이블에 대한 일부 데이터가 스토리지 계정을 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
+| syslog | 부분 지원 – Log Analytics 에이전트(MMA) 또는 Azure Monitor 에이전트(AMA)에서 수신된 데이터는 내보내기에 완벽하게 지원됩니다. 진단 확장 에이전트를 통해 수신된 데이터는 스토리지를 통해 수집되지만 내보내기에 지원되지는 않습니다. |
 | ThreatIntelligenceIndicator |  |
 | 업데이트 | 부분 지원 – 일부 데이터가 내보내기에 대해 지원되지 않는 내부 서비스를 통해 수집됩니다. 현재 이 부분은 내보내기에서 누락됩니다. |
 | UpdateRunProgress |  |
