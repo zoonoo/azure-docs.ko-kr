@@ -450,8 +450,6 @@
           href: manage/review-enterprise-billing.md
         - name: 구독 용도 검토
           href: manage/review-subscription-billing.md
-        - name: 리소스 사용 검토
-          href: manage/review-service-usage-api.md
 - name: Cloudyn
   items:
     - name: 개요

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe42b98813f1687c78827b355a707b0147d6d2a4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8553da2ff1ff80dcaba8c6ff782c31602820a2ec
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067285"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378338"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -60,7 +60,7 @@ Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK의 버전 
  
 - 연중무휴 라이브 이벤트 지원
 - .NET Core, Node.js, Python, Java, Go, Ruby용 ARM REST API, 클라이언트 SDK
-- 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](https://review.docs.microsoft.com/en-us/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](../latest/migrate-v-2-v-3-migration-benefits.md)
 
 #### <a name="action-required"></a>작업 필요:
 
@@ -89,7 +89,7 @@ Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK의 버전 
 
 ### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. Azure Media Services Video Indexer는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 사용 중지 날짜는 이 [레거시 구성 요소](legacy-components.md) 토픽을 참조하세요.
 
@@ -444,7 +444,7 @@ Azure Media Services 패키지 작성 도구 및 암호기에 대한 다음 버�
 
 ## <a name="may-2014-release"></a><a id="may_changes_14"></a>2014년 5월 릴리스
 ### <a name="general-media-services-updates"></a><a id="may_14_changes"></a>일반 Media Services 업데이트
-이제 [동적 패키징]을 사용하여 HLS 버전 3을 스트리밍할 수 있습니다. HLS 버전 3를 스트리밍하려면 원래 로케이터 경로에 *.ism/manifest(format=m3u8-aapl-v3) 형식을 추가합니다. 자세한 내용은 [이 포럼](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3)을 참조하세요.
+이제 [동적 패키징]을 사용하여 HLS 버전 3을 스트리밍할 수 있습니다. HLS 버전 3를 스트리밍하려면 원래 로케이터 경로에 *.ism/manifest(format=m3u8-aapl-v3) 형식을 추가합니다. 자세한 내용은 [이 포럼](https://social.msdn.microsoft.com/Forums/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3)을 참조하세요.
 
 이제 동적 패키징에서는 PlayReady를 통해 정적으로 암호화된 부드러운 스트리밍을 기반으로 하여 PlayReady로 암호화된 HLS(버전 3 및 버전 4)도 배달할 수 있습니다. PlayReady로 부드러운 스트리밍을 암호화하는 방법에 대한 자세한 내용은 [PlayReady로 부드러운 스트리밍 보호](/previous-versions/azure/dn189154(v=azure.100))를 참조하세요.
 

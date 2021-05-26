@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 796abf8506a832c4053b505e903bb24ef9d09004
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 1b3d13402e18659d0deba723eaf52d4eb5959253
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279037"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379254"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -62,7 +62,7 @@ ms.locfileid: "106279037"
 
 표준 인코더는 이제 8비트 HEVC(H.265) 인코딩 지원을 제공합니다. HEVC 콘텐츠는 ‘hev1’ 형식을 사용하여 동적 패키지 작성 도구를 통해 전달 및 패키지할 수 있습니다.  
 
-HEVC 샘플을 사용하는 새 .NET 사용자 지정 인코딩은 [media-services-v3-dotnet Git Hub 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomPreset_HEVC)에서 사용할 수 있습니다.
+HEVC 샘플을 사용하는 새 .NET 사용자 지정 인코딩은 [media-services-v3-dotnet Git Hub 리포지토리](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_HEVC)에서 사용할 수 있습니다.
 이제 사용자 지정 인코딩 외에도 다음과 같은 새로운 기본 제공 HEVC 인코딩 기본 설정을 사용할 수 있습니다.
 
 - H265ContentAwareEncoding
@@ -75,21 +75,21 @@ HEVC 샘플을 사용하는 새 .NET 사용자 지정 인코딩은 [media-servic
 
 ### <a name="azure-media-services-v2-api-and-sdks-deprecation-announcement"></a>Azure Media Services v2 API 및 SDK 사용 중단 알림
 
-#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>2024년 2월 29일까지 Azure Media Services REST API 및 SDK를 v3으로 업데이트
+#### <a name="update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024"></a>2024년 2월 29일까지 Azure Media Services REST API 및 SDK를 버전 3으로 업데이트
 
-Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK의 버전 3은 버전 2보다 더 많은 기능을 제공하기 때문에 Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK의 버전 2를 사용 중지하고 있습니다.
+Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK의 버전 3은 버전 2보다 더 많은 기능을 제공하기 때문에 Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 2의 사용을 중지하고 있습니다.
 
-Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 3의 다양한 이점을 얻을 수 있도록 신속하게 전환하는 것이 좋습니다.
+Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 3의 다양한 이점을 얻을 수 있도록 더 빨리 전환하는 것이 좋습니다.
 버전 3은 다음을 제공합니다.
  
 - 연중무휴 라이브 이벤트 지원
-- ARM REST API, .NET Core에 대한 클라이언트 SDK, Node.js, Python, Java, Go 및 Ruby.
-- 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](https://docs.microsoft.com/azure/media-services/latest/migrate-v-2-v-3-migration-benefits)
+- .NET Core, Node.js, Python, Java, Go, Ruby용 ARM REST API, 클라이언트 SDK
+- 고객 관리형 키, 신뢰할 수 있는 스토리지 통합, 프라이빗 링크 지원 [등](./migrate-v-2-v-3-migration-benefits.md)
 
 #### <a name="action-required"></a>필요한 작업
 
-워크로드 중단을 최소화하려면 [마이그레이션 가이드](./migrate-v-2-v-3-migration-introduction.md)를 검토하여 2024년 2월 29일 이전에 API 및 SDK 버전 2에서 API 및 SDK 버전 3으로 코드를 전환하세요.
-**2024년 2월 29일 이후** Azure Media Services는 REST API 버전 2, ARM 계정 관리 API 버전 2015-10-01 또는 .NET 클라이언트 SDK 버전 2의 트래픽을 더 이상 수락하지 않습니다. 여기에는 API 버전 2를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함됩니다.  
+워크로드 중단을 최소화하려면 [마이그레이션 가이드](./migrate-v-2-v-3-migration-introduction.md)를 검토하여 2024년 2월 29일 이전에 API 및 SDK 버전 2에서 API 및 SDK 버전 3으로 코드를 전환합니다.
+**2024년 2월 29일 이후** Azure Media Services는 REST API 버전 2, ARM 계정 관리 API 버전 2015-10-01 또는 .NET 클라이언트 SDK 버전 2에서 더 이상 트래픽을 허용하지 않습니다. 여기에는 API 버전 2를 호출할 수 있는 타사 오픈 소스 클라이언트 SDK가 포함됩니다.  
 
 공식 [Azure 업데이트 공지](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/)를 참조하세요.
 
@@ -98,7 +98,7 @@ Azure Media Services REST API와 .NET 및 Java용 클라이언트 SDK 버전 3�
 HEVC(H.265) 인코딩에 추가된 새로운 지원 외에도 이제 2020-05-01 버전의 인코딩 API에서 다음 기능을 사용할 수 있습니다.
 
 - 이제 새 **JobInputClip** 지원을 사용한 여러 입력 파일 연결이 지원됩니다.
-    - [두 자산을 함께 연결](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/EncodingWithMESCustomStitchTwoAssets)하는 방법을 보여 주는 .NET의 예제를 사용할 수 있습니다.
+    - [두 자산을 함께 연결](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets)하는 방법을 보여 주는 .NET의 예제를 사용할 수 있습니다.
 - 오디오 트랙 선택을 사용하면 고객이 들어오는 오디오 트랙을 선택하여 매핑하고 인코딩에 대한 출력으로 라우팅할 수 있습니다.
     - **AudioTrackDescriptor** 및 트랙 선택 항목에 대한 [REST API OpenAPI](https://github.com/Azure/azure-rest-api-specs/blob/8d15dc681b081cca983e4d67fbf6441841d94ce4/specification/mediaservices/resource-manager/Microsoft.Media/stable/2020-05-01/Encoding.json#L385)에서 자세한 내용을 참조하세요.
 - 인코딩에 대한 선택 항목 추적 – 고객이 여러 비트 전송률 트랙을 포함하는 ABR 원본 파일 또는 라이브 보관 파일에서 트랙을 선택할 수 있습니다. 라이브 이벤트 보관 파일에서 MP4를 생성하는 데 매우 유용합니다.
@@ -146,7 +146,7 @@ Node.js 샘플이 최신 isomorphic SDK를 사용하도록 업데이트되었습
 
 ### <a name="basic-audio-analysis"></a>기본 오디오 분석
 
-이제 오디오 분석 기본 설정에 기본 모드 가격 책정 계층이 포함되어 있습니다. 새로운 기본 오디오 분석기 모드는 음성 전사를 추출하고, 출력 캡션 및 자막의 형식을 지정하는 저렴한 옵션을 제공합니다. 이 모드는 음성-텍스트 변환 전사 및 VTT 자막/캡션 파일 생성을 수행합니다. 이 모드의 출력에는 키워드, 전사 및 타이밍 정보만 포함된 Insights JSON 파일이 포함됩니다. 자동 언어 감지 기능과 화자 분할 기능은 이 모드에 포함되어 있지 않습니다. [지원되는 언어](analyze-video-audio-files-concept.md#built-in-presets) 목록을 참조하세요.
+이제 오디오 분석 기본 설정에 기본 모드 가격 책정 계층이 포함되어 있습니다. 새로운 기본 오디오 분석기 모드는 음성 전사를 추출하고, 출력 캡션 및 자막의 형식을 지정하는 저렴한 옵션을 제공합니다. 이 모드는 음성-텍스트 변환 전사 및 VTT 자막/캡션 파일 생성을 수행합니다. 이 모드의 출력에는 키워드, 기록, 타이밍 정보만 포함된 Insights JSON 파일이 포함됩니다. 자동 언어 감지 기능과 화자 분할 기능은 이 모드에 포함되어 있지 않습니다. [지원되는 언어](analyze-video-audio-files-concept.md#built-in-presets) 목록을 참조하세요.
 
 Indexer v1 및 Indexer v2를 사용하는 고객은 기본 오디오 분석 사전 설정으로 마이그레이션해야 합니다.
 
@@ -177,7 +177,7 @@ Indexer v1 및 Indexer v2를 사용하는 고객은 기본 오디오 분석 사�
 예: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
-> PIFF 1.1 지원은 Common Encryption의 초기 “Silverlight” 버전을 구현한 Smart TV(삼성, LG)의 이전 버전과 호환되는 솔루션으로 제공됩니다. PlayReady 암호화의 PIFF 1.1 버전을 지원하는 2009-2015년 사이에 출시된 기존 삼성 또는 LG 스마트 TV를 지원하는 데 필요한 경우에만 PIFF 형식을 사용하는 것이 좋습니다. 
+> PIFF 1.1 지원은 Common Encryption의 초기 "Silverlight"버전을 구현한 Smart TV (Samsung, LG)의 이전 버전과 호환되는 솔루션으로 제공됩니다. PlayReady 암호화의 PIFF 1.1 버전을 지원하는 2009-2015년 사이에 출시된 기존 삼성 또는 LG 스마트 TV를 지원하는 데 필요한 경우에만 PIFF 형식을 사용하는 것이 좋습니다. 
 
 ## <a name="july-2020"></a>2020년 7월
 
@@ -284,7 +284,7 @@ Media Services v3 라이브 이벤트의 라이브 선형 인코딩의 연중무
 
 #### <a name="deprecation-of-media-processors"></a>미디어 프로세서 사용 중단
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조하세요. [Azure Media Services Video Indexer](../video-indexer/index.yml)는 이러한 레거시 미디어 프로세서를 대체합니다.
+*Azure Media Indexer* 및 *Azure Media Indexer 2 미리 보기* 의 사용 중단을 발표할 예정입니다. 사용 중지 날짜는 [레거시 구성 요소](../previous/legacy-components.md) 문서를 참조하세요. Azure Media Services Video Indexer는 이러한 레거시 미디어 프로세서를 대체합니다.
 
 자세한 내용은 [Azure Media Indexer 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조하세요.
 

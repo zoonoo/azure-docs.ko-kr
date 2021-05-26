@@ -1,6 +1,6 @@
 ---
 title: '자습서: 사진을 가져오고 몰입형 리더에서 시작하는 iOS 앱 만들기(Swift)'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 이 자습서에서는 iOS 앱을 처음부터 빌드하고, 사진을 몰입형 리더 기능에 추가합니다.
 services: cognitive-services
 author: metanMSFT
@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 23e9fd586882d25aed646b984e17c5885145ccff
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 096f28f2940fdac8463106928207f28549c405a0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284637"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370825"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>자습서: 사진의 콘텐츠를 사용하여 몰입형 리더를 시작하는 iOS 앱 만들기(Swift)
 

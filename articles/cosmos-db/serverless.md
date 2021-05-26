@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/08/2021
-ms.openlocfilehash: 3ee8d5f36977a5a9f20c7e636118ffa9f6ee0b6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 146a1dba3e13ac594e3b4d9edc358d46b0d54201
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571000"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378494"
 ---
-# <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB 서버리스(미리 보기)
+# <a name="azure-cosmos-db-serverless"></a>Azure Cosmos DB 서버리스
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB 서버리스를 통해 데이터베이스 작업에서 사용한 요청 단위 및 데이터에서 사용하는 스토리지에 대해서만 요금이 부과되는 사용량 기반 방식으로 Azure Cosmos 계정을 사용할 수 있습니다. 서버리스 컨테이너는 최소 요금과 용량 계획 없이도 초당 수천 개의 요청을 처리할 수 있습니다.
@@ -45,9 +45,6 @@ Azure Cosmos DB 서버리스의 경우 유휴 시간이 길며 **일시적이고
 
 서버리스 계정에서 만든 컨테이너는 서버리스 컨테이너입니다. 서버리스 컨테이너는 프로비저닝된 처리량 모드로 만든 컨테이너와 동일한 기능을 제공하므로 정확히 동일한 방법으로 데이터를 읽고 쓰고 쿼리합니다. 그러나 서버리스 계정 및 컨테이너에는 다음과 같은 특정 특성도 있습니다.
 
-> [!IMPORTANT]
-> 해당 제한 사항 중 일부는 서버리스가 일반 공급되는 경우 줄어들거나 제거될 수 있으며, **사용자 피드백** 을 주시면 관련 사항을 결정하는 데 도움이 됩니다. 다음으로 연락하여 여러분의 서버리스 환경에 대해 자세히 알려주세요. [azurecosmosdbserverless@service.microsoft.com](mailto:azurecosmosdbserverless@service.microsoft.com).
-
 - 서버리스 계정은 단일 Azure 지역에서만 실행할 수 있습니다. 계정을 만든 후에는 서버리스 계정에 Azure 영역을 더 추가할 수 없습니다.
 - 서버리스 계정에서 [Synapse Link 미리 보기 기능](synapse-link.md)을 사용하도록 설정할 수 없습니다.
 - 서버리스 컨테이너에는 프로비저닝 처리량이 필요하지 않으므로 다음 문이 적용됩니다.
@@ -68,7 +65,7 @@ Azure Monitor를 사용하는 경우 [여기](monitor-request-unit-usage.md)에 
 
 ## <a name="performance"></a><a id="performance"></a>성능
 
-서버리스 리소스는 프로비저닝된 처리량 리소스가 제공하는 것과는 다른 특정 성능 특성을 제공합니다. 서버리스 제품이 일반 공급되면 서버리스 컨테이너의 대기 시간에는 지점 읽기의 경우 10밀리초 이하이고 쓰기는 30밀리초 이하인 SLO(서비스 수준 목표)가 적용됩니다. 지점 읽기 작업은 ID 및 파티션 키 값을 기준으로 단일 항목을 가져오는 것으로 구성됩니다.
+서버리스 리소스는 프로비저닝된 처리량 리소스가 제공하는 것과는 다른 특정 성능 특성을 제공합니다. 서버리스 컨테이너의 대기 시간에는 지점 읽기의 경우 10밀리초 이하이고 쓰기는 30밀리초 이하인 SLO(서비스 수준 목표)가 적용됩니다. 지점 읽기 작업은 ID 및 파티션 키 값을 기준으로 단일 항목을 가져오는 것으로 구성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

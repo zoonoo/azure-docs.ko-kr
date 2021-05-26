@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 90ff0a42a9d82fc0bf4f9235e235c774a2d0e75d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: be412f4dd2413cfe5562f895489aed10b9a9a80f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146566"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378687"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -70,10 +70,10 @@ Synapse SQL의 OPENROWSET 함수는 데이터 소스에서 파일 콘텐츠를 �
 ## <a name="syntax"></a>구문
 
 ```syntaxsql
---OPENROWSET syntax for reading Parquet files
+--OPENROWSET syntax for reading Parquet or Delta Lake (preview) files
 OPENROWSET  
 ( { BULK 'unstructured_data_path' , [DATA_SOURCE = <data source name>, ]
-    FORMAT='PARQUET' }  
+    FORMAT= ['PARQUET' | 'DELTA'] }  
 )  
 [WITH ( {'column_name' 'column_type' }) ]
 [AS] table_alias(column_alias,...n)
@@ -107,6 +107,8 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 - 'CSV' - 행/열 구분 기호로 구분된 텍스트 파일을 포함합니다. 모든 문자를 필드 구분 기호로 사용할 수 있습니다. TSV: FIELDTERMINATOR = tab을 예로 들 수 있습니다.
 
 - 'PARQUET' - Parquet 형식의 이진 파일 
+
+- 'DELTA' - Delta Lake(미리 보기) 형식으로 구성된 Parquet 파일 세트 
 
 **'unstructured_data_path'**
 
@@ -152,9 +154,9 @@ WITH 절을 사용하여 파일에서 읽을 열을 지정할 수 있습니다.
     > [!TIP]
     > CSV 파일에서도 WITH 절을 생략할 수 있습니다. 데이터 형식은 파일 콘텐츠에서 자동으로 유추됩니다. HEADER_ROW 인수를 사용하여 헤더 행에서 열 이름을 읽을 때 헤더 행의 존재 여부를 지정할 수 있습니다. 자세한 내용은 [자동 스키마 검색](#automatic-schema-discovery)을 참조하세요.
     
-- Parquet 데이터 파일의 경우 원본 데이터 파일의 열 이름과 일치하는 열 이름을 입력합니다. 열은 이름으로 바인딩되고 대/소문자를 구분합니다. WITH 절을 생략하면 Parquet 파일의 모든 열이 반환됩니다.
+- Parquet 또는 Delta Lake 파일의 경우 원본 데이터 파일의 열 이름과 일치하는 열 이름을 입력합니다. 열은 이름으로 바인딩되고 대/소문자를 구분합니다. WITH 절을 생략하면 Parquet 파일의 모든 열이 반환됩니다.
     > [!IMPORTANT]
-    > Parquet 파일의 열 이름은 대/소문자를 구분합니다. Parquet 파일에서 열 이름 대/소문자 구분과 다른 대/소문자의 열 이름을 지정하면 해당 열에 대해 NULL 값이 반환됩니다.
+    > Parquet 및 Delta Lake 파일의 열 이름은 대/소문자를 구분합니다. 파일에서 열 이름 대/소문자 구분과 다른 대/소문자의 열 이름을 지정하면 해당 열에 대해 `NULL` 값이 반환됩니다.
 
 
 column_name은 출력 열의 이름입니다. 제공되는 경우 이 이름은 원본 파일의 열 이름과 JSON 경로에 제공된 열 이름(있는 경우)을 재정의합니다. json_path가 제공되지 않으면 '$.column_name'으로 자동 추가됩니다. 동작에 대한 json_path 인수를 확인합니다.
@@ -261,7 +263,7 @@ CSV 파일의 경우 열 이름은 헤더 행에서 읽을 수 있습니다. HEA
 
 ### <a name="type-mapping-for-parquet"></a>Parquet에 대한 형식 매핑
 
-Parquet 파일에는 모든 열에 대한 형식 설명이 포함되어 있습니다. 다음 표에서는 Parquet 형식이 SQL 네이티브 형식에 매핑되는 방법을 설명합니다.
+Parquet 및 Delta Lake 파일에는 모든 열에 대한 형식 설명이 포함되어 있습니다. 다음 표에서는 Parquet 형식이 SQL 네이티브 형식에 매핑되는 방법을 설명합니다.
 
 | Parquet 형식 | Parquet 논리 형식(주석) | SQL 데이터 형식 |
 | --- | --- | --- |
@@ -340,6 +342,20 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-delta-lake-files-without-specifying-schema"></a>스키마를 지정하지 않고 Delta Lake 파일 읽기
+
+다음 예제는 열 이름 및 데이터 형식을 지정하지 않고 Delta Lake 형식의 인구 조사 데이터 세트에서 첫 번째 행의 모든 열을 반환합니다. 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='DELTA'
+    ) AS [r]
+```
+
 ### <a name="read-specific-columns-from-csv-file"></a>CSV 파일에서 특정 열 읽기
 
 다음 예제는 population*.csv 파일에서 서수가 1과 4인 열 두 개만 반환합니다. 다음과 같이 파일에 헤더 행이 없기 때문에 첫 번째 줄에서 읽기를 시작합니다.
@@ -404,4 +420,5 @@ AS [r]
 
 ## <a name="next-steps"></a>다음 단계
 
-더 많은 샘플을 보려면 [쿼리 데이터 스토리지 빠른 시작](query-data-storage.md)을 참조하여 `OPENROWSET`를 사용하여 [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md) 및 [JSON](query-json-files.md) 파일 형식을 읽는 방법을 알아보세요. 최적의 성능을 얻으려면 [모범 사례](./best-practices-serverless-sql-pool.md)를 확인하세요. [CETAS](develop-tables-cetas.md)를 사용하여 쿼리 결과를 Azure Storage에 저장하는 방법도 알아볼 수 있습니다.
+더 많은 샘플을 보려면 [쿼리 데이터 스토리지 빠른 시작](query-data-storage.md)을 참조하여 `OPENROWSET`를 사용해 [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) 및 [JSON](query-json-files.md) 파일 형식을 읽는 방법을 알아보세요. 최적의 성능을 얻으려면 [모범 사례](best-practices-sql-on-demand.md)를 확인하세요. [CETAS](develop-tables-cetas.md)를 사용하여 쿼리 결과를 Azure Storage에 저장하는 방법도 알아볼 수 있습니다.
+

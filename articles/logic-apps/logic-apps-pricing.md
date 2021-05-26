@@ -3,15 +3,15 @@ title: 청구 및 가격 책정 모델
 description: Azure Logic Apps에서의 가격 책정 및 청구 모델 작동 방식 개요
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/29/2021
-ms.openlocfilehash: 2b37308bcbcd489876c21dce56878de7e0daf545
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 629b7a4a52dcc5749941de695eec4558085263df
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101699031"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372708"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Azure Logic Apps의 가격 책정 및 청구 모델
 
@@ -19,17 +19,17 @@ ms.locfileid: "101699031"
 
 <a name="consumption-pricing"></a>
 
-## <a name="multi-tenant-pricing"></a>다중 테넌트 가격 책정
+## <a name="consumption-pricing-multi-tenant"></a>소비 가격 책정(다중 테넌트)
 
-종량제 소비 가격 책정 모델은 공용, “글로벌”, 다중 테넌트 Logic Apps 서비스에서 실행되는 논리 앱에 적용됩니다. 성공 및 실패한 실행이 모두 측정되어 요금이 청구됩니다.
+종량제 소비 가격 책정 모델은 공용, ‘글로벌’, 다중 테넌트 Logic Apps 환경에서 실행되는 논리 앱에 적용됩니다. 성공 및 실패한 실행이 모두 측정되어 요금이 청구됩니다.
 
 예를 들어, 폴링 트리거의 요청은 해당 트리거를 건너뛰고 논리 앱 워크플로 인스턴스를 만들지 않은 경우에도 계속 실행으로 측정됩니다.
 
 | 항목 | 설명 |
 |-------|-------------|
-| [기본 제공](../connectors/apis-list.md#built-in) 트리거 및 작업 | Logic Apps 서비스에서 기본적으로 실행되며 [**작업** 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. <p><p>예를 들어, HTTP 트리거와 요청 트리거는 기본 제공 트리거이고 HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 루프, 조건, 스위치, 병렬 분기 등과 같은 데이터 작업, 일괄 처리 작업, 변수 작업 및 [워크플로 제어 작업](../connectors/apis-list.md#control-workflow)도 기본 제공 작업입니다. |
-| [표준 커넥터](../connectors/apis-list.md#managed-connectors) 트리거 및 작업 <p><p>[사용자 지정 커넥터](../connectors/apis-list.md#custom) 트리거 및 작업 | [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
-| [엔터프라이즈 커넥터](../connectors/apis-list.md#managed-connectors) 트리거 및 작업 | [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. 그러나 공개 미리 보기 중에는 엔터프라이즈 커넥터가 [*표준* 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
+| [기본 제공](../connectors/built-in.md) 트리거 및 작업 | Logic Apps 서비스에서 기본적으로 실행되며 [**작업** 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. <p><p>예를 들어, HTTP 트리거와 요청 트리거는 기본 제공 트리거이고 HTTP 작업 및 응답 작업은 기본 제공 작업입니다. 루프, 조건, 스위치, 병렬 분기 등과 같은 데이터 작업, 일괄 처리 작업, 변수 작업 및 [워크플로 제어 작업](../connectors/built-in.md)도 기본 제공 작업입니다. |
+| [표준 커넥터](../connectors/managed.md) 트리거 및 작업 <p><p>[사용자 지정 커넥터](../connectors/apis-list.md#custom-apis-and-connectors) 트리거 및 작업 | [표준 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
+| [엔터프라이즈 커넥터](../connectors/managed.md) 트리거 및 작업 | [엔터프라이즈 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. 그러나 커넥터 미리 보기 중에는 엔터프라이즈 커넥터가 [*표준* 커넥터 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 사용하여 측정됩니다. |
 | [루프](logic-apps-control-flow-loops.md) 내부의 작업 | 루프에서 실행되는 각 작업은 실행되는 각 루프 주기에 대해 측정됩니다. <p><p>예를 들어, 목록을 처리하는 작업을 포함하는 "for each" 루프가 있다고 가정합니다. Logic Apps 서비스는 목록 항목의 수를 루프의 작업 수와 곱하여 해당 루프에서 실행되는 각각의 작업을 측정하고, 루프를 시작하는 작업을 추가합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. |
 | 다시 시도 횟수 | 가장 기본적인 예외 및 오류를 처리하기 위해 지원되는 트리거 및 작업에 대한 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정할 수 있습니다. 원래의 요청과 함께 이러한 재시도는 트리거 또는 작업에 기본 제공, 표준 또는 엔터프라이즈 유형이 있는지 여부에 따라 요금이 청구됩니다. 예를 들어, 두 번의 재시도로 실행되는 작업은 3개의 작업 실행에 대해 요금이 청구됩니다. |
 | [데이터 보존 및 스토리지 소비](#data-retention) | 데이터 보존 가격을 사용하여 측정되며, [Logic Apps 가격 책정 페이지](https://azure.microsoft.com/pricing/details/logic-apps/)의 **가격 책정 세부 정보** 표에서 확인할 수 있습니다. |
@@ -64,11 +64,47 @@ ms.locfileid: "101699031"
 
   예를 들어, 매일 엔드포인트를 확인하는 트리거를 설정한다고 가정하겠습니다. 트리거가 엔드포인트를 확인하여 조건을 충족하는 이벤트를 15개 찾으면, 트리거가 실행되고 해당 워크플로가 15번 실행됩니다. Logic Apps 서비스는 트리거 요청을 포함하여 15개 워크플로에서 수행하는 모든 작업을 측정합니다.
 
+<a name="standard-pricing"></a>
+
+## <a name="standard-pricing-single-tenant"></a>표준 가격 책정(단일 테넌트)
+
+Azure Portal에서 **논리 앱(표준)** 리소스를 만들거나 Visual Studio Code에서 배포하는 경우 논리 앱의 호스팅 계획과 가격 책정 계층을 선택해야 합니다. 이러한 선택 항목은 단일 테넌트 Azure Logic Apps에서 워크플로를 실행할 때 적용되는 가격을 결정합니다.
+
+<a name="hosting-plans"></a>
+
+### <a name="hosting-plans-and-pricing-tiers"></a>호스팅 계획 및 가격 책정 계층
+
+단일 테넌트 기반 논리 앱의 경우 **워크플로 표준** 호스팅 계획을 사용합니다. 다음 목록에서는 선택할 수 있는 사용 가능한 가격 책정 계층을 보여줍니다.
+
+| 가격 책정 계층 | 코어 | 메모리 | 스토리지 |
+|--------------|-------|--------|---------|
+| **WS1** | 1 | 3.5 GB | 250GB |
+| **WS2** | 2 | 7 GB | 250GB |
+| **WS3** | 2 | 14 GB | 250GB |
+|||||
+
+<a name="storage-transactions"></a>
+
+### <a name="storage-transactions"></a>스토리지 트랜잭션
+
+Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](/storage)를 사용합니다. 다중 테넌트 Azure Logic Apps를 사용하여 모든 스토리지 사용량 및 비용을 논리 앱에 연결합니다. 단일 테넌트 Azure Logic Apps를 사용하여 고유한 Azure [Storage 계정](../azure-functions/storage-considerations.md#storage-account-requirements)을 사용할 수 있습니다. 이 기능은 Logic Apps 데이터에 대해 더 많은 제어와 유연성을 제공합니다.
+
+*상태 저장* 워크플로가 작업을 실행할 때 Azure Logic Apps 런타임은 스토리지 트랜잭션을 수행합니다. 예를 들어 큐는 예약에 사용되고 테이블 및 Blob은 워크플로 상태를 저장하는 데 사용됩니다. 스토리지 비용은 워크플로 콘텐츠에 따라 변경됩니다. 트리거, 작업 및 페이로드가 다르면 스토리지 작업 및 요구 사항도 다릅니다. 스토리지 트랜잭션은 [Azure Storage 가격 책정 모델](https://azure.microsoft.com/pricing/details/storage/)을 따릅니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다.
+
+### <a name="tips-for-estimating-storage-needs-and-costs"></a>스토리지 요구 사항 및 비용 예측을 위한 팁
+
+워크플로가 실행할 수 있는 스토리지 작업 수와 해당 비용을 파악하려면 [Logic Apps 스토리지 계산기](https://logicapps.azure.com/calculator)를 사용해 보세요. 샘플 워크플로를 선택하거나 기존 워크플로 정의를 사용할 수 있습니다. 첫 번째 계산은 워크플로의 스토리지 작업 수를 예측합니다. 그런 다음, 이러한 수치를 사용하여 [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)에서 가능한 비용을 예상할 수 있습니다.
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+* [단일 테넌트 Azure Logic Apps의 워크플로에 대한 스토리지 요구량 및 비용 추산](estimate-storage-costs.md)
+* [Azure Storage 가격 책정 정보](https://azure.microsoft.com/pricing/details/storage/)
+
 <a name="fixed-pricing"></a>
 
-## <a name="ise-pricing"></a>ISE 가격 책정
+## <a name="ise-pricing-dedicated"></a>ISE 가격 책정(전용)
 
-고정 가격 책정 모델은 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행되는 논리 앱에 적용됩니다. ISE는 생성하는 [ISE 수준 또는 *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 달라지는 [통합 서비스 환경 가격](https://azure.microsoft.com/pricing/details/logic-apps)을 사용하여 청구됩니다. 이 가격은 사용 여부에 관계없이 예약된 용량과 전용 리소스에 대한 요금을 지불하므로 다중 테넌트 가격 책정과 다릅니다.
+고정 가격 책정 모델은 전용 [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행되는 논리 앱에 적용됩니다. ISE는 생성하는 [ISE 수준 또는 *SKU*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)에 따라 달라지는 [통합 서비스 환경 가격](https://azure.microsoft.com/pricing/details/logic-apps)을 사용하여 청구됩니다. 이 가격은 사용 여부에 관계없이 예약된 용량과 전용 리소스에 대한 요금을 지불하므로 다중 테넌트 가격 책정과 다릅니다.
 
 | ISE SKU | 설명 |
 |---------|-------------|
@@ -80,8 +116,8 @@ ms.locfileid: "101699031"
 
 | 항목 | 설명 |
 |-------|-------------|
-| [기본 제공](../connectors/apis-list.md#built-in) 트리거 및 작업 | **Core** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행합니다. |
-| [표준 커넥터](../connectors/apis-list.md#managed-connectors) <p><p>[엔터프라이즈 커넥터](../connectors/apis-list.md#enterprise-connectors) | - **ISE** 레이블을 표시하는 관리형 커넥터는 온-프레미스 데이터 게이트웨이 없이 작동하고, 논리 앱과 동일한 ISE에서 실행되도록 특별히 설계되었습니다. ISE 가격 책정에는 사용자가 원하는 만큼의 엔터프라이즈 연결이 포함됩니다. <p><p>- ISE 레이블을 표시하지 않는 커넥터는 다중 테넌트 Logic Apps 서비스에서 실행됩니다. 그러나 ISE 가격 책정에는 ISE에서 실행되는 논리 앱에 대한 이러한 실행이 포함됩니다. |
+| [기본 제공](../connectors/built-in.md) 트리거 및 작업 | **Core** 레이블을 표시하고 논리 앱과 동일한 ISE에서 실행합니다. |
+| [표준 커넥터](../connectors/managed.md) <p><p>[엔터프라이즈 커넥터](../connectors/managed.md#enterprise-connectors) | - **ISE** 레이블을 표시하는 관리형 커넥터는 온-프레미스 데이터 게이트웨이 없이 작동하고, 논리 앱과 동일한 ISE에서 실행되도록 특별히 설계되었습니다. ISE 가격 책정에는 사용자가 원하는 만큼의 엔터프라이즈 연결이 포함됩니다. <p><p>- ISE 레이블을 표시하지 않는 커넥터는 단일 테넌트 Azure Logic Apps 서비스에서 실행됩니다. 그러나 ISE 가격 책정에는 ISE에서 실행되는 논리 앱에 대한 이러한 실행이 포함됩니다. |
 | [루프](logic-apps-control-flow-loops.md) 내부의 작업 | ISE 가격 책정에는 실행되는 각 루프 주기에 대해 루프에서 실행되는 각 작업이 포함됩니다. <p><p>예를 들어, 목록을 처리하는 작업을 포함하는 "for each" 루프가 있다고 가정합니다. 총 작업 실행 수를 가져오려면 목록 항목 수와 루프의 작업 수를 곱하고 루프를 시작하는 작업을 더합니다. 따라서 10개 항목 목록에 대한 계산은 (10 * 1) + 1이므로 작업 실행은 11개가 됩니다. |
 | 다시 시도 횟수 | 가장 기본적인 예외 및 오류를 처리하기 위해 지원되는 트리거 및 작업에 대한 [재시도 정책](logic-apps-exception-handling.md#retry-policies)을 설정할 수 있습니다. ISE 가격 책정에는 원래 요청과 함께 재시도가 포함됩니다. |
 | [데이터 보존 및 스토리지 소비](#data-retention) | ISE의 논리 앱은 보존 및 스토리지 비용을 발생시키지 않습니다. |

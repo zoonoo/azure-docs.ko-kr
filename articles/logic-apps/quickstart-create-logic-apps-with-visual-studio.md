@@ -1,22 +1,22 @@
 ---
-title: Visual Studio를 사용하여 작업 및 워크플로 자동화
-description: Azure Logic Apps 및 Visual Studio를 사용하여 엔터프라이즈 통합을 위한 자동화된 워크플로 만들기, 예약 및 실행
+title: 빠른 시작 - Visual Studio에서 다중 테넌트 Azure Logic Apps를 사용하여 통합 워크플로 만들기
+description: 다중 테넌트 Azure Logic Apps 및 Visual Studio Code를 사용하여 자동 통합 워크플로를 만듭니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/24/2021
-ms.openlocfilehash: 5ae67e5708a7298385a4e27d612566008884b972
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: 8aa96455eba49dd624f1ced469d34f0cf0f48757
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790062"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372501"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
+# <a name="quickstart-create-automated-integration-workflows-with-multi-tenant-azure-logic-apps-and-visual-studio"></a>빠른 시작: 다중 테넌트 Azure Logic Apps 및 Visual Studio를 사용하여 자동 통합 워크플로 만들기
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio를 사용하여 기업 및 조직에서 앱, 데이터, 시스템 및 서비스를 통합하는 작업 및 프로세스를 자동화하도록 워크플로를 만들 수 있습니다. 이 빠른 시작에서는 Visual Studio에서 논리 앱을 만들고 Azure에 해당 앱을 배포하여 이러한 워크플로를 디자인하고 빌드할 수 있는 방법을 보여줍니다. Azure Portal에서 이러한 작업을 수행할 수 있다고 해도 Visual Studio를 사용하면 소스 제어에 논리 앱을 추가하고 다른 버전을 게시하고 다른 배포 환경에 대한 Azure Resource Manager 템플릿을 만들 수 있습니다.
+이 빠른 시작에서는 다중 테넌트 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio를 사용하여 엔터프라이즈 및 조직에서 앱, 데이터, 시스템 및 서비스를 통합하는 자동 워크플로를 설계, 개발 및 배포하는 방법을 보여 줍니다. Azure Portal에서 이러한 작업을 수행할 수 있다고 해도 Visual Studio를 사용하면 소스 제어에 논리 앱을 추가하고 다른 버전을 게시하고 다른 배포 환경에 대한 Azure Resource Manager 템플릿을 만들 수 있습니다. 다중 테넌트 및 단일 테넌트 모델에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
 
 Azure Logic Apps을 처음 사용하는 경우 기본 개념만 알아보려면 [Azure Portal에서 논리 앱을 만들기 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 시도해보세요. 논리 앱 디자이너는 Azure Portal 및 Visual Studio에서 유사하게 작동합니다.
 
