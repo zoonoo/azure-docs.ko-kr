@@ -8,12 +8,12 @@ ms.date: 4/8/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 42842b00120b7e918ca5b790cce92a74ab1b99d5
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 8b8205681da7ea24fdafcef337ad903fff06c589
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107260096"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474632"
 ---
 # <a name="event-notifications"></a>이벤트 알림
 
@@ -234,7 +234,7 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
 | `specversion` | *1.0*<br>메시지는 이 버전의 [CloudEvents 사양](https://github.com/cloudevents/spec)을 따릅니다. |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete` |
 | `datacontenttype` | `application/json` |
-| `subject` | 관계 ID(예: `<twinID>/relationships/<relationshipID>`) |
+| `subject` | 관계 ID(예: `<twin-ID>/relationships/<relationshipID>`) |
 | `time` | 관계에서 작업이 수행된 시간의 타임스탬프 |
 | `traceparent` | 이벤트의 W3C 추적 컨텍스트 |
 
@@ -280,7 +280,7 @@ Azure Digital Twins에서 Event Grid로 내보내는 알림은 Event Grid 항목
 | Name    | 값 |
 | --- | --- |
 | `id` | 원격 분석 API를 호출할 때 고객이 제공하는 알림 식별자 |
-| `source` | 원격 분석 이벤트가 전송된 트윈의 정규화된 이름. `<yourDigitalTwinInstance>.api.<yourRegion>.digitaltwins.azure.net/<twinId>` 형식을 사용합니다. |
+| `source` | 원격 분석 이벤트가 전송된 트윈의 정규화된 이름. `<your-Digital-Twin-instance>.api.<your-region>.digitaltwins.azure.net/<twin-ID>` 형식을 사용합니다. |
 | `specversion` | *1.0*<br>메시지는 이 버전의 [CloudEvents 사양](https://github.com/cloudevents/spec)을 따릅니다. |
 | `type` | `microsoft.iot.telemetry` |
 | `data` | 트윈에 전송된 원격 분석 메시지. 페이로드는 수정되지 않으며 원격 분석이 전송된 트윈의 스키마와 일치하지 않을 수 있습니다. |

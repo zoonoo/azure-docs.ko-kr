@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 538b3ce5a268464b9f014dd00b924875824cab3b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 68e454f7b0a7063f8b25337474795a660ac0aa99
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107327261"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110486822"
 ---
 <a name="HOLTop"></a>
 
@@ -100,7 +100,7 @@ Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Co
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 > [!div class="nextstepaction"]
-> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client)
+> [클라이언트를 설정했습니다.](?success=set-up-client#object-model) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client&product=computer-vision&page=csharp-sdk)
 
 ## <a name="object-model"></a>개체 모델
 
@@ -125,14 +125,14 @@ OCR .NET SDK의 주요 기능 중 일부를 처리하는 클래스와 인터페�
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [클라이언트를 인증했습니다.](?success=authenticate-client#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client)
+> [클라이언트를 인증했습니다.](?success=authenticate-client#read-printed-and-handwritten-text) [문제가 발생했습니다.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client&product=computer-vision&page=csharp-sdk)
 
 ## <a name="read-printed-and-handwritten-text"></a>인쇄 텍스트 및 필기 텍스트 읽기
 
 OCR 서비스는 이미지 속의 시각적 텍스트를 읽고 문자 스트림으로 변환할 수 있습니다. 텍스트 인식에 대한 자세한 내용은 [OCR(광학 인식) 개요](../../overview-ocr.md)를 참조하세요. 이 섹션의 코드는 최신 [Read 3.0용 Computer Vision SDK 릴리스](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/)를 사용하고, 클라이언트 개체를 사용하여 이미지의 텍스트를 감지하고 추출하는 `BatchReadFileUrl` 메서드를 정의합니다.
 
 > [!TIP]
-> 로컬 이미지에서 텍스트를 추출할 수도 있습니다. [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) 메서드(예: **ReadInStreamAsync**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)의 샘플 코드를 참조하세요.
+> 로컬 이미지에서 텍스트를 추출할 수도 있습니다. [ComputerVisionClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclient) 메서드(예: **ReadInStreamAsync**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs#L676)의 샘플 코드를 참조하세요.
 
 ### <a name="set-up-test-image"></a>테스트 이미지 설정
 

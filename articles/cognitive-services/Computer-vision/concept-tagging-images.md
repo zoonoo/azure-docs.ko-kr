@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4235278d14e52aa3b364353a67db3059a5fe184b
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: f00f859b1195fefb51241390116ff75a9b537bbc
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109715865"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465266"
 ---
 # <a name="applying-content-tags-to-images"></a>이미지에 콘텐츠 태그 적용
 
@@ -87,7 +87,7 @@ Computer Vision에서는 수천 개의 인식할 수 있는 개체, 생물, 경�
 
 태그 지정 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Tags`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"tags"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
-* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)
 
 ## <a name="next-steps"></a>다음 단계
 

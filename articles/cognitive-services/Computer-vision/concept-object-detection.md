@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 52e900be177cef3468e99a0707e6458924a3c3c1
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 68c2cfeec9ef2aaa73c1553c8b50150564986e88
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109714695"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465249"
 ---
 # <a name="detect-common-objects-in-images"></a>이미지에서 공통 개체 검색
 
@@ -99,4 +99,4 @@ Detect API는 개체를 기반으로 한 태그 또는 이미지에서 식별되
 
 개체 검색 기능은 [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API의 일부입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Objects`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"objects"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
-* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

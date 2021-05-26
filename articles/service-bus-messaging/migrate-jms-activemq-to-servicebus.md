@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 4160a9ab4edbac8584eab2d4e5b9bf1ba11a9aec
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 38b835a46a441edfdcace0db1a6983122b06de12
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568786"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191912"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS(Java Message Service) 2.0 애플리케이션 마이그레이션
 
@@ -96,7 +96,7 @@ Service Bus를 통해 다양한 엔터프라이즈 보안 및 고가용성 기�
 
 각 Service Bus 네임 스페이스에 대해 Azure Monitor에 메트릭을 게시합니다. 이러한 메트릭을 사용하여 네임 스페이스에 할당된 리소스의 경고 및 동적 크기 조정을 할 수 있습니다.
 
-다른 메트릭과의 차이 및 그에 대한 경고를 설정하는 방법에 대한 자세한 내용은 [Azure Monitor에서 Service Bus 메트릭](service-bus-metrics-azure-monitor.md)을 참조하세요. [관리 작업에 대한 데이터 작업과 운영/진단 로깅](service-bus-diagnostic-logs.md)에 대한 [클라이언트쪽 추적](service-bus-end-to-end-tracing.md)에 대해 자세히 알아볼 수도 있습니다.
+다른 메트릭과의 차이 및 그에 대한 경고를 설정하는 방법에 대한 자세한 내용은 [Azure Monitor에서 Service Bus 메트릭](monitor-service-bus-reference.md)을 참조하세요. [관리 작업에 대한 데이터 작업과 운영/진단 로깅](service-bus-diagnostic-logs.md)에 대한 [클라이언트쪽 추적](service-bus-end-to-end-tracing.md)에 대해 자세히 알아볼 수도 있습니다.
 
 ### <a name="metrics---new-relic"></a>메트릭-New Relic
 

@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 0196522618d4b61f615f7cc6faeacbe9a8c7c5b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b8e5b95b0d1853d81de5a4ec603a3a59563da9d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171349"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379803"
 ---
 # <a name="common-issues"></a>일반적인 문제
 
@@ -20,7 +21,7 @@ ms.locfileid: "86171349"
 
 ## <a name="view-event-grid-module-logs"></a>Event Grid 모듈 로그 보기
 
-문제를 해결하려면 Event Grid 모듈 로그에 액세스해야 할 수 있습니다. 이렇게 하려면 모듈이 배포된 VM에서 다음 명령을 실행합니다.
+문제를 해결하려면 Event Grid 모듈 로그에 액세스해야 할 수 있습니다. 모듈이 배포된 VM에서 다음 명령을 실행합니다.
 
 Windows에서
 
@@ -84,13 +85,13 @@ sudo docker logs eventgridmodule
 
 [https://github.com/Azure/event-grid-iot-edge](https://github.com/Azure/event-grid-iot-edge)의 **IoTSecurity** 클래스는 IoT Edge 보안 디먼에서 인증서를 검색하고 이를 사용하여 나가는 호출을 구성하는 방법을 보여 줍니다.
 
-비프로덕션 환경인 경우 클라이언트 인증을 해제할 수 있는 옵션이 제공됩니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [보안 및 인증](security-authentication.md)을 참조하세요.
+비프로덕션 환경인 경우 클라이언트 인증을 해제할 수 있는 옵션이 제공됩니다. 자세한 내용은 [보안 및 인증](security-authentication.md)을 참조하세요.
 
 ## <a name="debug-events-not-received-by-subscriber"></a>구독자가 디버그 이벤트를 수신하지 못함
 
 일반적인 이유는 다음과 같습니다.
 
-* 이벤트가 성공적으로 게시되지 않았습니다. Event Grid 모듈에 이벤트를 게시할 때 HTTP StatusCode 200(OK)이 수신되었습니다.
+* 이벤트가 성공적으로 게시되지 않았습니다. 클라이언트는 Event Grid 모듈에 이벤트를 게시할 때 HTTP StatusCode 200(OK)을 수신했어야 하지만 수신하지 못했습니다.
 
 * 이벤트 구독을 통해 다음을 확인하세요.
     * 엔드포인트 URL이 유효합니다.

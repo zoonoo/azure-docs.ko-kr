@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 3ddae808fbb2e3dcfe20909c8b3d0c5a20bb04bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/25/2021
+ms.openlocfilehash: 130499c2dd2b421be2c739ea392c1272069e7186
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98247525"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379288"
 ---
 # <a name="optimize-development-and-testing-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 개발 및 테스트 비용 최적화
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,12 +24,9 @@ ms.locfileid: "98247525"
 
 ## <a name="azure-cosmos-db-free-tier"></a>Azure Cosmos DB 체험 계층
 
-Azure Cosmos DB 체험 계층을 사용하면 쉽게 시작하고, 애플리케이션을 개발 및 테스트하거나, 소규모 프로덕션 워크로드를 무료로 실행할 수도 있습니다. 계정에서 무료 계층을 사용하는 경우 계정의 첫 400RU/s 및 5GB의 스토리지를 무료로 얻을 수 있습니다. 또한 데이터베이스 수준에서 400RU/s를 공유하고 모두 무료 계층이 포함된 25개의 컨테이너를 포함하는 공유 처리량 데이터베이스를 만들 수 있습니다(체험 계층 계정에서는 5개의 공유 처리량 데이터베이스 제한). 무료 계층을 사용하는 경우 최소 처리량이 400RU/s인 공유 데이터베이스를 프로비전하면 해당 데이터베이스 내의 모든 컨테이너는 처리량을 공유할 수 있습니다. 공유 처리량을 포함하는 모든 새 데이터베이스 또는 전용 처리량을 포함하는 컨테이너는 정규 가격으로 청구됩니다.
+Azure Cosmos DB 체험 계층을 사용하면 쉽게 시작하고, 애플리케이션을 개발 및 테스트하거나, 소규모 프로덕션 워크로드를 무료로 실행할 수도 있습니다. 계정에서 무료 계층을 사용하는 경우 계정의 첫 1000RU/s 및 25GB의 스토리지를 무료로 얻을 수 있습니다.
 
-> [!NOTE]
-> 체험 계층은 프로비전된 처리량 모드로만 사용할 수 있습니다.
-
-무료 계층은 계정 수명 동안 무기한으로 지속되며 무제한 스토리지 및 처리량(RU/s), SLA, 고가용성, 모든 Azure 지역의 턴키 글로벌 배포 등을 포함하여 일반 Azure Cosmos DB 계정의 모든 [이점과 기능](introduction.md#key-benefits)을 제공합니다. Azure 구독당 최대 1개의 체험 계층 계정을 사용할 수 있으며 계정을 만들 때 옵트인해야 합니다. 시작하려면 [체험 계층이 사용하도록 설정된 Azure Portal에서 새 계정을 만들거나](create-cosmosdb-resources-portal.md) [ARM 템플릿](./manage-with-templates.md#free-tier)을 사용합니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
+무료 계층은 계정 수명 동안 무기한으로 지속되며 무제한 스토리지 및 처리량(RU/s), SLA, 고가용성, 모든 Azure 지역의 턴키 글로벌 배포 등을 포함하여 일반 Azure Cosmos DB 계정의 모든 [이점과 기능](introduction.md#key-benefits)을 제공합니다. Azure Portal, CLI, PowerShell 및 Resource Manager 템플릿을 사용하여 무료 계층 계정을 만들 수 있습니다. 자세히 알아보려면 [무료 계층 계정 생성](free-tier.md) 방법 문서 및 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
 
 ## <a name="try-azure-cosmos-db-for-free"></a>무료로 Azure Cosmos DB 사용해 보기
 

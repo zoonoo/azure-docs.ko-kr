@@ -116,7 +116,7 @@
           href: how-to-speech-synthesis-viseme.md
         - name: 사용자 지정
           items:
-            - name: Custom Voice 포털
+            - name: 사용자 지정 신경망 음성
               items:
                 - name: 사용자 지정 신경망 음성이란?
                   href: custom-neural-voice.md

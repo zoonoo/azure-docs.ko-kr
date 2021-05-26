@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e7774d2cd100931f92ff80066ebea4463c6f65c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edd0f6a5c09172272e8081b5d72681395d8ec291
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96532655"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465455"
 ---
 # <a name="detect-color-schemes-in-images"></a>이미지에서 색 구성표 검색
 
@@ -80,6 +80,6 @@ Computer Vision은 주조색과 채도의 조합을 기반으로 하여 이미�
 
 ## <a name="use-the-api"></a>API 사용
 
-색 구성표 검색 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API의 일부 입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Color`를 포함합니다. 그런 다음, 전체 JSON 응답을 받으면 `"color"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+색 구성표 검색 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API의 일부 입니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **visualFeatures** 쿼리 매개 변수에 `Color`을 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"color"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
 
-* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

@@ -5,12 +5,13 @@ services: automation
 ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: 95ef52acedc9171ba86110a665d08ea97c59bfbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f6a32bdef2269e1235534ca99144a61c5ea023db
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575824"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463375"
 ---
 # <a name="enable-update-management-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 업데이트 관리 사용
 
@@ -21,8 +22,6 @@ ms.locfileid: "100575824"
 * Automation 계정을 Log Analytics 작업 영역에 연결합니다.
 * 계정에 샘플 Automation Runbook을 추가합니다.
 * 업데이트 관리 기능을 사용하도록 설정합니다.
-
-템플릿은 하나 이상의 Azure 또는 비 Azure VM에서 업데이트 관리를 자동으로 사용하도록 설정하지 않습니다.
 
 구독에서 지원되는 지역에 배포된 Log Analytics 작업 영역 및 Automation 계정이 이미 있는 경우에는 연결되지 않습니다. 이 템플릿을 사용하여 성공적으로 링크를 만들고 업데이트 관리를 배포합니다.
 

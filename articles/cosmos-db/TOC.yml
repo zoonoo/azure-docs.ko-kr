@@ -628,6 +628,14 @@
               href: stored-procedures-triggers-udfs.md
             - name: JavaScript 쿼리 API
               href: javascript-query-api.md
+        - name: 통합 캐시
+          items:
+            - name: 전용 게이트웨이 개요
+              href: dedicated-gateway.md
+            - name: 통합 캐시 개요
+              href: integrated-cache.md
+            - name: 통합 캐시 FAQ
+              href: integrated-cache-faq.md
         - name: 보안
           items:
             - name: 데이터에 안전하게 액세스
@@ -718,6 +726,8 @@
                   href: performance-tips-async-java.md
                 - name: 동기 Java SDK v2
                   href: performance-tips-java.md
+            - name: 통합 캐시 구성
+              href: how-to-configure-integrated-cache.md
             - name: 성능 테스트 - 샘플 앱
               href: performance-testing.md
             - name: 비용 효율적인 읽기 및 쓰기
@@ -850,6 +860,8 @@
               displayName: 'msi, managed service identity, aad, azure active directory, identity'
             - name: 인증서를 사용하여 데이터 액세스
               href: certificate-based-authentication.md
+            - name: Always Encrypted 사용
+              href: how-to-always-encrypted.md
         - name: 다른 Azure 서비스와 통합
           items:
             - name: 변경 피드 전자 상거래 솔루션
@@ -1348,6 +1360,9 @@
           href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: 방법 가이드
   items:
+    - name: 무료 계층
+      href: free-tier.md
+      displayName: free tier
     - name: Azure Cosmos DB 리소스 관리
       items:
         - name: Azure Cosmos 계정 관리
@@ -1369,6 +1384,12 @@
           items:
             - name: 에뮬레이터 설치 및 사용
               href: local-emulator.md
+            - name: Docker에서 에뮬레이터 실행
+              items:
+                - name: Linux용 Docker에서 에뮬레이터 실행
+                  href: linux-emulator.md
+                - name: Windows용 Docker에서 에뮬레이터 실행
+                  href: local-emulator-on-docker-windows.md
             - name: 에뮬레이터 인증서 내보내기
               href: local-emulator-export-ssl-certificates.md
             - name: 에뮬레이터 명령줄 매개 변수
