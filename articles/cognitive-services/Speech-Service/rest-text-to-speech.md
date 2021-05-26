@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 0065b6f4a7039e2883bca6acd5cf659be7b71069
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 7a15f51b76cc6109537a8c2e0cbbe27bfb9ffb0f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717678"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368771"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
@@ -128,9 +128,38 @@ Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
     "Status": "GA"
   },
 
-  ...
+    ...
 
-     {
+    {
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyMultilingualNeural)",
+    "ShortName": "en-US-JennyMultilingualNeural",
+    "DisplayName": "JennyMultilingualNeural",
+    "LocalName": "JennyMultilingualNeural",
+    "Gender": "Female",
+    "Locale": "en-US",
+    "SampleRateHertz": "24000",
+    "VoiceType": "Neural",
+    "SecondaryLocaleList": [
+        "de-DE",
+        "en-AU",
+        "en-CA",
+        "en-GB",
+        "es-ES",
+        "es-MX",
+        "fr-CA",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN"
+      ],
+    "Status": "Preview"
+    },
+    
+  ...
+    
+    {
     "Name": "Microsoft Server Speech Text to Speech Voice (ga-IE, OrlaNeural)",
     "DisplayName": "Orla",
     "LocalName": "Orla",
@@ -287,6 +316,6 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 
 ## <a name="next-steps"></a>다음 단계
 
-- [무료 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
+- [평가판 Azure 계정 만들기](https://azure.microsoft.com/free/cognitive-services/)
 - [긴 형식의 오디오를 위한 비동기 합성](./long-audio-api.md)
 - [Custom Voice 시작](how-to-custom-voice.md)

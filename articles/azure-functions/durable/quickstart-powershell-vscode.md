@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 08/10/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: edd02085abe63b124082255247362f096248ba82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fac3ad13f34620bb2ec817601041001ccf393d4e
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91317262"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369065"
 ---
 # <a name="create-your-first-durable-function-in-powershell"></a>PowerShell에서 첫 번째 지속성 함수 만들기
 
@@ -90,7 +90,7 @@ package.json 파일도 루트 폴더에 생성됩니다.
 
     | prompt | 값 | Description |
     | ------ | ----- | ----------- |
-    | 함수의 템플릿 선택 | Durable Functions 오케스트레이터(미리 보기) | Durable Functions 오케스트레이션 만들기 |
+    | 함수의 템플릿 선택 | Durable Functions 오케스트레이터 | Durable Functions 오케스트레이션 만들기 |
     | 함수 이름 제공 | HelloOrchestrator | 지속성 함수의 이름 |
 
 작업 함수를 조정하기 위한 오케스트레이터를 추가했습니다. 오케스트레이터 함수를 보려면 *HelloOrchestrator/run.ps1* 을 엽니다. `Invoke-ActivityFunction` cmdlet에 대한 각 호출은 `Hello`라는 작업 함수를 호출합니다.
@@ -105,7 +105,7 @@ package.json 파일도 루트 폴더에 생성됩니다.
 
     | prompt | 값 | Description |
     | ------ | ----- | ----------- |
-    | 함수의 템플릿 선택 | Durable Functions 작업(미리 보기) | 작업 함수 만들기 |
+    | 함수의 템플릿 선택 | Durable Functions 작업 | 작업 함수 만들기 |
     | 함수 이름 제공 | 안녕하세요. | 작업 함수의 이름 |
 
 오케스트레이터에서 호출하는 `Hello` 작업 함수를 추가했습니다. *Hello/run.ps1* 을 열어 입력으로 이름을 가져오고 인사말을 반환하는지 확인합니다. 작업 함수에서는 데이터베이스 호출, 컴퓨팅 수행 등의 작업을 수행할 것입니다.
@@ -120,7 +120,7 @@ package.json 파일도 루트 폴더에 생성됩니다.
 
     | prompt | 값 | Description |
     | ------ | ----- | ----------- |
-    | 함수의 템플릿 선택 | Durable Functions HTTP 스타터(미리 보기) | HTTP 스타터 함수 만들기 |
+    | 함수의 템플릿 선택 | Durable Functions HTTP 스타터 | HTTP 스타터 함수 만들기 |
     | 함수 이름 제공 | HttpStart | 작업 함수의 이름 |
     | 권한 부여 수준 | 익명 | 데모용으로 인증 없이 함수를 호출할 수 있도록 허용합니다. |
 

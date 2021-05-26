@@ -7,20 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/14/2021
+ms.date: 05/12/2021
 ms.author: lajanuar
-ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: feff8b003428fd61fba826d05f8212fa8d9788f9
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.custom: devx-track-js
+ms.openlocfilehash: 84d6f181636c65aea5c247185bfd7ef083151c75
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107601911"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374212"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
+
 > [!IMPORTANT]
 >
 > * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요.
@@ -100,7 +101,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * 하나의 Form Recognizer 리소스에서 다른 리소스로 사용자 지정 모델을 복사합니다.
 
 > [!NOTE]
-> [Form Recognizer 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
+> [Form Recognizer 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -114,7 +115,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * [ID 문서 분석](#analyze-identity-documents)
 * [사용자 지정 모델 학습](#train-a-custom-model)
 * [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-your-custom-models)
+* [사용자 지정 모델 관리](#manage-custom-models)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -126,7 +127,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
 * 아래 샘플에 포함된 샘플 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다.
@@ -217,7 +218,7 @@ URL에서 ID 문서를 분석하려면 `beginRecognizeIdDocumentsFromUrl` 메서
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
+> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -265,7 +266,7 @@ Document errors:
 
 ### <a name="train-a-model-with-labels"></a>레이블을 사용하여 모델 학습
 
-학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../quickstarts/label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `beginTraining` 메서드를 호출할 수 있습니다.
+학습 문서에 레이블을 수동으로 지정하여 사용자 지정 모델을 학습시킬 수도 있습니다. 일부 시나리오에서는 레이블을 사용하여 학습시키면 성능이 향상됩니다. 레이블을 사용하여 학습하려면 학습 문서와 별도로 Blob 스토리지 컨테이너에 특별한 레이블 정보 파일(`\<filename\>.pdf.labels.json`)이 있어야 합니다. [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)는 이러한 레이블 파일을 만드는 데 도움이 되는 UI를 제공합니다. 레이블 파일이 있으면 `true`로 설정된 `uselabels` 매개 변수를 사용하여 `beginTraining` 메서드를 호출할 수 있습니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
@@ -353,7 +354,7 @@ Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
 ```
 
-## <a name="manage-your-custom-models"></a>사용자 지정 모델 관리
+## <a name="manage-custom-models"></a>사용자 지정 모델 관리
 
 이 섹션에서는 계정에 저장된 사용자 지정 모델을 관리하는 방법을 보여 줍니다. 다음 코드는 단일 메서드의 모든 모델 관리 작업을 수행하는 예를 보여 줍니다.
 

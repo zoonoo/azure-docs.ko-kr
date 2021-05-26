@@ -1,33 +1,25 @@
 ---
-title: Azure Cache for Redis(미리 보기)에 복제본 추가
+title: Azure Cache for Redis에 복제본 추가
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 복제본을 추가하는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aef8055d289ada8a62078185517c3ba129972488
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91566791"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099858"
 ---
-# <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Azure Cache for Redis(미리 보기)에 복제본 추가
+# <a name="add-replicas-to-azure-cache-for-redis"></a>Azure Cache for Redis에 복제본 추가
 이 문서에서는 Azure Portal을 사용하여 추가 복제본으로 Azure Cache 인스턴스를 설정하는 방법을 알아봅니다.
 
 Azure Cache for Redis 표준 및 프리미엄 계층은 두 개의 전용 VM(가상 머신)에서 각 캐시를 호스트하여 중복을 제공합니다. 두 VM은 주 VM과 복제본으로 구성됩니다. 주 VM을 사용할 수 없게 되면 복제본이 감지하고 자동으로 새로운 주 VM 역할을 수행합니다. 이제 프리미엄 캐시의 복제본 수를 최대 3개까지 늘릴 수 있으므로 총 4개의 VM이 캐시를 지원합니다. 복제본이 여러 개 있으면 단일 복제본이 제공할 수 있는 것보다 복원력이 향상됩니다.
 
-> [!IMPORTANT]
-> 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
-> 
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> 이 기능은 현재 미리 보기로 제공되고 있습니다. 관심이 있으면 [Microsoft에 문의](mailto:azurecache@microsoft.com)하세요.
->
 
 ## <a name="create-a-cache"></a>캐시 만들기
 캐시를 만들려면 다음 단계를 수행합니다.
@@ -67,7 +59,7 @@ Azure Cache for Redis 표준 및 프리미엄 계층은 두 개의 전용 VM(가
     >
 
 ## <a name="next-steps"></a>다음 단계
-Azure Cache for Redis 기능에 대해 자세히 알아봅니다.
+Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)

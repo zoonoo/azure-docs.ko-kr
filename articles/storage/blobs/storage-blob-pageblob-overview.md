@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 88c0d88a1d3119ef2fa00eb49da447749fde3221
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 30d865b11db3d456f41067efa54bbcf07b019c65
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105543842"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451738"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 페이지 Blob의 개요
 
@@ -55,13 +55,13 @@ Azure Site Recovery, Azure Backup과 같은 자사의 Microsoft 서비스뿐만 
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>지정된 크기의 빈 페이지 Blob 만들기
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 먼저, 컨테이너에 대한 참조를 가져옵니다. 페이지 blob을 만들려면 GetPageBlobClient 메서드를 호출한 다음 [PageBlobClient.Create](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.create) 메서드를 호출합니다. 만들 blob의 최대 크기를 전달합니다. 그 크기는 512바이트의 배수여야 합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_CreatePageBlob":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 페이지 Blob을 만들기 위해 아래 예제와 같이 **StorageCredentialsAccountAndKey** 개체와 함께 먼저 스토리지 계정(그림 1의 *pbaccount*)의 Blob 스토리지에 액세스하기 위한 기본 URI가 있는 **CloudBlobClient** 개체를 만듭니다. 이 예제에서는 **CloudBlobContainer** 개체에 대한 참조를 만든 다음, 아직 없는 경우 컨테이너(*testvhds*)를 만드는 방법을 보여줍니다. 그런 다음, **CloudBlobContainer** 개체를 사용하여 액세스할 페이지 Blob 이름(os4.vhd)을 지정하여 **CloudPageBlob** 개체에 대한 참조를 만듭니다. 페이지 blob을 만들려면 [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)를 호출하여 만들려는 blob의 최대 크기를 전달합니다. blobSize는 512바이트의 배수여야 합니다.
 
@@ -92,13 +92,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 
 #### <a name="resizing-a-page-blob"></a>페이지 Blob 크기 조정
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 페이지 Blob을 만든 후 크기를 조정하려면 [크기 조정](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.resize) 메서드를 사용합니다. 요청 크기는 512바이트의 배수여야 합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ResizePageBlob":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 페이지 Blob을 만든 후 크기를 조정하려면 [크기 조정](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) 메서드를 사용합니다. 요청 크기는 512바이트의 배수여야 합니다.
 
@@ -110,13 +110,13 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 
 #### <a name="writing-pages-to-a-page-blob"></a>페이지 Blob에 페이지 쓰기
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 페이지를 쓰려면 [PageBlobClient.UploadPages](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.uploadpages) 메서드를 사용합니다.  
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_WriteToPageBlob":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 페이지를 쓰려면 [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) 메서드를 사용합니다.  
 
@@ -139,13 +139,13 @@ pageBlob.WritePages(dataStream, startingOffset);
 
 #### <a name="reading-pages-from-a-page-blob"></a>페이지 Blob에서 페이지 읽기
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 페이지를 읽으려면 [PageBlobClient.Download](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadto) 메서드를 사용하여 페이지 blob에서 바이트 범위를 읽습니다. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 페이지를 읽으려면 [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) 메서드를 사용하여 페이지 Blob에서 바이트 범위를 읽습니다. 
 
@@ -164,13 +164,13 @@ pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSiz
 
 빈약하게 채워진 Blob이 있는 경우 유효한 페이지 영역만 다운로드하여 0바이트 송신에 대한 요금을 방지하고 다운로드 대기 시간을 줄이는 것이 좋습니다.  
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 데이터가 지원하는 페이지를 파악하려면 [PageBlobClient.GetPageRanges](/dotnet/api/azure.storage.blobs.specialized.pageblobclient.getpageranges)를 사용합니다. 그런 다음 반환되는 범위를 열거하고 각 범위의 데이터를 다운로드할 수 있습니다. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadValidPageRegionsFromPageBlob":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 데이터가 지원하는 페이지를 파악하려면 [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges)를 사용합니다. 그런 다음 반환되는 범위를 열거하고 각 범위의 데이터를 다운로드할 수 있습니다. 
 

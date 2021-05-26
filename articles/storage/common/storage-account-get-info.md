@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 26ce4a77e02e62a1a204529ce8652fbba3aab2c9
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 96c77291a1c540e2ff95fb911b2321e78f20e604
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277150"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478847"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>.NET을 사용하여 스토리지 계정 유형 및 SKU 이름 가져오기
 
@@ -31,13 +31,13 @@ ms.locfileid: "106277150"
 
 다음 코드 예제에서는 읽기 전용 계정 속성을 검색하고 표시합니다.
 
-# <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 Blob과 연결된 스토리지 계정 유형 및 SKU 이름을 가져오려면 [GetAccountInfo](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfo) 또는 [GetAccountInfoAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getaccountinfoasync) 메서드를 호출합니다.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Account.cs" id="Snippet_GetAccountInfo":::
 
-# <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
+# <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnet11)
 
 Blob와 연결된 스토리지 계정 유형 및 SKU 이름을 가져오려면 [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties) 또는 [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync) 메서드를 호출합니다.
 

@@ -2,13 +2,13 @@
 title: Virtual Network 서비스 엔드포인트 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 가상 네트워크에 Microsoft.EventHub 서비스 엔드포인트를 추가하는 방법에 대한 정보를 제공합니다.
 ms.topic: article
-ms.date: 03/29/2021
-ms.openlocfilehash: f7f0f3ff480018c9bfc5d9c6f34cf7e2935f8d6a
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.date: 05/10/2021
+ms.openlocfilehash: bc13878be3b596d514ad2ed8ad024064df6e6fb4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105959962"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375340"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>특정 가상 네트워크에서 Azure Event Hubs 네임스페이스에 대한 액세스 허용 
 
@@ -19,7 +19,7 @@ ms.locfileid: "105959962"
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Event Hubs 네임스페이스 간에 격리된 프라이빗 관계가 생성됩니다. 이 동작에는 예외가 있습니다. 기본적으로 서비스 엔드포인트를 사용하도록 설정하면 가상 네트워크와 연결된 [IP 방화벽](event-hubs-ip-filtering.md)에서 `denyall` 규칙을 사용할 수 있습니다. IP 방화벽의 특정 IP 주소를 추가하여 Event Hub 퍼블릭 엔드포인트에 액세스할 수 있습니다. 
 
 ## <a name="important-points"></a>중요 사항
-- 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원됩니다. **기본** 계층에서는 지원되지 않습니다.
+- 이 기능은 **기본** 계층에서 지원되지 않습니다.
 - Event Hubs 네임스페이스의 가상 네트워크를 사용하도록 설정하면 허용된 가상 네트워크에서 작동하는 서비스에서 요청하는 경우를 제외하고, 기본적으로 들어오는 요청은 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 예외적으로 가상 네트워크를 사용하도록 설정한 경우에도 특정 **신뢰할 수 있는 서비스** 에서 Event Hubs 리소스에 대한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 서비스](#trusted-microsoft-services)를 참조하세요.
 - 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 **하나 이상의 IP 규칙 또는 가상 네트워크 규칙** 을 지정합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용하여 퍼블릭 인터넷을 통해 네임스페이스에 액세스할 수 있습니다.  
 
@@ -43,7 +43,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 이 섹션에서는 Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트를 추가하는 방법을 보여 줍니다. 액세스를 제한하려면 이 Event Hubs 네임스페이스에 대한 가상 네트워크 서비스 엔드포인트를 통합해야 합니다.
 
 1. **Azure Portal** 에서 [Event Hubs 네임스페이스](https://portal.azure.com)로 이동합니다.
-4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다. **표준** 또는 **전용** 네임스페이스에 대해서만 **네트워킹** 탭이 표시됩니다. 
+4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다. 
 
     > [!WARNING]
     > **선택한 네트워크** 옵션을 선택하고 이 페이지에 하나 이상의 IP 방화벽 규칙이나 가상 네트워크를 추가하지 않으면 액세스 키를 사용하여 **퍼블릭 인터넷** 을 통해 네임스페이스에 액세스할 수 있습니다. 

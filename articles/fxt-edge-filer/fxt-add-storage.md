@@ -2,16 +2,16 @@
 title: '자습서: Azure FXT Edge Filer 클러스터에 스토리지 추가'
 description: Azure FXT Edge Filer에 대해 백 엔드 스토리지 및 클라이언트 측 pseudonamespace를 구성하는 방법
 author: ekpgh
-ms.author: rohogue
+ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 7d10c6c1ce440b2ffe964dc78379ef3ab108e78e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 87d6d24f1cc325909249c7ad65c2b63ffe228a2a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92217527"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456278"
 ---
 # <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>자습서: 백 엔드 스토리지 추가 및 가상 네임스페이스 구성
 

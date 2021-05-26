@@ -2,13 +2,13 @@
 title: Azure Event Hubs 방화벽 규칙 | Microsoft Docs
 description: 특정 IP 주소에서 Azure Event Hubs로 연결을 차단하도록 방화벽 규칙을 사용합니다.
 ms.topic: article
-ms.date: 03/29/2021
-ms.openlocfilehash: 12240135401b267fd7c60e579fdf5a12e10ffce9
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.date: 05/10/2021
+ms.openlocfilehash: e0cefa24db8728ebe9d268c00718c2276ed7cee4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963005"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375010"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>특정 IP 주소나 범위에서 Azure Event Hubs 네임스페이스에 대한 액세스 허용
 기본적으로 요청에 유효한 인증 및 권한 부여가 제공되는 한 Event Hubs 네임스페이스는 인터넷에서 액세스할 수 있습니다. IP 방화벽을 사용하면 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 표기법으로 IPv4 주소 또는 IPv4 주소 범위 세트로만 제한할 수 있습니다.
@@ -20,7 +20,7 @@ IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 
 
 
 ## <a name="important-points"></a>중요 사항
-- 이 기능은 **표준** 계층과 **전용** 계층 모두에서 지원됩니다. **기본** 계층에서는 지원되지 않습니다.
+- 이 기능은 **기본** 계층에서 지원되지 않습니다.
 - Event Hubs 네임스페이스의 방화벽 규칙을 켜면 허용된 공용 IP 주소에서 작동하는 서비스에서 요청하는 경우를 제외하고, 기본적으로 들어오는 요청은 차단됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다. 예외적으로 IP 필터링이 사용으로 설정된 경우에도 특정 **신뢰할 수 있는 서비스** 에서 Event Hubs 리소스에 대한 액세스를 허용할 수 있습니다. 신뢰할 수 있는 서비스 목록은 [신뢰할 수 있는 Microsoft 서비스](#trusted-microsoft-services)를 참조하세요.
 - 지정된 IP 주소 또는 가상 네트워크의 서브넷에서만 트래픽을 허용하도록 네임스페이스에 대해 **하나 이상의 IP 방화벽 규칙 또는 가상 네트워크 규칙** 을 지정합니다. IP 및 가상 네트워크 규칙이 없는 경우 액세스 키를 사용하여 퍼블릭 인터넷을 통해 네임스페이스에 액세스할 수 있습니다.  
 
@@ -29,7 +29,7 @@ IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 
 이 섹션에서는 Azure Portal을 사용하여 Event Hubs 네임스페이스에 대한 IP 방화벽 규칙을 만드는 방법을 보여줍니다. 
 
 1. **Azure Portal** 에서 [Event Hubs 네임스페이스](https://portal.azure.com)로 이동합니다.
-4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다. **표준** 또는 **전용** 네임스페이스에 대해서만 **네트워킹** 탭이 표시됩니다. 
+4. 왼쪽 메뉴의 **설정** 에서 **네트워킹** 을 선택합니다. 
     
     > [!WARNING]
     > **선택한 네트워크** 옵션을 선택하고 이 페이지에 하나 이상의 IP 방화벽 규칙이나 가상 네트워크를 추가하지 않으면 액세스 키를 사용하여 **퍼블릭 인터넷** 을 통해 네임스페이스에 액세스할 수 있습니다.  
@@ -59,7 +59,7 @@ IP 방화벽 규칙은 Event Hubs 네임스페이스 수준에 적용됩니다. 
 ## <a name="use-resource-manager-template"></a>Resource Manager 템플릿 사용
 
 > [!IMPORTANT]
-> 방화벽 규칙은 Event Hubs의 **표준** 및 **전용** 계층에서 지원됩니다. 기본 계층에서는 지원되지 않습니다.
+> 방화벽 기능은 기본 계층에서 지원되지 않습니다.
 
 다음과 같은 Resource Manager 템플릿을 사용하면 기존 Event Hubs 네임스페이스에 IP 필터 규칙을 추가할 수 있습니다.
 

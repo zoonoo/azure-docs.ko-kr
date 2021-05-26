@@ -7,12 +7,12 @@ ms.date: 3/12/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: bbc07a7ee3f996c778cfc1b9d1764f10a613c50b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 606151084d399f605f12012ab5b3e323c705199d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782948"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468133"
 ---
 # <a name="open-service-mesh-aks-add-on-preview"></a>Open Service Mesh AKS 추가 기능(미리 보기)
 
@@ -52,9 +52,15 @@ OSM은 다음과 같은 시나리오를 통해 AKS 배포를 지원할 수 있�
 
 - 애플리케이션 트래픽에서 KPI 수집 및 보기
 
+## <a name="prerequisites"></a>사전 요구 사항
+
+- Azure CLI 버전 2.20.0 이상
+- `aks-preview` 확장 버전 0.5.5 이상
+- OSM 버전 v0.8.0 이상
+
 ## <a name="osm-service-quotas-and-limits-preview"></a>OSM 서비스 할당량 및 한도(미리 보기)
 
-서비스 할당량 및 한도에 대한 OSM 미리 보기 제한은 AKS [할당량 및 지역 제한 페이지](https://docs.microsoft.com/azure/aks/quotas-skus-regions)에서 찾을 수 있습니다.
+서비스 할당량 및 한도에 대한 OSM 미리 보기 제한은 AKS [할당량 및 지역 제한 페이지](./quotas-skus-regions.md)에서 찾을 수 있습니다.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -118,7 +124,7 @@ az group create --name <myosmaksgroup> --location <eastus2>
 이제 OSM 추가 기능을 사용하도록 설정하여 새 AKS 클러스터를 배포합니다.
 
 > [!NOTE]
-> 다음 AKS 배포 명령은 임시 OS 디스크를 활용합니다. [AKS용 임시 OS 디스크](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os)에 대한 자세한 내용은 여기에서 찾을 수 있습니다.
+> 다음 AKS 배포 명령은 임시 OS 디스크를 활용합니다. [AKS용 임시 OS 디스크](./cluster-configuration.md#ephemeral-os)에 대한 자세한 내용은 여기에서 찾을 수 있습니다.
 
 ```azurecli-interactive
 az aks create -n osm-addon-cluster -g <myosmaksgroup> --kubernetes-version 1.19.6 --node-osdisk-type Ephemeral --node-osdisk-size 30 --network-plugin azure --enable-managed-identity -a open-service-mesh
@@ -1181,7 +1187,7 @@ OSM에서 관리하는 애플리케이션을 인터넷에 공개하기 위해 �
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예에서는 _ingress-basic_ 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
+> 다음 예제에서는 _ingress-basic_ 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 
 ```azurecli-interactive
 # Create a namespace for your ingress resources
@@ -1544,7 +1550,7 @@ Forwarding from [::1]:8080 -> 14001
 #### <a name="deploy-a-new-application-gateway"></a>새 Application Gateway 배포
 
 > [!NOTE]
-> 기존 AKS 클러스터에 대한 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정하는 기존 설명서를 참조하고 있습니다. OSM 자료에 맞게 몇 가지 사항이 수정되었습니다. 이 주제에 대한 자세한 설명서는 [여기](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing)에 있습니다.
+> 기존 AKS 클러스터에 대한 Application Gateway 수신 컨트롤러 추가 기능을 사용하도록 설정하는 기존 설명서를 참조하고 있습니다. OSM 자료에 맞게 몇 가지 사항이 수정되었습니다. 이 주제에 대한 자세한 설명서는 [여기](../application-gateway/tutorial-ingress-controller-add-on-existing.md)에 있습니다.
 
 이제 새 Application Gateway를 배포하고, AKS 클러스터 _myCluster_ 에 대한 트래픽 부하를 분산하는 데 사용하려는 기존 Application Gateway를 시뮬레이션합니다. Application Gateway 이름은 _myApplicationGateway_ 이지만, 먼저 _myPublicIp_ 라는 공용 IP 리소스, 주소 공간이 11.0.0.0/8인 _myVnet_ 이라는 새 가상 네트워크, 주소 공간이 11.1.0.0/16인 _mySubnet_ 이라는 서브넷을 만들고 _myPublicIp_ 를 사용하여 _mySubnet_ 에 Application Gateway를 배포해야 합니다.
 
@@ -1701,7 +1707,7 @@ curl -H 'Host: bookbuyer.contoso.com' http://$appGWPIP/
 
 ### <a name="troubleshooting"></a>문제 해결
 
-- [AGIC 문제 해결 설명서](https://docs.microsoft.com/azure/application-gateway/ingress-controller-troubleshoot)
+- [AGIC 문제 해결 설명서](../application-gateway/ingress-controller-troubleshoot.md)
 - [추가적인 문제 해결 도구는 AGIC의 GitHub 리포지토리에서 사용할 수 있습니다.](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/master/docs/troubleshootings/troubleshooting-installing-a-simple-application.md)
 
 ## <a name="open-service-mesh-osm-monitoring-and-observability-using-azure-monitor-and-applications-insights"></a>Azure Monitor 및 Application Insights를 사용한 OSM(Open Service Mesh) 모니터링 및 가시성
@@ -2532,19 +2538,19 @@ kubectl get ConfigMap -n kube-system osm-config -o json | jq '.data'
 
 | 키                              | 형식   | 허용되는 값                                          | 기본값                          | 함수                                                                                                                                                                                                                                |
 | -------------------------------- | ------ | ------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| egress                           | 부울   | true, false                                             | `"false"`                              | 메시에서 송신을 사용하도록 설정합니다.                                                                                                                                                                                                             |
-| enable_debug_server              | 부울   | true, false                                             | `"true"`                               | osm-controller Pod에서 디버그 엔드포인트를 사용하도록 설정하여 프록시 연결, 인증서 및 SMI 정책과 같은 메시 관련 정보를 나열합니다.                                                                                    |
-| enable_privileged_init_container | 부울   | true, false                                             | `"false"`                              | 메시에서 Pod에 대해 권한 있는 init 컨테이너를 사용하도록 설정합니다. false인 경우 init 컨테이너에는 NET_ADMIN만이 있습니다.                                                                                                                                   |
+| egress                           | bool   | true, false                                             | `"false"`                              | 메시에서 송신을 사용하도록 설정합니다.                                                                                                                                                                                                             |
+| enable_debug_server              | bool   | true, false                                             | `"true"`                               | osm-controller Pod에서 디버그 엔드포인트를 사용하도록 설정하여 프록시 연결, 인증서 및 SMI 정책과 같은 메시 관련 정보를 나열합니다.                                                                                    |
+| enable_privileged_init_container | bool   | true, false                                             | `"false"`                              | 메시에서 Pod에 대해 권한 있는 init 컨테이너를 사용하도록 설정합니다. false인 경우 init 컨테이너에는 NET_ADMIN만이 있습니다.                                                                                                                                   |
 | envoy_log_level                  | 문자열 | trace, debug, info, warning, warn, error, critical, off | `"error"`                              | 메시 프록시 사이드카의 로깅 세부 정보 표시를 설정합니다. 여기에는 메시를 조인하는 새로 만든 Pod가 적용됩니다. 기존 Pod에 대한 로그 수준을 업데이트하려면 `kubectl rollout restart`를 사용하여 배포를 다시 시작합니다.                            |
 | outbound_ip_range_exclusion_list | 문자열 | a.b.c.d/x 형식의 IP 범위를 쉼표로 구분한 목록입니다. | `-`                                    | 사이드카 프록시에 의해 차단되는 아웃바운드 트래픽에서 제외되는 IP 주소 범위에 대한 전체 목록입니다.                                                                                                                                    |
-| permissive_traffic_policy_mode   | 부울   | true, false                                             | `"false"`                              | `true`로 설정하면 메시에서 모두 허용 모드(예: 메시에 트래픽 정책이 적용되지 않음)를 사용하도록 설정합니다. `false`로 설정하면 메시에서 모두 거부 트래픽 정책을 사용하도록 설정합니다. 즉, `SMI Traffic Target`는 서비스 통신을 위해 필요합니다. |
-| prometheus_scraping              | 부울   | true, false                                             | `"true"`                               | 사이드카 프록시에서 Prometheus 메트릭 스크래핑을 사용하도록 설정합니다.                                                                                                                                                                                 |
+| permissive_traffic_policy_mode   | bool   | true, false                                             | `"false"`                              | `true`로 설정하면 메시에서 모두 허용 모드(예: 메시에 트래픽 정책이 적용되지 않음)를 사용하도록 설정합니다. `false`로 설정하면 메시에서 모두 거부 트래픽 정책을 사용하도록 설정합니다. 즉, `SMI Traffic Target`는 서비스 통신을 위해 필요합니다. |
+| prometheus_scraping              | bool   | true, false                                             | `"true"`                               | 사이드카 프록시에서 Prometheus 메트릭 스크래핑을 사용하도록 설정합니다.                                                                                                                                                                                 |
 | service_cert_validity_duration   | 문자열 | 24시간, 1시간 30분(모든 기간)                          | `"24h"`                                | 선택적인 분수와 단위 접미사가 있는 10진수의 시퀀스로 표시되는 서비스 인증서 유효 기간을 설정합니다.                                                                                             |
-| tracing_enable                   | 부울   | true, false                                             | `"false"`                              | 메시에 대해 Jaeger 추적을 사용하도록 설정합니다.                                                                                                                                                                                                    |
+| tracing_enable                   | bool   | true, false                                             | `"false"`                              | 메시에 대해 Jaeger 추적을 사용하도록 설정합니다.                                                                                                                                                                                                    |
 | tracing_address                  | 문자열 | jaeger.mesh-namespace.svc.cluster.local                 | `jaeger.kube-system.svc.cluster.local` | Jaeger 배포의 주소입니다(추적을 사용하는 경우).                                                                                                                                                                                |
 | tracing_endpoint                 | 문자열 | /api/v2/spans                                           | /api/v2/spans                          | 추적 데이터에 대한 엔드포인트입니다(추적을 사용하는 경우).                                                                                                                                                                                          |
 | tracing_port                     | int    | 0이 아닌 정수 값                              | `"9411"`                               | 추적을 사용하도록 설정한 포트입니다.                                                                                                                                                                                                       |
-| use_https_ingress                | 부울   | true, false                                             | `"false"`                              | 메시에 HTTPS 수신을 사용하도록 설정합니다.                                                                                                                                                                                                      |
+| use_https_ingress                | bool   | true, false                                             | `"false"`                              | 메시에 HTTPS 수신을 사용하도록 설정합니다.                                                                                                                                                                                                      |
 | config_resync_interval           | 문자열 | 1분 이내에 이를 사용하지 않도록 설정합니다.                            | 0(사용 안 함)                           | 1분(60초) 이상의 값이 제공되면 OSM 컨트롤러는 지정된 간격으로 모든 사용 가능한 구성을 연결된 각 Envoy로 보냅니다.                                                                                                    |
 
 #### <a name="check-namespaces"></a>네임스페이스 확인

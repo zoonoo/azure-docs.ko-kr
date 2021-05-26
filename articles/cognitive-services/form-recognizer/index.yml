@@ -11,12 +11,12 @@ metadata:
   author: laujan
   ms.author: lajanuar
   ms.date: 09/05/2019
-  ms.openlocfilehash: d3dd7c5a9befd00c51f6ec40fdc1ee304ea55db3
-  ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+  ms.openlocfilehash: 2d38f9dd270bb3c3ffb304206edbefe6ab4db165
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/20/2021
-  ms.locfileid: "107784302"
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110374478"
 landingContent:
 - title: Form Recognizer 정보
   linkLists:
@@ -24,122 +24,184 @@ landingContent:
     links:
     - text: Form Recognizer란?
       url: overview.md
+    - text: Azure Applied AI Services란?
+      url: https://aka.ms/applied-ai-services-hub
   - linkListType: whats-new
     links:
     - text: Form Recognizer의 새로운 기능
       url: whats-new.md
   - linkListType: video
     links:
-    - text: Form Recognizer를 사용하여 AI 지원 프로세스 자동화
+    - text: 문서 및 양식에서 데이터 추출
+      url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
+    - text: AI 기반 프로세스 자동화
       url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+    - text: 최신 기능 및 업데이트
+      url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
+- title: 양식 레이아웃에서 데이터 추출
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Layout
+      url: concept-layout.md?
+  - linkListType: quickstart
+    links:
+    - text: .NET SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-layout
+    - text: Python SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-layout
+    - text: Java SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-layout
+    - text: JavaScript SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
+    - text: REST API 사용(cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
+  - linkListType: deploy
+    links:
+    - text: Form Recognizer 사용해보기
+      url: https://fott-2-1.azurewebsites.net/layout-analyze
+- title: 수신 확인에서 데이터 추출
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Receipts
+      url: concept-receipts.md?
+  - linkListType: quickstart
+    links:
+    - text: .NET SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Python SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-receipts
+    - text: Java SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-receipts
+    - text: JavaScript SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
+    - text: REST API 사용(cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+- title: 비즈니스 카드에서 데이터 추출
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 명함
+      url: concept-business-cards.md
+  - linkListType: quickstart
+    links:
+    - text: .NET SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Python SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: Java SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: JavaScript SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
+    - text: REST API 사용(cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+- title: 송장에서 데이터 추출
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 송장
+      url: concept-invoices.md?
+  - linkListType: quickstart
+    links:
+    - text: .NET SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Python SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-invoices
+    - text: Java SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-invoices
+    - text: JavaScript SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
+    - text: REST API 사용(cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
+  - linkListType: deploy
+    links:
+    - text: Form Recognizer 사용해보기
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
+- title: ID 문서에서 데이터 추출
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ID 문서
+      url: concept-invoices.md
+  - linkListType: quickstart
+    links:
+    - text: .NET SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Python SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: Java SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: JavaScript SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
+    - text: REST API 사용(cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
+- title: Microsoft 기술 커뮤니티
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 코드를 사용하거나 사용하지 않고 PDF에서 데이터 추출
+      url: https://techcommunity.microsoft.com/t5/azure-ai/extract-data-from-pdfs-using-form-recognizer-with-code-or/ba-p/2214299
+    - text: 더 많은 언어 읽기, ID 및 청구서 처리, 테이블 관련 학습 등
+      url: https://techcommunity.microsoft.com/t5/azure-ai/form-recognizer-now-reads-more-languages-processes-ids-and/ba-p/2179428
+    - text: Form Recognizer를 사용하여 개인용 재무 앱 빌드
+      url: https://techcommunity.microsoft.com/t5/azure-ai/how-to-build-a-personal-finance-app-using-azure/ba-p/2088995
+    - text: 향상된 문서 테이블 추출
+      url: https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011
+    - text: 메타데이터 기반 접근 방식을 사용하여 키-값 쌍 추출
+      url: https://techcommunity.microsoft.com/t5/azure-ai/meta-data-driven-key-value-pairs-extraction-with-azure-form/ba-p/1942595
+    - text: 문서의 텍스트, 데이터 및 구조 추출 가속화
+      url: https://techcommunity.microsoft.com/t5/azure-ai/accelerate-extraction-of-text-data-and-structure-from-your/ba-p/1507365
+    - text: 생산성 향상을 위해 양식 처리 자동화
+      url: https://techcommunity.microsoft.com/t5/azure-ai/get-started-with-automating-form-processing-to-enable/ba-p/1387305
 - title: 사용자 지정 모델 학습 및 데이터 추출
   linkLists:
   - linkListType: quickstart
     links:
     - text: .NET SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-csharp
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#train-a-custom-model
     - text: Python SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-python
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#train-a-custom-model
     - text: Java SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-java
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#train-a-custom-model
     - text: JavaScript SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-javascript
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
     - text: REST API 사용(cURL)
-      url: quickstarts/client-library.md?pivots=programming-language-rest-api
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
   - linkListType: tutorial
     links:
     - text: 대량으로 양식 데이터 추출
       url: tutorial-bulk-processing.md
-- title: 학습 데이터 세트 빌드
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: 학습 데이터 세트 빌드
-      url: build-training-data-set.md
-- title: 레이블을 사용하여 사용자 지정 모델 학습
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 레이블이 지정된 데이터
-      url: overview.md#train-with-labels
-  - linkListType: quickstart
-    links:
-    - text: 샘플 레이블 지정 도구를 사용하여 학습
-      url: quickstarts/label-tool.md
-- title: 수신 확인에서 데이터 추출
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: .NET SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-csharp
-    - text: Python SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-python
-    - text: Java SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-java
-    - text: JavaScript SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-javascript
-    - text: REST API 사용(cURL)
-      url: quickstarts/client-library.md?pivots=programming-language-rest-api
-  - linkListType: concept
-    links:
-    - text: 수신 개념
-      url: concept-receipts.md?
-- title: 비즈니스 카드에서 데이터 추출
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: .NET SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-csharp
-    - text: Python SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-python
-    - text: Java SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-java
-    - text: JavaScript SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-javascript
-    - text: REST API 사용(cURL)
-      url: quickstarts/client-library.md?pivots=programming-language-rest-api
-  - linkListType: concept
-    links:
-    - text: 명함 개념
-      url: concept-business-cards.md?
-- title: 텍스트 레이아웃 정보 가져오기
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 레이아웃 개념
-      url: concept-layout.md?
-  - linkListType: quickstart
-    links:
-    - text: .NET SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-csharp
-    - text: Python SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-python
-    - text: Java SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-java
-    - text: JavaScript SDK 사용
-      url: quickstarts/client-library.md?pivots=programming-language-javascript
-    - text: REST API 사용(cURL)
-      url: quickstarts/client-library.md?pivots=programming-language-rest-api
-- title: 컨테이너 사용
-  linkLists:
-  - linkListType: get-started
-    links:
-    - text: 컨테이너 설치 및 실행
-      url: form-recognizer-container-howto.md
-  - linkListType: how-to-guide
-    links:
-    - text: 컨테이너 구성
-      url: form-recognizer-container-configuration.md
   - linkListType: deploy
     links:
-    - text: 컨테이너 인스턴스 사용
-      url: ../containers/azure-container-instance-recipe.md
-- title: 참조
+    - text: Form Recognizer 사용해보기
+      url: https://fott-2-1.azurewebsites.net/
+- title: 사용자 지정 모델을 사용하여 양식 분석
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: .NET SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-csharp&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Python SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-python&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: Java SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-java&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: JavaScript SDK 사용
+      url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+    - text: REST API 사용(cURL)
+      url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+- title: 레이블 지정 도구 시작
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 레이블 지정 도구 사용
+      url: label-tool.md
+- title: API 및 클라이언트 라이브러리
   linkLists:
   - linkListType: reference
     links:
-    - text: Form Recognizer API v2.1 미리보기 3
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm
+    - text: Form Recognizer API v2.1
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
     - text: .NET SDK
       url: /dotnet/api/overview/azure/ai.formrecognizer-readme
     - text: Python SDK
@@ -148,10 +210,6 @@ landingContent:
       url: /java/api/overview/azure/ai-formrecognizer-readme
     - text: JavaScript SDK
       url: /javascript/api/overview/azure/ai-form-recognizer-readme
-    - text: Azure PowerShell
-      url: /powershell/module/az.cognitiveservices/#cognitive_services
-    - text: Azure CLI(명령줄 인터페이스)
-      url: /cli/azure/cognitiveservices#az_cognitiveservices_list
 - title: 도움말 및 피드백
   linkLists:
   - linkListType: reference
