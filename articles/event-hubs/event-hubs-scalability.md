@@ -3,12 +3,12 @@ title: 스케일링 성능 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 파티션 및 처리량 단위를 사용하여 Azure Event Hubs 스케일링 방법에 대한 정보를 제공합니다.
 ms.topic: article
 ms.date: 03/16/2021
-ms.openlocfilehash: f258ee2a3b4162dabf7a8e615db82b9b889d628b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: acfc300ff7e6bd77c570c68bda50a731df10409c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601284"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367095"
 ---
 # <a name="scaling-with-event-hubs"></a>Event Hubs 스케일링
 
@@ -35,6 +35,14 @@ Event Hubs의 **자동 확장** 기능은 필요한 사용량에 맞게 처리�
 ServerBusy 오류로 인한 요청 실패 없이 부하가 최소 임계값을 초과하면 Event Hubs 서비스는 처리량을 높입니다. 
 
 자동 확장 기능에 대한 자세한 내용은 [처리량 단위 자동 스케일링](event-hubs-auto-inflate.md)을 참조하세요.
+
+## <a name="processing-units"></a>처리 단위
+
+ [Event Hubs 프리미엄](./event-hubs-premium-overview.md)은 관리형 다중 테넌트 PaaS 환경에서 뛰어난 성능과 더 나은 격리를 제공합니다. 프리미엄 계층의 리소스는 CPU 및 메모리 수준에서 격리되므로 각 테넌트 워크로드가 격리되어 실행됩니다. 이 리소스 컨테이너를 *PU(처리 단위)* 라고 합니다. 각 Event Hubs 프리미엄 네임스페이스에 대해 1, 2, 4, 8 또는 16개의 처리 단위를 구입할 수 있습니다. 
+
+처리 단위로 수집하고 스트림할 수 있는 양은 생산자, 소비자, 수집 및 처리 속도 등과 같은 다양한 요인에 따라 달라집니다. 하나의 처리 단위는 스토리지가 제한 요소가 되지 않도록 충분한 파티션이 있는 경우 약 5~10MB/s 수신 및 10-20MB/s 송신의 코어 용량을 제공할 수 있습니다.  
+
+
 
 ## <a name="partitions"></a>파티션
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]

@@ -5,14 +5,15 @@ author: arduppal
 manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 461e8c20b70abe3b6b5361de95451a72ea8a0996
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96005064"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378304"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응(미리 보기)
 이 문서에서는 IoT 모듈에 Azure Blob Storage를 배포하는 방법을 보여줍니다. 이 모듈은 Blob 만들기 및 Blob 삭제에 대한 이벤트를 Event Grid에 전송하는 Event Grid 게시자 역할을 합니다.  
@@ -324,7 +325,7 @@ IoT Edge 디바이스에 모듈을 배포하는 방법은 여러 가지이며 �
 
 다음은 지원되는 이벤트 속성과 해당 유형 및 설명 목록입니다. 
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -337,7 +338,7 @@ IoT Edge 디바이스에 모듈을 배포하는 방법은 여러 가지이며 �
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | 설명 |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | api | 문자열 | 이벤트를 트리거하는 작업입니다. 다음 값 중 하나일 수 있습니다. <ul><li>BlobCreated - 허용되는 값은 `PutBlob` 및 `PutBlockList`입니다.</li><li>BlobDeleted - 허용되는 값은 `DeleteBlob`, `DeleteAfterUpload` 및 `AutoDelete`입니다. <p>deleteAfterUpload 원하는 속성이 true로 설정되어 있으므로 Blob이 자동으로 삭제되면 `DeleteAfterUpload` 이벤트가 생성됩니다. </p><p>deleteAfterMinutes 원하는 속성 값이 만료되었으므로 Blob이 자동으로 삭제되면 `AutoDelete` 이벤트가 생성됩니다.</p></li></ul>|
 | clientRequestId | 문자열 | 스토리지 API 작업에 대한 클라이언트 제공 요청 ID입니다. 해당 ID는 로그의 ‘client-request-id’ 필드를 사용하여 Azure Storage 진단 로그와의 상관관계를 지정하는 데 사용할 수 있으며, ‘x-ms-client-request-id’ 헤더를 사용하여 클라이언트 요청에 제공할 수 있습니다. 자세한 내용은 [로그 형식](/rest/api/storageservices/storage-analytics-log-format)을 참조하세요. |

@@ -5,12 +5,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 04/19/2021
 ms.author: aahi
-ms.openlocfilehash: d36666ea35a4ce3fc894e35dd8ca3860900ecef6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 42716c4e2c4aa2e76242034b493f4181632f0fe9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107880142"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165109"
 ---
 <a name="HOLTop"></a>
 
@@ -862,7 +862,7 @@ Entity: Paul Allen
 ------------------------------------------
 ```
 
-일괄 처리 분석 작업을 사용하여 PII를 검색하고 핵심 문구 추출을 수행할 수도 있습니다. GitHub의 [일괄 처리 분석 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_batch_actions.py)을 참조하세요.
+일괄 처리 분석 작업을 사용하여 PII를 검색하고 핵심 문구 추출을 수행할 수도 있습니다. GitHub의 [일괄 처리 분석 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py)을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 

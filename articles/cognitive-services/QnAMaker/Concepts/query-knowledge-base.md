@@ -3,12 +3,12 @@ title: 기술 자료 쿼리 - QnA Maker
 description: 기술 자료가 게시되어야 합니다. 게시된 후에는 generateAnswer API를 사용하여 런타임 예측 엔드포인트에서 기술 자료가 쿼리됩니다.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: c723d1446c90290929bc8cad066b4744e284f3f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4d36e1feb0279eec638a3602c5188e8af1cb7c17
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008674"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369306"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>기술 자료에서 답변 쿼리
 
@@ -39,7 +39,7 @@ ms.locfileid: "103008674"
 
 사용되는 기능에는 단어 수준 의미 체계, 모음의 용어 수준 중요도, 두 텍스트 문자열 간의 유사성과 관련성을 확인하기 위한 딥 러닝 의미 체계 모델이 포함되지만 이에 국한되지 않습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 학습되고 [게시된](../quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) QnA Maker 기술 자료는 [GenerateAnswer API](../how-to/metadata-generateanswer-usage.md)에서 봇 또는 다른 클라이언트 애플리케이션의 사용자 쿼리를 수신합니다. 다음 다이어그램에서는 사용자 쿼리를 수신하는 프로세스를 보여줍니다.
 

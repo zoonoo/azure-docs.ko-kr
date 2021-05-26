@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.date: 04/16/2019
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 91c4780981851b62027fecf18da2c3b78625f272
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 5fe977851011bdfa4f7bbf2bde24e5e4b6fd480d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831207"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457860"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Azure Automation State Configuration 문제 해결
 
@@ -90,7 +90,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 컴퓨터에 DSC의 적절한 엔드포인트에 대한 액세스 권한이 있는지 확인하고 다시 시도합니다. 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-dsc-overview.md#network-planning)을 참조하세요.
 
-## <a name="a-nameunauthorizedscenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"><a/>시나리오: 상태 보고서가 권한 없음 응답 코드를 반환함
+## <a name="scenario-status-reports-return-the-response-code-unauthorized"></a><a name="unauthorized"></a>시나리오: 상태 보고서가 권한 없음 응답 코드를 반환함
 
 ### <a name="issue"></a>문제
 

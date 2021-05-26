@@ -1,0 +1,34 @@
+### YamlMime:Hub
+title: Azure Video Analyzer 설명서
+summary: 'Azure Video Analyzer를 통해 개발자는 AI 지원 비디오 분석 솔루션을 신속하게 구축하여 저장되거나 스트리밍된 비디오에서 실행 가능한 인사이트를 추출할 수 있습니다. 조직은 비디오 또는 기계 학습 전문 지식이 없어도 오디오 및 시각적 비디오 콘텐츠를 이해함으로써 작업 영역 보안, 매장 내 환경, 디지털 자산 관리, 미디어 보관 등을 개선할 수 있습니다. Azure Video Analyzer는 비디오 분석을 위한 개발자 플랫폼을 제공하고, Azure Video Analyzer for Media는 미디어 시나리오를 대상으로 하는 AI 솔루션을 제공합니다.'
+brand: azure
+metadata:
+  title: Azure Video Analyzer 설명서
+  description: 'Azure Video Analyzer를 통해 개발자는 AI 지원 비디오 분석 솔루션을 신속하게 구축하여 저장되거나 스트리밍된 비디오에서 실행 가능한 인사이트를 추출할 수 있습니다. 조직은 비디오 또는 기계 학습 전문 지식이 없어도 오디오 및 시각적 비디오 콘텐츠를 이해함으로써 작업 영역 보안, 매장 내 환경, 디지털 자산 관리, 미디어 보관 등을 개선할 수 있습니다. Azure Video Analyzer는 비디오 분석을 위한 개발자 플랫폼을 제공하고, Azure Video Analyzer for Media는 미디어 시나리오를 대상으로 하는 AI 솔루션을 제공합니다.'
+  services: azure-video-analyzer
+  ms.service: azure-video-analyzer
+  ms.topic: hub-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 03/21/2021
+highlightedContent:
+  items:
+    - title: Azure Video Analyzer 설명서
+      itemType: overview
+      url: ./video-analyzer-docs/overview.md
+    - title: Azure Video Analyzer for Media 설명서
+      itemType: overview
+      url: ./video-analyzer-for-media-docs/video-indexer-overview.md
+additionalContent:
+  sections:
+    - items:
+        - title: Azure AI
+          summary: 비즈니스 요구 사항에 맞는 AI(인공 지능)를 만드세요.
+          url: 'https://azure.microsoft.com/overview/ai-platform/'
+        - title: Azure IoT 서비스
+          summary: Edge 또는 클라우드의 업계 요구 사항에 따라 Azure IoT의 기능을 사용하여 요구 사항을 충족할 수 있습니다.
+          url: 'https://azure.microsoft.com/overview/iot/'
+        - title: Azure Machine Learning
+          summary: Azure Machine Learning을 사용하여 엔드투엔드 기계 학습 수명 주기 가속화
+          url: 'https://azure.microsoft.com/services/machine-learning/'

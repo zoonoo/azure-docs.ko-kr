@@ -1,6 +1,6 @@
 ---
 title: 몰입형 리더 Swift 클라이언트 라이브러리 빠른 시작
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 이 빠른 시작에서는 iOS 앱을 처음부터 빌드하고 몰입형 리더 API 기능을 추가합니다.
 services: cognitive-services
 author: nitinme
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 5dc4e38eb0e29cc9fa272f6e740fcc7d1dbfe44a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 090fe51ab2734629e8d4d44862df5aca827d7c83
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619211"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376586"
 ---
 [몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 애플리케이션에서 몰입형 리더를 사용하여 텍스트를 분리하여 포커스를 개선하고, 자주 사용되는 단어에 대한 그림을 표시하고, 품사를 강조 표시하고, 선택한 텍스트를 소리내어 읽고, 단어와 구문을 실시간으로 번역하는 등의 작업을 수행할 수 있습니다.
 

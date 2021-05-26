@@ -6,12 +6,12 @@ ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: cf655885e01fe6bca99a82c82d6bbbc4c1a080b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c20a8307fc61e180b378fee034e086a5f54ba03f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102632438"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089851"
 ---
 # <a name="tutorial-use-azure-quickstart-templates-for-azure-resource-manager-bicep-development"></a>자습서: Azure Resource Manager Bicep 개발에 Azure 빠른 시작 템플릿 사용
 
@@ -39,7 +39,7 @@ Bicep 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure C
 
 1. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 엽니다.
 1. **검색** 에 _deploy linux web app_(Linux 웹앱 배포)을 입력합니다.
-1. 제목이 **기본 Linux 웹앱 배포** 인 타일을 선택합니다. 찾는 데 문제가 있으면 [직접 링크](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)를 사용하세요.
+1. 제목이 **기본 Linux 웹앱 배포** 인 타일을 선택합니다. 찾는 데 문제가 있으면 [직접 링크](https://azure.microsoft.com/resources/templates/webapp-basic-linux/)를 사용하세요.
 1. **GitHub에서 찾아보기** 를 선택합니다.
 1. _azuredeploy.json_ 을 선택합니다. 사용할 수 있는 템플릿입니다.
 1. **Raw** 를 선택한 다음, URL의 복사본을 만듭니다.

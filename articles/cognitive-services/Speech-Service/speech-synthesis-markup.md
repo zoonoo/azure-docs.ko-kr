@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: beb77517a953163c9d1dd34b59fa429b5d58cdd2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3e0bcef30d13403d8067c41568b7ee321fb46995
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478039"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377195"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)을 사용하여 합성 향상
 
@@ -396,20 +396,20 @@ speechConfig!.setPropertyTo(
 
 | 음성                            | 로캘 언어           | 설명                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | en-us 로캘 말하기(이 음성의 주 로캘) |
-|                                  | `lang="en-CA"`            | en-CA 로캘 언어 말하기                                  |
-|                                  | `lang="en-AU"`            | en-AU 로캘 언어 말하기                                  |
-|                                  | `lang="en-GB"`            | en-GB 로캘 언어 말하기                                  |
-|                                  | `lang="de-DE"`            | de-DE 로캘 언어 말하기                                  |
-|                                  | `lang="fr-FR"`            | fr-FR 로캘 언어 말하기                                  |
-|                                  | `lang="fr-CA"`            | fr-CA 로캘 언어 말하기                                  |
-|                                  | `lang="es-ES"`            | es-ES 로캘 언어 말하기                                  |
-|                                  | `lang="es-MX"`            | es-MX 로캘 언어 말하기                                  |
-|                                  | `lang="zh-CN"`            | zh-CN 로캘 언어 말하기                                  |
-|                                  | `lang="ko-KR"`            | ko-KR 로캘 언어 말하기                                  |
-|                                  | `lang="ja-JP"`            | ja-JP 로캘 언어 말하기                                  |
-|                                  | `lang="it-IT"`            | it-IT 로캘 언어 말하기                                  |
-|                                  | `lang="pt-BR"`            | pt-BR 로캘 언어 말하기                                  |
+| `en-US-JennyMultilingualNeural`  | `lang="en-us"`            | en-us 로캘 말하기(이 음성의 주 로캘) |
+|                                  | `lang="en-ca"`            | en-CA 로캘 언어 말하기                                  |
+|                                  | `lang="en-au"`            | en-AU 로캘 언어 말하기                                  |
+|                                  | `lang="en-gb"`            | en-GB 로캘 언어 말하기                                  |
+|                                  | `lang="de-de"`            | de-DE 로캘 언어 말하기                                  |
+|                                  | `lang="fr-fr"`            | fr-FR 로캘 언어 말하기                                  |
+|                                  | `lang="fr-ca"`            | fr-CA 로캘 언어 말하기                                  |
+|                                  | `lang="es-es"`            | es-ES 로캘 언어 말하기                                  |
+|                                  | `lang="es-mx"`            | es-MX 로캘 언어 말하기                                  |
+|                                  | `lang="zh-cn"`            | zh-CN 로캘 언어 말하기                                  |
+|                                  | `lang="ko-kr"`            | ko-KR 로캘 언어 말하기                                  |
+|                                  | `lang="ja-jp"`            | ja-JP 로캘 언어 말하기                                  |
+|                                  | `lang="it-it"`            | it-IT 로캘 언어 말하기                                  |
+|                                  | `lang="pt-br"`            | pt-BR 로캘 언어 말하기                                  |
 
 **예제**
 
@@ -420,10 +420,10 @@ speechConfig!.setPropertyTo(
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         I am looking forward to the exciting things.
-        <lang xml:lang="es-MX">
+        <lang xml:lang="es-mx">
             Estoy deseando que lleguen las cosas emocionantes.
         </lang>
-        <lang xml:lang="de-DE">
+        <lang xml:lang="de-de">
             Ich freue mich auf die spannenden Dinge.
         </lang>
     </voice>

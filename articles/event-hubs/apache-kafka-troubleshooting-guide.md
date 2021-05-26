@@ -2,13 +2,13 @@
 title: Apache Kafka용 Azure Event Hubs 관련 이슈 해결
 description: 이 문서에서는 Apache Kafka용 Azure Event Hubs 관련 이슈를 해결하는 방법을 보여 줍니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a9d4a93f0074f206cd4627913505c66eb6480cbd
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.date: 05/10/2021
+ms.openlocfilehash: ee2e598cff140ebfd16c5acd10eca545a29f5b2b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314085"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378167"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Event Hubs에 대한 Apache Kafka 문제 해결 가이드
 이 문서에서는 Apache Kafka용 Event Hubs를 사용할 때 발생할 수 있는 이슈에 대한 문제 해결 팁을 제공합니다. 
@@ -49,7 +49,7 @@ Event Hubs에서 Kafka를 사용할 때 이슈가 발생하는 경우 다음 항
 - **트래픽 차단 방화벽** - 포트 **9093** 이 방화벽에서 차단되지 않았는지 확인합니다.
 - **TopicAuthorizationException** - 이 예외의 가장 일반적인 원인은 다음과 같습니다.
     - 구성 파일의 연결 문자열에 오타가 있음 또는
-    - 기본 계층 네임스페이스에서 Kafka용 Event Hubs를 사용하려고 함. Kafka용 Event Hubs 기능은 [표준 및 전용 계층 네임스페이스에서만 지원](https://azure.microsoft.com/pricing/details/event-hubs/)됩니다.
+    - 기본 계층 네임스페이스에서 Kafka용 Event Hubs를 사용하려고 함. Kafka용 Event Hubs 기능은 기본 계층에서 지원되지 않습니다.
 - **Kafka 버전 불일치** - Kafka용 Event Hubs 에코시스템은 Kafka 버전 1.0 이상을 지원합니다. Kafka 버전 0.10 이상을 사용하는 일부 애플리케이션도 Kafka 프로토콜이 지원하는 이전 버전과의 호환성으로 인해 가끔 작동할 수 있지만 이전 API 버전을 사용하지 않는 것이 좋습니다. Kafka 버전 0.9 및 이전 버전은 필요한 SASL 프로토콜을 지원하지 않으며 Event Hubs에 연결할 수 없습니다.
 - **Kafka에서 사용하는 경우 AMQP 헤더의 이상한 인코딩** - AMQP를 통해 이벤트 허브에 이벤트를 보내는 경우 모든 AMQP 페이로드 헤더는 AMQP 인코딩으로 직렬화됩니다. Kafka 소비자는 AMQP 헤더를 역직렬화하지 않습니다. 헤더 값을 읽으려면 AMQP 헤더를 수동으로 디코드합니다. 또는 Kafka 프로토콜을 통해 사용할 것을 알고 있는 경우 AMQP 헤더를 사용하지 않을 수 있습니다. 자세한 내용은 [이 GitHub 이슈](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56)를 참조하세요.
 - **SASL 인증** - Event Hubs에서 요구하는 SASL 인증 프로토콜과 프레임워크를 연동시키는 것은 보이는 것보다 더 어려울 수 있습니다. SASL 인증에 대한 프레임워크 리소스를 사용하여 구성 문제를 해결할 수 있는지 확인합니다. 

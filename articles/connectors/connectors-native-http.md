@@ -4,15 +4,15 @@ description: 아웃바운드 HTTP 또는 HTTPS 요청을 Azure Logic Apps의 서
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 02/18/2021
+ms.topic: how-to
+ms.date: 05/25/2021
 tags: connectors
-ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 45c6945818016618252e69554c62391691d2fb6a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101719443"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368859"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 또는 HTTPS를 통해 서비스 엔드포인트 호출
 
@@ -104,7 +104,7 @@ ms.locfileid: "101719443"
 
 HTTP 트리거 또는 작업의 출력에 대한 자세한 내용은 다음과 같습니다.
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | 설명 |
 |----------|------|-------------|
 | `headers` | JSON 개체 | 요청의 헤더 |
 | `body` | JSON 개체 | 요청의 본문 콘텐츠가 포함된 개체 |
@@ -194,6 +194,41 @@ HTTP 요청에 대해 form-urlencoded 데이터를 본문에 제공하려면 `ap
 
 * HTTP 작업의 기본 JSON(JavaScript Object Notation) 정의는 암시적으로 비동기 작업 패턴을 따릅니다.
 
+<a name="tsl-ssl-certificate-authentication"></a>
+
+## <a name="tslssl-certificate-authentication"></a>TSL/SSL 인증서 인증
+
+단일 테넌트 Azure Logic Apps에 **Logic App(표준)** 리소스가 있고 인증을 위해 HTTP 작업 및 TSL/SSL 인증서를 사용하여 워크플로에서 HTTPS 엔드포인트를 호출하려고 하는 경우 다음 단계도 완료하지 않으면 호출이 실패합니다.
+
+1. 논리 앱 리소스의 앱 설정에서 [앱 설정을 추가 또는 업데이트](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)(`WEBSITE_LOAD_ROOT_CERTIFICATES`)합니다.
+
+1. 설정 값의 경우 신뢰할 수 있는 루트 인증서로 TSL/SSL 인증서에 대한 지문을 제공합니다.
+
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>"`
+
+예를 들어 Visual Studio Code 작업하는 경우 다음 단계를 수행합니다.
+
+1. 논리 앱 프로젝트의 **local.settings.json** 파일을 엽니다.
+
+1. `Values`JSON 개체에서 설정을 추가하거나 업데이트`WEBSITE_LOAD_ROOT_CERTIFICATES`합니다.
+
+   ```json
+   {
+      "IsEncrypted": false,
+      "Values": {
+         <...>
+         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TSL/SSL-certificate>",
+         <...>
+      }
+   }
+   ```
+
+자세한 내용은 다음 설명서를 검토하세요.
+
+* [단일 테넌트 Azure Logic Apps에서 논리 앱에 대한 호스트 및 앱 설정 편집](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings)
+* [비공개 클라이언트 인증서 - Azure App Service](../app-service/environment/certificates.md#private-client-certificate)
+
 <a name="disable-asynchronous-operations"></a>
 
 ## <a name="disable-asynchronous-operations"></a>비동기 작업을 사용하지 않도록 설정
@@ -233,7 +268,7 @@ HTTP 요청에는 [제한 시간 제한](../logic-apps/logic-apps-limits-and-con
 
 ## <a name="disable-checking-location-headers"></a>위치 헤더 확인을 사용하지 않도록 설정
 
-일부 엔드포인트, 서비스, 시스템 또는 API는 `location` 헤더가 없는 "202 ACCEPTED" 응답을 반환합니다. `location` 헤더가 존재하지 않을 때 HTTP 작업이 지속적으로 요청 상태를 확인하도록 하지 않으려면 다음 옵션을 사용할 수 있습니다.
+일부 엔드포인트, 서비스, 시스템 또는 API는 `location` 헤더가 없는 `202 ACCEPTED` 응답을 반환합니다. `location` 헤더가 존재하지 않을 때 HTTP 작업이 지속적으로 요청 상태를 확인하도록 하지 않으려면 다음 옵션을 사용할 수 있습니다.
 
 * 작업이 지속적으로 요청 상태를 폴링하거나 확인하지 않도록 [HTTP 작업의 비동기 작업 패턴을 사용하지 않도록 설정합니다](#disable-asynchronous-operations). 대신 요청 처리가 완료된 후 수신기가 상태 및 결과로 응답할 때까지 기다립니다.
 
@@ -262,7 +297,7 @@ Logic Apps로 인해 이러한 헤더와 함께 HTTP 트리거 또는 작업을 
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-트리거 및 작업 매개 변수에 대한 자세한 내용은 다음 섹션을 참조하세요.
+트리거 및 작업 매개 변수에 대한 기술 정보는 다음 섹션을 참조하세요.
 
 * [HTTP 트리거 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP 작업 매개 변수](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)

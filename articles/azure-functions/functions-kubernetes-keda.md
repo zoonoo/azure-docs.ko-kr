@@ -1,16 +1,16 @@
 ---
 title: Kubernetes의 Azure Functions 및 KEDA
 description: Kubernetes-based event-driven autoscaling(KEDA, Kubernetes 기반 이벤트 기반 자동 크기 조정)을 사용하여 클라우드 또는 온-프레미스의 Kubernetes에서 Azure Functions를 실행하는 방법에 대해 알아봅니다.
-author: jeffhollan
+author: eamonoreilly
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.author: jehollan
-ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: eamono
+ms.openlocfilehash: a1b7113c8d63163023baffa0abeb7d5cf7de7a6b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92927535"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481436"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Kubernetes의 Azure Functions 및 KEDA
 
@@ -28,7 +28,7 @@ Kubernetes 클러스터에서 Functions를 실행하려면 KEDA 구성 요소를
 
 ### <a name="installing-with-helm"></a>Helm을 사용하여 설치
 
-Helm을 포함하여 Kubernetes 클러스터에 KEDA를 설치하는 다양한 방법이 있습니다.  배포 옵션은 [KEDA 사이트](https://keda.sh/docs/1.4/deploy/)에 설명되어 있습니다.
+Helm을 포함하여 Kubernetes 클러스터에 KEDA를 설치하는 다양한 방법이 있습니다.  배포 옵션은 [KEDA 사이트](https://keda.sh/docs/deploy/)에 설명되어 있습니다.
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
 
@@ -73,7 +73,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>Kubernetes에서 KEDA 제거
 
-KEDA를 제거하는 단계는 [KEDA 사이트에](https://keda.sh/docs/1.4/deploy/) 설명되어 있습니다.
+KEDA를 제거하는 단계는 [KEDA 사이트에](https://keda.sh/docs/deploy/) 설명되어 있습니다.
 
 ## <a name="supported-triggers-in-keda"></a>KEDA에서 지원되는 트리거
 

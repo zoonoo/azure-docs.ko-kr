@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 273548ec095ce04772438a2d732b914d80d976cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c27ce8087020a43076ee3c4c8a99454a554554c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353156"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377486"
 ---
 # <a name="test-your-knowledge-base-in-qna-maker"></a>QnA Maker의 기술 자료 테스트
 
@@ -66,7 +66,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 > [!NOTE]
 > **저장 후 학습** 을 누를 경우에만 기술 자료에 대한 모든 편집 내용이 저장됩니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 1. **내 기술 자료** 페이지에서 해당 이름을 선택하여 기술 자료에 액세스합니다.
 1. 테스트 슬라이드 아웃 패널에 액세스하려면 애플리케이션의 위쪽 패널에서 **테스트** 를 선택합니다. 
@@ -94,6 +94,7 @@ QnA Maker 기술 자료를 테스트하는 작업은 반환되는 응답의 정�
 
 2.  검사 패널이 나타납니다. 패널에는 식별된 엔터티뿐만 아니라 상위 채점 의도도 포함됩니다. 패널에는 선택한 발화의 결과가 표시됩니다.
 3. 패널에는 검색된 응답 범위 점수에 따라 응답 구절의 신뢰도 점수가 표시됩니다.
+4. 패널에는 응답 통과에 대한 기술 자료의 원본도 표시됩니다.
 
 ### <a name="correct-the-top-scoring-answer"></a>상위 점수 대답 수정
 

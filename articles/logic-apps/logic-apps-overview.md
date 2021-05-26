@@ -1,24 +1,24 @@
 ---
 title: Azure Logic Apps 개요
-description: Logic Apps 클라우드 플랫폼을 사용하면 코드를 거의 사용하지 않고 엔터프라이즈 통합 시나리오에 대한 자동화된 워크플로를 만들고 실행할 수 있습니다.
+description: Azure Logic Apps는 코드를 거의 또는 전혀 사용하지 않고 앱, 데이터, 서비스 및 시스템을 통합하는 워크플로를 자동화할 수 있는 클라우드 플랫폼입니다. 워크플로는 다중 테넌트, 단일 테넌트 또는 전용 환경에서 실행할 수 있습니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/26/2021
-ms.openlocfilehash: 78a1d577be21334a14008b18bb777f3d79c2a5e1
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.date: 05/07/2021
+ms.openlocfilehash: c971f184aad7bfaf6d36a00ec1fb95f474c3a61c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108287197"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376961"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 
-[Logic Apps](https://azure.microsoft.com/services/logic-apps)는 앱, 데이터, 서비스, 시스템을 통합하기 위한 자동화된 [워크플로](#logic-app-concepts)를 만들고 실행하는 데 도움이 되는 클라우드 기반 플랫폼입니다. 이 플랫폼을 사용하면 엔터프라이즈 및 B2B(기업 간) 시나리오를 위한 확장성이 뛰어난 통합 솔루션을 보다 쉽고 빠르게 빌드할 수 있습니다. [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/)의 멤버인 Logic Apps는 클라우드, 온-프레미스, 하이브리드 환경에서 레거시, 최신 및 최첨단 시스템을 연결할 수 있는 간단한 방법을 제공합니다.
+[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps)는 앱, 데이터, 서비스 및 시스템을 통합하는 자동화된 [*워크플로*](#logic-app-concepts)를 만들고 실행할 수 있는 클라우드 기반 플랫폼입니다. 이 플랫폼을 사용하면 엔터프라이즈 및 B2B(Business-to-Business) 시나리오를 위한 확장성이 뛰어난 통합 솔루션을 신속하게 개발할 수 있습니다. [Azure Integration Services](https://azure.microsoft.com/product-categories/integration/)의 멤버인 Logic Apps는 클라우드, 온-프레미스, 하이브리드 환경에서 레거시, 최신 및 최첨단 시스템을 연결하는 방법을 간소화합니다.
 
-다음은 Logic Apps 서비스를 사용하여 자동화할 수 있는 작업, 비즈니스 프로세스 및 워크로드의 몇 가지 예입니다.
+다음 목록에서는 Logic Apps 서비스를 사용하여 자동화할 수 있는 작업, 비즈니스 프로세스 및 워크로드의 몇 가지 예를 설명합니다.
 
 * 특정 이벤트가 발생할 때(예: 새 파일이 업로드될 때) Office 365를 사용하여 이메일 알림을 예약하고 보내기.
 * 온-프레미스 시스템과 클라우드 서비스에서 고객 주문 라우팅 및 처리.
@@ -27,17 +27,19 @@ ms.locfileid: "108287197"
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
-다양한 데이터 원본에 안전하게 액세스하고 실시간으로 작업을 실행하려면 [Microsoft 관리 커넥터](#logic-app-concepts)의 [지속적으로 확장되는 갤러리](/connectors/connector-reference/connector-reference-logicapps-connectors) 중에서 선택합니다. 예를 들면 다음과 같습니다.
+선택하고 만드는 논리 앱 리소스 종류에 따라 논리 앱이 다중 테넌트, 단일 테넌트 또는 전용 통합 서비스 환경에서 실행됩니다. 예를 들어 단일 테넌트 기반 논리 앱을 컨테이너화할 때 앱을 컨테이너로 배포하고 Azure Functions가 실행할 수 있는 모든 위치에서 실행할 수 있습니다. 자세한 내용은 [논리 앱의 리소스 종류 및 호스트 환경의 차이점](#resource-environment-differences)을 참조하세요.
+
+다양한 데이터 원본에서 실시간으로 안전하게 작업에 액세스하고 실행하려면 [400개가 넘게 증가하고 있는 Azure 커넥터 에코시스템](/connectors/connector-reference/connector-reference-logicapps-connectors)의 [*관리형 커넥터*](#logic-app-concepts)를 선택하여 워크플로에서 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * Azure 서비스(예: Blob Storage 및 Service Bus)
-* Office 서비스(예: Outlook, Excel 및 SharePoint)
+* Office 365 서비스(예: Outlook, Excel 및 SharePoint)
 * 데이터베이스 서버(예: SQL 및 Oracle)
 * 엔터프라이즈 시스템(예: SAP 및 IBM MQ)
 * 파일 공유(예: FTP 및 SFTP)
 
-서비스 엔드포인트와 통신하거나, 사용자 고유의 코드를 실행하거나, 워크플로를 구성하거나, 데이터를 조작하려면 Logic Apps 서비스 내에서 기본적으로 실행되는 [기본 제공 트리거 및 작업](#logic-app-concepts)을 사용하면 됩니다. 예를 들어 기본 제공 트리거에는 요청, HTTP 및 되풀이가 포함됩니다. 기본 제공 작업에는 조건, For each, JavaScript 코드 실행과 함께 Azure 함수, 웹앱 또는 Azure에서 호스팅되는 API 앱 및 기타 Logic Apps 워크플로를 호출하는 작업이 포함됩니다.
+서비스 엔드포인트와 통신하거나, 사용자 고유의 코드를 실행하거나, 워크플로를 구성하거나, 데이터를 조작하려면 Logic Apps 서비스 내에서 기본적으로 실행되는 [*기본 제공*](#logic-app-concepts) 트리거 및 작업을 사용하면 됩니다. 예를 들어 기본 제공 트리거에는 요청, HTTP 및 되풀이가 포함됩니다. 기본 제공 작업에는 조건, For each, JavaScript 코드 실행과 함께 Azure 함수, 웹앱 또는 Azure에서 호스팅되는 API 앱 및 기타 Logic Apps 워크플로를 호출하는 작업이 포함됩니다.
 
-B2B 통합 환경에는 [BizTalk Server](/biztalk/core/introducing-biztalk-server)의 기능이 Logic Apps에 포함됩니다. [통합 계정](logic-apps-enterprise-integration-create-integration-account.md)을 만들고 거래 업체, 규약, 스키마, 맵 및 기타 B2B 아티팩트를 정의할 수 있습니다. 이 계정을 논리 앱에 연결할 경우 AS2, EDIFACT, X12, RosettaNet 등의 프로토콜을 사용하여 이러한 아티팩트와 연동되는 워크플로를 빌드하고 메시지를 교환할 수 있습니다.
+B2B 통합 환경에는 [BizTalk Server](/biztalk/core/introducing-biztalk-server)의 기능이 Logic Apps에 포함됩니다. B2B(Business-to-Business) 아티팩트를 정의하려면 이러한 아티팩트가 저장되는 [*통합 계정*](#logic-app-concepts)을 만듭니다. 이 계정을 논리 앱에 연결하면 워크플로에서 이러한 B2B 아티팩트를 사용하고 EDI(전자 데이터 교환) 및 EAI(Enterprise Application Integration) 표준을 준수하는 메시지를 교환할 수 있습니다.
 
 워크플로에서 앱, 데이터, 서비스 및 시스템에 액세스하고 작업하는 방법에 대한 자세한 내용은 다음 문서를 살펴보세요.
 
@@ -50,21 +52,25 @@ B2B 통합 환경에는 [BizTalk Server](/biztalk/core/introducing-biztalk-serve
 
 ## <a name="key-terms"></a>주요 용어
 
-* **워크플로**: 단일 트리거로 시작해서 하나 이상의 작업을 수행하는 작업 또는 프로세스를 정의하는 일련의 단계입니다.
+* *논리 앱*: 워크플로를 개발하려는 경우에 만들 Azure 리소스입니다. 시나리오의 요구 사항 및 솔루션 요구 사항에 따라 다중 테넌트 Azure Logic Apps, 단일 테넌트 Azure Logic Apps 또는 ISE(통합 서비스 환경)에서 실행되는 논리 앱을 만들 수 있습니다. 자세한 내용은 [논리 앱의 리소스 종류 및 호스트 환경의 차이점](#resource-environment-differences)을 참조하세요.
 
-* **트리거**: 각 워크플로를 시작하고 워크플로에서 작업을 실행하기 전에 충족해야 하는 조건을 지정하는 첫 번째 단계입니다. 예를 들어 받은 편지함에 이메일을 받거나 스토리지 계정에서 새 파일이 검색되는 트리거 이벤트를 이용할 수 있습니다.
+* *워크플로*: 단일 트리거로 시작해서 하나 이상의 작업을 수행하는 작업 또는 프로세스를 정의하는 일련의 단계입니다.
 
-* **작업**: 트리거 뒤에 오며 워크플로에서 일부 작업을 실행하는 각 후속 단계입니다.
+* *트리거*: 각 워크플로를 시작하고 워크플로에서 작업을 실행하기 전에 충족해야 하는 조건을 지정하는 첫 번째 단계입니다. 예를 들어 받은 편지함에 이메일을 받거나 스토리지 계정에서 새 파일이 검색되는 트리거 이벤트를 이용할 수 있습니다.
 
-* **관리형 커넥터**: 특정 앱, 데이터, 서비스 또는 시스템에 대한 액세스를 제공하는 Microsoft 관리 REST API입니다. 대부분의 관리형 커넥터는 먼저 워크플로와 연결을 만들고 ID를 인증해야만 사용할 수 있습니다.
+* *작업*: 트리거 뒤에 오며 워크플로에서 일부 작업을 실행하는 각 후속 단계입니다.
 
-  예를 들어 트리거로 워크플로를 시작하거나, Azure Blob Storage, Office 365, Salesforce 또는 SFTP 서버와 연동하는 작업을 포함할 수 있습니다. 자세한 내용은 [Azure Logic Apps용 관리형 커넥터](../connectors/managed.md)를 참조하세요.
-
-* **기본 제공 트리거 또는 작업**: 워크플로 일정 또는 구조를 제어하고, 사용자 고유의 코드를 실행하고, 데이터를 관리 또는 조작하고, 워크플로의 다른 작업을 수행할 수 있게 해주는 기본적으로 실행되는 Logic Apps 작업입니다. 대부분의 기본 제공 작업은 서비스 또는 시스템과 연결되어 있지 않습니다. 또한 대부분의 경우 먼저 워크플로와의 연결을 만들고 ID를 인증할 필요가 없습니다. 기본 제공 작업은 Azure Functions, Azure API Management, Azure App Services 등 몇 가지 서비스, 시스템, 프로토콜에도 사용할 수 있습니다.
+* *기본 제공 트리거 또는 작업*: 워크플로 일정 또는 구조를 제어하고, 사용자 고유의 코드를 실행하고, 데이터를 관리 또는 조작하고, 워크플로의 다른 작업을 수행할 수 있게 해주는 기본적으로 실행되는 Logic Apps 작업입니다. 대부분의 기본 제공 작업은 서비스 또는 시스템과 연결되어 있지 않습니다. 또한 대부분의 경우 먼저 워크플로와의 연결을 만들고 ID를 인증할 필요가 없습니다. 하지만 기본 제공 작업은 Azure Functions, Azure API Management, Azure App Services 등 자주 사용되는 몇 가지 서비스, 시스템, 프로토콜에도 사용할 수 있습니다.
 
   예를 들어 되풀이 트리거를 사용하면 거의 모든 워크플로를 일정에 따라 시작할 수 있습니다. 또는 요청 트리거를 사용하면 호출될 때까지 워크플로를 대기시킬 수 있습니다. 자세한 내용은 [Azure Logic Apps용 기본 제공 트리거 및 작업](../connectors/built-in.md)을 참조하세요.
 
-* **논리 앱**: 워크플로를 빌드하기 위해 만들 Azure 리소스입니다. 시나리오의 요구 사항 및 솔루션 요구 사항에 따라 다중 테넌트 또는 단일 테넌트 Logic Apps 서비스 환경에서 실행되거나 통합 서비스 환경에서 실행되는 논리 앱을 만들 수 있습니다. 자세한 내용은 [논리 앱을 위한 호스트 환경](#host-environments)을 참조하세요.
+* *관리형 커넥터:* 워크플로에서 특정 앱, 데이터, 서비스 또는 시스템에 액세스할 수 있도록 미리 빌드된 트리거 및 동작을 제공하는 REST API에 대한 미리 빌드된 프록시 또는 래퍼입니다. 대부분의 관리형 커넥터는 먼저 워크플로와 연결을 만들고 ID를 인증해야만 사용할 수 있습니다.
+
+  예를 들어 트리거로 워크플로를 시작하거나, Azure Blob Storage, Office 365, Salesforce 또는 SFTP 서버와 연동하는 동작을 추가할 수 있습니다. 관리형 커넥터는 Microsoft에서 호스트하고 유지 관리합니다. 자세한 내용은 [Azure Logic Apps용 관리형 커넥터](../connectors/managed.md)를 참조하세요.
+
+* *통합 계정*: 워크플로에서 사용할 B2B 아티팩트를 정의하고 저장하려는 경우에 만드는 Azure 리소스입니다. 이 계정을 논리 앱에 연결하면 워크플로에서 이러한 B2B 아티팩트를 사용하고 EDI(전자 데이터 교환) 및 EAI(Enterprise Application Integration) 표준을 준수하는 메시지를 교환할 수 있습니다.
+
+  예를 들어 거래 업체, 계약, 스키마, 맵 및 기타 B2B 아티팩트를 정의할 수 있습니다. 이러한 아티팩트를 사용하고 AS2, EDIFACT, X12, RosettaNet 등의 프로토콜을 통해 메시지를 교환하는 워크플로를 만들 수 있습니다. 자세한 내용은 [B2B 엔터프라이즈 통합을 위한 통합 계정 만들기 및 관리](logic-apps-enterprise-integration-create-integration-account.md)를 참조하세요.
 
 <a name="how-do-logic-apps-work"></a>
 
@@ -78,20 +84,15 @@ B2B 통합 환경에는 [BizTalk Server](/biztalk/core/introducing-biztalk-serve
 
 Azure Portal, Visual Studio Code 또는 Visual Studio에서 Logic Apps 디자이너를 사용하면 워크플로를 시각적으로 만들 수 있습니다. 또한 각 워크플로에는 JSON(JavaScript Object Notation)을 사용하여 기술된 기본 정의도 있습니다. 원하는 경우 이 JSON 정의를 변경하여 워크플로를 편집할 수 있습니다. 일부 만들기 및 관리 작업에서는 Logic Apps가 Azure PowerShell 및 Azure CLI 명령 지원을 제공합니다. 자동 배포의 경우 Logic Apps가 Azure Resource Manager 템플릿을 지원합니다.
 
-<a name="host-environments"></a>
+<a name="resource-environment-differences"></a>
 
-## <a name="host-environments"></a>호스트 환경
+## <a name="resource-type-and-host-environment-differences"></a>리소스 종류 및 호스트 환경의 차이점
 
-시나리오 및 솔루션 요구 사항에 따라, 실행되는 Logic Apps 서비스 환경과 워크플로가 리소스를 사용하는 방법 측면에서 서로 다른 논리 앱을 만들 수 있습니다. 다음 표에서는 이러한 차이점을 요약하여 간략히 보여 줍니다.
+논리 앱 워크플로를 만들려면 시나리오, 솔루션 요구 사항, 원하는 기능 및 워크플로를 실행하려는 환경에 따라 **논리 앱** 리소스 종류를 선택합니다.
 
-| Environment | [가격 책정 모델](logic-apps-pricing.md) | Description |
-|-------------|----------------------------------------|-------------|
-| Azure Logic Apps(다중 테넌트) | 소비 | 논리 앱이 하나의 워크플로만 포함할 수 있습니다. <p><p>*다중 테넌트* 에 걸친 다양한 논리 앱의 워크플로가 동일한 처리(컴퓨팅), 스토리지, 네트워크 등을 공유합니다. |
-| Azure Logic Apps([단일 테넌트(미리 보기)](logic-apps-overview-preview.md)) | [미리 보기](logic-apps-overview-preview.md#pricing-model) | 논리 앱이 여러 워크플로를 포함할 수 있습니다. <p><p>*단일 테넌트의 동일한 논리 앱* 의 워크플로는 동일한 처리(컴퓨팅), 스토리지, 네트워크 등을 공유합니다. |
-| [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment-overview.md) | 고정 | 논리 앱이 하나의 워크플로만 포함할 수 있습니다. <p><p>*동일한 환경* 에 있는 다른 논리 앱의 워크플로는 동일한 처리(컴퓨팅), 스토리지, 네트워크 등을 공유합니다. |
-||||
+다음 표에는 원래 **논리 앱(소비)** 리소스 종류와 **논리 앱(표준)** 리소스 종류 간의 차이점이 간략하게 요약되어 있습니다. 또한 *단일 테넌트* 모델과 *다중 테넌트* 및 *ISE(통합 서비스 환경)* 모델의 논리 앱 워크플로 배포, 호스팅 및 실행 방법도 비교합니다.
 
-또한 Logic Apps 서비스 환경에서 호스트되는 논리 앱에는 다른 제한이 있습니다. 자세한 내용은 [Logic Apps의 제한](logic-apps-limits-and-config.md) 및 [Logic Apps의 제한(미리 보기)](logic-apps-overview-preview.md#limits)을 참조하세요.
+[!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
 ## <a name="why-use-logic-apps"></a>Logic Apps를 사용하는 이유
 
@@ -109,7 +110,7 @@ Logic Apps는 Microsoft Azure를 통해 완벽하게 관리되므로 솔루션�
 
 Logic Apps의 시각적 디자인 도구를 사용하여 시간을 절약하고 복잡한 프로세스를 간소화합니다. Azure Portal, Visual Studio Code 또는 Visual Studio에서 Logic Apps 디자이너를 사용하여 처음부터 끝까지 워크플로를 만듭니다. 단지 트리거로 워크플로를 시작하고, [커넥터 갤러리](/connectors/connector-reference/connector-reference-logicapps-connectors)에서 작업을 원하는 만큼 추가합니다.
 
-다중 테넌트 논리 앱을 만드는 경우 [템플릿 갤러리에서 워크플로를 만들](../logic-apps/logic-apps-create-logic-apps-from-templates.md) 때 더 빠르게 시작하세요. 이러한 템플릿은 SaaS(Software as a Service) 앱에 대한 간단한 연결부터 고급 B2B 솔루션 및 "재미를 위한" 템플릿까지 일반적인 워크플로 패턴에 사용할 수 있습니다.
+다중 테넌트 기반 논리 앱을 만드는 경우 [템플릿 갤러리에서 워크플로를 생성](../logic-apps/logic-apps-create-logic-apps-from-templates.md)하면 더 빠르게 시작할 수 있습니다. 이러한 템플릿은 SaaS(Software as a Service) 앱에 대한 간단한 연결부터 고급 B2B 솔루션 및 "재미를 위한" 템플릿까지 일반적인 워크플로 패턴에 사용할 수 있습니다.
 
 #### <a name="connect-different-systems-across-various-environments"></a>여러 환경에 걸쳐 다양한 시스템 연결
 
@@ -138,7 +139,7 @@ Logic Apps의 시각적 디자인 도구를 사용하여 시간을 절약하고 
 
 #### <a name="access-resources-inside-azure-virtual-networks"></a>Azure 가상 네트워크 내 리소스에 액세스
 
-논리 앱 워크플로는 [*ISE(통합 서비스 환경)* ](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만들 때 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 내에 있는 VM(가상 머신) 및 기타 시스템이나 서비스와 같이 보호된 리소스에 액세스할 수 있습니다. ISE는 전용 리소스를 사용하고 글로벌 다중 테넌트 Logic Apps 서비스와 별도로 실행되는 Logic Apps 서비스의 전용 인스턴스입니다.
+논리 앱 워크플로는 [*ISE(통합 서비스 환경)*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 만들 때 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md) 내에 있는 VM(가상 머신) 및 기타 시스템이나 서비스와 같이 보호된 리소스에 액세스할 수 있습니다. ISE는 전용 리소스를 사용하고 글로벌 다중 테넌트 Azure Logic Apps 서비스와 별도로 실행되는 Azure Logic Apps 서비스의 전용 인스턴스입니다.
 
 사용자 고유의 전용 인스턴스에서 논리 앱을 실행하면 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향(["사용량이 많은 인접 항목" 효과](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors)로 알려짐)을 줄일 수 있습니다. ISE는 다음과 같은 이점도 제공합니다.
 
@@ -150,7 +151,7 @@ ISE를 만들 때 Azure는 해당 ISE를 Azure 가상 네트워크에 *삽입* �
 
 #### <a name="pricing-options"></a>가격 책정 옵션
 
-기능 및 실행 위치(다중 테넌트, 단일 테넌트, 통합 서비스 환경)에 따라 달라지는 각 논리 앱 유형의 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)은 서로 다릅니다. 예를 들어 다중 테넌트 논리 앱은 소비 기반 가격 책정을 사용하고, 통합 서비스 환경의 논리 앱은 고정 가격 책정을 사용합니다. Logic Apps에 대한 [가격 책정 및 계량](../logic-apps/logic-apps-pricing.md)에 대해 자세히 알아보세요.
+기능 및 실행 위치(다중 테넌트, 단일 테넌트, 통합 서비스 환경)에 따라 달라지는 각 논리 앱 유형의 [가격 책정 모델](../logic-apps/logic-apps-pricing.md)은 서로 다릅니다. 예를 들어 다중 테넌트 기반 논리 앱은 소비 가격 책정을 사용하고, 통합 서비스 환경의 논리 앱은 고정 가격 책정을 사용합니다. Logic Apps에 대한 [가격 책정 및 계량](../logic-apps/logic-apps-pricing.md)에 대해 자세히 알아보세요.
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-power-automate"></a>Logic Apps가 Functions, WebJobs 및 Power Automate와 다른 점은 무엇일까요?
 
@@ -171,5 +172,3 @@ Azure Logic Apps를 시작하려면 먼저 Azure 구독이 필요합니다. 구�
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: 첫 번째 논리 앱 워크플로 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Azure를 사용하는 서버리스 솔루션](../logic-apps/logic-apps-serverless-overview.md)에 대해 알아보기
-* [엔터프라이즈 통합 팩으로 B2B 통합](../logic-apps/logic-apps-enterprise-integration-overview.md)에 대해 알아보기
