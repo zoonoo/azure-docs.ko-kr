@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: fb0935ca2ffcad93ba47ccd207603dd870dc26b0
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: c7d7b5ec4d35cd2bd1be1b6b34c374e949114a16
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106445706"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070339"
 ---
 # <a name="security-best-practices"></a>보안 모범 사례
 
@@ -98,24 +98,6 @@ Windows Virtual Desktop의 모든 사용자와 관리자에 대해 다단계 인
 ## <a name="session-host-security-best-practices"></a>세션 호스트 보안 모범 사례
 
 세션 호스트는 Azure 구독 및 가상 네트워크 내에서 실행되는 가상 머신입니다. Windows Virtual Desktop 배포의 전체 보안은 세션 호스트에 적용하는 보안 제어에 따라 달라집니다. 이 섹션에서는 세션 호스트를 안전하게 유지하기 위한 모범 사례에 대해 설명합니다.
-
-### <a name="enable-screen-capture-protection-preview"></a>화면 캡처 보호 사용(미리 보기)
-
-화면 캡처 보호 기능은 클라이언트 엔드포인트에서 중요한 정보가 캡처되지 않도록 방지합니다. 이 기능을 사용하도록 설정하면 원격 콘텐츠가 자동으로 차단되거나 스크린샷 및 화면 공유에서 숨겨집니다. 또한 화면의 콘텐츠를 지속적으로 캡처할 수 있는 악성 소프트웨어로부터 숨겨집니다. 이 기능을 사용하는 동안 원격 콘텐츠를 엔드포인트에 복사되지 않도록 클립보드 리디렉션을 사용하지 않도록 설정하는 것이 좋습니다.
-
-이 정책은 레지스트리 키를 구성하여 호스트 수준에서 적용됩니다. 이 정책을 사용하도록 설정하려면 PowerShell을 열고, 다음 cmdlet을 실행하여 **fEnableScreenCaptureProtection** 레지스트리 키를 설정합니다.
-
-```powershell
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnableScreenCaptureProtection /t REG_DWORD /d 1
-```
-
-새로운 이 기능을 테스트하려면,
-
-- 호스트 풀이 유효성 검사 환경에서 프로비저닝되었는지 확인합니다.
-- Windows 데스크톱 클라이언트 버전 1.2.1526 이상을 다운로드하여 설치했는지 확인합니다.
-
->[!NOTE]
->미리 보기 중에는 Windows 10 엔드포인트의 전체 데스크톱 연결만 이 기능을 지원합니다.
 
 ### <a name="enable-endpoint-protection"></a>엔드포인트 보호 사용
 

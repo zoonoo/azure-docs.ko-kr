@@ -3,15 +3,15 @@ title: TLS/SSL 인증서 추가 및 관리
 description: Azure App Service에서 무료 인증서를 만들거나, App Service 인증서를 가져오거나, Key Vault 인증서를 가져오거나, App Service 인증서를 구입합니다.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 4fd5d7bfc7a4ac8ab3b255091b4383085a87d4da
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 11cd17041ce110cca4f3cd5bce5cc98ccc0ed7af
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634530"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373054"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 인증서 추가
 
@@ -24,9 +24,9 @@ ms.locfileid: "109634530"
 
 다음 표에는 App Service에서 인증서를 추가할 수 있는 옵션이 나열되어 있습니다.
 
-|옵션|Description|
+|옵션|설명|
 |-|-|
-| 무료 App Service Managed Certificate(미리 보기) 만들기 | App Service에서 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하기만 하면 되는 경우 무료이며 간편하게 사용할 수 있는 프라이빗 인증서입니다. |
+| 무료 App Service 관리형 인증서 만들기 | App Service에서 [사용자 지정 도메인](app-service-web-tutorial-custom-domain.md)을 보호하기만 하면 되는 경우 무료이며 간편하게 사용할 수 있는 프라이빗 인증서입니다. |
 | App Service 인증서 구매 | Azure에서 관리하는 프라이빗 인증서입니다. 간편한 자동 인증서 관리의와 유연한 갱신 및 내보내기 옵션이 결합되었습니다. |
 | Key Vault에서 인증서 가져오기 | [Azure Key Vault](../key-vault/index.yml)를 사용하여 [PKCS12 인증서](https://wikipedia.org/wiki/PKCS_12)를 관리하는 경우에 유용합니다. [프라이빗 인증서 요구 사항](#private-certificate-requirements)을 참조하세요. |
 | 프라이빗 인증서 업로드 | 타사 공급자의 프라이빗 인증서가 이미 있는 경우 해당 인증서를 업로드할 수 있습니다. [프라이빗 인증서 요구 사항](#private-certificate-requirements)을 참조하세요. |
@@ -42,7 +42,7 @@ ms.locfileid: "109634530"
 
 ## <a name="private-certificate-requirements"></a>프라이빗 인증서 요구 사항
 
-[무료 App Service 관리형 인증서](#create-a-free-managed-certificate-preview) 및 [App Service 인증서](#import-an-app-service-certificate)는 이미 App Service 요구 사항을 충족합니다. 프라이빗 인증서를 App Service에 업로드하거나 가져오기로 선택하는 경우 인증서가 다음 요구 사항을 충족해야 합니다.
+[무료 App Service 관리형 인증서](#create-a-free-managed-certificate) 및 [App Service 인증서](#import-an-app-service-certificate)는 이미 App Service 요구 사항을 충족합니다. 프라이빗 인증서를 App Service에 업로드하거나 가져오기로 선택하는 경우 인증서가 다음 요구 사항을 충족해야 합니다.
 
 * 삼중 DES를 사용하여 암호화된 [암호로 보호된 PFX 파일](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions)로 내보냅니다.
 * 길이가 2048비트 이상인 프라이빗 키 포함
@@ -58,17 +58,19 @@ TLS 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
-## <a name="create-a-free-managed-certificate-preview"></a>무료 관리형 인증서 만들기(미리 보기)
+## <a name="create-a-free-managed-certificate"></a>무료 관리형 인증서 만들기
 
 > [!NOTE]
 > 무료 관리형 인증서를 만들기 전에 앱의 [필수 구성 요소를 충족](#prerequisites)하는지 확인합니다.
 
-무료 App Service Managed Certificate는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 TLS/SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
+무료 App Service 관리형 인증서는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 TLS/SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
 
-- 와일드카드 인증서를 지원하지 않으며 클라이언트 인증서로 사용하면 안 됩니다.
+- 와일드카드 인증서를 지원하지 않습니다.
+- 인증서 지문을 클라이언트 인증서로 사용하도록 지원하지 않습니다(인증서 지문 제거 예정).
 - 내보낼 수 없습니다.
 - ASE(App Service Environment)에서 지원되지 않습니다.
 - Traffic Manager와 통합된 루트 도메인에서 지원되지 않습니다.
+- 인증서가 CNAME 매핑된 도메인용인 경우 CNAME을 `<app-name>.azurewebsites.net`에 직접 매핑해야 합니다.
 
 > [!NOTE]
 > 무료 인증서는 DigiCert에서 발급됩니다. 일부 최상위 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.

@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 16cd4685f513eb628372802cc158195b81bce72a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 27e17fd6cc9f50a5a46bf3de9bf2603209894bf3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736174"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368251"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
@@ -20,6 +20,9 @@ ms.locfileid: "98736174"
 
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 수행합니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
+
+> [!NOTE]
+> [Azure Arc에 배포된 앱](overview-arc-integration.md)에 대해서는 관리 ID를 사용할 수 없습니다.
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
@@ -56,7 +59,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 다음 단계는 웹앱을 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az-login)을 사용하여 먼저 Azure에 로그인합니다. 애플리케이션을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az_login)을 사용하여 먼저 Azure에 로그인합니다. 애플리케이션을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
 
     ```azurecli-interactive
     az login
@@ -338,7 +341,7 @@ App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프�
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
-> | 속성 이름 | Description                                                                                                                                                                                                                                        |
+> | 속성 이름 | 설명                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | 요청된 액세스 토큰입니다. 호출 웹 서비스는 이 토큰을 사용하여 수신 웹 서비스에 인증할 수 있습니다.                                                                                                                               |
 > | client_id     | 사용된 ID의 클라이언트 ID입니다.                                                                                                                                                                                                       |

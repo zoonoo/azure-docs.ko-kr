@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 04/21/2021
 ms.author: gopalv
-ms.openlocfilehash: 0bac8d2b70ea1dc0dd624cae669f6b2f4c2e1c6e
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 30237f94d5961d853509e303f50be1e8a42de9b0
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952183"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846095"
 ---
 항목 스크립트는 배포된 웹 서비스에 전송된 데이터를 받아서 모델에 전달합니다. 그런 다음, 모델 응답을 클라이언트로 반환합니다. *스크립트는 모델에 따라 다릅니다*. 항목 스크립트는 모델이 기대하고 반환하는 데이터를 해석해야 합니다.
 
@@ -22,7 +22,7 @@ ms.locfileid: "107952183"
 
 초기 배포의 경우 수신한 데이터를 인쇄하는 더미 항목 스크립트를 사용합니다.
 
-```python
+<!-- ```python
 import json
 
 def init():
@@ -33,7 +33,10 @@ def run(data):
     print(f'received data {test}')
     return(f'test is {test}')
 
-```
+``` -->
+
+:::code language="python" source="~/azureml-examples-main/python-sdk/tutorials/deploy-local/source_dir/echo_score.py":::
+
 이 파일을 `source_dir` 디렉터리 내부에 `echo_score.py`로 저장합니다.
 
 예를 들어 사용자가 다음을 사용하여 모델을 호출하는 경우입니다.

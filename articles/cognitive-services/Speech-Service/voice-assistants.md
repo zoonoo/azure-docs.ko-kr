@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: fc85eec008ef099d63d538e4871a1a84573f5a18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1a3d99a0befd336d37b02b448a65df406d3a8e6e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790448"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059017"
 ---
 # <a name="what-is-a-voice-assistant"></a>음성 도우미란?
 
@@ -74,7 +74,7 @@ Azure Speech Services를 사용하여 빌드된 음성 도우미는 전체 범�
 
 * [Custom Speech](./custom-speech-overview.md)
 * [Custom Voice](how-to-custom-voice.md)
-* [사용자 지정 키워드](custom-keyword-overview.md)
+* [사용자 지정 키워드](keyword-recognition-overview.md)
 
 > [!NOTE]
 > 사용자 지정 옵션은 언어/로캘에 따라 다릅니다([지원되는 언어](language-support.md) 참조).

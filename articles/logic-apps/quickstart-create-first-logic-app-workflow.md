@@ -1,22 +1,22 @@
 ---
-title: 빠른 시작 - Azure Portal에서 통합 워크플로 만들기
-description: Azure Portal에서 Azure Logic Apps를 사용하여 첫 번째 자동 통합 워크플로를 만듭니다.
+title: 빠른 시작 - Azure Portal에서 Azure Logic Apps를 사용하여 통합 워크플로 만들기
+description: Azure Portal에서 다중 테넌트 Azure Logic Apps를 사용하여 첫 번째 자동 통합 워크플로를 만듭니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: contperf-fy21q4
-ms.date: 04/28/2021
-ms.openlocfilehash: 1ff7ba5e3835fccb2f67fa56cf3737adb9d36b45
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/25/2021
+ms.openlocfilehash: b7419986137632561cae71b91dd55a2af64912a7
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738899"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373294"
 ---
-# <a name="quickstart-create-an-integration-workflow-using-azure-logic-apps-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Logic Apps를 사용하여 통합 워크플로 만들기
+# <a name="quickstart-create-an-integration-workflow-with-multi-tenant-azure-logic-apps-and-the-azure-portal"></a>빠른 시작: Azure Portal에서 다중 테넌트 Azure Logic Apps를 사용하여 통합 워크플로 만들기
 
-이 빠른 시작에서는 [Azure Logic Apps](logic-apps-overview.md)를 사용할 때 웹 사이트의 RSS 피드와 이메일 계정에 대한 두 서비스를 통합하는 자동화된 워크플로 예제를 만드는 방법을 보여 줍니다. 이 예제는 클라우드 기반이지만, Logic Apps는 클라우드, 온-프레미스 및 하이브리드 환경의 앱, 데이터, 서비스 및 시스템을 연결하는 워크플로를 지원합니다.
+이 빠른 시작에서는 *다중 테넌트* [Azure Logic Apps](logic-apps-overview.md)를 사용할 때 웹 사이트의 RSS 피드와 이메일 계정에 대한 두 서비스를 통합하는 자동화된 워크플로 예제를 만드는 방법을 보여 줍니다. 이 예제는 클라우드 기반이지만, Azure Logic Apps는 클라우드, 온-프레미스 및 하이브리드 환경의 앱, 데이터, 서비스 및 시스템을 연결하는 워크플로를 지원합니다. 다중 테넌트 및 단일 테넌트 모델에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
 
 이 예제에서는 RSS 커넥터와 Office 365 Outlook 커넥터를 사용하는 워크플로를 만듭니다. RSS 커넥터에는 일정에 따라 RSS 피드를 확인하는 트리거가 있습니다. Office 365 Outlook 커넥터에는 각 새 항목에 대한 이메일을 보내는 작업이 있습니다. 이 예제의 커넥터는 워크플로에서 사용할 수 있는 [수백 개의 커넥터](/connectors/connector-reference/connector-reference-logicapps-connectors) 중 두 개일 뿐입니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "109738899"
 
 1. **논리 앱** 창에서 논리 앱에 대한 기본 세부 정보와 설정을 제공합니다. 이 예제 논리 앱에 대한 새 [리소스 그룹](../azure-resource-manager/management/overview.md#terminology)을 만듭니다.
 
-   | 속성 | 값 | Description |
+   | 속성 | 값 | 설명 |
    |----------|-------|-------------|
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름입니다. |
    | **리소스 그룹** | <*Azure-resource-group-name*> | [Azure 리소스 그룹](../azure-resource-manager/management/overview.md#terminology) 이름으로, 지역에서 고유해야 합니다. 이 예제에서는 “My-First-LA-RG”를 사용합니다. |
@@ -118,7 +118,7 @@ ms.locfileid: "109738899"
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **RSS 피드 URL** | 예 | <*RSS-feed-URL*> | 모니터링할 RSS 피드 URL입니다. <p><p>이 예제에서는 `https://feeds.a.dj.com/rss/RSSMarketsMain.xml`에 있는 Wall Street Journal의 RSS 피드를 사용합니다. 그러나 HTTP 권한 부여가 필요하지 않은 RSS 피드를 사용할 수 있습니다. 자주 게시되는 RSS 피드를 선택합니다. 그러면 워크플로를 쉽게 테스트할 수 있습니다. |
-   | **선택한 속성을 사용하여 확인** | 예 | PublishDate | 새 항목을 결정하는 속성입니다. |
+   | **선택한 속성을 사용하여 확인** | 아니요 | PublishDate | 새 항목을 결정하는 속성입니다. |
    | **간격** | 예 | 1 | 피드 확인 간에 대기하는 간격(숫자)입니다. <p><p>이 예제에서는 `1`을 간격으로 사용합니다. |
    | **빈도** | 예 | Minute | 모든 간격에 사용할 빈도 단위입니다. <p><p>이 예제에서는 `Minute`를 빈도로 사용합니다. |
    |||||

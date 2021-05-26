@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/11/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: c68f76e56f49f055466f7332d7751ac468e034d8
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: aefaf2ca96ac697a74561ff3df68bacbadf1ec99
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616742"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067208"
 ---
 ::: zone target="docs"
 
@@ -80,7 +80,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *utsac1*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     데이터 형식에 따라 공유 경로는 다음과 같습니다.
     - Azure 블록 Blob - `\\10.126.76.138\utSAC1_202006051000_BlockBlob`
@@ -90,7 +90,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 4. 메시지가 표시되면 공유 암호를 입력합니다. 암호에 특수 문자가 있으면 앞뒤에 큰따옴표를 추가합니다. 다음 샘플은 이전 명령을 통해 공유에 연결하는 방법을 보여줍니다.
 
     ```
-    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:testuser1
+    C:\Users\Databoxuser>net use \\10.126.76.138\utSAC1_202006051000_BlockBlob /u:10.126.76.138\testuser1
     Enter the password for 'testuser1' to connect to '10.126.76.138': "ab1c2def$3g45%6h7i&j8kl9012345"
     The command completed successfully.
     ```

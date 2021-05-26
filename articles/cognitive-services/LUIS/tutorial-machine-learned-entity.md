@@ -4,13 +4,13 @@ description: 기계 학습 엔터티를 사용하여 발화에서 정형 데이�
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/08/2020
-ms.openlocfilehash: aa2783abe86b90a907510dec8d7eb40162820ad5
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.date: 04/28/2020
+ms.openlocfilehash: b3a41ec4eb10ccf1f1b9e80315f554f72a5c8cfe
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95025262"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095914"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>자습서: LUIS(Language Understanding)에서 기계 학습 엔터티를 사용하여 사용자 발화에서 정형 데이터 추출
 
@@ -27,8 +27,9 @@ ms.locfileid: "95025262"
 > * 앱 학습, 테스트, 게시
 > * 엔드포인트에서 엔터티 예측 가져오기
 
+<!---
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
-
+-->
 
 ## <a name="why-use-a-machine-learning-entity"></a>기계 학습 엔터티를 사용하는 이유
 

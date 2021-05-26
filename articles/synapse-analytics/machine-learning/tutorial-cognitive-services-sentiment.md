@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 08d5e53facce172c2287c2e341895f0ee38571f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4199e82ee5b32fe3e34df421a9ca54136b8cbfb7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821428"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846395"
 ---
 # <a name="tutorial-sentiment-analysis-with-cognitive-services-preview"></a>자습서: Cognitive Services를 사용하여 감정 분석(미리 보기)
 
@@ -30,7 +30,7 @@ Azure Synapse의 사용자는 감정을 사용하여 보강할 텍스트 열이 
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
 - Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
@@ -109,6 +109,6 @@ Cognitive Services를 인증하려면 키 자격 증명 모음에 대한 비밀�
 ![감정 분석을 보여 주는 스크린샷](media/tutorial-cognitive-services/tutorial-cognitive-services-sentiment-00h.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [자습서: Azure Cognitive Services를 사용하여 변칙 검색](tutorial-cognitive-services-sentiment.md)
+- [자습서: Azure Cognitive Services를 사용하여 변칙 검색](tutorial-cognitive-services-anomaly.md)
 - [자습서: Azure Synapse 전용 SQL 풀에서 기계 학습 모델 점수 매기기](tutorial-sql-pool-model-scoring-wizard.md)
 - [Azure Synapse Analytics의 Machine Learning 기능](what-is-machine-learning.md)
