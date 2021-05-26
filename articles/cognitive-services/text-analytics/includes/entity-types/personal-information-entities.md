@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 04/14/2021
 ms.author: aahi
-ms.openlocfilehash: 7484b49ed3c868a1ad3e0f97dffa346f350e127f
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 20334f48866875614e313ea35403f3d2694ad275
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106096972"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163566"
 ---
 > [!NOTE]
 > PHI(보호된 상태 정보)를 검색하려면 `domain=phi` 매개 변수 및 모델 버전 `2020-04-01` 이상을 사용합니다.
 >
-> 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi&model-version=2021-01-15`
+> 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-`/v3.1-preview.3/entities/recognition/pii` 엔드포인트에 요청을 보낼 때 다음 엔터티 범주가 반환됩니다.
+`/v3.1-preview.5/entities/recognition/pii` 엔드포인트에 요청을 보낼 때 다음 엔터티 범주가 반환됩니다.
 
 
 | 범주   |  Description                          |
@@ -55,7 +55,7 @@ ms.locfileid: "106096972"
 
         사용자의 이름. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Person`을 추가합니다. 검색되는 경우 `Person`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Person`를 추가합니다. 검색되는 경우 `Person`가 API 응답에 반환됩니다.
       
     :::column-end:::
     
@@ -84,7 +84,7 @@ ms.locfileid: "106096972"
 
         사용자가 보유한 작업 유형 또는 역할.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `PersonType`을 추가합니다. 검색되는 경우 `PersonType`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `PersonType`을 추가합니다. 검색되는 경우 `PersonType`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -142,7 +142,7 @@ ms.locfileid: "106096972"
 
         회사, 정치 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체. 국적 및 종교는 이 엔터티 형식에 포함되지 않습니다. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Organization`을 추가합니다. 검색되는 경우 `Organization`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Organization`를 추가합니다. 검색되는 경우 `Organization`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -171,7 +171,7 @@ ms.locfileid: "106096972"
 
         의료 회사 및 그룹.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `OrganizationMedical`을 추가합니다. 검색되는 경우 `OrganizationMedical`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `OrganizationMedical`을 추가합니다. 검색되는 경우 `OrganizationMedical`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -272,7 +272,7 @@ ms.locfileid: "106096972"
 
         이메일 주소. `domain=phi` 또한 반환됩니다.
       
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Email`을 추가합니다. 검색되는 경우 `Email`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `Email`를 추가합니다. 검색되는 경우 `Email`가 API 응답에 반환됩니다.
 
     :::column-end:::
     :::column span="":::
@@ -300,7 +300,7 @@ ms.locfileid: "106096972"
 
         웹 사이트에 대한 URL입니다. `domain=phi` 또한 반환됩니다.
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `URL`을 추가합니다. 검색되는 경우 `URL`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `URL`를 추가합니다. 검색되는 경우 `URL`가 API 응답에 반환됩니다.
       
     :::column-end:::
 
@@ -357,7 +357,7 @@ ms.locfileid: "106096972"
 
         날짜 및 하루 중 시간. 
 
-        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `DateTime`을 추가합니다. 검색되는 경우 `DateTime`이 API 응답에 반환됩니다.
+        이 엔터티 범주를 가져오려면 `pii-categories` 매개 변수에 `DateTime`을 추가합니다. 검색되는 경우 `DateTime`가 API 응답에 반환됩니다.
       
     :::column-end:::
 :::column span="":::

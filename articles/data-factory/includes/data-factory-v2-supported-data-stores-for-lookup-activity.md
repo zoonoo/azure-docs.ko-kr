@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 79af505b15c8a61721ca11b8b99cebb3f736c3e9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c49406780c6e9f35aadfdfc5fad11d69949aeaf0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108739415"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163641"
 ---
 | 범주 | 데이터 저장소 |
 |:--- |:--- |
@@ -61,17 +61,19 @@ ms.locfileid: "108739415"
 | **NoSQL** |[Cassandra](../connector-cassandra.md) |
 | &nbsp; |[Couchbase(미리 보기)](../connector-couchbase.md) |
 | **최근에 사용한 파일** |[Amazon S3](../connector-amazon-simple-storage-service.md) |
+| &nbsp; |[Amazon S3 호환 스토리지](../connector-amazon-s3-compatible-storage.md) |
 | &nbsp; |[파일 시스템](../connector-file-system.md) |
 | &nbsp; |[FTP](../connector-ftp.md) |
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../connector-hdfs.md) |
+| &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **일반 프로토콜** |[일반 HTTP](../connector-http.md) |
 | &nbsp; |[일반 OData](../connector-odata.md) |
 | &nbsp; |[일반 ODBC](../connector-odbc.md) |
 | **서비스 및 앱** |[Amazon Marketplace 웹 서비스](../connector-amazon-marketplace-web-service.md) |
-| &nbsp; |[Common Data Service for Apps](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur(미리 보기)](../connector-concur.md) |
+| &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Azure IoT Hub](../connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../connector-dynamics-crm-office-365.md) |

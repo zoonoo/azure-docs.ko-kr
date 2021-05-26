@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: a8df14dc5fbd3f69f9c4e1b29ddb04c1a04073d9
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b965a4b8ee83765de8eceeb9c2a27ecca558a3ea
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108793189"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163221"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 
 *이미 키 자격 증명 모음이 있는 경우 [키 자격 증명 모음 고급 액세스 정책 설정](#set-key-vault-advanced-access-policies)으로 건너뛸 수 있습니다.*
 
-[az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell 명령, [Azure Portal](https://portal.azure.com) 또는 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만듭니다.
+[az keyvault create](/cli/azure/keyvault#az_keyvault_create) Azure CLI 명령, [New-AzKeyvault](/powershell/module/az.keyvault/new-azkeyvault) Azure PowerShell 명령, [Azure Portal](https://portal.azure.com) 또는 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create)을 사용하여 키 자격 증명 모음을 만듭니다.
 
 >[!WARNING]
 > 키 자격 증명 모음과 VM이 동일한 구독에 있어야 합니다. 또한 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서 Key Vault와 VM을 동일한 지역에 공동 배치해야 합니다. 암호화할 VM과 동일한 구독 및 지역에 있는 Key Vault를 만들고 사용합니다. 
@@ -61,7 +61,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 ```
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-[Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)을 사용하여 키 자격 증명 모음을 만들 수도 있습니다.
+[Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.keyvault/key-vault-create)을 사용하여 키 자격 증명 모음을 만들 수도 있습니다.
 
 1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
 2. 구독, 리소스 그룹, 리소스 그룹 위치, Key Vault 이름, 개체 ID, 약관 및 규약을 선택한 다음, **구매** 를 클릭합니다. 
