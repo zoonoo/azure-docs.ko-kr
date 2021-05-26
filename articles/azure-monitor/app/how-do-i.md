@@ -3,12 +3,12 @@ title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 74a4d7ee65dccead132cfcebd9bf8c0de9b761a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c889c0890f8e6d193b7e36a525470fc18bef494d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100584163"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060835"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -162,7 +162,7 @@ ASP.NET Core 애플리케이션의 경우 [ASP.NET Core 종속성 주입](/aspne
 ### <a name="if-you-see-no-performance-counter-data"></a>성능 카운터 데이터가 없는 경우
 * **IIS 서버** . [상태 모니터를 설치합니다](./monitor-performance-live-website-now.md).
 * **Azure 웹 사이트** - 성능 카운터는 아직 지원되지 않습니다. Azure 웹 사이트 제어판의 표준 부분으로 몇 가지 메트릭을 가져올  수 있습니다.
-* **Unix 서버** - [collectd 설치](./java-collectd.md)
+* **Unix 서버** - [collectd 설치](java-2x-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>더 많은 성능 카운터를 표시하려면
 * 먼저 [새 차트를 추가하고](../essentials/metrics-charts.md) 제공한 기본 집합에 카운터가 있는지 확인합니다.

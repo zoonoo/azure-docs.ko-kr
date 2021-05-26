@@ -4,12 +4,12 @@ description: Application Insights에서 자동으로 종속성 수집 및 시각
 ms.topic: reference
 ms.custom: devx-track-dotnet
 ms.date: 05/06/2020
-ms.openlocfilehash: 8a4d79e52465e93fb4db2625217cb37a06917218
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c81be9762af658d0149dd6547f50aa9a7503601d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91930869"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097285"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
@@ -24,7 +24,7 @@ ms.locfileid: "91930869"
 | ASP.NET WebAPI | 4.5+ |
 | ASP.NET Core | 1.1+ |
 | <b> 통신 라이브러리</b> |
-| [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
+| [HttpClient](https://dotnet.microsoft.com) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
 | [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 - 안정적인 최신 릴리스. 아래 참고 사항을 참조하세요.
 | [EventHubs 클라이언트 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
@@ -61,7 +61,7 @@ ms.locfileid: "91930869"
 
 > [!NOTE]
 > *반응형 프로그래밍 지원을 제외합니다.
-> <br>†[JVM 에이전트](./java-agent.md#install-the-application-insights-agent-for-java)를 설치해야 합니다.
+> <br>†[JVM 에이전트](java-2x-agent.md#install-the-application-insights-agent-for-java)를 설치해야 합니다.
 
 ## <a name="nodejs"></a>Node.js
 
@@ -88,7 +88,7 @@ ms.locfileid: "91930869"
 ## <a name="next-steps"></a>다음 단계
 
 - [.NET](./asp-net-dependencies.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
-- [Java](./java-agent.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
+- [Java](java-2x-agent.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
 - [OpenCensus Python](./opencensus-python-dependency.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
 - [사용자 지정 종속성 원격 분석을 작성합니다](./api-custom-events-metrics.md#trackdependency).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](./data-model.md)을 참조하세요.

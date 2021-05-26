@@ -12,12 +12,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 06/23/2020
-  ms.openlocfilehash: aaa2115609e08077ad29e5e8b9eefb4d8a65147e
-  ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+  ms.openlocfilehash: ec91be71357e2dda70032930d2133eebbf1b5dfd
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/24/2020
-  ms.locfileid: "95805653"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110468256"
 landingContent:
 - title: Service Bus 메시징 정보
   linkLists:
@@ -71,8 +71,6 @@ landingContent:
       url: service-bus-python-how-to-use-queues.md
     - text: PHP
       url: service-bus-php-how-to-use-queues.md
-    - text: Ruby
-      url: service-bus-ruby-how-to-use-queues.md
 - title: 메시지 게시 및 구독
   linkLists:
   - linkListType: quickstart
@@ -87,8 +85,6 @@ landingContent:
       url: service-bus-python-how-to-use-topics-subscriptions.md
     - text: PHP
       url: service-bus-php-how-to-use-topics-subscriptions.md
-    - text: Ruby
-      url: service-bus-ruby-how-to-use-topics-subscriptions.md
 - title: 모니터링 및 관리
   linkLists:
   - linkListType: how-to-guide
@@ -96,7 +92,7 @@ landingContent:
     - text: PowerShell을 사용하여 엔터티 프로비전
       url: service-bus-manage-with-ps.md
     - text: Azure Monitor를 사용하여 Service Bus 모니터링
-      url: service-bus-metrics-azure-monitor.md
+      url: monitor-service-bus-reference.md
     - text: 진단 로그 설정
       url: service-bus-diagnostic-logs.md
     - text: 메시징 엔터티 일시 중단 및 다시 활성화

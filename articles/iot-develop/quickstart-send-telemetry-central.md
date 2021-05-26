@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 3e346affb944ebe2d9755a91e033a3178e91c1ec
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 238da57b73d764c9a5583ccced36f7e46a4be389
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109716191"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061151"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central"></a>빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기
 
@@ -30,6 +30,12 @@ ms.locfileid: "109716191"
 :::zone pivot="programming-language-csharp"
 
 [!INCLUDE [iot-develop-send-telemetry-central-csharp](../../includes/iot-develop-send-telemetry-central-csharp.md)]
+
+:::zone-end
+
+:::zone pivot="programming-language-java"
+
+[!INCLUDE [iot-develop-send-telemetry-central-java](../../includes/iot-develop-send-telemetry-central-java.md)]
 
 :::zone-end
 

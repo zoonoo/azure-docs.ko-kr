@@ -6,15 +6,15 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: c0e8ae9e642caad0486b862b48d94ba392256a45
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102049018"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839494"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
-Azure Virtual Machine의 게스트 OS 성능 데이터는 다른 [플랫폼 메트릭](./monitor-azure-resource.md#monitoring-data)과 마찬가지로 자동으로 수집되지 않습니다. Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 설치하여 게스트 OS 메트릭을 메트릭 데이터베이스로 수집합니다. 이러한 메트릭은 근실시간 경고, 차트, 라우팅 및 REST API에서의 액세스를 비롯한 Azure Monitor 메트릭의 모든 기능에서 사용할 수 있습니다. 이 문서에서는 Resource Manager 템플릿을 사용하여 Windows 가상 머신에 대한 게스트 OS 성능 메트릭을 메트릭 데이터베이스로 보내는 프로세스에 대해 설명합니다. 
+Azure Virtual Machine의 게스트 OS 성능 데이터는 다른 [플랫폼 메트릭](./monitor-azure-resource.md#monitoring-data)과 마찬가지로 자동으로 수집되지 않습니다. Azure Monitor [진단 확장](../agents/diagnostics-extension-overview.md)을 설치하여 게스트 OS 메트릭을 메트릭 데이터베이스로 수집합니다. 이러한 메트릭은 근실시간 경고, 차트, 라우팅 및 REST API에서의 액세스를 비롯한 Azure Monitor 메트릭의 모든 기능에서 사용할 수 있습니다. 이 문서에서는 Resource Manager 템플릿을 사용하여 Windows 가상 머신에 대한 게스트 OS 성능 메트릭을 메트릭 데이터베이스로 보내는 프로세스에 대해 설명합니다.
 
 > [!NOTE]
 > Azure Portal을 사용하여 게스트 OS 메트릭을 수집하도록 진단 확장을 구성하는 방법에 대한 자세한 내용은 [WAD(Windows Azure 진단) 확장 설치 및 구성](../agents/diagnostics-extension-windows-install.md)을 참조하세요.
@@ -28,14 +28,14 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](../../cloud-shell/overview.md)이 설치되어 있어야 합니다.
 
-- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](./metrics-custom-overview.md#supported-regions)에 있어야 합니다. 
+- VM 리소스는 [사용자 지정 메트릭을 지원하는 지역](./metrics-custom-overview.md#supported-regions)에 있어야 합니다.
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Azure Monitor를 데이터 싱크로 설정
 Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여줍니다.
 
 ## <a name="author-resource-manager-template"></a>Resource Manager 템플릿 작성
-이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 에 있습니다.
+이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows 에 있습니다.
 
 - **Azuredeploy.json** 은 가상 머신을 배포하도록 미리 구성된 Resource Manager 템플릿입니다.
 

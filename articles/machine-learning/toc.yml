@@ -75,11 +75,11 @@
       items:
         - name: CLI를 사용하여 학습 및 배포
           href: tutorial-train-deploy-model-cli.md
+        - name: 관리형 엔드포인트를 통해 Azure 리소스에 액세스
+          href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
       items:
-        - name: Azure Machine Learning 확장 설정
-          href: tutorial-setup-vscode-extension.md
-        - name: TensorFlow 이미지 분류 모델 학습 및 배포
+        - name: TensorFlow 이미지 분류 모델 학습
           href: tutorial-train-deploy-image-classification-model-vscode.md
     - name: Microsoft Power BI 통합
       items:
@@ -134,6 +134,8 @@
       href: concept-workspace.md
     - name: 환경
       href: concept-environments.md
+    - name: 유추를 위해 미리 빌드된 Docker 이미지
+      href: concept-prebuilt-docker-images-inference.md
     - name: 컴퓨팅 인스턴스
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
@@ -157,6 +159,8 @@
     - name: 딥 러닝
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: 엔드포인트
+      href: concept-endpoints.md
     - name: 모델 관리(MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
@@ -283,6 +287,9 @@
           href: how-to-create-attach-compute-studio.md
     - name: 환경 설정
       items:
+        - name: 2.0 CLI 설치 및 설정
+          displayName: 'azurecli, mlops'
+          href: how-to-configure-cli.md
         - name: 개발 환경 설정
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
@@ -305,8 +312,11 @@
         - name: 입력 및 출력 디렉터리 설정
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Visual Studio Code
+        - name: VS Code 확장 설정
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
+          href: how-to-setup-vs-code.md
+        - name: 컴퓨팅 인스턴스 VS Code에 연결
+          displayName: 'Visual Studio Code, VSCode, debug, bugs'
           href: how-to-set-up-vs-code-remote.md
         - name: Git 통합
           displayName: github gitlab
@@ -371,6 +381,8 @@
               href: how-to-differential-privacy.md
     - name: 모델 학습
       items:
+        - name: 2.0 CLI로 학습
+          href: how-to-train-cli.md
         - name: 학습 실행 구성 및 제출
           displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
           href: how-to-set-up-training-targets.md
@@ -387,6 +399,8 @@
           href: how-to-train-pytorch.md
         - name: 사용자 지정 Docker 이미지를 사용하여 학습
           href: how-to-train-with-custom-image.md
+        - name: REST API로 학습
+          href: how-to-train-with-rest.md
         - name: 예측 도구에서 ScriptRunConfig로 마이그레이션
           href: how-to-migrate-from-estimators-to-scriptrunconfig.md
         - name: 교육 추적 및 모니터링
@@ -424,6 +438,9 @@
         - name: MLflow를 사용하여 Azure Databricks 실행 추적
           displayName: 'log, monitor, deploy, metrics, databricks'
           href: how-to-use-mlflow-azure-databricks.md
+        - name: MLflow 프로젝트로 실험 학습
+          displayName: 'log, monitor, metrics, model registry, register'
+          href: how-to-train-mlflow-projects.md
         - name: MLflow 모델 배포
           displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
           href: how-to-deploy-mlflow-models.md
@@ -461,6 +478,30 @@
         - name: 배포 위치 및 방법
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: 엔드포인트로 배포 및 제공
+          items:
+            - name: 온라인
+              items:
+                - name: 관리형 온라인 엔드포인트를 통해 ML 모델 배포
+                  href: how-to-deploy-managed-online-endpoints.md
+                - name: 온라인 엔드포인트에 대한 안전한 롤아웃
+                  href: how-to-safely-rollout-managed-endpoints.md
+                - name: 스튜디오에서 관리형 온라인 엔드포인트 사용
+                  href: how-to-use-managed-online-endpoint-studio.md
+                - name: 관리형 온라인 엔드포인트 비용 보기
+                  href: how-to-view-online-endpoints-costs.md
+                - name: 관리형 온라인 엔드포인트 VM SKU 목록
+                  href: reference-managed-online-endpoints-vm-sku-list.md
+                - name: 관리형 온라인 엔드포인트 모니터링
+                  href: how-to-monitor-online-endpoints.md
+                - name: 관리형 온라인 엔드포인트 문제 해결
+                  href: how-to-troubleshoot-managed-online-endpoints.md
+            - name: Batch
+              items:
+                - name: 일괄 처리 엔드포인트를 사용한 일괄 처리 채점
+                  href: how-to-use-batch-endpoint.md
+                - name: 일괄 처리 엔드포인트 문제 해결
+                  href: how-to-troubleshoot-batch-endpoints.md
         - name: 배포 대상
           items:
             - name: 로컬
@@ -487,6 +528,14 @@
               href: ../iot-edge/tutorial-deploy-machine-learning.md?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context
             - name: FPGA 유추
               href: how-to-deploy-fpga-web-service.md
+        - name: 미리 빌드된 Docker 이미지
+          items:
+            - name: Python 확장성
+              href: how-to-prebuilt-docker-images-inference-python-extensibility.md
+            - name: Dockerfile 확장성
+              href: how-to-extend-prebuilt-docker-image-inference.md
+            - name: 미리 빌드된 docker 이미지 문제 해결
+              href: how-to-troubleshoot-prebuilt-docker-image-inference.md
         - name: 배포 문제 해결
           href: how-to-troubleshoot-deployment.md
         - name: 배포 문제 해결(로컬)
@@ -524,7 +573,7 @@
         - name: 디자이너 모델 배포
           displayName: 'designer, studio'
           href: how-to-deploy-model-designer.md
-        - name: (미리 보기) 코드 배포 없음
+        - name: 코드 없는 배포
           displayName: no code
           href: how-to-deploy-no-code-deployment.md
         - name: 패키지 관리
@@ -632,6 +681,8 @@
       href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: 서비스 제한
       href: resource-limits-quotas-capacity.md
+    - name: Conda 라이선스
+      href: /legal/machine-learning/conda-licensing
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 사용자 포럼

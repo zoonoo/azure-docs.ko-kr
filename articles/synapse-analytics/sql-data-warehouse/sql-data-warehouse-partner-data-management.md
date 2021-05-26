@@ -10,12 +10,12 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b8d900b004dbadd7a8909de14caec16f8617aeb8
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 28df246f608369b3bafa9492ddaa4f0a6e5b042d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107566616"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061789"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Azure Synapse Analytics 데이터 관리 파트너
 
@@ -27,7 +27,7 @@ ms.locfileid: "107566616"
 | ![Aginity](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginity**<br>Aginity는 분석 개발 도구입니다. 분석가 및 엔지니어가 Microsoft의 Synapse 플랫폼을 완벽하게 활용합니다. 풍부하고 직관적인 SQL 개발 환경을 통해 팀 구성원은 수십 개의 업계 최고의 분석 플랫폼에 연결할 수 있습니다. 이를 통해 사용자는 다양한 형식으로 데이터를 수집하고 복잡한 비즈니스 계산을 신속하게 구축하여 결과를 비즈니스 인텔리전스 및 기계 학습 사용 사례에 제공할 수 있습니다. 전체 애플리케이션은 분석 팀 간의 협업을 수행하는 중앙 카탈로그를 기반으로 구축되며 정교한 관리 기능과 세분화된 보안을 통해 거버넌스를 용이하게 합니다. |[제품 페이지](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Alation](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Alation**<br>Alation의 데이터 카탈로그는 생산성을 크게 향상시키고 정확도를 높이며 분석가에게 데이터 기반 의사 결정을 유도합니다. Alation의 데이터 카탈로그를 통해 조직의 모든 사용자가 데이터를 찾고 이해하고 관리할 수 있습니다. |[제품 페이지](https://www.alation.com/product/data-catalog/)<br> |
 | ![BI Builders(Xpert BI)](./media/sql-data-warehouse-partner-data-integration/bibuilders-logo.png) |**BI Builders(Xpert BI)**<br> Xpert BI는 기간 업무 사용자가 데이터 및 보고서를 찾고, 신뢰하고, 이해할 수 있도록 직관적이고 검색 가능한 카탈로그를 제공합니다. 이 솔루션은 Azure Synapse Analytics, ADLS Gen 2, Azure SQL Database, Analysis Services 및 Power BI를 비롯한 전체 데이터 플랫폼과 데이터 흐름 및 데이터 이동 엔드투엔드 기능을 다룹니다. 데이터 스튜어드는 규정 요구 사항 준수를 위해 설명 및 태그 데이터를 업데이트할 수 있습니다. Xpert BI는 API를 통해 Azure Purview와 같은 다른 카탈로그에 통합될 수 있습니다. 비즈니스 사용자 관점에서 기존 데이터 카탈로그를 보완합니다. |[제품 페이지](https://www.bi-builders.com/adding-automation-and-governance-to-azure-analytics/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/bi-builders-as.xpert-bi-vm)<br>|
-| ![Coffing Data Warehousing](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Coffing Data Warehousing**<br>Coffing Data Warehousing은 10년 동안 쿼리 시스템을 전용으로 디자인한 도구인 Nexus Chameleon을 제공합니다. Nexus는 Azure Synapse Analytics에서 전용 SQL 풀의 쿼리 도구로 사용될 수 있습니다. Nexus를 사용하여 사내 및 클라우드 컴퓨터에서 쿼리하여 다른 플랫폼에서 데이터를 조인합니다. 마우스로 클릭하여 보고합니다! |[제품 페이지](https://www.coffingdw.com/software/nexus/)<br> |
+| ![Coffing Data Warehousing](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Coffing Data Warehousing**<br>Coffing Data Warehousing은 10년 동안 쿼리 시스템을 전용으로 디자인한 도구인 Nexus Chameleon을 제공합니다. Nexus는 Azure Synapse Analytics에서 전용 SQL 풀의 쿼리 도구로 사용될 수 있습니다. Nexus를 사용하여 사내 및 클라우드 컴퓨터에서 쿼리하여 다른 플랫폼에서 데이터를 조인합니다. 마우스로 클릭하여 보고합니다! |[제품 페이지](https://coffingdw.com/software/nexus/)<br> |
 | ![Inbrein](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>Inbrein MicroERD는 정확한 데이터 모델을 만들고, 데이터 중복을 최소화하고, 생산성을 향상시키고, 표준을 준수하는 데 필요한 도구를 제공합니다. 광범위한 사용자 환경을 기반으로 개발된 UI를 사용하여, 모델러는 DB 모델에서 쉽고 편리하게 작업할 수 있습니다. 프롬프트 기능 향상 및 업데이트를 통해 지속적으로 MicroERD의 새로운 기능과 향상된 기능을 즐길 수 있습니다. |[제품 페이지](http://microerd.com/)<br> |
 | ![Infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian-logo.png) |**Infolibrarian(Metadata Management Server)**<br>InfoLibrarian 카탈로그는 메타데이터를 저장하고 관리하여 데이터 관리의 주요 문제점을 해결하는 데 도움이 됩니다. Infolibrarian은 다양한 도구 및 기술 세트에서 메타데이터의 관리 및 게시를 위한 메타데이터 관리, 데이터 거버넌스 및 자산 관리 솔루션을 제공합니다. |[제품 페이지](http://www.infolibcorp.com/metadata-management/software-tools)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/infolibrarian.infolibrarian-metadata-management-server)<br> |
 | ![Kyligence](./media/sql-data-warehouse-partner-data-management/kyligence-logo.png) |**Kyligence**<br>Apache Kylin의 작성자가 설립한 Kyligence는 아무런 장애 요인 없이 데이터 관리, 검색, 상호 작용 및 인사이트 생성을 자동화하여 고객의 생산성을 높이는 것을 목표로 합니다. Kyligence Cloud는 클러스터 배포를 지원하고, 데이터 액세스를 강화하고, 데이터 분석을 크게 가속화합니다. Kyligence의 AI 기능이 보강된 빅 데이터 분석 관리 플랫폼을 사용하면 엔터프라이즈 규모 데이터 레이크를 빌드하는 까다로운 작업을 빠르고 쉽게 처리할 수 있습니다.|[제품 페이지](https://kyligence.io/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence)<br> |

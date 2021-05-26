@@ -9,12 +9,12 @@ ms.service: signalr
 ms.custom:
 - subject-armqs
 - mode-arm
-ms.openlocfilehash: 622b681121f742ba8de0f92adbcce1c7e1fa8f7a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: dedc265a6f7dec38d2f46b641631276ad25a8d72
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070410"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813311"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SignalR Service 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "108070410"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 로그인하면 Azure Portal에서 템플릿이 열립니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -50,7 +50,7 @@ ms.locfileid: "108070410"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-signalr/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/101-signalr/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json":::
 
 템플릿에서 다음과 같은 하나의 Azure 리소스를 정의합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "108070410"
 
 Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 배포하려면 다음 링크를 선택합니다.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Azure Portal에서 ARM 템플릿을 사용하여 Azure SignalR Service를 Azure에 배포하는 단추.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
 
 **Azure SignalR Service 배포** 페이지에서 다음을 수행합니다.
 
@@ -129,7 +129,7 @@ $paramObjHashTable = @{
 Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
-    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
+    -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json
 Read-Host "Press [ENTER] to continue"
 ```
 
@@ -160,7 +160,7 @@ params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier'
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
 echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
-az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
+az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
 

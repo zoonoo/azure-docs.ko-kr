@@ -2,15 +2,15 @@
 title: VM 시작/중지(미리 보기) 문제 해결
 description: 이 문서에서는 Azure VM의 시작/중지(미리 보기) 기능에서 발생하는 문제를 해결하는 방법을 설명합니다.
 services: azure-functions
-ms.subservice: ''
+ms.subservice: start-stop-vms
 ms.date: 03/31/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3c379c1eb36fc19368630188f1b584e1d8a7b8ad
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 83633b6f107aee995c19e1cda94f4f93a96e84e2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111103"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076783"
 ---
 # <a name="troubleshoot-common-issues-with-startstop-vms-preview"></a>VM 시작/중지(미리 보기)와 관련된 일반적인 문제 해결
 

@@ -1,6 +1,6 @@
 ---
 title: 사용자 지정 모델용 학습 데이터 세트를 빌드하는 방법 - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 학습 데이터 세트가 Form Recognizer 모델 학습에 최적화되도록 하는 방법을 알아봅니다.
 author: laujan
 manager: nitinme
@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: lajanuar
-ms.openlocfilehash: b33ac3cb710a2d2a9d92efadf14dc829cb5da6e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4ef7375b647116e8cbc08124d1e13c3c14cfd85
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467496"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374993"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>사용자 지정 모델용 학습 데이터 세트 빌드
 
-Form Recognizer 사용자 지정 모델을 사용하는 경우 해당 모델에서 산업별 양식을 학습할 수 있도록 사용자 고유의 학습 데이터를 [사용자 지정 모델 학습](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) 작업에 제공합니다. 이 가이드에 따라 모델을 효과적으로 학습시키기 위해 데이터를 수집하고 준비하는 방법에 대해 알아봅니다.
+Form Recognizer 사용자 지정 모델을 사용하는 경우 해당 모델에서 산업별 양식을 학습할 수 있도록 사용자 고유의 학습 데이터를 [사용자 지정 모델 학습](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) 작업에 제공합니다. 이 가이드에 따라 모델을 효과적으로 학습시키기 위해 데이터를 수집하고 준비하는 방법에 대해 알아봅니다.
 
 동일한 유형의 5개 이상의 채워진 양식이 필요합니다.
 
@@ -43,11 +43,11 @@ Form Recognizer 사용자 지정 모델을 사용하는 경우 해당 모델에�
 
 학습에 사용할 양식 문서 세트를 함께 배치한 경우 Azure Blob 스토리지 컨테이너에 업로드해야 합니다. 컨테이너를 사용하여 Azure 스토리지 계정을 만드는 방법을 모르는 경우 [Azure Portal의 Azure Storage 빠른 시작](../../storage/blobs/storage-quickstart-blobs-portal.md)을 따릅니다. 표준 성능 계층을 사용합니다.
 
-수동으로 레이블이 지정된 데이터를 사용하려면 학습 문서에 해당하는 *.labels.json* 및 *.ocr.json* 파일도 업로드해야 합니다. [샘플 레이블 지정 도구](./quickstarts/label-tool.md)(또는 사용자 고유의 UI)를 사용하여 이러한 파일을 생성할 수 있습니다.
+수동으로 레이블이 지정된 데이터를 사용하려면 학습 문서에 해당하는 *.labels.json* 및 *.ocr.json* 파일도 업로드해야 합니다. [샘플 레이블 지정 도구](label-tool.md)(또는 사용자 고유의 UI)를 사용하여 이러한 파일을 생성할 수 있습니다.
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>하위 폴더에 데이터 구성(선택 사항)
 
-기본적으로 [사용자 지정 모델 학습](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) API는 스토리지 컨테이너의 루트에 있는 양식 문서만 사용합니다. 그러나 API 호출에서 데이터를 지정하는 경우 하위 폴더의 데이터를 사용하여 학습시킬 수 있습니다. 일반적으로 [사용자 지정 모델 학습](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/TrainCustomModelAsync) 호출 본문의 형식은 다음과 같습니다. 여기서 `<SAS URL>`은 컨테이너의 공유 액세스 서명 URL입니다.
+기본적으로 [사용자 지정 모델 학습](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) API는 스토리지 컨테이너의 루트에 있는 양식 문서만 사용합니다. 그러나 API 호출에서 데이터를 지정하는 경우 하위 폴더의 데이터를 사용하여 학습시킬 수 있습니다. 일반적으로 [사용자 지정 모델 학습](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync) 호출 본문의 형식은 다음과 같습니다. 여기서 `<SAS URL>`은 컨테이너의 공유 액세스 서명 URL입니다.
 
 ```json
 {
@@ -73,7 +73,7 @@ Form Recognizer 사용자 지정 모델을 사용하는 경우 해당 모델에�
 이제 학습 데이터 세트를 빌드하는 방법을 알아보았으므로 빠른 시작에 따라 사용자 지정 Form Recognizer 모델을 학습시키고 양식에서 사용하기 시작합니다.
 
 * [클라이언트 라이브러리 또는 REST API를 사용하여 모델 학습 및 양식 데이터 추출](./quickstarts/client-library.md)
-* [샘플 레이블 지정 도구에서 레이블을 사용하여 학습](./quickstarts/label-tool.md)
+* [샘플 레이블 지정 도구에서 레이블을 사용하여 학습](label-tool.md)
 
 ## <a name="see-also"></a>참조
 

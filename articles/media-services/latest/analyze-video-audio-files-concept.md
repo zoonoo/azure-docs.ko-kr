@@ -8,16 +8,16 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 8a2c65355f4cb423c17ade6b6f821dcb5b5bd23e
-ms.sourcegitcommit: edc7dc50c4f5550d9776a4c42167a872032a4151
+ms.openlocfilehash: 97aff4bf97a8d79813afb1bd5b7a5e14f6d545c4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105963928"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375283"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services로 비디오 및 오디오 파일 분석
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
+[!INCLUDE [regulation](../../azure-video-analyzer/video-analyzer-for-media-docs/includes/regulation.md)]
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -38,7 +38,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |**미리 설정 이름**|**시나리오/모드**|**세부 정보**|
 |---|---|---|
 |[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 표준 모드 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어는 영어('en-US', 'en-GB' 및 'en-AU'), 스페인어('es-ES' 및 'es-MX'), 프랑스어('fr-FR' 및 'fr-CA'), 이탈리아어('it-IT'), 일본어('ja-JP'), 포르투갈어('pt-BR'), 중국어('zh-CN'), 독일어('de-DE'), 아랍어('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-SA' 및 'ar-SY'), 러시아어('ru-RU'), 힌디어('hi-IN'), 한국어('ko-KR'), 덴마크어('da-DK'), 노르웨이어('nb-NO'), 스웨덴어('sv-SE'), 핀란드어('fi-FI'), 태국어('th-TH') 및 터키어('tr-TR')입니다.<br/><br/> 언어가 지정되지 않았거나 null로 설정된 경우 자동 언어 감지 기능은 감지된 첫 번째 언어를 선택하고 파일의 지속시간 동안 선택된 언어를 계속 사용합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 첫 번째 언어가 감지된 후 언어 간에 동적으로 전환하는 기능은 지원되지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 감지 기능으로 언어를 찾지 못하면 대화 내용 기록은 영어를 다시 사용합니다.|
-|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 기본 모드 분석|이 사전 설정 모드는 음성 텍스트 변환 대화 내용 기록을 수행하고 VTT 자막/캡션 파일을 생성합니다. 이 모드의 출력에는 키워드, 대화 내용 기록 및 타이밍 정보만 포함된 인사이트 JSON 파일이 포함됩니다. 자동 언어 감지 기능과 화자 분할 기능은 이 모드에 포함되어 있지 않습니다. 지원되는 언어 목록은 위의 표준 모드와 동일합니다.|
+|[AudioAnalyzerPreset](/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 기본 모드 분석|이 사전 설정 모드는 음성 텍스트 변환 대화 내용 기록을 수행하고 VTT 자막/캡션 파일을 생성합니다. 이 모드의 출력에는 키워드, 기록, 타이밍 정보만 포함된 Insights JSON 파일이 포함됩니다. 자동 언어 감지 기능과 화자 분할 기능은 이 모드에 포함되어 있지 않습니다. 지원되는 언어 목록은 위의 표준 모드와 동일합니다.|
 |[VideoAnalyzerPreset](/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial.md)을 참조하세요.|
 |[FaceDetectorPreset](/rest/api/media/transforms/createorupdate#facedetectorpreset)|비디오에 있는 얼굴 감지|비디오를 분석하여 비디오에 있는 모든 얼굴을 감지할 때 사용할 설정을 설명합니다.|
 

@@ -2,16 +2,16 @@
 title: '자습서: Azure FXT Edge Filer 물리적 디바이스 설치'
 description: Microsoft Azure FXT Edge Filer 하이브리드 스토리지 캐시 물리적 디바이스 구성 요소의 포장을 풀고, 랙에 탑재하고, 케이블로 연결하는 방법
 author: ekpgh
-ms.author: rohogue
+ms.author: v-erkel
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.openlocfilehash: 48ee6de28bcd76d4c484b77c981062bad1a3754d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 626ec99d59979e13121b8c32ee2f24843328697b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92219754"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456240"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>자습서: Azure FXT Edge Filer 설치
 

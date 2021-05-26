@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Azure Confidential Ledger
+summary: Azure Confidential Ledger를 사용하는 방법 알아보기
+metadata:
+  title: Azure Confidential Ledger 설명서
+  description: Azure Confidential Ledger를 사용하는 방법 알아보기
+  services: confidential-ledger
+  ms.service: confidential-ledger
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  ms.date: 04/15/2021
+  ms.openlocfilehash: 9ba47997232d3eb8b6b99d5608c382ba6b8f7039
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383479"
+landingContent:
+- title: Azure Confidential Ledger 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Confidential Ledger란?
+      url: overview.md
+- title: 시작
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Python 빠른 시작
+      url: quickstart-python.md
+    - text: ARM 템플릿 빠른 시작
+      url: quickstart-template.md
+- title: 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Architecture
+      url: architecture.md
+    - text: 원장 노드 인증
+      url: authenticate-ledger-nodes.md
+- title: 방법 가이드
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 원장 노드 인증
+      url: authenticate-ledger-nodes.md
+    - text: 클라이언트 인증서 만들기
+      url: create-client-certificate.md
+    - text: 원장 서비스 주체 등록
+      url: register-ledger-service-principal.md
+    - text: Confidential Ledger 리소스 공급자 등록
+      url: register-ledger-resource-provider.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 질문과 대답
+      url: faq.md

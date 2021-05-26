@@ -5,21 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 05/13/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ec8af824d573493d1da743923956e587ded62e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 37118a84468743053e6f825bf982b3073c5545d3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102033829"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060809"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD ID 보호 및 조건부 액세스를 사용하여 Azure AD B2C(Azure Active Directory B2C)의 보안을 강화합니다. 위험한 사용자 및 위험한 로그인을 포함한 ID 보호 위험 검색 기능은 Azure AD B2C 테넌트에서 자동으로 검색되어 표시됩니다. 이러한 위험 검색을 사용하여 작업을 결정하고 조직 정책을 적용하는 조건부 액세스 정책을 만들 수 있습니다. 이러한 기능을 함께 사용하면 Azure AD B2C 애플리케이션 소유자가 위험한 인증 및 액세스 정책을 더 효율적으로 제어할 수 있습니다.
   

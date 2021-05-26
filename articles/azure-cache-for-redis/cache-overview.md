@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 02/08/2021
-ms.openlocfilehash: 49a697e6c3a6a6c931f2bb9c545647e2d6f1322d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: a7f37df7d312e9279eecaa49851d13957bd418d3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106056660"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075631"
 ---
 # <a name="about-azure-cache-for-redis"></a>Azure Cache for Redis 소개
 Azure Cache for Redis는 [Redis](https://redis.io/) 소프트웨어를 기반으로 하는 메모리 내 데이터 저장소를 제공합니다. Redis는 백 엔드 데이터 저장소에서 많이 사용하는 애플리케이션의 성능과 확장성을 개선합니다. 자주 액세스하는 데이터를 빠르게 쓰고 읽을 수 있는 서버 메모리에 보관하여 대량의 애플리케이션 요청을 처리할 수 있습니다. Redis는 최신 애플리케이션에 매우 짧은 대기 시간 및 높은 처리량의 데이터 스토리지 솔루션을 제공합니다.
@@ -58,7 +58,7 @@ Azure Cache for Redis는 다음 계층에서 사용할 수 있습니다.
 | [크기 조정](cache-how-to-scale.md) |✔|✔|✔|✔|✔|
 | [OSS 클러스터](cache-how-to-premium-clustering.md) |-|-|✔|✔|✔|
 | [데이터 지속성](cache-how-to-premium-persistence.md) |-|-|✔|미리 보기|미리 보기|
-| [영역 중복](cache-how-to-zone-redundancy.md) |-|-|미리 보기|✔|✔|
+| [영역 중복](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
 | [지역에서 복제](cache-how-to-geo-replication.md) |-|-|✔|미리 보기|미리 보기|
 | [모듈](https://redis.io/modules) |-|-|-|✔|✔|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|

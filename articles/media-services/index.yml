@@ -21,12 +21,6 @@ highlightedContent:
     - title: Azure Media Services v3 개념
       itemType: concept
       url: ./latest/concepts-overview.md
-    - title: Azure Media Services Video Indexer 정보
-      itemType: overview
-      url: ./video-indexer/video-indexer-overview.md
-    - title: Media Services v3 미리 설정과 Video Indexer 비교
-      itemType: concept
-      url: ./video-indexer/compare-video-indexer-with-media-services-presets.md
     - title: IoT Edge의 Live Video Analytics(미리 보기)
       itemType: overview
       url: ./live-video-analytics-edge/overview.md
