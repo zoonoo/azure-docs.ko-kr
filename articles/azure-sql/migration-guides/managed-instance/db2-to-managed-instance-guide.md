@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 4c3fd064eae2eaa918993b9de9789a25a27d05d7
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 05/14/2021
+ms.openlocfilehash: 8c6a97e2799cd434db39d21dfcaff86643722edd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136502"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065533"
 ---
 # <a name="migration-guide-ibm-db2-to-azure-sql-managed-instance"></a>마이그레이션 가이드: IBM Db2에서 Azure SQL Managed Instance로
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -128,7 +128,7 @@ SQL Server Migration Assistant를 사용하여 평가를 만듭니다.
 
 ## <a name="post-migration"></a>마이그레이션 후 작업 
 
-마이그레이션을 완료한 후 모든 것이 최대한 원활하고 효율적으로 작동하게 하려면 일련의 마이그레이션 후 작업을 수행해야 합니다.
+마이그레이션을 완료한 후 모든 작업이 최대한 원활하고 효율적으로 작동하게 하려면 일련의 마이그레이션 후 작업을 수행해야 합니다.
 
 ### <a name="remediate-applications"></a>애플리케이션 수정 
 
@@ -159,7 +159,6 @@ SQL Server Migration Assistant를 사용하여 평가를 만듭니다.
 |[데이터 워크로드 평가 모델 및 도구](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| 이 도구는 권장되는 “최적의” 대상 플랫폼, 클라우드 준비 상태 및 애플리케이션/데이터베이스 수정 수준을 지정된 워크로드에 제공합니다. 또한 자동화되고 균일한 대상 플랫폼 결정 프로세스를 제공하여 대규모 자산 평가를 가속화하는 데 도움이 되는 간단한 원클릭 계산 및 보고서 생성 기능을 제공합니다.|
 |[Db2 zOS 데이터 자산 검색 및 평가 패키지](https://github.com/microsoft/DataMigrationTeam/tree/master/DB2%20zOS%20Data%20Assets%20Discovery%20and%20Assessment%20Package)|데이터베이스에서 SQL 스크립트를 실행한 후에는 파일 시스템의 파일로 결과를 내보낼 수 있습니다. *.csv를 비롯한 여러 파일 형식이 지원되므로 스프레드시트와 같은 외부 도구에서 결과를 캡처할 수 있습니다. 이 방법은 워크벤치가 설치되지 않은 팀과 결과를 쉽게 공유하려는 경우에 유용할 수 있습니다.|
 |[IBM Db2 LUW 인벤토리 스크립트 및 아티팩트](https://github.com/microsoft/DataMigrationTeam/blob/master/IBM%20DB2%20LUW%20Inventory%20Scripts%20and%20Artifacts)|이 자산에는 IBM Db2 LUW 버전 11.1 시스템 테이블에 적용되며, 스키마 및 개체 형식별 개체 수, 각 스키마의 대략적인 "원시 데이터" 예측 및 각 스키마의 테이블 크기 조정을 CSV 형식으로 저장된 결과와 함께 제공하는 SQL 쿼리가 포함됩니다.|
-|[Azure에서 Db2 LUW 기본 스케일링 - 설정 가이드](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/DB2%20PureScale%20on%20Azure.pdf)|이 가이드를 시작점으로 Db2 구현 계획을 실행할 수 있습니다. 비즈니스 요구 사항은 다르지만 동일한 기본 패턴이 적용됩니다. 이 아키텍처 패턴은 Azure에서 OLAP 애플리케이션에도 사용할 수 있습니다.|
 
 데이터 SQL 엔지니어링 팀이 이러한 리소스를 개발했습니다. 이 팀의 핵심 선언은 Microsoft의 Azure 데이터 플랫폼으로의 데이터 플랫폼 마이그레이션 프로젝트에 대한 복잡한 현대화의 장애물을 제거하고 속도를 높이는 것입니다.
 

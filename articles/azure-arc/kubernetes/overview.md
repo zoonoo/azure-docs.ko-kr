@@ -2,19 +2,19 @@
 title: Azure Arc 지원 Kubernetes 개요
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/03/2021
+ms.date: 05/25/2021
 ms.topic: overview
 author: mlearned
 ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 69e9886f214d0076c8e66231fd6ad15bb060828f
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 74db1dda9ffdf40ec7e6a571a63986d4ab75c193
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106449650"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375357"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes란?
 
@@ -48,6 +48,8 @@ Azure Arc 지원 Kubernetes는 다음과 같은 시나리오를 지원합니다.
 * Azure Defender for Kubernetes를 사용하여 위협 보호를 적용합니다.
 
 * Kubernetes에 대한 Azure Policy를 사용하여 정책을 적용합니다.
+
+* Azure Arc 지원 Data Services, [Azure Arc의 App Services](../../app-service/overview-arc-integration.md)(웹, 함수 및 논리 앱 포함), [Kubernetes의 Event Grid](/azure/event-grid/kubernetes/overview)를 배포하기 위한 대상 위치로 [사용자 지정 위치](./custom-locations.md)를 만듭니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 

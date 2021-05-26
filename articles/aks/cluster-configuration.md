@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5740c1c299e8a6a2e8874bd13aae76b0353cc6a2
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3937e0a6c00de78acfa774ab6446d2b3d8e68206
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107775873"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377127"
 ---
 # <a name="configure-an-aks-cluster"></a>AKS 클러스터 구성
 
@@ -74,11 +74,9 @@ az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-gro
 
 ## <a name="container-runtime-configuration"></a>컨테이너 런타임 구성
 
-컨테이너 런타임은 컨테이너를 실행하고 노드에서 컨테이너 이미지를 관리하는 소프트웨어입니다. 런타임은 Linux 또는 Windows에서 컨테이너를 실행하기 위해 sys-calls 또는 OS(운영 체제) 특정 기능을 추상화하는 데 도움이 됩니다. Kubernetes 버전 1.19 노드 풀 이상을 사용하는 AKS 클러스터는 `containerd`를 컨테이너 런타임으로 사용합니다. 노드 풀에 v1.19 이전의 Kubernetes를 사용하는 AKS 클러스터는 [Moby](https://mobyproject.org/)(업스트림 docker)를 컨테이너 런타임으로 사용합니다.
+컨테이너 런타임은 컨테이너를 실행하고 노드에서 컨테이너 이미지를 관리하는 소프트웨어입니다. 런타임은 Linux 또는 Windows에서 컨테이너를 실행하기 위해 sys-calls 또는 OS(운영 체제) 특정 기능을 추상화하는 데 도움이 됩니다. Linux 노드 풀의 경우 `containerd`는 Kubernetes 버전 1.19 이상을 사용하는 노드 풀에 사용되고, Docker는 Kubernetes 1.18 및 이전 버전을 사용하는 노드 풀에 사용됩니다. Windows Server 2019 노드 풀의 경우 `containerd`는 미리 보기에서 사용할 수 있으며 Kubernetes 1.20 이상을 사용하는 노드 풀에서 사용할 수 있지만, 기본적으로는 Docker가 계속 사용됩니다.
 
-![Docker CRI 1](media/cluster-configuration/docker-cri.png)
-
-[`Containerd`](https://containerd.io/)는 노드에서 컨테이너를 실행하고 이미지를 관리하는 데 필요한 최소한의 기능 세트를 제공하는 [OCI](https://opencontainers.org/)(Open Container Initiative) 준수 핵심 컨테이너 런타임입니다. 이는 2017년 3월의 CNCF(Cloud Native Compute Foundation)에 [기증](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/)되었습니다. AKS가 사용하는 현재 Moby 버전은 위에 표시된 대로 이미 활용되고 `containerd` 위에 빌드됩니다.
+[`Containerd`](https://containerd.io/)는 노드에서 컨테이너를 실행하고 이미지를 관리하는 데 필요한 최소한의 기능 세트를 제공하는 [OCI](https://opencontainers.org/)(Open Container Initiative) 준수 핵심 컨테이너 런타임입니다. 이는 2017년 3월의 CNCF(Cloud Native Compute Foundation)에 [기증](https://www.cncf.io/announcement/2017/03/29/containerd-joins-cloud-native-computing-foundation/)되었습니다. AKS가 사용하는 현재 Moby(업스트림 Docker) 버전은 위에 표시된 대로 이미 활용되고 `containerd`를 기반으로 빌드됩니다.
 
 `containerd` 기반 노드 및 노드 풀을 사용하면 kubelet은 `dockershim`과 대화하는 대신 CRI(컨테이너 런타임 인터페이스) 플러그 인을 통해 `containerd`와 직접 대화하여 Docker CRI 구현과 비교할 때 흐름의 추가 홉을 제거합니다. 따라서 Pod 시작 대기 시간이 단축되고 리소스(CPU 및 메모리) 사용량이 줄어듭니다.
 
@@ -89,21 +87,21 @@ AKS 노드에 `containerd`를 사용하면 Pod 시작 대기 시간이 개선되
 `Containerd`는 AKS의 모든 GA 버전과 v1.19 이상의 모든 업스트림 Kubernets 버전에서 작동하며 모든 Kubernetes 및 AKS 기능을 지원합니다.
 
 > [!IMPORTANT]
-> Kubernetes v1.19 이상에서 생성된 노드 풀이 있는 클러스터는 컨테이너 런타임에 대해 기본적으로 `containerd`로 설정됩니다. 1\.19 이하의 지원되는 Kubernetes 버전의 노드 풀이 있는 클러스터는 컨테이너 런타임에 대해 `Moby`를 수신하지만, 노드 풀 Kubernetes 버전이 v1.19 이상으로 업데이트되면 `ContainerD`로 업데이트됩니다. 지원이 중단될 때까지 이전 지원 버전에서 `Moby` 노드 풀 및 클러스터를 계속 사용할 수 있습니다.
+> Kubernetes v1.19 이상에서 생성된 Linux 노드 풀이 있는 클러스터는 컨테이너 런타임에 대해 기본적으로 `containerd`로 설정됩니다. 이전에 지원되던 Kubernetes 버전의 노드 풀이 포함된 클러스터는 해당하는 컨테이너 런타임에 대한 Docker를 수신합니다. Linux 노드 풀은 노드 풀 Kubernetes 버전이 `containerd`를 지원하는 버전으로 업데이트되고 나면 `containerd`로 업데이트됩니다. 지원이 중단될 때까지 이전 지원 버전에서 Docker 노드 풀 및 클러스터를 계속 사용할 수 있습니다.
 > 
-> 1\.19 이상에서 클러스터를 사용하기 전에 `containerD`로 AKS 노드 풀에서 워크로드를 테스트하는 것이 좋습니다.
+> Windows Server 2019 노드 풀을 통한 `containerd` 사용은 현재 미리 보기로 제공됩니다. 자세한 내용은 [`containerd`를 사용하여 Windows Server 노드 풀 추가][aks-add-np-containerd]를 참조하세요.
+> 
+> 노드 풀에 대해 `containerd`를 지원하는 Kubernetes 버전으로 클러스터를 사용하기 전에 AKS 노드 풀에서 `containerd`를 사용하여 워크로드를 테스트하는 것이 좋습니다.
 
 ### <a name="containerd-limitationsdifferences"></a>`Containerd` 제한 사항/차이점
 
-* `containerd`를 컨테이너 런타임으로 사용하려면 AKS Ubuntu 18.04를 기본 OS 이미지로 사용해야 합니다.
-* Docker 도구 집합이 노드에 여전히 존재하는 동안에는 Kubernetes는 `containerd`를 컨테이너 런타임으로 사용합니다. 따라서 Moby/Docker는 노드에서 Kubernetes 생성 컨테이너를 관리하지 않으므로 Docker 명령(예: `docker ps`) 또는 Docker API를 사용하여 컨테이너를 보거나 상호 작용할 수 없습니다.
 * `containerd`의 경우, Kubernetes 노드에서 Pod, 컨테이너, 컨테이너 이미지의 **문제 해결** 을 위해 Docker CLI 대신 [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl)를 대체 CLI로 사용하는 것이 좋습니다(예: `crictl ps`). 
    * Docker CLI의 전체 기능을 제공하지 않습니다. 문제 해결을 위한 용도로만 사용됩니다.
    * `crictl`은 Pod 등과 같은 개념이 있는 컨테이너에 대한 Kubernetes 친화적 보기를 제공합니다.
 * `Containerd`는 표준화된 `cri` 로깅 형식을 사용하여 로깅을 설정합니다(현재 Docker의 json 드라이버에서 가져오는 것과는 다름). 로깅 솔루션은 `cri` 로깅 형식(예: [Azure Monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))을 지원해야 합니다.
 * 더 이상 Docker 엔진 `/var/run/docker.sock`에 액세스하거나 DinD(Docker-in-Docker)를 사용할 수 없습니다.
   * 현재 Docker 엔진에서 애플리케이션 로그 또는 모니터링 데이터를 추출하는 경우 [Azure Monitor for Containers ](../azure-monitor/containers/container-insights-enable-new-cluster.md)와 같은 것을 대신 사용하세요. 또한 AKS는 불안정성을 유발할 수 있는 에이전트 노드에서 대역 외 명령 실행을 지원하지 않습니다.
-  * Moby/Docker를 사용하는 경우에도 위의 방법을 통해 이미지를 빌드하고 Docker 엔진을 직접 활용하는 것은 권장되지 않습니다. Kubernetes는 사용된 리소스를 완전히 인식하지 못하며 이러한 접근 방식은 예를 들어 [여기](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)와 [여기](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)에 자세히 설명된 수많은 문제를 야기합니다.
+  * Docker를 사용하는 경우에도 위의 방법을 통해 이미지를 빌드하고 Docker 엔진을 직접 활용하는 것은 권장되지 않습니다. Kubernetes는 사용된 리소스를 완전히 인식하지 못하며 이러한 접근 방식은 예를 들어 [여기](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)와 [여기](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/)에 자세히 설명된 수많은 문제를 야기합니다.
 * 이미지 빌드 - AKS 클러스터 내에서 이미지를 빌드하지 않는 한 현재 Docker 빌드 워크플로를 정상적으로 계속 사용할 수 있습니다. 이 경우 [ACR 작업](../container-registry/container-registry-quickstart-task-cli.md) 또는 [docker buildx](https://github.com/docker/buildx)와 같은 보다 안전한 클러스터 내 옵션을 사용하여 이미지를 빌드하는 데 권장되는 접근 방식으로 전환하는 것이 좋습니다.
 
 ## <a name="generation-2-virtual-machines"></a>2세대 가상 컴퓨터
@@ -197,3 +195,4 @@ az aks create --name myAKSCluster --resource-group myResourceGroup --node-resour
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[aks-add-np-containerd]: windows-container-cli.md#add-a-windows-server-node-pool-with-containerd-preview

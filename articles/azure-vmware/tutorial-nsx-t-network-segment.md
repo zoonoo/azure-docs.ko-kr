@@ -3,12 +3,12 @@ title: 자습서 - Azure VMware Solution에서 NSX-T 네트워크 세그먼트 �
 description: vCenter에서 VM(가상 머신)에 사용할 NSX-T 네트워크 세그먼트를 만드는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: 9125e552f9641a2d26b9584b66a4447f9c152161
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 70a0602b037aaebd4b9776c3a8dafafcb173fa23
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103462129"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064463"
 ---
 # <a name="tutorial-add-a-network-segment-in-azure-vmware-solution"></a>자습서: Azure VMware Solution에서 네트워크 세그먼트 추가 
 
@@ -35,7 +35,7 @@ vCenter 및 NSX-T Manager 인터페이스에 대한 액세스 권한이 있는 A
 
 이제 다음과 같은 작업을 수행할 수 있습니다. 
 
-- [Azure VMware Solution용 DHCP 만들기 및 관리](manage-dhcp.md)
+- [Azure VMware Solution용 DHCP 만들기 및 관리](configure-dhcp-azure-vmware-solution.md)
 - [Azure VMware Solution에서 VM을 배포하는 콘텐츠 라이브러리 만들기](deploy-vm-content-library.md) 
 - [온-프레미스 환경을 프라이빗 클라우드로 피어링](tutorial-expressroute-global-reach-private-cloud.md)
 

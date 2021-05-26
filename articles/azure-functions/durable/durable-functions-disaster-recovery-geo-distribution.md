@@ -3,20 +3,23 @@ title: Azure Durable Functions의 재해 복구 및 지역 복제
 description: 지속형 함수의 재해 복구 및 지역 복제에 대해 알아봅니다.
 author: MS-Santi
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 01c400f51cce85ef39e9d39bcad1221253c6942d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 18919b56ffdc9368f2593f2384b3d7a8e836afd0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89071213"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375967"
 ---
 # <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Azure Durable Functions의 재해 복구 및 지역 배포
 
 Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력합니다. 그러나 계획되지 않은 서비스 중단이 발생할 수 있습니다. 애플리케이션에 복원력이 필요한 경우 지역 중복을 위해 앱을 구성하는 것이 좋습니다. 또한 고객은 지역 서비스 중단을 처리하기 위해 재해 복구 계획을 설정하는 것이 좋습니다. 재해 복구 계획의 중요한 부분은 주 복제본을 사용할 수 없게 되는 경우 앱과 스토리지의 보조 복제본으로 장애 조치(failover)를 준비하는 것입니다.
 
 Durable Functions에서 모든 상태는 기본적으로 Azure Storage에 보관됩니다. [작업 허브](durable-functions-task-hubs.md)는 [오케스트레이션](durable-functions-types-features-overview.md#orchestrator-functions) 및 [엔터티](durable-functions-types-features-overview.md#entity-functions)에 사용되는 Azure Storage 리소스의 논리적 컨테이너입니다. 오케스트레이터, 작업, 엔터티 함수는 동일한 작업 허브에 속하는 경우에만 상호 작용할 수 있습니다. 이 문서에서는 Azure Storage 리소스의 가용성을 높은 수준으로 유지하기 위한 시나리오를 설명할 때 작업 허브를 참조합니다.
+
+> [!NOTE]
+> 이 문서의 지침에서는 기본 Azure Storage 공급자를 사용하여 Durable Functions 런타임 상태를 저장한다고 가정합니다. 그러나 SQL Server 데이터베이스와 같이 상태를 다른 곳에 저장하는 대체 스토리지 공급자를 구성할 수 있습니다. 대체 스토리지 공급자에는 다른 재해 복구 및 지역 배포 전략이 필요할 수 있습니다. 대체 스토리지 공급자에 대한 자세한 내용은 [Durable Functions 스토리지 공급자](durable-functions-storage-providers.md) 설명서를 참조하세요.
 
 오케스트레이션과 엔터티는 HTTP를 통해 자체적으로 트리거된 [클라이언트 함수](durable-functions-types-features-overview.md#client-functions) 또는 다른 지원되는 Azure Functions 트리거 형식 중 하나를 사용하여 트리거될 수 있습니다. [기본 제공 HTTP API](durable-functions-http-features.md#built-in-http-apis)를 사용하여 트리거될 수도 있습니다. 간단히 하기 위해 이 문서에서는 Azure Storage 및 HTTP 기반 함수 트리거와 관련된 시나리오 및 가용성을 높이고 재해 복구 작업 중 가동 중지 시간을 최소화하는 옵션을 중점적으로 설명합니다. Service Bus 또는 Cosmos DB 트리거와 같은 다른 트리거 형식은 명시적으로 다루지 않습니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d75ec1bcb9abd41a1d02c80afec8837f25d3234
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87050350"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370415"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Azure API Management에서 자체 호스팅 게이트웨이 프로비저닝
 
@@ -50,4 +50,5 @@ ms.locfileid: "87050350"
 
 * 자체 호스팅 게이트웨이에 대한 자세한 내용은 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조하세요.
 * [Kubernetes에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-kubernetes.md)하는 방법을 알아보세요.
+- [Azure Arc 지원 Kubernetes 클러스터에 자체 호스팅 게이트웨이를 배포하는 방법](how-to-deploy-self-hosted-gateway-azure-arc.md)에 대해 자세히 알아봅니다.
 * [Docker에 자체 호스팅 게이트웨이를 배포](how-to-deploy-self-hosted-gateway-docker.md)하는 방법을 알아보세요.

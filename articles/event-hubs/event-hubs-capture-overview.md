@@ -3,15 +3,15 @@ title: 스트리밍 이벤트 캡처 - Azure Event Hubs | Microsoft Docs
 description: 이 문서에서는 Azure Event Hubs를 통해 스트리밍 이벤트를 캡처할 수 있도록 캡처 기능 개요를 제공합니다.
 ms.topic: article
 ms.date: 02/16/2021
-ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3153c4d82cfbdf232d1834db8f26462f893961b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595958"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375097"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
-Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage Gen 1 또는 Gen 2](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
+Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage Gen 1 또는 Gen 2](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처 설정은 빠르고, 관리 비용이 없으며 표준 계층의 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units) 또는 프리미엄 계층 [처리 단위](event-hubs-scalability.md#processing-units)를 사용하여 자동으로 크기를 조정합니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
 
 > [!NOTE]
 > Azure Data Lake Storage **Gen 2** 를 사용하도록 Event Hubs 캡처를 구성하는 것은 Azure Blob Storage를 사용하도록 구성하는 것과 같습니다. 자세한 내용은 [Event Hubs 캡처 구성](event-hubs-capture-enable-through-portal.md)을 참조하세요. 
@@ -45,9 +45,9 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 Azure Storage BLOB을 일시적으로 사용할 수 없는 이벤트가 발생하면 Event Hubs 캡처가 이벤트 허브에 구성된 데이터 보존 기간 동안 데이터를 보존하고 스토리지 계정을 다시 사용할 수 있게 되면 데이터를 다시 채웁니다.
 
-### <a name="scaling-to-throughput-units"></a>처리량 단위로 크기 조정
+### <a name="scaling-throughput-units-or-processing-units"></a>처리량 단위 또는 처리 단위 크기 조정
 
-Event Hubs 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-units)로 제어됩니다. 단일 처리량 단위는 초당 1MB 또는 초당 1000개의 이벤트 수신을 허용하고 송신량은 그 두 배입니다. Standard Event Hubs는 1-20개의 처리량 단위로 구성할 수 있으며 할당량 증가 [지원 요청][support request]을 통해 더 구입할 수 있습니다. 구입한 처리량 단위 범위를 벗어나는 사용량은 제한됩니다. Event Hubs 캡처는 내부 Event Hubs 스토리지에서 데이터를 직접 복사하여 처리량 단위 송신 할당량을 우회하고 Stream Analytics, Spark 등의 다른 처리 판독기를 위해 송신 내용을 저장합니다.
+Event Hubs의 표준 계층에서 트래픽은 [처리량 단위](event-hubs-scalability.md#throughput-units)로 제어되고 프리미엄 계층 Event Hubs에서는 [처리 단위](event-hubs-scalability.md#processing-units)로 제어됩니다. Event Hubs 캡처는 내부 Event Hubs 스토리지에서 데이터를 직접 복사하여 처리량 단위 또는 처리 단위 송신 할당량을 우회하고 Stream Analytics, Spark 등의 다른 처리 리더를 위해 송신 내용을 저장합니다.
 
 Event Hubs 캡처가 구성되면 첫 번째 이벤트를 전송하는 즉시 자동으로 실행되어 계속 실행됩니다. 다운스트림 처리 시 프로세스가 제대로 작동하는지 쉽게 알 수 있도록 Event Hubs는 데이터가 없을 경우 빈 파일을 작성합니다. 이 프로세스는 일괄 처리 프로세서에 제공할 수 있는 예측 가능한 주기와 표식을 제공합니다.
 
@@ -124,7 +124,7 @@ Apache Avro에는 [Java][Java] 및 [Python][Python]에 대한 전체 시작 가�
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Event Hubs 캡처의 요금 부과 방식
 
-Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측정됩니다. 요금은 네임스페이스에 대해 구입한 처리량 단위 수에 정비례합니다. 처리량 단위가 증가 및 감소함에 따라 성능이 일치하도록 Event Hubs 캡처도 증가 및 감소합니다. 측정은 동시에 발생합니다. 가격 정보는 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 
+Event Hubs 캡처는 [처리량 단위](event-hubs-scalability.md#throughput-units)(표준 계층) 또는 [처리 단위](event-hubs-scalability.md#processing-units)(프리미엄 계층)와 유사하게 시간당 비용으로 측정됩니다. 요금은 네임스페이스에 대해 구입한 처리량 단위 또는 처리 단위 수에 정비례합니다. 처리량 단위 또는 처리 단위가 증가 및 감소함에 따라 성능이 일치하도록 Event Hubs 캡처도 증가 및 감소합니다. 측정은 동시에 발생합니다. 가격 정보는 [Event Hubs 가격 책정](https://azure.microsoft.com/pricing/details/event-hubs/)을 참조하세요. 
 
 캡처는 별도로 청구되므로 송신 할당량을 사용하지 않습니다. 
 
@@ -151,7 +151,7 @@ Azure Portal 및 Azure Resource Manager 템플릿을 사용하여 이 기능을 
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: ./event-hubs-about.md
-[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
+[HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
 [Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

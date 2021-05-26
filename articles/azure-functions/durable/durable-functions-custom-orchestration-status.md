@@ -2,29 +2,29 @@
 title: 지속성 함수의 사용자 지정 오케스트레이션 상태 - Azure
 description: 지속성 함수의 사용자 지정 오케스트레이션 상태를 구성하고 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 05/10/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 4a95e7c74fac7043d0adb5f31d2bdcdd73b9577a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: de74c2d8c4e7abf5735dad0b1c04f2cce88aa2c1
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97766331"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370929"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 
-사용자 지정 오케스트레이션 상태를 사용하면 오케스트레이터 함수의 사용자 지정 상태 값을 설정할 수 있습니다. 이 상태는 오케스트레이션 클라이언트의 [ `GetStatusAsync` Api](durable-functions-instance-management.md#query-instances) 또는 [HTTP GetStatus api](durable-functions-http-api.md#get-instance-status) 를 통해 제공 됩니다.
+사용자 지정 오케스트레이션 상태를 사용하면 오케스트레이터 함수의 사용자 지정 상태 값을 설정할 수 있습니다. 이 상태는 오케스트레이션 클라이언트 개체의 [HTTP GetStatus API](durable-functions-http-api.md#get-instance-status) 또는 동등한 [SDK API](durable-functions-instance-management.md#query-instances)를 통해 제공됩니다.
 
 ## <a name="sample-use-cases"></a>샘플 사용 사례
-
-> [!NOTE]
-> 다음 샘플에서는 c #, JavaScript 및 Python에서 사용자 지정 상태 기능을 사용 하는 방법을 보여 줍니다. C # 예제는 Durable Functions 2.x 용으로 작성 되었으며 Durable Functions 1.x와 호환 되지 않습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="visualize-progress"></a>진행률 시각화
 
 클라이언트는 상태 엔드포인트를 폴링하고 현재 실행 단계를 시각화하는 진행률 UI를 표시할 수 있습니다. 다음 샘플은 진행률 공유를 보여줍니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+> [!NOTE]
+> 이러한 C# 예제는 Durable Functions 2.x용으로 작성되었으며 Durable Functions 1.x와 호환되지 않습니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -53,7 +53,7 @@ public static string SayHello([ActivityTrigger] string name)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-`E1_HelloSequence` orchestrator 함수:
+`E1_HelloSequence` 오케스트레이터 함수:
 
 ```javascript
 const df = require("durable-functions");
@@ -82,7 +82,7 @@ module.exports = async function(context, name) {
 ```
 # <a name="python"></a>[Python](#tab/python)
 
-### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence` Orchestrator 함수
+### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence` 오케스트레이터 함수
 ```python
 import azure.functions as func
 import azure.durable_functions as df
@@ -108,7 +108,33 @@ def main(name: str) -> str:
     return f"Hello {name}!"
 
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+### <a name="e1_hellosequence-orchestrator-function"></a>`E1_HelloSequence` 오케스트레이터 함수
+```powershell
+param($Context)
+
+$output = @()
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Tokyo'
+Set-DurableCustomStatus -CustomStatus 'Tokyo'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'Seattle'
+Set-DurableCustomStatus -CustomStatus 'Seattle'
+
+$output += Invoke-DurableActivity -FunctionName 'E1_SayHello' -Input 'London'
+Set-DurableCustomStatus -CustomStatus 'London'
+
+
+return $output
+```
+
+### <a name="e1_sayhello-activity-function"></a>`E1_SayHello` 작업 함수
+```powershell
+param($name)
+
+"Hello $name"
+```
 ---
 
 그리고 이 클라이언트는 `CustomStatus` 필드가 "런던"으로 설정된 경우에만 오케스트레이션 출력을 수신합니다.
@@ -201,7 +227,11 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 ```
 
 > [!NOTE]
-> Python에서 필드는 `custom_status` 다음 `yield` 또는 작업이 예약 될 때 설정 됩니다 `return` .
+> Python에서 `custom_status` 필드는 다음 `yield` 또는 `return` 작업이 예약될 때 설정됩니다.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+이 기능은 현재 PowerShell에서 구현되지 않습니다.
 
 ---
 
@@ -249,7 +279,7 @@ public static void Run(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` orchestrator
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` 오케스트레이터
 
 ```javascript
 const df = require("durable-functions");
@@ -284,7 +314,7 @@ module.exports = df.orchestrator(function*(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` orchestrator
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` 오케스트레이터
 
 ```python
 import azure.functions as func
@@ -314,6 +344,36 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     # Wait for user selection and refine the recommendation
 
 main = df.Orchestrator.create(orchestrator_function)
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+#### <a name="cityrecommender-orchestrator"></a>`CityRecommender` 오케스트레이터
+
+```powershell
+param($Context)
+
+$userChoice = $Context.Input -as [int]
+
+if ($userChoice -eq 1) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'Seattle'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 2) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Seattle', 'London'); 
+                                             recommendedSeasons = @('Summer') 
+                                            }  
+}
+
+if ($userChoice -eq 3) {
+    Set-DurableCustomStatus -CustomStatus @{ recommendedCities = @('Tokyo', 'London'); 
+                                             recommendedSeasons = @('Spring', 'Summer') 
+                                            }  
+}
+
+# Wait for user selection and refine the recommendation
 ```
 ---
 
@@ -399,7 +459,33 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+```powershell
+param($Context)
+
+$userId = $Context.Input -as [int]
+
+$discount = Invoke-DurableActivity -FunctionName 'CalculateDiscount' -Input $userId
+
+$status = @{
+            discount = $discount;
+            discountTimeout = 60;
+            bookingUrl = "https://www.myawesomebookingweb.com"
+            }
+
+Set-DurableCustomStatus -CustomStatus $status
+
+$isBookingConfirmed = Invoke-DurableActivity -FunctionName 'BookingConfirmed'
+
+if ($isBookingConfirmed) {
+    Set-DurableCustomStatus -CustomStatus @{message = 'Thank you for confirming your booking.'}
+} else {
+    Set-DurableCustomStatus -CustomStatus @{message = 'The booking was not confirmed on time. Please try again.'}
+}
+
+return $isBookingConfirmed
+```
 ---
 
 ## <a name="sample"></a>샘플
@@ -453,6 +539,20 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 
 main = df.Orchestrator.create(orchestrator_function)
 ```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+param($Context)
+
+# ...do work...
+
+Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C'); 
+                                         foo = 2 
+                                        }  
+
+# ...do more work...
+```
 ---
 
 오케스트레이션이 실행되는 동안 외부 클라이언트가 이 사용자 지정 상태를 가져올 수 있습니다.
@@ -475,9 +575,9 @@ GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 > [!WARNING]
-> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 저장소를 사용 하는 것이 좋습니다.
+> 사용자 지정 상태 페이로드는 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 스토리지를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [지 속성 타이머에 대해 알아보기](durable-functions-timers.md)
+> [지속성 타이머에 대해 알아보기](durable-functions-timers.md)

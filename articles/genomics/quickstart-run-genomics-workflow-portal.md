@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 6daec7658c6db6c18bd198b9aff0b8993f27ac22
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c02ed16208338edce7e29f5a516ec5af13ab07aa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102177250"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110477866"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -35,7 +35,7 @@ Microsoft Genomics 계정을 만들려면 Azure Portal에서 [Genomics 계정 �
 
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------       |:-------------         |:----------            |
- |Subscription         | 구독 이름|귀하의 Azure 서비스에 대한 청구 단위입니다. 구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
+ |Subscription         | 구독 이름|귀하의 Azure 서비스에 대한 청구 단위입니다. 구독에 대한 자세한 내용은 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 참조하세요. |      
  |Resource group       | MyResourceGroup       |  리소스 그룹을 사용하여 여러 Azure 리소스(스토리지 계정, 게놈 계정 등)를 단일 그룹으로 그룹화하여 간단히 관리할 수 있습니다. 자세한 내용은 [리소스 그룹](../azure-resource-manager/management/overview.md#resource-groups)을 참조하세요. 유효한 리소스 그룹 이름은 [이름 지정 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
  |계정 이름         | MyGenomicsAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
  |위치                   | 미국 서부 2                    |    미국 서부 2, 서유럽 및 동남 아시아에서 서비스를 사용할 수 있습니다. |
@@ -94,7 +94,7 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
 
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------------------       |:-------------         |:----------            |
- |Subscription         | Azure 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
+ |Subscription         | Azure 구독 |구독에 대한 자세한 내용은 [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 참조하세요. |      
  |Resource group       | MyResourceGroup       |  Genomics 계정과 동일한 리소스 그룹을 선택할 수 있습니다. 유효한 리소스 그룹 이름은 [명명 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
  |스토리지 계정 이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [명명 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
  |위치                  | 미국 서부 2                  | Genomics 계정과 동일한 위치를 사용하여 송신 비용을 낮추고 대기 시간을 줄입니다.  | 

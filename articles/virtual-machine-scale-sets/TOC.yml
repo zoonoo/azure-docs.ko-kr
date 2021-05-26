@@ -413,6 +413,42 @@
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
+      href: ../virtual-machines/policy-reference.md
 - name: 리소스
-  items: null
+  items:
+    - name: 클라우드 채택 프레임워크
+      href: /azure/cloud-adoption-framework/get-started/
+    - name: 아키텍처 센터
+      href: /azure/architecture/
+    - name: 마이그레이션 도구
+      href: /azure/cloud-adoption-framework/migrate/azure-migration-guide/?tabs=MigrationTools
+    - name: Microsoft Q&A
+      href: /answers/topics/azure-virtual-machines.html
+    - name: Azure 빠른 시작 템플릿
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/#Linux'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Microsoft Learn을 통해 기술 쌓기
+      href: /learn/browse/?products=azure-virtual-machines
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 일반 CLI 명령
+      href: ../virtual-machines/linux/cli-manage.md
+    - name: 일반 PowerShell 명령
+      href: ../virtual-machines/windows/ps-common-ref.md
+    - name: 일반 네트워킹 PowerShell 명령
+      href: ../virtual-machines/windows/ps-common-network-ref.md
+    - name: VM 템플릿 설명
+      href: ../virtual-machines/windows/template-description.md
+    - name: FAQ
+      items:
+        - name: Linux
+          href: ../virtual-machines/linux/faq.md
+        - name: Windows
+          href: ../virtual-machines/windows/faq.md
+- name: 지원 및 문제 해결
+  href: vmss-support-help.md
