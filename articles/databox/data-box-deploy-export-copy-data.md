@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 05/17/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 495b4427fb7e456c60a489b9ce3d19c2a44bd918
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 68012cd27318822b8c18b281db967a26da3a15a2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680895"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095647"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb"></a>자습서: SMB를 통해 Azure Data Box에서 데이터 복사
 
@@ -56,7 +56,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 
 3. 호스트 컴퓨터에서 스토리지 계정과 연결된 공유(다음 예제의 *exportbvtdataset2*)에 액세스하려면 명령 창을 엽니다. 명령 프롬프트에 다음을 입력합니다.
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+    `net use \\<IP address of the device>\<share name>  /u:<IP address of the device>\<user name for the share>`
 
     데이터 형식에 따라 공유 경로는 다음과 같습니다.
     - Azure 블록 Blob - `\\169.254.143.85\exportbvtdataset2_BlockBlob`
@@ -66,7 +66,7 @@ Windows Server 호스트 컴퓨터를 사용하는 경우 다음 단계에 따�
 4. 메시지가 표시되면 공유 암호를 입력합니다. 다음 샘플은 이전 명령을 통해 공유에 연결하는 방법을 보여줍니다.
 
     ```
-    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:exportbvtdataset2
+    C:\Users\Databoxuser>net use \\169.254.143.85\exportbvtdataset2_BlockBlob /u:169.254.143.85\exportbvtdataset2
     Enter the password for 'exportbvtdataset2' to connect to '169.254.143.85':
     The command completed successfully.
     ```

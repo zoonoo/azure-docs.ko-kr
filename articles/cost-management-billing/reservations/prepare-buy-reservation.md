@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/12/2021
 ms.author: banders
-ms.openlocfilehash: b2cdb106ab1c77c23626258f7e0708a20ffd3c4e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3445ca559dc54e693912e1d796caeb1f940ab23e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107772256"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474894"
 ---
 # <a name="buy-a-reservation"></a>예약 구입
 
@@ -81,6 +81,7 @@ Azure Portal, API, PowerShell, CLI에서 예약을 구매할 수 있습니다. �
 - [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
 - [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
 - [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
+- [Azure VMware 솔루션](../../azure-vmware/reserved-instance.md)
 - [가상 머신](../../virtual-machines/prepay-reserved-vm-instances.md)
 
 ## <a name="buy-reservations-with-monthly-payments"></a>월별 결제로 예약 구매

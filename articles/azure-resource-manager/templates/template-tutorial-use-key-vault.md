@@ -6,12 +6,12 @@ ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3bd0a0f70aa3ff983f87677219513aa56e051d89
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101703888"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838450"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
@@ -114,7 +114,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 1. **파일 이름** 상자에 다음 URL을 붙여넣습니다.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. **열기** 를 선택하여 파일을 엽니다. [자습서: 종속 리소스를 사용하여 ARM 템플릿 만들기](./template-tutorial-create-templates-with-dependent-resources.md).
@@ -134,7 +134,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 1. 1~3단계를 반복하여 다음 URL을 연 다음, 파일을 *azuredeploy.parameters.json* 으로 저장합니다.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.parameters.json
     ```
 
 ## <a name="edit-the-parameters-file"></a>매개 변수 파일 편집

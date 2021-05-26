@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74f891ba7f5b400b5782565e670539167f4e2464
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6657147d044d49ff72532ad270552a175c197c8f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97703435"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078223"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>방법: 시계열 데이터에서 Anomaly Detector API 사용  
 
@@ -41,7 +41,7 @@ Anomaly Detector API는 검색 모드(일괄 처리 및 스트리밍)를 제공�
 
 스트리밍 데이터에 대해서 지속적으로 변칙을 검색하려면 최신 데이터 포인트와 함께 다음 요청 URI를 사용합니다. 
 
-`/timeseries/last/detect'`. 
+`/timeseries/last/detect`. 
 
 새 데이터 포인트를 생성하면서 보내면 실시간으로 데이터를 모니터링할 수 있습니다. 보내는 데이터 포인트를 사용하여 모델이 생성되고 API는 시계열의 최신 포인트가 변칙인지 여부를 확인합니다.
 

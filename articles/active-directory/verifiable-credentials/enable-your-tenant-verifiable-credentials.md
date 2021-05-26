@@ -4,18 +4,18 @@ description: 이 자습서에서는 테넌트에서 확인 가능한 자격 증�
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: active-directory
+ms.service: identity
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
 ms.date: 05/18/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: 4b48d23a7122c82cf149bdd80335afe0aaf896cb
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 3f5808f3074fa2e45bc638e3e3d13cad431997ac
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110466409"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092795"
 ---
 # <a name="tutorial---configure-your-azure-active-directory-to-issue-verifiable-credentials-preview"></a>자습서 - 확인 가능한 자격 증명을 발급하도록 Azure Active Directory 구성(미리 보기)
 

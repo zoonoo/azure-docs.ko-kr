@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: f1d517ba37bbef95d1863485c8c3b6313f196c11
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: b383c28ca5097a6a30dc43f48213b0793ccdee11
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374916"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110096385"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>서비스 엔드포인트와 Application Gateway 통합
 Azure Application Gateway와 통합하는 데 약간 다른 구성을 필요로 하는 세 가지 App Service 변형이 있습니다. 이러한 변형에는 다중 테넌트라고도 하는 일반 App Service, ILB(내부 Load Balancer) ASE(App Service Environment) 및 외부 ASE가 포함됩니다. 이 문서에서는 App Service(다중 테넌트)를 사용하여 구성하는 방법을 설명하고 ILB 및 외부 ASE에 대한 고려 사항을 살펴봅니다.
@@ -43,7 +43,7 @@ Azure Portal을 사용하여 설치를 프로비전하고 구성하는 네 가�
 ![‘오류 403 - 사용할 수 없음’ 텍스트를 보여주는 스크린샷](./media/app-gateway-with-service-endpoints/website-403-forbidden.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
-[Resource Manager 배포 템플릿][template-app-gateway-app-service-complete]은 전체 시나리오를 프로비전합니다. 이 시나리오는 Application Gateway에서만 트래픽을 수신하는 액세스 제한 사항과 서비스 엔드포인트로 잠긴 App Service 인스턴스로 구성됩니다. 템플릿에는 편의를 위해 리소스 이름에 추가되는 고유한 접미사와 스마트 기본값이 다수 포함되어 있습니다. 이를 재정의하려면 리포지토리를 복제하거나 템플릿을 다운로드하여 편집해야 합니다. 
+[Resource Manager 배포 템플릿][template-app-gateway-app-service-complete]은 전체 시나리오를 프로비전합니다. 이 시나리오는 Application Gateway에서만 트래픽을 수신하는 액세스 제한 사항과 서비스 엔드포인트로 잠긴 App Service 인스턴스로 구성됩니다. 템플릿에는 편의를 위해 리소스 이름에 추가되는 고유한 접미사와 스마트 기본값이 다수 포함되어 있습니다. 이를 재정의하려면 리포지토리를 복제하거나 템플릿을 다운로드하여 편집해야 합니다.
 
 템플릿을 적용하려면 템플릿 설명에 있는 ‘Azure에 배포’ 단추를 사용하거나 적절한 PowerShell/CLI를 사용하세요.
 
@@ -57,7 +57,7 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 기본 구성에서는 이 명령으로 서브넷에 있는 서비스 엔드포인트 구성과 App Service의 액세스 제한 설정을 모두 확인할 수 있습니다.
 
 ## <a name="considerations-for-ilb-ase"></a>ILB ASE 고려 사항
-ILB ASE는 인터넷에 노출되지 않으므로, 인스턴스와 Application Gateway 간의 트래픽이 이미 Virtual Network와 격리되어 있습니다. 다음 [방법 가이드](../environment/integrate-with-application-gateway.md)에서는 ILB ASE를 구성하고 Azure Portal을 사용하여 Application Gateway와 통합합니다. 
+ILB ASE는 인터넷에 노출되지 않으므로, 인스턴스와 Application Gateway 간의 트래픽이 이미 Virtual Network와 격리되어 있습니다. 다음 [방법 가이드](../environment/integrate-with-application-gateway.md)에서는 ILB ASE를 구성하고 Azure Portal을 사용하여 Application Gateway와 통합합니다.
 
 Application Gateway 서브넷의 트래픽만 ASE에 도달하도록 하려면 ASE의 모든 웹 앱에 영향을 주는 NSG(네트워크 보안 그룹)를 구성하면 됩니다. NSG의 경우 서브넷 IP 범위와 포트(80/443)를 지정할 수 있습니다. ASE가 제대로 작동하는 데 [필요한 NSG 규칙](../environment/network-info.md#network-security-groups)은 재정의해서는 안 됩니다.
 
@@ -66,7 +66,7 @@ Application Gateway 서브넷의 트래픽만 ASE에 도달하도록 하려면 A
 ## <a name="considerations-for-external-ase"></a>외부 ASE 고려 사항
 외부 ASE에는 다중 테넌트 App Service 같은 공용 연결 부하 분산 장치가 있습니다. 서비스 엔드포인트가 ASE에 대해 작동하지 않으므로 Application Gateway 인스턴스의 공용 IP를 사용하여 IP 기반 액세스 제한을 사용해야 합니다. Azure Portal을 사용하여 외부 ASE를 만들려면 이 [빠른 시작](../environment/create-external-ase.md) 가이드를 따르면 됩니다.
 
-[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-app-gateway-v2/ "전체 시나리오에 대한 Azure Resource Manager 템플릿"
+[template-app-gateway-app-service-complete]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2/ "전체 시나리오에 대한 Azure Resource Manager 템플릿"
 
 ## <a name="considerations-for-kuduscm-site"></a>Kudu/scm 사이트 고려 사항
 Kudu라고도 하는 scm 사이트는 모든 웹 앱에 존재하는 관리 사이트입니다. scm 사이트를 역방향으로 프록시하는 것은 불가능하며, 개별 IP 주소 또는 특정 서브넷으로 차단해야 할 가능성이 높습니다.

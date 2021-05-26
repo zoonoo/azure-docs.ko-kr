@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 05/11/2021
 ms.author: alkohli
-ms.openlocfilehash: a1f3966c8794b50f6ec369f1ea86905c4d8aaf3f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 609e12e2c39dcbc6b0213f7619541a83dc6ffde8
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059941"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839557"
 ---
 # <a name="tutorial-configure-network-for-azure-stack-edge-pro-r"></a>자습서: Azure Stack Edge Pro R에 대한 네트워크 구성
 
@@ -125,21 +125,16 @@ Azure Stack Edge Pro R 디바이스를 구성하고 설정하기 전에 다음 �
 이는 선택적 구성입니다.
 
 > [!IMPORTANT]
-> * Azure Stack Edge Pro R 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음** 으로 설정하는 것이 좋습니다. NTLM은 지원되지 않습니다.
->* PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다. 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채고 읽는(그런 다음, 자체 인증을 사용하여 모든 항목을 다시 서명함) 프록시는 호환되지 않습니다. 일반적으로 투명 프록시는 Azure Stack Edge Pro R에서 잘 작동합니다. 투명하지 않은 웹 프록시는 지원되지 않습니다.
+> PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다. 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채고 읽는(그런 다음, 자체 인증을 사용하여 모든 항목을 다시 서명함) 프록시는 호환되지 않습니다. 일반적으로 투명 프록시는 Azure Stack Edge Pro R에서 잘 작동합니다. 투명하지 않은 웹 프록시는 지원되지 않습니다.
 
 
 1. **웹 프록시 설정** 페이지에서 다음 단계를 수행합니다.
 
-    1. **웹 프록시 URL** 상자에 `http://host-IP address or FQDN:Port number` 형식으로 URL을 입력합니다. HTTPS URL은 지원되지 않습니다.
+   1. **웹 프록시 URL** 상자에 `http://host-IP address or FQDN:Port number` 형식으로 URL을 입력합니다. HTTPS URL은 지원되지 않습니다.
 
-    2. **인증** 아래에서 **없음** 또는 **NTLM** 을 선택합니다. Azure Stack Edge Pro R 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음** 으로 설정하는 것이 좋습니다. **NTLM** 은 지원되지 않습니다.
-
-    3. 인증을 사용하는 경우 사용자 이름과 암호를 입력합니다.
-
-    4. 구성한 웹 프록시 설정의 유효성을 검사하고 적용하려면 **적용** 을 선택합니다.
+   2. 구성한 웹 프록시 설정의 유효성을 검사하고 적용하려면 **적용** 을 선택합니다.
     
-   ![로컬 웹 UI "웹 프록시 설정" 페이지 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/web-proxy-2.png)
+   ![로컬 웹 UI "웹 프록시 설정" 페이지 2](./media/azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy/web-proxy-2.png)<!--UI text update for instruction text is needed.-->
 
 2. 설정이 적용된 후 **다음: 디바이스** 를 입력하고 선택합니다.
 

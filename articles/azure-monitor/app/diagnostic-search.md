@@ -3,12 +3,12 @@ title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9da2acea857f2b295fd2333988507babd967c88
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579555"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059395"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
@@ -81,7 +81,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 ## <a name="search-the-data"></a>데이터 검색
 
 > [!NOTE]
-> 더 복잡한 쿼리를 작성하려면 검색 블레이드 위쪽에서 [**로그(분석)** ](../logs/log-analytics-tutorial.md)을 엽니다.
+> 더 복잡한 쿼리를 작성하려면 검색 블레이드 위쪽에서 [**로그(분석)**](../logs/log-analytics-tutorial.md)을 엽니다.
 >
 
 속성 값 중 하나에서 용어를 검색할 수 있습니다. 이는 속성 값을 포함하는 [사용자 지정 이벤트](./api-custom-events-metrics.md)를 작성한 경우에 유용합니다.
@@ -128,7 +128,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 수행할 수 있습니다.
 
-* [.NET](./asp-net-trace-logs.md) 또는 [Java](./java-trace-logs.md)의 즐겨찾는 로깅 프레임워크에서 로그 추적을 캡처합니다. 이는 로그 추적을 통해 검색하고 페이지 보기, 예외 사항 및 기타 이벤트와 상관 관계를 지정할 수 있음을 의미합니다.
+* [.NET](./asp-net-trace-logs.md) 또는 [Java](java-2x-trace-logs.md)의 즐겨찾는 로깅 프레임워크에서 로그 추적을 캡처합니다. 이는 로그 추적을 통해 검색하고 페이지 보기, 예외 사항 및 기타 이벤트와 상관 관계를 지정할 수 있음을 의미합니다.
 * [코드를 작성](./api-custom-events-metrics.md)하여 사용자 지정 이벤트, 페이지 보기 및 예외 사항을 보냅니다.
 
 [Application Insights에 로그 및 사용자 지정 원격 분석을 보내는 방법에 대해 알아봅니다](./asp-net-trace-logs.md).

@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1af2c1b912afbcf44cefbfb021c592836dbde5b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 258dcb7c66b043828e55d6c0dbfe101c0992f8c6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103466289"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092893"
 ---
 # <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 애플리케이션 등록 권한
 
@@ -163,7 +163,7 @@ ms.locfileid: "103466289"
 
 단일 테넌트 애플리케이션에 한해 microsoft.directory/applications/permissions/update와 동일한 권한을 부여합니다.
 
-## <a name="required-license-plan"></a>필요한 라이선스 계획
+## <a name="license-requirements"></a>라이선스 요구 사항
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 

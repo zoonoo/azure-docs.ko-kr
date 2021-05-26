@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 4e8be77851d0d7102d7c0cef85d9fbfefd8dc2a2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 5aa15204d646278abfb669466a34f11543e338f2
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137169"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091219"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -22,7 +22,7 @@ ms.locfileid: "108137169"
 * NIC(네트워크 인터페이스 카드)
 * IP 주소와 VNET(Virtual Network) 리소스 ID의 조합
 
-기존 가상 머신 및 가상 머신 확장 집합을 사용하는 경우 NIC를 통해 백 엔드 풀을 구성합니다. 이 방법은 리소스와 백 엔드 풀 간에 가장 직접적인 링크를 작성합니다. 
+기존 가상 머신 및 가상 머신 확장 집합을 사용하는 경우 NIC를 통해 백 엔드 풀을 구성합니다. 이 방법은 리소스와 백 엔드 풀 간에 가장 직접적인 링크를 작성합니다.
 
 나중에 가상 머신 및 가상 머신 확장 집합을 만드는 데 사용할 IP 주소 범위로 백 엔드 풀을 미리 할당하는 경우 IP 주소 및 VNET ID 조합을 통해 백 엔드 풀을 구성합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "108137169"
 * Azure PowerShell
 * Azure CLI
 * REST API
-* Azure 리소스 관리자 템플릿 
+* Azure 리소스 관리자 템플릿
 
 이 섹션에서는 백 엔드 풀이 각 구성 옵션에 맞게 구성되는 방법에 대한 인사이트를 제공합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "108137169"
 
 다음 예제에서는 이 워크플로 및 관계를 강조하기 위해 백 엔드 풀의 만들기 및 채우기 작업에 중점을 둡니다.
 
-  >[!NOTE] 
+  >[!NOTE]
   >네트워크 인터페이스를 통해 구성된 백 엔드 풀은 백 엔드 풀에 대한 작업의 일부로 업데이트할 수 없습니다. 백 엔드 리소스는 네트워크 인터페이스에서 추가하거나 삭제해야 합니다.
 
 ### <a name="powershell"></a>PowerShell
@@ -53,7 +53,7 @@ $resourceGroup = "myResourceGroup"
 $loadBalancerName = "myLoadBalancer"
 $backendPoolName = "myBackendPool"
 
-$backendPool = 
+$backendPool =
 New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
 ```
 
@@ -67,10 +67,10 @@ $nicname = "myNic"
 $location = "eastus"
 $vnetname = <your-vnet-name>
 
-$vnet = 
+$vnet =
 Get-AzVirtualNetwork -Name $vnetname -ResourceGroupName $resourceGroup
 
-$nic = 
+$nic =
 New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicname -LoadBalancerBackendAddressPool $backendPoolName -Subnet $vnet.Subnets[0]
 ```
 
@@ -105,9 +105,9 @@ $location = "eastus"
 $nic =
 Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
-$vmConfig = 
+$vmConfig =
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
- 
+
 # Create a virtual machine using the configuration
 $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -VM $vmConfig
 ```
@@ -119,7 +119,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -V
 az network lb address-pool create \
 --resource-group myResourceGroup \
 --lb-name myLB \
---name myBackendPool 
+--name myBackendPool
 ```
 
 새 네트워크 인터페이스를 만들고, 백 엔드 풀에 추가합니다.
@@ -158,7 +158,7 @@ az vm create \
 
 ### <a name="resource-manager-template"></a>Resource Manager 템플릿
 
-이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create/)에 따라 부하 분산 장치 및 가상 머신을 배포하고, 네트워크 인터페이스를 통해 가상 머신을 백 엔드 풀에 추가합니다.
+이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/)에 따라 부하 분산 장치 및 가상 머신을 배포하고, 네트워크 인터페이스를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
 이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool)에 따라 부하 분산 장치 및 가상 머신을 배포하고, IP 주소를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
@@ -203,7 +203,7 @@ Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBala
 네트워크 인터페이스를 만들고, 백 엔드 풀에 추가합니다. IP 주소를 백 엔드 주소 중 하나로 설정합니다.
 
 ```azurepowershell-interactive
-$nic = 
+$nic =
 New-AzNetworkInterface -ResourceGroupName $resourceGroup -Location $location -Name $nicName -PrivateIpAddress 10.0.0.4 -Subnet $virtualNetwork.Subnets[0]
 ```
 
@@ -225,7 +225,7 @@ $location = "eastus"
 $nic =
 Get-AzNetworkInterface -Name $nicname -ResourceGroupName $resourceGroup
 
-$vmConfig = 
+$vmConfig =
 New-AzVMConfig -VMName $vmname -VMSize $vmsize | Set-AzVMOperatingSystem -Windows -ComputerName $vmname -Credential $cred | Set-AzVMSourceImage -PublisherName $pubname -Offer $off -Skus $sku -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 
 # Create a virtual machine using the configuration
@@ -233,7 +233,7 @@ $vm1 = New-AzVM -ResourceGroupName $resourceGroup -Zone 1 -Location $location -V
 ```
 
 ### <a name="cli"></a>CLI
-CLI를 사용하면 명령줄 매개 변수 또는 JSON 구성 파일을 통해 백 엔드 풀을 채울 수 있습니다. 
+CLI를 사용하면 명령줄 매개 변수 또는 JSON 구성 파일을 통해 백 엔드 풀을 채울 수 있습니다.
 
 명령줄 매개 변수를 통해 백 엔드 풀을 만들고 채웁니다.
 
@@ -307,7 +307,7 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
- 
+
 ### <a name="limitations"></a>제한 사항
 IP 주소로 구성된 백 엔드 풀에는 다음과 같은 제한 사항이 있습니다.
   * 표준 부하 분산 장치에만 사용할 수 있습니다.

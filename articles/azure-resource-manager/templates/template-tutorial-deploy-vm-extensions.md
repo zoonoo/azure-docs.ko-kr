@@ -6,12 +6,12 @@ ms.date: 03/26/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 320908ab4b24c43e8bd5209d4f32ef0211036958
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1a24a969a6f90533252340e0702c6be8861a9eb5
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105628427"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838504"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-arm-templates"></a>자습서: ARM 템플릿을 사용하여 가상 머신 확장 배포
 
@@ -58,7 +58,7 @@ Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템�
 1. **파일 이름** 상자에 다음 URL을 붙여넣습니다.
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json
     ```
 
 1. 파일을 열려면 **열기** 를 선택합니다.

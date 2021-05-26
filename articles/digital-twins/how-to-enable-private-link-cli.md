@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3dc511cfab72184b72a4794e6fee30af5219f6dd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 47299467c51d128a228e4120eb8e0d0ff4deebc4
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078817"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456465"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Private Link로 프라이빗 액세스 사용(미리 보기): Azure CLI
 
@@ -46,7 +46,7 @@ ms.locfileid: "110078817"
 다음은 명령을 사용하여 필수 매개 변수만 있는 프라이빗 엔드포인트를 만드는 예제입니다.
 
 ```azurecli-interactive
-az network private-endpoint create --connection-name {private_link_service_connection} --name {name_for_private_endpoint} --resource-group {resource_group} --subnet {subnet_ID} --private-connection-resource-id "/subscriptions/{subscription_ID}/resourceGroups/{resource_group}/providers/Microsoft.DigitalTwins/digitalTwinsInstances/{Azure_Digital_Twins_instance_name}" 
+az network private-endpoint create --connection-name <private-link-service-connection> --name <name-for-private-endpoint> --resource-group <resource-group> --subnet <subnet-ID> --private-connection-resource-id "/subscriptions/<subscription-ID>/resourceGroups/<resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<Azure-Digital-Twins-instance-name>" 
 ```
 
 필수 및 선택적 매개 변수의 전체 목록과 더 많은 프라이빗 엔드포인트 생성 예제는 [az network private-endpoint create 참조 설명서](/cli/azure/network/private-endpoint?view=azure-cli-latest&preserve-view=true#az_network_private_endpoint_create)를 참조하세요.
@@ -84,13 +84,13 @@ Azure CLI에서 `az dt create` 명령에 `--public-network-access` 매개 변수
 Azure Digital Twins 인스턴스에 대해 공용 네트워크 액세스를 **사용하지 않도록 설정** 하려면 다음과 같이 `--public-network-access` 매개 변수를 사용합니다.
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --public-network-access Disabled
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Disabled
 ```
 
 현재 사용하지 않도록 설정된 인스턴스에서 공용 네트워크 액세스를 **사용하도록 설정** 하려면 다음과 유사한 명령을 사용합니다.
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --public-network-access Enabled
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Enabled
 ```
 
 ### <a name="usethe-armclientcommand-tool"></a>ARMClient  명령 도구 사용 
