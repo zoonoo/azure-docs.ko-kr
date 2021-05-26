@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0463ccf12a254ebda1ee3d6f9cc9bfe7f43b4e80
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 1892d304e4e90d3957a722473c6b2ec40018d3ce
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108178721"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379305"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -64,7 +64,7 @@ KB를 선택하고 **설정** 페이지로 이동합니다. 적절한 **.tsv** �
 
 ![기존 KB에 잡담 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 ![기존 KB 미리 보기 릴리스에 chit-chat 추가](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
 

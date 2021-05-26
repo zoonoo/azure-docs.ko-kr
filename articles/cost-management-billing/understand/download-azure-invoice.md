@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/17/2021
 ms.author: banders
-ms.openlocfilehash: 37ce1a292b6ff2efe0abecdb2ab934f096689f87
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: b98e9af17b20482a1c5c3178aa183198e936bef7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "105560808"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069205"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
 
@@ -116,7 +116,7 @@ MOSP 청구 계정에는 다음과 같은 청구서가 있을 수 있습니다.
 
 ## <a name="get-mosp-subscription-invoice-in-email"></a>MOSP 구독 청구서를 이메일로 받기
 
-이메일로 청구서를 받도록 옵트인하려면 구독 또는 지원 계획에 대한 계정 관리자 역할이 있어야 합니다. 이메일 청구서는 구독 및 지원 계획에만 지원되며 예약 또는 Azure Marketplace 구매에는 지원되지 않습니다. 옵트인한 후에는 이메일로 청구서를 받을 또 다른 수신자를 추가할 수 있습니다.
+이메일로 청구서를 받도록 옵트인하려면 구독 또는 지원 계획에 대한 계정 관리자 역할이 있어야 합니다. 옵트인한 후에는 이메일로 청구서를 받을 또 다른 수신자를 추가할 수 있습니다.
 
 1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2.  **Cost Management + 청구** 를 검색합니다.  

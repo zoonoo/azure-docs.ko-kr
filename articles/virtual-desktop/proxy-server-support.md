@@ -5,14 +5,14 @@ author: Heidilohr
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: helohr
-ms.reviewer: sefriend
+ms.reviewer: denisgun
 manager: femila
-ms.openlocfilehash: cb2bd4ddb553380a037f58cf8c51e80247e9c055
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7928c86375eb66a6518326bfcadfb1278193cfc3
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108077699"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454074"
 ---
 # <a name="proxy-server-guidelines-for-windows-virtual-desktop"></a>Windows Virtual Desktop용 프록시 서버 지침
 
@@ -111,8 +111,8 @@ Windows 7에서 실행되는 클라이언트는 역방향 연결 RDP 데이터�
 | Windows 데스크톱 | Yes |
 | 웹 클라이언트 | Yes |
 | Android | No |
-| iOS | 아니요 |
-| macOS | 아니요 |
+| iOS | 예 |
+| macOS | 예 |
 | Windows 스토어 | Yes |
 
 Linux 기반 씬 클라이언트의 프록시 지원에 대한 자세한 정보는 [씬 클라이언트 지원](linux-overview.md)을 참조하세요.

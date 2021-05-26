@@ -1,6 +1,6 @@
 ---
 title: 테이블 태그를 사용하여 사용자 지정 양식 모델을 학습시키는 방법 - Form Recognizer
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 감독되는 테이블 태그 레이블을 효과적으로 사용하는 방법을 알아봅니다.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 5422520c6a863876091d7820a5c07fa2413346c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6cbf96a050124fe0d72bb0fc24be4ad7ea265fed
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467861"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374055"
 ---
 # <a name="use-table-tags-to-train-your-custom-form-model"></a>테이블 태그를 사용하여 사용자 지정 양식 모델 학습
 
@@ -47,7 +47,7 @@ ms.locfileid: "103467861"
 빠른 시작에 따라 사용자 지정 Form Recognizer 모델을 학습시키고 사용합니다.
 
 > [!div class="nextstepaction"]
-> [샘플 레이블 지정 도구에서 레이블을 사용하여 학습](quickstarts/label-tool.md)
+> [샘플 레이블 지정 도구에서 레이블을 사용하여 학습](label-tool.md)
 
 ## <a name="see-also"></a>참조
 

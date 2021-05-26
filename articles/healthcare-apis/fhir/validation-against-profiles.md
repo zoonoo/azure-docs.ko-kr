@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 05/06/2021
 ms.author: ginle
-ms.openlocfilehash: 679d8b2ac86ec63d33fcd5cd069a3135d33ab981
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 2c367dbed14e0dba9a8a95a3ce2709d2415c7cd6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657052"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466704"
 ---
 # <a name="how-to-validate-fhir-resources-against-profiles"></a>프로필에 대해 FHIR 리소스의 유효성을 검사하는 방법
 
@@ -24,7 +24,7 @@ Azure API for FHIR 사용하면 프로필에 대해 리소스의 유효성을 �
 
 ## <a name="fhir-profile-the-basics"></a>FHIR 프로필: 기본 사항
 
-프로필은 리소스에 대한 추가 컨텍스트를 설정하며, 일반적으로 `StructureDefinition` 리소스로 표시됩니다. `StructureDefinition` 는 리소스의 콘텐츠 또는 데이터 형식에 대한 규칙 집합(예: 리소스에 있는 필드 및 이러한 필드가 사용할 수 있는 값)을 정의합니다. 예를 들어 프로필은 카디널리티를 제한하거나(예: 요소를 제외하기 위해 최대 카디널리티를 0으로 설정), 요소의 콘텐츠를 단일 고정 값으로 제한하거나, 리소스에 필요한 확장을 정의할 수 있습니다. 기존 프로필에 대한 추가 제약 조건을 지정할 수도 있습니다. `StructureDefinition`는 정식 URL로 식별됩니다.
+프로필은 리소스에 대한 추가 컨텍스트를 설정하며, 일반적으로 `StructureDefinition` 리소스로 표시됩니다. `StructureDefinition` 는 리소스의 콘텐츠 또는 데이터 형식에 대한 규칙 집합(예: 리소스에 있는 필드 및 이러한 필드가 사용할 수 있는 값)을 정의합니다. 예를 들어 프로필은 카디널리티를 제한하거나(예: 요소를 제외하기 위해 최대 카디널리티를 0으로 설정), 요소의 콘텐츠를 단일 고정 값으로 제한하거나, 리소스에 필요한 확장을 정의할 수 있습니다. 기존 프로필에 추가 제약 조건을 지정할 수도 있습니다. `StructureDefinition`는 정식 URL로 식별됩니다.
 
 ```rest
 http://hl7.org/fhir/StructureDefinition/{profile}
@@ -32,7 +32,7 @@ http://hl7.org/fhir/StructureDefinition/{profile}
 
 `{profile}`여기서 필드의 프로필 이름을 지정합니다.
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 - `http://hl7.org/fhir/StructureDefinition/patient-birthPlace` 는 환자의 등록된 출생 주소에 대한 정보가 필요한 기본 프로필입니다.
 - `http://hl7.org/fhir/StructureDefinition/bmi` 는 을 나타내는 방법을 정의하는 또 다른 기본 프로필입니다.
@@ -57,7 +57,7 @@ http://hl7.org/fhir/StructureDefinition/{profile}
 
 사용자 지정 프로필은 다양 한 구현 가이드에도 지정 됩니다. 몇 가지 일반적인 구현 가이드는 다음과 같습니다.
 
-|Name |URL
+|이름 |URL
 |---- |----
 Us 핵심 |<https://www.hl7.org/fhir/us/core/>
 파랑 단추 |<http://hl7.org/fhir/us/carin-bb/>
@@ -66,9 +66,96 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ## <a name="accessing-profiles-and-storing-profiles"></a>프로필 액세스 및 프로필 저장
 
+### <a name="storing-profiles"></a>프로필 저장
+
+서버에 프로필을 저장 하는 경우 요청을 수행할 수 있습니다 `POST` .
+
+```rest
+POST http://<your FHIR service base URL>/{Resource}
+```
+
+필드를 `{Resource}` 로 대체 하 `StructureDefinition` 고 `StructureDefinition` `POST` 또는 형식으로 서버에 대 한 리소스를 사용할 수 있습니다 `JSON` `XML` . 예를 들어 프로필을 저장하려는 경우 `us-core-allergyintolerance` 다음을 수행합니다.
+
+```rest
+POST http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+```
+
+US Core 지체 불관용 프로필이 저장 및 검색되는 위치:
+
+```json
+{
+    "resourceType" : "StructureDefinition",
+    "id" : "us-core-allergyintolerance",
+    "text" : {
+        "status" : "extensions"
+    },
+    "url" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
+    "version" : "3.1.1",
+    "name" : "USCoreAllergyIntolerance",
+    "title" : "US  Core AllergyIntolerance Profile",
+    "status" : "active",
+    "experimental" : false,
+    "date" : "2020-06-29",
+        "publisher" : "HL7 US Realm Steering Committee",
+    "contact" : [
+    {
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.healthit.gov"
+        }
+      ]
+    }
+  ],
+    "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
+
+...
+```
+
+대부분의 프로필에는 리소스 `StructureDefinition` 종류가 있지만 용어 리소스인 및 형식일 수도 `ValueSet` `CodeSystem` 있습니다. [](http://hl7.org/fhir/terminologies.html) 예를 들어 JSON 형식의 프로필인 경우 서버는 와 마찬가지로 프로필에 할당된 가 있는 `POST` `ValueSet` 저장된 프로필을 `id` 반환합니다. `StructureDefinition` 다음은 [조건/진단 심각도](https://www.hl7.org/fhir/valueset-condition-severity.html) 등급에 대한 조건을 지정하는 조건 심각도 프로필을 업로드할 때 얻을 수 있는 예제입니다.
+
+```json
+{
+    "resourceType": "ValueSet",
+    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
+    "meta": {
+        "versionId": "1",
+        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
+        "profile": [
+            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
+        ]
+    },
+    "text": {
+        "status": "generated"
+    },
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+            "valueCode": "pc"
+        }
+    ],
+    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
+    "identifier": [
+        {
+            "system": "urn:ietf:rfc:3986",
+            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
+        }
+    ],
+    "version": "4.0.1",
+    "name": "Condition/DiagnosisSeverity",
+    "title": "Condition/Diagnosis Severity",
+    "status": "draft",
+    "experimental": false,
+    "date": "2019-11-01T09:29:23+11:00",
+    "publisher": "FHIR Project team",
+...
+```
+
+가 `resourceType` `ValueSet` 이고 프로필의 가 `url` 형식임을 지정하는 것을 볼 수 `ValueSet` `"http://hl7.org/fhir/ValueSet/condition-severity"` 있습니다.
+
 ### <a name="viewing-profiles"></a>프로필 보기
 
-요청을 사용 하 여 서버에서 기존 사용자 지정 프로필에 액세스할 수 있습니다 `GET` . 구현 가이드에서 유효한 정식 Url을 사용 하는 프로필과 같은 모든 유효한 프로필에는 다음 쿼리를 통해 액세스할 수 있어야 합니다.
+요청을 사용하여 서버의 기존 사용자 지정 프로필에 액세스할 수 `GET` 있습니다. 구현 가이드의 유효한 정식 URL이 있는 프로필과 같은 모든 유효한 프로필은 다음을 쿼리하여 액세스할 수 있어야 합니다.
 
 ```rest
 GET http://<your FHIR service base URL>/StructureDefinition?url={canonicalUrl} 
@@ -82,7 +169,7 @@ GET http://<your FHIR service base URL>/StructureDefinition?url={canonicalUrl}
 GET http://my-fhir-server.azurewebsites.net/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal
 ```
 
-그러면 다음과 `StructureDefinition` 같이 시작되는 US Core 목표 프로필에 대한 리소스가 반환됩니다.
+그러면 다음과 `StructureDefinition` 같이 시작하는 US Core 목표 프로필에 대한 리소스가 반환됩니다.
 
 ```json
 {
@@ -115,66 +202,17 @@ FHIR 서버는 기본 프로필에 대한 인스턴스를 반환하지 않지만
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
 
-### <a name="storing-profiles"></a>프로필 저장
-
-서버에 프로필을 저장하기 위해 요청을 수행할 수 있습니다. `POST`
-
-```rest
-POST http://<your FHIR service base URL>/{Resource}
-```
-
-필드가 로 `{Resource}` 대체되고 `StructureDefinition` 서버에 `StructureDefinition` 리소스가 또는 `POST` 형식으로 지정됩니다. `JSON` `XML`
-
-대부분의 프로필에는 리소스 `StructureDefinition` 종류가 있지만 용어 리소스인 및 형식일 수도 `ValueSet` `CodeSystem` 있습니다. [](http://hl7.org/fhir/terminologies.html) 예를 들어 JSON 형식의 프로필인 경우 서버는 와 마찬가지로 프로필에 할당된 가 있는 `POST` `ValueSet` 저장된 프로필을 `id` 반환합니다. `StructureDefinition` 다음은 [조건/진단 심각도](https://www.hl7.org/fhir/valueset-condition-severity.html) 등급에 대한 조건을 지정하는 조건 심각도 프로필을 업로드할 때 얻을 수 있는 예제입니다.
-
-```json
-{
-    "resourceType": "ValueSet",
-    "id": "35ab90e5-c75d-45ca-aa10-748fefaca7ee",
-    "meta": {
-        "versionId": "1",
-        "lastUpdated": "2021-05-07T21:34:28.781+00:00",
-        "profile": [
-            "http://hl7.org/fhir/StructureDefinition/shareablevalueset"
-        ]
-    },
-    "text": {
-        "status": "generated",
-        "div": "<div>!-- Snipped for Brevity --></div>"
-    },
-    "extension": [
-        {
-            "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
-            "valueCode": "pc"
-        }
-    ],
-    "url": "http://hl7.org/fhir/ValueSet/condition-severity",
-    "identifier": [
-        {
-            "system": "urn:ietf:rfc:3986",
-            "value": "urn:oid:2.16.840.1.113883.4.642.3.168"
-        }
-    ],
-    "version": "4.0.1",
-    "name": "Condition/DiagnosisSeverity",
-    "title": "Condition/Diagnosis Severity",
-    "status": "draft",
-    "experimental": false,
-    "date": "2019-11-01T09:29:23+11:00",
-    "publisher": "FHIR Project team",
-...
-```
 
 ### <a name="profiles-in-the-capability-statement"></a>capability 문에 있는 프로필
 
-`Capability Statement`에는 구조 정의 및 값 집합과 같은 서버 기능의 문으로 사용할 FHIR 서버의 가능한 모든 동작이 나열됩니다. Azure API for FHIR 다음 형식으로 업로드 및 저장된 프로필에 대한 정보로 capability 문을 업데이트합니다.
+`Capability Statement`에는 구조 정의 및 값 집합과 같은 서버 기능의 문으로 사용할 수 있는 FHIR 서버의 가능한 모든 동작이 나열됩니다. Azure API for FHIR 다음 형식으로 업로드 및 저장된 프로필에 대한 정보로 capability 문을 업데이트합니다.
 
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
 
-여기에는 카디널리티, 바인딩, 확장 또는 기타 제한에 대한 제약 조건을 포함하여 리소스에 대한 전반적인 지원을 설명하는 프로필의 모든 사양이 표시됩니다. 따라서 `POST` 형식의 프로필과 전체 기능 문을 볼 수 있는 `StructureDefinition` 리소스 `GET` 메타데이터가 있는 경우 `supportedProfiles` 업로드한 프로필의 모든 세부 정보가 매개 변수 옆에 표시됩니다.
+여기에는 카디널리티, 바인딩, 확장 또는 기타 제한에 대한 제약 조건을 포함하여 리소스에 대한 전반적인 지원을 설명하는 프로필의 모든 사양이 표시됩니다. 따라서 `POST` 의 형식으로 프로필을 `StructureDefinition` 만들고 `GET` 리소스 메타 데이터를 통해 전체 기능 설명을 볼 때 `supportedProfiles` 업로드 한 프로필에 대 한 모든 세부 정보를 매개 변수 옆에 표시 합니다.
 
-예를 들어 US Core 환자 프로필인 경우 `POST` 다음과 같이 시작합니다.
+예를 들어 `POST` 미국 코어 환자 프로필은 다음과 같이 시작 됩니다.
 
 ```json
 {
@@ -191,7 +229,7 @@ POST http://<your FHIR service base URL>/{Resource}
 ...
 ```
 
-그리고 에 `GET` 대한 요청을 `metadata` 보냅니다.
+다음 `GET` 에 대 한 요청을 보냅니다 `metadata` .
 
 ```rest
 GET http://<your FHIR service base URL>/metadata
@@ -233,13 +271,13 @@ GET http://<your FHIR service base URL>/metadata
 GET http://<your FHIR service base URL>/{resource}/{resource ID}/$validate
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```rest
 GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate
 ```
 
-위의 예제에서 기존 리소스의 유효성을 검사 `Patient` `a6e11662-def8-4dde-9ebc-4429e68d130e` 합니다. 유효한 경우 다음과 같은을 얻게 됩니다 `OperationOutcome` .
+위의 예제에서는 기존 리소스 의 유효성을 `Patient` `a6e11662-def8-4dde-9ebc-4429e68d130e` 검사합니다. 유효한 경우 다음과 같은 를 얻게 됩니다. `OperationOutcome`
 
 ```json
 {
@@ -254,7 +292,7 @@ GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429
 }
 ```
 
-리소스가 유효 하지 않은 경우 오류 코드와 리소스가 잘못 된 이유에 대 한 세부 정보가 포함 된 오류 메시지가 표시 됩니다. `4xx`또는 `5xx` 오류는 유효성 검사 자체를 수행할 수 없으며 리소스가 유효한지 여부를 알 수 없음을 의미합니다. 오류 `OperationOutcome` 메시지와 함께 반환된 예제는 다음과 같습니다.
+리소스가 유효하지 않으면 리소스가 잘못된 이유에 대한 세부 정보가 있는 오류 코드와 오류 메시지가 표시됩니다. `4xx`또는 `5xx` 오류는 유효성 검사 자체를 수행할 수 없으며 리소스가 유효한지 여부를 알 수 없음을 의미합니다. 오류 `OperationOutcome` 메시지와 함께 반환된 예제는 다음과 같습니다.
 
 ```json
 {
@@ -304,7 +342,7 @@ GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429
 GET http://<your FHIR service base URL>/{Resource}/{Resource ID}/$validate?profile={canonicalUrl}
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```rest
 GET http://my-fhir-server.azurewebsites.net/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate?profile=http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
@@ -319,7 +357,7 @@ GET http://my-fhir-server.azurewebsites.net/Observation/12345678/$validate?profi
 POST http://<your FHIR service base URL>/{Resource}/$validate
 ```
 
-예를 들어:
+예를 들면 다음과 같습니다.
 
 ```rest
 POST http://my-fhir-server.azurewebsites.net/Patient/$validate 
@@ -342,7 +380,7 @@ POST http://my-fhir-server.azurewebsites.net/Patient/$validate
 ```
 
 리소스가 제공된 를 `Resource.meta.profile` 준수하고 프로필이 시스템에 있는 경우 서버는 위의 구성 설정에 따라 작동합니다. 제공된 프로필이 서버에 없으면 유효성 검사 요청이 무시되고 에 남아 `Resource.meta.profile` 있습니다.
-유효성 검사는 일반적으로 비용이 많이 드는 작업이므로 일반적으로 테스트 서버 또는 리소스의 작은 하위 집합에서만 실행됩니다. 따라서 이러한 방법으로 서버 쪽에서 유효성 검사 작업을 설정하거나 해제해야 합니다. 서버 구성에서 리소스 만들기/업데이트에 대한 유효성 검사를 옵트아웃하도록 지정하는 경우 사용자는 만들기/업데이트 요청의 에서 동작을 지정하여 동작을 재정의할 수 있습니다. `header`
+유효성 검사는 일반적으로 비용이 많이 드는 작업이므로 일반적으로 테스트 서버 또는 리소스의 작은 하위 집합에서만 실행됩니다. 따라서 이러한 방법으로 서버 쪽에서 유효성 검사 작업을 설정하거나 해제해야 합니다. 서버 구성에서 리소스 만들기/업데이트에 대 한 유효성 검사를 옵트아웃 (opt out) 하도록 지정 하는 경우 사용자는 `header` 만들기/업데이트 요청의에서 지정 하 여 동작을 재정의할 수 있습니다.
 
 ```rest
 x-ms-profile-validation: true
@@ -350,7 +388,7 @@ x-ms-profile-validation: true
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 FHIR 프로필에 대해 알아보고 $validate 사용하여 프로필에 대해 리소스의 유효성을 검사하는 방법을 배웠습니다. Azure API에서 지원 되는 기타 기능에 대 한 자세한 내용은 다음을 확인 하세요.
+이 문서에서는 $validate을 사용 하 여 프로필에 대 한 리소스의 유효성을 검사 하는 방법과 FHIR 프로필에 대해 알아보았습니다. Azure API에서 지원 되는 기타 기능에 대 한 자세한 내용은 다음을 확인 하세요.
 
 >[!div class="nextstepaction"]
 >[지원 되는 기능](fhir-features-supported.md)

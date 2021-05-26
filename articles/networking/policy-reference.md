@@ -1,18 +1,18 @@
 ---
 title: Azure 네트워킹 서비스를 위한 기본 제공 정책 정의
 description: Azure 네트워킹 서비스를 위한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: reference
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 6b30fbf185aeb04127133df5add893bff6ab32a6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b54a98f6a0c780667234fc9ed70f11a893dbb8ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740652"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088513"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-networking-services"></a>Azure 네트워킹 서비스를 위한 Azure Policy 기본 제공 정의
 

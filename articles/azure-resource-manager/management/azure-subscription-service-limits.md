@@ -2,13 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최댓값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
 ms.topic: conceptual
-ms.date: 03/15/2021
-ms.openlocfilehash: 4dd62c926cce765ebc2b21378308650e313716ff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 3feb0c0ac40812ef628281d93d5848c2d60df6eb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103471022"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375847"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -34,9 +34,9 @@ Azure 가격 책정에 대한 자세한 내용은 [Azure 가격 책정 개요](h
 
 일부 한도는 지역 수준에서 관리됩니다.
 
-vCPU 할당량을 한 예로 살펴보겠습니다. vCPU 지원 할당량 증가를 요청하려면 지역별로 사용하려는 vCPU 수를 결정해야 합니다. 그런 다음 원하는 양과 지역에 맞게 Azure 리소스 그룹 vCPU 할당량에 대한 특정 요청을 만듭니다. 서유럽 지역에서 30개의 vCPU를 사용하여 애플리케이션을 실행해야 하는 경우, 서유럽에서 30개의 vCPU를 구체적으로 요청합니다. 이때 다른 지역의 vCPU 할당량은 증가하지 않으며 서유럽에만 30개의 vCPU 할당량이 제공됩니다.
+vCPU 할당량을 한 예로 살펴보겠습니다. vCPU 지원 할당량 증가를 요청하려면 지역별로 사용하려는 vCPU 수를 결정해야 합니다. 그런 다음, 원하는 금액 및 지역에 대한 vCPU 할당량 증가를 요청합니다. 서유럽 지역에서 30개의 vCPU를 사용하여 애플리케이션을 실행해야 하는 경우, 서유럽에서 30개의 vCPU를 구체적으로 요청합니다. 이때 다른 지역의 vCPU 할당량은 증가하지 않으며 서유럽에만 30개의 vCPU 할당량이 제공됩니다.
 
-그러므로 한 지역의 워크로드에 대한 Azure 리소스 그룹 할당량이 얼마인지 결정합니다. 그런 다음 배포하려는 각 지역에 해당량을 요청합니다. 특정 지역의 현재 할당량을 확인하는 방법에 대한 도움말은 [리소스 할당량 관련 오류 해결](../templates/error-resource-quota.md)을 참조하세요.
+따라서 한 지역의 워크로드에 대한 할당량을 결정해야 합니다. 그런 다음 배포하려는 각 지역에 해당량을 요청합니다. 특정 지역의 현재 할당량을 확인하는 방법에 대한 도움말은 [리소스 할당량 관련 오류 해결](../templates/error-resource-quota.md)을 참조하세요.
 
 ## <a name="general-limits"></a>일반적인 제한
 
@@ -70,8 +70,6 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용하는 경우 다음 
 
 ## <a name="app-service-limits"></a>App Service 제한
 
-다음 App Service 제한에는 Web Apps, Mobile Apps 및 API Apps에 대한 제한이 포함됩니다.
-
 [!INCLUDE [azure-websites-limits](../../../includes/azure-websites-limits.md)]
 
 ## <a name="automation-limits"></a>Automation 한도
@@ -81,6 +79,10 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용하는 경우 다음 
 ## <a name="azure-app-configuration"></a>Azure App Configuration
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
+
+## <a name="azure-api-for-fhir-service-limits"></a>Azure API for FHIR 서비스 제한
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Azure Cache for Redis 제한
 
@@ -252,8 +254,7 @@ Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용하
 [!INCLUDE [event-grid-limits](../../../includes/event-grid-limits.md)]
 
 ## <a name="event-hubs-limits"></a>Event Hubs 제한
-
-[!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
+[!INCLUDE [event-hubs-limits](../../../includes/event-hubs-limits.md)]
 
 ## <a name="iot-central-limits"></a>IoT Central 제한
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
@@ -364,9 +365,11 @@ Azure Purview 할당량에 대한 최신 값은 [Azure Purview 할당량 페이�
 
 SQL Database 제한은 [단일 데이터베이스에 대한 SQL Database 리소스 제한](../../azure-sql/database/resource-limits-vcore-single-databases.md), [탄력적 풀 및 풀링된 데이터베이스에 대한 SQL Database 리소스 제한](../../azure-sql/database/resource-limits-vcore-elastic-pools.md) 및 [SQL Managed Instance에 대한 SQL Database 리소스 제한](../../azure-sql/managed-instance/resource-limits.md)을 참조하세요.
 
+Azure SQL Database 논리 서버당 최대 프라이빗 엔드포인트 수는 250개입니다.
+
 ## <a name="azure-synapse-analytics-limits"></a>Azure Synapse Analytics 제한
 
-Azure Synapse Analytics 제한은 [Azure Synapse 리소스 제한](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조하세요.
+[!INCLUDE [synapse-analytics-limits](../../../includes/synapse-analytics-limits.md)]
 
 ## <a name="azure-files-and-azure-file-sync"></a>Azure Files 및 Azure 파일 동기화
 Azure Files 및 파일 동기화에 대한 자세한 내용은 [Azure Files 확장성 및 성능 목표](../../storage/files/storage-files-scale-targets.md)를 참조하세요.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: storage
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 40d54d9e495efef4b0e1ddb8dc8b8c7114421414
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: c7d960735ee3ebd056858b93576d219ade514a00
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108165572"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459704"
 ---
 # <a name="tutorial-work-with-azure-queue-storage-queues-in-net"></a>자습서: .NET에서 Azure Queue Storage 큐 작업
 
@@ -101,7 +101,7 @@ Azure Queue Storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 1. `dotnet add package` 명령을 사용하여 Azure Storage 클라이언트 라이브러리를 프로젝트에 추가합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    콘솔 창의 프로젝트 폴더에서 다음 명령을 실행합니다.
 
@@ -109,7 +109,7 @@ Azure Queue Storage는 분산된 애플리케이션의 구성 요소 간에 통�
    dotnet add package Azure.Storage.Queues
    ```
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    콘솔 창의 프로젝트 폴더에서 다음 명령을 실행합니다.
 
@@ -129,11 +129,11 @@ Azure Queue Storage는 분산된 애플리케이션의 구성 요소 간에 통�
 
 1. `Program.cs` 원본 파일을 열고 `using System;` 문 바로 뒤에 다음 네임스페이스를 추가합니다. 이 앱은 이 네임스페이스의 형식을 사용하여 Azure Storage에 연결하고 큐를 사용합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_UsingStatements":::
 
@@ -165,21 +165,21 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 1. `Main` 메서드에서 `Console.WriteLine("Hello, World");` 코드를 환경 변수에서 연결 문자열을 가져오는 다음 줄로 바꿉니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_DeclareConnectionString":::
 
 1. 다음 코드를 큐 개체를 만들도록 `Main`에 추가합니다. 이 개체는 나중에 send 및 receive 메서드에 전달됩니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_CreateQueueClient":::
 
@@ -191,13 +191,13 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 1. `Program` 클래스에 다음 `InsertMessageAsync` 메서드를 추가합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    이 메서드는 큐 참조에 전달됩니다. 새 큐가 아직 없는 경우 [`CreateIfNotExistsAsync`](/dotnet/api/azure.storage.queues.queueclient.createifnotexistsasync)를 호출하여 새로 만들어집니다. 그런 다음, [`SendMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.sendmessageasync)를 호출하여 큐에 `newMessage`를 추가합니다.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_InsertMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    이 메서드는 큐 참조에 전달됩니다. 새 큐가 아직 없는 경우 [`CreateIfNotExistsAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync)를 호출하여 새로 만들어집니다. 그런 다음, [`AddMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync)를 호출하여 큐에 `newMessage`를 추가합니다.
 
@@ -205,13 +205,13 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 1. **선택 사항:** 기본적으로 메시지의 최대 TTL(Time-To-Live)은 7일로 설정됩니다. 메시지 TTL(Time-To-Live)에 임의 양수를 지정할 수 있습니다. 다음 코드 조각에서는 만료되지 **않는** 메시지를 추가합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
     만료되지 않는 메시지를 추가하려면 `SendMessageAsync` 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_SendNonExpiringMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
     만료되지 않는 메시지를 추가하려면 `AddMessageAsync` 호출에 `Timespan.FromSeconds(-1)`를 사용합니다.
 
@@ -227,7 +227,7 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 1. `RetrieveNextMessageAsync`라는 새 메서드를 `Program` 클래스에 추가합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    이 메서드는 [`ReceiveMessagesAsync`](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync)를 호출하여 큐에서 메시지를 받고, 첫 번째 매개 변수에 `1`을 전달하여 큐에 있는 다음 메시지만 검색합니다. 메시지를 받은 후 [`DeleteMessageAsync`](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync)를 호출하여 큐에서 메시지를 삭제합니다.
 
@@ -235,7 +235,7 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    이 메서드는 [`GetMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync)를 호출하여 큐에서 메시지를 받습니다. 메시지를 받은 후 [`DeleteMessageAsync`](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync)를 호출하여 큐에서 메시지를 삭제합니다.
 
@@ -249,11 +249,11 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 1. 빈 큐를 삭제하는 프롬프트를 포함하도록 `RetrieveNextMessageAsync` 메서드를 확장합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_RetrieveMessage":::
 
@@ -269,11 +269,11 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 1. 명령줄 인수를 확인하고 사용자 입력을 기다리도록 `Main` 메서드를 확장합니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_Main":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_Main":::
 
@@ -283,11 +283,11 @@ Azure API를 호출하기 전에 Azure Portal에서 자격 증명을 가져와�
 
 이 프로젝트의 전체 코드는 다음과 같습니다.
 
-   # <a name="net-v12"></a>[.NET v12](#tab/dotnet)
+   # <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Program.cs" id="snippet_AllCode":::
 
-   # <a name="net-v11"></a>[.NET v11](#tab/dotnetv11)
+   # <a name="net-v11-sdk"></a>[.NET v11 SDK](#tab/dotnetv11)
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v11/QueueApp/Program.cs" id="snippet_AllCode":::
    ---

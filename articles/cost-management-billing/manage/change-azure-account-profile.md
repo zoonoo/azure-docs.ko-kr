@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f394b6b44b2030253f7b78ec68459819c82c3c27
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 43b3332629922bb60eefb68782b84e996b692848
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480905"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461485"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Azure 청구 계정의 연락처 정보 변경
 
@@ -79,6 +79,20 @@ Azure Active Directory 사용자 프로필 정보를 업데이트하려는 경�
 1. 왼쪽 메뉴의 **설정** 에서 **속성** 을 선택합니다.
 1. **PO 번호 업데이트** 를 선택합니다.
 1. PO 번호를 입력한 다음, **업데이트** 를 선택합니다.
+
+## <a name="update-your-tax-id"></a>TID 업데이트
+
+구독을 이동한 후에는 TID를 업데이트해야 합니다. TID는 면세 계산에 사용되며 청구서에 표시됩니다.
+
+**청구 계정 정보를 업데이트하려면 다음을 수행합니다.**
+
+1. [비즈니스용 Microsoft Store](https://businessstore.microsoft.com/) 또는 [교육용 Microsoft Store](https://educationstore.microsoft.com/)에 로그인합니다.
+1. **관리** 를 선택한 다음, **청구 계정** 을 선택합니다.
+1. **개요** 에서 **청구 계정 정보 편집** 을 선택합니다.
+1. 업데이트를 수행하고 **저장** 을 선택합니다.
+
+[청구 계정 설정을 업데이트하는 방법을 자세히 알아보세요](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
 
 ## <a name="service-and-marketing-emails"></a>서비스 및 마케팅 이메일
 

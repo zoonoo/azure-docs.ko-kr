@@ -8,19 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/25/2021
+ms.date: 05/17/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: f1e509156beea0b3da3539306dc055291cbff0c8
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 21f072747c9184fa15fd7e3477c0b4009cd885fc
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107314187"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376241"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정보를 항상 파악할 수 있게 이 문서에서는 새 릴리스 및 기능 관련 정보를 제공합니다.
+
+## <a name="may-2021"></a>2021년 5월
+
+* 이제 Text Analytics 리소스를 사용하여 [사용자 지정 질문 답변](../qnamaker/custom-question-answering.md)(이전의 QnA maker)에 액세스할 수 있습니다. 
+
+### <a name="general-api-updates"></a>일반 API 업데이트
+
+* 다음을 포함하는 새 API v3.1-preview.5 릴리스 
+  * 이제 비동기 [분석 API](how-tos/text-analytics-how-to-call-api.md?tabs=asynchronous)는 SA(감정 분석)와 OM(의견 마이닝)을 지원합니다.
+  * 이제 인시던트 보고서에 대한 입력 텍스트 로깅을 옵트아웃하려는 고객은 새 쿼리 매개 변수 `LoggingOptOut`을 사용할 수 있습니다.  [데이터 개인 정보 보호](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context) 문서에서 이 매개 변수에 대해 자세히 알아봅니다.
+* 이제 모든 지역에서 상태에 대한 Text Analytics 및 분석 비동기 작업을 사용할 수 있습니다.
 
 ## <a name="march-2021"></a>2021년 3월
 

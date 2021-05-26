@@ -3,12 +3,12 @@ title: 메시지 복제 작업 패턴 - Azure Service Bus | Microsoft Docs
 description: 이 문서에서는 특정 메시지 복제 작업 패턴을 구현하기 위한 자세한 지침을 제공합니다.
 ms.topic: article
 ms.date: 12/12/2020
-ms.openlocfilehash: d823ee7ccd4f53bfc3e10211a4f44908273a110d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e6161d39281dc48284737cf3ee1f83853db17ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97657503"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462321"
 ---
 # <a name="message-replication-tasks-patterns"></a>메시지 복제 작업 패턴
 
@@ -59,7 +59,7 @@ SRV 레코드는 일반적인 규칙에 따라 `_azure_servicebus._amqp`로 접�
 
 | CNAME 레코드                 | Alias
 |------------------------------|-------------------------------------------------------------
-| `servicebus.test.example.com`  | `test1.test.example.com`
+| `servicebus.test.example.com`  | `sb1.test.example.com`
 
 CNAME 및 SRV 레코드를 명시적으로 쿼리할 수 있도록 허용하는 DNS 클라이언트를 사용하는 경우(Java 및 .NET의 기본 제공 클라이언트는 IP 주소로 간단한 이름 확인만 허용) 원하는 엔드포인트를 확인할 수 있습니다. 예를 들어 [DnsClient.NET](https://dnsclient.michaco.net/)를 사용하는 경우 조회 함수는 다음과 같습니다.
 
@@ -78,7 +78,7 @@ static string GetServiceBusName(string aliasName)
 
 함수는 위에 표시된 대로 현재 CNAME로 별칭이 지정된 영역의 포트 5671에 대해 등록된 대상 호스트 이름을 반환합니다. 
 
-장애조치(failover)를 수행하려면 CNAME 레코드를 편집하고 대체 영역을 가리켜야 합니다. 
+장애 조치(failover)를 수행하려면 CNAME 레코드를 편집하고 대체 영역을 가리켜야 합니다. 
 
 DNS, 특히 [Azure DNS](../dns/dns-overview.md)를 사용할 경우 장점은 Azure DNS 정보가 전역으로 복제되므로 단일 지역 가동 중단에 대해 복원된다는 것입니다.
 
