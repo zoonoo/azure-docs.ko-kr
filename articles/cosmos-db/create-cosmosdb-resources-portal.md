@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/10/2020
-ms.openlocfilehash: 041b930a0c2fa82727216b4ca0c8367387d0d801
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: b40431278f16de6f4cd527f381c331e4a6465b76
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100367261"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370860"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
     |계정 이름|고유한 이름|Azure Cosmos 계정을 식별하는 이름을 입력합니다. URI를 만들기 위해 제공하는 이름에 *documents.azure.com* 이 추가되므로 고유한 이름을 사용합니다.<br><br>이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~31자여야 합니다.|
     |API|만들 계정 형식|**Core(SQL)** 를 선택하여 문서 데이터베이스를 만들고 SQL 구문을 사용하여 쿼리합니다. <br><br>API는 만들 계정의 형식을 결정합니다. Azure Cosmos DB는 문서 데이터용 Core(SQL) 및 MongoDB, 그래프 데이터용 Gremlin, Azure Table 및 Cassandra, 이렇게 5가지 API를 제공합니다. 현재 각 API에 대한 별도의 계정을 만들어야 합니다. <br><br>[SQL API에 대한 자세한 정보](introduction.md)|
     |용량 모드|프로비저닝된 처리량 또는 서버리스|**프로비저닝된 처리량** 을 선택하여 [프로비저닝된 처리량](set-throughput.md) 모드에서 계정을 만듭니다. **서버리스** 를 선택하여 [서버리스](serverless.md) 모드에서 계정을 만듭니다.|
-    |Azure Cosmos DB 체험 계층 할인 적용|적용 또는 적용 안 함|Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 400RU/초 및 5GB의 스토리지가 계정에 무료로 제공됩니다. [체험 계층](https://azure.microsoft.com/pricing/details/cosmos-db/)에 대해 자세히 알아보세요.|
+    |Azure Cosmos DB 체험 계층 할인 적용|적용 또는 적용 안 함|Azure Cosmos DB 체험 계층을 사용하는 경우 처음에는 1000RU/초 및 25GB의 스토리지가 계정에 무료로 제공됩니다. [체험 계층](free-tier.md) 문서에 대해 자세히 알아보세요.|
     |위치|사용자와 가장 가까운 지역|Azure Cosmos DB 계정을 호스트할 지리적 위치를 선택합니다. 데이터에 가장 빨리 액세스할 수 있도록 사용자와 가장 가까운 위치를 사용합니다.|
     |계정 유형|프로덕션 또는 비프로덕션|계정이 프로덕션 워크로드에 사용되는 경우 **프로덕션** 을 선택합니다. 계정이 비프로덕션(예: 개발, 테스트, QA 또는 준비)에 사용되는 경우 **비프로덕션** 을 선택합니다. 이는 포털 환경을 조정하지만 기본 Azure Cosmos DB 계정에는 영향을 주지 않는 Azure 리소스 태그 설정입니다. 이 값은 언제든지 변경할 수 있습니다.|
     |지리적 중복|사용 또는 사용 안 함|지역에 쌍 영역을 페어링하여 계정에서 글로벌 배포를 사용하거나 사용하지 않도록 설정합니다. 나중에 계정에 더 많은 지역을 추가할 수 있습니다.|
@@ -63,7 +63,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
     |가용성 영역|사용 또는 사용 안 함|가용성 영역은 애플리케이션의 가용성 및 복원력을 한층 향상시킬 수 있습니다.|
 
 > [!NOTE]
-> Azure 구독당 최대 1개의 체험 계층 Azure Cosmos DB 계정을 사용할 수 있으며 계정을 만들 때 옵트인해야 합니다. 체험 계층 할인을 적용하는 옵션이 표시되지 않으면 구독의 다른 계정에서 이미 체험 계층을 사용하도록 설정되었음을 의미합니다.
+> Azure 구독당 최대 1개의 체험 계층 Azure Cosmos DB 계정을 사용할 수 있으며 계정을 만들 때 옵트인해야 합니다. 체험 계층 할인을 적용하는 옵션이 표시되지 않으면 구독의 다른 계정에서 이미 체험 계층을 사용하도록 설정되었음을 의미합니다. 자세한 내용은 [무료 계층](free-tier.md) 문서를 참조하세요.
 
 > [!NOTE]
 > **용량 모드** 로 **서버리스** 를 선택한 경우 다음 옵션을 사용할 수 없습니다.
@@ -86,27 +86,26 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 <a id="create-container-database"></a>
 ## <a name="add-a-database-and-a-container"></a>데이터베이스 및 컨테이너 추가 
 
-Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨테이너를 만들 수 있습니다. 
+Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨테이너를 만들 수 있습니다.
 
-1.  Azure Cosmos DB 계정 페이지의 왼쪽 탐색 모음에서 **Data Explorer** 를 선택한 다음, **새 컬렉션** 을 선택합니다. 
-    
+1. Azure Cosmos DB 계정 페이지의 왼쪽 탐색 모음에서 **Data Explorer** 를 선택한 다음, **새 컬렉션** 을 선택합니다. 
+
     **컨테이너 추가** 창을 보려면 오른쪽으로 스크롤해야 할 수도 있습니다.
-    
-    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
-    
-1.  **컨테이너 추가** 창에서 새 컨테이너의 설정을 입력합니다.
-    
+
+    :::image type="content" source="./media/create-cosmosdb-resources-portal/add-database-container.png" alt-text="Azure Portal Data Explorer, 컨테이너 추가 창":::
+
+1. **컨테이너 추가** 창에서 새 컨테이너의 설정을 입력합니다.
+
     |설정|제안 값|설명
     |---|---|---|
-    |**데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList* 를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **데이터베이스 처리량 프로비전** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
-    |**처리량**|400|처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이면 나중에 처리량을 늘릴 수 있습니다.<br><br>**참고**: 서버리스 계정에서 새 컨테이너를 만들 때는 이 설정을 사용할 수 없습니다.| 
+    |**데이터베이스 ID**|ToDoList|새 데이터베이스의 이름으로 *ToDoList* 를 입력합니다. 데이터베이스 이름은 1~255자여야 하며, `/, \\, #, ?` 또는 후행 공백은 포함할 수 없습니다. **컨테이너 간에 처리량 공유** 옵션을 선택합니다. 그러면 데이터베이스에 프로비저닝된 처리량을 데이터베이스 내 모든 컨테이너가 공유할 수 있습니다. 이 옵션은 비용 절감에도 도움이 됩니다. |
+    | **데이터베이스 처리량**| **자동 스케일링** 또는 **수동** 처리량을 프로비저닝할 수 있습니다. 수동 처리량을 사용하면 RU/s를 직접 스케일링할 수 있지만 자동 스케일링을 사용하면 시스템에서 사용량에 따라 RU/s를 스케일링할 수 있습니다. 이 예제에서는 **수동** 을 선택합니다. <br><br> 처리량을 400 RU/s(초당 요청 단위)로 유지합니다. 대기 시간을 줄이려면 [용량 계산기](estimate-ru-with-capacity-planner.md)를 사용하여 필요한 RU/s를 예측하여 나중에 처리량을 스케일 업할 수 있습니다.<br><br>**참고**: 서버리스 계정에서 새 컨테이너를 만들 때는 이 설정을 사용할 수 없습니다. |
     |**컨테이너 ID**|Items|새 컨테이너의 이름으로 *Items* 를 입력합니다. 컨테이너 ID에는 데이터베이스 이름과 동일한 문자 요구 사항이 적용됩니다.|
     |**파티션 키**| /category| 이 문서에 설명된 샘플은 파티션 키로 */category* 를 사용합니다.|
 
-    
-    이 예제의 경우 **고유 키** 를 추가하지 마세요. 고유 키를 사용하면 분할 키당 하나 이상의 값의 고유성을 보장하여 데이터베이스에 데이터 무결성 레이어를 추가할 수 있습니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md)를 참조하세요.
-    
-1.  **확인** 을 선택합니다. Data Explorer가 새 데이터베이스와 앞에서 만든 컨테이너를 표시합니다.
+    이 예제에서는 **고유 키** 를 추가하거나 **분석 저장소** 를 설정하지 마세요. 고유 키를 사용하면 분할 키당 하나 이상의 값의 고유성을 보장하여 데이터베이스에 데이터 무결성 레이어를 추가할 수 있습니다. 자세한 내용은 [Azure Cosmos DB의 고유 키](unique-keys.md)를 참조하세요. [분석 저장소](analytical-store-introduction.md)는 트랜잭션 워크로드에 영향을 주지 않으면서 운영 데이터에 대한 대규모 분석을 사용하도록 설정하는 데 사용됩니다.
+
+1. **확인** 을 선택합니다. Data Explorer가 새 데이터베이스와 앞에서 만든 컨테이너를 표시합니다.
 
 ## <a name="add-data-to-your-database"></a>데이터베이스에 데이터 추가
 

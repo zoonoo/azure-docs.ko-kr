@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 04/14/2021
 ms.author: aahi
-ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0fb220e86723a5ae75fe808a995333df9ffd1a8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101699898"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084661"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Text Analytics API 버전 3.x로 마이그레이션
 
@@ -36,7 +36,7 @@ Text Analytics API 버전 2.1을 사용하는 경우 이 문서를 참조하여 
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
-* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
+* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -65,7 +65,7 @@ NER
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
-* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/EntitiesRecognitionGeneral)
+* [버전 3.1 미리 보기](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/EntitiesRecognitionGeneral)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -115,7 +115,7 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
-* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Languages)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Languages)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -136,7 +136,7 @@ JSON 응답의 예제는 참조 설명서를 참조하세요.
 JSON 응답의 예제는 참조 설명서를 참조하세요.
 * [버전 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
 * [버전 3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
-* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
+* [버전 3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/KeyPhrases)
 
 #### <a name="client-libraries"></a>클라이언트 라이브러리
 

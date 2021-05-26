@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9d2100dbc2c5f24742a949778a1b7450bf303c5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0daa44f0d901dc14541785f764d5ccf8f96fc737
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232208"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376677"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api"></a>GenerateAnswer API를 사용하여 답변 가져오기
 
@@ -42,7 +42,7 @@ ms.locfileid: "103232208"
 
     ![엔드포인트 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code.png)
 
-    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+    # <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
     ![관리형 엔드포인트 세부 정보 스크린샷](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
 
@@ -180,9 +180,9 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 
 QnA Maker 관리형 버전에서만 정확한 답변 기능을 제공합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-사용자는 QnA Maker 관리형 리소스를 사용할 때 [정확한 답변](../reference-precise-answering.md)을 사용할 수 있습니다. answerSpanRequest 매개 변수도 동일하게 업데이트해야 합니다.
+사용자는 사용자 지정 질문 답변 기능과 함께 Text Analytics 리소스를 사용할 때 [정확한 답변](../reference-precise-answering.md)을 사용할 수 있습니다. answerSpanRequest 매개 변수도 동일하게 업데이트해야 합니다.
 
 ```json
 {

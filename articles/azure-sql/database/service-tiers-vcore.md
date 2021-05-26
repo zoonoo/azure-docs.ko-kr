@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 01/15/2021
-ms.openlocfilehash: 3bd617f052d52339ae35e5a088c6ee85b797fb48
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/01/2021
+ms.openlocfilehash: 29ce9430d43ed663be8d888dc2388551659c873c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779186"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468895"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore 모델 개요 - Azure SQL Database 및 Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,7 +38,7 @@ vCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및
 |IOPS 및 처리량(근사치)|**SQL Database**: [단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한을 참조하세요.<br/>**SQL Managed Instance**: [개요 Azure SQL Managed Instance 리소스 제한](../managed-instance/resource-limits.md#service-tier-characteristics)을 참조하세요.|[단일 데이터베이스](resource-limits-vcore-single-databases.md) 및 [탄력적 풀](resource-limits-vcore-elastic-pools.md)에 대한 리소스 제한을 참조하세요.|하이퍼스케일은 여러 수준에서 캐싱을 사용하는 다중 계층 아키텍처입니다. 효과적인 IOPS 및 처리량은 워크로드에 따라 달라집니다.|
 |가용성|1개 복제본, 읽기 크기 조정 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](read-scale-out.md),<br/>영역 중복 HA(고가용성)|1개 읽기/쓰기 복제본 및 0-4개 [읽기 크기 조정 복제본](read-scale-out.md)|
 |Backup|[RA-GRS(읽기 액세스 지역 중복 스토리지)](../../storage/common/geo-redundant-design.md), 1-35일(기본적으로 7일)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1-35일(기본값: 7일)|Azure 원격 스토리지의 스냅샷 기반 백업. 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행되며 컴퓨팅 I/O 성능에 영향을 주지 않습니다. 복원은 속도가 빠르며, 데이터 작업의 크기가 아닙니다(몇 시간 또는 며칠이 아닌 몇 분이 소요됨).|
-|메모리 내|지원되지 않음|지원됨|지원되지 않음|
+|메모리 내|지원되지 않음|지원 여부|지원되지 않음|
 |||
 
 
@@ -112,12 +112,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 
 DC 시리즈는 프로비전된 컴퓨팅에 대해서만 지원되고(서버리스는 지원되지 않음) 영역 중복성을 지원하지 않습니다. DC 시리즈를 사용할 수 있는 지역의 경우 [DC 시리즈 가용성](#dc-series-1)을 참조하세요.
 
-#### <a name="azure-offer-types-supported-by-dc-series"></a>DC 시리즈에서 지원되는 Azure 제품 유형
-
-DC 시리즈에 액세스하려면 구독은 종량제 또는 EA(기업계약)를 포함한 유료 제품 유형이어야 합니다.  DC 시리즈에서 지원되는 Azure 제품 유형의 전체 목록은 [지출 한도가 없는 현재 제품](https://azure.microsoft.com/support/legal/offer-details)을 참조하세요.
-
 ### <a name="compute-and-memory-specifications"></a>컴퓨팅, 메모리 사양
-
 
 |하드웨어 세대  |컴퓨팅  |메모리  |
 |:---------|:---------|:---------|

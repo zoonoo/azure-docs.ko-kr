@@ -9,19 +9,19 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: subject-monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 464b5a6fddb724500e27a4b7d5e35fd84549565b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dd4d4c1ddea737a1aa2083f7e2801aaee1b4cff7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771626"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467449"
 ---
 # <a name="monitoring-azure-blob-storage"></a>Azure Blob Storage 모니터링
 
 Azure 리소스를 사용하는 중요한 애플리케이션 및 비즈니스 프로세스가 있으면 이러한 리소스의 가용성, 성능 및 작업을 모니터링해야 합니다. 이 문서에서는 Azure Blob Storage에서 생성하는 모니터링 데이터와 Azure Monitor 기능을 사용하여 이러한 데이터에 대한 경고를 분석하는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블에 대한 로그를 지원합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ## <a name="monitor-overview"></a>모니터링 개요
 
@@ -72,7 +72,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 일반 지침은 [Azure에서 플랫폼 로그 및 메트릭을 수집하는 진단 설정 만들기](../../azure-monitor/essentials/diagnostic-settings.md)를 참조하세요.
 
 > [!NOTE]
-> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐, 테이블에 대한 로그를 지원합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
+> Azure Monitor의 Azure Storage 로그는 현재 공개 미리 보기이며 모든 퍼블릭 클라우드 지역에서 미리 보기 테스트에 사용할 수 있습니다. 이 미리 보기에서는 Blob(Azure Data Lake Storage Gen2 포함), 파일, 큐 및 테이블에 대한 로그를 사용하도록 설정합니다. 이 기능은 Azure Resource Manager 배포 모델을 사용하여 만든 모든 스토리지 계정에 대해 사용할 수 있습니다. [스토리지 계정 개요](../common/storage-account-overview.md)를 참조하세요.
 
 ### <a name="azure-portal"></a>[Azure Portal](#tab/azure-portal)
 
@@ -101,7 +101,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 #### <a name="archive-logs-to-a-storage-account"></a>스토리지 계정에 로그 보관
 
-로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
+로그를 스토리지 계정에 보관하도록 선택하는 경우 스토리지 계정으로 보내는 로그 볼륨에 대한 비용을 지불하게 됩니다. 특정 가격 책정에 대해서는 [Azure Monitor 가격](https://azure.microsoft.com/pricing/details/monitor/#platform-logs) 페이지의 **플랫폼 로그** 섹션을 참조하세요.
 
 1. **스토리지 계정에 보관** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
 
@@ -121,7 +121,7 @@ Azure Portal, PowerShell, Azure CLI 또는 Azure Resource Manager 템플릿을 �
 
 1. **이벤트 허브에 스트림** 확인란을 선택한 다음, **구성** 단추를 클릭합니다.
 
-2. **이벤트 허브 선택** 창에서 로그를 스트리밍할 이벤트 허브의 네임스페이스, 이름 및 정책 이름을 선택합니다. 
+2. **이벤트 허브 선택** 창에서 로그를 스트림할 이벤트 허브의 네임스페이스, 이름 및 정책 이름을 선택합니다. 
 
    > [!div class="mx-imgBorder"]
    > ![진단 설정 페이지 이벤트 허브](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
@@ -298,7 +298,7 @@ Azure Blob Storage를 비롯한 모든 Azure Monitor 지원 메트릭의 목록�
 > [!TIP]
 > Azure CLI 또는 .NET 예제를 보려면 아래의 탭 중에서 해당 탭을 선택합니다.
 
-### <a name="net"></a>[.NET](#tab/azure-portal)
+### <a name="net-sdk"></a>[.NET SDK](#tab/azure-portal)
 
 Azure Monitor는 메트릭 정의 및 값을 읽는 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)를 제공합니다. [샘플 코드](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)는 다른 매개 변수로 SDK를 사용하는 방법을 보여줍니다. 스토리지 메트릭을 사용하려면 `0.18.0-preview` 이상의 버전을 사용해야 합니다.
  

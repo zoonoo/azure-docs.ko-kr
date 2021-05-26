@@ -1,6 +1,6 @@
 ---
 title: 몰입형 리더 SDK 참조
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 몰입형 리더 SDK에는 몰입형 리더를 애플리케이션에 통합할 수 있는 JavaScript 라이브러리가 포함되어 있습니다.
 services: cognitive-services
 author: metanMSFT
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metang
-ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 852e3d91b9d90d79bc45b4478ee433fbbd13255b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92636530"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370791"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>몰입형 리더 JavaScript SDK 참조(v1.1)
 
@@ -43,7 +43,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="launchasync-parameters"></a>launchAsync 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | `token` | 문자열 | Azure AD 인증 토큰입니다. 자세한 내용은 [몰입형 리더 리소스를 만드는 방법](./how-to-create-immersive-reader.md)을 참조하세요. |
 | `subdomain` | 문자열 | Azure에서 몰입형 리더 리소스의 사용자 지정 하위 도메인입니다. 자세한 내용은 [몰입형 리더 리소스를 만드는 방법](./how-to-create-immersive-reader.md)을 참조하세요. |
@@ -115,7 +115,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-parameters"></a>renderButtons 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | `options` | [renderButtons 옵션](#renderbuttons-options) | renderButtons 함수의 특정 동작을 구성하는 옵션입니다. 선택 사항입니다. |
 
@@ -131,7 +131,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 #### <a name="renderbuttons-options-parameters"></a>renderButtons 옵션 매개 변수
 
-| 설정 | 유형 | Description |
+| 설정 | Type | Description |
 | ------- | ---- | ----------- |
 | 요소 | HTMLDivElement[] | 몰입형 리더 단추를 렌더링할 요소입니다. |
 
@@ -156,7 +156,7 @@ Required: false
 
 #### <a name="launchresponse-parameters"></a>LaunchResponse 매개 변수
 
-| 설정 | 유형 | Description |
+| 설정 | Type | Description |
 | ------- | ---- | ----------- |
 | container | HTMLDivElement | 몰입형 리더 iframe을 포함하는 HTML 요소입니다. |
 | sessionID | String | 이 세션에 대해 디버깅에 사용되는 GUID(Globally unique identifier)입니다. |
@@ -174,7 +174,7 @@ Required: false
 
 #### <a name="error-parameters"></a>오류 매개 변수
 
-| 설정 | 유형 | 설명 |
+| 설정 | Type | 설명 |
 | ------- | ---- | ----------- |
 | code | String | 오류 코드의 집합 중 하나입니다. [오류 코드](#error-codes)를 참조하세요. |
 | message | String | 사람이 읽을 수 있는 오류 표현입니다. |
@@ -205,7 +205,7 @@ Required: false
 
 #### <a name="content-parameters"></a>콘텐츠 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | title | String | 몰입형 리더의 위쪽에 표시되는 제목 텍스트(선택 사항)입니다. |
 | 청크 | [Chunk[]](#chunk) | 청크 배열입니다. |
@@ -240,7 +240,7 @@ Default value: null
 
 #### <a name="chunk-parameters"></a>청크 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | 콘텐츠 | String | 몰입형 리더로 전송된 콘텐츠를 포함하는 문자열입니다. |
 | lang | String | 텍스트 언어입니다. 값은 IETF BCP 47 언어 태그 형식(예: en, es-ES)입니다. 지정하지 않으면 언어가 자동으로 검색됩니다. [지원되는 언어](#supported-languages)를 참조하세요. |
@@ -305,7 +305,7 @@ Default value: "text/plain"
 
 #### <a name="options-parameters"></a>옵션 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | uiLang | String | UI 언어입니다. 값은 IETF BCP 47 언어 태그 형식(예: en, es-ES)입니다. 지정하지 않으면 기본적으로 브라우저 언어로 지정됩니다. |
 | 시간 제한 | 숫자 | [launchAsync](#launchasync)에서 시간 제한 오류가 발생하기 전까지의 기간(밀리초)입니다(기본값은 15000밀리초). 리더 페이지가 열리고 회전자가 시작될 때 성공이 관찰되는 리더 페이지의 초기 시작에만 이 시간 제한이 적용됩니다. 시간 제한을 조정할 필요가 없습니다. |
@@ -354,7 +354,7 @@ Default value: null
 ##### `preferences`
 
 > [!CAUTION]
-> **중요** 예기치 않은 동작이 발생하여 고객의 사용자 경험이 저하될 수 있으므로 몰입형 리더 애플리케이션과 주고받는 `-preferences` 문자열의 값을 프로그래밍 방식으로 변경하려고 시도하지 않습니다. 호스트 애플리케이션은 `-preferences` 문자열을 조작하거나 사용자 지정 값을 할당하면 안 됩니다. `-preferences` 문자열 옵션을 사용할 때 `-onPreferencesChanged` 콜백 옵션에서 반환된 정확한 값만 사용합니다.
+> **중요** 예기치 않은 동작이 발생하여 고객의 사용자 경험이 저하될 수 있으므로 몰입형 리더 애플리케이션과 주고받는 `-preferences` 문자열의 값을 프로그래밍 방식으로 변경하려고 시도하지 않습니다. 호스트 애플리케이션에서 사용자 지정 값을 할당하거나 `-preferences` 문자열을 조작하면 안 됩니다. `-preferences` 문자열 옵션을 사용할 때 `-onPreferencesChanged` 콜백 옵션에서 반환된 정확한 값만 사용합니다.
 
 ```Parameters
 Type: String
@@ -390,7 +390,7 @@ type ReadAloudOptions = {
 
 #### <a name="readaloudoptions-parameters"></a>ReadAloudOptions 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | voice | String | 음성("여성" 또는 "남성")입니다. 모든 언어가 양쪽 성별을 지원하지는 않습니다. |
 | speed | 숫자 | 재생 속도입니다. 0.5 ~ 2.5(포함)여야 합니다. |
@@ -429,7 +429,7 @@ type TranslationOptions = {
 
 #### <a name="translationoptions-parameters"></a>TranslationOptions 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | 언어 | String | 번역 언어를 설정합니다. 값은 IETF BCP 47 언어 태그 형식(예: fr-FR, es-MX, zh-Hans-CN)입니다. 단어 또는 문서 번역을 사용하도록 자동으로 설정하려면 필요합니다. |
 | autoEnableDocumentTranslation | 부울 | 전체 문서를 자동으로 번역합니다. |
@@ -457,7 +457,7 @@ type DisplayOptions = {
 
 #### <a name="displayoptions-parameters"></a>DisplayOptions 매개 변수
 
-| 이름 | 유형 | Description |
+| 이름 | Type | Description |
 | ---- | ---- |------------ |
 | textSize | 숫자 | 선택한 텍스트 크기를 설정합니다. |
 | increaseSpacing | 부울 | 텍스트 간격 지정을 켜거나 끌지 설정합니다. |
@@ -491,7 +491,7 @@ enum CookiePolicy { Disable, Enable }
 
 #### <a name="settings-parameters"></a>설정 매개 변수
 
-| 설정 | 유형 | Description |
+| 설정 | Type | Description |
 | ------- | ---- | ----------- |
 | textSize | 숫자 | 선택한 텍스트 크기를 설정합니다. |
 | fontFamily | String | 선택한 글꼴("Calibri", "ComicSans", "Sitka")을 설정합니다. |

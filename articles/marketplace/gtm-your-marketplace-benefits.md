@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: dc156afa2c5b5143e1543ef58203d6dea5d046c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3f94b22d4f439769b27d38943603f7c726bfc40d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145000"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468411"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상업용 Marketplace 혜택
 
 Microsoft 상업용 Marketplace에 게시했으므로 이제 제품이 성공적으로 표시되는지 확인하려고 합니다. 제품 성장 가속화에 필요한 판매, 기술 및 마케팅 혜택을 제공합니다.
 
-제품이 Microsoft AppSource 또는 Azure Marketplace에 게시되면 [파트너 센터](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace)로 이동하여 적합한 마케팅, 영업, 기술 혜택에 액세스하고 이를 활성화합니다. Marketplace Rewards [데모 비디오](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4)에서 Marketplace Rewards에 등록하고 파트너 센터에서 혜택을 활성화하는 방법에 대한 개요를 확인하세요. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
+제품이 Microsoft AppSource 또는 Azure Marketplace에 게시되면 [파트너 센터](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace)로 이동하여 적합한 마케팅, 영업, 기술 혜택에 액세스하고 이를 활성화합니다. Marketplace Rewards 혜택은 상업용 Marketplace 참여와 매출액에 따라 발생됩니다. 더 많이 참여할수록 더 많이 돌려받습니다.
 
 ## <a name="marketplace-rewards"></a>Marketplace Rewards
 

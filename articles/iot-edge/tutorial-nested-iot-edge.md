@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 79ccd1f8107eb5d287cf74084978b92715b936fa
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 7362c134ce25341a9ce53659c3a1f7ff2889e7fa
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108133748"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083587"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices"></a>자습서: IoT Edge 디바이스의 계층 구조 만들기
 
@@ -66,7 +66,7 @@ IoT Edge 디바이스의 계층 구조를 만들려면 다음이 필요합니다
 
    다음 명령에서 자리 표시자 텍스트를 바꾸고 각 가상 머신당 한 번씩, 총 두 번 실행합니다. 각 가상 머신에는 고유한 DNS 접두사가 필요하며, 이는 이름으로도 사용됩니다. DNS 접두사는 `[a-z][a-z0-9-]{1,61}[a-z0-9]` 정규식을 따라야 합니다.
 
-   ```bash
+   ```azurecli
    az deployment group create \
     --resource-group <REPLACE_WITH_YOUR_RESOURCE_GROUP> \
     --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
@@ -278,7 +278,7 @@ Azure Portal 또는 Azure Cloud Shell을 통해 이와 같은 배포를 만드�
 
 명령을 사용하여 모듈의 상태를 볼 수 있습니다.
 
-   ```bash
+   ```azurecli
    az iot hub module-twin show --device-id <edge_device_id> --module-id '$edgeAgent' --hub-name <iot_hub_name> --query "properties.reported.[systemModules, modules]"
    ```
 
