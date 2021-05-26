@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 12/23/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 27d3253d1bd2ec407968ff03e22c34222797ad81
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 62d5d3095d2c68741a61f2df64d54287fb429110
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109656347"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375984"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -25,7 +25,7 @@ Durable Functions는 현재 다음 언어를 지원합니다.
 * **JavaScript**: Azure Functions 런타임 버전 2.x에서만 지원됩니다. Durable Functions 확장 버전 1.7.0 이상이 필요합니다. 
 * **Python**: Durable Functions 확장 버전 2.3.1 이상이 필요합니다.
 * **F#**: 미리 컴파일된 클래스 라이브러리 및 F# 스크립트. F# 스크립트는 Azure Functions 런타임 버전 1.x에서만 지원됩니다.
-* **PowerShell**: Durable Functions에 대한 지원은 현재 공개 미리 보기로 제공됩니다. Azure Functions 런타임 및 PowerShell 7 버전 3.x에서만 지원됩니다. Durable Functions 확장 버전 2.2.2 또는 이후 버전이 필요합니다. 현재 지원되는 패턴은 다음과 같습니다. [함수 체이닝](#chaining), [팬아웃/팬인](#fan-in-out), [비동기 HTTP API](#async-http).
+* **PowerShell**: Azure Functions 런타임 및 PowerShell 7 버전 3.x에서만 지원됩니다. 번들 확장의 버전 2.x가 필요합니다.
 
 최신 기능 및 업데이트에 액세스하려면 최신 버전의 Durable Functions 확장 및 언어별 Durable Functions 라이브러리를 사용하는 것이 좋습니다. [Durable Functions 버전](durable-functions-versions.md)에 대해 자세히 알아보세요.
 
@@ -127,13 +127,13 @@ main = df.Orchestrator.create(orchestrator_function)
 ```PowerShell
 param($Context)
 
-$X = Invoke-ActivityFunction -FunctionName 'F1'
-$Y = Invoke-ActivityFunction -FunctionName 'F2' -Input $X
-$Z = Invoke-ActivityFunction -FunctionName 'F3' -Input $Y
-Invoke-ActivityFunction -FunctionName 'F4' -Input $Z
+$X = Invoke-DurableActivity -FunctionName 'F1'
+$Y = Invoke-DurableActivity -FunctionName 'F2' -Input $X
+$Z = Invoke-DurableActivity -FunctionName 'F3' -Input $Y
+Invoke-DurableActivity -FunctionName 'F4' -Input $Z
 ```
 
-`Invoke-ActivityFunction` 명령을 사용하여 이름을 기준으로 다른 함수를 호출하고, 매개 변수를 전달하며, 함수 출력을 반환할 수 있습니다. 코드에서 `NoWait` 스위치 없이 `Invoke-ActivityFunction`을 호출할 때마다 Durable Functions 프레임워크는 현재 함수 인스턴스의 진행률 검사점을 설정합니다. 프로세스 또는 가상 머신이 실행 중간에 재생되면 함수 인스턴스가 이전 `Invoke-ActivityFunction` 호출에서 다시 시작됩니다. 자세한 내용은 다음 섹션인 '패턴 #2: 팬아웃/팬인'을 참조하세요.
+`Invoke-DurableActivity` 명령을 사용하여 이름을 기준으로 다른 함수를 호출하고, 매개 변수를 전달하며, 함수 출력을 반환할 수 있습니다. 코드에서 `NoWait` 스위치 없이 `Invoke-DurableActivity`을 호출할 때마다 Durable Functions 프레임워크는 현재 함수 인스턴스의 진행률 검사점을 설정합니다. 프로세스 또는 가상 머신이 실행 중간에 재생되면 함수 인스턴스가 이전 `Invoke-DurableActivity` 호출에서 다시 시작됩니다. 자세한 내용은 다음 섹션인 '패턴 #2: 팬아웃/팬인'을 참조하세요.
 
 ---
 
@@ -234,18 +234,18 @@ main = df.Orchestrator.create(orchestrator_function)
 param($Context)
 
 # Get a list of work items to process in parallel.
-$WorkBatch = Invoke-ActivityFunction -FunctionName 'F1'
+$WorkBatch = Invoke-DurableActivity -FunctionName 'F1'
 
 $ParallelTasks =
     foreach ($WorkItem in $WorkBatch) {
-        Invoke-ActivityFunction -FunctionName 'F2' -Input $WorkItem -NoWait
+        Invoke-DurableActivity -FunctionName 'F2' -Input $WorkItem -NoWait
     }
 
 $Outputs = Wait-ActivityFunction -Task $ParallelTasks
 
 # Aggregate all outputs and send the result to F3.
 $Total = ($Outputs | Measure-Object -Sum).Sum
-Invoke-ActivityFunction -FunctionName 'F3' -Input $Total
+Invoke-DurableActivity -FunctionName 'F3' -Input $Total
 ```
 
 팬아웃 작업은 `F2` 함수의 여러 인스턴스에 배포됩니다. `F2` 함수 호출에서 `NoWait` 스위치 사용법에 유의하세요. 이 스위치를 사용하면 오케스트레이터가 작업을 완료하지 않고 `F2`를 계속 호출할 수 있습니다. 작업은 동적 작업 목록을 사용하여 추적됩니다. 호출된 모든 함수가 완료될 때까지 기다리기 위해 `Wait-ActivityFunction` 명령이 호출됩니다. 그런 다음, `F2` 함수 출력이 동적 작업 목록에서 집계되어 `F3` 함수에 전달됩니다.
@@ -399,7 +399,32 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-모니터는 현재 PowerShell에서 지원되지 않습니다.
+```powershell
+param($Context)
+
+$output = @()
+
+$jobId = $Context.Input.JobId
+$machineId = $Context.Input.MachineId
+$pollingInterval = New-TimeSpan -Seconds $Context.Input.PollingInterval
+$expiryTime = $Context.Input.ExpiryTime
+
+while ($Context.CurrentUtcDateTime -lt $expiryTime) {
+    $jobStatus = Invoke-DurableActivity -FunctionName 'GetJobStatus' -Input $jobId
+    if ($jobStatus -eq "Completed") {
+        # Perform an action when a condition is met.
+        $output += Invoke-DurableActivity -FunctionName 'SendAlert' -Input $machineId
+        break
+    }
+
+    # Orchestration sleeps until this time.
+    Start-DurableTimer -Duration $pollingInterval
+}
+
+# Perform more work here, or let the orchestration end.
+
+$output
+```
 
 ---
 
@@ -501,7 +526,32 @@ main = df.Orchestrator.create(orchestrator_function)
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-사용자 상호 작용은 현재 PowerShell에서 지원되지 않습니다.
+```powershell
+param($Context)
+
+$output = @()
+
+$duration = New-TimeSpan -Seconds $Context.Input.Duration
+$managerId = $Context.Input.ManagerId
+
+$output += Invoke-DurableActivity -FunctionName "RequestApproval" -Input $managerId
+
+$durableTimeoutEvent = Start-DurableTimer -Duration $duration -NoWait
+$approvalEvent = Start-DurableExternalEventListener -EventName "ApprovalEvent" -NoWait
+
+$firstEvent = Wait-DurableTask -Task @($approvalEvent, $durableTimeoutEvent) -Any
+
+if ($approvalEvent -eq $firstEvent) {
+    Stop-DurableTimerTask -Task $durableTimeoutEvent
+    $output += Invoke-DurableActivity -FunctionName "ProcessApproval" -Input $approvalEvent
+}
+else {
+    $output += Invoke-DurableActivity -FunctionName "EscalateApproval"
+}
+
+$output
+```
+지속성 타이머를 만들려면 `Start-DurableTimer`를 호출합니다. `Start-DurableExternalEventListener`에서 알림을 받습니다. 그런 다음, `Wait-DurableTask`를 호출하여 에스컬레이션할지(시간 제한이 먼저 발생함) 또는 승인을 처리할지(시간 제한 전에 승인이 수신됨)를 결정합니다.
 
 ---
 
@@ -552,7 +602,11 @@ async def main(client: str):
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-사용자 상호 작용은 현재 PowerShell에서 지원되지 않습니다.
+```powershell
+
+Send-DurableExternalEvent -InstanceId $InstanceId -EventName "ApprovalEvent" -EventData "true"
+
+``````
 
 ---
 

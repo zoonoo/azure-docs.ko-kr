@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 05/07/2021
-ms.openlocfilehash: 4432de4bb5f156ed1be0230759fcf3cd86adfe60
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: f435ed599e39b2dd0c204ef8c2cdcbb23146bc08
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109634314"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367870"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -23,7 +23,7 @@ Azure Cosmos DB는 최신 앱 개발을 위한 완전 관리형 NoSQL 데이터�
 > [!NOTE]
 > 사용자 학습에 참여하여 Azure Cosmos DB 문서를 개선할 수 있도록 하시겠습니까? 이 5분의 [심사 설문 조사](https://aka.ms/cosmosdb-documentation-screener-survey)를 작성하려면 몇 분 정도 걸립니다. 자격이 있는 경우 대화형 리서치 세션에 참여할 슬롯을 예약할 수 있는 스케줄러로 리디렉션됩니다. 개인 데이터는 [개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 따라 이 프로세스 중에 수집되지 않습니다.
 
-Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://azure.microsoft.com/try/cosmosdb/)을 사용해 보거나, [Azure Cosmos DB 체험 계층](optimize-dev-test.md#azure-cosmos-db-free-tier)을 사용하여 처음에 400RU/초 및 5GB의 스토리지를 무료로 사용할 수 있는 계정을 얻을 수 있습니다.
+Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://azure.microsoft.com/try/cosmosdb/)을 사용해 보거나, [Azure Cosmos DB 무료 계층](free-tier.md)을 사용하여 처음에 1000RU/s 및 25GB의 스토리지를 무료로 사용할 수 있는 계정을 얻을 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)
