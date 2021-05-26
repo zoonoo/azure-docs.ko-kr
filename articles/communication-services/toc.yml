@@ -51,11 +51,11 @@
     - name: UI 라이브러리
       items:
         - name: 구성 요소 시작
-          href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-get-started-with-composites--page'
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-composites--page'
         - name: 상태 저장 클라이언트 시작
-          href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-get-started-with-stateful-client--page'
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-stateful-client--page'
         - name: UI 구성 요소 시작
-          href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-get-started-with-ui-components--page'
+          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-ui-components--page'
 - name: 자습서
   expanded: false
   items:

@@ -153,6 +153,8 @@
       href: v2-permissions-and-consent.md
     - name: 조건부 액세스
       href: v2-conditional-access-dev-guide.md
+    - name: 인증 컨텍스트
+      href: developer-guide-conditional-access-authentication-context.md
     - name: 자동 사용자 프로비저닝(SCIM)
       href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: 방법

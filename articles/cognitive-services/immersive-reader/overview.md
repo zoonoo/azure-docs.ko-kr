@@ -1,6 +1,6 @@
 ---
-title: 몰입형 리더란?
-titleSuffix: Azure Cognitive Services
+title: Azure 몰입형 리더란?
+titleSuffix: Azure Applied AI Services
 description: 몰입형 리더는 학습 능력에 차이가 있는 사용자를 돕거나 새 리더 및 언어 학습자가 독해력을 갖도록 돕기 위해 고안된 도구입니다.
 services: cognitive-services
 author: metanMSFT
@@ -12,16 +12,16 @@ ms.date: 01/4/2020
 ms.author: metang
 ms.custom: cog-serv-seo-aug-2020
 keywords: 리더, 언어 학습자, 사진 표시, 읽기 개선, 콘텐츠 읽기, 번역
-ms.openlocfilehash: 1911d3ce62434f1dc24966798e9ace259ae072bc
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a8a8f26f6b79d5a687b3adf5d68bdfd89cc837d4
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801573"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377642"
 ---
-# <a name="what-is-immersive-reader"></a>몰입형 판독기란?
+# <a name="what-is-azure-immersive-reader"></a>Azure 몰입형 리더란?
 
-[몰입형 리더](https://www.onenote.com/learningtools)는 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 몰입형 리더 클라이언트 라이브러리를 사용하면 Microsoft Word 및 Microsoft One Note에 사용된 것과 동일한 기술을 활용하여 웹 애플리케이션을 개선할 수 있습니다. 
+[몰입형 리더](https://www.onenote.com/learningtools)는 [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md)에 속하며 새 리더, 언어 학습자 및 학습 차이(예: 난독증)가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 포괄적으로 설계된 도구입니다. 몰입형 리더 클라이언트 라이브러리를 사용하면 Microsoft Word 및 Microsoft One Note에 사용된 것과 동일한 기술을 활용하여 웹 애플리케이션을 개선할 수 있습니다. 
 
 이 설명서에는 다음과 같은 유형의 문서가 포함되어 있습니다.  
 

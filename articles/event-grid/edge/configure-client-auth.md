@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.date: 05/10/2021
+ms.subservice: iot-edge
 ms.topic: article
-ms.openlocfilehash: 9525da4204e270d033f0c2354318bd71874eaf54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 29b75a135df269f695fc63a10a74438733f988fc
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91290775"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370654"
 ---
 # <a name="configure-client-authentication-of-incoming-calls"></a>들어오는 호출의 클라이언트 인증 구성
 

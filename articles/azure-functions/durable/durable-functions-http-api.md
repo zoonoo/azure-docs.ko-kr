@@ -3,14 +3,14 @@ title: 지속성 함수의 HTTP API - Azure Functions
 description: Azure Functions의 지속성 함수 확장에서 HTTP API를 구현하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 0ab9f33616547c073e8e3a2128a441238bf3a17d
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: eff6a44734600a6399f76fc7be331835ae395593
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220456"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377453"
 ---
 # <a name="http-api-reference"></a>HTTP API 참조
 
@@ -21,10 +21,10 @@ ms.locfileid: "106220456"
 | 매개 변수        | 매개 변수 유형  | 설명 |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
-| **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름** 입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
+| **`connection`** | 쿼리 문자열    | 백 엔드 스토리지 공급자에 대한 연결 앱 설정의 **이름** 입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 구성이 가정됩니다. |
 | **`systemKey`**  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 
-`systemKey`는 Azure Functions 호스트에서 자동 생성된 권한 부여 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` APIs 또는 JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload`와 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) APIs를 사용하여 올바른 `taskHub`, `connection` 및 `systemKey` 쿼리 문자열 값을 포함 하는 url을 생성할 수 있습니다.
+`systemKey`는 Azure Functions 호스트에서 자동 생성된 권한 부여 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 Azure Functions 액세스 키](../security-concepts.md#function-access-keys)와 동일한 방식으로 관리할 수 있습니다. .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` API, JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload` API 등과 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) API를 사용하여 올바른 `taskHub`, `connection` 및 `systemKey` 쿼리 문자열 값을 포함하는 URL을 생성할 수 있습니다.
 
 다음 몇 가지 섹션에서는 확장에서 지원되는 특정 HTTP API에 대해 설명하고 이 API를 사용하는 방법에 대한 예제를 제공합니다.
 
@@ -240,9 +240,6 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 또한 ‘인스턴스 상태 가져오기’ 요청에서 `instanceId`를 제거하여 모든 인스턴스의 상태를 쿼리할 수 있습니다. 이 경우 기본 매개 변수가 ‘인스턴스 상태 가져오기’와 동일합니다. 필터링을 위한 쿼리 문자열 매개 변수도 지원됩니다.
 
-기억해야 할 한 가지는 `connection` 및 `code`가 선택 사항이라는 점입니다. 함수에 익명 인증이 있는 경우 `code`가 필요하지 않습니다.
-AzureWebJobsStorage 앱 설정에 정의된 것과 다른 스토리지 연결 문자열을 사용하지 않으려면 연결 쿼리 문자열 매개 변수를 무시해도 됩니다.
-
 ### <a name="request"></a>요청
 
 함수 런타임의 버전 1.x의 경우, 요청 형식이 다음과 같이 지정됩니다(가독성을 위해 여러 줄로 표시됨).
@@ -340,8 +337,7 @@ GET /runtime/webhooks/durableTask/instances?
 ```
 
 > [!NOTE]
-> 이 작업은 인스턴스 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](durable-functions-perf-and-scale.md#instances-table) 설명서에서 확인할 수 있습니다.
->
+> 이 작업은 [기본 Azure Storage 공급자](durable-functions-storage-providers.md#azure-storage)를 사용하고 인스턴스 테이블에 행이 많은 경우 Azure Storage I/O 측면에서 비용이 매우 많이 들 수 있습니다. 인스턴스 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](durable-functions-perf-and-scale.md#instances-table) 설명서에서 확인할 수 있습니다.
 
 결과가 더 있으면 응답 헤더에 연속 토큰이 반환됩니다.  헤더의 이름은 `x-ms-continuation-token`입니다.
 
@@ -437,7 +433,7 @@ DELETE /runtime/webhooks/durabletask/instances
 | **`runtimeStatus`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정된 경우 해당 런타임 상태를 기준으로 제거된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값의 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조하세요. |
 
 > [!NOTE]
-> 이 작업은 인스턴스 및/또는 기록 테이블에 많은 행이 있는 경우 Azure Storage I/O의 측면에서 매우 비쌀 수 있습니다. 이러한 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](durable-functions-perf-and-scale.md#instances-table) 설명서에서 확인할 수 있습니다.
+> 이 작업은 [기본 Azure Storage 공급자](durable-functions-storage-providers.md#azure-storage)를 사용하고 인스턴스 및/또는 기록 테이블에 행이 많은 경우 Azure Storage I/O 측면에서 비용이 매우 많이 들 수 있습니다. 이러한 테이블에 대한 자세한 내용은 [지속성 함수의 성능 및 크기 조정(Azure Functions)](durable-functions-perf-and-scale.md#instances-table) 설명서에서 확인할 수 있습니다.
 
 ### <a name="response"></a>응답
 

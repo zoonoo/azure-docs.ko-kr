@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 1563543dec0a27094c00e446a205e94535e54229
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 97901b851353007d6b99dd39f4ecb36b7284eaf8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713527"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470414"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -141,7 +141,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     ![공급자 다운로드](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 8. 어플라이언스 설정 파일 및 키 파일을 어플라이언스용으로 만든 Windows Server 2016 머신에 복사합니다.
-9. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 마법사의 계정 관리 탭을 사용하여 모바일 서비스의 푸시 설치에 사용할 계정 세부 정보를 추가합니다. 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
+9. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
 
 10. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색** 의 **구성 서버 선택** 에서 새 어플라이언스를 선택하고 **등록 완료** 를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
 

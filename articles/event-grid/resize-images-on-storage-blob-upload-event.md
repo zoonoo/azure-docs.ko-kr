@@ -3,12 +3,12 @@ title: '자습서: Azure Event Grid를 사용하여 업로드된 이미지 크�
 description: '자습서: Azure Event Grid는 Azure Storage에 BLOB 업로드를 트리거할 수 있습니다. 이 기능을 활용하여 Azure Storage에 업로드된 이미지 파일을 Azure Functions 등의 타 서비스로 보내 크기를 조절하거나 다른 향상을 수행할 수 있습니다.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: e88dff9dcf06ad5eb120c11c4c17c3ef318e4418
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: 5b5630fe969f248f10065f1fb5049112da03e391
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897148"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457755"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
@@ -22,7 +22,7 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 ![\.NET v12 SDK용 브라우저에 게시된 웹앱을 보여주는 스크린샷.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
 
 ![\.NET v10 SDK용 브라우저에 게시된 웹앱을 보여주는 스크린샷.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
@@ -163,7 +163,7 @@ az functionapp config appsettings set --name $functionapp --resource-group $reso
   THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
-# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
 
 ```bash
 blobStorageAccountKey=$(az storage account keys list -g $resourceGroupName \
@@ -217,7 +217,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
   --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
 
 샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) 명령을 사용하여 함수 앱에 배포합니다.
 
@@ -245,7 +245,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 이 함수에 대해 자세히 알아보려면 [function.json 및 run.csx 파일](https://github.com/Azure-Samples/function-image-upload-resize/tree/master/ImageFunctions)을 참조하세요.
 
-# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
 
 이 함수에 대해 자세히 알아보려면 [function.json 및 index.js 파일](https://github.com/Azure-Samples/storage-blob-resize-function-node-v10/tree/master/Thumbnail)을 참조하세요.
 
@@ -269,7 +269,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
     
     ![Azure Portal의 함수에서 이벤트 구독 만들기](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
-    | 설정      | 제안 값  | 설명                                        |
+    | 설정      | 제안 값  | Description                                        |
     | ------------ | ---------------- | -------------------------------------------------- |
     | **이름** | imageresizersub | 새 이벤트 구독을 식별하는 이름입니다. |
     | **항목 유형** | Storage 계정 | 스토리지 계정 이벤트 공급자를 선택합니다. |
@@ -303,7 +303,7 @@ Event Grid 알림에서 함수에 전달되는 데이터에는 Blob의 URL이 �
 
 ![\.NET v12 SDK용 브라우저에 "ImageResizer"라는 제목의 게시된 웹앱을 보여주는 스크린샷.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
-# <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
+# <a name="nodejs-v10-sdk"></a>[Node.js v10 SDK](#tab/nodejsv10)
 
 **파일 선택** 을 클릭하여 파일을 선택한 다음, **이미지 업로드** 를 클릭합니다. 성공적으로 업로드되면 브라우저가 성공 페이지로 이동합니다. 홈 페이지로 돌아가려면 해당 링크를 클릭합니다. 업로드된 이미지의 복사본이 **생성된 썸네일** 영역에 표시됩니다. (처음에 이미지가 표시되지 않으면 페이지를 다시 로드해 보세요.) 이 이미지는 함수를 통해 크기 조정되어 *썸네일* 컨테이너에 추가되었으며 웹 클라이언트가 다운로드한 것입니다.
 

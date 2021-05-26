@@ -3,14 +3,14 @@ title: 지속성 함수의 버전 관리 - Azure
 description: Azure Functions의 지속성 함수 확장에서 버전 관리를 구현하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 05/12/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 87cbb94dbab241630dc7585bdf4314d858d5b4da
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c5d3ac097efd81b369db16d6f7b6a4bf59b7540a
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74232751"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110377402"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74232751"
 
 시그니처 변경은 함수의 이름, 입력 또는 출력의 변경을 나타냅니다. 이러한 종류의 변경이 작업 또는 엔터티 함수에 적용되면 이 함수에 종속된 오케스트레이터 함수가 손상될 수 있습니다. 이 변경에 따라 오케스트레이터 함수를 업데이트하면 진행 중인 기존 인스턴스를 손상시킬 수 있습니다.
 
-예를 들어 다음과 같은 오케스트레이터 함수가 있다고 가정합니다.
+예를 들어 다음과 같은 C# 오케스트레이터 함수가 있다고 가정합니다.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -41,23 +41,20 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 [FunctionName("FooBar")]
 public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
-    int result = await context.CallActivityAsync<int>("Foo");
+    string result = await context.CallActivityAsync<string>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-> [!NOTE]
-> 이전 C# 예제는 Durable Functions 2.x를 대상으로 합니다. Durable Functions 1.x의 경우 `IDurableOrchestrationContext` 대신 `DurableOrchestrationContext`를 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+이 변경은 오케스트레이터 함수의 새 인스턴스 모두에서 정상적으로 작동하지만 진행 중인 모든 인스턴스를 중단시킵니다. 예를 들어 오케스트레이션 인스턴스에서 `Foo`라는 함수를 호출하고 부울 값과 검사점을 다시 가져오는 경우를 살펴보겠습니다. 이 시점에서 시그니처 변경이 배포되면 검사점이 설정된 인스턴스는 다시 시작되고 `Foo`에 대한 호출을 재생할 때 즉시 실패합니다. 이 실패는 기록 테이블의 결과가 `bool`이지만 새 코드가 이를 `string`으로 역직렬화하려고 시도하여 형식이 안전한 언어에 대한 런타임 예외가 생성되기 때문에 발생합니다.
 
-이 변경은 오케스트레이터 함수의 새 인스턴스 모두에서 정상적으로 작동하지만 진행 중인 모든 인스턴스를 중단시킵니다. 예를 들어 오케스트레이션 인스턴스에서 `Foo`라는 함수를 호출하고 부울 값과 검사점을 다시 가져오는 경우를 살펴보겠습니다. 이 시점에서 시그니처 변경이 배포되면 검사점이 설정된 인스턴스는 다시 시작되고 `context.CallActivityAsync<int>("Foo")`에 대한 호출을 재생할 때 즉시 실패합니다. 이 오류는 기록 테이블의 결과가 `bool`이지만 새 코드에서 이를 `int`로 역직렬화하려고 하기 때문에 발생합니다.
-
-이 예제는 시그니처 변경으로 인해 기존 인스턴스가 손상될 수 있는 여러 가지 방법 중 하나일 뿐입니다. 일반적으로 오케스트레이터에서 함수를 호출하는 방식을 변경해야 하는 경우 변경이 문제가 될 수 있습니다.
+이 예는 함수 시그니처 변경으로 인해 기존 인스턴스가 손상될 수 있는 여러 가지 방법 중 하나일 뿐입니다. 일반적으로 오케스트레이터에서 함수를 호출하는 방식을 변경해야 하는 경우 변경이 문제가 될 수 있습니다.
 
 ### <a name="changing-orchestrator-logic"></a>오케스트레이터 논리 변경
 
-다른 종류의 버전 관리 문제는 진행 중인 인스턴스의 재생 논리에 혼란을 주는 방식으로 오케스트레이터 함수 코드를 변경하는 것입니다.
+다른 종류의 버전 관리 문제는 진행 중인 인스턴스의 실행 경로를 변경시키는 방식으로 오케스트레이터 함수 코드를 변경하는 것입니다.
 
-다음 오케스트레이터 함수를 살펴보세요.
+다음 C# 오케스트레이터 함수를 살펴보세요.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -68,7 +65,7 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-이제 다른 함수 호출을 추가하기 위해 겉으로는 문제가 없는 변경을 수행하려고 한다고 가정해 보겠습니다.
+이제 두 개의 기존 함수 호출 사이에 새 함수 호출을 추가하도록 변경하려고 한다고 가정해 보겠습니다.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -84,71 +81,50 @@ public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext conte
 }
 ```
 
-> [!NOTE]
-> 이전 C# 예제는 Durable Functions 2.x를 대상으로 합니다. Durable Functions 1.x의 경우 `DurableOrchestrationContext` 대신 `IDurableOrchestrationContext`를 사용해야 합니다. 버전 간의 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
-
-이 변경은 **Foo** 와 **Bar** 간의 **SendNotification** 에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar** 에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생하는 동안 **Foo** 에 대한 원래 호출에서 `true`를 반환하는 경우 오케스트레이터 재생은 실행 기록에 없는 **SendNotification** 으로 호출됩니다. 결과적으로 지속성 작업 프레임워크는 **Bar** 에 대한 호출을 예상했지만 **SendNotification** 에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. `CreateTimer`, `WaitForExternalEvent` 등을 포함한 "내구성이 있는" API에 대한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다.
+이 변경은 *Foo* 와 *Bar* 간의 *SendNotification* 에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 *Bar* 에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생하는 동안 *Foo* 에 대한 원래 호출에서 `true`를 반환하는 경우 오케스트레이터 재생은 실행 기록에 없는 *SendNotification* 으로 호출됩니다. 지속성 작업 프레임워크는 이 불일치를 감지하고 *Bar* 에 대한 호출을 예상했을 때 *SendNotification* 에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`을 throw합니다. 지속성 타이머 만들기, 외부 이벤트 대기, 하위 오케스트레이션 호출 등과 같이 다른 지속성 작업에 API 호출을 추가할 때 동일한 형식의 문제가 발생할 수 있습니다.
 
 ## <a name="mitigation-strategies"></a>완화 전략
 
 버전 관리 문제를 처리하기 위한 몇 가지 전략은 다음과 같습니다.
 
-* 아무 작업도 수행하지 않음
+* 아무 작업도 하지 않음(권장되지 않음)
 * 진행 중인 모든 인스턴스 중지
 * 병렬 배포
 
 ### <a name="do-nothing"></a>아무 작업도 수행하지 않음
 
-주요 변경을 처리하는 가장 쉬운 방법은 진행 중인 오케스트레이션 인스턴스를 실패하게 만드는 것입니다. 새 인스턴스가 변경된 코드를 성공적으로 실행합니다.
+경험이 없는 버전 관리 방식으로 인해 아무 작업도 수행되지 않고 진행 중인 오케스트레이션 인스턴스가 실패할 수 있습니다. 변경 유형에 따라 다음과 같은 유형의 오류가 발생할 수 있습니다.
 
-이러한 유형의 실패가 문제인지 여부는 진행 중인 인스턴스의 중요도에 따라 다릅니다. 현재 개발 중에 있고 진행 중인 인스턴스가 중요하지 않으면 이 정도로 충분할 수 있습니다. 그러나 진단 파이프라인에서 예외와 오류를 처리해야 합니다. 이러한 문제를 방지하려면 다른 버전 관리 옵션을 사용하는 것이 좋습니다.
+* 오케스트레이션이 `NonDeterministicOrchestrationException` 오류와 함께 실패할 수 있습니다.
+* 오케스트레이션이 무기한 중단되어 `Running` 상태를 보고할 수 있습니다.
+* 함수가 제거되면 호출을 시도하는 모든 함수에서 오류가 발생하여 실패할 수 있습니다.
+* 함수가 실행되도록 예약된 후 제거되면 앱이 지속성 작업 프레임워크 엔진에서 하위 수준 런타임 오류가 발생할 수 있으며, 이로 인해 심각하게 성능이 저하될 수 있습니다.
+
+이러한 잠재적인 실패로 인해 "아무것도 하지 않음" 전략은 권장되지 않습니다.
 
 ### <a name="stop-all-in-flight-instances"></a>진행 중인 모든 인스턴스 중지
 
-다른 옵션으로 진행 중인 모든 인스턴스를 중지하는 것입니다. 내부 **제어 큐** 및 **작업 항목 큐** 의 내용을 지움으로써 모든 인스턴스를 중지할 수 있습니다. 인스턴스는 원래 위치에 영원히 고정되지만 오류 메시지로 로그를 어지럽히지는 않습니다. 이 접근 방식은 신속한 프로토타입 개발에 적합합니다.
+다른 옵션으로 진행 중인 모든 인스턴스를 중지하는 것입니다. 기본 [Durable Functions에 대한 Azure Storage 공급자](durable-functions-storage-providers.md#azure-storage)를 사용하는 경우 내부 **제어 큐** 및 **작업 항목 큐** 의 내용을 지워 모든 인스턴스를 중지할 수 있습니다. 또는 함수 앱을 중지하고, 이러한 큐를 삭제하고, 앱을 다시 시작할 수 있습니다. 앱이 다시 시작되면 큐가 자동으로 다시 만들어집니다. 이전 오케스트레이션 인스턴스는 "실행 중" 상태로 무기한으로 남아 있을 수 있지만 실패 메시지로 로그를 혼란스럽게 하거나 앱을 손상시키지 않습니다. 이 방법은 로컬 개발을 포함한 신속한 프로토타입 개발에 이상적입니다.
 
-> [!WARNING]
-> 이러한 큐의 세부 정보는 시간이 지남에 따라 변경될 수 있으므로 프로덕션 작업에 이 기술을 사용하지 마세요.
+> [!NOTE]
+> 이 방법을 사용하려면 기본 스토리지 리소스에 직접 액세스해야 하며, Durable Functions에서 지원하는 모든 스토리지 공급자에게는 적합하지 않습니다.
 
 ### <a name="side-by-side-deployments"></a>병렬 배포
 
 주요 변경 내용을 안전하게 배포하는 가장 확실한 방법은 이전 버전과 함께 나란히 배포하는 것입니다. 이렇게 하려면 다음 방법 중 하나를 사용하면 됩니다.
 
-* 기존 함수를 그대로 두고 완전히 새로운 함수로 모든 업데이트를 배포합니다. 새 함수 버전의 호출자는 동일한 지침에 따라 업데이트해야 하기 때문에 까다로울 수 있습니다.
+* 기존 함수를 그대로 두고 완전히 새로운 함수로 모든 업데이트를 배포합니다. 이는 새 함수 버전의 호출자를 재귀적으로 업데이트하는 것과 관련된 복잡성 때문에 일반적으로 권장되지 않습니다.
 * 다른 스토리지 계정을 사용하는 새 함수 앱으로 모든 업데이트를 배포합니다.
-* 동일한 스토리지 계정을 사용하지만 업데이트된 `taskHub` 이름으로 함수 앱의 새 복사본을 배포합니다. 병렬 배포하는 것이 좋습니다.
+* 동일한 스토리지 계정을 사용하지만 업데이트된 [작업 허브](durable-functions-task-hubs.md) 이름으로 함수 앱의 새 복사본을 배포합니다. 그러면 새 버전의 앱에서 사용할 수 있는 새 스토리지 아티팩트가 만들어집니다. 이전 버전의 앱은 이전 스토리지 아티팩트 집합을 사용하여 계속 실행됩니다.
 
-### <a name="how-to-change-task-hub-name"></a>작업 허브 이름을 변경하는 방법
+병렬 배포는 새 버전의 함수 앱을 배포하는 데 권장되는 기술입니다.
 
-작업 허브는 *host.json* 파일에서 다음과 같이 구성할 수 있습니다.
+> [!NOTE]
+> 병렬 배포 전략에 대한 이 지침은 Azure Storage 관련 용어를 사용하지만 일반적으로 지원되는 모든 [Durable Functions 스토리지 공급자](durable-functions-storage-providers.md)에 적용됩니다.
 
-#### <a name="functions-1x"></a>Functions 1.x
+### <a name="deployment-slots"></a>배포 슬롯
 
-```json
-{
-    "durableTask": {
-        "hubName": "MyTaskHubV2"
-    }
-}
-```
-
-#### <a name="functions-20"></a>Functions 2.0
-
-```json
-{
-    "extensions": {
-        "durableTask": {
-            "hubName": "MyTaskHubV2"
-        }
-    }
-}
-```
-
-Durable Functions v1.x의 기본값은 `DurableFunctionsHub`입니다. Durable Functions v2.0부터 기본 작업 허브 이름은 Azure의 함수 앱 이름과 동일하거나 Azure 외부에서 실행되는 경우에는 `TestHubName`입니다.
-
-Azure Storage 엔터티의 이름은 모두 `hubName` 구성 값에 따라 지정됩니다. 작업 허브에 새 이름을 지정하면 새 버전의 애플리케이션에 대한 별도의 큐와 기록 테이블이 만들어졌는지 확인합니다. 그러나 함수 앱은 이전 작업 허브 이름으로 만든 오케스트레이션 또는 엔터티에 대한 이벤트 처리를 중지합니다.
-
-새 버전의 함수 앱을 새 [배포 슬롯](../functions-deployment-slots.md)에 배포하는 것이 좋습니다. 배포 슬롯을 사용하면 슬롯 중 하나만 활성 *프로덕션* 슬롯으로 사용하여 함수 앱의 여러 복사본을 병렬로 실행할 수 있습니다. 새 오케스트레이션 논리를 기존 인프라에 노출할 준비가 되면 새 버전을 프로덕션 슬롯으로 교환하는 것처럼 간단할 수 있습니다.
+Azure Functions 또는 Azure App Service에서 병렬 배포를 수행하는 경우 새 버전의 함수 앱을 새 [배포 슬롯](../functions-deployment-slots.md)에 배포하는 것이 좋습니다. 배포 슬롯을 사용하면 슬롯 중 하나만 활성 *프로덕션* 슬롯으로 사용하여 함수 앱의 여러 복사본을 병렬로 실행할 수 있습니다. 새 오케스트레이션 논리를 기존 인프라에 노출할 준비가 되면 새 버전을 프로덕션 슬롯으로 교환하는 것처럼 간단할 수 있습니다.
 
 > [!NOTE]
 > 이 전략은 오케스트레이터 함수에 HTTP와 웹후크 트리거를 사용할 때 가장 적합합니다. 큐 또는 Event Hubs와 같은 비 HTTP 트리거의 경우 트리거 정의는 교환 작업의 일부로 업데이트되는 [앱 설정에서 파생](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)되어야 합니다.
