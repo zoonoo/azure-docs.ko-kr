@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.openlocfilehash: 12d78846f5892e71388de6e6e76b868f9b14d4de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0a912a3023ba6d8504d5856d5a45a93d0dc9488
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88008919"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809403"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Azure Cache for Redis 서버 쪽 문제 해결
 
@@ -33,7 +33,7 @@ ms.locfileid: "88008919"
 - 캐시는 자체 최대 용량에 가까운 데이터로 채워집니다.
 - Redis가 상위 메모리 조각화를 표시합니다. 이러한 조각화는 Redis는 작은 개체에 최적화되어 있는데 큰 개체를 저장하여 발생하는 경우가 가장 많습니다.
 
-Redis는 이러한 문제를 식별하는 데 도움을 주는 [INFO](https://redis.io/commands/info) 명령을 통해 "used_memory" 및 "used_memory_rss"의 두 가지 통계를 노출합니다. 포털을 사용하여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor) 수 있습니다.
+Redis는 이러한 문제를 식별하는 데 도움을 주는 [INFO](https://redis.io/commands/info) 명령을 통해 "used_memory" 및 "used_memory_rss"의 두 가지 통계를 노출합니다. 포털을 사용하여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) 수 있습니다.
 
 메모리 사용량의 정상 유지를 위해 몇 가지 가능한 변경은 다음과 같습니다.
 
@@ -47,7 +47,7 @@ Redis는 이러한 문제를 식별하는 데 도움을 주는 [INFO](https://re
 
 서버 부하 또는 CPU 사용량이 높으면 서버가 요청을 적시에 처리할 수 없음을 의미합니다. 서버의 응답 속도가 느려지고 요청 속도를 따라갈 수 없습니다.
 
-CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-how-to-monitor.md#view-metrics-with-azure-monitor). CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다.
+CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer). CPU 사용량에서 제한 시간에 해당 하는 급증을 확인합니다.
 
 높은 서버 부하를 완화하기 위해 수행할 수 있는 몇 가지 변경 사항은 다음과 같습니다.
 
@@ -65,7 +65,7 @@ CPU 또는 서버 부하와 같은 [메트릭을 모니터링합니다](cache-ho
 
 캐시 크기가 다르면 네트워크 대역폭 용량도 다릅니다. 서버가 사용 가능한 대역폭을 초과하면 데이터가 클라이언트로 신속하게 전송되지 않습니다. 서버에서 클라이언트로 데이터를 충분히 빠르게 푸시할 수 없어서 클라이언트 요청이 시간 초과될 수 있습니다.
 
-"Cache Read" 및 "Cache Write" 메트릭을 사용하여 서버 쪽 대역폭의 사용량을 확인할 수 있습니다. 포털을 사용하여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor) 수 있습니다.
+"Cache Read" 및 "Cache Write" 메트릭을 사용하여 서버 쪽 대역폭의 사용량을 확인할 수 있습니다. 포털을 사용하여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) 수 있습니다.
 
 네트워크 대역폭 사용량이 최대 용량에 근접하는 상황을 완화하려면 다음을 수행합니다.
 

@@ -1,0 +1,85 @@
+### YamlMime:Hub
+title: Azure Applied AI Services 설명서
+summary: '일반적인 비즈니스 프로세스를 위한 솔루션 개발을 가속화하는 AI 서비스 제품군 '
+brand: azure
+metadata:
+  title: Azure Applied AI Services 설명서
+  description: Azure Applied AI Services를 통해 AI를 사용하여 복잡한 비즈니스 시나리오를 해결하는 방법을 알아봅니다.
+  ms.service: applied-ai-services
+  ms.topic: hub-page
+  author: nitinme
+  ms.author: nitinme
+  manager: nitinme
+  ms.custom: custom-portals-hub
+  ms.date: 05/05/2021
+highlightedContent:
+  items:
+    - title: Applied AI Services란?
+      itemType: overview
+      url: ./what-are-applied-ai-services.md
+    - title: Applied AI Services를 사용하는 이유
+      itemType: concept
+      url: ./why-applied-ai-services.md
+    - title: 사용 사례에 대한 고객 스포트라이트
+      itemType: learn
+      url: ./applied-ai-services-customer-spotlight-use-cases.md
+productDirectory:
+  items:
+    - title: Azure Form Recognizer
+      imageSrc: ./media/form-recognizer.svg
+      summary: 적은 시간과 비용으로 문서를 사용 가능한 데이터로 전환
+      url: ../cognitive-services/form-recognizer/index.yml
+    - title: Azure 몰입형 리더
+      imageSrc: ./media/immersive-reader.svg
+      summary: 사용자가 텍스트를 읽고 이해할 수 있도록 지원
+      url: ../cognitive-services/immersive-reader/index.yml
+    - title: Azure Metrics Advisor
+      imageSrc: ./media/metrics-advisor.svg
+      summary: 사전에 메트릭 모니터링 및 문제 진단
+      url: ../cognitive-services/metrics-advisor/index.yml
+    - title: Azure Cognitive Search
+      imageSrc: ./media/cognitive-search.svg
+      summary: 모바일 및 웹앱에 AI 기반 클라우드 검색 가져오기
+      url: ../search/index.yml
+    - title: Azure Video Analyzer
+      imageSrc: ./media/video-analytics.svg
+      summary: 비디오에서 실행 가능한 인사이트 추출
+      url: 'https://aka.ms/video-analyzer-hub'
+    - title: Azure Bot Service
+      imageSrc: ./media/bot-services.svg
+      summary: 봇 생성 및 채널 간 연결
+      url: 'https://docs.microsoft.com/composer/'
+additionalContent:
+  sections:
+    - title: 추가 리소스
+      items:
+        - title: 지원 및 도움말
+          links:
+            - text: UserVoice에 피드백 제출
+              url: 'https://aka.ms/AppliedAIUserVoice'
+            - text: Microsoft Q&A에서 질문하기
+              url: 'https://aka.ms/AppliedAIMSFTQandA'
+            - text: StackOverflow 문제 해결
+              url: 'https://aka.ms/AppliedAIStackOverflow'
+        - title: 빠른 시작으로 코딩하기
+          links:
+            - text: Azure Form Recognizer
+              url: ../cognitive-services/form-recognizer/quickstarts/get-started-with-form-recognizer.md
+            - text: Azure Metrics Advisor
+              url: ../cognitive-services/metrics-advisor/quickstarts/web-portal.md
+            - text: Azure 몰입형 리더
+              url: ../cognitive-services/immersive-reader/quickstarts/client-libraries.md
+            - text: Azure Cognitive Search
+              url: ../search/search-get-started-portal.md
+            - text: Azure Video Analyzer
+              url: 'https://aka.ms/video-analytics-qs'
+            - text: Azure Bot Service
+              url: 'https://docs.microsoft.com/composer/quickstart-create-bot'
+            - text: 무료로 시작
+              url: 'https://azure.microsoft.com/free/ai'
+        - title: 다른 Azure AI Services 살펴보기
+          links:
+            - text: Azure Cognitive Services
+              url: 'https://docs.microsoft.com/en-us/azure/cognitive-services/'
+            - text: Azure Machine Learning
+              url: 'https://docs.microsoft.com/en-us/azure/machine-learning/'

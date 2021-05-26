@@ -1,18 +1,18 @@
 ---
 title: Azure API for FHIR 다시 인덱스 작업을 실행하는 방법
 description: 이 문서에서는 다시 인덱스 작업을 실행하여 데이터베이스에서 아직 인덱싱되지 않은 검색 또는 정렬 매개 변수를 인덱싱하는 방법을 설명합니다.
-author: stevewohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/23/2021
 ms.author: cavoeg
-ms.openlocfilehash: 5285de1a8481f37238ce3e3f3038d0d4f4c3d54a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 905d9381ac93e38575e9d0ff5c6f5571122b2990
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078540"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476650"
 ---
 # <a name="running-a-reindex-job"></a>다시 인덱스 작업 실행
 

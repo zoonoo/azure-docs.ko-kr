@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 478f8be017ced99776a0b69ef034d54ba8075c6e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7d3a108185c43be2f6de72466db10db5e2ec94f1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076800"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077323"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
@@ -177,7 +177,7 @@ steps:
 
 호스팅 OS에 따라 YAML 파일에 다음 YAML 샘플 중 하나를 포함해야 합니다.
 
-#### <a name="windows-function-app"></a>Windows 함수 앱
+# <a name="windows"></a>[Windows](#tab/windows)
 
 다음 코드 조각을 사용하여 Windows 함수 앱을 배포할 수 있습니다.
 
@@ -194,7 +194,7 @@ steps:
     #slotName: '<Slot name>'
 ```
 
-#### <a name="linux-function-app"></a>Linux 함수 앱
+# <a name="linux"></a>[Linux](#tab/linux)
 
 다음 코드 조각을 사용하여 Linux 힘수 앱을 배포할 수 있습니다.
 
@@ -211,6 +211,7 @@ steps:
     #resourceGroupName: '<Resource Group Name>'
     #slotName: '<Slot name>'
 ```
+---
 
 ## <a name="template-based-pipeline"></a>템플릿 기반 파이프라인
 

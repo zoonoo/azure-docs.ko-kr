@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 1d42843805f4fce24368dd07de3a73fec2545957
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c845f5d5daf79a51b7d3f3305a4f005cabe6886d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567528"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373002"
 ---
 # <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Azure Stack Edge Pro GPU 디바이스의 Kubernetes 클러스터에 Azure Arc 사용
 
@@ -30,8 +30,8 @@ Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하기 전에 A
 
 ### <a name="for-device"></a>디바이스의 경우
 
-1. 1노드 Azure Stack Edge Pro 디바이스에 대한 로그인 자격 증명이 있어야 합니다.
-    1. 디바이스가 활성화되어야 합니다. [디바이스 활성화](azure-stack-edge-gpu-deploy-activate.md)를 참조하세요.
+1. 1노드 Azure Stack Edge Pro 디바이스에 대한 로그인 자격 증명이 있습니다.
+    1. 디바이스가 활성화되어야 있습니다. [디바이스 활성화](azure-stack-edge-gpu-deploy-activate.md)를 참조하세요.
     1. 디바이스에 Azure Portal을 통해 구성된 컴퓨팅 역할이 있으며, Kubernetes 클러스터가 있습니다. [컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
 
 1. 구독에 대한 소유자 액세스 권한이 있습니다. 서비스 주체에 대한 역할 할당 단계 중에 이 액세스 권한이 필요합니다.
@@ -74,7 +74,7 @@ Kubernetes 클러스터에서 Azure Arc를 사용하도록 설정하기 전에 �
     
     ![Kubernetes 리소스 공급자 등록 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-`az cli`를 통해 리소스 공급자를 등록할 수도 있습니다. 자세한 내용은 [Azure Arc 지원 Kubernetes에 두 공급자 등록](../azure-arc/kubernetes/quickstart-connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)을 참조하세요.
+`az cli`를 통해 리소스 공급자를 등록할 수도 있습니다. 자세한 내용은 [Azure Arc 지원 Kubernetes에 두 공급자 등록](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes)을 참조하세요.
 
 ## <a name="create-service-principal-assign-role"></a>서비스 주체 만들기, 역할 할당
 

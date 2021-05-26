@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 인식 앱, custom vision
-ms.openlocfilehash: d25b226f5dfff34aa572b40d1e4de142cf8e0b7b
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: a436dd8b4553add0d88958fa625f6f2d2fea0f80
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221247"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453788"
 ---
 # <a name="quickstart-build-a-classifier-with-the-custom-vision-website"></a>빠른 시작: Custom Vision 웹 사이트로 분류자 빌드
 
@@ -25,7 +25,7 @@ ms.locfileid: "99221247"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
 

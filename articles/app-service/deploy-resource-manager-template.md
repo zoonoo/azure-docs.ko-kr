@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: ed6edeadfb1c6f73cc10771d4a5328e7bddb3642
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 921a2c6425010dbf98c170d8435267e440883aa5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835167"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075145"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -53,7 +53,7 @@ ms.locfileid: "107835167"
 
 일반적으로 솔루션에는 이러한 리소스와 계층 중 일부만 포함됩니다. 누락된 계층의 경우 하위 리소스를 그 다음 상위 계층에 매핑합니다.
 
-다음 예제는 템플릿의 일부를 보여줍니다. 연결 문자열 구성 값은 MSDeploy 확장에 종속됩니다. MSDeploy 확장은 웹앱 및 데이터베이스에 따라 달라집니다. 
+다음 예제는 템플릿의 일부를 보여줍니다. 연결 문자열 구성 값은 MSDeploy 확장에 종속됩니다. MSDeploy 확장은 웹앱 및 데이터베이스에 따라 달라집니다.
 
 ```json
 {
@@ -82,7 +82,7 @@ ms.locfileid: "107835167"
 }
 ```
 
-위의 코드를 사용하는 즉시 실행 가능한 샘플은 [템플릿: 간단한 Umbraco 웹앱 빌드](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple)를 참조하세요.
+위의 코드를 사용하는 즉시 실행 가능한 샘플은 [템플릿: 간단한 Umbraco 웹앱 빌드](https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/umbraco/umbraco-webapp-simple)를 참조하세요.
 
 ## <a name="find-information-about-msdeploy-errors"></a>MSDeploy 오류에 대한 정보 찾기
 

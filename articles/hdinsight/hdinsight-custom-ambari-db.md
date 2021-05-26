@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: fe38ddc594060c78a2d26e9b25476e38736b4cf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0d5b67bb25f6f2425016824e5b73783a8db8e806
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98946057"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072157"
 ---
 # <a name="set-up-hdinsight-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용하여 HDInsight 클러스터 설정
 
@@ -49,7 +49,7 @@ Apache Ambari를 사용하면 Apache Hadoop 클러스터의 관리와 모니터�
 
 ## <a name="deploy-clusters-with-a-custom-ambari-db"></a>사용자 지정 Ambari DB를 사용하여 클러스터 배포
 
-사용자 고유의 외부 Ambari 데이터베이스를 사용하는 HDInsight 클러스터를 만들려면 [사용자 지정 Ambari DB 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-custom-ambari-db)을 사용합니다.
+사용자 고유의 외부 Ambari 데이터베이스를 사용하는 HDInsight 클러스터를 만들려면 [사용자 지정 Ambari DB 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-custom-ambari-db)을 사용합니다.
 
 `azuredeploy.parameters.json`에서 매개 변수를 편집하여 새 클러스터에 대한 정보와 Ambari을 보유할 데이터베이스를 지정합니다.
 

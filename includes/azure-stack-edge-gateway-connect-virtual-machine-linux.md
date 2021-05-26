@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 08/03/2020
+ms.date: 05/13/2021
 ms.author: alkohli
-ms.openlocfilehash: b3d4ec54d6db88a04f7aca46c0c96fa2d4d17ac7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45a82d85510bd432efa93211ffc9dba8b911c557
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101730641"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070750"
 ---
 VM을 만드는 동안 전달된 개인 IP를 사용하여 VM에 연결합니다.
 
@@ -64,11 +64,3 @@ VM을 만드는 동안 전달된 개인 IP를 사용하여 VM에 연결합니다
     
     Administrator@mylinuxvm:
     ```
-
-1. VM을 만들 때 공용 IP 주소를 사용한 경우 해당 IP를 사용하여 VM에 연결할 수 있습니다. 공용 IP를 가져오려면 다음 명령을 실행합니다. 
-
-   ```powershell
-   $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
-   ```
-
-   이 인스턴스에서 공용 IP는 가상 네트워크 인터페이스를 만드는 동안 전달한 개인 IP와 동일합니다.

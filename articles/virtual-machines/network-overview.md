@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: c0fa311f03de1805d2487fe469d9305c0e01af78
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: a3c07457a193e4a1285dc8a2b3c7197f6151a984
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751872"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077651"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Azure의 가상 네트워크 및 가상 머신
 
@@ -50,7 +50,7 @@ VM에 연결된 각각의 NIC는 해당 VM과 동일한 위치와 구독에 있�
 | Azure portal | Azure Portal에서 VM을 만들 때 NIC가 자동으로 만들어집니다(별도로 만든 NIC는 사용할 수 없음). 포털에서는 NIC 하나만 사용하는 VM을 만듭니다. NIC가 둘 이상 있는 VM을 만들려면 다른 방법으로 VM을 만들어야 합니다. |
 | [Azure PowerShell](./windows/multiple-nics.md) | **-PublicIpAddressId** 매개 변수와 함께 [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. |
 | [Azure CLI](./linux/multiple-nics.md) | **--public-ip-address** 매개 변수와 함께 [az network nic create](/cli/azure/network/nic)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. |
-| [템플릿](../virtual-network/template-samples.md) | 템플릿을 사용하여 네트워크 인터페이스를 배포하기 위한 지침으로 [공용 IP 주소를 사용하는 Virtual Network의 네트워크 인터페이스](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet)를 사용합니다. |
+| [템플릿](../virtual-network/template-samples.md) | 템플릿을 사용하여 네트워크 인터페이스를 배포하기 위한 지침으로 [공용 IP 주소를 사용하는 Virtual Network의 네트워크 인터페이스](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet)를 사용합니다. |
 
 ## <a name="ip-addresses"></a>IP 주소
 
@@ -114,7 +114,7 @@ VM 및 VNet을 계획할 때는 NSG를 [계획](../virtual-network/virtual-netwo
 | [Azure Portal](../virtual-network/tutorial-filter-network-traffic.md) | Azure Portal에서 VM을 만들 때 NSG가 자동으로 만들어지고 포털에서 만든 NIC에 연결됩니다. NSG 이름은 VM 이름과 **-nsg** 의 조합입니다. 이 NSG에는 1000으로 설정된 우선 순위, RDP로 설정된 서비스, TCP로 설정된 프로토콜, 3389로 설정된 포트 및 Allow로 설정된 작업이 포함된 인바운드 규칙이 있습니다. VM에 대해 다른 인바운드 트래픽을 허용하려면 해당 NSG에 추가 규칙을 추가해야 합니다. |
 | [Azure PowerShell](../virtual-network/tutorial-filter-network-traffic.md) | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용하고 필요한 규칙 정보를 제공합니다. [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)을 사용하여 NSG를 만듭니다. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)를 사용하여 NSG를 서브넷에 구성합니다. [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)를 사용하여 NSG를 VNet에 추가합니다. |
 | [Azure CLI](../virtual-network/tutorial-filter-network-traffic-cli.md) | [az network nsg create](/cli/azure/network/nsg)를 사용하여 NSG를 처음으로 만듭니다. [az network nsg rule create](/cli/azure/network/nsg/rule)를 사용하여 규칙을 NSG에 추가합니다. [az network vnet subnet update](/cli/azure/network/vnet/subnet)를 사용하여 NSG를 서브넷에 추가합니다. |
-| [템플릿](../virtual-network/template-samples.md) | 템플릿을 사용하여 네트워크 보안 그룹을 배포하기 위한 지침으로 [네트워크 보안 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create)를 사용합니다. |
+| [템플릿](../virtual-network/template-samples.md) | 템플릿을 사용하여 네트워크 보안 그룹을 배포하기 위한 지침으로 [네트워크 보안 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/security-group-create)를 사용합니다. |
 
 ## <a name="load-balancers"></a>부하 분산 장치
 
@@ -138,7 +138,7 @@ VM 및 VNet을 계획할 때는 NSG를 [계획](../virtual-network/virtual-netwo
 | Azure portal |  [Azure Portal을 사용하여 인터넷 트래픽 부하를 VM에 분산](../load-balancer/quickstart-load-balancer-standard-public-portal.md)할 수 있습니다. |
 | [Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-powershell.md) | **-PublicIpAddress** 매개 변수와 함께 [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig)를 사용하여 이전에 만든 공용 IP 주소의 식별자를 제공합니다. [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀의 구성을 만듭니다. [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig)를 사용하여 사용자가 만든 프런트 엔드 IP 구성과 연결되는 인바운드 NAT 규칙을 만듭니다. [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig)를 사용하여 필요한 프로브를 작성합니다. [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 구성을 만듭니다. [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer)를 사용하여 부하 분산 장치를 만듭니다.|
 | [Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md) | [az network lb create](/cli/azure/network/lb)를 사용하여 초기 부하 분산 장치 구성을 작성합니다. [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip)를 사용하여 이전에 만든 공용 IP 주소를 추가합니다. [az network lb address-pool create](/cli/azure/network/lb/address-pool)를 사용하여 백 엔드 주소 풀의 구성을 추가합니다. [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule)를 사용하여 NAT 규칙을 추가합니다. [az network lb rule create](/cli/azure/network/lb/rule)를 사용하여 부하 분산 장치 규칙을 추가합니다. [az network lb probe create](/cli/azure/network/lb/probe)를 사용하여 프로브를 추가합니다. |
-| [템플릿](../load-balancer/quickstart-load-balancer-standard-public-template.md) | 템플릿을 사용하여 부하 분산 장치를 배포하기 위한 지침으로 [Load Balancer의 3개 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-standard-create)을 사용합니다. |
+| [템플릿](../load-balancer/quickstart-load-balancer-standard-public-template.md) | 템플릿을 사용하여 부하 분산 장치를 배포하기 위한 지침으로 [Load Balancer의 3개 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create)을 사용합니다. |
 
 다음 표에서는 내부 부하 분산 장치를 만드는 데 사용할 수 있는 방법을 나열하고 있습니다.
 
@@ -168,7 +168,7 @@ VM을 만들고 나중에 해당 VM을 VNet으로 마이그레이션하려는 �
 | [Azure Portal](./windows/quick-create-portal.md) | 단일 NIC를 사용하는 VM을 만들기 위해 앞에서 설명한 기본 네트워크 설정을 사용합니다. 여러 NIC를 사용하는 VM을 만들려면 다른 방법을 사용해야 합니다. |
 | [Azure PowerShell](./windows/tutorial-manage-vm.md) | [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)를 사용하여 이전에 만든 NIC를 VM 구성에 추가합니다. |
 | [Azure CLI](./linux/create-cli-complete.md) | VM을 만들고 개별 단계로 작성되는 Vnet, 서브넷 및 NIC에 연결합니다. |
-| [템플릿](./windows/ps-template.md) | 템플릿을 사용하여 VM을 배포하기 위한 지침으로 [매우 간단한 Windows VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)(영문)를 사용합니다. |
+| [템플릿](./windows/ps-template.md) | 템플릿을 사용하여 VM을 배포하기 위한 지침으로 [매우 간단한 Windows VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-simple-windows)(영문)를 사용합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 VM용 Azure 가상 네트워크를 관리하는 방법에 대한 VM별 단계는 [Windows](../virtual-machines/windows/tutorial-virtual-network.md) 또는 [Linux](../virtual-machines/linux/tutorial-virtual-network.md) 자습서를 참조하세요.

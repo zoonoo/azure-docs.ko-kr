@@ -3,15 +3,15 @@ title: 가동 중지 시간이 0인 Durable Functions 배포
 description: 가동 중지 시간이 0인 배포를 위해 Durable Functions 오케스트레이션을 사용하도록 설정하는 방법을 알아봅니다.
 author: tsushi
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 707d624c47c536e00e98910a8902772703733515
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab3c9db7cc06add6019be7a92faf3f523e50f039
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102558766"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368061"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>가동 중지 시간이 0인 Durable Functions 배포
 
@@ -29,6 +29,11 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 | [슬롯으로 상태 검사](#status-check-with-slot) | 시스템에 장기 실행 오케스트레이션이 24시간 넘게 지속되거나 자주 겹치는 오케스트레이션이 없습니다. | 코드 베이스가 간단합니다.<br/>추가적인 함수 앱 관리가 필요하지 않습니다. | 추가 스토리지 계정 또는 작업 허브 관리가 필요합니다.<br/>오케스트레이션이 실행되지 않는 기간이 필요합니다. |
 | [애플리케이션 라우팅](#application-routing) | 시스템에 오케스트레이션이 실행되지 않는 기간(예: 오케스트레이션이 24시간 넘게 지속되거나 자주 겹치는 오케스트레이션이 있는 기간)이 없습니다. | 호환성이 손상되는 변경 사항이 있는 오케스트레이션을 지속적으로 실행하는 새 버전의 시스템을 처리합니다. | 지능형 애플리케이션 라우터가 필요합니다.<br/>구독에서 허용하는 함수 앱의 개수를 최대로 설정할 수 있습니다. 기본값은 100입니다. |
 
+이 문서의 나머지 부분에서는 이러한 전략에 대해 자세히 설명합니다.
+
+> [!NOTE]
+> 이러한 가동 중지 시간 없는 배포 전략에 대한 설명에서는 Durable Functions 기본 Azure Storage 공급자를 사용한다고 가정합니다. 기본 Azure Storage 공급자 이외의 스토리지 공급자를 사용하는 경우 지침이 적절하지 않을 수 있습니다. 다양한 스토리지 공급자 옵션 및 비교 방법에 대한 자세한 내용은 [Durable Functions 스토리지 공급자](durable-functions-storage-providers.md) 설명서를 참조하세요.
+
 ## <a name="versioning"></a>버전 관리
 
 함수의 새 버전을 정의하고 함수 앱에 이전 버전을 그대로 둡니다. 다이어그램에서 볼 수 있듯이 함수의 버전은 이름에 포함됩니다. 이전 버전의 함수가 유지되므로 진행 중인 오케스트레이션 인스턴스가 계속해서 참조할 수 있습니다. 한편, 새 오케스트레이션 인스턴스에 대한 요청은 최신 버전을 필요로 하며, 해당 버전은 오케스트레이션 클라이언트 함수가 앱 설정에서 참조할 수 있습니다.
@@ -37,8 +42,8 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 
 이 전략에서는 모든 함수를 복사하고 다른 함수에 대한 참조를 업데이트해야 합니다. 스크립트를 작성하면 이 작업을 더 쉽게 수행할 수 있습니다. 마이그레이션 스크립트를 사용하는 [샘플 프로젝트](https://github.com/TsuyoshiUshio/DurableVersioning)는 다음과 같습니다.
 
->[!NOTE]
->이 전략은 배포 중 가동 중지 시간을 방지하기 위해 배포 슬롯을 사용합니다. 새 배포 슬롯을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Functions 배포 슬롯](../functions-deployment-slots.md)을 참조하세요.
+> [!NOTE]
+> 이 전략은 배포 중 가동 중지 시간을 방지하기 위해 배포 슬롯을 사용합니다. 새 배포 슬롯을 만들고 사용하는 방법에 대한 자세한 내용은 [Azure Functions 배포 슬롯](../functions-deployment-slots.md)을 참조하세요.
 
 ## <a name="status-check-with-slot"></a>슬롯으로 상태 검사
 
@@ -50,7 +55,7 @@ Durable Functions의 [안정적인 실행 모델](./durable-functions-orchestrat
 
 1. 스테이징 및 프로덕션을 위해 함수 앱에 [배포 슬롯을 추가](../functions-deployment-slots.md#add-a-slot)합니다.
 
-1. 각 슬롯에 대해 [AzureWebJobsStorage 애플리케이션 설정](../functions-app-settings.md#azurewebjobsstorage)을 공유 스토리지 계정의 연결 문자열로 설정합니다. 이 스토리지 계정 연결 문자열은 Azure Functions 런타임에서 사용됩니다. 이 계정은 Azure Functions 런타임에서 사용되며 함수의 키를 관리합니다.
+1. 각 슬롯에 대해 [AzureWebJobsStorage 애플리케이션 설정](../functions-app-settings.md#azurewebjobsstorage)을 공유 스토리지 계정의 연결 문자열로 설정합니다. 이 스토리지 계정 연결 문자열은 Azure Functions 런타임에서 [함수의 액세스 키](../security-concepts.md#function-access-keys)를 안전하게 저장하는 데 사용됩니다.
 
 1. 각 슬롯에 대해 새 앱 설정(예: `DurableManagementStorage`)을 만듭니다. 값을 여러 스토리지 계정의 연결 문자열로 설정합니다. 해당 스토리지 계정은 [안정적인 실행](./durable-functions-orchestrations.md)을 위해 Durable Functions 확장에서 사용됩니다. 각 슬롯에 대해 별도의 스토리지 계정을 사용합니다. 해당 설정을 배포 슬롯 설정으로 표시하지 마세요.
 

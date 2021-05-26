@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure IoT Hub에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 626dd0f78d29a3e3b21db7d448fadc370e5cbdbd
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: bbb58fe5466eb1f8037a1f21bfe020ad622f5126
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108756463"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098681"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-iot-hub"></a>Azure IoT Hub에 대한 Azure Policy 규정 준수 컨트롤
 
