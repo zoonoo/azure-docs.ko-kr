@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/31/2021
 ms.author: mbaldwin
-ms.openlocfilehash: 51a354bfc6df43938d8e2117a7d93f9bd6749225
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3229e8a3ee482067677cdd5af1fb98b120ef8dd0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140788"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110082111"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Azure Key Vault 모니터링 및 경고
 
@@ -26,7 +26,7 @@ ms.locfileid: "108140788"
 + 메트릭을 구성하고 대시보드를 만드는 방법
 + 지정된 임계값에 대한 경고를 만드는 방법
 
-Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. [Azure Monitor의 Key Vault에 대한 자세한 정보](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-azure-monitor-for-key-vault)
+Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. [Azure Monitor의 Key Vault에 대한 자세한 정보](../../azure-monitor/insights/key-vault-insights-overview.md#introduction-to-key-vault-insights)
 
 ## <a name="basic-key-vault-metrics-to-monitor"></a>모니터링할 기본 Key Vault 메트릭
 

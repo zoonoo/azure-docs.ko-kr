@@ -12,20 +12,20 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: f9c2c15bbfcf9a9271e629ef26c11ecc4cbaaa6f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a7a26bfd979fd58ba0519aeba274b22ae502f8a8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98740111"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085927"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 앱 동의 권한
 
 이 문서에는 Azure AD(Azure Active Directory)의 사용자 지정 역할 정의에 대해 현재 사용할 수 있는 앱 동의 권한이 포함되어 있습니다. 이 문서에서는 앱 동의 및 권한과 관련된 몇 가지 일반적인 시나리오에 필요한 권한을 확인할 수 있습니다.
 
-## <a name="required-license-plan"></a>필요한 라이선스 계획
+## <a name="license-requirements"></a>라이선스 요구 사항
 
-이 기능을 사용하려면 Azure AD 조직에 대한 Azure AD Premium P1 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+[!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="app-consent-permissions"></a>앱 동의 권한
 

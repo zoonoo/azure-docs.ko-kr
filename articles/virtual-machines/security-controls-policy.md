@@ -1,18 +1,18 @@
 ---
 title: Azure Virtual Machines에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Virtual Machines에 사용 가능한 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/04/2021
+ms.date: 05/14/2021
 ms.topic: sample
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 7ab08b89c37e85027c5ea3a5ab47099ca1e5120c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 655b54685f8db899bb2e40d94886bcdd0f9b7f3c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108744167"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110083399"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-virtual-machines"></a>Azure Virtual Machines에 대한 Azure Policy 규정 준수 컨트롤 
 

@@ -4,13 +4,13 @@ description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 �
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/08/2020
-ms.openlocfilehash: 7c65c8272172cab9f5361d16141bf7b229037480
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 15235ddd1ae6bfe3166b523004bc8fe80a5b5be9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98786947"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110061465"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -44,7 +44,7 @@ HR 봇을 빌드하는 경우 "종료 예약 시간", "혜택 조회" 및 "개�
 
 ### <a name="authoring-resource"></a>작성 리소스
 
-LUIS [제작 리소스](luis-how-to-azure-subscription.md#azure-resources-for-luis)는 Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스는 연결된 Azure 서비스의 작성, 학습 및 게시 기능에 대한 액세스입니다. 리소스에는 연결된 Azure 서비스에 액세스하는 데 필요한 인증, 권한 부여 및 보안 정보가 포함되어 있습니다.
+LUIS [제작 리소스](luis-how-to-azure-subscription.md)는 Azure를 통해 사용할 수 있는 관리 가능한 항목입니다. 리소스는 연결된 Azure 서비스의 작성, 학습 및 게시 기능에 대한 액세스입니다. 리소스에는 연결된 Azure 서비스에 액세스하는 데 필요한 인증, 권한 부여 및 보안 정보가 포함되어 있습니다.
 
 제작 리소스에는 Azure "종류"의 `LUIS-Authoring`이 있습니다.
 

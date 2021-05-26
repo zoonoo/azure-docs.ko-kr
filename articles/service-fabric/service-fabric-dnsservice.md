@@ -4,17 +4,17 @@ description: Service Fabric의 DNS 서비스를 사용하여 클러스터 내부
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3227881e544893dece9f3cd5b288f5e8dc46cc59
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91268046"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088591"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
-DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
+DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다.
 
-많은 서비스, 특히 컨테이너 서비스는 기존 URL을 통해 주소를 지정할 수 있습니다. Service Fabric Naming Service 프로토콜보다는 표준 DNS 프로토콜을 사용하여 이러한 서비스를 해결할 수 있어야 합니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 엔드포인트 IP 주소를 확인할 수 있습니다. 이러한 기능은 다양한 플랫폼에서 컨테이너 서비스의 이식성을 유지하며 명명 서비스를 활용할 수 있도록 코드를 다시 작성하기보다는 기존 서비스 URL을 사용할 수 있도록 하여 “리프트 앤 시프트”시나리오를 보다 쉽게 만들 수 있습니다. 
+많은 서비스, 특히 컨테이너 서비스는 기존 URL을 통해 주소를 지정할 수 있습니다. Service Fabric Naming Service 프로토콜보다는 표준 DNS 프로토콜을 사용하여 이러한 서비스를 해결할 수 있어야 합니다. DNS 서비스를 통해 DNS 이름을 서비스 이름에 매핑할 수 있으므로 엔드포인트 IP 주소를 확인할 수 있습니다. 이러한 기능은 다양한 플랫폼에서 컨테이너 서비스의 이식성을 유지하며 명명 서비스를 활용할 수 있도록 코드를 다시 작성하기보다는 기존 서비스 URL을 사용할 수 있도록 하여 “리프트 앤 시프트”시나리오를 보다 쉽게 만들 수 있습니다.
 
 DNS 서비스는 DNS 이름을 서비스 이름에 매핑하며, 서비스 이름은 명명 서비스를 통해 확인되어 서비스 엔드포인트가 반환됩니다. 서비스의 DNS 이름은 생성 시 제공됩니다. 다음 다이어그램은 상태 비저장 서비스에 대해 DNS 서비스가 작동하는 방식을 보여 줍니다.
 
@@ -42,7 +42,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 
 클러스터를 만드는 데 포털을 사용하지 않거나 기존 클러스터를 업데이트하는 경우 템플릿에서 DNS 서비스를 활성화해야 합니다.
 
-- 새 클러스터를 배포하기 위해 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 사용자 고유의 Resource Manager 템플릿을 만들 수 있습니다. 
+- 새 클러스터를 배포하기 위해 [샘플 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.servicefabric/service-fabric-secure-cluster-5-node-1-nodetype)을 사용하거나 사용자 고유의 Resource Manager 템플릿을 만들 수 있습니다.
 - 기존 클러스터를 업데이트하기 위해 포털에서 클러스터의 리소스 그룹으로 이동하고 **Automation 스크립트** 를 클릭하여 클러스터의 현재 상태를 반영하는 템플릿 및 그룹의 다른 리소스를 사용하여 작업할 수 있습니다. 자세히 알아보려면 [리소스 그룹에서 템플릿 내보내기](../azure-resource-manager/templates/export-template-portal.md)를 참조하세요.
 
 템플릿을 가져온 후 다음 단계에 따라 DNS 서비스를 활성화할 수 있습니다.
@@ -77,7 +77,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 
        ```json
            "properties": {
-             ...  
+             ...
              "fabricSettings": [
                ...
                {
@@ -101,7 +101,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
               ]
             }
        ```
-3. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다. 
+3. 변경 사항으로 클러스터 템플릿을 업데이트한 후에는 이를 적용하여 업그레이드를 완료합니다. 업그레이드가 완료되면 DNS 시스템 서비스가 클러스터에서 실행을 시작합니다. 서비스 이름은 `fabric:/System/DnsService`이며, Service Fabric 탐색기의 **시스템** 서비스 섹션 아래에서 찾을 수 있습니다.
 
 > [!NOTE]
 > DNS를 사용 안 함에서 사용으로 업그레이드하는 경우 Service Fabric Explorer에 새 상태가 반영되지 않을 수 있습니다. 해결하려면 Azure Resource Manager 템플릿에서 UpgradePolicy를 수정하여 노드를 다시 시작합니다. 자세한 내용은 [Service Fabric 템플릿 참조](/azure/templates/microsoft.servicefabric/2019-03-01/clusters/applications)를 참조하세요.
@@ -112,7 +112,7 @@ Service Fabric 버전 6.3부터, 분할된 상태 저장 서비스 주소 지정
 ## <a name="setting-the-dns-name-for-your-service"></a>서비스에 대한 DNS 이름 설정
 ApplicationManifest.xml 파일에서 기본 서비스에 대해 선언적으로 또는 PowerShell 명령을 통해 서비스에 대한 DNS 이름을 설정할 수 있습니다.
 
-서비스의 DNS 이름은 클러스터 전체에서 확인할 수 있으므로 클러스터에서 DNS 이름의 고유성을 확인하는 것이 중요합니다. 
+서비스의 DNS 이름은 클러스터 전체에서 확인할 수 있으므로 클러스터에서 DNS 이름의 고유성을 확인하는 것이 중요합니다.
 
 `<ServiceDnsName>.<AppInstanceName>`의 이름 지정 체계를 사용하는 것이 좋습니다(예: `service1.application1`). 애플리케이션이 Docker Compose를 사용하여 배포되는 경우 서비스는 이 이름 지정 체계를 사용하여 DNS 이름이 자동으로 할당됩니다.
 
@@ -126,7 +126,7 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
       </StatelessService>
     </Service>
 ```
-애플리케이션을 배포한 후 Service Fabric Explorer의 서비스 인스턴스에는 다음 그림에 나와 있는 것처럼 이 인스턴스에 대한 DNS 이름이 표시됩니다. 
+애플리케이션을 배포한 후 Service Fabric Explorer의 서비스 인스턴스에는 다음 그림에 나와 있는 것처럼 이 인스턴스에 대한 DNS 이름이 표시됩니다.
 
 ![서비스 엔드포인트](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
@@ -175,11 +175,11 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 
 - *First-Label-Of-Partitioned-Service-DNSName* 은 서비스 DNS 이름의 첫 번째 부분입니다.
 - *PartitionPrefix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 “--”입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
-- *Target-Partition-Name* 은 파티션의 이름입니다. 
+- *Target-Partition-Name* 은 파티션의 이름입니다.
 - *PartitionSuffix* 는 클러스터 매니페스트의 DnsService 섹션 또는 클러스터의 Resource Manager 템플릿을 통해 설정할 수 있는 값입니다. 기본값은 빈 문자열입니다. 자세한 내용은 [DNS 서비스 설정](./service-fabric-cluster-fabric-settings.md#dnsservice)을 참조하세요.
 - *Remaining-Partitioned-Service-DNSName* 은 서비스 DNS 이름의 나머지 부분입니다.
 
-다음 예제는 `PartitionPrefix` 및 `PartitionSuffix`에 대한 기본 설정이 있는 클러스터에서 실행 중인 분할된 서비스에 대한 DNS 쿼리를 보여 줍니다. 
+다음 예제는 `PartitionPrefix` 및 `PartitionSuffix`에 대한 기본 설정이 있는 클러스터에서 실행 중인 분할된 서비스에 대한 DNS 쿼리를 보여 줍니다.
 
 - 범위 지정된 분할 체계를 사용하는 DNS 이름이 `backendrangedschemesvc.application`인 서비스의 “0” 파티션을 확인하려면 `backendrangedschemesvc-0.application`를 사용합니다.
 - 이름 지정된 분할 체계를 사용하는 DNS 이름이 `backendnamedschemesvc.application`인 서비스의 “first” 파티션을 확인하려면 `backendnamedschemesvc-first.application`를 사용합니다.
@@ -187,7 +187,7 @@ DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 �
 DNS 서비스는 파티션의 기본 복제본의 IP 주소를 반환합니다. 파티션을 지정하지 않으면 서비스는 무작위로 선택된 파티션의 주 복제본의 IP 주소를 반환합니다.
 
 ## <a name="using-dns-in-your-services"></a>서비스에 DNS 사용
-둘 이상의 서비스를 배포하는 경우 DNS 이름을 사용하여 통신할 다른 서비스의 엔드포인트를 찾을 수 있습니다. DNS 서비스는 상태 비저장 서비스와 Service Fabric 버전 6.3 이상에서 상태 저장 서비스에 대해 작동합니다. Service Fabric 6.3 이전 버전에서 실행 중인 상태 저장 서비스의 경우 http 호출에 기본 제공 [역방향 프록시 서비스](./service-fabric-reverseproxy.md)를 사용하여 특정 서비스 파티션을 호출할 수 있습니다. 
+둘 이상의 서비스를 배포하는 경우 DNS 이름을 사용하여 통신할 다른 서비스의 엔드포인트를 찾을 수 있습니다. DNS 서비스는 상태 비저장 서비스와 Service Fabric 버전 6.3 이상에서 상태 저장 서비스에 대해 작동합니다. Service Fabric 6.3 이전 버전에서 실행 중인 상태 저장 서비스의 경우 http 호출에 기본 제공 [역방향 프록시 서비스](./service-fabric-reverseproxy.md)를 사용하여 특정 서비스 파티션을 호출할 수 있습니다.
 
 동적 포트는 DNS 서비스에서 지원되지 않습니다. 역방향 프록시 서비스를 사용하여 동적 포트를 사용하는 서비스를 확인할 수 있습니다.
 
@@ -207,7 +207,7 @@ public class ValuesController : Controller
             HttpClient client = new HttpClient();
             var response = await client.GetAsync(uri);
             result = await response.Content.ReadAsStringAsync();
-            
+
         }
         catch (Exception e)
         {
@@ -235,7 +235,7 @@ public class ValuesController : Controller
             HttpClient client = new HttpClient();
             var response = await client.GetAsync(uri);
             result = await response.Content.ReadAsStringAsync();
-            
+
         }
         catch (Exception e)
         {
@@ -248,7 +248,7 @@ public class ValuesController : Controller
 ```
 
 ## <a name="known-issues"></a>알려진 문제
-* Service Fabric 버전 6.3 이상에서는 DNS 이름에 하이픈이 포함된 서비스 이름에 대한 DNS 조회에 문제가 있습니다. 자세한 내용은 이 [GitHub 문제](https://github.com/Azure/service-fabric-issues/issues/1197)를 추적하세요. 이 문제에 대한 수정은 다음 6.3 업데이트에서 제공될 예정입니다. 
+* Service Fabric 버전 6.3 이상에서는 DNS 이름에 하이픈이 포함된 서비스 이름에 대한 DNS 조회에 문제가 있습니다. 자세한 내용은 이 [GitHub 문제](https://github.com/Azure/service-fabric-issues/issues/1197)를 추적하세요. 이 문제에 대한 수정은 다음 6.3 업데이트에서 제공될 예정입니다.
 
 * Service Fabric 서비스에 대한 DNS 서비스는 아직 Linux에서 지원되지 않습니다. DNS 서비스는 Linux의 컨테이너에 대해 지원되지 않습니다. Fabric Client/ServicePartitionResolver를 사용한 수동 해결은 대체 수단으로 사용할 수 있습니다.
 

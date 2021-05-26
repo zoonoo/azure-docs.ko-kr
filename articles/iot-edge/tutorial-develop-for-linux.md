@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 10742ec277f5742067c432a2823cbb7592e6a752
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 63740e6d3f6df757cc7cc8847ed10a03b8831fd5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874699"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060187"
 ---
 # <a name="tutorial-develop-iot-edge-modules-with-linux-containers"></a>자습서: Linux 컨테이너로 IoT Edge 모듈 개발
 
@@ -226,10 +226,10 @@ IoT Edge 확장은 Azure에서 컨테이너 레지스트리 자격 증명을 끌
    ```
 
    `--password-stdin` 사용을 권장하는 보안 경고가 표시될 수 있습니다. 이 모범 사례는 프로덕션 시나리오에 권장되지만 이 자습서에는 포함되지 않습니다. 자세한 내용은 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 참조를 참조하세요.
-   
+
 3. Azure Container Registry에 로그인
 
-   ```cmd/sh
+   ```azurecli
    az acr login -n <ACR registry name>
    ```
 

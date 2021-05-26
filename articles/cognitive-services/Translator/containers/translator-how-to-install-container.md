@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 05/13/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 6b73492ee08f5abdb70fea8a2dcc04016f2601a2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 93cf53bb53c5a86ff6b4b073105c08c595fcf182
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382759"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480256"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Transaltor 컨테이너 설치 및 실행(미리 보기)
 
@@ -85,7 +85,7 @@ Translator 컨테이너를 사용하면 강력한 클라우드 기능과 에지 
 
 ## <a name="request-approval-to-run-container"></a>컨테이너를 실행하도록 승인 요청
 
-컨테이너에 대한 액세스를 요청하려면 [**제어된 서비스에 사용되는 Azure Cognitive Services 애플리케이션**](https://aka.ms/csgate)을 완료하고 제출합니다.
+컨테이너에 대한 액세스를 요청하려면 [**제어된 서비스에 사용되는 Azure Cognitive Services 애플리케이션**](https://aka.ms/csgate-translator)을 완료하고 제출합니다.
 
 [!INCLUDE [Request access to public preview](../../../../includes/cognitive-services-containers-request-access.md)]
 

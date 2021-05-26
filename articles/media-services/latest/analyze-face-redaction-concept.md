@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4907a81fc8cb55499fa97f2b02a3e19e7117bbbc
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: 2f9eca1600ffe9270ac2f02db38c815e92498afe
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286388"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086215"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Face Detector 사전 설정을 사용하여 얼굴 찾기 및 편집(흐리게)
 
@@ -29,10 +29,8 @@ Azure Media Services v3 API에는 클라우드에서 확장성 있는 얼굴 감
 
 이 문서에서는 **Face Detector 사전 설정** 에 대한 세부 정보를 제공하고 .NET용 Azure Media Services SDK와 함께 사용하는 방법을 보여줍니다.
 
-[!INCLUDE [regulation](../video-indexer/includes/regulation.md)]
-
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 프라이버시 및 보안
- 
+
 Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Azure Media Services 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 비디오를 처리하고 저장하기 위해 Azure Media Services 서비스에 업로드하려면 비디오에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Azure Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../video-indexer/faq.md)에서 확인할 수 있습니다. Azure Media Services를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
 
 ## <a name="face-redaction-modes"></a>얼굴 편집 모드
@@ -47,7 +45,7 @@ Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을
 
 이렇게 하면 필요한 JSON 파일을 수동으로 편집하지 않고 편집된 MP4 비디오 파일이 단일 단계에 생성됩니다. 작업의 자산 폴더에 있는 출력은 선택한 흐림 효과를 사용하여 흐리게 처리된 얼굴을 포함하는 단일 .mp4 파일이 됩니다. **SourceResolution** 으로 설정된 resolution 속성을 사용하면 최상의 편집 결과를 얻을 수 있습니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |"ignite-sample.mp4" |WMV, MOV 또는 MP4 형식의 동영상 |
 | 사전 설정 구성 |Face Detector 구성 | **mode**: FaceRedactorMode.Combined,  **blurType**: BlurType.Med, **resolution**: AnalysisResolution.SourceResolution |
@@ -55,9 +53,9 @@ Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을
 
 ### <a name="analyze-mode"></a>분석 모드
 
-2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치 목록이 있는, 얼굴 ID 및 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다. 
+2단계 워크플로의 **분석** 단계는 동영상 입력을 사용하여 얼굴 위치 목록이 있는, 얼굴 ID 및 JSON 파일과 검색된 각 얼굴의 jpg 이미지를 생성합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |"ignite-sample.mp4" |WMV, MPV 또는 MP4 형식의 동영상 |
 | 사전 설정 구성 |Face Detector 구성 |**mode**: FaceRedactorMode.Analyze, **resolution**: AnalysisResolution.SourceResolution|
@@ -123,7 +121,7 @@ Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을
 
 분석 단계의 출력에는 원본 동영상이 포함되지 않습니다. 동영상을 편집 모드 작업의 입력 자산으로 업로드하고 기본 파일로 선택해야 합니다.
 
-| 단계 | 파일 이름 | 참고 |
+| 단계 | 파일 이름 | 메모 |
 | --- | --- | --- |
 | 입력 자산 |"ignite-sample.mp4" |WMV, MPV 또는 MP4 형식의 동영상. 1단계와 동일한 동영상입니다. |
 | 입력 자산 |"ignite-sample_annotations.json" |1단계의 주석 메타데이터 파일로, 얼굴을 흐릿하게 변경하려는 경우 선택적으로 수정합니다. 외부 애플리케이션, 코드 또는 텍스트 편집기에서 편집해야 합니다. |
@@ -148,7 +146,6 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 **결합된** 또는 **편집** 모드에서 JSON 입력 구성을 통해 선택할 수 있는 5가지 흐리게 모드가 있습니다. **낮음**, **중간**, **높음**, **상자** 및 **검정**. 기본적으로 **중간** 이 사용됩니다.
 
 아래에 흐리게 형식의 샘플을 확인할 수 있습니다.
-
 
 #### <a name="low"></a>낮음
 
@@ -214,4 +211,3 @@ IDList에서 하나의 ID가 선택된 출력입니다.
 ## <a name="provide-feedback"></a>피드백 제공
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

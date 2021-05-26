@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 272c6e80633da826bf14389fbe0a1d2783d34a3d
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: e0b6b587437c941dbb5d6233f2b20d82424b0df8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098673"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456482"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Azure Digital Twins 이벤트 라우팅을 위한 관리 ID 사용(미리 보기): Azure CLI
 
@@ -45,7 +45,7 @@ Azure Digital Twins 인스턴스에 시스템 할당 ID를 사용하도록 설�
 시스템 관리 ID를 사용하여 인스턴스를 만들려면 다음과 같이 `--assign-identity` 매개 변수를 추가합니다.
 
 ```azurecli-interactive
-az dt create --dt-name {new_instance_name} --resource-group {resource_group} --assign-identity
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity
 ```
 
 ### <a name="add-a-system-managed-identity-to-an-existing-instance"></a>기존 인스턴스에 시스템 관리 ID 추가
@@ -57,13 +57,13 @@ az dt create --dt-name {new_instance_name} --resource-group {resource_group} --a
 관리 ID를 **사용하도록 설정** 하는 명령은 시스템 관리 ID를 사용하여 인스턴스를 만드는 명령과 동일합니다. 이러한 모든 변경 내용은 인스턴스 이름 매개 변수의 값입니다.
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity
 ```
 
 현재 사용하도록 설정된 인스턴스에서 관리 ID를 **사용하지 않도록 설정** 하려면 다음과 유사한 명령을 사용하여 `--assign-identity`를 `false`로 설정합니다.
 
 ```azurecli-interactive
-az dt create --dt-name {name_of_existing_instance} --resource-group {resource_group} --assign-identity false
+az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --assign-identity false
 ```
 
 ## <a name="assign-azure-roles-to-the-identity"></a>ID에 Azure 역할 할당 
@@ -94,7 +94,7 @@ Azure Digital Twins에서 라우팅을 위해 지원되는 엔드포인트, 경�
 다음은 시스템 관리 ID를 사용하여 인스턴스를 만들고 해당 ID에 이벤트 허브에서 `MyCustomRole`이라는 사용자 지정 역할을 할당하는 예제입니다.
 
 ```azurecli-interactive
-az dt create --dt-name {instance_name} --resource-group {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
+az dt create --dt-name <instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
 ```
 
 이 명령을 사용한 역할 할당에 대한 추가 예제는 [az dt create 참조 설명서](/cli/azure/dt#az_dt_create)를 참조하세요.
@@ -113,7 +113,7 @@ Azure Digital Twins 인스턴스에 대해 시스템 관리 ID를 설정하고 �
 ID 기반 인증을 사용하는 엔드포인트를 만들려면 `--auth-type` 매개 변수를 사용하여 `IdentityBased` 인증 유형을 지정합니다. 아래 예제에서는 Event Hubs 엔드포인트에 대한 내용을 보여 줍니다.
 
 ```azurecli-interactive
-az dt endpoint create eventhub --endpoint-name {endpoint_name} --eventhub-resource-group {eventhub_resource_group} --eventhub-namespace {eventhub_namespace} --eventhub {eventhub_name} --auth-type IdentityBased --dt-name {instance_name}
+az dt endpoint create eventhub --endpoint-name <endpoint-name> --eventhub-resource-group <eventhub-resource-group> --eventhub-namespace <eventhub-namespace> --eventhub <eventhub-name> --auth-type IdentityBased --dt-name <instance-name>
 ```
 
 ## <a name="considerations-for-disabling-system-managed-identities"></a>시스템 관리 ID를 사용하지 않도록 설정할 때 고려 사항

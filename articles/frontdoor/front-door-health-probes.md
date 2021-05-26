@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2020
+ms.date: 05/17/2021
 ms.author: duau
-ms.openlocfilehash: dd56740b7153cdbafdfa847a22d34b57f862cdf3
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 6fb47cf8c3bea7080151d635620bde549070060d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550746"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084991"
 ---
 # <a name="health-probes"></a>상태 프로브
 
@@ -26,7 +26,7 @@ ms.locfileid: "106550746"
 > Front Door는 전 세계적으로 많은 엣지 환경을 포함하므로, 백 엔드에 대한 상태 프로브 볼륨은 구성된 상태 프로브 빈도에 따라 분당 25개 요청에서 분당 1,200개 요청까지 매우 높을 수 있습니다. 기본 프로브 빈도가 30초인 경우 백 엔드 프로브 볼륨은 분당 약 200개 요청이 있어야 합니다.
 
 > [!NOTE]
-> Front Door HTTP/HTTPS 프로브는 값이 `Edge Health Probes`로 설정된 `User-Agent` 헤더와 함께 전송됩니다. 
+> Front Door HTTP/HTTPS 프로브는 값이 `Edge Health Probe`로 설정된 `User-Agent` 헤더와 함께 전송됩니다. 
 
 ## <a name="supported-protocols"></a>지원되는 프로토콜
 
@@ -44,9 +44,9 @@ Front Door는 상태 프로브를 보내기 위해 다음과 같은 HTTP 메서�
 
 ## <a name="health-probe-responses"></a>상태 프로브 응답
 
-| 응답  | Description | 
+| 응답  | 설명 | 
 | ------------- | ------------- |
-| 상태 확인  |  200 정상 상태 코드는 백 엔드가 정상임을 나타냅니다. 그 외 코드는 모두 실패로 간주됩니다. 어떠한 이유로(네트워크 오류 포함) 유효한 HTTP 응답이 프로브에 대해 수신되지 않으면 프로브가 실패로 계산됩니다.|
+| 상태 확인  | 200 정상 상태 코드는 백 엔드가 정상임을 나타냅니다. 그 외 코드는 모두 실패로 간주됩니다. 어떠한 이유로(네트워크 오류 포함) 유효한 HTTP 응답이 프로브에 대해 수신되지 않으면 프로브가 실패로 계산됩니다.|
 | 대기 시간 측정  | 대기 시간은 응답의 마지막 바이트를 수신하는 순간 프로브 요청을 보내기 직전에 측정된 벽시계 시간입니다. 각 요청에 대한 새 TCP 연결을 사용하므로 이 측정값은 기존 웜 연결을 사용하는 백 엔드에 편향되지 않습니다.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Front Door가 백 엔드 상태를 결정하는 방법
