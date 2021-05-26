@@ -1,23 +1,23 @@
 ---
 title: Azure App Service에 대한 예약 할인
-description: Azure App Service Premium v3 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
+description: Azure App Service Premium v3 및 Premium v2 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6230f86fc33dca290f6d61f923024c9352d8600
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369733"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378511"
 ---
-# <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Azure App Service Premium v3 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법
+# <a name="how-reservation-discounts-apply-to-azure-app-service"></a>Azure App Service에 예약 할인이 적용되는 방법
 
-이 문서에서는 Azure App Service Premium v3 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
+이 문서에서는 Azure App Service Premium v3 또는 Premium v2 인스턴스 및 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
 
 ## <a name="how-reservation-discounts-apply-to-premium-v3-instances"></a>Premium v3 인스턴스에 예약 할인이 적용되는 방법
 
@@ -38,6 +38,20 @@ Azure 예약 할인은 시간 단위로 실행 중인 Premium v3 인스턴스에
 2.  시간 1 중에 인스턴스 1은 0.75시간 동안 실행되고 인스턴스 2는 0.5시간 동안 실행됩니다. 시간 1의 총 사용량은 1.25시간입니다. 나머지 0.25시간에 대한 종량제 요금이 청구됩니다.
 3.  시간 2 및 시간 3의 경우 두 인스턴스는 1시간 동안 실행되었습니다. 하나의 인스턴스는 예약에 포함되고 다른 하나는 종량제 요금으로 요금이 부과됩니다.
 4.  시간 4의 경우 인스턴스 1은 0.5시간 동안 실행되고 인스턴스 2는 1시간 동안 실행됩니다. 인스턴스 1은 예약에 완전히 포함되고 인스턴스 2 중 0.5시간도 포함됩니다. 나머지 0.5시간에 대한 종량제 요금이 청구됩니다.
+
+청구 사용량 보고서에서 Azure 예약 적용 결과를 이해하고 확인하려면 [예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
+
+## <a name="how-reservation-discounts-apply-to-isolated-v2-instances"></a>Isolated v2 인스턴스에 예약 할인이 적용되는 방법
+
+Azure App Service Isolated v2 예약 인스턴스를 구입하면, 예약 할인이 예약의 특성 및 수량과 일치하는 App Service 인스턴스에 자동으로 적용됩니다. 예약은 Isolated v2 인스턴스의 비용을 포함합니다.
+
+### <a name="how-the-discount-is-applied-to-azure-app-service"></a>할인이 Azure App Service에 적용되는 방법
+
+예약 할인은 _use-it-or-lose-it(사용하지 않으면 사라짐)_ 방식입니다. 따라서 모든 시간에 대해 일치하는 리소스가 없는 경우 해당 시간의 예약 수량이 손실됩니다. 사용하지 않는 예약 시간은 이월할 수 없습니다. 리소스를 종료할 때 예약 할인이 지정된 범위에서 일치하는 다른 리소스에 자동으로 적용됩니다. 지정된 범위에서 일치하는 리소스를 찾을 수 없는 경우 예약된 시간은 소멸됩니다.
+
+### <a name="reservation-discount-for-isolated-v2-instances"></a>Isolated v2 인스턴스에 대한 예약 할인
+
+Azure 예약 할인은 시간 단위로 실행 중인 Isolated v2 인스턴스에 적용됩니다. 구입한 예약은 예약 할인을 적용하기 위해 Isolated v2 인스턴스의 사용량과 일치합니다. 전체 시간을 실행하지 못한 Isolated v2 인스턴스의 경우 예약은 현재 실행 중인 인스턴스를 비롯하여 예약을 사용하지 않은 다른 인스턴스에서 채워집니다. 시간이 종료되면 해당 시간의 인스턴스에 대한 예약 애플리케이션이 잠깁니다. 인스턴스가 1시간 동안 실행되지 않거나 시간 내 동시 인스턴스가 예약 시간을 채우지 못하는 경우 예약이 해당 시간 동안 미달 사용됩니다.
 
 청구 사용량 보고서에서 Azure 예약 적용 결과를 이해하고 확인하려면 [예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
 

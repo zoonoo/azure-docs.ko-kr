@@ -5,14 +5,16 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f806a700fa9f1788e2435a43d8fdcb19fa8134ce
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698742"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372657"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Live Video Analytics on IoT Edge 문제 해결
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 LVA(Live Video Analytics) on Azure IoT Edge에 대한 문제 해결 단계를 다룹니다.
 
@@ -181,7 +183,7 @@ Live Video Analytics on IoT Edge는 여러 토폴로지와 여러 그래프 인�
 ```
 
 다음 중 한 가지 방법으로 수행할 수 있습니다.
-* **Azure Portal** 에서 Live Video Analytics 모듈의 모듈 ID 쌍 속성을 업데이트하여   [ ![모듈 ID 쌍 속성.](media/troubleshoot-how-to/module-twin.png) ](media/troubleshoot-how-to/module-twin.png#lightbox)    
+* **Azure Portal** 에서 Live Video Analytics 모듈의 모듈 ID 쌍 속성을 업데이트하여   [ ![모듈 ID 쌍 속성.](media/troubleshoot-how-to/module-twin.png)](media/troubleshoot-how-to/module-twin.png#lightbox)    
 * 또는 **배포 매니페스트** 파일에서 Live Video Analytics 모듈의 속성 노드에 해당 항목을 추가할 수 있습니다.
 
 ### <a name="use-the-support-bundle-command"></a>support-bundle 명령 사용

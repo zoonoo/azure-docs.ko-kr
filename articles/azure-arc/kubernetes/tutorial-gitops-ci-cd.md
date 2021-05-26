@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: e27923ff1f29163f5d3390c2c92a11f3adfa5c87
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 3d7b88007a27b05119ebe93217c64279c8c541ff
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108126636"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373407"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 
@@ -28,7 +28,7 @@ ms.locfileid: "108126636"
 > * `dev` 및 `stage` 환경을 배포합니다.
 > * 애플리케이션 환경을 테스트합니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +40,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 * [이전 자습서](./tutorial-use-gitops-connected-cluster.md)를 완료하여 CI/CD 환경에 사용할 GitOps 배포 방법을 알아봅니다.
 * 이 기능의 [이점과 아키텍처](./conceptual-configurations.md)를 이해합니다.
 * 다음을 확인합니다.
-  * **arc-cicd-cluster** 라는 [Azure Arc 지원 Kubernetes 클러스터가 연결되어 있습니다](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster).
+  * **arc-cicd-cluster** 라는 [Azure Arc 지원 Kubernetes 클러스터가 연결되어 있습니다](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster).
   * [AKS 통합](../../aks/cluster-container-registry-integration.md) 또는 [비 AKS 클러스터 인증](../../container-registry/container-registry-auth-kubernetes.md)을 사용하는 ACR(Azure Container Registry)이 연결되어 있습니다.
   * [Azure Repos](/azure/devops/repos/get-started/what-is-repos) 및 [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started)에 대한 "Build Admin" 및 "Project admin" 권한이 있습니다.
 * 다음 Azure Arc 지원 Kubernetes CLI 확장 버전 1.0.0 이상을 설치합니다.
@@ -181,14 +181,13 @@ Pod마다 imagePullSecret을 설정하지 않으려면 `dev` 및 `stage` 네임�
 | ENVIRONMENT_NAME | 개발 |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | GitOps 리포지토리의 Git 연결 문자열 |
-| PAT | 원본 읽기/쓰기 권한이 있는 [개발자가 만든 PAT 토큰](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat). 나중에 변수 그룹 `stage`를 만들 때 사용할 수 있도록 저장합니다. |
+| ORGANIZATION_NAME | Azure DevOps 조직의 이름 |
+| PROJECT_NAME | Azure DevOps의 GitOps 프로젝트 이름 |
+| REPO_URL | GitOps 리포지토리의 전체 URL |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
-> [!IMPORTANT]
-> PAT를 비밀 형식으로 표시합니다. 애플리케이션에서 [Azure KeyVault](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault)의 비밀을 연결하는 것이 좋습니다.
->
 ### <a name="stage-environment-variable-group"></a>Stage 환경 변수 그룹
 
 1. **az-vote-app-dev** 변수 그룹을 복제합니다.
@@ -201,6 +200,20 @@ Pod마다 imagePullSecret을 설정하지 않으려면 `dev` 및 `stage` 네임�
 | TARGET_NAMESPACE | `stage` |
 
 이제 `dev` 및 `stage` 환경에 배포할 준비가 되었습니다.
+
+## <a name="give-more-permissions-to-the-build-service"></a>빌드 서비스에 추가 권한 부여
+CD 파이프라인은 실행 중인 빌드의 보안 토큰을 사용하여 GitOps 리포지토리에 인증합니다. 파이프라인에서 새 분기를 만들고, 변경 내용을 푸시하고, 끌어오기 요청을 만들려면 더 많은 권한이 필요합니다.
+
+1. Azure DevOps 프로젝트 기본 페이지에서 `Project settings`로 이동합니다.
+1. `Repositories`를 선택합니다.
+1. `<GitOps Repo Name>`를 선택합니다.
+1. `Security`를 선택합니다. 
+1. `<Project Name> Build Service (<Organization Name>)`의 경우 `Contribute`, `Contribute to pull requests` 및 `Create branch`를 허용합니다.
+
+자세한 내용은 다음을 참조하세요.
+- [빌드 서비스에 VC 권한 부여](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
+- [빌드 서비스 계정 권한 관리](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+
 
 ## <a name="deploy-the-dev-environment-for-the-first-time"></a>처음으로 개발 환경 배포
 CI 및 CD 파이프라인을 만들었으면 CI 파이프라인을 실행하여 앱을 처음으로 배포합니다.
@@ -219,6 +232,8 @@ CI 파이프라인은 다음을 수행합니다.
 * Docker 이미지가 변경되었고 새 이미지가 푸시되었는지 확인합니다.
 
 ### <a name="cd-pipeline"></a>CD 파이프라인
+초기 CD 파이프라인을 실행하는 동안 GitOps 리포지토리에 대한 파이프라인 액세스 권한을 부여하라는 메시지가 표시됩니다. 파이프라인에 리소스에 액세스할 수 있는 권한이 필요하다는 메시지가 표시되면 보기를 선택합니다. 그런 다음, 허용을 선택하여 파이프라인의 현재 및 향후 실행에 GitOps 리포지토리를 사용할 수 있는 권한을 부여합니다.
+
 CI 파이프라인이 성공적으로 실행되면 CD 파이프라인이 트리거되어 배포 프로세스를 완료합니다. 각 환경이 점진적으로 배포됩니다.
 
 > [!TIP]

@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a894a46ce7c78b65dde80c52f9516fcbe4d27bcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python
+ms.openlocfilehash: dcaa0f964b2a3c047826bb82ae8d1121e38f1796
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102521002"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378859"
 ---
 # <a name="track-azure-databricks-ml-experiments-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning을 사용하여 Azure Databricks ML 실험 추적(미리 보기)
 
@@ -25,6 +25,8 @@ ms.locfileid: "102521002"
 [MLflow](https://www.mlflow.org)는 기계 학습 실험의 수명 주기를 관리하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 학습 실행 메트릭 및 모델 아티팩트를 로깅하고 추적하는 MLflow의 구성 요소입니다. [Azure Databricks 및 MLflow](/azure/databricks/applications/mlflow/)에 대해 자세히 알아봅니다. 
 
 추가 MLflow 및 Azure Machine Learning 기능 통합에 대해 [MLflow 및 Azure Machine Learning을 사용하여 실험 실행 추적](how-to-use-mlflow.md)을 참조하세요.
+
+Azure Machine Learning을 통해 학습할 MLflow 프로젝트가 있는 경우 [MLflow 프로젝트 및 Azure Machine Learning을 사용하여 ML 모델 학습(미리 보기)](how-to-train-mlflow-projects.md)을 참조하세요.
 
 >[!NOTE]
 > 오픈 소스 라이브러리로 MLflow는 자주 변경됩니다. 따라서 Azure Machine Learning 및 MLflow 통합을 통해 제공되는 기능은 미리 보기로 간주해야 하며 Microsoft에서 완벽하게 지원되지 않습니다.

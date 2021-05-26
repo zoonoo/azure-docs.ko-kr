@@ -4,12 +4,12 @@ description: 종속성 원격 분석을 위한 Azure Application Insights 데이
 ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 0f9fc96479569c3411024068ed614d422035ab17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06e22c69e8d2d5187b2f78022302d10d12fe6a6c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87315974"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110098959"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 
@@ -59,7 +59,7 @@ ms.locfileid: "87315974"
 ## <a name="next-steps"></a>다음 단계
 
 - [.NET](./asp-net-dependencies.md)에 대한 종속성 추적을 설정합니다.
-- [Java](./java-agent.md)에 대한 종속성 추적을 설정합니다.
+- [Java](java-2x-agent.md)에 대한 종속성 추적을 설정합니다.
 - [사용자 지정 종속성 원격 분석을 작성합니다](./api-custom-events-metrics.md#trackdependency).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](data-model.md)을 참조하세요.
 - Application Insights에서 지원되는 [플랫폼](./platforms.md)을 확인합니다.

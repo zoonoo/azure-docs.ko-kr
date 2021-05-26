@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9965557115206cd512450d3411a70390f2249153
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 7b822b0a2d3988e055f080277d107544d5d45a84
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713520"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470484"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Azure로 마이그레이션할 GCP(Google Cloud Platform) VM 검색, 평가 및 마이그레이션
 
@@ -165,7 +165,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     9.10 **요약** 에서 **설치** 를 선택합니다.   
     9.11 설치 프로세스에 대한 정보가 **설치 진행률** 에 표시됩니다. 완료되면 **다음** 을 선택합니다. 다시 부팅하는 방법에 대한 메시지가 창에 표시됩니다. **확인** 을 선택합니다.   
     9.12 그러면 구성 서버 연결 암호에 대한 메시지가 창에 표시됩니다. 암호를 클립보드에 복사하여 원본 VM의 임시 텍스트 파일에 저장합니다. 이 암호는 나중에 Mobility Service 설치 프로세스 중에 필요합니다.
-10. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 마법사의 계정 관리 탭을 사용하여 모바일 서비스의 푸시 설치에 사용할 계정 세부 정보를 추가합니다. 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
+10. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
 11. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색** 의 **구성 서버 선택** 에서 새 어플라이언스를 선택하고 **등록 완료** 를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
 
     ![등록 완료](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)

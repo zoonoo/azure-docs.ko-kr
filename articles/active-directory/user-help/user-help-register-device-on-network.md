@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 08/31/2020
+ms.date: 05/24/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b38a0d4c5baf0f19140f2a210959b4904bf130a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90033050"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466375"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>조직의 네트워크에 개인 디바이스 등록
 개인 디바이스(일반적으로 휴대폰이나 태블릿)를 조직의 네트워크에 등록합니다. 디바이스가 등록되면 조직의 제한된 리소스에 액세스할 수 있게 됩니다.
@@ -45,24 +45,27 @@ ms.locfileid: "90033050"
 
     ![설정 화면의 계정](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. **회사 또는 학교 액세스** 를 선택한 다음, **회사 또는 학교 액세스** 화면에서 **연결** 을 선택합니다.
+1. **회사 또는 학교 액세스** 를 선택한 다음, **회사 또는 학교 액세스** 화면에서 **연결** 을 선택합니다.
 
     ![연결 옵션이 강조 표시된 회사 또는 학교 액세스 화면](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. **회사 또는 학교 계정 추가** 화면에서 회사 또는 학교 계정에 대한 이메일 주소를 입력한 후 **다음** 을 선택합니다. alain@contoso.com)을 입력합니다.
+1. **회사 또는 학교 계정 추가** 화면에서 회사 또는 학교 계정에 대한 이메일 주소를 입력한 후 **다음** 을 선택합니다. alain@contoso.com)을 입력합니다.
 
-4. 회사 또는 학교 계정에 로그인한 다음, **로그인** 을 선택합니다.
+1. 회사 또는 학교 계정에 로그인한 다음, **로그인** 을 선택합니다.
 
-5. 본인 여부 확인 요청(2단계 인증을 사용하는 경우) 및 Windows Hello 설정(필요한 경우)을 포함하는 나머지 등록 프로세스를 완료합니다.
+1. 본인 여부 확인 요청(2단계 인증을 사용하는 경우) 및 Windows Hello 설정(필요한 경우)을 포함하는 나머지 등록 프로세스를 완료합니다.
+
+1. 디바이스를 다시 시작합니다.
 
 ## <a name="to-verify-that-youre-registered"></a>등록되었는지 확인하려면
+
 설정을 통해 등록되었는지 확인할 수 있습니다.
 
 1. **설정** 을 열고 **계정** 을 선택합니다.
 
     ![설정 화면의 계정](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. **회사 또는 학교 액세스** 를 선택하고 회사 또는 학교 계정이 표시되는지 확인합니다.
+1. **회사 또는 학교 액세스** 를 선택하고 회사 또는 학교 계정이 표시되는지 확인합니다.
 
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 

@@ -5,12 +5,12 @@ ms.date: 12/2/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions-full
-ms.openlocfilehash: 7950bfb4a57db812da87f4e5f76f3075d50a8293
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3eb0c54fda14711e45af3974638d53807994df91
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107782280"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459621"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -58,10 +58,6 @@ Azure Functions는 [사용자 지정 처리기](functions-custom-handlers.md)를
 + [Docker](https://docs.docker.com/install/)  
 
 + [Docker ID](https://hub.docker.com/signup)
-
-[!INCLUDE [functions-cli-verify-prereqs](../../includes/functions-cli-verify-prereqs.md)]
-
-+ `docker login`을 실행하여 Docker에 로그인합니다. Docker가 실행되지 않으면 이 명령이 실패합니다. 이 경우 Docker를 시작하여 명령을 다시 시도하세요.
 
 [!INCLUDE [functions-cli-create-venv](../../includes/functions-cli-create-venv.md)]
 
@@ -251,7 +247,7 @@ runServer("0.0.0.0", PORT, app)
 함수를 로컬로 테스트하려면 프로젝트 폴더의 루트에서 로컬 Azure Functions 런타임 호스트를 시작합니다. 
 ::: zone pivot="programming-language-csharp"  
 ```console
-func start --build  
+func start  
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"   
