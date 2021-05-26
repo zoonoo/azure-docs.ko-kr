@@ -5,14 +5,15 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de328fb70f8abc32a89b8d5b54b0cb40a12f9356
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86171570"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110370381"
 ---
 # <a name="event-schemas"></a>이벤트 스키마
 
@@ -52,7 +53,7 @@ EventGrid 스키마는 게시 엔터티가 준수해야 하는 필수 속성 세
 
 모든 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | 필수 | Description |
+| 속성 | Type | 필수 | Description |
 | -------- | ---- | ----------- |-----------
 | 토픽 | 문자열 | No | 게시된 토픽과 일치해야 합니다. 지정하지 않으면 Event Grid가 게시된 토픽의 이름으로 채웁니다. |
 | subject | 문자열 | 예 | 게시자가 정의한 이벤트 주체의 경로입니다. |

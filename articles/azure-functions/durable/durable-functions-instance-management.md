@@ -3,30 +3,22 @@ title: 지속성 함수의 인스턴스 관리 - Azure
 description: Azure Functions의 지속성 함수 확장에서 인스턴스를 관리하는 방법을 알아봅니다.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 05/11/2021
 ms.author: azfuncdf
-ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4145ae79f1d25b80852c5c54fcc02044391f602f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199781"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376868"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Azure에서 Durable Functions의 인스턴스 관리
 
-Azure Functions에 대한 [Durable Functions](durable-functions-overview.md) 확장을 사용하고 있거나 사용하려는 경우 해당 확장을 사용하는 것이 좋습니다. Durable Functions 오케스트레이션 인스턴스를 관리하는 방법을 알아보면 최적화할 수 있습니다. 이 문서에서는 각 인스턴스 관리 작업에 대해 자세히 설명합니다.
-
-예를 들어 인스턴스를 시작 및 종료할 수 있으며 필터를 사용하여 모든 인스턴스 및 쿼리 인스턴스를 쿼리하는 기능을 포함하여 인스턴스를 쿼리할 수 있습니다. 또한 이벤트를 인스턴스로 보내고, 오케스트레이션이 완료될 때까지 대기하고, HTTP 관리 웹후크 URL을 검색할 수 있습니다. 이 문서에서는 인스턴스 되감기, 인스턴스 기록 제거 및 작업 허브 삭제를 포함하여 다른 관리 작업에 대해서도 설명합니다.
-
-Durable Functions에는 이러한 각 관리 작업을 구현하는 방법에 대한 옵션이 있습니다. 이 문서에는 .NET (C#), JavaScript 및 Python에 [Azure Functions Core Tools](../functions-run-local.md)를 사용하는 예제가 나와 있습니다.
+Durable Functions의 오케스트레이션은 기본 제공 관리 API를 사용하여 시작, 쿼리 및 종료할 수 있는 장기 실행 상태 저장 함수입니다. 외부 이벤트를 인스턴스로 보내기, 인스턴스 기록 제거 등과 같은 Durable Functions [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client)을 통해 다른 여러 인스턴스 관리 API도 노출됩니다. 이 문서에서는 지원되는 모든 인스턴스 관리 작업에 대해 자세히 설명합니다.
 
 ## <a name="start-instances"></a>인스턴스 시작
 
-오케스트레이션의 인스턴스를 시작할 수 있는 것이 중요합니다. 이 작업은 다른 함수의 트리거에서 Durable Functions 바인딩을 사용하는 경우에 일반적으로 수행됩니다.
-
-[오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client)의 `StartNewAsync`(.NET), `startNew`(JavaScript) 또는 `start_new`(Python) 메서드는 새 인스턴스를 시작합니다. 내부적으로 이 메서드는 메시지를 제어 큐에 넣고 [오케스트레이션 트리거 바인딩](durable-functions-bindings.md#orchestration-trigger)을 사용하는 지정된 이름의 함수 시작을 트리거합니다.
-
-오케스트레이션 프로세스가 성공적으로 예약되면 이 비동기 작업이 완료됩니다.
+[오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client)의 `StartNewAsync`(.NET), `startNew`(JavaScript) 또는 `start_new`(Python) 메서드는 새 오케스트레이션 인스턴스를 시작합니다. 내부적으로 이 메서드는 [Durable Functions 스토리지 공급자](durable-functions-storage-providers.md)를 통해 메시지를 쓴 다음, 반환합니다. 이 메시지는 지정된 이름을 가진 [오케스트레이션 함수](durable-functions-types-features-overview.md#orchestrator-functions)의 시작을 비동기적으로 트리거합니다.
 
 새 오케스트레이션 인스턴스를 시작 하는 데 사용할 수 있는 매개 변수는 다음과 같습니다.
 
@@ -35,7 +27,7 @@ Durable Functions에는 이러한 각 관리 작업을 구현하는 방법에 �
 * **InstanceId**: (선택 사항) 인스턴스의 고유 ID입니다. 이 매개 변수를 지정 하지 않으면 메서드는 임의의 ID를 사용합니다.
 
 > [!TIP]
-> 인스턴스 ID에 임의의 식별자를 사용하세요. 임의 인스턴스 ID는 여러 VM에서 오케스트레이터 함수를 크기 조정할 때 균등한 부하 분산을 보장하는 데 도움이 됩니다. ID가 외부 원본에서 제공되어야 하거나 [싱글톤 오케스트레이터](durable-functions-singletons.md) 패턴을 구현하는 경우에는 임의가 아닌 인스턴스 ID를 사용하는 것이 좋습니다.
+> 가능하면 인스턴스 ID에 임의의 식별자를 사용하세요. 임의 인스턴스 ID는 여러 VM에서 오케스트레이터 함수를 크기 조정할 때 균등한 부하 분산을 보장하는 데 도움이 됩니다. ID가 외부 원본에서 제공되어야 하거나 [싱글톤 오케스트레이터](durable-functions-singletons.md) 패턴을 구현하는 경우에는 임의가 아닌 인스턴스 ID를 사용하는 것이 좋습니다.
 
 다음 코드는 새 오케스트레이션 인스턴스를 시작하는 예제 함수입니다.
 
@@ -54,7 +46,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -167,6 +159,9 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 > [!NOTE]
 > Core Tools 명령은 함수 앱의 루트 디렉터리에서 실행되는 것으로 가정합니다. `connection-string-setting` 및 `task-hub-name` 매개 변수를 명시적으로 제공하면 어느 디렉토리에서든 명령을 실행할 수 있습니다. 함수 앱 호스트를 실행하지 않고 이러한 명령을 실행할 수 있지만 호스트가 실행되고 있지 않으면 일부 효과를 확인할 수 없습니다. 예를 들어 `start-new` 명령은 시작 메시지를 대상 작업 허브의 큐에 넣지만 메시지를 처리할 수 있는 함수 앱 호스트 프로세스가 실행 중이지 않은 경우에는 오케스트레이션이 실제로 실행되지 않습니다.
 
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
 다음 명령은 HelloWorld라는 함수를 시작하고 `counter-data.json` 파일의 콘텐츠를 전달합니다.
 
 ```bash
@@ -175,7 +170,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 ## <a name="query-instances"></a>쿼리 인스턴스
 
-오케스트레이션을 관리하는 노력의 일환으로 오케스트레이션 인스턴스의 상태(예: 정상적으로 완료되었는지 아니면 실패했는지 여부)에 대한 정보를 수집해야 하는 경우가 많습니다.
+새 오케스트레이션 인스턴스를 시작한 후에는 런타임 상태를 쿼리하여 실행 중인지, 완료되었는지 또는 실패했는지를 확인해야 합니다.
 
 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client)의 `GetStatusAsync`(.net), `getStatus`(JavaScript) 또는 `get_status`(Python) 메서드는 오케스트레이션 인스턴스의 상태를 쿼리합니다.
 
@@ -222,7 +217,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -258,7 +253,12 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[AzureFunctionsCoreTools](../functions-run-local.md) `durable get-runtime-status` 명령을 사용하여 오케스트레이션 인스턴스의 상태를 직접 가져올 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status` 명령을 사용하여 오케스트레이션 인스턴스의 상태를 직접 가져올 수도 있습니다.
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable get-runtime-status` 명령은 다음 매개 변수를 사용합니다.
 
 * **`id`(필수)** : 오케스트레이션 인스턴스의 ID입니다.
 * **`show-input`(선택 사항)** : `true`로 설정하는 경우 응답에 함수의 입력이 포함됩니다. 기본값은 `false`입니다.
@@ -284,16 +284,14 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 ## <a name="query-all-instances"></a>모든 인스턴스 쿼리
 
-오케스트레이션에서 한 번에 하나의 인스턴스를 쿼리하는 것보다 한 번에 모든 인스턴스를 쿼리하는 것이 더 효율적일 수 있습니다.
-
-[ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync#Microsoft_Azure_WebJobs_Extensions_DurableTask_IDurableOrchestrationClient_ListInstancesAsync_Microsoft_Azure_WebJobs_Extensions_DurableTask_OrchestrationStatusQueryCondition_System_Threading_CancellationToken_)(.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#getstatusall--)(JavaScript) 또는 `get_status_all`(Python) 메서드를 사용하여 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. .NET에서 매개 변수를 취소하려면 `CancellationToken` 개체를 전달하면 됩니다. 메서드는 쿼리 매개 변수와 일치한 오케스트레이션 인스턴스를 나타내는 개체 목록을 반환합니다.
+[ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync)(.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#getstatusall--)(JavaScript) 또는 `get_status_all`(Python) 메서드를 사용하여 [작업 허브](durable-functions-task-hubs.md)에 있는 모든 오케스트레이션 인스턴스의 상태를 쿼리할 수 있습니다. 이 메서드는 쿼리 매개 변수와 일치한 오케스트레이션 인스턴스를 나타내는 개체 목록을 반환합니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetAllStatus")]
 public static async Task Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
     [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
@@ -313,7 +311,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -354,7 +352,12 @@ function.json 구성을 위한 [인스턴스 시작](#javascript-function-json)�
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[AzureFunctionsCoreTools](../functions-run-local.md) `durable get-instances` 명령을 사용하여 인스턴스를 직접 쿼리할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable get-instances` 명령을 사용하여 인스턴스를 직접 쿼리할 수도 있습니다.
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable get-instances` 명령은 다음 매개 변수를 사용합니다.
 
 * **`top`(선택 사항)** : 이 명령은 페이징을 지원합니다. 이 매개 변수는 요청당 검색된 인스턴스의 수에 해당합니다. 기본값은 10입니다.
 * **`continuation-token`(선택 사항)** : 검색할 인스턴스의 페이지 또는 섹션을 나타내는 토큰입니다. `get-instances` 실행할 때마다 다음 인스턴스 집합에 토큰이 반환됩니다.
@@ -376,7 +379,7 @@ func durable get-instances
 ```csharp
 [FunctionName("QueryStatus")]
 public static async Task Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
     [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
@@ -404,7 +407,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -419,8 +422,8 @@ module.exports = async function(context, req) {
         df.OrchestrationRuntimeStatus.Running,
     ];
     const instances = await client.getStatusBy(
-        new Date(2018, 3, 10, 10, 1, 0),
-        new Date(2018, 3, 10, 10, 23, 59),
+        new Date(2021, 3, 10, 10, 1, 0),
+        new Date(2021, 3, 10, 10, 23, 59),
         runtimeStatus
     );
     instances.forEach((instance) => {
@@ -447,8 +450,8 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     runtime_status = [OrchestrationRuntimeStatus.Completed, OrchestrationRuntimeStatus.Running]
 
     instances = await client.get_status_by(
-        datetime(2018, 3, 10, 10, 1, 0),
-        datetime(2018, 3, 10, 10, 23, 59),
+        datetime(2021, 3, 10, 10, 1, 0),
+        datetime(2021, 3, 10, 10, 23, 59),
         runtime_status
     )
 
@@ -462,6 +465,11 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 Azure Functions Core Tools에서 `durable get-instances` 명령을 필터와 함께 사용할 수도 있습니다. 앞에서 언급한 `top`, `continuation-token`, `connection-string-setting`, `task-hub-name` 매개 변수와 함께 세 개의 필터 매개 변수(`created-after`, `created-before`, `runtime-status`)를 사용할 수 있습니다.
 
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+다음은 `durable get-instances` 명령에 대한 매개 변수입니다.
+
 * **`created-after`(선택 사항)** : 이 날짜/시간(UTC) 이후에 생성된 인스턴스를 검색합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
 * **`created-before`(선택 사항)** : 이 날짜/시간(UTC) 전에 생성된 인스턴스를 검색합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
 * **`runtime-status`(선택 사항)** : 특정 상태(예: 실행 중 또는 완료됨)를 사용하여 인스턴스를 검색합니다. 여러 상태를 공백으로 구분하여 제공할 수 있습니다.
@@ -473,7 +481,7 @@ Azure Functions Core Tools에서 `durable get-instances` 명령을 필터와 함
 필터(`created-after`, `created-before` 또는 `runtime-status`)를 제공하지 않으면 이 명령은 런타임 상태나 생성 시간에 관계없이 `top` 인스턴스를 검색합니다.
 
 ```bash
-func durable get-instances --created-after 2018-03-10T13:57:31Z --created-before  2018-03-10T23:59Z --top 15
+func durable get-instances --created-after 2021-03-10T13:57:31Z --created-before  2021-03-10T23:59Z --top 15
 ```
 
 ## <a name="terminate-instances"></a>인스턴스 종료
@@ -490,13 +498,13 @@ public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
     [QueueTrigger("terminate-queue")] string instanceId)
 {
-    string reason = "It was time to be done.";
+    string reason = "Found a bug";
     return client.TerminateAsync(instanceId, reason);
 }
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -506,7 +514,7 @@ const df = require("durable-functions");
 module.exports = async function(context, instanceId) {
     const client = df.getClient(context);
 
-    const reason = "It was time to be done.";
+    const reason = "Found a bug";
     return client.terminate(instanceId, reason);
 };
 ```
@@ -522,7 +530,7 @@ import azure.durable_functions as df
 async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.HttpResponse:
     client = df.DurableOrchestrationClient(starter)
 
-    reason = "It was time to be done."
+    reason = "Found a bug"
     return client.terminate(instance_id, reason)
 ```
 
@@ -535,7 +543,12 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[ AzureFunctionsCoreTools](../functions-run-local.md) `durable terminate` 명령을 사용하여 오케스트레이션 인스턴스를 직접 종료할 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[ AzureFunctionsCoreTools](../functions-run-local.md) `durable terminate` 명령을 사용하여 오케스트레이션 인스턴스를 직접 종료할 수도 있습니다.
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable terminate` 명령은 다음 매개 변수를 사용합니다.
 
 * **`id`(필수)** : 종료할 오케스트레이션 인스턴스의 ID입니다.
 * **`reason`(선택 사항)** : 종료 이유입니다.
@@ -545,14 +558,14 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 다음 명령은 ID가 0ab8c55a66644d68a3a8b220b12d209c인 오케스트레이션 인스턴스를 종료합니다.
 
 ```bash
-func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
+func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Found a bug"
 ```
 
 ## <a name="send-events-to-instances"></a>인스턴스에 이벤트 보내기
 
-일부 시나리오에서는 오케스트레이터 함수가 외부 이벤트를 대기하고 수신할 수 있어야 합니다. 여기에는 [사용자 상호 작용](durable-functions-overview.md#human)을 기다리는 [모니터 함수](durable-functions-overview.md#monitoring) 및 함수가 포함됩니다.
+일부 시나리오에서 오케스트레이터 함수는 외부 이벤트를 대기 및 수신 대기해야 합니다. 이것이 유용한 예제 시나리오에는 [모니터링](durable-functions-overview.md#monitoring) 및 [인간 상호 작용](durable-functions-overview.md#human) 시나리오가 포함됩니다.
 
-[오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client)의 `RaiseEventAsync`(.NET) 메서드 또는 `raiseEvent`(JavaScript) 메서드를 사용하여 실행 중인 인스턴스에 이벤트 알림을 보냅니다. 이러한 이벤트를 처리할 수 있는 인스턴스는 `WaitForExternalEvent`(.NET)를 기다리거나 `waitForExternalEvent`(JavaScript) 호출을 일시 중단하는 인스턴스입니다.
+[오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client)의 `RaiseEventAsync`(.NET), `raiseEvent`(JavaScript) 또는 `raise_event`(Python) 메서드를 사용하여 실행 중인 인스턴스에 이벤트 알림을 보낼 수 있습니다. 이러한 이벤트를 처리할 수 있는 인스턴스는 `WaitForExternalEvent`(.NET) 호출을 기다리거나 `waitForExternalEvent`(JavaScript) 작업 또는 `wait_for_external_event`(Python) 작업을 일시 중단하는 인스턴스입니다.
 
 `RaiseEventAsync`(.Net) 및 `raiseEvent`(JavaScript)에 대한 매개 변수는 다음과 같습니다.
 
@@ -574,7 +587,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -611,7 +624,12 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[AzureFunctionsCoreTools](../functions-run-local.md) `durable raise-event` 명령을 사용하여 오케스트레이션 인스턴스에 직접 이벤트를 발생 시킬 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable raise-event` 명령을 사용하여 오케스트레이션 인스턴스에 직접 이벤트를 발생 시킬 수도 있습니다.
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable raise-event` 명령은 다음 매개 변수를 사용합니다.
 
 * **`id`(필수)** : 오케스트레이션 인스턴스의 ID입니다.
 * **`event-name`** : 발생할 이벤트의 이름입니다.
@@ -631,7 +649,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 장기 실행되는 오케스트레이션에서는 오케스트레이션 결과를 기다려야 할 수 있습니다. 이 경우 오케스트레이션에서 제한 시간을 정의하는 것도 유용합니다. 제한 시간을 초과하면 결과 대신 오케스트레이션 상태가 반환되어야 합니다.
 
-`WaitForCompletionOrCreateCheckStatusResponseAsync`(.Net) 또는 `waitForCompletionOrCreateCheckStatusResponse`(JavaScript) 메서드를 사용하여 오케스트레이션 인스턴스에서 실제 출력을 동기적으로 가져올 수 있습니다. 기본적으로 이러한 메서드는 `timeout`에서 10초를 기본값으로 사용하고 `retryInterval`에서 1초를 기본값으로 사용합니다.  
+`WaitForCompletionOrCreateCheckStatusResponseAsync`(.NET), `waitForCompletionOrCreateCheckStatusResponse`(JavaScript) 또는 `wait_for_completion_or_create_check_status_response`(Python) 메서드를 사용하여 오케스트레이션 인스턴스에서 실제 출력을 동기적으로 가져올 수 있습니다. 기본적으로 이러한 메서드는 `timeout`에서 10초를 기본값으로 사용하고 `retryInterval`에서 1초를 기본값으로 사용합니다.  
 
 다음은 이 API를 사용하는 방법을 보여 주는 예제 HTTP 트리거 함수입니다.
 
@@ -683,46 +701,46 @@ def get_time_in_seconds(req: func.HttpRequest, query_parameter_name: str):
 다음 줄을 사용하여 함수를 호출합니다. 제한 시간에 2초를 사용하고 다시 시도 간격으로 0.5초를 사용합니다.
 
 ```bash
-    http POST http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5
+curl -X POST "http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5"
 ```
 
 오케스트레이션 인스턴스에 대한 응답을 가져오는 데 필요한 시간에 따라 두 가지 경우가 있습니다.
 
 * 오케스트레이션 인스턴스는 정의된 제한 시간(이 경우에 2초) 내에 완료되며 응답은 동기적으로 배달된 실제 오케스트레이션 인스턴스 출력입니다.
 
-    ```http
-        HTTP/1.1 200 OK
-        Content-Type: application/json; charset=utf-8
-        Date: Thu, 14 Dec 2018 06:14:29 GMT
-        Transfer-Encoding: chunked
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Thu, 14 Dec 2021 06:14:29 GMT
+Transfer-Encoding: chunked
 
-        [
-            "Hello Tokyo!",
-            "Hello Seattle!",
-            "Hello London!"
-        ]
-    ```
+[
+    "Hello Tokyo!",
+    "Hello Seattle!",
+    "Hello London!"
+]
+```
 
 * 오케스트레이션 인스턴스는 정의된 제한 시간 내에 완료될 수 없으며 응답은 [HTTP API URL 검색](durable-functions-http-api.md)에 설명된 기본값입니다.
 
-    ```http
-        HTTP/1.1 202 Accepted
-        Content-Type: application/json; charset=utf-8
-        Date: Thu, 14 Dec 2018 06:13:51 GMT
-        Location: http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}
-        Retry-After: 10
-        Transfer-Encoding: chunked
+```http
+HTTP/1.1 202 Accepted
+Content-Type: application/json; charset=utf-8
+Date: Thu, 14 Dec 2021 06:13:51 GMT
+Location: http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}
+Retry-After: 10
+Transfer-Encoding: chunked
 
-        {
-            "id": "d3b72dddefce4e758d92f4d411567177",
-            "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
-        }
-    ```
+{
+    "id": "d3b72dddefce4e758d92f4d411567177",
+    "sendEventPostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
+    "statusQueryGetUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
+    "terminatePostUri": "http://localhost:7071/runtime/webhooks/durabletask/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+}
+```
 
 > [!NOTE]
-> 웹후크 URL의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 달라질 수 있습니다. 앞의 예제는 Azure Functions 2.0 호스트에 대한 것입니다.
+> 웹후크 URL의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 달라질 수 있습니다. 앞의 예제는 Azure Functions 3.0 호스트에 대한 것입니다.
 
 ## <a name="retrieve-http-management-webhook-urls"></a>HTTP 관리 웹후크 URL 검색
 
@@ -830,7 +848,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -867,7 +885,12 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[AzureFunctionsCoreTools](../functions-run-local.md) `durable rewind` 명령을 사용하여 오케스트레이션 인스턴스를 직접 되감을 수도 있습니다. 사용되는 매개 변수는 다음과 같습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable rewind` 명령을 사용하여 오케스트레이션 인스턴스를 직접 되감을 수도 있습니다.
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable rewind` 명령은 다음 매개 변수를 사용합니다.
 
 * **`id`(필수)** : 오케스트레이션 인스턴스의 ID입니다.
 * **`reason`(선택 사항)** : 오케스트레이션 인스턴스를 되감는 이유입니다.
@@ -880,7 +903,7 @@ func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator
 
 ## <a name="purge-instance-history"></a>인스턴스 기록 제거
 
-오케스트레이션과 연관된 모든 데이터를 제거하려면 인스턴스 기록을 제거하면 됩니다. 예를 들어 완료된 인스턴스와 연관된 모든 Azure Table 행 및 큰 메시지 BLOB을 삭제하고자 할 수 있습니다. 이 작업을 수행하려면 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client)의 `PurgeInstanceHistoryAsync`(.Net) 또는 `purgeInstanceHistory`(JavaScript) 메서드를 사용합니다.
+오케스트레이션과 연관된 모든 데이터를 제거하려면 인스턴스 기록을 제거하면 됩니다. 예를 들어 완료된 인스턴스와 연관된 모든 Azure Table 행 및 큰 메시지 BLOB을 삭제하고자 할 수 있습니다. 이 작업을 수행하려면 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 개체의 `PurgeInstanceHistoryAsync`(.NET), `purgeInstanceHistory`(JavaScript) 또는 `purge_instance_history`(Python) 메서드를 사용합니다.
 
 이 메서드에는 두 가지 오버로드가 있습니다. 첫 번째 오버로드는 오케스트레이션 인스턴스의 ID로 기록을 제거합니다.
 
@@ -923,7 +946,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ---
 
-다음 예제에서는 지정된 시간 간격 이후에 완료된 모든 오케스트레이션 인스턴스에 대한 기록을 제거하는 타이머 트리거 함수를 보여 줍니다. 이 경우에는 30일 이상 전에 완료된 모든 인스턴스의 데이터를 제거합니다. 하루에 한 번, 오전 12시에 실행되도록 예약되어 있습니다.
+다음 예제에서는 지정된 시간 간격 이후에 완료된 모든 오케스트레이션 인스턴스에 대한 기록을 제거하는 타이머 트리거 함수를 보여 줍니다. 이 경우에는 30일 이상 전에 완료된 모든 인스턴스의 데이터를 제거합니다. 이 예제 함수는 오후 12:00 UTC에 하루에 한 번 실행되도록 예약되어 있습니다.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -931,7 +954,7 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
     [DurableClient] IDurableOrchestrationClient client,
-    [TimerTrigger("0 0 12 * * *")]TimerInfo myTimer)
+    [TimerTrigger("0 0 12 * * *")] TimerInfo myTimer)
 {
     return client.PurgeInstanceHistoryAsync(
         DateTime.MinValue,
@@ -944,7 +967,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 관한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
+> 이전 C# 코드는 Durable Functions 2.x용입니다. Durable Functions 1.x의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용해야 하며 `IDurableOrchestrationClient` 대신 `DurableOrchestrationClient` 매개 변수 형식을 사용해야 합니다. 버전 간 차이점에 대한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조하세요.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -987,6 +1010,7 @@ module.exports = async function (context, myTimer) {
     return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
 };
 ```
+
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
@@ -1010,7 +1034,12 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-[AzureFunctionsCoreTools](../functions-run-local.md) `durable purge-history` 명령을 사용하여 오케스트레이션 인스턴스의 기록을 제거할 수 있습니다. 이전 섹션의 두 번째 C# 예제와 마찬가지로, 지정된 시간 간격 동안 생성된 모든 오케스트레이션 인스턴스에 대한 기록이 제거됩니다. 제거된 인스턴스를 런타임 상태별로 추가로 필터링할 수 있습니다. 명령에는 다음과 같은 매개 변수가 있습니다.
+[AzureFunctionsCoreTools](../functions-run-local.md) `durable purge-history` 명령을 사용하여 오케스트레이션 인스턴스의 기록을 제거할 수 있습니다. 이전 섹션의 두 번째 C# 예제와 마찬가지로, 지정된 시간 간격 동안 생성된 모든 오케스트레이션 인스턴스에 대한 기록이 제거됩니다. 제거된 인스턴스를 런타임 상태별로 추가로 필터링할 수 있습니다.
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable purge-history` 명령에는 다음과 같은 여러 매개 변수가 있습니다.
 
 * **`created-after`(선택 사항)** : 이 날짜/시간(UTC) 이후에 생성된 인스턴스의 기록을 제거합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
 * **`created-before`(선택 사항)** : 이 날짜/시간(UTC) 전에 생성된 인스턴스의 기록을 제거합니다. ISO 8601 형식으로 된 날짜/시간이 허용됩니다.
@@ -1018,15 +1047,20 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 * **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
 * **`task-hub-name`(선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용됩니다.
 
-다음 명령은 2018년 11월 14일 오후 7:35(UTC) 전에 작성된 모든 실패한 인스턴스의 기록을 삭제합니다.
+다음 명령은 2021년 11월 14일 오후 7:35(UTC) 전에 작성된 모든 실패한 인스턴스의 기록을 삭제합니다.
 
 ```bash
-func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runtime-status failed
+func durable purge-history --created-before 2021-11-14T19:35:00.0000000Z --runtime-status failed
 ```
 
 ## <a name="delete-a-task-hub"></a>작업 허브 삭제
 
-[Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` 명령을 사용하여 Azure Storage 테이블, 큐, BLOB을 포함한 특정 작업 허브와 연관된 모든 스토리지 아티팩트를 삭제할 수 있습니다. 명령에는 다음 두 개의 매개 변수가 있습니다.
+[Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub` 명령을 사용하여 Azure Storage 테이블, 큐, BLOB을 포함한 특정 작업 허브와 연관된 모든 스토리지 아티팩트를 삭제할 수 있습니다. 
+
+> [!NOTE]
+> Core Tools 명령은 현재 런타임 상태를 유지하는 데 기본 [Azure Storage 공급자](durable-functions-storage-providers.md)를 사용하는 경우에만 지원됩니다.
+
+`durable delete-task-hub` 명령에는 다음과 같은 두 개의 매개 변수가 있습니다.
 
 * **`connection-string-setting`(선택 사항)** : 사용할 스토리지 연결 문자열이 포함된 애플리케이션 설정 이름입니다. 기본값은 `AzureWebJobsStorage`입니다.
 * **`task-hub-name`(선택 사항)** : 사용할 Durable Functions 작업 허브의 이름입니다. 기본적으로 [host.js](durable-functions-bindings.md#host-json) 파일의 작업 허브 이름이 사용됩니다.

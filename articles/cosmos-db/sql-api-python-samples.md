@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 947a958b7cce6909332ebdb1832be168bfdd0bde
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 3a37476af2c8082785308f4bc18a02fae3f31295
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801811"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376919"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 예제
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Azure Cosmos DB 리소스에 대해 CRUD 작업 및 다른 일반적인 작업�
     * Azure 활성 구독 내에서:
         * [Azure 체험 계정 만들기](https://azure.microsoft.com/free) 또는 기존 구독 사용 
         * [Visual Studio 월간 크레딧](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB 체험 계층](./optimize-dev-test.md#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB 체험 계층](free-tier.md)
     * Azure 활성 구독이 없는 경우:
         * 30일 동안 지속되는 테스트 환경인 [Azure Cosmos DB를 무료로 사용해 보세요](https://azure.microsoft.com/try/cosmosdb/).
         * [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator) 

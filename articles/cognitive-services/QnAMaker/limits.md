@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: ad498575b029f918538909a9b5b2d52c71c1389c
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: c654153340586004415b9d2fd8744fb539726960
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816371"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110369410"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -52,7 +52,7 @@ ms.locfileid: "107816371"
 추출할 수 있는 최대 파일 수와 최대 파일 크기는 **[QnA Maker 가격 책정 계층 제한](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)** 에 따라 다릅니다.
 
 > [!NOTE]
-> QnA Maker 관리형(미리 보기)은 추가할 수 있는 원본 수에 제한이 없는 무료 서비스입니다. 현재 처리량은 관리 API와 예측 API 모두에 대해 초당 10개의 트랜잭션으로 제한됩니다.
+> 사용자 지정 질문 답변(미리 보기)은 추가할 수 있는 원본 수에 제한이 없는 무료 서비스입니다. 현재 처리량은 관리 API와 예측 API 모두에 대해 초당 10개의 트랜잭션으로 제한됩니다.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>URL의 최대 딥 링크 수
 
@@ -128,6 +128,9 @@ URL 페이지에서 QnA 추출을 위해 크롤링할 수 있는 최대 딥 링�
 * 문서 수: 5개
 * 단일 문서의 최대 크기: 5,120자
 * 문서당 최대 응답 3개
+
+> [!IMPORTANT]
+> 비정형 파일/콘텐츠 및 미리 빌드된 API에 대한 지원은 사용자 지정 질문 답변(미리 보기)에서만 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

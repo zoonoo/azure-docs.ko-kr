@@ -1,6 +1,6 @@
 ---
-title: Metrics Advisor 서비스란?
-titleSuffix: Azure Cognitive Services
+title: Azure Metrics Advisor 서비스란?
+titleSuffix: Azure Applied AI Services
 description: Metrics Advisor란?
 services: cognitive-services
 author: mrbullwinkle
@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: dfdd7286013bbb6462fb8e5b1bdf52e6ed738029
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 34ab524cfc00cf4f74d632883ffeb18b904342a6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106384683"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376850"
 ---
-# <a name="what-is-metrics-advisor-preview"></a>Metrics Advisor(미리 보기)란? 
+# <a name="what-is-azure-metrics-advisor-preview"></a>Azure Metrics Advisor(미리 보기)란? 
 
-Metrics Advisor는 Azure Cognitive Services의 일부로, AI를 사용하여 시계열 데이터에서 데이터 모니터링과 변칙 검색을 수행합니다. 이 서비스는 데이터에 모델을 적용하는 프로세스를 자동화하고 데이터 수집, 변칙 검색 및 진단용 API 및 웹 기반 작업 영역 세트를 제공하므로 기계 학습을 몰라도 상관없습니다. 개발자는 서비스 위에 AIOps, 예측 유지 관리 및 비즈니스 모니터 애플리케이션을 빌드할 수 있습니다. Metrics Advisor를 사용하여 다음을 수행합니다.
+Metrics Advisor는 AI를 사용하여 시계열 데이터에서 데이터 모니터링과 변칙 검색을 수행하는 [Azure Applied AI Services](../../applied-ai-services/what-are-applied-ai-services.md)의 일부입니다. 이 서비스는 데이터에 모델을 적용하는 프로세스를 자동화하고 데이터 수집, 변칙 검색 및 진단용 API 및 웹 기반 작업 영역 세트를 제공하므로 기계 학습을 몰라도 상관없습니다. 개발자는 서비스 위에 AIOps, 예측 유지 관리 및 비즈니스 모니터 애플리케이션을 빌드할 수 있습니다. Metrics Advisor를 사용하여 다음을 수행합니다.
 
 * 여러 데이터 원본에서 다차원 데이터 분석
 * 변칙 식별 및 상관 관계 지정
