@@ -5,18 +5,18 @@ description: Azure Container Instances를 사용하여 Azure Machine Learning �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, deploy
+ms.topic: how-to
+ms.custom: deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: 5bf3c92f07cc33b35a070a3479e0063a63c9e43a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 667174fbf36b7113d49ea5c5d700e2e3a7f41949
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522022"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367223"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Azure Container Instances에 모델 배포
 
@@ -38,7 +38,7 @@ ACI에 대한 할당량 및 지역 가용성에 대한 정보는 [Azure Containe
 
 - 작업 영역에 등록된 기계 학습 모델. 등록된 모델이 없는 경우 [모델을 배포하는 방법 및 위치](how-to-deploy-and-where.md)를 참조하세요.
 
-- [Machine Learning Service용 Azure CLI 확장](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning Visual Studio Code 확장](tutorial-setup-vscode-extension.md).
+- [Machine Learning Service용 Azure CLI 확장](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 또는 [Azure Machine Learning Visual Studio Code 확장](how-to-setup-vs-code.md).
 
 - 이 문서의 __Python__ 코드 조각에서는 다음 변수가 설정되었다고 가정합니다.
 
@@ -84,7 +84,7 @@ print(service.state)
 * [Model.deploy](/python/api/azureml-core/azureml.core.model.model#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29#wait-for-deployment-show-output-false-)
 
-### <a name="using-the-cli"></a>CLI 사용
+### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
 CLI를 사용하여 배포하려면 다음 명령을 사용합니다. `mymodel:1`은 등록된 모델의 이름과 버전으로 바꿉니다. `myservice`는 이 서비스를 제공할 이름으로 바꿉니다.
 
@@ -94,11 +94,11 @@ az ml model deploy -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploy
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aci-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) 참조를 확인하세요. 
+자세한 내용은 [az ml model deploy](/cli/azure/ml/model#az_ml_model_deploy) 참조를 확인하세요. 
 
 ## <a name="using-vs-code"></a>VS Code 사용
 
-[VS Code를 사용하여 모델 배포](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model)를 참조하세요.
+[VS Code에서 리소스를 관리하는 방법](how-to-manage-resources-vscode.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 테스트를 위해 미리 ACI 컨테이너를 만들 필요가 없습니다. ACI 컨테이너는 필요에 따라 만들어집니다.

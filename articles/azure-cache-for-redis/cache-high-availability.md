@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.author: yegu
-ms.openlocfilehash: 6c44c87221442797f063877385ac5eb7f8585850
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: 576c1f0b087775ee3784229147b3715b22135217
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107719100"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090679"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Azure Cache for Redis의 고가용성
 
@@ -22,7 +22,7 @@ Azure Cache for Redis는 캐시에 대해 *노드* 라고 하는 여러 VM을 �
 | 옵션 | Description | 가용성 | Standard | Premium | Enterprise |
 | ------------------- | ------- | ------- | :------: | :---: | :---: |
 | [표준 복제](#standard-replication)| 자동 장애 조치(failover)를 사용하는 단일 데이터 센터의 이중 노드 복제 구성 | 99.9%([세부 정보](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) 참조) |✔|✔|-|
-| [영역 중복](#zone-redundancy) | 자동 장애 조치(failover)를 사용하여 AZ간 다중 노드 복제 구성 | 최대 99.99%([세부 정보](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) 참조) |-|미리 보기|✔|
+| [영역 중복](#zone-redundancy) | 자동 장애 조치(failover)를 사용하여 AZ간 다중 노드 복제 구성 | 최대 99.99%([세부 정보](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) 참조) |-|✔|✔|
 | [지역에서 복제](#geo-replication) | 두 지역에 연결된 캐시 인스턴스(사용자 제어 장애 조치(failover) 포함) | 최대 99.999%([세부 정보](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) 참조) |-|✔|미리 보기|
 
 ## <a name="standard-replication"></a>표준 복제
@@ -40,11 +40,6 @@ Redis 캐시의 주 노드를 사용할 수 없는 경우 복제본이 자동으
 
 주 노드는 Redis 소프트웨어 또는 운영 체제 업데이트와 같은 계획된 유지 관리 작업의 영향으로 작동하지 않을 수 있습니다. 기본 하드웨어, 소프트웨어 또는 네트워크의 오류와 같은 계획되지 않은 이벤트로 인해 작동이 중지될 수도 있습니다. [Azure Cache for Redis의 장애 조치(failover) 및 패치](cache-failover.md)는 Redis 장애 조치(failover) 유형에 대한 자세한 설명을 제공합니다. Azure Cache for Redis는 해당 수명 동안 많은 장애 조치(failover)를 수행합니다. 고가용성 아키텍처는 캐시 내의 이러한 변경 사항이 해당 클라이언트에게 가능한 한 투명하게 보이도록 설계되었습니다.
 
->[!NOTE]
->다음은 미리 보기로 제공됩니다.
->
->
-
 또한 Azure Cache for Redis는 프리미엄 계층의 추가 복제본 노드를 허용합니다. [다중 복제본 캐시](cache-how-to-multi-replicas.md)는 최대 3개의 복제본 노드를 사용하여 구성할 수 있습니다. 복제본이 많을수록 주 노드를 백업하는 추가 노드로 인해 일반적으로 복원력이 향상됩니다. 복제본이 많은 경우에도 Azure Cache for Redis 인스턴스는 데이터 센터 또는 AZ 수준 중단으로 심각한 영향을 받을 수 있습니다. [영역 중복성](#zone-redundancy)과 함께 여러 복제본을 사용하여 캐시 가용성을 높일 수 있습니다.
 
 ## <a name="zone-redundancy"></a>영역 중복
@@ -52,11 +47,6 @@ Redis 캐시의 주 노드를 사용할 수 없는 경우 복제본이 자동으
 Azure Cache for Redis는 프리미엄 및 엔터프라이즈 계층에서 영역 중복 구성을 지원합니다. [영역 중복 캐시](cache-how-to-zone-redundancy.md)는 동일한 지역에 있는 다양한 [Azure 가용성 영역](../availability-zones/az-overview.md)에 노드를 둘 수 있습니다. 데이터 센터 또는 AZ 중단을 단일 실패 지점으로서 제거하고 캐시의 전체 가용성을 높입니다.
 
 ### <a name="premium-tier"></a>프리미엄 계층
-
->[!NOTE]
->이는 미리 보기로 제공됩니다.
->
->
 
 다음 다이어그램은 프리미엄 계층에 대한 영역 중복 구성을 보여 줍니다.
 

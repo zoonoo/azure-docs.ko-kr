@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.openlocfilehash: f6416a688c7f1c94d7d8a90b0531b1ccd684ee29
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 7f7e6cb896d5284a7bc4ff54c7396600463260c9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107031106"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367627"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -200,7 +200,7 @@ Azure Cosmos DB는 각 계정에 대한 시스템 메타데이터를 유지 관�
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>자동 스케일링 프로비저닝 처리량 제한
 
-자동 스케일링을 사용하는 처리량 및 스토리지 제한에 대한 자세한 설명은 [자동 스케일링](provision-throughput-autoscale.md#autoscale-limits) 문서와 [FAQ](autoscale-faq.md#lowering-the-max-rus)를 참조하세요.
+자동 스케일링을 사용하는 처리량 및 스토리지 제한에 대한 자세한 설명은 [자동 스케일링](provision-throughput-autoscale.md#autoscale-limits) 문서와 [FAQ](autoscale-faq.yml#lowering-the-max-ru-s)를 참조하세요.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
@@ -236,8 +236,9 @@ Cosmos DB는 MongoDB에 대해 작성된 애플리케이션에 MongoDB 유선 �
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 최대 MongoDB 쿼리 메모리 크기(이 제한은 3.2 서버 버전에만 적용) | 40MB |
-|MongoDB 작업에 대한 최대 실행 시간(3.2 서버 버전의 경우)| 15초|
-|MongoDB 작업에 대한 최대 실행 시간(3.6 서버 버전의 경우)| 60초|
+| MongoDB 작업에 대한 최대 실행 시간(3.2 서버 버전의 경우)| 15초|
+| MongoDB 작업에 대한 최대 실행 시간(3.6 및 4.0 서버 버전의 경우)| 60초|
+| 인덱스 정의에 포함된 개체/배열의 최대 중첩 수준 | 6 |
 | 서버 쪽 연결을 종료하는 유휴 연결 시간 제한* | 30분 |
 
 \* [Azure LoadBalancer의 기본 시간 제한은 4분](../load-balancer/load-balancer-tcp-idle-timeout.md)이므로 클라이언트 애플리케이션의 드라이버 설정에서 유휴 연결 시간 제한을 2-3분으로 설정하는 것이 좋습니다.  이 시간 제한은 클라이언트 머신과 Azure Cosmos DB 사이에 있는 중간 부하 분산 장치가 유휴 연결을 종료하지 않게 합니다.
@@ -265,15 +266,12 @@ Cosmos DB 평가판은 미국 중부, 북유럽 및 동남 아시아 지역에�
 | --- | --- |
 | Azure 구독당 평가판 계정 수 | 1 |
 | 평가판 계층 할인 기간 | 계정의 수명입니다. 계정을 만드는 동안 옵트인해야 합니다. |
-| 최대 무료 RU/s | 400RU/s |
-| 최대 무료 스토리지 | 5GB |
+| 최대 무료 RU/s | 1000RU/s |
+| 최대 무료 스토리지 | 25GB |
 | 최대 공유 처리량 데이터베이스 수 | 5 |
 | 공유 처리량 데이터베이스의 최대 컨테이너 수 | 25 <br>평가판 계정에서 25개 이하의 컨테이너를 포함하고 있는 공유 처리량 데이터베이스의 최소 RU/s는 400RU/s입니다. |
 
-위의 제한 외에도, [계정당 제한](#per-account-limits)이 평가판 계정에 적용됩니다.
-
-> [!NOTE]
-> Azure Cosmos DB 무료 계층은 Azure 무료 계정과 다릅니다. Azure 무료 계정은 제한된 시간 동안 Azure 크레딧 및 리소스를 무료로 제공합니다. 이 무료 계정의 일부로 Azure Cosmos DB를 사용하는 경우 12개월 동안 프로비저닝된 처리량에 대한 25GB의 스토리지 및 400RU/s를 얻을 수 있습니다.
+위의 제한 외에도, [계정당 제한](#per-account-limits)이 평가판 계정에 적용됩니다. 자세히 알아보려면 [무료 계층 계정](free-tier.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

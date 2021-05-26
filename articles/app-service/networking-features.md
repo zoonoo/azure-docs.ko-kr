@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/26/2021
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9ba85ecfe2b57ceb1eed5c51929107a95f5a4669
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7410793a429395b7f1b1e826c66cb2647eb77cd2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889147"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367713"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -23,6 +23,9 @@ Azure App Service에는 두 가지 주요 배포 유형이 있습니다.
 - 단일 테넌트 ASE(App Service Environment)는 Azure 가상 네트워크에서 격리된 SKU App Service 요금제를 직접 호스트합니다. 
 
 사용하는 기능은 다중 테넌트 서비스인지 또는 ASE인지 여부에 따라 달라집니다. 
+
+> [!NOTE]
+> [Azure Arc에 배포된 앱](overview-arc-integration.md)에서는 네트워킹 기능을 사용할 수 없습니다.
 
 ## <a name="multitenant-app-service-networking-features"></a>다중 테넌트 App Service 네트워킹 기능 
 

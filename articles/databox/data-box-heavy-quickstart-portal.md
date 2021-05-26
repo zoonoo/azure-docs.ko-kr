@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3a7f9179822720b0e5ffc21bc560b4c6ccad9463
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8c418f7cbeb56b94b7a85b12e833301b979bff32
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347425"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107871557"
 ---
 ::: zone target = "docs"
 
@@ -89,7 +89,7 @@ ms.locfileid: "93347425"
    az storage account create --resource-group databox-rg --name databoxtestsa
    ```
 
-1. [az databox job create](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_create) 명령을 실행하여 **--sku** 값이 `DataBoxHeavy`인 Data Box 작업을 만듭니다.
+1. [az databox job create](/cli/azure/databox/job#az_databox_job_create) 명령을 실행하여 **--sku** 값이 `DataBoxHeavy`인 Data Box 작업을 만듭니다.
 
    ```azurecli
    az databox job create --resource-group databox-rg --name databoxheavy-job \
@@ -102,37 +102,37 @@ ms.locfileid: "93347425"
    > [!NOTE]
    > 구독에서 Data Box Heavy를 지원하는지 확인합니다.
 
-1. 연락처 이름과 이메일을 변경하는 이 예제에서와 같이 [az databox job update](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_update)를 실행하여 작업을 업데이트합니다.
+1. 연락처 이름과 이메일을 변경하는 이 예제에서와 같이 [az databox job update](/cli/azure/databox/job#az_databox_job_update)를 실행하여 작업을 업데이트합니다.
 
    ```azurecli
    az databox job update -g databox-rg --name databox-job --contact-name "Robert Anic" --email-list RobertAnic@contoso.com
    ```
 
-   [az databox job show](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_show) 명령을 실행하여 작업에 대한 정보를 가져옵니다.
+   [az databox job show](/cli/azure/databox/job#az_databox_job_show) 명령을 실행하여 작업에 대한 정보를 가져옵니다.
 
    ```azurecli
    az databox job show --resource-group databox-rg --name databox-job
    ```
 
-   [az databox job list]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list) 명령을 사용하여 리소스 그룹에 대한 모든 Data Box 작업을 확인합니다.
+   [az databox job list]( /cli/azure/databox/job#az_databox_job_list) 명령을 사용하여 리소스 그룹에 대한 모든 Data Box 작업을 확인합니다.
 
    ```azurecli
    az databox job list --resource-group databox-rg
    ```
 
-   [az databox job cancel](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_cancel) 명령을 실행하여 작업을 취소합니다.
+   [az databox job cancel](/cli/azure/databox/job#az_databox_job_cancel) 명령을 실행하여 작업을 취소합니다.
 
    ```azurecli
    az databox job cancel –resource-group databox-rg --name databox-job --reason "Cancel job."
    ```
 
-   [az databox job delete](/cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_delete) 명령을 실행하여 작업을 삭제합니다.
+   [az databox job delete](/cli/azure/databox/job#az_databox_job_delete) 명령을 실행하여 작업을 삭제합니다.
 
    ```azurecli
    az databox job delete –resource-group databox-rg --name databox-job
    ```
 
-1. [az databox job list-credentials]( /cli/azure/ext/databox/databox/job#ext_databox_az_databox_job_list_credentials) 명령을 사용하여 Data Box 작업에 대한 자격 증명을 나열합니다.
+1. [az databox job list-credentials]( /cli/azure/databox/job#az_databox_job_list_credentials) 명령을 사용하여 Data Box 작업에 대한 자격 증명을 나열합니다.
 
    ```azurecli
    az databox job list-credentials --resource-group "databox-rg" --name "databoxdisk-job"

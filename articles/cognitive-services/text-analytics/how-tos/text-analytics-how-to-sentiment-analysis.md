@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 03/29/2021
+ms.date: 04/14/2021
 ms.author: aahi
-ms.openlocfilehash: 7cd2b0a6b943ceb32420ef119a7fc5eddefa2e19
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 59518b1117a566f9bc238a70a6bcaff6f1e05197
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276997"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110085424"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
@@ -74,7 +74,7 @@ POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는
 
 #### <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-[감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Sentiment)
+[감정 분석 v3.1 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Sentiment)
 
 #### <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -93,13 +93,13 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 
 **감정 분석**
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment`
 
 **오피니언 마이닝**
 
 오피니언 마이닝 결과를 얻으려면 `opinionMining=true` 매개 변수를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/sentiment?opinionMining=true`
 
 기본적으로 이 매개 변수는 `false`로 설정됩니다. 
 

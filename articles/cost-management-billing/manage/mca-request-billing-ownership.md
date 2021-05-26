@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: banders
-ms.openlocfilehash: c3294c09012339cb19f04327f1933688b05ae077
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1e9e5582c95183a5e832950c5ac0b154cdef8362
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321468"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110088123"
 ---
 # <a name="transfer-azure-subscription-billing-ownership-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 구독 청구 소유권 이전
 
@@ -157,7 +157,7 @@ Azure 지원 플랜이 있고 모든 Azure 구독을 새 계약으로 이전하�
 
 자격 증명이 새 Microsoft 고객 계약 계정에 액세스하는 데 사용되는 자격 증명과 다를 경우 이전 계정에 대한 계정 관리자 자격 증명을 사용해야 합니다.
 
-1.  [https://portal.azure.com](https://azure.portal.com ) 에서 Azure Portal에 로그인합니다.
+1.  [https://portal.azure.com](https://portal.azure.com/ ) 에서 Azure Portal에 로그인합니다.
 1.  **Cost Management + 청구** 로 이동합니다.
 1.  왼쪽 창에서 **청구 범위** 를 선택합니다.
 1.  Microsoft 온라인 정기가입 계약 계정과 연결된 청구 계정을 선택합니다.

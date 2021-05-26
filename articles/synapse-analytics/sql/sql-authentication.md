@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 505c0de5a508bd97b10091451116ec3670a20493
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6d52f75b3e4f1c703125a8f9172e9f8b6fc6ece
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677542"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081535"
 ---
 # <a name="sql-authentication"></a>SQL 인증
 
@@ -60,7 +60,7 @@ Azure Active Directory를 사용하면 사용자 관리를 위한 단일 장소�
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
-CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
+CREATE LOGIN [Mary@domainname.net] FROM EXTERNAL PROVIDER;
 ```
 로그인이 있으면 서버리스 SQL 풀 엔드포인트 내에서 개별 데이터베이스에 사용자를 만들고 이 사용자에게 필요한 권한을 부여할 수 있습니다. 사용을 만들려면 다음 구문을 사용하면 됩니다.
 ```sql

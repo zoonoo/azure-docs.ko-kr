@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 03/23/2021
 ms.author: apedward
-ms.openlocfilehash: 259d430c79cccef3cd5c581c9a60fa00edf159ec
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 393b8857b3602d914143787cc9ea46074ff59c05
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162278"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813905"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-with-azure-devops"></a>자습서: Azure DevOps를 사용하여 Azure Static Web Apps 게시
 
@@ -52,7 +52,7 @@ ms.locfileid: "108162278"
 
 1. **Static Web Apps** 를 검색합니다.
 
-1. **Static Web Apps(미리 보기)** 를 선택합니다.
+1. **Static Web Apps** 를 선택합니다.
 
 1. **만들기** 를 선택합니다.
 

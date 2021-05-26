@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: victorh
 ms.custom: subject-armqs
-ms.openlocfilehash: 4c5d5c4cafee9402e2afd7ddc047fd3b68e84540
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebe235d24c8c8c926ceeb6b82db23d03075ed764
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92091324"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845459"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Application Gateway에서 Azure WAF v2 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "92091324"
 
 이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/demos/ag-docs-wafv2/azuredeploy.json":::
 
 템플릿에는 여러 개의 Azure 리소스가 정의되어 있습니다.
 

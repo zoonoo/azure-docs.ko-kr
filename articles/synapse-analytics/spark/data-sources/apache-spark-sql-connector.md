@@ -8,17 +8,17 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/19/2020
-ms.openlocfilehash: 39d43bd9e4006b50339979a2dbdcdbf1d36655d1
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 82518e6c8f4901ffe6c5503d902359a79c12e0b0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109795489"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110081679"
 ---
 # <a name="azure-sql-database-and-sql-server-connector-for-apache-spark"></a>Azure SQL Database 및 SQL Server용 Apache Spark 커넥터
 Azure SQL Database 및 SQL Server용 Apache Spark 커넥터는 이러한 데이터베이스가 Apache Spark 작업에 대한 입력 데이터 원본 및 출력 데이터 싱크 역할을 할 수 있도록 합니다. 이를 통해 빅 데이터 분석에서 실시간 트랜잭션 데이터를 사용하고 임시 쿼리 또는 보고에 대한 결과를 유지할 수 있습니다.
 
-기본 제공 JDBC 커넥터에 비해, 이 커넥터는 SQL 데이터베이스에 대량으로 데이터를 삽입할 수 있는 기능을 제공합니다. 10배 ~ 20배 빠른 성능으로 행 단위 삽입 시 뛰어난 성능을 제공할 수 있습니다. SQL Server 및 Azure SQL Database용 Spark 커넥터는 Azure AD(Azure Active Directory) [인증](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15#azure-active-directory-authentication)을 지원하므로 Azure Synapse Analytics에서 Azure SQL 데이터베이스에 안전하게 연결할 수 있습니다. 
+기본 제공 JDBC 커넥터에 비해, 이 커넥터는 SQL 데이터베이스에 대량으로 데이터를 삽입할 수 있는 기능을 제공합니다. 10배 ~ 20배 빠른 성능으로 행 단위 삽입 시 뛰어난 성능을 제공할 수 있습니다. SQL Server 및 Azure SQL Database용 Spark 커넥터는 Azure AD(Azure Active Directory) [인증](/sql/connect/spark/connector#azure-active-directory-authentication)을 지원하므로 Azure Synapse Analytics에서 Azure SQL 데이터베이스에 안전하게 연결할 수 있습니다. 
 
 이 문서에서는 DataFrame API를 통해 MS SQL 커넥터를 사용하여 SQL 데이터베이스에 연결하는 방법을 설명합니다. 이 문서에서는 PysPark API를 사용하는 자세한 예를 제공합니다. MS SQL 커넥터를 사용하여 SQL 데이터베이스에 연결하기 위해 지원되는 모든 인수 및 샘플은 [Azure Data SQL 샘플](https://github.com/microsoft/sql-server-samples#azure-data-sql-samples-repository)을 참조하세요.
 
@@ -130,5 +130,5 @@ jdbc_df = spark.read \
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [SQL Server 및 Azure SQL 커넥터에 대한 자세한 정보](https://docs.microsoft.com/sql/connect/spark/connector?view=sql-server-ver15)
+- [SQL Server 및 Azure SQL 커넥터에 대한 자세한 정보](/sql/connect/spark/connector)
 - [Azure Data SQL 샘플 보기](https://github.com/microsoft/sql-server-samples)

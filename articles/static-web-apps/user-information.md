@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: dec025273ddfe9abf6a7588ad09a6a08a9ff872d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fa434d28b064d69f9c1f81759f6289eae0291f01
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762824"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814877"
 ---
-# <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 사용자 정보 액세스
+# <a name="accessing-user-information-in-azure-static-web-apps"></a>Azure Static Web Apps의 사용자 정보 액세스
 
 Azure 정적 Web Apps는 [직접 액세스 엔드포인트](#direct-access-endpoint) 및 [API 함수](#api-functions)를 통해 인증 관련 사용자 정보를 제공합니다.
 

@@ -1,29 +1,25 @@
 ---
-title: Azure Cache for Redis(미리 보기)에 영역 중복 사용
+title: Azure Cache for Redis에 대한 영역 중복 사용
 description: Premium 및 Enterprise 계층 Azure Cache for Redis 인스턴스에 영역 중복을 설정하는 방법을 알아봅니다.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: 0623f47528d0530838f62c28cf5546e1e66c187b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c355939191e6da9a9408edde02deac97d69c9bbf
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102508268"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084433"
 ---
-# <a name="enable-zone-redundancy-for-azure-cache-for-redis-preview"></a>Azure Cache for Redis(미리 보기)에 영역 중복 사용
+# <a name="enable-zone-redundancy-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 영역 중복 사용
 이 문서에서는 Azure Portal을 사용하여 영역 중복 Azure Cache 인스턴스를 구성하는 방법을 알아봅니다.
 
 Azure Cache for Redis Standard, Premium, Enterprise 계층은 두 개의 전용 가상 머신(VM)에서 각 캐시를 호스트하여 중복을 기본 제공합니다. 이와 같은 VM은 별도의 [Azure 장애 및 업데이트 도메인](../virtual-machines/availability.md)에 있고 가용성이 높지만 데이터 센터 수준의 오류에 취약합니다. 또한 Azure Cache for Redis는 Premium 및 Enterprise 계층에서 영역 중복을 지원합니다. 영역 중복 캐시는 여러 [가용성 영역](../availability-zones/az-overview.md)에 걸쳐 분산된 VM에서 실행됩니다. 이는 더 높은 복원력 및 가용성을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> 이 기능은 현재 미리 보기 상태입니다. 관심이 있으신 분은 [문의](mailto:azurecache@microsoft.com)해 주시기 바랍니다.
->
 
 ## <a name="create-a-cache"></a>캐시 만들기
 캐시를 만들려면 다음 단계를 수행합니다.
@@ -36,7 +32,7 @@ Azure Cache for Redis Standard, Premium, Enterprise 계층은 두 개의 전용 
    
 1. **기본 사항** 페이지에서 새 캐시의 설정을 구성합니다.
    
-    | 설정      | 제안 값  | Description |
+    | 설정      | 제안 값  | 설명 |
     | ------------ |  ------- | -------------------------------------------------- |
     | **구독** | 구독을 선택합니다. | 이 구독 아래에 새 Azure Cache for Redis 인스턴스가 만들어집니다. | 
     | **리소스 그룹** | 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하고 새 리소스 그룹 이름을 입력합니다. | 캐시 및 기타 리소스를 만들 새 리소스 그룹의 이름입니다. 모든 앱 리소스를 하나의 리소스 그룹에 배치하면 앱 리소스를 쉽게 관리하거나 삭제할 수 있습니다. | 
@@ -70,4 +66,4 @@ Azure Cache for Redis Standard, Premium, Enterprise 계층은 두 개의 전용 
 Azure Cache for Redis 기능에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Cache for Redis Premium 서비스 계층](cache-overview.md#service-tiers)
+> [Azure Cache for Redis 프리미엄 서비스 계층](cache-overview.md#service-tiers)

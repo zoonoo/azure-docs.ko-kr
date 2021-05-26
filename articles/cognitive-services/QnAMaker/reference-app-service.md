@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/9/2020
-ms.openlocfilehash: da46084c8c2616284c31ef155927e8dbcbd19e0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a24045d38b594e09b931a885c60851109a108e3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102209362"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372691"
 ---
 # <a name="service-configuration"></a>서비스 구성
 
@@ -38,9 +38,9 @@ QnA Maker는 App Service를 사용하여 [generateAnswer API](/rest/api/cognitiv
 
 변경을 완료한 후에는 Azure Portal의 **개요** 페이지에서 서비스를 **다시 시작** 해야 합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-App Service 사용자 지정은 관리되는 QnA Maker(미리 보기)에 적용되지 않습니다.
+App Service 사용자 지정은 사용자 지정 질문 답변(미리 보기)에 적용되지 않습니다.
 
 ---
 
@@ -64,9 +64,9 @@ QnA Maker 서비스에 연결된 [Cognitive Search 서비스를 변경하는 방
 
 Application Insights는 QnA Maker GA를 통해 원격 분석을 모니터링하는 데 사용됩니다. QnA Maker와 관련된 구성 설정은 없습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-[QnA Maker 관리형(미리 보기) 서비스에 원격 분석을 추가하는 방법](How-To/get-analytics-knowledge-base.md)에 대해 알아봅니다. 
+[사용자 지정 질문 답변(미리 보기) 서비스에 원격 분석을 추가하는 방법](How-To/get-analytics-knowledge-base.md)에 대해 알아봅니다. 
 
 ---
 
@@ -76,9 +76,9 @@ Application Insights는 QnA Maker GA를 통해 원격 분석을 모니터링하�
 
 App Service 계획에는 QnA Maker와 관련된 구성 설정이 없습니다.
 
-# <a name="qnamaker-managed-preview-release"></a>[QnAMaker 관리(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
-App Service 계획은 QnA Maker 관리(미리 보기)에서 사용되지 않습니다.
+App Service 계획은 사용자 지정 질문 답변(미리 보기)과 함께 사용되지 않습니다.
 
 ---
 

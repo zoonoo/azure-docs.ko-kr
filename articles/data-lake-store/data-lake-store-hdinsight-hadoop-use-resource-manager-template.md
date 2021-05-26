@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7283ad4c4c61ecc293a55ffc4cb9626bb28d630
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e83da902fd200ae0d915d4a0e58c3e26ff6da5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92108731"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089113"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ Data Lake Storage Gen1에서 HDInsight를 사용하는 경우 다음 중요 사�
     **Azure AD 관리자가 아닌 경우** 서비스 사용자를 만드는 데 필요한 단계를 수행할 수 없습니다. 이 경우 먼저 Azure AD 관리자가 서비스 주체를 만들어야 Data Lake Storage Gen1과 HDInsight 클러스터를 만들 수 있습니다. 또한 [인증서를 사용하여 서비스 사용자 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority)에 설명된 대로 인증서를 사용하여 서비스 사용자를 만들어야 합니다.
 
 ## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen1"></a>Data Lake Storage Gen1을 사용하는 HDInsight 클러스터 만들기
-Resource Manager 템플릿 및 템플릿 사용을 위한 필수 조건은 GitHub의 [Deploy a HDInsight Linux cluster with new Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage)(새로운 Data Lake Storage Gen1을 사용하는 HDInsight Linux 클러스터 배포)에서 확인할 수 있습니다. 이 링크에 제공된 지침에 따라 Data Lake Storage Gen1을 추가 스토리지로 사용하는 HDInsight 클러스터를 만듭니다.
+Resource Manager 템플릿 및 템플릿 사용을 위한 필수 조건은 GitHub의 [Deploy a HDInsight Linux cluster with new Data Lake Storage Gen1](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-datalake-store-azure-storage)(새로운 Data Lake Storage Gen1을 사용하는 HDInsight Linux 클러스터 배포)에서 확인할 수 있습니다. 이 링크에 제공된 지침에 따라 Data Lake Storage Gen1을 추가 스토리지로 사용하는 HDInsight 클러스터를 만듭니다.
 
 위에 언급된 링크의 지침에는 PowerShell이 필요합니다. 이러한 지침을 시작하기 전에 Azure 계정에 로그인해야 합니다. 바탕 화면에서 새 Azure PowerShell 창을 열고 다음 코드 조각을 입력합니다. 로그인하라는 메시지가 표시되면 구독 관리자/소유자 중 하나로 로그인해야 합니다.
 
