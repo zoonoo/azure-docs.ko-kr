@@ -1,6 +1,6 @@
 ---
 title: 몰입형 리더에 수식 표시
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 이 문서에서는 몰입형 리더에 수식을 표시하는 방법을 보여줍니다.
 author: nitinme
 manager: guillasi
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: 75b748604e8faa502970ac71e3fec4fae2774c19
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5dad8a27e9a3b38ce70acb01e765561456e1a1b8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91334517"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373878"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>몰입형 리더에 수식을 표시하는 방법
 

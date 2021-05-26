@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure 함수를 사용하여 저장된 문서 처리'
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Applied AI Services
 description: 이 가이드에서는 Azure 함수를 사용하여 Azure Blob 스토리지 컨테이너에 업로드된 문서를 처리하도록 트리거하는 방법을 보여 줍니다.
 author: laujan
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: bf455d9401593b5c09fa295e492368a2a5bee240
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 6a8f3cf5b98361f96df26da923ff6bff7a604d23
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048695"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374001"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>자습서: Azure 함수를 사용하여 저장된 문서 처리
 
@@ -123,7 +123,7 @@ def main(myblob: func.InputStream):
     f"Blob Size: {myblob.length} bytes")
 ```
 
-다음 코드 블록에서는 업로드된 문서에서 Form Recognizer [레이아웃 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeLayoutAsync) API를 호출합니다. 엔드포인트 및 키 값을 입력합니다. 
+다음 코드 블록에서는 업로드된 문서에서 Form Recognizer [레이아웃 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) API를 호출합니다. 엔드포인트 및 키 값을 입력합니다. 
 
 
 # <a name="version-20"></a>[버전 2.0](#tab/2-0)
@@ -144,13 +144,13 @@ def main(myblob: func.InputStream):
     text1=os.path.basename(myblob.name)
 ```
 
-# <a name="version-21-preview"></a>[버전 2.1 미리 보기](#tab/2-1)
+# <a name="version-21"></a>[버전 2.1](#tab/2-1)
 
 ```Python
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1/Layout/analyze"
     source = myblob.read()
 
     headers = {

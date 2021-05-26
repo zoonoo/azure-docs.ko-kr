@@ -3,12 +3,12 @@ title: Azure Pipelines 및 Azure Application Insights를 사용한 DevOps 릴리
 description: Application Insights를 사용하여 연속 모니터링을 빠르게 설정하기 위한 지침을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: faa2dc0918756587ccf9093e8c9cc5d4379c6883
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86517130"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846791"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>릴리스 파이프라인에 연속 모니터링 추가
 
@@ -55,7 +55,7 @@ Azure Pipelines는 Azure Application Insights와 통합되어 소프트웨어 �
 
 인라인 스크립트를 통해 네 가지 기본 경고 규칙을 만듭니다.
 
-```bash
+```azurecli
 $subscription = az account show --query &quot;id&quot;;$subscription.Trim(&quot;`&quot;");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
 az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
 az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";

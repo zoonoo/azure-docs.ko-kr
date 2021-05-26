@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 67284225299641a71050342056ad7ca91bf39740
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f7abc34719cbbd03d84fc34a3691c7c84e1abda5
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96353717"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067261"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Text to Speech에 대한 FAQ(질문과 대답)
 
@@ -33,7 +33,7 @@ ms.locfileid: "96353717"
 
 **Q: 사용자 지정 음성 모델을 사용하려는 경우 API가 표준 음성에 사용되는 것과 동일한가요?**
 
-**A**: 사용자 지정 음성 모델이 만들어지고 배포되면 모델에 대한 고유한 엔드포인트가 제공됩니다. 앱에서 음성을 사용하여 발화하도록 하려면 HTTP 요청에 이 엔드포인트를 지정해야 합니다. Text to Speech 서비스용 REST API에서 사용할 수 있는 것과 동일한 기능을 사용자 지정 엔드포인트에서 사용할 수 있습니다. [사용자 지정 엔드포인트를 만들고 사용하는](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) 방법을 알아보세요.
+**A**: 사용자 지정 음성 모델이 만들어지고 배포되면 모델에 대한 고유한 엔드포인트가 제공됩니다. 앱에서 음성을 사용하여 발화하도록 하려면 HTTP 요청에 이 엔드포인트를 지정해야 합니다. Text to Speech 서비스용 REST API에서 사용할 수 있는 것과 동일한 기능을 사용자 지정 엔드포인트에서 사용할 수 있습니다. [사용자 지정 엔드포인트를 만들고 사용하는](./how-to-custom-voice-create-voice.md#create-and-use-a-custom-neural-voice-endpoint) 방법을 알아보세요.
 
 **Q: 사용자 지정 음성 모델을 만들기 위한 학습 데이터를 직접 준비해야 하나요?**
 

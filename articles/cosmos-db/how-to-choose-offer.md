@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1cf5d2cd191b787b6981c8c54950ad341e9d3dad
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93089642"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073669"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>표준(수동) 및 자동 크기 조정 프로비저닝된 처리량 중에서 선택하는 방법 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -139,4 +139,4 @@ Azure Cosmos DB [용량 계산기](estimate-ru-with-capacity-planner.md)를 사�
 * [RU 계산기](https://cosmos.azure.com/capacitycalculator/)를 사용하여 새 워크로드에 대한 처리량을 예측합니다.
 * [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db)를 사용하여 기존 워크로드를 모니터링합니다.
 * [Azure Cosmos 데이터베이스 또는 컨테이너에서 자동 크기 조정 처리량을 프로비저닝](how-to-provision-autoscale-throughput.md)하는 방법을 알아봅니다.
-* [자동 크기 조정 FAQ](autoscale-faq.md)를 검토합니다.
+* [자동 크기 조정 FAQ](autoscale-faq.yml)를 검토합니다.

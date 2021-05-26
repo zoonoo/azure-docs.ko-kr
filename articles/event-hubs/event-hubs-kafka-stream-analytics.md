@@ -2,13 +2,13 @@
 title: Azure Event Hubs - Apache Kafka 이벤트 처리
 description: '자습서: 이 문서에서는 Azure Stream Analytics를 사용하여 이벤트 허브를 통해 수집되는 Kafka 이벤트를 처리하는 방법을 보여줍니다.'
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 449301effbbb8fb92a873bd90d95da4653bfd8a2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92319387"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373601"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>자습서: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -32,10 +32,10 @@ ms.locfileid: "92319387"
 
 
 ## <a name="create-an-event-hubs-namespace"></a>Event Hubs 네임스페이스 만들기
-**표준** 계층 Event Hubs 네임스페이스를 만들면 Kafka 엔드포인트를 네임스페이스에 사용하도록 자동으로 설정됩니다. Kafka 프로토콜을 사용하는 애플리케이션에서 표준 계층 Event Hubs로 이벤트를 스트리밍할 수 있습니다. [Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 단계별 지침에 따라 **표준** 계층 Event Hubs 네임스페이스를 만듭니다. 
+Event Hubs 네임스페이스를 만들면 네임스페이스에 대한 Kafka 엔드포인트가 자동으로 활성화됩니다. Kafka 프로토콜을 사용하는 애플리케이션에서 이벤트 허브로 이벤트를 스트리밍할 수 있습니다. [Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 단계별 지침에 따라 Event Hubs 네임스페이스를 만듭니다. 전용 클러스터를 사용하는 경우 [전용 클러스터에서 네임스페이스 및 이벤트 허브 만들기](event-hubs-dedicated-cluster-create-portal.md#create-a-namespace-and-event-hub-within-a-cluster)를 참조하세요.
 
 > [!NOTE]
-> Kafka용 Event Hubs는 **표준** 및 **전용** 계층에서만 사용할 수 있습니다. **기본** 계층은 Event Hubs에서 Kafka를 지원하지 않습니다.
+> Kafka용 Event Hubs는 **기본** 계층에서 지원되지 않습니다.
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Event Hubs에서 Kafka로 메시지 보내기
 

@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Event Grid 도메인을 한 지역에서 
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/20/2020
-ms.openlocfilehash: fff8638a819511f84f15c52ad0695cdd5759f971
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c9b6ef9f6ec2bf1ef96bfcb3327bf7307a29ef5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89086214"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466791"
 ---
 # <a name="move-azure-event-grid-domains-to-another-region"></a>Azure Event Grid 도메인을 다른 지역으로 이동
 여러 이유로 리소스를 다른 지역으로 이동하는 것이 좋습니다. 예를 들어 새 Azure 지역을 활용하거나 내부 정책 및 거버넌스 요구 사항을 충족하기 위해 이동하거나 용량 계획 요구 사항에 대한 응답으로 이동할 수 있습니다. 
@@ -65,8 +65,8 @@ ms.locfileid: "89086214"
 4. **만들기** 를 선택합니다.
 5. **편집기에서 사용자 고유의 템플릿을 빌드합니다.** 를 선택합니다.
 6. **파일 로드** 를 선택한 다음, 지침에 따라 마지막 섹션에서 다운로드한 **template.json** 파일을 로드합니다.
-7. **저장** 을 선택하여 템플릿을 사용합니다. 
-8. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다.
+7. **저장** 을 선택하여 템플릿을 저장합니다. 
+8. **사용자 지정 배포** 페이지에서 다음 단계를 수행합니다:
     1. Azure **구독** 을 선택합니다. 
     1. 대상 지역에서 기존 **리소스 그룹** 을 선택하거나 새로 만듭니다. 
     1. **지역** 에서 대상 지역을 선택합니다. 기존 리소스 그룹을 선택한 경우 이 설정은 읽기 전용입니다. 
@@ -98,7 +98,6 @@ Azure Portal을 사용하여 도메인이 포함된 리소스 그룹을 삭제�
 Event Grid 도메인을 한 지역에서 다른 지역으로 이동하는 방법을 배웠습니다. 지역 간에 시스템 토픽, 사용자 지정 토픽, 파트너 네임스페이스를 이동하려면 다음 문서를 참조하세요.
 
 - [지역 간에 시스템 토픽 이동](move-system-topics-across-regions.md) 
-- [지역 간에 사용자 지정 토픽 이동](move-custom-topics-across-regions.md) 
-- [지역 간에 파트너 네임스페이스 이동](move-partner-namespaces-across-regions.md)
+- [지역 간 사용자 지정 토픽 이동](move-custom-topics-across-regions.md). 
 
-지역 간에 리소스를 이동하는 방법과 Azure의 재해 복구에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조하세요.
+지역 간 리소스를 이동하는 방법과 Azure의 재해 복구에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md) 문서를 참조하세요.

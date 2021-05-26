@@ -1,22 +1,22 @@
 ---
-title: Visual Studio Code를 사용하여 작업 및 워크플로 자동화
-description: VS Code(Visual Studio Code)를 사용하여 논리 앱 워크플로 정의 만들기 또는 편집
+title: 빠른 시작 - Visual Studio Code에서 Azure Logic Apps를 사용하여 통합 워크플로 만들기
+description: Visual Studio Code에서 다중 테넌트 Azure Logic Apps를 사용하여 워크플로 정의를 만들고 관리합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/23/2021
-ms.openlocfilehash: 0163b58017599ceb26f52f0e47cbc87e161f6ed2
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.date: 05/25/2021
+ms.openlocfilehash: 001a97f07655c4af78e14e07d9204045cec9502b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108161246"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372553"
 ---
-# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-multi-tenant-azure-logic-apps-and-visual-studio-code"></a>빠른 시작: 다중 테넌트 Azure Logic Apps 및 Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하기 위한 작업, 워크플로 및 프로세스를 자동화하는 데 도움이 되는 논리 앱을 만들고 관리할 수 있습니다. 이 빠른 시작에서는 코드 기반 환경을 통해 논리 앱에 JSON(JavaScript Object Notation)을 사용하는 기본 워크플로 정의를 만들고 편집하는 방법을 보여줍니다. Azure에 이미 배포된 기존 논리 앱에서 작업할 수도 있습니다.
+이 빠른 시작에서는 다중 테넌트 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하는 작업 및 프로세스를 자동화하는 데 도움이 되는 논리 앱 워크플로를 만들고 관리하는 방법을 보여줍니다. 코드 기반 환경을 통해 논리 앱에 JSON(JavaScript Object Notation)을 사용하는 기본 워크플로 정의를 만들고 편집할 수 있습니다. Azure에 이미 배포된 기존 논리 앱에서 작업할 수도 있습니다. 다중 테넌트 및 단일 테넌트 모델에 대한 자세한 내용은 [단일 테넌트 및 다중 테넌트 비교와 통합 서비스 환경](single-tenant-overview-compare.md)을 검토하세요.
 
 [Azure Portal](https://portal.azure.com) 및 Visual Studio에서 이러한 동일 작업을 수행할 수도 있지만, 논리 앱 정의를 이미 숙지하고 있으며 코드에서 직접 작업하려는 경우 Visual Studio Code를 사용하면 작업을 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하거나 사용하지 않도록 설정하고 삭제하고 새로 고칠 수 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
 
@@ -348,4 +348,4 @@ Visual Studio Code에서는 게시된 논리 앱을 편집하고 변경 내용�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Visual Studio Code(미리 보기)에서 상태 저장 및 상태 비저장 논리 앱 만들기](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)
+> [Visual Studio Code에서 단일 테넌트 기반 논리 앱 워크플로 만들기](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)

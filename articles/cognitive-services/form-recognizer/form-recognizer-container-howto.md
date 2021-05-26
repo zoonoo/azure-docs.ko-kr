@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer 컨테이너 설치 및 실행 방법
-titleSuffix: Azure Cognitive Services
-description: 이 문서에서는 Azure Cognitive Services Form Recognizer 컨테이너를 사용하여 양식 및 테이블 데이터를 구문 분석하는 방법을 설명합니다.
+titleSuffix: Azure Applied AI Services
+description: 이 문서에서는 Azure Form Recognizer 컨테이너를 사용하여 양식 및 테이블 데이터를 구문 분석하는 방법을 설명합니다.
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1be8afb58b22435f4f43b2d6884332a38b7f1e11
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 059d780b9d9e31d01b1d1999971af77d982e3b92
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103467479"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110374581"
 ---
 # <a name="install-and-run-form-recognizer-containers-retiring"></a>Form Recognizer 컨테이너 설치 및 실행(사용 중지)
 
@@ -264,7 +264,7 @@ formrecognizer_config =
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
-컨테이너는 [Form Recognizer API] https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm) 참조 페이지에서 찾을 수 있는 REST 엔드포인트 API를 제공합니다.
+컨테이너는 [Form Recognizer API] https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) 참조 페이지에서 찾을 수 있는 REST 엔드포인트 API를 제공합니다.
 
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
