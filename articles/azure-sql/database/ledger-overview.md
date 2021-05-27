@@ -9,12 +9,12 @@ ms.reviewer: vanto
 ms.topic: conceptual
 author: JasonMAnderson
 ms.author: janders
-ms.openlocfilehash: e74b4ed5b54a27b13768c19878331a9779bb9dc6
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 36d7c5d6b97b54392be8c85d1b6a6088eda5f983
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456846"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110388282"
 ---
 # <a name="azure-sql-database-ledger"></a>Azure SQL Database 원장
 
@@ -66,7 +66,7 @@ ms.locfileid: "110456846"
 
 [업데이트 가능한 원장 테이블](ledger-updatable-ledger-tables.md)은 업데이트 또는 삭제를 수행하는 트랜잭션이 발생하는 경우 데이터베이스의 모든 행에 대한 변경 기록을 추적합니다. 업데이트 가능한 원장 테이블은 미러된 스키마를 사용하는 다른 테이블에 대한 참조를 포함하는 시스템 버전 관리 테이블입니다. 시스템에서는 이 테이블을 사용하여 원장 테이블의 행이 업데이트되거나 삭제될 때마다 이전 버전의 행을 자동으로 저장합니다. 이 다른 테이블을 기록 테이블이라고 합니다. 기록 테이블은 업데이트 가능한 원장 테이블을 만들 때 자동으로 생성됩니다. 업데이트 가능한 원장 테이블 및 관련 기록 테이블에 포함된 값을 살펴보면 시간에 따른 데이터베이스 값 기록을 확인할 수 있습니다. 이러한 데이터베이스 기록을 쉽게 쿼리할 수 있도록 시스템에서 생성한 원장 보기가 생성되며, 여기서는 업데이트 가능한 원장 테이블과 기록 테이블을 모두 확인할 수 있습니다.
 
-업데이트 가능한 원장 테이블을 만들고 사용하는 자세한 방법은 [업데이트 가능한 원장 테이블 만들기 및 사용](ledger-how-to-updatable-ledger-tables.md)을 참조하세요.
+업데이트 가능한 원장 테이블을 만들고 사용하는 자세한 방법은 [업데이트 가능한 원장 테이블 만들기](ledger-how-to-updatable-ledger-tables.md)를 참조하세요.
 
 ### <a name="append-only-ledger-tables"></a>추가 전용 원장 테이블
 
