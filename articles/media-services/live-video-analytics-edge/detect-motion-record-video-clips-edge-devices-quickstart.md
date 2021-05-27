@@ -1,18 +1,20 @@
 ---
-title: 에지 디바이스에서 동작을 감지하고 비디오 녹화 - Azure
-description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하고, 동작이 있는지 감지하고, 해당하는 경우 에지 디바이스의 로컬 파일 시스템에 MP4 비디오 클립을 녹화하는 방법을 보여 줍니다.
+title: Live Video Analytics를 사용하여 에지 디바이스에서 동작 감지 및 비디오 녹화 - Azure
+description: 이 빠른 시작에서는 IoT Edge의 Azure Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하고, 동작이 있는지 감지하고, 해당하는 경우 에지 디바이스의 로컬 파일 시스템에 MP4 비디오 클립을 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: e4334cdd14242337a2a870f31886606020654685
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9d563aea803b92c10db1309365bb3ee3b29da57f
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96498356"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372014"
 ---
-# <a name="quickstart-detect-motion-and-record-video-on-edge-devices"></a>빠른 시작: 에지 디바이스에서 동작을 감지하고 비디오 녹화
+# <a name="quickstart-detect-motion-and-record-video-on-edge-devices-with-live-video-analytics"></a>빠른 시작: Live Video Analytics를 사용하여 에지 디바이스에서 동작 감지 및 비디오 녹화
  
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
+
 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여줍니다. 동작이 있는지 감지하는 방법, 동작이 있다면 에지 디바이스의 로컬 파일 시스템에 MP4 비디오 클립을 녹화하는 방법을 보여줍니다. 이 빠른 시작에서는 Azure VM을 IoT Edge 디바이스로 사용하고, 시뮬레이션된 라이브 비디오 스트림도 사용합니다. 
 
 ::: zone pivot="programming-language-csharp"

@@ -1,16 +1,18 @@
 ---
-title: 여러 날 녹화본 재생 - Azure
+title: Live Video Analytics로 여러 날 녹화본 재생 - Azure
 description: 이 자습서에서는 Azure Media Service API를 사용하여 여러 날 연속 비디오 녹화본을 재생하는 방법을 설명합니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a778b40649c1318b3738a289f0db37fd35376a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c7c224b6267dd7eac4df669a7ccbd6f59abeb8ef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821301"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372152"
 ---
-# <a name="tutorial-playback-of-multi-day-recordings"></a>자습서: 여러 날 녹화본 재생  
+# <a name="tutorial-playback-of-multi-day-recordings-with-live-video-analytics"></a>자습서: 라이브 비디오 분석으로 여러 날 녹화본 재생
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 자습서는 [연속 비디오 녹화](continuous-video-recording-concept.md)(CVR) 자습서를 기반으로 합니다. 이 자습서에서는 Azure Media Service API를 사용하여 클라우드에서 여러 날 연속 비디오 녹화본을 재생하는 방법을 설명합니다. 
 

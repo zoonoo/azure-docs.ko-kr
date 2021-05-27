@@ -1,16 +1,18 @@
 ---
-title: IoT Edge의 Live Video Analytics FAQ - Azure
-description: 이 문서는 IoT Edge의 Live Video Analytics에 대한 일반적인 질문과 대답입니다.
+title: IoT Edge의 Azure Live Video Analytics FAQ
+description: 이 문서는 IoT Edge의 Azure Live Video Analytics에 대한 일반적인 질문과 대답입니다.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 2e5ec6e3a303bb8d655e666a820cfe67943b4eb6
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: ed27b120ff28704aeb3595815544262bab78e95d
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275960"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371455"
 ---
-# <a name="live-video-analytics-on-iot-edge-faq"></a>IoT Edge의 Live Video Analytics FAQ
+# <a name="azure-live-video-analytics-on-iot-edge-faq"></a>IoT Edge의 Azure Live Video Analytics FAQ
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서는 Azure IoT Edge의 Live Video Analytics에 대한 일반적인 질문과 대답입니다.
 

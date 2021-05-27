@@ -10,12 +10,12 @@ author: lostmygithubaccount
 ms.author: copeters
 ms.date: 05/25/2021
 ms.reviewer: laobri
-ms.openlocfilehash: e9a5562f665ee2d52a39f296fb39d9a7139be6cb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 19534a5b55ea666233bb1a9b66916791e934908a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383016"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476616"
 ---
 # <a name="install-set-up-and-use-the-20-cli-preview"></a>2\.0 CLI 설치, 설정 및 사용(미리 보기)
 
@@ -43,23 +43,23 @@ az version
 
 설치한 Azure CLI 확장을 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_list":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_list":::
 
 `azure-cli-ml` 확장을 포함하여 `ml` 네임스페이스를 사용하는 충돌 확장이 설치되어 있지 않은지 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_extension_remove":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_extension_remove":::
 
 이제 `ml` 확장을 설치합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
 
 도움말 명령을 실행하여 설치를 확인하고 사용 가능한 하위 명령을 확인합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_verify":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_verify":::
 
 확장을 최신 버전으로 업그레이드할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_ml_update":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_ml_update":::
 
 ## <a name="set-up"></a>설정
 
@@ -71,22 +71,22 @@ az login
 
 여러 Azure 구독에 대한 액세스 권한이 있는 경우 활성 구독을 설정할 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="az_account_set":::
 
 Azure 리소스 그룹이 아직 없는 경우 만들 수 있습니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_group_create":::
-
-기계 학습 작업 영역에서도 이와 유사합니다.
-
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_group_create":::
 
 기계 학습 하위 명령에는 `--workspace/-w` 및 `--resource-group/-g` 매개 변수가 필요합니다. 반복적으로 입력하지 않으려면 기본값을 구성합니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
 
 > [!TIP]
 > 대부분의 코드 예제에서는 기본 작업 영역 및 리소스 그룹을 설정했다고 가정합니다. 명령줄에서 이러한 항목을 재정의할 수 있습니다.
+
+이제 기계 학습 작업 영역을 만듭니다.
+
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
 
 ## <a name="hello-world"></a>Hello World
 
@@ -99,19 +99,20 @@ cd azureml-examples/cli
 
 Python을 통해 로컬로 hello world를 실행하려면 `jobs` 하위 디렉터리의 예를 참조하세요.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/hello-world.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/hello-world.yml":::
 
 > [!IMPORTANT]
 > [Docker](https://docker.io)는 로컬에서 설치하고 실행해야 합니다.
 
 작업을 제출하고, 로그를 콘솔 출력으로 스트리밍하고, Azure Machine Learning 스튜디오에서 실행을 엽니다.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/how-to-configure-cli.sh" id="hello_world":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-configure-cli.sh" id="hello_world":::
 
 > [!IMPORTANT]
 > Docker 이미지를 로컬로 끌어와서 Azure ML 작업이 실행되기 때문에 처음 실행하는 데 몇 분 정도 걸릴 수 있습니다. 후속 실행은 이미지를 로컬로 캐시하고 더 빠르게 완료할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
+- [Visual Studio Code Azure Machine Learning 확장 설정](how-to-setup-vs-code.md)
 - [Machine Learning CLI 확장을 사용하여 모델 학습(미리 보기)](how-to-train-cli.md)
 - [Azure Machine Learning Visual Studio Code 확장을 사용하여 이미지 분류 TensorFlow 모델 학습](tutorial-train-deploy-image-classification-model-vscode.md)

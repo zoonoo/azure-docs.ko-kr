@@ -1,16 +1,18 @@
 ---
-title: HTTP 확장 프로토콜 - Azure
-description: 이 문서에서는 HTTP 확장 프로토콜을 사용하여 Live Video Analytics 모듈과 AI 또는 CV 모듈 간에 메시지를 보내는 방법에 대해 알아봅니다.
+title: Live Video Analytics의 HTTP 확장 프로토콜 - Azure
+description: 이 문서에서는 HTTP 확장 프로토콜을 사용하여 Azure Live Video Analytics 모듈과 AI 또는 CV 모듈 간에 메시지를 보내는 방법에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 54b25894c60a39de9c0ec00cdc4982f691bf1ee3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3dbb329e1210ce27fa33f2b1e7ec8b0cf4f8b3e9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565744"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110375479"
 ---
-# <a name="http-extension-protocol"></a>HTTP 확장 프로토콜
+# <a name="http-extension-protocol-in-live-video-analytics"></a>Live Video Analytics의 HTTP 확장 프로토콜
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 IoT Edge의 Live Video Analytics를 사용하면 [그래프 확장 노드](./media-graph-extension-concept.md)를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다. HTTP 확장 프로세서를 확장 노드로 사용하는 경우 Live Video Analytics 모듈과 AI 또는 CV 모듈 간의 통신은 HTTP를 통해 이루어집니다.
 

@@ -1,16 +1,18 @@
 ---
-title: 비디오 재생 - Azure
-description: 자리표시자
+title: Live Video Analytics를 사용한 비디오 재생 - Azure
+description: 이 문서에서는 Azure Media Services의 기존 스트리밍 기능을 사용하여 자산을 재생하기 위해 수행해야 하는 단계에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: be42b39c167798e4e288c77dbd48a8734eb71fdf
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 9669194f3dff8f64d54cb15c8cb6fee0d7a2667b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278595"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368390"
 ---
-# <a name="video-playback"></a>비디오 재생 
+# <a name="video-playback-with-live-video-analytics"></a>Live Video Analytics를 사용한 비디오 재생
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료 
 
@@ -20,7 +22,7 @@ ms.locfileid: "106278595"
 
 ## <a name="overview"></a>개요  
 
-[미디어 그래프](media-graph-concept.md)를 사용하여 비디오를 Azure Media Services [자산](terminology.md#asset)에 기록할 수 있습니다. 이 문서에서는 Azure Media Services의 기존 스트리밍 기능을 사용하여 자산을 재생하기 위해 수행해야 하는 단계에 대해 알아볼 수 있습니다.
+[미디어 그래프](media-graph-concept.md)를 사용하여 비디오를 Azure Media Services [자산](terminology.md#asset)에 기록할 수 있습니다. 이 문서에서는 Azure Media Services의 기존 스트리밍 기능을 사용하여 자산을 재생하기 위해 수행해야 하는 단계에 대해 알아봅니다.
 
 ## <a name="streaming-endpoint"></a>스트리밍 엔드포인트 
 

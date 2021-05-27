@@ -1,17 +1,19 @@
 ---
-title: 동작 감지 및 이벤트 내보내기 - Azure
-description: 이 빠른 시작에서는 프로그래밍 방식으로 직접 메서드를 호출하여 Live Video Analytics on IoT Edge를 사용하여 동작을 감지하고 이벤트를 내보내는 방법을 보여 줍니다.
+title: Azure Live Video Analytics를 사용하여 동작 감지 및 이벤트 내보내기
+description: 이 빠른 시작에서는 프로그래밍 방식으로 직접 메서드를 호출하여 IoT Edge의 Azure Live Video Analytics를 통해 동작을 감지하고 이벤트를 내보내는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 08/10/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 09a17712287c73fa165b4bec77682831a51edfa3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1119d6ab2295138b7c13ca19e36a48417e72b6cb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98060575"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379597"
 ---
-# <a name="quickstart-detect-motion-and-emit-events"></a>빠른 시작: 동작 감지 및 이벤트 내보내기
+# <a name="quickstart-detect-motion-and-emit-events-with-live-video-analytics"></a>빠른 시작: Live Video Analytics를 사용하여 동작 감지 및 이벤트 내보내기
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 단계를 안내합니다. Azure VM을 IoT Edge 디바이스와 시뮬레이션된 라이브 비디오 스트림으로 사용합니다. 설치 단계가 완료되면 해당 스트림에서 동작을 감지하고 보고하는 미디어 그래프를 통해 시뮬레이션된 라이브 비디오 스트림을 실행할 수 있습니다. 다음 다이어그램은 해당 미디어 그래프의 그래픽 표현을 보여 줍니다.
 

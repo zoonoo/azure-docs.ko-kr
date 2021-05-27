@@ -61,6 +61,9 @@
         - name: Azure Marketplace에 관리되는 서비스 제안 게시
           displayName: 'managed services, azure marketplace, publish, marketplace'
           href: ./how-to/publish-managed-services-offers.md
+        - name: 적격 권한 부여 만들기
+          displayName: 'jit, pim, elevate, elevation, just-in-time'
+          href: ./how-to/create-eligible-authorizations.md
         - name: 위임 업데이트
           displayName: upgrade
           href: ./how-to/update-delegation.md

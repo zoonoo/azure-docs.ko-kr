@@ -1,16 +1,18 @@
 ---
-title: 공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석 - Azure
-description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다.
+title: Live Video Analytics를 통한 공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석 - Azure
+description: 이 자습서에서는 Azure Cognitive Services에서 Computer Vision 공간 분석 AI 기능과 함께 Azure Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여줍니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 1c3fd411e60cabb504f01bece62d497ddeea31d8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 549c1405e7deb3531da65ff4425befa2d29aaeef
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561018"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373566"
 ---
-# <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-preview"></a>공간 분석을 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
+# <a name="analyze-live-video-with-computer-vision-for-spatial-analysis-and-live-video-analytics-preview"></a>공간 분석 및 Live Video Analytics를 위해 Computer Vision을 사용하여 라이브 비디오 분석(미리 보기)
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 자습서에서는 [Azure Cognitive Services에서 공간 분석 AI 서비스에 대한 Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/)과 함께 Live Video Analytics를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다. 이 유추 서버를 통해 스트리밍 비디오를 분석하여 물리적 공간에서 사람과 움직임 간의 공간 관계를 이해하는 방법을 확인할 수 있습니다.  비디오 피드의 프레임 하위 집합이 이 유추 서버에 전송되고 결과가 IoT Edge 허브로 전송되며, 일부 조건이 충족되면 비디오 클립이 기록되고 Azure Media Services 자산으로 저장됩니다.
 

@@ -1,16 +1,18 @@
 ---
-title: IoT Edge의 Live Video Analytics에서 직접 메서드 사용 - Azure
-description: IoT Edge의 Live Video Analytics는 여러 직접 메서드를 노출합니다. 직접 메서드는 이 항목에 설명된 규칙을 기준으로 합니다.
+title: IoT Edge의 Azure Live Video Analytics에서 직접 메서드 사용
+description: IoT Edge의 Azure Live Video Analytics는 여러 직접 메서드를 노출합니다. 직접 메서드는 이 항목에 설명된 규칙을 기준으로 합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 56fbf565af45a9b3877ff8d6c48a56713ddc3da6
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 4f9a0e6e75f4bf0304631bc2da87e013348e6707
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076992"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371525"
 ---
-# <a name="direct-methods"></a>직접 메서드
+# <a name="direct-methods-with-live-video-analytics"></a>Live Video Analytics를 통한 직접 메서드
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 IoT Edge의 Live Video Analytics는 IoT Hub에서 호출할 수 있는 몇 가지 직접 메서드를 노출합니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 디바이스의 응답 여부에 따라 달라지는 시나리오에서 유용합니다. 자세한 내용은 [IoT Hub의 직접 메서드 이해 및 호출](../../iot-hub/iot-hub-devguide-direct-methods.md)을 참조하세요.
 

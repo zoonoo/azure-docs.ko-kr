@@ -1,16 +1,18 @@
 ---
-title: 비디오 녹화 - Azure
-description: CCTV 카메라용 비디오 관리 시스템 컨텍스트에서 비디오 녹화는 카메라에서 영상을 캡처해 모바일과 브라우저 앱을 통해 볼 수 있도록 기록하는 과정을 말합니다. 비디오 녹화는 연속 비디오 녹화 및 이벤트 기반 비디오 녹화로 분류될 수 있습니다.
+title: Live Video Analytics를 사용한 비디오 녹화 - Azure
+description: CCTV 카메라용 비디오 관리 시스템 컨텍스트에서 비디오 녹화는 카메라에서 영상을 캡처해 모바일과 브라우저 앱을 통해 볼 수 있도록 기록하는 과정을 말합니다. 비디오 녹화는 연속 비디오 녹화 및 이벤트 기반 비디오 녹화로 분류될 수 있습니다. 이 문서에서는 비디오 녹화에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fea0d2daaa4724cf4d354c8ab16b6b6ba3e76bf5
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84260196"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368373"
 ---
-# <a name="video-recording"></a>비디오 녹화
+# <a name="video-recording-with-live-video-analytics"></a>Live Video Analytics를 사용한 비디오 녹화
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 CCTV 카메라용 비디오 관리 시스템 컨텍스트에서 비디오 녹화는 카메라에서 영상을 캡처해 모바일과 브라우저 앱을 통해 볼 수 있도록 기록하는 과정을 말합니다. 비디오 녹화는 연속 비디오 녹화 및 이벤트 기반 비디오 녹화로 분류될 수 있습니다. 
 

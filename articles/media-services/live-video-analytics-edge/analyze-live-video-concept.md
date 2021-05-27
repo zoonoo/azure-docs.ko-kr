@@ -1,16 +1,18 @@
 ---
-title: 기록 없이 라이브 비디오 분석 - Azure
-description: 미디어 그래프를 사용하여 에지 또는 클라우드에 기록하지 않고도 라이브 비디오 스트림에서 분석을 추출할 수 있습니다. 이 문서에서는 이러한 개념에 대해 설명합니다.
+title: Live Video Analytics를 사용하여 녹화 없이 라이브 비디오 분석 - Azure
+description: 미디어 그래프를 사용하여 에지 또는 클라우드에 기록하지 않고도 라이브 비디오 스트림에서 분석을 추출할 수 있습니다. 이 문서에서는 이 개념과 Live Video Analytics를 사용하여 녹화하지 않고 라이브 비디오를 분석하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 25a7cadc47603b726542fa391d441e1fbca78908
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c4f880646410ba77015663915575cdc32a7c188b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97398977"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378928"
 ---
-# <a name="analyzing-live-video-without-any-recording"></a>기록 없이 라이브 비디오 분석
+# <a name="analyze-live-video-without-any-recording-with-live-video-analytics"></a>Live Video Analytics를 사용하여 녹화 없이 라이브 비디오 분석
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료 
 

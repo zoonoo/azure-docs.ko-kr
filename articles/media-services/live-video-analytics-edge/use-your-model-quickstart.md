@@ -1,17 +1,19 @@
 ---
-title: 사용자 고유의 HTTP 모델을 사용하여 라이브 비디오 분석 - Azure
-description: 이 빠른 시작에서는 자체 HTTP 모델을 사용하여 컴퓨터 비전을 적용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
+title: 자체 HTTP 모델로 라이브 비디오 분석 - Azure
+description: 이 빠른 시작에서는 자체 HTTP 모델을 통해 컴퓨터 비전을 적용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석합니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: d3ba937abcc7bbfd9bb2afe7b15aec28ebb57446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 685deddb9a55d024081acd0b7d4ff639d1eecd43
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99508514"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368547"
 ---
-# <a name="quickstart-analyze-live-video-by-using-your-own-http-model"></a>빠른 시작: 사용자 고유의 HTTP 모델을 사용하여 라이브 비디오 분석
+# <a name="quickstart-analyze-live-video-with-your-own-http-model"></a>빠른 시작: 자체 HTTP 모델로 라이브 비디오 분석
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 시뮬레이션된 IP 카메라에서 라이브 비디오 피드를 분석하는 방법을 보여 줍니다. 컴퓨터 비전 모델을 적용하여 개체를 감지하는 방법을 볼 수 있습니다. 라이브 비디오 피드의 프레임 하위 집합은 유추 서비스로 보냅니다. 결과는 IoT Edge Hub로 보냅니다. 
 

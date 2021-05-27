@@ -1,16 +1,18 @@
 ---
-title: 모니터링 및 로깅 - Azure
-description: 이 문서에서는 IoT Edge의 Live Video Analytics 모니터링 및 로깅에 대한 개요를 제공합니다.
+title: Live Video Analytics에서 모니터링 및 로깅 - Azure
+description: 이 문서에서는 IoT Edge의 Azure Live Video Analytics에서 모니터링 및 로깅에 대한 개요를 제공합니다.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 4bc69192d0d36d01755d625ee46cd77cd9eec1b9
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105564486"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372144"
 ---
-# <a name="monitoring-and-logging"></a>모니터링 및 로깅
+# <a name="monitoring-and-logging-in-live-video-analytics-on-iot-edge"></a>IoT Edge의 Live Video Analytics에서 모니터링 및 로깅
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 IoT Edge 모듈의 Live Video Analytics에서 원격 모니터링에 대한 이벤트를 수신하는 방법을 알아봅니다. 
 

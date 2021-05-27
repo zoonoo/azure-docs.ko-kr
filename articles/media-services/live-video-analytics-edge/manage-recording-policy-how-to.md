@@ -1,16 +1,18 @@
 ---
-title: 녹음/녹화 정책 관리 - Azure
-description: 이 항목에서는 녹음/녹화 정책을 관리하는 방법을 설명합니다.
+title: Live Video Analytics를 통한 녹음/녹화 정책 관리 - Azure
+description: 이 항목에서는 Live Video Analytics를 사용하여 녹음/녹화 정책을 관리하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: ec72f28496c1392b9d95134c343e1892998a0c28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52c9011e81c4e9d43aa32158d8577a7388dc20d2
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99224992"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110379049"
 ---
-# <a name="manage-recording-policy"></a>녹음/녹화 정책 관리
+# <a name="manage-recording-policy-with-live-video-analytics"></a>Live Video Analytics를 통한 녹음/녹화 정책 관리
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 [연속 비디오 녹화](continuous-video-recording-concept.md)를 위한 Live Video Analytics on IoT Edge를 사용하여 몇 주 또는 몇 달 동안 클라우드에 비디오를 녹화할 수 있습니다. Azure 스토리지에 기본 제공되는 [수명 주기 관리 도구](../../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)를 사용하여 해당 클라우드 보관의 길이(일)를 관리할 수 있습니다.  
 

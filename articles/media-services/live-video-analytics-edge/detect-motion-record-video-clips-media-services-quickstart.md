@@ -1,16 +1,18 @@
 ---
-title: 동작을 감지하고 Azure Media Services에 비디오 녹화
-description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 사용하여 라이브 비디오 스트림의 동작을 감지하고 Azure Media Services에 비디오 클립을 녹화하는 방법을 보여줍니다.
+title: Live Video Analytics를 통해 동작 감지 및 Azure Media Services에 비디오 녹화
+description: 이 빠른 시작에서는 IoT Edge의 Azure Live Video Analytics를 사용하여 라이브 비디오 스트림의 동작을 감지하고 Azure Media Services에 비디오 클립을 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 135e68e2630d74dace6c3a6b70bb3666f77aad89
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 890d527eea0486bf42c1e5319d65e67dbeb05c06
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99575537"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378979"
 ---
-# <a name="quickstart-detect-motion-record-video-to-media-services"></a>빠른 시작: 동작을 감지하고 Media Services에 비디오 녹화
+# <a name="quickstart-detect-motion-record-video-to-azure-media-services"></a>빠른 시작: 동작을 감지하고 Azure Media Services에 비디오 녹화
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 Live Video Analytics on IoT Edge를 [이벤트 기반 기록](event-based-video-recording-concept.md)에 사용하는 단계를 안내합니다. Azure의 Linux VM이 IoT Edge 디바이스이자 시뮬레이션된 라이브 비디오 스트림으로 사용됩니다. 이 비디오 스트림을 분석하여 움직이는 물체가 있는지 확인합니다. 동작이 감지되면 Azure IoT Hub에 이벤트를 보내고, 비디오 스트림의 관련 부분이 Azure Media Services에 자산으로 기록됩니다.
 

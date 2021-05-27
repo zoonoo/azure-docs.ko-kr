@@ -1,16 +1,18 @@
 ---
-title: 프로덕션 준비 및 모범 사례 - Azure
-description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 Live Video Analytics를 구성하고 배포하는 방법에 대한 지침을 제공합니다.
+title: Live Video Analytics의 프로덕션 준비 상태 및 모범 사례 - Azure
+description: 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 Azure Live Video Analytics를 구성하고 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 56982d84b7ffac718072683076657d56a2691d6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7893750c1f835a95b5eba706f94679a41a424856
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97400559"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372066"
 ---
-# <a name="production-readiness-and-best-practices"></a>프로덕션 준비 및 모범 사례
+# <a name="production-readiness-and-best-practices-in-live-video-analytics"></a>Live Video Analytics의 프로덕션 준비 상태 및 모범 사례
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 프로덕션 환경의 IoT Edge 모듈에서 Live Video Analytics를 구성하고 배포하는 방법에 대한 지침을 제공합니다. IoT Edge 솔루션 준비에 대해서는 [IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비](../../iot-edge/production-checklist.md) 문서도 검토해야 합니다. 
 

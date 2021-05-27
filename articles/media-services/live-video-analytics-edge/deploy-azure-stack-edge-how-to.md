@@ -1,16 +1,18 @@
 ---
-title: Azure Stack Edge에 Live Video Analytics 배포
-description: 이 문서에서는 Azure Stack Edge에 Live Video Analytics을 배포하는 데 도움이 되는 단계를 나열합니다.
+title: Azure Stack Edge에 Azure Live Video Analytics 배포
+description: 이 문서에서는 Azure Stack Edge에 Azure Live Video Analytics를 배포하는 데 도움이 되는 단계를 나열합니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: b5be85e93b81f5cf50284533f21e688384558494
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 186b6d95572c6d3772d7271cde1fedccb7d47528
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561154"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378962"
 ---
-# <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Live Video Analytics 배포
+# <a name="deploy-azure-live-video-analytics-on-azure-stack-edge"></a>Azure Stack Edge에 Azure Live Video Analytics 배포
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 Azure Stack Edge에 Live Video Analytics을 배포하는 데 도움이 되는 단계를 나열합니다. 디바이스를 설정하고 활성화한 후에는 Live Video Analytics 배포를 수행할 준비가 된 것입니다. 
 
@@ -37,11 +39,17 @@ Live Video Analytics의 경우, IoT Hub를 통해 배포되지만, Azure Stack E
 
 ## <a name="configuring-azure-stack-edge-for-using-live-video-analytics"></a>Live Video Analytics 사용을 위한 Azure Stack Edge 구성
 
-Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션이며, 네트워크 데이터 전송 기능이 있는 AI 지원 에지 컴퓨팅 디바이스입니다. [Azure Stack Edge 및 자세한 설정 지침](../../databox-online/azure-stack-edge-deploy-prep.md)을 참조하세요. 시작하기 전에 아래 링크의 지침을 따르세요.
+Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션이며, 네트워크 데이터 전송 기능이 있는 AI 지원 에지 컴퓨팅 디바이스입니다. [Azure Stack Edge 및 자세한 설정 지침](../../databox-online/azure-stack-edge-gpu-deploy-prep.md)을 참조하세요. 시작하기 전에 아래 링크의 지침을 따르세요.
 
-* [Azure Stack Edge / Data Box Gateway 리소스 만들기](../../databox-online/azure-stack-edge-deploy-prep.md)
-* [설치 및 설정](../../databox-online/azure-stack-edge-deploy-install.md)
-* [연결 및 활성화](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md)
+* [Azure Stack Edge / Data Box Gateway 리소스 만들기](../../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-portal#create-a-new-resource)
+* [설치 및 설정](../../databox-online/azure-stack-edge-gpu-deploy-install.md)
+* 연결 및 활성화
+
+    1. [연결](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+    2. [네트워크 구성](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+    3. [디바이스 구성](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+    4. [인증서 구성](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+    5. [활성화](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
 * [Azure Stack Edge에 IoT Hub 연결](../../databox-online/azure-stack-edge-gpu-deploy-configure-compute.md#configure-compute)
 ### <a name="enable-compute-prerequisites-on-the-azure-stack-edge-local-ui"></a>Azure Stack Edge 로컬 UI에서컴퓨팅 사전 요구 사항 사용
 
@@ -50,7 +58,14 @@ Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션이며, 네트워크 �
 * Azure Stack Edge 리소스를 활성화 했습니다.
 * Azure Stack Edge 리소스에 액세스하기 위한 PowerShell 5.0 이상을 실행하는 Windows 클라이언트 시스템에 대한 액세스 권한이 있습니다.
 * Kubernetes 클러스터를 배포하려면, [로컬 웹 UI](../../databox-online/azure-stack-edge-deploy-connect-setup-activate.md#connect-to-the-local-web-ui-setup)를 통해 Azure Stack Edge 리소스를 구성해야 합니다. 
+
+    * 연결 및 구성:
     
+        1. [연결](../../databox-online/azure-stack-edge-gpu-deploy-connect.md)
+        2. [네트워크 구성](../../databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md)
+        3. [디바이스 구성](../../databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time.md)
+        4. [인증서 구성](../../databox-online/azure-stack-edge-gpu-deploy-configure-certificates.md)
+        5. [활성화](../../databox-online/azure-stack-edge-gpu-deploy-activate.md)
     * 컴퓨팅을 사용하도록 설정하려면, 디바이스의 로컬 웹 UI에서 컴퓨팅 페이지로 이동합니다.
     
         * 컴퓨팅을 사용하도록 설정하려는 네트워크 인터페이스를 선택합니다. 사용을 선택합니다. 컴퓨팅을 사용하도록 설정하면 해당 네트워크 인터페이스에서 디바이스에 가상 스위치가 생성됩니다.
@@ -58,7 +73,7 @@ Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션이며, 네트워크 �
         * 적용 선택 - 이 작업에는 약 2분이 소요됩니다.
         
         > [!div class="mx-imgBorder"]
-        > :::image type="content" source="./media/deploy-azure-stack-edge-how-to/azure-stack-edge-commercial.png" alt-text="Azure Stack Edge 로컬 UI의 컴퓨팅 사전 요구 사항":::
+        > :::image type="content" source="../../databox-online/media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/compute-network-2.png" alt-text="Azure Stack Edge 로컬 UI의 컴퓨팅 사전 요구 사항":::
 
         * Kubernetes API 및 Azure Stack Edge 리소스에 대해 DNS가 구성되지 않은 경우, 창의 호스트 파일을 업데이트할 수 있습니다.
         

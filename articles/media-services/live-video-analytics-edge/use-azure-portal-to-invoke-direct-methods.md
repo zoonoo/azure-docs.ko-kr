@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 직접 메서드를 호출하는 방법
-description: 이 문서는 직접 메서드를 호출하는 Azure Portal을 사용하는 개요입니다.
+title: Azure Portal을 사용하여 Live Video Analytics 직접 메서드를 호출하는 방법
+description: 이 문서는 Azure Portal을 사용하여 Live Video Analytics 직접 메서드를 호출하는 개요입니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -13,14 +13,16 @@ ms.topic: how-to
 ms.custom: ''
 ms.date: 07/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: ddd6a94015829a0b5dd4053f4d3a2fd6d2650d32
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 9d91395f148db2245c48784e00c3403a5c76a5b0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99492657"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368530"
 ---
-# <a name="how-to-use-azure-portal-to-invoke-direct-methods"></a>Azure Portal을 사용하여 직접 메서드를 호출하는 방법
+# <a name="how-to-use-azure-portal-to-invoke-live-video-analytics-direct-methods"></a>Azure Portal을 사용하여 Live Video Analytics 직접 메서드를 호출하는 방법
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 IoT Hub를 사용하면 클라우드의 에지 디바이스에서 [직접 메서드](../../iot-hub/iot-hub-devguide-direct-methods.md#method-invocation-for-iot-edge-modules)를 호출할 수 있습니다. LVA(Live Video Analytics on IoT Edge) 모듈은 라이브 비디오를 분석하기 위해 여러 워크플로를 정의하고, 배포하고, 인스턴스화하는 데 사용할 수 있는 여러 [직접 메서드](./direct-methods.md)를 제공합니다.
 
@@ -72,7 +74,7 @@ LVA 모듈에 의해 노출된 각 [직접 메서드](./direct-methods.md)는 Az
 
 ## <a name="next-steps"></a>다음 단계
 
-직접 [메서드](./direct-methods.md) 페이지에서 더 많은 직접 메서드를 찾을 수 있습니다.
+더 많은 직접 메서드는 [직접 메서드](./direct-methods.md) 페이지에서 찾을 수 있습니다.
 
 > [!NOTE]
 > 그래프 인스턴스는 특정 토폴로지를 인스턴스화하기 때문에 그래프 인스턴스를 만들기 전에 올바른 토폴로지가 설정되었는지 확인하세요.

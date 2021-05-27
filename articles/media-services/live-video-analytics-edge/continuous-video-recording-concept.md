@@ -1,16 +1,18 @@
 ---
-title: 연속 비디오 녹화 - Azure
-description: 연속 비디오 녹화(CVR)는 비디오 원본에서 비디오를 지속적으로 녹화하는 프로세스를 다룹니다. 이 항목에서는 CVR의 용도에 대해 설명합니다.
+title: Live Video Analytics를 사용한 연속 비디오 녹화 - Azure
+description: CVR(연속 비디오 녹화)은 Live Video Analytics를 사용하여 비디오 원본에서 비디오를 지속적으로 녹화하는 프로세스를 다룹니다. 이 항목에서는 CVR의 용도에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28fbe234984e3d75ef854bb8a001e5979d2bb97c
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102453753"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367679"
 ---
-# <a name="continuous-video-recording"></a>연속 비디오 녹화  
+# <a name="continuous-video-recording-with-live-video-analytics"></a>Live Video Analytics를 사용한 연속 비디오 녹화
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료  
 

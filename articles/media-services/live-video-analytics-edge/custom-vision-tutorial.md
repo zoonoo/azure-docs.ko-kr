@@ -1,17 +1,19 @@
 ---
-title: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
-description: Azure Custom Vision을 사용하여 장난감 트럭을 검색할 수 있는 컨테이너화된 모델을 빌드하는 방법과 Azure Live Video Analytics on Azure IoT Edge의 AI 확장 기능을 사용하여 라이브 비디오 스트림에서 장난감 트럭을 검색하는 데 에지에 모델을 배포하는 방법에 대해 알아봅니다.
+title: Azure Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
+description: Azure Custom Vision을 사용하여 장난감 트럭을 검색할 수 있는 컨테이너화된 모델을 빌드하는 방법과 Live Video Analytics on Azure IoT Edge의 AI 확장 기능을 사용하여 라이브 비디오 스트림에서 장난감 트럭을 검색하기 위해 에지에 모델을 배포하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 1abf123883a89bb41909e8aa67aedfadffc3d37e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d9718a8c7cf6f93af32a3bd33bcf1e8c75c6aa8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561205"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378269"
 ---
-# <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
+# <a name="tutorial-analyze-live-video-with-azure-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>자습서: Azure Live Video Analytics on IoT Edge 및 Azure Custom Vision을 사용하여 라이브 비디오 분석
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 자습서에서는 Azure [Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)을 사용하여 장난감 트럭을 탐지할 수 있는 컨테이너화된 모델을 빌드하는 방법과 Azure Live Video Analytics on Azure IoT Edge의 [AI 확장 기능](analyze-live-video-concept.md#analyzing-video-using-a-custom-vision-model)을 사용하여 라이브 비디오 스트림에서 장난감 트럭을 탐지하는 모델을 에지에 배포하는 방법에 대해 알아봅니다.
 

@@ -1,16 +1,18 @@
 ---
-title: IoT Edge for Linux on Windows에 배포 - Azure
-description: 이 문서에서는 IoT Edge for Linux on Windows 디바이스에 배포하는 방법에 대한 지침을 제공합니다.
+title: Live Video Analytics를 사용하여 Windows의 Linux용 IoT Edge에 배포 - Azure
+description: 이 문서에서는 Live Video Analytics를 사용하여 Windows의 Linux용 IoT Edge 디바이스에 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: d5c3d89ae7447b062714ad90be117a6426a39581
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c504ecf2bb7405ee49d6e9ee94f069336924f5c0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105561086"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110378098"
 ---
-# <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>IoT EFLOW(Edge for Linux on Windows) 디바이스에 배포
+# <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device-with-live-video-analytics"></a>Live Video Analytics를 사용하여 IoT EFLOW(Edge for Linux on Windows) 디바이스에 배포
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 [IoT EFLOW(Edge for Linux on Windows)](../../iot-edge/iot-edge-for-linux-on-windows.md)가 있는 에지 디바이스에 Live Video Analytics를 배포하는 방법에 대해 알아봅니다. 이 문서의 단계를 완료하면 비디오에서 동작을 감지하고 해당 이벤트를 클라우드의 IoT Hub로 내보내는 [미디어 그래프](media-graph-concept.md)를 실행할 수 있습니다. 그런 다음 고급 시나리오에 대한 미디어 그래프를 전환하고 Live Video Analytics 기능을 Windows 기반 IoT Edge 디바이스로 가져올 수 있습니다.
 

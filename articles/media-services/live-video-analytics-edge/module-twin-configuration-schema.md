@@ -1,16 +1,18 @@
 ---
-title: 모듈 쌍 JSON 스키마 - Azure
-description: 이 항목에서는 IoT Edge의 Live Video Analytics 모듈 쌍 JSON 스키마에 대해 설명합니다.
+title: Live Video Analytics의 모듈 쌍 JSON 스키마 - Azure
+description: 이 항목에서는 IoT Edge의 Azure Live Video Analytics 모듈 쌍 JSON 스키마에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be80b5782d76f1ec490395013310058f1cb2fe79
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87053062"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371174"
 ---
-# <a name="module-twin-json-schema"></a>모듈 쌍 JSON 스키마
+# <a name="module-twin-json-schema-in-live-video-analytics"></a>Live Video Analytics의 모듈 쌍 JSON 스키마
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 디바이스 쌍은 메타데이터, 구성, 조건 등 디바이스 상태 정보가 저장된 JSON 문서입니다. Azure IoT Hub는 IoT Hub에 연결하는 디바이스마다 하나의 디바이스 쌍을 유지합니다. 자세한 내용은 [IoT Hub의 모듈 쌍 이해 및 사용](../../iot-hub/iot-hub-devguide-module-twins.md)을 참조하세요.
 

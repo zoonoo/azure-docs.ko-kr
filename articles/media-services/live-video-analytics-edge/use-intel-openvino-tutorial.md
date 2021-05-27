@@ -1,17 +1,19 @@
 ---
-title: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석
-description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석합니다.
+title: OpenVINO™ Model Server – Intel의 AI 확장과 함께 Live Video Analytics를 사용하여 라이브 비디오 분석
+description: 이 자습서에서는 Intel에서 제공하는 AI 모델 서버를 사용하여 (시뮬레이션된) IP 카메라에서 라이브 비디오 피드를 분석합니다.
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 5751184493fffeeaf647507e9e9b00834f63ab5e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f6445a5bfffe6d359de66e8eda8b9ec82ea56dc0
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557261"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110368424"
 ---
-# <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 라이브 비디오 분석 
+# <a name="tutorial-analyze-live-video-by-using-live-video-analytics-with-openvino-model-server--ai-extension-from-intel"></a>자습서: OpenVINO™ Model Server – Intel의 AI 확장과 함께 Live Video Analytics를 사용하여 라이브 비디오 분석 
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 자습서에는 OpenVINO™ Model Server – Intel의 AI 확장을 사용하여 (시뮬레이션된) IP 카메라의 라이브 비디오 피드를 분석하는 방법을 보여줍니다. 유추 서버가 물체(사람, 차량 또는 자전거) 감지용 모델과 차량 분류용 모델에 액세스하는 방법을 확인할 수 있습니다. 라이브 비디오 피드의 프레임 하위 집합이 유추 서버로 전송되고, IoT Edge Hub로 결과가 전송됩니다.
 

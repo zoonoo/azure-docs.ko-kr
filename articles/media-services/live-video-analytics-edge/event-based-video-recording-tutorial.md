@@ -1,16 +1,18 @@
 ---
-title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생 자습서 - Azure
+title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생 - Azure
 description: 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: bf5bd39805aa581553bdf2e663f462251bf418d1
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279819"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371542"
 ---
-# <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
+# <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud-with-live-video-analytics"></a>자습서: Live Video Analytics를 통해 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 재생
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 자습서에서는 Azure Live Video Analytics on Azure IoT Edge를 사용하여 라이브 비디오 원본의 일부를 클라우드의 Azure Media Services에 선택적으로 녹화하는 방법에 대해 알아봅니다. 이 사용 사례는 이 자습서에서 [EVR(이벤트 기반 비디오 녹화)](event-based-video-recording-concept.md)이라고 합니다. 라이브 비디오의 일부를 녹화하려면 개체 감지 AI 모델을 사용하여 비디오의 개체를 찾고, 특정 형식의 개체가 감지되는 경우에만 비디오 클립을 녹화합니다. Media Services를 사용하여 녹화된 비디오 클립을 재생하는 방법도 알아봅니다. 이 기능은 관심 있는 비디오 클립을 보관해야 하는 다양한 시나리오에 유용합니다. 
 

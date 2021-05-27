@@ -1,18 +1,18 @@
 ---
 title: Azure Lighthouse에 고객 온보딩
 description: 고객을 Azure Lighthouse에 온보딩하고, Azure 위임 리소스 관리를 사용하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리하는 방법을 알아봅니다.
-ms.date: 03/29/2021
+ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: c02bbb789ffac262521c2f76c62081a21cd6602c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7b64a189fdf6b33fada1750b667260989d2827e8
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934311"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376224"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Azure Lighthouse에 고객 온보딩
 
-이 문서에서는 서비스 공급자로서 Azure Lighthouse에 고객을 온보딩하는 방법을 설명합니다. 그러면 [Azure 위임된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하여 고객의 Azure AD(Azure Active Directory) 테넌트에서 위임된 리소스(구독 및/또는 리소스 그룹)를 자체 테넌트를 통해 관리할 수 ​​있습니다.
+이 문서에서는 서비스 공급자로서 Azure Lighthouse에 고객을 온보딩하는 방법을 설명합니다. 그러면 [Azure 위임된 리소스 관리](../concepts/architecture.md)를 통해 고객의 Azure AD(Azure Active Directory) 테넌트에서 위임된 리소스(구독 및/또는 리소스 그룹)를 테넌트의 사용자가 관리할 수 ​​있습니다.
 
 > [!TIP]
 > 이 토픽에서는 서비스 공급자 및 고객 관련 내용을 다루지만 [여러 테넌트를 관리하는 엔터프라이즈](../concepts/enterprise.md)는 같은 프로세스를 사용하여 Azure Lighthouse를 설정하고 관리 환경을 통합할 수 있습니다.
@@ -73,6 +73,9 @@ az account show
 > Azure AD 그룹에 대한 사용 권한을 추가하려면 **그룹 형식** 이 **보안** 으로 설정되어 있어야 합니다. 이 옵션은 그룹을 만들 때 선택됩니다. 자세한 내용은 [Azure Active Directory를 사용하여 기본 그룹 만들기 및 멤버 추가](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 권한 부여를 정의할 때 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 최소 권한 원칙을 따라야 합니다. 지원되는 역할과 모범 사례에 관한 정보는 [Azure Lighthouse 시나리오의 테넌트, 사용자 및 역할](../concepts/tenants-users-roles.md)을 참조하세요.
+
+> [!TIP]
+> 관리 테넌트에서 사용자가 자신의 역할을 일시적으로 승격할 수 있는 *적격 권한 부여* 를 만들 수도 있습니다. 이 기능은 현재 퍼블릭 미리 보기로 제공되며 특정 라이선스 요구 사항이 있습니다. 자세한 내용은 [적격 권한 부여 만들기](create-eligible-authorizations.md)를 참조하세요.
 
 권한 부여를 정의하려면 액세스 권한을 부여하려는 서비스 공급자 테넌트의 각 사용자, 사용자 그룹 또는 서비스 주체의 ID 값을 알고 있어야 합니다. 또한 할당하려는 각 기본 제공 역할에 대한 역할 정의 ID도 필요합니다. 아직 없는 경우 서비스 공급자 테넌트 내에서 아래 명령을 실행하여 검색할 수 있습니다.
 
@@ -159,32 +162,32 @@ az role definition list --name "<roleName>" | grep name
             "value": "Fabrikam Managed Services - Interstellar"
         },
         "managedByTenantId": {
-            "value": "df4602a3-920c-435f-98c4-49ff031b9ef6"
+            "value": "00000000-0000-0000-0000-000000000000"
         },
         "authorizations": {
             "value": [
                 {
-                    "principalId": "0019bcfb-6d35-48c1-a491-a701cf73b419",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Tier 1 Support",
                     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 },
                 {
-                    "principalId": "0019bcfb-6d35-48c1-a491-a701cf73b419",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Tier 1 Support",
                     "roleDefinitionId": "36243c78-bf99-498c-9df9-86d9f8d28608"
                 },
                 {
-                    "principalId": "0afd8497-7bff-4873-a7ff-b19a6b7b332c",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Tier 2 Support",
                     "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
                 },
                 {
-                    "principalId": "9fe47fff-5655-4779-b726-2cf02b07c7c7",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Service Automation Account",
                     "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
                 },
                 {
-                    "principalId": "3kl47fff-5655-4779-b726-2cf02b05c7c4",
+                    "principalId": "00000000-0000-0000-0000-000000000000",
                     "principalIdDisplayName": "Policy Automation Account",
                     "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
                     "delegatedRoleDefinitionIds": [
@@ -205,7 +208,7 @@ az role definition list --name "<roleName>" | grep name
 매개 변수 파일을 업데이트한 후 고객 테넌트의 사용자는 해당 테넌트 내의 Azure Resource Manager 템플릿을 배포해야 합니다. 온보딩하려는 구독(또는 온보딩하려는 리소스 그룹을 포함하는 각 구독)마다 별도의 배포가 필요합니다.
 
 > [!IMPORTANT]
-> 이 배포는 온보딩하려는 구독(또는 온보딩하려는 리소스 그룹을 포함하는 구독)에 대해 [소유자](../../role-based-access-control/built-in-roles.md#owner)와 같이 `Microsoft.Authorization/roleAssignments/write` 권한을 갖는 역할이 있는 고객의 테넌트에서 게스트가 아닌 계정으로 수행해야 합니다. 구독을 위임할 수 있는 사용자를 찾기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 사용자를 볼](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription) 수 있습니다. 
+> 이 배포는 온보딩하려는 구독(또는 온보딩하려는 리소스 그룹을 포함하는 구독)에 대해 [소유자](../../role-based-access-control/built-in-roles.md#owner)와 같이 `Microsoft.Authorization/roleAssignments/write` 권한을 갖는 역할이 있는 고객의 테넌트에서 게스트가 아닌 계정으로 수행해야 합니다. 구독을 위임할 수 있는 사용자를 찾기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 사용자를 볼](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription) 수 있습니다.
 >
 > [CSP(클라우드 솔루션 공급자) 프로그램](../concepts/cloud-solution-provider.md)를 통해 구독을 만든 경우 서비스 공급자 테넌트에서 [관리 에이전트](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) 역할이 있는 모든 사용자가 배포를 수행할 수 있습니다.
 
@@ -302,6 +305,11 @@ Get-AzManagedServicesAssignment
 # Log in first with az login if you're not using Cloud Shell
 
 az account list
+
+# Confirm successful onboarding for Azure Lighthouse
+
+az managedservices definition list
+az managedservices assignment list
 ```
 
 고객이 온보딩된 후 변경해야 하는 경우 [위임을 업데이트](update-delegation.md)할 수 있습니다. [위임에 대한 액세스를 완전히 제거](remove-delegation.md)할 수도 있습니다.

@@ -1,16 +1,18 @@
 ---
-title: 녹화본 재생 - Azure
-description: 연속 비디오 녹화를 위한 Live Video Analytics on IoT Edge를 사용하여 몇 주 또는 몇 달 동안 클라우드에 비디오를 녹화할 수 있습니다. 이벤트 기반 녹화를 통해 관심 있는 클립으로 녹화를 제한할 수도 있습니다. 이 문서에서는 녹화를 재생하는 방법을 설명합니다.
+title: Live Video Analytics로 녹음/녹화 재생 - Azure
+description: 연속 비디오 녹화를 위한 IoT Edge의 Azure Live Video Analytics를 사용하여 몇 주 또는 몇 달 동안 클라우드에 비디오를 녹화할 수 있습니다. 이벤트 기반 녹화를 통해 관심 있는 클립으로 녹화를 제한할 수도 있습니다. 이 문서에서는 녹화를 재생하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 0351f10d9fac3ad7e3b4fdd5fd549eb7c0023694
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc8698fc9317421513677eb64403ac2cdc3905c3
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99490898"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372083"
 ---
-# <a name="playback-of-recordings"></a>녹화본 재생 
+# <a name="playback-of-recordings-with-live-video-analytics"></a>Live Video Analytics로 녹음/녹화 재생
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="pre-read"></a>미리 읽기  
 

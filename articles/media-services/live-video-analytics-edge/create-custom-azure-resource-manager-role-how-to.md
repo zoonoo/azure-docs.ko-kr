@@ -1,16 +1,18 @@
 ---
-title: 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당 - Azure
-description: 이 문서에서는 Azure CLI를 사용하여 사용자 지정 Azure Resource Manager 역할을 만들고 IoT Edge에서 Live Video Analytics에 대한 서비스 주체에 할당하는 방법에 대한 지침을 제공합니다.
+title: Azure Live Video Analytics를 사용하여 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
+description: 이 문서에서는 Azure CLI를 사용하여 사용자 지정 Azure Resource Manager 역할을 만들고 IoT Edge의 Azure Live Video Analytics에 대한 서비스 주체에 할당하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 6c33f6703522fc0b28237e22c16c96587467df40
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 4cf819fdcdb0c046070e90dd9c2aa1a42a1d8a1b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788514"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110373757"
 ---
-# <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
+# <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal-with-live-video-analytics"></a>Live Video Analytics를 사용하여 사용자 지정 Azure Resource Manager 역할을 만들고 서비스 주체에 할당
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 IoT Edge 모듈 인스턴스의 Live Video Analytics가 제대로 작동하려면 활성 Azure Media Services 계정이 필요합니다. IoT Edge 모듈의 Live Video Analytics와 Azure Media Service 계정의 관계는 모듈 쌍 속성 집합을 통해 설정됩니다. 이러한 쌍 속성 중 하나는 모듈 인스턴스가 Media Services 계정과 통신하고 필요한 작업을 트리거할 수 있도록 하는 [서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object)입니다. 에지 디바이스에서 오용 및/또는 실수로 인한 잠재적인 데이터 노출을 최소화하려면 이 서비스 주체에게 최소한의 권한이 있어야 합니다.
 

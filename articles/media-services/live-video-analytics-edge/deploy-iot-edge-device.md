@@ -1,16 +1,18 @@
 ---
-title: IoT Edge 디바이스에 Live Video Analytics 배포 - Azure
-description: 이 문서에서는 IoT Edge 디바이스에 Live Video Analytics를 배포하는 데 도움이 되는 단계를 나열합니다. 예를 들어 로컬 Linux 컴퓨터에 대한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우 이 작업을 수행할 수 있습니다.
+title: IoT Edge 디바이스에 Azure Live Video Analytics 배포
+description: 이 문서에서는 IoT Edge 디바이스에 Azure Live Video Analytics를 배포하는 데 도움이 되는 단계를 나열합니다. 예를 들어 로컬 Linux 컴퓨터에 대한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우 이 작업을 수행할 수 있습니다.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: 466cc236c1482b2ae6a31b40b6f3461a2c2fbfc1
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 75b91855ff8e46a45fac96e90be08a272ef52dfb
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280295"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110367476"
 ---
-# <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 디바이스에 Live Video Analytics 배포
+# <a name="deploy-azure-live-video-analytics-on-an-iot-edge-device"></a>IoT Edge 디바이스에 Azure Live Video Analytics 배포
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 문서에서는 IoT Edge 디바이스에 Live Video Analytics를 배포하는 데 도움이 되는 단계를 나열합니다. 예를 들어 로컬 Linux 컴퓨터에 대한 액세스 권한이 있거나 이전에 Azure Media Services 계정을 만든 경우 이 작업을 수행할 수 있습니다.
 

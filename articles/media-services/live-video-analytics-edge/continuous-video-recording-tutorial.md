@@ -1,16 +1,18 @@
 ---
-title: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생 자습서 - Azure
+title: 클라우드 간 연속 비디오 녹화 및 재생 - Azure
 description: 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 지속적으로 비디오를 녹화하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: d534fb174afa700671b6a3991a6aafa6357eb167
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 38a6afbae8f05bea4d165131eeab8cf97f48a465
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280346"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376694"
 ---
-# <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>자습서: 클라우드에 지속적으로 비디오를 녹화하고 클라우드에서 재생
+# <a name="tutorial-use-live-video-analytics-for-continuous-video-recording-and-playback-tofrom-the-cloud"></a>자습서: Live Video Analytics를 사용하여 클라우드 간 연속 비디오 녹화 및 재생
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 자습서에서는 Azure Live Video Analytics on IoT Edge를 사용하여 클라우드에 [지속적으로 비디오를 녹화(CVR)](continuous-video-recording-concept.md)하고, Azure Media Services를 사용하여 비디오에서 원하는 부분을 스트리밍하는 방법을 알아봅니다. 이 기능은 카메라에 기록된 내용을 수일 또는 수주일 동안 유지해야 하는 안전, 규정 준수 등의 시나리오에 유용합니다. 
 

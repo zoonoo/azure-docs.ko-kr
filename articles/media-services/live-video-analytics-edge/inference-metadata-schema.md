@@ -1,16 +1,18 @@
 ---
-title: 유추 메타데이터 스키마 - Azure
-description: 이 문서에서는 유추 메타데이터 스키마에 대해 알아봅니다.
+title: Live Video Analytics의 유추 메타데이터 스키마 - Azure
+description: 이 문서에서는 Live Video Analytics의 유추 메타데이터 스키마에 대해 알아봅니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2de437577dc00692fb98c46fec32bfaa6612dc99
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c79071609c291b6d09fe9c83d90d2cac137241b
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92019497"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110376990"
 ---
-# <a name="inference-metadata-schema"></a>유추 메타데이터 스키마 
+# <a name="inference-metadata-schema-in-live-video-analytics"></a>Live Video Analytics의 유추 메타데이터 스키마
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 HTTP 기반 계약 또는 gRPC 기반 계약 사용에 관계없이 각 유추 개체는 이 항목에 설명된 개체 모델을 따릅니다.
 
@@ -20,12 +22,12 @@ HTTP 기반 계약 또는 gRPC 기반 계약 사용에 관계없이 각 유추 �
  
 |형식 정의|설명|
 |---|---|
-|태그|결과와 연결된 태그 또는 레이블입니다. 태그 지정을 사용하면 태그와 연결된 신뢰도 값도 가져올 수 있습니다.|
+|태그|결과와 관련된 태그 또는 레이블 태그 지정과 함께 태그와 관련된 신뢰도 값을 가져올 수도 있습니다.|
 |특성|결과와 관련된 추가 특성입니다. 신뢰도 값과 함께 추론 엔진에서 수신하는 새 특성을 추가할 수 있습니다.|
 |특성 목록|선택적 특성의 목록입니다.|
 |직사각형|이미지 왼쪽 위 모서리를 기준으로 하는 사각형 영역입니다. 필수 속성은 "길이", "너비", 높이" 및 "원점으로부터의 위쪽 가장자리 거리"입니다.|
 |분류|종종 전체 샘플에 적용되는 분류자의 레이블입니다. "태그"의 도움을 통해 결과를 분류할 수 있습니다.|
-|엔터티|샘플에서 검색되거나 식별된 엔터티. 추론 엔진에서 엔터티를 검색하는 경우 "태그"를 가져오고, 유추된 추가 특성 및 검색된 엔터티 주위에 있는 사각형 상자의 좌표가 반환됩니다.|
+|엔터티|샘플에서 검색되거나 식별된 엔터티. 추론 엔진에서 엔터티를 검색하는 경우 ‘태그’를 가져오고, 유추된 추가 특성 및 검색된 엔터티 주위에 있는 사각형 상자의 좌표가 반환됩니다.|
 |이벤트|샘플에서 이벤트가 검색되었습니다. 샘플에서 이벤트가 검색되면 이벤트 이름과 이벤트별 속성이 반환됩니다.|
 |동작|샘플에서 동작이 검색되었습니다. 샘플에서 동작이 검색되면 동작이 검색되는 사각형 경계 상자의 좌표가 반환됩니다.|
 |텍스트|텍스트의 시작 및 종료 타임스탬프와 함께 샘플과 연결된 텍스트가 반환됩니다.|

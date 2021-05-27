@@ -1,16 +1,18 @@
 ---
-title: Live Video Analytics on IoT Edge 시작 - Azure
-description: 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 방법을 보여 줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
+title: IoT Edge의 Azure Live Video Analytics 시작
+description: 이 빠른 시작에서는 IoT Edge의 Azure Live Video Analytics를 시작하는 방법을 보여줍니다. 라이브 비디오 스트림에서 동작을 감지하는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 06a84a53db4e981802ad3de930288b6aa467f563
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730289"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371472"
 ---
-# <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>빠른 시작: 시작 - IoT Edge의 Live Video Analytics
+# <a name="quickstart-get-started-with-live-video-analytics-on-iot-edge"></a>빠른 시작: IoT Edge의 Live Video Analytics 시작
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 이 빠른 시작에서는 Live Video Analytics on IoT Edge를 시작하는 단계를 안내합니다. Azure VM을 IoT Edge 디바이스로 사용합니다. 또한 시뮬레이션된 라이브 비디오 스트림을 사용합니다. 
 
@@ -250,7 +252,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
   "payload": {
     "systemData": {
       "createdAt": "2020-05-19T07:41:34.507Z",
-      "lastModifiedAt": "2020-05-19T07:41:34.507Z"
+      "lastModifiedAt&quot;: &quot;2020-05-19T07:41:34.507Z"
     },
     "name": "MotionDetection",
     "properties": {
@@ -260,18 +262,18 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
           "name": "rtspUserName",
           "type": "String",
           "description": "rtsp source user name.",
-          "default": "dummyUserName"
+          "default&quot;: &quot;dummyUserName"
         },
         {
           "name": "rtspPassword",
           "type": "String",
           "description": "rtsp source password.",
-          "default": "dummyPassword"
+          "default&quot;: &quot;dummyPassword"
         },
         {
           "name": "rtspUrl",
           "type": "String",
-          "description": "rtsp Url"
+          "description&quot;: &quot;rtsp Url"
         }
       ],
       "sources": [
@@ -284,7 +286,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
             "url": "${rtspUrl}",
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-              "username": "${rtspUserName}"
+              "username&quot;: &quot;${rtspUserName}"
             }
           }
         }
@@ -335,7 +337,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "MotionDetection"
+    "name&quot; : &quot;MotionDetection"
 }
 ```
 
@@ -349,7 +351,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
   "payload": {
     "systemData": {
       "createdAt": "2020-05-19T07:41:34.507Z",
-      "lastModifiedAt": "2020-05-19T07:41:34.507Z"
+      "lastModifiedAt&quot;: &quot;2020-05-19T07:41:34.507Z"
     },
     "name": "MotionDetection",
     "properties": {
@@ -359,18 +361,18 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
           "name": "rtspUserName",
           "type": "String",
           "description": "rtsp source user name.",
-          "default": "dummyUserName"
+          "default&quot;: &quot;dummyUserName"
         },
         {
           "name": "rtspPassword",
           "type": "String",
           "description": "rtsp source password.",
-          "default": "dummyPassword"
+          "default&quot;: &quot;dummyPassword"
         },
         {
           "name": "rtspUrl",
           "type": "String",
-          "description": "rtsp Url"
+          "description&quot;: &quot;rtsp Url"
         }
       ],
       "sources": [
@@ -383,7 +385,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
             "url": "${rtspUrl}",
             "credentials": {
               "@type": "#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
-              "username": "${rtspUserName}"
+              "username&quot;: &quot;${rtspUserName}"
             }
           }
         }
@@ -467,7 +469,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          "value&quot;: &quot;rtsp://rtspsim:554/media/camera-300s.mkv"
         }
       ]
     }
@@ -517,7 +519,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 ```
  {
      "@apiVersion" : "2.0",
-     "name" : "Sample-Graph-1"
+     "name&quot; : &quot;Sample-Graph-1"
  }
  ```
 
@@ -539,7 +541,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
       "parameters": [
         {
           "name": "rtspUrl",
-          "value": "rtsp://rtspsim:554/media/camera-300s.mkv"
+          "value&quot;: &quot;rtsp://rtspsim:554/media/camera-300s.mkv"
         }
       ]
     }
@@ -620,7 +622,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 [IoTHubMonitor] [7:47:45 AM] Message received from [lva-sample-device/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1588948185746703 1 IN IP4 172.xx.xx.xx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1588948185746703 1 IN IP4 172.xx.xx.xx\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/camera-300s.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.04.12\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/camera-300s.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets={SPS}\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "dataVersion": "1.0",
@@ -675,7 +677,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "Sample-Graph-1"
+    "name&quot; : &quot;Sample-Graph-1"
 }
 ```
 
@@ -699,7 +701,7 @@ RTSP 시뮬레이터 모듈은 [Live Video Analytics 리소스 설치 스크립�
 ```
 {
     "@apiVersion" : "2.0",
-    "name" : "MotionDetection"
+    "name&quot; : &quot;MotionDetection"
 }
 ```
 

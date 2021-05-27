@@ -1,16 +1,18 @@
 ---
-title: 미디어 그래프 개념 - Azure
-description: 미디어 그래프에서 미디어를 캡처할 위치, 처리하는 방법 및 결과를 전달해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 미디어 그래프 개념에 대한 자세한 설명을 제공합니다.
+title: Live Video Analytics 미디어 그래프 개념 - Azure
+description: 미디어 그래프에서 미디어를 캡처할 위치, 처리하는 방법 및 결과를 전달해야 하는 위치를 정의할 수 있습니다. 이 문서에서는 Live Video Analytics 미디어 그래프 개념에 대한 자세한 설명을 제공합니다.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 83c51bc87321633339f75ac57b480116d450bca7
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 7be1bf485fd0641d96a51258f57818d9aa1692fc
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108770608"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372450"
 ---
-# <a name="media-graph"></a>미디어 그래프
+# <a name="live-video-analytics-media-graph"></a>Live Video Analytics 미디어 그래프
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="suggested-pre-reading"></a>추천 참고 자료
 

@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code 확장 설정
+title: Visual Studio Code 확장(미리 보기) 설정
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Visual Studio Code 확장을 설정하는 방법 알아보기
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 05/25/2021
 ms.topic: how-to
-ms.openlocfilehash: 42553c51ef1d223486de9e29ad8991c7ae96e79d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 80f6849bb4989692e8cd29a3288f9b104bf250bb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382700"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460089"
 ---
-# <a name="set-up-the-visual-studio-code-azure-machine-learning-extension"></a>Visual Studio Code Azure Machine Learning 확장 설정
+# <a name="set-up-the-visual-studio-code-azure-machine-learning-extension-preview"></a>Visual Studio Code Azure Machine Learning 확장(미리 보기) 설정
 
 기계 학습 워크플로에 대한 Azure Machine Learning Visual Studio Code 확장을 설정하는 방법을 알아봅니다.
 
@@ -55,7 +55,7 @@ VS Code용 Azure Machine Learning 확장은 다음에 대한 사용자 인터페
 이 자습서의 나머지 단계는 최신 버전의 확장으로 테스트되었습니다.
 
 > [!NOTE]
-> 확장은 기본적으로 2.0 CLI를 사용합니다. 비 2.0 CLI 환경으로 전환하려면 Visual Studio Code의 `azureML.experimental.V2Config` 설정을 `false`로 설정합니다. Visual Studio에서 설정을 수정하는 방법에 대한 자세한 내용은 [사용자 및 작업 영역 설정 설명서](https://code.visualstudio.com/docs/getstarted/settings)를 참조하세요.
+> Azure Machine Learning VS Code 확장은 기본적으로 2.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio에서 설정을 수정하는 방법에 대한 자세한 내용은 [사용자 및 작업 영역 설정 설명서](https://code.visualstudio.com/docs/getstarted/settings)를 참조하세요.
 
 ## <a name="sign-in-to-your-azure-account"></a>Azure 계정에 로그인
 
@@ -87,5 +87,5 @@ Azure 계정에 로그인하려면 Visual Studio Code 상태 표시줄에서 **A
 - [Azure Machine Learning 리소스 관리](how-to-manage-resources-vscode.md)
 - [원격 컴퓨팅 인스턴스에서 로컬로 개발](how-to-set-up-vs-code-remote.md)
 - [컴퓨팅 인스턴스를 원격 Jupyter 서버로 사용](how-to-set-up-vs-code-remote.md)
-- [Visual Studio Code 확장을 사용하여 이미지 분류 모델 학습 및 배포](tutorial-train-deploy-image-classification-model-vscode.md)
+- [Visual Studio Code 확장을 사용하여 이미지 분류 모델 학습](tutorial-train-deploy-image-classification-model-vscode.md)
 - [로컬로 기계 학습 실험 실행 및 디버그](how-to-debug-visual-studio-code.md)

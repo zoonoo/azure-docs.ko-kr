@@ -1,16 +1,18 @@
 ---
-title: gRPC 유추 서버 개발 및 배포 - Azure
-description: 이 문서에서는 gRPC 유추 서버를 개발하고 배포하는 방법에 대한 지침을 제공합니다.
+title: Live Video Analytics를 사용하여 gRPC 유추 서버 개발 및 배포 - Azure
+description: 이 문서에서는 Live Video Analytics를 사용하여 gRPC 유추 서버를 개발하고 배포하는 방법에 대한 지침을 제공합니다.
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: dbf46a26626a4143d76385968d092c4f238729da
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7d636803ac49d78aae78dad256598d9de3e7448
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105034863"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110371577"
 ---
-# <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>gRPC 유추 서버 개발 및 배포
+# <a name="develop-and-deploy-a-grpc-inference-server-with-live-video-analytics"></a>Live Video Analytics를 사용하여 gRPC 유추 서버 개발 및 배포
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 ## <a name="overview"></a>개요
 

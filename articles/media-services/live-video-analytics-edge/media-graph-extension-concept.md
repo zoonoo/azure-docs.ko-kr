@@ -1,16 +1,18 @@
 ---
-title: 미디어 그래프 확장이란? - Azure
-description: IoT Edge의 Live Video Analytics를 사용하면 그래프 확장 노드를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다.
+title: Live Video Analytics 미디어 그래프 확장 정의 - Azure
+description: IoT Edge의 Azure Live Video Analytics를 사용하면 그래프 확장 노드를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 4a7aea7cc60a67603d8a0376cf84228072659d6c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8f3165d948e636bda49128f080af00df7f30c977
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557618"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110372415"
 ---
-# <a name="media-graph-extension"></a>미디어 그래프 확장
+# <a name="live-video-analytics-media-graph-extension"></a>Live Video Analytics 미디어 그래프 확장
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 IoT Edge의 Live Video Analytics를 사용하면 그래프 확장 노드를 통해 미디어 그래프 처리 기능을 확장할 수 있습니다. 분석 확장 플러그 인은 기존의 이미지 처리 기술 또는 컴퓨터 비전 AI 모델을 사용할 수 있습니다. 그래프 확장은 확장 프로세서 노드를 미디어 그래프에 포함하여 사용할 수 있습니다. 확장 프로세서 노드는 비디오 프레임을 구성된 엔드포인트에 릴레이하고, 확장에 대한 인터페이스로 작동합니다. 로컬 또는 원격 엔드포인트에 연결할 수 있으며, 필요한 경우 인증 및 TLS 암호화를 통해 보안을 유지할 수 있습니다. 또한 그래프 확장 프로세서 노드를 사용하면 사용자 지정 확장에 전송하기 전에 비디오 프레임을 선택적으로 크기 조정하고 인코딩할 수 있습니다. 
 
