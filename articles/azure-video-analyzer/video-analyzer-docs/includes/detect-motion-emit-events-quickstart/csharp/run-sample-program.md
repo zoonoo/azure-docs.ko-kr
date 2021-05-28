@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 03/18/2021
 ms.author: faneerde
-ms.openlocfilehash: cc93611bf0fc1b6c86ac937e09d296adf1e609f5
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8eaf734d2f32772f1c24b49b20fa27940fbfbcac
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486591"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110387437"
 ---
 샘플 코드를 실행하려면 다음 단계를 수행합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "110486591"
 1. **pipelineTopologySet** 노드에서 다음 값이 표시되는지 확인합니다.
 
    ```
-   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/motion-detection/topology.json"
+   "pipelineTopologyUrl" : "https://raw.githubusercontent.com/Azure/azure-video-analyzer/main//pipelines/live/topologies/motion-detection/topology.json"
    ```
 
 1. `livePipelineSet` 및 `livePipelineDelete` 노드에서 **topologyName** 값이 파이프라인 토폴로지의 **name** 속성 값과 일치하는지 확인합니다.
@@ -90,7 +90,7 @@ ms.locfileid: "110486591"
 
 1. **터미널** 창의 출력이 `Press Enter to continue`에서 일시 중지됩니다. 아직 Enter 키를 선택하지 마세요. 위로 스크롤하여 호출한 직접 메서드에 대한 JSON 응답 페이로드를 확인합니다.
 1. Visual Studio Code에서 **출력** 창으로 전환합니다. Video Analytics Edge 모듈에서 IoT 허브에 보내는 메시지가 표시됩니다. 이 빠른 시작의 다음 섹션에서는 이러한 메시지를 설명합니다.
-1. 라이브 파이프라인은 계속 실행되고 결과를 출력합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 라이브 파이프라인을 중지하려면 **TERMINAL** 창으로 돌아가서 Enter를 선택합니다.
+1. 라이브 파이프라인은 계속 실행되고 결과를 출력합니다. RTSP 시뮬레이터가 원본 비디오를 계속 반복합니다. 라이브 파이프라인을 중지하려면 TERMINAL 창으로 돌아가서 **Enter** 를 선택합니다.
 
    일련의 다음 호출은 리소스를 정리합니다.
 

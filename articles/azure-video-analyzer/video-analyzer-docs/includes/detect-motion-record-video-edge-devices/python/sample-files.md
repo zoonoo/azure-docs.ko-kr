@@ -4,12 +4,12 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 04/07/2021
 ms.author: juliako
-ms.openlocfilehash: 1370131f97d8557b73b5f64d33f348e6ce07a1db
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 66b9e6656b7bebd488c6e710f91254ee985d06b8
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387349"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110487041"
 ---
 필수 구성 요소의 일부로 샘플 코드를 폴더에 다운로드했습니다. 다음 단계에 따라 샘플 파일을 검사하고 편집합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "110387349"
         * 리소스를 정리하는 직접 메서드를 호출합니다.
 1. **operations.json** 파일을 편집합니다.
 
-    * 파이프라인에 대한 링크를 변경합니다. <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-files/topology.json" `
+    * 파이프라인에 대한 링크를 변경합니다. <br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/evr-motion-file-sink/topology.json" `
     * livePipelineSet에서 이전 링크의 값과 일치하도록 파이프라인 토폴로지의 이름을 편집합니다. <br/>`"topologyName" : "EVRToFilesOnMotionDetection" `
     * PipelineTopologyDelete에서 이름을 편집합니다. <br/>`"name": "EVRToFilesOnMotionDetection" `
 

@@ -4,12 +4,12 @@ description: 이 자습서에는 Intel의 Intel OpenVINO™ DL Streamer – Edge
 ms.topic: tutorial
 ms.service: azure-video-analyzer
 ms.date: 05/18/2021
-ms.openlocfilehash: e06acecfd65686d90afa4727dd611bcfa2877c51
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 449cd027396f92be0443d7cd4fe6dabc3eb449f6
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110465716"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110384318"
 ---
 # <a name="tutorial-analyze-live-video-with-intel-openvino-dl-streamer--edge-ai-extension"></a>자습서: Intel OpenVINO™ DL Streamer – Edge AI Extension을 사용하여 라이브 비디오 분석 
 
@@ -114,7 +114,7 @@ Azure Video Analyzer 디바이스를 마우스 오른쪽 단추로 클릭하고,
 ![모니터링 시작](./media/quickstarts/start-monitoring-iot-hub-events.png) 
 
 ### <a name="run-the-sample-program-to-detect-vehicles-persons-or-bike"></a>차량, 사람 또는 자전거를 감지하는 샘플 프로그램 실행
-브라우저에서 이 자습서의 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json)를 열면 `grpcExtensionAddress`의 값이 `tcp://avaExtension:5001`로 설정된 것을 볼 수 있습니다. *httpExtensionOpenVINO* 자습서와 달리 url을 gRPC 서버로 변경할 필요가 없습니다. 대신 작업 파일에서 `extensionConfiguration`을 사용하여 특정 파이프라인을 실행하도록 모듈에 지시합니다. 값을 제공하지 않으면 "person_vehicle_bike_detection"은 기본적으로 "object_detection"으로 설정됩니다. 지원되는 다른 파이프라인을 실험해 볼 수 있습니다.
+브라우저에서 이 자습서의 [파이프라인 토폴로지](https://raw.githubusercontent.com/Azure/azure-video-analyzer/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json)를 열면 `grpcExtensionAddress`의 값이 `tcp://avaExtension:5001`로 설정된 것을 볼 수 있습니다. *httpExtensionOpenVINO* 자습서와 달리 url을 gRPC 서버로 변경할 필요가 없습니다. 대신 작업 파일에서 `extensionConfiguration`을 사용하여 특정 파이프라인을 실행하도록 모듈에 지시합니다. 값을 제공하지 않으면 "person_vehicle_bike_detection"은 기본적으로 "object_detection"으로 설정됩니다. 지원되는 다른 파이프라인을 실험해 볼 수 있습니다.
 
 1. *operations.json* 파일을 편집합니다.
     * 라이브 파이프라인 토폴로지에 대한 링크를 변경합니다.
