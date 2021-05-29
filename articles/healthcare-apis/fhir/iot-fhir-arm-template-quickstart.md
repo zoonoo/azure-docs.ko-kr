@@ -7,12 +7,13 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.author: rabhaiya
 ms.date: 01/21/2021
-ms.openlocfilehash: b241484b8e8d981036fff4998d475b8b80fae42d
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ec802cb193d8b6f6cc8eff0dedff066e684d6596
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020576"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704897"
 ---
 # <a name="quickstart-use-an-azure-resource-manager-arm-template-to-deploy-azure-iot-connector-for-fhir-preview"></a>빠른 시작: ARM(Azure Resource Manager) 템플릿을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포
 
