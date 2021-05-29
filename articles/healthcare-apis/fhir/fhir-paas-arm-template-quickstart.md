@@ -5,15 +5,15 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: cavoeg
 ms.date: 05/10/2021
-ms.openlocfilehash: 67958db0c56e4f37a71f67c714d4e354d570719c
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 97f57484c47bfc58f3a4cd30ed979ffb5b5d1c27
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752556"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704926"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>빠른 시작: ARM 템플릿을 사용하여 Azure API for FHIR 배포
 
