@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 05/27/2021
-ms.openlocfilehash: 837fdb74cbbeb976641b9ee86970d87b80134bc9
-ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
+ms.openlocfilehash: e7e0e89b1be822d13a577365bdc9ac277d55b4ce
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/07/2021
-ms.locfileid: "111572103"
+ms.locfileid: "111562962"
 ---
 # <a name="centers-for-medicare-and-medicaid-services-cms-interoperability-and-patient-access-rule-introduction"></a>Medicare 및 Medicaid Services (CMS) 상호 운용성 및 환자 액세스 규칙 소개 센터
 
@@ -23,9 +23,9 @@ ms.locfileid: "111572103"
 
 ## <a name="rule-overview"></a>규칙 개요
 
-5 월 1 일, 2020에 대 한 [상호 운용성 및 환자 액세스 규칙](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) 을 해제 한 CMS입니다. 이 규칙을 사용 하려면 환자 (환자, 공급자 및 payers)에 참여 하는 모든 당사자 간에 안전 하 고 안전한 데이터 흐름이 필요 합니다. 상호 운용성은 의료 업계를 수십 년 동안 겪었던, 사일로 데이터를 사용 하 여 더 높거나 예측할 수 없는 비용으로 부정적 상태 결과를 초래 합니다. CMS는 인증 기관을 사용 하 여이 규칙을 적용 하기 위해 Medicare 혜택 (MA), Medicaid, 자녀의 칩 칩 (건강 보험 프로그램) 및 QHP (정규화 된 상태 계획) 발급자를 규정 하 여이 규칙을 적용 합니다. 
+5 월 1 일, 2020에 대 한 [상호 운용성 및 환자 액세스 규칙](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index) 을 해제 한 CMS입니다. 이 규칙은 환자 (환자, 공급자 및 payers)에 참여 하는 모든 당사자 간에 안전 하 고 안전한 데이터 흐름을 보장 하 여 필요할 때 환자가 자신의 상태 정보에 액세스할 수 있도록 합니다. 상호 운용성은 의료 업계를 수십 년 동안 겪었던, 사일로 데이터를 사용 하 여 더 높거나 예측할 수 없는 비용으로 부정적 상태 결과를 초래 합니다. CMS는 인증 기관을 사용 하 여이 규칙을 적용 하기 위해 Medicare 혜택 (MA), Medicaid, 자녀의 칩 칩 (건강 보험 프로그램) 및 QHP (정규화 된 상태 계획) 발급자를 규정 하 여이 규칙을 적용 합니다. 
 
-8 월 2020, CMS에서 조직의 요구 사항을 충족 하는 방법에 대해 자세히 설명 합니다. 데이터를 안전 하 고 표준화 된 방식으로 교환할 수 있도록 CMS는 데이터 교환에 필요한 기본 표준으로 FHIR 버전 릴리스 4 (4-4)를 식별 합니다. 
+8 월 2020, CMS에서 조직의 요구 사항을 충족 하는 방법에 대해 자세히 설명 합니다. 데이터를 안전 하 고 표준화 된 방식으로 교환할 수 있도록 하기 위해 CMS는 데이터 교환에 필요한 기본 표준으로 FHIR 버전 4를 식별 합니다. 
 
 상호 운용성 및 환자 액세스 가로선에는 세 가지 주요 부분이 있습니다.
 
@@ -37,14 +37,14 @@ ms.locfileid: "111572103"
 
 ## <a name="key-fhir-concepts"></a>핵심 개념
 
-위에서 설명한 것 처럼이 요구 사항을 충족 하려면 FHIR 4가 필요 합니다. 또한 규칙에 대 한 지침을 제공 하는 몇 가지 구현 가이드를 개발 했습니다. [구현 가이드](https://www.hl7.org/fhir/implementationguide.html) 는 기본 FHIR 사양 위에 추가 컨텍스트를 제공 합니다. 여기에는 추가 검색 매개 변수, 프로필, 확장, 작업, 값 집합 및 코드 시스템을 정의 하는 작업이 포함 됩니다.
+위에서 설명한 것 처럼,이 요구 사항을 충족 하려면 FHIR 버전 4가 필요 합니다. 또한 규칙에 대 한 지침을 제공 하는 몇 가지 구현 가이드를 개발 했습니다. [구현 가이드](https://www.hl7.org/fhir/implementationguide.html) 는 기본 FHIR 사양 위에 추가 컨텍스트를 제공 합니다. 여기에는 추가 검색 매개 변수, 프로필, 확장, 작업, 값 집합 및 코드 시스템을 정의 하는 작업이 포함 됩니다.
 
 FHIR 용 Azure API는 다양 한 구현 가이드를 위해 데이터베이스를 구성 하는 데 도움이 되는 다음과 같은 기능을 제공 합니다.
 
 * [RESTful 상호 작용에 대 한 지원](fhir-features-supported.md)
-* [프로필 저장 및 유효성 검사](validation-against-profiles.md)
-* [사용자 지정 검색 매개 변수 정의 및 인덱싱](how-to-do-custom-search.md)
-* [데이터 변환](convert-data.md)
+*  [프로필 저장 및 유효성 검사](validation-against-profiles.md)
+*  [사용자 지정 검색 매개 변수 정의 및 인덱싱](how-to-do-custom-search.md)
+*  [데이터 변환](convert-data.md)
 
 ## <a name="patient-access-api-implementation-guides"></a>환자 액세스 API 구현 가이드
 
@@ -80,7 +80,7 @@ Part D Medicare 혜택 요금제는 환자 API를 통해 formulary 정보를 사
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 상호 운용성 및 환자 액세스 규칙, 구현 가이드 및 사용 가능한 테스트 도구 (Touchstone)에 대 한 기본적인 이해를 했으므로 파랑 용 CARIN에 대 한 Azure API를 설정 하는 과정을 안내 합니다. 
+이제 상호 운용성 및 환자 액세스 규칙, 구현 가이드 및 사용 가능한 테스트 도구 (Touchstone)에 대 한 기본적인 내용을 이해 했으므로 microsoft는 CARIN 파랑 단추를 위한 Azure API를 설정 하는 과정을 안내 합니다. 
 
 >[!div class="nextstepaction"]
->[파랑 단추에 대 한 CARIN 구현 가이드](carin-implementation-guide-blue-button-tutorial.md)  
+>[파랑 단추에 대 한 CARIN 구현 가이드](https://build.fhir.org/ig/HL7/carin-bb/index.html)  
