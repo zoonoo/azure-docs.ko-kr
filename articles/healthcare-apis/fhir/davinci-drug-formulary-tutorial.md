@@ -9,12 +9,12 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
 ms.date: 06/01/2021
-ms.openlocfilehash: 22a4f42c0b63c42a50824301bcd9c056e7883a38
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: feeccd8f194397e9c99f19920d09b8bb2056ff08
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562758"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592945"
 ---
 # <a name="davinci-drug-formulary"></a>Davinci.txt 약품 Formulary
 
@@ -26,39 +26,36 @@ ms.locfileid: "111562758"
 
 ### <a name="define-search-parameters"></a>검색 매개 변수 정의
 
-Davinci.txt 약품 Formulary IG의 일부로 FormularyDrug 리소스에 대해 3 개의 [새 검색 매개 변수](how-to-do-custom-search.md) 를 정의 해야 합니다. 이러한 세 가지 모두 기능 문에서 테스트 됩니다.
+Da 다빈치 마약 Formulary IG의 일환으로 FormularyDrug 리소스에 대해 3 개의 [새 검색 매개 변수](how-to-do-custom-search.md) 를 정의 해야 합니다. 이러한 세 가지 모두 기능 문에서 테스트 됩니다.
 
--   [DrugTier](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugTier.json.html)
+* [DrugTier](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugTier.json.html)
+* [DrugPlan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugPlan.json.html)
+* [DrugName](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugName.json.html)
 
--   [DrugPlan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugPlan.json.html)
-
--   [DrugName](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugName.json.html)
-
-Davinci.txt 약품 Formulary IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 정의 되며 추가 업데이트 없이 Azure API for FHIR에서 이미 사용할 수 있습니다.
+Da 다빈치 약품 Formulary IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 정의 되며 추가 업데이트 없이 FHIR 용 Azure API에서 이미 사용할 수 있습니다.
 
 ### <a name="store-profiles"></a>저장소 프로필
 
-검색 매개 변수를 정의 하는 것 외에이 테스트를 전달 하기 위해 수행 해야 하는 다른 업데이트는 [필요한 프로필](validation-against-profiles.md)을 로드 하는 것입니다. Davinci.txt 약품 Formulary IG의 일부로 사용 되는 두 개의 프로필이 있습니다.
+검색 매개 변수를 정의 하는 것 외에이 테스트를 전달 하기 위해 수행 해야 하는 다른 업데이트는 [필요한 프로필](validation-against-profiles.md)을 로드 하는 것입니다. Da 다빈치 약품 Formulary IG의 일부로 사용 되는 두 개의 프로필이 있습니다.
 
--   [Formulary 약품](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-FormularyDrug.html)
-
--   [Formulary 검사 계획](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-CoveragePlan.html)
+* [Formulary 약품](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-FormularyDrug.html)
+* [Formulary 검사 계획](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/StructureDefinition-usdf-CoveragePlan.html)
 
 ### <a name="sample-rest-file"></a>샘플 rest 파일
 
-이러한 검색 매개 변수 및 프로필 생성을 지원 하기 위해, 위에 설명 된 모든 단계를 단일 파일에 포함 하는 [Davinci.txt Formulary](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) sample HTTP 파일이 오픈 소스 사이트에 있습니다. 필요한 모든 프로필과 검색 매개 변수를 업로드 한 후에는 Touchstone에서 기능 문 테스트를 실행할 수 있습니다. 성공적으로 실행 하려면 다음을 실행 해야 합니다.
+이러한 검색 매개 변수 및 프로필 생성을 지원 하기 위해, 위에 설명 된 모든 단계를 단일 파일에 포함 하는 [Da 다빈치 Formulary](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) 샘플 HTTP 파일이 오픈 소스 사이트에 있습니다. 필요한 모든 프로필과 검색 매개 변수를 업로드 한 후에는 Touchstone에서 기능 문 테스트를 실행할 수 있습니다. 성공적으로 실행 하려면 다음을 실행 해야 합니다.
 
 :::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="Davinci.txt 테스트 스크립트 실행":::
 
 ## <a name="touchstone-query-test"></a>Touchstone 쿼리 테스트
 
-두 번째 테스트는 [쿼리 기능](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 이 테스트는 다양 한 매개 변수를 사용 하 여 특정 검사 계획 및 약품 리소스를 검색할 수 있는지 확인 합니다. 가장 좋은 경로는 데이터베이스에 이미 있는 리소스에 대해 테스트 하는 것 이지만 리소스를 만들고 테스트 하는 데 사용할 수 있는 예제에서 끌어온 샘플 리소스와 함께 사용할 수 있는 [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP 파일도 있습니다.
+두 번째 테스트는 [쿼리 기능](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 이 테스트는 `CoveragePlan` 다양 한 매개 변수를 사용 하 여 특정 및 리소스를 검색할 수 있는지 유효성을 검사 `Drug` 합니다. 가장 좋은 경로는 데이터베이스에 이미 있는 리소스에 대해 테스트 하는 것 이지만 리소스를 만들고 테스트 하는 데 사용할 수 있는 예제에서 끌어온 샘플 리소스와 함께 사용할 수 있는 [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP 파일도 있습니다.
 
 :::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="테스트 실행 결과를 Davinci.txt 합니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Touchstone에서 Davinci.txt 지불자 Data Exchange US 약품 Formulary를 전달 하는 방법을 살펴보았습니다. 다음으로 Touchstone에서 Da 다빈치 PDex 구현 가이드를 테스트 하는 방법을 배울 수 있습니다.
+이 자습서에서는 Touchstone에서 Da 다빈치 지불자 Data Exchange US 약품 Formulary를 전달 하는 방법을 살펴보았습니다. 다음으로 Touchstone에서 Da 다빈치 PDex 구현 가이드를 테스트 하는 방법을 배울 수 있습니다.
 
 >[!div class="nextstepaction"]
->[Davinci.txt PDex](davinci-pdex-tutorial.md)
+>[Da 다빈치 PDex](davinci-pdex-tutorial.md)
