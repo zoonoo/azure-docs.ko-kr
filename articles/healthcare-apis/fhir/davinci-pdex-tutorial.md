@@ -1,5 +1,5 @@
 ---
-title: 자습서 - DaVinci PDex - Azure API for FHIR
+title: 자습서 - Da Vinci PDex - Azure API for FHIR
 description: 이 자습서에서는 Da Vinci Payer 데이터 교환 구현 가이드에 대한 테스트를 통과하도록 Azure API for FHIR 설정하는 방법을 안내합니다.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,15 +8,15 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 06/02/2021
-ms.openlocfilehash: 3f9aa795a08aa027fd0cc9758e9479fa0ec81e09
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/07/2021
+ms.openlocfilehash: 454b049a90bcf6e1d1793606a8759222698e5697
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592974"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751112"
 ---
-# <a name="davinci-pdex"></a>DaVinci PDex
+# <a name="da-vinci-pdex"></a>Da Vinci PDex
 
 이 자습서에서는 Da Vinci Payer PDex [IG(Data Exchange Implementation Guide)에](http://hl7.org/fhir/us/davinci-pdex/toc.html) 대한 [Touchstone](https://touchstone.aegis.net/touchstone/) 테스트를 통과하도록 Azure API for FHIR 설정하는 방법을 안내합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "111592974"
 * 세 번째 테스트는 [$patient-everything 작업이](patient-everything.md) 지원되는지 확인합니다. 지금은 이 테스트가 실패합니다. 이 작업은 Azure API for FHIR 2021년 6월 중순에 제공될 예정이며, 현재 Cosmos DB 오픈 소스 FHIR 서버에서 사용할 수 있습니다. 그러나 capability 문에 없으므로 버그 [1989에](https://github.com/microsoft/fhir-server/issues/1989)대한 수정 사항을 릴리스할 때까지 이 테스트가 실패합니다. 
 
  
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="DaVinci PDex를 실행하지 못했습니다.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-failed.png" alt-text="Da Vinci PDex를 실행하지 못했습니다.":::
 
 ## <a name="touchstone-member-match-test"></a>Touchstone $member 일치 테스트
 
@@ -42,13 +42,13 @@ Payer Data Exchange 섹션의 [두 번째 테스트는](https://touchstone.aegis
 
 이 테스트에서는 테스트를 통과하기 위해 몇 가지 샘플 데이터를 로드해야 합니다. 테스트에 필요한 환자 및 검사가 연결된 rest 파일이 [있습니다.](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/membermatch.http) 이 데이터가 로드되면 이 테스트를 성공적으로 통과할 수 있습니다. 데이터가 로드되지 않으면 정확한 일치를 찾지 못하여 422 응답을 받게 됩니다.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="DaVinci PDex 테스트 스크립트가 통과되었습니다.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-script-passed.png" alt-text="Da Vinci PDex 테스트 스크립트가 통과되었습니다.":::
 
 ## <a name="touchstone-patient-by-reference"></a>참조로 터치석 환자
 
 검토할 다음 테스트는 [참조 테스트에 의한 환자입니다.](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PayerExchange/02-PatientByReference&activeOnly=false&contentEntry=TEST_SCRIPTS) 이 테스트 집합은 다양한 검색 기준에 따라 환자를 찾을 수 있는지 유효성을 검사합니다. 참조로 환자를 테스트하는 가장 좋은 방법은 사용자 고유의 데이터에 대해 테스트하는 것이지만, 사용하기 위해 로드할 수 있는 [샘플 리소스 파일도](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/PDex_Sample_Data.http) 업로드했습니다.
 
-:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="DaVinci PDex 실행이 통과되었습니다.":::
+:::image type="content" source="media/cms-tutorials/davinci-pdex-test-execution-passed.png" alt-text="Da Vinci PDex 실행이 통과되었습니다.":::
 
 ## <a name="touchstone-patienteverything-test"></a>Touchstone 환자/$everything 테스트
 

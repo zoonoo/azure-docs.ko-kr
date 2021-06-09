@@ -91,7 +91,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 #### <a name="free"></a>[Free](https://azure.microsoft.com/free/)
 
 - 12개월 동안 평가판 서비스
-- 30일 동안 서비스를 탐색하도록 청구 통화로 $200 크레딧 제공
+- 30일 동안 서비스를 탐색하도록 청구 통화로 200달러 크레딧 제공
 - 25개 이상의 서비스 항상 무료
 
 #### <a name="pay-as-you-go"></a>[종량제](https://azure.microsoft.com/offers/ms-azr-0003p)

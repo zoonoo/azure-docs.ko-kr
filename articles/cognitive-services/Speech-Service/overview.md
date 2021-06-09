@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 11/23/2020
 ms.author: trbye
-ms.openlocfilehash: cacf317e433ec89b3bc82f86844e5e6b5e143547
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 766f49588e6b163c19f0c044d746eca97d3f90cb
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108330562"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110497748"
 ---
 # <a name="what-is-the-speech-service"></a>Speech Service란?
 
-Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](https://speech.microsoft.com/) 또는 [REST API](#reference-docs)를 통해 애플리케이션, 도구 및 디바이스를 음성으로 쉽게 사용할 수 있습니다.
+Speech Service는 음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역을 단일 Azure 구독에 통합한 것입니다. [Speech CLI](spx-overview.md), [Speech SDK](./speech-sdk.md), [Speech Devices SDK](./speech-devices-sdk-quickstart.md?pivots=platform-android), [Speech Studio](speech-studio-overview.md) 또는 [REST API](#reference-docs)를 통해 애플리케이션, 도구 및 디바이스를 음성으로 쉽게 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > Speech Service는 Bing Speech API 및 Translator Speech를 대체했습니다. 마이그레이션 지침에 대해서는 _마이그레이션_ 섹션을 참조하세요.
@@ -143,7 +143,7 @@ Speech Service는 기본 제공 모델에서 효율적으로 작동하지만, �
 * 표준 텍스트 음성 변환
 * 인공신경망 텍스트 음성 변환
 * 사용자 지정 텍스트 음성 변환(미리 보기)
-* 음성 언어 감지(미리 보기)
+* 음성 언어 식별(미리 보기)
 
 ## <a name="reference-docs"></a>참조 문서
 

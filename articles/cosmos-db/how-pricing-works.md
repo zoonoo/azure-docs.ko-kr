@@ -39,7 +39,7 @@ Azure Cosmos DB는 개발자를 위해 다양한 옵션을 무료로 제공합�
 
 * **Azure Cosmos DB 체험 계층**: Azure Cosmos DB 체험 계층을 사용하면 쉽게 시작하고, 애플리케이션을 개발 및 테스트하거나, 소규모 프로덕션 워크로드를 무료로 실행할 수도 있습니다. 계정에서 무료 계층을 사용하는 경우 계정의 수명이 유지되는 동안 계정에서 첫 1000RU/s 및 25GB의 스토리지를 무료로 얻을 수 있습니다. Azure 구독당 최대 1개의 체험 계층 계정을 사용할 수 있으며 계정을 만들 때 옵트인해야 합니다. 자세히 알아보려면 [체험 계층 계정을 생성](free-tier.md)하는 방법 문서를 참조하세요.
 
-* **Azure 무료 계정**: Azure는 처음 30일 동안 $200의 Azure 크레딧과 12개월 동안 무료 서비스라는 제한된 수량을 제공하는 [무료 계층](https://azure.microsoft.com/free/)을 제공합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. Azure Cosmos DB와 관련해서 이 체험 계정은 1년 동안 25GB의 스토리지와 400RU/s의 프로비전된 처리량을 제공합니다.
+* **Azure 무료 계정**: Azure는 처음 30일 동안 200달러의 Azure 크레딧과 12개월 동안 무료 서비스라는 제한된 수량을 제공하는 [무료 계층](https://azure.microsoft.com/free/)을 제공합니다. 자세한 내용은 [Azure 체험 계정](../cost-management-billing/manage/avoid-charges-free-account.md)을 참조하세요. Azure Cosmos DB의 Azure 체험 계정의 일부로 제공됩니다. Azure Cosmos DB와 관련해서 이 체험 계정은 1년 동안 25GB의 스토리지와 400RU/s의 프로비전된 처리량을 제공합니다.
 
 * **Azure Cosmos DB 평가판 사용하기**: Azure Cosmos DB는 체험 계정이 있을 때 Azure Cosmos DB를 사용해 볼 수 있는 시간 제한 체험을 제공합니다. 빠른 시작 및 자습서를 사용하여 Azure Cosmos DB 계정을 만들고, 데이터베이스 및 컬렉션을 만들고, 애플리케이션 예제를 실행할 수 있습니다. Azure 계정에 가입하거나 신용 카드를 사용하지 않고 애플리케이션 예제를 실행할 수 있습니다. [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/)(Azure Cosmos DB 평가판 사용하기)를 통해 1개월간 횟수 제한 없이 계정을 갱신하면서 Azure Cosmos DB를 체험해 볼 수 있습니다.
 

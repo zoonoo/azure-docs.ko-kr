@@ -22,7 +22,7 @@ ms.locfileid: "108331721"
 
 Azure Portal에서 [Azure 체험 계정](https://azure.microsoft.com/free/)을 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 
-[Azure for Students Starter 계정](https://azure.microsoft.com/offers/ms-azr-0144p/)이 있고 [Azure 체험 계정](https://azure.microsoft.com/free/)에 대한 자격이 있으면 [Azure 체험 계정](https://azure.microsoft.com/free/)으로 업그레이드할 수 있습니다. 업그레이드 시 청구 통화와 12개월 무료 서비스의 $200 Azure 크레딧이 제공됩니다. 체험 계정에 대한 자격이 없으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
+[Azure for Students Starter 계정](https://azure.microsoft.com/offers/ms-azr-0144p/)이 있고 [Azure 체험 계정](https://azure.microsoft.com/free/)에 대한 자격이 있으면 [Azure 체험 계정](https://azure.microsoft.com/free/)으로 업그레이드할 수 있습니다. 업그레이드 시 청구 통화와 12개월 무료 서비스의 200달러 Azure 크레딧이 제공됩니다. 체험 계정에 대한 자격이 없으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 
 [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) 계정이 있으면 [지원 요청](https://go.microsoft.com/fwlink/?linkid=2083458)을 통해 [종량제 요율](https://azure.microsoft.com/offers/ms-azr-0003p/)로 업그레이드할 수 있습니다.
 

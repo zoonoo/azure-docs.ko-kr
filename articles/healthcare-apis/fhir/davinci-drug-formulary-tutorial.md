@@ -1,5 +1,5 @@
 ---
-title: 자습서-Davinci.txt 약품 Formulary-FHIR 용 Azure API
+title: 자습서-Da 다빈치 약품 Formulary-FHIR 용 Azure API
 description: 이 자습서에서는 Davinci.txt 약품 Formulary 구현 가이드에 대해 Touchstone 테스트를 전달 하도록 FHIR 용 Azure API를 설정 하는 과정을 안내 합니다.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,21 +8,21 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 06/01/2021
-ms.openlocfilehash: feeccd8f194397e9c99f19920d09b8bb2056ff08
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.date: 06/07/2021
+ms.openlocfilehash: fc66de13c02d6d04e8a156937de70775b9053da3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592945"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751094"
 ---
-# <a name="davinci-drug-formulary"></a>Davinci.txt 약품 Formulary
+# <a name="da-vinci-drug-formulary"></a>Da 다빈치 마약 Formulary
 
-이 자습서에서는 [Davinci.txt 지불자 Data EXCHANGE US 약품 Formulary 구현 가이드](http://hl7.org/fhir/us/Davinci-drug-formulary/)에 대 한 [Touchstone](https://touchstone.aegis.net/touchstone/) 테스트를 전달 하도록 Fhir 용 Azure API를 설정 하는 과정을 안내 합니다.
+이 자습서에서는 [Da 다빈치 지불자 Data EXCHANGE US 약품 Formulary 구현 가이드](http://hl7.org/fhir/us/Davinci-drug-formulary/)에 대 한 [Touchstone](https://touchstone.aegis.net/touchstone/) 테스트를 전달 하도록 Fhir 용 Azure API를 설정 하는 과정을 안내 합니다.
 
 ## <a name="touchstone-capability-statement"></a>Touchstone 기능 문
 
-중점적으로 다룰 첫 번째 테스트는 [Davinci.txt 약품 Formulary 기능 문에](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS)대해 Azure API for FHIR을 테스트 하는 것입니다. 업데이트 하지 않고이 테스트를 실행 하면 검색 매개 변수가 누락 되 고 프로필이 누락 되어 테스트가 실패 합니다.
+중점적으로 다룰 첫 번째 테스트는 [Da 다빈치 약품 Formulary 기능 문에](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS)대해 Azure API for FHIR을 테스트 하는 것입니다. 업데이트 하지 않고이 테스트를 실행 하면 검색 매개 변수가 누락 되 고 프로필이 누락 되어 테스트가 실패 합니다.
 
 ### <a name="define-search-parameters"></a>검색 매개 변수 정의
 
@@ -45,13 +45,13 @@ Da 다빈치 약품 Formulary IG에 필요한 나머지 검색 매개 변수는 
 
 이러한 검색 매개 변수 및 프로필 생성을 지원 하기 위해, 위에 설명 된 모든 단계를 단일 파일에 포함 하는 [Da 다빈치 Formulary](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary.http) 샘플 HTTP 파일이 오픈 소스 사이트에 있습니다. 필요한 모든 프로필과 검색 매개 변수를 업로드 한 후에는 Touchstone에서 기능 문 테스트를 실행할 수 있습니다. 성공적으로 실행 하려면 다음을 실행 해야 합니다.
 
-:::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="Davinci.txt 테스트 스크립트 실행":::
+:::image type="content" source="media/cms-tutorials/davinci-test-script-execution.png" alt-text="Da 다빈치 테스트 스크립트 실행":::
 
 ## <a name="touchstone-query-test"></a>Touchstone 쿼리 테스트
 
-두 번째 테스트는 [쿼리 기능](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 이 테스트는 `CoveragePlan` 다양 한 매개 변수를 사용 하 여 특정 및 리소스를 검색할 수 있는지 유효성을 검사 `Drug` 합니다. 가장 좋은 경로는 데이터베이스에 이미 있는 리소스에 대해 테스트 하는 것 이지만 리소스를 만들고 테스트 하는 데 사용할 수 있는 예제에서 끌어온 샘플 리소스와 함께 사용할 수 있는 [DaVinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP 파일도 있습니다.
+두 번째 테스트는 [쿼리 기능](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/01-Query&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 이 테스트는 다양 한 매개 변수를 사용 하 여 특정 검사 계획 및 약품 리소스를 검색할 수 있는지 확인 합니다. 가장 좋은 경로는 데이터베이스에 이미 있는 리소스에 대해 테스트 하는 것 이지만, 리소스를 만들고 테스트 하는 데 사용할 수 있는 예제에서 가져온 샘플 리소스와 함께 사용할 수 있는 [Da VinciFormulary_Sample_Resources](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciFormulary/DaVinciFormulary_Sample_Resources.http) HTTP 파일도 있습니다.
 
-:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="테스트 실행 결과를 Davinci.txt 합니다.":::
+:::image type="content" source="media/cms-tutorials/davinci-test-execution-results.png" alt-text="Da 다빈치 테스트 실행 결과입니다.":::
 
 ## <a name="next-steps"></a>다음 단계
 

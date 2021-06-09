@@ -17,7 +17,7 @@ ms.locfileid: "108331001"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Azure 체험 계정으로 요금 청구 방지
 
-적격한 신규 사용자는 [Azure 체험 계정](https://azure.microsoft.com/free/)을 사용하여 첫 30일 동안 청구 통화로 $200 Azure 크레딧과 12개월 동안 제한된 수량의 무료 서비스를 받을 수 있습니다. 평가판 서비스의 한도에 대해 알아보려면 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. 만료되지 않은 크레딧을 보유하거나 제한 내에서 무료 서비스만 사용하는 경우 요금이 청구되지 않습니다.
+적격한 신규 사용자는 [Azure 체험 계정](https://azure.microsoft.com/free/)을 사용하여 첫 30일 동안 청구 통화로 200달러 Azure 크레딧과 12개월 동안 제한된 수량의 무료 서비스를 받을 수 있습니다. 평가판 서비스의 한도에 대해 알아보려면 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요. 만료되지 않은 크레딧을 보유하거나 제한 내에서 무료 서비스만 사용하는 경우 요금이 청구되지 않습니다.
 
 Azure 무료 계정에 요금이 부과되는 몇 가지 이유를 알아보겠습니다.
 

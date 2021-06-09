@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 06/04/2021
 ms.author: cavoeg
-ms.openlocfilehash: fee544c318df318e09c75ebaf18fc0837cb4af0d
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: b02a2b582130c439298653d7c2a0512edbb8a23b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562734"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756368"
 ---
 # <a name="patient-everything-in-fhir"></a>FHIR의 Patient-Everything
 
@@ -29,7 +29,7 @@ Azure API for FHIR 제공된 환자 ID와 일치하는 환자를 찾을 수 있�
 * [환자 리소스](https://www.hl7.org/fhir/patient.html) 
 *  환자 리소스에서 직접 참조하는 리소스(링크 제외) 
 *  환자의 [구획에](https://www.hl7.org/fhir/compartmentdefinition-patient.html) 있는 리소스
-*  환자 [리소스를](https://www.hl7.org/fhir/device.html) 참조하는 디바이스 리소스  
+*  환자 [리소스를](https://www.hl7.org/fhir/device.html) 참조하는 디바이스 리소스입니다. 디바이스는 100개로 제한됩니다. 환자가 연결된 디바이스가 100개 이상인 경우 100개만 반환됩니다. 
 
  
 > [!Note]
