@@ -9,21 +9,20 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 05/27/2021
-ms.openlocfilehash: 25be80678389b59e907caf60529a8e4048a959e0
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ms.openlocfilehash: 1fade881fbe6d5c401712a4f97c8a249006d8190
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111562782"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590381"
 ---
 # <a name="carin-implementation-guide-for-blue-button174"></a>파랑 단추에 대 한 CARIN 구현 가이드&#174;
 
-이 자습서에서는 [Touchstone](https://touchstone.aegis.net/touchstone/) 구현 가이드 (C4BB)에 대 한 [Carin 구현 가이드 ](https://build.fhir.org/ig/HL7/carin-bb/index.html) 를 전달 하도록 Fhir 용 Azure API를 설정 하는 과정을 안내 합니다.
+이 자습서에서는 [Touchstone](https://touchstone.aegis.net/touchstone/) 구현 가이드 (C4BB)에 대 한 [Carin 구현 가이드](https://build.fhir.org/ig/HL7/carin-bb/index.html) 를 전달 하도록 Fhir 용 Azure API를 설정 하는 과정을 안내 합니다.
 
 ## <a name="touchstone-capability-statement"></a>Touchstone 기능 문
 
 중점적으로 다룰 첫 번째 테스트는 [C4BB IG 기능 문에](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS)대해 Azure API for FHIR을 테스트 하는 것입니다. 업데이트 없이 FHIR 용 Azure API에 대해이 테스트를 실행 하는 경우 누락 된 검색 매개 변수 및 누락 된 프로필로 인해 테스트가 실패 합니다. 
-
 
 ### <a name="define-search-parameters"></a>검색 매개 변수 정의
 
@@ -43,19 +42,12 @@ C4BB IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 �
 검색 매개 변수를 정의 하는 것 외에이 테스트를 전달 하기 위해 수행 해야 하는 다른 업데이트는 [필요한 프로필](validation-against-profiles.md)을 로드 하는 것입니다. C4BB IG 내에 정의 된 8 개의 프로필이 있습니다. 
 
 * [C4BB 검사](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Coverage.html) 
-
 * [C4BB ExplanationOfBenefit Inpatient 기관](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Inpatient-Institutional.html) 
-
 * [C4BB ExplanationOfBenefit Outpatient 기관](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Outpatient-Institutional.html) 
-
 * [C4BB ExplanationOfBenefit Pharmacy](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Pharmacy.html) 
-
 * [C4BB ExplanationOfBenefit Professional NonClinician](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-ExplanationOfBenefit-Professional-NonClinician.html) 
-
 * [C4BB 조직](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Organization.html) 
-
 * [C4BB 환자](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Patient.html) 
-
 * [C4BB 전문가](https://build.fhir.org/ig/HL7/carin-bb/StructureDefinition-C4BB-Practitioner.html) 
 
 ### <a name="sample-rest-file"></a>샘플 rest 파일
@@ -72,13 +64,13 @@ C4BB IG에 필요한 나머지 검색 매개 변수는 기본 사양에 의해 �
 
 ## <a name="touchstone-eob-query-test"></a>Touchstone EOB 쿼리 테스트
 
-검토할 다음 테스트는 [EOB 쿼리 테스트](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 읽기 테스트를 이미 완료 한 경우에는 필요한 모든 데이터를 로드 해야 합니다. 이 테스트는 다양 한 매개 변수를 사용 하 여 특정 환자 및 혜택 리소스에 대 한 설명을 검색할 수 있는지 유효성을 검사 합니다.
+검토할 다음 테스트는 [EOB 쿼리 테스트](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS)입니다. 읽기 테스트를 이미 완료 한 경우에는 필요한 모든 데이터를 로드 해야 합니다. 이 테스트는 `Patient` 다양 한 매개 변수를 사용 하 여 특정 및 리소스를 검색할 수 있는지 유효성을 검사 `ExplanationOfBenefit` 합니다.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB 쿼리 실행 결과.":::
 
 ## <a name="touchstone-error-handling-test"></a>Touchstone 오류 처리 테스트
 
-살펴볼 최종 테스트는 [오류 처리](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS)를 테스트 하는 것입니다. 데이터베이스에서 ExplanationOfBenefit 리소스를 삭제 하 고 테스트에서 delete ExplanationOfBenfit 리소스의 ID를 사용 하기만 하면 됩니다.
+살펴볼 최종 테스트는 [오류 처리](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/99-ErrorHandling&activeOnly=false&contentEntry=TEST_SCRIPTS)를 테스트 하는 것입니다. 데이터베이스에서 ExplanationOfBenefit 리소스를 삭제 하 고 테스트에서 삭제 된 리소스의 ID를 사용 하기만 하면 됩니다 `ExplanationOfBenefit` .
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-error-handling.png" alt-text="Touchstone EOB 오류 처리 결과.":::
 

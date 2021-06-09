@@ -8,19 +8,19 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 04/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: 14328179a297ebcc3994bf627b1690195774b2b1
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: dbc03ccd235c456941e5f201b647215389fed92c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108741134"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408230"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>FHIR 용 Azure API에 대 한 질문과 대답
 
 ## <a name="azure-api-for-fhir-the-basics"></a>FHIR 용 Azure API: 기본 사항
 
 ### <a name="what-is-fhir"></a>FHIR 이란?
-신속한 의료 상호 운용성 리소스 (FHIR-"화재")는 서로 다른 상태 시스템 간의 의료 데이터 교환을 가능 하 게 하는 상호 운용성 표준입니다. 이 표준은 HL7 조직에서 개발 되었으며 전 세계 의료 기관에서 채택 하 고 있습니다. 최신 버전의 FHIR은 4, 4 (릴리스 4)로 제공 됩니다. FHIR 용 Azure API는 4 ~ 4를 지원 하 고 이전 버전 STU3 (평가판 사용에 대 한 표준 3)도 지원 합니다. FHIR에 대 한 자세한 내용은 [HL7.org](http://hl7.org/fhir/summary.html)를 참조 하세요.
+신속한 전자 의료 기록 교환(FHIR-"fire"로 발음됨)은 서로 다른 상태 시스템 간의 의료 데이터 교환을 가능하게 하는 상호 운용성 표준입니다. 이 표준은 HL7 조직에서 개발 되었으며 전 세계 의료 기관에서 채택 하 고 있습니다. 최신 버전의 FHIR은 4, 4 (릴리스 4)로 제공 됩니다. FHIR 용 Azure API는 4 ~ 4를 지원 하 고 이전 버전 STU3 (평가판 사용에 대 한 표준 3)도 지원 합니다. FHIR에 대 한 자세한 내용은 [HL7.org](http://hl7.org/fhir/summary.html)를 참조 하세요.
 
 ### <a name="is-the-data-behind-the-fhir-apis-stored-in-azure"></a>Azure에 저장 된 FHIR Api의 데이터 인지 여부
 
@@ -74,7 +74,7 @@ FHIR 용 인증 및 Azure API. SMART에 대해 자세히 알아보려면 [스마
 
 ### <a name="are-extensions-supported-on-azure-api-for-fhir"></a>FHIR 용 Azure API에서 지원 되는 [확장](https://www.hl7.org/fhir/extensibility.html) 은 무엇 인가요?
 
-모든 유효한 FHIR JSON 데이터를 서버에 로드할 수 있습니다. 확장을 정의 하는 구조 정의를 저장 하려는 경우이를 구조체 정의 리소스로 저장할 수 있습니다. 현재는 확장을 검색할 수 없습니다.
+모든 유효한 FHIR JSON 데이터를 서버에 로드할 수 있습니다. 확장을 정의 하는 구조 정의를 저장 하려는 경우이를 구조체 정의 리소스로 저장할 수 있습니다. 확장을 검색 하려면 [고유한 검색 매개 변수를 정의](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fhealthcare-apis%2Ffhir%2Fhow-to-do-custom-search&data=04%7C01%7Cv-stevewohl%40microsoft.com%7Cc6a08c7f0c86433f248c08d925377d85%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637581742517376233%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=Ws%2FVQ2N33sMagzs393hmR67M9dNaL6WCLXyxXtor6PM%3D&reserved=0)해야 합니다. 
 
 ### <a name="what-is-the-limit-on-_count"></a>_Count에 대 한 제한은 무엇 인가요?
 
