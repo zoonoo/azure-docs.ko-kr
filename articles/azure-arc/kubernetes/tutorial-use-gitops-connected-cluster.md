@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial , devx-track-azurecli
-ms.openlocfilehash: 66d00ae738cc693d46f1df333ce64accea4b12a8
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 9f6fe063faa9abfa59d7999da17940aae9ccd264
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883943"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110463183"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>자습서: Azure Arc 지원 Kubernetes 클러스터에서 GitOps를 사용하여 구성 배포 
 
@@ -149,7 +149,7 @@ Flux 연산자는 SSH 연결을 설정하기 전에 Git 리포지토리를 인�
 >[!NOTE]
 >* Helm 연산자 차트 버전 1.2.0+는 HTTPS Helm 릴리스 프라이빗 인증을 지원합니다.
 >* AKS 관리형 클러스터에는 HTTPS Helm 릴리스가 지원되지 않습니다.
->* 프록시를 통해 Git 리포지토리에 액세스하는 데 Flux가 필요한 경우 Azure Arc 에이전트를 프록시 설정으로 업데이트해야 합니다. 자세한 내용은 [아웃바운드 프록시 서버를 사용하여 연결](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)을 참조하세요.
+>* 프록시를 통해 Git 리포지토리에 액세스하는 데 Flux가 필요한 경우 Azure Arc 에이전트를 프록시 설정으로 업데이트해야 합니다. 자세한 내용은 [아웃바운드 프록시 서버를 사용하여 연결](./quickstart-connect-cluster.md#5-connect-using-an-outbound-proxy-server)을 참조하세요.
 
 
 ## <a name="additional-parameters"></a>추가 매개 변수
@@ -181,6 +181,9 @@ Flux 연산자는 SSH 연결을 설정하기 전에 Git 리포지토리를 인�
 Flux가 리포지토리에 쓰지 않도록 하고 `--git-user` 또는 `--git-email`이 설정되지 않은 경우 `--git-readonly`가 자동으로 설정됩니다.
 
 자세한 내용은 [Flux 설명서](https://aka.ms/FluxcdReadme)를 참조하세요.
+
+>[!NOTE]
+> Flux는 기본적으로 git 리포지토리의 `master` 분기에서 동기화됩니다. 그러나 최신 git 리포지토리에는 `main`이라는 루트 브랜치가 있으며 이 경우 --operator-params에서 `--git-branch=main`을 설정해야 합니다. 
 
 > [!TIP]
 > Azure Arc 지원 Kubernetes 리소스의 **GitOps** 탭에 있는 Azure Portal에서 구성을 만들 수 있습니다.
