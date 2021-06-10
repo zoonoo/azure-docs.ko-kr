@@ -1,18 +1,18 @@
 ---
 title: FHIR 용 Azure API에 대해 식별 되지 않은 데이터 (미리 보기) 내보내기
 description: 이 문서에서는 식별 되지 않은 내보내기를 설정 하 고 사용 하는 방법을 설명 합니다.
-author: matjazl
+author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/28/2020
-ms.author: matjazl
-ms.openlocfilehash: d4e3c1801425daa9c907f7d713a339d44647e185
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.author: ranku
+ms.openlocfilehash: ba0af51eaf15211c2214f9457235afa250d92b7b
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 06/09/2021
-ms.locfileid: "111751040"
+ms.locfileid: "111814448"
 ---
 # <a name="exporting-de-identified-data-preview"></a>식별 되지 않은 데이터 내보내기 (미리 보기)
 
@@ -26,7 +26,7 @@ $Export 명령을 사용 하 여 FHIR 서버에서 식별 되지 않은 데이�
 > [!Note] 
 > 현재 Azure API for FHIR은 시스템 수준 ($export)에서 확인 되지 않은 내보내기를 지원 합니다.
 
-|쿼리 매개 변수            | 예제 |옵션| 설명|
+|쿼리 매개 변수            | 예제 |옵션| Description|
 |---------------------------|---------|-----------|------------|
 | _\_anonymizationConfig_   |DemoConfig.js|식별 되지 않은 내보내기에 필요 |구성 파일의 이름입니다. [여기](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format)에서 구성 파일 형식을 참조 하세요. 이 파일은 내보내기 위치로 구성 된 동일한 Azure storage 계정 내의 **익명화** 이라는 컨테이너 내에 보관 되어야 합니다. |
 | _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|식별 되지 않은 내보내기의 경우 선택 사항|이는 구성 파일의 Etag입니다. Blob 속성에서 Azure Storage 탐색기를 사용 하 여 Etag를 가져올 수 있습니다.|
