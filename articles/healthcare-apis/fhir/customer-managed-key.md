@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/04/2021
 ms.author: ginle
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 371b1286976a5f9dabfb82a5a706ff4a2672ceb2
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 0c32725d020043c3cd62828e4bdccfafef2f53aa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110700479"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970189"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>미사용 고객 관리형 키 구성
 
@@ -48,7 +48,7 @@ KeyPicker에서 키를 선택할 수 있습니다.
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Azure API for FHIR 만들기":::
 
 > [!Important]
-> Azure Key Vault에 대 한 모든 권한이 적절 하 게 설정 되었는지 확인 합니다. 자세한 내용은 [Azure Key Vault 인스턴스에 액세스 정책 추가](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-access-policy)를 참조 하세요. 또한 Key Vault 속성에서 일시 삭제를 사용 하도록 설정 해야 합니다. 이러한 단계를 완료 하지 않으면 배포 오류가 발생 합니다. 자세한 내용은 [key vault에서 일시 삭제를 사용 하도록 설정 되어 있는지 확인 하 고 일시 삭제를 사용 하도록 설정](https://docs.microsoft.com/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete)을 참조 하세요.
+> Azure Key Vault에 대 한 모든 권한이 적절 하 게 설정 되었는지 확인 합니다. 자세한 내용은 [Azure Key Vault 인스턴스에 액세스 정책 추가](../../cosmos-db/how-to-setup-cmk.md#add-access-policy)를 참조 하세요. 또한 Key Vault 속성에서 일시 삭제를 사용 하도록 설정 해야 합니다. 이러한 단계를 완료 하지 않으면 배포 오류가 발생 합니다. 자세한 내용은 [key vault에서 일시 삭제를 사용 하도록 설정 되어 있는지 확인 하 고 일시 삭제를 사용 하도록 설정](../../key-vault/general/key-vault-recovery.md?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete)을 참조 하세요.
 
 기존 FHIR 계정의 경우 아래와 같이 **데이터베이스** 블레이드에서 키 암호화 선택 (**서비스 관리 키** 또는 **고객 관리 키**)을 볼 수 있습니다. 구성 옵션을 선택한 후에는 수정할 수 없습니다. 그러나 키는 수정하고 업데이트할 수 있습니다.
 
