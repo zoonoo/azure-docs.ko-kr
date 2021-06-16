@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell
 ms.date: 04/01/2021
-ms.openlocfilehash: 01fe3121173eb730584dadd1266b3217af2b5017
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: e141a33be0433e8d40af41c4624b4921321a6aae
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279553"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971607"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 논리 앱 워크플로 만들기 및 배포
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정을
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서는 [**논리 앱 만들기**](https://azure.microsoft.com/resources/templates/101-logic-app-create/) 템플릿을 사용합니다. 이 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates)에서 찾을 수 있지만, 너무 길므로 여기서는 표시할 수 없습니다. 대신 템플릿 갤러리에서 빠른 시작 템플릿의 ["azuredeploy.json 파일"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json)을 검토할 수 있습니다.
+이 빠른 시작에서는 [**논리 앱 만들기**](https://azure.microsoft.com/resources/templates/logic-app-create/) 템플릿을 사용합니다. 이 템플릿은 [Azure 빠른 시작 템플릿 갤러리](https://azure.microsoft.com/resources/templates)에서 찾을 수 있지만, 너무 길므로 여기서는 표시할 수 없습니다. 대신 템플릿 갤러리에서 빠른 시작 템플릿의 ["azuredeploy.json 파일"](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json)을 검토할 수 있습니다.
 
 빠른 시작 템플릿은 1시간마다 실행되도록 설정된 되풀이 트리거 및 Azure에 대한 상태를 반환하는 URL을 호출하는 HTTP [*기본 제공* 작업](../connectors/built-in.md)을 사용하는 논리 앱 워크플로를 만듭니다. 기본 제공 작업은 Azure Logic Apps 플랫폼의 기본 작업입니다.
 
@@ -167,7 +167,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
    자세한 내용은 [리소스 관리 REST API: 배포 - 만들기 또는 업데이트](/rest/api/resources/deployments/createorupdate)를 참조하세요.
 
-1. 배포에 사용할 값(예: Azure 지역), 빠른 시작 템플릿에 대한 링크 및 배포에 사용할 빠른 시작 템플릿의 값이 포함된 [매개 변수 파일](../azure-resource-manager/templates/template-parameters.md)에 대한 링크를 제공하려면 리소스 관리 REST API에 보내는 요청 본문에 대한 다음 구문을 수행합니다.
+1. 배포에 사용할 값(예: Azure 지역), 빠른 시작 템플릿에 대한 링크 및 배포에 사용할 빠른 시작 템플릿의 값이 포함된 [매개 변수 파일](../azure-resource-manager/templates/parameters.md)에 대한 링크를 제공하려면 리소스 관리 REST API에 보내는 요청 본문에 대한 다음 구문을 수행합니다.
 
    ```json
    {

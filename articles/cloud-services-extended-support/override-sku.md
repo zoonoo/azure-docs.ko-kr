@@ -7,13 +7,13 @@ author: surbhijain
 ms.author: surbhijain
 ms.reviewer: gachandw
 ms.date: 04/05/2021
-ms.custom: ''
-ms.openlocfilehash: d5dfae4b5cfee8f61e11e418a05e86017d119410
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc973f024ea93b986793a8daff8e0db8caf56e22
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107739263"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110696221"
 ---
 # <a name="override-sku-information-over-cscfgcsdef-in-cloud-services-extended-support"></a>Cloud Services에서 CSCFG/CSDEF를 통해 SKU 정보 재정의(추가 지원) 
 
@@ -101,5 +101,5 @@ CloudService createOrUpdateResponse = m_CrpClient.CloudServices.CreateOrUpdate(�
 
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services(추가 지원)에 대한 [사전 요구 사항](deploy-prerequisite.md)을 검토합니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.

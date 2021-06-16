@@ -4,17 +4,17 @@ description: Kubernetes 도구를 사용하여 SQL 관리형 인스턴스 만들
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9ca8712f0cbb1c9180b4c84e682512c348abeac9
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 24abb1ece1d307276be736b384c3e5e3c7d40f2a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736343"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407492"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 Azure SQL 관리형 인스턴스 만들기
 
@@ -42,7 +42,7 @@ SQL 관리형 인스턴스를 만들려면 Kubernetes 비밀을 만들어 시스
 apiVersion: v1
 data:
   password: <your base64 encoded password>
-  username: <your base64 encoded user name. 'sa' is not allowed>
+  username: <your base64 encoded username>
 kind: Secret
 metadata:
   name: sql1-login-secret
@@ -52,22 +52,42 @@ apiVersion: sql.arcdata.microsoft.com/v1alpha1
 kind: sqlmanagedinstance
 metadata:
   name: sql1
+  annotations:
+    exampleannotation1: exampleannotationvalue1
+    exampleannotation2: exampleannotationvalue2
+  labels:
+    examplelabel1: examplelabelvalue1
+    examplelabel2: examplelabelvalue2
 spec:
-  limits:
-    memory: 4Gi
-    vcores: "4"
-  requests:
-    memory: 2Gi
-    vcores: "1"
-  service:
-    type: LoadBalancer
+  scheduling:
+    default:
+      resources:
+        limits:
+          cpu: "2"
+          memory: 4Gi
+        requests:
+          cpu: "1"
+          memory: 2Gi
+  services:
+    primary:
+      type: LoadBalancer
   storage:
+    backups:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
+    datalogs:
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### <a name="customizing-the-login-and-password"></a>로그인 및 암호 사용자 지정
@@ -87,7 +107,6 @@ PowerShell
 
 #Example
 #[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes('example'))
-
 ```
 
 Linux/macOS
@@ -138,7 +157,6 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 #kubectl create -n arc -f C:\arc-data-services\sqlmi.yaml
 ```
 
-
 ## <a name="monitoring-the-creation-status"></a>생성 상태 모니터링
 
 SQL 관리형 인스턴스 생성을 완료하는 데는 몇 분 정도가 소요됩니다. 다음 명령을 사용하여 다른 터미널 창에서 진행률을 모니터링할 수 있습니다.
@@ -157,15 +175,15 @@ kubectl get pods --namespace arc
 아래와 같은 명령을 실행하여 특정 Pod의 생성 상태를 확인할 수도 있습니다.  이 기능은 문제를 해결하는 데 특히 유용합니다.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/sql1-0 --namespace arc
+#kubectl describe pod/sql1-0 --namespace arc
 ```
 
-## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
+## <a name="troubleshooting-creation-problems"></a>만들기 문제 해결
 
-생성과 관련한 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
+생성 관련 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

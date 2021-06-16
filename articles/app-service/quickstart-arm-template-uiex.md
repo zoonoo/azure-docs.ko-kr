@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: bfdfad8af2d730caf0ac9e22ee815a6d59a6b6a3
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: f0412b6e67ff62247feb3f8643553c5a6101ad73
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074730"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892673"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "108074730"
 ## <a name="2-review-the-template"></a>2. 템플릿 검토
 
 ::: zone pivot="platform-windows"
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/app-service-docs-windows)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
@@ -69,7 +69,7 @@ ms.locfileid: "108074730"
 </details>
 ::: zone-end
 ::: zone pivot="platform-linux"
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/app-service-docs-linux)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 

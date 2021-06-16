@@ -7,14 +7,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel, jingwang
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
-ms.openlocfilehash: 6e99d0d78b87d68cf5b7a94d3b1b9f576ea4913f
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 1fa01b628bb8c630716d2051a644d1e2225530f9
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109753960"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372076"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Data Factory 만들기
 
@@ -54,7 +54,7 @@ Jane, Doe
 
 ## <a name="review-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datafactory&pageNumber=1&sort=Popular)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/25/2021
 ms.author: johndeu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2f9eca1600ffe9270ac2f02db38c815e92498afe
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 977dcbed29f74e97de3e61842b1b559a05ad8fdb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110086215"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955469"
 ---
 # <a name="find-and-redact-blur-faces-with-the-face-detector-preset"></a>Face Detector 사전 설정을 사용하여 얼굴 찾기 및 편집(흐리게)
 
@@ -31,7 +31,7 @@ Azure Media Services v3 API에는 클라우드에서 확장성 있는 얼굴 감
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 프라이버시 및 보안
 
-Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Azure Media Services 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 비디오를 처리하고 저장하기 위해 Azure Media Services 서비스에 업로드하려면 비디오에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Azure Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../video-indexer/faq.md)에서 확인할 수 있습니다. Azure Media Services를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
+Azure Media Services에서 분석을 사용할 때 적용되는 모든 법률을 준수해야 합니다. 타인의 권리를 침해하는 방식으로 Azure Media Services 또는 다른 Azure 서비스를 사용하면 안 됩니다. 생체 인식 데이터를 비롯한 비디오를 처리하고 저장하기 위해 Azure Media Services 서비스에 업로드하려면 비디오에 나오는 모든 사람의 적절한 동의를 포함하여 적절한 권한이 모두 있어야 합니다. Azure Media Services의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [OST(온라인 서비스 사용 약관)](https://www.microsoft.com/licensing/product-licensing/products) 및 [“DPA”(데이터 처리 추록)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)를 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 취급 방침은 OST 및 [여기](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md)에서 확인할 수 있습니다. Azure Media Services를 사용하는 것은 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침을 따르는 것에 동의하는 것입니다.
 
 ## <a name="face-redaction-modes"></a>얼굴 편집 모드
 

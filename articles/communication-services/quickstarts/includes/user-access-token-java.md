@@ -10,14 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 3c80de77546a3b7296d9008ab351715036a43c88
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c0b90279b4c3c65fdc96867f5d9fff9648320294
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313419"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430683"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [JDK(Java Development Kit)](/azure/developer/java/fundamentals/java-jdk-install), 버전 8 이상.

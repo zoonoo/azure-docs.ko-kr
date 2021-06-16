@@ -8,12 +8,13 @@ ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: da284bd65483392d60442bec62394c008ca38a92
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82587828"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110721655"
 ---
 PowerShell cmdlet **Get-AzPeeringLocation** 은 필수 매개 변수를 사용하여 이후 단계에서 사용할 필수 매개 변수 `Kind`가 있는 피어링 위치 목록을 반환합니다.
 

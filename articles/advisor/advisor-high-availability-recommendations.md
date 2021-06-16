@@ -3,12 +3,12 @@ title: Azure Advisor를 사용하여 애플리케이션의 안정성 향상
 description: Azure Advisor를 사용하여 중요 비즈니스용 Azure 배포의 안정성을 보장하고 개선합니다.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: c96b47f1ee145129f4c14c6646f93abeb8a5aac9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8d0c8902c41d50f4391a5431aba7a58faa917208
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100579967"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887549"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 안정성 향상
 
@@ -96,7 +96,7 @@ Azure Advisor는 이전 버전의 Java SDK를 사용하는 Azure Cosmos DB 계�
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Connector를 Maven에서 최신 버전으로 업그레이드
 
-Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용하는 Azure Cosmos DB 계정을 식별합니다. 최신 픽스, 성능 향상 및 기능을 위해 최신 버전의 Maven으로 업그레이드할 것을 권장합니다. [Azure Cosmos DB Spark 커넥터에 대한 자세한 정보](../cosmos-db/spark-connector.md)
+Azure Advisor는 이전 버전의 Azure Cosmos DB Spark 커넥터를 사용하는 Azure Cosmos DB 계정을 식별합니다. 최신 픽스, 성능 향상 및 기능을 위해 최신 버전의 Maven으로 업그레이드할 것을 권장합니다. [Azure Cosmos DB Spark 커넥터에 대한 자세한 정보](../cosmos-db/create-sql-api-spark.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>HDInsight 4.0의 Kafka 2.1로 전환 고려
 

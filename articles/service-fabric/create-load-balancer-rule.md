@@ -3,12 +3,13 @@ title: 클러스터에 대한 Azure Load Balancer 규칙 만들기
 description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azure Load Balancer를 구성합니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 7e09c7b0b3e2bfa5a5ff834e243f5098cbbd947b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0e3d3d065d27268085721d3080c4fc21c407261a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92319897"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671343"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
@@ -50,7 +51,7 @@ az network lb rule create --backend-port 40000 --frontend-port 39999 --protocol 
 
 Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변수를 사용할 수 있습니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수 | Description |
 | --------- | ----------- |
 | `--backend-port`  | Service Fabric 애플리케이션이 수신 대기하는 포트입니다. |
 | `--frontend-port` | 부하 분산 장치가 외부 연결을 위해 노출하는 포트입니다. |

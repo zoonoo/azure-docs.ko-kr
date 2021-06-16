@@ -1,19 +1,17 @@
 ---
 title: IoT Edge의 Azure Event Grid에서 출력 일괄 처리 | Microsoft Docs
 description: IoT Edge의 Event Grid에서 출력 일괄 처리
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: a647b83a3a64de72cca81ef2ade411135410ab45
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: af63b9c5c11e26e9b5730241cf4d9b0e350e82a5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110370466"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750716"
 ---
 # <a name="output-batching"></a>출력 일괄 처리
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 79b3c3f8eca2fa4442a7845ca4aa3921d0302453
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8287e535201a5196601d660525fb7ff558cbe6b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98659627"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078333"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Portal을 사용하여 Azure Database for MariaDB의 프라이빗 링크 만들기 및 관리
 
@@ -66,7 +66,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
     | 크기 | 기본값인 **표준 DS1 v2** 를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
-    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
     | 공용 인바운드 포트 | 기본값인 **없음** 을 그대로 둡니다. |
@@ -124,7 +124,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 > [!NOTE]
 > 경우에 따라 Azure Database for MariaDB와 VNet 서브넷이 서로 다른 구독에 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
-> - 반드시 두 구독 모두에 **Microsoft.DBforMariaDB** 리소스 공급자를 등록해야 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
+> - 두 구독 모두에 **Microsoft.DBforMariaDB** 리소스 공급자를 등록해야 합니다. 자세한 내용은 [resource-manager-registration][resource-manager-portal]을 참조하세요.
 
 ## <a name="create-a-private-endpoint"></a>프라이빗 엔드포인트 만들기
 
@@ -179,7 +179,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
     ![프라이빗 링크가 만들어짐](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
     > [!NOTE] 
-    > 고객 DNS 설정의 FQDN이 구성된 개인 IP로 확인되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 나온 대로 구성된 FQDN의 DNS 영역을 설정해야 합니다.
+    > 고객 DNS 설정의 FQDN이 구성된 개인 IP로 확인되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)서 설명한 대로 구성된 FQDN에 대한 DNS 영역을 설정해야 합니다.
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>RDP(원격 데스크톱)를 사용하여 VM에 연결
 
@@ -225,7 +225,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 3. 사용 가능한 모든 클라이언트를 사용하여 MariaDB 서버의 프라이빗 링크 연결을 테스트합니다. 아래 예제에서는 [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html)를 사용하여 작업을 수행했습니다.
 
 
-4. **새 연결** 에서 다음 정보를 입력하거나 선택합니다:
+4. **새 연결** 에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: c3f912b4f4c2e78c44425f489927cee185b3d312
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0c3db80edf771b0ad34aa9260da80b43ba8c355e
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104868718"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652586"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -58,7 +58,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
     -   `anaconda`는 Anaconda로 package_spec을 지정하여 가상 환경에 Anaconda 패키지를 설치합니다.
     
     ```bash
-    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
+    sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda=4.3 --yes
     ```
 
 2. 필요한 경우 생성된 가상 환경에 외부 Python 패키지를 설치합니다. 아래 스크립트를 사용하여 모든 노드를 대상으로 클러스터에서 스크립트 작업을 실행하여 외부 Python 패키지를 설치합니다. 가상 환경 폴더에 파일을 쓰려면 sudo 권한이 있어야 합니다.

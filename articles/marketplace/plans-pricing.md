@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
 ms.date: 09/02/2020
-ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21f8109fa1db49af8f2e84833466ed204d2f59fa
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91858175"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536532"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>상업용 마켓플레이스 제품에 대한 요금제 및 가격 책정
 
@@ -100,7 +100,7 @@ ms.locfileid: "91858175"
 > [!IMPORTANT]
 > 제품을 게시한 후에는 가격 책정 모델 선택을 변경할 수 없습니다.
 
-정액 요금 SaaS 제품 및 관리되는 애플리케이션 제품은 마켓플레이스 계량 서비스를 사용하여 데이터 통신 청구를 지원합니다. 이는 대역폭 또는 이메일과 같은 비표준 단위를 정의할 수 있는 사용량 기준 청구 모델로, 고객이 소비에 따라 지불할 수 있습니다. [관리되는 애플리케이션](./partner-center-portal/azure-app-metered-billing.md) 및 [SaaS 앱](./partner-center-portal/saas-metered-billing.md)에 대한 데이터 통신 청구에 대해 자세히 알아보려면 관련 설명서를 참조하세요.
+정액 요금 SaaS 제품 및 관리되는 애플리케이션 제품은 마켓플레이스 계량 서비스를 사용하여 데이터 통신 청구를 지원합니다. 이는 대역폭 또는 이메일과 같은 비표준 단위를 정의할 수 있는 사용량 기준 청구 모델로, 고객이 소비에 따라 지불할 수 있습니다. [관리되는 애플리케이션](marketplace-metering-service-apis.md) 및 [SaaS 앱](./partner-center-portal/saas-metered-billing.md)에 대한 데이터 통신 청구에 대해 자세히 알아보려면 관련 설명서를 참조하세요.
 
 ## <a name="custom-prices"></a>사용자 지정 가격
 
@@ -166,5 +166,5 @@ USD(미국 달러)로 설정된 가격은 저장할 때 현재 환율을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 기존 제품에 대한 플랜을 추가하거나 업데이트하는 방법을 알아보려면 [상업용 마켓플레이스에서 기존 제품 업데이트](./partner-center-portal/update-existing-offer.md)를 참조하세요.
+- 기존 제품에 대한 플랜을 추가하거나 업데이트하는 방법을 알아보려면 [상업용 마켓플레이스에서 기존 제품 업데이트](./update-existing-offer.md)를 참조하세요.
 - 트랜잭션 옵션 및 관련 가격 책정 모델에 대한 자세한 내용은 [상업용 마켓플레이스 트랜잭션 기능](./marketplace-commercial-transaction-capabilities-and-considerations.md)을 참조하세요.

@@ -5,18 +5,18 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit, devx-track-azurepowershell
-ms.openlocfilehash: 072aa17783382c7d46298b2757b3bda9390e5e29
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 91b4cfad8bb8e3d03838939edc8142e7abee8642
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368754"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061671"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
 Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있습니다. 이 문서에서는 이 작업을 수행하는 데 필요한 리소스와 매개 변수를 간략히 설명합니다. 함수 앱의 [트리거 및 바인딩](functions-triggers-bindings.md)에 따라 다른 리소스를 배포해야 할 수 있습니다.
 
-템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/templates/template-syntax.md)를 참조하십시오.
+템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/templates/syntax.md)를 참조하십시오.
 
 샘플 템플릿은 다음을 참조하세요.
 - [소비 계획의 함수 앱]
@@ -800,4 +800,4 @@ Azure Functions를 개발하고 구성하는 방법에 대해 자세히 알아�
 <!-- LINKS -->
 
 [소비 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
-[Azure App Service 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azuredeploy.json
+[Azure App Service 계획의 함수 앱]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-simple-linux/azuredeploy.json

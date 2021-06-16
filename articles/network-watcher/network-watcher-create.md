@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c308824afdcae5f5c04a316c199bad71ad84a429
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1f9d028ea8701188a1bdea5d072399f1b4c55020
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94962011"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985691"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
@@ -103,7 +104,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## <a name="create-a-network-watcher-using-azure-quickstart-template"></a>Azure 빠른 시작 템플릿을 사용하여 Network Watcher 만들기
 
-Network Watcher 인스턴스를 만들려면 이 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)을 참조하세요.
+Network Watcher 인스턴스를 만들려면 이 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/networkwatcher-create/)을 참조하세요.
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>포털에서 Network Watcher 삭제하기
 

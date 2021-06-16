@@ -8,13 +8,13 @@ ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: victorh
-ms.custom: subject-armqs
-ms.openlocfilehash: ebe235d24c8c8c926ceeb6b82db23d03075ed764
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: d3eacb194681a992b95d98ad287bc5bc175173a2
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109845459"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111809347"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Application Gateway에서 Azure WAF v2 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "109845459"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -57,7 +57,7 @@ Azure에 ARM 템플릿을 배포합니다.
 
 1. **Azure에 배포** 를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 템플릿은 IIS를 실행하는 백 엔드 풀에 애플리케이션 게이트웨이, 네트워크 인프라 및 두 개의 가상 머신을 만듭니다.
 
-   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fdemos%2Fag-docs-wafv2%2Fazuredeploy.json)
 
 2. 리소스 그룹을 선택하거나 만듭니다.
 3. **위에 명시된 사용 약관에 동의함** 을 선택한 다음, **구매** 를 선택합니다. 배포를 완료하는 데 10분 이상 걸릴 수 있습니다.

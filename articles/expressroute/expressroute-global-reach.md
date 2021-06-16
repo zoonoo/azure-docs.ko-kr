@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/28/2021
+ms.date: 06/04/2021
 ms.author: duau
 ms.custom: references_regions
-ms.openlocfilehash: 22289486b1190525e775d215cbc8efb46ada9ebb
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 512f2529e5426e97187f5cb2840dcab27a32c1d6
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203454"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541602"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute는 온-프레미스 네트워크를 Microsoft Cloud에 연결하기 위한 프라이빗하고 복원력 있는 방법입니다. 프라이빗 데이터 센터 또는 회사 네트워크에서 Azure, Microsoft 365와 같은 다양한 Microsoft 클라우드 서비스에 액세스할 수 있습니다. 예를 들어, 실리콘밸리의 ExpressRoute 회로를 사용하는 샌프란시스코 지사와, 런던의 ExpressRoute 회로를 사용하는 런던 지사가 있을 수 있습니다. 두 지점 모두 미국 서부 및 영국 남부의 Azure 리소스에 대한 고속 연결이 있습니다. 그러나 지점은 서로 직접 연결하여 데이터를 보낼 수는 없습니다. 즉, 10.0.1.0/24는 10.0.3.0/24 및 10.0.4.0/24 네트워크에는 데이터를 보낼 수 있지만 10.0.2.0/24 네트워크에는 보낼 수 없습니다.
@@ -41,6 +41,7 @@ ExpressRoute Global Reach는 다음 국가에서 지원됩니다.
 * 프랑스
 * 독일
 * 홍콩 특별행정구
+* 인도
 * 아일랜드
 * 일본
 * 한국

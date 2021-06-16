@@ -4,12 +4,12 @@ description: 이 항목에서는 Azure Video Analyzer의 계정을 만드는 방
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 05/01/2021
-ms.openlocfilehash: 9bcf60efd07fd2e0b68181989d8f26d3f39817b0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c1c9b7a01fa23b3c5b450fdfa5d5024169b4453e
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387493"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007538"
 ---
 # <a name="create-a-video-analyzer-account"></a>Video Analyzer 계정을 만듭니다.
 
@@ -31,10 +31,10 @@ Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들�
 1. **추가** 를 클릭합니다.
 1. **Video Analyzer 계정 만들기** 섹션에서 필수 값을 입력합니다.
 
-    | 이름 | 설명 |
+    | 이름 | Description |
     | ---|---|
     |**구독**|둘 이상의 구독이 있는 경우 액세스 권한이 있는 Azure 구독 목록에서 하나를 선택합니다.|
-    |**리소스 그룹**|기존 리소스를 선택하거나 새 리소스를 만듭니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](/azure/azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.|
+    |**리소스 그룹**|기존 리소스를 선택하거나 새 리소스를 만듭니다. 리소스 그룹은 수명 주기, 권한 및 정책을 공유하는 리소스의 컬렉션입니다. [여기](../../azure-resource-manager/management/overview.md#resource-groups)를 참조하세요.|
     |**Video Analyzer 계정 이름**|새 Video Analyzer 계정의 이름을 입력합니다. Video Analyzer 계정 이름은 공백 없이 모두 소문자로 이루어진 3-24자의 숫자 또는 문자입니다.|
     |**위치**|Video Analyzer 계정에 대한 비디오 및 메타데이터 레코드를 저장하는 데 사용할 지리적 지역을 선택합니다. 사용 가능한 Video Analyzer 지역만 드롭다운 목록 상자에 표시됩니다. |
     |**스토리지 계정**|Video Analyzer 계정에 대한 비디오 콘텐츠의 Blob Storage를 제공하려면 스토리지 계정을 선택합니다. Video Analyzer 계정과 동일한 지역의 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만들 수 있습니다. 동일한 지역에 새 스토리지 계정이 생성됩니다. 스토리지 계정 이름에 대한 규칙은 Video Analyzer 계정의 경우와 같습니다.<br/>|
@@ -50,13 +50,13 @@ Azure Video Analyzer를 사용하려면 먼저 Video Analyzer 계정을 만들�
 
 다음 리소스는 템플릿에 정의되어 있습니다.
 
-- [**Microsoft.Media/videoAnalyzers**](https://docs.microsoft.com/azure/templates/Microsoft.Media/videoAnalyzers): Video Analyzer의 계정 리소스입니다.
-- [**Microsoft.Storage/storageAccounts**](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts): 비디오 및 메타데이터를 저장하기 위해 Video Analyzer에서 사용할 스토리지 계정입니다.
-- [**Microsoft.ManagedIdentity / userAssignedIdentities**](https://docs.microsoft.com/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): Video Analyzer가 스토리지에 액세스하는 데 사용할 사용자 할당 관리 ID입니다.
-- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](https://docs.microsoft.com/azure/templates/microsoft.authorization/roleassignments): Video Analyzer가 스토리지 계정에 액세스할 수 있도록 하는 역할 할당입니다.
+- [**Microsoft.Media/videoAnalyzers**](/azure/templates/Microsoft.Media/videoAnalyzers): Video Analyzer의 계정 리소스입니다.
+- [**Microsoft.Storage/storageAccounts**](/azure/templates/Microsoft.Storage/storageAccounts): 비디오 및 메타데이터를 저장하기 위해 Video Analyzer에서 사용할 스토리지 계정입니다.
+- [**Microsoft.ManagedIdentity / userAssignedIdentities**](/azure/templates/Microsoft.ManagedIdentity/userAssignedIdentities): Video Analyzer가 스토리지에 액세스하는 데 사용할 사용자 할당 관리 ID입니다.
+- [**Microsoft.Storage/storageAccounts/providers/roleAssignments**](/azure/templates/microsoft.authorization/roleassignments): Video Analyzer가 스토리지 계정에 액세스할 수 있도록 하는 역할 할당입니다.
 
 <!-- TODO replace with a reference like this:
-:::code language="json" source="~/quickstart-templates/101-vm-simple-linux/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-linux/azuredeploy.json":::
 -->
 
 ```json
@@ -240,10 +240,10 @@ Azure Portal을 사용하여 만든 계정 및 기타 리소스를 확인할 수
 [IoT Edge 디바이스에 Video Analyzer를 배포][docs-deploy-on-edge]하는 방법을 알아봅니다.
 
 <!-- links -->
-[docs-uami]: /azure/active-directory/managed-identities-azure-resources/overview
-[docs-storage-access]: /azure/role-based-access-control/built-in-roles#storage-blob-data-contributor
-[docs-role-reader]: /azure/role-based-access-control/built-in-roles#reader
-[docs-arm-template]: /azure/azure-resource-manager/templates/overview
+[docs-uami]: ../../active-directory/managed-identities-azure-resources/overview.md
+[docs-storage-access]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
+[docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
+[docs-arm-template]: ../../azure-resource-manager/templates/overview.md
 [docs-deploy-on-edge]: deploy-iot-edge-device.md
 [click-to-deploy]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fgist.githubusercontent.com%2Fbennage%2F58523b2e6a4d3bf213f16893d894dcaf%2Fraw%2Fazuredeploy.json
 <!-- TODO update the link above! -->

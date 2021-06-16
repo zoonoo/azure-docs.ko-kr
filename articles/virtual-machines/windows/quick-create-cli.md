@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 769b42133fb894c916ecaa3c42dd7de85206c765
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 651d644070f13933fadf4a2616e770a27c014c92
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556250"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074884"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location eastus
 
 [az vm create](/cli/azure/vm)로 VM을 만듭니다. 다음 예제에서는 *myVM* 이라는 VM을 만듭니다. 이 예에서는 관리자 이름으로 *azureuser* 를 사용합니다. 
 
-[Azure VM의 암호 요구 사항](./faq.md#what-are-the-password-requirements-when-creating-a-vm
+[Azure VM의 암호 요구 사항](./faq.yml#what-are-the-password-requirements-when-creating-a-vm-
 )을 충족하는 암호를 제공해야 합니다. 아래 예제를 사용하여 명령줄에서 암호를 입력하라는 메시지가 표시됩니다. 암호에 대한 값을 사용하여 `--admin-password` 매개 변수를 추가할 수도 있습니다. 사용자 이름 및 암호는 나중에 VM에 연결할 때 사용됩니다.
 
 ```azurecli-interactive
@@ -67,6 +67,8 @@ VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다. 다음 예제 
 ```
 
 VM의 출력에서 사용자 고유의 `publicIpAddress`를 적어 둡니다. 이 주소는 다음 단계에서 VM에 액세스하는 데 사용됩니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
 

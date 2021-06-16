@@ -3,12 +3,13 @@ title: 중복 메시지 검색을 사용하도록 설정 - Azure Service Bus
 description: 이 문서에서는 Azure Portal, PowerShell, CLI 및 프로그래밍 언어(C#, Java, Python 및 JavaScript)를 사용하여 중복 메시지 검색을 사용하도록 설정하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: 1e299b86991a7785cc89f2e72227e7a8ced883d7
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 654d53bb324584d8b17d1e36efe20e5f25d54e39
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989129"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671448"
 ---
 # <a name="enable-duplicate-message-detection-for-an-azure-service-bus-queue-or-a-topic"></a>Azure Service Bus 큐 또는 토픽에 대해 중복 메시지 검색을 사용하도록 설정
 큐 또는 토픽에 대해 중복 검색을 사용하도록 설정할 때 Azure Service Bus는 큐 또는 토픽으로 전송된 모든 메시지의 기록을 구성된 시간 동안 유지합니다. 이 기간 동안에는 큐 또는 토픽에 중복된 메시지가 저장되지 않습니다. 이 속성을 사용하도록 설정하면 사용자가 정의한 기간 동안 정확히 한 번만 전달됩니다. 자세한 내용은 [중복 검색](duplicate-detection.md)을 참조하세요. 이 문서에서는 Service Bus 큐 또는 토픽에 대해 중복 메시지 검색을 사용하도록 설정하는 다양한 방법을 보여 줍니다. 

@@ -3,20 +3,20 @@ title: 서버리스 컴퓨팅 계층
 description: 이 문서에서는 새 서버리스 컴퓨팅 계층에 대해 설명하고 이를 기존에 Azure SQL Database용으로 프로비저닝된 컴퓨팅 계층과 비교합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
-ms.custom: test sqldbrb=1, devx-track-azurecli
+ms.subservice: service-overview
+ms.custom: test sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 4/16/2021
-ms.openlocfilehash: d5b0c8e60632be5e058900680dc376b7f0761150
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 514e7e229ba1b72f2c357f6cefdd272889ed46b9
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781580"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591011"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

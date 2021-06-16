@@ -4,15 +4,15 @@ description: MySQL 커뮤니티 버전을 기반으로 하는 Microsoft 클라�
 author: savjani
 ms.service: mysql
 ms.author: pariks
-ms.custom: mvc
+ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 2b1a66c5f277f4aa46a0a8befe3a92a39b04d296
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4f36fae568619807754e838082af270037842bea
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229687"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526293"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL - 유연한 서버(미리 보기)
 
@@ -148,8 +148,8 @@ Azure에서 워크로드를 실행하는 이점 중 하나는 글로벌 연결�
 | 오스트레일리아 동부 | :heavy_check_mark: | :heavy_check_mark: |
 | 프랑스 중부 | :heavy_check_mark: | :x:|
 | 브라질 남부 | :heavy_check_mark: | :x: |
+| 스위스 북부 | :heavy_check_mark: | :x: |
 
-곧 새 지역을 추가하기 위해 노력하고 있습니다.
 
 ## <a name="contacts"></a>연락처
 Azure Database for MySQL 유연한 서버에 대한 질문이나 제안이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com))으로 이메일을 보내주세요. 이 이메일 주소는 기술 지원 별칭이 아닙니다.

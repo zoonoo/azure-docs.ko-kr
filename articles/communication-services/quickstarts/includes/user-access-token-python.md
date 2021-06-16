@@ -10,14 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: a2c14340dc1810b8bc1fd4bb2b3276120609f33a
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 524770186c9bb391b9beb63620b13c99bf6dc4d0
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792545"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430894"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/access-tokens-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Python](https://www.python.org/downloads/) 2.7 또는 3.6 이상

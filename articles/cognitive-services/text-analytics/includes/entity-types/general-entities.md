@@ -9,17 +9,17 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 01/15/2021
 ms.author: aahi
-ms.openlocfilehash: c1ff099dd6dffe06e9707ff23fffd57ae753ab64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 36f05d2803d4ac347ef9dc8bf8e840e3f4a63cac
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99500100"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761296"
 ---
 Text Analytics의 NER 기능은 다음과 같은 일반(비식별) 엔터티 범주를 반환합니다. 예를 들어 요청을 `/entities/recognition/general` 엔드포인트로 보내는 경우입니다.
 
 
-| 범주 | 설명                          |
+| 범주 | Description                          |
 |------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
 | [Person](#category-person)     | 사용자의 이름.  |
 | [PersonType](#category-persontype) | 사용자가 보유한 작업 유형 또는 역할. |
@@ -410,7 +410,7 @@ Text Analytics의 NER 기능은 다음과 같은 일반(비식별) 엔터티 범
     :::column span="2":::
       **지원 문서 언어**
 
-      `en`  
+      `en` , `es`, `fr`, `de`, `it`, `pt-pt`, `pt-br` 
       
    :::column-end:::
 :::row-end:::

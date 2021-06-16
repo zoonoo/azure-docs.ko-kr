@@ -17,12 +17,12 @@ ms.date: 03/10/2021
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afb6a597d4fd58646f56e271cb6027fb46db1e26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3ff9a6c989446c2cee074485ba02fddd40cbfc83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634229"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953311"
 ---
 # <a name="how-to-integrate-azure-active-directory-logs-with-splunk-using-azure-monitor"></a>Azure Monitor를 사용한 Splunk와 Azure Active Directory 로그 통합 방법
 
@@ -56,6 +56,6 @@ ms.locfileid: "102634229"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
+* [Azure Monitor에서 감사 로그 스키마 해석](./overview-reports.md)
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)
 * [질문과 대답 및 알려진 문제](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

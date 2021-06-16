@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
 ms.date: 05/25/2021
-ms.openlocfilehash: 49f9a04351d243f4011b35370b99e30327446f5d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 36f7f036552a747cf4f59e8ba7412d89bfb22228
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378184"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439407"
 ---
 # <a name="limits-and-configuration-reference-for-azure-logic-apps"></a>Azure Logic Apps의 제한 및 구성 참조
 
@@ -281,7 +281,7 @@ Azure Logic Apps는 온-프레미스 데이터 게이트웨이를 통해 삽입 
 
 ### <a name="timeout-duration"></a>시간 제한 기간
 
-기본적으로 HTTP 작업 및 APIConnection 작업은 [표준 비동기 작업 패턴](/architecture/patterns/async-request-reply)을 따르고 Response 작업은 *동기 작업 패턴* 을 따릅니다. 일부 관리형 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신 대기하므로 이러한 작업에 대한 시간 제한이 다음 제한보다 길어질 수 있습니다. 자세한 내용은 [각 커넥터의 기술 참조 페이지](/connectors/connector-reference/connector-reference-logicapps-connectors)와 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 문서를 참조하세요.
+기본적으로 HTTP 작업 및 APIConnection 작업은 [표준 비동기 작업 패턴](/azure/architecture/patterns/async-request-reply)을 따르고 Response 작업은 *동기 작업 패턴* 을 따릅니다. 일부 관리형 커넥터 작업은 비동기 호출을 하거나 웹후크 요청을 수신 대기하므로 이러한 작업에 대한 시간 제한이 다음 제한보다 길어질 수 있습니다. 자세한 내용은 [각 커넥터의 기술 참조 페이지](/connectors/connector-reference/connector-reference-logicapps-connectors)와 [워크플로 트리거 및 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 문서를 참조하세요.
 
 > [!NOTE]
 > 단일 테넌트 모델의 **논리 앱(표준)** 리소스 종류의 경우 상태 비정상 워크플로는 *동기식* 으로만 실행될 수 있습니다.

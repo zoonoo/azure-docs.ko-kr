@@ -4,19 +4,19 @@ description: Azure Site Recovery를 사용한 Hyper-V VM과 Azure 간 재해 복
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-ms.openlocfilehash: 936950ef5dd2c1c7343e30536ab8836fcd198bd0
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.openlocfilehash: b36711e9249764df5d170fa955b8d72d1a2656f1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580840"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960864"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
 
 >[!NOTE]
-> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역에서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 원하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만 실제 고객 데이터는 포함되지 않습니다.
+> Site Recovery는 원본 머신에 대해 재해 복구가 설정된 대상 지역에서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 선택하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만 실제 고객 데이터는 포함되지 않습니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
@@ -188,7 +188,7 @@ VM 형식 | 1세대<br/><br/> 2세대--Windows | 기본 OS 디스크 형식이 �
 
 **이름** | **설명** | **세부 정보**
 --- | --- | --- 
-Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Virtual Machine Manager가 있는 Hyper-V : Virtual Machine Manager 서버에 설치됨<br/><br/> Virtual Machine Manager가 없는 Hyper-V: Hyper-V 호스트에 설치됨| 최신 버전: 5.1.2700.1(Azure Portal에서 제공됨)<br/><br/> [최신 기능 및 수정](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery 공급자 | 온-프레미스 서버와 Azure 간 통신 조정 <br/><br/> Virtual Machine Manager가 있는 Hyper-V : Virtual Machine Manager 서버에 설치됨<br/><br/> Virtual Machine Manager가 없는 Hyper-V: Hyper-V 호스트에 설치됨| [최신 기능 및 수정](./site-recovery-whats-new.md)
 Microsoft Azure Recovery Services 에이전트 | Hyper-V VM과 Azure 간 복제 조정<br/><br/> 온-프레미스 Hyper-V 서버에 설치됨(Virtual Machine Manager 있음/없음) | 포털에서 사용할 수 있는 최신 에이전트
 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
 ms.date: 09/04/2020
-ms.openlocfilehash: 09badebab86da8e4fd8d35307aa6648a26e91821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 73c8daf49ccdfeee1903a3c0ad823cdd3e52c141
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103232259"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537853"
 ---
 # <a name="publishing-guide-for-azure-managed-applications"></a>Azure 관리형 애플리케이션 게시 가이드
 
@@ -51,4 +51,4 @@ Azure *관리형 애플리케이션* 은 Azure Marketplace에 Azure 애플리케
 파트너 센터에서 등록하고 작업을 시작하려면
 
 - 제품을 만들거나 완성할 수 있도록 [파트너 센터에 로그인](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)합니다.
-- 자세한 내용은 [Azure 애플리케이션 제품 만들기](./create-new-azure-apps-offer.md)를 참조하세요.
+- 자세한 내용은 [Azure 애플리케이션 제품 만들기](azure-app-offer-setup.md)를 참조하세요.

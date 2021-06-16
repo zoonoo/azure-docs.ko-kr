@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: 5473ef46751d64fdbbf1d52f39c66f49d707e615
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82329a6a8134eb0227c1d0e64c3141135768cd66
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102631390"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438507"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 사용자 계정, 암호 및 관리에 대한 관리 개념
 
@@ -78,11 +78,11 @@ Azure AD DS의 포리스트 유형에 대한 자세한 정보는 [리소스 포�
 
 Azure AD DS에서 사용 가능한 성능 및 기능은 SKU에 따라 다릅니다. 관리되는 도메인을 만들 때 SKU를 선택할 수 있으며, 관리되는 도메인이 배포된 후 비즈니스 요구 사항이 변경됨에 따라 SKU를 전환할 수 있습니다. 다음 표에서는 사용 가능한 SKU와 각각의 차이점을 간략하게 설명합니다.
 
-| SKU name   | 최대 개체 수 | Backup 주기 | 최대 아웃바운드 포리스트 트러스트 수 |
-|------------|----------------------|------------------|----|
-| Standard   | 제한 없음            | 5일마다     | 0  |
-| Enterprise | 제한 없음            | 3일마다     | 5  |
-| 프리미엄    | 제한 없음            | 매일            | 10 |
+| SKU name   | 최대 개체 수 | Backup 주기 | 
+|------------|----------------------|------------------|
+| Standard   | 제한 없음            | 5일마다     |
+| Enterprise | 제한 없음            | 3일마다     | 
+| 프리미엄    | 제한 없음            | 매일            | 
 
 이러한 Azure AD DS SKU 이전에는 관리되는 도메인의 개체 수(사용자 및 컴퓨터 계정)를 기준으로 하는 청구 모델이 사용되었습니다. 관리되는 도메인의 개체 수를 기준으로 하는 가변 가격 책정 방식은 더 이상 사용되지 않습니다.
 
@@ -99,10 +99,6 @@ Azure AD DS에서 사용 가능한 성능 및 기능은 SKU에 따라 다릅니�
 백업 빈도는 관리되는 도메인의 스냅샷이 생성되는 빈도를 결정합니다. 백업은 Azure 플랫폼에서 관리하는 자동 프로세스입니다. 관리되는 도메인에 문제가 발생할 경우 Azure 지원 팀이 백업으로 복원하는 데 도움을 줄 수 있습니다. 동기화는 Azure AD에서 *단방향* 으로만 이루어지므로 관리되는 도메인의 모든 문제는 Azure AD 또는 온-프레미스 AD DS 환경 및 기능에 영향을 주지 않습니다.
 
 SKU 수준이 늘어나면 이러한 백업 스냅샷의 빈도가 증가합니다. 비즈니스 요구 사항 및 RPO(복구 지점 목표)를 검토하여 관리되는 도메인에 필요한 백업 빈도를 결정합니다. 비즈니스 또는 애플리케이션 요구 사항이 변경되어 더 자주 백업해야 하는 경우 다른 SKU로 전환할 수 있습니다.
-
-### <a name="outbound-forest-trusts"></a>아웃바운드 포리스트 트러스트
-
-이전 섹션에서는 관리되는 도메인에서 온-프레미스 AD DS 환경으로의 단방향 아웃바운드 포리스트 트러스트를 자세히 설명했습니다. SKU는 관리되는 도메인에 만들 수 있는 최대 포리스트 트러스트 수를 결정합니다. 비즈니스 및 애플리케이션 요구 사항을 검토하여 실제로 필요한 트러스트 수를 확인하고 적절한 Azure AD DS SKU를 선택합니다. 다시 말하지만, 비즈니스 요구 사항이 변경되어 추가 포리스트 트러스트를 만들어야 하는 경우에는 다른 SKU로 전환할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

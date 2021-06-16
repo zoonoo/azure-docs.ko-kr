@@ -3,12 +3,13 @@ title: PowerShell을 사용한 Azure Service Bus 리소스 관리 | Microsoft Do
 description: 이 문서에서는 Azure PowerShell 모듈을 사용하여 Service Bus 엔터티(네임스페이스, 큐, 토픽, 구독)를 만들고 관리하는 방법을 설명합니다.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5b5bb551584b0bb3d0cc84f408f1935e727ee50a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88065746"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663828"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
 

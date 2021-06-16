@@ -10,14 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7748737450a013fcfe66ac189213b390c2afa7d1
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: b6f53a7c67ac9eeaf103541c471741f24f0302ce
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109627237"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111594362"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-chat)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>필수 구성 요소
 시작하기 전에 다음을 확인해야 합니다.
 
 - 활성 구독이 있는 Azure 계정을 만듭니다. 자세한 내용은 [체험 계정 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)를 참조하세요.
@@ -255,6 +258,7 @@ let sendMessageOptions =
 };
 const sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 const messageId = sendChatMessageResult.id;
+console.log(`Message sent!, message id:${messageId}`);
 ```
 
 **client.js** 에서 `<SEND MESSAGE TO A CHAT THREAD>` 주석 대신 이 코드를 추가하고, 브라우저 탭을 새로 고친 후 콘솔을 확인합니다.

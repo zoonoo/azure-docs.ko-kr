@@ -7,12 +7,13 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: dee7e7b21f3f7deb3d76bf36e07a82eeb84ed35a
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cf2a5bcc511b0401ff1be3630e0388b43eaeb78d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107906266"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110674981"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Azure Data Factory의 Switch 작업
 
@@ -69,8 +70,8 @@ Switch 작업은 switch 문이 프로그래밍 언어로 제공하는 것과 동
 -------- | ----------- | -------------- | --------
 name | 전환 작업의 이름입니다. | String | 예
 type | ‘Switch’로 설정해야 함* | String | 예
-식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | Yes
-cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | Yes
+식 | 문자열 값으로 평가되어야 하는 식 | 결과 형식 문자열이 포함된 식 | 예
+cases | 값이 식 평가에 일치할 때 실행할 작업 집합 및 값을 포함하는 사례 집합입니다. 하나 이상의 사례를 제공해야 합니다. 최대 사례 수 제한은 25개입니다. | 사례 개체의 배열 | 예
 defaultActivities | 식 평가가 만족되지 않을 때 실행되는 작업 집합입니다. | 작업의 배열 | 예
 
 ## <a name="example"></a>예제

@@ -10,20 +10,19 @@ ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
 ms.author: lakshmans
-ms.openlocfilehash: 2b96d62fb2be27de03964212557446d2e792beb8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 86f26e7fbe96284dee5eb606ede22ae63701f309
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106113236"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429682"
 ---
 Communication Services Python SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
 
-<!--**TODO: update all these reference links as the resources go live**
-
-[API reference documentation](../../../references/overview.md) | [Library source code](#todo-sdk-repo) | [Package (PiPy)](#todo-nuget) | [Samples](#todo-samples)-->
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-sms-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
 ## <a name="prerequisites"></a>필수 구성 요소
 

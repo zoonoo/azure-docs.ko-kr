@@ -2,13 +2,13 @@
 title: 속성의 여러 인스턴스 정의
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 복사 작업을 사용하여 리소스에서 속성을 만들 때 여러 번 반복합니다.
 ms.topic: conceptual
-ms.date: 04/01/2021
-ms.openlocfilehash: 3f6eeac8b32e0fb34b973e82557cc48bab532ffd
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.date: 05/07/2021
+ms.openlocfilehash: 1f5a93b8c0759a9baccb8c5d5bc7dab25b181791
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736937"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954695"
 ---
 # <a name="property-iteration-in-arm-templates"></a>ARM 템플릿의 속성 반복
 
@@ -19,8 +19,6 @@ ms.locfileid: "109736937"
 [리소스](copy-resources.md), [변수](copy-variables.md) 및 [출력](copy-outputs.md)과 함께 복사 루프를 사용할 수도 있습니다.
 
 ## <a name="syntax"></a>구문
-
-# <a name="json"></a>[JSON](#tab/json)
 
 템플릿의 리소스 섹션에 `copy` 요소를 추가하여 속성의 항목 수를 설정합니다. 복사 요소의 일반적인 형식은 다음과 같습니다.
 
@@ -40,36 +38,6 @@ ms.locfileid: "109736937"
 
 `input` 속성은 반복할 속성을 지정합니다. `input` 속성의 값에서 생성된 요소 배열을 만듭니다.
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-루프는 다음과 같은 방법으로 여러 속성을 선언하는 데 사용할 수 있습니다.
-
-- 배열 반복:
-
-  ```bicep
-  <property-name>: [for <item> in <collection>: {
-    <properties>
-  }]
-  ```
-
-- 배열의 요소 반복
-
-  ```bicep
-  <property-name>: [for (<item>, <index>) in <collection>: {
-    <properties>
-  }]
-  ```
-
-- 루프 인덱스 사용
-
-  ```bicep
-  <property-name>: [for <index> in range(<start>, <stop>): {
-    <properties>
-  }]
-  ```
-
----
-
 ## <a name="copy-limits"></a>복사 제한
 
 개수는 800개를 초과할 수 없습니다.
@@ -86,8 +54,6 @@ ms.locfileid: "109736937"
 ## <a name="property-iteration"></a>속성 반복
 
 다음 예제는 가상 머신에서 복사 루프를 `dataDisks` 속성에 적용하는 방법을 보여 줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -251,30 +217,6 @@ ms.locfileid: "109736937"
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-@minValue(0)
-@maxValue(16)
-@description('The number of dataDisks to be returned in the output array.')
-param numberOfDataDisks int = 16
-
-resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
-  ...
-  properties: {
-    storageProfile: {
-      ...
-      dataDisks: [for i in range(0, numberOfDataDisks): {
-        lun: i
-        createOption: 'Empty'
-        diskSizeGB: 1023
-      }]
-    }
-    ...
-  }
-}
-```
-
 배포된 템플릿은 다음과 같습니다.
 
 ```json
@@ -304,11 +246,7 @@ resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
       ...
 ```
 
----
-
 리소스 및 속성 반복을 함께 사용할 수 있습니다. 이름별로 속성 반복을 참조하세요.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -342,35 +280,11 @@ resource vmName 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for i in range(0, 2): {
-  name: concat(vnetname, i)
-  location: resourceGroup().location
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        addressPrefix
-      ]
-    }
-    subnets: [for j in range(0, 2): {
-      name: 'subnet-${j}'
-      properties: {
-        addressPrefix: subnetAddressPrefix[j]
-      }
-    }]
-  }
-}]
-```
-
----
-
 ## <a name="example-templates"></a>예제 템플릿
 
 다음 예제에서는 속성에 대한 값을 두 개 이상 만드는 일반적인 시나리오를 보여 줍니다.
 
-|템플릿  |설명  |
+|템플릿  |Description  |
 |---------|---------|
 |[가변적인 수의 데이터 디스크를 사용한 VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-windows-copy-datadisks) |가상 머신을 사용하여 여러 데이터 디스크를 배포합니다. |
 
@@ -381,5 +295,5 @@ resource vnetname_resource 'Microsoft.Network/virtualNetworks@2018-04-01' = [for
   - [ARM 템플릿의 리소스 반복](copy-resources.md)
   - [ARM 템플릿의 변수 반복](copy-variables.md)
   - [ARM 템플릿의 출력 반복](copy-outputs.md)
-- 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+- 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 - 템플릿을 배포하는 방법을 자세히 알아보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.

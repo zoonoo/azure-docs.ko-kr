@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: dc8f8f7ced1c5915c2ea54390685806cfcdd257f
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: faf34a71289f81d3e08110e7cda46dc861faed14
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280312"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110797497"
 ---
 <!-- NOTE this file is temporary and a placeholder until the FAQ file update is completed. -->
 
@@ -113,7 +113,7 @@ Azure AD(Azure Active Directory)와 같은 특정 토큰 공급자를 사용할 
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>JWT 토큰을 라이선스 또는 키 요청에 사용하기 전에 어디에서, 어떻게 가져왔나요?
 
-프로덕션 환경의 경우 HTTPS 요청 시 JWT 토큰을 발급하는 STS(보안 토큰 서비스, 즉 웹 서비스)가 있어야 합니다. [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 `GetTokenAsync` 메서드에 있는 코드를 테스트에 사용할 수 있습니다.
+프로덕션 환경의 경우 HTTPS 요청 시 JWT 토큰을 발급하는 STS(보안 토큰 서비스, 즉 웹 서비스)가 있어야 합니다. [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 `GetTokenAsync` 메서드에 있는 코드를 테스트에 사용할 수 있습니다.
 
 사용자가 인증되면 플레이어에서 STS에 토큰을 요청하고 토큰의 값으로 할당합니다. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용할 수 있습니다.
 
@@ -123,7 +123,7 @@ Azure AD(Azure Active Directory)와 같은 특정 토큰 공급자를 사용할 
 
 올바른 방법은 STS(보안 토큰 서비스)를 활용하는 것입니다. STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미엄 사용자", "기본 사용자", "평가판 사용자")을 추가합니다. JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 다른 콘텐츠 또는 자산의 경우는 `ContentKeyPolicyRestriction`이 해당 `RequiredClaims` 값을 갖습니다.
 
-[이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)과 같이 Azure Media Services API를 사용하여 라이선스/키 배달을 구성하고 자산을 암호화합니다.
+[이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithAES/Program.cs)과 같이 Azure Media Services API를 사용하여 라이선스/키 배달을 구성하고 자산을 암호화합니다.
 
 자세한 내용은 다음을 참조하세요.
 

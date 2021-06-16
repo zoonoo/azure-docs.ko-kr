@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 04/13/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a85fb653636333beec5f53912a646b3e5619e37b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2e0e42cb89e4fa15046f3b2de2f43637ca975bfe
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107796382"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679153"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure 파일 동기화에 등록된 서버 관리
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -22,7 +23,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>스토리지 동기화 서비스로 서버 등록/등록 취소
 Azure 파일 동기화를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트* 라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트* 를 서버에 만들 수 있습니다. 
 
-### <a name="prerequisites"></a>필수 요건
+### <a name="prerequisites"></a>사전 요구 사항
 스토리지 동기화 서비스를 사용하여 서버를 등록하려면 먼저 필요한 필수 구성 요소를 갖춘 서버를 준비해야 합니다.
 
 * 서버에서 지원되는 Windows Server 버전을 실행해야 합니다. 자세한 내용은 [Azure 파일 동기화 시스템 요구 사항 및 상호 운용성](file-sync-planning.md#windows-file-server-considerations)을 참조하세요.

@@ -8,13 +8,13 @@ ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: f014c07a319cbb07497cba01699b93d092255b93
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: eed40e353531ec6df4ecafad3757845b45a99886
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107771520"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071854"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Linux VM에 대한 Azure Disk Encryption 시나리오
 
@@ -187,7 +187,7 @@ Azure에서 [Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-
 
 ### <a name="enable-encryption-on-an-existing-or-running-linux-vm-with-a-template"></a>템플릿을 사용하여 기존 또는 실행 중인 Linux VM에서 암호화 사용
 
-[Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)을 사용하여 Azure에서 기존 또는 실행 중인 Linux VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
+[Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad)을 사용하여 Azure에서 기존 또는 실행 중인 Linux VM에 디스크 암호화를 사용하도록 설정할 수 있습니다.
 
 1. Azure 빠른 시작 템플릿에서 **Azure에 배포** 를 클릭합니다.
 
@@ -413,10 +413,10 @@ Azure Disk Encryption는 다음과 같은 Linux 시나리오, 기능 및 기술�
 - 데이터 드라이브가 OS 폴더 위에 탑재된 VM입니다.
 - 데이터 디스크를 사용하여 루트(OS 디스크) 논리 볼륨이 확장된 VM입니다.
 - 쓰기 가속기 디스크가 있는 M 시리즈 VM.
-- [고객 관리형 키를 사용하여 서버 쪽 암호화](../disk-encryption.md)(SSE + CMK)로 암호화된 디스크가 있는 VM에 ADE를 적용합니다. ADE로 암호화된 VM의 데이터 디스크에 SSE + CMK를 적용하는 것도 지원되지 않는 시나리오입니다.
-- ADE로 암호화되었거나 ADE로 암호화된 **적이** 있는 VM을 [고객 관리형 키를 사용하는 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션합니다.
-- 장애 조치(failover) 클러스터에서 VM 암호화.
-- [Azure 울트라 디스크](../disks-enable-ultra-ssd.md) 암호화.
+- [고객 관리형 키를 사용한 서버 쪽 암호화](../disk-encryption.md)(SSE + CMK)로 암호화된 디스크가 있는 VM에 ADE 적용. ADE로 암호화된 VM의 데이터 디스크에 SSE + CMK를 적용하는 것도 지원되지 않는 시나리오입니다.
+- ADE로 암호화되었거나 ADE로 암호화된 **적이** 있는 VM을 [고객 관리형 키를 사용한 서버 쪽 암호화](../disk-encryption.md)로 마이그레이션
+- 장애 조치(failover) 클러스터에서 VM 암호화
+- [Azure 울트라 디스크](../disks-enable-ultra-ssd.md) 암호화
 
 ## <a name="next-steps"></a>다음 단계
 

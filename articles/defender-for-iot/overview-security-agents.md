@@ -3,12 +3,12 @@ title: 보안 에이전트
 description: IoT 디바이스에서 Azure Defender for IoT 보안 서비스 에이전트를 이해, 구성, 배포, 사용하는 방법을 시작하세요.
 ms.topic: conceptual
 ms.date: 1/24/2021
-ms.openlocfilehash: a1d74de9824b9e825f87754da21070d4e7f1ee33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 117572c8b5e2d42b24c1f3af9dbb0eab474647a9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104783492"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949158"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Azure Defender for IoT 디바이스 마이크로 에이전트 시작
 
@@ -20,7 +20,7 @@ Defender for IoT 보안 에이전트는 디바이스 운영 체제의 원시 이
 
 1. [IoT Hub에 대한 Defender for IoT 서비스를 사용하도록 설정](quickstart-onboard-iot-hub.md)합니다.
 
-1. IoT Hub에 등록된 디바이스가 없는 경우 [새 디바이스를 등록](../iot-accelerators/iot-accelerators-device-simulation-overview.md)합니다.
+1. IoT Hub에 등록된 디바이스가 없는 경우 [새 디바이스를 등록](/previous-versions/azure/iot-accelerators/iot-accelerators-device-simulation-overview)합니다.
 
 1. 디바이스에 대해 [DefenderIotMicroAgent 모듈 쌍을 만듭니다](quickstart-create-micro-agent-module-twin.md).
 

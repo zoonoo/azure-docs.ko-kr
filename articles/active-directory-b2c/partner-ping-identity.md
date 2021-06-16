@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 01/20/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 066fd6f91b19da211a73ac12fb6dca94085399ac
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 04aa6f6a7f99eed32c12cf5459c7a7e49089ce6c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256636"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962320"
 ---
 # <a name="tutorial-configure-ping-identity-with-azure-active-directory-b2c-for-secure-hybrid-access"></a>자습서: 보안 하이브리드 액세스를 위해 Azure Active Directory B2C를 사용하여 Ping ID 구성하기
 
@@ -74,7 +74,7 @@ PingFederate는 인증 공급자로 완전히 구성하거나 필요한 경우 �
 
 ![PingAccess 및 PingFederate 워크플로를 보여 주는 이미지](./media/partner-ping/pingaccess-pingfederate-workflow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음이 필요합니다.
 
@@ -160,7 +160,7 @@ PingAccess에 대해 토큰 공급자로 PingFederate를 구성하려면 PingFed
 
 7. Azure AD에서 애플리케이션에 대해 생성한 **키** 를 **클라이언트 암호** 필드에 입력합니다.
 
-8. 선택 사항 - Microsoft Graph API를 사용하여 사용자 지정 클레임을 만들고 사용할 수 있습니다. 그렇게 하도록 선택하는 경우 **고급** 을 선택하고 **요청 프로필** 및 **사용자 특성 새로 고침** 옵션을 선택 취소합니다. 사용자 지정 클레임을 사용하는 방법에 대한 자세한 내용은 [사용자 지정 클레임 사용](../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-headers.md)을 참조하세요.
+8. 선택 사항 - Microsoft Graph API를 사용하여 사용자 지정 클레임을 만들고 사용할 수 있습니다. 그렇게 하도록 선택하는 경우 **고급** 을 선택하고 **요청 프로필** 및 **사용자 특성 새로 고침** 옵션을 선택 취소합니다. 사용자 지정 클레임을 사용하는 방법에 대한 자세한 내용은 [사용자 지정 클레임 사용](../active-directory/app-proxy/application-proxy-configure-single-sign-on-with-headers.md)을 참조하세요.
 
 9. **저장** 을 선택합니다.
 

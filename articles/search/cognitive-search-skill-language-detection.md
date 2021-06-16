@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 078a9312a7ee1b3b0eafd000928ed74348a540c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbe2c9a66015886c96a7c4414eb3b425b8180a18
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102548056"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539778"
 ---
 #   <a name="language-detection-cognitive-skill"></a>언어 감지 인식 기술
 
 **언어 감지** 기술은 입력 텍스트의 언어를 감지하고 요청에 제출된 모든 문서에 대한 단일 언어 코드를 보고합니다. 언어 코드는 분석의 강도를 나타내는 점수와 쌍을 이룹니다. 이 기술은 Cognitive Services의 [Text Analytics](../cognitive-services/text-analytics/overview.md)에서 제공하는 기계 학습 모델을 사용합니다.
 
-이 기능은 텍스트 언어를 다른 기술에 대한 입력으로 제공해야 할 경우 특히 유용합니다(예를 들어 [감정 분석 기술](cognitive-search-skill-sentiment.md) 또는 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)).
+이 기능은 텍스트 언어를 다른 기술에 대한 입력으로 제공해야 할 경우 특히 유용합니다(예를 들어 [감정 분석 기술](cognitive-search-skill-sentiment-v3.md) 또는 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)).
 
 언어 감지는 Bing의 자연어 처리 라이브러리를 활용하며, 이는 Text Analytics에 대해 나열된 [지원 언어 및 지역](../cognitive-services/text-analytics/language-support.md) 수를 초과합니다. 정확한 언어 목록은 게시되지 않지만 널리 쓰이는 모든 언어, 변형, 방언, 일부 지역 및 문화 언어가 포함됩니다. 사용 빈도가 낮은 언어로 표현된 콘텐츠가 있는 경우, [언어 감지 API를 사용](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages)하여 코드가 반환되는지 확인할 수 있습니다. 감지할 수 없는 언어에 대한 응답은 `(Unknown)`입니다.
 

@@ -4,12 +4,12 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)에서 연결된 템
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 80fabe5f720182e51e731e0d4d833ed0e7ab9137
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 3ae1bcc6cc1c99bc89e2f8fbd2c8debf95418850
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751548"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951143"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
@@ -611,7 +611,7 @@ QueryString에 선행 "?"가 없는지 확인합니다. 배포는 배포용 URI�
 
 ```json
 "variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/postgre/postgresql-on-ubuntu/",
   "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
   "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
 }
@@ -894,6 +894,6 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 ## <a name="next-steps"></a>다음 단계
 
 * 자습서를 진행하려면 [자습서: 연결된 템플릿 배포](./deployment-tutorial-linked-template.md)를 참조하세요.
-* 리소스의 배포 순서를 정의하는 방법에 대한 자세한 내용은 [ARM 템플릿에서 리소스를 배포하는 순서 정의](define-resource-dependency.md)를 참조하세요.
+* 리소스의 배포 순서를 정의하는 방법에 대한 자세한 내용은 [ARM 템플릿에서 리소스를 배포하는 순서 정의](./resource-dependency.md)를 참조하세요.
 * 하나의 리소스를 정의하되 해당 리소스의 여러 인스턴스를 만드는 방법을 알아보려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.
 * 스토리지 계정에서 템플릿을 설정하고 SAS 토큰을 생성하는 절차는 [ 템플릿과 Azure PowerShell로 리소스 배포](deploy-powershell.md) 또는 [ 템플릿과 Azure CLI로 리소스 배포](deploy-cli.md)를 참조하세요.

@@ -3,12 +3,12 @@ title: Azure Service Fabric 역방향 프록시 보안 통신
 description: 역방향 프록시를 구성하여 Azure Service Fabric 애플리케이션에서 보안이 유지된 엔드투엔드 통신을 사용하도록 설정합니다.
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.openlocfilehash: b01ce559b3c790164992d6618149afa9df069466
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b87ec5d1c43d15c36a3188678efbdfdb72509cd4
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86256138"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956746"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>역방향 프록시를 사용하여 보안 서비스 연결
 
@@ -20,7 +20,7 @@ ms.locfileid: "86256138"
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>역방향 프록시와 서비스 간의 안전한 연결 설정 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>서비스를 인증하는 역방향 프록시:
-역방향 프록시는 해당 인증서를 사용하여 서비스에 대해 역방향 프록시 자체를 식별합니다. Azure 클러스터의 경우, 인증서는 ***reverseProxyCertificate** _ 속성(Resource Manager 템플릿의 [_ *Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [리소스 종류 섹션](../azure-resource-manager/templates/template-syntax.md)에서)을 사용하여 지정됩니다. 독립 실행형 클러스터의 경우, 인증서는 **_ReverseProxyCertificate_ *_ 또는 _* _ReverseProxyCertificateCommonNames_ *_ 속성(ClusterConfig.json의 _* 보안** 섹션에서) 중 하나를 사용하여 지정됩니다. 자세한 내용은 [독립 실행형 클러스터에서 역방향 프록시 사용](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters)을 참조하세요. 
+역방향 프록시는 해당 인증서를 사용하여 서비스에 대해 역방향 프록시 자체를 식별합니다. Azure 클러스터의 경우, 인증서는 ***reverseProxyCertificate** _ 속성(Resource Manager 템플릿의 [_ *Microsoft.ServiceFabric/clusters**](/azure/templates/microsoft.servicefabric/clusters) [리소스 종류 섹션](../azure-resource-manager/templates/syntax.md)에서)을 사용하여 지정됩니다. 독립 실행형 클러스터의 경우, 인증서는 **_ReverseProxyCertificate_ *_ 또는 _* _ReverseProxyCertificateCommonNames_ *_ 속성(ClusterConfig.json의 _* 보안** 섹션에서) 중 하나를 사용하여 지정됩니다. 자세한 내용은 [독립 실행형 클러스터에서 역방향 프록시 사용](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters)을 참조하세요. 
 
 서비스는 역방향 프록시에서 제공한 인증서를 확인하기 위한 논리를 구현할 수 있습니다. 이 서비스는 허용된 클라이언트 인증서 세부 정보를 구성 패키지의 구성 설정으로 지정할 수 있습니다. 이는 런타임 시 읽을 수 있으며 역방향 프록시에서 제공한 인증서의 유효성을 검사하는 데 사용됩니다. 구성 설정을 추가하려면 [애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요. 
 
