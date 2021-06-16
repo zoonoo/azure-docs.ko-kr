@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: f08b9db58ee0e4ec7711afb95085ef27fa5db13c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 13f61378b16f41d80b5622a41a55c103247b381b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132542"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969000"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>일반적인 Azure Spring Cloud 문제 해결
 
@@ -115,7 +115,7 @@ Azure Portal을 사용하여 Azure Spring Cloud 서비스 인스턴스를 설정
 * 인스턴스에 대한 리소스 그룹이 이미 만들어졌습니다.
 * 리소스 이름이 명명 규칙을 준수합니다. 소문자, 숫자 및 하이픈만 포함해야 합니다. 첫 글자는 문자여야 합니다. 마지막 글자는 문자 또는 숫자여야 합니다. 값은 2~32자를 포함해야 합니다.
 
-Resource Manager 템플릿을 사용하여 Azure Spring Cloud 서비스 인스턴스를 설정하려는 경우 먼저 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조하세요.
+Resource Manager 템플릿을 사용하여 Azure Spring Cloud 서비스 인스턴스를 설정하려는 경우 먼저 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/syntax.md)를 참조하세요.
 
 Azure Spring Cloud 서비스 인스턴스의 이름은 `azureapps.io`에 있는 하위 도메인 이름 요청에 사용되므로 이름이 기존 이름과 충돌하는 경우 설정에 실패합니다. 활동 로그에서 추가 정보를 확인할 수 있습니다.
 

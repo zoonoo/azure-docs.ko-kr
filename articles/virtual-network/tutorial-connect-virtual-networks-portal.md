@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b7fcf7f60b18d0d44ded67cb5b22bcdcdcd56a77
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8a0dd8b20331d2f296767bc5628e901600f835e0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059329"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078153"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -105,7 +105,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |속성|myVm1|
     |위치| **미국 동부** 를 선택합니다.|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
-    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
    
 4. **크기** 옵션에 대해 VM 크기를 선택합니다.
 5. **네트워킹** 에서 다음 값을 선택합니다.
@@ -129,6 +129,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 |가상 네트워크 | myVirtualNetwork2|
 
 VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들어질 때까지 나머지 단계를 수행하지 마세요.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## <a name="communicate-between-vms"></a>VM 간 통신
 

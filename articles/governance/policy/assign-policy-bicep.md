@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Bicep(미리 보기) 파일을 사용하
 ms.date: 05/20/2021
 ms.topic: quickstart
 ms.custom: subject-bicepqs
-ms.openlocfilehash: 6ce9eb5ab021e5d6d5d57b9c81f5d0f4d0360f01
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0f48804fd73b073479617aa3359e6d338056fb39
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475485"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007178"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-bicep-file"></a>빠른 시작: Bicep 파일을 사용하여 비규격 리소스를 식별하는 정책 할당 만들기
 
@@ -20,12 +20,12 @@ Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
+:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Azure에 Azure Policy를 할당하기 위한 ARM 템플릿 배포 단추" border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-- Bicep 버전 `0.3` 이상이 설치되어 있습니다. Bicep CLI를 아직 설치하지 않았거나 업데이트해야 하는 경우 [Bicep(미리 보기) 설치](../../azure-resource-manager/templates/bicep-install.md)를 참조하세요.
+- Bicep 버전 `0.3` 이상이 설치되어 있습니다. Bicep CLI를 아직 설치하지 않았거나 업데이트해야 하는 경우 [Bicep(미리 보기) 설치](../../azure-resource-manager/bicep/install.md)를 참조하세요.
 
 ## <a name="review-the-bicep-file"></a>Bicep 파일 검토
 

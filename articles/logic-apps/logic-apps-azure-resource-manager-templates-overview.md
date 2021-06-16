@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: b1551b4d9c28a693adb74436b6490ce7af62a977
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: ac2746c963c00ffd12a272b0c41322b0f9b9b24e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279855"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961640"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>개요: Azure Resource Manager 템플릿을 사용하여 Azure Logic Apps에 대한 배포 자동화
 
@@ -30,9 +30,9 @@ ms.locfileid: "108279855"
 
 Resource Manager 템플릿에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)
-* [Azure Resource Manager 템플릿 모범 사례](../azure-resource-manager/templates/template-best-practices.md)
-* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/syntax.md)
+* [Azure Resource Manager 템플릿 모범 사례](../azure-resource-manager/templates/best-practices.md)
+* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 논리 앱, 통합 계정, 통합 계정 아티팩트 및 통합 서비스 환경과 관련된 템플릿 리소스 정보는 [Microsoft.Logic 리소스 종류](/azure/templates/microsoft.logic/allversions)를 참조하세요.
 
@@ -47,7 +47,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 ## <a name="template-structure"></a>템플릿 구조
 
-최상위 수준에서 Resource Manager 템플릿은 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md) 항목에 자세히 설명된 이 구조를 따릅니다.
+최상위 수준에서 Resource Manager 템플릿은 [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/syntax.md) 항목에 자세히 설명된 이 구조를 따릅니다.
 
 ```json
 {
@@ -65,8 +65,8 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 | attribute | Description |
 |-----------|-------------|
-| `parameters` | Azure에서 배포할 리소스를 만들고 사용자 지정할 때 사용할 값을 허용하기 위한 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters)를 선언합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름과 위치, 연결 및 배포에 필요한 기타 리소스에 대한 값을 허용합니다. 이러한 매개 변수 값은 이 항목의 뒷부분에서 설명하는 [매개 변수 파일](#template-parameter-files)에 저장할 수 있습니다. 일반적인 세부 정보는 [매개 변수 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#parameters)을 참조하세요. |
-| `resources` | 논리 앱, 연결, Azure Storage 계정 등과 같은 Azure 리소스 그룹을 만들거나 업데이트하고 배포할 [리소스](../azure-resource-manager/templates/template-syntax.md#resources)를 정의합니다. 일반적인 세부 정보는 [리소스 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)을 참조하세요. |
+| `parameters` | Azure에서 배포할 리소스를 만들고 사용자 지정할 때 사용할 값을 허용하기 위한 [템플릿 매개 변수](../azure-resource-manager/templates/syntax.md#parameters)를 선언합니다. 예를 들어 이러한 매개 변수는 논리 앱의 이름과 위치, 연결 및 배포에 필요한 기타 리소스에 대한 값을 허용합니다. 이러한 매개 변수 값은 이 항목의 뒷부분에서 설명하는 [매개 변수 파일](#template-parameter-files)에 저장할 수 있습니다. 일반적인 세부 정보는 [매개 변수 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/syntax.md#parameters)을 참조하세요. |
+| `resources` | 논리 앱, 연결, Azure Storage 계정 등과 같은 Azure 리소스 그룹을 만들거나 업데이트하고 배포할 [리소스](../azure-resource-manager/templates/syntax.md#resources)를 정의합니다. 일반적인 세부 정보는 [리소스 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/syntax.md#resources)을 참조하세요. |
 |||
 
 논리 앱 템플릿은 다음 파일 이름 형식을 사용합니다.
@@ -80,7 +80,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 ## <a name="template-parameters"></a>템플릿 매개 변수
 
-논리 앱 템플릿에는 서로 다른 수준에 존재하는 여러 `parameters` 개체가 있으며 다른 기능을 수행합니다. 예를 들어 최상위 수준에서 Azure에서 리소스를 만들고 배포하는 경우 배포 시 사용할 값에 대한 [템플릿 매개 변수](../azure-resource-manager/templates/template-syntax.md#parameters)를 선언할 수 있습니다. 예를 들면 다음과 같습니다.
+논리 앱 템플릿에는 서로 다른 수준에 존재하는 여러 `parameters` 개체가 있으며 다른 기능을 수행합니다. 예를 들어 최상위 수준에서 Azure에서 리소스를 만들고 배포하는 경우 배포 시 사용할 값에 대한 [템플릿 매개 변수](../azure-resource-manager/templates/syntax.md#parameters)를 선언할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * 논리 앱
 * 논리가 [관리되는 커넥터](../connectors/apis-list.md)를 통해 다른 서비스 및 시스템에 액세스하는 데 사용하는 연결
@@ -88,7 +88,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
   예를 들어 논리 앱이 B2B(Business-to-Business) 시나리오에 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)을 사용하는 경우 템플릿의 최상위 수준 `parameters` 개체는 해당 통합 계정의 리소스 ID를 허용하는 매개 변수를 선언합니다.
 
-다음은 [매개 변수 - Resource Manager 템플릿 구조 및 구문 ](../azure-resource-manager/templates/template-syntax.md#parameters)에서 자세히 설명하는 매개 변수 정의의 일반 구조 및 구문입니다.
+다음은 [매개 변수 - Resource Manager 템플릿 구조 및 구문 ](../azure-resource-manager/templates/syntax.md#parameters)에서 자세히 설명하는 매개 변수 정의의 일반 구조 및 구문입니다.
 
 ```json
 "<parameter-name>": {
@@ -149,7 +149,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 템플릿 매개 변수를 보호하는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [템플릿 매개 변수에 대한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
+* [템플릿 매개 변수에 대한 보안 권장 사항](../azure-resource-manager/templates/best-practices.md#parameters)
 * [템플릿 매개 변수에 대한 보안 향상](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 * [Azure Key Vault를 사용하여 안전한 매개 변수 값 전달](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -171,7 +171,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 * `defaultValue`중요하거나 보안을 유지해야 하는 값을 제외한 모든 매개 변수에 대해 빈 값을 지정할 수 있는 특성을 포함합니다. 사용자 이름, 암호 및 비밀에는 항상 보안 매개 변수를 사용합니다. 중요한 매개 변수 값을 숨기거나 보호하려면 다음 항목의 지침을 따르세요.
 
-  * [템플릿 매개 변수에 대한 보안 권장 사항](../azure-resource-manager/templates/template-best-practices.md#parameters)
+  * [템플릿 매개 변수에 대한 보안 권장 사항](../azure-resource-manager/templates/best-practices.md#parameters)
 
   * [템플릿 매개 변수에 대한 보안 향상](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
@@ -179,7 +179,7 @@ Logic Apps REST API의 경우 [Azure Logic Apps REST API 개요](/rest/api/logic
 
 * 템플릿 매개 변수 이름을 워크플로 정의 매개 변수 이름과 구분하기 위해 다음과 같이 설명이 포함된 템플릿 매개 변수 이름을 사용할 수 있습니다. `TemplateFabrikamPassword`
 
-자세한 템플릿 모범 사례는 [템플릿 매개 변수에 대한 모범 사례](../azure-resource-manager/templates/template-best-practices.md#parameters)를 참조하세요.
+자세한 템플릿 모범 사례는 [템플릿 매개 변수에 대한 모범 사례](../azure-resource-manager/templates/best-practices.md#parameters)를 참조하세요.
 
 <a name="template-parameter-files"></a>
 
@@ -275,8 +275,8 @@ Azure 리소스 그룹의 모든 리소스에 대한 리소스 정의를 검토�
 
 템플릿 리소스 및 해당 특성에 대한 일반적인 정보는 다음 항목을 참조하세요.
 
-* [리소스 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md#resources)
-* [템플릿 리소스에 대한 모범 사례](../azure-resource-manager/templates/template-best-practices.md#resources)
+* [리소스 - Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/syntax.md#resources)
+* [템플릿 리소스에 대한 모범 사례](../azure-resource-manager/templates/best-practices.md#resources)
 
 <a name="logic-app-resource-definition"></a>
 

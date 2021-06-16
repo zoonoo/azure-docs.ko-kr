@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: lajanuar
-ms.openlocfilehash: fb31388647fc6022a2e6670baf7b3e73f345c36a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca2fab82dd08ea999186a430b78b6329c64ae816
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98898073"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409598"
 ---
 # <a name="unsupported-language-deployments"></a>지원되지 않는 언어 배포
 
@@ -28,7 +28,7 @@ Microsoft Translator Hub에 대한 지원이 곧 종료됨에 따라 Microsoft�
 ## <a name="prerequisites"></a>사전 요구 사항
 
 모델이 배포 후보가 되려면 다음 기준을 충족해야 합니다.
-* 모델이 포함된 프로젝트는 마이그레이션 도구를 사용하여 허브에서 Custom Translator로 마이그레이션되어야 합니다.  프로젝트 및 작업 영역의 마이그레이션 프로세스는 [여기](how-to-migrate.md)에서 찾을 수 있습니다.
+* 모델이 포함된 프로젝트는 마이그레이션 도구를 사용하여 허브에서 Custom Translator로 마이그레이션되어야 합니다.  
 * 마이그레이션이 발생할 때 모델은 배포된 상태여야 합니다.  
 * 모델의 언어 쌍은 Custom Translator에서 지원되지 않는 언어 쌍이어야 합니다.  영어를 원본 또는 대상으로 지원하지만 언어 쌍 자체에 영어가 포함되지 않으면 이 언어 쌍은 지원되지 않는 언어 배포의 후보가 됩니다.  예를 들어 프랑스어-영어 및 영어-독일어 언어 쌍이 지원되더라도 프랑스어-독일어 쌍에 대한 허브 모델은 지원되지 않는 언어 쌍으로 간주됩니다.
 

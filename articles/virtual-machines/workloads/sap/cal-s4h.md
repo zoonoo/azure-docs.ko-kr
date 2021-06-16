@@ -1,18 +1,25 @@
 ---
 title: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포 | Microsoft Docs
 description: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포
-author: hermanndms
 ms.service: virtual-machines-sap
+author: hobru
+manager: maordish
+editor: ''
+tags: azure-resource-manager
+keywords: ''
+ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
 ms.date: 09/15/2016
-ms.author: hermannd
-ms.reviewer: cynthn
-ms.openlocfilehash: 4b739efcf2695a5385351f531efb6201bbea1cd5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: hobruche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e9cbb7e03d77507e4671e2e10665bc245a095b0a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101671944"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755397"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Azure에서 SAP S/4HANA 또는 BW/4HANA 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 S/4HANA를 배포하는 방법을 설명합니다. BW/4HANA와 같은 다른 SAP HANA 기반 솔루션을 배포하려면 동일한 단계를 수행합니다.

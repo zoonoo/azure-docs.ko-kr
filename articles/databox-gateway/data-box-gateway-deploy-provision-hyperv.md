@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/01/2021
+ms.date: 05/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 2e54b8e58e8139c46639187957906790ffb0fe54
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1852ed997faa3c2410f6938d2ab409940c2904b
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727688"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577261"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
@@ -76,7 +76,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 * 가상 디바이스를 만드는 기본 하드웨어(호스트 시스템)에서 가상 디바이스에 대해 다음 리소스를 전용으로 사용할 수 있는지 확인합니다.
 
   * 최소 4개의 가상 프로세서
-  * RAM 8GB 이상
+  * RAM 8GB 이상 16GB 이상의 RAM을 권장합니다.
   * 인터넷으로 트래픽을 라우팅할 수 있는 네트워크에 연결된 네트워크 인터페이스 하나.
   * 250GB OS 디스크.
   * 시스템 데이터용 2TB 가상 디스크.

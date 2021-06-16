@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 9d9ba7e3e898da8d5b7d1bb4fbc69554ee205147
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 56a2eff6a39f879de4e9d968eb470243014cb430
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107028336"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982037"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -149,7 +149,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
     ```
 
 1. **ClaimsProvider** 요소 아래의 **Domain** 값을 다른 ID 공급자와 구분하는 데 사용할 수 있는 고유한 값으로 업데이트합니다.
-1. **TechnicalProfile** 요소 아래의 **DisplayName** 값(예: `Contoso Employee`)을 업데이트합니다. 이 값은 로그인 페이지의 로그인 단추에 표시됩니다.
+1. **TechnicalProfile** 요소 아래의 **DisplayName** 값(예: `Multi-Tenant AAD`)을 업데이트합니다. 이 값은 로그인 페이지의 로그인 단추에 표시됩니다.
 1. 이전에 등록했던 Azure AD 다중 테넌트 애플리케이션의 애플리케이션 ID에 **client_id** 를 설정합니다.
 1. **CryptographicKeys** 에서 **StorageReferenceId** 의 값을 이전에 만든 정책 키의 이름으로 업데이트합니다. 예들 들어 `B2C_1A_AADAppSecret`입니다.
 
@@ -191,7 +191,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 ## <a name="test-your-custom-policy"></a>사용자 지정 정책 테스트
 
 1. 신뢰 당사자 정책(예: `B2C_1A_signup_signin`)을 선택합니다.
-1. **애플리케이션** 에서 [이전에 등록](tutorial-register-applications.md)한 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
+1. **애플리케이션** 에서 [이전에 등록된](tutorial-register-applications.md) 웹 애플리케이션을 선택합니다. **회신 URL** 에는 `https://jwt.ms`가 표시되어야 합니다.
 1. **지금 실행** 단추를 선택합니다.
 1. 가입 또는 로그인 페이지에서 **Common AAD** 를 선택하여 Azure AD 계정으로 로그인합니다.
 

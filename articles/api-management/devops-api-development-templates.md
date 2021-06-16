@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: 62f163b9ce649cd5ddb52b4325682570633dfb92
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49dc71dac6d246907de3498ed0a39541a3caf522
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96183161"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888431"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하는 API Management에 대한 CI/CD
 
@@ -41,7 +41,7 @@ ms.locfileid: "96183161"
 * API 개발자는 개발 인스턴스에 액세스하여 API를 개발하고 테스트하는 데 사용할 수 있습니다. 
 * *API 게시자* 를 호출하는 지정된 팀은 프로덕션 인스턴스를 관리합니다.
 
-이 제안된 방법의 핵심은 [Azure Resource Manager 템플릿의](../azure-resource-manager/templates/template-syntax.md)모든 API Management 구성을 유지하는 것입니다. 조직에서는 이러한 템플릿을 Git와 같은 원본 제어 시스템에 보관해야 합니다. 이미지에 설명된 것처럼 게시자 리포지토리에는 템플릿 컬렉션에 있는 프로덕션 API Management 인스턴스의 모든 구성이 포함됩니다.
+이 제안된 방법의 핵심은 [Azure Resource Manager 템플릿의](../azure-resource-manager/templates/syntax.md)모든 API Management 구성을 유지하는 것입니다. 조직에서는 이러한 템플릿을 Git와 같은 원본 제어 시스템에 보관해야 합니다. 이미지에 설명된 것처럼 게시자 리포지토리에는 템플릿 컬렉션에 있는 프로덕션 API Management 인스턴스의 모든 구성이 포함됩니다.
 
 |템플릿  |Description  |
 |---------|---------|

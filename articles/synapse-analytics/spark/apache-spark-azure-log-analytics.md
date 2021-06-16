@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
-ms.openlocfilehash: d32d822d0ca85c25401f17411a8d34b4fb2e1eaf
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: e9c1299c0847aa30e1e3e198d2165e2674164458
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125401"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960845"
 ---
 # <a name="tutorial-use-azure-log-analytics-to-collect-and-visualize-metrics-and-logs-preview"></a>자습서: Azure Log Analytics를 사용하여 메트릭과 로그 수집 및 시각화(미리 보기)
 
@@ -214,7 +214,7 @@ Synapse Studio의 Synapse Spark 풀에 구성 파일을 업로드할 수 있습�
 
 ## <a name="limitation"></a>제한 사항
 
-[관리형 가상 네트워크](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)를 사용할 수 있는 Azure Synapse Analytics 작업 영역은 지원되지 않습니다.
+[관리형 가상 네트워크](../security/synapse-workspace-managed-vnet.md)를 사용할 수 있는 Azure Synapse Analytics 작업 영역은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

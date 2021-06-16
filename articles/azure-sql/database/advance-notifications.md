@@ -3,20 +3,20 @@ title: 계획된 유지 관리 이벤트에 대한 고급 알림(미리 보기)
 description: Azure SQL Database에 대한 계획된 유지 관리 전에 알림을 받습니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 03/02/2021
-ms.openlocfilehash: 895b9081ba7eb6d7e8b5d3304d37168e4064ed39
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 1b79d9f88c61ca4bc11895e26f8ffc4fd69b8a35
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105560049"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706569"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>계획된 유지 관리 이벤트에 대한 고급 알림(미리 보기)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

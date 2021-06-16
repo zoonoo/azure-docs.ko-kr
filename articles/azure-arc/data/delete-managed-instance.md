@@ -4,17 +4,17 @@ description: Azure Arc 지원 SQL Managed Instance 삭제
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: vin-yu
-ms.author: vinsonyu
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e531349e8f404380d9f0601caa3b66557c297062
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e9496b1782cb78cacb378b167386cd9fe950b15c
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90940852"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495899"
 ---
 # <a name="delete-azure-arc-enabled-sql-managed-instance"></a>Azure Arc 지원 SQL Managed Instance 삭제
 이 문서에서는 Azure Arc 지원 SQL Managed Instance를 삭제하는 방법을 설명합니다.
@@ -82,7 +82,7 @@ kubectl delete pvc data-demo-mi-0 -n arc
 kubectl delete pvc logs-demo-mi-0 -n arc
 ```
 
-각 kubectl 명령은 PVC가 성공적으로 삭제되었는지 확인합니다. 예를 들면 다음과 같습니다.
+이러한 각 kubectl 명령은 PVC가 성공적으로 삭제되었는지 확인합니다. 예를 들면 다음과 같습니다.
 ```console
 persistentvolumeclaim "data-demo-mi-0" deleted
 persistentvolumeclaim "logs-demo-mi-0" deleted
@@ -90,9 +90,9 @@ persistentvolumeclaim "logs-demo-mi-0" deleted
   
 
 > [!NOTE]
-> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 결국 오류가 발생할 수 있습니다. 일부 오류에는 스토리지 이슈로 인해 Pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) azdata를 사용하여 Kubernetes 클러스터에 로그인할 수 없는 경우가 포함될 수 있습니다.
+> 표시된 것처럼, PVC를 삭제하지 않으면 Kubernetes 클러스터에서 오류가 발생하게 될 수 있습니다. 이러한 오류 중 일부에는 이 스토리지 문제로 인해 pod가 제거될 수 있으므로(정상적인 Kubernetes 동작) azdata를 사용하여 Kubernetes 클러스터에 로그인할 수 없는 경우가 포함될 수 있습니다.
 >
-> 예를 들어 로그에 다음과 유사한 메시지가 표시될 수 있습니다.  
+> 예를 들어, 다음과 유사한 로그의 메시지가 표시될 수 있습니다.  
 > - Annotations:    microsoft.com/ignore-pod-health: true  
 > - Status:         Failed  
 > - Reason:         Evicted  

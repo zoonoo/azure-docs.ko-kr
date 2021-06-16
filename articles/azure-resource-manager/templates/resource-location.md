@@ -4,12 +4,12 @@ description: Azure 리소스 관리자 템플릿 (ARM 템플릿)에서 리소스
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2eba8e48a9b5ccc1ddb731690e99dcbbaa8f6fb
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 686975b73ee2ad0e487fad278f872e7d31753041
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321630"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960051"
 ---
 # <a name="set-resource-location-in-arm-template"></a>ARM 템플릿에서 리소스 위치 설정
 
@@ -96,5 +96,5 @@ az provider show \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 템플릿에서 사용할 수 있는 함수 전체 목록은 [ARM 템플릿 함수](template-functions.md)를 참조하세요.
-* 템플릿 파일에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* 템플릿에서 사용할 수 있는 함수 목록은 [ARM 템플릿 함수](template-functions.md)를 참조하세요.
+* 템플릿 파일에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.

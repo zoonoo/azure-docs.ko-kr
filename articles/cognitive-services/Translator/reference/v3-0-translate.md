@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/12/2021
 ms.author: lajanuar
-ms.openlocfilehash: 431e42e422ecbaeb0e404928a505cf90180f6dd7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 090e00bbf9ca86115f286b8f24955f33c7230bf3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379340"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969403"
 ---
 # <a name="translator-30-translate"></a>Translator 3.0: Translate
 
@@ -50,9 +50,9 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 | 쿼리 매개 변수 | Description |
 | --- | --- |
-| 원본 | _선택적 매개 변수_ 입니다.  <br>입력 텍스트의 언어를 지정합니다. `translation` 범위를 통해 [지원되는 언어](../reference/v3-0-languages.md)를 조회하여 번역할 수 있는 원본 언어를 찾습니다. `from` 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다.  <br>  <br>[동적 사전](/azure/cognitive-services/translator/dynamic-dictionary) 기능을 사용하는 경우 자동 검색 대신 `from` 매개 변수를 사용해야 합니다. |
+| 원본 | _선택적 매개 변수_ 입니다.  <br>입력 텍스트의 언어를 지정합니다. `translation` 범위를 통해 [지원되는 언어](../reference/v3-0-languages.md)를 조회하여 번역할 수 있는 원본 언어를 찾습니다. `from` 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다.  <br>  <br>[동적 사전](../dynamic-dictionary.md) 기능을 사용하는 경우 자동 검색 대신 `from` 매개 변수를 사용해야 합니다. |
 | textType | _선택적 매개 변수_ 입니다.  <br>번역되는 텍스트가 일반 텍스트인지 또는 HTML 인지를 정의합니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다. 가능한 값은 `plain`(기본값) 또는 `html`입니다. |
-| category | _선택적 매개 변수_ 입니다.  <br>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 [Custom Translator](../customization.md)로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 이 매개 변수에 Custom Translator [프로젝트 세부 정보](/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details)의 프로젝트의 범주 ID를 추가하여 배포된 사용자 지정 시스템을 사용합니다. 기본값은 `general`입니다. |
+| category | _선택적 매개 변수_ 입니다.  <br>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 [Custom Translator](../customization.md)로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 이 매개 변수에 Custom Translator [프로젝트 세부 정보](../custom-translator/how-to-create-project.md#view-project-details)의 프로젝트의 범주 ID를 추가하여 배포된 사용자 지정 시스템을 사용합니다. 기본값은 `general`입니다. |
 | profanityAction | _선택적 매개 변수_ 입니다.  <br>번역에서 욕설을 처리하는 방식을 지정합니다. 가능한 값은 `NoAction`(기본값), `Marked` 또는 `Deleted`입니다. 욕설을 처리하는 방식을 알아보려면 [욕설 처리](#handle-profanity)를 참조하세요. |
 | profanityMarker | _선택적 매개 변수_ 입니다.  <br>번역에서 욕설을 표시하는 방식을 지정합니다. 가능한 값은 `Asterisk`(기본값) 또는 `Tag`입니다. 욕설을 처리하는 방식을 알아보려면 [욕설 처리](#handle-profanity)를 참조하세요. |
 | includeAlignment | _선택적 매개 변수_ 입니다.  <br>소스 텍스트의 맞춤 도법을 번역된 텍스트에 포함할지 여부를 지정합니다. 가능한 값은 `true` 또는 `false`(기본값)입니다. |
@@ -66,7 +66,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 | headers | Description |
 | --- | --- |
-| 인증 헤더 | _필수 요청 헤더_  <br>[인증에 사용할 수 있는 옵션](/azure/cognitive-services/translator/reference/v3-0-reference#authentication)을 참조하세요. |
+| 인증 헤더 | _필수 요청 헤더_  <br>[인증에 사용할 수 있는 옵션](./v3-0-reference.md#authentication)을 참조하세요. |
 | 콘텐츠 형식 | _필수 요청 헤더_  <br>페이로드의 콘텐츠 형식을 지정합니다.  <br>허용되는 값은 `application/json; charset=UTF-8`입니다. |
 | Content-Length | _필수 요청 헤더_  <br>요청 본문의 길이입니다. |
 | X-ClientTraceId | _선택 사항입니다_.  <br>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. `ClientTraceId`라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다. |

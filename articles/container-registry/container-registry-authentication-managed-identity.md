@@ -3,16 +3,16 @@ title: 관리 ID를 사용하여 인증
 description: 사용자 할당 또는 시스템 할당 관리 Azure ID를 사용하여 프라이빗 컨테이너 레지스트리의 이미지에 액세스할 수 있습니다.
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 213f49356fdc2444f8bc2cb4635e96015aff0a61
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 88952a032b9c4439620de05f181402f29639a5b2
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781544"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440667"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>Azure Container Registry에 인증하기 위해 Azure 관리 ID 사용 
 
-레지스트리 자격 증명을 제공하거나 관리할 필요 없이 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 다른 Azure 리소스의 Azure Container Registry에 인증할 수 있습니다. 예를 들어 Linux VM에서 사용자 할당 또는 시스템 할당 관리 ID를 설정하면 공용 레지스트리를 사용하는 것처럼 쉽게 컨테이너 레지스트리의 컨테이너 이미지에 액세스할 수 있습니다. 또는 [관리 ID](../aks/use-managed-identity.md)를 사용하여 Pod 배포를 위해 Azure Container Registry에서 컨테이너 이미지를 가져오도록 Azure Kubernetes Service 클러스터를 설정합니다.
+레지스트리 자격 증명을 제공하거나 관리할 필요 없이 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 사용하여 다른 Azure 리소스의 Azure Container Registry에 인증할 수 있습니다. 예를 들어 Linux VM에서 사용자 할당 또는 시스템 할당 관리 ID를 설정하면 공용 레지스트리를 사용하는 것처럼 쉽게 컨테이너 레지스트리의 컨테이너 이미지에 액세스할 수 있습니다. 또는 [관리 ID](../aks/cluster-container-registry-integration.md)를 사용하여 Pod 배포를 위해 Azure Container Registry에서 컨테이너 이미지를 가져오도록 Azure Kubernetes Service 클러스터를 설정합니다.
 
 이 문서에서는 관리 ID 및 다음과 같은 방법에 대해 자세히 알아봅니다.
 

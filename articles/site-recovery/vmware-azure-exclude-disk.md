@@ -1,17 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure 간 재해 복구에서 VMware VM 디스크 제외
 description: Azure Site Recovery를 사용하여 Azure로 복제할 때 VMware VM 디스크를 제외하는 방법입니다.
-author: mayurigupta13
-manager: rochakm
-ms.date: 12/10/2019
-ms.author: mayg
+author: Sharmistha-Rai
+manager: gaggupta
+ms.service: site-recovery
 ms.topic: conceptual
-ms.openlocfilehash: c4842172ff181b5cdbe7f6fecf69da8755ae43fa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 6aa4776ed1666857ba2873351c24dc561edb5890
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86129872"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576967"
 ---
 # <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Azure로의 VMware VM 복제에서 디스크 제외
 

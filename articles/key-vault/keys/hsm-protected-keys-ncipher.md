@@ -10,12 +10,13 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/24/2021
 ms.author: ambapat
-ms.openlocfilehash: f2faabd92a1ebdf9734119d12aea49042b03497a
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fc2db49b11f0a209c013527afde56c0830ac990c
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108162440"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539239"
 ---
 # <a name="import-hsm-protected-keys-for-key-vault-ncipher"></a>Key Vault에 사용할 HSM 보호 키 가져오기(nCipher)
 
@@ -452,7 +453,7 @@ generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey
 
 * 매개 변수 *보호* 는 다음과 같이 값 **모듈** 에 설정되어야 합니다. 이렇게 하면 모듈 보호 키가 만들어집니다. BYOK 도구 집합은 OCS 보호 키를 지원하지 않습니다.
 * **ident** 및 **plainname** 의 *contosokey* 값을 임의의 문자열 값으로 바꿉니다. 관리 오버헤드를 최소화하고 오류 위험성을 줄이려면 두 가지에 동일한 값을 사용하는 것이 좋습니다. **ident** 값에는 숫자, 대시 및 소문자만 사용할 수 있습니다.
-* pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 [nCipher 설명서](https://www.entrust.com/-/media/documentation/brochures/entrust-nshield-general-purpose-hsms-br-a4.pdf)를 참조하세요.
+* pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 [nCipher 설명서](https://go.ncipher.com/rs/104-QOX-775/images/nShield-family-br-A4.pdf)를 참조하세요.
 
 이 명령은 %NFAST_KMDATA%\local 폴더에 토큰화된 키 파일을 만듭니다. 이 파일은 이름이 **key_simple_** 로 시작하며 명령에서 지정한 **ident** 가 뒤에 붙습니다. 예들 들어 **key_simple_contosokey** 입니다. 이 파일은 암호화된 키를 포함합니다.
 

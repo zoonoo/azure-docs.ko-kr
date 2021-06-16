@@ -4,25 +4,25 @@ titleSuffix: Azure Applied AI Services
 description: Azure Form Recognizer 서비스를 사용하면 양식 문서에서 키/값 쌍 및 테이블 데이터를 식별 및 추출할 수 있을 뿐만 아니라 판매 영수증 및 비즈니스 카드에서 주요 정보를 추출할 수 있습니다.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: 자동화된 데이터 처리, 문서 처리, 자동화된 데이터 입력, 양식 처리
-ms.openlocfilehash: b3991d6cce5505a88250a4f470565f6b191667e2
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1688cc686b11fd6a6edb129a7ac01a048ae88f4a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110453374"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957500"
 ---
 # <a name="what-is-azure-form-recognizer"></a>Azure Form Recognizer란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데이터 처리 소프트웨어를 빌드할 수 있는 [Azure Applied AI Services](https://aka.ms/applied-ai-services-hub)의 일부입니다. 문서에서 텍스트, 키/값 쌍, 선택 표시, 표 및 구조를 식별하고 추출합니다. &mdash;이 서비스는 원본 파일의 관계, 경계 상자, 신뢰도 등을 포함하는 구조화된 데이터를 출력합니다. 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 정확한 결과를 빠르게 얻을 수 있습니다. Form Recognizer를 사용하여 애플리케이션에서 데이터 입력을 자동화하고 문서 검색 기능을 보강합니다.
+Azure Form Recognizer는 기계 학습 기술을 사용하여 자동화된 데이터 처리 소프트웨어를 빌드할 수 있는 [Azure Applied AI Services](../../applied-ai-services/index.yml)의 일부입니다. 문서에서 텍스트, 키/값 쌍, 선택 표시, 표 및 구조를 식별하고 추출합니다. &mdash;이 서비스는 원본 파일의 관계, 경계 상자, 신뢰도 등을 포함하는 구조화된 데이터를 출력합니다. 많은 수동 작업 또는 광범위한 데이터 과학 전문 지식 없이도 특정 콘텐츠에 맞게 조정된 정확한 결과를 빠르게 얻을 수 있습니다. Form Recognizer를 사용하여 애플리케이션에서 데이터 입력을 자동화하고 문서 검색 기능을 보강합니다.
 
 Form Recognizer는 사용자 지정 문서 처리 모델, 송장, 영수증, ID 및 명함용으로 미리 빌드된 모델, 레이아웃 모델로 구성됩니다. REST API 또는 클라이언트 라이브러리 SDK를 사용하여 Form Recognizer 모델을 호출하여 복잡성을 줄이고 워크플로 또는 애플리케이션에 통합할 수 있습니다.
 

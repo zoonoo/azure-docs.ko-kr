@@ -3,20 +3,20 @@ title: T-SQL 차이점 마이그레이션 해결
 description: Transact-SQL 문은 Azure SQL Database에서 완전히 지원되지는 않습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: mokabiru
+ms.author: mokabiru
+ms.reviewer: mathoma
 ms.date: 12/03/2018
-ms.openlocfilehash: 1e286b2329cb98d580bbf64071ff8767db304a00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69e4e5ecd031026b9f1dfeec0ce34e6b2796cf2f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96461874"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707493"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>SQL Database로의 마이그레이션 중 Transact-SQL 차이점 해결
 

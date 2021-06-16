@@ -6,12 +6,12 @@ ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 90c7145e6761820dea11fa13fc883dc87bec999e
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 03ef6ce6dd8b203ebff1da0dba7fc5febd29c329
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108075126"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960260"
 ---
 # <a name="quickstart-create-and-deploy-arm-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 ARM 템플릿 만들기 및 배포
 
@@ -58,7 +58,7 @@ ARM 템플릿을 처음부터 새로 만드는 작업은 쉽지 않으며 특히
 
     ![포털에서 템플릿 생성](./media/quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    기본 창에 템플릿이 표시됩니다. 6개의 최상위 요소(`schema`, `contentVersion`, `parameters`, `variables`, `resources` 및 `output`)가 있는 JSON 파일입니다. 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./template-syntax.md)를 참조하세요.
+    기본 창에 템플릿이 표시됩니다. 6개의 최상위 요소(`schema`, `contentVersion`, `parameters`, `variables`, `resources` 및 `output`)가 있는 JSON 파일입니다. 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 
     9개의 매개 변수가 정의되어 있습니다. 그 중 하나는 **storageAccountName** 입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 스토리지 계정에 사용하도록 템플릿을 편집합니다.
 

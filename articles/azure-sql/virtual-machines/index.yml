@@ -6,16 +6,17 @@ metadata:
   description: Windows와 Linux 모두에서 Azure 가상 머신에 설치된 SQL Server에 대한 설명서를 찾습니다.
   services: virtual-machines-sql
   ms.service: virtual-machines-sql
+  ms.subservice: service-overview
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
   ms.date: 05/27/2020
-  ms.openlocfilehash: 5b93139b896c3b2868db8b9f03c8eb84df7ca834
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: a33f9268dce514c7b7d9522d4a1c58e57befa122
+  ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110064381"
+  ms.lasthandoff: 05/29/2021
+  ms.locfileid: "110688242"
 landingContent:
 - title: Azure VM의 SQL Server
   linkLists:

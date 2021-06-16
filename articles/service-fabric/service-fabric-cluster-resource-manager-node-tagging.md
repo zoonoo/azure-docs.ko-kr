@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: branim
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 712e6422060619e5567a74d6335320eff9ed8e66
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: b20ab4720f9f172ef9248d3314b25922896eb8bd
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107741437"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796933"
 ---
 # <a name="introduction-to-dynamic-node-tags"></a>동적 노드 태그 소개
 노드 태그를 사용하면 노드의 태그를 동적으로 추가하거나 제거하여 서비스 배치에 영향을 줄 수 있습니다. 노드 태그 지정은 매우 유연하며 애플리케이션이나 클러스터를 업그레이드하지 않고도 서비스 배치를 변경하는 데 사용할 수 있습니다. 노드에서 언제든 태그를 추가하거나 제거할 수 있고 서비스에서 태그를 만들 때 특정 태그의 요구 사항을 지정할 수 있습니다. 또한 서비스가 실행 중인 동안에도 해당 태그 요구 사항을 동적으로 업데이트할 수 있습니다.
@@ -54,7 +54,7 @@ ms.locfileid: "107741437"
     "name": "PlacementAndLoadBalancing",
     "parameters": [
       {
-          "name": " NodeTaggingEnabled ",
+          "name": "NodeTaggingEnabled",
           "value": "true"
       }
     ]

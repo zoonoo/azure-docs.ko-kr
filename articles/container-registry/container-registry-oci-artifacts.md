@@ -6,12 +6,12 @@ manager: gwallace
 ms.topic: article
 ms.date: 02/03/2021
 ms.author: stevelas
-ms.openlocfilehash: 8a73f295999888dab20531ffdd0fb042790a5357
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dbd64d939f823e8dc7b0cd6d76233b07fce462d9
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99988219"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537405"
 ---
 # <a name="push-and-pull-an-oci-artifact-using-an-azure-container-registry"></a>Azure 컨테이너 레지스트리를 사용하여 OCI 아티팩트 밀어넣기 및 끌어오기
 
@@ -46,7 +46,7 @@ Stdin에서 암호를 읽으려면 `--password-stdin`을 사용합니다.
 
 ID로 Azure CLI에 [로그인](/cli/azure/authenticate-azure-cli)하여 컨테이너 레지스트리에서 아티팩트를 밀어넣고 끌어옵니다.
 
-그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az-acr-login)을 사용하여 레지스트리에 액세스합니다. 예를 들어 이름이 *myregistry* 인 레지스트리에 로그인하는 방법은 다음과 같습니다.
+그런 다음 Azure CLI 명령 [az acr login](/cli/azure/acr#az_acr_login)을 사용하여 레지스트리에 액세스합니다. 예를 들어 이름이 *myregistry* 인 레지스트리에 로그인하는 방법은 다음과 같습니다.
 
 ```azurecli
 az login
@@ -173,7 +173,7 @@ az acr login --name myregistry
 oras push myregistry.azurecr.io/dockerfile:1.0 hello-world.dockerfile
 ```
 
-[az acr build](/cli/azure/acr#az-acr-build) 명령을 실행하고 새 아티팩트를 빌드 컨텍스트로 사용하여 hello-world 이미지를 빌드합니다.
+[az acr build](/cli/azure/acr#az_acr_build) 명령을 실행하고 새 아티팩트를 빌드 컨텍스트로 사용하여 hello-world 이미지를 빌드합니다.
 
 ```azurecli
 az acr build --registry myregistry --image builds/hello-world:v1 \
@@ -183,7 +183,7 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 아티팩트의 매니페스트를 구성하는 방법을 포함하여 [ORAS 라이브러리](https://github.com/deislabs/oras/tree/master/docs)에 대해 자세히 알아보세요.
+* 아티팩트의 매니페스트를 구성하는 방법을 포함하여 [ORAS 라이브러리](https://github.com/deislabs/oras)에 대해 자세히 알아보세요.
 * 새 아티팩트 형식에 대한 참조 정보를 보려면 [OCI 아티팩트](https://github.com/opencontainers/artifacts) 리포지토리를 방문하세요.
 
 
@@ -194,5 +194,5 @@ az acr build --registry myregistry --image builds/hello-world:v1 \
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-repository-show]: /cli/azure/acr/repository?#az-acr-repository-show
-[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-repository-show]: /cli/azure/acr/repository?#az_acr_repository_show
+[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete

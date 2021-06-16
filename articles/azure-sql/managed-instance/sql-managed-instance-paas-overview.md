@@ -3,20 +3,20 @@ title: Azure SQL Managed Instance란?
 description: Azure SQL Managed Instance가 어떻게 최신 SQL Server(Enterprise Edition) 데이터베이스 엔진과 거의 100% 호환되는지 알아보세요.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: overview
 author: bonova
 ms.author: bonova
-ms.reviewer: sstein, vanto
+ms.reviewer: mathoma, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: 5d49a5b57ff4b59005461f2bb13451822723b039
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c0d199678aefbf2aa08f8fcbcb27376762dd39b5
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644991"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110707269"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Azure SQL Managed Instance란?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ SQL Managed Instance는 Azure SQL Database와 SQL Server 데이터베이스 엔�
 
 SQL Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 
-|기능 | 설명|
+|기능 | Description|
 |---|---|
 | SQL Server 버전/빌드 | SQL Server 데이터베이스 엔진(안정적인 최신 버전) |
 | 관리되는 자동 백업 | 예 |

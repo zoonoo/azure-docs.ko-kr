@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/10/2021
 ms.author: petender
-ms.openlocfilehash: 4d79e417e637894f2a41bd55b52fbbe55300a694
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 95b2bd71b59a8ef14274928428624fe52e923fe1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685408"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968899"
 ---
 # <a name="tutorial-publish-azure-static-web-apps-using-an-arm-template"></a>자습서: ARM 템플릿을 사용하여 Azure Static Web Apps 게시
 
@@ -31,10 +31,10 @@ ms.locfileid: "109685408"
 - **ARM 템플릿용 편집기:** 템플릿을 검토하고 편집하려면 JSON 편집기가 필요합니다. [Azure Resource Manager 도구 확장](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)이 포함된 Visual Studio Code ARM 템플릿을 편집하는 데 적합합니다. Visual Studio Code를 설치하고 구성하는 방법에 대한 지침은 [빠른 시작: Visual Studio Code를 사용하여 ARM 템플릿 만들기](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md)를 참조하세요.
 
 - **Azure CLI 또는 Azure PowerShell**: ARM 템플릿을 배포하려면 명령줄 도구가 필요합니다. 설치 지침은 다음을 참조하세요.
-  - [Windows OS에 Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli-windows)
-  - [Linux OS에 Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli-linux)
-  - [macOS에 Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli-macos)
-  - [Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)
+  - [Windows OS에 Azure CLI 설치](/cli/azure/install-azure-cli-windows)
+  - [Linux OS에 Azure CLI 설치](/cli/azure/install-azure-cli-linux)
+  - [macOS에 Azure CLI 설치](/cli/azure/install-azure-cli-macos)
+  - [Azure PowerShell 설치](/powershell/azure/install-az-ps)
 
 ## <a name="create-a-github-personal-access-token"></a>GitHub 개인용 액세스 토큰 만들기
 

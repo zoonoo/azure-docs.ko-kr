@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d548f4d792d8980e2aa5040b09530eaf7868c4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5cee69fbd2cb829a7ec90179e94098e307e5a094
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609909"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968541"
 ---
 # <a name="protecting-microsoft-365-from-on-premises-attacks"></a>온-프레미스 공격으로부터 Microsoft 365 보호
 
@@ -187,7 +187,7 @@ Azure AD 기능을 사용하여 디바이스를 안전하게 관리합니다.
 
 * **레거시 애플리케이션** 
 
-   * 최신 인증을 지원하지 않는 레거시 애플리케이션에 대한 인증, 권한 부여, 원격 액세스를 사용할 수 있습니다. [Azure AD 애플리케이션 프록시](../manage-apps/application-proxy.md)를 사용합니다. [보안 하이브리드 액세스 파트너 통합](../manage-apps/secure-hybrid-access.md)을 사용하여 네트워크 또는 애플리케이션 제공 컨트롤러 솔루션을 통해 사용할 수도 있습니다.   
+   * 최신 인증을 지원하지 않는 레거시 애플리케이션에 대한 인증, 권한 부여, 원격 액세스를 사용할 수 있습니다. [Azure AD 애플리케이션 프록시](../app-proxy/application-proxy.md)를 사용합니다. [보안 하이브리드 액세스 파트너 통합](../manage-apps/secure-hybrid-access.md)을 사용하여 네트워크 또는 애플리케이션 제공 컨트롤러 솔루션을 통해 사용할 수도 있습니다.   
 
    * 최신 인증을 지원하는 VPN 공급업체를 선택합니다. 인증을 Azure AD와 통합합니다. 온-프레미스 손상에서는 Azure AD를 사용하여 VPN을 사용하지 않음으로써 액세스를 사용하지 않거나 차단할 수 있습니다.
 
@@ -222,7 +222,7 @@ Azure AD 조건부 액세스를 사용하여 신호를 해석하고 이를 통�
 
     의심스러운 활동에 대한 모든 [ Azure AD 위험 이벤트](../identity-protection/overview-identity-protection.md#risk-detection-and-remediation)를 모니터링합니다. [Azure AD ID 보호](../identity-protection/overview-identity-protection.md)는 기본적으로 Azure Security Center와 통합됩니다.
 
-    위치 기반 신호의 소음 검색을 방지하기 위해 네트워크 [명명된 위치](../reports-monitoring/quickstart-configure-named-locations.md)를 정의합니다. 
+    위치 기반 신호의 소음 검색을 방지하기 위해 네트워크 [명명된 위치](../conditional-access/location-condition.md)를 정의합니다. 
 *  **UEBA(사용자 및 엔터티 동작 분석) 경고** 
 
     UEBA를 사용하여 변칙 검색에 대한 인사이트를 얻습니다.

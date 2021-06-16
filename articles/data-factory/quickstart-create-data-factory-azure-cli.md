@@ -9,12 +9,12 @@ ms.date: 03/24/2021
 ms.custom:
 - template-quickstart
 - devx-track-azurecli
-ms.openlocfilehash: b40407f4c4fb81bbf76bd0b552f3c9f2c827232a
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: c9f4b46553a119bfb7b8b639e6a28e95a2be5999
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107871527"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750842"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Data Factory 만들기
 
@@ -73,7 +73,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
-Azure 데이터 팩터리를 만들려면 [az datafactory factory create](/cli/azure/datafactory/factory#az_datafactory_factory_create) 명령을 실행합니다.
+Azure 데이터 팩터리를 만들려면 [az datafactory factory create](/cli/azure/datafactory#az_datafactory_create) 명령을 실행합니다.
 
 ```azurecli
 az datafactory factory create --resource-group ADFQuickStartRG \
@@ -83,7 +83,7 @@ az datafactory factory create --resource-group ADFQuickStartRG \
 > [!IMPORTANT]
 > `ADFTutorialFactory`를 ADFTutorialFactorySP1127과 같은 전역적으로 고유한 데이터 팩터리 이름으로 바꿉니다.
 
-[az datafactory factory show](/cli/azure/datafactory/factory#az_datafactory_factory_show) 명령을 사용하여 만든 데이터 팩터리를 볼 수 있습니다.
+[az datafactory factory show](/cli/azure/datafactory#az_datafactory_factory_show) 명령을 사용하여 만든 데이터 팩터리를 볼 수 있습니다.
 
 ```azurecli
 az datafactory factory show --resource-group ADFQuickStartRG \
@@ -94,7 +94,7 @@ az datafactory factory show --resource-group ADFQuickStartRG \
 
 다음으로, 연결된 서비스 및 두 개의 데이터 세트를 만듭니다.
 
-1. [az storage account show-connection-string](/cli/azure/datafactory/factory#az_datafactory_factory_show) 명령을 사용하여 스토리지 계정에 대한 연결 문자열을 가져옵니다.
+1. [az storage account show-connection-string](/cli/azure/datafactory#az_datafactory_factory_show) 명령을 사용하여 스토리지 계정에 대한 연결 문자열을 가져옵니다.
 
    ```azurecli
    az storage account show-connection-string --resource-group ADFQuickStartRG \

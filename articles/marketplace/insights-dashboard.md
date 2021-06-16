@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/23/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: f6ed2029ec333120e3942570c951f5da6e846c7a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b02d5d4ae412867237d253e488fdb6cd8dd19769
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104953275"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539942"
 ---
 # <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 Marketplace Insights 대시보드
 
@@ -104,10 +104,10 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 > [!TIP]
 > 위젯의 오른쪽 위 모서리에 있는 다운로드 아이콘을 사용하여 데이터를 다운로드할 수 있습니다. “좋아요” 또는 “싫어요” 아이콘을 클릭하여 각 위젯에 대한 피드백을 제공할 수 있습니다.
 
-| 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래매틱 방식의 열 이름<br>Access 보고서 |
+| 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식의 열 이름<br>Access 보고서 |
 | ------------ | ------------- | ------------- | ------------- |
 | 날짜 | 방문한 날짜 | Azure Marketplace 및/또는 AppSource의 제품 페이지에서 페이지 방문 및/또는 CTA 클릭 이벤트 생성의 날짜입니다. | 날짜 |
-| 제품 이름 | 제품 이름 | 상업용 마켓플레이스 제품의 이름입니다. | OfferName |
+| 제품 이름 | 제품 이름 | 상업용 Marketplace 제품의 이름입니다. | OfferName |
 | 조회 도메인 | 조회 도메인 | 페이지를 방문한 조회 도메인의 이름입니다. 페이지 방문에 대해 캡처된 조회 도메인이 없는 경우 해당 항목은 "조회 도메인 없음"입니다. |  ReferralDomain |
 | 국가 이름 | 국가 이름 | 페이지 방문이 발생한 국가 이름입니다. | CountryName |
 | 페이지 방문 횟수 | 페이지 방문 횟수 | 특정 날짜에 대한 제품 이름과 연결된 페이지 방문 횟수입니다. | PageVisits |
@@ -121,10 +121,10 @@ Marketplace 인사이트 **방문자** 차트에는 선택한 계산 기간에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 상업용 마켓플레이스에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터의 상업용 마켓플레이스에 대한 분석 보고서 액세스](./partner-center-portal/analytics.md)를 참조하세요.
-- 그래픽 및 다운로드가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](./orders-dashboard.md)를 참조하세요.
-- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
-- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](./customer-dashboard.md)를 참조하세요.
-- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
-- Azure Marketplace 및 AppSource의 제품에 대한 고객 피드백을 모두 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조하세요.
-- 상업용 마켓플레이스 분석에 관한 자주 묻는 질문 및 데이터 용어의 종합 사전에 관한 내용은 [상업용 마켓플레이스 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+- 상업용 마켓플레이스에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터의 상업용 마켓플레이스에 대한 분석 보고서 액세스](analytics.md)를 참조하세요.
+- 그래픽 및 다운로드가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](orders-dashboard.md)를 참조하세요.
+- VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.
+- 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 Marketplace 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
+- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
+- Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
+- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](analytics-faq.md)을 참조하세요.

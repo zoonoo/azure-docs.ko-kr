@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: justinha
-ms.openlocfilehash: 779fd9bbfdd35061867fecc8d4be62b8768f43f9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 6b61bfbc1419b59d21e8db583b3a8aad5145494e
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105933307"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785917"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인에서 개체 및 자격 증명을 동기화하는 방법
 
@@ -63,7 +63,7 @@ Azure AD에서 사용자를 만들면 Azure AD에서 암호를 변경해야 Azur
 |:--- |:--- |
 | accountEnabled |userAccountControl(ACCOUNT_DISABLED 비트를 설정하거나 지움) |
 | city |l |
-| company |companyName |
+| companyName |companyName |
 | country |co |
 | department |department |
 | displayName |displayName |

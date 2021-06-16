@@ -11,19 +11,19 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 26b5331aa9242978f0f097c8e90bc807fc65f745
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: b7aefa537c9b822572f38501920afdaa45bc01c3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107531942"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955049"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory Authentication 관리 작업 참조 가이드
 
 [Azure AD 작업 참조 가이드](active-directory-ops-guide-intro.md)의 이 섹션에서는 자격 증명을 보호하고 관리하며, 인증 환경을 정의하고, 할당을 위임하며, 사용량을 측정하고, 엔터프라이즈 보안 태세에 기반하여 액세스 정책을 정의하기 위해 수행해야 하는 검사 및 작업에 관해 설명합니다.
 
 > [!NOTE]
-> 이 권장 사항은 게시 날짜를 기준으로 최신이지만 시간이 지나면 변경될 수 있습니다. 시간이 지남에 따라 Microsoft 제품 및 서비스가 발전하므로 조직은 ID 사용 관행을 지속해서 평가해야 합니다.
+> 이 권장 사항은 게시 날짜를 기준으로 최신이지만 시간이 지나면 변경될 수 있습니다. Microsoft 제품과 서비스는 계속해서 개선되므로 조직은 ID 사용 관행을 지속해서 평가해야 합니다.
 
 ## <a name="key-operational-processes"></a>주요 운영 프로세스
 
@@ -153,7 +153,7 @@ Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-prot
 
 ### <a name="single-sign-on-for-apps"></a>앱의 Single Sign-On
 
-최상의 사용자 환경, 위험 완화, 보고 기능 및 거버넌스를 위해 전체 엔터프라이즈에 표준화된 Single Sign-On 메커니즘을 제공하는 것이 중요합니다. Azure AD에서 SSO를 지원하지만 현재 로컬 계정을 사용하도록 구성된 애플리케이션을 사용하는 경우 Azure AD에서 SSO를 사용하도록 해당 애플리케이션을 다시 구성해야 합니다. 마찬가지로 Azure AD에서 SSO를 지원하지만 또 다른 ID 공급자를 사용하는 애플리케이션을 사용하는 경우 Azure AD에서 SSO도 사용하도록 해당 애플리케이션을 다시 구성해야 합니다. 페더레이션 프로토콜을 지원하지 않지만 양식 기반 인증을 지원하는 애플리케이션의 경우 Azure AD 애플리케이션 프록시와 함께 [암호 보관](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)을 사용하도록 애플리케이션을 구성하는 것이 좋습니다.
+최상의 사용자 환경, 위험 완화, 보고 기능 및 거버넌스를 위해 전체 엔터프라이즈에 표준화된 Single Sign-On 메커니즘을 제공하는 것이 중요합니다. Azure AD에서 SSO를 지원하지만 현재 로컬 계정을 사용하도록 구성된 애플리케이션을 사용하는 경우 Azure AD에서 SSO를 사용하도록 해당 애플리케이션을 다시 구성해야 합니다. 마찬가지로 Azure AD에서 SSO를 지원하지만 또 다른 ID 공급자를 사용하는 애플리케이션을 사용하는 경우 Azure AD에서 SSO도 사용하도록 해당 애플리케이션을 다시 구성해야 합니다. 페더레이션 프로토콜을 지원하지 않지만 양식 기반 인증을 지원하는 애플리케이션의 경우 Azure AD 애플리케이션 프록시와 함께 [암호 보관](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md)을 사용하도록 애플리케이션을 구성하는 것이 좋습니다.
 
 ![AppProxy 암호 기반 로그온](./media/active-directory-ops-guide/active-directory-ops-img8.png)
 
@@ -196,10 +196,10 @@ Windows 10에서 [비즈니스용 Windows Hello](/windows/security/identity-prot
 
 ### <a name="named-locations"></a>명명된 위치
 
-Azure AD에서 [명명된 위치](../reports-monitoring/quickstart-configure-named-locations.md)를 사용하여 조직에 신뢰할 수 있는 IP 주소 범위 레이블을 지정할 수 있습니다. Azure AD는 명명된 위치를 사용하여 다음 작업을 수행합니다.
+Azure AD에서 [명명된 위치](../conditional-access/location-condition.md)를 사용하여 조직에 신뢰할 수 있는 IP 주소 범위 레이블을 지정할 수 있습니다. Azure AD는 명명된 위치를 사용하여 다음 작업을 수행합니다.
 
 - 위험 이벤트에서 가양성을 방지합니다. 신뢰할 수 있는 네트워크 위치에서 로그인하면 사용자의 로그인 위험이 줄어듭니다.
-- [위치 기반 조건부 액세스](../reports-monitoring/quickstart-configure-named-locations.md)를 구성합니다.
+- [위치 기반 조건부 액세스](../conditional-access/location-condition.md)를 구성합니다.
 
 ![명명된 위치](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 전환 시간 프레임을 계획합니다.
    
-   c. 레거시 인증에 대한 강한 종속성이 있는 레거시 애플리케이션을 식별합니다. 아래 3단계를 참조하세요.
+   다. 레거시 인증에 대한 강한 종속성이 있는 레거시 애플리케이션을 식별합니다. 아래 3단계를 참조하세요.
 
 2. 더 많은 노출을 피하기 위해 레거시 인증을 사용하지 않는 사용자에 대해 원본(예: Exchange 사서함)에서 레거시 프로토콜을 사용하지 않게 설정합니다.
 3. 나머지 계정(서비스 계정과 다른 사용자의 ID가 가장 적합)의 경우 [조건부 액세스를 사용하여 레거시 프로토콜](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 사후 인증을 제한합니다.

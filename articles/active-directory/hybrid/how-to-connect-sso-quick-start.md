@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba3bdc3f58395f17911042c699a0aca3cbae92a2
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 06c42fef2abddc5f04a2d74f30df5fcf54e1b1b3
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108290635"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854417"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -202,7 +202,7 @@ macOS 및 기타 Windows가 아닌 플랫폼의 Chromium을 기반으로 하는 
 
 #### <a name="google-chrome-macos-and-other-non-windows-platforms"></a>Google Chrome(macOS 및 기타 Windows 이외 플랫폼)
 
-macOS 및 기타 Windows가 아닌 플랫폼의 Google Chrome의 경우 통합 인증에 대한 Azure AD URL을 위해 허용 목록을 컨트롤하는 방법은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)을 참조하세요.
+macOS 및 기타 Windows가 아닌 플랫폼의 Google Chrome의 경우 통합 인증에 대한 Azure AD URL을 위해 허용 목록을 컨트롤하는 방법은 [Chromium 프로젝트 정책 목록](https://chromeenterprise.google/policies/)을 참조하세요.
 
 타사 Active Directory 그룹 정책 확장을 사용하여 Mac 사용자의 Firefox 및 Google Chrome에 Azure AD URL을 롤아웃하는 방법은 이 문서에 포함되어 있지 않습니다.
 
