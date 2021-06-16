@@ -103,7 +103,7 @@ additionalContent:
               text: 완전 관리형 파일 캐싱 서비스(Azure HPC Cache) 사용
             - url: ../avere-vfxt/avere-vfxt-overview.md
               text: Azure에서 온-프레미스 NAS 캐시(Avere vFXT for Azure)
-            - url: ../fxt-edge-filer/fxt-overview.md
+            - url: ../fxt-edge-filer/overview.md
               text: 온-프레미스 캐싱 어플라이언스(Azure FXT Edge Filer) 배포
     - title: 데이터 작업
       items:

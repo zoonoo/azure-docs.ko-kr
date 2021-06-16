@@ -2,21 +2,21 @@
 title: API 인증 및 권한 부여 - Azure Time Series Insights | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 애플리케이션에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
-author: deepakpalled
+author: shreyasharmamsft
 ms.author: shresha
-manager: dpalled
-ms.reviewer: v-mamcge, jasonh, kfile
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: seodec18, has-adal-ref, devx-track-azurecli
+ms.openlocfilehash: 68b7300219953b0f80bd40522c3f4ec961ec5262
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103009269"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613547"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -79,7 +79,7 @@ Azure Time Series Insights 환경은 요청이 수신되면 먼저 호출자의 
 
 - [Azure Portal](https://portal.azure.com/) UI를 통해 액세스 권한을 부여하려면 [환경에 데이터 액세스 권한 부여](concepts-access-policies.md) 문서에 나와 있는 지침을 따르세요. 사용자를 선택할 때 이름 또는 ID로 관리 ID 또는 앱 등록을 검색할 수 있습니다.
 
-- Azure CLI를 사용하여 액세스 권한을 부여하려면 다음 명령을 실행합니다. [여기](/cli/azure/ext/timeseriesinsights/tsi/access-policy)에서 설명서를 검토하여 액세스를 관리하는 데 사용할 수 있는 명령의 전체 목록을 확인하세요.
+- Azure CLI를 사용하여 액세스 권한을 부여하려면 다음 명령을 실행합니다. [여기](/cli/azure/tsi/access-policy)에서 설명서를 검토하여 액세스를 관리하는 데 사용할 수 있는 명령의 전체 목록을 확인하세요.
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"

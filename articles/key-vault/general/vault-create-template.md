@@ -3,19 +3,19 @@ title: ARM 템플릿을 사용하여 Azure Key Vault 및 자격 증명 모음 �
 description: 이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Key Vault 및 자격 증명 모음 액세스 정책을 만드는 방법을 보여 줍니다.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 3/14/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e489efd335d2a46a0e55d4ceb9bdee809ae6c39d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 1e1b57c7133547fe0c07ac576d3d054e1e9a8c2a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104595246"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670862"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure Key Vault 및 자격 증명 모음 액세스 정책을 만드는 방법
 
@@ -214,10 +214,10 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Azure Key Vault 개요](../general/overview.md)를 읽습니다.
 - [Azure 리소스 관리자](../../azure-resource-manager/management/overview.md)에 대해 자세히 알아봅니다.
-- [Azure Key Vault 보안 개요](security-overview.md)를 검토하세요.
+- [Azure Key Vault 보안 개요](security-features.md)를 검토하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Key vault에 대한 액세스 보안](secure-your-key-vault.md)
+- [Key vault에 대한 액세스 보안](security-features.md)
 - [키 자격 증명 모음에 대해 인증](authentication.md)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)

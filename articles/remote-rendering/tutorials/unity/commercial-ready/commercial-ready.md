@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7258b37c9d92f25227eac678dde77963e644e64b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 130bf6c9ff105b445830c5f73fdf7d5f564064ab
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483320"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958559"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>자습서: 상용 준비된 Azure Remote Rendering 애플리케이션 만들기
 
@@ -255,7 +255,7 @@ OneDrive 파일 선택기가 기본적으로 Microsoft의 혼합 현실 디바�
 자세한 내용은 다음을 참조하세요.
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [자습서: Marketplace에서 Azure 관리형 애플리케이션 게시](../../../../marketplace/create-new-azure-apps-offer.md)
+* [자습서: Marketplace에서 Azure 관리형 애플리케이션 게시](../../../../marketplace/azure-app-offer-setup.md)
 
 ### <a name="security"></a>보안
 

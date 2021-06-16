@@ -4,18 +4,18 @@ titleSuffix: Azure Applied AI Services
 description: 이 문서에서는 몰입형 리더에 수식을 표시하는 방법을 보여줍니다.
 author: nitinme
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js
-ms.openlocfilehash: 5dad8a27e9a3b38ce70acb01e765561456e1a1b8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0d4a0237d502cb353c262a40c92f99dfdbb8e7d6
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373878"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888179"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>몰입형 리더에 수식을 표시하는 방법
 

@@ -1,18 +1,18 @@
 ---
 title: Azure SignalR에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure SignalR에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 author: sffamily
 ms.author: zhshang
 ms.service: signalr
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: b77f7d8d9a603461481af8ca0910369b3b360315
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 1b3437dc8b62a8520e929b69d40838be8cfe1baa
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088097"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027055"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-signalr"></a>Azure SignalR에 대한 Azure Policy 규정 준수 컨트롤
 

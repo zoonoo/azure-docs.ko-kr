@@ -4,20 +4,19 @@ titleSuffix: Azure SQL Managed Instance
 description: Azure SQL Managed Instance를 구성하고 관리하는 방법을 안내하는 내용으로 구성된 참조 가이드입니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 04/16/2019
-ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155c87c1f5343e583beb226c2eb5416d782fcfb9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92779767"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963188"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Azure SQL Managed Instance 콘텐츠 참조
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -86,7 +85,7 @@ ms.locfileid: "92779767"
 ## <a name="develop-applications"></a>애플리케이션 개발
 
 - [연결](../database/connect-query-content-reference-guide.md#libraries)
-- [Spark 커넥터 사용](../../cosmos-db/spark-connector.md)
+- [Spark 커넥터 사용](../../cosmos-db/create-sql-api-spark.md)
 - [앱 인증](../database/application-authentication-get-client-id-keys.md)
 - [성능 향상을 위해 일괄 처리 사용](../performance-improve-use-batching.md)
 - [연결 지침](../database/troubleshoot-common-connectivity-issues.md)

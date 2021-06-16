@@ -7,12 +7,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 32b73be3faf6eedb92220725b292a3e69cf7f965
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 28262d66794d573d40e4e202d8b047e1d1fbefc7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102555995"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953809"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -163,7 +164,7 @@ ms.locfileid: "102555995"
 
 ## <a name="parameters-and-variables"></a>매개 변수 및 변수
 
-[매개 변수](../../azure-resource-manager/templates/template-syntax.md)를 통해 실행할 때 템플릿에 대한 값을 손쉽게 지정할 수 있습니다. 이 매개 변수 섹션은 예제에 사용됩니다.
+[매개 변수](../../azure-resource-manager/templates/syntax.md)를 통해 실행할 때 템플릿에 대한 값을 손쉽게 지정할 수 있습니다. 이 매개 변수 섹션은 예제에 사용됩니다.
 
 ```json
 "parameters": {
@@ -175,7 +176,7 @@ ms.locfileid: "102555995"
 
 예제 템플릿을 배포할 때 각 VM에서 관리자 계정의 이름 및 암호에 대한 값과 만들 VM의 수를 입력합니다. 템플릿을 사용하여 관리되는 별도 파일에서 매개 변수 값을 지정하거나 메시지가 표시되면 값을 제공하는 옵션이 있습니다.
 
-[변수](../../azure-resource-manager/templates/template-syntax.md)를 통해 전체에 걸쳐 반복해서 사용되거나 시간에 따라 달라질 수 있는 템플릿의 값을 쉽게 설정할 수 있습니다. 이 변수 섹션은 예제에 사용됩니다.
+[변수](../../azure-resource-manager/templates/syntax.md)를 통해 전체에 걸쳐 반복해서 사용되거나 시간에 따라 달라질 수 있는 템플릿의 값을 쉽게 설정할 수 있습니다. 이 변수 섹션은 예제에 사용됩니다.
 
 ```json
 "variables": { 
@@ -208,7 +209,7 @@ ms.locfileid: "102555995"
 }, 
 ```
 
-예제 템플릿을 배포할 때 이전에 만든 스토리지 계정의 이름 및 식별자에 대한 변수 값이 사용됩니다. 변수는 진단 확장에 대한 설정을 제공하는 데에도 사용됩니다. [Azure Resource Manager 템플릿 생성 모범 사례](../../azure-resource-manager/templates/template-best-practices.md)를 사용하여 템플릿에서 매개 변수 및 변수를 구성하는 방법을 결정할 수 있습니다.
+예제 템플릿을 배포할 때 이전에 만든 스토리지 계정의 이름 및 식별자에 대한 변수 값이 사용됩니다. 변수는 진단 확장에 대한 설정을 제공하는 데에도 사용됩니다. [Azure Resource Manager 템플릿 생성 모범 사례](../../azure-resource-manager/templates/best-practices.md)를 사용하여 템플릿에서 매개 변수 및 변수를 구성하는 방법을 결정할 수 있습니다.
 
 ## <a name="resource-loops"></a>리소스 루프
 
@@ -247,7 +248,7 @@ ms.locfileid: "102555995"
 
 ## <a name="dependencies"></a>종속성
 
-대부분의 리소스는 제대로 작동하기 위해 다른 리소스에 따라 달라집니다. 가상 머신은 가상 네트워크와 연결되어야 하며 이를 수행하기 위해 네트워크 인터페이스가 필요합니다. [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) 요소는 VM이 생성되기 전에 네트워크 인터페이스가 사용될 준비가 되었는지 확인하는 데 사용됩니다.
+대부분의 리소스는 제대로 작동하기 위해 다른 리소스에 따라 달라집니다. 가상 머신은 가상 네트워크와 연결되어야 하며 이를 수행하기 위해 네트워크 인터페이스가 필요합니다. [dependsOn](../../azure-resource-manager/templates/resource-dependency.md) 요소는 VM이 생성되기 전에 네트워크 인터페이스가 사용될 준비가 되었는지 확인하는 데 사용됩니다.
 
 ```json
 "dependsOn": [
@@ -451,7 +452,7 @@ start.ps1 스크립트는 여러 구성 작업을 수행할 수 있습니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 고유의 템플릿을 만듭니다.
+- [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/syntax.md)을 사용하여 고유의 템플릿을 만듭니다.
 - [Resource Manager 템플릿을 사용하여 Windows 가상 머신 만들기](ps-template.md)를 사용하여 자신이 만든 템플릿을 배포합니다.
 - [Azure PowerShell 모듈을 사용하여 Windows VM 만들기 및 관리](tutorial-manage-vm.md)를 검토하여 만든 VM을 관리하는 방법을 알아봅니다.
 - 템플릿에서 리소스 종류의 JSON 구문 및 속성은 [Azure Resource Manager 템플릿 참조](/azure/templates/)에서 확인하세요.

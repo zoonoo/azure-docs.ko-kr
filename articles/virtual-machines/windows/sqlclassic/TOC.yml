@@ -5,7 +5,7 @@
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/virtual-machines/windows/'
     - name: FAQ
-      href: ../../../azure-sql/virtual-machines/windows/frequently-asked-questions-faq.md?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq?toc=/azure/virtual-machines/windows/sqlclassic/toc.json
 - name: 시작
   items:
     - name: Azure Portal에서 VM 프로비저닝
@@ -42,7 +42,7 @@
       href: /sql/t-sql/language-reference
     - name: SQL Server 드라이버
       href: /sql/connect/sql-server-drivers
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/
 - name: 리소스
   items:

@@ -4,19 +4,19 @@ description: Azure SQL Database 및 Azure SQL Managed Instance의 지능형 진�
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: performance
-ms.custom: seoapril2019
+ms.custom: seoapril2019, devx-track-azurepowershell
 ms.devlang: sqldbrb=2
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, wiassaf
 ms.date: 04/06/2020
-ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0c719eb8cec894fda35dd81aa65668feedd72e65
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592732"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590651"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Azure SQL Database 및 SQL Managed Instance 진단 원격 분석 데이터의 스트리밍 내보내기 구성
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

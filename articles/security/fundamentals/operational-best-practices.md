@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 6634a536828b3c19d771d135fdb3a1224d3dfdf3
-ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
+ms.openlocfilehash: e6bfa172624ba65c161abcba6dfd97b557fb8d91
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107717426"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950465"
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure 운영 보안 모범 사례
 이 문서에서는 데이터, 애플리케이션 및 그 밖의 Azure 자산을 보호하기 위한 다양한 운영 모범 사례를 안내합니다.
@@ -144,9 +144,9 @@ CIS(Center for Internet Security) 컨트롤을 기반으로 하는 보안 점수
 기업과 팀의 생산성과 효율성을 높이려면 다음의 DevOps 모범 사례를 따르세요.
 
 **모범 사례**: 서비스 빌드 및 배포를 자동화합니다.  
-**세부 정보**: [IaaC(Infrastructure as code)](/azure/devops/learn/what-is-infrastructure-as-code)는 IT 전문가가 일상적으로 수행하는 모듈식 인프라 빌드 및 관리 작업 부담을 없애 주는 기술 및 구성 요소 집합입니다. IT 전문가는 IaaC를 통해 소프트웨어 개발자가 애플리케이션 코드를 작성하고 유지 관리하는 것과 유사한 방식으로 최신 서버 환경을 빌드하고 유지 관리할 수 있습니다.
+**세부 정보**: [IaaC(Infrastructure as code)](/devops/deliver/what-is-infrastructure-as-code)는 IT 전문가가 일상적으로 수행하는 모듈식 인프라 빌드 및 관리 작업 부담을 없애 주는 기술 및 구성 요소 집합입니다. IT 전문가는 IaaC를 통해 소프트웨어 개발자가 애플리케이션 코드를 작성하고 유지 관리하는 것과 유사한 방식으로 최신 서버 환경을 빌드하고 유지 관리할 수 있습니다.
 
-[Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md)를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계에서 애플리케이션을 반복 배포합니다.
+[Azure Resource Manager](../../azure-resource-manager/templates/syntax.md)를 사용하면 선언적 템플릿을 통해 애플리케이션을 프로비전할 수 있습니다. 단일 템플릿에서 여러 서비스를 해당 종속성과 함께 배포할 수 있습니다. 동일한 템플릿을 사용하여 애플리케이션 수명 주기의 각 단계에서 애플리케이션을 반복 배포합니다.
 
 **모범 사례**: 자동으로 Azure Web Apps 또는 Azure Cloud Services에 빌드 및 배포합니다.  
 **세부 정보**: Azure DevOps Projects가 [자동으로 빌드되고 Azure 웹앱 또는 클라우드 서비스로 배포되도록](/azure/devops/pipelines/index) 구성할 수 있습니다. Azure DevOps는 코드 체크인 후 매번 Azure로 빌드한 뒤 이진 파일을 자동으로 배포합니다. 패키지 빌드 프로세스는 Visual Studio의 Package 명령과 동일하며 게시 단계는 Visual Studio의 Publish 명령과 동일합니다.

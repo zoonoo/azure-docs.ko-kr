@@ -6,14 +6,14 @@ author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 ms.topic: quickstart
-ms.date: 09/28/2020
+ms.date: 06/02/2021
 ms.author: alkemper
-ms.openlocfilehash: 9d378b21132e6646329c459401255ef9a3ed9426
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf76cdc52ba7b4ebcf99e0b32d9b56e59a9bf837
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98724244"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411668"
 ---
 # <a name="quickstart-create-an-azure-functions-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration으로 Azure Functions 앱 만들기
 
@@ -112,7 +112,8 @@ ms.locfileid: "98724244"
     }
     ```
 
-   `Function1` 클래스와 `Run` 메서드는 정적이어서는 안됩니다. 자동 생성된 경우 `static` 한정자를 제거합니다.
+    > [!NOTE]
+    > `Function1` 클래스와 `Run` 메서드는 정적이어서는 안됩니다. 자동 생성된 경우 `static` 한정자를 제거합니다.
 
 ## <a name="test-the-function-locally"></a>로컬에서 함수 테스트
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Windows Data Science Virtual Machine에서 데이터 검색 및 모델링 작업을 수행합니다.
 services: machine-learning
 ms.service: data-science-vm
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurepowershell
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c44c40f2ddab53cf0beb5ecd48127d126fdb4333
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9df1304cd127f15d948fba3e498f6fbfbce30557
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101657403"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701012"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Windows Data Science Virtual Machine을 사용하는 데이터 과학
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d47d93c7e1456cbd589aec34c2840a4b8257c8eb
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: b2c1840acae64940561133a90cb1450c4af80a19
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109848162"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952752"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>상업용 Marketplace의 SaaS 처리 API 버전 2
 
@@ -970,6 +970,6 @@ Code: 409 충돌.  예를 들어 새 업데이트가 이미 수행되었습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-상업용 Marketplace의 SaaS 제품에 대한 추가 옵션은 [상업용 Marketplace 서비스 계량 API](marketplace-metering-service-apis.md)를 참조하세요.
+상업용 Marketplace의 SaaS 제품에 대한 추가 옵션은 [상업용 Marketplace 서비스 계량 API](../marketplace-metering-service-apis.md)를 참조하세요.
 
 [다른 프로그래밍 언어 및 샘플에 대한 클라이언트](https://github.com/microsoft/commercial-marketplace-samples)를 검토하고 사용해 보세요.

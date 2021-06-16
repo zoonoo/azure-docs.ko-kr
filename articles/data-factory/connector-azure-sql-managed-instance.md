@@ -7,12 +7,12 @@ ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: 6313843cac97ec93fb538c1ddf8ca5477a4cce81
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: da1dbfc43aa8dccda8cca53b33923e2fee730d12
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109487460"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110789733"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Managed Instance에서 데이터 복사 및 변환
 
@@ -44,7 +44,7 @@ SQL Managed Instance [퍼블릭 엔드포인트](../azure-sql/managed-instance/p
 
 SQL Managed Instance 프라이빗 엔드포인트에 액세스하려면 데이터베이스에 액세스할 수 있는 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 설정합니다. Managed Instance와 동일한 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비저닝하는 경우 통합 런타임 컴퓨터가 Managed Instance와 다른 서브넷에 있는지 확인합니다. Managed Instance와 다른 가상 네트워크에서 자체 호스팅 통합 런타임을 프로비저닝하는 경우에는 가상 네트워크 피어링 또는 가상 네트워크 간 연결을 사용할 수 있습니다. 자세한 내용은 [애플리케이션을 SQL Managed Instance에 연결](../azure-sql/managed-instance/connect-application-instance.md)을 참조하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
@@ -535,7 +535,7 @@ SQL Managed Instance로 데이터를 복사하는 경우 다른 쓰기 동작이
 
 - [추가](#append-data): 내 원본 데이터에 새 레코드만 있습니다.
 - [Upsert](#upsert-data): 내 원본 데이터에 삽입과 업데이트가 모두 있습니다.
-- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드합니다.
+- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드하려고 합니다.
 - [사용자 지정 논리를 사용하여 작성](#write-data-with-custom-logic): 대상 테이블에 최종 삽입하기 전에 추가 처리가 필요합니다. 
 
 Azure Data Factory에서 구성하는 방법 및 모범 사례는 각 섹션을 참조하세요.
@@ -548,7 +548,7 @@ Azure Data Factory에서 구성하는 방법 및 모범 사례는 각 섹션을 
 
 **옵션 1:** 많은 양의 데이터를 복사하는 경우 복사 작업을 사용하여 준비 테이블에 모든 레코드를 대량 로드한 다음 저장 프로시저 작업을 실행하여 한 번에 [MERGE](/sql/t-sql/statements/merge-transact-sql) 또는 INSERT/UPDATE 문을 적용할 수 있습니다. 
 
-현재 복사 작업은 데이터를 데이터베이스 임시 테이블로 로드하는 것을 기본적으로 지원하지 않습니다. 여러 작업의 조합을 사용하여 이를 설정하는 고급 방식은 [SQL Database 대량 Upsert 최적화 시나리오](https://github.com/scoriani/azuresqlbulkupsert)를 참조하세요. 다음은 영구 테이블을 준비 프로세스로 사용하는 샘플을 보여 줍니다.
+현재 복사 작업은 데이터를 데이터베이스 임시 테이블로 로드하는 것을 기본적으로 지원하지 않습니다. 여러 작업의 조합을 사용하여 이를 설정하는 고급 방법은 [SQL Database 대량 Upsert 최적화 시나리오](https://github.com/scoriani/azuresqlbulkupsert)를 참조하세요. 다음은 영구 테이블을 준비 프로세스로 사용하는 샘플을 보여 줍니다.
 
 예를 들어 Azure Data Factory에서 **저장 프로시저 작업** 과 연결된 **복사 작업** 을 사용하여 파이프라인을 만들 수 있습니다. 복사 작업은 원본 저장소에서 Azure SQL Managed Instance 준비 테이블(예: 데이터 세트의 테이블 이름 **UpsertStagingTable**)로 데이터를 복사합니다. 그런 다음 저장 프로시저 작업은 저장 프로시저를 호출하여 준비 테이블의 원본 데이터를 대상 테이블에 통합하고 준비 테이블을 정리합니다.
 
@@ -577,11 +577,11 @@ END
 
 ### <a name="overwrite-the-entire-table"></a>전체 테이블 덮어쓰기
 
-복사 작업 싱크에서 **preCopyScript** 속성을 구성할 수 있습니다. 이 경우, 실행되는 각 복사 작업에 대해 Azure Data Factory는 스크립트를 먼저 실행합니다. 그런 다음, 복사를 실행하여 데이터를 삽입합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제합니다.
+**preCopyScript** 속성은 복사 작업 싱크에서 구성할 수 있습니다. 이 경우, 실행되는 각 복사 작업에 대해 Azure Data Factory는 스크립트를 먼저 실행합니다. 그런 다음, 복사를 실행하여 데이터를 삽입합니다. 예를 들어 최신 데이터를 사용하여 전체 테이블을 덮어쓰려면 원본에서 새 데이터를 대량으로 로드하기 전에 먼저 스크립트를 지정하여 모든 레코드를 삭제합니다.
 
 ### <a name="write-data-with-custom-logic"></a>사용자 지정 논리를 사용하여 데이터 작성
 
-사용자 지정 논리를 사용하여 데이터를 작성하는 단계는 [데이터 Upsert](#upsert-data) 섹션의 설명과 유사합니다. 원본 데이터를 대상 테이블에 최종 삽입하기 전에 추가 처리를 적용해야 하는 경우, 준비 테이블에 로드한 다음 저장 프로시저 작업을 호출하거나 복사 작업 싱크에서 저장 프로시저를 호출하여 데이터를 적용할 수 있습니다.
+사용자 지정 논리를 사용하여 데이터를 작성하는 단계는 [데이터 Upsert](#upsert-data) 섹션의 설명과 유사합니다. 최종적으로 원본 데이터를 대상 테이블에 삽입하기 전에 추가 처리를 적용해야 하는 경우 준비 테이블에 로드한 다음, 저장 프로시저 작업을 호출하거나 복사 작업 싱크에서 저장 프로시저를 호출하여 데이터를 적용할 수 있습니다.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a> SQL 싱크에서 저장 프로시저 호출
 
@@ -638,8 +638,6 @@ SQL Managed Instance로 데이터를 복사하는 경우, 원본 테이블의 �
 
 매핑 데이터 흐름에서 데이터를 변환하는 경우 Azure SQL Managed Instance에서 테이블에 대한 읽기 및 쓰기를 수행할 수 있습니다. 자세한 내용은 매핑 데이터 흐름에서 [원본 변환](data-flow-source.md) 및 [싱크 변환](data-flow-sink.md)을 참조하세요.
 
-> [!NOTE]
-> 매핑 데이터 흐름의 Azure SQL Managed Instance 커넥터는 현재 공개 프리뷰로 제공됩니다. SQL Managed Instance 퍼블릭 엔드포인트에 연결할 수 있지만 아직 프라이빗 엔드포인트에는 연결할 수 없습니다.
 
 ### <a name="source-transformation"></a>원본 변환
 
@@ -648,7 +646,7 @@ Azure SQL Managed Instance 원본에서 지원하는 속성은 다음 표와 같
 | 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | 테이블 | 테이블을 입력으로 선택하는 경우 데이터 흐름은 데이터 세트에 지정된 테이블에서 모든 데이터를 가져옵니다. | 예 | - |- |
-| 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 페치할 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
+| 쿼리 | 쿼리를 입력으로 선택하는 경우 원본에서 데이터를 가져올 SQL 쿼리를 지정하면 데이터 세트에서 지정한 테이블이 재정의됩니다. 쿼리를 사용하면 테스트 또는 조회를 위한 행을 줄일 수 있습니다.<br><br>**Order By** 절은 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 데이터 흐름에서 사용할 수 있는 테이블을 반환하는 SQL의 UDF입니다.<br>쿼리 예: `Select * from MyTable where customerId > 1000 and customerId < 2000`| 예 | String | Query |
 | Batch 크기 | 일괄 처리 크기를 지정하여 대량 데이터를 읽기로 청크 처리합니다. | 예 | 정수 | batchSize |
 | 격리 수준 | 다음 격리 수준 중 하나를 선택합니다.<br>- 커밋된 읽기<br>- 커밋되지 않은 읽기(기본값)<br>- 반복 읽기<br>- 직렬화 가능<br>- 없음(격리 수준 무시) | 예 | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>직렬화 가능<br/>없음</small> |isolationLevel |
 
@@ -668,12 +666,12 @@ source(allowSchemaDrift: true,
 
 Azure SQL Managed Instance 싱크에서 지원하는 속성은 다음 표와 같습니다. 해당 속성은 **싱크 옵션** 탭에서 편집할 수 있습니다.
 
-| Name | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
+| 이름 | Description | 필수 | 허용되는 값 | 데이터 흐름 스크립트 속성 |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | 삭제 가능 <br/>삽입 가능 <br/>업데이트 가능 <br/>upsert 가능 |
+| Update 메서드 | 데이터베이스 대상에서 허용되는 작업을 지정합니다. 기본값은 삽입만 허용하는 것입니다.<br>행을 업데이트, upsert 또는 삭제하려면 해당 작업을 위해 행에 태그를 지정하는 데 [행 변경 변환](data-flow-alter-row.md)이 필요합니다. | 예 | `true` 또는 `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
 | 키 열 | 업데이트, upsert, 삭제의 경우 변경할 행을 결정하기 위해 키 열을 설정해야 합니다.<br>키로 선택한 열 이름은 후속 업데이트, upsert, 삭제의 일부로 사용됩니다. 따라서 싱크 매핑에 있는 열을 선택해야 합니다. | 예 | Array | 키 |
 | 키 열 쓰기 건너뛰기 | 키 열에 값을 쓰지 않으려면 “키 열 작성 건너뛰기”를 선택합니다. | 예 | `true` 또는 `false` | skipKeyWrites |
-| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **없음**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **다시 만들기**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **자르기**: 대상 테이블의 모든 행이 제거됩니다. | 예 | `true` 또는 `false` | 다시 만들기<br/>truncate |
+| 테이블 작업 |쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지 여부를 결정합니다.<br>- **None**: 테이블에 대한 작업이 수행되지 않습니다.<br>- **Recreate**: 테이블이 삭제되고 다시 생성됩니다. 동적으로 새 테이블을 만드는 경우 필요합니다.<br>- **Truncate**: 대상 테이블의 모든 행이 제거됩니다. | 아니요 | `true` 또는 `false` | recreate<br/>truncate |
 | Batch 크기 | 각 일괄 처리에 작성되는 행 수를 지정합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다. | 예 | 정수 | batchSize |
 | 사전 및 사후 SQL 스크립트 | 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 지정합니다. | 예 | String | preSQLs<br>postSQLs |
 
@@ -774,4 +772,4 @@ IncomingStream sink(allowSchemaDrift: true,
 4. 그에 따라 ODBC 형식으로 데이터 세트 및 복사 작업을 만듭니다. 자세한 내용은 [ODBC 커넥터](connector-odbc.md) 문서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+Azure Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

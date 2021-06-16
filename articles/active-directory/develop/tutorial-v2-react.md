@@ -3,21 +3,21 @@ title: '자습서: 인증 코드 흐름을 사용하는 React 단일 페이지 �
 titleSuffix: Microsoft identity platform
 description: 이 자습서에서는 사용자를 로그인하고, 인증 코드 흐름을 사용하여 Microsoft ID 플랫폼에서 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 React SPA를 만듭니다.
 services: active-directory
-author: tnorling
+author: j-mantu
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/16/2021
-ms.author: thnorlin
+ms.author: jamesmantu
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: 82a484964992809dc7e27744035ec19ed3a9e3db
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 1b8e822c72bdf2af8b20950944fb93686524b797
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657401"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072346"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-react-single-page-app-spa-using-auth-code-flow"></a>자습서: 권한 부여 코드 흐름을 사용하여 사용자 로그인 및 React SPA(단일 페이지 앱)에서 Microsoft Graph API 호출
 

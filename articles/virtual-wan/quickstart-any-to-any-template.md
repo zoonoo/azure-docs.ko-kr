@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: d31f490baec49e8e0b6fcf89caa8c19202fdf763
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8981d305fff1970b58b569d95c6f16e933b2ca10
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431383"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812895"
 ---
 # <a name="quickstart-create-an-any-to-any-configuration-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 임의 구성 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "102431383"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f201-virtual-wan-with-all-gateways%2fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,7 +33,7 @@ ms.locfileid: "102431383"
 
 ## <a name="review-the-template"></a><a name="review"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-virtual-wan-with-all-gateways)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-virtual-wan-with-all-gateways/azuredeploy.json)을 참조하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/virtual-wan-with-all-gateways)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-all-gateways/azuredeploy.json)을 참조하세요.
 
 이 빠른 시작에서는 모든 게이트웨이 및 VNet 연결을 포함하여 Azure Virtual WAN 다중 허브 배포를 만듭니다. 입력 매개 변수 목록은 의도적으로 최소한으로 유지되었습니다. IP 주소 지정 체계는 템플릿 내의 변수를 수정하여 변경할 수 있습니다. 시나리오는 [임의 시나리오](scenario-any-to-any.md) 문서에서 자세히 설명합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "102431383"
 
 1. **Deploy to Azure** 를 클릭합니다.
 
-   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f201-virtual-wan-with-all-gateways%2fazuredeploy.json)
+   [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
 1. 템플릿을 보려면 **템플릿 편집** 을 클릭합니다. 이 페이지에서 주소 공간 또는 특정 리소스 이름과 같은 일부 값을 조정할 수 있습니다. **저장** 을 선택하여 변경 내용을 저장하거나 **취소** 를 선택합니다.
 1. 템플릿 페이지에서 값을 입력합니다. 이 템플릿의 경우 P2S 공용 인증서 데이터가 필요합니다. 이 문서를 연습으로 사용하는 경우 이 .cer 파일의 다음 데이터를 두 허브의 샘플 데이터로 사용할 수 있습니다. 템플릿이 실행되고 배포가 완료되면 P2S 구성을 사용하기 위해 이 정보를 사용자 고유 배포용 공개 키 [인증서 데이터](certificates-point-to-site.md#cer)로 바꾸어야 합니다.
 

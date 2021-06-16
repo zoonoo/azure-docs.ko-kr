@@ -1,19 +1,17 @@
 ---
 title: 모듈 쌍 - Azure Event Grid IoT Edge | Microsoft Docs
 description: 모듈 쌍을 통한 구성
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: 27e5194b86ea5f76a346412c3239dac111c07d80
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 20f74b989b6f07354d9e94394da87045ba7e60fb
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379786"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750284"
 ---
 # <a name="module-twin-json-schema-azure-event-grid"></a>모듈 쌍 JSON 스키마(Azure Event Grid)
 

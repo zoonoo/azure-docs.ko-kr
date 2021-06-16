@@ -3,12 +3,12 @@ title: Azure Video Analyzer를 사용하여 동작을 감지하고 비디오 녹
 description: 이 빠른 시작에서는 Azure Video Analyzer 에지 모듈을 사용하여 라이브 비디오 스트림에서 동작을 감지하고 Video Analyzer 계정에 비디오를 녹화하는 방법을 보여줍니다.
 ms.topic: quickstart
 ms.date: 04/03/2021
-ms.openlocfilehash: 851310ff3b03730a1fc9adb4eaa7c0c3f9cf84f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 9643ed3a7bbcc23757110033be1dbc3780ddafb5
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387381"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565935"
 ---
 # <a name="quickstart-detect-motion-record-video-to-video-analyzer"></a>빠른 시작: 동작을 감지하고 Video Analyzer에 비디오 녹화
 
@@ -986,6 +986,23 @@ ms.locfileid: "110387381"
 ```
 
 상태 코드 200은 파이프라인 토폴로지가 성공적으로 삭제되었음을 나타냅니다.
+
+## <a name="playing-back-the-recording"></a>녹화본 재생
+
+Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라인에서 만든 Video Analyzer 비디오 리소스를 검사할 수 있습니다.
+1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
+1. 구독에 있는 리소스 중에서 Video Analyzer 계정을 찾아 계정 창을 엽니다.
+1. **비디오 분석기** 목록에서 **비디오** 를 선택합니다.
+1. 이름이 `sample-motion-video-camera001`인 비디오가 나열됩니다. 이 이름은 파이프라인 토폴로지 파일에서 선택한 이름입니다.
+1. 비디오를 선택합니다.
+1. 비디오 세부 정보 페이지가 열리고 재생이 자동으로 시작됩니다.
+
+    <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
+
+
+> [!NOTE]
+> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
+    
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

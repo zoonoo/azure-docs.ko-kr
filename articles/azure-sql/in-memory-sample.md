@@ -3,20 +3,20 @@ title: 메모리 내 샘플
 description: OLTP 및 columnstore 샘플에서 Azure SQL Database 메모리 내 기술을 사용해보세요.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: ''
+author: srinia
+ms.author: srinia
+ms.reviewer: mathoma
 ms.date: 12/18/2018
-ms.openlocfilehash: b5a1035f8a213a6ce02dd3252ff7d3ddea46faf7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0070c08daccd3762977c03f645b145e8b22fa48
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92786584"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592307"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

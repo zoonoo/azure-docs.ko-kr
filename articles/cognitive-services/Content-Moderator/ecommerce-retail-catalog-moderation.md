@@ -11,14 +11,16 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e67a9b35291615b87edf918b4146ab8d77a0ae7f
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: f4bf378db5d9091cb48f2b0c813a92823bc72589
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106065146"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031748"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 이 자습서에서는 Content Moderator를 포함한 Azure Cognitive Services를 사용하여 전자 상거래 시나리오를 위한 제품 이미지를 분류하고 조정하는 방법에 대해 알아봅니다. Computer Vision 및 Custom Vision을 사용하여 태그(레이블)를 이미지에 적용한 다음, Content Moderator의 기계 학습 기반 기술을 사용자 검토 팀과 결합하여 인텔리전트 조정 시스템을 제공하는 팀 검토를 만듭니다.
 

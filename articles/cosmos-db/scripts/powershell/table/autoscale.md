@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 07/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 023e75549265a0784db2ea49ab9b5af83ca1acd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 521d0296dcdac1e818e252f5d105c1b8919434f7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821614"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679699"
 ---
 # <a name="create-a-table-with-autoscale-for-azure-cosmos-db---table-api"></a>자동 스케일링되는 Azure Cosmos DB - Table API용 테이블 만들기
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 3a26f7c63b639f9aeb6a8f526e77dacb37fb4d87
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3d5016e1671bb52d4b819c10e7c52c12e5046b7e
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068067"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541166"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>상업용 Marketplace 분석의 고객 대시보드
 
@@ -144,7 +144,7 @@ _**표 1: 데이터 용어 사전**_
 
 | 열 이름<br>사용자 인터페이스 | 특성 이름 | 정의 | 프로그래밍 방식의 열 이름<br>액세스 보고서 |
 | ------------ | ------------- | ------------- | ------------- |
-| Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상업용 Marketplace 제품을 구매하는 데 사용한 Azure 구독과 연결된 고유 식별자입니다. 인프라 제품의 경우 이는 고객의 Azure 구독 GUID입니다. SaaS 제품의 경우 SaaS 구매에는 Azure 구독이 필요하지 않으므로 0으로 표시됩니다. | MarketplaceSubscriptionId |
+| Marketplace 구독 ID | Marketplace 구독 ID | 고객이 상업용 Marketplace 제품을 구매하는 데 사용한 Azure 구독과 연결된 고유 식별자입니다. 인프라 제품의 경우 고객의 Azure 구독 GUID입니다. SaaS 제품의 경우 SaaS 구매에는 Azure 구독이 필요하지 않으므로 0으로 표시됩니다. | MarketplaceSubscriptionId |
 | DateAcquired | 취득일 | 게시된 제품을 고객이 최초 구매한 날짜입니다. | DateAcquired |
 | DateLost | 취소일 | 고객이 이전에 구매한 모든 제품 중 마지막으로 취소한 날짜입니다. | DateLost |
 | Provider Name | Provider Name | Microsoft와 고객 간의 관계와 관련된 공급자의 이름입니다. 고객이 재판매인을 통한 Enterprise인 경우 재판매인이 됩니다. CSP(클라우드 솔루션 공급자)가 관련된 경우 이는 CSP가 됩니다. | ProviderName |
@@ -161,8 +161,8 @@ _**표 1: 데이터 용어 사전**_
 | PromotionalCustomers | 홍보 연락 옵트인 | 이 값은 고객이 게시자의 홍보를 위한 연락을 받도록 사전에 옵트인했는지 여부를 알려 줍니다. 현재는 고객에게 해당 옵션이 제공되지 않으므로 보드 전체에 “아니요”가 표시됩니다. 이 기능이 배포되면 그에 따라 업데이트를 시작할 예정입니다. | PromotionalCustomers |
 | CustomerState | 고객 시/도 | 고객이 제공한 거주중인 시/도입니다. 시/도는 고객의 Azure 구독에 제공된 시/도와 다를 수 있습니다. | CustomerState |
 | CommerceRootCustomer | 상거래 루트 고객 | 하나의 청구 계정 ID를 여러 고객 ID와 연결할 수 있습니다.<br>청구 계정 ID와 고객 ID의 조합은 여러 상업용 Marketplace 구독과 연결될 수 있습니다.<br>상거래 루트 고객은 구독의 고객 이름을 나타냅니다. | CommerceRootCustomer |
-| 고객 ID | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객에게는 0개 이상의 Azure Marketplace 구독이 있을 수 있습니다. | CustomerId |
-| 청구 계정 ID | 청구 계정 ID | 청구가 생성되는 계정의 식별자입니다. **청구 계정 ID** 를 **customerID** 에 매핑하여 고객, 주문, 사용량 보고서에 지급 거래 보고서를 연결합니다. | BillingAccountId |
+| 고객 ID | 고객 ID | 고객에게 할당된 고유 식별자입니다. 고객은 Azure Marketplace 구독이 0개 이상 있을 수 있습니다. | CustomerId |
+| 청구 계정 ID | 청구 계정 ID | 청구를 생성하는 계정의 식별자입니다. **청구 계정 ID** 를 **customerID** 에 매핑하여 고객, 주문 및 사용 현황 보고서에 지급 트랜잭션 보고서를 연결합니다. | BillingAccountId |
 | 고객 유형 | 고객 유형 | 이 필드의 값은 고객의 유형을 나타냅니다. 가능한 값은 다음과 같습니다.<ul><li>개인</li> <li>organization</li></ul> | CustomerType |
 |||||
 
@@ -171,14 +171,14 @@ _**표 1: 데이터 용어 사전**_
 고객 페이지 필터는 고객 페이지 수준에서 적용됩니다. 여러 필터를 선택하여 보려고 선택한 기준과 “자세한 주문 데이터” 그리드/내보내기에서 보려고 하는 데이터에 대한 차트를 렌더링할 수 있습니다. 필터는 고객 페이지의 오른쪽 위 모서리에서 선택한 월 범위에 대해 추출된 데이터에 적용됩니다.
 
 > [!TIP]
-> 위젯의 오른쪽 위 모서리에 있는 다운로드 아이콘을 사용하여 데이터를 다운로드할 수 있습니다. “좋아요” 또는 “싫어요” 아이콘을 클릭하여 각 위젯에 대한 피드백을 제공할 수 있습니다.
+> 위젯의 오른쪽 위 모서리에 있는 다운로드 아이콘을 사용하여 데이터를 다운로드할 수 있습니다. "엄지 손가락 위로" 또는 "엄지 손가락 아래로" 아이콘을 클릭하여 각 위젯에 대한 피드백을 제공할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 상업용 Marketplace에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터의 상업용 Marketplace에 대한 분석 보고서 액세스](./partner-center-portal/analytics.md)를 참조하세요.
+- 상업용 Marketplace에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터에서 상업용 Marketplace에 대한 분석 보고서 액세스](analytics.md)를 참조하세요.
 - 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 Marketplace 분석의 요약 대시보드](./summary-dashboard.md)를 참조하세요.
 - 그래픽 및 다운로드 가능한 형식의 주문에 관한 자세한 내용은 [상업용 Marketplace 분석의 주문 대시보드](./orders-dashboard.md)를 참조하세요.
 - VM(가상 머신) 제품 사용량 및 요금 청구 메트릭에 관한 내용은 [상업용 Marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
-- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
-- Azure Marketplace 및 Microsoft AppSource에서 제품에 대한 고객 피드백 통합 보기를 확인하려면 [파트너 센터의 평점 및 리뷰 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조하세요.
+- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
+- Azure Marketplace 및 Microsoft AppSource에서 제품에 대한 고객 피드백 통합 보기를 확인하려면 [파트너 센터의 평점 및 리뷰 분석 대시보드](ratings-reviews.md)를 참조하세요.
 - 상업용 Marketplace 분석에 관해 자주 묻는 질문 및 데이터 용어의 종합 사전에 관한 내용은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.

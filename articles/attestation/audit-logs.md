@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 11/23/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1fa4a458a4e3e1df1d84c343a32e3a41a4a25e75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97aa0fd842318bae088f25d49200feb971e49b5c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95758992"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748376"
 ---
 # <a name="audit-logs-for-azure-attestation"></a>Azure Attestation에 대한 감사 로그
 
@@ -63,7 +63,76 @@ Azure Attestation은 코드를 사용하여 증명을 수행하는 방식에 영
 감사 로그는 JSON 형식으로 제공됩니다. 다음은 감사 로그 형태의 예입니다.
 
 ```json
-{"operationName":"SetCurrentPolicy","resultType":"Success","resultDescription":null,"auditEventCategory":["ApplicationManagement"],"nCloud":null,"requestId":null,"callerIpAddress":null,"callerDisplayName":null,"callerIdentities":[{"callerIdentityType":"ObjectID","callerIdentity":"<some object ID>"},{"callerIdentityType":"TenantId","callerIdentity":"<some tenant ID>"}],"targetResources":[{"targetResourceType":"Environment","targetResourceName":"PublicCloud"},{"targetResourceType":"ServiceRegion","targetResourceName":"EastUS2"},{"targetResourceType":"ServiceRole","targetResourceName":"AttestationRpType"},{"targetResourceType":"ServiceRoleInstance","targetResourceName":"<some service role instance>"},{"targetResourceType":"ResourceId","targetResourceName":"/subscriptions/<some subscription ID>/resourceGroups/<some resource group name>/providers/Microsoft.Attestation/attestationProviders/<some instance name>"},{"targetResourceType":"ResourceRegion","targetResourceName":"EastUS2"}],"ifxAuditFormat":"Json","env_ver":"2.1","env_name":"#Ifx.AuditSchema","env_time":"2020-11-23T18:23:29.9427158Z","env_epoch":"MKZ6G","env_seqNum":1277,"env_popSample":0.0,"env_iKey":null,"env_flags":257,"env_cv":"##00000000-0000-0000-0000-000000000000_00000000-0000-0000-0000-000000000000_00000000-0000-0000-0000-000000000000","env_os":null,"env_osVer":null,"env_appId":null,"env_appVer":null,"env_cloud_ver":"1.0","env_cloud_name":null,"env_cloud_role":null,"env_cloud_roleVer":null,"env_cloud_roleInstance":null,"env_cloud_environment":null,"env_cloud_location":null,"env_cloud_deploymentUnit":null}
+{
+    "operationName": "SetCurrentPolicy",
+    "resultType": "Success",
+    "resultDescription": null,
+    "auditEventCategory": [
+        "ApplicationManagement"
+    ],
+    "nCloud": null,
+    "requestId": null,
+    "callerIpAddress": null,
+    "callerDisplayName": null,
+    "callerIdentities": [
+        {
+            "callerIdentityType": "ObjectID",
+            "callerIdentity": "<some object ID>"
+        },
+        {
+            "callerIdentityType": "TenantId",
+            "callerIdentity": "<some tenant ID>"
+        }
+    ],
+    "targetResources": [
+        {
+            "targetResourceType": "Environment",
+            "targetResourceName": "PublicCloud"
+        },
+        {
+            "targetResourceType": "ServiceRegion",
+            "targetResourceName": "EastUS2"
+        },
+        {
+            "targetResourceType": "ServiceRole",
+            "targetResourceName": "AttestationRpType"
+        },
+        {
+            "targetResourceType": "ServiceRoleInstance",
+            "targetResourceName": "<some service role instance>"
+        },
+        {
+            "targetResourceType": "ResourceId",
+            "targetResourceName": "/subscriptions/<some subscription ID>/resourceGroups/<some resource group name>/providers/Microsoft.Attestation/attestationProviders/<some instance name>"
+        },
+        {
+            "targetResourceType": "ResourceRegion",
+            "targetResourceName": "EastUS2"
+        }
+    ],
+    "ifxAuditFormat": "Json",
+    "env_ver": "2.1",
+    "env_name": "#Ifx.AuditSchema",
+    "env_time": "2020-11-23T18:23:29.9427158Z",
+    "env_epoch": "MKZ6G",
+    "env_seqNum": 1277,
+    "env_popSample": 0.0,
+    "env_iKey": null,
+    "env_flags": 257,
+    "env_cv": "##00000000-0000-0000-0000-000000000000_00000000-0000-0000-0000-000000000000_00000000-0000-0000-0000-000000000000",
+    "env_os": null,
+    "env_osVer": null,
+    "env_appId": null,
+    "env_appVer": null,
+    "env_cloud_ver": "1.0",
+    "env_cloud_name": null,
+    "env_cloud_role": null,
+    "env_cloud_roleVer": null,
+    "env_cloud_roleInstance": null,
+    "env_cloud_environment": null,
+    "env_cloud_location": null,
+    "env_cloud_deploymentUnit": null
+}
 ```
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스

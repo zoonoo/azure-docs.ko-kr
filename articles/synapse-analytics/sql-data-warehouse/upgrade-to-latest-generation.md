@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 12ac49154fabbc0ce96390d5fffa5d02d7886324
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: c3033798b601f88bbb744b70ef0103d80db1edb2
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166004"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679170"
 ---
 # <a name="optimize-performance-by-upgrading-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀(이전의 SQL DW)을 업그레이드하여 성능 최적화
 

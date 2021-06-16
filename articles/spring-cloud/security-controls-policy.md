@@ -1,18 +1,18 @@
 ---
 title: Azure Spring Cloud에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Spring Cloud에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 801d96a28fee6b183eaa0e19a2439690697b8cad
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 352ef6eb2a84402394a1bf4fc182445938ea7d2d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066222"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028591"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-spring-cloud"></a>Azure Spring Cloud에 대한 Azure Policy 규정 준수 컨트롤
 

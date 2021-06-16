@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/20/2019
 ms.author: jianleishen
-ms.openlocfilehash: 2140eeb3302799d55a0d45c9469edea9f11ded3b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 4779d8830e0b4e78aea0cd4e9de0401806a85af7
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109482150"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749222"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 Azure로 데이터 복사
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -34,7 +34,7 @@ ADF Office 365 커넥터와 Microsoft Graph 데이터 연결을 사용하면 주
 
 Office 365에서 Azure로 데이터를 복사하려면 다음 필수 구성 요소 단계를 완료해야 합니다.
 
-- Office 365 테넌트 관리자가 [여기](/graph/data-connect-get-started)에 설명된 온보딩 작업을 완료해야 합니다.
+- Office 365 테넌트 관리자가 [여기](/events/build-may-2021/microsoft-365-teams/breakouts/od483/)에 설명된 온보딩 작업을 완료해야 합니다.
 - Azure Active Directory에서 Azure AD 웹 애플리케이션을 만들고 구성합니다.  지침에 대해서는 [Azure AD 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)를 참조하세요.
 - Office 365에 대한 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
     - 테넌트 ID. 지침은 [테넌트 ID 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)를 참조하세요.
@@ -46,7 +46,7 @@ Office 365에서 Azure로 데이터를 복사하려면 다음 필수 구성 요�
 
 이 컨텍스트(어떤 데이터 테이블이 액세스되고 있는지, 어떤 대상 계정에 데이터가 로드 중인지, 어떤 사용자 ID가 데이터 액세스를 요청하고 있는지의 조합)에 대한 데이터를 처음 요청하는 경우 복사 작업 상태가 '진행 중'으로 표시되고, [작업 아래 '세부 정보' 링크](copy-activity-overview.md#monitoring)를 클릭할 때만 'RequestingConsent'로 상태가 표시됩니다.  데이터 액세스 승인자 그룹의 구성원이 Privileged Access Management에서 요청을 승인해야 데이터 추출을 진행할 수 있습니다.
 
-승인자가 데이터 액세스 요청을 승인하는 방법은 [여기](/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal)를 참조하고 데이터 액세스 승인자 그룹을 설정하는 방법을 포함하여 Privileged Access Management와의 전반적인 통합에 대한 설명은 [여기](/graph/data-connect-pam)를 참조하세요.
+승인자가 데이터 액세스 요청을 승인하는 방법은 [여기](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal)를 참조하고 데이터 액세스 승인자 그룹을 설정하는 방법을 포함하여 Privileged Access Management와의 전반적인 통합에 대한 설명은 [여기](/graph/data-connect-pam)를 참조하세요.
 
 ## <a name="policy-validation"></a>정책 유효성 검사
 

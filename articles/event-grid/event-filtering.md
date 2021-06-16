@@ -3,12 +3,12 @@ title: Azure Event Grid에 대한 이벤트 필터링
 description: Azure Event Grid 구독을 만들 때 이벤트를 필터링하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: b5439b77b86d42d062cf9da66ce678f04f46f813
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 986e31c1213dc05862c95d87a0bc7733f7a2f9c1
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256092"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372146"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Event Grid 구독에 대한 이벤트 필터링 이해
 
@@ -63,7 +63,7 @@ ms.locfileid: "107256092"
 - 숫자
 - 부울
 - String
-- Array입니다. 이 기능을 사용하려면 `enableAdvancedFilteringOnArrays` 속성을 true로 설정해야 합니다. 현재까지 Azure Portal에서는 이 기능을 사용할 수 없습니다. 
+- Array입니다. 이 기능을 사용하려면 `enableAdvancedFilteringOnArrays` 속성을 true로 설정해야 합니다. 
 
     ```json
     "filter":
