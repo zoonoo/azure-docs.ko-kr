@@ -5,12 +5,13 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: c95ccb5ea1a23e8173d58bd3a18490e9b8e630e4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8716b8ddb267aa76dec7950026027442bf438e65
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100581258"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853553"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Hybrid Runbook Worker 개요
 
@@ -20,7 +21,7 @@ Azure Automation의 Runbook은 Azure 클라우드 플랫폼에서 실행되므�
 
 Runbook Worker에는 시스템과 사용자라는 두 가지 유형이 있습니다. 다음 표에서는 두 유형의 차이점을 설명합니다.
 
-|유형 | 설명 |
+|형식 | 설명 |
 |-----|-------------|
 |**System** |Windows 및 Linux 컴퓨터에 사용자 지정 업데이트를 설치하도록 디자인된 업데이트 관리 기능에서 사용하는 숨겨진 Runbook 집합을 지원합니다.<br> 이 유형의 Hybrid Runbook Worker는 Hybrid Runbook Worker 그룹의 멤버가 아니므로 Runbook Worker 그룹을 대상으로 하는 Runbook을 실행하지 않습니다. |
 |**사용자** |하나 이상의 Runbook Worker 그룹의 멤버인 Windows 및 Linux 컴퓨터에서 직접 실행하기 위한 사용자 정의 Runbook을 지원합니다. |
@@ -66,7 +67,7 @@ Azure Automation과 Log Analytics 에이전트를 실행하는 컴퓨터 간의 
 
 ### <a name="service-tags"></a>서비스 태그
 
-Azure Automation은 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md) 서비스 태그부터 Azure 가상 네트워크 서비스 태그를 지원합니다. 서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용할 수 있습니다. 서비스 태그 이름 **GuestAndHybridManagement** 를 규칙의 적절한 원본 또는 대상 필드에 지정하면 Automation 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한하여 보다 세부적인 제어를 허용하는 기능을 지원하지 않습니다.
+Azure Automation은 [GuestAndHybridManagement](../virtual-network/service-tags-overview.md) 서비스 태그부터 Azure 가상 네트워크 서비스 태그를 지원합니다. 서비스 태그를 사용하여 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules) 또는 [Azure Firewall](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용합니다. 서비스 태그 이름 **GuestAndHybridManagement** 를 규칙의 적절한 원본 또는 대상 필드에 지정하면 Automation 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. 이 서비스 태그는 IP 범위를 특정 지역으로 제한하여 보다 세부적인 제어를 허용하는 기능을 지원하지 않습니다.
 
 Azure Automation 서비스의 서비스 태그는 다음 시나리오에 사용되는 IP만 제공합니다.
 
@@ -89,7 +90,7 @@ Azure Automation Hybrid Runbook Worker를 Azure Government에서 사용하여 �
 
 ### <a name="update-management-addresses-for-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 업데이트 관리 주소
 
-업데이트 관리에는 Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 [네트워크 계획](./update-management/overview.md#ports) 섹션에 설명된 다른 네트워크 구성 요구 사항이 있습니다.
+업데이트 관리에는 Hybrid Runbook Worker에 필요한 표준 주소 및 포트 외에도 [네트워크 계획](./update-management/plan-deployment.md#ports) 섹션에 설명된 다른 네트워크 구성 요구 사항이 있습니다.
 
 ## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker의 Azure Automation State Configuration
 

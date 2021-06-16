@@ -3,12 +3,13 @@ title: PowerShell을 사용하여 Azure 파일 공유 백업 관리
 description: PowerShell을 사용하여 Azure Backup 서비스로 백업한 Azure 파일 공유를 관리하고 모니터링하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e2f07e56fb9a8715b1b53165ab5f4b45b4e20ccb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8728c31bb52485d8e86c56c295d4db802fdaaccb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89000229"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675195"
 ---
 # <a name="manage-azure-file-share-backups-with-powershell"></a>PowerShell을 사용하여 Azure 파일 공유 백업 관리
 

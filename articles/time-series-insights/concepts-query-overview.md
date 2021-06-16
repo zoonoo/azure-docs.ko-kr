@@ -3,19 +3,20 @@ title: 데이터 쿼리 - Azure Time Series Insights Gen2 | Microsoft Docs
 description: Azure Time Series Insights Gen2의 데이터 쿼리 개념 및 REST API 개요.
 author: shreyasharmamsft
 ms.author: shresha
-manager: dpalled
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8cecba9b63f201b220916baa9e534f5607156a35
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100374136"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613753"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Azure Time Series Insights Gen2의 데이터 쿼리
 
@@ -54,7 +55,7 @@ Azure Time Series Insights Gen2는 [시계열 변수](./concepts-variables.md)�
 
 ## <a name="time-series-query-tsq-apis"></a>TSQ(Time Series Query) API
 
-이 API는 다중 계층 스토리지 솔루션의 웜과 콜드 저장소 모두에서 사용 가능합니다. 
+이 API는 다중 계층 스토리지 솔루션의 웜과 콜드 저장소 모두에서 사용 가능합니다.
 
 * [이벤트 API 가져오기](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): 원본 공급자가 Azure Time Series Insights Gen2에 기록한 대로 원시 이벤트 및 관련 이벤트 타임스탬프에 쿼리 및 검색을 사용하도록 설정합니다. 이벤트 API 가져오기는 지정된 Time Series ID 및 검색 범위에 대한 원시 이벤트 검색을 허용합니다. 해당 API는 선택한 입력에 대한 전체 응답 데이터 세트를 검색하는 페이지 매김을 지원합니다.
 
@@ -64,7 +65,7 @@ Azure Time Series Insights Gen2는 [시계열 변수](./concepts-variables.md)�
 * [시리즈 API 가져오기](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): 원시 이벤트에 대한 변수로 정의된 계산을 적용하여 계산값 및 관련 이벤트 타임스탬프의 쿼리 및 검색을 수행할 수 있습니다. 원시 이벤트에 대한 변수는 Time Series Model에서 정의하거나 쿼리에서 인라인으로 제공할 수 있습니다. 해당 API는 선택한 입력에 대한 전체 응답 데이터 세트를 검색하는 페이지 매김을 지원합니다.
 
 * [시리즈 API 집계하기](/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries): 원시 이벤트에 대한 변수로 정의된 계산을 적용하여 집계된 값 및 관련 간격 타임스탬프의 쿼리 및 검색을 사용하도록 설정합니다. 원시 이벤트에 대한 변수는 Time Series Model에서 정의하거나 쿼리에서 인라인으로 제공할 수 있습니다. 해당 API는 선택한 입력에 대한 전체 응답 데이터 세트를 검색하는 페이지 매김을 지원합니다.
-  
+
   지정된 검색 범위 및 간격에 대해 이벤트 API 가져오기는 Time Series ID의 변수 간격 당 집계된 응답을 반환합니다. 응답 데이터 세트의 간격은 Epoch 틱(1970년 1월 1일 Unix Epoch 이후 밀리초 단위로 경과된 수)을 쿼리에 지정된 간격 범위로 나누어 계산합니다.
 
   응답 세트에서 반환된 타임스탬프는 간격에서 샘플링된 이벤트가 아니라 좌측 간격 경계에 속합니다.
@@ -72,11 +73,11 @@ Azure Time Series Insights Gen2는 [시계열 변수](./concepts-variables.md)�
 
 ### <a name="selecting-store-type"></a>저장소 유형 선택
 
-위의 API는 한 번의 호출로 스토리지 유형(웜 또는 콜드) 중 하나의 유형에 대해서만 실행할 수 있습니다. 쿼리 URL 매개 변수를 사용하여 쿼리를 실행해야 하는 [저장소 유형](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)을 지정합니다. 
+위의 API는 한 번의 호출로 스토리지 유형(웜 또는 콜드) 중 하나의 유형에 대해서만 실행할 수 있습니다. 쿼리 URL 매개 변수를 사용하여 쿼리를 실행해야 하는 [저장소 유형](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters)을 지정합니다.
 
-매개 변수를 지정하지 않으면 기본적으로 콜드 저장소에서 쿼리가 실행됩니다. 쿼리가 콜드 및 웜 저장소와 시간 범위가 겹치는 경우 웜 저장소는 일부 데이터만 포함하기 때문에 최상의 환경을 위해서는 콜드 저장소로 쿼리를 라우팅하는 것이 좋습니다. 
+매개 변수를 지정하지 않으면 기본적으로 콜드 저장소에서 쿼리가 실행됩니다. 쿼리가 콜드 및 웜 저장소와 시간 범위가 겹치는 경우 웜 저장소는 일부 데이터만 포함하기 때문에 최상의 환경을 위해서는 콜드 저장소로 쿼리를 라우팅하는 것이 좋습니다.
 
-[Azure Time Series Insights Explorer](./concepts-ux-panels.md)와 [Power BI 커넥터](./how-to-connect-power-bi.md)는 위의 API를 호출하고 적절한 storeType 매개 변수를 자동으로 선택합니다. 
+[Azure Time Series Insights Explorer](./concepts-ux-panels.md)와 [Power BI 커넥터](./how-to-connect-power-bi.md)는 위의 API를 호출하고 적절한 storeType 매개 변수를 자동으로 선택합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

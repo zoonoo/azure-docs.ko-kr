@@ -7,12 +7,12 @@ ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
 ms.date: 04/07/2021
-ms.openlocfilehash: 8edac35fd83ef5dbf122e7f0959564fa072fbadd
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: fa09a03a9ffda04e09bbd5708e97334304013078
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144928"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006584"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 계정 관리
 
@@ -21,13 +21,13 @@ ms.locfileid: "108144928"
 - 소유자
 - Manager
 
-[파트너 센터 계정을 만들면](./create-account.md) [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)를 사용하여 계정과 제안을 관리할 수 있습니다.
+[파트너 센터 계정을 만들면](./create-account.md) [상업용 Marketplace 대시보드](https://go.microsoft.com/fwlink/?linkid=2165290)를 사용하여 계정과 제안을 관리할 수 있습니다.
 
 ## <a name="access-your-account-settings"></a>계정 설정에 액세스
 
-아직 수행하지 않은 경우 사용자 또는 조직의 관리자가 파트너 센터 계정에 대한 [계정 설정](https://partner.microsoft.com/dashboard/account/management)에 액세스해야 합니다.
+아직 수행하지 않은 경우 사용자 또는 조직의 관리자가 파트너 센터 계정에 대한 [계정 설정](https://go.microsoft.com/fwlink/?linkid=2165291)에 액세스해야 합니다.
 
-1. 액세스하려는 계정으로 파트너 센터의 [상업용 Marketplace 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace)에 로그인합니다. 여러 계정에 속하는 경우 다른 계정으로 로그인했으면 [계정을 전환](switch-accounts.md)할 수 있습니다.
+1. 액세스하려는 계정으로 파트너 센터의 [상업용 Marketplace 대시보드](https://go.microsoft.com/fwlink/?linkid=2165290)에 로그인합니다. 여러 계정에 속하는 경우 다른 계정으로 로그인했으면 [계정을 전환](switch-accounts.md)할 수 있습니다.
 1. 오른쪽 위에서 **설정**(톱니 모양 아이콘)을 선택하고 **계정 설정** 을 선택합니다.
 
     [ ![파트너 센터의 계정 설정 메뉴 스크린샷](./media/manage-accounts/settings-account.png) ](./media/manage-accounts/settings-account.png#lightbox)
@@ -110,7 +110,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 규약 페이지에 액세스하려면
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard/home)에 로그인합니다.
+1. [파트너 센터](https://go.microsoft.com/fwlink/?linkid=2165507)에 로그인합니다.
 1. 오른쪽 위에서 **설정** > **계정 설정** 을 선택합니다.
 1. **계정 설정** 에서 **규약** 을 선택합니다.
 
@@ -179,7 +179,7 @@ GUID(Globally Unique Identifier)는 Azure 사용량을 추적하는 데 사용�
 
 ## <a name="create-a-billing-profile"></a>청구 프로필 만들기
 
-[Dynamics 365 for Customer Engagement 및 Power Apps](dynamics-365-customer-engage-offer-setup.md) 또는 [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) 제품을 게시하는 경우 *청구 프로필* 을 작성해야 합니다.
+[Dynamics 365 for Customer Engagement 및 Power Apps](dynamics-365-customer-engage-offer-setup.md) 또는 [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) 제품을 게시하는 경우 *청구 프로필* 을 작성해야 합니다.
 
 청구 주소는 법인에서 미리 채워지며 나중에 이 주소를 업데이트할 수 있습니다. 세금 및 VAT ID 필드는 일부 국가에서는 필수이고 일부 국가에서는 선택 사항입니다. 국가/지역 이름과 회사 이름은 편집할 수 없습니다.
 

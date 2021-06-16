@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.openlocfilehash: 093dd29a4e9eda9157a49c6cc44144b5e8a4bbec
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 860e84bf8e2378d4a9c433df81c5adfb6741169e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369152"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953825"
 ---
 # <a name="estimate-storage-costs-for-workflows-in-single-tenant-azure-logic-apps"></a>단일 테넌트 Azure Logic Apps에 대한 워크플로 비용 예측
 
-Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](/azure/storage/)를 사용합니다. 일반 다중 테넌트 Azure Logic Apps에서는 스토리지 사용량 및 비용을 논리 앱에 연결합니다. 현재 단일 테넌트 Azure Logic Apps에서는 사용자의 스토리지 계정을 사용할 수 있습니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다. 이 기능으로 논리 앱 데이터를 보다 유연하게 관리할 수 있습니다.
+Azure Logic Apps는 모든 스토리지 작업에 [Azure Storage](../storage/index.yml)를 사용합니다. 일반 다중 테넌트 Azure Logic Apps에서는 스토리지 사용량 및 비용을 논리 앱에 연결합니다. 현재 단일 테넌트 Azure Logic Apps에서는 사용자의 스토리지 계정을 사용할 수 있습니다. 스토리지 비용은 Azure 청구서에 별도로 표시됩니다. 이 기능으로 논리 앱 데이터를 보다 유연하게 관리할 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 단일 테넌트 Azure Logic Apps 환경의 워크플로에 적용됩니다. 이러한 워크플로는 동일한 논리 앱과 동일한 스토리지를 공유하는 단일 테넌트에서 존재합니다. 자세한 내용은 [단일 테넌트와 다중 테넌트 및 통합 서비스 환경 비교](single-tenant-overview-compare.md)를 참조하세요.

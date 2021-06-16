@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 335a63faa440e057c282f992b67b301289a7a4bb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1186d6c138b555144d59414d7b1d9293474390d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97356960"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079628"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal의 Windows 가상 머신에서 SQL Server 2017 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "97356960"
 
   > [!TIP]
   > - 이 빠른 시작에서는 신속하게 SQL VM을 프로비전하고 연결하는 경로를 제공합니다. 다른 SQL VM 프로비저닝 선택 항목에 대한 자세한 내용은 [Azure Portal의 Windows VM에서 SQL Server에 대한 프로비저닝 가이드](create-sql-vm-portal.md)를 참조하세요.
-  > - SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.md)을 참조하세요.
+  > - SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.
 
 ## <a name="get-an-azure-subscription"></a><a id="subscription"></a> Azure 구독 가져오기
 
@@ -71,7 +71,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![인스턴스 세부 정보](./media/sql-vm-create-portal-quickstart/basics-instance-details.png)
 
-1. **관리자 계정** 에서 _azureuser_ 와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+1. **관리자 계정** 에서 _azureuser_ 와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
 
    ![관리자 계정](./media/sql-vm-create-portal-quickstart/basics-administrator-account.png)
 

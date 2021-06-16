@@ -5,12 +5,12 @@ author: bennage
 ms.author: christb
 ms.topic: reference
 ms.date: 05/14/2021
-ms.openlocfilehash: 480d3fbadbac6dcf7ec56f92e45e7c2e65653195
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 25e94b06fbc45d16ef198e2d77a653a407fcf1c9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387821"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954436"
 ---
 # <a name="azure-video-analyzer-sdks"></a>Azure Video Analyzer SDK
 
@@ -18,7 +18,7 @@ Azure Video Analyzer에는 두 개의 SDK 그룹이 포함되어 있습니다. �
 
 ## <a name="management-sdks"></a>관리 SDK
 
-관리 SDK를 사용하면 Azure Resource Manager에 의해 노출되는 리소스와 상호 작용할 수 있습니다. Video Analyzer 계정을 만들고, 에지 모듈의 프로비저닝 토큰을 생성하고, 비디오에 대한 액세스 정책을 관리할 수 있습니다. SDK는 기본 [REST API]를 기반으로 빌드됩니다.
+관리 SDK를 사용하면 Azure Resource Manager에 의해 노출되는 리소스와 상호 작용할 수 있습니다. Video Analyzer 계정을 만들고, 에지 모듈의 프로비저닝 토큰을 생성하고, 비디오에 대한 액세스 정책을 관리할 수 있습니다. SDK는 기본 [REST API](/rest/api/videoanalyzer/?branch=video)를 기반으로 빌드됩니다.
 
 지원되는 플랫폼은 다음과 같습니다.
 
@@ -38,6 +38,6 @@ Azure Video Analyzer에는 두 개의 SDK 그룹이 포함되어 있습니다. �
 
 <!-- links -->
 [docs-direct-methods]: direct-methods.md
-[docs-iot-hub-sdks]: /azure/iot-hub/iot-hub-devguide-sdks
+[docs-iot-hub-sdks]: ../../iot-hub/iot-hub-devguide-sdks.md
 
 [REST API]: https://aka.ms/ava/api/rest

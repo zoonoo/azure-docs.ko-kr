@@ -8,13 +8,13 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
 ms.date: 07/28/2020
-ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 7d93bd757a39247302a6bc09009a1a814425c32f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 879e4425d5cbda5cae01ea8acac0f8d6bed79cc7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745373"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695314"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 예산 만들기
 
@@ -84,16 +84,16 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager 템플릿, 예산 만들기, 배포 포털" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
-    * **구독** : Azure 구독을 선택합니다.
-    * **리소스 그룹** : 필요한 경우 기존 리소스 그룹을 선택하거나 **새 리소스 그룹을 만듭니다** .
-    * **지역** : Azure 지역을 선택합니다. 예: **미국 중부**
-    * **예산 이름** : 예산의 이름을 입력합니다. 리소스 그룹 내에서 고유해야 합니다. 영숫자, 밑줄 및 하이픈만 허용됩니다.
-    * **금액** : 예산을 추적하는 데 드는 총 비용을 입력합니다.
-    * **시간 조직** : 예산이 적용되는 시간을 입력합니다. 허용되는 값은 매월, 매분기 또는 매년입니다. 시간 조직이 끝나면 예산이 초기화됩니다.
-    * **시작 날짜** : 해당 월의 1일을 YYYY-MM-DD 형식의 시작 날짜로 입력합니다. 미래의 시작 날짜는 오늘부터 3개월 이내여야 합니다. 시간 조직 기간을 사용하여 과거의 시작 날짜를 지정할 수 있습니다.
-    * **종료 날짜** : 예산의 종료 날짜를 YYYY-MM-DD 형식으로 입력합니다. 
-    * **첫 번째 임계값** : 첫 번째 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
-    * **두 번째 임계값** : 두 번째 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
+    * **구독**: Azure 구독을 선택합니다.
+    * **리소스 그룹**: 필요한 경우 기존 리소스 그룹을 선택하거나 **새 리소스 그룹을 만듭니다**.
+    * **지역**: Azure 지역을 선택합니다. 예: **미국 중부**
+    * **예산 이름**: 예산의 이름을 입력합니다. 리소스 그룹 내에서 고유해야 합니다. 영숫자, 밑줄 및 하이픈만 허용됩니다.
+    * **금액**: 예산을 추적하는 데 드는 총 비용을 입력합니다.
+    * **시간 조직**: 예산이 적용되는 시간을 입력합니다. 허용되는 값은 매월, 매분기 또는 매년입니다. 시간 조직이 끝나면 예산이 초기화됩니다.
+    * **시작 날짜**: 해당 월의 1일을 YYYY-MM-DD 형식의 시작 날짜로 입력합니다. 미래의 시작 날짜는 오늘부터 3개월 이내여야 합니다. 시간 조직 기간을 사용하여 과거의 시작 날짜를 지정할 수 있습니다.
+    * **종료 날짜**: 예산의 종료 날짜를 YYYY-MM-DD 형식으로 입력합니다. 
+    * **첫 번째 임계값**: 첫 번째 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
+    * **두 번째 임계값**: 두 번째 알림의 임계값을 입력합니다. 비용이 임계값을 초과하면 알림이 전송됩니다. 항상 백분율이며 0~1000 사이여야 합니다.
     * **연락처 역할** 임계값을 초과하면 예산 알림을 보낼 연락처 역할 목록을 입력합니다. 기본값은 소유자, 기여자 및 읽기 권한자입니다. 필요한 형식은 `["Owner","Contributor","Reader"]`입니다.
     * **연락처 이메일** 임계값을 초과하면 예산 알림을 보낼 이메일 주소 목록을 입력합니다. 필요한 형식은 `["user1@domain.com","user2@domain.com"]`입니다.
     * **연락처 그룹** 은 작업 그룹 리소스 ID 목록을 전체 리소스 URI로 입력하여 임계값 초과 시 예산 알림을 보냅니다. 문자열 배열을 허용합니다. 필요한 형식은 `["action group resource ID1","action group resource ID2"]`입니다. 작업 그룹을 사용하지 않으려면 `[]`를 입력합니다.

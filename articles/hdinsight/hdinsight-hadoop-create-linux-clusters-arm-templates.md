@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
-ms.openlocfilehash: 9d35e5730d35309b7881723df5a682f6c9990a59
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 7d39163fa2890eb16a455d505baa0a6bbeddd42e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108072624"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950628"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -33,7 +33,7 @@ Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 애플�
 
 Resource Manager 템플릿에 대한 자세한 내용은 다음 문서와 예제를 참조하세요.
 
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/syntax.md)
 * [Azure Resource Manager 템플릿으로 애플리케이션 배포](../azure-resource-manager/templates/deploy-powershell.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) 템플릿 참조
 * [Azure 퀵 스타트 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
@@ -76,5 +76,5 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 * .NET 클라이언트 라이브러리를 통해 리소스를 배포하는 예제는 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](/previous-versions/azure/virtual-machines/windows/csharp-template?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * 애플리케이션 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service/deploy-complex-application-predictably.md)를 참조하세요.
 * 다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](../devtest-labs/devtest-lab-overview.md)을 참조하세요.
-* Azure Resource Manager 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+* Azure Resource Manager 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../azure-resource-manager/templates/syntax.md)을 참조하세요.
 * Azure Resource Manager 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../azure-resource-manager/templates/template-functions.md)를 참조하세요.
