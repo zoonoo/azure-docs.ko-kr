@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 5914d5a54606f49f6fbd809a17e2b47375b58dcd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3d2c8f16e340b0b8eca30dd8a67010020b6362df
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641982"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950434"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure에서 사용 가능한 보안 서비스 및 기술
 
@@ -89,7 +89,7 @@ ms.locfileid: "105641982"
 | [Azure Load Balancer](../../load-balancer/load-balancer-overview.md)|TCP/UDP 애플리케이션 네트워크 부하 분산 장치입니다. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| 온-프레미스 네트워크와 Azure 가상 네트워크 간의 전용 WAN 링크입니다. |
 | [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)| 전역 DNS 부하 분산 장치입니다.|
-| [Azure 애플리케이션 프록시](../../active-directory/manage-apps/application-proxy.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
+| [Azure 애플리케이션 프록시](../../active-directory/app-proxy/application-proxy.md)| 온-프레미스에서 호스트되는 웹 애플리케이션에 대한 원격 액세스를 보호하는 데 사용되는 인증 프런트 엔드입니다. |
 |[Azure Firewall](../../firewall/overview.md)|Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.|
 |[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|애플리케이션 설계 모범 사례와 결합하여 DDoS 공격을 방어합니다.|
 |[Virtual Network 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)|직접 연결을 통해 가상 네트워크 프라이빗 주소 공간과 VNet의 ID를 Azure 서비스로 확장합니다.|

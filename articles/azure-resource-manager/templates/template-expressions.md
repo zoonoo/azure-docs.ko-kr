@@ -4,12 +4,12 @@ description: ARM 템플릿(Azure Resource Manager 템플릿)의 선언적 JSON �
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0c010d71217dcae23348098355bf1752ffc43337
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 1232e7774a88bec089254397d0582cc52f450fdb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108314898"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959816"
 ---
 # <a name="syntax-and-expressions-in-arm-templates"></a>ARM 템플릿의 구문 및 식
 
@@ -134,4 +134,4 @@ New-AzResourceGroupDeployment -ResourceGroupName demoGroup -TemplateFile azurede
 ## <a name="next-steps"></a>다음 단계
 
 * 템플릿에서 사용할 수 있는 함수 목록은 [ARM 템플릿 함수](template-functions.md)를 참조하세요.
-* 템플릿 파일에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* 템플릿 파일에 대한 자세한 내용은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.

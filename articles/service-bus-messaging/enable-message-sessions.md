@@ -3,12 +3,13 @@ title: Azure Service Bus 메시지 세션 사용 | Microsoft Docs
 description: 이 문서에서는 Azure Portal, PowerShell, CLI 및 프로그래밍 언어(C#, Java, Python 및 JavaScript)를 사용하여 메시지 세션을 사용하도록 설정하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/19/2021
-ms.openlocfilehash: dc2667b746a57c7f2e4ac5faec88c4540bed1180
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0a39e601d675225feb7e82e1de81eee9d3887aeb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107755094"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671430"
 ---
 # <a name="enable-message-sessions-for-an-azure-service-bus-queue-or-a-subscription"></a>Azure Service Bus 큐 또는 구독에 대해 메시지 세션을 사용하도록 설정
 Azure Service Bus 세션을 사용하면 관련 메시지의 무제한 시퀀스를 공동으로 순서를 지정하여 처리할 수 있습니다. 세션은 **FIFO(선입 선출)** 및 **요청-응답** 패턴으로 사용할 수 있습니다. 자세한 내용은 [메시지 세션](message-sessions.md)을 참조하세요. 이 문서에서는 Service Bus 큐 또는 구독에 대해 세션을 사용하도록 설정하는 다양한 방법을 보여 줍니다. 
@@ -203,12 +204,12 @@ New-AzServiceBusSubscription -ResourceGroup myresourcegroup `
 ## <a name="next-steps"></a>다음 단계
 선택한 언어로 샘플을 사용하여 Azure Service Bus 기능을 살펴봅니다. 
 
-- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-java/servicebus-samples/)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(최신)](/samples/azure/azure-sdk-for-java/servicebus-samples/)
 - [Python용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-python/servicebus-samples/)
 - [JavaScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
 - [TypeScript용 Azure Service Bus 클라이언트 라이브러리 샘플](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
-- [.NET용 Azure.Messaging.ServiceBus 샘플](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 
 이전 .NET 및 Java 클라이언트 라이브러리에 대한 샘플은 다음을 참조하세요.
-- [.NET용 Microsoft.Azure.ServiceBus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
-- [Java용 azure-servicebus 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/MessageBrowse)
+- [.NET용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
+- [Java용 Azure Service Bus 클라이언트 라이브러리 샘플(레거시)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)

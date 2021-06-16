@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 0559d02ec603d12578fa46d9790d0711fde5e38b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 555fd1d3132ae44ed9abb158dee76af3f5761146
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670904"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082157"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-the-azure-portal"></a>Azure Portal을 사용하여 VM에 대한 라우팅 기본 설정 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "101670904"
     |---|---|
     |속성|myVM|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
-    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
     |Resource group| **기존 항목 사용** 을 선택하고, **myResourceGroup** 을 선택합니다.|
     |위치| **미국 동부** 를 선택합니다.|

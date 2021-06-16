@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: c01da4aed9e27296ea7b570420bb190b16749848
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4698826a78afe816029288f2d5eda14834124904
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90939784"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407810"
 ---
 # <a name="concepts-for-distributing-data-with-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 사용하여 데이터를 배포하는 개념
 
@@ -70,7 +70,7 @@ Azure Arc 지원 Postgres 하이퍼스케일을 최대한 활용하려면 다음
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Arc 지원 PostgreSQL 하이퍼스케일 만들기에 관해 알아보기](create-postgresql-hyperscale-server-group.md)
-- [Arc 데이터 컨트롤러의 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 스케일 아웃하는 정보에 관해 알아보기](scale-out-postgresql-hyperscale-server-group.md)
+- [Arc 데이터 컨트롤러의 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹을 스케일 아웃하는 정보에 관해 알아보기](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Azure Arc 지원 데이터 서비스에 관해 알아보기](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [Azure Arc에 관해 알아보기](https://aka.ms/azurearc)
 

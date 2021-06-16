@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: wesmc
-ms.openlocfilehash: 3a8910cf0e81bd041d74ef95f45220f1c1e0b34c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 512ad8b6239afd2ce86ae0ef249e91e23fe114f3
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91761297"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854453"
 ---
 # <a name="tls-support-in-azure-iot-hub-device-provisioning-service-dps"></a>Azure IoT Hub DPS(Device Provisioning Service)의 TLS 지원
 
@@ -20,8 +20,6 @@ DPS는 [TLS(전송 계층 보안)](http://wikipedia.org/wiki/Transport_Layer_Sec
 
 DPS에서 지원하는 현재 TLS 프로토콜 버전은 다음과 같습니다. 
 * TLS 1.2
-
-TLS 1.0 및 1.1은 레거시로 간주되며 사용 중단될 예정입니다. 자세한 내용은 [IoT Hub용 TLS 1.0 및 1.1 사용 중단](../iot-hub/iot-hub-tls-deprecating-1-0-and-1-1.md)을 참조하세요. 
 
 ## <a name="restrict-connections-to-tls-12"></a>연결을 TLS 1.2로 제한
 

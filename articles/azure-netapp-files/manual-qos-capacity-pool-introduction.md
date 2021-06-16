@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 13acee8b21adf946192544afcea17b4a8d9b9ec9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 49cc885976e022e8b7c4c44c3546febc217e2d7c
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99581128"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071824"
 ---
 # <a name="manual-qos-capacity-pool"></a>수동 QoS 용량 풀
 
@@ -44,8 +44,6 @@ QoS 유형에 대한 고려 사항은 [Azure NetApp Files의 스토리지 계층
 [용량 풀을 만들](azure-netapp-files-set-up-capacity-pool.md) 때 용량 풀이 수동 QoS 유형을 사용하도록 지정할 수 있습니다.  수동 QoS 유형을 사용하도록 [기존 용량 풀을 변경](manage-manual-qos-capacity-pool.md#change-to-qos)할 수도 있습니다. 
 
 용량 유형을 수동 QoS로 설정하는 것은 영구적 변경입니다. 수동 QoS 유형 용량 풀을 자동 QoS 용량 풀로 변환할 수는 없습니다. 
-
-수동 QoS 유형을 사용하려면 [기능을 등록](manage-manual-qos-capacity-pool.md#register-the-feature)해야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

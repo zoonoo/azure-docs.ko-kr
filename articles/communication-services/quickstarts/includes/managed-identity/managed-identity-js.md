@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: ce29158c2a44f01fa06649e4b4497bf5c5076866
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 1425d359febe877564280123716270860790d8ff
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107512955"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429720"
 ---
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/use-managed-Identity)에서 이 빠른 시작에 대한 최종 코드 칮기
+
 ## <a name="setting-up"></a>설치
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기

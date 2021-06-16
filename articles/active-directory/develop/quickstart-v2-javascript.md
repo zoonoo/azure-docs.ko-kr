@@ -3,21 +3,21 @@ title: '빠른 시작: JavaScript 단일 페이지 앱에서 사용자 로그인
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 JavaScript 앱이 Microsoft ID 플랫폼에서 발급한 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: c71e7deeb746a08ccc94784ef2b1115b434a6961
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: ae6fdc989f70cee387c818a147e52408650cc783
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108071898"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075442"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "108071898"
 
 자세한 내용은 [샘플 작동 방식](#how-the-sample-works)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Node.JS](https://nodejs.org/en/download/)
