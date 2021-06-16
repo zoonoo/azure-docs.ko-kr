@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 688c0fd03573737ee97084025251c9082a8cb915
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 8af27f876f1c325cf99214e36f680e012e86c98d
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383035"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536329"
 ---
 # <a name="python-package-extensibility-for-prebuilt-docker-images-preview"></a>미리 빌드된 Docker 이미지에 대한 Python 패키지 확장성(미리 보기)
 
@@ -155,7 +155,7 @@ myenv.environment_variables = {
     | 해결 방법  | 컨테이너가 시작될 때 지정된 패키지를 설치하는 `requirements.txt`를 만듭니다. | 모든 종속성을 사용하여 로컬 Python 환경을 만듭니다. 런타임에 이 디렉터리를 컨테이너에 탑재합니다. |
     | 패키지 설치           | 추가 설치 없음(pip가 이미 설치되어 있다고 가정)                                                                                                          | 가상 환경 또는 conda 환경 설치                                                                                   |
     | 가상 환경 설정              | 사용자가를 `requirements.txt`를 만들기 위해 필요에 따라 pip를 동결하여 현재 로컬 사용자 환경을 끌어올 수 있으므로 추가적인 가상 환경 설정은 필요하지 않습니다. | 정리된 가상 환경을 설정해야 하므로, 현재 사용자 로컬 환경에 따라 추가 단계가 필요할 수 있습니다.                        |
-    | 디버깅                  | 종속성이 명확하게 나열되므로 서버를 쉽게 설정하고 디버그할 수 있습니다. | 정리되지 않은 가상 환경은 서버를 디버그할 때 문제가 발생할 수 있습니다. 예를 들어 환경이나 사용자 코드에서 오류가 발생하는 경우 명확하지 않을 수 있습니다. |
+    | [디버깅](how-to-inference-server-http.md)                 | 종속성이 명확하게 나열되므로 서버를 쉽게 설정하고 디버그할 수 있습니다. | 정리되지 않은 가상 환경은 서버를 디버그할 때 문제가 발생할 수 있습니다. 예를 들어 환경이나 사용자 코드에서 오류가 발생하는 경우 명확하지 않을 수 있습니다. |
     | 스케일 아웃 중의 일관성 | 외부 PyPi 패키지 및 해당 종속성을 고정하는 사용자에 종속되므로 일관성이 없습니다. 이러한 외부 다운로드는 신뢰도가 낮습니다.                                 | 사용자 환경에만 의존하므로 일관성 문제가 없습니다.                                                                             |
 
 * 내 `requirements.txt` 및 탑재된 종속성 디렉터리를 컨테이너에서 찾을 수 없는 이유는 무엇입니까?

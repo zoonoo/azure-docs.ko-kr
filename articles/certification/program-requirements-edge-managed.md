@@ -1,20 +1,20 @@
 ---
 title: Edge Managed 인증 요구 사항
-description: Edge Managed 인증 프로그램 요구 사항
+description: Edge Managed 인증 요구 사항
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: Edge Managed Certification Requirements
 ms.service: certification
-ms.openlocfilehash: 744f81d0544a765f60793ece1aa539c6c37e39cd
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 7d3cd36dd0f03db7cc701c618b40f58dc9873659
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105975879"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982019"
 ---
-# <a name="azure-certification-edge-managed"></a>Azure 인증 Edge Managed 
+# <a name="edge-managed-certification-requirements"></a>Edge Managed 인증 요구 사항
 
 이 문서에서는 Azure Certified Device 카탈로그에 표시되는 디바이스 관련 기능에 대해 간략하게 설명합니다. 기능은 디바이스를 설명할 수 있는 단일 디바이스 특성입니다. 
 
@@ -32,8 +32,8 @@ Edge Managed 인증을 사용하려면 [ 기준 프로그램](.\program-requirem
 
 | **이름**                | AzureReady.DPS                                               |
 | ----------------------- | ------------------------------------------------------------ |
-| **대상 가용성** | Ignite(미리 보기)                                                |
-| **적용 대상**          | 모든 디바이스                                      |
+| **대상 가용성** | 지금 사용 가능                                                |
+| **적용 대상**          | 모든 디바이스                                                   |
 | **OS**                  | 장치 및 시스템 독립성                                                     |
 | **유효성 검사 유형**     | 자동                                                    |
 | **유효성 검사**          | AICS는 디바이스 코드가 DPS를 지원하는지에 대해 유효성을 검사합니다. **1.** 사용자는 증명 방법(X.509, TPM 및 SAS 키) 중 하나를 선택해야 합니다. **2.** 사용자는 증명 방법에 따라 **a)** X.509 인증서를 AICS 관리 DPS 범위에 업로드 **b)** 디바이스에 SAS 키 또는 보증 키 구현 등 해당 작업을 수행해야 합니다. **3.** 그런 다음, 사용자는 '연결' 단추를 눌러 DPS를 통해 AICS 관리 IoT Hub에 연결합니다.                                                    |
@@ -44,11 +44,11 @@ Edge Managed 인증을 사용하려면 [ 기준 프로그램](.\program-requirem
 
 **Edge 런타임 포함 여부: 테스트의 목적은 디바이스에 IoT Edge 런타임($edgehub 및 $edgeagent)이 포함되어 올바르게 작동하는지 확인하는 것입니다.**
 
-| **이름**                | EdgeManaged.EdgeRT                                               |
+| **이름**                | EdgeManaged.EdgeRT                                           |
 | ----------------------- | ------------------------------------------------------------ |
-| **대상 가용성** | 지금 사용 가능                                                          |
-| **적용 대상**          | IoT Edge 디바이스                                                   |
-| **OS**                  | [계층 1 및 계층 2 OS](../iot-edge/support.md)                                                     |
+| **대상 가용성** | 지금 사용 가능                                                |
+| **적용 대상**          | IoT Edge 디바이스                                              |
+| **OS**                  | [계층 1 및 계층 2 OS](../iot-edge/support.md)                 |
 | **유효성 검사 유형**     | 자동                                                    |
 | **유효성 검사**          | AICS는 설치된 IoT Edge RT의 배포 기능에 대한 유효성을 검사합니다. **1.** 사용자는 특정 OS를 지정해야 합니다(계층 1 또는 계층 2 목록에 없는 OS는 허용되지 않음). **2.** AICS가 config.yaml을 생성하고 표준 [시뮬레이션 임시 센서 에지 모듈](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azure-iot.simulated-temperature-sensor?tab=Overview)을 배포합니다. **3.** AICS가 디바이스에 Docker 호환 컨테이너 하위 시스템(Moby)이 설치되어 있는지에 대해 유효성을 검사합니다. **4.** 테스트 결과는 시뮬레이션 임시 센서 에지 모듈의 성공적인 배포와 Docker 호환 컨테이너 하위 시스템의 기능을 기반으로 결정됩니다.                                                    |
 | **리소스**           | **a)** [AICS 블로그](https://azure.microsoft.com/en-in/blog/expanding-azure-iot-certification-service-to-support-azure-iot-edge-device-certification/), **b)** [인증 단계](./overview.md)(모든 추가 리소스 포함), **c)** [요구 사항](./program-requirements-azure-certified-device.md) |

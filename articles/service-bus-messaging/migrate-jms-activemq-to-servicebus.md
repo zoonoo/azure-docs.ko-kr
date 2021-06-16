@@ -3,7 +3,7 @@ title: Apache ActiveMQ에서 Azure Service Bus로 JMS (Java Message Service) 애
 description: 이 문서에서는 Azure Service Bus와 상호작용하기 위해 Apache ActiveMQ와 상호작용하는 기존 JMS 애플리케이션을 마이그레이션하는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: ''
-author: axisc
+author: spelluru
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2020
-ms.author: aschhab
+ms.author: spelluru
 ms.custom: devx-track-java
-ms.openlocfilehash: 38b835a46a441edfdcace0db1a6983122b06de12
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: e00043f1d8dd874e67ed25bd424e869fb7ec8787
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191912"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539312"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Apache ActiveMQ에서 Azure Service Bus로 기존 JMS(Java Message Service) 2.0 애플리케이션 마이그레이션
 

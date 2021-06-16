@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e28a1412fa417b9f15ab7a6f79305d07ca6d9fec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7ef48e6eaef441026457e584a302eb3fe515c0a6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556097"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079412"
 ---
 # <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>포털을 사용하여 Azure Shared Image Gallery 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "102556097"
 1. **가용성 옵션** 의 경우에는 ‘인프라 중복이 필요하지 않습니다’ 기본값을 그대로 둡니다.
 1. 이미지 정의에 대한 페이지에서 시작한 경우 **이미지** 값이 `latest` 이미지 버전으로 자동으로 채워집니다.
 1. **크기** 의 경우 사용 가능한 크기 목록에서 VM 크기를 고른 다음 **선택** 을 선택합니다.
-1. **Administrator 계정** 에서 이미지가 일반화된 경우 *azureuser* 와 같은 사용자 이름과 암호를 제공해야 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 이미지가 특수화된 경우 원본 VM의 사용자 이름과 암호가 사용되므로 사용자 이름 및 암호 필드가 회색으로 표시됩니다.
+1. **Administrator 계정** 에서 이미지가 일반화된 경우 *azureuser* 와 같은 사용자 이름과 암호를 제공해야 합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다. 이미지가 특수화된 경우 원본 VM의 사용자 이름과 암호가 사용되므로 사용자 이름 및 암호 필드가 회색으로 표시됩니다.
 1. VM에 대한 원격 액세스를 허용하려면 **퍼블릭 인바운드 포트** 에서 **선택한 포트 허용** 을 선택한 다음 드롭다운에서 **RDP(3389)** 를 선택합니다. VM에 대한 원격 액세스를 허용하지 않으려면 **퍼블릭 인바운드 포트** 에 대해 **안 함** 을 선택한 상태로 둡니다.
 1. 작업을 마치면 페이지 하단의 **검토 + 만들기** 단추를 선택합니다.
 1. VM이 유효성 검사를 통과하면 페이지 하단에서 **만들기** 를 선택하여 배포를 시작합니다.
@@ -64,9 +64,9 @@ ms.locfileid: "102556097"
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 공유 이미지 갤러리에 대한 자세한 내용은 [개요](../shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../troubleshooting-shared-images.md)을 참조하세요.

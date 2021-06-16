@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad3946dcd850a4a3d05f4d28882d08408e39b707
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104589398"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964691"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>보안 하이브리드 액세스: Azure Active Directory를 사용한 보안 레거시 앱
 
@@ -32,13 +32,13 @@ Azure AD [조건부 액세스](../conditional-access/overview.md) 및 Azure AD [
 
 ## <a name="secure-hybrid-access-sha-through-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통한 SHA(보안 하이브리드 액세스)
   
-[애플리케이션 프록시](./what-is-application-proxy.md)를 통해 온-프레미스 웹 애플리케이션에 대한 [보안 원격 액세스](./application-proxy.md)를 제공할 수 있습니다. 사용자가 VPN을 사용할 필요가 없습니다. 사용자는 [Single Sign-On](./add-application-portal-setup-sso.md) 후에 모든 디바이스에서 애플리케이션에 쉽게 연결하여 이점을 누릴 수 있습니다. 애플리케이션 프록시는 원격 액세스를 서비스로 제공하므로 [온-프레미스 애플리케이션](./application-proxy-add-on-premises-application.md)을 회사 네트워크 외부의 사용자에게 쉽게 게시할 수 있습니다. 온-프레미스 애플리케이션을 수정할 필요 없이 클라우드 액세스 관리를 확장하는 데 도움이 됩니다. 다음 단계로 [Azure AD 애플리케이션 프록시 배포를 계획](./application-proxy-deployment-plan.md)합니다.
+[애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)를 통해 온-프레미스 웹 애플리케이션에 대한 [보안 원격 액세스](../app-proxy/application-proxy.md)를 제공할 수 있습니다. 사용자가 VPN을 사용할 필요가 없습니다. 사용자는 [Single Sign-On](add-application-portal-setup-sso.md) 후에 모든 디바이스에서 애플리케이션에 쉽게 연결하여 이점을 누릴 수 있습니다. 애플리케이션 프록시는 원격 액세스를 서비스로 제공하므로 [온-프레미스 애플리케이션](../app-proxy/application-proxy-add-on-premises-application.md)을 회사 네트워크 외부의 사용자에게 쉽게 게시할 수 있습니다. 온-프레미스 애플리케이션을 수정할 필요 없이 클라우드 액세스 관리를 확장하는 데 도움이 됩니다. 다음 단계로 [Azure AD 애플리케이션 프록시 배포를 계획](../app-proxy/application-proxy-deployment-plan.md)합니다.
 
 ## <a name="azure-ad-partner-integrations"></a>Azure AD 파트너 통합
 
 ### <a name="sha-through-networking-and-delivery-controllers"></a>네트워킹 및 배달 컨트롤러를 통한 SHA
 
-[Azure AD 애플리케이션 프록시](./what-is-application-proxy.md)외에도, [제로 트러스트 프레임워크](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)를 사용할 수 있도록 Microsoft는 타사 공급자와 협력하고 있습니다. 기존 네트워킹 및 배달 컨트롤러를 사용하여 비즈니스 프로세스에 중요하지만 이전에는 Azure AD로 보호할 수 없었던 레거시 애플리케이션을 쉽게 보호할 수 있습니다. 이러한 애플리케이션을 보호하는 데 필요한 모든 조건은 이미 충족되었을 것입니다.
+[Azure AD 애플리케이션 프록시](../app-proxy/what-is-application-proxy.md)외에도, [제로 트러스트 프레임워크](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)를 사용할 수 있도록 Microsoft는 타사 공급자와 협력하고 있습니다. 기존 네트워킹 및 배달 컨트롤러를 사용하여 비즈니스 프로세스에 중요하지만 이전에는 Azure AD로 보호할 수 없었던 레거시 애플리케이션을 쉽게 보호할 수 있습니다. 이러한 애플리케이션을 보호하는 데 필요한 모든 조건은 이미 충족되었을 것입니다.
 
 ![네트워킹 파트너 및 앱 프록시를 사용하여 보안 하이브리드 액세스를 보여 주는 이미지](./media/secure-hybrid-access/secure-hybrid-access.png)
 

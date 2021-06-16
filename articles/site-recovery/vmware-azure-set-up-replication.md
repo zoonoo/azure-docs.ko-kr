@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 복제 정책 설정 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구의 복제 설정을 구성하는 방법에 대해 설명합니다.
-author: sujayt
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: sutalasi
-ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: b7ab71f957b9f36fd6fbc5f9f52ad6d71be8ddff
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84699603"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576642"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>VMware 재해 복구의 복제 정책 구성 및 관리
 

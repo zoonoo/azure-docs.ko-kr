@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 21194bf2fe76a7eb0ee034d4a502c20ee3032dd9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d99f4872d6d5de6fb171f5cf298e5a17fb9da445
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87543676"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062031"
 ---
 # <a name="azure-disk-encryption-for-virtual-machines-and-virtual-machine-scale-sets"></a>가상 머신 및 가상 머신 확장 집합에 대한 Azure Disk Encryption
 
@@ -33,7 +33,7 @@ Azure Disk encryption는 Linux 및 Windows 가상 머신과 가상 머신 확장
 - [Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성](../../virtual-machines/linux/disk-encryption-key-vault.md)
 - [Azure Disk Encryption 샘플 스크립트](../../virtual-machines/linux/disk-encryption-sample-scripts.md)
 - [Azure Disk Encryption 문제 해결](../../virtual-machines/linux/disk-encryption-troubleshooting.md)
-- [Azure Disk Encryption 질문과 대답](../../virtual-machines/linux/disk-encryption-faq.md)
+- [Azure Disk Encryption 질문과 대답](../../virtual-machines/linux/disk-encryption-faq.yml)
 
 ### <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption with Azure AD (이전 버전)
 
@@ -56,7 +56,7 @@ Azure Disk encryption는 Linux 및 Windows 가상 머신과 가상 머신 확장
 - [Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성](../../virtual-machines/windows/disk-encryption-key-vault.md)
 - [Azure Disk Encryption 샘플 스크립트](../../virtual-machines/windows/disk-encryption-sample-scripts.md)
 - [Azure Disk Encryption 문제 해결](../../virtual-machines/windows/disk-encryption-troubleshooting.md)
-- [Azure Disk Encryption 질문과 대답](../../virtual-machines/windows/disk-encryption-faq.md)
+- [Azure Disk Encryption 질문과 대답](../../virtual-machines/windows/disk-encryption-faq.yml)
 
 ### <a name="azure-disk-encryption-with-azure-ad-previous-version"></a>Azure Disk Encryption with Azure AD (이전 버전)
 

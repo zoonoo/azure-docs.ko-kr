@@ -11,14 +11,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 55802b04e10f06c7e362033f97d24c4e20c12c62
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f265bf68067ed92fc6a5b26047e354c06ae53686
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566492"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033692"
 ---
 # <a name="create-video-reviews-using-net"></a>.NET을 사용하여 비디오 검토 만들기
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 이 문서에서 제공하는 정보 및 코드 샘플을 통해 [C#과 함께 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 사용을 빠르게 시작하여 아래의 작업을 수행할 수 있습니다.
 

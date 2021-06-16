@@ -4,16 +4,16 @@ description: Azure Queue Storage를 사용하여 큐를 작성 및 삭제하고,
 author: twooley
 ms.author: twooley
 ms.reviewer: dineshm
-ms.date: 12/08/2016
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: 257b435f0136884e8568f4201794a7ce5cf0c209
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 7850e7fef034fd618c86400e17ddaa319c45005a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275858"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080996"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby에서 Queue Storage를 사용하는 방법
 
@@ -42,7 +42,7 @@ Azure Storage를 사용하려면 스토리지 REST 서비스와 통신하는 편
 ### <a name="use-rubygems-to-obtain-the-package"></a>RubyGems를 사용하여 패키지 가져오기
 
 1. PowerShell(Windows), Terminal(Mac) 또는 Bash(Unix)와 같은 명령줄 인터페이스를 사용합니다.
-2. 명령 창에서 `gem install Azure`을 입력하여 gem 및 종속성을 설치합니다.
+2. 명령 창에서 `gem install azure`을 입력하여 gem 및 종속성을 설치합니다.
 
 ### <a name="import-the-package"></a>패키지 가져오기
 

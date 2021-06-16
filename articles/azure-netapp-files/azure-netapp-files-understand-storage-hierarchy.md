@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: 435d74e771a9d887c87c9d10e6b525ac77cf97e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fd96a8c2002bc22a0e4ef2c5a19fa06bf10b5565
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91278331"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071896"
 ---
 # <a name="storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Files의 스토리지 계층 구조
 
@@ -63,9 +63,6 @@ QoS 유형은 용량 풀의 특성입니다. Azure NetApp Files는 용량 풀의
     볼륨에 할당된 최대 처리량은 용량 풀의 서비스 수준과 볼륨의 크기 할당량에 따라 달라집니다. 예를 들어 [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)을 참조하세요.
 
 - <a name="manual_qos_type"></a>*수동* QoS 유형  
-
-     > [!IMPORTANT] 
-     > 용량 풀에 수동 QoS 유형을 사용하려면 등록이 필요합니다.  [수동 QoS 용량 풀 관리](manage-manual-qos-capacity-pool.md)를 참조하세요.  
 
     용량 풀에 수동 QoS 유형을 사용하는 옵션이 있습니다.
 

@@ -5,12 +5,12 @@ author: MSEvanhi
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: evanhi
-ms.openlocfilehash: b7c067ca82ea7fbe7eb9c0f3d50b7fe75dfb47df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae7c4e61107518676b2cc8308904816d075ecf7e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100377366"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951495"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Azure Managed Applications의 Just-In-Time 액세스 사용 및 요청
 
@@ -72,7 +72,7 @@ CreateUiDefinition.json 파일에는 소비자가 JIT 액세스를 사용하도�
 
 1. [파트너 센터](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)의 상업용 Marketplace 포털에 로그인합니다.
 
-1. 새 관리형 애플리케이션을 만드는 방법은 [Azure 애플리케이션 제품 만들기](../../marketplace/create-new-azure-apps-offer.md)의 단계를 따르세요.
+1. 새 관리형 애플리케이션을 만드는 방법은 [Azure 애플리케이션 제품 만들기](../../marketplace/azure-app-offer-setup.md)의 단계를 따르세요.
 
 1. **기술 구성** 페이지에서 **JIT(Just-In-Time) 액세스 사용** 확인란을 선택합니다.
 

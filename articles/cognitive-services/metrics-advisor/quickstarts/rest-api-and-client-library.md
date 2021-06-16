@@ -5,18 +5,18 @@ description: 이 빠른 시작을 사용하여 Azure Cognitive Services에서 �
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.author: mbullwin
 zone_pivot_groups: programming-languages-metrics-monitor
-ms.openlocfilehash: 5b3df5f4b41b2beeec68b667863f6ca7715df47b
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: dc13aec8cd5bab7df93c25275331b34ea8093206
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186964"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894514"
 ---
 # <a name="quickstart-use-the-client-libraries-or-rest-apis-to-customize-your-solution"></a>빠른 시작: 클라이언트 라이브러리 또는 REST API를 사용하여 솔루션 사용자 지정
 

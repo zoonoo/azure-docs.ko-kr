@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e40f421c0fa45d772cd333dac51fe2bdf2779f48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1345df8991acba09feb65eb11e9eadc21b9c7af4
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91828994"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579701"
 ---
 Windows 10 VPN 클라이언트의 새로운 기능인 Always On은 VPN 연결을 유지할 수 있는 기능입니다. Always On을 사용하면 활성 VPN 프로필이 자동으로 연결되어 사용자 로그인, 네트워크 상태 변경, 디바이스 화면 활성 등의 트리거에 따라 연결된 상태를 유지할 수 있습니다.
 

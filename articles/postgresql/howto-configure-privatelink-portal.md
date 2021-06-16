@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 75defcf88128e1b100e403d74f76577525f0bdeb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7561a836f593515cc4d05706ff7834591e19aaf9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642127"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081302"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Portal을 사용하여 Azure Database for PostgreSQL - 단일 서버에 대한 프라이빗 링크 만들기 및 관리
 
@@ -66,7 +66,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
     | 크기 | 기본값인 **표준 DS1 v2** 를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
-    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
     | 공용 인바운드 포트 | 기본값인 **없음** 을 그대로 둡니다. |
@@ -133,7 +133,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **프라이빗 링크** 를 선택합니다.
 2. **Private Link 센터 - 개요** 의 **서비스에 대한 프라이빗 연결 설정** 옵션에서 **시작** 을 선택합니다.
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="프라이빗 링크 개요":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Private Link 개요":::
 
 1. **프라이빗 엔드포인트 만들기 - 기본** 에서 다음 정보를 입력하거나 선택합니다.
 
@@ -179,7 +179,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
     :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Private Link가 만들어짐":::
 
     > [!NOTE] 
-    > 고객 DNS 설정의 FQDN이 구성된 개인 IP로 확인되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 나온 대로 구성된 FQDN의 DNS 영역을 설정해야 합니다.
+    > 고객 DNS 설정의 FQDN이 구성된 개인 IP로 확인되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)서 설명한 대로 구성된 FQDN에 대한 DNS 영역을 설정해야 합니다.
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>RDP(원격 데스크톱)를 사용하여 VM에 연결
 

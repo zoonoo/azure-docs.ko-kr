@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/16/2020
-ms.openlocfilehash: 7d93002af866aa653972182a13ea37d37e912ce8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b0b076809801a4bb2f055d94ba481736b008b52c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97630312"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854885"
 ---
 # <a name="tutorial-shard-data-on-worker-nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)의 작업자 노드에서 데이터 분할
 
@@ -42,7 +42,7 @@ ms.locfileid: "97630312"
 코디네이터 노드의 메타데이터 테이블은 작업자와 분산 데이터를 추적합니다. 활성 작업자는 [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table) 테이블에서 확인할 수 있습니다.
 
 ```sql
-select nodeid from pg_dist_node where isactive;
+select nodeid, nodename from pg_dist_node where isactive;
 ```
 ```
  nodeid | nodename

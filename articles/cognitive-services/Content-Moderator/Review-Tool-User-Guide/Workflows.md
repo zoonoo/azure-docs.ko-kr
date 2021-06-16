@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 6eb2a2d2762b60a12bb9a24b92e2edae4b846cd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 87d643e7658477fb13f857b8b123889d82c5dfff
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96904145"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033836"
 ---
 # <a name="define-and-use-moderation-workflows"></a>조정 워크플로 정의 및 사용
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
 
 이 가이드에서는 [검토 도구](https://contentmoderator.cognitive.microsoft.com) 웹 사이트에서 [워크플로](../review-api.md#workflows)를 설정하고 사용하는 방법을 알아봅니다. 워크플로는 콘텐츠를 더 효율적으로 처리하는 데 사용할 수 있는 클라우드 기반의 사용자 지정 필터입니다. 워크플로는 여러 가지 서비스에 연결하여 다양한 방식으로 콘텐츠를 필터링한 다음 적절한 조치를 취할 수 있습니다. 이 가이드에서는 Content Moderator 커넥터 (기본적으로 포함됨)를 사용하여 일반적인 조정 시나리오에서 콘텐츠를 필터링하고 사용자 검토를 설정하는 방법을 보여 줍니다.
 

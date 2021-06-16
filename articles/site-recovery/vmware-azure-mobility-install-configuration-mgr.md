@@ -1,16 +1,19 @@
 ---
 title: Azure Site Recovery에서 설치의 재해 복구를 위한 Mobility Service 자동화
 description: Azure Site Recovery를 사용하여 VMware/물리적 서버 재해 복구를 위해 Mobility Service를 자동으로 설치하는 방법입니다.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: Sharmistha-Rai
+manager: gaggupta
+ms.service: site-recovery
 ms.topic: how-to
-ms.date: 2/5/2020
-ms.author: ramamill
-ms.openlocfilehash: 2159ab8c2639f0f87fd53e8559dad518a3daa663
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: edab60c800aee772ed95980515e8d381c96a2bb6
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92544820"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576710"
 ---
 # <a name="automate-mobility-service-installation"></a>Mobility Service 설치 자동화
 

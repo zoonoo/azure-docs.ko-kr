@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: c35780ae2c4741454685d7d9740a660e965df19e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e7c1c8532a3f77054755eb040fceff1bf8cf273e
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104606993"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440235"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -161,7 +161,7 @@ Azure Functions에서 사용되는 것처럼 각 하이브리드 연결은 단�
 다음 API를 사용하면 프로그래매틱 방식으로 지역 가상 네트워크 통합을 관리할 수 있습니다.
 
 + **Azure CLI**: [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) 명령을 사용하여 지역 가상 네트워크 통합을 추가, 나열 또는 제거합니다.  
-+ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용하여 사용하도록 설정할 수 있습니다. 전체 예제를 보려면 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/)을 참조하세요.
++ **ARM 템플릿**: 지역 가상 네트워크 통합은 Azure Resource Manager 템플릿을 사용하여 사용하도록 설정할 수 있습니다. 전체 예제를 보려면 [이 함수 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/function-premium-vnet-integration/)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

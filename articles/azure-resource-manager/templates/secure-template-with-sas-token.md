@@ -4,12 +4,12 @@ description: SAS 토큰으로 보호된 Azure Resource Manager 템플릿을 사�
 ms.topic: conceptual
 ms.date: 08/25/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 1c3dd78d8c9c0819c69b12ccb9199acd7a4a626e
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d8a173c719c239d72c57febbe54688f079a601bb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752034"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959977"
 ---
 # <a name="deploy-private-arm-template-with-sas-token"></a>SAS 토큰과 함께 프라이빗 ARM 템플릿 배포
 
@@ -147,4 +147,4 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 * 템플릿 배포의 기본 사항은 [ARM 템플릿과 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.
-* 템플릿에서 매개 변수를 정의하려면 [템플릿 작성](template-syntax.md#parameters)을 참조하세요.
+* 템플릿에서 매개 변수를 정의하려면 [템플릿 작성](./syntax.md#parameters)을 참조하세요.

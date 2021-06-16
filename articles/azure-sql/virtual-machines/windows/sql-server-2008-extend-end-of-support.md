@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4c25adc16d14b4a5fb72ae0103ca05b193b40499
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 297bb5b3aa464cede71e204133df3e856bb9ba1f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359169"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079664"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용하여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -90,7 +90,7 @@ Azure Virtual Machines에서 SQL Server 시작:
 
 SQL Server VM에 대한 일반적인 질문에 대한 답변 구하기:
 
-* [Azure Virtual Machines의 SQL Server에 대한 FAQ](frequently-asked-questions-faq.md)
+* [Azure Virtual Machines의 SQL Server에 대한 FAQ](frequently-asked-questions-faq.yml)
 
 지원 종료 옵션과 확장된 보안 업데이트에 대해 자세히 알아보세요.
 

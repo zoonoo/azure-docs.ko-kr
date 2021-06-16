@@ -8,12 +8,13 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/24/2017
 ms.author: mimckitt
-ms.openlocfilehash: 124ab121186ff7c9047515f2ee1ff51cee1114b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d2bede9932798a5aed5d919faae78e9a21809c50
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102557491"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028004"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신에 대한 Key Vault 설정
 
@@ -74,4 +75,4 @@ az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 }
 ```
 
-템플릿을 사용하여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)를 참조하세요.
+템플릿을 사용하여 주요 자격 증명 모음을 만들 때 구성할 수 있는 다른 옵션에 대해서는 [주요 자격 증명 모음 만들기](https://azure.microsoft.com/resources/templates/key-vault-create/)를 참조하세요.

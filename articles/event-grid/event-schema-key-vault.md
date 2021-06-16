@@ -3,12 +3,12 @@ title: Event Grid 원본으로 사용되는 Azure Key Vault
 description: Azure Event Grid를 사용한 Azure Key Vault 이벤트에 대해 제공되는 속성과 스키마를 설명합니다.
 ms.topic: conceptual
 ms.date: 02/11/2021
-ms.openlocfilehash: ea8821b15000b74a10f28730ccf82b538e7819e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 48f4df660a17c36030b6b6d2396bd96cfec48edc
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100363409"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794089"
 ---
 # <a name="azure-key-vault-as-event-grid-source"></a>Event Grid 원본으로 사용되는 Azure Key Vault
 
@@ -48,12 +48,12 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
       "eventTime":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "dataVersion":"1",
       "metadataVersion":"1"
@@ -75,12 +75,12 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
       "time":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
-         "vaultName":"sample-kv",
-         "objectType":"Secret",
-         "objectName ":"newsecret",
-         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
-         "nbf":"1559081980",
-         "exp":"1559082102"
+         "VaultName":"sample-kv",
+         "ObjectType":"Secret",
+         "ObjectName ":"newsecret",
+         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "NBF":"1559081980",
+         "EXP":"1559082102"
       },
       "specversion":"1.0"
    }
@@ -94,7 +94,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 # <a name="event-grid-event-schema"></a>[Event Grid 이벤트 스키마](#tab/event-grid-event-schema)
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `topic` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -110,7 +110,7 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | `source` | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | `subject` | 문자열 | 게시자가 정의한 이벤트 주체의 경로입니다. |
@@ -125,15 +125,15 @@ Azure Key Vault 계정은 다음과 같은 이벤트 유형을 생성합니다.
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | ---------- | ----------- |---|
 | `id` | 문자열 | 이 이벤트를 트리거한 개체의 ID |
-| `vaultName` | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름 |
-| `objectType` | 문자열 | 이 이벤트를 트리거한 개체 유형 |
-| `objectName` | 문자열 | 이 이벤트를 트리거한 개체의 이름 |
-| `version` | 문자열 | 이 이벤트를 트리거한 개체의 버전 |
-| `nbf` | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 경과되지 않은 날짜(초) |
-| `exp` | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 만료 날짜(초) |
+| `VaultName` | 문자열 | 이 이벤트를 트리거한 개체의 키 자격 증명 모음 이름 |
+| `ObjectType` | 문자열 | 이 이벤트를 트리거한 개체 유형 |
+| `ObjectName` | 문자열 | 이 이벤트를 트리거한 개체의 이름 |
+| `Version` | 문자열 | 이 이벤트를 트리거한 개체의 버전 |
+| `NBF` | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 경과되지 않은 날짜(초) |
+| `EXP` | number | 이 이벤트를 트리거한 개체의 1970-01-01T00:00:00Z 이후 만료 날짜(초) |
 
 ## <a name="tutorials-and-how-tos"></a>자습서 및 방법
 |제목  |설명  |

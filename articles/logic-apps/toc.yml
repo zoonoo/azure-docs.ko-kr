@@ -244,7 +244,7 @@
           href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
         - name: Azure Event Hubs
           href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure 기능
+        - name: Azure Functions
           href: logic-apps-azure-functions.md
         - name: Azure Logic Apps
           href: logic-apps-http-endpoint.md
@@ -332,8 +332,6 @@
           href: logic-apps-enterprise-integration-transform.md
         - name: Twilio
           href: ../connectors/connectors-create-api-twilio.md
-        - name: Wunderlist
-          href: ../connectors/connectors-create-api-wunderlist.md
         - name: X12
           href: logic-apps-enterprise-integration-x12.md
         - name: XML 유효성 검사

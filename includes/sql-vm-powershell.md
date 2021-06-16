@@ -4,12 +4,13 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: mikeray
-ms.openlocfilehash: 27da28073b01c6bc43868172d6c989d9518d8f53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 998f771efe9bf1dac34a083f71f78c1dba36c385
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "95556909"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110721249"
 ---
 ## <a name="start-your-powershell-session"></a>PowerShell 세션 시작
  

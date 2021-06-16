@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f5fa4ad357e937fed7df5be24a1fc78409a0259b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12337e9c6d42ee140367c26cd160fd0a5fd595d3
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100516399"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902306"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
 
@@ -35,7 +35,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 스토리지 계정을 만듭니다. 이 자습서에서는 `contosoorders`라는 스토리지 계정을 사용합니다. 사용자 계정에 [Storage Blob 데이터 기여자 역할](../common/storage-auth-aad-rbac-portal.md)이 할당되었는지 확인합니다.
+* 계층 구조 네임스페이스(Azure Data Lake Storage Gen2)가 있는 스토리지 계정을 만듭니다. 이 자습서에서는 `contosoorders`라는 스토리지 계정을 사용합니다. 사용자 계정에 [Storage Blob 데이터 기여자 역할](assign-azure-role-data-access.md)이 할당되었는지 확인합니다.
 
    [Data Lake Storage Gen2에서 사용할 스토리지 계정 만들기](create-data-lake-storage-account.md)를 참조하세요.
 

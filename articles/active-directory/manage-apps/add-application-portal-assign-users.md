@@ -2,20 +2,20 @@
 title: '빠른 시작: Azure Active Directory를 ID 공급자로 사용하는 앱에 사용자 할당'
 description: 이 빠른 시작에서는 Azure AD를 ID 공급자로 사용하도록 설정한 앱을 사용자가 사용할 수 있도록 허용하는 프로세스를 안내합니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
-ms.author: iangithinji
-ms.openlocfilehash: eb6797fdfb57a503b6dece9f2dfdc3cb0c67feef
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.author: mtillman
+ms.openlocfilehash: a6f320c83d2baf179f4aaf4358f13ad4af2f4953
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375341"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081824"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>빠른 시작: Azure AD를 ID 공급자로 사용하는 앱에 사용자 할당
 

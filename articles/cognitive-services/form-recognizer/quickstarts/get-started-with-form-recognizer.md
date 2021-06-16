@@ -4,19 +4,19 @@ titleSuffix: Azure Applied AI Services
 description: 이 빠른 시작에서는 Form Recognizer 샘플 레이블 지정 도구를 사용하여 레이블을 양식 문서에 수동으로 지정합니다. 그런 다음, 레이블이 지정된 문서를 사용하여 사용자 지정 문서 처리 모델을 학습시키고, 모델을 사용하여 키/값 쌍을 추출합니다.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/14/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: 문서 처리
-ms.openlocfilehash: af803b92945be059f604a3890a90d3aa36e5781e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: b30dbd58e0a9c440f51386052529850d9ce9adc4
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110475156"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894077"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -148,11 +148,11 @@ Form Recognizer의 미리 빌드된 모델을 사용하여 청구서, 판매 영
 * **보안 토큰** - 일부 프로젝트 설정에는 API 키 또는 다른 공유 비밀과 같은 중요한 값이 포함될 수 있습니다. 각 프로젝트는 중요한 프로젝트 설정을 암호화/암호 해독하는 데 사용할 수 있는 보안 토큰을 생성합니다. 왼쪽 탐색 모음 아래쪽에 있는 기어 아이콘을 선택하여 [애플리케이션 설정]에서 보안 토큰을 찾을 수 있습니다.
 
 * **원본 연결** - 샘플 레이블 지정 도구는 원본(원래 업로드된 양식) 및 대상(만든 레이블 및 출력 데이터)에 연결됩니다. 프로젝트 간에 연결을 설정하고 공유할 수 있습니다. 확장 가능한 공급자 모델을 사용하므로 새 원본/대상 공급자를 쉽게 추가할 수 있습니다. 새 연결을 만들고 **연결 추가** 단추를 클릭합니다. 필드에서 다음 값을 입력합니다.
-   * **표시 이름** - 연결 표시 이름
-   * **설명** - 프로젝트 설명
-   * **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL
+  * **표시 이름** - 연결 표시 이름
+  * **설명** - 프로젝트 설명
+  * **SAS URL** - Azure Blob Storage 컨테이너의 SAS(공유 액세스 서명) URL
 
-   [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
+  * [!INCLUDE [get SAS URL](../includes/sas-instructions.md)]
 
    :::image type="content" source="../media/quickstarts/get-sas-url.png" alt-text="SAS 위치":::
 
@@ -217,13 +217,15 @@ Form Recognizer의 미리 빌드된 모델을 사용하여 청구서, 판매 영
 * **평균 정확도** - 모델의 평균 정확도입니다. 레이블을 추가 양식에 지정하고 새 모델을 만들기 위해 다시 학습시키면 모델 정확도를 향상시킬 수 있습니다. 먼저 결과를 분석하고 테스트하는 5개의 양식에 레이블을 지정한 후 필요하다면 그에 따라 양식을 더 추가하는 것이 좋습니다.
 * 태그 목록 및 태그당 예상 정확도
 
-    :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="학습 보기.":::
+    :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="학습 보기 도구":::
+
+    
 
 #### <a name="analyze-a-custom-form"></a>사용자 지정 양식 분석
 
 왼쪽에 있는 분석(전구) 아이콘을 선택하여 모델을 테스트합니다. 원본 '로컬 파일'을 선택합니다. 파일을 찾아 테스트 폴더에서 압축을 푼 샘플 데이터 세트에서 파일을 선택합니다. 그런 다음 **분석 실행** 단추를 선택하여 양식의 키/값 쌍, 텍스트 및 테이블 예측을 가져옵니다. 이 도구는 태그를 경계 상자에 적용하고, 각 태그의 신뢰도를 보고합니다.
 
-:::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="학습 보기 도구":::
+   :::image type="content" source="../media/label-tool/custom-2.jpg" alt-text="학습 보기.":::
 
 ## <a name="next-steps"></a>다음 단계
 

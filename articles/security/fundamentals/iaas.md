@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 6f073777930b4d026d826d2c3586e0886f906206
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3099ff7525e07a2361a63382eea0d3dc6e689ee7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102503082"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956844"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -43,7 +43,7 @@ VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정�
 조직에 구독이 많은 경우 해당 구독에 대한 액세스, 정책 및 규정 준수를 효율적으로 관리하는 방법이 필요할 수 있습니다. [Azure 관리 그룹](../../governance/management-groups/overview.md)은 구독 상위 수준의 범위를 제공합니다. 관리 그룹(컨테이너)에 구독을 구성하고 거버넌스 조건을 해당 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 그룹에 적용되는 조건을 자동으로 상속합니다. 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.
 
 **모범 사례**: VM 설정 및 배포에서 가변성 감소   
-**세부 정보**: [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) 템플릿을 사용하여 배포 선택을 강화하고 사용자 환경에서 VM을 쉽게 이해하고 목록을 만듭니다.
+**세부 정보**: [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) 템플릿을 사용하여 배포 선택을 강화하고 사용자 환경에서 VM을 쉽게 이해하고 목록을 만듭니다.
 
 **모범 사례**: 권한 있는 액세스 보호   
 **세부 정보**: [최소 권한 접근 방식](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) 및 기본 제공 Azure 역할을 사용하여 사용자가 VM에 액세스하고 VM을 설정할 수 있도록 합니다.
@@ -99,7 +99,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 **세부 정보**: 모든 배포의 첫 번째 단계로 모든 Windows 업데이트 확인 및 설치 이 측정값은 사용자 또는 사용자의 고유한 라이브러리에서 제공되는 이미지를 배포할 때 적용하는 것이 특히 중요합니다. Azure Marketplace의 이미지가 기본적으로 자동으로 업데이트되지만 공용 릴리스 이후 최대 몇 주 동안 지연 시간이 발생할 수 있습니다.
 
 **모범 사례**: OS의 새 버전을 강제로 적용하기 위해 주기적으로 VM 다시 배포   
-**세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
+**세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
 **모범 사례**: VM에 보안 업데이트를 신속하게 적용합니다.   
 **세부 정보**: Azure Security Center(무료 계층 또는 표준 계층)를 사용하여 [누락된 보안 업데이트를 식별하고 적용](../../security-center/asset-inventory.md)합니다.

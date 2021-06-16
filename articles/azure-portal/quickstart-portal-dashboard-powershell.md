@@ -4,12 +4,12 @@ description: Azure Portal에서 Azure PowerShell을 사용하여 대시보드를
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 03/25/2021
-ms.openlocfilehash: cd001a8259c54f1d86aab5983da1413c8163008c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7828dd6ba43cebeef158e897dd8f2a5fb54d8d83
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557448"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077739"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Portal 대시보드 만들기
 
@@ -77,7 +77,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 이 빠른 시작의 다음 부분에서 만드는 대시보드에는 기존 VM이 필요합니다. 다음 단계에 따라 VM을 만듭니다.
 
-VM의 로그인 자격 증명을 변수에 저장합니다. 암호는 복잡해야 합니다. 새 사용자 이름 및 암호입니다. 예를 들어 Azure에 로그인하는 데 사용하는 계정이 아닙니다. 자세한 내용은 [사용자 이름 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) 및 [암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 참조하세요.
+VM의 로그인 자격 증명을 변수에 저장합니다. 암호는 복잡해야 합니다. 새 사용자 이름 및 암호입니다. 예를 들어 Azure에 로그인하는 데 사용하는 계정이 아닙니다. 자세한 내용은 [사용자 이름 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) 및 [암호 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 참조하세요.
 
 ```azurepowershell-interactive
 $Cred = Get-Credential

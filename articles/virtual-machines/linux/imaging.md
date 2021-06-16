@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a77c2bc69418b821933c0b62674500f7a32e40a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 048afc8997f4e2b3f1d9a9cf6aea67be63c659ee
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565209"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027146"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Azure에서 Linux 이미지 가져오기 및 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "102565209"
 ## <a name="difference-between-managed-disks-and-images"></a>관리 디스크와 이미지의 차이점
 
 
-Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](../faq-for-disks.md#managed-disks)로 사용하거나, 이미지의 원본으로 사용할 수 있습니다. 
+Azure를 통해 VHD를 플랫폼으로 가져오거나, [Managed Disk](/azure/virtual-machines/faq-for-disks#managed-disks)로 사용하거나, 이미지의 원본으로 사용할 수 있습니다. 
 
 Azure 관리 디스크는 단일 VHD입니다. 기존 VHD를 가져와서 관리 디스크를 만들거나 처음부터 빈 관리 디스크를 만들 수 있습니다. 디스크를 VM에 연결하여 관리 디스크에서 VM을 만들 수 있지만 VHD는 하나의 VM에서만 사용할 수 있습니다. OS 속성은 수정할 수 없습니다. Azure는 VM을 켜고 해당 디스크를 사용하여 시작하려고 합니다. 
 

@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 43c39c40af6e02861211a8666fefa57c34072f32
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c43cc081316a26065143640a29cebdb90177ebc7
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905199"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031640"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 조정 검토, 워크플로 및 작업
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Content Moderator는 머신 지원 조정과 휴먼 참여형 기능을 결합하여 실제 시나리오에 대한 최적의 조정 프로세스를 만듭니다. 클라우드 기반의 [검토 도구](https://contentmoderator.cognitive.microsoft.com)를 통해 이를 수행합니다. 이 가이드에서는 검토 도구의 핵심 개념에 대해 알아봅니다(검토, 워크플로 및 작업).
 

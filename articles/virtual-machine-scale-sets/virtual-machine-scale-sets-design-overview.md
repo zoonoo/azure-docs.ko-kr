@@ -9,12 +9,12 @@ ms.service: virtual-machine-scale-sets
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 5d6886b6a199de39af8b94e5e3825e774d8f0b93
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6541f1a54391ca4dd991ff9ae2299cd9e337cc7b
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740270"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985935"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](./overview.md)를 참조하세요.
@@ -65,5 +65,3 @@ Marketplace 이미지에 구축되고(플랫폼 이미지라고도 함) Azure Ma
 사용자 관리 스토리지 계정으로 구성된 확장 집합은 현재 100개의 VM으로 제한되어 있습니다(5개의 스토리지 계정이 이 규모에 권장됨).
 
 사용자 지정 이미지에 구축된 확장 집합은 Azure Managed Disks로 구성된 경우 최대 600개의 VM 용량을 가질 수 있습니다. 확장 집합이 사용자 관리 스토리지 계정으로 구성된 경우 하나의 스토리지 계정 내에서 모든 OS 디스크 VHD를 만들어야 합니다. 그 결과 사용자 지정 이미지 및 사용자 관리 스토리지에 구축하는 확장 집합의 최대 추천 VM 수는 20개입니다. 오버프로비전을 해제할 경우 40개를 초과할 수 있습니다.
-
-이러한 한도보다 더 많은 VM이 있는 경우 [이 템플릿](https://azure.microsoft.com/resources/templates/301-custom-images-at-scale/)에 나오는 것처럼 여러 확장 집합을 배포해야 합니다.

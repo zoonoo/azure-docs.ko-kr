@@ -2,21 +2,21 @@
 title: Azure Active Directory의 애플리케이션 관리란?
 description: 클라우드 및 온-프레미스 애플리케이션에 대한 IAM(ID 및 액세스 관리) 시스템으로 Azure AD(Active Directory)를 사용하는 개요입니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 4a880fadb91daa34688e3876ba665d97659db015
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 31bfbe1405e1180f8909333da8947d72d68dd7db
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320856"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079358"
 ---
 # <a name="what-is-application-management"></a>애플리케이션 관리란?
 

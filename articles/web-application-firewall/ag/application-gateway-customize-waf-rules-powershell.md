@@ -8,12 +8,13 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0e2bdb2996c0d6f437cfc7c3e933f1ecfc095895
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74048517"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668732"
 ---
 # <a name="customize-web-application-firewall-rules-using-powershell"></a>PowerShell을 사용하여 Web Application Firewall 규칙 사용자 지정
 

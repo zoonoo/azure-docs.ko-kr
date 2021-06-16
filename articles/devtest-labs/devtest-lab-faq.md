@@ -3,12 +3,13 @@ title: Azure DevTest Labs FAQ | Microsoft 문서
 description: 이 문서에서는 Azure DevTest Labs에 대한 FAQ(질문과 대답)를 제공합니다.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6abc2b0b950521d5ce7d4974c3535c5fbd64fba1
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 31106eb69e118e6f68fbb1a0eecfe4301839ee88
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108139006"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004244"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.
@@ -134,7 +135,7 @@ $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 ## <a name="lab-configuration"></a>랩 구성
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Resource Manager 템플릿에서 어떻게 랩을 만듭니까?
-있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 GitHub 리포지토리](https://azure.microsoft.com/resources/templates/101-dtl-create-lab)를 제공합니다. 각 템플릿에는 사용자의 Azure 구독에 있는 것처럼 랩을 배포하는 링크가 있습니다. 또는 템플릿을 사용자 지정하고 [PowerShell 또는 Azure CLI를 사용하여 배포](../azure-resource-manager/templates/deploy-powershell.md)할 수 있습니다.
+있는 그대로 배포하거나 랩에 대한 사용자 지정 템플릿을 만들기 위해 수정할 수 있는 [랩 Azure Resource Manager 템플릿의 GitHub 리포지토리](https://azure.microsoft.com/resources/templates/dtl-create-lab)를 제공합니다. 각 템플릿에는 사용자의 Azure 구독에 있는 것처럼 랩을 배포하는 링크가 있습니다. 또는 템플릿을 사용자 지정하고 [PowerShell 또는 Azure CLI를 사용하여 배포](../azure-resource-manager/templates/deploy-powershell.md)할 수 있습니다.
 
 
 ### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>각 머신을 자체 리소스 그룹에 두는 대신 공용 리소스 그룹에서 모든 가상 머신을 만들 수 있나요?

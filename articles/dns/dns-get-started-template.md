@@ -5,18 +5,16 @@ description: Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아
 services: dns
 author: duongau
 ms.author: duau
-ms.date: 09/8/2020
+ms.date: 6/2/2021
 ms.topic: quickstart
 ms.service: dns
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 3ec97385d9774b93c04ebc4b8c5885d7effbbcd0
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 4b025f9073497a718f5ab47144794e84b57b1b5b
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107949455"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568538"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>ARM 템플릿을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -34,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/azure-dns-new-zone)에서 나온 것입니다.
 
 이 빠른 시작에서는 `azurequickstart.org` 접미사를 사용하여 고유한 DNS 영역을 만듭니다. 두 개의 IP 주소를 가리키는 `A` 레코드도 영역에 배치됩니다.
 

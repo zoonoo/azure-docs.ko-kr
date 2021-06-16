@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-ms.openlocfilehash: 12a6ae76b1eb4dced661b811d8f6e9030f74b4f1
-ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
+ms.openlocfilehash: 584f108ea534b8703b941d91b7d03b6275ea6134
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108795729"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958352"
 ---
 # <a name="integrate-azure-data-explorer-for-long-term-log-retention"></a>장기 로그 보존 시 Azure Data Explorer 통합
 
@@ -39,7 +39,7 @@ Azure Sentinel은 전체 SIEM/SOAR 기능, 신속한 배포/구성뿐만 아니�
 
 정기적인 조사나 감사와 같이 특정 테이블에만 액세스해야 하는 경우 Azure Sentinel에 데이터를 유지하는 것이 더 이상 비용 효율적이지 않다고 생각할 수 있습니다. 이때에는 비용이 절감되는 Azure Data Explorer에 데이터를 저장하는 것이 좋지만, Azure Sentinel에서 실행하는 것과 동일한 KQL 쿼리를 사용하여 계속 탐색할 수 있습니다.
 
-[Log Analytics Azure Data Explorer 프록시 기능](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy)을 사용하여 Azure Sentinel에서 직접 Azure Data Explorer의 데이터에 액세스할 수 있습니다. 이렇게 하려면 로그 검색 또는 통합 문서에서 클러스터 간 쿼리를 사용합니다.
+[Log Analytics Azure Data Explorer 프록시 기능](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md)을 사용하여 Azure Sentinel에서 직접 Azure Data Explorer의 데이터에 액세스할 수 있습니다. 이렇게 하려면 로그 검색 또는 통합 문서에서 클러스터 간 쿼리를 사용합니다.
 
 > [!IMPORTANT]
 > 분석 규칙, UEBA 및 조사 그래프 등의 핵심 SIEM 기능은 Azure Data Explorer에 저장된 데이터를 지원하지 않습니다.
@@ -55,7 +55,7 @@ Azure Sentinel은 전체 SIEM/SOAR 기능, 신속한 배포/구성뿐만 아니�
 또한 *보안 값에 상관없이* 모든 데이터를 동시에 Azure Data Explorer로 전송하여 더 오래 저장할 수 있도록 구성할 수 있습니다. Azure Sentinel과 Azure Data Explorer로 동시에 데이터를 보내면 일부 중복이 발생하지만 Azure Sentinel에서 보존 비용을 줄이면 비용을 크게 절감할 수 있습니다.
 
 > [!TIP]
-> 또한 이 옵션을 사용하면 Azure Data Explorer에 저장된 운영 또는 장기 데이터로 Azure Sentinel에 저장된 보안 데이터를 보강하는 등 데이터 저장소에 분산된 데이터를 상호 연결할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 Azure Data Explorer 리소스 간 쿼리](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy)를 참조하세요.
+> 또한 이 옵션을 사용하면 Azure Data Explorer에 저장된 운영 또는 장기 데이터로 Azure Sentinel에 저장된 보안 데이터를 보강하는 등 데이터 저장소에 분산된 데이터를 상호 연결할 수 있습니다. 자세한 내용은 [Azure Monitor를 사용하여 Azure Data Explorer 리소스 간 쿼리](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md)를 참조하세요.
 >
 
 다음 이미지는 Azure Sentinel에 매일 사용하기 위한 보안 데이터만 보내면서 Azure Data Explorer에 모든 데이터를 유지하는 방법을 보여 줍니다.
@@ -82,7 +82,7 @@ Azure Data Explorer에 직접 데이터를 전송하는 대신, Azure Event Hub 
 |---------|---------|
 |**내보낸 데이터의 범위**     |  특정 테이블에 대한 내보내기를 구성하면 예외 없이 해당 테이블로 전송된 모든 데이터가 내보내집니다. 필터링된 데이터 하위 집합을 내보내거나, 특정 이벤트로 내보내기를 제한하는 기능은 지원되지 않습니다.       |
 |**위치 요구 사항**     |   Azure Monitor/Azure Sentinel 작업 영역과 대상 위치(Azure Storage 계정 또는 Event Hub)는 모두 동일한 지리적 지역에 있어야 합니다.      |
-|**지원되는 테이블**     | 지원되지 않는 사용자 지정 테이블과 같이 모든 테이블이 내보내기에 지원되는 것은 아닙니다. <br><br>자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](/azure/azure-monitor/logs/logs-data-export) 및 [지원되는 테이블 목록](/azure/azure-monitor/logs/logs-data-export#supported-tables)을 참조하세요.         |
+|**지원되는 테이블**     | 지원되지 않는 사용자 지정 테이블과 같이 모든 테이블이 내보내기에 지원되는 것은 아닙니다. <br><br>자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](../azure-monitor/logs/logs-data-export.md) 및 [지원되는 테이블 목록](../azure-monitor/logs/logs-data-export.md#supported-tables)을 참조하세요.         |
 |     |         |
 
 ### <a name="data-export-methods-and-procedures"></a>데이터 내보내기 방법 및 프로시저
@@ -104,9 +104,9 @@ Azure Data Explorer에 직접 데이터를 전송하는 대신, Azure Event Hub 
 이전 이미지에 표시된 아키텍처에서는 *X* 개월마다 자주 액세스해야 하는 데이터에 대한 인시던트 관리, 시각적 조사, 위협 헌팅, 고급 시각화, UEBA 등 전체 Azure Sentinel SIEM 환경을 제공합니다. 이와 동시에 이 아키텍처를 사용하면 Azure Data Explorer에서 직접 액세스하거나 Azure Data Explorer 프록시 기능을 이용하여 Azure Sentinel을 통해 장기 데이터를 쿼리할 수도 있습니다. Azure Data Explorer의 장기 데이터 스토리지에 대한 쿼리는 Azure Sentinel에서 Azure Data Explorer로 변경하지 않고도 이식할 수 있습니다.
 
 > [!NOTE]
-> Event Hub를 통해 Azure Data Explorer로 여러 데이터 테이블을 내보낼 때 Log Analytics 데이터 내보내기에는 네임 스페이스당 최대 Event Hubs 수에 대한 제한이 있습니다. 데이터 내보내기에 대한 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](/azure/azure-monitor/logs/logs-data-export?tabs=portal)를 참조하세요.
+> Event Hub를 통해 Azure Data Explorer로 여러 데이터 테이블을 내보낼 때 Log Analytics 데이터 내보내기에는 네임 스페이스당 최대 Event Hubs 수에 대한 제한이 있습니다. 데이터 내보내기에 대한 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](../azure-monitor/logs/logs-data-export.md?tabs=portal)를 참조하세요.
 >
-> 대부분의 고객은 Event Hub 표준 계층을 사용하는 것이 좋습니다. 내보내야 하는 테이블의 양과 해당 테이블에 대한 트래픽의 양에 따라 Event Hub 전용 계층을 사용해야 할 수도 있습니다. 자세한 내용은 [Event Hub 설명서](/azure/event-hubs/event-hubs-quotas)를 참조하세요.
+> 대부분의 고객은 Event Hub 표준 계층을 사용하는 것이 좋습니다. 내보내야 하는 테이블의 양과 해당 테이블에 대한 트래픽의 양에 따라 Event Hub 전용 계층을 사용해야 할 수도 있습니다. 자세한 내용은 [Event Hub 설명서](../event-hubs/event-hubs-quotas.md)를 참조하세요.
 >
 
 > [!TIP]
@@ -115,7 +115,7 @@ Azure Data Explorer에 직접 데이터를 전송하는 대신, Azure Event Hub 
 
 **Event Hub를 통해 Azure Data Explorer로 데이터를 내보내려면** 다음을 수행 합니다.
 
-1. **Event Hub로 Log Analytics 데이터 내보내기를 구성** 합니다. 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](/azure/azure-monitor/platform/logs-data-export)를 참조하세요.
+1. **Event Hub로 Log Analytics 데이터 내보내기를 구성** 합니다. 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](../azure-monitor/logs/logs-data-export.md)를 참조하세요.
 
 1. **Azure Data Explorer 클러스터 및 데이터베이스 만들기**. 자세한 내용은 다음을 참조하세요.
 
@@ -171,7 +171,7 @@ Azure Storage 및 Azure Data Factory를 사용하면 Azure Sentinel/Log Analytic
 
 **Azure Storage 및 Azure Data Factory를 통해 Azure Data Explorer로 데이터를 내보내려면** 다음을 수행합니다.
 
-1. **Event Hub로 Log Analytics 데이터 내보내기를 구성** 합니다. 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](/azure/azure-monitor/logs/logs-data-export?tabs=portal#enable-data-export)를 참조하세요.
+1. **Event Hub로 Log Analytics 데이터 내보내기를 구성** 합니다. 자세한 내용은 [Azure Monitor에서 Log Analytics 작업 영역 데이터 내보내기](../azure-monitor/logs/logs-data-export.md?tabs=portal#enable-data-export)를 참조하세요.
 
 1. **Azure Data Explorer 클러스터 및 데이터베이스 만들기**. 자세한 내용은 다음을 참조하세요.
 
