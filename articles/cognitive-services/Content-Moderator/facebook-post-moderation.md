@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
-ms.openlocfilehash: f3b43ed6a86276b308599f9091d581423b0f363c
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 58de8de28b796d67f9368224ced24c9c592cfdb6
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220993"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033818"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 이 자습서에서는 Azure Content Moderator를 사용하여 Facebook 페이지의 게시물 및 의견을 조정하는 방법을 알아봅니다. Facebook은 방문자가 게시한 콘텐츠를 Content Moderator 서비스로 보냅니다. 그러면 콘텐츠 점수 및 임계값에 따라 Content Moderator 워크플로에서 콘텐츠를 게시하거나 검토 도구 내에서 검토를 만듭니다. 이 시나리오의 작업 예제를 보려면 [Build 2017 데모 비디오](https://channel9.msdn.com/Events/Build/2017/T6033)를 참조하세요.
 

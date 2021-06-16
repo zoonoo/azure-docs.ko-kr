@@ -299,7 +299,7 @@
       items:
         - name: 클러스터 메트릭 보기
           href: view-metrics.md
-        - name: 컨테이너용 Azure Monitor
+        - name: 컨테이너 인사이트
           href: ../azure-monitor/containers/container-insights-overview.md
           maintainContext: true
         - name: 컨트롤 플레인 구성 요소 로그 보기
