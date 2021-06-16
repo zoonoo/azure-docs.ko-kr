@@ -4,12 +4,12 @@ description: 실패한 배포가 성공적인 배포로 롤백되도록 지정�
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7a0c4deef5956804aa74ad24f072bc46e5c2a8cd
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d66df9cafdb64c216896a66b3283277930a63ed0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108321504"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960059"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>오류 발생 시 성공적인 배포로 롤백
 
@@ -126,4 +126,4 @@ az deployment group create \
 ## <a name="next-steps"></a>다음 단계
 
 - 전체 모드 및 증분 모드를 이해하려면 [Azure Resource Manager 배포 모드](deployment-modes.md)를 참조하세요.
-- 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+- 템플릿에서 매개 변수를 정의하는 방법을 이해하려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.

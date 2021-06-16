@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: e4d26856d269a07ce87b22843c61be97b73bbea3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a889f0b740d506bd546f1fb67f050317146c31e8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137259"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677894"
 ---
 # <a name="tutorial-configure-the-opc-publisher"></a>자습서: OPC 게시자 구성
 
@@ -85,7 +85,7 @@ OPC 게시자의 전역 설정을 지정하는 데 사용할 수 있는 몇 가�
 ## <a name="configuration-via-the-built-in-opc-ua-server-interface"></a>기본 제공 OPC UA 서버 인터페이스를 통한 구성
 
 >[!NOTE] 
-> 이 기능은 OPC 게시자 버전 2.5 이하에서만 사용할 수 있습니다.**
+> 이 기능은 OPC 게시자 버전 2.5 이하에서만 사용할 수 있습니다.
 
 OPC 게시자에는 62222 포트에서 실행되는 기본 제공 OPC UA 서버가 있습니다. 다음 세 가지 OPC UA 메서드를 구현합니다.
 
@@ -98,7 +98,7 @@ OPC 게시자에는 62222 포트에서 실행되는 기본 제공 OPC UA 서버�
 ## <a name="configuration-via-iot-hub-direct-methods"></a>IoT Hub 직접 메서드를 통한 구성
 
 >[!NOTE] 
-> 이 기능은 OPC 게시자 버전 2.5 이하에서만 사용할 수 있습니다.**
+> 이 기능은 OPC 게시자 버전 2.5 이하에서만 사용할 수 있습니다.
 
 OPC 게시자는 다음과 같은 [IoT Hub 직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)를 구현하며, 이는 [IoT Hub 디바이스 SDK](../iot-hub/iot-hub-devguide-sdks.md)를 활용하여 전 세계 어디서나 애플리케이션에서 호출할 수 있습니다.
 

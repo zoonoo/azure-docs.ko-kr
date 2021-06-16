@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2636b4ee53784d1cc79002430774d0bb5c5c2aa5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100008131"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966242"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 외부 공유 및 Azure Active Directory(Azure AD) B2B 협업
 
@@ -45,7 +45,7 @@ Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure AD B2B 협업이란?](what-is-b2b.md)
-* [역할에 B2B 협업 사용자 추가](add-guest-to-role.md)
+* [역할에 B2B 협업 사용자 추가](./add-users-administrator.md)
 * [B2B 협업 초대 위임](delegate-invitations.md)
 * [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
 * [Azure Active Directory B2B 협업 문제 해결](troubleshoot.md)

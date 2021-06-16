@@ -5,19 +5,19 @@ metadata:
   title: Azure 몰입형 판독기 설명서
   description: 몰입형 판독기는 신흥 독자, 언어 학습자 및 학습 차이가 있는 사람들을 위해 독해력을 향상시키기 위해 입증된 기술을 구현하는 도구입니다. 몰입형 판독기 SDK를 사용하여 웹 애플리케이션에서 몰입형 판독기를 사용할 수 있습니다.
   services: service
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: immersive-reader
   ms.topic: landing-page
   ms.collection: collection
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: dff95a1989d8ff55658227cf135d3e2fc687ec0f
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 470efd48de825de8c6265270416736247d41c1c5
+  ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110377731"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111887963"
 landingContent:
 - title: 몰입형 판독기 정보
   linkLists:

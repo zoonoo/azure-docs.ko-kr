@@ -7,12 +7,12 @@ ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: bc6da168dca367b152d1de967b448d75139a2d56
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 92014d161d0ef70b163494b617545287c7e39818
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387669"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111855011"
 ---
 # <a name="quickstart-microsoft-azure-confidential-ledger-client-library-for-python"></a>빠른 시작: Python용 Microsoft Azure Confidential Ledger 클라이언트 라이브러리
 
@@ -24,7 +24,7 @@ Microsoft Azure Confidential Ledger는 중요한 데이터 레코드를 관리�
 
 [API 참조 설명서](/python/api/overview/azure/keyvault-secrets-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault-secrets/)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Python 3.6+](/azure/developer/python/configure-local-development-environment)
@@ -104,7 +104,7 @@ credential = DefaultAzureCredential()
 ```python
 resource_group = "myResourceGroup"
 ledger_name = "<your-unique-ledger-name>"
-subscription_id "<azure-subscription-id>"
+subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
@@ -219,7 +219,7 @@ from azure.confidentialledger.identity_service import ConfidentialLedgerIdentity
 
 rg = "myResourceGroup"
 ledger_name = "<unique-ledger-name>"
-subscription_id "<azure-subscription-id>"
+subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
 ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"

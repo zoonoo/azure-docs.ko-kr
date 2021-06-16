@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: b9b6589484c9512d7eb66d3f35dc5a1e7f2fc8c9
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 24fcb043845f3946c142a9e73ba0efd9df71932f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107952641"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960806"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -130,7 +130,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
         - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세한 정보](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - 또한 [스토리지 확장성 목표를 확인](../storage/common/scalability-targets-standard-account.md)할 수 있습니다.
-8. Linux 기반 서버를 사용하는 경우 앱에서 일관성을 사용하도록 설정했는지 확인합니다. [자세한 정보](/azure/site-recovery/site-recovery-faq#replication)
+8. Linux 기반 서버를 사용하는 경우 앱에서 일관성을 사용하도록 설정했는지 확인합니다. [자세한 정보](/azure/site-recovery/site-recovery-faq.yml#replication)
 9. [Deployment Planner](hyper-v-deployment-planner-run.md)를 실행합니다.
 10. [네트워크](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input)에 대한 권장 사항을 검토합니다.
 
@@ -147,7 +147,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
     - **Get-VMIntegrationService -VMName\<VMName>-Name VSS** 명령을 사용하여 Hyper-V 호스트의 관리자 권한 PowerShell 세션에서 이를 확인할 수 있습니다. 게스트 VM에 로그인하여 이 정보를 가져올 수도 있습니다. [자세히 알아보기](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
-### <a name="common-errors"></a>일반적인 오류
+### <a name="common-errors"></a>일반 오류
 
 **오류 코드** | **Message** | **세부 정보**
 --- | --- | ---

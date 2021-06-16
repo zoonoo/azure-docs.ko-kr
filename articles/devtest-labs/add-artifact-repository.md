@@ -3,12 +3,13 @@ title: Azure DevTest Labs의 랩에 아티팩트 리포지토리 추가 | Micros
 description: 공용 아티팩트 리포지토리에서 사용할 수 없는 도구를 저장할 Azure DevTest Labs의 랩에 대한 고유한 아티팩트 리포지토리를 지정하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0915254b5dbaabfc32a47b9b07713499a26c16a5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102502198"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954173"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>DevTest Labs의 랩에 아티팩트 리포지토리 추가
 DevTest Labs를 사용하면 VM을 만들 때 또는 VM이 만들어진 후 VM에 추가할 아티팩트를 지정할 수 있습니다. 이 아티팩트는 VM에 설치하려는 도구 또는 애플리케이션일 수 있습니다. 아티팩트는 GitHub 또는 Azure DevOps Git 리포지토리에서 로드된 JSON 파일에 정의됩니다.
@@ -74,7 +75,7 @@ DevTest Labs에서 유지 관리하는 [공용 아티팩트 리포지토리](htt
 6. **저장** 을 선택합니다.
 
 ## <a name="use-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
-Azure 리소스 관리(Azure Resource Manager) 템플릿은 만들려는 Azure의 리소스를 설명하는 JSON 파일입니다. 이러한 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/templates/template-syntax.md)를 참조하세요.
+Azure 리소스 관리(Azure Resource Manager) 템플릿은 만들려는 Azure의 리소스를 설명하는 JSON 파일입니다. 이러한 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성하기](../azure-resource-manager/templates/syntax.md)를 참조하세요.
 
 이 섹션에서는 Azure Resource Manager 템플릿을 사용하여 랩에 아티팩트 리포지토리를 추가하는 단계를 제공합니다.  랩이 아직 없으면 템플릿이 랩을 만듭니다.
 
@@ -293,7 +294,7 @@ $propertiesObject = @{
     status = 'Enabled'
 }
 
-Write-Verbose @"Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
+Write-Verbose "Properties to be passed to New-AzResource:$($propertiesObject | Out-String)"
 
 #Resource will be added to current subscription.
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'

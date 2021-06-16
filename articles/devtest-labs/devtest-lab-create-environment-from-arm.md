@@ -3,16 +3,16 @@ title: 템플릿을 사용하여 다중 VM 환경 및 PaaS 리소스 생성
 description: Azure Resource Manager 템플릿에서 Azure DevTest Labs에 다중 VM 환경 및 PaaS 리소스를 만드는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: f285acffe642a85fa27792ee51ea67a57f6d35a5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 839953bcf5f48dc856da0d01133e81ed69fd08cd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107790116"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954141"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
-Azure DevTest Labs 환경을 통해 사용자는 복잡한 인프라를 랩의 범위 내에서 일관된 방식으로 손쉽게 배포할 수 있습니다. [Azure Resource Manager 템플릿](../azure-resource-manager/templates/template-syntax.md)을 사용하여 DevTest Labs의 리소스 집합으로 환경을 생성할 수 있습니다. 이러한 환경에는 리소스 관리자 템플릿이 생성할 수 있는 모든 Azure 리소스가 포함될 수 있습니다.
+Azure DevTest Labs 환경을 통해 사용자는 복잡한 인프라를 랩의 범위 내에서 일관된 방식으로 손쉽게 배포할 수 있습니다. [Azure Resource Manager 템플릿](../azure-resource-manager/templates/syntax.md)을 사용하여 DevTest Labs의 리소스 집합으로 환경을 생성할 수 있습니다. 이러한 환경에는 리소스 관리자 템플릿이 생성할 수 있는 모든 Azure 리소스가 포함될 수 있습니다.
 
 [Azure Portal](https://portal.azure.com)을 사용하여 랩에 [가상 머신(VM)을 한 번에 하나씩](devtest-lab-add-vm.md) 쉽게 추가할 수 있습니다. 그러나 다중 계층 웹앱 애플리케이션이 또는 쉐어포인트 팜과 같은 시나리오에서는 여러 VM을 한 번에 생성할 수 있는 메커니즘이 필요합니다. Azure Resource Manager 템플릿을 사용하면 Azure 솔루션의 인프라 및 구성을 정의하고 여러 VM을 일관된 상태로 반복적으로 배포할 수 있습니다.
 

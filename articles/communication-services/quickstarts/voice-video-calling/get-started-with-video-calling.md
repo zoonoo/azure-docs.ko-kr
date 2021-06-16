@@ -4,33 +4,33 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 Azure Communication Services를 사용하여 앱에 영상 통화 기능을 추가하는 방법을 알아봅니다.
 author: xumo-95
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/01/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android-windows
-ms.openlocfilehash: ae763743bd4e3012e2f79df1dab0cad231939224
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 49ab4c48f6604855e08a76dfc414fbec95da27e9
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093564"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560711"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app"></a>빠른 시작: 1:1 영상 통화를 앱에 추가
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Video calling with JavaScript](./includes/video-calling-javascript.md)]
+[!INCLUDE [Video calling with JavaScript](./includes/video-calling/video-calling-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Video calling with Android](./includes/video-calling-android.md)]
+[!INCLUDE [Video calling with Android](./includes/video-calling/video-calling-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Video calling with iOS](./includes/video-calling-ios.md)]
+[!INCLUDE [Video calling with iOS](./includes/video-calling/video-calling-ios.md)]
 ::: zone-end
 
 ::: zone pivot="platform-windows"
-[!INCLUDE [Video calling with Windows](./includes/video-calling-windows.md)]
+[!INCLUDE [Video calling with Windows](./includes/video-calling/video-calling-windows.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>리소스 정리

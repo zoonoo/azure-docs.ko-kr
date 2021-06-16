@@ -5,20 +5,20 @@ description: Visual Studio Code를 사용하여 Azure에서 Azure SQL Database �
 keywords: SQL Database에 연결
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: connect
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 05/29/2020
-ms.openlocfilehash: f823b6d04a217328fe2e825e64906460cd9cbae9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d306fa3c2933b39c336c756bff86e1ad1bca5b7b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92672483"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704473"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>빠른 시작: Visual Studio Code를 사용하여 연결 및 쿼리를 참조하세요. 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

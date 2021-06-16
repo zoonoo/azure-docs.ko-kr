@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d5cd9c5d7f4a14a9a93e6984a8ef7367e5cbafc4
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 7a056d3a998be5d8edee71557c0333f4c5cb8fd9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055096"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082364"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 진단 문제
 
@@ -51,7 +51,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |---|---|
     |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
-    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
     |Resource group| **새로 만들기** 를 선택하고 **myResourceGroup** 을 입력합니다.|
     |위치| **미국 동부** 를 선택합니다.|

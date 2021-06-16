@@ -3,20 +3,20 @@ title: 'PowerShell: SQL 데이터 동기화의 동기화 스키마 업데이트'
 description: SQL 데이터 동기화에 대한 동기화 스키마를 업데이트하기 위한 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 7d346d1ff30c138667749822b258bab4c6a621f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8a9465561122cca4a6f91da5173ac319ad05e3c7
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792721"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691689"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

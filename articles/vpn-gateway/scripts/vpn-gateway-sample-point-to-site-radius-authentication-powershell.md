@@ -8,12 +8,13 @@ ms.service: vpn-gateway
 ms.topic: sample
 ms.date: 02/10/2021
 ms.author: alzam
-ms.openlocfilehash: 0a89ce2b73ca9da64f86c81ea00b1f46ea18f996
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ebb0b768c2b1b96085f1136c71ba1633ff208999
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100385815"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681524"
 ---
 # <a name="create-a-vpn-gateway-with-p2s-radius-authentication---powershell-script-sample"></a>P2S RADIUS 인증을 통해 VPN 게이트웨이 만들기 - PowerShell 스크립트 샘플
 

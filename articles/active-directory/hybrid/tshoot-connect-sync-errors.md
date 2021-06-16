@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976cd924644828f5861e4c54460a8b4e4f81444
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5fe6c04cf29a4c45436948eaea6fc8d0276ec16f
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643867"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895787"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -180,28 +180,6 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 
 #### <a name="related-articles"></a>관련 문서
 * [Microsoft 365 디렉터리 동기화를 통한 사용자 프로비전 준비](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
-
-### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
-#### <a name="description"></a>설명
-이 경우는 사용자의 UserPrincipalName 접미사가 한 페더레이션된 도메인에서 다른 페더레이션된 도메인으로 변경되었을 때 **“FederatedDomainChangeError”** 동기화 오류를 초래합니다.
-
-#### <a name="scenarios"></a>시나리오
-동기화된 사용자의 경우 UserPrincipalName 접미사가 하나의 페더레이션된 도메인에서 온-프레미스의 다른 페더레이션된 도메인으로 변경되었습니다. 예를 들어 *UserPrincipalName = bob\@contoso.com* 은 *UserPrincipalName = bob\@fabrikam.com* 으로 변경되었습니다.
-
-#### <a name="example"></a>예제
-1. Contoso.com 계정인 Bob Smith가 Active Directory에서 UserPrincipalName bob@contoso.com으로 새 사용자로 추가되었습니다.
-2. Bob은 Fabrikam.com이라는 Contoso.com의 다른 부서로 이동하고 UserPrincipalName이 bob@fabrikam.com으로 변경됩니다.
-3. Contoso.com과 fabrikam.com 도메인은 모두 Azure Active Directory와 페더레이션된 도메인입니다.
-4. Bob의 userPrincipalName이 업데이트되지 않아 “FederatedDomainChangeError” 동기화 오류가 발생합니다.
-
-#### <a name="how-to-fix"></a>수정 방법
-사용자의 UserPrincipalName 접미사가 bob@**contoso.com** 에서 bob\@**fabrikam.com** 으로 업데이트되었고 **contoso.com** 과 **fabrikam.com** 이 모두 **페더레이션된 도메인** 이면 다음 단계에 따라 동기화 오류를 수정합니다.
-
-1. Azure AD에 있는 사용자의 UserPrincipalName을 bob@contoso.com에서 bob@contoso.onmicrosoft.com으로 업데이트합니다. 다음 PowerShell 명령을 Azure AD PowerShell 모듈과 함께 사용할 수 있습니다. `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
-2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
-
-#### <a name="related-articles"></a>관련 문서
-* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](./howto-troubleshoot-upn-changes.md)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>설명

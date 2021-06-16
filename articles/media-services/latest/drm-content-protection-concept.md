@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 84d3fd31f3da047b263a3e3a46761dfc4538e499
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 014084862f5dab95ee859315c52983cbcd96e678
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279547"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793444"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용하여 콘텐츠 보호
 
@@ -52,7 +52,7 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
 
 ### <a name="media-services-code"></a>Media Services 코드
   
-[DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에서는 .NET을 사용하여 Media Services v3으로 다중 DRM 시스템을 구현하는 방법을 보여줍니다. Media Services 라이선스/키 전송 서비스를 사용하는 방법도 보여줍니다.
+[DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs)에서는 .NET을 사용하여 Media Services v3으로 다중 DRM 시스템을 구현하는 방법을 보여줍니다. Media Services 라이선스/키 전송 서비스를 사용하는 방법도 보여줍니다.
   
 여러 암호화 유형(AES-128, PlayReady, Widevine, FairPlay)을 사용하여 각 자산을 암호화할 수 있습니다. 결합에 적합한 것을 확인하려면 [스트리밍 프로토콜 및 암호화 유형](#streaming-protocols-and-encryption-types)을 참조합니다.
 
@@ -160,7 +160,7 @@ MPEG-DASH 프로토콜은 다음과 같은 컨테이너 형식과 암호화 스�
 |fMP4 | PIFF 1.1(PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
-> PIFF 1.1 지원은 Common Encryption의 초기 "Silverlight" 버전을 구현한 Smart TV(Samsung, LG)의 이전 버전과 호환되는 솔루션으로 제공됩니다. PlayReady 암호화의 PIFF 1.1 버전을 지원하는 2009-2015년 사이에 출시된 기존 삼성 또는 LG 스마트 TV를 지원하는 데 필요한 경우에만 PIFF 형식을 사용하는 것이 좋습니다. 
+> PIFF 1.1 지원은 Common Encryption의 초기 "Silverlight"버전을 구현한 Smart TV (Samsung, LG)의 이전 버전과 호환되는 솔루션으로 제공됩니다. PlayReady 암호화의 PIFF 1.1 버전을 지원하는 2009-2015년 사이에 출시된 기존 삼성 또는 LG 스마트 TV를 지원하는 데 필요한 경우에만 PIFF 형식을 사용하는 것이 좋습니다. 
 
 ### <a name="browsers"></a>브라우저
 
@@ -191,7 +191,7 @@ Azure AD를 STS로 사용하거나 [사용자 지정 STS](#using-a-custom-sts)�
 
 ### <a name="token-replay-prevention"></a>토큰 재생 방지
 
-Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토큰을 사용하여 키 또는 라이선스를 요청하는 횟수에 대한 제한을 설정할 수 있습니다. 고객은 토큰에 `urn:microsoft:azure:mediaservices:maxuses` 형식의 클레임을 추가할 수 있습니다. 여기서 값은 토큰을 사용하여 라이선스 또는 키를 획득할 수 있는 횟수입니다. 키 전송에 같은 토큰을 사용하는 모든 후속 요청은 권한 없음 응답을 반환합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)에서 클레임을 추가하는 방법을 참조하세요.
+Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토큰을 사용하여 키 또는 라이선스를 요청하는 횟수에 대한 제한을 설정할 수 있습니다. 고객은 토큰에 `urn:microsoft:azure:mediaservices:maxuses` 형식의 클레임을 추가할 수 있습니다. 여기서 값은 토큰을 사용하여 라이선스 또는 키를 획득할 수 있는 횟수입니다. 키 전송에 같은 토큰을 사용하는 모든 후속 요청은 권한 없음 응답을 반환합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L591)에서 클레임을 추가하는 방법을 참조하세요.
  
 #### <a name="considerations"></a>고려 사항
 
@@ -243,7 +243,7 @@ Media Services 고객은 *토큰 재생 방지* 기능을 통해 동일한 토�
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 같으며 Widevine에만 해당합니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 같으며 FairPlay에만 해당합니다.  
 
-예:
+예를 들면 다음과 같습니다.
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";

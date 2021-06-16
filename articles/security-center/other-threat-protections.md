@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 04/29/2021
 ms.author: memildin
-ms.openlocfilehash: cd9c2d5547c3b5e9468432539c2b07d18f6fd3ab
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8549734a643c97771681f2e90a1dad2e2c7ed7a3
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110459913"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749150"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Azure Security Center의 추가 위협 방지
 또한 Azure Security Center는 기본 제공 [Azure Defender 보호](azure-defender.md)뿐만 아니라 다음과 같은 위협 방지 기능도 제공합니다.
@@ -35,7 +35,7 @@ Azure 네트워크 계층 경고 목록은 [경고 참조 표](alerts-reference.
 >
 > 1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
 > 1. 변경하려는 구독을 선택합니다.
-> 1. **위협 탐지** 를 선택합니다.
+> 1. **통합** 을 선택합니다.
 > 1. **Microsoft Cloud App Security에서 내 데이터에 액세스하도록 허용합니다.** 를 선택 취소한 다음, **저장** 을 선택합니다.
 
 

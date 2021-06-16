@@ -3,12 +3,12 @@ title: 변수의 여러 인스턴스 정의
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 복사 작업을 사용하여 변수를 만들 때 여러 번 반복합니다.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: e1f6dfeb7b701b09ad1a9505d5dbcfddf2cd6b0b
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5f6459335fa3f059a76128edde4ee7096790fe13
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106385713"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957944"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>ARM 템플릿의 변수 반복
 
@@ -326,5 +326,5 @@ ms.locfileid: "106385713"
   - [ARM 템플릿의 리소스 반복](copy-resources.md)
   - [ARM 템플릿의 속성 반복](copy-properties.md)
   - [ARM 템플릿의 출력 반복](copy-outputs.md)
-- 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
-- 템플릿을 배포하는 방법을 알아보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.
+- 템플릿의 섹션에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
+- 템플릿을 배포하는 방법을 자세히 알아보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.

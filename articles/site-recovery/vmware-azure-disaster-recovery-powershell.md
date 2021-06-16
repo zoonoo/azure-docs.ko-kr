@@ -1,18 +1,19 @@
 ---
 title: Azure Site Revoery에서 PowerShell을 사용하여 VMware 재해 복구 설정
 description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM의 재해 복구를 위해 Azure로 복제 및 장애 조치(failover)를 설정하는 방법을 알아봅니다.
-author: sujayt
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
-ms.date: 01/10/2020
 ms.topic: conceptual
-ms.author: sutalasi
-ms.openlocfilehash: de25a3f9df04b09a7337dc889a688a171d98db28
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d7edf0df7818c380199c732336dbc796a6e5314d
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86129915"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690593"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 

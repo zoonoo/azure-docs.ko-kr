@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: ed12e470f3f3d8c1035c1e4e2e0fa7a3b33e2369
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 344c7e6c14ca8ecdd91ffb9c148ce01d2b937573
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102561384"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111542024"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 주문 대시보드
 
@@ -147,10 +147,10 @@ SaaS 제품은 각 계획에 대한 두 가지 가격 책정 모델 중 하나�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 상업용 Marketplace에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터에서 상업용 Marketplace에 대한 분석 보고서 액세스](./partner-center-portal/analytics.md)를 참조하세요.
+- 상업용 Marketplace에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터에서 상업용 Marketplace에 대한 분석 보고서 액세스](analytics.md)를 참조하세요.
 - 제품에 대한 Marketplace 활동을 요약하는 집계 데이터의 그래프, 추세 및 값은 [상업용 Marketplace 분석의 요약 대시보드](./summary-dashboard.md)를 참조하세요.
 - 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](orders-dashboard.md)를 참조하세요.
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 Marketplace 분석의 사용량 대시보드](./usage-dashboard.md)를 참조하세요.
-- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
-- Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조하세요.
+- 최근 30일 동안의 다운로드 요청 목록은 [상업용 Marketplace 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
+- Azure Marketplace 및 AppSource의 제품에 대한 고객 의견의 통합 보기를 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
 - 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.

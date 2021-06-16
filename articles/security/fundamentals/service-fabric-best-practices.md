@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: a7d87e2496158fec8ff33ab8586c845a6207f810
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: d89f2de555b17ddb5e77a85831f03be16a8a3f57
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816065"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950479"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric 보안 모범 사례
 Azure에 애플리케이션을 배포하는 것은 빠르고, 쉽고, 비용 효율적입니다. 프로덕션에 클라우드 애플리케이션을 배포하기 전에 애플리케이션에서 보안 클러스터를 구현하기 위한 필수 및 권장 모범 사례의 목록을 검토합니다.
@@ -144,7 +144,7 @@ HTTP 프로토콜은 보안되지 않으며 도청 공격을 받기 쉽습니다
 SSL/TLS 인증서를 사용하는 방법에 대한 자세한 내용은 [Configuring TLS for an application in Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md)(Azure에서 애플리케이션에 대한 TLS 구성)를 참조하세요.
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Azure Service Fabric을 통한 네트워크 격리 및 보안 사용
-[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
+[Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)을 샘플로 사용하여 3 nodetype 보안 클러스터를 설정합니다. 템플릿 및 네트워크 보안 그룹을 사용하여 인바운드 및 아웃바운드 네트워크 트래픽을 제어합니다.
 
 템플릿에는 각 가상 머신 확장 집합(VMSS)에 대한 NSG가 있으며, 이 집합을 드나드는 트래픽을 제어하는 데 사용됩니다. 규칙은 기본적으로 템플릿에서 지정된 시스템 서비스와 애플리케이션 포트에 필요한 모든 트래픽을 허용하도록 구성됩니다. 이러한 규칙을 검토하고 애플리케이션에 대한 새 규칙을 추가하는 등 필요에 따라 변경합니다.
 

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
-ms.custom: ''
-ms.openlocfilehash: 3ff0ee79413640c09132b8399a3b0c07dd1783cc
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 785cdcc2436486b69f9033bfa1a4fb0cb441d2a0
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063698"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678738"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-azure-powershell"></a>Azure PowerShell을 사용하여 가상 네트워크 서비스 엔드포인트 정책으로 Azure Storage 계정에 대한 데이터 반출 관리
 

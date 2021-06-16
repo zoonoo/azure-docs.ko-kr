@@ -6,12 +6,13 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 2c89ad69207a51a92b56d268c685aa2be4118cf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 048d6e423c063485705636cac3db0dfa6241874f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507588"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704885"
 ---
 # <a name="move-azure-internal-load-balancer-to-another-region-using-powershell"></a>PowerShell을 사용하여 Azure 내부 부하 분산 장치를 다른 지역으로 이동
 
@@ -446,7 +447,7 @@ Azure 내부 부하 분산 장치는 한 지역에서 다른 지역으로 이동
     
     ```
 
-12. 대상 지역에서 리소스를 만들었는지 확인하려면 [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) 및 [Get-Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer)를 사용합니다.
+12. 대상 지역에서 리소스를 만들었는지 확인하려면 [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup) 및 [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer)를 사용합니다.
     
     ```azurepowershell-interactive
 

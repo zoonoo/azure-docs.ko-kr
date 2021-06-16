@@ -1,15 +1,15 @@
 ---
 title: Azure Event Hubs에 대한 기본 제공 정책 정의
 description: Azure Event Hubs에 대한 Azure Policy 기본 제공 정책 정의를 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 9c6a26de0cad1ab0a929547a6bfd1e1f1688459b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bbe0a96287eddeb0a294efb40e266b34886cc143
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110088794"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019140"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Azure Event Hubs에 대한 Azure Policy 기본 제공 정의
 

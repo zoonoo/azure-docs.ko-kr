@@ -6,12 +6,13 @@ ms.author: rahugup
 manager: bsiva
 ms.topic: tutorial
 ms.date: 05/11/2021
-ms.openlocfilehash: f78aec2d220b0ee322523fcc16e1356c0d33d40b
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 22fea8695af7f7ee3915e6e0518d20312d59766c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738485"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688171"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음) - PowerShell
 

@@ -2,19 +2,20 @@
 title: 보관 계층의 Blob 데이터 리하이드레이션
 description: Blob 데이터에 액세스할 수 있도록 보관 스토리지에서 Blob을 리하이드레이션합니다. 보관된 Blob을 온라인 계층에 복사합니다.
 services: storage
-author: twooley
-ms.author: twooley
+author: tamram
+ms.author: tamram
 ms.date: 03/11/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: aaea21dca5304a7a75b24bd7f974712db38d1815
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e85905a544e677cf4f633b0b4deb51365a28218
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276776"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679290"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>보관 계층의 Blob 데이터 리하이드레이션
 

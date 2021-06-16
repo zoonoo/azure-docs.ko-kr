@@ -12,14 +12,16 @@ ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 콘텐츠 조정자, 콘텐츠 조정
-ms.openlocfilehash: 4ac8e8e70061708f5bb6aca9901ac0dd30af8323
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 8b0645b93a7adcc583c010b9bb7524fcd77b7aac
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110454928"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033746"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>빠른 시작: 웹에서 Content Moderator 사용해 보기
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 이 빠른 시작에서는 코드를 작성할 필요 없이 온라인 Content Moderator 검토 도구를 사용하여 Content Moderator의 기본 기능을 테스트합니다. 이 서비스를 콘텐츠 조정 앱에 보다 신속하게 통합하려면 [다음 단계](#next-steps) 섹션에서 다른 빠른 시작을 참조하세요.
 

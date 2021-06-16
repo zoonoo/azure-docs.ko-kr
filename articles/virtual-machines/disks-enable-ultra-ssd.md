@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 05/12/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: aa451b725d9edd4711f57a52e48ad4e0fabcd61e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 07899b6b429d933234f73a67608250dd5625676a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110079439"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673604"
 ---
 # <a name="using-azure-ultra-disks"></a>Azure Ultra Disk 사용
 
@@ -56,7 +56,7 @@ if($sku){$sku[0].LocationInfo[0].ZoneDetails} Else {Write-host "$vmSize is not s
 
 **영역** 값을 유지합니다. 이 값은 가용성 영역을 나타내며, Ultra Disk를 배포하는 데 필요합니다.
 
-|ResourceType  |이름  |Location  |영역  |제한 사항  |기능  |값  |
+|ResourceType  |이름  |위치  |영역  |제한 사항  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 

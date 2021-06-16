@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 615a3911c81a9111a3e7834bb3a80b74cfe51427
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4fe4dc0dda9c14ed9309422eb0b96c779fd44ee3
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486890"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083728"
 ---
 <a name="HOLTop"></a>
 
@@ -136,7 +136,7 @@ OCR 서비스는 이미지 속의 시각적 텍스트를 읽고 문자 스트림
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
 > [!TIP]
-> 로컬 이미지에서 텍스트를 추출할 수도 있습니다. [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) 메서드(예: **BatchReadFileInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go#L1084)의 샘플 코드를 참조하세요.
+> 로컬 이미지에서 텍스트를 추출할 수도 있습니다. [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) 메서드(예: **BatchReadFileInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go)의 샘플 코드를 참조하세요.
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 

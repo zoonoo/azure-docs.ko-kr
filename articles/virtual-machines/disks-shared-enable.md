@@ -4,16 +4,16 @@ description: 여러 VM에서 공유할 수 있도록 공유 디스크가 있는 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 05/10/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: e8bb97196fcceea0c86f58fe4a63146e681c427e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 9061e3621d8232c82a126a60bebe16bb32ce6d29
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96500736"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673366"
 ---
 # <a name="enable-shared-disk"></a>공유 디스크 사용
 

@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: sachinp
-ms.reviewer: vanto, sstein
+author: rohitnayakmsft
+ms.author: rohitna
+ms.reviewer: mathoma, vanto
 ms.date: 02/11/2019
-ms.openlocfilehash: bef1e9bdafd91a51290fe84af074c8cece7cc371
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c276d5dfd2ca6cbffe09fddacf9c1dc73a3d2eff
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486729"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690042"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 서버 수준 방화벽 규칙 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

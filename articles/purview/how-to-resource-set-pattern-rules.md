@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/15/2021
-ms.openlocfilehash: 61de2cf2e3ad9175d97378234d62f72ab3517b51
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 00b3abc14207e2cb20d61f20639bf326a426cf37
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107587836"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111813612"
 ---
 # <a name="create-resource-set-pattern-rules"></a>리소스 집합 패턴 규칙 만들기
 
@@ -24,6 +24,7 @@ ms.locfileid: "107587836"
 - Azure Data Lake Storage Gen2
 - Azure Blob Storage
 - Azure 파일
+- Amazon S3
 
 
 ## <a name="how-to-create-a-resource-set-pattern-rule"></a>리소스 집합 패턴 규칙을 만드는 방법
@@ -87,13 +88,13 @@ ms.locfileid: "107587836"
 | ---- | --------- |
 | 문자열 | 공백과 같은 구분 기호를 포함하는 1개 이상의 유니코드 문자입니다. |
 | int | 1개 이상의 0-9 ASCII 문자로, 접두어는 0일 수 있습니다(예: 0001). |
-| guid | [RFC 4122](https://tools.ietf.org/html/rfc4122)의 defineddefa로 UUID의 32개 또는 8-4-4-4-12로 된 문자열 표현입니다. |
-| date | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정된 선택적 구분 기호(yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd)를 사용하는 6 또는 8의 0-9 ASCII 문자입니다. |
-| time | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정된 선택적 구분 기호(HHmm, HH:mm, HHmmss, HH:mm:ss)를 사용하는 4개 또는 6개의 0-9 ASCII 문자입니다. |
-| timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정된 선택적 구분 기호(yyyy-mm-ddTHH:mm, yyyymmddhhmm, yyyy-mm-ddTHH:mm:ss, yyyymmddHHmmss)를 사용하는 12개 또는 14개의 0-9 ASCII 문자입니다. |
+| guid | [RFC 4122](https://tools.ietf.org/html/rfc4122)의 defineddefa로 UUID의 32자 또는 8-4-4-4-12자로 된 문자열 표현입니다. |
+| date | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정된 선택적 구분 기호(yyyymmdd, yyyy-mm-dd, yymmdd, yy-mm-dd)를 사용하는 6자 또는 8자로 된 0-9의 ASCII 문자입니다. |
+| time | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정된 선택적 구분 기호(HHmm, HH:mm, HHmmss, HH:mm:ss)를 사용하는 4자 또는 6자로 된 0-9의 ASCII 문자입니다. |
+| timestamp | [RFC 3339](https://tools.ietf.org/html/rfc3339)에 지정된 선택적 구분 기호(yyyy-mm-ddTHH:mm, yyyymmddhhmm, yyyy-mm-ddTHH:mm:ss, yyyymmddHHmmss)를 사용하는 12자 또는 14자로 된 0-9의 ASCII 문자입니다. |
 | boolean | 대/소문자를 구분하지 않고 ‘true’ 또는 ‘false’를 포함할 수 있습니다. |
-| number | 0개 이상의 0-9 ASCII 문자로, 접두어는 0일 수 있고(예: 0001), 선택적으로 앞에 점(‘.’)이 나올 수 있으며, 1개 이상의 0-9 ASCII 문자로 접미어는 0일 수 있습니다(예: .100). |
-| hex | 집합 0-1, A-F에서 1개 이상의 ASCII 문자로 값의 접두어는 0일 수 있습니다. |
+| number | 0부터 시작하는 0-9의 ASCII 문자로, 접두어는 0일 수 있고(예: 0001), 선택적으로 앞에 점(‘.’)이 나올 수 있으며, 1부터 시작하는 0-9의 ASCII 문자로 접미어는 0일 수 있습니다(예: .100). |
+| hex | 집합 0-1, A-F에서 1부터 시작하는 ASCII 문자로 값의 접두어는 0일 수 있습니다. |
 | locale | [RFC 5646](https://tools.ietf.org/html/rfc5646)에 지정된 구문과 일치하는 문자열입니다. |
 
 ## <a name="order-of-resource-set-pattern-rules-getting-applied"></a>적용되는 리소스 집합 패턴 규칙의 순서
@@ -126,7 +127,7 @@ Files:
 
 **범위:** `https://myazureblob.blob.core.windows.net/bar/`
 
-**표시 이름:** 'External  Customer'
+**표시 이름:** ’외부 고객’
 
 **정규화된 이름:** `customer/{extract:string}/{year:int}/{month:int}/{day:int}/saptable_customer_{date_from:date}_{date_to:time}_{sequence:int}.txt`
 
@@ -136,7 +137,7 @@ Files:
 
 하나의 리소스 집합 자산
 
-**표시 이름:** External Customer
+**표시 이름:** 외부 고객
 
 **정규화된 이름:** `https://myazureblob.blob.core.windows.net/bar/customer/{extract}/{year}/{month}/{day}/saptable_customer_{date_from}_{date_to}_{sequence}.txt`
 
@@ -206,7 +207,7 @@ Files:
 
 **범위:** `https://myazureblob.blob.core.windows.net/bar/`
 
-**표시 이름:** ‘Machine-{{machineid}}’
+**표시 이름:** ‘machine-{{machineid}}’
 
 **정규화된 이름:** `raw/machinename-{{machineid:int}}/{date:date}/{time:time}-{id:int}.avro`
 

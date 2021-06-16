@@ -6,15 +6,13 @@ ms.author: zhshang
 ms.date: 10/02/2020
 ms.topic: quickstart
 ms.service: signalr
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: dedc265a6f7dec38d2f46b641631276ad25a8d72
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 624240a6bb1846606fbdbf0b3a635935df9bdd5b
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813311"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891827"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SignalR Service 배포
 
@@ -48,7 +46,7 @@ ms.locfileid: "109813311"
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-signalr/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/signalr/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.signalrservice/signalr/azuredeploy.json":::
 

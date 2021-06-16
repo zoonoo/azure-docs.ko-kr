@@ -7,13 +7,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: ''
-ms.openlocfilehash: 14b1661792ca5276bd6ebfa4cee1c4b46f94764d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 03ab6be5b05cb42951b666776942270e4b430195
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104780449"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691227"
 ---
 # <a name="apply-the-windows-azure-diagnostics-extension-in-cloud-services-extended-support"></a>Cloud Services(추가 지원)에서 Windows Azure Diagnostics 확장 적용 
 클라우드 서비스의 주요 성능 메트릭을 모니터링할 수 있습니다. 모든 클라우드 서비스 역할은 최소 데이터에 해당하는 CPU 사용량, 네트워크 사용량 및 디스크 사용률을 수집합니다. Microsoft.Azure.Diagnostics 확장이 적용된 클라우드 서비스 역할은 추가 데이터 요소를 수집할 수 있습니다. 자세한 내용은 [확장 개요](extensions.md)를 참조하세요.

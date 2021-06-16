@@ -3,13 +3,13 @@ title: Service Fabric에서 인증서 관리
 description: X.509 인증서를 사용하여 보호되는 Service Fabric 클러스터에서 인증서를 관리하는 방법 알아보기.
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.custom: sfrev
-ms.openlocfilehash: cf62cf1e7359da2b14910e42cbddb8a04dd5b28e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.custom: sfrev, devx-track-azurepowershell
+ms.openlocfilehash: 01083cae37f10128eb5c59a993b956331663eb8f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108146656"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956803"
 ---
 # <a name="certificate-management-in-service-fabric-clusters"></a>Service Fabric 클러스터에서 인증서 관리
 
@@ -90,10 +90,10 @@ Service Fabric 클러스터의 컨텍스트에서 발급에서 사용까지 인�
 ### <a name="certificate-provisioning"></a>인증서 프로비저닝
 자격 증명 모음에서 개인 키가 포함된 인증서를 검색하여 클러스터의 각 호스트에 설치하는 엔터티인 ‘프로비저닝 에이전트’를 언급했습니다. (Service Fabric은 인증서를 프로비저닝하지 않습니다.) 해당 컨텍스트에서 클러스터는 Azure VM 및 Virtual Machine Scale Sets의 컬렉션에서 호스트됩니다. Azure에서 다음과 같은 메커니즘을 사용하여 자격 증명 모음에서 VM/VMSS로 인증서를 프로비저닝할 수 있습니다. 이는 위와 같이 프로비저닝 에이전트가 자격 증명 모음 owner에 의해 자격 증명 모음에 대한 ‘get’ 권한을 이전에 부여받은 것으로 가정합니다. 
   - 애드혹: 운영자가 자격 증명 모음에서 인증서를 검색하고 (pfx/PKCS #12 또는 pem) 각 노드에 설치합니다.
-  - 배포하는 동안 가상 머신 확장 집합으로서 ‘비밀’: 컴퓨팅 서비스는 운영자 대신 자사 ID를 사용하여 템플릿 배포에 사용되는 자격 증명 모음 인증서를 검색하여 ([이렇게](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#certificates)) 가상 머신 확장 집합의 각 노드에 설치합니다. 참고로 이렇게 하면 버전이 지정된 비밀을 프로비저닝할 수 있습니다.
+  - 배포하는 동안 가상 머신 확장 집합으로서 ‘비밀’: 컴퓨팅 서비스는 운영자 대신 자사 ID를 사용하여 템플릿 배포에 사용되는 자격 증명 모음 인증서를 검색하여 ([이렇게](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#certificates)) 가상 머신 확장 집합의 각 노드에 설치합니다. 참고로 이렇게 하면 버전이 지정된 비밀을 프로비저닝할 수 있습니다.
   - [Key Vault VM 확장](../virtual-machines/extensions/key-vault-windows.md)을 사용하면 관찰된 인증서를 정기적으로 새로 고쳐 버전이 없는 선언을 사용하여 인증서를 프로비저닝할 수 있습니다. 이 경우 VM/VMSS는 관찰된 인증서를 포함하여 자격 증명 모음에 대한 액세스 권한이 부여된 ID인 [관리 ID](../virtual-machines/security-policy.md#managed-identities-for-azure-resources)가 있어야 합니다.
 
-보안에서 가용성에 이르는 여러 가지 이유로 애드혹 메커니즘을 사용하지 않는 것이 좋습니다. 이에 대해서는 여기서 자세히 설명하지 않습니다. 자세한 내용은 [가상 머신 확장 집합 인증서](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#certificates)를 참조하세요.
+보안에서 가용성에 이르는 여러 가지 이유로 애드혹 메커니즘을 사용하지 않는 것이 좋습니다. 이에 대해서는 여기서 자세히 설명하지 않습니다. 자세한 내용은 [가상 머신 확장 집합 인증서](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#certificates)를 참조하세요.
 
 VMSS-/컴퓨팅-기반 프로비저닝은 보안 및 가용성 이점을 제공하지만 제한도 있습니다. 버전이 지정된 비밀로 인증서를 사용해야 합니다. 그러면 인증서는 지문으로 선언된 인증서로 보호된 클러스터에만 적합하게 됩니다. 이와 대조적으로 Key Vault VM 확장 기반 프로비저닝은 항상 관찰된 각 인증서의 최신 버전을 설치합니다. 그러면 주체 일반 이름으로 선언된 인증서로 보호된 클러스터에만 적합합니다. 인스턴스(지문)에 의해 선언된 인증서에는 자동 새로 고침 프로비저닝 메커니즘(예: KVVM 확장)을 사용하면 안 됩니다. 가용성이 손실될 위험이 크기 때문입니다.
 

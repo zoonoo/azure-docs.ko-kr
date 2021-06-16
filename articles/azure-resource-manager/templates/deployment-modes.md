@@ -3,12 +3,12 @@ title: 배포 모드
 description: Azure Resource Manager를 사용하여 전체 또는 증분 배포 모드를 사용할지 여부를 지정하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 3f1f74c0495e0d43671712281a35a7e74fd7d821
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7566a24297a31c3138228528be050be6c7cf11c8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104888841"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963294"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 배포 모드
 
@@ -23,7 +23,7 @@ ms.locfileid: "104888841"
 전체 모드에서는 Resource Manager가 리소스 그룹에 존재하지만 템플릿에는 지정되지 않은 리소스를 **삭제** 합니다.
 
 > [!NOTE]
-> 템플릿을 전체 모드로 배포하기 전에 항상 [가상 작업](template-deploy-what-if.md)을 사용합니다. 가상은 삭제 또는 수정되는 리소스를 표시합니다. 리소스를 실수로 삭제하지 않도록 하려면 가상을 사용합니다.
+> 템플릿을 전체 모드로 배포하기 전에 항상 [가상 작업](./deploy-what-if.md)을 사용합니다. 가상은 삭제 또는 수정되는 리소스를 표시합니다. 리소스를 실수로 삭제하지 않도록 하려면 가상을 사용합니다.
 
 [조건](conditional-resource-deployment.md)이 false로 평가되므로 템플릿에 배포되지 않은 리소스가 포함된 경우에는 템플릿을 배포하는 데 사용하는 REST API 버전에 따라 결과가 달라집니다. 2019년 5월 10일 이전 버전을 사용하는 경우 리소스는 **삭제되지 않습니다**. 2019년 5월 10일 이후 버전에서는 리소스가 **삭제됩니다**. 최신 버전의 Azure PowerShell 및 Azure CLI는 리소스를 삭제합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "104888841"
 
 예를 들어 리소스 그룹에 DNS 영역(`Microsoft.Network/dnsZones` 리소스 종류)과 CNAME 레코드(`Microsoft.Network/dnsZones/CNAME` 리소스 종류)가 포함된 경우 DNS 영역은 CNAME 레코드의 부모 리소스입니다. 전체 모드로 배포하고 템플릿에 DNS 영역을 포함하지 않으면 DNS 영역과 CNAME 레코드가 둘 다 삭제됩니다. 템플릿에 DNS 영역을 포함하지만 CNAME 레코드를 포함하지 않으면 CNAME은 삭제되지 않습니다.
 
-리소스 종류의 삭제 처리 방식에 대한 목록은 [전체 모드 배포에 대한 Azure 리소스 삭제](complete-mode-deletion.md)를 참조하세요.
+리소스 종류의 삭제 처리 방식에 대한 목록은 [전체 모드 배포에 대한 Azure 리소스 삭제](./deployment-complete-mode-deletion.md)를 참조하세요.
 
 리소스 그룹이 [잠긴](../management/lock-resources.md) 경우, 전체 모드에서 리소스를 삭제하지 않습니다.
 
@@ -126,6 +126,6 @@ az deployment group create \
 
 ## <a name="next-steps"></a>다음 단계
 
-* Resource Manager 템플릿을 만드는 방법에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* Resource Manager 템플릿을 만드는 방법에 대해 알아보려면 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 * 배포 리소스에 대해 알아보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.
 * 리소스 공급자에 대한 작업을 보려면 [Azure REST API](/rest/api/)를 참조하세요.

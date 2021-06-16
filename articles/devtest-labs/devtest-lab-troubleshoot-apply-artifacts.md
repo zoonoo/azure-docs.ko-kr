@@ -3,12 +3,13 @@ title: Azure DevTest Labs에서 아티팩트 문제 해결 | Microsoft Docs
 description: Azure DevTest Labs 가상 머신에서 아티팩트를 적용할 때 발생하는 문제를 해결하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6d3f37a942010240835238648c48ad5671ec028d
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483196"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692432"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Azure DevTest Labs 가상 머신에서 아티팩트를 적용할 때 발생하는 문제 해결
 가상 머신에서 아티팩트를 적용할 때 다양한 이유로 실패할 수 있습니다. 이 문서에서는 가능한 원인을 파악하는 데 도움이 되는 몇 가지 방법을 설명합니다.

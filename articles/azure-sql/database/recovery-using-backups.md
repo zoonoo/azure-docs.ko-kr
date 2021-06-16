@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: 최대 35일까지 Azure SQL Database의 데이터베이스나 Azure SQL Managed Instance의 인스턴스를 롤백할 수 있는 특정 시점 복원에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, sstein, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma danil
 ms.date: 11/13/2020
-ms.openlocfilehash: 800fa34901ee63434d3f4798ec4c16dd52479fa6
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: c8e95200824a684334cbc1470f94e5353fe284ac
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110191849"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110689985"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>자동화된 데이터베이스 백업을 사용하여 복구 - Azure SQL Database 및 SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -214,7 +214,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 독립 실행형 또는 풀링된 데이터베이스를 복원하려면 [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase)를 참조하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
   | [Get-AzSqlDeletedDatabaseBackup](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) | 복원할 수 있는 삭제된 데이터베이스를 가져옵니다. |
@@ -228,7 +228,7 @@ Azure Portal에서 관리형 인스턴스 데이터베이스를 선택한 지역
 
 관리형 인스턴스 데이터베이스를 복원하려면 [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조하세요.
 
-  | Cmdlet | 설명 |
+  | Cmdlet | Description |
   | --- | --- |
   | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리형 인스턴스를 가져옵니다. |
   | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |

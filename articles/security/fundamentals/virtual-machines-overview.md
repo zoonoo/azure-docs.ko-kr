@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 51b04feffd887fd86157d029168bc53546adfeeb
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 6092476180614fe11f8c1199c079b0599f829779
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208170"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554429"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 머신에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
@@ -144,7 +144,7 @@ Security Center는 다음과 같은 방법을 통해 가상 머신의 보안을 
 자세한 정보:
 
 * [Azure Security Center 소개](../../security-center/security-center-introduction.md)
-* [Azure Security Center 질문과 대답](../../security-center/faq-general.md)
+* [Azure Security Center 질문과 대답](../../security-center/faq-general.yml)
 * [Azure Security Center 계획 및 작업](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>규정 준수

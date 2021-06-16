@@ -33,6 +33,8 @@
           href: ../networking/working-remotely-support.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
         - name: Virtual WAN 활용
           href: work-remotely-support.md
+    - name: 가상 WAN FAQ
+      href: virtual-wan-faq.md
     - name: 위치 및 파트너
       items:
         - name: 허브 위치 및 파트너
@@ -194,13 +196,11 @@
     - name: REST (영문)
       href: /rest/api/azure
     - name: Azure CLI
-      href: /azure/virtual-wan/
+      href: ./index.yml
     - name: Python SDK
       href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations'
 - name: 리소스
   items:
-    - name: FAQ
-      href: virtual-wan-faq.md
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: 구독 및 서비스 한도

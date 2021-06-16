@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6f9570c04b9182e756560a23ffb6bbbdc079cd1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101687977"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407749"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹에 대한 보안 구성
 
@@ -221,6 +221,7 @@ AZDATA_PASSWORD **세션** 환경 변수의 값이 존재하되 값이 없거나
 ## <a name="audit"></a>감사
 
 감사 시나리오에서는 서버 그룹이 Postgres의 `pgaudit` 확장을 사용하도록 구성하세요. `pgaudit`에 대한 자세한 내용은 [`pgAudit` GitHub 프로젝트](https://github.com/pgaudit/pgaudit/blob/master/README.md)를 참조하세요. 서버 그룹에서 `pgaudit` 확장을 사용하도록 하려면 [PostgreSQL 확장 사용하기](using-extensions-in-postgresql-hyperscale-server-group.md)를 참조하세요.
+
 
 
 ## <a name="next-steps"></a>다음 단계

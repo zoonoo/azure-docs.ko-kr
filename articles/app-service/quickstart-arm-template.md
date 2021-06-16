@@ -12,12 +12,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-arm-template-uiex
-ms.openlocfilehash: 1b462c8e102d65470b55eb6d5d4368917053c155
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: b74287a4324d7a82cf3f47a008a3809e3c5690be
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108074676"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892619"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 App Service 앱 만들기
 
@@ -42,7 +42,7 @@ ARM 템플릿(Azure Resource Manager 템플릿) 및 Cloud Shell의 [Azure CLI](/
 ## <a name="review-the-template"></a>템플릿 검토
 
 ::: zone pivot="platform-windows"
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다. .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다. Java의 경우 [Java 앱 만들기](./quickstart-java.md)를 참조하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/app-service-docs-windows)에서 나온 것입니다. Windows에 App Service 요금제 및 App Service 앱을 배포합니다. .NET Core, .NET Framework, PHP, Node.js 및 정적 HTML 앱과 호환됩니다. Java의 경우 [Java 앱 만들기](./quickstart-java.md)를 참조하세요.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json":::
 
@@ -63,7 +63,7 @@ ARM 템플릿(Azure Resource Manager 템플릿) 및 Cloud Shell의 [Azure CLI](/
 | repoUrl    | 문자열  | " "                          | 외부 Git 리포지토리(선택 사항) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux)에서 나온 것입니다. Linux에 App Service 요금제 및 App Service 앱을 배포합니다. App Service에서 지원되는 모든 프로그래밍 언어와 호환됩니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/app-service-docs-linux)에서 나온 것입니다. Linux에 App Service 요금제 및 App Service 앱을 배포합니다. App Service에서 지원되는 모든 프로그래밍 언어와 호환됩니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json":::
 
@@ -98,7 +98,7 @@ Azure CLI는 템플릿을 배포하는 데 사용됩니다. Azure Portal, Azure 
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
 --parameters language=".net" helloWorld="true" webAppName="<app-name>" \
---template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsofot.web/app-service-docs-windows/azuredeploy.json"
+--template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
 Run the code below to create a Python app on Linux.

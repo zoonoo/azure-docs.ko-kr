@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 1eb0bf2c0e214c3e076895903176d15ee792c70c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f362bc76a3361b511b08a3822c01730c200d37b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093056"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957029"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 운영자를 위한 시작하기
 
@@ -280,7 +280,7 @@ Resource Manager 템플릿은 4개의 섹션으로 구성됩니다.
 
 - **템플릿 연결**: 하나의 Resource Manager 템플릿 내에서 다른 템플릿으로 연결할 수 있습니다. 이를 통해 대상으로 지정된 용도별 템플릿 집합으로 배포를 분해할 수 있습니다.
 
-모든 텍스트 편집기에서 Resource Manager 템플릿을 빌드할 수 있습니다. 그러나 Visual Studio용 Azure SDK에는 유용한 도구가 포함되어 있습니다. Visual Studio를 사용하면 마법사를 통해 템플릿에 리소스를 추가한 다음 Visual Studio에서 직접 템플릿을 배포하고 디버깅할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+모든 텍스트 편집기에서 Resource Manager 템플릿을 빌드할 수 있습니다. 그러나 Visual Studio용 Azure SDK에는 유용한 도구가 포함되어 있습니다. Visual Studio를 사용하면 마법사를 통해 템플릿에 리소스를 추가한 다음 Visual Studio에서 직접 템플릿을 배포하고 디버깅할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/syntax.md)을 참조하세요.
 
 마지막으로 Azure Portal에서 기존 리소스 그룹을 재사용 가능한 템플릿으로 변환할 수 있습니다. 이는 기존 리소스 그룹의 배포 가능한 템플릿을 만들려는 경우 또는 기본 JSON을 검사하려는 경우에 유용할 수 있습니다. 리소스 그룹을 내보내려면 리소스 그룹 설정에서 **자동화 스크립트** 단추를 선택합니다.
 

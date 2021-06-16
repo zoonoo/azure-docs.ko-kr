@@ -7,16 +7,16 @@ ms.subservice: scale-out
 ms.custom: seoapril2019, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scoriani
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 3bfbf56b6e5f2be33b407945490531e6e2e8ac47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8dcda09a73b86551ee636bd564477262dad5c916
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92781263"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706285"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>분할된 데이터베이스 맵 관리자의 성능을 추적하는 성능 카운터 만들기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

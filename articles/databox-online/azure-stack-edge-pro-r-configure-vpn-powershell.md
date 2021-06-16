@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 66edd4cad5b2f38696ef1df2030687bf4c7d9956
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 750fd8e64c1c42b6b6452ef20041c2b34d5ef287
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102634178"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701204"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-pro-r-device-via-azure-powershell"></a>Azure PowerShell을 통해 Azure Stack Edge Pro R 디바이스에서 VPN 구성
 
@@ -67,14 +68,14 @@ VPN 옵션은 Azure Stack Edge Pro R 디바이스에서 Azure로 *TLS* 를 통�
         - Azure 가상 네트워크와 *GatewaySubnet* 및 *AzureFirewallSubnet* 서브넷을 만듭니다.
         - Azure VPN 게이트웨이를 만들어 구성합니다.
         - Azure 로컬 네트워크 게이트웨이를 만들어 구성합니다.
-        - Azure VPN Gateway와 로컬 네트워크 게이트웨이 간에 Azure VPN 연결을 만들고 구성합니다.
+        - Azure VPN 게이트웨이와 로컬 네트워크 게이트웨이 간에 Azure VPN 연결을 만들어 구성합니다.
         - Azure Firewall을 만들고 네트워크 규칙, 앱 규칙을 추가합니다.
         - Azure 경로 테이블을 만들고 경로를 추가합니다.
 
 
 ## <a name="use-the-script"></a>스크립트 사용
 
-먼저 매개 변수를 입력하도록 `parameters.json` 파일을 수정합니다. 그런 다음, 수정된 json 파일을 사용하여 스크립트를 실행합니다.
+먼저 `parameters.json` 매개 변수를 입력하도록 파일을 수정합니다. 그런 다음, 수정된 json 파일을 사용하여 스크립트를 실행합니다.
 
 이러한 각 단계는 다음 섹션에서 설명합니다.
 
@@ -89,13 +90,13 @@ VPN 옵션은 Azure Stack Edge Pro R 디바이스에서 Azure로 *TLS* 를 통�
 첫 번째 단계는 `parameters.json` 파일을 수정하고 변경 내용을 저장하는 것입니다. 
 
 
-만든 Azure 리소스에 다음 이름을 제공합니다.
+만든 Azure 리소스의 경우 다음 이름을 제공합니다.
 
 |매개 변수 이름  |Description  |
 |---------|---------|
 |virtualNetworks_vnet_name    | Azure Virtual Network 이름        |
 |azureFirewalls_firewall_name     | Azure Firewall 이름        |
-|routeTables_routetable_name     | Azure 라우팅 테이블 이름        |
+|routeTables_routetable_name     | Azure 경로 테이블 이름        |
 |publicIPAddresses_VNGW_public_ip_name     | 가상 네트워크 게이트웨이의 공용 IP 이름입니다.       |
 |virtualNetworkGateways_VNGW_name    | Azure VPN 게이트웨이(가상 네트워크 게이트웨이) 이름        |
 |publicIPAddresses_firewall_public_ip_name     | Azure Firewall의 공용 IP 주소 이름         |

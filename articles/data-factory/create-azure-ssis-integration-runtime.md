@@ -6,12 +6,13 @@ ms.topic: conceptual
 ms.date: 04/09/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e4f60539e2eb524e95c76814f7527377630349e2
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c5727dafc9110ef35945f1d2bfc28db99ae1e23b
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285244"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681160"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -269,7 +270,7 @@ Azure-SSIS IR 패키지 저장소를 사용하면 [레거시 SSIS 패키지 저�
 
       1. **유형** 에서는 클래식 가상 네트워크 또는 Azure Resource Manager 가상 네트워크 유형을 선택합니다. 클래식 가상 네트워크는 곧 사용되지 않으므로 Azure Resource Manager 가상 네트워크를 선택하는 것이 좋습니다.
 
-      1. **VNet 이름** 에서 가상 네트워크의 이름을 선택합니다. 가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database 서버나 SSISDB를 호스트할 프라이빗 엔드포인트가 있는 관리형 인스턴스에 사용되는 것과 동일해야 합니다. 또는 온-프레미스 네트워크에 연결된 것과 동일해야 합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대해 본인의 정적 공용 IP를 가져오는 임의의 가상 네트워크가 될 수 있습니다.
+      1. **VNet 이름** 에서 가상 네트워크의 이름을 선택합니다. 가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database 서버나 SSISDB를 호스트할 프라이빗 엔드포인트가 있는 관리형 인스턴스에 사용되는 것과 동일해야 합니다. 또는 온-프레미스 네트워크에 연결된 것과 동일해야 합니다. 그렇지 않으면 Azure-SSIS IR에 자체 정적 공용 IP를 가져오는 임의의 가상 네트워크일 수 있습니다.
 
       1. **서브넷 이름** 에서 가상 네트워크의 서브넷 이름을 선택합니다. 가상 네트워크 서비스 엔드포인트를 사용하여 SSISDB를 호스트하는 Azure SQL Database 서버에 사용되는 것과 동일해야 합니다. 또는 관리형 인스턴스에 사용된 것과 다른 서브넷이어야 합니다. 이 서브넷은 SSISDB를 호스트하기 위해 프라이빗 엔드포인트를 사용합니다. 그렇지 않은 경우에는 Azure-SSIS IR에 대해 본인의 정적 공용 IP를 가져오는 임의의 서브넷이 될 수 있습니다.
 

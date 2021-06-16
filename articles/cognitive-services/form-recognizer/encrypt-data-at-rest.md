@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: Microsoft는 Microsoft에서 관리하는 암호화 키를 제공하며, CMK(고객 관리형 키)라고 하는 고유한 키를 사용하여 Cognitive Services 구독을 관리할 수도 있습니다. 이 문서에서는 Form Recognizer의 미사용 데이터 암호화와 CMK를 활성화하고 관리하는 방법을 설명합니다.
 author: erindormier
 manager: venkyv
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 16da5e11db26f416950852b0d9f5378ca2df6fab
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 343376c21f3ac63fbe5059ba66df77195f717413
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374547"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891972"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>미사용 데이터의 Form Recognizer 암호화
 

@@ -5,15 +5,15 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 04/05/2021
 ms.author: duau
-ms.openlocfilehash: 3476e5fa2c274f0fc2c180711480375b0ebefaf2
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 80a78e7538dfe5a0cb87215b1f46cd59f5ea366b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107388043"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690753"
 ---
 # <a name="quickstart-create-an-azure-route-server-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Route Server 만들기
 

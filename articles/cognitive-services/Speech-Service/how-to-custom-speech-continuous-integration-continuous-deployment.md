@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: f7f11ef097d3abee2b4c18c32a1cb215d9fe8ce8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06a5bd2366f2a24e263e8ffa1c905a5cbd6afc9b
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939888"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440343"
 ---
 # <a name="cicd-for-custom-speech"></a>Custom Speech용 CI/CD
 
 학습 및 테스트 데이터에 업데이트를 적용할 때 Custom Speech 모델을 지속적으로 개선할 수 있도록 자동화된 학습, 테스트 및 릴리스 관리를 구현합니다. CI/CD 워크플로의 효과적인 구현을 통해 최상의 성능을 제공하는 Custom Speech 모델에 대한 엔드포인트를 항상 사용할 수 있습니다.
 
-[CI](/azure/devops/learn/what-is-continuous-integration)(연속 통합)는 공유 리포지토리에서 자주 업데이트를 커밋하고 자동 빌드를 수행하는 엔지니어링 방식입니다. Custom Speech를 위한 CI 워크플로는 이전 모델보다 더 나은 성능을 발휘하도록 데이터 원본에서 새 모델을 학습시키고 새 모델에 대한 자동화된 테스트를 수행합니다.
+[CI](/devops/develop/what-is-continuous-integration)(연속 통합)는 공유 리포지토리에서 자주 업데이트를 커밋하고 자동 빌드를 수행하는 엔지니어링 방식입니다. Custom Speech를 위한 CI 워크플로는 이전 모델보다 더 나은 성능을 발휘하도록 데이터 원본에서 새 모델을 학습시키고 새 모델에 대한 자동화된 테스트를 수행합니다.
 
-[CD](/azure/devops/learn/what-is-continuous-delivery)(지속적인 업데이트)는 CI 프로세스에서 모델을 가져와 개선된 각 Custom Speech 모델에 대한 엔드포인트를 만듭니다. CD를 사용하면 엔드포인트를 솔루션에 쉽게 통합할 수 있습니다.
+[CD](/devops/deliver/what-is-continuous-delivery)(지속적인 업데이트)는 CI 프로세스에서 모델을 가져와 개선된 각 Custom Speech 모델에 대한 엔드포인트를 만듭니다. CD를 사용하면 엔드포인트를 솔루션에 쉽게 통합할 수 있습니다.
 
 사용자 지정 CI/CD 솔루션이 가능하지만 사전 구축된 강력한 솔루션의 경우 GitHub 작업을 사용하여 CI/CD 워크플로를 실행하는 [Speech DevOps 템플릿 리포지토리](https://github.com/Azure-Samples/Speech-Service-DevOps-Template)를 사용합니다.
 

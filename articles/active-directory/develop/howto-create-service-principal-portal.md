@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12739d535e37c4d1de89e69237a0daddd9569217
-ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
+ms.openlocfilehash: b772112a238b4af4ff536a98e0a4105e7237c1af
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107897472"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951949"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -79,7 +79,7 @@ Azure 구독 권한을 확인하려면
 1. **Azure Active Directory** 를 선택합니다.
 1. **앱 등록** 을 선택합니다.
 1. **새 등록** 을 선택합니다.
-1. 애플리케이션의 이름을 지정합니다. 애플리케이션을 사용할 수 있는 사용자를 결정하는, 지원되는 계정 유형을 선택합니다. **URI 리디렉션** 에서, 생성할 애플리케이션 형식에 **웹** 을 선택합니다. 액세스 토큰이 전송되는 URI를 입력합니다. [네이티브 애플리케이션](../manage-apps/application-proxy-configure-native-client-application.md)의 자격 증명을 만들 수 없습니다. 자동화된 애플리케이션에 해당 형식을 사용할 수 없습니다. 값을 설정한 후 **등록** 을 선택합니다.
+1. 애플리케이션의 이름을 지정합니다. 애플리케이션을 사용할 수 있는 사용자를 결정하는, 지원되는 계정 유형을 선택합니다. **URI 리디렉션** 에서, 생성할 애플리케이션 형식에 **웹** 을 선택합니다. 액세스 토큰이 전송되는 URI를 입력합니다. [네이티브 애플리케이션](../app-proxy/application-proxy-configure-native-client-application.md)의 자격 증명을 만들 수 없습니다. 자동화된 애플리케이션에 해당 형식을 사용할 수 없습니다. 값을 설정한 후 **등록** 을 선택합니다.
 
    ![애플리케이션의 이름을 입력합니다.](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -90,7 +90,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 ## <a name="assign-a-role-to-the-application"></a>애플리케이션에 역할 할당
 
-구독의 리소스에 액세스하려면 역할을 애플리케이션에 할당해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대해서는 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스하려면 역할을 애플리케이션에 할당해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대한 자세한 내용을 알아보려면 [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 애플리케이션에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 애플리케이션이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 

@@ -3,12 +3,13 @@ title: Azure Service Bus 문제 해결 가이드| Microsoft Docs
 description: Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대한 문제 해결 팁 및 권장 사항에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/03/2021
-ms.openlocfilehash: 27249d7e016ea8aee0552bbbf1687647760d4b6f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0afb1d7a14867e616623519ec5de2c43e9beba2d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107786570"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663660"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Azure Service Bus 문제 해결 가이드
 이 문서에서는 Azure Service Bus를 사용할 때 나타날 수 있는 몇 가지 문제에 대한 문제 해결 팁 및 권장 사항을 제공합니다. 
@@ -45,7 +46,7 @@ ms.locfileid: "107786570"
     ```shell
     telnet <yournamespacename>.servicebus.windows.net 5671
     ```
-- 일시적 연결 문제가 있는 경우 다음 명령을 실행하여 삭제된 패킷이 있는지 확인합니다. 이 명령은 1초마다 서비스와 25개의 서로 다른 TCP 연결을 설정하려고 시도합니다. 그런 다음 성공/실패 횟수를 확인하고 TCP 연결 대기 시간을 확인할 수도 있습니다. [여기](/sysinternals/downloads/psping)에서 `psping` 도구를 다운로드할 수 있습니다.
+- 일시적 연결 문제가 있는 경우 다음 명령을 실행하여 삭제된 패킷이 있는지 확인합니다. 이 명령은 서비스와 1초마다 25개의 TCP 연결을 설정하려고 시도합니다. 그런 다음 성공/실패 횟수를 확인하고 TCP 연결 대기 시간을 확인할 수도 있습니다. [여기](/sysinternals/downloads/psping)서 `psping` 도구를 다운로드할 수 있습니다.
 
     ```shell
     .\psping.exe -n 25 -i 1 -q <yournamespace>.servicebus.windows.net:5671 -nobanner     
@@ -60,13 +61,13 @@ ms.locfileid: "107786570"
 ### <a name="symptoms"></a>증상
 - 요청이 일시적으로 제한될 수 있습니다.
 - 들어오는 메시지/요청이 삭제될 수 있습니다.
-- 로그 파일에 오류 메시지가 포함될 수 있습니다.
+- 로그 파일에는 오류 메시지가 포함될 수 있습니다.
 - 몇 초 동안 서비스에서 애플리케이션의 연결이 끊어질 수 있습니다.
 
 ### <a name="cause"></a>원인
 백 엔드 서비스 업그레이드 및 다시 시작으로 인해 애플리케이션에서 이러한 문제가 발생할 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 애플리케이션 코드에서 SDK를 사용하는 경우 재시도 정책이 이미 기본 제공되며 활성 상태입니다. 애플리케이션/워크플로에 큰 영향 없이 애플리케이션이 다시 연결됩니다.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>무단 액세스: 클레임 보내기가 필요합니다.
@@ -81,7 +82,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 ### <a name="cause"></a>원인
 ID에 Service Bus 토픽에 액세스할 수 있는 권한이 없습니다. 
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 이 오류를 해결하려면 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) 라이브러리를 설치하세요.  자세한 내용은 [로컬 개발 인증](/dotnet/api/overview/azure/service-to-service-authentication#local-development-authentication)을 참조하세요. 
 
 역할에 권한을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에 관리 ID를 인증하여 Azure Service Bus 리소스에 액세스](service-bus-managed-service-identity.md)를 참조하세요.
@@ -96,7 +97,7 @@ ID에 Service Bus 토픽에 액세스할 수 있는 권한이 없습니다.
 ### <a name="cause"></a>원인
 Service Bus 네임스페이스에 대한 단일 연결을 사용하여 메시지를 보내고 받는 데 사용되는 토큰 수에는 한도가 있습니다. 한도는 1,000개입니다. 
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 더 많은 메시지를 보내려면 Service Bus 네임스페이스에 대한 새 연결을 엽니다.
 
 ## <a name="adding-virtual-network-rule-using-powershell-fails"></a>PowerShell을 사용하여 가상 네트워크 규칙을 추가하지 못함
@@ -111,7 +112,7 @@ Remove-AzServiceBusVirtualNetworkRule -ResourceGroupName $resourceGroupName -Nam
 ### <a name="cause"></a>원인
 서브넷에 대해 지정한 Azure Resource Manager ID가 잘못되었을 수 있습니다. 이 문제는 Service Bus 네임스페이스가 있는 리소스 그룹과 다른 리소스 그룹에 가상 네트워크가 있는 경우 발생할 수 있습니다. 가상 네트워크의 리소스 그룹을 명시적으로 지정하지 않으면 CLI 명령은 Service Bus 네임스페이스의 리소스 그룹을 사용하여 Azure Resource Manager ID를 생성합니다. 따라서 네트워크 규칙에서 서브넷을 제거하지 못합니다. 
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 가상 네트워크가 있는 리소스 그룹의 이름이 포함된 서브넷의 전체 Azure Resource Manager ID를 지정합니다. 예를 들면 다음과 같습니다.
 
 ```azurepowershell-interactive

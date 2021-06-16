@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 12d704b0a3d92aa0585fb120f969000def282396
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d4d42a2925003b7f69749d6876171ad906efc48c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092190"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951281"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Azure Portal를 사용하여 Azure 리소스 관리
 
@@ -119,6 +119,6 @@ Azure Resource Manager가 리소스 삭제를 지시하는 방법에 대한 자�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Resource Manager에 대한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조하세요.
-- Resource Manager 템플릿 구문에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../templates/template-syntax.md)를 참조하세요.
+- Resource Manager 템플릿 구문에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../templates/syntax.md)를 참조하세요.
 - 템플릿을 개발하는 방법을 알아보려면 [단계별 자습서](../index.yml)를 참조하세요.
 - Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조하세요.

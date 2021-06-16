@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 7a3e4853d6dffa7eb2c5cf80846f6f1bd6beba03
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: df37d64e634d2764666e29300e5157ceb3f3ec39
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100561507"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690837"
 ---
 # <a name="remove-azure-role-assignments"></a>Azure 역할 할당 제거
 
@@ -58,7 +59,7 @@ PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
 -ResourceGroupName pharma-sales
 ```
 
-구독 범위에서 ID가 22222222-2222-2222-2222-222222222222인 *Ann Mack Team* 그룹에서 [Reader](built-in-roles.md#reader) 역할을 제거합니다.
+구독 범위에서 ID가 22222222-2222-2222-2222-222222222222인 [Ann Mack Team](built-in-roles.md#reader) 그룹에서 *Reader* 역할을 제거합니다.
 
 ```azurepowershell
 PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
@@ -119,7 +120,7 @@ REST API에서 [역할 할당 - 삭제](/rest/api/authorization/roleassignments/
 1. URI 내에서 *{scope}* 를 제거할 역할 할당에 대한 범위로 바꿉니다.
 
     > [!div class="mx-tableFixed"]
-    > | 범위 | 유형 |
+    > | 범위 | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | 관리 그룹 |
     > | `subscriptions/{subscriptionId1}` | Subscription |
