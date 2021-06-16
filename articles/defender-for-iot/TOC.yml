@@ -142,7 +142,7 @@
         - name: 사용자 및 사용자 액세스 관리
           items:
             - name: 사용자 만들기 및 관리
-              displayName: 'Active Directory, roles, permissions'
+              displayName: 'Active Directory, roles, permissions, password, passwords, change, reset'
               href: how-to-create-and-manage-users.md
             - name: 전역 사용자 액세스 제어 정의
               href: how-to-define-global-user-access-control.md
@@ -180,6 +180,7 @@
             - name: 센서 경고 이해
               href: how-to-work-with-alerts-on-your-sensor.md
             - name: 경고 페이지에서 경고 필터링 및 관리
+              displayName: 'alert, alerts, Important, pinned, recent, acknowledge, archive, archived, search, text,'
               href: how-to-view-alerts.md
             - name: 경고 메시지 정보
               href: how-to-view-information-provided-in-alerts.md
@@ -338,7 +339,7 @@
           displayNAme: 'prototype, disable'
           href: azure-rtos-security-module-api.md
         - name: 질문과 대답 - 에이전트
-          displayName: 'FAQ, embedded, dependencies, data, quota, internet,'
+          displayName: 'FAQ, embedded, dependencies, data, quota, internet, password, change'
           href: resources-agent-frequently-asked-questions.md
         - name: Azure 로드맵
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'

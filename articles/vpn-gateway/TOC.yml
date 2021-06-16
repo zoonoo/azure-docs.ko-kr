@@ -39,6 +39,8 @@
           href: work-remotely-support.md
         - name: NVA 구성 및 원격 작업
           href: nva-work-remotely-support.md
+    - name: VPN Gateway FAQ
+      href: vpn-gateway-vpn-faq.md
     - name: VPN Gateway 디자인 정보
       href: design.md
     - name: VPN Gateway 설정 정보
@@ -320,8 +322,6 @@
       href: /cli/azure/network/vnet-gateway
 - name: 리소스
   items:
-    - name: VPN Gateway FAQ
-      href: vpn-gateway-vpn-faq.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 블로그

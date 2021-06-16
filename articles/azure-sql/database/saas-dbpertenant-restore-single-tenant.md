@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 88496a39b0186cefb7c64e227530b5d73e693094
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0832e7c8bac9677ac2130c4695604597233c8881
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92780481"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110699113"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>테넌트별 데이터베이스 SaaS 애플리케이션에서 단일 테넌트 복원
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

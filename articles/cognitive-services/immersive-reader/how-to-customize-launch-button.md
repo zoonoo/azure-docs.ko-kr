@@ -5,17 +5,17 @@ description: 이 문서에서는 몰입형 리더를 시작하는 단추를 사�
 services: cognitive-services
 author: metanMSFT
 manager: guillasi
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: metang
-ms.openlocfilehash: 17076cc98da20c714523b2cdde58ea259ad76653
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1f5feff0857b98b077ed1e19dbb7aaa82004df69
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367067"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893447"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>몰입형 리더 단추를 사용자 지정하는 방법
 

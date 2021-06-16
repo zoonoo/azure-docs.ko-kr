@@ -6,12 +6,12 @@ ms.author: jafernan
 ms.subservice: kubernetes
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: 2eb5675701842192ff348048f8235718af2eea90
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a958e42f3afab3dccd2a989c9d824a37ed9d9a6c
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110388013"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536814"
 ---
 # <a name="event-grid-on-kubernetes-with-azure-arc-preview---overview"></a>Azure Arc를 사용하는 Kubernetes의 Event Grid(미리 보기) - 개요
 이 문서에서는 Kubernetes의 Event Grid, 사용 사례, 제공하는 기능 및 Azure Event Grid와의 차이점에 대한 개요를 제공합니다.
@@ -29,7 +29,7 @@ Event Grid는 Azure의 완전 관리형 PaaS 서비스인 **Azure Event Grid** �
 
 
 ## <a name="event-grid-on-kubernetes-with-azure-arc"></a>Azure Arc를 사용하는 Kubernetes의 Event Grid
-Azure Arc를 사용하는 Kubernetes의 Event Grid는 자체 Kubernetes 클러스터에서 Event Grid를 실행할 수 있는 제품입니다. 이 기능은 [Azure Arc 지원 Kubernetes](../../azure-arc/kubernetes/overview.md)를 사용하여 활성화됩니다. Azure Arc 지원 Kubernetes를 통해 [지원되는 Kubernetes 클러스터](install-k8s-extension.md#supported-kubernetes-distributions)가 Azure에 연결됩니다. 연결되면 여기에 [Event Grid를 설치](install-k8s-extension.md#install-event-grid-on-kubernetes-extension)할 수 있습니다. 
+Azure Arc를 사용하는 Kubernetes의 Event Grid는 자체 Kubernetes 클러스터에서 Event Grid를 실행할 수 있는 제품입니다. 이 기능은 [Azure Arc 지원 Kubernetes](../../azure-arc/kubernetes/overview.md)를 사용하여 활성화됩니다. Azure Arc 지원 Kubernetes를 통해 [지원되는 Kubernetes 클러스터](install-k8s-extension.md#supported-kubernetes-distributions)가 Azure에 연결됩니다. 연결되면 여기에 [Event Grid를 설치](install-k8s-extension.md)할 수 있습니다. 
 
 ### <a name="use-case"></a>사용 사례
 Kubernetes의 Event Grid는 다양한 이벤트 중심 통합 시나리오를 지원합니다. 그러나 사용자 스토리로 지원되고 표현되는 주요 포괄적인 시나리오는 다음과 같습니다.

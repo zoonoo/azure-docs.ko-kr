@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2cf201c17b97464386ce52f4d689c2c1006d0970
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: e4463659077943507651ddd2ad30ee2a1af9cf7a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377419"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785216"
 ---
 # <a name="azure-functions-hosting-options"></a>Azure Functions 호스팅 옵션
 
@@ -103,7 +103,7 @@ Azure에서 함수 앱을 만들 때는 앱의 호스팅 계획을 선택해야 
 | --- | --- |
 | **[소비 계획](consumption-plan.md)** | 함수가 실행되는 시간 만큼만 요금을 지불하면 됩니다. 청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, |
 | **[프리미엄 계획](functions-premium-plan.md)** | 프리미엄 계획은 필요하고 사전 준비된 인스턴스에서 사용되는 메모리와 코어 초 수에 기반합니다. 계획당 최소 한 개의 인스턴스는 항상 사전 준비된 상태로 유지되어야 합니다. 이 계획은 가장 예측 가능한 가격 책정을 제공합니다. |
-| * *[전용 계획](dedicated-plan.md)* | 웹앱과 같은 다른 App Service 리소스에서와 마찬가지로 App Service 계획에서 함수 앱에 대해 동일한 비용을 지불합니다.|
+| **[전용 계획](dedicated-plan.md)** | 웹앱과 같은 다른 App Service 리소스에서와 마찬가지로 App Service 계획에서 함수 앱에 대해 동일한 비용을 지불합니다.|
 | **[ASE(App Service Environment)](dedicated-plan.md)** | 인프라에 대해 대금을 지급하고 ASE 크기에 따라 변경되지 않는 ASE의 월정액이 있습니다. 또한 App Service 계획 vCPU당 비용이 발생합니다. ASE에 호스트되는 모든 앱은 격리 가격 책정 SKU에 해당합니다. |
 | **[Kubernetes](functions-kubernetes-keda.md)**| Kubernetes 클러스터의 요금만 지불하면 되며 Functions에 대한 추가 요금 청구는 없습니다. 함수 앱은 일반 앱처럼 클러스터 기반 애플리케이션 워크로드로 실행됩니다. |
 

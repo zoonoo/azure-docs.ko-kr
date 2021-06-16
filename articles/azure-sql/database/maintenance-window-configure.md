@@ -3,18 +3,18 @@ title: 유지 관리 기간 구성(미리 보기)
 description: Azure SQL Database, 탄력적 풀 및 관리되는 인스턴스 데이터베이스에서 계획된 유지 관리를 수행해야 하는 시간을 설정하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma
 ms.date: 03/23/2021
-ms.openlocfilehash: 9771c68dda6f457586f27ea45fbc52aa118e8006
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: f2f12238d5c75b2d36d09efa2fddd76bf6b1ec1d
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107874786"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694375"
 ---
 # <a name="configure-maintenance-window-preview"></a>유지 관리 기간 구성(미리 보기)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

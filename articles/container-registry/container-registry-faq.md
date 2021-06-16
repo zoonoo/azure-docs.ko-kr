@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/15/2021
 ms.author: sajaya
-ms.openlocfilehash: 84567f9667619bb9208f066460b3c4483123b3fc
-ms.sourcegitcommit: dd425ae91675b7db264288f899cff6add31e9f69
+ms.openlocfilehash: 7ab6a090661521f81276188ebb0f63723a277d9f
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2021
-ms.locfileid: "108331451"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008109"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대한 질문과 대답
 
@@ -33,7 +33,7 @@ ms.locfileid: "108331451"
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Azure 컨테이너 레지스트리를 만들 수 있나요?
 
-예. 레지스트리를 만드는 데 사용할 수 있는 [템플릿](https://azure.microsoft.com/resources/templates/101-container-registry/)이 있습니다.
+예. 레지스트리를 만드는 데 사용할 수 있는 [템플릿](https://azure.microsoft.com/resources/templates/container-registry/)이 있습니다.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>ACR에서 이미지를 검사하는 보안 취약성이 있나요?
 

@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: cdbddfc84b3f71576cfd0299f2babec859b4ef1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06bff9acd76edc05498285809735eb4ec8a3c2f3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92311056"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407762"
 ---
 # <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Azure Arc 지원 PostgreSQL 하이퍼스케일에 대한 데이터베이스 엔진 설정 지정
 
@@ -215,5 +215,5 @@ azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- 서버 그룹 [스케일링 아웃(작업자 노드 추가)](scale-out-postgresql-hyperscale-server-group.md)에 관해 읽어보기
+- 서버 그룹 [스케일링 아웃(작업자 노드 추가)](scale-out-in-postgresql-hyperscale-server-group.md)에 관해 읽어보기
 - 서버 그룹 [스케일링 아웃 또는 스케일링 다운(메모리/vCore 늘리기/줄이기)](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)에 관해 읽어보기

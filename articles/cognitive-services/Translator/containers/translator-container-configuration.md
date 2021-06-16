@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 05/27/2021
 ms.author: lajanuar
 recommendations: false
-ms.openlocfilehash: 42376cc7c1e1745e3db3ce3467ea02221fb7b834
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: fa31cafb414792a5feef7207156ecfb2c0b68778
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478108"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652864"
 ---
 # <a name="configure-translator-docker-containers-preview"></a>Translator Docker 컨테이너 구성(미리 보기)
 
@@ -85,15 +85,6 @@ Cognitive Services는 각 컨테이너에 공통 구성 프레임워크를 제�
 ## <a name="mount-settings"></a>탑재 설정
 
 바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
-
-Translator 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다.
-
-호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](translator-how-to-install-container.md#host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다.
-<!-- markdownlint-disable MD033 -->
-|Optional| 이름 | 데이터 형식 | Description |
-|-------|------|-----------|-------------|
-|허용되지 않음| `Input` | String | Translator 컨테이너에는 이 값이 사용되지 않습니다.|
-|선택| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 여기에서 컨테이너 로그를 포함하여 로그의 위치를 찾을 수 있습니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="next-steps"></a>다음 단계
 

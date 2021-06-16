@@ -3,12 +3,13 @@ title: Azure Private Link 서비스와 Azure Event Hubs 통합
 description: Azure Private Link Service와 Azure Event Hubs를 통합하는 방법을 알아봅니다.
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: d19060f96a1a6912dd0f1c8791689a61cd2b2293
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 76f205d97c7c77ff75f0143181631319c6a23b97
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371367"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706043"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>프라이빗 엔드포인트를 통한 Azure Event Hubs 네임스페이스 액세스 허용 
 Azure Private Link Service를 사용하면 가상 네트워크의 **프라이빗 엔드포인트** 를 통해 Azure 서비스(예: Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다.
@@ -99,8 +100,6 @@ Event Hubs 네임스페이스가 이미 있는 경우 다음 단계에 따라 Pr
 다음 예에서는 Azure PowerShell을 사용하여 프라이빗 엔드포인트 연결을 만드는 방법을 보여 줍니다. 자동으로 전용 클러스터를 만들지 않습니다. 이 [문서](event-hubs-dedicated-cluster-create-portal.md)의 단계에 따라 전용 Event Hubs 클러스터를 만듭니다. 
 
 ```azurepowershell-interactive
-# create resource group
-
 $rgName = "<RESOURCE GROUP NAME>"
 $vnetlocation = "<VIRTUAL NETWORK LOCATION>"
 $vnetName = "<VIRTUAL NETWORK NAME>"
@@ -108,6 +107,9 @@ $subnetName = "<SUBNET NAME>"
 $namespaceLocation = "<NAMESPACE LOCATION>"
 $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
+
+# create resource group
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

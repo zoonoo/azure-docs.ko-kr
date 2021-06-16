@@ -6,16 +6,16 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 52b5bd0650b3a069adc3ef7f101c48a4674deaab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1006f29544bf2708277c6b5a975836a31bcdeff9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97107110"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959296"
 ---
 # <a name="tutorial-add-template-functions-to-your-arm-template"></a>자습서: ARM 템플릿에 템플릿 함수 추가
 
-이 자습서에서는 ARM 템플릿(Azure Resource Manager 템플릿)에 [템플릿 함수](template-functions.md)를 추가하는 방법을 알아봅니다. 함수를 사용하여 값을 동적으로 구성합니다. 이러한 시스템 제공 템플릿 함수 외에도 [사용자 정의 함수](./template-user-defined-functions.md)를 만들 수 있습니다. 이 자습서를 완료하는 데 **7분** 이 소요됩니다.
+이 자습서에서는 ARM 템플릿(Azure Resource Manager 템플릿)에 [템플릿 함수](template-functions.md)를 추가하는 방법을 알아봅니다. 함수를 사용하여 값을 동적으로 구성합니다. 이러한 시스템 제공 템플릿 함수 외에도 [사용자 정의 함수](./user-defined-functions.md)를 만들 수 있습니다. 이 자습서를 완료하는 데 **7분** 이 소요됩니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

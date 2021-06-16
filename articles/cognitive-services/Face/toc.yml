@@ -45,7 +45,7 @@ items:
           - name: 컨테이너 구성
             href: face-resource-container-config.md
           - name: 컨테이너 인스턴스 사용
-            href: /azure/cognitive-services/containers/azure-container-instance-recipe?context=/azure/cognitive-services/face/context/context
+            href: ../containers/azure-container-instance-recipe.md?context=%2fazure%2fcognitive-services%2fface%2fcontext%2fcontext
           - name: 모든 Cognitive Services 컨테이너 설명서
             href: ../containers/index.yml
             maintainContext: true

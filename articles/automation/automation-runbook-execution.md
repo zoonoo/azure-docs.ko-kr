@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 04/28/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a0c734d7717f157ba062b1c9369be5dd95be03af
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 5fcef44fed77b01e069129a160299f547340c346
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278473"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964572"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -53,7 +53,7 @@ Runbook이 Azure의 리소스에 대해 인증되고 실행되도록 설계된 �
 |장기 실행 스크립트 실행|Hybrid Runbook Worker|Azure 샌드박스에는 [리소스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)이 있습니다.|
 |로컬 서비스와 상호 작용|Hybrid Runbook Worker|호스트 머신에 직접 액세스하거나, 다른 클라우드 환경 또는 온-프레미스 환경에 있는 리소스에 직접 액세스합니다. |
 |타사 소프트웨어 및 실행 파일 요구|Hybrid Runbook Worker|운영 체제를 관리하고 소프트웨어를 설치할 수 있습니다.|
-|Runbook으로 파일 또는 폴더 모니터링|Hybrid Runbook Worker|Hybrid Runbook Worker에서 [감시자 태스크](automation-watchers-tutorial.md)를 사용합니다.|
+|Runbook으로 파일 또는 폴더 모니터링|Hybrid Runbook Worker|Hybrid Runbook Worker에서 [감시자 태스크](./automation-scenario-using-watcher-task.md)를 사용합니다.|
 |리소스를 많이 사용하는 스크립트 실행|Hybrid Runbook Worker| Azure 샌드박스에는 [리소스 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)이 있습니다.|
 |특정 요구 사항이 있는 모듈 사용| Hybrid Runbook Worker|예는 다음과 같습니다.</br> WinSCP - winscp.exe에 대한 종속성 </br> IIS 관리 - IIS 사용 또는 관리에 대한 종속성|
 |설치 관리자를 사용하여 모듈 설치|Hybrid Runbook Worker|샌드박스용 모듈은 복사를 지원해야 합니다.|

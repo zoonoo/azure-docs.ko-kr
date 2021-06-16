@@ -7,12 +7,13 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 116c12900f015c849c9492ed67bc11d116286c43
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: af7b46d0942b5d1bec1cbe77ec02eec7080597ba
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102611932"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676963"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Azure Web Application Firewall에 대한 리소스 로그
 
@@ -145,7 +146,7 @@ Application Gateway 및 WAF v2의 경우 로그에 약간의 추가 정보가 �
 |sentBytes| 보낸 패킷의 크기(바이트)|
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 TLS를 사용했는지 여부입니다. 유효한 값은 on과 off입니다.|
-|sslCipher| TLS 통신에 사용되는 암호화 모음입니다(TLS가 사용 설정된 경우).|
+|sslCipher| TLS 통신에 사용되는 암호화 도구 모음입니다(TLS가 사용 설정된 경우).|
 |sslProtocol| 사용되는 TLS 프로토콜입니다(TLS가 사용 설정된 경우).|
 |serverRouted| Application Gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
 |serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
@@ -232,7 +233,7 @@ Application Gateway 및 WAF v2의 경우 로그에 약간의 추가 정보가 �
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
 |message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
-|action     |  요청에서 수행되는 동작이며, 사용 가능한 값은 차단됨 및 허용됨(사용자 지정 규칙의 경우). 일치함(규칙이 요청의 일부와 일치하는 경우), 검색됨, 차단됨(WAF가 검색 또는 방지 모드에 있는지에 따라 둘 다 필수 규칙임)입니다.      |
+|action     |  요청에서 수행되는 동작이며, 사용 가능한 값은 차단 및 허용(사용자 지정 규칙의 경우), 일치(규칙이 요청의 일부와 일치하는 경우), 및 검색되고 차단(WAF가 검색 또는 방지 모드에 있는지에 따라 둘 다 필수 규칙임)됩니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
 |자세히     | 트리거 이벤트의 세부 정보        |
 |details.message     | 규칙에 대한 설명        |

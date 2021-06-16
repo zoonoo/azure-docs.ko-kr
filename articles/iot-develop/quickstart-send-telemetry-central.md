@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/27/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 238da57b73d764c9a5583ccced36f7e46a4be389
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 52bd27122bee20377975bb7ce87f23aeb892dedf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061151"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952797"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central"></a>빠른 시작: 디바이스에서 Azure IoT Central로 원격 분석 보내기
 
@@ -78,6 +78,6 @@ Azure IoT Central 샘플 애플리케이션과 모든 해당 디바이스 및 �
 다음 단계로, 다음 문서를 통해 Azure IoT를 사용하여 디바이스 솔루션을 빌드하는 방법에 대해 자세히 알아봅니다. 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub에 원격 분석 데이터 보내기](quickstart-send-telemetry-cli-python.md)
+> [Azure IoT Hub에 원격 분석 데이터 보내기](./quickstart-send-telemetry-iot-hub.md)
 > [!div class="nextstepaction"]
 > [IoT Central 애플리케이션 만들기](../iot-central/core/quick-deploy-iot-central.md)

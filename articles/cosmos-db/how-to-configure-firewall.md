@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: mjbrown
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: b94b30851a5206c2183d999a3c024351cf415c90
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: d92693b699c2ca0eb2827d37be0c37aeb9f8d954
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105568242"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681765"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

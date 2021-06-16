@@ -7,12 +7,13 @@ ms.author: mamccrea
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021
-ms.openlocfilehash: 54af2387ec0ff6c8f86f96821baad17736e8d85b
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7938dcb3e66bc618832171668e392e4fff0cf5a9
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877969"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706166"
 ---
 # <a name="troubleshoot-locationnotfoundforrolesize-when-deploying-a-cloud-service-classic-to-azure"></a>Azure에 클라우드 서비스(클래식)를 배포하는 경우 LocationNotFoundForRoleSize 문제 해결
 
@@ -27,9 +28,9 @@ Azure 구독 제한에 도달하기 전에도 이러한 작업 중에 간혹 오
 
 ## <a name="symptom"></a>증상
 
-Azure Portal에서 클라우드 서비스(클래식)로 이동하고 사이드바에서 *작업 로그(클래식)* 를 선택하여 로그를 확인합니다.
+Azure Portal에서 클라우드 서비스(클래식)로 이동하여 사이드바에서 ‘작업 로그(클래식)’를 선택하고 로그를 확인합니다.
 
-![이미지는 작업 로그(클래식) 블레이드를 보여 줍니다.](./media/cloud-services-troubleshoot-location-not-found-for-role-size/cloud-services-troubleshoot-allocation-logs.png)
+![작업 로그(클래식) 블레이드를 보여 주는 이미지입니다.](./media/cloud-services-troubleshoot-location-not-found-for-role-size/cloud-services-troubleshoot-allocation-logs.png)
 
 클라우드 서비스(클래식)의 로그를 검사하는 경우 다음과 같은 예외가 표시됩니다.
 
@@ -130,4 +131,4 @@ Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.Res
 > [!div class="nextstepaction"]
 > [할당 오류 - 클라우드 서비스(클래식)](cloud-services-allocation-failures.md)
 
-Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow에서 Azure 포럼](https://azure.microsoft.com/support/forums/)을 방문합니다. 이러한 포럼이나 [@AzureSupport Twitter](https://twitter.com/AzureSupport) 의 에 문제를 게시할 수 있습니다. 또한 Azure 지원 요청을 제출할 수 있습니다. 지원 요청을 제출하려면 [Azure 지원](https://azure.microsoft.com/support/options/) 페이지에서 *지원 받기* 를 선택합니다.
+현재 Azure 문제와 관련된 정보가 이 문서에 없을 경우 [MSDN 및 Stack Overflow](https://azure.microsoft.com/support/forums/)에서 Azure 포럼에 방문하세요. 이러한 포럼이나 [@AzureSupport Twitter](https://twitter.com/AzureSupport) 의 에 문제를 게시할 수 있습니다. 또한 Azure 지원 요청을 제출할 수 있습니다. 지원 요청을 제출하려면 [Azure 지원](https://azure.microsoft.com/support/options/) 페이지에서 *지원 받기* 를 선택합니다.

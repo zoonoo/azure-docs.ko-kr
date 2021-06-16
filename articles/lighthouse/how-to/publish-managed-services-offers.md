@@ -3,12 +3,12 @@ title: Azure Marketplace에 관리형 서비스 제안 게시
 description: Azure Lighthouse에 고객을 온보딩하는 관리형 서비스 제안을 게시하는 방법을 알아봅니다.
 ms.date: 03/31/2021
 ms.topic: how-to
-ms.openlocfilehash: f59d9708925b52bcf9432663fe6d3137a54b37ad
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 014386c6c4676abbc441cc2e23bdfcf90f3adc09
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107451"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965115"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 제안 게시
 
@@ -53,7 +53,7 @@ Azure Marketplace에 제안을 게시하지 않으려는 경우 또는 일부 �
 
 모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [여기](../../marketplace/review-publish-offer.md)에서 확인할 수 있습니다.
 
-언제든지 [제품의 업데이트된 버전을 게시](../..//marketplace/partner-center-portal/update-existing-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
+언제든지 [제품의 업데이트된 버전을 게시](../../marketplace/update-existing-offer.md)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
 
 ## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
 

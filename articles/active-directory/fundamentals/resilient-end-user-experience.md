@@ -13,12 +13,12 @@ ms.reviewer: ''
 ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47a4a79fd423806693e86aef1edd132d844069e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c570a7f646f9fc76fcb858748c59f438b46bf033
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557907"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572135"
 ---
 # <a name="resilient-end-user-experience"></a>복원력 있는 최종 사용자 환경
 
@@ -40,13 +40,13 @@ ms.locfileid: "105557907"
 
 비즈니스 요구 사항을 충족할 수 있는 경우 기본 제공 사용자 흐름을 선택합니다. Microsoft의 광범위한 테스트를 거쳤기 때문에 이러한 ID 사용자 흐름의 정책 수준 기능, 성능 또는 규모의 유효성을 검사하는 데 필요한 테스트를 최소화할 수 있습니다. 그러나 애플리케이션의 기능, 성능 및 확장성은 테스트해야 합니다.
 
-비즈니스 요구 사항으로 인해 [사용자 지정 정책을 선택](../../active-directory-b2c/custom-policy-get-started.md)해야 하는 경우 애플리케이션 수준 테스트 외에도 기능, 성능 또는 규모에 대한 정책 수준 테스트를 수행해야 합니다.
+비즈니스 요구 사항으로 인해 [사용자 지정 정책을 선택](../../active-directory-b2c/user-flow-overview.md)해야 하는 경우 애플리케이션 수준 테스트 외에도 기능, 성능 또는 규모에 대한 정책 수준 테스트를 수행해야 합니다.
 
-[사용자 흐름과 사용자 지정 정책을 비교](../../active-directory-b2c/custom-policy-overview.md#comparing-user-flows-and-custom-policies)하는 문서를 확인하면 결정하는 데 도움이 됩니다.
+[사용자 흐름과 사용자 지정 정책을 비교](../../active-directory-b2c/user-flow-overview.md#comparing-user-flows-and-custom-policies)하는 문서를 확인하면 결정하는 데 도움이 됩니다.
 
 ## <a name="choose-multiple-idps"></a>여러 IdP 선택
 
-[외부 ID 공급자](../../active-directory-b2c/technical-overview.md#external-identity-providers)(예: Facebook)를 사용하는 경우 외부 공급자를 사용할 수 없게 되는 경우에 대비한 계획이 있어야 합니다.
+[외부 ID 공급자](../../active-directory-b2c/add-identity-provider.md)(예: Facebook)를 사용하는 경우 외부 공급자를 사용할 수 없게 되는 경우에 대비한 계획이 있어야 합니다.
 
 ### <a name="how-to-set-up-multiple-idps"></a>다중 IdP 설정 방법
 
@@ -103,4 +103,4 @@ CDNs(콘텐츠 배달 네트워크)는 사용자 지정 사용자 흐름 UI의 �
   - [개발자 모범 사례를 통한 복원력](resilience-b2c-developer-best-practices.md)
   - [모니터링 및 분석을 통한 복원력](resilience-with-monitoring-alerting.md)
 - [인증 인프라의 빌드 복원력 구축](resilience-in-infrastructure.md)
-- [인증 및 권한 부여 애플리케이션의 복원력 향상](resilience-app-development-overview.md)
+- [애플리케이션에서 인증 및 권한 부여 복원력 향상](resilience-app-development-overview.md)

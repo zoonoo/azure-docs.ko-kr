@@ -3,12 +3,12 @@ title: Service Fabric용 Azure Files 볼륨 드라이버
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: a5125dbd88a2fe236196c427244f1311d9b73b9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d3acb20723bc826a120a8333c0ef63c33131376a
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86247696"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901208"
 ---
 # <a name="azure-files-volume-driver-for-service-fabric"></a>Service Fabric용 Azure Files 볼륨 드라이버
 
@@ -198,7 +198,7 @@ Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile*
     ```
 
 ## <a name="using-your-own-volume-or-logging-driver"></a>사용자 고유의 볼륨 또는 로깅 드라이버 사용
-Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](./service-fabric-application-model.md)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
+Service Fabric은 사용자 고유의 사용자 지정 [볼륨](https://docs.docker.com/engine/extend/plugins_volume/) 또는 [로깅](https://docs.docker.com/engine/admin/logging/overview/) 드라이버 사용을 허용합니다. Docker 볼륨/로깅 드라이버가 클러스터에 설치되어 있지 않으면 RDP/SSH 프로토콜을 사용하여 수동으로 설치할 수 있습니다. [가상 머신 확장 집합 시작 스크립트](https://azure.microsoft.com/resources/templates/vmss-custom-script-windows/) 또는 [SetupEntryPoint 스크립트](./service-fabric-application-model.md)를 통해 이러한 프로토콜을 사용하여 설치를 수행할 수 있습니다.
 
 [Azure용 Docker 볼륨 드라이버](https://docs.docker.com/docker-for-azure/persistent-data-volumes/)를 설치하는 스크립트의 예는 다음과 같습니다.
 

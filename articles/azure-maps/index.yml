@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 17113e3a2564ed56ecbcf8e34de27c4fe398ce03
-  ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+  ms.openlocfilehash: 60124b557513cdab7ea588fe731ff839becf36f2
+  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/18/2020
-  ms.locfileid: "97680676"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112030398"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -83,13 +83,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: 변환 서비스
-      url: /rest/api/maps/conversion
+      url: /rest/api/maps/v2/conversion
     - text: 데이터 세트 서비스
-      url: /rest/api/maps/dataset
+      url: /rest/api/maps/v2/dataset
     - text: 타일 세트 서비스
-      url: /rest/api/maps/tileset
+      url: /rest/api/maps/v2/tileset
     - text: 기능 상태 세트 서비스
-      url: /rest/api/maps/featurestate
+      url: /rest/api/maps/v2/feature-state
 - title: Web SDK를 사용하여 개발
   linkLists:
   - linkListType: concept

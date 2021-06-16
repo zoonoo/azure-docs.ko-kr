@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 12732171f774e6ce010f722cde4a27bb298275b9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bcd880cebeab1a445fb579f478851e93f51d5ac2
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103007934"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695523"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>스토리지 액세스 키 롤링 후 Media Services 업데이트
 

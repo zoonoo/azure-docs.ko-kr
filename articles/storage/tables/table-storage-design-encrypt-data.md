@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/11/2018
 ms.subservice: tables
-ms.openlocfilehash: b921be718bfeb5eb95d4a802fb4d2a8cdd0946c1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6b874bfb9f3c261f395f8358151ae555cdaed8e8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88236780"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756890"
 ---
 # <a name="encrypt-table-data"></a>테이블 데이터 암호화
 .NET Azure Storage 클라이언트 라이브러리는 작업 삽입 및 삭제의 문자열 엔터티 속성 암호화를 지원합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.    
@@ -29,6 +29,5 @@ ms.locfileid: "88236780"
 ## <a name="next-steps"></a>다음 단계
 
 - [테이블 디자인 패턴](table-storage-design-patterns.md)
-- [관계 모델링](table-storage-design-modeling.md)
 - [관계 모델링](table-storage-design-modeling.md)
 - [데이터 수정을 위한 디자인](table-storage-design-for-modification.md)

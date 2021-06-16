@@ -1,18 +1,18 @@
 ---
 title: Azure Kinect 재생 API
 description: 재생 API를 사용하여 기록 파일을 열기 위해 Azure Kinect 센서 SDK를 사용하는 방법을 알아봅니다.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 기록, 재생, matroska, mkv
-ms.openlocfilehash: fe403f314c1df415537d090433f34627eb1249e7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 61d7f850554207effeff14f890efe1dd59ab109b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "85276915"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747008"
 ---
 # <a name="the-azure-kinect-playback-api"></a>Azure Kinect 재생 API
 

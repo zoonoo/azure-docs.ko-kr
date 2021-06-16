@@ -9,12 +9,13 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1c7c31f38d6a59f4ded17e1e1fd7e985ce59922a
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9b9ff0a4f432a8fbf9eaee84bc0215af736b6bbd
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751421"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667019"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Azure PowerShell을 사용하여 Key Vault 액세스 정책 할당
 
@@ -78,6 +79,5 @@ Set-AzKeyVaultAccessPolicy -VaultName <key-vault-name> -ObjectId <Id> -Permissio
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault 보안: ID 및 액세스 관리](security-overview.md#identity-management)
-- [키 자격 증명 모음 보안](security-overview.md)
+- [Azure Key Vault 보안: ID 및 액세스 관리](security-features.md#identity-management)
 - [Azure Key Vault 개발자 가이드](developers-guide.md)

@@ -5,17 +5,17 @@ description: 이메일, 웹 및 Azure DevOps용 후크를 사용하여 Metrics A
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db5fbbc192e6c3b4f50af20e05cbd164dbe10032
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420923"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892547"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>방법: 후크를 사용하여 경고를 구성하고 알림 가져오기
 

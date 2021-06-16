@@ -6,14 +6,14 @@ author: willzhan
 manager: femila
 ms.service: media-services
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: acff3e77b92110c818ea0ab0f8281aef87e9db81
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 516feb728368bfc57ce48bad8275419c726c7701
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106068545"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793409"
 ---
 # <a name="offline-fairplay-streaming-for-ios-with-media-services-v3"></a>Media Services v3를 사용하는 iOS용 오프라인 FairPlay 스트리밍
 
@@ -33,13 +33,13 @@ ms.locfileid: "106068545"
 다양한 스트리밍 프로토콜을 통한 온라인 스트리밍에 대한 콘텐츠를 보호하는 것 외에도, 보호된 콘텐츠에 대한 오프 라인 모드 또한 자주 요청되는 기능입니다. 다음 시나리오에 대해 오프라인 모드 지원이 필요합니다.
 
 * 인터넷 연결을 사용할 수 없을 경우(예: 여행 중) 재생합니다.
-* 일부 콘텐츠 공급자는 국가/지역 경계를 넘어 DRM 라이선스 전송을 허용하지 않을 수 있습니다. 사용자가 국가/지역 외부로 이동하면서 콘텐츠를 보려면 오프라인 다운로드가 필요합니다.
-* 일부 국가/지역에서는 인터넷 가용성 및/또는 대역폭이 여전히 제한됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
+* 일부 콘텐츠 공급자는 해당 국가/지역 외에는 DRM 라이선스 제공을 허용하지 않을 수도 있습니다. 해외/타지 여행 중 콘텐츠를 보고 싶은 경우 오프라인 다운로드가 필요합니다.
+* 일부 국가/지역에서는 인터넷 사용 및/또는 대역폭이 여전히 제한됩니다. 사용자가 만족스러운 보기 환경을 위해 충분히 높은 해상도로 콘텐츠를 보고자 먼저 다운로드를 선택할 수도 있습니다. 이 경우, 일반적으로 문제는 네트워크 가용성이 아니라 제한된 네트워크 대역폭입니다. OTT(Over-the-top)/OVP(온라인 비디오 플랫폼) 공급자는 오프라인 모드 지원을 요청합니다.
 
 이 문서에서는 iOS 10 이상을 실행하는 디바이스를 대상으로 하는 FairPlay 스트리밍(FPS) 오프라인 모드 지원에 대해 설명합니다. 이 기능은 watchOS, tvOS, 또는 macOS의 Safari와 같은 다른 Apple 플랫폼을 지원하지 않습니다.
 
 > [!NOTE]
-> 오프라인 DRM은 콘텐츠를 다운로드할 때 단일 라이선스 요청에 대해서만 청구됩니다. 모든 오류에 대해 청구되지는 않습니다.
+> 오프라인 DRM은 콘텐츠를 다운로드할 때 한 번의 라이선스 요청에 대해서만 청구됩니다. 모든 오류에 대해서는 청구되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -49,18 +49,18 @@ iOS 10+ 디바이스에서 FairPlay에 대한 오프라인 DRM을 구현하기 �
 
     - [Apple FairPlay 라이선스 요구 사항 및 구성](drm-fairplay-license-overview.md)
     - [DRM 동적 암호화 및 라이선스 배달 서비스 사용](drm-protect-with-drm-tutorial.md)
-    - 온라인 FPS 스트리밍의 구성을 포함하는 .NET 샘플: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L505)
+    - 온라인 FPS 스트리밍의 구성을 포함하는 .NET 샘플: [ConfigureFairPlayPolicyOptions](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L493)
 * Apple Developer Network에서 FPS SDK를 가져옵니다. FPS SDK에는 두 가지 구성 요소가 들어 있습니다.
 
     - FPS Server SDK에는 KSM(키 보안 모듈), 클라이언트 샘플, 사양 및 테스트 벡터 집합이 들어 있습니다.
     - FPS Deployment Pack은 D 함수 사양 및 FPS 인증서를 생성하는 방법에 관한 지침, 고객별 프라이빗 키 및 애플리케이션 비밀 키를 포함합니다. Apple은 사용이 허가된 콘텐츠 공급자에게만 FPS Deployment Pack을 발급합니다.
 * https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git을 복제합니다. 
 
-    [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 FairPlay 구성을 추가해야 합니다.  
+    [.NET을 사용하여 DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM)에서 코드를 수정하여 FairPlay 구성을 추가해야 합니다.  
 
 ## <a name="configure-content-protection-in-azure-media-services"></a>Azure Media Services에서 콘텐츠 보호 구성
 
-[GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L189) 메서드에서 다음을 수행합니다.
+[GetOrCreateContentKeyPolicyAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L192) 메서드에서 다음을 수행합니다.
 
 FairPlay 정책 옵션을 구성하는 코드의 주석 처리를 제거합니다.
 
@@ -82,7 +82,7 @@ options.Add(
 
 ## <a name="enable-offline-mode"></a>오프라인 모드 사용
 
-오프라인 모드를 사용하도록 설정하려면 사용자 지정 StreamingLocator를 만든 후 [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L561)에서 StreamingPolicy를 만들 때 해당 이름을 사용합니다.
+오프라인 모드를 사용하도록 설정하려면 사용자 지정 StreamingLocator를 만든 후 [CreateStreamingLocatorAsync](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM/Program.cs#L538)에서 StreamingPolicy를 만들 때 해당 이름을 사용합니다.
  
 ```csharp
 CommonEncryptionCbcs objStreamingPolicyInput= new CommonEncryptionCbcs()

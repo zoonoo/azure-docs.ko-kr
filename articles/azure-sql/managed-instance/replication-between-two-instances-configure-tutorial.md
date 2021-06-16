@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: 이 자습서에서는 Azure SQL Managed Instance 게시자/배포자와 SQL Managed Instance 구독자 간에 트랜잭션 복제를 구성하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
+author: ferno-ms
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1169e3df6cc2c6d1d9850bbbcca3784ea80bec93
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101690688"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691490"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>자습서: 두 관리형 인스턴스 간 복제 구성
 

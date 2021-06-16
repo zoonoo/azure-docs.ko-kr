@@ -7,16 +7,16 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf57f4d990ca3542bac8721751fee30f2f941bae
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92780838"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708226"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Azure SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 검색
 

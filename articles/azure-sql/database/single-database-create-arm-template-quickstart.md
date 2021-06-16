@@ -3,20 +3,19 @@ title: 'Azure Resource Manager: 단일 데이터베이스 만들기'
 description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
-ms.custom: subject-armqs sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: subject-armqs sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: quickstart
-author: mumian
-ms.author: jgao
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 06/24/2020
-ms.openlocfilehash: 0cd8869b96bcc482d8549378abf818f5fe5f50d6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 6e2bf456d9a86f652ade4d68df8846d7c5f2a974
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108769888"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893159"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 
@@ -36,7 +35,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 단일 데이터베이스는 두 [구매 모델](purchasing-models.md) 중 하나를 사용하여 컴퓨팅, 메모리, IO 및 스토리지 리소스 세트가 정의됩니다. 단일 데이터베이스를 만들 때 지정된 지역의 [Azure 리소스 그룹](../../active-directory-b2c/overview.md) 내에서 데이터베이스를 관리 및 배치하기 위한 [서버](logical-servers.md)도 정의합니다.
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-sql-database/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/sql-database/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sql-database/azuredeploy.json":::
 

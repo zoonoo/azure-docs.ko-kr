@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 7f383b661d682242f6d60761827ee5b86e5ed4a2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0d69ec14182e1ab69ddaad6351fdc267ee0fa2cd
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92459852"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112063147"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ipass-smartconnect"></a>자습서: iPass SmartConnect와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -28,12 +28,15 @@ ms.locfileid: "92459852"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * iPass SmartConnect SSO(Single Sign-On)가 설정된 구독
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -93,7 +96,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 iPass SmartConnect 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | ---------------| ----------|
     | firstName | user.givenname |
     | lastName | user.surname |

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, ladolan, azla
 ms.topic: conceptual
 ms.date: 05/25/2021
-ms.openlocfilehash: 1dd4a75cbebeb0244ffd3e0c1f8e2cfcd1968440
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0c09d013e3e9e3934702eb512334a33a60044b9d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110379735"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111441243"
 ---
 # <a name="single-tenant-versus-multi-tenant-and-integration-service-environment-for-azure-logic-apps"></a>Azure Logic Apps의 단일 테넌트 및 다중 테넌트와 통합 서비스 환경
 
@@ -95,7 +95,7 @@ Azure Logic Apps를 처음 사용하는 경우 다음 문서를 참조하세요.
 | Azure portal | **Logic App(소비)** 리소스 종류 | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 - Azure Portal](quickstart-create-first-logic-app-workflow.md) |
 | Visual Studio Code | [**Azure Logic Apps(사용량)** 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 - Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 | Azure CLI | [**Logic Apps Azure CLI** 확장](https://github.com/Azure/azure-cli-extensions/tree/master/src/logic) | - [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 및 관리 - Azure CLI](quickstart-logic-apps-azure-cli.md) <p><p>- [az logic](/cli/azure/logic) |
-| Azure 리소스 관리자 | [**논리 앱 만들기** ARM(Azure Resource Manager) 템플릿](https://azure.microsoft.com/resources/templates/101-logic-app-create/) | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 및 배포 - ARM 템플릿](quickstart-create-deploy-azure-resource-manager-template.md) |
+| Azure 리소스 관리자 | [**논리 앱 만들기** ARM(Azure Resource Manager) 템플릿](https://azure.microsoft.com/resources/templates/logic-app-create/) | [빠른 시작: 다중 테넌트 Azure Logic Apps에서 통합 워크플로 만들기 및 배포 - ARM 템플릿](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Az. LogicApp 모듈](/powershell/module/az.logicapp) | [Azure PowerShell 시작](/powershell/azure/get-started-azureps) |
 | Azure REST API | [Azure Logic Apps REST API](/rest/api/logic) | [Azure REST API 시작하기 참조](/rest/api/azure) |
 ||||

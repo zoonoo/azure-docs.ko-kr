@@ -3,20 +3,20 @@ title: Azure Resource Manager 템플릿 - Azure SQL Database 및 SQL Managed Ins
 description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database 및 Azure SQL Managed Instance를 만들고 구성합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: deployment-configuration
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
 ms.topic: guide
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 05/24/2021
-ms.openlocfilehash: 4c9cf08ad0a048c0c37f2c9943e455914ecc21fd
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 84a489222ed8d68c8c49d240cc22bd35f443227a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456931"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705716"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance용 Azure Resource Manager 템플릿
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

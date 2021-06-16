@@ -7,41 +7,31 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/01/2020
 ms.author: pafarley
-ms.openlocfilehash: 8cc4bc6907f83ce062fed82dde17815fc4debd67
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 25c18d3e5b612c31a3c8a77a35118968616002dd
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719663"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111896549"
 ---
 아래 SKU 목록과 가격 정보를 참조하세요. 
 
 #### <a name="multi-service"></a>다중 서비스
 
-| 서비스                    | 종류                      |
-|----------------------------|---------------------------|
+| 서비스     | 종류    |
+|-------------|------------|
 | 여러 서비스. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/) 페이지를 참조하세요.            | `CognitiveServices`     |
 
 
 #### <a name="vision"></a>Vision
 
-| 서비스                    | 종류                      |
-|----------------------------|---------------------------|
+| 서비스    | 종류    |
+|------------|---------|
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision - 예측 | `CustomVision.Prediction` |
 | Custom Vision - 학습   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
-
-#### <a name="search"></a>검색
-
-| 서비스            | 종류                  |
-|--------------------|-----------------------|
-| Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
-| Bing Entity Search | `Bing.EntitySearch`   |
-| Bing Search        | `Bing.Search.v7`      |
-| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
 
 #### <a name="speech"></a>음성
 

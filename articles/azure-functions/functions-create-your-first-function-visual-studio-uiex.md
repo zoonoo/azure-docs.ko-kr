@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 09/30/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 9e3144738bd259ab9be75059af00f125581bb37c
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 5dffc4b1ffaa221e507c84c8a9b5654f9e5355c8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "102050123"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785248"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
 
@@ -24,8 +24,6 @@ ms.locfileid: "102050123"
 + Azure 만들기 <abbr title="Azure 사용량에 대한 청구 정보를 유지 관리하는 프로필.">account</abbr> 활성 <abbr title="Azure에서 리소스를 관리하는 기본 조직 구조이며 일반적으로 조직 내의 개인 또는 부서와 연결됩니다.">subscription</abbr>. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 + [Visual Studio 2019](https://azure.microsoft.com/downloads/)를 설치하고, 설치하는 동안 **Azure 개발** 워크로드를 선택합니다. 
-
-![Azure 개발 워크로드가 포함된 Visual Studio 설치](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 <br/>
 <details>
@@ -155,19 +153,7 @@ ms.locfileid: "102050123"
 
 ## <a name="7-clean-up-resources"></a>7. 리소스 정리
 
-추가 비용이 발생하지 않도록 함수 앱과 해당 리소스를 삭제하세요.
-
-1. 클라우드 탐색기에서 구독, **App Services** 를 차례로 확장하고 함수 앱을 마우스 오른쪽 단추로 클릭한 다음, **포털에서 열기** 를 선택합니다. 
-
-1. 함수 앱 페이지에서 **개요** 탭을 선택한 다음, **리소스 그룹** 아래의 링크를 선택합니다.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="함수 앱 페이지에서 삭제할 리소스 그룹 선택":::
-
-1. **리소스 그룹** 페이지에서 포함된 리소스 목록을 검토하고 삭제하려는 항목인지 확인합니다.
- 
-1. **리소스 그룹 삭제** 를 선택하고 지시를 따릅니다.
-
-    삭제는 몇 분 정도 소요됩니다. 완료되면 알림이 잠시 표시됩니다. 페이지 위쪽의 종 모양 아이콘을 선택해도 알림을 확인할 수 있습니다.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

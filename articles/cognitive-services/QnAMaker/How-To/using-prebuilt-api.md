@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/05/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0aa26cc0d78d6ca20dccb97b3936bad840c989b7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b7e505bfbb27aca479569ff6cddfa2686674ae94
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382688"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954119"
 ---
 # <a name="prebuilt-question-answering"></a>미리 작성된 질문 답변
 
@@ -99,7 +99,7 @@ API 응답의 일부로 여러 답변이 수신되는 것을 볼 수 있습니�
 
 ## <a name="prebuilt-api-limits"></a>미리 작성된 API 제한 사항 
 
-미리 작성된 [API 제한 사항](https://docs.microsoft.com/azure/cognitive-services/qnamaker/limits?#prebuilt-question-answering-limits) 설명서 참조 
+미리 작성된 [API 제한 사항](../limits.md#prebuilt-question-answering-limits) 설명서 참조 
 
 ## <a name="prebuilt-api-reference"></a>미리 작성된 API 참조
-API를 호출하는 데 필요한 입력 및 출력 매개 변수를 이해하려면 [미리 작성된 API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) 설명서를 확인하세요.
+API를 호출하는 데 필요한 입력 및 출력 매개 변수를 이해하려면 [미리 작성된 API 참조](/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) 설명서를 확인하세요.

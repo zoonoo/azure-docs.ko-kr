@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 3a56ff7a53151030b1c0aec8d11906c09a499a63
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: b67a1dcb2f6df42c95bb0b5c20ae4397582112db
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319380"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966915"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Azure Monitor에 대한 Resource Manager 템플릿 샘플
 
-[Azure Resource Manager 템플릿](../azure-resource-manager/templates/template-syntax.md)을 사용하여 대규모로 Azure Monitor를 배포하고 구성할 수 있습니다. 다음 문서에서는 다양한 Azure Monitor 기능에 대한 샘플 템플릿을 제공합니다. 이러한 샘플을 특정 요구 사항에 맞게 수정하고 Resource Manager 템플릿 배포를 위한 표준 방법을 사용하여 배포할 수 있습니다. 
+[Azure Resource Manager 템플릿](../azure-resource-manager/templates/syntax.md)을 사용하여 대규모로 Azure Monitor를 배포하고 구성할 수 있습니다. 다음 문서에서는 다양한 Azure Monitor 기능에 대한 샘플 템플릿을 제공합니다. 이러한 샘플을 특정 요구 사항에 맞게 수정하고 Resource Manager 템플릿 배포를 위한 표준 방법을 사용하여 배포할 수 있습니다. 
 
 ## <a name="deploying-the-sample-templates"></a>샘플 템플릿 배포
 샘플을 사용하는 기본 단계는 다음과 같습니다.

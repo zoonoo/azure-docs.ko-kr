@@ -5,14 +5,14 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/19/2020
-ms.openlocfilehash: 067d4fb6ce61ca2a5938bbc3256e8a9c01c8a818
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 8795d51c082733101dba69f0018a09982ce2634c
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279836"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560025"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Database for MySQL 서버 만들기
 
@@ -46,7 +46,7 @@ Azure Database for MySQL은 클라우드에서 고가용성 MySQL 데이터베�
 
 정의된 컴퓨팅 및 스토리지 리소스 세트를 사용하여 Azure Database for MySQL 서버를 만듭니다. 자세한 내용은 [Azure Database for MySQL 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요. 서버는 [Azure 리소스 그룹](../azure-resource-manager/management/overview.md) 내에 만듭니다.
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-managed-mysql-with-vnet/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/managed-mysql-with-vnet/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.dbformysql/managed-mysql-with-vnet/azuredeploy.json":::
 

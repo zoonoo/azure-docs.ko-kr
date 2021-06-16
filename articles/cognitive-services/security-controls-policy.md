@@ -1,18 +1,18 @@
 ---
 title: Azure Cognitive Services에 대한 Azure Policy 규정 준수 컨트롤
 description: Azure Cognitive Services에 사용할 수 있는 Azure Policy 규정 준수 컨트롤을 나열합니다. 이러한 기본 제공 정책 정의는 Azure 리소스의 규정 준수를 관리하는 일반적인 방법을 제공합니다.
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.topic: sample
 author: nitinme
 ms.author: nitinme
 ms.service: cognitive-services
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 1ccd9860b9fe2c6ab9b7112c8ffa1dec4a36e4bd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b5bbf47876e70239861f2f1a3683587e142d9680
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062142"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112034468"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cognitive-services"></a>Azure Cognitive Services에 대한 Azure Policy 규정 준수 컨트롤
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 05/11/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4b49d8a0fce3dac1c5558d4784d1bb7ddb33b734
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: a4d5ff9298b8cbf4203e157bc21fae6059342130
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109810555"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663433"
 ---
 # <a name="how-to-create-an-nfs-share"></a>NFS 공유를 만드는 방법
 Azure 파일 공유는 클라우드에 있는 완전 관리형 파일 공유입니다. 이 문서에서는 NFS 프로토콜을 사용하는 파일 공유를 만드는 방법을 설명합니다. 두 프로토콜에 대한 자세한 내용은 [Azure 파일 공유 프로토콜](storage-files-compare-protocols.md)을 참조하세요.

@@ -3,20 +3,20 @@ title: Azure SQL Database로 Azure SQL Server 복제
 description: Azure SQL Database의 데이터베이스를 단방향 트랜잭션 또는 스냅숏 복제 토폴로지에서 밀어넣기 구독자로 구성할 수 있습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: replication
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: ferno-ms
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 6ff1d485ab4c0662ae8a9d754ce67b1446b76fcc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9b174c044196b8268eac775f419d541bb31761e4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92780957"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693381"
 ---
 # <a name="replication-to-azure-sql-database"></a>Azure SQL Database로 복제
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

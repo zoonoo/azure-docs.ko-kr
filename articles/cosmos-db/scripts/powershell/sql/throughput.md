@@ -7,12 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 73fdfa06fab42a5687e3aa354e3ba92937b92605
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c6aa4a0ad6f9c7f209d9921db4fa75f004a921af
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821923"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110679719"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>데이터베이스용 PowerShell 또는 Azure Cosmos DB Core(SQL) API용 컨테이너를 사용한 처리량(RU/s) 작업
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/11/2020
 ms.author: kumud
-ms.openlocfilehash: 22494d292077f4b6018a4512b45b5fe2caa9c8ee
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 789816e37c3aaf9678fd9cb87ff6362442709498
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106057204"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082211"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -259,7 +259,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
    |이미지 | Windows Server 2019 Datacenter – 1세대 |
    |크기 | 사용하려는 VM 인스턴스 크기를 선택합니다. |
    |사용자 이름|선택한 사용자 이름을 입력합니다.|
-   |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+   |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
    |공용 인바운드 포트 | 선택한 포트 허용 |
    |인바운드 포트 선택 | *RDP(3389)* 로 설정된 기본값을 그대로 둡니다. |
 

@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 12/05/2016
-ms.openlocfilehash: df1ae43b2c6a74448a6782a43fb86f8f4939b13a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d461be7d760e1e4fc99fe23a9fe2d5529237ebb3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560007"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949829"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
@@ -131,7 +131,7 @@ Azure Resource Manager Automation 스크립트는 Resource Manager 템플릿, �
 }
 ```
 
-템플릿 매개 변수를 사용하여 속성 값을 제공하려면 이러한 항목을 만들어야 합니다. 보호 설정 값에 대해 템플릿 매개 변수를 만들 경우 중요한 값이 보호되도록 `SecureString` 매개 변수 형식을 사용해야 합니다. 매개 변수 사용에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+템플릿 매개 변수를 사용하여 속성 값을 제공하려면 이러한 항목을 만들어야 합니다. 보호 설정 값에 대해 템플릿 매개 변수를 만들 경우 중요한 값이 보호되도록 `SecureString` 매개 변수 형식을 사용해야 합니다. 매개 변수 사용에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/syntax.md)을 참조하세요.
 
 `IaasDiagnostic` 확장 예제에서는 Resource Manager 템플릿의 매개 변수 섹션에서 다음 매개 변수가 만들어집니다.
 

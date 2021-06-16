@@ -3,12 +3,12 @@ title: 지침 및 모범 사례
 description: 클라우드 및 온-프레미스 워크로드를 클라우드로 백업하기 위한 모범 사례 및 지침을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 14476533cf896434182e1d63f89c6a1279b36362
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: 7b507fec6c3f9cd53dd5b775dff2ca43c4dcfd1f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519066"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965484"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>클라우드 및 온-프레미스 워크로드를 클라우드로 백업
 
@@ -178,7 +178,7 @@ Azure Backup을 사용하면 데이터를 워크로드에서 Recovery Services �
 
 * Azure VM의 SAP HANA 데이터베이스, Azure VM의 SQL Server 데이터베이스 - Azure Backup 서비스, Azure Storage 및 Azure Active Directory에 연결해야 합니다. 프라이빗 엔드포인트를 사용하거나 필요한 공용 IP 주소 또는 FQDN에 대한 액세스를 허용하면 됩니다. 필요한 Azure 서비스에 대한 적절한 연결을 허용하지 않으면 데이터베이스 검색, 백업 구성, 백업 수행, 데이터 복원과 같은 작업 시 오류가 발생할 수 있습니다. NSG 태그, Azure Firewall 및 HTTP 프록시를 사용하는 동안 전체 네트워크 지침은 이러한 [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) 및 [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity) 문서를 참조하세요.
 
-* 하이브리드 - MARS(Microsoft Azure Recovery Services) 에이전트는 모든 중요 작업(설치, 구성, 백업 및 복원)에서 네트워크 액세스가 필요합니다. MARS 에이전트는 공용 피어링(이전 회로에 사용 가능) 및 Microsoft 피어링을 사용하거나, [프라이빗 엔드포인트](install-mars-agent.md#private-endpoints)를 사용하거나, [적절한 액세스 제어와 함께 프록시/방화벽](install-mars-agent.md#verify-internet-access)을 사용하여 [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute)를 통해 Azure Backup 서비스에 연결할 수 있습니다.
+* 하이브리드 - MARS(Microsoft Azure Recovery Services) 에이전트는 모든 중요 작업(설치, 구성, 백업 및 복원)에서 네트워크 액세스가 필요합니다. MARS 에이전트는 공용 피어링(이전 회로에 사용 가능) 및 Microsoft 피어링을 사용하거나, [프라이빗 엔드포인트](install-mars-agent.md#private-endpoint-support)를 사용하거나, [적절한 액세스 제어와 함께 프록시/방화벽](install-mars-agent.md#verify-internet-access)을 사용하여 [Azure ExpressRoute](install-mars-agent.md#azure-expressroute-support)를 통해 Azure Backup 서비스에 연결할 수 있습니다.
 
 ### <a name="private-endpoints-for-azure-backup"></a>Azure Backup 프라이빗 엔드포인트
 
@@ -240,7 +240,7 @@ Azure Backup 서비스의 기능은 비용을 효과적으로 관리하면서도
 * 기타
   * 데이터(예: 작업, 정책 등)를 **Log Analytics** 작업 영역으로 보낼 수 있습니다. 이렇게 하면 Azure Monitor 로그의 기능을 사용하여 해당 데이터와 Azure Monitor에서 수집된 다른 모니터링 데이터와의 상관 관계를 설정하고, 여러 Azure 구독 및 테넌트의 로그 항목을 함께 분석하도록 단일 위치로 통합하고, 로그 쿼리를 사용하여 복잡한 분석을 수행하고, 로그 항목에 대한 심층적인 통찰을 얻을 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
   * 데이터를 Event Hub로 보내 타사 SIEM(보안 정보 및 이벤트 관리) 또는 다른 로그 분석 솔루션과 같은 Azure 외부에 항목을 보낼 수 있습니다. [여기를 참조하세요](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
-  * 감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그 이벤트는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다. [자세한 정보를 알아보세요](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
+  * 감사, 정적 분석 또는 백업을 위해 90일을 초과하여 로그 데이터를 보존하려면 Azure Storage 계정으로 데이터를 보낼 수 있습니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그 이벤트는 Azure 플랫폼에 90일 동안 보관되므로 스토리지 계정에 보관을 설정할 필요가 없습니다. [자세히 알아봅니다](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>경고
 

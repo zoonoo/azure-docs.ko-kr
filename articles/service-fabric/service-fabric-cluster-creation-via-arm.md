@@ -3,12 +3,13 @@ title: Azure Service Fabric 클러스터 만들기
 description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법에 대해 알아봅니다.  기본 템플릿을 사용하거나 사용자 고유의 클러스터 템플릿을 사용하여 클러스터를 만들 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: d4daa75fd9383bc19da1b09104ebddff5712c5b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3f3d76b1cea2e1ed06f50bbdfbf4343972bc3945
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98791814"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671036"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]

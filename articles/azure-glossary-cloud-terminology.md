@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e4240e7ad53725494a2b9b04d827fef0395c1bd2
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: a97726498adc89a8453d88bef9a61aa343da2c5e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109483176"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956441"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 용어집: Azure 플랫폼의 클라우드 용어 사전
 
@@ -104,7 +104,7 @@ Azure 솔루션에 속한 항목입니다. 각 Azure 서비스를 사용하면 �
 
 ## <a name="resource-manager-template"></a><a name="arm-template"></a>Resource Manager 템플릿
 하나 이상의 Azure 리소스를 선언적으로 정의하고 배포된 리소스 간의 종속성을 정의하는 JSON 파일입니다. 템플릿은 리소스를 일관되고 반복적으로 배포하는 데 사용할 수 있습니다.  
-[Azure Resource Manager 템플릿 작성](./azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+[Azure Resource Manager 템플릿 작성](./azure-resource-manager/templates/syntax.md)을 참조하세요.
 
 ## <a name="resource-provider"></a>리소스 공급자
 리소스 관리자를 통해 배포하고 관리할 수 있는 리소스를 제공하는 서비스입니다. 각 리소스 공급자는 배포된 리소스로 작업하기 위한 작업을 제공합니다. 리소스 공급자는 Azure 포털, Azure PowerShell 및 몇 가지 프로그래밍 SDK를 통해 액세스할 수 있습니다.  

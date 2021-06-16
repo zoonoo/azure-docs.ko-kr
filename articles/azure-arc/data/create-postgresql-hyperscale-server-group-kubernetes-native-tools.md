@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: fd1b74d33793c06e586a92cc8b2e8d2d36f4827a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c721f0ac599863fb2fa72e0c243df1087be83ff1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519965"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111407546"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Kubernetes 도구를 사용하여 PostgreSQL 하이퍼스케일 서버 그룹 만들기
 
@@ -34,7 +34,7 @@ PostgreSQL 하이퍼스케일 서버 그룹을 만들려면 Kubernetes 암호를
 
 ## <a name="create-a-yaml-file"></a>Yaml 파일 만들기
 
-[템플릿 yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) 파일을 시작 지점으로 사용하여 고유한 사용자 지정 PostgreSQL 하이퍼스케일 서버 그룹 yaml 파일을 만들 수 있습니다.  이 파일을 로컬 컴퓨터에 다운로드하여 텍스트 편집기에서 엽니다.  구문 강조 표시와 yaml 파일 린팅을 지원하는 [VS Code](https://code.visualstudio.com/download) 등의 텍스트 편집기를 사용하는 것이 좋습니다.
+[템플릿 yaml](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/postgresql.yaml) 파일을 시작 지점으로 사용하여 고유한 사용자 지정 PostgreSQL 하이퍼스케일 서버 그룹 yaml 파일을 만들 수 있습니다.  이 파일을 로컬 컴퓨터에 다운로드하여 텍스트 편집기에서 엽니다.  [VS Code](https://code.visualstudio.com/download)처럼 yaml 파일에 대하여 구문 강조 표시와 린팅을 지원하는 텍스트 편집기를 사용하는 것이 좋습니다.
 
 다음은 yaml 예제 파일입니다.
 
@@ -48,16 +48,16 @@ metadata:
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
-kind: postgresql-12
+kind: postgresql
 metadata:
-  generation: 1
   name: pg1
 spec:
   engine:
+    version: 12
     extensions:
     - name: citus
   scale:
-    shards: 3
+    workers: 3
   scheduling:
     default:
       resources:
@@ -67,18 +67,22 @@ spec:
         requests:
           cpu: "1"
           memory: 2Gi
-  service:
-    type: LoadBalancer
+  services:
+    primary:
+      type: LoadBalancer # Modify service type based on your Kubernetes environment
   storage:
     backups:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     data:
-      className: default
-      size: 5Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
     logs:
-      className: default
-      size: 1Gi
+      volumes:
+      - className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
+        size: 5Gi
 ```
 
 ### <a name="customizing-the-login-and-password"></a>로그인 및 암호를 사용자 지정합니다.
@@ -118,10 +122,10 @@ echo -n '<your string to encode here>' | base64
 필요에 따라 RAM 및 코어 제한과 요청 등의 리소스 요구 사항을 변경할 수 있습니다.  
 
 > [!NOTE]
-> [Kubernetes 리소스 거버넌스](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)에 대해 자세히 알아볼 수 있습니다.
+> [Kubernetes 리소스 거버넌스](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes)에 대하여 자세히 알아볼 수 있습니다.
 
 리소스 제한 및 요청에 대한 요구 사항:
-- 청구를 위해 코어 제한 값은 **필수** 입니다.
+- 청구를 위하여 코어 제한 값은 **필수** 입니다.
 - 리소스 요청 및 제한의 나머지 부분은 선택 사항입니다.
 - 지정하는 경우 코어 제한과 요청은 양의 정수 값이어야 합니다.
 - 지정하는 경우 코어 요청에는 최소 1코어가 필요합니다.
@@ -155,22 +159,22 @@ PostgreSQL 하이퍼스케일 서버 그룹을 만드는 작업은 완료하는 
 >  아래의 명령 예제에서는 ‘pg1’이라는 PostgreSQL 하이퍼스케일 서버 그룹과 ‘arc’라는 Kubernetes 네임스페이스를 만들었다고 가정합니다.  다른 네임스페이스/PostgreSQL 하이퍼스케일 서버 그룹 이름을 사용한 경우 ‘arc’ 및 ‘pg1’을 해당 이름으로 바꿀 수 있습니다.
 
 ```console
-kubectl get postgresql-12/pg1 --namespace arc
+kubectl get postgresqls/pg1 --namespace arc
 ```
 
 ```console
 kubectl get pods --namespace arc
 ```
 
-아래와 같은 명령을 실행하여 특정 Pod의 생성 상태를 확인할 수도 있습니다.  이 방법은 문제를 해결하는 데 특히 유용합니다.
+아래와 같은 명령을 실행하여 특정 Pod의 생성 상태를 확인할 수도 있습니다.  이 기능은 문제를 해결하는 데 특히 유용합니다.
 
 ```console
-kubectl describe po/<pod name> --namespace arc
+kubectl describe pod/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/pg1-0 --namespace arc
+#kubectl describe pod/pg1-0 --namespace arc
 ```
 
-## <a name="troubleshooting-creation-problems"></a>생성 문제 해결
+## <a name="troubleshooting-creation-problems"></a>만들기 문제 해결
 
-생성 문제가 발생한 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.
+생성과 관련한 문제가 발생하는 경우 [문제 해결 가이드](troubleshoot-guide.md)를 참조하세요.

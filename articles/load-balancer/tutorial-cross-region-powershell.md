@@ -7,12 +7,13 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0f6ee0323768287ee860becc5d02c85efb32e3fe
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101721347"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704724"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 지역 간 Azure Load Balancer 만들기
 
@@ -28,7 +29,7 @@ ms.locfileid: "101721347"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독
 - 두 개의 서로 다른 Azure 지역에 배포된 백 엔드 풀을 사용하는 두 개의 **표준** SKU Azure Load Balancer

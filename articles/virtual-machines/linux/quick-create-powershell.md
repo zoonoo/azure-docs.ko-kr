@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: 2cef611fe79ca04303840076b09b4cf6344b7e7d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 12715a3f1392f789425ac7cc5176db3f293efef8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102616233"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668219"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Linux 가상 머신 만들기
 
@@ -171,6 +171,8 @@ New-AzVM `
 ```
 
 VM 배포에는 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹션으로 이동합니다.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-the-vm"></a>VM에 연결
 
