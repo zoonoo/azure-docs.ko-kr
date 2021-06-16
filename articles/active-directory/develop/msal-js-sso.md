@@ -3,22 +3,22 @@ title: Single Sign-On(MSAL.js) | Microsoft
 titleSuffix: Microsoft identity platform
 description: JavaScript용 Microsoft Authentication Library(MSAL.js)를 사용하여 Single Sign-On 환경을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86df7b35987fcc0081aca4e7e33f4da72f08e452
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84690781"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077143"
 ---
 # <a name="single-sign-on-with-msaljs"></a>MSAL.js를 사용한 Single Sign-On
 

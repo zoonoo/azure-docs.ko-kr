@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 03/22/2021
-ms.openlocfilehash: 58017425eda0461a648b81472933aaeb911b24f1
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 119591c4a337cf622b95fa4ed70a7508d8acb99e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166993"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963080"
 ---
 # <a name="how-to-troubleshoot-with-diagnostic-logs"></a>진단 로그를 사용하여 문제를 해결하는 방법
 
@@ -77,7 +77,7 @@ Azure Web PubSub 서비스가 일반 공급된 후로, 라이브 추적 도구�
 
 ## <a name="capture-diagnostic-logs-with-azure-monitor"></a>Azure Monitor를 사용하여 진단 로그 캡처
 
-[Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage) 및 [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)와 통합하여 진단 로그를 캡처하는 기능은 공개 미리 보기에서 지원되지 않습니다.
+[Azure Monitor](https://azure.microsoft.com/services/monitor/), [Azure Storage](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) 및 [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)와 통합하여 진단 로그를 캡처하는 기능은 공개 미리 보기에서 지원되지 않습니다.
 
 ## <a name="troubleshoot-with-the-diagnostic-logs"></a>진단 로그 문제 해결
 
@@ -110,4 +110,3 @@ Azure Web PubSub 서비스가 일반 공급된 후로, 라이브 추적 도구�
 ### <a name="throttling"></a>제한
 
 Azure Web PubSub 서비스에 대한 클라이언트 연결을 설정할 수 없는 경우 진단 로그를 확인합니다. 진단 로그에서 `Connection count reaches limit`가 발견될 경우 Azure Web PubSub 서비스에 너무 많은 연결을 설정해서 연결 수 제한에 도달한 것입니다. Azure Web PubSub 서비스 인스턴스를 스케일 업하는 것이 좋습니다. 진단 로그에서 `Message count reaches limit`가 발견될 경우 현재 무료 계층을 사용하고 있으며 메시지 할당량을 다 사용한 것입니다. 더 많은 메시지를 보내려면 Azure Web PubSub 서비스 인스턴스를 표준 계층으로 변경하여 추가 메시지를 전송하는 것이 좋습니다. 자세한 내용은 [Azure Web PubSub 서비스 가격 책정](https://azure.microsoft.com/pricing/details/web-pubsub/)을 참조하세요.
-

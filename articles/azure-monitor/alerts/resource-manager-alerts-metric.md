@@ -6,16 +6,16 @@ ms.author: bwren
 services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
-ms.openlocfilehash: f41c6c8ab4e5b00c7281a75eeccb09a6e894764e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7e20f3ac1751035ab7f8ecc64d1d8ef375144d9a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102039413"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971966"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Azure Monitor의 메트릭 경고 규칙에 대한 Resource Manager 템플릿 샘플
 
-이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Azure Monitor에서 [메트릭 경고 규칙](../alerts/alerts-metric-near-real-time.md)을 구성하는 샘플을 제공합니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)을 사용하여 Azure Monitor에서 [메트릭 경고 규칙](../alerts/alerts-metric-near-real-time.md)을 구성하는 샘플을 제공합니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

@@ -7,18 +7,18 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 10/7/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a75aca174fd2fda6ccb4c12346a617e24814caf4
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 7c0fa91b62696729cba1895f69ee1f36eb661f17
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318372"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111972010"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](./alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
+이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](./alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 형식에 대한 메트릭 경고를 만드는 리소스 템플릿: Azure Log Analytics 작업 영역(예를 들면,) `Microsoft.OperationalInsights/workspaces`에는 추가적인 단계가 필요합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](./alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.

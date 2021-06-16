@@ -8,12 +8,12 @@ ms.date: 04/06/2021
 author: varsha-sarah
 ms.author: vavargh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 77f6b2ec71df63da1fe5ff52f948ded9502c5edb
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: bbc4df71d9aa04b362b7de9b179b335e4e12fd8c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110076279"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971208"
 ---
 # <a name="add-and-manage-azure-ad-applications"></a>Azure AD 애플리케이션 추가 및 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "110076279"
 1. **사용자** 페이지(**계정 설정** 아래)에서 **Azure AD 애플리케이션 추가** 를 선택합니다.
 1. 다음 페이지에서 **새 Azure AD 애플리케이션** 을 선택합니다.
 1. 새 Azure AD 애플리케이션에 대한 **회신 URL** 을 입력합니다. 이는 사용자가 로그인하여 Azure AD 애플리케이션을 이용할 수 있는 URL입니다(앱 URL 또는 로그온 URL이라고도 함). *회신 URL* 은 256자를 초과할 수 없으며 디렉터리 내에서 고유해야 합니다.
-1. 새 Azure AD 애플리케이션에 대한 **앱 ID URI** 를 입력합니다. 이는 Single Sign-On 요청이 Azure AD에 전송될 때 제공되는 Azure AD 애플리케이션의 논리 식별자입니다. *앱 ID URI* 는 디렉터리의 Azure AD 애플리케이션마다 고유해야 합니다. 이 ID는 256자를 초과할 수 없습니다. 앱 ID URI에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](/azure/active-directory/develop/howto-modify-supported-accounts#change-the-application-registration-to-support-different-accounts)을 참조하세요.
+1. 새 Azure AD 애플리케이션에 대한 **앱 ID URI** 를 입력합니다. 이는 Single Sign-On 요청이 Azure AD에 전송될 때 제공되는 Azure AD 애플리케이션의 논리 식별자입니다. *앱 ID URI* 는 디렉터리의 Azure AD 애플리케이션마다 고유해야 합니다. 이 ID는 256자를 초과할 수 없습니다. 앱 ID URI에 대한 자세한 내용은 [Azure Active Directory와 애플리케이션 통합](../active-directory/develop/howto-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)을 참조하세요.
 1. **역할** 섹션에서 Azure AD 애플리케이션에 대한 역할 또는 사용자 지정된 권한을 지정합니다.
 1. **저장** 을 선택합니다.
 

@@ -9,19 +9,20 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 70ef194ab7f7403f31ad431eba25db5f71dfb580
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2e0f0dfbd834e5ca8e339057a002259d35eefc1e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102556906"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669344"
 ---
 # <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-powershell"></a>PowerShell을 사용하여 Shared Image Gallery에서 관리 디스크 또는 스냅샷에서 이미지 만들기
 
 기존 스냅샷 또는 관리 디스크를 Shared Image Gallery로 마이그레이션하려는 경우, 관리 디스크 또는 스냅샷에서 직접 Shared Image Gallery 이미지를 만들 수 있습니다. 새 이미지 만들기를 테스트한 후에는 원본 관리 디스크 또는 스냅샷을 삭제할 수 있습니다. [Azure CLI](image-version-snapshot-cli.md)를 사용하여 Shared Image Gallery의 관리 디스크 또는 스냅샷에서 이미지를 만들 수도 있습니다.
 
 이미지 갤러리의 이미지에는 두 가지 구성 요소가 있으며, 다음 예제에서는 해당 구성 요소를 생성합니다.
-- **이미지 정의** 에는 이미지에 대한 정보 및 이미지 사용에 대한 요구 사항이 포함되어 있습니다. 여기에는 이미지가 Windows인지 Linux인지, 특수한 이미지인지 일반화된 이미지인지 그리고 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. 
+- **이미지 정의** 에는 이미지에 대한 정보 및 이미지 사용에 대한 요구 사항이 포함되어 있습니다. 여기에는 이미지가 Windows인지 Linux인지, 특수한 이미지인지 일반화된 이미지인지, 릴리스 정보, 최소 및 최대 메모리 요구 사항이 포함됩니다. 이미지의 형식 정의입니다. 
 - **이미지 버전** 은 Shared Image Gallery를 사용할 때 VM을 생성하는 데 사용됩니다. 사용 환경에 필요한 만큼 여러 버전의 이미지를 가질 수 있습니다. VM을 생성할 때 이미지 버전은 VM의 새 디스크를 만드는 데 사용됩니다. 이미지 버전은 여러 번 사용할 수 있습니다.
 
 
@@ -69,13 +70,13 @@ $source = Get-AzDisk `
 
 ## <a name="get-the-gallery"></a>갤러리 가져오기
 
-모든 갤러리 및 이미지 정의를 이름으로 나열할 수 있습니다. 결과는 `gallery\image definition\image version` 형식입니다.
+모든 갤러리 및 이미지 정의를 이름으로 나열할 수 있습니다. 결과는 `gallery\image definition\image version` 형식으로 제공됩니다.
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceType Microsoft.Compute/galleries | Format-Table
 ```
 
-오른쪽 갤러리를 찾았으면 나중에 사용할 변수를 만듭니다. 이 예제에서는 *myResourceGroup* 리소스 그룹에서 *myGallery* 라는 갤러리를 가져옵니다.
+올바른 갤러리를 찾았으면 나중에 사용할 변수를 만듭니다. 이 예제에서는 *myResourceGroup* 리소스 그룹에서 *myGallery* 라는 갤러리를 가져옵니다.
 
 ```azurepowershell-interactive
 $gallery = Get-AzGallery `
@@ -86,7 +87,7 @@ $gallery = Get-AzGallery `
 
 ## <a name="create-an-image-definition"></a>이미지 정의 만들기 
 
-이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 이미지에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
+이미지 정의는 이미지에 대한 논리적 그룹화를 만듭니다. 이는 이미지에 대한 정보를 관리하는 데 사용됩니다. 이미지 정의 이름은 대문자 또는 소문자, 숫자, 점, 대시 및 마침표로 구성될 수 있습니다. 
 
 이미지 정의를 만들 때 모든 정보가 올바른지 확인합니다. 해당 예제에서는 사용 중인 VM에 스냅샷 또는 관리 디스크가 있고, 일반화되지 않았다고 가정합니다. 관리 디스크 또는 스냅샷이 일반화된 OS(Windows용 Sysprep이나 Linux용 [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` 또는 `-deprovision+user` 실행 후)에서 생성된 경우 `-OsState`를 `generalized`로 변경합니다. 
 

@@ -2,13 +2,13 @@
 title: IoT 에이전트용 Azure Defender가 자주 받는 질문
 description: IoT 에이전트용 Azure Defender에 대해 자주 받는 질문에 대한 대답을 알아봅니다.
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 4bd7d3c9b76dfb37e53cc51e5e16b660545cb7f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/25/2021
+ms.openlocfilehash: 16d6e38c6f1455250f50f85fc97d5b817ca8b05c
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104778664"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110795964"
 ---
 # <a name="azure-defender-for-iot-agent-frequently-asked-questions"></a>IoT 에이전트용 Azure Defender가 자주 받는 질문
 

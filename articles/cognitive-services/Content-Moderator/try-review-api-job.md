@@ -10,18 +10,20 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 924c21037a464770fac13c9b45ddcf261ff5a058
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 62a6cd9e6302e66277b67ca7d37dd1ef33f96f1a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905176"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031694"
 ---
 # <a name="define-and-use-moderation-jobs-api-console"></a>조정 작업 정의 및 사용(API 콘솔)
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 조정 작업은 콘텐츠 조정, 워크플로, 검토 기능에 대한 일종의 래퍼 역할을 합니다. 이 가이드에서는 작업 REST API를 사용하여 콘텐츠 조정 작업을 시작 및 확인하는 방법을 보여 줍니다. API의 구조를 이해하고 나면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에 로그인하거나 계정을 만듭니다.
 - (선택 사항) 작업과 함께 사용할 [사용자 지정 워크플로를 정의](./Review-Tool-User-Guide/Workflows.md)합니다. 기본 워크플로를 사용할 수도 있습니다.

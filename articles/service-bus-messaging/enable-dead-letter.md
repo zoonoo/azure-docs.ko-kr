@@ -3,12 +3,13 @@ title: Azure Service Bus 큐와 구독에서 배달 못 한 편지 기능 사용
 description: 이 문서에서는 Azure Portal, PowerShell, CLI 및 프로그래밍 언어(c#, Java, Python 및 JavaScript)를 사용하여 큐와 구독에서 배달 못 한 편지 기능을 사용하도록 설정하는 방법을 설명합니다.
 ms.topic: how-to
 ms.date: 04/20/2021
-ms.openlocfilehash: 789f9221c224a70225849d05b736276b95ebfc11
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 13082574510a0668076b7191b6b973e5a1a7cd77
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107989273"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671481"
 ---
 # <a name="enable-dead-lettering-on-message-expiration-for-azure-service-bus-queues-and-subscriptions"></a>Azure Service Bus 큐와 구독에서 메시지 만료 시 배달 못 한 편지 기능 사용
 Azure Service Bus 큐와 토픽 구독은 DLQ(배달 못 한 편지 큐)라는 보조 하위 큐를 제공합니다. 배달 못 한 편지 큐는 명시적으로 만들 필요가 없으며 주 엔터티와 독립적으로 삭제하거나 관리할 수 없습니다. 배달 못한 편지 큐의 목적은 수신기에 배달할 수 없는 메시지 또는 처리할 수 없는 메시지를 보관하는 것입니다. 자세한 정보는 [Service Bus 배달 못 한 편지 큐의 개요](service-bus-dead-letter-queues.md)를 참조하세요. 이 문서에서는 Service Bus 큐와 구독에서 배달 못 한 편지 기능을 사용하는 다양한 방법을 보여 줍니다. 

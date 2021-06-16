@@ -3,12 +3,12 @@ title: 작업 크기 초과 오류
 description: 작업 크기나 템플릿이 너무 클 경우 발생하는 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 03/23/2021
-ms.openlocfilehash: b39a0bba15e73bab1a85cbd9e36efebf82d6cf42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5d7333e8faf44b5c2c872448960eff34ff61daf2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104889368"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963274"
 ---
 # <a name="resolve-errors-for-job-size-exceeded"></a>작업 크기 초과에 대한 오류 해결
 
@@ -56,4 +56,4 @@ dependsOn: [
 
 ## <a name="solution-2---reduce-name-size"></a>해결 방법 2 - 이름 크기 줄이기
 
-[매개 변수](template-parameters.md), [변수](template-variables.md), [출력](template-outputs.md)에 사용하는 이름의 길이를 줄여 보세요. 이러한 값이 복사 루프를 통해 반복되면 많은 이름이 여러 배로 곱해집니다.
+[매개 변수](./parameters.md), [변수](./variables.md), [출력](./outputs.md)에 사용하는 이름의 길이를 줄여 보세요. 이러한 값이 복사 루프를 통해 반복되면 많은 이름이 여러 배로 곱해집니다.

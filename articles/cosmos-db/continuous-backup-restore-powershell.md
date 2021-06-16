@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8f3a99e7dca81e669438498f78447eddfdddd583
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381837"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662126"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>지속적인 백업 및 특정 시점 복원(미리 보기) 구성 및 관리 - Azure PowerShell 사용
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -245,4 +246,4 @@ Get-AzCosmosdbMongoDBRestorableResource `
 
 * [Azure CLI](continuous-backup-restore-command-line.md), [Resource Manager](continuous-backup-restore-template.md) 또는 [Azure Portal](continuous-backup-restore-portal.md)을 사용하여 지속적인 백업 구성 및 관리
 * [지속적인 백업 모드의 리소스 모델](continuous-backup-restore-resource-model.md).
-* 지속적인 백업 모드를 사용하여 데이터를 복원하는 데 필요한 [권한 관리](continuous-backup-restore-permissions.md).
+* 지속적인 백업 모드를 사용하여 데이터를 복원하는 데 필요한 [권한 관리](continuous-backup-restore-permissions.md)

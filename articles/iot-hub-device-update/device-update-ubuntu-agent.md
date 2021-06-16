@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6464ad632251053ac481fbd1f6a3e1197aa470df
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b8fc67076418678f6c53331dc6d0fbe0e7e7a0b1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121305"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410030"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Ubuntu Server 18.04 x64에서 패키지 에이전트를 사용하는 Azure IoT Hub에 대한 디바이스 업데이트 자습서
 
@@ -32,7 +32,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
 > * 패키지 업데이트 배포
 > * 업데이트 배포 모니터링
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 아직 수행하지 않은 경우 IoT Hub 구성을 포함하여 [디바이스 업데이트 계정 및 인스턴스](create-device-update-account.md)를 만듭니다.
 * [IoT Edge 디바이스에 대한 연결 문자열](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings)
@@ -92,7 +92,7 @@ IoT Hub에 대한 디바이스 업데이트는 이미지 기반 및 패키지 �
    > [!NOTE]
    > 디바이스 업데이트 패키지 에이전트는 IoT Edge에 종속되지 않습니다. 그러나 IoT Edge(1.2.0 이상)와 함께 설치되는 IoT ID 서비스 디먼을 사용하여 ID를 가져오고 IoT Hub에 연결합니다.
    >
-   > 이 자습서에서는 설명하지 않지만 [IoT ID 서비스 디먼을 독립 실행형으로 Linux 기반 IoT 디바이스에 설치할 수 있습니다](https://azure.github.io/iot-identity-service/packaging.html). 설치 순서가 중요합니다. 디바이스 업데이트 패키지 에이전트는 IoT ID 서비스 _다음_ 에 설치해야 합니다. 그렇지 않으면 패키지 에이전트가 IoT Hub에 대한 연결을 설정할 수 있는 권한 있는 구성 요소로 등록되지 않습니다.
+   > 이 자습서에서는 설명하지 않지만 [IoT ID 서비스 디먼을 독립 실행형으로 Linux 기반 IoT 디바이스에 설치할 수 있습니다](https://azure.github.io/iot-identity-service/installation.html). 설치 순서가 중요합니다. 디바이스 업데이트 패키지 에이전트는 IoT ID 서비스 _다음_ 에 설치해야 합니다. 그렇지 않으면 패키지 에이전트가 IoT Hub에 대한 연결을 설정할 수 있는 권한 있는 구성 요소로 등록되지 않습니다.
 
 1. 그런 다음, 디바이스 업데이트 에이전트 .deb 패키지를 설치합니다.
 

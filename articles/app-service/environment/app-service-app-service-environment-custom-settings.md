@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5c1e81d02aa35a40a296f04e456be09eeed10331
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e871778576266d772f37c23ee174dda7df6a6a75
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821649"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027428"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
@@ -107,7 +107,7 @@ ASE는 기본값에서 암호화 그룹 변경을 지원합니다. 기본 암호
 > 암호화 그룹에 대해 SChannel에서 이해할 수 없는 잘못된 값이 설정된 경우 서버에 대한 모든 TLS 통신의 작동이 중지될 수 있습니다. 이러한 경우 *clusterSettings* 에서 **FrontEndSSLCipherSuiteOrder** 항목을 제거하고 업데이트된 Resource Manager 템플릿을 제출하여 기본 암호화 제품군 설정으로 되돌려야 합니다.  이 기능을 주의하여 사용하세요.
 
 ## <a name="get-started"></a>시작하기
-Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [App Service Environment 만들기](https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/)에 대한 기본 정의에 템플릿이 포함되어 있습니다.
+Azure 빠른 시작 Resource Manager 템플릿 사이트에는 [App Service Environment 만들기](https://azure.microsoft.com/resources/templates/web-app-ase-create/)에 대한 기본 정의에 템플릿이 포함되어 있습니다.
 
 <!-- LINKS -->
 

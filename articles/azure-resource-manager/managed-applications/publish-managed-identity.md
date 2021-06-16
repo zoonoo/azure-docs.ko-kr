@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 277faa2d47df9fddd1762d90d9aa2fb5bf00d4df
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 018995ed973679a617b409b82e076198a558eef7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "82508135"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968779"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>관리 ID를 사용하는 Azure 관리형 애플리케이션
 
@@ -46,7 +46,7 @@ ms.locfileid: "82508135"
 }
 ```
 
-**ID** 를 사용하여 관리형 애플리케이션을 만드는 두 가지 일반적인 방법으로는 [CreateUIDefinition.json](./create-uidefinition-overview.md) 및 [Azure Resource Manager 템플릿](../templates/template-syntax.md)이 있습니다. 간단한 단일 만들기 시나리오의 경우에는 보다 풍부한 환경을 제공하므로 CreateUIDefinition을 사용하여 관리 ID를 사용하도록 설정해야 합니다. 그러나 자동화된 애플리케이션이나 여러 관리형 애플리케이션 배포가 필요한 고급 또는 복합 시스템을 처리할 때는 템플릿을 사용할 수 있습니다.
+**ID** 를 사용하여 관리형 애플리케이션을 만드는 두 가지 일반적인 방법으로는 [CreateUIDefinition.json](./create-uidefinition-overview.md) 및 [Azure Resource Manager 템플릿](../templates/syntax.md)이 있습니다. 간단한 단일 만들기 시나리오의 경우에는 보다 풍부한 환경을 제공하므로 CreateUIDefinition을 사용하여 관리 ID를 사용하도록 설정해야 합니다. 그러나 자동화된 애플리케이션이나 여러 관리형 애플리케이션 배포가 필요한 고급 또는 복합 시스템을 처리할 때는 템플릿을 사용할 수 있습니다.
 
 ### <a name="using-createuidefinition"></a>CreateUIDefinition 사용
 

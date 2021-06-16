@@ -28,6 +28,8 @@
       href: plan-manage-costs.md
     - name: 진단 로깅
       href: diagnostic-logging.md
+    - name: 리소스 관리
+      href: manage-resources.md
     - name: 배포
       items:
         - name: 컨테이너
@@ -127,6 +129,8 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?query=cognitive%20services'
+    - name: AI의 책임 있는 사용
+      href: responsible-use-of-ai-overview.md
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 규정 준수

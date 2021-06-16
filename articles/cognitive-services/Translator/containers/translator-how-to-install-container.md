@@ -12,12 +12,12 @@ ms.date: 05/25/2021
 ms.author: lajanuar
 recommendations: false
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 93cf53bb53c5a86ff6b4b073105c08c595fcf182
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 4cbc6e65eb72050726a0da5969aab07bf06358f2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110480256"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961711"
 ---
 # <a name="install-and-run-translator-containers-preview"></a>Transaltor 컨테이너 설치 및 실행(미리 보기)
 
@@ -277,4 +277,4 @@ namespace TranslateContainer
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Services 컨테이너에 대해 자세히 알아보기](/azure/cognitive-services/containers/index?context=/azure/cognitive-services/translator/context/context)
+> [Azure Cognitive Services 컨테이너에 대해 자세히 알아보기](../../containers/index.yml?context=%2fazure%2fcognitive-services%2ftranslator%2fcontext%2fcontext)

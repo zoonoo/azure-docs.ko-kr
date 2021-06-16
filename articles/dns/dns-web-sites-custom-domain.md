@@ -7,12 +7,13 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 10/20/2020
 ms.author: rohink
-ms.openlocfilehash: 369c7dab174f0269797b10635882a6821ade8311
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2bca0b855f53c566ce4408b19d018e04038f5d63
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94952950"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691305"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -70,12 +71,12 @@ Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 �
 
 ![Azure 앱에 대한 포털 탐색](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="create-the-a-record"></a>A 레코드 만들기
+### <a name="create-the-a-record&quot;></a>A 레코드 만들기
 
 ```azurepowershell
-New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
- -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
- -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
+New-AzDnsRecordSet -Name &quot;@&quot; -RecordType &quot;A&quot; -ZoneName &quot;contoso.com&quot; `
+ -ResourceGroupName &quot;MyAzureResourceGroup&quot; -Ttl 600 `
+ -DnsRecords (New-AzDnsRecordConfig -IPv4Address &quot;<your web app IP address>")
 ```
 
 ### <a name="create-the-txt-record"></a>TXT 레코드 만들기

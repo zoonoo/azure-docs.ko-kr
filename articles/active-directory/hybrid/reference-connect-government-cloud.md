@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb4298d0d9a9d7589c4a2055b4d55a0b852f951
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fec955815a4d65a406179a311af7d3e74c0a188
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97504358"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965838"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Azure Government 클라우드에 대한 하이브리드 ID 고려 사항
 
@@ -36,7 +36,7 @@ ms.locfileid: "97504358"
 통과 인증 에이전트를 배포하기 전에 서버와 Azure AD 사이에 방화벽이 있는지 확인합니다. 방화벽 또는 프록시에서 DNS(Domain Name System) 차단 또는 안전 프로그램을 허용하는 경우 다음 연결을 추가합니다.
 
 > [!NOTE]
-> 다음 지침은 Azure Government 환경에 대해 [Azure AD 애플리케이션 프록시 커넥터](../manage-apps/what-is-application-proxy.md)를 설치하는 경우에도 적용됩니다.
+> 다음 지침은 Azure Government 환경에 대해 [Azure AD 애플리케이션 프록시 커넥터](../app-proxy/what-is-application-proxy.md)를 설치하는 경우에도 적용됩니다.
 
 |URL |사용 방법|
 |-----|-----|

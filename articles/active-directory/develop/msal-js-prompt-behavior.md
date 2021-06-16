@@ -3,22 +3,22 @@ title: 대화형 요청 프롬프트 동작(MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
 description: JavaScript 용 Microsoft Authentication Library (MSAL.js)를 사용하여 대화형 호출에서 프롬프트 동작의 사용자 지정 방법을 알아보세요.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 85f5269c3c2616070b826ecc38735c31617db537
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3cd1b6a0015f51902dd3228648f16fb79ab6957d
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85477552"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077179"
 ---
 # <a name="prompt-behavior-in-msaljs-interactive-requests"></a>MSAL.js 대화형 요청의 프롬프트 동작
 

@@ -5,13 +5,13 @@ author: mumian
 ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.custom: seodec18
-ms.openlocfilehash: 3bd0a0f70aa3ff983f87677219513aa56e051d89
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: e2136e70f45fa909a306e1af2c25cb6e5c6a85d0
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109838450"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081914"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>자습서: ARM 템플릿 배포에 Azure Key Vault 통합
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     openssl rand -base64 32
     ```
 
-    생성된 암호가 VM 암호 요구 사항을 충족하는지 확인합니다. Azure 서비스마다 특정한 암호 요구 사항이 있습니다. VM 암호 요구 사항은 [VM을 만들 때의 암호 요구 사항은 무엇인가요?](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)를 참조하세요.
+    생성된 암호가 VM 암호 요구 사항을 충족하는지 확인합니다. Azure 서비스마다 특정한 암호 요구 사항이 있습니다. VM 암호 요구 사항은 [VM을 만들 때의 암호 요구 사항은 무엇인가요?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)를 참조하세요.
 
 ## <a name="prepare-a-key-vault"></a>키 자격 증명 모음 준비
 
@@ -107,7 +107,7 @@ Write-Output $secretValueText
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)입니다.
+Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 자습서에 사용되는 템플릿의 이름은 [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/vm-simple-windows/)입니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 

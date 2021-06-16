@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 851557c4cdc0f913247d40f2aaea3230a2e8551f
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: b031eaaeb3431f3beb8274698b0e7322da9e51b5
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108204732"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748536"
 ---
 # <a name="set-up-diagnostics-with-a-trusted-platform-module-tpm-endpoint-of-azure-attestation"></a>Azure Attestation의 TPM(신뢰할 수 있는 플랫폼 모듈) 엔드포인트를 사용하여 진단 설정
 
@@ -27,17 +27,17 @@ TPM(신뢰할 수 있는 플랫폼 모듈) 엔드포인트 서비스는 진단 �
 
  Connect-AzAccount 
 
- Set-AzContext -Subscription <Subscription id> 
+ Set-AzContext -Subscription "<Subscription id>"
 
- $attestationProviderName=<Name of the attestation provider> 
+ $attestationProviderName="<Name of the attestation provider>"
 
- $attestationResourceGroup=<Name of the resource Group> 
+ $attestationResourceGroup="<Name of the resource Group>"
 
  $attestationProvider=Get-AzAttestation -Name $attestationProviderName -ResourceGroupName $attestationResourceGroup 
 
- $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name <Storage Account Name> -SkuName Standard_LRS -Location <Location> 
+ $storageAccount=New-AzStorageAccount -ResourceGroupName $attestationProvider.ResourceGroupName -Name "<Storage Account Name>" -SkuName Standard_LRS -Location "<Location>"
 
- Set-AzDiagnosticSetting -ResourceId $ attestationProvider.Id -StorageAccountId $ storageAccount.Id -Enabled $true 
+ Set-AzDiagnosticSetting -ResourceId $attestationProvider.Id -StorageAccountId $storageAccount.Id -Enabled $true 
 
 ```
 

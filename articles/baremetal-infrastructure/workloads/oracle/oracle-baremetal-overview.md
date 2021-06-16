@@ -2,14 +2,14 @@
 title: Oracle용 BareMetal Infrastructure란?
 description: BareMetal Infrastructure가 Oracle 워크로드에 대해 제공하는 기능에 관해 알아봅니다.
 ms.topic: conceptual
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
-ms.openlocfilehash: efb7506a0fa98ca93390bfe7d3cb1401cdbb77e2
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f3ecb1fbcad04455515408e4aadadfb2cef3cf9a
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107558736"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578588"
 ---
 # <a name="what-is-baremetal-infrastructure-for-oracle"></a>Oracle용 BareMetal Infrastructure란?
 

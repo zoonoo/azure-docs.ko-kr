@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 2adbefff2a0154268157c7d1735d83e70aa92ee8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a258240383905180a18830deb2488a7617c5fbee
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563592"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579176"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>Azure Data Box Gateway란?
 
@@ -67,7 +67,7 @@ Data Box Gateway 가상 디바이스의 사양은 다음과 같습니다.
 | 사양                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | 가상 프로세서(코어)   | 최소 4개 |
-| 메모리  |최소 8GB|
+| 메모리  |RAM 8GB 이상 16GB 이상의 RAM을 권장합니다.|
 | 가용성|단일 노드|
 | 디스크|OS 디스크: 250GB <br> 데이터 디스크: 최소 2TB, 씬 프로비저닝 및 SSD를 통해 지원해야 함|
 | 네트워크 인터페이스 |가상 네트워크 인터페이스 하나 이상|

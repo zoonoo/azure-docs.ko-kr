@@ -5,16 +5,16 @@ ms.topic: sample
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 08/06/2020
-ms.openlocfilehash: 783ab811c91ae52b51a8be516ad2ddd9f73d4410
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 5c08ee5a1418165300987e288dc61edcb783bf98
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383341"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964317"
 ---
 # <a name="resource-manager-template-sample-for-creating-azure-function-apps-with-application-insights-monitoring"></a>Application Insights 모니터링을 사용하여 Azure 함수 앱을 만들기 위한 Resource Manager 템플릿 샘플
 
-이 문서에는 Azure 함수 앱과 함께 [클래식 Application Insights 리소스](../app/create-new-resource.md)를 배포하고 구성하기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)이 포함되어 있습니다. 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure 함수 앱과 함께 [클래식 Application Insights 리소스](../app/create-new-resource.md)를 배포하고 구성하기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)이 포함되어 있습니다. 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

@@ -6,13 +6,14 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 ms.date: 12/22/2020
-ms.author: tyao
-ms.openlocfilehash: 32bf7a5ecc93fa23c8c704dc346048c26c086121
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.author: victorh
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: dc895f399afbf9fdeff23b0ffc1950ffa6c9adfc
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107860854"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671792"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Web Application Firewall에서 Azure Front Door에 대한 IP 제한 규칙 구성
 
@@ -33,12 +34,12 @@ IP 주소 기반 액세스 제어 규칙은 웹 애플리케이션에 대한 액
 1. Azure Portal에서 **리소스 만들기** 를 선택하고 검색 상자에 **웹 애플리케이션 방화벽** 을 입력한 다음, **WAF(Web Application Firewall)** 를 선택합니다.
 2. **만들기** 를 선택합니다.
 3. **WAF 정책 만들기** 페이지에서 다음 값을 사용하여 **기본 사항** 탭을 완료합니다.
-   
+
    |설정  |값  |
    |---------|---------|
    |정책     |글로벌 WAF(Front Door)|
-   |구독     |구독 선택|
-   |리소스 그룹     |Front Door가 있는 리소스 그룹 선택|
+   |Subscription     |구독 선택|
+   |Resource group     |Front Door가 있는 리소스 그룹 선택|
    |정책 이름     |정책 이름 입력|
    |정책 상태     |사용|
 
@@ -83,7 +84,7 @@ IP 주소 기반 액세스 제어 규칙은 웹 애플리케이션에 대한 액
 
 ## <a name="configure-a-waf-policy-with-the-azure-cli"></a>Azure CLI를 사용하여 WAF 정책 구성
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 IP 제한 정책 구성을 시작하기 전에 CLI 환경을 설정하고 Azure Front Door 프로필을 만듭니다.
 
 #### <a name="set-up-the-azure-cli-environment"></a>Azure CLI 환경 설정
@@ -95,9 +96,10 @@ IP 제한 정책 구성을 시작하기 전에 CLI 환경을 설정하고 Azure 
 
 ### <a name="create-a-waf-policy"></a>WAF 정책 만들기
 
-[az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) 명령을 사용하여 WAF 정책을 만듭니다. 아래 예제에서 정책 이름 *IPAllowPolicyExampleCLI* 를 고유한 정책 이름으로 바꿉니다.
+[az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) 명령을 사용하여 WAF 정책을 만듭니다.
+아래 예제에서 정책 이름 *IPAllowPolicyExampleCLI* 를 고유한 정책 이름으로 바꿉니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az network front-door waf-policy create \
   --resource-group <resource-group-name> \
   --subscription <subscription ID> \
@@ -111,7 +113,7 @@ az network front-door waf-policy create \
 -  *IPAllowPolicyExampleCLI* 를 앞에서 만든 고유한 정책으로 바꿉니다.
 -  *ip-address-range-1*, *ip-address-range-2* 를 고유한 범위로 바꿉니다.
 
-먼저, 이전 단계에서 만든 정책에 대해 IP 허용 규칙을 만듭니다. 
+먼저, 이전 단계에서 만든 정책에 대해 IP 허용 규칙을 만듭니다.
 > [!NOTE]
 > 다음 단계에서 규칙에 일치 조건이 추가되어야 하므로 **--defer** 는 필수입니다.
 
@@ -134,10 +136,10 @@ az network front-door waf-policy rule match-condition add \
 --negate true \
 --name IPAllowListRule \
   --resource-group <resource-group-name> \
-  --policy-name IPAllowPolicyExampleCLI 
+  --policy-name IPAllowPolicyExampleCLI
   ```
-                                                   
-### <a name="find-the-id-of-a-waf-policy"></a>WAF 정책의 ID 찾기 
+
+### <a name="find-the-id-of-a-waf-policy"></a>WAF 정책의 ID 찾기
 [az network front-door waf-policy show](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_show) 명령을 사용하여 WAF 정책의 ID를 찾습니다. 다음 예제의 *IPAllowPolicyExampleCLI* 를 앞에서 만든 고유한 정책으로 바꿉니다.
 
    ```azurecli
@@ -178,10 +180,10 @@ Azure PowerShell은 [Azure Resource Manager](../../azure-resource-manager/manage
 
     ```
     Install-Module PowerShellGet -Force -AllowClobber
-    ``` 
+    ```
 
-3. 다음 명령을 사용하여 Az.FrontDoor 모듈을 설치합니다. 
-    
+3. 다음 명령을 사용하여 Az.FrontDoor 모듈을 설치합니다.
+
     ```
     Install-Module -Name Az.FrontDoor
     ```
@@ -190,7 +192,7 @@ Azure PowerShell은 [Azure Resource Manager](../../azure-resource-manager/manage
 
 ### <a name="define-an-ip-match-condition"></a>IP 일치 조건 정의
 [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) 명령을 사용하여 IP 일치 조건을 정의합니다.
-다음 예제에서는 *ip-address-range-1*, *ip-address-range-2* 를 고유한 범위로 바꿉니다.    
+다음 예제에서는 *ip-address-range-1*, *ip-address-range-2* 를 고유한 범위로 바꿉니다.
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
@@ -198,7 +200,7 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1
 ```
-     
+
 ### <a name="create-a-custom-ip-allow-rule"></a>사용자 지정 IP 허용 규칙 만들기
 
 [New-AzFrontDoorWafCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) 명령을 사용하여 동작을 정의하고 우선 순위를 설정합니다. 다음 예제에서는 목록과 일치하는 클라이언트 IP에서 생성되지 않은 요청이 차단됩니다.
@@ -240,7 +242,7 @@ WAF 정책 개체를 기존 프런트 엔드 호스트에 연결하고 Azure Fro
 
 
 ## <a name="configure-a-waf-policy-with-a-resource-manager-template"></a>Resource Manager 템플릿으로 WAF 정책 구성
-사용자 지정 IP 제한 규칙을 사용하여 Azure Front Door 정책과 WAF 정책을 만드는 템플릿을 보려면 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip)로 이동합니다.
+사용자 지정 IP 제한 규칙을 사용하여 Azure Front Door 정책과 WAF 정책을 만드는 템플릿을 보려면 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-waf-clientip)로 이동합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

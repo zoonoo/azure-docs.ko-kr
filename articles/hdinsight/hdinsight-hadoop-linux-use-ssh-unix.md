@@ -3,14 +3,14 @@ title: Hadoop에서 SSH 사용 - Azure HDInsight
 description: SSH(보안 셸)를 사용하여 HDInsight에 액세스할 수 있습니다. 이 문서에서는 Windows, Linux, Unix 또는 macOS 클라이언트에서 ssh 명령을 사용하여 HDInsight에 연결하는 방법에 대해 설명합니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-azurepowershell
 ms.date: 02/28/2020
-ms.openlocfilehash: 7d7ba260177cb27ac181f081335ffb1e19aa5c33
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 6077db17258c40cef5c6cd987469612171e344d2
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110062797"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558569"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Apache Hadoop)에 연결
 
@@ -86,10 +86,10 @@ ssh-keygen -t rsa -b 2048
 
 | 생성 방법 | 공개 키를 사용하는 방법 |
 | ------- | ------- |
-| Azure portal | __SSH에 클러스터 로그인 암호 사용__ 선택을 취소하고 SSH 인증 형식으로 __공개 키__ 를 선택합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>:::image type="content" source="./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png" alt-text="HDInsight 클러스터 생성의 SSH 공개 키 대화 상자"::: |
+| Azure Portal | __SSH에 클러스터 로그인 암호 사용__ 선택을 취소하고 SSH 인증 형식으로 __공개 키__ 를 선택합니다. 마지막으로 공개 키 파일을 선택하거나 __SSH 공개 키__ 필드에 파일의 텍스트 내용을 붙여 넣습니다.</br>:::image type="content" source="./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png" alt-text="HDInsight 클러스터 생성의 SSH 공개 키 대화 상자"::: |
 | Azure PowerShell | [New-AzHdinsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `-SshPublicKey` 매개 변수를 사용하고 문자열로 공개 키의 내용을 전달합니다.|
 | Azure CLI | [`az hdinsight create`](/cli/azure/hdinsight#az_hdinsight_create) 명령의 `--sshPublicKey` 매개 변수를 사용하여 문자열로 공개 키의 내용을 전달합니다. |
-| Resource Manager 템플릿 | 템플릿에서 SSH 키를 사용하는 예제는 [SSH 키를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-publickey/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-publickey/azuredeploy.json) 파일의 `publicKeys` 요소는 클러스터를 만들 때 Azure에 키를 전달하는 데 사용됩니다. |
+| Resource Manager 템플릿 | 템플릿에서 SSH 키를 사용하는 예제는 [SSH 키를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/hdinsight-linux-ssh-publickey/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-publickey/azuredeploy.json) 파일의 `publicKeys` 요소는 클러스터를 만들 때 Azure에 키를 전달하는 데 사용됩니다. |
 
 ## <a name="authentication-password"></a>인증: 암호
 
@@ -105,10 +105,10 @@ SSH 계정은 암호를 사용하여 보호될 수 있습니다. SSH를 사용�
 
 | 생성 방법 | 암호를 지정하는 방법 |
 | --------------- | ---------------- |
-| Azure portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용하려면 __SSH에 클러스터 로그인 암호 사용__ 선택을 취소하고 __SSH 암호__ 필드에 암호를 입력합니다.</br>:::image type="content" source="./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png" alt-text="HDInsight 클러스터 생성의 SSH 암호 대화 상자":::|
+| Azure Portal | 기본적으로 SSH 사용자 계정에는 클러스터 로그인 계정인 동일한 암호가 있습니다. 다른 암호를 사용하려면 __SSH에 클러스터 로그인 암호 사용__ 선택을 취소하고 __SSH 암호__ 필드에 암호를 입력합니다.</br>:::image type="content" source="./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png" alt-text="HDInsight 클러스터 생성의 SSH 암호 대화 상자":::|
 | Azure PowerShell | [New-AzHdinsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet의 `--SshCredential` 매개 변수를 사용하고 SSH 사용자 계정 및 암호를 포함하는 `PSCredential` 개체를 전달합니다. |
 | Azure CLI | [`az hdinsight create`](/cli/azure/hdinsight#az_hdinsight_create) 명령의 `--ssh-password` 매개 변수를 사용하고 암호 값을 제공합니다. |
-| Resource Manager 템플릿 | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json) 파일의 `linuxOperatingSystemProfile` 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
+| Resource Manager 템플릿 | 템플릿에서 암호를 사용하는 예제는 [SSH 암호를 사용하여 Linux에서 HDInsight 배포](https://azure.microsoft.com/resources/templates/hdinsight-linux-ssh-password/)를 참조하세요. [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.hdinsight/hdinsight-linux-ssh-password/azuredeploy.json) 파일의 `linuxOperatingSystemProfile` 요소는 클러스터를 만들 때 Azure에 SSH 계정 이름 및 암호를 전달하는 데 사용됩니다.|
 
 ### <a name="change-the-ssh-password"></a>SSH 암호 변경
 

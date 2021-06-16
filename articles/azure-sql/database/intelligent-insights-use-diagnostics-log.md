@@ -7,16 +7,16 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: mathoma, wiassaf
 ms.date: 06/12/2020
-ms.openlocfilehash: b03c21eea18c966616154b5cfc5df5d8924fd335
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 551886010cb5dc6d1b4977a6687d11704cc7776e
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100589311"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590273"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Azure SQL Database 및 Azure SQL Managed Instance 성능 문제의 Intelligent Insights 성능 진단 로그를 사용합니다.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -138,7 +138,7 @@ Intelligent Insights 성능 로그의 마지막 부분은 식별된 성능 저�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Intelligent Insights 성능 로그를 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 함께 사용할 수 있습니다.
+Intelligent Insights 성능 로그를 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](/azure/log-analytics/log-analytics-azure-sql) 또는 타사 솔루션과 함께 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,13 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 88898d3a0e42ff362a5ab6fa586c52064fcb8221
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6fd9f84656c1478f8bde1261165cfb9d7655d670
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736742"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111886721"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>자습서: ARM 템플릿 배포 문제 해결
 
@@ -33,7 +34,7 @@ ARM 템플릿(Azure Resource Manager 템플릿) 배포 오류 문제를 해결�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -41,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-problematic-template"></a>문제가 있는 템플릿 만들기
 
-[Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라는 템플릿을 열고 두 가지 템플릿 문제를 설정합니다.
+[Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/storage-account-create/)라는 템플릿을 열고 두 가지 템플릿 문제를 설정합니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 2. **파일 이름** 에서 다음 URL을 붙여넣습니다.

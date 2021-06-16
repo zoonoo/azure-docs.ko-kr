@@ -3,12 +3,13 @@ title: Azure DevTest Labs에서 VM에 아티팩트 추가 | Microsoft Docs
 description: Azure DevTest Labs의 랩에서 가상 머신에 아티팩트를 추가하는 방법 알아보기
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b4772755d8077f7a659c4d403961ffaeb9e1d483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bf8c40b019d1021fa9ade7e52c1b50e16be6526b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483893"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705102"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>VM에 아티팩트 추가
 VM을 만드는 동안 기존 아티팩트를 추가할 수 있습니다. 이러한 아티팩트는 [공용 DevTest Labs Git 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) 또는 자체 Git 리포지토리에서 가져올 수 있습니다. 이 문서에서는 Azure Portal에서, 그리고 Azure PowerShell을 사용하여 아티팩트를 추가하는 방법을 보여줍니다. 

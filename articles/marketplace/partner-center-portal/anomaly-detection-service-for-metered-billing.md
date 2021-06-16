@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77159a099dcc28739457a10afef374502d117b5a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101092402"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971158"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>요금제 청구를 위한 변칙 검색 서비스
 
-[마켓플레이스 계량 서비스](marketplace-metering-service-apis-faq.md)를 사용하면 비표준 단위에 따라 요금이 청구되는 상업용 Marketplace 프로그램에서 제품을 만들 수 있습니다. 요금제를 사용하여 고객 사용에 대한 사용 이벤트를 Microsoft에 전송하고 해당 사용량을 기준으로 청구를 준비합니다.
+[마켓플레이스 계량 서비스](../marketplace-metering-service-apis-faq.md)를 사용하면 비표준 단위에 따라 요금이 청구되는 상업용 Marketplace 프로그램에서 제품을 만들 수 있습니다. 요금제를 사용하여 고객 사용에 대한 사용 이벤트를 Microsoft에 전송하고 해당 사용량을 기준으로 청구를 준비합니다.
 
 사용 데이터가 잘못되는 원인은 버그, 잘못된 사용 추적 구성, 부정 행위와 같은 다양한 원인이 있을 수 있습니다. 사용 데이터가 잘못됨으로 인해 고객에게 요금이 잘못 청구되거나 및 청구 분쟁이 일어날 수 있습니다.
 
@@ -82,5 +82,5 @@ ms.locfileid: "101092402"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Marketplace 계량 서비스 API](marketplace-metering-service-apis.md)에 대해 알아봅니다.
+- [Marketplace 계량 서비스 API](../marketplace-metering-service-apis.md)에 대해 알아봅니다.
 - [파트너 센터에서 요금 청구 변칙 관리](../anomaly-detection.md)

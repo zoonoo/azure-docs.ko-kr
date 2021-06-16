@@ -46,7 +46,7 @@
     - name: 온-프레미스 및 클라우드 간 데이터 이동
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: FAQ
-      href: data-factory-faq.md
+      href: data-factory-faq.yml
 - name: 방법
   items:
     - name: 데이터 이동

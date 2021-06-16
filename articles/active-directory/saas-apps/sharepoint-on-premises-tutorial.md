@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2021
 ms.author: jeedes
-ms.openlocfilehash: be61dad30d7c8670442612faf928d5aa82e64d56
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 142b16d58fae508614324746345bc8d33f41cab4
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110065749"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890054"
 ---
 # <a name="tutorial-implement-federated-authentication-between-azure-active-directory-and-sharepoint-on-premises"></a>자습서: Azure Active Directory와 SharePoint 온-프레미스 간에 페더레이션 인증 구현
 
@@ -196,7 +196,7 @@ $trust = New-SPTrustedIdentityTokenIssuer -Name "AzureADTrust" -Description "Azu
 
 ## <a name="sign-in-as-a-member-user"></a>멤버 사용자로 로그인
 
-Azure Active Directory에는 게스트 사용자 및 멤버 사용자라는 [두 가지 유형의 사용자](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-user-properties)가 있습니다. 조직에 속하는 사용자인 멤버 사용자로 시작하겠습니다.
+Azure Active Directory에는 게스트 사용자 및 멤버 사용자라는 [두 가지 유형의 사용자](../external-identities/user-properties.md)가 있습니다. 조직에 속하는 사용자인 멤버 사용자로 시작하겠습니다.
 
 ### <a name="create-a-member-user-in-azure-active-directory"></a>Azure Active Directory에서 멤버 사용자 만들기
 

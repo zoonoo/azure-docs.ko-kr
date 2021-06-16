@@ -1,5 +1,5 @@
 ---
-title: Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET(미리 보기)에 대한 액세스 허용
+title: Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET에 대한 액세스 허용
 description: Azure Image Builder를 사용하여 기존 Azure VNET에 액세스할 수 있는 Linux VM 이미지 만들기
 author: danielsollondon
 ms.author: danis
@@ -9,30 +9,18 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: danis
-ms.openlocfilehash: 500ddec9b84f9d73db45ddb4b7f5a8486a48d3e5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: acc351eb7557ecade4ee746a4564c90c0078755b
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102565311"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027284"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Linux VM 용 Azure Image Builder를 사용하여 기존 Azure VNET에 대한 액세스 허용
 
 이 문서에서는 Azure Image Builder를 사용하여 VNET의 기존 리소스에 대한 액세스 권한이 있는 기본 사용자 지정 Linux 이미지를 만드는 방법을 보여 줍니다. 만드는 빌드 VM은 구독에서 지정하는 새 VNET 또는 기존 VNET에 배포됩니다. 기존 Azure VNET을 사용하는 경우, Azure Image Builder 서비스에는 공용 네트워크 연결이 필요하지 않습니다.
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="register-the-features"></a>기능 등록
-
-먼저, Azure Image Builder 서비스에 등록해야 합니다. 등록은 스테이징 리소스 그룹을 만들고, 관리하고, 삭제할 수 있는 권한을 서비스에 부여합니다. 또한 이 서비스에는 이미지 빌드에 필요한 그룹에 리소스를 추가할 수 있는 권한이 있습니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
 
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정 
 
