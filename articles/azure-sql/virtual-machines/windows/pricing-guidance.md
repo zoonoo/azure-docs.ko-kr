@@ -16,12 +16,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d980b92bc4effc58ef84ef6ec70c3908f575e484
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 05883b3016ac3c8a8d26bfc02fea38e3adb2675a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615604"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079754"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Azure VM의 SQL Server에 대한 가격 책정 지침
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -100,7 +100,7 @@ SQL Server의 모든 버전(2012 SP3 ~ 2019)에 대한 비용은 동일합니다
 **License Mobility를 통해 SQL Server 사용자 라이선스 필요**(**BYOL** 이라고도 함)는 Azure VM에서 기존 SQL Server 볼륨 라이선스와 함께 Software Assurance를 사용함을 의미합니다. BYOL을 사용하는 SQL Server VM의 경우 볼륨 라이선싱 프로그램 또는 CSP(Cloud Solution Partner)를 통해 이미 라이선스 및 Software Assurance를 구매했다면 SQL Server 라이선스가 아닌 VM 실행에 대한 비용만 청구됩니다.
 
 > [!NOTE]
-> BYOL 이미지는 현재 Windows 가상 머신에만 사용할 수 있습니다. 그러나 Linux 전용 VM에 SQL Server를 수동으로 설치할 수 있습니다. [Linux VM FAQ의 SQL Server](../linux/frequently-asked-questions-faq.md)에 대한 지침을 참조하세요.
+> BYOL 이미지는 현재 Windows 가상 머신에만 사용할 수 있습니다. 그러나 Linux 전용 VM에 SQL Server를 수동으로 설치할 수 있습니다. [Linux VM FAQ의 SQL Server](../linux/frequently-asked-questions-faq.yml)에 대한 지침을 참조하세요.
 
 라이선스 이동을 통해 사용자 고유의 SQL Server 라이선스를 가져오도록 권장되는 경우는 다음과 같습니다.
 

@@ -9,12 +9,13 @@ ms.topic: article
 ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: image-builder
-ms.openlocfilehash: a4bc152f2eb12008b942d3da8fdd1dfa1ba1aa74
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 20f50ccfcbfce7a4e70722feaef4d245e11336f8
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846485"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031118"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Azure VM Image Builder 및 PowerShell을 사용하여 Windows Virtual Desktop 이미지 만들기
 
@@ -76,20 +77,13 @@ Image Builder 구성의 배포를 간소화하기 위해 이 예제에서는 Azu
 최신 Azure PowerShell Cmdlet이 설치되어 있어야 합니다. 설치 세부 정보는 [여기](/powershell/azure/overview)를 참조하세요.
 
 ```PowerShell
-# Register for Azure Image Builder Feature
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-
-# wait until RegistrationState is set to 'Registered'
-
 # check you are registered for the providers, ensure RegistrationState is set to 'Registered'.
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 Get-AzResourceProvider -ProviderNamespace Microsoft.Storage 
 Get-AzResourceProvider -ProviderNamespace Microsoft.Compute
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
-# If they do not saw registered, run the commented out code below.
+# If they do not show as registered, run the commented out code below.
 
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
 ## Register-AzResourceProvider -ProviderNamespace Microsoft.Storage

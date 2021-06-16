@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 2c410d6c310c8f9b0c50ff0073f4dda9a35c8f9c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: b84255a4148322f9aa1b5c0d59eb220c2555102f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382682"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967627"
 ---
 # <a name="extend-a-prebuilt-docker-image-preview"></a>미리 빌드된 Docker 이미지 확장(미리 보기)
 
@@ -61,7 +61,7 @@ docker build -f <above dockerfile> -t <image_name>:<tag> .
 > [!TIP]
 > `docker build`에 대한 자세한 내용은 [Docker 설명서](https://docs.docker.com/engine/reference/commandline/build/)에서 확인할 수 있습니다.
 
-`docker build` 명령을 로컬로 사용할 수 없는 경우에는 Azure Machine Learning 작업 영역에 대한 Azure Container Registry ACR을 사용하여 클라우드에서 Docker 이미지를 빌드합니다. 자세한 내용은 [자습서: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 배포](/azure/container-registry/container-registry-tutorial-quick-task)를 참조하세요.
+`docker build` 명령을 로컬로 사용할 수 없는 경우에는 Azure Machine Learning 작업 영역에 대한 Azure Container Registry ACR을 사용하여 클라우드에서 Docker 이미지를 빌드합니다. 자세한 내용은 [자습서: Azure Container Registry를 사용하여 컨테이너 이미지 빌드 및 배포](../container-registry/container-registry-tutorial-quick-task.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Azure Container Registry를 통해 사용자 지정 기본 이미지를 만들기 전에 먼저 Dockerfile이 로컬에서 작동하는지 확인하는 것이 좋습니다.

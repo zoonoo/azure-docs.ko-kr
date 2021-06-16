@@ -2,20 +2,20 @@
 title: Azure Active Directory에서 SAML 기반 Single Sign-On 문제 해결
 description: SAML 기반 Single Sign-On에 대해 구성된 Azure AD 앱의 문제를 해결합니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
-ms.openlocfilehash: c4a4f7bfad4254e7c3fa5851e62532ed427ced8b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.author: mtillman
+ms.openlocfilehash: b119df626eed15c15fdb267a0a78b6fd62b72162
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376429"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080546"
 ---
 # <a name="troubleshoot-saml-based-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On 문제 해결
 애플리케이션을 구성할 때 문제가 발생 할 경우. 애플리케이션의 자습서에 있는 단계를 모두 수행했는지 확인합니다. 애플리케이션의 구성에는 애플리케이션 구성 방법에 관한 인라인 설명서가 있습니다. 또한 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)에 액세스하면 자세한 단계별 지침을 볼 수 있습니다.

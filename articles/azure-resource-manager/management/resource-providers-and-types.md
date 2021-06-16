@@ -4,12 +4,12 @@ description: Azure Resource Manager를 지원하는 리소스 공급자에 대�
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d5936e1e4c80869495d5b71023e26264dc9a2cde
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d33debc8a7cfd72e919f7e93e1af50a653fa651e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319200"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968278"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 리소스 공급자 및 종류
 
@@ -315,7 +315,7 @@ West US
 
 ## <a name="next-steps"></a>다음 단계
 
-* 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../templates/template-syntax.md)을 참조하세요. 
+* 리소스 관리자 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../templates/syntax.md)을 참조하세요. 
 * 리소스 공급자 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조하세요.
 * 리소스 공급자를 Azure 서비스로 매핑하는 목록은 [Azure 서비스용 리소스 공급자](azure-services-resource-providers.md)를 참조하세요.
 * 리소스 공급자에 대한 작업을 보려면 [Azure REST API](/rest/api/)를 참조하세요.
