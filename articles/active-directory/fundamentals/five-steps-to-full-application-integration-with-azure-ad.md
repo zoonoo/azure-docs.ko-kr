@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: a7b18fe6584781db2ec4e81e8bf0cb85e23f0566
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: daf339a1ba79212f82a853a209068c97c13b29f8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175805"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966010"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>모든 앱을 Azure AD와 통합하는 5단계
 
@@ -86,7 +86,7 @@ Azure AD가 중앙 ID 공급자가 되면 페더레이션 솔루션을 사용하
 
 ## <a name="4-integrate-on-premises-applications"></a>4. 온-프레미스 애플리케이션 통합
 
-기존에는 애플리케이션은 회사 네트워크에 연결된 동안에만 액세스를 허용하여 보안을 유지했습니다. 그러나 연결성이 확장되고 있는 세상에서 저희는 고객, 파트너, 직원들이 전 세계 어디에 있든 상관 없이 앱에 액세스할 수 있는 환경을 제공하고자 합니다. AppProxy([Azure AD 애플리케이션 프록시](../manage-apps/what-is-application-proxy.md))는 기존 온-프레미스 앱을 Azure AD에 연결하는 Azure AD의 기능으로서 에지 서버 또는 기타 추가 인프라를 유지 관리할 필요가 없습니다.
+기존에는 애플리케이션은 회사 네트워크에 연결된 동안에만 액세스를 허용하여 보안을 유지했습니다. 그러나 연결성이 확장되고 있는 세상에서 저희는 고객, 파트너, 직원들이 전 세계 어디에 있든 상관 없이 앱에 액세스할 수 있는 환경을 제공하고자 합니다. AppProxy([Azure AD 애플리케이션 프록시](../app-proxy/what-is-application-proxy.md))는 기존 온-프레미스 앱을 Azure AD에 연결하는 Azure AD의 기능으로서 에지 서버 또는 기타 추가 인프라를 유지 관리할 필요가 없습니다.
 
 ![다이어그램은 작동 중인 애플리케이션 프록시 서비스를 보여 줍니다. 사용자가 "https://sales.contoso.com"에 액세스하고 사용자 요청이 Azure Active Directory의 "https://sales-contoso.msappproxy.net"를 통해 온 프레미스 주소 "http://sales"로 리디렉션됩니다.](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 

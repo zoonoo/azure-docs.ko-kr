@@ -24,6 +24,8 @@
       items:
         - name: 프라이빗 ARO 클러스터 만들기
           href: howto-create-private-cluster-4x.md
+        - name: 사용자 지정 DNS 구성
+          href: howto-custom-dns.md
         - name: DNS 전달 구성
           href: dns-forwarding.md
         - name: 송신 트래픽 제한

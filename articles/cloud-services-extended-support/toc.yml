@@ -118,7 +118,7 @@
     - name: SDK)
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Compute/43.0.0-preview'
     - name: CLI
-      href: 'https://docs.microsoft.com/cli/azure/cloud-service?view=azure-cli-latest'
+      href: /cli/azure/cloud-service?view=azure-cli-latest
 - name: 리소스
   items:
     - name: Azure 로드맵
@@ -133,3 +133,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=cloud-services&updatetype=&platform='
+- name: 지원 및 문제 해결
+  href: support-help.md

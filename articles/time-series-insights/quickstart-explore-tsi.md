@@ -3,19 +3,20 @@ title: '빠른 시작: Gen2 데모 환경 살펴보기 - Azure Time Series Insig
 description: Azure Time Series Insights Gen2 데모 환경의 주요 기능을 살펴봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 03/01/2021
-ms.openlocfilehash: 25340af243217313ce6d3f7205c102d4bcd350b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b109d363b495712efd96e2fa8e5684ad43980964
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101698113"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061131"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-gen2-demo-environment"></a>빠른 시작: Azure Time Series Insights Gen2 데모 환경 탐색
 
@@ -32,7 +33,7 @@ Azure Time Series Insights Gen2 데모 환경에 등장하는 가상 기업 Cont
 
 Azure Time Series Insights Gen2 탐색기는 기록 데이터 및 근본 원인 분석 과정을 보여 줍니다. 시작하기:
 
-1.  [Contoso 풍력 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동합니다.  
+1.  [Contoso 풍력 팜 데모](https://insights.timeseries.azure.com/preview/samples) 환경으로 이동합니다.
 
 1. 로그인하라는 메시지가 표시되면 Azure 계정 자격 증명을 사용하여 Azure Time Series Insights Gen2 탐색기에 로그인합니다.
 
@@ -124,7 +125,7 @@ Azure Time Series Insights Gen2 및 센서 원격 분석을 사용하여 기록 
 
     전압 센서 중 두 개는 정상 범위 내에서 비슷하게 작동하고 있습니다. **GridVoltagePhase3** 센서가 문제인 것으로 보입니다.
 
-1. 상황과 관련이 깊은 데이터를 추가하면 3단계 감소가 훨씬 큰 문제인 것처럼 보입니다. 경고의 원인을 파악할 수 있는 좋은 실마리를 찾았습니다. 이제 이 이슈를 유지 관리 팀에 전달할 수 있습니다.  
+1. 상황과 관련이 깊은 데이터를 추가하면 3단계 감소가 훨씬 큰 문제인 것처럼 보입니다. 경고의 원인을 파악할 수 있는 좋은 실마리를 찾았습니다. 이제 이 이슈를 유지 관리 팀에 전달할 수 있습니다.
 
     * 동일한 차트 배율로 모든 **발전기 시스템** 센서를 오버레이하도록 화면 표시를 변경합니다.
 

@@ -4,18 +4,18 @@ description: Azure SQL Managed Instance의 퍼블릭 엔드포인트를 구성�
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 02/08/2021
-ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a515352f4c4138ac5fa8fb829f8d483747bac323
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99981445"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666433"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Azure SQL Managed Instance에서 퍼블릭 엔드포인트 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. **인바운드 보안 규칙** 탭을 선택하고 다음 설정으로 **deny_all_inbound** 규칙보다 우선 순위가 높은 규칙을 **추가** 합니다. </br> </br>
 
-    |설정  |제안 값  |설명  |
+    |설정  |제안 값  |Description  |
     |---------|---------|---------|
     |**원본**     |임의 IP 주소 또는 서비스 태그         |<ul><li>Power BI 같은 Azure 서비스의 경우 Azure 클라우드 서비스 태그를 선택합니다.</li> <li>컴퓨터 또는 Azure 가상 머신의 경우 NAT IP 주소를 사용합니다.</li></ul> |
     |**원본 포트 범위**     |* |원본 포트가 일반적으로 동적으로 할당되어 예측할 수 없게 되므로 *(모두)로 둡니다. |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.service: partner-services
 ms.date: 01/15/2021
 ms.author: tomfitz
-ms.openlocfilehash: fefbc21c385e3beacbf570c31ffbf97238c780fc
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 6fbd6b72c17b8483f9fdb5bc227625fd92009594
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109087"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952632"
 ---
 # <a name="what-is-apache-kafka-for-confluent-cloud"></a>Confluent Cloud의 Apache Kafka는 무엇인가요?
 
@@ -21,7 +21,7 @@ Confluent Cloud의 Apache Kafka는 Apache Kafka를 서비스로 제공하는 Azu
 
 이전에는 Marketplace에서 Confluent Cloud 제품을 구매하고, 별도로 Confluent Cloud에서 계정을 설정해야 했습니다. 구성 및 리소스를 관리하려면 Azure와 Confluent Cloud의 포털 간에 이동해야 했습니다.
 
-이제 **Microsoft Confluent** 라는 리소스 공급자를 통해 Confluent Cloud 리소스를 프로비저닝합니다. [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/)또는 [Azure SDK](/azure/#languages-and-tools)를 통해 Confluent Cloud 조직 리소스를 만들고 관리합니다. Confluent Cloud는 환경, 클러스터, 토픽, API 키, 관리형 커넥터를 포함하여 SaaS(Software as a Service) 애플리케이션을 소유하고 실행합니다.
+이제 **Microsoft Confluent** 라는 리소스 공급자를 통해 Confluent Cloud 리소스를 프로비저닝합니다. [Azure Portal](https://portal.azure.com/), [Azure CLI](/cli/azure/)또는 [Azure SDK](/azure/index.yml#languages-and-tools)를 통해 Confluent Cloud 조직 리소스를 만들고 관리합니다. Confluent Cloud는 환경, 클러스터, 토픽, API 키, 관리형 커넥터를 포함하여 SaaS(Software as a Service) 애플리케이션을 소유하고 실행합니다.
 
 ## <a name="capabilities"></a>기능
 

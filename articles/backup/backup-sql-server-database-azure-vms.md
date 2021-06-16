@@ -2,13 +2,13 @@
 title: 자격 증명 모음에서 여러 SQL Server VM 백업
 description: 이 문서에서는 Recovery Services 자격 증명 모음에서 Azure Backup을 사용하여 Azure 가상 머신의 SQL Server 데이터베이스를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 798dc81012ad968c3ecc287717240513a08a1349
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 3a6792fe5146df9babc906edec1fc12aa4b3e1cb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105567216"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672326"
 ---
 # <a name="back-up-multiple-sql-server-vms-from-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 여러 SQL Server VM 백업
 
@@ -23,10 +23,6 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 > * 자격 증명 모음을 만들고 구성합니다.
 > * 데이터베이스를 검색하고 백업을 설정합니다.
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
-
->[!NOTE]
->**Azure VM의 SQL Server 일시 삭제 및 Azure VM 워크로드의 SAP HANA 일시 삭제** 는 이제 미리 보기로 제공됩니다.<br>
->미리 보기에 가입하려면 AskAzureBackupTeam@microsoft.com으로 문의해 주세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -91,7 +87,7 @@ Azure Firewall을 사용하는 경우 *AzureBackup* [Azure Firewall FQDN 태그]
 | 서비스    | 액세스할 도메인 이름                             | 포트
 | -------------- | ------------------------------------------------------------ | ---
 | Azure Backup  | `*.backup.windowsazure.com`                             | 443
-| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` | 443
+| Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` | 443
 | Azure AD      | [이 문서](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online)에 따라 섹션 56 및 59에서 FQDN에 대한 액세스 허용 | 경우에 따라
 
 #### <a name="use-an-http-proxy-server-to-route-traffic"></a>HTTP 프록시 서버를 사용하여 트래픽 라우팅

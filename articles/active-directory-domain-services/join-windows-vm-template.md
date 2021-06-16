@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: e7245e8e468ea051ee095d97cc250ad303aa80a5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fcfe5fb48a6eef0b7185fe8bba5a8f1e80fb4f1f
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96619439"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030542"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Windows Server 가상 머신을 Azure Active Directory Domain Services 관리되는 도메인에 가입
 
@@ -81,7 +81,7 @@ Windows Server VM이 필요한 경우 Resource Manager 템플릿을 사용하여
 
 Windows Server VM을 만든 다음 관리되는 도메인에 가입하려면 다음 단계를 완료합니다:
 
-1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join/) 찾아보기. **Azure에 배포** 옵션을 선택합니다.
+1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/vm-domain-join/) 찾아보기. **Azure에 배포** 옵션을 선택합니다.
 1. **사용자 지정 배포** 페이지에서 다음의 정보를 입력하여 관리되는 도메인에 Windows Server VM을 만들고 가입합니다:
 
     | 설정                   | 값 |
@@ -114,7 +114,7 @@ Windows Server VM을 만든 다음 관리되는 도메인에 가입하려면 다
 
 기존 Windows Server VM을 관리되는 도메인에 가입하려면 다음 단계를 완료합니다:
 
-1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/) 찾아보기. **Azure에 배포** 옵션을 선택합니다.
+1. [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/) 찾아보기. **Azure에 배포** 옵션을 선택합니다.
 1. **사용자 지정 배포** 페이지에서 다음 정보를 입력하여 관리되는 도메인에 VM을 가입합니다:
 
     | 설정                   | 값 |

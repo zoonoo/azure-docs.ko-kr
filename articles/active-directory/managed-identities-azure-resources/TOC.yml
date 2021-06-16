@@ -59,7 +59,7 @@
     - name: 관리 ID 및 Azure VM
       href: how-managed-identities-work-vm.md
     - name: 모범 사례 권장 사항
-      url: managed-identity-best-practice-recommendations.md
+      href: managed-identity-best-practice-recommendations.md
 - name: 방법 가이드
   items:
     - name: VM에서 관리되는 ID 구성
@@ -105,17 +105,7 @@
         - name: PowerShell
           href: howto-assign-access-powershell.md
     - name: 사용자 할당 관리 ID 관리
-      items:
-        - name: 포털
-          href: how-to-manage-ua-identity-portal.md
-        - name: CLI
-          href: how-to-manage-ua-identity-cli.md
-        - name: PowerShell
-          href: how-to-manage-ua-identity-powershell.md
-        - name: Azure Resource Manager 템플릿
-          href: how-to-manage-ua-identity-arm.md
-        - name: REST (영문)
-          href: how-to-manage-ua-identity-rest.md
+      href: how-manage-user-assigned-managed-identities.md
     - name: 관리 ID 서비스 사용자 보기
       items:
         - name: 포털

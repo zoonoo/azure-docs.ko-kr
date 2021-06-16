@@ -7,15 +7,13 @@ ms.author: victorh
 ms.date: 08/28/2020
 ms.topic: quickstart
 ms.service: firewall-manager
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 88b961f269c89a1e19c0fd4419ffdc33706423de
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 733d0874c72bca32238494e4987ee889c8e2f196
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529642"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110700583"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---arm-template"></a>빠른 시작: Azure Firewall Manager를 사용하여 가상 허브 보호 - ARM 템플릿
 
@@ -79,7 +77,7 @@ Azure에 ARM 템플릿을 배포합니다.
 1. Azure Portal에서 **Workload-Srv** 가상 머신에 대한 네트워크 설정을 검토하고 프라이빗 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Jump-Srv** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Workload-Srv** 프라이빗 IP 주소로 엽니다.
 
-3. Internet Explorer를 열고 [https://www.google.com]\(`www.microsoft.com` )을 찾습니다.
+3. Internet Explorer를 열고 [https://www.google.com]\(`www.microsoft.com`)을 찾습니다.
 4. Internet Explorer 보안 경고에서 **확인** > **닫기** 를 선택합니다.
 
    Microsoft 홈페이지가 표시됩니다.

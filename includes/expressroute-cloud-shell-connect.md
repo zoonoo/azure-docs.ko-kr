@@ -7,13 +7,13 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 02/01/2019
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 1aca39a7ff162aa3c42fdb3ca5999c71091ec02e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: include file, devx-track-azurepowershell
+ms.openlocfilehash: 9894787ed29226ad6e8d491b498b082cadd0626b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "67181936"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690808"
 ---
  Azure Cloud Shell을 사용하는 경우 '사용해 보세요'를 클릭한 후 자동으로 Azure 계정에 로그인합니다. 로컬로 로그인하려면 상승된 권한으로 PowerShell 콘솔을 열고 cmdlet을 실행하여 연결합니다.
 

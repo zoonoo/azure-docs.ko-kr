@@ -8,12 +8,12 @@ ms.date: 3/24/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73e4edd25946f71cfb6d14a379d5b004343cc4e3
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a0b9c96fcd54ab89d5d454b206ece6fce8f0e34e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367240"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969237"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
 
@@ -45,7 +45,7 @@ Machine Learning Studio는 기계 학습 모델을 실험, 학습 및 배포하�
 Machine Learning Studio를 사용하여 두 개의 Jupyter Notebook 및 지원 파일을 호스팅합니다. 여기서는 Machine Learning 프로젝트를 만들고 구성합니다. Jupyter 또는 Machine Learning Studio를 사용하지 않은 경우 다음 두 가지 소개 문서를 참조하세요.
 
 * **Jupyter Notebook:** [Visual Studio Code에서 Jupyter Notebook 작업](https://code.visualstudio.com/docs/python/jupyter-support)
-* **Azure Machine Learning:** [Jupyter Notebook에서 Azure Machine Learning 시작](../machine-learning/tutorial-1st-experiment-sdk-setup.md)
+* **Azure Machine Learning:** [Jupyter Notebook에서 Azure Machine Learning 시작](../machine-learning/quickstart-create-resources.md)
 
 > [!NOTE]
 > 서비스가 설정되면 모든 컴퓨터에서 Machine Learning에 액세스할 수 있습니다. 설정하는 동안 필요한 모든 파일이 있는 개발 VM을 사용해야 합니다.

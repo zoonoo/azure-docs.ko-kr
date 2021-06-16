@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 978afe3d15db15a2cbb1f136eb0c05343e20f6dd
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c2d8663fa9344ffc2a554b6d7bb1fe3f1614b5b2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110083695"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951407"
 ---
 # <a name="reference-deployment-template-artifact"></a>참조: 배포 템플릿 아티팩트
 
-이 문서는 Azure Managed Applications의 *mainTemplate.json* 아티팩트에 대한 참조입니다. 배포 템플릿 작성에 대한 자세한 내용은 [Azure Resource Manager 템플릿](../templates/template-syntax.md)을 참조하세요.
+이 문서는 Azure Managed Applications의 *mainTemplate.json* 아티팩트에 대한 참조입니다. 배포 템플릿 작성에 대한 자세한 내용은 [Azure Resource Manager 템플릿](../templates/syntax.md)을 참조하세요.
 
 ## <a name="deployment-template"></a>배포 템플릿
 

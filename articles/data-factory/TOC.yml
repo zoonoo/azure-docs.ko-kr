@@ -407,7 +407,7 @@
           href: connector-presto.md
         - name: QuickBooks Online
           href: connector-quickbooks.md
-        - name: REST
+        - name: REST (영문)
           href: connector-rest.md
           displayName: timeout
         - name: Salesforce
@@ -909,7 +909,7 @@
     - name: 백서
       href: whitepapers.md
     - name: FAQ
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
       displayName: timeout
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=data-factory'

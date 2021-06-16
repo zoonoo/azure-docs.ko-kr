@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 03/25/2021
-ms.openlocfilehash: dafb7335ef211cb9173ec2fb4565243d603d35fe
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: c82a46fa249bd55207e3fc20fbe991c0d7d24bf9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107730199"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958145"
 ---
 # <a name="resource-manager-template-samples-for-sql-insights"></a>SQL 인사이트에 대한 Resource Manager 템플릿 샘플
-이 문서에는 Azure에서 실행 중인 SQL을 모니터링하기 위해 SQL 인사이트를 사용하도록 설정하는 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)이 포함되어 있습니다.  지원되는 SQL 제품 및 버전에 대한 자세한 내용은 [SQL 인사이트 설명서](sql-insights-overview.md)를 참조하세요. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure에서 실행 중인 SQL을 모니터링하기 위해 SQL 인사이트를 사용하도록 설정하는 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)이 포함되어 있습니다.  지원되는 SQL 제품 및 버전에 대한 자세한 내용은 [SQL 인사이트 설명서](sql-insights-overview.md)를 참조하세요. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

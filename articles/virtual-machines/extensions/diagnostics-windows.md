@@ -8,12 +8,13 @@ ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
 ms.date: 12/15/2015
-ms.openlocfilehash: e242a45e2c0f8247a1c23bf4d43a6e8b0a033d9b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ab53ddd8e798d9c1d43e14ff389d22c2c9830a44
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102560096"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663088"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정
 

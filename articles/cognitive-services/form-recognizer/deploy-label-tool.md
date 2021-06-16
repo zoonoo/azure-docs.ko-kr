@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: 감독 학습에 도움이 되도록 Form Recognizer 샘플 레이블 지정 도구를 배포할 수 있는 다양한 방법을 알아봅니다.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 66edf7dbe7bc32cffcc5c4adad6e04d81f8a21ac
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cc78ae0bc417becb1c6cf16270f77206c60b461e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374598"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076981"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 배포
 
@@ -77,7 +77,7 @@ Azure Portal을 사용하여 새 리소스를 만들려면 다음 단계를 수�
 * 서버 URL - `https://mcr.microsoft.com`으로 설정합니다.
 * 사용자 이름(선택 사항) - 사용자 이름을 만듭니다. 
 * 암호(선택 사항) - 기억할 수 있는 안전한 암호를 만듭니다.
-* 이미지 및 태그 - `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`로 설정합니다.
+* 이미지 및 태그 - `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1`로 설정합니다.
 * 지속적인 배포 - 개발 팀에서 샘플 레이블 지정 도구를 변경할 때 자동 업데이트를 받으려면 **On** 으로 설정합니다.
 * 시작 명령 - `./run.sh eula=accept`로 설정합니다.
 
@@ -127,7 +127,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-2.1 \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \
@@ -146,7 +146,7 @@ DNS_NAME_LABEL=aci-demo-$RANDOM
 az container create \
   --resource-group <resource_group_name> \
   --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest \
   --ports 3000 \
   --dns-name-label $DNS_NAME_LABEL \
   --location <region name> \

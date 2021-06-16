@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 프로그래밍 방식으로 직접 메�
 ms.topic: quickstart
 ms.date: 03/17/2021
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 478e446f87ee8e1fc05ec00aca98125f348ed528
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f0f36f1dc08d7e5c9100814456ab5d21a37123fc
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387418"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957722"
 ---
 # <a name="quickstart-detect-motion-and-emit-events"></a>빠른 시작: 동작 감지 및 이벤트 내보내기
 
@@ -127,4 +127,4 @@ ms.locfileid: "110387418"
 - 고급 사용자에 대한 추가 문제를 검토합니다.
 
   - RTSP 시뮬레이터를 사용하는 대신 RTSP를 지원하는 [IP 카메라](https://en.wikipedia.org/wiki/IP_camera)를 사용합니다. [ONVIF 규격 제품](https://www.onvif.org/conformant-products/) 페이지에서 RTSP를 지원하는 IP 카메라를 찾을 수 있습니다. G, S 또는 T 프로필을 준수하는 디바이스를 찾습니다.
-  - Azure에서 Linux VM을 사용하는 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](/azure/iot-edge/how-to-install-iot-edge?view=iotedge-2020-11&preserve-view=true)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](/azure/iot-edge/quickstart-linux?view=iotedge-2020-11&preserve-view=true)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.
+  - Azure에서 Linux VM을 사용하는 대신 AMD64 또는 x64 Linux 디바이스를 사용합니다. 이 디바이스는 IP 카메라와 동일한 네트워크에 있어야 합니다. [Linux에 Azure IoT Edge 런타임 설치](../../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11)의 지침을 따릅니다. 그런 다음, [가상 Linux 디바이스에 첫 번째 IoT Edge 모듈 배포](../../iot-edge/quickstart-linux.md?preserve-view=true&view=iotedge-2020-11)의 지침에 따라 디바이스를 Azure IoT Hub에 등록합니다.

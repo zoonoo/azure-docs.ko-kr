@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 5882cc949d88e8c2a4102362cf5d2a3613e1d714
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d372c4bff4977ed310d2e84aa255679a9c5ed928
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99475491"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756458"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강을 위한 팁
 
@@ -30,8 +30,7 @@ ms.locfileid: "99475491"
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>팁 2: 데이터 원본 자격 증명이 올바른지 확인
 데이터 원본 연결을 사용하는 인덱서를 정의하기까지 연결의 유효성은 검사되지 않습니다. 인덱서가 데이터에 액세스할 수 없다는 오류가 표시되면 다음을 확인합니다.
-- 연결 문자열이 올바릅니다. 특히 SAS 토큰을 만드는 경우 Azure Cognitive Search에서 예상한 형식을 사용하는지 확인합니다. 지원되는 다른 형식에 대해 알려면 [자격 증명을 지정하는 방법 섹션](
-https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)을 참조합니다.
+- 연결 문자열이 올바릅니다. 특히 SAS 토큰을 만드는 경우 Azure Cognitive Search에서 예상한 형식을 사용하는지 확인합니다. 지원되는 다른 형식에 대해 알려면 [자격 증명을 지정하는 방법 섹션](search-howto-indexing-azure-blob-storage.md#credentials)을 참조합니다.
 - 인덱서의 사용자 컨테이너 이름은 올바릅니다.
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>팁 3: 일부 오류가 있는 경우라도 작동 조건 참조

@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 2ee447b1e5f72ce916808a5832f999eea493994c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4474e5c1d37150b0b65c89be3cd69f3a67eba672
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046842"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964268"
 ---
 # <a name="resource-manager-template-samples-for-vm-insights"></a>VM 인사이트에 대한 Resource Manager 템플릿 샘플
-이 문서에는 가상 머신에서 VM 인사이트를 사용하도록 설정하기 위한 샘플 [Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) 템플릿이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 가상 머신에서 VM 인사이트를 사용하도록 설정하기 위한 샘플 [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) 템플릿이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

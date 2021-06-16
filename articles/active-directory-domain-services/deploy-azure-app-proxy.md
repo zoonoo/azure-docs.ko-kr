@@ -11,18 +11,18 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 70951dc1c1934bcbb2721512175e7d314168ce91
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 67d29dcf0ea4e68354f7b0fad2be7e57e85f8fe7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108175463"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962204"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리되는 도메인의 내부 애플리케이션에 안전하게 액세스할 수 있도록 Azure AD 애플리케이션 프록시 배포
 
 Azure AD Domain Services(Azure AD DS)를 사용하여 온-프레미스에서 실행되는 레거시 애플리케이션을 Azure로 리프트 앤 시프트할 수 있습니다. 그러면 Azure AD(Active Directory) 애플리케이션 프록시를 통해 Azure AD DS 관리되는 도메인의 내부 애플리케이션 부분을 안전하게 게시하여 원격 작업자를 지원할 수 있으므로 인터넷을 통해 액세스할 수 있습니다.
 
-Azure AD 애플리케이션 프록시를 처음 사용하고 더 알아보고 싶은 경우 [내부 애플리케이션에 안전한 원격 액세스 제공하는 방법](../active-directory/manage-apps/application-proxy.md)을 참조하세요.
+Azure AD 애플리케이션 프록시를 처음 사용하고 더 알아보고 싶은 경우 [내부 애플리케이션에 안전한 원격 액세스 제공하는 방법](../active-directory/app-proxy/application-proxy.md)을 참조하세요.
 
 이 문서에서는 관리되는 도메인의 애플리케이션에 대해 안전한 액세스를 제공하기 위해 Azure AD 애플리케이션 프록시 커넥터를 만들고 구성하는 방법을 보여줍니다.
 
@@ -75,7 +75,7 @@ Azure AD 애플리케이션 프록시 커넥터로 VM을 사용할 준비가 되
         > 예를 들어, Azure AD 도메인이 *contoso.com* 인 경우, 전역 관리자는 `admin@contoso.com`이거나 해당 도메인에서 다른 유효한 별칭이어야 합니다.
 
    * 커넥터를 설치하는 VM에 Internet Explorer 보안 강화 구성이 켜져 있으면 등록 화면이 블록될 수 있습니다. 액세스를 허용하려면 오류 메시지의 지침에 따라 설치하는 동안 Internet Explorer 보안 강화를 끕니다.
-   * 커넥터 등록에 실패한 경우 [애플리케이션 프록시 문제 해결](../active-directory/manage-apps/application-proxy-troubleshoot.md)을 참조하세요.
+   * 커넥터 등록에 실패한 경우 [애플리케이션 프록시 문제 해결](/azure/active-directory/app-proxy/application-proxy-troubleshoot)을 참조하세요.
 1. 설정 종료 시 아웃바운드 프록시를 사용하는 환경에 대한 노트가 표시됩니다. 아웃바운드 프록시를 통해 작동하도록 Azure AD 애플리케이션 프록시 커넥터를 구성하려면 제공되는 스크립트(예: `C:\Program Files\Microsoft AAD App Proxy connector\ConfigureOutBoundProxy.ps1`)를 실행하세요.
 1. 다음 예제와 같이 Azure Portal의 애플리케이션 프록시 페이지에 새 커넥터가 *활성* 상태로 나열됩니다.
 

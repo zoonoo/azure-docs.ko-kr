@@ -1,18 +1,18 @@
 ---
 title: 기록 파일 형식에 대해 Azure Kinect 센서 SDK 사용
 description: Azure Kinect 센서 SDK에서 기록된 파일 형식을 사용하는 방법을 이해합니다.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: reference
 keywords: kinect, azure, 센서, sdk, 깊이, rgb, 기록, 재생, matroska, mkv
-ms.openlocfilehash: f4fa14b0841cb76b2ba191310ecbca312d29f805
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f45893d37d56e90fbb266c3b988b603f58a43d2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97654594"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753452"
 ---
 # <a name="use-azure-kinect-sensor-sdk-to-record-file-format"></a>기록 파일 형식에 대해 Azure Kinect 센서 SDK 사용
 

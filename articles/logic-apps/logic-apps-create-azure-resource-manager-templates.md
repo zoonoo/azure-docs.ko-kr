@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 3debd58aadb98ab1e78692411e8d0bb66635f0da
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 9bf6e9a09cfd271fb701b930eaee7b0e8bdee61f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279301"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111961619"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대한 배포를 자동화하는 Azure Resource Manager 템플릿 만들기
 
@@ -24,9 +24,9 @@ Azure Logic Apps는 논리 앱을 만들고 배포에 사용할 리소스와 매
 
 Azure Resource Manager 템플릿에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/template-syntax.md)
-* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/template-syntax.md)
-* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates/templates-cloud-consistency.md)
+* [Azure Resource Manager 템플릿 구조 및 구문](../azure-resource-manager/templates/syntax.md)
+* [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/templates/syntax.md)
+* [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](../azure-resource-manager/templates/template-cloud-consistency.md)
 
 <a name="visual-studio"></a>
 
@@ -121,7 +121,7 @@ Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileN
 
 | 매개 변수 | 필수 | Description |
 |------------|----------|-------------|
-| TemplateFile | Yes | 템플릿 파일의 파일 경로입니다. |
+| TemplateFile | 예 | 템플릿 파일의 파일 경로입니다. |
 | KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리하는 방법을 설명하는 열거형입니다. 기본값은 `None`입니다. |
 ||||
 

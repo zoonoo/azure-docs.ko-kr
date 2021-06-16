@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery로 VMware 재해 복구를 위해 Deployment Planner 보고서 분석
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware 재해를 복구하기 위해 Deployment Planner에서 생성된 보고서를 분석하는 방법을 설명합니다.
-author: rajeswari-mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/4/2019
-ms.author: ramamill
-ms.openlocfilehash: 7e2db720bb37a25b8511bd1c42c0c18e139aa216
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: f41c06014aea251896af11201175819abfc7fa78
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93186606"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577244"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해를 복구하기 위해 Deployment Planner 보고서 분석
 

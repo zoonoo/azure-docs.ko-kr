@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 614a13a140453e3c7ed55a7fc0f9173626ad2f2f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cefa6fab5bbd140f8540ebb78f66706beeffd530
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99821977"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578301"
 ---
 1. **VPN 사이트 연결** 을 선택하여 **사이트 연결** 페이지를 엽니다.
 
-    ![스크린샷은 미리 공유한 키 및 관련 설정에 대해 준비된 Virtual HUB의 연결된 사이트 창을 보여줍니다.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "연결")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png" alt-text="스크린샷은 미리 공유한 키 및 관련 설정에 대해 준비된 Virtual HUB의 연결된 사이트 창을 보여줍니다." border="false":::
 
    다음 필드를 작성합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "99821977"
 2. **연결** 을 선택합니다.
 3. 몇 분 후에 사이트에 연결 및 연결 상태가 표시됩니다.
 
-   ![스크린샷은 사이트 간 연결 및 연결 상태를 보여줍니다.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "상태")
+   :::image type="content" source="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png" alt-text="스크린샷은 사이트 간 연결 및 연결 상태를 보여줍니다." lightbox="./media/virtual-wan-tutorial-connect-vpn-site-include/status.png"border="false":::
 
    **연결 상태:** VPN 사이트를 Azure 허브의 VPN 게이트웨이에 연결하는 연결에 대한 Azure 리소스의 상태입니다. 이 제어 영역 작업이 성공적이면 Azure VPN 게이트웨이와 온-프레미스 VPN 디바이스가 연결 설정을 진행합니다.
 

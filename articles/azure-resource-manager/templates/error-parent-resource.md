@@ -3,12 +3,12 @@ title: 부모 리소스 오류
 description: Azure Resource Manager 템플릿에서 부모 리소스를 사용할 때 발생하는 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 474cb85d16382136e24e5502b87ba8a1a65488ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 885bd319d322128784b53f781b2ceb5a42d292f5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84673663"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951085"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결
 
@@ -78,4 +78,4 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 }
 ```
 
-자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](define-resource-dependency.md)를 참조하세요.
+자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](./resource-dependency.md)를 참조하세요.

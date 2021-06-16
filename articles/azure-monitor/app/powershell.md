@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 사용하여 PowerShell에서 �
 ms.topic: conceptual
 ms.date: 05/02/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 60417e829297eb9a7ad4e244523c546dcaff053d
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: d629ef1bc7d2086f85bbb08105041a0457b133c5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108318606"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954879"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용하여 Application Insights 리소스 관리
 
@@ -437,7 +437,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
     `"apiVersion": "2015-05-01",`
 
 ### <a name="parameterize-the-template"></a>템플릿 매개 변수화
-이제 특정 이름을 매개 변수로 대체해야 합니다. [템플릿을 매개 변수화](../../azure-resource-manager/templates/template-syntax.md)하려면 [도우미 함수 집합](../../azure-resource-manager/templates/template-functions.md)을 사용하여 식을 작성합니다. 
+이제 특정 이름을 매개 변수로 대체해야 합니다. [템플릿을 매개 변수화](../../azure-resource-manager/templates/syntax.md)하려면 [도우미 함수 집합](../../azure-resource-manager/templates/template-functions.md)을 사용하여 식을 작성합니다. 
 
 문자열의 일부만 매개 변수화할 수 없으므로 `concat()`을 사용하여 문자열을 빌드합니다.
 

@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: f82169c084fc65fd483119bb84f29198ed288019
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 51b8b202b95e5246b31bf97c3cc7f2e9ba8e36e7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580320"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669089"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Azure PowerShell 모듈을 통해 호스트에서 암호화를 사용하여 엔드투엔드 암호화를 사용하도록 설정합니다.
 
@@ -32,7 +32,7 @@ VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. VM 크기�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 대해 이 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
+VM/VMSS에 대한 EncryptionAtHost 속성을 사용하기 전에 구독에 이 기능을 사용하도록 설정해야 합니다. 다음 단계를 수행하여 구독에 대한 기능을 사용하도록 설정하세요.
 
 1.  다음 명령을 실행하여 구독에 대한 기능 등록
 

@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 9d160738208bcef7b066567137a3c3a9738c26a5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 485f0a19c5cb87b358f1723664425619b5d2c6aa
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727011"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903314"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Gen1에서 Gen2로 Azure Data Lake Storage 마이그레이션
 
@@ -81,7 +81,7 @@ Gen2로 마이그레이션하려면 다음 방법을 사용하는 것이 좋습�
    
 6. 코드 파일 또는 Databricks Notebook, Apache Hive HQL 파일 또는 워크로드의 일부로 사용되는 다른 모든 파일의 `adl://` 문자열을 포함하는 URI 참조를 검색합니다. 이러한 참조를 새 스토리지 계정의 [Gen2 형식 URI](data-lake-storage-introduction-abfs-uri.md)로 바꿉니다. 예: Gen1 URI: `adl://mydatalakestore.azuredatalakestore.net/mydirectory/myfile`이 `abfss://myfilesystem@mydatalakestore.dfs.core.windows.net/mydirectory/myfile`이 될 수 있습니다. 
 
-7. [Azure 역할](../common/storage-auth-aad-rbac-portal.md), [파일 및 폴더 수준 보안](data-lake-storage-access-control.md), [Azure Storage 방화벽 및 가상 네트워크](../common/storage-network-security.md)를 포함하도록 계정에 대한 보안을 구성합니다.
+7. [Azure 역할](assign-azure-role-data-access.md), [파일 및 폴더 수준 보안](data-lake-storage-access-control.md), [Azure Storage 방화벽 및 가상 네트워크](../common/storage-network-security.md)를 포함하도록 계정에 대한 보안을 구성합니다.
 
 ### <a name="step-4-cutover-from-gen1-to-gen2"></a>4단계: Gen1에서 Gen2로 전환
 

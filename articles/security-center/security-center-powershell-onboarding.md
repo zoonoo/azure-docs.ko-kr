@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 04/19/2021
 ms.author: memildin
-ms.openlocfilehash: f9ab258f59279112d0b90c5d460e6761ac911a2d
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 3d6e9fe8ad21ab47e3062a63f45f096b8ba60bc5
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107713357"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887261"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -43,33 +43,51 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 1. PowerShell에서 다음 명령을 실행합니다.
       
-    ```Set-ExecutionPolicy -ExecutionPolicy AllSigned```
+    ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy AllSigned
+    ```
 
-    ```Install-Module -Name Az.Security -Force```
+    ```powershell
+    Install-Module -Name Az.Security -Force
+    ```
 
 ## <a name="onboard-security-center-using-powershell"></a>PowerShell을 사용하여 Security Center 온보딩
 
 1. Security Center 리소스 공급자에 구독을 등록합니다.
 
-    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
+    ```powershell
+    Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```
 
-    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'
+    ```
 
 1. 선택 사항: 구독의 적용 범위 수준(Azure Defender 켜기/끄기)을 설정합니다. 정의되지 않은 경우 Defender가 꺼집니다.
 
-    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
+    ```powershell
+    Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```
 
-    ```Set-AzSecurityPricing -Name "default" -PricingTier "Standard"```
+    ```powershell
+    Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+    ```
 
 1. 에이전트가 보고할 Log Analytics 작업 영역을 구성합니다. 구독의 VM이 보고할 기존에 만든 Log Analytics 작업 영역이 있어야 합니다. 동일한 작업 영역에 보고할 여러 구독을 정의할 수 있습니다. 정의되지 않은 경우 기본 작업 영역이 사용됩니다.
 
-    ```Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"```
+    ```powershell
+    Set-AzSecurityWorkspaceSetting -Name "default" -Scope "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
+    ```
 
 1. Azure VM에서 Log Analytics 에이전트 설치를 자동 프로비저닝합니다.
     
-    ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
+    ```powershell
+    Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+    ```
     
-    ```Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision```
+    ```powershell
+    Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+    ```
 
     > [!NOTE]
     > 자동 프로비저닝을 사용하도록 설정하여 Azure Virtual Machines가 Azure Security Center를 통해 자동으로 보호되도록 하는 것이 좋습니다.
@@ -77,13 +95,19 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 1. 선택 사항: Security Center에서 생성한 경고 및 알림의 수신자로 사용되는 등록한 구독의 [보안 연락처 세부 정보를 정의](security-center-provide-security-contact-details.md)하는 것이 좋습니다.
 
-    ```Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert```
+    ```powershell
+    Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -AlertAdmin -NotifyOnAlert
+    ```
 
 1. 기본 Security Center 정책 이니셔티브를 할당합니다.
 
-    ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'```
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+    ```
 
-    ```$Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'```
+    ```powershell
+    $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ 'Azure Security Benchmark'} New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+    ```
 
 PowerShell을 사용하여 Azure Security Center를 온보딩했습니다.
 

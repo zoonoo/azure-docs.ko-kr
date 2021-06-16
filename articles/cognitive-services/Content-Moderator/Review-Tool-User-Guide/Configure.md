@@ -10,14 +10,17 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e3ed696bba0a2d739e87f465561c156d6752f23
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92912024"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033944"
 ---
 # <a name="configure-the-review-tool"></a>검토 도구 구성
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 
 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에는 대시보드의 **설정** 메뉴를 통해 액세스할 수 있는 몇 가지 중요한 기능이 있습니다.
 

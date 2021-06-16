@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 재해 복구를 위한 구성 서버 관리
 description: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 온-프레미스 구성 서버를 관리하는 일반적인 방법을 알아봅니다.
-author: Rajeswari-Mamilla
-ms.author: ramamill
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 67f25c97e0b4433ed09cb8c6337afe671424ba0b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: e260b9fa7b24a3cb91e107bac6b01537879857c0
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048547"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576899"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>VMware VM/물리적 서버를 재해 복구하기 위한 구성 서버 관리
 
@@ -213,7 +213,7 @@ Azure Site Recovery 구성 요소 지원 정책에 대한 자세한 지침은 [�
 
 ### <a name="parameters"></a>매개 변수
 
-|매개 변수 이름| 유형 | Description| 값|
+|매개 변수 이름| Type | Description| 값|
 |-|-|-|-|
 | /ServerMode|필수|구성 서버와 프로세스 서버를 모두 설치할지 또는 프로세스 서버만 설치할지 여부를 지정합니다.|CS<br>PS|
 |/InstallLocation|필수|구성 요소가 설치되는 폴더입니다.| 컴퓨터의 모든 폴더|

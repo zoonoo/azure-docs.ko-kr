@@ -10,12 +10,12 @@ ms.service: security
 ms.subservice: security-develop
 services: azure
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.openlocfilehash: 9e5246edd2d6490e823bacbdfff0f60ef553878b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ee4e8f3abad2a4da924e42f81004c86691a1bc8a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729136"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792514"
 ---
 # <a name="design-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 디자인
 이 문서에서는 클라우드용 애플리케이션을 디자인할 때 고려해야 할 보안 및 제어 작업에 관해 설명합니다. Microsoft [SDL(Security Development Lifecycle)](/previous-versions/windows/desktop/cc307891(v=msdn.10))의 요구 사항 및 디자인 단계에서 고려해야 할 보안 질문 및 개념과 함께 학습 리소스를 다룹니다. 더 안전한 애플리케이션을 디자인하는 데 사용할 수 있는 작업과 Azure 서비스를 정의하는 데 도움을 주는 것이 이 강좌의 목적입니다.
@@ -223,7 +223,7 @@ SDL의 확인 단계에서 [공격 노출 영역 검토를 수행](secure-develo
 
 #### <a name="implement-just-in-time-access"></a>JIT(Just-In-Time) 액세스 구현
 
-JIT(*Just-In-Time*) 액세스를 구현하여 권한의 노출 시간을 더 줄입니다. [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity)를 사용하여 다음을 수행합니다.
+JIT(*Just-In-Time*) 액세스를 구현하여 권한의 노출 시간을 더 줄입니다. [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-administrator-activity)를 사용하여 다음을 수행합니다.
 
 - 사용자에게 JIT만 필요한 사용 권한을 부여합니다.
 - 권한을 자동으로 해지하는 짧은 기간 동안 자신 있게 역할을 할당합니다.

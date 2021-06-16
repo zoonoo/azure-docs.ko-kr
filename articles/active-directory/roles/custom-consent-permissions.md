@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: psignoret
 ms.custom: it-pro
-ms.openlocfilehash: a7a26bfd979fd58ba0519aeba274b22ae502f8a8
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 8795007a5a38d21985d8b31884c66342b3dda7ed
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085927"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792411"
 ---
 # <a name="app-consent-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 앱 동의 권한
 
@@ -65,14 +65,15 @@ ms.locfileid: "110085927"
 
 ## <a name="full-list-of-permissions"></a>전체 권한 목록
 
-사용 권한 | 설명
----------- | -----------
-microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | `{id}` 앱 동의 정책에 따라 자신을 대신하여 앱에 동의할 수 있는 권한(사용자 동의)을 부여합니다.
-microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | `{id}` 애플리케이션 동의 정책에 따라 모두를 대신하여 앱에 동의할 수 있는 권한(테넌트 전체 관리자 동의)을 부여합니다.
-microsoft.directory/permissionGrantPolicies/standard/read | 앱 동의 정책을 읽을 수 있는 권한을 부여합니다.
-microsoft.directory/permissionGrantPolicies/basic/update | 기존 앱 동의 정책에 대한 기본 속성을 업데이트할 수 있는 권한을 부여합니다.
-microsoft.directory/permissionGrantPolicies/create | 앱 동의 정책을 만들 수 있는 권한을 부여합니다.
-microsoft.directory/permissionGrantPolicies/delete | 앱 동의 정책을 삭제할 수 있는 권한을 부여합니다.
+> [!div class="mx-tableFixed"]
+> | 사용 권한 | 설명 |
+> | ---------- | ----------- |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForSelf.{id} | `{id}` 앱 동의 정책에 따라 자신을 대신하여 앱에 동의할 수 있는 권한(사용자 동의)을 부여합니다. |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.{id} | `{id}` 애플리케이션 동의 정책에 따라 모두를 대신하여 앱에 동의할 수 있는 권한(테넌트 전체 관리자 동의)을 부여합니다. |
+> | microsoft.directory/permissionGrantPolicies/standard/read | 앱 동의 정책을 읽을 수 있는 권한을 부여합니다. |
+> | microsoft.directory/permissionGrantPolicies/basic/update | 기존 앱 동의 정책에 대한 기본 속성을 업데이트할 수 있는 권한을 부여합니다. |
+> | microsoft.directory/permissionGrantPolicies/create | 앱 동의 정책을 만들 수 있는 권한을 부여합니다. |
+> | microsoft.directory/permissionGrantPolicies/delete | 앱 동의 정책을 삭제할 수 있는 권한을 부여합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

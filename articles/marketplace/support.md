@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 01/19/2020
-ms.openlocfilehash: cfe365af868f01b868e737a409724e92f1d57f81
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 47ed6f8e8756d8fe317b932edf360b710b58e26b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106992"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706850"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업용 Marketplace 프로그램에 대한 지원
 
@@ -121,4 +121,4 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업용 Marketplace에서 기존 제품 업데이트](partner-center-portal/update-existing-offer.md)
+- [상업용 Marketplace에서 기존 제품 업데이트](update-existing-offer.md)

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 05/13/2021
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9ae0ca07d0aad72a38ee4eccbefbdb826da9627b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0759a3fce2d056bbe5d9234e25b45525874faf4e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373036"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670567"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Azure App Service에서 TLS/SSL 바인딩으로 사용자 지정 DNS 이름 보호
 
@@ -100,9 +100,9 @@ ms.locfileid: "110373036"
 
 - 기본적으로 앱에서는 공유 공용 IP 주소를 사용합니다. IP SSL을 사용하여 인증서를 바인딩하면 App Service에서 앱에 대한 새로운 전용 IP 주소를 만듭니다. A 레코드를 앱에 매핑한 경우 이 새로운 전용 IP 주소로 도메인 레지스트리를 업데이트합니다.
 
-    앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#map-an-a-record)합니다.
+    앱의 **사용자 지정 도메인** 페이지가 새로운 전용 IP 주소로 업데이트됩니다. [이 IP 주소를 복사](app-service-web-tutorial-custom-domain.md#info)하고 이 새로운 IP 주소에 [A 레코드를 다시 매핑](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records)합니다.
 
-- `<app-name>.azurewebsites.net`에 대한 SNI SSL 바인딩이 있는 경우 [모든 CNAME 매핑을 다시 매핑](app-service-web-tutorial-custom-domain.md#map-a-cname-record)하여 대신 `sni.<app-name>.azurewebsites.net`(`sni` 접두사 추가)을 가리킵니다.
+- `<app-name>.azurewebsites.net`에 대한 SNI SSL 바인딩이 있는 경우 [모든 CNAME 매핑을 다시 매핑](app-service-web-tutorial-custom-domain.md#4-create-the-dns-records)하여 대신 `sni.<app-name>.azurewebsites.net`(`sni` 접두사 추가)을 가리킵니다.
 
 ## <a name="test-https"></a>HTTPS 테스트
 
