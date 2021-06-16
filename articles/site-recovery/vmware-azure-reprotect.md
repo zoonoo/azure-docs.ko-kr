@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 온-프레미스 사이트로 VMware VM 다시 보호
 description: Azure Site Recovery를 사용하여 Azure로 장애 조치(failover) 후 VMware VM을 다시 보호하는 방법을 알아봅니다.
-author: mayurigupta13
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.author: mayg
-ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: 21b34b33438a2f8b46fa618eb85fdc779fb8b870
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89441496"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576659"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Azure에서 온-프레미스로 다시 보호
 
@@ -21,7 +21,7 @@ Azure로 온-프레미스 VMware VM 및 물리적 서버를 [장애 조치](site
 ## <a name="before-you-begin"></a>시작하기 전에
 
 1. [이 문서](vmware-azure-prepare-failback.md)의 단계에 따라 Azure와 온-프레미스 마스터 대상 서버에서 프로세스 서버를 설정하고 장애 복구를 위한 사이트 간 VPN 또는 ExpressRoute 개인 피어링을 구성하는 것을 포함하여 다시 보호 및 장애 복구를 준비합니다.
-2. 온-프레미스 구성 서버가 실행 중이고 Azure에 연결되어 있어야 합니다. Azure로 장애 조치하는 동안에는 온-프레미스 사이트에 액세스할 수 없으므로 구성 서버가 사용할 수 없거나 종료된 상태일 수 있습니다. 장애 복구(failback) 중에 VM이 구성 서버 데이터베이스에 있어야 합니다. 그렇지 않으면 장애 복구가 실패합니다.
+2. 온-프레미스 구성 서버가 실행 중이고 Azure에 연결되어 있어야 합니다. Azure로 장애 조치(failover)하는 동안에는 온-프레미스 사이트에 액세스할 수 없으므로 구성 서버가 사용할 수 없거나 종료된 상태일 수 있습니다. 장애 복구(failback) 중에 VM이 구성 서버 데이터베이스에 있어야 합니다. 그렇지 않으면 장애 복구가 실패합니다.
 3. 온-프레미스 마스터 대상 서버에서 스냅샷을 삭제합니다. 스냅샷이 있는 경우 다시 보호가 작동하지 않습니다.  VM의 스냅샷은 다시 보호 작업 중에 자동으로 병합됩니다.
 4. 다중 VM 일관성을 위해 복제 그룹으로 수집된 VM을 다시 보호하는 경우에는 모든 VM의 운영 체제(Windows 또는 Linux)가 동일한지 확인하고 배포하는 마스터 대상 서버의 운영 체제가 동일한지 확인합니다. 복제 그룹의 모든 VM이 동일한 마스터 대상 서버를 사용해야 합니다.
 5. 장애 복구(failback)에 [필요한 포트](vmware-azure-prepare-failback.md#ports-for-reprotectionfailback)를 엽니다.

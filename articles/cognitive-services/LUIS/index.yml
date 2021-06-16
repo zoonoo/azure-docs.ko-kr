@@ -12,12 +12,12 @@ metadata:
   title: LUIS(Language Understanding) 설명서
   titleSuffix: Azure Cognitive Services
   description: LUIS(Language Understanding) 서비스를 사용하면 애플리케이션은 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 애플리케이션을 개발자가 작성할 수 있도록 합니다.
-  ms.openlocfilehash: 6c0b126f222e4dcb1bcd2dedcad38fe80b338f81
-  ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+  ms.openlocfilehash: 49dd98545881df07edb156a4c498531cf2c20781
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/25/2021
-  ms.locfileid: "107947414"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111966548"
 landingContent:
 - title: LUIS(Language Understanding) 정보
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
     - text: 버전 관리
       url: ./luis-concept-app-iteration.md
     - text: 대화형 테스트
-      url: luis-concept-test.md
+      url: ./luis-interactive-test.md
     - text: 일괄 테스트
       url: ./luis-how-to-batch-test.md
   - linkListType: quickstart

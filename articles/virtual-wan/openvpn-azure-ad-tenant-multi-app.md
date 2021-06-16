@@ -7,12 +7,13 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e25ef7f55492be4ee491b9ebbbef4aa1eb03c80b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 63dff3df15f0e87a67c786d5c0e8b9a5ec1b8a3f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98898090"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110700095"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결을 위한 Azure AD(Active Directory) 테넌트 만들기
 
@@ -59,7 +60,7 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
 4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위** 를 선택합니다.
 
-    ![게이트웨이 배율 단위를 선택할 수 있는 가상 허브 편집 대화 상자를 보여 주는 스크린샷.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
+    ![게이트웨이 확장 단위를 선택할 수 있는 가상 허브 편집 대화 상자를 보여 주는 스크린샷.](media/openvpn-azure-ad-tenant-multi-app/p2s2.jpg)
 
 5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀** 를 입력합니다.
 
@@ -101,7 +102,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 1. 페이지에서 **가져오기** 를 선택합니다.
 
-    ![플러스 메뉴에서 선택한 가져오기 작업을 보여 주는 스크린샷.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
+    ![\+ 메뉴에서 선택한 가져오기 작업을 보여 주는 스크린샷.](./media/openvpn-azure-ad-tenant-multi-app/import/import1.jpg)
 
 2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기** 를 선택합니다.
 
@@ -117,7 +118,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨** 으로 표시됩니다.
 
-    ![연결 해제 옵션이 있는 연결된 상태의 연결을 보여 주는 스크린샷.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
+    ![연결된 상태의 연결과 연결 해제 옵션을 보여 주는 스크린샷.](./media/openvpn-azure-ad-tenant-multi-app/import/import5.jpg)
 
 #### <a name="to-delete-a-client-profile"></a><a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
@@ -137,7 +138,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 2. **연결 속성** 페이지에서 **진단 실행** 을 선택합니다.
 
-    ![연결에 대한 진단 실행 버튼을 보여 주는 스크린샷.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
+    ![연결에 대한 진단 실행 단추를 보여 주는 스크린샷.](./media/openvpn-azure-ad-tenant-multi-app/diagnose/diagnose2.jpg)
 
 3. 자격 증명을 사용하여 로그인합니다.
 

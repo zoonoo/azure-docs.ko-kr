@@ -3,12 +3,13 @@ title: Service Fabric 관리형 클러스터 확장 방법
 description: 이 자습서에서는 Service Fabric 관리형 클러스터의 노드 유형을 확장하는 방법에 대해 알아봅니다.
 ms.topic: tutorial
 ms.date: 5/10/2021
-ms.openlocfilehash: ebce8b0506866e52d79395a3abfcda280c460532
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9e2bd57925ddb78dcfe23742b35c1490584558f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685768"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110666880"
 ---
 # <a name="tutorial-scale-out-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터 스케일 아웃
 

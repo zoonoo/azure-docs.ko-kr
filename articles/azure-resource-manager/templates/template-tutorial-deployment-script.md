@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 12/16/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7ecd31f6f788331071abbbe67d5460494d54de8d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 65c94346725123913cc2ea53be9b95a7c1bb0fda
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753986"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889583"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기
 
@@ -60,7 +60,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)에서 배포 스크립트를 사
 
 템플릿을 처음부터 만드는 대신 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 템플릿을 엽니다. Azure 빠른 시작 템플릿은 ARM 템플릿용 리포지토리입니다.
 
-이 빠른 시작에서 사용되는 템플릿을 [Create an Azure Key Vault and a secret(Azure Key Vault 및 비밀 만들기)](https://azure.microsoft.com/resources/templates/101-key-vault-create/)이라고 합니다. 템플릿은 키 자격 증명 모음을 만든 다음, 비밀을 이 키 자격 증명 모음에 추가합니다.
+이 빠른 시작에서 사용되는 템플릿을 [Create an Azure Key Vault and a secret(Azure Key Vault 및 비밀 만들기)](https://azure.microsoft.com/resources/templates/key-vault-create/)이라고 합니다. 템플릿은 키 자격 증명 모음을 만든 다음, 비밀을 이 키 자격 증명 모음에 추가합니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 2. **파일 이름** 에서 다음 URL을 붙여넣습니다.

@@ -11,12 +11,12 @@ ms.date: 04/19/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 얼굴 인식, 얼굴 인식 소프트웨어, 얼굴 분석, 얼굴 일치, 얼굴 인식 앱, 이미지별 얼굴 검색, 얼굴 인식 검색
-ms.openlocfilehash: 30707dd844769f730f135a451cd5306ca7e402cb
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: d135e97b4792d5c4b71d3758800223d238a6990c
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726991"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810183"
 ---
 # <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
@@ -41,8 +41,6 @@ Detect API는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 
 
 > [!NOTE]
 > 얼굴 감지 기능은 [Computer Vision 서비스](../computer-vision/overview.md)를 통해 사용할 수도 있습니다. 그러나 식별, 확인, 유사 항목 찾기 또는 그룹과 같은 추가 Face 작업을 수행하려면 이 Face 서비스를 대신 사용해야 합니다.
-
-![얼굴 주위에 사각형이 그려지고 연령과 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
 얼굴 감지에 대한 자세한 내용은 [얼굴 감지](concepts/face-detection.md) 개념 문서를 참조하세요. [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 참조 설명서도 참조하세요.
 

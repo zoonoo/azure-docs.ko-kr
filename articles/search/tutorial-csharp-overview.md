@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
-ms.openlocfilehash: 8a73ab04ea782c248a8fab61fb375c01a2339d1c
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 49919a5a0efbdae46f2ef82a7129fee8aa686e8e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981977"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964034"
 ---
 # <a name="1---overview-of-adding-search-to-a-website-with-net"></a>1 - .NET을 사용하여 검색을 웹 사이트에 추가하는 방법에 대한 개요
 
@@ -58,7 +58,7 @@ ms.locfileid: "107981977"
     - [Azure Cognitive Search 0.2.0 이상](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch)
     - [Azure Static Web App](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) 
 - 선택 사항:
-    - 이 자습서에서는 Azure Function API를 로컬로 실행하지 않습니다. 하지만 로컬로 실행하려면 [azure-functions-core-tools](/azure/azure-functions/functions-run-local?tabs=linux%2Ccsharp%2Cbash#install-the-azure-functions-core-tools)를 설치해야 합니다.
+    - 이 자습서에서는 Azure Function API를 로컬로 실행하지 않습니다. 하지만 로컬로 실행하려면 [azure-functions-core-tools](../azure-functions/functions-run-local.md?tabs=linux%2ccsharp%2cbash#install-the-azure-functions-core-tools)를 설치해야 합니다.
 
 ## <a name="fork-and-clone-the-search-sample-with-git"></a>Git을 사용하여 검색 샘플 포크 및 복제
 

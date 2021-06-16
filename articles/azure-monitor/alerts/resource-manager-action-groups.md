@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 12/03/2020
-ms.openlocfilehash: 3c7982c108cf6c238c28c843e1dfbb881a6e0bb4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a893e0c5d7820ebaa93e1258606ac799b04e6822
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102036404"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967051"
 ---
 # <a name="resource-manager-template-samples-for-action-groups-in-azure-monitor"></a>Azure Monitor의 작업 그룹에 대한 Resource Manager 템플릿 샘플
-이 문서에는 Azure Monitor의 [작업 그룹](../alerts/action-groups.md)을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure Monitor의 [작업 그룹](../alerts/action-groups.md)을 만들기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -121,4 +121,3 @@ ms.locfileid: "102036404"
 
 * [Azure Monitor에 대한 다른 샘플 템플릿을 가져옵니다](../resource-manager-samples.md).
 * [작업 그룹에 대해 자세히 알아보세요](../alerts/action-groups.md).
-

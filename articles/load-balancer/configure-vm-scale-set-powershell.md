@@ -6,12 +6,13 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/26/2020
-ms.openlocfilehash: 919883025075ca38bcef6c23ac744528e7bd5502
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 210bf1c01b31acca1cd68e518a5c765fcd5cc50a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88510065"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695742"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-azure-powershell"></a>Azure PowerShell을 사용하여 기존 Azure Load Balancer로 가상 머신 확장 집합 구성
 

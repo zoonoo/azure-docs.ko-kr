@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: 이 문서에서는 Azure SQL Database 및 Azure SQL Managed Instance에서 사용하는 vCore 기반 구매 모델의 범용 및 중요 비지니스용 서비스 계층에 대해 설명합니다.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: sashan, moslake
+author: dimitri-furman
+ms.author: dfurman
+ms.reviewer: mathoma
 ms.date: 12/14/2020
-ms.openlocfilehash: d4053628247cc01851aa19b66514398da0660a81
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 1ccf83fa98ec7024e74bd9829e241b8596b1fbf6
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883565"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693207"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database 및 Azure SQL Managed Instance 서비스 계층
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

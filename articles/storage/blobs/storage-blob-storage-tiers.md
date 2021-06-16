@@ -1,19 +1,19 @@
 ---
 title: Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관
 description: Azure Blob Storage에 대한 핫, 쿨, 보관 액세스 계층에 대해 자세히 읽어보세요. 계층을 지원하는 스토리지 계정을 검토합니다.
-author: twooley
-ms.author: twooley
+author: tamram
+ms.author: tamram
 ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: klaasl
-ms.openlocfilehash: 957973cc4f53dba10ed9d635c8e3f69fd66ee33b
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 810a62dee277453d4cc2f41c72d0868549d711cf
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106278425"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653223"
 ---
 # <a name="access-tiers-for-azure-blob-storage---hot-cool-and-archive"></a>Azure Blob Storage의 액세스 계층 - 핫, 쿨 및 보관
 

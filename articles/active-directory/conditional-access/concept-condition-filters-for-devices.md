@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/19/2021
+ms.date: 06/03/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0eb008cdf85e6891f7d6e1159314ceccf46b794
-ms.sourcegitcommit: 2ab484c6c8aeef8c6b7a1eb56d28ba13010d912c
+ms.openlocfilehash: 9e760cbca23aba21ad2d8c85e21a8014590419e9
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110208650"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438327"
 ---
 # <a name="conditional-access-filters-for-devices-preview"></a>조건부 액세스: 디바이스에 대한 필터(미리 보기)
 
@@ -46,7 +46,7 @@ ms.locfileid: "110208650"
 디바이스에 대한 필터는 Azure Portal의 조건부 액세스 정책을 만들거나 Microsoft Graph API를 사용할 때 사용할 수 있는 옵션입니다.
 
 > [!IMPORTANT]
-> 디바이스에 대한 디바이스 상태 및 필터는 조건부 액세스 정책에서 함께 사용할 수 없습니다. 디바이스에 대한 필터는 `trustType` 및 `isCompliant` 속성을 통해 디바이스 상태 정보를 대상으로 지정하는 지원을 포함하여 보다 세부적인 대상 지정을 제공합니다.
+> 디바이스에 대한 디바이스 상태 및 필터는 조건부 액세스 정책에서 함께 사용할 수 없습니다.
 
 다음 단계는 [일반적인 시나리오](#common-scenarios)에서 첫 번째 시나리오를 지원하는 두 가지 조건부 액세스 정책을 만드는 데 도움이 됩니다. 
 

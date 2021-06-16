@@ -4,12 +4,12 @@ description: 이 자습서에서는 Java Service Fabric 애플리케이션을 �
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a969db374a5645f5920a5871c26619d36ae3f194
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91531975"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413108"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>자습서: Service Fabric에서 Java 애플리케이션에 CI/CD를 사용하도록 Jenkins 환경 구성
 
@@ -40,12 +40,12 @@ ms.locfileid: "91531975"
 
 Service Fabric 클러스터 내부 또는 외부에서 Jenkins를 설정할 수 있습니다. 다음 지침에서는 제공된 Docker 이미지를 사용하여 클러스터 외부에 설정하는 방법을 설명합니다. 그러나 미리 구성된 Jenkins 빌드 환경이 사용될 수도 있습니다. 다음 컨테이너 이미지는 Service Fabric 플러그 인과 함께 설치되며 즉시 Service Fabric을 사용할 준비가 돼 있습니다.
 
-1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. ``docker pull rapatchi/jenkins:v10`` 이 이미지는 미리 설치된 Service Fabric Jenkins 플러그 인과 함께 제공됩니다.
+1. Service Fabric Jenkins 컨테이너 이미지를 끌어옵니다. `docker pull mcr.microsoft.com/azuredocs/jenkins:v10` 이 이미지는 미리 설치된 Service Fabric Jenkins 플러그 인과 함께 제공됩니다.
 
 1. Azure 인증서가 탑재된 로컬 머신에 저장된 위치를 사용하여 컨테이너 이미지를 실행합니다.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster mcr.microsoft.com/azuredocs/jenkins:v10
     ```
 
 1. 컨테이너 이미지 인스턴스 ID를 가져옵니다. 명령 ``docker ps –a``를 사용하여 모든 Docker 컨테이너를 나열할 수 있습니다.

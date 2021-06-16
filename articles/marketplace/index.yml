@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: mingshen-ms
   ms.author: mingshen
-  ms.date: 09/02/2020
-  ms.openlocfilehash: 66bc200f2c330c839eb91e9172207c4c752d9b67
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.date: 06/01/2021
+  ms.openlocfilehash: c4a3d962129dd7acc0d013dd05f482a29752bdd4
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110450591"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111955662"
 landingContent:
 - title: 상용 마켓플레이스에서 작업
   linkLists:
@@ -24,13 +24,13 @@ landingContent:
     - text: 새 계정 만들기
       url: create-account.md
     - text: 게시 옵션 확인
-      url: ./determine-your-listing-type.md
+      url: determine-your-listing-type.md
     - text: 정책 및 용어
-      url: ./policies-terms.md
+      url: policies-terms.md
     - text: Microsoft 상업용 마켓플레이스 FAQ
-      url: ./marketplace-faq-publisher-guide.md
+      url: marketplace-faq-publisher-guide.md
     - text: Microsoft Publisher 계약
-      url: https://go.microsoft.com/fwlink/?LinkID=699560
+      url: /legal/marketplace/msft-publisher-agreement
     - text: 새로운 기능
       url: what-is-new.md
 - title: 일반적인 시나리오 및 작업
@@ -38,19 +38,19 @@ landingContent:
   - linkListType: overview
     links:
     - text: 마케팅 모범 사례
-      url: ./gtm-marketing-best-practices.md
+      url: gtm-marketing-best-practices.md
     - text: 클라우드 솔루션 공급자
-      url: ./cloud-solution-providers.md
+      url: cloud-solution-providers.md
     - text: 목록에 제품 추가 모범 사례
-      url: ./gtm-offer-listing-best-practices.md
+      url: gtm-offer-listing-best-practices.md
   - linkListType: get-started
     links:
     - text: 마켓플레이스 제품의 잠재 고객
-      url: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+      url: partner-center-portal/commercial-marketplace-get-customer-leads.md
     - text: 상업용 마켓플레이스에서 공동 판매 옵션
-      url: ./co-sell-configure.md
+      url: co-sell-configure.md
     - text: 공동 판매 파트너 참여
-      url: ./co-sell-overview.md
+      url: co-sell-overview.md
     - text: Microsoft AppSource 및 Office 내에서 솔루션을 사용할 수 있도록 설정
       url: /office/dev/store/submit-to-appsource-via-partner-center
     - text: Azure Marketplace 및 AppSource 커뮤니티 포럼 참여
@@ -62,19 +62,19 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 요약 대시보드
-      url: ./summary-dashboard.md
+      url: summary-dashboard.md
     - text: Marketplace 인사이트 대시보드
-      url: ./insights-dashboard.md
+      url: insights-dashboard.md
     - text: 사용량 대시보드
-      url: ./usage-dashboard.md
+      url: usage-dashboard.md
     - text: 고객 대시보드
-      url: ./customer-dashboard.md
+      url: customer-dashboard.md
     - text: 주문 대시보드
-      url: ./orders-dashboard.md
+      url: orders-dashboard.md
     - text: 다운로드 대시보드
-      url: ./partner-center-portal/downloads-dashboard.md
+      url: downloads-dashboard.md
     - text: 평점 및 리뷰 대시보드
-      url: ./partner-center-portal/ratings-reviews.md
+      url: ratings-reviews.md
 - title: 제품 만들기
   linkLists:
   - linkListType: how-to-guide
@@ -82,17 +82,17 @@ landingContent:
     - text: SaaS
       url: plan-saas-offer.md
     - text: 가상 머신
-      url: ./marketplace-virtual-machines.md
+      url: marketplace-virtual-machines.md
     - text: Azure 애플리케이션
-      url: ./create-new-azure-apps-offer.md
+      url: azure-app-offer-setup.md
     - text: Dynamics 365 for Customer Engagement 및 Power Apps
       url: dynamics-365-customer-engage-offer-setup.md
     - text: Dynamics 365 Business Central
-      url: ./partner-center-portal/create-new-business-central-offer.md
+      url: dynamics-365-business-central-offer-setup.md
     - text: Dynamics 365 for Operations
       url: dynamics-365-operations-offer-setup.md
     - text: 추가 제품 유형
-      url: ./publisher-guide-by-offer-type.md
+      url: publisher-guide-by-offer-type.md
 - title: 결제
   linkLists:
   - linkListType: concept
@@ -106,7 +106,7 @@ landingContent:
     - text: 세금 세부 정보
       url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
     - text: 상용 마켓플레이스 청구
-      url: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+      url: marketplace-commercial-transaction-capabilities-and-considerations.md
 - title: API 참조
   linkLists:
   - linkListType: reference
@@ -114,11 +114,11 @@ landingContent:
     - text: Marketplace API 가이드
       url: marketplace-apis-guide.md
     - text: API 사전 요구 사항
-      url: ./cloud-partner-portal-api-prerequisites.md
+      url: cloud-partner-portal-api-prerequisites.md
     - text: SaaS 처리 API
-      url: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
+      url: partner-center-portal/pc-saas-fulfillment-api-v2.md
     - text: Marketplace 계량 서비스 API
-      url: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+      url: marketplace-metering-service-apis-faq.md
     - text: 보고 API(PDF)
       url: https://partneranalytics-api.azureedge.net/partneranalytics-api/Programmatic%20Access%20to%20Commercial%20Marketplace%20Analytics%20Data_v1.pdf
 - title: 지원 받기
@@ -128,6 +128,6 @@ landingContent:
     - text: 지원 옵션
       url: ./support.md
     - text: 인증 오류 문제 해결
-      url: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
+      url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - text: 지리적 가용성 및 통화
-      url: ./marketplace-geo-availability-currencies.md
+      url: marketplace-geo-availability-currencies.md

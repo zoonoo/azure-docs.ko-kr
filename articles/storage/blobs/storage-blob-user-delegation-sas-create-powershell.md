@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 875b2a9f35562dd8f0d5df3c631e5ade1e3fbf75
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69184abac12e9146d29ec5e7f14a536756ae0139
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91714531"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613581"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>PowerShell을 사용하여 컨테이너 또는 Blob에 대한 사용자 위임 SAS 만들기
 
@@ -38,7 +38,7 @@ PowerShell을 사용하여 사용자 위임 SAS를 만들려면 Az.Storage 모�
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
     ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
+    Install-Module PowerShellGet -Repository PSGallery -Force
     ```
 
 1. PowerShellGet을 설치한 후 PowerShell 창을 닫았다가 다시 엽니다.
@@ -46,7 +46,7 @@ PowerShell을 사용하여 사용자 위임 SAS를 만들려면 Az.Storage 모�
 1. Azure PowerShell의 최신 버전을 설치합니다.
 
     ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
+    Install-Module Az -Repository PSGallery -AllowClobber
     ```
 
 1. Azure PowerShell 버전 3.2.0 이상이 설치되어 있는지 확인합니다. 최신 버전의 Azure Storage PowerShell 모듈을 설치하려면 다음 명령을 실행합니다.

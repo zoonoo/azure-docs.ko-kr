@@ -2,14 +2,14 @@
 title: Azure BareMetal의 Oracle용 고가용성 기능
 description: Oracle 데이터베이스용 BareMetal에서 사용할 수 있는 기능에 대해 알아봅니다.
 ms.topic: overview
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/16/2021
-ms.openlocfilehash: 91ec416c6f7c98100bf8ee00af2c060219e54693
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 52bd9856b9203dfc515d5507fda310d567e1b588
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109518345"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110579141"
 ---
 # <a name="high-availability-features-for-oracle-on-azure-baremetal"></a>Azure BareMetal의 Oracle용 고가용성 기능
 

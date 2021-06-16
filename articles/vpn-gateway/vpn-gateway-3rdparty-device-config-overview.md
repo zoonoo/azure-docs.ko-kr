@@ -7,12 +7,13 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 8a6c6564391d9ba2722bfa9c637ee9d1e19d9e80
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b0e8857b057495c65fcb633fb7e62d15cfc2dbdf
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229003"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110661987"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>파트너 VPN 디바이스 구성의 개요
 이 문서에서는 Azure VPN Gateway에 연결하기 위한 온-프레미스 VPN 디바이스를 구성하는 개요를 제공합니다. 동일한 매개 변수를 사용하여 다양한 온-프레미스 VPN 디바이스 구성에 연결하는 방법을 보여주는 데 샘플 Azure Virtual Network 및 VPN Gateway 설정을 사용합니다.

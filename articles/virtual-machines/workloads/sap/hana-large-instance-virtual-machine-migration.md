@@ -7,18 +7,19 @@ author: bentrin
 manager: juergent
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd1cfb0cc8e1868e78b4d284d1b1f4e7e85aa318
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1da52290703a8d28438c21ac802b72a099d71699
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101677043"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580135"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Azure의 SAP HANA(대규모 인스턴스)를 Azure 가상 머신으로 마이그레이션
 이 문서에서는 가능한 Azure 대규모 인스턴스 배포 시나리오를 설명하고 전환 가동 중지 시간을 최소화한 계획 및 마이그레이션 방식을 제공합니다.

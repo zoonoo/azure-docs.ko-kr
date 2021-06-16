@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: lajanuar
 ms.topic: conceptual
-ms.openlocfilehash: cae2c95e56312c58d396d1e578f4677ce2b14aa2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c2d97e9e9f0511a81c94e151f07d7d74ef437ca7
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98895937"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111409977"
 ---
 # <a name="view-system-test-results"></a>시스템 테스트 결과 보기
 
@@ -104,4 +104,3 @@ ms.locfileid: "98895937"
 
 - 배포된 사용자 지정 번역 모델을 [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl)를 통해 사용합니다.
 - [설정을 관리](how-to-manage-settings.md)하여 작업 영역을 공유하고 구독 키를 관리하는 방법을 알아봅니다.
-- [Microsoft Translator Hub](https://hub.microsofttranslator.com)에서 [작업 영역과 프로젝트를 마이그레이션하는 방법](how-to-migrate.md)을 알아봅니다.

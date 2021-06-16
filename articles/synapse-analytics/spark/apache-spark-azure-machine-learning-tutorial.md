@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89309cfe427183d594a5cc2f76332ae150d4f803
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f85c693f038143543a3a90cc2774f3e6efea3c9b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102498679"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952255"
 ---
 # <a name="tutorial-train-a-model-in-python-with-automated-machine-learning"></a>자습서: 자동화된 Machine Learning을 사용하여 Python에서 모델 학습
 
@@ -31,7 +31,7 @@ Azure Machine Learning은 기계 학습 모델을 학습, 배포, 자동화, 관
 ## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 - [서버리스 Apache Spark 풀 만들기](../quickstart-create-apache-spark-pool-studio.md) 빠른 시작에 따라 서버리스 Apache Spark 풀을 만듭니다.
-- 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설정](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) 자습서를 완료합니다. 
+- 기존 Azure Machine Learning 작업 영역이 없는 경우 [Azure Machine Learning 작업 영역 설정](../../machine-learning/quickstart-create-resources.md) 자습서를 완료합니다. 
 
 ## <a name="understand-regression-models"></a>회귀 모델 이해
 

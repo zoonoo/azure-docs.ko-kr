@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 120bfe2eefae3c1721073060231c6c2a1962b7c8
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: c49409472c8ce9c5b9dab25cbb66df8e1b30f410
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110277"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695152"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>자습서: PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "106110277"
 > - 게이트웨이 서브넷을 만듭니다.
 > - 가상 네트워크 게이트웨이를 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="configuration-reference-list"></a>구성 참조 목록
 
@@ -50,7 +50,7 @@ ms.locfileid: "106110277"
 | 게이트웨이 이름 | *GW* |   
 | 게이트웨이 IP 이름 | *GWIP* |
 | 게이트웨이 IP 구성 이름 | *gwipconf* |
-| 유형 | *ExpressRoute* |
+| Type | *ExpressRoute* |
 | 게이트웨이 공용 IP 이름  | *gwpip* |
 
 > [!IMPORTANT]

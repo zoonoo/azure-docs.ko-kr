@@ -6,14 +6,14 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/27/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a3d7a3892e5d90e4ee8cc4e5b80df768fc138d7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 696d8c1a775f67271a7c7b4fa81789e7b0775bb1
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378808"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110654268"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 데이터 액세스 보호
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -25,7 +25,7 @@ Azure Cosmos DB는 데이터에 대한 액세스를 제어하는 세 가지 방�
 | 액세스 제어 형식 | 특징 |
 |---|---|
 | [기본 키](#primary-keys) | 관리 또는 데이터 작업을 허용하는 공유 비밀입니다. 읽기/쓰기 및 읽기 전용 변형 모두에서 제공됩니다. |
-| [역할 기반 액세스 제어](#rbac)(미리 보기) | 인증을 위해 AAD(Azure Active Directory) ID를 사용하는 세분화되어 있는 역할 기반 권한 모델입니다. |
+| [역할 기반 액세스 제어](#rbac) | 인증을 위해 AAD(Azure Active Directory) ID를 사용하는 세분화되어 있는 역할 기반 권한 모델입니다. |
 | [리소스 토큰](#resource-tokens)| 네이티브 Azure Cosmos DB 사용자 및 권한을 기반으로 하는 세분화된 권한 모델입니다. |
 
 ## <a name="primary-keys"></a><a id="primary-keys"></a> 기본 키

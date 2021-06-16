@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 04/07/2021
-ms.openlocfilehash: f6c6f2ba20a67cd39d4142ffadddc803927c936c
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: 761dcc36e684aa8f024cb650929441b54dddb790
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107227061"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952925"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
@@ -43,7 +43,7 @@ ms.locfileid: "107227061"
         * [LUIS DevOps에 대한 지속적인 통합 및 지속적인 전송](luis-concept-devops-automation.md)
         * [LUIS DevOps에 대한 테스트](luis-concept-devops-testing.md)
     * 방법
-        * [GitHub Actions를 사용하여 LUIS 앱 개발에 DevOps 적용](luis-how-to-devops-with-github.md)
+        * [GitHub Actions를 사용하여 LUIS 앱 개발에 DevOps 적용](./luis-concept-devops-automation.md)
     * [전체 코드 GitHub 리포지토리](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### <a name="may-2020---build"></a>2020년 5월 //Build

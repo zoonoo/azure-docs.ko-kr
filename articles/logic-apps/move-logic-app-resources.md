@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: aca2c51ff14b99ba41b159cf32e59dc861de7a53
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f86a30a82bce15e8d2c5b6b33166793798deb2d5
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87826214"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411524"
 ---
 # <a name="move-logic-app-resources-to-other-azure-resource-groups-regions-or-subscriptions"></a>논리 앱 리소스를 다른 Azure 리소스 그룹, 지역 또는 구독으로 이동
 
@@ -57,7 +57,7 @@ ms.locfileid: "87826214"
 
 논리 앱, 통합 계정, [ISE(통합 서비스 환경)](connect-virtual-network-vnet-isolated-environment-overview.md) 같은 리소스를 다른 Azure 리소스 그룹으로 이동하려면 Azure Portal, Azure PowerShell, Azure CLI 또는 REST API를 사용할 수 있습니다. 다음 단계에서는 리소스 지역이 동일하게 유지될 때 사용할 수 있는 Azure Portal이 적용되었습니다. 다른 단계 및 일반적인 준비는 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
-실제로 그룹 간에 리소스를 이동하기 전에, 다른 그룹으로 리소스를 이동할 수 있는지 테스트할 수 있습니다. 자세한 내용은 [이동 유효성 검사](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move)를 참조하세요.
+실제로 그룹 간에 리소스를 이동하기 전에, 다른 그룹으로 리소스를 이동할 수 있는지 테스트할 수 있습니다. 자세한 내용은 [이동 유효성 검사](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-rest-api)를 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에서 이동할 논리 앱 리소스를 찾아서 선택합니다.
 

@@ -3,20 +3,20 @@ title: 단일 데이터베이스란?
 description: Azure SQL Database의 단일 데이터베이스 리소스 형식에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 8f92fe8e4a4ebbc2d970bf28e415859249b9f67c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 334ca6aadf43756985c7d187b460b625c5588525
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84343322"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693042"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스란?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

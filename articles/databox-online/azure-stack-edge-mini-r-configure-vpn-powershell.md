@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 11/17/2020
 ms.author: alkohli
-ms.openlocfilehash: 9fa4c678a04342b47601f81ede7c49ab841f42ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 487d30c350fc6871122c66bbb3faa6b656ea96f9
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102630965"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698639"
 ---
 # <a name="configure-vpn-on-your-azure-stack-edge-mini-r-device-via-azure-powershell"></a>Azure PowerShell을 통해 Azure Stack Edge Mini R 디바이스에서 VPN 구성
 
@@ -104,7 +105,7 @@ P2S VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터 
 
 만든 Azure 리소스의 경우 다음 이름을 제공합니다.
 
-|매개 변수 이름  |설명  |
+|매개 변수 이름  |Description  |
 |---------|---------|
 |virtualNetworks_vnet_name    | Azure Virtual Network 이름        |
 |azureFirewalls_firewall_name     | Azure Firewall 이름        |
@@ -117,7 +118,7 @@ P2S VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터 
 
 가상 네트워크 및 관련 서브넷(*default*, *firewall*, *GatewaySubnet*)을 포함하여 생성한 Azure 리소스에 대해 다음 IP 주소 및 주소 공간을 제공합니다.
 
-|매개 변수 이름  |설명  |
+|매개 변수 이름  |Description  |
 |---------|---------|
 |VnetIPv4AddressSpace    | 가상 네트워크와 연결된 주소 공간입니다. Vnet IP 범위를 개인 IP 범위(https://en.wikipedia.org/wiki/Private_network#Private_IPv4_addresses) )로 제공합니다.     |
 |DefaultSubnetIPv4AddressSpace    |가상 네트워크의 `Default` 서브넷과 연결된 주소 공간입니다.         |
@@ -145,7 +146,7 @@ P2S VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터 
     스크립트를 실행할 때 다음 정보를 입력해야 합니다.
 
     
-    |매개 변수  |설명  |
+    |매개 변수  |Description  |
     |---------|---------|
     |위치     |Azure 리소스를 만들어야 하는 지역입니다.         |
     |AzureAppRuleFilePath     | `appRule.json`의 파일 경로입니다.       |

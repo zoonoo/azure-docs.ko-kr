@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ec35917ca18064d58279d8ed2b3fb1f0e83a88fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 429215dbd35368c7a2c8681e480b5256813171a1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822248"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753650"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-invision"></a>자습서: InVision과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -154,7 +154,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     e. **SAML Certificate(SAML 인증서)** 텍스트 상자의 경우 다운로드한 **인증서(Base64)** 를 메모장에 열고, 내용을 복사하여 SAML 인증서 텍스트 상자에 붙여넣습니다.
 
-    f. **이름 ID 형식** 텍스트 상자에서 **이름 ID 형식** 에 `Unspecified`를 사용합니다.
+    f. **이름 ID 형식** 텍스트 상자에서 **이름 ID 형식** 에 `urn:oasis:names:tc:SAML:1.1:nameid-format:Unspecified`를 사용합니다.
 
     g. **HASH Algorithm(해시 알고리즘)** 드롭다운에서 **SHA-256** 을 선택합니다.
 

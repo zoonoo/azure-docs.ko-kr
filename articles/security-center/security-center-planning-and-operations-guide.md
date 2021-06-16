@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a8b285ca0b8d0dae88bfe8dd19ac7e1bc8372e32
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 57390f57366959cecc82782254099532d832d303
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102099202"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558641"
 ---
 # <a name="planning-and-operations-guide"></a>계획 및 운영 가이드
 이 가이드는 Azure Security Center의 사용을 계획 중인 정보 기술(IT) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자를 대상으로 합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "102099202"
 
 
 > [!NOTE]
-> [Azure Security Center FAQ(질문과 대답)](faq-general.md) 설계 및 계획 단계에서 유용할 수 있는 일반적인 질문의 목록을 읽어 보세요.
+> [Azure Security Center FAQ(질문과 대답)](faq-general.yml) 설계 및 계획 단계에서 유용할 수 있는 일반적인 질문의 목록을 읽어 보세요.
 
 ## <a name="security-roles-and-access-controls"></a>보안 역할 및 액세스 제어
 조직의 규모와 구조에 따라, 여러 개인과 팀이 보안 센터를 통해 서로 다른 보안 관련 업무를 수행할 수 있습니다. 다음 다이어그램에는 가상의 사용자와 그 역할 및 보안 책임의 예가 나와 있습니다.
@@ -142,7 +142,7 @@ Windows용 Log Analytics 에이전트를 사용하려면 TCP 포트 443을 사�
 데이터 수집을 사용하지 않으려는 특정 지점의 경우 보안 정책에서 수집을 해제할 수 있습니다. 그러나 다른 Azure Management 및 모니터링 서비스에서 Log Analytics 에이전트를 사용할 수 있기 때문에 Security Center에서 데이터 수집을 끄는 경우에도 자동으로 에이전트를 제거하지 않습니다. 필요한 경우 에이전트를 수동으로 제거할 수 있습니다.
 
 > [!NOTE]
-> 지원되는 VM 목록을 찾아보려면 [Azure Security Center FAQ](faq-vms.md)를 읽어보세요.
+> 지원되는 VM 목록을 찾아보려면 [Azure Security Center FAQ](faq-vms.yml)를 읽어보세요.
 
 ### <a name="workspace"></a>작업 영역
 
@@ -233,5 +233,5 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](./security-center-partner-integration.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](faq-general.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center FAQ](faq-general.yml) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](/archive/blogs/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

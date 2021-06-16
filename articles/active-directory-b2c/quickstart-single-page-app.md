@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6471d1b5a5ad2b8ba34080ae1220872fa0e2e232
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f560b5d288c1beea639476600a9a40fda19b8044
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93421059"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613407"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 단일 페이지 앱에 대한 로그인 설정
 
@@ -77,7 +77,7 @@ Azure AD B2C(Azure Active Directory B2C)는 애플리케이션, 비즈니스 및
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant)할 수 있습니다.
+다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

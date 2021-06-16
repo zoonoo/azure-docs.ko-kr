@@ -3,19 +3,20 @@ title: Azure Purview 레이블을 사용하여 Azure SQL 데이터 분류
 description: Azure SQL Database 및 Azure Synpase Analytics에 Azure Purview의 분류 가져오기
 services: sql-database
 ms.service: sql-database
+ms.subservice: security
 ms.custom: ''
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: vanto, mathoma
 ms.date: 02/17/2021
-ms.openlocfilehash: 2eab7c535ff0c68da772e8a45ead12420734279c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d1064c6e60c8bdc80251228ddc2a36b5c3a77852
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101714904"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694809"
 ---
 # <a name="classify-your-azure-sql-data-using-azure-purview-labels"></a>Azure Purview 레이블을 사용하여 Azure SQL 데이터 분류
 [!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]

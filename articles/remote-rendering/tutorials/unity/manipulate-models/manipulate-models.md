@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 301d6eb0867604a6e780eb1d059eef0c153f246f
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: c8e22a1e81792145c468aeecd347f38426f73613
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103574512"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412100"
 ---
 # <a name="tutorial-manipulating-models"></a>자습서: 모델 조작
 
@@ -316,7 +316,7 @@ ms.locfileid: "103574512"
     }
     ```
 
-2. 이전에 만든 **TestModel** GameObject에서 **RemoteRayCastPointerHandler** 구성 요소 및 **RemoteEntityHelper** 구성 요소를 모두 추가합니다.
+1. 이전에 만든 **TestModel** GameObject에서 **RemoteRayCastPointerHandler** 구성 요소 및 **RemoteEntityHelper** 구성 요소를 모두 추가합니다.
 1. `EntityToDebugLog` 메서드를 `OnRemoteEntityClicked` 이벤트에 할당합니다. 이벤트의 출력 형식과 메서드의 입력 형식이 일치하면 Unity의 동적 이벤트 후크를 사용하여 이벤트 값을 메서드에 자동으로 전달할 수 있습니다.
     1. 새 콜백 필드 만들기 ![콜백 추가](./media/add-callback-remote-entity-clicked.png)
     1. 부모 GameObject를 참조하도록 **원격 엔터티 도우미** 구성 요소를 개체 필드로 끌기 ![개체 할당](./media/assign-object.png)

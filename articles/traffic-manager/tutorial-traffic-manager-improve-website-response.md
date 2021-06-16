@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: e95a1c5c2ab0803ba628e44275c4805f325ae3f0
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 72b2f9a0abb9cd06bb8568008bf11f3dde96ea11
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067251"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075190"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **인스턴스 정보** > **가상 머신 이름**: *myIISVMEastUS* 를 입력합니다.
    - **인스턴스 세부 정보** > **Azure 지역**:  **미국 동부** 를 선택합니다.
    - **관리자 계정** > **사용자 이름**:  선택한 사용자 이름을 입력합니다.
-   - **관리자 계정** > **암호**:  선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+   - **관리자 계정** > **암호**:  선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
    - **인바운드 포트 규칙** > **공용 인바운드 포트**: **선택한 포트 허용** 을 선택합니다.
    - **인바운드 포트 규칙** > **인바운드 포트 선택**: 풀다운 상자에서 **RDP** 및 **HTTP** 를 선택합니다.
 
@@ -121,7 +121,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
    - **인스턴스 정보** > **가상 머신 이름**: *myVMEastUS* 를 입력합니다.
    - **인스턴스 세부 정보** > **Azure 지역**:  **미국 동부** 를 선택합니다.
    - **관리자 계정** > **사용자 이름**:  선택한 사용자 이름을 입력합니다.
-   - **관리자 계정** > **암호**:  선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+   - **관리자 계정** > **암호**:  선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
    - **인바운드 포트 규칙** > **공용 인바운드 포트**: **선택한 포트 허용** 을 선택합니다.
    - **인바운드 포트 규칙** > **인바운드 포트 선택**: 풀다운 상자에서 **RDP** 를 선택합니다.
 

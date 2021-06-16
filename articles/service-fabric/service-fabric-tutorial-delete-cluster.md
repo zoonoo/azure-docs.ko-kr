@@ -3,13 +3,13 @@ title: Azure에서 Service Fabric 클러스터 삭제
 description: 이 자습서에서는 Azure에 호스팅된 Service Fabric 클러스터 및 모든 해당 리소스를 삭제하는 방법을 알아봅니다. 클러스터를 포함하는 리소스 그룹을 삭제하거나 선택적으로 리소스를 삭제할 수 있습니다.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: c6187d2bd5b8f2101c21b3eb35362e443854e8a4
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 9eb33acc31c3fa9c959fb9313997015cac29b95d
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734766"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665056"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>자습서: Azure에서 실행되는 Service Fabric 클러스터를 제거
 

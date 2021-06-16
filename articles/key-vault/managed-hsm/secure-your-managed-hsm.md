@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 5a3fcc10f318f2a8065550a48eb2bfb4bbdd4915
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 07602bfefbbd38538973c799e2306d21b7a840f1
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218403"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411992"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>관리형 HSM에 대한 보안 액세스
 
@@ -28,7 +28,7 @@ Azure Key Vault 관리형 HSM은 암호화 키를 보호하는 클라우드 서�
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 구독의 관리형 HSM. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
+* 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -120,12 +120,12 @@ az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az ad gr
 # However it cannot permanently delete (purge) keys
 az keyvault role assignment create  --hsm-name ContosoMHSM --assignee $(az vm identity show --name "vmname" --resource-group "ContosoAppRG" --query objectId -o tsv) --scope / --role "Managed HSM Crypto Auditor"
 
-# Assign "Managed HSM Crypto Service Encryption" role to the Storage account ID
+# Assign "Managed HSM Crypto Service Encryption User" role to the Storage account ID
 storage_account_principal=$(az storage account show --id $storageresource --query identity.principalId -o tsv)
 # (if no identity exists), then assign a new one
 [ "$storage_account_principal" ] || storage_account_principal=$(az storage account update --assign-identity --id $storageresource)
 
-az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption" --assignee $storage_account_principal
+az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Service Encryption User" --assignee $storage_account_principal
 ```
 
 이 자습서에서는 대부분의 액세스 제어와 관련된 작업만 보여 줍니다. 여기서는 액세스 제어 및 역할 관리에 초점을 맞춘 예제를 유지하기 위해 애플리케이션을 VM에 배포하고, 스토리지 계정에 대한 고객 관리형 키를 사용하여 암호화를 설정하며, 관리형 HSM을 만드는 것과 관련된 다른 동작과 작업은 보여 주지 않습니다.

@@ -3,20 +3,20 @@ title: 'REST API: 여러 데이터베이스 간 동기화'
 description: REST API 예제 스크립트를 사용하여 여러 데이터베이스 간에 동기화합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: REST API
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: d3ff8114c11b224a0bdbb0bd2d0e5686a7e57b55
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: b0e8b12c7a58f3376c4e05819dbe60c9436ecef8
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565911"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693360"
 ---
 # <a name="use-rest-api-to-sync-data-between-multiple-databases"></a>REST API를 사용하여 여러 데이터베이스 간에 데이터 동기화 
 

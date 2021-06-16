@@ -6,13 +6,14 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
+ms.custom: devx-track-azurepowershell
 robots: noindex
-ms.openlocfilehash: de8d62bdddff39e0c7b3ec6ca296b6ef35ca4d9d
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: f396563b4429d7aa547c86a2a5b3f84ac6bab4b9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108753446"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957208"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Resource Manager 템플릿을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
@@ -43,7 +44,7 @@ ms.locfileid: "108753446"
 
 * [자습서 개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 살펴보고 **필수 구성 요소** 단계를 완료합니다.
 * [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/) 문서의 지침을 수행하여 컴퓨터에 Azure PowerShell의 최신 버전을 설치합니다. 이 자습서에서는 PowerShell을 사용하여 데이터 팩터리 엔터티를 배포합니다. 
-* (선택 사항) Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/template-syntax.md)을 참조하세요.
+* (선택 사항) Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/templates/syntax.md)을 참조하세요.
 
 ## <a name="in-this-tutorial"></a>자습서 내용
 이 자습서에서는 다음 데이터 팩터리 엔터티로 데이터 팩터리를 만듭니다.

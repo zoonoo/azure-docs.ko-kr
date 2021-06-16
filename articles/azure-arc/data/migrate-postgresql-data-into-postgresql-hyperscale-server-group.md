@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: d9cbfc30b10373ad2a4f4304987dac426b5dcabe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 06860f9d09db7a9e9497431620e15cc5e3168206
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643578"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411632"
 ---
 # <a name="migrate-postgresql-database-to-azure-arc-enabled-postgresql-hyperscale-server-group"></a>PostgreSQL 데이터베이스를 Azure Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹으로 마이그레이션
 
@@ -194,6 +194,6 @@ Arc 설정 내에서 `psql`를 사용하여 Postgres 인스턴스에 연결하�
     * [다중 테넌트 데이터베이스 설계](../../postgresql/tutorial-design-database-hyperscale-multi-tenant.md)*
     * [실시간 분석 대시보드 설계](../../postgresql/tutorial-design-database-hyperscale-realtime.md)*
 
-> *이 문서에서는 **Azure Portal에 로그인** 섹션을 건너뛰고 **Postgres-하이퍼스케일(Citus)에 대한 Azure 데이터베이스를 만듭니다**. Azure Arc 배포의 나머지 단계를 구현합니다. 이 섹션은 Azure 클라우드에서 PaaS 서비스로 제공되는 Azure Database용 PostgreSQL 하이퍼스케일(Citus)에 한정되지만, 문서의 다른 부분은 Azure Arc 지원 PostgreSQL 하이퍼스케일에 직접 적용할 수 있습니다.
+> *이 문서에서는 **Azure Portal에 로그인** 섹션을 건너뛰고 **Postgres-하이퍼스케일(Citus)에 대한 Azure 데이터베이스를 만듭니다**. Azure Arc 배포의 나머지 단계를 구현합니다. 이러한 섹션은 Azure 클라우드에서 PaaS 서비스로 제공되는 Azure Database용 PostgreSQL 하이퍼스케일(Citus)에 한정되지만, 문서의 다른 부분은 Azure Arc 지원 PostgreSQL 하이퍼스케일에 직접 적용할 수 있습니다.
 
-- [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-postgresql-hyperscale-server-group.md)
+- [Azure Database for PostgreSQL 하이퍼스케일 서버 그룹 스케일 아웃](scale-out-in-postgresql-hyperscale-server-group.md)

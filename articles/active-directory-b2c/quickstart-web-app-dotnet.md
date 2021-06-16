@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp, mvc
 ms.date: 09/12/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 379ea9a0c2a49e92fa1c4882ea6e783b3b91e32f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 22a2f0a73992bd829d150243974701d07321f26b
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88163920"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613320"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작: Azure Active Directory B2C를 사용하여 ASP.NET 애플리케이션의 로그인 설정
 
@@ -92,7 +92,7 @@ Azure AD B2C 사용자 계정을 사용하여 Azure AD B2C 보안 웹 API에 대
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](faq.md#how-do-i-delete-my-azure-ad-b2c-tenant)할 수 있습니다.
+다른 Azure AD B2C 빠른 시작 또는 자습서를 사용하려는 경우 Azure AD B2C 테넌트를 사용할 수 있습니다. 더 이상 필요하지 않으면 [Azure AD B2C 테넌트를 삭제](faq.yml#how-do-i-delete-my-azure-ad-b2c-tenant-)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

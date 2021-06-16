@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: be55a3fb07b35fccb0f71f9ca7bfd2c88a9d097c
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: 97b24403d5472d2f9ae701a043d4cccbb2bf03cb
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108017052"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617539"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하는 Django 웹앱 배포
 
@@ -238,15 +238,6 @@ Django 데이터베이스 마이그레이션은 Azure 데이터베이스에서 P
 1. SSH 세션에서 다음 명령을 실행합니다(**Ctrl**+**Shift**+**V** 를 사용하여 명령을 붙여넣을 수 있음).
 
     ```bash
-    # Change to the app folder
-    cd $APP_PATH
-    
-    # Activate the venv
-    source antenv/bin/activate
-
-    # Install requirements
-    pip install -r requirements.txt
-
     # Run database migrations
     python manage.py migrate
 
@@ -398,12 +389,9 @@ az webapp up
 
 데이터 모델이 변경되었으므로 App Service에서 데이터베이스 마이그레이션을 다시 실행해야 합니다.
 
-`https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하여 브라우저에서 SSH 세션을 다시 엽니다. 그런 다음, 다음 명령을 실행합니다.
+`https://<app-name>.scm.azurewebsites.net/webssh/host`로 이동하여 브라우저에서 SSH 세션을 다시 엽니다. 그런 후 다음 명령을 실행합니다.
 
 ```
-cd $APP_PATH
-source antenv/bin/activate
-pip install -r requirements.txt
 python manage.py migrate
 ```
 

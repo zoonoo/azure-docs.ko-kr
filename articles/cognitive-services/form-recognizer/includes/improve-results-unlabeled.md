@@ -1,16 +1,16 @@
 ---
 author: laujan
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: lajanuar
-ms.openlocfilehash: 89b035397ea2050ae7e61f2a19310b6a7fb4192c
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: c41d7195bb1c836766248d02bec25218fd5a4f92
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467243"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894321"
 ---
 `"pageResults"` 노드 아래에서 각 키/값 결과에 대한 `"confidence"` 값을 검사합니다. 텍스트 읽기 작업에 해당하는 `"readResults"` 노드의 신뢰도 점수도 확인해야 합니다. 읽기 결과의 신뢰도는 키/값 추출 결과의 신뢰도에 영향을 주지 않으므로 둘 다 확인해야 합니다.
 * 읽기 작업에 대한 신뢰도 점수가 낮으면 입력 문서의 품질을 개선합니다([입력 요구 사항](../overview.md#input-requirements) 참조).

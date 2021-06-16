@@ -10,12 +10,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fd117532267672e152b6fd6f6ce382c4bda39687
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575451"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693973"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Azure CDN의 실시간 모니터링, 메트릭 및 액세스 로그
 Microsoft의 Azure CDN에서는 문제를 해결, 추적 및 디버그할 수 있도록 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다. 
@@ -151,7 +152,7 @@ Microsoft 프로필에서 Azure CDN의 원시 로그를 구성하려면:
 
 Microsoft 서비스의 Azure CDN은 현재 원시 로그를 제공합니다. 원시 로그는 각 항목에 다음 스키마가 포함된 개별 API 요청을 제공합니다. 
 
-| 속성  | 설명 |
+| 속성  | Description |
 | ------------- | ------------- |
 | BackendHostname | 요청이 백 엔드에 전달되는 경우 이 필드는 백 엔드의 호스트 이름을 나타냅니다. 요청이 리디렉션되거나 지역 캐시(라우팅 규칙에 캐싱이 설정됨)로 전달되는 경우 이 필드는 비어 있습니다. |
 | CacheStatus | 캐싱 시나리오의 경우 이 필드는 POP에서 캐시 적중/누락을 정의합니다. |
@@ -165,15 +166,15 @@ Microsoft 서비스의 Azure CDN은 현재 원시 로그를 제공합니다. 원
 | RequestBytes | 요청 헤더 및 요청 본문을 포함하여 HTTP 요청 메시지의 크기(바이트)입니다. |
 | RequestUri | 받은 요청의 URI |
 | ResponseBytes | 백 엔드 서버에서 응답으로 보낸 바이트 수입니다.  |
-| RoutingRuleName | 요청에 일치하는 라우팅 규칙의 이름입니다. |
-| RulesEngineMatchNames | 요청에 일치하는 규칙의 이름입니다. |
+| RoutingRuleName | 요청과 일치하는 라우팅 규칙의 이름입니다. |
+| RulesEngineMatchNames | 요청과 일치하는 규칙의 이름입니다. |
 | SecurityProtocol | 요청에 사용되는 TLS/SSL 프로토콜 버전이거나, 암호화가 없는 경우 null입니다. |
 | SentToOriginShield </br> (사용되지 않음) * **다음 섹션에서 사용 중단에 대한 참고 사항을 참조하세요.**| True이면 요청이 에지 POP가 아닌 원본 보호 캐시에서 응답되었음을 의미합니다. 원본 보호는 캐시 적중률을 향상하는 데 사용되는 부모 캐시입니다. |
 | isReceivedFromClient | True인 경우 요청이 클라이언트에서 나온 것을 의미합니다. False인 경우 요청이 에지(자식 POP)에서 누락되고 원본 보호(부모 POP)에서 응답됩니다. |
 | TimeTaken | 요청의 첫 번째 바이트부터 마지막 응답 바이트까지의 시간(초)입니다. |
 | TrackingReference | Front Door에서 제공하는 요청을 식별하는 고유한 참조 문자열로, 클라이언트에 X-Azure-Ref 헤더로 전송됩니다. 특정 요청의 액세스 로그에서 세부 정보를 검색하는 데 필요합니다. |
 | UserAgent | 클라이언트에서 사용한 브라우저 유형입니다. |
-| ErrorInfo | 이 필드에는 문제 해결 영역의 범위를 좁히기 위한 특정 유형의 오류가 포함되어 있습니다. </br> 가능한 값은 다음과 같습니다. </br> **NoError**: 발견된 오류가 없음을 나타냅니다. </br> **CertificateError**: 제네릭 SSL 인증서 오류입니다.</br> **CertificateNameCheckFailed**: SSL 인증서의 호스트 이름이 잘못되었거나 일치하지 않습니다. </br> **ClientDisconnected**: 클라이언트 네트워크 연결 때문에 요청이 실패했습니다. </br> **UnspecifiedClientError**: 제네릭 클라이언트 오류입니다. </br> **InvalidRequest**: 요청이 잘못되었습니다. 이 오류는 잘못된 형식의 헤더, 본문 및 URL 때문에 발생할 수 있습니다. </br> **DNSFailure**: DNS 오류가 발생했습니다. </br> **DNSNameNotResolved**: 서버 이름 또는 주소를 확인할 수 없습니다. </br> **OriginConnectionAborted**: 원본과의 연결이 갑자기 중지되었습니다. </br> **OriginConnectionError**: 제네릭 원본 연결 오류입니다. </br> **OriginConnectionRefused**: 원본과의 연결을 설정할 수 없습니다. </br> **OriginError**: 제네릭 원본 오류입니다. </br> **OriginInvalidResponse**: 원본이 잘못되었거나 인식할 수 없는 응답을 반환했습니다. </br> **OriginTimeout**: 원본 요청에 대한 시간 제한이 만료되었습니다. </br> **ResponseHeaderTooBig**: 원본에서 너무 많은 응답 헤더를 반환했습니다. </br> **RestrictedIP**: 제한된 IP로 인해 요청이 차단되었습니다. </br> **SSLHandshakeError**: SSL 핸드셰이크 오류로 인해 원본과의 연결을 설정할 수 없습니다. </br> **UnspecifiedError**: 테이블의 오류에 맞지 않는 오류가 발생했습니다. |
+| ErrorInfo | 이 필드에는 문제 해결 영역의 범위를 좁히기 위한 특정 유형의 오류가 포함되어 있습니다. </br> 가능한 값은 다음과 같습니다. </br> **NoError**: 발견된 오류가 없음을 나타냅니다. </br> **CertificateError**: 제네릭 SSL 인증서 오류입니다.</br> **CertificateNameCheckFailed**: SSL 인증서의 호스트 이름이 잘못되었거나 일치하지 않습니다. </br> **ClientDisconnected**: 클라이언트 네트워크 연결 때문에 요청이 실패했습니다. </br> **UnspecifiedClientError**: 제네릭 클라이언트 오류입니다. </br> **InvalidRequest**: 요청이 잘못되었습니다. 이 오류는 잘못된 형식의 헤더, 본문 및 URL 때문에 발생할 수 있습니다. </br> **DNSFailure**: DNS 오류가 발생했습니다. </br> **DNSNameNotResolved**: 서버 이름이나 주소를 확인할 수 없습니다. </br> **OriginConnectionAborted**: 원본과의 연결이 갑자기 중지되었습니다. </br> **OriginConnectionError**: 제네릭 원본 연결 오류입니다. </br> **OriginConnectionRefused**: 원본과의 연결을 설정할 수 없습니다. </br> **OriginError**: 제네릭 원본 오류입니다. </br> **OriginInvalidResponse**: 원본이 잘못되었거나 인식할 수 없는 응답을 반환했습니다. </br> **OriginTimeout**: 원본 요청에 대한 시간 제한이 만료되었습니다. </br> **ResponseHeaderTooBig**: 원본에서 너무 많은 응답 헤더를 반환했습니다. </br> **RestrictedIP**: 제한된 IP로 인해 요청이 차단되었습니다. </br> **SSLHandshakeError**: SSL 핸드셰이크 오류로 인해 원본과의 연결을 설정할 수 없습니다. </br> **UnspecifiedError**: 테이블의 오류에 맞지 않는 오류가 발생했습니다. |
 | TimeToFirstByte | Microsoft CDN이 요청을 수신한 시점에서 클라이언트에 첫 번째 바이트가 전송된 시점까지의 시간(밀리초)입니다. 이 시간은 Microsoft 쪽에서만 측정됩니다. 클라이언트 쪽 데이터는 측정하지 않습니다. |
 > [!NOTE]
 > 쿼리를 실행하여 Log Analytics 프로필에서 로그를 볼 수 있습니다. 샘플 쿼리는 다음과 같습니다.
@@ -193,7 +194,7 @@ Microsoft 서비스의 Azure CDN은 현재 원시 로그를 제공합니다. 원
 
 에지 노드 및 원본 보호에 대한 송신 또는 응답을 구분하려면 **isReceivedFromClient** 필드를 사용하여 올바른 데이터를 가져올 수 있습니다. 
 
-값이 false인 경우 요청이 원본 보호에서 에지 노드로 응답되는 것을 의미합니다. 이 방법은 원시 로그를 청구 데이터와 비교하는 데 효과적입니다. 원본 보호에서 에지 노드로의 송신은 요금이 발생하지 않습니다. 에지 노드에서 클라이언트로의 송신은 요금이 부과됩니다. 
+값이 false인 경우 요청이 원본 보호에서 에지 노드로 응답되는 것을 의미합니다. 이 방법은 원시 로그를 청구 데이터와 비교하는 데 효과적입니다. 원본 보호에서 에지 노드로의 송신에는 요금이 부과되지 않습니다. 에지 노드에서 클라이언트로의 송신에는 요금이 부과됩니다. 
 
 **Log Analytics에서 원본 보호에 생성된 로그를 제외하는 Kusto 쿼리 샘플**
 

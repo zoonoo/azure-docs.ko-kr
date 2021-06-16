@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93634d8168d4870d6a97428ee538e465c6aad2cb
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: c81f6ed1517146efdd60c293d0c4840f6c61f7f5
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106111145"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111372592"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK로 필터 만들기
 
@@ -39,7 +39,7 @@ ms.locfileid: "106111145"
 - [필터 및 동적 매니페스트](filters-dynamic-manifest-concept.md)를 검토합니다.
 - [Media Services 계정 만들기](./account-create-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [API에 액세스](./access-api-howto.md)하는 데 필요한 정보 가져오기
-- [Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)을 검토하여 [.NET SDK 사용을 시작](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)하는 방법을 확인합니다.
+- [Azure Media Services를 사용하여 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md)을 검토하여 [.NET SDK 사용을 시작](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-the-net-sdk)하는 방법을 확인합니다.
 
 ## <a name="define-a-filter"></a>필터 정의  
 
@@ -87,7 +87,7 @@ client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, enc
 
 ## <a name="associate-filters-with-streaming-locator"></a>필터를 스트리밍 로케이터와 연결
 
-이제 스트리밍 로케이터에 적용되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. [동적 패키지 작성 도구(스트리밍 엔드포인트)](encode-dynamic-packaging-concept.md)는 클라이언트가 URL에 지정하는 필터 목록과 함께 이 필터 목록을 적용합니다. 이 조합은 URL + 스트리밍 로케이터에 지정하는 필터를 기반으로 하는 [동적 매니페스트](filters-dynamic-manifest-concept.md)를 생성합니다. 필터를 적용하지만 URL에 필터 이름을 표시하지 않으려는 경우 이 기능을 사용하는 것이 좋습니다.
+스트리밍 로케이터에 적용되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. [Dynamic Packager(스트리밍 엔드포인트)](encode-dynamic-packaging-concept.md)는 클라이언트가 URL에 지정하는 필터와 함께 이 필터 목록을 적용합니다. 이 조합은 스트리밍 로케이터에서 지정한 URL + 필터의 필터를 기반으로 [동적 매니페스트](filters-dynamic-manifest-concept.md)를 생성합니다. 필터를 적용하지만, URL에 필터 이름을 표시하지 않으려는 경우 이 기능을 사용하는 것이 좋습니다.
 
 다음 C# 코드는 스트리밍 로케이터를 만들고 `StreamingLocator.Filters`를 지정하는 방법을 보여 줍니다. 이 속성은 필터 이름의 `IList<string>`을 사용하는 선택적 속성입니다.
 
