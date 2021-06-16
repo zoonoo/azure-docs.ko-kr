@@ -17,7 +17,7 @@ ms.locfileid: "102173769"
 
 ## <a name="scale-the-cluster-nodes"></a>클러스터 노드 크기 조정
 
-먼저 [az aks show][az-aks-show] 명령을 사용 하여 노드 풀의 *이름* 을 가져옵니다. 다음 예제에서는 *Myresourcegroup* 리소스 그룹에서 *myAKSCluster* 이라는 클러스터의 노드 풀 이름을 가져옵니다.
+먼저 [az aks show][az-aks-show] 명령을 사용 하여 노드 풀의 *name* 을 가져옵니다. 다음 예제에서는 *Myresourcegroup* 리소스 그룹에서 *myAKSCluster* 이라는 클러스터의 노드 풀 이름을 가져옵니다.
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPoolProfiles
