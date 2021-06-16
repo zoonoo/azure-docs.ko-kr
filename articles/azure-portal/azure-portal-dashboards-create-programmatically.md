@@ -3,12 +3,12 @@ title: Azure 대시보드를 프로그래밍 방식으로 만들기
 description: Azure Portal에서 대시보드를 템플릿으로 사용하여 프로그래밍 방식으로 Azure 대시보드를 만듭니다. JSON 참조를 포함합니다.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c0e8064abcac42235ff5086f047aa716ced271cf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095178"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966975"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -75,7 +75,7 @@ Azure에서 리소스를 만드는 API에는 두 종류가 있습니다.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>템플릿 배포를 사용하여 템플릿에서 대시보드를 프로그래밍 방식으로 만듭니다.
 
-Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제공합니다. 배포할 리소스 집합과 둘 간의 관계를 표현하는 배포 템플릿을 만듭니다.  각 리소스의 JSON 형식은 사용자가 하나씩 작성하는 경우와 같습니다. 차이점은 템플릿 언어는 변수, 매개 변수, 기본 기능 등과 같은 몇 가지 개념을 추가한다는 것입니다. 이 확장 구문은 템플릿 배포 컨텍스트에서만 지원됩니다. 앞에서 설명한 명령적 API와 함께 사용하는 경우에는 작동하지 않습니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조하세요.
+Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제공합니다. 배포할 리소스 집합과 둘 간의 관계를 표현하는 배포 템플릿을 만듭니다.  각 리소스의 JSON 형식은 사용자가 하나씩 작성하는 경우와 같습니다. 차이점은 템플릿 언어는 변수, 매개 변수, 기본 기능 등과 같은 몇 가지 개념을 추가한다는 것입니다. 이 확장 구문은 템플릿 배포 컨텍스트에서만 지원됩니다. 앞에서 설명한 명령적 API와 함께 사용하는 경우에는 작동하지 않습니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/syntax.md)를 참조하세요.
 
 매개 변수화는 템플릿의 매개 변수 구문을 사용하여 수행해야 합니다.  아래 표시된 것처럼 이전에 찾은 리소스 ID의 모든 인스턴스를 바꿉니다.
 
@@ -117,7 +117,7 @@ id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/v
 
 * [REST API](/rest/api/resources/deployments)
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
-* [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
+* [Azure CLI](/cli/azure/group/deployment#az_group_deployment_create)
 * [Azure Portal 템플릿 배포 페이지](https://portal.azure.com/#create/Microsoft.Template)
 
 다음에는 두 가지 버전의 예제 대시보드 JSON이 표시됩니다. 첫 번째는 리소스에 이미 바인딩된 포털에서 내보낸 버전입니다. 두 번째는 프로그래밍 방식으로 모든 가상 머신에 바인딩될 수 있고 Azure Resource Manager를 사용하여 배포할 수 있는 템플릿 버전입니다.
@@ -658,27 +658,27 @@ Azure CLI에 대한 환경을 준비합니다.
 
 - 이 예제에서는 [portal-dashboard-template-testvm.json](https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json)이라는 대시보드를 사용합니다. 대괄호 안에 있는 콘텐츠를 넣고자 하는 값으로 바꿉니다.
 
-[az portal dashboard create](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_create) 명령을 실행하여 대시보드를 만듭니다.
+[az portal dashboard create](/cli/azure/portal/dashboard#az_portal_dashboard_create) 명령을 실행하여 대시보드를 만듭니다.
 
 ```azurecli
 az portal dashboard create --resource-group myResourceGroup --name 'Simple VM Dashboard' \
    --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-[az portal dashboard update](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_update) 명령을 사용하여 대시보드를 업데이트할 수 있습니다.
+[az portal dashboard update](/cli/azure/portal/dashboard#az_portal_dashboard_update) 명령을 사용하여 대시보드를 업데이트할 수 있습니다.
 
 ```azurecli
 az portal dashboard update --resource-group myResourceGroup --name 'Simple VM Dashboard' \
 --input-path portal-dashboard-template-testvm.json --location centralus
 ```
 
-[az portal dashboard show](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_show) 명령을 실행하여 대시보드의 세부 정보를 확인합니다.
+[az portal dashboard show](/cli/azure/portal/dashboard#az_portal_dashboard_show) 명령을 실행하여 대시보드의 세부 정보를 확인합니다.
 
 ```azurecli
 az portal dashboard show --resource-group myResourceGroup --name 'Simple VM Dashboard'
 ```
 
-현재 구독에 대한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/ext/portal/portal/dashboard#ext_portal_az_portal_dashboard_list)를 사용합니다.
+현재 구독에 대한 모든 대시보드를 보려면 [az portal dashboard list](/cli/azure/portal/dashboard#az_portal_dashboard_list)를 사용합니다.
 
 ```azurecli
 az portal dashboard list
@@ -694,4 +694,4 @@ az portal dashboard list --resource-group myResourceGroup
 
 데스크톱에 대한 자세한 내용은 [Azure Portal 설정 및 기본 설정 관리](set-preferences.md)를 참조하세요.
 
-대시보드용 Azure CLI 지원에 대한 자세한 내용은 [az portal dashboard](/cli/azure/ext/portal/portal/dashboard)를 참조하세요.
+대시보드용 Azure CLI 지원에 대한 자세한 내용은 [az portal dashboard](/cli/azure/portal/dashboard)를 참조하세요.

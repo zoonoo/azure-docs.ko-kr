@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 229abeb71a580444525a314f648ee09452585336
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100633940"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971926"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>알림을 사용하는 Azure 관리형 애플리케이션
 
@@ -61,7 +61,7 @@ Azure 관리형 애플리케이션 알림을 통해 게시자는 관리형 애�
 
 ```
 ## <a name="add-azure-marketplace-managed-application-notifications"></a>Azure Marketplace 관리형 애플리케이션 알림 추가
-자세한 내용은 [Azure 애플리케이션 제안 만들기](../../marketplace/create-new-azure-apps-offer.md)를 참조하세요.
+자세한 내용은 [Azure 애플리케이션 제안 만들기](../../marketplace/azure-app-offer-setup.md)를 참조하세요.
 
 ![Azure Portal의 Azure Marketplace 관리형 애플리케이션 알림](./media/publish-notifications/marketplace-notifications.png)
 ## <a name="event-triggers"></a>이벤트 트리거
