@@ -1,6 +1,0 @@
-- name: Azure Dev 공간
-  href: ./index.yml
-  items:
-    - name: Azure Dev Spaces란?
-      expanded: true
-      href: about.md
