@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: c02ba12c790d745904d241f121e269aac3ed12f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b76469697da62ed379d6854d2977e841080781d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96462988"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539893"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>상업용 마켓플레이스 분석의 요약 대시보드
 
@@ -95,7 +95,7 @@ Marketplace 인사이트에는 Azure Marketplace 및 AppSource에서 제품의 �
 
 - 지도를 이동하여 정확한 위치를 볼 수 있습니다.
 - 특정 위치를 확대할 수 있습니다.
-- 열 지도에는 특정 위치의 고객 수, 주문 수, 정규화된 사용 시간의 세부 정보를 볼 수 있는 보조 눈금이 있습니다.
+- 열 지도에는 특정 위치의 고객 수, 주문 수, 정규화된 사용량 시간의 세부 정보를 볼 수 있는 보조 눈금이 있습니다.
 - 표에서 국가/지역을 검색하고 선택하여 지도에서 해당 위치를 확대할 수 있습니다. 지도에서 **홈** 단추를 선택하여 원래 보기로 되돌아갑니다.
 
 > [!TIP]
@@ -103,10 +103,10 @@ Marketplace 인사이트에는 Azure Marketplace 및 AppSource에서 제품의 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 상업용 마켓플레이스에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터의 상업용 마켓플레이스에 대한 분석 보고서 액세스](./partner-center-portal/analytics.md)를 참조하세요.
+- 상업용 마켓플레이스에서 사용할 수 있는 분석 보고서의 개요는 [파트너 센터의 상업용 마켓플레이스에 대한 분석 보고서 액세스](analytics.md)를 참조하세요.
 - 그래픽 및 다운로드 가능 형식으로 주문 정보를 보려면 [상업용 마켓플레이스 분석의 주문 대시보드](orders-dashboard.md)를 참조하세요.
 - VM(가상 머신) 제품 사용량 및 요금제 청구 메트릭은 [상업용 마켓플레이스 분석의 사용량 대시보드](usage-dashboard.md)를 참조하세요.
 - 증가 추세를 비롯한 고객에 대한 자세한 내용은 [상업용 마켓플레이스 분석의 고객 대시보드](customer-dashboard.md)를 참조하세요.
-- 최근 30일 동안의 다운로드 요청 목록은 [상업용 마켓플레이스 분석의 다운로드 대시보드](./partner-center-portal/downloads-dashboard.md)를 참조하세요.
-- Azure Marketplace 및 AppSource의 제품에 대한 고객 피드백을 모두 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](./partner-center-portal/ratings-reviews.md)를 참조하세요.
-- 상업용 마켓플레이스 분석에 관한 자주 묻는 질문 및 데이터 용어의 종합 사전에 관한 내용은 [상업용 마켓플레이스 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.
+- 최근 30일 동안의 다운로드 요청 목록은 [상업용 마켓플레이스 분석의 다운로드 대시보드](downloads-dashboard.md)를 참조하세요.
+- Azure Marketplace 및 AppSource의 제품에 대한 고객 피드백을 모두 확인하려면 [파트너 센터의 평가 및 검토 분석 대시보드](ratings-reviews.md)를 참조하세요.
+- 상업용 Marketplace 분석 및 데이터 용어의 종합 사전에 대한 자주 묻는 질문은 [상업용 Marketplace 분석 용어 및 일반적인 질문](./analytics-faq.md)을 참조하세요.

@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.custom: how-to
-ms.openlocfilehash: 61754eec2c866a7bf5897b2faa2a2b2ae7b60d02
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 93365304e958bfabaf3067ab58312a9b78745edb
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383034"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854669"
 ---
 # <a name="safe-rollout-for-online-endpoints-preview"></a>온라인 엔드포인트에 대한 안전한 롤아웃(미리 보기)
 
@@ -56,7 +56,7 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 * 환경 변수 $ENDPOINT_NAME을 아직 설정하지 않은 경우 지금 설정합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="set_endpoint_name":::
 
 * (권장) 샘플 리포지토리를 복제하고 리포지토리의 `cli/` 디렉터리로 전환합니다. 
 
@@ -65,7 +65,7 @@ git clone https://github.com/Azure/azureml-examples
 cd azureml-examples/cli
 ```
 
-이 자습서의 명령은 `how-to-deploy-declarative-safe-rollout-online-endpoints.sh` 파일에 있고 YAML 구성 파일은 하위 디렉터리 `endpoints/online/managed/canary-declarative-flow/`에 있습니다.
+이 자습서의 명령은 `deploy-declarative-safe-rollout-online-endpoints.sh` 파일에 있고 YAML 구성 파일은 하위 디렉터리 `endpoints/online/managed/canary-declarative-flow/`에 있습니다.
 
 ## <a name="confirm-your-existing-deployment-is-created"></a>기존 배포가 생성되었는지 확인
 
@@ -85,7 +85,7 @@ az ml endpoint show --name $ENDPOINT_NAME
 
 배포를 다음과 같이 업데이트합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="scale_blue" :::
 
 > [!IMPORTANT]
 > YAML을 사용한 업데이트는 선언적입니다. 즉, YAML의 변경 내용이 기본 Azure Resource Manager 리소스(엔드포인트 및 배포)에 반영됩니다. 이 접근법을 사용하면 [GitOps](https://www.atlassian.com/git/tutorials/gitops)가 용이해집니다. 엔드포인트/배포에 대한 *모든* 변경 내용이 YAML을 거칩니다(`instance_count`도 해당). 부작용은 YAML에서 배포를 제거하고 파일을 사용하여 `az ml endpoint update`를 실행할 경우 해당 배포가 삭제된다는 것입니다. 
@@ -98,13 +98,13 @@ az ml endpoint show --name $ENDPOINT_NAME
 
 배포 업데이트: 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="create_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="create_green" :::
 
 ### <a name="test-the-new-deployment"></a>새 배포 테스트
 
 방금 생성된 `green` 배포에 구성이 0% 트래픽을 지정했습니다. 테스트하려면 `--deployment` 이름을 지정하여 직접 호출합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="test_green" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="test_green" :::
 
 REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포를 직접 호출하려면 다음 HTTP 헤더를 설정합니다. `azureml-model-deployment: <deployment-name>`
 
@@ -116,7 +116,7 @@ REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포
 
 강조 표시된 줄 외에 구성 파일은 변경되지 않습니다. 배포를 다음과 같이 업데이트합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_10pct_traffic" :::
 
 이제 `green` 배포는 요청의 10%를 받습니다. 
 
@@ -128,7 +128,7 @@ REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포
 
 배포를 업데이트합니다. 
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="green_100pct_traffic" :::
 
 ## <a name="remove-the-old-deployment"></a>이전 배포 제거
 
@@ -138,10 +138,10 @@ REST 클라이언트를 사용하여 트래픽 규칙을 거치지 않고 배포
 
 배포를 다음과 같이 업데이트합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_blue" :::
 
 ## <a name="delete-the-endpoint-and-deployment"></a>엔드포인트 및 배포 삭제
 
 배포를 사용하지 않을 경우 다음을 사용하여 삭제해야 합니다.
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-declarative-safe-rollout-online-endpoints.sh" ID="delete_endpoint" :::

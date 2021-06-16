@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 561855704d157f9ad826b5db83600a79d9437fc6
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 9fd77ec4f72555e2d326a07831abe2648a68fbaf
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107500688"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111592055"
 ---
 # <a name="chat-sdk-overview"></a>채팅 SDK 개요 
 
@@ -40,7 +40,7 @@ Azure Communication Services 채팅 SDK를 사용하여 다양한 실시간 채�
 |                   | 보낸 메시지의 콘텐츠 업데이트                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
 |                   | 이전에 보낸 메시지 삭제                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
 |                   | 채팅의 다른 참가자가 읽은 메시지에 대한 수신 확인                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | 참가자가 채팅 스레드에서 메시지를 적극적으로 입력할 때 알림 받기                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | 참가자가 채팅 스레드에서 메시지를 적극적으로 입력할 때 알림 받기                                         | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
 |                   | 채팅 스레드에서 모든 메시지 가져오기                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | 메시지 콘텐츠의 일부로 유니코드 이모지 보내기                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
 |실시간 알림(독점적인 신호 패키지에서 사용하도록 설정**)|  채팅 클라이언트는 채팅 스레드에서 발생하는 들어오는 메시지 및 기타 작업에 대한 실시간 업데이트를 받기 위해 구독할 수 있습니다. 실시간 알림에 대해 지원되는 업데이트 목록을 보려면 [채팅 개념](concepts.md#real-time-notifications)을 참조하세요.                                     | ✔️   | ❌    | ❌  | ❌  | ✔️  | ✔️  |   
