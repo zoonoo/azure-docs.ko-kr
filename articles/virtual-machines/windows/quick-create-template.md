@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
 ms.custom: subject-armqs
-ms.openlocfilehash: d56f565dab1b83e0cf9572e6807577be32678fe7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: b3ba1aefb02e8cfb139b1afc07e2c57e1d80fe94
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839116"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080276"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-using-an-arm-template"></a>빠른 시작: ARM 플랫폼을 사용하여 Windows 가상 머신 만들기
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/vm-simple-windows/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.compute/vm-simple-windows/azuredeploy.json":::
 
@@ -61,7 +61,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - **리소스 그룹**: 드롭 다운에서 기존의 리소스 그룹을 선택하거나 **새로 만들기** 를 선택하고 리소스 그룹의 고유한 이름을 입력한 다음, **확인** 을 클릭합니다.
     - **위치**: 위치를 선택합니다.  예: **미국 중부**
     - **관리 사용자 이름**: *azureuser* 와 같은 사용자 이름을 제공합니다.
-    - **관리자 암호**: 관리자 계정에 사용할 암호를 제공합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+    - **관리자 암호**: 관리자 계정에 사용할 암호를 제공합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
     - **DNS 레이블 접두사**: DNS 레이블의 일부로 사용할 고유 식별자를 입력합니다.
     - **Windows OS 버전**: VM에서 실행하려는 Windows 버전을 선택합니다.
     - **VM 크기**: VM에 사용할 [크기](../sizes.md)를 선택합니다.

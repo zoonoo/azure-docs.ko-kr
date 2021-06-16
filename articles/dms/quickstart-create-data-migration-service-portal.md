@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.openlocfilehash: 8a500104a0273b9e131815c4dc832bd33729cd51
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 267857df03bb85ad8455979919e3b1e267a9e127
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566594"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586067"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
 
@@ -90,6 +90,5 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 ## <a name="next-steps"></a>다음 단계
 
 * [SQL Server에서 Azure SQL Database로 오프라인 마이그레이션](tutorial-sql-server-to-azure-sql.md)
-* [SQL Server에서 Azure SQL Database로 온라인 마이그레이션](./tutorial-sql-server-to-azure-sql.md)
 * [SQL Server를 Azure SQL Managed Instance로 오프라인 마이그레이션](tutorial-sql-server-to-managed-instance.md)
 * [SQL Server를 Azure SQL Managed Instance로 온라인 마이그레이션](tutorial-sql-server-managed-instance-online.md)

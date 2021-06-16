@@ -4,20 +4,20 @@ titleSuffix: ''
 description: Azure SQL Database 및 Azure Synapse Analytics에서 사용되는 논리 SQL 서버 및 이러한 서버를 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: c76d3ae78bf2b9b4a71d9520f7f1c6c2c322483b
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: dd79dcfd70c38179ca244760bbf3f39b239f9b07
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107784518"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694392"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>Azure SQL Database 및 Azure Synapse에서 논리 SQL 서버란?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

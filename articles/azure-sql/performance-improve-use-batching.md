@@ -3,20 +3,20 @@ title: 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용�
 description: 이 토픽에서는 데이터베이스 작업을 일괄 처리하면 Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션의 속도와 스케일링 성능이 대폭 향상된다는 증거를 제공합니다. 해당 일괄 처리 기법은 SQL 데이터베이스에 적용되지만, 이 문서는 Azure에 중점을 두었습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: genemi
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: 7f45e7d1515f0d6fc4467b36d95242ef8697c75d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e78f6762e3eb94e010909941cc84d19a37f3afc4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641394"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110691353"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>일괄 처리를 사용하여 Azure SQL Database 및 Azure SQL Managed Instance 애플리케이션 성능을 개선하는 방법
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]

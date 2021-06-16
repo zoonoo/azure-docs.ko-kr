@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.openlocfilehash: 674f267d3d99dd22c1ae06b6d32587761d5983ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4638139b6cc57e18b11382341b291a13b6c558c0
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93124920"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540066"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>상업용 마켓플레이스의 Azure AD 및 거래 가능한 SaaS 제품
 
@@ -68,7 +68,7 @@ Azure AD는 상업용 마켓플레이스 솔루션의 원활한 구매, 처리 �
 | 프로세스 단계 | 게시자 작업 | 게시자에 대한 권장 또는 필수 사항 |
 | ------------ | ------------- | ------------- |
 | 5. 게시자는 SaaS 처리 API를 통해 SaaS 애플리케이션 구독을 관리합니다. | [SaaS 처리 API](./partner-center-portal/pc-saas-fulfillment-api-v2.md)를 통해 구독 변경 및 기타 관리 작업을 처리합니다.<br><br>이 단계에서는 프로세스 3 단계에서 설명한 대로 액세스 토큰이 필요합니다. | 필수 |
-| 6. 계량 가격 책정을 사용하는 경우 게시자는 사용량 이벤트를 계량 서비스 API로 내보냅니다. | SaaS 앱이 사용량 기반 청구 기능을 제공하는 경우 [마켓플레이스 계량 서비스 API](./partner-center-portal/marketplace-metering-service-apis.md)를 통해 사용량을 보고합니다.<br><br>이 단계에서는 3 단계에서 설명한 대로 액세스 토큰이 필요합니다. | 계량 시 필요 |
+| 6. 계량 가격 책정을 사용하는 경우 게시자는 사용량 이벤트를 계량 서비스 API로 내보냅니다. | SaaS 앱이 사용량 기반 청구 기능을 제공하는 경우 [마켓플레이스 계량 서비스 API](marketplace-metering-service-apis.md)를 통해 사용량을 보고합니다.<br><br>이 단계에서는 3 단계에서 설명한 대로 액세스 토큰이 필요합니다. | 계량 시 필요 |
 ||||
 
 ## <a name="process-steps-for-user-management"></a>사용자 관리를 위한 프로세스 단계

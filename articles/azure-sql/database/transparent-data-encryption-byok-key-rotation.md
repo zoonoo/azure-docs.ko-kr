@@ -5,19 +5,19 @@ description: PowerShell 및 Azure CLI를 사용하여 Azure SQL Database 및 Azu
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 67bcd8597314530f26481ef840644ffbc056b033
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 9c43cb7bb60b758230664571fd7d7e592009fff2
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107777566"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667189"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>TDE(투명한 데이터 암호화) 보호기 회전
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "107777566"
 > [!IMPORTANT]
 > 롤오버 후 키의 이전 버전은 삭제하지 마세요. 키가 롤오버될 때 구 데이터베이스 백업 같은 일부 데이터는 이전 키로 계속 암호화되어 있습니다.
 
-## <a name="prerequisites"></a>필수 요건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 이 방법 가이드에서는 이미 Azure SQL Database나 Azure Synapse Analytics에 대해 Azure Key Vault의 키를 TDE 보호기로 사용하고 있다고 가정합니다. [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-overview.md)를 참조하세요.
 - Azure PowerShell이 설치되어 작동해야 합니다.

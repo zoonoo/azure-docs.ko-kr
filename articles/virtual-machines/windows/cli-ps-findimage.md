@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/17/2021
 ms.author: cynthn
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: 282eaa6e966ff458dfb1dfdd32ef6ec1f2cdc151
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.custom: contperf-fy21q3, devx-track-azurepowershell
+ms.openlocfilehash: e3f49268b11d57ccabccd7c14ccc244103d1db86
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106443749"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670240"
 ---
 # <a name="find-and-use-azure-marketplace-vm-images-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace VM 이미지 찾기 및 사용
 

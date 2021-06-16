@@ -4,20 +4,20 @@ description: Go를 사용하여 Azure SQL Database 또는 Azure SQL Managed Inst
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: sqldbrb=2
 ms.devlang: go
 ms.topic: quickstart
-author: David-Engel
-ms.author: sstein
-ms.reviewer: MightyPen
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 04/14/2021
-ms.openlocfilehash: 1a479572ba8dbd68ccc072fce32446abcc9b873c
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: d8ca06aaf059b4ff9f63b0561d847802ac5a2f4c
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517783"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694622"
 ---
 # <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>빠른 시작: Golang을 사용하여 Azure SQL Database 또는 Azure SQL Managed Instance의 데이터베이스 쿼리
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
