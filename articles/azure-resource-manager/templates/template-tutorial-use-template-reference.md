@@ -6,12 +6,12 @@ ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 6f9a43638c3cf082a488726aea0877c1f92b934e
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 9e5e64358a248f1796f30aafadc65a7d3b4bdbde
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736760"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027104"
 ---
 # <a name="tutorial-utilize-the-arm-template-reference"></a>자습서: ARM 템플릿 참조 활용
 
@@ -32,7 +32,7 @@ ms.locfileid: "108736760"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서를 완료하려면 다음이 필요합니다.
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
-[Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 빠른 시작에서 사용되는 템플릿은 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/101-storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
+[Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)은 ARM 템플릿용 리포지토리입니다. 템플릿을 처음부터 새로 만드는 대신 샘플 템플릿을 찾아서 사용자 지정할 수 있습니다. 이 빠른 시작에서 사용되는 템플릿은 [표준 스토리지 계정 만들기](https://azure.microsoft.com/resources/templates/storage-account-create/)라고 합니다. 이 템플릿은 Azure Storage 계정 리소스를 정의합니다.
 
 1. Visual Studio Code에서 **파일** > **파일 열기** 를 차례로 선택합니다.
 1. **파일 이름** 에서 다음 URL을 붙여넣습니다.

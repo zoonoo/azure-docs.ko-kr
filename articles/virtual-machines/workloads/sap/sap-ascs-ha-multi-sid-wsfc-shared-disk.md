@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: radeltch
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92d881a85f5719e15db6fe24b80deed3b3d3fe35
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
+ms.openlocfilehash: 605f393fb5071e29748d45e2c544e65ee6242504
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102504442"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676079"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성
 
@@ -43,7 +43,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 부하 분산 장치 제한에 대한 자세한 내용은 [네트워킹 제한 - Azure Resource Manager][networking-limits-azure-resource-manager]에서 "부하 분산 장치당 프라이빗 프런트 엔드 IP" 섹션을 참조하세요.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.  
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 

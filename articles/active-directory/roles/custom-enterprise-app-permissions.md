@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bc3db3de91c9fbf059c56fb1f2770381265d82de
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 46d1a0029607767ac3d7c0abbfe3a318b04aebda
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110090644"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790803"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Azure Active Directory의 사용자 지정 역할에 대한 엔터프라이즈 애플리케이션 권한
 
@@ -119,52 +119,53 @@ UI를 통해 작업, 스키마 또는 자격 증명 관리와 같은 쓰기 작�
 
 ## <a name="full-list-of-permissions"></a>전체 권한 목록
 
-사용 권한 | 설명
----------- | -----------
-microsoft.directory/applicationPolicies/allProperties/read | 애플리케이션 정책의 모든 속성을 읽습니다.
-microsoft.directory/applicationPolicies/allProperties/update | 애플리케이션 정책의 모든 속성을 업데이트합니다.
-microsoft.directory/applicationPolicies/basic/update | 애플리케이션 정책의 표준 속성을 업데이트합니다.
-microsoft.directory/applicationPolicies/create | 애플리케이션 정책을 만듭니다.
-microsoft.directory/applicationPolicies/createAsOwner | 애플리케이션 정책을 만듭니다. 작성자가 첫 번째 소유자로 추가됩니다.
-microsoft.directory/applicationPolicies/delete | 애플리케이션 정책을 삭제합니다.
-microsoft.directory/applicationPolicies/owners/read | 애플리케이션 정책의 소유자를 읽습니다.
-microsoft.directory/applicationPolicies/owners/update | 애플리케이션 정책의 소유자 속성을 업데이트합니다.
-microsoft.directory/applicationPolicies/policyAppliedTo/read | 개체 목록에 적용된 애플리케이션 정책을 읽습니다.
-microsoft.directory/applicationPolicies/standard/read | 애플리케이션 정책의 표준 속성을 읽습니다.
-microsoft.directory/servicePrincipals/allProperties/allTasks | Azure Active Directory에서 servicePrincipals를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다.
-microsoft.directory/servicePrincipals/allProperties/read | servicePrincipals의 모든 속성을 읽습니다.
-microsoft.directory/servicePrincipals/allProperties/update | servicePrincipals의 모든 속성을 업데이트합니다.
-microsoft.directory/servicePrincipals/appRoleAssignedTo/read | 서비스 주체 역할 할당을 읽습니다.
-microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 서비스 주체 역할 할당을 업데이트합니다.
-microsoft.directory/servicePrincipals/appRoleAssignments/read | 서비스 주체에 할당된 역할 할당을 읽습니다.
-microsoft.directory/servicePrincipals/audience/update | 서비스 주체의 대상 그룹 속성을 업데이트합니다.
-microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성을 업데이트합니다.
-microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성을 업데이트합니다.
-microsoft.directory/servicePrincipals/create | 서비스 주체를 만듭니다.
-microsoft.directory/servicePrincipals/createAsOwner | 서비스 주체를 만듭니다. 작성자가 첫 번째 소유자로 추가됩니다.
-microsoft.directory/servicePrincipals/credentials/update | 서비스 주체의 자격 증명 속성을 업데이트합니다.
-microsoft.directory/servicePrincipals/delete | 서비스 주체를 삭제합니다.
-microsoft.directory/servicePrincipals/disable | 서비스 주체를 사용하지 않도록 설정합니다.
-microsoft.directory/servicePrincipals/enable | 서비스 주체를 사용하도록 설정합니다.
-microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | 서비스 주체의 암호 Single Sign-On 자격 증명을 읽습니다.
-microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | 서비스 주체의 암호 Single Sign-On 자격 증명을 관리합니다.
-microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | 서비스 주체의 위임된 권한 부여를 읽습니다.
-microsoft.directory/servicePrincipals/owners/read | 서비스 주체의 소유자를 읽습니다.
-microsoft.directory/servicePrincipals/owners/update | 서비스 주체의 소유자를 업데이트합니다.
-microsoft.directory/servicePrincipals/permissions/update |  
-microsoft.directory/servicePrincipals/policies/read | 서비스 주체의 정책을 읽습니다.
-microsoft.directory/servicePrincipals/policies/update | 서비스 주체의 정책을 업데이트합니다.
-microsoft.directory/servicePrincipals/standard/read | 서비스 주체의 표준 속성을 읽습니다.
-microsoft.directory/servicePrincipals/synchronization/standard/read | 서비스 주체와 연결된 프로비저닝 설정을 읽습니다.
-microsoft.directory/servicePrincipals/tag/update | 서비스 주체의 태그 속성을 업데이트합니다.
-microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션을 인스턴스화합니다.
-microsoft.directory/auditLogs/allProperties/read | 감사 로그를 읽습니다.
-microsoft.directory/signInReports/allProperties/read | 로그인 보고서를 읽습니다.
-microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정을 읽습니다.
-microsoft.directory/servicePrincipals/synchronizationJobs/manage | 서비스 주체 리소스에 대한 작업 동기화의 모든 측면을 관리합니다.
-microsoft.directory/servicePrincipals/synchronization/standard/read | 서비스 주체와 연결된 프로비저닝 설정을 읽습니다.
-microsoft.directory/servicePrincipals/synchronizationSchema/manage | 서비스 주체 리소스에 대한 스키마 동기화의 모든 측면을 관리합니다.
-microsoft.directory/provisioningLogs/allProperties/read | 프로비저닝 로그의 모든 속성을 읽습니다.
+> [!div class="mx-tableFixed"]
+> | 사용 권한 | 설명 |
+> | ---------- | ----------- |
+> | microsoft.directory/applicationPolicies/allProperties/read | 애플리케이션 정책의 모든 속성을 읽습니다. |
+> | microsoft.directory/applicationPolicies/allProperties/update | 애플리케이션 정책의 모든 속성을 업데이트합니다. |
+> | microsoft.directory/applicationPolicies/basic/update | 애플리케이션 정책의 표준 속성을 업데이트합니다. |
+> | microsoft.directory/applicationPolicies/create | 애플리케이션 정책을 만듭니다. |
+> | microsoft.directory/applicationPolicies/createAsOwner | 애플리케이션 정책을 만듭니다. 작성자가 첫 번째 소유자로 추가됩니다. |
+> | microsoft.directory/applicationPolicies/delete | 애플리케이션 정책을 삭제합니다. |
+> | microsoft.directory/applicationPolicies/owners/read | 애플리케이션 정책의 소유자를 읽습니다. |
+> | microsoft.directory/applicationPolicies/owners/update | 애플리케이션 정책의 소유자 속성을 업데이트합니다. |
+> | microsoft.directory/applicationPolicies/policyAppliedTo/read | 개체 목록에 적용된 애플리케이션 정책을 읽습니다. |
+> | microsoft.directory/applicationPolicies/standard/read | 애플리케이션 정책의 표준 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/allProperties/allTasks | Azure Active Directory에서 servicePrincipals를 만들고 삭제하고, 모든 속성을 읽고 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/allProperties/read | servicePrincipals의 모든 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/allProperties/update | servicePrincipals의 모든 속성을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | 서비스 주체 역할 할당을 읽습니다. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | 서비스 주체 역할 할당을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/appRoleAssignments/read | 서비스 주체에 할당된 역할 할당을 읽습니다. |
+> | microsoft.directory/servicePrincipals/audience/update | 서비스 주체의 대상 그룹 속성을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/authentication/update | 서비스 주체의 인증 속성을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/basic/update | 서비스 주체의 기본 속성을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/create | 서비스 주체를 만듭니다. |
+> | microsoft.directory/servicePrincipals/createAsOwner | 서비스 주체를 만듭니다. 작성자가 첫 번째 소유자로 추가됩니다. |
+> | microsoft.directory/servicePrincipals/credentials/update | 서비스 주체의 자격 증명 속성을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/delete | 서비스 주체를 삭제합니다. |
+> | microsoft.directory/servicePrincipals/disable | 서비스 주체를 사용하지 않도록 설정합니다. |
+> | microsoft.directory/servicePrincipals/enable | 서비스 주체를 사용하도록 설정합니다. |
+> | microsoft.directory/servicePrincipals/getPasswordSingleSignOnCredentials | 서비스 주체의 암호 Single Sign-On 자격 증명을 읽습니다. |
+> | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | 서비스 주체의 암호 Single Sign-On 자격 증명을 관리합니다. |
+> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/read | 서비스 주체의 위임된 권한 부여를 읽습니다. |
+> | microsoft.directory/servicePrincipals/owners/read | 서비스 주체의 소유자를 읽습니다. |
+> | microsoft.directory/servicePrincipals/owners/update | 서비스 주체의 소유자를 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/permissions/update |  |
+> | microsoft.directory/servicePrincipals/policies/read | 서비스 주체의 정책을 읽습니다. |
+> | microsoft.directory/servicePrincipals/policies/update | 서비스 주체의 정책을 업데이트합니다. |
+> | microsoft.directory/servicePrincipals/standard/read | 서비스 주체의 표준 속성을 읽습니다. |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | 서비스 주체와 연결된 프로비저닝 설정을 읽습니다. |
+> | microsoft.directory/servicePrincipals/tag/update | 서비스 주체의 태그 속성을 업데이트합니다. |
+> | microsoft.directory/applicationTemplates/instantiate | 애플리케이션 템플릿에서 갤러리 애플리케이션을 인스턴스화합니다. |
+> | microsoft.directory/auditLogs/allProperties/read | 감사 로그를 읽습니다. |
+> | microsoft.directory/signInReports/allProperties/read | 로그인 보고서를 읽습니다. |
+> | microsoft.directory/applications/synchronization/standard/read | 애플리케이션 개체와 연결된 프로비저닝 설정을 읽습니다. |
+> | microsoft.directory/servicePrincipals/synchronizationJobs/manage | 서비스 주체 리소스에 대한 작업 동기화의 모든 측면을 관리합니다. |
+> | microsoft.directory/servicePrincipals/synchronization/standard/read | 서비스 주체와 연결된 프로비저닝 설정을 읽습니다. |
+> | microsoft.directory/servicePrincipals/synchronizationSchema/manage | 서비스 주체 리소스에 대한 스키마 동기화의 모든 측면을 관리합니다. |
+> | microsoft.directory/provisioningLogs/allProperties/read | 프로비저닝 로그의 모든 속성을 읽습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

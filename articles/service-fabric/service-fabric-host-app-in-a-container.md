@@ -3,12 +3,13 @@ title: Azure Service Fabric에 컨테이너의 .NET 앱 배포
 description: Visual Studio를 사용하여 기존.NET 애플리케이션을 컨테이너화하고 Service Fabric에서 로컬로 컨테이너를 디버그하는 방법에 대해 알아봅니다. 컨테이너화된 애플리케이션을 Azure 컨테이너 레지스트리에 푸시하고 Service Fabric 클러스터에 배포합니다. Azure에 배포하는 경우 애플리케이션은 Azure SQL DB를 사용하여 데이터를 유지합니다.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: 7930651a0faa5f37336c15557e2a0f068d613011
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b0e75d4054bc814c3e826db4519f9e882964ef4e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822132"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677373"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너로 .NET 애플리케이션 배포
 

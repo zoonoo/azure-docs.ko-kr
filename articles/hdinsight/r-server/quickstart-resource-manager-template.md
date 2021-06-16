@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 68136a315e230cb4be9c35b2c78c317e7b3b0a2a
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 9ead752258596e9beb2bc112296d9275092ea8bb
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751350"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556823"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: Azure HDInsight에서 ARM 템플릿을 사용하여 ML Services 클러스터 만들기
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/hdinsight-rserver/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-rserver/azuredeploy.json":::
 

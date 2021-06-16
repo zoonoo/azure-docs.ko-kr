@@ -5,16 +5,15 @@ author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 45c52e141ed2d93f89c9d7c1426a9d7cbbbd47f5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mimckitt, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 47902f17662dea8205d02e6a49e447b8467c9870
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023931"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673723"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 수정
 
@@ -376,7 +375,7 @@ Azure 플랫폼 이미지를 사용하는 경우 *imageReference* 를 수정하�
 
 사용자 지정 이미지를 사용하는 경우 *imageReference* ID를 업데이트하여 이미지를 업데이트할 수 있습니다(자세한 내용은 [REST API 설명서](/rest/api/compute/virtualmachinescalesets/createorupdate) 참조).
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>확장 집합에 대한 OS 이미지 업데이트
 이전 버전의 Ubuntu LTS 16.04를 실행하는 확장 집합이 있을 수도 있습니다. Ubuntu LTS 16.04의 최신 버전(예: 버전 *16.04.201801090*)으로 업데이트하려고 합니다. 이미지 참조 버전 속성은 목록에 포함되어 있지 않으므로 다음 중 한 가지 명령으로 이러한 속성을 직접 수정할 수 있습니다.

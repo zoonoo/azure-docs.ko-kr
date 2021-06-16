@@ -3,20 +3,20 @@ title: 'PowerShell: SQL Database 및 SQL Server 간 데이터 동기화'
 description: Azure SQL Database와 SQL Server 간에 데이터 동기화를 수행하는 Azure PowerShell 예제 스크립트를 사용합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
-ms.custom: sqldbrb=1
+ms.subservice: sql-data-sync
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: MaraSteiu
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 03/12/2019
-ms.openlocfilehash: 443232bb41ba73b5bd02d45c542e555904f539db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 979d8d72019ab55ad291f5d0540037e5e993ad83
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92792874"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693453"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>PowerShell을 사용하여 SQL Database와 SQL Server 간에 데이터 동기화
 

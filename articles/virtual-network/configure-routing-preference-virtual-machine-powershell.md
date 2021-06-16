@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 8ffa7ef7b3539e3cefc4e2f8621d7c67cd3b56b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ff06237b2baea2fffb0b590540ed4a9349841641
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101672955"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675926"
 ---
 # <a name="configure-routing-preference-for-a-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 VM에 대한 라우팅 기본 설정 구성
 

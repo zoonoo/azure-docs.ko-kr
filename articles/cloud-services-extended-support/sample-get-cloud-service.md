@@ -7,13 +7,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: ''
-ms.openlocfilehash: fc16c9e0d47cfe015f7ec5ceb766053635840abb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d5f9c1ddf282234507369a6ed928d3314cbb6cf4
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821596"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705203"
 ---
 # <a name="retrieve-information-about-your-azure-cloud-service-extended-support-deployments"></a>Azure Cloud Service(추가 지원) 배포에 대한 정보 검색
 

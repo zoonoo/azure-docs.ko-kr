@@ -64,11 +64,13 @@
         - name: 봇 보호 개요
           href: ./ag/bot-protection-overview.md
         - name: FAQ
-          href: ./ag/application-gateway-waf-faq.md
+          href: ./ag/application-gateway-waf-faq.yml
     - name: Front Door
       items:
         - name: 튜닝
           href: ./afds/waf-front-door-tuning.md
+        - name: 관리 규칙
+          href: ./afds/waf-front-door-drs.md
         - name: 사용자 지정 규칙
           href: ./afds/waf-front-door-custom-rules.md
         - name: 제외 목록
@@ -78,7 +80,7 @@
         - name: 지역 필터링
           href: ./afds/waf-front-door-geo-filtering.md
         - name: FAQ
-          href: ./afds/waf-faq.md
+          href: ./afds/waf-faq.yml
     - name: 보안
       items:
         - name: 보안 기준
@@ -184,7 +186,7 @@
 - name: 리소스
   items:
     - name: 작성자 템플릿
-      href: ../azure-resource-manager/templates/template-syntax.md
+      href: ../azure-resource-manager/templates/syntax.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿

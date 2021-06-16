@@ -3,12 +3,12 @@ title: 클라우드에 이벤트 기반 비디오 녹화 및 클라우드에서 
 description: 이 자습서에서는 Azure Video Analyzer를 사용하여 이벤트 기반 비디오를 클라우드에 녹화하고 클라우드에서 이를 재생하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 04/13/2021
-ms.openlocfilehash: 05c28fbc3b410f792d10adf7e59e43f070d7d57a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6ecbaf794530e80837c2d2a5f9f3fca11e3c93ae
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384270"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565665"
 ---
 # <a name="tutorial-event-based-video-recording-and-playback"></a>자습서: 이벤트 기반 비디오 녹화 및 재생
 
@@ -355,17 +355,15 @@ applicationProperties의 subject 섹션은 이 메시지를 생성한 라이브 
 
 이 이벤트는 기록이 중지되었음을 나타냅니다. applicationProperties의 subject 섹션은 이 메시지를 생성한 라이브 파이프라인의 비디오 싱크 노드를 참조합니다. body 섹션에는 출력 위치에 대한 정보가 포함됩니다. 여기서는 비디오가 녹화되는 Video Analyzer 리소스의 이름입니다.
 
-## <a name="video-analyzer-video-resource"></a>Video Analyzer 비디오 리소스
+## <a name="playing-back-the-recording"></a>녹화본 재생
 
 Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라인에서 만든 Video Analyzer 비디오 리소스를 검사할 수 있습니다.
 1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 1. 구독에 있는 리소스 중에서 Video Analyzer 계정을 찾아 계정 창을 엽니다.
 1. **비디오 분석기** 목록에서 **비디오** 를 선택합니다.
-
-    <!--TODO: add image -- ![Video Analyzers videos]() ./media/event-based-video-recording-tutorial/videos.png -->
 1. 이름이 `sample-evr-video`인 비디오가 나열됩니다. 이 이름은 파이프라인 토폴로지 파일에서 선택한 이름입니다.
 1. 비디오를 선택합니다.
-1. 비디오 세부 정보 페이지에서 재생 옵션을 선택합니다. <!-- TODO: fix this-->
+1. 비디오 세부 정보 페이지가 열리고 재생이 자동으로 시작됩니다.
 
     <!--TODO: add image -- ![Video playback]() TODO: new screenshot is needed here -->
 

@@ -3,12 +3,13 @@ title: '빠른 시작: PowerShell을 사용하여 이벤트 허브 만들기 - A
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 이벤트 허브를 만든 다음, .NET 표준 SDK를 사용하여 이벤트를 수신하는 방법을 설명합니다.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: be2761bedd3198d25cb279e6a8ff188db6a51de2
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 81181dd7b9167c76e167e781bc6aa6f277125953
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107873778"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695897"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 이벤트 허브 만들기
 

@@ -1,21 +1,21 @@
 ---
 title: Azure Time Series Insights 데이터 참조 모니터링 | Microsoft Docs
 description: Azure Time Series Insights 모니터링에 대한 참조 설명서입니다.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.custom: lyrana
-ms.openlocfilehash: 20d376ee501edf16711617847c685dfd531f2c80
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: 52f2ea8b88bb7f83a3a897d101030d134749fc1a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504586"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110792052"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Azure Time Series Insights 데이터 참조 모니터링
 
@@ -25,7 +25,6 @@ Azure Time Series Insights 환경에서 Azure Monitor가 수집한 데이터 및
 
 이 섹션에는 Azure Time Series Insights에 대해 수집되는 모든 자동 수집 플랫폼 메트릭이 나열되어 있습니다. Azure Time Series Insights 포함하여 모든 Azure Monitor 지원 메트릭의 목록은 [Azure Monitor 지원 메트릭](../azure-monitor/essentials/metrics-supported.md)을 참조하세요.
 이러한 메트릭에 대한 리소스 공급자는 [Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) 및 [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments)입니다.
-
 
 ### <a name="ingress"></a>수신
 
@@ -55,6 +54,7 @@ Azure Time Series Insights 환경에서 Azure Monitor가 수집한 데이터 및
 | 수신 | TSIIngress | 수신 범주는 수신 파이프라인에서 발생하는 오류를 추적합니다. 이 범주에는 이벤트를 받을 때 발생하는 오류(예: 이벤트 원본에 연결하지 못함) 및 이벤트를 처리할 때 발생하는 오류(예: 이벤트 페이로드를 구문 분석할 때 발생하는 오류)가 포함됩니다. |
 
 ## <a name="schemas"></a>스키마
+
 Azure Time Series Insights에서 다음 스키마를 사용하고 있습니다.
 
 ### <a name="tsiingress-table"></a>TSIIngress 테이블

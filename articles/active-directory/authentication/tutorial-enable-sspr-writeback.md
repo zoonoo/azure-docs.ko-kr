@@ -11,16 +11,16 @@ author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 1572b0a9822f340887c512c5cc20448fe0729109
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: e6d89bdfca268a02c1f58bdceb4e4485dc3851a6
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110461727"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438381"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>자습서: 온-프레미스 환경에 Azure Active Directory 셀프 서비스 암호 재설정 쓰기 저장 사용
 
-Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하면 웹 브라우저를 사용하여 암호를 업데이트하거나 계정 잠금을 해제할 수 있습니다. Azure AD가 온-프레미스 AD DS(Active Directory Domain Services) 환경에 연결된 하이브리드 환경에서는 이 시나리오로 인해 두 디렉터리 간에 암호가 달라질 수 있습니다.
+Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사용하면 웹 브라우저를 사용하여 암호를 업데이트하거나 계정 잠금을 해제할 수 있습니다. [Azure AD에서 SSPR을 사용하도록 설정하고 구성하는 방법](https://www.youtube.com/watch?v=rA8TvhNcCvQ)에 대해 이 비디오를 권장합니다. Azure AD가 온-프레미스 AD DS(Active Directory Domain Services) 환경에 연결된 하이브리드 환경에서는 이 시나리오로 인해 두 디렉터리 간에 암호가 달라질 수 있습니다.
 
 비밀번호 쓰기 저장은 Azure AD의 암호 변경 내용을 온-프레미스 AD DS 환경으로 다시 동기화하는 데 사용할 수 있습니다. Azure AD Connect는 이러한 암호 변경 내용을 Azure AD에서 기존 온-프레미스 디렉터리로 다시 보내는 보안 메커니즘을 제공합니다.
 
@@ -36,7 +36,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 > * Azure AD Connect에서 비밀번호 쓰기 저장 옵션 사용
 > * Azure AD SSPR에서 비밀번호 쓰기 저장 사용
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 

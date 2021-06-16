@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/30/2021
-ms.openlocfilehash: 8e081257d70c9bc9c9f75df18b30f8dcf119e48e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: aa408d0ae548e9d532f0e26562070847c0cc38c8
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107763346"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695650"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 ID를 사용하여 Azure 리소스에 대한 액세스 인증
 

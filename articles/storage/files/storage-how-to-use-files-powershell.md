@@ -7,12 +7,13 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 8b4bd9ece5f010f1294356ad4673543834e5076a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 855ffcaf0a3e48e2b33973b230ca02cbf369e526
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94626914"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110669862"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure 파일 공유 만들기 및 관리 
 이 가이드에서는 PowerShell을 사용하여 [Azure 파일 공유](storage-files-introduction.md)로 작업하는 기본 사항을 설명합니다. Azure 파일 공유는 다른 파일 공유와 유사하지만, 클라우드에 저장되고 Azure Platform에서 지원합니다. Azure 파일 공유는 업계 표준 SMB(서버 메시지 블록) 프로토콜, NFS(네트워크 파일 시스템) 프로토콜(미리 보기)을 지원하고 여러 머신, 애플리케이션 및 인스턴스에서 파일 공유가 가능하도록 합니다. 

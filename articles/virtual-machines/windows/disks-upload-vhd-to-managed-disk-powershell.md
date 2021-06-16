@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 675e99797a507cdcf96ad33ab13c4f386f6f372c
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 2dfd3df6cdfa7ce42194821dcf4891d82f6042db
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169031"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668919"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Azure에 VHD를 업로드하거나 관리 디스크를 다른 지역에 복사 - Azure PowerShell
 
@@ -24,13 +25,13 @@ ms.locfileid: "106169031"
 - 최신 [AzCopy v10 버전](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy)을 다운로드합니다.
 - [Azure PowerShell 모듈을 설치합니다](/powershell/azure/install-Az-ps).
 - 온-프레미스에서 VHD를 업로드하려는 경우: [Azure를 위해 준비](prepare-for-upload-vhd-image.md)된 고정된 크기의 VHD가 로컬에 저장됩니다.
-- 또는 복사 작업을 수행하려는 경우 Azure의 관리 디스크입니다.
+- 또는 복사 작업을 수행하려는 경우 Azure의 관리 디스크
 
 ## <a name="getting-started"></a>시작
 
-GUI를 통해 디스크를 업로드하는 것을 선호하는 경우 Azure Storage Explorer를 사용하여 해당 작업을 수행할 수 있습니다. 자세한 내용은 [Azure Storage Explorer를 사용하여 Azure 관리 디스크 관리](../disks-use-storage-explorer-managed-disks.md)를 참조하세요.
+GUI를 통해 디스크를 업로드하려는 경우 Azure Storage Explorer를 사용하여 업로드할 수 있습니다. 자세한 내용은 [Azure Storage Explorer를 사용하여 Azure 관리 디스크 관리](../disks-use-storage-explorer-managed-disks.md)를 참조하세요.
 
-Azure에 VHD를 업로드하려면 해당 업로드 프로세스에 대해 구성된 빈 관리 디스크를 만들어야 합니다. 빈 관리 디스크를 만들기 전에 이러한 디스크에 대해 알아야 하는 추가 정보가 있습니다.
+Azure에 VHD를 업로드하려면 이 업로드 프로세스를 위해 구성된 빈 관리 디스크를 만들어야 합니다. 빈 관리 디스크를 만들기 전에 디스크에 대해 알고 있어야 하는 몇 가지 추가 정보가 있습니다.
 
 이러한 종류의 관리 디스크에는 두 가지 고유한 상태가 있습니다.
 
@@ -38,7 +39,7 @@ Azure에 VHD를 업로드하려면 해당 업로드 프로세스에 대해 구�
 - ActiveUpload는 디스크가 업로드를 받을 준비가 되었으며 SAS가 생성되었음을 의미합니다.
 
 > [!NOTE]
-> 이러한 상태 중 하나에서 관리 디스크는 실제 디스크 유형과 상관없이 [표준 HDD 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)에 따라 청구됩니다. 예를 들어 P10은 S10으로 청구됩니다. 이는 디스크를 VM에 연결하는 데 필요한 관리 디스크에 `revoke-access`가 호출될 때까지 true입니다.
+> 두 상태 중 하나일 때는 실제 디스크 유형과 관계없이 [표준 HDD 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)에 따라 관리 디스크 요금이 청구됩니다. 예를 들어 P10 요금은 S10으로 청구됩니다. 이 요금은 디스크를 VM에 연결하는 데 필요한 `revoke-access`가 관리 디스크에서 호출될 때까지 적용됩니다.
 
 ## <a name="create-an-empty-managed-disk"></a>빈 관리 디스크 만들기
 
@@ -73,11 +74,11 @@ $disk = Get-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<your
 
 ## <a name="upload-a-vhd"></a>VHD 업로드
 
-이제 빈 관리 디스크에 대한 SAS가 있으므로 이를 사용하여 업로드 명령의 대상으로 관리 디스크를 설정할 수 있습니다.
+이제 빈 관리 디스크의 SAS가 있으므로 SAS를 사용하여 해당 관리 디스크를 업로드 명령의 대상으로 설정할 수 있습니다.
 
-AzCopy v10을 사용하여 생성한 SAS URI를 지정하고 로컬 VHD 파일을 관리 디스크에 업로드합니다.
+AzCopy v10에서 생성한 SAS URI를 지정하여 관리 디스크에 로컬 VHD 파일을 업로드합니다.
 
-해당 업로드는 동등한 [표준 HDD](../disks-types.md#standard-hdd)와 처리량이 동일합니다. 예를 들어 S4와 크기가 같은 경우 처리량은 최대 60MiB/s입니다. 그러나 S70과 크기가 같은 경우 처리량은 최대 500MiB/s입니다.
+해당 업로드는 동등한 [표준 HDD](../disks-types.md#standard-hdd)와 처리량이 동일합니다. 예를 들어 S4와 크기가 같은 경우 처리량은 최대 60MiB/초입니다. 그러나 S70과 크기가 같은 경우 처리량은 최대 500MiB/초입니다.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
@@ -98,7 +99,7 @@ Revoke-AzDiskAccess -ResourceGroupName '<yourresourcegroupname>' -DiskName '<you
 다음 스크립트는 해당 작업을 수행합니다. 이 프로세스는 기존 디스크로 작업하므로 이전에 설명한 단계와 유사하지만 몇 가지 차이점이 있습니다.
 
 > [!IMPORTANT]
-> Azure에서 관리 디스크의 디스크 크기(바이트)를 제공하는 경우 512의 오프셋을 추가해야 합니다. Azure에서 디스크 크기를 반환할 때 바닥글이 생략되기 때문입니다. 이렇게 하지 않으면 복사에 실패합니다. 다음 스크립트는 사용자를 위해 해당 작업을 수행합니다.
+> Azure에서 관리 디스크의 디스크 크기(바이트)를 제공하는 경우 512의 오프셋을 추가해야 합니다. Azure에서 디스크 크기를 반환할 때는 바닥글이 생략되기 때문입니다. 이렇게 하지 않으면 복사에 실패합니다. 다음 스크립트는 사용자를 위해 해당 작업을 수행합니다.
 
 `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>`, `<yourTargetLocationHere>`(위치 값이 uswest2인 예)를 사용자의 값으로 바꾼 다음 관리 디스크를 복사하기 위한 다음 스크립트를 실행합니다.
 

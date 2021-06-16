@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9bd0516889733a666bf15668cffd124dcc468f3e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4be7bc555578c4abeaa65c6433da3e285b9235b2
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100388960"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786568"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>자습서: Bing Maps에서 Azure Maps로 마이그레이션
 
@@ -53,7 +53,7 @@ Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및
 | 자동 제안                           | ✓                  |
 | 방향(트럭 포함)          | ✓                  |
 | 거리 행렬                       | ✓                  |
-| 권한 상승                            | ✓(미리 보기)        |
+| 권한 상승                            | ✓      |
 | 이미지 - 정적 맵                  | ✓                  |
 | 이미지 메타데이터                      | ✓                  |
 | 등시성                            | ✓                  |

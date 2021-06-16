@@ -14,14 +14,13 @@ ms.service: load-balancer
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom:
-- mode-api
-ms.openlocfilehash: 0ddaf0eede59053cd8022fef24d37a37c6d7db5a
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - mode-api
+ms.openlocfilehash: c268fd8f14c1a78a6fa57b2c551cccd196087e90
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107529571"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704778"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 VM 부하를 분산하는 공용 부하 분산 장치 만들기
 

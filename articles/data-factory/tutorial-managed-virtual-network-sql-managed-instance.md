@@ -6,12 +6,12 @@ ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: 8d0abcef8ac5f139ce120443475a67217455b0a8
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 5c9396cdfe8296b4869f6713ff0022bc896dc733
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657438"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957230"
 ---
 # <a name="tutorial-how-to-access-sql-managed-instance-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 Microsoft Azure SQL Managed Instance에 액세스하는 방법
 
@@ -22,9 +22,9 @@ ms.locfileid: "109657438"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Virtual Network**. 가상 네트워크가 없는 경우 [가상 네트워크 만들기](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)를 따라서 가상 네트워크를 만듭니다.
-* **가상 네트워크를 온-프레미스 네트워크로**. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json)사용하여 가상 네트워크와 온-프레미스 네트워크 간에 연결을 만듭니다.
-* **관리형 VNET이 사용하도록 설정된 Data Factory**. Data Factory가 없거나 관리형 VNET을 사용하도록 설정하지 않은 경우 [관리형 VNET을 사용하여 Data Factory 만들기](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private)를 따라서 Data Factory를 만듭니다.
+* **Virtual Network**. 가상 네트워크가 없는 경우 [가상 네트워크 만들기](../virtual-network/quick-create-portal.md)를 따라서 가상 네트워크를 만듭니다.
+* **가상 네트워크를 온-프레미스 네트워크로**. [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [VPN을](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)사용하여 가상 네트워크와 온-프레미스 네트워크 간에 연결을 만듭니다.
+* **관리형 VNET이 사용하도록 설정된 Data Factory**. Data Factory가 없거나 관리형 VNET을 사용하도록 설정하지 않은 경우 [관리형 VNET을 사용하여 Data Factory 만들기](./tutorial-copy-data-portal-private.md)를 따라서 Data Factory를 만듭니다.
 
 ## <a name="create-subnets-for-resources"></a>리소스에 대한 서브넷 만들기
 
@@ -88,7 +88,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
     | 설정 | 값 |
     |:--- |:--- |
-    |이름|**myHealthProbe** 를 입력합니다.|
+    |속성|**myHealthProbe** 를 입력합니다.|
     |프로토콜|**TCP** 를 선택합니다.|
     |포트|22를 입력합니다.|
     |간격|프로브 시도 **간격**(초)으로 **15** 를 입력합니다.|

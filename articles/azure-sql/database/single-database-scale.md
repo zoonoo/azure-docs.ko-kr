@@ -4,19 +4,19 @@ description: 이 문서에서는 Azure SQL Database에서 단일 데이터베이
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1, references_regions
+ms.custom: sqldbrb=1, references_regions, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 04/09/2021
-ms.openlocfilehash: ae1b3cc41d709c28ba517d672eb98cb60a837a8d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 215936e1a3d9b4552747a67ed8d0de9edcc1e969
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779078"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110667141"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 

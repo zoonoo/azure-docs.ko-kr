@@ -3,12 +3,13 @@ title: Linux 클러스터에 대해 디스크 암호화 사용
 description: 이 문서에서는 Azure Resource Manager 및 Azure Key Vault를 사용하여 Linux에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화를 사용하도록 설정하는 방법에 대해 설명합니다.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 826ca54718625fb236f64587b63080cf16aafae4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "78252822"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663570"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Linux에서 Azure Service Fabric 클러스터 노드에 대한 디스크 암호와 사용 
 > [!div class="op_single_selector"]

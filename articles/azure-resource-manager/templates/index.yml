@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 03/03/2021
-  ms.openlocfilehash: 01f89fa12654a949c701d728e23f7ae79e0c69e7
-  ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+  ms.openlocfilehash: b3a8448145a101367a2000e5b16d0ff61b93a0d7
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/26/2021
-  ms.locfileid: "105611959"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111963213"
 landingContent:
 - title: ARM 템플릿 정보
   linkLists:
@@ -25,12 +25,10 @@ landingContent:
     links:
     - text: 템플릿이란?
       url: overview.md
-    - text: Bicep이란?
-      url: bicep-overview.md
   - linkListType: concept
     links:
     - text: 모범 사례
-      url: template-best-practices.md
+      url: ./best-practices.md
     - text: 질문과 대답
       url: frequently-asked-questions.md
     - text: 템플릿 사양
@@ -49,8 +47,6 @@ landingContent:
     links:
     - text: JSON 템플릿 만들기 - VS Code
       url: quickstart-create-templates-use-visual-studio-code.md
-    - text: Bicep 템플릿 만들기 - VS Code
-      url: quickstart-create-bicep-use-visual-studio-code.md
     - text: JSON 템플릿 만들기 - 포털
       url: quickstart-create-templates-use-the-portal.md
     - text: 템플릿 사양 만들기 및 배포
@@ -59,8 +55,6 @@ landingContent:
     links:
     - text: 초급 템플릿 자습서
       url: template-tutorial-create-first-template.md
-    - text: 초급 Bicep 자습서
-      url: bicep-tutorial-create-first-bicep.md
   - linkListType: learn
     links:
     - text: ARM 템플릿을 사용하여 배포
@@ -78,17 +72,17 @@ landingContent:
     - text: 함수 사용
       url: template-functions.md
     - text: 매개 변수 정의
-      url: template-parameters.md
+      url: ./parameters.md
     - text: 변수 정의
-      url: template-variables.md
+      url: ./variables.md
     - text: 리소스 정의
-      url: template-syntax.md#resources
+      url: ./syntax.md#resources
     - text: 출력 정의
-      url: template-outputs.md
+      url: ./outputs.md
   - linkListType: reference
     links:
     - text: 템플릿 파일 구문
-      url: template-syntax.md
+      url: ./syntax.md
     - text: Azure 빠른 시작 템플릿
       url: https://azure.microsoft.com/resources/templates/
 - title: 템플릿 배포
@@ -112,7 +106,7 @@ landingContent:
     - text: Cloud Shell
       url: deploy-cloud-shell.md
     - text: 가상 배포
-      url: template-deploy-what-if.md
+      url: ./deploy-what-if.md
 - title: 범위가 지정된 배포
   linkLists:
   - linkListType: how-to-guide

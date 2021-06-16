@@ -2,14 +2,14 @@
 title: BareMetal 기반 Oracle을 위한 고가용성 및 재해 복구
 description: Azure BareMetal Infrastructure 기반 Oracle을 위한 고가용성 및 재해 복구에 관해 알아봅니다.
 ms.topic: how-to
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/15/2021
-ms.openlocfilehash: ab0337622eaa8c1368760fcbcd28533dacb3adce
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: 3b23774604b5126321d85892647e73118e08260f
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589790"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575618"
 ---
 # <a name="high-availability-and-disaster-recovery-for-oracle-on-baremetal"></a>BareMetal 기반 Oracle을 위한 고가용성 및 재해 복구
 

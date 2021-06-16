@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 2/1/2019
 ms.author: tamram
 ms.reviewer: twooley
-ms.openlocfilehash: 002e8650a5555b70caf09179e03ce1bad1acdef5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9fa64d491a872d830ac57a1d097045d1702dd852
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737543"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111527301"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -109,7 +109,7 @@ touch ~/fuse_connection.cfg
 
 이 파일을 만들고 편집한 후에는 다른 사용자가 읽을 수 없도록 액세스를 제한해야 합니다.
 ```bash
-chmod 600 fuse_connection.cfg
+chmod 600 ~/fuse_connection.cfg
 ```
 
 > [!NOTE]

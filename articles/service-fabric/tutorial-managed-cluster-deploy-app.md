@@ -3,12 +3,13 @@ title: PowerShell을 통해 Service Fabric 관리형 클러스터에 애플리�
 description: 이 자습서에서는 Service Fabric 관리형 클러스터에 연결하고 PowerShell을 통해 애플리케이션을 배포합니다.
 ms.topic: tutorial
 ms.date: 5/10/2021
-ms.openlocfilehash: c51d753f3d0aa5d3c05c66fc45ae653f0bfa8e71
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f9ee801bdddd43563794aee7420ee8ba54f4d1d7
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685426"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110672412"
 ---
 # <a name="tutorial-deploy-an-app-to-a-service-fabric-managed-cluster"></a>자습서: Service Fabric 관리형 클러스터에 앱 배포
 

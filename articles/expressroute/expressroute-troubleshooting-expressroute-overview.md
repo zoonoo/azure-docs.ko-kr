@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 6213e17f1232bd505ba1edf185a851bf669b9809
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: c8a482d71119db391df66bd814ffe8119f61963f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553433"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705991"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. ExpressRoute는 연결 공급자가 일반적으로 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장합니다. ExpressRoute 연결은 일반적으로 다음과 같은 세 가지 고유한 네트워크 영역을 포함합니다.

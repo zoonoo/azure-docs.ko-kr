@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 4b90d02d5cef2e43f08916889cf4ba99bee0160c
-ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
+ms.openlocfilehash: bff4819aa9c70968274df693638fa5cf9f97dbd9
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110190199"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559235"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-hdinsight-kafka/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/hdinsight-kafka/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-kafka/azuredeploy.json":::
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |설명 |
+    |속성 |Description |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
     |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|

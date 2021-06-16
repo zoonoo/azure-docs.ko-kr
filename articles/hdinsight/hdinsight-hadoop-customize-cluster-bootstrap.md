@@ -3,14 +3,14 @@ title: 부트스트랩을 사용하여 Azure HDInsight 클러스터 구성 사�
 description: .NET, PowerShell 및 Resource Manager 템플릿을 사용하여 프로그래밍 방식으로 HDInsight 클러스터 구성을 사용자 지정하는 방법을 알아봅니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 04/01/2020
-ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56f2a49d22fbe1a10f8b59429628c5bc68302f10
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104866525"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701634"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>부트스트랩을 사용하여 HDInsight 클러스터 사용자 지정
 

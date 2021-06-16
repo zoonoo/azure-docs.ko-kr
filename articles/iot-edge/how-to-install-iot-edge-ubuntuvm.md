@@ -7,39 +7,38 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 05/27/2021
 ms.author: pdecarlo
-ms.openlocfilehash: 7fb44b13456598abc7181ba5258ba73ed0512820
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5600702d43d0583324dc9e3b6942318ab52c5cbd
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110058549"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110702878"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
-[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Azure IoT Edge 런타임은 디바이스를 IoT Edge 디바이스로 바꿔줍니다. 런타임은 Raspberry Pi처럼 작은 디바이스 또는 산업용 서버처럼 큰 디바이스에 배포할 수 있습니다. 디바이스가 IoT Edge 런타임을 사용하여 구성되면 클라우드에서 디바이스에 비즈니스 논리를 배포할 수 있습니다.
 
 IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자세한 내용은 [Azure IoT Edge 런타임 및 해당 아키텍처 이해](iot-edge-runtime.md)를 참조하세요.
 
-이 문서에는 미리 제공된 디바이스 연결 문자열을 사용하여 설치 및 구성된 Azure IoT Edge 런타임으로 Ubuntu 18.04 LTS 가상 머신을 배포하는 단계가 나와 있습니다. 배포는 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 프로젝트 리포지토리에서 유지 관리되는 [cloud-init](../virtual-machines/linux/using-cloud-init.md
-) 기반 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 사용하여 수행됩니다.
+이 문서에는 미리 제공된 디바이스 연결 문자열을 사용하여 설치 및 구성된 Azure IoT Edge 런타임으로 Ubuntu 18.04 LTS 가상 머신을 배포하는 단계가 나와 있습니다. 배포는 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 프로젝트 리포지토리에서 유지 관리되는 [cloud-init](../virtual-machines/linux/using-cloud-init.md) 기반 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 사용하여 수행됩니다.
 
 처음 부팅할 때 Ubuntu 18.04 LTS 가상 머신은 [cloud-init를 통해 최신 버전의 Azure IoT Edge 런타임을 설치](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt)합니다. 또한 런타임이 시작되기 전에 제공된 연결 문자열을 설정하여 SSH 또는 원격 데스크톱 세션을 시작할 필요 없이 IoT Edge 디바이스를 쉽게 구성하고 연결할 수 있습니다.
-
->[!NOTE]
->이 문서에 사용된 템플릿은 IoT Edge 버전 1.1을 설치합니다.
 
 ## <a name="deploy-using-deploy-to-azure-button"></a>[Azure에 배포] 단추를 사용하여 배포
 
 [Azure에 배포 단추](../azure-resource-manager/templates/deploy-to-azure-button.md)를 사용하면 GitHub에서 유지 관리되는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 효율적으로 배포할 수 있습니다.  이 섹션에서는 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 프로젝트 리포지토리에 포함된 Azure에 배포 단추를 사용하는 방법을 보여줍니다.  
 
-
 1. iotedge-vm-deploy Azure Resource Manager 템플릿을 사용하여 Azure IoT Edge 지원 Linux VM을 배포합니다.  시작하려면 아래 단추를 클릭합니다.
-
-    [![iotedge-vm-deploy를 위한 Azure에 배포하기 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+   :::moniker range="iotedge-2018-06"
+   [![iotedge-vm-deploy를 위한 Azure에 배포하기 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+   :::moniker-end
+   :::moniker range="iotedge-2020-11"
+   [![iotedge-vm-deploy를 위한 Azure에 배포하기 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2.0%2FedgeDeploy.json)
+   :::moniker-end
 
 1. 새로 시작된 창에서 사용 가능한 양식 필드를 채웁니다.
 
@@ -113,8 +112,8 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
    ```
 
 1. 새 가상 머신을 만듭니다.
-
-    `password`의 **authenticationType** 을 사용하려면 아래 예제를 참조하세요.
+   :::moniker range="iotedge-2018-06"
+   `password`의 **authenticationType** 을 사용하려면 아래 예제를 참조하세요.
 
    ```azurecli-interactive
    az deployment group create \
@@ -127,22 +126,54 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-    SSH 키로 인증하려면 `sshPublicKey`의 **authenticationType** 을 지정한 다음, **adminPasswordOrKey** 매개 변수에서 SSH 키의 값을 제공하면 됩니다.  아래에 예제가 나와 있습니다.
+   SSH 키로 인증하려면 `sshPublicKey`의 **authenticationType** 을 지정한 다음, **adminPasswordOrKey** 매개 변수에서 SSH 키의 값을 제공하면 됩니다.  아래에 예제가 나와 있습니다.
 
-    ```azurecli-interactive
-    #Generate the SSH Key
-    ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
+   ```azurecli-interactive
+   #Generate the SSH Key
+   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
+    
+   #Create a VM using the iotedge-vm-deploy script
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --parameters dnsLabelPrefix='my-edge-vm1' \
+   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters authenticationType='sshPublicKey' \
+   --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
+   ```
+   :::moniker-end
+   :::moniker range="iotedge-2020-11"
+   `password`의 **authenticationType** 을 사용하려면 아래 예제를 참조하세요.
 
-    #Create a VM using the iotedge-vm-deploy script
-    az deployment group create \
-    --resource-group IoTEdgeResources \
-    --template-uri "https://aka.ms/iotedge-vm-deploy" \
-    --parameters dnsLabelPrefix='my-edge-vm1' \
-    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
-    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
-    --parameters authenticationType='sshPublicKey' \
-    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
-    ```
+   ```azurecli-interactive
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+   --parameters dnsLabelPrefix='my-edge-vm1' \
+   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
+   ```
+
+   SSH 키로 인증하려면 `sshPublicKey`의 **authenticationType** 을 지정한 다음, **adminPasswordOrKey** 매개 변수에서 SSH 키의 값을 제공하면 됩니다.  아래에 예제가 나와 있습니다.
+
+   ```azurecli-interactive
+   #Generate the SSH Key
+   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
+    
+   #Create a VM using the iotedge-vm-deploy script
+   az deployment group create \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json" \
+   --parameters dnsLabelPrefix='my-edge-vm1' \
+   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
+   --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters authenticationType='sshPublicKey' \
+   --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
+   ```
+   :::moniker-end
 
 1. 배포가 성공적으로 완료되었는지 확인합니다.  가상 머신 리소스는 선택한 리소스 그룹에 배포되어야 합니다.  머신 이름을 적어 둡니다. 이는 `vm-0000000000000` 형식이어야 합니다. 또한 연결된 **DNS 이름** 을 기록해 둡니다. 형식은 `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com이어야 합니다.
 

@@ -3,20 +3,20 @@ title: Azure Time Series Insights에 Event Hubs 이벤트 원본 추가 | Micros
 description: Azure Time Series Insights 환경에 Azure Event Hubs 이벤트 원본을 추가하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
-ms.reviewer: v-mamcge, jasonh, kfile
+author: tedvilutis
+ms.author: tvilutis
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
-ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5094e91a863c7bee00f47c11695060e35822f1f2
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103461137"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617557"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경에 이벤트 허브 이벤트 원본 추가
 
@@ -76,7 +76,7 @@ ms.locfileid: "103461137"
 
        [![구독 및 이벤트 허브 세부 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/tsi-configure-create-confirm.png#lightbox)
 
-       | 속성 | 설명 |
+       | 속성 | Description |
        | --- | --- |
        | Subscription | 원하는 이벤트 허브 인스턴스 및 네임스페이스가 속한 구독입니다. |
        | 이벤트 허브 네임스페이스 | 원하는 이벤트 허브 인스턴스가 속한 이벤트 허브 네임스페이스입니다. |

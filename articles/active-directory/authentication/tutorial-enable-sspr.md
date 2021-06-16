@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/21/2021
+ms.date: 06/01/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c18dd231a708030e3a454ab8708e3f0f11dbecf
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e000a712e72498c21366b30b0c85e62f957c28c4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107861826"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784818"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>자습서: 사용자가 Azure Active Directory 셀프 서비스 암호 재설정을 사용하여 계정의 잠금을 해제하거나 암호를 다시 설정할 수 있도록 설정
 
@@ -51,7 +51,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)을 사�
 Azure AD를 사용하면 SSPR을 *없음*, *선택된* 사용자 또는 *모든* 사용자에 사용하도록 설정할 수 있습니다. 이 세분화된 기능을 통해 사용자 하위 세트를 선택하여 SSPR 등록 프로세스 및 워크플로를 테스트할 수 있습니다. 프로세스에 익숙하고 요구 사항을 더 광범위한 사용자 세트에 전달하는 데 적절한 경우 SSPR을 사용하도록 설정할 사용자 그룹을 선택할 수 있습니다. 또는 Azure AD 테넌트의 모든 사용자에 대해 SSPR을 사용하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> 현재 Azure Portal을 사용하여 하나의 Azure AD 그룹만 SSPR에 사용하도록 설정할 수 있습니다. 더 광범위한 SSPR 배포의 일환으로 Azure AD에서 중첩 그룹을 지원합니다. 선택한 그룹의 사용자에게 적절한 라이선스가 할당되어 있는지 확인합니다. 현재 이러한 라이선스 요구 사항에 대한 유효성 검사 프로세스가 없습니다.
+> 현재 Azure Portal을 사용하여 하나의 Azure AD 그룹만 SSPR에 사용하도록 설정할 수 있습니다. 더 광범위한 SSPR 배포의 일환으로 Azure AD에서 중첩 그룹을 지원합니다. 
 
 이 자습서에서는 SSPR을 테스트 그룹의 사용자 세트에 대해 설정합니다. *SSPR-Test-Group* 을 사용하고, 필요에 따라 사용자 고유의 Azure AD 그룹을 제공합니다.
 

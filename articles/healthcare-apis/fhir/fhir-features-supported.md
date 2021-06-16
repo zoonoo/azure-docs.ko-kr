@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 4/15/2021
 ms.author: cavoeg
-ms.openlocfilehash: de99d6b5480a8e8262aba9d40826f69862630961
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: 7248ae47d1ced0013559f14f5e5185f25b7d8083
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592990"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077860"
 ---
 # <a name="features"></a>기능
 
@@ -88,7 +88,7 @@ FHIR 서버는 액세스 제어에 [Azure Active Directory](https://azure.micros
 
 ## <a name="service-limits"></a>서비스 제한
 
-* [**요청 단위(RUS)**](../../cosmos-db/concepts-limits.md) - 포털에서 Azure API for FHIR 최대 10,000개까지 구성할 수 있습니다. 최소 400개 또는 40개 CPU/GB 중 더 큰 값이 필요합니다. 10,000개 이상의 RU가 필요한 경우 지원 티켓을 제출하여 이를 늘릴 수 있습니다. 사용 가능한 최대값은 1,000,000입니다.
+* [**요청 단위(RUS)**](../../cosmos-db/concepts-limits.md) - 포털에서 Azure API for FHIR 최대 10,000개까지 구성할 수 있습니다. 최소 400개 또는 40개 CPU/GB 중 더 큰 값이 필요합니다. 10,000개 이상의 RUS가 필요한 경우 지원 티켓을 배치하여 이를 늘릴 수 있습니다. 사용 가능한 최대값은 1,000,000입니다.
 
 * **번들 크기** - 각 번들은 500개 항목으로 제한됩니다.
 
@@ -97,19 +97,6 @@ FHIR 서버는 액세스 제어에 [Azure Active Directory](https://azure.micros
 * **구독 제한** - 기본적으로 각 구독은 최대 10개의 FHIR 서버 인스턴스로 제한됩니다. 구독당 더 많은 인스턴스가 필요한 경우 지원 티켓을 열고 요구 사항에 대한 세부 정보를 제공합니다.
 
 * **동시 연결 및 인스턴스** - 기본적으로 클러스터의 두 인스턴스에 15개의 동시 연결이 있습니다(총 30개의 동시 요청). 더 많은 동시 요청이 필요한 경우 지원 티켓을 열고 요구 사항에 대한 세부 정보를 제공합니다.
-
-## <a name="performance-expectations"></a>성능 기대
-
-시스템의 성능은 CPU 수, 동시 연결 및 수행 중인 작업 유형(Put, Post 등)에 따라 달라집니다. 다음은 구성된 RUS에 따라 예상할 수 있는 몇 가지 일반적인 범위입니다. 일반적으로 성능은 다음과 같이 증가하면서 선형적으로 확장됩니다.
-
-| RUS 수 | Resources/sec |    최대 스토리지(GB)*    |
-|----------|---------------|--------|                 
-| 400      | 5-10          |     10   |
-| 1,000    | 100-150       |      25  |
-| 10000   | 225-400       |      250  |
-| 100,000  | 2,500-4,000   |      2,500  |
-
-참고: Cosmos DB 요구 사항에 따라 스토리지의 GB당 40 RU/s의 최소 처리량 요구 사항이 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

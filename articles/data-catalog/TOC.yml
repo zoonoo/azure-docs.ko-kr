@@ -22,7 +22,7 @@
     - name: Azure 데이터 카탈로그 도입
       href: data-catalog-adopting-data-catalog.md
     - name: FAQ
-      href: data-catalog-frequently-asked-questions.md
+      href: data-catalog-frequently-asked-questions.yml
 - name: 방법 가이드
   items:
     - name: 데이터 원본 등록

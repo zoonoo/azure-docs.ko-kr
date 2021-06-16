@@ -5,16 +5,16 @@ ms.topic: sample
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/08/2020
-ms.openlocfilehash: 6a64ed1d0d7a133930bf48e7d764c8d170d9824a
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 44c1c482a8d2907cd4de435b851ca5d9e8a6432a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383358"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964333"
 ---
 # <a name="resource-manager-template-samples-for-creating-application-insights-resources"></a>Application Insights 리소스 생성을 위한 Resource Manager 템플릿 샘플
 
-이 문서에는 [클래식 Application Insights 리소스](../app/create-new-resource.md) 및 새 [미리 보기 작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 배포하고 구성하기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 [클래식 Application Insights 리소스](../app/create-new-resource.md) 및 새 [미리 보기 작업 영역 기반 Application Insights 리소스](../app/create-workspace-resource.md)를 배포하고 구성하기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

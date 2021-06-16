@@ -3,18 +3,20 @@ title: Azure SQL Database 및 Azure Synapse Analytics의 연결 설정
 description: 이 문서에서는 Azure SQL Database와 Azure Synapse Analytics의 프록시 및 리디렉션 설정과 TLS(전송 계층 보안) 버전 선택에 관해 설명합니다.
 services: sql-database
 ms.service: sql-database
+ms.subservice: connect
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: sstein, vanto
+ms.reviewer: mathoma, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 0c45a48e6cafa722945400554f2f81916da13775
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4de2ad883e0daa4a0be0e1da8060b783af5713ff
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627611"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110699867"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Azure SQL 연결 설정
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

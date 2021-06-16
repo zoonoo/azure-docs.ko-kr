@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: 0f84a9d6be2944f1d8fec656a7cd68c1279a4dab
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 7eadec693c1ec1adee4b6a6dffdf5ce211dfce91
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110486351"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083518"
 ---
 <a name="HOLTop"></a>
 
@@ -126,7 +126,7 @@ OCR 서비스는 이미지에서 보이는 텍스트를 추출하여 문자 스�
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
 > [!NOTE]
-> 로컬 이미지에서 텍스트를 읽을 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) 메서드(예: **readInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js#L503)의 샘플 코드를 참조하세요.
+> 로컬 이미지에서 텍스트를 읽을 수도 있습니다. [ComputerVisionClient](/javascript/api/@azure/cognitiveservices-computervision/computervisionclient) 메서드(예: **readInStream**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js)의 샘플 코드를 참조하세요.
 
 ### <a name="call-the-read-api"></a>읽기 API 호출
 

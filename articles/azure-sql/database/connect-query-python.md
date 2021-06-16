@@ -4,20 +4,20 @@ description: 이 항목에서는 Python을 사용하여 Azure SQL Database의 �
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
-ms.subservice: development
+ms.subservice: connect
 ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 12/19/2020
-ms.openlocfilehash: f21e11e33d3ddf1489dba3419766a8adaa878d5f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d6926994022400ab806a3604186a22f6357eb795
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103491965"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110704539"
 ---
 # <a name="quickstart-use-python-to-query-a-database"></a>빠른 시작: Python을 사용하여 데이터베이스 쿼리
 

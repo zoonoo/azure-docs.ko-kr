@@ -1,16 +1,16 @@
 ---
 author: laujan
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: lajanuar
-ms.openlocfilehash: dfd2b32094aae06675ea8ee9157370f9d2833e91
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: fbf4fc405c92700f993a488d94334338ab2757b4
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107518231"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887506"
 ---
 Form Recognizer는 다음 요구 사항을 충족하는 입력 문서에서 작동합니다.
 

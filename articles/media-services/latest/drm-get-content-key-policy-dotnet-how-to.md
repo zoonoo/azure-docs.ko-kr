@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 71d4b00d3ebb56d72cbb16cd42394c720f29849f
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 373a97f26ee2fd2d448d142c89528576d3495510
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277647"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791795"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>기존 정책에서 서명 키 가져오기
 
@@ -35,7 +35,7 @@ v3 API의 핵심 디자인 원칙 중 하나는 API를 더 안전하게 만드�
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-비밀이 있는 ContentKeyPolicy 예제는 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) 폴더에 있습니다.
+비밀이 있는 ContentKeyPolicy 예제는 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/main/AMSV3Tutorials/EncryptWithDRM) 폴더에 있습니다.
 
 ## <a name="get-contentkeypolicy-with-secrets"></a>비밀이 있는 ContentKeyPolicy 가져오기 
 

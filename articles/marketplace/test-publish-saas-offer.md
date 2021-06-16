@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 03/25/2021
-ms.openlocfilehash: aeab671c9283d64f9c1ca37cf184b80b1eca8f35
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7fed85abe42b0366ff2429ba923fc9a3cdf6190a
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045249"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111536414"
 ---
 # <a name="how-to-test-and-publish-a-saas-offer-to-the-commercial-marketplace"></a>SaaS 제품을 테스트하고 상용 Marketplace에 게시하는 방법
 
@@ -45,7 +45,7 @@ ms.locfileid: "105045249"
 
 다음 스크린샷은 SaaS 제품에 대한 **제품 개요** 페이지를 보여 주며 **시작하기** 단추 아래에 두 개의 미리 보기 링크가 있습니다. 이 페이지에 표시되는 유효성 검사 단계는 제품 작성 시 선택한 사항에 따라 다릅니다.
 
-![파트너 센터의 제품에 대한 제품 개요 페이지를 보여 줍니다. Go live 단추와 미리 보기 링크가 표시됩니다. 유효성 검사 보고서 보기 링크가 자동 유효성 검사 아래에도 표시됩니다.](./media/review-publish-offer/publish-status-saas.png)
+![파트너 센터의 제품에 대한 제품 개요 페이지를 보여 줍니다. [라이브 전환] 단추와 미리 보기 링크가 표시됩니다. 유효성 검사 보고서 보기 링크가 자동 유효성 검사 아래에도 표시됩니다.](./media/review-publish-offer/publish-status-saas.png)
 
 제품을 미리 보려면 다음 단계를 수행합니다.
 
@@ -53,13 +53,13 @@ ms.locfileid: "105045249"
 
 1. 엔드투엔드 구매 및 설정 흐름의 유효성을 검사하려면 제품이 미리 보기 상태일 때 플랜을 구매하세요. 먼저 [지원 티켓](https://aka.ms/marketplacesupport)으로 Microsoft에 알려서 요금이 처리되지 않도록 합니다.
 
-1. SaaS 제품이 [상용 Marketplace 계량 서비스를 사용하는 요금 청구](./partner-center-portal/saas-metered-billing.md)를 지원하는 경우 [Marketplace 요금 청구 API](./partner-center-portal/marketplace-metering-service-apis.md#development-and-testing-best-practices)에 자세히 설명된 테스트 모범 사례를 검토하고 따릅니다.
+1. SaaS 제품이 [상용 Marketplace 계량 서비스를 사용하는 요금 청구](./partner-center-portal/saas-metered-billing.md)를 지원하는 경우 [Marketplace 요금 청구 API](marketplace-metering-service-apis.md#development-and-testing-best-practices)에 자세히 설명된 테스트 모범 사례를 검토하고 따릅니다.
 
 1. 제품을 라이브로 게시하기 전에 [Microsoft 상용 Marketplace의 SaaS 처리 API 버전 2](./partner-center-portal/pc-saas-fulfillment-api-v2.md#development-and-testing)의 테스트 지침을 검토하고 수행하여 제품이 API와 성공적으로 연결되었는지 확인합니다.
 
 1. 제공 유효성 검사 단계에서 경고가 발생한 경우에는 **제품 개요** 페이지에 **유효성 검사 보고서 보기** 링크가 표시됩니다. **시작하기** 단추를 선택하기 전에 보고서를 검토 하 고 문제를 해결해야 합니다. 그렇지 않으면 인증이 실패하고 제품 릴리스가 지연될 가능성이 높습니다.
 
-1. 제품을 미리 보고 테스트한 후에 변경해야 하는 경우 편집하고 다시 제출하여 새 미리 보기를 게시합니다. 자세한 내용은 [상용 Marketplace에서 기존 제품 업데이트](./partner-center-portal/update-existing-offer.md)를 참조하세요.
+1. 제품을 미리 보고 테스트한 후에 변경해야 하는 경우 편집하고 다시 제출하여 새 미리 보기를 게시합니다. 자세한 내용은 [상용 Marketplace에서 기존 제품 업데이트](update-existing-offer.md)를 참조하세요.
 
 ## <a name="publish-your-offer-live"></a>실시간으로 제품 게시
 
@@ -74,4 +74,4 @@ ms.locfileid: "105045249"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [파트너 센터에서 상용 Marketplace에 대한 분석 보고서에 액세스](./partner-center-portal/analytics.md)
+- [파트너 센터에서 상용 Marketplace에 대한 분석 보고서에 액세스](analytics.md)

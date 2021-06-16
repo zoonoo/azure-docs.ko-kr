@@ -3,19 +3,19 @@ title: .NET을 사용하여 스토리지 계정 유형 및 SKU 이름 가져오�
 titleSuffix: Azure Storage
 description: .NET 클라이언트 라이브러리를 사용하여 Azure Storage 계정 유형 및 SKU 이름을 가져오는 방법을 알아봅니다.
 services: storage
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.date: 11/12/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96c77291a1c540e2ff95fb911b2321e78f20e604
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 94e8a76d48b8ff45d089a9ee375b3dc4a5e5de94
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110478847"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110653104"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>.NET을 사용하여 스토리지 계정 유형 및 SKU 이름 가져오기
 

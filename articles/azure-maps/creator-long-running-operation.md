@@ -9,18 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f5fb7c8059c8b98e8ec514a4159e96f48db7b1ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 956c1969afa4f25fa4f431cca31caa410607777f
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96906202"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787149"
 ---
-# <a name="creator-preview-long-running-operation-api"></a>Creator(미리 보기) 장기 실행 작업 API
-
-> [!IMPORTANT]
-> Azure Maps Creator 서비스는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="creator-long-running-operation-api"></a>작성자 장기 실행 작업 API
 
 Azure Maps의 일부 API는 [비동기 요청-회신 패턴](/azure/architecture/patterns/async-request-reply)을 사용합니다. 이 패턴을 통해 Azure Maps는 고가용성의 응답성이 뛰어난 서비스를 제공할 수 있습니다. 이 문서에서는 장기 실행 비동기 백그라운드 처리의 Azure Map 특정 구현을 설명합니다.
 

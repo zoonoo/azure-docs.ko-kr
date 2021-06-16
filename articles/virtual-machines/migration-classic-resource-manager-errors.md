@@ -9,12 +9,13 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 6d803d1a66c069f5eb42deead453a8526577f76b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 444bb90a88656a71727d5133daf4e2c78ce3dc15
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102615213"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670447"
 ---
 # <a name="errors-that-commonly-occur-during-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager로 마이그레이션하는 동안 일반적으로 발생하는 오류
 

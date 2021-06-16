@@ -7,13 +7,13 @@ ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 66134ce93de8e82e3e2e07b82ecfc7a613ce5d5b
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104596402"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673553"
 ---
 # <a name="enable-on-demand-bursting"></a>주문형 버스트 사용
 

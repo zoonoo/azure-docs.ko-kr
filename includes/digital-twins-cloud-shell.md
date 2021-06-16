@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: 127ce4aceff536ef8ce4d2a988a26070ef06b6ec
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5f11c78e6619c2581d04ebc8e97c683c43cf2e73
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110078413"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793006"
 ---
 열려 있는 [Azure Cloud Shell](https://shell.azure.com) 창에서 Azure Digital Twins 작업을 시작하려면 먼저 로그인하여 셸 컨텍스트를 이 세션에 대한 구독으로 설정합니다. Cloud Shell에서 다음 명령을 실행합니다.
 
@@ -18,6 +18,7 @@ ms.locfileid: "110078413"
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
+
 > [!TIP]
 > 위의 명령에서 ID 대신 제품 이름을 사용할 수도 있습니다. 
 
