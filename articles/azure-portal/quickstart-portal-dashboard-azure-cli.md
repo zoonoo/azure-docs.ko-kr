@@ -4,12 +4,12 @@ description: '빠른 시작: Azure CLI를 사용하여 Azure Portal에서 대시
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 12/4/2020
-ms.openlocfilehash: 76d4e3b9c1c906dd91a7355af2c7cb957ef6ac95
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: aa9d5f1c7ab20de9a2f815ce5b2639582d5f2bed
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107891737"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081608"
 ---
 # <a name="quickstart-create-an-azure-portal-dashboard-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Portal 대시보드 만들기
 
@@ -47,7 +47,7 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > 암호는 복잡해야 합니다.
 > 이는 새 사용자 이름과 암호입니다.
 > 예를 들어 Azure에 로그인하는 데 사용하는 계정이 아닙니다.
-> 자세한 내용은 [사용자 이름 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) 및 [암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 참조하세요.
+> 자세한 내용은 [사용자 이름 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) 및 [암호 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 참조하세요.
 
 배포가 시작되고 완료하는 데 일반적으로 몇 분 정도 걸립니다.
 배포가 완료되면 다음 섹션으로 이동합니다.

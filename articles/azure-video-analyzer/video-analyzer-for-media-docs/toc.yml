@@ -1,0 +1,127 @@
+- name: Video Analyzer for Media 설명서
+  href: ./index.yml
+- name: 개요
+  items:
+    - name: Video Analyzer for Media란?
+      href: video-indexer-overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 시작하기
+      href: video-indexer-get-started.md
+    - name: 사용자 초대
+      href: invite-users.md
+- name: 자습서
+  items:
+    - name: 새 계정 만들기
+      href: connect-to-azure.md
+    - name: Video Analyzer for Media API 사용
+      href: video-indexer-use-apis.md
+    - name: Logic Apps 커넥터
+      href: logic-apps-connector-tutorial.md
+- name: 샘플
+  items:
+    - name: Video Analyzer for Media 샘플
+      href: 'https://github.com/Azure-Samples/media-services-video-indexer'
+- name: 개념
+  items:
+    - name: 개요
+      href: concepts-overview.md
+    - name: Video Analyzer for Media 및 Media Services 사전 설정 비교
+      href: compare-video-indexer-with-media-services-presets.md
+    - name: 여러 테넌트 관리
+      href: manage-multiple-tenants.md
+    - name: 언어 식별 모델
+      href: language-identification-model.md
+    - name: 라이브 스트림 분석
+      href: live-stream-analysis.md
+    - name: 관찰된 사람
+      href: observed-people-tracing.md
+    - name: 오디오 효과 감지
+      href: audio-effects-detection.md
+    - name: 콘텐츠 모델 사용자 지정
+      items:
+        - name: 개요
+          href: customize-content-models-overview.md
+        - name: 애니메이션 문자
+          href: animated-characters-recognition.md
+        - name: 브랜드
+          href: customize-brands-model-overview.md
+        - name: 언어
+          href: customize-language-model-overview.md
+        - name: Person
+          href: customize-person-model-overview.md
+- name: 방법 가이드
+  items:
+    - name: Azure에 연결된 계정 관리
+      href: manage-account-connected-to-azure.md
+    - name: 비디오 업로드 및 인덱싱
+      href: upload-index-videos.md
+    - name: Video Analyzer for Media 출력 검사
+      href: video-indexer-output-json-v2.md
+    - name: 비디오 내 정확한 시점 찾기
+      displayName: search
+      href: video-indexer-search.md
+    - name: '장면, 샷, 키 프레임 검색'
+      href: scenes-shots-keyframes.md
+    - name: 다국어 콘텐츠 식별 및 전사
+      href: multi-language-identification-transcription.md
+    - name: 인사이트 보기 및 편집
+      href: video-indexer-view-edit.md
+    - name: 편집기를 사용하여 프로젝트 만들기
+      href: use-editor-create-project.md
+    - name: 애플리케이션에 위젯 포함
+      href: video-indexer-embed-widgets.md
+    - name: Video Analyzer for Media를 대규모로 사용 시 고려 사항
+      href: considerations-when-use-at-scale.md
+    - name: 재해 복구
+      href: video-indexer-disaster-recovery.md
+    - name: 콘텐츠 모델 사용자 지정
+      items:
+        - name: 애니메이션 문자
+          href: animated-characters-recognition-how-to.md
+        - name: Person
+          items:
+            - name: 웹 사이트 사용
+              href: customize-person-model-with-website.md
+            - name: API 사용
+              href: customize-person-model-with-api.md
+        - name: 브랜드
+          items:
+            - name: 웹 사이트 사용
+              href: customize-brands-model-with-website.md
+            - name: API 사용
+              href: customize-brands-model-with-api.md
+        - name: 언어
+          items:
+            - name: 웹 사이트 사용
+              href: customize-language-model-with-website.md
+            - name: API 사용
+              href: customize-language-model-with-api.md
+- name: 참조
+  items:
+    - name: Video Analyzer for Media API
+      href: 'https://api-portal.videoindexer.ai/'
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/media-services/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 영역
+      displayName: location
+      href: regions.md
+    - name: FAQ
+      href: faq.md
+    - name: 규정 준수
+      href: 'https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942'
+    - name: 릴리스 정보
+      href: release-notes.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=video-indexer'
+    - name: 사용자 의견
+      href: 'https://aka.ms/UserVoiceVI'
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/tag/video-indexer/'

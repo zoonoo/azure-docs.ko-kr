@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0ba28d003f359af12de6242c6d2444fb8adab0d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c37017269eb8989102353b079f61c104f5061749
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103562758"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112074929"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure 포털에서 Windows 가상 머신 만들기
 
@@ -39,7 +39,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
     ![가상 머신의 이름을 입력하고 해당 지역, 이미지 및 크기를 선택하는 인스턴스 세부 정보 섹션의 스크린샷](./media/quick-create-portal/instance-details.png)
 
-1. **관리자 계정** 에서 *azureuser* 와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.
+1. **관리자 계정** 에서 *azureuser* 와 같은 사용자 이름 및 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.
 
     ![관리자 사용자 이름 및 암호를 입력하는 관리자 계정 섹션의 스크린샷](./media/quick-create-portal/administrator-account.png)
 
@@ -56,6 +56,8 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 배포가 완료되면 **리소스로 이동** 을 선택합니다.
 
     ![리소스로 이동하는 다음 단계를 보여주는 스크린샷](./media/quick-create-portal/next-steps.png)
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 

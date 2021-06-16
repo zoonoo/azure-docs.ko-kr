@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Azure 가상 머신에서 SQL Server Management Studio를 사용하여 Azure SQL Managed Instance에 연결합니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: connect
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, srbozovi, bonova
+author: zoran-rilak-msft
+ms.author: zoranrilak
+ms.reviewer: mathoma, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: a1f496d59fa626dc8750493591128f7363afa40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f8a708caf410ab53da6f9c2e77325307506ea9de
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91620259"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076027"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>빠른 시작: Azure SQL Managed Instance에 연결하도록 Azure VM 구성
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "91620259"
 
 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이트 간 연결을 대신 사용하여 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](point-to-site-p2s-configure.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서는 [관리형 인스턴스 만들기](instance-create-quickstart.md)에서 만든 리소스를 시작점으로 사용합니다.
 
@@ -85,7 +85,7 @@ SQL Managed Instance가 프라이빗 가상 네트워크에 배치되므로 SQL 
    | **위치** | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
    | **가상 머신 이름**  | 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요.|
    |**관리자 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-the-virtual-machine)할 때마다 사용됩니다.|
-   |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-the-virtual-machine)할 때마다 사용됩니다.|
+   |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-the-virtual-machine)할 때마다 사용됩니다.|
    | **가상 머신 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s** 로 충분합니다. |
    | **위치**|[resourceGroup().location].| 이 값은 변경하지 마세요. |
    | **가상 네트워크 이름**|관리되는 인스턴스를 만든 가상 네트워크|

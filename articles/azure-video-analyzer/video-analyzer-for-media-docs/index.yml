@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Azure Video Analyzer for Media(이전 Video Indexer)에 대해 알아보기
+summary: 'Azure Video Analyzer for Media(이전 Video Indexer)는 Azure Applied AI Services의 일부분인 클라우드 애플리케이션으로 Azure Media Services 및 Azure Cognitive Services(예: Face, Translator, Computer Vision 및 Speech)를 기반으로 합니다. 이 애플리케이션에서 Video Analyzer for Media 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.'
+metadata:
+  title: Azure Video Analyzer for Media(이전 Video Indexer) 설명서
+  description: 'Azure Video Analyzer for Media(이전 Video Indexer)는 Azure Applied AI Services의 일부분인 클라우드 애플리케이션으로 Azure Media Services 및 Azure Cognitive Services(예: Face, Translator, Computer Vision 및 Speech)를 기반으로 합니다. 이 애플리케이션에서 Video Analyzer for Media 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.'
+  services: azure-video-analyzer
+  ms.service: azure-video-analyzer
+  ms.topic: landing-page
+  ms.collection: collection
+  author: Juliako
+  ms.author: juliako
+  ms.date: 05/07/2021
+  ms.openlocfilehash: f00c3318ada24acdb100ebba6a7589193453e935
+  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/25/2021
+  ms.locfileid: "110383496"
+landingContent:
+- title: Azure Video Analyzer for Media(이전 Video Indexer) 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Video Analyzer for Media란?
+      url: video-indexer-overview.md
+    - text: Media Services v3 사전 설정 및 Video Analyzer for Media 비교
+      url: compare-video-indexer-with-media-services-presets.md
+    - text: 질문과 대답
+      url: faq.md
+    - text: 사용자 의견
+      url: https://aka.ms/UserVoiceVI
+  - linkListType: whats-new
+    links:
+    - text: Video Analyzer for Media의 새로운 기능
+      url: release-notes.md
+- title: 시작하기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 비디오 등록 및 업로드
+      url: video-indexer-get-started.md
+    - text: 사용자 초대
+      url: invite-users.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure에 연결된 계정 만들기
+      url: connect-to-azure.md
+    - text: Video Analyzer for Media API 사용
+      url: video-indexer-use-apis.md
+    - text: 비디오 업로드 및 인덱싱
+      url: upload-index-videos.md
+    - text: API에 의해 생성된 출력 검사
+      url: video-indexer-output-json-v2.md
+    - text: Video Analyzer for Media 위젯을 앱에 포함
+      url: video-indexer-embed-widgets.md
+  - linkListType: sample
+    links:
+    - text: 코드 샘플
+      url: https://github.com/Azure-Samples/media-services-video-indexer
+- title: 콘텐츠 모델 사용자 지정
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 브랜드 모델 사용자 지정
+      url: customize-brands-model-with-website.md
+    - text: 언어 모델 사용자 지정
+      url: customize-language-model-with-website.md
+    - text: 사용자 모델 사용자 지정
+      url: customize-person-model-with-website.md

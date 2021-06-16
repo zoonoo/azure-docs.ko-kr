@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/10/2017
-ms.openlocfilehash: 09fb738a499d6016c3aead0d33436f034bc5d339
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2705364fb60e0de02ae9c119228a93be8313f5eb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728405"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984845"
 ---
 # <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Azure Logic Apps에서 통합 계정을 위한 지역 간 재해 복구 설정
 
@@ -79,7 +79,7 @@ Logic Apps 통합 계정의 비즈니스 연속성은 B2B 프로토콜 X12, AS2 
 EDI X12 문서의 비즈니스 연속성은 컨트롤 번호를 기준으로 합니다.
 
 > [!TIP]
-> [X12 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/)을 사용하여 Logic Apps를 만들 수도 있습니다. 템플릿을 사용하려면 주 통합 계정 및 보조 통합 계정을 만들어야 합니다. 템플릿은 2개의 Logic Apps, 즉 받은 컨트롤 번호용과 생성된 컨트롤 번호용 Logic Apps를 만드는 데 도움이 됩니다. 각 트리거 및 작업은 Logic Apps에 생성되며, 트리거는 주 통합 계정에, 작업은 보조 통합 계정에 연결됩니다.
+> [X12 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/logic-app-b2b-disaster-recovery-replication/)을 사용하여 Logic Apps를 만들 수도 있습니다. 템플릿을 사용하려면 주 통합 계정 및 보조 통합 계정을 만들어야 합니다. 템플릿은 2개의 Logic Apps, 즉 받은 컨트롤 번호용과 생성된 컨트롤 번호용 Logic Apps를 만드는 데 도움이 됩니다. 각 트리거 및 작업은 Logic Apps에 생성되며, 트리거는 주 통합 계정에, 작업은 보조 통합 계정에 연결됩니다.
 
 **필수 구성 요소**
 

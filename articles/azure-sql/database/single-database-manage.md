@@ -3,20 +3,20 @@ title: 서버 및 단일 데이터베이스 만들기 및 관리
 description: Azure Portal, PowerShell, Azure CLI, Transact-SQL (T-SQL) 및 Rest-API를 사용하여 Azure SQL Database에서 서버 및 단일 데이터베이스를 만들고 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 4aaabdb3d21c41b973b21e6e52442be132796196
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: f09bd53a8e98b88bcc42ac085240b45d02671bba
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107781598"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110693093"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 서버 및 단일 데이터베이스 만들기 및 관리
 

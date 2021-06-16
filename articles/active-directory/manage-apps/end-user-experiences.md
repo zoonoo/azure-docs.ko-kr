@@ -2,21 +2,21 @@
 title: 애플리케이션에 대한 최종 사용자 환경 - Azure Active Directory
 description: Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리케이션을 배포하는 몇 가지 사용자 지정 가능한 방법을 제공합니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: arvindh
-ms.openlocfilehash: c555899a65a5e8cf4c8fcc6214e4dcbda3931f08
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 9280cf669bb766ea82f2e668a56d2b3f743315fb
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107374236"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081410"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 

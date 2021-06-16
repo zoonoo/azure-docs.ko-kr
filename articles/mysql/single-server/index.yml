@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/20/2020
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: a2ae6e91481da51c77f3c73f4fd9b5d31169952d
-  ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+  ms.openlocfilehash: 372c13e841d3d87bd2bd6952fe96507b02cb2980
+  ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/07/2020
-  ms.locfileid: "96749133"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110191438"
 landingContent:
 - title: 단일 서버 정보
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
       url: ../concepts-migrate-dump-restore.md
     - text: 가져오기 및 내보내기를 사용하여 마이그레이션
       url: ../concepts-migrate-import-export.md
+    - text: MySQL Workbench를 사용하여 RDS MySQL 마이그레이션
+      url: ../how-to-migrate-rds-mysql-workbench.md
 - title: 비즈니스 연속성
   linkLists:
   - linkListType: concept

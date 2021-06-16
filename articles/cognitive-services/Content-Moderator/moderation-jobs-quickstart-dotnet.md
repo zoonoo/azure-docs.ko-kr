@@ -11,14 +11,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec101786f33aa6f2525d685993d6b6c891ab2e9a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8363240ec72e35d2dfac831a07f96f6789ab253a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "88936319"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033800"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>조정 작업 정의 및 사용(.NET)
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 조정 작업은 콘텐츠 조정, 워크플로, 검토 기능에 대한 일종의 래퍼 역할을 합니다. 이 가이드에서는 [.NET용 Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)를 사용하여 다음 작업을 수행할 수 있도록 지원하는 정보 및 코드 샘플을 제공합니다.
 

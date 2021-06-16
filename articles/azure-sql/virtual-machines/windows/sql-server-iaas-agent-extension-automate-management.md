@@ -17,12 +17,12 @@ ms.date: 11/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fdff3f6144f7099f3f61cfe57186357e17136e9f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a80770013d373dbbd1ca672fbd2153731b604f5c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225492"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079556"
 ---
 # <a name="automate-management-with-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용하여 관리 자동화
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,7 +72,7 @@ SQL Server IaaS 에이전트 확장은 SQL Server VM 관리에 대한 다양한 
 | 기능 | 설명 |
 | --- | --- |
 | **포털 관리** | [포털에서 관리](manage-sql-vm-portal.md)가 가능해 단일 위치에서 모든 SQL Server VM을 볼 수 있고 포털에서 직접 특정 SQL 기능을 사용 또는 사용하지 않도록 설정할 수 있습니다. <br/> 관리 모드: 경량 및 전체|  
-| **자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](frequently-asked-questions-faq.md#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. <br/> 관리 모드: 전체|
+| **자동화된 백업** |VM에 있는 SQL Server의 기본 인스턴스나 [제대로 설치된](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#administration) 명명된 인스턴스에 대한 모든 데이터베이스 백업 예약을 자동화합니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 백업(Resource Manager)](automated-backup-sql-2014.md)을 참조하세요. <br/> 관리 모드: 전체|
 | **자동화된 패치** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 중요한 Windows 및 SQL Server 보안 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure 가상 머신에서 SQL Server에 대한 자동화된 패치(Resource Manager)](automated-patching.md)를 참조하세요. <br/> 관리 모드: 전체|
 | **Azure Key Vault 통합** |SQL Server VM에서 Azure Key Vault를 자동으로 설치하고 구성할 수 있습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(Resource Manager)](azure-key-vault-integration-configure.md)을 참조하세요. <br/> 관리 모드: 전체|
 | **포털에서 디스크 사용률 보기** | Azure Portal에서 SQL 데이터 파일의 디스크 사용률에 대한 그래픽 표현을 볼 수 있습니다.  <br/> 관리 모드: 전체 | 
@@ -173,4 +173,4 @@ SQL Server IaaS 확장을 Azure VM의 SQL Server에 설치하려면 [자동 설�
 
 Azure Virtual Machines의 SQL Server 실행에 대한 자세한 내용은 [Azure Virtual Machines의 SQL Server란?](sql-server-on-azure-vm-iaas-what-is-overview.md)을 참조하세요.
 
-자세한 내용은 [질문과 대답](frequently-asked-questions-faq.md)을 참조하세요. 
+자세한 내용은 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요. 

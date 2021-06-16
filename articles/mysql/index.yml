@@ -8,12 +8,12 @@ metadata:
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: a9d05253ffbe452076e6a46d2f8a0f2d15ad1782
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 94f0a30c070578a441940b701a7110f1b0bf76fe
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108770554"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110464132"
 landingContent:
 - title: Azure Database for MySQL 정보
   linkLists:
@@ -109,10 +109,14 @@ landingContent:
       url: concepts-migrate-import-export.md
   - linkListType: how-to-guide
     links:
+    - text: MySQL Workbench를 사용하여 RDS MySQL 마이그레이션
+      url: how-to-migrate-rds-mysql-workbench.md
     - text: Data Migration Service를 사용하여 마이그레이션
       url: howto-migrate-online.md
     - text: Azure 데이터 마이그레이션 가이드
       url: https://datamigration.microsoft.com/scenario/mysql-to-azuremysql?step=1
+    - text: 일반적인 오류 문제 해결
+      url: howto-troubleshoot-common-errors.md
 - title: 애플리케이션 개발
   linkLists:
   - linkListType: concept

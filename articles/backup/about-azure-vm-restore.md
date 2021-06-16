@@ -3,12 +3,12 @@ title: Azure Virtual Machine 복원 프로세스 정보
 description: Azure Backup 서비스에서 Azure 가상 머신을 복원하는 방법 알아보기
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: eca8045a2da3492e523a54a808997d018e696118
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d298b56ca5588e6d950684f234cb1c4396864a9e
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108129714"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112061491"
 ---
 # <a name="about-azure-vm-restore"></a>Azure VM 복원 정보
 
@@ -45,7 +45,7 @@ ms.locfileid: "108129714"
 | [복원하여 새 가상 머신 만들기](./backup-azure-arm-restore-vms.md) | 전체 VM을 OLR(원본 VM이 계속 있는 경우) 또는 ALR로 복원 | <li> 원본 VM이 손실되었거나 손상된 경우 전체 VM 복원 가능  <li> VM 복사본 생성 가능  <li> 감사 또는 규정 준수 복원 드릴 수행 가능  <li> Marketplace 이미지에서 생성된 Azure VM에는 이 옵션이 작동하지 않습니다(즉, 라이선스가 만료되어 사용할 수 없는 경우). |
 | [VM 디스크 복원](./backup-azure-arm-restore-vms.md#restore-disks) | VM에 연결된 디스크 복원                             |  모든 디스크: 이 옵션은 템플릿을 만들고 디스크를 복원합니다. 이 템플릿을 요구 사항이 충족되도록 특수 구성(예: 가용성 집합)을 사용하여 수정한 다음, 템플릿을 둘 다 사용하고 디스크를 복원하여 VM을 다시 만들 수 있습니다. |
 | [VM 내의 특정 파일 복원](./backup-azure-restore-files-from-vm.md) | 복원 지점을 선택하고 파일을 탐색 및 선택하고 백업한 VM과 동일한(또는 호환되는) OS로 복원합니다. |  복원할 특정 파일을 알고 있는 경우 전체 VM을 복원하는 대신 이 옵션을 사용합니다. |
-| [암호화된 VM 복원](./backup-azure-vms-encryption.md) | 포털에서 디스크를 복원한 다음, PowerShell을 사용하여 VM 생성 | <li> [Azure Active Directory로 암호화된 VM](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Azure AD 없이 암호화된 VM](../virtual-machines/windows/disk-encryption-windows.md) <li> [*Azure AD 없이* 마이그레이션된 *Azure AD로* 암호화된 VM](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
+| [암호화된 VM 복원](./backup-azure-vms-encryption.md) | 포털에서 디스크를 복원한 다음, PowerShell을 사용하여 VM 생성 | <li> [Azure Active Directory로 암호화된 VM](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [Azure AD 없이 암호화된 VM](../virtual-machines/windows/disk-encryption-windows.md) <li> [*Azure AD 없이* 마이그레이션된 *Azure AD로* 암호화된 VM](/azure/virtual-machines/windows/disk-encryption-faq#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [지역 간 복원](./backup-azure-arm-restore-vms.md#cross-region-restore) | 새 VM 생성 또는 디스크를 보조 지역(Azure 쌍을 이루는 지역)으로 복원 | <li> **전체 중단**: 지역 간 복원 기능을 사용하면 보조 지역에서 데이터가 복구될 때까지 기다릴 필요가 없습니다. Azure에서 중단을 선언하기 전이라도 보조 지역에서 복원을 초기화할 수 있습니다. <li> **부분 중단**: Azure Backup이 백업 데이터를 저장하는 특정 스토리지 클러스터에서 또는 Azure Backup 및 백업 데이터와 연결된 스토리지 클러스터를 연결하는 네트워크에서도 가동 중지 시간이 발생할 수 있습니다. 지역 간 복원을 사용하면 보조 지역의 백업 데이터 복제본을 사용하여 보조 지역에서 복원을 수행할 수 있습니다. <li> **중단 없음**: 보조 지역 데이터를 사용하여 감사 또는 규정 준수 목적으로 BCDR(비즈니스 연속성 및 재해 복구) 드릴을 수행할 수 있습니다. 이를 통해 비즈니스 연속성 및 재해 복구 드릴의 주 지역에서 전체 또는 부분 중단이 발생하지 않더라도 보조 지역에서 백업 데이터 복원을 수행할 수 있습니다.  |
 
 ## <a name="next-steps"></a>다음 단계

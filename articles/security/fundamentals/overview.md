@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 413e8387e6e6e1c1386aa9477aebe37b2488c098
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047782"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950558"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 
@@ -363,10 +363,10 @@ Microsoft는 제품 및 서비스 전반에 여러 가지 보안 사례와 기�
 
 - [조인된 Azure Active Directory](../../active-directory/devices/overview.md) - 중앙 집중식 관리를 위해 클라우드 기능을 Windows 10 디바이스로 확장할 수 있습니다. 사용자가 Azure Active Directory를 통해 회사 또는 조직의 클라우드에 연결할 수 있게 하며, 앱과 리소스에 대한 액세스를 간소화합니다.
 
-- [Azure Active Directory 애플리케이션 프록시](../../active-directory/manage-apps/application-proxy.md) - 온-프레미스에 호스팅되는 웹 애플리케이션에 대해 SSO(Single Sign-On) 및 보안된 원격 액세스를 제공합니다.
+- [Azure Active Directory 애플리케이션 프록시](../../active-directory/app-proxy/application-proxy.md) - 온-프레미스에 호스팅되는 웹 애플리케이션에 대해 SSO(Single Sign-On) 및 보안된 원격 액세스를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [클라우드에서의 공동 책임](shared-responsibility.md)을 이해합니다.
 
-- [Azure Security Center](../../security-center/security-center-introduction.md)를 통해 Azure 리소스의 보안에 대한 향상된 가시성과 제어권을 통해 위협을 예방하고 검색하며 위협에 대응할 수 있는 방법을 알아봅니다.
+- [Azure Security Center](../../security-center/security-center-introduction.md)를 통해 Azure 리소스의 보안에 대한 향상된 가시성과 제어권으로 위협을 예방하고 검색하며 위협에 대응할 수 있는 방법을 알아봅니다.

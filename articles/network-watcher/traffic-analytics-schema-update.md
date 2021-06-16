@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: d7c4f1853ff8dcb9249ab6ec4f536e1f8cfa10e5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b96275653c46f587d5b910bd020d494f4b3fe99f
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018227"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032036"
 ---
 # <a name="sample-queries-with-new-fields-in-the-traffic-analytics-schema-august-2019-schema-update"></a>트래픽 분석 스키마의 새 필드를 사용한 샘플 쿼리(2019년 8월 스키마 업데이트)
 
@@ -122,5 +122,5 @@ NSG에서 데이터를 결합하지 않으므로 **FlowCount_d** 는 다음과 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
+- 자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.yml)를 참조하세요.
 - 기능에 대한 자세한 내용은 [트래픽 분석 설명서](traffic-analytics.md)를 참조하세요.

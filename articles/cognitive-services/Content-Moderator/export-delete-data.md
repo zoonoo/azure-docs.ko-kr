@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 9f74fdc9cd30e1dfbd4df6c94842a9dccb435ef4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7cb539b79e4c1fb5b40c0218c87ef6f18dd3fd77
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92913656"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031730"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Content Moderator에서 사용자 데이터 내보내기 또는 삭제
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Content Moderator는 서비스 운영을 위해 사용자 데이터를 수집하지만, 고객은 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 및 [조정 및 검토 API](./api-reference.md)를 사용하여 해당 데이터의 보기, 내보내기, 삭제를 완전히 제어합니다.
 

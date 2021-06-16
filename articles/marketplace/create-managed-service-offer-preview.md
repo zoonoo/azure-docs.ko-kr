@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 12/23/2020
-ms.openlocfilehash: 072f1d63e0b3df898ef170205b5c560432d870b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a30265f335dd279470e6de421f83e682a304788f
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97918275"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060510"
 ---
 # <a name="how-to-add-a-preview-audience-for-your-managed-service-offer"></a>관리되는 서비스 제품에 대한 미리 보기 대상을 추가하는 방법
 
@@ -36,8 +36,8 @@ ms.locfileid: "97918275"
 
 ## <a name="add-email-addresses-using-a-csv-file"></a>CSV 파일을 사용하여 이메일 주소 추가
 
-1. 미리 보기 대상 **미리 보기 대상** 페이지에서 **대상 내보내기(csv)** 링크를 선택합니다.
-2. .CSV 파일을 엽니다. **Id** 열에서 미리 보기 대상에 추가할 Azure 구독 ID를 입력합니다.
+1. **미리 보기 대상** 페이지에서 **대상 내보내기(csv)** 링크를 선택합니다.
+2. CSV 파일을 엽니다. **Id** 열에서 미리 보기 대상에 추가할 Azure 구독 ID를 입력합니다.
 3. **설명** 열에는 각 항목에 대한 설명을 추가할 수 있는 옵션이 있습니다.
 4. **유형** 열에서 ID가 있는 각 행에 **SubscriptionId** 를 추가합니다.
 5. 파일을 CSV 파일로 저장합니다.

@@ -3,22 +3,23 @@ title: Azure(큰 인스턴스)의 SAP HANA에서 HANA 백업 및 복원 | Micros
 description: Azure(큰 인스턴스)의 SAP HANA에서 HANA 백업 및 복원을 수행하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: saghorpa
+author: Ajayan1008
 manager: gwallace
 editor: ''
 ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
-ms.author: saghorpa
+ms.author: madhukan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3244cbca3df717d3432670a366147408cf2b2c0e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d72825dd00bdb90425a85f9fcfb7cff56f7241ef
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669114"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110577826"
 ---
 # <a name="backup-and-restore-of-sap-hana-on-hana-large-instances"></a>HANA 대규모 인스턴스에서 SAP HANA 백업 및 복원
 

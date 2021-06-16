@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/18/2020
-ms.openlocfilehash: 3ac6937d83bd2d21fefc09878408a54aa0eb41f1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d30aee396eb3e8e5c56896e048210f5f7d47ef87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559089"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949849"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
@@ -100,7 +100,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
@@ -113,7 +113,7 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 ## <a name="template-deployment"></a>템플릿 배포
 
 >[!NOTE]
->Log Analytics VM 확장의 특정 구성 요소는 [진단 VM 확장](./diagnostics-linux.md)에도 제공됩니다. 이 아키텍처로 인해 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 설치 시간 충돌을 방지하려면 [`dependsOn` 지시문](../../azure-resource-manager/templates/define-resource-dependency.md#dependson)을 사용하여 확장이 순차적으로 설치되도록 합니다. 확장은 어느 순서로든 설치할 수 있습니다.
+>Log Analytics VM 확장의 특정 구성 요소는 [진단 VM 확장](./diagnostics-linux.md)에도 제공됩니다. 이 아키텍처로 인해 동일한 ARM 템플릿에서 두 확장을 모두 인스턴스화하면 충돌이 발생할 수 있습니다. 설치 시간 충돌을 방지하려면 [`dependsOn` 지시문](../../azure-resource-manager/templates/resource-dependency.md#dependson)을 사용하여 확장이 순차적으로 설치되도록 합니다. 확장은 어느 순서로든 설치할 수 있습니다.
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. Azure Monitor Logs에 등록하는 것처럼 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. Log Analytics 에이전트 VM 확장을 포함하는 샘플 Resource Manager 템플릿은 [Azure 빠른 시작 갤러리](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)에서 찾을 수 있습니다. 
 

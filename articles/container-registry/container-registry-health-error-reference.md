@@ -3,18 +3,18 @@ title: 레지스트리 상태 검사에 대한 오류 참조
 description: Azure Container Registry에서 az acr check-health 진단 명령을 실행하여 발견된 문제에 대한 오류 코드 및 가능한 해결 방법
 ms.topic: article
 ms.date: 01/25/2021
-ms.openlocfilehash: f9716c29093ae58518bc86ec06af40522d49047c
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 12cdd1e75a51097bab3830cdd0e6567e53f91dce
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107773444"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537422"
 ---
 # <a name="health-check-error-reference"></a>상태 검사 오류 참조
 
 다음은 [az acr check-health][az-acr-check-health] 명령에서 반환된 오류 코드에 대한 세부 정보입니다. 각 오류에 대해 가능한 해결 방법이 나열되어 있습니다.
 
-`az acr check-healh` 실행에 대한 자세한 내용은 [Azure Container Registry의 상태 확인](container-registry-check-health.md)을 참조하세요.
+`az acr check-health` 실행에 대한 자세한 내용은 [Azure Container Registry의 상태 확인](container-registry-check-health.md)을 참조하세요.
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 

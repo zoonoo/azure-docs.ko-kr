@@ -9,32 +9,23 @@ ms.service: virtual-machines
 ms.subervice: image-builder
 ms.colletion: windows
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 90d09763f2c9e167d6a0a34adbbc444ebad14c46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ea4ff3b163070fef64d9edcb6e249d450058a84
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101693461"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031136"
 ---
-# <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>미리 보기: PowerShell을 사용하여 Azure Image Builder로 Windows VM 만들기
+# <a name="create-a-windows-vm-with-azure-image-builder-using-powershell"></a>PowerShell을 사용하여 Azure Image Builder로 Windows VM 만들기
 
 이 문서에서는 Azure VM Image Builder PowerShell 모듈을 사용하여 사용자 지정된 Windows 이미지를 만드는 방법을 보여 줍니다.
 
-> [!CAUTION]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공됩니다. 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 PowerShell을 로컬로 사용하도록 선택하는 경우 이 문서에서는 Az PowerShell 모듈을 설치하고 [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 연결해야 합니다. Az PowerShell 모듈을 설치하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요.
-
-> [!IMPORTANT]
-> **Az.ImageBuilder** 및 **Az.ManagedServiceIdentity** PowerShell 모듈이 미리 보기에 있는 동안 `AllowPrerelease` 매개 변수와 함께 `Install-Module` cmdlet을 사용하여 별도로 설치해야 합니다. 이 PowerShell 모듈이 일단 공급되면 이후 Az PowerShell 모듈 릴리스의 기능으로 포함되어 Azure Cloud Shell 내에서 기본적으로 사용할 수 있습니다.
-
-```azurepowershell-interactive
-'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
-```
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -45,21 +36,6 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
 ### <a name="register-features"></a>기능 등록
-
-미리 보기 중에 Azure Image Builder를 처음 사용하는 경우 새 **VirtualMachineTemplatePreview** 기능을 등록합니다.
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
-```
-
-기능 등록 상태를 확인합니다.
-
-> [!NOTE]
-> **RegistrationState** 는 `Registered`(으)로 변경되기 전 몇 동안 `Registering` 상태에 있을 수 있습니다. **Registered** 상태가 될 때까지 기다린 후에 계속하세요.
-
-```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.VirtualMachineImages -FeatureName VirtualMachineTemplatePreview
-```
 
 아직 등록되지 않은 경우 Azure 구독에 사용할 다음 리소스 공급자를 등록합니다.
 

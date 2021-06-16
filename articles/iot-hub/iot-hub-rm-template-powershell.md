@@ -8,12 +8,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 1fedadfa7e5b4ec3d7de30d0ad3ef1b1bfa0e0ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ac3a75b2e00e0e769f758cf82eec7cfc6e5ec4c2
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92144399"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031478"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>Azure Resource Manager 템플릿을 사용하여 IoT Hub 만들기(PowerShell)
 
@@ -25,9 +26,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-이 빠른 시작에서 사용되는 Resource Manager 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-iothub-with-consumergroup-create/)에서 가져온 것입니다. 다음은 템플릿의 복사본입니다.
+이 빠른 시작에서 사용되는 Resource Manager 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/iothub-with-consumergroup-create/)에서 가져온 것입니다. 다음은 템플릿의 복사본입니다.
 
-[!code-json[iothub-creation](~/quickstart-templates/101-iothub-with-consumergroup-create/azuredeploy.json)]
+[!code-json[iothub-creation](~/quickstart-templates/quickstarts/microsoft.devices/iothub-with-consumergroup-create/azuredeploy.json)]
 
 템플릿은 엔드포인트 3개(eventhub, cloud-to-device, messaging)와 소비자 그룹 1개를 사용하여 Azure Iot 허브를 만듭니다. 더 많은 템플릿 샘플을 보려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devices&pageNumber=1&sort=Popular)을 참조하세요. Iot Hub 템플릿 스키마는 [여기](/azure/templates/microsoft.devices/iothub-allversions)에서 확인할 수 있습니다.
 
@@ -43,7 +44,7 @@ $iotHubName = Read-Host -Prompt "Enter the IoT Hub name"
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-with-consumergroup-create/azuredeploy.json" `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devices/iothub-with-consumergroup-create/azuredeploy.json" `
     -iotHubName $iotHubName
 ```
 

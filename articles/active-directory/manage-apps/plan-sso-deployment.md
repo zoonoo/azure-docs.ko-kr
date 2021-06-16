@@ -2,23 +2,23 @@
 title: Azure Active Directory Single Sign-On 배포 계획
 description: 조직에서 SSO를 계획, 배포 및 관리하는 데 유용한 가이드입니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/10/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3f395eaf21dce0077c1239ef2251973aeb5faa70
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: ef1daed862a67c5219d7ec243985340a8a20ea01
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107375613"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076963"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Single Sign-On 배포 계획
 

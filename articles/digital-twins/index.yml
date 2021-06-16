@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/12/2020
-  ms.openlocfilehash: 72bff0ff2974dda93c7d25027efa82b9d8d1d629
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 4eba6315029b9dd720e47fc46d7fa64a0ee8fba9
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108772660"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110477953"
 landingContent:
 - title: Azure Digital Twins 정보
   linkLists:
@@ -31,12 +31,16 @@ landingContent:
       url: concepts-twins-graph.md
     - text: 쿼리 언어
       url: concepts-query-language.md
-- title: 빠른 시작으로 시작
+- title: Azure Digital Twins Explorer 시작
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 샘플 시나리오 살펴보기
+    - text: Azure Digital Twins Explorer 시작
       url: quickstart-azure-digital-twins-explorer.md
+  - linkListType: get-started
+    links:
+    - text: Azure Digital Twins Explorer
+      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
 - title: 자습서 심화 학습
   linkLists:
   - linkListType: tutorial
@@ -85,10 +89,6 @@ landingContent:
     links:
     - text: 엔드투엔드 샘플
       url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
-  - linkListType: sample
-    links:
-    - text: Azure Digital Twins 탐색기(샘플)
-      url: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer
   - linkListType: sample
     links:
     - text: DTDL 유효성 검사기(샘플)

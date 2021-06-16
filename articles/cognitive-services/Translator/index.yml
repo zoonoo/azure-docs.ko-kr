@@ -14,19 +14,21 @@ metadata:
   ms.date: 10/14/2019
   ms.author: erhopf
   ms.custom: contperf-fy21q2
-  ms.openlocfilehash: bef769bdb0533d6509badfd3f6bb8441996a67a4
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 6517e29ebc025d94a8b85b754b60584aebd4c057
+  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110379391"
+  ms.lasthandoff: 05/26/2021
+  ms.locfileid: "110476911"
 landingContent:
 - title: 변환기
   linkLists:
   - linkListType: overview
     links:
-    - text: 변환기
+    - text: Translator란?
       url: translator-info-overview.md
+    - text: 언어 지원
+      url: language-support.md
     - text: 문서 번역
       url: document-translation/overview.md
     - text: Custom Translator
@@ -39,27 +41,43 @@ landingContent:
       url: ./translator-how-to-signup.md
     - text: FAQ
       url: https://www.microsoft.com/translator/faq.aspx
-- title: 시작하기
+- title: 텍스트 번역
   linkLists:
   - linkListType: quickstart
     links:
     - text: 빠른 시작
       url: quickstart-translator.md
-  - linkListType: tutorial
+  - linkListType: how-to-guide
     links:
-    - text: WPF 번역 앱, C# 만들기
-      url: tutorial-wpf-translation-csharp.md
-    - text: Flask 번역 앱, REST 만들기
-      url: tutorial-build-flask-app-translation-synthesis.md
+    - text: 리소스 만들기
+      url: translator-how-to-signup.md
+    - text: 콘텐츠 변환 방지
+      url: prevent-translation.md
+    - text: 동적 사전 사용
+      url: dynamic-dictionary.md
   - linkListType: reference
     links:
     - text: Translator 참조(v3)
       url: reference/v3-0-reference.md
     - text: 요청 제한
       url: request-limits.md
-    - text: 언어 지원
-      url: language-support.md
-- title: 사용자 지정 번역
+- title: 문서 번역
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 문서 번역이란?
+      url: document-translation/overview.md
+  - linkListType: quickstart
+    links:
+    - text: 빠른 시작
+      url: document-translation/get-started-with-document-translation.md
+  - linkListType: reference
+    links:
+    - text: 문서 번역 참조
+      url: document-translation/reference/get-supported-document-formats.md
+    - text: 번역 시작
+      url: document-translation/reference/start-translation.md
+- title: Custom Translator
   linkLists:
   - linkListType: quickstart
     links:
@@ -97,6 +115,8 @@ landingContent:
     links:
     - text: GitHub 샘플
       url: https://aka.ms/TranslatorGitHub
+    - text: 규정 준수 및 인증
+      url: https://www.microsoft.com/translator/business/notrace/
     - text: Stack Overflow
       url: https://stackoverflow.com/questions/tagged/microsoft-translator
 - title: 도움말 및 피드백
