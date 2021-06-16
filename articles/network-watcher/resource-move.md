@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: damendo
-ms.openlocfilehash: 4853f485e4424c3c3263a18d27834d0f9ae94918
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 273dcea805e3b6ec78dfc4bd14be616f6109c097
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98019655"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032072"
 ---
 # <a name="moving-azure-network-watcher-resources-across-regions"></a>지역 간에 Azure Network Watcher 리소스 이동
 
@@ -30,4 +30,4 @@ Network Watcher 리소스는 Network Watcher에 대한 백 엔드 서비스를 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Network Watcher 개요](./network-watcher-monitoring-overview.md)를 참조하세요.
-* [Network Watcher FAQ](./frequently-asked-questions.md)를 참조하세요.
+* [Network Watcher FAQ](./frequently-asked-questions.yml)를 참조하세요.

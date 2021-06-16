@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 4ec21086ee94610be1d9cf5da7b64c837b5311a9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30bd445940187d3514dc4b7024d3dbb8f7d920b2
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100381531"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536728"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Functions의 Azure Blob Storage 바인딩 개요
 
@@ -22,13 +22,13 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 | 함수에서 Blob Storage 데이터 읽기 | [입력 바인딩](./functions-bindings-storage-blob-input.md) |
 | 함수가 Blob Storage 데이터를 쓰도록 허용 |[출력 바인딩](./functions-bindings-storage-blob-output.md) |
 
-## <a name="add-to-your-functions-app"></a>Functions 앱 추가
+## <a name="add-to-your-functions-app"></a>Functions 앱에 추가
 
 ### <a name="functions-2x-and-higher"></a>Functions 2.x 이상
 
 트리거 및 바인딩을 사용하려면 적절한 패키지를 참조해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용되는 반면 확장 번들은 다른 모든 애플리케이션 형식에 사용됩니다.
 
-| 언어                                        | 추가 방법                                   | 설명 
+| 언어                                        | 추가 방법...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | [NuGet 패키지] 버전 3.x 설치 | |
 | C# Script, Java, JavaScript, Python, PowerShell | [확장 번들] 등록          | [Azure Tools 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack)은 Visual Studio Code와 함께 사용하는 것이 좋습니다. |
@@ -36,7 +36,7 @@ Azure Functions는 [트리거 및 바인딩](./functions-triggers-bindings.md)�
 
 #### <a name="storage-extension-5x-and-higher"></a>스토리지 확장 5.x 이상
 
-새 버전의 스토리지 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.2)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `WindowsAzure.Storage` 및 `Microsoft.Azure.Storage`의 형식이 [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
+새 버전의 스토리지 바인딩 확장은 [미리 보기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/5.0.0-beta.3)로 제공됩니다. 이 미리 보기에서는 [비밀 대신 ID를 사용하여 연결](./functions-reference.md#configure-an-identity-based-connection)하는 기능이 도입되었습니다. .NET 애플리케이션의 경우 `WindowsAzure.Storage` 및 `Microsoft.Azure.Storage`의 형식이 [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs)의 최신 형식으로 바뀌어 사용자가 바인딩할 수 있는 형식도 변경됩니다.
 
 > [!NOTE]
 > 미리 보기 패키지는 확장 번들에 포함되지 않으며 수동으로 설치해야 합니다. .NET 앱의 경우 패키지에 대한 참조를 추가합니다. 다른 모든 앱 유형에 대해서는 [확장 업데이트]를 참조하세요.

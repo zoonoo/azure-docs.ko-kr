@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c2c09e1a30c9cef4d65b2d5443481c84ab779af8
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: ba266c5a4ec5ffb84ee02e9c1904423f01d333e5
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833835"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110670914"
 ---
 # <a name="troubleshoot-domain-and-tlsssl-certificate-problems-in-azure-app-service"></a>Azure App Service에서 도메인 및 TLS/SSL 인증서 문제 해결
 
@@ -109,7 +109,7 @@ Azure Portal에서 [Azure App Service 인증서](./configure-ssl-certificate.md#
 
 **원인 1의 해결 방법**
 
-- A 레코드를 추가한 경우 TXT 레코드도 추가해야 합니다. 자세한 내용은 [A 레코드 만들기](./app-service-web-tutorial-custom-domain.md#create-the-a-record)를 참조하세요.
+- A 레코드를 추가한 경우 TXT 레코드도 추가해야 합니다. 자세한 내용은 [A 레코드 만들기](./app-service-web-tutorial-custom-domain.md#4-create-the-dns-records)를 참조하세요.
 - 앱에 루트 도메인을 사용하지 않아도 되는 경우 A 레코드 대신 CNAME 레코드를 사용하는 것이 좋습니다.
 - CNAME 및 A 레코드를 동일한 도메인에 사용하지 마세요. 이 문제로 인해 충돌이 발생하고 도메인이 확인되지 않을 수 있습니다. 
 

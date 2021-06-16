@@ -2,22 +2,22 @@
 title: 사용자 및 관리자 권한 관리 - Azure Active Directory | Microsoft Docs
 description: Azure AD에서 애플리케이션에 대한 사용 권한을 검토하고 관리하는 방법을 알아봅니다. 예를 들어, 애플리케이션에 부여된 모든 사용 권한을 해지할 수 있습니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/10/2020
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: luleonpla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8cf0459ecdf93251d1d59a9396b6ee11b7701c
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: efa8611fb932fadcdf8cd7c8a361fb840babf16b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108160820"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075883"
 ---
 # <a name="take-action-on-overprivileged-or-suspicious-applications-in-azure-active-directory"></a>Azure Active Directory에서 권한 초과 또는 의심스러운 애플리케이션에 대한 조치 수행
 

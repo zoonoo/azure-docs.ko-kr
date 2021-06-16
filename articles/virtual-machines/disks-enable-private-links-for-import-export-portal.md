@@ -8,12 +8,12 @@ ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: b80100216003e91fde54b5e555bafb755c942810
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b686eac137a0531befea6fe42c31112c46b18cc9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98682922"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028652"
 ---
 # <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure Portal을 사용하여 Private Links로 관리 디스크에 대한 가져오기/내보내기 액세스를 제한합니다.
 
@@ -91,5 +91,5 @@ ms.locfileid: "98682922"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Private Link에 대한 FAQ](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Private Link에 대한 FAQ](/azure/virtual-machines/faq-for-disks#private-links-for-securely-exporting-and-importing-managed-disks)
 - [PowerShell을 사용하여 관리 스냅샷을 VHD로 다른 지역의 스토리지 계정에 내보내기/복사](/previous-versions/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account)

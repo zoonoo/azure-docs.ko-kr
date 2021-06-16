@@ -3,18 +3,18 @@ title: 템플릿 함수
 description: ARM 템플릿(Azure Resource Manager 템플릿)에서 값을 검색하고 문자열과 숫자로 작업하며 배포 정보를 검색하는 데 사용하는 함수를 설명합니다.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a9ea21a57404f7de832fb307bdabeb47f8cf3f58
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 012e570a769e8ea969d0c527a71053f55ecdf5a9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220184"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959397"
 ---
 # <a name="arm-template-functions"></a>ARM 템플릿 함수
 
 이 문서에서는 ARM 템플릿(Azure Resource Manager 템플릿)에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용하는 방법에 대한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조하세요.
 
-함수를 직접 만들려면 [사용자 정의 함수](template-syntax.md#functions)를 참조하세요.
+함수를 직접 만들려면 [사용자 정의 함수](./syntax.md#functions)를 참조하세요.
 
 대부분의 함수는 리소스 그룹, 구독, 관리 그룹 또는 테넌트에 배포될 때 동일하게 작동합니다. 일부 함수는 일부 범위에서 사용할 수 없습니다. 아래 목록에 나와 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "106220184"
 
 ## <a name="any-function"></a>모든 함수
 
-[any 함수](template-functions-any.md)는 Bicep에서 데이터 형식 경고와 관련된 문제를 해결하는 데 사용할 수 있습니다.
+[any 함수](../bicep/bicep-functions-any.md)는 Bicep에서 데이터 형식 경고와 관련된 문제를 해결하는 데 사용할 수 있습니다.
 
 ## <a name="array-functions"></a>배열 함수
 
@@ -253,7 +253,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하십시오.
 * 여러 템플릿을 병합하려면 [Azure 리소스를 배포할 때 연결된 템플릿 및 중첩된 템플릿 사용](linked-templates.md)을 참조하세요.
 * 리소스 형식을 만들 때 지정된 횟수만큼 반복하려면 [ARM 템플릿의 리소스 반복](copy-resources.md)을 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](deploy-powershell.md)를 참조하세요.

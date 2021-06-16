@@ -2,16 +2,16 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/14/2021
+ms.date: 06/11/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: e561afa05beff5cf7389a48795e3e934f522ddaa
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 99a57be09790d27321e3ac1e83958fe28e80165d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110059989"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112041485"
 ---
-|이름 |설명 |정책 |버전 |
+|속성 |Description |정책 |버전 |
 |---|---|---|---|
 |[모든 네트워크 보안 그룹에 대해 흐름 로그를 구성하고 사용하도록 설정해야 함](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Network/NetworkSecurityGroupFlowLog_Enabled.json) |네트워크 보안 그룹을 감사하여 흐름 로그가 구성되어 있는지, 흐름 로그 상태가 활성화되어 있는지 확인합니다. 흐름 로그를 사용하면 네트워크 보안 그룹을 통해 흐르는 IP 트래픽에 대한 정보를 기록할 수 있습니다. 네트워크 흐름 최적화, 처리량 모니터링, 규정 준수 확인, 침입 감지 등에 사용할 수 있습니다. |2 |1.0.0 |

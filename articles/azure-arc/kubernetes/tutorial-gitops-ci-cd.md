@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial, devx-track-azurecli
-ms.openlocfilehash: 3d7b88007a27b05119ebe93217c64279c8c541ff
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c36c2fd86252f41af0e722445dca78d870c255e2
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373407"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969893"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>자습서: Azure Arc 지원 Kubernetes 클러스터를 사용하여 GitOps로 CI/CD 구현
 
@@ -211,8 +211,8 @@ CD 파이프라인은 실행 중인 빌드의 보안 토큰을 사용하여 GitO
 1. `<Project Name> Build Service (<Organization Name>)`의 경우 `Contribute`, `Contribute to pull requests` 및 `Create branch`를 허용합니다.
 
 자세한 내용은 다음을 참조하세요.
-- [빌드 서비스에 VC 권한 부여](https://docs.microsoft.com/azure/devops/pipelines/scripts/git-commands?view=azure-devops&tabs=yaml&preserve-view=true#version-control )
-- [빌드 서비스 계정 권한 관리](https://docs.microsoft.com/azure/devops/pipelines/process/access-tokens?view=azure-devops&tabs=yaml&preserve-view=true#manage-build-service-account-permissions)
+- [빌드 서비스에 VC 권한 부여](/azure/devops/pipelines/scripts/git-commands?preserve-view=true&tabs=yaml&view=azure-devops#version-control )
+- [빌드 서비스 계정 권한 관리](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 
 ## <a name="deploy-the-dev-environment-for-the-first-time"></a>처음으로 개발 환경 배포

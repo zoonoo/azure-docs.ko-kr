@@ -13,12 +13,12 @@ author: williamdassafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 2/1/2021
-ms.openlocfilehash: 295889cf64d27761021dd09549a3366ea142516e
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 8d754d03811bf532d6be6b4695281e82ab8fb002
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107752033"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111440451"
 ---
 # <a name="automate-management-tasks-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 관리 작업 자동화(미리 보기)
 
@@ -54,9 +54,9 @@ T-SQL(Transact-SQL) 쿼리를 실행하고 유지 관리 작업을 수행하도�
 
 탄력적 작업은 [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Database 탄력적 풀](elastic-pool-overview.md) 및 [분할 맵](elastic-scale-shard-map-management.md)의 Azure SQL Database를 대상으로 지정할 수 있습니다.
 
-SQL Server 및 Azure SQL Managed Instance의 T-SQL 스크립트 작업 작동화의 경우 [SQL 에이전트](job-automation-managed-instances.md)를 고려하세요. 
+- SQL Server 및 Azure SQL Managed Instance의 T-SQL 스크립트 작업 작동화의 경우 [SQL 에이전트](../managed-instance/job-automation-managed-instance.md)를 고려하세요. 
 
-Azure Synapse Analytics의 T-SQL 스크립트 작업을 자동화하는 경우 [Azure Data Factory를 기반](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)으로 하는 [반복 트리거가 있는 파이프라인](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)을 고려하세요.
+- Azure Synapse Analytics의 T-SQL 스크립트 작업을 자동화하는 경우 [Azure Data Factory를 기반](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)으로 하는 [반복 트리거가 있는 파이프라인](../../synapse-analytics/data-integration/concepts-data-factory-differences.md)을 고려하세요.
 
 SQL 에이전트(SQL Server 및 SQL Managed Instance의 일부로 사용 가능)와 Database 탄력적 작업 에이전트(Azure SQL Database 또는 SQL Server 및 Azure SQL Managed Instance, Azure Synapse Analytics의 데이터베이스에서 T-SQL을 실행할 수 있음) 간의 차이점에 주목할 필요가 있습니다.
 
@@ -159,7 +159,7 @@ SQL 에이전트(SQL Server 및 SQL Managed Instance의 일부로 사용 가능)
 
 #### <a name="job-history"></a>작업 기록
 
-[테이블 jobs.job_executions를 쿼리](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status)하여 *작업 데이터베이스* 에서 탄력적 작업 실행 기록을 봅니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 미만의 기록을 제거하려면 *작업 데이터베이스* 에서 **sp_purge_jobhistory** 저장 프로시저를 호출합니다.
+[테이블 jobs.job_executions를 쿼리](elastic-jobs-tsql-create-manage.md#monitor-job-execution-status)하여 *작업 데이터베이스* 에서 탄력적 작업 실행 기록을 봅니다. 시스템 정리 작업은 45일 이상된 실행 기록을 제거합니다. 45일 미만의 기록을 제거하려면 *작업 데이터베이스* 에서 `sp_purge_jobhistory` 저장 프로시저를 호출합니다.
 
 #### <a name="job-status"></a>작업 상태
 

@@ -2,25 +2,22 @@
 title: Azure AD에서 페더레이션 인증서 관리 | Microsoft Docs
 description: 페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법 및 곧 만료되는 인증서를 갱신하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: kenwith
+ms.author: mtillman
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63054b18589cdcc2d950d70452b4f982c324a6c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 538307a4ffe9970960a4f8cea32ed8052bb87bf9
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104604001"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080618"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
 

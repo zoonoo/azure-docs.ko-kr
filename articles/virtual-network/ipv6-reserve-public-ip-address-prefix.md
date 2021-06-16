@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: ac79e1eb5c4f7448dc17804cd8aac3cba582497e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 0567597841719df4b749ede3d71dbd7cf57a78ba
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88509946"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675739"
 ---
 # <a name="reserve-public-ipv6-address-prefix"></a>공용 IPv6 주소 접두사 예약
 Azure VNet(가상 네트워크)용 IPv6을 사용하면 가상 네트워크 내부에서 또한 인터넷과 IPv6 및 IPv4 연결을 사용하여 Azure에서 애플리케이션을 호스트할 수 있습니다. 개별 IPv6 주소를 예약하는 것 외에도, 사용할 Azure IPv6 주소의 연속 범위(또는 IP 접두사)를 예약할 수 있습니다. 이 문서에서는 Azure PowerShell 및 CLI를 사용하여 IPv6 공용 IP 주소 및 주소 범위를 만드는 방법을 설명합니다.

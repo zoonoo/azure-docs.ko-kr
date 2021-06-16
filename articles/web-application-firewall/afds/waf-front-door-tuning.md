@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: victorh
-ms.openlocfilehash: afdfb9ea9a04c732da150c22753997c08eb2bff0
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b345491298c1481ccb9046f7ec27c45dd1bdd7a4
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633954"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668817"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Azure Front Door용 WAF(Web Application Firewall) 튜닝
  

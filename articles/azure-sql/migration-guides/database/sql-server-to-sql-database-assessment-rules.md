@@ -6,16 +6,16 @@ ms.subservice: migration-guide
 ms.custom: ''
 ms.devlang: ''
 ms.topic: how-to
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: MashaMSFT
+author: rajeshsetlem
+ms.author: rsetlem
+ms.reviewer: mathoma, cawrites
 ms.date: 12/15/2020
-ms.openlocfilehash: c407b62b5f0308fbb6d9ff7223a3554ca09592db
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7046ac7852585a51174c774a0ef2f1150a72ae1f
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027213"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591965"
 ---
 # <a name="assessment-rules-for-sql-server-to-azure-sql-database-migration"></a>Azure SQL Database로 SQL Server 마이그레이션 평가 규칙
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ Azure SQL Database로 마이그레이션하는 경우 대신 Azure Blob Storage�
 
 ## <a name="compute-clause"></a>COMPUTE 절<a id="ComputeClause"></a>
 
-**제목: COMPUTE 절이 중단되고 제거되었습니다**   
+**제목: COMPUTE 절이 지원 중단되며 제거되었습니다**   
 **범주**: 경고   
 
 **설명**   
@@ -154,8 +154,8 @@ Azure SQL Managed Instance에서 데이터베이스 호환성 수준이 100으�
 
 ## <a name="database-principal-alias"></a>데이터베이스 보안 주체 별칭<a id="DatabasePrincipalAlias"></a>
 
-**제목: SYS.DATABASE_PRINCIPAL_ALIASES가 중단되고 제거되었습니다**   
-**범주**: 문제   
+**제목: SYS.DATABASE_PRINCIPAL_ALIASES가 지원 중단되며 제거되었습니다**   
+**범주**: 이슈   
 
 **설명**   
 SYS.DATABASE_PRINCIPAL_ALIASES가 Azure SQL Database에서 중단되고 제거되었습니다.  
@@ -169,8 +169,8 @@ SYS.DATABASE_PRINCIPAL_ALIASES가 Azure SQL Database에서 중단되고 제거�
 
 ## <a name="disable_def_cnst_chk-option"></a>DISABLE_DEF_CNST_CHK 옵션<a id="DisableDefCNSTCHK"></a>
 
-**제목: SET 옵션 DISABLE_DEF_CNST_CHK가 중단되고 제거되었습니다**   
-**범주**: 문제   
+**제목: SET 옵션 DISABLE_DEF_CNST_CHK가 지원 중단되며 제거되었습니다**   
+**범주**: 이슈   
 
 **설명**   
 SET 옵션 DISABLE_DEF_CNST_CHK가 Azure SQL Database에서 중단되고 제거되었습니다.  
@@ -180,7 +180,7 @@ SET 옵션 DISABLE_DEF_CNST_CHK가 Azure SQL Database에서 중단되고 제거�
 
 ## <a name="fastfirstrow-hint"></a>FASTFIRSTROW 힌트<a id="FastFirstRowHint"></a>
 
-**제목: FASTFIRSTROW 쿼리 힌트가 중단되고 제거되었습니다**   
+**제목: FASTFIRSTROW 쿼리 힌트가 지원 중단되며 제거되었습니다**   
 **범주**: 경고   
 
 **설명**   
@@ -310,7 +310,7 @@ ANSI 조인 구문을 사용합니다.
 
 ## <a name="raiserror"></a>RAISERROR<a id="RAISERROR"></a>
 
-**제목: 레거시 스타일 RAISERROR 호출을 현대적 방식으로 대체해야 합니다**   
+**제목: 레거시 스타일 RAISERROR 호출을 현대적 방식으로 대체해야 합니다.**    
 **범주**: 경고   
 
 **설명**   
@@ -406,7 +406,7 @@ SQL Server 에이전트는 SQL Server에서 ‘작업’이라고 하는 일정�
 
 ## <a name="sql-mail"></a>SQL 메일<a id="SqlMail"></a>
 
-**제목: SQL 메일이 중단되었습니다**   
+**제목: SQL 메일이 중단되었습니다.**    
 **범주**: 경고   
 
 **설명**   
@@ -462,7 +462,7 @@ Windows 인증(통합 보안)으로 매핑된 데이터베이스 사용자는 Az
 
 
 **권장 사항**   
-로컬 Active Directory와 Azure Active Directory를 페더레이션합니다. 그런 다음 Windows ID를 해당하는 Azure Active Directory ID로 바꿀 수 있습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
+로컬 Active Directory와 Azure Active Directory를 페더레이션합니다. 그런 다음, Windows ID를 해당하는 Azure Active Directory ID로 바꿀 수 있습니다. 또는 Azure 가상 머신의 SQL Server로 마이그레이션합니다.
 
 추가 정보: [SQL Database 보안 기능](../../database/security-overview.md#authentication)
 
@@ -488,10 +488,10 @@ SQL Server를 Azure SQL Database로 마이그레이션하려면 [SQL Server에�
    - [Azure SQL Database 개요](../../database/sql-database-paas-overview.md)
    - [Azure 총 소유 비용 계산기](https://azure.microsoft.com/pricing/tco/calculator/) 
 
-- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 관해 자세히 알아보려면 다음을 참조하세요.
+- 클라우드 마이그레이션의 프레임워크 및 채택 주기에 대해 자세히 알아보려면 다음을 참조하세요.
    -  [Azure용 클라우드 채택 프레임워크](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
    -  [Azure로 마이그레이션된 워크로드의 비용 계산 및 크기 조정 모범 사례](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
 
 
-- 애플리케이션 액세스 레이어를 평가하려면 [데이터 액세스 마이그레이션 도구 키트(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)를 참조하세요.
+- 애플리케이션 액세스 레이어를 평가하려면 [Data Access Migration Toolkit(미리 보기)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)을 참조하세요.
 - 데이터 액세스 레이어 A/B 테스트를 수행하는 방법에 관한 자세한 내용은 [데이터베이스 실험 도우미](/sql/dea/database-experimentation-assistant-overview)를 참조하세요.

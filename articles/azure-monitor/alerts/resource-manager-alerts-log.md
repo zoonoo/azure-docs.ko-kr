@@ -5,15 +5,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 19bbeba3db7e3df5ea5120d3562f24b447848f7f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6d76631313f425785b692c34629a6d408278e76b
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044037"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949434"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Azure Monitor의 로그 경고 규칙에 대한 Resource Manager 템플릿 샘플
-이 문서에는 Azure Monitor에서 로그 쿼리 경로를 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure Monitor에서 로그 쿼리 경로를 만들고 구성하기 위한 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md) 샘플이 포함되어 있습니다. 각 샘플에는 템플릿 파일과 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

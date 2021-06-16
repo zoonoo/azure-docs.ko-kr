@@ -7,15 +7,13 @@ ms.author: duau
 ms.date: 09/01/2020
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 68ebc6d7827e898946930b956263be3e3010a008
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: d18e85ec73e1112ed31cc25846fb46aa34038932
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839296"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900578"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Traffic Manager 프로필 만들기
 
@@ -33,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-traffic-manager-external-endpoint)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/traffic-manager-external-endpoint)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-external-endpoint/azuredeploy.json":::
 

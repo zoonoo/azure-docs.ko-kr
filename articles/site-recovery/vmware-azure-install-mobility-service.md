@@ -1,17 +1,19 @@
 ---
 title: VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 푸시 설치를 통해 Mobility Service를 설치하도록 원본 머신 준비 | Microsoft Docs
 description: Azure Site Recovery 서비스를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하기 위해 푸시 설치를 통해 모바일 에이전트를 설치하도록 서버를 준비하는 방법을 알아봅니다.
-author: Rajeswari-Mamilla
+services: site-recovery
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/25/2019
-ms.author: ramamill
-ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: c48fe1f4c6d871506235d5bea743226bc1184fee
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90525000"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576916"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>모바일 에이전트를 푸시 설치하도록 원본 머신 준비
 

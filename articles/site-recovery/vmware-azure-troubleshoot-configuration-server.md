@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하는 동안 구성 서버 문제 해결 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 재해 복구하는 구성 서버 배포에 대한 문제 해결 정보를 제공합니다.
-author: Rajeswari-Mamilla
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/13/2019
-ms.author: ramamill
-ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: sharrai
+ms.date: 05/27/2021
+ms.openlocfilehash: b943013de867016478a6e126d244974a8505a7cd
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92371956"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576574"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 

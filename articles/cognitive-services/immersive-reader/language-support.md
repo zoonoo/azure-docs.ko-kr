@@ -5,17 +5,17 @@ description: 몰입형 리더에서 사용할 수 있는 인간 언어에 대해
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metang
-ms.openlocfilehash: a706f3b7cde5e7f3a19d82ff4b2bb7a7d2fa7913
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 66cf989b563b6798e415ad6feb0a906c0a3a1cde
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377713"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893951"
 ---
 # <a name="language-support-for-immersive-reader"></a>몰입형 리더를 위한 언어 지원
 

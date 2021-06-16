@@ -3,12 +3,13 @@ title: PowerShell을 사용하여 Azure 파일 공유 백업
 description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용하여 Azure Files 파일 공유를 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 948931764769bc967b88e7942b7e8384b0f93dff
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 74478d98d63a18582d93c8cddb872ffb3c3774f8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87076998"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681490"
 ---
 # <a name="back-up-an-azure-file-share-by-using-powershell"></a>PowerShell을 사용하여 Azure 파일 공유 백업
 

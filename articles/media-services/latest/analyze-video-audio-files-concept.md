@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: inhenkel
-ms.openlocfilehash: 97aff4bf97a8d79813afb1bd5b7a5e14f6d545c4
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 83e739eb643896de710b5179b78a6305adf84465
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375283"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949284"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services로 비디오 및 오디오 파일 분석
 
@@ -21,7 +21,7 @@ ms.locfileid: "110375283"
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Azure Media Services v3를 사용하면 Video Indexer로 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다. 이 문서에서는 이와 같은 인사이트를 추출하는 데 사용되는 Media Services v3 분석기 사전 설정을 설명합니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 사전 설정을 사용하는 경우와 Media Services 분석기 사전 설정을 사용하는 경우를 비교 해석해 보려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
+Azure Media Services v3를 사용하면 Video Indexer로 비디오 및 오디오 파일에서 인사이트를 추출할 수 있습니다. 이 문서에서는 이와 같은 인사이트를 추출하는 데 사용되는 Media Services v3 분석기 사전 설정을 설명합니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 사전 설정을 사용하는 경우와 Media Services 분석기 사전 설정을 사용하는 경우를 비교 해석해 보려면 [비교 문서](../../azure-video-analyzer/video-analyzer-for-media-docs/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
 
 Audio Analyzer 사전 설정에는 기본 및 표준의 두 가지 모드가 있습니다. 아래 표에서 두 모드의 차이에 대한 설명을 참조하세요.
 
@@ -29,7 +29,7 @@ Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **�
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
 
-중요한 알림을 사용하는 경우 Video Indexer 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 위반하거나 다른 사용자에게 해로운 방법으로 Video Indexer 또는 다른 Azure 서비스를 사용해서는 안 됩니다. 처리 및 저장을 위해 Video Indexer 서비스에 모든 생체 인식 데이터를 비롯한 비디오를 업로드하려면, 비디오에 나온 모든 사람들의 적절한 동의를 비롯한 적절한 권한이 모두 있어야 합니다. Video Indexer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 보호 정보는 OST 및 [여기](../video-indexer/faq.md)에서 사용할 수 있습니다. Video Indexer를 사용하면 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침에 따라 바인딩되는 것에 동의합니다.
+중요한 알림을 사용하는 경우 Video Indexer 사용 시 적용 가능한 모든 법률을 준수해야 하며, 다른 사용자의 권리를 위반하거나 다른 사용자에게 해로운 방법으로 Video Indexer 또는 다른 Azure 서비스를 사용해서는 안 됩니다. 처리 및 저장을 위해 Video Indexer 서비스에 모든 생체 인식 데이터를 비롯한 비디오를 업로드하려면, 비디오에 나온 모든 사람들의 적절한 동의를 비롯한 적절한 권한이 모두 있어야 합니다. Video Indexer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Azure [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 참조하세요. Microsoft의 개인 정보 보호 의무 및 데이터 처리에 대한 내용은 Microsoft의 [개인정보처리방침](https://privacy.microsoft.com/PrivacyStatement), [Online Services 사용 약관](https://www.microsoft.com/licensing/product-licensing/products)(“OST”) 및 [Data Processing 추록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67)(“DPA”)을 검토하세요. 데이터 보존, 삭제/소멸을 비롯한 추가 개인 정보 보호 정보는 OST 및 [여기](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.md)에서 사용할 수 있습니다. Video Indexer를 사용하면 Cognitive Services 사용 약관, OST, DPA 및 개인정보처리방침에 따라 바인딩되는 것에 동의합니다.
 
 ## <a name="built-in-presets"></a>기본 제공 미리 설정
 
@@ -85,7 +85,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |언어|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
 |인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
 
-예:
+예제:
 
 ```json
 "transcript": [
@@ -261,7 +261,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 ### <a name="statistics"></a>통계
 
-|이름|설명|
+|이름|Description|
 |---|---|
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |WordCount|화자별 단어 수입니다.|

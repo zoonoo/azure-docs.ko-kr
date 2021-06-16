@@ -5,13 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.custom: references_regions
-ms.openlocfilehash: 955e6b22c22d9cbe5891bcd0109806cb9270a456
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.custom: references_regions, devx-track-azurepowershell
+ms.openlocfilehash: 34006afd79ef2c1bb8a1f552a7f8f9905b95d72f
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168657"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075550"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Chocolatey를 사용한 지속적인 배포 설정
 
@@ -81,7 +81,7 @@ Automation 계정을 다음 지역(위치라고도 함) 중 하나에 넣을 수
 
 ## <a name="step-2-make-vm-extension-tweaks-to-the-resource-manager-template"></a>2단계: Resource Manager 템플릿에 대한 VM 확장 조정
 
-VM 등록에 대한 세부 정보(PowerShell DSC VM 확장 사용)는 이 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver)에서 제공합니다.
+VM 등록에 대한 세부 정보(PowerShell DSC VM 확장 사용)는 이 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/)에서 제공합니다.
 이 단계는 새 VM을 상태 구성 노드 목록의 풀 서버에 등록합니다. 이 등록의 일부는 노드에 적용할 노드 구성을 지정하고 있습니다. 이 노드 구성은 풀 서버에 있을 필요가 없으므로 4단계에서 이 작업을 처음으로 수행해도 됩니다. 하지만 여기 2단계에서 노드의 이름 및 구성의 이름을 결정해야 합니다. 이 사용 예에서 노드는 'isvbox'이고 구성은 'ISVBoxConfig'입니다. 따라서 (DeploymentTemplate.json 지정할) 노드 구성 이름은 'ISVBoxConfig.isvbox'입니다.
 
 ## <a name="step-3-add-required-dsc-resources-to-the-pull-server"></a>3단계: 필요한 DSC 리소스를 풀 서버에 추가

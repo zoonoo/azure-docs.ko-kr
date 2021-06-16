@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: f84b74b054a073f2c1ae5ba2ac7d0d0a968367c6
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d7b8b04093bbec23dd080802876358c1b1af33e8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107767676"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110675875"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>가상 머신 라우팅 문제 진단
 
@@ -52,7 +53,7 @@ VM에 연결하려고 하지만 연결에 실패합니다. VM에 액세스할 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 버전 1.0.0 이상의 Azure PowerShell 모듈이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Connect-AzAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 Azure PowerShell 모듈 버전 1.0.0이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Connect-AzAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)을 사용하여 네트워크 인터페이스에 대한 유효 경로를 가져옵니다. 다음 예제에서는 *myResourceGroup* 이라는 리소스 그룹에 있는 *myVMNic1* 이라는 네트워크 인터페이스에 대한 유효 경로를 가져옵니다.
 

@@ -7,15 +7,13 @@ ms.author: damendo
 ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 36a70cf01130e4156c21b01013cddcb706b32276
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 9d541294ff20047f9041b58b3ce971c76adb6737
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277717"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982685"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -35,7 +33,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-networkwatcher-flowlogs-create)에서 가져온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/networkwatcher-flowlogs-create)에서 가져온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/networkwatcher-flowLogs-create/azuredeploy.json":::
 
@@ -83,7 +81,7 @@ NSG 흐름 로그 개체 속성에 대한 전체 개요는 [Microsoft.Network ne
 
 ARM 템플릿을 처음으로 사용하는 경우 다음 문서에서 ARM 템플릿에 대해 자세히 알아보세요.
 
-- [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template-or-bicep-file)
+- [ARM 템플릿 및 Azure PowerShell을 사용하여 리소스 배포](../azure-resource-manager/templates/deploy-powershell.md#deploy-local-template)
 - 첫 번째 ARM 템플릿 만들기 및 배포[
 
 다음 예제는 전체 템플릿입니다. 템플릿의 가장 간단한 버전이기도 합니다. 이 예제에는 NSG 흐름 로그를 설정하기 위해 전달되는 최소 매개 변수가 포함되어 있습니다. 더 많은 예제를 보려면 [Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성](network-watcher-nsg-flow-logging-azure-resource-manager.md) 개요 문서를 참조하세요.

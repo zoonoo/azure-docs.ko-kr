@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2021
 ms.author: memildin
-ms.openlocfilehash: c3a821156074727d02ab36cf88f3e998756b8cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5b815914d4a34d50e2bb566097620ee29e15f957
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100389453"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677529"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>현수 DNS 항목 방지 및 하위 도메인 인수 방지
 
@@ -215,6 +215,6 @@ Azure App Service에 대한 DNS 항목을 만들 때 도메인 확인 ID를 사�
 
 - [Azure DNS를 사용하여 현수 DNS 레코드 방지](../../dns/dns-alias.md#prevent-dangling-dns-records)
 
-- [Azure App Service에서 사용자 지정 도메인을 추가할 때 도메인 확인 ID 사용](../../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)
+- [Azure App Service에서 사용자 지정 도메인을 추가할 때 도메인 확인 ID 사용](../../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)
 
 - [빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행](../../governance/resource-graph/first-query-powershell.md)

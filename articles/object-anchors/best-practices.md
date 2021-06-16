@@ -6,18 +6,18 @@ ms.author: crtreasu
 ms.date: 03/12/2021
 ms.topic: best-practice
 ms.service: azure-object-anchors
-ms.openlocfilehash: 6b9546843d88a5a7329120cca86d685d8abf3460
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 0a092b45b341af37e4251951b06d1211fa6c600a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061930"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983801"
 ---
 # <a name="best-practices"></a>모범 사례
 
 최상의 결과를 얻으려면 이러한 단계 중 일부를 시도하는 것이 좋습니다.
 
-## <a name="ingestion"></a>수집
+## <a name="conversion"></a>변환
 
 - 실제 개체의 크기를 확인합니다. Azure 개체 앵커는 가장 작은 크기가 1~10m 권장 범위에 있는 개체에 가장 적합합니다.
 - [**MeshLab**](https://www.meshlab.net/)과 같은 소프트웨어의 3D 모델을 검사하여 다음 세부 정보를 확인합니다.

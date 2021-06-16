@@ -3,12 +3,13 @@ title: Azure Service Fabric의 네트워킹 패턴
 description: Service Fabric에 대한 일반적인 네트워킹 패턴과 Azure 네트워킹 기능을 사용하여 클러스터를 만드는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c95ded10463d1b5ab6f28373883db641283cdac1
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87421470"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663673"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 네트워킹 패턴
 다른 Azure 네트워킹 기능으로 Azure Service Fabric 클러스터를 통합할 수 있습니다. 이 문서에서는 다음과 같은 기능을 사용하여 클러스터를 만드는 방법을 보여 줍니다.

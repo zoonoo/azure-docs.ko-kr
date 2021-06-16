@@ -11,12 +11,12 @@ ms.date: 01/14/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0aeb2e9649a4bbbb2520eac683836ebbf7dfd0a
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: ab0fc1818ecef777a14af307a00730fadc7e8640
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075052"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111953612"
 ---
 # <a name="azure-ad-connect-cloud-sync-error-codes-and-descriptions"></a>Azure AD Connect 클라우드 동기화 오류 코드 및 설명
 다음은 오류 코드 목록 및 해당 설명입니다.
@@ -29,7 +29,7 @@ ms.locfileid: "106075052"
 |TimeOut|오류 메시지: 온-프레미스 에이전트에 연결하고 구성을 동기화 할 때 요청 시간 초과 오류가 검색되었습니다. 클라우드 동기화 에이전트와 관련된 추가 문제는 문제 해결 참고 자료를 참조하세요.|HIS 요청 시간이 초과되었습니다. 현재 시간 제한 값은 10분입니다.|[문제 해결 참고 자료](how-to-troubleshoot.md)를 참조하십시오.|
 |HybridSynchronizationActiveDirectoryInternalServerError|오류 메시지: 이 지점에서 이 요청을 처리할 수 없습니다. 이 문제가 지속되면 지원 담당자에게 연락한 후 작업 식별자를 제공하세요(작업 식별자: AD2AADProvisioning.30b500eaf9c643b2b78804e80c1421fe.5c291d3c-d29f-4570-9d6b-f0c2fa3d5926). 추가 정보: HTTP 요청을 처리하는 동안 예외가 발생했습니다. |검색 요청에 대해 SCIM 요청에서 받은 매개 변수를 처리할 수 없습니다.|자세한 내용은 이 예외의 'Response' 속성에서 반환된 HTTP 응답을 참조하세요.|
 |HybridIdentityServiceNoAgentsAssigned|오류 메시지: 동기화하려는 도메인의 활성 에이전트를 찾을 수 없습니다. 에이전트가 제거되었는지 확인하세요. 제거되었다면, 해당 에이전트를 다시 설치하십시오.|실행 중인 에이전트가 없습니다. 에이전트가 제거된 것 같습니다. 새 에이전트 등록|"이 경우 포털에서 도메인에 할당된 에이전트는 표시되지 않습니다.|
-|HybridIdentityServiceNoActiveAgents|오류 메시지: 동기화하려는 도메인의 활성 에이전트를 찾을 수 없습니다. 에이전트가 설치된 서버로 이동하여 에이전트가 실행되고 있는지 확인하고, 서비스에서 "Microsoft Azure AD Cloud Sync Agent"가 실행되고 있는지 확인하십시오.|"에이전트가 ServiceBus 엔드포인트를 수신 대기하지 않습니다. [에이전트가 Service Bus에 대한 연결을 허용하지 않는 방화벽 뒤에 있습니다.](../../active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers.md#use-the-outbound-proxy-server)|
+|HybridIdentityServiceNoActiveAgents|오류 메시지: 동기화하려는 도메인의 활성 에이전트를 찾을 수 없습니다. 에이전트가 설치된 서버로 이동하여 에이전트가 실행되고 있는지 확인하고, 서비스에서 "Microsoft Azure AD Cloud Sync Agent"가 실행되고 있는지 확인하십시오.|"에이전트가 ServiceBus 엔드포인트를 수신 대기하지 않습니다. [에이전트가 Service Bus에 대한 연결을 허용하지 않는 방화벽 뒤에 있습니다.](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md#use-the-outbound-proxy-server)|
 |HybridIdentityServiceInvalidResource|오류 메시지: 이 지점에서 이 요청을 처리할 수 없습니다. 이 문제가 지속되면 지원 담당자에게 연락한 후 작업 식별자를 제공하세요(작업 식별자: AD2AADProvisioning.3a2a0d8418f34f54a03da5b70b1f7b0c.d583d090-9cd3-4d0a-aee6-8d666658c3e9). 추가 정보: 클라우드 동기화를 설정하는 데 문제가 있는 것 같습니다. 온-프레미스 AD 도메인에 클라우드 동기화 에이전트를 다시 등록하고 Azure Portal에서 구성을 다시 시작하세요.|리소스 이름을 설정하여 HIS가 연락할 담당 에이전트를 알도록 해야 합니다.|온-프레미스 AD 도메인에 클라우드 동기화 에이전트를 다시 등록하고 Azure Portal에서 구성을 다시 시작하세요.|
 |HybridIdentityServiceAgentSignalingError|오류 메시지: 이 지점에서 이 요청을 처리할 수 없습니다. 이 문제가 지속되면 지원 담당자에게 연락한 후 작업 식별자를 제공하세요(작업 식별자: AD2AADProvisioning.92d2e8750f37407fa2301c9e52ad7e9b.efb835ef-62e8-42e3-b495-18d5272eb3f9). 추가 세부 정보: 이 지점에서 이 요청을 처리할 수 없습니다. 이 문제가 지속되면, 구성의 상태 창에서 작업 ID로 지원 담당자에게 문의하세요.|Service Bus가 에이전트에 메시지를 보낼 수 없습니다. Service Bus의 작동이 중단되었거나 에이전트가 응답하지 않을 수 있습니다.|이 문제가 지속되면, 구성의 상태 창에서 작업 ID로 지원 담당자에게 문의하세요.|
 |AzureDirectoryServiceServerBusy|오류 메시지: 오류가 발생했습니다. 오류 코드: 81. 오류 설명: Azure Active Directory 현재 사용 중입니다. 이 작업은 자동으로 다시 시도됩니다. 이 문제가 24시간 넘게 지속되면 기술 지원 서비스에 문의하세요. 추적 ID: 8a4ab3b5-3664-4278-ab64-9cff37fd3f4f 서버 이름:|Azure Active Directory 현재 사용 중입니다.|이 문제가 24시간 넘게 지속되면 기술 지원 서비스에 문의하세요.|

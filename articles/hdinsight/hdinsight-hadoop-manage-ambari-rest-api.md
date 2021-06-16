@@ -3,14 +3,14 @@ title: Ambari REST API를 사용하여 Hadoop 모니터링 및 관리 - Azure HD
 description: Ambari를 사용하여 Azure HDInsight에서 Hadoop 클러스터를 모니터링하고 관리하는 방법에 대해 알아봅니다. 이 문서에서는 HDInsight 클러스터에 포함된 Ambari REST API를 사용하는 방법을 배웁니다.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurepowershell
 ms.date: 04/29/2020
-ms.openlocfilehash: 1d4e6f0d6a0242cda919364965a61e4314927d87
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 249355b4d5e80625511d8448c587d079c77dd92b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98945585"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701540"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 

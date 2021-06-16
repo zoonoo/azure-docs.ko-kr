@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cd278968eeb430bf57f279bb8b7e5d4ee9248ce1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "74007854"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965712"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>자습서: Azure Storage 계정에 Azure AD 로그 보관
 
@@ -75,6 +75,6 @@ ms.locfileid: "74007854"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
+* [Azure Monitor에서 감사 로그 스키마 해석](./overview-reports.md)
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)
 * [질문과 대답 및 알려진 문제](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

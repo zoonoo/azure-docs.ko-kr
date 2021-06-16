@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 276ab2cc1d79235c00ce1bb50ff9b648bb1de6ea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f6320b0af23dbb74f9ced7e0a9fe683861d6e96
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87097679"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894977"
 ---
 # <a name="troubleshooting-student-login-issues"></a>학생 로그인 문제 해결
 Azure Dev Tools for Teaching에 액세스하려면 사용자에게 MSA(Microsoft 계정)가 있어야 합니다. 학생은 계정이 아직 MSA가 아니거나 MSA에 연결되지 않은 경우 MSA 만들기로 자동 이동됩니다. 도메인이 Active Directory와 연결된 경우 해당 도메인의 모든 계정은 이미 MSA로 간주됩니다.
@@ -51,6 +51,6 @@ Azure Dev Tools for Teaching에 액세스하려면 사용자에게 MSA(Microsoft
     :::image type="content" source="media/troubleshoot-accounts/manage-sign-in-add-email.png" alt-text="Microsoft에 로그인하는 방법 관리" border="false":::
 
 ## <a name="next-steps"></a>다음 단계
-- [FAQ](program-faq.md)
+- [FAQ](program-faq.yml)
 
 - [지원 옵션](program-support.md)

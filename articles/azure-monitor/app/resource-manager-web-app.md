@@ -6,16 +6,16 @@ ms.custom: devx-track-dotnet
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 08/06/2020
-ms.openlocfilehash: 4e287d600e596539aec2763157036d2bb71b141c
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: 90baa5490283697cf021215d55a628182c43a124
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106383324"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965535"
 ---
 # <a name="resource-manager-template-samples-for-creating-azure-app-services-web-apps-with-application-insights-monitoring"></a>Application Insights 모니터링을 사용하여 Azure App Services 웹앱을 만들기 위한 Resource Manager 템플릿 샘플
 
-이 문서에는 Azure App Services 웹앱과 함께 [클래식 Application Insights 리소스](../app/create-new-resource.md)를 배포하고 구성하기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
+이 문서에는 Azure App Services 웹앱과 함께 [클래식 Application Insights 리소스](../app/create-new-resource.md)를 배포하고 구성하기 위한 샘플 [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/syntax.md)이 포함되어 있습니다. 각 샘플에는 템플릿 파일 및 템플릿에 제공할 샘플 값이 포함된 매개 변수 파일이 포함되어 있습니다.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

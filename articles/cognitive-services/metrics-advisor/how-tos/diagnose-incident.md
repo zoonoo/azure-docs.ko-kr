@@ -5,17 +5,17 @@ description: Metrics Advisor를 사용하여 인시던트를 진단하고 데이
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbullwin
-ms.openlocfilehash: ecbfb2d9acf6c62f95c264a14e306442db25e483
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dd84293ab627c1e379af1e76d259a566998cb0ea
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101703425"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892449"
 ---
 # <a name="how-to-diagnose-an-incident-using-metrics-advisor"></a>방법: Metrics Advisor를 사용한 인시던트 진단
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/06/2021
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 9797401fd96bf052fdc9de0c2c2ceaf88b3d46b6
-ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
+ms.openlocfilehash: f68b940dfdb8c166102f1b4c8957f5233aa83ea4
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106504212"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007772"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>상업용 Marketplace의 거래 기능
 
@@ -51,7 +51,7 @@ Microsoft를 통한 판매를 선택하면 Microsoft 상거래 기능을 활용�
 
 ### <a name="metered-billing"></a>요금제 청구
 
-_Marketplace 계량 서비스_ 를 사용하면 계약(권한)에 포함된 월간 또는 연간 요금 외에 종량제(소비 기반) 요금을 지정할 수 있습니다. 대역폭, 티켓 또는 처리된 이메일 등 지정한 Marketplace 계량 서비스 차원에 대한 사용 비용을 청구 할 수 있습니다. SaaS 제품의 요금제에 대한 자세한 내용은 [상업용 Marketplace 계량 서비스를 사용하여 SaaS 요금제 청구](./partner-center-portal/saas-metered-billing.md)를 참조하세요. Azure 애플리케이션 제품의 요금제 청구에 대한 자세한 내용은 [관리되는 애플리케이션 요금제 청구](./partner-center-portal/azure-app-metered-billing.md)를 참조하세요.
+_Marketplace 계량 서비스_ 를 사용하면 계약(권한)에 포함된 월간 또는 연간 요금 외에 종량제(소비 기반) 요금을 지정할 수 있습니다. 대역폭, 티켓 또는 처리된 이메일 등 지정한 Marketplace 계량 서비스 차원에 대한 사용 비용을 청구 할 수 있습니다. SaaS 제품의 요금제에 대한 자세한 내용은 [상업용 Marketplace 계량 서비스를 사용하여 SaaS 요금제 청구](./partner-center-portal/saas-metered-billing.md)를 참조하세요. Azure 애플리케이션 제품의 요금제 청구에 대한 자세한 내용은 [관리되는 애플리케이션 요금제 청구](marketplace-metering-service-apis.md)를 참조하세요.
 
 ### <a name="billing-infrastructure-costs"></a>인프라 비용 청구
 
@@ -67,13 +67,13 @@ _Marketplace 계량 서비스_ 를 사용하면 계약(권한)에 포함된 월�
 - **BYOL(Bring your own license)** : 제품이 상업용 Marketplace에 등록된 경우 소프트웨어 라이선스에 적용되는 모든 요금은 게시자와 고객 간에 직접 관리됩니다. Microsoft는 고객의 Azure 구독 계정에 적용되는 Azure 인프라 사용 요금만 청구합니다.
 - **구독 가격 책정**: 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구되는 월간 또는 연간 정기 구독 요금으로 표시됩니다. 정기 구독 요금은 고객의 중도 취소 또는 사용하지 않은 서비스에 대해 비례 배분되어 계산되지 않습니다. 고객이 구독 기간 중 구독을 업그레이드하거나 다운그레이드하는 경우 정기 구독 요금은 비례 배부되어 계산될 수 있습니다.
 - **사용량 기반 가격 책정**: Azure Virtual Machine 제품의 경우 제품 사용 범위에 따라 고객에게 청구됩니다. 가상 머신 이미지의 경우 VM 이미지에서 배포하는 가상 머신 사용량에 대해 게시자가 설정한 시간당 Azure Marketplace 요금이 고객에게 부과됩니다. 시간당 요금은 가상 머신 크기에 관계없이 균일할 수도 있고 크기별로 다를 수 있습니다. 1시간 미만은 분 단위로 요금이 청구됩니다. 플랜은 매월 청구됩니다.
-- **요금제 가격 책정**: Azure 애플리케이션 제품 및 SaaS 제품의 경우 게시자는 [ Marketplace 계량 서비스](./partner-center-portal/marketplace-metering-service-apis.md)를 사용하여 구성한 사용자 지정 미터 측정 기준에 따라 사용량에 대해 청구할 수 있습니다. 이러한 변경 사항은 계약(권한)에 포함된 월간 또는 연간 요금에 추가됩니다. 사용자 지정 미터 측정 기준의 예로는 대역폭, 티켓 또는 처리된 이메일이 있습니다. 게시자는 각 플랜에 대해 하나 이상의 측정 기준을 정의할 수 있지만 제품당 최대 30 개입니다. 게시자는 제품에서 각 미터를 정의하여 개별 사용자의 사용량을 추적해야 합니다. 이벤트는 한 시간 이내에 Microsoft에 보고해야 합니다. Microsoft는 해당 청구 기간에 대해 게시자가 보고한 사용량 정보를 토대로 고객에게 요금을 부과합니다.
+- **요금제 가격 책정**: Azure 애플리케이션 제품 및 SaaS 제품의 경우 게시자는 [ Marketplace 계량 서비스](marketplace-metering-service-apis.md)를 사용하여 구성한 사용자 지정 미터 측정 기준에 따라 사용량에 대해 청구할 수 있습니다. 이러한 변경 사항은 계약(권한)에 포함된 월간 또는 연간 요금에 추가됩니다. 사용자 지정 미터 측정 기준의 예로는 대역폭, 티켓 또는 처리된 이메일이 있습니다. 게시자는 각 플랜에 대해 하나 이상의 측정 기준을 정의할 수 있지만 제품당 최대 30 개입니다. 게시자는 제품에서 각 미터를 정의하여 개별 사용자의 사용량을 추적해야 합니다. 이벤트는 한 시간 이내에 Microsoft에 보고해야 합니다. Microsoft는 해당 청구 기간에 대해 게시자가 보고한 사용량 정보를 토대로 고객에게 요금을 부과합니다.
 - **평가판**: 제품 유형에 따라 30일에서 6개월까지 소프트웨어 라이선스에 대한 요금이 청구되지 않습니다. 게시자가 동일한 제품 내에서 여러 요금제에 대한 평가판을 제공하는 경우, 고객은 다른 플랜의 평가판으로 전환할 수 있지만 평가 기간이 다시 시작되지는 않습니다. 가상 머신 제품의 경우, 무료 평가 기간 동안 제품 사용에 대해 고객에게 Azure 인프라 비용이 청구됩니다. 무료 평가 기간 종료 전에 취소하지 않는 경우, 평가판 기간 종료와 동시에 표준 요금 기준으로 마지막 사용한 요금제에 해당하는 요금이 자동으로 청구됩니다.
 
 > [!NOTE]
 > 솔루션을 사용한 후 사용량에 따라 청구된 제품은 환불되지 않습니다.
 
-제품과 관련된 사용 요금을 변경하려는 게시자는 먼저 상업용 Marketplace에서 제품(또는 제품 내의 특정 플랜)을 제거해야 합니다. 제거는 [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)의 요구 사항에 따라 수행해야 합니다. 그런 다음, 게시자는 새로운 사용 요금이 포함된 새 제품(또는 제품 내 플랜)을 게시할 수 있습니다. 제품 또는 플랜 삭제에 대한 자세한 내용은 [제품 또는 플랜 판매 중지](./partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan)를 참조하세요.
+제품과 관련된 사용 요금을 변경하려는 게시자는 먼저 상업용 Marketplace에서 제품(또는 제품 내의 특정 플랜)을 제거해야 합니다. 제거는 [Microsoft 게시자 계약](/legal/marketplace/msft-publisher-agreement)의 요구 사항에 따라 수행해야 합니다. 그런 다음, 게시자는 새로운 사용 요금이 포함된 새 제품(또는 제품 내 플랜)을 게시할 수 있습니다. 제품 또는 플랜 삭제에 대한 자세한 내용은 [제품 또는 플랜 판매 중지](./update-existing-offer.md#stop-selling-an-offer-or-plan)를 참조하세요.
 
 ### <a name="free-contact-me-and-bring-your-own-license-byol-pricing"></a>무료, 연락처 및 BYOL(사용자 라이선스 필요) 가격 책정
 
@@ -147,7 +147,7 @@ SaaS 구독은 정액 요금으로 또는 사용자당 월간 또는 연간 단�
 
 ### <a name="commercial-marketplace-service-fees"></a>상업용 Marketplace 서비스 요금
 
-고객이 상업용 Marketplace에서 거래 제품을 구매할 때 20% 표준 스토어 서비스 요금을 부과합니다. 이 요금에 대한 자세한 내용은 [Microsoft 게시자 계약 ](https://go.microsoft.com/fwlink/?LinkID=699560)의 섹션 5c를 참조하세요.
+고객이 상업용 Marketplace에서 거래 제품을 구매할 때 20% 표준 스토어 서비스 요금을 부과합니다. 이 요금에 대한 자세한 내용은 [Microsoft 게시자 계약 ](/legal/marketplace/msft-publisher-agreement)의 섹션 5c를 참조하세요.
 
 상업용 Marketplace에 게시하는 특정 거래 제품의 경우 10%의 할인된 스토어 서비스 요금을 받을 수 있습니다. 자격을 얻으려면 Microsoft에서 _Azure IP 공동 판매 인센티브_ 로 지정해야 합니다. 할인된 Marketplace 서비스 요금을 받으려면 각 매월 월말 전 최소 5 영업일 전에 자격이 충족되어야 합니다. 자격이 충족되면 _Azure IP 공동 판매 인센티브_ 상태를 상실할 때까지 다음 달 1일부터 유효한 모든 거래에 대해 할인된 서비스 요금이 지급됩니다. IP 공동 판매 자격에 대한 자세한 내용은 [공동 판매 상태의 요구 사항](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)을 참조하세요.
 
@@ -178,7 +178,7 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 
 #### <a name="billing-questions-and-support"></a>청구 관련 질문 및 지원
 
-자세한 내용과 법률 정책은 [Microsoft 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560)을 참조하세요. 청구 관련 질문에 대한 도움말은 [상업용 Marketplace 게시자 지원](https://aka.ms/marketplacepublishersupport)에 문의하세요.
+자세한 내용과 법률 정책은 [Microsoft 게시자 계약](/legal/marketplace/msft-publisher-agreement)을 참조하세요. 청구 관련 질문에 대한 도움말은 [상업용 Marketplace 게시자 지원](https://go.microsoft.com/fwlink/?linkid=2165533)에 문의하세요.
 
 ## <a name="transact-requirements"></a>거래 요구 사항
 
@@ -189,7 +189,7 @@ Microsoft가 에이전트로서 수금한 모든 소프트웨어 라이선스 �
 - 제품의 가격 책정 모델과 관계 없이 Microsoft 계정 및 금융 정보는 거래 게시 옵션에 필요합니다.
 - 필수 금융 정보에는 지급 계정 및 세금 프로필이 포함됩니다.
 
-이러한 계정을 설정하는 방법에 대한 자세한 내용은 [파트너 센터에서 상업용 Marketplace 계정 관리](partner-center-portal/manage-account.md)를 참조하세요.
+이러한 계정을 설정하는 방법에 대한 자세한 내용은 [파트너 센터에서 상업용 Marketplace 계정 관리](manage-account.md)를 참조하세요.
 
 ### <a name="requirements-for-specific-offer-types"></a>특정 제품 유형에 대한 요구 사항
 

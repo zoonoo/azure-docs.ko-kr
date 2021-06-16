@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: d8885e374142b3d916803fc472ae18351ca6d470
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e99d94fbd4ab91c2ba51ca7922873b8338f7da85
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98664521"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033305"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Azure에서 적절한 MariaDB 서버 옵션 선택
 
@@ -41,7 +41,7 @@ Azure를 사용하면 MariaDB 서버 워크로드를 호스트된 가상 머신 
 | 하이브리드 시나리오 | [데이터 내부 복제](concepts-data-in-replication.md)를 사용하면 외부 MariaDB 서버에서 Azure Database for MariaDB 서비스로 데이터를 동기화할 수 있습니다. 외부 서버는 온-프레미스 가상 머신 또는 다른 클라우드 공급 기업이 호스트하는 데이터베이스 서비스에 있을 수 있습니다.<br/><br/> [복제본 읽기](concepts-read-replicas.md) 기능을 사용하면 Azure Database for MariaDB 원본 서버에서 최대 5개의 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 복제본은 동일한 Azure 지역 내에 있거나 여러 지역에 걸쳐 있습니다. 읽기 전용 복제본은 binlog 복제 기술을 사용하여 비동기적으로 업데이트됩니다.<br/><br/>지역 간 읽기 복제는 현재 퍼블릭 미리 보기로 제공됩니다.| 고객이 관리
 | 백업 및 복원 | 자동으로 [서버 백업](concepts-backup.md#backups)을 만들어 사용자가 로컬로 구성한 중복 스토리지 또는 지역 중복 스토리지에 저장합니다. 이 서비스는 전체, 차등 및 트랜잭션 로그 백업을 수행합니다. | 고객이 관리 |
 | 데이터베이스 작업 모니터링 | 데이터베이스 작업에 대한 [경고를 설정](concepts-monitoring.md)하고 임계값에 도달하면 작동하는 기능을 고객에게 제공합니다. | 고객이 관리 |
-| Advanced Threat Protection | [Advanced Threat Protection](howto-database-threat-protection-portal.md)을 제공합니다. 이 보호 기능은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 탐지합니다.<br/><br/>Advanced Threat Protection은 현재 퍼블릭 미리 보기로 제공됩니다.| 고객이 직접 이 보호를 구축해야 합니다.
+| Advanced Threat Protection | Advanced Threat Protection을 제공합니다. 이 보호 기능은 비정상적이며 잠재적으로 유해할 수 있는 데이터베이스 액세스 또는 악용 시도를 나타내는 비정상적인 활동을 탐지합니다.<br/><br/>Advanced Threat Protection은 현재 퍼블릭 미리 보기로 제공됩니다.| 고객이 직접 이 보호를 구축해야 합니다.
 | 재해 복구 | 자동 백업을 사용자가 구성한 [로컬 중복 또는 지역 중복 스토리지](howto-restore-server-portal.md)에 저장합니다. 또한 백업은 서버를 특정 시점으로 복원할 수 있습니다. 보존 기간은 7일에서 35일 사이입니다. 복원은 Azure Portal를 사용하여 수행됩니다. | 고객이 완전히 관리합니다. 책임은 예약, 테스트, 보관, 스토리지 및 보존을 포함하지만 이에 국한 되지 않습니다. 추가 옵션은 Azure Recovery Services 자격 증명 모음을 사용하여 VM에서 Azure VM 및 데이터베이스를 백업하는 것입니다. 이 옵션은 현재 미리 보기로 제공됩니다. |
 | 성능 권장 사항 | 시스템에서 생성된 사용 현황 로그 파일을 기준으로 고객에게 [성능 권장 사항](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110)을 제공합니다. 권장 사항은 워크로드를 최적화하는 데 도움이 됩니다.<br/><br/>성능 권장 사항은 현재 퍼블릭 미리 보기로 제공됩니다. | 고객이 관리 |
 

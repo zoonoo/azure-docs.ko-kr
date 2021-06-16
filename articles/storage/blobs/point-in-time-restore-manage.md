@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: b62e341d35a4ff7fd5a7ddd6d9f19b138aaf0aa9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd58ae6aa0083b0f2a02ef1c008e76f92f39b766
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99071650"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676304"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>블록 BLOB 데이터에 지정 시간 복원 수행
 
@@ -86,7 +87,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 지정 시간 복원을 구성하려면 먼저 Azure CLI 버전 2.2.0 이상을 설치합니다. 그런 다음, [az storage account blob-service-properties update](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) 명령을 호출하여 스토리지 계정에 대한 지정 시간 복원 및 기타 필수 데이터 보호 설정을 사용하도록 설정합니다.
+Azure CLI를 사용하여 지정 시간 복원을 구성하려면 먼저 Azure CLI 버전 2.2.0 이상을 설치합니다. 그런 다음, [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) 명령을 호출하여 스토리지 계정에 대한 지정 시간 복원 및 기타 필수 데이터 보호 설정을 사용하도록 설정합니다.
 
 다음 예에서는 일시 삭제를 사용하도록 설정하고 일시 삭제 보존 기간을 14일로 설정하고, 변경 피드 및 버전 관리를 사용하도록 설정하고, 복원 기간이 7일인 지정 시간 복원을 사용하도록 설정합니다. 예제를 실행하는 경우 꺾쇠 괄호의 값을 고유한 값으로 바꿔야 합니다.
 

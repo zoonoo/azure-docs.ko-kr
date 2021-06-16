@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 65b8c21251f092311150a50480f5abecb1ad7c17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c64cbbc1ac1260151ae14701ac3577036f19fa5f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96434569"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969640"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 애플리케이션 개요
 
@@ -49,7 +49,7 @@ IT 팀은 관리되는 애플리케이션을 통해 사전 승인된 솔루션�
 
 서비스에 대한 요금을 청구하려는 공급업체들은 Azure Marketplace를 통해 관리되는 애플리케이션을 제공할 수 있습니다. 공급업체가 애플리케이션을 게시한 후 조직 외부 사용자에게 제공할 수 있습니다. 이런 방식으로 MSP(관리되는 서비스 제공업체), ISV(독립 소프트웨어 공급업체), SI(시스템 통합업체)는 모든 Azure 고객에게 솔루션을 제공할 수 있습니다.
 
-관리되는 애플리케이션을 마켓플레이스에 게시하는 방법에 대한 자세한 내용은 [마켓플레이스 애플리케이션 만들기](../../marketplace/create-new-azure-apps-offer.md)를 참조하세요.
+관리되는 애플리케이션을 마켓플레이스에 게시하는 방법에 대한 자세한 내용은 [마켓플레이스 애플리케이션 만들기](../../marketplace/azure-app-offer-setup.md)를 참조하세요.
 
 ## <a name="resource-groups-for-managed-applications"></a>관리되는 애플리케이션에 대한 리소스 그룹
 
@@ -71,7 +71,7 @@ IT 팀은 관리되는 애플리케이션을 통해 사전 승인된 솔루션�
 
 이 리소스 그룹은 관리되는 애플리케이션에 필요한 모든 리소스를 갖습니다. 예를 들어 이 리소스 그룹에는 솔루션에 대한 가상 머신, 스토리지 계정 및 가상 네트워크가 포함됩니다. 소비자는 관리되는 애플리케이션에 대한 개별 리소스를 관리하지 않으므로 이 리소스 그룹에 제한적으로 액세스할 수 있습니다. 이 리소스 그룹에 대한 게시자의 액세스는 관리되는 애플리케이션 정의에서 지정한 역할에 해당합니다. 예를 들어 게시자는 이 리소스 그룹에 대해 소유자 또는 참가자 역할을 요청할 수 있습니다. 액세스는 영구적이거나 특정 시간으로 제한됩니다.
 
-[Marketplace에 관리형 애플리케이션](../../marketplace/create-new-azure-apps-offer.md)을 게시할 때 게시자는 관리형 리소스 그룹의 리소스에 대해 특정 작업을 수행하는 기능을 소비자에게 부여할 수 있습니다. 예를 들어 게시자는 소비자가 가상 머신을 다시 시작할 수 있도록 지정할 수 있습니다. 읽기 작업 이외의 다른 모든 작업은 여전히 거부됩니다. 권한이 부여된 소비자에 의해 관리되는 리소스 그룹의 리소스를 변경하면 관리되는 리소스 그룹을 포함하도록 범위가 지정된 소비자 테넌트 내의 [Azure Policy](../../governance/policy/overview.md) 할당이 적용됩니다.
+[Marketplace에 관리형 애플리케이션](../../marketplace/azure-app-offer-setup.md)을 게시할 때 게시자는 관리형 리소스 그룹의 리소스에 대해 특정 작업을 수행하는 기능을 소비자에게 부여할 수 있습니다. 예를 들어 게시자는 소비자가 가상 머신을 다시 시작할 수 있도록 지정할 수 있습니다. 읽기 작업 이외의 다른 모든 작업은 여전히 거부됩니다. 권한이 부여된 소비자에 의해 관리되는 리소스 그룹의 리소스를 변경하면 관리되는 리소스 그룹을 포함하도록 범위가 지정된 소비자 테넌트 내의 [Azure Policy](../../governance/policy/overview.md) 할당이 적용됩니다.
 
 소비자가 관리되는 애플리케이션을 삭제하면 관리되는 리소스 그룹도 삭제됩니다.
 

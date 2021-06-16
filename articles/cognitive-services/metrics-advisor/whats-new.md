@@ -5,17 +5,17 @@ description: Metrics Advisor의 새로운 기능에 대해 알아보기
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: d257633a8218399cab1d40ab8e8fb3d819e1922d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6ac2077c99484c5b36bbe250fceaf49c90f1596f
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102051738"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895895"
 ---
 # <a name="metrics-advisor-whats-new-in-the-docs"></a>Metrics Advisor: 문서에 있는 새로운 기능
 

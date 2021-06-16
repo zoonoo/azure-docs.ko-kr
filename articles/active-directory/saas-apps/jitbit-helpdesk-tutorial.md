@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/02/2021
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: b3fbf73ab51092f614a416355477fc552a404fd3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a9d0e2c52b0996699c94e6d8eb5f44921f76709
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104581810"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>자습서: Jitbit Helpdesk와 Azure Active Directory 통합
 
@@ -32,6 +32,9 @@ ms.locfileid: "104581810"
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * Jitbit Helpdesk SSO(Single Sign-On)가 설정된 구독.
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 

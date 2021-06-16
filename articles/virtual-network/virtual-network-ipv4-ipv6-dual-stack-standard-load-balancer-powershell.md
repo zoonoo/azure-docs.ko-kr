@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2020
 ms.author: kumud
-ms.openlocfilehash: e0b17c7b707a7718428f63c334210a91759f00e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: aba9c503efc99c461009dbced90903674ecd50bb
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98223655"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677031"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell"></a>Azure에서 IPv6 이중 스택 애플리케이션 배포 - PowerShell
 
@@ -346,7 +347,7 @@ foreach ($NIC in $NICsInRG) {
 ![Azure의 이중 스택(IPv4/IPv6) 애플리케이션 배포에 대한 IP 요약](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-summary.png)
 
 ## <a name="view-ipv6-dual-stack-virtual-network-in-azure-portal"></a>Azure Portal에서 IPv6 이중 스택 가상 네트워크 보기
-다음과 같이 Azure 포털에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
+다음과 같이 Azure Portal에서 IPv6 이중 스택 가상 네트워크를 볼 수 있습니다.
 1. 포털의 검색 창에 *dsVnet* 을 입력합니다.
 2. 검색 결과에서 표시되는 **dsVnet** 을 선택합니다. 그러면 *dsVnet* 이라는 이중 스택 가상 네트워크의 **개요** 페이지가 시작됩니다. 이중 스택 가상 네트워크에서는 *dsSubnet* 이라는 이중 스택 서브넷에 IPv4 및 IPv6가 모두 구성된 두 개의 NIC가 표시됩니다.
 
@@ -363,4 +364,4 @@ Remove-AzResourceGroup -Name dsRG1
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 이중 프런트 엔드 IP 구성(IPv4 및 IPv6)으로 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가된 이중 IP(IPV4 + IPv6)가 구성된 NIC가 포함된 두 개의 가상 머신을 만들었습니다. Azure 가상 네트워크의 IPv6 지원에 대한 자세한 내용은 [Azure 가상 네트워크의 IPv6이란?](ipv6-overview.md)을 참조하세요.
+이 문서에서는 이중 프런트 엔드 IP 구성(IPv4 및 IPv6)으로 표준 Load Balancer를 만들었습니다. 또한 부하 분산 장치의 백 엔드 풀에 추가된 이중 IP(IPV4 + IPv6)가 구성된 NIC가 포함된 두 개의 가상 머신을 만들었습니다. Azure 가상 네트워크의 IPv6 지원에 관해 자세히 알아보려면 [Azure 가상 네트워크용 IPv6란?](ipv6-overview.md)을 참조하세요.

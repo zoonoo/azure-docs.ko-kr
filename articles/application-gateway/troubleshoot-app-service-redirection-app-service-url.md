@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 04/15/2021
 ms.author: jaysoni
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d2291bc88a90a703239764a2d5fda9b2889a7af7
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 83ad2e7a8f138451063eef1746555563970e125e
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108319668"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681815"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Application Gateway에서 App Service 문제 해결
 
@@ -92,7 +92,7 @@ App Service의 사용자 지정 도메인 기능을 사용하는 것은 항상 A
 
 지정된 메서드를 따라 리디렉션 및 ARRAffinity 쿠키 도메인 불일치 문제를 확인할 수 있습니다. 이 방법에는 사용자 지정 도메인의 DNS 영역 액세스 권한이 필요합니다.
 
-**1단계**: App Service에서 사용자 지정 도메인을 설정하고 [CNAME & TXT DNS 레코드](../app-service/app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)를 추가하여 도메인 소유권을 확인합니다.
+**1단계**: App Service에서 사용자 지정 도메인을 설정하고 [CNAME & TXT DNS 레코드](../app-service/app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)를 추가하여 도메인 소유권을 확인합니다.
 레코드는 다음과 유사하게 표시됩니다.
 -  `www.contoso.com` CNAME에서 `contoso.azurewebsite.net`
 -  `asuid.www.contoso.com` TXT "에서 `<verification id string>`"

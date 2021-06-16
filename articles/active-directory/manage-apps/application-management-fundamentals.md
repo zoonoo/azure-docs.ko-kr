@@ -2,7 +2,7 @@
 title: '애플리케이션 관리: 모범 사례 및 권장 사항 | Microsoft Docs'
 description: Azure Active Directory에서 애플리케이션을 관리하기 위한 모범 사례와 권장 사항을 알아봅니다. 애플리케이션 프록시를 사용하여 온-프레미스 앱을 자동으로 프로비전 및 게시하는 방법을 알아봅니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.subservice: app-mgmt
-ms.author: iangithinji
+ms.author: mtillman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f77ff371bfb53cff08d860be6cc0160debe491
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 526c3ead0509b6e69eab23a7f2b3771ffe40bd29
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765992"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077395"
 ---
 # <a name="application-management-best-practices"></a>애플리케이션 관리 모범 사례
 

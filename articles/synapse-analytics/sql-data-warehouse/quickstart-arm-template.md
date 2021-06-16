@@ -7,15 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.author: jrasnick
 ms.date: 06/09/2020
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 73f4baf1e48b5495d513fbabe66763538c8cca57
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 02eb32fc66b034f7480b9bf2a5319c29c05c94a4
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568474"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902774"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-dedicated-sql-pool-formerly-sql-dw-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Synapse Analytics 전용 SQL 풀(이전의 SQL DW) 만들기
 
@@ -25,7 +23,7 @@ ms.locfileid: "107568474"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
+[![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -33,9 +31,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-sql-data-warehouse-transparent-encryption-create/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/sql-data-warehouse-transparent-encryption-create/)에서 나온 것입니다.
 
-:::code language="json" source="~/quickstart-templates/201-sql-data-warehouse-transparent-encryption-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sql-data-warehouse-transparent-encryption-create/azuredeploy.json":::
 
 템플릿은 하나의 리소스를 정의합니다.
 
@@ -45,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 이미지를 선택하여 Azure에 로그인하고 템플릿을 엽니다. 이 템플릿은 전용 SQL 풀(이전의 SQL DW)을 만듭니다.
    
-   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
+   [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fsql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
 1. 다음 값을 입력하거나 업데이트합니다.
 

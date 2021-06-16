@@ -12,16 +12,18 @@ ms.date: 04/16/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 콘텐츠 중재자, azure 콘텐츠 중재자, 온라인 중재자, 콘텐츠 필터링 소프트웨어, 콘텐츠 조정 서비스, 콘텐츠 조정
-ms.openlocfilehash: b0ff5a241a76cd49d104e4145df37515b43c4e27
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 931b57b35cfca94b35a2b5c267d4469d5ca5ec07
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107726199"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031712"
 ---
 # <a name="what-is-azure-content-moderator"></a>Azure Content Moderator란?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Azure Content Moderator는 공격을 받을 수 있거나 위험한 또는 바람직하지 않은 콘텐츠를 처리할 수 있는 AI 서비스입니다. 여기에는 텍스트, 이미지 및 비디오를 검색하고 콘텐츠 플래그를 자동으로 적용하는 AI 기반 콘텐츠 조정 서비스와 사용자 검토자 팀을 위한 온라인 중재자 환경인 검토 도구가 포함됩니다.
 

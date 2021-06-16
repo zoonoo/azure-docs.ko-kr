@@ -6,20 +6,20 @@ metadata:
   description: Azure SQL은 Azure SQL Database의 완전 관리형 데이터베이스, Azure SQL Managed Instance의 완전 관리형 인스턴스 또는 Azure의 가상 머신에 설치된 SQL Server 등 클라우드의 SQL Server 데이터베이스 엔진 제품군입니다.
   services: sql-database
   ms.service: sql-database
-  ms.subservice: service
+  ms.subservice: service-overview
   ms.tgt_pltfrm: na
   ms.devlang: 
   ms.topic: landing-page
-  author: stevestein
-  ms.author: sstein
+  author: MashaMSFT
+  ms.author: mathoma
   ms.reviewer: 
   ms.date: 10/30/2019
-  ms.openlocfilehash: 8f462fc8b37b3f84d0e74897de76fc92d1c08fb8
-  ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+  ms.openlocfilehash: 45e35a554bd00344574b4d1efe19377f2e0ae2e5
+  ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/28/2021
-  ms.locfileid: "108147718"
+  ms.lasthandoff: 05/29/2021
+  ms.locfileid: "110707467"
 landingContent:
 - title: Azure SQL Database
   linkLists:

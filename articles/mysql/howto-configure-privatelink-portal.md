@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: ce916336ea47cd223c10a8f664b2dc9806ed0a17
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c1f9d565cd6e3bafd5caa36d8da9266a3f1edb6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99221029"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076333"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Portal을 사용하여 Azure Database for MySQL에 대한 Private Link 만들기 및 관리
 
@@ -66,7 +66,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
     | 크기 | 기본값인 **표준 DS1 v2** 를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
-    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
     | 공용 인바운드 포트 | 기본값인 **없음** 을 그대로 둡니다. |

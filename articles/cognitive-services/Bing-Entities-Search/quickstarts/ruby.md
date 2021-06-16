@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 407d41c403e0a2d0ad3708f879838e53b5c3d315
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 32eaad8bbc47783ced54d494d49a4cec41fe842d
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352000"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615006"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>빠른 시작: Ruby를 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 
@@ -47,8 +47,8 @@ ms.locfileid: "96352000"
 2. API 엔드포인트, News Search URL, 구독 키 및 검색 쿼리에 대한 변수를 만듭니다. 다음 코드에서 글로벌 엔드포인트를 사용하거나 리소스의 Azure Portal에 표시되는 [사용자 지정 하위 도메인](../../../cognitive-services/cognitive-services-custom-subdomains.md) 엔드포인트를 사용할 수 있습니다.
     
     ```ruby
-    host = 'https://api.cognitive.microsoft.com'
-    path = '/bing/v7.0/entities'
+    host = 'https://api.bing.microsoft.com'
+    path = '/v7.0/search'
     
     mkt = 'en-US'
     query = 'italian restaurants near me'

@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: larryfr
 author: BlackMist
 ms.date: 03/05/2020
-ms.openlocfilehash: 4c680be897c4c1bf2ccf20df1d34ab6f59f559f2
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 95c9880eb8c61b5a057cf2573aad7871c3c37bb3
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816155"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613615"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -97,11 +97,10 @@ run = exp.submit(source_directory=script_folder,
 
 서비스 개요는 [Azure Machine Learning이란?](overview-what-is-azure-ml.md)을 읽어보세요.
 
-선호하는 방법으로 첫 번째 실험을 만드세요.
+[빠른 시작: Azure Machine Learning 서비스 시작](quickstart-create-resources.md)으로 시작합니다.  그런 다음 이러한 리소스를 사용하여 원하는 방법으로 첫 번째 실험을 만듭니다.
 
-  + [사용자 고유의 환경 사용](tutorial-1st-experiment-sdk-setup-local.md)
-  + [Python Notebook 사용](tutorial-1st-experiment-sdk-setup.md)
-  + [R Markdown 사용](https://github.com/Azure/azureml-sdk-for-r) 
+  + ["Hello World!" Python 스크립트 실행(1/3부)](tutorial-1st-experiment-hello-world.md)
+  + [Jupyter Notebook을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)
   + [자동화된 기계 학습 사용](tutorial-designer-automobile-price-train-score.md) 
   + [디자이너의 끌어서 놓기 기능 사용](tutorial-first-experiment-automated-ml.md) 
-  + [CLI에 ML 확장 사용](tutorial-train-deploy-model-cli.md)
+  + [CLI에 ML 확장 사용](how-to-train-cli.md)

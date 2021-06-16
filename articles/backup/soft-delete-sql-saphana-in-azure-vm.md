@@ -3,12 +3,13 @@ title: Azure VM의 SQL Server 및 Azure VM 워크로드의 SAP HANA 일시 삭�
 description: Azure VM의 SQL Server 및 Azure VM 워크로드의 SAP HANA 일시 삭제를 통해 백업을 더욱 안전하게 만드는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ca0cc2ae95d74207b8dc1998799a19022f30688f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91254298"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678171"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Azure VM의 SQL Server 및 Azure VM 워크로드의 SAP HANA 일시 삭제
 

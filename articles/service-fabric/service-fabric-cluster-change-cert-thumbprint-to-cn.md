@@ -3,12 +3,13 @@ title: 인증서 일반 이름을 사용하도록 클러스터 업데이트
 description: Azure Service Fabric 클러스터 인증서를 지문 기반 선언에서 일반 이름으로 변환하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: daf8d55e156f30b1f9e9ec5c50d60714e6f17884
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 88a2dc070dd1443e7d91f9d7e3f641c8e74f5a82
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107308016"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671086"
 ---
 # <a name="convert-cluster-certificates-from-thumbprint-based-declarations-to-common-names"></a>클러스터 인증서를 지문 기반 선언에서 일반 이름으로 변환
 

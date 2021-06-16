@@ -5,17 +5,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer: genemi
+author: dzsquared
+ms.author: drskwier
+ms.reviewer: mathoma
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 68a1eca2800978803214384944349e227b620764
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92782980"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110694494"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>애플리케이션 개발 개요 - SQL Database 및 SQL Managed Instance
 

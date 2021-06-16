@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 996242ba7d1ce82d2db1c8e72b96af305b9c2a4a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104607537"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028526"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Azure CLI를 사용하여 Azure Image Builder 서비스 사용 권한 구성
 
@@ -23,19 +23,8 @@ Azure VM Image Builder에서 관리형 이미지 또는 공유 이미지 갤러�
 
 이미지를 빌드하기 전에 사용 권한 및 권한을 설정해야 합니다. 다음 섹션에서는 Azure CLI를 사용하여 가능한 시나리오를 구성하는 방법에 대해 자세히 설명합니다.
 
-> [!IMPORTANT]
-> Azure Image Builder는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="register-the-features"></a>기능 등록
-
-먼저, Azure Image Builder 서비스에 등록해야 합니다. 등록은 스테이징 리소스 그룹을 만들고, 관리하고, 삭제할 수 있는 권한을 서비스에 부여합니다. 또한 이 서비스에는 이미지 빌드에 필요한 그룹에 리소스를 추가할 수 있는 권한이 있습니다.
-
-```azurecli-interactive
-az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-```
 
 ## <a name="create-an-azure-user-assigned-managed-identity"></a>Azure 사용자 할당 관리 ID 만들기
 
@@ -131,7 +120,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
 subscriptionID=<Subscription ID>
-# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
+# Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
 identityName="aibIdentity"
 
@@ -220,7 +209,7 @@ az role assignment create \
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2019-05-01-preview",
+    "apiVersion": "2020-02-14",
     "location": "<Region>",
     ..
     "identity": {

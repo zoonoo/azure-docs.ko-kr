@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ceac1e7b5e8efa7e87ecf6e1f4c9dd8286c87e98
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8748d9aecd521b12e6a3e6c2f26756fc6c0e8089
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102614074"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967641"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>개발자 작업용 팀 데이터 과학 프로세스
 
@@ -28,14 +28,10 @@ ms.locfileid: "102614074"
 | Objective | 항목 | **리소스** | **기술** | **수준** | **필수 구성 요소** |
 |--|--|--|--|--|--|
 | 고급 분석 이해 | 팀 데이터 과학 프로세스 수명 주기 | [이 기술 연습은 팀 데이터 과학 프로세스를 설명합니다.](overview.md) | 데이터 과학 | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, IT 프로젝트 및 솔루션 구현 사용 경험 |
-| 고급 분석을 위해 Microsoft Azure 플랫폼 이해 | 정보 관리 |
-| [이 참조는 분석 데이터 솔루션용 파이프라인을 빌드하기 위한 Azure Data Factory의 개요를 제공합니다.](../../data-factory/v1/data-factory-introduction.md) | Microsoft Azure Data Factory | 경험함 | 일반 기술 배경, 데이터 솔루션 사용 경험, IT 프로젝트 및 솔루션 구현 사용 경험 |
-|  |
-| [이 참조는 데이터 원본의 메타데이터를 문서화하고 관리하는 데 사용할 수 있는 Azure Data Catalog의 개요를 다룹니다.](../../data-catalog/overview.md) | Microsoft Azure Data Catalog | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, RDBMS(관계형 데이터베이스 관리 시스템) 및 NoSQL 데이터 원본 사용 경험 |
-|  |
-| [이 참조는 Azure Event Hubs 시스템의 개요 및 솔루션으로 데이터를 수집하는 데 이를 사용하는 방법을 다룹니다.](../../event-hubs/event-hubs-about.md) | Azure Event Hubs | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, RDBMS(관계형 데이터베이스 관리 시스템) 및 NoSQL 데이터 원본 사용 경험, IoT(사물 인터넷) 용어 및 사용 경험 |
-|  | 빅 데이터 저장소 |
-| [이 참조는 Azure Synapse Analytics를 사용하여 많은 양의 데이터를 저장하고 처리하는 방법에 대한 개요를 다룹니다.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) | Azure Synapse Analytics | 경험함 | 일반 기술 배경, 데이터 솔루션 사용 경험, RDBMS(관계형 데이터베이스 관리 시스템) 및 NoSQL 데이터 원본 사용 경험, HDFS 용어 및 사용 경험 |
+| 고급 분석을 위해 Microsoft Azure 플랫폼 이해 | 정보 관리 | [이 참조는 분석 데이터 솔루션용 파이프라인을 빌드하기 위한 Azure Data Factory의 개요를 제공합니다.](../../data-factory/v1/data-factory-introduction.md) | Microsoft Azure Data Factory | 경험함 | 일반 기술 배경, 데이터 솔루션 사용 경험, IT 프로젝트 및 솔루션 구현 사용 경험 |
+|  | | [이 참조는 데이터 원본의 메타데이터를 문서화하고 관리하는 데 사용할 수 있는 Azure Data Catalog의 개요를 다룹니다.](../../data-catalog/overview.md) | Microsoft Azure Data Catalog | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, RDBMS(관계형 데이터베이스 관리 시스템) 및 NoSQL 데이터 원본 사용 경험 |
+|  | | [이 참조는 Azure Event Hubs 시스템의 개요 및 솔루션으로 데이터를 수집하는 데 이를 사용하는 방법을 다룹니다.](../../event-hubs/event-hubs-about.md) | Azure Event Hubs | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, RDBMS(관계형 데이터베이스 관리 시스템) 및 NoSQL 데이터 원본 사용 경험, IoT(사물 인터넷) 용어 및 사용 경험 |
+|  | 빅 데이터 저장소 | [이 참조는 Azure Synapse Analytics를 사용하여 많은 양의 데이터를 저장하고 처리하는 방법에 대한 개요를 다룹니다.](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) | Azure Synapse Analytics | 경험함 | 일반 기술 배경, 데이터 솔루션 사용 경험, RDBMS(관계형 데이터베이스 관리 시스템) 및 NoSQL 데이터 원본 사용 경험, HDFS 용어 및 사용 경험 |
 |  |  | [이 참조는 Azure Data Lake를 사용하여 작동 및 예비 분석에 대해 한 곳에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처하는 개요를 다룹니다.](../../data-lake-store/data-lake-store-overview.md) | Azure Data Lake Store | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, NoSQL 데이터 원본 사용 경험, HDFS 사용 경험 |
 |  | 머신 러닝 및 분석 | [이 참조는 머신 러닝, 예측 분석, AI 시스템에 대한 소개를 다룹니다.](../classic/index.yml) | Azure Machine Learning | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, 데이터 과학 용어 사용 경험, 머신 러닝, AI 용어 사용 경험 |
 |  |  | [이 문서는 Hadoop 기술 스택의 클라우드 배포인 Azure HDInsight에 대해 소개합니다. Hadoop 클러스터의 정의 및 사용 시기에 대해서도 설명합니다.](../../hdinsight/hadoop/apache-hadoop-introduction.md) | Azure HDInsight | 중급 | 일반 기술 배경, 데이터 솔루션 사용 경험, NoSQL 데이터 원본 사용 경험 |
@@ -54,7 +50,7 @@ ms.locfileid: "102614074"
 |  |  | [이 Microsoft Project 템플릿은 고급 분석 프로젝트에 대한 시간, 리소스 및 추적 목표를 제공합니다.](https://buckwoody.wordpress.com/2017/08/17/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/) | Microsoft Project | 중급 | 프로젝트 관리 기본 사항 이해 |
 |  |  | [이 Azure Data Catalog 자습서는 엔터프라이즈 데이터 자산에 대한 등록 및 검색 시스템을 설명합니다.](../../data-catalog/data-catalog-get-started.md) | Azure Data Catalog | 초급 | 데이터 원본 및 구조체 사용 경험 |
 |  |  | [이 Microsoft Virtual Academy 과정은 Visual Studio Codespace 및 Microsoft Azure를 사용하여 개발-테스트를 설정하는 방법을 설명합니다.](https://mva.microsoft.com/training-courses/dev-test-with-visual-studio-online-and-microsoft-azure-8420?l=P7Ot1TKz_2104984382) | Visual Studio Codespace | 경험함 | 소프트웨어 개발, 개발/테스트 환경에 대한 지식 |
-|  |  | [이 Microsoft System Center용 관리 팩 다운로드는 Azure 자산 작업을 지원하기 위한 지침 문서를 포함합니다.](https://www.microsoft.com/download/details.aspx?id=38414) | System Center | 중급 | IT 관리를 위한 System Center 사용 경험 |
+|  |  | 이 Microsoft System Center용 관리 팩 다운로드는 Azure 자산 작업을 지원하기 위한 지침 문서를 포함합니다. | System Center | 중급 | IT 관리를 위한 System Center 사용 경험 |
 |  |  | [이 문서는 개발자 및 운영 팀이 PowerShell 필요한 상태 구성의 이점을 이해하도록 하기 위한 것입니다.](/powershell/scripting/dsc/overview/dscforengineers) | PowerShell DSC | 중급 | PowerShell 코딩 사용 경험, 엔터프라이즈 아키텍처, 스크립팅 |
 |  | 코드 | [이 다운로드에는 데이터 과학 및 AI 애플리케이션을 만들기 위한 Visual Studio Codespace Code 코드 사용에 대한 설명서도 포함되어 있습니다.](https://code.visualstudio.com/) | Visual Studio Codespace | 중급 | 소프트웨어 개발 |
 |  |  | [이 시작 사이트는 DevOps 및 Visual Studio에 대해 설명합니다.](https://www.visualstudio.com/devops/) | Visual Studio | 초급 | 소프트웨어 개발 |
@@ -72,7 +68,7 @@ ms.locfileid: "102614074"
 |  | 패키지 | [이 참조는 TFS 및 Visual Studio Codespace에서 패키지 작업의 개념을 설명합니다.](https://www.visualstudio.com/docs/package/collaborate-with-packages) | Visual Studio Codespace | 경험함 | 소프트웨어 개발, SDLC 사용 경험 |
 |  |  | [System Center를 사용하여 패키징을 자동화하기 위해 Runbook에 대해 이 이전 참조를 사용합니다.](/system-center/orchestrator/automate-runbooks) | System Center | 경험함 | System Center 오케스트레이터 사용 경험 |
 |  |  | [이 참조는 "패키지"로 JSON 템플릿으로 저장할 수 있는 솔루션에 대한 데이터 파이프라인을 만드는 방법을 설명합니다.](../../data-factory/v1/data-factory-introduction.md) | Azure Data Factory | 중급 | 일반 컴퓨팅 배경, 데이터 프로젝트 경험 |
-|  |  | [이 항목에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다.](../../azure-resource-manager/templates/template-syntax.md) | Azure 리소스 관리자 | 중급 | Microsoft Azure 플랫폼 사용 경험 |
+|  |  | [이 항목에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다.](../../azure-resource-manager/templates/syntax.md) | Azure 리소스 관리자 | 중급 | Microsoft Azure 플랫폼 사용 경험 |
 |  |  | [DSC는 패키지로 저장된 코드로 구성하여 IT 및 개발 인프라를 관리할 수 있는 PowerShell의 관리 플랫폼입니다. 이 참조는 해당 주제에 대한 개요입니다.](/powershell/scripting/dsc/overview/overview) | PowerShell Desired State Configuration | 중급 | PowerShell 코딩, 엔터프라이즈 아키텍처 사용 경험, 스크립팅 |
 |  | 해제 | [이 헤드 참조 문서는 CI/CD 환경에 대한 빌드, 테스트 및 릴리스를 위한 개념을 포함합니다.](/azure/devops/pipelines/) | Visual Studio Codespace | 경험함 | 소프트웨어 개발, CI/CD 환경 사용 경험, SDLC 사용 경험 |
 |  |  | [System Center를 사용하여 릴리스 관리를 자동화하기 위해 Runbook에 대해 이 이전 참조를 사용합니다.](/system-center/orchestrator/automate-runbooks) | System Center | 경험함 | System Center 오케스트레이터 사용 경험 |

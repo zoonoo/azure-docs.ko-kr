@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b832e7b8aef92e14435ba78303bfc26a9a14e23
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: f8ac1d8d10407347dac5889e9270e623e0abbeb9
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108180449"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968514"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여
 
@@ -40,7 +40,7 @@ Azure AD(Azure Active Directory) B2B 협업 기능을 사용하여 파트너 조
 B2B 사용자에게 Windows 통합 인증 및 Kerberos 제한 위임을 사용하여 보호되는 온-프레미스 애플리케이션에 대한 액세스 권한을 부여하려면 다음과 같은 구성 요소가 필요합니다.
 
 - **Azure AD 애플리케이션 프록시를 통해 인증** 합니다. B2B 사용자는 온-프레미스 애플리케이션에 인증할 수 있어야 합니다. 이렇게 하려면 Azure AD 애플리케이션 프록시를 통해 온-프레미스 앱을 게시해야 합니다. 자세한 내용은 [애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../app-proxy/application-proxy-add-on-premises-application.md)를 참조하세요.
-- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여** 합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
+- **온-프레미스 디렉터리에서 B2B 사용자 개체를 통해 권한을 부여** 합니다. 애플리케이션은 사용자 액세스 검사를 수행하고 올바른 리소스에 대한 액세스 권한을 부여할 수 있어야 합니다. IWA 및 KCD는 이 권한 부여를 완료하기 위해 온-프레미스 Windows Server Active Directory에 있는 사용자 개체가 필요합니다. [KCD를 사용하는 Single Sign-On 작동 방식](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)에 설명된 대로 애플리케이션 프록시는 이 사용자 개체가 사용자를 가장하고 Kerberos 토큰을 앱에 가져와야 합니다. 
 
    > [!NOTE]
    > Azure AD 애플리케이션 프록시를 구성하는 경우 IWA(Windows 통합 인증)에 대한 Single Sign-On 구성에서 **위임된 로그온 ID** 가 **사용자 계정 이름**(기본값)으로 설정되어 있는지 확인합니다.

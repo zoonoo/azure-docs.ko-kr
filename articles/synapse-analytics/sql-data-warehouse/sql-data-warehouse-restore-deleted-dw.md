@@ -10,13 +10,13 @@ ms.subservice: sql-dw
 ms.date: 08/29/2018
 ms.author: joanpo
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: b85e16d546989200adbfc37c2ef656022ad87cef
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: 7fae57d5587178288c0ccfea547568a8f769598c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108163466"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676943"
 ---
 # <a name="restore-a-deleted-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 삭제된 전용 SQL 풀(이전의 SQL DW) 복원
 

@@ -7,12 +7,12 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 3f586c8907ded618b4cc4aaaadf3c87471cda0b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64d5f46d167b0707c2257f29c5d5cb1950aaa046
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102550725"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029211"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -25,7 +25,7 @@ ms.locfileid: "102550725"
 
 * [Managed Disks로 마이그레이션 계획 수립](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)을 검토합니다.
 
-* [Managed Disks로의 마이그레이션에 대한 FAQ](../faq-for-disks.md#migrate-to-managed-disks)를 검토합니다.
+* [Managed Disks로의 마이그레이션에 대한 FAQ](/azure/virtual-machines/faq-for-disks#migrate-to-managed-disks)를 검토합니다.
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 

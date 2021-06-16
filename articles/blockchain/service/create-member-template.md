@@ -9,12 +9,12 @@ ms.custom:
 - subject-armqs
 - references_regions
 - mode-arm
-ms.openlocfilehash: b190020b079957337b197074637f5f65c9dc80ba
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 95a00d4de266984b0a91bdd04cc2f20be15f63ad
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "110059367"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004550"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Blockchain Service 멤버 만들기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/201-blockchain-asaservice/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/blockchain-asaservice/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.blockchain/blockchain-asaservice/azuredeploy.json":::
 
@@ -48,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 다음 링크를 선택하여 Azure에 로그인하고 템플릿을 엽니다.
 
-    [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.blockchain%2Fblockchain-asaservice%2FFazuredeploy.json)
+    [![Azure에 배포](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.blockchain%2Fblockchain-asaservice%2Fazuredeploy.json)
 
 1. Azure Blockchain Service 멤버에 대한 설정을 지정합니다.
 

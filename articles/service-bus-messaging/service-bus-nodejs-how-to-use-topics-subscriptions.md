@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.custom:
 - devx-track-js
 - mode-api
-ms.openlocfilehash: e9d53c312f6e61d6384afc17dce023742ab6bd98
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 13664e2a465ae891666e9c296514dc18a14ed191
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743294"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950213"
 ---
 # <a name="send-messages-to-an-azure-service-bus-topic-and-receive-messages-from-subscriptions-to-the-topic-javascript"></a>Azure Service Bus 토픽에 메시지를 보내고 구독에서 토픽으로 메시지 받기(JavaScript)
 이 자습서에서는 JavaScript 프로그램에서 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 토픽으로 메시지를 보내고 Service Bus 구독에서 해당 토픽으로 메시지를 받는 방법에 대해 알아봅니다.
@@ -209,6 +209,6 @@ Azure Portal에서 Service Bus 네임스페이스로 이동하고 아래쪽 창�
 다음 설명서와 샘플을 참조하세요. 
 
 - [JavaScript용 Azure Service Bus 클라이언트 라이브러리](https://www.npmjs.com/package/@azure/service-bus)
-- [JavaScript 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [TypeScript 샘플](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [JavaScript 샘플](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript 샘플](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [API 참조 설명서](/javascript/api/overview/azure/service-bus)

@@ -2,32 +2,30 @@
 title: 애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트 | Microsoft Docs
 description: 예기치 않게 사용자에게 Azure AD와 통합한 애플리케이션에 대한 동의 확인 프롬프트를 표시하는 경우 문제를 해결하는 방법
 services: active-directory
-documentationcenter: ''
-author: kenwith
-manager: daveba
-ms.assetid: ''
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: kenwith
+ms.author: mtillman
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6253458bb31388e5f7e6f84b7720cce0dc22886c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cd58aefca395cab7645f444763c50e6451e0cffc
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99259963"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080780"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>애플리케이션에 로그인할 때 예기치 않은 동의 확인 프롬프트
 
 Azure Active Directory와 통합되는 많은 애플리케이션을 실행하기 위해 다양한 리소스에 대한 권한이 필요합니다. 또한 이러한 리소스가 Azure Active Directory와 통합되면 Azure AD 동의 프레임워크를 사용하여 액세스하기 위한 사용 권한을 요청합니다. 
 
 이로 인해 처음으로 애플리케이션을 사용할 때 동의 확인 프롬프트가 표시되며 이 작업은 한 번만 수행하면 됩니다. 
+
+> [!VIDEO https://www.youtube.com/embed/a1AjdvNDda4]
 
 ## <a name="scenarios-in-which-users-see-consent-prompts"></a>사용자에게 동의 확인 프롬프트를 표시하는 시나리오
 

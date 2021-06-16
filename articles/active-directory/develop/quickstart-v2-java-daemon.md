@@ -3,21 +3,21 @@ title: '빠른 시작: Java 디먼에서 Microsoft Graph 호출 | Azure'
 titleSuffix: Microsoft identity platform
 description: 이 빠른 시작에서는 Java 앱이 앱의 자체 ID를 사용하여 액세스 토큰을 가져오고 Microsoft ID 플랫폼 엔드포인트로 보호된 API를 호출하는 방법을 알아봅니다.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/22/2021
-ms.author: nacanuma
+ms.author: mtillman
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 196b80a704b8a270a4cbb7d3505d5f9be1e23479
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 866fc8c0a44f9380dd38227d2b5a2d2b332ec8b4
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99820326"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075460"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Java 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 

@@ -5,16 +5,16 @@ author: j-patrick
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 06/08/2021
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e0e6e42fc5b257cb0dfaf9d6a47bbac9811a23a5
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 0eb80de6ad566005eba518efab863af254c3df78
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107886859"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750968"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>시스템 할당 관리 ID를 사용하여 Azure Cosmos DB 데이터에 액세스
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -93,10 +93,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 이제 Azure Cosmos DB 권한에 **DocumentDB 계정 기여자** 역할이 있는 시스템 할당 관리 ID가 있는 함수 앱이 있습니다. 다음 함수 앱 코드는 Azure Cosmos DB 키를 가져오고 CosmosClient 개체를 만들고 수족관의 온도를 가져온 다음 이를 Azure Cosmos DB에 저장합니다.
 
-이 샘플은 [목록 키 API](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listkeys)를 사용하여 Azure Cosmos DB 계정 키에 액세스합니다.
+이 샘플은 [목록 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listkeys)를 사용하여 Azure Cosmos DB 계정 키에 액세스합니다.
 
 > [!IMPORTANT] 
-> [Cosmos DB 계정 리더 역할을 할당](#grant-access-to-your-azure-cosmos-account)하려면 [목록 읽기 전용 키 API](/rest/api/cosmos-db-resource-provider/2021-03-15/databaseaccounts/listreadonlykeys)를 사용해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
+> [Cosmos DB 계정 리더 역할을 할당](#grant-access-to-your-azure-cosmos-account)하려면 [목록 읽기 전용 키 API](/rest/api/cosmos-db-resource-provider/2021-04-15/databaseaccounts/listreadonlykeys)를 사용해야 합니다. 이렇게 하면 읽기 전용 키만 채워집니다.
 
 목록 키 API는 `DatabaseAccountListKeysResult` 개체를 반환합니다. 이 유형은 C# 라이브러리에 정의되어 있지 않습니다. 다음 코드에서는 이 클래스의 구현을 보여 줍니다.  
 
@@ -160,6 +160,9 @@ namespace Monitor
         private static string containerName =
         "<container to store the temperature in>";
 
+        // HttpClient is intended to be instantiated once, rather than per-use.
+        static readonly HttpClient httpClient = new HttpClient();
+
         [FunctionName("FishTankTemperatureService")]
         public static async Task Run([TimerTrigger("0 * * * * *")]TimerInfo myTimer, ILogger log)
         {
@@ -174,8 +177,7 @@ namespace Monitor
             // Setup the List Keys API to get the Azure Cosmos DB keys.
             string endpoint = $"https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/listKeys?api-version=2019-12-12";
 
-            // Setup an HTTP Client and add the access token.
-            HttpClient httpClient = new HttpClient();
+            // Add the access token to request headers.
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
             // Post to the endpoint to get the keys result.

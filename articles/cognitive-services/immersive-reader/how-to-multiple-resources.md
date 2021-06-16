@@ -4,18 +4,18 @@ titleSuffix: Azure Applied AI Services
 description: 이 자습서에서는 여러 몰입형 판독기 리소스를 사용하여 몰입형 판독기를 시작하는 Node.js 애플리케이션을 만듭니다.
 author: skamal
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.author: skamal
 ms.custom: devx-track-js
-ms.openlocfilehash: 2b8258b5235deac0f6ebc03b1da4d28bb2439a82
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d324df663aa4c955a65e6e1cef7b4ab167c50d11
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373827"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111888234"
 ---
 # <a name="integrate-multiple-immersive-reader-resources"></a>여러 몰입형 판독기 리소스 통합
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: allensu
-ms.custom: subject-armqs
-ms.openlocfilehash: 13d419623bd6c2939ddfedd29f29527028ced74c
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 2870592d7026a2bdf3cf2525f9e9401886843d9f
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109813257"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111811057"
 ---
 # <a name="quickstart-create-a-nat-gateway---arm-template"></a>빠른 시작: NAT 게이트웨이 만들기 - ARM 템플릿
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm)에서 나온 것입니다.
 
 이 템플릿은 다음을 만들도록 구성되어 있습니다.
 

@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory에서 암호 기반 Single Sign-On 문제 해결
 description: 암호 기반 Single Sign-On에 대해 구성된 Azure AD 앱의 문제를 해결합니다.
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/11/2017
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
-ms.openlocfilehash: 2d9bcbdcb292f33d4b1f9dd1d0f6779d8d6cdd49
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e587bfc3dfbd859be9ecea24b398c005f883dc10
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376480"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080582"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Azure AD에서 암호 기반 Single Sign-On 문제 해결
 

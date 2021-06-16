@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d4ff717a49ba9c9b4d66e54e5eae1248af3fcea
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b5bbe10c07897c1e33dc4c5a156bc5acd0d7779
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579368"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110584878"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 계획
 
@@ -283,7 +283,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가합니다.
 롤백하려면 관리자가 Azure Active Directory 포털에 로그인하고, 원하는 강력한 인증 방법을 선택한 다음, 사용 옵션을 **아니요** 로 변경해야 합니다. 이 프로세스는 모든 사용자에 대해 암호 없는 기능을 해제합니다.
 
 FIDO2 보안 디바이스를 이미 등록한 사용자에게 다음 로그인 시 보안 디바이스를 사용하라는 메시지가 표시되고 다음 오류가 표시됩니다.
-
+  
 ![다른 로그인 방법 선택](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
 ## <a name="deploy-and-troubleshoot-passwordless-authentication"></a>암호 없는 인증 배포 및 문제 해결

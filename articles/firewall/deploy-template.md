@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurepowershell
 ms.date: 05/10/2021
 ms.author: victorh
-ms.openlocfilehash: d2c3a1501c2489b5d747ac5a64bcaef0c725bad0
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: d0aa88ef44f1d63593a22c657b781720622465d6
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752718"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033566"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---arm-template"></a>빠른 시작: 가용성 영역을 사용하여 Azure Firewall 배포 - ARM 템플릿
 
@@ -41,7 +41,7 @@ Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure
 
 이 템플릿은 Azure Firewall을 지원하는 데 필요한 리소스와 함께 가용성 영역을 사용하여 Azure Firewall을 만듭니다.
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/azurefirewall-with-zones-sandbox)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox/azuredeploy.json":::
 

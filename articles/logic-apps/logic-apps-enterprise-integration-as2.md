@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 1845de8332287f85e96b4e29c40caa66cb8704d9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b795e4b0df35d731181934bdec6966fc1af0b94c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91856673"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026744"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
 
@@ -115,7 +115,7 @@ Azure Logic Apps에서 AS2 메시지를 작업하려면 AS2(버전 1.2) 통신�
 
 ## <a name="sample"></a>샘플
 
-완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/)를 참조하세요.
+완벽하게 작동하는 논리 앱 및 샘플 AS2 시나리오를 배포하려면 [AS2 논리 앱 템플릿 및 시나리오](https://azure.microsoft.com/resources/templates/logic-app-as2-send-receive)를 참조하세요.
 
 ## <a name="connector-reference"></a>커넥터 참조
 

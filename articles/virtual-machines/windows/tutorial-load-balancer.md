@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 12/03/2018
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: d6c872ecfbad6cb8bb01ad5a7c3df8c47aadaebe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 891c114ea9d2272fd739bafdc16fd3ef2c85acbe
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549110"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110668043"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>자습서: Azure PowerShell을 통해 Azure에서 Windows 가상 머신의 부하를 분산하여 고가용성 애플리케이션을 만드는 방법
 부하 분산은 들어오는 요청을 여러 가상 머신에 분산하여 높은 수준의 가용성을 제공합니다. 이 자습서에서는 트래픽을 분산하고 고가용성을 제공하는 Azure Load Balancer의 여러 다른 구성 요소에 대해 알아봅니다. 다음 방법을 알아봅니다.

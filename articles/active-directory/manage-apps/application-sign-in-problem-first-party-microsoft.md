@@ -2,22 +2,22 @@
 title: Microsoft 애플리케이션에 로그인하는 문제 | Microsoft Docs
 description: Microsoft 365와 같은 Azure AD를 사용하여 자사 Microsoft 애플리케이션에 로그인할 때 직면하는 일반적인 문제 해결
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c56e356a9bacc6479d3a3a33be905457c26e732e
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: 2ca53af668794d977893c01340ed576a2bb7a8b3
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107378179"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080852"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 애플리케이션에 로그인하는 문제
 
