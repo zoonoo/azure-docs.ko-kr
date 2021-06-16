@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 43605f8dfdcac8fe545e5464c13d9a50ae8ed82c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 14bbd15fec0015073eefbe2421d03a73fac45d75
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108294259"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968377"
 ---
 # <a name="monitor-the-capacity-of-a-volume"></a>볼륨 용량 모니터링  
 
@@ -56,7 +56,7 @@ Linux 클라이언트는 [df 명령](https://linux.die.net/man/1/df)을 사용�
 정확한 ‘사용 가능한 공간’을 확인하려면 `df` 명령을 사용합니다. 그러나 볼륨에 스냅샷이 생성되는 경우에는 ‘사용된 공간’이 예상 공간이 됩니다. [사용된 스냅샷 용량](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) 은 볼륨에서 사용된 총 공간으로 계산됩니다. 스냅샷에 사용된 용량을 포함하여 절대 볼륨 사용량을 가져오려면 Azure Portal에서 [Azure NetApp 메트릭](azure-netapp-files-metrics.md#volumes)을 사용합니다. 
 
 ## <a name="using-azure-portal"></a>Azure Portal 사용
-Azure NetApp Files는 표준 [Azure Monitor](/azure/azure-monitor/overview) 기능을 활용합니다. 따라서 Azure Monitor를 사용하여 Azure NetApp Files 볼륨을 모니터링할 수 있습니다.  
+Azure NetApp Files는 표준 [Azure Monitor](../azure-monitor/overview.md) 기능을 활용합니다. 따라서 Azure Monitor를 사용하여 Azure NetApp Files 볼륨을 모니터링할 수 있습니다.  
 
 ## <a name="using-azure-cli"></a>Azure CLI 사용  
 

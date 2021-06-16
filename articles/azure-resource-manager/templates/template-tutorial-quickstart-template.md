@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 46b32ae7aeb971c9391a69e3ca3d01f669774248
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16c89a37ad232f356c4d7857bfb3c35f8c644acd
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97106906"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565917"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>자습서: Azure 빠른 시작 템플릿 사용
 
@@ -35,7 +35,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 1. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 엽니다.
 1. **검색** 에 _deploy linux web app_(Linux 웹앱 배포)을 입력합니다.
-1. 제목이 **기본 Linux 웹앱 배포** 인 타일을 선택합니다. 찾는 데 문제가 있으면 [직접 링크](https://azure.microsoft.com/resources/templates/101-webapp-basic-linux/)를 사용하세요.
+1. 제목이 **기본 Linux 웹앱 배포** 인 타일을 선택합니다. 찾는 데 문제가 있으면 [직접 링크](https://azure.microsoft.com/en-us/resources/templates/webapp-basic-linux/)를 사용하세요.
 1. **GitHub에서 찾아보기** 를 선택합니다.
 1. _azuredeploy.json_ 을 선택합니다.
 1. 템플릿을 검토합니다. 특히, `Microsoft.Web/sites` 리소스를 살펴봅니다.

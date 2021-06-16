@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 67ba835237dac96a28aae124781bbb71b59323f2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a5bcc536a51da13934fb98f383fb1812d92a0073
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369398"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964345"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -177,7 +177,7 @@ QnA Maker 리소스를 사용하지 않는 경우 모든 리소스를 제거해�
 
 1. 원래 Azure Search 리소스의 인덱스를 새 리소스로 복원합니다. [백업 복원 샘플 코드](https://github.com/pchoudhari/QnAMakerBackupRestore)를 참조하세요.
 
-1. 새 Azure 검색 리소스를 [Text Analytics 리소스의 기능 탭](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/configure-qna-maker-resources?tabs=v2#configure-qna-maker-managed-preview-service-to-use-different-cognitive-search-resource)에 있는 사용자 지정 질문 답변 기능에 연결합니다.
+1. 새 Azure 검색 리소스를 [Text Analytics 리소스의 기능 탭](./configure-qna-maker-resources.md?tabs=v2#configure-text-analytics-resource-with-custom-question-answering-feature-to-use-a-different-cognitive-search-resource)에 있는 사용자 지정 질문 답변 기능에 연결합니다.
 
 ### <a name="inactivity-policy-for-free-search-resources"></a>무료 Search 리소스에 대한 비활성 정책
 

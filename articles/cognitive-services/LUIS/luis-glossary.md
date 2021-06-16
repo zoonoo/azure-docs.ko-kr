@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/17/2021
-ms.openlocfilehash: 15235ddd1ae6bfe3166b523004bc8fe80a5b5be9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 5d4b5f5264ad38ca3610840e6fd9a72c6bc5e0aa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110061465"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950976"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -295,7 +295,7 @@ LUIS [목록 엔터티](reference-entity-list.md)에서 정규화된 값을 만�
 
 ## <a name="test"></a>테스트
 
-LUIS 앱 [테스트](luis-concept-test.md)는 모델 예측을 보는 것을 의미합니다.
+LUIS 앱 [테스트](./luis-interactive-test.md)는 모델 예측을 보는 것을 의미합니다.
 
 ## <a name="timezone-offset"></a>표준 시간대 오프셋
 

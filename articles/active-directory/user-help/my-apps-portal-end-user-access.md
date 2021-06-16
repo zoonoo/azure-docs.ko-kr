@@ -12,12 +12,12 @@ ms.date: 03/26/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: e72667ab562a9e12d233f45dc50efc9b70d2141b
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d65daffab7522c1ececb3383d1cf5184f906d8f9
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642110"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893015"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인하고 앱 시작
 
@@ -75,7 +75,7 @@ ms.locfileid: "105642110"
 - 로그인 페이지에서 앱에 직접 로그인합니다.
 - **빠른 검색** 기능을 사용하여 앱을 시작합니다.
 - **최근에 사용** 섹션에서 마지막으로 사용한 앱을 확인합니다.
-- [애플리케이션 프록시](../manage-apps/application-proxy.md)를 통해 원격으로 회사 내부 URL을 사용합니다.
+- [애플리케이션 프록시](../app-proxy/application-proxy.md)를 통해 원격으로 회사 내부 URL을 사용합니다.
 
 ### <a name="to-download-and-install-the-extension"></a>확장을 다운로드하여 설치하려면
 

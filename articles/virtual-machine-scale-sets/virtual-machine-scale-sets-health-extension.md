@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: extensions
 ms.date: 05/06/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 381573ae40f6c31a1c7dbf18bc60be5944fff39e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: mimckitt, devx-track-azurepowershell
+ms.openlocfilehash: f74fe9ff7173cfcc86794e66244b70db03d80f9a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762896"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673945"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 애플리케이션 상태 확장 사용
 애플리케이션 상태 모니터링은 배포 관리 및 업그레이드에 대한 중요한 신호입니다. Azure 가상 머신 확장 집합은 배포를 업그레이드하기 위해 개별 인스턴스의 상태 모니터링을 사용하는 [자동 OS 이미지 업그레이드](virtual-machine-scale-sets-automatic-upgrade.md)를 포함한 [롤링 업그레이드](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)를 지원합니다. 또한 상태 확장을 사용하여 확장 집합에 있는 각 인스턴스의 애플리케이션 상태를 모니터링하고 [자동 인스턴스 복구](virtual-machine-scale-sets-automatic-instance-repairs.md)를 사용하여 인스턴스 복구를 수행할 수 있습니다.
@@ -57,7 +57,7 @@ ms.locfileid: "107762896"
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식
+| 속성 | 값/예제 | 데이터 형식
 | ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | 문자열 |

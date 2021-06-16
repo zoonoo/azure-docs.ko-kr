@@ -4,12 +4,12 @@ description: 확장 리소스 종류를 배포할 때 scope 속성을 사용하�
 ms.topic: conceptual
 ms.date: 01/13/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 0f24c37c69394358e87407245f5db41ce8b6de80
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 534011658502829df8fa23e44264c8ff2992d3cf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109752052"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960004"
 ---
 # <a name="setting-scope-for-extension-resources-in-arm-templates"></a>ARM 템플릿에서 확장 리소스 범위 설정
 
@@ -86,6 +86,6 @@ New-AzSubscriptionDeployment `
 
 ## <a name="next-steps"></a>다음 단계
 
-* 템플릿에서 매개 변수를 정의하는 방식을 이해하려면 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* 템플릿에서 매개 변수를 정의하는 방식을 이해하려면 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 * 일반적인 배포 오류를 해결하는 방법은 [Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결](common-deployment-errors.md)을 참조하세요.
 * SAS 토큰이 필요한 템플릿을 배포하는 방법에 관한 자세한 내용은 [SAS 토큰으로 프라이빗 ARM 템플릿 배포](secure-template-with-sas-token.md)를 참조하세요.

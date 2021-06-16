@@ -3,12 +3,13 @@ title: Azure Event Grid 구독 쿼리
 description: 이 문서에서는 Azure 구독에 Event Grid 구독을 나열하는 방법을 설명합니다. 구독 유형에 따라 다른 매개 변수를 제공합니다.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3d700f543bc5e3c7add2a346c10acf975e1c2462
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e8818a1b055d19153563700efd2fa16141a4fe05
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86120452"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695940"
 ---
 # <a name="query-event-grid-subscriptions"></a>Event Grid 구독 쿼리 
 

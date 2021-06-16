@@ -4,12 +4,12 @@ description: Azure Private Link Service와 Azure Relay를 통합하는 방법을
 ms.date: 09/24/2020
 ms.topic: article
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 162b4a36e1da974a9a4c40ed67a3d6ce74ff6404
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 42f05784143031e303affa2a17cccfdaf22ce4ca
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108292903"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688355"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link"></a>Azure Private Link와 Azure Relay 통합 
 Azure **Private Link Service** 를 사용하면 가상 네트워크의 프라이빗 엔드포인트를 통해 Azure 서비스(예: Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage 및 Azure Cosmos DB)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 자세한 내용은 [Azure Private Link란?](../private-link/private-link-overview.md)을 참조하세요.
@@ -63,7 +63,7 @@ Azure Relay 네임스페이스를 Azure Private Link와 통합하려면 다음 �
         1. **리소스 ID** 또는 **별칭** 을 입력합니다. 다른 사람과 공유한 리소스 ID 또는 별칭일 수 있습니다. 리소스 ID를 가져오는 가장 쉬운 방법은 Azure Portal에서 Azure Relay 네임스페이스로 이동하여 `/subscriptions/`부터 URI의 일부를 복사하는 것입니다. 다음 예를 참조하세요. `/subscriptions/000000000-0000-0000-0000-000000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Relay/namespaces/myrelaynamespace.` 
         2. **대상 하위 리소스** 에 **namespace** 를 입력합니다. 프라이빗 엔드포인트에서 액세스할 수 있는 하위 리소스의 형식입니다.
         3. (선택 사항) **요청 메시지** 를 입력합니다. 리소스 소유자는 프라이빗 엔드포인트 연결을 관리하는 동안 이 메시지를 확인합니다.
-        4. 그런 다음, **다음: 구성 >** 단추를 페이지 아래쪽에서 선택합니다.
+        4. 그런 다음, **다음: 구성 >** 단추(페이지 맨 아래)를 선택합니다.
 
             ![프라이빗 엔드포인트 만들기 - 리소스 ID를 사용하여 연결](./media/private-link-service/connect-resource-id.png)
 9. **구성** 페이지에서 프라이빗 엔드포인트를 배포하려는 가상 네트워크의 서브넷을 선택합니다. 
@@ -102,7 +102,7 @@ $namespaceName = "<NAMESPACE NAME>"
 $peConnectionName = "<PRIVATE ENDPOINT CONNECTION NAME>"
 
 # create resource group
-az group create -l $vnetLocation -n $rgName
+New-AzResourceGroup -Name $rgName -Location $vnetLocation 
 
 # create virtual network
 $virtualNetwork = New-AzVirtualNetwork `

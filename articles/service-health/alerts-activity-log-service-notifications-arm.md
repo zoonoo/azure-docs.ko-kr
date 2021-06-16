@@ -3,15 +3,13 @@ title: Resource Manager 템플릿을 사용하여 Azure 서비스 알림에 대�
 description: Azure 서비스가 발생할 때 SMS, 전자 메일 또는 웹후크를 통해 알림을 받습니다.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 730c023de61275d95fe594642149770af42b34b9
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 2c28f25ddaf10f5a443b0e3eed1495ea9429f50f
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107535749"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110703243"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 서비스 알림에 대한 활동 로그 경고 만들기
 

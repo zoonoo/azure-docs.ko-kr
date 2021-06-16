@@ -4,17 +4,17 @@ description: SQL Server에서 Azure Arc 지원 SQL Managed Instance로 데이터
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: rothja
-ms.author: jroth
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1f588ca0762cf201bf532d7b9d97ea6c4e21c9b4
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: f2d2c2ecff92dde411c6ec2a8d00ad997f4c5c02
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109734957"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495830"
 ---
 # <a name="migrate-sql-server-to-azure-arc-enabled-sql-managed-instance"></a>마이그레이션: SQL Server에서 Azure Arc 지원 SQL Managed Instance로 마이그레이션
 
@@ -28,7 +28,7 @@ Azure Arc 지원 SQL Managed Instance로 마이그레이션하려면 Azure Blob 
 
 이 방법은 백업한 후 복원할 수 있는 임시 스토리지 위치로 Azure Blob Storage를 사용합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Data Studio 설치](install-client-tools.md)
 - [Azure Storage Explorer 설치](https://azure.microsoft.com/features/storage-explorer/)
@@ -47,7 +47,7 @@ Azure Arc 지원 SQL Managed Instance로 마이그레이션하려면 Azure Blob 
 
 1. **읽기**, **쓰기**, **나열** 을 선택합니다.
 
-1. **만들기**
+1. **만들기** 를 선택합니다.
 
    이 화면의 URI 및 쿼리 문자열을 적어 둡니다. 해당 정보는 이후 단계에서 필요합니다. **복사** 단추를 클릭하여 메모장/OneNote 등에 저장합니다.
 

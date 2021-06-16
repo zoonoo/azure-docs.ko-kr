@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 03/19/2021
-ms.openlocfilehash: 7524b0fd496a87a281e5b9cd9f8ffcc8b54d6388
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: cfc866a7b7a63982377f8a2498b9538bd870e381
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108000924"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969119"
 ---
 # <a name="train-pytorch-model"></a>PyTorch 모델 학습
 
@@ -81,7 +81,7 @@ ms.locfileid: "108000924"
 
 ### <a name="how-to-enable-distributed-training"></a>분산 학습을 사용하도록 설정하는 방법
 
-**PyTorch 모델 학습** 모듈에 분산 학습을 사용하도록 설정하려면 모듈의 오른쪽 창에 있는 **실행 설정** 에서 구성하면 됩니다. 분산 학습에는 **[AML 컴퓨팅 클러스터](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** 만 지원됩니다.
+**PyTorch 모델 학습** 모듈에 분산 학습을 사용하도록 설정하려면 모듈의 오른쪽 창에 있는 **실행 설정** 에서 구성하면 됩니다. 분산 학습에는 **[AML 컴퓨팅 클러스터](../how-to-create-attach-compute-cluster.md?tabs=python)** 만 지원됩니다.
 
 > [!NOTE]
 > NCCL 백 엔드 PyTorch 모델 학습 모듈 사용 시에는 cuda가 필요하기 때문에 분산 학습을 활성화하려면 **다중 GPU** 가 필요합니다.
@@ -102,7 +102,7 @@ ms.locfileid: "108000924"
 
     [![컴퓨팅 클러스터를 확인하는 방법을 보여주는 스크린샷](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
-Azure Machine Learning에서의 분산 학습에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training) 알아볼 수 있습니다.
+Azure Machine Learning에서의 분산 학습에 대한 자세한 내용은 [여기서](../concept-distributed-training.md) 알아볼 수 있습니다.
 
 ### <a name="troubleshooting-for-distributed-training"></a>분산 학습 문제 해결
 
@@ -125,7 +125,7 @@ Azure Machine Learning에서의 분산 학습에 대한 자세한 내용은 [여
 ## <a name="technical-notes"></a>기술 정보
 ###  <a name="expected-inputs"></a>예상 입력  
 
-| Name               | 유형                    | Description                              |
+| Name               | Type                    | Description                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | 학습되지 않은 모델    | UntrainedModelDirectory | 학습되지 않은 모델, PyTorch 필요         |
 | 학습 데이터 세트   | ImageDirectory          | 학습 데이터 세트                         |
@@ -145,13 +145,10 @@ Azure Machine Learning에서의 분산 학습에 대한 자세한 내용은 [여
 
 ###  <a name="outputs"></a>출력  
 
-| Name          | 유형           | Description   |
+| Name          | Type           | Description   |
 | ------------- | -------------- | ------------- |
 | 학습된 모델 | ModelDirectory | 학습된 모델 |
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
-
-
-
+Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

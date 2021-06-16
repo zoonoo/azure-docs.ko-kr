@@ -3,20 +3,21 @@ title: C#을 사용하여 Gen2 환경에서 데이터 쿼리 - Azure Time Series
 description: C#으로 작성한 앱을 사용하여 Azure Time Series Insights Gen2 환경에서 데이터를 쿼리하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: shreyasharmamsft
+ms.author: shresha
+manager: cnovak
+ms.reviewer: orspodek
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.custom: seodec18
-ms.openlocfilehash: aecd18fd0d568904f9704b749525204ced05f3ef
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0507bef469f50f9ba5e87505529b8ad839deeb4a
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103463428"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790838"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>C Sharp를 사용하여 Azure Time Series Insights Gen2 환경에서 데이터 쿼리
 

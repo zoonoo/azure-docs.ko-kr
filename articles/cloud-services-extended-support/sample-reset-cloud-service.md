@@ -7,13 +7,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
-ms.custom: ''
-ms.openlocfilehash: 5c43d61b1e7cd98674eab4c6d857cc1114a06013
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e571a6cfae82274c2e4f3d85540c9724edb657a5
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822447"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110705169"
 ---
 # <a name="reset-an-azure-cloud-service-extended-support"></a>Azure Cloud Service(추가 지원) 다시 설정 
 이러한 샘플은 기존 Azure Cloud Service(추가 지원) 배포를 다시 설정하는 다양한 방법을 다룹니다.

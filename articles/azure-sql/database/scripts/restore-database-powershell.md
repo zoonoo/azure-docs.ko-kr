@@ -3,20 +3,20 @@ title: 'PowerShell: SQL Database에서 데이터베이스의 자동 백업 복�
 description: Azure PowerShell 예제 스크립트를 사용하여 SQL Database의 데이터베이스를 자동 백업에서 이전 시점으로 복원합니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
-ms.custom: ''
+ms.subservice: backup-restore
+ms.custom: devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer: ''
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma
 ms.date: 03/27/2019
-ms.openlocfilehash: cc987efbf156c264d3e0c8df07335910e711c376
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bbb61031c960b1fd096a1875caeee235cdf50212
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94594106"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110708069"
 ---
 # <a name="use-powershell-to-restore-a-database-to-an-earlier-point-in-time"></a>PowerShell을 사용하여 데이터베이스를 이전 시점으로 복원
 

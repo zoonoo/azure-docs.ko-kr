@@ -3,12 +3,13 @@ title: Azure DevTest Labs에서 랩 사용자 추가 자동화 | Microsoft Docs
 description: 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 CLI를 사용하여 Azure DevTest Labs의 랩에 사용자를 자동으로 추가하는 방법을 보여 줍니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1168e00960c35e2ac1e4a660efba63d30c63a575
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 70f8e2740a53c7bb855d3796efa438e9c9ff0ffa
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105727708"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965212"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에 랩 사용자 추가 자동화
 Azure DevTest Labs를 사용하면 Azure Portal을 사용하여 셀프 서비스 개발 테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있으면 만들기 프로세스를 자동화하면 시간을 절약할 수 있습니다. [Azure Resource Manager 템플릿](https://github.com/Azure/azure-devtestlab/tree/master/Environments)을 사용하면 랩, 랩 VM, 사용자 지정 이미지, 수식을 만들고 자동화된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가하는 데 중점을 둡니다.
@@ -76,7 +77,7 @@ Azure DevTest Labs를 사용하면 Azure Portal을 사용하여 셀프 서비스
 
 ```
 
-랩을 만드는 동일한 템플릿에서 역할을 할당하는 경우 역할 할당 리소스와 랩 간에 종속성을 추가해야 합니다. 자세한 정보는 [Azure Resource Manager 템플릿에서 종속성 정의](../azure-resource-manager/templates/define-resource-dependency.md) 문서를 참조하세요.
+랩을 만드는 동일한 템플릿에서 역할을 할당하는 경우 역할 할당 리소스와 랩 간에 종속성을 추가해야 합니다. 자세한 정보는 [Azure Resource Manager 템플릿에서 종속성 정의](../azure-resource-manager/templates/resource-dependency.md) 문서를 참조하세요.
 
 ### <a name="role-assignment-resource-information"></a>역할 할당 리소스 정보
 역할 할당 리소스는 종류와 이름을 지정해야 합니다.
@@ -195,4 +196,3 @@ az role assignment create --roleName "DevTest Labs User" --signInName <email@com
 - [Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리](devtest-lab-vmcli.md)
 - [Azure PowerShell을 사용하여 DevTest Labs에서 가상 머신 만들기](devtest-lab-vm-powershell.md)
 - [명령줄 도구를 사용하여 Azure DevTest Labs의 가상 머신 시작 및 중지](use-command-line-start-stop-virtual-machines.md)
-

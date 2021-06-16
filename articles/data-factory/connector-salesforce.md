@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: d5524bdf4f2055387c39c7f9c381c874ec963cc9
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 852ee7ccff01d33a6fd186175d1f5304a7839315
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109486938"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110493858"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
 
@@ -42,7 +42,7 @@ Salesforce 커넥터는 Salesforce REST/Bulk API 위에 빌드됩니다. 기본�
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Salesforce에서 API 권한을 사용하도록 설정해야 합니다. 자세한 내용은 [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)을 참조하세요.
+Salesforce에서 API 권한을 사용하도록 설정해야 합니다.
 
 ## <a name="salesforce-request-limits"></a>Salesforce 요청 제한
 
