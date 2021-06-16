@@ -6,16 +6,16 @@ author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: synapse-link
-ms.date: 03/02/2021
+ms.date: 06/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: cdc9f344e108fc58399f9bcb2a9f02a4659ecfe1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f3cd12c6c2e03dbf68a70cac13a75cde0847a593
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105627679"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112019038"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Azure Cosmos DB용 Azure Synapse Link 지원 기능
 
@@ -26,9 +26,6 @@ ms.locfileid: "105627679"
 Azure Cosmos DB에는 다음과 같은 두 가지 유형의 컨테이너가 있습니다.
 * HTAP 컨테이너 - Synapse Link가 활성화된 컨테이너입니다. 이 컨테이너에는 트랜잭션 저장소와 분석 저장소가 모두 있습니다. 
 * OLTP 컨테이너 - Synapse Link가 사용되지 않는 컨테이너입니다. 이 컨테이너에는 트랜잭션 저장소만 있고 분석 저장소가 없습니다.
-
-> [!IMPORTANT]
-> Azure Cosmos DB용 Azure Synapse Link는 현재 관리형 가상 네트워크가 사용되지 않는 Synapse 작업 영역에서 지원됩니다. 
 
 Synapse Link를 사용하지 않고 Azure Cosmos DB 컨테이너에 연결할 수 있습니다. 이 시나리오에서는 트랜잭션 저장소에 대해 읽기/쓰기만 할 수 있습니다. Azure Cosmos DB용 Synapse Link 내에서 현재 지원되는 기능 목록은 다음과 같습니다. 
 
