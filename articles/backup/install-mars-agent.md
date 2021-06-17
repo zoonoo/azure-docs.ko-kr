@@ -2,13 +2,13 @@
 title: MARS(Microsoft Azure Recovery Services) 에이전트 설치
 description: MARS(Microsoft Azure Recovery Services) 에이전트를 설치하여 Windows 머신을 백업하는 방법을 알아봅니다.
 ms.topic: conceptual
-ms.date: 03/03/2020
-ms.openlocfilehash: 3ea48aaa6aad4a51463c4c028ead22f31163f810
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 06/04/2021
+ms.openlocfilehash: c52b65c06a4920020e4358c131870c0fe77b2584
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107519224"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970626"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Azure Backup MARS 에이전트 설치
 
@@ -63,51 +63,7 @@ Azure Backup은 MARS 에이전트를 사용하여 온-프레미스 머신 및 Az
 
 ### <a name="verify-internet-access"></a>인터넷 액세스 확인
 
-머신의 인터넷 액세스가 제한된 경우 머신 또는 프록시의 방화벽 설정이 다음 URL 및 IP 주소를 허용하는지 확인합니다.
-
-* URL
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP 주소
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-### <a name="use-azure-expressroute"></a>Azure ExpressRoute 사용
-
-공용 피어링(이전 회로에 사용 가능) 및 Microsoft 피어링을 사용하여 Azure ExpressRoute를 통해 데이터를 백업할 수 있습니다. 개인 피어링을 통한 백업은 지원되지 않습니다.
-
-공용 피어링을 사용하려면 먼저 다음 도메인 및 주소에 대한 액세스를 확인합니다.
-
-* `http://www.msftncsi.com/ncsi.txt`
-* `http://www.msftconnecttest.com/connecttest.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
-* IP 주소
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-Microsoft 피어링을 사용하려면 다음 서비스, 지역 및 관련 커뮤니티 값을 선택합니다.
-
-* Azure Active Directory(12076:5060)
-* Azure 지역(Recovery Services 자격 증명 모음의 위치에 따름)
-* Azure Storage(Recovery Services 자격 증명 모음의 위치에 따름)
-
-자세한 내용은 [ExpressRoute 라우팅 요구 사항](../expressroute/expressroute-routing.md)을 참조하세요.
-
-> [!NOTE]
-> 공용 피어링은 새 회로에 사용되지 않습니다.
-
-위의 모든 URL 및 IP 주소는 포트 443에서 HTTPS 프로토콜을 사용합니다.
-
-### <a name="private-endpoints"></a>프라이빗 엔드포인트
-
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## <a name="download-the-mars-agent"></a>MARS 에이전트 다운로드
 

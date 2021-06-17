@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/18/2020
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 46f03b56ad7fd2a57720962a624ee03f86c246fc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: adbf8c229c598557ff4a91c3f8e120d92a5801c0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093654"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746173"
 ---
 | 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../concepts-integration-runtime.md#self-hosted-integration-runtime)에서 지원 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -62,8 +62,8 @@ ms.locfileid: "110093654"
 | &nbsp; |[Vertica](../connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase(미리 보기)](../connector-couchbase.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ | |✓ |✓  |
-| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ | |✓ |✓  |
+| &nbsp; |[MongoDB](../connector-mongodb.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[MongoDB Atlas](../connector-mongodb-atlas.md) |✓ |✓ |✓ |✓  |
 | **최근에 사용한 파일** |[Amazon S3](../connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Amazon S3 호환 스토리지](../connector-amazon-s3-compatible-storage.md) |✓ | |✓ |✓  |
 | &nbsp; |[파일 시스템](../connector-file-system.md) |✓ |✓ |✓ |✓  |

@@ -2,14 +2,14 @@
 title: 템플릿을 사용하여 엔드투엔드 작업 실행
 description: CLI 명령만을 사용하여 풀을 만들고, 입력 데이터를 업로드하고, 작업 및 관련된 작업을 만들고, 결과 출력 데이터를 다운로드할 수 있습니다.
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 06/14/2021
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad7882276c53f6bee8fa32592ad474f47697c27a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91848724"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078369"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI 템플릿 및 파일 전송 사용
 
@@ -18,7 +18,7 @@ Azure CLI에 대한 Batch 확장을 사용하여 코드를 작성하지 않고 B
 Azure CLI로 JSON 템플릿 파일을 만들어서 Batch 풀, 작업 및 태스크를 만드는 데 사용합니다. CLI 확장 명령을 사용하여 Batch 계정과 연결된 스토리지 계정에 작업 입력 파일을 쉽게 업로드하고 작업 출력 파일을 다운로드합니다.
 
 > [!NOTE]
-> JSON 파일은 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/template-syntax.md)과 동일한 기능을 지원하지 않습니다. 원시 REST 요청 본문과 같은 형식으로 지정해야 합니다. CLI 확장은 기존 명령을 변경하지 않지만 일부 Azure Resource Manager 템플릿 기능을 추가하는 유사한 템플릿 옵션을 포함합니다. [Windows, Mac 및 Linux용 Azure Batch CLI 확장](https://github.com/Azure/azure-batch-cli-extensions)을 참조하세요.
+> JSON 파일은 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/syntax.md)과 동일한 기능을 지원하지 않습니다. 원시 REST 요청 본문과 같은 형식으로 지정해야 합니다. CLI 확장은 기존 명령을 변경하지 않지만 일부 Azure Resource Manager 템플릿 기능을 추가하는 유사한 템플릿 옵션을 포함합니다. [Windows, Mac 및 Linux용 Azure Batch CLI 확장](https://github.com/Azure/azure-batch-cli-extensions)을 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -121,7 +121,7 @@ Azure Batch 템플릿은 Azure Resource Manager 템플릿과 기능 및 구문 �
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "taskSlotsPerNode": 1,
+            "maxTasksPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
