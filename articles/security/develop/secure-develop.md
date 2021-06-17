@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8edceb31a0cdde36c987076e91350116a4f81255
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cf76427df2c1802ed49dc5ff848059d88ba9658e
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104782404"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111558551"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 
@@ -36,7 +36,7 @@ ms.locfileid: "104782404"
 
 ### <a name="perform-code-reviews"></a>코드 검토 수행
 
-코드를 체크 인하기 전에, [코드 검토](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs)를 수행하여 전체적인 코드 품질을 높이고 버그 생성의 위험을 줄일 수 있습니다. [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs)를 사용하여 코드 검토 프로세스를 관리할 수 있습니다.
+코드를 체크 인하기 전에, 코드 검토를 수행하여 전체적인 코드 품질을 높이고 버그 생성의 위험을 줄일 수 있습니다. [Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs)를 사용하여 코드 검토 프로세스를 관리할 수 있습니다.
 
 ### <a name="perform-static-code-analysis"></a>정적 코드 분석 수행
 

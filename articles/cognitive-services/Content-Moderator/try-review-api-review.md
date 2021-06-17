@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 479c7c455f07d098edd327196803e85df24dfb6d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d697cf4c04753427d161196b3efb7e5e055e32ac
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96905141"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033728"
 ---
 # <a name="create-human-reviews-api-console"></a>사용자 검토 만들기(API 콘솔)
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 [검토](./review-api.md#reviews)는 조정자가 평가할 콘텐츠를 저장하고 표시합니다. 사용자가 검토를 완료하면 지정된 콜백 엔드포인트로 결과가 전송됩니다. 이 가이드에서는 API 콘솔을 통해 검토 REST API를 사용하여 검토를 설정하는 방법을 알아봅니다. API의 구조를 이해하고 나면 이러한 호출을 모든 REST 호환 플랫폼으로 쉽게 이식할 수 있습니다.
 
