@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 04/23/2021
+ms.date: 06/09/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 3100e84255f95b2154f7e8d0ce47024546383da4
-ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.openlocfilehash: 694bf49db5a77e09d421b94797166bae2fe16685
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107990459"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111903088"
 ---
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -61,7 +61,7 @@ ms.locfileid: "107990459"
 
 #### <a name="network-security-groups-specifying-subnet-level-rules"></a>네트워크 보안 그룹: 서브넷 수준 규칙 지정
 
-Batch는 자체 NSG를 구성하므로 가상 네트워크 서브넷 수준에서 NSG를 지정할 필요가 없습니다(위 참조). Batch 컴퓨팅 노드가 배포된 서브넷과 연결된 NSG가 있거나 적용된 기본값을 재정의하는 사용자 지정 NSG 규칙을 적용하려는 경우 적어도 다음 표에 나와 있는 인바운드 및 아웃바운드 보안 규칙을 사용하여 이 NSG를 구성해야 합니다.
+Batch 컴퓨팅 노드가 배포된 서브넷과 연결된 NSG가 있거나 적용된 기본값을 재정의하는 사용자 지정 NSG 규칙을 적용하려는 경우 적어도 다음 표에 나와 있는 인바운드 및 아웃바운드 보안 규칙을 사용하여 이 NSG를 구성해야 합니다.
 
 외부 원본에서 컴퓨팅 노드에 대한 원격 액세스를 허용해야 하는 경우에만 3389(Windows) 또는 22(Linux) 포트에서 인바운드 트래픽을 구성합니다. 특정 MPI 런타임을 사용하여 다중 인스턴스 작업을 지원해야 하는 경우 Linux에서 22 포트 규칙을 사용하도록 설정해야 할 수 있습니다. 풀 컴퓨팅 노드를 사용하기 위해 이러한 포트에서 트래픽을 반드시 허용할 필요는 없습니다.
 
@@ -116,4 +116,4 @@ Batch는 Batch IP 주소로부터 풀 노드로 가는 인바운드 통신만 �
 
 | 원본 | 원본 포트 | 대상 | 대상 포트 | 프로토콜 | 작업 |
 | --- | --- | --- | --- | --- | --- |
-| 모두 | * | 모두 | 443  | 모두 | Allow |
+| 모두 | * | 모두 | 443  | 모두 | 허용 |

@@ -3,19 +3,19 @@ title: 공간 분석 컨테이너에 대한 원격 분석 및 로깅
 titleSuffix: Azure Cognitive Services
 description: 공간 분석은 일반적인 구성 프레임워크 인사이트, 로깅 및 보안 설정을 각 컨테이너에 제공합니다.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 901e857a346b0955726c5755e23595efefbc2ca1
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 08afa72507bb5689dbd1a003cb776958d6e63f1d
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107589502"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746450"
 ---
 # <a name="telemetry-and-troubleshooting"></a>원격 분석 및 문제 해결
 
@@ -232,7 +232,7 @@ IoT Edge 포털에서 디바이스를 선택한 다음, **diagnostics** 모듈�
 
 아래 표에는 로그를 쿼리할 때 사용할 수 있는 매개 변수가 나와 있습니다.
 
-| 키워드 | 설명 | 기본값 |
+| 키워드 | Description | 기본값 |
 |--|--|--|
 | StartTime | 원하는 로그 시작 시간(밀리초 UTC)입니다. | `-1`, 컨테이너 런타임의 시작입니다. `[-1.-1]`이 시간 범위로 사용되면 API에서 지난 1시간 동안의 로그를 반환합니다.|
 | EndTime | 원하는 로그 종료 시간(밀리초 UTC)입니다. | `-1`, 현재 시간입니다. `[-1.-1]` 시간 범위가 사용되면 API에서 지난 1시간 동안의 로그를 반환합니다. |
@@ -301,14 +301,6 @@ IoT Edge 포털에서 디바이스를 선택한 다음, **diagnostics** 모듈�
 가져오기 로그의 줄, 시간 및 크기를 확인합니다. 해당 설정이 올바르게 지정되었으면 ***DoPost*** 를 `true`로 바꿉니다. 그러면 동일한 필터가 있는 로그가 대상으로 푸시됩니다. 
 
 문제를 해결할 때 Azure Blob Storage에서 로그를 내보낼 수 있습니다. 
-
-## <a name="common-issues"></a>일반적인 문제
-
-모듈 로그에 다음 메시지가 표시되면 Azure 구독을 승인해야 함을 의미할 수 있습니다. 
-
-"컨테이너가 올바른 상태가 아닙니다. '불일치' 상태로 인해 구독 유효성 검사에 실패했습니다. 지정된 컨테이너 형식에 대한 API 키가 아닙니다."
-
-자세한 내용은 [컨테이너 실행에 대한 승인 요청](spatial-analysis-container.md#request-approval-to-run-the-container)을 참조하세요.
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Azure Stack Edge 디바이스 문제 해결
 
@@ -431,7 +423,7 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인원 수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
+* [인원수를 세는 웹 애플리케이션 배포](spatial-analysis-web-app.md)
 * [공간 분석 작업 구성](./spatial-analysis-operations.md)
 * [카메라 배치 가이드](spatial-analysis-camera-placement.md)
 * [영역 및 선 배치 가이드](spatial-analysis-zone-line-placement.md)

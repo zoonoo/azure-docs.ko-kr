@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97f43ee22ade532ab8efd633c0c332b78e73263f
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 9208a0076038dd9977c1488ab25836e249e290d0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181151"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111966030"
 ---
 # <a name="remote-desktop-gateway-services"></a>원격 데스크톱 게이트웨이 서비스
 
@@ -44,7 +44,6 @@ ms.locfileid: "108181151"
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Azure AD를 사용하여 원격 데스크톱 게이트웨이 서비스 구현
 
-* [Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시](../manage-apps/application-proxy-integrate-with-remote-desktop-services.md) 
+* [Azure AD 애플리케이션 프록시를 사용하여 원격 데스크톱 게시](../app-proxy/application-proxy-integrate-with-remote-desktop-services.md) 
 
 * [Azure AD에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../app-proxy/application-proxy-add-on-premises-application.md)
-

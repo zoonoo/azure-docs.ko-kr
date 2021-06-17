@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69e87fc919893a544f5d0b1b615a110f25486e57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 72651ac47ebf3f67a8ee3aae9f71a533ded53a83
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96168749"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954973"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Azure Active Directory를 사용한 헤더 기반 인증
 
@@ -40,16 +40,16 @@ ms.locfileid: "96168749"
 
 * **Azure AD**: 사용자를 인증합니다. 
 
-* **애플리케이션 프록시 서비스**: 사용자로부터 온-프레미스 애플리케이션으로 요청을 보내는 역방향 프록시로 작동합니다. Azure AD에 상주하며 모든 조건부 액세스 정책을 적용할 수도 있습니다.
+* **애플리케이션 프록시 서비스**: 사용자에게서 온-프레미스 애플리케이션으로 요청을 보내는 역방향 프록시로 작동합니다. Azure AD에 상주하며 모든 조건부 액세스 정책을 적용할 수도 있습니다.
 
-* **애플리케이션 프록시 커넥터**: 애플리케이션에 대한 연결을 제공하기 위해 Windows 서버의 온-프레미스에 설치됩니다. 아웃바운드 연결만 사용하고 Azure AD에 응답을 반환합니다.
+* **애플리케이션 프록시 커넥터**: 애플리케이션에 대한 연결을 제공하기 위해 Windows 서버의 온-프레미스에 설치됩니다. 아웃바운드 연결만 사용하고 Azure AD에 대한 응답을 반환합니다.
 
 * **레거시 애플리케이션**: 애플리케이션 프록시에서 사용자 요청을 수신하는 애플리케이션입니다. 레거시 애플리케이션은 세션을 설정하고 응답을 반환하는 데 필요한 HTTP 헤더를 수신합니다. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Azure AD를 사용한 헤더 기반 인증 구현
 
-* [Azure AD에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../manage-apps/application-proxy-add-on-premises-application.md)  
+* [Azure AD에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](../app-proxy/application-proxy-add-on-premises-application.md)  
 
-* [애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증](../manage-apps/application-proxy-configure-single-sign-on-with-headers.md) 
+* [애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md) 
 
 * [앱 제공 컨트롤러 및 네트워크를 사용하여 레거시 앱 보호](../manage-apps/secure-hybrid-access.md)
