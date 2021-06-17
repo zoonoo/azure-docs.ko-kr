@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
-ms.custom: seodec18
-ms.openlocfilehash: 366f27a0e2a22e9aa10dda20e105bf644255bdd4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seodec18, devx-track-azurepowershell
+ms.openlocfilehash: cb4843319e08eff33ce6ce1869f64fccd9e17c6c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89393142"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950667"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
@@ -130,7 +130,7 @@ IPsec 터널 쌍을 통해 프라이빗 네트워크 경로를 교환하도록 e
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Azure Resource Manager 템플릿 예제 정보
 
-이 예제에서는 Azure Resource Manager 템플릿을 사용하여 VPN Gateway 및 IPsec 터널이 종료되도록 구성됩니다. 처음 Resource Manager 템플릿을 사용하거나 Resource Manager 템플릿 기본 사항을 이해하려는 경우 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md)를 참조하세요. 이 섹션의 템플릿은 아직 개발되지 않은 Azure 환경(VNet)을 만듭니다. 그러나 기존 VNet이 있는 경우 템플릿에서 참조할 수 있습니다. VPN Gateway IPsec/IKE 사이트 간 구성에 익숙하지 않은 경우 [사이트 간 연결 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
+이 예제에서는 Azure Resource Manager 템플릿을 사용하여 VPN Gateway 및 IPsec 터널이 종료되도록 구성됩니다. 처음 Resource Manager 템플릿을 사용하거나 Resource Manager 템플릿 기본 사항을 이해하려는 경우 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/syntax.md)를 참조하세요. 이 섹션의 템플릿은 아직 개발되지 않은 Azure 환경(VNet)을 만듭니다. 그러나 기존 VNet이 있는 경우 템플릿에서 참조할 수 있습니다. VPN Gateway IPsec/IKE 사이트 간 구성에 익숙하지 않은 경우 [사이트 간 연결 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
 >[!NOTE]
 >이 구성을 만들기 위해 Azure Resource Manager 템플릿을 사용할 필요가 없습니다. Azure Portal 또는 PowerShell을 사용하여 이 구성을 만들 수 있습니다.

@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 6b728591aeb330c7b2af8ca5dc4770147761b5b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a380088210d99989dc1b69455898d85343dd1d53
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552289"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032576"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>특수화된 이미지를 사용하여 VM 만들기 
 
@@ -124,13 +125,13 @@ Add-AzVMDataDisk `
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure VM Image Builder(미리 보기)](./image-builder-overview.md)를 사용하면 자동으로 이미지 버전을 생성할 수 있으며, [기존 이미지 버전에서 새 이미지 버전을 만들고](./linux/image-builder-gallery-update-image-version.md) 업데이트할 수도 있습니다. 
+[Azure Image Builder(미리 보기)](./image-builder-overview.md)는 이미지 버전 생성을 자동화하는 데 도움이 되며, [기존 이미지 버전에서 새 이미지를 생성](./linux/image-builder-gallery-update-image-version.md)하고 업데이트하는 데도 사용할 수 있습니다. 
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
+- [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/vm-from-sig/)
 
 공유 이미지 갤러리에 대한 자세한 내용은 [개요](./shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](troubleshooting-shared-images.md)을 참조하세요.

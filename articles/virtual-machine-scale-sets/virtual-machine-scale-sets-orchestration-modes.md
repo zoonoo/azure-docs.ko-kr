@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.date: 02/12/2021
 ms.reviewer: jushiman
-ms.custom: mimckitt, devx-track-azurecli, vmss-flex
-ms.openlocfilehash: 19d0486461366f77a09b9e6a395e60a51efea853
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.custom: mimckitt, devx-track-azurecli, vmss-flex, devx-track-azurepowershell
+ms.openlocfilehash: 638ede086e0b76351642dec56605bbd857e8805a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109754374"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673877"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>미리 보기: Azure의 가상 머신 확장 집합에 대한 오케스트레이션 모드
 
@@ -103,11 +103,11 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
 |         가용성 영역  |            필요에 따라 단일 가용성 영역에 모든 인스턴스를 지정합니다. |            1, 2 또는 3개의 가용성 영역에 인스턴스를 지정합니다.  |            지원되지 않음  |
 |         VM, NIC, 디스크에 대한 모든 컨트롤  |            예  |            가상 머신 확장 집합 VM API를 사용한 제한된 컨트롤  |            예  |
 |         자동 크기 조정  |            예  |            예  |            예  |
-|         특정 장애 도메인에 VM 할당  |            예  |             예   |            예  |
+|         특정 장애 도메인에 VM 할당  |            예  |             아니요   |            예  |
 |         VM 인스턴스를 삭제할 때 NIC 및 디스크 제거  |            예  |            예  |            예  |
 |         업그레이드 정책(VM 확장 집합) |            예  |            자동, 롤링, 수동  |            해당 없음  |
 |         자동 OS 업데이트(VM 확장 집합) |            예  |            예  |            해당 없음  |
-|         게스트 보안 패치 중  |            예  |            예  |            예  |
+|         게스트 보안 패치 중  |            예  |            아니요  |            예  |
 |         알림 종료(VM 확장 집합) |            예  |            예  |            해당 없음  |
 |         인스턴스 복구(VM 확장 집합) |            예  |            예   |            해당 없음  |
 |         가속화된 네트워킹  |            예  |            예  |            예  |
@@ -127,8 +127,8 @@ Uniform 오케스트레이션 모드 인스턴스를 대상으로 하는 확장 
 |         Azure Alerts  |            예  |            예  |            예  |
 |         VM 인사이트  |            예  |            예  |            예  |
 |         Azure Backup  |            예  |            예  |            예  |
-|         Azure Site Recovery  |     예  |            예  |            예  |
-|         그룹에 기존 VM 추가/제거  |            예  |            예  |            예  |
+|         Azure Site Recovery  |     예  |            아니요  |            예  |
+|         그룹에 기존 VM 추가/제거  |            예  |            아니요  |            예  |
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Flexible 오케스트레이션 모드 등록

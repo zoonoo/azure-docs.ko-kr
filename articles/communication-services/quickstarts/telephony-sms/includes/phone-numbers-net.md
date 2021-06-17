@@ -1,12 +1,15 @@
 ---
-ms.openlocfilehash: f5f9f30103381a8e91cd38bb7fa3547e6ca4c97e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d840d2ea518ede320990eb8da23b96129310bcbc
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108157611"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429631"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/PhoneNumbers)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core 클라이언트 라이브러리](https://dotnet.microsoft.com/download/dotnet-core)

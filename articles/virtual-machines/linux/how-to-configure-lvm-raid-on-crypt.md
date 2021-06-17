@@ -8,13 +8,13 @@ ms.collection: linux
 ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
-ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: bdd897e76df941130e3acdf9c30ea8edd41147e9
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 2255a076693abb496c8a3823e4e90420f0729a0c
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104601927"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110673128"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>암호화된 디바이스에서 LVM 및 RAID 구성
 

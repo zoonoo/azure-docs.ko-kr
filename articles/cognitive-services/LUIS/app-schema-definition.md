@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 08/22/2020
-ms.openlocfilehash: db4fd52dad82542f20e58ebb3b8526c5be7f2f88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 023e86b5ecc7d0b5871ba2207d09c762a3c424b1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91327326"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950945"
 ---
 # <a name="app-schema-definition"></a>앱 스키마 정의
 
@@ -68,7 +68,7 @@ LUIS 앱은 `.json` 또는 `.lu`로 표시되며 모든 의도, 엔터티, 예�
 | element                  | 의견                              |
 |--------------------------|--------------------------------------|
 | "hierarchicals": [],     | 사용되지 않음, [기계 학습 엔터티](luis-concept-entity-types.md)를 사용합니다.   |
-| "합성": [],        | 사용되지 않음, [기계 학습 엔터티](luis-concept-entity-types.md)를 사용합니다. [복합 엔터티](reference-entity-composite.md) 참조입니다. |
+| "합성": [],        | 사용되지 않음, [기계 학습 엔터티](luis-concept-entity-types.md)를 사용합니다. [복합 엔터티](./reference-entity-machine-learned-entity.md) 참조입니다. |
 | "closedLists": [],       | 주로 엔터티의 기능으로 사용되는 [목록 엔터티](reference-entity-list.md) 참조입니다.    |
 | "versionId": "0.1",      | LUIS 앱의 버전입니다.|
 | "name": "example-app",   | LUIS 앱의 이름입니다. |
