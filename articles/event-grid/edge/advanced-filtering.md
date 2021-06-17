@@ -1,19 +1,17 @@
 ---
 title: 고급 필터링 - Azure Event Grid IoT Edge | Microsoft Docs
 description: IoT Edge의 Event Grid에서 고급 필터링
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
-ms.openlocfilehash: e42bb29a00486a16d697b68d7bcf337017da7998
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d0f146f66e2779a9ee8187f3ac06c72d884e9d8a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110368928"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755630"
 ---
 # <a name="advanced-filtering"></a>고급 필터링
 Event Grid를 사용하면 json 페이로드의 모든 속성에 필터를 지정할 수 있습니다. 이러한 필터는 `AND` 조건 세트로 모델링되며 각 외부 조건에는 선택적 내부 `OR` 조건이 있습니다. 각 `AND` 조건에 대해 다음 값을 지정합니다.

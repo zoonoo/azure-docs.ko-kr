@@ -3,21 +3,21 @@ title: JavaScript 단일 페이지 앱 시나리오
 titleSuffix: Microsoft identity platform
 description: Microsoft ID 플랫폼을 사용하여 단일 페이지 애플리케이션(시나리오 개요)을 빌드하는 방법을 알아봅니다.
 services: active-directory
-author: navyasric
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: nacanuma
+ms.author: mtillman
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 64dfd35d387e5907792440ec40522d976706db22
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 687b904175b5bd26a15b157aae3307ec40fdad42
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105966863"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112075262"
 ---
 # <a name="scenario-single-page-application"></a>시나리오: 단일 페이지 애플리케이션
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: cd2fd8dc8c10864089b198db1ca1089f994a3ffb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a6f146fac4e2989e03382ef4879b305410fab6d8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98788454"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969392"
 ---
 # <a name="testing-for-luis-devops"></a>LUIS DevOps에 대한 테스트
 
@@ -25,7 +25,7 @@ Agile Software Development 방법론에서 테스트는 소프트웨어 품질 �
 연속 통합 워크플로에서 수행해야 하는 LUIS 앱에 대한 테스트에는 두 가지 종류가 있습니다.
 
 - **단위 테스트** - LUIS 앱의 주요 기능을 확인하는 비교적 간단한 테스트입니다. 지정된 테스트 발화에 대해 예상된 의도 및 예상된 엔터티가 반환될 때 단위 테스트가 통과합니다. 테스트 실행을 성공적으로 완료하려면 모든 단위 테스트를 통과해야 합니다.  
-이러한 종류의 테스트는 [LUIS 포털](https://www.luis.ai/)에서 수행할 수 있는 [대화형 테스트](./luis-concept-test.md)와 비슷합니다.
+이러한 종류의 테스트는 [LUIS 포털](https://www.luis.ai/)에서 수행할 수 있는 [대화형 테스트](./luis-interactive-test.md)와 비슷합니다.
 
 - **일괄 테스트** - 일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, 해당 성능을 측정할 수 있습니다. 단위 테스트와 달리 일괄 테스트는 테스트를 통과하거나 실패하지 않습니다. 일괄 테스트를 사용하는 경우 모든 테스트에서 예상된 의도 및 예상된 엔터티를 반환하는 것은 아닙니다. 대신, 일괄 테스트를 사용하면 앱에서 각 의도 및 엔터티의 정확성을 확인하고 시간에 따른 정확도 향상을 비교할 수 있습니다.  
 이러한 종류의 테스트는 LUIS 포털에서 대화형으로 수행할 수 있는 [일괄 테스트](./luis-how-to-batch-test.md)와 동일합니다.
@@ -91,7 +91,7 @@ LUIS [일괄 처리 파일 구문](./luis-how-to-batch-test.md#batch-syntax-temp
 
 LUIS 포털은 대화형 테스트에서 유용한 기능을 제공합니다.
 
-* [**대화형 테스트**](./luis-concept-test.md)를 사용하면 샘플 발화를 제출하고 LUIS 인식 의도 및 엔터티에 대한 응답을 얻을 수 있습니다. 시각적 검사로 테스트 성공 여부를 확인합니다.
+* [**대화형 테스트**](./luis-interactive-test.md)를 사용하면 샘플 발화를 제출하고 LUIS 인식 의도 및 엔터티에 대한 응답을 얻을 수 있습니다. 시각적 검사로 테스트 성공 여부를 확인합니다.
 
 * [**일괄 테스트**](./luis-how-to-batch-test.md)는 일괄 테스트 파일을 입력으로 사용하여 학습된 활성 버전의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 테스트는 결과를 차트로 표시하여 활성 버전의 각 의도와 엔터티의 정확도를 확인하는 데 도움이 됩니다.
 
@@ -136,4 +136,4 @@ LUIS가 모델을 학습하는 경우(예: 의도) 긍정 데이터(모델에 �
 ## <a name="next-steps"></a>다음 단계
 
 * [CI/CD 워크플로 구현](luis-concept-devops-automation.md)에 대해 알아봅니다.
-* [GitHub를 사용하여 LUIS에 대한 DevOps를 구현](luis-how-to-devops-with-github.md)하는 방법을 알아봅니다.
+* [GitHub를 사용하여 LUIS에 대한 DevOps를 구현](./luis-concept-devops-automation.md)하는 방법을 알아봅니다.

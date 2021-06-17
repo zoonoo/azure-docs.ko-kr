@@ -8,14 +8,14 @@ ms.subservice: data-movement
 ms.topic: troubleshooting
 author: v-miegge
 ms.author: ramakoni
-ms.reviewer: ''
+ms.reviewer: cawrites
 ms.date: 09/27/2019
-ms.openlocfilehash: e69bba858ccf62f1b3a3b45b08771ddba71f11cf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a36fd722f38ec2253ada7e2f759597ea0df080a3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92671402"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787374"
 ---
 # <a name="azure-sql-database-and-managed-instance-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database와 Managed Instance 가져오기/내보내기 서비스는 데이터베이스를 가져오거나 내보내는 데 시간이 오래 걸립니다.
 

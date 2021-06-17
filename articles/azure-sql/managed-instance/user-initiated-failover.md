@@ -3,19 +3,20 @@ title: SQL Managed Instance에서 수동으로 장애 조치(failover) 시작
 description: Azure SQL Managed Instance에서 주 및 보조 복제본을 수동으로 장애 조치(failover)하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.subservice: high-availability
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, sstein
+ms.reviewer: mathoma
 ms.date: 02/27/2021
-ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f66719ab3d7482fcc1df1665593d276a738257a9
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101691147"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697228"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>SQL Managed Instance에서 사용자가 시작한 수동 장애 조치(failover)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: f1b52b7a7312e2ec41c45c8681f6d0a8e1896eec
-ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
+ms.openlocfilehash: 1214cfaa0d534edc47cdcadd98ab0a3ead4d2f46
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109814139"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985637"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 특정 보안 경고에 대한 자동 응답 만들기
 
@@ -33,7 +33,7 @@ Azure Security Center의 워크플로 자동화 기능을 사용하는 데 필�
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-securitycenter-create-automation-for-alertnamecontains/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/securitycenter-create-automation-for-alertnamecontains/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.security/securitycenter-create-automation-for-alertnamecontains/azuredeploy.json":::
 

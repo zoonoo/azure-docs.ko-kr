@@ -2,14 +2,14 @@
 title: Azure 서비스를 통한 리소스 공급자
 description: Azure Resource Manager에 대한 모든 리소스 공급자 네임스페이스를 나열하고 해당 네임스페이스에 대한 Azure 서비스를 표시합니다.
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 06/14/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 40c166a85da1ad5370b6e90096061790f1c77d49
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b83f0874527b366595f27aea6bab01afc1f8060b
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108745742"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071266"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스의 리소스 공급자
 
@@ -108,8 +108,8 @@ ms.locfileid: "108745742"
 | Microsoft.IoTSpaces | [Azure Digital Twins](../../digital-twins/index.yml) |
 | Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Key Vault](../../key-vault/index.yml) |
-| Microsoft.Kubernetes | [AKS(Azure Kubernetes Service)](../../aks/index.yml) |
-| Microsoft.KubernetesConfiguration | [AKS(Azure Kubernetes Service)](../../aks/index.yml) |
+| Microsoft.Kubernetes | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/) |
+| Microsoft.KubernetesConfiguration | [Azure Stack HCI에서 Azure Kubernetes Service](/azure-stack/aks-hci/) |
 | Microsoft.Kusto | [Azure Data Explorer](/azure/data-explorer/) |
 | Microsoft.LabServices | [Azure Lab Services](../../lab-services/index.yml) |
 | Microsoft.Logic | [Logic Apps](../../logic-apps/index.yml) |

@@ -3,12 +3,12 @@ title: 잘못된 템플릿 오류
 description: Azure Resource Manager 템플릿을 배포할 때 잘못된 템플릿 오류를 해결하는 방법을 설명합니다.
 ms.topic: troubleshooting
 ms.date: 05/22/2020
-ms.openlocfilehash: ba19d3c4e72a765e2aaff7393915b77a80daf2ba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155adc03dfe7a25996b2004bff3aaac48dd6205c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185796"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111957584"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>잘못된 템플릿 오류 해결
 
@@ -124,7 +124,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다. 허용되는 매개 변수 값에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수 섹션](template-syntax.md#parameters)을 참조하세요.
+템플릿에 허용되는 값을 다시 한 번 확인하고 배포 시 값 하나를 제공합니다. 허용되는 매개 변수 값에 대한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수 섹션](./syntax.md#parameters)을 참조하세요.
 
 <a id="too-many-resource-groups"></a>
 

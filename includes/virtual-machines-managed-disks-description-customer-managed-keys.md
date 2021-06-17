@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 76ee3371134c66d6dcc5b4b07436e5c30a15f144
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101750873"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111449797"
 ---
 사용자 고유의 키를 사용하여 각 관리 디스크 수준에서 암호화를 관리할 수 있습니다. 고객 관리형 키를 사용하는 관리 디스크에 대한 서버 쪽 암호화는 Azure Key Vault와의 통합 환경을 제공합니다. [사용자의 RSA 키](../articles/key-vault/keys/hsm-protected-keys.md)를 Key Vault로 가져오거나 Azure Key Vault에서 새 RSA 키를 생성할 수 있습니다. 
 
@@ -23,9 +23,7 @@ Azure Managed Disks는 [봉투(Envelope) 암호화](../articles/storage/common/s
 
 DEK를 암호화 및 암호 해독하는 데 키를 사용하려면 키 자격 증명 모음에서 관리 디스크에 대한 액세스 권한을 부여해야 합니다. 이를 통해 데이터 및 키를 완전히 제어할 수 있습니다. 언제든지 키를 사용하지 않도록 설정하거나 관리 디스크에 대한 액세스를 취소할 수 있습니다. 또한 Azure Key Vault 모니터링을 통해 암호화 키 사용을 감사하여 관리 디스크 또는 다른 신뢰할 수 있는 Azure 서비스만 키에 액세스하도록 할 수 있습니다.
 
-프리미엄 SSD, 표준 SSD 및 표준 HDD의 경우: 키를 사용하지 않도록 설정하거나 삭제하면 해당 키를 사용하는 디스크가 있는 모든 VM이 자동으로 종료됩니다. 그 후에 키를 다시 사용하도록 설정하지 않거나 새 키를 할당하지 않으면 VM을 사용할 수 없습니다.    
-
-Ultra Disks의 경우 키를 사용하지 않도록 설정하거나 삭제해도 키를 사용하는 Ultra Disks가 있는 모든 VM이 자동으로 종료되지 않습니다. VM의 할당을 취소하고 다시 시작한 후에는 디스크에서 키 사용이 중지되고 VM은 다시 온라인 상태가 되지 않습니다. VM을 다시 온라인 상태로 전환하려면 새 키를 할당하거나 기존 키를 사용하도록 설정해야 합니다.    
+키를 사용하지 않도록 설정하거나 삭제하면 해당 키를 사용하는 디스크가 있는 모든 VM이 자동으로 종료됩니다. 그 후에 키를 다시 사용하도록 설정하지 않거나 새 키를 할당하지 않으면 VM을 사용할 수 없습니다.    
 
 다음 다이어그램은 관리 디스크에서 고객 관리형 키를 사용하여 요청하기 위해 Azure Active Directory 및 Azure Key Vault를 사용하는 방법을 보여 줍니다.
 

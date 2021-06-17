@@ -2,7 +2,7 @@
 title: 포함 파일
 description: 포함 파일
 services: azure-communication-services
-author: paolamvhz
+author: pvicencio
 manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
@@ -10,16 +10,19 @@ ms.date: 03/12/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
-ms.openlocfilehash: b11be98718db282e219f3d1d151ceab235efe5e2
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 68d815faa79e0b018bd3d2125ea88cd4a33dea51
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109805248"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430590"
 ---
 Communication Services Java SMS SDK를 사용하여 SMS 메시지를 보내 Azure Communication Services를 시작합니다.
 
 이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
+
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -54,19 +57,11 @@ mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=commu
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-sms</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
-
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-core</artifactId>
-    <version>1.16.0</version> <!-- {x-version-update;com.azure:azure-core;dependency} -->
-</dependency>
-```
 
 텍스트 편집기에서 **/src/main/java/com/communication/quickstart/App.java** 를 열고, 가져오기 지시문을 추가하고, `System.out.println("Hello world!");` 문을 제거합니다.
 
@@ -120,7 +115,7 @@ SmsClient smsClient = new SmsClientBuilder()
 엔드포인트 및 액세스 키를 제공하는 대신 connectionString() 함수를 사용하여 전체 연결 문자열을 제공할 수도 있습니다.
 ```java
 // You can find your connection string from your resource in the Azure portal
-String connectionString = "https://<resource-name>.communication.azure.com/;<access-key>";
+String connectionString = "endpoint=https://<resource-name>.communication.azure.com/;accesskey=<access-key>";
 
 SmsClient smsClient = new SmsClientBuilder()
             .connectionString(connectionString)
