@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 46ad81f6723d160bf1d675b68a8459dd8df32c80
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 9e7d1d08a3d69337cc205bdaf4bf3afc8941dd77
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078352"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750302"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 API로 마이그레이션
 
@@ -78,7 +78,7 @@ EA API는 인증 및 권한 부여에 API 키를 사용합니다. MCA API는 Azu
 
 | 목적 | 이전 제품 | 새 제품 |
 | --- | --- | --- |
-| Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
+| Cloudyn | Cloudyn | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
 | Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) 콘텐츠 팩 및 커넥터 |  [Azure Consumption Insights 커넥터](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>잔액 및 크레딧을 얻기 위한 API
@@ -519,7 +519,7 @@ Reservation Summaries API를 사용하여 예약 요약 정보를 가져오는 �
 
 ## <a name="move-from-cloudyn-to-cost-management"></a>Cloudyn에서 Cost Management로 전환
 
-[Cloudyn](https://cloudyn.com)을 사용하는 조직은 지금부터 비용 관리 요구 사항에 [Azure Cost Management](https://azure.microsoft.com/services/cost-management/)를 사용하는 것이 좋습니다. Cost Management는 온보딩 작업 및 8시간의 대기 시간 없이 Azure Portal에서 사용할 수 있습니다. 자세한 내용은 [Cost Management 설명서](../index.yml)를 참조하세요.
+Cloudyn을 사용하는 조직은 지금부터 비용 관리 요구 사항에 [Azure Cost Management](https://azure.microsoft.com/services/cost-management/)를 사용하는 것이 좋습니다. Cost Management는 온보딩 작업 및 8시간의 대기 시간 없이 Azure Portal에서 사용할 수 있습니다. 자세한 내용은 [Cost Management 설명서](../index.yml)를 참조하세요.
 
 Azure Cost Management로 다음과 같은 일을 할 수 있습니다.
 
