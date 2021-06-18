@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/13/2020
-ms.author: matjazl
-ms.openlocfilehash: 479e8f870692cc16345d0ca19b8eb065caa28fa8
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: chrupa
+ms.openlocfilehash: 79c7cf1def04ab61320b22df51b5d3933c462cb8
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018552"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112286582"
 ---
 # <a name="what-is-azure-api-for-fhirreg"></a>Azure API for FHIR&reg;이란?
 
@@ -22,7 +22,7 @@ Azure API for FHIR을 사용하면 클라우드의 관리형 PaaS(Platform-as-a-
 - 관리형 FHIR 서비스(클라우드에서 몇 분 안에 프로비저닝됨) 
 - Azure에서 데이터 액세스를 위한 엔터프라이즈급 FHIR® 기반 엔드포인트 및 FHIR® 형식의 스토리지
 - 고성능, 짧은 대기 시간
-- 규격 클라우드 환경에서 보호 된 상태 정보 (화)의 보안 관리
+- 규정 준수 클라우드 환경에서 PHI(Protected Health Information)의 보안 관리
 - 모바일 및 웹 구현을 위한 SMART on FHIR
 - RBAC(역할 기반 액세스 제어)를 사용하여 규모에 맞게 사용자 고유의 데이터 제어
 - 각 데이터 저장소 내에서 액세스, 만들기, 수정 및 읽기에 대한 감사 로그 추적

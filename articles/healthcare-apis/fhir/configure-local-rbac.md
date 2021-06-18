@@ -6,17 +6,17 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
-ms.author: matjazl
-ms.openlocfilehash: 096e4e3ecbcedaec674e074a2baccbb336e03c94
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: zxue
+ms.openlocfilehash: 1b081f230f562a333bbc014fb4583cc37a556d50
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020520"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112283972"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>FHIR에 대 한 로컬 RBAC 구성 
 
-이 문서에서는 데이터 평면 액세스를 관리 하는 데 외부 보조 Azure Active Directory 테 넌 트를 사용 하도록 FHIR 용 Azure API를 구성 하는 방법을 설명 합니다. 구독과 연결 된 Azure Active Directory 테 넌 트를 사용할 수 없는 경우에만이 모드를 사용 합니다.
+이 문서에서는 데이터 평면 액세스를 관리 하는 데 외부 보조 Azure Active Directory 테 넌 트를 사용 하도록 FHIR 용 Azure API를 구성 하는 방법을 설명 합니다. 구독과 연결된 Azure Active Directory 테넌트를 사용할 수 없는 경우에만 이 모드를 사용합니다.
 
 > [!NOTE]
 > 구독과 연결 된 기본 Azure Active Directory 테 넌 트를 사용 하도록 FHIR 서비스 데이터 평면이 구성 된 경우 [AZURE RBAC를 사용 하 여 데이터 평면 역할을 할당](configure-azure-rbac.md)합니다.
