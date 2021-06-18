@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 04/07/2021
 ms.topic: include
-ms.openlocfilehash: 73886b966676af75cc74484ccdc0632f080b041a
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: d14274c43c3241a4c091ee004747c1ad8e12968b
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029145"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111896953"
 ---
 Azure Defender는 실시간 위협 방지를 컨테이너화된 환경에 제공하고 의심스러운 활동에 대한 경고를 생성합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
@@ -32,7 +32,7 @@ Azure Defender에서 위협 방지를 제공하는 다양한 수준은 다음과
     >[!NOTE]
     > Azure Defender는 구독에서 Defender for Kubernetes 계획을 사용하도록 설정한 후에 발생하는 작업 및 배포에 대한 보안 경고를 생성합니다. 
 
-    클러스터 수준 경고 목록은 [경고 참조 표](../articles/security-center/alerts-reference.md#alerts-akscluster)를 참조하세요.
+    클러스터 수준 경고 목록은 [경고 참조 표](../articles/security-center/alerts-reference.md#alerts-k8scluster)를 참조하세요.
 
 또한 글로벌 보안 연구 팀에서는 위협 환경을 지속적으로 모니터링합니다. 검색된 컨테이너 관련 경고 및 취약성을 추가합니다.
 

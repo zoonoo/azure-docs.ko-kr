@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 11/13/2020
-ms.author: punagpal
-ms.openlocfilehash: dc20d4cc54824fc65eba6669eab9a1c32d7ef9eb
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.author: rabhaiya
+ms.openlocfilehash: db46af2dffbecb6301af13bbabd871c1c5392354
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103018627"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112286726"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Azure IoT Connector for FHIR(미리 보기) 데이터 흐름
 
@@ -44,7 +44,7 @@ ms.locfileid: "103018627"
 > [!NOTE]
 > 기간 값은 기본적으로 15 분 이며 미리 보기용으로 구성할 수 없습니다.
 
-## <a name="transform"></a>변환
+## <a name="transform"></a>변형
 변환 단계에서 그룹화 정규화 된 메시지는 FHIR 매핑 템플릿을 통해 처리 됩니다. 템플릿 유형과 일치 하는 메시지는 매핑을 통해 지정 된 대로 FHIR 기반 관찰 리소스로 변환 됩니다.
 
 이 시점에서 연결 된 [환자](https://www.hl7.org/fhir/patient.html) 리소스와 함께 [장치](https://www.hl7.org/fhir/device.html) 리소스는 메시지에 있는 장치 식별자를 사용 하 여 fhir 서버 에서도 검색 됩니다. 이러한 리소스는 생성 되는 관찰 리소스에 대 한 참조로 추가 됩니다.

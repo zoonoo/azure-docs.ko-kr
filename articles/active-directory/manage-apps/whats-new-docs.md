@@ -1,30 +1,37 @@
 ---
 title: Azure Active Directory 애플리케이션 관리의 새로운 기능
 description: Azure Active Directory 애플리케이션 관리에 대한 새로운 설명서 및 업데이트된 설명서입니다.
-ms.date: 05/04/2021
+ms.date: 06/02/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
 ms.workload: identity
-ms.author: iangithinji
-author: iantheninja
+ms.author: mtillman
+author: mtillman
 manager: CelesteDG
-ms.openlocfilehash: 19fbfbed3a86575eb38fd2651cab9fffeabb673f
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 361fb5cc46d356fbab53defc5c3add4d7a5b768b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108743870"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079196"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory 애플리케이션 관리: 새로운 기능
 
 Azure Active Directory 애플리케이션 관리 설명서의 새로운 기능을 시작합니다. 이 문서에서는 지난 3달 동안 추가된 새 문서와 중요한 업데이트가 있는 문서를 나열합니다. 애플리케이션 관리 서비스의 새로운 기능에 대해 알아보려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md)을 참조하세요.
 
+## <a name="may-2021"></a>2021년 5월
+
+### <a name="updated-articles"></a>업데이트된 문서
+
+- [Azure Active Directory 애플리케이션 관리: 새로운 기능](whats-new-docs.md)
+
+
 ## <a name="april-2021"></a>2021년 4월
 
 ### <a name="new-articles"></a>새 문서
 
-- [Azure AD(Active Directory) 애플리케이션 프록시 질문과 대답](application-proxy-faq.yml)
+- [Azure AD(Active Directory) 애플리케이션 프록시 질문과 대답](../app-proxy/application-proxy-faq.yml)
 
 ### <a name="updated-articles"></a>업데이트된 문서
 
