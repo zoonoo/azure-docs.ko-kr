@@ -1,17 +1,17 @@
 ---
 title: Azure Data Factory 커넥터 개요
 description: Data Factory에서 지원되는 커넥터에 대해 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2021
-ms.author: jingwang
-ms.openlocfilehash: cfd3376174ec0f7789389988245f7377b9896a00
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/26/2021
+ms.author: jianleishen
+ms.openlocfilehash: 1e25ba74eddbb39467fabbd6bfb60d4a2c7d049b
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103015926"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110793686"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Azure Data Factory 커넥터 개요
 
@@ -21,7 +21,7 @@ Azure Data Factory는 복사, 데이터 흐름, 조회, 메타데이터 가져�
 
 ## <a name="supported-data-stores"></a>지원되는 데이터 저장소
 
-[!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+[!INCLUDE [Connector overview](includes/data-factory-v2-connector-overview.md)]
 
 ## <a name="integrate-with-more-data-stores"></a>추가 데이터 저장소와 통합
 
