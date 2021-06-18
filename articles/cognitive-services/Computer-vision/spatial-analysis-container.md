@@ -3,19 +3,19 @@ title: 공간 분석 컨테이너를 설치하고 실행하는 방법 - Computer
 titleSuffix: Azure Cognitive Services
 description: 공간 분석 컨테이너를 사용하면 사람 및 거리를 감지할 수 있습니다.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: d257a77940b460bf8be64e3f8376353a859365f7
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 15ef67fb452b4302cc848b88b3dab89d46fb8793
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284722"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746468"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>공간 분석 컨테이너 설치 및 실행(미리 보기)
 
@@ -26,7 +26,6 @@ ms.locfileid: "106284722"
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * Azure 구독을 만든 후에는 Azure Portal에서 표준 S1 계층에 대한 <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="Computer Vision 리소스 만들기"  target="_blank">Computer Vision 리소스</a>를 만들어서 키와 엔드포인트를 가져옵니다. 배포 후 **리소스로 이동** 을 클릭합니다.
     * 공간 분석 컨테이너를 실행하려면 직접 만든 리소스의 키와 엔드포인트가 필요합니다. 키와 엔드포인트는 나중에 사용합니다.
-
 
 ### <a name="spatial-analysis-container-requirements"></a>공간 분석 컨테이너 요구 사항
 
@@ -70,21 +69,6 @@ Azure Stack Edge는 HaaS(Hardware-as-a-Service) 솔루션이며 네트워크 데
 |--|--|
 | 카메라 | 공간 분석 컨테이너는 특정 카메라 브랜드와 관련이 없습니다. 카메라 디바이스는 RTSP(Real-Time Streaming Protocol) 및 H.264 인코딩을 지원하고, 호스트 컴퓨터에 액세스할 수 있어야 하며 15FPS 및 1080p 해상도로 스트리밍할 수 있어야 합니다. |
 | Linux OS | [Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/)가 호스트 컴퓨터에 설치되어 있어야 합니다.  |
-
-
-## <a name="request-approval-to-run-the-container"></a>컨테이너 실행에 대한 승인 요청
-
-컨테이너 실행에 대한 승인을 요청하려면 [요청 양식](https://aka.ms/csgate)을 작성하여 제출하세요.
-
-이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 양식이 제출되면 Azure Cognitive Services 팀에서 검토하고 결정을 내려서 이메일로 보내드립니다.
-
-> [!IMPORTANT]
-> * 양식에서 Azure 구독 ID와 연결된 이메일 주소를 사용해야 합니다.
-> * 컨테이너를 실행하는 데 사용하는 Computer Vision 리소스는 승인된 Azure 구독 ID로 생성되어야 합니다.
-
-승인을 받으면 MCR(Microsoft Container Registry)에서 컨테이너를 다운로드한 후 실행할 수 있습니다. 이 내용은 문서 뒷부분에 설명되어 있습니다.
-
-Azure 구독이 승인되지 않은 경우에는 컨테이너를 실행할 수 없습니다.
 
 ## <a name="set-up-the-host-computer"></a>호스트 컴퓨터 설정
 

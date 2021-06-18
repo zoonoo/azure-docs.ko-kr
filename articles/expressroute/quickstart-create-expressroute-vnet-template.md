@@ -8,15 +8,13 @@ manager: kumud
 ms.date: 10/12/2020
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom:
-- subject-armqs
-- mode-arm
-ms.openlocfilehash: 6c31f55d5b208437170f9a69ff7bbe1d6b836201
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.custom: devx-track-azurepowershell - subject-armqs - mode-arm
+ms.openlocfilehash: 36520a7c8661cce71eb8b210c279a27c0766a7a7
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108277447"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005396"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 프라이빗 피어링이 있는 ExpressRoute 회로 만들기
 
@@ -34,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/expressroute-private-peering-vnet)에서 나온 것입니다.
 
 이 빠른 시작에서는 *Equinix* 를 서비스 공급자로 사용하여 ExpressRoute 회로를 만듭니다. 회로는 대역폭이 *50Mbps* 이고 피어링 위치가 *Washington DC* 인 *프리미엄 SKU* 를 사용합니다. 프라이빗 피어링은 *192.168.10.16/30* 및 *192.168.10.20/30* 의 기본 및 보조 서브넷에서 사용하도록 설정됩니다. 가상 네트워크도 *HighPerformance ExpressRoute 게이트웨이* 와 함께 생성됩니다.
 

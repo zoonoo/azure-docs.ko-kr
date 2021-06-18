@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4fac7f204b682f474dfc9d29ba09ee28bf79f9de
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89484304"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663931"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -40,7 +40,7 @@ DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 �
 
 ### <a name="get-domain-verification-id"></a>도메인 확인 ID 가져오기
 
-[도메인 확인 ID 가져오기](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id)의 단계를 수행하여 앱의 도메인 확인 ID를 가져옵니다.
+[도메인 확인 ID 가져오기](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id)의 단계를 수행하여 앱의 도메인 확인 ID를 가져옵니다.
 
 ### <a name="create-domain-verification-record"></a>도메인 확인 레코드 만들기
 
@@ -48,9 +48,9 @@ DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 �
 
 | DNS 레코드 예제 | TXT 호스트 | TXT 값 |
 | - | - | - |
-| \@(root) | _asuid_ | [앱의 도메인 확인 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
-| www(하위) | _asuid.www_ | [앱의 도메인 확인 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
-| \*(와일드카드) | _asuid_ | [앱의 도메인 확인 ID](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \@(root) | _asuid_ | [앱의 도메인 확인 ID](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id) |
+| www(하위) | _asuid.www_ | [앱의 도메인 확인 ID](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id) |
+| \*(와일드카드) | _asuid_ | [앱의 도메인 확인 ID](app-service-web-tutorial-custom-domain.md#3-get-a-domain-verification-id) |
 
 DNS 레코드 페이지에서 마이그레이션할 DNS 이름의 레코드 종류에 유의합니다. App Service는 CNAME 및 A 레코드로부터의 매핑을 지원합니다.
 
@@ -124,4 +124,4 @@ FTP/S URL `<deployment-unit>.ftp.azurewebsites.windows.net`의 도메인 이름�
 사용자 지정 TLS/SSL 인증서를 App Service에 바인딩하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure App Service에서 TLS 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
+> [사용자 지정 DNS 이름을 TLS 바인딩을 통하여 Azure App Service에서 보호하기](configure-ssl-bindings.md)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
 ms.reviewer: harshja
-ms.openlocfilehash: bfec9273d1d363c3bd39887e83597d22262265f1
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: d635d0c87cb6f759c15461abe9efc9dd42297ddb
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108187225"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964908"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용하여 게시된 앱에 대한 사용자 지정 홈페이지 설정
 
@@ -175,5 +175,5 @@ PowerShell을 사용하여 사용자 지정 홈페이지 URL을 정의하기 전
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정](../manage-apps/application-proxy-integrate-with-sharepoint-server.md)
+- [Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정](./application-proxy-integrate-with-sharepoint-server.md)
 - [자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가](application-proxy-add-on-premises-application.md)

@@ -3,12 +3,13 @@ title: Azure Service Fabric 클러스터 템플릿 만들기
 description: Service Fabric 클러스터의 Resource Manager 템플릿을 만드는 방법을 알아봅니다. 클라이언트 인증의 보안, Azure Key Vault 및 Azure AD(Azure Active Directory)를 구성합니다.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: b028b5c1f32733146c071e50b24202e5bad945c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5a216f0863569bba0c743b086e3747f8ae1902a8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86260491"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110671069"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
 

@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 48573b8a9571fc6eb5ab54a0759a7f4e1b243755
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.custom: subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 30ede8a3aa719a213066eac567000c6602f7c36c
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107948278"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590129"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +37,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/cosmosdb-sql/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql/azuredeploy.json":::
 
