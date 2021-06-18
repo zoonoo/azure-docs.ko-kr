@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: kumud
-ms.openlocfilehash: 401124ed4b2794d891ca224ba3dc1c78edcae8d5
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 5ae401e0593eedfedfde1c657da66d9b423d810f
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783416"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060564"
 ---
 # <a name="add-or-remove-a-subnet-delegation"></a>서브넷 위임 추가 또는 제거
 
@@ -38,7 +39,7 @@ ms.locfileid: "107783416"
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork* 를 입력합니다. |
+    | 이름 | *MyVirtualNetwork* 를 입력합니다. |
     | 주소 공간 | *10.0.0.0/16* 을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
     | Resource group | **새로 만들기** 를 선택하고 *myResourceGroup* 을 입력한 다음, **확인** 을 선택합니다. |
@@ -59,16 +60,14 @@ Azure 서비스에 위임하려는 서브넷을 만들지 않은 경우 다음 �
 이 섹션에서는 이전 섹션에서 만든 서브넷을 Azure 서비스에 위임합니다.
 
 1. 포털의 검색 창에서 *myVirtualNetwork* 를 입력합니다. 검색 결과에 **myVirtualNetwork** 가 표시되면 선택합니다.
-2. 검색 결과에서 *myVirtualNetwork* 를 선택합니다.
-3. **설정** 에서 **서브넷** 을 선택하고 **mysubnet** 을 선택합니다.
-4. *mySubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 대한 서브넷 위임** 에 나열된 서비스(예: **DBforPostgreSQL/serversv2**)를 선택합니다.  
+2. **설정** 에서 **서브넷** 을 선택하고 **mysubnet** 을 선택합니다.
+3. *mySubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 대한 서브넷 위임** 에 나열된 서비스(예: **DBforPostgreSQL/serversv2**)를 선택합니다.  
 
 ### <a name="remove-subnet-delegation-from-an-azure-service"></a>Azure 서비스에서 서브넷 위임 제거
 
 1. 포털의 검색 창에서 *myVirtualNetwork* 를 입력합니다. 검색 결과에 **myVirtualNetwork** 가 표시되면 선택합니다.
-2. 검색 결과에서 *myVirtualNetwork* 를 선택합니다.
-3. **설정** 에서 **서브넷** 을 선택하고 **mysubnet** 을 선택합니다.
-4. *mySubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 서브넷 위임** 아래에 나열된 서비스에서 **없음** 을 선택합니다. 
+2. **설정** 에서 **서브넷** 을 선택하고 **mysubnet** 을 선택합니다.
+3. *mySubnet* 페이지의 **서브넷 위임** 목록에서 **서비스에 서브넷 위임** 아래에 나열된 서비스에서 **없음** 을 선택합니다. 
 
 ## <a name="azure-cli"></a>Azure CLI
 

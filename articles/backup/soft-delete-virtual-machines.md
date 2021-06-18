@@ -3,13 +3,13 @@ title: 가상 머신의 일시 삭제
 description: 가상 머신의 일시 삭제로 백업을 더욱 안전하게 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.custom: references_regions
-ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 5bc103f894a6cbcfc06cce4a5f07b70fcea5b1d6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89022244"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110678103"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>가상 머신의 일시 삭제
 
@@ -78,11 +78,11 @@ WorkloadName     Operation            Status               StartTime            
 AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
 ```
 
-백업 항목의 'DeleteState'가 'NotDeleted'에서 'ToBeDeleted'로 바뀝니다. 백업 데이터는 14일 동안 보존됩니다. 삭제 작업을 되돌리고 싶은 경우 삭제 취소를 수행해야 합니다.
+백업 항목의 'DeleteState'가 'NotDeleted'에서 'ToBeDeleted'로 바뀝니다. 백업 데이터는 14일 동안 보존됩니다. 삭제 작업을 되돌리려는 경우 삭제 실행 취소를 수행해야 합니다.
 
-### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Azure PowerShell을 사용하여 삭제 작업 취소
+### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Azure PowerShell을 사용하여 삭제 작업 실행 취소
 
-먼저, 일시 삭제 상태(삭제하려는 상태)에 있는 관련 백업 항목을 가져옵니다.
+먼저, 일시 삭제 상태(삭제 예정)인 관련 백업 항목을 가져옵니다.
 
 ```powershell
 
@@ -114,9 +114,9 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 ## <a name="how-to-disable-soft-delete"></a>일시 삭제를 사용하지 않도록 설정하는 방법
 
-이 기능은 사용하지 않도록 설정하지 않는 것이 좋습니다. 일시 삭제를 사용하지 않도록 설정해야 하는 유일한 상황은 보호된 항목을 새 자격 증명 모음으로 이동할 예정이며 삭제 및 다시 보호하기 전에 필요한 14일을 기다릴 수 없는(예: 테스트 환경) 경우입니다. 일시 삭제를 사용하지 않도록 설정하는 방법은 [일시 삭제 사용 및 사용 안 함](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)을 참조하세요.
+이 기능은 사용하도록 설정하는 것이 좋습니다. 일시 삭제를 사용하지 않도록 설정해야 하는 유일한 상황은 보호된 항목을 새 자격 증명 모음으로 이동할 예정이며 삭제하고 다시 보호하기 전에 필요한 14일을 기다릴 수 없는 경우(예: 테스트 환경)입니다. 일시 삭제를 사용하지 않도록 설정하는 방법에 대한 지침은 [일시 삭제 사용 및 사용 안 함](backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 일시 삭제에 대한 [자주 묻는 질문](backup-azure-security-feature-cloud.md#frequently-asked-questions) 읽기
-- [Azure Backup의 모든 보안 기능](security-overview.md)에 대한 정보 읽기
+- 일시 삭제에 대한 [질문과 대답](backup-azure-security-feature-cloud.md#frequently-asked-questions) 확인
+- [Azure Backup의 모든 보안 기능](security-overview.md) 확인

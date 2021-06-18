@@ -8,12 +8,13 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: c4e2894d193309c169adbea96491e0754d479a8a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bf46fb00b4326f873d0f76a2eb4cd2632e0b3cf0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98786811"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706839"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Azure Data Box Gateway에 대한 액세스, 전원 및 연결 모드 관리
 
@@ -63,7 +64,7 @@ Azure Data Box Gateway, IoT Hub 및 Azure Storage 리소스를 만들려면 리�
 
 디바이스에 대한 정품 인증 키를 생성하거나 자격 증명이 필요한 작업을 수행하는 경우 Microsoft Graph API에 대한 권한이 필요합니다. 자격 증명을 필요로 하는 작업은 다음과 같습니다.
 
--  연결된 스토리지 계정을 사용하여 공유 만들기
+-  연결된 스토리지 계정을 사용하여 공유 만들기.
 -  디바이스에서 공유에 액세스할 수 있는 사용자 만들기
 
 `Read all directory objects`를 수행할 수 있도록 Active Directory 테넌트에 대한 `User` 액세스 권한이 있어야 합니다. 게스트 사용자는 `Read all directory objects`에 대한 권한이 없습니다. 게스트인 경우 활성화 키 만들기, 디바이스에서 공유 만들기, 사용자 만들기 등의 작업이 실패합니다.
@@ -72,7 +73,7 @@ Azure Data Box Gateway, IoT Hub 및 Azure Storage 리소스를 만들려면 리�
 
 ### <a name="register-resource-providers"></a>리소스 공급자 등록
 
-Azure의 Azure Resource Manager 모델에서 리소스를 프로비저닝하려면 해당 리소스 만들기를 지원하는 리소스 공급자가 필요합니다. 예를 들어 가상 컴퓨터를 프로비저닝하려면 구독에서 'Microsoft.Compute' 리소스 공급자를 사용할 수 있어야 합니다.
+Azure의 Azure Resource Manager 모델에서 리소스를 프로비저닝하려면 해당 리소스 만들기를 지원하는 리소스 공급자가 필요합니다. 예를 들어 가상 머신을 프로비저닝하려면 구독에서 'Microsoft.Compute' 리소스 공급자를 사용할 수 있어야 합니다.
  
 리소스 공급자는 구독 수준에서 등록됩니다. 기본적으로 새 Azure 구독은 주로 사용되는 리소스 공급자 목록에 미리 등록됩니다. 'Microsoft.DataBoxEdge'의 리소스 공급자는 이 목록에 포함되지 않습니다.
 

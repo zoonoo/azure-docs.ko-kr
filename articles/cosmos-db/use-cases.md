@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e48296b696d26bcf30424280f1cbd3fc6aaa9640
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799397"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958975"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -67,7 +67,7 @@ Azure Cosmos DB는 해당 [변경 피드](change-feed.md) 기능을 사용하여
 
 :::image type="content" source="./media/use-cases/event-sourcing.png" alt-text="Azure Cosmos DB 주문 파이프라인 참조 아키텍처" border="false":::
 
-뿐만 아니라 Azure Cosmos DB에 저장된 데이터는 Apache Spark 작업을 통해 빅 데이터 분석에 사용되는 HDInsight와 통합할 수 있습니다. Azure Cosmos DB용 Spark 커넥터에 대한 자세한 내용은 [Cosmos DB 및 HDInsight를 사용하여 Spark 작업 실행](spark-connector.md)을 참조하세요.
+뿐만 아니라 Azure Cosmos DB에 저장된 데이터는 Apache Spark 작업을 통해 빅 데이터 분석에 사용되는 HDInsight와 통합할 수 있습니다. Azure Cosmos DB용 Spark 커넥터에 대한 자세한 내용은 [Cosmos DB 및 HDInsight를 사용하여 Spark 작업 실행](./create-sql-api-spark.md)을 참조하세요.
 
 ## <a name="gaming"></a>게임
 데이터베이스 계층은 게임 애플리케이션의 중요한 구성 요소입니다. 오늘날의 게임은 모바일/콘솔 클라이언트에서 그래픽 처리를 수행하지만 게임 내 통계, 소셜 미디어 통합 및 고득점 순위표와 같은 사용자 지정되고 개인 설정된 콘텐츠를 제공하기 위해 클라우드에 의존합니다. 게임은 몰입도 높은 게임 환경을 제공하기 위해 1밀리초의 읽기 및 쓰기 대기 시간을 요구하는 경우가 종종 있습니다. 게임 데이터베이스는 속도가 빨라야 하며 신규 게임 출시 및 기능 업데이트 동안 요청 속도의 대량 스파이크를 처리할 수 있어야 합니다.
