@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6b13c507f32271e4707cf4c4506bcf8e1f6e633
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91578583"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007553"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작
 
@@ -74,9 +74,9 @@ Azure Key Vault의 키를 사용하여 Data Lake Storage Gen1 계정의 암호�
 
 > [!NOTE]
 > Azure Resource Manager 템플릿을 사용하여 Data Lake Storage Gen1 계정을 만들 수도 있습니다. 이러한 템플릿은에서 [Azure QuickStart 템플릿](https://azure.microsoft.com/resources/templates/?term=data+lake+store)에서 액세스할 수 있습니다.
-> * 데이터 암호화 미지원: [데이터 암호화 없이 Azure Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-> * Data Lake Storage Gen1을 사용하여 데이터 암호화 지원: [암호화로 Data Lake Storage Gen1 계정을 배포합니다(Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-> * Azure Key Vault를 사용하여 데이터 암호화 지원: [암호화로 Data Lake Storage Gen1 계정을 배포합니다(Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+> * 데이터 암호화 미지원: [데이터 암호화 없이 Azure Data Lake Storage Gen1 계정을 배포합니다](https://azure.microsoft.com/resources/templates/data-lake-store-no-encryption/).
+> * Data Lake Storage Gen1을 사용하여 데이터 암호화 지원: [암호화로 Data Lake Storage Gen1 계정을 배포합니다(Data Lake)](https://azure.microsoft.com/resources/templates/data-lake-store-encryption-adls/).
+> * Azure Key Vault를 사용하여 데이터 암호화 지원: [암호화로 Data Lake Storage Gen1 계정을 배포합니다(Key Vault)](https://azure.microsoft.com/resources/templates/data-lake-store-encryption-key-vault/).
 >
 >
 

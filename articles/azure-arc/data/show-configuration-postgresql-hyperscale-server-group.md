@@ -8,14 +8,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.topic: how-to
-ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12631adea948c6a59f935ba409dcc925268c6319
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93279404"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412262"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Arc 지원 PostgreSQL 하이퍼스케일 서버 그룹의 구성 표시
 
@@ -362,7 +362,7 @@ kubectl에서 반환하는 것과 매우 유사한 형식 및 내용으로 아�
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Arc 지원 PostgreSQL 하이퍼스케일의 개념에 대해 읽어보기](concepts-distributed-postgres-hyperscale.md)
-- [서버 그룹을 확장(작업자 노드 추가)하는 방법에 대해 읽어보기](scale-out-postgresql-hyperscale-server-group.md)
+- [서버 그룹을 확장(작업자 노드 추가)하는 방법에 대해 읽어보기](scale-out-in-postgresql-hyperscale-server-group.md)
 - [서버 그룹을 확장/축소(메모리 및/또는 vCore 증가 또는 감소)하는 방법에 대해 읽어보기](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)
 - [스토리지 구성에 대해 읽어보기](storage-configuration.md)
 - [데이터베이스 인스턴스를 모니터링하는 방법 읽어보기](monitor-grafana-kibana.md)

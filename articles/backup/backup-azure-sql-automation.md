@@ -4,12 +4,13 @@ description: Azure Backup과 PowerShell을 사용하여 Azure VM의 SQL Database
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 0a3467ffa3a67ac9ad593748948cea8da59e3e6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8695d72a213245df71845a76c4d3250816454672
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734541"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110681264"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용하여 Azure VM의 SQL 데이터베이스를 백업 및 복원
 
@@ -52,7 +53,7 @@ Azure 라이브러리의 **Az.RecoveryServices** [cmdlet 참조](/powershell/mod
     Get-Command *azrecoveryservices*
     ```
 
-3. Azure Backup 및 Recovery Services 자격 증명 모음의 별칭과 cmdlet을 검토합니다. 볼 수 있는 항목의 예는 다음과 같습니다. 이는 cmdlet의 전체 목록이 아닙니다.
+3. Azure Backup 및 Recovery Services 자격 증명 모음의 별칭과 cmdlet을 검토합니다. 볼 수 있는 항목의 예는 다음과 같습니다. 이 목록은 cmdlet의 전체 목록이 아닙니다.
 
     ![Recovery Services cmdlet 목록](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
@@ -80,7 +81,7 @@ Azure 라이브러리의 **Az.RecoveryServices** [cmdlet 참조](/powershell/mod
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. 명령 출력에서 **RegistrationState** 가 **Registered** 로 변경되었음을 확인합니다. 그러지 않았으면 **Register-AzResourceProvider** cmdlet을 다시 실행합니다.
+9. 명령 출력에서 **RegistrationState** 가 **Registered** 로 변경되는지 확인합니다. 변경되지 않은 경우 **Register-AzResourceProvider** cmdlet을 다시 실행합니다.
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -134,7 +135,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 자격 증명 모음 개체를 변수에 저장하고 자격 증명 모음 컨텍스트를 설정합니다.
 
-* 많은 Azure Backup cmdlet에는 입력으로 Recovery Services 자격 증명 모음 개체가 있어야 하기 때문에 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
+* 많은 Azure Backup cmdlet에 입력으로 Recovery Services 자격 증명 모음 개체가 필요하므로 자격 증명 모음 개체를 변수에 저장하는 것이 편리합니다.
 * 자격 증명 모음 컨텍스트는 자격 증명 모음에서 보호되는 데이터의 형식입니다. [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext)로 설정합니다. 컨텍스트가 설정되면 모든 후속 cmdlet에 적용됩니다.
 
 다음 예제에서는 **testvault** 에 대한 자격 증명 모음 컨텍스트를 설정합니다.
@@ -160,7 +161,7 @@ $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Nam
 * [Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject)를 사용하여 기본 백업 정책 일정을 확인합니다.
 * [New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) cmdlet을 사용하여 새로운 백업 정책을 만듭니다. 일정과 보존 정책 개체를 입력합니다.
 
-기본값으로 시작 시간은 일정 정책 개체에 정의되어 있습니다. 다음 예제를 사용하여 원하는 시간으로 시작 시간을 변경합니다. 원하는 시작 시간은 UTC로도 지정해야 합니다. 다음 예제에서는 원하는 일일 백업 시간을 01:00 AM UTC로 가정합니다.
+기본값으로 시작 시간은 일정 정책 개체에 정의되어 있습니다. 다음 예제를 사용하여 시작 시간을 원하는 시간으로 변경합니다. 원하는 시작 시간은 UTC로도 지정해야 합니다. 다음 예제에서는 원하는 일일 백업 시간을 오전 01:00 UTC로 가정합니다.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"

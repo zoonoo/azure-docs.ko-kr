@@ -4,13 +4,13 @@ description: Azure Resource Manager 템플릿을 사용하여 가상 머신을 �
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/28/2021
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2d26401f281ee0b7c161db36a37811e042ba7e53
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: mvc,subject-armqs, devx-track-azurepowershell
+ms.openlocfilehash: 434916465e3f395f8db7ac621acd8f922899162b
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108736400"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008006"
 ---
 # <a name="quickstart-back-up-a-virtual-machine-in-azure-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure에서 가상 머신 백업
 
@@ -26,7 +26,7 @@ ms.locfileid: "108736400"
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)에서 나온 것입니다. 이 템플릿을 사용하면 보호를 위해 DefaultPolicy로 구성된 간단한 Windows VM 및 Recovery Services 자격 증명 모음을 배포할 수 있습니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/)에서 나온 것입니다. 이 템플릿을 사용하면 보호를 위해 DefaultPolicy로 구성된 간단한 Windows VM 및 Recovery Services 자격 증명 모음을 배포할 수 있습니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.recoveryservices/recovery-services-create-vm-and-configure-backup/azuredeploy.json":::
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2021
-ms.openlocfilehash: 0b9b96c4cbc2484597e51463a6b7a4ecfaf9e950
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 16bac156af04394552c280271d13ecbe41a1982b
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107892439"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615183"
 ---
 # <a name="configure-azure-container-offer-listing-details"></a>Azure Container 제안 목록 세부 정보 구성
 
@@ -58,16 +58,14 @@ HTML 태그를 사용하여 설명의 서식을 지정하면 더 흡입력 있�
 
 제품에 사용할 로고 및 이미지를 제공합니다. 모든 이미지는 PNG 형식이어야 합니다. 이미지가 흐리면 제출이 거부됩니다.
 
-[!INCLUDE [logo tips](includes/graphics-suggestions.md)]
-
 >[!NOTE]
 >파일을 업로드하는 데 문제가 있으면 파트너 센터에서 사용하는 https://upload.xboxlive.com 서비스가 로컬 네트워크에서 차단되지 않는지 확인합니다.
 
 ### <a name="logos"></a>로고
 
-크기가 **큰** 로고의 PNG 파일을 제공하세요. 파트너 센터에서 이 로고를 사용하여 다른 필요한 크기를 만듭니다. 이 로고는 나중에 필요에 따라 다른 이미지로 바꿀 수 있습니다.
+**큰** 크기 로고의 경우 PNG 파일을 제공합니다. 파트너 센터는 이를 사용하여 다른 필요한 크기를 만듭니다. 필요에 따라 나중에 이를 다른 이미지로 바꿀 수 있습니다.
 
-로고는 목록의 여러 위치에서 사용됩니다.
+이러한 로고는 목록의 여러 위치에서 사용됩니다.
 
 [!INCLUDE [logos-appsource-only](includes/logos-appsource-only.md)]
 

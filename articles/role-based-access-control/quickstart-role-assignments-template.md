@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 04/28/2021
 ms.author: rolyon
-ms.openlocfilehash: d040b4b49ddb394639633cb40887a116ff1e613b
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: 48be24436e032f044e8f23238059e16b55d9cf5c
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108279337"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111886901"
 ---
 # <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure 역할 할당
 
@@ -37,7 +37,7 @@ Azure 역할을 할당하고 역할 할당을 제거하려면 다음이 필요�
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/)에서 나온 것입니다. 템플릿에는 3개의 매개 변수와 1개의 리소스 섹션이 있습니다. 리소스 섹션에서 역할 할당의 세 요소인 보안 주체, 역할 정의 및 범위가 포함된 것을 확인하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/rbac-builtinrole-resourcegroup/)에서 나온 것입니다. 템플릿에는 3개의 매개 변수와 1개의 리소스 섹션이 있습니다. 리소스 섹션에서 역할 할당의 세 요소인 보안 주체, 역할 정의 및 범위가 포함된 것을 확인하세요.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.authorization/rbac-builtinrole-resourcegroup/azuredeploy.json":::
 

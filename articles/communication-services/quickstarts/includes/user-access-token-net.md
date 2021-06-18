@@ -10,14 +10,17 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 34ce87c1370a7c184eb96c5f2a295be34f73520d
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 1d846a282eba516a69460e020cd22c80f845e2f5
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110486344"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430903"
 ---
-## <a name="prerequisites"></a>사전 요구 사항
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/AccessTokensQuickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - 운영 체제에 대한 최신 버전의 [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core)

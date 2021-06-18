@@ -3,12 +3,13 @@ title: Azure DevTest Labs에서 Azure Automation Runbook을 사용하여 컴퓨�
 description: Azure Automation Runbook을 사용하여 Azure DevTest Labs의 랩에서 가상 머신을 시작하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 231e79d594aab7c59fa21f9ee512abaa9ac67043
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 84e784c0c5b9845c03cc28591a9ed8d4240fdc6b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87282265"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110702908"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Azure Automation Runbook을 사용하여 Azure DevTest Labs의 랩에서 순서대로 가상 머신 시작
 DevTest Labs의 [자동 시작](devtest-lab-set-lab-policy.md#set-autostart) 기능을 사용하면 지정된 시간에 VM이 자동으로 시작되도록 구성할 수 있습니다. 그러나 이 기능은 특정 순서로 컴퓨터를 시작하는 것은 지원하지 않습니다. 이러한 종류의 자동화가 유용한 몇 가지 시나리오가 있습니다.  한 가지 시나리오는 Jumpbox가 다른 VM에 대한 액세스 지점으로 사용되기 때문에 다른 VM 보다 랩 내의 Jumpbox VM을 먼저 시작해야 하는 경우입니다.  이 문서에서는 스크립트를 실행하는 PowerShell Runbook을 사용하여 Azure Automation 계정을 설정하는 방법을 보여 줍니다. 스크립트는 랩에서 VM의 태그를 사용하여 스크립트를 변경할 필요 없이 시작 순서를 제어할 수 있도록 합니다.
