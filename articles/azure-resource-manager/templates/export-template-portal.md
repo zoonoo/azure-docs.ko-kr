@@ -3,12 +3,12 @@ title: Azure Portal에서 템플릿 내보내기
 description: Azure Portal을 사용하여 구독의 리소스에서 Azure Resource Manager 템플릿을 내보냅니다.
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 3cc790b67b6076236a550c1fa202e0d173fb360e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 59eb3add338e25e3fbd43e3bad5a04d16dcf78b5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731941"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963316"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿으로 단일 리소스 및 다중 리소스 내보내기
 
@@ -16,7 +16,7 @@ Azure Resource Manager 템플릿을 만드는 데 도움이 되도록 기존 리
 
 Resource Manager를 사용하면 템플릿으로 내보내기 위해 하나 이상의 리소스를 선택할 수 있습니다. 템플릿에 필요한 리소스에 정확히 집중할 수 있습니다.
 
-이 문서에서는 포털을 통해 템플릿을 내보내는 방법을 보여 줍니다. [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [REST API](/rest/api/resources/resources/resourcegroups/exporttemplate)도 사용할 수 있습니다.
+이 문서에서는 포털을 통해 템플릿을 내보내는 방법을 보여 줍니다. [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [REST API](/rest/api/resources/resourcegroups/exporttemplate)도 사용할 수 있습니다.
 
 ## <a name="choose-the-right-export-option"></a>적절한 내보내기 옵션 선택
 
@@ -123,7 +123,7 @@ Resource Manager를 사용하면 템플릿으로 내보내기 위해 하나 이�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [REST API](/rest/api/resources/resources/resourcegroups/exporttemplate)를 사용하여 템플릿을 내보내는 방법을 알아봅니다.
-- Resource Manager 템플릿 구문에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+- [Azure CLI](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates), [REST API](/rest/api/resources/resourcegroups/exporttemplate)를 사용하여 템플릿을 내보내는 방법을 알아봅니다.
+- Resource Manager 템플릿 구문에 대해 알아보려면 [Azure Resource Manager 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하세요.
 - 템플릿을 개발하는 방법을 알아보려면 [단계별 자습서](../index.yml)를 참조하세요.
 - Azure Resource Manager 템플릿 스키마를 보려면 [템플릿 참조](/azure/templates/)를 참조하세요.

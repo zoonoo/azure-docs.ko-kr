@@ -4,12 +4,12 @@ description: 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs에 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2a7c98784e230292afdb5cd217c2f0455034ad70
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92328847"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111814587"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>엔터프라이즈의 Azure DevTest Labs 참조 아키텍처
 이 문서에서는 엔터프라이즈에서 Azure DevTest Labs 기반 솔루션을 배포하는 데 도움이 되는 참조 아키텍처를 제공합니다. 이 문서의 내용은 다음과 같습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "92328847"
 - **원격 데스크톱 게이트웨이**: 기업은 일반적으로 회사 방화벽에서 나가는 원격 데스크톱 연결을 차단합니다. DevTest Labs에는 클라우드 기반 환경에 연결을 사용하도록 설정하는 몇 가지 옵션이 있습니다. 예를 들면 다음과 같습니다.
   - [원격 데스크톱 게이트웨이](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)를 사용하고 게이트웨이 부하 분산 장치의 고정 IP 주소를 허용합니다.
   - ExpressRoute/사이트 간 VPN 연결을 통해 [들어오는 모든 RDP 트래픽을 보냅니다](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md). 이 기능은 기업이 DevTest Labs 배포를 계획할 때 일반적으로 고려하는 사항입니다.
-- **네트워크 서비스(가상 네트워크, 서브넷)** : [Azure 네트워킹](../networking/networking-overview.md) 토폴로지는 DevTest Labs 아키텍처의 또 다른 주요 요소입니다. 랩의 리소스가 서로 통신하고 온-프레미스 및 인터넷에 액세스할 수 있는지 여부를 제어합니다. 이 아키텍처 다이어그램에는 고객이 DevTest Labs를 사용하는 가장 일반적인 방법, 즉 모든 랩이 [허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)을 사용하여 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md) 을 통해 ExpressRoute/온-프레미스에 대한 사이트 간 VPN 연결에 연결하는 방법이 포함되어 있습니다. 그러나 DevTest Labs는 Azure Virtual Network를 직접 사용하므로 네트워킹 인프라를 설정하는 방법에 제한이 없습니다.
+- **네트워크 서비스(가상 네트워크, 서브넷)** : [Azure 네트워킹](../networking/fundamentals/networking-overview.md) 토폴로지는 DevTest Labs 아키텍처의 또 다른 주요 요소입니다. 랩의 리소스가 서로 통신하고 온-프레미스 및 인터넷에 액세스할 수 있는지 여부를 제어합니다. 이 아키텍처 다이어그램에는 고객이 DevTest Labs를 사용하는 가장 일반적인 방법, 즉 모든 랩이 [허브-스포크 모델](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)을 사용하여 [가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md) 을 통해 ExpressRoute/온-프레미스에 대한 사이트 간 VPN 연결에 연결하는 방법이 포함되어 있습니다. 그러나 DevTest Labs는 Azure Virtual Network를 직접 사용하므로 네트워킹 인프라를 설정하는 방법에 제한이 없습니다.
 - **DevTest labs**: DevTest labs는 전반적인 아키텍처의 핵심 부분입니다. 서비스에 대해 자세히 알아보려면 [DevTest Labs 정보](devtest-lab-overview.md)를 참조하세요.
 - **가상 머신 및 기타 리소스(SaaS, PaaS, IaaS)** : 가상 머신은 DevTest Labs에서 다른 Azure 리소스와 함께 지원하는 주요 워크로드입니다. DevTest Labs를 통해 기업은 (VM 및 기타 Azure 리소스를 비롯한) Azure 리소스에 쉽게 액세스할 수 있습니다. [개발자](devtest-lab-developer-lab.md)와 [테스터](devtest-lab-test-env.md)를 위한 Azure 액세스에 대해 자세히 알아보세요.
 
@@ -46,7 +46,7 @@ DevTest Labs에는 기본 제공 할당량 또는 한도가 없지만 랩의 일
     - **공유 공용 IP 사용**: 크기와 지역이 같은 모든 VM이 동일한 리소스 그룹으로 이동합니다. 이 구성은 가상 머신에 공용 IP 주소를 사용하도록 허용된 경우 리소스 그룹 할당량과 리소스 그룹당 리소스 종류 할당량의 “중간”에 해당합니다.
 - **리소스 그룹 및 리소스 종류당 리소스**: [리소스 그룹 및 리소스 종류당 리소스의 기본 제한은 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)입니다.  *모든 VM이 동일한 리소스 그룹으로 이동* 구성을 사용하는 경우 VM에 추가 디스크가 많으면 특히 이 구독 제한에 더 빨리 도달합니다.
 - **스토리지 계정**: DevTest Labs의 랩에는 스토리지 계정이 함께 제공됩니다. [구독당 지역별 스토리지 계정 수에 대한 Azure 할당량은 250개](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits)입니다. 동일한 지역 내 DevTest Labs의 최대 수는 250개입니다.
-- **역할 할당**: 역할 할당은 사용자 또는 보안 주체에게 리소스에 대한 액세스 권한(소유자, 리소스, 권한 수준)을 부여하는 방법입니다. Azure에서 [구독당 역할 할당은 2,000개로 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits)됩니다. 기본적으로 DevTest Labs 서비스는 각 VM에 대한 리소스 그룹을 만듭니다. 소유자에게는 DevTest Labs VM에 대한 *소유자* 권한과 리소스 그룹에 대한 *읽기 권한자* 권한이 부여됩니다. 만든 새 VM은 각각 이러한 방식으로 랩에 대한 사용자 권한을 부여할 때 사용되는 할당 외에도 두 가지 역할 할당을 사용합니다.
+- **역할 할당**: 역할 할당은 사용자 또는 보안 주체에게 리소스에 대한 액세스 권한(소유자, 리소스, 권한 수준)을 부여하는 방법입니다. Azure에서 [구독당 역할 할당은 2,000개로 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)됩니다. 기본적으로 DevTest Labs 서비스는 각 VM에 대한 리소스 그룹을 만듭니다. 소유자에게는 DevTest Labs VM에 대한 *소유자* 권한과 리소스 그룹에 대한 *읽기 권한자* 권한이 부여됩니다. 만든 새 VM은 각각 이러한 방식으로 랩에 대한 사용자 권한을 부여할 때 사용되는 할당 외에도 두 가지 역할 할당을 사용합니다.
 - **API 읽기/쓰기**: REST APIs, PowerShell, Azure CLI, Azure SDK를 비롯한 다양한 방법으로 Azure와 DevTest Labs를 자동화할 수 있습니다. 자동화를 통해 API 요청에 대한 다른 제한에 도달할 수 있습니다. 각 구독은 최대 [시간당 12,000회 읽기 요청과 1,200회 쓰기 요청](../azure-resource-manager/management/request-limits-and-throttling.md)을 허용합니다. DevTest Labs를 자동화하는 경우 이 한도를 염두에 두어야 합니다.
 
 ## <a name="manageability-considerations"></a>관리 효율성 고려 사항

@@ -4,17 +4,17 @@ description: Azure Cosmos DB에서 미사용 데이터 암호화를 제공하는
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 06/08/2021
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 23d95e02c74918de711b18c7580c3774b19c6227
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 4e44184960a09b9e764b76b7a009281bb959d212
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108229435"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757970"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB용 Advanced Threat Protection(미리 보기)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -75,7 +75,7 @@ Rest API 명령을 사용하여 특정 Azure Cosmos DB 계정에 대한 Advanced
 # <a name="arm-template"></a>[ARM 템플릿](#tab/arm-template)
 
 ARM(Azure Resource Manager) 템플릿을 사용하여 Advanced Threat Protection이 활성화된 Cosmos DB를 설정합니다.
-자세한 내용은 [Advanced Threat Protection을 사용하여 CosmosDB 계정 만들기](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)를 참조하세요.
+자세한 내용은 [Advanced Threat Protection을 사용하여 CosmosDB 계정 만들기](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/)를 참조하세요.
 
 # <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 

@@ -4,12 +4,12 @@ description: Azure Resource Manager 템플릿을 사용하여 Azure Portal 대�
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/15/2021
-ms.openlocfilehash: 3cb6069b13246e561de85c7a392283a5c243f1a4
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 0a1da860c4263f25e04e68253d0eed96254bed3a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517787"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077721"
 ---
 # <a name="quickstart-create-a-dashboard-in-the-azure-portal-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure Portal에서 대시보드 만들기
 
@@ -55,13 +55,13 @@ Azure Portal의 대시보드는 클라우드 리소스에 대해 집중적으로
         -Location "East US" 
     ```
 
-1. VM에 대한 사용자 이름과 암호를 입력합니다. 새 사용자 이름 및 암호입니다. 예를 들어 Azure에 로그인하는 데 사용하는 계정이 아닙니다. 자세한 내용은 [사용자 이름 요구 사항](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm) 및 [암호 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 참조하세요.
+1. VM에 대한 사용자 이름과 암호를 입력합니다. 새 사용자 이름 및 암호입니다. 예를 들어 Azure에 로그인하는 데 사용하는 계정이 아닙니다. 자세한 내용은 [사용자 이름 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-) 및 [암호 요구 사항](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 참조하세요.
 
     이제 VM 배포가 시작되고 완료하는 데 일반적으로 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹션으로 이동합니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-azure-portal-dashboard/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json)을 참조하세요. Azure 리소스 하나는 템플릿, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards)에 정의되어 있으며, Azure Portal에서 대시보드를 만듭니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/azure-portal-dashboard/)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/azuredeploy.json)을 참조하세요. Azure 리소스 하나는 템플릿, [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards)에 정의되어 있으며, Azure Portal에서 대시보드를 만듭니다.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 

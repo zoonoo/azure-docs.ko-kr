@@ -10,14 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 77d7b8a0bf4d7fe9a94a61ea3f2f4279246ffb69
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 155bf999823625e1a91752c9cf064bc804d28335
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96903890"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031784"
 ---
 # <a name="create-human-reviews"></a>사용자 검토 만들기
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
 
 이 가이드에서는 검토 도구 웹 사이트에서 [검토](../review-api.md#reviews)를 설정하는 방법을 알아봅니다. 검토는 인간 조정자가 평가할 콘텐츠를 저장하고 표시합니다. 조정자는 적용된 태그를 변경하고 적절한 사용자 지정 태그를 적용할 수 있습니다. 사용자가 검토를 완료하면 결과가 지정된 콜백 엔드포인트로 전송되고 사이트에서 콘텐츠가 제거됩니다.
 

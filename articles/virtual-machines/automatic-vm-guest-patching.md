@@ -9,12 +9,13 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: manayar
-ms.openlocfilehash: 1a6a67fe43d4e0a6086154d71e61fe51680dbcd0
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: f59d43dfa4d952b29dbe16b6679a527c4fc0d50c
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762590"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565395"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>미리 보기: Azure VM용 자동 VM 게스트 패치
 
@@ -80,7 +81,7 @@ Azure 플랫폼은 업데이트를 진행 중인 가상 머신 그룹을 대상�
 
 현재 지원되는 플랫폼 SKU는 다음과 같습니다(주기적으로 더 추가될 예정임).
 
-| Publisher               | OS 제품      |  SKU               |
+| 게시자               | OS 제품      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical  | UbuntuServer | 18.04-LTS |
 | Redhat  | RHEL | 7.x |
@@ -161,7 +162,7 @@ POST on `/subscriptions/{subscriptionId}/providers/Microsoft.Compute/register?ap
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-[Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
+[Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet을 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName InGuestAutoPatchVMPreview -ProviderNamespace Microsoft.Compute
@@ -185,14 +186,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 [az feature register](/cli/azure/feature#az_feature_register)를 사용하여 구독에서 미리 보기를 사용하도록 설정합니다.
 
 ```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
+az feature register --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature register --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
 기능 등록에는 최대 15분이 걸립니다. 등록 상태를 확인하는 방법은 다음과 같습니다.
 
 ```azurecli-interactive
-az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview `
+az feature show --namespace Microsoft.Compute --name InGuestAutoPatchVMPreview
 az feature show --namespace Microsoft.Compute --name InGuestPatchVMPreview
 ```
 
