@@ -230,6 +230,8 @@
               href: azure-stack-edge-gpu-virtual-machine-overview.md
             - name: 지원되는 VM 보기
               href: azure-stack-edge-gpu-virtual-machine-sizes.md
+            - name: 지원되는 API 프로필 보기
+              href: azure-stack-edge-profiles-azure-resource-manager-versions.md
             - name: VM 이미지 만들기
               items:
                 - name: Azure VM의 사용자 지정 이미지
@@ -239,7 +241,9 @@
                 - name: ISO의 범용 이미지
                   href: azure-stack-edge-gpu-prepare-windows-generalized-image-iso.md
                 - name: 특수화된 이미지 사용
-                  href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md
+                  href: azure-stack-edge-gpu-deploy-vm-specialized-image-powershell.md
+                - name: Azure Marketplace 이미지 사용
+                  href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md
             - name: VM 배포
               items:
                 - name: Azure 포털을 통해
@@ -268,6 +272,8 @@
                   href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
                 - name: Install custom script extension
                   href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
+                - name: GPU 확장 설치
+                  href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
                 - name: VM 디스크 백업
                   href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
                 - name: 문제 해결
@@ -275,7 +281,11 @@
                     - name: VM 콘솔 연결
                       href: azure-stack-edge-gpu-connect-virtual-machine-console.md
                     - name: VM 이미지 업로드
-                      href: azure-stack-edge-troubleshoot-virtual-machine-image-upload.md
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-image-upload.md
+                    - name: VM 배포
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md
+                    - name: GPU 확장 문제
+                      href: azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md
         - name: 인증서 관리
           items:
             - name: 요구 사항
@@ -322,7 +332,7 @@
               href: azure-stack-edge-gpu-prepare-device-failure.md
             - name: 디바이스 오류 복구
               href: azure-stack-edge-gpu-recover-device-failure.md
-        - name: 모니터
+        - name: Monitor
           items:
             - name: 메트릭 차트 사용
               href: azure-stack-edge-monitor.md
@@ -334,12 +344,18 @@
               href: azure-stack-edge-gpu-enable-azure-monitor.md
         - name: 문제 해결
           items:
-            - name: 디바이스 문제
-              href: azure-stack-edge-gpu-troubleshoot.md
             - name: 문제 정렬
               href: azure-stack-edge-troubleshoot-ordering.md
             - name: 활성화 문제
               href: azure-stack-edge-gpu-troubleshoot-activation.md
+            - name: 디바이스 로그 및 진단
+              href: azure-stack-edge-gpu-troubleshoot.md
+            - name: Azure Resource Manager 이슈
+              href: azure-stack-edge-gpu-troubleshoot-azure-resource-manager.md
+            - name: Blob 이슈
+              href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
+            - name: IoT Edge 이슈
+              href: azure-stack-edge-gpu-troubleshoot-iot-edge.md
             - name: Microsoft 지원에 문의
               href: azure-stack-edge-contact-microsoft-support.md
     - name: 공유 릴리스 정보
@@ -426,6 +442,8 @@
                   href: azure-stack-edge-troubleshoot.md
                 - name: 문제 정렬
                   href: azure-stack-edge-troubleshoot-ordering.md
+                - name: IoT Edge
+                  href: azure-stack-edge-troubleshoot-iot-edge.md
                 - name: Microsoft 지원에 문의
                   href: azure-stack-edge-contact-microsoft-support.md
         - name: 모니터

@@ -130,6 +130,8 @@
           href: container-instances-get-logs.md
         - name: Azure Monitor 로그를 사용하여 로깅
           href: container-instances-log-analytics.md
+        - name: Azure Container Scan 작업을 사용하여 이미지 스캔
+          href: container-instances-github-action-scan.md
     - name: 문제 해결
       items:
         - name: 일반적인 문제 해결
@@ -138,7 +140,7 @@
   items:
     - name: Azure CLI
       href: /cli/azure/container
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/container-instances
     - name: PowerShell
       href: /powershell/module/az.containerinstance
@@ -177,3 +179,5 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
     - name: FAQ
       href: container-instances-faq.md
+- name: 지원 및 문제 해결
+  href: container-instances-support-help.md

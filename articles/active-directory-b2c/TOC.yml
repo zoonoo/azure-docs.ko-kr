@@ -24,9 +24,9 @@
       href: tutorial-create-tenant.md
     - name: 2 - 애플리케이션 등록
       href: tutorial-register-applications.md
-    - name: 3 - 사용자 흐름 만들기
+    - name: 3 - 사용자 흐름 및 사용자 지정 정책 만들기
       href: tutorial-create-user-flows.md
-    - name: 4 - 사용자 인증
+    - name: 사용자 인증
       items:
         - name: ASP.NET
           href: tutorial-web-app-dotnet.md
@@ -37,7 +37,7 @@
         - name: Python
           href: tutorial-web-app-python.md
           displayName: flask
-    - name: 5 - API 액세스 권한 부여
+    - name: API 액세스 권한 부여
       items:
         - name: ASP.NET
           href: tutorial-web-api-dotnet.md
@@ -45,7 +45,7 @@
           href: tutorial-desktop-app-webapi.md
         - name: 단일 페이지
           href: tutorial-single-page-app-webapi.md
-    - name: 6 - 테넌트 정리 및 삭제
+    - name: 테넌트 정리 및 삭제
       href: tutorial-delete-tenant.md
 - name: 샘플
   href: code-samples.md
@@ -105,8 +105,28 @@
       href: tenant-management.md
     - name: 앱 통합
       items:
-        - name: 웹 애플리케이션 등록
-          href: tutorial-register-applications.md
+        - name: ASP.NET Core 웹앱
+          items:
+            - name: 샘플 웹앱 구성
+              href: configure-authentication-sample-web-app.md
+            - name: 앱에서 인증 사용
+              href: enable-authentication-web-application.md
+            - name: 인증 옵션
+              href: enable-authentication-web-application-options.md
+        - name: API를 호출하는 ASP.NET Core 웹앱
+          items:
+            - name: API를 호출하는 샘플 웹앱 구성
+              href: configure-authentication-sample-web-app-with-api.md
+            - name: 앱에서 인증 사용
+              href: enable-authentication-web-app-with-api.md
+            - name: 인증 옵션
+              href: enable-authentication-web-app-with-api-options.md
+        - name: SPA(단일 페이지 애플리케이션)
+          items:
+            - name: 샘플 SPA 앱 구성
+              href: configure-authentication-sample-spa-app.md
+            - name: 인증 옵션
+              href: enable-authentication-spa-app-options.md
         - name: SPA(단일 페이지 애플리케이션) 등록
           href: tutorial-register-spa.md
         - name: SAML 애플리케이션
@@ -158,7 +178,7 @@
       items:
         - name: 로컬 계정 ID 공급자
           href: identity-provider-local.md
-          displayName: 'Username, Email, Phone authorization, Phone sing-in'
+          displayName: 'Username, Email, Phone authorization, Phone sign-in'
         - name: ID 공급자 추가
           href: add-identity-provider.md
         - name: AD FS
@@ -475,14 +495,16 @@
                   href: id-token-hint.md
                 - name: JWT 토큰 발급자
                   href: jwt-issuer-technical-profile.md
-                - name: OAuth1
+                - name: OAuth1 ID 공급자
                   href: oauth1-technical-profile.md
-                - name: OAuth2
+                - name: OAuth2 ID 공급자
                   href: oauth2-technical-profile.md
+                - name: OAuth2 사용자 지정 오류
+                  href: oauth2-error-technical-profile.md
                 - name: 일회용 암호
                   href: one-time-password-technical-profile.md
                   displayName: otp
-                - name: OpenID Connect
+                - name: OpenID Connect ID 공급자
                   href: openid-connect-technical-profile.md
                 - name: Phone 요소
                   href: phone-factor-technical-profile.md
@@ -551,7 +573,7 @@
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 질문과 대답
-      href: faq.md
+      href: ./faq.yml
     - name: 도움말 보기
       href: ../active-directory/develop/developer-support-help-options.md
     - name: 가격 책정

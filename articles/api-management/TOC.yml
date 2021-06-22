@@ -104,6 +104,8 @@
           href: import-soap-api.md
         - name: SOAP API 가져오기 및 REST로 변환
           href: restify-soap-api.md
+        - name: WebSocket API 가져오기
+          href: websocket-api.md
         - name: 웹앱 가져오기
           href: import-app-service-as-api.md
         - name: 함수 앱 가져오기
@@ -165,7 +167,7 @@
           href: api-management-using-with-vnet.md
         - name: 내부 가상 네트워크에 연결
           href: api-management-using-with-internal-vnet.md
-        - name: 내부 VNET에서 Application Gateway 통합
+        - name: 내부 가상 네트워크에서 Application Gateway 통합
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: 상호 인증서 인증
           href: api-management-howto-mutual-certificates.md
@@ -339,18 +341,20 @@
       href: api-management-faq.md
     - name: 가격 책정
       href: 'https://aka.ms/apimpricing'
+    - name: 제품 업데이트
+      href: 'https://aka.ms/apimupdates'
+    - name: 릴리스 정보
+      href: 'https://aka.ms/apim/releases'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: 로드맵
-      href: 'https://aka.ms/apimroadmap'
-    - name: 기능 요청
-      href: 'https://aka.ms/apimwish'
     - name: 동영상
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=api-management'
+      href: 'https://azure.microsoft.com/documentation/videos/index/?service=api-management'
     - name: Microsoft Q&A 질문 페이지
       href: /answers/topics/azure-api-management.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-api-management'
+    - name: 추가 리소스
+      href: 'https://aka.ms/apimlove'
     - name: API 디자인 지침
       href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
     - name: API 구현 지침

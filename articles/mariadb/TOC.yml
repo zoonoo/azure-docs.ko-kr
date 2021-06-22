@@ -45,7 +45,7 @@
       href: howto-create-users.md
     - name: 서버 매개 변수 구성
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -85,7 +85,7 @@
           href: howto-create-manage-server-portal.md
     - name: 자동 증가 스토리지
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -93,7 +93,7 @@
           href: howto-auto-grow-storage-powershell.md
     - name: 서버 다시 시작
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
@@ -153,10 +153,8 @@
       href: concepts-ssl-connection-security.md
     - name: TLS 구성
       href: howto-tls-configurations.md
-    - name: Advanced Threat Protection
-      href: concepts-data-access-and-security-threat-protection.md
-    - name: Advanced Threat Protection 구성
-      href: howto-database-threat-protection-portal.md
+    - name: Azure Defender를 사용하여 위협 보호
+      href: ../security-center/defender-for-databases-introduction.md
     - name: 감사 개념
       href: concepts-audit-logs.md
     - name: 감사 로그 구성
@@ -177,7 +175,7 @@
       href: concepts-backup.md
     - name: 서버 복원
       items:
-        - name: Azure portal
+        - name: Azure Portal
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md

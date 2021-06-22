@@ -95,9 +95,15 @@
         - name: 라우팅 문제 해결
           href: front-door-troubleshoot-routing.md
         - name: 허용된 인증 기관
-          href: front-door-troubleshoot-allowed-ca.md
+          href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: 참조
   items:
+    - name: Azure Front Door 가장자리 위치
+      items:
+        - name: 지역별 가장자리 위치
+          href: edge-locations-by-region.md
+        - name: 약어별 가장자리 위치
+          href: edge-locations-abbreviation.md
     - name: Azure CLI
       href: /cli/azure/afd/
     - name: Azure PowerShell

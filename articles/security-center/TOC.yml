@@ -165,7 +165,7 @@
         - name: Docker 호스트 강화
           displayName: containers
           href: harden-docker-hosts.md
-    - name: SQL 리소스 보호
+    - name: 데이터베이스 보호
       items:
         - name: SQL용 Azure Defender 개요
           displayName: database
@@ -173,12 +173,12 @@
         - name: 머신에서 SQL 서버용 Defender 사용
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc, Azure Defender'
+        - name: 오픈 소스 관계형 데이터베이스용 Azure Defender 개요
+          displayName: 'PG, PostgreSQL, MySQL, MariaDB'
+          href: defender-for-databases-introduction.md
         - name: SQL 리소스에서 취약성 검색
           href: defender-for-sql-on-machines-vulnerability-assessment.md
-          displayName: 'hybrid, arc, Azure Defender'
-        - name: SQL 서버에서 취약성 검색 사용 안 함
-          displayName: 'VA, registry, vulnerabilities'
-          href: defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview
+          displayName: 'hybrid, arc, Azure Defender, VA, registry, vulnerabilities'
         - name: SQL 정보 보호 정책 사용자 지정
           displayName: 'sql, database, data discovery'
           href: security-center-info-protection-policy.md
@@ -197,6 +197,9 @@
         - name: 취약성에 대한 레지스트리 이미지 스캔
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md
+        - name: CI/CD 워크플로에서 이미지 스캔
+          displayName: 'ACR, registry, images, trevi, vulnerabilities, scanner'
+          href: defender-for-container-registries-cicd.md
         - name: 특정 이미지 취약점 발견 사용 안 함
           displayName: 'ACR, registry, images, qualys'
           href: defender-for-container-registries-usage.md#disable-specific-findings-preview
@@ -301,15 +304,15 @@
     - name: Azure Security Center에 대한 FAQ
       items:
         - name: 일반적인 질문
-          href: faq-general.md
+          href: faq-general.yml
         - name: 권한 질문
-          href: faq-permissions.md
+          href: faq-permissions.yml
         - name: 데이터 수집 및 에이전트 질문
-          href: faq-data-collection-agents.md
+          href: faq-data-collection-agents.yml
         - name: Virtual Machines 질문
-          href: faq-vms.md
+          href: faq-vms.yml
         - name: Azure Log Analytics 기존 사용자
-          href: faq-azure-monitor-logs.md
+          href: faq-azure-monitor-logs.yml
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policy'
       href: policy-reference.md
@@ -319,6 +322,8 @@
       href: security-center-endpoint-protection.md
     - name: Azure CLI
       href: /cli/azure/security
+    - name: Azure PowerShell
+      href: /powershell/module/az.security/
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기

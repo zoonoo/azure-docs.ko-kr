@@ -85,14 +85,20 @@
       items:
         - name: 라우팅 이슈
           href: troubleshoot-route-issues.md
-        - name: 허용된 인증 기관
-          href: troubleshoot-allowed-certificate-authority.md
         - name: 압축
           href: troubleshoot-compression.md
         - name: 원본 간 리소스 공유
           href: troubleshoot-cross-origin-resources.md
+        - name: 허용된 인증 기관
+          href: 'https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT'
 - name: 참조
   items:
+    - name: Azure Front Door 가장자리 위치
+      items:
+        - name: 지역별 가장자리 위치
+          href: edge-locations.md
+        - name: 약어별 가장자리 위치
+          href: edge-locations-by-abbreviation.md
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.cdn
     - name: REST API

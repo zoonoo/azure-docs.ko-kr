@@ -16,14 +16,44 @@
     - name: Datadog
       items:
         - name: 개요
-          displayName: 'Datadog, Monitoring'
-          href: ./datadog/overview.md
-        - name: 생성
-          href: ./datadog/create.md
-        - name: 관리
-          href: ./datadog/manage.md
-        - name: 문제 해결
-          href: ./datadog/troubleshoot.md
+          items:
+            - name: Datadog란?
+              href: ./datadog/overview.md
+              displayName: 'Datadog, Monitoring'
+        - name: 빠른 시작
+          items:
+            - name: 새 Datadog org 만들기
+              href: ./datadog/create.md
+            - name: 기존 Datadog org에 연결
+              href: ./datadog/link-to-existing-organization.md
+        - name: 방법
+          items:
+            - name: 배포 전 구성
+              href: ./datadog/prerequisites.md
+            - name: 관리
+              href: ./datadog/manage.md
+            - name: 문제 해결
+              items:
+                - name: 지원 받기
+                  href: ./datadog/get-support.md
+                - name: 일반 오류 수정
+                  href: ./datadog/troubleshoot.md
+    - name: Elastic
+      items:
+        - name: 개요
+          items:
+            - name: Elastic이란?
+              href: ./elastic/overview.md
+        - name: 빠른 시작
+          items:
+            - name: Elastic 리소스 만들기
+              href: ./elastic/create.md
+        - name: 방법
+          items:
+            - name: 통합 관리
+              href: ./elastic/manage.md
+            - name: 문제 해결
+              href: ./elastic/troubleshoot.md
 - name: 참조
   items:
     - name: Azure CLI

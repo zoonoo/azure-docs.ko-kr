@@ -23,11 +23,11 @@
     - name: Python 시작(1일차)
       expanded: true
       items:
-        - name: 1. "Hello world"
+        - name: 1. Python 스크립트 실행
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. 모델 학습
           href: tutorial-1st-experiment-sdk-train.md
-        - name: 3. 사용자 데이터 가져오기
+        - name: 3. 사용자 고유의 데이터 사용
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebook
       items:
@@ -73,8 +73,8 @@
           href: tutorial-labeling.md
     - name: CLI
       items:
-        - name: CLI를 사용하여 학습 및 배포
-          href: tutorial-train-deploy-model-cli.md
+        - name: 2.0 CLI를 사용하여 모델 학습
+          href: how-to-train-cli.md
         - name: 관리형 엔드포인트를 통해 Azure 리소스에 액세스
           href: tutorial-deploy-managed-endpoints-using-system-managed-identity.md
     - name: Visual Studio Code
@@ -295,6 +295,9 @@
           href: how-to-configure-environment.md
         - name: Studio 환경 설정
           items:
+            - name: 스튜디오의 환경 관리
+              href: how-to-manage-environments-in-studio.md
+              displayName: 'environments, studio, create, edit'
             - name: 파일 만들기 및 관리
               href: how-to-manage-files.md
               displayName: 'Jupyter, notebooks, clone, samples'
@@ -383,37 +386,58 @@
       items:
         - name: 2.0 CLI로 학습
           href: how-to-train-cli.md
-        - name: 학습 실행 구성 및 제출
-          displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
-          href: how-to-set-up-training-targets.md
-        - name: hyperparameters 조정
-          displayName: 'parameter, hyperparameter, hyperdrive'
-          href: how-to-tune-hyperparameters.md
-        - name: Scikit-learn
-          href: how-to-train-scikit-learn.md
-        - name: TensorFlow
-          href: how-to-train-tensorflow.md
-        - name: Keras
-          href: how-to-train-keras.md
-        - name: PyTorch
-          href: how-to-train-pytorch.md
-        - name: 사용자 지정 Docker 이미지를 사용하여 학습
-          href: how-to-train-with-custom-image.md
         - name: REST API로 학습
           href: how-to-train-with-rest.md
-        - name: 예측 도구에서 ScriptRunConfig로 마이그레이션
-          href: how-to-migrate-from-estimators-to-scriptrunconfig.md
-        - name: 교육 추적 및 모니터링
+        - name: Python SDK를 사용하여 학습
           items:
-            - name: '실행 추적, 모니터링 및 분석'
-              displayName: 'cancel, fail, status, child run'
-              href: how-to-track-monitor-analyze-runs.md
-            - name: 메트릭 및 로그 파일 로그 및 보기
-              displayName: 'troubleshoot, log, files, tracing, metrics'
-              href: how-to-log-view-metrics.md
-            - name: TensorBoard로 시각화 실행
-              displayName: 'log, monitor, metrics'
-              href: how-to-monitor-tensorboard.md
+            - name: 학습 실행 구성 및 제출
+              displayName: 'run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+              href: how-to-set-up-training-targets.md
+            - name: hyperparameters 조정
+              displayName: 'parameter, hyperparameter, hyperdrive'
+              href: how-to-tune-hyperparameters.md
+            - name: Scikit-learn
+              href: how-to-train-scikit-learn.md
+            - name: TensorFlow
+              href: how-to-train-tensorflow.md
+            - name: Keras
+              href: how-to-train-keras.md
+            - name: PyTorch
+              href: how-to-train-pytorch.md
+            - name: 사용자 지정 Docker 이미지를 사용하여 학습
+              href: how-to-train-with-custom-image.md
+            - name: 예측 도구에서 ScriptRunConfig로 마이그레이션
+              href: how-to-migrate-from-estimators-to-scriptrunconfig.md
+            - name: 보충 학습
+              href: how-to-use-reinforcement-learning.md
+            - name: MLflow 작업
+              items:
+                - name: MLflow로 실험 추적
+                  displayName: 'log, monitor, metrics, model registry, register'
+                  href: how-to-use-mlflow.md
+                - name: MLflow를 사용하여 Azure Databricks 실행 추적
+                  displayName: 'log, monitor, deploy, metrics, databricks'
+                  href: how-to-use-mlflow-azure-databricks.md
+                - name: MLflow 프로젝트로 실험 학습
+                  displayName: 'log, monitor, metrics, model registry, register'
+                  href: how-to-train-mlflow-projects.md
+                - name: MLflow 모델 배포
+                  displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
+                  href: how-to-deploy-mlflow-models.md
+            - name: 교육 추적 및 모니터링
+              items:
+                - name: '실행 추적, 모니터링 및 분석'
+                  displayName: 'cancel, fail, status, child run'
+                  href: how-to-track-monitor-analyze-runs.md
+                - name: 메트릭 및 로그 파일 로그 및 보기
+                  displayName: 'troubleshoot, log, files, tracing, metrics'
+                  href: how-to-log-view-metrics.md
+                - name: TensorBoard로 시각화 실행
+                  displayName: 'log, monitor, metrics'
+                  href: how-to-monitor-tensorboard.md
+            - name: 학습 시 Key Vault 사용
+              displayName: secrets keyvault
+              href: how-to-use-secrets-in-runs.md
         - name: 모델 해석 및 설명
           displayName: interpretability
           items:
@@ -425,25 +449,6 @@
               href: how-to-machine-learning-interpretability-automl.md
         - name: 모델 공정성 평가 및 완화
           href: how-to-machine-learning-fairness-aml.md
-        - name: 학습 시 Key Vault 사용
-          displayName: secrets keyvault
-          href: how-to-use-secrets-in-runs.md
-        - name: 보충 학습
-          href: how-to-use-reinforcement-learning.md
-    - name: MLflow 작업
-      items:
-        - name: MLflow로 실험 추적
-          displayName: 'log, monitor, metrics, model registry, register'
-          href: how-to-use-mlflow.md
-        - name: MLflow를 사용하여 Azure Databricks 실행 추적
-          displayName: 'log, monitor, deploy, metrics, databricks'
-          href: how-to-use-mlflow-azure-databricks.md
-        - name: MLflow 프로젝트로 실험 학습
-          displayName: 'log, monitor, metrics, model registry, register'
-          href: how-to-train-mlflow-projects.md
-        - name: MLflow 모델 배포
-          displayName: 'log, monitor, deploy, metrics, databricks, aci, aks'
-          href: how-to-deploy-mlflow-models.md
     - name: 자동화된 기계 학습
       displayName: 'automl, auto ml'
       items:
@@ -490,6 +495,8 @@
                   href: how-to-use-managed-online-endpoint-studio.md
                 - name: 관리형 온라인 엔드포인트 비용 보기
                   href: how-to-view-online-endpoints-costs.md
+                - name: REST를 사용하여 모델을 관리형 온라인 엔드포인트로 배포
+                  href: how-to-deploy-with-rest.md
                 - name: 관리형 온라인 엔드포인트 VM SKU 목록
                   href: reference-managed-online-endpoints-vm-sku-list.md
                 - name: 관리형 온라인 엔드포인트 모니터링
@@ -628,6 +635,9 @@
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md
+    - name: 비용 관리 및 최적화
+      displayName: 'cost-management,cost-optimization'
+      href: how-to-manage-optimize-cost.md
     - name: 리소스 VS Code 관리
       displayName: 'vscode,resources'
       href: how-to-manage-resources-vscode.md
@@ -642,25 +652,31 @@
       href: how-to-use-event-grid.md
 - name: 참조
   items:
+    - name: REST API
+      href: /rest/api/azureml/
+    - name: CLI(v2)
+      displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
+      href: /cli/azure/ml/
+    - name: CLI(v2) YAML 스키마
+      items:
+        - name: 온라인 엔드포인트
+          href: reference-online-endpoint-yaml.md
     - name: Python SDK
       displayName: 'api, core, package, python, class'
       href: /python/api/overview/azure/ml/intro
-    - name: R SDK
-      displayName: 'api, core, package, R, class'
-      href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
-    - name: CLI
+    - name: CLI(v1)
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
-    - name: REST API
-      href: /rest/api/azureml/
     - name: 디자이너 모듈 참조
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
     - name: 데이터 참조 모니터링
       href: monitor-resource-reference.md
+    - name: 관리형 온라인 엔드포인트 YAML 참조
+      href: reference-online-endpoint-yaml.md
     - name: Machine Learning 파이프라인 YAML 참조
       href: reference-pipeline-yaml.md
-    - name: 소버린 클라우드 패리티
+    - name: 지역 간 기능 가용성
       href: reference-machine-learning-cloud-parity.md
     - name: Azure Policy 기본 제공 기능
       displayName: 'samples, policies, definitions'

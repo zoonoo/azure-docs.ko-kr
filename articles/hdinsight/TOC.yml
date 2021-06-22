@@ -304,6 +304,8 @@
       items:
         - name: 릴리스
           items:
+            - name: Ubuntu 18.04 업데이트
+              href: ./hdinsight-ubuntu-1804-qa.md
             - name: HDInsight 4.0의 새로운 기능
               href: ./hdinsight-version-release.md
             - name: 릴리스 정보
@@ -835,6 +837,8 @@
               href: ./hadoop/apache-hadoop-hive-java-udf.md
             - name: PowerShell 및 ODBC를 사용하여 Hive 쿼리
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
+            - name: Hive LLAP 워크로드 관리 기능 사용
+              href: ./interactive-query/hive-workload-management.md
         - name: 관리
           items:
             - name: 스토리지 계정 간에 Hive 테이블 복사
@@ -879,6 +883,14 @@
               href: ./interactive-query/interactive-query-troubleshoot-hive-logs-diskspace-full-headnodes.md
             - name: Hive에 대한 보안 옵션
               href: ./interactive-query/hdinsight-security-options-for-hive.md
+            - name: Apache Hive LLAP 워크로드 관리
+              href: ./interactive-query/troubleshoot-workload-management-issues.md
+            - name: HDInsight 3.6~4.0 문제 해결 가이드 - Hive
+              href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+    - name: 참조
+      items:
+        - name: Hive LLAP 워크로드 관리 명령
+          href: ./interactive-query/workload-management-commands.md
 - name: ML 서비스
   items:
     - name: 개요

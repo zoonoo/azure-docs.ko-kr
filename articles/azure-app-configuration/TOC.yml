@@ -58,12 +58,18 @@
       items:
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core-push-refresh.md
-    - name: Key Vault 참조 사용
+    - name: Key Vault 참조
       items:
-        - name: ASP.NET Core
-          href: use-key-vault-references-dotnet-core.md
-        - name: Spring Boot
-          href: use-key-vault-references-spring-boot.md
+        - name: Key Vault 참조 사용
+          items:
+            - name: ASP.NET Core
+              href: use-key-vault-references-dotnet-core.md
+            - name: Spring Boot
+              href: use-key-vault-references-spring-boot.md
+        - name: 자동으로 비밀 및 인증서 다시 로드
+          items:
+            - name: .NET
+              href: reload-key-vault-secrets-dotnet.md
     - name: '빌드, 배포 및 CI/CD'
       items:
         - name: Azure Pipelines를 사용하여 푸시
@@ -124,6 +130,8 @@
           href: overview-managed-identity.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
+        - name: 액세스 키 인증 사용 안 함(미리 보기)
+          href: howto-disable-access-key-authentication.md
         - name: Azure Policy의 보안 컨트롤
           href: ./security-controls-policy.md
     - name: 고가용성

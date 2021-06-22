@@ -170,6 +170,8 @@
               href: automation-linux-hrw-install.md
             - name: Hybrid Runbook Worker에서 Runbook 실행
               href: automation-hrw-run-runbooks.md
+            - name: Azure Policy를 사용하여 작업 실행 적용
+              href: enforce-job-execution-hybrid-worker.md
             - name: Hybrid Runbook Worker 문제 해결
               href: troubleshoot/hybrid-runbook-worker.md
         - name: 원본 제어 통합 사용
@@ -272,8 +274,12 @@
           href: update-management/overview.md
         - name: 연결된 Log Analytics 작업 영역에 대해 지원되는 지역
           href: how-to/region-mappings.md
+        - name: 배포 계획
+          href: update-management/plan-deployment.md
         - name: 사용
           items:
+            - name: 시스템 필수 구성 요소
+              href: update-management/operating-system-requirements.md
             - name: Azure Resource Manager 템플릿 사용
               href: update-management/enable-from-template.md
             - name: Azure Portal에서 사용하도록 설정

@@ -23,6 +23,12 @@
           href: quickstart-deploy-apps.md
         - name: '로그, 메트릭 및 추적 사용'
           href: quickstart-logs-metrics-tracing.md
+        - name: Azure Database for MySQL과 통합
+          href: quickstart-integrate-azure-database-mysql.md
+        - name: 프로비전
+          items:
+            - name: ARM 템플릿을 사용하여 프로비전
+              href: quickstart-deploy-infrastructure-vnet.md
 - name: 자습서
   items:
     - name: 경고 및 작업 그룹
@@ -119,6 +125,8 @@
           href: how-to-circuit-breaker-metrics.md
         - name: 구조화된 애플리케이션 로그
           href: structured-app-log.md
+        - name: New Relic Java In Process 에이전트
+          href: how-to-new-relic-monitor.md
     - name: 네트워크
       items:
         - name: 가상 네트워크에 Azure Spring Cloud 배포

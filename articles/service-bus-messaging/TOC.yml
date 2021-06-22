@@ -15,7 +15,7 @@
       items:
         - name: Service Bus 큐 만들기
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -36,8 +36,6 @@
               href: service-bus-nodejs-how-to-use-queues.md
             - name: PHP
               href: service-bus-php-how-to-use-queues.md
-            - name: Ruby
-              href: service-bus-ruby-how-to-use-queues.md
         - name: 메시지 송신 및 수신(이전 버전/패키지)
           items:
             - name: .NET(Microsoft.Azure.ServiceBus)
@@ -66,8 +64,6 @@
               href: service-bus-nodejs-how-to-use-topics-subscriptions.md
             - name: PHP
               href: service-bus-php-how-to-use-topics-subscriptions.md
-            - name: Ruby
-              href: service-bus-ruby-how-to-use-topics-subscriptions.md
         - name: 메시지 게시 및 구독(이전 버전/패키지)
           items:
             - name: .NET(Microsoft.Azure.ServiceBus)
@@ -98,6 +94,8 @@
       href: service-bus-azure-and-service-bus-queues-compared-contrasted.md
     - name: 고급 기능
       items:
+        - name: 고급 기능 개요
+          href: advanced-features-overview.md
         - name: 메시지 세션
           href: message-sessions.md
         - name: 중복 메시지 검색
@@ -220,8 +218,8 @@
           href: service-bus-end-to-end-tracing.md
         - name: 진단 로그
           href: service-bus-diagnostic-logs.md
-        - name: Azure Monitor 메트릭
-          href: service-bus-metrics-azure-monitor.md
+        - name: Azure Service Bus 모니터링
+          href: monitor-service-bus.md
     - name: 통합
       items:
         - name: RabbitMQ와 통합
@@ -281,6 +279,8 @@
           href: service-bus-resource-manager-exceptions.md
 - name: 참조
   items:
+    - name: 데이터 참조 모니터링
+      href: monitor-service-bus-reference.md
     - name: .NET
       items:
         - name: Microsoft.Azure.ServiceBus에서 Azure.Messaging.ServiceBus로 마이그레이션

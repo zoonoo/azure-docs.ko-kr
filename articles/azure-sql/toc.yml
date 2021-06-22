@@ -102,6 +102,8 @@
                   href: database/authentication-aad-service-principal.md
                 - name: 디렉터리 읽기 권한자 역할
                   href: database/authentication-aad-directory-readers-role.md
+                - name: Azure AD 전용 인증
+                  href: database/authentication-azure-ad-only-authentication.md
             - name: TDE(투명한 데이터 암호화)
               items:
                 - name: 개요
@@ -156,7 +158,7 @@
         - name: 탄력적 작업을 사용한 작업 자동화
           href: database/job-automation-overview.md
         - name: SQL 에이전트를 사용한 작업 자동화
-          href: database/job-automation-managed-instances.md
+          href: managed-instance/job-automation-managed-instance.md
         - name: 앱에서 연결 및 쿼리
           items:
             - name: Visual Studio를 사용하여 .NET
@@ -189,6 +191,8 @@
                   href: database/authentication-aad-guest-users.md
                 - name: 그룹에 디렉터리 읽기 권한자 역할 할당
                   href: database/authentication-aad-directory-readers-role-tutorial.md
+                - name: Azure AD 전용 인증 사용
+                  href: database/authentication-azure-ad-only-authentication-tutorial.md
             - name: BYOK를 사용하여 TDE 구성
               href: database/transparent-data-encryption-byok-configure.md
             - name: Always Encrypted
@@ -287,6 +291,8 @@
               href: database/service-tier-hyperscale.md
             - name: 하이퍼스케일 FAQ
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+            - name: vCore
+              href: database/service-tiers-sql-database-vcore.md
         - name: 비용 계획 및 관리
           href: database/cost-management.md
     - name: 빠른 시작
@@ -742,7 +748,7 @@
           href: managed-instance/instance-pools-overview.md
         - name: 질문과 대답
           displayName: faq
-          href: managed-instance/frequently-asked-questions-faq.md
+          href: managed-instance/frequently-asked-questions-faq.yml
     - name: 빠른 시작
       href: managed-instance/quickstart-content-reference-guide.md
       items:
@@ -811,6 +817,8 @@
       items:
         - name: 리소스 한계
           href: managed-instance/resource-limits.md
+        - name: 컴퓨팅 하드웨어
+          href: managed-instance/service-tiers-managed-instance-vcore.md
         - name: 연결 아키텍처
           href: managed-instance/connectivity-architecture-overview.md
         - name: T-SQL 차이점
@@ -1013,46 +1021,56 @@
               href: managed-instance/server-trust-group-overview.md
     - name: 방법
       items:
-        - name: 개요
+        - name: 방법 설명서
           href: managed-instance/how-to-content-reference-guide.md
-        - name: SQL Managed Instance로 마이그레이션
-          href: managed-instance/migrate-to-instance-from-sql-server.md
-        - name: 표준 시간대 사용자 지정
-          href: managed-instance/timezones-overview.md
-        - name: 연결 형식 구성
-          href: managed-instance/connection-types-overview.md
-        - name: TDE 인증서 마이그레이션
-          href: managed-instance/tde-certificate-migrate.md
-        - name: 지정 시간으로 복원
-          href: managed-instance/point-in-time-restore.md
-        - name: 관리되는 인스턴스 서브넷의 크기 결정
-          href: managed-instance/vnet-subnet-determine-size.md
-        - name: 관리되는 인스턴스용 신규 VNet 및 서브넷 만들기
-          href: managed-instance/virtual-network-subnet-create-arm-template.md
-        - name: 관리되는 인스턴스용 기존 VNet 및 서브넷 구성
-          href: managed-instance/vnet-existing-add-subnet.md
-        - name: 관리형 인스턴스를 삭제한 후 서브넷 삭제
-          href: managed-instance/virtual-cluster-delete.md
-        - name: 사용자 지정 DNS 구성
-          href: managed-instance/custom-dns-configure.md
-        - name: DNS 구성 동기화
-          href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
-        - name: 네트워크 구성 동기화
-          href: managed-instance/azure-app-sync-network-configuration.md
-        - name: 관리 엔드포인트 IP 주소 찾기
-          href: managed-instance/management-endpoint-find-ip-address.md
-        - name: 기본 제공 방화벽 보호 확인
-          href: managed-instance/management-endpoint-verify-built-in-firewall.md
-        - name: 위협 감지 구성
-          href: managed-instance/threat-detection-configure.md
         - name: 애플리케이션 연결
           href: managed-instance/connect-application-instance.md
-        - name: 관리형 인스턴스에 대한 경고 만들기
-          href: managed-instance/alerts-create.md
-        - name: 관리형 인스턴스에서 수동으로 장애 조치(failover) 시작
-          href: managed-instance/user-initiated-failover.md
-        - name: 로그 재생 서비스를 사용하여 데이터베이스 마이그레이션
-          href: managed-instance/log-replay-service-migrate.md
+        - name: 설정 구성
+          items:
+            - name: 표준 시간대 사용자 지정
+              href: managed-instance/timezones-overview.md
+            - name: 연결 형식 구성
+              href: managed-instance/connection-types-overview.md
+            - name: 관리형 인스턴스에 대한 경고 만들기
+              href: managed-instance/alerts-create.md
+            - name: 위협 감지 구성
+              href: managed-instance/threat-detection-configure.md
+        - name: 네트워킹 구성
+          items:
+            - name: 관리되는 인스턴스 서브넷의 크기 결정
+              href: managed-instance/vnet-subnet-determine-size.md
+            - name: 관리되는 인스턴스용 신규 VNet 및 서브넷 만들기
+              href: managed-instance/virtual-network-subnet-create-arm-template.md
+            - name: 관리되는 인스턴스용 기존 VNet 및 서브넷 구성
+              href: managed-instance/vnet-existing-add-subnet.md
+            - name: 관리형 인스턴스를 삭제한 후 서브넷 삭제
+              href: managed-instance/virtual-cluster-delete.md
+            - name: 사용자 지정 DNS 구성
+              href: managed-instance/custom-dns-configure.md
+            - name: DNS 구성 동기화
+              href: managed-instance/synchronize-vnet-dns-servers-setting-on-virtual-cluster.md
+            - name: 네트워크 구성 동기화
+              href: managed-instance/azure-app-sync-network-configuration.md
+            - name: 관리 엔드포인트 IP 주소 찾기
+              href: managed-instance/management-endpoint-find-ip-address.md
+            - name: 기본 제공 방화벽 보호 확인
+              href: managed-instance/management-endpoint-verify-built-in-firewall.md
+        - name: 마이그레이션
+          items:
+            - name: SQL Managed Instance로 마이그레이션
+              href: managed-instance/migrate-to-instance-from-sql-server.md
+            - name: 로그 재생 서비스를 사용하여 데이터베이스 마이그레이션
+              href: managed-instance/log-replay-service-migrate.md
+            - name: TDE 인증서 마이그레이션
+              href: managed-instance/tde-certificate-migrate.md
+        - name: 비즈니스 연속성 구성
+          items:
+            - name: 지정 시간으로 복원
+              href: managed-instance/point-in-time-restore.md
+            - name: 백업 모니터링
+              href: managed-instance/backup-activity-monitor.md
+            - name: 관리형 인스턴스에서 수동으로 장애 조치(failover) 시작
+              href: managed-instance/user-initiated-failover.md
     - name: 샘플
       items:
         - name: Azure CLI
@@ -1090,6 +1108,7 @@
               items:
                 - name: 개요
                   href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+                  displayName: 'failover cluster instance, fci, availability group, ag, always on'
                 - name: 백업 및 복원
                   href: virtual-machines/windows/backup-restore.md
                 - name: 백업용 Azure Storage
@@ -1098,24 +1117,26 @@
                   href: virtual-machines/windows/availability-group-overview.md
                 - name: 장애 조치 클러스터 인스턴스(FCI)
                   href: virtual-machines/windows/failover-cluster-instance-overview.md
+                - name: Windows Server 장애 조치(Failover) 클러스터
+                  href: virtual-machines/windows/hadr-windows-server-failover-cluster-overview.md
+                  displayName: 'failover cluster instance, fci, availability group, ag, always on'
             - name: 모범 사례
               items:
+                - name: 빠른 검사 목록
+                  href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
+                - name: VM 크기
+                  href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
+                - name: 스토리지
+                  href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
                 - name: 보안
                   href: virtual-machines/windows/security-considerations-best-practices.md
-                - name: 클러스터 구성
+                - name: HADR 구성
                   href: virtual-machines/windows/hadr-cluster-best-practices.md
+                  displayName: 'failover cluster instance, fci, availability group, ag, always on'
+                - name: 기준 수집
+                  href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
                 - name: 애플리케이션 패턴
                   href: virtual-machines/windows/application-patterns-development-strategies.md
-                - name: 성능
-                  items:
-                    - name: 빠른 검사 목록
-                      href: virtual-machines/windows/performance-guidelines-best-practices-checklist.md
-                    - name: VM 크기
-                      href: virtual-machines/windows/performance-guidelines-best-practices-vm-size.md
-                    - name: 스토리지
-                      href: virtual-machines/windows/performance-guidelines-best-practices-storage.md
-                    - name: 기준 수집
-                      href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
             - name: 관리
               items:
                 - name: SQL IaaS 에이전트 확장
@@ -1155,7 +1176,7 @@
                 - name: 스토리지를 UltraSSD로 마이그레이션
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
                 - name: SQL 취약성 평가 사용
-                  href: virtual-machines/windows/sql-vulnerability-assessment-enable.md
+                  href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
                 - name: SQL IaaS 에이전트 확장 설치
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
@@ -1173,6 +1194,8 @@
                   href: virtual-machines/windows/move-sql-vm-different-region.md
             - name: 비즈니스 연속성
               items:
+                - name: 클러스터 쿼럼 구성
+                  href: virtual-machines/windows/hadr-cluster-quorum-configure-how-to.md
                 - name: 백업 및 복원
                   items:
                     - name: 자동화된 백업(SQL 2016 이상)
@@ -1195,7 +1218,7 @@
                           href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
                         - name: 수동으로 구성
                           items:
-                            - name: 필수 구성 요소
+                            - name: 사전 요구 사항
                               href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
                             - name: 자습서
                               href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
@@ -1251,7 +1274,7 @@
         - name: 리소스
           items:
             - name: FAQ
-              href: virtual-machines/windows/frequently-asked-questions-faq.md
+              href: virtual-machines/windows/frequently-asked-questions-faq.yml
             - name: 가격 책정
               href: virtual-machines/windows/pricing-guidance.md
             - name: 보관된 클래식 RM 문서
@@ -1289,7 +1312,7 @@
         - name: 리소스
           items:
             - name: FAQ
-              href: virtual-machines/linux/frequently-asked-questions-faq.md
+              href: virtual-machines/linux/frequently-asked-questions-faq.yml
             - name: Linux의 SQL Server 설명서
               href: /sql/linux/sql-server-linux-overview
             - name: SSDT(SQL Server Data Tools)
@@ -1395,6 +1418,8 @@
           href: database/troubleshoot-common-connectivity-issues.md
         - name: 가져오기/내보내기 서비스 중단
           href: database/database-import-export-hang.md
+        - name: 트랜잭션 로그 오류
+          href: database/troubleshoot-transaction-log-errors-issues.md
     - name: 서비스 업데이트
       items:
         - name: SSL 루트 인증서 만료

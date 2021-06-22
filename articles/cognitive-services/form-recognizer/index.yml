@@ -1,44 +1,44 @@
 ### YamlMime:Landing
-title: Form Recognizer 설명서
-summary: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
+title: Azure Form Recognizer 설명서
+summary: Azure Applied AI Services의 일부인 Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수도 있습니다.
 metadata:
-  title: Form Recognizer 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
-  description: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
+  title: Form Recognizer 설명서 - 빠른 시작, 자습서, API 참조 - Azure Applied AI Services | Microsoft Docs
+  description: Azure Applied AI Services의 일부인 Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
   services: cognitive-services
-  ms.service: cognitive-services
+  ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: laujan
   ms.author: lajanuar
   ms.date: 09/05/2019
-  ms.openlocfilehash: 2d38f9dd270bb3c3ffb304206edbefe6ab4db165
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 89a45403d198be46a7ce10f92a92f7b207488eee
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110374478"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111962835"
 landingContent:
-- title: Form Recognizer 정보
+- title: Azure Form Recognizer 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Form Recognizer란?
+    - text: Azure Form Recognizer란?
       url: overview.md
     - text: Azure Applied AI Services란?
-      url: https://aka.ms/applied-ai-services-hub
+      url: ../../applied-ai-services/index.yml
   - linkListType: whats-new
     links:
-    - text: Form Recognizer의 새로운 기능
+    - text: Azure Form Recognizer의 새로운 기능
       url: whats-new.md
   - linkListType: video
     links:
-    - text: 문서 및 양식에서 데이터 추출
+    - text: OCR 및 폼 인식기를 사용하여 문서 및 양식에서 데이터 추출
       url: https://channel9.msdn.com/Shows/AI-Show/Extracting-Data-From-Documents-and-Forms-with-OCR-and-Form-Recognizer
     - text: AI 기반 프로세스 자동화
       url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
     - text: 최신 기능 및 업데이트
       url: https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Form-Recognizer
-- title: 양식 레이아웃에서 데이터 추출
+- title: 문서에서 레이아웃과 구조 추출
   linkLists:
   - linkListType: concept
     links:
@@ -56,9 +56,9 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-layout
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
-  - linkListType: deploy
+  - linkListType: get-started
     links:
-    - text: Form Recognizer 사용해보기
+    - text: Form Recognizer 사용해보기(레이아웃)
       url: https://fott-2-1.azurewebsites.net/layout-analyze
 - title: 수신 확인에서 데이터 추출
   linkLists:
@@ -78,6 +78,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-receipts
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
+  - linkListType: get-started
+    links:
+    - text: Form Recognizer 사용해보기(영수증 분석)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: 비즈니스 카드에서 데이터 추출
   linkLists:
   - linkListType: concept
@@ -96,6 +100,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-business-cards
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
+  - linkListType: get-started
+    links:
+    - text: Form Recognizer 사용해보기(명함 분석)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: 송장에서 데이터 추출
   linkLists:
   - linkListType: concept
@@ -114,16 +122,16 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-invoices
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
-  - linkListType: deploy
+  - linkListType: get-started
     links:
-    - text: Form Recognizer 사용해보기
+    - text: Form Recognizer 사용해보기(청구서 분석)
       url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: ID 문서에서 데이터 추출
   linkLists:
   - linkListType: concept
     links:
     - text: ID 문서
-      url: concept-invoices.md
+      url: concept-identification-cards.md
   - linkListType: quickstart
     links:
     - text: .NET SDK 사용
@@ -136,6 +144,10 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-identity-documents
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
+  - linkListType: get-started
+    links:
+    - text: Form Recognizer 사용해보기(ID 분석)
+      url: https://fott-2-1.azurewebsites.net/prebuilts-analyze
 - title: Microsoft 기술 커뮤니티
   linkLists:
   - linkListType: reference
@@ -168,13 +180,9 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#train-a-custom-model
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#train-a-custom-model
-  - linkListType: tutorial
+  - linkListType: get-started
     links:
-    - text: 대량으로 양식 데이터 추출
-      url: tutorial-bulk-processing.md
-  - linkListType: deploy
-    links:
-    - text: Form Recognizer 사용해보기
+    - text: Form Recognizer 사용해보기(모델 학습)
       url: https://fott-2-1.azurewebsites.net/
 - title: 사용자 지정 모델을 사용하여 양식 분석
   linkLists:
@@ -190,17 +198,21 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
     - text: REST API 사용(cURL)
       url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
+  - linkListType: get-started
+    links:
+    - text: Form Recognizer 사용해보기(사용자 지정 양식 분석)
+      url: https://fott-2-1.azurewebsites.net/
 - title: 레이블 지정 도구 시작
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: 레이블 지정 도구 사용
       url: label-tool.md
-- title: API 및 클라이언트 라이브러리
+- title: REST API 및 클라이언트 라이브러리
   linkLists:
   - linkListType: reference
     links:
-    - text: Form Recognizer API v2.1
+    - text: Azure Form Recognizer API v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm
     - text: .NET SDK
       url: /dotnet/api/overview/azure/ai.formrecognizer-readme

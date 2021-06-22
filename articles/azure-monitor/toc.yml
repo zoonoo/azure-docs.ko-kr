@@ -240,8 +240,12 @@
               href: logs/log-analytics-tutorial.md
             - name: 쿼리 범위
               href: logs/scope.md
-            - name: 쿼리 예
-              href: logs/example-queries.md
+            - name: 쿼리 저장
+              href: logs/save-query.md
+            - name: 쿼리 사용
+              href: logs/queries.md
+            - name: 쿼리 팩
+              href: logs/query-packs.md
         - name: 로그 쿼리
           items:
             - name: 개요
@@ -370,6 +374,9 @@
             - name: 데이터 수집
               displayname: 'data collection rule,Azure Monitor agent'
               href: agents/data-collection-rule-azure-monitor-agent.md
+            - name: 대규모 배포
+              displayname: Deploy Azure Monitor agent at scale
+              href: deploy-scale.md#azure-monitor-agent-preview
             - name: FAQ
               displayname: Azure Monitor agent FAQ
               href: faq.md#azure-monitor-agent-preview
@@ -625,27 +632,29 @@
           href: ./faq.md
         - name: 코드 기반 모니터링
           items:
-            - name: ASP.NET Core
+            - name: .NET
               items:
-                - name: ASP.NET Core 앱 모니터링
-                  displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
-                  href: app/asp-net-core.md
-                - name: ILogger
-                  displayname: 'ilogger, logging, log'
-                  href: app/ilogger.md
-            - name: ASP.NET
-              items:
-                - name: ASP.NET 앱 모니터링
-                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-                  href: app/asp-net.md
-                - name: ASP.NET 문제 해결
-                  href: app/asp-net-troubleshoot-no-data.md
-            - name: 비 HTTP/백그라운드 앱
-              displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
-              href: app/worker-service.md
-            - name: .NET 콘솔
-              displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
-              href: app/console.md
+                - name: ASP.NET Core
+                  items:
+                    - name: ASP.NET Core 앱 모니터링
+                      displayname: 'Core, .NET Core, services.add, dotnetcore, c#, csharp'
+                      href: app/asp-net-core.md
+                    - name: ILogger
+                      displayname: 'ilogger, logging, log'
+                      href: app/ilogger.md
+                - name: ASP.NET
+                  items:
+                    - name: ASP.NET 앱 모니터링
+                      displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                      href: app/asp-net.md
+                    - name: ASP.NET 문제 해결
+                      href: app/asp-net-troubleshoot-no-data.md
+                - name: 비 HTTP/백그라운드 앱
+                  displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
+                  href: app/worker-service.md
+                - name: .NET 콘솔
+                  displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
+                  href: app/console.md
             - name: Java
               items:
                 - name: 웹 앱
@@ -867,6 +876,8 @@
         - name: 스마트 검색
           href: app/proactive-diagnostics.md
           items:
+            - name: 경고로 업그레이드
+              href: alerts/alerts-smart-detections-migration.md
             - name: 오류 잘못된 부분
               href: app/proactive-failure-diagnostics.md
             - name: 성능 이상
@@ -1061,7 +1072,7 @@
           items:
             - name: 모니터링 사용 개요
               href: containers/container-insights-onboard.md
-            - name: 새 AKS 클러스터에 대해 활성화
+            - name: 새 AKS 클러스터에 사용
               href: containers/container-insights-enable-new-cluster.md
             - name: 기존 AKS 클러스터에 대해 활성화
               href: containers/container-insights-enable-existing-clusters.md
@@ -1069,10 +1080,12 @@
               href: containers/container-insights-enable-arc-enabled-clusters.md
             - name: 하이브리드 클러스터에 대해 활성화
               href: containers/container-insights-hybrid-setup.md
-            - name: Azure Red Hat OpenShift v3에 대해 활성화
+            - name: Azure Red Hat OpenShift v3에 대해 사용
               href: containers/container-insights-azure-redhat-setup.md
-            - name: Azure Red Hat OpenShift v4에 대해 활성화
+            - name: Azure Red Hat OpenShift v4에 대해 사용
               href: containers/container-insights-azure-redhat4-setup.md
+            - name: Azure Policy를 사용하도록 설정
+              href: containers/container-insights-enable-aks-policy.md
             - name: 지역 매핑
               href: containers/container-insights-region-mapping.md
         - name: 성능 모니터링
@@ -1135,6 +1148,8 @@
           href: insights/cosmosdb-insights-overview.md
         - name: Azure Data Explorer(미리 보기)
           href: insights/data-explorer.md
+        - name: Log Analytics 작업 영역
+          href: logs/log-analytics-workspace-insights-overview.md
         - name: 네트워크
           href: insights/network-insights-overview.md
         - name: Key Vault
@@ -1194,7 +1209,7 @@
                         - name: 가격 책정
                           href: insights/network-performance-monitor-pricing-faq.md
                         - name: FAQ
-                          href: insights/network-performance-monitor-faq.md
+                          href: insights/network-performance-monitor-faq.yml
                 - name: Office 365
                   href: insights/solution-office-365.md
                 - name: 서비스 맵 솔루션
