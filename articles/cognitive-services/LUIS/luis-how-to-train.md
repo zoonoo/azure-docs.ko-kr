@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 47b006932aace3149dd94e136e334c1b6e5bfcef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ff8376eea2eca459b93adbf46b81dbeb7639d40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98762706"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954341"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습
 
 학습은 해당 자연어 이해를 개선하기 위해 LUIS(Language Understanding) 앱을 교육하는 과정입니다. 엔터티, 의도 또는 발언을 추가하거나, 편집하거나, 레이블 지정하거나 삭제하는 등 모델에 대한 업데이트 후에 LUIS 앱을 학습합니다.
 
-앱 학습 및 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습한 후에 샘플 음성으로 앱을 테스트하여 의도 및 엔티티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다.
+앱 학습 및 [테스트](./luis-interactive-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습한 후에 샘플 음성으로 앱을 테스트하여 의도 및 엔티티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다.
 
 학습은 LUIS 포털에서 현재 사용 중인 버전에 적용됩니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "98762706"
 
 ### <a name="using-the-luis-portal"></a>LUIS 포털 사용
 
-[LUIS 포털](https://www.luis.ai/)에 로그인하고 앱을 클릭합니다. 화면 맨 위에서 **관리** 를 선택하고 **설정** 을 선택한 다음 **결정적 학습 사용** 옵션을 사용하거나 사용하지 않도록 설정합니다. 사용하지 않도록 설정하면 학습이 사용 가능한 모든 데이터를 사용합니다.
+[LUIS 포털](https://www.luis.ai/)에 로그인하고 앱을 클릭합니다. 화면 맨 위에서 **관리** 를 선택하고 **설정** 을 선택한 다음, **비결정적 학습 사용** 옵션을 사용하거나 사용하지 않도록 설정합니다. 사용하지 않도록 설정하면 학습이 사용 가능한 모든 데이터를 사용합니다.
 
 ![비결정적 학습을 사용하거나 사용하지 않도록 설정하는 단추](./media/non-determinstic-training.png)
 
