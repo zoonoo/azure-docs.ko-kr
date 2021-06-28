@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 3eef7354f7197f60e8abd1b5522393bf00a6203f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 4e296f8d62afbebe49ebccc60654e26c46cbb2bf
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020590"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991202"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>FHIR 용 Azure IoT 커넥터 (미리 보기) 문제 해결 가이드
 
@@ -100,11 +100,11 @@ FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐
 > [!NOTE]
 > [여기](iot-data-flow.md)에서 FHIR (미리 보기)에 대 한 Azure IoT 커넥터에서 데이터 흐름의 여러 단계에 대해 자세히 알아볼 수 있습니다.
 
-|데이터 흐름 단계|설명|
+|데이터 흐름 단계|Description|
 |---------------|-----------|
-|설정|IoT 커넥터의 인스턴스를 설정 하는 것과 관련 된 작업입니다.|
+|설치 프로그램|IoT 커넥터의 인스턴스를 설정 하는 것과 관련 된 작업입니다.|
 |표준화|장치 데이터를 정규화 하는 데이터 흐름 단계|
-|Grouping(그룹화)|정규화 된 데이터가 그룹화 되는 데이터 흐름 단계|
+|그룹화|정규화 된 데이터가 그룹화 되는 데이터 흐름 단계|
 |FHIRConversion|그룹화 된 정규화 된 데이터를 FHIR 리소스로 변환 하는 데이터 흐름 단계|
 |알 수 없음|오류가 발생 했을 때 작업 유형을 알 수 없습니다.|
 
@@ -122,7 +122,7 @@ FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐
 
 이 속성은 지정 된 오류에 대 한 범주를 나타냅니다 .이는 기본적으로 유사한 오류 유형에 대 한 논리적 그룹화를 나타냅니다. 다음은이 속성에 사용할 수 있는 값의 목록입니다.
 
-|오류 유형|설명|
+|오류 유형|Description|
 |----------|-----------|
 |DeviceTemplateError|장치 매핑 템플릿과 관련 된 오류|
 |DeviceMessageError|특정 장치 메시지를 처리 하는 동안 오류가 발생 했습니다.|
@@ -136,7 +136,7 @@ FHIR 용 Azure IoT 커넥터는 여러 메트릭을 생성 하 여 데이터 흐
 
 이 속성은 특정 오류에 대 한 이름을 제공 합니다. 다음은 설명 및 관련 오류 유형, 심각도 및 데이터 흐름 단계를 포함 하는 모든 오류 이름 목록입니다.
 
-|오류 이름|설명|오류 유형|오류 심각도|데이터 흐름 단계|
+|오류 이름|Description|오류 유형|오류 심각도|데이터 흐름 단계|
 |----------|-----------|-------------|--------------|------------------|
 |MultipleResourceFoundException|장치 메시지에 있는 각 식별자에 대해 FHIR 서버에서 여러 환자 또는 장치 리소스를 발견 하는 동안 오류가 발생 했습니다.|FHIRResourceError|오류|FHIRConversion|
 |TemplateNotFoundException|IoT 커넥터의 인스턴스를 사용 하 여 장치 또는 FHIR 매핑 템플릿이 구성 되지 않았습니다.|DeviceTemplateError, Fanr템플릿 오류|위험|정규화, FHIRConversion|
@@ -189,6 +189,6 @@ FHIR 매핑 파일에 대 한 Azure IoT 커넥터를 복사 하면 Azure Portal 
 FHIR 용 Azure IoT 커넥터에 대 한 자주 묻는 질문을 확인 합니다.
 
 >[!div class="nextstepaction"]
->[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md)
+>[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.yml)
 
 *Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다. FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.

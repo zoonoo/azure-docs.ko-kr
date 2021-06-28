@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 11/13/2020
 ms.author: jasteppe
-ms.openlocfilehash: 831c6df3f50bfff9b411660d9efc4cd78ee5e8d9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 08d572970cc96eeb28b831293b82ab6ab3257cce
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103020632"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991220"
 ---
 # <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Azure IoT Connector for FHIR 표시 및 구성(미리 보기) 메트릭 
 
@@ -50,8 +50,8 @@ ms.locfileid: "103020632"
 |메트릭 유형|메트릭 용도| 
 |-----------|--------------|
 |들어오는 메시지 수|받은 원시 수신 메시지 수 (예: 장치 이벤트)를 표시 합니다.|
-|정규화 된 메시지 수|정규화 된 메시지 수를 표시 합니다.|
-|메시지 그룹 수|지정 된 기간에 메시지가 집계 된 그룹 수를 표시 합니다.|
+|정규화된 메시지 수|정규화 된 메시지 수를 표시 합니다.|
+|메시지 그룹의 수|지정 된 기간에 메시지가 집계 된 그룹 수를 표시 합니다.|
 |평균 정규화 된 단계 대기 시간|정규화 된 단계의 평균 대기 시간을 표시 합니다. 정규화 된 단계는 원시 들어오는 메시지에 대해 정규화를 수행 합니다.|
 |평균 그룹 단계 대기 시간|그룹 단계의 평균 대기 시간을 표시 합니다. 그룹 단계는 정규화 된 메시지에서 버퍼링, 집계 및 그룹화를 수행 합니다.| 
 |총 오류 수|총 오류 수를 표시 합니다.| 
@@ -76,6 +76,6 @@ ms.locfileid: "103020632"
 FHIR 용 Azure IoT 커넥터에 대해 자주 묻는 질문과 대답을 확인 하세요.
 
 >[!div class="nextstepaction"]
->[FHIR FAQ 용 Azure IoT 커넥터](fhir-faq.md)
+>[FHIR FAQ 용 Azure IoT 커넥터](fhir-faq.yml)
 
 *Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다. FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다. 

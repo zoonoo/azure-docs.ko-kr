@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 04/05/2021
 ms.author: rabhaiya
-ms.openlocfilehash: 9b5fa3533aa521053a321a3f0ffdfad3505abb73
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 690a406c9cb0dd7644656c78236a2001ae0f0f2e
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112286672"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991598"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT Connector for FHIR(미리 보기) 매핑 템플릿
 이 문서에서는 매핑 템플릿을 사용하여 전자 의료 기록 교환(FHIR&#174;)*용 Azure IoT Connector를 구성하는 방법을 자세히 설명합니다.
@@ -336,12 +336,12 @@ IotJsonPathContentTemplate은 DeviceIdExpression 및 TimestampExpression이 필�
 
 #### <a name="iotcentraljsonpathcontenttemplate"></a>IotCentralJsonPathContentTemplate
 
-IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 필요 하지 않으며 평가할 메시지가 [Azure IoT Central](../../iot-central/core/overview-iot-central.md)의 [데이터 내보내기](../../iot-central/core/howto-export-data.md) 기능을 통해 전송 되는 경우에도 사용 됩니다. 이 기능을 사용 하는 경우 장치 id (Azure Iot Central의 장치 식별자가 대상 FHIR 서버에서 장치 리소스에 대 한 식별자로 등록 됨) 및 메시지의 타임 스탬프를 알 수 있습니다. Azure IoT Central의 데이터 내보내기 기능을 사용 중이지만 장치 id 또는 측정 타임 스탬프에 대 한 메시지 본문의 사용자 지정 속성을 사용 하는 경우에도 JsonPathContentTemplate를 사용할 수 있습니다.
+또한 IotCentralJsonPathContentTemplate에는 DeviceIdExpression 및 TimestampExpression이 필요하지 않으며, 평가 중인 메시지가 [Azure IoT Central](../../iot-central/core/overview-iot-central.md) [데이터 내보내기](../../iot-central/core/howto-export-data.md) 기능을 통해 전송될 때 사용됩니다. 이 기능을 사용하는 경우 디바이스 ID(Azure Iot Central의 디바이스 식별자가 대상 FHIR 서버의 디바이스 리소스에 대한 식별자로 등록되었다고 가정)와 메시지의 타임스탬프가 알려져 있습니다. Azure IoT Central 데이터 내보내기 기능을 사용하지만 디바이스 ID 또는 측정 타임스탬프에 대한 메시지 본문에서 사용자 지정 속성을 사용하는 경우에도 JsonPathContentTemplate을 사용할 수 있습니다.
 
-*참고: IotCentralJsonPathContentTemplate를 사용 하는 경우 TypeMatchExpression는 전체 메시지를 JToken로 확인 해야 합니다. 아래 예제를 참조 하세요.* 
+*참고: IotCentralJsonPathContentTemplate을 사용하는 경우 TypeMatchExpression은 전체 메시지를 JToken으로 확인해야 합니다. 아래 예제를 참조하세요.* 
 ##### <a name="examples"></a>예
 ---
-**하트 요금**
+**심박수**
 
 *Message*
 ```json
@@ -381,7 +381,7 @@ IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 
 }
 ```
 ---
-**블러드 압력**
+**혈압**
 
 *Message*
 ```json
@@ -430,57 +430,57 @@ IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 
 ```
 
 ## <a name="fhir-mapping"></a>FHIR 매핑
-장치 콘텐츠가 정규화 된 모델로 추출 되 면 장치 식별자, 측정 유형 및 기간에 따라 데이터가 수집 되 고 그룹화 됩니다. 이 그룹화의 출력은 FHIR 리소스 (현재[관찰](https://www.hl7.org/fhir/observation.html) )로 변환 하기 위해 전송 됩니다. 여기서 FHIR 매핑 템플릿은 데이터가 FHIR 관찰에 매핑되는 방식을 제어 합니다. 특정 시점 또는 특정 시간에 대 한 관찰을 만들어야 하나요? 관찰에 추가 해야 하는 코드는 무엇입니까? 값은 [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData) 또는 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)로 표시 되어야 하나요? 이러한 데이터 형식은 모두 FHIR 매핑 구성 컨트롤의 모든 옵션입니다.
+디바이스 콘텐츠가 정규화된 모델로 추출되면 디바이스 식별자, 측정 유형 및 기간에 따라 데이터가 수집되고 그룹화됩니다. 이 그룹화의 출력은 FHIR 리소스(현재[관찰)로](https://www.hl7.org/fhir/observation.html) 변환하기 위해 전송됩니다. 여기서 FHIR 매핑 템플릿은 데이터가 FHIR 관찰에 매핑되는 방법을 제어합니다. 한 시점 또는 1시간 동안 관찰을 만들어야 합니까? 관찰에 추가해야 하는 코드는 무엇인가요? 값을 [SampledData](https://www.hl7.org/fhir/datatypes.html#SampledData) 또는 Quantity로 표현해야 [합니까?](https://www.hl7.org/fhir/datatypes.html#Quantity) 이러한 데이터 형식은 FHIR 매핑 구성 컨트롤의 모든 옵션입니다.
 
-### <a name="codevaluefhirtemplate"></a>Code-efrtemplate
-현재이 템플릿은 현재 FHIR 매핑에서 지원 되는 유일한 템플릿입니다.  코드, 유효 기간 및 관찰 값을 정의할 수 있습니다. 여러 값 형식이 지원 됩니다. [Sampleddata](https://www.hl7.org/fhir/datatypes.html#SampledData), [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept)및 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity). 이러한 구성 가능한 값과 함께 관찰 리소스의 식별자와 적절 한 장치 및 환자 리소스에 대 한 링크가 자동으로 처리 됩니다.
+### <a name="codevaluefhirtemplate"></a>CodeValueFhirTemplate
+CodeValueFhirTemplate은 현재 FHIR 매핑에서 지원되는 유일한 템플릿입니다.  이를 통해 코드, 유효 기간 및 관찰 값을 정의할 수 있습니다. [SampledData,](https://www.hl7.org/fhir/datatypes.html#SampledData) [CodeableConcept](https://www.hl7.org/fhir/datatypes.html#CodeableConcept)및 [Quantity](https://www.hl7.org/fhir/datatypes.html#Quantity)등의 여러 값 형식이 지원됩니다. 이러한 구성 가능한 값과 함께 관찰 리소스의 식별자와 적절한 디바이스 및 환자 리소스에 대한 연결이 자동으로 처리됩니다.
 
 | 속성 | Description 
 | --- | ---
-|**T**| 이 템플릿이 바인딩될 측정 형식입니다. 이 형식을 출력 하는 장치 매핑 템플릿이 하나 이상 있어야 합니다.
-|**PeriodInterval**|관찰을 만든 기간이 표시 되는 시간입니다. 지원 되는 값은 0 (인스턴스), 60 (1 시간), 1440 (일)입니다.
-|**범주**|생성 되는 관찰 유형을 분류 하기 위한 [CodeableConcepts](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) 수
-|**코드가**|만든 관찰에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
-|**코드 []. Code**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대 한 코드입니다.
-|**코드 []. 컴퓨터**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)을 위한 시스템입니다.
-|**코드 []. 표시가**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대 한 표시입니다.
-|**값**|관찰에서 추출 하 고 표시할 값입니다. 자세한 내용은 [값 형식 템플릿](#valuetypes)을 참조 하세요.
-|**Components**|*선택 사항:* 관찰 시 만들 하나 이상의 구성 요소입니다.
-|**구성 요소 []. 코드가**|구성 요소에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
-|**구성 요소 []. 기본값**|구성 요소에서 추출 하 고 표시할 값입니다. 자세한 내용은 [값 형식 템플릿](#valuetypes)을 참조 하세요.
+|**Typename**| 이 템플릿이 바인딩해야 하는 측정 형식입니다. 이 형식을 출력하는 디바이스 매핑 템플릿이 하나 이상 있어야 합니다.
+|**PeriodInterval**|생성된 관찰이 나타내는 기간입니다. 지원되는 값은 0(인스턴스), 60(시간), 1440(일)입니다.
+|**범주**|생성된 관찰 유형을 분류하는 [CodeableConcepts의](http://hl7.org/fhir/datatypes-definitions.html#codeableconcept) 개수
+|**코드**|생성된 [관찰에](http://hl7.org/fhir/datatypes-definitions.html#coding) 적용할 하나 이상의 코딩입니다.
+|**Codes[]. 코드**|코딩에 대한 [코드입니다.](http://hl7.org/fhir/datatypes-definitions.html#coding)
+|**Codes[]. 시스템**|코딩 에 대한 [시스템입니다.](http://hl7.org/fhir/datatypes-definitions.html#coding)
+|**Codes[]. 표시**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대한 표시입니다.
+|**값**|관찰에서 추출하고 나타낼 값입니다. 자세한 내용은 [값 형식 템플릿을 참조하세요.](#valuetypes)
+|**Components**|*선택 사항:* 관찰에서 만들 하나 이상의 구성 요소입니다.
+|**구성 요소[]. 코드**|구성 [요소에](http://hl7.org/fhir/datatypes-definitions.html#coding) 적용할 하나 이상의 코딩입니다.
+|**구성 요소[]. 값**|구성 요소에서 추출하고 나타낼 값입니다. 자세한 내용은 [값 형식 템플릿을 참조하세요.](#valuetypes)
 
 ### <a name="value-type-templates"></a>값 형식 템플릿 <a name="valuetypes"></a>
-다음은 현재 지원 되는 값 형식 템플릿입니다. 나중에 추가 템플릿이 추가 될 수 있습니다.
+다음은 현재 지원되는 값 형식 템플릿입니다. 나중에 추가 템플릿이 추가될 수 있습니다.
 #### <a name="sampleddata"></a>SampledData
-[Sampleddata](http://hl7.org/fhir/datatypes.html#SampledData) fhir 데이터 형식을 나타냅니다. 관찰 측정은 특정 시점에서 시작 하 고 정의 된 기간을 사용 하 여 전달 하는 값 스트림에 기록 됩니다. 값이 없는 경우이 `E` 데이터 스트림에 기록 됩니다. 두 개 이상의 값이 데이터 스트림의 동일한 위치를 차지 하는 기간이 면 최신 값이 사용 됩니다. SampledData를 사용 하는 관찰이 업데이트 되는 경우에도 동일한 논리가 적용 됩니다.
+[SampledData](http://hl7.org/fhir/datatypes.html#SampledData) FHIR 데이터 형식을 나타냅니다. 관찰 측정값은 지정 시간에 시작하여 정의된 기간을 사용하여 앞으로 증분하는 값 스트림에 기록됩니다. 값이 없으면 `E` 가 데이터 스트림에 기록됩니다. 마침표가 두 개 이상의 값이 데이터 스트림에서 동일한 위치를 차지하게 되면 최신 값이 사용됩니다. SampledData를 사용한 관찰이 업데이트되면 동일한 논리가 적용됩니다.
 
 | 속성 | Description 
 | --- | ---
-|**DefaultPeriod**|사용할 기본 기간 (밀리초)입니다. 
-|**단위**|SampledData의 원점에 설정할 단위입니다. 
+|**DefaultPeriod**|사용할 기본 기간(밀리초)입니다. 
+|**단위**|SampledData의 원점에서 설정할 단위입니다. 
 
 #### <a name="quantity"></a>수량
-[수량](http://hl7.org/fhir/datatypes.html#Quantity) fhir 데이터 형식을 나타냅니다. 그룹화에 두 개 이상의 값이 있는 경우 첫 번째 값만 사용 됩니다. 동일한 관찰에 매핑되는 새 값이 도착 하면 이전 값을 덮어씁니다.
+Quantity FHIR 데이터 [형식을](http://hl7.org/fhir/datatypes.html#Quantity) 나타냅니다. 그룹화에 두 개 이상의 값이 있는 경우 첫 번째 값만 사용됩니다. 동일한 관찰에 매핑되는 새 값이 도착하면 이전 값을 덮어쓰게 됩니다.
 
 | 속성 | Description 
 | --- | --- 
 |**단위**| 단위 표현입니다.
-|**코드**| 단위의 코딩 된 형태입니다.
-|**System**| 코딩 된 단위 형식을 정의 하는 시스템입니다.
+|**코드**| 단위의 코딩된 형식입니다.
+|**System**| 코딩된 단위 폼을 정의하는 시스템입니다.
 
 ### <a name="codeableconcept"></a>CodeableConcept
-[CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) fhir 데이터 형식을 나타냅니다. 실제 값은 사용 되지 않습니다.
+[CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConcept) FHIR 데이터 형식을 나타냅니다. 실제 값은 사용되지 않습니다.
 
 | 속성 | Description 
 | --- | --- 
 |**Text**|일반 텍스트 표현입니다. 
-|**코드가**|만든 관찰에 적용할 하나 이상의 [Codings](http://hl7.org/fhir/datatypes-definitions.html#coding) 입니다.
-|**코드 []. Code**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대 한 코드입니다.
-|**코드 []. 컴퓨터**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)을 위한 시스템입니다.
-|**코드 []. 표시가**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대 한 표시입니다.
+|**코드**|생성된 [관찰에](http://hl7.org/fhir/datatypes-definitions.html#coding) 적용할 하나 이상의 코딩입니다.
+|**Codes[]. 코드**|코딩에 대한 [코드입니다.](http://hl7.org/fhir/datatypes-definitions.html#coding)
+|**Codes[]. 시스템**|코딩 에 대한 [시스템입니다.](http://hl7.org/fhir/datatypes-definitions.html#coding)
+|**Codes[]. 표시**|[코딩](http://hl7.org/fhir/datatypes-definitions.html#coding)에 대한 표시입니다.
 
 ### <a name="examples"></a>예
-**하트 비트 전송률-SampledData**
+**심박수 - SampledData**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -504,7 +504,7 @@ IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 
 }
 ```
 ---
-**단계-SampledData**
+**단계 - SampledData**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -528,7 +528,7 @@ IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 
 }
 ```
 ---
-**블러드 압력-SampledData**
+**압력 - SampledData**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -578,7 +578,7 @@ IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 
 }
 ```
 ---
-**블러드 압력-수량**
+**압력 - 수량**
 ```json
 {
     "templateType": "CodeValueFhir",
@@ -662,6 +662,6 @@ IotCentralJsonPathContentTemplate는 DeviceIdExpression 및 TimestampExpression 
 Azure IoT 커넥터에서 FHIR (미리 보기)에 대 한 질문과 대답을 확인 하세요.
 
 >[!div class="nextstepaction"]
->[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.md)
+>[FHIR Faq 용 Azure IoT 커넥터](fhir-faq.yml)
 
 *Azure Portal에서는 Azure IoT Connector for FHIR을 IoT 커넥터(미리 보기)라고 합니다. FHIR은 HL7의 등록 상표이며, HL7의 사용 허가 하에 사용됩니다.
