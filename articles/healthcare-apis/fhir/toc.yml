@@ -51,6 +51,19 @@
       items:
         - name: Azure IoT Hub를 통해 디바이스 데이터 수신
           href: device-data-through-iot-hub.md
+    - name: 상호 운용성 및 환자 액세스
+      expanded: false
+      items:
+        - name: CMS 상호 운용성 및 환자 액세스 규칙 소개
+          href: cms-tutorial-introduction.md
+        - name: 파란색 단추에 대한 CARIN 구현 가이드
+          href: carin-implementation-guide-blue-button-tutorial.md
+        - name: Da Vinci 약품 제조법
+          href: davinci-drug-formulary-tutorial.md
+        - name: Da Vinci PDex
+          href: davinci-pdex-tutorial.md
+        - name: Da Vinci Plan Net
+          href: davinci-plan-net.md
 - name: 방법 가이드
   expanded: false
   items:
@@ -70,7 +83,7 @@
     - name: 설정 구성
       expanded: false
       items:
-        - name: 추가 Azure API for FHIR 설정 구성
+        - name: 또 다른 Azure API for FHIR 설정 구성
           href: azure-api-for-fhir-additional-settings.md
         - name: Azure RBAC 구성
           href: configure-azure-rbac.md
@@ -97,22 +110,29 @@
           href: how-to-run-a-reindex.md
         - name: Azure API for FHIR 검색 예
           href: search-samples.md
-    - name: 프로필 유효성 검사
-      href: validation-against-profiles.md
-    - name: 데이터 내보내기
-      expanded: false
+    - name: 작업
+      expand: false
       items:
+        - name: 프로필 유효성 검사
+          href: validation-against-profiles.md
         - name: 데이터 내보내기
-          href: export-data.md
-        - name: 개인 식별 정보가 제거된 내보내기
-          href: de-identified-export.md
-        - name: Synapse로 데이터 내보내기
-          href: export-to-synapse.md
-    - name: 데이터 변환
-      expanded: false
-      items:
-        - name: $convert-data 및 FHIR 변환기 확장 템플릿
-          href: convert-data.md
+          expanded: false
+          items:
+            - name: 데이터 내보내기
+              href: export-data.md
+            - name: 개인 식별 정보가 제거된 내보내기
+              href: de-identified-export.md
+            - name: Synapse로 데이터 이동
+              href: move-to-synapse.md
+        - name: 데이터 변환
+          expanded: false
+          items:
+            - name: $convert-data 및 FHIR 변환기 확장 템플릿
+              href: convert-data.md
+        - name: FHIR의 Patient-Everything
+          href: patient-everything.md
+        - name: $member-match 작업
+          href: tutorial-member-match.md
     - name: ID 개체 ID 찾기
       href: find-identity-object-ids.md
     - name: 진단 로깅 및 메트릭
@@ -149,7 +169,7 @@
 - name: 리소스
   items:
     - name: FAQ
-      href: fhir-faq.md
+      href: fhir-faq.yml
     - name: 지원되는 기능
       href: fhir-features-supported.md
     - name: GitHub 프로젝트
