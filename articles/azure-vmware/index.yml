@@ -9,12 +9,12 @@ metadata:
   author: shortpatti
   ms.author: v-patsho
   ms.date: 05/11/2021
-  ms.openlocfilehash: b70f47f5cba7782862ddd2e81e6743830f2a8c1d
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.openlocfilehash: 28f73f52b98edba523fd36203d6fef863c4e9d1a
+  ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110452086"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112021486"
 landingContent:
 - title: Azure VMware Solution 정보
   linkLists:
@@ -28,14 +28,14 @@ landingContent:
     links:
     - text: 프라이빗 클라우드 및 클러스터
       url: concepts-private-clouds-clusters.md
-    - text: 프라이빗 클라우드 네트워킹 및 상호 연결
+    - text: 네트워킹 및 상호 연결
       url: concepts-networking.md
-    - text: 프라이빗 클라우드의 스토리지
+    - text: 스토리지
       url: concepts-storage.md
-    - text: 프라이빗 클라우드의 액세스 및 ID
+    - text: 액세스 및 ID
       url: concepts-identity.md
-    - text: 프라이빗 클라우드 모니터링 및 복구
-      url: concepts-private-clouds-clusters.md#host-monitoring-and-remediation
+    - text: 모니터 및 보호
+      url: concepts-monitor-protection.md
     - text: API Management
       url: concepts-api-management.md
     - text: 허브 및 스포크
@@ -45,26 +45,26 @@ landingContent:
   - linkListType: reference
     links:
     - text: 일반
-      url: /azure/azure-vmware/faq
+      url: ./faq.yml
     - text: 고객 커뮤니케이션
-      url: /azure/azure-vmware/faq#customer-communication
+      url: /azure/azure-vmware/faq.yml#customer-communication
     - text: 구성 및 설정
-      url: /azure/azure-vmware/faq#configuration-and-setup
+      url: /azure/azure-vmware/faq.yml#configuration-and-setup
     - text: VMware 소프트웨어
-      url: /azure/azure-vmware/faq#vmware-software
-    - text: Compute
-      url: /azure/azure-vmware/faq#compute
+      url: /azure/azure-vmware/faq.yml#vmware-software
+    - text: 컴퓨팅
+      url: /azure/azure-vmware/faq.yml#compute
     - text: 네트워킹 및 상호 연결
-      url: /azure/azure-vmware/faq#networking-and-interconnectivity
+      url: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
     - text: 스토리지
-      url: /azure/azure-vmware/faq#storage
+      url: /azure/azure-vmware/faq.yml#storage
     - text: 호스트, 클러스터 및 프라이빗 클라우드
-      url: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+      url: /azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds
     - text: ID 관리
-      url: /azure/azure-vmware/faq#identity-management
+      url: /azure/azure-vmware/faq.yml#identity-management
     - text: 청구 및 지원
-      url: /azure/azure-vmware/faq#billing-and-support
-- title: 시작하기
+      url: /azure/azure-vmware/faq.yml#billing-and-support
+- title: 시작
   linkLists:
   - linkListType: deploy
     links:
@@ -107,21 +107,21 @@ landingContent:
   - linkListType: reference
     links:
     - text: Azure VMware Solution 평가 만들기
-      url: /azure/migrate/how-to-create-azure-vmware-solution-assessment?context=/azure/azure-vmware/context/context
+      url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
     - text: Azure VMware Solution에 대한 호스트 할당량 요청
       url: request-host-quota-azure-vmware-solution.md
     - text: 예약 인스턴스로 비용 절감
       url: reserved-instance.md
   - linkListType: how-to-guide
     links:
-    - text: DHCP 구성 및 관리
+    - text: DHCP 구성
       url: configure-dhcp-azure-vmware-solution.md
     - text: L2 확장 VMware HCX 네트워크에서 DHCP 구성
       url: configure-l2-stretched-vmware-hcx-networks.md
-    - text: NSX 네트워크 구성 요소 구성
+    - text: Azure를 사용하여 NSX 구성 요소 구성
       url: configure-nsx-network-components-azure-portal.md
     - text: GitHub Enterprise 서버 구성
-      url: github-enterprise-server.md
+      url: ./configure-github-enterprise-server.md
     - text: 공용 인터넷 액세스 사용
       url: enable-public-internet-access.md
     - text: vWAN에서 사이트 간 VPN 구성
@@ -132,10 +132,10 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Security Center로 VM 보호
+    - text: VM 보호, 모니터링 및 관리
+      url: integrate-azure-native-services.md
+    - text: Azure Security Center 통합
       url: azure-security-integration.md
-    - text: VM 모니터링 및 관리
-      url: lifecycle-management-of-azure-vmware-solution-vms.md
     - text: Azure NetApp Files 통합
       url: netapp-files-with-azure-vmware-solution.md
     - text: Azure Application Gateway로 웹앱 보호
@@ -149,11 +149,11 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: VMware VM 백업
-      url: /azure/backup/backup-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+      url: ../backup/backup-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
     - text: VMware VM 복원
-      url: /azure/backup/restore-azure-backup-server-vmware?context=/azure/azure-vmware/context/context
+      url: ../backup/restore-azure-backup-server-vmware.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
     - text: Azure Backup 워크로드 모니터링
-      url: /azure/backup/backup-azure-monitoring-built-in-monitor?context=/azure/azure-vmware/context/context
+      url: ../backup/backup-azure-monitoring-built-in-monitor.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
 - title: VMware 솔루션
   linkLists:
   - linkListType: how-to-guide
@@ -164,6 +164,8 @@ landingContent:
       url: azure-vmware-solution-horizon.md
     - text: 콘텐츠 라이브러리에서 VM 배포
       url: deploy-vm-content-library.md
+    - text: VMware HCX를 사용하여 재해 복구 배포
+      url: deploy-disaster-recovery-using-vmware-hcx.md
 - title: VMware 에코시스템
   linkLists:
   - linkListType: reference
@@ -200,8 +202,10 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: EA 및 CSP 구독 이동
+    - text: Azure VMware solution 구독 이동
       url: move-ea-csp-subscriptions.md
+    - text: 지역간 Azure VMware Solution 이동
+      url: move-azure-vmware-solution-across-regions.md
 - title: 문제 해결
   linkLists:
   - linkListType: reference

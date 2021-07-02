@@ -1,0 +1,432 @@
+### YamlMime:Hub 
+title: Azure Monitor Application Insights 설명서
+summary: Application Insights는 Azure Monitor 서비스의 일부입니다.
+brand: azure
+metadata:
+  title: Azure Monitor Application Insights 문서
+  description: Application Insights는 Azure Monitor 서비스의 일부입니다.
+  ms.service: application-insights
+  ms.topic: hub-page
+  manager: carmonm
+  ms.date: 09/30/2019
+highlightedContent:
+  items:
+    - title: Application Insights란?
+      itemType: overview
+      url: ./app/app-insights-overview.md
+    - title: 릴리스 정보
+      itemType: whats-new
+      url: ./app/release-notes.md
+    - title: Azure App Service 모니터링
+      itemType: how-to-guide
+      url: ./app/azure-web-apps.md
+    - title: ASP.NET Core 앱 모니터링
+      itemType: how-to-guide
+      url: ./app/asp-net-core.md
+    - title: 리소스 만들기
+      itemType: how-to-guide
+      url: ./app/create-new-resource.md
+    - title: 웹 사이트 모니터링
+      itemType: how-to-guide
+      url: ./app/javascript.md
+conceptualContent:
+  items:
+    - title: 코드 기반 모니터링
+      links:
+        - url: ./app/asp-net-core.md
+          itemType: how-to-guide
+          text: ASP.NET Core
+        - url: ./app/asp-net.md
+          itemType: how-to-guide
+          text: ASP.NET
+        - url: ./app/worker-service.md
+          itemType: how-to-guide
+          text: .NET Core 작업자 서비스
+        - url: ./app/java-2x-get-started.md
+          itemType: how-to-guide
+          text: Java
+        - url: ./app/opencensus-python.md
+          itemType: how-to-guide
+          text: Python
+        - url: ./app/javascript.md
+          itemType: how-to-guide
+          text: JavaScript
+        - url: ./app/nodejs.md
+          itemType: how-to-guide
+          text: Node.js
+    - title: 코드리스/에이전트 기반 모니터링
+      links:
+        - url: ./app/azure-web-apps.md
+          itemType: how-to-guide
+          text: Azure App Service
+        - url: ./app/cloudservices.md
+          itemType: how-to-guide
+          text: Cloud Services
+        - url: ../azure-functions/functions-monitoring.md
+          itemType: how-to-guide
+          text: Azure Functions
+        - url: ./app/kubernetes-codeless.md
+          itemType: how-to-guide
+          text: Kubernetes 애플리케이션
+        - url: ./app/cloudservices.md
+          itemType: how-to-guide
+          text: Cloud Services
+        - url: ./app/status-monitor-v2-overview.md
+          itemType: how-to-guide
+          text: 상태 모니터 V2
+        - url: ./app/azure-vm-vmss-apps.md
+          itemType: how-to-guide
+          text: Azure VM 및 Azure 가상 머신 확장 집합
+    - title: 빠른 시작 및 자습서
+      links:
+        - url: ./app/nodejs-quick-start.md
+          itemType: how-to-guide
+          text: Node.js
+        - url: ./app/mobile-center-quickstart.md
+          itemType: how-to-guide
+          text: 모바일 앱
+        - url: ./app/website-monitoring.md
+          itemType: how-to-guide
+          text: 웹 사이트 모니터링
+        - url: ./app/tutorial-runtime-exceptions.md
+          itemType: how-to-guide
+          text: 런타임 예외 찾기 및 진단
+        - url: ./app/tutorial-performance.md
+          itemType: how-to-guide
+          text: 성능 문제 찾기 및 진단
+        - url: ./app/tutorial-alert.md
+          itemType: how-to-guide
+          text: 애플리케이션 상태에 대한 모니터링 및 경고
+        - url: ./app/tutorial-users.md
+          itemType: how-to-guide
+          text: 사용자 동작 이해
+        - url: ./app/tutorial-app-dashboards.md
+          itemType: how-to-guide
+          text: 사용자 지정 대시보드 만들기
+    - title: '분산 추적, 종속성 추적 및 상관 관계'
+      links:
+        - url: ./app/distributed-tracing.md
+          itemType: overview
+          text: 분산 추적이란?
+        - url: ./app/app-map.md
+          itemType: how-to-guide
+          text: 애플리케이션 맵
+        - url: ./app/correlation.md
+          itemType: how-to-guide
+          text: 원격 분석 상관 관계
+        - url: ./app/custom-data-correlation.md
+          itemType: how-to-guide
+          text: 사용자 지정 데이터 원본 상관 관계 만들기
+        - url: ./app/transaction-diagnostics.md
+          itemType: how-to-guide
+          text: 엔드투엔드 트랜잭션 진단
+        - url: ./app/asp-net-dependencies.md
+          itemType: how-to-guide
+          text: 종속성 추적
+        - url: ./app/auto-collect-dependencies.md
+          itemType: how-to-guide
+          text: 종속성 자동 수집
+        - url: ./app/custom-operations-tracking.md
+          itemType: how-to-guide
+          text: 큐 및 백그라운드 작업
+    - title: 가상 트랜잭션 및 가용성 모니터링
+      links:
+        - url: ./app/monitor-web-app-availability.md
+          itemType: how-to-guide
+          text: URL 테스트
+        - url: ./app/availability-multistep.md
+          itemType: how-to-guide
+          text: 다중 단계 웹 테스트
+        - url: ./app/availability-alerts.md
+          itemType: how-to-guide
+          text: 가용성 경고
+    - title: '메트릭, 로그 및 추적'
+      links:
+        - url: ./app/live-stream.md
+          itemType: how-to-guide
+          text: 라이브 메트릭
+        - url: ./app/pre-aggregated-metrics-log-metrics.md
+          itemType: how-to-guide
+          text: 로그 기반 및 사전 집계 메트릭
+        - url: ./essentials/app-insights-metrics.md
+          itemType: how-to-guide
+          text: 로그 기반 메트릭 정의
+        - url: ./app/ilogger.md
+          itemType: how-to-guide
+          text: ILogger
+        - url: ./app/performance-counters.md
+          itemType: how-to-guide
+          text: 성능 카운터
+        - url: ./app/eventcounters.md
+          itemType: how-to-guide
+          text: EventCounter(.NET/.NET Core)
+        - url: ./app/asp-net-trace-logs.md
+          itemType: how-to-guide
+          text: 시스템 진단 추적 로그
+        - url: ./app/diagnostic-search.md
+          itemType: how-to-guide
+          text: 검색
+    - title: 프로파일러 및 스냅샷 디버거
+      links:
+        - url: ./app/profiler-overview.md
+          itemType: overview
+          text: Profiler 개요
+        - url: ./app/profiler.md
+          itemType: how-to-guide
+          text: Azure App Service 앱 프로파일링
+        - url: ./app/profiler-cloudservice.md
+          itemType: how-to-guide
+          text: Azure Cloud Services 앱 프로파일링
+        - url: ./app/profiler-servicefabric.md
+          itemType: how-to-guide
+          text: Service Fabric 앱 프로파일링
+        - url: ./app/profiler-vm.md
+          itemType: how-to-guide
+          text: VM 및 가상 머신 확장 집합 앱 프로파일링
+        - url: ./app/snapshot-debugger.md
+          itemType: overview
+          text: 스냅샷 디버거 개요
+        - url: ./app/snapshot-debugger-appservice.md
+          itemType: how-to-guide
+          text: Azure App Service용 스냅샷 디버거 사용
+        - url: ./app/snapshot-debugger-vm.md
+          itemType: how-to-guide
+          text: 다른 환경의 스냅샷 디버거를 사용하도록 설정
+        - url: ./app/snapshot-debugger-upgrade.md
+          itemType: how-to-guide
+          text: 스냅샷 디버거 업그레이드
+    - title: 스마트 감지
+      links:
+        - url: ./app/proactive-diagnostics.md
+          itemType: overview
+          text: 스마트 검색 개요
+        - url: ./app/proactive-failure-diagnostics.md
+          itemType: how-to-guide
+          text: 오류 잘못된 부분
+        - url: ./app/proactive-performance-diagnostics.md
+          itemType: how-to-guide
+          text: 성능 이상
+        - url: ./app/proactive-trace-severity.md
+          itemType: how-to-guide
+          text: 추적 성능 저하
+        - url: ./app/proactive-exception-volume.md
+          itemType: how-to-guide
+          text: 예외 볼륨
+        - url: ./app/proactive-potential-memory-leak.md
+          itemType: how-to-guide
+          text: 메모리 누수
+        - url: ./app/proactive-application-security-detection-pack.md
+          itemType: how-to-guide
+          text: 보안 검색
+        - url: ./app/proactive-cloud-services.md
+          itemType: how-to-guide
+          text: Azure Cloud Services
+        - url: ./app/proactive-arm-config.md
+          itemType: how-to-guide
+          text: 스마트 검색 규칙 관리
+        - url: ./app/proactive-email-notification.md
+          itemType: how-to-guide
+          text: 이메일 알림
+    - title: 사용량(사용자 동작 분석)
+      links:
+        - url: ./app/usage-overview.md
+          itemType: overview
+          text: 개요
+        - url: ./app/usage-segmentation.md
+          itemType: how-to-guide
+          text: '사용자, 세션, 이벤트'
+        - url: ./app/usage-funnels.md
+          itemType: how-to-guide
+          text: 깔때기
+        - url: ./app/usage-cohorts.md
+          itemType: how-to-guide
+          text: 코호트
+        - url: ./app/usage-impact.md
+          itemType: how-to-guide
+          text: 영향
+        - url: ./app/usage-retention.md
+          itemType: how-to-guide
+          text: 보존
+        - url: ./app/usage-flows.md
+          itemType: how-to-guide
+          text: 사용자 흐름
+    - title: '개인 정보, 보안, 사용량 및 비용'
+      links:
+        - url: ./logs/personal-data-mgmt.md
+          itemType: how-to-guide
+          text: 개인 데이터 처리
+        - url: ./app/data-retention-privacy.md
+          itemType: how-to-guide
+          text: '데이터 수집, 보존 및 스토리지'
+        - url: ./app/resources-roles-access-control.md
+          itemType: how-to-guide
+          text: 역할 기반 액세스 제어
+        - url: ./app/ip-addresses.md
+          itemType: how-to-guide
+          text: IP 주소 및 방화벽 예외
+        - url: ./app/ip-collection.md
+          itemType: how-to-guide
+          text: 지리적 위치 및 IP 주소 처리
+    - title: 고급 구성
+      links:
+        - url: ./app/sampling.md
+          itemType: how-to-guide
+          text: 샘플링
+        - url: ./app/api-filtering-sampling.md
+          itemType: how-to-guide
+          text: 필터링 및 원격 분석 프로세서
+        - url: ./app/telemetry-channels.md
+          itemType: how-to-guide
+          text: 원격 분석 채널
+        - url: ./app/configuration-with-applicationinsights-config.md
+          itemType: how-to-guide
+          text: ApplicationInsights.config
+        - url: ./app/asp-net-exceptions.md
+          itemType: how-to-guide
+          text: 예외
+        - url: ./app/automate-custom-reports.md
+          itemType: how-to-guide
+          text: 사용자 지정 이메일 보고서
+        - url: ./app/usage-overview.md
+          itemType: how-to-guide
+          text: 사용자 컨텍스트 ID 전송
+        - url: ./app/custom-endpoints.md
+          itemType: how-to-guide
+          text: 엔드포인트 재정의
+    - title: 데이터 모델
+      links:
+        - url: ./app/data-model.md
+          itemType: overview
+          text: 개요
+        - url: ./app/data-model-request-telemetry.md
+          itemType: how-to-guide
+          text: 요청
+        - url: ./app/data-model-dependency-telemetry.md
+          itemType: how-to-guide
+          text: 종속성
+        - url: ./app/data-model-exception-telemetry.md
+          itemType: how-to-guide
+          text: 예외
+        - url: ./app/data-model-trace-telemetry.md
+          itemType: how-to-guide
+          text: 추적
+        - url: ./app/data-model-event-telemetry.md
+          itemType: how-to-guide
+          text: 이벤트
+        - url: ./app/data-model-metric-telemetry.md
+          itemType: how-to-guide
+          text: 메트릭
+        - url: ./app/data-model-context.md
+          itemType: how-to-guide
+          text: Context
+    - title: Azure DevOps
+      links:
+        - url: ./app/annotations.md
+          itemType: how-to-guide
+          text: 릴리스 주석
+        - url: ./app/continuous-monitoring.md
+          itemType: how-to-guide
+          text: 연속 모니터링
+    - title: 내보내기
+      links:
+        - url: ./app/export-telemetry.md
+          itemType: how-to-guide
+          text: 원격 분석 내보내기
+        - url: ./app/export-stream-analytics.md
+          itemType: how-to-guide
+          text: Stream Analytics로 내보내기
+        - url: ./app/code-sample-export-sql-stream-analytics.md
+          itemType: how-to-guide
+          text: Stream Analytics를 사용하여 SQL로 내보내기
+        - url: ./app/code-sample-export-sql-stream-analytics.md
+          itemType: how-to-guide
+          text: 데이터 모델 내보내기
+        - url: ./logs/logicapp-flow-connector.md
+          itemType: how-to-guide
+          text: 흐름 통합
+        - url: ./app/automate-with-logic-apps.md
+          itemType: how-to-guide
+          text: 논리 앱 통합
+    - title: 시각화 및 분석
+      links:
+        - url: ./app/overview-dashboard.md
+          itemType: how-to-guide
+          text: 애플리케이션 대시보드
+        - url: ./app/export-power-bi.md
+          itemType: how-to-guide
+          text: PowerBI 통합
+        - url: ./essentials/metrics-charts.md
+          itemType: how-to-guide
+          text: 메트릭 차트
+        - url: ./visualize/workbooks-overview.md
+          itemType: how-to-guide
+          text: 통합 문서(대화형 보고)
+        - url: ./app/change-analysis.md
+          itemType: how-to-guide
+          text: 변경 분석(미리 보기)
+    - title: Visual Studio
+      links:
+        - url: ./app/visual-studio.md
+          itemType: how-to-guide
+          text: F5 통찰력
+        - url: ./app/visual-studio.md
+          itemType: how-to-guide
+          text: 추세
+        - url: ./app/visual-studio-codelens.md
+          itemType: how-to-guide
+          text: CodeLens
+    - title: 문제 해결 및 FAQ
+      links:
+        - url: ./app/usage-troubleshoot.md
+          itemType: how-to-guide
+          text: 사용 문제 해결
+        - url: ./app/snapshot-debugger-troubleshoot.md
+          itemType: how-to-guide
+          text: 스냅샷 디버거 문제 해결
+        - url: ./app/profiler-troubleshooting.md
+          itemType: how-to-guide
+          text: Profiler 문제 해결
+        - url: ./app/troubleshoot-availability.md
+          itemType: how-to-guide
+          text: 가용성 문제 해결
+        - url: ./app/asp-net-troubleshoot-no-data.md
+          itemType: how-to-guide
+          text: 데이터가 없는 문제 해결
+        - url: ./faq.md
+          itemType: how-to-guide
+          text: 문제 해결 FAQ
+    - title: 참조
+      links:
+        - url: ./app/platforms.md
+          itemType: reference
+          text: 플랫폼
+        - url: ./app/azure-functions-supported-features.md
+          itemType: reference
+          text: Azure Functions 통합
+        - url: /dotnet/api/overview/azure/insights
+          itemType: reference
+          text: .NET SDK
+        - url: /java/api/overview/azure/appinsights
+          itemType: reference
+          text: .Java
+        - url: /javascript/api/overview/azure/applicationinsights
+          itemType: reference
+          text: Node.js
+        - url: /rest/api/application-insights/
+          itemType: reference
+          text: REST API
+        - url: 'https://dev.applicationinsights.io/'
+          itemType: reference
+          text: REST API 샌드박스
+additionalContent:
+  sections:
+    - items:
+        - title: Application Insights API 요약
+          summary: 모든 Application Insights API 호출에 대한 코드 샘플
+          url: ./app/api-custom-events-metrics.md
+        - title: Application Insights PowerShell
+          summary: Application Insights PowerShell cmdlet을 설치하고 사용하는 방법에 대해 알아봅니다.
+          url: /powershell/module/az.applicationinsights/new-azapplicationinsights
+        - title: Application Insights에 대한 Azure CLI 명령
+          summary: Application Insights CLI 확장 명령(az extension add -n application-insights).
+          url: /cli/azure/monitor/app-insights/component

@@ -181,18 +181,30 @@
               href: how-to-deploy-cli-at-scale.md
             - name: Visual Studio Code
               href: how-to-deploy-vscode-at-scale.md
-    - name: 배포 모니터링 및 진단
+    - name: 모니터링 및 진단
       items:
         - name: IoT Edge 배포 모니터링
           href: how-to-monitor-iot-edge-deployments.md
         - name: 모듈 쌍 모니터링
           href: how-to-monitor-module-twins.md
-        - name: EdgeAgent 직접 메서드
+        - name: edgeAgent 직접 메서드 사용
           href: how-to-edgeagent-direct-method.md
-        - name: IoT Edge 로그 검색
+        - name: 직접 메서드를 사용하여 로그 검색
           href: how-to-retrieve-iot-edge-logs.md
         - name: 기본 제공 메트릭 액세스
           href: how-to-access-built-in-metrics.md
+        - name: Azure Monitor 통합
+          items:
+            - name: 메트릭 수집 및 전송
+              href: how-to-collect-and-transport-metrics.md
+            - name: 큐레이팅된 시각화 살펴보기
+              href: how-to-explore-curated-visualizations.md
+            - name: 경고 규칙 만들기
+              href: how-to-create-alerts.md
+            - name: 사용자 지정 메트릭 추가
+              href: how-to-add-custom-metrics.md
+            - name: FAQ 및 문제 해결
+              href: how-to-troubleshoot-monitoring-and-faq.md
     - name: IoT Edge 디바이스를 게이트웨이로 사용
       items:
         - name: IoT 디바이스용 게이트웨이
@@ -239,18 +251,22 @@
               href: how-to-continuous-integration-continuous-deployment-classic.md
     - name: 문제 해결
       items:
-        - name: 표준 진단 단계
+        - name: IoT Edge 디바이스 진단
           href: troubleshoot.md
+        - name: Azure Portal에서 문제 해결
+          href: troubleshoot-in-portal.md
         - name: 일반적인 오류 해결
           href: troubleshoot-common-errors.md
 - name: 참조
   items:
+    - name: PowerShell 함수
+      items:
+        - name: Windows의 Linux용 IoT Edge
+          href: reference-iot-edge-for-linux-on-windows-functions.md
+        - name: Windows용 IoT Edge
+          href: reference-windows-scripts.md
     - name: 테스트 인증서 만들기
       href: how-to-create-test-certificates.md
-    - name: Windows 디바이스 관리 스크립트
-      href: reference-windows-scripts.md
-    - name: Windows의 Linux용 IoT Edge 함수
-      href: reference-iot-edge-for-linux-on-windows-functions.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: 리소스
