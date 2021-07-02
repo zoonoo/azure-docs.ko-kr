@@ -9,12 +9,12 @@ metadata:
   author: mikben
   ms.author: mikben
   ms.date: 03/10/2021
-  ms.openlocfilehash: ec0a4ebaebecf9cf5fac95ca1b3bded1ba759958
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 9c07d4334d6137fc6bef9a9edecf6566d97c4cd6
+  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110092281"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111903386"
 landingContent:
 - title: Azure Communication Services 정보
   linkLists:
@@ -36,6 +36,8 @@ landingContent:
       url: quickstarts/create-communication-resource.md
     - text: 사용자 액세스 토큰 만들기 및 관리
       url: quickstarts/access-tokens.md
+    - text: 릴레이 토큰 가져오기
+      url: quickstarts/relay-token.md
   - linkListType: concept
     links:
     - text: 클라이언트 및 서버 아키텍처
@@ -52,10 +54,10 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: 음성 및 비디오 통화를 앱에 추가
+    - text: 앱에 음성 통화 추가
       url: quickstarts/voice-video-calling/getting-started-with-calling.md
-    - text: 통화 SDK 사용
-      url: quickstarts/voice-video-calling/calling-client-samples.md
+    - text: 앱에 화상 통화 추가
+      url: quickstarts/voice-video-calling/get-started-with-video-calling.md
   - linkListType: concept
     links:
     - text: 음성 및 비디오 개념

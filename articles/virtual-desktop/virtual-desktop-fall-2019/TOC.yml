@@ -2,9 +2,9 @@
   href: ../index.yml
 - name: 개요
   items:
-    - name: Windows Virtual Desktop이란?
+    - name: Azure Virtual Desktop이란?
       href: ../overview.md
-    - name: Windows Virtual Desktop 설명서
+    - name: Azure Virtual Desktop 설명서
       href: ../create-host-pools-azure-marketplace.md
 - name: 자습서
   items:
@@ -24,7 +24,7 @@
   items:
     - name: 수동으로 마이그레이션
       href: ../manual-migration.md
-    - name: Windows Virtual Desktop 리소스에 연결
+    - name: Azure Virtual Desktop 리소스에 연결
       items:
         - name: Windows Desktop 클라이언트와 연결
           href: connect-windows-7-10-2019.md
@@ -76,9 +76,9 @@
       href: ../set-up-mfa.md
 - name: 개념
   items:
-    - name: Windows Virtual Desktop 환경
+    - name: Azure Virtual Desktop 환경
       href: environment-setup-2019.md
-    - name: Windows Virtual Desktop에서 위임된 액세스
+    - name: Azure Virtual Desktop에서 위임된 액세스
       href: delegated-access-virtual-desktop-2019.md
     - name: 호스트 풀 부하 분산 메서드
       href: host-pool-load-balancing-2019.md
@@ -100,7 +100,7 @@
       href: troubleshoot-management-tool.md
     - name: 원격 데스크톱 서비스 연결
       href: troubleshoot-service-connection-2019.md
-    - name: Windows Virtual Desktop PowerShell
+    - name: Azure Virtual Desktop PowerShell
       href: troubleshoot-powershell-2019.md
 - name: 참조
   items:

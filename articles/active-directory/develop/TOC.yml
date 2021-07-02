@@ -23,12 +23,10 @@
     - name: SPA(Single-page app)
       items:
         - name: Angular
-          href: quickstart-v2-angular.md
-        - name: Angular - 인증 코드 흐름
           href: quickstart-v2-javascript-auth-code-angular.md
         - name: JavaScript
           href: quickstart-v2-javascript-auth-code.md
-        - name: 반응 - 인증 코드 흐름
+        - name: React
           href: quickstart-v2-javascript-auth-code-react.md
     - name: 웹앱
       items:
@@ -81,8 +79,6 @@
     - name: SPA(Single-page app)
       items:
         - name: Angular
-          href: tutorial-v2-angular.md
-        - name: Angular - 인증 코드 흐름
           href: tutorial-v2-angular-auth-code.md
         - name: Blazor WebAssembly
           href: tutorial-blazor-webassembly.md
@@ -148,13 +144,18 @@
       href: app-objects-and-service-principals.md
     - name: ID 플랫폼 모범 사례
       href: identity-platform-integration-checklist.md
+    - name: 앱 보안
+      displayName: 'least privilege, secure app configuration, conditional access'
+      items:
+        - name: 앱에 대한 최소 권한 액세스 모범 사례
+          href: secure-least-privileged-access.md
+        - name: 조건부 액세스
+          href: v2-conditional-access-dev-guide.md
+        - name: 인증 컨텍스트
+          href: developer-guide-conditional-access-authentication-context.md
     - name: 권한 및 동의
       displayName: Scopes
       href: v2-permissions-and-consent.md
-    - name: 조건부 액세스
-      href: v2-conditional-access-dev-guide.md
-    - name: 인증 컨텍스트
-      href: developer-guide-conditional-access-authentication-context.md
     - name: 자동 사용자 프로비저닝(SCIM)
       href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
 - name: 방법
@@ -617,6 +618,8 @@
               href: id-tokens.md
             - name: 액세스 토큰
               href: access-tokens.md
+            - name: 새로 고침 토큰
+              href: refresh-tokens.md
             - name: 토큰 수명 구성
               href: active-directory-configurable-token-lifetimes.md
             - name: UserInfo 엔드포인트

@@ -1,0 +1,40 @@
+- name: MySQL 온-프레미스를 Azure Database for MySQL로 마이그레이션
+  items:
+    - name: 개요
+      items:
+        - name: 소개
+          href: 01-mysql-migration-guide-intro.md
+        - name: 대표 사용 사례
+          href: 02-representative-use-case.md
+    - name: 마이그레이션 전
+      items:
+        - name: 평가
+          href: 03-assessment.md
+        - name: 계획
+          href: 04-planning.md
+        - name: 마이그레이션 방법
+          href: 05-migration-methods.md
+        - name: Test Plans
+          href: 06-test-plans.md
+        - name: 성능 기준
+          href: 07-performance-baselines.md
+    - name: 데이터 마이그레이션
+      items:
+        - name: 데이터 마이그레이션
+          href: 08-data-migration.md
+        - name: MySQL Workbench를 사용한 데이터 마이그레이션
+          href: 09-data-migration-with-mysql-workbench.md
+    - name: 마이그레이션 후 관리
+      items:
+        - name: 마이그레이션 후 관리
+          href: 10-post-migration-management.md
+        - name: Optimization
+          href: 11-optimization.md
+        - name: BCDR(비즈니스 연속성 및 재해 복구)
+          href: 12-business-continuity-and-disaster-recovery.md
+        - name: 보안
+          href: 13-security.md
+        - name: 요약
+          href: 14-summary.md
+        - name: 부록
+          href: 15-appendix.md

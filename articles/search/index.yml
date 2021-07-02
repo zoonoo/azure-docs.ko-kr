@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 03/02/2021
-  ms.openlocfilehash: 6203e20f007fc170447d0c145bbaab942834d907
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 86122297340197ede15e99b8ac3f4ff2f61713b1
+  ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110378372"
+  ms.lasthandoff: 06/07/2021
+  ms.locfileid: "111555869"
 landingContent:
 - title: Cognitive Search 정보
   linkLists:
@@ -40,7 +40,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Azure Blob 스토리지의 인덱싱
+    - text: Azure Blob Storage의 인덱싱
       url: search-blob-storage-integration.md
     - text: Azure SQL Database의 인덱스
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
@@ -62,20 +62,6 @@ landingContent:
       url: search-create-app-portal.md
     - text: 이미지 및 앱 파일에서 텍스트 추출
       url: cognitive-search-quickstart-blob.md
-- title: 데이터 인덱싱
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 인덱스 정의
-      url: search-what-is-an-index.md
-    - text: 데이터 가져오기
-      url: search-what-is-data-import.md
-  - linkListType: reference
-    links:
-    - text: 인덱스 만들기(REST)
-      url: /rest/api/searchservice/create-index
-    - text: 인덱서 만들기(REST)
-      url: /rest/api/searchservice/create-indexer
 - title: AI로 보강
   linkLists:
   - linkListType: concept
@@ -98,6 +84,22 @@ landingContent:
     links:
     - text: 기본 제공 기술
       url: cognitive-search-predefined-skills.md
+- title: 데이터 인덱싱
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 인덱스 정의
+      url: search-what-is-an-index.md
+    - text: 데이터 가져오기
+      url: search-what-is-data-import.md
+    - text: 파워 쿼리 커넥터를 사용한 인덱스
+      url: search-how-to-index-power-query-data-sources.md
+  - linkListType: reference
+    links:
+    - text: 인덱스 만들기(REST)
+      url: /rest/api/searchservice/create-index
+    - text: 인덱서 만들기(REST)
+      url: /rest/api/searchservice/create-indexer
 - title: 쿼리 데이터
   linkLists:
   - linkListType: concept

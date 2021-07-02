@@ -140,8 +140,8 @@
               items:
                 - name: 구성 표시
                   href: show-configuration-postgresql-hyperscale-server-group.md
-                - name: 스케일 아웃 - 작업자 노드 추가
-                  href: scale-out-postgresql-hyperscale-server-group.md
+                - name: 작업자 노드 확장
+                  href: scale-out-in-postgresql-hyperscale-server-group.md
                 - name: 메모리 및 vCore 스케일 업|다운
                   href: scale-up-down-postgresql-hyperscale-server-group-using-cli.md
                 - name: 서버 매개 변수 구성
