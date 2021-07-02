@@ -1,12 +1,12 @@
-- name: Windows Virtual Desktop
+- name: Azure Virtual Desktop
   href: index.yml
 - name: 개요
   items:
-    - name: Windows Virtual Desktop이란?
+    - name: Azure Virtual Desktop이란?
       href: overview.md
     - name: 새로운 기능
       href: whats-new.md
-    - name: Windows Virtual Desktop(클래식) 설명서
+    - name: Azure Virtual Desktop(클래식) 설명서
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: 자습서
   items:
@@ -22,7 +22,7 @@
   items:
     - name: 수동으로 마이그레이션
       href: manual-migration.md
-    - name: Windows Virtual Desktop 리소스에 연결
+    - name: Azure Virtual Desktop 리소스에 연결
       items:
         - name: Windows Desktop 클라이언트와 연결
           href: connect-windows-7-10.md
@@ -76,7 +76,7 @@
           href: configure-host-pool-load-balancing.md
         - name: 개인 데스크톱 할당 유형
           href: configure-host-pool-personal-desktop-assignment-type.md
-    - name: Windows Virtual Desktop 라이선스 사용
+    - name: Azure Virtual Desktop 라이선스 사용
       href: apply-windows-license.md
     - name: 세션 호스트 이미지 사용자 지정
       items:
@@ -109,9 +109,11 @@
         - name: MSIXMGR 도구 설정
           href: app-attach-msixmgr.md
     - name: Microsoft Teams 사용
-      href: teams-on-wvd.md
+      href: teams-on-avd.md
     - name: Azure AD Multi-Factor Authentication 설정
       href: set-up-mfa.md
+    - name: AD FS Single Sign-On 구성
+      href: configure-adfs-sso.md
     - name: 자동 업데이트 구성
       href: configure-automatic-updates.md
     - name: 언어 팩 설치
@@ -120,7 +122,7 @@
       href: azure-advisor.md
     - name: 해결 권장 사항
       href: azure-advisor-recommendations.md
-    - name: Azure Monitor for Windows Virtual Desktop 사용
+    - name: Azure Monitor for Azure Virtual Desktop 사용
       href: azure-monitor.md
     - name: 재해 복구 계획 설정
       href: disaster-recovery.md
@@ -140,9 +142,9 @@
       href: rbac.md
     - name: 인증
       href: authentication.md
-    - name: Windows Virtual Desktop 환경
+    - name: Azure Virtual Desktop 환경
       href: environment-setup.md
-    - name: Windows Virtual Desktop 에이전트
+    - name: Azure Virtual Desktop 에이전트
       href: agent-overview.md
     - name: 네트워크 연결
       items:
@@ -160,7 +162,7 @@
           href: proxy-server-support.md
         - name: 사용자 연결 대기 시간 확인
           href: connection-latency.md
-    - name: Windows Virtual Desktop에서 위임된 액세스
+    - name: Azure Virtual Desktop에서 위임된 액세스
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드
       href: host-pool-load-balancing.md
@@ -168,7 +170,7 @@
       href: fslogix-containers-azure-files.md
     - name: FSLogix 프로필 컨테이너에 대한 스토리지 옵션
       href: store-fslogix-profile.md
-    - name: Windows Virtual Desktop FAQ
+    - name: Azure Virtual Desktop FAQ
       href: faq.md
     - name: Windows 10 Enterprise 다중 세션 FAQ
       href: windows-10-multisession-faq.yml
@@ -200,11 +202,11 @@
       href: troubleshoot-vm-configuration.md
     - name: 원격 데스크톱 서비스 연결
       href: troubleshoot-service-connection.md
-    - name: Windows Virtual Desktop 에이전트
+    - name: Azure Virtual Desktop 에이전트
       href: troubleshoot-agent.md
     - name: 원격 데스크톱 클라이언트 문제
       href: troubleshoot-client.md
-    - name: Windows Virtual Desktop PowerShell
+    - name: Azure Virtual Desktop PowerShell
       href: troubleshoot-powershell.md
     - name: 그래픽 성능 문제 진단
       href: remotefx-graphics-performance-counters.md
