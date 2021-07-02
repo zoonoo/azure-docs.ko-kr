@@ -11,12 +11,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 03/11/2021
-  ms.openlocfilehash: 9b4418aa8ff0d0cf3fb6d43d52d5b8991f403515
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 5971849d941151cbcfae09d156b23520c502495b
+  ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110383487"
+  ms.lasthandoff: 05/28/2021
+  ms.locfileid: "110615114"
 landingContent:
 - title: Video Analyzer 개요
   linkLists:
@@ -28,8 +28,10 @@ landingContent:
       url: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - linkListType: quickstart
     links:
-    - text: Azure Video Analyzer 시작
+    - text: ARM 템플릿 사용 시작
       url: get-started-detect-motion-emit-events.md
+    - text: 포털 사용 시작
+      url: get-started-detect-motion-emit-events-portal.md
 - title: 이벤트를 기반으로 비디오 녹화
   linkLists:
   - linkListType: concept

@@ -1,71 +1,67 @@
 ### YamlMime:Landing
 title: Azure Machine Learning 설명서
-summary: Azure Machine Learning으로 기계 학습 모델을 교육, 배포 및 관리하고 AutoML을 사용하며 파이프라인을 대규모로 실행하는 방법을 알아봅니다.  자습서, 코드 예제, API 참조 등이 표시됩니다.
+summary: Azure Machine Learning을 통해 모델을 학습 및 배포하고 기계 학습 수명 주기를 관리하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
 metadata:
   title: Azure Machine Learning 설명서
-  description: Azure Machine Learning으로 기계 학습 모델을 교육, 배포 및 관리하고 AutoML을 사용하며 파이프라인을 대규모로 실행하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
+  description: Azure Machine Learning을 통해 모델을 학습 및 배포하고 기계 학습 수명 주기를 관리하는 방법을 알아봅니다. 자습서, 코드 예제, API 참조 등이 표시됩니다.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
   ms.topic: landing-page
   ms.collection: collection
-  ms.author: larryfr
-  author: BlackMist
-  ms.date: 09/21/2020
-  ms.custom: contperf-fy21q1
-  ms.openlocfilehash: bbf934ef45f66a009c198a5ab0a47b871b419d85
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.author: sgilley
+  author: sdgilley
+  ms.date: 06/11/2021
+  ms.custom: jordan-changes
+  ms.openlocfilehash: 8ca3c770daa74b2f9f8f8dfd2edd0e22b6659538
+  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108740918"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112030074"
 landingContent:
-- title: '시작: 코드 우선'
+- title: '시작: 모델 학습'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Azure Machine Learning 시작
+    - text: 리소스 설정
       url: quickstart-create-resources.md
-    - text: ML 파이프라인을 사용한 일괄 처리 유추(Python)
-      url: tutorial-pipeline-batch-scoring-classification.md
-- title: '시작: 낮음 또는 코드 없음'
+    - text: Python SDK를 사용하여 학습
+      url: tutorial-1st-experiment-hello-world.md
+    - text: v2 CLI를 사용하여 학습(미리 보기)
+      url: how-to-train-cli.md
+- title: 기타 모델 학습 옵션
   linkLists:
-  - linkListType: overview
+  - linkListType: how-to-guide
     links:
-    - text: Azure Machine Learning Studio
-      url: overview-what-is-machine-learning-studio.md
-    - text: 자동화된 ML(AutoML)이란?
-      url: concept-automated-ml.md
-    - text: 끌어서 놓기 디자이너란?
-      url: concept-designer.md
-  - linkListType: tutorial
-    links:
-    - text: 시작(AutoML)
+    - text: 하이퍼 매개 변수 스윕으로 모델 최적화
+      url: how-to-tune-hyperparameters.md
+    - text: 다단계 ML 파이프라인 만들기
+      url: how-to-create-machine-learning-pipelines.md
+    - text: AutoML로 학습
       url: tutorial-first-experiment-automated-ml.md
-    - text: 시작(디자이너)
+    - text: 디자이너로 학습
       url: tutorial-designer-automobile-price-train-score.md
-  - linkListType: reference
-    links:
-    - text: 디자이너 알고리즘 및 모듈
-      url: algorithm-module-reference/module-reference.md
-- title: ML 모델을 Azure로 가져오기
+- title: 모델 배포
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: 클라우드에 모델 배포
+    - text: 모델을 배포하는 방법
       url: how-to-deploy-and-where.md
-    - text: MLflow 모델 추적
-      url: how-to-use-mlflow.md
-- title: 모델 배포 및 관리(MLOps)
+    - text: 관리형 온라인 채점(미리 보기)
+      url: how-to-deploy-managed-online-endpoints.md
+    - text: 관리형 일괄 처리 채점(미리 보기)
+      url: how-to-use-batch-endpoint.md
+- title: ML 수명 주기 관리
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: MLOps란?
+    - text: ML 실험 추적
+      url: how-to-track-monitor-analyze-runs.md
+    - text: ML 수명 주기 관리(MLOps)
       url: concept-model-management-and-deployment.md
-    - text: 배포 방법 및 배포 위치
-      url: how-to-deploy-and-where.md
-    - text: MLflow 모델 배포
-      url: how-to-deploy-mlflow-models.md
+- title: 참조 문서
+  linkLists:
   - linkListType: reference
     links:
     - text: Python SDK

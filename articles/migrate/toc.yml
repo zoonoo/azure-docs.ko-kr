@@ -126,6 +126,8 @@
           href: migrate-support-matrix-physical-migration.md
         - name: 복제 어플라이언스 요구 사항
           href: migrate-replication-appliance.md
+        - name: VMware 에이전트 없는 마이그레이션 아키텍처
+          href: concepts-vmware-agentless-migration.md
         - name: Hyper-V 마이그레이션 아키텍처
           href: hyper-v-migration-architecture.md
         - name: VMware 에이전트 기반 마이그레이션 아키텍처
@@ -134,8 +136,11 @@
   items:
     - name: Azure Migrate 프로젝트 만들기 및 관리
       href: create-manage-projects.md
-    - name: 프라이빗 링크를 사용하여 Azure Migrate 사용
+    - name: 프라이빗 엔드포인트에서 Azure Migrate 사용
       href: how-to-use-azure-migrate-with-private-endpoints.md
+      items:
+        - name: 네트워크 연결 문제 해결
+          href: troubleshoot-network-connectivity.md
     - name: ISV 도구/Movere로 작업 준비
       href: prepare-isv-movere.md
     - name: 검색

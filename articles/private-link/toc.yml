@@ -51,6 +51,8 @@
       href: private-link-service-overview.md
     - name: 프라이빗 엔드포인트 DNS 통합
       href: private-endpoint-dns.md
+    - name: RBAC 권한
+      href: rbac-permissions.md
     - name: 보안
       items:
         - name: 보안 기준
@@ -85,7 +87,7 @@
       href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtualnetwork/privateendpoints
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

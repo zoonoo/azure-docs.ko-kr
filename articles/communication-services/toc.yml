@@ -1,211 +1,216 @@
-- name: Azure Communication Services 설명서
-  href: index.yml
-- name: 개요
-  expanded: true
-  items:
-    - name: Azure Communication Services란?
-      href: overview.md
-    - name: 지원 및 도움말 옵션
-      href: support.md
-- name: 빠른 시작
-  expanded: true
-  items:
-    - name: Communication Services 리소스 만들기
-      href: quickstarts/create-communication-resource.md
-    - name: 액세스 토큰 만들기 및 관리
-      href: quickstarts/access-tokens.md
-    - name: 관리 ID 사용
-      href: quickstarts/managed-identity.md
-    - name: CLI에서 관리 ID 설정
-      href: quickstarts/managed-identity-from-cli.md
-    - name: 채팅
-      items:
-        - name: 앱에 채팅 추가
-          href: quickstarts/chat/get-started.md
-        - name: 채팅 앱으로 Teams 미팅에 참가
-          href: quickstarts/chat/meeting-interop.md
-    - name: 전화 통신 및 SMS
-      items:
-        - name: 전화 번호 가져오기
-          href: quickstarts/telephony-sms/get-phone-number.md
-        - name: Azure로 전화 번호 이식
-          href: quickstarts/telephony-sms/port-phone-number.md
-        - name: 앱에 전화 통화 추가
-          href: quickstarts/voice-video-calling/pstn-call.md
-        - name: SMS 메시지 보내기
-          href: quickstarts/telephony-sms/send.md
-        - name: SMS 이벤트 처리
-          href: quickstarts/telephony-sms/handle-sms-events.md
-        - name: Azure Logic Apps에서 SMS 보내기
-          href: quickstarts/telephony-sms/logic-app.md
-    - name: 음성 및 비디오 통화
-      items:
-        - name: 앱에 음성 통화 추가
-          href: quickstarts/voice-video-calling/getting-started-with-calling.md
-        - name: 앱에 화상 통화 추가
-          href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-        - name: 통화 SDK 사용
-          href: quickstarts/voice-video-calling/calling-client-samples.md
-        - name: 통화 앱으로 Teams 미팅 참가
-          href: quickstarts/voice-video-calling/get-started-teams-interop.md
-    - name: UI 라이브러리
-      items:
-        - name: 구성 요소 시작
-          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-composites--page'
-        - name: 상태 저장 클라이언트 시작
-          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-stateful-client--page'
-        - name: UI 구성 요소 시작
-          href: 'https://azure.github.io/communication-ui-sdk/?path=/story/quickstarts-get-started-with-ui-components--page'
-- name: 자습서
-  expanded: false
-  items:
-    - name: Azure Functions를 사용하여 신뢰할 수 있는 인증 서비스 빌드
-      href: tutorials/trusted-service-tutorial.md
-    - name: C#을 사용하여 HMAC 서명으로 HTTP 요청에 서명
-      href: tutorials/hmac-header-tutorial.md
-    - name: 통신 서비스용 웹앱 준비(Node.js)
-      href: tutorials/building-app-start.md
-    - name: Postman을 사용하여 ACS의 SMS API에 서명 및 요청 만들기
-      href: tutorials/postman-tutorial.md
-- name: 개념
-  expanded: false
-  items:
-    - name: 채팅
-      items:
-        - name: 채팅 SDK 개요
-          href: concepts/chat/sdk-features.md
-        - name: 채팅 개념
-          href: concepts/chat/concepts.md
-    - name: 전화 통신 및 SMS
-      items:
-        - name: SMS SDK 개요
-          href: concepts/telephony-sms/sdk-features.md
-        - name: SMS 개념
-          href: concepts/telephony-sms/concepts.md
-        - name: 전화 통신 개념
-          href: concepts/telephony-sms/telephony-concept.md
-        - name: 전화 번호 유형
-          href: concepts/telephony-sms/plan-solution.md
-        - name: Azure 직접 라우팅 인프라 요구 사항
-          href: concepts/telephony-sms/sip-interface-infrastructure.md
-        - name: SMS FAQ
-          href: concepts/telephony-sms/sms-faq.md
-        - name: 메시징 정책
-          href: concepts/telephony-sms/messaging-policy.md
-    - name: 음성 및 비디오 통화
-      items:
-        - name: 알려진 문제
-          href: concepts/known-issues.md
-        - name: 통화 SDK 개요
-          href: concepts/voice-video-calling/calling-sdk-features.md
-        - name: 음성 및 비디오 개념
-          href: concepts/voice-video-calling/about-call-types.md
-        - name: 네트워크 요구 사항
-          href: concepts/voice-video-calling/network-requirements.md
-        - name: 호출 흐름
-          href: concepts/call-flows.md
-        - name: 호출 흐름 토폴로지
-          href: concepts/detailed-call-flows.md
-    - name: UI 라이브러리
-      items:
-        - name: UI 라이브러리 개요
-          href: concepts/ui-library/ui-library-overview.md
-        - name: UI 라이브러리 사용 사례
-          href: concepts/ui-library/ui-library-use-cases.md
-    - name: SDK 및 REST API
-      href: concepts/sdk-options.md
-    - name: 클라이언트 및 서버 아키텍처
-      href: concepts/client-and-server-architecture.md
-    - name: ID 모델
-      href: concepts/identity-model.md
-    - name: 인증
-      href: concepts/authentication.md
-    - name: 개인 정보 취급 방침
-      href: concepts/privacy.md
-    - name: 가격 책정
-      href: concepts/pricing.md
-    - name: 푸시 알림
-      href: concepts/notifications.md
-    - name: Teams 상호 운용성
-      href: concepts/teams-interop.md
-    - name: 서비스 이벤트(EventGrid)
-      href: ../event-grid/event-schema-communication-services.md
-      maintainContext: true
-    - name: 로깅 및 진단
-      href: concepts/logging-and-diagnostics.md
-    - name: 메트릭
-      href: concepts/metrics.md
-    - name: 문제 해결
-      href: concepts/troubleshooting-info.md
-- name: 샘플
-  items:
-    - name: 개요
-      href: samples/overview.md
-    - name: 그룹 통화 주인공 샘플
-      href: samples/calling-hero-sample.md
-    - name: 채팅 주인공 샘플
-      href: samples/chat-hero-sample.md
-    - name: 웹 통화 샘플
-      href: samples/web-calling-sample.md
-- name: 참조
-  items:
-    - name: 참조 설명서 개요
-      href: concepts/reference.md
-    - name: Azure CLI
-      href: /cli/azure/communication
-    - name: REST API 설명서
-      href: /rest/api/communication/
-    - name: 호출 라이브러리
-      items:
-        - name: 호출(JavaScript)
-          href: /javascript/api/azure-communication-services/@azure/communication-calling/
-        - name: 호출(Android/Java)
-          href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
-        - name: 호출(iOS)
-          href: /objectivec/communication-services/calling/
-    - name: 채팅 라이브러리
-      items:
-        - name: 채팅(JavaScript)
-          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat'
-        - name: 채팅(.NET)
-          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
-        - name: 채팅(Android/Java)
-          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
-        - name: 채팅(Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat'
-        - name: Chat(iOS)
-          href: 'https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html'
-    - name: SMS 라이브러리
-      items:
-        - name: SMS(JavaScript)
-          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms'
-        - name: SMS(.NET)
-          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
-        - name: SMS(Android/Java)
-          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
-        - name: SMS(Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms'
-    - name: ID 라이브러리
-      items:
-        - name: ID(JavaScript)
-          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity'
-        - name: ID(.NET)
-          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity'
-        - name: ID(Android/Java)
-          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity'
-        - name: ID(Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity'
-    - name: 일반 라이브러리
-      items:
-        - name: 일반(JavaScript)
-          href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common'
-        - name: 일반(.NET)
-          href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
-        - name: 일반(Android-Java)
-          href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
-        - name: 일반(Python)
-          href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common'
-- name: 리소스
-  items:
-    - name: 릴리스 정보
-      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'
+items:
+  - name: Azure Communication Services 설명서
+    href: index.yml
+  - name: 개요
+    expanded: true
+    items:
+      - name: Azure Communication Services란?
+        href: overview.md
+      - name: 지원 및 도움말 옵션
+        href: support.md
+  - name: 빠른 시작
+    expanded: true
+    items:
+      - name: Communication Services 리소스 만들기
+        href: quickstarts/create-communication-resource.md
+      - name: 액세스 토큰 만들기 및 관리
+        href: quickstarts/access-tokens.md
+      - name: 관리 ID 사용
+        href: quickstarts/managed-identity.md
+      - name: CLI에서 관리 ID 설정
+        href: quickstarts/managed-identity-from-cli.md
+      - name: Application Insights로 SDK 원격 분석 데이터 내보내기
+        href: quickstarts/telemetry-application-insights.md
+      - name: 릴레이 토큰 가져오기
+        href: quickstarts/relay-token.md
+      - name: 채팅
+        items:
+          - name: 앱에 채팅 추가
+            href: quickstarts/chat/get-started.md
+          - name: 채팅 앱으로 Teams 미팅에 참가
+            href: quickstarts/chat/meeting-interop.md
+      - name: 전화 통신 및 SMS
+        items:
+          - name: 전화 번호 가져오기
+            href: quickstarts/telephony-sms/get-phone-number.md
+          - name: Azure로 전화 번호 이식
+            href: quickstarts/telephony-sms/port-phone-number.md
+          - name: 앱에 전화 통화 추가
+            href: quickstarts/voice-video-calling/pstn-call.md
+          - name: SMS 메시지 보내기
+            href: quickstarts/telephony-sms/send.md
+          - name: SMS 이벤트 처리
+            href: quickstarts/telephony-sms/handle-sms-events.md
+          - name: Azure Logic Apps에서 SMS 보내기
+            href: quickstarts/telephony-sms/logic-app.md
+      - name: 음성 및 비디오 통화
+        items:
+          - name: 앱에 음성 통화 추가
+            href: quickstarts/voice-video-calling/getting-started-with-calling.md
+          - name: 앱에 화상 통화 추가
+            href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+          - name: 통화 SDK 사용
+            href: quickstarts/voice-video-calling/calling-client-samples.md
+          - name: 통화 앱으로 Teams 미팅 참가
+            href: quickstarts/voice-video-calling/get-started-teams-interop.md
+      - name: UI 라이브러리
+        items:
+          - name: 구성 요소 시작
+            href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page'
+          - name: 상태 저장 클라이언트 시작
+            href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
+          - name: UI 구성 요소 시작
+            href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
+  - name: 자습서
+    expanded: false
+    items:
+      - name: Azure Functions를 사용하여 신뢰할 수 있는 인증 서비스 빌드
+        href: tutorials/trusted-service-tutorial.md
+      - name: C#을 사용하여 HMAC 서명으로 HTTP 요청에 서명
+        href: tutorials/hmac-header-tutorial.md
+      - name: 통신 서비스용 웹앱 준비(Node.js)
+        href: tutorials/building-app-start.md
+      - name: Postman을 사용하여 ACS의 SMS API에 서명 및 요청 만들기
+        href: tutorials/postman-tutorial.md
+  - name: 개념
+    expanded: false
+    items:
+      - name: 채팅
+        items:
+          - name: 채팅 SDK 개요
+            href: concepts/chat/sdk-features.md
+          - name: 채팅 개념
+            href: concepts/chat/concepts.md
+      - name: 전화 통신 및 SMS
+        items:
+          - name: SMS SDK 개요
+            href: concepts/telephony-sms/sdk-features.md
+          - name: SMS 개념
+            href: concepts/telephony-sms/concepts.md
+          - name: 전화 통신 개념
+            href: concepts/telephony-sms/telephony-concept.md
+          - name: 전화 번호 유형
+            href: concepts/telephony-sms/plan-solution.md
+          - name: Azure 직접 라우팅 인프라 요구 사항
+            href: concepts/telephony-sms/sip-interface-infrastructure.md
+          - name: SMS FAQ
+            href: concepts/telephony-sms/sms-faq.md
+          - name: 메시징 정책
+            href: concepts/telephony-sms/messaging-policy.md
+      - name: 음성 및 비디오 통화
+        items:
+          - name: 통화 SDK 개요
+            href: concepts/voice-video-calling/calling-sdk-features.md
+          - name: 음성 및 비디오 개념
+            href: concepts/voice-video-calling/about-call-types.md
+          - name: 네트워크 요구 사항
+            href: concepts/voice-video-calling/network-requirements.md
+          - name: 호출 흐름
+            href: concepts/call-flows.md
+          - name: 호출 흐름 토폴로지
+            href: concepts/detailed-call-flows.md
+          - name: 알려진 문제
+            href: concepts/known-issues.md
+      - name: UI 라이브러리
+        items:
+          - name: UI 라이브러리 개요
+            href: concepts/ui-library/ui-library-overview.md
+          - name: UI 라이브러리 사용 사례
+            href: concepts/ui-library/ui-library-use-cases.md
+      - name: SDK 및 REST API
+        href: concepts/sdk-options.md
+      - name: 클라이언트 및 서버 아키텍처
+        href: concepts/client-and-server-architecture.md
+      - name: ID 모델
+        href: concepts/identity-model.md
+      - name: 인증
+        href: concepts/authentication.md
+      - name: 개인 정보 취급 방침
+        href: concepts/privacy.md
+      - name: 가격 책정
+        href: concepts/pricing.md
+      - name: 푸시 알림
+        href: concepts/notifications.md
+      - name: Teams 상호 운용성
+        href: concepts/teams-interop.md
+      - name: 서비스 이벤트(EventGrid)
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: 로깅 및 진단
+        href: concepts/logging-and-diagnostics.md
+      - name: 메트릭
+        href: concepts/metrics.md
+      - name: 문제 해결
+        href: concepts/troubleshooting-info.md
+  - name: 샘플
+    items:
+      - name: 개요
+        href: samples/overview.md
+      - name: 그룹 통화 주인공 샘플
+        href: samples/calling-hero-sample.md
+      - name: 채팅 주인공 샘플
+        href: samples/chat-hero-sample.md
+      - name: 웹 통화 샘플
+        href: samples/web-calling-sample.md
+  - name: 참조
+    items:
+      - name: 참조 설명서 개요
+        href: concepts/reference.md
+      - name: Azure CLI
+        href: /cli/azure/communication
+      - name: REST API 설명서
+        href: /rest/api/communication/
+      - name: 호출 라이브러리
+        items:
+          - name: 호출(JavaScript)
+            href: /javascript/api/azure-communication-services/@azure/communication-calling/
+          - name: 호출(Android/Java)
+            href: /java/api/com.azure.android.communication.calling?view=communication-services-java-android
+          - name: 호출(iOS)
+            href: /objectivec/communication-services/calling/
+      - name: 채팅 라이브러리
+        items:
+          - name: 채팅(JavaScript)
+            href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-chat'
+          - name: 채팅(.NET)
+            href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationchat'
+          - name: 채팅(Android/Java)
+            href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-chat'
+          - name: 채팅(Python)
+            href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-chat'
+          - name: Chat(iOS)
+            href: 'https://azure.github.io/azure-sdk-for-ios/AzureCommunicationChat/index.html'
+      - name: SMS 라이브러리
+        items:
+          - name: SMS(JavaScript)
+            href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-sms'
+          - name: SMS(.NET)
+            href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationsms'
+          - name: SMS(Android/Java)
+            href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-sms'
+          - name: SMS(Python)
+            href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-sms'
+      - name: ID 라이브러리
+        items:
+          - name: ID(JavaScript)
+            href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-identity'
+          - name: ID(.NET)
+            href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationidentity'
+          - name: ID(Android/Java)
+            href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-identity'
+          - name: ID(Python)
+            href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-identity'
+      - name: 일반 라이브러리
+        items:
+          - name: 일반(JavaScript)
+            href: 'https://azure.github.io/azure-sdk-for-js/communication.html#azure-communication-common'
+          - name: 일반(.NET)
+            href: 'https://azure.github.io/azure-sdk-for-net/communication.html#azurecommunicationcommon'
+          - name: 일반(Android-Java)
+            href: 'https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common'
+          - name: 일반(Python)
+            href: 'https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common'
+  - name: 리소스
+    items:
+      - name: 릴리스 정보
+        href: 'https://github.com/Azure/Communication/blob/master/releasenotes'

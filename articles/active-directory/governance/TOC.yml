@@ -106,6 +106,8 @@
       items:
         - name: 액세스 검토 배포 계획
           href: deploy-access-reviews.md
+        - name: 액세스 검토 기록 보고서 만들기
+          href: access-reviews-downloadable-review-history.md
         - name: 액세스 패키지
           items:
             - name: 액세스 검토 만들기
@@ -144,6 +146,6 @@
   expanded: true
   items:
     - name: 액세스 검토 - Graph API
-      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true
+      href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
     - name: 권한 관리 - Graph API
-      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true
+      href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta

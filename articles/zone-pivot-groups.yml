@@ -392,10 +392,10 @@ groups:
   pivots:
   - id: development-environment-vscode
     title: Visual Studio Code
-  - id: development-environment-cli
-    title: 명령 줄
   - id: development-environment-vs
     title: Visual Studio
+  - id: development-environment-cli
+    title: 명령 줄
 - id: bring-third-party-dependency-programming-functions
   title: 프로그래밍 언어
   prompt: 프로그래밍 언어 선택
@@ -1200,10 +1200,54 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+- id: facility-ontology-schema
+  title: Creator Facility Ontology
+  prompt: Facility Ontology 버전 선택
+  pivots:
+  - id: facility-ontology-v1
+    title: Facility Ontology 1.0
+  - id: facility-ontology-v2
+    title: Facility Ontology 2.0
+- id: how-to-troubleshoot-monitoring-and-faq-zpg
+  title: IoT Edge용 Azure Monitor FAQ
+  prompt: 항목 선택
+  pivots:
+  - id: metrics-collection
+    title: 메트릭 컬렉션
+  - id: custom-metrics
+    title: 사용자 지정 메트릭
+  - id: alerts
+    title: 경고
+  - id: workbooks
+    title: 통합 문서
+- id: identity-mi-methods
+  title: 관리 ID 메서드
+  prompt: 옵션 선택
+  pivots:
+  - id: identity-mi-methods-azp
+    title: Azure portal
+  - id: identity-mi-methods-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-powershell
+    title: PowerShell
+  - id: identity-mi-methods-arm
+    title: 리소스 관리자
+  - id: identity-mi-methods-rest
+    title: REST (영문)
+- id: identity-mi-method-sub
+  title: 관리 ID 메서드 하위 집합
+  prompt: 옵션 선택
+  pivots:
+  - id: identity-mi-methods-sub-azp
+    title: Azure portal
+  - id: identity-mi-methods-sub-azcli
+    title: Azure CLI
+  - id: identity-mi-methods-sub-powershell
+    title: PowerShell
 metadata:
-  ms.openlocfilehash: adcb769a1cf52dc86ee60349463caa078fb31a4b
-  ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+  ms.openlocfilehash: 0a7eb15f89dccdc97443a2c14107aa7bdb6fdba4
+  ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/25/2021
-  ms.locfileid: "110373530"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111902234"

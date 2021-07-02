@@ -4,14 +4,10 @@
   items:
     - name: ARM 템플릿이란?
       href: overview.md
-    - name: Bicep 개요
-      href: bicep-overview.md
 - name: 빠른 시작
   items:
     - name: JSON 템플릿 만들기 - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Bicep 템플릿 만들기 - VS Code
-      href: quickstart-create-bicep-use-visual-studio-code.md
     - name: JSON 템플릿 만들기 - 포털
       href: quickstart-create-templates-use-the-portal.md
     - name: 템플릿 사양 만들기
@@ -40,38 +36,6 @@
           href: template-tutorial-add-tags.md
         - name: 10 - 매개 변수 파일 사용
           href: template-tutorial-use-parameter-file.md
-    - name: 초급 Bicep
-      items:
-        - name: 1 - 첫 번째 템플릿 만들기
-          displayName: Bicep
-          href: bicep-tutorial-create-first-bicep.md
-        - name: 2 - 매개 변수 추가
-          displayName: Bicep
-          href: bicep-tutorial-add-parameters.md
-        - name: 3 - 템플릿 함수 추가
-          displayName: Bicep
-          href: bicep-tutorial-add-functions.md
-        - name: 4 - 변수 추가
-          displayName: Bicep
-          href: bicep-tutorial-add-variables.md
-        - name: 5 - 출력 추가
-          displayName: Bicep
-          href: bicep-tutorial-add-outputs.md
-        - name: 6 - 내보낸 템플릿 사용
-          displayName: Bicep
-          href: bicep-tutorial-export-template.md
-        - name: 7 - 빠른 시작 템플릿 사용
-          displayName: Bicep
-          href: bicep-tutorial-quickstart-template.md
-        - name: 8 - 태그 추가
-          displayName: Bicep
-          href: bicep-tutorial-add-tags.md
-        - name: 9 - 매개 변수 파일 사용
-          displayName: Bicep
-          href: bicep-tutorial-use-parameter-file.md
-        - name: 10 - 모듈 추가
-          displayName: Bicep
-          href: bicep-tutorial-add-modules.md
     - name: 배포
       items:
         - name: 1 - 로컬 템플릿 배포
@@ -325,45 +289,34 @@
 - name: 개념
   items:
     - name: 템플릿 모범 사례
-      href: template-best-practices.md
-    - name: Bicep
-      items:
-        - name: Bicep 설치
-          href: bicep-install.md
-        - name: JSON과 Bicep 간 변환
-          href: bicep-decompile.md
-        - name: JSON 및 Bicep 비교
-          href: compare-template-syntax.md
+      href: best-practices.md
     - name: 데이터 형식
       href: data-types.md
     - name: 질문과 대답
       href: frequently-asked-questions.md
     - name: 클라우드 일관성을 위한 템플릿
-      href: templates-cloud-consistency.md
+      href: template-cloud-consistency.md
     - name: 배포 모드
       href: deployment-modes.md
     - name: 배포 기록 삭제
       href: deployment-history-deletions.md
-    - name: 전체 모드 삭제
-      href: complete-mode-deletion.md
+    - name: 배포 완료 모드 삭제
+      href: deployment-complete-mode-deletion.md
 - name: 방법
   items:
     - name: 템플릿 만들기
       items:
         - name: JSON 구조
           displayName: 'parameters,variables,resources,outputs,condition'
-          href: template-syntax.md
-        - name: Bicep 구조
-          displayName: 'parameters,variables,resources,outputs,condition'
-          href: bicep-file.md
+          href: syntax.md
         - name: 템플릿 식 작성
           href: template-expressions.md
         - name: 매개 변수
-          href: template-parameters.md
-        - name: 변수
-          href: template-variables.md
+          href: parameters.md
+        - name: variables
+          href: variables.md
         - name: 사용자 정의 함수
-          href: template-user-defined-functions.md
+          href: user-defined-functions.md
         - name: 리소스
           items:
             - name: 리소스 선언
@@ -373,13 +326,13 @@
             - name: 조건부 배포
               href: conditional-resource-deployment.md
             - name: 리소스 종속성 설정
-              href: define-resource-dependency.md
+              href: resource-dependency.md
             - name: 리소스 위치 설정
               href: resource-location.md
             - name: 템플릿 확장 사용
-              href: add-resource-extensions.md
+              href: resource-extensions.md
         - name: outputs
-          href: template-outputs.md
+          href: outputs.md
         - name: 배포 스크립트
           displayName: custom script
           href: deployment-script-template.md
@@ -390,8 +343,6 @@
             - name: 템플릿 모듈화
               displayName: 'linked templates, nested templates'
               href: linked-templates.md
-            - name: Bicep 모듈
-              href: bicep-modules.md
         - name: 여러 인스턴스 만들기
           items:
             - name: 리소스
@@ -441,7 +392,7 @@
             - name: 여러 범위에 걸친 함수
               href: scope-functions.md
         - name: 가상 배포
-          href: template-deploy-what-if.md
+          href: deploy-what-if.md
         - name: 오류 발생 시 다시 배포
           displayName: rollback
           href: rollback-on-error.md
@@ -467,7 +418,7 @@
         - name: 템플릿 사양 만들기 및 배포
           href: template-specs.md
         - name: 포털 템플릿 갤러리 변환
-          href: convert-to-template-spec.md
+          href: template-spec-convert.md
     - name: CI/CD
       items:
         - name: 파이프라인을 사용하는 ARM 템플릿
@@ -530,8 +481,6 @@
       items:
         - name: 모든 함수
           href: template-functions.md
-        - name: 모든 함수(Bicep)
-          href: template-functions-any.md
         - name: 배열 함수
           href: template-functions-array.md
         - name: 비교 함수
@@ -550,17 +499,7 @@
           href: template-functions-resource.md
         - name: 문자열 함수
           href: template-functions-string.md
-    - name: Bicep 연산자
-      items:
-        - name: 모든 연산자
-          href: bicep-operators.md
-        - name: 비교 연산자
-          href: bicep-operators-comparison.md
-        - name: 논리 연산자
-          href: bicep-operators-logical.md
-        - name: 숫자 연산자
-          href: bicep-operators-numeric.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/resources/
     - name: Azure PowerShell
       href: /powershell/module/az.resources
