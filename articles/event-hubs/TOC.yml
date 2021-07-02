@@ -151,6 +151,8 @@
       items:
         - name: Event Hubs 연결 문자열 가져오기
           href: event-hubs-get-connection-string.md
+        - name: 프리미엄 네임스페이스에 대한 처리 단위 구성
+          href: configure-processing-units-premium-namespace.md
         - name: 이벤트에 사용자 지정 데이터 추가
           href: add-custom-data-event.md
         - name: 스키마 레지스트리 만들기
@@ -211,8 +213,8 @@
           href: apache-kafka-frequently-asked-questions.yml
     - name: 관리 및 모니터링
       items:
-        - name: Azure Monitoring을 사용하여 Event Hubs 모니터링
-          href: event-hubs-metrics-azure-monitor.md
+        - name: Azure Event Hubs 모니터링
+          href: monitor-event-hubs.md
         - name: 진단 로그 설정
           href: event-hubs-diagnostic-logs.md
         - name: Event Hubs를 사용하여 Azure Diagnostics 데이터 스트리밍
@@ -253,6 +255,8 @@
           href: move-cluster-across-regions.md
 - name: 참조
   items:
+    - name: 데이터 참조 모니터링
+      href: monitor-event-hubs-reference.md
     - name: SDK
       href: sdks.md
     - name: .NET

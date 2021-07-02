@@ -18,6 +18,8 @@
       href: customize-application-attributes.md
     - name: 앱별 프로비저닝 자습서
       href: /azure/active-directory/saas-apps
+    - name: Azure AD ECMA 커넥터 호스트 일반 SQL 커넥터
+      href: tutorial-ecma-sql-connector.md
 - name: 개념
   expanded: true
   items:
@@ -29,6 +31,10 @@
       href: plan-cloud-hr-provision.md
     - name: Azure Monitor를 사용한 로깅 이해
       href: application-provisioning-log-analytics.md
+    - name: 온-프레미스 애플리케이션 프로비전 아키텍처
+      href: on-premises-application-provisioning-architecture.md
+    - name: 식 작성기 이해
+      href: expression-builder.md
 - name: 방법 가이드
   expanded: true
   items:
@@ -53,7 +59,7 @@
         - name: 보고서 프로비저닝
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: MS Graph를 사용하여 구성 자동화
-      href: /graph/application-provisioning-configure-api
+      href: application-provisioning-configuration-api.md
     - name: 애플리케이션 프로비저닝 문제 해결
       items:
         - name: 알려진 문제
@@ -66,8 +72,24 @@
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: 원본 특성 누락
           href: user-provisioning-sync-attributes-for-mapping.md
+        - name: ECMA 커넥터 호스트 문제 해결
+          href: on-premises-ecma-troubleshoot.md
         - name: 프로비저닝 로그
           href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
+    - name: 온-프레미스 앱 프로비전
+      items:
+        - name: ECMA 커넥터 호스트 필수 구성 요소
+          href: on-premises-ecma-prerequisites.md
+        - name: ECMA 커넥터 호스트 설치
+          href: on-premises-ecma-install.md
+        - name: ECMA 커넥터 호스트 구성
+          href: on-premises-ecma-configure.md
+        - name: 일반 SQL 커넥터 구성
+          href: on-premises-sql-connector-configure.md
+        - name: SCIM 지원 앱에 대한 온-프레미스 애플리케이션 프로비전
+          href: on-premises-scim-provisioning.md
+        - name: MIM 동기화에서 커넥터 마이그레이션
+          href: on-premises-migrate-microsoft-identity-manager.md
 - name: 참조
   items:
     - name: SCIM 2.0 프로토콜 규정 준수

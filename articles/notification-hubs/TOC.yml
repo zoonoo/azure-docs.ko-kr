@@ -86,6 +86,8 @@
       href: samples.md
     - name: PowerShell
       href: samples-powershell.md
+    - name: UWP React Native 샘플 개요
+      href: uwp-react.md
 - name: 개념
   items:
     - name: TLS(전송 계층 보안)
@@ -161,14 +163,14 @@
       href: /cli/azure/notification-hub
     - name: PowerShell
       href: /powershell/module/az.notificationhubs
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/notificationhubs/
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.notificationhubs/allversions
 - name: 리소스
   items:
     - name: FAQ
-      href: notification-hubs-push-notification-faq.md
+      href: notification-hubs-push-notification-faq.yml
     - name: Google GCM에서 FCM으로 마이그레이션
       href: notification-hubs-gcm-to-fcm.md
     - name: SDK

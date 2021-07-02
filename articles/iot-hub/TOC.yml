@@ -37,22 +37,6 @@
           href: quickstart-control-device-python.md
         - name: Android
           href: quickstart-control-device-android.md
-    - name: 디바이스 스트림을 사용한 통신(미리 보기)
-      items:
-        - name: .NET
-          href: quickstart-device-streams-echo-csharp.md
-        - name: Node.js
-          href: quickstart-device-streams-echo-nodejs.md
-        - name: C
-          href: quickstart-device-streams-echo-c.md
-    - name: 디바이스 스트림을 사용한 SSH/RDP(미리 보기)
-      items:
-        - name: .NET
-          href: quickstart-device-streams-proxy-csharp.md
-        - name: Node.js
-          href: quickstart-device-streams-proxy-nodejs.md
-        - name: C
-          href: quickstart-device-streams-proxy-c.md
     - name: ARM 템플릿을 사용하여 메시지 자동 라우팅
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
@@ -128,8 +112,6 @@
       href: iot-hub-event-grid-routing-comparison.md
     - name: 디바이스 구성 모범 사례
       href: iot-hub-configuration-best-practices.md
-    - name: Azure IoT SDK 플랫폼 지원
-      href: iot-hub-device-sdk-platform-support.md
     - name: IoT Hub 디바이스 스트림 개요(미리 보기)
       href: iot-hub-device-streams-overview.md
     - name: 개발자 가이드
@@ -187,8 +169,16 @@
           href: iot-hub-devguide-quotas-throttling.md
         - name: 가격 책정 예제
           href: iot-hub-devguide-pricing.md
-        - name: 디바이스 및 서비스 SDK
-          href: iot-hub-devguide-sdks.md
+        - name: IoT Hub SDK
+          items:
+            - name: SDK 개요
+              href: iot-hub-devguide-sdks.md
+            - name: SDK 플랫폼 지원
+              href: iot-hub-device-sdk-platform-support.md
+            - name: SDK 없이 개발
+              href: iot-hub-devguide-no-sdk.md
+            - name: 연결 및 신뢰할 수 있는 메시징 관리
+              href: iot-hub-reliability-features-in-sdks.md
         - name: MQTT 지원
           href: iot-hub-mqtt-support.md
         - name: MQTT 5 지원(미리 보기)
@@ -227,10 +217,7 @@
     - name: 개발
       items:
         - name: 디바이스 및 서비스 SDK 사용
-          href: iot-hub-devguide-sdks.md
           items:
-            - name: Azure IoT SDK 플랫폼 지원
-              href: iot-hub-device-sdk-platform-support.md
             - name: C용 IoT 디바이스 SDK 사용
               href: iot-hub-device-sdk-c-intro.md
               items:
@@ -244,12 +231,8 @@
               href: iot-hub-devguide-develop-for-constrained-devices.md
             - name: 모바일 디바이스에 대한 개발
               href: iot-hub-how-to-develop-for-mobile-devices.md
-            - name: 연결 및 신뢰할 수 있는 메시징 관리
-              href: iot-hub-reliability-features-in-sdks.md
             - name: Android 작업 플랫폼용 개발
               href: iot-hub-how-to-android-things.md
-        - name: Azure IoT SDK 없이 개발
-          href: iot-hub-devguide-no-sdk.md
         - name: 허브 경로에서 Avro 데이터 쿼리
           href: iot-hub-query-avro-data.md
         - name: 클라우드-디바이스 메시지 보내기
@@ -542,7 +525,7 @@
         - name: IoT 서비스 SDK
           href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: IoT 디바이스 SDK
-          href: ./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
+          href: ../iot-develop/about-iot-sdks.md
     - name: Azure IoT 샘플
       items:
         - name: C#(.NET)

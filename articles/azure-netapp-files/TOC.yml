@@ -33,8 +33,14 @@
           href: performance-impact-kerberos.md
         - name: Azure NetApp Files 단일 볼륨의 Oracle 데이터베이스 성능
           href: performance-oracle-single-volumes.md
-        - name: SMB 성능에 대한 FAQ
-          href: azure-netapp-files-smb-performance.md
+        - name: Azure NetApp Files의 성능 참조
+          items:
+            - name: Linux NFS 탑재 옵션 모범 사례
+              href: performance-linux-mount-options.md
+            - name: Linux 동시성 모범 사례
+              href: performance-linux-concurrency-session-slots.md
+            - name: SMB 성능 모범 사례
+              href: azure-netapp-files-smb-performance.md
     - name: Azure NetApp Files 비용 모델
       href: azure-netapp-files-cost-model.md
     - name: 볼륨 할당량 이해
@@ -69,6 +75,8 @@
       href: azure-netapp-files-faqs.md
     - name: Azure Application Consistent Snapshot Tool이란?
       href: azacsnap-introduction.md
+    - name: 스토리지 서비스 추가 기능
+      href: storage-service-add-ons.md
     - name: 볼륨 하드 할당량 변경의 의미
       href: volume-hard-quota-guidelines.md
 - name: 방법 가이드
