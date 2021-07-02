@@ -305,6 +305,8 @@
   items:
     - name: GitHub - Azure Policy 샘플
       href: 'https://github.com/Azure/azure-policy'
+    - name: 엔터프라이즈 규모 - 참조 구현
+      href: 'https://github.com/Azure/Enterprise-Scale#enterprise-scale---reference-implementation'
     - name: 커뮤니티 도구
       items:
         - name: GitHub - 커뮤니티 정책 리포지토리

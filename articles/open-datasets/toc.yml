@@ -16,6 +16,104 @@
   items:
     - name: Azure Machine Learning의 데이터 세트
       href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
+- name: 데이터 세트
+  items:
+    - name: 데이터 세트 카탈로그
+      href: dataset-catalog.md
+    - name: 운송
+      items:
+        - name: Tartanair AirSim
+          href: dataset-tartanair-simulation.md
+        - name: NYC Taxi - 노란색
+          href: dataset-taxi-yellow.md
+        - name: NYC Taxi - 녹색
+          href: dataset-taxi-green.md
+        - name: NYC Taxi - 렌터카용
+          href: dataset-taxi-for-hire-vehicle.md
+    - name: 상태 및 유전체학
+      items:
+        - name: 코로나19 데이터 레이크
+          items:
+            - name: 코로나19 데이터 레이크
+              href: dataset-covid-19-data-lake.md
+            - name: Bing 코로나19 데이터
+              href: dataset-bing-covid-19.md
+            - name: 코로나 추적 프로젝트
+              href: dataset-covid-tracking.md
+            - name: ECDC 코로나19 사례
+              href: dataset-ecdc-covid-cases.md
+            - name: Oxford COVID-19 Government Response Tracker
+              href: dataset-oxford-covid-government-response-tracker.md
+        - name: 코로나19 공개 연구
+          href: dataset-covid-19-open-research.md
+        - name: Genomics 데이터 레이크
+          items:
+            - name: Genomics 데이터 레이크
+              href: dataset-genomics-data-lake.md
+            - name: Illumina Platinum Genomes
+              href: dataset-illumina-platinum-genomes.md
+            - name: Human Reference Genomes
+              href: dataset-human-reference-genomes.md
+            - name: ClinVar Annotations
+              href: dataset-clinvar-annotations.md
+            - name: SnpEff
+              href: dataset-snpeff.md
+            - name: gnomAD
+              href: dataset-gnomad.md
+            - name: 1000 Genomes
+              href: dataset-1000-genomes.md
+            - name: OpenCravat
+              href: dataset-open-cravat.md
+            - name: ENCODE
+              href: dataset-encode.md
+            - name: GATK 리소스 번들
+              href: dataset-gatk-resource-bundle.md
+    - name: 노동 및 경제
+      items:
+        - name: 미국 노동력 통계
+          href: dataset-us-labor-force.md
+        - name: 미국 국가 고용 시간 및 소득
+          href: dataset-us-national-employment-earnings.md
+        - name: 미국 주 고용 시간 및 소득
+          href: dataset-us-state-employment-earnings.md
+        - name: 미국 지역 실업 통계
+          href: dataset-us-local-unemployment.md
+        - name: 미국 소비자 물가 지수
+          href: dataset-us-consumer-price-index.md
+        - name: 미국 생산자 물가 지수 - 산업
+          href: dataset-us-producer-price-index-industry.md
+        - name: 미국 생산자 물가 지수 - 상품
+          href: dataset-us-producer-price-index-commodities.md
+    - name: 인구 및 안전
+      items:
+        - name: 자치주별 미국 인구
+          href: dataset-us-population-county.md
+        - name: 미국 우편 번호별 미국 인구
+          href: dataset-us-population-zip.md
+        - name: 보스턴 안전 데이터
+          href: dataset-boston-safety.md
+        - name: 시카고 안전 데이터
+          href: dataset-chicago-safety.md
+        - name: 뉴욕시 안전 데이터
+          href: dataset-new-york-city-safety.md
+        - name: 샌프란시스코 안전 데이터
+          href: dataset-san-francisco-safety.md
+        - name: 시애틀 안전 데이터
+          href: dataset-seattle-safety.md
+    - name: 일반 데이터 세트
+      items:
+        - name: 당뇨병
+          href: dataset-diabetes.md
+        - name: OJ 판매 시뮬레이션 데이터
+          href: dataset-oj-sales-simulated.md
+        - name: MNIST
+          href: dataset-mnist.md
+        - name: Microsoft 뉴스 권장 데이터 세트
+          href: dataset-microsoft-news.md
+        - name: 공휴일
+          href: dataset-public-holidays.md
+        - name: 러시아어 음성 텍스트로 열기
+          href: dataset-open-speech-text.md
 - name: 샘플
   displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples.md
