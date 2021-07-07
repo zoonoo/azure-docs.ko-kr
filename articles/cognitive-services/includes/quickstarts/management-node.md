@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 41f6c8e260968eacd04249b3f887d4865907df0d
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 2fd0ce34d79ac168acc87ae5b425527c256816de
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879629"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111593692"
 ---
 [참조 설명서](/javascript/api/@azure/arm-cognitiveservices/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices) | [패키지(NPM)](https://www.npmjs.com/package/@azure/arm-cognitiveservices) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/arm-cognitiveservices#sample-code)
 
@@ -21,6 +21,7 @@ ms.locfileid: "104879629"
 
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * 현재 버전의 [Node.js](https://nodejs.org/)
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -101,6 +102,8 @@ _index.js_ 스크립트를 열고 다음 라이브러리를 가져옵니다.
 다음 함수는 지정된 리소스 그룹에서 지정된 리소스를 삭제합니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/azure_management_service/create_delete_resource.js?name=snippet_delete)]
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](../../manage-resources.md)를 참조하세요.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bc40b149da61936240562d13f8556e4bf0ce8890
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92674965"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460209"
 ---
 # <a name="azure-for-students-starter"></a>Azure for Students Starter
 
@@ -23,7 +23,7 @@ Azure for Students Starter를 사용하면 클라우드에서 개발하는 데 �
 - Azure Notification Hubs
 - Azure Database for MySQL
 - Application Insights
-- Azure DevOps Server(이전의 Visual Studio Team Services)
+- Azure DevOps Server(이전의 Visual Studio Team Foundation Server)
 
 Azure for Students Starter는 비용을 들이지 않고 약정 또는 시간 제한 없이 확인된 학생에게 제공됩니다. 자세한 사용 약관은 [Azure for Students Starter 제품](https://azure.microsoft.com/offers/ms-azr-0144p/)을 참조하세요.
 
@@ -31,7 +31,7 @@ Azure for Students Starter는 비용을 들이지 않고 약정 또는 시간 �
 
 이 제안은 적격 고객당 하나의 Azure for Students Starter 구독으로 제한됩니다. Microsoft에서 허용하지 않는 한, 양도할 수 없으며 다른 제품과 결합할 수 없습니다.
 
-Azure for Students Starter 제품에는 신용 카드가 필요하지 않습니다. 그러나 언제든지 [Azure 계정 포털](https://account.azure.com/)을 사용하여 모든 Azure 서비스에 액세스하기 위해 종량제 구독으로 업그레이드할 수 있습니다.
+Azure for Students Starter 제품에는 신용 카드가 필요하지 않습니다. 그러나 언제든지 [Azure Portal](https://portal.azure.com/)을 사용하여 모든 Azure 서비스에 액세스하기 위해 종량제 구독으로 업그레이드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [로그인 오류에 대한 도움말 보기](troubleshoot-login.md)

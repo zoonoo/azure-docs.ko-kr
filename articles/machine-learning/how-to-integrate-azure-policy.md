@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Azure Policy를 사용하여 Azure Machine Learning에 대한 기본 제공 정책을 사용하여 작업 영역이 요구 사항을 준수하는지 확인하는 방법을 알아봅니다.
 author: aashishb
 ms.author: aashishb
-ms.date: 05/03/2021
+ms.date: 05/10/2021
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.openlocfilehash: 688af6bbc4de786c36011312f64fb6d67e34183f
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 02225a3be02612b9baa0a66aff3d3dcd5ef1bb87
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109633810"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067477"
 ---
 # <a name="audit-and-manage-azure-machine-learning-using-azure-policy"></a>Azure Policy를 사용하여 Azure Machine Learning 감사 및 관리
 
@@ -28,8 +28,14 @@ ms.locfileid: "109633810"
 | **프라이빗 엔드포인트** | 프라이빗 엔드포인트를 만들어야 하는 Azure Virtual Network 서브넷을 구성합니다. |
 | **프라이빗 DNS 영역** | 프라이빗 링크에 사용할 프라이빗 DNS 영역을 구성합니다. |
 | **사용자 할당 관리 ID** | 작업 영역에서 사용자 할당 관리 ID를 사용하는지 여부를 감사하거나 적용합니다. |
+| **로컬 인증 사용 안 함** | Azure Machine Learning 컴퓨팅 리소스에 로컬 인증 방법을 사용하지 않도록 설정해야 하는지 여부를 감사하거나 적용합니다. |
+| **로컬 인증 수정/사용 안 함** | 로컬 인증 방법을 사용하지 않도록 컴퓨팅 리소스를 구성합니다. |
 
 구독 또는 리소스 그룹 수준 등의 여러 범위에서 정책을 설정할 수 있습니다. 자세한 내용은 [Azure 정책 설명서](../governance/policy/overview.md)를 참조하세요.
+
+## <a name="conditional-access-policies"></a>조건부 액세스 정책
+
+Azure Machine Learning 작업 영역에 액세스할 수 있는 사용자를 제어하려면 Azure Active Directory [조건부 액세스](../active-directory/conditional-access/overview.md)를 사용합니다.
 
 ## <a name="built-in-policies"></a>기본 제공 정책
 
@@ -79,6 +85,21 @@ Azure Virtual Network의 지정된 서브넷 내에 프라이빗 엔드포인트
 이 정책을 구성하려면 effect 매개 변수를 __audit__, __deny__ 또는 __disabled__ 로 설정합니다. __audit__ 으로 설정된 경우 사용자 할당 관리 ID를 지정하지 않고 작업 영역을 만들 수 있습니다. 시스템 할당 ID가 사용되고 활동 로그에 경고 이벤트가 생성됩니다.
 
 정책이 __deny__ 로 설정되어 있으면 생성 프로세스 중 사용자에게 할당된 ID를 제공하지 않는 한 작업 영역을 만들 수 없습니다. 사용자 할당 ID를 제공하지 않고 작업 영역을 만들려 하면 오류가 발생합니다. 이 오류는 활동 로그에도 로그됩니다. 정책 식별자는 이 오류의 일부로 반환됩니다.
+
+## <a name="disable-local-authentication"></a>로컬 인증 사용 안 함
+
+Azure Machine Learning 컴퓨팅 클러스터 또는 인스턴스에서 로컬 인증(SSH)을 사용하지 않도록 설정할지 여부를 제어합니다.
+
+이 정책을 구성하려면 effect 매개 변수를 __audit__, __deny__ 또는 __disabled__ 로 설정합니다. __감사__ 로 설정하면 SSH를 사용하도록 설정한 컴퓨팅을 만들 수 있으며 활동 로그에 경고 이벤트가 생성됩니다.
+
+정책이 __거부__ 로 설정된 경우 SSH를 사용하지 않는 한 컴퓨팅을 만들 수 없습니다. SSH를 사용하도록 설정한 컴퓨팅을 만들려고 시도하면 오류가 발생합니다. 이 오류는 활동 로그에도 로그됩니다. 정책 식별자는 이 오류의 일부로 반환됩니다.
+
+
+## <a name="modifydisable-local-authentication"></a>로컬 인증 수정/사용 안 함
+
+Azure Machine Learning 컴퓨팅 클러스터 또는 인스턴스 만들기 요청을 수정하여 로컬 인증(SSH)을 사용하지 않도록 설정합니다.
+
+이 정책을 구성하려면 effect 매개 변수를 __Modify__ 또는 __Disabled__ 로 설정합니다. __수정__ 을 설정한 경우 정책이 적용되는 범위 내에서 컴퓨팅 클러스터 또는 인스턴스를 만들면 자동으로 로컬 인증을 사용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

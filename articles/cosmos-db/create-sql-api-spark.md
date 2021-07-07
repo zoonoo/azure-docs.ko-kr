@@ -1,22 +1,22 @@
 ---
-title: 빠른 시작 - Cosmos DB Apache Spark 3 OLTP Connector for SQL API(미리 보기)를 통해 Azure Cosmos DB를 사용하여 문서 데이터베이스 만들기
-description: 이 빠른 시작에서는 Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Cosmos DB Apache Spark 3 OLTP Connector for SQL API(미리 보기) 코드 샘플을 제공합니다.
+title: 빠른 시작 - SQL API용 Azure Cosmos DB Spark 3 OLTP Connector를 사용하여 데이터 관리
+description: 이 빠른 시작에서는 Azure Cosmos DB 계정에서 데이터에 연결하고 데이터를 쿼리하는 데 사용할 수 있는 SQL API용 Azure Cosmos DB Spark 3 OLTP Connector의 코드 샘플을 제공합니다.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/06/2021
+ms.date: 05/27/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0c0400c27558cfe59f1718cb9b1c00e4aa616668
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: f8a20ea2f7d68b89196af8cd339a6388033d1b16
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107368522"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695969"
 ---
-# <a name="quickstart-build-a-cosmos-db-apache-spark-3-oltp-connector-for-sql-api-preview-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하기 위한 Cosmos DB Apache Spark 3 OLTP Connector for SQL API(미리 보기) 앱 빌드
+# <a name="quickstart-manage-data-with-azure-cosmos-db-spark-3-oltp-connector-for-sql-api"></a>빠른 시작: SQL API용 Azure Cosmos DB Spark 3 OLTP Connector를 사용하여 데이터 관리
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]

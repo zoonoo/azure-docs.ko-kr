@@ -1,0 +1,105 @@
+### YamlMime:Landing
+title: Bicep 설명서
+summary: Bicep은 Azure 리소스를 선언적으로 배포하기 위한 언어입니다. ARM 템플릿(Azure Resource Manager 템플릿)을 개발하는 데 JSON 대신 Bicep을 사용할 수 있습니다.
+metadata:
+  title: Bicep 설명서
+  description: Bicep 파일을 개발하고 이를 사용하여 Azure 리소스를 배포하는 방법 알아보기
+  services: azure-resource-manager
+  ms.service: azure-resource-manager
+  ms.subservice: Bicep
+  ms.topic: landing-page
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 05/20/2021
+  ms.openlocfilehash: 4ca69803581d8cf04e20e13845944c55ec334516
+  ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/02/2021
+  ms.locfileid: "111025419"
+landingContent:
+- title: Bicep
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Bicep이란?
+      url: overview.md
+  - linkListType: video
+    links:
+    - text: Ignite 2021 프레젠테이션
+      url: https://www.youtube.com/embed/sc1kJfcRQgY
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Bicep 파일 만들기 - VS Code
+      url: quickstart-create-bicep-use-visual-studio-code.md
+  - linkListType: learn
+    links:
+    - text: Bicep 소개
+      url: /learn/modules/introduction-to-infrastructure-as-code-using-bicep/
+    - text: Bicep을 통해 배포
+      url: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+    - text: 자식 및 확장 리소스 배포
+      url: /learn/modules/child-extension-bicep-templates/
+- title: Bicep 파일 작성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 함수 사용
+      url: ./bicep-functions.md
+    - text: 연산자 사용
+      url: ./operators.md
+    - text: 데이터 형식 사용
+      url: ./data-types.md
+    - text: 매개 변수 정의
+      url: ./parameters.md
+    - text: 변수 정의
+      url: ./variables.md
+    - text: 리소스 정의
+      url: ./resource-declaration.md
+    - text: 출력 정의
+      url: outputs.md
+  - linkListType: reference
+    links:
+    - text: Bicep 파일 구조
+      url: ./file.md
+    - text: Azure 빠른 시작 템플릿
+      url: https://azure.microsoft.com/resources/templates/
+- title: Bicep 파일 배포
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: PowerShell
+      url: deploy-powershell.md
+    - text: Azure CLI
+      url: deploy-cli.md
+    - text: Cloud Shell
+      url: deploy-cloud-shell.md
+    - text: 가상 배포
+      url: deploy-what-if.md
+- title: 범위가 지정된 배포
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Resource group
+      url: deploy-to-resource-group.md
+    - text: Subscription
+      url: deploy-to-subscription.md
+    - text: 관리 그룹
+      url: deploy-to-management-group.md
+    - text: 테넌트
+      url: deploy-to-tenant.md
+    - text: 확장 리소스 범위 지정
+      url: scope-extension-resources.md
+- title: 참조 콘텐츠 탐색
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 템플릿 참조
+      url: /azure/templates/
+    - text: Azure PowerShell
+      url: /powershell/module/az.resources
+    - text: Azure CLI
+      url: /cli/azure/resource

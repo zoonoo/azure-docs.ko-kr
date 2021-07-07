@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: devx-track-csharp
 ms.devlang: .NET
-ms.openlocfilehash: 800d89f22d54b185111f7385ebe07771f228d8cf
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: d38259b55c490d06885ea9fce4094fabcee68a37
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981969"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469891"
 ---
 # <a name="3---deploy-the-search-enabled-net-website"></a>3 - 검색 사용 .NET 웹 사이트 배포
 
@@ -30,20 +30,25 @@ Static Web App은 샘플 리포지토리의 포크를 사용하여 GitHub에서 
 
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-create-static-web-app-resource-advanced.png" alt-text="마우스 오른쪽 단추로 구독 이름을 클릭한 다음, **Static Web App 만들기(고급)**를 선택합니다.":::
 
+1. VS Code에서 배포하려는 분기를 묻는 팝업 창이 표시되면 기본 분기(일반적으로 **master** 또는 **main**)를 선택합니다. 
+
+    이 설정을 사용하면 해당 분기에 커밋하는 변경 내용만 정적 웹앱에 배포됩니다. 
+
+1. 변경 내용을 커밋하라는 팝업 창이 표시되면 커밋하지 마세요. 대량 가져오기 단계의 비밀은 리포지토리에 커밋하지 말아야 합니다. 
+
+    변경 내용을 롤백하려면 VS Code의 작업 표시줄에서 소스 제어 아이콘을 선택하고 변경 내용 목록에서 변경된 각 파일을 선택한 후 **변경 내용 취소** 아이콘을 선택합니다.
+
 1. 프롬프트에 따라 다음 정보를 제공합니다.
 
     |prompt|Enter 키|
     |--|--|
-    |Static Web App을 만드는 방법 선택|기존 GitHub 리포지토리를 사용합니다.|
-    |조직 선택|조직으로 _고유한_ GitHub 별칭을 선택합니다.|
-    |리포지토리 선택|목록에서 **azure-search-dotnet-samples** 를 선택합니다. |
-    |리포지토리의 분기 선택|목록에서 **마스터** 를 선택합니다. |
     |새 Static Web App에 대한 이름 입력|리소스에 대한 고유한 이름을 만듭니다. 예를 들어 `joansmith-azure-search-dotnet-samples`와 같이 리포지토리 이름 앞에 이름을 추가할 수 있습니다. |
     |새 리소스에 대한 리소스 그룹 선택|이 자습서를 위해 만든 리소스 그룹을 사용합니다.|
+    |SKU 선택| 이 자습서에서는 무료 SKU를 선택합니다.|
     |기본 프로젝트 구조를 구성하기 위한 사전 설정 빌드 선택|**사용자 지정** 을 선택합니다.|
-    |애플리케이션 코드의 위치 선택|`search-website`|
-    |Azure 함수 코드의 위치 선택|`search-website/api`|
-    |빌드 출력 경로 입력|빌드|
+    |애플리케이션 코드의 위치 선택|`search-website`<br><br>리포지토리의 루트에서 Azure Static 웹앱까지의 경로입니다. |
+    |Azure 함수 코드의 위치 선택|`search-website/api`<br><br>리포지토리의 루트에서 Azure Function 앱까지의 경로입니다. |
+    |빌드 출력 경로 입력|`build`<br><br>Azure Static 웹앱에서 생성된 파일까지의 경로입니다.|
     |새 리소스의 위치 선택|가까운 지역을 선택합니다.|
 
 1. 리소스가 만들어지면 알림에서 **GitHub에서 작업 열기** 를 선택합니다. 그러면 포크된 리포지토리를 가리키는 브라우저 창이 열립니다. 

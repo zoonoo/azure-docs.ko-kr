@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기'
-description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure에 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
+description: Azure Virtual WAN을 사용하여 Azure에 사이트 간 VPN 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
-ms.openlocfilehash: 365952beca96b91d312eab209c5332fca2d4842b
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 2752d437800840181062f7a9c07d37620e06677a
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106061879"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578317"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "106061879"
 > 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms/virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 디바이스를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
 >
 
-![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan.png)
+:::image type="content" source="./media/virtual-wan-about/virtualwan.png" alt-text="스크린샷은 Virtual WAN에 대한 네트워킹 다이어그램을 보여줍니다.":::
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -233,7 +233,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 * VPN Gateway 기본 BGP IP 주소(Azure에서 할당)
 * 사용자 지정 BGP IP 주소에 대한 구성 옵션: 이 필드는 APIPA(자동 개인 IP 주소 지정)용으로 예약되어 있습니다. Azure는 169.254.21.* 및 169.254.22.* 범위에서 BGP IP를 지원합니다. Azure는 이러한 범위에서 BGP 연결을 허용하지만 기본 BGP IP를 사용하여 연결을 다이얼링합니다.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="구성 보기" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="스크린샷은 편집 단추가 강조 표시된 VPN Gateway 편집 페이지를 보여줍니다." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>리소스 정리
 

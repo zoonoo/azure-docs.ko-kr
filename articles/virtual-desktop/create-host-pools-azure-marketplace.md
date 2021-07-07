@@ -1,36 +1,36 @@
 ---
-title: Windows Virtual Desktop 호스트 풀 - Azure Portal - Azure
-description: Azure Portal을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 방법입니다.
+title: Azure Virtual Desktop 호스트 풀 - Azure Portal - Azure
+description: Azure Portal을 사용하여 Azure Virtual Desktop 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
 ms.date: 03/10/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 1003ab20f839469235d6bd7949ec3b2df4dd4f25
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 96e5fbf825c0550001ae9b0a38517e753b3a8d0f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447984"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756260"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>자습서: Azure Portal로 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md)를 참조하세요. Windows Virtual Desktop(클래식)으로 만든 개체는 Azure Portal로 관리할 수 없습니다.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md)를 참조하세요. Azure Virtual Desktop(클래식)으로 만든 개체는 Azure Portal로 관리할 수 없습니다.
 
-호스트 풀은 Windows Virtual Desktop 환경 내에서 하나 이상의 동일한 VM(가상 머신) 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
+호스트 풀은 Azure Virtual Desktop 환경 내에서 하나 이상의 동일한 VM(가상 머신) 컬렉션입니다. 각 호스트 풀은 사용자가 물리적 데스크톱에서처럼 상호 작용할 수 있는 앱 그룹을 포함할 수 있습니다.
 
-이 문서에서는 Azure Portal을 통해 Windows Virtual Desktop 환경에 대한 호스트 풀을 만들기 위한 설정 프로세스를 안내합니다. 이 방법은 Windows Virtual Desktop에 호스트 풀을 만들고, Azure 구독에서 VM으로 구성된 리소스 그룹을 만들고, 해당 VM을 Azure AD(Active Directory) 도메인에 조인하고, VM을 Windows Virtual Desktop에 등록하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다.
+이 문서에서는 Azure Portal을 통해 Azure Virtual Desktop 환경에 대한 호스트 풀을 만들기 위한 설정 프로세스를 안내합니다. 이 방법은 Azure Virtual Desktop에 호스트 풀을 만들고, Azure 구독에서 VM으로 구성된 리소스 그룹을 만들고, 해당 VM을 Azure AD(Active Directory) 도메인에 조인하고, VM을 Azure Virtual Desktop에 등록하기 위한 브라우저 기반 사용자 인터페이스를 제공합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 호스트 풀을 만들려면 다음 매개 변수를 입력해야 합니다.
 
 - VM 이미지 이름
 - VM 구성
 - 도메인 및 네트워크 속성
-- Windows Virtual Desktop 호스트 풀 속성
+- Azure Virtual Desktop 호스트 풀 속성
 
 또한 다음 사항을 알고 있어야 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "106447984"
 
 또한 Microsoft.DesktopVirtualization 리소스 공급자를 등록했는지 확인합니다. 아직 수행하지 않은 경우 **구독** 으로 이동하여 구독 이름을 선택한 다음, **리소스 공급자** 를 선택합니다. DesktopVirtualization를 검색하고, Microsoft.DesktopVirtualization을 선택한 다음, 등록을 선택합니다.
 
-Azure Resource Manager 템플릿을 사용하여 Windows Virtual Desktop 호스트 풀을 만드는 경우 Azure 갤러리, 관리 이미지 또는 비관리 이미지에서 가상 머신을 만들 수 있습니다. VM 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](../virtual-machines/windows/prepare-for-upload-vhd-image.md) 및 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
+Azure Resource Manager 템플릿을 사용하여 Azure Virtual Desktop 호스트 풀을 만드는 경우 Azure 갤러리, 관리형 이미지 또는 관리되지 않는 이미지에서 가상 머신을 만들 수 있습니다. VM 이미지를 만드는 방법에 대한 자세한 내용은 [Azure에 업로드할 Windows VHD 또는 VHDX 준비](../virtual-machines/windows/prepare-for-upload-vhd-image.md) 및 [Azure에서 일반화된 VM의 관리 이미지 만들기](../virtual-machines/windows/capture-image-resource.md)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 후에 다음 지침을 수행해야 합니다.
 
@@ -52,9 +52,9 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
    >[!NOTE]
    > US Gov 포털에 로그인하는 경우 대신 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
 
-2. 검색 창에서 **Windows Virtual Desktop** 을 입력한 다음, [서비스] 아래에서 **Windows Virtual Desktop** 을 찾아서 선택합니다.
+2. 검색 창에서 **Azure Virtual Desktop** 을 입력한 다음, 서비스 아래에서 **Azure Virtual Desktop** 을 찾아서 선택합니다.
 
-3. **Windows Virtual Desktop** 개요 페이지에서 **호스트 풀 만들기** 를 선택합니다.
+3. **Azure Virtual Desktop** 개요 페이지에서 **호스트 풀 만들기** 를 선택합니다.
 
 4. **기본** 탭의 [프로젝트 세부 정보] 아래에서 올바른 구독을 선택합니다.
 
@@ -208,7 +208,7 @@ Azure 구독이 아직 없는 경우 먼저 [계정을 만든](https://azure.mic
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 호스트 풀이 만들어졌으므로 이 풀을 RemoteApp 프로그램으로 채울 수 있습니다. Windows Virtual Desktop에서 앱을 관리하는 방법에 대해 자세히 알아보려면 다음 자습서로 진행하세요.
+이제 호스트 풀이 만들어졌으므로 이 풀을 RemoteApp 프로그램으로 채울 수 있습니다. Azure Virtual Desktop에서 앱을 관리하는 방법에 관해 자세히 알아보려면 다음 자습서로 진행하세요.
 
 > [!div class="nextstepaction"]
 > [앱 그룹 관리 자습서](./manage-app-groups.md)

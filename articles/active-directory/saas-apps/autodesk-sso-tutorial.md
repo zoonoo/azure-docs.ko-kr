@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/04/2021
+ms.date: 05/20/2021
 ms.author: jeedes
-ms.openlocfilehash: 41e08c1278cf6ea3041ad419703ac86f6995f451
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: fa207bb2d915ad307a04f633139cd49beddfbb24
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109665257"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110580098"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-autodesk-sso"></a>자습서: Autodesk SSO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -63,7 +63,7 @@ Autodesk SSO에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
     1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-1. **[Autodesk SSO 구성](#configure-autodesk-sso-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+1. **[Autodesk SSO 구성](#configure-autodesk-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
     1. **[Autodesk SSO 테스트 사용자 만들기](#create-autodesk-sso-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Autodesk SSO에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
@@ -86,7 +86,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     다. **로그온 URL** 텍스트 상자에 `https://autodesk-prod.okta.com/sso/saml2/` URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Autodesk SSO 클라이언트 지원 팀](mailto:apps.email@autodesk.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Autodesk SSO 클라이언트 지원 팀](https://knowledge.autodesk.com/contact-support)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. Autodesk SSO 애플리케이션에서는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -94,7 +94,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Autodesk SSO 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | -------------- | --------- |
     | firstName | user.givenname |
     | lastName | user.surname |
@@ -133,9 +133,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-## <a name="configure-autodesk-sso-sso"></a>Autodesk SSO에서 SSO 구성
+## <a name="configure-autodesk-sso"></a>Autodesk SSO 구성
 
-**Autodesk SSO** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 복사한 적절한 URL을 [Autodesk SSO 지원 팀](mailto:apps.email@autodesk.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Autodesk SSO** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(Base64)** 와 복사한 적절한 URL을 [Autodesk SSO 지원 팀](https://knowledge.autodesk.com/contact-support)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-autodesk-sso-test-user"></a>Autodesk SSO 테스트 사용자 만들기
 
@@ -147,6 +147,6 @@ Autodesk SSO를 테스트하려면 Autodesk 콘솔을 열어 **연결 테스트*
 
 ## <a name="next-steps"></a>다음 단계
 
-Autodesk SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Autodesk SSO가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
 
 

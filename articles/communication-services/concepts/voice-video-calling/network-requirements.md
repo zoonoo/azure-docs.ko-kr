@@ -6,15 +6,15 @@ author: nmurav
 manager: jken
 services: azure-communication-services
 ms.author: nmurav
-ms.date: 3/23/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c7ec360d961c0960dc941c48626c3aeb3f7367ec
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 377d6783fb73c2d03f7e4dde7b352abe1eaef993
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289015"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110802"
 ---
 # <a name="ensure-high-quality-media-in-azure-communication-services"></a>Azure Communication Services에서 고품질 미디어 보장
 
@@ -47,7 +47,7 @@ JavaScript SDK의 대역폭 요구 사항은 다음과 같습니다.
 |500kbps|그룹 화상 통화(360p, 30fps)|
 |1.2Mbps|HD 그룹 화상 통화(HD 720p 해상도, 30fps)| 
 
-네이티브 Android 및 iOS SDK의 대역폭 요구 사항은 다음과 같습니다.
+네이티브 Windows, Android 및 iOS SDK의 대역폭 요구 사항은 다음과 같습니다.
 
 |대역폭|시나리오|
 |:--|:--|

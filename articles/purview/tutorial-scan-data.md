@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
 ms.date: 12/01/2020
-ms.openlocfilehash: 16692ac75f0ab6df0c8ee1bebef393848ca066b8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fb11033e0f4fcff171825d579e62e071f66b1cea
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676543"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745892"
 ---
 # <a name="tutorial-scan-data-with-azure-purview-preview"></a>자습서: Azure Purview(미리 보기)를 사용하여 데이터 스캔
 
@@ -192,7 +192,7 @@ Azure Purview 계정을 직접 만든 경우 자동으로 액세스 권한이 �
 
 ### <a name="scan-your-data-sources"></a>데이터 원본 스캔
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Purview 리소스로 이동하여 *Purview Studio 열기* 를 선택합니다. Purview Studio 홈 페이지로 자동으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 필수 구성 요소로 만든 Azure Purview 인스턴스의 이름을 검색하여 선택한 다음, *Open Purview Studio* 를 선택합니다. Purview Studio 홈 페이지로 자동으로 이동합니다.
 
 1. 카탈로그 웹 페이지에서 **원본** 을 선택하고 **등록** 을 선택합니다. 그런 다음, **Azure Blob Storage** 를 선택하고 **계속** 을 선택합니다.
 

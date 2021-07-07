@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - mvc
 - device-developer
-ms.openlocfilehash: 7cb52dba88d94ed52baa8272c7f20fed4bcde0fd
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 90e1b951cd3990df3615cdcf33a4d659f693b5ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109787548"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110064885"
 ---
 # <a name="iot-central-device-development-guide"></a>IoT Central 디바이스 개발 가이드
 
@@ -77,6 +77,8 @@ DPS를 사용하면 다음과 같은 장점이 있습니다.
 ## <a name="implement-the-device"></a>디바이스 구현
 
 IoT Central 디바이스 템플릿에는 해당 유형의 디바이스에서 구현해야 하는 동작을 지정하는 _모델_ 이 포함되어 있습니다. 동작에는 원격 분석, 속성 및 명령이 포함됩니다.
+
+모델을 편집하는 모범 사례에 대한 자세한 내용은 [기존 디바이스 템플릿 편집](howto-edit-device-template.md)을 참조하세요.
 
 > [!TIP]
 > 모델은 IoT Central에서 [DTDL(디지털 트윈 정의 언어) v2](https://github.com/Azure/opendigitaltwins-dtdl) JSON 파일로 내보낼 수 있습니다.

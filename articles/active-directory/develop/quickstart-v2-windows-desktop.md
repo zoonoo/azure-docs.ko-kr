@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 유니버설 Windows 플랫폼 데스크톱 앱에서 사용자 로그인 및 Microsoft Graph 호출 | Azure'
+title: '빠른 시작: Windows 데스크톱 앱에서 사용자 로그인 및 Microsoft Graph 호출 | Azure'
 description: 이 빠른 시작에서는 Windows 데스크톱 .NET(XAML) 애플리케이션이 액세스 토큰을 획득하고, Microsoft ID 플랫폼으로 보호되는 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 author: jmprieur
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: eb5bf0bc6e211d83d2de2eb8d327ee6b2d577721
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: 29ec031fe462e44c1f00d383d667c45b0b16f60b
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075018"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110536553"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 

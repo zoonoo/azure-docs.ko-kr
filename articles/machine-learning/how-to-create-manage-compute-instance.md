@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: db6414ecf4b1b5fcbdf52d59c0c79b72998e610a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c678c36ff653d8975f7a0fe1a82395c3093758f6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375219"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458555"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스 만들고 관리
 
@@ -163,8 +163,19 @@ Azure Machine Learning 스튜디오의 작업 영역에서 노트북 중 하나�
 스크립트가 conda 환경 또는 jupyter 커널을 설치하는 등 azureuser와 관련된 작업을 수행하는 경우 다음과 같이 *sudo -u azureuser* 블록 내에 배치해야 합니다.
 
 ```shell
-sudo -u azureuser -i <<'EOF'
+#!/bin/bash
 
+set -e
+
+# This script installs a pip package in compute instance azureml_py38 environment
+
+sudo -u azureuser -i <<'EOF'
+# PARAMETERS
+PACKAGE=numpy
+ENVIRONMENT=azureml_py38 
+conda activate "$ENVIRONMENT"
+pip install "$PACKAGE"
+conda deactivate
 EOF
 ```
 *sudo -u azureuser* 는 현재 작업 디렉터리를 */home/azureuser* 로 변경합니다. 또한 이 블록의 스크립트 인수에 액세스할 수 없습니다.
@@ -208,6 +219,7 @@ Resource Manager [템플릿](https://github.com/Azure/azure-quickstart-templates
     }
 }
 ```
+위의 *scriptData* 는 *Users/admin/testscript.sh* 와 같은 Notebooks 파일 공유에서 생성 스크립트의 위치를 지정합니다. *scriptArguments* 는 위의 선택 사항이며 생성 스크립트의 인수를 지정합니다.
 
 대신 Resource Manager 템플릿에 대한 스크립트 인라인을 제공할 수 있습니다.  셸 명령은 Notebooks 파일 공유에 업로드된 종속성을 참조할 수 있습니다.  인라인 문자열을 사용하는 경우 스크립트의 작업 디렉터리는 */mnt/batch/tasks/shared/LS_root/mounts/clusters/**ciname**/code/Users* 입니다.
 

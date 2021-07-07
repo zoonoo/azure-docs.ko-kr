@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 3ad8eb9564c4d8343a0763cc2f6f5061ee602b72
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: ed1e979d6334dbef580eb4e686363bfbaffac222
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188372"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163951"
 ---
 이 가이드에서는 macOS 10.13 이상에서 C++용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
@@ -53,8 +53,6 @@ macOS 10.13 이상
    ```
 
    디렉터리 목록에는 타사 통지와 라이선스 파일은 물론 `MicrosoftCognitiveServicesSpeech.framework` 디렉터리도 포함해야 합니다.
-
-이제 아래의 [다음 단계](#next-steps)로 이동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

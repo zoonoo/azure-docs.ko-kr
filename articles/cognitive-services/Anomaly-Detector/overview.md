@@ -12,12 +12,12 @@ ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: 변칙 검색, 기계 학습, 알고리즘
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d63399d0f492f85a4a2d57a595a6d8ef5b606d92
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: 52ed294146edbd70f21af4f706ad68f3aa6662dc
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107599522"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110076819"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -56,16 +56,7 @@ Anomaly Detector를 사용하면 시계열 데이터 전체에서 또는 실시�
 
 Anomaly Detector API를 호출하는 방법을 알아보려면 이 [Notebook](https://aka.ms/adNotebook)을 사용해 보세요. 이 Jupyter Notebook은 API 요청을 보내고 결과를 시각화하는 방법을 보여 줍니다.
 
-Notebook을 실행하려면 다음 단계를 완료하세요.
-
-1. 유효한 Anomaly Detector API 구독 키와 API 엔드포인트를 가져옵니다. 아래 섹션에는 가입에 대한 지침이 나와 있습니다.
-1. 로그인하고, 오른쪽 위 모서리에서 [복제]를 선택합니다.
-1. 복제 작업을 완료하기 전에 대화 상자에서 "공용" 옵션의 선택을 취소합니다. 그렇지 않으면 구독 키를 포함하여 Notebook이 공개됩니다.
-1. **Run on Free Compute**(무료 컴퓨팅에서 실행)를 선택합니다.
-1. Notebook 중 하나를 선택합니다.
-1. 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가합니다.
-1. `endpoint` 변수를 엔드포인트로 변경합니다. 예: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. 상단 메뉴 모음에서 **셀**, **모두 실행** 을 차례로 선택합니다.
+Notebook을 실행하려면 유효한 Anomaly Detector API **구독 키** 와 **API 엔드포인트** 를 가져와야 합니다. Notebook에서 유효한 Anomaly Detector API 구독 키를 `subscription_key` 변수에 추가하고 `endpoint` 변수를 사용자의 엔드포인트로 변경합니다.
 
 ## <a name="workflow"></a>워크플로
 

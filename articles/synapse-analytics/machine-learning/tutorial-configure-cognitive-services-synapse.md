@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 3ab861caca0ef6f58c2c1bc722412774deb725ce
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da1760def8f2c036854839787b1051e8f52358d0
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821426"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109809655"
 ---
 # <a name="tutorial-prerequisites-for-using-cognitive-services-in-azure-synapse-analytics"></a>자습서: Azure Synapse Analytics의 Cognitive Services 사용을 위한 필수 구성 요소
 
@@ -65,17 +65,17 @@ Azure Portal에서 [Anomaly Detector](https://ms.portal.azure.com/#create/Micros
    ![비밀을 만들기 위한 선택 항목을 보여 주는 스크린샷](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00d.png)
 
    > [!IMPORTANT]
-   > 이 비밀 이름을 기억하거나 적어 두어야 합니다. 나중에 Azure Synapse Studio에서 Cognitive Services에 연결할 때 이 비밀을 사용하게 됩니다.
+   > 이 비밀 이름을 기억하거나 적어 두어야 합니다. 나중에 Synapse Studio에서 Cognitive Services에 연결할 때 이 비밀을 사용하게 됩니다.
 
 ## <a name="create-an-azure-key-vault-linked-service-in-azure-synapse"></a>Azure Synapse에서 Azure Key Vault 연결된 서비스 만들기
 
-1. Azure Synapse Studio에서 작업 영역을 엽니다. 
+1. Synapse Studio에서 작업 영역을 엽니다. 
 2. **관리** > **연결된 서비스** 로 이동합니다. 방금 만든 키 자격 증명 모음을 가리키는 **Azure Key Vault** 연결된 서비스를 만듭니다. 
 3. **연결 테스트** 단추를 선택하여 연결을 확인합니다. 연결이 녹색이면 **만들기** 를 선택한 다음, **모두 게시** 를 선택하여 변경 내용을 저장합니다.
 
 ![새 연결된 서비스인 Azure Key Vault를 보여 주는 스크린샷](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-00e.png)
 
-이제 Azure Synapse Studio에서 Azure Cognitive Services 환경을 사용하기 위한 자습서 중 하나를 계속 진행할 준비가 되었습니다.
+이제 Synapse Studio에서 Azure Cognitive Services 환경을 사용하기 위한 자습서 중 하나를 계속 진행할 준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

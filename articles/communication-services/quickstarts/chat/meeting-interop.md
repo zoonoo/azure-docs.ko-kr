@@ -7,12 +7,13 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ba3a589c5d0f09f24950bd3fee8edc7f4dcd4601
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+zone_pivot_groups: acs-web-ios
+ms.openlocfilehash: 196c35d78b18241a808d4f941dd51d0f08a5b722
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106169065"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110080266"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>빠른 시작: 채팅 앱으로 Teams 미팅에 참가
 
@@ -21,20 +22,15 @@ ms.locfileid: "106169065"
 > [!IMPORTANT]
 > [Teams 테넌트 상호 운용성](../../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
 
-JavaScript SDK를 사용하여 채팅 솔루션을 Microsoft Teams에 연결하여 Azure Communication Services를 시작하세요. 
+채팅 솔루션을 Microsoft Teams에 연결하여 Azure Communication Services를 시작하세요. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+::: zone pivot="platform-web"
+[!INCLUDE [Teams interop with JavaScript SDK](./includes/meeting-interop-javascript.md)]
+::: zone-end
 
-1.  [Teams 배포](/deployoffice/teams-install). 
-2. 작동하는 [채팅 앱](./get-started.md). 
-
-## <a name="enable-teams-interoperability"></a>Teams 상호 운용성 사용 
-
-게스트 사용자로 Teams 미팅에 조인하는 Communication Services 사용자는 Teams 미팅 호출에 조인한 경우에만 미팅 채팅에 액세스할 수 있습니다. Teams 미팅 호출에 Communication Services 사용자를 추가하는 방법을 알아보려면 [Teams interop](../voice-video-calling/get-started-teams-interop.md) 설명서를 참조하세요.
-
-이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다.
-
-[!INCLUDE [Join Teams meetings](./includes/meeting-interop-javascript.md)]
+::: zone pivot="platform-ios"
+[!INCLUDE [Teams interop with iOS SDK](./includes/meeting-interop-swift.md)]
+::: zone-end
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

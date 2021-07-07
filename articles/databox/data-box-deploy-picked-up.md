@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 267094ea6a7295a65b93fb7700c97e4280da341d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 86609d42a7c8f0e78df6b3a0019d97c951b5d378
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539114"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736238"
 ---
 ::: zone target="docs"
 
@@ -344,14 +344,14 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone target="docs"
 
-[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload.md)]
 
 ::: zone-end
 -->
 
 ## <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
 
-미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 서유럽 또는 오스트레일리아에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
+미국 정부, 일본, 싱가포르, 대한민국, 인도, 남아프리카, 영국, 서유럽, 오스트레일리아 또는 브라질에서 Data Box를 사용 중이고 주문을 생성할 때 자체 관리형 배송을 선택한 경우 다음 지침을 따르세요.
 
 1. 이 단계가 성공적으로 완료된 후 Data Box에 대한 로컬 웹 UI의 **배송 준비** 페이지에 표시된 인증 코드를 적어둡니다.
 2. 디바이스의 전원을 끄고 케이블을 분리합니다. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
@@ -363,8 +363,12 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
     Body:
         1. Order name  
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
-        3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+        3. Contact name of the person dropping off. You will need to display a government-approved ID during the drop off.
     ```
+
+   > [!NOTE]
+   > - 반환에 필요한 정보는 지역에 따라 다를 수 있습니다. 
+   > - 브라질에 Data Box을 반환하는 경우 자세한 지침은 [Azure Data Box에 대한 자체 관리형 배송 사용](data-box-portal-customer-managed-shipping.md)을 참조하세요. 
 
 ::: zone target="chromeless"
 
@@ -387,4 +391,3 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 [!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
 
 ::: zone-end
-

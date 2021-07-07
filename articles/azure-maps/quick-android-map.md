@@ -10,12 +10,12 @@ services: azure-maps
 manager: cpendle
 ms.custom: mvc
 zone_pivot_groups: azure-maps-android
-ms.openlocfilehash: 2a67f432b126fb164b1b099b772646a679c28837
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 56882d71be8e015cf6f931c1869664ae42d2d0a2
+ms.sourcegitcommit: 8b38eff08c8743a095635a1765c9c44358340aa8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323498"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113091324"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 Android 앱 만들기
 
@@ -113,7 +113,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     3. 다음과 같이 종속성 블록을 업데이트하고 최신 Azure Maps Android SDK에 대한 새 구현 종속성 줄을 추가합니다.
 
         ```gradle
-        implementation "com.microsoft.azure.maps:mapcontrol:0.7"
+        implementation "com.azure.android:azure-maps-control:1.0.0"
         ```
 
         > [!Note]
@@ -123,7 +123,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
 3. 다음과 같이 기본 작업에 맵 조각을 추가합니다(res \> layout \> activity\_main.xml).
 
     ```xml
-    <com.microsoft.azure.maps.mapcontrol.MapControl
+    <com.azure.android.maps.control.MapControl
         android:id="@+id/mapcontrol"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -157,11 +157,11 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     package com.example.myapplication;
     
     import androidx.appcompat.app.AppCompatActivity;
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+    import com.azure.android.maps.control.AzureMaps;
+    import com.azure.android.maps.control.MapControl;
+    import com.azure.android.maps.control.layer.SymbolLayer;
+    import com.azure.android.maps.control.options.MapStyle;
+    import com.azure.android.maps.control.source.DataSource;
     
     public class MainActivity extends AppCompatActivity {
         
@@ -267,10 +267,10 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
 
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
-    import com.microsoft.azure.maps.mapcontrol.AzureMap
-    import com.microsoft.azure.maps.mapcontrol.AzureMaps
-    import com.microsoft.azure.maps.mapcontrol.MapControl
-    import com.microsoft.azure.maps.mapcontrol.events.OnReady
+    import com.azure.android.maps.control.AzureMap
+    import com.azure.android.maps.control.AzureMaps
+    import com.azure.android.maps.control.MapControl
+    import com.azure.android.maps.control.events.OnReady
     
     class MainActivity : AppCompatActivity() {
     

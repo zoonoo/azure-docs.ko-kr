@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 12/15/2020
+ms.date: 05/24/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: 이미지 인식, 이미지 식별자, 이미지 인식 앱, custom vision
-ms.openlocfilehash: 12877f2d43f9b8f864871e5a5ab050aa0eeb61e2
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: e245c4882a06d5053e8781a48469d104bcaced23
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814604"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454789"
 ---
 # <a name="what-is-custom-vision"></a>Custom Vision이란?
 
@@ -27,7 +27,7 @@ Azure Custom Vision은 이미지 인식 서비스입니다. 이를 통해 자체
 
 ## <a name="what-it-does"></a>수행하는 작업
 
-Custom Vision Service는 기계 학습 알고리즘을 사용하여 이미지를 분석합니다. 개발자는 문제의 특성이 특징인 이미지와 부족한 이미지 그룹을 제출합니다. 이미지를 제출할 때 직접 레이블을 지정합니다. 그런 다음, 알고리즘에서 이 데이터를 학습하고 동일한 해당 이미지에서 자체적으로 테스트하여 정확도를 계산합니다. 알고리즘이 학습되면, 테스트하고 다시 학습한 후 이미지 인식 앱에서 사용하여 새 이미지를 분류할 수 있습니다. 모델 자체를 내보내서 오프라인에서 사용할 수도 있습니다.
+Custom Vision Service는 기계 학습 알고리즘을 사용하여 이미지를 분석합니다. 개발자는 문제의 특성이 특징인 이미지와 부족한 이미지 그룹을 제출합니다. 이미지를 제출할 때 직접 레이블을 지정합니다. 그런 다음, 알고리즘에서 이 데이터를 학습하고 동일한 해당 이미지에서 자체적으로 테스트하여 정확도를 계산합니다. 알고리즘이 학습되면 테스트하고 다시 학습한 후 이미지 인식 앱에서 사용하여 새 이미지를 분류할 수 있습니다. 모델 자체를 내보내서 오프라인에서 사용할 수도 있습니다.
 
 ### <a name="classification-and-object-detection"></a>분류 및 개체 검색
 

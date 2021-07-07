@@ -9,12 +9,12 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cf6553cd7c59febd19f9654e31188f127b8eb065
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 3fd6aa705a2220483534761c185ca7cac01e148e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106276759"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110093613"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 
@@ -22,6 +22,12 @@ ms.locfileid: "106276759"
 
 > [!IMPORTANT]
 > [Teams 테넌트 상호 운용성](../concepts/teams-interop.md)을 사용/사용하지 않도록 설정하려면 [이 양식](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u)을 작성합니다.
+
+> [!NOTE]
+> Azure Communication Services와 Microsoft Teams 간의 상호 운용성을 통해 애플리케이션과 사용자가 Teams 통화, 회의 및 채팅에 참여할 수 있습니다. Teams 통화 또는 회의에서 기록 또는 전사를 사용하도록 설정할 때 애플리케이션 사용자에게 알림을 제공하는 것은 귀하의 책임입니다. Microsoft는 기록 또는 전사가 시작되었음을 Azure Communication Services API를 통해 사용자에게 알리며, 애플리케이션의 사용자 인터페이스 내에서 사용자에게 실시간으로 이 사실을 전달해야 합니다. 귀하는 이 의무를 준수하지 않아 발생한 모든 비용 및 손해에 대해 Microsoft를 면책하는 데 동의합니다.
+
+> [!NOTE]
+> VoIP 및 채팅 사용량은 Azure API 및 SDK를 사용하는 경우에만 Azure 리소스에 청구됩니다. Azure Communication Services 애플리케이션과 상호 작용하는 Teams 클라이언트는 무료입니다.
 
 Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 모임 환경을 구축하는 데 사용할 수 있습니다. Communication Services 솔루션의 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다.
 
@@ -52,3 +58,8 @@ Azure Communication Services 상호 운영성은 현재 [Microsoft 365 정부 �
 
 > [!div class="nextstepaction"]
 > [통화 앱으로 Teams 미팅 참가](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+
+자세한 내용은 다음 문서를 참조하세요.
+
+- [UI 라이브러리](./ui-library/ui-library-overview.md)에 대해 알아보기
+- [UI 라이브러리 기능](./ui-library/ui-library-use-cases.md)에 대해 알아보기

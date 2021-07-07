@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: devx-track-python
-ms.openlocfilehash: 7422b88aa2f9c4894d550ee2bf7e397cd163f870
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 3b72f65ad5cf025533e844478deb84433b019c18
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046031"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111853715"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>자습서: Python으로 TensorFlow 모델 실행
 
 Custom Vision Service에서 [TensorFlow 모델을 내보낸](./export-your-model.md) 후에 이 빠른 시작을 참조하여 이 모델을 로컬로 사용하여 이미지를 분류하는 방법을 알아봅니다.
 
 > [!NOTE]
-> 이 자습서는 이미지 분류 프로젝트에서 내보낸 모델에만 적용됩니다.
+> 이 자습서는 “일반(압축)” 이미지 분류 프로젝트에서 내보낸 모델에만 적용됩니다. 다른 모델을 내보낸 경우 [샘플 코드 리포지토리](https://github.com/Azure-Samples/customvision-export-samples)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

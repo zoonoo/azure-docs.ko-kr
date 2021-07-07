@@ -4,17 +4,17 @@ titleSuffix: Azure Applied AI Services
 description: 이 가이드에서는 Azure 함수를 사용하여 Azure Blob 스토리지 컨테이너에 업로드된 문서를 처리하도록 트리거하는 방법을 보여 줍니다.
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 03/19/2021
 ms.author: lajanuar
-ms.openlocfilehash: 6a8f3cf5b98361f96df26da923ff6bff7a604d23
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: c458740f3b8b321631b4c9e8fec5d30e8286eb6e
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374001"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111893483"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>자습서: Azure 함수를 사용하여 저장된 문서 처리
 
@@ -166,7 +166,7 @@ def main(myblob: func.InputStream):
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다. 
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 [Cognitive Services 보안](../cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 [Cognitive Services 보안](../cognitive-services-security.md) 문서를 참조하세요.
 
 다음으로, 서비스를 쿼리하고 반환된 데이터를 가져오는 코드를 추가합니다. 
 

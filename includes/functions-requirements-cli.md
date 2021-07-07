@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 7a390c0d19a37ea18f9eac8636683ec35ecbc844
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a191d5ff68bf671274ceb7f88a42c0451d48cd40
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107881234"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459608"
 ---
 ## <a name="configure-your-local-environment"></a>로컬 환경 구성
 
@@ -17,20 +17,9 @@ ms.locfileid: "107881234"
 
 + 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-java,programming-language-other"  
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) 버전 2.7.1846 이상.
-::: zone-end  
-::: zone pivot="programming-language-python"
-+ 설치된 Python 버전에 해당하는 Azure Functions Core Tools 버전:
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2).
 
-   | Python 버전 | Core Tools 버전 |
-   | -------------- | ------------------ |
-   | Python 3.8     | [버전 3.x](../articles/azure-functions/functions-run-local.md#v2) |
-   | Python 3.6<br/>Python 3.7 | [버전 2.7.1846 이상](../articles/azure-functions/functions-run-local.md#v2) |
-  
-::: zone-end
-
-+ [Azure CLI](/cli/azure/install-azure-cli) 버전 2.4 이상. 
++ [Azure CLI](/cli/azure/install-azure-cli), 버전 2.4 이상 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 + [Node.js](https://nodejs.org/), 활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).
 ::: zone-end

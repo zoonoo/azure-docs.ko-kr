@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/25/2021
 ms.custom: template-quickstart, references_regions, devx-track-azurecli
 keywords: Kubernetes, Arc, Azure, 클러스터
-ms.openlocfilehash: 6221de7a9cffe5ba4d2e1ed8cc8e47c372b6b578
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: a15a841e24d1464741c115684ed639609576a314
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373721"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796580"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>빠른 시작: Azure Arc에 기존 Kubernetes 클러스터 연결 
 
@@ -57,13 +57,13 @@ ms.locfileid: "110373721"
 > * 포트 443의 TCP: `https://:443`
 > * 포트 9418의 TCP: `git://:9418`
   
-| 엔드포인트(DNS) | 설명 |  
+| 엔드포인트(DNS) | Description |  
 | ----------------- | ------------- |  
-| `https://management.azure.com`                                                                                 | 에이전트가 Azure에 연결하고 클러스터를 등록하는 데 필요합니다.                                                        |  
-| `https://<region>.dp.kubernetesconfiguration.azure.com` | 에이전트가 상태를 푸시하고 구성 정보를 가져오기 위한 데이터 평면 엔드포인트.                                      |  
-| `https://login.microsoftonline.com`                                                                            | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다.                                                                                    |  
-| `https://mcr.microsoft.com`                                                                            | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |  
-| `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다.                                                                  |
+| `https://management.azure.com`(Azure 클라우드의 경우), `https://management.usgovcloudapi.net`(Azure 미국 정부의 경우) | 에이전트가 Azure에 연결하고 클러스터를 등록하는 데 필요합니다. |  
+| `https://<region>.dp.kubernetesconfiguration.azure.com`(Azure 클라우드의 경우), `https://<region>.dp.kubernetesconfiguration.azure.us`(Azure 미국 정부의 경우) | 에이전트가 상태를 푸시하고 구성 정보를 가져오기 위한 데이터 평면 엔드포인트. |  
+| `https://login.microsoftonline.com`(Azure 클라우드의 경우), `https://login.microsoftonline.us`(Azure 미국 정부의 경우) | Azure Resource Manager 토큰을 가져오고 업데이트하는 데 필요합니다. |  
+| `https://mcr.microsoft.com` | Azure Arc 에이전트의 컨테이너 이미지를 끌어오는 데 필요합니다.                                                                  |  
+| `https://<region-code>.his.arc.azure.com`(Azure 클라우드의 경우), `https://usgv.his.arc.azure.us`(Azure 미국 정부의 경우) |  시스템 할당 MSI(관리 서비스 ID) 인증서를 가져오는 데 필요합니다. Azure 클라우드 지역에 대한 `<region-code>` 매핑: `eus`(미국 동부), `weu`(서유럽), `wcus`(미국 중서부), `scus`(미국 중남부), `sea`(동남 아시아), `uks`(영국 남부), `wus2`(미국 서부 2), `ae`(오스트레일리아 동부), `eus2`(미국 동부 2), `ne`(북유럽), `fc`(프랑스 중부). |
 
 ## <a name="1-register-providers-for-azure-arc-enabled-kubernetes"></a>1. Azure Arc 지원 Kubernetes에 공급자 등록
 
@@ -142,14 +142,14 @@ Helm release deployment succeeded
 > 위치 매개 변수가 지정되지 않은 상태에서 위 명령을 사용하면 동일한 위치에서 Azure Arc 지원 Kubernetes 리소스가 리소스 그룹으로 만들어집니다. 다른 위치에서 Azure Arc 지원 Kubernetes 리소스를 만들려면 `az connectedk8s connect` 명령을 실행할 때 `--location <region>` 또는 `-l <region>`을 지정합니다.
 
 > [!NOTE]
-> 서비스 주체를 사용하여 Azure CLI에 로그인한 경우, 클러스터를 Azure Arc에 연결할 때 사용자 지정 위치 기능을 사용하도록 설정하기 위해 서비스 주체에 대한 [추가 권한](troubleshooting.md#enable-custom-locations-using-service-principal)이 필요합니다.
+> 서비스 주체를 사용하여 Azure CLI에 로그인한 경우 클러스터에서 사용자 지정 위치 기능을 사용하도록 설정하려면 [추가 매개 변수](troubleshooting.md#enable-custom-locations-using-service-principal)를 설정해야 합니다.
 
 ## <a name="4-verify-cluster-connection"></a>4. 클러스터 연결 확인
 
 다음 명령을 실행합니다.  
 
 ```azurecli-interactive
-az connectedk8s list -resource-group AzureArcTest -output table
+az connectedk8s list --resource-group AzureArcTest --output table
 ```
 
 출력:

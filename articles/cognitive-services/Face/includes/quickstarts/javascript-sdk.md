@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: 3873a15c6a56d6ee4944cc596f447c966c275950
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: a44cbbf110ac2789b03b411f074f068451c70e2c
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108313441"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858033"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>빠른 시작: JavaScript용 Face 클라이언트 라이브러리
 
@@ -213,10 +213,10 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 JavaScript용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
+이 빠른 시작에서는 JavaScript용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로, 다양한 얼굴 감지 모델과 사용 사례에 적합한 모델을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Face API 참조(JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
+> [얼굴 감지 모델 버전 지정](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Face 서비스란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js)에서 확인할 수 있습니다.

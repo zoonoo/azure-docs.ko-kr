@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-memory
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: b15fdc3826a72e9cfb039b6b2994179ab9565404
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bafae485c16923f3a4f7f5db6db0456f4b2f3bf7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102562523"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109844955"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -34,8 +34,8 @@ Mv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 |---|---|---|---|---|---|---|---|---|
 | Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800(7040) | 40000/1000 | 8 | 16000 |
 | Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800(7040) | 40000/1000 | 8 | 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000/1600(14080) | 80000/2000 | 8 | 32000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000/1600(14080) | 80000/2000 | 8 | 32000 |
+| Standard_M416ms_v2<sup>1,2</sup> | 416 | 11400 | 8192 | 64 | 250000/1600(14080) | 80000/2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1,2</sup> | 416 | 5700 | 8192 | 64 | 250000/1600(14080) | 80000/2000 | 8 | 32000 |
 
 <sup>1</sup> Mv2 시리즈 VM은 2세대 전용으로, 2세대에서 지원하는 이미지의 하위 집합을 지원합니다. Mv2 시리즈에 대해 지원되는 이미지의 전체 목록은 아래를 참조하세요. Linux를 사용하는 경우 이미지를 찾고 선택하는 방법에 대한 지침은 [Azure의 2세대 VM 지원](./generation-2.md)을 참조하세요. Windows를 사용하는 경우 이미지를 찾고 선택하는 방법에 대한 지침은 [Azure의 2세대 VM 지원](./generation-2.md)을 참조하세요. 
 
@@ -44,6 +44,7 @@ Mv2 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 - Red Hat Enterprise Linux 7.6, 7.7, 8.1 이상 
 - Oracle Enterprise Linux 7.7 이상
 
+<sup>2</sup> [사용 가능한 코어 크기 제한](./constrained-vcpu.md).
 
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]

@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: ec5d63c18e8fb3a353de334ae571c730f9b0d3d3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 464521cee3242859294de42d2086e1bea33bb4c4
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869806"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112290926"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Azure HDInsight의 대화형 쿼리란?
 
 대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Apache Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다. 고객은 대화형 쿼리를 사용하여 Azure Storage 및 Azure Data Lake Storage에 저장된 데이터를 초고속 방식으로 쿼리합니다. 개발자 및 데이터 과학자는 대화형 쿼리를 사용하여 가장 선호하는 BI 도구를 사용하여 쉽게 빅 데이터 작업을 수행할 수 있습니다. HDInsight 대화형 쿼리는 빅 데이터에 쉽게 액세스할 수 있도록 몇 가지 도구를 지원합니다.
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
+[!INCLUDE [hdinsight-price-change](../includes/hdinsight-enhancements.md)]
 
 Interactive Query 클러스터는 Apache Hadoop 클러스터와 다릅니다. Hive 서비스만 포함합니다.
 

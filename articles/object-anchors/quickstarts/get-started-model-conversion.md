@@ -4,25 +4,25 @@ description: 이 빠른 시작에서는 3D 모델에서 Object Anchors 모델을
 author: craigktreasure
 manager: virivera
 ms.author: crtreasu
-ms.date: 02/22/2021
+ms.date: 06/10/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: bb2de2c9076ae17598b761ba7dc2c17286d1352d
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 592affde83e468c409c25204fa389471a77abcce
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750792"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112005594"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>빠른 시작: 3D 모델에서 Object Anchors 모델 만들기
 
-Azure Object Anchors는 3D 모델을 HoloLens에 대한 개체 인식 혼합 현실 환경을 지원하는 AI 모델로 변환하는 관리형 클라우드 서비스입니다. 이 빠른 시작에서는 C#/.NET Core SDK를 사용하여 3D 모델에서 Object Anchors 모델을 만드는 방법에 대해 설명합니다.
+Azure Object Anchors는 3D 모델을 HoloLens에 대한 개체 인식 혼합 현실 환경을 지원하는 AI 모델로 변환하는 관리형 클라우드 서비스입니다. 이 빠른 시작에서는 [.NET용 Azure Object Anchors 변환 SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)를 사용하여 3D 모델에서 Object Anchors 모델을 만드는 방법에 대해 설명합니다.
 
 이 문서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Object Anchors 계정 만들기
-> * 3D 모델을 변환하여 Object Anchors 모델 만들기
+> * Object Anchors 계정을 만듭니다.
+> * [.NET용 Azure Object Anchors 변환 SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)([NuGet](https://www.nuget.org/packages/Azure.MixedReality.ObjectAnchors.Conversion/))로 3D 모델을 변환하여 Object Anchors 모델을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -143,3 +143,6 @@ Azure Object Anchors는 3D 모델을 HoloLens에 대한 개체 인식 혼합 현
 
 > [!div class="nextstepaction"]
 > [HoloLens DirectX](get-started-hololens-directx.md)
+
+> [!div class="nextstepaction"]
+> [변환 SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)

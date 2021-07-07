@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 지원 서버 에이전트 관리
 description: 이 문서에서는 Azure Arc 지원 서버 Connected Machine 에이전트의 수명 주기 동안 일반적으로 수행하는 다양한 관리 작업에 대해 설명합니다.
-ms.date: 02/10/2021
+ms.date: 05/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 36ae081f939cbf865db7755a2f766a7ccd87d619
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 728e67930366f1b62b405f503a775b6d14a90bd0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587631"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068233"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Connected Machine 에이전트 관리 및 유지 관리
 
@@ -182,6 +182,8 @@ Azcmagent 도구(Azcmagent.exe)는 설치 도중에 Azure Arc 지원 서버 Conn
 
 * **버전** - Connected Machine 에이전트의 버전을 표시합니다.
 
+* **-useStderr**-오류 및 자세한 출력을 stderr로 보냅니다. `-json` 매개 변수를 포함하여 JSON 형식으로 결과를 출력합니다.
+
 * **-h 또는 --help** - 사용 가능한 명령줄 매개 변수를 표시합니다.
 
     예를 들어 **Connect** 매개 변수에 대한 도움말 세부 정보를 보려면 `azcmagent connect -h`를 입력합니다. 
@@ -232,7 +234,10 @@ Azcmagent 도구(Azcmagent.exe)는 설치 도중에 Azure Arc 지원 서버 Conn
 
 ## <a name="remove-the-agent"></a>에이전트 제거
 
-다음 방법 중 하나를 수행하여 머신에서 Windows 또는 Linux Connected Machine 에이전트를 제거합니다. 에이전트를 제거해도 Arc 지원 서버에서 머신의 등록이 취소되거나 설치된 Azure VM 확장이 제거되지 않습니다. Azure에서 머신을 더 이상 관리할 필요가 없을 경우 머신의 등록을 취소하고 설치된 VM 확장을 별도로 제거해야 하며, 해당 과정을 완료한 후에 에이전트를 제거해야 합니다.
+다음 방법 중 하나를 수행하여 머신에서 Windows 또는 Linux Connected Machine 에이전트를 제거합니다. 에이전트를 제거해도 Arc 지원 서버에서 머신의 등록이 취소되거나 설치된 Azure VM 확장이 제거되지 않습니다. 더 이상 Azure Arc 지원 서버로 관리하지 않으려는 서버 또는 머신의 경우 다음 단계를 수행하여 제대로 관리를 중지해야 합니다. 
+
+1. [Azure Portal](manage-vm-extensions-portal.md#uninstall-extension)에서 설치된 VM 확장을 제거하거나 [Azure CLI](manage-vm-extensions-cli.md#remove-an-installed-extension)를 사용하거나 머신에 유지하지 않으려는 [Azure PowerShell](manage-vm-extensions-powershell.md#remove-an-installed-extension)을 사용합니다.
+1. `azcmagent disconnect`를 실행하여 Azure에서 Arc 지원 서버 리소스를 삭제하여 머신을 등록 취소합니다. 이 작업이 실패하면 Azure에서 리소스를 수동으로 삭제할 수 있습니다. 그렇지 않고 리소스가 Azure에서 삭제된 경우 서버에서 `azcmagent disconnect --force-local-only`를 실행하여 로컬 구성을 제거해야 합니다.
 
 ### <a name="windows-agent"></a>Windows 에이전트
 
@@ -353,8 +358,8 @@ sudo azcmagent_proxy remove
 
 ## <a name="next-steps"></a>다음 단계
 
-* 문제 해결 정보는 [Connected Machine 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 찾을 수 있습니다.
+* 문제 해결 정보는 [연결된 컴퓨터 에이전트 문제 해결 가이드](troubleshoot-agent-onboard.md)에서 확인할 수 있습니다.
 
 * [Azure Policy](../../governance/policy/overview.md)를 사용하여 머신을 관리하는 방법을 알아봅니다(예: VM [게스트 구성](../../governance/policy/concepts/guest-configuration.md), 머신이 예상되는 Log Analytics 작업 영역에 보고되는지 확인, [VM을 사용한 Azure Monitor](../../azure-monitor/vm/vminsights-enable-policy.md)로 모니터링 등).
 
-* [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. 운영 체제 및 워크로드 모니터링 데이터를 수집하거나, Automation Runbook 또는 업데이트 관리 등의 기능을 사용해 운영 체제를 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md) 등의 Azure 서비스를 이용하려면 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+* [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)에 대해 자세히 알아보세요. Windows 및 Linux용 Log Analytics 에이전트는 운영 체제 및 워크로드 모니터링 데이터를 수집하거나, Automation Runbook 또는 업데이트 관리와 같은 기능을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md)와 같은 Azure 서비스를 사용하려는 경우에 필요합니다.

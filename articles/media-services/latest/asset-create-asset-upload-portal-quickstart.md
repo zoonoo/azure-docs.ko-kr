@@ -6,12 +6,12 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
-ms.openlocfilehash: 036db7999ce6d5fd84ad6210aa50206e2b031b2f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6c6dd03956329fd85862b7e211c24966f7eec64f
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369358"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495214"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>빠른 시작: 포털을 사용하여 콘텐츠 업로드, 인코딩 및 스트리밍
 
@@ -36,7 +36,7 @@ ms.locfileid: "110369358"
 
         현재 Azure Portal을 사용 중인 경우 TTML 및 WebVTT 선택 자막 파일을 생성할 수 있습니다. 이러한 형식의 파일은 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다. 또한 콘텐츠에서 키워드를 추출할 수 있습니다.
 
-        비디오 및 오디오 파일에서 정보를 추출할 수 있는 다양한 환경을 위해 [자습서: Media Services v3으로 비디오 분석](analyze-videos-tutorial.md)에 설명된 대로 Media Services v3 사전 설정을 사용합니다. <br/>더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요.    
+        비디오 및 오디오 파일에서 정보를 추출할 수 있는 다양한 환경을 위해 [자습서: Media Services v3으로 비디오 분석](analyze-videos-tutorial.md)에 설명된 대로 Media Services v3 사전 설정을 사용합니다. <br/>더 자세한 인사이트가 필요하면 [Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml)를 직접 사용합니다.    
 * 콘텐츠를 처리한 후에는 미디어 콘텐츠를 클라이언트 플레이어에게 제공할 수 있습니다. 출력 자산의 비디오를 클라이언트가 재생할 수 있도록 하려면 **스트리밍 로케이터** 를 만들어야 합니다. **스트리밍 로케이터** 를 만드는 경우 **스트리밍 정책** 을 지정해야 합니다. **스트리밍 정책** 을 사용하면 **스트리밍 로케이터** 에 대한 스트리밍 프로토콜 및 암호화 옵션(있는 경우)을 정의할 수 있습니다.
     
     검토:

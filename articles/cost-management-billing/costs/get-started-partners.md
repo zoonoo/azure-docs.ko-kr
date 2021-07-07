@@ -3,18 +3,18 @@ title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/27/2021
+ms.date: 06/01/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 40c683d98a13bf4810ec4575af3fba5ae64961f0
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 7278211ee47ec4a291a7934fee4b56fae0d8dfc4
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946995"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790391"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
@@ -110,7 +110,13 @@ Microsoft 고객 계약에 고객을 온보딩한 후에는 Microsoft 고객 계
 
 파트너는 범위를 사용하여 Microsoft 고객 계약에 온보딩된 고객과 연결된 비용을 관리합니다. 범위를 통해 파트너는 특정 고객에 대한 세전 비용을 청구 통화 단위로 볼 수 있습니다. 특정 구독, 리소스 그룹 또는 리소스에 대한 세전 비용을 필터링할 수도 있습니다.
 
-고객 범위에 현재 CSP 제품에 있는 고객은 포함되지 않습니다. 범위에는 Microsoft 고객 계약이 있는 고객만 포함됩니다. 현재 CSP 제품 고객에 대한 Azure 사용량이 아닌 자격 비용은 고객 필터를 적용할 때 청구 계정 및 청구 프로필 범위에서 사용할 수 있습니다. 이 범위에서 설정된 예산은 청구 통화 단위입니다.
+고객 범위에 현재 CSP 제품에 있는 고객은 포함되지 않습니다. 범위에는 Microsoft 고객 계약이 있는 고객만 포함됩니다.
+
+현재 CSP 제품 고객에 대한 Azure 사용량이 아닌 자격 비용은 고객 필터를 적용할 때 청구 계정 및 청구 프로필 범위에서 사용할 수 있습니다. 이 범위에서 설정된 예산은 청구 통화 단위입니다.
+
+고객 범위의 비용을 보려면 파트너 테넌트에서 비용 분석으로 이동하고, 범위 선택기를 선택한 다음, 범위 목록에서 특정 고객을 선택합니다. 다음은 *Contoso Services* 고객의 예제입니다.
+
+:::image type="content" source="./media/get-started-partners/customer-scope.png" alt-text="고객 범위 선택을 보여 주는 스크린샷" lightbox="./media/get-started-partners/customer-scope.png" :::
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Cost Management에서 청구 범위에 대한 파트너 액세스
 
@@ -147,7 +153,7 @@ Azure Portal에서 *파트너 테넌트* 에 로그인하고 **Cost Management +
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>고객 테넌트의 구독 비용 보기
 
-구독에 대한 비용을 보려면 고객의 Azure 테넌트에서 **Cost Management + 청구** 를 엽니다. 필요한 구독 **비용 분석** 을 선택하여 비용 검토를 시작합니다. 고객 테넌트에서 각 구독에 대한 소비 비용을 개별적으로 볼 수 있습니다.
+구독에 대한 비용을 보려면 고객의 Azure 테넌트에서 **Cost Management + 청구** 를 엽니다. **비용 분석** 을 선택한 다음, 필요한 구독을 선택하여 비용 검토를 시작합니다. 고객 테넌트에서 각 구독에 대한 소비 비용을 개별적으로 볼 수 있습니다.
 
 [![고객으로 비용 분석 보기](./media/get-started-partners/subscription-costs.png)](./media/get-started-partners/subscription-costs.png#lightbox)
 

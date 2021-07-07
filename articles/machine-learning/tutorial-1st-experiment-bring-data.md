@@ -1,7 +1,7 @@
 ---
-title: '자습서: 사용자 고유의 데이터 사용'
+title: '자습서: 데이터 업로드 및 모델 학습'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 시작 시리즈의 3부에서는 원격 학습 실행에서 사용자 고유의 데이터를 사용하는 방법을 보여줍니다.
+description: 원격 학습 실행에서 사용자 고유의 데이터를 업로드하고 사용하는 방법입니다. 3부로 구성된 시작 시리즈 중 3부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,27 +10,23 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/29/2021
-ms.custom: tracking-python, contperf-fy21q3
-ms.openlocfilehash: 2b6659e533edac33e992c2648140760888a6b32c
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: dbbd71a40419ee3472b01be11c101567e6945634
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785586"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028220"
 ---
-# <a name="tutorial-use-your-own-data-part-3-of-3"></a>자습서: 사용자 고유의 데이터 사용(3/3부)
+# <a name="tutorial-upload-data-and-train-a-model-part-3-of-3"></a>자습서: 데이터 업로드 및 모델 학습(3/3부)
 
-이 자습서에서는 사용자 고유의 데이터를 업로드하고 사용하여 Azure Machine Learning에서 기계 학습 모델을 학습시키는 방법을 보여 줍니다.
+이 자습서에서는 사용자 고유의 데이터를 업로드하고 사용하여 Azure Machine Learning에서 기계 학습 모델을 학습시키는 방법을 보여 줍니다. 이 자습서는 ‘3부로 구성된 자습서 시리즈 중 3부’입니다.  
 
-이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 *3부로 구성된 자습서 시리즈 중 3부* 입니다. 이 자습서는 [1부: “Hello World” 실행](tutorial-1st-experiment-hello-world.md) 및 [2부: 모델 학습](tutorial-1st-experiment-sdk-train.md)에서 완료한 작업을 기반으로 합니다.
-
-[2부: 모델 학습](tutorial-1st-experiment-sdk-train.md)에서는 데이터가 PyTorch API에서 기본 제공 `torchvision.datasets.CIFAR10` 메서드를 사용하여 다운로드되었습니다. 그러나 대부분의 경우 원격 학습 실행에서 사용자 고유의 데이터를 사용하려고 합니다. 이 문서에서는 Azure Machine Learning에서 사용자 고유의 데이터로 작업하는 데 사용할 수 있는 워크플로를 보여 줍니다.
+[2부: 모델 학습](tutorial-1st-experiment-sdk-train.md)에서는 `PyTorch`의 샘플 데이터를 사용하여 클라우드에서 모델을 학습시켰습니다.  또한 PyTorch API에서 `torchvision.datasets.CIFAR10` 메서드를 통해 해당 데이터를 다운로드했습니다. 이 자습서에서는 다운로드한 데이터를 사용하여 Azure Machine Learning에서 사용자 고유의 데이터로 작업하기 위한 워크플로를 학습합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * 로컬 디렉터리의 데이터를 사용하도록 학습 스크립트 구성
-> * 로컬로 학습 스크립트 테스트
 > * Azure에 데이터 업로드
 > * 제어 스크립트 만들기
 > * 새 Azure Machine Learning 개념(매개 변수, 데이터 세트, 데이터 저장소 전달) 이해
@@ -176,7 +172,7 @@ Azure Machine Learning에서 이 스크립트를 실행하려면 Azure에서 학
 >[!NOTE] 
 > Azure Machine Learning을 사용하면 데이터를 저장하는 다른 클라우드 기반 데이터 저장소를 연결할 수 있습니다. 자세한 내용은 [데이터 저장소 설명서](./concept-data.md)를 참조하세요.  
 
-1. **get-started** 폴더에 *upload-data.py* 라는 새 Python 컨트롤 스크립트를 만듭니다.
+1. **get-started** 폴더에 새 Python 제어 스크립트를 만듭니다. 이때 **/src** 폴더가 ‘아닌’ **get-started** 에 있어야 합니다.  스크립트 이름을 *upload-data.py* 로 지정하고 다음 코드를 파일에 복사합니다.
     
     ```python
     # upload-data.py
@@ -250,6 +246,9 @@ if __name__ == "__main__":
     print("")
     print(aml_url)
 ```
+
+> [!TIP]
+> 컴퓨팅 클러스터를 만들 때 다른 이름을 사용한 경우 코드 `compute_target='cpu-cluster'`의 이름도 조정합니다.
 
 ### <a name="understand-the-code-changes"></a>코드 변경 내용 이해
 

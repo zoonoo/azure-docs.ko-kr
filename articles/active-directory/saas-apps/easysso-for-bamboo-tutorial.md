@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 06/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d784979876857e94c1e09ffc5b7bef11c0a0d04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4ef286e9e760c6a18b69eb8724c1317e6a872b2c
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821519"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569148"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>자습서: EasySSO for Bamboo와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,10 +37,10 @@ ms.locfileid: "99821519"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* EasySSO for Bamboo는 **SP 및 IDP** 시작 SSO를 지원합니다.
-* EasySSO for Bamboo는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+* EasySSO for Bamboo에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* EasySSO for Bamboo에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
-## <a name="adding-easysso-for-bamboo-from-the-gallery"></a>갤러리에서 EasySSO for Bamboo 추가
+## <a name="add-easysso-for-bamboo-from-the-gallery"></a>갤러리에서 EasySSO for Bamboo 추가
 
 EasySSO for Bamboo가 Azure AD에 통합되도록 구성하려면 갤러리에서 EasySSO for Bamboo를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
@@ -50,7 +50,6 @@ EasySSO for Bamboo가 Azure AD에 통합되도록 구성하려면 갤러리에�
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **EasySSO for Bamboo** 를 입력합니다.
 1. 결과 패널에서 **EasySSO for Bamboo** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-easysso-for-bamboo"></a>EasySSO for Bamboo용 Azure AD SSO 구성 및 테스트
 
@@ -71,19 +70,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal의 **EasySSO for Bamboo** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    a. **식별자** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/easysso/saml` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<SERVER_BASE_URL>/plugins/servlet/easysso/saml` 패턴을 사용하여 URL을 입력합니다.
 
-    b. **회신 URL** 텍스트 상자에서 `https://<server-base-url>/plugins/servlet/easysso/saml` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<SERVER_BASE_URL>/plugins/servlet/easysso/saml` 패턴을 사용하여 URL을 입력합니다.
 
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://<server-base-url>/login.jsp` 패턴을 사용하여 URL을 입력합니다.
+    **로그인 URL** 텍스트 상자에서 `https://<SERVER_BASE_URL>/login.jsp` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 확실치 않은 경우 [EasySSO 지원 팀](mailto:support@techtime.co.nz)에 문의하여 이러한 값을 구합니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -94,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 EasySSO for Bamboo 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
     
-    | Name | 원본 특성 |
+    | 속성 | 원본 특성 |
     | ---------------| --------- |
     | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
     | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
@@ -129,9 +128,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **EasySSO for Bamboo** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
@@ -191,7 +188,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 그러나 사용자가 처음 로그인할 때 자동 사용자 프로비저닝을 사용하지 않으려면, 사용자는 LDAP 또는 Atlassian Crowd와 같이 Bamboo 인스턴스가 사용하는 백 엔드 사용자 디렉터리에 있어야 합니다.
 
-![사용자 프로비전](./media/easysso-for-bamboo-tutorial/bamboo-admin-6.png)
+![사용자 프로비전](./media/easysso-for-bamboo-tutorial/admin.png)
 
 ## <a name="test-sso"></a>SSO 테스트 
 
@@ -209,7 +206,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 시나리오에서는 Bamboo EasySSO 구성 페이지의 **모양 및 느낌** 탭에서 **SAML 로그인 단추** 를 사용하도록 설정했다고 가정합니다(위 참조). 기존 세션과의 간섭을 피하려면 브라우저 시크릿 모드로 Bamboo 로그인 URL을 엽니다. **SAML 로그인** 단추를 클릭하면 Azure AD 사용자 인증 흐름으로 리디렉션됩니다. 성공적으로 완료되면 SAML을 통해 인증된 사용자로 Bamboo 인스턴스로 다시 리디렉션됩니다.
 
-Azure AD에서 다시 리디렉션되는 경우 다음 화면이 나타날 수 있습니다.
+Azure AD에서 다시 리디렉션된 후 다음 화면이 나타날 수 있습니다.
 
 ![EasySSO 실패 스크린샷](./media/easysso-for-bamboo-tutorial/bamboo-admin-8.png)
 

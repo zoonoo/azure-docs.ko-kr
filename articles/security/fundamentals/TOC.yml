@@ -43,6 +43,8 @@
       items:
         - name: 펌웨어 보안
           href: firmware.md
+        - name: 코드 무결성
+          href: code-integrity.md
         - name: 보안 부팅
           href: secure-boot.md
         - name: 측정된 부팅 및 호스트 증명

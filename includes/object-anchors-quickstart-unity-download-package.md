@@ -2,20 +2,20 @@
 author: craigktreasure
 ms.service: azure-object-anchors
 ms.topic: include
-ms.date: 02/18/2021
+ms.date: 06/10/2021
 ms.author: crtreasu
-ms.openlocfilehash: ada83d6263ef033208200d810c53c5f045acc9a7
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 8ad55355307cfc8656b6f6bf9b074d90daf7e2e8
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105105882"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112006910"
 ---
 다음은 Unity용 Azure Object Anchors 패키지를 다운로드하는 단계입니다.
 
 # <a name="download-with-web-browser"></a>[웹 브라우저를 사용하여 다운로드](#tab/unity-package-web-ui)
 
-[여기](https://aka.ms/aoa/unity-sdk/package)에서 Unity용 Azure Object Anchors 패키지를 찾습니다. 원하는 버전을 선택하고 **다운로드** 단추를 사용하여 패키지를 다운로드합니다.
+[여기](https://aka.ms/aoa/unity-sdk/package)에서 Unity용 Azure Object Anchors 패키지(`com.microsoft.azure.object-anchors.runtime`)를 찾습니다. 원하는 버전을 선택하고 **다운로드** 단추를 사용하여 패키지를 다운로드합니다.
 
 # <a name="download-with-npm"></a>[NPM을 사용하여 다운로드](#tab/unity-package-npm)
 
