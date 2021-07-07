@@ -39,7 +39,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query agentPo
 ]
 ```
 
-[Az aks scale][az-aks-scale] 명령을 사용 하여 클러스터 노드의 크기를 조정 합니다. 다음 예제에서는 *myAKSCluster* 라는 클러스터를 단일 노드로 크기 조정합니다. `--nodepool-name`, 즉,  , 즉, *, 즉, Nodepool1, 즉,*, 즉, 을 제공 합니다., 즉, 
+[az aks scale][az-aks-scale] 명령을 사용 하여 클러스터 노드의 크기를 조정 합니다. 다음 예제에서는 *myAKSCluster* 라는 클러스터를 단일 노드로 크기 조정합니다. nodepool1과 같이 이전 명령에서의 고유한 `--nodepool-name`을 입력합니다.
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
