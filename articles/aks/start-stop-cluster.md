@@ -36,7 +36,7 @@ Cluster start/stop 기능을 사용 하는 경우 다음 제한 사항이 적용
 az aks stop --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` `Stopped` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다.
+[az aks show][az-aks-show] 명령을 사용하여 클러스터가 중지 된 시기를 확인하고 `powerState` `Stopped` 아래 출력에 표시 된 것 처럼 표시 되는지 확인할 수 있습니다.
 
 ```json
 {
@@ -66,7 +66,7 @@ az aks stop --name myAKSCluster --resource-group myResourceGroup
 az aks start --name myAKSCluster --resource-group myResourceGroup
 ```
 
-[Az aks show][az-aks-show] 명령을 사용하여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
+[az aks show][az-aks-show] 명령을 사용하여 클러스터가 시작 된 시기를 확인 하 고 `powerState` `Running` 아래 출력에 표시 된 것으로 확인 합니다.
 
 ```json
 {
