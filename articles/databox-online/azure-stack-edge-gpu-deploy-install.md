@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 06/04/2021
 ms.author: alkohli
-ms.openlocfilehash: a415dba4bb4fd5b95e98ae7c104cae92db27f34c
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 406e31320e8f7d0d95bfef44f620505989b3ae9f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060162"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746702"
 ---
 # <a name="tutorial-install-azure-stack-edge-pro-with-gpu"></a>자습서: GPU가 있는 Azure Stack Edge Pro 설치
 
@@ -163,7 +163,7 @@ ms.locfileid: "106060162"
 - 포장을 풀고 랙에 탑재된 Azure Stac Edge Pro 물리적 디바이스.
 - 전원 케이블 2개
 - 관리 인터페이스에 연결하는 하나 이상의 1-GbE RJ-45 네트워크 케이블 디바이스에는 두 개의 1-GbE 네트워크 인터페이스가 있습니다. 하나는 관리용이고 하나는 데이터용입니다.
-- 구성할 각 데이터 네트워크 인터페이스에 대한 25-GbE SFP+ 동 케이블 1개 하나 이상의 데이터 네트워크 인터페이스 - PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 인터넷에 연결해야 합니다(Azure에 연결).  
+- 구성할 각 데이터 네트워크 인터페이스에 대한 25/10-GbE SFP+ 동 케이블 1개. 하나 이상의 데이터 네트워크 인터페이스 - PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 인터넷에 연결해야 합니다(Azure에 연결).  
 - 2개 전원 분배 장치에 대한 액세스(권장)
 - 데이터용 인터넷에 1-GbE 네트워크 인터페이스를 연결하는 1-GbE 네트워크 스위치 하나 이상 연결된 스위치가 1GbE 이상이 아닌 경우 로컬 웹 UI에 액세스할 수 없습니다. 데이터에 25/10GbE 인터페이스를 사용하는 경우 25GbE 또는 10GbE 스위치가 필요합니다.
 
@@ -190,10 +190,10 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
     - **사용자 지정 Microsoft `Qlogic` Cavium 25G NDC 어댑터** - 포트 1~포트 4.
     - **Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터** - 포트 5 및 포트 6
 
-이러한 네트워크 카드에 대해 지원되는 케이블, 스위치 및 트랜시버의 전체 목록은 다음으로 이동합니다.
+이러한 네트워크 어댑터 카드에 대해 지원되는 케이블, 스위치 및 트랜시버의 전체 목록은 다음을 참조하세요.
 
 - [`Qlogic` Cavium 25G NDC 어댑터 상호 운용성 매트릭스](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
-- [Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)  
+- [Mellanox 이중 포트 25G ConnectX-4 채널 네트워크 어댑터 호환 제품](https://docs.mellanox.com/display/ConnectX4LxFirmwarev14271016/Firmware+Compatible+Products)의 25GbE 및 10GbE 케이블 및 모듈.  
 
  
 디바이스의 전원 및 네트워크에 케이블을 연결하려면 다음 단계를 수행합니다.

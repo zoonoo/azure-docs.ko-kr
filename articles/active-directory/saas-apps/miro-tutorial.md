@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 05/26/2021
 ms.author: jeedes
-ms.openlocfilehash: 56548bc770c68d9eab2df138a91e8719efae25cd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6066dc8709fe376f99babcc3dd1360e4bf571ef2
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101651531"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655354"
 ---
 # <a name="tutorial-integrate-miro-with-azure-active-directory"></a>자습서: Azure Active Directory와 Miro 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 Miro를 통합하는 방법에 대해 알아봅니다. Azure AD와 Miro를 통합하는 경우 다음을 수행할 수 있습니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 Miro를 통합하는 방법에 대해 알아봅니다. 이 자습서의 다른 버전은 help.miro.com에서 찾을 수 있습니다. Azure AD와 Miro를 통합하는 경우 다음을 수행할 수 있습니다.
 
 * Azure AD에서 Miro에 대한 액세스 권한이 있는 사용자를 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 Miro에 자동으로 로그인되도록 설정할 수 있습니다.
@@ -37,6 +37,9 @@ ms.locfileid: "101651531"
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
 * Miro는 **SP 및 IDP** 시작 SSO 및 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
+
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="add-miro-from-the-gallery"></a>갤러리에서 Miro 추가
 
@@ -74,19 +77,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 4. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
-    **식별자** 텍스트 상자에서 `https://miro.com` URL을 입력합니다.
+    **식별자** 텍스트 상자에서 `https://miro.com/` URL을 입력합니다.
 
-5. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정** 를 클릭하고 다음 단계를 수행합니다.
+5. 애플리케이션을 **SP** 시작 모드로 구성하려는 경우 **로그온 URL** 텍스트 상자에서 URL(`https://miro.com/sso/login/`)을 입력합니다.
 
-    **로그온 URL** 텍스트 상자에 `https://miro.com/sso/saml` URL을 입력합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다. Miro 쪽에서 SSO를 구성하는 데 필요합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML** 을 찾고, **다운로드** 를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
+   ![인증서 다운로드 링크](common/certificatebase64.png "인증서 다운로드 링크")
 
-   ![인증서 다운로드 링크](common/metadataxml.png)
+1. **Miro 설정** 섹션에서 로그인 URL을 복사합니다. Miro 쪽에서 SSO를 구성하는 데 필요합니다.
 
-1. **Miro 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
-
-   ![구성 URL 복사](common/copy-configuration-urls.png)
+   ![로그인 URL 복사](./media/miro-tutorial/login.png "로그인 URL 복사")
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -112,30 +113,37 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+* 또는 애플리케이션의 **속성** 으로 이동하여 **사용자 할당 필요** 를 해제합니다. 
+![할당 요구 사항 사용 안 함](./media/miro-tutorial/properties.png "할당 요구 사항 사용 안 함")
+
 ## <a name="configure-miro-sso"></a>Miro SSO 구성
 
-**Miro** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 Miro 지원 팀으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+Miro 쪽에서 Single Sign-On을 구성하려면 이전에 다운로드한 인증서와 이전에 복사한 로그인 URL을 사용합니다. Miro 계정 설정에서 **보안** 섹션으로 이동하여 **SSO/SAML 사용** 을 설정합니다. 
+
+1. 로그인 URL을 **SAML 로그인 URL** 필드에 붙여넣습니다.
+1. 텍스트 편집기를 사용하여 인증서 파일을 열고, 인증서 순서를 복사합니다. 이 순서를 **키 x509 인증서** 필드에 붙여넣습니다.
+![Miro 설정](./media/miro-tutorial/security.png "Miro 설정")
+
+1. **도메인** 필드에서 도메인 주소를 입력하고, **추가** 를 클릭하고, 확인 절차를 따릅니다. 다른 도메인 주소가 있는 경우 이를 반복합니다. Miro SSO 기능은 목록에 있는 도메인의 최종 사용자를 위해 작동합니다. 
+![도메인](./media/miro-tutorial/add-domain.png "도메인")
+
+1. Just-In-Time 프로비전(사용자를 Miro에 등록하는 동안 구독으로 끌어오기)을 사용할지 여부를 결정하고, **저장** 을 클릭하여 Miro 쪽에서 SSO 구성을 완료합니다.
+![Just-In-Time 프로비전](./media/miro-tutorial/save-configuration.png "Just-In-Time 프로비전") 
 
 ### <a name="create-miro-test-user"></a>Miro 테스트 사용자 만들기
 
-이 섹션에서는 Miro에서 B.Simon이라는 사용자를 만듭니다. Miro는 요구 사항에 따라 사용하도록 설정할 수 있는 Just-In-Time 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. 사용자가 Miro에 존재하지 않는 경우 Miro에 액세스하려고 할 때 새 사용자를 만듭니다.
+이 섹션에서는 Miro에서 B.Simon이라는 사용자를 만듭니다. Miro는 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에는 작업 항목이 없습니다. Miro에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 
-이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
+이 섹션에서는 B.Simon 테스트 사용자를 사용하여 다음 옵션을 통해 Azure AD Single Sign-On 구성을 테스트합니다. 
 
 #### <a name="sp-initiated"></a>SP 시작:
-
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Miro 로그온 URL로 리디렉션됩니다.  
 
 * Miro 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
 #### <a name="idp-initiated"></a>IDP 시작:
 
-* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Miro에 자동으로 로그인됩니다. 
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하고, B.Simon으로 로그인하도록 선택합니다. 그러면 SSO를 설정한 Miro에 자동으로 로그인됩니다. 
 
 Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Miro 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Miro에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
-
-## <a name="next-steps"></a>다음 단계
-
-Miro가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).

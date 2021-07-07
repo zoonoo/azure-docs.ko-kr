@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 1ba2b7d648c86912118b83a566bf2eb0800baee2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6953ffb5542e2a0d8acb9e404b2df0f923a08145
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101747859"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744020"
 ---
 # <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra-preview"></a>Apache Cassandra용 Azure Managed Instance(미리 보기)에 대한 질문과 대답
 
@@ -45,6 +45,10 @@ Apache Cassandra용 Azure Managed Instance는 Azure Cosmos DB 팀에서 제공�
 ### <a name="what-are-the-storage-and-throughput-limits-of-azure-managed-instance-for-apache-cassandra"></a>Apache Cassandra용 Azure Managed Instance의 스토리지 및 처리량 제한은 얼마인가요?
 
 선택한 Virtual Machine SKU에 따라 제한이 다릅니다.
+
+### <a name="how-are-cassandra-repairs-carried-out-in-azure-managed-instance-for-apache-cassandra"></a>Azure Managed Instance for Apache Cassandra에서 Cassandra 복구는 어떻게 수행하나요?
+
+[cassandra-reaper.io](http://cassandra-reaper.io/)를 사용합니다. 자동으로 실행하도록 설정됩니다.
 
 ### <a name="what-is-the-cost-of-azure-managed-instance-for-apache-cassandra"></a>Apache Cassandra용 Azure Managed Instance의 비용은 얼마인가요?
 

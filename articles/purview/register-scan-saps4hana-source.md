@@ -1,5 +1,5 @@
 ---
-title: Azure Purview에서 SAP S/4HANA 원본 등록 및 검사 설정(미리 보기)
+title: Azure Purview에서 SAP S/4HANA 원본 등록 및 검사 설정
 description: 이 문서에서는 Azure Purview에서 SAP S/4HANA 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: e7030d1b692777b7497ffe464a70d3a80cab9647
-ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
+ms.openlocfilehash: a061f3afbfb3a114ec22bcfba123aa326b6ac3fd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107992362"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067099"
 ---
-# <a name="register-and-scan-a-sap-s4hana-source-preview"></a>SAP S/4HANA 원본 등록 및 검사(미리 보기)
+# <a name="register-and-scan-a-sap-s4hana-source"></a>SAP S/4HANA 원본 등록 및 검사
 
 이 문서에서는 Purview에서 SAP S/4HANA 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 

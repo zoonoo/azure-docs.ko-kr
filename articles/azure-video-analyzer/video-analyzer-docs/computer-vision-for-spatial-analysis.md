@@ -6,12 +6,12 @@ ms.author: juliako
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 04/01/2021
-ms.openlocfilehash: d54983e25abc769a75923e59c483a4cf9495770f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 82edf5b282f7b68a7d4d1d7909cfe653a65c175b
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110384247"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746569"
 ---
 # <a name="tutorial-live-video-with-computer-vision-for-spatial-analysis-preview"></a>자습서: Computer Vision과 함께 라이브 비디오를 사용하여 공간 분석(미리 보기)
 
@@ -145,16 +145,7 @@ spatialanalysis 컨테이너를 배포하려면 배포 매니페스트 파일에
 1. [https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp](https://github.com/Azure-Samples/azure-video-analyzer-iot-edge-csharp)에서 리포지토리를 복제합니다.
 1. Visual Studio Code에서 리포지토리를 다운로드한 폴더를 엽니다.
 1. Visual Studio Code에서 src/cloud-to-device-console-app으로 이동합니다. 여기에서 파일을 만들고 이름을 *appsettings.json* 으로 지정합니다. 이 파일에는 프로그램을 실행하는 데 필요한 설정이 포함됩니다.
-1. 다음 단계에 따라 에지 디바이스에서 `IotHubConnectionString`을 가져옵니다.
-
-   - Azure Portal에서 IoT Hub로 이동하여 왼쪽 탐색 창에서 `Shared access policies`를 클릭합니다.
-   - `iothubowner`를 클릭하여 공유 액세스 키를 가져옵니다.
-   - `Connection String – primary key`를 복사하여 VSCode의 입력 상자에 붙여넣습니다.
-
-     연결 문자열은 다음과 같습니다. <br/>`HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=xxx`
-
-1. 아래 내용을 파일에 복사합니다. 변수를 바꾸어야 합니다.
-
+1. Azure Portal에서 appsettings.json 파일의 내용을 복사합니다. 텍스트는 다음 코드와 비슷합니다.
    ```json
    {
      "IoThubConnectionString": "HostName=<IoTHubName>.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=<SharedAccessKey>",
@@ -164,7 +155,7 @@ spatialanalysis 컨테이너를 배포하려면 배포 매니페스트 파일에
    ```
 
 1. src/edge 폴더로 이동하고, .env라는 파일을 만듭니다.
-1. Azure Portal에서 env 파일의 내용을 복사합니다. 텍스트는 다음 코드와 비슷합니다.
+1. Azure Portal에서 env.txt 파일의 내용을 복사합니다. 텍스트는 다음 코드와 비슷합니다.
 
    ```env
    SUBSCRIPTION_ID="<Subscription ID>"
@@ -198,7 +189,7 @@ spatialanalysis 컨테이너를 배포하려면 배포 매니페스트 파일에
 1. `avaedge`의 `IpcMode`와 `spatialanalysis` 모듈 createOptions는 동일해야 하며 **host** 로 설정되어야 합니다.
 1. RTSP 시뮬레이터가 작동하려면 Azure Stack Edge 디바이스를 사용할 때 볼륨 범위를 설정해야 합니다.
 
-   1. [SMB 공유에 연결](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 stairwell 비디오 파일](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mp4)을 로컬 공유에 복사합니다.
+   1. [SMB 공유에 연결](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share)하고 [샘플 stairwell 비디오 파일](https://lvamedia.blob.core.windows.net/public/2018-03-05.10-27-03.10-30-01.admin.G329.mkv)을 로컬 공유에 복사합니다.
 
       > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWDRJd]
 
@@ -295,7 +286,7 @@ operations.json:
   {
       "opName": "pipelineTopologySet",
       "opParams": {
-          "topologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
+          "pipelineTopologyUrl": "https://raw.githubusercontent.com/Azure/video-analyzer/main/pipelines/live/topologies/spatial-analysis/person-count-operation-topology.json"
       }
   },
   ```
@@ -313,7 +304,7 @@ operations.json:
               "parameters": [
                   {
                       "name": "rtspUrl",
-                      "value": " rtsp://rtspsim:554/media/stairwell.mkv"
+                      "value": " rtsp://rtspsim:554/media/2018-03-05.10-27-03.10-30-01.admin.G329.mkv"
                   },
                   {
                       "name": "rtspUserName",
@@ -381,7 +372,7 @@ operations.json:
       ],
   ```
 
-디버그 세션을 실행하고 **TERMINAL** 지침에 따라 pipelineTopology를 설정하고, livePipeline을 설정하고, livePipeline을 활성화하고, 마지막으로 리소스를 삭제합니다.
+F5를 선택하여 디버그 세션을 실행하고 **TERMINAL** 지침에 따라 pipelineTopology를 설정하고, livePipeline을 설정하고, livePipeline을 활성화하고, 마지막으로 리소스를 삭제합니다.
 
 ## <a name="interpret-results"></a>결과 해석
 
@@ -725,12 +716,26 @@ pipelineTopology가 인스턴스화되면 "MediaSessionEstablished" 이벤트(�
 
 </details>
 
-## <a name="video-player"></a>비디오 플레이어
+## <a name="playing-back-the-recording"></a>녹화본 재생
 
-아래와 같이 비디오 플레이어를 사용하여 추론(경계 상자)을 포함하여 생성된 비디오를 볼 수 있습니다.
+Azure Portal에 로그인하여 비디오를 살펴보면 라이브 파이프라인에서 만든 Video Analyzer 비디오 리소스를 검사할 수 있습니다.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/spatial-analysis/inference.png" alt-text="경계 상자":::
+1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com/)로 이동합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
+1. 구독에 있는 리소스 중에서 Video Analyzer 계정을 찾아 계정 창을 엽니다.
+1. **비디오 분석기** 목록에서 **비디오** 를 선택합니다.
+1. 이름이 `personcount`인 비디오가 나열됩니다. 이 이름은 파이프라인 토폴로지 파일에서 선택한 이름입니다.
+1. 비디오를 선택합니다.
+1. 비디오 세부 정보 페이지에서 **재생** 아이콘을 클릭합니다.
+
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/spatial-analysis/sa-video-playback.png" alt-text="비디오 재생 스크린샷":::
+   
+1. 추론 메타데이터를 비디오에서 경계 상자로 보려면 **경계 상자** 아이콘을 클릭합니다.
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/record-stream-inference-data-with-video/bounding-box.png" alt-text="경계 상자 아이콘":::
+
+> [!NOTE]
+> 비디오 원본은 카메라 피드를 시뮬레이션하는 컨테이너이므로 비디오의 타임스탬프는 라이브 파이프라인을 활성화한 시간 및 비활성화한 시간과 관련이 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

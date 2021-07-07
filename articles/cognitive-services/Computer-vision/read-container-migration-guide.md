@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 05/24/2021
 ms.author: aahi
-ms.openlocfilehash: 1cc17306265e6e8ba2e7fb3f570d0017b006b84f
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.openlocfilehash: d648acb3ff9a1f7c2076a4b7c1fcf9755a9ea05d
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284688"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465196"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Read v3.x OCR 컨테이너로 마이그레이션
 
@@ -39,7 +39,7 @@ Read v3.2 컨테이너는 Computer Vision API 버전 3을 사용하고 다음 �
 
 ## <a name="memory-requirements"></a>메모리 요구 사항
 
-요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너의 최소 및 권장 리소스 할당에 대해 설명합니다.
+요구 사항 및 권장 사항은 초당 단일 요청을 포함하는 벤치마크를 기준으로 하며, 8MB의 스캔된 비즈니스 문자 이미지를 사용하여 29개 줄과 총 803 문자를 포함합니다. 다음 표에서는 각 Read OCR 컨테이너에 대한 최소 및 권장 리소스 할당을 설명합니다.
 
 |컨테이너  |최소 | 권장  |
 |---------|---------|------|
@@ -69,7 +69,7 @@ v3.x의 컨테이너에서 RabbitMQ는 현재 지원되지 않습니다. 지원�
 | Azure 큐 | `Queue:Azure:ConnectionString={AzureStorageConnectionString}` | 생산 |
 | RabbitMQ    | Unavailable | 생산 |
 
-중복 추가의 경우 Read v3.x 컨테이너는 표시 타이머를 사용하여 다중 컨테이너 설정에서 실행될 때 요청이 충돌 시 처리될 수 있도록 합니다. 
+중복 추가의 경우 Read v3.x 컨테이너는 표시 타이머를 사용하여 다중 컨테이너 설정에서 실행될 때 요청이 충돌이 발생하는 경우 요청이 성공적으로 처리될 수 있도록 합니다. 
 
 다른 작업자가 처리할 때 메시지가 표시되지 않도록 하는 시간을 설정하는 `Queue:Azure:QueueVisibilityTimeoutInMilliseconds`로 타이머를 설정합니다. 페이지가 중복 처리되지 않도록 하려면 제한 시간을 120초로 설정하는 것이 좋습니다. 기본값은 30초입니다.
 

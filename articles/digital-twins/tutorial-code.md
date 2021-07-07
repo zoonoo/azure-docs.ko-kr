@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/02/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 1cfed11eec3758586519eeb33b396a41b768e693
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 68afdb1c0ab74f5d05fd13a9fe8868cb9e2ac4aa
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110075504"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460261"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>자습서: Azure Digital Twins API를 사용하여 코딩
 
@@ -80,7 +80,7 @@ dotnet add package Azure.Identity
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="샘플 코드의 코드 조각. 'using System' 문이 하나 있음, DigitalTwinsCodeTutorial이라는 네임스페이스, Program이라는 네임스페이스의 클래스, 'static void Main(string [] args)'의 표준 서명이 있는 클래스의 기본 메서드. 기본 메서드에는 Hello World 인쇄 문이 포함되어 있습니다." lightbox="media/tutorial-code/starter-template.png":::
+        :::image type="content" source="media/tutorial-code/starter-template.png" alt-text="코드 편집기의 샘플 코드 조각 스크린샷." lightbox="media/tutorial-code/starter-template.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -180,7 +180,7 @@ dotnet run
 
 이제 명령 창에서 `dotnet run`을 사용하여 프로그램을 실행하면 오류 코드가 다시 표시됩니다. 모델 생성 코드의 출력에 다음 오류가 표시됩니다.
 
-:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="프로그램 출력: '409:Service 요청이 실패했습니다.라는 메시지를 표시합니다. 상태: 409(충돌). 'dtmi:example:SampleModel;1이 이미 있음을 나타내는 오류 출력이 이어집니다.":::
+:::image type="content" source= "media/tutorial-code/model-error.png" alt-text="'409:서비스 요청이 실패했습니다.' 오류가 발생하는 프로그램 출력을 보여주는 콘솔의 스크린샷. 상태: 409(충돌).'.":::
 
 이 자습서에서는 이 지점부터 try/catch 처리기에서 서비스 메서드에 대한 모든 호출을 래핑합니다.
 
@@ -228,7 +228,7 @@ Azure Digital Twins에서는 동일한 ID를 가진 다른 관계가 이미 있�
 
 명령 창에서 `dotnet run`을 사용하여 프로그램을 실행합니다. 출력 문에서 만든 모든 관계의 목록이 다음과 같이 표시됩니다.
 
-:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="프로그램 출력: '트윈 sampleTwin-0이 contains->sampleTwin-1, -contains->sampleTwin-2에 연결됨'이라는 메시지를 보여줍니다." lightbox="media/tutorial-code/list-relationships.png":::
+:::image type="content" source= "media/tutorial-code/list-relationships.png" alt-text="쌍 관계를 나열하는 메시지가 표시되는 프로그램 출력을 보여주는 콘솔의 스크린샷." lightbox="media/tutorial-code/list-relationships.png":::
 
 ### <a name="query-digital-twins"></a>디지털 트윈 쿼리
 

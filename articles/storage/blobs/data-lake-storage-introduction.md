@@ -8,18 +8,18 @@ ms.date: 02/25/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1c4d04e25bf8f7d981c998baafb468f04b66eaf1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b197d91893cc419913ace60fe30beca88484bfd2
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98879901"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111590957"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
-Azure Data Lake Storage Gen2는 [Azure Blob 스토리지](storage-blobs-introduction.md)를 기반으로 하는 빅 데이터 분석 전용의 기능 세트입니다. 
+‎Azure Data Lake Storage Gen2는 [Azure Blob Storage](storage-blobs-introduction.md)를 기준으로 하는 빅 데이터 분석 전용의 기능 세트입니다. 
 
-Data Lake Storage Gen2는 [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능을 Azure Blob 스토리지와 통합합니다. 예를 들어 Data Lake Storage Gen2는 파일 시스템 의미 체계, 파일 수준 보안 및 확장을 제공합니다. 이러한 기능은 Blob 스토리지를 기반으로 하기 때문에 고가용성/재해 복구 기능을 갖춘 저비용의 계층화된 스토리지를 가져올 수도 있습니다.
+Data Lake Storage Gen2는 [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml)의 기능을 Azure Blob Storage와 통합합니다. 예를 들어 Data Lake Storage Gen2는 파일 시스템 의미 체계, 파일 수준 보안 및 확장을 제공합니다. 이러한 기능은 Blob 스토리지를 기반으로 하기 때문에 고가용성/재해 복구 기능을 갖춘 저비용의 계층화된 스토리지를 가져올 수도 있습니다.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>엔터프라이즈 빅 데이터 분석에 맞게 설계됨
 
@@ -35,7 +35,7 @@ Data Lake Storage Gen2는 Blob 스토리지를 기반으로 하며 다음과 같
 
 -   **보안** 은 디렉터리 또는 개별 파일에 대한 POSIX 권한을 정의할 수 있으므로 적용할 수 있습니다.
 
-Data Lake Storage Gen2는 저비용 [Azure Blob 스토리지](storage-blobs-introduction.md) 위에 빌드되므로 매우 비용 효과적입니다. 추가 기능을 통해 Azure에서 빅 데이터 분석을 실행하기 위한 총 소유 비용이 더 낮아집니다.
+Data Lake Storage Gen2는 저비용 [Azure Blob Storage](storage-blobs-introduction.md) 위에 빌드되므로 매우 비용 효과적입니다. 추가 기능을 통해 Azure에서 빅 데이터 분석을 실행하기 위한 총 소유 비용이 더 낮아집니다.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2의 주요 기능
 
@@ -43,7 +43,7 @@ Data Lake Storage Gen2는 저비용 [Azure Blob 스토리지](storage-blobs-intr
 
 -   **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원합니다. 설정은 Storage Explorer 또는 프레임워크(예: Hive 및 Spark)를 통해 구성할 수 있습니다.
 
--   **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. [Azure Blob 스토리지 수명 주기](storage-lifecycle-management-concepts.md)와 같은 기능은 수명 주기를 통해 데이터가 전환될 때 비용을 최적화합니다.
+-   **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. [Azure Blob Storage 수명 주기](storage-lifecycle-management-concepts.md)와 같은 기능은 수명 주기를 통해 데이터가 전환될 때 비용을 최적화합니다.
 
 -   **최적화된 드라이버**: ABFS 드라이버는 빅 데이터 분석을 위해 [특별히 최적화](data-lake-storage-abfs-driver.md)되었습니다. 해당 REST API는 `dfs.core.windows.net` 엔드포인트를 통해 표시됩니다.
 
@@ -53,13 +53,13 @@ Azure Storage는 Data Lake Storage Gen2 또는 Blob Storage 인터페이스를 �
 
 ### <a name="cost-effectiveness"></a>비용 효과
 
-Data Lake Storage Gen2는 Azure Blob 스토리지를 기반으로 빌드되므로 스토리지 용량 및 트랜잭션 비용이 낮아집니다. 다른 클라우드 스토리지 서비스와 달리 분석하기 전에 데이터를 이동하거나 변환할 필요가 없습니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage)을 참조하세요.
+Data Lake Storage Gen2는 Azure Blob Storage를 기준으로 빌드되므로 스토리지 용량 및 트랜잭션 비용이 낮아집니다. 다른 클라우드 스토리지 서비스와 달리 분석하기 전에 데이터를 이동하거나 변환할 필요가 없습니다. 가격 책정에 대한 자세한 내용은 [Azure Storage 가격](https://azure.microsoft.com/pricing/details/storage)을 참조하세요.
 
 또한 [계층 구조 네임스페이스](data-lake-storage-namespace.md)와 같은 기능은 많은 분석 작업의 전반적인 성능을 크게 개선합니다. 이 성능 개선은 동일한 양의 데이터를 처리하는 데 필요한 컴퓨팅 능력이 감소하므로 엔드투엔드 분석 작업에 대한 TCO(총 소유 비용)가 낮아짐을 의미합니다.
 
 ### <a name="one-service-multiple-concepts"></a>하나의 서비스, 여러 개념
 
-Data Lake Storage Gen2는 Azure Blob Storage를 기반으로 빌드되므로 여러 개념이 동일한 공유 항목을 설명할 수 있습니다.
+Data Lake Storage Gen2는 Azure Blob Storage를 기준으로 빌드되므로 여러 개념이 동일한 공유 항목을 설명할 수 있습니다.
 
 여러 개념으로 설명되는 동등한 실체는 다음과 같습니다. 달리 지정하지 않는 한 이러한 실체는 직접적인 동의어입니다.
 

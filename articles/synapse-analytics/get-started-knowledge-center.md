@@ -10,20 +10,20 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 04/04/2021
-ms.openlocfilehash: f36d5deb93f141bb7467a50d4b5dba7f3df1ea92
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: ba6023ccc1582650e74da483aeefc48d2a305bef
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109517013"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111554755"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Synapse 지식 센터 살펴보기
 
-이 자습서에서는 Synapse Studio 지식 센터를 사용하는 방법에 대해 알아봅니다.
+이 자습서에서는 Synapse Studio **지식 센터** 를 사용하는 방법에 대해 알아봅니다.
 
-## <a name="finding-to-the-knowledge-center"></a>지식 센터로 찾기
+## <a name="finding-the-knowledge-center"></a>지식 센터 찾기
 
-Synapse Studio에서 지식 센터를 찾는 방법에는 두 가지가 있습니다.
+Synapse Studio에서 **지식 센터** 를 찾는 방법에는 두 가지가 있습니다.
 
   1. 홈 허브의 페이지 오른쪽 위 근처에 있는 **학습** 을 클릭합니다.
   2. 위쪽의 메뉴 모음에서 **?** 를 클릭합니다. 그런 다음, **지식 센터** 를 클릭합니다.

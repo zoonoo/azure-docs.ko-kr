@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 3aa218710ddd4addfb8e430122ab19c95e42772a
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 0c86c9f2ffece02ed026d1052929836e42c82434
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108070894"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810105"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>거의 실시간으로 비디오 분석
 
@@ -247,5 +247,5 @@ VideoFrameAnalyzer의 이미지, 음성, 비디오 및 텍스트 해석 기능�
 
 이 문서에서는 Face 및 Computer Vision 서비스를 사용하여 라이브 비디오 스트림을 거의 실시간으로 분석하는 방법을 알아보았습니다. 샘플 코드를 사용하여 시작하는 방법도 배웠습니다.
 
-[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 의견을 남겨주세요. 보다 광범위한 API 피드백을 제공하려면 UserVoice 사이트로 이동하세요.
+[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 의견을 남겨주세요. 보다 광범위한 API 피드백을 제공하려면 [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) 사이트로 이동하세요.
 

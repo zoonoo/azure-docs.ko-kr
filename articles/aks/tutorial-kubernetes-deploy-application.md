@@ -3,14 +3,14 @@ title: Azure의 Kubernertes 자습서 - 애플리케이션 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 Azure Container Registry에 저장된 사용자 지정 이미지를 사용하여 클러스터에 다중 컨테이너 애플리케이션을 배포합니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: a0de097a545a831e39a671fe4cf5eadcd336ce24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: 9632b3cb2e0e3b46cb024df0cc6dddd6829aed05
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250182"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697936"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 실행
 
@@ -31,17 +31,37 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 
 이 자습서를 완료하려면 미리 작성된 `azure-vote-all-in-one-redis.yaml` Kubernetes 매니페스트 파일이 필요합니다. 이전 자습서에서 애플리케이션 소스 코드와 함께 이 파일을 다운로드했습니다. 리포지토리를 복제했으며 디렉터리를 복제된 리포지토리로 변경했는지 확인하세요. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 시작합니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+이 자습서를 사용하려면 Azure PowerShell 버전 5.9.0 이상을 실행해야 합니다. `Get-InstalledModule -Name Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치][azure-powershell-install]를 참조하세요.
+
+---
 
 ## <a name="update-the-manifest-file"></a>매니페스트 파일 업데이트
 
 이 자습서에서는 ACR(Azure Container Registry) 인스턴스가 애플리케이션 예제용 컨테이너 이미지를 저장합니다. 애플리케이션을 배포하려면 ACR 로그인 서버 이름을 포함하도록 Kubernetes 매니페스트 파일에서 이미지 이름을 업데이트해야 합니다.
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 다음과 같이 [az acr list][az-acr-list] 명령을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+다음과 같이 [Get-AzContainerRegistry][get-azcontainerregistry] cmdlet을 사용하여 ACR 로그인 서버 이름을 가져옵니다.
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
 
 첫 번째 자습서에서 복제된 git 리포지토리의 샘플 매니페스트 파일은 로그인 서버 이름으로 *microsoft* 를 사용합니다. 복제된 *azure-voting-app-redis* 디렉터리에 있는지 확인한 다음, `vi`와 같은 텍스트 편집기를 사용하여 매니페스트 파일을 엽니다.
 
@@ -140,3 +160,5 @@ azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   6
 [azure-cli-install]: /cli/azure/install-azure-cli
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [kubernetes-service]: concepts-network.md#services
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry

@@ -1,20 +1,20 @@
 ---
-title: 빠른 시작 - 다중 테넌트 Azure Logic Apps 및 Azure CLI를 사용하여 워크플로 만들기 및 관리
-description: CLI를 사용하여 다중 테넌트 Azure Logic Apps를 사용하는 논리 앱 워크플로를 만들고, 목록, 표시(가져오기), 업데이트 및 삭제와 같은 작업을 사용하여 논리를 관리합니다.
+title: 빠른 시작 - 다중 테넌트 Azure Logic Apps에서 Azure CLI를 사용하여 워크플로 만들기 및 관리
+description: CLI를 사용하여 다중 테넌트 Azure Logic Apps에서 논리 앱 워크플로를 만들고 관리합니다.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
 ms.date: 05/25/2021
-ms.openlocfilehash: 4a848b560fd0302690f1e52661b165182082dd9b
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 533a3001068c2bfa6a6902e486d6a1acf468d246
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375932"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617263"
 ---
-# <a name="quickstart-create-and-manage-workflows-in-multi-tenant-azure-logic-apps-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 다중 테넌트에서 워크플로 만들기 및 관리
+# <a name="quickstart-create-and-manage-workflows-using-azure-cli-in-multi-tenant-azure-logic-apps"></a>빠른 시작: 다중 테넌트 Azure Logic Apps에서 Azure CLI를 사용하여 워크플로 만들기 및 관리
 
 이 빠른 시작에서는 [Azure CLI Logic Apps 확장](/cli/azure/logic)(`az logic`)을 사용하여 논리 앱을 만들고 관리하는 방법을 보여줍니다. 명령줄에서 논리 앱 워크플로 정의에 대한 JSON 파일을 사용하여 논리 앱을 만들 수 있습니다. 그런 다음, 명령줄에서 `list`, `show`(`get`), `update`, `delete` 등의 작업을 실행하여 논리 앱을 관리할 수 있습니다.
 
@@ -137,7 +137,7 @@ Azure CLI에서 [`az logic workflow delete`](/cli/azure/logic/workflow#az_logic_
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_delete-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | 설명 |
+| 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `-resource-group -g` | 논리 앱이 배치되는 리소스 그룹입니다. |
@@ -192,7 +192,7 @@ az logic workflow show --name
 
 명령에 다음과 같은 [필수 매개 변수](/cli/azure/logic/workflow#az_logic_workflow_show-required-parameters)가 포함되어야 합니다.
 
-| 매개 변수 | 값 | 설명 |
+| 매개 변수 | 값 | Description |
 | --------- | ----- | ----------- |
 | 이름 | `--name -n` | 논리 앱의 이름입니다. |
 | 리소스 그룹 이름 | `--resource-group -g` | 논리 앱이 배치되는 리소스 그룹의 이름입니다. |

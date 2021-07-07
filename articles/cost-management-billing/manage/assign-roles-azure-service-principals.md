@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/05/2021
+ms.date: 05/01/2021
 ms.author: banders
-ms.openlocfilehash: cb6a7d8411c2be6d76718b79c6fc1339a6600ce5
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 395f6804e0fdea88e65879817b83b9a8aabdd0f1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107905507"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748070"
 ---
 # <a name="assign-roles-to-azure-enterprise-agreement-service-principal-names"></a>Azure 기업계약 서비스 사용자 이름에 역할 할당
 
@@ -77,7 +77,7 @@ SPN을 사용하여 EA 작업을 자동화하려면 Azure AD(Azure Active Direct
 
 ## <a name="assign-enrollment-account-role-permission-to-the-spn"></a>SPN에 등록 계정 역할 권한 할당
 
-1. [역할 할당 - Put](/rest/api/billing/2019-10-01-preview/roleassignments/put) REST API 문서를 읽어 보세요. 문서를 읽는 동안 **사용해 보기** 를 선택하여 SPN 사용을 시작하세요.
+1. [역할 할당 - Put](/rest/api/billing/2019-10-01-preview/role-assignments/put) REST API 문서를 읽어 보세요. 문서를 읽는 동안 **사용해 보기** 를 선택하여 SPN 사용을 시작하세요.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/put-try-it.png" alt-text="Put 문서의 [사용해 보기] 옵션을 보여주는 스크린샷" lightbox="./media/assign-roles-azure-service-principals/put-try-it.png" :::
 
@@ -91,13 +91,13 @@ SPN을 사용하여 EA 작업을 자동화하려면 Azure AD(Azure Active Direct
 
    - `billingRoleAssignmentName`: 이 매개 변수는 사용자가 입력해야 하는 고유한 GUID입니다. PowerShell 명령 [New-Guid](/powershell/module/microsoft.powershell.utility/new-guid)를 사용하여 GUID를 생성할 수 있습니다. 또한 [온라인 GUID/UUID 생성기](https://guidgenerator.com/) 웹 사이트에서 고유한 GUID를 생성할 수도 있습니다.
 
-   - `api-version`: **2019-10-01-preview** 버전을 사용합니다. [역할 할당 - Put - 예제](/rest/api/billing/2019-10-01-preview/roleassignments/put#examples)의 샘플 요청 본문을 사용합니다.
+   - `api-version`: **2019-10-01-preview** 버전을 사용합니다. [역할 할당 - Put - 예제](/rest/api/billing/2019-10-01-preview/role-assignments/put#examples)의 샘플 요청 본문을 사용합니다.
 
       요청 본문에는 사용해야 하는 세 개의 매개 변수가 있는 JSON 코드가 포함됩니다.
 
       | 매개 변수 | 찾는 위치 |
       | --- | --- |
-      | `properties.principalId` | [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
+      | `properties.principalId` | 개체 ID의 값입니다. [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
       | `properties.principalTenantId` | [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` |
 
@@ -121,7 +121,7 @@ EA 구매자 역할에는 등록 읽기 권한자의 경우와 동일한 단계�
 
 ## <a name="assign-the-department-reader-role-to-the-spn"></a>SPN에 부서 읽기 권한자 역할 할당
 
-1. [등록 부서 역할 할당 - Put](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put) REST API 문서를 읽어 보세요. 문서를 읽는 동안 **사용해 보기** 를 선택합니다.
+1. [등록 부서 역할 할당 - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put) REST API 문서를 읽어 보세요. 문서를 읽는 동안 **사용해 보기** 를 선택합니다.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="등록 부서 역할 할당 Put 문서의 [사용해 보기] 옵션을 보여주는 스크린샷" lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
@@ -141,13 +141,13 @@ EA 구매자 역할에는 등록 읽기 권한자의 경우와 동일한 단계�
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/department-id.png" alt-text="예제 부서 ID를 보여주는 스크린샷" lightbox="./media/assign-roles-azure-service-principals/department-id.png" :::
 
-   - `api-version`: **2019-10-01-preview** 버전을 사용합니다. [등록 부서 역할 할당 - Put](/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put)의 샘플을 사용합니다.
+   - `api-version`: **2019-10-01-preview** 버전을 사용합니다. [등록 부서 역할 할당 - Put](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put)의 샘플을 사용합니다.
 
       요청 본문에는 사용해야 하는 세 개의 매개 변수가 있는 JSON 코드가 포함됩니다.
 
       | 매개 변수 | 찾는 위치 |
       | --- | --- |
-      | `properties.principalId` | [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
+      | `properties.principalId` | 개체 ID의 값입니다. [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
       | `properties.principalTenantId` | [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountName}/billingRoleDefinitions/db609904-a47f-4794-9be8-9bd86fbffd8a` |
 
@@ -165,13 +165,13 @@ EA 구매자 역할에는 등록 읽기 권한자의 경우와 동일한 단계�
 
 ## <a name="assign-the-subscription-creator-role-to-the-spn"></a>SPN에 구독 작성자 역할 할당
 
-1. [등록 계정 역할 할당 - Put](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) 문서를 읽어 보세요. 문서를 읽는 동안 **사용해 보기** 를 선택하여 구독 작성자 역할을 SPN에 할당합니다.
+1. [등록 계정 역할 할당 - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) 문서를 읽어 보세요. 문서를 읽는 동안 **사용해 보기** 를 선택하여 구독 작성자 역할을 SPN에 할당합니다.
 
    :::image type="content" source="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" alt-text="등록 계정 역할 할당 Put 문서의 [사용해 보기] 옵션을 보여주는 스크린샷" lightbox="./media/assign-roles-azure-service-principals/enrollment-department-role-assignments-put-try-it.png" :::
 
 1. 계정 자격 증명을 사용하여 할당하려는 등록 액세스 권한으로 테넌트에 로그인합니다.
 
-1. 다음 매개 변수를 API 요청에 포함하여 제공합니다. [등록 계정 역할 할당 - Put - URI 매개 변수](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put#uri-parameters)의 문서를 읽어 보세요.
+1. 다음 매개 변수를 API 요청에 포함하여 제공합니다. [등록 계정 역할 할당 - Put - URI 매개 변수](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put#uri-parameters)의 문서를 읽어 보세요.
 
    - `billingAccountName`: 이 매개 변수는 **청구 계정 ID** 입니다. 이 ID는 Azure Portal의 **Cost Management + Billing 개요** 페이지에서 확인할 수 있습니다.
 
@@ -185,13 +185,13 @@ EA 구매자 역할에는 등록 읽기 권한자의 경우와 동일한 단계�
 
       :::image type="content" source="./media/assign-roles-azure-service-principals/account-id.png" alt-text="계정 ID를 보여주는 스크린샷" lightbox="./media/assign-roles-azure-service-principals/account-id.png" :::
 
-   - `api-version`: **2019-10-01-preview** 버전을 사용합니다. [등록 부서 역할 할당 - Put - 예제](/rest/api/billing/2019-10-01-preview/enrollmentdepartmentroleassignments/put#putenrollmentdepartmentadministratorroleassignment)의 샘플을 사용합니다.
+   - `api-version`: **2019-10-01-preview** 버전을 사용합니다. [등록 부서 역할 할당 - Put - 예제](/rest/api/billing/2019-10-01-preview/enrollment-department-role-assignments/put#examples)의 샘플을 사용합니다.
 
       요청 본문에는 사용해야 하는 세 개의 매개 변수가 있는 JSON 코드가 포함됩니다.
 
       | 매개 변수 | 찾는 위치 |
       | --- | --- |
-      | `properties.principalId` | [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
+      | `properties.principalId` | 개체 ID의 값입니다. [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
       | `properties.principalTenantId` | [SPN 및 테넌트 ID 확인](#find-your-spn-and-tenant-id)을 참조하세요. |
       | `properties.roleDefinitionId` | `/providers/Microsoft.Billing/billingAccounts/{BillingAccountID}/enrollmentAccounts/196987/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71` |
 

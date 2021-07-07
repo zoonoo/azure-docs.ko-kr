@@ -7,14 +7,14 @@ metadata:
   ms.reviewer: adwise
   ms.service: cost-management-billing
   ms.topic: conceptual
-  ms.date: 04/15/2021
+  ms.date: 05/21/2021
   ms.author: banders
-  ms.openlocfilehash: 4d56dcf2d6aed950723170f542a45f5ab5a9e405
-  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.openlocfilehash: 36dff080da94b899680222eb1dd7c7955f1e093b
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/06/2021
-  ms.locfileid: "108765614"
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111962735"
 title: Azure Cost Management + Billing 질문과 대답(FAQ)
 summary: ''
 sections:
@@ -32,15 +32,18 @@ sections:
   - question: 비용이 청구되는 이유가 무엇인가요? Azure 체험 계정이 있습니다.
     answer: >
       무료 서비스에는 제한이 있습니다. 이러한 무료 제한을 초과했을 가능성이 많습니다. [Azure 체험 계정으로 비용 청구 방지](manage/avoid-charges-free-account.md)를 참조하세요.
-  - question: 청구서 내용을 이해하려면 어떻게 해야 하나요?
+  - question: 내 청구서를 이해하고 요금을 조정하려면 어떻게 해야 하나요?
     answer: >
-      Azure 웹 사이트를 통해 Azure 구독을 구매한 경우 [개별 azure 구독 청구서 검토](understand/review-individual-bill.md)를 참조하세요.
+      Azure 웹 사이트를 통해 Azure 구독을 구매한 경우 [개별 Azure 구독 청구서 검토](understand/review-individual-bill.md) 자습서를 참조하세요. 이 자습서에서는 청구서의 요금이 사용한 서비스와 어떻게 관련되는지 설명합니다.
   - question: 신속하게 요금을 확인하려면 어떻게 해야 하나요?
     answer: >
       [비용 분석 기능을 통해 비용 검색 및 분석](costs/quick-acm-cost-analysis.md)을 참조하세요.
   - question: 예기치 않은 비용이 청구되었습니다. 청구된 요금을 파악하려면 어떻게 해야 하나요?
     answer: >
       [예기치 않은 요금 분석](understand/analyze-unexpected-charges.md)을 참조하세요.
+  - question: 내 청구 정보를 어떻게 변경하나요?
+    answer: >
+      [청구 정보 변경](manage/change-azure-account-profile.md)을 참조하세요.
   - question: Azure 구독을 취소하려면 어떻게 해야 하나요?
     answer: >
       [Azure 구독 취소](manage/cancel-azure-subscription.md)를 참조하세요.
@@ -95,10 +98,10 @@ sections:
       예. [Power BI Desktop을 사용하여 Cost Management 데이터에 연결](/power-bi/connect-data/desktop-connect-azure-cost-management)하거나 [EA용 Cost Management Power BI 앱](costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md)을 사용하면 됩니다.
   - question: Cost Management에서 지원되는 제품 유형은 무엇인가요?
     answer: >
-      [지원되는 Microsoft Azure 제품](/azure/cost-management-billing/costs/understand-cost-mgt-data#supported-microsoft-azure-offers)을 참조하세요.
+      [지원되는 Microsoft Azure 제품](./costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers)을 참조하세요.
   - question: Azure Cost Management에서 비용 및 사용량 데이터를 얼마나 빨리 확인할 수 있나요?
     answer: >
-      [비용, 사용량 데이터 업데이트 및 보존](/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention)을 참조하세요.
+      [비용, 사용량 데이터 업데이트 및 보존](./costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention)을 참조하세요.
   - question: Azure Cost Management에서 모든 비용 관련 정보를 찾을 수 있나요?
     answer: >
       [Cost Management에 포함된 비용](costs/understand-cost-mgt-data.md#costs-included-in-cost-management)을 참조하세요.
@@ -140,7 +143,7 @@ sections:
     answer: >
       절감액은 몇 가지 방법으로 확인할 수 있습니다.
 
-      -  EA 고객인 경우 EA용 Azure Cost Management Power BI 앱을 통해 [RI 절감액 보고서](/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app#reports-available-with-the-app.md)를 볼 수 있습니다.
+      -  EA 고객인 경우 EA용 Azure Cost Management Power BI 앱을 통해 [RI 절감액 보고서](./costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md#reports-available-with-the-app)를 볼 수 있습니다.
 
       -  사용량 및 요금 데이터 파일을 통해 수동으로 [예약 절감액을 파악](reservations/understand-reserved-instance-usage-ea.md#determine-reservation-savings)할 수 있습니다.
   - question: 예약 미달 사용은 어떻게 확인하나요?
@@ -151,7 +154,7 @@ sections:
       자세한 내용은 [Azure 예약 비용 취소](reservations/charge-back-usage.md?toc=/azure/cost-management-billing/reservations/toc.json)를 참조하세요.
   - question: 스폿 VM에서 발생하는 요금은 어떻게 확인할 수 있나요?
     answer: >
-      [스폿 VM 요금 보기](/azure/cost-management-billing/costs/cost-analysis-common-uses#view-your-spot-vm-charges)를 참조하세요.
+      [스폿 VM 요금 보기](./costs/cost-analysis-common-uses.md#view-your-spot-vm-charges)를 참조하세요.
   - question: 예약 정보 보고서는 어떻게 가져오나요?
     answer: >
       API 설명서를 읽고 [예약 정보 보고서를 생성](/rest/api/cost-management/generatereservationdetailsreport)합니다.

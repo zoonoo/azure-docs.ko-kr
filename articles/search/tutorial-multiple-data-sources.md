@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df7dcf9859b6942662ae447af836f59985e2d11a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 415c980390faae86e27efa6b6f63ec0334d6d0f0
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822522"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560225"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>자습서: .NET SDK를 사용하여 여러 데이터 원본에서 인덱스
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 자습서에서 인덱싱 및 쿼리에는 Azure Cognitive Search, 하나의 데이터 세트에는 Azure Cosmos DB, 두 번째 데이터 세트에는 Azure Blob 스토리지를 사용합니다. 
+이 자습서에서 인덱싱 및 쿼리에는 Azure Cognitive Search, 하나의 데이터 세트에는 Azure Cosmos DB, 두 번째 데이터 세트에는 Azure Blob Storage를 사용합니다. 
 
 가능한 경우 근접 연결과 관리 효율성을 위해 모든 서비스를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 서비스는 어느 지역에나 있을 수 있습니다.
 
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 연결 문자열을 **키** 페이지에서 메모장으로 복사합니다. 이는 이후 단계에서 **appsettings.json** 에 필요합니다. 제안된 "hotel-rooms-db"라는 데이터베이스 이름을 사용하지 않은 경우 데이터베이스 이름도 복사합니다.
 
-### <a name="azure-blob-storage"></a>Azure Blob 스토리지
+### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고, Azure 스토리지 계정으로 이동하고, **Blob** 을 클릭한 다음, **+ 컨테이너** 를 클릭합니다.
 

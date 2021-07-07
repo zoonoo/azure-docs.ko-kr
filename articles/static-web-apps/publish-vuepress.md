@@ -5,17 +5,17 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/11/2021
 ms.author: aapowell
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b681816feb9f28b90c71e924681a7e787d52594
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100650452"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814391"
 ---
-# <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 VuePress 사이트 게시
+# <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps"></a>자습서: Azure Static Web Apps에 VuePress 사이트 게시
 
 이 문서에서는 [Azure Static Web Apps](overview.md)에 [VuePress](https://vuepress.vuejs.org/) 웹 애플리케이션을 만들고 배포하는 방법을 보여줍니다. 최종 결과는 앱이 빌드되고 게시되는 방식을 제어하는 관련 GitHub Actions를 포함하는 새로운 Azure Static Web Apps 애플리케이션입니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "100650452"
 > - Azure Static Web Apps 설정
 > - VuePress 앱을 Azure에 배포
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - GitHub 계정. 계정이 없는 경우 [체험 계정을 만들](https://github.com/join) 수 있습니다.
@@ -105,59 +105,43 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 
 ## <a name="deploy-your-web-app"></a>웹앱 배포
 
-다음 단계에서는 새 Static Web Apps 애플리케이션을 만들어 프로덕션 환경에 배포하는 방법을 보여줍니다.
+다음 단계에서는 새 정적 사이트 앱을 만들어 프로덕션 환경에 배포하는 방법을 보여줍니다.
 
 ### <a name="create-the-application"></a>애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **리소스 만들기** 를 클릭합니다.
+1. **리소스 만들기** 선택
 1. **Static Web Apps** 를 검색합니다.
-1. **Static Web Apps(미리 보기)** 를 클릭합니다.
-1. **만들기**
+1. **Static Web Apps** 를 선택합니다.
+1. **만들기** 를 선택합니다.
+1. _기본_ 탭에서 다음 값을 입력합니다.
 
-   :::image type="content" source="./media/publish-vuepress/create-in-portal.png" alt-text="포털에서 Static Web Apps(미리 보기) 만들기":::
+    | 속성 | 값 |
+    | --- | --- |
+    | _구독_ | Azure 구독 이름. |
+    | _리소스 그룹_ | **my-vuepress-group**  |
+    | _이름_ | **vuepress-static-app** |
+    | _플랜 유형_ | **Free** |
+    | _Azure Functions API 및 스테이징 환경을 위한 지역_ | 가장 가까운 지역을 선택합니다. |
+    | _원본_ | **GitHub** |
 
-1. **구독** 의 경우 나열된 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다.
+1. **GitHub로 로그인** 을 선택하고 GitHub로 인증합니다.
 
-1. _리소스 그룹_ 에서 **새로 만들기** 를 선택합니다. _새 리소스 그룹 이름_ 에서 **vuepress-static-app** 을 입력하고 **확인** 을 선택합니다.
+1. 다음 GitHub 값을 입력합니다.
 
-1. 그런 다음, **이름** 상자에 있는 앱 이름을 선택합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다.
+    | 속성 | 값 |
+    | --- | --- |
+    | _조직_ | 원하는 GitHub 조직을 선택합니다. |
+    | _리포지토리_ | **vuepress-static-app** 을 선택합니다. |
+    | _분기_ | **기본** 을 선택합니다. |
 
-1. _지역_ 에 대해 가까운 사용 가능한 지역을 선택합니다.
+1. _빌드 세부 정보_ 섹션의 _빌드 사전 설정_ 드롭다운에서 **VuePress** 를 선택하고 기본값을 유지합니다.
 
-1. _SKU_ 에 대해 **무료** 를 선택합니다.
+### <a name="review-and-create"></a>검토 후 만들기
 
-   :::image type="content" source="./media/publish-vuepress/basic-app-details.png" alt-text="세부 정보 입력":::
+1. **검토 + 만들기** 단추를 선택하여 세부 정보가 모두 올바른지 확인합니다.
 
-1. **GitHub로 로그인** 단추를 클릭합니다.
-
-1. 리포지토리를 만든 **조직** 을 선택합니다.
-
-1. **vuepress-static-app** 을 _리포지토리_ 로 선택합니다.
-
-1. _분기_ 에 대해 **기본** 을 선택합니다.
-
-   :::image type="content" source="./media/publish-vuepress/completed-github-info.png" alt-text="완료된 GitHub 정보":::
-
-### <a name="build"></a>빌드
-
-그런 다음, 빌드 프로세스에서 앱을 빌드하는 데 사용하는 구성 설정을 추가합니다. 다음 설정은 GitHub Action 워크플로 파일을 구성합니다.
-
-1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
-
-1. _앱 위치_ 를 **/** 로 설정합니다.
-
-1. _앱 아티팩트 위치_ 를 **.vuepress/dist** 로 설정합니다.
-
-현재 API를 배포하지 않으므로 _API 위치_ 에 대한 값이 필요하지 않습니다.
-
-   :::image type="content" source="./media/publish-vuepress/build-details.png" alt-text="빌드 설정":::
-
-### <a name="review-and-create"></a>검토 및 만들기
-
-1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
-
-1. **만들기** 를 클릭하여 Azure Static Web Apps 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
+1. **만들기** 를 선택하여 App Service Static Web App 만들기를 시작하고 배포를 위한 GitHub Action을 프로비전합니다.
 
 1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 

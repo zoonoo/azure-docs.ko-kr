@@ -1,6 +1,6 @@
 ---
 title: Azure Key Vault 방화벽 및 가상 네트워크 구성 - Azure Key Vault
-description: Key Vault 방화벽 및 가상 네트워크 구성을 위한 단계별 지침
+description: Key Vault 네트워킹 설정에 대한 자세한 정보
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 91cba45bc38bddc32aae036a029006c5004da058
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 770e0469f9c9cf8c20f0abf826a42c0584108cd9
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140644"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109845945"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault 방화벽 및 가상 네트워크 구성
 
-이 문서에서는 Azure Key Vault 방화벽을 구성하는 방법에 대한 지침을 제공합니다. 이 문서에서는 Key Vault 방화벽에 대한 여러 가지 구성을 자세히 설명하고, 다른 애플리케이션 및 Azure 서비스와 함께 작동하도록 Azure Key Vault를 구성하는 방법에 대한 단계별 지침을 제공합니다.
+이 문서에서는 다양한 Key Vault 방화벽 구성에 대해 자세히 알아봅니다. 이러한 설정을 구성하는 방법에 대한 단계별 지침을 따르려면 [여기](how-to-azure-key-vault-network-security.md)에 나오는 지침을 참조하세요. 
 
 자세한 내용은 [Azure Key Vault의 가상 네트워크 서비스 엔드포인트](overview-vnet-service-endpoints.md)를 참조하세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "108140644"
 Key Vault 방화벽을 사용하도록 설정하면 '신뢰할 수 있는 Microsoft 서비스가 이 방화벽을 우회하도록 허용합니다' 옵션이 제공됩니다. Azure 서비스 중 일부는 신뢰할 수 있는 서비스 목록에 없습니다. 예를 들어 Azure DevOps는 신뢰할 수 있는 서비스 목록에 없습니다. **신뢰할 수 있는 서비스 목록에 없는 서비스는 신뢰할 수 없거나 안전하지 않다는 의미가 아닙니다.** 신뢰할 수 있는 서비스 목록에는 서비스에서 실행되는 모든 코드를 Microsoft가 제어하는 서비스가 포함됩니다. 사용자가 Azure DevOps 같은 Azure 서비스에서 사용자 지정 코드를 작성할 수 있기 때문에 Microsoft에서는 서비스에 대한 전면적 승인을 만드는 옵션을 제공하지 않습니다. 뿐만 아니라 신뢰할 수 있는 서비스 목록에 표시된다고 해서 모든 시나리오에 허용되는 것은 아닙니다. 
 
 사용하려는 서비스가 신뢰할 수 있는 서비스 목록에 있는지 확인하려면 [여기](./overview-vnet-service-endpoints.md#trusted-services)서 다음 문서를 참조하세요.
-방법 가이드는 [포털, Azure CLI 및 Powershell](#use-the-azure-portal)에 대한 지침을 따르세요.
+방법 가이드는 [포털, Azure CLI 및 PowerShell](how-to-azure-key-vault-network-security.md)에 대한 지침을 따르세요.
 
 ### <a name="key-vault-firewall-enabled-ipv4-addresses-and-ranges---static-ips"></a>Key Vault 방화벽 사용(IPv4 주소 및 범위 - 고정 IP)
 
@@ -75,97 +75,6 @@ Key Vault 방화벽을 통해 전체 Azure 서비스를 허용하려면 [여기]
 > * 최대한 127개 가상 네트워크 규칙 및 127개 IPv4 규칙이 허용됩니다. 
 > * IP 네트워크 규칙은 공용 IP 주소에 대해서만 허용됩니다. 프라이빗 네트워크용으로 예약된 IP 주소 범위(RFC 1918에 정의)는 IP 규칙에서 허용되지 않습니다. 개인 네트워크에는 **10.** , **172.16-31** 및 **192.168.** 로 시작하는 주소가 포함됩니다. 
 > * 현재 IPv4 주소만 지원됩니다.
-
-## <a name="use-the-azure-portal"></a>Azure Portal 사용
-
-Azure Portal을 사용하여 Key Vault 방화벽 및 가상 네트워크를 구성하는 방법은 다음과 같습니다.
-
-1. 보호하려는 키 자격 증명 모음으로 이동합니다.
-2. **네트워킹** 을 선택한 다음, **방화벽 및 가상 네트워크** 탭을 선택합니다.
-3. **다음에서 액세스 허용** 에서 **선택한 네트워크** 를 선택합니다.
-4. 방화벽 및 가상 네트워크 규칙에 기존 가상 네트워크를 추가하려면 **+기존 가상 네트워크 추가** 를 선택합니다.
-5. 열리는 새 블레이드에서 이 키 자격 증명 모음에 대한 액세스를 허용하려는 구독, 가상 네트워크 및 서브넷을 선택합니다. 선택하는 가상 네트워크 및 서브넷이 서비스 엔드포인트를 사용하지 못하는 경우 서비스 엔드포인트를 사용하도록 설정했는지 확인하고 **사용하도록 설정** 을 선택합니다. 적용되는 데 최대 15분이 걸릴 수 있습니다.
-6. **IP 네트워크** 에서 [CIDR(Classless inter-domain Routing) 표기법](https://tools.ietf.org/html/rfc4632)의 IPv4 주소 범위 또는 개별 IP 주소를 입력하여 IPv4 주소 범위를 추가합니다.
-7. Microsoft Trusted Services에서 Key Vault 방화벽을 무시하도록 하려면 '예'를 선택합니다. 현재 Key Vault Trusted Services의 전체 목록은 다음 링크를 참조하세요. [Azure Key Vault Trusted Services](./overview-vnet-service-endpoints.md#trusted-services)
-7. **저장** 을 선택합니다.
-
-또한 **+새 가상 네트워크 추가** 를 선택하여 새 가상 네트워크 및 서브넷을 추가한 다음, 새로 만든 가상 네트워크 및 서브넷에 대한 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 그런 다음, 표시되는 메시지를 따릅니다.
-
-## <a name="use-the-azure-cli"></a>Azure CLI 사용 
-
-Azure CLI를 사용하여 Key Vault 방화벽 및 가상 네트워크를 구성하는 방법은 다음과 같습니다.
-
-1. [Azure CLI를 설치](/cli/azure/install-azure-cli)하고 [로그인](/cli/azure/authenticate-azure-cli)합니다.
-
-2. 사용 가능한 가상 네트워크 규칙을 나열합니다. 이 키 자격 증명 모음에 대한 모든 규칙을 설정하지 않은 경우 목록은 비게 됩니다.
-   ```azurecli
-   az keyvault network-rule list --resource-group myresourcegroup --name mykeyvault
-   ```
-
-3. 기존 가상 네트워크 및 서브넷에서 Key Vault에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
-   ```azurecli
-   az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.KeyVault"
-   ```
-
-4. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 추가합니다.
-   ```azurecli
-   subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
-   az keyvault network-rule add --resource-group "demo9311" --name "demo9311premium" --subnet $subnetid
-   ```
-
-5. 트래픽을 허용할 IP 주소 범위를 추가합니다.
-   ```azurecli
-   az keyvault network-rule add --resource-group "myresourcegroup" --name "mykeyvault" --ip-address "191.10.18.0/24"
-   ```
-
-6. 이 키 자격 증명 모음을 신뢰할 수 있는 모든 서비스에서 액세스할 수 있도록 하려면 `bypass`를 `AzureServices`로 설정합니다.
-   ```azurecli
-   az keyvault update --resource-group "myresourcegroup" --name "mykeyvault" --bypass AzureServices
-   ```
-
-7. 기본 작업을 `Deny`로 설정하여 네트워크 규칙을 켭니다.
-   ```azurecli
-   az keyvault update --resource-group "myresourcegroup" --name "mekeyvault" --default-action Deny
-   ```
-
-## <a name="use-azure-powershell"></a>Azure PowerShell 사용
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-PowerShell을 사용하여 Key Vault 방화벽 및 가상 네트워크를 구성하는 방법은 다음과 같습니다.
-
-1. 최신 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치하고 [로그인](/powershell/azure/authenticate-azureps)합니다.
-
-2. 사용 가능한 가상 네트워크 규칙을 나열합니다. 이 키 자격 증명 모음에 대한 모든 규칙을 설정하지 않은 경우 목록은 비게 됩니다.
-   ```powershell
-   (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
-   ```
-
-3. 기존 가상 네트워크 및 서브넷에서 Key Vault에 대한 서비스 엔드포인트를 사용하도록 설정합니다.
-   ```powershell
-   Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
-   ```
-
-4. 가상 네트워크 및 서브넷에 대한 네트워크 규칙을 추가합니다.
-   ```powershell
-   $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
-   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
-   ```
-
-5. 트래픽을 허용할 IP 주소 범위를 추가합니다.
-   ```powershell
-   Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
-   ```
-
-6. 이 키 자격 증명 모음을 신뢰할 수 있는 모든 서비스에서 액세스할 수 있도록 하려면 `bypass`를 `AzureServices`로 설정합니다.
-   ```powershell
-   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
-   ```
-
-7. 기본 작업을 `Deny`로 설정하여 네트워크 규칙을 켭니다.
-   ```powershell
-   Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
-   ```
 
 ## <a name="references"></a>참조
 * ARM 템플릿 참조: [Azure Key Vault ARM 템플릿 참조](/azure/templates/Microsoft.KeyVault/vaults)

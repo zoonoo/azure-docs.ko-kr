@@ -12,20 +12,42 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 06/14/2021
 ms.author: b-juche
-ms.openlocfilehash: c1c0545d333a27c9a7d78f0363dc00a905bd4aa6
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 768b2f4a9b993e4824fbcebe7a96d7f62a90c934
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109481862"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078315"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Azure NetApp Files의 새로운 기능
 
 Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는 새로운 최신 기능과 향상된 기능에 대한 요약을 제공합니다. 
 
-## <a name="may-2021"></a>2021년 5월
+## <a name="june-2021"></a>2021년 6월
+
+* [Azure NetApp Files 스토리지 서비스 추가 기능](storage-service-add-ons.md)
+
+    새 Azure NetApp Files **스토리지 서비스 추가 기능** 메뉴 옵션은 Azure NetApp Files 스토리지 서비스에 대해 지원되는 타사 에코시스템 추가 기능을 위한 Azure Portal "실행 공간"을 제공합니다. 이 새 포털 메뉴 옵션을 사용하면 추가 기능 타일을 클릭한 후 방문 페이지에 들어가 추가 기능에 빠르게 액세스할 수 있습니다.  
+
+    **NetApp 추가 기능** 은 **스토리지 서비스 추가 기능** 아래에 도입된 추가 기능의 첫 번째 범주입니다. 여기서 **NetApp Cloud Compliance** 에 액세스할 수 있습니다. **NetApp Cloud Compliance** 타일을 클릭하면 새 브라우저가 열리고 추가 기능 설치 페이지로 이동됩니다. 
+
+* 기능이 이제 GA(일반 공급) 방식으로 제공됨   
+
+    이제 다음 Azure NetApp Files 기능이 일반 공급 방식으로 제공됩니다. 기능을 사용하기 전에 더 이상 등록할 필요가 없습니다.
+    * [스냅샷 정책](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies)
+    * [수동 QoS 용량 풀](manual-qos-capacity-pool-introduction.md)
+
+* [구독당 지역별로 하나의 Active Directory에 대해 여러 계정에 대한 공유 AD 지원](create-active-directory-connections.md#shared_ad)(미리 보기)   
+
+    현재까지 Azure NetApp Files는 지역별로 단일 AD(Active Directory)만 지원하므로, 단일 NetApp 계정만 AD에 액세스하도록 구성할 수 있습니다. 새 **공유 AD** 기능을 사용하면 모든 NetApp 계정이 동일한 구독 및 동일한 지역에 속하는 NetApp 계정 중 하나로 만든 AD 연결을 공유할 수 있습니다. 예를 들어, 이 기능을 사용하면 동일한 구독 및 지역의 모든 NetApp 계정이 공통 AD 구성을 사용하여 SMB 볼륨, NFSv4.1 Kerberos 볼륨 또는 이중 프로토콜 볼륨을 만들 수 있습니다. 이 기능을 사용할 경우 동일한 구독 및 동일한 지역에 있는 모든 NetApp 계정에 AD 연결이 표시됩니다.
+
+## <a name="may-2021"></a>2021년 5월 
+
+* Azure NetApp Files 애플리케이션 일치 스냅샷 도구[(AzAcSnap)](azacsnap-introduction.md)가 이제 일반 공급 방식으로 제공됩니다. 
+
+    AzAcSnap은 Linux 환경(예: SUSE 및 RHEL)에서 타사 데이터베이스(SAP HANA)에 대한 데이터 보호를 간소화하는 데 사용할 수 있는 명령줄 도구입니다. 도구에 대한 최신 변경 내용은 [AzAcSnap의 릴리스 정보](azacsnap-release-notes.md)를 참조하세요.   
 
 * [용량 풀 청구 태그 지원](manage-billing-tags.md)   
 
@@ -122,7 +144,7 @@ Azure NetApp Files는 정기적으로 업데이트됩니다. 이 문서에서는
 
     Azure NetApp Files는 이제 Azure NetApp Files 서비스와 사용자 지정 Active Directory Domain Services 도메인 컨트롤러 간의 보안 LDAP 조회를 위해 LDAP 서명을 지원합니다. 이 기능은 현재 미리 보기로 제공됩니다.
 
-* [AD 인증용 AES 암호화](azure-netapp-files-create-volumes-smb.md)(미리 보기)
+* [AD 인증용 AES 암호화](create-active-directory-connections.md#create-an-active-directory-connection)(미리 보기)
 
     이제 Azure NetApp Files는 SMB 볼륨에 대한 AES 암호화를 사용하도록 설정하기 위해 DC에 대한 LDAP 연결에서 AES 암호화를 지원합니다. 이 기능은 현재 미리 보기로 제공됩니다. 
 

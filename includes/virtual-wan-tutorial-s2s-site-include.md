@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/11/2021
+ms.date: 05/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 708baa83ca919adcc374be36c229ce3ff30da384
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3652fbeee10f8ddad538446087f399ca625f6b07
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100362941"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578302"
 ---
 1. Virtual WAN에 대한 포털 페이지의 **연결** 섹션에서 **VPN 사이트** 를 선택하여 VPN 사이트 페이지를 엽니다.
 1. **VPN 사이트** 페이지에서 **+사이트 만들기** 를 클릭합니다.
 1. **VPN 사이트 만들기** 페이지의 **기본 사항** 탭에서 다음 필드를 완료합니다.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="기본 사항 탭" lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-basics.png" alt-text="스크린샷은 기본 사항 탭이 열려 있는 VPN 사이트 만들기 페이지를 보여줍니다." lightbox="./media/virtual-wan-tutorial-site-include/site-basics.png":::
 
     * **지역** - 이전에는 위치라고 했습니다. 이 사이트 리소스를 만들려는 위치입니다.
     * **이름** - 온-프레미스 사이트를 참조할 때 사용하려는 이름입니다.
@@ -31,7 +31,7 @@ ms.locfileid: "100362941"
       >
 1. 분기의 실제 링크에 대한 정보를 추가하려면 **링크** 를 선택합니다. Virtual WAN 파트너 CPE 디바이스가 있는 경우 이 정보가 시스템에서 설정된 분기 정보 업로드의 일부로 Azure와 교환되는지 확인합니다.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-links.png" alt-text="링크 탭" lightbox="./media/virtual-wan-tutorial-site-include/site-links.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/site-links.png" alt-text="스크린샷은 링크 탭이 열려 있는 VPN 사이트 만들기 페이지를 보여줍니다." lightbox="./media/virtual-wan-tutorial-site-include/site-links.png":::
 
    * **링크 이름** - VPN 사이트의 물리적 링크에 제공하려는 이름입니다. 예: mylink1
    * **링크 속도** - 분기 위치에서 VPN 디바이스의 속도입니다. 예제: 50(분기 사이트에서 VPN 디바이스의 속도가 50Mbps임을 의미함)
@@ -49,4 +49,4 @@ ms.locfileid: "100362941"
 1. 필드 작성이 끝나면 **검토 + 만들기** 를 선택하여 사이트를 확인하고 만듭니다.
 1. 원하는 가상 허브로 이동하고 **Hub 연결** 을 선택 취소하여 VPN 사이트를 허브에 연결합니다.
 
-   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="이 허브에 연결" lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::
+   :::image type="content" source="./media/virtual-wan-tutorial-site-include/connect.png" alt-text="스크린샷은 이 허브에 연결을 보여줍니다." lightbox="./media/virtual-wan-tutorial-site-include/connect.png":::

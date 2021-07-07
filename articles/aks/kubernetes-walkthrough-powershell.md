@@ -5,18 +5,18 @@ services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b61c791390200beac4a18422a4de58dd94fa711
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0f96ecd00b72f1853fe25b497283ea48ebdf55d7
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103492900"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111747800"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Kubernetes Service 클러스터 배포
 
 AKS(Azure Kubernetes Service)는 클러스터를 빠르게 배포하고 관리할 수 있는 관리형 Kubernetes 서비스입니다. 이 빠른 시작에서는 다음을 수행합니다.
-* PowerShell을 사용하여 AKS 클러스터를 배포합니다. 
-* 클러스터에서 웹 프런트 엔드 및 Redis 인스턴스를 사용하여 다중 컨테이너 애플리케이션을 실행합니다. 
+* PowerShell을 사용하여 AKS 클러스터를 배포합니다.
+* 클러스터에서 웹 프런트 엔드 및 Redis 인스턴스를 사용하여 다중 컨테이너 애플리케이션을 실행합니다.
 * 애플리케이션을 실행하는 클러스터와 Pod의 상태를 모니터링합니다.
 
 Windows Server 노드 풀을 만드는 방법에 대한 자세한 내용은 [Windows Server 컨테이너를 지원하는 AKS 클러스터 만들기][windows-container-powershell]를 참조하세요.
@@ -41,9 +41,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 표시됩니다. 이 위치는 다음과 같습니다. 
+[Azure 리소스 그룹](../azure-resource-manager/management/overview.md)은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 표시됩니다. 이 위치는 다음과 같습니다.
 * 리소스 그룹 메타데이터의 스토리지 위치입니다.
-* 리소스를 만드는 동안 다른 지역을 지정하지 않은 경우 리소스가 Azure에서 실행되는 위치입니다. 
+* 리소스를 만드는 동안 다른 지역을 지정하지 않은 경우 리소스가 Azure에서 실행되는 위치입니다.
 
 다음 예제에서는 **미국 동부** 지역에 **myResourceGroup** 이라는 리소스 그룹을 만듭니다.
 
@@ -65,12 +65,12 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-1. `ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다. 
+1. `ssh-keygen` 명령줄 유틸리티를 사용하여 SSH 키 쌍을 생성합니다.
     * 자세한 내용은 [빠른 단계: Azure에서 Linux VM용 SSH 퍼블릭-프라이빗 키 쌍 만들기 및 사용](../virtual-machines/linux/mac-create-ssh-keys.md)을 참조하세요.
 
-1. [New-AzAks][new-azaks] cmdlet을 사용하여 AKS 클러스터를 만듭니다. 컨테이너용 Azure Monitor는 기본적으로 사용하도록 설정되어 있습니다.
+1. [New-AzAksCluster][new-azakscluster] cmdlet을 사용하여 AKS 클러스터를 만듭니다. 컨테이너용 Azure Monitor는 기본적으로 사용하도록 설정되어 있습니다.
 
-    다음 예제에서는 하나의 노드가 있는 **myAKSCluster** 라는 클러스터를 만듭니다. 
+    다음 예제에서는 하나의 노드가 있는 **myAKSCluster** 라는 클러스터를 만듭니다.
 
     ```azurepowershell-interactive
     New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -83,7 +83,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트인 [kubectl][kubectl]을 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. 
+Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트인 [kubectl][kubectl]을 사용합니다. Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다.
 
 1. `Install-AzAksKubectl` cmdlet을 사용하여 `kubectl`을 로컬로 설치합니다.
 
@@ -112,11 +112,11 @@ Kubernetes 클러스터를 관리하려면 Kubernetes 명령줄 클라이언트�
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-[Kubernetes 매니페스트 파일][kubernetes-deployment]은 실행할 컨테이너 이미지와 같은 클러스터에 대해 원하는 상태를 정의합니다. 
+[Kubernetes 매니페스트 파일][kubernetes-deployment]은 실행할 컨테이너 이미지와 같은 클러스터에 대해 원하는 상태를 정의합니다.
 
 이 빠른 시작에서는 매니페스트를 사용하여 [Azure Vote 애플리케이션][azure-vote-app]을 실행하는 데 필요한 모든 개체를 만듭니다. 이 매니페스트에는 다음과 같은 두 개의 [Kubernetes 배포][kubernetes-deployment]가 포함됩니다.
 * 샘플 Azure Vote Python 애플리케이션.
-* Redis 인스턴스. 
+* Redis 인스턴스.
 
 다음과 같은 두 개의 [Kubernetes 서비스][kubernetes-service]도 생성됩니다.
 * Redis 인스턴스에 대한 내부 서비스.
@@ -256,7 +256,7 @@ Azure Vote 앱이 실제로 작동하는 모습을 보려면 웹 브라우저를
 
 ![Azure Kubernetes Service에 배포된 투표 앱](./media/kubernetes-walkthrough-powershell/voting-app-deployed-in-azure-kubernetes-service.png)
 
-Azure Portal의 컨테이너용 Azure Monitor에서 캡처한 클러스터 노드 및 Pod의 상태 메트릭을 확인합니다. 
+Azure Portal의 컨테이너용 Azure Monitor에서 캡처한 클러스터 노드 및 Pod의 상태 메트릭을 확인합니다.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
@@ -268,7 +268,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 > [!NOTE]
 > 클러스터를 삭제할 때, AKS 클러스터에 사용되는 Azure Active Directory 서비스 주체는 제거되지 않습니다. 서비스 주체를 제거하는 방법에 대한 단계는 [AKS 서비스 주체 고려 사항 및 삭제][sp-delete]를 참조하세요.
-> 
+>
 > 관리 ID를 사용하는 경우 ID는 플랫폼에 의해 관리되며 제거할 필요가 없습니다.
 
 ## <a name="get-the-code"></a>코드 가져오기
@@ -296,7 +296,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [install-azure-powershell]: /powershell/azure/install-az-ps
 [new-azresourcegroup]: /powershell/module/az.resources/new-azresourcegroup
-[new-azaks]: /powershell/module/az.aks/new-azaks
+[new-azakscluster]: /powershell/module/az.aks/new-azakscluster
 [import-azakscredential]: /powershell/module/az.aks/import-azakscredential
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services

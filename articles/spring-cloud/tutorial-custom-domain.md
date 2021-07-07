@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 583124e9e3ca657ee13e4726eda981ae26022856
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 6c9d2e82e048a8693175974d6ef664d67e9deac8
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108138520"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110652655"
 ---
 # <a name="tutorial-map-an-existing-custom-domain-to-azure-spring-cloud"></a>자습서: Azure Spring Cloud에 기존 사용자 지정 도메인 매핑
 
@@ -89,7 +89,7 @@ IIS 또는 _Certreq.exe_ 를 사용하여 인증서 요청을 생성한 경우 �
 1. 위쪽 메뉴에서 **생성/가져오기** 를 클릭합니다.
 1. **인증서 만들기** 대화 상자의 **인증서를 만드는 방법** 에서 `Import`를 선택합니다.
 1. **인증서 파일 업로드** 에서 인증서 위치로 이동하여 선택합니다.
-1. **암호** 에 인증서의 프라이빗 키를 입력합니다.
+1. **암호** 아래에서 암호로 보호된 인증서 파일을 업로드하는 경우 여기에 해당 암호를 입력합니다. 그렇지 않으면 비워 둡니다. 인증서 파일을 성공적으로 가져오면 키 자격 증명 모음에서 해당 암호를 제거합니다.
 1. **만들기** 를 클릭합니다.
 
     ![인증서 가져오기 1](./media/custom-dns-tutorial/import-certificate-a.png)

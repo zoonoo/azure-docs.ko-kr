@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: d683507e8c35db5af3ef7e91674f6a55254e22e2
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 90c044593ac02f2c906fb2347d731168b25af5af
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132426"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813869"
 ---
 # <a name="tutorial-building-a-static-web-app-with-blazor-in-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Blazor를 사용하여 정적 웹앱 빌드
 
@@ -68,44 +68,40 @@ Azure Static Web Apps를 사용하면 서버리스 백 엔드에서 지원하는
 이제 리포지토리가 생성되었으므로 Azure Portal에서 정적 웹앱을 만듭니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **리소스 만들기** 선택
+1. **리소스 만들기** 를 선택합니다.
 1. **Static Web Apps** 를 검색합니다.
-1. **Static Web Apps(미리 보기)** 선택
+1. **Static Web Apps** 를 선택합니다.
 1. **만들기** 를 선택합니다.
+1. _기본_ 탭에서 다음 값을 입력합니다.
 
-_기본 사항_ 섹션에서 새 앱을 구성하고 GitHub 리포지토리에 연결하여 시작합니다.
+    | 속성 | 값 |
+    | --- | --- |
+    | _구독_ | Azure 구독 이름. |
+    | _리소스 그룹_ | **my-blazor-group**  |
+    | _이름_ | **my-first-static-blazor-app** |
+    | _플랜 유형_ | **Free** |
+    | _Azure Functions API 및 스테이징 환경을 위한 지역_ | 가장 가까운 지역을 선택합니다. |
+    | _원본_ | **GitHub** |
 
-:::image type="content" source="media/deploy-blazor/basics.png" alt-text="기본 사항 탭":::
+1. **GitHub로 로그인** 을 선택하고 GitHub로 인증합니다.
 
-1. _Azure 구독_ 선택
-1. 새 _리소스 그룹_ 선택 또는 만들기
-1. 앱 이름을 **my-first-static-blazor-app** 으로 지정합니다.
-   - 유효한 문자는 `a-z`(대/소문자 구분 안 함), `0-9`및 `-`입니다.
-1. 가장 가까운 _지역_ 을 선택합니다.
-1. **무료** _SKU_ 를 선택합니다.
-1. **GitHub로 로그인** 단추를 선택하고 GitHub로 인증합니다.
+1. 다음 GitHub 값을 입력합니다.
 
-GitHub로 로그인한 후 리포지토리 정보를 입력합니다.
+    | 속성 | 값 |
+    | --- | --- |
+    | _조직_ | 원하는 GitHub 조직을 선택합니다. |
+    | _리포지토리_ | **my-first-static-blazor-app** 을 선택합니다. |
+    | _분기_ | **기본** 을 선택합니다. |
 
-:::image type="content" source="media/deploy-blazor/repository-details.png" alt-text="리포지토리 세부 정보":::
+1. _빌드 세부 정보_ 섹션의 _빌드 사전 설정_ 드롭다운에서 **Blazor** 를 선택하고 기본값을 유지합니다.
 
-1. 원하는 _조직_ 을 선택합니다.
-1. _리포지토리_ 드롭다운에서 **my-first-static-blazor-app** 을 선택합니다.
-1. _분기_ 드롭다운에서 **주** 를 선택합니다.
+### <a name="review-and-create"></a>검토 후 만들기
 
-   리포지토리가 표시되지 않는 경우 GitHub에서 Azure Static Web Apps에 권한을 부여해야 할 수 있습니다. GitHub 리포지토리로 이동하여 **설정 > 애플리케이션 > 권한 부여된 OAuth 앱** 으로 이동하고 **Azure Static Web Apps** 를 선택한 다음 **권한 부여** 를 선택합니다. 조직 리포지토리의 경우 사용 권한을 부여하려면 조직의 소유자여야 합니다.
+1. **검토 + 만들기** 단추를 선택하여 세부 정보가 모두 올바른지 확인합니다.
 
-1. _빌드 세부 정보_ 섹션에서 Blazor 관련 구성 세부 정보를 추가합니다.
+1. **만들기** 를 선택하여 App Service Static Web App 만들기를 시작하고 배포를 위한 GitHub Action을 프로비전합니다.
 
-   - _빌드 사전 설정_ 드롭다운에서 **Blazor** 를 선택하고 모든 기본값을 유지합니다.
-
-1. **검토 + 만들기** 를 선택합니다.
-
-   :::image type="content" source="media/deploy-blazor/review-create.png" alt-text="만들기 단추 검토":::
-
-1. **만들기** 를 선택합니다.
-
-   :::image type="content" source="media/deploy-blazor/create-button.png" alt-text="만들기 단추":::
+1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 
 1. **리소스로 이동** 을 선택합니다.
 
@@ -130,8 +126,8 @@ Static Web Apps 개요 창에는 웹앱과 상호 작용하는 데 도움이 되
 이 애플리케이션을 계속 사용하지 않을 경우 다음 단계를 통해 Azure Static Web App 인스턴스를 삭제할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
-1. 위쪽 검색 창에서 **my-first-static-blazor-app** 을 검색합니다.
-1. 앱 이름을 선택합니다.
+1. 위쪽 검색 창에서 **my-blazor-group** 을 검색합니다.
+1. 그룹 이름을 선택합니다.
 1. **삭제** 단추를 선택합니다.
 1. **예** 를 선택하여 삭제 작업을 확인합니다.
 

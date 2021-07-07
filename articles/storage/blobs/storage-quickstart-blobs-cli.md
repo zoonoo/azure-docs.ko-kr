@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 08/17/2020
 ms.author: tamram
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 04f793f78cef938c31e7a30aad5569a54eb461a1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: dae51f8c343fa5adcf724cd3ef6db1c8a4058cf7
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "104613110"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900722"
 ---
 # <a name="quickstart-create-download-and-list-blobs-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 생성, 다운로드 및 나열
 
@@ -70,7 +70,7 @@ az storage account create \
 
 Blob은 항상 컨테이너에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것과 비슷한 방식으로 컨테이너에서 Blob 그룹을 구성할 수 있습니다. Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다.
 
-다음 예제에서는 Azure AD 계정을 사용하여 컨테이너를 만드는 작업에 권한을 부여합니다. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자인 경우에도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 대한 자세한 내용은 [Azure CLI 사용하여 액세스에 대한 Azure 역할 할당](../common/storage-auth-aad-rbac-cli.md?toc=/azure/storage/blobs/toc.json)을 참조하세요.  
+다음 예제에서는 Azure AD 계정을 사용하여 컨테이너를 만드는 작업에 권한을 부여합니다. 컨테이너를 만들기 전에 [Storage Blob 데이터 참가자](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) 역할을 자신에게 할당합니다. 계정 소유자인 경우에도 스토리지 계정에 대한 데이터 작업을 수행하려면 명시적 권한이 필요합니다. Azure 역할을 할당하는 방법에 관한 자세한 내용은 [Blob 데이터 액세스를 위해 Azure 역할 할당](assign-azure-role-data-access.md)을 참조하세요.  
 
 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 

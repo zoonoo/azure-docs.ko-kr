@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro의 컴퓨팅 기능을 사용하여 데이터를 필터링하고 분석하는 자습서 | Microsoft Docs
-description: Azure Stack Edge Pro에 컴퓨팅 역할을 구성하고 이 역할을 사용하여 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
+title: Azure Stack Edge Pro FPGA의 컴퓨팅 기능을 사용하여 데이터를 필터링하고 분석하는 자습서
+description: Azure Stack Edge Pro FPGA에 컴퓨팅 역할을 구성하고 이 역할을 사용하여 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: e521305f517a697c8d71c692f2581f2cce380980
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d059fdb0eb273459a22a5be66408445d216c757a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058802"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474858"
 ---
-# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro를 사용하여 데이터 변환
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA를 사용하여 데이터 변환
 
-이 자습서에서는 Azure Stack Edge Pro 디바이스에 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Azure Stack Edge Pro에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
+이 자습서에서는 Azure Stack Edge Pro FPGA 디바이스에 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Azure Stack Edge Pro FPGA에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
 
 이 절차를 완료하는 데 약 10-15분이 걸릴 수 있습니다.
 
@@ -30,16 +30,16 @@ ms.locfileid: "106058802"
 > * 데이터 변환 및 전송 확인
 
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
+Azure Stack Edge Pro FPGA 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
 
-- [Azure Stack Edge Pro 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)에서 설명한 대로 Azure Stack Edge Pro 디바이스를 활성화했습니다.
+- [Azure Stack Edge Pro FPGA 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)에서 설명한 대로 Azure Stack Edge Pro FPGA 디바이스를 활성화했습니다.
 
 
 ## <a name="configure-compute"></a>컴퓨팅 구성
 
-Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 합니다.
+Azure Stack Edge Pro FPGA에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 합니다.
 
 1. Azure Stack Edge 리소스의 Azure Portal에서 **개요** 로 이동합니다. 오른쪽 창에서 **IoT Edge** 를 선택합니다.
 
@@ -105,9 +105,9 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 ## <a name="add-a-module"></a>모듈 추가
 
-사용자 지정 또는 미리 작성된 모듈을 추가할 수 있습니다. 이 Edge 디바이스에는 사용자 지정 모듈이 없습니다. 사용자 지정 모듈을 만드는 방법을 알아보려면 [Azure Stack Edge Pro 디바이스용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)로 이동합니다.
+사용자 지정 또는 미리 작성된 모듈을 추가할 수 있습니다. 이 Edge 디바이스에는 사용자 지정 모듈이 없습니다. 사용자 지정 모듈을 만드는 방법을 알아보려면 [Azure Stack Edge Pro FPGA 디바이스용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)로 이동합니다.
 
-이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
+이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro FPGA용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
 
 1. **IoT Edge > 모듈** 로 이동합니다. 디바이스 명령 모음에서 **+ 모듈 추가** 를 선택합니다.
 2. **모듈 구성 및 추가** 블레이드에서 다음 값을 입력합니다.
@@ -115,7 +115,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
     
     |필드  |값  |
     |---------|---------|
-    |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
+    |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro FPGA와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
     |이미지 URI     | 모듈의 해당 컨테이너 이미지에 대한 이미지 URI입니다.        |
     |자격 증명 필요     | 이 옵션을 선택하면 사용자 이름과 암호를 사용하여 URL이 일치하는 모듈을 검색하게 됩니다.        |
     |입력 공유     | 입력 공유를 선택합니다. 이 예에서는 Edge 로컬 공유가 입력 공유입니다. 여기에 사용된 모듈은 Edge 로컬 공유의 파일을 클라우드에 업로드되는 Edge 공유로 이동합니다.        |
@@ -169,7 +169,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 > * 컴퓨팅 모듈 추가
 > * 데이터 변환 및 전송 확인
 
-Azure Stack Edge Pro 디바이스를 관리하는 방법을 알아보려면 다음을 참조하세요.
+Azure Stack Edge Pro FPGA 디바이스를 관리하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [로컬 웹 UI를 사용하여 Azure Stack Edge Pro 관리](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [로컬 웹 UI를 사용하여 Azure Stack Edge Pro FPGA 관리](azure-stack-edge-manage-access-power-connectivity-mode.md)

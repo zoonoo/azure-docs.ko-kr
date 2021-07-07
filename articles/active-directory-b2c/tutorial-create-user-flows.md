@@ -7,18 +7,18 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/26/2021
+ms.date: 06/07/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa1250189c5ba11426ac993bed8fde398ae37ea2
-ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
+ms.openlocfilehash: fb04dbe5cdfab523e8af9a057cc4477f58b1b525
+ms.sourcegitcommit: 89c889a9bdc2e72b6d26ef38ac28f7a6c5e40d27
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108001469"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111565341"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
+# <a name="tutorial-create-user-flows-and-custom-policies-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 및 사용자 지정 정책 만들기
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -46,13 +46,13 @@ ms.locfileid: "108001469"
 
 ::: zone pivot="b2c-user-flow"
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
-- 생성된 테넌트에 [애플리케이션을 등록](tutorial-register-applications.md)하여 Azure AD B2C와 통신할 수 있도록 합니다.
+- [웹 애플리케이션을 등록](tutorial-register-applications.md)하고 [ID 토큰 암시적 부여를 사용하도록 설정](tutorial-register-applications.md#enable-id-token-implicit-grant)합니다.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
 - Azure 구독에 연결된 [Azure AD B2C 테넌트](tutorial-create-tenant.md)가 아직 없으면 만듭니다.
-- 생성된 테넌트에 [애플리케이션을 등록](tutorial-register-applications.md)하여 Azure AD B2C와 통신할 수 있도록 합니다.
+- [웹 애플리케이션을 등록](tutorial-register-applications.md)하고 [ID 토큰 암시적 부여를 사용하도록 설정](tutorial-register-applications.md#enable-id-token-implicit-grant)합니다.
 - [Facebook 애플리케이션을 만듭니다](identity-provider-facebook.md#create-a-facebook-application). [Facebook 계정으로 등록 및 로그인 설정](identity-provider-facebook.md) 문서의 필수 구성 요소 및 초기화 단계를 건너뜁니다. Facebook 애플리케이션은 사용자 지정 정책을 사용하는 데 필요하지 않지만 이 연습에서 사용자 지정 정책에 소셜 로그인을 사용하도록 설정하는 방법을 보여 주기 위해 사용되었습니다.
 
 ::: zone-end
@@ -327,7 +327,9 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 1. **사용자 지정 정책** 에서 **B2C_1A_signup_signin** 을 선택합니다.
 1. **지금 실행** 을 선택하고 Facebook을 선택하여 Facebook에 로그인하고 사용자 지정 정책을 테스트합니다.
 
+
 ::: zone-end
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 다음 방법에 대해 알아보았습니다.
@@ -341,3 +343,5 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 
 > [!div class="nextstepaction"]
 > [자습서: Azure AD B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정 >](tutorial-web-app-dotnet.md)
+
+[Azure AD B2C 아키텍처 심층 분석 시리즈](https://www.youtube.com/playlist?list=PLOPotgzC07IKXXCTZcrpuLWbVe3y51kfm)에서도 자세히 알아볼 수 있습니다.

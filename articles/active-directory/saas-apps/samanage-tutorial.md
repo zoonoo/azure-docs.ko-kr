@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.author: jeedes
-ms.openlocfilehash: 6dcd5612bd2c5957ae0a397c3463dbb42445a754
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d10ff0f9ca4fde80557341c0b5d29b3f7c26c970
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104956046"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>자습서: SolarWinds Service Desk(이전의 Samanage)와 Azure Active Directory 통합
 
@@ -32,6 +32,9 @@ ms.locfileid: "104956046"
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
 * SolarWinds SSO(Single Sign-On)가 설정된 구독.
+
+> [!NOTE]
+> 이 통합은 Azure AD 미국 정부 클라우드 환경에서도 사용할 수 있습니다. 이 애플리케이션은 Azure AD 미국 정부 클라우드 애플리케이션 갤러리에서 찾을 수 있으며 퍼블릭 클라우드에서와 동일한 방법으로 구성할 수 있습니다.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -134,7 +137,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
  
     a. **SAML로 Single Sign-On 사용** 을 클릭합니다.  
  
-    b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **ID 공급자 URL** 텍스트 상자에 붙여넣습니다.    
+    b. **ID 공급자 URL** 텍스트 상자에 `https://YourAccountName.samanage.com`과 같은 값을 입력합니다.
  
     다. **로그인 URL** 이 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **로그온 URL** 과 일치하는지 확인합니다.
  

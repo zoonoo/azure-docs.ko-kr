@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/15/2021
-ms.openlocfilehash: 83e206a5fd7b34da0b0ac8590d5271a554855d3e
-ms.sourcegitcommit: d63f15674f74d908f4017176f8eddf0283f3fac8
+ms.date: 06/03/2021
+ms.openlocfilehash: 713d2216029fb88716d157d9db7b2010d3f32720
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106580751"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526275"
 ---
 # <a name="create-an-azure-cognitive-search-service-in-the-portal"></a>포털에서 Azure Cognitive Search서비스 만들기
 
 [Azure Cognitive Search](search-what-is-azure-search.md)는 사용자 지정 앱에 전체 텍스트 검색 환경을 추가하는 데 사용되는 Azure 리소스입니다. 데이터 또는 추가 처리를 제공하는 다른 Azure 서비스, 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 쉽게 통합할 수 있습니다.
 
-이 문서에서 설명하는 [Azure Portal](https://portal.azure.com/)을 사용하여 검색 서비스를 만들 수 있습니다. [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), [관리 REST API](/rest/api/searchmanagement/) 또는 [Azure Resource Manager 서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용할 수도 있습니다.
+이 문서에서 설명하는 [Azure Portal](https://portal.azure.com/)을 사용하여 검색 서비스를 만들 수 있습니다. [Azure PowerShell](search-manage-powershell.md), [Azure CLI](/cli/azure/search), [관리 REST API](/rest/api/searchmanagement/) 또는 [Azure Resource Manager 서비스 템플릿](https://azure.microsoft.com/resources/templates/azure-search-create/)을 사용할 수도 있습니다.
 
 [![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -83,25 +83,25 @@ ms.locfileid: "106580751"
 
 ## <a name="choose-a-location"></a>위치 선택
 
-Azure Cognitive Search는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search)에 설명된 대로 대부분의 지역에서 사용할 수 있습니다. 일반적으로 여러 Azure 서비스를 사용하는 경우 데이터 또는 애플리케이션 서비스도 호스팅하는 지역을 선택합니다. 아웃바운드 데이터에 대한 대역폭 요금을 최소화 하거나 무효로 합니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금은 없음).
+Azure Cognitive Search는 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search)에 설명된 대로 대부분의 지역에서 사용할 수 있습니다. 
 
-+ [AI 보강](cognitive-search-concept-intro.md)은 Cognitive Services가 Azure Cognitive Search와 동일한 물리적 지역에 있어야 합니다. 둘 다 제공하지 않는 지역은 몇 개만 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지는 두 개의 누적 확인 표시를 표시하여 이중 가용성을 나타냅니다. 사용할 수 없는 조합에 확인 표시가 없습니다.
+일반적으로 여러 Azure 서비스를 사용하는 경우 데이터 또는 애플리케이션 서비스도 호스트 중인 지역을 선택합니다. 아웃바운드 데이터에 대한 대역폭 요금을 최소화 하거나 무효로 합니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금은 없음).
+
++ [AI 보강](cognitive-search-concept-intro.md)은 Cognitive Services가 Azure Cognitive Search와 동일한 물리적 지역에 있어야 합니다. 둘 다 제공하지 ‘않는’ 지역은 몇 개만 있습니다. [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=search) 페이지는 두 개의 누적 확인 표시를 표시하여 이중 가용성을 나타냅니다. 사용할 수 없는 조합에 확인 표시가 없습니다.
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="국가별 가용성" border="true":::
 
 + BCDR(비즈니스 연속성 및 재해 복구) 요구 사항은 [지역 쌍](../best-practices-availability-paired-regions.md#azure-regional-pairs)으로 여러 검색 서비스를 만들어 충족해야 합니다. 예를 들어 북아메리카에서 작업하는 경우 각 검색 서비스에 대해 미국 동부 및 미국 서부, 미국 중북부 및 미국 중남부를 선택할 수 있습니다.
 
-일부 기능은 지역에 따라 가용성이 제한됩니다. 제한 사항은 기능 설명서에 설명되어 있습니다.
-
-+ [이중 암호화](search-security-overview.md#double-encryption)
+지역을 기준으로 가용성을 제한한 기능이 아래에 나열되어 있습니다. 지원되는 지역은 기능 문서에 나와 있습니다. 
 
 + [성능 확장의 "가용성 영역"](search-performance-optimization.md#availability-zones)입니다.
 
 ## <a name="choose-a-pricing-tier"></a>가격 책정 계층 선택
 
-Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/): 무료, 기본, 표준 또는 스토리지 최적화로 제공됩니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층](search-sku-tier.md)을 참조하세요.
+Azure Cognitive Search는 현재 [여러 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/): 무료, 기본, 표준 또는 스토리지 최적화로 제공됩니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 또한 선택하는 계층은 특정 기능의 가용성에 영향을 줄 수 있습니다. 지침은 [계층별 기능 가용성](search-sku-tier.md#feature-availability-by-tier)을 참조하세요.
 
-기본 및 표준 계층은 프로덕션 워크로드에서 일반적으로 선택되지만, 대부분의 고객은 체험 서비스로 시작합니다. 계층 간의 주요 차이점은 파티션 크기와 속도 및 만들 수 있는 개체 수에 대한 제한에 있습니다.
+기본 및 표준 계층은 프로덕션 워크로드에서 일반적으로 선택되지만, 처음에 대부분의 고객은 평가 목적으로 체험 서비스를 시작합니다. 청구 가능한 계층 간 주요 차이점은 파티션 크기와 속도 및 만들 수 있는 개체 수에 대한 제한에 있습니다.
 
 서비스가 만들어지면 가격 책정 계층을 변경할 수 없습니다. 상위 계층 또는 하위 계층이 필요한 경우 서비스를 다시 만들어야 합니다.
 

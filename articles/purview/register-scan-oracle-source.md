@@ -1,5 +1,5 @@
 ---
-title: Azure Purview에서 Oracle 원본 등록 및 검사 설정(미리 보기)
+title: Azure Purview에서 Oracle 원본 등록 및 검사 설정
 description: 이 문서에서는 Azure Purview에서 Oracle 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 40c5e0ff2c2301607f5a548ff05c742c5c5a948d
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: dadf457c2fc3f617e2473a853e802fe863709ac5
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107517065"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072292"
 ---
-# <a name="register-and-scan-oracle-source-preview"></a>Oracle 원본 등록 및 검사(미리 보기)
+# <a name="register-and-scan-oracle-source"></a>Oracle 원본 등록 및 검사
 
 이 문서에서는 Purview에서 Oracle 데이터 베이스를 등록하고 검사를 설정하는 방법을 설명합니다.
 
@@ -132,8 +132,13 @@ Oracle 원본에 대해 유일하게 지원되는 인증은 **기본 인증** �
     NOT 및 특수 문자는 허용되지 않습니다.
 
 6.  **드라이버 위치**: VM에서 자체 호스팅 통합 런타임이 실행 중인 JDBC 드라이버 위치의 경로를 지정합니다. 이 경로는 유효한 JAR 폴더 위치에 대한 경로여야 합니다.
+    > [!Note]
+    > VM의 모든 계정에서 드라이버에 액세스할 수 있어야 합니다. 사용자 계정에는 설치하지 마세요.
 
 7.  **사용 가능한 최대 메모리**: 고객의 VM에서 검사 프로세스를 수행하는 데 사용할 수 있는 최대 메모리(GB)입니다. 이는 검사할 SAP S/4HANA 원본의 크기에 따라 달라집니다.
+
+    > [!Note] 
+    > 일반적으로 1,000개 테이블당 1GB 메모리를 제공하세요.
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="Oracle 검사" border="true":::
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7528d1f29b293e1efadde84fac9fa8d95f8f5076
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: da026012c4084783d30f548cbdffc8951d74bcd6
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110371332"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751220"
 ---
 # <a name="create-and-use-views-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 뷰 만들기 및 사용
 
@@ -119,6 +119,8 @@ FROM
 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake 폴더](./media/shared/yellow-taxi-delta-lake.png)
+
+분할된 Delta Lake 데이터를 쿼리할 때는 `OPENROWSET` 함수에 `WITH` 절을 사용하지 마세요. 미리 보기의 알려진 문제로 인해 `WITH` 절은 기본 분할 열의 값을 올바르게 반환하지 않습니다. `WITH` 절(뷰 없음)에 `OPENROWSET` 함수를 직접 사용하는 경우 파티션 제거가 제대로 작동합니다.  
 
 ## <a name="use-a-view"></a>뷰 사용
 

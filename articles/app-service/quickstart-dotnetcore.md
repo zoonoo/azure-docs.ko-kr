@@ -3,19 +3,19 @@ title: '빠른 시작: ASP.NET 웹앱 배포'
 description: 첫 번째 ASP.NET 앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 03/30/2021
+ms.date: 06/08/2021
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-dotnetcore-uiex
-ms.openlocfilehash: 482bf6d29fbc1e982ee4d17099d82915ff3a0241
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 3b3abdf40d5aa9d56421361237432ddf08c0c016
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762464"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746540"
 ---
 <!-- NOTES:
 
@@ -39,10 +39,7 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 이 빠른 시작에서는 첫 번째 ASP.NET 웹앱을 만들고 [Azure App Service](overview.md)에 배포하는 방법을 알아봅니다. App Service는 다양한 버전의 .NET 앱을 지원하며 확장성이 뛰어난 자체 패치 웹 호스팅 서비스를 제공합니다. ASP.NET 웹앱은 크로스 플랫폼이며 Linux 또는 Windows에서 호스트할 수 있습니다. 이 빠른 시작을 마치고 나면 App Service 호스팅 계획 및 웹 애플리케이션이 배포된 App Service로 구성된 리소스 그룹이 하나 생깁니다.
 
-> [!TIP]
-> .NET Core 3.1은 .NET의 현재 LTS(장기 지원) 릴리스입니다. 자세한 내용은 [.NET 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조하세요.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 :::zone target="docs" pivot="development-environment-vs"
 
@@ -110,12 +107,15 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET 웹앱 만들기
 
+> [!TIP]
+> .NET Core 3.1은 .NET의 현재 LTS(장기 지원) 릴리스입니다. 자세한 내용은 [.NET 지원 정책](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)을 참조하세요.
+
 :::zone target="docs" pivot="development-environment-vs"
 
 ### <a name="net-core-31"></a>[.NET Core 3.1](#tab/netcore31)
 
 1. Visual Studio를 연 다음, **새 프로젝트 만들기** 를 선택합니다.
-1. **새 프로젝트 만들기** 에서 **ASP.NET Web Core 앱** 을 찾아서 선택한 후 **다음** 을 선택합니다.
+1. **새 프로젝트 만들기** 에서 **ASP.NET Core 웹앱** 을 찾아서 선택한 후 **다음** 을 선택합니다.
 1. **새 프로젝트 구성** 에서 애플리케이션 이름을 _MyFirstAzureWebApp_ 으로 지정한 후 **다음** 을 선택합니다.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="ASP.NET Core 3.1 웹앱 구성" border="true":::
@@ -132,7 +132,7 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 ### <a name="net-50"></a>[.NET 5.0](#tab/net50)
 
 1. Visual Studio를 연 다음, **새 프로젝트 만들기** 를 선택합니다.
-1. **새 프로젝트 만들기** 에서 **ASP.NET Web Core 앱** 을 찾아서 선택한 후 **다음** 을 선택합니다.
+1. **새 프로젝트 만들기** 에서 **ASP.NET Core 웹앱** 을 찾아서 선택한 후 **다음** 을 선택합니다.
 1. **새 프로젝트 구성** 에서 애플리케이션 이름을 _MyFirstAzureWebApp_ 으로 지정한 후 **다음** 을 선택합니다.
 
    :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Visual Studio - ASP.NET 5.0 웹앱 구성" border="true":::

@@ -1,29 +1,26 @@
 ---
 title: 서비스 주체를 사용하여 Azure AD 사용자 만들기
-description: 이 자습서에서는 Azure SQL Database 및 Azure Synapse Analytics에서 Azure AD 애플리케이션(서비스 주체)을 사용하여 Azure AD 사용자를 만드는 과정을 안내합니다.
+description: 이 자습서에서는 Azure SQL Database에서 Azure AD 애플리케이션(서비스 주체)을 사용하여 Azure AD 사용자를 만드는 과정을 안내합니다.
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 02/11/2021
-ms.openlocfilehash: 13e049d3e7e0c87bd0a214a92491e10d652a3619
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c1c0754175283dd9087429586e61739c8c779e49
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100380613"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110662439"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>자습서: Azure AD 애플리케이션을 사용하여 Azure AD 사용자 만들기
 
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> 이 문서는 **공개 미리 보기** 에 있습니다. 자세한 내용은 [Azure SQL을 사용하는 Azure Active Directory 서비스 주체](authentication-aad-service-principal.md)를 참조하세요. 이 문서에서는 Azure SQL Database를 사용하여 필요한 자습서 단계를 설명하지만, [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에도 비슷하게 적용할 수 있습니다.
-
-이 문서는 Azure 서비스 주체(Azure AD 애플리케이션)를 사용하여 Azure SQL Database에서 Azure AD 사용자를 만드는 과정을 안내합니다. 이 기능은 Azure SQL Managed Instance에 이미 있지만 이제 Azure SQL Database 및 Azure Synapse Analytics에 도입되었습니다. 이 시나리오를 지원하려면 Azure AD ID를 생성하여 Azure SQL 논리 서버에 할당해야 합니다.
+이 문서는 Azure 서비스 주체(Azure AD 애플리케이션)를 사용하여 Azure SQL Database에서 Azure AD 사용자를 만드는 과정을 안내합니다. 이 기능은 Azure SQL Managed Instance에 이미 있지만 이제 Azure SQL Database에 도입되었습니다. 이 시나리오를 지원하려면 Azure AD ID를 생성하여 Azure SQL 논리 서버에 할당해야 합니다.
 
 Azure SQL의 Azure AD 인증에 대한 자세한 내용은 [Azure Active Directory 인증 사용](authentication-aad-overview.md) 문서를 참조하세요.
 
@@ -38,7 +35,7 @@ Azure SQL의 Azure AD 인증에 대한 자세한 내용은 [Azure Active Directo
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- 기존 [Azure SQL Database](single-database-create-quickstart.md) 또는 [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 배포. 이 자습서에서는 작업 SQL Database가 있다고 가정합니다.
+- 기존 [Azure SQL Database](single-database-create-quickstart.md) 배포. 이 자습서에서는 작업 SQL Database가 있다고 가정합니다.
 - 이미 있는 Azure Active Directory에 대한 액세스
 - [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) 모듈 이상(PowerShell을 사용하여 개별 Azure AD 애플리케이션을 Azure SQL에 대한 Azure AD 관리자로 설정할 때 필요함). 최신 모듈로 업그레이드해야 합니다.
 
@@ -159,13 +156,7 @@ SQL Managed Instance에 대한 **디렉터리 읽기 권한자** 권한을 설�
 
 ## <a name="create-a-service-principal-an-azure-ad-application-in-azure-ad"></a>Azure AD에서 서비스 주체(Azure AD 애플리케이션) 만들기
 
-1. [앱 등록 및 권한 설정](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions)의 지침을 따릅니다.
-
-    **애플리케이션 권한** 및 **위임된 권한** 을 추가해야 합니다.
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Azure Active Directory에 대한 앱 등록 페이지를 보여주는 스크린샷. 표시 이름이 AppSP인 앱이 강조 표시됩니다.":::
-
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
+1. 여기의 가이드에 따라 [앱을 등록](active-directory-interactive-connect-azure-sql-db.md#register-your-app-and-set-permissions)하세요.
 
 2. 또한 로그인을 위해 클라이언트 암호를 만들어야 합니다. 여기에 가이드에 따라 [로그인을 위한 인증서를 업로드하거나 비밀을 만듭니다](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
@@ -176,17 +167,6 @@ SQL Managed Instance에 대한 **디렉터리 읽기 권한자** 권한을 설�
 이 자습서에서는 *AppSP* 를 기본 서비스 주체로 사용하고, *myapp* 을 Azure SQL에서 *AppSP* 를 통해 만들 두 번째 서비스 주체 사용자로 사용합니다. *AppSP* 및 *myapp* 의 두 애플리케이션을 만들어야 합니다.
 
 Azure AD 애플리케이션을 만드는 방법에 대한 자세한 내용은 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 문서를 참조하세요.
-
-### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Azure AD 관리자를 설정하거나 설정 해제하는 데 필요한 권한
-
-서비스 주체가 Azure SQL에 대한 Azure AD 관리자를 설정하거나 설정 해제하려면 추가 API 권한이 필요합니다. [Directory.Read.All](/graph/permissions-reference#application-permissions-18) 애플리케이션 API 권한을 Azure AD의 애플리케이션에 추가해야 합니다.
-
-:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Azure AD의 Directory.Reader.All 권한":::
-
-또한 서비스 주체에는 SQL Database에 대한 [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) 역할 또는 SQL Managed Instance에 대한 [**SQL Managed Instance Contributor**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) 역할이 필요합니다.
-
-> [!NOTE]
-> Azure AD Graph API는 더 이상 사용되지 않지만 **Directory.Reader.All** 권한은 이 자습서에 계속 적용됩니다. Microsoft Graph API는 이 자습서에 적용되지 않습니다.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Azure SQL Database에서 서비스 주체 사용자 만들기
 
@@ -270,7 +250,7 @@ Azure AD에서 서비스 주체가 만들어지면 SQL Database에서 사용자�
     $conn.Close()
     ``` 
 
-    또는 [SQL DB에 대한 Azure AD 서비스 주체 인증 - 코드 샘플](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467) 블로그의 코드 샘플을 사용할 수 있습니다. `CREATE USER [myapp] FROM EXTERNAL PROVIDER` DDL 문을 실행하도록 스크립트를 수정합니다. 동일한 스크립트를 사용하여 SQL Database에서 일반 Azure AD 사용자 그룹을 만들 수 있습니다.
+    또는 [SQL DB에 대한 Azure AD 서비스 주체 인증 - 코드 샘플](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467) 블로그의 코드 샘플을 사용할 수 있습니다. `CREATE USER [myapp] FROM EXTERNAL PROVIDER` DDL 문을 실행하도록 스크립트를 수정합니다. 동일한 스크립트를 사용하여 SQL Database에서 일반 Azure AD 사용자 또는 그룹을 만들 수 있습니다.
 
     
 2. 다음 명령을 실행하여 *myapp* 사용자가 데이터베이스에 있는지 확인합니다.

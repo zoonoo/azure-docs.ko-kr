@@ -1,5 +1,5 @@
 ---
-title: Azure Purview에서 SAP ECC 원본 등록 및 검사 설정(미리 보기)
+title: Azure Purview에서 SAP ECC 원본 등록 및 검사 설정
 description: 이 문서에서는 Azure Purview에서 SAP ECC 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: bc35f79bae0cd75b24b119e951f27b289ebef704
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: c4126a99b38021ea7399bb486b8942423f0a809c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108007361"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067117"
 ---
-# <a name="register-and-scan-sap-ecc-source-preview"></a>SAP ECC 원본 등록 및 검사(미리 보기)
+# <a name="register-and-scan-sap-ecc-source"></a>SAP ECC 원본 등록 및 검사
 
 이 문서에서는 Purview에서 SAP ECC 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 

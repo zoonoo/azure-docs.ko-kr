@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, subject-armqs, devx-track-azurecli
-ms.openlocfilehash: bcb37c624f53d961020de022569a621ca1dfaba1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 8ec795e7ad54d2101573d857fa52b5aaad0ed71d
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107788997"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032396"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-dps-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure IoT Hub DPS(Device Provisioning Service) 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "107788997"
 
 환경에서 사전 요구 사항을 충족하고 이미 ARM 템플릿 사용에 대해 잘 알고 있는 경우 아래의 **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포할 템플릿이 열립니다.
 
-[![개요의 Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+[![개요의 Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,12 +34,12 @@ ms.locfileid: "107788997"
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-iothub-device-provisioning/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/iothub-device-provisioning/)에서 나온 것입니다.
 
 > [!NOTE]
 > 현재 새 DPS 리소스로 등록을 만들 수 있는 ARM 템플릿이 지원되지 않습니다. 이는 구현을 위해 고려되는 일반적이고 이해된 요청입니다.
 
-:::code language="json" source="~/quickstart-templates/101-iothub-device-provisioning/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json":::
 
 위의 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "107788997"
 
 1. 다음 이미지를 선택하여 Azure에 로그인하고 배포할 템플릿을 엽니다. 템플릿은 새 IoT Hub 및 DPS 리소스를 만듭니다. 허브가 DPS 리소스에 연결됩니다.
 
-    [![포털의 Azure에 배포 단계](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-iothub-device-provisioning%2fazuredeploy.json)
+    [![포털의 Azure에 배포 단계](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-device-provisioning%2fazuredeploy.json)
 
 2. 다음 값을 선택하거나 입력하고, **검토 + 만들기** 를 클릭합니다.
 
@@ -61,7 +61,7 @@ ms.locfileid: "107788997"
 
     아래와 같이 지정되지 않으면 기본값을 사용하여 IoT Hub 및 DPS 리소스를 만듭니다.
 
-    | 필드 | 설명 |
+    | 필드 | Description |
     | :---- | :---------- |
     | **구독** | Azure 구독을 선택합니다. |
     | **리소스 그룹** | **새로 만들기** 를 클릭하고, 고유한 리소스 그룹 이름을 입력한 다음, **확인** 을 클릭합니다. |
@@ -114,7 +114,7 @@ Azure 계정에 로그인하고 구독을 선택합니다.
     ```azurecli-interactive
     read -p "Enter a project name that is used for generating resource names:" projectName &&
     read -p "Enter the location (i.e. centralus):" location &&
-    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-iothub-device-provisioning/azuredeploy.json" &&
+    templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.devices/iothub-device-provisioning/azuredeploy.json" &&
     resourceGroupName="${projectName}rg" &&
     az group create --name $resourceGroupName --location "$location" &&
     az deployment group create --resource-group $resourceGroupName --template-uri  $templateUri &&

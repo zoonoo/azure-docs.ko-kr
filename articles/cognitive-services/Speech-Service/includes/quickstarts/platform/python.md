@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 4f542970db5cf7015df4e0f276fccd8782d7beee
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: c14c27046f28f0ee9ead40b8e652699cd5ed32bd
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105152800"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110166235"
 ---
 이 가이드에서는 Python용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다. 패키지 이름을 직접 시작하려면 `pip install azure-cognitiveservices-speech`를 실행합니다.
 
@@ -24,31 +24,10 @@ ms.locfileid: "105152800"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-- Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
+- Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0)가 필요합니다. 처음 설치하려면 다시 시작해야 할 수 있습니다.
 
-- 지원되는 Linux 플랫폼에는 특정 라이브러리가 설치되어 있어야 합니다(보안 소켓 레이어 지원을 위한 `libssl` 및 사운드 지원을 위한 `libasound2`). 이러한 라이브러리의 올바른 버전을 설치하는 데 필요한 명령은 아래 배포를 참조하세요.
+- Linux의 경우 [시스템 요구 사항 및 설치 지침](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk)을 참조하세요.
 
-  - Ubuntu/Debian에서 다음 명령을 실행하여 필요한 패키지를 설치합니다.
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.0 libasound2
-    ```
-
-    libssl1.0.0을 사용할 수 없는 경우 libssl1.0.x(여기서 x는 0보다 큼) 또는 libssl1.1을 대신 설치합니다.
-
-  - RHEL/CentOS에서 필요한 패키지를 설치하려면 다음 명령을 실행합니다.
-
-    ```sh
-    sudo yum update
-    sudo yum install alsa-lib openssl python3
-    ```
-
-> [!NOTE]
-> - RHEL/CentOS 7에서 [Speech SDK용 RHEL/CentOS 7을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md)의 지침을 따르세요.
-> - RHEL/CentOS 8에서 [Linux용 OpenSSL을 구성하는 방법](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md)의 지침을 따르세요.
-
-- Windows의 경우 플랫폼에 맞는 [Visual Studio 2019용 Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)가 필요합니다. 이 패키지를 처음 설치하는 경우 이 가이드를 계속하기 전에 Windows를 다시 시작해야 할 수 있습니다.
 - 마지막으로 [Python 3.6~3.9](https://www.python.org/downloads/)가 필요합니다. 설치를 확인하려면 명령 프롬프트를 열어 `python --version` 명령을 입력하고 결과를 확인합니다. 올바르게 설치된 경우 "Python 3.8.8"과 같은 응답을 얻게 됩니다.
 
 ## <a name="install-the-speech-sdk-from-pypi"></a>PyPI에서 Speech SDK 설치

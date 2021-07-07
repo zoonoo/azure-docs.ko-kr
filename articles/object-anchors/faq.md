@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 04/01/2020
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: 1430095861b4e8232127fe6d22b87afe5babcf67
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 31b46475af345ec4eed3a8d5787bf859918048ef
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109750738"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985853"
 ---
 # <a name="frequently-asked-questions-about-azure-object-anchors"></a>Azure Object Anchors FAQ
 
@@ -35,15 +35,15 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: 모델 변환을 위해 처리할 수 있는 최대 개체 치수는 얼마인가요?**
 
-**A:** CAD 모델의 각 치수는 10미터 미만이어야 합니다.
+**A:** CAD 모델의 각 치수는 10미터 미만이어야 합니다. 자세한 내용은 [자산 요구 사항](overview.md)을 참조하세요.
 
 **Q: 변환을 위해 처리할 수 있는 최대 CAD 모델 크기는 얼마인가요?**
 
-**A:** 모델 파일 크기는 150MB보다 작아야 합니다.
+**A:** 모델 파일 크기는 150MB보다 작아야 합니다. 자세한 내용은 [자산 요구 사항](overview.md)을 참조하세요.
 
 **Q: 지원되는 CAD 형식은 무엇입니까?**
 
-**A:** 현재 `fbx`, `ply`, `obj`, `glb` 및 `gltf` 파일 형식을 지원합니다.
+**A:** 현재 `fbx`, `ply`, `obj`, `glb` 및 `gltf` 파일 형식을 지원합니다. 자세한 내용은 [자산 요구 사항](overview.md)을 참조하세요.
 
 **Q: 모델 변환 서비스에 필요한 중력 방향 및 단위는 무엇이며 어떻게 확인할 수 있나요?**
 
@@ -63,7 +63,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: Object Anchors가 지원하는 디바이스는 무엇인가요?**
 
-**A:** HoloLens 2 
+**A:** HoloLens 2.
 
 **Q: HoloLens를 실행해야 하는 OS 빌드는 무엇인가요?**
 
@@ -89,6 +89,10 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
  8. 개체 검색을 시작하고 예측 포즈를 기준으로 렌더링을 시각화합니다.
  9. 포즈가 안정적이고 정확해지면 검색된 개체를 잠그거나 추적을 중지하여 배터리를 절약합니다.
 
+**Q: Object Anchors Unity SDK로 작업할 수 있으려면 HoloLens Unity 애플리케이션에서 어떤 버전의 MRTK(Mixed Reality Toolkit)를 사용해야 하나요?**
+
+**A:** Azure Object Anchors Unity SDK는 어떤 방식으로도 Mixed Reality Toolkit에 종속되지 않습니다. 즉, 원하는 버전을 자유롭게 사용할 수 있습니다. 자세한 내용은 [Unity용 MRTK 소개](/windows/mixed-reality/develop/unity/mrtk-getting-started)를 참조하세요.
+
 **Q: 예측 포즈는 얼마나 정확한가요?**
 
 **A:** 개체 크기, 재질, 환경 등에 따라 다릅니다. 소형 개체의 경우 예측 포즈 오차는 2cm 이내일 수 있습니다. 자동차와 같은 대형 개체의 경우 오차는 최대 2~8cm일 수 있습니다.
@@ -103,7 +107,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 **Q: Object Anchors가 동시에 검색할 수 있는 개체는 몇 개인가요?**
 
-**A:** 현재는 한 번에 하나의 개체 모델 검색만 지원합니다. 
+**A:** 현재는 한 번에 하나의 개체 모델 검색만 지원합니다.
 
 **Q: Object Anchors가 동일한 개체 모델의 여러 인스턴스를 검색할 수 있나요?**
 
@@ -115,10 +119,11 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 
 * 공간의 질감이 충분하도록 몇 개의 포스터를 추가합니다.
 * 개체를 보다 완전하게 스캔합니다.
-* 위에서 설명한 대로 모델 매개 변수를 조정합니다.
+* 아래에서 설명한 대로 모델 매개 변수를 조정합니다.
 * 개체의 전체 또는 대부분을 포함하는 근접한 경계 상자를 검색 영역으로 제공합니다.
 * 공간 매핑 캐시를 지우고 개체를 다시 스캔합니다.
 * 진단 데이터를 캡처하여 Microsoft에 보냅니다.
+* `ObjectQuery` 클래스에서 `MinSurfaceCoverage` 속성을 조정합니다. 자세한 내용은 [어려운 개체를 검색하는 방법](detect-difficult-object.md)을 참조하세요.
 
 **Q: 개체 쿼리 매개 변수는 어떻게 선택하나요?**
 
@@ -128,6 +133,7 @@ Azure Object Anchors를 사용하면 애플리케이션이 3D 모델을 사용�
 * 일반적으로 개체 모델의 기본값 `ObjectQuery.MinSurfaceCoverage`이면 충분합니다. 그렇지 않으면 더 작은 값을 사용하여 더 빠르게 검색을 얻으세요.
 * 개체가 똑바로 서 있는 경우 `ObjectQuery.ExpectedMaxVerticalOrientationInDegrees`에 작은 값을 사용합니다.
 * 앱은 항상 `1:1` 개체 모델을 사용하여 검색해야 합니다. 예측 축적은 이상적으로 1% 오차 내에서 1에 근접해야 합니다. 앱은 `ObjectQuery.MaxScaleChange`를 `0` 또는 `0.1`로 설정하여 축적 예측을 해제 또는 설정하고 정성적으로 인스턴스 포즈를 평가할 수 있습니다.
+* 자세한 내용은 [어려운 개체를 검색하는 방법](detect-difficult-object.md)을 참조하세요.
 
 **Q: HoloLens에서 Object Anchors 진단 데이터를 가져오려면 어떻게 하나요?**
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 643a52c9be04fb325b8e1d088faeb68e473aa673
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e67ecdb25a64c7e61eb54391a6f09f5f68df435
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98919955"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111755270"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Azure CLI을 사용하여 가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -200,8 +200,8 @@ Bash 셸에서 `uname -r`을 입력하고, 커널 버전이 다음 버전 이상
 
 * **Ubuntu 16.04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 7.4.2017120423
-* **CentOS**: 7.4.20171206
+* **RHEL**: 3.10.0-693
+* **CentOS**: 3.10.0-693
 
 
 `lspci` 명령을 사용하여 Mellanox VF 디바이스를 VM에 노출했는지 확인합니다. 반환되는 출력은 다음 출력과 유사합니다.

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/18/2020
-ms.openlocfilehash: 6af9b8f97d622ae10cfdbcaa8ca50abb42ec7332
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 69b9fa867159e5bd475d37194422a4fd21bfe9ab
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94889057"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111557246"
 ---
 # <a name="create-a-knowledge-store-using-rest-and-postman"></a>REST 및 Postman을 사용하여 지식 저장소 만들기
 
 지식 저장소에는 추후 분석 또는 기타 다운스트림 처리를 위해 Azure Cognitive Search 보강 파이프라인의 출력이 포함됩니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
 
-이 문서에서는 REST API 인터페이스를 사용하여 AI 보강을 호텔 리뷰 세트에 수집, 인덱싱 및 적용합니다. 호텔 리뷰는 Azure Blob 스토리지로 가져오고, 결과는 지식 저장소로 Azure Table 스토리지에 저장됩니다.
+이 문서에서는 REST API 인터페이스를 사용하여 AI 보강을 호텔 리뷰 세트에 수집, 인덱싱 및 적용합니다. 호텔 리뷰는 Azure Blob Storage로 가져옵니다. 결과는 지식 저장소로 Azure Table Storage에 저장됩니다.
 
 지식 저장소가 만들어지면 [Storage Explorer](knowledge-store-view-storage-explorer.md) 또는 [Power BI](knowledge-store-connect-power-bi.md)를 사용하여 이 지식 저장소에 액세스하는 방법을 알아볼 수 있습니다.
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-services-and-load-data"></a>서비스 만들기 및 데이터 로드
 
-이 빠른 시작에서는 Azure Cognitive Search, Azure Blob 스토리지 및 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 AI에 사용합니다. 
+이 빠른 시작에서는 Azure Cognitive Search, Azure Blob Storage 및 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 AI에 사용합니다. 
 
 워크로드가 너무 작으므로 매일 최대 20개의 트랜잭션을 무료로 제공하기 위해 백그라운드에 탭으로 처리됩니다. 데이터 세트가 너무 작으므로 Cognitive Services 리소스 만들기 또는 연결을 건너뛸 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: be412f4dd2413cfe5562f895489aed10b9a9a80f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 1a39b963fa88866e02e9813c68d1b6504d3e98c7
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378687"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956533"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀을 사용하여 OPENROWSET를 사용하는 방법
 
@@ -90,7 +90,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal' | 'json_path'] })
 <bulk_options> ::=  
 [ , FIELDTERMINATOR = 'char' ]    
 [ , ROWTERMINATOR = 'char' ] 
-[ , ESCAPE_CHAR = 'char' ] 
+[ , ESCAPECHAR = 'char' ] 
 [ , FIRSTROW = 'first_row' ]     
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
@@ -189,11 +189,11 @@ ROWTERMINATOR ='row_terminator'`
 
 사용할 행 종결자를 지정합니다. 행 종결자를 지정하지 않으면 기본 종결자 중 하나가 사용됩니다. PARSER_VERSION = '1.0'의 기본 종결자는 \r\n, \n 및 \r입니다. PARSER_VERSION = '2.0'의 기본 종결자는 \r\n 및 \n입니다.
 
-ESCAPE_CHAR = 'char'
+ESCAPECHAR = 'char'
 
 자체 및 파일의 모든 구분 기호 값을 이스케이프하는 데 사용되는 파일의 문자를 지정합니다. 이스케이프 문자 뒤에 자체 또는 구분 기호 값 이외의 값이 있으면 값을 읽을 때 이스케이프 문자가 삭제됩니다. 
 
-ESCAPE_CHAR 매개 변수는 FIELDQUOTE를 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
+ESCAPECHAR 매개 변수는 FIELDQUOTE가 사용하도록 설정되었는지 여부에 관계없이 적용됩니다. 따옴표로 묶은 문자를 이스케이프하는 데 사용되지 않습니다. 따옴표 문자는 다른 따옴표 문자로 이스케이프해야 합니다. 따옴표로 묶은 문자는 값이 따옴표 문자로 캡슐화된 경우에만 열 값 내에 나타날 수 있습니다.
 
 FIRSTROW = 'first_row' 
 
@@ -420,5 +420,4 @@ AS [r]
 
 ## <a name="next-steps"></a>다음 단계
 
-더 많은 샘플을 보려면 [쿼리 데이터 스토리지 빠른 시작](query-data-storage.md)을 참조하여 `OPENROWSET`를 사용해 [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) 및 [JSON](query-json-files.md) 파일 형식을 읽는 방법을 알아보세요. 최적의 성능을 얻으려면 [모범 사례](best-practices-sql-on-demand.md)를 확인하세요. [CETAS](develop-tables-cetas.md)를 사용하여 쿼리 결과를 Azure Storage에 저장하는 방법도 알아볼 수 있습니다.
-
+더 많은 샘플을 보려면 [쿼리 데이터 스토리지 빠른 시작](query-data-storage.md)을 참조하여 `OPENROWSET`를 사용해 [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md) 및 [JSON](query-json-files.md) 파일 형식을 읽는 방법을 알아보세요. 최적의 성능을 얻으려면 [모범 사례](./best-practices-serverless-sql-pool.md)를 확인하세요. [CETAS](develop-tables-cetas.md)를 사용하여 쿼리 결과를 Azure Storage에 저장하는 방법도 알아볼 수 있습니다.

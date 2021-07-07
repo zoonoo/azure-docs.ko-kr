@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 1ecfd58e961e70182bfc2e0cc8eaf77f5053eb77
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: ce14ff28c69b514e0d10ef5eabff83828026bb19
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879573"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111594394"
 ---
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/management) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.CognitiveServices/) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Microsoft.Azure.Management.CognitiveServices/tests)
 
@@ -21,6 +21,7 @@ ms.locfileid: "104879573"
 
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -111,6 +112,8 @@ Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 다�
 다음 메서드는 지정된 리소스 그룹에서 지정된 리소스를 삭제합니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](../../manage-resources.md)를 참조하세요.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 

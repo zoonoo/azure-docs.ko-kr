@@ -3,16 +3,18 @@ title: Azure HDInsight의 ML 서비스 소개
 description: HDInsight의 ML Services를 사용하여 빅 데이터 분석용 애플리케이션을 만드는 방법에 대해 알아봅니다.
 ms.service: hdinsight
 ms.topic: overview
-ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 87f4181e820b1c6ecdeb0fda85a88e80db248dd2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0baf100d7d3a3e6a0667ed00176fa533eafe6d57
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943923"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295960"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 **ML Services** 라고 합니다. 이 기능을 사용하면 HDInsight에서 융통성 있는 분산형 분석 메서드에 주문형으로 액세스할 수 있습니다.
 

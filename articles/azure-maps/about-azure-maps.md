@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 55955f883425651749809da951832484f098aeaf
-ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
+ms.openlocfilehash: 9b93ac2973fdf45c5ec395cf30490a820848bad9
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107256126"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112027170"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
 Azure Maps는 최신 매핑 데이터를 사용하여 웹 및 모바일 애플리케이션에 지리적 컨텍스트를 제공하는 지리 공간적 서비스 및 SDK 컬렉션입니다. Azure Maps는 다음을 제공합니다.
 
 * 벡터 및 래스터 맵을 여러 스타일과 위성 이미지로 렌더링하는 REST API
-* 프라이빗 실내 맵 데이터를 기반으로 맵을 만들고 렌더링하는 Creator 서비스(미리 보기).
+* 프라이빗 실내 맵 데이터를 기반으로 맵을 만들고 렌더링하는 작성자 서비스
 * 전 세계의 주소, 장소 및 관심 지점을 찾는 검색 서비스
 * 지점 간, 다중 지점, 다중 지점 최적화, 등시선, 전기차, 상용차, 교통 영향, 매트릭스 등의 다양한 라우팅 옵션
 * 실시간 트래픽 정보가 필요한 애플리케이션을 위한 트래픽 흐름 보기 및 인시던트 보기
 * 대중 교통 정보를 요청하고 다양한 이동 모드와 실시간 도착 정보를 혼합하여 경로를 계획하는 Mobility Services(미리 보기).
 * 표준 시간대 및 지리적 위치(미리 보기) 서비스.
-* 디지털 권한 상승 모델을 사용한 권한 상승 서비스(미리 보기)
+* 디지털 권한 상승 모델을 사용한 권한 상승 서비스
 * 위치 정보가 Azure에서 호스팅되는 지오펜싱 서비스 및 매핑 데이터 스토리지
 * 지리 공간 분석을 통한 위치 인텔리전스.
 
@@ -59,9 +59,9 @@ Azure Maps Android SDK를 사용하여 모바일 매핑 애플리케이션을 �
 
 Azure Maps는 Azure 애플리케이션에 지리적 컨텍스트를 제공할 수 있는 다음과 같은 서비스로 구성됩니다.
 
-### <a name="data-service-preview"></a>데이터 서비스(미리 보기)
+### <a name="data-service"></a>데이터 서비스
 
-데이터는 맵에 필수적입니다. Data Service를 사용하여 공간 작업 또는 이미지 구성에 사용할 지리 공간 데이터를 업로드하고 저장합니다.  고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 새 시나리오를 만들 수 있습니다. 이 서비스에 대해 자세히 알아보려면 [Data Service 설명서](/rest/api/maps/data)를 참조하세요.
+데이터는 맵에 필수적입니다. Data Service를 사용하여 공간 작업 또는 이미지 구성에 사용할 지리 공간 데이터를 업로드하고 저장합니다.  고객 데이터를 Azure Maps 서비스에 더 가까이 가져오면 대기 시간이 줄어들고 생산성이 향상되며 애플리케이션에서 새 시나리오를 만들 수 있습니다. 이 서비스에 대해 자세히 알아보려면 [Data Service 설명서](/rest/api/maps/data-v2)를 참조하세요.
 
 ### <a name="geolocation-service-preview"></a>지리적 위치 서비스(미리 보기)
 
@@ -179,23 +179,23 @@ Weather Services는 개발자가 특정 위치의 날씨 정보를 검색하는 
 
 ![실시간 날씨 레이더 타일이 포함된 맵의 예](media/about-azure-maps/intro_weather.png)
 
-### <a name="maps-creator-service-preview"></a>Maps Creator 서비스(미리 보기) 
+### <a name="maps-creator-service"></a>Maps Creator 서비스
 
 Maps Creator Service는 개발자가 실내 맵 데이터 기반의 맵 기능을 통해 애플리케이션을 만드는 데 사용할 수 있는 웹 서비스 모음입니다.
 
 Maps Creator Service는 다음과 같은 세 가지 주요 서비스를 제공합니다.
 
-* [데이터 세트 서비스](/rest/api/maps/dataset). 데이터 세트 서비스를 사용하여 변환된 그리기 패키지 데이터에서 데이터 세트를 만듭니다. 그리기 패키지 요구 사항에 대한 자세한 내용은 그리기 패키지 요구 사항을 참조하세요.
+* [데이터 세트 서비스](/rest/api/maps/v2/dataset). 데이터 세트 서비스를 사용하여 변환된 그리기 패키지 데이터에서 데이터 세트를 만듭니다. 그리기 패키지 요구 사항에 대한 자세한 내용은 그리기 패키지 요구 사항을 참조하세요.
 
-* [변환 서비스](/rest/api/maps/dataset). 변환 서비스를 사용하여 DWG 디자인 파일을 실내 맵에 대한 그리기 패키지 데이터로 변환할 수 있습니다.
+* [변환 서비스](/rest/api/maps/v2/dataset). 변환 서비스를 사용하여 DWG 디자인 파일을 실내 맵에 대한 그리기 패키지 데이터로 변환할 수 있습니다.
 
-* [타일 세트 서비스](/rest/api/maps/tileset). 타일 세트 서비스를 사용하여 데이터 세트의 벡터 기반 표현을 만듭니다. 애플리케이션에서 타일 세트를 사용하여 데이터 세트의 시각적 타일 기반 보기를 표시할 수 있습니다.
+* [타일 세트 서비스](/rest/api/maps/v2/tileset). 타일 세트 서비스를 사용하여 데이터 세트의 벡터 기반 표현을 만듭니다. 애플리케이션에서 타일 세트를 사용하여 데이터 세트의 시각적 타일 기반 보기를 표시할 수 있습니다.
 
-* [기능 상태 서비스](/rest/api/maps/featurestate). 기능 상태 서비스를 사용하여 동적 맵 스타일 지정을 지원할 수 있습니다. 동적 맵 스타일 지정을 통해 실시간 이벤트를 IoT 시스템에서 제공하는 공간에 반영할 수 있습니다.
+* [기능 상태 서비스](/rest/api/maps/v2/feature-state). 기능 상태 서비스를 사용하여 동적 맵 스타일 지정을 지원할 수 있습니다. 동적 맵 스타일 지정을 통해 실시간 이벤트를 IoT 시스템에서 제공하는 공간에 반영할 수 있습니다.
 
-* [WFS 서비스](/rest/api/maps/featurestate) WFS 서비스를 사용하여 실내 맵 데이터를 쿼리할 수 있습니다. WFS 서비스는 단일 데이터 세트 쿼리에 대한 [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) 표준을 따릅니다.
+* [WFS 서비스](/rest/api/maps/v2/feature-state) WFS 서비스를 사용하여 실내 맵 데이터를 쿼리할 수 있습니다. WFS 서비스는 단일 데이터 세트 쿼리에 대한 [Open Geospatial Consortium API](http://docs.opengeospatial.org/is/17-069r3/17-069r3.html) 표준을 따릅니다.
 
-### <a name="elevation-service-preview"></a>권한 상승 서비스(미리 보기)
+### <a name="elevation-service"></a>권한 상승 서비스
 
 Azure Maps Elevation Service는 개발자가 지구 표면 어디에서나 권한 상승 데이터를 검색하는 데 사용할 수 있는 웹 서비스입니다.
 

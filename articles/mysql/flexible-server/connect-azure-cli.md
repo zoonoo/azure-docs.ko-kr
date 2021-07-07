@@ -7,19 +7,19 @@ ms.service: mysql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
 ms.date: 03/01/2021
-ms.openlocfilehash: 5abc71a4df8dd27e80a7590d53159be95d46e441
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: 3d24c6443dfa4c2e4eab1f247e075b34e891c1b6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883853"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470255"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-mysql---flexible-server"></a>빠른 시작: Azure Database for MySQL - 유연한 서버를 사용하여 Azure CLI로 연결 및 쿼리
 
 > [!IMPORTANT]
 > Azure Database for MySQL - 유연한 서버는 현재 공개 미리 보기로 제공됩니다.
 
-이 빠른 시작에서는 ```az mysql flexible-server connect``` 명령을 통해 Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버에 연결하는 방법을 보여줍니다. 이 명령을 사용하면 데이터베이스 서버에 대한 연결을 테스트하고 서버에 대해 쿼리를 직접 실행할 수 있습니다.  여러 쿼리를 실행하기 위해 대화형 모드에서 명령 실행을 사용할 수도 있습니다.
+이 빠른 시작에서는 ```az mysql flexible-server connect```에서 Azure CLI를 사용하여 Azure Database for MySQL 유연한 서버에 연결하고 ```az mysql flexible-server execute``` 명령을 통해 단일 쿼리 또는 sql 파일을 실행하는 방법을 보여줍니다. 이 명령을 사용하면 데이터베이스 서버에 대한 연결을 테스트하고 쿼리를 실행할 수 있습니다. 대화형 모드를 사용하여 여러 쿼리를 실행할 수도 있습니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -77,39 +77,6 @@ Successfully connected to mysqldemoserver1.
 - 클라이언트 컴퓨터에 대한 방화벽 규칙을 구성한 경우
 - 가상 네트워킹에서 프라이빗 액세스로 서버를 구성한 경우 클라이언트 컴퓨터가 동일한 가상 네트워크에 있는지 확인합니다.
 
-## <a name="run-single-query"></a>단일 쿼리 실행
-다음 명령을 실행하여 ```--querytext``` 인수, ```-q```를 사용하여 단일 쿼리를 실행합니다.
-
-```azurecli
-az mysql flexible-server connect -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
-```
-
-**예제:**
-```azurecli
-az mysql flexible-server connect -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
-```
-
-아래와 같이 출력이 표시됩니다.
-
-```output
-Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
-Successfully connected to mysqldemoserver1.
-Ran Database Query: 'select * from table1;'
-Retrieving first 30 rows of query output, if applicable.
-Closed the connection to mysqldemoserver1
-Local context is turned on. Its information is saved in working directory C:\Users\sumuth. You can run `az local-context off` to turn it off.
-Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-Txt    Val
------  -----
-test   200
-test   200
-test   200
-test   200
-test   200
-test   200
-test   200
-```
-
 ## <a name="run-multiple-queries-using-interactive-mode"></a>대화형 모드를 사용하여 여러 쿼리 실행
 **대화형** 모드를 사용하여 여러 쿼리를 실행할 수 있습니다. 대화형 모드를 활성화하려면 다음 명령을 실행합니다.
 
@@ -153,6 +120,59 @@ Local context is turned on. Its information is saved in working directory C:\myd
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
 ```
 
+## <a name="run-single-query"></a>단일 쿼리 실행
+다음 명령을 실행하여 ```--querytext``` 인수, ```-q```를 사용하여 단일 쿼리를 실행합니다.
+
+```azurecli
+az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --querytext "<query text>"
+```
+
+**예제:**
+```azurecli
+az mysql flexible-server execute -n mysqldemoserver1 -u dbuser -p "dbpassword" -d newdatabase -q "select * from table1;" --output table
+```
+
+아래와 같이 출력이 표시됩니다.
+
+```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Successfully connected to mysqldemoserver1.
+Ran Database Query: 'select * from table1;'
+Retrieving first 30 rows of query output, if applicable.
+Closed the connection to mysqldemoserver1
+Local context is turned on. Its information is saved in working directory C:\Users\sumuth. You can run `az local-context off` to turn it off.
+Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
+Txt    Val
+-----  -----
+test   200
+test   200
+test   200
+test   200
+test   200
+test   200
+test   200
+```
+
+## <a name="run-sql-file"></a>SQL 파일 실행
+```--file-path``` 인수, ```-q```를 사용하여 명령을 통해 sql 파일을 실행할 수 있습니다.
+
+```azurecli
+az mysql flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> --file-path "<file-path>"
+```
+
+**예제:** 
+```azurecli
+az mysql flexible-server execute -n mysqldemoserver -u dbuser -p "dbpassword" -d flexibleserverdb -f "./test.sql"
+```
+
+아래와 같이 출력이 표시됩니다.
+
+```output
+Command group 'mysql flexible-server' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Running sql file '.\test.sql'...
+Successfully executed the file.
+Closed the connection to mysqldemoserver.
+```
 
 ## <a name="next-steps"></a>다음 단계
 

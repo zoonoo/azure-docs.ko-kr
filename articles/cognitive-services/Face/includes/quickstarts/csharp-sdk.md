@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: fc45296fe3541d5388505a52a7e3f0856b4b1825
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 3387e5d1fd64771b8be012b421da4b32007155f0
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108792644"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858193"
 ---
 .NET용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "108792644"
 
 [참조 설명서](/dotnet/api/overview/azure/cognitiveservices/client/faceapi) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.7.0-preview.1) | [샘플](/samples/browse/?products=azure&term=face)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
@@ -261,10 +261,10 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 .NET용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
+이 빠른 시작에서는 .NET용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로, 다양한 얼굴 감지 모델과 사용 사례에 적합한 모델을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Face API 참조(.NET)](/dotnet/api/overview/azure/cognitiveservices/client/faceapi)
+> [얼굴 감지 모델 버전 지정](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Face 서비스란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/Face/FaceQuickstart.cs)에서 확인할 수 있습니다.

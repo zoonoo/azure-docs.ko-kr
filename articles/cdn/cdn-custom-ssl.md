@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/26/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 6f77bac93b7bb5e3319409c01e328c73cd08a9a0
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: d9520f3a6c6ffadf7186b0b3c5c83fe872711316
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106058955"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007790"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -104,13 +104,16 @@ Azure CDN은 조달 및 갱신과 같은 인증서 관리 작업을 처리합니
 > 이 옵션은 **Microsoft의 Azure CDN** 및 **Verizon의 Azure CDN** 프로필에서만 사용할 수 있습니다. 
 >
  
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. TLS/SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요. **Verizon에서 Azure CDN** 의 경우 유효한 모든 CA가 허용됩니다. 
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door는 이 보안 메커니즘을 사용하여 인증서를 가져오며, 몇 가지 추가 단계를 수행해야 합니다. TLS/SSL 인증서를 만들 때 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부인 허용된 CA(인증 기관)를 사용하여 전체 인증서 체인을 만들어야 합니다. 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다.  전체 체인이 없는 인증서가 표시되면 해당 인증서와 관련된 요청이 예상대로 작동하지 않을 수 있습니다. Verizon에서 Azure CDN의 경우 유효한 모든 CA가 허용됩니다.
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
 1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Azure CDN 프로필 및 CDN 엔드포인트와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
  
 2. Azure Key Vault 인증서: 인증서가 있는 경우 Azure Key Vault 계정에 직접 업로드합니다. 인증서가 없는 경우 Azure Key Vault를 통해 직접 새 인증서를 만듭니다.
+
+> [!NOTE]
+> 인증서에는 리프 및 중간 인증서가 있는 완전한 인증서 체인이 있어야 하며 루트 CA는 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부여야 합니다.
 
 ### <a name="register-azure-cdn"></a>Azure CDN 등록
 
@@ -146,21 +149,20 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
 2. **액세스 정책 추가** 페이지에서 **주체 선택 **옆에 있는** 선택하지 않음** 을 선택합니다. **주체** 페이지에서 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** 을 입력합니다. **Microsoft.AzureFrontdoor-Cdn** 을 선택합니다.  **선택** 을 선택합니다.
 
-2. **보안 주체 선택** 에서 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** 을 검색하고, **Microsoft.AzureFrontDoor-Cdn** 을 선택합니다. **선택** 을 선택합니다.
+3. **보안 주체 선택** 에서 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** 을 검색하고, **Microsoft.AzureFrontDoor-Cdn** 을 선택합니다. **선택** 을 선택합니다.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-access-policy-settings.png" alt-text="Azure CDN의 서비스 주체를 선택합니다." border="true":::
     
-3. **인증서 사용 권한** 을 선택합니다. **가져오기** 및 **나열** 확인란을 선택하여 CDN 권한으로 인증서를 가져오고 나열할 수 있도록 합니다.
+4. **인증서 사용 권한** 을 선택합니다. **가져오기** 및 **나열** 확인란을 선택하여 CDN 권한으로 인증서를 가져오고 나열할 수 있도록 합니다.
 
-4. **비밀 권한** 을 선택합니다. **가져오기** 및 **나열** 확인란을 선택하여 CDN 권한으로 비밀을 가져오고 나열할 수 있도록 합니다.
+5. **비밀 권한** 을 선택합니다. **가져오기** 및 **나열** 확인란을 선택하여 CDN 권한으로 비밀을 가져오고 나열할 수 있도록 합니다.
 
     :::image type="content" source="./media/cdn-custom-ssl/cdn-vault-permissions.png" alt-text="keyvault에 대한 CDN 권한 선택" border="true":::
 
-5. **추가** 를 선택합니다. 
+6. **추가** 를 선택합니다. 
 
 > [!NOTE]
-> Azure CDN은 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다. 이 구독에서 만든 모든 CDN 인스턴스는 이 키 자격 증명 모음의 인증서에 액세스할 수 있습니다. 
-
+> Azure CDN은 이제 이 키 자격 증명 모음에 저장된 이 키 자격 증명 모음 및 인증서(비밀)에 액세스할 수 있습니다. 이 구독에서 만든 모든 CDN 인스턴스는 이 키 자격 증명 모음의 인증서에 액세스할 수 있습니다.
  
 ### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>배포할 Azure CDN에 대한 인증서 선택
  
@@ -209,7 +211,7 @@ CNAME 레코드는 다음과 같은 형식이어야 합니다.
 * *이름* 은 사용자 지정 도메인 이름입니다.
 * *값* 은 CDN 엔드포인트 호스트 이름입니다.
 
-| 속성            | 유형  | 값                 |
+| 속성            | Type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 

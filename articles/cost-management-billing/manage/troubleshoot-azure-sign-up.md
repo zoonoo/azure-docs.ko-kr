@@ -1,6 +1,6 @@
 ---
-title: Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
-description: Microsoft Azure Portal 계정 센터에서 새 계정을 등록할 때 발생하는 문제를 해결합니다.
+title: Azure Portal에서 새 계정을 등록할 때 발생하는 문제 해결
+description: Microsoft Azure Portal에서 새 계정을 등록할 때 발생하는 문제를 해결합니다.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 01/28/2021
+ms.date: 05/13/2021
 ms.author: v-miegge
-ms.openlocfilehash: 015e6058236190a04df152573621f0e57030d23b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 6e9c3d09c5dbf9ddae779f585425f8317b41ab46
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054164"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467518"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 발생하는 문제 해결
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal"></a>Azure Portal에서 새 계정을 등록할 때 발생하는 문제 해결
 
-Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 때 문제가 발생할 수 있습니다. 이 짧은 가이드에서는 등록 프로세스를 안내하고 각 단계에서는 몇 가지 일반적인 문제에 대해 설명합니다.
+Microsoft Azure Portal에서 새 계정을 등록할 때 문제가 발생할 수 있습니다. 이 짧은 가이드에서는 등록 프로세스를 안내하고 각 단계에서는 몇 가지 일반적인 문제에 대해 설명합니다.
 
 > [!NOTE]
 > 이미 기존 계정이 있고 로그인 문제를 해결하기 위한 지침을 찾고 있는 경우 [Azure 구독 로그인 문제 해결](./troubleshoot-sign-in-issue.md)을 참조하세요.
@@ -28,7 +28,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 
 
 등록을 시작하기 전에 다음 사항을 확인합니다.
 
-- Azure 계정 프로필에 제공한 정보(연락처 이메일 주소, 주소 및 전화 번호 포함)가 정확합니다.
+- Azure 프로필에 대한 정보(연락처 이메일 주소, 주소 및 전화 번호 포함)가 정확합니다.
 - 신용 카드 정보가 정확합니다.
 - 동일한 정보가 포함된 Microsoft 계정이 아직 없습니다.
 
@@ -45,7 +45,14 @@ Azure 등록 환경은 다음 네 개의 섹션으로 구성됩니다.
 
 ## <a name="about-you"></a>사용자 정보
 
-![사용자 정보](./media/troubleshoot-azure-sign-up/1.png)
+처음 Azure에 등록할 때는 다음을 포함하여 사용자에 대한 정보를 제공해야 합니다.
+
+- 사용자의 국가 또는 지역
+- 이름
+- 성
+- 메일 주소
+- 전화 번호
+- 신용 카드 정보
  
 ### <a name="common-issues-and-solutions"></a>일반적인 문제 및 솔루션
 
@@ -53,9 +60,9 @@ Azure 등록 환경은 다음 네 개의 섹션으로 구성됩니다.
 
 이 문제를 해결하려면 다음 단계를 따릅니다.
 
-1.  계정 관리자 자격 증명을 사용하여 [Azure 계정 센터](https://account.azure.com/Profile)에 로그인합니다.
-1.  **세부 정보 편집** 을 선택합니다.
-1.  모든 주소 필드가 완료되었고 유효한지 확인합니다.
+1. [Microsoft 계정 센터](https://account.microsoft.com/)에 로그인합니다.
+1. 페이지 위쪽에서 **사용자 정보** 를 선택합니다.
+1. 청구 및 배송 세부 정보가 완전하고 유효한지 확인합니다.
 1.  Azure 구독에 등록할 때 신용 카드 등록을 위한 청구 주소가 은행 기록과 일치하는지 확인합니다.
 
 오류 메시지가 계속 표시되면 다른 브라우저를 사용하여 등록해보세요.
