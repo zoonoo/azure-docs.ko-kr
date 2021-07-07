@@ -87,7 +87,7 @@ az aks start --name myAKSCluster --resource-group myResourceGroup
 ## <a name="next-steps"></a>다음 단계
 
 - 풀 크기를 0으로 조정 하는 방법에 대한 자세한 `User` 내용은 [ `User` 풀 크기 조정](scale-cluster.md#scale-user-node-pools-to-0)을 참조 하세요.
-- 스폿 인스턴스를 사용하여 비용을 절감 하는 방법을 알아보려면 [AKS에 별색 노드 풀 추가](spot-node-pool.md)를 참조 하세요.
+- 스폿 인스턴스를 사용하여 비용을 절감 하는 방법을 알아보려면 [AKS에 스폿 노드 풀 추가](spot-node-pool.md)를 참조 하세요.
 - AKS 지원 정책에 대한 자세한 내용은 [AKS 지원 정책](support-policies.md)을 참조 하세요.
 
 <!-- LINKS - external -->
