@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/02/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: b1af48aa2aad3daa37a3ca4073d44574b5b05e6c
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: c9ff3bdc7e7076846ffb44239bf5654512f88eea
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742124"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967973"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>예제: Text Analytics를 사용하여 언어 감지
 
@@ -303,3 +303,4 @@ Text Analytics REST API의 [언어 감지](https://westus2.dev.cognitive.microso
 * [Text Analytics 개요](../overview.md)
 * [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)
+* [모델 버전](../concepts/model-versioning.md)

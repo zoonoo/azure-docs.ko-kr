@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d06396c869bb7e9dbfbf99109d0a857302d5e874
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 92bf7b7c1d2f24b7a858f6e9b786b84943651239
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136214"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810735"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>예제: 실시간으로 비디오를 분석하는 방법
 
@@ -173,7 +173,7 @@ while (true)
 
 이 가이드에서는 Face, Computer Vision 및 Emotion API를 사용하여 라이브 비디오 스트림을 거의 실시간으로 실행하는 방법과 샘플 코드를 사용하여 시작하는 방법을 알아보았습니다.
 
-[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 보내주세요. 더 광범위한 API 피드백의 경우 UserVoice 사이트를 이용하셔도 됩니다.
+[GitHub 리포지토리](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)에서 자유롭게 피드백과 제안 사항을 보내주세요. 더 광범위한 API 피드백의 경우 [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) 사이트를 이용하셔도 됩니다.
 
 ## <a name="related-topics"></a>관련 항목
 - [이미지에서 얼굴을 감지하는 방법](HowtoDetectFacesinImage.md)

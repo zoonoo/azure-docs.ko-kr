@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro의 컴퓨팅 기능을 사용한 고급 배포를 위해 데이터를 필터링하고 분석하기 위한 자습서 | Microsoft Docs
-description: Azure Stack Edge Pro에 컴퓨팅 역할을 구성하고 이 역할을 사용하여 고급 배포 흐름을 위해 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
+title: 고급 컴퓨팅 배포에 대한 Azure Stack Edge Pro FPGA에서 데이터를 필터링하고 분석하는 자습서
+description: Azure Stack Edge Pro FPGA에 컴퓨팅 역할을 구성하고 이 역할을 사용하여 고급 배포 흐름을 위해 데이터를 변환한 후에 Azure로 보내는 방법을 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/06/2021
 ms.author: alkohli
-ms.openlocfilehash: 81953f573c47d229fcaccd7c11f62155acd2f119
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 8f6fff328e90c37804e86e4b258cbcd0cb2255d7
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063647"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461467"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름을 위해 Azure Stack Edge Pro를 사용하여 데이터 변환
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-fpga-for-advanced-deployment-flow"></a>자습서: 고급 배포 흐름을 위해 Azure Stack Edge Pro FPGA를 사용하여 데이터 변환
 
-이 자습서에서는 Azure Stack Edge Pro 디바이스에서 고급 배포 흐름을 위해 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Azure Stack Edge Pro에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
+이 자습서에서는 Azure Stack Edge Pro FPGA 디바이스에서 고급 배포 흐름을 위해 컴퓨팅 역할을 구성하는 방법에 대해 설명합니다. 컴퓨팅 역할이 구성되면 Azure Stack Edge Pro FPGA에서 데이터를 변환한 후에 Azure로 보낼 수 있습니다.
 
 디바이스에서 단순 또는 고급 배포 흐름을 위해 컴퓨팅을 구성할 수 있습니다.
 
@@ -42,14 +42,14 @@ ms.locfileid: "106063647"
  
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Stack Edge Pro 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
+Azure Stack Edge Pro FPGA 디바이스에서 컴퓨팅 역할을 설정하기 전에 다음 사항을 확인합니다.
 
-- [Azure Stack Edge Pro 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)에서 설명한 대로 Azure Stack Edge Pro 디바이스를 활성화했습니다.
+- [Azure Stack Edge Pro FPGA 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)에서 설명한 대로 Azure Stack Edge Pro FPGA 디바이스를 활성화했습니다.
 
 
 ## <a name="configure-compute"></a>컴퓨팅 구성
 
-Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 합니다.
+Azure Stack Edge Pro FPGA에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들어야 합니다.
 
 1. Azure Stack Edge 리소스의 Azure Portal에서 **개요** 로 이동합니다. 오른쪽 창에서 **IoT Edge** 타일을 선택합니다.
 
@@ -145,9 +145,9 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 
 ## <a name="add-a-module"></a>모듈 추가
 
-이 Edge 디바이스에는 사용자 지정 모듈이 없습니다. 사용자 지정 또는 미리 작성된 모듈을 추가할 수 있습니다. 사용자 지정 모듈을 만드는 방법을 알아보려면 [Azure Stack Edge Pro 디바이스용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)로 이동합니다.
+이 Edge 디바이스에는 사용자 지정 모듈이 없습니다. 사용자 지정 또는 미리 작성된 모듈을 추가할 수 있습니다. 사용자 지정 모듈을 만드는 방법을 알아보려면 [Azure Stack Edge Pro FPGA 디바이스용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)로 이동합니다.
 
-이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
+이 섹션에서는 사용자 지정 모듈을 [Azure Stack Edge Pro FPGA용 C# 모듈 개발](azure-stack-edge-create-iot-edge-module.md)에서 만든 IoT Edge 디바이스에 추가합니다. 이 사용자 지정 모듈은 Edge 디바이스의 Edge 로컬 공유에서 파일을 가져와 디바이스의 Edge(클라우드) 공유로 이동합니다. 그런 다음, 클라우드 공유에서 파일을 클라우드 공유와 연결된 Azure 스토리지 계정에 푸시합니다.
 
 1. Azure Stack Edge 리소스로 이동한 다음, **IoT Edge > 개요** 로 이동합니다. **모듈** 타일에서 **Azure IoT Hub로 이동** 을 선택합니다.
 
@@ -170,7 +170,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 4. **모듈 추가** 에서 다음을 수행합니다.
 
     1. 사용자 지정 모듈의 컨테이너 레지스트리 설정에 대한 이름, 주소, 사용자 이름 및 암호를 입력합니다.
-    이름, 주소 및 나열된 자격 증명은 일치하는 URL이 있는 모듈을 검색하는 데 사용됩니다. 이 모듈을 배포하려면 **배포 모듈** 아래에서 **IoT Edge 모듈** 을 선택합니다. 이 IoT Edge 모듈은 Azure Stack Edge Pro 디바이스와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.
+    이름, 주소 및 나열된 자격 증명은 일치하는 URL이 있는 모듈을 검색하는 데 사용됩니다. 이 모듈을 배포하려면 **배포 모듈** 아래에서 **IoT Edge 모듈** 을 선택합니다. 이 IoT Edge 모듈은 Azure Stack Edge Pro 디바이스와 연결된 IoT Edge FPGA 디바이스에 배포할 수 있는 docker 컨테이너입니다.
 
         ![모듈 설정 페이지](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -178,7 +178,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
      
         |필드  |값  |
         |---------|---------|
-        |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro와 연결된 IoT Edge 디바이스에 배포할 수 있는 Docker 컨테이너입니다.        |
+        |Name     | 모듈의 고유한 이름입니다. 이 모듈은 Azure Stack Edge Pro FPGA와 연결된 IoT Edge 디바이스에 배포할 수 있는 docker 컨테이너입니다.        |
         |이미지 URI     | 모듈의 해당 컨테이너 이미지에 대한 이미지 URI입니다.        |
         |자격 증명 필요     | 이 옵션을 선택하면 사용자 이름과 암호를 사용하여 URL이 일치하는 모듈을 검색하게 됩니다.        |
     
@@ -265,7 +265,7 @@ Azure Stack Edge Pro에 컴퓨팅을 구성하려면 IoT Hub 리소스를 만들
 > * 컴퓨팅 모듈 추가
 > * 데이터 변환 및 전송 확인
 
-Azure Stack Edge Pro 디바이스를 관리하는 방법을 알아보려면 다음을 참조하세요.
+Azure Stack Edge Pro FPGA 디바이스를 관리하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [로컬 웹 UI를 사용하여 Azure Stack Edge Pro 관리](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [로컬 웹 UI를 사용하여 Azure Stack Edge Pro FPGA 관리](azure-stack-edge-manage-access-power-connectivity-mode.md)

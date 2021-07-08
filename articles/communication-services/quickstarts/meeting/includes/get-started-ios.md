@@ -6,12 +6,12 @@ ms.author: palatter
 ms.date: 01/25/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 671c86790a3c90f948edb574bc015c0f41c5fbdf
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 5c2f53138d6f716d2917cff831e9b86c40b77a00
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109858069"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111546125"
 ---
 이 빠른 시작에서는 iOS용 Azure Communication Services Teams Embed 라이브러리를 사용하여 Microsoft Teams 미팅에 참가하는 방법을 알아봅니다.
 
@@ -46,11 +46,11 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'TeamsEmbedGettingStarted' do
-    pod 'AzureCommunication', '~> 1.0.0-beta.11'
+    pod 'AzureCommunicationCommon', '1.0.0'
 end
 
 azure_libs = [
-'AzureCommunication',
+'AzureCommunicationCommon',
 'AzureCore']
 
 post_install do |installer|
@@ -82,6 +82,8 @@ end
 <string></string>
 <key>NSMicrophoneUsageDescription</key>
 <string></string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string></string>
 ```
 
 ### <a name="add-the-teams-embed-framework"></a>Teams 포함 프레임워크 추가
@@ -93,7 +95,7 @@ end
 
 :::image type="content" source="../media/ios/xcode-add-frameworks.png" alt-text="Xcode에서 추가된 프레임워크를 보여주는 스크린샷":::
 
-5. 아직 추가되지 않은 경우 `$(PROJECT_DIR)/Frameworks`를 프로젝트 대상 빌드 설정 탭 아래의 `Framework Search Paths`에 추가합니다. 설정을 찾기 위해 필터를 `basic`에서 `all`로 변경했습니다. 오른쪽의 검색 창을 사용할 수도 있습니다.
+5. 아직 추가되지 않은 경우 `$(PROJECT_DIR)/Frameworks`를 프로젝트 대상 빌드 설정 탭 아래 `Framework Search Paths`에 추가합니다. 설정을 찾으려면 필터를 `basic`에서 `all`로 변경합니다. 오른쪽의 검색 창을 사용할 수도 있습니다.
 
 :::image type="content" source="../media/ios/xcode-add-framework-search-path.png" alt-text="Xcode에서 프레임워크 검색 경로를 보여주는 스크린샷":::
 
@@ -153,11 +155,11 @@ override func viewDidLoad() {
 
 ### <a name="set-up-the-app-framework"></a>앱 프레임워크 설정
 
-프로젝트의 **ViewController.swift** 파일을 열고, `AzureCommunication library` 및 `MeetingUIClient`를 가져오기 위한 `import` 선언을 파일 위쪽에 추가합니다. 
+프로젝트의 **ViewController.swift** 파일을 열고, `AzureCommunicationCommon library` 및 `MeetingUIClient`를 가져오기 위한 `import` 선언을 파일 위쪽에 추가합니다. 
 
 ```swift
 import UIKit
-import AzureCommunication
+import AzureCommunicationCommon
 import MeetingUIClient
 ```
 
@@ -167,6 +169,7 @@ import MeetingUIClient
 class ViewController: UIViewController {
 
     private var meetingUIClient: MeetingUIClient?
+    private var meetingUIClientCall: MeetingUIClientCall?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,10 +198,19 @@ Azure Communication Services Teams 포함 라이브러리의 주요 기능 중 �
 | MeetingUIClientGroupCallJoinOptions | MeetingUIClientMeetingJoinOptions는 표시 이름과 같은 구성 가능한 옵션에 사용됩니다. |
 | MeetingUIClientTeamsMeetingLinkLocator | MeetingUIClientTeamsMeetingLinkLocator는 미팅에 참가할 수 있도록 미팅 URL을 설정하는 데 사용됩니다. |
 | MeetingUIClientGroupCallLocator | MeetingUIClientGroupCallLocator는 가입할 수 있는 그룹 ID를 설정하는 데 사용됩니다. |
+| MeetingUIClientInCallScreenDelegate | MeetingUIClientInCallScreenDelegate는 UI의 기본 호출 화면에서 사용자 지정을 제공하는 데 사용됩니다. |
+| MeetingUIClientStagingScreenDelegate | MeetingUIClientStagingScreenDelegate는 UI의 스테이징 호출 화면에서 사용자 지정을 제공하는 데 사용됩니다. |
+| MeetingUIClientConnectingScreenDelegate | MeetingUIClientConnectingScreenDelegate는 UI의 연결 호출 화면에서 사용자 지정을 제공하는 데 사용됩니다. |
+| MeetingUIClientIconType | MeetingUIClientIconType은 앱 특정 아이콘으로 바꿀 수 있는 아이콘을 지정하는 데 사용됩니다. |
+| MeetingUIClientCall | MeetingUIClientCall은 호출을 설명하고 이를 제어하는 API를 제공합니다. |
 | MeetingUIClientCallState | MeetingUIClientCallState는 통화 상태 변경사항을 보고하는 데 사용됩니다. 옵션은 다음과 같습니다. `connecting`, `waitingInLobby`, `connected` 및 `ended`. |
-| MeetingUIClientDelegate | MeetingUIClientDelegate는 통화 상태 변경과 같은 이벤트를 받는 데 사용됩니다. |
-| MeetingUIClientIdentityProviderDelegate | MeetingUIClientIdentityProviderDelegate는 사용자 세부 정보를 미팅 중인 사용자에게 매핑하는 데 사용됩니다. |
-| MeetingUIClientUserEventDelegate | MeetingUIClientUserEventDelegate는 UI의 사용자 동작에 대한 정보를 제공합니다. |
+| MeetingUIClientUserRole | MeetingUIClientUserRole은 그룹 호출에서 사용자 역할을 설정하는 데 사용됩니다. |
+| MeetingUIClientAudioRoute | MeetingUIClientAudioRoute는 `Earpiece` 또는 `SpeakerOn` 같은 로컬 오디오 경로에 사용됩니다. |
+| MeetingUIClientLayoutMode | MeetingUIClientLayoutMode는 호출 UI 모드에서 다른 선택을 허용하는 데 사용됩니다. |
+| MeetingUIClientAvatarSize | MeetingUIClientAvatarSize는 대리자가 요청한 크기 아바타의 종류를 알리는 데 사용됩니다. |
+| MeetingUIClientCallDelegate | MeetingUIClientDelegate는 통화 상태 변경과 같은 이벤트를 받는 데 사용됩니다. |
+| MeetingUIClientCallIdentityProviderDelegate | MeetingUIClientIdentityProviderDelegate는 사용자 세부 정보를 미팅 중인 사용자에게 매핑하는 데 사용됩니다. |
+| MeetingUIClientCallUserEventDelegate | MeetingUIClientUserEventDelegate는 UI의 사용자 동작에 대한 정보를 제공합니다. |
 
 ## <a name="create-and-authenticate-the-client"></a>클라이언트 만들기 및 인증
 
@@ -242,15 +254,21 @@ private func fetchTokenAsync(completionHandler: @escaping TokenRefreshHandler) {
 private func joinMeeting() {
     let meetingJoinOptions = MeetingUIClientMeetingJoinOptions(displayName: "John Smith", enablePhotoSharing: true, enableNamePlateOptionsClickDelegate: true)
     let meetingLocator = MeetingUIClientTeamsMeetingLinkLocator(meetingLink: "<MEETING_URL>")
-    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (error: Error?) in
+    meetingUIClient?.join(meetingLocator: meetingLocator, joinCallOptions: meetingJoinOptions, completionHandler: { (meetingUIClientCall: MeetingUIClientCall?, error: Error?) in
         if (error != nil) {
             print("Join meeting failed: \(error!)")
+        }
+        else {
+            if (meetingUIClientCall != nil) {
+                self.meetingUIClientCall? = meetingUIClientCall
+            }
         }
     })
 }
 ```
+`<MEETING URL>`을 Microsoft Teams 모임 링크로 바꿉니다.
 
-`<MEETING URL>`을 Microsoft Teams 미팅 링크로 바꿉니다.
+완료 처리기는 작업이 실패한 경우 오류를 반환하고 성공한 경우 `MeetingUIClientCall`을 반환합니다. `MeetingUIClientCall`을 사용하여 호출을 제어합니다. 
 
 ### <a name="get-a-microsoft-teams-meeting-link"></a>Microsoft Teams 미팅 링크 가져오기
 

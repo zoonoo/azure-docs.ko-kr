@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 47b4f36aec9a906317a9704a7d73bf66385d9e88
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a095cee6b2af93358b0e76c39cfc0c04ad454fa
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552119"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408050"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>자습서: Blazor WebAssembly 앱에서 사용자를 로그인하고 보호된 API 호출
 
@@ -40,7 +40,7 @@ ms.locfileid: "102552119"
 인증을 위해 Azure AD(Azure Active Directory)를 사용하는 모든 앱은 Azure AD에 등록해야 합니다. 다음과 같은 사양이 포함된 [애플리케이션 등록](quickstart-register-app.md)의 지침을 따르세요.
 
 - **지원되는 계정 유형** 의 경우 **이 조직 디렉터리 계정의 계정만** 을 선택합니다.
-- **리디렉션 URI** 드롭다운 세트를 **웹** 으로 두고 `https://localhost:5001/authentication/login-callback`를 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
+- **리디렉션 URI** 드롭다운을 **SPA(단일 페이지 애플리케이션)** 로 설정하고 `https://localhost:5001/authentication/login-callback`을 입력합니다. Kestrel에서 실행되는 앱의 기본 포트는 5001입니다. 다른 포트에서 앱을 사용할 수 있는 경우 `5001` 대신 해당 포트 번호를 지정합니다.
 
 등록된 후 **관리** 에서 **인증** > **암시적 허용 및 하이브리드 흐름** 을 선택합니다. **액세스 토큰** 및 **ID 토큰** 을 선택한 다음, **저장** 을 선택합니다.
 

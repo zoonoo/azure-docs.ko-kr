@@ -1,6 +1,6 @@
 ---
-title: Azure Portal에서 Azure Stack Edge Pro 디바이스에 연결하고, 구성하고, 활성화하는 자습서 | Microsoft Docs
-description: Azure Stack Edge Pro를 배포하는 방법에 대한 자습서에서는 물리적 디바이스를 연결, 설정 및 활성화하는 방법을 안내합니다.
+title: Azure Portal에서 Azure Stack Edge Pro FPGA 디바이스에 연결하고, 구성하고, 활성화하는 자습서
+description: Azure Stack Edge Pro FPGA를 배포하는 자습서에서는 물리적 디바이스를 연결, 설정 및 활성화하는 방법을 안내합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: af0c305cc13b94666a87d937d1eac10586135a4d
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: c8edd68dae991a06cc7280e95a5c193c34452329
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106067693"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461364"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 연결, 설정 및 활성화 
+# <a name="tutorial-connect-set-up-and-activate-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA 연결, 설정 및 활성화 
 
-이 자습서에는 로컬 웹 UI를 사용하여 Azure Stack Edge Pro 디바이스에 연결하고, 설정하고, 활성화하는 방법을 설명합니다.
+이 자습서에는 로컬 웹 UI를 사용하여 Azure Stack Edge Pro FPGA 디바이스에 연결하고, 설정하고, 활성화하는 방법을 설명합니다.
 
 설정 및 활성화 프로세스를 완료하는 데 20분 정도가 소요됩니다.
 
@@ -30,14 +30,14 @@ ms.locfileid: "106067693"
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사항을 확인합니다.
+Azure Stack Edge Pro FPGA 디바이스를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
-* [Azure Stack Edge Pro 설치](azure-stack-edge-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
-* Azure Stack Edge Pro 디바이스를 관리하기 위해 만든 Azure Stack Edge 서비스의 활성화 키가 있습니다. 자세한 내용은 [Azure Stack Edge Pro 배포 준비](azure-stack-edge-deploy-prep.md)를 참조하세요.
+* [Azure Stack Edge Pro FPGA 설치](azure-stack-edge-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
+* Azure Stack Edge Pro FPGA 디바이스를 관리하기 위해 만든 Azure Stack Edge 서비스의 활성화 키가 있습니다. 자세한 내용은 [Azure Stack Edge Pro FPGA 배포 준비](azure-stack-edge-deploy-prep.md)를 참조하세요.
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>로컬 웹 UI 설정에 연결
 
-1. 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 Azure Stack Edge Pro 디바이스에 연결하도록 컴퓨터의 이더넷 어댑터를 구성합니다.
+1. 고정 IP 주소가 192.168.100.5이고 서브넷이 255.255.255.0인 Azure Stack Edge Pro FPGA 디바이스에 연결하도록 컴퓨터의 이더넷 어댑터를 구성합니다.
 
 2. 디바이스의 포트 1에 컴퓨터를 연결합니다. 다음 일러스트레이션을 사용하여 디바이스의 포트 1을 찾습니다.
 
@@ -55,7 +55,7 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
 
 5. 디바이스의 웹 UI에 로그인합니다. 기본 암호는 *Password1* 입니다. 
    
-    ![Azure Stack Edge Pro 디바이스 로그인 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
+    ![Azure Stack Edge Pro FPGA 디바이스 로그인 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/image3.png)
 
 6. 디바이스 관리자 암호를 변경하라는 메시지가 표시되면 변경합니다.  
     새 암호는 8-16자여야 합니다. 암호에 대문자, 소문자, 숫자, 특수 문자 중 3가지가 포함되어야 합니다.
@@ -95,7 +95,7 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
    
    a. **웹 프록시 URL** 상자에 `http://host-IP address or FQDN:Port number` 형식으로 URL을 입력합니다. HTTPS URL은 지원되지 않습니다.
 
-   b. **인증** 아래에서 **없음** 또는 **NTLM** 을 선택합니다. Azure Stack Edge Pro 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음** 으로 설정하는 것이 좋습니다. **NTLM** 은 지원되지 않습니다.
+   b. **인증** 아래에서 **없음** 또는 **NTLM** 을 선택합니다. Azure Stack Edge Pro FPGA 디바이스에서 IoT Edge 모듈을 컴퓨팅하고 사용하도록 설정하는 경우 웹 프록시 인증을 **없음** 으로 설정하는 것이 좋습니다. **NTLM** 은 지원되지 않습니다.
 
    다. 인증을 사용하는 경우 사용자 이름과 암호를 입력합니다.
 
@@ -104,7 +104,7 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
    > [!NOTE]
    > PAC(프록시 자동 구성) 파일은 지원되지 않습니다. PAC 파일은 웹 브라우저 및 다른 사용자 에이전트가 지정된 URL을 가져오는 데 적절한 프록시 서버(액세스 방법)를 자동으로 선택하는 방법을 정의합니다.
    > 프록시의 인증서를 신뢰할 수 없기 때문에 모든 트래픽을 가로채고 읽는(그런 다음, 자체 인증을 사용하여 모든 항목을 다시 서명함) 프록시는 호환되지 않습니다.
-   > 일반적으로 투명 프록시는 Azure Stack Edge Pro에서 잘 작동합니다.
+   > 일반적으로 투명 프록시는 Azure Stack Edge Pro FPGA에서 잘 작동합니다.
 
 4. (선택 사항) 왼쪽 창에서 **시간 설정** 을 선택하고 디바이스의 표준 시간대와 기본 및 보조 NTP 서버를 구성합니다.  
     클라우드 서비스 공급자와 인증할 수 있도록 디바이스 시간을 동기화해야 하기 때문에 NTP 서버가 필요합니다.
@@ -132,7 +132,7 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
 
 6. 왼쪽 창에서 **클라우드 설정** 을 선택한 다음, Azure Portal에서 Azure Stack Edge 서비스로 디바이스를 활성화합니다.
     
-    1. **활성화 키** 상자에 Azure Stack Edge Pro에 대해 [활성화 키 가져오기](azure-stack-edge-deploy-prep.md#get-the-activation-key)에서 얻은 활성화 키를 입력합니다.
+    1. **활성화 키** 상자에 Azure Stack Edge Pro FPGA에 대해 [활성화 키 가져오기](azure-stack-edge-deploy-prep.md#get-the-activation-key)에서 얻은 활성화 키를 입력합니다.
     2. **적용** 을 선택합니다.
        
         ![로컬 웹 UI "클라우드 설정" 페이지](./media/azure-stack-edge-deploy-connect-setup-activate/set-up-activate-6.png)
@@ -157,7 +157,7 @@ Azure Stack Edge Pro 디바이스를 구성하고 설정하기 전에 다음 사
 > * 물리적 디바이스에 연결
 > * 물리적 디바이스 설정 및 활성화
 
-Azure Stack Edge Pro 디바이스를 사용하여 데이터를 전송하는 방법은
+Azure Stack Edge Pro FPGA 디바이스를 사용하여 데이터를 전송하는 방법을 알아보려면 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge Pro를 사용하여 데이터 전송](./azure-stack-edge-deploy-add-shares.md)을 참조하세요.
+> [Azure Stack Edge Pro FPGA를 사용하여 데이터를 전송](./azure-stack-edge-deploy-add-shares.md)합니다.

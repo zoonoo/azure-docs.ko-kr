@@ -1,7 +1,7 @@
 ---
-title: '이미지 분류 자습서: 모델 학습'
+title: '자습서: 예제 Jupyter Notebook 학습'
 titleSuffix: Azure Machine Learning
-description: Python Jupyter Notebook에서 Azure Machine Learning을 사용하여 scikit-learn으로 이미지 분류 모델을 학습합니다. 이 자습서는 2의 1부입니다.
+description: 클라우드 기반 Python Jupyter Notebook에서 Azure Machine Learning을 사용하여 scikit-learn으로 이미지 분류 모델을 학습합니다. 이 자습서는 2의 1부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,15 +9,15 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 04/26/2021
-ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 41f7870bdab36de69251bb1274472ec16d05d0a5
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: seodec18, devx-track-python, contperf-fy21q4
+ms.openlocfilehash: 544b3ac4702f8ecaa66735f8e0b836cc6f004f42
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108773866"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028256"
 ---
-# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>자습서: MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습 
+# <a name="tutorial-train-an-image-classification-model-with-an-example-jupyter-notebook"></a>자습서: Jupyter Notebook 예제를 통해 이미지 분류 모델 학습 
 
 이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부** 입니다.  
 
@@ -77,7 +77,7 @@ Azure Machine Learning 스튜디오에서 다음 실험 설정 및 실행 단계
 
 ### <a name="open-the-cloned-notebook"></a><a name="open"></a> 복제된 Notebook 열기
 
-1. **사용자 파일** 섹션에서 닫혀 있던 **tutorials** 폴더를 엽니다.
+1. **사용자 파일** 섹션에서 복제된 **tutorials** 폴더를 엽니다.
 
     > [!IMPORTANT]
     > **samples** 폴더에서는 Notebook을 볼 수 있지만 실행할 수는 없습니다. Notebook을 실행하려면 **사용자 파일** 섹션에서 복제된 버전의 Notebook을 열어야 합니다.
@@ -124,7 +124,7 @@ print("Azure ML SDK Version: ", azureml.core.VERSION)
 
 ### <a name="connect-to-a-workspace"></a>작업 영역에 연결
 
-기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace.from_config()`는 **config.json** 파일을 읽어 `ws`라는 개체에 세부 정보를 로드합니다.
+기존 작업 영역에서 작업 영역 개체를 만듭니다. `Workspace.from_config()`는 **config.json** 파일을 읽고, 세부 정보를 `ws`라는 개체에 로드합니다.  컴퓨팅 인스턴스에는 루트 디렉터리에 저장된 이 파일의 복사본이 있습니다.  다른 곳에서 코드를 실행하는 경우 [파일을 만들](how-to-configure-environment.md#workspace)어야 합니다.
 
 ```python
 # load workspace configuration from the config.json file in the current folder.

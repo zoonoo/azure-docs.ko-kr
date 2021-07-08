@@ -1,34 +1,42 @@
 ---
-title: '빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기'
-description: 이 빠른 시작에서는 Visual Studio를 사용하여 HTTP 트리거 Azure 함수를 만들고 게시하는 방법에 대해 알아봅니다.
+title: '빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 C# 함수 만들기'
+description: 이 빠른 시작에서는 Visual Studio를 사용하여 .NET Core 3.1에서 실행되는 Azure Functions에 C# HTTP 트리거 함수를 만들고 게시하는 방법에 대해 알아봅니다.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
-ms.date: 09/30/2020
-ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.date: 05/18/2021
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, 23113853-34f2-4f, contperf-fy21q3-portal
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./functions-create-your-first-function-visual-studio-uiex
-ms.openlocfilehash: d691ee60f624f75c89e44e905e5343bf9c71fd4d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b76d9cf86a1bb00ea73c396ce1e563374a834f89
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101701418"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459480"
 ---
-# <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
+# <a name="quickstart-create-your-first-c-function-in-azure-using-visual-studio"></a>빠른 시작: Visual Studio를 사용하여 Azure에서 첫 번째 C# 함수 만들기
 
-이 문서에서는 Visual Studio를 사용하여 HTTP 요청에 응답하는 C# 클래스 라이브러리 기반 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다.  
+Azure Functions를 사용하면 Azure의 서버리스 환경에서 C# 코드를 실행할 수 있습니다. 
 
-이 빠른 시작을 완료하면 Azure 계정에서 USD 센트 이하의 작은 비용이 발생합니다.
+이 문서에서는 다음 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+> [!div class="checklist"]
+> * Visual Studio를 사용하여 C# 클래스 라이브러리(.NET Core 3.1) 프로젝트를 만듭니다.
+> * HTTP 요청에 응답하는 함수를 만듭니다. 
+> * 코드를 로컬로 실행하여 함수 동작을 확인합니다.
+> * 코드 프로젝트를 Azure Functions에 배포합니다. 
+ 
+이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
+ 
+사용자가 만든 프로젝트는 .NET Core 3.1에서 실행됩니다. 대신 .NET 5.0에서 실행되는 프로젝트를 만들려면 [Azure Functions를 사용하여 .NET 5 함수 개발 및 게시](dotnet-isolated-process-developer-howtos.md)를 참조하세요.
 
-이 자습서를 완료하려면 먼저 [Visual Studio 2019](https://azure.microsoft.com/downloads/)를 설치합니다. 설치하는 동안 **Azure 개발** 워크로드를 선택했는지 확인합니다. Visual Studio 2017을 대신 사용하여 Azure Functions 프로젝트를 만들려면 먼저 [최신 Azure Functions 도구](functions-develop-vs.md#check-your-tools-version)를 설치해야 합니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-![Azure 개발 워크로드가 포함된 Visual Studio 설치](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
++ [Visual Studio 2019](https://azure.microsoft.com/downloads/). 설치하는 동안 **Azure 개발** 워크로드를 선택해야 합니다. 
 
-[Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/dotnet/)을 만듭니다.
++ [Azure 구독](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). 아직 계정이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/dotnet/)을 만듭니다.
 
 ## <a name="create-a-function-app-project"></a>함수 앱 프로젝트 만들기
 
@@ -42,10 +50,14 @@ Visual Studio는 HTTP 트리거 함수 형식에 대한 상용구 코드가 포�
 
 1. **파일 탐색기** 에서 Function1.cs 파일을 마우스 오른쪽 단추로 클릭하고 이름을 `HttpExample.cs`로 바꿉니다.
 
-1. 코드에서 Function1 클래스의 이름을 'HttpExample'로 바꿉니다.
+1. 코드에서 Function1 클래스의 이름을 `HttpExample`로 바꿉니다.
 
 1. `HttpTrigger` 메서드 `Run`에서 `FunctionName` 메서드 특성을 `HttpExample`로 바꿉니다.
 
+함수 정의는 이제 다음 코드와 같이 표시됩니다.
+
+:::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs" range="13-18"::: 
+ 
 이제 함수의 이름을 바꾸었으므로 로컬 컴퓨터에서 이를 테스트할 수 있습니다.
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행

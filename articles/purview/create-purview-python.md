@@ -8,12 +8,12 @@ ms.subservice: purview-data-catalog
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/02/2021
-ms.openlocfilehash: f8ac611d25507913d6d5f2e2dd289ea52ce4ae9f
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: ec1f8890d9626ca1ed96f538bd464da7c30caf17
+ms.sourcegitcommit: 7c44970b9caf9d26ab8174c75480f5b09ae7c3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106387213"
+ms.lasthandoff: 06/27/2021
+ms.locfileid: "112983791"
 ---
 # <a name="quickstart-create-a-purview-account-using-python"></a>빠른 시작: Python을 사용하여 Purview 계정 만들기
 
@@ -69,7 +69,7 @@ ms.locfileid: "106387213"
 
 2. **Main** 메서드에 PurviewManagementClient 클래스의 인스턴스를 만드는 다음 코드를 추가합니다. 이 개체를 사용하여 purview 계정을 만들고, purview 계정을 삭제하고, 이름 가용성 및 다른 리소스 공급자 작업을 확인할 수 있습니다.
  
- ```python
+    ```python
     def main():
     
     # Azure subscription ID
@@ -92,9 +92,9 @@ ms.locfileid: "106387213"
 
 ## <a name="create-a-purview-account"></a>purview 계정 만들기
 
-**Main** 메서드에 **purview 계정** 을 만드는 다음 코드를 추가합니다. 리소스 그룹이 이미 있는 경우 첫 번째 `create_or_update` 문을 주석으로 처리합니다.
+1. **Main** 메서드에 **purview 계정** 을 만드는 다음 코드를 추가합니다. 리소스 그룹이 이미 있는 경우 첫 번째 `create_or_update` 문을 주석으로 처리합니다.
 
-```python
+   ```python
     # create the resource group
     # comment out if the resource group already exits
     resource_client.resource_groups.create_or_update(rg_name, rg_params)
@@ -118,15 +118,14 @@ ms.locfileid: "106387213"
             print("Error in creating Purview account")
             break
         time.sleep(30)      
-        
-```
+      ```
 
-이제 프로그램이 실행될 때 **main** 메서드를 호출하기 위해 다음 문을 추가합니다.
+2. 이제 프로그램이 실행될 때 **main** 메서드를 호출하기 위해 다음 문을 추가합니다.
 
-```python
-# Start the main method
-main()
-```
+   ```python
+   # Start the main method
+   main()
+   ```
 
 ## <a name="full-script"></a>전체 스크립트
 

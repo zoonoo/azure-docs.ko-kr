@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/15/2020
 ms.author: trbye
-ms.openlocfilehash: bced384e8ba88fb83499e78c4e0d60e811ae32df
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 618074d696804171ee5e05655c1e15557789fac9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99213631"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110164166"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -99,7 +99,7 @@ func main() {
 }
 ```
 
-다음 명령을 실행하여 Github에서 호스팅되는 구성 요소에 연결되는 go.mod 파일을 만듭니다.
+다음 명령을 실행하여 GitHub에서 호스팅되는 구성 요소에 연결되는 go.mod 파일을 만듭니다.
 
 ```cmd
 go mod init quickstart
@@ -179,7 +179,7 @@ func main() {
 }
 ```
 
-다음 명령을 실행하여 Github에서 호스팅되는 구성 요소에 연결되는 go.mod 파일을 만듭니다.
+다음 명령을 실행하여 GitHub에서 호스팅되는 구성 요소에 연결되는 go.mod 파일을 만듭니다.
 
 ```cmd
 go mod init quickstart

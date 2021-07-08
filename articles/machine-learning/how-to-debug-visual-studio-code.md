@@ -8,17 +8,15 @@ ms.subservice: core
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 09/30/2020
-ms.openlocfilehash: 49954224fbdb2d100a809ea5c1d975e1b2e46f56
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/25/2021
+ms.openlocfilehash: 8cabf22e909b5e3e891c0265f952ec6476732ca6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372933"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110462700"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Visual Studio Code를 사용한 대화형 디버깅
-
-
 
 VS Code(Visual Studio Code) 및 [debugpy](https://github.com/microsoft/debugpy/)를 사용하여 Azure Machine Learning 실험, 파이프라인 및 배포를 대화형으로 디버그하는 방법에 대해 알아봅니다.
 
@@ -29,21 +27,26 @@ Azure Machine Learning 확장을 사용하여 기계 학습 실험을 클라우�
 ### <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning VS Code 확장(미리 보기). 자세한 내용은 [Azure Machine Learning VS Code 확장 설정](how-to-setup-vs-code.md)을 참조하세요.
+
+    > [!IMPORTANT]
+    > Azure Machine Learning VS Code 확장은 기본적으로 2.0 CLI를 사용합니다. 이 가이드의 지침에서는 1.0 CLI를 사용합니다. 1\.0 CLI로 전환하려면 Visual Studio Code의 `azureML.CLI Compatibility Mode` 설정을 `1.0`으로 설정합니다. Visual Studio에서 설정을 수정하는 방법에 대한 자세한 내용은 [사용자 및 작업 영역 설정 설명서](https://code.visualstudio.com/docs/getstarted/settings)를 참조하세요.
+
 * [Docker](https://www.docker.com/get-started)
   * Mac 및 Windows용 Docker Desktop
   * Linux용 Docker 엔진
+
+    > [!NOTE]
+    > Windows에서 [Linux 컨테이너를 사용하도록 Docker를 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)해야 합니다.
+
+    > [!TIP]
+    > Windows의 경우 필수는 아니지만 [WSL(Linux용 Windows 하위 시스템) 2에서 Docker를 사용](/windows/wsl/tutorials/wsl-containers#install-docker-desktop)하는 것이 좋습니다.
+
 * [Python 3](https://www.python.org/downloads/)
 
-> [!NOTE]
-> Windows에서 [Linux 컨테이너를 사용하도록 Docker를 구성](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)해야 합니다.
-
-> [!TIP]
-> Windows의 경우 필수는 아니지만 [WSL(Linux용 Windows 하위 시스템) 2에서 Docker를 사용](/windows/wsl/tutorials/wsl-containers#install-docker-desktop)하는 것이 좋습니다.
+### <a name="debug-experiment-locally"></a>로컬로 실험 디버그
 
 > [!IMPORTANT]
 > 실험을 로컬로 실행하기 전에 Docker가 실행되고 있는지 확인하세요.
-
-### <a name="debug-experiment-locally"></a>로컬로 실험 디버그
 
 1. VS Code에서 Azure Machine Learning 확장 보기를 엽니다.
 1. 작업 영역이 포함된 구독 노드를 펼칩니다. 아직 없는 경우 확장을 사용하여 [Azure Machine Learning 작업 영역을 만들](how-to-manage-resources-vscode.md#create-a-workspace) 수 있습니다.

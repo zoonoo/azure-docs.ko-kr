@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: tutorial
-ms.date: 10/26/2020
+ms.date: 05/17/2021
 ms.author: banders
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: ef04c964f0037fcf36fe376084df75ffa0034957
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 013a59c703d5275278e905314357f32acc211f93
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027563"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067765"
 ---
 # <a name="tutorial-review-your-individual-azure-subscription-bill"></a>자습서: 개별 Azure 구독 청구서 검토
 
@@ -122,13 +122,13 @@ Azure Portal의 비용 분석도 요금을 확인하는 데 도움이 됩니다.
 
 ![청구서 사용 요금](./media/review-individual-bill/invoice-usage-charges.png)
 
-## <a name="external-marketplace-services-are-billed-separately"></a>외부 Marketplace 서비스는 별도로 청구됩니다.
+## <a name="external-marketplace-services"></a>외부 Marketplace 서비스
 
 <a name="external"></a>
 
 외부 서비스 또는 마켓플레이스 요금은 타사 소프트웨어 공급 업체가 만든 리소스에 해당됩니다. 이러한 리소스는 Azure Marketplace에서 사용할 수 있습니다. 예를 들어 Barracuda Firewall은 타사가 제공하는 Azure Marketplace 리소스입니다. 방화벽 및 방화벽에 해당하는 미터의 모든 요금은 외부 서비스 요금으로 표시됩니다.
 
-외부 서비스 요금은 별도로 청구됩니다. 이 요금은 Azure 청구서에 표시되지 않습니다.
+외부 서비스 요금은 별도의 청구서에 표시됩니다.
 
 ### <a name="resources-are-billed-by-usage-meters"></a>리소스는 사용량 미터로 청구됩니다.
 
@@ -141,9 +141,9 @@ Azure는 리소스 요금을 기준으로 직접 청구하지 않습니다. 리�
 - 컴퓨팅 시간
 - IP 주소 시간
 - 데이터 수신
-- 데이터 송신
-- 표준 관리 디스크
-- 표준 관리 디스크 작업
+- 데이터 발신
+- 표준 관리형 디스크
+- 표준 관리형 디스크 작업
 - 표준 IO-디스크
 - 표준 IO-블록 Blob 읽기
 - 표준 IO-블록 Blob 쓰기

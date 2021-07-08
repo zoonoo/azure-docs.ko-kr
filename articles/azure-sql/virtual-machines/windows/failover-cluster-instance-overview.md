@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 82c5cbc2b938ef8cd27a17da394b467a7f5ba8aa
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 030aadf55f692b19109582fb85320023159005a3
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755606"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569425"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "108755606"
 
 ## <a name="overview"></a>개요
 
-Azure VM의 SQL Server는 WSFC(Windows Server 장애 조치(failover) 클러스터링) 기능을 사용하여 서버 인스턴스 수준(장애 조치(failover) 클러스터 인스턴스)의 중복성을 통해 로컬 고가용성을 제공합니다. FCI는 WSFC(또는 단순히 클러스터) 노드 및 가능한 경우, 여러 서브넷에 설치되는 SQL Server의 단일 인스턴스입니다. 네트워크에서 FCI는 단일 컴퓨터에서 실행되는 SQL Server 인스턴스로 나타납니다. 하지만 현재 노드를 사용할 수 없게 되면 FCI는 한 WSFC 노드에서 다른 노드로 장애 조치(failover)를 제공합니다.
+Azure VM의 SQL Server는 [WSFC(Windows Server 장애 조치(failover) 클러스터링)](hadr-windows-server-failover-cluster-overview.md) 기능을 사용하여 서버 인스턴스 수준(장애 조치(failover) 클러스터 인스턴스)의 중복성을 통해 로컬 고가용성을 제공합니다. FCI는 WSFC(또는 단순히 클러스터) 노드 및 가능한 경우, 여러 서브넷에 설치되는 SQL Server의 단일 인스턴스입니다. 네트워크에서 FCI는 단일 컴퓨터에서 실행되는 SQL Server의 단일 인스턴스로 나타납니다. 하지만 현재 노드를 사용할 수 없게 되면 FCI는 한 WSFC 노드에서 다른 노드로 장애 조치(failover)를 제공합니다.
 
 문서의 나머지 부분에서는 Azure VM의 SQL Server에서 사용하는 경우 장애 조치(failover) 클러스터 인스턴스의 차이에 중점을 둡니다. 장애 조치(failover) 클러스터링 기술에 대해 자세히 알아보려면 다음을 참조하세요. 
 
@@ -55,8 +55,8 @@ Azure VM의 SQL Server는 SQL Server 장애 조치(failover) 클러스터 인스
 |**최소 OS 버전**| 모두 |Windows Server 2012|Windows Server 2016|
 |**최소 SQL Server 버전**|모두|SQL Server 2012|SQL Server 2016|
 |**지원되는 VM 가용성** |근접 배치 그룹을 사용하는 가용성 집합(프리미엄 SSD용) </br> 동일한 가용성 영역(울트라 SSD) |가용성 집합 및 가용성 영역|가용성 집합 |
-|**FileStream 지원**|예|예|예 |
-|**Azure Blob 캐시**|예|예|예|
+|**FileStream 지원**|예|아니요|예 |
+|**Azure Blob 캐시**|예|아니요|예|
 
 이 섹션의 나머지 부분에서는 Azure VM의 SQL Server에 사용할 수 있는 각 스토리지 옵션의 이점과 제한 사항을 나열합니다. 
 
@@ -148,9 +148,11 @@ Microsoft 파트너의 공유 스토리지 및 데이터 복제 솔루션의 경
 
 ## <a name="connectivity"></a>연결
 
-Azure Virtual Machines에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스는 현재 어떤 노드가 클러스터링된 리소스를 소유하는지에 관계없이 [DNN(분산 네트워크 이름)](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [Azure Load Balancer를 사용하는 VNN(가상 네트워크 이름)](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 사용하여 트래픽을 SQL Server 인스턴스로 라우팅합니다. SQL Server FCI와 함께 특정 기능 및 DNN을 사용하는 경우 추가로 고려할 사항이 있습니다. 자세한 내용은 [SQL Server FCI와 DNN 상호 운용성](failover-cluster-instance-dnn-interoperability.md)을 참조하세요. 
+장애 조치(failover) 클러스터 인스턴스의 가상 네트워크 이름 또는 분산 네트워크 이름을 구성할 수 있습니다. [두 이상의 차이점을 검토](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn)한 다음, 장애 조치(failover) 클러스터 인스턴스에 대해 [분산 네트워크 이름](failover-cluster-instance-distributed-network-name-dnn-configure.md) 또는 [가상 네트워크 이름](failover-cluster-instance-vnn-azure-load-balancer-configure.md)을 배포합니다.
 
-클러스터 연결 옵션에 대한 자세한 내용은 [Azure VM의 SQL Server에 HADR 연결 라우팅](hadr-cluster-best-practices.md#connectivity)을 참조하세요. 
+장애 조치(failover)가 더 빠르며 부하 분산 장치를 관리하는 오버헤드와 비용이 제거되므로 분산 네트워크 이름이 권장됩니다(가능한 경우). 
+
+DNN를 사용하는 경우 대부분의 SQL Server 기능이 FCI에서 투명하게 작동하지만 특별한 고려 사항이 필요할 수 있는 특정 기능이 있습니다. 자세히 알아보려면 [FCI 및 DNN 상호 운용성](failover-cluster-instance-dnn-interoperability.md)을 참조하세요. 
 
 ## <a name="limitations"></a>제한 사항
 
@@ -176,7 +178,9 @@ Azure Virtual Machines는 클러스터링된 공유 볼륨이 있는 Windows Ser
 
 [클러스터 구성 모범 사례](hadr-cluster-best-practices.md)를 검토한 후 [FCI용 SQL Server VM을 준비](failover-cluster-instance-prepare-vm.md)할 수 있습니다. 
 
-자세한 내용은 다음을 참조하세요. 
 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [장애 조치(Failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+

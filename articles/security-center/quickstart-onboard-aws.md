@@ -7,12 +7,12 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 2ad3ab8c39d9f9a29e74bd139fb5ddd1e5faeff9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 563d8f3035eb889a2b9d25d563ef57373e4e3aff
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98755161"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537177"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Azure Security Center에 AWS 계정 연결
 
@@ -183,7 +183,7 @@ AWS Systems Manager는 AWS 리소스의 작업을 자동화하는 데 필요합�
 :::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="AWS 옵션을 보여주는 자산 인벤토리 페이지의 리소스 종류 필터"::: 
 
 
-## <a name="aws-in-security-center-faq"></a>Security Center의 AWS 관련 FAQ
+## <a name="faq---aws-in-security-center"></a>FAQ - Security Center의 AWS
 
 ### <a name="what-operating-systems-for-my-ec2-instances-are-supported"></a>EC2 인스턴스를 지원하는 운영 체제는 무엇인가요?
 

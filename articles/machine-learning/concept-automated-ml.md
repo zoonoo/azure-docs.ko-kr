@@ -10,18 +10,29 @@ author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
 ms.custom: automl
-ms.openlocfilehash: 44bcc27f877f6b2a547c51ecd3848214719cb085
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a45d3a9be8c4741b0d9a1df615a70b9d7e88415f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643661"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094603"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>자동화된 Machine Learning(AutoML)이란?
 
 자동화된 Machine Learning(자동화된 ML 또는 AutoML이라고도 함)은 시간 소모적이고 반복적인 기계 학습 모델 개발 작업을 자동화하는 프로세스입니다. 데이터 과학자, 분석가 및 개발자는 모델 품질을 유지하면서 확장성, 효율성 및 생산성이 높은 ML 모델을 빌드할 수 있습니다. Azure Machine Learning에서 자동화된 ML은 [Microsoft Research 부문](https://www.microsoft.com/research/project/automl/)의 혁신을 기반으로 합니다.
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용하므로 수십 개의 모델을 생성하고 비교하는 데 상당한 도메인 지식과 시간이 필요합니다. 자동화된 Machine Learning을 사용하면 프로덕션 준비 ML 모델을 매우 쉽고 효율적으로 얻는 데 걸리는 시간을 단축할 수 있습니다.
+
+## <a name="automl-in-azure-machine-learning"></a>Azure Machine Learning의 AutoML
+
+Azure Machine Learning은 자동화된 ML 작업을 위한 두 가지 환경을 제공합니다.
+
+* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  [자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측](tutorial-auto-train-models.md)을 시작합니다.
+
+* 제한된 코드 환경 또는 코드리스 환경 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)의 Azure Machine Learning Studio.  자습서 시작:
+    * [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md).
+    *  [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)
+
 
 ## <a name="when-to-use-automl-classify-regression--forecast"></a>AutoML을 사용하는 경우: 분류, 회귀 및 예측
 
@@ -81,7 +92,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
     
 1. **레이블이 지정된 학습 데이터의 원본 및 형식 지정**: numpy 배열 또는 pandas 데이터 프레임
 
-1. **모델 학습을 위한 컴퓨팅 대상 구성**(예: [로컬 컴퓨터, Azure Machine Learning 컴퓨팅, 원격 VM 또는 Azure Databasericks](how-to-set-up-training-targets.md)).  [원격 리소스](how-to-auto-train-remote.md)에 대한 자동화된 학습에 대해 알아봅니다.
+1. **모델 학습을 위한 컴퓨팅 대상 구성**(예: [로컬 컴퓨터, Azure Machine Learning 컴퓨팅, 원격 VM 또는 Azure Databasericks](how-to-set-up-training-targets.md)).
 
 1. **자동화된 Machine Learning 매개 변수 구성**: 여러 모델에 대한 반복 횟수, 서로 다른 모델, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 가장 적합한 모델을 결정할 때 살펴볼 메트릭을 결정하는 매개 변수입니다.  
 1. **학습 실행 제출**
@@ -95,8 +106,6 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 실행 중에 수집된 [메트릭을 포함](how-to-understand-automated-ml.md)한 기록된 실행 정보를 검사할 수도 있습니다. 학습 실행에서는 모델 및 데이터 전처리가 포함된 Python 직렬화 개체(`.pkl` 파일)가 생성됩니다.
 
 모델 빌드가 자동화되는 동안 [중요하거나 관련된 기능이 생성된 모델에 있는 상태](how-to-configure-auto-train.md#explain)를 알아볼 수도 있습니다.
-
-[원격 컴퓨팅 대상](how-to-auto-train-remote.md)을 사용하는 방법을 알아봅니다.
 
 
 
@@ -121,7 +130,7 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 평균을 제거하고 단위 분산으로 크기 조정하여 기능을 표준화합니다.  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최솟값과 최댓값을 기준으로 각 기능의 크기를 조정하여 기능을 변환합니다.  |
 | [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |해당 최대 절대값을 기준으로 각 기능의 크기를 조정합니다. |
-| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |이 크기 조정기는 분위수 범위를 특징으로 하고 있습니다. |
+| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) | 분위수 범위에 따른 스케일링 기능 |
 | [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |데이터의 특이값 분해를 사용하여 데이터를 더 낮은 차원 공간으로 프로젝션하는 선형 차원 축소입니다. |
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |이 변환기는 잘린 SVD(특이값)를 통해 선형 차원 축소를 수행합니다. 이 예측 도구는 PCA와 달리 특이값 분해를 계산하기 전에 데이터를 중앙 집중화하지 않습니다. 즉, scipy.sparse 행렬을 효율적으로 사용할 수 있습니다. |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | 0이 아닌 성분이 하나 이상 있는 각 샘플(즉, 데이터 행렬의 각 행)의 크기는 다른 샘플과 독립적으로 다시 조정되어 해당 표준(l1 또는 l2)이 1이 됩니다. |
@@ -199,14 +208,6 @@ Azure Machine Learning은 학습 중에 다양한 알고리즘과 매개 변수�
 * 개별 스토어별 매출 예측
 * 수백 개의 유정에 대한 예측 유지 관리
 * 개별 사용자 환경 조정
-
-## <a name="automl-in-azure-machine-learning"></a>Azure Machine Learning의 AutoML
-
-Azure Machine Learning은 자동화된 ML 작업을 위한 두 가지 환경을 제공합니다.
-
-* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro) 
-
-* 제한된 코드 환경 또는 코드리스 환경 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)의 Azure Machine Learning Studio  
 
 <a name="parity"></a>
 

@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 05/25/2021
 ms.custom: designer
-ms.openlocfilehash: 1846b5478c824caa954b85ea6346d773f46b279c
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 73cc893815cf591812c95c8d8b092a4b58697917
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108315672"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110457651"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>자습서: 디자이너를 사용하여 Machine Learning 모델 배포
 
@@ -56,8 +56,8 @@ ms.locfileid: "108315672"
     * **웹 서비스 입력** 및 **웹 서비스 출력** 모듈이 추가됩니다. 이러한 모듈은 사용자 데이터가 파이프라인에 입력되는 위치와 데이터가 반환되는 위치를 보여줍니다.
 
     > [!NOTE]
-    > 기본적으로 **웹 서비스 입력** 은 예측 파이프라인을 만드는 데 사용되는 학습 데이터와 동일한 데이터 스키마를 예상합니다. 이 시나리오에서 가격은 스키마에 포함됩니다. 그러나 예측 중에는 가격이 요소로 사용되지 않습니다.
-    >
+    > 기본적으로 **Web Service 입력** 은 동일한 다운스트림 포트에 연결되는 모듈 출력 데이터와 동일한 데이터 스키마를 필요로 합니다. 이 샘플에서 **Web Service 입력** 및 **자동차 가격 데이터(원시)** 는 동일한 다운스트림 모듈에 연결되므로 **Web Service 입력** 은 **자동차 가격 데이터(원시)** 및 대상 변수 열 `price`가 스키마에 포함된 것과 동일한 데이터 스키마를 필요로 합니다.
+    > 그러나 일반적으로 데이터를 채점할 때 대상 변수 값을 알 수 없습니다. 이러한 경우 **데이터 세트에서 열 선택** 모듈을 사용하여 유추 파이프라인에서 대상 변수 열을 제거할 수 있습니다. 대상 변수 열을 제거하는 **데이터 세트에서 열 선택** 출력이 **Web Service 입력** 모듈의 출력과 동일한 포트에 연결되어 있는지 확인합니다.
 
 1. **제출** 을 선택하고 1부에서 사용한 것과 동일한 컴퓨팅 대상 및 실험을 사용합니다.
 

@@ -5,18 +5,18 @@ ms.date: 05/01/2021
 ms.topic: quickstart
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 9371ebfbb89e30b53183ad364514b5bba904c56b
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 0f999b5c3a1efcf151876e3f2c1e285260edb8a3
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108761564"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535067"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>포털에서 청사진 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 학습하면 공통 패턴 정의를 통해 ARM 템플릿(Azure Resource Manager 템플릿), 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 정의할 수 있습니다. 이 자습서에서는 Azure Blueprints를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 일반적인 작업을 수행하는 방법을 알아봅니다. 이러한 태스크는 다음과 같습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
@@ -63,11 +63,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    1. **형식** 을 **기본 제공** 으로 변경합니다. **검색** 에 **태그** 를 입력합니다.
 
-   1. 필터링이 발생하도록 **검색** 에서 포커스를 변경합니다. **리소스 그룹에 태그 및 해당 기본값 추가** 를 선택합니다.
+   1. 필터링이 발생하도록 **검색** 에서 포커스를 변경합니다. **리소스 그룹에 태그 및 해당 값 추가** 를 선택합니다.
 
    1. **추가** 를 선택하여 이 아티팩트를 청사진에 추가합니다.
 
-1. 정책 할당 **리소스 그룹에 태그 및 기본값 추가** 의 행을 선택합니다.
+1. 정책 할당 **리소스 그룹에 태그 및 값 추가** 의 행을 선택합니다.
 
 1. 청사진 정의의 일부분으로 아티팩트에 매개 변수를 제공하는 창이 열리며, 이 창에서 할당 중에 매개 변수를 설정하는 대신(동적 매개 변수) 해당 청사진을 기준으로 하여 모든 할당의 매개 변수를 설정할 수 있습니다(정적 매개 변수). 이 예제에서는 청사진 할당 중에 동적 매개 변수를 사용하므로 기본값을 유지하고 **취소** 를 선택합니다.
 

@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 61bb87d84b96f988ae065a70b85d445fc8b96ccf
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 817c3e4a9e3c6226d25e28d1aad378813369d765
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107762950"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077737"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합을 위한 Azure Spot Virtual Machines 
 
@@ -216,6 +216,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ```
 
 `Response Code: 204`는 시뮬레이션이 성공적으로 완료되었음을 의미합니다. 
+
+자세한 정보는 [시뮬레이트된 제거 알림 테스트](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction)를 참조하세요.
 
 ## <a name="faq"></a>FAQ
 

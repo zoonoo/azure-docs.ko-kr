@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 8fef4bbc0c0e77c1e152b8c2c44254e091b0e5a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5259294734b3b0c33835759beadb2ad4e1089a9
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392547"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111744722"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
 
@@ -36,6 +36,12 @@ Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼
 ## <a name="how-does-it-work"></a>작동 원리
 
 Data Factory에는 데이터 엔지니어에게 완벽한 엔드투엔드 플랫폼을 제공하는 일련의 상호 연결된 시스템이 포함되어 있습니다.
+
+이 시각적 개체 가이드에서는 Data Factory 아키텍처에 대한 개략적인 개요를 제공합니다.
+
+:::image type="content" source="media\introduction\data-factory-visual-guide-small.png" alt-text="단일 고해상도 이미지로 제공되는 Azure Data Factory의 전체 시스템 아키텍처에 대한 자세한 시각적 가이드입니다." lightbox="media\introduction\data-factory-visual-guide.png":::
+
+자세한 내용을 보려면 위의 이미지를 클릭하여 확대하거나 [고해상도 이미지](/azure/data-factory/media/introduction/data-factory-visual-guide.png#lightbox)로 이동하세요. 
 
 ### <a name="connect-and-collect"></a>연결 및 수집
 

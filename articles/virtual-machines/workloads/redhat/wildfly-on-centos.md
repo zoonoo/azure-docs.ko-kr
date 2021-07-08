@@ -11,12 +11,12 @@ ms.subservice: redhat
 ms.custom:
 - mode-api
 ms.collection: linux
-ms.openlocfilehash: bad9331a6d9a0c0936b1458e3aa4a84559e4a107
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: 7c80634e78a8c37551a57fc8597831898646ef8e
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107533566"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111900938"
 ---
 # <a name="quickstart-wildfly-on-centos-8"></a>빠른 시작: CentOS 8 기반 WildFly
 
@@ -73,7 +73,7 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
     ```
 
     ```
-    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/wildfly/wildfly-standalone-centos8/azuredeploy.json
     ```
     
 - Azure CLI 사용 - 다음 명령을 실행하여 템플릿을 배포합니다. (Azure 플랫폼 간 명령줄 인터페이스 설치 및 구성에 대한 자세한 내용은 [Azure 플랫폼 간 명령줄](/cli/azure/install-azure-cli)을 확인하세요.)
@@ -83,14 +83,14 @@ Azure CentOS 8 이미지는 PAYG(종량제) VM 이미지이며 사용자가 라�
     ```
 
     ```
-    az deployment group create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/wildfly-standalone-centos8/azuredeploy.json
+    az deployment group create --resource-group <my-resource-group> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/wildfly/wildfly-standalone-centos8/azuredeploy.json
     ```
 
-- Azure Portal 사용 - <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">여기</a>를 클릭하여 템플릿을 배포하고 Azure Portal에 로그인합니다.
+- Azure Portal 사용 - <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fwildfly%2Fwildfly-standalone-centos8%2Fazuredeploy.json" target="_blank">여기</a>를 클릭하여 템플릿을 배포하고 Azure Portal에 로그인합니다.
 
 ## <a name="arm-template"></a>ARM 템플릿
 
-<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/wildfly-standalone-centos8" target="_blank">CentOS 8(독립 실행형 VM) 기반 WildFly 18</a> - CentOS 8 VM 기반 WildFly 18.0.1.Final의 독립 실행형 노드를 VM, Virtual Network 및 진단 스토리지 계정에 대한 개인 IP가 포함된 RG(리소스 그룹)에 만드는 빠른 시작 템플릿입니다. 또한 JBoss-EAP라는 Java 애플리케이션 샘플을 WildFly의 Azure에 배포합니다.
+<a href="https://github.com/Azure/azure-quickstart-templates/tree/master/application-workloads/wildfly/wildfly-standalone-centos8" target="_blank">CentOS 8(독립 실행형 VM) 기반 WildFly 18</a> - CentOS 8 VM 기반 WildFly 18.0.1.Final의 독립 실행형 노드를 VM, Virtual Network 및 진단 스토리지 계정에 대한 개인 IP가 포함된 RG(리소스 그룹)에 만드는 빠른 시작 템플릿입니다. 또한 JBoss-EAP라는 Java 애플리케이션 샘플을 WildFly의 Azure에 배포합니다.
 
 ## <a name="resource-links"></a>리소스 링크
 

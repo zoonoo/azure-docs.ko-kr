@@ -1,6 +1,6 @@
 ---
 title: Azure 구독 로그인 문제 해결
-description: Azure Portal 또는 Azure 계정 센터에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
+description: Azure Portal에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: v-miegge
-ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 009a29a4e296c8aa03163dd954cd242eec040027
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050473"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470749"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Azure 구독 로그인 문제 해결
 
-이 가이드는 Azure Portal 또는 Azure 계정 센터에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
+이 가이드는 Azure Portal에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
 
 > [!NOTE]
 > 새 Azure 계정을 가입하는 데 문제가 있는 경우 [Azure 구독 가입 문제 해결](./troubleshoot-azure-sign-up.md)을 참조하세요.
@@ -61,20 +61,12 @@ ms.locfileid: "99050473"
 
 잘못된 디렉터리에서 선택했거나 사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다.
 
-**시나리오 1:** [Azure Portal](https://portal.azure.com/)에 로그인하는 동안 오류 발생
+**시나리오:** [Azure Portal](https://portal.azure.com/)에 로그인하는 동안 오류 발생
 
 이 문제를 해결하려면
 
 - 오른쪽 위 모서리에서 계정을 선택하여 올바른 Azure 디렉터리를 선택했는지 확인합니다.
 - 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 계정을 [소유자로 추가](./add-change-subscription-administrator.md)합니다.
-
-**시나리오 2:** [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인하는 동안 오류 발생
-
-사용한 계정이 계정 관리자인지 확인합니다. 계정 관리자가 누구인지 확인하려면 다음 단계를 따르세요.
-
-1.  [Azure Portal의 구독 보기](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
-1.  확인하려는 구독을 선택한 다음 **설정** 을 선택합니다.
-1.  **속성** 을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.
 
 ## <a name="additional-help-resources"></a>추가 도움말 리소스
 

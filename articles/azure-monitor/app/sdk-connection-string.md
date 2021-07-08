@@ -7,12 +7,12 @@ ms.author: tilee
 ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: df87b060423aeff9fa5f83f21634395fe30e0bbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: af29de06c4b0f82d6c951d54935a93e77e723177
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102486287"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110191357"
 ---
 # <a name="connection-strings"></a>연결 문자열
 
@@ -25,6 +25,8 @@ ms.locfileid: "102486287"
 > [!IMPORTANT]
 > 연결 문자열과 계측 키를 모두 설정하지 않는 것이 좋습니다. 사용자가 두 가지 모두를 설정할 경우 마지막으로 설정한 항목이 우선 적용됩니다. 
 
+> [!TIP]
+> 계측 키보다 연결 문자열을 사용하는 것이 좋습니다.
 
 ## <a name="scenario-overview"></a>시나리오 개요 
 
@@ -83,7 +85,7 @@ ms.locfileid: "102486287"
 - applicationinsights.us
 
 
-https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification도 참조하세요.
+참조: [엔드포인트 수정이 필요한 지역](./custom-endpoints.md#regions-that-require-endpoint-modification)
 
 
 ##### <a name="valid-prefixes"></a>유효한 접두사
@@ -295,7 +297,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 * [ASP.NET](./asp-net.md)
 * [ASP.NET Core](./asp-net-core.md)
-* [Java](./java-get-started.md)
+* [Java](./java-in-process-agent.md)
 * [Node.JS](./nodejs.md)
 * [Python](./opencensus-python.md)
 

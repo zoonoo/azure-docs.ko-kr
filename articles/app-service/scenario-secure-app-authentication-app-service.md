@@ -11,12 +11,12 @@ ms.date: 04/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
-ms.openlocfilehash: b17cb6906a37d2cab4383fac18400b35dc8adb2f
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a99b017bf619bb7b3312f71a156b4d535b4067b3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106223199"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075865"
 ---
 # <a name="tutorial-add-authentication-to-your-web-app-running-on-azure-app-service"></a>자습서: Azure App Service에서 실행되는 웹앱에 인증 추가
 
@@ -68,6 +68,10 @@ App Service는 기본 제공 인증 및 권한 부여 지원을 제공하므로 
 :::image type="content" alt-text="인증 구성을 보여 주는 스크린샷" source="./media/scenario-secure-app-authentication-app-service/configure-authentication.png":::
 
 이제 App Service 인증 및 권한 부여를 통해 보호되는 앱이 생겼습니다.
+
+> [!NOTE]
+> 다른 테넌트의 계정을 허용하려면 '인증' 블레이드에서 'ID 공급자'를 편집하여 '발급자 URL'을 'https://login.microsoftonline.com/common/v2.0 '으로 변경합니다.
+>
 
 ## <a name="verify-limited-access-to-the-web-app"></a>액세스를 웹앱으로 제한
 

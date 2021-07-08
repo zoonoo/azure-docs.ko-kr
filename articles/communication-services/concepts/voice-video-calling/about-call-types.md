@@ -6,17 +6,19 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/25/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 8a25f69019e194650bb6aa2f5b8ae19dd37fbc48
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 52404879e14f31ddd284aa2bfb8d1724d9338be5
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105729170"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108300"
 ---
 # <a name="voice-and-video-concepts"></a>음성 및 비디오 개념
+
+[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
 
 Azure Communication Services를 사용하여 일대일 또는 그룹 음성 및 영상 통화를 걸고 받을 수 있습니다. 인터넷에 연결된 다른 디바이스 및 일반 전화기에 대한 호출을 수행할 수 있습니다. Communication Services JavaScript, Android 또는 iOS SDK를 사용하여 사용자가 프라이빗 대화 또는 그룹 토론에서 서로 말할 수 있는 애플리케이션을 빌드할 수 있습니다. Azure Communication Services는 서비스나 봇에서의 호출을 지원합니다.
 

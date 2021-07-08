@@ -4,23 +4,23 @@ description: Azure Analysis Services 서버 관리자 역할에 자동화 서비
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 05/14/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: f28d7e46acd5d9c22729ff7878f44a27d5cb6363
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93100731"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110065695"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
  무인 PowerShell 태스크를 자동화하려면 서비스 사용자가 관리할 Analysis Services 서버에 대해 **서버 관리자** 권한이 있어야 합니다. 이 문서에서는 Azure AS 서버에서 서버 관리자 역할에 서비스 사용자를 추가하는 방법을 설명합니다. SQL Server Management Studio 또는 Resource Manager 템플릿을 사용하여 이 작업을 수행할 수 있습니다. 
 
 > [!NOTE]
-> 서비스 사용자는 서버 관리자 역할에 직접 추가 해야 합니다. 보안 그룹에 서비스 사용자를 추가한 다음 해당 보안 그룹을 서버 관리자 역할에 추가 하는 것은 지원 되지 않습니다. 
+> 서비스 주체를 서버 관리자 역할에 직접 추가해야 합니다. 서비스 주체를 보안 그룹에 추가한 다음 해당 보안 그룹을 서버 관리자 역할에 추가할 수는 없습니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 태스크를 완료하기 전에 Azure Active Directory에 등록된 서비스 사용자가 있어야 합니다.
@@ -40,11 +40,11 @@ SSMS(SQL Server Management Studio)를 사용하여 서버 관리자를 구성할
 
 4. 서비스 사용자 계정 ID를 확인한 다음, **확인** 을 클릭합니다.
     
-    ![서비스 사용자 계정 ID를 표시 하 고 확인 단추를 강조 표시 하는 스크린샷](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![서비스 주체 계정 ID를 보여 주고 확인 단추를 강조 표시하는 스크린샷.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Resource Manager 템플릿 사용
 
-Azure Resource Manager 템플릿을 사용하여 Analysis Services 서버를 배포하여 서버 관리자를 구성할 수도 있습니다. 배포를 실행 하는 id는 azure [RBAC (역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 리소스에 대 한 **참가자** 역할에 속해야 합니다.
+Azure Resource Manager 템플릿을 사용하여 Analysis Services 서버를 배포하여 서버 관리자를 구성할 수도 있습니다. 배포를 실행하는 ID는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 리소스에 대한 **기여자** 역할에 속해야 합니다.
 
 > [!IMPORTANT]
 > `app:{service-principal-client-id}@{azure-ad-tenant-id}` 형식을 사용하여 서비스 사용자를 추가해야 합니다.
@@ -103,7 +103,7 @@ Azure Resource Manager 템플릿을 사용하여 Analysis Services 서버를 배
 
 Azure Portal 및 API의 대부분에서 관리 ID는 해당 서비스 사용자 개체 ID를 사용하여 식별됩니다. 그러나 Analysis Services에서는 해당 클라이언트 ID를 사용하여 식별해야 합니다. 서비스 사용자의 클라이언트 ID를 가져오려면 Azure CLI를 사용하면 됩니다.
 
-```bash
+```azurecli
 az ad sp show --id <ManagedIdentityServicePrincipalObjectId> --query appId -o tsv
 ```
 

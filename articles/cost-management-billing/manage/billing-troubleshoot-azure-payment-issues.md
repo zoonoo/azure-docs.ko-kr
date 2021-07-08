@@ -1,24 +1,24 @@
 ---
 title: Azure 결제 문제 해결
-description: Microsoft Azure Portal이나 계정 센터에서 지불 정보 계정을 업데이트할 때 발생하는 문제를 해결합니다.
+description: Microsoft Azure Portal에서 지불 정보 계정을 업데이트할 때 발생하는 문제를 해결합니다.
 author: v-miegge
 ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: jaserano
-ms.openlocfilehash: 77ca8e8425326cec31fce345600bdd0174ab5f4e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 54aba8ecb56d3c96628c424522ca606a0b04273a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131856"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481174"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Azure 결제 문제 해결
 
-Microsoft Azure Portal 또는 Azure 계정 센터에서 지불 정보 계정을 업데이트하려고 할 때 문제 또는 오류가 발생할 수 있습니다.
+Microsoft Azure Portal에서 지불 정보 계정을 업데이트하려고 할 때 문제 또는 오류가 발생할 수 있습니다.
 
 문제를 해결하려면 오류와 가장 유사한 아래 항목을 선택합니다.
 
@@ -30,7 +30,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 지불 정보 계정을 
 
 구독에 사용한 이메일과 다른 이메일 ID를 사용 중일 수 있습니다.
 
-이 문제를 해결하려면 [Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류](no-subscriptions-found.md)를 참조하세요.
+이 문제를 해결하려면 [Azure Portal에 대한 구독을 찾을 수 없음 로그인 오류](no-subscriptions-found.md)를 참조하세요.
 
 ## <a name="unable-to-use-a-virtual-or-prepaid-credit-or-debit-card-as-a-payment-method"></a>가상 또는 선불 신용 카드 또는 직불 카드를 지불 방법으로 사용할 수 없습니다.
 
@@ -55,7 +55,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 지불 정보 계정을 
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>구독에 대한 결제를 수행할 수 없음
 
-다음과 같은 오류 메시지가 표시되는 경우에는, *결제 기한이 지났습니다. 결제 방법에 문제가 있습니다* 또는 *죄송합니다. 이 정보를 저장할 수 없습니다. 브라우저를 닫고 다시 시도하세요.* ,금융 기관에서 카드를 거부하여 카드에 결제 보류 중인 내역이 남아 있기 때문일 수 있습니다.
+*결제 기한이 지났습니다. 지불 방법에 문제가 있습니다.* 또는 *죄송합니다. 정보를 저장할 수 없습니다. 브라우저를 닫고 다시 시도하세요.* 라는 오류 메시지가 표시되는 경우, 이는 금융 기관에 의해 카드가 거부되었기 때문에 카드에 대한 결제는 보류 중입니다.
 
 신용 카드로 결제할 수 있는 잔액이 충분한 지 확인하십시오. 그렇지 않으면, 다른 카드를 사용하여 결제하거나 금융 기관에 연락하여 문제를 해결하십시오.
 

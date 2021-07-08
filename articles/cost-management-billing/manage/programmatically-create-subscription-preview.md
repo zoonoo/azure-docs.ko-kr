@@ -1,24 +1,24 @@
 ---
-title: 미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
-description: 미리 보기 버전의 REST API, Azure CLI 및 Azure PowerShell을 사용하여 추가 Azure 구독을 프로그래밍 방식으로 만드는 방법을 알아봅니다.
+title: 레거시 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
+description: 레거시 버전의 REST API, Azure CLI 및 Azure PowerShell을 사용하여 추가 Azure 구독을 프로그래밍 방식으로 만드는 방법을 알아봅니다.
 author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 06/09/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d3247a86795b9661196c3264c60b06e7c61d6e23
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: edf57ec72d056f58eaca624b4c91b27a82ad9daf
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107877909"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902055"
 ---
-# <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
+# <a name="programmatically-create-azure-subscriptions-with-legacy-apis"></a>레거시 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기
 
-이 문서는 이전 미리 보기 API를 사용하여 Azure 구독을 프로그래밍 방식으로 만드는 데 도움이 됩니다. 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 구독을 만드는 방법을 알아봅니다.
+이 문서는 레거시 미리 보기 API를 사용하여 Azure 구독을 프로그래밍 방식으로 만드는 데 도움이 됩니다. 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 구독을 만드는 방법을 알아봅니다.
 
 다양한 Azure 계약 구독 유형에 사용할 최신 API 버전에 대한 새 문서가 있습니다.
 

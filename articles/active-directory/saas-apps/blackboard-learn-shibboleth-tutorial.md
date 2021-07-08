@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/19/2021
+ms.date: 06/04/2021
 ms.author: jeedes
-ms.openlocfilehash: b1b3f265d0e1fcad2953292c5227c2630c6df229
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 099ca4681dcbcc31962a56c08f5599a96c00bcb6
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101649906"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112008096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>자습서: Blackboard Learn - Shibboleth와 Azure Active Directory 통합
 
@@ -63,7 +63,7 @@ Blackboard Learn - Shibboleth에서 Azure AD SSO를 구성하고 테스트하려
     1. **[Blackboard Learn - Shibboleth 테스트 사용자 만들기](#create-blackboard-learn---shibboleth-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Blackboard Learn - Shibboleth에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 이 섹션에서는 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정합니다.
 
@@ -121,15 +121,15 @@ Blackboard Learn - Shibboleth에서 Azure AD Single Sign-On을 구성하려면 �
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-### <a name="configure-blackboard-learn---shibboleth-sso"></a>Blackboard Learn - Shibboleth SSO 구성
+## <a name="configure-blackboard-learn---shibboleth-sso"></a>Blackboard Learn - Shibboleth SSO 구성
 
-**Blackboard Learn - Shibboleth** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 과 적절히 복사한 URL을 [Blackboard Learn - Shibboleth 지원 팀](https://www.blackboard.com/forms/contact-us_form.aspx)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+Blackboard Learn - Shibboleth Single Sign-On을 구성하려면 이 [문서](https://help.blackboard.com/Learn/Administrator/SaaS/Authentication/Implement_Authentication/SAML_Authentication_Provider_Type)를 참조하세요.
 
 ### <a name="create-blackboard-learn---shibboleth-test-user"></a>Blackboard Learn - Shibboleth 테스트 사용자 만들기
 
 이 섹션에서는 Blackboard Learn - Shibboleth에서 Britta Simon이라는 사용자를 만듭니다. [Blackboard Learn - Shibboleth 지원 팀](https://www.blackboard.com/forms/contact-us_form.aspx)과 협력하여 사용자를 Blackboard Learn - Shibboleth 플랫폼에 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/02/2021
+ms.date: 05/07/2021
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 542eed34f2be05cce3829baab2f07a5c58413ba0
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: b590468b0e1f036a8b60143ff23e4a54b01802a8
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526299"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714497"
 ---
 ::: zone target="docs"
 
@@ -213,7 +213,7 @@ ms.locfileid: "99526299"
 
 | 연락처 정보 | 세부 정보 |
 |---|---|
-|이름:       | Bao Ying|
+|이름:       | `Bao Ying`|
 |명칭 | 선임 OneCall 담당자 |
 |전화 번호:      | 400.889.6066 ext. 3693 |
 |이메일:     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
@@ -222,26 +222,32 @@ ms.locfileid: "99526299"
 
 | 연락처 정보 | 세부 정보 |
 |---|---|
-|이름:       | He Xun|
+|이름:       | `He Xun`|
 |명칭 | OneCall 담당자 |
 |전화 번호:      | 400.889.6066 ext. 3603 |
 |이메일:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
 ### <a name="self-managed"></a>[자체 관리](#tab/in-selfmanaged)
 
-미국 정부, 일본, 싱가포르, 대한민국, 영국, 서유럽, 오스트레일리아, 남아프리카 또는 인도에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
+미국 정부, 일본, 싱가포르, 대한민국, 영국, 서유럽, 오스트레일리아, 남아프리카, 인도 또는 브라질에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리형 배송 옵션을 선택한 경우 다음 지침을 따르세요.
 
 1. Azure Portal에서 주문한 제품의 **개요 블레이드** 로 이동합니다. **일정 픽업** 을 선택하면 표시되는 지침을 따릅니다. 주문을 취소할 때 사용되는 인증 코드가 표시되어야 합니다.
 
 2. 디바이스를 반환할 준비가 되면 다음 템플릿을 사용하여 Azure Data Box 운영 팀에 이메일을 보냅니다.
 
-    ```
-    To: adbops@microsoft.com
-    Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
-    Body:
-     a. Order name
-     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop-off.
-    ```
+   ```
+   To: adbops@microsoft.com
+   Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
+   Body:
+   1. Order name
+   2. Contact name of the person dropping off. You will need to display a government-approved ID during the drop-off.
+   ```
+
+   > [!NOTE]
+   > - 반환에 필요한 정보는 지역에 따라 다를 수 있습니다. 
+   > - 브라질에 Data Box Disk를 반환하는 경우 자세한 지침은 [Azure Data Box Disk에 대한 자체 관리 배송 사용](data-box-disk-portal-customer-managed-shipping.md)을 참조하세요.
+  
+
 3. Azure Data Box 운영 팀은 사용자와 협력하여 Azure 데이터 센터에 대한 드롭오프를 정렬합니다.
 
 ---
