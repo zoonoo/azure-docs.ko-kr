@@ -7,15 +7,15 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
-ms.date: 04/28/2021
+ms.date: 06/04/2021
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: b67639c5a6f55c45e42e3a17187356caf32451a6
-ms.sourcegitcommit: 43be2ce9bf6d1186795609c99b6b8f6bb4676f47
+ms.openlocfilehash: b9fcd3d5eac8ddda890201bf5608e6e412f5d826
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108278455"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004316"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Cognitive Services 리소스 만들기
 
@@ -27,6 +27,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 
 * 단일 키와 엔드포인트로 여러 Azure Cognitive Services에 액세스합니다.
 * 사용하는 여러 서비스의 대금 청구를 통합합니다.
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +41,7 @@ ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 리소스를 만
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cognitive-services-universalkey/)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/cognitive-services-universalkey/)에서 나온 것입니다.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cognitiveservices/cognitive-services-universalkey/azuredeploy.json":::
 
@@ -135,6 +136,8 @@ az group delete --name $resourceGroupName
 ```
 
 ---
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](manage-resources.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

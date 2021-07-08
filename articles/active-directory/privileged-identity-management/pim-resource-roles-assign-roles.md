@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2020
+ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 011b50449f0a02b128bc000535f93e1809fd9777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e0824a0947318172ec8094787f4fe01058f1a5e7
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92673884"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846138"
 ---
 # <a name="assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당
 
@@ -34,6 +34,10 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)는 사용�
 
 > [!NOTE]
 > 소유자 또는 사용자 액세스 관리자 구독 역할에 할당된 사용자 또는 그룹 멤버와 Azure AD에서 구독 관리를 사용하도록 설정한 Azure AD 전역 관리자에게는 기본적으로 리소스 관리자 권한이 있습니다. 이러한 관리자는 Azure 리소스용 Privileged Identity Management를 사용하여 역할을 할당하고, 역할 설정을 구성하며, 액세스를 검토할 수 있습니다. 사용자는 리소스 관리자 권한이 없으면 리소스에 대한 Privileged Identity Management를 관리할 수 없습니다. [Azure 기본 제공 역할](../../role-based-access-control/built-in-roles.md)의 목록을 봅니다.
+
+## <a name="role-assignment-conditions"></a>역할 할당 조건
+
+Azure ABAC(Azure 특성 기반 액세스 제어) 미리 보기를 사용하여 PIM(Privileged Identity Management)을 통해 적격 역할 할당에 대한 리소스 조건을 지정할 수 있습니다. PIM을 사용하는 경우 최종 사용자가 특정 작업을 수행할 수 있는 권한을 얻기 위해 적격 역할 할당을 활성화해야 합니다. PIM에서 Azure ABAC 조건을 사용하면 세분화된 조건을 사용하여 리소스에 대한 사용자 역할 권한을 제한할 뿐만 아니라 PIM을 사용하여 시간 제한 설정, 승인 워크플로, 감사 추적 등으로 역할 할당을 보호할 수 있습니다. 자세한 내용은 [Azure 속성 기반 액세스 제어 공개 미리 보기](../../role-based-access-control/conditions-overview.md)를 참조하세요.
 
 ## <a name="assign-a-role"></a>역할 할당
 
@@ -108,6 +112,10 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)는 사용�
 1. **적격 역할** 또는 **활성 역할** 탭에서 역할 할당을 찾습니다.
 
     ![역할 할당 업데이트 또는 제거](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. 조건을 추가하거나 업데이트하여 Azure 리소스 액세스를 구체화하려면 역할 할당의 **조건** 열에서 **추가** 또는 **보기/편집** 을 선택합니다. 현재 Privileged Identity Management의 Storage Blob 데이터 소유자, Storage Blob 데이터 판독기 및 Blob Storage Blob 데이터 기여자 역할은 [Azure 속성 기반 액세스 제어 공개 미리 보기](../../role-based-access-control/conditions-overview.md)의 일부로 지원되는 유일한 두가지 역할입니다.
+
+    ![액세스 제어에 대한 특성 업데이트 또는 제거](./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png)
 
 1. **업데이트** 또는 **제거** 를 선택하여 역할 할당을 업데이트하거나 제거합니다.
 

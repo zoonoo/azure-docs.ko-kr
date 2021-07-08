@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/29/2021
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 9eb35c892db113807d3c401306485a836a1d970b
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: df34d0ad7aa2c8249f013d430cedd72dd86eb6a2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107947432"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452000"
 ---
 # <a name="what-is-optical-character-recognition"></a>OCR(광학 문자 인식)이란?
 
@@ -42,7 +42,7 @@ Computer Vision [읽기 API](https://centraluseuap.dev.cognitive.microsoft.com/d
 
 * 지원되는 파일 형식: JPEG, PNG, BMP, PDF 및 TIFF
 * PDF 및 TIFF 파일의 경우 최대 2000페이지(무료 계층의 경우 처음 두 페이지만)가 처리됩니다.
-* 파일 크기는 50MB(무료 계층의 경우 4MB) 미만이어야 하며, 크기는 최소 50 x 50픽셀 및 최대 1만 x 1만 픽셀 이상이어야 합니다. 
+* 파일 크기는 50MB(무료 계층의 경우 6MB) 미만이어야 하며, 크기는 최소 50 x 50픽셀 및 최대 10000 x 10000 픽셀 이상이어야 합니다. 
 
 ## <a name="supported-languages"></a>지원되는 언어
 Read API는 인쇄 스타일 텍스트에 총 73개 언어를 지원합니다. [OCR 지원 언어](./language-support.md#optical-character-recognition-ocr)의 전체 목록을 참조하세요. 필기 스타일 OCR은 영어 전용으로 지원됩니다.
@@ -67,10 +67,6 @@ Read API에는 다음 기능이 포함됩니다.
 Read 3.x 클라우드 API는 편리한 통합 및 빠른 생산성 덕분에 대부분의 고객에게 선호되는 옵션입니다. Azure와 Computer Vision 서비스는 사용자가 고객의 요구를 충족하는 데 집중하는 동안 규모, 성능, 데이터 보안 및 규정 준수 요구 사항을 처리합니다.
 
 온-프레미스 배포의 경우 [Docker 컨테이너 읽기(미리 보기)](./computer-vision-how-to-install-containers.md)를 사용하여 새 OCR 기능을 자체 로컬 환경에 배포할 수 있습니다. 컨테이너는 특정 보안 및 데이터 거버넌스 요구 사항에 적합합니다.
-
-## <a name="ocr-api"></a>OCR API
-
-레거시 [OCR API](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20d)는 기존 인식 모델을 사용하고 이미지만 지원하며 동기적으로 실행되어 검색된 텍스트로 즉시 반환됩니다. 지원되는 언어의 목록은 [지원되는 언어](./language-support.md#optical-character-recognition-ocr)의 OCR 열을 참조하세요.
 
 > [!WARNING]
 > Computer Vision 2.0 RecognizeText 작업은 이 문서에서 다루는 새로운 [읽기 API](#read-api)에서 더 이상 사용되지 않는 추세입니다. 기존 고객은 [Read 작업을 사용하도록 전환](upgrade-api-versions.md)해야 합니다.

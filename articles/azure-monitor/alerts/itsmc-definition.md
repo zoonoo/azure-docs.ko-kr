@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3097023c4b9d19379f44529615a10c100e794700
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103601069"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838678"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>IT 서비스 관리 솔루션을 사용하여 ITSM 도구에 Azure 연결
 
@@ -88,7 +88,7 @@ ITSM 연결을 만든 후 ITMC를 사용하여 Azure 경고를 기준으로 ITSM
 > [!NOTE]
 > ITSM 연결을 만든 후 동기화 프로세스가 완료될 때까지 30분 정도 기다려야 합니다.
 
-## <a name="define-a-template"></a>템플릿 정의
+### <a name="define-a-template"></a>템플릿 정의
 
 일부 작업 항목 유형은 ITSM 도구에서 정의하는 템플릿을 사용할 수 있습니다. 템플릿을 사용하여 작업 그룹의 고정 값에 따라 자동으로 채워지는 필드를 정의할 수 있습니다. 작업 그룹을 정의할 때 사용할 템플릿을 정의할 수 있습니다. 템플릿을 만드는 방법에 대한 정보는 ServiceNow 문서에서 찾을 수 있습니다. - (여기)[https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
@@ -114,9 +114,7 @@ ITSM 연결을 만든 후 ITMC를 사용하여 Azure 경고를 기준으로 ITSM
 
 7. **작업 항목** 유형을 선택합니다.
 
-8. 즉시 사용 가능한 필드에 고정 값을 채우려면 **사용자 지정 템플릿 사용** 을 선택합니다. 그렇지 않으면 **템플릿** 목록에서 기존 [템플릿](#define-a-template)을 선택하고 템플릿 필드에 고정 값을 입력합니다.
-
-9. ITSM 작업 그룹 만들기를 위해 인터페이스의 마지막 섹션에서 각 경고에 대해 생성할 작업 항목 수를 정의할 수 있습니다.
+8. ITSM 작업 그룹 만들기를 위해 인터페이스의 마지막 섹션에서 각 경고에 대해 생성할 작업 항목 수를 정의할 수 있습니다.
 
    > [!NOTE]
    > 이 섹션은 로그 검색 경고와만 관련이 있습니다. 다른 모든 경고 유형의 경우 경고당 하나의 작업 항목을 만듭니다.
@@ -143,6 +141,10 @@ ITSM 연결을 만든 후 ITMC를 사용하여 Azure 경고를 기준으로 ITSM
      * **각 로그 항목에 개별 작업 항목 만들기(구성 항목 필드가 채워지지 않습니다. 작업 항목 수가 증가할 수 있습니다.)** 를 선택한 경우 로그 검색 경고 쿼리의 검색 결과에서 각 행에 대해 작업 항목이 생성됩니다. 작업 항목의 페이로드에 있는 설명 속성에는 검색 결과의 행이 포함됩니다.
       
      * **각 구성 항목에 대해 개별 작업 항목 만들기** 를 선택하면 모든 경고의 각 구성 항목이 새 작업 항목을 만듭니다. 각 구성 항목은 ITSM 시스템의 2개 이상의 작업 항목을 포함할 수 있습니다. 이 옵션은 작업 항목 유형으로 **인시던트** 를 선택한 후 표시되는 확인란을 선택하는 것과 동일합니다.
+9. 작업 정의의 일부로 페이로드의 일부로 상수 값을 포함할 미리 정의된 필드를 정의할 수 있습니다. 작업 항목 유형에 따라 페이로드의 일부로 사용할 수 있는 세 가지 옵션이 있습니다.
+    * **없음**: 사전 정의된 추가 필드 및 값없이 ServiceNow에 일반 페이로드를 사용합니다.
+    * **기본 필드 사용**: ServiceNow에 대한 페이로드의 일부로 자동으로 전송되는 필드 및 값 세트를 사용합니다. 이러한 필드는 유연하지 않으며 값은 ServiceNow 목록에 정의되어 있습니다.
+    * **ServiceNow에서 저장된 템플릿 사용**: ServiceNow에서 템플릿 정의의 일부로 정의된 미리 정의된 필드 및 값 집합을 사용합니다. ServiceNow에서 이미 템플릿을 정의한 경우 **Template** 목록에서 사용할 수 있습니다. 그렇지 않으면 ServiceNow에서 정의하여 [자세한 내용](#define-a-template)을 볼 수 있습니다.
 
 10. **확인** 을 선택합니다.
 

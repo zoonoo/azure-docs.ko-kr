@@ -3,12 +3,12 @@ title: Container Insights 에이전트 데이터 컬렉션 설정 | Microsoft Do
 description: 이 문서에서는 stdout/stderr 및 환경 변수 로그 컬렉션을 제어하도록 Container Insights 에이전트를 구성하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: d866fec2013daf9b8edfdbfd703c7b1098ae91bd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1305ddc4417dc294dad865971dcd8970acfb8a2c
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101708393"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847349"
 ---
 # <a name="configure-agent-data-collection-for-container-insights"></a>Container Insights에 대한 에이전트 데이터 컬렉션 구성
 
@@ -17,7 +17,7 @@ Container Insights는 컨테이너형 에이전트로부터 관리되는 Kuberne
 이 문서에서는 요구 사항에 따라 ConfigMap을 만들고 데이터 컬렉션을 구성하는 방법을 보여줍니다.
 
 >[!NOTE]
->Azure Red Hat OpenShift의 경우 *openshift-azure-logging* 네임스페이스에 템플릿 ConfigMap 파일이 만들어집니다. 
+>Azure Red Hat OpenShift V3의 경우 *openshift-azure-logging* 네임스페이스에 템플릿 configmap 파일이 만들어집니다. 
 >
 
 ## <a name="configmap-file-settings-overview"></a>ConfigMap 파일 설정 개요
@@ -36,9 +36,9 @@ Container Insights는 컨테이너형 에이전트로부터 관리되는 Kuberne
 | `schema-version` | 문자열(대/소문자 구분) | v1 | 이 ConfigMap을 구문 분석할 때<br> 에이전트가 사용하는 스키마 버전입니다.<br> 현재 지원되는 스키마 버전은 v1입니다.<br> 이 값의 수정은 지원되지 않으며<br> ConfigMap을 평가할 때 거부됩니다. |
 | `config-version` | 문자열 |  | 원본 제어 시스템/리포지토리에서 이 구성 파일의 버전 추적을 지원합니다.<br> 허용되는 최대 문자 수는 10이고 다른 모든 문자는 잘립니다. |
 | `[log_collection_settings.stdout] enabled =` | 부울 | true 또는 false | stdout 컨테이너 로그 컬렉션을 사용하는지 여부를 제어합니다. `true`로 설정된 경우 stdout 로그 컬렉션에서 네임스페이스가 제외되지 않고<br> (아래 `log_collection_settings.stdout.exclude_namespaces` 설정) 클러스터에 있는 모든 Pod/노드의 모든 컨테이너에서 stdout 로그를 수집합니다. ConfigMap에서 지정하지 않은 경우<br> 기본값은 `enabled = true`입니다. |
-| `[log_collection_settings.stdout] exclude_namespaces =` | 문자열 | 쉼표로 구분된 배열 | stdout 로그가 수집되지 않을 경우 Kubernetes 네임스페이스의 배열입니다. 이 설정은<br> `log_collection_settings.stdout.enabled`<br> `true`로 설정된 경우에만 적용됩니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `exclude_namespaces = ["kube-system"]`입니다. |
-| `[log_collection_settings.stderr] enabled =` | 부울 | true 또는 false | stderr 컨테이너 로그 컬렉션을 사용할지 제어합니다.<br> `true`로 설정된 경우 stdout 로그 컬렉션에서 네임스페이스가 제외되지 않고<br> (`log_collection_settings.stderr.exclude_namespaces` 설정) 클러스터에 있는 모든 Pod/노드의 모든 컨테이너에서 stderr 로그를 수집합니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `enabled = true`입니다. |
-| `[log_collection_settings.stderr] exclude_namespaces =` | 문자열 | 쉼표로 구분된 배열 | stderr 로그가 수집되지 않을 경우 Kubernetes 네임스페이스의 배열입니다.<br> 이 설정은<br> `log_collection_settings.stdout.enabled`이 `true`로 설정된 경우에만 적용됩니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `exclude_namespaces = ["kube-system"]`입니다. |
+| `[log_collection_settings.stdout] exclude_namespaces =` | 문자열 | 쉼표로 구분된 배열 | stdout 로그가 수집되지 않을 경우 Kubernetes 네임스페이스의 배열입니다. 이 설정은<br> `log_collection_settings.stdout.enabled`<br> `true`로 설정된 경우에만 적용됩니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] enabled =` | 부울 | true 또는 false | stderr 컨테이너 로그 컬렉션을 사용할지 제어합니다.<br> `true`로 설정된 경우 stdout 로그 컬렉션에서 네임스페이스가 제외되지 않고<br> (`log_collection_settings.stderr.exclude_namespaces` 설정) 클러스터에 있는 모든 Pod/노드의 모든 컨테이너에서 stderr 로그를 수집합니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `enabled = true`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | 문자열 | 쉼표로 구분된 배열 | stderr 로그가 수집되지 않을 경우 Kubernetes 네임스페이스의 배열입니다.<br> 이 설정은<br> `log_collection_settings.stdout.enabled`이 `true`로 설정된 경우에만 적용됩니다.<br> ConfigMap에서 지정하지 않은 경우 기본값은<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | 부울 | true 또는 false | 이 설정은 클러스터의 모든 Pod/노드에서<br> 환경 변수 수집을 제어하며 ConfigMap에서<br> 지정하지 않을 경우 기본값은 `enabled = true`<br> 입니다.<br> 환경 변수 컬렉션을 전역적으로 사용할 경우,<br> Dockerfile 설정을 사용하거나<br> **env:** 섹션 아래의 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)에서 환경 변수 `AZMON_COLLECT_ENV`를 **False** 로 설정하여 이를 특정 컨테이너에 대해 사용하지 않도록 할 수 있습니다.<br> 환경 변수 컬렉션을 전역적으로 사용하지 않는 경우 특정 컨테이너에 대해 컬렉션을 사용하도록 설정할 수 없습니다. 즉, 컨테이너 수준에서 적용할 수 있는 유일한 재정의는 이미 전역적으로 사용하는 경우 컬렉션을 사용하지 않도록 설정하는 것입니다. |
 | `[log_collection_settings.enrich_container_logs] enabled =` | 부울 | true 또는 false | 이 설정은 컨테이너 로그 보강을 제어하여<br> 클러스터의 모든 컨테이너 로그에 대한 ContainerLog 테이블에 쓴 모든 로그 레코드에 대해 이름 및 이미지 속성 값을 채웁니다.<br> ConfigMap에 지정되지 않은 경우 기본값은 `enabled = false`입니다. |
 | `[log_collection_settings.collect_all_kube_events]` | 부울 | true 또는 false | 이 설정을 통해 모든 유형의 Kube 이벤트를 수집할 수 있습니다.<br> 기본적으로 *Normal* 유형의 Kube 이벤트는 수집되지 않습니다. 이 설정을 `true`로 설정하면 *Normal* 이벤트를 더 이상 필터링하지 않고 모든 이벤트를 수집합니다.<br> 이 매개 변수는 기본적으로 `false`로 설정됩니다. |
@@ -60,27 +60,27 @@ ConfigMap 구성 파일을 구성하고 클러스터에 배포하려면 다음 �
 1. [템플릿 ConfigMap YAML 파일](https://aka.ms/container-azm-ms-agentconfig)을 다운로드하고 container-azm-ms-agentconfig.yaml로 저장합니다. 
 
    > [!NOTE]
-   > Azure Red Hat OpenShift를 사용하는 경우에는 ConfigMap 템플릿이 클러스터에 이미 있기 때문에 이 단계가 필요하지 않습니다.
+   > Azure Red Hat OpenShift V3을 사용하는 경우에는 ConfigMap 템플릿이 클러스터에 이미 있기 때문에 이 단계가 필요하지 않습니다.
 
-2. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집하여 stdout, stderr 및/또는 환경 변수를 수집합니다. Azure Red Hat OpenShift에 대한 ConfigMap yaml 파일을 편집하는 경우 먼저 `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` 명령을 실행하여 텍스트 편집기에서 파일을 엽니다.
+2. 사용자 지정 항목으로 ConfigMap yaml 파일을 편집하여 stdout, stderr 및/또는 환경 변수를 수집합니다. Azure Red Hat OpenShift V3에 대한 ConfigMap yaml 파일을 편집하는 경우 먼저 `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` 명령을 실행하여 텍스트 편집기에서 파일을 엽니다.
 
     - stdout 로그 컬렉션에 대해 특정 네임스페이스를 제외하려면 다음 예를 사용하여 키/값을 구성합니다(`[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`).
     
     - 특정 컨테이너에 대해 환경 변수 컬렉션을 사용하지 않게 설정하려면 키/값 `[log_collection_settings.env_var] enabled = true`를 설정하여 전역적으로 변수 컬렉션을 사용하게 설정하고 [여기의](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) 단계에 따라 특정 컨테이너에 대한 구성을 완료합니다.
     
     - 클러스터 전체에서 stderr 로그 컬렉션을 사용하지 않게 설정하려면 다음 예를 사용하여 키/값을 구성합니다(`[log_collection_settings.stderr] enabled = false`).
+    
+    편집기에서 변경 내용을 저장합니다.
 
-3. Azure Red Hat OpenShift 이외의 클러스터의 경우 Azure Red Hat OpenShift 이외의 클러스터에서 다음 kubectl 명령(`kubectl apply -f <configmap_yaml_file.yaml>`)을 실행하여 ConfigMap을 만듭니다. 
+3. Azure Red Hat OpenShift V3 이외의 클러스터의 경우 다음 kubectl 명령을 실행하여 ConfigMap을 만듭니다. `kubectl apply -f <configmap_yaml_file.yaml>`. 
     
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-
-    Azure Red Hat OpenShift의 경우 편집기에서 변경 내용을 저장합니다.
 
 구성 변경 내용을 적용하는 데 몇 분 정도 걸릴 수 있고 클러스터의 모든 omsagent Pod가 다시 시작됩니다. 다시 시작은 모두 동시에 다시 시작되는 것이 아니라, 모든 omsagent Pod에 대한 순환 방식의 다시 시작입니다. 다시 시작이 완료되면 다음과 유사한 메시지가 표시되고 결과(`configmap "container-azm-ms-agentconfig" created`)가 포함됩니다.
 
 ## <a name="verify-configuration"></a>구성 확인
 
-구성이 Azure Red Hat OpenShift 이외의 클러스터에 성공적으로 적용되었는지 확인하려면 다음 명령을 사용하여 에이전트 Pod(`kubectl logs omsagent-fdf58 -n kube-system`)에서 로그를 검토합니다. omsagent Pod에 구성 오류가 있는 경우 출력에 다음과 유사한 오류가 표시됩니다.
+구성이 Azure Red Hat OpenShift V3 이외의 클러스터에 성공적으로 적용되었는지 확인하려면 다음 명령을 사용하여 에이전트 Pod(`kubectl logs omsagent-fdf58 -n kube-system`)에서 로그를 검토합니다. omsagent Pod에 구성 오류가 있는 경우 출력에 다음과 유사한 오류가 표시됩니다.
 
 ``` 
 ***************Start Config Processing******************** 
@@ -92,7 +92,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 - 같은 `kubectl logs` 명령을 사용하여 에이전트 Pod 로그에서. 
 
     >[!NOTE]
-    >이 명령은 Azure Red Hat OpenShift 클러스터에 적용되지 않습니다.
+    >이 명령은 Azure Red Hat OpenShift V3 클러스터에 적용되지 않습니다.
     > 
 
 - 라이브 로그에서. 라이브 로그에 다음과 유사하게 오류가 표시됩니다.
@@ -103,9 +103,9 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - Log Analytics 작업 영역에 있는 **KubeMonAgentEvents** 테이블에서. 구성 오류에 대해서 데이터가 *오류* 심각도로 1시간마다 전송됩니다. 오류가 없는 경우 테이블의 항목에 있는 데이터는 오류를 보고하지 않는 *정보* 심각도입니다. **Tags** 속성에는 오류가 발생한 Pod 및 컨테이너 ID에 대한 상세 정보와 지난 1시간 동안의 첫 번째 발생, 마지막 발생 및 횟수가 포함됩니다.
 
-- Azure Red Hat OpenShift에서 **ContainerLog** 테이블 검색을 통해 omsagent 로그를 점검하여 openshift-azure-logging의 로그 컬렉션을 사용하는지 확인합니다.
+- Azure Red Hat OpenShift V3에서 **ContainerLog** 테이블 검색을 통해 omsagent 로그를 점검하여 openshift-azure-logging의 로그 컬렉션을 사용하는지 확인합니다.
 
-Azure Red Hat OpenShift가 아닌 클러스터의 ConfigMap에서 오류를 수정한 후 yaml 파일을 저장하고 다음 명령을 실행하여 업데이트된 ConfigMap을 적용합니다. `kubectl apply -f <configmap_yaml_file.yaml`. Azure Red Hat OpenShift의 경우 다음 명령을 실행하여 업데이트된 ConfigMap을 편집 및 저장합니다.
+Azure Red Hat OpenShift V3이 아닌 클러스터의 ConfigMap에서 오류를 수정한 후 yaml 파일을 저장하고 다음 명령을 실행하여 업데이트된 ConfigMap을 적용합니다: `kubectl apply -f <configmap_yaml_file.yaml`. Azure Red Hat OpenShift V3의 경우 다음 명령을 실행하여 업데이트된 ConfigMap을 편집 및 저장합니다.
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -113,7 +113,7 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 ## <a name="applying-updated-configmap"></a>업데이트된 ConfigMap 적용
 
-Azure Red Hat OpenShift 이외의 클러스터에 ConfigMap을 이미 배포했으며 최신 구성으로 업데이트하려는 경우 이전에 사용한 ConfigMap 파일을 편집한 다음, 이전과 동일한 명령(`kubectl apply -f <configmap_yaml_file.yaml`)을 사용하여 적용할 수 있습니다. Azure Red Hat OpenShift의 경우 다음 명령을 실행하여 업데이트된 ConfigMap을 편집 및 저장합니다.
+Azure Red Hat OpenShift V3 이외의 클러스터에 ConfigMap을 이미 배포했으며 최신 구성으로 업데이트하려는 경우 이전에 사용한 ConfigMap 파일을 편집한 다음, 이전과 동일한 명령(`kubectl apply -f <configmap_yaml_file.yaml`)을 사용하여 적용할 수 있습니다. Azure Red Hat OpenShift V3의 경우 다음 명령을 실행하여 업데이트된 ConfigMap을 편집 및 저장합니다.
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging

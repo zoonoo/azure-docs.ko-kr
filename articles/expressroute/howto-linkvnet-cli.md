@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 90676b134d06af7ef088b2041116b17022da2700
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: a94821f5254526fa13f9e87e62803581c46127d2
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106110226"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538669"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>자습서: CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -45,6 +45,8 @@ ms.locfileid: "106110226"
 * 최대 10개의 가상 네트워크를 표준 ExpressRoute 회로에 연결할 수 있습니다. 표준 ExpressRoute 회로를 사용하는 경우 모든 가상 네트워크는 동일한 지역에 있어야 합니다. 
 * 단일 VNet을 최대 16개의 ExpressRoute 회로에 연결할 수 있습니다. 다음 프로세스를 사용하여 연결하려는 각 ExpressRoute 회로에 대한 새 연결 개체를 만듭니다. ExpressRoute 회로는 동일한 구독, 서로 다른 구독 또는 두 가지가 혼합된 상태로 존재할 수 있습니다.
 * ExpressRoute 프리미엄 추가 기능을 사용하도록 설정하면 ExpressRoute 회로의 지정학적 지역 외부에서 가상 네트워크를 연결할 수 있습니다. 또한 프리미엄 추가 항목을 사용하면 선택한 대역폭에 따라 10개가 넘는 가상 네트워크를 ExpressRoute 회로에 연결할 수도 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md) 에서 확인하세요.
+
+* ExpressRoute 회로에서 대상 ExpressRoute 가상 네트워크 게이트웨이로 연결을 만들려면 로컬 또는 피어링된 가상 네트워크에서 보급된 주소 공간의 수가 **200** 개 이하여야 합니다. 연결이 성공적으로 만들어지면 로컬 또는 피어링된 가상 네트워크에 최대 1,000개의 추가 주소 공간을 추가할 수 있습니다.
 
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>동일한 구독에 있는 가상 네트워크를 회로에 연결
 

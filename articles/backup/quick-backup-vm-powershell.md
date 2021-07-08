@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 81005a3032355f566aef2a6794cf2ec5038b0dd8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9ff33fa1600043aaae8b8ffc6c1f9dc5252bd65
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737119"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111420809"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
@@ -149,6 +149,10 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
     ```
 
 2. 작업 상태가 **Completed**(완료)이면 VM이 보호되고 전체 복구 지점이 저장됩니다.
+
+## <a name="manage-vm-backups"></a>VM 백업 관리
+
+정책 변경, 정책 편집 등의 더 많은 작업을 수행하려는 경우 [VM 백업 관리 섹션](backup-azure-vms-automation.md#manage-azure-vm-backups)을 참조하세요.
 
 ## <a name="clean-up-the-deployment"></a>배포 정리
 

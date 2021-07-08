@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: e0605b5a882dcfa09b2435476a37d116f8c47286
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105607095"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350894"
 ---
 [지속형 함수](../articles/azure-functions/durable/durable-functions-overview.md)에 대한 구성 설정입니다.
 
@@ -103,7 +103,7 @@ ms.locfileid: "105607095"
 |---------|---------|----------|
 |hubName|DurableFunctionsHub|여러 Durable Functions 애플리케이션이 동일한 스토리지 백 엔드를 사용하더라도 대체 [작업 허브](../articles/azure-functions/durable/durable-functions-task-hubs.md) 이름을 사용하면 이러한 애플리케이션을 서로 구분할 수 있습니다.|
 |controlQueueBatchSize|32|제어 큐에서 한 번에 끌어올 메시지의 수입니다.|
-|controlQueueBufferThreshold| **사용 플랜**: 32 <br> **전용/프리미엄 계획**: 256 |메모리에 한 번에 버퍼링할 수 있는 컨트롤 큐 메시지의 수입니다. 이 시점에 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기합니다.|
+|controlQueueBufferThreshold| **Python의 사용량 플랜**: 32 <br> **JavaScript 및 C#의 사용량 플랜**: 128 <br> **전용/프리미엄 계획**: 256 |메모리에 한 번에 버퍼링할 수 있는 컨트롤 큐 메시지의 수입니다. 이 시점에 디스패처는 추가 메시지를 큐에서 제거할 때까지 대기합니다.|
 |partitionCount |4|제어 큐에 대한 파티션 수입니다. 1에서 16 사이의 양의 정수일 수 있습니다.|
 |controlQueueVisibilityTimeout |5분|큐에서 제거된 제어 큐 메시지의 표시 여부 시간 제한입니다.|
 |workItemQueueVisibilityTimeout |5분|큐에서 제거된 작업 항목 큐 메시지의 표시 여부 시간 제한입니다.|

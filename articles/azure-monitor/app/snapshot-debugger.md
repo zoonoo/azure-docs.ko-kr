@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 author: cweining
 ms.author: cweining
 ms.reviewer: cweining
-ms.openlocfilehash: 57a417948d23d40801eb34cf10aab1e6f17037e6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c377f6b1ff84f04506badf581dc7c12d64e68e0d
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644075"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109839386"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 앱의 예외에 대한 디버그 스냅샷
 예외가 발생할 때 라이브 웹 애플리케이션에서 자동으로 디버그 스냅샷을 수집할 수 있습니다. 스냅샷은 예외가 throw되었을 때의 소스 코드 및 변수의 상태를 보여 줍니다. [Azure Application Insights](./app-insights-overview.md)의 스냅샷 디버거는 웹앱에서 예외 원격 분석을 모니터링합니다. 프로덕션에서 문제를 진단하는 데 필요한 정보를 유지하도록 많이 throw되는 예외에 대한 스냅샷을 수집합니다. 애플리케이션에 [스냅샷 수집기 NuGet 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)를 포함하고 선택적으로 [ApplicationInsights.config](./configuration-with-applicationinsights-config.md)에서 컬렉션 매개 변수를 구성합니다. 스냅샷은 Application Insights 포털의 [예외](./asp-net-exceptions.md)에 표시됩니다.
@@ -61,7 +61,7 @@ ms.locfileid: "105644075"
 
 
 > [!IMPORTANT]
-> 스냅샷은 변수 및 매개 변수 값의 개인 정보 및 기타 중요한 정보를 포함할 수 있습니다.
+> 스냅숏에는 변수 및 매개 변수 값에 개인 데이터 또는 기타 중요한 정보가 포함될 수 있습니다. 스냅숏 데이터는 App Insights 리소스와 동일한 지역에 저장됩니다.
 
 ## <a name="view-snapshots-in-the-portal"></a>포털에서 스냅샷 보기
 

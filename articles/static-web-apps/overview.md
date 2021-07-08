@@ -7,14 +7,14 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 04/01/2021
 ms.author: cshoe
-ms.openlocfilehash: 0111e0a37f1684ab764160d64231ea5dde2547a6
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 5a335525bef3509f547bbccc478ec9402ad05e28
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108758990"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109815057"
 ---
-# <a name="what-is-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기란?
+# <a name="what-is-azure-static-web-apps"></a>Azure Static Web Apps란?
 
 Azure Static Web Apps는 코드 리포지토리에서 전체 스택 웹앱을 Azure에 자동으로 빌드하고 배포하는 서비스입니다.
 
@@ -31,7 +31,7 @@ Static Web Apps를 사용하면 정적 자산은 기존 웹 서버와 분리되�
 ## <a name="key-features"></a>주요 기능
 
 - HTML, CSS, JavaScript 및 이미지와 같은 정적 콘텐츠에 대한 **웹 호스팅** 입니다.
-- Azure Functions에서 제공하는 **통합 API**.
+- 표준 계정을 사용하여 기존 Azure Functions 앱을 연결하는 옵션과 함께 Azure Functions에서 제공하는 **통합 API** 지원입니다.
 - 리포지토리 변경 시 빌드 및 배포가 트리거되는 **최상급 GitHub 및 Azure DevOps 통합**
 - **전역적으로 분산된** 정적 콘텐츠로, 사용자에게 더 가까운 콘텐츠를 제공합니다.
 - 자동으로 갱신되는 **무료 SSL 인증서**.

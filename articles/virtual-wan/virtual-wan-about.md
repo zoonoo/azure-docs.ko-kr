@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 06/02/2021
 ms.author: cherylmc
-ms.openlocfilehash: ab54192480a1c36a27c175254d6d4d275b67c8b7
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 6bce9d2c39b792923f3c85e5eb42734f1a116a66
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835329"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076352"
 ---
 # <a name="what-is-azure-virtual-wan"></a>Azure Virtual WAN이란?
 
@@ -65,9 +65,7 @@ Virtual WAN 아키텍처 및 Virtual WAN으로 마이그레이션하는 방법�
 
 * **사이트:** 이 리소스는 사이트 간 연결에만 사용됩니다. 사이트 리소스는 **vpnsite** 입니다. 온-프레미스 VPN 디바이스와 해당 설정을 나타냅니다. Virtual WAN 파트너와 작업하여 이 정보를 Azure로 자동으로 내보내는 기본 제공 솔루션을 갖습니다.
 
-## <a name="types-of-connectivity"></a><a name="connectivity"></a>연결 유형
-
-Virtual WAN에서 허용하는 연결 유형은 사이트 간 VPN, 사용자 VPN(지점 및 사이트 간) 및 ExpressRoute입니다.
+## <a name="connectivity"></a><a name="connectivity"></a>연결
 
 ### <a name="site-to-site-vpn-connections"></a><a name="s2s"></a>사이트 간 VPN 연결
 
@@ -129,7 +127,7 @@ Azure Virtual WAN은 ExpressRoute 트래픽을 암호화하는 기능을 제공�
 
 ## <a name="faq"></a><a name="faq"></a>FAQ
 
-[!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
+자주 묻는 질문은 [Virtual WAN FAQ](virtual-wan-faq.md)를 참조하세요.
 
 ## <a name="whats-new"></a><a name="new"></a>새로운 기능
 

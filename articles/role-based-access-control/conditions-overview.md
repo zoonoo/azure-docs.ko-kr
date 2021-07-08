@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.author: rolyon
-ms.openlocfilehash: 8f2849500d46c48f62ee203b7e40176b618f514c
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 6919a5b94d9122f16084933574ffc88f8c9f1249
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489808"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847421"
 ---
 # <a name="what-is-azure-attribute-based-access-control-azure-abac-preview"></a>Azure ABAC(Azure 특성 기반 액세스 제어)는 무엇인가요? (미리 보기)
 
@@ -85,6 +85,10 @@ Chandra가 Project = Cascade 태그 없이 Blob을 읽으려고 하면 액세스
 
 ![조건에서 허용되지 않는 액세스의 다이어그램.](./media/conditions-overview/condition-access-multiple.png)
 
+Azure Portal에서 조건은 다음과 같습니다.
+
+![Blob 인덱스 태그 값이 포함된 식 섹션을 빌드합니다.](./media/shared/condition-expressions.png)
+
 코드에서 조건의 모양은 다음과 같습니다.
 
 ```
@@ -96,12 +100,16 @@ Chandra가 Project = Cascade 태그 없이 Blob을 읽으려고 하면 액세스
     )
     OR
     (
-        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'
+        @Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEqualsIgnoreCase 'Cascade'
     )
 )
 ```
 
 조건 형식에 대한 자세한 내용은 [Azure 역할 할당 조건 형식 및 구문](conditions-format.md)을 참조하세요.
+
+## <a name="conditions-and-privileged-identity-management-pim"></a>조건 및 PIM(Privileged Identity Management)
+
+PIM(Privileged Identity Management)을 사용하여 적격 역할 할당에 조건을 추가할 수도 있습니다. PIM을 사용하는 경우 최종 사용자가 특정 작업을 수행할 수 있는 권한을 얻기 위해 적격 역할 할당을 활성화해야 합니다. PIM의 조건을 통해 세분화된 조건을 사용하여 리소스에 대한 사용자의 액세스를 제한할 수 있을 뿐만 아니라 PIM을 사용하여 시간 제한 설정, 승인 워크플로, 감사 내역 등을 통해 리소스를 보호할 수 있습니다. 자세한 내용은 [Privileged Identity Management에서 Azure 리소스 역할 할당](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)을 참조하세요.
 
 ## <a name="terminology"></a>용어
 

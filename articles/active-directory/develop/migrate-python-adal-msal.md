@@ -14,16 +14,18 @@ ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: marsma, rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 60d6e40b568c1189cdc01ef4239612d3717063b7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4be4e9868d7c2bebf73e77b0b04140ce710214d1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104578841"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454023"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Python용 ADAL에서 MSAL 마이그레이션 가이드
 
 이 문서에서는 MSAL(Microsoft Authentication Library)을 사용하도록 ADAL(Azure Active Directory 인증 라이브러리)을 사용하는 앱을 마이그레이션하기 위해 변경해야 하는 사항을 강조합니다.
+
+MSAL에 대해 자세히 알아보고 [Microsoft 인증 라이브러리 개요](msal-overview.md)로 시작할 수 있습니다.
 
 ## <a name="difference-highlights"></a>주된 차이점
 
@@ -44,7 +46,7 @@ ADAL은 Azure AD(Azure Active Directory) v1.0 엔드포인트에서 작동합니
 
 ADAL Python은 리소스용 토큰을 획득하지만 MSAL Python은 범위 토큰을 획득합니다. MSAL Python의 API 표면에는 이제 리소스 매개 변수가 없습니다. 필요한 사용 권한 및 요청된 리소스를 선언하는 문자열의 목록으로 범위를 제공해야 합니다. 범위에 대한 몇 가지 예시를 보려면 [Microsoft Graph의 범위](/graph/permissions-reference)를 참조하세요.
 
-리소스에 `/.default` 범위 접미사를 추가하여 v.1.0 엔드포인트(ADAL)에서 MSAL(Microsoft ID 플랫폼)로 앱을 마이그레이션할 수 있습니다. 예를 들어 `https://graph.microsoft.com`의 리소스 값에 해당하는 범위 값은 `https://graph.microsoft.com/.default`입니다.  리소스가 URL 형식이 아닌 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 형식의 리소스 ID인 경우 범위 값을 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`으로 계속 사용할 수 있습니다.
+리소스에 `/.default` 범위 접미사를 추가하여 v.1.0 엔드포인트(ADAL)에서 MSAL(Microsoft ID 플랫폼)로 앱을 마이그레이션할 수 있습니다. 예를 들어 `https://graph.microsoft.com`의 리소스 값에 해당하는 범위 값은 `https://graph.microsoft.com/.default`입니다.  리소스가 URL 형식이 아닌 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX` 형식의 리소스 ID인 경우에서 범위 값을 `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`로 계속 사용할 수 있습니다.
 
 다양한 범위 형식에 대한 자세한 내용은 [Microsoft ID 플랫폼의 사용 권한 및 동의](./v2-permissions-and-consent.md) 및 [v1.0 토큰을 수락하는 웹 API에 대한 범위](./msal-v1-app-scopes.md)를 참조하세요.
 
@@ -58,11 +60,12 @@ Python용 Azure ADAL(Active Directory 인증 라이브러리)은 예외 `AdalErr
 
 | Python API용 ADAL  | Python API용 MSAL |
 | ------------------- | ---------------------------------- |
-| [AuthenticationContext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication 또는 ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)  |
-| 해당 없음  | [get_authorization_request_url()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
-| [acquire_token_with_authorization_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
-| [acquire_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
-| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | 해당 없음 |
+| [AuthenticationContext](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext)  | [PublicClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.__init__) 또는 [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.__init__)  |
+| 해당 없음  | [PublicClientApplication.acquire_token_interactive()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_interactive)  |
+| 해당 없음  | [ConfidentialClientApplication.initiate_auth_code_flow()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.initiate_auth_code_flow)  |
+| [acquire_token_with_authorization_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [ConfidentialClientApplication.acquire_token_by_auth_code_flow()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_by_auth_code_flow) |
+| [acquire_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [PublicClientApplication.acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_silent) 또는 [ConfidentialClientApplication.acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_silent) |
+| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | 이 두 도우미는 [마이그레이션](#migrate-existing-refresh-tokens-for-msal-python) 동안에만 사용됩니다. [PublicClientApplication.acquire_token_by_refresh_token()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_refresh_token) 또는 [ConfidentialClientApplication.acquire_token_by_refresh_token()](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_by_refresh_token) |
 | [acquire_user_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_user_code) | [initiate_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.initiate_device_flow) |
 | [acquire_token_with_device_code ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_device_code) 및 [cancel_request_to_get_token_with_device_code ()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.cancel_request_to_get_token_with_device_code) | [acquire_token_by_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow) |
 | [acquire_token_with_username_password()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_username_password) | [acquire_token_by_username_password()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password) |

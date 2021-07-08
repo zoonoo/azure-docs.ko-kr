@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 01/02/2021
 ms.custom: MVC
-ms.openlocfilehash: 97901b851353007d6b99dd39f4ecb36b7284eaf8
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 87bfb857aa8963de20b392b924e03e36c3b3fffd
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110470414"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439389"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -74,7 +74,7 @@ Azure 계정에 Virtual Machine 기여자 역할을 할당합니다. 다음 항�
 
 - 선택한 리소스 그룹에 VM 만들기
 - 선택한 가상 네트워크에 VM 만들기
-- Azure 관리 디스크에 씁니다. 
+- Azure 관리 디스크에 씁니다.
 
 ### <a name="create-an-azure-network"></a>Azure 네트워크 만들기
 
@@ -86,7 +86,7 @@ Azure VNet(Virtual Network)을 [설정](../virtual-network/manage-virtual-networ
 
 ### <a name="check-machine-requirements-for-migration"></a>마이그레이션에 대한 머신 요구 사항 확인
 
-머신에서 Azure로 마이그레이션하기 위한 요구 사항을 준수하는지 확인합니다. 
+머신에서 Azure로 마이그레이션하기 위한 요구 사항을 준수하는지 확인합니다.
 
 > [!NOTE]
 > 물리적 서버를 마이그레이션할 때 Azure Migrate: Server Migration은 Azure Site Recovery 서비스의 에이전트 기반 재해 복구와 동일한 복제 아키텍처를 사용하며, 일부 구성 요소는 동일한 코드 베이스를 공유합니다. 일부 콘텐츠는 Site Recovery 설명서에 연결될 수 있습니다.
@@ -94,15 +94,16 @@ Azure VNet(Virtual Network)을 [설정](../virtual-network/manage-virtual-networ
 1. 물리적 서버 요구 사항을 [확인](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
 2. Azure에 복제하는 온-프레미스 머신이 [Azure VM 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수하는지 확인합니다.
 3. VM을 Azure로 마이그레이션하기 전에 VM에서 몇 가지 사항을 변경해야 합니다.
-    - 일부 운영 체제의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다. 
-    - 이러한 변경은 마이그레이션을 시작하기 전에 수행해야 합니다. 변경하기 전에 VM을 마이그레이션하면 Azure에서 해당 VM이 부팅되지 않을 수 있습니다. 필요한 [Windows](prepare-for-migration.md#windows-machines) 및 [Linux](prepare-for-migration.md#linux-machines) 변경 사항을 검토해야 합니다.
+    - 일부 운영 체제의 경우 이러한 변경은 Azure Migrate에서 자동으로 수행합니다.
+    - 이러한 변경은 마이그레이션을 시작하기 전에 수행해야 합니다. 변경하기 전에 VM을 마이그레이션하면 Azure에서 해당 VM이 부팅되지 않을 수 있습니다.
+필요한 [Windows](prepare-for-migration.md#windows-machines) 및 [Linux](prepare-for-migration.md#linux-machines) 변경 사항을 검토해야 합니다.
 
 ### <a name="prepare-a-machine-for-the-replication-appliance"></a>복제 어플라이언스용 머신 준비
 
 Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사용하여 컴퓨터를 Azure에 복제합니다. 복제 어플라이언스에서 실행하는 구성 요소는 다음과 같습니다.
 
 - **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
-- **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 
+- **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다.
 
 다음과 같이 어플라이언스 배포를 준비합니다.
 
@@ -131,9 +132,9 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 5. **리소스 만들기** 를 클릭합니다. 그러면 Azure Site Recovery 자격 증명 모음이 백그라운드에서 만들어집니다.
     - 이미 Azure Migrate : Server Migration을 사용하여 마이그레이션을 설정한 경우 이전에 리소스가 설정되었으므로 대상 옵션을 구성할 수 없습니다.    
     - 이 단추를 클릭한 후에는 이 프로젝트의 대상 지역을 변경할 수 없습니다.
-    - 이후의 모든 마이그레이션은 이 지역으로 수행됩니다. 
+    - 이후의 모든 마이그레이션은 이 지역으로 수행됩니다.
     > [!NOTE]
-    > Azure Migrate 프로젝트를 만들 때 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음도 프라이빗 엔드포인트 연결을 위해 구성됩니다. 복제 어플라이언스에서 프라이빗 엔드포인트에 연결할 수 있는지 확인합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#troubleshoot-network-connectivity)
+    > Azure Migrate 프로젝트를 만들 때 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음도 프라이빗 엔드포인트 연결을 위해 구성됩니다. 복제 어플라이언스에서 프라이빗 엔드포인트에 연결할 수 있는지 확인합니다. [**자세한 정보**](troubleshoot-network-connectivity.md)
 
 6. **새 복제 어플라이언스를 설치하거나 기존 설치를 확장하시겠습니까?** 에서 **복제 어플라이언스 설치** 를 선택합니다.
 7. **복제 어플라이언스 소프트웨어를 다운로드하고 설치합니다.** 에서 어플라이언스 설치 관리자 및 등록 키를 다운로드합니다. 어플라이언스를 등록하려면 키가 필요합니다. 키는 다운로드한 후 5일 동안 유효합니다.
@@ -141,7 +142,8 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
     ![공급자 다운로드](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
 8. 어플라이언스 설정 파일 및 키 파일을 어플라이언스용으로 만든 Windows Server 2016 머신에 복사합니다.
-9. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다. 
+
+9. 설치가 완료되면 어플라이언스 구성 마법사가 자동으로 시작됩니다(어플라이언스의 바탕 화면에 만들어진 cspsconfigtool 바로 가기를 사용하여 마법사를 수동으로 시작할 수도 있음). 이 자습서에서는 Mobility Service를 복제할 원본 VM에 수동으로 설치하므로 이 단계에서 더미 계정을 만들어 계속 진행합니다. 더미 계정 만들 때 식별 이름으로 "guest", 사용자 이름으로 "username", 계정 암호로 "password"를 입력할 수 있습니다. 이 더미 계정은 복제 사용 단계에서 사용됩니다.
 
 10. 설치 후에 어플라이언스가 다시 시작되면 **머신 검색** 의 **구성 서버 선택** 에서 새 어플라이언스를 선택하고 **등록 완료** 를 클릭합니다. 등록 완료에서는 복제 어플라이언스를 준비하기 위한 몇 가지 최종 작업이 수행됩니다.
 
@@ -158,7 +160,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 1. 복제 어플라이언스에 로그인합니다.
 2. **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 로 이동합니다.
-3. 머신 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토하세요. 
+3. 머신 운영 체제 및 버전에 맞는 설치 관리자를 찾습니다. [지원되는 운영 체제](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines)를 검토하세요.
 4. 설치 관리자 파일을 마이그레이션하려는 머신에 복사합니다.
 5. 어플라이언스를 배포할 때 생성된 암호가 있는지 확인합니다.
     - 파일을 머신의 임시 텍스트 파일에 저장합니다.
@@ -206,7 +208,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 ## <a name="replicate-machines"></a>머신 복제
 
-이제 마이그레이션할 머신을 선택합니다. 
+이제 마이그레이션할 머신을 선택합니다.
 
 > [!NOTE]
 > 최대 10대의 머신을 함께 복제할 수 있습니다. 추가로 복제해야 하는 경우 10개씩 일괄 처리로 동시에 복제합니다.
@@ -230,17 +232,17 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 8. **대상 설정** 에서 마이그레이션할 구독 및 대상 지역을 선택하고, 마이그레이션 후 Azure VM이 상주할 리소스 그룹을 지정합니다.
 9. **Virtual Network** 에서 마이그레이션 후 Azure VM이 조인될 Azure VNet/서브넷을 선택합니다.   
-10. **캐시 스토리지 계정** 에서 프로젝트에 대해 자동으로 생성되는 캐시 스토리지 계정을 사용하는 기본 옵션을 유지합니다. 복제를 위해 캐시 스토리지 계정으로 사용할 다른 스토리지 계정을 지정하려는 경우 드롭다운을 사용하세요. <br/> 
+10. **캐시 스토리지 계정** 에서 프로젝트에 대해 자동으로 생성되는 캐시 스토리지 계정을 사용하는 기본 옵션을 유지합니다. 복제를 위해 캐시 스토리지 계정으로 사용할 다른 스토리지 계정을 지정하려는 경우 드롭다운을 사용하세요. <br/>
     > [!NOTE]
     >
     > - Azure Migrate 프로젝트의 연결 방법으로 프라이빗 엔드포인트를 선택한 경우 Recovery Services 자격 증명 모음에 캐시 스토리지 계정에 대한 액세스 권한을 부여합니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#grant-access-permissions-to-the-recovery-services-vault)
-    > - 개인 피어링에서 ExpressRoute를 사용하여 복제하려면 캐시 스토리지 계정에 대한 프라이빗 엔드포인트를 만듭니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional) 
-  
+    > - 개인 피어링에서 ExpressRoute를 사용하여 복제하려면 캐시 스토리지 계정에 대한 프라이빗 엔드포인트를 만듭니다. [**자세한 정보**](how-to-use-azure-migrate-with-private-endpoints.md#create-a-private-endpoint-for-the-storage-account-optional)
+
 11. **가용성 옵션** 에서 다음을 선택합니다.
     -  마이그레이션된 머신을 지역의 특정 가용성 영역에 고정하는 가용성 영역. 이 옵션을 사용하여 가용성 영역에서 다중 노드 애플리케이션 계층을 구성하는 서버를 배포합니다. 이 옵션을 선택하는 경우 Compute 탭에서 선택한 각 머신에 사용할 가용성 영역을 지정해야 합니다. 이 옵션은 마이그레이션을 위해 선택한 대상 지역이 가용성 영역을 지원하는 경우에만 사용할 수 있습니다.
     -  마이그레이션된 머신을 가용성 집합에 배치하기 위한 가용성 집합입니다. 이 옵션을 사용하려면 선택한 대상 리소스 그룹에 하나 이상의 가용성 집합이 있어야 합니다.
     - 마이그레이션된 머신에 대해 이러한 가용성 구성이 필요하지 않은 경우에는 인프라 중복이 필요하지 않습니다.
-    
+
 12. **디스크 암호화 유형** 에서 다음을 선택합니다.
     - 플랫폼 관리형 키를 사용하여 저장 데이터 암호화
     - 고객 관리형 키를 사용하여 미사용 데이터 암호화
@@ -248,7 +250,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
    > [!NOTE]
    > CMK를 사용하여 VM을 복제하려면 대상 리소스 그룹 아래에 [디스크 암호화 집합을 생성](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set)해야 합니다. 디스크 암호화 집합 개체는 SSE에 사용할 CMK가 포함된 Key Vault에 Managed Disks를 매핑됩니다.
-  
+
 13. **Azure 하이브리드 혜택** 에서
 
     - Azure 하이브리드 혜택을 적용하지 않으려면 **아니요** 를 선택합니다. 그런 후 **Next** 를 클릭합니다.
@@ -267,7 +269,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 15. **디스크** 에서 VM 디스크를 Azure에 복제해야 하는지 여부를 지정하고, Azure에서 디스크 유형(표준 SSD/HDD 또는 프리미엄 관리 디스크)을 선택합니다. 그런 후 **Next** 를 클릭합니다.
     - 디스크를 복제에서 제외할 수 있습니다.
-    - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다. 
+    - 디스크를 제외하는 경우 마이그레이션 후 Azure VM에 표시되지 않습니다.
 
     ![디스크 설정](./media/tutorial-migrate-physical-virtual-machines/disks.png)
 
@@ -278,7 +280,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 ## <a name="track-and-monitor"></a>추적 및 모니터링
 
-- **복제** 를 클릭하면 복제 시작 작업이 시작됩니다. 
+- **복제** 를 클릭하면 복제 시작 작업이 시작됩니다.
 - 복제 시작 작업이 완료되면 머신에서 Azure로의 초기 복제를 시작합니다.
 - 초기 복제가 완료되면 델타 복제가 시작됩니다. 온-프레미스 디스크에 대한 증분 변경 내용은 Azure의 복제본 디스크에 주기적으로 복제됩니다.
 
@@ -293,7 +295,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 
 델타 복제가 시작되면 Azure로 전체 마이그레이션을 실행하기 전에 VM에 대한 테스트 마이그레이션을 실행할 수 있습니다. 이 작업은 마이그레이션하기 전에 각 머신에 대해 한 번 이상 수행하는 것이 좋습니다.
 
-- 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다. 
+- 테스트 마이그레이션을 실행하면 작동 상태를 유지하고 복제를 계속하는 온-프레미스 머신에 영향을 주지 않고 마이그레이션이 예상대로 작동하는지 확인합니다.
 - 테스트 마이그레이션은 복제된 데이터를 사용하여 Azure VM을 만들어 마이그레이션을 시뮬레이션합니다(일반적으로 Azure 구독에서 비프로덕션 VNet으로 마이그레이션).
 - 복제된 테스트 Azure VM을 사용하여 마이그레이션의 유효성을 검사하고, 애플리케이션 테스트를 수행하며, 전체 마이그레이션을 수행하기 전에 문제를 해결할 수 있습니다.
 
@@ -314,7 +316,10 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 6. 테스트가 완료되면 **머신 복제 중** 에서 마우스 오른쪽 단추로 Azure VM을 클릭하고, **테스트 마이그레이션 정리** 를 클릭합니다.
 
     ![마이그레이션 정리](./media/tutorial-migrate-physical-virtual-machines/clean-up.png)
-
+    > [!NOTE]
+    > 이제 SQL IaaS 에이전트 확장을 사용하여 자동화된 패치, 자동화된 백업 및 간소화된 라이선스 관리를 활용하기 위해 SQL Server를 실행하는 서버를 SQL VM RP에 등록할 수 있습니다.
+    >- **관리** > **복제 서버** > **SQL 서버를 포함한 머신** > **컴퓨팅 및 네트워크** 를 선택하고 **예** 를 선택하여 SQL VM RP에 등록합니다.
+    >- 활성 Software Assurance 또는 SQL Server 구독이 적용되는 SQL Server 인스턴스가 있고 마이그레이션할 머신에 이 혜택을 적용하려면 SQL Server에 대한 Azure 하이브리드 혜택을 선택합니다.
 
 ## <a name="migrate-vms"></a>VM 마이그레이션
 
@@ -327,7 +332,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 2. **머신 복제 중** 에서 마우스 오른쪽 단추로 VM > **마이그레이션** 을 차례로 클릭합니다.
 3. **마이그레이션** > **가상 머신을 종료하고 데이터 손실 없이 계획된 마이그레이션을 수행하시겠습니까?** 에서 **예** > **확인** 을 차례로 선택합니다.
     - VM을 종료하지 않으려면 **아니요** 를 선택합니다.
-    
+
     참고: 물리적 서버 마이그레이션의 경우 애플리케이션을 마이그레이션 창 의 일부로 중단(애플리케이션에서 연결을 허용하지 않음)한 다음, 마이그레이션이 완료되기 전에 마이그레이션을 시작하는 것이 좋습니다(서버를 계속 실행해야 하므로 나머지 변경 내용을 동기화할 수 있음).
 
 4. VM에 대한 마이그레이션 작업이 시작됩니다. Azure 알림에서 작업을 추적합니다.
@@ -345,7 +350,7 @@ Azure Migrate: 서버 마이그레이션에서 복제 어플라이언스를 사�
 5. 트래픽을 마이그레이션된 Azure VM 인스턴스로 전환합니다.
 6. 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
 7. 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
-8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다. 
+8. 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
 
 ## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 

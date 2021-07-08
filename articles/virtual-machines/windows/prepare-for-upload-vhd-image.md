@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
-ms.openlocfilehash: 573f97c7f592186173b13ea592d151ee291b8249
-ms.sourcegitcommit: f5448fe5b24c67e24aea769e1ab438a465dfe037
+ms.openlocfilehash: 8315c2fa094f1d12a788d42a336cb01feb58c6c9
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105967968"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450279"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -223,19 +223,19 @@ Get-Service -Name Netlogon, Netman, TermService |
 
    ```powershell
    Enable-PSRemoting -Force
-   Set-NetFirewallRule -DisplayName 'Windows Remote Management (HTTP-In)' -Enabled True
+   Set-NetFirewallRule -Name WINRM-HTTP-In-TCP, WINRM-HTTP-In-TCP-PUBLIC -Enabled True
    ```
 
 1. 다음 방화벽 규칙을 사용하도록 설정하여 RDP 트래픽을 허용합니다.
 
    ```powershell
-   Set-NetFirewallRule -DisplayGroup 'Remote Desktop' -Enabled True
+   Set-NetFirewallRule -Group '@FirewallAPI.dll,-28752' -Enabled True
    ```
 
 1. VM이 가상 네트워크 내의 ping 요청에 응답할 수 있도록 파일 및 프린터 공유에 대한 규칙을 사용하도록 설정합니다.
 
    ```powershell
-   Set-NetFirewallRule -DisplayName 'File and Printer Sharing (Echo Request - ICMPv4-In)' -Enabled True
+   Set-NetFirewallRule -Name FPS-ICMP4-ERQ-In -Enabled True
    ```
 
 1. Azure 플랫폼 네트워크의 규칙을 만듭니다.
@@ -314,10 +314,23 @@ VM이 정상이고 보안이 유지되고 있으며 RDP에 액세스할 수 있�
 
    리포지토리가 손상된 경우 [WMI: 리포지토리 손상 여부](https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484)를 참조하세요.
 
-1. 다른 애플리케이션이 포트 3389를 사용하고 있지 않은지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용되는 포트를 확인하려면 `netstat.exe -anob` 명령을 실행합니다.
+1. TermService 이외의 다른 애플리케이션에서 포트 3389를 사용하고 있지 않은지 확인합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용되는 포트를 확인하려면 `netstat.exe -anob` 명령을 실행합니다.
 
    ```powershell
    netstat.exe -anob
+   ```
+   
+   다음은 예제입니다.
+
+   ```powershell
+   netstat.exe -anob | findstr 3389
+   TCP    0.0.0.0:3389           0.0.0.0:0              LISTENING       4056
+   TCP    [::]:3389              [::]:0                 LISTENING       4056
+   UDP    0.0.0.0:3389           *:*                                    4056
+   UDP    [::]:3389              *:*                                    4056
+
+   tasklist /svc | findstr 4056
+   svchost.exe                   4056 TermService
    ```
 
 1. 다음을 수행하여 도메인 컨트롤러인 Windows VHD를 업로드합니다.
@@ -462,6 +475,14 @@ Windows 기반 컴퓨터에 설치된 모든 역할 또는 애플리케이션이
 1. 다음 Azure 요구 사항에 맞게 가상 디스크의 크기를 조정합니다.
 
    1. Azure의 디스크는 가상 크기가 1MiB로 맞추어져야 합니다. VHD가 1MiB의 분수인 경우 디스크 크기를 1MiB의 배수로 조정해야 합니다. 디스크가 MiB의 분수이면 업로드된 VHD에서 이미지를 만들 때 오류가 발생합니다. 크기를 확인하려면 PowerShell [Get-VHD](/powershell/module/hyper-v/get-vhd) cmdlet을 사용하여 Azure에서 1MiB의 배수여야 하는 "Size"와 VHD 바닥글의 "Size"에 512바이트를 더한 값인 "FileSize"를 표시할 수 있습니다.
+   
+      ```powershell
+      $vhd = Get-VHD -Path C:\test\MyNewVM.vhd
+      $vhd.Size % 1MB
+      0
+      $vhd.FileSize - $vhd.Size
+      512
+      ```
    
    1. 1세대 VM에서 OS VHD에 허용되는 최대 크기는 2048GiB(2TiB)입니다. 
    1. 데이터 디스크의 최대 크기는 32767GiB(32TiB)입니다.

@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 89e288d1186efd405019d6474dcbd332e7925d67
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 98bff6a72d35e2cee3157b997796bbe51795e1ea
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787378"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677858"
 ---
 # <a name="tutorial-tune-the-opc-publisher-performance-and-memory"></a>자습서: OPC 게시자 성능 및 메모리 튜닝
 
@@ -33,7 +33,7 @@ ms.locfileid: "104787378"
 
 * IoT Hub 보내기 간격 줄이기(`si`)
 
-* IoT Hub 메시지 크기 늘리기(`ms`, 설정할 수 있는 최댓값은 256KB임)
+* IoT Hub 메시지 크기를 늘립니다(`ms`, 설정할 수 있는 최댓값은 256KB임). 버전 2.7 이상에서 기본값은 이미 256KB로 설정되어 있습니다.
 
 `si` 및 `ms` 매개 변수를 조정한 경우에도 큐가 계속 증가하면 결국 최대 큐 용량에 도달하고 메시지가 손실됩니다. 이는 `si` 및 `ms` 매개 변수 모두에 물리적 제한이 있고, OPC 게시자와 IoT Hub 간의 인터넷 연결이 지정된 시나리오에서 보내야 하는 메시지 수에 비해 충분히 빠르지 않기 때문입니다. 이 경우 여러 개의 병렬 OPC 게시자를 설정하는 것만 도움이 됩니다. `mq/om` 매개 변수도 OPC 게시자의 메모리 사용량에 가장 큰 영향을 줍니다. 
 
@@ -41,7 +41,7 @@ ms.locfileid: "104787378"
 
 `ms` 매개 변수를 사용하면 IoT Hub에 보내는 메시지를 일괄 처리할 수 있습니다. 대부분의 네트워크 설정에서 단일 메시지를 IoT Hub에 보내는 대기 시간은 페이로드를 전송하는 데 걸리는 시간에 비해 높습니다. 이는 주로 IoT Hub에서 처리한 후에만 메시지를 승인하는 QoS(서비스 품질) 요구 사항 때문입니다. 따라서 IoT Hub에 도달하는 데이터에 대한 지연이 허용되는 경우 `ms` 매개 변수를 0으로 설정하여 최대 메시지 크기인 256KB를 사용하도록 OPC 게시자를 구성해야 합니다. 이는 OPC 게시자를 사용하는 가장 비용 효율적인 방법이기도 합니다.
 
-기본 구성은 10초마다(`si=10`) 또는 256KB의 IoT Hub 메시지 데이터를 사용할 수 있는 경우(`ms=0`) 데이터를 IoT Hub에 보냅니다. 이렇게 하면 최대 10초의 지연이 추가되지만 큰 메시지 크기로 인해 데이터가 손실될 가능성은 낮습니다. OPC 게시자 버전 2.5 이하의 `monitored item notifications enqueue failure` 및 OPC 게시자 버전 2.7의 `messages lost` 메트릭은 손실된 메시지 수를 표시합니다.
+버전 2.5에서 기본 구성은 10초마다(`si=10`) 또는 256KB의 IoT Hub 메시지 데이터를 사용할 수 있는 경우(`ms=0`) 데이터를 IoT Hub에 보냅니다. 이렇게 하면 최대 10초의 지연이 추가되지만 큰 메시지 크기로 인해 데이터가 손실될 가능성은 낮습니다. 버전 2.7 이상에서 기본 구성은 오케스트레이션 모드의 경우 500ms이고 독립 실행형 모드의 경우 0입니다(전송 간격 없음). OPC 게시자 버전 2.5 이하의 `monitored item notifications enqueue failure` 및 OPC 게시자 버전 2.7의 `messages lost` 메트릭은 손실된 메시지 수를 표시합니다.
 
 `si` 및 `ms` 매개 변수가 모두 0으로 설정되면 OPC 게시자에서 데이터를 사용할 수 있는 즉시 메시지를 IoT Hub에 보냅니다. 이로 인해 평균 IoT Hub 메시지 크기가 200바이트를 조금 초과합니다. 그러나 이 구성의 장점은 OPC 게시자에서 연결된 자산의 데이터를 지연 없이 보낸다는 것입니다. 많은 양의 데이터를 게시해야 하는 사용 사례의 경우 손실된 메시지 수가 많아지므로 이러한 시나리오에서는 이 구성을 사용하지 않는 것이 좋습니다.
 

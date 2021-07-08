@@ -7,14 +7,14 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/12/2021
+ms.date: 05/27/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 665944688533b4efa6e0e14077ae7df22d352d50
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: dbc82773128aec58202821827be16bdf5d80260a
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108123630"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110665179"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -40,7 +40,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
 
 * [Azure Storage Explorer](https://storageexplorer.com/)(선택 사항).
 
-* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이 링크의 단계에 따라 애플리케이션을 만들고 동일한 문서의 지침에 따라 **기여자** 역할에 할당합니다. 이후 단계에서 사용할 문서에 표시된 대로 **애플리케이션 ID(아래 서비스 주체 ID), 인증 키(아래 클라이언트 암호) 및 테넌트 ID** 값을 기록해 둡니다.
+* [Azure Active Directory의 애플리케이션](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). 이 링크의 단계에 따라 인증 옵션 2(애플리케이션 비밀)를 사용하여 애플리케이션을 만들고 동일한 문서의 지침에 따라 **기여자** 역할에 애플리케이션을 할당합니다. 이후 단계에서 사용할 문서에 표시된 대로 **애플리케이션(클라이언트) ID, 클라이언트 암호 값 및 테넌트 ID** 값을 기록해 둡니다.
 
 ## <a name="create-and-upload-an-input-file"></a>입력 파일 만들기 및 업로드
 
@@ -139,7 +139,7 @@ Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레�
         df_name = '<factory name>'
 
         # Specify your Active Directory client ID, client secret, and tenant ID
-        credentials = ClientSecretCredential(client_id='<service principal ID>', client_secret='<service principal key>', tenant_id='<tenant ID>') 
+        credentials = ClientSecretCredential(client_id='<Application (client) ID>', client_secret='<client secret value>', tenant_id='<tenant ID>') 
         
         # Specify following for Soverign Clouds, import right cloud constant and then use it to connect.
         # from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD as CLOUD

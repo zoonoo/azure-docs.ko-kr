@@ -8,14 +8,14 @@ ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 02/02/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 7d31201f9d1a4519538aba3ac57ddfd340d936d1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3ca078bd712d711f4c8883360eb121287662a16
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99509404"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018354"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-using-the-javascript-sdk"></a>빠른 시작: JavaScript SDK를 사용하여 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -607,9 +607,8 @@ console.log(`HotelId: ${documentResult.HotelId}; HotelName: ${documentResult.Hot
 
 ## <a name="next-steps"></a>다음 단계
 
-이 JavaScript 빠른 시작에서는 인덱스를 만들고, 이를 문서와 함께 로드하고, 쿼리를 실행하는 일련의 작업을 수행했습니다. 
+이 JavaScript 빠른 시작에서는 인덱스를 만들고, 이를 문서와 함께 로드하고, 쿼리를 실행하는 일련의 작업을 수행했습니다. 학습을 계속하려면 제안기(자동 완성 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시도하기 위한 발판으로 다음 자습서 및 샘플을 사용해 보세요. 
 
-Azure Cognitive Search에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters(사전 입력 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시작할 수 있습니다. Azure Cognitive Search를 처음 접하는 경우 다른 자습서를 통해 만들 수 있는 항목에 대한 자세히 알아보세요. 더 많은 리소스를 보려면 [설명서 페이지](https://azure.microsoft.com/documentation/services/search/) 를 방문하세요. 
++ [자습서: 웹앱에 검색 추가](tutorial-csharp-overview.md)
 
-> [!div class="nextstepaction"]
-> [Azure Cognitive Search에 대한 React 프런트 엔드 빌드](https://github.com/dereklegenzoff/azure-search-react-template)
++ [샘플: Azure Cognitive Search에 대한 React 프런트 엔드 빌드](https://github.com/dereklegenzoff/azure-search-react-template)

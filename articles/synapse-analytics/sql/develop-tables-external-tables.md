@@ -9,28 +9,28 @@ ms.subservice: sql
 ms.date: 04/26/2021
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41825ceed38203c88ddfc28eca9a738663b9d7e6
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fad0da60ab19a8614e25a56701c5ee2d1a80548c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110378669"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111410516"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Synapse SQL에서 외부 테이블 사용
 
 외부 테이블은 Hadoop, Azure Storage Blob 또는 Azure Data Lake Storage에 있는 데이터를 가리킵니다. 외부 테이블은 Azure Storage의 파일에서 데이터를 읽거나 쓰는 데 사용됩니다. Synapse SQL에서는 전용 SQL 풀 또는 서버리스 SQL 풀을 사용하여 외부 테이블로 데이터를 읽고 쓸 수 있습니다.
 
 외부 데이터 원본의 유형에 따라 다음과 같은 두 가지 유형의 외부 테이블을 사용할 수 있습니다.
-- CSV, Parquet 및 ORC와 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 Hadoop 외부 테이블. Hadoop 외부 테이블은 전용 Synapse SQL 풀에서 사용할 수 있지만 서버리스 SQL 풀에서는 사용할 수 없습니다.
-- CSV 및 Parquet과 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 네이티브 외부 테이블. 네이티브 외부 테이블은 서버리스 Synapse SQL 풀에서 사용할 수 있으며 전용 SQL 풀에서는 미리 보기 상태입니다.
+- CSV, Parquet 및 ORC와 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 Hadoop 외부 테이블. Hadoop 외부 테이블은 전용 SQL 풀에서 사용할 수 있지만 서버리스 SQL 풀에서는 사용할 수 없습니다.
+- CSV 및 Parquet과 같은 다양한 데이터 형식의 데이터를 읽고 내보낼 수 있는 네이티브 외부 테이블. 네이티브 외부 테이블은 서버리스 SQL 풀에서 사용할 수 있으며 전용 Synapse SQL 풀에서는 미리 보기 상태입니다.
 
 Hadoop과 네이티브 외부 테이블의 주요 차이점은 다음 표에 정리되어 있습니다.
 
 | 외부 테이블 유형 | Hadoop은 | 기본 |
 | --- | --- | --- |
-| 전용 SQL 풀 | 사용 가능 | Parquet 테이블은 **제어된 미리 보기** 로 제공됩니다. 전용 풀이 미리 보기에 참여할 수 있는지 확인하려면 Microsoft 기술 계정 관리자 또는 클라우드 솔루션 설계자에게 문의하세요. |
+| 전용 SQL 풀 | 사용 가능 | Parquet 테이블은 **제어된 미리 보기** 로 제공됩니다. 전용 SQL 풀을 제어된 미리 보기에 추가할 수 있는지 확인하려면 Microsoft 기술 계정 관리자 또는 클라우드 솔루션 설계자에게 문의하세요. |
 | 서버리스 SQL 풀 | 사용할 수 없음 | 사용 가능 |
-| 지원되는 형식 | 구분 기호로 분리됨/CSV, Parquet, ORC, Hive RC 및 RC | 서버리스 풀: 구분 기호로 분리됨/CSV, Parquet 및 Delta Lake(미리 보기)<br/>전용 풀: Parquet |
+| 지원되는 형식 | 구분 기호로 분리됨/CSV, Parquet, ORC, Hive RC 및 RC | 서버리스 SQL 풀: 구분됨/CSV, Parquet 및 Delta Lake(미리 보기)<br/>전용 SQL 풀: Parquet |
 | 폴더 파티션 제거 | No | Synapse 작업 영역의 Apache Spark 풀에서 서버리스 SQL 풀과 동기화된 분할된 테이블에만 해당 |
 | 위치의 사용자 지정 형식 | 예 | 예. `/year=*/month=*/day=*`와 같은 와일드카드 사용 |
 | 재귀 폴더 검색 | No | 위치 경로의 끝에 `/**`가 지정된 경우 서버리스 SQL 풀에만 해당 |

@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6cbfa01788f1897264b4197798aa5879cf724db3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 93b5d7059c1d19b3e5130a8e6d360655fa210aba
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104770957"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555955"
 ---
 # <a name="tutorial-use-net-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: .NET 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
-Azure Blob 스토리지에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 사용되는 새 콘텐츠를 만들 수 있습니다. 
+Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 사용되는 새 콘텐츠를 만들 수 있습니다. 
 
 이 자습서에서는 다음 작업 방법을 배웁니다.
 
@@ -50,7 +50,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="download-sample-data"></a>샘플 데이터 다운로드
 
-샘플 데이터는 이후 단계에서 Azure Blob 스토리지에 업로드할 혼합 콘텐츠 형식의 14개 파일로 구성되어 있습니다.
+샘플 데이터는 이후 단계에서 Azure Blob Storage에 업로드할 혼합 콘텐츠 형식의 14개 파일로 구성되어 있습니다.
 
 1. 이 [OneDrive 폴더](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 열고, 왼쪽 위 모서리에서 **다운로드** 를 클릭하여 파일을 컴퓨터에 복사합니다. 
 
@@ -60,7 +60,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고 AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
+이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고, AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고, Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
 
 가능하면, 근접성과 관리 효율성을 위해 두 가지 모두를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
@@ -297,7 +297,7 @@ SearchIndexerDataSourceConnection dataSource = CreateOrUpdateDataSource(indexerC
 
 * [텍스트 나누기](cognitive-search-skill-textsplit.md): 핵심 구 추출 기술과 엔터티 인식 기술을 호출하기 전에 큰 콘텐츠를 작은 청크로 나눕니다. 핵심 구 추출 및 엔터티 인식은 50,000자 이하의 입력을 허용합니다. 일부 샘플 파일은 이 제한에 맞게 분할해야 합니다.
 
-* [엔터티 인식](cognitive-search-skill-entity-recognition.md): Blob 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
+* [엔터티 인식](cognitive-search-skill-entity-recognition-v3.md): Blob 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
 
 * [핵심 구 추출](cognitive-search-skill-keyphrases.md): 상위 핵심 구를 추출합니다.
 

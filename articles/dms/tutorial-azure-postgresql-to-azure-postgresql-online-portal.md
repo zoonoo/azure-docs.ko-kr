@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 996523d507f0a4f2850e936df39a38769bc47cde
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2f372e72b423db17e1c11907b4a41d65c9fba2fd
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101091293"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950784"
 ---
 # <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 Azure DB for PostgreSQL - 단일 서버를 Azure DB for PostgreSQL - 단일 서버로 온라인 마이그레이션/업그레이드
 
@@ -40,7 +40,7 @@ Azure Database Migration Service를 사용하면 가동 중지 시간을 최소�
 > 최적의 마이그레이션 환경을 위해 Microsoft는 대상 데이터베이스와 동일한 Azure 지역에서 Azure Database Migration Service의 인스턴스를 만드는 것을 권장합니다. 영역 또는 지역 간에 데이터를 이동하면 마이그레이션 프로세스 속도가 저하되고 오류가 발생할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure Database for PostgreSQL에서 마이그레이션은 PostgreSQL 버전 10 이상에서 지원됩니다. 이 자습서를 사용하여 한 Azure Database for PostgreSQL 인스턴스에서 다른 Azure Database for PostgreSQL 인스턴스 또는 하이퍼스케일(Citus) 인스턴스로 마이그레이션할 수도 있습니다.
+> Azure Database for PostgreSQL에서 마이그레이션은 PostgreSQL 버전 9.x 이상에서 지원됩니다. 이 자습서를 사용하여 한 Azure Database for PostgreSQL 인스턴스에서 다른 Azure Database for PostgreSQL 인스턴스 또는 하이퍼스케일(Citus) 인스턴스로 마이그레이션할 수도 있습니다. PostgreSQL 9.5 및 9.6에서 마이그레이션하려면 원본 인스턴스에서 [추가 논리적 복제 권한](#run-the-migration)이 필요합니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

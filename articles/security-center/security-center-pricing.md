@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 03/23/2021
-ms.openlocfilehash: aa65989953f761ff915383fcb59da7f36ea98dab
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.date: 06/10/2021
+ms.openlocfilehash: 13f5bb8245ecc57c01d4236dfea7c9e4a2f7ae75
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107600485"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986321"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center 무료 및 Azure Defender 사용 비교
 Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
@@ -87,7 +87,9 @@ Security Center에는 다음 두 가지 제품이 있습니다.
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?
 Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 라이선스의 해당 부분에 대해 비용을 지불할 필요가 없습니다.
 
-할인을 확인하려면 Security Center 지원 팀에 문의하고 관련 작업 영역 ID, 지역 및 각 관련 라이선스에 대한 라이선스 정보를 제공하세요.
+할인을 요청하려면 Security Center 지원 팀에 문의하고 지정된 작업 영역의 머신에 적용된 엔드포인트용 Microsoft Defender 라이선스의 관련 작업 영역 ID, 지역 및 개수를 제공합니다.
+
+할인은 승인 날짜부터 적용되며 소급해서 적용되지 않습니다.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Azure Defender를 내 구독의 서버에 사용하도록 설정했습니다. 실행되지 않는 서버에 대해 비용을 지불하나요? 
 아니요. 구독에서 [서버에 대해 Azure Defender](defender-for-servers-introduction.md)를 사용하도록 설정하면 해당 상태에 있는 동안 할당 취소된 전원 상태에 있는 모든 머신에 대해 요금이 청구되지 않습니다. 머신은 다음 표에 표시된 대로 전원 상태에 따라 요금이 청구됩니다.
@@ -107,10 +109,10 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 예. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 Log Analytics 에이전트를 설치하지 않은 경우에도 해당 구독의 컴퓨터는 다양한 보호를 받습니다.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 요금이 두 번 청구되나요? 
-예. 데이터를 둘 이상의 서로 다른 Log Analytics 작업 영역에 보내도록(멀티호밍) Log Analytics 에이전트를 구성한 경우 '보안' 또는 '맬웨어 방지' 솔루션이 설치된 모든 작업 영역에 대해 요금이 청구됩니다. 
+예. 데이터를 둘 이상의 서로 다른 Log Analytics 작업 영역에 보내도록 Log Analytics 에이전트를 구성한 경우(멀티 호밍(multi-homing)) ‘보안’ 또는 ‘맬웨어 방지’ 솔루션이 설치된 모든 작업 영역에 대해 요금이 청구됩니다. 
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Log Analytics 에이전트에서 여러 작업 영역에 보고하는 경우 모든 작업 영역에서 500MB의 무료 데이터 수집을 사용할 수 있나요?
-예. 데이터를 둘 이상의 서로 다른 Log Analytics 작업 영역에 보내도록(멀티호밍) Log Analytics 에이전트를 구성한 경우 500MB의 데이터를 무료로 수집할 수 있습니다. 노드, 보고된 작업 영역 및 하루 단위로 계산되며, '보안' 또는 '맬웨어 방지' 솔루션이 설치된 모든 작업 영역에서 사용할 수 있습니다. 500MB를 초과하여 수집되는 데이터에 대해서는 요금이 청구됩니다.
+예. 데이터를 둘 이상의 서로 다른 Log Analytics 작업 영역에 보내도록(멀티호밍) Log Analytics 에이전트를 구성한 경우 500MB의 데이터를 무료로 수집할 수 있습니다. 노드, 보고된 작업 영역, 하루 단위로 계산되며, ‘보안’ 또는 ‘맬웨어 방지’ 솔루션이 설치된 모든 작업 영역에서 사용할 수 있습니다. 500MB 제한을 초과하여 수집되는 모든 데이터에 대해 요금이 청구됩니다.
 
 ### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>500MB의 무료 데이터 수집이 전체 작업 영역에 계산됩니까, 아니면 머신별로 계산됩니까?
 작업 영역에 연결된 모든 머신에 대해 매일 500MB의 무료 데이터 수집이 가능합니다. 특히 Azure Security Center에서 직접 수집하는 보안 데이터 유형에 적합합니다.
@@ -120,7 +122,6 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 ### <a name="what-data-types-are-included-in-the-500-mb-data-daily-allowance"></a>하루에 500MB 데이터를 허용하는 데이터 형식은 무엇입니까?
 
 Security Center의 대금 청구는 Log Analytics 대금 청구와 밀접하게 연관되어 있습니다. Security Center는 다음과 같은 [보안 데이터 형식](/azure/azure-monitor/reference/tables/tables-category#security) 하위 집합에 대해 노드당 하루 500MB의 할당량을 제공합니다.
-- WindowsEvent
 - SecurityAlert
 - SecurityBaseline
 - SecurityBaselineSummary
@@ -128,7 +129,6 @@ Security Center의 대금 청구는 Log Analytics 대금 청구와 밀접하게 
 - SecurityEvent
 - WindowsFirewall
 - MaliciousIPCommunication
-- LinuxAuditLog
 - SysmonEvent
 - ProtectionStatus
 - 업데이트 관리 솔루션이 작업 영역에서 실행되고 있지 않거나 솔루션 대상 지정을 사용하는 경우 Update 및 UpdateSummary 데이터 형식

@@ -1,0 +1,148 @@
+- name: Bicep 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Bicep이란?
+      href: overview.md
+    - name: JSON 및 Bicep 비교
+      href: compare-template-syntax.md
+- name: 설치
+  items:
+    - name: Bicep 도구 설치
+      href: install.md
+- name: 빠른 시작
+  items:
+    - name: Bicep 템플릿 만들기 - VS Code
+      href: quickstart-create-bicep-use-visual-studio-code.md
+- name: 자습서
+  items:
+    - name: Microsoft Learn - Bicep
+      href: learn-bicep.md
+- name: 방법
+  items:
+    - name: 작성자
+      items:
+        - name: 리소스
+          items:
+            - name: 리소스 선언
+              href: resource-declaration.md
+            - name: 조건부 배포
+              href: conditional-resource-deployment.md
+            - name: 자식 리소스 이름 및 유형
+              href: child-resource-name-type.md
+            - name: 확장 리소스
+              href: scope-extension-resources.md
+        - name: 매개 변수
+          href: parameters.md
+        - name: variables
+          href: variables.md
+        - name: outputs
+          href: outputs.md
+        - name: 모듈
+          href: modules.md
+        - name: 루프
+          items:
+            - name: 리소스
+              displayName: 'iteration,copy,multiple'
+              href: loop-resources.md
+            - name: 속성
+              displayName: 'iteration,copy,multiple'
+              href: loop-properties.md
+            - name: variables
+              displayName: 'iteration,copy,multiple'
+              href: loop-variables.md
+            - name: outputs
+              displayName: 'iteration,copy,multiple'
+              href: loop-outputs.md
+        - name: 범위
+          items:
+            - name: Resource group
+              href: deploy-to-resource-group.md
+            - name: Subscription
+              href: deploy-to-subscription.md
+            - name: 관리 그룹
+              href: deploy-to-management-group.md
+            - name: 테넌트
+              href: deploy-to-tenant.md
+        - name: 모범 사례
+          href: best-practices.md
+    - name: 배포
+      items:
+        - name: 배포 전 검사
+          items:
+            - name: 가상 배포
+              href: deploy-what-if.md
+        - name: 배포 명령
+          items:
+            - name: 배포 - CLI
+              href: deploy-cli.md
+            - name: 배포 - PowerShell
+              href: deploy-powershell.md
+            - name: 배포 - Cloud Shell
+              href: deploy-cloud-shell.md
+        - name: 매개 변수
+          items:
+            - name: 매개 변수 파일 만들기
+              href: parameter-files.md
+            - name: 중요한 값 전달
+              displayname: key vault
+              href: key-vault-parameter.md
+        - name: CI/CD
+          items:
+            - name: 파이프라인이 있는 Bicep
+              href: add-template-to-azure-pipelines.md
+            - name: GitHub Actions를 사용하는 Bicep
+              href: deploy-github-actions.md
+    - name: Bicep CLI 사용
+      items:
+        - name: 디컴파일
+          href: decompile.md
+- name: 참조
+  items:
+    - name: Bicep 파일 구조
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: file.md
+    - name: 데이터 형식
+      href: data-types.md
+    - name: 함수
+      items:
+        - name: 모든 함수
+          href: bicep-functions.md
+        - name: 모든 함수
+          href: bicep-functions-any.md
+        - name: 배열 함수
+          href: bicep-functions-array.md
+        - name: 날짜 함수
+          href: bicep-functions-date.md
+        - name: 배포 함수
+          href: bicep-functions-deployment.md
+        - name: 논리 함수
+          href: bicep-functions-logical.md
+        - name: 숫자 함수
+          href: bicep-functions-numeric.md
+        - name: 개체 함수
+          href: bicep-functions-object.md
+        - name: 리소스 함수
+          href: bicep-functions-resource.md
+        - name: 범위 함수
+          href: bicep-functions-scope.md
+        - name: 문자열 함수
+          href: bicep-functions-string.md
+    - name: 연산자
+      items:
+        - name: 모든 연산자
+          href: operators.md
+        - name: 비교 연산자
+          href: operators-comparison.md
+        - name: 논리 연산자
+          href: operators-logical.md
+        - name: 숫자 연산자
+          href: operators-numeric.md
+    - name: Bicep CLI
+      href: bicep-cli.md
+    - name: 템플릿 참조
+      href: /azure/templates/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: Azure CLI
+      href: /cli/azure/resource

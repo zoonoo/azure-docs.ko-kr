@@ -6,14 +6,14 @@ author: amitbapat
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 01e96922d9c0c47eaf4d430e92eafcd9d0964e13
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a9594157349754c7178f3c73cfe9529ad478de4a
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105557227"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411020"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>관리형 HSM 로컬 RBAC 기본 제공 역할
 
@@ -28,7 +28,7 @@ ms.locfileid: "105557227"
 |관리형 HSM Crypto 사용자|삭제된 키 제거 또는 복구 및 내보내기를 제외한 모든 키 관리 작업을 수행할 수 있는 권한을 부여합니다.|21dbd100-6940-42c2-9190-5d6cb909625b|
 |관리형 HSM 정책 관리자| 역할 할당을 만들고 삭제할 수 있는 권한을 부여합니다.|4bd23610-cdcf-4971-bdee-bdc562cc28e4|
 |관리형 HSM Crypto 감사자|키 특성을 읽을 수 있는(사용하지 않음) 읽기 권한을 부여합니다.|2c18b078-7c48-4d3a-af88-5a3a1b3f82b3|
-|관리형 HSM Crypto Service 암호화| 서비스 암호화를 위해 키를 사용할 수 있는 권한을 부여합니다. |33413926-3206-4cdd-b39a-83574fe37a17|
+|관리형 HSM Crypto Service 암호화 사용자| 서비스 암호화를 위해 키를 사용할 수 있는 권한을 부여합니다. |33413926-3206-4cdd-b39a-83574fe37a17|
 |관리형 HSM 백업| 단일 키 또는 전체 HSM 백업을 수행할 수 있는 권한을 부여합니다.|7b127d3c-77bd-4e3e-bbe0-dbb8971fa7f8|
 
 ## <a name="permitted-operations"></a>허용된 연산

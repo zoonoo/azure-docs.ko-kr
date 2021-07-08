@@ -6,12 +6,12 @@ ms.author: chrhar
 ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: fb1c1d64d77ca1c69960b77cbec7f60bb717c26c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 63bbc978f4927dc6922d92e1f339282f74e4fb4e
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108143524"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814301"
 ---
 # <a name="tutorial-access-data-in-cosmos-db-using-mongoose-with-azure-static-web-apps"></a>자습서: Azure Static Web Apps에서 Mongoose를 사용하여 Cosmos DB의 데이터에 액세스
 
@@ -71,7 +71,7 @@ Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/fre
 5. [Azure Portal](https://portal.azure.com)로 돌아갑니다.
 6. **리소스 만들기** 를 클릭합니다.
 7. 검색 상자에 **정적 웹앱** 을 입력합니다.
-8. **정적 웹앱(미리 보기)** 을 선택합니다.
+8. **Static Web App** 을 선택합니다.
 9. **생성**
 10. 다음 정보를 사용하여 Azure 정적 웹앱을 구성합니다.
     - 구독: 이전과 동일한 구독을 선택합니다.

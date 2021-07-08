@@ -1,11 +1,14 @@
 ---
-ms.openlocfilehash: e62aed02a0ad5f26ec8fd0a79de5e91269386095
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 61648bc0eab3aba4806cf4594e6fe222ac77f93f
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106450587"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993584"
 ---
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/phone-numbers-quickstart)에서 이 빠른 시작에 대한 최종 코드 칮기
+
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -53,6 +56,8 @@ pip install azure-identity
 ```
 
 `DefaultAzureCredential` 개체를 만들려면 등록된 Azure AD 애플리케이션에서 `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` 및 `AZURE_TENANT_ID`가 해당 값을 사용하여 환경 변수로 이미 등록되어 있어야 합니다.
+
+이러한 환경 변수를 가져오는 방법을 빠르게 확인하려면 [CLI에서 관리 ID 설정 빠른 시작](../../managed-identity-from-cli.md)을 따를 수 있습니다.
 
 `azure-identity` 라이브러리를 설치했으면 클라이언트를 계속 인증할 수 있습니다.
 
@@ -111,7 +116,7 @@ try:
         calling = PhoneNumberCapabilityType.INBOUND,
         sms = PhoneNumberCapabilityType.INBOUND_OUTBOUND
     )
-    search_poller = self.phone_number_client.begin_search_available_phone_numbers(
+    search_poller = phone_numbers_client.begin_search_available_phone_numbers(
         "US",
         PhoneNumberType.TOLL_FREE,
         PhoneNumberAssignmentType.APPLICATION,
@@ -226,5 +231,5 @@ print('Status of the operation: ' + release_poller.status())
 콘솔 프롬프트에서 phone_numbers_sample.py 파일이 포함된 디렉터리로 이동한 다음, 다음 python 명령을 실행하여 앱을 실행합니다.
 
 ```console
-./phone_numbers_sample.py
+python phone_numbers_sample.py
 ```

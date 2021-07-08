@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: conceptual
 ms.date: 3/22/2021
-ms.openlocfilehash: 6df39c93e9bcfca522ac61a863c87269216cc592
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 5b91828999d1b8650d8d645d11e62919ddd76090
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107816173"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677983"
 ---
 # <a name="what-is-the-opc-publisher"></a>OPC 게시자란?
 
@@ -28,6 +28,9 @@ Azure IoT Hub 클라이언트 SDK에서 지원하는 전송 프로토콜(예: HT
 
 - 네트워크에 있는 기존 OPC UA 서버에 연결하기 위한 OPC UA ‘클라이언트’
 - 게시된 항목을 관리하데 사용할 수 있고 동일한 작업을 수행하는 IoT Hub 직접 메서드를 제공하는 포트 62222의 OPC UA ‘서버’
+> [!NOTE]
+> 기본 제공 OPC UA Server는 버전 2.5 이하에서만 사용할 수 있습니다.
+
 
 GitHub에서 [OPC 게시자 참조 구현](https://github.com/Azure/iot-edge-opc-publisher)을 다운로드할 수 있습니다.
 

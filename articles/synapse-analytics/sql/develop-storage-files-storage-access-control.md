@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4419c9d64eac6eb468c5eb4414a3c9b844d7d8a7
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a93e63207bbbe9a2ac65823b3c22773f6cd97cf8
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108181727"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110676858"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -102,18 +103,19 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 \* SAS 토큰 및 Azure AD ID를 사용하여 방화벽으로 보호되지 않는 스토리지에 액세스할 수 있습니다.
 
+## <a name="firewall-protected-storage"></a>방화벽으로 보호된 스토리지
 
-### <a name="querying-firewall-protected-storage"></a>방화벽으로 보호된 스토리지 쿼리
-
+[리소스 인스턴스 규칙](../../storage/common/storage-network-security.md?tabs=azure-portal#grant-access-from-azure-resource-instances-preview)을 만들어 특정 서버리스 SQL 풀에 대한 액세스를 허용하도록 스토리지 계정을 구성할 수 있습니다.
 방화벽으로 보호되는 스토리지에 액세스하는 경우 **사용자 ID** 또는 **관리 ID** 를 사용할 수 있습니다.
 
 > [!NOTE]
 > 스토리지의 방화벽 기능은 공개 미리 보기로 제공되며 모든 공용 클라우드 지역에서 사용할 수 있습니다. 
 
-#### <a name="user-identity"></a>사용자 ID
+
+### <a name="user-identity"></a>[사용자 ID](#tab/user-identity)
 
 사용자 ID를 통해 방화벽으로 보호된 스토리지에 액세스하려면 Azure Portal UI 또는 PowerShell 모듈 Az. Storage를 사용하면 됩니다.
-#### <a name="configuration-via-azure-portal"></a>Azure Portal을 통한 구성
+### <a name="configuration-via-azure-portal"></a>Azure Portal을 통한 구성
 
 1. Azure Portal에서 스토리지 계정을 검색합니다.
 1. 설정 섹션에서 네트워킹으로 이동합니다.
@@ -122,7 +124,7 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 1. 인스턴스 이름으로 작업 영역 이름을 선택합니다.
 1. 저장을 클릭합니다.
 
-#### <a name="configuration-via-powershell"></a>PowerShell을 통한 구성
+### <a name="configuration-via-powershell"></a>PowerShell을 통한 구성
 
 이러한 단계에 따라 스토리지 계정 방화벽을 구성하고 Synapse 작업 영역에 대한 예외를 추가합니다.
 
@@ -189,8 +191,19 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
         }
     ```
 
-#### <a name="managed-identity"></a>관리 ID
+### <a name="shared-access-signature"></a>[공유 액세스 서명](#tab/shared-access-signature)
+
+공유 액세스 서명은 방화벽으로 보호된 스토리지에 액세스하는 데 사용할 수 없습니다.
+
+### <a name="managed-identity"></a>[관리 ID](#tab/managed-identity)
+
 해당 인스턴스의 [시스템 할당 관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)에 [신뢰할 수 있는 Microsoft 서비스 허용... 설정](../../storage/common/storage-network-security.md#trusted-microsoft-services) 및 명시적으로 [Azure 역할 할당](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)이 필요합니다. 이 경우 인스턴스에 대한 액세스 범위는 관리 ID에 할당된 Azure 역할에 해당합니다.
+
+### <a name="anonymous-access"></a>[익명 액세스](#tab/public-access)
+
+익명 액세스를 사용하여 방화벽으로 보호된 스토리지에 액세스할 수 없습니다.
+
+---
 
 ## <a name="credentials"></a>자격 증명
 

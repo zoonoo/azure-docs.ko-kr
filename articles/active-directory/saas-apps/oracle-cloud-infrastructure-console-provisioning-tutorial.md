@@ -9,16 +9,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 05/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: 94de0ca0a5393c891e567e558cbbadd0ca1f453b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84024ad57af3ca650c69bfda0eda672aee313793
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97832085"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109814661"
 ---
 # <a name="tutorial-configure-oracle-cloud-infrastructure-console-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Oracle Cloud Infrastructure Console 구성
+> [!NOTE]
+> 사용자 지정 / BYOA 애플리케이션과 Oracle Cloud Infrastructure Console 또는 Oracle IDCS와의 통합은 지원되지 않습니다. 이 자습서에 설명된 대로 갤러리 애플리케이션을 사용하는 것이 지원됩니다. 갤러리 애플리케이션은 Oracle SCIM 서버에서 작동하도록 사용자 지정되었습니다. 
 
 이 자습서에서는 자동 사용자 프로비저닝을 구성하기 위해 Oracle Cloud Infrastructure Console 및 Azure AD(Azure Active Directory) 모두에서 수행해야 하는 단계에 대해 설명합니다. 구성되면 Azure AD에서 Azure AD 프로비저닝 서비스를 사용하여 사용자 및 그룹을 [Oracle Cloud Infrastructure Console](https://www.oracle.com/cloud/free/?source=:ow:o:p:nav:0916BCButton&intcmp=:ow:o:p:nav:0916BCButton)로 자동으로 프로비저닝 및 프로비저닝 해제합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요. 
 

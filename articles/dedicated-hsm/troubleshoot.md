@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: f453370530359bc967316957b717f40904f6e392
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 18746da524c4b045471031af2330d9daba4bfcc0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125988"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949351"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Azure Dedicated HSM 서비스 문제 해결
 
@@ -52,11 +52,11 @@ Dedicated HSM은 배포에 대해 CLI 및 PowerShell을 지원하므로 포털 �
 
 ### <a name="hsm-deployment-race-condition"></a>HSM 배포 경합 상태
 
-배포에 제공되는 표준 ARM 템플릿에는 HSM 및 ExpressRoute 게이트웨이 관련 리소스가 있습니다. 네트워킹 리소스는 성공적인 HSM 배포에 대한 종속성이며 타이밍이 중요할 수 있습니다.  경우에 따라 종속성 문제와 관련된 배포 실패가 표시되고, 배포를 다시 실행하면 문제가 해결되는 경우가 많습니다. 그렇지 않으면 리소스를 삭제한 다음, 성공적으로 다시 배포하는 경우가 많습니다. 이렇게 시도했지만 여전히 문제가 발견되면 Azure Portal에서 "Azure 설정을 구성하는 문제"의 문제 유형을 선택하여 지원 요청을 제출합니다.
+배포에 제공되는 표준 ARM 템플릿에는 HSM 및 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md) 관련 리소스가 있습니다. 네트워킹 리소스는 성공적인 HSM 배포에 대한 종속성이며 타이밍이 중요할 수 있습니다.  경우에 따라 종속성 문제와 관련된 배포 실패가 표시되고, 배포를 다시 실행하면 문제가 해결되는 경우가 많습니다. 그렇지 않으면 리소스를 삭제한 다음, 성공적으로 다시 배포하는 경우가 많습니다. 이렇게 시도했지만 여전히 문제가 발견되면 Azure Portal에서 "Azure 설정을 구성하는 문제"의 문제 유형을 선택하여 지원 요청을 제출합니다.
 
 ### <a name="hsm-deployment-using-terraform"></a>Terraform을 사용하여 HSM 배포
 
-일부 고객은 이 서비스에 등록할 때 제공되는 ARM 템플릿 대신 Terraform을 자동화 환경으로 사용했습니다. HSM은 이 방식으로 배포할 수 없지만 종속 네트워킹 리소스는 배포할 수 있습니다. Terraform에는 HSM 배포가 있는 최소 ARM 템플릿을 호출하는 모듈이 있습니다.  이 경우 HSM을 배포하기 전에 필요한 ExpressRoute 게이트웨이와 같은 네트워킹 리소스가 완전히 배포되도록 주의해야 합니다. 다음 CLI 명령을 사용하여 완료된 배포를 테스트하고 필요에 따라 통합할 수 있습니다. 특정 명명에 맞게 꺾쇠 괄호 자리 표시자를 바꿉니다. "provisioningState가 성공했습니다."의 결과가 표시됩니다.
+일부 고객은 이 서비스에 등록할 때 제공되는 ARM 템플릿 대신 Terraform을 자동화 환경으로 사용했습니다. HSM은 이 방식으로 배포할 수 없지만 종속 네트워킹 리소스는 배포할 수 있습니다. Terraform에는 HSM 배포가 있는 최소 ARM 템플릿을 호출하는 모듈이 있습니다.  이 경우 HSM을 배포하기 전에 필요한 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)와 같은 네트워킹 리소스가 완전히 배포되도록 주의해야 합니다. 다음 CLI 명령을 사용하여 완료된 배포를 테스트하고 필요에 따라 통합할 수 있습니다. 특정 명명에 맞게 꺾쇠 괄호 자리 표시자를 바꿉니다. "provisioningState가 성공했습니다."의 결과가 표시됩니다.
 
 ```azurecli
 az resource show --ids /subscriptions/<subid>/resourceGroups/<myresourcegroup>/providers/Microsoft.Network/virtualNetworkGateways/<myergateway>
@@ -79,7 +79,7 @@ Dedicated HSM의 배포에는 네트워킹 리소스에 대한 종속성 및 이
 
 ### <a name="provisioning-expressroute"></a>ExpressRoute 프로비저닝
 
-Dedicated HSM은 ExpressRoute 게이트웨이를 고객 개인 IP 주소 공간과 Azure 데이터 센터의 물리적 HSM 간의 통신을 위한 "터널"로 사용합니다.  Vnet당 하나의 게이트웨이로 제한되는 것을 고려하여 ExpressRoute를 통해 온-프레미스 리소스에 연결해야 하는 고객은 다른 Vnet을 해당 연결에 사용해야 합니다.  
+Dedicated HSM은 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)를 고객 개인 IP 주소 공간과 Azure 데이터 센터의 물리적 HSM 간의 통신을 위한 “터널”로 사용합니다.  Vnet당 하나의 게이트웨이로 제한되는 것을 고려하여 ExpressRoute를 통해 온-프레미스 리소스에 연결해야 하는 고객은 다른 Vnet을 해당 연결에 사용해야 합니다.  
 
 ### <a name="hsm-private-ip-address"></a>HSM 개인 IP 주소
 
@@ -116,7 +116,7 @@ HSM에 잘못된 자격 증명을 제공하면 파괴적인 결과가 발생할 
 
 ### <a name="hsm-networking-configuration"></a>HSM 네트워킹 구성
 
-HSM 내에서 네트워킹을 구성하는 경우에는 주의해야 합니다.  HSM은 ExpressRoute 게이트웨이를 통해 고객의 개인 IP 주소 공간에서 HSM으로 직접 연결됩니다.  이 통신 채널은 고객 통신 전용이며 Microsoft는 이 채널에 액세스할 수 없습니다. HSM이 이 네트워크 경로에 영향을 주는 방식으로 구성되면 HSM과의 모든 통신이 제거됩니다.  이 경우 유일한 옵션은 Azure Portal을 통해 Microsoft 지원 요청을 제출하여 디바이스를 다시 설정하는 것입니다. 이 다시 설정 절차로 인해 HSM이 초기 상태로 다시 설정되고 모든 구성 및 키 자료가 손실됩니다.  구성을 다시 만들어야 하며, 디바이스가 HA 그룹에 조인하면 키 자료가 복제됩니다.  
+HSM 내에서 네트워킹을 구성하는 경우에는 주의해야 합니다.  HSM은 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)를 통해 고객의 개인 IP 주소 공간에서 HSM으로 직접 연결됩니다.  이 통신 채널은 고객 통신 전용이며 Microsoft는 이 채널에 액세스할 수 없습니다. HSM이 이 네트워크 경로에 영향을 주는 방식으로 구성되면 HSM과의 모든 통신이 제거됩니다.  이 경우 유일한 옵션은 Azure Portal을 통해 Microsoft 지원 요청을 제출하여 디바이스를 다시 설정하는 것입니다. 이 다시 설정 절차로 인해 HSM이 초기 상태로 다시 설정되고 모든 구성 및 키 자료가 손실됩니다.  구성을 다시 만들어야 하며, 디바이스가 HA 그룹에 조인하면 키 자료가 복제됩니다.  
 
 ### <a name="hsm-device-reboot"></a>HSM 디바이스 다시 부팅
 

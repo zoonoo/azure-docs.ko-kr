@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2021
+ms.date: 06/10/2021
 ms.author: duau
-ms.openlocfilehash: 4291a7d46c723f799cf9d09ca0e7a3f6d614971f
-ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
+ms.openlocfilehash: 7f2a5faebb56cfb12a62a8bdae4e6b7e56e88b57
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107389743"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112004712"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -75,7 +75,7 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 
 ### <a name="option-2-use-your-own-certificate"></a>옵션 2: 사용자 고유의 인증서 사용
 
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door는 이 보안 메커니즘을 사용하여 인증서를 가져오며, 몇 가지 추가 단계를 수행해야 합니다. TLS/SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure Front Door에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](front-door-troubleshoot-allowed-ca.md)을 참조하세요.
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure Front Door는 이 보안 메커니즘을 사용하여 인증서를 가져오며, 몇 가지 추가 단계를 수행해야 합니다. TLS/SSL 인증서를 만들 때 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부인 허용된 CA(인증 기관)를 사용하여 전체 인증서 체인을 만들어야 합니다. 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다.  전체 체인이 없는 인증서가 표시되면 해당 인증서와 관련된 요청이 예상대로 작동하지 않을 수 있습니다.
 
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
@@ -87,7 +87,7 @@ Azure Front Door에서 관리되는 인증서를 사용하면 단 몇 번의 클
 2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 인증서를 **비밀** 대신 **인증서** 개체로 업로드합니다.
 
 > [!NOTE]
-> 자체 TLS/SSL 인증서의 경우, Front Door는 EC 암호화 알고리즘을 사용하는 인증서를 지원하지 않습니다.
+> 자체 TLS/SSL 인증서의 경우, Front Door는 EC 암호화 알고리즘을 사용하는 인증서를 지원하지 않습니다. 인증서에는 리프 및 중간 인증서가 있는 완전한 인증서 체인이 있어야 하며 루트 CA는 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부여야 합니다.
 
 #### <a name="register-azure-front-door"></a>Azure Front Door 등록
 
@@ -209,7 +209,7 @@ postmaster@&lt;your-domain-name.com&gt;
 | | 도메인 소유권 유효성 검사 요청이 만료되었습니다(고객이 6일 이내의 응답하지 않았음). 도메인에서 HTTPS를 사용할 수 없습니다. * |
 | | 고객에 의해 도메인 소유권 유효성 검사 요청이 거부되었습니다. 도메인에서 HTTPS를 사용할 수 없습니다. * |
 | 3 인증서 프로비전 | 인증 기관이 현재 도메인에서 HTTPS를 활성화하는 데 필요한 인증서를 발급 중입니다. |
-| | 인증서가 발급되었고 현재 Front Door로 배포되고 있습니다. 이 프로세스는 최대 1시간까지 걸릴 수 있습니다. |
+| | 인증서가 발급되었고 현재 Front Door로 배포되고 있습니다. 이 프로세스를 완료하려면 몇 분에서 한 시간까지 걸릴 수 있습니다. |
 | | 인증서가 Front Door에 성공적으로 배포되었습니다. |
 | 4 완료 | 도메인에서 HTTPS를 활성화하도록 설정했습니다. |
 

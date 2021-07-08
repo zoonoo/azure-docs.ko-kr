@@ -2,21 +2,21 @@
 title: AD FS에서 Azure Active Directory로 애플리케이션 인증 이동
 description: Azure Active Directory를 사용하여 AD FS(Active Directory Federation Services)를 대체하고 사용자에게 모든 애플리케이션에 대한 Single Sign-On을 제공하는 방법을 알아봅니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
-ms.author: iangithinji
+ms.author: mtillman
 ms.reviewer: baselden
-ms.openlocfilehash: 4e9bedc63a3b1d53222c732b6611d132249b07c6
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 616550188687823438187e1e09c90d5d3c6c6835
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320802"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078818"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Active Directory Federation Services에서 Azure Active Directory로 애플리케이션 인증 이동
 
@@ -326,7 +326,7 @@ Azure AD에서 사용자의 위치에 따른 MFA 규칙을 지정합니다.
 
 1. [새 조건부 액세스 정책](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json)을 만듭니다.
 1. **할당** 을 **모든 사용자** 로 설정합니다.
-1. [Azure AD에서 명명된 위치를 구성합니다](../reports-monitoring/quickstart-configure-named-locations.md). 위치를 구성하지 않은 경우 회사 네트워크 내부의 페더레이션을 신뢰합니다.
+1. [Azure AD에서 명명된 위치를 구성합니다](../conditional-access/location-condition.md). 위치를 구성하지 않은 경우 회사 네트워크 내부의 페더레이션을 신뢰합니다.
 1. **조건 규칙** 을 구성하여 MFA를 적용할 위치를 지정합니다.
 
     ![조건 규칙을 위한 위치 창을 보여주는 스크린샷.](media/migrate-adfs-apps-to-azure/mfa-location-1.png)
@@ -365,7 +365,7 @@ Azure AD에서 기본 제공 정책을 구현하려면 [새 조건부 액세스 
 
 | 옵션 | Azure AD에서 허용 옵션을 구성하는 방법| Azure AD에서 제외 옵션을 구성하는 방법 |
 | - | - | - |
-| 특정 네트워크| Azure AD의 [명명된 위치](../reports-monitoring/quickstart-configure-named-locations.md)에 매핑| [신뢰할 수 있는 위치](../conditional-access/location-condition.md)에 **제외** 옵션 사용 |
+| 특정 네트워크| Azure AD의 [명명된 위치](../conditional-access/location-condition.md)에 매핑| [신뢰할 수 있는 위치](../conditional-access/location-condition.md)에 **제외** 옵션 사용 |
 | 특정 그룹| [사용자/그룹 할당 설정](assign-user-or-group-access-portal.md)| 사용자 및 그룹에서 **제외** 옵션 사용 |
 | 특정 신뢰 수준이 있는 디바이스| 할당 -> 조건에 있는 **디바이스 상태** 에서 설정| 디바이스 상태 조건에서 **제외** 옵션을 사용하고 **모든 디바이스** 포함 |
 | 요청의 특정 클레임| 해당 설정은 마이그레이션할 수 없음| 해당 설정은 마이그레이션할 수 없음 |

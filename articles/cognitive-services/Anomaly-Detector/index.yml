@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/12/2021
   ms.author: mbullwin
-  ms.openlocfilehash: 5737b7c44231053a3de0665bd4fd147729b53a3a
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 5424c2af354bbecd124e39c7566c23d964563cac
+  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110082309"
+  ms.lasthandoff: 06/11/2021
+  ms.locfileid: "112005504"
 landingContent:
 - title: Anomaly Detector API 정보
   linkLists:
@@ -100,7 +100,7 @@ landingContent:
     links:
     - text: 컨테이너 지원을 통해 온-프레미스에서 Anomaly Detector 가져오기
       url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
-- title: Anomaly Detector 커뮤니티 참여
+- title: 도움말 및 피드백
   linkLists:
   - linkListType: learn
     links:
@@ -108,17 +108,17 @@ landingContent:
       url: https://aka.ms/adadvisorsjoin
     - text: 추천 사용자 생성 콘텐츠
       url: user-generated-content.md
-- title: 도움말 및 피드백
-  linkLists:
   - linkListType: reference
     links:
+    - text: 다변량 문제 해결
+      url: concepts/troubleshoot.md
     - text: 지원 및 도움말 옵션
       url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - title: 참조
   linkLists:
   - linkListType: reference
     links:
-    - text: REST API
+    - text: 단변량 REST API
       url: https://aka.ms/anomaly-detector-rest-api-ref
     - text: .NET SDK
       url: https://aka.ms/anomaly-detector-dotnet-ref
@@ -132,3 +132,15 @@ landingContent:
       url: /powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure CLI
       url: /cli/azure/cognitiveservices#az_cognitiveservices_list
+  - linkListType: reference
+    links:
+    - text: 다변량 REST API
+      url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
+    - text: .NET SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2165601&clcid=0x409
+    - text: Python SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2165298&clcid=0x409
+    - text: Java SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2165600&clcid=0x409
+    - text: Node.js SDK
+      url: https://go.microsoft.com/fwlink/?linkid=2165523&clcid=0x409

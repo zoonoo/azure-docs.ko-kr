@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/25/2021
-ms.openlocfilehash: a7a010e3c60d6b96947597878fcd870e9845b2b3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a17356495eea160134f80d57527a814b8fda4ee
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822065"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560297"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>자습서: REST를 사용하여 Azure Storage에서 JSON Blob 인덱싱
 
@@ -29,7 +29,7 @@ Azure Cognitive Search는 반정형 데이터를 읽는 방법을 아는 [indexe
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Postman 데스크톱 앱](https://www.getpostman.com/)
@@ -88,7 +88,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 리소스는 [포털에서 만들](search-create-service-portal.md) 수 있는 Azure Cognitive Search입니다. 이 연습은 체험 계층을 사용하여 완료할 수 있습니다. 
 
-Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
+Azure Blob Storage와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
 
 ### <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 

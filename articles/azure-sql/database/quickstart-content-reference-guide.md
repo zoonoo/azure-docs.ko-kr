@@ -1,22 +1,22 @@
 ---
 title: 단일 데이터베이스 빠른 시작 콘텐츠 참조
-description: Azure SQL Database에서 단일 데이터베이스를 빠르게 시작하는 데 도움이 되는 모든 빠른 시작의 콘텐츠 참조를 찾습니다.
+description: Azure SQL Database를 빠르게 시작하는 데 도움이 되는 모든 빠른 시작의 콘텐츠 참조를 찾습니다.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: guide
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: ''
 ms.date: 07/29/2019
-ms.openlocfilehash: 392f361f6fe487a15bdd63c2f3281ccc78b2f86d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3bbba9245ea7aa998a1adecb60e05e9ff7d70c0
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184419"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690004"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

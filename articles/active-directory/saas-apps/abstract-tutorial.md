@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2019
+ms.date: 05/31/2021
 ms.author: jeedes
-ms.openlocfilehash: e1c3236c4c1957b4d0daee8d30c71f03fb8674dd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 37b010b275487ccf52c69088c722b291737199b7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97587828"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555833"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>자습서: Azure Active Directory와 Abstract 통합
 
@@ -26,9 +26,7 @@ ms.locfileid: "97587828"
 * 사용자가 자신의 Azure AD 계정으로 Abstract에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -39,40 +37,39 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* Abstract에서 **SP 및 IDP** 시작 SSO를 지원합니다.
+* Abstract는 **SP 및 IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-abstract-from-the-gallery"></a>갤러리에서 Abstract 추가
+## <a name="add-abstract-from-the-gallery"></a>갤러리에서 Abstract 추가
 
 Abstract와 Azure AD 통합을 구성하려면 갤러리의 Abstract를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. Azure Portal에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 으로 이동한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Abstract** 를 입력합니다.
 1. 결과 패널에서 **Abstract** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-sso-for-abstract"></a>Abstract에 대한 Azure AD SSO 구성 및 테스트
 
 **B.Simon** 이라는 테스트 사용자를 사용하여 Abstract에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Abstract의 관련 사용자 간에 링크 관계를 설정해야 합니다.
 
-Abstract에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Abstract에서 Azure AD SSO를 구성하고 테스트하려면 다음 단계를 수행합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Abstract SSO 구성](#configure-abstract-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Abstract 테스트 사용자 만들기](#create-abstract-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Abstract에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[Abstract SSO 구성](#configure-abstract-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    1. **[Abstract 테스트 사용자 만들기](#create-abstract-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Abstract에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **Abstract** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **Abstract** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
@@ -85,30 +82,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/copy-metadataurl.png)
-
-### <a name="configure-abstract-sso"></a>Abstract SSO 구성
-
-Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App Federation Metadata Url` 및 `Azure AD Identifier`를 검색해야 합니다.
-
-**SAML로 Single Sign-On 설정** 페이지에서 이러한 정보를 찾을 수 있습니다.
-
-* `App Federation Metadata Url`은 **SAML 서명 인증서** 섹션 아래에 있습니다.
-* `Azure AD Identifier`는 **Abstract 설정** 섹션에 있습니다.
-
-
-이제 Abstract에서 SSO를 구성할 준비가 되었습니다.
-
->[!Note]
->Abstract의 SSO 설정에 액세스하려면 조직 관리자 계정으로 인증해야 합니다.
-
-1. [Abstract 웹앱](https://app.abstract.com/)을 엽니다.
-2. 왼쪽 막대의 **사용 권한** 페이지로 이동합니다.
-3. **SSO 구성** 섹션에서 **메타데이터 URL** 및 **엔터티 ID** 를 입력합니다.
-4. 발생할 수 있는 수동 예외를 입력합니다. 수동 예외 섹션에 나열된 이메일은 SSO를 무시하고 이메일 및 암호를 사용하여 로그인할 수 있습니다. 
-5. **변경 내용 저장** 을 클릭합니다.
-
->[!Note] 
->수동 예외 목록에서는 기본 이메일 주소를 사용해야 합니다. 목록의 이메일이 사용자의 보조 이메일인 경우 SSO 활성화에 실패합니다. 이런 경우 실패한 계정에 대한 기본 이메일이 포함된 오류 메시지가 표시됩니다. 해당 사용자를 알고 있는 것이 확인된 후 수동 예외 목록에 해당 기본 이메일이 추가됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -129,16 +102,33 @@ Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App F
 1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **Abstract** 를 선택합니다.
 1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+## <a name="configure-abstract-sso"></a>Abstract SSO 구성
+
+Abstract에서 SSO를 구성하는 데 필요하므로 Azure Portal에서 `App Federation Metadata Url` 및 `Azure AD Identifier`를 검색해야 합니다.
+
+**SAML로 Single Sign-On 설정** 페이지에서 이러한 정보를 찾을 수 있습니다.
+
+* `App Federation Metadata Url`은 **SAML 서명 인증서** 섹션 아래에 있습니다.
+* `Azure AD Identifier`는 **Abstract 설정** 섹션에 있습니다.
+
+이제 Abstract에서 SSO를 구성할 준비가 되었습니다.
+
+>[!Note]
+>Abstract의 SSO 설정에 액세스하려면 조직 관리자 계정으로 인증해야 합니다.
+
+1. [Abstract 웹앱](https://app.abstract.com/)을 엽니다.
+2. 왼쪽 막대의 **사용 권한** 페이지로 이동합니다.
+3. **SSO 구성** 섹션에서 **메타데이터 URL** 및 **엔터티 ID** 를 입력합니다.
+4. 발생할 수 있는 수동 예외를 입력합니다. 수동 예외 섹션에 나열된 이메일은 SSO를 무시하고 이메일 및 암호를 사용하여 로그인할 수 있습니다. 
+5. **변경 내용 저장** 을 클릭합니다.
+
+>[!Note] 
+>수동 예외 목록에서는 기본 이메일 주소를 사용해야 합니다. 목록의 이메일이 사용자의 보조 이메일인 경우 SSO 활성화에 실패합니다. 이런 경우 실패한 계정에 대한 기본 이메일이 포함된 오류 메시지가 표시됩니다. 해당 사용자를 알고 있는 것이 확인된 후 수동 예외 목록에 해당 기본 이메일이 추가됩니다.
 
 ### <a name="create-abstract-test-user"></a>Abstract 테스트 사용자 만들기
 
@@ -152,16 +142,22 @@ Abstract에서 SSO를 테스트하려면 다음을 수행합니다.
 >Abstract의 SSO 설정에 액세스하려면 조직 관리자 계정으로 인증해야 합니다.
 이 조직 관리자 계정은 Azure Portal에서 Abstract에 할당되어야 합니다.
 
-### <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트 
 
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다. 
 
-액세스 패널에서 Abstract 타일을 클릭하면 SSO를 설정한 Abstract에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+#### <a name="sp-initiated"></a>SP 시작:
 
-## <a name="additional-resources"></a>추가 리소스
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭합니다. 그러면 로그인 흐름을 시작할 수 있는 Abstract 로그온 URL로 리디렉션됩니다.  
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
+* Abstract 로그온 URL로 직접 이동하여 해당 위치에서 로그인 흐름을 시작합니다.
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP 시작:
 
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
+* Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Abstract에 자동으로 로그인됩니다. 
+
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Abstract 타일을 클릭하면 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Abstract에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+Abstract를 구성하면 세션 제어를 적용하여 조직에서 중요한 데이터의 반출과 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

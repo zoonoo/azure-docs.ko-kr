@@ -5,24 +5,26 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 백 엔드 
 services: application-gateway
 author: vhorne
 ms.author: victorh
-ms.date: 01/19/2021
+ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom:
 - mvc
 - mode-portal
-ms.openlocfilehash: 92e966f5a9c4a21a6a55862ad582f0238802720f
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: a1c826470a7fb9daf3b311c6e7fff02a21fc5b25
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107538574"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072274"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
 이 빠른 시작에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 테스트하여 제대로 작동하는지 확인합니다. 
 
 애플리케이션 게이트웨이는 애플리케이션 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가합니다. 간단히 나타내기 위해 이 문서에서는 퍼블릭 프런트 엔드 IP 1개, 애플리케이션 게이트웨이에 단일 사이트를 호스트하는 기본 수신기 1개, 기본 요청 라우팅 규칙 1개 및 백 엔드 풀의 가상 머신 2개를 이용한 간단한 설정을 사용합니다.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="애플리케이션 게이트웨이 리소스":::
 
 [Azure PowerShell](quick-create-powershell.md) 또는 [Azure CLI](quick-create-cli.md)를 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 

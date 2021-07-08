@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 0330ea419b92d4e2e85c01e2770ec0d92987c4d2
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 0383b76a08c5c56c27bfbc7f83bf786b4b452849
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107107111"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796709"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Database로 마이그레이션
 
@@ -276,7 +276,7 @@ SQL Server 인스턴스에서 Azure SQL Database의 단일 데이터베이스 �
 
      ![Azure Database Migration Service 인스턴스 찾기](media/tutorial-sql-server-to-azure-sql/dms-instance-search.png)
 
-4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server** 를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database** 를 선택한 다음, **마이그레이션 작업 형식 선택**에서 **데이터 마이그레이션** 을 선택합니다.
+4. **새 마이그레이션 프로젝트** 화면에서 프로젝트의 이름을 지정하고, **원본 서버 형식** 텍스트 상자에서 **SQL Server** 를 선택하고, **대상 서버 형식** 텍스트 상자에서 **Azure SQL Database** 를 선택한 다음, **마이그레이션 작업 형식 선택** 에서 **데이터 마이그레이션** 을 선택합니다.
 
     ![Database Migration Service 프로젝트 만들기](media/tutorial-sql-server-to-azure-sql/dms-create-project-2.png)
 

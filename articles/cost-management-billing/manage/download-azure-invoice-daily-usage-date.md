@@ -8,14 +8,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/05/2021
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 96ebde17272929cca424a4dddce55b194c974157
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: a2f4bab7f0d2f28cdefcecd82ad9a2285cd9b41a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108750602"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451912"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
 
@@ -93,7 +93,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 
     ![옵트인 흐름 3단계를 보여 주는 스크린샷](./media/download-azure-invoice-daily-usage-date/invoicearticlestep03.png)
 
-이 단계를 따른 후 전자 메일을 받지 못하면 [프로필의 통신 기본 설정](https://account.windowsazure.com/profile)에서 전자 메일 주소가 올바른지 확인합니다.
+이 단계를 따른 후 메일을 받지 못하면 Microsoft 계정 센터의 [프로필의 통신 기본 설정](https://account.microsoft.com/profile)에서 메일 주소가 올바른지 확인합니다.
 
 ### <a name="opt-out-of-getting-your-subscriptions-invoices-in-email"></a>이메일로 구독의 청구서 받기 옵트아웃
 

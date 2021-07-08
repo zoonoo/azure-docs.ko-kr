@@ -4,16 +4,16 @@ titleSuffix: Azure App Configuration
 description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure App Configuration 저장소를 만드는 방법을 알아봅니다.
 author: GrantMeStrength
 ms.author: jken
-ms.date: 10/16/2020
+ms.date: 06/09/2021
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.openlocfilehash: 2bdd989f79a8a24e47698e187bfc45559e873237
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 15e0bc45bc4fea645ff0ccf7b17110ce4361a9a0
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763976"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983423"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Azure App Configuration 저장소 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "108763976"
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -35,14 +35,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/)에서 나온 것입니다. 두 개의 키-값이 내부에 있는 새 App Configuration 저장소를 만듭니다. 그런 다음, `reference` 함수를 사용하여 두 개의 키-값 리소스에 대한 값을 출력합니다. 키의 값을 이러한 방식으로 읽으면 템플릿의 다른 위치에서 키를 사용할 수 있습니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/app-configuration-store-kv/)에서 나온 것입니다. 두 개의 키-값이 내부에 있는 새 App Configuration 저장소를 만듭니다. 그런 다음, `reference` 함수를 사용하여 두 개의 키-값 리소스에 대한 값을 출력합니다. 키의 값을 이러한 방식으로 읽으면 템플릿의 다른 위치에서 키를 사용할 수 있습니다.
 
 빠른 시작에서는 `copy` 요소를 사용하여 키-값 리소스의 여러 인스턴스를 만듭니다. `copy` 요소에 대한 자세한 내용은 [ARM 템플릿의 리소스 반복](../azure-resource-manager/templates/copy-resources.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 이 템플릿에는 App Configuration 리소스 공급자 버전 `2020-07-01-preview` 이상이 필요합니다. 이 버전에서는 `reference` 함수를 사용하여 키-값을 읽습니다. 이전 버전에서 키-값을 읽는 데 사용된 `listKeyValue` 함수는 `2020-07-01-preview` 버전부터 사용할 수 없습니다.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json":::
 
 템플릿에는 두 개의 Azure 리소스가 정의되어 있습니다.
 
@@ -67,18 +67,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
 > ```
 
+> [!NOTE]
+> 액세스 키 인증을 사용하지 않도록 설정하면 ARM 템플릿 내에서 키-값 데이터 액세스가 사용하지 않도록 설정되는 제한이 있습니다. 자세한 내용은 [액세스 키 인증 사용 안 함](./howto-disable-access-key-authentication.md#limitations)을 참조하세요.
+
 ## <a name="deploy-the-template"></a>템플릿 배포
 
 다음 이미지를 선택하고 Azure에 로그인하여 템플릿을 엽니다. 템플릿에서 두 개의 키-값이 내부에 있는 App Configuration 저장소를 만듭니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.appconfiguration%2Fapp-configuration-store-kv%2Fazuredeploy.json)
 
 다음 PowerShell cmdlet을 사용하여 템플릿을 배포할 수도 있습니다. 키-값은 PowerShell 콘솔의 출력에 있습니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-configuration-store-kv/azuredeploy.json"
+$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.appconfiguration/app-configuration-store-kv/azuredeploy.json"
 
 $resourceGroupName = "${projectName}rg"
 
@@ -110,5 +113,5 @@ Write-Host "Press [ENTER] to continue..."
 
 기능 플래그 및 Key Vault 참조를 App Configuration 저장소에 추가하는 방법에 대해 알아보려면 ARM 템플릿 예제를 참조하세요.
 
-- [101-app-configuration-store-ff](https://azure.microsoft.com/resources/templates/101-app-configuration-store-ff/)
-- [101-app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/101-app-configuration-store-keyvaultref/)
+- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

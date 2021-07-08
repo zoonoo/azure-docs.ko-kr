@@ -3,12 +3,12 @@ title: NSX-T 네트워크 세그먼트 추가
 description: Azure VMware Solution에 대한 NSX-T 네트워크 세그먼트를 추가하는 단계입니다.
 ms.topic: include
 ms.date: 03/13/2021
-ms.openlocfilehash: 477533887629a88f72426a33ed38278636e72fef
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 10b04c8000b8ef440a2a729be671630b4382f3a8
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110064476"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110794957"
 ---
 <!-- Used in configure-dhcp-azure-vmware-solution.md and tutorial-nsx-t-network-segment.md -->
 
@@ -24,7 +24,7 @@ ms.locfileid: "110064476"
 
    :::image type="content" source="../media/nsxt/nsxt-create-segment-specs.png" alt-text="세그먼트 이름, 연결된 게이트웨이 및 유형, 전송 영역을 설정한 다음, 서브넷 설정을 선택합니다.":::
 
-1. 게이트웨이의 IP 주소를 입력한 다음, **추가** 를 선택합니다. 
+1. 게이트웨이 IP 주소를 입력한 다음, **추가** 를 선택합니다. 
 
    >[!IMPORTANT]
    >IP 주소는 겹치지 않는 RFC1918 주소 블록에 있어야 합니다. 그래야 새 세그먼트의 VM에 대한 연결을 보장합니다.

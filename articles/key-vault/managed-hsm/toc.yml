@@ -29,6 +29,8 @@
       href: hsm-protected-keys-byok.md
     - name: 백업 및 복원
       href: backup-restore.md
+    - name: 일시 삭제 및 제거 보호를 통한 복구 관리
+      href: recovery.md
 - name: 개념
   items:
     - name: 보안 도메인
@@ -39,6 +41,8 @@
       href: access-control.md
     - name: 로컬 RBAC 기본 제공 역할
       href: built-in-roles.md
+    - name: 관리형 HSM 일시 삭제
+      href: soft-delete-overview.md
 - name: 참조
   items:
     - name: Azure PowerShell

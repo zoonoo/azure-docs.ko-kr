@@ -7,29 +7,30 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/09/2021
+ms.date: 05/26/2021
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e17d08d09814c135af3e0b4fc299b6e6f42326d4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b08fe34e7ac5eede8d1435e3de3817224fafdbc6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102549892"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560172"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
-Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 API 및 도구를 개발자에게 제공하는 클라우드 검색 서비스입니다. 
+Azure Cognitive Search([이전의 “Azure Search”](whats-new.md#new-service-name))는 웹, 모바일 및 엔터프라이즈 애플리케이션의 프라이빗 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가할 수 있는 아키텍처, API 및 도구를 개발자에게 제공하는 클라우드 검색 서비스입니다. 
 
-검색은 카탈로그 또는 문서 검색, 전자 상거래 사이트 또는 데이터 과학을 위한 기술 자료 등을 비롯한 일반적인 시나리오를 통해 사용자에게 콘텐츠를 표시하는 모든 앱에 기반이 됩니다. Cognitive Search의 API 및 아키텍처는 모든 솔루션에 정교한 정보 검색을 추가하는 작업을 간소화합니다.
+검색은 카탈로그 또는 문서 검색, 전자 상거래 사이트 또는 데이터 과학을 위한 기술 자료 등을 비롯한 일반적인 시나리오를 통해 사용자에게 콘텐츠를 표시하는 모든 앱에 기반이 됩니다.
 
-검색 서비스에는 다음과 같은 구성 요소가 있습니다.
+검색 서비스를 만들 때 다음 기능을 사용합니다.
 
 + 전체 텍스트 검색을 위한 검색 엔진
-+ 사용자 소유 인덱싱 콘텐츠의 영구 스토리지
-+ 콘텐츠를 인덱싱 및 쿼리하기 위한 API
-+ 필요에 따라 [AI 기반 강화](cognitive-search-concept-intro.md), 이미지, 구조화되지 않은 원시 텍스트, 애플리케이션 파일 중에서 검색 가능한 콘텐츠 만들기
-+ 데이터, 기계 학습/AI, 모니터링 및 보안을 위해 다른 Azure 서비스와의 선택적 통합
-+ 관련성 향상을 위한 [의미 체계 검색(미리 보기)](semantic-search-overview.md)의 선택적 구현
++ 검색 인덱스에서 사용자 소유 콘텐츠의 영구 스토리지
++ 텍스트 분석과 함께 콘텐츠 추출 및 변환을 위한 선택적 [AI 보강](cognitive-search-concept-intro.md)을 사용한 풍부한 인덱싱
++ 간단한 구문, 전체 Lucene 구문 및 자동 완성 검색을 비롯한 풍부한 쿼리 기능
++ .NET, Python, Java 및 JavaScript용 Azure SDK의 REST API 및 클라이언트 라이브러리를 통한 프로그래밍 기능
++ 데이터 계층, 기계 학습 계층 및 AI(Cognitive Services)에서 Azure 통합
++ [의미 체계 검색(미리 보기)](semantic-search-overview.md)을 통한 최첨단 순위 지정 알고리즘
 
 구조적으로 검색 서비스는 인덱싱되지 않은 데이터를 포함하는 외부 데이터 저장소와 검색 인덱스에 쿼리 요청을 보내고 응답을 처리하는 클라이언트 앱 사이에 배치됩니다.
 
