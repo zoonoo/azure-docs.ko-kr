@@ -1,24 +1,24 @@
 ---
-title: Windows Virtual Desktop 앱 그룹 관리 포털 - Azure
+title: Azure Virtual Desktop 포털의 앱 그룹 관리 - Azure
 description: Azure Portal을 사용하여 Windows Virtual Desktop 앱 그룹을 관리하는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 05/28/2021
 ms.author: helohr
 manager: femila
-ms.openlocfilehash: 65ca13cba07230a7bf606a398e28761aced14857
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 3c28654f70599a67060a94b8bb93397fc51c527e
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106446012"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111753344"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>자습서: Azure Portal을 사용하여 앱 그룹 관리
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/manage-app-groups-2019.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/manage-app-groups-2019.md)를 참조하세요.
 
-새 Windows Virtual Desktop 호스트 풀에 대해 생성된 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 시작 메뉴 엡을 게시해 보세요.
+새 Azure Virtual Desktop 호스트 풀에 대해 만든 기본 앱 그룹도 전체 데스크톱을 게시합니다. 뿐만 아니라 호스트 풀에 대한 하나 이상의 RemoteApp 애플리케이션 그룹을 만들 수 있습니다. 이 자습서에 따라 RemoteApp 앱 그룹을 만들고 개별 시작 메뉴 엡을 게시해 보세요.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 
@@ -35,7 +35,7 @@ Azure Portal 또는 PowerShell을 사용하여 호스트 풀 및 세션 호스�
     >[!NOTE]
     > US Gov 포털에 로그인하는 경우 [https://portal.azure.us/](https://portal.azure.us/)로 이동합니다.
 
-2.  **Windows Virtual Desktop** 을 검색하여 선택합니다.
+2.  **Azure Virtual Desktop** 을 검색하여 선택합니다.
 
 3. 애플리케이션 그룹을 직접 추가하거나 기존 호스트 풀에서 추가할 수 있습니다. 아래 옵션을 선택합니다.
 
@@ -124,7 +124,31 @@ Azure Portal 또는 PowerShell을 사용하여 호스트 풀 및 세션 호스�
 - 나중에 다운로드하여 저장할 수 있는 구성에 따라 Azure Resource Manager 템플릿에 대한 링크를 만듭니다.
 
 >[!IMPORTANT]
->각 Azure Active Directory 테넌트에 대해 200개의 애플리케이션 그룹만 만들 수 있습니다. 사용자의 피드를 검색하는 서비스 제한으로 인해 이 제한을 추가했습니다. 이 제한은 Windows Virtual Desktop(클래식)에서 만든 앱 그룹에는 적용되지 않습니다.
+>각 Azure Active Directory 테넌트에 대해 200개의 애플리케이션 그룹만 만들 수 있습니다. 사용자의 피드를 검색하는 서비스 제한으로 인해 이 제한을 추가했습니다. 이 제한은 Azure Virtual Desktop(클래식)에서 만든 앱 그룹에는 적용되지 않습니다.
+
+## <a name="edit-or-remove-an-app"></a>앱 편집 또는 제거
+
+앱 그룹에서 앱을 편집하거나 제거하려면 다음을 수행합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+   
+   >[!NOTE]
+   >US Gov 포털에 로그인하는 경우 [https://portal.azure.us/](https://portal.azure.us)로 이동합니다.
+
+2. **Azure Virtual Desktop** 을 검색하여 선택합니다.
+
+3. 다음 옵션 중 하나를 선택하여 애플리케이션 그룹을 직접 추가하거나 기존 호스트 풀에서 추가할 수 있습니다.
+
+    - 새 애플리케이션 그룹을 직접 추가하려면 페이지 왼쪽에 있는 메뉴에서 **애플리케이션 그룹** 을 선택한 다음, 편집하려는 앱 그룹을 선택합니다.
+    - 기존 호스트 풀의 앱 그룹을 편집하려면 화면 왼쪽에 있는 메뉴에서 **호스트 풀** 을 선택하고, 호스트 풀의 이름을 선택하고, 화면 왼쪽에 표시되는 메뉴에서 **애플리케이션 그룹** 을 선택한 다음, 편집하려는 앱 그룹을 선택합니다.
+
+4. 페이지 왼쪽에 있는 메뉴에서 **애플리케이션** 을 선택합니다.
+
+5. 애플리케이션을 제거하려면 애플리케이션 옆에 있는 확인란을 선택한 다음, 페이지 위쪽에 있는 메뉴에서 **제거** 를 선택합니다.
+
+6. 애플리케이션의 세부 정보를 편집하려면 애플리케이션 이름을 선택합니다. 그러면 편집 메뉴가 열립니다.
+
+7. 변경이 완료되면 **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

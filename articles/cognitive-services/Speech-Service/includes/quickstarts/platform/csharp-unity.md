@@ -11,21 +11,21 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 895943b00ef2c2541b7de6cc81648877c9a73c0d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 95b0c127d005efe95fa2b7fdb58c69602a98b217
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750140"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110165748"
 ---
 이 가이드에서는 [Unity](https://unity3d.com/)용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> Unity용 Speech SDK는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64) 및 iOS(x64 시뮬레이터 및 ARM64)를 지원합니다.
+> Unity용 Speech SDK는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64), iOS(x64 시뮬레이터 및 ARM64) 및 Mac(x64)을 지원합니다.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에는 다음이 필요합니다.
 
@@ -33,6 +33,9 @@ ms.locfileid: "101750140"
 - [Unity 2018.3 이상](https://store.unity.com/)([UWP ARM64 지원이 추가된 Unity 2019.1](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal) 포함)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Visual Studio 2017 버전 15.9 이상도 허용됩니다.
 - Windows ARM64를 지원하려면 [ARM64용 선택적 빌드 도구 및 ARM64용 Windows 10 SDK](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)를 설치합니다.
+- Android에서는 작동하는 마이크를 사용하여 개발용으로 설정된 ARM 기반 Android 디바이스(API 23: Android 6.0 Marshmallow 이상)가 필요합니다.
+- iOS에서는 작동하는 마이크를 사용하여 개발용으로 설정된 iOS 디바이스(ARM64)가 필요합니다.
+- macOS에서는 Unity Player 설정에서 마이크 액세스를 통합 지원하려면 Mac 디바이스(x64) 및 최신 LTS 버전의 Unity 2019(또는 이상)가 필요합니다.
 
 ## <a name="install-the-speech-sdk"></a>Speech SDK 설치하기
 
@@ -45,8 +48,6 @@ Unity용 Speech SDK를 설치하려면 다음 단계를 수행합니다.
 1. 모든 파일이 선택되었는지 확인하고, **가져오기** 를 선택합니다. 잠시 후에 Unity 자산 패키지를 프로젝트로 가져옵니다.
 
 자산 패키지를 Unity로 가져오는 방법에 대한 자세한 내용은 [Unity 설명서](https://docs.unity3d.com/Manual/AssetPackages.html)를 참조하세요.
-
-이제 아래의 [다음 단계](#next-steps)로 이동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

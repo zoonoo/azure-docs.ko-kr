@@ -1,18 +1,18 @@
 ---
-title: 가상 컴퓨터에 대 한 Azure NetApp Files 볼륨 탑재
-description: Azure에서 Windows 가상 머신 또는 Linux 가상 머신에 대 한 볼륨을 탑재 또는 분리 하는 방법에 대해 알아봅니다.
+title: 가상 컴퓨터에 대한 Azure NetApp Files 볼륨 탑재
+description: Azure에서 Windows 가상 머신 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 분리하는 방법에 대해 알아봅니다.
 author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/17/2020
-ms.openlocfilehash: 83d6e051f520737e750e6c46c192eb698e7bf0e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.date: 05/17/2021
+ms.openlocfilehash: 2da352a10f5ff9bacdfb28de8752e5ffefa3fd82
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94842260"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068197"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -20,46 +20,47 @@ ms.locfileid: "94842260"
 
 ## <a name="requirements"></a>요구 사항 
 
-* NFS 볼륨에 액세스할 수 있으려면 하나 이상의 내보내기 정책이 있어야 합니다.
-* NFS 볼륨을 성공적으로 탑재 하려면 다음 NFS 포트가 클라이언트와 NFS 볼륨 사이에서 열려 있는지 확인 합니다.
+* NFS 볼륨에 액세스할 수 있으려면 내보내기 정책이 하나 이상 있어야 합니다.
+* NFS 볼륨을 성공적으로 탑재하려면 클라이언트와 NFS 볼륨 간에 다음 NFS 포트가 열려 있는지 확인합니다.
     * 111 TCP/UDP = `RPCBIND/Portmapper`
     * 635 TCP/UDP = `mountd`
     * 2049 TCP/UDP = `nfs`
-    * 4045 TCP/UDP = `nlockmgr` (NFSv3에만 해당)
-    * 4046 TCP/UDP = `status` (NFSv3에만 해당)
+    * 4045 TCP/UDP = `nlockmgr`(NFSv3만 해당)
+    * 4046 TCP/UDP = `status`(NFSv3만 해당)
 
 ## <a name="steps"></a>단계
 
-1. **볼륨** 블레이드를 클릭 하 고 탑재 하려는 볼륨을 선택 합니다. 
-2. 선택한 볼륨에서 **명령 탑재** 를 클릭 한 다음 지침에 따라 볼륨을 탑재 합니다. 
+1. **볼륨** 블레이드를 클릭한 다음 마운트할 볼륨을 선택합니다. 
+2. 선택한 볼륨에서 **마운트 지침** 을 클릭한 다음 지침에 따라 볼륨을 마운트합니다. 
 
-    ![NFS 탑재 명령](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
+    ![NFS 마운트 지침](../media/azure-netapp-files/azure-netapp-files-mount-instructions-nfs.png)
 
-    ![탑재 명령 SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
-    * NFS 볼륨을 탑재 하는 경우 명령에 옵션을 사용 하 여 `vers` 탑재 하려는 `mount` 볼륨에 해당 하는 nfs 프로토콜 버전을 지정 해야 합니다. 
-    * NFSv 4.1을 사용 하는 경우 다음 명령을 사용 하 여 파일 시스템을 탑재 합니다.  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    ![마운트 지침 SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
+    * NFS 볼륨을 마운트하는 경우 `mount` 명령에서 `vers` 옵션을 사용하여 마운트할 볼륨에 해당하는 NFS 프로토콜 버전을 지정해야 합니다. 
+    * NFSv4.1을 사용하는 경우 다음 명령을 사용하여 파일 시스템을 마운트합니다. `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
         > [!NOTE]
-        > NFSv 4.1을 사용 하는 경우 내보내기를 탑재 하는 모든 Vm이 고유한 호스트 이름을 사용 하는지 확인 합니다.
+        > NFSv4.1을 사용하고 사용 사례에 호스트 이름이 동일한 VM을 활용하는 것이 포함되는 경우(예: DR 테스트) [NFSv4.1 볼륨에 액세스하기 위해 동일한 호스트 이름으로 두개의 VM 구성](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes)을 참조하세요.
 
-3. Azure VM이 시작 되거나 다시 부팅 될 때 NFS 볼륨이 자동으로 탑재 되도록 하려면 호스트의 파일에 항목을 추가 합니다 `/etc/fstab` . 
+3. Azure VM이 시작되거나 다시 부팅될 때 NFS 볼륨이 자동으로 탑재되도록 하려면 호스트의 `/etc/fstab` 파일에 항목을 추가합니다. 
 
     예: `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
-    * `$ANFIP` 볼륨 속성 블레이드에서 찾은 Azure NetApp Files 볼륨의 IP 주소입니다.
-    * `$FILEPATH` Azure NetApp Files 볼륨의 내보내기 경로입니다.
-    * `$MOUNTPOINT` 는 NFS 내보내기를 탑재 하는 데 사용 되는 Linux 호스트에 생성 되는 디렉터리입니다.
+    * `$ANFIP`은 볼륨 속성 블레이드에있는 Azure NetApp Files 볼륨의 IP 주소입니다.
+    * `$FILEPATH`은 Azure NetApp Files 볼륨의 내보내기 경로입니다.
+    * `$MOUNTPOINT`은 NFS 내보내기를 마운트하는 데 사용되는 Linux 호스트에 생성된 디렉터리입니다.
 
-4. NFS를 사용 하 여 Windows에 볼륨을 탑재 하려는 경우:
+4. NFS를 사용하여 Windows에 볼륨을 탑재하려는 경우:
 
-    a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재 합니다.  
-    b. 볼륨에 `chmod 777` `chmod 775` 대해 또는 명령을 실행 합니다.  
-    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
+    a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재합니다.  
+    b. 볼륨에 대해 `chmod 777` 또는 `chmod 775` 명령을 실행합니다.  
+    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재합니다.
     
-5. NFS Kerberos 볼륨을 탑재 하려면 [nfsv 4.1 kerberos 암호화 구성](configure-kerberos-encryption.md) 에서 추가 정보를 참조 하세요. 
+5. NFS Kerberos 볼륨을 마운트하려는 경우 자세한 내용은 [NFSv4.1 Kerberos 암호화 구성](configure-kerberos-encryption.md)을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files에 대한 NFSv4.1 기본 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md)
 * [NFS FAQ](./azure-netapp-files-faqs.md#nfs-faqs)
 * [네트워크 파일 시스템 개요](/windows-server/storage/nfs/nfs-overview)
-* [NFS Kerberos 볼륨 탑재](configure-kerberos-encryption.md#kerberos_mount)
+* [NFS Kerberos 볼륨 마운트](configure-kerberos-encryption.md#kerberos_mount)
+* [NFSv4.1 볼륨에 액세스하기 위해 동일한 호스트 이름으로 두개의 VM 구성](configure-nfs-clients.md#configure-two-vms-with-the-same-hostname-to-access-nfsv41-volumes) 

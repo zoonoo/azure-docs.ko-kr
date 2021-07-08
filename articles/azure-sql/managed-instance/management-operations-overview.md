@@ -4,20 +4,20 @@ titleSuffix: Azure SQL Managed Instance
 description: Azure SQL Managed Instance 관리 작업 기간 및 모범 사례에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: deployment-configuration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
 author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, MashaMSFT
-ms.date: 07/10/2020
-ms.openlocfilehash: bd66c10bb1d6316bbe90e7ba4092d79c6a43a75d
-ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
+ms.date: 06/08/2021
+ms.openlocfilehash: 9a4df35d102b3304a65ad7c9a5c750bd70d3d64c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107285288"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745856"
 ---
 # <a name="overview-of-azure-sql-managed-instance-management-operations"></a>Azure SQL Managed Instance 관리 작업 개요
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -125,7 +125,7 @@ SQL Managed Instance는 배포 및 삭제 작업 중에 클라이언트 애플�
 |오래된 SQL 인스턴스 정리 |가상 클러스터에서 오래된 SQL 프로세스 제거 |
 
 > [!NOTE]
-> 인스턴스 스케일링의 결과로 기본 가상 클러스터는 사용하지 않는 용량 및 가능한 용량 조각 모음을 해제하는 프로세스를 진행하며, 이 프로세스는 만들기/스케일링 작업에 참여하지 않는 인스턴스에 영향을 미칠 수 있습니다. 
+> 인스턴스 스케일링이 완료되면 기본 가상 클러스터는 사용하지 않는 용량 및 가능한 용량 조각 모음을 해제하는 프로세스를 진행하며, 이 프로세스는 스케일링 작업에 참여하지 않은 동일한 서브넷의 인스턴스에 영향을 미쳐 장애 조치(failover)를 초래할 수 있습니다. 
 
 
 ## <a name="management-operations-cross-impact"></a>관리 작업 상호 영향

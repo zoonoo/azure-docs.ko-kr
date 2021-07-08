@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: AKS(Azure Kubernetes Service)에서 Kubernetes 권한 부여에 Azure RBAC를 사용하는 방법을 알아봅니다.
 services: container-service
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 02/09/2021
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: c708a577a1c2e4bb8f7ddff90f458afd0d9e566f
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 57aae03e18f938ca89da5081a2076698ea3341f8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107783002"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110091579"
 ---
-# <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Kubernetes 권한 부여를 위해 Azure RBAC 사용(미리 보기)
+# <a name="use-azure-rbac-for-kubernetes-authorization"></a>Kubernetes 권한 부여에 Azure RBAC 사용
 
 현재 [Azure AD(Azure Active Directory)와 AKS 간에 통합 인증](managed-aad.md)을 이미 활용할 수 있습니다. 이 통합을 사용하면 고객이 Azure AD 사용자, 그룹 또는 서비스 주체를 Kubernetes RBAC의 subject로 사용할 수 있습니다. 자세한 내용은 [여기](azure-ad-rbac.md)를 참조하세요.
 이 기능을 사용하면 Kubernetes에 대한 사용자 ID와 자격 증명을 별도로 관리할 필요가 없습니다. 단, Azure RBAC와 Kubernetes RBAC는 여전히 별도로 설정하고 관리해야 합니다. AKS에서 RBAC를 사용한 인증 및 권한 부여에 대한 자세한 내용은 [여기](concepts-identity.md)를 참조하세요.
@@ -23,54 +23,16 @@ ms.locfileid: "107783002"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Azure에서 Kubernetes 리소스에 대한 RBAC를 관리하는 기능을 통해 Azure 또는 네이티브 Kubernetes 메커니즘을 사용하여 클러스터 리소스에 대한 RBAC를 관리할 수 있습니다. 사용하도록 설정하면 Azure AD 보안 주체는 Azure RBAC에서 독점적으로 유효성이 검사되고 일반 Kubernetes 사용자 및 서비스 계정은 Kubernetes RBAC에서 독점적으로 유효성이 검사됩니다. AKS에서 RBAC를 사용한 인증 및 권한 부여에 대한 자세한 내용은 [여기](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)를 참조하세요.
+Azure에서 Kubernetes 리소스에 대한 RBAC를 관리하는 기능을 통해 Azure 또는 네이티브 Kubernetes 메커니즘을 사용하여 클러스터 리소스에 대한 RBAC를 관리할 수 있습니다. 사용하도록 설정하면 Azure AD 보안 주체는 Azure RBAC에서 독점적으로 유효성이 검사되고 일반 Kubernetes 사용자 및 서비스 계정은 Kubernetes RBAC에서 독점적으로 유효성이 검사됩니다. AKS에서 RBAC를 사용한 인증 및 권한 부여에 대한 자세한 내용은 [여기](concepts-identity.md#azure-rbac-for-kubernetes-authorization)를 참조하세요.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+### <a name="prerequisites"></a>필수 요건
 
-### <a name="prerequisites"></a>필수 요건 
-- Azure CLI 버전 2.9.0 이상이 있는지 확인합니다.
-- `EnableAzureRBACPreview` 기능 플래그가 사용하도록 설정되어 있는지 확인합니다.
-- `aks-preview` [CLI 확장][az-extension-add] v0.4.55 이상이 설치되어 있는지 확인합니다.
+- Azure CLI 버전 2.24.0 이상이 있는지 확인합니다.
 - [kubectl v1.18.3+][az-aks-install-cli]가 설치되어 있는지 확인합니다.
-
-#### <a name="register-enableazurerbacpreview-preview-feature"></a>`EnableAzureRBACPreview` 미리 보기 기능 등록
-
-Kubernetes 권한 부여에 Azure RBAC를 사용하는 AKS 클러스터를 만들려면 구독에서 `EnableAzureRBACPreview` 기능 플래그를 사용하도록 설정해야 합니다.
-
-다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 `EnableAzureRBACPreview` 기능 플래그를 등록합니다.
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "EnableAzureRBACPreview"
-```
-
- [az feature list][az-feature-list] 명령을 사용하여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
-```
-
-준비가 되면 [az provider register][az-provider-register] 명령을 사용하여 *Microsoft.ContainerService* 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-#### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-Azure RBAC를 사용하는 AKS 클러스터를 만들려면 *aks-preview* CLI 확장 버전 0.4.55 이상이 필요합니다. [az extension add][az-extension-add] 명령을 사용하여 *aks-preview* Azure CLI 확장을 설치하거나, [az extension update][az-extension-update] 명령을 사용하여 사용 가능한 업데이트를 설치합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ### <a name="limitations"></a>제한 사항
 
 - [관리형 Azure AD 통합](managed-aad.md)이 필요합니다.
-- 미리 보기 중에는 Kubernetes 권한 부여용 Azure RBAC를 기존 클러스터에 통합할 수 없지만 GA(일반 공급)에서는 가능할 수 있습니다.
 - [kubectl v1.18.3+][az-aks-install-cli]를 사용합니다.
 - CRD가 있고 사용자 지정 역할을 정의하는 경우 현재 CRD를 처리하는 유일한 방법은 `Microsoft.ContainerService/managedClusters/*/read`를 제공하는 것입니다. AKS는 CRD에 대한 보다 세부적인 사용 권한을 제공하기 위해 노력하고 있습니다. 나머지 개체의 경우 특정 API 그룹을 사용할 수 있습니다(예: `Microsoft.ContainerService/apps/deployments/read`).
 - 새 역할 할당은 전파하고 권한 부여 서버에서 업데이트하는 데 최대 5분이 걸릴 수 있습니다.
@@ -108,6 +70,17 @@ Kubernetes 권한 부여용 Azure RBAC 및 관리되는 Azure AD 통합을 사�
   }
 ```
 
+## <a name="integrate-azure-rbac-into-an-existing-cluster"></a>기존 클러스터에 Azure RBAC 통합
+
+> [!NOTE]
+> Kubernetes 권한 부여에 Azure RBAC를 사용하려면 클러스터에서 Azure Active Directory 통합을 사용하도록 설정해야 합니다. 자세한 내용은 [Azure Active Directory 통합][managed-aad]을 참조하세요.
+
+Kubernetes 인증에 대한 Azure RBAC를 기존 AKS 클러스터에 추가하려면 `enable-azure-rbac` 플래그와 함께 [az aks update][az-aks-update] 명령을 사용합니다.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myAKSCluster --enable-azure-rbac
+```
+
 ## <a name="create-role-assignments-for-users-to-access-cluster"></a>사용자가 클러스터에 액세스할 수 있도록 역할 할당 만들기
 
 AKS에는 다음과 같은 4가지 기본 제공 역할이 있습니다.
@@ -116,7 +89,7 @@ AKS에는 다음과 같은 4가지 기본 제공 역할이 있습니다.
 | 역할                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC 읽기 권한자  | 읽기 전용 권한을 허용하여 네임스페이스에 있는 대부분의 개체를 볼 수 있습니다. 역할 또는 역할 바인딩은 볼 수 없습니다. 이 역할은 `Secrets`를 볼 수 없습니다. 비밀의 콘텐츠를 읽을 수 있으면 네임스페이스의 ServiceAccount 자격 증명에 액세스할 수 있으므로 네임스페이스의 ServiceAccount로 API 액세스가 허용될 수 있기 때문입니다(일종의 권한 상승).  |
-| Azure Kubernetes Service RBAC 쓰기 권한자 | 네임스페이스의 대부분의 개체에 대한 읽기/쓰기 권한을 허용합니다. 이 역할은 역할 또는 역할 바인딩을 보거나 수정할 수 없습니다. 그러나 이 역할을 통해 `Secrets`에 액세스하고 네임스페이스의 ServiceAccount로 Pod를 실행할 수 있으므로 네임스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
+| Azure Kubernetes Service RBAC 쓰기 권한자 | 네임스페이스의 대부분의 개체에 대한 읽기/쓰기 권한을 허용합니다. 이 역할은 역할 또는 역할 바인딩을 보거나 수정할 수 없습니다. 그러나 이 역할을 통해 `Secrets`과 네임스페이스의 ServiceAccount로 실행 중인 Pod에 엑세스할 수 있으므로, 네임스페이스에 있는 모든 ServiceAccount의 API 액세스 수준을 얻는 데 사용할 수 있습니다. |
 | Azure Kubernetes Service RBAC 관리자  | 네임 스페이스 내에서 부여되는 관리자 액세스를 허용합니다. 네임스페이스(또는 클러스터 범위)에 있는 대부분의 리소스에 대한 읽기/쓰기 권한을 허용하며, 여기에는 네임스페이스 내에서 역할 및 역할 바인딩을 만들 수 있는 권한이 포함됩니다. 이 역할은 리소스 할당량 또는 네임스페이스 자체에 대한 쓰기 권한을 허용하지 않습니다. |
 | Azure Kubernetes Service RBAC 클러스터 관리자  | 슈퍼 사용자 액세스를 허용하여 모든 리소스에 대한 모든 작업을 수행할 수 있습니다. 클러스터 및 모든 네임스페이스의 모든 리소스를 완전히 제어할 수 있습니다. |
 
@@ -137,7 +110,7 @@ az role assignment create --role "Azure Kubernetes Service RBAC Admin" --assigne
 클러스터 내의 특정 **네임스페이스** 로 범위가 지정된 역할 할당을 만들 수도 있습니다.
 
 ```azurecli-interactive
-az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
+az role assignment create --role "Azure Kubernetes Service RBAC Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID/namespaces/<namespace-name>
 ```
 
 현재 네임스페이스로 범위가 지정된 역할 할당은 Azure CLI를 통해 구성해야 합니다.
@@ -154,7 +127,7 @@ az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assign
 
 ```json
 {
-    "Name": "AKS Deployment Viewer",
+    "Name": "AKS Deployment Reader",
     "Description": "Lets you view all deployments in cluster/namespace.",
     "Actions": [],
     "NotActions": [],
@@ -174,7 +147,6 @@ az role assignment create --role "Azure Kubernetes Service RBAC Viewer" --assign
 az account show --query id -o tsv
 ```
 
-
 이제 `deploy-view.json`을 저장한 폴더에서 아래 명령을 실행하여 역할 정의를 만들 수 있습니다.
 
 ```azurecli-interactive
@@ -184,7 +156,7 @@ az role definition create --role-definition @deploy-view.json
 역할 정의를 만들었으면, 다음을 실행하여 사용자 또는 다른 ID에 할당할 수 있습니다.
 
 ```azurecli-interactive
-az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
+az role assignment create --role "AKS Deployment Reader" --assignee <AAD-ENTITY-ID> --scope $AKS_ID
 ```
 
 ## <a name="use-azure-rbac-for-kubernetes-authorization-with-kubectl"></a>`kubectl`을 사용하여 Kubernetes 권한 부여에 Azure RBAC 사용
@@ -195,7 +167,8 @@ az role assignment create --role "AKS Deployment Viewer" --assignee <AAD-ENTITY-
 > ```azurecli-interactive
 > az aks install-cli
 > ```
-> `sudo` 권한으로 실행해야 할 수도 있습니다. 
+>
+> `sudo` 권한으로 실행해야 할 수도 있습니다.
 
 이제 원하는 역할 및 사용 권한을 할당했습니다. Kubernetes API 호출을 시작할 수 있습니다(예를 들어, `kubectl`을 통해).
 
@@ -244,7 +217,6 @@ aks-nodepool1-93451573-vmss000001   Ready    agent   3h6m   v1.15.11
 aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```
 
-
 ## <a name="clean-up"></a>정리
 
 ### <a name="clean-role-assignment"></a>정리 역할 할당
@@ -252,6 +224,7 @@ aks-nodepool1-93451573-vmss000002   Ready    agent   3h6m   v1.15.11
 ```azurecli-interactive
 az role assignment list --scope $AKS_ID --query [].id -o tsv
 ```
+
 수행한 모든 할당에서 ID를 복사한 후 다음을 실행합니다.
 
 ```azurecli-interactive
@@ -261,7 +234,7 @@ az role assignment delete --ids <LIST OF ASSIGNMENT IDS>
 ### <a name="clean-up-role-definition"></a>역할 정의 정리
 
 ```azurecli-interactive
-az role definition delete -n "AKS Deployment Viewer"
+az role definition delete -n "AKS Deployment Reader"
 ```
 
 ### <a name="delete-cluster-and-resource-group"></a>클러스터 및 리소스 그룹 삭제
@@ -286,3 +259,5 @@ az group delete -n MyResourceGroup
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-aks-update]: /cli/azure/aks#az_aks_update
+[managed-aad]: ./managed-aad.md

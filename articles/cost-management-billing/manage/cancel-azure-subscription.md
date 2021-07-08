@@ -7,14 +7,14 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: b20134cbfb85c2dcaef1227e6390c8c6047ad5be
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: b0c7f1ee4daea871cfdc9e92908cd287a49997da
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106109393"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481087"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
@@ -36,9 +36,11 @@ ms.locfileid: "106109393"
 
 |구독 유형     |취소할 수 있는 사람  |
 |---------|---------|
-|Azure 웹 사이트를 통해 Azure에 가입할 때 생성되는 구독입니다. 예를 들어 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)에 가입하는 경우 [종량제 요금을 사용하는 계정](https://azure.microsoft.com/offers/ms-azr-0003p/) 또는 [Visual studio 구독자](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) 자격입니다. |  계정 관리자 및 구독 소유자  |
-|[Microsoft 기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  계정 소유자 및 구독 소유자       |
+|Azure 웹 사이트를 통해 Azure에 가입할 때 생성되는 구독입니다. 예를 들어 [Azure 체험 계정](https://azure.microsoft.com/offers/ms-azr-0044p/)에 가입하는 경우 [종량제 요금을 사용하는 계정](https://azure.microsoft.com/offers/ms-azr-0003p/) 또는 [Visual studio 구독자](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/) 자격입니다. |  서비스 관리자 및 구독 소유자  |
+|[Microsoft 기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/) 및 [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)     |  서비스 관리자 및 구독 소유자       |
 |[Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0017g/) 및 [DevTest용 Azure 플랜](https://azure.microsoft.com/offers/ms-azr-0148g/)     |  구독 소유자      |
+
+서비스 관리자 또는 구독 소유자 역할이 없는 계정 관리자는 Azure 구독을 취소할 수 없습니다. 그러나 계정 관리자는 자신을 서비스 관리자로 만들고 구독을 취소할 수 있습니다. 자세한 내용은 [서비스 관리자 변경](../../role-based-access-control/classic-administrators.md#change-the-service-administrator)을 참조하세요.
 
 
 ## <a name="cancel-subscription-in-the-azure-portal"></a>Azure Portal에서 구독 취소

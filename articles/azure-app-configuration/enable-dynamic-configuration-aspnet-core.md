@@ -14,20 +14,16 @@ ms.topic: tutorial
 ms.date: 09/1/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 083bd56b2b211d11206a277bf31eea797b37cdb9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6a80a4d17fd5bf9584a6aaa8b50802f5a4ec5a6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99979932"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468881"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
-ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 동적으로 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 다양한 `IOptions<T>` 패턴을 사용하여 코드에 삽입합니다. 기본 데이터가 변경되면 특히 이러한 패턴 중 하나인 `IOptionsSnapshot<T>`는 애플리케이션의 구성을 자동으로 다시 로드합니다. 애플리케이션의 컨트롤러에 `IOptionsSnapshot<T>`을 삽입하여 Azure App Configuration에 저장된 최신 구성에 액세스할 수 있습니다.
-
-미들웨어를 사용하여 구성 설정 세트를 동적으로 새로 고치도록 App Configuration ASP.NET Core 클라이언트 라이브러리를 설정할 수도 있습니다. 웹앱에서 요청을 받는 동안에는 구성 설정이 매번 구성 저장소로 업데이트됩니다.
-
-App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 각 설정을 자동으로 캐시합니다. 구성 저장소에서 값이 변경되는 경우에도 새로 고침 작업은 설정의 캐시된 값이 만료될 때까지 기다린 후에 해당 설정을 업데이트합니다. 기본 캐시 만료 시간은 30초입니다. 필요한 경우 이 만료 시간을 재정의할 수 있습니다.
+ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 플러그형 구성 시스템이 있습니다. 애플리케이션을 다시 시작하지 않고 변경 내용을 동적으로 처리할 수 있습니다. ASP.NET Core는 강력한 형식의 .NET 클래스에 대한 구성 설정 바인딩을 지원합니다. 기본 데이터가 변경되면 애플리케이션의 구성을 자동으로 다시 로드하는 `IOptionsSnapshot<T>`를 사용하여 코드에 삽입합니다.
 
 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
@@ -49,14 +45,14 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 ## <a name="add-a-sentinel-key"></a>Sentinel 키 추가
 
-*Sentinel 키* 는 구성이 변경될 때 신호를 보내는 데 사용되는 특수 키입니다. 앱은 Sentinel 키에 대한 변경을 모니터링합니다. 변경이 검색되면 모든 구성 값을 새로 고칩니다. 이 방법은 모든 키의 변경을 모니터링하는 것과 비교하여 앱의 App Configuration에 대한 전체 요청 수를 줄입니다.
+*sentinel* 키는 다른 모든 키의 변경을 완료한 후 업데이트하는 특수 키입니다. 애플리케이션이 sentinel 키를 모니터링합니다. 변경이 감지되면 애플리케이션이 모든 구성 값을 새로 고칩니다. 이 방식은 애플리케이션에서 구성의 일관성을 보장하고, App Configuration에 대한 전체 요청 수를 줄이는 데(모든 키의 변경 내용을 모니터링하는 것에 비해) 도움이 됩니다.
 
 1. Azure Portal에서 **구성 탐색기 > 만들기 > 키-값** 을 차례로 선택합니다.
 1. **키** 에 대해 *TestApp:Settings:Sentinel* 을 입력합니다. **값** 에 대해 1을 입력합니다. **레이블** 및 **콘텐츠 형식** 은 비워 둡니다.
 1. **적용** 을 선택합니다.
 
 > [!NOTE]
-> 센티널 키를 사용하지 않는 경우 감시하려는 모든 키를 수동으로 등록해야 합니다.
+> sentinel 키를 사용하지 않는 경우 모니터링하려는 모든 키를 수동으로 등록해야 합니다.
 
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
 
@@ -133,16 +129,14 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     ```
     ---
 
-    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `Register` 메서드에 대한 `refreshAll` 매개 변수는 Sentinel 키가 변경되면 모든 구성 값을 새로 고쳐야 함을 나타냅니다.
-
-    또한 `SetCacheExpiration` 메서드는 기본 캐시 만료 시간(30초)을 재정의하여 5분으로 대신 지정합니다. 이렇게 하면 App Configuration에 대한 요청 수가 줄어듭니다.
+    `ConfigureRefresh` 메서드에서 변경 여부를 모니터링하려는 App Configuration 저장소 내에 키를 등록합니다. `Register` 메서드에 대한 `refreshAll` 매개 변수는 등록된 키가 변경되면 모든 구성 값을 새로 고쳐야 함을 나타냅니다. `SetCacheExpiration` 메서드는 구성 변경 여부를 확인하기 위해 App Configuration에 새 요청을 하기 전에 경과해야 하는 최소 시간을 지정합니다. 이 예제에서는 기본 만료 시간인 30초 대신 5분이라는 시간을 지정하여 재정의합니다. 이렇게 하면 App Configuration 저장소에 보내는 잠재적인 요청 수가 줄어듭니다.
 
     > [!NOTE]
-    > 테스트를 위해 캐시 만료 시간을 줄이려고 할 수도 있습니다.
+    > 테스트를 위해 캐시 새로 고침 만료 시간을 줄일 수도 있습니다.
 
-    새로 고침 작업을 실제로 트리거하려면 변경이 발생할 때 애플리케이션에서 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 구성해야 합니다. 이후 단계에서 이를 수행하는 방법을 살펴볼 수 있습니다.
+    구성 새로 고침을 실제로 트리거하려면 App Configuration 미들웨어를 사용합니다. 이후 단계에서 이를 수행하는 방법을 살펴볼 수 있습니다.
 
-2. 새 `Settings` 클래스를 정의하고 구현하는 Controllers 디렉터리에 *Settings.cs* 파일을 추가합니다. 네임스페이스를 프로젝트의 이름으로 바꿉니다. 
+1. 새 `Settings` 클래스를 정의하고 구현하는 Controllers 디렉터리에 *Settings.cs* 파일을 추가합니다. 네임스페이스를 프로젝트의 이름으로 바꿉니다. 
 
     ```csharp
     namespace TestAppConfig
@@ -157,7 +151,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     }
     ```
 
-3. *Startup.cs* 를 열고 `ConfigureServices` 메서드에서 `IServiceCollection.Configure<T>`를 사용하여 구성 데이터를 `Settings` 클래스에 바인딩합니다.
+1. *Startup.cs* 를 열고 `ConfigureServices` 메서드를 업데이트합니다. `Configure<Settings>`를 호출하여 구성 데이터를 `Settings` 클래스에 바인딩합니다. `AddAzureAppConfiguration`을 호출하여 App Configuration 구성 요소를 애플리케이션의 서비스 컬렉션에 추가합니다.
 
     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
@@ -190,11 +184,8 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     }
     ```
     ---
-    > [!Tip]
-    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
-4. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 받는 동안 새로 고침을 위해 등록된 구성 설정을 업데이트할 수 있도록 `UseAzureAppConfiguration` 미들웨어를 추가합니다.
-
+1. `Configure` 메서드를 업데이트하고 `UseAzureAppConfiguration`에 대한 호출을 추가합니다. 그러면 애플리케이션은 App Configuration 미들웨어를 사용하여 구성 업데이트를 자동으로 처리할 수 있습니다.
 
     #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
@@ -284,10 +275,11 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     ```
     ---
     
-    미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청에 대해 새로 고침 작업이 트리거되고 클라이언트 라이브러리에서 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료되면 새로 고쳐집니다.
-
     > [!NOTE]
-    > 구성을 새로 고치려면 애플리케이션의 다른 미들웨어에 의해 단락되지 않도록 요청 파이프라인에 적절하게 미들웨어를 추가합니다.
+    > App Configuration 미들웨어는 이전 단계의 `ConfigureRefresh` 호출에서 새로 고침을 위해 등록한 sentinel 키 또는 기타 키를 모니터링합니다. 미들웨어는 애플리케이션에 들어오는 요청이 있을 때마다 트리거됩니다. 하지만 설정한 캐시 만료 시간이 경과한 경우에만 미들웨어가 App Configuration 값을 확인하는 요청을 보냅니다. 변경 내용이 감지되면 모든 구성을 업데이트하거나(sentinel 키를 사용하는 경우) 등록된 키의 값만 업데이트합니다.
+    > - 변경 감지를 위해 App Configuration에 보낸 요청이 실패하면 애플리케이션은 캐시된 구성을 계속 사용합니다. 구성한 캐시 만료 시간이 다시 지나고 애플리케이션에 새로 들어오는 요청이 있으면 또 다른 검사가 수행됩니다.
+    > - 구성 새로 고침은 애플리케이션의 들어오는 요청 처리에 대해 비동기식으로 수행됩니다. 새로 고침을 트리거한 들어오는 요청을 차단하거나 속도가 저하되지 않습니다. 새로 고침을 트리거한 요청은 업데이트된 구성 값을 얻지 못할 수도 있지만 후속 요청은 얻을 수 있습니다.
+    > - 미들웨어가 트리거되도록 하려면 요청 파이프라인에서 적절한 시기에 `app.UseAzureAppConfiguration()`을 호출하여 또 다른 미들웨어가 애플리케이션에서 방해가 되지 않도록 합니다.
 
 ## <a name="use-the-latest-configuration-data"></a>최신 구성 데이터 사용
 
@@ -299,9 +291,9 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 2. 종속성 주입을 통해 `Settings`를 받도록 `HomeController` 클래스를 업데이트하고 해당 값을 사용합니다.
 
- #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
+    #### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -325,10 +317,10 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
         // ...
     }
-```
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -352,10 +344,10 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
         // ...
     }
-```
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
+    ```
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
-```csharp
+    ```csharp
     public class HomeController : Controller
     {
         private readonly Settings _settings;
@@ -374,10 +366,10 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
             return View();
         }
     }
-```
----
-
-
+    ```
+    ---
+    > [!Tip]
+    > 구성 값을 읽을 때 옵션 패턴에 대해 자세히 알아보려면 [ASP.NET Core의 옵션 패턴](/aspnet/core/fundamentals/configuration/options)을 참조하세요.
 
 3. 보기 > 홈 디렉터리에서 *Index.cshtml* 을 열고, 해당 콘텐츠를 다음 스크립트로 바꿉니다.
 
@@ -422,7 +414,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스** 를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **구성 탐색기** 를 선택하고, 다음 키의 값을 업데이트합니다.
+1. **구성 탐색기** 를 선택하고, 다음 키의 값을 업데이트합니다. 마지막에 sentinel 키를 업데이트 해야 합니다.
 
     | 키 | 값 |
     |---|---|
@@ -431,7 +423,7 @@ App Configuration은 구성 저장소를 너무 많이 호출하지 않도록 �
     | TestApp:Settings:Message | 이제 라이브 업데이트를 사용하여 Azure App Configuration 데이터 업데이트! |
     | TestApp:Settings:Sentinel | 2 |
 
-1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용을 반영하려면 두 번 이상 새로 고치거나 자동 새로 고침 빈도를 5분 미만으로 변경해야 할 수 있습니다. 
+1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다. 변경 내용을 반영하려면 두 번 이상 새로 고치거나 캐시 만료 시간을 5분 미만으로 변경해야 할 수 있습니다. 
 
     ![로컬로 업데이트된 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: d28c45b2d0fc1a123f44020f42c4d2c59c593cb2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6d81e43958bf9d4bb8cc20d57ba7ca7a49387f07
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709923"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070033"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>자습서: Azure Portal을 통해 DMS를 사용하여 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
 
@@ -110,54 +110,9 @@ Azure Database Migration Service를 사용하여 애플리케이션 가동 중�
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental citus < dvdrentalSchema.sql
     ```
 
-4. 외래 키 삭제 스크립트를 추출하여 대상(Azure Database for PostgreSQL)에 추가하려면, PgAdmin 또는 psql에서 다음 스크립트를 실행합니다.
+   > [!NOTE]
+   > 마이그레이션 서비스는 안정적이고 강력한 데이터 마이그레이션을 보장하기 위해 외래 키 및 트리거의 사용/사용 안 함을 내부적으로 처리합니다. 따라서 대상 데이터베이스 스키마를 수정하는 것에 대해 걱정할 필요가 없습니다.
 
-   > [!IMPORTANT]
-   > 스키마의 외래 키로 인해 마이그레이션의 초기 로드 및 지속적인 동기화가 실패합니다.
-
-    ```
-    SELECT Q.table_name
-        ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' DROP CONSTRAINT ', foreignkey), ','), ';') as DropQuery
-            ,CONCAT('ALTER TABLE ', table_schema, '.', table_name, STRING_AGG(DISTINCT CONCAT(' ADD CONSTRAINT ', foreignkey, ' FOREIGN KEY (', column_name, ')', ' REFERENCES ', foreign_table_schema, '.', foreign_table_name, '(', foreign_column_name, ')' ), ','), ';') as AddQuery
-    FROM
-        (SELECT
-        S.table_schema,
-        S.foreignkey,
-        S.table_name,
-        STRING_AGG(DISTINCT S.column_name, ',') AS column_name,
-        S.foreign_table_schema,
-        S.foreign_table_name,
-        STRING_AGG(DISTINCT S.foreign_column_name, ',') AS foreign_column_name
-    FROM
-        (SELECT DISTINCT
-        tc.table_schema,
-        tc.constraint_name AS foreignkey,
-        tc.table_name,
-        kcu.column_name,
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name
-        FROM information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY'
-        ) S
-        GROUP BY S.table_schema, S.foreignkey, S.table_name, S.foreign_table_schema, S.foreign_table_name
-        ) Q
-        GROUP BY Q.table_schema, Q.table_name;
-    ```
-
-5. 쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
-
-6. 대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 스크립트를 실행합니다.
-
-   > [!IMPORTANT]
-   > 데이터의 트리거(삽입 또는 업데이트)는 원본에서 데이터가 복제되기 전에 대상에서 데이터 무결성을 적용합니다. 따라서, 마이그레이션 중에 **대상** 의 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
-
-    ```
-    SELECT DISTINCT CONCAT('ALTER TABLE ', event_object_schema, '.', event_object_table, ' DISABLE TRIGGER ', trigger_name, ';')
-    FROM information_schema.triggers
-    ```
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration 리소스 공급자 등록
 

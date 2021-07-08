@@ -4,12 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
 ms.author: parkerra
-ms.openlocfilehash: 2c85e26d5a9115b00621c4099e3ed36afb224e3f
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: eb9b77e42a46ba735a5721907f9d3a7890a34131
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107881165"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111897062"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Spatial Anchors 리소스 만들기
 
@@ -34,7 +35,7 @@ ms.locfileid: "107881165"
   [!INCLUDE [resource group intro text](resource-group.md)]
 
 * 리소스를 배치할 위치(Azure 지역)를 선택합니다.
-* **새로 만들기** 를 선택하여 리소스 만들기를 시작합니다.
+* 리소스 만들기를 시작하려면 **만들기** 를 선택합니다.
 
 ![리소스를 만들기 위한 Spatial Anchors 창의 스크린샷.](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
@@ -46,13 +47,13 @@ ms.locfileid: "107881165"
 
 나중에 사용하기 위해 리소스의 **계정 ID** 값을 텍스트 편집기에 복사합니다.
 
-![리소스 속성 창의 스크린샷.](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
+![리소스 속성 창의 스크린샷.](./media/spatial-anchors-get-started-create-resource/view-resource-accountid.png)
 
 또한 리소스의 **계정 도메인** 값을 텍스트 편집기에 복사합니다.
 
 ![리소스의 계정 도메인 값을 보여주는 스크린샷.](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
 
-**설정** 아래에서 **키** 를 선택합니다. 나중에 사용하기 위해 **기본 키** 값, **계정 키** 를 텍스트 편집기에 복사합니다.
+**설정** 아래에서 **액세스 키** 를 선택합니다. 나중에 사용하기 위해 **기본 키** 값, **계정 키** 를 텍스트 편집기에 복사합니다.
 
 ![계정에 대한 키 창의 스크린샷.](./media/spatial-anchors-get-started-create-resource/view-account-key.png)
 

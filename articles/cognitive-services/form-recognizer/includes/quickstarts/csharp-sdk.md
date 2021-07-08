@@ -4,27 +4,31 @@ description: .NET용 Form Recognizer 클라이언트 라이브러리를 사용�
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
-ms.openlocfilehash: 1adba2b8f0be01be231721a9c838ad6961ab03a0
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 000c8a1bf59597dd8786874eff3b5edcbc8e364a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374226"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894354"
 ---
 <!-- markdownlint-disable MD024 -->
+
 <!-- markdownlint-disable MD033 -->
 > [!IMPORTANT]
-> 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
+>
+> * 이 빠른 시작에서는 SDK 버전 **3.1.0** 을 사용하고 API 버전 **2.1** 을 대상으로 합니다.
+>
+>* 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
 
 [참조 설명서](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) 또는 현재 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
@@ -61,28 +65,9 @@ Build succeeded.
 
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Form Recognizer 클라이언트 라이브러리를 설치합니다.
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
+dotnet add package Azure.AI.FormRecognizer --version 3.1.0
 ```
-
-> [!NOTE]
-> Form Recognizer 3.1.0-beta.4 SDK는 _API 버전 2.1-preview.3을 반영합니다.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-```console
-dotnet add package Azure.AI.FormRecognizer --version 3.0.0
-```
-
-> [!NOTE]
-> Form Recognizer 3.0.0 SDK는 API v2.0을 반영합니다.
-
----
-
-> [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
 
 선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *Program.cs* 파일을 엽니다. 다음 `using` 지시문을 추가합니다.
 
@@ -93,21 +78,13 @@ dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
 애플리케이션의 **Main** 메서드에서 이 빠른 시작에 사용된 비동기 작업에 대한 호출을 추가합니다. 나중에 이를 구현합니다.
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_main)]
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
-
----
 
 ## <a name="object-model"></a>개체 모델
 
@@ -135,34 +112,6 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 > [!NOTE]
 > [Form Recognizer 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
 
-## <a name="code-examples"></a>코드 예제
-
-여기에 나와 있는 코드 조각에서는 .NET용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
-<!-- markdownlint-disable MD001 -->
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-* [클라이언트 인증](#authenticate-the-client)
-* [레이아웃 분석](#analyze-layout)
-* [영수증 분석](#analyze-receipts)
-* [명함 분석](#analyze-business-cards)
-* [송장 분석](#analyze-invoices)
-* [ID 문서 분석](#analyze-identity-documents)
-* [사용자 지정 모델 학습](#train-a-custom-model)
-* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-custom-models)
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-* [클라이언트 인증](#authenticate-the-client)
-* [레이아웃 분석](#analyze-layout)
-* [영수증 분석](#analyze-receipts)
-* [사용자 지정 모델 학습](#train-a-custom-model)
-* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-custom-models)
-
----
-
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 **Main** 아래에 `AuthenticateClient`라는 새 메서드를 만듭니다. 다른 작업에서 이를 사용하여 Form Recognizer 서비스에 대한 요청을 인증합니다. 이 메서드는 `AzureKeyCredential` 개체를 사용하므로 필요한 경우 새 클라이언트 개체를 만들지 않고도 API 키를 업데이트할 수 있습니다.
@@ -170,7 +119,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 > [!IMPORTANT]
 > Azure Portal에서 키와 엔드포인트를 가져옵니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../../key-vault/general/overview.md)입니다.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 예를 들어 [Azure Key Vault](../../../../key-vault/general/overview.md)입니다.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
 
@@ -188,15 +137,7 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 * 그런 다음, 위의 단계를 반복하여 Blob 스토리지 컨테이너에 있는 개별 문서의 SAS URL을 가져옵니다. 임시 위치에도 저장합니다.
 * 마지막으로 아래에 포함된 샘플 이미지의 URL을 저장합니다([GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)에서도 사용 가능).
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_urls)]
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
-
----
 
 ## <a name="analyze-layout"></a>레이아웃 분석
 
@@ -309,8 +250,6 @@ Total: '1203.39', with confidence '0.774'
 
 ## <a name="analyze-business-cards"></a>명함 분석
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요.
 
 URL에서 명함을 분석하려면 `StartRecognizeBusinessCardsFromUriAsync` 메서드를 사용합니다.
@@ -324,16 +263,7 @@ URL에서 명함을 분석하려면 `StartRecognizeBusinessCardsFromUriAsync` �
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_bc_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
-
 ## <a name="analyze-invoices"></a>송장 분석
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요.
 
@@ -348,36 +278,20 @@ URL에서 청구서를 분석하려면 `StartRecognizeInvoicesFromUriAsync` 메�
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_invoice_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
-
 ## <a name="analyze-identity-documents"></a>ID 문서 분석
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 
-URI에서 ID 문서를 분석하려면 `StartRecognizeIdDocumentsFromUriAsync` 메서드를 사용합니다.
+URI에서 ID 문서를 분석하려면 `StartRecognizeIdentityDocumentsFromUriAsync` 메서드를 사용합니다.
 
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_call":::
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_call)]
 
 > [!TIP]
-> 로컬 ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: **StartRecognizeIdDocumentsAsync**)를 참조하세요. 또한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
+> 로컬 ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) 메서드(예: **StartRecognizeIdentityDocumentsAsync**)를 참조하세요. 또한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
 
 다음 코드는 지정된 URI에서 ID 문서를 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 
-:::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs" id="snippet_id_print":::
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart-preview.cs?name=snippet_id_print)]
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
@@ -709,14 +623,26 @@ catch (RequestFailedException e)
 
 작업의 클라이언트 요청 ID와 같은 추가 정보가 로깅됩니다.
 
-``
+```console
 
-메시지: Azure.RequestFailedException: 서비스 요청에 실패했습니다.
-상태: 400(잘못된 요청)
+Message:
+    Azure.RequestFailedException: Service request failed.
+    Status: 400 (Bad Request)
 
-콘텐츠: {"error":{"code":"FailedToDownloadImage","innerError": {"requestId":"8ca04feb-86db-4552-857c-fde903251518"}, "message":"Failed to download image from input URL."}}
+Content:
+    {"error":{"code":"FailedToDownloadImage","innerError":
+    {"requestId":"8ca04feb-86db-4552-857c-fde903251518"},
+    "message":"Failed to download image from input URL."}}
 
-헤더: 전송 인코딩: chunked x-envoy-upstream-service-time: REDACTED apim-request-id: REDACTED Strict-Transport-Security: REDACTED X-Content-Type-Options: REDACTED Date: Mon, 20 Apr 2020 22:48:35 GMT Content-Type: application/json; charset=utf-8 ``
+Headers:
+    Transfer-Encoding: chunked
+    x-envoy-upstream-service-time: REDACTED
+    apim-request-id: REDACTED
+    Strict-Transport-Security: REDACTED
+    X-Content-Type-Options: REDACTED
+    Date: Mon, 20 Apr 2020 22:48:35 GMT
+    Content-Type: application/json; charset=utf-8
+```
 
 ## <a name="next-steps"></a>다음 단계
 

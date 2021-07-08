@@ -7,12 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 94c7a800fc551faf6650b8e30fe7c2188f7d2dbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5e32c5f02191e4bd60ad4334884df34ce0bc0537
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100008386"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110537456"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결
 
@@ -134,7 +134,7 @@ GCP 계정을 특정 Azure 구독에 연결하는 경우 [Google Cloud 리소스
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="GCP 옵션을 보여 주는 자산 인벤토리 페이지의 리소스 종류 필터"::: 
 
 
-## <a name="faq-for-connecting-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결에 대한 FAQ
+## <a name="faq---connecting-gcp-accounts-to-azure-security-center"></a>FAQ - Azure Security Center에 GCP 계정 연결
 
 ### <a name="can-i-connect-multiple-gcp-organizations-to-security-center"></a>여러 GCP 조직을 Security Center에 연결할 수 있나요?
 예. Security Center의 GCP 커넥터는 *조직* 수준에서 Google Cloud 리소스를 연결합니다. 

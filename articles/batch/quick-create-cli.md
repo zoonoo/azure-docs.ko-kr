@@ -2,14 +2,14 @@
 title: 빠른 시작 - Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Batch 계정을 만들고 Batch 작업을 실행하는 방법을 보여줍니다.
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 05/25/2021
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8d3005233320a7ba0d00f186944a0a8c0c456647
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: eba9bf9fd290c4483fc9caa0efa4f05adbeb08ef
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765308"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476144"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -72,7 +72,7 @@ az batch account login \
 
 ## <a name="create-a-pool-of-compute-nodes"></a>컴퓨팅 노드 풀 만들기
 
-이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) 명령을 사용하여 Linux 컴퓨팅 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 *Standard_A1_v2* 크기의 2개 노드로 구성되는 *mypool* 이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
+이제 배치 계정이 있으므로 [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create) 명령을 사용하여 Linux 컴퓨팅 노드의 샘플 풀을 만듭니다. 다음 예제에서는 Ubuntu 16.04 LTS를 실행하는 2개의 *Standard_A1_v2* 노드로 구성되는 *mypool* 이라는 풀을 만듭니다. 제안된 노드 크기는 이 빠른 예제의 성능과 비용에 대한 적절한 균형을 제공합니다.
  
 ```azurecli-interactive
 az batch pool create \
@@ -105,7 +105,7 @@ az batch job create \
 
 이제 [az batch task create](/cli/azure/batch/task#az_batch_task_create) 명령을 사용하여 작업에서 실행할 일부 태스크를 만듭니다. 이 예제에서는 네 개의 동일한 태스크를 만듭니다. 각 태스크는 `command-line`을 실행하여 컴퓨팅 노드에 Batch 환경 변수를 표시한 다음 90초 동안 기다립니다. Batch를 사용하면 이 명령줄에서 앱 또는 스크립트를 지정합니다. Batch는 컴퓨팅 노드에 앱과 스크립트를 배포하는 여러 가지 방법을 제공합니다.
 
-다음 Bash 스크립트에서는 4개의 병렬 태스크(*mytask1*-*mytask4*)를 만듭니다.
+다음 Bash 스크립트에서는 4개의 병렬 태스크(*mytask1*~*mytask4*)를 만듭니다.
 
 ```azurecli-interactive
 for i in {1..4}

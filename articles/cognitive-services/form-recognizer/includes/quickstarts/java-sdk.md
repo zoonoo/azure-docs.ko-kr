@@ -4,18 +4,18 @@ description: Form Recognizer Java 클라이언트 라이브러리를 사용하�
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/12/2021
+ms.date: 05/25/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
-ms.openlocfilehash: fa98977d25f6c1c406b95d0817e841d25c28394f
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: de9e52dcd372740a7ba7a50e3ace3390bbf0af03
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374213"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894332"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -23,7 +23,10 @@ ms.locfileid: "110374213"
 <!-- markdownlint-disable MD034 -->
 
 > [!IMPORTANT]
-> 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
+>
+> * 이 빠른 시작에서는 SDK 버전 **3.1.0** 을 사용하고 API 버전 **2.1** 을 대상으로 합니다.
+>
+> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다.
 
 [참조 설명서](/java/api/overview/azure/ai-formrecognizer-readme) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
@@ -61,8 +64,6 @@ gradle init --type basic
 
 프로젝트의 *build.gradle.kts* 파일에서 필요한 플러그 인 및 설정과 함께 클라이언트 라이브러리를 `implementation` 문으로 포함합니다.
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 ```kotlin
 plugins {
     java
@@ -75,35 +76,9 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
+    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0")
 }
 ```
-
-> [!NOTE]
-> Form Recognizer 3.1.0-beta.3 SDK는 _API 버전 2.1-preview.3_ 을 반영합니다.
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-```kotlin
-plugins {
-    java
-    application
-}
-application {
-    mainClass.set("FormRecognizer")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "3.1.0-beta.3")
-}
-```
-
-> [!NOTE]
-> Form Recognizer 3.0.0 SDK는 API v2.1-preview.3을 반영합니다.
-
----
 
 ### <a name="create-a-java-file"></a>Java 파일 만들기
 
@@ -118,7 +93,7 @@ mkdir -p src/main/java
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
 
 > [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
+> 이 빠른 시작의 코드 샘플이 포함된 전체 파일을 보려면 [**GitHub**](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java)에서 찾을 수 있습니다.
 
 애플리케이션의 **FormRecognizer** 클래스에서 리소스의 키 및 엔드포인트에 대한 변수를 만듭니다.
 
@@ -127,7 +102,7 @@ mkdir -p src/main/java
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
 애플리케이션의 **main** 메서드에서 이 빠른 시작에서 사용되는 메서드에 대한 호출을 추가합니다. 나중에 이를 정의합니다. 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
 
@@ -137,19 +112,10 @@ mkdir -p src/main/java
 * 테스트할 양식의 URL을 가져오려면 위의 단계를 따라 Blob Storage에 있는 개별 문서의 SAS URL을 가져오면 됩니다. 또는 다른 위치에 있는 문서의 URL을 가져옵니다.
 * 위의 방법을 사용하여 영수증 이미지의 URL도 가져올 수 있습니다.
 <!-- markdownlint-disable MD024 -->
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_mainvars)]
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_maincalls)]
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
-
-[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
-
----
 
 ## <a name="object-model"></a>개체 모델
 
@@ -174,33 +140,6 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 > [!NOTE]
 > [Form Recognizer 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
-
-## <a name="code-examples"></a>코드 예제
-
-여기에 나와 있는 코드 조각에서는 Java용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
-<!-- markdownlint-disable MD001 -->
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
-* [클라이언트 인증](#authenticate-the-client)
-* [레이아웃 분석](#analyze-layout)
-* [영수증 분석](#analyze-receipts)
-* [명함 분석](#analyze-business-cards)
-* [송장 분석](#analyze-invoices)
-* [ID 문서 분석](#analyze-identity-documents)
-* [사용자 지정 모델 학습](#train-a-custom-model)
-* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-custom-models)
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-* [클라이언트 인증](#authenticate-the-client)
-* [레이아웃 분석](#analyze-layout)
-* [영수증 분석](#analyze-receipts)
-* [사용자 지정 모델 학습](#train-a-custom-model)
-* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-custom-models)
-
----
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
@@ -280,8 +219,6 @@ Total Price: null, confidence: 0.93
 
 ## <a name="analyze-business-cards"></a>명함 분석
 
-#### <a name="v21"></a>[v2.1](#tab/2-1)
-
 이 섹션에서는 사전 학습된 모델을 사용하여 영문 명함의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 명함 분석에 대한 자세한 내용은 [명함 개념 가이드](../../concept-business-cards.md)를 참조하세요.
 
 URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서드를 사용합니다.
@@ -295,16 +232,7 @@ URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromUrl` 메서�
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_bc_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
-
 ## <a name="analyze-invoices"></a>송장 분석
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 사전 학습된 모델을 사용하여 판매 청구서의 공통 필드를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석에 대한 자세한 내용은 [청구서 개념 가이드](../../concept-invoices.md)를 참조하세요.
 
@@ -319,36 +247,20 @@ URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_invoice_print)]
 
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
-
 ## <a name="analyze-identity-documents"></a>ID 문서 분석
-
-#### <a name="v21"></a>[v2.1](#tab/2-1)
 
 이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 
-URI에서 ID 문서를 분석하려면 `beginRecognizeIdDocumentsFromUrl` 메서드를 사용합니다.
+URI에서 ID 문서를 분석하려면 `beginRecognizeIdentityDocumentsFromUrl` 메서드를 사용합니다.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_call":::
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_id_call)]
 
 > [!TIP]
-> 로컬 ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) 메서드(예:**beginRecognizeIdDocuments**)를 참조하세요. 또한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
+> 로컬 ID 문서 이미지도 분석할 수 있습니다. [FormRecognizerClient](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient) 메서드(예:**beginRecognizeIdentityDocuments**)를 참조하세요. 또한 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)의 샘플 코드를 참조하세요.
 
 다음 코드는 지정된 URI에서 ID 문서를 처리하고 주요 필드와 값을 콘솔에 출력합니다.
 
-:::code language="java" source="~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java" id="snippet_id_print":::
-
-#### <a name="v20"></a>[v2.0](#tab/2-0)
-
-> [!IMPORTANT]
-> 이 기능은 선택한 API 버전에서 사용할 수 없습니다.
-
----
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer-preview.java?name=snippet_id_print)]
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
