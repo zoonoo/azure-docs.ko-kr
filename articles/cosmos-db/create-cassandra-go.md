@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: 595ec1aaa4aedc3916d1b4d46986dcabae887aaf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6bba1e5b21371fc74fb7901c6a2b1de667c1c12b
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93076404"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112233410"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>빠른 시작: `gocql` 클라이언트를 통해 Go 앱을 빌드하여 Azure Cosmos DB Cassandra API 데이터 관리
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -40,7 +40,7 @@ Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용
 
 데이터베이스를 만들려면 먼저 Azure Cosmos DB로 Cassandra 계정을 만들어야 합니다.
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -259,11 +259,11 @@ go run main.go
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dc4368075e1cecb43887c9fab21e55b23208dbab
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 31ab388d01c9bd589a809bd1c71b455d6d8bf754
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107814931"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984737"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Azure Key Vault 비밀 정보
 
@@ -92,7 +92,7 @@ Key Vault는 [Azure 스토리지 계정](../../storage/common/storage-account-ov
 
 자세한 내용은 다음을 참조하십시오.
 - [스토리지 계정 액세스 키](../../storage/common/storage-account-keys-manage.md)
-- [Azure Key Vault의 스토리지 계정 키 관리](../secrets/overview-storage-keys.md))
+- [Azure Key Vault의 스토리지 계정 키 관리](../secrets/overview-storage-keys.md)
 
 
 ## <a name="storage-account-access-control"></a>스토리지 계정 액세스 제어

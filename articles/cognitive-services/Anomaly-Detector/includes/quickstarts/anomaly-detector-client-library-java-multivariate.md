@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2021
 ms.author: mbullwin
-ms.openlocfilehash: 871c93251f76313f66b10bdfabd0e97f6acff433
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 43ad5918f882a9496cfb9ee7ded13314cfdd87c1
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108333367"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110166261"
 ---
 Java용 Anomaly Detector 다변량 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. 새로운 다변량 변칙 검색 API를 통해 개발자는 기계 학습 기술 또는 레이블이 지정된 데이터 없이도 메트릭 그룹에서 변칙을 검색하는 고급 AI를 쉽게 통합할 수 있습니다. 서로 다른 신호 간의 종속성 및 상호 상관 관계는 자동으로 주요 요소로 계산됩니다. 이를 통해 복잡한 시스템의 오류로부터 사전에 보호할 수 있습니다.
 
@@ -105,6 +105,9 @@ import java.util.stream.Collectors;
 
 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 예제 데이터 파일에 대한 다른 변수를 만듭니다.
 
+> [!NOTE]
+> 항상 두 키 중 하나를 사용할 수 있습니다. 이는 보안 키 회전을 허용하기 위한 것입니다. 이 빠른 시작의 목적을 위해 첫 번째 키를 사용합니다. 
+
 ```java
 String key = "YOUR_API_KEY";
 String endpoint = "YOUR_ENDPOINT";
@@ -121,7 +124,7 @@ Anomaly Detector 다변량 API를 사용하려면 먼저 고유한 모델을 학
 |2019-04-01T00:02:00Z| 4|
 |`...`| `...` |
 
-각 CSV 파일의 이름을 모델 학습에 사용되는 다른 변수 뒤에 지정해야 합니다. 예를 들면 "temperature.csv" 및 "humidity.csv"입니다. 모든 CSV 파일은 하위 폴더 없이 하나의 zip 파일로 압축되어야 합니다. zip 파일에는 원하는 이름을 사용할 수 있습니다. zip 파일을 Azure Blob Storage에 업로드해야 합니다. zip 파일에 대한 BLOB SAS(공유 액세스 서명) URL을 생성한 후에는 학습에 사용할 수 있습니다. Azure Blob Storage에서 SAS URL을 생성하는 방법은 이 문서를 참조하세요.
+각 CSV 파일의 이름을 모델 학습에 사용되는 다른 변수 뒤에 지정해야 합니다. 예를 들면 "temperature.csv" 및 "humidity.csv"입니다. 모든 CSV 파일은 하위 폴더 없이 하나의 zip 파일로 압축되어야 합니다. zip 파일에는 원하는 이름을 사용할 수 있습니다. zip 파일을 Azure Blob Storage에 업로드해야 합니다. zip 파일에 대한 Blob SAS(공유 액세스 서명) URL을 생성한 후에는 학습에 사용할 수 있습니다. Azure Blob Storage에서 SAS URL을 생성하는 방법은 이 문서를 참조하세요.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -241,6 +244,9 @@ while (true) {
 
 ## <a name="export-model"></a>모델 내보내기
 
+> [!NOTE]
+> 내보내기 명령은 컨테이너화된 환경에서 Anomaly Detector 다변량 모델을 실행할 수 있도록 하는 데 사용됩니다. 이는 현재 다변량에 대해 지원되지 않지만 나중에 지원이 추가될 예정입니다.
+
 학습된 모델을 내보내려면 `exportModelWithResponse`를 사용합니다.
 
 ```java
@@ -275,6 +281,14 @@ gradle build
 gradle run
 ```
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+
+* [포털](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
 ## <a name="next-steps"></a>다음 단계
 
-* [Anomaly Detector 다변량 모범 사례](../../concepts/best-practices-multivariate.md)
+* [Anomaly Detector API란?](../../overview-multivariate.md)
+* [Anomaly Detector API를 사용하는 경우의 모범 사례입니다.](../../concepts/best-practices-multivariate.md) 

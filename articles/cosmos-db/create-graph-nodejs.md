@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91285ac491e352b1e67a97a056c361dd75acfda8
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93360142"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "113223549"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용하여 Node.js 애플리케이션 빌드
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -30,18 +30,18 @@ ms.locfileid: "93360142"
 
 이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Node.js 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 - 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
 - [Node.js 0.10.29 이상](https://nodejs.org/).
 - [Git](https://git-scm.com/downloads)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
-[!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-graph](includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-graph"></a>그래프 추가
 
-[!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
+[!INCLUDE [cosmos-db-create-graph](includes/cosmos-db-create-graph.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -200,11 +200,11 @@ module.exports = config;
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-your-resources"></a>리소스 정리
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

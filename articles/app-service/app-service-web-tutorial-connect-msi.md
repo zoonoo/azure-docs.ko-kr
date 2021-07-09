@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
-ms.openlocfilehash: fb13e5015a589efc575d5a7bbb8b662fc23b72be
-ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.openlocfilehash: 465e5c3c1f95004ec8fc3e46bd24274f18330e2a
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108076404"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110576505"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -138,6 +138,9 @@ SQL Database에 연결하는 데 필요한 모든 항목입니다. Visual studio
 
 ### <a name="modify-aspnet-core"></a>ASP.NET Core 수정
 
+> [!NOTE]
+> **Microsoft.Azure.Services.AppAuthentication** 은 더 이상 새 Azure SDK에서 사용하지 않는 것이 좋습니다. .NET, Java, TypeScript 및 Python에서 사용할 수 있는 새 **Azure ID 클라이언트 라이브러리** 로 대체되며 모든 새로운 개발에 사용해야 합니다. 마이그레이션하는 방법에 대한 정보는 `Azure Identity`[AppAuthentication to Azure.Identity 마이그레이션 지침](/dotnet/api/overview/azure/app-auth-migration)에서 찾을 수 있습니다.
+
 Visual Studio에서 패키지 관리자 콘솔을 열고, [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet 패키지를 추가합니다.
 
 ```powershell
@@ -182,6 +185,9 @@ Azure 앱의 관리 ID를 사용하려면 Cloud Shell에서 [az webapp identity 
 az webapp identity assign --resource-group myResourceGroup --name <app-name>
 ```
 
+> [!NOTE]
+> [배포 슬롯](deploy-staging-slots.md)에 대해 관리 ID를 사용하도록 설정하려면 `--slot <slot-name>`을 추가하고 *\<slot-name>* 에 있는 슬롯 이름을 사용합니다.
+
 다음은 출력의 예입니다.
 
 <pre>
@@ -222,7 +228,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup*).
+*\<identity-name>* 은 Azure AD의 관리 ID 이름입니다. ID가 시스템 할당된 경우 이름은 App Service 앱의 이름과 항상 동일합니다. [배포 슬롯](deploy-staging-slots.md)의 경우 시스템 할당 ID의 이름은 *\<app-name>/slots/\<slot-name>* 입니다. Azure AD 그룹에 대한 사용 권한을 부여하려면 대신 그룹의 표시 이름을 사용합니다(예: *myAzureSQLDBAccessGroup*).
 
 `EXIT`를 입력하여 Cloud Shell 프롬프트로 돌아갑니다.
 

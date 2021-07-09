@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 3cb6ee3162c70d2d07c4868ae90ecc54bd489966
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7d561f9c99641beba8a5092df447f3d18da050e9
+ms.sourcegitcommit: a9f131fb59ac8dc2f7b5774de7aae9279d960d74
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822342"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110190076"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>자습서: Displayr과 Azure Active Directory 통합
 
@@ -28,16 +28,16 @@ ms.locfileid: "99822342"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* Displayr SSO(Single Sign-On)가 설정된 구독
+* Displayr SSO(Single Sign-On)가 설정된 회사.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Displayr에서 **SP** 시작 SSO를 지원합니다.
+이 자습서에서는 Displayr 회사에서 Azure AD SSO를 구성하는 방법을 알아봅니다. Displayr에서 **SP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-displayr-from-the-gallery"></a>갤러리에서 Displayr 추가
 
@@ -50,17 +50,13 @@ Displayr이 Azure AD에 연결되도록 구성하려면 갤러리의 Displayr을
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Displayr** 를 입력합니다.
 1. 결과 패널에서 **Displayr** 를 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-테스트 사용자 **Britta Simon** 을 사용하여 Displayr로 Azure AD SSO를 구성 및 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Displayr의 관련 사용자 간에 연결이 형성되어야 합니다.
-
-Displayr에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
+Displayr에서 Azure AD SSO를 구성하려면 다음 구성 요소를 완료합니다.
 
 1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
 2. **[Displayr 구성](#configure-displayr)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Displayr 테스트 사용자 만들기](#create-displayr-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Displayr에 만듭니다.
+4. **[특정 사용자에 대한 액세스를 제한](#restrict-access-to-specific-users)** 하여 Displayr에 로그인할 수 있는 Azure AD 사용자를 제한합니다.
 6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -104,10 +100,6 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    다. **그룹 ID** 의 **원본 특성** 을 선택합니다.
 
-   d. **그룹 클레임 이름 사용자 지정** 을 선택합니다.
-
-   e. **그룹을 역할 클레임으로 내보내기** 를 선택합니다.
-
    f. **저장** 을 클릭합니다.
 
 1. **Displayr 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
@@ -126,7 +118,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 3. Displayr를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Displayr 회사 사이트에 관리자로 로그인한 후에 다음 단계를 수행합니다.
 
-4. **설정** 을 클릭한 후 **계정** 으로 이동합니다.
+4. **사용자** 아이콘을 클릭한 다음, **계정 설정** 으로 이동합니다.
 
     !["설정" 아이콘과 선택된 "계정"을 보여주는 스크린샷.](./media/displayr-tutorial/config01.png)
 
@@ -152,67 +144,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     g. **저장** 을 클릭합니다.  
 
-### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
+### <a name="restrict-access-to-specific-users"></a>특정 사용자에 대한 액세스 제한
 
-이 섹션에서는 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만듭니다.
-
-1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
-1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
-1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `Britta Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `BrittaSimon@contoso.com`입니다.
-   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기** 를 클릭합니다.
-
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
-
-이 섹션에서는 Britta Simon이 Azure Single Sign-On을 사용할 수 있도록 Displayr에 대한 액세스 권한을 부여합니다.
-
-1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
-1. 애플리케이션 목록에서 **Displayr** 을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
-1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon** 을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-
-### <a name="create-displayr-test-user"></a>Displayr 테스트 사용자 만들기
-
-Azure AD 사용자가 Displayr에 로그인할 수 있으려면 해당 사용자가 Displayr에 프로비저닝되어야 합니다. Displayr에서는 프로비저닝이 수동 작업입니다.
-
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
-
-1. Displayr에 관리자로 로그인합니다.
-
-2. **설정** 을 클릭한 후 **계정** 으로 이동합니다.
-
-    !["계정"이 선택된 "계정(코그)" 아이콘을 보여주는 스크린샷.](./media/displayr-tutorial/config01.png)
-
-3. 맨 위 메뉴에서 **설정** 으로 전환하고 **사용자** 섹션까지 페이지 아래로 스크롤한 후 **새 사용자** 를 클릭합니다.
-
-    !["사용자"가 강조 표시되고 "새 사용자" 단추가 선택된 "설정" 탭을 보여주는 스크린샷.](./media/displayr-tutorial/config07.png)
-
-4. **새 사용자** 페이지에서 다음 단계를 수행합니다.
-
-    ![Displayr 구성](./media/displayr-tutorial/config06.png)
-
-    a. **이름** 텍스트 상자에 사용자의 이름(예: **Brittasimon**)을 입력합니다.
-
-    b. **전자 메일** 텍스트 상자에 사용자의 전자 메일(예: `Brittasimon@contoso.com`)을 입력합니다.
-
-    다. 적절한 **그룹 멤버 자격** 을 선택합니다.
-
-    d. **저장** 을 클릭합니다.
+기본적으로 Displayr 애플리케이션을 추가한 테넌트의 모든 사용자는 SSO를 사용하여 Displayr에 로그인할 수 있습니다. 특정 사용자 또는 그룹에 대한 액세스를 제한하려면 [Azure AD 테넌트에서 Azure AD 앱을 사용자 세트로 제한](../develop/howto-restrict-your-app-to-a-set-of-users.md)을 참조하세요.
 
 ### <a name="test-sso"></a>SSO 테스트
 
-액세스 패널에서 Displayr 타일을 선택하면 SSO를 설정한 Displayr에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+액세스 패널에서 Displayr 타일을 선택하면 SSO를 설정한 Displayr 회사에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -5,14 +5,17 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/13/2020
-ms.openlocfilehash: 9ead752258596e9beb2bc112296d9275092ea8bb
-ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 86d43a09e4c739cc588848429dcaf6276f68dbf2
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2021
-ms.locfileid: "111556823"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299396"
 ---
 # <a name="quickstart-create-ml-services-cluster-in-azure-hdinsight-using-arm-template"></a>빠른 시작: Azure HDInsight에서 ARM 템플릿을 사용하여 ML Services 클러스터 만들기
+
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
 
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure HDInsight에서 [ML Services](./r-server-overview.md) 클러스터를 만듭니다. Microsoft Machine Learning Server를 사용하면 Azure에서 HDInsight 클러스터를 만들 때 배포 옵션으로 사용할 수 있습니다. 이 옵션을 제공하는 클러스터 유형을 ML Services라고 합니다. 이 기능은 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다.
 
@@ -45,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 값을 입력하거나 선택합니다.
 
-    |속성 |Description |
+    |속성 |설명 |
     |---|---|
     |Subscription|드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다.|
     |Resource group|드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 를 선택합니다.|

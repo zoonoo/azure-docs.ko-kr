@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fb46adc6de32befd554047eded18ca16ab76dde1
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: 04b0ee4feb74553fc3b24910da338ba02864ec28
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286765"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109165"
 ---
 # <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>빠른 시작: 배달 보고서 및 인바운드 메시지에 대한 SMS 이벤트 처리
 
@@ -114,7 +114,6 @@ Communication Services 구독을 정리하고 제거하려면 리소스 또는 �
 > [SMS 보내기](../telephony-sms/send.md)
 
 다음을 수행할 수도 있습니다.
-
 
  - [이벤트 처리 개념에 대해 알아보기](../../../event-grid/event-schema-communication-services.md)
  - [Event Grid에 대해 알아보기](../../../event-grid/overview.md)

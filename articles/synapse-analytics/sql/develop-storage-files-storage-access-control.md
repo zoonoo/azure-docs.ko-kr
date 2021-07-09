@@ -10,12 +10,12 @@ ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a93e63207bbbe9a2ac65823b3c22773f6cd97cf8
-ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
+ms.openlocfilehash: ca738136984941b050c0ae3a7c2408273724b1cd
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110676858"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112379279"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어
 
@@ -97,11 +97,9 @@ SAS 토큰을 사용하여 액세스를 사용하도록 설정하려면 데이�
 
 | 권한 부여 유형  | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
-| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨\*      | 지원되지 않음   | 지원됨\*     |
+| [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | 지원됨      | 지원되지 않음   | 지원됨     |
 | [관리 ID](?tabs=managed-identity#supported-storage-authorization-types) | 지원됨      | 지원 여부        | 지원 여부     |
-| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부\*      | 지원 여부\*        | 지원 여부\*     |
-
-\* SAS 토큰 및 Azure AD ID를 사용하여 방화벽으로 보호되지 않는 스토리지에 액세스할 수 있습니다.
+| [사용자 ID](?tabs=user-identity#supported-storage-authorization-types)    | 지원 여부      | 지원 여부        | 지원 여부     |
 
 ## <a name="firewall-protected-storage"></a>방화벽으로 보호된 스토리지
 

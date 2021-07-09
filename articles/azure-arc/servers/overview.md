@@ -2,20 +2,23 @@
 title: Azure Arc 지원 서버 개요
 description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure 외부에 호스팅되는 머신을 관리하는 방법에 대해 알아봅니다.
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 04/21/2021
+ms.date: 05/26/2021
 ms.topic: overview
-ms.openlocfilehash: 324f6cc29bd9e4eca1a20413032c213c2618a11e
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 307d09f23c5c1e74e2e4c81d77a3521652598fa4
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107831999"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110585497"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
 Azure Arc 지원 서버를 사용하면 Azure 외부에서 회사 네트워크 또는 다른 클라우드 공급자에 호스트되는 Windows 및 Linux 물리 서버 및 가상 머신을 관리할 수 있습니다. 이 관리 환경은 원시 Azure 가상 머신을 관리하는 방법과 일치하도록 설계되었습니다. 하이브리드 머신은 Azure에 연결되면 연결된 머신이 되어 Azure에서 리소스로 취급됩니다. 연결된 각 머신에는 리소스 ID가 있고 리소스 그룹에 포함되며, Azure Policy 및 태그 적용과 같은 표준 Azure 구성의 이점을 활용할 수 있습니다. 고객의 온-프레미스 인프라를 관리하는 서비스 공급자는 현재 네이티브 Azure 리소스를 관리하는 방법과 마찬가지로 Azure Arc와 함께 [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md)를 사용하여 여러 고객 환경의 하이브리드 머신을 관리할 수 있습니다.
 
 Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공하려면 Azure에 연결하려는 각 머신에 Azure Connected Machine 에이전트를 설치해야 합니다. 이 에이전트는 다른 기능을 제공하지 않으며, Azure [Log Analytics 에이전트](../../azure-monitor/agents/log-analytics-agent.md)를 대체하지 않습니다. 머신에서 실행되는 OS 및 워크로드를 사전에 모니터링하거나, 자동화 Runbook 또는 업데이트 관리 같은 솔루션을 사용하여 관리하거나, [Azure Security Center](../../security-center/security-center-introduction.md) 같은 다른 Azure 서비스를 사용하려는 경우에는 Windows 및 Linux용 Log Analytics 에이전트가 필요합니다.
+
+>[!NOTE]
+> 현재 미리 보기로 제공되는 [AMA(Azure Monitor 에이전트)](../../azure-monitor/agents/azure-monitor-agent-overview.md)는 연결된 머신 에이전트를 대체하지 않습니다. Azure Monitor 에이전트는 Windows 및 Linux 머신 모두에 대한 Log Analytics 에이전트, 진단 확장 및 Telegraf 에이전트를 대체합니다. 자세한 내용은 새 에이전트에 대한 Azure Monitor 설명서를 검토하세요.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 

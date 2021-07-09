@@ -9,31 +9,75 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae9a1a374724465148f922efe486c4680e1e36ab
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: ab08832927aeb969175968b8330b4ab54fc887bf
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108144280"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071302"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
 이 문서에는 Azure Synapse Analytics에서 서버리스 SQL 풀의 자주 발생하는 문제를 해결하는 방법에 대한 정보가 포함되어 있습니다.
 
-## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Synapse Studio에서 서버리스 SQL 풀이 회색으로 표시됨
+## <a name="synapse-studio"></a>Synapse Studio
+
+### <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Synapse Studio에서 서버리스 SQL 풀이 회색으로 표시됨
 
 Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 경우 서버리스 SQL 풀이 회색으로 표시되거나 "오프라인" 상태로 표시됩니다. 일반적으로 이 문제는 다음 중 하나에 해당할 때 발생합니다.
 
 1) 네트워크에서 Azure Synapse 백 엔드와의 통신을 차단합니다. 대부분 1443 포트가 차단됩니다. 서버리스 SQL 풀을 작동시키려면 이 포트의 차단을 해제합니다. 다른 문제로 인해 서버리스 SQL 풀도 작동하지 않을 수 있습니다. [자세한 내용은 전체 문제 해결 가이드를 참조하세요](../troubleshoot/troubleshoot-synapse-studio.md).
 2) 서버리스 SQL 풀에 로그인할 수 있는 권한이 없습니다. 액세스 권한을 얻으려면 Azure Synapse 작업 영역 관리자 중 한 명이 사용자를 작업 영역 관리자 또는 SQL 관리자 역할에 추가해야 합니다. [자세한 내용은 액세스 제어에 대한 전체 가이드를 참조하세요](../security/synapse-workspace-access-control-overview.md).
 
-## <a name="query-fails-because-file-cannot-be-opened"></a>파일을 열 수 없어 쿼리가 실패
+### <a name="query-fails-with-error-websocket-connection-was-closed-unexpectedly"></a>오류를 나타내며 쿼리 실패: Websocket 연결이 예기치 않게 닫혔습니다.
 
-'파일이 없거나 다른 프로세스에서 사용되고 있어서 파일을 열 수 없습니다'라는 내용의 오류 메시지와 함께 쿼리가 실패하고, 두 파일이 모두 존재하며 다른 프로세스에서 사용되고 있지 않다는 것이 확실한 경우에는 서버리스 SQL 풀이 파일에 액세스할 수 없다는 의미입니다. 이 문제는 일반적으로 Azure Active Directory ID가 파일에 액세스할 수 있는 권한이 없기 때문에 발생합니다. 기본적으로 서버리스 SQL 풀은 Azure Active Directory ID를 사용하여 파일에 액세스하려고 시도합니다. 이 이슈를 해결하려면 파일에 액세스할 수 있는 적절한 권한이 있어야 합니다. 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
+'Websocket 연결이 예기치 않게 닫혔습니다.'라는 오류 메시지를 나타내며 쿼리가 실패하는 경우 Synapse Studio 대한 브라우저 연결이 네트워크 문제 등으로 인해 중단된 것입니다. 
+
+이 문제를 해결하려면 이 쿼리를 다시 실행합니다. 작업 환경에서 이 메시지가 자주 발생하는 경우 네트워크 관리자의 도움을 받고, 방화벽 설정을 확인하고, [이 문제 해결 가이드에서 자세한 내용을 참조하세요](../troubleshoot/troubleshoot-synapse-studio.md). 
+
+문제가 계속되면 Azure Portal 통해 [지원 티켓](../../azure-portal/supportability/how-to-create-azure-support-request.md)을 만들고 추가 조사를 위해 Synapse Studio 대신 동일한 쿼리에 대해 [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) 또는 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)를 사용해 봅니다.
+
+## <a name="query-execution"></a>쿼리 실행
+
+### <a name="query-fails-because-file-cannot-be-opened"></a>파일을 열 수 없어 쿼리가 실패
+
+'파일이 없거나 다른 프로세스에서 사용되고 있어서 파일을 열 수 없습니다.'라는 내용의 오류 메시지와 함께 쿼리가 실패하고, 두 파일이 모두 존재하며 다른 프로세스에서 사용되고 있지 않다는 것이 확실한 경우에는 서버리스 SQL 풀이 파일에 액세스할 수 없다는 의미입니다. 이 문제는 일반적으로 Azure Active Directory ID가 파일에 액세스할 수 있는 권한이 없기 때문에 발생합니다. 기본적으로 서버리스 SQL 풀은 Azure Active Directory ID를 사용하여 파일에 액세스하려고 시도합니다. 이 이슈를 해결하려면 파일에 액세스할 수 있는 적절한 권한이 있어야 합니다. 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
 - [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
 
-## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>현재 리소스 제약 조건으로 인해 쿼리를 실행할 수 없어 쿼리가 실패 
+#### <a name="alternative-to-storage-blob-data-contributor-role"></a>Storage Blob 데이터 기여자 역할의 대체 기능
+
+Storage Blob 데이터 기여자를 부여하는 대신 파일 하위 세트에 대해 보다 세부적인 권한을 부여할 수도 있습니다. 
+
+* 또한 이 컨테이너의 일부 데이터에 액세스해야 하는 모든 사용자는 루트(컨테이너)까지 모든 부모 폴더에 대한 EXECUTE 권한이 있어야 합니다. [Azure Data Lake Storage Gen2에서 ACL을 설정하는 방법](../../storage/blobs/data-lake-storage-explorer-acl.md)에 대해 자세히 알아봅니다. 
+
+> [!NOTE]
+> 컨테이너 수준에 대한 실행 권한은 Azure Data Lake Gen2 내에서 설정해야 합니다.
+> 폴더에 대한 사용 권한은 Synapse 내에서 설정할 수 있습니다. 
+
+
+이 예제에서 data2.csv를 쿼리하려면 다음 권한이 필요합니다. 
+   - 컨테이너에 대한 실행 권한
+   - folder1에 대한 실행 권한 
+   - data2.csv에 대한 읽기 권한
+
+![데이터 레이크에 대한 사용 권한 구조를 보여 주는 그림](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
+
+* 액세스하려는 데이터에 대한 모든 권한이 있는 관리자로 Synapse에 로그인합니다.
+
+* 데이터 창에서 파일을 마우스 오른쪽 단추로 클릭하고 액세스 관리를 선택합니다.
+
+![액세스 관리 UI를 보여 주는 스크린샷](./media/resources-self-help-sql-on-demand/manage-access.png)
+
+* "읽기" 권한 이상을 선택하고 사용자 UPN 또는 개체 ID를 입력한 다음(예: user@contoso.com), 추가를 클릭합니다.
+
+* 이 사용자에 대한 읽기 권한을 부여합니다.
+![읽기 권한 부여 UI를 보여 주는 스크린샷](./media/resources-self-help-sql-on-demand/grant-permission.png)
+
+> [!NOTE]
+> 게스트 사용자의 경우 이 작업을 Synapse를 통해 직접 수행할 수 없으므로 Azure Data Lake Service를 사용하여 직접 수행해야 합니다. 
+
+### <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>현재 리소스 제약 조건으로 인해 쿼리를 실행할 수 없어 쿼리가 실패 
 
 '현재 리소스 제약 조건으로 인해 이 쿼리를 실행할 수 없습니다.'라는 오류 메시지와 함께 쿼리가 실패하는 경우에는 리소스 제약 조건으로 인해 현재 서버리스 SQL 풀이 쿼리를 실행할 수 없음을 의미입니다. 
 
@@ -43,7 +87,328 @@ Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 
 
 - 쿼리를 최적화하려면 [서버리스 SQL 풀의 성능 모범 사례](./best-practices-serverless-sql-pool.md)를 참조하세요.  
 
-## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT'는 마스터 데이터베이스에서 지원되지 않습니다.
+### <a name="query-fails-with-error-while-handling-an-external-file"></a>외부 파일을 처리하는 동안 오류를 나타내며 쿼리가 실패합니다. 
+
+'외부 파일 처리 오류: 최대 오류 수에 도달했습니다.'라는 오류 메시지를 나타내며 쿼리가 실패하면 지정된 열 형식과 로드해야 하는 데이터가 일치하지 않는 것입니다. 오류 및 확인할 행과 열에 대한 자세한 내용을 보려면 파서 버전을 '2.0'에서 '1.0'으로 변경합니다. 
+
+#### <a name="example"></a>예제
+이 쿼리 1을 사용하여 'names.csv' 파일을 쿼리하려는 경우 Synapse SQL 서버리스가 이러한 오류와 함께 반환됩니다. 
+
+names.csv
+```csv
+Id,first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+5,Eva
+```
+
+쿼리 1:
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='2.0',
+       FIELDTERMINATOR =';',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] SMALLINT, 
+    [Text] VARCHAR (1) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+원인:
+
+```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
+
+파서 버전이 버전 2.0에서 버전 1.0으로 변경되는 즉시, 문제를 식별하는 데 도움이 되는 오류 메시지가 나타납니다. 이제 새 오류 메시지가 대신 표시됩니다. 
+
+```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
+
+잘림이 수행된다는 것은 열 형식이 너무 작아서 데이터에 맞지 않는다는 것을 의미합니다. 이 'names.csv' 파일의 가장 긴 이름은 7자입니다. 따라서 사용할 데이터 형식은 VARCHAR(7) 이상이어야 합니다. 이 오류는 다음 코드 줄로 인해 발생합니다. 
+
+```sql 
+    [Text] VARCHAR (1) COLLATE Latin1_General_BIN2
+```
+그에 따라 쿼리를 변경하면 오류가 해결됩니다. 최대 성능을 얻으려면 디버깅 후 파서 버전을 다시 2.0으로 변경합니다. [여기](develop-openrowset.md)에서 파서 버전을 사용하는 경우에 대해 자세히 읽어보세요. 
+
+```sql 
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='2.0',
+        FIELDTERMINATOR =';',
+        FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] SMALLINT, 
+    [Text] VARCHAR (7) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+### <a name="query-fails-with-conversion-error"></a>변환 오류를 나타내며 쿼리 실패
+데이터 파일 [filepath]'의 행 n, 열 m [columnname]에 대해 대량 로드 데이터 변환 오류(지정된 코드 페이지의 형식 불일치 또는 잘못된 문자) 오류 메시지를 나타내며 쿼리가 실패하는 경우 데이터 형식이 행 번호 n 및 열 m의 실제 데이터와 일치하지 않음을 의미합니다. 
+
+예를 들어, 데이터에 정수만 나와야 하지만 행 n에 문자열이 있는 경우 이 오류 메시지가 표시됩니다. 이 문제를 해결하려면 파일 및 선택한 데이터 형식을 검사합니다. 또한 행 구분 기호 및 필드 종결자 설정이 올바른지 확인합니다. 다음 예제에서는 VARCHAR를 열 형식으로 사용하여 검사를 수행하는 방법을 보여 줍니다. [여기](query-single-csv-file.md)에서 필드 종결자, 행 구분 기호 및 이스케이프 따옴표 문자에 대해 자세히 읽어보세요. 
+
+#### <a name="example"></a>예제 
+이 쿼리 1을 사용하여 'names.csv' 파일을 쿼리하려는 경우 Synapse SQL 서버리스가 이러한 오류와 함께 반환됩니다. 
+
+names.csv
+```csv
+Id, first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+five,Eva
+```
+
+쿼리 1:
+```sql 
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =',',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] SMALLINT, 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+다음 오류를 발생합니다. ```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
+
+데이터를 찾아보고 정보를 토대로 이 문제를 처리해야 합니다. 이 문제를 유발하는 데이터를 살펴보려면 먼저 데이터 형식을 변경해야 합니다. 이제 데이터 형식이 "SMALLINT"인 열 "ID"를 쿼리하는 대신 VARCHAR(100)을 사용하여 이 문제를 분석합니다. 약간 변경된 쿼리 2를 사용하면 이제 데이터를 처리할 수 있으며 이름 목록이 표시됩니다. 
+
+쿼리 2: 
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =',',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] VARCHAR(100), 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+names.csv
+```csv
+Id, first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+five,Eva
+```
+
+데이터의 다섯 번째 행에 ID에 대한 예기치 않은 값이 있는 것 같습니다. 이러한 상황에서는 데이터의 비즈니스 소유자와 함께 이와 같은 손상된 데이터를 방지할 수 있는 방법을 협의하는 것이 중요합니다. 애플리케이션 수준에서 방지가 불가능하고 ID에 대한 모든 종류의 데이터 형식을 처리해야 하는 경우 적절한 크기의 VARCHAR가 유일한 옵션일 수 있습니다.
+
+> [!Tip]
+> VARCHAR()를 최대한 짧게 만들어 보세요. VARCHAR(MAX)는 성능을 저하시킬 수 있으므로 가능하다면 사용하지 마세요. 
+
+### <a name="the-result-table-does-not-look-like-expected-result-columns-are-empty-or-unexpected-loaded"></a>결과 테이블이 예상과 같지 않습니다. 결과 열이 비어 있거나 예기치 않게 로드됩니다. 
+
+쿼리가 실패하지 않지만 결과 테이블이 예상대로 로드되지 않은 경우 행 구분 기호 또는 필드 종결자를 잘못 선택했을 수 있습니다. 이 문제를 해결하려면 데이터를 다시 살펴보고 해당 설정을 변경해야 합니다. 결과 테이블이 표시되면 다음 예제와 같이 이 쿼리를 쉽게 디버깅할 수 있습니다. 
+
+#### <a name="example"></a>예제
+이 쿼리 1을 사용하여 'names.csv' 파일을 쿼리하려는 경우 Synapse SQL 서버리스가 이상해 보이는 결과 테이블과 함께 반환됩니다. 
+
+names.csv
+```csv
+Id,first name, 
+1,Adam
+2,Bob
+3,Charles
+4,David
+5,Eva
+```
+
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =';',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] VARCHAR(100), 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+```
+
+이로 인해 다음 결과 테이블이 표시됩니다.
+
+| ID            |   firstname   | 
+| ------------- |-------------  | 
+| 1,Adam        | NULL | 
+| 2,Bob         | NULL | 
+| 3,Charles     | NULL | 
+| 4,David       | NULL | 
+| 5,Eva         | NULL | 
+
+열 "firstname"에 값이 없는 것 같습니다. 대신 모든 값이 열 "ID"에 있습니다. 값은 쉼표로 구분됩니다. 세미콜론 기호 대신 쉼표를 필드 종결자로 선택해야 하기 때문에 이 코드 줄로 인해 문제가 발생한 것입니다.
+
+```sql
+FIELDTERMINATOR =';',
+```
+
+이 단일 문자를 변경하면 문제가 해결됩니다.
+
+```sql
+FIELDTERMINATOR =',',
+```
+
+이제 쿼리 2에서 만든 결과 테이블이 예상대로 표시됩니다. 
+
+쿼리 2:
+```sql
+SELECT
+    TOP 100 *
+FROM
+    OPENROWSET(
+        BULK '[FILE-PATH OF CSV FILE]',
+        FORMAT = 'CSV',
+        PARSER_VERSION='1.0',
+       FIELDTERMINATOR =',',
+       FIRSTROW = 2
+    ) 
+    WITH (
+    [ID] VARCHAR(100), 
+    [Firstname] VARCHAR (25) COLLATE Latin1_General_BIN2 
+)
+
+    AS [result]
+``` 
+
+다음을 반환합니다.
+
+| ID            |   firstname   | 
+| ------------- |-------------  | 
+| 1        | Adam | 
+| 2         | Bob | 
+| 3     | Charles | 
+| 4       | David | 
+| 5         | Eva | 
+
+
+### <a name="query-fails-with-error-column-column-name-of-type-type-name-is--not-compatible-with-external-data-type-external-data-type-name"></a>[type-name] 형식의 [column-name] 열이 외부 데이터 형식 [external-data-type-name]과(와) 호환되지 않음 오류를 나타내며 쿼리 실패 
+
+'[type-name] 형식의 [column-name] 열이 외부 데이터 형식 [...]'과(와) 호환되지 않습니다.' 오류 메시지를 나타내며 쿼리가 실패하는 경우 PARQUET 데이터 형식을 잘못된 SQL 데이터 형식에 매핑하려고 시도했을 수 있습니다. 예를 들어, parquet 파일에 부동 소수점 숫자(예: 12.89)를 포함하는 열 가격이 있고 이 값을 INT에 매핑하려고 하면 이 오류 메시지가 표시됩니다. 
+
+이 문제를 해결하려면 파일 및 선택한 데이터 형식을 검사합니다. 이 [매핑 테이블](develop-openrowset.md#type-mapping-for-parquet)은 SQL 데이터 형식을 선택하는 데 유용합니다. 모범 사례 힌트: VARCHAR 데이터 형식으로 확인되는 열에 대해서만 매핑을 지정합니다. 가능한 경우 VARCHAR를 방지하면 쿼리 성능이 향상됩니다. 
+
+#### <a name="example"></a>예제
+이 쿼리 1을 사용하여 'taxi-data.parquet' 파일을 쿼리하려는 경우 Synapse SQL 서버리스가 이러한 오류와 함께 반환됩니다.
+
+taxi-data.parquet:
+
+|PassengerCount |SumTripDistance|AvgTripDistance |
+|---------------|---------------|----------------|
+| 1 | 2635668.66000064 | 6.72731710678951 |
+| 2 | 172174.330000005 | 2.97915543404919 |
+| 3 | 296384.390000011 | 2.8991352022851  |
+| 4 | 12544348.58999806| 6.30581582240281 |
+| 5 | 13091570.2799993 | 111.065989028627 |
+
+쿼리 1:
+```sql
+SELECT
+    *
+FROM
+    OPENROWSET(
+        BULK '<filepath>taxi-data.parquet',
+        FORMAT='PARQUET'
+    )  WITh
+        (
+        PassengerCount INT, 
+        SumTripDistance INT, 
+        AVGTripDistance FLOAT
+        )
+
+    AS [result]
+```
+다음 오류를 발생합니다. 
+
+```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
+
+이 오류 메시지는 데이터 형식이 호환되지 않으며 INT 대신 FLOAT를 사용하라는 제안 사항이 이미 제공되었음을 알려줍니다. 이 오류는 다음 코드 줄로 인해 발생합니다. 
+
+```sql
+SumTripDistance INT, 
+```
+
+약간 변경된 쿼리 2를 사용하면 이제 데이터를 처리할 수 있으며 세 개의 열이 모두 표시됩니다. 
+
+쿼리 2: 
+```sql
+SELECT
+    *
+FROM
+    OPENROWSET(
+        BULK '<filepath>taxi-data.parquet',
+        FORMAT='PARQUET'
+    )  WITh
+        (
+        PassengerCount INT, 
+        SumTripDistance FLOAT, 
+        AVGTripDistance FLOAT
+        )
+
+    AS [result]
+```
+
+## <a name="configuration"></a>구성
+
+### <a name="query-fails-with-please-create-a-master-key-in-the-database-or-open-the-master-key-in-the-session-before-performing-this-operation"></a>다음 오류를 나타내며 쿼리가 실패합니다. 이 작업을 수행하기 전에 데이터베이스에서 마스터 키를 만들거나 세션의 마스터 키를 여세요.
+
+'이 작업을 수행하기 전에 데이터베이스에서 마스터 키를 만들거나 세션에서 마스터 키를 여세요.' 오류 메시지를 나타내며 쿼리가 실패하는 경우 현재 사용자 데이터베이스가 마스터 키에 액세스할 수 없음을 의미합니다. 
+
+대부분의 경우 방금 새 사용자 데이터베이스를 만들었으며 아직 마스터 키를 만들지 않았습니다. 
+
+이 문제를 해결하려면 다음 쿼리를 사용하여 마스터 키를 만듭니다.
+
+```sql
+CREATE MASTER KEY [ ENCRYPTION BY PASSWORD ='password' ];
+```
+
+> [!NOTE]
+> 여기서 'password'를 다른 암호로 바꿉니다. 
+
+### <a name="create-statement-is-not-supported-in-master-database"></a>CREATE STATEMENT는 master 데이터베이스에서 지원되지 않습니다.
 
 다음 오류 메시지와 함께 쿼리가 실패하는 경우:
 
@@ -72,6 +437,81 @@ USE <DATABASE_NAME>
 CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
 WITH ( FORMAT_TYPE = PARQUET)
 ```
+
+### <a name="operation-operation-name-is-not-allowed-for-a-replicated-database"></a>[[작업 이름]] 작업은 복제된 데이터베이스에 대해 허용되지 않습니다.
+   
+데이터베이스에서 SQL 개체, 사용자 또는 변경 권한을 만들려는 경우 'CREATE USER 작업은 복제된 데이터베이스에 대해 허용되지 않습니다.'와 같은 오류가 발생할 수 있습니다. 이 오류는 [Spark 풀과 공유](../metadata/database.md)되는 데이터베이스에서 개체를 만들려고 하면 반환됩니다. Apache Spark 풀에서 복제되는 데이터베이스는 읽기 전용입니다. T-SQL을 사용하여 복제된 데이터베이스에 새 개체를 만들 수는 없습니다.
+
+별도의 데이터베이스를 만들고 세 부분으로 구성된 이름 및 데이터베이스 간 쿼리를 사용하여 동기화된 [테이블](../metadata/table.md)을 참조합니다.
+
+## <a name="cosmos-db"></a>Cosmos DB
+
+### <a name="some-rows-are-not-returned"></a>일부 행이 반환되지 않음
+
+- 트랜잭션 저장소와 분석 저장소 간에 동기화 지연이 발생합니다. Cosmos DB 트랜잭션 저장소에 입력한 문서가 2-3분 후에 분석 저장소에 표시될 수 있습니다.
+- 문서가 [스키마 제약 조건](../../cosmos-db/analytical-store-introduction.md#schema-constraints)을 위반할 수 있습니다. 
+
+### <a name="query-returns-null-values"></a>쿼리가 `NULL` 값을 반환함
+
+Synapse SQL 다음과 같은 경우 트랜잭션 저장소에 표시되는 값 대신 `NULL`을 반환합니다.
+- 트랜잭션 저장소와 분석 저장소 간에 동기화 지연이 발생합니다. Cosmos DB 트랜잭션 저장소에 입력한 값이 2-3분 후에 분석 저장소에 표시될 수 있습니다.
+- `WITH` 절에 잘못된 열 이름 또는 경로 식이 있을 수 있습니다. `WITH` 절에서 열 이름(또는 열 유형 뒤의 경로 식)은 Cosmos DB 컬렉션의 속성 이름과 일치해야 합니다. 비교는 대/소문자를 구분합니다(예: `productCode` 및 `ProductCode`는 서로 다른 속성임). 열 이름이 Cosmos DB 속성 이름과 정확히 일치하는지 확인합니다.
+- 이 속성은 1000개를 초과하는 속성 또는 127개를 초과하는 중첩 수준과 같은 [스키마 제약 조건](../../cosmos-db/analytical-store-introduction.md#schema-constraints)을 위반하기 때문에 분석 스토리지로 이동되지 않을 수 있습니다.
+- 잘 정의된 [스키마 표현](../../cosmos-db/analytical-store-introduction.md#schema-representation)을 사용하는 경우 트랜잭션 저장소의 값 형식이 잘못되었을 수 있습니다. 잘 정의된 스키마는 문서를 샘플링하여 각 속성에 대한 형식을 잠급니다. 트랜잭션 저장소에 추가된 값 중에서 형식과 일치하지 않는 값은 잘못된 값으로 처리되고 분석 저장소로 마이그레이션되지 않습니다. 
+- 전체 충실도 [스키마 표현](../../cosmos-db/analytical-store-introduction.md#schema-representation)을 사용하는 경우 속성 이름 뒤에 형식 접미사를 추가해야 합니다(예: `$.price.int64`). 참조된 경로에 대한 값이 표시되지 않으면 다른 형식 경로(예: `$.price.float64`)에 저장되어 있을 수 있습니다. [전체 충실도 스키마에서 Cosmos Db 컬렉션을 쿼리하는 방법](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema)을 참조하세요.
+
+### <a name="column-is-not-compatible-with-external-data-type"></a>열이 외부 데이터 형식과 호환되지 않음
+
+`WITH` 절에 지정된 값이 분석 스토리지의 기본 Cosmos DB 형식과 일치하지 않아 암시적으로 변환할 수 없습니다. 스키마에서 `VARCHAR` 형식을 사용합니다.
+
+## <a name="delta-lake"></a>Delta Lake
+
+Delta Lake 지원은 현재 서버리스 SQL 풀에서 퍼블릭 미리 보기로 제공됩니다. 미리 보기 중에 나타날 수 있는 몇 가지 알려진 문제가 있습니다.
+- [OPENROWSET](./develop-openrowset.md) 함수 또는 외부 테이블 위치에서 루트 Delta Lake 폴더를 참조하고 있는지 확인합니다.
+  - 루트 폴더에는 `_delta_log`라는 하위 폴더가 있어야 합니다. `_delta_log` 폴더가 없으면 쿼리가 실패합니다. 해당 폴더가 표시되지 않으면 Apache Spark 풀을 사용하여 [Delta Lake로 변환](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta)해야 하는 일반 Parquet 파일을 참조하는 것입니다.
+  - 파티션 스키마를 설명하는 와일드카드를 지정하지 마세요. Delta Lake 쿼리는 Delta Lake 파티션을 자동으로 식별합니다. 
+- Apache Spark 풀에서 만든 Delta Lake 테이블은 서버리스 SQL 풀에서 동기화되지 않습니다. T-SQL 언어를 사용하여 Apache Spark 풀에서 Delta Lake 테이블을 쿼리할 수 없습니다.
+- 외부 테이블은 분할을 지원하지 않습니다. Delta Lake 폴더에서 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)를 사용하여 파티션 제거를 활용합니다.
+  - Delta Lake의 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)에는 `OPENROWSET` 절이 있는 `WITH` 함수가 없어야 합니다. 미리 보기의 알려진 문제로 인해 스키마 유추를 사용하고 `WITH` 절을 제거해야 합니다.
+- 서버리스 SQL 풀은 시간 이동 쿼리 또는 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)하거나 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- 서버리스 SQL 풀은 `null` 또는 빈 값을 포함하는 파티션이 있는 Delta Lake 데이터 세트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 읽어야 하는 경우 데이터 세트에서 `null` 또는 빈 값을 업데이트합니다.
+- Delta Lake 지원은 전용 SQL 풀에서 사용할 수 없습니다. 서버리스 풀을 사용하여 Delta Lake 파일을 쿼리하고 있는지 확인합니다.
+
+[Azure Synapse 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048)에서 아이디어와 향상된 기능을 제안할 수 있습니다.
+
+### <a name="content-of-directory-on-path-cannot-be-listed"></a>경로에 있는 디렉터리의 콘텐츠를 나열할 수 없음
+
+서버리스 SQL 풀이 Delta Lake 트랜잭션 로그 폴더를 읽을 수 없는 경우 다음 오류가 반환됩니다.
+
+```
+Msg 13807, Level 16, State 1, Line 6
+Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+```
+
+`_delta_log` 폴더가 있는지 확인합니다(Delta Lake 형식으로 변환되지 않은 일반 Parquet 파일을 쿼리하고 있을 수 있음). `_delta_log` 폴더가 있는 경우 기본 Delta Lake 폴더에 대한 읽기 및 나열 권한이 둘 다 있는지 확인합니다.
+
+### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>토폴로지 변경 또는 컴퓨팅 컨테이너 오류로 인해 쿼리 실패
+
+데이터베이스 데이터 정렬이 `Latin1_General_100_BIN2_UTF8`이 아닌 경우 분할된 데이터 세트에 대한 일부 Delta Lake 쿼리가 이 오류 메시지를 나타내며 실패할 수 있습니다. 기본 데이터 정렬을 사용하여 master 및 기타 데이터베이스를 만드는 대신, `Latin1_General_100_BIN2_UTF8` 데이터 정렬을 사용하여 데이터베이스를 만들고 해당 데이터베이스에 대해 쿼리를 실행합니다.
+
+```sql
+CREATE DATABASE mydb 
+    COLLATE Latin1_General_100_BIN2_UTF8;
+```
+
+### <a name="column-of-type-varchar-is-not-compatible-with-external-data-type-parquet-column-is-of-nested-type"></a>'VARCHAR' 형식의 열은 외부 데이터 형식과 호환되지 않음 'Parquet 열이 중첩 형식임'
+
+WITH 절을 지정하지 않고 일부 중첩 형식 열이 포함된 Delta Lake 파일을 읽으려고 합니다(자동 스키마 유추 사용). 자동 스키마 유추는 Delta Lake의 중첩 열에서 작동하지 않습니다. `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다.
+
+### <a name="cannot-find-value-of-partitioning-column-in-file"></a>파일에서 분할 열 값을 찾을 수 없음 
+
+Delta Lake 데이터 세트는 분할 열에 `NULL` 값이 있을 수 있습니다. 이것은 현재 서버리스 SQL 풀에서 지원되지 않습니다. 이 경우 다음과 같은 오류가 발생합니다.
+
+```
+Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error: Cannot find value of partitioning column '<column name>' in file 'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
+```
+
+Apache Spark 풀을 사용하여 Delta Lake 데이터 세트를 업데이트하고 분할 열에 `null` 대신 일부 값(빈 문자열 또는 `"null"`)을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

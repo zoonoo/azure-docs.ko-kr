@@ -5,16 +5,16 @@ services: static-web-apps
 author: aaronpowell
 ms.service: static-web-apps
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 05/11/2021
 ms.author: aapowell
-ms.openlocfilehash: 4539c32a367bb0974212d989176a96b530da21a4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ccc9089493dd8502997d7095c368c0edb83d2b70
+ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652344"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110586512"
 ---
-# <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>자습서: Azure Static Web Apps 미리 보기에 Hugo 사이트 게시
+# <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps"></a>자습서: Azure Static Web Apps에 Hugo 사이트 게시
 
 이 문서에서는 [Azure Static Web Apps](overview.md)에 [Hugo](https://gohugo.io/) 웹 애플리케이션을 만들고 배포하는 방법을 보여줍니다. 최종 결과는 앱이 빌드되고 게시되는 방식을 제어하는 관련 GitHub Actions를 포함하는 새로운 Azure Static Web App입니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "100652344"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - 활성 구독이 있는 Azure 계정. 계정이 없는 경우 [체험 계정을 만들](https://azure.microsoft.com/free/) 수 있습니다.
 - GitHub 계정. 계정이 없는 경우 [체험 계정을 만들](https://github.com/join) 수 있습니다.
@@ -98,56 +98,42 @@ Azure Static Web Apps에 연결하려면 GitHub의 리포지토리가 필요합�
 ### <a name="create-the-application"></a>애플리케이션 만들기
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
-1. **리소스 만들기** 를 클릭합니다.
+1. **리소스 만들기** 선택
 1. **Static Web Apps** 를 검색합니다.
-1. **Static Web Apps(미리 보기)** 를 클릭합니다.
-1. **만들기**
+1. **Static Web Apps** 선택
+1. **만들기** 를 선택합니다.
+1. _기본_ 탭에서 다음 값을 입력합니다.
 
-   :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="포털에서 Azure Static Web Apps 리소스 만들기":::
+    | 속성 | 값 |
+    | --- | --- |
+    | _구독_ | Azure 구독 이름. |
+    | _리소스 그룹_ | **my-hugo-group**  |
+    | _이름_ | **hugo-static-app** |
+    | _플랜 유형_ | **Free** |
+    | _Azure Functions API 및 스테이징 환경을 위한 영역_ | 가장 가까운 지역을 선택합니다. |
+    | _원본_ | **GitHub** |
 
-1. **구독** 의 경우 나열된 구독을 수락하거나 드롭다운 목록에서 새 구독을 선택합니다.
+1. **GitHub로 로그인** 을 선택하고 GitHub로 인증합니다.
 
-1. _리소스 그룹_ 에서 **새로 만들기** 를 선택합니다. _새 리소스 그룹 이름_ 에서 **hugo-static-app** 을 입력하고 **확인** 을 선택합니다.
+1. 다음 GitHub 값을 입력합니다.
 
-1. 그런 다음, **이름** 상자에 있는 앱 이름을 선택합니다. 유효한 문자에는 `a-z`, `A-Z`, `0-9` 및 `-`가 포함됩니다.
+    | 속성 | 값 |
+    | --- | --- |
+    | _조직_ | 원하는 GitHub 조직을 선택합니다. |
+    | _리포지토리_ | **hugo-static-app** 을 선택합니다. |
+    | _분기_ | **기본** 을 선택합니다. |
 
-1. _지역_ 에 대해 가까운 사용 가능한 지역을 선택합니다.
+1. _빌드 세부 정보_ 섹션의 _빌드 사전 설정_ 드롭다운에서 **Hugo** 를 선택하고 기본값을 유지합니다.
 
-1. _SKU_ 에 대해 **무료** 를 선택합니다.
+### <a name="review-and-create"></a>검토 후 만들기
 
-   :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="세부 정보 입력":::
+1. **검토 + 만들기** 단추를 선택하여 세부 정보가 모두 올바른지 확인합니다.
 
-1. **GitHub로 로그인** 단추를 클릭합니다.
+1. **만들기** 를 선택하여 App Service Static Web App 만들기를 시작하고 배포를 위한 GitHub Action을 프로비전합니다.
 
-1. 리포지토리를 만든 **조직** 을 선택합니다.
+1. 배포가 완료되면 **리소스로 이동** 을 클릭합니다.
 
-1. **hugo-static-app** 을 _리포지토리_ 로 선택합니다.
-
-1. _분기_ 에 대해 **기본** 을 선택합니다.
-
-   :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="완료된 GitHub 정보":::
-
-### <a name="build"></a>빌드
-
-그런 다음, 빌드 프로세스에서 앱을 빌드하는 데 사용하는 구성 설정을 추가합니다. 다음 설정은 GitHub Action 워크플로 파일을 구성합니다.
-
-1. **다음: 빌드 >** 단추를 클릭하여 빌드 구성을 편집합니다.
-
-1. _앱 위치_ 를 **/** 로 설정합니다.
-
-1. _앱 아티팩트 위치_ 를 **공개** 로 설정합니다.
-
-   현재 API를 배포하지 않으므로 _API 위치_ 에 대한 값이 필요하지 않습니다.
-
-### <a name="review-and-create"></a>검토 및 만들기
-
-1. **검토 + 만들기** 단추를 클릭하여 세부 정보가 모두 올바른지 확인합니다.
-
-1. **만들기** 를 클릭하여 Azure Static Web Apps 만들기를 시작하고 배포를 위한 GitHub Action을 프로비저닝합니다.
-
-1. GitHub Action이 완료될 때까지 기다립니다.
-
-1. 새로 만든 Azure Static Web Apps 리소스의 Azure Portal _개요_ 창에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다.
+1. 리소스 화면에서 _URL_ 링크를 클릭하여 배포된 애플리케이션을 엽니다. GitHub Action이 완료되려면 1~2분 정도 기다려야 할 수 있습니다.
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="배포된 애플리케이션":::
 
@@ -167,10 +153,10 @@ jobs:
           submodules: true
       - name: Build And Deploy
         id: builddeploy
-        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig

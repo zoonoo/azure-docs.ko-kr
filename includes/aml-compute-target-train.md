@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 3eb5ea468a234aea228539c2390ab6cae9352948
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 729939f9dfe4c995f92513117d9a2631333bc19d
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105630175"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110630537"
 ---
 **컴퓨팅 대상은 한 학습 작업에서 다음 학습 작업으로 재사용할 수 없습니다.** 예를 들어 원격 VM을 작업 영역에 연결한 후 여러 작업에 다시 사용할 수 있습니다. 기계 학습 파이프라인의 경우 각 컴퓨팅 대상에 적절한 [파이프라인 단계](/python/api/azureml-pipeline-steps/azureml.pipeline.steps)를 사용합니다.
 
@@ -26,6 +26,7 @@ ms.locfileid: "105630175"
 |[Azure Machine Learning 컴퓨팅 클러스터](../articles/machine-learning/how-to-create-attach-compute-cluster.md)| 예 | 예 | 예 |
 |[Azure Machine Learning 컴퓨팅 인스턴스](../articles/machine-learning/how-to-create-manage-compute-instance.md) | 예(SDK를 통해)  | 예 |  |
 |[원격 VM](../articles/machine-learning/how-to-attach-compute-targets.md#vm) | 예  | 예 | &nbsp; |
+|[Apache Spark 풀(미리 보기)](../articles/machine-learning/how-to-attach-compute-targets.md#synapse)| 예(SDK 로컬 모드 전용) | 예 | &nbsp; |
 |[Azure&nbsp;Databricks](../articles/machine-learning/how-to-attach-compute-targets.md#databricks)| 예(SDK 로컬 모드 전용) | 예 | &nbsp; |
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | 예 | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | 예 | &nbsp; |
