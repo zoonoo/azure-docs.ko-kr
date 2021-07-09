@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 82e21f57a22da43f904ac9a12afb016c257e5055
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: dd2ceaa97a456d72227d6180596aeccc9e00a614
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289699"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453901"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -40,7 +40,7 @@ Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합�
 
 ## <a name="get-the-sample-app"></a>샘플 앱 가져오기
 
-Computer Vision 샘플 앱은 `Microsoft/Cognitive-Vision-Windows` 리포지토리의 GitHub에서 제공됩니다. 또한 이 리포지토리에는 Git 하위 모듈로 `Microsoft/Cognitive-Common-Windows` 리포지토리가 포함됩니다. 하위 모듈을 비롯한 이 리포지토리는 명령줄에서 `git clone --recurse-submodules` 명령을 사용하거나 GitHub 데스크톱을 사용하여 재귀적으로 복제할 수 있습니다.
+Computer Vision 샘플 앱은 [Microsoft/Cognitive-Vision-Windows 리포지토리](https://github.com/microsoft/Cognitive-Vision-Windows)의 GitHub에서 사용할 수 있습니다. 또한 이 리포지토리에는 Git 하위 모듈로 `Microsoft/Cognitive-Common-Windows` 리포지토리가 포함됩니다. 하위 모듈을 비롯한 이 리포지토리는 명령줄에서 `git clone --recurse-submodules` 명령을 사용하거나 GitHub 데스크톱을 사용하여 재귀적으로 복제할 수 있습니다.
 
 예를 들어, 명령 프롬프트에서 Computer Vision 샘플 앱에 대한 리포지토리를 재귀적으로 복제하려면 다음 명령을 실행합니다.
 

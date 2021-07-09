@@ -3,17 +3,17 @@ title: Azure EA VM 예약 인스턴스
 description: 이 문서에서는 VM 예약 인스턴스에 대한 Azure 예약을 통해 엔터프라이즈 등록과 관련된 비용을 절감할 수 있는 방법을 요약합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 05/17/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 6303a94cec9efc01815b6dc6c697abdfe0f84227
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0378e05d8d606d04b90ca20aa3e0399132e9f0ef
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220903"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095845"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
 
@@ -43,6 +43,14 @@ EA 고객이 Azure 선불(이전에는 현금 약정 금액이라고 함)이 아
 예약 비용 및 사용량에 대한 자세한 내용은 [기업 계약 예약 비용 및 사용량 가져오기](../reservations/understand-reserved-instance-usage-ea.md)를 참조하세요.
 
 가격 책정에 대한 자세한 내용은 [Linux Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 또는 [Windows Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)을 참조하세요.
+
+### <a name="reservation-prices"></a>예약 가격
+
+조직에서 협상할 수 있는 모든 예약 할인은 EA 포털 가격표에 표시되지 않습니다. 이전에는 EA 포털에서 할인된 요금을 사용할 수 있었지만 해당 기능이 제거되었습니다. 할인된 예약 가격을 협의한 경우 현재 해당 목록을 가져오는 유일한 방법은 [Azure 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 만드는 것입니다.
+
+예약 가격은 소매 요금 및 EA 간에 동일할 필요는 없습니다. 동일할 수도 있지만 할인을 협상한 경우 요금은 달라집니다.
+
+[Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)와 [소매 가격 API](/rest/api/cost-management/retail-prices/azure-retail-prices)에 표시된 가격은 동일합니다. 한 번에 모든 가격을 볼 수 있는 가장 좋은 방법은 API를 쿼리하는 것입니다.
 
 ## <a name="reserved-instances-api-support"></a>예약 인스턴스 API 지원
 

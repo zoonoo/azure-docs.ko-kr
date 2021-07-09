@@ -3,14 +3,14 @@ title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
 ms.topic: tutorial
-ms.date: 01/12/2021
-ms.custom: mvc
-ms.openlocfilehash: b969e3ec1c670c0a12129289c8ff7eb81df51ff9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/24/2021
+ms.custom: mvc, devx-track-azurepowershell
+ms.openlocfilehash: eaa7f6b0f99a856ea9210be3fdb6d2de1dd87d2a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98250658"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110697946"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
@@ -30,7 +30,15 @@ Kubernetes에서 애플리케이션을 배포한 후 새 컨테이너 이미지 
 
 이 자습서에서 사용한 미리 작성된 Docker Compose 파일과 애플리케이션 소스 코드를 포함하는 애플리케이션 리포지토리도 복제했습니다. 리포지토리 복제본을 만들었으며, 디렉터리를 복제된 디렉터리로 변경했는지 확인합니다. 이러한 단계를 완료하지 않은 경우 수행하려면 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 시작합니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 이 자습서의 작업을 수행하려면 Azure CLI 버전 2.0.53 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+이 자습서를 사용하려면 Azure PowerShell 버전 5.9.0 이상을 실행해야 합니다. `Get-InstalledModule -Name Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 설치][azure-powershell-install]를 참조하세요.
+
+---
 
 ## <a name="update-an-application"></a>애플리케이션 업데이트
 
@@ -70,11 +78,24 @@ docker-compose up --build -d
 
 ## <a name="tag-and-push-the-image"></a>이미지 태그 지정 및 밀어넣기
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 업데이트된 이미지를 올바르게 사용하려면 *azure-vote-front* 이미지에 ACR 레지스트리의 로그인 서버 이름을 태그로 지정해야 합니다. [az acr list](/cli/azure/acr) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+업데이트된 이미지를 올바르게 사용하려면 *azure-vote-front* 이미지에 ACR 레지스트리의 로그인 서버 이름을 태그로 지정해야 합니다. [Get-AzContainerRegistry][get-azcontainerregistry] cmdlet을 사용하여 로그인 서버 이름을 가져옵니다.
+
+```azurepowershell
+(Get-AzContainerRegistry -ResourceGroupName myResourceGroup -Name <acrName>).LoginServer
+```
+
+---
+
 
 [docker tag][docker-tag]를 사용하여 이미지에 태그를 지정합니다. 다음과 같이 `<acrLoginServer>`를 ACR 로그인 서버 이름 또는 공용 레지스트리 호스트 이름으로 바꾸고, 이미지 버전을 *:v2* 로 업데이트합니다.
 
@@ -84,8 +105,17 @@ docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azur
 
 이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 > [!NOTE]
 > ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login][az-acr-login] 명령을 실행합니다. `az acr login --name <azure container registry name>`)을 입력합니다.
+
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+> [!NOTE]
+> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [Connect-AzContainerRegistry][connect-azcontainerregistry] cmdlet을 실행합니다. `Connect-AzContainerRegistry -Name <azure container registry name>`)을 입력합니다.
+
+---
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -174,3 +204,6 @@ kubectl get service azure-vote-front
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: /cli/azure/acr
 [azure-cli-install]: /cli/azure/install-azure-cli
+[azure-powershell-install]: /powershell/azure/install-az-ps
+[get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[connect-azcontainerregistry]: /powershell/module/az.containerregistry/connect-azcontainerregistry

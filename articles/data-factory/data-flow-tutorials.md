@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 05/04/2021
-ms.openlocfilehash: bc1297790322202713d06c4d1f7a474c1b9dcda8
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 05/18/2021
+ms.openlocfilehash: 6f101d31e7268eb8f58d236bc214f322c71336df
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108774082"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075019"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -94,6 +94,8 @@ ms.locfileid: "108774082"
 [구문 분석 변환](https://www.youtube.com/watch?v=r7O7AJcuqoY)
 
 [복합 데이터 형식 변환](https://youtu.be/Wk0C76wnSDE)
+
+[다음 작업으로 출력](http://youtu.be/r1m3Ya14qpE?hd=1)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 

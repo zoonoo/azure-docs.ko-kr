@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: a47f9d6a47876f09ca241c30e3443886642e4fd8
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 80d4ef5fc474ff40807e01b6ecb9014db1ae8f51
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108137241"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677876"
 ---
 # <a name="tutorial-deploy-the-opc-publisher"></a>자습서: OPC 게시자 배포
 
@@ -32,6 +32,7 @@ Azure 구독이 없는 경우 평가판 계정을 만듭니다.
 
 - IoT Hub를 만들어야 합니다.
 - IoT Edge 디바이스를 만들어야 합니다.
+- IoT Edge 디바이스를 등록해야 합니다.
 
 ## <a name="deploy-the-opc-publisher-from-the-azure-marketplace"></a>Azure Marketplace에서 OPC 게시자 배포
 
@@ -42,16 +43,7 @@ Azure 구독이 없는 경우 평가판 계정을 만듭니다.
 5. "OPCPublisher"를 클릭하여 OPC 게시자의 "IoT Edge 모듈 업데이트" 페이지를 연 다음, "컨테이너 만들기 옵션"을 선택합니다.
 6. OPC 게시자 사용에 따라 추가 컨테이너 만들기 옵션을 지정합니다. 아래의 다음 섹션을 참조하세요.
 
-
-### <a name="accessing-the-microsoft-container-registry-docker-containers-for-opc-publisher-manually"></a>OPC 게시자에 대한 Microsoft Container Registry Docker 컨테이너에 수동으로 액세스
-
-최신 릴리스 버전의 OPC 게시자는 다음을 통해 수동으로 실행할 수 있습니다.
-
-```
-docker run mcr.microsoft.com/iotedge/opc-publisher:latest <name>
-```
-
-여기서 "name"은 컨테이너의 이름입니다.
+Docker OPC 게시자에 대해 지원되는 모든 Docker 이미지는 [여기](https://mcr.microsoft.com/v2/iotedge/opc-publisher/tags/list)에 나열되어 있습니다. OPC UA를 사용하지 않는 자산의 경우 업계 유수의 산업용 연결 공급자와 협력하여 OPC UA 어댑터 소프트웨어를 Azure IoT Edge로 이식할 수 있도록 도와주었습니다. 이러한 어댑터는 Azure [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?page=1)에서 사용할 수 있습니다.
 
 ## <a name="specifying-container-create-options-in-the-azure-portal"></a>Azure Portal에서 컨테이너 만들기 옵션 지정
 Azure Portal을 통해 OPC 게시자를 배포하는 경우 OPC 게시자의 IoT Edge 모듈 업데이트 페이지에서 컨테이너 만들기 옵션을 지정할 수 있습니다. 이러한 만들기 옵션은 JSON 형식이어야 합니다. OPC 게시자 명령줄 인수는 Cmd 키를 통해 지정할 수 있습니다. 예를 들어 다음과 같습니다.

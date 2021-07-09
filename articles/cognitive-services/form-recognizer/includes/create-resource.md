@@ -1,16 +1,16 @@
 ---
 author: laujan
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 03/15/2021
+ms.date: 05/25/2021
 ms.author: lajanuar
-ms.openlocfilehash: 734b548953c4ede5e7d09feb0042509ae5528e82
-ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.openlocfilehash: f1024edf7d05d47ba14478a1561c29f7859a245c
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108026136"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887103"
 ---
 Azure Portal로 이동하여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="새 Form Recognizer 리소스 만들기" target="_blank">새 Form Recognizer 리소스 </a>를 만듭니다. **만들기** 창에서 다음 정보를 제공합니다.
 
@@ -25,4 +25,7 @@ Azure Portal로 이동하여 <a href="https://ms.portal.azure.com/#create/Micros
 > [!NOTE]
 > Azure Portal에서 Cognitive Service 리소스를 만들 때는 다중 서비스 구독 키(여러 Cognitive Service에서 사용) 또는 단일 서비스 구독 키(특정 Cognitive Service에서만 사용)를 만들 수 있는 옵션이 제공됩니다. 현재 Form Recognizer는 다중 서비스 구독에 포함되지 않습니다.
 
-Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스** 목록에서 해당 리소스를 찾아 선택합니다. 키 및 엔드포인트는 리소스의 키 및 엔드포인트 페이지의 리소스 관리 아래에 있습니다. 앞으로 이동하기 전에 이들 둘 다 임시 위치에 저장합니다.
+## <a name="retrieve-the-key-and-endpoint"></a>키 및 엔드포인트 검색
+
+Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스** 목록에서 해당 리소스를 찾아 선택합니다. 키와 엔드포인트는 리소스의 **키 및 엔드포인트** 페이지에 있는 **리소스 관리** 아래에 있습니다. 앞으로 이동하기 전에 이들 둘 다 임시 위치에 저장합니다.
+

@@ -6,21 +6,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ms.reviewer: assafi
-ms.openlocfilehash: 1fd102f0f94f1ce53bebfba94d4f4c1a1f9e3812
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 31a7eccb1f4b0c26640af1321b9779014f663fb4
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765145"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083596"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-[v3.1 참조 설명서](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.5) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
+[v3.1 참조 설명서](/dotnet/api/azure.ai.textanalytics?preserve-view=true&view=azure-dotnet-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) | [v3.1 패키지(NuGet)](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.1.0-beta.7) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -45,7 +45,7 @@ Visual Studio IDE를 사용하여 새 .NET Core 콘솔 앱을 만듭니다. 이�
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-**솔루션 탐색기** 에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고 `Azure.AI.TextAnalytics`를 검색합니다. **사전 출시 포함** 상자를 선택하고 버전 `5.1.0-beta.5`을 선택한 다음, **설치** 를 선택합니다. [패키지 관리자 콘솔](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
+**솔루션 탐색기** 에서 솔루션을 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리** 를 선택하여 클라이언트 라이브러리를 설치합니다. 열리는 패키지 관리자에서 **찾아보기** 를 선택하고 `Azure.AI.TextAnalytics`를 검색합니다. **사전 출시 포함** 상자를 선택하고 버전 `5.1.0-beta.7`을 선택한 다음, **설치** 를 선택합니다. [패키지 관리자 콘솔](/nuget/consume-packages/install-use-packages-powershell#find-and-install-a-package)을 사용할 수도 있습니다.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -214,7 +214,7 @@ Document sentiment: Positive
         Neutral score: 0.77
 ```
 
-### <a name="opinion-mining"></a>의견 마이닝
+## <a name="opinion-mining"></a>의견 마이닝
 
 이전에 만든 클라이언트를 사용하는 `SentimentAnalysisWithOpinionMiningExample()`이라는 새 함수를 만들고, `AnalyzeSentimentOptions` 모음에서 `IncludeOpinionMining` 옵션을 사용하여 해당 `AnalyzeSentimentBatch()` 함수를 호출합니다. 반환된 `AnalyzeSentimentResultCollection` 개체에는 `Response<DocumentSentiment>`를 나타내는 `AnalyzeSentimentResult`의 컬렉션이 포함됩니다. `SentimentAnalysis()`와 `SentimentAnalysisWithOpinionMiningExample()` 간의 차이점은 후자는 각 문장에 `SentenceOpinion`을 포함하여 분석된 대상과 관련된 평가를 표시한다는 것입니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
 
@@ -429,7 +429,78 @@ Named Entities:
                 Score: 0.80,    Length: 9,      Offset: 34
 ```
 
-### <a name="entity-linking"></a>엔터티 연결
+### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
+
+앞에서 만든 클라이언트를 사용하는 `RecognizePIIExample()`이라는 새 함수를 만들고, `RecognizePiiEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `PiiEntityCollection`은 검색된 PII 엔터티의 목록을 나타냅니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
+
+```csharp
+static void RecognizePIIExample(TextAnalyticsClient client)
+{
+    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
+
+    PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
+
+    Console.WriteLine($"Redacted Text: {entities.RedactedText}");
+    if (entities.Count > 0)
+    {
+        Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
+        foreach (PiiEntity entity in entities)
+        {
+            Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
+        }
+    }
+    else
+    {
+        Console.WriteLine("No entities were found.");
+    }
+}
+```
+
+### <a name="output"></a>출력
+
+```console
+Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
+Recognized 2 PII entities:
+Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
+Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
+```
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+앞에서 만든 클라이언트를 사용하는 `EntityRecognitionExample()`이라는 새 함수를 만들고, `RecognizeEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `Response<IReadOnlyCollection<CategorizedEntity>>` 개체에는 검색된 엔터티의 목록이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
+
+```csharp
+static void EntityRecognitionExample(TextAnalyticsClient client)
+{
+    var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
+    Console.WriteLine("Named Entities:");
+    foreach (var entity in response.Value)
+    {
+        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
+        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
+    }
+}
+```
+
+### <a name="output"></a>출력
+
+```console
+Named Entities:
+        Text: trip,     Category: Event,        Sub-Category:
+                Score: 0.61
+
+        Text: Seattle,  Category: Location,     Sub-Category: GPE
+                Score: 0.82
+
+        Text: last week,        Category: DateTime,     Sub-Category: DateRange
+                Score: 0.80
+```
+
+--- 
+
+## <a name="entity-linking"></a>엔터티 연결
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 앞에서 만든 클라이언트를 사용하는 `EntityLinkingExample()`이라는 새 함수를 만들고, `RecognizeLinkedEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `Response<LinkedEntityCollection>` 개체에는 검색된 엔터티 `LinkedEntity`의 컬렉션이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `LinkedEntity` 개체 아래에서 `LinkedEntityMatch` 개체 목록으로 그룹화됩니다.
 
@@ -515,80 +586,7 @@ Linked Entities:
                 Offset: 116
 ```
 
-### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
-
-앞에서 만든 클라이언트를 사용하는 `RecognizePIIExample()`이라는 새 함수를 만들고, `RecognizePiiEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `PiiEntityCollection`은 검색된 PII 엔터티의 목록을 나타냅니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
-
-```csharp
-static void RecognizePIIExample(TextAnalyticsClient client)
-{
-    string document = "A developer with SSN 859-98-0987 whose phone number is 800-102-1100 is building tools with our APIs.";
-
-    PiiEntityCollection entities = client.RecognizePiiEntities(document).Value;
-
-    Console.WriteLine($"Redacted Text: {entities.RedactedText}");
-    if (entities.Count > 0)
-    {
-        Console.WriteLine($"Recognized {entities.Count} PII entit{(entities.Count > 1 ? "ies" : "y")}:");
-        foreach (PiiEntity entity in entities)
-        {
-            Console.WriteLine($"Text: {entity.Text}, Category: {entity.Category}, SubCategory: {entity.SubCategory}, Confidence score: {entity.ConfidenceScore}");
-        }
-    }
-    else
-    {
-        Console.WriteLine("No entities were found.");
-    }
-}
-```
-
-### <a name="output"></a>출력
-
-```console
-Redacted Text: A developer with SSN *********** whose phone number is ************ is building tools with our APIs.
-Recognized 2 PII entities:
-Text: 859-98-0987, Category: U.S. Social Security Number (SSN), SubCategory: , Confidence score: 0.65
-Text: 800-102-1100, Category: Phone Number, SubCategory: , Confidence score: 0.8
-```
-
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-
-> [!NOTE]
-> `3.0` 버전의 새로운 기능:
-> * 엔터티 연결은 이제 엔터티 인식과 분리됩니다.
-
-
-앞에서 만든 클라이언트를 사용하는 `EntityRecognitionExample()`이라는 새 함수를 만들고, `RecognizeEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `Response<IReadOnlyCollection<CategorizedEntity>>` 개체에는 검색된 엔터티의 목록이 포함됩니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다.
-
-```csharp
-static void EntityRecognitionExample(TextAnalyticsClient client)
-{
-    var response = client.RecognizeEntities("I had a wonderful trip to Seattle last week.");
-    Console.WriteLine("Named Entities:");
-    foreach (var entity in response.Value)
-    {
-        Console.WriteLine($"\tText: {entity.Text},\tCategory: {entity.Category},\tSub-Category: {entity.SubCategory}");
-        Console.WriteLine($"\t\tScore: {entity.ConfidenceScore:F2}\n");
-    }
-}
-```
-
-### <a name="output"></a>출력
-
-```console
-Named Entities:
-        Text: trip,     Category: Event,        Sub-Category:
-                Score: 0.61
-
-        Text: Seattle,  Category: Location,     Sub-Category: GPE
-                Score: 0.82
-
-        Text: last week,        Category: DateTime,     Sub-Category: DateRange
-                Score: 0.80
-```
-
-### <a name="entity-linking"></a>엔터티 연결
 
 앞에서 만든 클라이언트를 사용하는 `EntityLinkingExample()`이라는 새 함수를 만들고, `RecognizeLinkedEntities()` 함수를 호출하여 결과를 반복합니다. 반환된 `Response<IReadOnlyCollection<LinkedEntity>>`는 검색된 엔터티의 목록을 나타냅니다. 오류가 발생하면 `RequestFailedException`이 throw됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `LinkedEntity` 개체 아래에서 `LinkedEntityMatch` 개체 목록으로 그룹화됩니다.
 
@@ -656,10 +654,9 @@ Linked Entities:
                 Score: 0.33
 ```
 
---- 
+---
 
-
-### <a name="key-phrase-extraction"></a>핵심 문구 추출
+## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
@@ -717,9 +714,11 @@ Key phrases:
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>분석 작업을 통해 비동기적으로 API 사용
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)에서 더 많은 고급 샘플을 찾을 수 있습니다.
 
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
@@ -815,8 +814,6 @@ Recognized Entities
     ConfidenceScore: 0.9
     SubCategory: 
 ```
-
-Analyze(분석) 작업을 사용하여 PII 및 핵심 문구 추출을 검색할 수도 있습니다. GitHub의 [Analyze(분석) 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 

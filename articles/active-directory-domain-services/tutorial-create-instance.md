@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 06/01/2021
 ms.author: justinha
-ms.openlocfilehash: 945c131394a0a3c6273f79044c8500a2feba70fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d0386368b0e6e65f35ad408efc2c420aaf8f1986
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96618147"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438489"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리형 도메인 만들기 및 구성
 
@@ -31,7 +31,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -94,7 +94,7 @@ Azure Portal의 *기본* 창에 있는 필드를 완료하여 관리되는 도�
     >
     > Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
 
-1. **SKU** 는 만들 수 있는 성능, 백업 빈도 및 최대 포리스트 트러스트 수를 결정합니다. 비즈니스 요구나 요구 사항이 변경되면 관리되는 도메인이 만들어진 후 SKU를 변경할 수 있습니다. 자세한 내용은 [Azure AD DS SKU 개념][concepts-sku]을 참조하세요.
+1. **SKU** 는 성능 및 백업 빈도를 결정합니다. 비즈니스 요구나 요구 사항이 변경되면 관리되는 도메인이 만들어진 후 SKU를 변경할 수 있습니다. 자세한 내용은 [Azure AD DS SKU 개념][concepts-sku]을 참조하세요.
 
     이 자습서에서는 *표준* SKU를 선택합니다.
 1. *포리스트* 는 Active Directory Domain Services에서 하나 이상의 도메인을 그룹화하는 데 사용되는 논리적 구문입니다. 기본적으로 관리되는 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다.

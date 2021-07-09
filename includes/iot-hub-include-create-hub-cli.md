@@ -6,12 +6,12 @@ ms.author: timlt
 ms.service: iot-develop
 ms.topic: include
 ms.date: 01/14/2021
-ms.openlocfilehash: a1e2833d49d519d563937783a64db6573414bad2
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 45a9a0821dec98637ade4940bee915483d5e9aa1
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109805178"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112042037"
 ---
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 이 섹션에서는 Azure CLI를 사용하여 IoT 허브 및 리소스 그룹을 만듭니다.  Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. IoT 허브는 IoT 애플리케이션과 디바이스 간의 양방향 통신을 위한 중앙 메시지 허브 역할을 합니다.
@@ -19,8 +19,14 @@ ms.locfileid: "109805178"
 IoT 허브 및 리소스 그룹을 만들려면 다음을 수행합니다.
 
 1. CLI 앱을 시작합니다.  이 빠른 시작의 나머지 부분에서 CLI 명령을 실행하려면 명령 구문을 복사하고 CLI 애플리케이션에 붙여넣은 후 변수 값을 편집하고 Enter 키를 누릅니다.
-    - Cloud Shell을 사용하려면 CLI 명령에서 **사용해 보기** 단추를 선택하여 분할 브라우저 창에서 Cloud Shell을 시작할 수 있습니다. 또는 별도의 창에서 Cloud Shell을 열려면 [Cloud Shell](https://shell.azure.com/bash)에 대한 링크를 마우스 오른쪽 단추로 클릭하고 새 탭에서 열기 옵션을 선택합니다.
+    - Cloud Shell을 사용하려면 CLI 명령에서 **사용해 보기** 단추를 선택하여 분할 브라우저 창에서 Cloud Shell을 시작합니다. 또는 별도의 브라우저 탭에서 [Cloud Shell](https://shell.azure.com/bash)을 열 수 있습니다.
     - Azure CLI를 로컬에서 사용하고 있는 경우 CLI 콘솔 앱을 시작하고 Azure CLI에 로그인합니다.
+
+1. [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add)를 실행하여 *azure-iot* 확장을 현재 버전으로 설치하거나 업그레이드합니다.
+
+    ```azurecli-interactive
+    az extension add --upgrade --name azure-iot
+    ```
 
 1. CLI 앱에서 [az group create](/cli/azure/group#az_group_create)를 실행하여 리소스 그룹을 만듭니다. 다음 명령은 *eastus* 위치에 *MyResourceGroup* 이라는 리소스 그룹을 만듭니다. 
     >[!NOTE]

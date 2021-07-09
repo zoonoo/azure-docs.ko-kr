@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41bdf5251881fa9307a3cd4d214081845e967900
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 4d93acbfa8ae89b459fafb69411d35706b18fcbb
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107209522"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982991"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -366,7 +366,9 @@ device.objectId -ne null
 user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
-사용자 지정 속성 이름은 [Graph 탐색기]를 사용하여 사용자 속성을 쿼리하고 속성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 또한 동적 사용자 그룹 규칙 작성기에서 **사용자 지정 확장 속성 가져오기** 를 선택하여 고유한 앱 ID를 입력하고 동적 구성원 규칙을 만들 때 사용할 사용자 지정 확장 속성 전체 목록을 받을 수 있습니다. 이 목록을 새로 고침하여 해당 앱에 대한 새로운 사용자 지정 확장 속성을 가져올 수도 있습니다.
+사용자 지정 속성 이름은 [Graph 탐색기]를 사용하여 사용자 속성을 쿼리하고 속성 이름을 검색하여 디렉터리에서 찾을 수 있습니다. 또한 동적 사용자 그룹 규칙 작성기에서 **사용자 지정 확장 속성 가져오기** 를 선택하여 고유한 앱 ID를 입력하고 동적 구성원 규칙을 만들 때 사용할 사용자 지정 확장 속성 전체 목록을 받을 수 있습니다. 이 목록을 새로 고침하여 해당 앱에 대한 새로운 사용자 지정 확장 속성을 가져올 수도 있습니다. 
+
+자세한 내용은 [Azure AD Connect 동기화: 디렉터리 확장](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 문서의 [동적 그룹에서 특성 사용](../hybrid/how-to-connect-sync-feature-directory-extensions.md#use-the-attributes-in-dynamic-groups)을 참조하세요.
 
 ## <a name="rules-for-devices"></a>디바이스에 대한 규칙
 

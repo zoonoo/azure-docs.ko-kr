@@ -7,16 +7,22 @@ ms.service: cache
 ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 17f38d79b75179d7a54ca5ed1d20dff18d0a0363
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: acbf5933f01a465ad1855c049796901da5d1ff90
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121102"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059737"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-rust"></a>빠른 시작: Rust에서 Azure Cache for Redis 사용
 
-이 문서에서는 [Rust 프로그래밍 언어](https://www.rust-lang.org/)를 사용하여 [Azure Cache for Redis](./cache-overview.md)와 상호 작용하는 방법에 대해 알아봅니다. Redis용 [redis-rs](https://redis.io/topics/data-types-intro#redis-strings) 라이브러리를 사용하여 [String](https://github.com/mitsuhiko/redis-rs), Hash, List 등과 같이 일반적으로 사용되는 Redis 데이터 구조의 예를 보여 줍니다. 이 클라이언트는 상위 및 하위 수준 API를 모두 공개하며, 이 문서에서 제공하는 샘플 코드의 도움말을 사용하여 이러한 스타일을 모두 볼 수 있습니다.
+이 문서에서는 [Rust 프로그래밍 언어](https://www.rust-lang.org/)를 사용하여 [Azure Cache for Redis](./cache-overview.md)와 상호 작용하는 방법에 대해 알아봅니다. 또한 일반적으로 사용되는 Redis 데이터 구조에 대해서도 알아봅니다. 
+
+* [String](https://redis.io/topics/data-types-intro#redis-strings) 
+* [해시](https://redis.io/topics/data-types-intro#redis-hashes) 
+* [목록](https://redis.io/topics/data-types-intro#redis-lists) 
+
+이 샘플에서는 Redis용 [redis-rs](https://github.com/mitsuhiko/redis-rs) 라이브러리를 사용합니다. 이 클라이언트는 상위 수준 및 하위 수준 API를 모두 제공하며, 이러한 스타일의 작동 모습을 볼 수 있습니다.
 
 ## <a name="skip-to-the-code-on-github"></a>GitHub의 코드로 건너뛰기
 
@@ -39,7 +45,7 @@ ms.locfileid: "102121102"
 
 `connect` 함수는 Azure Cache for Redis에 대한 연결을 설정하는 데 사용됩니다. 호스트 이름과 암호(액세스 키)는 각각 `REDIS_HOSTNAME` 및 `REDIS_PASSWORD` 환경 변수를 통해 전달되어야 합니다. 연결 URL의 형식은 `rediss://<username>:<password>@<hostname>`입니다. Azure Cache for Redis는 [최소 필수 버전인 TLS 1.2](cache-remove-tls-10-11.md)를 통한 보안 연결만 허용합니다.
 
-[get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection)이 실제로 연결을 시작하는 동안 [redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open)에 대한 호출에서 기본 유효성 검사를 수행합니다. 잘못된 암호와 같은 이유로 인해 연결이 실패하는 경우 프로그램이 중지됩니다.
+[redis::Client::open](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.open)을 호출하면 기본 유효성 검사가 수행되고 [get_connection()](https://docs.rs/redis/0.19.0/redis/struct.Client.html#method.get_connection)이 실제로 연결을 시작합니다. 어떤 이유로 연결이 실패하면 프로그램이 중지됩니다. 한 가지 이유를 예로 들면 잘못된 암호가 있습니다.
 
 ```rust
 fn connect() -> redis::Connection {
@@ -56,7 +62,11 @@ fn connect() -> redis::Connection {
 }
 ```
 
-`basics` 함수는 [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) 및 [INCR](https://redis.io/commands/incr) 명령을 포함합니다. 하위 수준 API가 `foo`라는 키에 대한 값을 설정하고 검색하는 `SET` 및 `GET`에 사용됩니다. `INCRBY` 명령은 상위 수준 API를 사용하여 실행됩니다. 즉 [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr)은 `counter`라는 키의 값을 `2`만큼 증가시킨 다음, [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get)을 호출하여 이를 검색합니다.
+`basics` 함수는 [SET](https://redis.io/commands/set), [GET](https://redis.io/commands/get) 및 [INCR](https://redis.io/commands/incr) 명령을 포함합니다. 
+
+하위 수준 API가 `foo`라는 키에 대한 값을 설정하고 검색하는 `SET` 및 `GET`에 사용됩니다. 
+
+`INCRBY` 명령은 상위 수준 API를 사용하여 실행됩니다. 즉, [incr](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.incr)은 `counter`라는 키의 값을 `2`만큼 증가시킨 다음, [get](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.get)을 호출하여 이를 검색합니다.
 
 ```rust
 fn basics() {
@@ -197,7 +207,7 @@ fn set() {
 }
 ```
 
-아래의 `sorted_set` 함수는 정렬된 집합 데이터 구조를 보여 줍니다. [ZADD](https://redis.io/commands/zadd)를 호출하여(하위 수준 API 사용) 플레이어(`player-1`)에 대한 임의 정수 점수를 추가합니다. 다음으로 [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) 메서드(상위 수준 API)를 사용하여 더 많은 플레이어(`player-2`~`player-5`) 및 각 플레이어에 대한 점수(임의 생성)를 추가합니다. 정렬된 집합의 항목 수는 [ZCARD](https://redis.io/commands/zcard)를 사용하여 계산되며, 이는 [ZRANGE](https://redis.io/commands/zrange) 명령(하위 수준 API를 통해 호출)에 대한 제한으로 사용되어 플레이어를 점수와 함께 오름차순으로 나열합니다.
+아래의 `sorted_set` 함수는 정렬된 집합 데이터 구조를 보여 줍니다. 하위 수준 API를 사용하여 [ZADD](https://redis.io/commands/zadd)가 호출되고 플레이어(`player-1`)에 대한 임의 정수 점수가 추가됩니다. 다음으로 [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) 메서드(상위 수준 API)를 사용하여 더 많은 플레이어(`player-2`~`player-5`) 및 각 플레이어에 대한 점수(임의 생성)를 추가합니다. 정렬된 집합의 항목 수는 [ZCARD](https://redis.io/commands/zcard)를 사용하여 계산됩니다. 이는 [ZRANGE](https://redis.io/commands/zrange) 명령(하위 수준 API를 통해 호출)에 대한 제한으로 사용되어 플레이어를 점수와 함께 오름차순으로 나열합니다.
 
 ```rust
 fn sorted_set() {
@@ -247,7 +257,7 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
     md "C:\git-samples"
     ```
 
-1. git bash와 같은 git 터미널 창을 엽니다. `cd` 명령을 사용하여 새 폴더로 변경하고 샘플 앱을 복제합니다.
+1. git bash와 같은 git 터미널 창을 엽니다. `cd`를 사용하여 새 폴더로 변경하고 샘플 앱을 복제합니다.
 
     ```bash
     cd "C:\git-samples"
@@ -284,7 +294,7 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
     cargo run
     ```
     
-    다음과 같은 출력이 표시됩니다.
+    다음 출력이 표시됩니다.
     
     ```bash
     ******* Running SET, GET, INCR commands *******
@@ -328,7 +338,7 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 Azure 리소스 그룹 및 리소스 애플리케이션을 완료했으면 요금이 청구되지 않도록 삭제할 수 있습니다.
+완료되면 리소스 그룹 및 리소스를 삭제할 수 있습니다. 이 빠른 시작에서 만든 내용을 삭제하면 요금이 청구되지 않습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹을 삭제하면 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 유지하려는 기존 리소스 그룹에 Azure Cache for Redis 인스턴스를 만든 경우 캐시 **개요** 페이지에서 **삭제** 를 선택하여 캐시만 삭제할 수 있습니다. 
@@ -336,7 +346,7 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
 Azure 인스턴스에 대한 리소스 그룹 및 해당 Redis Cache을 삭제하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 찾아 선택합니다.
-1. **이름으로 필터링** 텍스트 상자에 캐시 인스턴스를 포함하는 리소스 그룹의 이름을 입력한 다음, 검색 결과에서 선택합니다. 
+1. **이름을 기준으로 필터링** 텍스트 상자에 캐시 인스턴스가 들어 있는 리소스 그룹의 이름을 입력합니다. 그런 다음, 검색 결과에서 선택합니다. 
 1. 리소스 그룹 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
 1. 리소스 그룹 이름을 입력한 다음, **삭제** 를 선택합니다.
    

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: bcfa0f792f77a7e02b8be5e33e2a728297655bf4
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: d88f3ed4dbeafc935e58096fb094518b8b0274b4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140590"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411506"
 ---
 # <a name="about-azure-key-vault"></a>Azure Key Vault 정보
 
@@ -23,7 +23,7 @@ Azure Key Vault는 다음 문제를 해결하는 데 도움이 됩니다.
 
 - **비밀 관리** - Azure Key Vault를 사용하여 토큰, 암호, 인증서, API 키 및 기타 비밀에 대한 액세스를 안전하게 저장하고 엄격히 제어할 수 있습니다.
 - **키 관리** - Azure Key Vault를 키 관리 솔루션으로 사용할 수도 있습니다. Azure Key Vault를 사용하면 데이터를 암호화하는 데 사용되는 암호화 키를 쉽게 만들고 제어할 수 있습니다. 
-- **인증서 관리** - Azure Key Vault는 Azure 및 내부 연결 리소스와 함께 사용할 퍼블릭 및 프라이빗 SSL/TLS(Transport Layer Security/Secure Sockets Layer) 인증서를 쉽게 프로비전, 관리 및 배포할 수 있는 서비스이기도 합니다.
+- **인증서 관리** - Azure Key Vault는 Azure와 내부 연결 리소스에 사용할 퍼블릭 및 프라이빗 SSL/TLS(전송 계층 보안/Secure Sockets Layer) 인증서를 쉽게 등록, 관리, 배포할 수 있는 서비스이기도 합니다.
 
 Azure Key Vault에는 다음과 같은 두 가지 서비스 계층이 있습니다. 소프트웨어 키로 암호화하는 표준 계층 및 HSM(하드웨어 보안 모듈) 보호 키를 포함하는 프리미엄 계층. 표준 계층과 프리미엄 계층 간의 비교를 보려면 [Azure Key Vault 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 

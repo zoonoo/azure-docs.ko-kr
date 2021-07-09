@@ -1,15 +1,15 @@
 ---
 title: Visual Studio를 사용하여 Azure Storage에 함수 연결
 description: Visual Studio를 사용하여 C# 클래스 라이브러리 함수를 Azure Storage 큐에 연결하도록 출력 바인딩을 추가하는 방법을 알아봅니다.
-ms.date: 07/22/2019
+ms.date: 05/30/2021
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 635392212027c73e5aa954eb671be31228796a0d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 28748b7b9d0622d62baeb0de144adcd89c061a72
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96185133"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790930"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Visual Studio를 사용하여 Azure Storage에 함수 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "96185133"
 
 1. **솔루션 탐색기** 에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시** 를 선택합니다. 
 
-1. **작업** 아래에서 **Azure App Service 설정 편집** 을 선택합니다. 
+1. **호스팅** 아래의 **게시** 탭에서 세 개의 점( **...** )을 확장하고 **Azure App Service 설정 관리** 를 선택합니다. 
 
     ![애플리케이션 설정 편집](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 

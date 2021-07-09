@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3edc63a1532bb6889fc490e400dbb57e7bce10d0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 25426605b0fe5ced21d373f255e3872d2d0d280e
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93360414"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079142"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 시스템 할당 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
@@ -70,17 +71,13 @@ ms.locfileid: "93360414"
 
 ## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>스토리지 SAS를 사용하도록 VM의 시스템 할당 관리 ID 액세스 부여
 
-Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 VM의 시스템 할당 관리 ID를 사용하여 Resource Manager에서 스토리지 SAS를 검색한 다음, 해당 SAS를 사용하여 스토리지에 액세스할 수 있습니다.  이 단계에서 스토리지 계정 SAS에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다.   
+Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 VM의 시스템 할당 관리 ID를 사용하여 Resource Manager에서 스토리지 SAS를 검색한 다음, 해당 SAS를 사용하여 스토리지에 액세스할 수 있습니다.  이 단계에서 스토리지 계정 SAS에 대한 VM의 시스템 할당 관리 ID 액세스 권한을 부여합니다. 스토리지 계정이 포함된 리소스 그룹의 범위에서 관리 ID에 [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor) 역할을 할당하여 액세스 권한을 부여합니다.
+ 
+자세한 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.”
 
-1. 새로 만든 스토리지 계정으로 다시 이동합니다.
-2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지의 위쪽에서 **+ 역할 할당 추가** 를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
-4. 페이지 오른쪽에서 **역할** 을 &quot;스토리지 계정 참가자&quot;로 설정합니다. 
-5. 다음 드롭다운에서 **다음에 대한 액세스 할당** 을 “Virtual Machine” 리소스로 설정합니다.  
-6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인하고 **리소스 그룹** 을 "모든 리소스 그룹"으로 설정합니다.  
-7. 마지막으로 **선택** 드롭다운에서 Linux Virtual Machine을 선택하고 **저장** 을 클릭합니다.  
+>[!NOTE]
+> 스토리지에 대한 권한을 부여하는 데 사용할 수 있는 다양한 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)를 검토하세요.
 
-    ![대체 이미지 텍스트](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용
 

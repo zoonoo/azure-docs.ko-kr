@@ -4,14 +4,14 @@ description: Personalizer 반복을 사용하는 C# .NET 채팅 봇을 사용자
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 05/17/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 4cc2fcfb73117edf27421dd8c91161d12bab7a7a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565724"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097915"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>자습서: .NET 채팅 봇에서 Personalizer 사용
 
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 이 채팅 봇을 사용하려면 Personalizer 및 LUIS(Language Understanding)용 Azure 리소스를 만들어야 합니다.
 
-* [LUIS 리소스를 만듭니다](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal). 작성 리소스 및 예측 리소스가 모두 필요하므로 만들기 단계에서 **모두** 를 선택합니다.
+* [LUIS 리소스를 만듭니다](../luis/luis-how-to-azure-subscription.md). 작성 및 예측 리소스를 모두 만듭니다.
 * [Personalizer 리소스를 만든](how-to-create-resource.md) 다음, Azure Portal에서 키와 엔드포인트를 복사합니다. 이러한 값은 .NET 프로젝트의 `appsettings.json` 파일에서 설정해야 합니다.
 
 ### <a name="create-luis-app"></a>LUIS 앱 만들기

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro와 공유할 데이터를 전송하는 방법에 대한 자습서 | Microsoft Docs
-description: 이 자습서에서는 Azure Stack Edge Pro에서 Azure로 데이터를 전송할 수 있도록 Azure Stack Edge Pro 디바이스의 공유를 추가하고 연결하는 방법에 대해 알아봅니다.
+title: Azure Stack Edge Pro FPGA 데이터를 공유로 전송에 대한 자습서
+description: 이 자습서에서는 Azure Stack Edge Pro FPGA에서 Azure로 데이터를 전송할 수 있도록 Azure Stack Edge Pro FPGA 디바이스의 공유를 추가하고 연결하는 방법에 대해 알아봅니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 8c9ad00a8910562e1a3a53af5120030bc482c927
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: bd013bc6e0c41865f0c2f47559f024a42c3f7462
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060213"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461259"
 ---
-# <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro를 사용하여 데이터 전송
+# <a name="tutorial-transfer-data-with-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA를 사용하여 데이터 전송
 
-이 자습서에서는 Azure Stack Edge Pro 디바이스의 공유를 추가하고 연결하는 방법에 대해 설명합니다. 공유가 추가되면 Azure Stack Edge Pro에서 Azure로 데이터를 전송할 수 있습니다.
+이 자습서에서는 Azure Stack Edge Pro FPGA 디바이스의 공유를 추가하고 연결하는 방법에 대해 설명합니다. 공유가 추가되면 Azure Stack Edge Pro FPGA에서 Azure로 데이터를 전송할 수 있습니다.
 
 이 절차를 완료하는 데 약 10분이 걸릴 수 있습니다.
 
@@ -30,11 +30,11 @@ ms.locfileid: "106060213"
  
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합니다.
+Azure Stack Edge Pro FPGA에 공유를 추가하기 전에 다음 사항을 확인합니다.
 
-- [Azure Stack Edge Pro 설치](azure-stack-edge-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
+- [Azure Stack Edge Pro FPGA 설치](azure-stack-edge-deploy-install.md)에서 설명한 대로 물리적 디바이스를 설치했습니다.
 
-- [Azure Stack Edge Pro 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)에서 설명한 대로 물리적 디바이스를 활성화했습니다.
+- [Azure Stack Edge Pro FPGA 연결, 설정 및 활성화](azure-stack-edge-deploy-connect-setup-activate.md)에서 설명한 대로 물리적 디바이스를 활성화했습니다.
 
 
 ## <a name="add-a-share"></a>공유 추가
@@ -61,7 +61,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
     다. 공유가 상주할 스토리지 계정을 입력합니다. 
 
     > [!IMPORTANT]
-    > Azure Stack Edge Pro 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
+    > Azure Stack Edge Pro FPGA 또는 Data Box Gateway 디바이스에서 사용하는 경우 사용하는 Azure Storage 계정에 불변성 정책을 설정하지 않았는지 확인합니다. 자세한 내용은 [Blob 스토리지에 대한 불변성 정책 설정 및 관리](../storage/blobs/storage-blob-immutability-policies-manage.md)를 참조하세요.
     
     d. **스토리지 서비스** 드롭다운 목록에서 **블록 Blob**, **페이지 Blob** 또는 **파일** 을 선택합니다.  
     선택하는 서비스 유형은 Azure에서 사용하려는 데이터 형식에 따라 달라집니다. 이 예제에서는 데이터를 블록 Blo 으로 Azure에 저장하므로 **블록 Blob** 을 선택합니다. **페이지 Blob** 을 선택하는 경우 데이터가 512바이트로 정렬되어 있는지 확인합니다. 예를 들어 VHDX는 항상 512바이트로 정렬됩니다.
@@ -91,7 +91,7 @@ Azure Stack Edge Pro에 공유를 추가하기 전에 다음 사항을 확인합
 
 ### <a name="connect-to-an-smb-share"></a>SMB 공유에 연결
 
-Azure Stack Edge Pro 디바이스에 연결된 Windows Server 클라이언트에서 다음 명령을 입력하여 SMB 공유에 연결합니다.
+Azure Stack Edge Pro FPGA 디바이스에 연결된 Windows Server 클라이언트에서 다음 명령을 입력하여 SMB 공유에 연결합니다.
 
 
 1. 명령 창에서 다음을 입력합니다.
@@ -124,7 +124,7 @@ Azure Stack Edge Pro 디바이스에 연결된 Windows Server 클라이언트에
 
 ### <a name="connect-to-an-nfs-share"></a>NFS 공유에 연결
 
-Azure Stack Edge Pro 디바이스에 연결된 Linux 클라이언트에서 다음 절차를 수행합니다.
+Azure Stack Edge Pro FPGA 디바이스에 연결된 Linux 클라이언트에서 다음 절차를 수행합니다.
 
 1. 클라이언트에 NFSv4 클라이언트가 설치되어 있는지 확인합니다. NFS 클라이언트를 설치하려면 다음 명령을 사용합니다.
 
@@ -132,7 +132,7 @@ Azure Stack Edge Pro 디바이스에 연결된 Linux 클라이언트에서 다�
 
     자세한 내용을 알아보려면 [NFSv4 클라이언트 설치](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client)로 이동하세요.
 
-2. NFS 클라이언트가 설치되면 다음 명령을 사용하여 Azure Stack Edge Pro 디바이스에서 만든 NFS 공유를 탑재합니다.
+2. NFS 클라이언트가 설치되면 다음 명령을 사용하여 Azure Stack Edge Pro FPGA 디바이스에서 만든 NFS 공유를 탑재합니다.
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
@@ -140,7 +140,7 @@ Azure Stack Edge Pro 디바이스에 연결된 Linux 클라이언트에서 다�
     > 공유 탑재 시 대규모 파일의 전송 속도가 개선될 경우 `sync` 옵션을 사용합니다.
     > 공유를 탑재하기 전에 로컬 컴퓨터에서 탑재 지점으로 작동할 디렉터리가 이미 만들어져 있는지 확인합니다. 이러한 디렉터리에는 파일 또는 하위 폴더가 없어야 합니다.
 
-    다음 예제에서는 NFS를 통해 Azure Stack Edge Pro 디바이스의 공유에 연결하는 방법을 보여줍니다. 디바이스 IP는 `10.10.10.60`입니다. `mylinuxshare2` 공유는 ubuntuVM에 탑재됩니다. 공유 탑재 지점은 `/home/databoxubuntuhost/edge`입니다.
+    다음 예제에서는 NFS를 통해 Azure Stack Edge Pro FPGA 디바이스의 공유에 연결하는 방법을 보여줍니다. 디바이스 IP는 `10.10.10.60`입니다. `mylinuxshare2` 공유는 ubuntuVM에 탑재됩니다. 공유 탑재 지점은 `/home/databoxubuntuhost/edge`입니다.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
@@ -151,13 +151,13 @@ Azure Stack Edge Pro 디바이스에 연결된 Linux 클라이언트에서 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음과 같은 Azure Stack Edge Pro 항목에 대해 알아보았습니다.
+이 자습서에서는 다음과 같은 Azure Stack Edge Pro FPGA 항목에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 공유 추가
 > * 공유에 연결
 
-Azure Stack Edge Pro를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+Azure Stack Edge Pro FPGA를 사용하여 데이터를 변환하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge Pro를 사용하여 데이터 변환](./azure-stack-edge-deploy-configure-compute.md)
+> [Azure Stack Edge Pro FPGA를 사용하여 데이터 변환](./azure-stack-edge-deploy-configure-compute.md)

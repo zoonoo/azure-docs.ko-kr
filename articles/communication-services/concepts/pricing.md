@@ -2,19 +2,19 @@
 title: 통화(음성/영상) 및 채팅의 가격 책정 시나리오
 titleSuffix: An Azure Communication Services concept document
 description: Communication Services의 가격 책정 모델에 대해 알아봅니다.
-author: mikben
-manager: jken
+author: nmurav
+manager: nmurav
 services: azure-communication-services
-ms.author: mikben
+ms.author: nmurav
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0615d95c922ef3f04618d9f2339e82b53bd359df
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 038b4df78ca7f10b0ec0e9dfe224f6aca2430e82
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108763688"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111986303"
 ---
 # <a name="pricing-scenarios"></a>가격 책정 시나리오
 
@@ -51,16 +51,16 @@ Alice는 동료 Bob 및 Charlie와 함께 그룹 통화를 했습니다. Alice�
 Alice는 `+1-425`로 시작하는 미국 전화 번호로 Bob에게 앱으로 PSTN 통화를 합니다.
 
 - Alice는 JS SDK를 사용하여 앱을 빌드했습니다.
-- 통화는 총 5분 동안 진행되었습니다.
+- 통화는 총 10분 동안 진행되었습니다.
 
 **비용 계산**
 
 - 앱에서 Communication Services 서버로 VoIP 레그(Alice)의 참가자 1명 x 10분 x 참가자 레그당(분당) $0.004 = $0.04
-- Communication Services 서버에서 미국 전화 번호로 PSTN 아웃바운드 레그(Charlie)의 참가자 1명 x 10분 x 참가자 레그당(분당) $0.013 = $0.13.
+- Communication Services 서버에서 미국 전화 번호로 PSTN 아웃바운드 레그(Bob)의 참가자 1명 x 10분 x 참가자 레그당(분당) $0.013 = $0.13.
 
 참고: `+1-425`에 대한 미국 혼합 요금은 $0.013입니다. 자세한 내용은 https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv) 링크를 참조하세요.
 
-**그룹 통화의 총 비용**: $0.04 + $0.13 = $0.17
+**총 통화 비용**: $0.04 + $0.13 = $0.17
 
 
 ### <a name="pricing-example-group-audio-call-using-js-sdk-and-1-pstn-leg"></a>가격 책정 예: JS SDK 및 PSTN 레그 1개를 사용하여 그룹 음성 통화
@@ -154,7 +154,7 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 
 #### <a name="united-states-calling-prices"></a>미국 통화 가격
 
-다음 가격에는 2021년 6월 30일까지 필요한 통신 세금 및 요금이 포함됩니다.
+다음 가격에는 필요한 통신세 및 요금이 포함됩니다.
 
 |숫자 형식   |전화를 거는 대상   |전화를 받는 대상|
 |--------------|-----------|------------|
@@ -163,7 +163,7 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 
 #### <a name="other-calling-destinations"></a>기타 통화 대상
 
-다음 가격에는 2021년 6월 30일까지 필요한 통신 세금 및 요금이 포함됩니다.
+다음 가격에는 필요한 통신세 및 요금이 포함됩니다.
 
 |전화 걸기   |분당 가격|
 |-----------|------------|
@@ -177,7 +177,7 @@ Rose는 메시지를 확인하고 채팅을 시작했습니다. 잠시 후 Casey
 
 SMS는 종량제 가격을 제공합니다. 가격은 메시지 대상을 기준으로 하는 메시지당 요금입니다. 수신자 부담 전화 번호로 메시지를 미국 내에 있는 전화 번호로 보낼 수 있습니다. 로컬(지리적) 전화 번호는 SMS 메시지를 보내는 데 사용할 수 없습니다.
 
-다음 가격에는 2021년 6월 30일까지 필요한 통신 세금 및 요금이 포함됩니다.
+다음 가격에는 필요한 통신세 및 요금이 포함됩니다.
 
 |국가   |메시지 보내기|메시지 받기|
 |-----------|------------|------------|
