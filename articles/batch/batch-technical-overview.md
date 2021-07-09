@@ -2,13 +2,13 @@
 title: Azure Batch로 클라우드에서 대규모 병렬 작업 실행
 description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비스를 사용하는 방법에 대해 알아봅니다.
 ms.topic: overview
-ms.date: 07/30/2020
-ms.openlocfilehash: dbd27dc1a00966a2d71952335cfb47c7ca55bc24
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/11/2021
+ms.openlocfilehash: 9061da0b479f77353554ef1c9eb311f22220f02d
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98743103"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112007124"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -22,7 +22,7 @@ Azure에서 Batch 및 다른 HPC 솔루션 옵션 간의 비교는 [Azure의 고
 
 ## <a name="run-parallel-workloads"></a>병렬 워크로드 실행
 
-Batch치는 본질적으로 병렬("처치 곤란 병렬"이라고도 함) 워크로드에서 잘 작동합니다. 기본적으로 병렬 워크로드에는 각 인스턴스에서 작업의 일부를 완료하면서 독립적으로 실행될 수 있는 애플리케이션이 있습니다. 애플리케이션이 실행되는 경우 몇 가지 공통 데이터에 액세스할 수 있지만 애플리케이션의 다른 인스턴스와 통신하지 않습니다. 따라서 본질적 병렬 워크로드는 애플리케이션을 동시에 실행하는 데 사용할 수 있는 컴퓨팅 리소스의 양에 따라 대규모로 실행될 수 있습니다.
+Batch치는 본질적으로 병렬("처치 곤란 병렬"이라고도 함) 워크로드에서 잘 작동합니다. 이러한 워크로드에는 각 인스턴스에서 작업의 일부를 완료하면서 독립적으로 실행될 수 있는 애플리케이션이 있습니다. 애플리케이션이 실행되는 경우 몇 가지 공통 데이터에 액세스할 수 있지만 애플리케이션의 다른 인스턴스와 통신하지 않습니다. 따라서 본질적 병렬 워크로드는 애플리케이션을 동시에 실행하는 데 사용할 수 있는 컴퓨팅 리소스의 양에 따라 대규모로 실행될 수 있습니다.
 
 Batch로 가져올 수 있는 본질적 병렬 워크로드의 예는 다음과 같습니다.
 
@@ -43,14 +43,11 @@ Batch를 사용하여 [긴밀하게 결합된 워크로드를 실행](batch-mpi.
 - 유체 역학
 - 다중 노드 AI 학습
 
-Batch를 사용하여 긴밀하게 결합된 워크로드 여러 개를 병렬로 실행할 수 있습니다. 예를 들어 가변 파이프 폭을 사용하여 파이프를 통해 흐르는 유체의 여러 시뮬레이션을 수행합니다.
+Batch를 사용하여 긴밀하게 결합된 워크로드 여러 개를 병렬로 실행할 수 있습니다. 예를 들어 가변 파이프 폭을 사용하여 파이프를 통해 흐르는 유체의 여러 시뮬레이션을 수행할 수 있습니다.
 
 ## <a name="additional-batch-capabilities"></a>추가 Batch 기능
 
-Azure Batch에서 상위 수준의 워크로드 관련 기능도 사용할 수 있습니다.
-
-- Batch는 Autodesk Maya, 3ds Max, Arnold 및 V-Ray를 비롯한 렌더링 도구를 사용하여 대규모의 [렌더링 워크로드](batch-rendering-service.md)를 지원합니다. 
-- R 사용자는 [doAzureParallel R 패키지](https://github.com/Azure/doAzureParallel)를 설치하여 Batch 풀에 대한 R 알고리즘 실행을 손쉽게 확장할 수 있습니다.
+Batch는 Autodesk Maya, 3ds Max, Arnold 및 V-Ray를 비롯한 렌더링 도구를 사용하여 대규모의 [렌더링 워크로드](batch-rendering-service.md)를 지원합니다. 
 
 또한 [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)와 같은 도구에서 관리하는 대규모 데이터 변환 Azure 워크플로의 일부로 Batch 작업을 실행할 수도 있습니다.
 
@@ -76,12 +73,15 @@ Batch의 일반적인 시나리오에는 본질적으로 컴퓨팅 노드 풀에
 풀, 노드, 작업 및 태스크와 같은 기능에 대한 개요는 [Batch 서비스 워크플로 및 리소스](batch-service-workflow-features.md)를 참조하세요. 또한 최신 [Batch 서비스 업데이트](https://azure.microsoft.com/updates/?product=batch)를 참조하세요.
 
 ## <a name="in-region-data-residency"></a>지역 내 데이터 보존
+
 Azure Batch는 배포된 지역 외부에 고객 데이터를 이동하거나 저장하지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 다음 요약 설명서를 통해 Azure Batch를 시작해 보세요.
+
 - [Azure CLI를 사용하여 첫 번째 Batch 작업 실행](quick-create-cli.md)
 - [Azure Portal을 사용하여 첫 번째 Batch 작업 실행](quick-create-portal.md)
 - [.NET API를 사용하여 첫 번째 Batch 작업 실행](quick-run-dotnet.md)
 - [Python API를 사용하여 첫 번째 Batch 작업 실행](quick-run-python.md)
+- [ARM 템플릿을 사용하여 Batch 계정 만들기](quick-create-template.md)

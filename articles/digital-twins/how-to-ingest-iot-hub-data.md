@@ -2,17 +2,17 @@
 title: IoT Hub에서 원격 분석 수집
 titleSuffix: Azure Digital Twins
 description: IoT Hub에서 디바이스 원격 분석 메시지를 수집하는 방법을 참조하세요.
-author: alexkarcher-msft
-ms.author: alkarche
+author: baanders
+ms.author: baanders
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b69ba164a7bd0edecf427866cd3e872a65e41355
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 8160a2fdb35062c678fc1a9f2e629cca7885224d
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208746"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111438997"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Azure Digital Twins로 IoT Hub 원격 분석 수집
 
@@ -25,8 +25,10 @@ Azure Digital Twins로 데이터를 수집하는 프로세스는 [Azure Function
 ## <a name="prerequisites"></a>필수 구성 요소
 
 이 예를 계속하기 전에 다음 리소스를 필수 구성 요소로 설정해야 합니다.
-* **IoT Hub**. 지침은 [이 IoT Hub 빠른 시작](../iot-hub/quickstart-send-telemetry-cli.md)의 *IoT Hub 만들기* 섹션을 참조하세요.
+* **IoT Hub**. 지침은 이 [IoT Hub 빠른 시작](../iot-hub/quickstart-send-telemetry-cli.md)의 *IoT Hub 만들기* 섹션을 참조하세요.
 * 디바이스 원격 분석을 수신하는 **Azure Digital Twins 인스턴스**. 자세한 내용은 [방법: Azure Digital Twins 인스턴스 및 인증 설정](./how-to-set-up-instance-portal.md)을 참조하세요.
+
+이 문서에서는 **Visual Studio** 도 사용합니다. [Visual Studio 다운로드](https://visualstudio.microsoft.com/downloads/)에서 최신 버전을 다운로드할 수 있습니다.
 
 ### <a name="example-telemetry-scenario"></a>원격 분석 시나리오 예제
 
@@ -39,7 +41,7 @@ Azure Digital Twins로 데이터를 수집하는 프로세스는 [Azure Function
 
 자동 온도 조절기 디바이스에서 온도 원격 분석 이벤트를 보낼 때마다 함수는 원격 분석을 처리하고 디지털 트윈의 *temperature* 속성은 업데이트해야 합니다. 이 시나리오는 아래 다이어그램에 설명되어 있습니다.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Azure에서 IoT Hub를 통해 함수에 온도 원격 분석을 전송하는 IoT Hub 디바이스의 다이어그램으로, Azure Digital Twins의 트윈에 대한 온도 속성을 업데이트합니다." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Azure Digital Twins의 트윈에 대한 온도 속성을 업데이트하는 Azure에서 함수로 온도 원격 분석을 보내는 IoT Hub 디바이스의 다이어그램." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>모델 및 트윈 추가
 
@@ -49,19 +51,11 @@ Azure Digital Twins로 데이터를 수집하는 프로세스는 [Azure Function
 
 [!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
-그런 다음 **이 모델을 사용하여 하나의 트윈을 만들어야** 합니다. 다음 명령을 사용하여 **thermostat67** 이라는 자동 온도 조절기 트윈을 만들고 초기 온도 값으로 0.0을 설정합니다.
+그런 다음 **이 모델을 사용하여 하나의 트윈을 만들어야** 합니다. 다음 명령을 사용하여 thermostat67이라는 자동 온도 조절기 트윈을 만들고 초기 온도 값으로 0.0을 설정합니다.
 
 ```azurecli-interactive
-az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
+az dt twin create  --dt-name <instance-name> --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}'
 ```
-
-> [!Note]
-> PowerShell 환경에서 Cloud Shell을 사용하는 경우 인라인 JSON 필드 값을 올바르게 구문 분석하려면 따옴표 문자를 이스케이프해야 할 수 있습니다. 다음은 이 수정으로 트윈을 만드는 명령입니다.
->
-> 트윈 만들기:
-> ```azurecli-interactive
-> az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{\"Temperature\": 0.0,}' --dt-name {digital_twins_instance_name}
-> ```
 
 트윈이 성공적으로 만들어지면 명령의 CLI 출력은 다음과 같습니다.
 ```json
@@ -97,7 +91,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/)
 * [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid/)
 
-새 프로젝트를 사용하여 Visual Studio에서 생성한 *Function1.cs* 샘플 함수의 이름을 *IoTHubtoTwins.cs* 로 바꿉니다. 파일의 코드를 다음 코드로 바꿉니다.
+Visual Studio에서 생성한 *Function1.cs* 샘플 함수의 이름을 *IoTHubtoTwins.cs* 로 바꿉니다. 파일의 코드를 다음 코드로 바꿉니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/IoTHubToTwins.cs":::
 
@@ -129,7 +123,7 @@ az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id t
   1. **엔드포인트 유형** 에서 _Azure 함수_ 를 선택합니다.
   1. **엔드포인트** 의 경우 _엔드포인트 선택_ 링크를 사용하여 엔드포인트에 사용할 Azure Function을 선택합니다.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="이벤트 구독 세부 정보를 만드는 Azure Portal의 스크린샷":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="이벤트 구독 세부 정보를 만드는 Azure Portal의 스크린샷.":::
 
 _Azure 함수 선택_ 페이지가 열리면 아래 세부 정보를 확인하거나 입력합니다.
  1. **구독**: Azure 구독.
@@ -146,7 +140,7 @@ _만들기_ 단추를 선택하여 이벤트 구독을 만듭니다.
 
 ## <a name="send-simulated-iot-data"></a>시뮬레이트된 IoT 데이터 보내기
 
-새 수신 함수를 테스트하려면 [자습서: 엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)에서 디바이스 시뮬레이터를 사용합니다. 이 자습서는 C#으로 작성된 샘플 프로젝트를 기반으로 합니다. 이 샘플 코드는 다음 위치에 있습니다. [Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples). 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용하게 됩니다.
+새 수신 함수를 테스트하려면 [자습서: 엔드투엔드 솔루션 연결](./tutorial-end-to-end.md)에서 디바이스 시뮬레이터를 사용합니다. 해당 자습서는 [C#으로 작성된 Azure Digital Twins 엔드투엔드 샘플 프로젝트](/samples/azure-samples/digital-twins-samples/digital-twins-samples)를 기반으로 합니다. 해당 리포지토리에서 **DeviceSimulator** 프로젝트를 사용하게 됩니다.
 
 엔드투엔드 자습서에서 다음 단계를 완료합니다.
 1. [IoT Hub에 시뮬레이션된 디바이스 등록](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)
@@ -157,7 +151,7 @@ _만들기_ 단추를 선택하여 이벤트 구독을 만듭니다.
 위의 디바이스 시뮬레이터를 실행하는 동안 디지털 트윈의 온도 값이 변경됩니다. Azure CLI에서 다음 명령을 실행하여 온도 값을 확인합니다.
 
 ```azurecli-interactive
-az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
+az dt twin query --query-command "select * from digitaltwins" --dt-name <Digital-Twins-instance-name>
 ```
 
 출력에는 다음과 같은 온도 값이 포함되어야 합니다.
@@ -167,18 +161,14 @@ az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name
   "result": [
     {
       "$dtId": "thermostat67",
-      "$etag": "W/\"0000000-1e83-4f7f-b448-524371f64691\"",
+      "$etag": "W/\"dbf2fea8-d3f7-42d0-8037-83730dc2afc5\"",
       "$metadata": {
         "$model": "dtmi:contosocom:DigitalTwins:Thermostat;1",
         "Temperature": {
-          "ackCode": 200,
-          "ackDescription": "Auto-Sync",
-          "ackVersion": 1,
-          "desiredValue": 69.75806974934324,
-          "desiredVersion": 1
+          "lastUpdateTime": "2021-06-03T17:05:52.0062638Z"
         }
       },
-      "Temperature": 69.75806974934324
+      "Temperature": 70.20518558807913
     }
   ]
 }
@@ -189,4 +179,4 @@ az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins를 사용한 데이터 수신 및 송신에 대해 알아봅니다.
-* [개념: 다른 서비스와 통합](concepts-integration.md)
+* [개념: 데이터 수신 및 송신](concepts-data-ingress-egress.md)

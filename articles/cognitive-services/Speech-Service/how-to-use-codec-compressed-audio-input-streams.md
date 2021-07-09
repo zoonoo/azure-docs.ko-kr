@@ -12,16 +12,16 @@ ms.date: 03/30/2020
 ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
-ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 183679eb9c4eb2480736dfb4cec8a343c67d0ed7
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103417709"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854498"
 ---
-# <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Speech SDK에서 코덱 압축 오디오 입력 사용
+# <a name="use-codec-compressed-audio-input"></a>코덱 압축 오디오 입력 사용
 
-Speech Service SDK **압축 오디오 입력 스트림** API는 `PullStream` 또는 `PushStream`을 사용하여 Speech Service로 압축 오디오를 스트리밍하는 방법을 제공합니다.
+Speech SDK 및 Speech CLI는 GStreamer를 사용하여 압축된 오디오 형식을 수락할 수 있습니다. GStreamer는 원시 PCM으로 유선을 통해 Speech Service에 전송되기 전에 오디오의 압축을 해제합니다.
 
 플랫폼 | 언어 | 지원되는 GStreamer 버전
 | :--- | ---: | :---:
@@ -32,7 +32,7 @@ Android  | Java | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/android/1.
 ## <a name="speech-sdk-version-required-for-compressed-audio-input"></a>압축 오디오 입력에 필요한 Speech SDK 버전
 * RHEL 8 및 CentOS 8에는 Speech SDK 버전 1.10.0 이상이 필요합니다.
 * Windows의 경우 Speech SDK 버전 1.11.0 이상이 필요합니다.
-* Windows 및 Android의 최신 gstreamer용 Speech SDK 버전 1.16.0 이상.
+* Windows 및 Android의 최신 GStreamer용 Speech SDK 버전 1.16.0 이상.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 

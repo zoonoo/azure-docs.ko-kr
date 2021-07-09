@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/09/2020
-ms.openlocfilehash: e7b4bbafd5630c2c116e002ee6ebafaa5444ce2d
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d9050b0b414ef6ca49f9376e20498b14a8952480
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369323"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072580"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker의 문제 해결
 
@@ -279,7 +279,14 @@ QnA 쌍이 기술 자료에 있으면 답변의 마크다운 텍스트를 편집
 <details>
 <summary><b>Search 서비스에서 `testkb` 인덱스를 삭제했습니다. 이 문제를 해결하려면 어떻게 해야 하나요?</b></summary>
 
-**답변**: 이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
+**답변**: 검색 서비스에서 `testkb` 인덱스를 삭제한 경우 마지막으로 게시된 KB에서 데이터를 복원할 수 있습니다. GitHub에서 사용할 수 있는 복구 도구 [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd)를 사용하세요. 
+
+</details>
+
+<details>
+<summary><b>다음 오류가 발생했습니다. QnA Maker App 서비스의 CORS 설정이 https://www.qnamaker.ai 를 허용하는지 또는 조직별 네트워크 제한이 있는지 확인하세요. 이 문제를 해결하려면 어떻게 해야 하나요?</b></summary>
+
+**답변**: 앱 서비스 블레이드의 API 섹션에서 CORS 설정을 * 또는 "https://www.qnamaker.ai "로 업데이트합니다. 이렇게 해도 문제가 해결되지 않으면 조직별 제한 사항을 확인합니다.
 
 </details>
 
@@ -360,9 +367,9 @@ QnA 쌍이 기술 자료에 있으면 답변의 마크다운 텍스트를 편집
 </details>
 
 <details>
-<summary><b>Search 서비스에서 `testkb` 인덱스를 삭제했습니다. 이 문제를 해결하려면 어떻게 해야 하나요?</b></summary>
+<summary><b>Search 서비스에서 `testkbv2` 인덱스를 삭제했습니다. 이 문제를 해결하려면 어떻게 해야 하나요?</b></summary>
 
-**답변**: 이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
+**답변**: 검색 서비스에서 `testkbv2` 인덱스를 삭제한 경우 마지막으로 게시된 KB에서 데이터를 복원할 수 있습니다. GitHub에서 사용할 수 있는 복구 도구 [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd)를 사용하세요. 
 
 </details>
 

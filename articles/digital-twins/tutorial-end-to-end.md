@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 33860e35785e65396851bcd9f8cf9d9577a9d0a5
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 82c24a38d8b693bb931be75b3be5d3bfaaa2d38f
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109790904"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110615664"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>자습서: 엔드투엔드 솔루션 빌드
 
@@ -42,13 +42,13 @@ ms.locfileid: "109790904"
 
 먼저 Azure Digital Twins 인스턴스(다이어그램의 **섹션 A**)를 만들고, 디지털 트윈(**화살표 B**)으로 원격 측정 데이터 흐름을 설정한 다음, 트윈 그래프를 통한 데이터 전파(**화살표 C**)를 설정합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="전체 빌딩 시나리오의 그래픽. 다바이스에서 IoT Hub로, Azure 함수(화살표 B)를 통해 Azure Digital Twins 인스턴스(섹션 A)로, 다시 Event Grid를 통해 또 다른 Azure 함수(화살표 C)로 흐르는 데이터를 묘사합니다.":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="다양한 Azure 서비스를 통해 디바이스에서 Azure Digital Twins로 들어오고 나가는 데이터를 보여 주는 전체 건물 시나리오에 대한 다이어그램":::
 
 이 시나리오를 진행하기 위해 이전에 다운로드한 미리 작성된 샘플 앱의 구성 요소와 상호 작용합니다.
 
 다음은 빌딩 시나리오 *AdtSampleApp* 샘플 앱에서 구현하는 구성 요소입니다.
 * 디바이스 인증 
-* [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 사용 예(*CommandLoop.cs* 에 있음)
+* [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) 사용 예(*CommandLoop.cs* 에 있음)
 * Azure Digital Twins API를 호출하는 콘솔 인터페이스
 * *SampleClientApp* - 샘플 Azure Digital Twins 솔루션
 * *SampleFunctionsApp* - IoT Hub 및 Azure Digital Twins 이벤트에서 원격 분석의 결과로 Azure Digital Twins 그래프를 업데이트하는 Azure Functions 앱
@@ -57,11 +57,11 @@ ms.locfileid: "109790904"
 
 먼저 샘플 프로젝트의 *AdtSampleApp* 솔루션을 사용하여 엔드투엔드 시나리오(**섹션 A**)의 Azure Digital Twins 부분을 빌드합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="섹션 A, Azure Digital Twins 인스턴스를 강조 표시한 전체 빌딩 시나리오 그래픽에서 발췌":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="전체 건물 시나리오 다이어그램에서 발췌하여 Azure Digital Twins 인스턴스 섹션을 강조 표시한 다이어그램":::
 
 _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창에서 도구 모음의 이 단추를 사용하여 프로젝트를 실행합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="Visual Studio 시작 단추(SampleClientApp 프로젝트)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-sample.png" alt-text="SampleClientApp 앱 프로젝트가 열리는 Visual Studio 시작 단추의 스크린샷":::
 
 콘솔 창이 열리고 인증을 수행하고 명령을 기다립니다. 이 콘솔에서 다음 명령을 실행하여 샘플 Azure Digital Twins 솔루션을 인스턴스화합니다.
 
@@ -76,7 +76,7 @@ Azure Digital Twins에서 이름이 각각 floor1, room21, thermostat67인 층, 
 
 이들 엔터티는 관계를 통해 다음과 같은 [트윈 그래프](concepts-twins-graph.md)에 연결됩니다. 트윈 그래프는 엔터티가 서로 상호 작용하고 관련되는 방식을 포함하여 환경 전체를 나타냅니다.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="floor1에 room21이 있고, room21에 thermostat67이 있음을 보여주는 그래프" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-graph.png" alt-text="floor1에는 room21이 있고 room21에는 thermostat67이 있음을 보여 주는 다이어그램" border="false":::
 
 포함된 모든 디지털 트윈에 대해 연결된 Azure Digital Twins 인스턴스를 쿼리하는 다음 명령을 실행하여 만들어진 트윈을 확인할 수 있습니다.
 
@@ -85,7 +85,7 @@ Query
 ```
 
 >[!TIP]
-> 이 간소화된 메서드는 _**AdtE2ESample**_ 프로젝트의 일부로 제공됩니다. 이 샘플 코드의 컨텍스트 외부에서 [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](concepts-cli.md)을 사용하여 언제든지 인스턴스의 모든 쌍을 쿼리할 수 있습니다.
+> 이 간소화된 메서드는 _**AdtE2ESample**_ 프로젝트의 일부로 제공됩니다. 이 샘플 코드의 컨텍스트 외부에서 [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)을 사용하여 언제든지 인스턴스의 모든 쌍을 쿼리할 수 있습니다.
 >
 > 인스턴스의 모든 디지털 쌍을 가져오는 전체 쿼리 본문은 다음과 같습니다.
 > 
@@ -109,11 +109,11 @@ _**AdtE2ESample**_ 프로젝트가 열려 있는 Visual Studio 창으로 돌아�
 
 *솔루션 탐색기* 창에서 _**SampleFunctionsApp** > 종속성_ 을 확장합니다. *패키지* 를 마우스 오른쪽 단추로 클릭하고 *NuGet 패키지 관리...* 를 선택합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: SampleFunctionsApp 프로젝트에 대한 NuGet 패키지 관리" border="false":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="SampleFunctionsApp 프로젝트에 대한 'NuGet 패키지 관리' 메뉴 단추를 보여 주는 Visual Studio의 스크린샷" border="false":::
 
 NuGet 패키지 관리자가 열립니다. *업데이트* 탭을 선택하고 업데이트할 패키지가 있는 경우 *모든 패키지 선택* 확인란을 선택합니다. 그런 다음 *업데이트* 를 선택합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="Visual Studio: NuGet 패키지 관리자에서 모든 패키지를 업데이트하도록 선택":::
+:::image type="content" source="media/tutorial-end-to-end/update-dependencies-2.png" alt-text="NuGet 패키지 관리자에서 모든 패키지를 업데이트하도록 선택하는 방법을 보여 주는 Visual Studio의 스크린샷":::
 
 ### <a name="publish-the-app"></a>앱 게시
 
@@ -134,14 +134,14 @@ Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 
 1. 다음 명령을 사용하여 함수에 대한 시스템 관리 ID의 세부 정보를 확인합니다. 출력에서 **principalId** 필드를 기록해 둡니다.
 
     ```azurecli-interactive 
-    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-function-app-name>   
     ```
 
     >[!NOTE]
     > ID의 세부 정보를 표시하는 대신 결과가 비어 있는 경우 다음 명령을 사용하여 함수에 대한 시스템 관리 ID를 새로 만듭니다.
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>  
     >```
     >
     > 그러면 출력에는 다음 단계에 필요한 **principalId** 값을 포함하여 ID의 세부 정보가 표시됩니다. 
@@ -161,7 +161,7 @@ Azure Digital Twins 인스턴스에 액세스하기 위해 함수 앱에 대해 
 아래 명령을 실행하여 자리 표시자를 리소스 세부 정보로 채웁니다.
 
 ```azurecli-interactive
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 Azure 함수에 대한 설정 목록이 출력됩니다. 여기에는 이제 **ADT_SERVICE_URL** 이라는 항목을 포함합니다.
@@ -175,7 +175,7 @@ Azure Digital Twins 그래프는 실제 디바이스의 원격 분석에 의해 
 
 이 이벤트는 엔드투엔드 시나리오의 다음 부분(**화살표 B**)에서 발생합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="화살표 B, Azure Digital Twins 전의 요소(디바이스, IoT Hub 및 첫 번째 Azure 함수)를 강조 표시한 전체 빌딩 시나리오 그래픽에서 발췌":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-b.png" alt-text="전체 건물 시나리오 다이어그램에서 발췌하여 Azure Digital Twins 이전의 요소를 보여 주는 섹션을 강조 표시한 다이어그램":::
 
 다음은 이 디바이스 연결 설정을 위해 완료해야 하는 작업입니다.
 1. 시뮬레이션된 디바이스를 관리할 IoT 허브 만들기
@@ -206,18 +206,18 @@ IoT 허브에 지정한 **이름** 을 저장합니다. 나중에 필요합니�
 
 [Azure Portal](https://portal.azure.com/)의 위쪽 검색 창에서 해당 이름을 검색하여 새로 만든 IoT 허브로 이동합니다. 허브 메뉴에서 *이벤트* 를 선택하고 *+ 이벤트 구독* 을 선택합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="Azure Portal: IoT Hub 이벤트 구독":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1.png" alt-text="IoT Hub 이벤트 구독을 보여 주는 Azure Portal의 스크린샷":::
 
 *이벤트 구독 만들기 페이지* 가 표시됩니다.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure Portal: 이벤트 구독 만들기":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="이벤트 구독을 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 다음과 같이 필드를 입력합니다(기본적으로 채워진 필드는 언급되지 않음).
 * *이벤트 구독 정보* > **이름**: 이벤트 구독 이름을 지정합니다.
 * *항목 세부 정보* > **시스템 항목 이름**: 시스템 항목에 사용할 이름을 지정합니다. 
 * *이벤트 유형* > **이벤트 유형 필터**: 메뉴 옵션에서 *디바이스 원격 분석* 을 선택합니다.
 * *엔드포인트 정보* > **엔드포인트 유형**: 메뉴 옵션에서 *Azure 함수* 를 선택합니다.
-* *엔드포인트 세부 정보* > **엔드포인트**: *엔드포인트 선택* 링크를 선택합니다. 그러면 *Azure 함수 선택* 창이 열립니다. :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure Portal 이벤트 구독: Azure 함수 선택" border="false":::
+* *엔드포인트 세부 정보* > **엔드포인트**: *엔드포인트 선택* 링크를 선택합니다. 그러면 *Azure 함수 선택* 창이 열립니다. :::image type="content" source="media/tutorial-end-to-end/event-subscription-3.png" alt-text="Azure 함수를 선택하는 창을 보여 주는 Azure Portal 이벤트 구독의 스크린샷" border="false":::
     - **구독**, **리소스 그룹**, **함수 앱** 및 **함수**(*ProcessHubToDTEvents*)를 입력합니다. 구독을 선택하면 이 중 일부가 자동으로 채워질 수 있습니다.
     - **선택 확인** 을 선택합니다.
 
@@ -269,11 +269,11 @@ deviceConnectionString = <your-device-connection-string>
 
 이제 설정한 데이터 시뮬레이션의 결과를 보려면 도구 모음에서 이 단추를 사용하여 **DeviceSimulator** 프로젝트를 실행합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="Visual Studio 시작 단추(DeviceSimulator 프로젝트)":::
+:::image type="content" source="media/tutorial-end-to-end/start-button-simulator.png" alt-text="DeviceSimulator 앱 프로젝트가 열리는 Visual Studio 시작 단추의 스크린샷":::
 
 콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이 메시지는 IoT Hub에 전송되며, 여기에서 Azure 함수에 의해 선택되고 처리됩니다.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="보내고 있는 온도 원격 분석을 보여주는 디바이스 시뮬레이터의 콘솔 출력":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="보내는 온도 원격 분석을 보여 주는 디바이스 시뮬레이터의 콘솔 출력에 대한 스크린샷":::
 
 이 콘솔에서 다른 작업을 수행할 필요는 없지만 다음 단계를 완료하는 동안 콘솔을 실행 상태로 둡니다.
 
@@ -294,7 +294,7 @@ ObserveProperties thermostat67 Temperature
 >[!NOTE]
 > 디바이스의 데이터가 쌍으로 전파되는 데 몇 초 정도 걸릴 수 있습니다. 처음 몇 개의 온도 판독값은 데이터가 도착할 때까지 0으로 표시될 수 있습니다.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="디지털 트윈 thermostat67의 온도 메시지 로그를 보여주는 콘솔 출력":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="디지털 트윈 thermostat67의 온도 메시지 로그를 보여 주는 콘솔 출력에 대한 스크린샷":::
 
 이 작업이 성공적으로 수행되는 것을 확인한 후에는 두 프로젝트의 실행을 모두 중지할 수 있습니다. 자습서의 나머지 부분에서 계속 사용할 것이므로 Visual Studio 창을 열어 둡니다.
 
@@ -304,7 +304,7 @@ ObserveProperties thermostat67 Temperature
 
 이를 위해 *ProcessDTRoutedData* Azure 함수를 사용하여 연결된 Thermostat 트윈이 업데이트될 때 Room 트윈을 업데이트합니다. 이 이벤트는 엔드투엔드 시나리오의 다음 부분(**화살표 C**)에서 발생합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="화살표 C, Azure Digital Twins 후의 요소(Event Grid와 두 번째 Azure 함수)를 강조 표시한 전체 빌딩 시나리오 그래픽에서 발췌":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="전체 건물 시나리오 다이어그램에서 발췌하여 Azure Digital Twins 이후의 요소를 보여 주는 섹션을 강조 표시한 다이어그램":::
 
 다음은 이 데이터 흐름 설정을 위해 완료해야 하는 작업입니다.
 1. Event Grid에 인스턴스를 연결하는 Azure Digital Twins에서 Event Grid 엔드포인트 만들기
@@ -348,7 +348,7 @@ az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-nam
 
 출력에서 `provisioningState` 필드를 찾고 해당 값이 "성공"인지 확인합니다. "프로비저닝"을 나타낼 수도 있습니다. 즉, 엔드포인트가 아직 생성되고 있음을 의미합니다. 이 경우 몇 초 정도 기다린 후 명령을 다시 실행하여 성공적으로 완료되었는지 확인합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="provisioningState가 성공인 엔드포인트를 보여주는 엔드포인트 쿼리의 결과":::
+:::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Azure Portal의 Cloud Shell에서 수행된 엔드포인트 쿼리 결과에서 provisioningState가 Succeeded인 엔드포인트를 보여 주는 스크린샷":::
 
 Azure Digital Twins에서 **이벤트 그리드 토픽** 및 Event Grid **엔드포인트** 에 지정한 이름을 저장합니다. 나중에 사용합니다.
 
@@ -373,7 +373,7 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 
 [Azure Portal](https://portal.azure.com/)의 위쪽 검색 창에서 해당 이름을 검색하여 이벤트 그리드 토픽으로 이동합니다. *+ 이벤트 구독* 을 선택합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure Portal: Event Grid 이벤트 구독":::
+:::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Event Grid 이벤트 구독을 만드는 방법을 보여 주는 Azure Portal의 스크린샷":::
 
 이 이벤트 구독을 만드는 단계는 이 자습서의 앞부분에서 IoT Hub에 첫 번째 Azure 함수를 구독할 때와 비슷합니다. 이번에는 수신 대기할 이벤트 유형으로 *디바이스 원격 분석* 을 지정할 필요가 없으며 다른 Azure 함수에 연결합니다.
 
@@ -392,7 +392,7 @@ az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name
 
 앞에서 디바이스 시뮬레이터를 실행했을 때와 같이 콘솔 창이 열리고 시뮬레이션된 온도 원격 분석 메시지가 표시됩니다. 이러한 이벤트는 이전에 설정한 흐름을 통과하여 thermostat67 트윈을 업데이트한 다음, 최근에 설정한 흐름을 통과하여 그에 맞게 room21 트윈을 업데이트합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="보내고 있는 온도 원격 분석을 보여주는 디바이스 시뮬레이터의 콘솔 출력":::
+:::image type="content" source="media/tutorial-end-to-end/console-simulator-telemetry.png" alt-text="보내는 온도 원격 분석을 보여 주는 디바이스 시뮬레이터의 콘솔 출력에 대한 스크린샷":::
 
 이 콘솔에서 다른 작업을 수행할 필요는 없지만 다음 단계를 완료하는 동안 콘솔을 실행 상태로 둡니다.
 
@@ -406,7 +406,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 2초마다 *Azure Digital Twins 인스턴스* 에서 라이브 업데이트된 온도가 콘솔에 기록되는 것을 확인할 수 있습니다. thermostat67의 업데이트 내용에 맞게 room21의 온도가 업데이트되고 있음을 확인합니다.
 
-:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="자동 온도 조절기와 방의 온도 메시지 로그를 보여주는 콘솔 출력":::
+:::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="자동 온도 조절기와 방의 온도 메시지 로그를 보여 주는 콘솔 출력에 대한 스크린샷":::
 
 이 작업이 성공적으로 수행되는 것을 확인한 후에는 두 프로젝트의 실행을 모두 중지할 수 있습니다. 이제 자습서를 마쳤으므로 Visual Studio 창도 닫을 수 있습니다.
 
@@ -418,7 +418,7 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 2. 시뮬레이션된 디바이스 원격 분석이 IoT Hub에 전송되며, 여기에서 *ProcessHubToDTEvents* Azure 함수가 원격 분석 이벤트를 수신 대기합니다. *ProcessHubToDTEvents* Azure 함수는 이러한 이벤트의 정보를 사용하여 thermostat67에 *온도* 속성을 설정합니다(다이어그램의 **화살표 B**).
 3. Azure Digital Twins의 속성 변경 이벤트는 이벤트 그리드 토픽으로 라우팅되며, 여기에서 *ProcessDTRoutedData* Azure 함수가 이벤트를 수신 대기합니다. *ProcessDTRoutedData* Azure 함수는 이러한 이벤트의 정보를 사용하여 room21에 *온도* 속성을 설정합니다(다이어그램의 **화살표 C**).
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="전체 빌딩 시나리오의 그래픽. 다바이스에서 IoT Hub로, Azure 함수(화살표 B)를 통해 Azure Digital Twins 인스턴스(섹션 A)로, 다시 Event Grid를 통해 또 다른 Azure 함수(화살표 C)로 흐르는 데이터를 묘사합니다.":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="다양한 Azure 서비스를 통해 디바이스에서 Azure Digital Twins로 들어오고 나가는 데이터를 보여 주는 전체 건물 시나리오에 대한 다이어그램":::
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -426,9 +426,9 @@ ObserveProperties thermostat67 Temperature room21 Temperature
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/dt) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
+* **이 문서에서 설정한 Azure Digital Twines 인스턴스를 계속 사용하지만 해당 모델, 트윈 및 관계를 일부 또는 모두 지우려는 경우** [Azure Cloud Shell](https://shell.azure.com) 창에서 [az dt](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) CLI 명령을 사용하여 제거할 요소를 삭제할 수 있습니다.
 
-    이 옵션은 이 자습서에서 만든 다른 Azure 리소스(IoT Hub, Azure Functions 앱 등)를 제거하지 않습니다. 각 리소스 유형에 적절한 [dt 명령](/cli/azure/reference-index)을 사용하여 이를 개별적으로 삭제할 수 있습니다.
+    이 옵션은 이 자습서에서 만든 다른 Azure 리소스(IoT Hub, Azure Functions 앱 등)를 제거하지 않습니다. 각 리소스 유형에 적절한 [dt 명령](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true)을 사용하여 이를 개별적으로 삭제할 수 있습니다.
 
 로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 9e8b009ecc2181edfaad5da3d8d05ad0c1909051
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 989e4e48b03f976a647a542771ade053d9229ec7
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95024758"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058909"
 ---
 # <a name="voice-assistants-on-windows"></a>Windows의 음성 도우미
 
@@ -45,7 +45,7 @@ AAR(Agent Activation Runtime)은 Windows에서 진행되는 프로세스로서 �
 
 AAR에서 요청을 받으면 백그라운드 서비스가 애플리케이션을 시작합니다. 애플리케이션은 고유한 이벤트 인수와 함께 `App.xaml.cs`의 OnBackgroundActivated 수명 주기 메서드를 통해 신호를 수신합니다. 이 인수는 AAR에 의해 활성화되었으며 키워드 확인을 시작해야 한다는 것을 애플리케이션에 알립니다.
 
-애플리케이션이 키워드를 성공적으로 확인하면 전경에 표시되도록 요청할 수 있습니다. 이 요청이 성공하면 애플리케이션이 UI를 표시하고 사용자와의 상호 작용을 계속합니다.
+애플리케이션이 키워드를 성공적으로 확인하면 전경에 나타나는 요청을 만들 수 있습니다. 이 요청이 성공하면 애플리케이션이 UI를 표시하고 사용자와의 상호 작용을 계속합니다.
 
 키워드를 말하면 AAR에서 활성 애플리케이션에 신호를 보냅니다. 그러나 `App.xaml.cs`의 수명 주기 메서드를 통해 신호를 보내는 대신 ConversationalAgent API의 이벤트를 통해 신호를 보냅니다.
 

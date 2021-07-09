@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/18/2020
-ms.openlocfilehash: 2dd06a7b4c8e6296cda747d17fd3d5be5db0af6b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: 31316a5d0688c7cee0bc15f6e7cebdea23d0f29d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95018891"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097097"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>LUIS 포털에서 새 LUIS 앱 만들기
 LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또는 LUIS 제작 [API](developer-reference-resource.md)를 통해 LUIS 앱을 만들 수 있습니다.
@@ -44,13 +44,12 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 ## <a name="create-new-app-in-luis"></a>LUIS에서 새 앱 만들기
 
 1. **내 앱** 페이지에서 **구독**, **제작 리소스** 및 **+ 만들기** 를 차례로 선택합니다. 
-
-> [!div class="mx-imgBorder"]
-> ![LUIS 앱 목록](./media/create-app-in-portal.png)
+    
+    :::image type="content" source="media/create-app-in-portal.png" alt-text="LUIS 앱 목록" lightbox="media/create-app-in-portal.png":::
 
 1. 대화 상자에서 애플리케이션의 이름을 입력합니다(예: `Pizza Tutorial`).
 
-    ![새 앱 만들기 대화 상자](./media/create-pizza-tutorial-app-in-portal.png)
+    :::image type="content" source="media/create-pizza-tutorial-app-in-portal.png" alt-text="새 앱 만들기 대화 상자" lightbox="media/create-pizza-tutorial-app-in-portal.png":::
 
 1. 애플리케이션 문화권을 선택한 다음 **완료** 를 선택합니다. 이때 설명 및 예측 리소스는 선택 사항입니다. 포털의 **관리** 섹션에서 언제든지 설정할 수 있습니다.
 
@@ -59,8 +58,7 @@ LUIS 앱을 만드는 몇 가지 방법이 있습니다. LUIS 포털에서 또�
 
     앱을 만든 후 LUIS 포털에는 이미 생성된 `None` 의도와 함께 **의도** 목록이 표시됩니다. 이제 빈 앱이 생겼습니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![예제 발화 없이 생성된 None 의도가 포함된 의도 목록](media/pizza-tutorial-new-app-empty-intent-list.png)
+    :::image type="content" source="media/pizza-tutorial-new-app-empty-intent-list.png" alt-text="없음 의도가 있고 예제 발화가 없는 의도 목록" lightbox="media/pizza-tutorial-new-app-empty-intent-list.png":::
 
 ## <a name="other-actions-available-on-my-apps-page"></a>내 앱 페이지에서 사용할 수 있는 기타 작업
 

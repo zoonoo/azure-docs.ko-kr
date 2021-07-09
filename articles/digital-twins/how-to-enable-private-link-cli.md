@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 47299467c51d128a228e4120eb8e0d0ff4deebc4
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: 0a9b92eb4d49274c23d89674e6f97f906dc28b43
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110456465"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616141"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-cli"></a>Private Link로 프라이빗 액세스 사용(미리 보기): Azure CLI
 
@@ -28,7 +28,7 @@ ms.locfileid: "110456465"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-프라이빗 엔드포인트를 설정하려면 먼저 엔드포인트를 배포할 수 있는 [Azure Virtual Network(VNet)](../virtual-network/virtual-networks-overview.md) 가 필요합니다. VNet이 아직 없으면 Azure Virtual Network [빠른 시작](../virtual-network/quick-create-portal.md) 중 하나에 따라 이를 설정할 수 있습니다.
+프라이빗 엔드포인트를 설정하려면 먼저 엔드포인트를 배포할 수 있는 [Azure Virtual Network(VNet)](../virtual-network/virtual-networks-overview.md) 가 필요합니다. VNet이 아직 없으면 [Azure Virtual Network 빠른 시작](../virtual-network/quick-create-portal.md) 중 하나에 따라 이를 설정할 수 있습니다.
 
 ## <a name="manage-private-endpoints-for-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스에 대한 프라이빗 엔드포인트 관리 
 

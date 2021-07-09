@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: e65bb7c7d8fc04baec6b50a53519e689e748fbe1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 400770a99e12bfb200b3e480d1546a26ce2aca6c
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96012172"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110495249"
 ---
 # <a name="configure-speech-service-containers"></a>Speech Service 컨테이너 구성
 
@@ -52,7 +52,7 @@ ms.locfileid: "96012172"
 
 | 필수 | 이름 | 데이터 형식 | Description |
 | -------- | ---- | --------- | ----------- |
-| 예 | `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI 가져오기에 대한 자세한 정보는 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
+| 예 | `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI를 얻는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -118,7 +118,7 @@ Custom Speech 컨테이너는 [볼륨 탑재](https://docs.docker.com/storage/vo
 | 자리 표시자 | 값 | 형식 또는 예 |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | Azure `Speech` 키 페이지에 있는 `Speech` 리소스의 엔드포인트 키입니다.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
-| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `Speech` 개요 페이지에 있습니다. | [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)에서 명시적 예를 참조하세요. |
+| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `Speech` 개요 페이지에서 사용할 수 있습니다. | 명시적 예제에 대해서는 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조하세요. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -253,9 +253,9 @@ ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
-## <a name="speech-language-detection"></a>[음성 언어 감지](#tab/lid)
+## <a name="speech-language-identification"></a>[음성 언어 식별](#tab/lid)
 
-### <a name="basic-example-for-speech-language-detection"></a>음성 언어 검색의 기본 예
+### <a name="basic-example-for-speech-language-identification"></a>음성 언어 식별의 기본 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
@@ -265,7 +265,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-speech-language-detection"></a>음성 언어 검색의 로깅 예
+### <a name="logging-example-for-speech-language-identification"></a>음성 언어 식별의 로깅 예
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \

@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/10/2020
   ms.author: trbye
-  ms.openlocfilehash: f9f5a2934a012ba93accc050ebebee7c844312fc
-  ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+  ms.openlocfilehash: add4483164ac3e90520ebde4f4943eff1a26e035
+  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/30/2021
-  ms.locfileid: "105746229"
+  ms.lasthandoff: 05/19/2021
+  ms.locfileid: "110067715"
 landingContent:
 - title: 음성 도우미 정보
   linkLists:
@@ -78,8 +78,8 @@ landingContent:
       url: ./custom-keyword-basics.md
   - linkListType: reference
     links:
-    - text: 사용자 지정 키워드 명명 지침
-      url: ./custom-keyword-overview.md
+    - text: 효과적인 키워드 선택
+      url: ./keyword-recognition-guidelines.md
 - title: 도움말 및 피드백
   linkLists:
   - linkListType: reference

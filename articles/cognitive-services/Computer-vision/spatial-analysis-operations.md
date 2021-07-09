@@ -3,19 +3,19 @@ title: 공간 분석 작업
 titleSuffix: Azure Cognitive Services
 description: 공간 분석 작업입니다.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 4b4ee9d1e583241f8ec9b467ae9ddfdb1360fb52
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: 08d2e50df2365c327d16d3232fd3edc0544e3ffd
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106284705"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111745802"
 ---
 # <a name="spatial-analysis-operations"></a>공간 분석 작업
 
@@ -70,6 +70,8 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | VIDEO_DECODE_GPU_INDEX| 비디오 프레임을 디코딩하는 GPU입니다. 기본값은 0입니다. `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`와 같은 다른 노드 구성의 `gpu_index`와 동일해야 합니다.|
 | INPUT_VIDEO_WIDTH | 입력 비디오/스트림의 프레임 너비(예: 1920)입니다. 선택적인 필드이며, 제공되는 경우 프레임은 가로 세로 비율을 유지하면서 이 크기로 조정됩니다.|
 | DETECTOR_NODE_CONFIG | 탐지기 노드를 실행할 GPU를 나타내는 JSON입니다. `"{ \"gpu_index\": 0 }",` 형식이어야 합니다.|
+| CAMERA_CONFIG | 여러 카메라에 대해 보정된 카메라 매개 변수를 나타내는 JSON입니다. 사용한 기술에 보정이 필요하고 카메라 매개 변수가 이미 있는 경우 이 구성을 사용하여 직접 제공할 수 있습니다. `"{ \"cameras\": [{\"source_id\": \"endcomputer.0.persondistancegraph.detector+end_computer1\", \"camera_height\": 13.105561256408691, \"camera_focal_length\": 297.60003662109375, \"camera_tiltup_angle\": 0.9738943576812744}] }"`, `source_id` 형식은 각 카메라를 식별하는 데 사용됩니다. 게시한 이벤트의 `source_info`에서 가져올 수 있습니다. `do_calibration=false`가 `DETECTOR_NODE_CONFIG`에 있을 때만 적용됩니다.|
+| TRACKER_NODE_CONFIG | 추적기 노드에서 속도를 계산할지 여부를 나타내는 JSON입니다. `"{ \"enable_speed\": false }",` 형식이어야 합니다.|
 | SPACEANALYTICS_CONFIG | 아래에서 설명한 대로 영역 및 선에 대한 JSON 구성입니다.|
 | ENABLE_FACE_MASK_CLASSIFIER | 비디오 스트림에서 얼굴 마스크를 착용한 사람을 감지하려면 `True`이고, 사용하지 않도록 설정하려면 `False`입니다. 기본적으로 사용하지 않도록 설정됩니다. 얼굴 마스크 감지를 사용하려면 입력 비디오 너비 매개 변수가 1920 `"INPUT_VIDEO_WIDTH": 1920`이어야 합니다. 감지된 사람이 카메라를 향하고 있지 않거나 카메라에서 너무 멀리 떨어져 있으면 얼굴 마스크 특성이 반환되지 않습니다. 자세한 내용은 [카메라 배치](spatial-analysis-camera-placement.md) 가이드를 참조하세요. |
 
@@ -88,7 +90,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| Description|
+| Name | Type| Description|
 |---------|---------|---------|
 | `gpu_index` | 문자열| 이 작업이 실행되는 GPU 인덱스입니다.|
 | `do_calibration` | 문자열 | 보정이 설정되어 있음을 나타냅니다. **cognitiveservices.vision.spatialanalysis-persondistance** 가 제대로 작동하려면 `do_calibration`이 true여야 합니다. do_calibration은 기본적으로 True로 설정됩니다. |
@@ -98,6 +100,20 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `calibration_quality_check_one_round_sample_collect_num` | int | 샘플 수집 라운드 단위로 수집할 새 데이터 샘플의 최소 수입니다. 기본값은 `10`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `calibration_quality_check_queue_max_size` | int | 카메라 모델이 보정될 때 저장할 최대 데이터 샘플 수입니다. 기본값은 `1000`입니다. `enable_recalibration=True`인 경우에만 사용됩니다.|
 | `enable_breakpad`| bool | 디버그에서 사용할 크래시 덤프를 생성하는 데 사용되는 breakpad를 사용하도록 설정할지 여부를 나타냅니다. 기본값은 `false`입니다. `true`로 설정하면 `"CapAdd": ["SYS_PTRACE"]`도 `createOptions` 컨테이너의 `HostConfig` 부분에 추가해야 합니다. 기본적으로 크래시 덤프는 [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter 앱에 업로드됩니다. 크래시 덤프를 사용자 고유의 AppCenter 앱에 업로드하려면 `RTPT_APPCENTER_APP_SECRET` 환경 변수를 앱의 앱 비밀로 재정의할 수 있습니다.
+| `enable_orientation` | bool | 검색된 사람의 방향을 계산할지 여부를 나타냅니다. `enable_orientation`은 기본적으로 False로 설정됩니다. |
+
+
+### <a name="speed-parameter-settings"></a>속도 매개 변수 설정
+추적기 노드 매개 변수 설정을 통해 속도 계산을 구성할 수 있습니다.
+```
+{
+"enable_speed": true,
+}
+```
+| 속성 | Type| Description|
+|---------|---------|---------|
+| `enable_speed` | bool | 검색된 사람의 속도를 계산할지 여부를 나타냅니다. `enable_speed`는 기본적으로 False로 설정됩니다. 속도와 방향을 모두 최상의 예상 값을 갖도록 설정하는 것이 좋습니다. |
+
 
 ## <a name="spatial-analysis-operations-configuration-and-output"></a>공간 분석 작업 구성 및 출력
 ### <a name="zone-configuration-for-cognitiveservicesvisionspatialanalysis-personcount"></a>cognitiveservices.vision.spatialanalysis-personcount에 대한 영역 구성
@@ -120,12 +136,12 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
 | `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 추적되거나 계산되는 영역을 나타내며, 다각형 점은 정규화된 좌표(0-1)를 기반으로 합니다. 여기서 왼쪽 위 모서리는 (0.0, 0.0)이고, 오른쪽 아래 모서리는 (1.0, 1.0)입니다.   
-| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. |
+| `threshold` | float| 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. |
 | `type` | 문자열| **cognitiveservices.vision.spatialanalysis-personcount** 의 경우 `count`여야 합니다.|
 | `trigger` | 문자열| 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 `event` 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 `interval`입니다.
 | `output_frequency` | int | 이벤트가 송신되는 속도입니다. `output_frequency` = X이면 모든 X 이벤트가 송신됩니다. 예를 들어 `output_frequency` = 2는 다른 모든 이벤트가 출력됨을 의미합니다. `output_frequency`는 `event` 및 `interval` 모두에 적용됩니다. |
@@ -165,14 +181,14 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `lines` | list| 선 목록입니다.|
 | `name` | 문자열| 이 선에 대한 식별 이름입니다.|
 | `line` | list| 선의 정의입니다. "진입" 및 "진출"을 이해할 수 있도록 하는 방향 선입니다.|
 | `start` | 값 쌍| 선의 시작 지점에 대한 x, y 좌표입니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. |
 | `end` | 값 쌍| 선의 끝 지점에 대한 x, y 좌표입니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. |
-| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. 기본값은 16입니다. 이는 최대 정확도를 얻기 위해 권장되는 값입니다. |
+| `threshold` | float| 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. 기본값은 16입니다. 이는 최대 정확도를 얻기 위해 권장되는 값입니다. |
 | `type` | 문자열| **cognitiveservices.vision.spatialanalysis-personcrossingline** 의 경우 `linecrossing`이어야 합니다.|
 |`trigger`|문자열|이벤트를 보내는 트리거의 형식입니다.<br>지원되는 값: "event": 누군가가 선을 벗어날 때 발생합니다.|
 | `focus` | 문자열| 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 `footprint`(사람의 공간), `bottom_center`(사람의 경계 상자의 아래쪽 가운데), `center`(사람의 경계 상자의 중심)일 수 있습니다. 기본값은 footprint입니다.|
@@ -211,12 +227,13 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
 | `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 추적되거나 계산되는 영역을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. 
-| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. 기본값은 type이 zonecrossing인 경우 48이고, time이 DwellTime인 경우 16입니다. 이러한 값은 최대 정확도를 얻기 위해 권장되는 값입니다.  |
+| `target_side` | int| `polygon`으로 정의된 영역의 측면을 지정하여 사용자가 영역에 있는 동안 해당 측면을 마주하는 시간을 측정합니다. 'dwellTimeForTargetSide'는 예상 시간을 출력합니다. 각 변은 영역을 나타내는 다각형의 두 꼭짓점 사이에 번호가 매겨진 가장자리입니다. 예를 들어 다각형의 처음 두 꼭짓점 사이의 가장자리는 첫 번째 변 'side'=1을 나타냅니다. `target_side`의 값은 `[0,N-1]` 사이에 있으며, 여기서 `N`은 `polygon`의 변의 수입니다. 옵션 필드입니다.  |
+| `threshold` | float| 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. 기본값은 type이 zonecrossing인 경우 48이고, time이 DwellTime인 경우 16입니다. 이러한 값은 최대 정확도를 얻기 위해 권장되는 값입니다.  |
 | `type` | 문자열| **cognitiveservices.vision.spatialanalysis-personcrossingpolygon** 의 경우 `zonecrossing` 또는 `zonedwelltime`이어야 합니다.|
 | `trigger`|문자열|이벤트를 보내는 트리거의 형식입니다.<br>지원되는 값: "event": 누군가가 영역에 들어오거나 나갈 때 발생합니다.|
 | `focus` | 문자열| 이벤트를 계산하는 데 사용되는 사람의 경계 상자 내의 지점 위치입니다. focus의 값은 `footprint`(사람의 공간), `bottom_center`(사람의 경계 상자의 아래쪽 가운데), `center`(사람의 경계 상자의 중심)일 수 있습니다. 기본값은 footprint입니다.|
@@ -246,12 +263,12 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 }
 ```
 
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `zones` | list| 영역 목록입니다. |
 | `name` | 문자열| 이 영역에 대한 식별 이름입니다.|
 | `polygon` | list| 각 값 쌍은 다각형의 꼭짓점에 대한 x,y를 나타냅니다. 다각형은 사람이 계산되고 사람 사이의 거리가 측정되는 영역을 나타냅니다. 부동 소수점 값은 왼쪽 위 모서리를 기준으로 하는 꼭짓점의 위치를 나타냅니다. 절대 x, y 값을 계산하려면 이러한 값과 프레임 크기를 곱해야 합니다. 
-| `threshold` | float| AI 모델의 신뢰도가 이 값보다 크거나 같으면 이벤트가 송신됩니다. |
+| `threshold` | float| 이벤트는 사람이 영역 내의 이 픽셀 수보다 클 때 송신됩니다. |
 | `type` | 문자열| **cognitiveservices.vision.spatialanalysis-persondistance** 의 경우 `people_distance`여야 합니다.|
 | `trigger` | 문자열| 이벤트를 보내는 트리거의 형식입니다. 지원되는 값은 개수가 변경되면 이벤트를 보내는 `event` 또는 개수가 변경되었는지 여부에 관계없이 정기적으로 이벤트를 보내는 `interval`입니다.
 | `output_frequency` | int | 이벤트가 송신되는 속도입니다. `output_frequency` = X이면 모든 X 이벤트가 송신됩니다. 예를 들어 `output_frequency` = 2는 다른 모든 이벤트가 출력됨을 의미합니다. `output_frequency`는 `event` 및 `interval` 모두에 적용됩니다.|
@@ -536,6 +553,7 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `properties` | collection| 값 컬렉션|
 | `trackinId` | 문자열| 감지된 사람의 고유 식별자|
 | `status` | 문자열| 선 교차 방향('CrossLeft' 또는 'CrossRight')입니다. 방향은 선의 "끝"을 향하여 "시작"에 위치해 있는 상상을 기반으로 합니다. CrossRight는 왼쪽에서 오른쪽으로 교차합니다. CrossLeft는 오른쪽에서 왼쪽으로 교차합니다.|
+| `orientationDirection` | 문자열| 선을 통과한 후 감지된 사람의 방향입니다. 값은 'Left', 'Right 또는 'Straight'일 수 있습니다. `DETECTOR_NODE_CONFIG`에서 `enable_orientation`이 `True`로 설정된 경우 이 값이 출력됩니다. |
 | `zone` | 문자열 | 교차된 선의 "name" 필드|
 
 | detections 필드 이름 | 형식| Description|
@@ -545,6 +563,9 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `region` | collection| 값 컬렉션|
 | `type` | 문자열| 영역 유형|
 | `points` | collection| 영역 유형이 RECTANGLE인 경우 왼쪽 위 및 오른쪽 아래 지점 |
+| `groundOrientationAngle` | float| 유추된 접지 평면에서 사람 방향의 시계 방향 방사형 각도 |
+| `mappedImageOrientation` | float| 2D 이미지 공간에서 사람 방향의 프로젝션된 시계 방향 방사형 각도 |
+| `speed` | float| 감지된 사람의 예상 속도입니다. 단위는 `foot per second (ft/s)`입니다.|
 | `confidence` | float| 알고리즘 신뢰도|
 | `face_mask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있음을 나타냅니다. |
 | `face_nomask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있지 **않음** 을 나타냅니다. |
@@ -635,7 +656,8 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
                 "trackingId": "afcc2e2a32a6480288e24381f9c5d00e",
                 "status": "Exit",
                 "side": "1",
-              "durationMs": 7132.0
+                      "dwellTime": 7132.0,
+                      "dwellFrames": 20            
             },
             "zone": "queuecamera"
         }
@@ -666,7 +688,12 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
                 ]
             },
             "confidence": 0.6267998814582825,
-            "metadataType": ""
+            "metadataType": "",
+             "metadata": { 
+                     "groundOrientationAngle": 1.2,
+                     "mappedImageOrientation": 0.3,
+                     "speed": 1.2
+               },
         }
     ],
     "schemaVersion": "1.0"
@@ -682,7 +709,11 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `trackinId` | 문자열| 감지된 사람의 고유 식별자|
 | `status` | 문자열| 다각형 교차의 방향('Enter' 또는 'Exit')입니다.|
 | `side` | int| 사람이 교차한 다각형 변의 번호입니다. 각 변은 영역을 나타내는 다각형의 두 꼭짓점 사이에 번호가 매겨진 가장자리입니다. 다각형의 처음 두 꼭짓점 사이의 가장자리는 첫 번째 변을 나타냅니다. 폐색으로 인해 이벤트가 특정 변과 연결되지 않은 경우 'side'는 비어 있습니다. 예를 들어 사람이 사라졌지만 영역의 한 변을 교차하지 않은 것으로 확인되면 진출이 발생했거나, 영역에 사람이 나타났지만 변을 교차하지 않은 것으로 확인되면 진입이 발생했습니다.|
-| `durationMs` | float | 사용자가 영역에서 머문 시간을 나타내는 밀리초 수입니다. 이벤트 형식이 _personZoneDwellTimeEvent_ 인 경우 이 필드가 제공됩니다.|
+| `dwellTime` | float | 사용자가 영역에서 머문 시간을 나타내는 밀리초 수입니다. 이벤트 형식이 personZoneDwellTimeEvent인 경우 이 필드가 제공됩니다.|
+| `dwellFrames` | int | 사람이 영역에서 보낸 프레임 수입니다. 이벤트 형식이 personZoneDwellTimeEvent인 경우 이 필드가 제공됩니다.|
+| `dwellTimeForTargetSide` | float | 사용자가 영역에서 보낸 시간과 `target_side`와 마주한 시간을 나타내는 밀리초 수입니다. 이 필드는 `enable_orientation`이 `DETECTOR_NODE_CONFIG `에서 `True`이고 `target_side`의 값이 `SPACEANALYTICS_CONFIG`로 설정된 경우에 제공됩니다.|
+| `avgSpeed` | float| 영역에 있는 사람의 평균 속도입니다. 단위는 `foot per second (ft/s)`입니다.|
+| `minSpeed` | float| 영역에 있는 사용자의 최소 속도입니다. 단위는 `foot per second (ft/s)`입니다.|
 | `zone` | 문자열 | 교차된 영역을 나타내는 다각형의 "name" 필드|
 
 | detections 필드 이름 | 형식| Description|
@@ -692,6 +723,9 @@ Live Video Analytics 작업은 처리되는 비디오 프레임을 시각화하�
 | `region` | collection| 값 컬렉션|
 | `type` | 문자열| 영역 유형|
 | `points` | collection| 영역 유형이 RECTANGLE인 경우 왼쪽 위 및 오른쪽 아래 지점 |
+| `groundOrientationAngle` | float| 유추된 접지 평면에서 사람 방향의 시계 방향 방사형 각도 |
+| `mappedImageOrientation` | float| 2D 이미지 공간에서 사람 방향의 프로젝션된 시계 방향 방사형 각도 |
+| `speed` | float| 감지된 사람의 예상 속도입니다. 단위는 `foot per second (ft/s)`입니다.|
 | `confidence` | float| 알고리즘 신뢰도|
 | `face_mask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있음을 나타냅니다. |
 | `face_nomask` | float | 범위(0-1)의 특성 신뢰도 값은 감지된 사람이 얼굴 마스크를 착용하고 있지 **않음** 을 나타냅니다. |
@@ -1034,7 +1068,7 @@ GPU의 최고 성능과 사용률을 얻기 위해 그래프 인스턴스를 사
       }
   }
   ```
-| Name | 유형| 설명|
+| Name | Type| Description|
 |---------|---------|---------|
 | `batch_size` | int | 모든 카메라의 해상도가 동일한 경우 `batch_size`를 해당 작업에 사용할 카메라 수로 설정하고, 그렇지 않으면 `batch_size`를 1로 설정하거나 일괄 처리가 지원되지 않음을 나타내는 기본값(1)으로 둡니다. |
 

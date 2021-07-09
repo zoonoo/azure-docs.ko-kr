@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 03/08/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/08/2021
+ms.topic: troubleshooting
+ms.custom: devx-track-python, automl, references_regions
+ms.openlocfilehash: 0eda886537f0cfd6819ca69c53b4cafa44746636
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103563677"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540708"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Python에서 자동화된 ML 실험 문제 해결
 
@@ -148,8 +148,16 @@ PyJWT의 버전은 다음과 같이 확인할 수 있습니다.
     1. 명령 셸에서 `pip uninstall PyJWT`를 입력하고 `y`를 입력하여 확인합니다.
     1. `pip install 'PyJWT<2.0.0'`을 사용하여 설치합니다.
   
+
+## <a name="data-access"></a>데이터 액세스
+ 
+자동화된 ML 실행의 경우 AzureFile 스토리지에 연결하는 파일 데이터 저장소에 적절한 인증 자격 증명이 있는지 확인해야 합니다. 그렇지 않으면 다음 메시지가 발생합니다. [데이터 액세스 인증 자격 증명을 업데이트](how-to-train-with-datasets.md#azurefile-storage)하는 방법을 알아봅니다.
+
+오류 메시지: `Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.`
+
 ## <a name="databricks"></a>Databricks
 [Databricks를 사용하여 자동화된 ML 실험을 구성하는 방법](how-to-configure-databricks-automl-environment.md#troubleshooting)을 참조하세요.
+
 
 ## <a name="forecasting-r2-score-is-always-zero"></a>예측 R2 점수가 항상 0인 경우
 
@@ -189,6 +197,6 @@ PyJWT의 버전은 다음과 같이 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [자동화된 Machine Learning을 사용하여 회귀 모델을 학습시키는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](how-to-auto-train-remote.md)에 대해 자세히 알아봅니다.
++ [자동화된 Machine Learning을 사용하여 회귀 모델을 학습시키는 방법](tutorial-auto-train-models.md) 또는 [원격 리소스에서 자동화된 Machine Learning을 사용하여 학습하는 방법](concept-automated-ml.md#local-remote)에 대해 자세히 알아봅니다.
 
 + [모델 배포 방법 및 위치](how-to-deploy-and-where.md)에 대해 자세히 알아봅니다.

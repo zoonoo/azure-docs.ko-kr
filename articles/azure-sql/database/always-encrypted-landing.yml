@@ -1,0 +1,102 @@
+### YamlMime:Landing
+title: Always Encrypted 설명서
+summary: Always Encrypted에 대한 설명서 찾기
+metadata:
+  title: Always Encrypted 설명서
+  description: SQL Server, Azure SQL Database 및 Azure SQL Managed Instance에 대한 Always Encrypted 설명서 찾기
+  ms.service: sql-db-mi
+  ms.subservice: security
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: VanMSFT
+  ms.author: vanto
+  ms.reviewer: 
+  ms.date: 01/15/2021
+  ms.openlocfilehash: 5abf79ca2e650f45f0ad29c34ab799d660c015f8
+  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/10/2021
+  ms.locfileid: "111965470"
+landingContent:
+- title: Always Encrypted 개요
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Always Encrypted란?
+      url: /sql/relational-databases/security/encryption/always-encrypted-database-engine
+- title: Always Encrypted 개념
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Always Encrypted를 위한 키 관리
+      url: /sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted
+    - text: Always Encrypted 암호화
+      url: /sql/relational-databases/security/encryption/always-encrypted-cryptography
+- title: Always Encrypted 자습서
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Azure Key Vault를 사용하여 Always Encrypted 구성
+      url: always-encrypted-azure-key-vault-configure.md
+    - text: Windows 인증서 저장소를 사용하여 Always Encrypted 구성
+      url: always-encrypted-certificate-store-configure.md
+- title: Always Encrypted 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: PowerShell을 사용하여 상시 암호화 구성
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-using-powershell
+    - text: SQL Server Management Studio를 사용하여 상시 암호화 구성
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio
+- title: Always Encrypted 키 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Always Encrypted용 열 마스터 키 만들기 및 저장
+      url: /sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted
+    - text: SQL Server Management Studio를 사용하여 Always Encrypted 키 프로비저닝
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-ssms
+    - text: SQL Server Management Studio를 사용하여 Always Encrypted 키 순환
+      url: /sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-ssms
+    - text: PowerShell을 사용하여 Always Encrypted 키 프로비전
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell
+    - text: PowerShell을 사용하여 Always Encrypted 키 순환
+      url: /sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell
+- title: Always Encrypted 열 구성
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Always Encrypted 마법사를 사용하여 열 암호화 구성
+      url: /sql/relational-databases/security/encryption/always-encrypted-wizard
+    - text: DAC package로 Always Encrypted를 사용하여 열 암호화 구성
+      url: /sql/relational-databases/security/encryption/configure-always-encrypted-using-dacpac
+- title: Always Encrypted 열 쿼리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: SQL Server Management Studio로 Always Encrypted를 사용하는 열 쿼리
+      url: /sql/relational-databases/security/encryption/always-encrypted-query-columns-ssms
+    - text: Azure Data Studio를 사용하여 Always Encrypted를 이용하는 열 쿼리
+      url: /sql/relational-databases/security/encryption/always-encrypted-query-columns-ads
+- title: Always Encrypted를 사용하여 데이터 마이그레이션
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Always Encrypted를 사용하여 데이터베이스 내보내기 및 가져오기
+      url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-bacpac
+    - text: Always Encrypted를 사용하여 데이터베이스 백업 및 복원
+      url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-backup-restore
+    - text: SQL Server 가져오기 및 내보내기 마법사로 Always Encrypted를 사용하여 열 간에 데이터 마이그레이션
+      url: /sql/relational-databases/security/encryption/always-encrypted-migrate-using-import-export-wizard
+    - text: Always Encrypted를 사용하여 암호화된 데이터를 열에 대량 로드
+      url: /sql/relational-databases/security/encryption/migrate-sensitive-data-protected-by-always-encrypted
+    - text: Azure Data Factory에서 Always Encrypted 사용
+      url: ../../data-factory/connector-azure-sql-database.md#using-always-encrypted
+- title: Always Encrypted를 사용하여 애플리케이션 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Always Encrypted를 사용하여 애플리케이션 개발
+      url: /sql/relational-databases/security/encryption/always-encrypted-client-development

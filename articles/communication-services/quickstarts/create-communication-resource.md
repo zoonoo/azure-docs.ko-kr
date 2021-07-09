@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: aa5d24229bae0e459471dc40ca375d42ccc1405c
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: b24fbcafa917e4577dc0b13b83e83cf105174332
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108293249"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113181"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "108293249"
 
 
 > [!WARNING]
-> Communication Services는 여러 지역에서 사용 가능하지만 전화 번호를 얻으려면 리소스의 데이터 위치가 ‘US’로 설정되어야 합니다. 또한 공개 미리 보기 동안에는 통신 리소스를 다른 구독으로 이전할 수 없습니다.
+> Communication Services는 여러 지역에서 사용 가능하지만 전화 번호를 얻으려면 리소스의 데이터 위치가 ‘US’로 설정되어야 합니다. 또한 Azure Communication Services용 리소스와 리소스 그룹을 동시에 만들 수는 없습니다. 리소스를 만들 때 이미 만들어진 리소스 그룹을 사용해야 합니다.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]
@@ -118,9 +118,12 @@ export COMMUNICATION_SERVICES_CONNECTION_STRING="<yourconnectionstring>"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다.
+Communication Services 구독을 정리하고 제거하려면 리소스 또는 리소스 그룹을 삭제하면 됩니다. 리소스 그룹을 삭제하면 해당 리소스 그룹에 연결된 다른 모든 리소스가 함께 삭제됩니다. 
 
-리소스를 삭제하는 동안 리소스에 할당된 전화 번호가 있으면 리소스에서 전화 번호는 동시에 자동으로 해제됩니다.
+리소스를 삭제하는 동안 리소스에 할당된 전화 번호가 있으면 리소스에서 전화 번호는 동시에 자동으로 해제됩니다. 
+
+> [!Note]
+> 리소스 삭제는 **영구적** 이며 리소스를 삭제하는 경우 이벤트 그리드 필터, 전화 번호 또는 리소스에 연결된 기타 데이터를 포함한 데이터를 복구할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

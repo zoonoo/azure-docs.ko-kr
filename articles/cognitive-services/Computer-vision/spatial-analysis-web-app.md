@@ -3,23 +3,23 @@ title: 공간 분석 웹앱 배포
 titleSuffix: Azure Cognitive Services
 description: 웹 애플리케이션에서 공간 분석을 사용하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: aahill
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 01/12/2021
-ms.author: aahi
-ms.openlocfilehash: 6d3be90cc81b1bcd9a55fc8e53cb9f2238e8c6de
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.date: 06/08/2021
+ms.author: pafarley
+ms.openlocfilehash: bd071fc930420a48a764eff3818580885312fde6
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106285980"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746072"
 ---
-# <a name="how-to-deploy-a-people-counting-web-application"></a>방법: 인원수를 세는 웹 애플리케이션 배포
+# <a name="how-to-deploy-a-spatial-analysis-web-application"></a>방법: 공간 분석 웹 애플리케이션 배포
 
-이 문서에서는 사람들의 움직임을 이해하는 공간 분석을 웹앱에 통합하고, 물리적 공간을 차지하는 인원수를 모니터링하는 방법을 알아봅니다. 
+이 문서를 사용하여 IotHub에서 공간 분석 데이터(인사이트)를 수집하고 시각화하는 웹앱을 배포하는 방법을 알아봅니다. 다양한 시나리오와 산업에 걸쳐 유용한 애플리케이션을 제공할 수 있습니다. 예를 들어 회사에서 부동산 공간 사용을 최적화하려는 경우 다양한 시나리오로 솔루션을 신속하게 만들 수 있습니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -28,7 +28,14 @@ ms.locfileid: "106285980"
 * 웹 애플리케이션에 IoT Hub 연결 구성
 * 웹 애플리케이션 배포 및 테스트
 
-## <a name="prerequisites"></a>필수 구성 요소
+이 앱은 아래 시나리오를 소개합니다.
+
+* 공간/상점에 출입하는 사람 수
+* 체크 아웃 영역/구역에 출입하는 사람 수와 체크 아웃 줄에서 소요된 시간(체류 시간)
+* 얼굴 마스크를 쓴 사람 수 
+* 사회적 거리두기 지침을 위반하는 사람 수
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services/)
 * Azure IoT Edge 배포 구성 및 [Azure IoT Hub](../../iot-hub/index.yml)에 대한 기본적인 이해
@@ -63,36 +70,31 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>호스트 컴퓨터의 Azure IoT Edge에 컨테이너 배포
 
-Azure CLI를 사용하여 공간 분석 컨테이너를 호스트 컴퓨터의 IoT 모듈로 배포합니다. 배포 프로세스를 수행하려면 배포에 필요한 컨테이너, 변수 및 구성을 설명하는 배포 매니페스트 파일이 필요합니다. *공간 분석* 컨테이너에 대한 기본 배포 구성을 포함하여 샘플 [Azure Stack Edge 관련 배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2142179), [비 Azure Stack Edge 관련 배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2152189) 및 [GPU를 사용하는 Azure VM 관련 배포 매니페스트](https://go.microsoft.com/fwlink/?linkid=2152189)를 GitHub에서 찾을 수 있습니다. 
-
-또는 Visual Studio Code용 Azure IoT 확장을 사용하여 IoT 허브에 대한 작업을 수행할 수 있습니다. 자세히 알아보려면 [Visual Studio Code에서 Azure IoT Edge 모듈 배포](../../iot-edge/how-to-deploy-modules-vscode.md)로 이동하세요.
-
-> [!NOTE] 
-> *spatial-analysis-telegraf* 및 *spatial-analysis-diagnostics* 컨테이너는 선택 사항입니다. *DeploymentManifest.json* 파일에서 제거하도록 할 수 있습니다. 자세한 내용은 [원격 분석 및 문제 해결](./spatial-analysis-logging.md) 문서를 참조하세요. [Azure Stack Edge 디바이스](https://go.microsoft.com/fwlink/?linkid=2142179), [데스크톱 컴퓨터](https://go.microsoft.com/fwlink/?linkid=2152189) 또는 [GPU를 사용하는 Azure VM](https://go.microsoft.com/fwlink/?linkid=2152189)에 대한 세 가지 샘플 *DeploymentManifest.json* 파일을 GitHub에서 찾을 수 있습니다.
+다음 단계에서는 Azure CLI를 사용하여 **공간 분석** 컨테이너를 호스트 컴퓨터에 IoT 모듈로 배포합니다. 배포 프로세스를 수행하려면 배포에 필요한 컨테이너, 변수 및 구성을 설명하는 배포 매니페스트 파일이 필요합니다. 샘플 배포 매니페스트는 모든 시나리오에 대해 미리 빌드된 구성을 포함하는 [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json)에서 찾을 수 있습니다.  
 
 ### <a name="set-environment-variables"></a>환경 변수 설정
 
-IoT Edge 모듈에 대한 대부분의 **환경 변수** 는 위에 연결된 샘플 *DeploymentManifest.json* 파일에 이미 설정되어 있습니다. 이 파일에서 아래와 같이 `BILLING_ENDPOINT` 및 `API_KEY` 환경 변수를 검색합니다. 값을 이전에 만든 엔드포인트 URI 및 API 키로 바꿉니다. EULA 값이 "accept"로 설정되어 있는지 확인합니다. 
+IoT Edge 모듈에 대한 대부분의 **환경 변수** 는 위에 연결된 샘플 *DeploymentManifest.json* 파일에 이미 설정되어 있습니다. 이 파일에서 아래와 같이 `ENDPOINT` 및 `APIKEY` 환경 변수를 검색합니다. 값을 이전에 만든 엔드포인트 URI 및 API 키로 바꿉니다. EULA 값이 "accept"로 설정되어 있는지 확인합니다. 
 
 ```json
 "EULA": { 
     "value": "accept"
 },
-
-"BILLING_ENDPOINT":{ 
+"ENDPOINT":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
-"API_KEY":{
+"APIKEY":{
     "value": "<Use the endpoint from your Computer Vision resource>"
 }
 ```
 
 ### <a name="configure-the-operation-parameters"></a>작업 매개 변수 구성
 
-이제 *공간 분석* 컨테이너의 초기 구성이 완료되었으므로 다음 단계는 작업 매개 변수를 구성하고 배포에 추가하는 것입니다. 
+필요한 모든 구성(작업, 녹화된 비디오 파일 URL 및 영역 등)이 이미 있는 샘플 [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json)을 사용하는 경우 **배포 실행** 섹션으로 건너뛸 수 있습니다.
 
-첫 번째 단계는 위에 연결된 샘플 배포 매니페스트를 업데이트하고 아래와 같이 `cognitiveservices.vision.spatialanalysis-personcount`의 operationId를 구성하는 것입니다.
+이제 공간 분석 컨테이너의 초기 구성이 완료되었으므로 다음 단계는 작업 매개 변수를 구성하고 배포에 추가하는 것입니다. 
 
+첫 번째 단계는 샘플 [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/deployment.json)을 업데이트하고 원하는 작업을 구성하는 것입니다. 예를 들어 cognitiveservices.vision.spatialanalysis-personcount에 대한 구성은 다음과 같습니다.
 
 ```json
 "personcount": {
@@ -147,30 +149,17 @@ Azure Portal의 IoT Hub 인스턴스에 있는 공간 분석 모듈에 대한 Io
 
 ![배포 확인 예](./media/spatial-analysis/deployment-verification.png)
 
-이때 공간 분석 컨테이너는 작업을 실행하고 있습니다. `cognitiveservices.vision.spatialanalysis-personcount` 작업에 대한 AI 인사이트를 내보내고 이러한 인사이트를 Azure IoT Hub 인스턴스에 원격 분석으로 라우팅합니다. 추가 카메라를 구성하기 위해 배포 매니페스트 파일을 업데이트하고 배포를 다시 실행할 수 있습니다.
+이때 공간 분석 컨테이너는 작업을 실행하고 있습니다. 작업에 대한 AI 인사이트를 내보내고 이러한 인사이트를 원격 분석으로 Azure IoT Hub 인스턴스에 라우팅합니다. 추가 카메라를 구성하기 위해 배포 매니페스트 파일을 업데이트하고 배포를 다시 실행할 수 있습니다.
 
-## <a name="person-counting-web-application"></a>인원수를 세는 웹 애플리케이션
+## <a name="spatial-analysis-web-application"></a>공간 분석 웹 애플리케이션
 
-이 인원수를 세는 웹 애플리케이션을 통해 샘플 웹앱을 신속하게 구성하고 Azure 환경에서 호스트할 수 있습니다.
+공간 분석 웹 애플리케이션을 사용하면 개발자가 샘플 웹앱을 신속하게 구성하고, 해당 Azure 환경에서 호스트하고, 앱을 사용하여 E2E 이벤트의 유효성을 검사할 수 있습니다.
 
-### <a name="get-the-person-counting-app-container"></a>인원수를 세는 앱 컨테이너 가져오기
+## <a name="build-docker-image"></a>Docker 이미지 빌드
 
-이 앱의 컨테이너 형식은 Azure Container Registry에서 사용할 수 있습니다. 다음 docker pull 명령을 사용하여 다운로드합니다. 액세스 토큰은 Microsoft(projectarchon@microsoft.com)에 문의하세요.
+[가이드](https://github.com/Azure-Samples/cognitive-services-spatial-analysis/blob/main/README.md#docker-image)에 따라 이미지를 빌드하고 구독의 Azure Container Registry에 푸시합니다.
 
-```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
-docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
-```
-
-ACR(Azure Container Registry)에 컨테이너를 밀어넣습니다.
-
-```bash
-az acr login --name <your ACR name>
-
-docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local image name]
-
-docker push [desired local image name]
-```
+## <a name="setup-steps"></a>설정 단계
 
 컨테이너를 설치하려면 새 Azure App Service를 만들고 필요한 매개 변수를 입력합니다. 그런 다음, **Docker** 탭으로 이동하여 **단일 컨테이너**, **Azure Container Registry** 를 차례로 선택합니다. 위의 이미지를 밀어넣은 Azure Container Registry의 인스턴스를 사용합니다.
 
@@ -201,4 +190,4 @@ Azure 서비스로 이동하여 배포가 성공적으로 수행되었으며 웹
 * [공간 분석 작업 구성](./spatial-analysis-operations.md)
 * [로깅 및 문제 해결](spatial-analysis-logging.md)
 * [카메라 배치 가이드](spatial-analysis-camera-placement.md)
-* [영역 및 줄 배치 가이드](spatial-analysis-zone-line-placement.md)
+* [영역 및 선 배치 가이드](spatial-analysis-zone-line-placement.md)

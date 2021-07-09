@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 52e0b750f02044afafe233a76e4f43755d9ed303
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94566098"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725101"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>클라이언트 애플리케이션에 사용자 지정 명령 작업 보내기
 
@@ -26,7 +26,7 @@ ms.locfileid: "94566098"
 - 사용자 지정 명령 애플리케이션에서 사용자 지정 JSON 페이로드 정의 및 보내기
 - C# UWP Speech SDK 클라이언트 애플리케이션에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) 이상. 이 가이드에서는 Visual Studio 2019를 사용합니다.
 > * Speech Service에 대한 Azure 구독 키: [Azure Portal](https://portal.azure.com)에서 [체험 계정을 가져오거나](overview.md#try-the-speech-service-for-free) 새로 만듭니다.
@@ -161,4 +161,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [방법: 웹 엔드포인트 설정(미리 보기)](./how-to-custom-commands-setup-web-endpoints.md)
+> [방법: 웹 엔드포인트 설정](./how-to-custom-commands-setup-web-endpoints.md)

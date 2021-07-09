@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: cc5ed68fa7a26a347f0cb85c94bb0b7b79ccb055
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608088"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110059176"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -69,15 +69,14 @@ Speech SDK를 사용하는 [음성 도우미](voice-assistants.md)를 사용하�
 
 #### <a name="keyword-recognition"></a>키워드 인식
 
-[키워드 인식](./custom-keyword-basics.md)의 개념은 Speech SDK에서 지원됩니다. 키워드 인식은 음성에서 키워드를 식별한 후 키워드를 들으면 작업을 수행하는 동작입니다. 예를 들어 "Hey Cortana"는 Cortana 도우미를 활성화합니다.
+[키워드 인식](custom-keyword-basics.md)의 개념은 Speech SDK에서 지원됩니다. 키워드 인식은 음성에서 키워드를 식별한 후 키워드를 들으면 작업을 수행하는 동작입니다. 예를 들어 "Hey Cortana"는 Cortana 도우미를 활성화합니다.
 
 **키워드 인식** 은 다음 플랫폼에서 사용할 수 있습니다.
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
-  - Java/Windows & Linux & Android(Speech Devices SDK)
-  - 키워드 인식 기능은 모든 마이크 종류에 사용할 수 있지만 공식 키워드 인식 지원은 현재 Azure Kinect DK 하드웨어 또는 Speech Devices SDK에 있는 마이크 배열로 제한됩니다.
+  - Java/Windows & Linux & Android
 
 ### <a name="meeting-scenarios"></a>모임 시나리오
 

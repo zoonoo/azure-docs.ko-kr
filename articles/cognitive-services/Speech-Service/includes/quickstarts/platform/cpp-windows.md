@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: b19b55945d3c252d01cf3544f8931580b7fc6710
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 3c506baa2b267ea0fbd2ecb05c805145a0619451
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552213"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163803"
 ---
 이 가이드에서는 Windows Desktop에 C++용 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 설치하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 빠른 시작에는 다음이 필요합니다.
 
@@ -29,8 +29,6 @@ ms.locfileid: "100552213"
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Visual Studio 프로젝트를 만들고 Speech SDK를 설치합니다.
 
 [!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-이제 아래의 [다음 단계](#next-steps)로 이동할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

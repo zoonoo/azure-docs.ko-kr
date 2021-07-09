@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0e1c5f08c4292e4f3dfec448d8bf54d5d5601840
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a1ba0ab0759a5c765497aac4346fa7d72dae96c
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99050501"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616192"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Azure Digital Twins의 쿼리 단위 
 
@@ -31,7 +31,7 @@ Azure Digital Twins에서 지원하는 쿼리 작업을 수행하는 데 필요�
 
 Azure Digital Twins [쿼리 API](/rest/api/digital-twins/dataplane/query)를 사용하여 쿼리를 실행할 때 응답 헤더를 검사하여 쿼리에 사용된 QU 수를 추적할 수 있습니다. Azure Digital Twins에서 다시 전송된 응답에서 "쿼리 요금"을 찾습니다.
 
-Azure Digital Twins [SDK](how-to-use-apis-sdks.md)를 사용하면 페이징할 수 있는 응답에서 쿼리 요금 헤더를 추출할 수 있습니다. 이 섹션에서는 디지털 트윈을 쿼리하는 방법과 페이징할 수 있는 응답을 반복하여 쿼리 요금 헤더를 추출하는 방법을 보여줍니다. 
+[Azure Digital Twins SDK](concepts-apis-sdks.md)를 사용하면 페이징할 수 있는 응답에서 쿼리 요금 헤더를 추출할 수 있습니다. 이 섹션에서는 디지털 트윈을 쿼리하는 방법과 페이징할 수 있는 응답을 반복하여 쿼리 요금 헤더를 추출하는 방법을 보여줍니다. 
 
 다음 코드 조각에서는 쿼리 API를 호출할 때 발생하는 쿼리 요금을 추출하는 방법을 보여줍니다. 먼저 응답 페이지를 반복하여 쿼리 요금 헤더에 액세스한 다음, 각 페이지 내의 디지털 트윈 결과를 반복합니다. 
 
@@ -41,8 +41,8 @@ Azure Digital Twins [SDK](how-to-use-apis-sdks.md)를 사용하면 페이징할 
 
 Azure Digital Twins 쿼리에 대해 자세히 알아보려면 다음을 방문하세요.
 
-* [*개념: 쿼리 언어*](concepts-query-language.md)
-* [*방법: 트윈 그래프 쿼리*](how-to-query-graph.md)
+* [개념: 쿼리 언어](concepts-query-language.md)
+* [방법: 트윈 그래프 쿼리](how-to-query-graph.md)
 * [쿼리 API 참조 설명서](/rest/api/digital-twins/dataplane/query/querytwins)
 
-[*Azure Digital Twins 서비스 제한*](reference-service-limits.md)에서 Azure Digital Twins 쿼리 관련 제한을 찾을 수 있습니다.
+[Azure Digital Twins 서비스 제한](reference-service-limits.md)에서 Azure Digital Twins 쿼리 관련 제한을 찾을 수 있습니다.

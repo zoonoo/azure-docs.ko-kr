@@ -6,18 +6,19 @@ ms.subservice: language-understanding
 author: aahill
 ms.author: aahi
 ms.topic: reference
-ms.date: 01/21/2021
+ms.date: 05/27/2021
 ms.custom: references_regions
-ms.openlocfilehash: 8b43fc472f3247a93414a0b18d9098c6dfb94917
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 160a12139054f5ee887a540a4d838d124dd34840
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98681610"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110617333"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
 
 LUIS 작성 지역은 LUIS 포털에서 지원됩니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다.
+
 
 <a name="luis-website"></a>
 
@@ -25,9 +26,15 @@ LUIS 작성 지역은 LUIS 포털에서 지원됩니다. LUIS 앱을 둘 이상�
 
 [!INCLUDE [portal consolidation](includes/portal-consolidation.md)]
 
-LUIS에는 지역, [www.luis.ai](https://www.luis.ai)에 관계없이 사용할 수 있는 포털이 하나 있습니다. 동일한 지역에서 계속 작성하고 게시해야 합니다.
+LUIS에는 다음과 같은 제작 지역이 있습니다.
+    
+* 오스트레일리아 동부
+* 서유럽
+* 미국 서부
+* 스위스 북부
 
-작성 지역에는 [페어링된 장애 조치 지역](../../best-practices-availability-paired-regions.md)이 있습니다.
+
+LUIS에는 지역, [www.luis.ai](https://www.luis.ai)에 관계없이 사용할 수 있는 포털이 하나 있습니다. 동일한 지역에서 계속 작성하고 게시해야 합니다. 작성 지역에는 [페어링된 장애 조치 지역](../../best-practices-availability-paired-regions.md)이 있습니다.
 
 <a name="regions-and-azure-resources"></a>
 
@@ -55,6 +62,7 @@ LUIS에는 지역, [www.luis.ai](https://www.luis.ai)에 관계없이 사용할 
 | 유럽 | `westeurope`| 북유럽<br>`northeurope`     | `https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 유럽 | `westeurope`| 서유럽<br>`westeurope`    |  `https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | 유럽 | `westeurope`| 영국 남부<br>`uksouth`    |  `https://uksouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| 유럽 | `westeurope`| 스위스 북부<br>`switzerlandnorth`    |  `https://switzerlandnorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 
 ## <a name="publishing-to-australia"></a>오스트레일리아에 게시
 

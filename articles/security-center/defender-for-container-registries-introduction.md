@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4840fc27133b1d92cb8aaad80921f9d21901569d
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: 282777a692b7b0fe54415ef09c2cf1879868dd3b
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107010695"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854435"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -28,7 +28,7 @@ Security Center는 구독의 Azure Resource Manager 기반 ACR 레지스트리�
 
 **컨테이너 레지스트리용 Azure Defender** 에는 Azure Resource Manager 기반 Azure Container Registry 레지스트리의 이미지를 검사하고 이미지의 취약성에 대한 보다 심층적인 가시성을 제공하는 취약성 검사기가 포함되어 있습니다. 통합 검사기는 업계 최고의 취약성 검사 공급업체인 Qualys의 제품입니다.
 
-Qualys 또는 Security Center에서 문제가 발견되면 Security Center 대시보드에 알림이 표시됩니다. Security Center는 모든 취약성에 대해 심각도 분류 및 문제 해결 방법에 대한 지침과 실행 가능한 권장 사항을 제공합니다. Security Center의 컨테이너 관련 권장 사항에 대한 자세한 내용은 [권장 사항 참조 목록](recommendations-reference.md#recs-compute)을 참조하세요.
+Qualys 또는 Security Center에서 문제가 발견되면 Security Center 대시보드에 알림이 표시됩니다. Security Center는 모든 취약성에 대해 심각도 분류 및 문제 해결 방법에 대한 지침과 실행 가능한 권장 사항을 제공합니다. Security Center의 컨테이너 관련 권장 사항에 대한 자세한 내용은 [권장 사항 참조 목록](recommendations-reference.md#recs-container)을 참조하세요.
 
 Security Center는 검사기의 검사 결과를 필터링하고 분류합니다. 이미지가 정상이면 Security Center는 이미지를 정상으로 표시합니다. Security Center는 해결해야 할 문제가 있는 이미지에 대해서만 보안 권장 사항을 생성합니다. Security Center는 보고된 각 취약성 및 심각도 분류의 세부 정보를 제공합니다. 또한 각 이미지에 있는 특정 취약성을 해결하는 방법에 대한 지침을 제공합니다.
 
@@ -65,7 +65,7 @@ Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 �
 
 
 
-## <a name="faq-for-azure-container-registry-image-scanning"></a>Azure Container Registry 이미지 검사에 대한 FAQ
+## <a name="faq---azure-container-registry-image-scanning"></a>FAQ - Azure Container Registry 이미지 검사
 
 ### <a name="how-does-security-center-scan-an-image"></a>Security Center는 이미지를 어떻게 검사하나요?
 Security Center는 레지스트리에서 이미지를 가져와 Qualys 스캐너를 사용하여 격리된 샌드박스에서 실행합니다. 스캐너는 알려진 취약점 목록을 추출합니다.
@@ -88,6 +88,8 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 ### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Security Center에서 레지스트리에 없는 이미지에 대한 취약성을 경고하는 이유는 무엇인가요?
 Security Center는 레지스트리에서 푸시하거나 끌어온 모든 이미지에 대한 취약성 평가를 제공합니다. 일부 이미지는 이미 스캔된 이미지에서 태그를 재사용할 수 있습니다. 예를 들어 다이제스트에 이미지를 추가할 때마다 “최신” 태그를 다시 할당할 수 있습니다. 이러한 경우 ‘이전’ 이미지는 여전히 레지스트리에 존재하며 해당 다이제스트에 의해 계속 끌어올 수 있습니다. 이미지에 보안 결과가 있고 끌어온 경우 보안 취약성이 노출됩니다.
 
+### <a name="what-should-i-do-if-the-scan-results-for-my-image-arent-shown"></a>내 이미지에 대한 검사 결과가 표시되지 않으면 어떻게 해야 하나요?
+몇 분 정도 기다렸다가 결과가 표시되지 않으면 이미지를 다시 푸시하여 새 검사를 트리거해 보세요. 여전히 표시되지 않으면 지원 팀에 문의하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

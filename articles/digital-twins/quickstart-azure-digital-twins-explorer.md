@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - 샘플 시나리오 살펴보기
+title: 빠른 시작 - Azure Digital Twins Explorer 시작
 titleSuffix: Azure Digital Twins
 description: 빠른 시작 - Azure Digital Twins Explorer 샘플을 사용하여 미리 작성된 시나리오를 시각화하고 살펴봅니다.
 author: baanders
@@ -7,109 +7,71 @@ ms.author: baanders
 ms.date: 4/27/2021
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 128bc90ec019927a34d258d3cc58286c5b5ab048
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: d4315ff04235e4b555a201e9da7287339b0de125
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092299"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450739"
 ---
-# <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer를 사용하여 Azure Digital Twins 샘플 시나리오 살펴보기
+# <a name="quickstart---get-started-with-a-sample-scenario-in-azure-digital-twins-explorer"></a>빠른 시작 - Azure Digital Twins Explorer에서 샘플 시나리오 시작
 
 Azure Digital Twins를 사용하면 실제 환경의 라이브 모델을 만들어 이와 상호 작용할 수 있습니다. 먼저 개별 요소를 **디지털 트윈** 으로 모델링합니다. 그런 다음, 라이브 이벤트에 응답하고 정보를 쿼리할 수 있는 기술 자료 **그래프** 에 연결합니다.
 
-이 빠른 시작에서는 [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)라는 샘플 애플리케이션의 지원을 통해 미리 작성된 Azure Digital Twins 그래프를 살펴봅니다. Azure Digital Twins Explorer를 사용하여 다음을 수행합니다.
+이 빠른 시작에서는 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)를 사용하여 미리 빌드된 Azure Digital Twins 그래프를 살펴봅니다. 이 도구는 Azure Portal 내에서 Azure Digital Twins 데이터를 시각화하고 상호 작용할 수 있는 도구입니다.
 
-- 환경의 디지털 표현을 업로드합니다.
-- Azure Digital Twins에서 환경을 나타내기 위해 만들어진 트윈 및 그래프의 시각적 이미지를 봅니다.
-- 브라우저 기반의 시각적 환경을 통해 다른 관리 작업을 수행합니다.
+다음 단계를 완료하게 됩니다.
 
-이 빠른 시작에 포함된 주요 단계는 다음과 같습니다.
-
-1. Azure Digital Twins 인스턴스 및 Azure Digital Twins Explorer 설정
+1. Azure Digital Twins 인스턴스를 만들어서 Azure Digital Twins Explorer에서 연결합니다.
 1. 미리 작성된 모델 및 그래프 데이터를 업로드하여 샘플 시나리오 생성
 1. 만들어진 시나리오 그래프 살펴보기
 1. 그래프 변경
+1. 경험을 통해 학습한 내용을 검토합니다.
 
-작업할 샘플 그래프는 두 개의 층과 두 개의 방이 있는 건물을 나타냅니다. 그래프는 다음 이미지와 비슷합니다.
+작업할 샘플 그래프는 두 개의 층과 두 개의 방이 있는 건물을 나타냅니다. Floor0에는 Room0이 포함되고 Floor1에는 Room1이 포함됩니다. 그래프는 다음 이미지와 비슷합니다.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="화살표로 연결된 4개의 원형 노드로 구성된 그래프 보기. 'Floor1'이라는 레이블이 지정된 원은 'contains'라는 레이블이 지정된 화살표를 통해 'Room1'이라는 레이블이 지정된 원에 연결됩니다. 'Floor0'이라는 레이블이 지정된 원은 'contains'라는 레이블이 지정된 화살표를 통해 'Room0'이라는 레이블이 지정된 원에 연결됩니다. 'Floor1'과 'Floor0'은 연결되지 않습니다.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="Azure Digital Twins Explorer에서 화살표로 연결된 4개의 원형 노드로 구성된 그래프의 스크린샷":::
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 아직 없는 경우 지금 [체험 구독을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
-또한 머신에 **Node.js** 가 필요합니다. 최신 버전을 받으려면 [Node.js](https://nodejs.org/)를 참조하세요.
+빠른 시작에서 사용되는 샘플 그래프의 자료를 다운로드해야 합니다. 아래 링크와 지침을 사용하여 필요한 파일 3개를 [digital-twins-explorer GitHub repository](https://github.com/Azure-Samples/digital-twins-explorer)에서 다운로드하세요.
+* [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Room.json): 링크로 이동하여 화면에서 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택합니다. 다른 이름으로 저장 창을 사용하여 컴퓨터의 어딘가에 **Room.json** 이라는 이름으로 파일을 저장합니다.
+* [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-explorer/main/client/examples/Floor.json): 링크로 이동하여 화면에서 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택합니다. 다른 이름으로 저장 창을 사용하여 **Room.json** 과 동일한 위치에 **Floor.json** 이라는 이름으로 파일을 저장합니다.
+* [buildingScenario.xlsx](https://github.com/Azure-Samples/digital-twins-explorer/blob/main/client/examples/buildingScenario.xlsx): 링크로 이동하여 **다운로드** 단추를 선택합니다. 파일이 기본 다운로드 위치에 다운로드됩니다.
 
-마지막으로 빠른 시작에서 사용할 샘플을 다운로드해야 합니다. 샘플 애플리케이션은 **Azure Digital Twins Explorer** 입니다. 이 샘플에는 빠른 시작에서 Azure Digital Twins 시나리오를 로드하고 살펴보는 데 사용할 앱이 포함되어 있습니다. 샘플 시나리오 파일도 들어 있습니다. 샘플을 받으려면 [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)로 이동합니다. 제목 아래에 있는 **코드 찾아보기** 단추를 선택하면 샘플에 대한 GitHub 리포지토리로 이동합니다. **코드** 단추와 **ZIP 다운로드** 를 선택하여 샘플을 .zip 파일로 다운로드합니다. 
-
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png" alt-text="GitHub의 digital-twins-explorer 리포지토리 스크린샷. 코드 단추를 선택하면 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자가 생성됩니다." lightbox="media/quickstart-azure-digital-twins-explorer/download-repo-zip.png":::
-
-**digital-twins-explorer-main.zip** 폴더의 압축을 풀고 파일 압축을 풉니다.
+    :::image type="content" source="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png" alt-text="GitHub의 digital-twins-explorer/client/examples/buildingScenario.xlsx 파일 스크린샷. 다운로드 단추에 강조 표시가 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/download-building-scenario.png":::
 
 ## <a name="set-up-azure-digital-twins-and-azure-digital-twins-explorer"></a>Azure Digital Twins 및 Azure Digital Twins Explorer 설정
 
-Azure Digital Twins를 사용하는 첫 번째 단계는 Azure Digital Twins 인스턴스를 설정하는 것입니다. 서비스의 인스턴스를 만들고 Azure Digital Twins Explorer로 인증하도록 자격 증명을 설정한 후에는 Azure Digital Twins Explorer에서 인스턴스에 연결하고 빠른 시작의 뒷부분에 나오는 예제 데이터로 인스턴스를 채울 수 있습니다.
+Azure Digital Twins를 사용하는 첫 번째 단계는 Azure Digital Twins 인스턴스를 설정하는 것입니다. 서비스 인스턴스를 만든 후 Azure Digital Twins Explorer에서 인스턴스에 연결하고 나중에 빠른 시작에서 인스턴스에 샘플 데이터를 채울 수 있습니다.
 
 이 섹션의 나머지 부분에서는 이러한 단계를 안내합니다.
 
 ### <a name="set-up-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스 설정
 
-[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+이 문서에서 Azure Digital Twins를 사용하려면 먼저 *Azure Digital Twins 인스턴스를 설정* 해야 합니다. 이를 사용하는 데 필요한 권한도 필요합니다.
 
-### <a name="set-up-local-azure-credentials"></a>로컬 Azure 자격 증명 설정
+[인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)의 지침을 따릅니다. 지침에는 각 단계를 성공적으로 완료했는지 확인하는 데 도움이 되는 정보가 포함되어 있습니다.
 
-Azure Digital Twins Explorer 애플리케이션은 로컬 컴퓨터에서 실행할 때 [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true)(`Azure.Identity` 라이브러리의 일부)을 사용하여 Azure Digital Twins 인스턴스로 사용자를 인증합니다. 클라이언트 앱에서 Azure Digital Twins를 사용하여 인증하는 여러 방법에 대한 자세한 내용은 [앱 인증 코드 작성](how-to-authenticate-client.md)을 참조하세요.
+### <a name="open-instance-in-azure-digital-twins-explorer"></a>Azure Digital Twins Explorer에서 인스턴스 열기
 
-이 인증 형식을 사용하면 Azure Digital Twins Explorer는 로컬 [Azure CLI](/cli/azure/install-azure-cli) 또는 Visual Studio/Visual Studio Code의 Azure 로그인과 같은 로컬 환경 내에서 자격 증명을 검색합니다. 이러한 이유로 Azure Digital Twins Explorer 앱의 자격 증명을 설정하려면 이러한 메커니즘 중 하나를 통해 **Azure에 로컬로 로그인** 해야 합니다.
+다음으로 [Azure Portal](https://portal.azure.com)에서 인스턴스에 대한 Azure Digital Twins Explorer를 엽니다. 
 
-이러한 방법 중 하나를 통해 Azure에 이미 로그인한 경우 [다음 섹션](#run-and-configure-azure-digital-twins-explorer)으로 건너뛸 수 있습니다.
+이렇게 하려면 Azure Portal로 이동하고 포털 검색 창에서 이름을 검색하여 새 Azure Digital Twins 인스턴스로 이동합니다.
 
-그렇지 않으면 다음 단계에 따라 로컬 Azure CLI를 설치할 수 있습니다.
+그런 다음, **Azure Digital Twins Explorer 열기(미리 보기)** 단추를 선택합니다.
 
-1. [이 설치 링크](/cli/azure/install-azure-cli)의 프로세스에 따라 OS와 일치하는 설치를 완료합니다.
-1. 머신에서 콘솔 창을 엽니다.
-1. `az login`을 실행하고 인증 프롬프트에 따라 Azure 계정에 로그인합니다.
-1. 마지막 단계: 이 계정에서 여러 Azure 구독을 사용하는 경우 `az account set --subscription "<your-subscription-name-or-ID>"`를 실행하여 Azure Digital Twins 인스턴스가 포함된 Azure 구독에 대한 인증 컨텍스트를 설정합니다(구독의 이름 또는 ID 값이 유효함).
+:::image type="content" source="media/includes/azure-digital-twins-explorer-portal-access.png" alt-text="Azure Digital Twins 인스턴스에 대한 개요 페이지를 보여주는 Azure Portal 스크린샷. Azure Digital Twins Explorer 열기(미리 보기) 단추 주변에 강조 표시가 있습니다." lightbox="media/includes/azure-digital-twins-explorer-portal-access.png":::
 
-로그인하고 다음 섹션에서 Azure Digital Twins Explorer를 실행하면 Azure Digital Twins Explorer가 자동으로 해당 Azure 자격 증명을 선택합니다.
+그러면 인스턴스에 연결된 Azure Digital Twins Explorer 창이 열립니다.
 
-원한다면 인증 콘솔 창을 닫아도 됩니다. 또는 다음 단계에서 사용할 때까지 계속 열어 두어도 됩니다.
-
-### <a name="run-and-configure-azure-digital-twins-explorer"></a>Azure Digital Twins Explorer 실행 및 구성
-
-다음으로, Azure Digital Twins Explorer 애플리케이션을 실행하고 Azure Digital Twins 인스턴스에 맞게 구성합니다.
-
-1. 다운로드하여 압축을 푼 **digital-twins-explorer-main** 폴더로 이동합니다.
-콘솔 창을 **digital-twins-explorer-main/client/src** 폴더 위치로 엽니다.
-
-1. `npm install`을 실행하여 필요한 종속성을 모두 다운로드합니다.
-
-1. `npm run start`를 실행하여 앱을 실행합니다.
-
-   몇 초 후 브라우저 창이 열리고 앱이 브라우저에 표시됩니다.
-
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="localhost:3000에서 실행 중인 앱을 보여 주는 브라우저 창입니다. 이 앱은 Azure Digital Twins Explorer라고 하며 쿼리 탐색기, 모델, 그래프 보기 및 속성에 대한 패널을 포함하고 있습니다. 화면 데이터는 아직 없습니다." lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
-
-1. 다음 이미지처럼 창의 오른쪽 위 모서리에서 **로그인** 단추를 선택하고, 앞에서 설정한 인스턴스와 함께 작동하도록 Azure Digital Twins Explorer를 구성합니다.
-
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/sign-in.png" alt-text="창 위쪽 근처에 있는 로그인 아이콘이 강조 표시된 Azure Digital Twins Explorer. 이 아이콘은 열쇠의 실루엣과 겹쳐진 사람의 간단한 실루엣을 보여 줍니다." lightbox="media/quickstart-azure-digital-twins-explorer/sign-in.png":::
-
-1. 이전에 [Azure Digital Twins 인스턴스 설정](#set-up-an-azure-digital-twins-instance) 섹션에서 수집한 Azure Digital Twins 인스턴스 URL을 *https://<instance-host-name>* 형식으로 입력합니다.
-
-> [!TIP]
-> 연결할 때 `SignalRService.subscribe` 오류 메시지가 표시되면 Azure Digital Twins URL이 *https://* 로 시작하는지 확인합니다.
->
-> 인증 오류가 표시되면 **환경 변수** 를 확인하여 Azure Digital Twins에 포함된 자격 증명이 유효한지 확인할 수 있습니다. `DefaultAzureCredential`은 [특정 순서](/dotnet/api/overview/azure/identity-readme#defaultazurecredential)로 자격 증명 형식에 대해 인증을 시도하고 환경 변수를 먼저 평가합니다.
-
-Microsoft에서 **요청된 권한** 팝업 창을 표시하는 경우 이 애플리케이션에 대한 동의를 허용하고 수락하여 계속 진행합니다.
-
->[!NOTE]
-> 언제든지 동일한 아이콘을 선택하여 **로그인** 상자를 다시 열어서 이 정보를 다시 방문/편집할 수 있습니다. 전달한 값을 유지합니다.
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/explorer-blank.png" alt-text="인터넷 브라우저의 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/explorer-blank.png":::
 
 ## <a name="add-the-sample-data"></a>샘플 데이터 추가
 
-다음으로, 샘플 시나리오와 그래프를 Azure Digital Twins Explorer로 가져옵니다. 샘플 시나리오는 이전에 다운로드한 **digital-twins-explorer-main** 폴더에도 있습니다.
+다음으로, 샘플 시나리오와 그래프를 Azure Digital Twins Explorer로 가져옵니다. 샘플 시나리오는 [필수 조건](#prerequisites) 섹션에서 다운로드한 **digital-twins-explorer-main** 폴더에 있습니다.
 
 ### <a name="models"></a>모델
 
@@ -132,18 +94,18 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 
 다음 단계에 따라 모델을 업로드합니다.
 
-1. **모델** 패널에서 **모델 업로드** 아이콘을 선택합니다.
+1. **모델** 패널에서 **모델 업로드** 아이콘(구름을 가리키는 화살표)을 선택합니다.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="모델 패널에서 가운데 아이콘이 강조 표시되어 있습니다. 이 아이콘은 클라우드를 가리키는 화살표를 보여 줍니다." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/upload-model.png" alt-text="모델 패널과 그 안의 '모델 업로드' 아이콘이 강조 표시된 Azure Digital Twins Explorer 스크린샷." lightbox="media/quickstart-azure-digital-twins-explorer/upload-model.png":::
  
-1. 표시되는 파일 선택기 창에서 다운로드한 리포지토리의 **digital-twins-explorer-main/client/examples** 폴더로 이동합니다.
-1. **Room.json** 및 **Floor.json** 을 선택하고, **확인** 을 선택합니다. 원한다면 추가 모델을 업로드할 수 있지만, 이 빠른 시작에서는 사용되지 않습니다.
+1. 열기 창이 나타나면 이전에 다운로드한 **Room.json** 및 **Floor.json** 파일이 포함된 폴더로 이동합니다.
+1. **Room.json** 및 **Floor.json** 을 선택하고 **열기** 를 선택하여 둘 다 업로드합니다. 
 
-이제 Azure Digital Twins Explorer에서 이러한 모델 파일을 Azure Digital Twins 인스턴스에 업로드합니다. **모델** 패널에 표시되며, 식별 이름과 전체 모델 ID를 보여줍니다. **모델 보기** 정보 아이콘을 선택하면 숨겨져 있는 DTDL 코드를 볼 수 있습니다.
+Azure Digital Twins Explorer는 모델 파일을 Azure Digital Twins 인스턴스에 업로드합니다. 해당 파일이 **모델** 패널에 표시되며, 식별 이름과 전체 모델 ID가 표시됩니다. **모델 보기** 정보 아이콘을 선택하면 숨겨져 있는 DTDL 코드를 볼 수 있습니다.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="내부에 층(dtmi:example:Floor;1) 및 방(dtmi:example:Room;1)의 두 가지 모델 정의가 나열된 모델 보기 패널의 보기입니다. 원 안에 'i'라는 문자를 보여주는 [모델 정보 보기]’ 아이콘이 각 모델에서 강조 표시되어 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/model-info.png" alt-text="모델 패널 안에 모델 정의 두 개(Floor 및 Room)가 나열되어 있는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -168,29 +130,29 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 
 다음 단계에 따라 그래프를 가져옵니다.
 
-1. **트윈 그래프** 패널에서 **그래프 가져오기** 아이콘을 선택합니다.
+1. **트윈 그래프** 패널에서 **그래프 가져오기** 아이콘(구름을 가리키는 화살표)을 선택합니다.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="그래프 보기 패널에서 아이콘이 강조 표시되어 있습니다. 이 아이콘은 클라우드를 가리키는 화살표를 보여줍니다." lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-graph.png" alt-text="'그래프 가져오기' 아이콘이 강조 표시된 그래프 보기 패널을 보여주는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/import-graph.png":::
 
-2. 파일 선택기 창에서 **digital-twins-explorer-main/client/examples** 폴더로 이동하여 **buildingScenario.xlsx** 스프레드시트 파일을 선택합니다. 이 파일에는 샘플 그래프에 대한 설명이 포함되어 있습니다. **확인** 을 선택합니다.
+2. 열기 창에서 이전에 다운로드한 **buildingScenario.xlsx** 파일로 이동합니다. 이 파일에는 샘플 그래프에 대한 설명이 포함되어 있습니다. **열기** 를 선택합니다.
 
    몇 초 후 Azure Digital Twins Explorer에서 **가져오기** 보기가 열리고 로드할 그래프의 미리 보기가 표시됩니다.
 
-3. 그래프 업로드를 확인하려면 **트윈 그래프** 패널의 오른쪽 위 모서리에서 **저장** 아이콘을 선택합니다.
+3. 그래프 업로드를 확인하려면 그래프 미리 보기 패널의 오른쪽 위 모서리에서 **저장** 아이콘을 선택합니다.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="[그래프 미리 보기] 창에서 [저장] 아이콘이 강조 표시되어 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png" alt-text="그래프 미리 보기 창에 저장 아이콘이 강조 표시되어 있는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
    :::row-end:::
 
-4. 이제 Azure Digital Twins Explorer에서 업로드된 파일을 사용하여 요청된 트윈 및 이러한 트윈 간의 관계를 만듭니다. 완료되면 대화 상자가 나타납니다. **닫기** 를 선택합니다.
+4. Azure Digital Twins Explorer는 업로드된 파일을 사용하여 요청된 트윈 및 이들 트윈 간의 관계를 만듭니다. 완료되면 대화 상자가 나타납니다. **닫기** 를 선택합니다.
 
    :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-success.png" alt-text="그래프 가져오기가 성공했음을 나타내는 대화 상자이며 다음과 같은 메시지를 보여줍니다. '가져오기를 완료했습니다. 4개 쌍을 가져왔습니다. 2개 관계를 가져왔습니다.'" lightbox="media/quickstart-azure-digital-twins-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/import-success.png" alt-text="그래프 가져오기 성공을 나타내는 대화 상자를 보여주는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -198,11 +160,11 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 
 5. 이제 그래프가 Azure Digital Twins Explorer에 업로드되었습니다. **트윈 그래프** 패널로 다시 전환합니다.
  
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="트윈 그래프 탭이 강조 표시됩니다." lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png":::
-
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png" alt-text="트윈 그래프 탭이 강조 표시된 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/twin-graph-tab.png"::: 
+ 
 6. 그래프를 보려면 Azure Digital Twins Explorer 창 상단 근처에 있는 **쿼리 탐색기** 패널에서 **쿼리 실행** 단추를 선택합니다.
 
-   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="창의 오른쪽 위 모서리에 있는 [쿼리 실행] 단추가 강조 표시됩니다." lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
+   :::image type="content" source="media/quickstart-azure-digital-twins-explorer/run-query.png" alt-text="창의 오른쪽 위 모서리에 있는 '쿼리 실행' 단추가 강조 표시된 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/run-query.png":::
 
 이 작업은 모든 디지털 트윈을 선택하고 표시하는 기본 쿼리를 실행합니다. Azure Digital Twins Explorer는 서비스의 모든 트윈과 관계를 검색합니다. 그리고 그러한 관계를 통해 정의된 그래프를 **트윈 그래프** 패널에 그립니다.
 
@@ -210,7 +172,7 @@ Azure Digital Twins 솔루션의 첫 번째 단계는 환경의 어휘를 정의
 
 이제 샘플 시나리오의 업로드된 그래프가 표시됩니다.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="내부에 트윈 그래프가 있는 [그래프 보기] 패널의 보기입니다. 'floor1'이라는 레이블이 지정된 원은 'contains'라는 레이블이 지정된 화살표를 통해 'room1'이라는 레이블이 지정된 원에 연결됩니다. 'floor0'이라는 레이블이 지정된 원은 'contains'라는 레이블이 지정된 화살표를 통해 'room0'이라는 레이블이 지정된 원에 연결됩니다.":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/graph-view-full.png" alt-text="내부에 트윈 그래프가 있는 그래프 보기 패널을 보여주는 Azure Digital Twins Explorer 스크린샷":::
 
 원(그래프 "노드")은 디지털 트윈을 나타냅니다. 선은 관계를 나타냅니다. Floor0 트윈에는 Room0이 포함되고, Floor1 트윈에는 Room1이 포함됩니다.
 
@@ -224,7 +186,7 @@ Room0의 속성은 다음과 같습니다.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Room0의 속성을 보여주는 속성 패널을 중심으로 강조 표시되어 있습니다. 여기에는 Room0의 $dtId 필드, 70을 나타내는 Temperature 필드, 30을 나타내는 Humidity 필드가 우선적으로 포함되어 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room0.png" alt-text="Room0의 $dtId, Temperature 및 Humidity 속성을 보여주는 속성 패널이 강조 표시된 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -236,7 +198,7 @@ Room1의 속성은 다음과 같습니다.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Room1의 속성을 보여주는 속성 패널을 중심으로 강조 표시되어 있습니다. 여기에는 Room1의 $dtId 필드, 80을 나타내는 Temperature 필드, 60을 나타내는 Humidity 필드가 우선적으로 포함되어 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/properties-room1.png" alt-text="Room1의 $dtId, Temperature 및 Humidity 속성을 보여주는 속성 패널이 강조 표시된 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -258,7 +220,7 @@ Azure Digital Twins의 주요 기능은 환경에 대한 질문에 답하도록 
 
 이전의 트윈 속성을 살펴보면 Room0의 온도가 70이고 Room1의 온도가 80입니다. 따라서 Room1만 결과에 표시됩니다.
     
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png" alt-text="Room1만 보여주는 속성 쿼리의 결과" lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png" alt-text="속성 쿼리 결과(Room1만 표시됨)를 보여주는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-before.png":::
 
 >[!TIP]
 > 다른 비교 연산자(<,>, = 또는 !=)도 위의 쿼리 내에서 지원됩니다. 이러한 연산자, 다른 값 또는 다른 트윈 속성을 쿼리에 연결하여 사용자 고유의 질문에 대답해 볼 수 있습니다.
@@ -277,7 +239,7 @@ Azure Digital Twins Explorer를 사용하여 그래프에 표시된 쌍의 속�
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Room0의 속성을 보여주는 속성 패널입니다. 온도 값은 76을 표시하는 편집 가능한 상자이며 [저장] 아이콘을 중심으로 강조 표시되어 있습니다." lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png" alt-text="Room0에 대해 편집할 수 있는 속성을 보여주는, 속성 패널이 강조 표시된 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -293,11 +255,11 @@ Azure Digital Twins Explorer를 사용하여 그래프에 표시된 쌍의 속�
 
 이제 Room0의 온도가 70에서 76으로 변경되었으므로 두 쌍이 모두 결과에 표시됩니다.
 
-:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png" alt-text="Room0 및 Room1을 모두 보여주는 속성 쿼리의 결과" lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png":::
+:::image type="content" source="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png" alt-text="속성 쿼리 결과(Room0과 Room1이 둘 다 표시됨)를 보여주는 Azure Digital Twins Explorer 스크린샷" lightbox="media/quickstart-azure-digital-twins-explorer/result-query-property-after.png":::
 
 ## <a name="review-and-contextualize-learnings"></a>학습 검토 및 컨텍스트화
 
-이 빠른 시작에서는 Azure Digital Twins 인스턴스를 만들고, Azure Digital Twins Explorer에 연결하고, 샘플 시나리오로 채웠습니다.
+이 빠른 시작에서는 Azure Digital Twins 인스턴스를 만들고, Azure Digital Twins Explorer를 사용하여 인스턴스를 샘플 시나리오로 채웠습니다.
 
 그런 다음, 다음을 수행하여 그래프를 살펴보았습니다.
 
@@ -311,9 +273,7 @@ Azure Digital Twins Explorer를 사용하여 그래프에 표시된 쌍의 속�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작의 작업을 마치려면 먼저 실행 중인 콘솔 앱을 종료합니다. 그러면 브라우저에서 Azure Digital Twins Explorer 앱 연결이 종료됩니다. 더 이상 브라우저에서 라이브 데이터를 볼 수 없습니다. 브라우저 탭을 닫을 수 있습니다.
-
-그러고 나서 다음에 수행하려는 작업에 따라 제거할 리소스를 선택할 수 있습니다.
+빠른 시작 후에 정리하려면 다음에 수행할 작업을 기반으로 제거하려는 리소스를 선택합니다.
 
 * **Azure Digital Twins 자습서를 계속 진행할 생각이라면** 이 빠른 시작의 인스턴스를 해당 문서에 다시 사용할 수 있으므로 제거할 필요가 없습니다.
 
@@ -321,7 +281,7 @@ Azure Digital Twins Explorer를 사용하여 그래프에 표시된 쌍의 속�
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-로컬 머신에서 프로젝트 폴더를 삭제해야 할 수도 있습니다.
+로컬 머신에서 샘플 프로젝트 폴더를 삭제해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

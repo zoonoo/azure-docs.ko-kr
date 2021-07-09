@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3d22f2fb0bb550d966cbc5e181882552514513b2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e51cb6faf51484944fc3f8fa739b76d50411feac
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105936583"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108745346"
 ---
 # <a name="specify-a-face-recognition-model"></a>얼굴 인식 모델 지정
 
@@ -33,7 +33,7 @@ _recognition_04_ 모델(2021년에 게시됨)은 현재 사용할 수 있는 가
 모델 충돌을 방지하면서 여러 Face 작업에서 선택한 모델을 지정하는 방법을 알아보려면 계속 읽어 보세요. 고급 사용자가 최신 모델로 전환해야 하는지 여부를 결정하려는 경우 [여러 모델 평가](#evaluate-different-models) 섹션으로 건너뛰어 새 모델을 평가하고 현재 데이터 세트를 사용하여 결과를 비교합니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 그렇지 않은 경우 먼저 다음 가이드를 참조하세요.
 
@@ -47,7 +47,7 @@ AI 얼굴 감지 및 식별의 개념에 대해 잘 알고 있어야 합니다. 
 
 인식 모델은 얼굴 요소가 추출될 때 사용되므로 Detect 작업을 수행할 때 모델 버전을 지정할 수 있습니다.
 
-[Face - Detect] API를 사용할 때 `recognitionModel` 매개 변수를 사용하여 모델 버전을 할당합니다. 사용 가능한 값은 다음과 같습니다.
+[Face - Detect] API를 사용할 때 `recognitionModel` 매개 변수를 사용하여 모델 버전을 할당합니다. 사용 가능한 값은
 * recognition_01
 * recognition_02
 * recognition_03
@@ -74,12 +74,12 @@ Face 서비스는 이미지에서 얼굴 데이터를 추출하고 [얼굴 추�
 .NET 클라이언트 라이브러리에 대한 다음 코드 예제를 참조하세요.
 
 ```csharp
-// Create an empty PersonGroup with "recognition_02" model
+// Create an empty PersonGroup with "recognition_04" model
 string personGroupId = "mypersongroupid";
-await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_04");
 ```
 
-이 코드에서는 ID가 `mypersongroupid`인 **PersonGroup** 이 생성되고, _recognition_02_ 모델을 사용하여 얼굴 요소를 추출하도록 설정됩니다.
+이 코드에서는 ID가 `mypersongroupid`인 **PersonGroup** 이 생성되고, _recognition_04_ 모델을 사용하여 얼굴 요소를 추출하도록 설정됩니다.
 
 이에 따라, [Face - Detect] API를 통해 이 **PersonGroup** 과 비교할 얼굴을 감지할 때 사용할 모델을 지정해야 합니다. 사용하는 모델은 항상 **PersonGroup** 의 구성과 일치해야 합니다. 그렇지 않으면 호환되지 않는 모델로 인해 작업이 실패합니다.
 

@@ -2,7 +2,7 @@
 title: '빠른 시작: Azure PowerShell을 사용하여 Synapse 작업 영역 만들기'
 description: 이 가이드의 단계에 따라 Azure PowerShell을 사용하여 Azure Synapse 작업 영역을 만듭니다.
 services: synapse-analytics
-author: alehall
+author: lenadroid
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: alehall
 ms.reviewer: jrasnick
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1f02833ef7497c34b72db6b858a51c6046bbf3df
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: 1b602ecb096293df7071489262175ae4bb7d71b0
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107567573"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113538"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Synapse 작업 영역 만들기
 
@@ -25,7 +25,7 @@ Azure PowerShell은 PowerShell에서 직접 Azure 리소스를 관리하기 위�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - [Azure Data Lake Storage Gen2 스토리지 계정](../storage/common/storage-account-create.md)
 
@@ -91,8 +91,8 @@ Install-Module -Name Az.Synapse
 1. Azure Synapse 작업 영역에 대한 웹 및 개발 URL을 가져옵니다.
 
    ```azurepowershell-interactive
-   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Web
-   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.Dev
+   $WorkspaceWeb = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.web
+   $WorkspaceDev = (Get-AzSynapseWorkspace -Name $SynapseWorkspaceName -ResourceGroupName $StorageAccountResourceGroup).ConnectivityEndpoints.dev
    ```
 
 1. 머신에서 Azure Synapse 작업 영역에 액세스할 수 있도록 허용하는 방화벽 규칙을 만듭니다.

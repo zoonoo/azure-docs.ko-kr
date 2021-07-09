@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 759adea3cf34b79c76b6facec3bd4626ca54107e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3b9833035aa83f739b2edad7cfea9fd6cd959a69
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98625035"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032342"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -25,7 +25,7 @@ ms.locfileid: "98625035"
 Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다양한 서비스를 제공합니다. 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
-> * 모니터링하려는 건설 현장 구역을 정의하는 [지오펜싱 GeoJSON 데이터](geofence-geojson.md)를 업로드합니다. [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용하여 지오펜스를 다각형 좌표로 Azure Maps 계정에 업로드합니다.
+> * 모니터링하려는 건설 현장 구역을 정의하는 [지오펜싱 GeoJSON 데이터](geofence-geojson.md)를 업로드합니다. [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 사용하여 지오펜스를 다각형 좌표로 Azure Maps 계정에 업로드합니다.
 > * 장비가 지오펜스 영역을 출입할 때 트리거되어 이메일 알림을 건설 현장 운영 관리자에 보내도록 두 개의 [논리 앱](../event-grid/handler-webhooks.md#logic-apps)을 설정합니다.
 > * [Azure Event Grid](../event-grid/overview.md)를 사용하여 Azure Maps 지오펜스 출입 이벤트를 구독합니다. 두 개의 논리 앱에 정의된 HTTP 엔드포인트를 호출하는 두 개의 webhook 이벤트 구독을 설정합니다. 그러면 논리 앱은 지오펜스에서 나가거나 들어오는 장비에 대한 적절한 이메일 알림을 보냅니다.
 > * 지오펜스 영역에서 일부 장비가 들어오고 나갈 때 [지오펜스 가져오기 검색 API](/rest/api/maps/spatial/getgeofence)를 사용하여 알림을 받습니다.
@@ -42,7 +42,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 이 자습서에서는 `FeatureCollection`이 포함된 지오펜싱 GeoJSON 데이터를 업로드합니다. `FeatureCollection`에는 건설 현장 내에서 다각형 영역을 정의하는 두 개의 지오펜스가 있습니다. 첫 번째 지오펜스에는 시간 만료 또는 제한이 없습니다. 두 번째 지오펜스는 근무 시간(태평양 표준 시간대 오전 9:00~오후 5:00) 동안에만 쿼리할 수 있으며, 2022년 1월 1일 이후에는 더 이상 유효하지 않습니다. GeoJSON 형식에 대한 자세한 내용은 [지오펜싱 GeoJSON 데이터](geofence-geojson.md)를 참조하세요.
 
 >[!TIP]
->지오펜싱 데이터는 언제든지 업데이트할 수 있습니다. 자세한 내용은 [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 참조하세요.
+>지오펜싱 데이터는 언제든지 업데이트할 수 있습니다. 자세한 내용은 [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 참조하세요.
 
 1. Postman 앱을 엽니다. 위쪽 근처에서 **새로 만들기** 를 선택합니다. **새로 만들기** 창에서 **컬렉션** 을 선택합니다. 컬렉션 이름을 지정하고, **만들기** 를 선택합니다.
 
@@ -51,7 +51,7 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
 3. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 지오펜싱 데이터를 Azure Maps에 업로드합니다. 이 요청 및 이 문서에 언급된 기타 요청에 대한 `{Azure-Maps-Primary-Subscription-key}`를 기본 구독 키로 바꿉니다.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     URL 경로의 `geojson` 매개 변수는 업로드되는 데이터의 데이터 형식을 나타냅니다.
@@ -144,42 +144,37 @@ Azure Maps는 건설 구역을 출입하는 장비의 추적을 지원하는 다
    }
    ```
 
-5. **보내기** 를 선택하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **위치** 키의 값(`status URL`)을 복사합니다.
+5. **보내기** 를 선택하고, 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **Operation-Location** 키의 값인 `status URL`을 복사합니다.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
 6. API 호출의 상태를 확인하려면 `status URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
+   https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
    ```
 
-7. **GET** HTTP 요청이 성공적으로 완료되면 `resourceLocation`이 반환됩니다. `resourceLocation`에는 업로드된 콘텐츠에 대한 고유한 `udid`가 포함되어 있습니다. 이 자습서의 마지막 섹션에서 지오펜스 가져오기 API를 쿼리할 수 있도록 이 `udid`를 저장합니다. 필요에 따라 다음 단계에서 `resourceLocation` URL을 사용하여 이 리소스에서 메타데이터를 검색할 수 있습니다.
+7. 요청이 성공적으로 완료되면 응답 창에서 **헤더** 탭을 선택합니다. **Resource-Location** 키의 값인 `resource location URL`을 복사합니다.  `resource location URL`에는 업로드된 데이터의 고유 식별자(`udid`)가 포함됩니다. 이 자습서의 마지막 섹션에서 지오펜스 가져오기 API를 쿼리할 수 있도록 `udid`를 저장합니다. 필요에 따라 다음 단계에서 `resource location URL`을 사용하여 이 리소스에서 메타데이터를 검색할 수 있습니다.
 
-      ```json
-      {
-          "status": "Succeeded",
-          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
-      }
-      ```
+    :::image type="content" source="./media/tutorial-geofence/resource-location-url.png" alt-text="리소스 위치 URL을 복사합니다.":::
 
-8. 콘텐츠 메타데이터를 검색하려면 7단계에서 검색된 `resourceLocation` URL에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
+8. 콘텐츠 메타데이터를 검색하려면 7단계에서 검색된 `resource location URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
 
     ```http
-   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-9. **GET** HTTP 요청이 성공적으로 완료되면 7단계의 `resourceLocation`에서 지정한 `udid`가 응답 본문에 포함됩니다. 또한 나중에 콘텐츠를 액세스하고 다운로드하는 위치와 콘텐츠에 대한 기타 메타데이터도 포함됩니다. 전체 응답의 예제는 다음과 같습니다.
+9. 요청이 성공적으로 완료되면 응답 창에서 **헤더** 탭을 선택합니다. 메타데이터는 다음 JSON 조각과 같아야 합니다.
 
     ```json
     {
         "udid": "{udid}",
-        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
-        "created": "7/15/2020 6:11:43 PM +00:00",
-        "updated": "7/15/2020 6:11:45 PM +00:00",
-        "sizeInBytes": 1962,
+        "location": "https://us.atlas.microsoft.com/mapData/6ebf1ae1-2a66-760b-e28c-b9381fcff335?api-version=2.0",
+        "created": "5/18/2021 8:10:32 PM +00:00",
+        "updated": "5/18/2021 8:10:37 PM +00:00",
+        "sizeInBytes": 946901,
         "uploadStatus": "Completed"
     }
     ```

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 19d4cc388494e149b7f258a8e9f154041a3dd070
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f83948fe0805229c0f01accb9e2b51112da599aa
+ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021969"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109838180"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터용 Speech Service
 
@@ -103,7 +103,7 @@ Speech Service 기능의 기능적 측면 외에도, 콜 센터에 적용하는 
 
 일부 비즈니스는 대화 내용을 실시간으로 전사해야 합니다. 실시간 전사를 사용하면 키워드 식별, 대화와 관련된 콘텐츠와 리소스 검색 트리거, 감정을 모니터링하기 위한 접근성 개선 또는 원어민 화자가 아닌 고객과 상담원에 대한 번역 제공을 수행할 수 있습니다.
 
-실시간 전사가 필요한 시나리오의 경우 [Speech SDK](speech-sdk.md) 사용을 권장합니다. 현재 음성 텍스트 변환은 [20가지가 넘는 언어](language-support.md)로 사용할 수 있으며, C++, C#, Java, Python, Node.js, Objective-C 및 JavaScript의 SDK를 사용할 수 있습니다. 샘플은 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)에서 각 언어로 사용할 수 있습니다. 최신 뉴스 및 업데이트는 [릴리스 정보](releasenotes.md)를 참조하세요.
+실시간 전사가 필요한 시나리오의 경우 [Speech SDK](speech-sdk.md) 사용을 권장합니다. 현재 음성 텍스트 변환은 [20가지가 넘는 언어](language-support.md)로 제공되며, SDK는 C++, C#, Java, Python, JavaScript, Objective-C 및 Go로 제공됩니다. 샘플은 [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk)에서 각 언어로 사용할 수 있습니다. 최신 뉴스 및 업데이트는 [릴리스 정보](releasenotes.md)를 참조하세요.
 
 내부적으로는 위의 기술을 사용하여 다음 다이어그램과 같이 Microsoft 고객 통화를 발생 당시 실시간으로 분석하고 있습니다.
 

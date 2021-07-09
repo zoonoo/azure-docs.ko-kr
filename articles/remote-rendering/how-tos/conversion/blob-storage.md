@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: d8a6fd458cdcf79cdeb693b25acf72d4ec48def7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 742bf5eb7e33f7121325216d8880f77dadc85155
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102507520"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108803983"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>모델 변환에 Azure Blob Storage 사용
 
@@ -71,6 +71,9 @@ SAS URI는 다음 중 하나를 사용하여 생성할 수 있습니다.
 - [Azure Storage REST API 사용](/rest/api/storageservices/blob-service-rest-api)
 
 변환할 데이터를 업로드하는 방법에 대한 예제는 [Powershell 예제 스크립트](../../samples/powershell-example-scripts.md#script-conversionps1)의 Conversion.ps1을 참조하세요.
+
+> [!Note]
+> 입력 모델을 업로드하는 경우 서비스에서 [Windows 경로 길이 제한](/windows/win32/fileio/maximum-file-path-limitation) 문제를 방지하기 위해 긴 파일 이름 및/또는 폴더 구조를 사용하지 않도록 주의해야 합니다. 
 
 ## <a name="get-a-sas-uri-for-the-converted-model"></a>변환된 모델에 대한 SAS URI 가져오기
 

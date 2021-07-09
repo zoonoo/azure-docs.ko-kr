@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: ea22e6a3afe8ee90cb7b59d1aca0a37fc4fa03d6
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 0185a4b18ed56899de9c235bbd0438ef1dedf7c4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864922"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412730"
 ---
 # <a name="get-supported-glossary-formats"></a>지원되는 용어집 형식 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "107864922"
 
 다음에 `GET` 요청을 보냅니다.
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/glossaries/formats
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/glossaries/formats
 ```
 
 [사용자 지정 도메인 이름](../get-started-with-document-translation.md#find-your-custom-domain-name)을 찾는 방법에 대해 알아봅니다.
@@ -62,27 +62,31 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 지원되는 용어집 형식 가져오기 API의 목록 반환을 위한 기본 유형입니다.
 
-|상태 코드|Description|
-|--- |--- |
-|200|OK. 지원되는 용어집 파일 형식 목록을 반환합니다.|
-|500|내부 서버 오류.|
-|기타 상태 코드|requestsServer가 너무 많아 일시적으로 사용할 수 없습니다.|
+|속성|Type|Description|
+|--- |--- |--- |
+|값|FileFormat []|FileFormat[]에는 아래 나열된 세부 정보가 포함되어 있습니다.|
+|value.contentTypes|string []|이 형식에 지원되는 콘텐츠 형식입니다.|
+|value.defaultVersion|문자열|지정되지 않은 경우 기본 버전|
+|value.fileExtensions|string []| 이 형식에 지원되는 파일 확장명입니다.|
+|value.format|문자열|형식 이름입니다.|
+|value.versions|string []| 지원되는 버전입니다.|
 
 ### <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|이름|Type|설명|
 |--- |--- |--- |
-|code|문자열|상위 수준 오류 코드를 포함하는 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
-|message|문자열|상위 수준 오류 메시지를 가져옵니다.|
-|innerError|InnerErrorV2|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩될 수 있음)가 포함됩니다.|
+|code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
+|message|문자열|간략한 오류 메시지를 가져옵니다.|
+|innerError|InnerTranslationError|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩될 수 있음)가 포함됩니다.|
 |innerError.code|문자열|코드 오류 문자열을 가져옵니다.|
-|innerError.message|문자열|상위 수준 오류 메시지를 가져옵니다.|
+|innerError.message|문자열|간략한 오류 메시지를 가져옵니다.|
+|innerError.target|문자열|오류 출처를 가져옵니다. 예를 들어 잘못된 문서의 경우 "documents" 또는 "document id"가 됩니다.|
 
 ## <a name="examples"></a>예제
 
-### <a name="example-successful-response"></a>성공적인 응답 예
+### <a name="example-successful-response"></a>성공한 응답 예제
 
-다음은 성공적인 응답의 예입니다.
+다음은 성공한 응답 예제입니다.
 
 ```JSON
 {
@@ -95,6 +99,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
             "contentTypes": [
                 "application/xliff+xml"
             ],
+            "defaultVersion": "1.2",
             "versions": [
                 "1.0",
                 "1.1",
@@ -109,11 +114,20 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
             ],
             "contentTypes": [
                 "text/tab-separated-values"
+            ]
+        },
+        {
+            "format": "CSV",
+            "fileExtensions": [
+                ".csv"
             ],
-            "versions": []
+            "contentTypes": [
+                "text/csv"
+            ]
         }
     ]
 }
+
 ```
 
 ### <a name="example-error-response"></a>오류 응답 예

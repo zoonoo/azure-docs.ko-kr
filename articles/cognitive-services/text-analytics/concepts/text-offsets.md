@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/09/2020
+ms.date: 05/18/2021
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: f5b63503792b13e089568004ba67e5be8a3d0c7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 348805670187f2362eb17dae40aa94e70f1daa24
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98932373"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084685"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Text Analytics API 출력의 텍스트 오프셋
 
@@ -42,11 +42,11 @@ Text Analytics API는 편의를 위해 이러한 텍스트 요소도 반환합�
 
 ## <a name="offsets-in-api-version-31-preview"></a>API 버전 3.1-preview의 오프셋
 
-API 버전 3.1-preview.1부터 오프셋을 반환하는 모든 Text Analytics API 엔드포인트는 `stringIndexType` 매개 변수를 지원합니다. 이 매개 변수는 요청된 문자열 반복 체계와 일치하도록 API 출력의 `offset` 및 `length` 특성을 조정합니다. 현재는 다음과 같은 세 가지 형식을 지원합니다.
+API 버전 3.1에서는 오프셋을 반환하는 모든 Text Analytics API 엔드포인트는 `stringIndexType` 매개 변수를 지원합니다. 이 매개 변수는 요청된 문자열 반복 체계와 일치하도록 API 출력의 `offset` 및 `length` 특성을 조정합니다. 현재는 다음과 같은 세 가지 형식을 지원합니다.
 
 1. `textElement_v8`(기본값): [유니코드 8.0.0](https://unicode.org/versions/Unicode8.0.0) 표준에 정의된 대로 문자소를 반복합니다.
 2. `unicodeCodePoint`: Python 3의 기본 체계인 [유니코드 코드 포인트](http://www.unicode.org/versions/Unicode13.0.0/ch02.pdf#G25564)를 반복합니다.
-3. `utf16CodeUnit`: Javascript, Java 및 .NET의 기본 체계인 [UTF-16 코드 단위](https://unicode.org/faq/utf_bom.html#UTF16)를 반복합니다.
+3. `utf16CodeUnit`: JavaScript, Java 및 .NET의 기본 체계인 [UTF-16 코드 단위](https://unicode.org/faq/utf_bom.html#UTF16)를 반복합니다.
 
 요청된 `stringIndexType`이 선택한 프로그래밍 환경과 일치하면 표준 하위 문자열 또는 슬라이스 메서드를 사용하여 하위 문자열을 추출할 수 있습니다. 
 

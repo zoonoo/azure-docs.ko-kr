@@ -4,17 +4,24 @@ description: Language Understanding(LUIS)을 사용하여 애플리케이션을 
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/02/2020
-ms.openlocfilehash: 31885eba16d59e2e48a08f84c56271b84e6c565f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: aahi
+author: aahill
+ms.manager: nitinme
+ms.date: 06/01/2021
+ms.openlocfilehash: d5263f85fa8cc2a9f1b55da32b4aa1418e304347
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98790921"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954256"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS 포털에서 LUIS 앱 테스트
 
-앱 [테스트](luis-concept-test.md)는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다.
+
+테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다. LUIS에서 한 번에 하나의 발화를 대화형으로 테스트하거나 발화 세트를 제공할 수 있습니다. 테스트하는 동안 현재 활성 모델의 예측 응답을 게시된 모델의 예측 응답과 비교할 수 있습니다. 
+
+
+앱 테스트는 반복적인 프로세스입니다. LUIS 앱을 학습시킨 후 샘플 발화로 앱을 테스트하여 의도 및 엔터티가 올바르게 인식되는지 확인합니다. 인식되지 않으면 LUIS 앱을 업데이트하고 학습하고, 다시 테스트합니다.
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -22,13 +29,31 @@ ms.locfileid: "98790921"
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
 
-## <a name="train-before-testing"></a>테스트 전 학습
+## <a name="interactive-testing"></a>대화형 테스트
 
-1. [LUIS 포털](https://www.luis.ai)에 로그인하고 **구독** 및 **제작 리소스** 를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
-1. **내 앱** 페이지에서 해당 이름을 선택하여 앱을 엽니다.
-1. 최신 버전의 활성 앱에 대해 테스트하려면 테스트하기 전에 상단 메뉴에서 **학습** 을 선택합니다.
+대화형 테스트는 LUIS 포털의 **테스트** 패널에서 수행됩니다. 발화를 입력하여 의도 및 엔터티를 식별하고 점수를 매기는 방법을 확인할 수 있습니다. LUIS가 테스트 창의 발화에서 의도 및 엔터티를 예상대로 예측하지 않으면 발화를 **의도** 페이지에 새 발화로 복사합니다. 그런 다음, 엔터티에 대한 해당 발화 부분에 레이블을 지정하고 LUIS를 학습시킵니다. 
+
+한 번에 둘 이상의 발화를 테스트하는 경우 [일괄 처리 테스트](./luis-how-to-batch-test.md) 및 예측 점수 문서를 참조하여 [예측 점수](luis-concept-prediction-score.md)에 대해 자세히 알아보세요.
+
+최대 두 개의 앱 버전과 함께 [엔드포인트](luis-glossary.md#endpoint)를 사용하여 테스트할 수 있습니다. **프로덕션** 엔드포인트로 설정된 기본 또는 라이브 버전 앱을 사용하여 두 번째 버전을 **스테이징** 엔드포인트에 추가합니다. 이 접근 방식은 세 개의 발화 버전인 [LUIS](luis-reference-regions.md) 포털의 [테스트] 창에 있는 현재 모델 및 두 개의 다른 엔드포인트에 있는 두 개의 버전을 제공합니다. 
+
+모든 엔드포인트 테스트에서는 사용 할당량을 계산합니다. 
+
+## <a name="logging"></a>로깅
+
+LUIS는 LUIS 포털의 **앱** 목록 페이지 및 LUIS [작성](https://go.microsoft.com/fwlink/?linkid=2092087) API에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
+
+엔드포인트에서 테스트할 때 발화를 기록하지 않으려면 `logging=false` 쿼리 문자열 구성을 사용해야 합니다.
+
+LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 포털의 **[엔드포인트 발언 검토](luis-how-to-review-endpoint-utterances.md)** 페이지에 나열됩니다.  
 
 ## <a name="test-an-utterance"></a>발화 테스트
+
+> [!NOTE]
+> 모델을 변경한 후에는 LUIS를 [학습](luis-how-to-train.md)시켜야 합니다. 앱이 학습될 때까지 LUIS 앱의 변경 내용은 테스트에 표시되지 않습니다.
+> 1. LUIS 포털에 로그인하고 구독 및 제작 리소스를 선택하여 해당 제작 리소스에 할당된 앱을 확인합니다.
+> 2. 내 앱 페이지에서 해당 이름을 선택하여 앱을 엽니다.
+> 3. 최신 버전의 활성 앱에 대해 테스트하려면 테스트하기 전에 상단 메뉴에서 학습을 선택합니다.
 
 테스트 발화는 앱의 예제 발화와 정확하게 일치하면 안 됩니다. 테스트 발화에는 사용자에게 필요한 단어 선택, 구문 길이 및 엔터티 사용이 포함되어야 합니다.
 
@@ -127,3 +152,4 @@ ms.locfileid: "98790921"
 
 * [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endpoint-utterances.md)
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md)
+* [모범 사례](luis-concept-best-practices.md)

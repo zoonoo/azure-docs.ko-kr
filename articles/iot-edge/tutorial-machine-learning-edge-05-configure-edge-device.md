@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 65fd6e5b4d494f8e8486d72079b9fa97a175894b
-ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+ms.openlocfilehash: e5e1556b0b4960850c955f3d52c34396d1363b2a
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107376888"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110535756"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>자습서: Azure IoT Edge 디바이스 구성
 
@@ -105,11 +105,11 @@ ms.locfileid: "107376888"
 
     ![Key Vault 스크립트 출력을 보여 주는 스크린샷](media/tutorial-machine-learning-edge-05-configure-edge-device/key-vault-entries-output.png)
 
-## <a name="create-an-iot-edge-device"></a>IoT Edge 디바이스 만들기
+## <a name="register-an-iot-edge-device"></a>IoT Edge 디바이스 등록
 
-Azure IoT Edge 디바이스를 IoT Hub에 연결하기 위해, 먼저 허브의 디바이스에 대한 ID를 만듭니다. 클라우드의 디바이스 ID에서 연결 문자열을 가져와 IoT Edge 디바이스의 런타임을 구성하는 데 사용합니다. 구성된 디바이스가 허브에 연결되면 모듈을 배포하고 메시지를 보낼 수 있습니다. IoT Hub에서 해당 디바이스 ID를 변경하여 물리적 IoT Edge 디바이스의 구성을 변경할 수도 있습니다.
+Azure IoT Edge 디바이스를 IoT 허브에 연결하려면 먼저 디바이스를 허브에 등록합니다. 클라우드의 디바이스 ID에서 연결 문자열을 가져와 IoT Edge 디바이스의 런타임을 구성하는 데 사용합니다. 구성된 디바이스가 허브에 연결되면 모듈을 배포하고 메시지를 보낼 수 있습니다. IoT Hub에서 해당 디바이스 ID를 변경하여 물리적 IoT Edge 디바이스의 구성을 변경할 수도 있습니다.
 
-이 자습서에서는 Visual Studio Code를 사용하여 새 디바이스 ID를 만듭니다. 이러한 단계는 Azure Portal 또는 Azure CLI를 사용하여 완료할 수도 있습니다.
+이 자습서에서는 Visual Studio Code를 사용하여 새 디바이스 ID를 등록합니다. 이러한 단계는 Azure Portal 또는 Azure CLI를 사용하여 완료할 수도 있습니다. 어떤 방법을 선택하든 IoT Edge 디바이스의 디바이스 연결 문자열을 가져와야 합니다. 디바이스 연결 문자열은 Azure Portal의 디바이스 세부 정보 페이지에서 확인할 수 있습니다.
 
 1. 개발 머신에서 Visual Studio Code를 엽니다.
 
@@ -125,79 +125,43 @@ Azure IoT Edge 디바이스를 IoT Hub에 연결하기 위해, 먼저 허브의 
 
 ## <a name="deploy-an-azure-virtual-machine"></a>Azure 가상 머신 배포
 
-Azure Marketplace의 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu?tab=Overview) 이미지를 사용하여 이 자습서에 필요한 IoT Edge 디바이스를 만듭니다. Azure IoT Edge on Ubuntu 이미지는 시작할 때 최신 IoT Edge 런타임 및 해당 종속성을 설치합니다. 다음을 사용하여 VM을 배포합니다.
+Azure IoT Edge 런타임이 설치되고 구성된 Ubuntu 18.04 LTS 가상 머신을 사용합니다. 배포에서는 [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) 프로젝트 리포지토리에서 유지 관리되는 [Azure Resource Manager 템플릿](../azure-resource-manager/templates/overview.md)을 사용합니다. 템플릿에 제공하는 연결 문자열을 사용하여 이전 단계에서 등록한 IoT Edge 디바이스를 프로비전합니다.
 
-- PowerShell 스크립트(`Create-EdgeVM.ps1`)
-- Azure Resource Manager 템플릿(`IoTEdgeVMTemplate.json`)
-- 셸 스크립트(`install packages.sh`)
+Azure Portal 또는 Azure CLI를 사용하여 가상 머신을 배포할 수 있습니다. Azure Portal 단계가 표시됩니다. 자세한 내용은 [Ubuntu Virtual Machines에서 Azure IoT Edge 실행](how-to-install-iot-edge-ubuntuvm.md)을 참조하세요.
 
-### <a name="enable-programmatic-deployment"></a>프로그래밍 방식 배포 사용
+### <a name="deploy-using-deploy-to-azure-button"></a>[Azure에 배포] 단추를 사용하여 배포
 
-스크립팅된 배포에서 Azure Marketplace의 이미지를 사용하려면 프로그래밍 방식 배포를 이미지에 사용하도록 설정해야 합니다.
+1. `iotedge-vm-deploy` ARM 템플릿을 사용하여 Ubuntu 18.04 LTS 가상 머신을 배포하려면 아래 단추를 클릭합니다.
 
-1. Azure Portal에 로그인합니다.
+    [![iotedge-vm-deploy를 위한 Azure에 배포하기 단추](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
-1. **모든 서비스** 를 선택합니다.
+1. 새로 시작된 창에서 사용 가능한 양식 필드를 채웁니다.
 
-1. 검색창에 **Marketplace** 를 입력하고 선택합니다.
+   | 필드 | Description |
+   | - | - |
+   | **구독** | 가상 머신을 배포할 활성 Azure 구독입니다. |
+   | **리소스 그룹** | 가상 머신 및 연결되는 해당 리소스를 포함할 기존 리소스 그룹 또는 새로 만든 리소스 그룹입니다. |
+   | **DNS 레이블 접두사** | 가상 머신의 호스트 이름을 접두사로 지정하는 데 사용되는 선택 항목의 필수 값입니다. |
+   | **관리자 사용자 이름** | 배포에 대한 루트 권한이 제공되는 사용자 이름입니다. |
+   | **디바이스 연결 문자열** | 의도한 [IoT Hub](../iot-hub/about-iot-hub.md) 내에서 만들어진 디바이스에 대한 [디바이스 연결 문자열](./how-to-register-device.md)입니다. |
+   | **VM 크기** | 배포할 가상 머신의 [크기](../cloud-services/cloud-services-sizes-specs.md)입니다.
+   | **Ubuntu OS 버전** | 기본 가상 머신에 설치할 Ubuntu OS의 버전입니다. |
+   | **위치** | 가상 머신을 배포할 [지리적 지역](https://azure.microsoft.com/global-infrastructure/locations/)입니다. 이 값은 기본적으로 선택한 리소스 그룹의 위치로 설정됩니다. |
+   | **인증 유형** | 기본 설정에 따라 **sshPublicKey** 또는 **password** 를 선택합니다. |
+   | **관리자 암호 또는 키** | 선택한 인증 유형에 따른 SSH 공개 키 또는 암호의 값입니다. |
 
-1. Marketplace 검색 창에 **Azure IoT Edge on Ubuntu** 를 입력하고 선택합니다.
+1. 모든 필드가 채워지면 페이지 아래쪽의 확인란을 선택하여 약관에 동의하고, **검토 + 만들기** 및 **만들기** 를 선택하여 배포를 시작합니다.
 
-1. 프로그래밍 방식으로 배포하려면 **시작** 하이퍼링크를 선택합니다.
+1. Azure Portal에서 가상 머신으로 이동합니다. 리소스 그룹을 통하거나 포털 방문 페이지의 **Azure 서비스** 아래에서 **가상 머신** 을 선택하여 찾을 수 있습니다.
 
-1. **사용** 단추를 선택한 다음, **저장** 을 선택합니다.
-
-    ![프로그래밍 방식 배포를 가상 머신에 사용하도록 설정하는 방법을 보여 주는 스크린샷](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
-
-1. 성공 알림이 표시됩니다.
-
-### <a name="create-a-virtual-machine"></a>가상 머신 만들기
-
-다음으로, IoT Edge 디바이스용 가상 머신을 만드는 스크립트를 실행합니다.
-
-1. PowerShell 창을 열고, **EdgeVM** 디렉터리로 이동합니다.
-
-    ```powershell
-    cd c:\source\IoTEdgeAndMlSample\EdgeVM
-    ```
-
-1. 가상 머신을 만드는 스크립트를 실행합니다.
-
-    ```powershell
-    .\Create-EdgeVm.ps1
-    ```
-
-1. 메시지가 표시되면 각 매개 변수에 대한 값을 제공합니다. 구독, 리소스 그룹 및 위치의 경우 이 자습서 전체에서 모든 리소스에 대해 사용하는 것과 동일한 값을 사용하는 것이 좋습니다.
-
-    * **Azure 구독 ID**: Azure Portal에서 확인합니다.
-    * **리소스 그룹 이름**: 이 자습서의 리소스를 그룹화하기 위한 기억하기 쉬운 이름입니다.
-    * **위치**: 가상 머신이 만들어지는 Azure 위치입니다. 예: westus2 또는 northeurope. 자세한 내용은 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조하세요.
-    * **AdminUsername**: 가상 머신에 로그인하는 데 사용하는 관리자 계정의 이름입니다.
-    * **AdminPassword**: 가상 머신에서 관리자 사용자 이름에 설정하는 암호입니다.
-
-1. 스크립트에서 VM을 설정하려면 사용하는 Azure 구독과 연결된 자격 증명을 사용하여 Azure에 로그인합니다.
-
-1. 스크립트가 VM을 만들기 위한 정보를 확인합니다. **y** 또는 **Enter** 키를 눌러 계속 진행합니다.
-
-1. 스크립트가 몇 분 정도 실행되면서 다음 단계를 수행합니다.
-
-    * 리소스 그룹 만들기(없는 경우)
-    * 가상 머신 만들기
-    * 22(SSH), 5671(AMQP), 5672(AMPQ) 및 443(TLS) 포트의 VM에 대한 NSG 예외 추가
-    * [Azure CLI](/cli/azure/install-azure-cli-apt) 설치
-
-1. 스크립트는 VM에 연결하기 위한 SSH 연결 문자열을 출력합니다. 다음 단계에서 사용할 수 있도록 연결 문자열을 복사합니다.
-
-    ![가상 머신에 대한 SSH 연결 문자열의 복사를 보여 주는 스크린샷](media/tutorial-machine-learning-edge-05-configure-edge-device/vm-ssh-connection-string.png)
+1. 가상 머신의 **DNS 이름** 을 적어 둡니다. 이는 가상 머신에 로그온하는 데 필요합니다.
 
 ## <a name="connect-to-your-iot-edge-device"></a>IoT Edge 디바이스에 연결
 
-다음 몇 개 섹션에서는 우리가 만든 Azure 가상 머신을 구성합니다. 첫 번째 단계는 가상 머신에 연결하는 것입니다.
+1. 명령 프롬프트를 열고, 다음 명령을 사용하여 가상 머신에 로그온합니다. 이전 섹션에 따라 사용자 이름 및 DNS 이름에 대한 사용자 고유의 정보를 입력합니다.
 
-1. 명령 프롬프트를 열고, 스크립트 출력에서 복사한 SSH 연결 문자열을 붙여넣습니다. 이전 섹션에서 PowerShell 스크립트에 입력한 값에 따라 사용자 이름, 접미사 및 Azure 지역 정보를 입력합니다.
-
-    ```cmd
-    ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
+    ```bash
+    ssh <adminUsername>@<DNS_name>
     ```
 
 1. 호스트의 신뢰성에 대한 유효성을 검사하라는 메시지가 표시되면 **yes** 를 입력하고 **Enter** 키를 선택합니다.
@@ -245,25 +209,12 @@ Azure Marketplace의 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microso
 
 ## <a name="update-the-iot-edge-device-configuration"></a>IoT Edge 디바이스 구성 업데이트
 
-IoT Edge 런타임은 /etc/iotedge/config.yaml 파일을 사용하여 구성을 유지합니다. 이 파일의 세 가지 정보를 업데이트해야 합니다.
+IoT Edge 런타임은 /etc/iotedge/config.yaml 파일을 사용하여 구성을 유지합니다. 이 파일에서 두 가지 정보를 업데이트해야 합니다.
 
-* **디바이스 연결 문자열**: IoT Hub에 있는 이 디바이스 ID의 연결 문자열
 * **인증서**: 다운스트림 디바이스와 연결하는 데 사용할 인증서
 * **호스트 이름**: VM IoT Edge 디바이스의 FQDN(정규화된 도메인 이름)
 
-IoT Edge VM을 만드는 데 사용한 Azure IoT Edge on Ubuntu 이미지는 config.yaml 파일을 연결 문자열로 업데이트하는 셸 스크립트와 함께 제공됩니다.
-
-1. Visual Studio Code에서 마우스 오른쪽 단추로 IoT Edge 디바이스를 클릭한 다음, **디바이스 연결 문자열 복사** 를 선택합니다.
-
-    ![Visual Studio Code에서 연결 문자열의 복사를 보여 주는 스크린샷](media/tutorial-machine-learning-edge-05-configure-edge-device/copy-device-connection-string-command.png)
-
-1. SSH 세션에서 config.yaml 파일을 디바이스 연결 문자열로 업데이트하는 명령을 실행합니다.
-
-    ```bash
-    sudo /etc/iotedge/configedge.sh "<your_iothub_edge_device_connection_string>"
-    ```
-
-다음으로, config.yaml 파일을 직접 편집하여 certificates 및 hostname을 업데이트합니다.
+config.yaml 파일을 직접 편집하여 certificates 및 hostname을 업데이트합니다.
 
 1. config.yaml 파일을 엽니다.
 
@@ -306,11 +257,16 @@ IoT Edge VM을 만드는 데 사용한 Azure IoT Edge on Ubuntu 이미지는 con
     systemctl status iotedge
     ```
 
-1. 상태에 오류("\[ERROR\]"라는 접두사가 붙은 색이 지정된 텍스트)가 표시되면 디먼 로그에서 자세한 오류 정보를 검사합니다.
+## <a name="troubleshooting"></a>문제 해결
 
-    ```bash
-    journalctl -u iotedge --no-pager --no-full
-    ```
+상태에 오류("\[ERROR\]"라는 접두사가 붙은 색이 지정된 텍스트)가 표시되면 디먼 로그에서 자세한 오류 정보를 검사합니다.
+
+   ```bash
+   journalctl -u iotedge --no-pager --no-full
+   ```
+
+오류를 해결하는 방법에 대한 자세한 내용은 [문제 해결](troubleshoot.md) 페이지를 참조하세요.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 자습서는 각 문서가 이전 작업에서 수행된 작업을 기반으로 하는 집합의 일부입니다. 최종 자습서가 완료될 때까지 기다렸다가 리소스를 정리합니다.

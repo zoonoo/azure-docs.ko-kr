@@ -1,7 +1,7 @@
 ---
-title: '자습서: 첫 번째 기계 학습 모델 학습 - Python'
+title: '자습서: 첫 번째 Python 기계 학습 모델 학습 '
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 시작 시리즈의 2부에서는 기계 학습 모델을 학습하는 방법을 보여줍니다.
+description: Azure Machine Learning에서 기계 학습 모델을 학습하는 방법입니다. 시작하기 시리즈 3부 중 2부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python, contperf-fy21q3
-ms.openlocfilehash: 65ff353469b884948e3de83e4b3ecafd1272cca5
-ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
+ms.openlocfilehash: 616723e66dceeb3c0de21b36e3af3039dafbe63e
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109809511"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028274"
 ---
 # <a name="tutorial-train-your-first-machine-learning-model-part-2-of-3"></a>자습서: 첫 번째 기계 학습 모델 학습(2/3부)
 
-이 자습서에서는 Azure Machine Learning에서 기계 학습 모델을 학습시키는 방법을 보여 줍니다.
+이 자습서에서는 Azure Machine Learning에서 기계 학습 모델을 학습시키는 방법을 보여 줍니다.  이 자습서는 *3부로 구성된 자습서 시리즈 중 2부* 입니다.
 
-이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 *3부로 구성된 자습서 시리즈 중 2부* 입니다. 이 자습서는 시리즈 중 [1부: “Hello world!” 실행](tutorial-1st-experiment-hello-world.md)에서 구현된 작업을 기반으로 작성되었습니다.
+ [1부: "Hello world!" 실행](tutorial-1st-experiment-hello-world.md)에서 시리즈 중 컨트롤 스크립트를 사용하여 클라우드에서 작업을 실행하는 방법을 알아보았습니다.  
 
 이 자습서에서는 기계 학습 모델을 학습시키는 스크립트를 제출하여 다음 단계를 수행합니다. 이 예제는 Azure Machine Learning에서 로컬 디버깅과 원격 실행 간의 일관된 동작을 간소화하는 방법을 이해하는 데 도움이 됩니다.
 
@@ -351,7 +351,7 @@ Azure Machine Learning의 메트릭은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 세션에서는 기본 "Hello World!" 스크립트에서 특정 Python 환경을 실행해야 하는 더 현실적인 학습 스크립트로 업그레이드했습니다. Azure Machine Learning 환경을 통해 로컬 Conda 환경을 클라우드로 전환하는 방법을 살펴보았습니다. 마지막으로 몇 줄의 코드에서 메트릭을 Azure Machine Learning에 기록할 수 있는 방법을 살펴보았습니다.
+이 세션에서는 기본 "Hello World!" 스크립트에서 특정 Python 환경을 실행해야 하는 더 현실적인 학습 스크립트로 업그레이드했습니다. 큐레이팅된 Azure Machine Learning 환경을 사용하는 방법을 살펴보았습니다. 마지막으로 몇 줄의 코드에서 메트릭을 Azure Machine Learning에 기록할 수 있는 방법을 살펴보았습니다.
 
 [pip requirements.txt](/python/api/azureml-core/azureml.core.environment.environment#from-pip-requirements-name--file-path-) 또는 [기존 로컬 Conda 환경](/python/api/azureml-core/azureml.core.environment.environment#from-existing-conda-environment-name--conda-environment-name-)을 포함하여 Azure Machine Learning 환경을 만드는 다른 방법이 있습니다.
 

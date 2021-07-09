@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: ce6cb60754ed0afae27c5b5d316a7158961b55a3
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5c301b42c4467a10063da329e885185de2815242
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323378"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112032360"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
@@ -168,9 +168,9 @@ for loc in range(len(searchPolyResponse["results"])):
                 reachableLocations.append(location)
 ```
 
-## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service-preview"></a>Azure Maps 데이터 서비스(미리 보기)에 도달 가능한 범위 및 충전 지점 업로드
+## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Azure Maps Data Service에 도달 가능한 범위 및 충전 지점 업로드
 
-맵에서 전기 차량의 최대 도달 가능한 범위에 대한 충전소와 경계를 시각화할 수 있습니다. 이렇게 하려면 경계 데이터와 충전소 데이터를 geojson 개체로 Azure Maps 데이터 서비스(미리 보기)에 업로드합니다. [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용합니다. 
+맵에서 전기 차량의 최대 도달 가능한 범위에 대한 충전소와 경계를 시각화할 수 있습니다. 이렇게 하려면 경계 데이터와 충전소 데이터를 geojson 개체로 Azure Maps Data Service에 업로드합니다. [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 사용합니다. 
 
 경계 및 충전 지점 데이터를 Azure Maps 데이터 서비스에 업로드하려면 다음 두 셀을 실행합니다.
 
@@ -191,8 +191,8 @@ rangeData = {
   ]
 }
 
-# Upload the range data to Azure Maps Data service (Preview).
-uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
+# Upload the range data to Azure Maps Data service.
+uploadRangeResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
@@ -220,8 +220,8 @@ poiData = {
   ]
 }
 
-# Upload the electric vehicle charging station data to Azure Maps Data service (Preview).
-uploadPOIsResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
+# Upload the electric vehicle charging station data to Azure Maps Data service.
+uploadPOIsResponse = await session.post("https://us.atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = poiData)
 
 poiUdidRequest = uploadPOIsResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
@@ -333,13 +333,13 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>경로 시각화
 
-경로를 시각화하려면 먼저 경로 데이터를 geojson 개체로 Azure Maps 데이터 서비스(미리 보기)에 업로드합니다. 이렇게 하려면 Azure Maps [데이터 업로드 API](/rest/api/maps/data/uploadpreview)를 사용합니다. 그런 다음, 렌더링 서비스인 [Map Image 가져오기 API](/rest/api/maps/render/getmapimage)를 호출하여 경로를 지도에 렌더링하고 시각화합니다.
+경로를 시각화하려면 먼저 경로 데이터를 geojson 개체로 Azure Maps Data Service에 업로드합니다. 이렇게 하려면 Azure Maps [데이터 업로드 API](/rest/api/maps/data-v2/upload-preview)를 사용합니다. 그런 다음, 렌더링 서비스인 [Map Image 가져오기 API](/rest/api/maps/render/getmapimage)를 호출하여 경로를 지도에 렌더링하고 시각화합니다.
 
 지도에서 렌더링된 경로 이미지를 가져오려면 다음 스크립트를 실행합니다.
 
 ```python
-# Upload the route data to Azure Maps Data service (Preview).
-routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
+# Upload the route data to Azure Maps Data service .
+routeUploadRequest = await session.post("https://atlas.microsoft.com/mapData?subscription-key={}&api-version=2.0&dataFormat=geojson".format(subscriptionKey), json = routeData)
 
 udidRequestURI = routeUploadRequest.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
 
@@ -390,7 +390,7 @@ display(Image(staticMapImage))
 
 * [경로 범위 가져오기](/rest/api/maps/route/getrouterange)
 * [기하 도형 내 사후 검색](/rest/api/maps/search/postsearchinsidegeometry)
-* [데이터 업로드](/rest/api/maps/data/uploadpreview)
+* [데이터 업로드](/rest/api/maps/data-v2/upload-preview)
 * [렌더링 - 지도 이미지 가져오기](/rest/api/maps/render/getmapimage)
 * [경로 매트릭스 게시](/rest/api/maps/route/postroutematrix)
 * [경로 방향 가져오기](/rest/api/maps/route/getroutedirections)

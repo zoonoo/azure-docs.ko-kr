@@ -5,17 +5,17 @@ description: Form Recognizer API 사용량 및 제한으로 청구서 분석과 
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: effe9a1f4959748ee04fadff2bd733c52c14a790
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: fc00e651cf8ec61a884864c57c0cafd2551f1a38
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374871"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890693"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Form Recognizer의 미리 빌드된 청구서 모델
 
@@ -78,7 +78,9 @@ JSON 출력은 세 부분으로 나뉩니다.
 
 청구서 서비스는 텍스트, 테이블, 그리고 26개의 청구서 필드를 추출합니다. 다음은 JSON 출력 응답의 청구서에서 추출되는 필드입니다(아래 출력은 이 [샘플 청구서](media/sample-invoice.jpg)를 사용함).
 
-|이름| Type | Description | 텍스트 | 값(표준화된 출력) |
+### <a name="key-value-pairs"></a>키 값 쌍 
+
+|속성| Type | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | 문자열 | 청구서를 받는 고객 | Microsoft Corp |  |
 | CustomerId | 문자열 | 고객에 대한 참조 ID | CID-12345 |  |
@@ -107,6 +109,8 @@ JSON 출력은 세 부분으로 나뉩니다.
 | ServiceEndDate | date | 서비스 기간의 종료 날짜(예: 유틸리티 청구 서비스 기간) | 2019/11/14 | 2019-11-14 |
 | PreviousUnpaidBalance | number | 이전에 미지불된 명시적 잔액 | $500.00 | 500 |
 
+### <a name="line-items"></a>품목
+
 다음은 JSON 출력 응답의 청구서에서 추출되는 개별 항목입니다(아래 출력은 이 [샘플 청구서](./media/sample-invoice.jpg)를 사용함).
 
 |이름| Type | 설명 | 텍스트(개별 항목 1) | 값(표준화된 출력) |
@@ -121,6 +125,7 @@ JSON 출력은 세 부분으로 나뉩니다.
 | 날짜 | 날짜| 각 개별 항목에 해당하는 날짜이며, 개별 항목이 배송된 날짜인 경우가 많음 | 2021/3/4| 2021-03-04 |
 | 세금 | number | 각 개별 항목과 관련된 세금이며, 가능한 값으로는 세액, 세율, 세금 Y/N이 있음 | 10% | |
 
+추출된 청구서 키 값 쌍 및 품목은 JSON 출력의 documentResults 섹션에 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

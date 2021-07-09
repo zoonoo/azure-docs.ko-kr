@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 94c1bc1b5dc61ac30d2adfb1bc42e13128de054d
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 3bc89555f3526048f2e4876724503d0137f21fbf
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113105553"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964385"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Azure Percept DK를 설정하고 첫 번째 AI 모델 배포
 
@@ -170,7 +170,7 @@ Azure 계정이 구독 내에서 "소유자" 또는 "기여자"인지 확인하�
 
 1. **디바이스 스트림 보기** 를 클릭합니다. 디바이스의 비디오 스트림을 처음으로 보는 경우 새 모델이 배포된다는 알림이 오른쪽 위 모서리에 표시됩니다. 몇 분이 걸릴 수 있습니다.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/view-stream.png" alt-text="비디오 스트림 보기":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-03-1-start-video-stream.png" alt-text="비디오 스트림 보기":::
 
     모델이 배포되면 **스트림 보기** 링크가 포함된 또 다른 알림을 받게 됩니다. 링크를 클릭하여 새 브라우저 창에서 Azure Percept Vision 카메라의 비디오 스트림을 볼 수 있습니다. 개발 키트에는 여러 공통 개체의 개체 감지를 자동으로 수행하는 AI 모델이 미리 로드되어 있습니다.
 
@@ -178,7 +178,7 @@ Azure 계정이 구독 내에서 "소유자" 또는 "기여자"인지 확인하�
 
 1. 또한 Azure Percept Studio에는 다양한 샘플 AI 모델이 포함되어 있습니다. 개발 키트에 샘플 모델을 배포하려면 디바이스 페이지로 돌아가서 **샘플 모델 배포** 를 클릭합니다.
 
-    :::image type="content" source="./media/quickstart-percept-dk-setup/deploy-sample-model.png" alt-text="미리 작성된 모델 살펴보기":::
+    :::image type="content" source="./media/quickstart-percept-dk-setup/portal-04-explore-prebuilt.png" alt-text="미리 작성된 모델 살펴보기":::
 
 1. 라이브러리에서 샘플 모델을 선택하고 **디바이스에 배포** 를 클릭합니다.
 

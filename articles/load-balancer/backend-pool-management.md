@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8a0294e205dd8a22f9847140511cbce634322c4a
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 3c9d1b7152133bf03b8bcdba9a7b97e5bef4a648
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112285232"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028292"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -161,7 +161,7 @@ az vm create \
 
 이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/)에 따라 부하 분산 장치 및 가상 머신을 배포하고, 네트워크 인터페이스를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
-이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-ip-configured-backend-pool)에 따라 부하 분산 장치 및 가상 머신을 배포하고, IP 주소를 통해 가상 머신을 백 엔드 풀에 추가합니다.
+이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool)에 따라 부하 분산 장치 및 가상 머신을 배포하고, IP 주소를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>IP 주소 및 가상 네트워크를 통해 백 엔드 풀 구성

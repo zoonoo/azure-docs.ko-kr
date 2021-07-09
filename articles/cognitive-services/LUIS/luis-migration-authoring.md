@@ -10,18 +10,18 @@ ms.custom: seodec18, contperf-fy21q2
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2020
-ms.openlocfilehash: 54c0d8aa8ba17beb5a2f5a51c4a19795f767733a
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.date: 05/28/2021
+ms.openlocfilehash: cf40cea7e92cdb36f489943d5af2ef140bd92a9e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110089438"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110706905"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 작성 키로 마이그레이션
 
 > [!IMPORTANT]
->  12월 3일부터 기존 LUIS 사용자는 LUIS 애플리케이션을 계속 작성하기 위해 마이그레이션 프로세스를 완료해야 합니다.
+>  2020년 12월 3일부터 기존 LUIS 사용자는 LUIS 애플리케이션을 계속 작성하기 위해 마이그레이션 프로세스를 완료해야 합니다.
 
 LUIS(Language Understanding) 작성 인증이 이메일 계정에서 Azure 리소스로 변경되었습니다. 아직 마이그레이션하지 않은 경우 이 문서를 사용하여 계정을 마이그레이션하는 방법을 알아보세요.  
 

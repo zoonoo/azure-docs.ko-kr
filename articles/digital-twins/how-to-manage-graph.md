@@ -7,32 +7,31 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c48f62d193af953ec080fcd559c9d7593428d99e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102433321"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454625"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>관계를 사용하여 디지털 트윈의 그래프 관리
 
 Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프](concepts-twins-graph.md)입니다. 트윈 그래프는 **관계** 를 통해 연결되는 개별 디지털 트윈으로 구성됩니다. 
 
-작동하는 [Azure Digital Twins 인스턴스](how-to-set-up-instance-portal.md)가 있고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 [**DigitalTwins API**](/rest/api/digital-twins/dataplane/twins)를 사용하여 Azure Digital Twins 인스턴스에서 디지털 트윈 및 그 관계를 만들고, 수정하고, 삭제할 수 있습니다. [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용할 수도 있습니다.
+작동하는 [Azure Digital Twins 인스턴스](how-to-set-up-instance-portal.md)가 있고 클라이언트 앱에서 [인증](how-to-authenticate-client.md) 코드를 설정한 후에는 Azure Digital Twins 인스턴스에서 디지털 트윈 및 그 관계를 만들고, 수정하고, 삭제할 수 있습니다.
 
-이 문서에서는 관계와 그래프를 한꺼번에 관리하는 데 초점을 맞춥니다. 개별 디지털 트윈 작업은 [*방법: 디지털 트윈 관리*](how-to-manage-twin.md)를 참조하세요.
+이 문서에서는 관계와 그래프를 한꺼번에 관리하는 데 초점을 맞춥니다. 개별 디지털 트윈 작업은 [방법: 디지털 트윈 관리](how-to-manage-twin.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-graph"></a>그래프를 관리하는 방법
-
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
-
-또한 Azure Digital Twins Explorer 샘플을 사용하여 그래프를 변경할 수 있습니다. 이렇게 하면 트윈과 그래프를 시각화할 수 있고 백그라운드에서 SDK를 사용하게 됩니다. 다음 섹션에서는 이 샘플에 대해 자세히 설명합니다.
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="샘플 모델 및 트윈을 보여주는 Azure Digital Twins Explorer의 스크린샷." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
+
 
 ## <a name="create-relationships"></a>관계 만들기
 
@@ -47,7 +46,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프
 * 관계 ID(아래 코드 샘플의 `relId`): 이 관계의 특정 이름입니다(예: _Relationship1_).
 
 관계 ID는 주어진 원본 트윈 안에서 고유해야 합니다. 전역적으로 고유할 필요는 없습니다.
-*foo* 라는 트윈을 예로 들어 보면 각 특정 관계 ID가 고유해야 합니다. 그러나 다른 트윈인 *bar* 에는 *foo* 관계의 동일한 ID와 일치하는 발신 관계가 있을 수 있습니다.
+예를 들어 트윈 Foo의 경우 각 특정 관계 ID가 고유해야 합니다. 그러나 다른 트윈인 Bar에는 Foo 관계의 동일한 ID와 일치하는 발신 관계가 있을 수 있습니다.
 
 다음 코드 샘플에서는 Azure Digital Twins 인스턴스에서 관계를 만드는 방법을 보여 줍니다. 여기서는 더 큰 프로그램의 컨텍스트에 나타날 수 있는 사용자 지정 메서드 안에서 SDK 호출(강조 표시)을 사용합니다.
 
@@ -59,7 +58,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프
 
 여러 관계를 만들려는 경우 동일한 메서드에 대한 호출을 반복하여 다양한 관계 형식을 인수에 전달할 수 있습니다. 
 
-도우미 클래스 `BasicRelationship`에 대한 자세한 내용은 [*방법: Azure Digital Twins API 및 SDK 사용*](how-to-use-apis-sdks.md#serialization-helpers)을 참조하세요.
+도우미 클래스 `BasicRelationship`에 대한 자세한 내용은 [개념: Azure Digital Twins API 및 SDK](concepts-apis-sdks.md#serialization-helpers)를 참조하세요.
 
 ### <a name="create-multiple-relationships-between-twins"></a>트윈 간에 여러 관계 만들기
 
@@ -70,9 +69,9 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프
 
 두 트윈 간에 가질 수 있는 관계의 수에는 제한이 없고 원하는 만큼 트윈 간에 관계를 만들 수 있습니다. 
 
-즉, 한 번에 두 트윈 사이에 여러 다른 형식의 관계를 표현할 수 있습니다. 예를 들어 *트윈 A* 는 *트윈 B* 와 *저장됨* 관계와 *제조됨* 관계를 모두 가질 수 있습니다.
+즉, 한 번에 두 트윈 사이에 여러 다른 형식의 관계를 표현할 수 있습니다. 예를 들어 트윈 A는 트윈 B와 *저장됨* 관계와 *제조됨* 관계를 모두 가질 수 있습니다.
 
-원하는 경우 동일한 두 트윈 간에 같은 형식의 관계 인스턴스를 여러 개 만들 수도 있습니다. 이 예제에서 *트윈 A* 는 *트윈 B* 와 관계 ID가 서로 다른 두 개의 *저장됨* 관계를 가질 수 있습니다.
+원하는 경우 동일한 두 트윈 간에 같은 형식의 관계 인스턴스를 여러 개 만들 수도 있습니다. 이 예제에서 트윈 A는 트윈 B와 관계 ID가 서로 다른 두 개의 *저장됨* 관계를 가질 수 있습니다.
 
 ## <a name="list-relationships"></a>관계 목록
 
@@ -97,7 +96,7 @@ Azure Digital Twins의 핵심은 전체 환경을 나타내는 [트윈 그래프
 Azure Digital Twins에는 주어진 트윈의 모든 **수신** 관계를 찾는 API도 있습니다. 이것은 종종 역방향 탐색이나 트윈을 삭제할 때 유용합니다.
 
 >[!NOTE]
-> `IncomingRelationship` 호출은 관계의 전체 본문을 반환하지 않습니다. `IncomingRelationship` 클래스에 대한 자세한 내용은 [참조 문서](/dotnet/api/azure.digitaltwins.core.incomingrelationship)를 확인하세요.
+> `IncomingRelationship` 호출은 관계의 전체 본문을 반환하지 않습니다. `IncomingRelationship` 클래스에 대한 자세한 내용은 [참조 문서](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true)를 확인하세요.
 
 이전 섹션의 코드 샘플에서는 트윈으로부터의 발신 관계에 초점을 맞추었습니다. 다음 예제는 구성이 유사하나 트윈으로의 *수신* 관계를 찾습니다. 이 예제에서도 더 큰 프로그램의 컨텍스트에 나타날 수 있는 사용자 지정 메서드 안에서 SDK 호출(강조 표시)을 사용합니다.
 
@@ -146,40 +145,6 @@ Azure Digital Twins에는 주어진 트윈의 모든 **수신** 관계를 찾는
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 
-## <a name="runnable-twin-graph-sample"></a>실행 가능한 트윈 그래프 샘플
-
-다음의 실행 가능한 코드 조각은 이 문서의 관계 작업을 사용하여 디지털 트윈과 관계로부터 트윈 그래프를 만듭니다.
-
-### <a name="set-up-the-runnable-sample"></a>실행 가능한 샘플 설정
-
-이 코드 조각은 [*자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기*](tutorial-command-line-app.md)의 [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) 및 [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) 모델 정의를 사용합니다. 이 링크를 사용하여 파일로 직접 이동하거나 [여기](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)에서 전체 엔드투엔드 샘플 프로젝트의 일부로 다운로드할 수 있습니다. 
-
-샘플을 실행하려면 먼저 다음을 수행합니다.
-1. 모델 파일을 다운로드하여 프로젝트에 배치한 다음, 아래 코드의 `<path-to>` 자리 표시자를 바꿔서 해당 위치를 프로그램에 알립니다.
-2. `<your-instance-hostname>` 자리 표시자를 Azure Digital Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins와 함께 작동하는 데 필요한 두 개의 종속성을 프로젝트에 추가합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
-
-      ```cmd/sh
-      dotnet add package Azure.DigitalTwins.Core
-      dotnet add package Azure.Identity
-      ```
-
-또한 샘플을 직접 실행하려면 로컬 자격 증명을 설정해야 합니다. 다음 섹션에서는 이 과정을 안내합니다.
-[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
-
-### <a name="run-the-sample"></a>샘플 실행
-
-위의 단계를 완료한 후에는 다음 샘플 코드를 직접 실행할 수 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
-
-다음은 위의 프로그램에 대한 콘솔 출력입니다. 
-
-:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="트윈 세부 정보와, 트윈의 수신 및 발신 관계를 보여 주는 콘솔 출력입니다." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
-
-> [!TIP]
-> 트윈 그래프는 트윈 간의 관계를 만드는 개념입니다. 트윈 그래프의 시각적 표시를 보려면 이 문서의 [*시각화*](how-to-manage-graph.md#visualization) 섹션을 참조하세요. 
-
 ## <a name="create-graph-from-a-csv-file"></a>CSV 파일에서 그래프 만들기
 
 실제 사용 사례에서 트윈 계층 구조는 종종 다른 데이터베이스, 또는 스프레드시트나 CSV 파일에 저장된 데이터로부터 만들어집니다. 이 섹션에서는 CSV 파일에서 데이터를 읽어 트윈 그래프를 만드는 방법을 보여 줍니다.
@@ -199,8 +164,48 @@ Azure Digital Twins에는 주어진 트윈의 모든 **수신** 관계를 찾는
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graphFromCSV.cs":::
 
+## <a name="runnable-twin-graph-sample"></a>실행 가능한 트윈 그래프 샘플
+
+다음의 실행 가능한 코드 조각은 이 문서의 관계 작업을 사용하여 디지털 트윈과 관계로부터 트윈 그래프를 만듭니다.
+
+### <a name="set-up-sample-project-files"></a>샘플 프로젝트 파일 설정
+
+이 조각은 [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json) 및 [Floor.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Floor.json)이라는 두 가지 샘플 모델 정의를 사용합니다. 코드에서 사용할 수 있도록 **모델 파일을 다운로드** 하려면 다음 링크를 사용하여 GitHub의 파일로 직접 이동합니다. 그런 다음, 화면의 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택한 다음, 다른 이름으로 저장 창을 사용하여 파일을 **Room.json** 및 **Floor.json** 으로 저장합니다.
+
+다음으로, Visual Studio 또는 원하는 편집기에서 **새 콘솔 앱 프로젝트** 를 만듭니다.
+
+그런 다음, 프로젝트에 실행 가능한 샘플의 **다음 코드를 복사합니다**.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs":::
+
+### <a name="configure-project"></a>프로젝트 구성
+
+다음으로, 다음 단계를 완료하여 프로젝트 코드를 구성합니다.
+1. 이전에 다운로드한 **Room.json** 및 **Floor.json** 파일을 프로젝트에 추가하고 코드의 `<path-to>` 자리 표시자를 대체하여 프로그램에서 찾을 위치를 알려줍니다.
+1. `<your-instance-hostname>` 자리 표시자를 Azure Digital Twins 인스턴스의 호스트 이름으로 바꿉니다.
+1. Azure Digital Twins와 함께 작동하는 데 필요한 두 개의 종속성을 프로젝트에 추가합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
+
+      ```cmd/sh
+      dotnet add package Azure.DigitalTwins.Core
+      dotnet add package Azure.Identity
+      ```
+
+또한 샘플을 직접 실행하려면 로컬 자격 증명을 설정해야 합니다. 다음 섹션에서는 이 과정을 안내합니다.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>샘플 실행
+
+이제 설치를 완료했으므로 샘플 코드 프로젝트를 실행할 수 있습니다.
+
+다음은 프로그램의 콘솔 출력입니다. 
+
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="트윈의 수신 및 발신 관계를 포함하는 트윈 세부 정보를 보여주는 콘솔 출력의 스크린샷." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+
+> [!TIP]
+> 트윈 그래프는 트윈 간의 관계를 만드는 개념입니다. 트윈 그래프의 시각적 표시를 보려면 이 문서의 [시각화](how-to-manage-graph.md#visualization) 섹션을 참조하세요. 
+
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins 트윈 그래프를 쿼리하는 방법을 살펴봅니다.
-* [*개념: 쿼리 언어*](concepts-query-language.md)
-* [*방법: 트윈 그래프 쿼리*](how-to-query-graph.md)
+* [개념: 쿼리 언어](concepts-query-language.md)
+* [방법: 트윈 그래프 쿼리](how-to-query-graph.md)

@@ -11,12 +11,12 @@ ms.reviewer: sgilley
 ms.date: 04/19/2021
 ms.topic: how-to
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: f61e1a604c9296f85bbfd508f39dcbc74e256caf
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 564b193a355ecc7bc11bef874c80ddc881c362cb
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110098725"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111895953"
 ---
 # <a name="start-monitor-and-track-run-history"></a>실행 기록 시작, 모니터링 및 추적
 
@@ -182,7 +182,8 @@ ms.locfileid: "110098725"
     
     # <a name="studio"></a>[스튜디오](#tab/azure-studio)
     
-    ---
+    ---    
+   
 ## <a name="custom-view"></a>사용자 지정 보기 
     
 스튜디오에서 실행을 보려면 다음을 수행합니다. 
@@ -195,17 +196,18 @@ ms.locfileid: "110098725"
     
 1. 비교할 실행을 선택하거나 차트를 추가하거나 필터를 적용하여 페이지에 대 한 사용자 지정을 수행합니다. 이러한 변경 내용을 **사용자 지정 보기** 로 저장할 수 있으므로 작업으로 쉽게 돌아갈 수 있습니다. 작업 영역 권한이 있는 사용자는 편집하거나 사용자 지정 보기를 볼 수 있습니다. 또한 **공유 보기** 를 선택하여 향상된 공동 작업을 위해 팀 구성원과 사용자 지정 보기를 공유합니다.   
 
-1. 실행 로그를 보려면 **출력 + 로그** 탭에서 특정 실행을 선택하고 실행에 대 한 진단 및 오류 로그를 확인할 수 있습니다.    
+1. 실행 로그를 보려면 **출력 + 로그** 탭에서 특정 실행을 선택하고 실행에 대 한 진단 및 오류 로그를 확인할 수 있습니다.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views.gif" alt-text="스크린샷: 사용자 지정 보기 만들기":::
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/custom-views-2.gif" alt-text="스크린샷: 사용자 지정 보기 만들기":::
     
+
 ## <a name="run-description"></a>실행 설명 
 
 실행에 더 많은 컨텍스트 및 정보를 제공하기 위해 실행에 실행 설명을 추가할 수 있습니다. 실행 목록에서 이러한 설명을 검색하고 실행 목록에 열로 실행 설명을 추가할 수도 있습니다. 
 
 실행에 대한 **실행 세부 정보** 페이지로 이동하고 편집이나 연필 아이콘을 선택하여 실행에 대한 설명을 추가, 편집 또는 삭제합니다. 실행 목록의 변경 내용을 유지하려면 기존 사용자 지정 보기나 새 사용자 지정 보기에 대한 변경 내용을 저장합니다. Markdown 형식은 아래와 같이 이미지를 포함하고 딥 링크 설정을 허용하는 실행 설명에서 지원됩니다.
 
-:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description.gif" alt-text="스크린샷: 실행 설명 만들기"::: 
+:::image type="content" source="media/how-to-track-monitor-analyze-runs/run-description-2.gif" alt-text="스크린샷: 실행 설명 만들기"::: 
 
 ## <a name="tag-and-find-runs"></a>태그 및 찾기 실행
 

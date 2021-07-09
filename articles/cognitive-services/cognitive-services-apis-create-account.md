@@ -8,14 +8,14 @@ manager: nitinme
 keywords: 인지 서비스, 인지 인텔리전스, 인지 솔루션, AI 서비스
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 06/04/2021
 ms.author: aahi
-ms.openlocfilehash: de855e53f6d54c9175963b34d8cd3da572e02790
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: fb28a431f9f2f136d177a5d51398bc2427a7134d
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109736541"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111540154"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Cognitive Services 리소스 만들기
 
@@ -114,6 +114,8 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스 메뉴를 열고 **리소스 그룹** 을 선택하여 리소스 그룹 목록을 표시합니다.
 2. 삭제할 리소스가 포함된 리소스 그룹을 찾습니다.
 3. 리소스 그룹 목록을 마우스 오른쪽 단추로 클릭합니다. **리소스 그룹 삭제** 를 선택하고 확인합니다.
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](manage-resources.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

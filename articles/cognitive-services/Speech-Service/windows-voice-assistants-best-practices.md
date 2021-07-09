@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77074d7781b913c41e4ab81e9f582511febd714f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "92165148"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058927"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Windows 10용 디자인 도우미 환경
 
@@ -153,7 +153,7 @@ Contoso 도우미에는 작업 표시줄에 홈이 있습니다(소용돌이 모
 
 ![간단히 보기에서 수신 중인 Windows의 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 
-음성 활성화 미리 보기에 **빠른 대답** 이 표시될 수 있습니다. TryResizeView를 사용하면 도우미가 다른 크기를 요청할 수 있습니다.
+음성 활성화 미리 보기에 **빠른 답변** 이 표시될 수 있습니다. TryResizeView를 사용하면 도우미가 다른 크기를 요청할 수 있습니다.
 
 ![간단히 보기에서 응답 중인 Windows의 음성 도우미 스크린샷](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 

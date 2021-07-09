@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 90fbc41edbfea0ea99d436906d3052e43bfb4fb8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a720eec0c112b54fab0a1651c388b6e0514128c3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105043880"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110094945"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services 보안
 
@@ -199,7 +199,7 @@ NSString* value =
 
 [Microsoft Azure에 대한 고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)는 고객이 고객 데이터 액세스 요청을 검토하고 승인하거나 거부할 수 있는 인터페이스를 제공합니다. 지원 요청 시 Microsoft 엔지니어가 고객 데이터에 액세스해야 하는 경우에 사용됩니다. 이후 검토 및 감사를 위해 고객 Lockbox 요청이 시작, 추적 및 저장되는 방법에 대한 자세한 내용은 [고객 Lockbox](../security/fundamentals/customer-lockbox-overview.md)를 참조하세요. 
 
-고객 Lockbox는 이 Cognitive Service에 대해 사용 가능합니다.
+고객 Lockbox는 이 서비스에 대해 사용 가능합니다.
 
 * Translator
 

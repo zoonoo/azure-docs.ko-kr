@@ -1,7 +1,7 @@
 ---
 title: 립싱크를 위한 얼굴 포즈 이벤트를 가져오는 방법
 titleSuffix: Azure Cognitive Services
-description: Speech SDK는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치와 같은 관찰된 음성의 주요 포즈를 나타내는 데 사용되는 음성 합성의 viseme 이벤트를 지원합니다.
+description: Speech SDK는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치와 같은 관찰된 음성의 주요 포즈를 나타내는 음성 합성 중 viseme 이벤트를 지원합니다.
 services: cognitive-services
 author: yulin-li
 manager: nitinme
@@ -12,19 +12,19 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: e97c48d4e42627d0fc2caaa4f66e81b9a0cafa86
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7ef3e07eb1585aaa87986fd682b4db00c53e66f3
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105643898"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810681"
 ---
 # <a name="get-facial-pose-events"></a>얼굴 포즈 이벤트 가져오기
 
 > [!NOTE]
-> Viseme은 현재 `en-US-AriaNeural` 음성에서만 작동합니다.
+> Viseme 이벤트는 현재 `en-US` 영어(미국) [신경망 음성](language-support.md#text-to-speech)에만 사용할 수 있습니다.
 
-viseme은 음성 언어로 된 음소의 시각적 설명입니다.
+_viseme_ 은 음성 언어로 된 음소의 시각적 설명입니다.
 단어를 말할 때 얼굴 및 입의 위치를 정의합니다.
 각 viseme은 특정 음소 세트에 대한 주요 얼굴 포즈를 묘사합니다.
 viseme과 음소 간에는 일대일 대응이 없습니다.
@@ -35,7 +35,10 @@ viseme을 사용하면 보다 자연스럽고 지능적인 뉴스 브로드캐�
 
 ## <a name="get-viseme-events-with-the-speech-sdk"></a>Speech SDK를 사용하여 viseme 이벤트 가져오기
 
-viseme 이벤트를 만들기 위해 입력 텍스트를 음소 세트 시퀀스와 해당 viseme 시퀀스로 변환합니다. 음성 오디오에서 각 viseme의 시작 시간을 추정합니다. Viseme 이벤트에는 viseme이 표시되는 오디오에 오프셋이 있는 viseme ID의 시퀸스가 포함됩니다. 이러한 이벤트는 입력 텍스트를 말하는 사람을 시뮬레이션하는 입 애니메이션을 구동할 수 있습니다.
+viseme 이벤트를 만들기 위해 TTS 서비스는 입력 텍스트를 음소 세트 시퀀스와 해당 viseme 시퀀스로 변환합니다.
+그러면 음성 오디오에서 각 viseme의 시작 시간이 추정됩니다.
+Viseme 이벤트에는 viseme이 표시되는 오디오에 오프셋이 있는 viseme ID의 시퀸스가 포함됩니다.
+이러한 이벤트는 입력 텍스트를 말하는 사람을 시뮬레이션하는 입 애니메이션을 구동할 수 있습니다.
 
 | 매개 변수 | Description |
 |-----------|-------------|

@@ -10,13 +10,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/21/2021
-ms.openlocfilehash: 5ca13784fe2f9a6a5b448bc838bf508f01b0a9fe
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/17/2021
+ms.openlocfilehash: 044c690688bfc83ce1b4ebc13008ad9a2f37034a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101095183"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026888"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 기여자 추가
 
@@ -26,18 +26,7 @@ ms.locfileid: "101095183"
 
 LUIS 제작 환경이 LUIS 포털의 **관리 -> Azure 리소스** 페이지에서 제작 리소스와 연결된 경우 마이그레이션한 것입니다.
 
-1. Azure Portal에서 LUIS(Language Understanding) 제작 리소스를 찾습니다. 형식은 `LUIS.Authoring`입니다.
-1. 이 리소스의 **Access Control(IAM)** 페이지에서 **+추가** 를 선택한 다음, **역할 할당 추가** 를 선택합니다.
-
-    ![Azure Portal에서 제작 리소스에 역할 할당을 추가합니다.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)
-
-1. **역할 할당 추가** 창에서 **기여자** 의 역할을 선택합니다. **액세스 권한 할당** 옵션에서 **Azure AD 사용자, 그룹 또는 서비스 주체** 를 선택합니다. **선택** 옵션에 사용자의 이메일 주소를 입력합니다. 사용자가 동일한 도메인에 대해 둘 이상의 이메일 주소를 알고 있는 경우 _기본_ 이메일 계정을 입력해야 합니다.
-
-    ![Azure AD에 대한 기여자 역할에 사용자의 이메일 추가](./media/luis-how-to-collaborate/add-role-assignment-for-contributor.png)
-
-    사용자의 이메일이 있으면 계정을 선택하고 **저장** 을 선택합니다.
-
-    이 역할 할당에 문제가 있는 경우 [Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md) 및 [Azure 액세스 제어 문제 해결](../../role-based-access-control/troubleshooting.md#problems-with-azure-role-assignments)을 검토하세요.
+Azure Portal에서 LUIS(Language Understanding) 작성 리소스를 찾습니다. 형식은 `LUIS.Authoring`입니다. 리소스의 **Access Control(IAM)** 페이지에서 기여할 사용자에 대한 **기여자** 역할을 추가합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](/azure/role-based-access-control/role-assignments-portal)을 참조하세요.
 
 ## <a name="view-the-app-as-a-contributor"></a>기여자로 앱 보기
 
@@ -79,7 +68,7 @@ Azure Active Directory 사용자 및 동의에 대해 자세히 알아보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* 앱 수명 주기를 제어하도록 [버전을 사용하는 방법](luis-how-to-manage-versions.md)을 알아봅니다.
-* 해당 리소스에 대한 [제작 리소스](luis-how-to-azure-subscription.md#authoring-key) 및 [기여자](luis-how-to-azure-subscription.md#contributions-from-other-authors)를 포함한 개념을 이해합니다.
+* [버전을 사용](luis-how-to-manage-versions.md)하여 앱 수명 주기를 제어하는 방법을 알아봅니다.
+* [리소스 작성](luis-how-to-azure-subscription.md) 및 해당 리소스에 [기여자 추가](luis-how-to-collaborate.md)에 대해 이해합니다.
 * 제작 및 런타임 리소스를 [만드는 방법](luis-how-to-azure-subscription.md) 알아보기
 * 새 [제작 리소스](luis-migration-authoring.md)로 마이그레이션

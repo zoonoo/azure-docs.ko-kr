@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8aaa1b2865b1d0f39e6cb224c3979b4f53eeee81
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 2ce667363c2bd3251eba1a0e4829c60d99d3a4bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066722"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110456603"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Azure에서 데이터 처리를 위한 함수 앱 연결
 
@@ -40,7 +40,7 @@ Visual Studio 2019에서 **파일** > **새로 만들기** > **프로젝트** �
 
 함수 앱의 이름을 지정하고 __만들기__ 를 선택합니다.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="새 프로젝트를 구성하는 대화 상자를 보여주는 Visual Studio의 스크린샷. 설정에는 프로젝트 이름, 저장 위치, 새 솔루션을 만들기 위한 선택 항목, 솔루션 이름 등이 있습니다.":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="프로젝트 이름, 위치 및 새 솔루션을 만들기 위한 선택을 포함하여 새 프로젝트를 구성하는 대화 상자를 보여주는 Visual Studio의 스크린샷.":::
 
 함수 앱 유형 **Event Grid 트리거** 를 선택하고 __만들기__ 를 선택합니다.
 
@@ -107,7 +107,7 @@ SDK를 사용하려면 다음 패키지를 프로젝트에 포함해야 합니�
     > [!Note] 
     > 게시된 함수 목록에 함수가 표시되기까지 몇 분 정도 기다리면서 페이지를 새로 고칩니다.
 
-    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Azure Portal에서 게시된 함수를 봅니다." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
+    :::image type="content" source="media/how-to-create-azure-function/view-published-functions.png" alt-text="Azure Portal에서 게시된 함수를 보여주는 스크린샷." lightbox="media/how-to-create-azure-function/view-published-functions.png":::
 
 함수 앱이 Azure Digital Twins에 액세스하려면 Azure Digital Twins 인스턴스에 액세스할 수 있는 권한이 있는 시스템 관리 ID가 있어야 합니다. 이는 다음에 설정하게 됩니다.
 
@@ -132,14 +132,14 @@ Azure CLI 또는 Azure Portal을 사용하여 함수 앱에 대한 보안 액세
 1. 다음 명령을 사용하여 함수에 대한 시스템 관리 ID의 세부 정보를 확인합니다. 출력에서 `principalId` 필드를 기록해 둡니다.
 
     ```azurecli-interactive 
-    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>   
+    az functionapp identity show --resource-group <your-resource-group> --name <your-App-Service-function-app-name> 
     ```
 
     >[!NOTE]
     > ID의 세부 정보를 표시하지 않고 결과가 비어 있는 경우 다음 명령을 사용하여 함수에 대한 시스템 관리 ID를 새로 만듭니다.
     > 
     >```azurecli-interactive    
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name>    
+    >az functionapp identity assign --resource-group <your-resource-group> --name <your-App-Service-function-app-name>  
     >```
     >
     > 출력에는 다음 단계에 필요한 `principalId` 값을 포함하여 ID의 세부 정보가 표시됩니다. 
@@ -158,7 +158,7 @@ Azure CLI 또는 Azure Portal을 사용하여 함수 앱에 대한 보안 액세
 > Azure Digital Twins 인스턴스의 URL은 인스턴스의 호스트 이름 앞에 *https://* 가 추가되어 만들어집니다. 인스턴스의 모든 속성과 함께 호스트 이름을 확인하려면 `az dt show --dt-name <your-Azure-Digital-Twins-instance>` 명령을 실행합니다.
 
 ```azurecli-interactive 
-az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
+az functionapp config appsettings set --resource-group <your-resource-group> --name <your-App-Service-function-app-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-host-name>"
 ```
 
 # <a name="azure-portal"></a>[Azure Portal](#tab/portal)
@@ -198,7 +198,7 @@ az functionapp config appsettings set --resource-group <your-resource-group> --n
 
     __저장__ 을 선택하여 세부 정보를 저장합니다.
 
-    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="Azure Portal의 스크린샷. 새 역할 할당 추가 방법을 보여줍니다. 대화 상자에는 범위, 구독, 리소스 그룹 및 역할에 대한 필드가 있습니다.":::
+    :::image type="content" source="media/how-to-create-azure-function/add-role-assignment-3.png" alt-text="새 역할 할당 추가 방법을 보여주는 Azure Portal의 스크린샷. 대화 상자에는 범위, 구독, 리소스 그룹 및 역할에 대한 필드가 표시됩니다.":::
 
 ### <a name="configure-application-settings"></a>애플리케이션 설정 구성
 
@@ -224,7 +224,7 @@ Azure Digital Twins 인스턴스의 URL에서 함수에 액세스할 수 있도�
 
 1. 창이 열리면 복사해둔 호스트 이름 값을 사용하여 애플리케이션 설정을 만듭니다.
     * **이름**: ADT_SERVICE_URL
-    * **값**: https://{your-azure-digital-twins-host-name}
+    * **값**: https://<your-Azure-Digital-Twins-host-name>
     
     __확인__ 을 선택하여 애플리케이션 설정을 만듭니다.
     
@@ -232,11 +232,11 @@ Azure Digital Twins 인스턴스의 URL에서 함수에 액세스할 수 있도�
 
 1. 설정을 만들면 __애플리케이션 설정__ 탭에 나타납니다. **ADT_SERVICE_URL** 이 목록에 표시되는지 확인합니다. 그런 다음, __저장__ 을 선택하여 새 애플리케이션 설정을 저장합니다.
 
-    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal의 스크린샷. 애플리케이션 설정 페이지에 새 ADT_SERVICE_URL 설정이 강조 표시됩니다. 저장 단추도 강조 표시됩니다.":::
+    :::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal의 스크린샷. 애플리케이션 설정 탭에서 새 ADT SERVICE URL 설정과 저장 단추가 모두 강조 표시됩니다.":::
 
 1. 애플리케이션 설정을 변경하면 애플리케이션을 다시 시작해야 하므로 메시지가 표시되면 __계속__ 을 선택하여 애플리케이션을 다시 시작합니다.
 
-    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal의 스크린샷. 애플리케이션 설정을 변경하면 애플리케이션이 다시 시작됩니다. 계속 단추가 강조 표시됩니다.":::
+    :::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal의 스크린샷. 애플리케이션 설정을 변경하면 애플리케이션이 다시 시작된다는 메모가 표시됩니다.":::
 
 ---
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/25/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2545915edf9e39b63100a2bb16bd34fa6777675c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6243fce7ad7f83b747e678a25eb20aaea7a4cf76
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100417834"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616209"
 ---
 # <a name="enable-private-access-with-private-link-preview-azure-portal"></a>Private Link(미리 보기)로 프라이빗 액세스 사용: Azure Portal
 
@@ -20,7 +20,7 @@ ms.locfileid: "100417834"
 
 이 문서에서는 [Azure Digital Twins 인스턴스에 대해 프라이빗 엔드포인트로 Private Link를 사용 설정](concepts-security.md#private-network-access-with-azure-private-link-preview)하는 여러 방법을 설명합니다(현재 미리 보기). Azure Digital Twins 인스턴스에 대해 프라이빗 엔드포인트를 구성하면 [Azure Virtual Network(VNet)](../virtual-network/virtual-networks-overview.md)에서 데이터 반출을 방지할 뿐만 아니라 Azure Digital Twins 인스턴스를 보호하고 공개 노출을 없앨 수 있습니다.
 
-이 문서에서는 [**Azure Portal**](https://portal.azure.com)을 사용하여 프로세스를 안내합니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 프로세스를 안내합니다.
 
 이 문서에서 설명하는 단계는 다음과 같습니다. 
 1. Private Link를 켜고 Azure Digital Twins 인스턴스에 대한 프라이빗 엔드포인트를 구성합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "100417834"
 
 ## <a name="prerequisites"></a>필수 조건
 
-프라이빗 엔드포인트를 설정하려면 먼저 엔드포인트를 배포할 수 있는 [**Azure Virtual Network(VNet)** ](../virtual-network/virtual-networks-overview.md)가 필요합니다. VNet이 아직 없으면 Azure Virtual Network [빠른 시작](../virtual-network/quick-create-portal.md) 중 하나에 따라 이를 설정할 수 있습니다.
+프라이빗 엔드포인트를 설정하려면 먼저 엔드포인트를 배포할 수 있는 [Azure Virtual Network(VNet)](../virtual-network/virtual-networks-overview.md) 가 필요합니다. VNet이 아직 없으면 [Azure Virtual Network 빠른 시작](../virtual-network/quick-create-portal.md) 중 하나에 따라 이를 설정할 수 있습니다.
 
 ## <a name="add-a-private-endpoint-for-an-azure-digital-twins-instance"></a>Azure Digital Twins 인스턴스에 대한 프라이빗 엔드포인트 추가 
 
@@ -43,7 +43,7 @@ ms.locfileid: "100417834"
 
 ### <a name="add-a-private-endpoint-during-instance-creation"></a>인스턴스를 만드는 동안 프라이빗 엔드포인트 추가
 
-이 섹션에서는 현재 생성 중인 Azure Digital Twins 인스턴스에서 프라이빗 엔드포인트로 Private Link를 사용하도록 설정합니다. 이 섹션에서는 만들기 프로세스의 네트워킹 단계를 자세히 설명합니다. 새 Azure Digital Twins 인스턴스 만들기에 대한 전체 연습은 [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)을 참조하세요.
+이 섹션에서는 현재 생성 중인 Azure Digital Twins 인스턴스에서 프라이빗 엔드포인트로 Private Link를 사용하도록 설정합니다. 이 섹션에서는 만들기 프로세스의 네트워킹 단계를 자세히 설명합니다. 새 Azure Digital Twins 인스턴스 만들기에 대한 전체 연습은 [방법: 인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)을 참조하세요.
 
 Private Link 옵션은 인스턴스 설정의 **네트워킹** 탭에 있습니다.
 
@@ -51,7 +51,7 @@ Private Link 옵션은 인스턴스 설정의 **네트워킹** 탭에 있습니�
 
 그러면 프라이빗 엔드포인트 세부 정보를 구성할 수 있는 **프라이빗 엔드포인트 연결** 이라는 섹션이 추가됩니다. 계속해서 **+ 추가** 단추를 선택합니다.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="Azure Digital Twins에 대해 리소스 만들기 대화 상자의 네트워킹 탭을 보여 주는 Azure Portal의 스크린샷입니다. 탭 이름, 연결 방법에 대한 프라이빗 엔드포인트, 새 프라이빗 엔드포인트 연결을 만들기 위한 +추가 단추가 강조 표시되어 있습니다." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-1.png" alt-text="프라이빗 엔드포인트를 만드는 방법을 강조 표시하는 새 Azure Digital Twins 인스턴스의 네트워킹 탭을 보여주는 Azure Portal의 스크린샷. '추가' 단추가 강조 표시됩니다." lightbox="media/how-to-enable-private-link/create-instance-networking-1.png":::
 
 그러면 새 프라이빗 엔드포인트의 세부 정보를 입력할 수 있는 페이지가 열립니다.
 
@@ -59,15 +59,15 @@ Private Link 옵션은 인스턴스 설정의 **네트워킹** 탭에 있습니�
 
 1. **구독** 및 **리소스 그룹** 에 선택 항목을 입력합니다. **위치** 를 사용할 VNet과 동일한 위치로 설정합니다. 엔드포인트 **이름** 을 선택하고 **대상 하위 리소스** 로 *API* 를 선택합니다.
 
-1. 그런 후 엔드포인트 배포를 위해 사용할 **가상 네트워크** 및 **서브넷** 을 선택합니다.
+1. 다음으로, 엔드포인트 배포를 위해 사용할 **가상 네트워크** 및 **서브넷** 을 선택합니다.
 
 1. 마지막으로 **비공개 DNS 영역과 통합** 할지 여부를 선택합니다. 기본값 **예** 를 사용하거나 이 옵션에 대한 도움말이 필요하면 포털 링크에 따라 [프라이빗 DNS 통합에 대해 자세히 알아볼 수 있습니다](../private-link/private-endpoint-overview.md#dns-configuration).
 
-구성 옵션을 입력한 후 **확인** 을 눌러 완료합니다.
+구성 옵션을 입력한 후 **확인** 을 선택하여 완료합니다.
 
-그러면 **프라이빗 엔드포인트 연결에서 새 엔드포인트를 확인할 수 있는 Azure Digital Twins 인스턴스 설정의 **네트워킹** 탭이 다시 표시됩니다.
+그러면 **프라이빗 엔드포인트 연결** 에서 새 엔드포인트를 확인할 수 있는 Azure Digital Twins 인스턴스 설정의 **네트워킹** 탭이 다시 표시됩니다.
 
-:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="Azure Digital Twins에 대해 리소스 만들기 대화 상자의 네트워킹 탭을 보여 주는 Azure Portal의 스크린샷입니다. 새 프라이빗 엔드포인트 연결, 탐색 단추(검토 + 만들기, 이전, 다음: 고급)가 강조 표시되어 있습니다." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
+:::image type="content" source="media/how-to-enable-private-link/create-instance-networking-2.png" alt-text="새로 만든 프라이빗 엔드포인트가 있는 Azure Digital Twins의 네트워킹 탭을 보여주는 Azure Portal의 스크린샷." lightbox="media/how-to-enable-private-link/create-instance-networking-2.png":::
 
 그런 후 아래의 탐색 단추를 사용하여 남은 인스턴스 설정을 계속할 수 있습니다.
 
@@ -83,7 +83,7 @@ Private Link 옵션은 인스턴스 설정의 **네트워킹** 탭에 있습니�
 
 1. **+ 프라이빗 엔드포인트** 를 선택하여 **프라이빗 엔드포인트 만들기** 설정을 엽니다.
 
-    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="Azure Digital Twins 인스턴스에 대한 네트워킹(미리 보기) 페이지를 보여 주는 Azure Portal의 스크린샷입니다. 프라이빗 엔드포인트 연결 탭과 + 프라이빗 엔드포인트 단추가 강조 표시되어 있습니다." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
+    :::image type="content" source="media/how-to-enable-private-link/add-endpoint-digital-twins.png" alt-text="프라이빗 엔드포인트를 만드는 방법을 강조 표시하는 기존 Azure Digital Twins 인스턴스에 대한 네트워킹 페이지를 보여주는 Azure Portal의 스크린샷." lightbox="media/how-to-enable-private-link/add-endpoint-digital-twins.png":::
 
 1.  **기본**  탭에서 **구독** 및 프로젝트의 **리소스 그룹** 을 선택하고 엔드포인트의 **이름** 및 **지역** 을 선택합니다. 지역은 사용 중인 VNet의 지역과 동일해야 합니다.
 
@@ -137,7 +137,7 @@ Private Link 옵션은 인스턴스 설정의 **네트워킹** 탭에 있습니�
 
     :::row:::
         :::column:::
-            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="Azure Digital Twins 인스턴스의 네트워킹(미리 보기) 페이지를 보여주는 Azure Portal의 스크린샷입니다. 공용 액세스 탭과 공용 네트워크 액세스를 허용할지 여부를 선택할 수 있는 옵션이 강조 표시되어 있습니다." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
+            :::image type="content" source="media/how-to-enable-private-link/network-flag-portal.png" alt-text="공용 액세스를 토글하는 방법을 강조 표시하는 Azure Digital Twins 인스턴스에 대한 네트워킹 페이지를 보여주는 Azure Portal의 스크린샷." lightbox="media/how-to-enable-private-link/network-flag-portal.png":::
         :::column-end:::
         :::column:::
         :::column-end:::
@@ -148,4 +148,4 @@ Private Link 옵션은 인스턴스 설정의 **네트워킹** 탭에 있습니�
 ## <a name="next-steps"></a>다음 단계
 
 Azure Private Link에 대해 자세히 알아보기: 
-* [*Azure Private Link 서비스는 무엇입니까?* ](../private-link/private-link-service-overview.md)
+* [Azure Private Link 서비스는 무엇입니까?](../private-link/private-link-service-overview.md)

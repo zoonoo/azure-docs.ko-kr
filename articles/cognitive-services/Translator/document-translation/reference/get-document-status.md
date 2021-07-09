@@ -1,5 +1,5 @@
 ---
-title: 문서 번역 문서 상태 가져오기 메서드
+title: 문서 상태 가져오기 메서드
 titleSuffix: Azure Cognitive Services
 description: 문서 상태 가져오기 메서드는 특정 문서의 상태를 반환합니다.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/25/2021
+ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: 79bc3d076c1a7e164cab9c3231b29be84370e04a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 69172956d36aa4b43c88858a65771fdb183a39f6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105613155"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453618"
 ---
-# <a name="document-translation-get-document-status"></a>문서 번역 문서 상태 가져오기
+# <a name="get-document-status"></a>문서 상태 가져오기
 
 문서 상태 가져오기 메서드는 특정 문서의 상태를 반환합니다. 이 메서드는 요청 ID 및 문서 ID를 기반으로 특정 문서의 번역 상태를 반환합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "105613155"
 
 다음에 `GET` 요청을 보냅니다.
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}/documents/{documentId}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}/documents/{documentId}
 ```
 
 [사용자 지정 도메인 이름](../get-started-with-document-translation.md#find-your-custom-domain-name)을 찾는 방법에 대해 알아봅니다.
@@ -67,26 +67,28 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ### <a name="successful-get-document-status-response"></a>성공적인 문서 상태 가져오기 응답
 
-|이름|유형|Description|
+|이름|Type|Description|
 |--- |--- |--- |
-|path|string|문서 또는 폴더의 위치입니다.|
-|createdDateTimeUtc|문자열|작업을 만든 날짜/시간입니다.|
-|lastActionDateTimeUtc|문자열|작업 상태가 업데이트된 날짜/시간입니다.|
+|path|문자열|문서 또는 폴더의 위치입니다.|
+|sourcePath|문자열|원본 문서의 위치입니다.|
+|createdDateTimeUtc|문자열|작업을 만든 날짜와 시간입니다.|
+|lastActionDateTimeUtc|문자열|작업 상태가 업데이트된 날짜와 시간입니다.|
 |상태|String|작업 또는 문서의 가능한 상태 목록: <ul><li>취소됨</li><li>Cancelling</li><li>실패</li><li>NotStarted</li><li>실행 중</li><li>성공</li><li>ValidationFailed</li></ul>|
-|을|문자열|두 글자 언어 코드로 된 대상 언어입니다. 언어 목록을 참조하세요.|
+|을|문자열|두 글자 언어 코드로 된 대상 언어입니다. [언어 목록을 참조](../../language-support.md)하세요.|
 |progress|number|사용 가능한 경우 번역의 진행률입니다.|
 |id|문자열|문서 ID입니다.|
-|characterCharged|정수|API로 처리해야 하는 문자 수입니다.|
+|characterCharged|정수|API로 청구되는 문자 수입니다.|
 
 ### <a name="error-response"></a>오류 응답
 
-|이름|유형|설명|
+|이름|Type|설명|
 |--- |--- |--- |
-|code|문자열|상위 수준 오류 코드를 포함하는 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
-|message|문자열|상위 수준 오류 메시지를 가져옵니다.|
-|innerError|InnerErrorV2|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩 가능)가 포함됩니다.|
+|code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
+|message|문자열|간략한 오류 메시지를 가져옵니다.|
+|innerError|InnerTranslationError|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩될 수 있음)가 포함됩니다.|
 |innerError.code|문자열|코드 오류 문자열을 가져옵니다.|
-|innerError.message|문자열|상위 수준 오류 메시지를 가져옵니다.|
+|innerError.message|문자열|간략한 오류 메시지를 가져옵니다.|
+|innerError.target|문자열|오류 출처를 가져옵니다. 예를 들어 잘못된 문서의 경우 "documents" 또는 "document id"가 됩니다.|
 
 ## <a name="examples"></a>예제
 
@@ -96,6 +98,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 ```JSON
 {
   "path": "https://myblob.blob.core.windows.net/destinationContainer/fr/mydoc.txt",
+  "sourcePath": "https://myblob.blob.core.windows.net/sourceContainer/fr/mydoc.txt",
   "createdDateTimeUtc": "2020-03-26T00:00:00Z",
   "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
   "status": "Running",
@@ -128,7 +131,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 ## <a name="next-steps"></a>다음 단계
 
-빠른 시작에 따라 문서 번역 및 클라이언트 라이브러리를 사용하는 방법에 대해 자세히 알아봅니다.
+문서 번역 및 클라이언트 라이브러리를 사용하는 방법에 대해 자세히 알아보려면 빠른 시작을 따르세요.
 
 > [!div class="nextstepaction"]
 > [문서 번역 시작](../get-started-with-document-translation.md)

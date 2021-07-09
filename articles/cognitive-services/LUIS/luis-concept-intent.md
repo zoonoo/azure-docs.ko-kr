@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
-ms.openlocfilehash: bf5ab7361c84fb787366c7c361829e52362fe427
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/13/2021
+ms.openlocfilehash: 8e76e3e7683d43a7a39bc0c168a29016a988c705
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95025911"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107499413"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
@@ -53,7 +53,7 @@ ms.locfileid: "95025911"
 
 |Intent   | 엔터티 | 예제 발화   |
 |------------------|------------------------------|------------------------------|
-| CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
+| CheckWeather | { "type": "location", "entity": "Seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` |
 ||||
 
@@ -74,7 +74,7 @@ ms.locfileid: "95025911"
 
 ## <a name="intents-and-patterns"></a>의도 및 패턴
 
-일부 또는 전체에 정규식으로 정의할 수 있는 예제 발화가 있는 경우 [패턴](luis-concept-patterns.md)과 쌍을 이루는 [정규식 엔터티](luis-concept-entity-types.md#regular-expression-entity)를 사용하는 것이 좋습니다.
+일부 또는 전체에 정규식으로 정의할 수 있는 예제 발화가 있는 경우 [패턴](luis-concept-patterns.md)과 쌍을 이루는 [정규식 엔터티](luis-concept-entity-types.md#regex-entity)를 사용하는 것이 좋습니다.
 
 정규식 엔터티를 사용하면 패턴이 일치하도록 데이터 추출을 보장합니다. 패턴 일치는 정확한 의도가 반환되도록 보장합니다.
 

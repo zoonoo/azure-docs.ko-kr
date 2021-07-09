@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 540631db87807312f96c96ddd5b8144d4e22ff91
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a63390073f92625788dfbf43fc1183cc1812024a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110095575"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110460330"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Azure Digital Twins 내부 및 외부에서 이벤트 라우팅
 
@@ -32,7 +32,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 다음 다이어그램은 Azure Digital Twins 측면을 사용하여 더 큰 IoT 솔루션을 통한 이벤트 데이터의 흐름을 보여 줍니다.
 
-:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="여러 다운스트림 서비스에 엔드포인트를 통해 데이터를 라우팅하는 Azure Digital Twins" border="false":::
+:::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="엔드포인트를 통해 여러 다운스트림 서비스로 데이터를 라우팅하는 Azure Digital Twins의 다이어그램." border="false":::
 
 이벤트 경로에 대한 일반적인 다운스트림 대상은 TSI, Azure Maps, 스토리지 및 분석 솔루션과 같은 리소스입니다.
 
@@ -95,7 +95,7 @@ Azure Digital Twins 데이터를 전송하는 두 가지 주요 사례는 다음
 
 조건 중 하나가 충족되면 이벤트가 삭제되거나 배달 못한 편지로 처리됩니다. 기본적으로 각 엔드포인트는 배달 못한 편지를 설정 **하지 않습니다**. 이 기능을 사용하려면 엔드포인트를 만들 때 전송되지 않은 이벤트를 보유할 스토리지 계정을 지정해야 합니다. 그런 다음, 이 스토리지 계정에서 이벤트를 끌어와 전송을 해결합니다.
 
-배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 엔드포인트를 만들 때 이 컨테이너에 대한 URL을 제공합니다. 배달 못한 편지는 SAS 토큰과 함께 컨테이너 URL로 제공됩니다. 이 토큰은 스토리지 계정 내의 대상 컨테이너에 대한 `write` 권한만이 필요합니다. 완전히 구성된 URL의 형식은 다음과 같습니다. `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+배달 못한 편지 위치를 설정하기 전에 컨테이너를 포함하는 스토리지 계정이 있어야 합니다. 엔드포인트를 만들 때 이 컨테이너에 대한 URL을 제공합니다. 배달 못한 편지는 SAS 토큰과 함께 컨테이너 URL로 제공됩니다. 이 토큰은 스토리지 계정 내의 대상 컨테이너에 대한 `write` 권한만이 필요합니다. 완전히 구성된 URL의 형식은 다음과 같습니다. `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`
 
 SAS 토큰에 대해 자세히 알아보려면 [SAS(공유 액세스 서명)를 사용하여 Azure Storage 리소스에 대한 제한된 액세스 권한 부여](../storage/common/storage-sas-overview.md)를 참조하세요.
 

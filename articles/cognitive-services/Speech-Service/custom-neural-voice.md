@@ -8,19 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/01/2020
+ms.date: 05/18/2021
 ms.author: trbye
-ms.openlocfilehash: 36885e4673b83d1db7972f03c4a6309f766206c5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e61de187f9d3933a67ab4f4287b5e85d5a215404
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713102"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411110"
 ---
 # <a name="what-is-custom-neural-voice"></a>사용자 지정 신경망 음성이란?
 
-사용자 지정 신경망 음성은 사용자 고유의 오디오 데이터를 샘플로 제공하여 애플리케이션에 대한 일종의 사용자 지정된 합성 음성을 만들 수 있도록 하는 [TTS(텍스트 음성 변환)](./text-to-speech.md) 기능입니다. 텍스트 음성 변환은 선택한 음성처럼 소리 나는 기계 학습 모델을 사용하여 텍스트를 합성 음성으로 변환하는 방식으로 작동합니다. [REST API](./rest-text-to-speech.md)를 사용하여 앱이 [미리 생성된 음성](./language-support.md#neural-voices) 또는 사용자 지정 신경망 음성 기능을 통해 개발한 사용자 고유의 [사용자 지정 음성](./how-to-custom-voice-prepare-data.md) 모델을 사용하도록 설정할 수 있습니다. 사용자 지정 신경망 음성은 인간 음성과 비교했을 때 대개 구분될 수 없는 자연스러운 음성을 만드는 인공신경망 TTS 기술을 기반으로 합니다.
-사용자 지정 신경망 음성의 실제적이고 자연스러운 음성은 브랜드를 대표하고, 컴퓨터를 의인화할 수 있으며, 사용자가 자연스럽게 대화로 애플리케이션을 조작할 수 있도록 합니다.
+사용자 지정 신경망 음성은 애플리케이션에 대한 일종의 사용자 지정된 합성 음성을 만들 수 있도록 하는 TTS(텍스트 음성 변환) 기능입니다. 사용자 지정 신경망 음성을 사용하면 오디오 샘플을 학습 데이터로 제공하여 매우 자연스러운 음성을 빌드할 수 있습니다. 인공신경망 TTS 기술 및 다국어 다중 화자 유니버설 모델을 기반으로 하는 사용자 지정 신경망 음성을 사용하면 말하기 스타일이 다양한 합성 음성 또는 적응 가능한 크로스 언어를 만들 수 있습니다. 사용자 지정 신경망 음성의 실제적이고 자연스러운 음성은 브랜드를 대표하고, 머신을 의인화할 수 있으며, 사용자가 대화로 애플리케이션을 조작할 수 있도록 합니다. 사용자 지정 신경망 음성 및 언어 간 기능에 대해 지원되는 [언어](language-support.md#customization)를 참조하세요.
 
 > [!NOTE]
 > 사용자 지정 신경망 음성 기능을 사용하려면 등록해야 하며, 이 기능에 대한 액세스는 Microsoft의 자격 및 사용 조건에 따라 제한됩니다. 이 기능을 사용하려는 고객은 [수집 형식](https://aka.ms/customneural)으로 사용 사례를 등록해야 합니다.
@@ -33,9 +32,15 @@ ms.locfileid: "101713102"
 
 ![사용자 지정 신경망 음성의 소개 이미지](./media/custom-voice/cnv-intro.png)
 
-인공신경망 TTS 음성 모델은 인간 음성의 녹음 샘플을 기반으로 심층 신경망을 사용하여 학습합니다. 이 [블로그](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911)에서는 인공신경망 TTS가 최신 인공신경망 음성 합성 모델에서 작동하는 방법을 설명합니다. 또한 이 블로그에서는 대상 화자의 2시간 미만의 음성 데이터(또는 2000 미만의 녹음된 발화)로 범용 기본 모델을 적용할 수 있는 방법에 대해 설명하고 대상 화자의 음성으로 이야기하는 방법에 대해 알아봅니다. Neural Vocoder를 학습하는 방법에 대한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)을 참조하세요.
+인공신경망 TTS 음성 모델은 인간 음성의 녹음 샘플을 기반으로 심층 신경망을 사용하여 학습합니다. 이 [블로그](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-extends-support-to-15-more-languages-with/ba-p/1505911)에서는 인공신경망 TTS가 최신 인공신경망 음성 합성 모델에서 작동하는 방법을 설명합니다. 또한 이 블로그에서는 2시간 미만의 음성 데이터(또는 2,000개 미만의 녹음된 발화)를 사용하여 대상 화자의 음성에 유니버설 기본 모델을 적용하고 음성을 다른 언어 또는 스타일로 전송할 수 있는 방법을 설명합니다. Neural Vocoder를 학습하는 방법에 대한 자세한 내용은 [블로그 게시물](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)을 참조하세요.
 
-사용자 지정 신경망 음성의 사용자 지정 기능으로 사용자 시나리오에 맞게 인공신경망 TTS 엔진을 조정할 수 있습니다. 사용자 지정 신경망 음성을 만들려면 [Speech Studio](https://speech.microsoft.com/customvoice)를 사용하여 녹음된 오디오 및 해당 스크립트를 업로드하고, 모델을 학습시키고, 음성을 사용자 지정 엔드포인트에 배포합니다. 사용 사례에 따라 사용자 지정 신경망 음성을 사용하여 텍스트를 실시간으로 변환하거나(예: 스마트 가상 도우미에서 사용됨), 사용자가 제공하는 텍스트 입력으로 오디오 콘텐츠를 오프라인으로 생성할 수 있습니다(예: E-Learning 애플리케이션의 명령 또는 오디오 설명서에서 사용됨). 이는 [REST API](./rest-text-to-speech.md), [Speech SDK](./get-started-text-to-speech.md?pivots=programming-language-csharp&tabs=script%2cwindowsinstall)또는 [웹 포털](https://speech.microsoft.com/audiocontentcreation)을 통해 사용할 수 있습니다.
+사용자 지정 신경망 음성을 사용하면 시나리오에 맞게 인공신경망 TTS 엔진을 조정할 수 있습니다. 사용자 지정 신경망 음성을 만들려면 [Speech Studio](https://speech.microsoft.com/customvoice)를 사용하여 녹음된 오디오 및 해당 스크립트를 업로드하고, 모델을 학습시키고, 음성을 사용자 지정 엔드포인트에 배포합니다. 사용자 지정 신경망 음성은 사용자가 제공한 텍스트를 사용하여 실시간으로 텍스트를 음성으로 변환하거나 텍스트 입력을 사용하여 오프라인으로 오디오 콘텐츠를 생성할 수 있습니다. 이는 [REST API](./rest-text-to-speech.md), [Speech SDK](./get-started-text-to-speech.md) 또는 [웹 포털](https://speech.microsoft.com/audiocontentcreation)을 통해 사용할 수 있습니다.
+
+## <a name="get-started"></a>시작하기
+
+* 사용자 지정 신경망 음성을 시작하고 프로젝트를 만들려면 [사용자 지정 신경망 음성 시작](how-to-custom-voice.md)을 참조하세요.
+* 오디오 데이터를 준비하고 업로드하려면 [학습 데이터 준비](how-to-custom-voice-prepare-data.md)를 참조하세요.
+* 모델을 학습하고 배포하려면 [음성 모델 만들기 및 사용](how-to-custom-voice-create-voice.md)을 참조하세요.
 
 ## <a name="terms-and-definitions"></a>용어 및 정의
 
@@ -55,5 +60,4 @@ ms.locfileid: "101713102"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Custom Voice 시작](how-to-custom-voice.md)
-* [Custom Voice 엔드포인트 만들기 및 사용](how-to-custom-voice-create-voice.md)
+* [사용자 지정 신경망 음성 시작](how-to-custom-voice.md)

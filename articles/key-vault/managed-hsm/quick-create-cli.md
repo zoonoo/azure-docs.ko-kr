@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 09/15/2020
+ms.date: 06/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 86d0a336a7d3f5d12ed8e53de802616f839f9eba
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b29a292dae570d368f54f65773ce72a54de2e2d
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91756822"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111413990"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화
 
@@ -28,7 +28,7 @@ Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
 * Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* 구독의 관리형 HSM. 관리형 HSM을 프로비저닝하고 활성화하려면 [빠른 시작: Azure CLI를 사용하여 관리형 HSM을 프로비저닝 및 활성화](quick-create-cli.md)를 참조하세요.
+* 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -63,11 +63,11 @@ az group create --name "ContosoResourceGroup" --location eastus2
 - Azure 위치입니다.
 - 초기 관리자 목록
 
-아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다.
+아래 예제에서는 **현재 로그인한 사용자** 를 유일한 관리자로 사용하고 일시 삭제에 대해 **28일 보존 기간** 을 사용하여 **ContosoMHSM** 이라는 HSM을 **미국 동부 2** 위치에 있는 **ContosoResourceGroup** 리소스 그룹에 만듭니다. [관리되는 HSM 일시 삭제](soft-delete-overview.md)에 관해 자세히 알아보기
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
+az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid --retention-days 28
 ```
 
 > [!NOTE]

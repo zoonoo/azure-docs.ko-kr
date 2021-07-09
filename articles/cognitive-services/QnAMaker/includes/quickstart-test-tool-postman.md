@@ -8,21 +8,33 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
 ms.date: 11/09/2020
-ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eca47e26f497b1e8bb54e99cf49fcf326f9e5255
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94386517"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110487405"
 ---
 이 Postman 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 최신 [**Postman**](https://www.getpostman.com/).
 * 다음이 있어야 합니다.
-    * [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)
-    * 메타데이터 및 잡담으로 구성된 빠른 시작에서 빌드된 [질문과 대답을 사용한 기술 자료](../Quickstarts/add-question-metadata-portal.md)(학습 및 게시됨).
+    * 최신 [**Postman**](https://www.getpostman.com/).
+    * Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/cognitive-services/) 계정을 만듭니다.
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+
+> * Azure Portal에서 만든 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+
+> * Azure Portal에서 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독 및 Text Analytics 리소스 이름을 기억하세요.
+
+---
+
+   * 메타데이터 및 잡담으로 구성된 이전 [빠른 시작](../Quickstarts/add-question-metadata-portal.md)의 질문과 대답이 포함된 학습 및 게시된 기술 자료
+
 
 > [!NOTE]
 > 기술 자료에서 질문에 대한 대답을 생성할 준비가 되면 기술 자료를 [학습](../Quickstarts/create-publish-knowledge-base.md#save-and-train) 및 [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)해야 합니다. 기술 자료가 게시되면 **게시** 페이지에 대답을 생성하기 위한 HTTP 요청 설정이 표시됩니다. **Postman** 탭에는 대답을 생성하는 데 필요한 설정이 표시됩니다.
@@ -47,7 +59,7 @@ ms.locfileid: "94386517"
 
 1. Postman을 열고 게시된 기술 자료 설정을 사용하여 새 기본 **POST** 요청을 만듭니다. 다음 섹션에서 POST 본문 JSON을 변경하여 쿼리를 기술 자료로 변경합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/v2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
 
 이 빠른 시작은 Postman **POST** 요청에 대해 동일한 설정을 사용한 다음, 쿼리하려는 내용에 따라 서비스로 전송된 POST 본문 JSON으로 구성합니다.
 
@@ -425,3 +437,53 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
         "activeLearningEnabled": true
     }
     ```
+## <a name="use-unstructured-data-sources"></a>비정형 데이터 원본을 사용합니다.
+    
+이제 QnA를 추출하는 데 사용할 수 없는 비정형 문서를 추가하는 기능을 지원합니다. 사용자는 쿼리에 대한 응답을 가져올 때 GenerateAnswer API에 비정형 데이터 세트를 포함하거나 제외하도록 선택할 수 있습니다.
+     
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
+GA 서비스에서는 비정형 데이터 세트를 지원하지 않습니다.
+
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+
+1. 응답 생성 API에 대한 응답을 평가할 때 비정형 데이터 원본을 포함하려는 경우 *includeUnstructuredResources* 매개 변수를 true로 설정하고, 그 반대의 경우도 마찬가지입니다.
+   ```json
+    {
+       "question": "what is Surface Headphones 2+ priced at?",
+       "includeUnstructuredSources":true,
+       "top": 2
+    }
+    ```
+2. 응답에는 답변 소소가 포함됩니다. 
+    ```json
+       {
+     "answers": [
+       {
+         "questions": [],
+         "answer": "Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.\n\nMicrosoft Modern USB and Wireless Headsets:\n\nCertified for Microsoft Teams, these Microsoft Modern headsets enable greater focus and call privacy, especially in shared workspaces.",
+         "score": 82.11,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": [],
+         "answerSpan": {
+           "text": "$299.99 USD",
+           "score": 0.0,
+           "startIndex": 34,
+           "endIndex": 45
+         }
+       },
+       {
+         "questions": [],
+         "answer": "Now certified for Microsoft Teams with the included dongle, Surface Headphones 2+ provides an even more robust meeting experience with on‐ear Teams controls and improved remote calling. Surface Headphones 2+ is priced at $299.99 USD. Business and education customers in select markets can place orders today through microsoft.com\n\nor their local authorized reseller.",
+         "score": 81.95,
+         "id": 0,
+         "source": "blogs-introducing-surface-laptop-4-and-new-access.pdf",
+         "isDocumentText": false,
+         "metadata": []
+       }
+     ],
+     "activeLearningEnabled": true
+   }
+    ```
+---

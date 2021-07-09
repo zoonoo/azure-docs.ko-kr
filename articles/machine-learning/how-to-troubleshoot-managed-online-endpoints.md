@@ -10,12 +10,12 @@ ms.author: petrodeg
 ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: d0c2884b9c080c214cbebd666cbf4df62a8efcf2
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f493cfc21ff3f5e2aa122bbbc08f24e1a759558e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383023"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110480948"
 ---
 # <a name="troubleshooting-managed-online-endpoints-deployment-and-scoring-preview"></a>관리형 온라인 엔드포인트 배포 및 채점(미리 보기) 문제 해결
 
@@ -50,6 +50,8 @@ az ml endpoint create -n <endpoint-name> -f <spec_file.yaml> --local
 
 - Docker는 새 컨테이너 이미지를 빌드하거나 로컬 Docker 캐시에서 기존 이미지를 풀합니다. 기존 이미지가 사양 파일의 환경 부분과 일치하는 경우 해당 이미지가 사용됩니다.
 - Docker는 모델 및 코드 파일과 같은 탑재된 로컬 아티팩트로 새 컨테이너를 시작합니다.
+
+자세한 내용은 [관리형 온라인 엔드포인트(미리 보기)를 통해 기계 학습 모델 배포 및 채점에서 로컬 배포](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-using-local-endpoints)를 참조하세요.
 
 ## <a name="get-container-logs"></a>컨테이너 로그 가져오기
 
@@ -164,7 +166,10 @@ az ml endpoint get-logs
 
 배포의 일부로 제공된 `score.py`를 실행하기 위해 Azure는 `score.py`에 필요한 모든 리소스를 포함하는 컨테이너를 만들고 해당 컨테이너에서 채점 스크립트를 실행합니다.  이 시나리오의 오류는 이 컨테이너를 실행할 때 충돌이 발생하여 채점할 수 없음을 의미합니다. 이 오류는 다음과 같은 경우에 발생합니다.
 
-- `score.py`에 오류가 있습니다.
+- `score.py`에 오류가 있습니다. `get--logs`를 사용하여 일반적인 문제를 진단합니다.
+    - 가져온 패키지는 conda 환경에 없습니다.
+    - 구문 오류
+    - `init()` 메서드의 실패
 - 준비 또는 활동성 프로브가 올바르게 설정되지 않았습니다.
 - 종속성 누락 등 컨테이너의 환경 설정에 오류가 있습니다.
 

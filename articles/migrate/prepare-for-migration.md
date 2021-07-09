@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: b8c9610ca7043ed6b8baa86e35ea76c74ed75bba
-ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
+ms.openlocfilehash: f434d20a79baf7c0b0210e3eb790b50a153d2d7a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107883997"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969024"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -111,14 +111,12 @@ Azure VM에는 기본적으로 임시 스토리지로 사용할 D 드라이브�
 
 다음 버전은 Azure Migrate에서 이러한 작업을 자동으로 완료합니다.
 
-- Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
-- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
-- SUSE Linux Enterprise Server 12 SP1 이상
-- SUSE Linux Enterprise Server 15 SP1
+- Red Hat Enterprise Linux 8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
+- Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11
 - Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS(Azure Linux VM 에이전트도 마이그레이션 중에 자동으로 설치됨)
-- Ubuntu 18.04LTS, 16.04LTS
 - Debian 9, 8, 7
-- Oracle Linux 7.7, 7.7-CI
+- Oracle Linux 6, 7.7, 7.7-CI 
 
 그 외의 버전은 표에 요약된 대로 머신을 준비합니다.  
 

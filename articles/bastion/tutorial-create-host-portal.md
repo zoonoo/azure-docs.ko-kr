@@ -1,18 +1,18 @@
 ---
 title: '자습서: Azure Bastion 호스트 만들기: Windows VM: 포털'
-description: 이 문서에서는 Azure Bastion 호스트를 만들고 Windows VM에 연결하는 방법을 알아봅니다.
+description: Azure Bastion 호스트를 만들고 Windows VM에 연결하는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
 ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: 772cc22a0f8163e0d99599ebf1f4cdfd1ab1d103
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2479b736809bbbe0dc2810b168dada6536ab8f91
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128196"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540491"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>자습서: Bastion을 구성하고 브라우저를 통해 Windows VM에 연결
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e5973f58887b212919ad739232faafddcf9e735c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: edadf3ad7e86572c758a90fd35a941024b0aa60e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100561543"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475760"
 ---
 # <a name="extending-ontologies"></a>온톨로지 확장 
 
@@ -28,9 +28,9 @@ DTDL 기반 RealEstateCore 온톨로지에서 Space 계층 구조는 Room, Build
 
 계층 구조의 일부는 아래 다이어그램과 같이 표시됩니다. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-original.png" alt-text="RealEstateCore 공간 계층 구조의 일부를 보여주는 흐름 다이어그램입니다. 최상위 수준에는 Space라고 부르는 요소가 있습니다. 이 요소는 한 수준 아래 Room으로 ‘확장’ 화살표로 연결됩니다. Room은 한 수준 아래 ConferenceRoom 및 Office로 ‘확장’ 화살표로 연결됩니다."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-original.png" alt-text="RealEstateCore 공간 계층 구조의 일부를 보여주는 다이어그램. Space, Room, ConferenceRoom 및 Office의 요소를 보여줍니다."::: 
 
-RealEstateCore 온톨로지에 대한 자세한 내용은 [*개념: 업계 표준 온톨로지 채택*](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology)을 참조하세요.
+RealEstateCore 온톨로지에 대한 자세한 내용은 [개념: 업계 표준 온톨로지 채택](concepts-ontologies-adopt.md#realestatecore-smart-building-ontology)을 참조하세요.
 
 ## <a name="extending-the-realestatecore-space-hierarchy"></a>RealEstateCore 공간 계층 구조 확장 
 
@@ -51,7 +51,7 @@ RealEstateCore 온톨로지에 대한 자세한 내용은 [*개념: 업계 표�
 
 포커스 룸 인터페이스를 추가한 후에는 확장된 계층 구조에 새로운 룸 유형이 표시됩니다. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-1.png" alt-text="새 항목이 추가된 위의 RealEstateCore 공간 계층 구조를 보여주는 흐름 다이어그램입니다. ConferenceRoom 및 Office가 있는 최하위 수준에 FocusRoom이라는 새 요소가 표시되어 있고 Room에서 ‘확장’ 화살표를 통해 연결되어 있습니다."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-1.png" alt-text="새로운 추가 사항을 포함하여 RealEstateCore 공간 계층 구조의 일부를 보여주는 다이어그램."::: 
 
 ### <a name="add-additional-capabilities-to-existing-interfaces"></a>기존 인터페이스에 추가 기능 추가 
 
@@ -63,13 +63,13 @@ RealEstateCore 온톨로지에 대한 자세한 내용은 [*개념: 업계 표�
 
 두 예제 모두 새로운 속성을 사용하여 구현될 수 있습니다. `drawingId` 속성은 3D 도면을 디지털 트윈 및 “온라인” 속성에 연결하여 컨퍼런스 룸이 온라인 상태인지 여부를 나타냅니다. 
 
-일반적으로 이후 솔루션에서 업데이트를 사용할 수 있어야 하기 때문에(추가 항목 덮어쓰기) 업계 온톨로지를 직접 수정하지는 않습니다. 대신 이러한 종류의 추가는 DTDL 기반 RealEstateCore 온톨로지로부터 확장되는 고유 인터페이스 계층 구조에서 수행될 수 있습니다. 생성되는 각 인터페이스에는 확장된 인터페이스 계층 구조로부터 상위 RealEstateCore 인터페이스 및 상위 인터페이스를 확장하기 위해 여러 인터페이스 상속성이 사용됩니다. 이 접근 방식을 사용하면 업계 온톨로지 및 추가 항목을 함께 사용할 수 있습니다. 
+일반적으로 이후 솔루션에서 업데이트를 통합할 수 있기를 원하므로(추가 항목 덮어쓰기) 업계 온톨로지를 직접 수정하지는 않습니다. 대신 이러한 종류의 추가는 DTDL 기반 RealEstateCore 온톨로지로부터 확장되는 고유 인터페이스 계층 구조에서 수행될 수 있습니다. 생성되는 각 인터페이스에는 확장된 인터페이스 계층 구조로부터 상위 RealEstateCore 인터페이스 및 상위 인터페이스를 확장하기 위해 여러 인터페이스 상속성이 사용됩니다. 이 접근 방식을 사용하면 업계 온톨로지 및 추가 항목을 함께 사용할 수 있습니다. 
 
 업계 온톨로지를 확장하려면 업계 온톨로지의 인터페이스에서 확장되는 고유 인터페이스를 만들고 새 기능을 확장된 인터페이스에 추가합니다. 확장하려는 각 인터페이스에 대해 새 인터페이스를 만듭니다. 확장된 인터페이스는 DTDL로 작성됩니다(이 문서 뒷부분의 확장된 인터페이스 섹션에서 DTDL 참조). 
 
 위에 표시된 계층 구조의 일부를 확장한 후 확장된 계층 구조는 아래 다이어그램과 같이 표시됩니다. 여기에서 확장된 Space 인터페이스는 디지털 트윈을 3D 도면과 연결하는 ID가 포함된 `drawingId` 속성을 추가합니다. 또한 ConferenceRoom 인터페이스는 컨퍼런스 룸의 온라인 상태를 포함하는 “온라인” 속성을 추가합니다. 상속성을 통해 ConferenceRoom 인터페이스는 확장된 Space 인터페이스의 모든 기능은 물론 RealEstateCore ConferenceRoom 인터페이스의 모든 기능을 포함합니다. 
 
-:::image type="content" source="media/concepts-extending-ontologies/RealEstateCore-extended-2.png" alt-text="새 추가 항목이 포함된 위에서 확장된 RealEstateCore 공간 계층 구조를 보여주는 흐름 다이어그램입니다. Room이 이제 Space 요소와 해당 수준을 공유하고, ConferenceRoom 및 Office 옆에 있는 한 수준 아래 새로운 Room 요소에 ‘확장’ 화살표로 연결됩니다. 새 요소는 더 많은 ‘확장’ 관계를 사용하여 기존 온톨로지에 연결됩니다."::: 
+:::image type="content" source="media/concepts-ontologies-extend/real-estate-core-extended-2.png" alt-text="확장된 RealEstateCore 공간 계층 구조를 보여주는 다이어그램으로, 설명된 대로 더 많은 새로운 추가 사항이 있습니다."::: 
 
 ## <a name="using-the-extended-space-hierarchy"></a>확장된 공간 계층 구조 사용 
 
@@ -77,7 +77,7 @@ RealEstateCore 온톨로지에 대한 자세한 내용은 [*개념: 업계 표�
 
 각 디지털 트윈의 모델은 아래 다이어그램에 표시된 확장된 계층 구조의 인터페이스입니다. 
  
-:::image type="content" source="media/concepts-extending-ontologies/ontology-with-models.png" alt-text="Space(최상위 수준), Room 하나(중간 수준) 및 ConferenceRoom, Office, FocusRoom(하위 수준)을 포함하여 확장된 RealEstateCore 공간 계층 구조에서 발췌한 항목입니다. 모델 이름은 각 요소에 연결됩니다. 예를 들어 Room은 Room101이라는 모델에 연결됩니다."::: 
+:::image type="content" source="media/concepts-ontologies-extend/ontology-with-models.png" alt-text="연결된 모델 Space, Room, ConferenceRoom, Office 및 FocusRoom을 포함하여 확장된 RealEstateCore 공간 계층 구조를 보여주는 다이어그램."::: 
 
 모델 ID(`IS_OF_MODEL` 연산자)를 사용하여 디지털 트윈을 쿼리할 때는 확장된 계층 구조의 모델 ID를 사용해야 합니다. 예들 들어 `SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:com:example:Office;1')`입니다. 
 
@@ -162,4 +162,4 @@ RealEstateCore 온톨로지에 대한 자세한 내용은 [*개념: 업계 표�
 
 ## <a name="next-steps"></a>다음 단계
 
-온톨로지 기반의 모델 개발 경로를 계속합니다. [*모델 개발 경로에서 온톨로지 전략 사용*](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).
+온톨로지 기반의 모델 개발 경로를 계속합니다. [모델 개발 경로에서 온톨로지 전략 사용](concepts-ontologies.md#using-ontology-strategies-in-a-model-development-path).

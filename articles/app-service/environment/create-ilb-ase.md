@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be936bf8799d3e16679cf337e2425543163fe8f3
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96009554"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110063301"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 
@@ -129,7 +129,7 @@ SCM 사이트 이름은 Azure Portal 내에서 **고급 포털** 이라고 하�
 
 GitHub 및 Azure DevOps와 같은 인터넷 기반 CI 시스템은 빌드 에이전트가 인터넷에 액세스할 수 있고 ILB ASE와 동일한 네트워크에 있는 경우 ILB ASE와 함께 작동합니다. 따라서 Azure DevOps의 경우 빌드 에이전트가 ILB ASE와 동일한 VNET에서 만들어지면(다른 서브넷은 문제 없음) Azure DevOps git에서 코드를 끌어오고 ILB ASE에 배포할 수 있습니다. 사용자 고유의 빌드 에이전트를 만들지 않으려면 Dropbox 등의 끌어오기 모델을 사용하는 CI 시스템을 사용해야 합니다.
 
-ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. *&lt;ASE 이름&gt;.appserviceenvironment.net* 도메인 접미사가 있는 ILB ASE 및 *mytest* 라는 앱이 있는 경우 FTP에는 *mytest.&lt;ASE 이름&gt;.appserviceenvironment.net* 을 사용하고, 웹 배포에는 *mytest.scm.contoso.net* 을 사용합니다.
+ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 이 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **Essentials** 및 **속성**)에서 표시됩니다. *&lt;ASE 이름&gt;.appserviceenvironment.net* 도메인 접미사가 있는 ILB ASE 및 *mytest* 라는 앱이 있는 경우 FTP에는 *mytest.&lt;ASE 이름&gt;.appserviceenvironment.net* 을 사용하고, MSDeploy 배포에는 *mytest.scm.contoso.net* 을 사용합니다.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>WAF 디바이스를 사용하여 ILB ASE 구성 ##
 

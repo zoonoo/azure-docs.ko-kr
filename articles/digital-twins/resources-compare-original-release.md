@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/28/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e45f6078bd2cd078202cbe30462614961cfa7404
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: e03552bc3be1a4d124a46c437b60ac2d4e466940
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108203652"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476774"
 ---
 # <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-original-version-2018"></a>새로운 Azure Digital Twins란? 원래 버전(2018)과 어떻게 다른가요?
 
@@ -42,6 +42,6 @@ Azure Digital Twins 제한 목록은 [Azure Digital Twins 서비스 제한](refe
 
 ## <a name="next-steps"></a>다음 단계
 
-* 현재 릴리스에서 할 수 있는 작업에 대한 자세한 내용은 빠른 시작: 샘플 시나리오 살펴보기를 참조하세요.
+* [빠른 시작: Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)에서 현재 릴리스 작업에 대해 자세히 알아보세요.
 
 * 또는 개념: 사용자 지정 모델에서 핵심 개념에 대해 알아보세요.

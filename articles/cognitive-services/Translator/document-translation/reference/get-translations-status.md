@@ -10,20 +10,24 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: c3301283f0a7334a7c207ff7c80b4f71a13de465
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: a7615a8230b03c928d256fae62fbbe3b4e8651fb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864832"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453392"
 ---
 # <a name="get-translations-status"></a>번역 상태 가져오기
 
-번역 상태 가져오기 메서드는 제출된 일괄 처리 요청 목록과 각 요청의 상태를 반환합니다. 이 목록에는 사용자가 제출한 일괄 처리 요청만 포함됩니다(구독 기준). 각 요청의 상태는 ID를 기준으로 정렬됩니다.
+번역 상태 가져오기 메서드는 제출된 일괄 처리 요청 목록과 각 요청의 상태를 반환합니다. 이 목록에는 사용자가 제출한 일괄 처리 요청만 포함됩니다(리소스 기준).
 
-요청 수가 페이징 제한을 초과하면 서버 측 페이징이 사용됩니다. 페이지가 매겨진 응답은 부분 결과를 나타내며 응답에 연속 토큰을 포함합니다. 연속 토큰이 없다는 것은 추가 페이지를 사용할 수 없음을 의미합니다.
+요청 수가 페이징 제한을 초과하면 서버 측 페이징이 사용됩니다. 페이지가 매겨진 응답은 부분 결과를 나타내며 응답에 연속 토큰을 포함합니다. 연속 토큰이 없다는 것은 다른 페이지를 사용할 수 없음을 의미합니다.
 
-$top 및 $skip 쿼리 매개 변수를 사용하여 반환할 결과 수와 컬렉션 오프셋을 지정할 수 있습니다.
+$top, $skip 및 $maxpagesize 쿼리 매개 변수를 사용하여 반환할 결과 수와 컬렉션 오프셋을 지정할 수 있습니다.
+
+$top은 사용자가 모든 페이지에서 반환하려는 총 레코드 수를 나타냅니다. $skip은 지정된 정렬 방법에 따라 일괄 처리 목록에서 건너뛸 레코드 수를 나타냅니다. 기본적으로는 시작 시간을 내림차순으로 정렬합니다. $maxpagesize는 한 페이지에서 반환되는 최대 항목입니다. $top을 통해 추가 항목을 요청하는 경우(또는 $top이 지정되지 않고 반환될 항목이 더 많은 경우) @nextLink에는 다음 페이지로 연결되는 링크가 포함됩니다.
+
+$orderBy 쿼리 매개 변수를 사용하여 반환된 목록을 정렬할 수 있습니다(예: "$orderBy=createdDateTimeUtc asc" 또는 "$orderBy=createdDateTimeUtc desc"). 기본 정렬은 createdDateTimeUtc를 기준으로 내림차순입니다. 일부 쿼리 매개 변수는 반환된 목록을 필터링하는 데 사용할 수 있습니다(예: "status=Succeeded,Cancelled"는 성공 및 취소된 작업만 반환함). createdDateTimeUtcStart 및 createdDateTimeUtcEnd를 조합하거나 개별적으로 사용하여 반환된 목록을 필터링할 날짜/시간 범위를 지정할 수 있습니다. 지원되는 필터링 쿼리 매개 변수는 (status, IDs, createdDateTimeUtcStart, createdDateTimeUtcEnd)입니다.
 
 서버는 클라이언트에서 지정한 값을 준수합니다. 그러나 클라이언트는 다른 페이지 크기나 연속 토큰이 포함된 응답을 처리할 수 있도록 준비되어야 합니다.
 
@@ -36,7 +40,7 @@ $top 및 $skip이 모두 포함된 경우 서버는 먼저 $skip을 적용한 �
 
 다음에 `GET` 요청을 보냅니다.
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches
 ```
 
 [사용자 지정 도메인 이름](../get-started-with-document-translation.md#find-your-custom-domain-name)을 찾는 방법에 대해 알아봅니다.
@@ -50,10 +54,16 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 쿼리 문자열에 전달된 요청 매개 변수는 다음과 같습니다.
 
-|쿼리 매개 변수|필수|Description|
-|--- |--- |--- |
-|$skip|거짓|컬렉션에서 $skip 항목을 건너뜁니다. $top 및 $skip이 모두 제공되면 $skip이 먼저 적용됩니다.|
-|$top|거짓|컬렉션에서 $top 항목을 가져옵니다. $top 및 $skip이 모두 제공되면 $skip이 먼저 적용됩니다.|
+|쿼리 매개 변수|In(다음 안에)|필수|Type|Description|
+|--- |--- |--- |---|---|
+|$maxpagesize|Query|False|정수 int32|$maxpagesize는 한 페이지에서 반환되는 최대 항목입니다. $top을 통해 추가 항목을 요청하는 경우(또는 $top이 지정되지 않고 반환될 항목이 더 많은 경우) @nextLink에는 다음 페이지로 연결되는 링크가 포함됩니다. 클라이언트는 $maxpagesize 기본 설정을 지정하여 특정 페이지 크기의 서버 기반 페이징을 요청할 수 있습니다. 지정된 페이지 크기가 서버의 기본 페이지 크기보다 작은 경우 서버는 이 기본 설정을 준수해야 합니다.|
+|$orderBy|Query|False|array|컬렉션에 대한 정렬 쿼리(예: 'CreatedDateTimeUtc asc', 'CreatedDateTimeUtc desc')|
+|$skip|Query|False|정수 int32|$skip은 지정된 정렬 방법에 따라 서버가 보유한 레코드 목록에서 건너뛸 레코드 수를 나타냅니다. 기본적으로는 시작 시간을 내림차순으로 정렬합니다. 클라이언트는 $top 및 $skip 쿼리 매개 변수를 사용하여 반환할 결과 수와 컬렉션 오프셋을 지정할 수 있습니다. 클라이언트에서 $top과 $skip을 모두 제공하는 경우 서버는 먼저 $skip을 적용한 다음, $top을 컬렉션에 적용합니다. 참고: 서버에서 $top 및/또는 $skip을 처리할 수 없는 경우 서버는 쿼리 옵션을 무시하는 대신 클라이언트에게 이를 알려주는 오류를 반환해야 합니다.|
+|$top|Query|False|정수 int32|$top은 사용자가 모든 페이지에서 반환하려는 총 레코드 수를 나타냅니다. 클라이언트는 $top 및 $skip 쿼리 매개 변수를 사용하여 반환할 결과 수와 컬렉션 오프셋을 지정할 수 있습니다. 클라이언트에서 $top과 $skip을 모두 제공하는 경우 서버는 먼저 $skip을 적용한 다음, $top을 컬렉션에 적용합니다. 참고: 서버에서 $top 및/또는 $skip을 처리할 수 없는 경우 서버는 쿼리 옵션을 무시하는 대신 클라이언트에게 이를 알려주는 오류를 반환해야 합니다.|
+|createdDateTimeUtcEnd|Query|False|문자열 날짜-시간|이전 항목을 가져올 종료 날짜/시간입니다.|
+|createdDateTimeUtcStart|Query|False|문자열 날짜-시간|이후 항목을 가져올 시작 날짜/시간입니다.|
+|ids|Query|False|array|필터링에 사용할 ID입니다.|
+|statuses|Query|False|array|필터링에 사용할 상태입니다.|
 
 ## <a name="request-headers"></a>요청 헤더
 
@@ -81,31 +91,34 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 성공한 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|유형|Description|
+|Name|Type|Description|
 |--- |--- |--- |
-|id|문자열|작업의 ID입니다.|
-|createdDateTimeUtc|문자열|작업을 만든 날짜와 시간입니다.|
-|lastActionDateTimeUtc|문자열|작업 상태가 업데이트된 날짜와 시간입니다.|
-|상태|String|작업 또는 문서의 가능한 상태 목록: <ul><li>취소됨</li><li>Cancelling</li><li>실패</li><li>NotStarted</li><li>실행 중</li><li>성공</li><li>ValidationFailed</li></ul>|
-|요약|StatusSummary[]|세부 정보가 포함된 요약은 다음과 같습니다.|
-|summary.total|integer|총 문서 수입니다.|
-|summary.failed|integer|실패한 문서 수입니다.|
-|summary.success|integer|성공적으로 번역된 문서 수입니다.|
-|summary.inProgress|integer|진행 중인 문서 수입니다.|
-|summary.notYetStarted|integer|아직 처리가 시작되지 않은 문서 수입니다.|
-|summary.cancelled|integer|취소된 문서 수입니다.|
-|summary.totalCharacterCharged|integer|처리해야 하는 총 문자 수입니다.|
+|@nextLink|문자열|다음 페이지의 URL입니다. 사용 가능한 페이지가 더 이상 없으면 Null입니다.|
+|값|TranslationStatus[]|아래에 나열된 TranslationStatus[] 배열|
+|value.id|문자열|작업의 ID입니다.|
+|value.createdDateTimeUtc|문자열|작업을 만든 날짜와 시간입니다.|
+|value.lastActionDateTimeUtc|문자열|작업 상태가 업데이트된 날짜/시간입니다.|
+|value.status|String|작업 또는 문서의 가능한 상태 목록: <ul><li>취소됨</li><li>Cancelling</li><li>실패</li><li>NotStarted</li><li>실행 중</li><li>성공</li><li>ValidationFailed</li></ul>|
+|value.summary|StatusSummary[]|세부 정보가 포함된 요약은 다음과 같습니다.|
+|value.summary.total|integer|총 문서 수입니다.|
+|value.summary.failed|integer|실패한 문서 수입니다.|
+|value.summary.success|integer|성공적으로 번역된 문서 수입니다.|
+|value.summary.inProgress|integer|진행 중인 문서 수입니다.|
+|value.summary.notYetStarted|integer|아직 처리가 시작되지 않은 문서 수입니다.|
+|value.summary.cancelled|integer|취소된 문서 수입니다.|
+|value.summary.totalCharacterCharged|integer|처리해야 하는 총 문자 수입니다.|
 
 ### <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|이름|Type|설명|
 |--- |--- |--- |
 |code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
 |message|문자열|간략한 오류 메시지를 가져옵니다.|
-|대상|문자열|오류 출처를 가져옵니다. 예를 들어 잘못된 문서의 경우 "documents" 또는 "document id"가 됩니다.|
-|innerError|InnerErrorV2|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩될 수 있음)가 포함됩니다.|
+|대상|문자열|오류 출처를 가져옵니다. 예를 들어 잘못된 문서가 있는 경우 "documents" 또는 "document ID"가 됩니다.|
+|innerError|InnerTranslationError|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩될 수 있음)가 포함됩니다.|
 |innerError.code|문자열|코드 오류 문자열을 가져옵니다.|
 |innerError.message|문자열|간략한 오류 메시지를 가져옵니다.|
+|innerError.target|문자열|오류 출처를 가져옵니다. 예를 들어 잘못된 문서가 있는 경우 "documents" 또는 "document ID"가 됩니다.|
 
 ## <a name="examples"></a>예제
 
@@ -117,9 +130,9 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 {
   "value": [
     {
-      "id": "727bf148-f327-47a0-9481-abae6362f11e",
-      "createdDateTimeUtc": "2020-03-26T00:00:00Z",
-      "lastActionDateTimeUtc": "2020-03-26T01:00:00Z",
+      "id": "273622bd-835c-4946-9798-fd8f19f6bbf2",
+      "createdDateTimeUtc": "2021-03-23T07:03:30.013631Z",
+      "lastActionDateTimeUtc": "2021-03-26T01:00:00Z",
       "status": "Succeeded",
       "summary": {
         "total": 10,
@@ -128,7 +141,7 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
         "inProgress": 0,
         "notYetStarted": 0,
         "cancelled": 0,
-        "totalCharacterCharged": 0
+        "totalCharacterCharged": 1000
       }
     }
   ]

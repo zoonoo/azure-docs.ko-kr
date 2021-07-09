@@ -9,30 +9,30 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/23/2021
+ms.date: 04/28/2021
 ms.author: aahi
 keywords: 온-프레미스, Docker, 컨테이너, 식별
-ms.openlocfilehash: 36cbd7bd24304871593b107f9b8ed9be02ce46de
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3af013000b49690a4edd71c16e607ed57b3ca163
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706795"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108291031"
 ---
-# <a name="install-and-run-face-containers-preview"></a>Face 컨테이너 설치 및 실행(미리 보기)
+# <a name="install-and-run-face-containers-retiring"></a>Face 컨테이너 설치 및 실행(사용 중지)
 
 > [!IMPORTANT]
-> Face 컨테이너 사용자 제한에 도달했습니다. 현재 Face 컨테이너에 대해 새로운 애플리케이션을 수락하지 않습니다.
+> Face 컨테이너 미리 보기는 더 이상 애플리케이션을 허용하지 않으며, 2021년 4월 29일부터 컨테이너는 사용이 중단되었습니다. Face 컨테이너는 2021년 7월 26일에 완전히 사용 중지됩니다.
 
 Azure Cognitive Services Face API는 이미지에서 사람 얼굴을 감지하고 분석하는 Linux Docker 컨테이너를 제공합니다. 또한 얼굴 랜드마크(예: 코, 눈), 성별, 연령, 기타 머신 예측 얼굴 특징 등을 포함한 특성을 식별합니다. 감지 외에도 Face는 신뢰도 점수를 사용하여 동일한 이미지 또는 다른 이미지의 두 얼굴이 동일한지 확인할 수 있습니다. Face는 데이터베이스에 대해 얼굴을 비교하여 비슷하거나 동일한 얼굴이 이미 있는지 여부도 확인할 수 있습니다. 공유된 시각적 특성을 사용하여 비슷한 얼굴을 그룹으로 구성할 수도 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/cognitive-services/)을 만듭니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 Face 서비스 컨테이너를 사용하려면 먼저 다음 사전 요구 사항을 충족해야 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 |Docker 엔진| Docker 엔진은 [호스트 컴퓨터](#the-host-computer)에 설치해야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> Windows에서 Docker는 Linux 컨테이너도 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념을 기본적으로 이해하고 있어야 합니다. 또한 기본 `docker` 명령에 대한 지식이 필요합니다.| 
