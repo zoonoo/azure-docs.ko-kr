@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro 물리적 디바이스를 설치(포장을 풀고, 랙에 탑재하고, 케이블로 연결)하는 방법에 대한 자습서 | Microsoft Docs
-description: Azure Stack Edge Pro 설치에 대한 두 번째 자습서에서는 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결하는 방법을 설명합니다.
+title: Azure Stack Edge Pro FPGA 물리적 디바이스 포장 풀기, 랙 설치, 케이블 연결에 대한 자습서 | Microsoft Docs
+description: Azure Stack Edge Pro FPGA 설치에 대한 두 번째 자습서에서는 물리적 디바이스의 포장을 풀고, 랙에 탑재하고, 케이블을 연결하는 방법을 설명합니다.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: alkohli
-ms.openlocfilehash: caf64de55c48d763b8600988e5ff2aba2c83e4f9
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 91fa1e0d74d050e2d812153bb203a9141bbe98df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106060196"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110461294"
 ---
-# <a name="tutorial-install-azure-stack-edge-pro"></a>자습서: Azure Stack Edge Pro 설치
+# <a name="tutorial-install-azure-stack-edge-pro-fpga"></a>자습서: Azure Stack Edge Pro FPGA 설치
 
-이 자습서에서는 Azure Stack Edge Pro 물리적 디바이스를 설치하는 방법에 대해 설명합니다. 설치 절차에는 포장 풀기, 랙 탑재 및 디바이스에 케이블 연결이 포함됩니다. 
+이 자습서에서는 Azure Stack Edge Pro FPGA 물리적 디바이스를 설치하는 방법에 대해 설명합니다. 설치 절차에는 포장 풀기, 랙 탑재 및 디바이스에 케이블 연결이 포함됩니다. 
 
 설치가 완료되려면 약 2시간 정도 걸릴 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "106060196"
 > * 랙에 디바이스 탑재
 > * 디바이스에 케이블 연결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 물리적 디바이스를 설치하기 위한 필수 조건은 다음과 같습니다.
 
@@ -36,12 +36,12 @@ ms.locfileid: "106060196"
 
 시작하기 전에 다음 사항을 확인합니다.
 
-* [Azure Stack Edge Pro 배포 준비](azure-stack-edge-deploy-prep.md)의 모든 단계를 완료했습니다.
+* [Azure Stack Edge Pro FPGA 배포 준비](azure-stack-edge-deploy-prep.md)의 모든 단계를 완료했습니다.
     * 디바이스를 배포할 Azure Stack Edge 리소스를 만들었습니다.
     * Azure Stack Edge 리소스를 통해 디바이스를 활성화하기 위한 활성화 키를 생성했습니다.
 
  
-### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Azure Stack Edge Pro 물리적 디바이스의 경우
+### <a name="for-the-azure-stack-edge-pro-fpga-physical-device"></a>Azure Stack Edge Pro FPGA 물리적 디바이스의 경우
 
 디바이스를 배포하기 전에 다음 사항을 확인합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "106060196"
 
 시작하기 전에
 
-- Azure Stack Edge Pro를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Azure Stack Edge Pro 네트워킹 요구 사항](azure-stack-edge-system-requirements.md#networking-port-requirements)을 참조하세요.
+- Azure Stack Edge Pro FPGA를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Azure Stack Edge Pro FPGA 네트워킹 요구 사항](azure-stack-edge-system-requirements.md#networking-port-requirements)을 참조하세요.
 
 - 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
 
@@ -69,12 +69,12 @@ ms.locfileid: "106060196"
 1. 평평한 지면에 상자를 놓습니다.
 2. 상자와 포장 발포 폼에 찌그러짐, 자르기, 물에 의한 손상 또는 기타 손상이 없는지 검사합니다. 상자나 포장이 심각하게 손상된 경우에는 열지 마세요. 디바이스가 제대로 작동하는지 평가하려면 [Microsoft 지원]에 문의하세요.
 3. 상자를 개봉합니다. 상자를 개봉한 후 다음이 있는지 확인합니다.
-    - 단일 인클로저 Azure Stack Edge Pro 디바이스 1개
+    - 단일 인클로저 Azure Stack Edge Pro FPGA 디바이스 1개
     - 전원 코드 2개
     - 하나의 레일 키트 어셈블리
     - 보안, 환경 및 규정 정보 소책자
 
-여기에 나열된 항목 중에 받지 못한 것이 있으면 Azure Stack Edge Pro 지원에 문의하세요. 다음 단계는 디바이스를 랙에 탑재하는 것입니다.
+여기에 나열된 항목 중에 받지 못한 것이 있으면 Azure Stack Edge Pro FPGA 지원에 문의하세요. 다음 단계는 디바이스를 랙에 탑재하는 것입니다.
 
 
 ## <a name="rack-the-device"></a>랙에 디바이스 탑재
@@ -82,10 +82,10 @@ ms.locfileid: "106060196"
 디바이스는 표준 19인치 랙에 설치해야 합니다. 다음 절차에 따라 표준 19인치 랙에 디바이스를 탑재합니다.
 
 > [!IMPORTANT]
-> Azure Stack Edge Pro 디바이스가 올바르게 작동하려면 랙에 탑재되어야 합니다.
+> Azure Stack Edge Pro FPGA 디바이스가 올바르게 작동하려면 랙에 탑재되어야 합니다.
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - 시작하기 전에 보안, 환경 및 규정 정보 소책자의 보안 지침을 읽으세요. 이 소책자는 디바이스와 함께 배송되었습니다.
 - 랙 엔클로저의 맨 아래에 가장 가까운 할당된 공간에 레일 설치를 시작합니다.
@@ -156,11 +156,11 @@ ms.locfileid: "106060196"
 
 ## <a name="cable-the-device"></a>디바이스에 케이블 연결
 
-케이블을 라우팅한 다음, 디바이스를 케이블로 연결합니다. 다음 절차에서는 전원 및 네트워크를 위해 Azure Stack Edge Pro 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
+케이블을 라우팅한 다음, 디바이스를 케이블로 연결합니다. 다음 절차에서는 전원 및 네트워크를 위해 Azure Stack Edge Pro FPGA 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
 
 디바이스 케이블 연결을 시작하기 전에 다음이 필요합니다.
 
-- 포장을 풀고 랙에 탑재된 Azure Stac Edge Pro 물리적 디바이스.
+- 포장을 풀고 랙에 탑재된 Azure Stac Edge Pro FPGA 물리적 디바이스.
 - 전원 케이블 2개
 - 관리 인터페이스에 연결하는 하나 이상의 1-GbE RJ-45 네트워크 케이블 디바이스에는 두 개의 1-GbE 네트워크 인터페이스가 있습니다. 하나는 관리용이고 하나는 데이터용입니다.
 - 구성할 각 데이터 네트워크 인터페이스에 대한 25-GbE SFP+ 동 케이블 1개 하나 이상의 데이터 네트워크 인터페이스 - PORT 2, PORT 3, PORT 4, PORT 5 또는 PORT 6을 인터넷에 연결해야 합니다(Azure에 연결).  
@@ -169,9 +169,9 @@ ms.locfileid: "106060196"
 > [!NOTE]
 > - 단 하나의 데이터 네트워크 인터페이스를 연결하는 경우 PORT 3, PORT 4, PORT 5 또는 PORT 6과 같은 25/10-GbE 네트워크 인터페이스를 사용하여 데이터를 Azure에 보내는 것이 좋습니다. 
 > - 최상의 성능을 얻고 많은 양의 데이터를 처리하려면 모든 데이터 포트를 연결하는 것이 좋습니다.
-> - Azure Stack Edge Pro 디바이스는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다.
+> - Azure Stack Edge Pro FPGA 디바이스는 데이터 원본 서버의 데이터를 수집할 수 있도록 데이터 센터 네트워크에 연결해야 합니다.
 
-Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
+Azure Stack Edge Pro FPGA 디바이스에서 다음을 수행합니다.
 
 - 전면 패널에는 디스크 드라이브와 전원 단추가 있습니다.
 
@@ -212,7 +212,7 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법과 같은 Azure Stack Edge Pro 항목에 대해 알아보았습니다.
+이 자습서에서는 다음을 수행하는 방법과 같은 Azure Stack Edge FPGA 항목에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 디바이스 포장 풀기
@@ -222,4 +222,4 @@ Azure Stack Edge Pro 디바이스에서 다음을 수행합니다.
 디바이스를 연결하고, 설정하고, 활성화하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Stack Edge Pro 연결 및 설정](./azure-stack-edge-deploy-connect-setup-activate.md)
+> [Azure Stack Edge Pro FPGA 연결 및 설정](./azure-stack-edge-deploy-connect-setup-activate.md)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 05/14/2021
 ms.author: jeedes
-ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 05831b88c492051b2b8d48071702335b3aac76b9
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96008398"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110062498"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>자습서: TMWS(Trend Micro Web Security)와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -25,8 +25,6 @@ ms.locfileid: "96008398"
 * Azure AD에서 TMWS에 액세스할 수 있는 사용자를 제어합니다.
 * 사용자가 해당 Azure AD 계정으로 TMWS에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
-
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -39,14 +37,13 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* TMWS에서 SP 시작 SSO를 지원합니다.
-* TMWS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아 보려면 [앱에 대한 조건부 액세스 앱 제어 온보드 및 배포](/cloud-app-security/proxy-deployment-any-app)를 참조하세요.
+* TMWS에서 **SP** 시작 SSO를 지원합니다.
 
 ## <a name="add-tmws-from-the-gallery"></a>갤러리에서 TMWS 추가
 
 TMWS가 Azure AD에 통합되도록 구성하려면 갤러리의 TMWS를 관리형 SaaS 앱 목록에 추가해야 합니다.
 
-1. 회사 또는 학교 계정, 개인 Microsoft 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 회사 또는 학교 계정, 개인 Microsoft 계정으로 Azure Portal에 로그인합니다.
 1. 왼쪽 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
@@ -70,7 +67,7 @@ TMWS에서 Azure AD SSO를 구성하고 테스트하려면 다음 기본 단계�
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 완료합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **TMWS(Trend Micro Web Security)** 애플리케이션 통합 페이지에 있는 **관리** 섹션에서 **Single Sign-On** 을 선택합니다.
+1. Azure Portal의 **TMWS(Trend Micro Web Security)** 애플리케이션 통합 페이지에 있는 **관리** 섹션에서 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 펜 단추를 선택하여 설정을 편집합니다.
 
@@ -127,13 +124,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
 1. 애플리케이션 목록에서 **TMWS(Trend Micro Web Security)** 를 선택합니다.
 1. 앱의 개요 페이지에 있는 **관리** 섹션에서 **사용자 및 그룹** 을 선택합니다.
-
-   ![사용자 및 그룹 선택](common/users-groups-blade.png)
-
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 선택](common/add-assign-user.png)
-
 1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon** 을 선택하고, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택한 다음, 화면의 아래쪽에서 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 을 선택합니다.
@@ -228,16 +219,6 @@ Azure AD 서비스가 구성되고 Azure AD가 사용자 인증 방법으로 지
 
 1. Azure AD 로그인 창에서 Azure AD 계정 자격 증명을 입력합니다. 이제 TMWS에 로그인됩니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서](./tutorial-list.md)
-
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
-
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Azure AD에서 Trend Micro Web Security 사용해 보기](https://aad.portal.azure.com/)
-
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
-
-- [고급 표시 유형 및 제어를 사용하여 Trend Micro Web Security를 보호하는 방법](/cloud-app-security/proxy-intro-aad)
+TMWS가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

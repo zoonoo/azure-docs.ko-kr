@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/28/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: aba837ab590ae941e161e10e88782dcce944c085
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: b38b5303f21cb31115a2279648c8d631e31aa8bf
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108760466"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110459317"
 ---
 # <a name="tutorial-create-logical-data-warehouse-with-serverless-sql-pool"></a>자습서: 서버리스 SQL 풀을 사용하여 Logical Data Warehouse 만들기
 
@@ -88,8 +88,10 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 ```sql
 CREATE EXTERNAL FILE FORMAT ParquetFormat WITH (  FORMAT_TYPE = PARQUET );
 GO
-CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
+CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = DELIMITEDTEXT );
 ```
+
+[이 문서](develop-tables-external-tables.md?tabs=native#syntax-for-create-external-file-format)에서 자세한 정보 찾기
 
 ## <a name="explore-your-data"></a>데이터 탐색
 
@@ -98,7 +100,7 @@ CREATE EXTERNAL FILE FORMAT CsvFormat WITH (  FORMAT_TYPE = CSV );
 ```sql
 select top 10  *
 from openrowset(bulk 'latest/ecdc_cases.parquet',
-                data_source = 'ecdc_cases'
+                data_source = 'ecdc_cases',
                 format='parquet') as a
 ```
 
@@ -177,11 +179,23 @@ FROM OPENROWSET(
 ## <a name="access-and-permissions"></a>액세스 및 사용 권한
 
 마지막 단계로, LDW에 액세스하도록 해야 하는 데이터베이스 사용자를 만들고, 외부 테이블 및 뷰에서 데이터를 선택할 권한을 부여해야 합니다.
-다음 스크립트에서 새 사용자를 추가하고 데이터를 읽을 권한을 제공하는 방법을 확인할 수 있습니다.
+다음 스크립트에서는 Azure AD ID를 사용하여 인증할 새 사용자를 추가하는 방법을 확인할 수 있습니다.
 
 ```sql
 CREATE USER [jovan@contoso.com] FROM EXTERNAL PROVIDER;
 GO
+```
+
+Azure AD 보안 주체 대신, 로그인 이름 및 암호를 사용하여 인증을 받는 SQL 보안 주체를 만들 수 있습니다.
+
+```sql
+CREATE LOGIN [jovan] WITH PASSWORD = 'My Very strong Password ! 1234';
+CREATE USER [jovan] FROM LOGIN [jovan];
+```
+
+두 경우 모두 사용자에게 권한을 할당할 수 있습니다.
+
+```sql
 DENY ADMINISTER DATABASE BULK OPERATIONS TO [jovan@contoso.com]
 GO
 GRANT SELECT ON SCHEMA::ecdc_adls TO [jovan@contoso.com]
@@ -202,6 +216,31 @@ GO
 ```sql
 GRANT CONTROL TO [jovan@contoso.com]
 ```
+
+### <a name="role-based-security"></a>역할 기반 보안
+
+개별 사용자에게 사용 권한을 할당하는 대신, 역할 수준에서 사용자를 역할로 구성하고 권한을 관리하는 것이 좋습니다.
+다음 코드 샘플에서는 코로나19 사례를 분석할 수 있는 사람을 나타내는 새 역할을 만들고 이 역할에 세 명의 사용자를 추가합니다.
+
+```sql
+CREATE ROLE CovidAnalyst;
+
+ALTER ROLE CovidAnalyst ADD MEMBER [jovan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [milan@contoso.com];
+ALTER ROLE CovidAnalyst ADD MEMBER [petar@contoso.com];
+```
+
+그룹에 속한 모든 사용자에게 사용 권한을 할당할 수 있습니다.
+
+```sql
+GRANT SELECT ON SCHEMA::ecdc_cosmosdb TO [CovidAnalyst];
+GO
+DENY SELECT ON SCHEMA::ecdc_adls TO [CovidAnalyst];
+GO
+DENY ADMINISTER DATABASE BULK OPERATIONS TO [CovidAnalyst];
+```
+
+이 역할 기반 보안 액세스 제어는 보안 규칙의 관리를 간소화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

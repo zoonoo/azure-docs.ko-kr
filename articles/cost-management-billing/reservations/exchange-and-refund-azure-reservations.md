@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: banders
-ms.openlocfilehash: 3e8f50efd04364483c32ecb8ef5020bdd053e55b
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.openlocfilehash: d45682a3ccdc67cdbff8ef0c1edd542817875fbc
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515484"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891557"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -65,6 +65,7 @@ Azure Databricks 예약된 용량, Azure VMware solution by CloudSimple 예약, 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>프리미엄이 아닌 스토리지를 프리미엄 스토리지로 교환
 
 프리미엄 스토리지를 지원하지 않는 VM 크기에 대해 구매한 예약을 프리미엄 스토리지를 지원하는 해당 VM 크기로 교환할 수 있습니다. 예를 들어, _F1_ 을 _F1s_ 로 교환할 수 있습니다. 교환을 수행하려면 예약 정보로 이동하여 **교환** 을 선택합니다. 교환은 예약 인스턴스의 기간을 재설정하거나 새 트랜잭션을 만들지 않습니다.
+다른 크기, 계열, 지역 또는 결제 빈도로 교환하는 경우 새 예약의 기간이 다시 설정됩니다. 
 
 ## <a name="how-transactions-are-processed"></a>거래가 처리되는 방식
 

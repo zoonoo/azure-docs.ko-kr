@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.date: 02/16/2021
+ms.date: 05/13/2021
 ms.author: memildin
-ms.openlocfilehash: 070f35dc3efea4a3f05ec36cc3860fa589aa87e3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b68a9946908697d6e9113af586a134b0b3d8784a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102437913"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110468342"
 ---
 # <a name="feature-coverage-for-machines"></a>머신에 대한 기능 적용 범위
 
@@ -125,6 +125,7 @@ ms.locfileid: "102437913"
 |[Azure Defender for DNS](defender-for-dns-introduction.md)|-|-|
 |[컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)|✔(2)|✔(2)|
 |[Kubernetes용 Azure Defender](defender-for-kubernetes-introduction.md)|✔|✔|
+|[오픈 소스 관계형 데이터베이스용 Azure Defender](defender-for-databases-introduction.md)|-|-|
 |[Kubernetes 워크로드 보호](kubernetes-workload-protections.md)|✔|✔|
 |||
 

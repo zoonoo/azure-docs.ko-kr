@@ -1,23 +1,23 @@
 ---
 title: '자습서: Azure Blob을 통한 REST 및 AI'
 titleSuffix: Azure Cognitive Search
-description: Postman 및 Azure Cognitive Search REST API를 사용하여 Blob 스토리지의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
+description: Postman 및 Azure Cognitive Search REST API를 사용하여 Blob Storage의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/17/2020
-ms.openlocfilehash: 21f0d141567f17c470732088c6a93a2ae7ed3c67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 878bdc1224134f7b9de684635cde77d057b221a7
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94738053"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111555995"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: REST 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
-Azure Blob 스토리지에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 Blob에서 새 콘텐츠를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
+Azure Blob Storage에 비정형 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)은 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 Blob에서 새 콘텐츠를 만들 수 있습니다. 파이프라인에서 이미지를 처리할 수 있지만, 이 REST 자습서에서는 텍스트에 중점을 두고 언어 감지 및 자연어 처리를 적용하여 쿼리, 패싯 및 필터에 활용할 수 있는 새로운 필드를 만듭니다.
 
 이 자습서에서는 Postman 및 [Search REST API](/rest/api/searchservice/)를 사용하여 다음 작업을 수행합니다.
 
@@ -32,7 +32,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 C# 및 Azure Cognitive Search REST API를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 만듭니다. Azure Blob 스토리지에서 PDF, HTML, .DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작한 다음, 기술 세트를 통해 실행하여 콘텐츠 파일에서 엔터티, 핵심 구 및 기타 텍스트를 추출합니다.
+이 자습서에서는 C# 및 Azure Cognitive Search REST API를 사용하여 데이터 원본, 인덱스, 인덱서 및 기술 세트를 만듭니다. Azure Blob Storage에서 PDF, HTML, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작한 다음, 기술 세트를 통해 실행하여 콘텐츠 파일에서 엔터티, 핵심 구 및 기타 텍스트를 추출합니다.
 
 이 기술 세트에서는 Cognitive Services API 기반의 기본 제공 기술을 사용합니다. 파이프라인의 단계에는 텍스트에 대한 언어 감지, 핵심 문구 추출 및 엔터티 인식(조직)이 포함됩니다. 새 정보는 쿼리, 패싯 및 필터에 활용할 수 있는 새 필드에 저장됩니다.
 
@@ -55,7 +55,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고 AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
+이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고, AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고, Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
 
 가능하면, 근접성과 관리 효율성을 위해 두 가지 모두를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
@@ -113,7 +113,7 @@ AI 보강은 자연어와 이미지 처리를 위한 Text Analytics 및 Computer
 
 세 번째 구성 요소는 [포털에서 만들](search-create-service-portal.md) 수 있는 Azure Cognitive Search입니다. 이 연습은 체험 계층을 사용하여 완료할 수 있습니다. 
 
-Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
+Azure Blob Storage와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
 
 ### <a name="copy-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Azure Cognitive Search용 관리 API 키와 URL 복사
 
@@ -185,7 +185,7 @@ Azure Cognitive Search에서 보강은 인덱싱(또는 데이터 수집) 중에
 
    | 기술                 | 설명    |
    |-----------------------|----------------|
-   | [엔터티 인식](cognitive-search-skill-entity-recognition.md) | Blob 컨테이너의 콘텐츠에서 사람, 조직 및 위치의 이름을 추출합니다. |
+   | [엔터티 인식](cognitive-search-skill-entity-recognition-v3.md) | Blob 컨테이너의 콘텐츠에서 사람, 조직 및 위치의 이름을 추출합니다. |
    | [언어 감지](cognitive-search-skill-language-detection.md) | 콘텐츠의 언어를 감지합니다. |
    | [텍스트 나누기](cognitive-search-skill-textsplit.md)  | 핵심 구 추출 기술을 호출하기 전에 큰 콘텐츠를 더 작은 청크로 분할합니다. 핵심 구 추출은 50,000자 이하의 입력을 허용합니다. 일부 샘플 파일은 이 제한에 맞게 분할해야 합니다. |
    | [핵심 구 추출](cognitive-search-skill-keyphrases.md) | 상위 핵심 구를 가져옵니다. |

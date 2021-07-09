@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 787f902311437e6ca8a679299ef7a28b34cee4ab
-ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
+ms.openlocfilehash: 09e719408926c071777a7022264c10f14531067f
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107728413"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110075523"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -52,7 +52,7 @@ ms.locfileid: "107728413"
 
 #### <a name="if-your-enterprise-administrator-cant-help-you"></a>엔터프라이즈 관리자가 도와줄 수 없는 경우
 
-엔터프라이즈 관리자의 도움을 받을 수 없는 경우 [Azure 엔터프라이즈 Portal 지원 요청](https://support.microsoft.com/supportrequestform/cf791efa-485b-95a3-6fad-3daf9cd4027c)을 작성합니다. 다음 정보를 지정합니다.
+엔터프라이즈 관리자의 도움을 받을 수 없는 경우 [Azure 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 작성합니다. 다음 정보를 지정합니다.
 
 - 등록 번호
 - 추가할 이메일 주소 및 인증 유형(회사, 학교 또는 Microsoft 계정)

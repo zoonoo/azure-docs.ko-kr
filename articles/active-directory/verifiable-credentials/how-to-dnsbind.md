@@ -4,17 +4,17 @@ description: DNS Bind의 방법에 대해 알아볼까요?
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
-ms.openlocfilehash: ad5bb6e45479b4cccfa0b002427066439135e468
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: c1254176966a902f81cd42b68db17557288aa241
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107588448"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110466183"
 ---
 # <a name="link-your-domain-to-your-decentralized-identifier-did"></a>도메인을 DID(탈중앙화 ID)에 연결
 
@@ -133,4 +133,4 @@ DID(탈중앙화 ID)는 기존 시스템에 고정되지 않은 식별자로 시
 
 ## <a name="next-steps"></a>다음 단계
 
-온보딩 과정에서 잘못된 도메인 정보를 입력한 경우에는 [옵트아웃](how-to-opt-out.md)해야 합니다. 지금은 DID 문서 업데이트를 지원하지 않습니다. 옵트아웃하고 다시 옵트인하면 새로운 DID가 만들어집니다.
+온보딩 과정에서 잘못된 도메인 정보를 입력하거나 변경한 경우에는 [옵트아웃](how-to-opt-out.md)해야 합니다. 지금은 DID 문서 업데이트를 지원하지 않습니다. 옵트아웃하고 다시 옵트인하면 새로운 DID가 만들어집니다.

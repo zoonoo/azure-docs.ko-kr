@@ -7,16 +7,16 @@ ms.service: cache
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 01/08/2021
-ms.openlocfilehash: 04b582b5ef31e61039c5513ea2a4aa60f1c638e7
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 5303289cd0629fea1c78e4ae746427e875f80520
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121340"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891638"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-go"></a>빠른 시작: Go에서 Azure Cache for Redis 사용
 
-이 문서에서는 [Azure Cache for Redis](./cache-overview.md)에서 [HASH](https://redis.io/topics/data-types-intro#redis-hashes) 데이터 구조가 지원하는 사용자 정보를 저장하고 검색하는 REST API를 Go에서 빌드하는 방법을 알아봅니다. 
+이 문서에서는 [Azure Cache for Redis](./cache-overview.md)에서 [HASH](https://redis.io/topics/data-types-intro#redis-hashes) 데이터 구조가 지원하는 사용자 정보를 저장하고 검색하는 REST API를 Go에서 빌드하는 방법을 알아봅니다.
 
 ## <a name="skip-to-the-code-on-github"></a>GitHub의 코드로 건너뛰기
 
@@ -30,6 +30,7 @@ ms.locfileid: "102121340"
 - HTTP 클라이언트(예: [curl](https://curl.se/))
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Azure Cache for Redis 인스턴스 만들기
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
@@ -49,7 +50,7 @@ func main() {
 ...
 ```
 
-그런 다음, Azure Cache for Redis와의 연결을 설정합니다. [tls.Config](https://golang.org/pkg/crypto/tls/#Config)가 사용된다는 점에 유의하세요. Azure Cache for Redis는 [필요한 최소 버전인 TLS 1.2](cache-remove-tls-10-11.md)와의 보안 연결만 수락합니다.
+그런 다음, Azure Cache for Redis와의 연결을 설정합니다. [tls.Config](https://golang.org/pkg/crypto/tls/#Config)를 사용합니다. Azure Cache for Redis는 [필요한 최소 버전인 TLS 1.2](cache-remove-tls-10-11.md)와의 보안 연결만 수락합니다.
 
 ```go
 ...
@@ -64,9 +65,9 @@ if err != nil {
 ...
 ```
 
-연결에 성공하면 [HTTP 처리기](https://golang.org/pkg/net/http/#HandleFunc)가 `POST` 및 `GET` 작업을 처리하도록 구성되고 HTTP 서버가 시작됩니다. 
+연결에 성공하면 [HTTP 처리기](https://golang.org/pkg/net/http/#HandleFunc)가 `POST` 및 `GET` 작업을 처리하도록 구성되고 HTTP 서버가 시작됩니다.
 
-> [!NOTE] 
+> [!NOTE]
 > 라우팅에는 [gorilla mux 라이브러리](https://github.com/gorilla/mux)가 사용됩니다(이는 반드시 필요한 것은 아니며 이 샘플 애플리케이션에 대한 표준 라이브러리를 대신 사용할 수도 있음).
 >
 
@@ -80,7 +81,7 @@ router.HandleFunc("/users/{userid}", uh.getUser).Methods(http.MethodGet)
 log.Fatal(http.ListenAndServe(":8080", router))
 ```
 
-`userHandler` 구조체는 `createUser`, `getUser` 메서드에서 사용하는 [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client)를 캡슐화합니다. 간단한 설명을 위해 이러한 메서드에 대한 코드는 포함되지 않았습니다. 
+`userHandler` 구조체는 `createUser`, `getUser` 메서드에서 사용하는 [redis.Client](https://pkg.go.dev/github.com/go-redis/redis/v8#Client)를 캡슐화합니다. 간단한 설명을 위해 이러한 메서드에 대한 코드는 포함되지 않습니다.
 
 - `createUser`: JSON 페이로드(사용자 정보 포함)를 수락하고 Azure Cache for Redis에 `HASH`로 저장합니다.
 - `getUser`: `HASH`에서 사용자 정보를 가져오고, 찾을 수 없는 경우 HTTP `404` 응답을 반환합니다.
@@ -111,7 +112,7 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
     md "C:\git-samples"
     ```
 
-1. git bash와 같은 git 터미널 창을 엽니다. `cd` 명령을 사용하여 새 폴더로 변경하고 샘플 앱을 복제합니다.
+1. git bash와 같은 git 터미널 창을 엽니다. `cd` 명령을 사용하여 샘플 앱을 복제하려는 새 폴더로 변경합니다.
 
     ```bash
     cd "C:\git-samples"
@@ -125,7 +126,7 @@ GitHub에서 애플리케이션을 복제하여 시작합니다.
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-애플리케이션은 환경 변수 형식의 연결 및 자격 증명을 허용합니다. 
+애플리케이션은 환경 변수 형식의 연결 및 자격 증명을 허용합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Cache for Redis 인스턴스의 **호스트 이름** 및 **액세스 키**(액세스 키를 통해 사용 가능)를 가져옵니다.
 
@@ -167,7 +168,7 @@ HTTP 서버가 `8080` 포트에서 시작됩니다.
     ```
 
     다음과 같은 JSON 응답을 가져와야 합니다.
-    
+
     ```json
     {
         "email": "foo1@bar",
@@ -193,15 +194,15 @@ HTTP 서버가 `8080` 포트에서 시작됩니다.
 이 빠른 시작에서 만든 Azure 리소스 그룹 및 리소스 애플리케이션을 완료했으면 요금이 청구되지 않도록 삭제할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 그룹을 삭제하면 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 유지하려는 기존 리소스 그룹에 Azure Cache for Redis 인스턴스를 만든 경우 캐시 **개요** 페이지에서 **삭제** 를 선택하여 캐시만 삭제할 수 있습니다. 
+> 리소스 그룹을 삭제하면 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 유지하려는 기존 리소스 그룹에 Azure Cache for Redis 인스턴스를 만든 경우 캐시 **개요** 페이지에서 **삭제** 를 선택하여 캐시만 삭제할 수 있습니다.
 
 Azure 인스턴스에 대한 리소스 그룹 및 해당 Redis Cache을 삭제하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹** 을 찾아 선택합니다.
-1. **이름으로 필터링** 텍스트 상자에 캐시 인스턴스를 포함하는 리소스 그룹의 이름을 입력한 다음, 검색 결과에서 선택합니다. 
+1. **이름으로 필터링** 텍스트 상자에 캐시 인스턴스를 포함하는 리소스 그룹의 이름을 입력한 다음, 검색 결과에서 선택합니다.
 1. 리소스 그룹 페이지에서 **리소스 그룹 삭제** 를 선택합니다.
 1. 리소스 그룹 이름을 입력한 다음, **삭제** 를 선택합니다.
-   
+
    ![Azure Cache for Redis에 대한 리소스 그룹 삭제](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 ## <a name="next-steps"></a>다음 단계

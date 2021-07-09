@@ -4,18 +4,18 @@ description: JavaScript용 Form Recognizer 클라이언트 라이브러리를 �
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/12/2021
 ms.author: lajanuar
 ms.custom: devx-track-js
-ms.openlocfilehash: 84d6f181636c65aea5c247185bfd7ef083151c75
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: aafe6caab127736d950ef78804f7af08242ced41
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374212"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111894343"
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -24,7 +24,9 @@ ms.locfileid: "110374212"
 
 > [!IMPORTANT]
 >
-> * 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요.
+> * 이 빠른 시작에서는 SDK 버전 **3.1.0** 을 사용하고 API 버전 **2.1** 을 대상으로 합니다.
+>
+>* 간단한 설명을 위해 이 문서의 코드에서는 동기 메서드와 보안되지 않은 자격 증명 스토리지를 사용합니다. 아래의 참조 설명서를 참조하세요.
 
 [참조 설명서](../../index.yml) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [패키지(npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
@@ -67,9 +69,6 @@ npm install @azure/ai-form-recognizer
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_imports)]
 
-> [!TIP]
-> 한 번에 전체 빠른 시작 코드 파일을 보시겠습니까? [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js)에서 찾을 수 있으며 이 빠른 시작의 코드 예제를 포함합니다.
-
 리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_creds)]
@@ -77,7 +76,7 @@ npm install @azure/ai-form-recognizer
 > [!IMPORTANT]
 > Azure Portal로 이동합니다. **필수 구성 요소** 섹션에서 만든 Form Recognizer 리소스가 성공적으로 배포된 경우 **다음 단계** 아래에서 **리소스로 이동** 단추를 클릭합니다. **리소스 관리** 아래에 있는 리소스의 **키 및 엔드포인트** 페이지에서 키 및 엔드포인트를 찾을 수 있습니다.
 >
-> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
+> 완료되면 코드에서 키를 제거하고 공개적으로 게시하지 마세요. 프로덕션의 경우 보안 메서드를 사용하여 자격 증명을 저장하고 액세스합니다. 자세한 내용은 Cognitive Services [보안](../../../cognitive-services-security.md) 문서를 참조하세요.
 
 ## <a name="object-model"></a>개체 모델
 
@@ -103,20 +102,6 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 > [!NOTE]
 > [Form Recognizer 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습할 수도 있습니다.
 
-## <a name="code-examples"></a>코드 예제
-
-이 코드 조각에서는 JavaScript용 Form Recognizer 클라이언트 라이브러리를 사용하여 다음 작업을 수행하는 방법을 보여 줍니다.
-
-* [클라이언트 인증](#authenticate-the-client)
-* [레이아웃 분석](#analyze-layout)
-* [영수증 분석](#analyze-receipts)
-* [명함 분석](#analyze-business-cards)
-* [송장 분석](#analyze-invoices)
-* [ID 문서 분석](#analyze-identity-documents)
-* [사용자 지정 모델 학습](#train-a-custom-model)
-* [사용자 지정 모델을 사용하여 양식 분석](#analyze-forms-with-a-custom-model)
-* [사용자 지정 모델 관리](#manage-custom-models)
-
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 정의한 구독 변수를 사용하여 클라이언트 개체를 인증합니다. `AzureKeyCredential` 개체를 사용하면 필요한 경우 새 클라이언트 개체를 만들지 않고 API 키를 업데이트할 수 있습니다. 또한 학습 클라이언트 개체를 만듭니다.
@@ -127,9 +112,10 @@ Form Recognizer를 사용하면 두 가지 다른 클라이언트 유형을 만�
 
 또한 학습 및 테스트 데이터에 대한 참조를 URL에 추가해야 합니다.
 
-* [!INCLUDE [get SAS URL](../sas-instructions.md)]
+* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
    :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL 검색":::
+
 * 아래 샘플에 포함된 샘플 및 영수증 이미지([GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)에서도 사용 가능)를 사용하거나 위의 단계를 사용하여 Blob 스토리지에 있는 개별 문서의 SAS URL을 가져올 수 있습니다.
 
 ## <a name="analyze-layout"></a>레이아웃 분석
@@ -139,7 +125,7 @@ Form Recognizer를 사용하면 모델을 학습시킬 필요 없이 문서의 �
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
 > [!TIP]
-> 로컬 파일에서 콘텐츠를 가져올 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeContent**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
+> [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeContent**)를 사용하여 로컬 파일에서 콘텐츠를 가져올 수도 있습니다. 
 
 ### <a name="output"></a>출력
 
@@ -166,7 +152,7 @@ URI에서 영수증을 분석하려면 `beginRecognizeReceiptsFromUrl` 메서드
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> 로컬 영수증 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeReceipts**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
+> [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeReceipts**)를 사용하여 로컬 수신 이미지를 분석할 수도 있습니다. 
 
 ### <a name="output"></a>출력
 
@@ -189,10 +175,10 @@ First receipt:
 
 URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromURL` 메서드를 사용합니다.
 
-:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_bc":::
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_bc)]
 
 > [!TIP]
-> 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeBusinessCards**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
+ > [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeBusinessCards**)를 사용하여 로컬 명함 이미지를 분석할 수도 있습니다. 
 
 ## <a name="analyze-invoices"></a>송장 분석
 
@@ -200,25 +186,25 @@ URL에서 명함을 분석하려면 `beginRecognizeBusinessCardsFromURL` 메서�
 
 URL에서 청구서를 분석하려면 `beginRecognizeInvoicesFromUrl` 메서드를 사용합니다.
 
-:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_invoice":::
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_invoice)]
 
 > [!TIP]
-> 또한 로컬 명함 이미지를 분석할 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예:**beginRecognizeInvoices**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
+> [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeInvoices**)를 사용하여 로컬 수신 이미지를 분석할 수도 있습니다. 
 
 ## <a name="analyze-identity-documents"></a>ID 문서 분석
 
-이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. 청구서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
+이 섹션에서는 Form Recognizer에서 미리 빌드된 ID 모델을 사용하여 정부에서 발행한 신분증(예: 전 세계에서의 여권 및 미국 운전 면허증)에서 핵심 정보를 분석하고 추출하는 방법을 보여 줍니다. ID 문서 분석 방법에 대한 자세한 내용은 [미리 빌드된 ID 모델 개념 가이드](../../concept-identification-cards.md)를 참조하세요.
 
 URL에서 ID 문서를 분석하려면 `beginRecognizeIdDocumentsFromUrl` 메서드를 사용합니다.
 
-:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js" id="snippet_id":::
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_id)]
 
 ## <a name="train-a-custom-model"></a>사용자 지정 모델 학습
 
 이 섹션에서는 사용자 고유의 데이터로 모델을 학습시키는 방법을 보여 줍니다. 학습된 모델은 원본 양식 문서의 키/값 관계가 포함된 구조적 데이터를 출력할 수 있습니다. 모델이 학습되면 데이터를 더 많은 양식에서 안정적으로 추출하기 위해 필요에 따라 모델을 테스트, 재학습 및 최종적으로 사용할 수 있습니다.
 
 > [!NOTE]
-> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 그래픽 사용자 인터페이스를 사용하여 모델을 학습시킬 수도 있습니다.
+> [Form Recognizer 샘플 레이블 지정 도구](../../label-tool.md)와 같은 GUI(그래픽 사용자 인터페이스)를 사용하여 모델을 학습시킬 수도 있습니다.
 
 ### <a name="train-a-model-without-labels"></a>레이블 없이 모델 학습
 
@@ -314,7 +300,7 @@ Document errors: undefined
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> 로컬 파일을 분석할 수도 있습니다. [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeCustomForms**)를 참조하세요. 또는 로컬 이미지와 관련된 시나리오는 [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)의 샘플 코드를 참조하세요.
+> [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient) 메서드(예: **beginRecognizeCustomForms**)를 사용하여 로컬 파일을 분석할 수도 있습니다. 
 
 ### <a name="output"></a>출력
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2262290486047c225cec8e8f6bb73242df7258fa
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: d31e52763ed69303ee6ea9bf44fd85403c810179
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106271576"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111993267"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 **Azure Resource Manager** 를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
@@ -46,13 +46,14 @@ ms.locfileid: "106271576"
 | 사용자 정의 경로 테이블 |200 |
 | 경로 테이블당 사용자 정의 경로 |400 |
 | Azure VPN Gateway당 지점 및 사이트 간 루트 인증서 |20 |
+| Azure VPN Gateway당 지점 및 사이트 간 철회된 클라이언트 인증서 |300 |
 | 가상 네트워크 탭 |100 |
 | 가상 네트워크 탭당 네트워크 인터페이스 탭 구성 |100 |
 
 #### <a name="public-ip-address-limits"></a><a name="publicip-address"></a>공용 IP 주소 구분
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| 공용 IP 주소<sup>1</sup> | Basic의 경우 10입니다. | 지원에 문의 |
+| 공용 IP 주소<sup>1,2</sup> | Basic의 경우 10입니다. | 지원에 문의 |
 | 고정 공용 IP 주소<sup>1</sup> | Basic의 경우 10입니다. | 지원에 문의 |
 | 표준 공용 IP 주소<sup>1</sup> | 10 | 지원에 문의 |
 | [리소스 그룹당 공용 IP 주소](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | 지원에 문의 | 
@@ -60,6 +61,8 @@ ms.locfileid: "106271576"
 | 공용 IP 접두사 길이 | /28 | 지원에 문의 |
 
 <sup>1</sup>공용 IP 주소의 경우 기본 제한은 평가판, 종량제, CSP와 같은 제공 범주 유형에 따라 다릅니다. 예를 들어 기업계약 구독의 기본값은 1000입니다.
+
+<sup>2</sup> 공용 IP 주소 제한은 기본 및 표준을 포함하여 공용 IP 주소의 총 크기를 나타냅니다. 
 
 #### <a name="load-balancer-limits"></a><a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.

@@ -5,22 +5,25 @@ description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 백 엔
 services: application-gateway
 author: vhorne
 ms.author: victorh
-ms.date: 01/19/2021
+ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell - mvc - mode-api
-ms.openlocfilehash: a50c264829ce08b409b52b321ca9c31b3688aed9
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 66c28c68dccad7874d65c7c4c1c9c78cc2ea13da
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320622"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072256"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Application Gateway를 통해 웹 트래픽 보내기
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 애플리케이션 게이트웨이를 만듭니다. 그런 다음, 테스트하여 제대로 작동하는지 확인합니다. 
 
 애플리케이션 게이트웨이는 애플리케이션 웹 트래픽을 백 엔드 풀의 특정 리소스로 보냅니다. 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가합니다. 간단히 나타내기 위해 이 문서에서는 퍼블릭 프런트 엔드 IP 주소 1개, 애플리케이션 게이트웨이에 단일 사이트를 호스트하는 기본 수신기 1개, 기본 요청 라우팅 규칙 1개 및 백 엔드 풀의 가상 머신 2개를 이용한 간단한 설정을 사용합니다.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="애플리케이션 게이트웨이 리소스":::
+
 
 [Azure CLI](quick-create-cli.md) 또는 [Azure Portal](quick-create-portal.md)을 사용하여 이 빠른 시작을 완료할 수도 있습니다.
 
@@ -59,15 +62,15 @@ Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워�
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
-  -AddressPrefix 10.0.1.0/24
+  -AddressPrefix 10.21.0.0/24
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
-  -AddressPrefix 10.0.2.0/24
+  -AddressPrefix 10.21.1.0/24
 New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
-  -AddressPrefix 10.0.0.0/16 `
+  -AddressPrefix 10.21.0.0/16 `
   -Subnet $agSubnetConfig, $backendSubnetConfig
 New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `

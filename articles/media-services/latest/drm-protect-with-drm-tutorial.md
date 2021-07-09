@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 05/25/2021
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dab265c41bc1c951a31ff764c9214e7f21ee3df4
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: 08868a6ab3a3755d7bc9c2e7af4ab6c9116831d0
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106279564"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110791812"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>자습서: DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -32,7 +32,7 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 또한 Media Services는 PlayReady, Widevine 및 FairPlay DRM 라이선스를 배달하는 서비스를 제공합니다. 사용자가 DRM으로 보호된 콘텐츠를 요청하면 플레이어 앱이 Media Services 라이선스 서비스에서 라이선스를 요청합니다. 플레이어 앱에 권한이 있으면 Media Services 라이선스 서비스에서 플레이어에 라이선스를 발급합니다. 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 해독 키가 포함됩니다.
 
-이 아티클은 [DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) 샘플에 기반합니다.
+이 아티클은 [DRM으로 암호화](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM) 샘플에 기반합니다.
 
 이 아티클에서 설명된 샘플에서는 다음과 같은 결과를 생성합니다.
 
@@ -68,16 +68,24 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-"DRM으로 암호화" 샘플은 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) 폴더에 있습니다.
+"DRM으로 암호화" 샘플은 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/main/AMSV3Tutorials/EncryptWithDRM) 폴더에 있습니다.
 
 > [!NOTE]
 > 이 샘플은 앱을 실행할 때마다 고유한 리소스를 만듭니다. 일반적으로 변환 및 정책 등 기존 리소스를 다시 사용합니다(기존 리소스에 필요한 구성이 있는 경우).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
+### <a name="start-using-media-services-apis-with-the-net-sdk"></a>.NET SDK로 Media Services API 사용 시작
 
-.NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만듭니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다.
+.NET으로 Media Services API를 사용하려면 `AzureMediaServicesClient` 개체를 만들어야 합니다. 개체를 만들려면 Azure Active Directory를 사용하여 클라이언트가 Azure에 연결할 수 있는 자격 증명을 제공해야 합니다. 또 다른 옵션은 `GetCredentialsInteractiveAuthAsync`에서 구현되는 대화형 인증을 사용하는 것입니다.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateMediaServicesClient)]
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#CreateMediaServicesClientAsync)]
+
+문서 시작 부분에서 복제한 코드에 있는 `GetCredentialsAsync` 함수는 로컬 구성 파일(*appsettings.json)* 에 제공된 자격 증명을 기반으로 또는 리포지토리의 루트에 있는 *.env* 환경 변수 파일을 통해 `ServiceClientCredentials` 개체를 만듭니다.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsAsync)]
+
+대화형 인증의 경우 `GetCredentialsInteractiveAuthAsync` 함수는 대화형 인증 및 로컬 구성 파일(*appsettings.json*)에 제공된 연결 매개 변수를 기반으로 또는 리포지토리의 루트에 있는 *env* 환경 변수 파일을 통해 `ServiceClientCredentials` 개체를 만듭니다. 이 경우 구성 또는 환경 변수 파일에 AADCLIENTID 및 AADSECRET가 필요하지 않습니다.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/Common_Utils/Authentication.cs#GetCredentialsInteractiveAuthAsync)]
 
 ## <a name="create-an-output-asset"></a>출력 자산 만들기  
 

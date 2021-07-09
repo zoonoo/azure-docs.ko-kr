@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/05/2020
+ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: fb908cdcf3e235654effc043de29e599a48179d4
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d98b71680e8be744b52f5060cc9be38366963fd6
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879598"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111594183"
 ---
 [참조 설명서](/python/api/azure-mgmt-cognitiveservices/azure.mgmt.cognitiveservices) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices) | [패키지(PyPi)](https://pypi.org/project/azure-mgmt-cognitiveservices/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-mgmt-cognitiveservices/tests)
 
@@ -21,6 +21,7 @@ ms.locfileid: "104879598"
 
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
 
@@ -83,6 +84,8 @@ Python 스크립트를 열고 다음 라이브러리를 가져옵니다.
 다음 함수는 지정된 리소스 그룹에서 지정된 리소스를 삭제합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/azure_management_service/create_delete_resource.py?name=snippet_delete)]
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](../../manage-resources.md)를 참조하세요.
 
 ## <a name="call-management-functions"></a>호출 관리 함수
 

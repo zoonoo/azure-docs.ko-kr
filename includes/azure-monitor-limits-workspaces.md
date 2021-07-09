@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: ee7ccb126eb04e168ccc213f0429d41a76a8bc2f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 704697a88a723182c2dbbcb2f25eb18df7be34c1
+ms.sourcegitcommit: ef950cf37f65ea7a0f583e246cfbf13f1913eb12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103021679"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111429932"
 ---
 **데이터 컬렉션 볼륨 및 보존** 
 
@@ -37,7 +37,7 @@ ms.locfileid: "103021679"
 
 | 범주 | 제한 | 주석 |
 |:---|:---|:---|
-| 로그 쿼리에서 반환하는 최대 레코드 수 | 10000 | 쿼리에 쿼리 범위, 시간 범위 및 필터를 사용하여 결과를 줄이세요. |
+| 로그 쿼리에서 반환하는 최대 레코드 수 | 30,000 | 쿼리에 쿼리 범위, 시간 범위 및 필터를 사용하여 결과를 줄이세요. |
 
 
 **데이터 수집기 API**
@@ -52,7 +52,7 @@ ms.locfileid: "103021679"
 | 범주 | 제한 | 주석 |
 |:---|:---|:---|
 | 단일 쿼리에 반환되는 최대 레코드 수 | 500,000 | |
-| 반환되는 데이터의 최대 크기 | 64,000,000바이트(61MiB 이하)| |
+| 반환되는 데이터의 최대 크기 | ~104MB(~100MiB)| |
 | 최대 쿼리 실행 시간 | 10분 | 자세한 내용은 [시간 제한](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts)을 참조하세요.  |
 | 최대 요청 속도 | Azure AD 사용자 또는 클라이언트 IP 주소별로 30초당 200개 요청 | 자세한 내용은 [속도 제한](https://dev.loganalytics.io/documentation/Using-the-API/Limits)을 참조하세요. |
 
@@ -61,6 +61,7 @@ ms.locfileid: "103021679"
 | 범주 | 제한 | 주석 |
 |:---|:---|:---|
 | 최대 레코드 수 | 500,000 | |
+| 반환되는 데이터의 최대 크기 | ~104MB(~100MiB) | |
 | 최대 쿼리 제한 시간 | 110초 | |
 | 차트 | | 로그 페이지 및 커넥터의 시각화는 다른 차트 라이브러리를 사용하고 있으며 현재 커넥터에서 일부 기능을 사용할 수 없습니다. |
 

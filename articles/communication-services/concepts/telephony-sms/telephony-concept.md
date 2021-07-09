@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3e698abbdad4b45a58f14e350e1f2b268a7de371
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 5fba53125e22eed6797db7ada6b99e679e136ea8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324494"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110092407"
 ---
 # <a name="telephony-concepts"></a>전화 통신 개념
 
@@ -40,7 +40,9 @@ Azure Communication Services Calling SDK를 사용하여 전화 통신 및 PSTN�
 - 음성 통화(PSTN)는 Azure Communication Services 외부에서 작동하기 때문에 배포 또는 온-프레미스 배포의 유지 관리가 필요하지 않습니다.
 - 참고: 필요한 경우 타사 PBX, 아날로그 디바이스 및 SBC에서 지원되는 기타 타사 전화 통신 장비와의 상호 운용성을 위해 지원되는 SBC(세션 경계 컨트롤러)를 Azure 직접 라우팅을 통해 연결하도록 선택할 수 있습니다.
 
-이 옵션을 사용하려면 Azure Communication Services에 대한 무중단 연결이 필요합니다.
+이 옵션을 사용하려면 Azure Communication Services에 대한 무중단 연결이 필요합니다.  
+
+클라우드 통화의 경우 아웃바운드 통화는 국가에 따라 분당 요금으로 청구됩니다. [PSTN 통화에 대한 현재 요금 목록](https://github.com/Azure/Communication/blob/master/pricing/communication-services-pstn-rates.csv)을 참조하세요.
 
 ### <a name="azure-direct-routing"></a>Azure 직접 라우팅
 

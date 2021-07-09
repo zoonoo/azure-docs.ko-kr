@@ -2,13 +2,13 @@
 title: 자습서 - 네트워크 계획 검사 목록
 description: Azure VMware Solution의 네트워크 연결 및 네트워크 포트에 대한 네트워크 요구 사항에 대해 알아봅니다.
 ms.topic: tutorial
-ms.date: 04/23/2021
-ms.openlocfilehash: 2e7854100df7e19ec8cfcc9b6de647fa8ed31d38
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.date: 06/08/2021
+ms.openlocfilehash: 5719ec1a2495c6a225c35ec46cdf19506a10ba6f
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107945452"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017274"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Azure VMware Solution에 대한 네트워킹 계획 검사 목록 
 
@@ -52,7 +52,13 @@ Azure VMware Solution 프라이빗 클라우드는 최소한 `/22` CIDR 네트�
 | 프라이빗 클라우드 관리  | `/26`  | `10.10.0.0/26`   |
 | HCX Mgmt 마이그레이션       | `/26`  | `10.10.0.64/26`  |
 | Global Reach 예약됨     | `/26`  | `10.10.0.128/26` |
-| ExpressRoute 예약됨     | `/27`  | `10.10.0.192/27` |
+| NSX-T DNS 서비스         | `/32`  | `10.10.0.192/32` |
+| 예약됨                  | `/32`  | `10.10.0.193/32` |
+| 예약됨                  | `/32`  | `10.10.0.194/32` |
+| 예약됨                  | `/32`  | `10.10.0.195/32` |
+| 예약됨                  | `/30`  | `10.10.0.196/30` |
+| 예약됨                  | `/29`  | `10.10.0.200/29` |
+| 예약됨                  | `/28`  | `10.10.0.208/28` |
 | ExpressRoute 피어링      | `/27`  | `10.10.0.224/27` |
 | ESXi 관리           | `/25`  | `10.10.1.0/25`   |
 | vMotion 네트워크           | `/25`  | `10.10.1.128/25` |
@@ -85,9 +91,8 @@ Azure VMware Solution 프라이빗 클라우드는 최소한 `/22` CIDR 네트�
 | 온-프레미스 vCenter 네트워크 | 프라이빗 클라우드 관리 네트워크 | TCP | 8000 |  온-프레미스 vCenter에서 프라이빗 클라우드 vCenter로 VM의 vMotion   |     
 
 ## <a name="dhcp-and-dns-resolution-considerations"></a>DHCP 및 DNS 확인 고려 사항
-프라이빗 클라우드 환경에서 실행되는 애플리케이션 및 워크로드에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요합니다. 이러한 서비스를 제공하려면 적절한 DHCP 및 DNS 인프라가 필요합니다. 프라이빗 클라우드 환경에서 이러한 서비스를 제공하도록 가상 머신을 구성할 수 있습니다.  
 
-WAN을 통해 브로드캐스트 DHCP 트래픽을 온-프레미스로 다시 라우팅하는 대신, NSX에 기본 제공되는 DHCP 서비스를 사용하거나 프라이빗 클라우드에서 로컬 DHCP 서버를 사용합니다.
+[!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
 
 ## <a name="next-steps"></a>다음 단계

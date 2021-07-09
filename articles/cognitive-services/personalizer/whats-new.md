@@ -7,19 +7,29 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 07/17/2020
-ms.openlocfilehash: a62c7dc8238b642aeaa59a7b470266378832e26e
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.date: 05/28/2021
+ms.openlocfilehash: e181dd8618d571a2aea4af5475f8c6ac06a94f8b
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363887"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110698712"
 ---
 # <a name="whats-new-in-personalizer"></a>Personalizer의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보가 포함될 수 있습니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="may-2021----build-conference"></a>2021년 5월 - //빌드 컨퍼런스
+
+* 자동 최적화(미리 보기) : 시간이 지남에 따라 더 적은 작업으로 지속적으로 개선하기 위해 사용하는 Personalizer 루프를 구성할 수 있습니다. Personalizer는 오프라인 평가를 자동으로 실행하고, 더 나은 기계 학습 설정을 검색하여 적용합니다. 자세한 내용은 [Personalizer 자동 최적화(미리 보기)](concept-auto-optimization.md)를 참조하세요.
+* 다중 슬롯 개인 설정(미리 보기): 타일 레이아웃, 회전식 및/또는 사이드바가 있는 경우 동일한 페이지에서 제품 또는 콘텐츠를 권장하는 각 위치에 Personalizer를 사용하는 것이 더 쉽습니다. 이제 Personalizer는 순위 API에서 슬롯 목록을 만들고, 각 슬롯에 작업을 할당하고, 각 슬롯에 대해 보내는 보상 점수에서 학습할 수 있습니다. 자세한 내용은 [다중 슬롯 개인 지정(미리 보기)](concept-multi-slot-personalization.md)을 참조하세요.
+* Personalizer는 이제 더 많은 지역에서 사용할 수 있습니다.
+* 업데이트된 코드 샘플(GitHub) 및 설명서. 아래 링크를 사용하여 업데이트된 샘플을 확인합니다.
+  * [C#/.NET](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
+  * [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
+  * [Python 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Personalizer)
 
 ### <a name="july-2020"></a>2020년 7월
 

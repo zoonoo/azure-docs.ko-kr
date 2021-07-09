@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2021
 ms.author: yelevin
-ms.openlocfilehash: b2a98e92630fcdc46228cc36579cfe9787b92daf
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: af5e0e6a8f019d0b35d73b49f6efb45c2195d62d
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109786648"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072634"
 ---
 # <a name="tutorial-use-playbooks-with-automation-rules-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화 규칙으로 플레이북 사용
 
@@ -159,7 +159,7 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
 
 1. 이 자동화 규칙을 적용할 작업을 선택합니다. 사용 가능한 작업으로는 **소유자 할당**, **상태 변경**, **심각도 변경**, **태그 추가** 및 **플레이북 실행** 이 있습니다. 원하는 만큼 작업을 추가할 수 있습니다.
 
-1. **플레이북 실행** 작업을 추가하는 경우 사용 가능한 플레이북 드롭다운 목록에서 선택하라는 메시지가 표시됩니다. **인시던트 트리거** 로 시작하는 플레이북만 자동화 규칙에서 실행할 수 있으므로 이러한 플레이북만 목록에만 표시됩니다.
+1. **플레이북 실행** 작업을 추가하는 경우 사용 가능한 플레이북 드롭다운 목록에서 선택하라는 메시지가 표시됩니다. **인시던트 트리거** 로 시작하는 플레이북만 자동화 규칙에서 실행할 수 있으므로 이러한 플레이북만 목록에만 표시됩니다.<a name="permissions-to-run-playbooks"></a>
 
     > [!IMPORTANT]
     > 자동화 규칙에서 플레이북을 실행하려면 Azure Sentinel에 명시적 권한을 부여해야 합니다. 드롭다운 목록에서 플레이북이 "회색으로 표시"되면 해당 플레이북의 리소스 그룹에 대한 권한이 Sentinel에 없다는 뜻입니다. 권한을 할당하려면 **플레이북 권한 관리** 링크를 클릭합니다.
@@ -170,6 +170,22 @@ Azure Sentinel에서 [자동화 규칙](automate-incident-handling-with-automati
     >    1. 플레이북 테넌트의 Azure Sentinel 탐색 메뉴에서 **설정** 을 선택합니다.
     >    1. **설정** 블레이드에서 **설정** 탭을 선택한 다음, **플레이북 권한** 확장기를 선택합니다.
     >    1. **권한 구성** 단추를 클릭하여 위에서 언급한 **권한 관리** 패널을 열고, 패널의 설명에 따라 계속합니다.
+    > - **MSSP** 시나리오에서 서비스 공급자 테넌트에 로그인하는 동안 생성된 자동화 규칙에서 [고객 테넌트에서 플레이북을 실행](automate-incident-handling-with-automation-rules.md#permissions-in-a-multi-tenant-architecture)하려면 **_두 테넌트_*모두에서 플레이북을 실행할 수 있는 Azure Sentinel 권한을 부여해야 합니다.* 고객** 테넌트에서 이전 글머리 기호 지점의 다중 테넌트 배포에 대한 지침을 따릅니다. **서비스 공급자** 테넌트에서 Azure Lighthouse 온보딩 템플릿에 Azure Security Insights 앱을 추가해야 합니다.
+    >    1. Azure Portal에서 **Azure Active Directory** 로 이동합니다.
+    >    1. **엔터프라이즈 애플리케이션** 을 클릭합니다.
+    >    1. **애플리케이션 유형** 을 선택하고 **Microsoft 애플리케이션** 에서 필터링합니다.
+    >    1. 검색 상자에 **Azure Security Insights** 를 입력합니다.
+    >    1. **개체 ID** 필드를 복사합니다. 기존 Azure Lighthouse 위임에 이 추가 권한 부여를 추가해야 합니다.
+    >
+    >    **Azure Sentinel Automation 기여자** 역할에는 고정 GUID(`f4c81013-99ee-4d62-a7ee-b3f1f648599a`)가 있습니다. 샘플 Azure Lighthouse 권한 부여는 매개 변수 템플릿에서 다음과 같습니다.
+    >    
+    >    ```json
+    >    {
+    >        "principalId": "<Enter the Azure Security Insights app Object ID>", 
+    >        "roleDefinitionId": "f4c81013-99ee-4d62-a7ee-b3f1f648599a",
+    >        "principalIdDisplayName": "Azure Sentinel Automation Contributors" 
+    >    }
+    >    ```
 
 1. 원한다면 자동화 규칙의 만료 날짜를 설정합니다.
 

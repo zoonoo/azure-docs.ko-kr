@@ -1,30 +1,30 @@
 ---
-title: Azure Monitor for Key Vault를 사용하여 Key Vault 모니터링 | Microsoft Docs
-description: 이 문서에서는 Azure Monitor for Key Vault에 대해 설명합니다.
+title: Key Vault Insights로 Key Vault 모니터링 | 마이크로 소프트 문서
+description: 이 문서에서는 Key Vault 정보에 대해 설명합니다.
 services: azure-monitor
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 91aed191e3bb165d6690759426a596df39f8c10f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 953d6300b8ac19ddfcfe3b37a1cfde50480e19a4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100582294"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095125"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Azure Monitor for Key Vault를 사용하여 키 자격 증명 모음 서비스 모니터링
-Azure Monitor for Key Vault는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음을 종합적으로 모니터링합니다.
-이 문서는 Azure Monitor for Key Vault 환경을 온보딩하고 사용자 지정하는 방법을 이해하는 데 도움이 됩니다.
+# <a name="monitoring-your-key-vault-service-with-key-vault-insights"></a>Key Vault 인사이트를 통해 Key Vault 서비스 모니터링
+Key Vault 인사이트는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다.
+이 문서는 Key Vault 인사이트 환경을 온보딩하고 사용자 지정하는 방법을 이해하는 데 도움이 됩니다.
 
-## <a name="introduction-to-azure-monitor-for-key-vault"></a>Azure Monitor for Key Vault 소개
+## <a name="introduction-to-key-vault-insights"></a>Key Vault Insights 소개
 
 이 환경을 살펴보기 전에, 이 환경에서 어떤 방식으로 정보가 제공되고 시각화되는지 이해해야 합니다.
 -    **규모의 관점에서** 요청, 오류 분석, 작업 및 대기 시간의 개요를 기반으로 성능에 대한 스냅샷 보기를 표시합니다.
 -   특정 키 자격 증명 모음의 **드릴다운 분석** 을 통해 자세히 분석합니다.
 -    **사용자 지정이 가능** 하므로 표시할 메트릭을 변경하고, 제한에 맞도록 임계값을 수정 또는 설정하고, 사용자 고유의 통합 문서를 저장할 수 있습니다. 통합 문서의 차트를 Azure 대시보드에 고정할 수 있습니다.
 
-Azure Monitor for Key Vault는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. 모든 사용자가 메트릭 기반 모니터링 데이터에 액세스할 수 있지만, 로그 기반 시각화를 포함하려면 사용자가 [Azure Key Vault 로깅을 사용하도록 설정](../../key-vault/general/logging.md)해야 할 수도 있습니다.
+Key Vault 인사이트는 로그와 메트릭을 결합하여 글로벌 모니터링 솔루션을 제공합니다. 모든 사용자가 메트릭 기반 모니터링 데이터에 액세스할 수 있지만, 로그 기반 시각화를 포함하려면 사용자가 [Azure Key Vault 로깅을 사용하도록 설정](../../key-vault/general/logging.md)해야 할 수도 있습니다.
 
 ## <a name="view-from-azure-monitor"></a>Azure Monitor에서 보기
 
@@ -64,7 +64,7 @@ Azure Monitor에서 구독에 속한 여러 키 자격 증명 모음의 요청, 
 
 ## <a name="view-from-a-key-vault-resource"></a>Key Vault 리소스의 보기
 
-키 자격 증명 모음에서 직접 Azure Monitor for Key Vault에 액세스하는 방법은 다음과 같습니다.
+Key Vault에서 직접 Key Vault 인사이트에 액세스하려면:
 
 1. Azure Portal에서 [키 자격 증명 모음]을 선택합니다.
 
@@ -105,7 +105,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 ![고정 아이콘이 선택된 스크린샷](./media/key-vaults-insights-overview/pin.png)
 
-## <a name="customize-azure-monitor-for-key-vault"></a>Azure Monitor for Key Vault 사용자 지정
+## <a name="customize-key-vault-insights"></a>Key Vault insights 사용자 지정
 
 이 섹션에서는 데이터 분석 요구 사항을 지원하도록 사용자 지정하기 위해 통합 문서를 편집하는 일반적인 시나리오를 중점적으로 설명합니다.
 *  항상 특정 구독 또는 키 자격 증명 모음을 선택하도록 통합 문서 범위를 지정합니다.
@@ -135,11 +135,11 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 일반적인 문제 해결 지침은 전용 통합 문서 기반 인사이트 [문제 해결 문서](troubleshoot-workbooks.md)를 참조하세요.
 
-이 섹션에서는 Azure Monitor for Key Vault를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
+이 섹션에서는 Key Vault 인사이트를 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 진단하고 해결하는 데 도움이 되는 정보를 제공합니다. 아래 목록에서 특정 문제와 관련된 정보를 찾을 수 있습니다.
 
 ### <a name="resolving-performance-issues-or-failures"></a>성능 문제 또는 오류 해결
 
-Azure Monitor for Key Vault를 사용하여 식별한 키 자격 증명 모음 관련 문제를 해결하려면 [Azure Key Vault 설명서](../../key-vault/index.yml)를 참조하세요.
+Key Vault 인사이트를 사용하여 식별한 키 자격 증명 모음 관련 문제를 해결하려면 [Azure Key Vault 설명서](../../key-vault/index.yml)를 참조하세요.
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>200개의 키 자격 증명 모음만 볼 수 있는 이유
 

@@ -3,18 +3,18 @@ title: Azure Cost Management 데이터 이해
 description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 데이터의 처리, 수집, 표시 및 마감 빈도를 파악하는 데 도움이 됩니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/17/2021
+ms.date: 05/24/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 568f3d811876073dc899204cb8ca4d1753d9cfd0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 025208685d45658824956b5625993a5dfdbf5e6a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102499300"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467536"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -31,32 +31,30 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **범주**  | **제품 이름** | **할당량 ID** | **제품 번호** | **사용 가능한 데이터** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014년 5월<sup>1</sup> |
-| **Azure Government** | Azure Government 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2018년 10월 2일<sup>2</sup> |
+| **Azure Government** | Azure Government 종량제 | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | 2018년 10월 2일 |
 | **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014년 5월<sup>1</sup> |
 | **EA(기업 계약)** | Microsoft Azure 엔터프라이즈 | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014년 5월<sup>1</sup> |
-| **Microsoft 고객 계약** | Microsoft Azure 계획 | EnterpriseAgreement_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
-| **Microsoft 고객 계약** | 개발/테스트용 Microsoft Azure 계획 | MSDNDevTest_2014-09-01 | 해당 없음 | 2019년 3월<sup>3</sup> |
+| **Microsoft 고객 계약** | Microsoft Azure 계획 | EnterpriseAgreement_2014-09-01 | 해당 없음 | 2019년 3월<sup>2</sup> |
+| **Microsoft 고객 계약** | 개발/테스트용 Microsoft Azure 계획 | MSDNDevTest_2014-09-01 | 해당 없음 | 2019년 3월<sup>2</sup> |
 | **파트너에서 지원되는 Microsoft 고객 계약** | Microsoft Azure 계획 | CSP_2015-05-01, CSP_MG_2017-12-01 및 CSPDEVTEST_2018-05-01<br><br>할당량 ID는 Microsoft 고객 계약 및 레거시 CSP 구독에 다시 사용됩니다. 현재 Microsoft 고객 계약 구독만 지원됩니다. | 해당 없음 | 2019년 10월 |
-| **MSDN(Microsoft Developer Network)** | MSDN 플랫폼<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | 종량제 개발/테스트         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | Microsoft 파트너 네트워크      | MPN_2014-09-01 | MS-AZR-0025P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | 평가판<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | Azure in Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2018년 10월 2일<sup>2</sup> |
-| **종량제** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2018년 10월 2일<sup>2</sup> |
-| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2018년 10월 2일<sup>2</sup> |
+| **MSDN(Microsoft Developer Network)** | MSDN 플랫폼<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018년 10월 2일 |
+| **종량제** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018년 10월 2일 |
+| **종량제** | 종량제 개발/테스트         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018년 10월 2일 |
+| **종량제** | Microsoft 파트너 네트워크      | MPN_2014-09-01 | MS-AZR-0025P | 2018년 10월 2일 |
+| **종량제** | 평가판<sup>3</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2018년 10월 2일 |
+| **종량제** | Azure in Open<sup>3</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2018년 10월 2일 |
+| **종량제** | Azure Pass<sup>3</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2018년 10월 2일 |
+| **Visual Studio** | Visual Studio Enterprise – MPN<sup>3</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2018년 10월 2일 |
+| **Visual Studio** | Visual Studio Professional<sup>3</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2018년 10월 2일 |
+| **Visual Studio** | Visual Studio Test Professional<sup>3</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2018년 10월 2일 |
+| **Visual Studio** | Visual Studio Enterprise<sup>3</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2018년 10월 2일 |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2018년 10월 2일 |
 
 _<sup>**1**</sup> 2014년 5월 이전의 데이터는 [Azure Enterprise Portal](https://ea.azure.com)을 방문하세요._
 
-_<sup> **2**</sup> 2018년 10월 2일 이전 데이터의 경우 글로벌 계정에 대한 [Azure 계정 센터](https://account.azure.com/subscriptions) 및 Azure 정부 계정에 대한 [Azure 계정 센터 Gov](https://account.windowsazure.us/subscriptions)를 방문하세요._
+_<sup>**2**</sup> Microsoft 고객 계약은 2019년 3월에 시작했으며 이 시점 이전의 기록 데이터가 없습니다._
 
-_<sup>**3**</sup> Microsoft 고객 계약은 2019년 3월에 시작했으며 이 시점 이전의 기록 데이터가 없습니다._
-
-_<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데이터는 청구서와 일치하지 않을 수 있습니다. 아래 [기록 데이터가 청구서와 일치하지 않을 수 있음](#historical-data-might-not-match-invoice)을 참조하세요._
+_<sup>**3**</sup> 크레딧 기반 및 종량제 구독에 대한 기록 데이터가 청구서와 일치하지 않을 수 있습니다. 아래의 [기록 데이터는 청구서와 일치하지 않을 수 있음](#historical-data-might-not-match-invoice)을 참조하세요._
 
 지원되지 않는 제품은 다음과 같습니다.
 
@@ -67,7 +65,7 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **종량제**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **종량제** | Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **종량제** | Azure for Students<sup>3</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **종량제**                 | Microsoft Azure 스폰서쉽 | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **지원 플랜** | 표준 지원                    | Default_2014-09-01 | MS-AZR-0041P |
 | **지원 플랜** | Professional Direct 지원         | Default_2014-09-01 | MS-AZR-0042P |
@@ -93,17 +91,17 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 
 | **포함됨** | **포함되지 않음** |
 | --- | --- |
-| Azure 서비스 사용량<sup>5</sup>        | 지원 요금 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
-| Marketplace 제품 사용량<sup>6</sup> | 세금 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
-| Marketplace 구매<sup>6</sup>      | 크레딧 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
-| 예약 구매<sup>7</sup>      |  |
-| 예약 구매에 대한 상환<sup>7</sup>      |  |
+| Azure 서비스 사용량<sup>4</sup>        | 지원 요금 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
+| Marketplace 제품 사용량<sup>5</sup> | 세금 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
+| Marketplace 구매<sup>5</sup>      | 크레딧 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
+| 예약 구매<sup>6</sup>      |  |
+| 예약 구매에 대한 상환<sup>6</sup>      |  |
 
-_<sup>**5**</sup> Azure 서비스 사용량은 예약 및 협상 가격을 기준으로 합니다._
+_<sup>**4**</sup> Azure 서비스 사용량은 예약 및 협상 가격을 기준으로 합니다._
 
-_<sup>**6**</sup> Marketplace 구매는 현재 MSDN 및 Visual Studio 제품에 사용할 수 없습니다._
+_<sup>**5**</sup> Marketplace 구매는 현재 MSDN 및 Visual Studio 제품에 사용할 수 없습니다._
 
-_<sup>**7**</sup> 예약 구매는 현재 EA(기업계약) 및 Microsoft 고객 계약 계정에만 사용할 수 있습니다._
+_<sup>**6**</sup> 예약 구매는 현재 EA(기업계약) 및 Microsoft 고객 계약 계정에만 사용할 수 있습니다._
 
 ## <a name="how-tags-are-used-in-cost-and-usage-data"></a>비용 및 사용량 데이터에서 태그를 사용하는 방법
 

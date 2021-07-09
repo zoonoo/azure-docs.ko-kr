@@ -1,25 +1,26 @@
 ---
-title: '빠른 시작: Azure Machine Learning 시작'
+title: '빠른 시작: 작업 영역 리소스 만들기'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 시작  개발 환경을 만들기 위해 작업 영역을 설정하고 컴퓨팅 리소스를 추가합니다.
+description: 기계 학습 모델을 학습하는 데 사용할 수 있는 Azure Machine Learning 작업 영역 및 클라우드 리소스를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/26/2021
+ms.date: 06/10/2021
 adobe-target: true
-ms.openlocfilehash: 596c6252b1ed7a0aa4d6f9554e6b417ccf131755
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.custom: contperf-fy21q4
+ms.openlocfilehash: d12b9229fdf4b8cfe32a9db375b9c0943ce53507
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109785315"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112033458"
 ---
-# <a name="quickstart-create-resources-youll-need-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Machine Learning을 시작하는 데 필요한 리소스 만들기
+# <a name="quickstart-create-workspace-resources-you-need-to-get-started-with-azure-machine-learning"></a>빠른 시작: Azure Machine Learning을 시작하는 데 필요한 작업 영역 리소스 만들기
 
-이 빠른 시작에서는 작업 영역을 만들고 작업 영역에 컴퓨팅 리소스를 추가합니다. 그러면 Azure Machine Learning을 시작하기 위해 필요한 모든 것을 갖게 됩니다.  
+이 빠른 시작에서는 작업 영역을 만든 다음, 작업 영역에 컴퓨팅 리소스를 추가합니다. 그러면 Azure Machine Learning을 시작하기 위해 필요한 모든 것을 갖게 됩니다.  
 
 작업 영역은 기계 학습의 최상위 리소스로, Azure Machine Learning을 사용할 때 만든 아티팩트를 보고 관리할 수 있는 중앙 집중식 환경을 제공합니다. 컴퓨팅 리소스는 기계 학습 모델을 학습, 배포, 자동화, 관리 및 추적하는 데 사용할 수 있는 사전 구성된 클라우드 기반 환경을 제공합니다.
 
@@ -102,10 +103,10 @@ ms.locfileid: "109785315"
 
 ### <a name="stop-compute-instance"></a>컴퓨팅 인스턴스 중지
 
-지금 사용하지 않으려면 컴퓨팅 인스턴스를 중지합니다.
+지금 사용하지 않을 경우 컴퓨팅 인스턴스를 중지합니다.
 
-1. 스튜디오 왼쪽의 **컴퓨팅** 을 선택합니다.
-1. 맨 위 탭에서 **컴퓨팅 인스턴스** 를 선택합니다.
+1. 스튜디오의 왼쪽에서 **컴퓨팅** 을 선택합니다.
+1. 위쪽 탭에서 **컴퓨팅 인스턴스** 를 선택합니다.
 1. 목록에서 컴퓨팅 인스턴스를 선택합니다.
 1. 맨 위의 도구 모음에서 **중지** 를 선택합니다.
 

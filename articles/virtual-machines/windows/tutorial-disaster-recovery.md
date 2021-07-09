@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.collection: windows
 ms.subservice: recovery
 ms.topic: tutorial
-ms.date: 11/05/2020
+ms.date: 05/18/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fd5d8c3e2c6e4ee5556568ebd23ac99b48300e9d
-ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
+ms.openlocfilehash: e76245c9ad08a9a826e1d0431c2dd01b61a6b860
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106382033"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110077575"
 ---
 # <a name="tutorial-enable-disaster-recovery-for-windows-vms"></a>자습서: Windows VM에 대한 재해 복구를 사용하도록 설정
 
@@ -37,21 +37,21 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
         - 선택한 가상 네트워크에 VM 만들기
         - Azure Storage 계정에 쓰기
         - Azure 관리 디스크에 쓰기
-    - 자격 증명 모음에서 Site Recovery 작업을 관리하기 위한 Site Recovery 기여자 기본 제공 역할 
+    - 자격 증명 모음에서 Site Recovery 작업을 관리하기 위한 Site Recovery 기여자 기본 제공 역할
 3. Windows Server 2012 이상을 실행하는 Windows VM을 사용하는 것이 좋습니다. 이 자습서의 목적에 맞게 VM 디스크를 암호화해서는 안 됩니다.
 4. VM 아웃바운드 연결이 URL 기반 프록시를 사용하는 경우 다음과 같은 URL에 액세스할 수 있는지 확인합니다. 인증된 프록시는 사용은 지원되지 않습니다.
 
     **이름** | **퍼블릭 클라우드** | **정부 클라우드** | **세부 정보**
     --- | --- | --- | ---
-    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 씁니다. 
-    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Site Recovery 서비스 URL에 대한 권한을 부여하고 인증합니다. 
-    복제 | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM이 Site Recovery 서비스와 통신합니다. 
-    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM이 Site Recovery 모니터링 및 진단 데이터에 기록합니다. 
+    Storage | `*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`| VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 씁니다.
+    Azure AD  | `login.microsoftonline.com` | `login.microsoftonline.us`| Site Recovery 서비스 URL에 대한 권한을 부여하고 인증합니다.
+    복제 | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`  |VM이 Site Recovery 서비스와 통신합니다.
+    Service Bus | `*.servicebus.windows.net` | `*.servicebus.usgovcloudapi.net` | VM이 Site Recovery 모니터링 및 진단 데이터에 기록합니다.
 
 4. NSG(네트워크 보안 그룹)를 사용하여 VM에 대한 네트워크 트래픽을 제한하는 경우 이러한 서비스 태그(IP 주소 그룹)를 사용하여 VM에 대한 아웃바운드 연결(HTTPS 443)을 허용하는 NSG 규칙을 만듭니다. 먼저 테스트 NSG에서 규칙을 사용해 보세요.
 
-    **Tag** | **허용** 
-    --- | --- 
+    **Tag** | **허용**
+    --- | ---
     스토리지 태그 | VM에서 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다.
     Azure AD 태그 | Azure AD에 해당하는 모든 IP 주소에 대한 액세스를 허용합니다.
     EventsHub 태그 | Site Recovery 모니터링에 대한 액세스를 허용합니다.
@@ -70,10 +70,10 @@ VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정�
 5. **Recovery Services 자격 증명 모음** 에서 복제에 사용하려는 자격 증명 모음을 선택합니다. 자격 증명 모음이 없는 경우 **새로 만들기** 를 선택합니다. 자격 증명 모음을 배치할 리소스 그룹 및 자격 증명 모음 이름을 선택합니다.
 6. **Site Recovery 정책** 에서 기본 정책을 그대로 유지하거나 **새로 만들기** 를 선택하여 사용자 지정 값을 설정합니다.
 
-    - 복구 지점은 특정 시점에 생성되는 VM 디스크의 스냅샷에서 생성됩니다. VM을 장애 조치(failover)하는 경우 복구 지점을 사용하여 대상 지역에서 VM을 복원합니다. 
-    - 크래시 일치 복구 지점이 5분마다 만들어집니다. 이 설정은 수정할 수 없습니다. 크래시 일치 스냅샷은 스냅샷이 만들어질 때 디스크에 있던 데이터를 캡처합니다. 메모리의 데이터를 포함하지 않습니다. 
+    - 복구 지점은 특정 시점에 생성되는 VM 디스크의 스냅샷에서 생성됩니다. VM을 장애 조치(failover)하는 경우 복구 지점을 사용하여 대상 지역에서 VM을 복원합니다.
+    - 크래시 일치 복구 지점이 5분마다 만들어집니다. 이 설정은 수정할 수 없습니다. 크래시 일치 스냅샷은 스냅샷이 만들어질 때 디스크에 있던 데이터를 캡처합니다. 메모리의 데이터를 포함하지 않습니다.
     - 기본적으로 Site Recovery는 크래시 일치 복구 지점을 24시간 동안 유지합니다. 사용자 지정 값은 0~72시간으로 설정할 수 있습니다.
-    - 앱 일치 스냅샷은 4시간마다 수행됩니다. 앱 일치 스냅샷 
+    - 앱 일치 스냅샷은 4시간마다 수행됩니다. 앱 일치 스냅샷
     - 기본적으로 Site Recovery는 복구 지점을 24시간 동안 저장합니다.
 
 7. **가용성 옵션** 에서 VM을 독립 실행형으로 배포할지, 가용성 영역에 배포할지, 아니면 가용성 집합에 배포할지 여부를 지정합니다.
@@ -81,6 +81,9 @@ VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정�
     :::image type="content" source="./media/tutorial-disaster-recovery/create-vm.png" alt-text="VM 관리 속성 페이지에서 복제를 사용하도록 설정합니다."
 
 8. VM 만들기를 완료합니다.
+
+>[!NOTE]
+> Windows VM을 만드는 동안 복제를 사용하도록 설정하면 OS 디스크만 복제됩니다. 데이터 디스크는 사용자가 초기화해야 하며, 그 후에는 Azure Site Recovery에서 데이터 디스크를 자동으로 복제합니다.
 
 ## <a name="enable-disaster-recovery-for-an-existing-vm"></a>기존 VM에 재해 복구 사용
 
@@ -131,7 +134,7 @@ VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정�
 1. VM 속성 페이지를 엽니다.
 2. **작업** 에서 **재해 복구** 를 선택합니다.
 3. **기본 정보** 섹션을 확장하여 자격 증명 모음, 복제 정책 및 대상 설정에 대한 기본값을 검토합니다.
-4. **상태** 에서 VM의 복제 상태, 에이전트 버전, 장애 조치(failover) 준비 및 최신 복구 지점과 관련된 정보를 얻습니다. 
+4. **상태** 에서 VM의 복제 상태, 에이전트 버전, 장애 조치(failover) 준비 및 최신 복구 지점과 관련된 정보를 얻습니다.
 
     :::image type="content" source="./media/tutorial-disaster-recovery/essentials.png" alt-text="VM 재해 복구를 위한 기본 정보 보기":::
 
@@ -142,22 +145,22 @@ VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정�
 
 ## <a name="run-a-drill"></a>훈련 실행
 
-훈련을 실행하여 재해 복구가 예상대로 작동하는지 확인합니다. 테스트 장애 조치(failover)를 실행하면 진행 중인 복제 또는 프로덕션 환경에 영향을 주지 않고 VM의 복사본이 생성됩니다. 
+훈련을 실행하여 재해 복구가 예상대로 작동하는지 확인합니다. 테스트 장애 조치(failover)를 실행하면 진행 중인 복제 또는 프로덕션 환경에 영향을 주지 않고 VM의 복사본이 생성됩니다.
 
 1. VM 재해 복구 페이지에서 **테스트 장애 조치(failover)** 를 선택합니다.
 2. **테스트 장애 조치(failover)** 에서 복구 지점에 대한 기본 **가장 최근에 처리됨(낮은 RPO)** 설정을 그대로 둡니다.
 
    이 옵션은 가장 낮은 RPO(복구 지점 목표)를 제공하고 일반적으로 대상 VM의 가장 빠른 스핀업을 제공합니다. Site Recovery 서비스로 보낸 모든 데이터를 먼저 처리하여 각 VM에 대한 복구 지점을 만든 후에 해당 복구 지점으로 장애 조치(failover)합니다. 이 복구 지점에는 장애 조치(failover)가 트리거될 때 Site Recovery로 복제된 모든 데이터가 있습니다.
 
-3. 장애 조치(failover) 후 VM이 위치할 가상 네트워크를 선택합니다. 
+3. 장애 조치(failover) 후 VM이 위치할 가상 네트워크를 선택합니다.
 
      :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-settings.png" alt-text="테스트 장애 조치(failover) 옵션을 설정하는 페이지":::
 
 4. 테스트 장애 조치(failover) 프로세스가 시작됩니다. 알림에서 진행률을 모니터링할 수 있습니다.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="테스트 장애 조치(failover) 알림"::: 
-    
-   테스트 장애 조치(failover)가 완료된 후 VM은 **기본 정보** 페이지에서 테스트 장애 조치(failover) 정리 보류 중 상태가 됩니다. 
+    :::image type="content" source="./media/tutorial-disaster-recovery/test-failover-notification.png" alt-text="테스트 장애 조치(failover) 알림":::
+
+   테스트 장애 조치(failover)가 완료된 후 VM은 **기본 정보** 페이지에서 테스트 장애 조치(failover) 정리 보류 중 상태가 됩니다.
 
 
 
@@ -167,15 +170,15 @@ VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정�
 
 1. 자동 정리를 시작하려면 **테스트 장애 조치(failover) 정리** 를 선택합니다.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="기본 정보 페이지에서 정리 시작"::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/start-cleanup.png" alt-text="기본 정보 페이지에서 정리 시작":::
 
 2. **테스트 장애 조치(failover) 정리** 에서 장애 조치(failover)에 대해 기록할 메모를 입력한 다음, **테스트가 완료되었습니다. 테스트 장애 조치(failover) 가상 머신을 삭제하세요** 를 선택합니다. 그런 다음, **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="메모를 기록하고 테스트 VM을 삭제하는 페이지"::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test.png" alt-text="메모를 기록하고 테스트 VM을 삭제하는 페이지":::
 
 7. 삭제 프로세스가 시작됩니다. 알림에서 진행률을 모니터링할 수 있습니다.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="테스트 VM 삭제를 모니터링하기 위한 알림"::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/delete-test-notification.png" alt-text="테스트 VM 삭제를 모니터링하기 위한 알림":::
 
 ### <a name="stop-replicating-the-vm"></a>VM 복제 중지
 
@@ -190,10 +193,10 @@ VM을 만드는 경우 필요에 따라 재해 복구를 사용하도록 설정�
 1. VM 재해 복구 페이지에서 **복제 사용 안 함** 을 선택합니다.
 2. **복제 사용 안 함** 에서 복제를 사용하지 않도록 설정하는 이유를 선택합니다. 그런 다음, **확인** 을 선택합니다.
 
-    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="복제를 사용하지 않도록 설정하고 이유를 제공하는 페이지"::: 
+    :::image type="content" source="./media/tutorial-disaster-recovery/disable-replication.png" alt-text="복제를 사용하지 않도록 설정하고 이유를 제공하는 페이지":::
 
 
-복제하는 동안 VM에 설치된 Site Recovery 확장은 자동으로 제거되지 않습니다. VM에 대한 복제를 사용하지 않도록 설정하고 나중에 다시 복제하지 않으려면 다음과 같이 Site Recovery 확장을 수동으로 제거하면 됩니다. 
+복제하는 동안 VM에 설치된 Site Recovery 확장은 자동으로 제거되지 않습니다. VM에 대한 복제를 사용하지 않도록 설정하고 나중에 다시 복제하지 않으려면 다음과 같이 Site Recovery 확장을 수동으로 제거하면 됩니다.
 
 1. VM > **설정** > **확장** 으로 이동합니다.
 2. **확장** 페이지에서 Linux에 대한 각 *Microsoft.Azure.RecoveryServices* 항목을 선택합니다.

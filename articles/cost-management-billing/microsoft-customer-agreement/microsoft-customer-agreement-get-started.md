@@ -6,15 +6,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 05/21/2021
 ms.author: banders
 ms.reviewer: baolcsva
-ms.openlocfilehash: 60d42598da2e0b7f29bfea832d27dc5156761556
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: 9ef2d08f3cbc557cfa914c13298b1675afbf455c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108322062"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110458691"
 ---
 # <a name="key-next-steps-after-accepting-your-microsoft-customer-agreement"></a>Microsoft 고객 계약에 동의한 후 주요 다음 단계
 
@@ -96,6 +96,10 @@ Azure 서비스 사용을 시작하면 Microsoft 고객 계약에 따른 새 청
 1. 업데이트를 수행하고 **저장** 을 선택합니다.
 
 [청구 계정 설정을 업데이트하는 방법을 자세히 알아보세요](/microsoft-store/update-microsoft-store-for-business-account-settings).
+
+## <a name="cancel-support-plan"></a>지원 플랜 취소
+
+[이전 지원 계획을 취소](../manage/mca-request-billing-ownership.md?toc=/azure/cost-management-billing/microsoft-customer-agreement/toc.json#cancel-a-prior-support-plan)하는 방법을 알아봅니다.
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 

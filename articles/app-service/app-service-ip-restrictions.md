@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/17/2020
 ms.author: ccompy
 ms.custom: seodec18, devx-track-azurepowershell
-ms.openlocfilehash: 541af6d0051d06de5721b22616fbf1e2867b71d6
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 27bb3f163dc8f1a2f50e39ca5bbb5708419cb171
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833367"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110073903"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Azure App Service 액세스 제한 설정
 
@@ -193,14 +193,17 @@ PowerShell 예제:
 
 다음 중 하나를 수행하여 프로그래매틱 방식으로 액세스 제한을 추가할 수 있습니다. 
 
-* [Azure CLI](/cli/azure/webapp/config/access-restriction)를 사용합니다. 예를 들어:
+* [Azure CLI](/cli/azure/webapp/config/access-restriction)를 사용합니다. 예를 들면 다음과 같습니다.
    
   ```azurecli-interactive
   az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
     --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
   ```
 
-* [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule)을 사용합니다. 예를 들어:
+   > [!NOTE]
+   > Azure CLI에서 서비스 태그, http 헤더 또는 다중 원본 규칙을 사용하려면 2.23.0 이상의 버전이 필요합니다. ```az version```로 설치된 모듈의 버전을 확인할 수 있습니다.
+
+* [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule)을 사용합니다. 예를 들면 다음과 같습니다.
 
 
   ```azurepowershell-interactive
@@ -208,7 +211,7 @@ PowerShell 예제:
       -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
   ```
    > [!NOTE]
-   > 서비스 태그, http 헤더 또는 다중 원본 규칙을 사용하려면 5.7.0 이상의 버전이 필요합니다. **Get-InstalledModule -Name Az** 로 설치된 모듈의 버전을 확인할 수 있습니다.
+   > Azure PowerShell에서 서비스 태그, http 헤더 또는 다중 원본 규칙을 사용하려면 5.7.0 이상의 버전이 필요합니다. ```Get-InstalledModule -Name Az```로 설치된 모듈의 버전을 확인할 수 있습니다.
 
 다음 중 하나를 수행하여 수동으로 값을 설정할 수도 있습니다.
 

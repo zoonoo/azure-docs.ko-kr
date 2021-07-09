@@ -3,20 +3,21 @@ title: Azure VMware Solution 배포 및 구성
 description: 계획 단계에서 수집된 정보를 사용하여 Azure VMware Solution 프라이빗 클라우드를 배포하고 구성하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4, devx-track-azurecli
-ms.date: 04/23/2021
-ms.openlocfilehash: fe03713a8bb8cd2304e75c828b27d479eb83c0e0
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.date: 05/19/2021
+ms.openlocfilehash: 824ab46b81a913bc7b1768e56e05025ee8208d17
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751441"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473771"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Azure VMware Solution 배포 및 구성
 
 이 문서에서는 [계획 섹션](production-ready-deployment-steps.md)의 정보를 사용하여 Azure VMware Solution을 배포하고 구성합니다. 
 
->[!IMPORTANT]
->계속하기 전에 [계획 섹션](production-ready-deployment-steps.md)을 살펴본 정보입니다.
+다이어그램은 Azure VMware Solution의 배포 워크플로를 보여 줍니다. 
+
+:::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Azure VMware Solution 배포 워크플로의 다이어그램." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
 ## <a name="step-1-register-the-microsoftavs-resource-provider"></a>1단계. **Microsoft.AVS** 리소스 공급자 등록
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019,fasttrack-edit
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 2dfcb4ade9da76d5ec4883e9f4b5b3cb3e0c8682
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: e00af1551d5de5a2c8cbd5ea119c94ef4b38aaa3
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106076839"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030992"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-offline-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 Azure SQL Managed Instance로 오프라인 마이그레이션
 
@@ -35,7 +35,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
 > - 마이그레이션 보고서를 다운로드합니다.
 
 > [!IMPORTANT]
-> SQL Server에서 SQL Managed Instance로 오프라인 마이그레이션의 경우 Azure Database Migration Service에서 백업 파일을 만들 수 있습니다. 또는 서비스에서 데이터베이스를 마이그레이션하는 데 사용할 SMB 네트워크 공유에 최신 전체 데이터베이스 백업을 제공할 수 있습니다. 단일 백업 미디어에 여러 백업을 추가하지 마세요. 각 백업을 별도의 백업 파일에 만들어야 합니다. 압축된 백업도 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
+> SQL Server에서 SQL Managed Instance로 오프라인 마이그레이션의 경우 Azure Database Migration Service에서 백업 파일을 만들 수 있습니다. 또는 서비스에서 데이터베이스를 마이그레이션하는 데 사용할 SMB 네트워크 공유에 최신 전체 데이터베이스 백업을 제공할 수 있습니다. 각 백업은 별도의 백업 파일 또는 여러 백업 파일에 쓸 수 있습니다. 그러나 단일 백업 미디어에 여러 백업을 추가하는 것은 지원되지 않습니다. 압축된 백업도 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -198,7 +198,7 @@ Azure Database Migration Service를 사용하여 SQL Server 인스턴스에서 [
 
 1. **마이그레이션 설정 구성** 화면에서 다음 세부 정보를 입력합니다.
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     |--------|---------|
     |**원본 백업 옵션 선택** | DMS가 데이터베이스 마이그레이션에 사용할 수 있는 전체 백업 파일이 이미 있으면 **최신 백업 파일을 제공합니다** 옵션을 선택합니다. DMS에서 원본 데이터베이스 전체 백업을 처음으로 수행하고 마이그레이션에 이 백업을 사용하도록 하려면 **Azure Database Migration Service를 통해 백업 파일을 만들려고 합니다** 옵션을 선택합니다. |
     |**네트워크 위치 공유** | Azure Database Migration Service가 원본 데이터베이스를 백업하는 데 사용할 수 있는 로컬 SMB 네트워크 공유입니다. 원본 SQL Server 인스턴스를 실행하는 서비스 계정에는 이 네트워크 공유에 대한 쓰기 권한이 있어야 합니다. 네트워크 공유에 있는 서버의 FQDN 또는 IP 주소를 입력합니다(예: '\\\servername.domainname.com\backupfolder' 또는 '\\\IP address\backupfolder').|

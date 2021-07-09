@@ -6,17 +6,17 @@ author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ab6ca63e76e22fe82cf806da77258e427112d9f1
-ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.openlocfilehash: c12cb6c344554f4d18af28dd563b7c96358ea2ee
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108320154"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095161"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
 > [!NOTE]
-> 이 옵션은 사용되지 않습니다. [이제 Key Vault에 Azure Monitor를 사용하는 것이 좋습니다](./key-vault-insights-overview.md).
+> 이 옵션은 사용되지 않습니다. [이제 Key Vault Insights를 사용하는 것이 좋습니다](./key-vault-insights-overview.md).
 
 ![Key Vault 기호](media/azure-key-vault/key-vault-analytics-symbol.png)
 

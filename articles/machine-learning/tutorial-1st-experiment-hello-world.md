@@ -1,7 +1,7 @@
 ---
-title: '자습서: "Hello world!" Python 스크립트 실행'
+title: '자습서: Python 스크립트 시작'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 시작 시리즈의 1부에서는 간단한 "Hello World" Python 스크립트를 클라우드에 제출하는 방법을 보여 줍니다.
+description: Azure Machine Learning에서 첫 번째 Python 스크립트를 시작합니다. 3부로 구성된 시작 시리즈 중 1부입니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,19 +10,19 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 04/27/2021
-ms.custom: devx-track-python
-ms.openlocfilehash: d50105b88c7c719aa1d89aaa3f29fad43abc0a28
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.openlocfilehash: ccc28c5a20fd31d3200f6473210150587fd5b4ad
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108740814"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028634"
 ---
-# <a name="tutorial-run-a-hello-world-python-script-part-1-of-3"></a>자습서: "Hello world!" Python 스크립트 실행(1/3부)
+# <a name="tutorial-get-started-with-a-python-script-in-azure-machine-learning-part-1-of-3"></a>자습서: Azure Machine Learning에서 Python 스크립트 시작(1/3부)
 
-이 자습서에서는 Python용 Azure Machine Learning SDK를 사용하여 Python "Hello World" 스크립트를 제출하고 실행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Machine Learning을 사용하여 클라우드에서 첫 번째 Python 스크립트를 실행합니다. 이 자습서는 ‘3부로 구성된 자습서 시리즈 중 1부’입니다.
 
-이 자습서는 Azure Machine Learning의 기본 사항을 알아보고 Azure에서 작업 기반 기계 학습 작업을 완료하는 *3부로 구성된 자습서 시리즈 중 1부* 입니다. 
+이 자습서는 기계 학습 모델 학습처럼 복잡하지 않습니다. 클라우드에서 “Hello World” Python 스크립트를 실행합니다. 제어 스크립트를 사용하여 Azure Machine Learning에서 실행을 구성하고 만드는 방법을 알아봅니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -129,7 +129,7 @@ print(aml_url)
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig)에서 `hello.py` 코드를 래핑하고 작업 영역에 전달합니다. 이름에서 알 수 있듯이 이 클래스를 사용하여 Azure Machine Learning에서 _스크립트_ 를 _실행_ 하는 방법을 _구성_ 할 수 있습니다. 또한 스크립트가 실행되는 컴퓨팅 대상을 지정합니다. 이 코드에서 대상은 [설정 자습서](tutorial-1st-experiment-sdk-setup-local.md)에서 만든 컴퓨팅 클러스터입니다.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig)에서 `hello.py` 코드를 래핑하고 작업 영역에 전달합니다. 이름에서 알 수 있듯이 이 클래스를 사용하여 Azure Machine Learning에서 _스크립트_ 를 _실행_ 하는 방법을 _구성_ 할 수 있습니다. 또한 스크립트가 실행되는 컴퓨팅 대상을 지정합니다. 이 코드에서 대상은 [설정 자습서](./quickstart-create-resources.md)에서 만든 컴퓨팅 클러스터입니다.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -157,6 +157,9 @@ print(aml_url)
 **터미널에서 스크립트 저장 및 실행** 을 선택하여 컨트롤 스크립트를 실행합니다. 이어서 컴퓨팅 클러스터에서 [설정 자습서](quickstart-create-resources.md)에 따라 만든 `hello.py`을 실행합니다.
 
 터미널에서 인증하려면 로그인하라는 메시지가 표시될 수 있습니다.  코드를 복사하고 링크를 따라 이 단계를 완료합니다.
+
+> [!TIP]
+> 컴퓨팅 클러스터 만들기를 방금 완료한 경우 “UserError: 필요한 Docker 이미지를 찾을 수 없습니다.” 오류가 표시될 수 있습니다. 약 5분 정도 기다린 후 다시 시도하세요.  컴퓨팅 클러스터에서 노드를 실행할 준비를 하려면 시간이 더 필요할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [클라우드에서 코드를 제출했습니다.](?success=submit-to-cloud#monitor) [문제가 발생했습니다.](https://www.research.net/r/7C2NTH7?issue=submit-to-cloud)

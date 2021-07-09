@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: fa3dad8cdd38e6db621d8194cc9472430c7c5008
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae2720c321e701d14e91f8aee7a6dfbfc5f15739
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105605793"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110071347"
 ---
 # <a name="azure-percept-audio-setup"></a>Azure Percept Audio 설정
 
@@ -31,14 +31,14 @@ Azure Percept Audio는 Azure Percept DK에서 기본 제공됩니다. 특별한 
 
 1. (선택 사항) "라인 출력"이라고 표시된 오디오 잭을 통해 스피커 또는 헤드폰을 Azure Percept Audio 디바이스에 연결합니다. 그러면 오디오 응답을 들을 수 있습니다.
 
-1. devkit의 전원을 켭니다. 오디오 인터포저 보드의 LED L02가 흰색 점멸로 바뀌며 이는 디바이스의 전원이 켜져 있고 Audio SoM이 인증 중이라는 것을 나타냅니다.
+1. devkit의 전원을 켭니다. LED L02가 흰색으로 깜박입니다. 이는 디바이스의 전원이 켜져 있고 인증 중임을 나타냅니다.
 
-1. 인증 프로세스가 완료될 때까지 기다립니다. 최대 3분 정도 걸릴 수 있습니다.
+1. 인증 프로세스가 완료될 때까지 기다립니다. 최대 5분 정도 걸릴 수 있습니다.
 
-1. 다음 중 하나가 표시되면 프로토타입 생성을 시작할 준비가 된 것입니다.
+1. 다음 LED 상태 중 하나가 표시되면 프로토타입 생성을 시작할 준비가 된 것입니다.
 
-    - LED L02가 흰색으로 바뀝니다. 이는 인증이 완료되었지만 아직 키워드로 devkit를 구성하지 않았다는 뜻입니다.
-    - 세 개의 LED가 모두 파란색으로 바뀝니다. 이는 인증이 완료되었으며 devkit가 키워드로 구성되었다는 뜻입니다.
+    - LED L02가 흰색으로 바뀌면 인증이 완료되고 devkit이 키워드 없이 구성되었음을 나타냅니다.
+    - 세 개의 LED가 모두 파란색으로 켜지면 인증이 완료되었으며 devkit이 키워드로 구성되었음을 나타냅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

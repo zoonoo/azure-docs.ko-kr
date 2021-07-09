@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/02/2020
+ms.date: 05/17/2021
 ms.author: jeedes
-ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7b76f5ec2cffde60379b12a0ad7d623ebe9a06c2
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94330570"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110473192"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>자습서: Azure Active Directory와 Atlassian Cloud 통합
 
@@ -42,7 +42,7 @@ ms.locfileid: "94330570"
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
 
 * Atlassian Cloud에서 **SP 및 IDP** 시작 SSO를 지원합니다.
-* Atlassian가 [자동 사용자 프로비저닝 및 프로비전 해제](atlassian-cloud-provisioning-tutorial.md) 지원
+* Atlassian Cloud에서 [자동 사용자 프로비저닝 및 프로비저닝 해제](atlassian-cloud-provisioning-tutorial.md)를 지원합니다.
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>갤러리에서 Atlassian Cloud 추가
 
@@ -187,6 +187,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
       c. 최종 특성 매핑은 다음과 같습니다.
 
       ![이미지 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
+
+ > [!NOTE]
+ > 왼쪽 서랍에서 **인증 정책** 옵션을 선택하여 여러 보안 정책을 설정할 수 있습니다. 인증 정책을 사용하면 조직의 여러 사용자 및 구성 세트에 대해 인증 설정을 지정할 수 있습니다. Atlassian 조직에 액세스하는 사용자가 진짜인지 확인합니다. 자세한 내용은 [인증 정책](https://support.atlassian.com/security-and-access-policies/docs/understand-authentication-policies/)을 참조하세요.
      
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -247,7 +250,7 @@ Azure AD 사용자가 Atlassian Cloud에 로그인하도록 하려면 Atlassian 
 
 * Azure Portal에서 **이 애플리케이션 테스트** 를 클릭하면 SSO를 설정한 Atlassian Cloud에 자동으로 로그인됩니다. 
 
-Microsoft 액세스 패널을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 액세스 패널에서 Atlassian Cloud 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Atlassian Cloud에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+Microsoft 내 앱을 사용하여 모든 모드에서 애플리케이션을 테스트할 수도 있습니다. 내 앱에서 Atlassian Cloud 타일을 클릭할 때 SP 모드로 구성된 경우 로그인 흐름을 시작하기 위해 애플리케이션 로그온 페이지로 리디렉션되고, IDP 모드로 구성된 경우에는 SSO를 설정한 Atlassian Cloud에 자동으로 로그인됩니다. 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

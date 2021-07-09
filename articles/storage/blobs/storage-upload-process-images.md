@@ -1,30 +1,30 @@
 ---
 title: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs
-description: 웹앱에서 Azure Blob 스토리지를 사용하여 스토리지 계정에 앱 데이터를 저장합니다. 이 자습서에서는 Azure 스토리지에서 이미지를 저장 및 표시하는 웹앱을 만듭니다.
-author: twooley
+description: 웹앱에서 Azure Blob Storage를 사용하여 스토리지 계정에 앱 데이터를 저장합니다. 이 자습서에서는 Azure 스토리지에서 이미지를 저장 및 표시하는 웹앱을 만듭니다.
+author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 06/24/2020
-ms.author: twooley
+ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: f751b93a7d298763da5a37a54f400d6fc56a58e3
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: a2a73c081a24d0efc8197a2d6808f4dfee94481a
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106277966"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591677"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
-이 자습서는 시리즈의 1부입니다. 이 자습서에서는 웹앱을 배포하는 방법을 알아봅니다. 웹앱은 Azure Blob 스토리지 클라이언트 라이브러리를 사용하여 이미지를 스토리지 계정에 업로드합니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 갖추어집니다.
+이 자습서는 시리즈의 1부입니다. 이 자습서에서는 웹앱을 배포하는 방법을 알아봅니다. 웹앱은 Azure Blob Storage 클라이언트 라이브러리를 사용하여 이미지를 스토리지 계정에 업로드합니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 갖추어집니다.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 ![.NET의 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[JavaScript v12 SDK](#tab/javascript)
 
 ![JavaScript의 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
@@ -158,7 +158,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub 리포지토리에서 샘플 앱 배포
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
 
@@ -176,7 +176,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
   --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[JavaScript v12 SDK](#tab/javascript)
 
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-stream-nodejs)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다.
 
@@ -196,7 +196,7 @@ az webapp deployment source config --name $webapp --resource-group myResourceGro
 
 ## <a name="configure-web-app-settings"></a>웹앱 설정 구성
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 샘플 웹앱은 [.NET용 Azure Storage API](/dotnet/api/overview/azure/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
@@ -216,7 +216,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
     AzureStorageConfig__AccountKey=$blobStorageAccountKey
 ```
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[JavaScript v12 SDK](#tab/javascript)
 
 샘플 웹앱은 [JavaScript용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage)를 사용하여 이미지를 업로드합니다. 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에서 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
@@ -240,7 +240,7 @@ az webapp config appsettings set --name $webapp --resource-group myResourceGroup
 
 웹앱을 테스트하려면 게시된 앱의 URL로 이동합니다. 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 **사진 업로드** 지역을 선택하여 파일을 지정 및 업로드하거나 파일을 해당 지역으로 끌어갑니다. 성공적으로 업로드되면 이미지가 사라집니다. **생성된 썸네일** 섹션은 이 자습서의 뒷부분에서 테스트할 때까지 비어 있습니다.
 
@@ -282,7 +282,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 | [StorageSharedKeyCredential](/dotnet/api/azure.storage.storagesharedkeycredential) | [StorageSharedKeyCredential(String, String) constructor](/dotnet/api/azure.storage.storagesharedkeycredential.-ctor) |
 | [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) | [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) |
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[JavaScript v12 SDK](#tab/javascript)
 
 **파일 선택** 을 선택하여 파일을 선택한 다음, **이미지 업로드** 를 클릭합니다. **생성된 썸네일** 섹션은 이 자습서의 뒷부분에서 테스트할 때까지 비어 있습니다.
 
@@ -382,7 +382,7 @@ router.post('/', uploadStrategy, async (req, res) => {
     await blockBlobClient.uploadStream(stream,
       uploadOptions.bufferSize, uploadOptions.maxBuffers,
       { blobHTTPHeaders: { blobContentType: "image/jpeg" } });
-    res.render('success', { message: 'File uploaded to Azure Blob storage.' });
+    res.render('success', { message: 'File uploaded to Azure Blob Storage.' });
   } catch (err) {
     res.render('error', { message: err.message });
   }
@@ -411,11 +411,11 @@ module.exports = router;
 
 앱으로 다시 이동하여 **썸네일** 컨테이너에 업로드된 이미지가 보이는지 확인합니다.
 
-# <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
+# <a name="net-v12-sdk"></a>[.NET v12 SDK](#tab/dotnet)
 
 ![새 이미지가 표시된 .NET 이미지 크기 조정 앱](media/storage-upload-process-images/figure2.png)
 
-# <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
+# <a name="javascript-v12-sdk"></a>[JavaScript v12 SDK](#tab/javascript)
 
 ![새 이미지가 표시된 Node.js 이미지 크기 조정 앱](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 

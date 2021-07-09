@@ -5,20 +5,20 @@ author: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 27594ff4d7673038e9de38c5969a615be60aeadf
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d82599831d0495df5dba4758976e70b3119a8018
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844696"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451859"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
 
 Azure Portal에서 [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft 고객 계약](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) 또는 [Microsoft 파트너 계약](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) 청구 계정에 대한 추가 구독을 만들 수 있습니다. 구독 제한을 피하거나, 보안을 위한 별도의 환경을 만들거나, 규정 준수를 위한 데이터 격리 목적으로 추가 구독이 필요할 수 있습니다.
 
-MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 [Azure 가입 포털](https://account.azure.com/signup?offer=ms-azr-0003p)에서 추가 구독을 만들 수 있습니다.
+MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 추가 구독을 만들 수 있습니다.
 
 청구 계정에 대해 자세히 알아보고 청구 계정 유형을 확인하려면 [Azure Portal에서 청구 계정 보기](view-all-accounts.md)를 참조하세요.
 

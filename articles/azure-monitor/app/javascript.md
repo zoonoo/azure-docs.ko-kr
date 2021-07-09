@@ -4,23 +4,23 @@ description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 04cda044b002e226c49f8647d4705d7c0f2a514e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 61b7aa455cf9b782ca10d749344c26f5d15caa40
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105565268"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072517"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
 웹 페이지 또는 앱의 성능 및 사용량 현황에 대해 알아봅니다. 페이지 스크립트에 [Application Insights](app-insights-overview.md)를 추가하면 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 실패의 개수 및 세부 정보뿐만 아니라 사용자 및 세션 개수를 얻을 수 있습니다. 이러한 모든 요소를 페이지, 클라이언트 OS 및 브라우저 버전, 지리적 위치 및 기타 차원으로 분할할 수 있습니다. 실패 횟수 또는 느린 페이지 로딩에 대한 경고를 설정할 수도 있습니다. 또한 JavaScript 코드에 추적 호출을 삽입하여 웹 페이지 애플리케이션의 다양한 기능 사용 방법을 추적할 수 있습니다.
 
-Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](java-get-started.md) 또는 [ASP.NET](asp-net.md)인 경우 클라이언트 쪽 JavaScript SDK와 함께 서버 쪽 SDK를 사용하여 애플리케이션의 성능에 대한 포괄적인 이해를 얻을 수 있습니다.
+Application Insights는 다른 웹 페이지와 함께 사용할 수 있습니다. 간단한 JavaScript만 추가하면 됩니다. 웹 서비스가 [Java](java-in-process-agent.md) 또는 [ASP.NET](asp-net.md)인 경우 클라이언트 쪽 JavaScript SDK와 함께 서버 쪽 SDK를 사용하여 애플리케이션의 성능에 대한 포괄적인 이해를 얻을 수 있습니다.
 
 ## <a name="adding-the-javascript-sdk"></a>JavaScript SDK 추가
 
 > [!IMPORTANT]
-> 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. [연결 문자열](./sdk-connection-string.md?tabs=js)은 원격 분석 데이터를 연결하려는 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
+> 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=js)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
 
 1. 먼저 Application Insights 리소스가 필요합니다. 리소스 및 계측 키가 아직 없는 경우 [새 리소스 만들기 지침](create-new-resource.md)을 따르세요.
 2. 1단계에서 JavaScript 원격 분석을 전송하려는 리소스의 '계측 키'('iKey'라고도 함) 또는 [연결 문자열](#connection-string-setup)을 복사합니다. 이 값은 Application Insights JavaScript SDK의 `instrumentationKey` 또는 `connectionString` 설정에 추가할 것입니다.
@@ -108,7 +108,7 @@ SDK가 로드되지 않을 뿐 아니라 오류 보고 자체도 비활성화되
 
 사용 가능한 구성 옵션은 다음과 같습니다.
  
-| 이름 | 유형 | 설명
+| 이름 | Type | 설명
 |------|------|----------------
 | src | 문자열 **[필수]** | SDK를 로드할 위치의 전체 URL입니다. 이 값은 동적으로 추가된 &lt;script /&gt; 태그의 'src' 특성에 사용됩니다. 공용 CDN 위치 또는 비공개로 호스트된 위치를 사용할 수 있습니다.
 | name | 문자열 *[선택 사항]* | 초기화된 SDK의 전역 이름이며 기본값은 `appInsights`입니다. 따라서 ```window.appInsights```는 초기화된 인스턴스에 대한 참조입니다. 참고: 사용자가 이름 값을 제공하거나 이전 인스턴스가 할당된 것으로 나타나는 경우(전역 이름 appInsightsSDK를 통해) 이 이름 값도 전역 네임스페이스에서 ```window.appInsightsSDK=<name value>```로 정의됩니다. 이 이름 값은 SDK 초기화 코드에서 올바른 코드 조각 구조 및 프록시 메서드를 초기화하고 업데이트하는 데 필요합니다.

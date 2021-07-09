@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 9285928c94f0e1ce3de37f357aed57c32b5be01d
-ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
+ms.openlocfilehash: 70793c997979be1c94dda0a5198df8c450e16496
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109713039"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112031010"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>자습서: DMS를 사용하여 SQL Server를 SQL Managed Instance로 온라인 마이그레이션
 
@@ -35,7 +35,7 @@ Azure Database Migration Service를 사용하면 최소한의 가동 중지 시�
 
 > [!IMPORTANT]
 > Azure Database Migration Service를 사용하여 SQL Server에서 SQL Managed Instance로 온라인 마이그레이션하려면 서버에서 데이터베이스를 마이그레이션하는 데 사용할 수 있는 SMB 네트워크의 전체 데이터베이스 백업 및 후속 로그 백업을 제공해야 합니다. Azure Database Migration Service는 백업을 새로 시작하는 것이 아니라 사용자가 재해 복구 계획의 일부로 보유한 기존 백업을 마이그레이션에 사용합니다.
-> [WITH CHECKSUM 옵션을 사용하여 백업](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017)을 만들어야 합니다. 또한 여러 백업(즉, 전체 및 t-로그)을 단일 백업 미디어에 추가하면 안 됩니다. 각 백업을 별도의 백업 파일에 만들어야 합니다. 마지막으로, 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
+> [WITH CHECKSUM 옵션을 사용하여 백업](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?preserve-view=true&view=sql-server-2017)을 만들어야 합니다. 각 백업은 별도의 백업 파일 또는 여러 백업 파일에 쓸 수 있습니다. 그러나 단일 백업 미디어에 여러 백업(예: 전체 및 t-log)을 추가하는 것은 지원되지 않습니다. 마지막으로, 압축된 백업을 사용하여 대량 백업 마이그레이션과 관련된 잠재적인 문제 발생 가능성을 줄일 수 있습니다.
 
 > [!NOTE]
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다.

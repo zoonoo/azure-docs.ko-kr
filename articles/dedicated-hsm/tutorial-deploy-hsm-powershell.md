@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 5ed5ac90f446f74c54488f6d0cf23adbd63a3e1e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2b93496244ed36ce2ca08dfd48b7bb176d6cdd40
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606881"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949447"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>자습서 - PowerShell을 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -33,7 +33,7 @@ Azure Dedicated HSM 서비스는 단일 고객이 사용할 수 있는 완전한
 
 ![다중 지역 배포](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
-이 자습서에서는 기존의 가상 네트워크(위의 VNET 1 참조)로 통합되는 HSM과 필요한 ExpressRoute 게이트웨이(위의 Subnet 1 참조)의 쌍을 중점적으로 살펴봅니다.  다른 모든 리소스는 표준 Azure 리소스입니다. 위의 VNET 3에서 서브넷 4에 있는 HSM에 동일한 통합 프로세스를 사용할 수 있습니다.
+이 자습서에서는 기존의 가상 네트워크(위의 VNET 1 참조)로 통합되는 HSM과 필요한 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)(위의 Subnet 1 참조)의 쌍을 중점적으로 살펴봅니다.  다른 모든 리소스는 표준 Azure 리소스입니다. 위의 VNET 3에서 서브넷 4에 있는 HSM에 동일한 통합 프로세스를 사용할 수 있습니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -52,7 +52,7 @@ Azure Dedicated HSM은 현재 Azure Portal에서 사용할 수 없으므로 이 
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Dedicated HSM 프로비전
 
-HSM을 프로비저닝하고 ExpressRoute 게이트웨이를 통해 기존의 가상 네트워크에 통합한 후에는 ssh 명령줄 도구를 통해 유효성 검사를 수행하여 HSM 디바이스의 연결 가능성과 기본 가용성을 확인해야 합니다. 다음 명령은 Resource Manager 템플릿을 사용하여 HSM 리소스 및 관련 네트워킹 리소스를 만듭니다.
+HSM을 프로비저닝하고 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)를 통해 기존의 가상 네트워크에 통합한 후에는 ssh 명령줄 도구를 사용해 유효성 검사를 수행하여 HSM 디바이스의 연결 가능성과 기본 가용성을 확인해야 합니다. 다음 명령은 Resource Manager 템플릿을 사용하여 HSM 리소스 및 관련 네트워킹 리소스를 만듭니다.
 
 ### <a name="validating-feature-registration"></a>기능 등록 유효성 검사
 
@@ -68,7 +68,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -Feat
 
 ### <a name="creating-hsm-resources"></a>HSM 리소스 만들기
 
-고객의 가상 네트워크에 HSM 디바이스가 프로비전되었습니다. 이는 서브넷에 대한 요구 사항을 의미합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 ExpressRoute 게이트웨이이며, 마지막으로 Thales 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
+고객의 가상 네트워크에 HSM 디바이스가 프로비전되었습니다. 이는 서브넷에 대한 요구 사항을 의미합니다. HSM이 가상 네트워크와 물리적 디바이스 간 통신을 구현하는 데 필요한 종속 항목은 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)이며, 마지막으로 Thales 클라이언트 소프트웨어를 사용하여 HSM 디바이스에 액세스하기 위해 가상 머신이 필요합니다. 이러한 리소스는 사용 편의를 위해 해당 매개 변수 파일과 함께 템플릿 파일에 수집되었습니다. 이러한 파일은 Microsoft(HSMrequest@Microsoft.com)에 직접 문의하면 사용 가능합니다.
 
 파일을 확보하면 매개 변수 파일을 편집하여 리소스의 기본 이름을 삽입해야 합니다. 즉, “value”: “”를 사용하여 줄을 편집합니다.
 

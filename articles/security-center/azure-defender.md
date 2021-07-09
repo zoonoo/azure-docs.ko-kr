@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1337167b13b05122aa38b3142a849129171bdc4d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 2c8147399f37f5f9fe2b3c01bc2c273ffc59be31
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140302"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469610"
 ---
 # <a name="introduction-to-azure-defender"></a>Azure Defender 소개
 
@@ -41,6 +41,7 @@ Azure Security Center의 **가격 책정 및 설정** 영역에서 Azure Defende
 - [Key Vault용 Azure Defender](defender-for-key-vault-introduction.md)
 - [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Azure Defender for DNS](defender-for-dns-introduction.md)
+- [오픈 소스 관계형 데이터베이스용 Azure Defender](defender-for-databases-introduction.md)
 
 각 플랜은 Security Center 설명서에 별도로 설명되어 있습니다.
 

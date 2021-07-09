@@ -6,13 +6,13 @@ ms.author: srranga
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 04/26/2021
-ms.openlocfilehash: ad417bc44de7d13594f003f7aa1e39b2308204ed
-ms.sourcegitcommit: 5f785599310d77a4edcf653d7d3d22466f7e05e1
+ms.date: 05/25/2021
+ms.openlocfilehash: 4ed84ab94173961412a7769da89136c39413a92e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/27/2021
-ms.locfileid: "108064866"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111983081"
 ---
 # <a name="release-notes---azure-database-for-postgresql---flexible-server"></a>릴리스 정보 - Azure Database for PostgreSQL - 유연한 서버
 
@@ -21,6 +21,12 @@ ms.locfileid: "108064866"
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - 유연한 서버는 미리 보기로 제공됨
 
+## <a name="release-may-25-2021"></a>릴리스: 2021년 5월 25일
+
+* [PostgreSQL 주 버전 13](./concepts-supported-versions.md) 지원
+* pg_partman, pg_cron, pgaudit를 포함한 확장 지원. 각 주 버전에서 지원되는 버전은 [확장 페이지](./concepts-extensions.md)를 참조하세요.
+* 여러 버그 수정, 안정성 및 성능 향상
+
 ## <a name="release-april-26-2021"></a>릴리스: 2021년 4월 26일
 
 * 새 서버를 만들어 [최신 PostgreSQL 부](./concepts-supported-versions.md) 12.6 및 11.11 지원
@@ -28,7 +34,7 @@ ms.locfileid: "108064866"
 * 지정 시간 복구 작업 중에 가용성 영역 선택 지원
 * 오스트레일리아 동부, 캐나다 중부 및 프랑스 중부 등 새 [지역](./overview.md#azure-regions) 지원
 * [기본 제공 PgBouncer](./concepts-pgbouncer.md) 연결 풀러 지원 
-* [pglogical](https://github.com/2ndQuadrant/pglogical) 확장 버전 2.3.2 지원
+<!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
 * 공개 미리 보기의 [지능형 성능](concepts-query-store.md)
 * 여러 버그 수정, 안정성 및 성능 향상
 

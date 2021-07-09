@@ -10,12 +10,12 @@ author: BlackMist
 ms.date: 04/08/2021
 ms.custom: devx-track-python
 adobe-target: true
-ms.openlocfilehash: 086c1f6ebd1b9e448a8f5e229bc6706493729422
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 89d839a9b507530eb0b3fc763b2fbba36208f79c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108762896"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081896"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -44,8 +44,6 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 + Jupyter Notebook: [예제 Notebook](https://github.com/Azure/MachineLearningNotebooks)을 사용하거나 고유한 Notebook을 만들어 기계 학습에서 <a href="/python/api/overview/azure/ml/intro" target="_blank">Python용 Azure SDK</a> 샘플을 활용할 수 있습니다. 
 
-+ <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R용 SDK</a>를 사용하여 고유한 코드를 작성하는 R 스크립트 또는 Notebook이나 디자이너에서 사용하는 R 모듈
-
 + [많은 모델 솔루션 가속기](https://aka.ms/many-models)(미리 보기)는 Azure Machine Learning을 기반으로 하며 수백 또는 수천 개의 기계 학습 모델을 학습, 운영 및 관리할 수 있습니다.
 
 + [Visual Studio Code용 기계 학습 확장(미리 보기)](how-to-set-up-vs-code-remote.md)은 기계 학습 프로젝트를 빌드하고 관리하기 위한 완전한 기능을 갖춘 개발 환경을 제공합니다.
@@ -58,9 +56,9 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 [MLflow를 사용하여 메트릭을 추적](how-to-use-mlflow.md)하거나 Kubeflow를 사용하여 [엔드투엔드 워크플로 파이프라인을 빌드](https://www.kubeflow.org/docs/azure/)할 수도 있습니다.
 
-## <a name="build-ml-models-in-python-or-r"></a>Python 또는 R에서 ML 모델 빌드
+## <a name="build-ml-models-in-with-the-python-sdk"></a>Python SDK를 사용하여 ML 모델 빌드
 
-Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a> 또는 <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>를 사용하여 로컬 머신에서 학습을 시작한 다음, 클라우드로 확장할 수 있습니다. 
+Azure Machine Learning <a href="/python/api/overview/azure/ml/intro" target="_blank">Python SDK</a>를 사용하여 로컬 머신에서 학습을 시작합니다. 클라우드로 확장할 수 있습니다. 
 
 Azure Machine Learning 컴퓨팅 및 [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks)와 같이 사용할 수 있는 여러 [컴퓨팅 대상](how-to-create-attach-compute-studio.md)과 [고급 하이퍼 매개 변수 튜닝 서비스](how-to-tune-hyperparameters.md)를 통해 클라우드의 강력한 기능을 사용하여 더 나은 모델을 더 빠르게 빌드할 수 있습니다.
 
@@ -134,7 +132,7 @@ Azure Storage 계정, 컴퓨팅 대상 및 기타 리소스를 가상 네트워�
   + [Visual Studio Code에서 리소스 관리](how-to-manage-resources-vscode.md)
   + [Visual Studio Code를 사용하여 이미지 분류 모델 학습 및 배포](tutorial-train-deploy-image-classification-model-vscode.md)
   + [디자이너의 끌어서 놓기 기능을 사용하여 학습 및 배포](tutorial-designer-automobile-price-train-score.md) 
-  + [기계 학습 CLI를 사용하여 모델 학습 및 배포](tutorial-train-deploy-model-cli.md)
+  + [기계 학습 CLI를 사용하여 모델 학습](how-to-train-cli.md)
 
 - 머신 러닝 시나리오를 작성, 최적화 및 관리하는 [머신 러닝 파이프라인](concept-ml-pipelines.md)에 대해 알아보세요.
 

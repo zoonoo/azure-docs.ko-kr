@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 72ca331546d53f85ca82f33ec6a02558d91f1c1e
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 98e8d7862f1270977ed3eb3ab71605e440d53520
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765110"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112084056"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-[v3 참조 설명서](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 패키지(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+[v3 참조 설명서](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview) | [v3 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | [v3 패키지(NPM)](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.1.0-beta.6) | [v3 샘플](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/samples)
 
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
@@ -64,7 +64,7 @@ npm init
 `@azure/ai-text-analytics` NPM 패키지 설치:
 
 ```console
-npm install --save @azure/ai-text-analytics@5.1.0-beta.5
+npm install --save @azure/ai-text-analytics@5.1.0-beta.6
 ```
 
 > [!TIP]
@@ -124,7 +124,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 
 ## <a name="code-examples"></a>코드 예제
 
-* [클라이언트 인증](#client-authentication)
+* [클라이언트 인증](#authenticate-the-client)
 * [감정 분석](#sentiment-analysis) 
 * [오피니언 마이닝](#opinion-mining)
 * [언어 감지](#language-detection)
@@ -133,7 +133,7 @@ Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 `Tex
 * 개인 식별이 가능한 정보
 * [핵심 구 추출](#key-phrase-extraction)
 
-## <a name="client-authentication"></a>클라이언트 인증
+## <a name="authenticate-the-client"></a>클라이언트 인증
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
@@ -201,7 +201,57 @@ ID: 0
                 Positive: 0.21  Negative: 0.02  Neutral: 0.77
 ```
 
-### <a name="opinion-mining"></a>의견 마이닝
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `analyzeSentiment()` 메서드를 호출하고 반환된 `SentimentBatchResult` 개체를 가져옵니다. 결과 목록을 반복하고 각 문서의 ID, 문서 수준 감정을 신뢰도 점수로 인쇄합니다. 각 문서에 대해 결과에는 오프셋, 길이 및 신뢰도 점수와 함께 문장 수준 감정이 포함됩니다.
+
+```javascript
+async function sentimentAnalysis(client){
+
+    const sentimentInput = [
+        "I had the best day of my life. I wish you were there with me."
+    ];
+    const sentimentResult = await client.analyzeSentiment(sentimentInput);
+
+    sentimentResult.forEach(document => {
+        console.log(`ID: ${document.id}`);
+        console.log(`\tDocument Sentiment: ${document.sentiment}`);
+        console.log(`\tDocument Scores:`);
+        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
+        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
+        document.sentences.forEach(sentence => {
+            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
+            console.log(`\t\tSentences Scores:`);
+            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
+        });
+    });
+}
+sentimentAnalysis(textAnalyticsClient)
+```
+
+콘솔 창에서 `node index.js`를 사용하여 코드를 실행합니다.
+
+### <a name="output"></a>출력
+
+```console
+ID: 0
+        Document Sentiment: positive
+        Document Scores:
+                Positive: 1.00  Negative: 0.00  Neutral: 0.00
+        Sentences Sentiment(2):
+                Sentence sentiment: positive
+                Sentences Scores:
+                Positive: 1.00  Negative: 0.00  Neutral: 0.00
+                Sentence sentiment: neutral
+                Sentences Scores:
+                Positive: 0.21  Negative: 0.02  Neutral: 0.77
+```
+
+---
+
+## <a name="opinion-mining"></a>의견 마이닝
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 오피리언 마이닝을 사용하여 감정 분석을 수행하려면 분석하려는 문서가 포함된 문자열의 배열을 만듭니다. 옵션 플래그 `includeOpinionMining: true`를 추가하여 클라이언트의 `analyzeSentiment()` 메서드를 호출하고 반환된 `SentimentBatchResult` 개체를 가져옵니다. 결과 목록을 반복하고 각 문서의 ID, 문서 수준 감정을 신뢰도 점수로 인쇄합니다. 각 문서에 대해 결과는 위와 같은 문장 수준 감정뿐만 아니라 측면 및 의견 수준 감정도 포함합니다.
 
@@ -283,49 +333,7 @@ sentimentAnalysisWithOpinionMining(textAnalyticsClient)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
-분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `analyzeSentiment()` 메서드를 호출하고 반환된 `SentimentBatchResult` 개체를 가져옵니다. 결과 목록을 반복하고 각 문서의 ID, 문서 수준 감정을 신뢰도 점수로 인쇄합니다. 각 문서에 대해 결과에는 오프셋, 길이 및 신뢰도 점수와 함께 문장 수준 감정이 포함됩니다.
-
-```javascript
-async function sentimentAnalysis(client){
-
-    const sentimentInput = [
-        "I had the best day of my life. I wish you were there with me."
-    ];
-    const sentimentResult = await client.analyzeSentiment(sentimentInput);
-
-    sentimentResult.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        console.log(`\tDocument Sentiment: ${document.sentiment}`);
-        console.log(`\tDocument Scores:`);
-        console.log(`\t\tPositive: ${document.confidenceScores.positive.toFixed(2)} \tNegative: ${document.confidenceScores.negative.toFixed(2)} \tNeutral: ${document.confidenceScores.neutral.toFixed(2)}`);
-        console.log(`\tSentences Sentiment(${document.sentences.length}):`);
-        document.sentences.forEach(sentence => {
-            console.log(`\t\tSentence sentiment: ${sentence.sentiment}`)
-            console.log(`\t\tSentences Scores:`);
-            console.log(`\t\tPositive: ${sentence.confidenceScores.positive.toFixed(2)} \tNegative: ${sentence.confidenceScores.negative.toFixed(2)} \tNeutral: ${sentence.confidenceScores.neutral.toFixed(2)}`);
-        });
-    });
-}
-sentimentAnalysis(textAnalyticsClient)
-```
-
-콘솔 창에서 `node index.js`를 사용하여 코드를 실행합니다.
-
-### <a name="output"></a>출력
-
-```console
-ID: 0
-        Document Sentiment: positive
-        Document Scores:
-                Positive: 1.00  Negative: 0.00  Neutral: 0.00
-        Sentences Sentiment(2):
-                Sentence sentiment: positive
-                Sentences Scores:
-                Positive: 1.00  Negative: 0.00  Neutral: 0.00
-                Sentence sentiment: neutral
-                Sentences Scores:
-                Positive: 0.21  Negative: 0.02  Neutral: 0.77
-```
+이 기능은 버전 3.0에서 사용할 수 없습니다.
 
 ---
 
@@ -395,10 +403,6 @@ ID: 0
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-> [!NOTE]
-> 버전 `3.1`에서 다음을 수행합니다.
-> * 엔터티 연결은 NER과 별개의 요청입니다.
-
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeEntities()` 메서드를 호출하고 `RecognizeEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, 형식, 하위 유형, 오프셋, 길이 및 점수를 인쇄합니다.
 
 ```javascript
@@ -442,60 +446,6 @@ Document ID: 1
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
         Score: 0.25
-```
-
-### <a name="entity-linking"></a>엔터티 연결
-
-분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeLinkedEntities()` 메서드를 호출하고 `RecognizeLinkedEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, ID, 데이터 원본, url 및 일치 항목을 인쇄합니다. `matches` 배열의 모든 개체에는 해당 일치 항목에 대한 오프셋, 길이 및 점수가 포함됩니다.
-
-```javascript
-async function linkedEntityRecognition(client){
-
-    const linkedEntityInput = [
-        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
-    ];
-    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
-
-    entityResults.forEach(document => {
-        console.log(`Document ID: ${document.id}`);
-        document.entities.forEach(entity => {
-            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
-            console.log(`\tMatches:`)
-            entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
-        })
-        });
-    });
-}
-linkedEntityRecognition(textAnalyticsClient);
-```
-
-콘솔 창에서 `node index.js`를 사용하여 코드를 실행합니다.
-
-### <a name="output"></a>출력
-
-```console
-Document ID: 0
-        Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
-        Matches:
-                Text: Altair 8800       Score: 0.88
-        Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
-        Matches:
-                Text: Bill Gates        Score: 0.63
-                Text: Gates     Score: 0.63
-        Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
-        Matches:
-                Text: Paul Allen        Score: 0.60
-        Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
-        Matches:
-                Text: Microsoft         Score: 0.55
-                Text: Microsoft         Score: 0.55
-        Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
-        Matches:
-                Text: April 4   Score: 0.32
-        Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
-        Matches:
-                Text: BASIC     Score: 0.33
 ```
 
 ### <a name="personally-identifying-information-pii-recognition"></a>PII(개인 식별 정보) 인식
@@ -537,10 +487,6 @@ Redacted Text:  The employee's phone number is **************.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
-> [!NOTE]
-> 버전 `3.0`에서 다음을 수행합니다.
-> * 엔터티 연결은 NER과 별개의 요청입니다.
-
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeEntities()` 메서드를 호출하고 `RecognizeEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, 형식, 하위 유형, 오프셋, 길이 및 점수를 인쇄합니다.
 
 ```javascript
@@ -586,7 +532,13 @@ Document ID: 1
         Score: 0.25
 ```
 
-### <a name="entity-linking"></a>엔터티 연결
+
+---
+
+
+## <a name="entity-linking"></a>엔터티 연결
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeLinkedEntities()` 메서드를 호출하고 `RecognizeLinkedEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, ID, 데이터 원본, url 및 일치 항목을 인쇄합니다. `matches` 배열의 모든 개체에는 해당 일치 항목에 대한 오프셋, 길이 및 점수가 포함됩니다.
 
@@ -640,6 +592,59 @@ Document ID: 0
                 Text: BASIC     Score: 0.33
 ```
 
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+분석할 문서가 포함된 문자열 배열을 만듭니다. 클라이언트의 `recognizeLinkedEntities()` 메서드를 호출하고 `RecognizeLinkedEntitiesResult` 개체를 가져옵니다. 결과 목록을 반복하고 엔터티 이름, ID, 데이터 원본, url 및 일치 항목을 인쇄합니다. `matches` 배열의 모든 개체에는 해당 일치 항목에 대한 오프셋, 길이 및 점수가 포함됩니다.
+
+```javascript
+async function linkedEntityRecognition(client){
+
+    const linkedEntityInput = [
+        "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800. During his career at Microsoft, Gates held the positions of chairman, chief executive officer, president and chief software architect, while also being the largest individual shareholder until May 2014."
+    ];
+    const entityResults = await client.recognizeLinkedEntities(linkedEntityInput);
+
+    entityResults.forEach(document => {
+        console.log(`Document ID: ${document.id}`);
+        document.entities.forEach(entity => {
+            console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
+            console.log(`\tMatches:`)
+            entity.matches.forEach(match => {
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
+        });
+    });
+}
+linkedEntityRecognition(textAnalyticsClient);
+```
+
+콘솔 창에서 `node index.js`를 사용하여 코드를 실행합니다.
+
+### <a name="output"></a>출력
+
+```console
+Document ID: 0
+        Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
+        Matches:
+                Text: Altair 8800       Score: 0.88
+        Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
+        Matches:
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
+        Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
+        Matches:
+                Text: Paul Allen        Score: 0.60
+        Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
+        Matches:
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
+        Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
+        Matches:
+                Text: April 4   Score: 0.32
+        Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
+        Matches:
+                Text: BASIC     Score: 0.33
+```
 
 ---
 
@@ -710,6 +715,8 @@ ID: 0
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. GitHub에서 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src/beginAnalyzeActions.ts)에 대한 고급 샘플을 찾을 수 있습니다.
+
 [!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 `beginAnalyze()` 함수를 호출하는 `analyze_example()`이라는 새 함수를 만듭니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
@@ -723,7 +730,7 @@ async function analyze_example(client) {
   const actions = {
     recognizeEntitiesActions: [{ modelVersion: "latest" }],
   };
-  const poller = await client.beginAnalyzeBatchActions(documents, actions, "en");
+  const poller = await client.beginAnalyzeActions(documents, actions, "en");
 
   console.log(
     `The analyze batch actions operation was created on ${poller.getOperationState().createdOn}`
@@ -767,15 +774,13 @@ The analyze batch actions operation results will expire on Sat Mar 13 2021 09:53
         - Entity Paul Allen of type Person
 ```
 
-Analyze(분석) 작업을 사용하여 PII를 검색하고, 연결된 엔터티 및 핵심 문구 추출을 인식할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) Analyze(분석) 샘플을 참조하세요.
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색을 수행할 수도 있습니다. GitHub의 [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/beginAnalyzeActions.js) 및 [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples/v5/typescript/src) Analyze(분석) 샘플을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
 이 기능은 버전 3.0에서 사용할 수 없습니다.
 
 ---
-
-## <a name="run-the-application"></a>애플리케이션 실행
 
 quickstart 파일의 `node` 명령을 사용하여 애플리케이션을 실행합니다.
 

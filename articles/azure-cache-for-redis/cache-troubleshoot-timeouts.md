@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 10/18/2019
-ms.openlocfilehash: bf8b20dadd2fcd78657aa6877e796b645332dd94
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d00ec82b5b66b2c413337f0c4efe803fc1013ab9
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88213457"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109847874"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Azure Cache for Redis 시간 제한 문제 해결
 
@@ -50,6 +50,8 @@ StackExchange.Redis는 기본값이 5000ms인 동기 작업에 `synctimeout`이�
 | wr |활성 기록기(보내지 않은 요청 6건이 무시되지 않았음을 의미함) 바이트/activewriters가 있습니다. |
 | in |활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
 
+앞의 예외 예에서 `IOCP` 및 `WORKER` 섹션은 각각 `Min` 값보다 큰 `Busy` 값을 포함합니다. 차이점은 `ThreadPool` 설정을 조정해야한다는 것을 의미합니다. 버스트 시나리오 하에서 스레드 풀이 신속하게 규모 확장을 하도록 [스레드 풀 설정을 구성](cache-management-faq.md#important-details-about-threadpool-growth)할 수 있습니다.
+
 다음 단계를 사용하여 가능한 근본 원인을 조사할 수 있습니다.
 
 1. 모범 사례로, StackExchange.Redis 클라이언트를 사용하는 경우 다음 패턴으로 연결하는지 확인하는 것이 좋습니다.
@@ -74,10 +76,10 @@ StackExchange.Redis는 기본값이 5000ms인 동기 작업에 `synctimeout`이�
 
 1. 서버와 클라이언트 애플리케이션이 Azure의 동일한 지역에 있는지 확인합니다. 예를 들어 캐시는 미국 동부에 있지만 클라이언트는 미국 서부에 있으며 요청이 `synctimeout` 간격 내에 완료되지 않는 경우 시간 제한이 발생할 수 있습니다. 또는 로컬 개발 머신에서 디버그하는 중인 경우 시간 제한이 발생할 수 있습니다. 
 
-    동일한 Azure 지역에 캐시와 클라이언트를 두도록 하는 것이 좋습니다. 지역 간 호출이 포함된 시나리오가 있는 경우 연결 문자열에 `synctimeout` 속성을 포함하여 `synctimeout` 간격을 기본 간격인 5000ms보다 높은 값으로 설정해야 합니다. 다음 예제에서는 `synctimeout`이 2000ms인 Azure Cache for Redis에서 제공하는 StackExchange.Redis 연결 문자열의 코드 조각을 보여 줍니다.
+    동일한 Azure 지역에 캐시와 클라이언트를 두도록 하는 것이 좋습니다. 지역 간 호출이 포함된 시나리오가 있는 경우 연결 문자열에 `synctimeout` 속성을 포함하여 `synctimeout` 간격을 기본 간격인 5000ms보다 높은 값으로 설정해야 합니다. 다음 예에서는 `synctimeout`이 8000ms인 Azure Cache for Redis에서 제공하는 StackExchange.Redis 연결 문자열의 코드 조각을 보여 줍니다.
 
     ```output
-    synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
+    synctimeout=8000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
     ```
 
 1. [StackExchange.Redis NuGet 패키지](https://www.nuget.org/packages/StackExchange.Redis/)최신 버전을 사용 중인지 확인합니다. 제한 시간에 더욱 견고하도록 만들기 위해 코드 속의 버그를 지속적으로 수정하고 있으므로 최신 버전을 갖는 것이 중요합니다.

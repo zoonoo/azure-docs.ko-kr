@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c9d54040fc4defa30adb52cec6edb335cc7bdc76
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92788085"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559181"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: Python 및 AI를 사용하여 Azure Blob에서 검색 가능한 콘텐츠 생성
 
@@ -49,7 +49,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고 AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고 Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
+이 자습서에서는 Azure Cognitive Search를 인덱싱 및 쿼리에 사용하고, AI 보강을 위해 백 엔드의 Cognitive Services를 사용하고, Azure Blob Storage를 사용하여 데이터를 제공합니다. 이 자습서는 Cognitive Services에 인덱서당 하루 20개의 트랜잭션을 무료로 할당하기 때문에, 검색 및 스토리지 서비스만 만들면 됩니다.
 
 가능하면, 근접성과 관리 효율성을 위해 두 가지 모두를 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
@@ -107,7 +107,7 @@ AI 보강은 자연어와 이미지 처리를 위한 Text Analytics 및 Computer
 
 세 번째 구성 요소는 [포털에서 만들](search-create-service-portal.md) 수 있는 Azure Cognitive Search입니다. 이 연습은 체험 계층을 사용하여 완료할 수 있습니다. 
 
-Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
+Azure Blob Storage와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Azure Cognitive Search용 관리 API 키와 URL을 가져옵니다.
 
@@ -196,7 +196,7 @@ Azure Portal의 검색 서비스 대시보드 페이지에서 **데이터 원본
 
 이 단계에서는 데이터에 적용할 보강 세트를 정의합니다. 각 보강 단계를 *기술* 이라고 부르고, 보강 단계 집합을 *기술 집합* 이라고 부릅니다. 이 자습서에서는 다음과 같은 [기본 제공 인식 기술](cognitive-search-predefined-skills.md)을 기술 세트에 사용합니다.
 
-+ [엔터티 인식](cognitive-search-skill-entity-recognition.md): Blob 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
++ [엔터티 인식](cognitive-search-skill-entity-recognition-v3.md): Blob 컨테이너의 콘텐츠에서 조직 이름을 추출합니다.
 
 + [언어 감지](cognitive-search-skill-language-detection.md): 콘텐츠의 언어를 식별합니다.
 

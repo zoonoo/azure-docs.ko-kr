@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be5face0a93dc360493e22fd3d2c6d9743c4f5ff
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100575460"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072449"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Azure SQL Managed Instance 감사 시작하기
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -144,7 +144,10 @@ ms.locfileid: "100575460"
 
      1. **감사 만들기** 대화 상자에서 **확인** 을 클릭합니다.
      
-     1. <a id="createspec"></a>Blob 컨테이너를 감사 로그의 대상으로 구성한 후에는 SQL Server와 마찬가지로 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용하도록 설정합니다.
+        > [!NOTE]
+        > SQL Server Management Studio UI를 사용하여 감사를 만드는 경우 SAS 키가 있는 컨테이너에 대한 자격 증명이 자동으로 만들어집니다. 
+     
+     1.  <a id="createspec"></a>Blob 컨테이너를 감사 로그의 대상으로 구성한 후에는 SQL Server와 마찬가지로 서버 감사 사양 또는 데이터베이스 감사 사양을 만들고 사용하도록 설정합니다.
 
    - [서버 감사 사양 만들기 T-SQL 가이드](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [데이터베이스 감사 사양 만들기 T-SQL 가이드](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

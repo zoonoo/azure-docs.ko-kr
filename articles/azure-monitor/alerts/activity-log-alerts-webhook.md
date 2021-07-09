@@ -3,12 +3,12 @@ title: 활동 로그 경고에 사용된 웹후크 스키마 이해
 description: 활동 로그 경고가 활성화될 때 웹후크 URL에 게시되는 JSON 스키마에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.openlocfilehash: 31b9f4b41d741475a031efd4392c7df2fd2260c4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: e4ced623cb6f4b44aea0d8b8b275a11531a8c93a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034339"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110068161"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 활동 로그 경고에 대한 웹후크
 작업 그룹 정의의 일부로 활동 로그 경고 알림을 받도록 웹후크 엔드포인트를 구성할 수 있습니다. 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 이러한 알림을 다른 시스템으로 라우팅할 수 있습니다. 이 문서는 Webhook에 대한 HTTP POST의 페이로드 형태를 보여 줍니다.
@@ -18,7 +18,7 @@ ms.locfileid: "102034339"
 작업 그룹에 대한 자세한 내용은 [작업 그룹을 만드는](./action-groups.md) 방법을 참조하세요.
 
 > [!NOTE]
-> 웹 후크 통합을 위해 Azure Monitor의 모든 경고 서비스에서 확장 가능 하 고 통합 된 단일 경고 페이로드를 사용 하는 이점을 제공 하는 [일반적인 경고 스키마](./alerts-common-schema.md)를 사용할 수도 있습니다. [일반적인 경고 스키마 정의에 대해 알아봅니다.](./alerts-common-schema-definitions.md)
+> 웹후크 통합을 위해 Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공하는 [일반 경고 스키마](./alerts-common-schema.md)를 사용할 수도 있습니다. [일반 경고 스키마 정의에 대해 알아보세요.](./alerts-common-schema-definitions.md)
 
 
 ## <a name="authenticate-the-webhook"></a>웹후크 인증
@@ -28,18 +28,18 @@ ms.locfileid: "102034339"
 POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activityLog.eventSource 필드에 따라 다릅니다.
 
 > [!NOTE]
-> 현재 활동 로그 이벤트의 일부인 설명이 발생 된 **"경고 설명"** 속성에 복사 됩니다.
+> 현재 활동 로그 이벤트의 일부인 설명은 실행된 **"Alert Description"** 속성에 복사됩니다.
 >
-> 2021 년 4 월 1 일부 터 활동 로그 페이로드를 다른 경고 유형과 맞추려면 발생 한 경고 속성 **"설명"** 에 경고 규칙 설명이 대신 포함 됩니다.
+> 활동 로그 페이로드를 다른 경고 유형에 맞추기 위해 2021년 4월 1 일부터 시작된 경고 속성 **"설명"** 에 경고 규칙 설명이 대신 포함됩니다.
 >
-> 이러한 변경에 대비 하 여 활동 로그에서 발생 한 경고에 새 속성 **"활동 로그 이벤트 설명"** 을 만들었습니다. 이 새 속성은 이미 사용할 수 있는 **"Description"** 속성으로 채워집니다. 즉, 새 필드 **"활동 로그 이벤트 설명"** 에는 활동 로그 이벤트에 포함 된 설명이 포함 됩니다.
+> 이러한 변경을 준비하기 위해 활동 로그에서 발생한 경고에 새 속성 **"활동 로그 이벤트 설명"** 을 만들었습니다. 이 새 속성은 이미 사용할 수 있는 **"설명"** 속성으로 채워집니다. 이는 새 필드 **"활동 로그 이벤트 설명"** 에 활동 로그 이벤트의 일부인 설명이 포함됨을 의미합니다.
 >
-> 경고 규칙, 작업 규칙, 웹 후크, 논리 앱 또는 발생 한 경고의 **"설명"** 속성을 사용 하 여 **"활동 로그 이벤트 설명"** 속성으로 바꿀 수 있는 기타 구성을 검토 하세요.
+> 경고 규칙, 작업 규칙, 웹훅, 논리 앱 또는 실행된 경고에서 **"설명"** 속성을 사용하고있을 수 있는 기타 구성을 검토하고 **"활동 로그 이벤트 설명"으로 바꾸세요.** 속성.
 >
-> 작업 규칙, 웹 후크, 논리 앱 또는 기타 구성에 대 한 조건이 현재 활동 로그 경고에 대 한 **"설명"** 속성을 기반으로 하는 경우 **"활동 로그 이벤트 설명"** 속성을 기반으로 수정 해야 할 수 있습니다.
+> 조건(작업 규칙, 웹훅, 논리 앱 또는 기타 구성에서)이 현재 활동 로그 경고에 대한 **"설명"** 속성을 기반으로하는 경우 {을 기반으로 수정해야 할 수 있습니다. 대신  **"활동 로그 이벤트 설명"** 속성을 사용합니다.
 >
 > 새 **"설명"** 속성을 채우기 위해 경고 규칙 정의에 설명을 추가할 수 있습니다.
-> ![발생 한 활동 로그 경고](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
+> ![ 실행된 활동 로그 알림 ](media/activity-log-alerts-webhook/activity-log-alert-fired.png)
 
 ### <a name="common"></a>일반
 
@@ -102,42 +102,42 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 
 ```json
 {
-    "schemaId":"Microsoft.Insights/activityLogs",
-    "data":{"status":"Activated",
-        "context":{
-            "activityLog":{
-                "channels":"Operation",
-                "correlationId":"2518408115673929999",
-                "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
-                "eventSource":"Security",
-                "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
-                "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
-                "level":"Informational",
-                "operationName":"Microsoft.Security/locations/alerts/activate/action",
-                "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
-                "properties":{
-                    "attackers":"[\"IP Address: 01.02.03.04\"]",
-                    "numberOfFailedAuthenticationAttemptsToHost":"456",
-                    "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
-                    "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
-                    "actionTaken":"Detected",
-                    "resourceType":"Virtual Machine",
-                    "severity":"Medium",
-                    "compromisedEntity":"LinuxVM1",
-                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
-                    "attackedResourceType":"Virtual Machine"
-                },
-                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
-                "resourceGroupName":"contoso",
-                "resourceProviderName":"Microsoft.Security",
-                "status":"Active",
-                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
-                "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
-                "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
-            }
+  "schemaId":"Microsoft.Insights/activityLogs",
+  "data":{"status":"Activated",
+    "context":{
+      "activityLog":{
+        "channels":"Operation",
+        "correlationId":"2518408115673929999",
+        "description":"Failed SSH brute force attack. Failed brute force attacks were detected from the following attackers: [\"IP Address: 01.02.03.04\"].  Attackers were trying to access the host with the following user names: [\"root\"].",
+        "eventSource":"Security",
+        "eventTimestamp":"2017-06-25T19:00:32.607+00:00",
+        "eventDataId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "level":"Informational",
+        "operationName":"Microsoft.Security/locations/alerts/activate/action",
+        "operationId":"Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "properties":{
+          "attackers":"[\"IP Address: 01.02.03.04\"]",
+          "numberOfFailedAuthenticationAttemptsToHost":"456",
+          "accountsUsedOnFailedSignInToHostAttempts":"[\"root\"]",
+          "wasSSHSessionInitiated":"No","endTimeUTC":"06/25/2017 19:59:39",
+          "actionTaken":"Detected",
+          "resourceType":"Virtual Machine",
+          "severity":"Medium",
+          "compromisedEntity":"LinuxVM1",
+          "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+          "attackedResourceType":"Virtual Machine"
         },
-        "properties":{}
-    }
+        "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",
+        "resourceGroupName":"contoso",
+        "resourceProviderName":"Microsoft.Security",
+        "status":"Active",
+        "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+        "submissionTimestamp":"2017-06-25T20:23:04.9743772+00:00",
+        "resourceType":"MICROSOFT.SECURITY/LOCATIONS/ALERTS"
+      }
+    },
+    "properties":{}
+  }
 }
 ```
 
@@ -145,42 +145,42 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 
 ```json
 {
-    "schemaId":"Microsoft.Insights/activityLogs",
-    "data":{
-        "status":"Activated",
-        "context":{
-            "activityLog":{
-                "channels":"Operation",
-                "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
-                "caller":"Microsoft.Advisor",
-                "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
-                "description":"A new recommendation is available.",
-                "eventSource":"Recommendation",
-                "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
-                "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
-                "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
-                "level":"Informational",
-                "operationName":"Microsoft.Advisor/recommendations/available/action",
-                "properties":{
-                    "recommendationSchemaVersion":"1.0",
-                    "recommendationCategory":"HighAvailability",
-                    "recommendationImpact":"Medium",
-                    "recommendationName":"Enable Soft Delete to protect your blob data",
-                    "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
-                    "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
-                },
-                "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
-                "resourceGroupName":"CONTOSO",
-                "resourceProviderName":"MICROSOFT.STORAGE",
-                "status":"Active",
-                "subStatus":"",
-                "subscriptionId":"12345-5645-123a-9867-123b45a6789",
-                "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
-                "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
-            }
+  "schemaId":"Microsoft.Insights/activityLogs",
+  "data":{
+    "status":"Activated",
+    "context":{
+      "activityLog":{
+        "channels":"Operation",
+        "claims":"{\"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress\":\"Microsoft.Advisor\"}",
+        "caller":"Microsoft.Advisor",
+        "correlationId":"123b4c54-11bb-3d65-89f1-0678da7891bd",
+        "description":"A new recommendation is available.",
+        "eventSource":"Recommendation",
+        "eventTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+        "httpRequest":"{\"clientIpAddress\":\"0.0.0.0\"}",
+        "eventDataId":"1bf234ef-e45f-4567-8bba-fb9b0ee1dbcb",
+        "level":"Informational",
+        "operationName":"Microsoft.Advisor/recommendations/available/action",
+        "properties":{
+          "recommendationSchemaVersion":"1.0",
+          "recommendationCategory":"HighAvailability",
+          "recommendationImpact":"Medium",
+          "recommendationName":"Enable Soft Delete to protect your blob data",
+          "recommendationResourceLink":"https://portal.azure.com/#blade/Microsoft_Azure_Expert/RecommendationListBlade/recommendationTypeId/12dbf883-5e4b-4f56-7da8-123b45c4b6e6",
+          "recommendationType":"12dbf883-5e4b-4f56-7da8-123b45c4b6e6"
         },
-        "properties":{}
-    }
+        "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/microsoft.storage/storageaccounts/contosoStore",
+        "resourceGroupName":"CONTOSO",
+        "resourceProviderName":"MICROSOFT.STORAGE",
+        "status":"Active",
+        "subStatus":"",
+        "subscriptionId":"12345-5645-123a-9867-123b45a6789",
+        "submissionTimestamp":"2017-06-29T13:52:33.2742943+00:00",
+        "resourceType":"MICROSOFT.STORAGE/STORAGEACCOUNTS"
+      }
+    },
+    "properties":{}
+  }
 }
 ```
 
@@ -275,7 +275,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 | conditionType |항상 "Event"입니다. |
 | name |경고 규칙의 이름입니다. |
 | id |경고의 리소스 ID입니다. |
-| 설명 |경고를 만들 때 설정하는 경고 설명입니다. |
+| description |경고를 만들 때 설정하는 경고 설명입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
 | timestamp |요청을 처리하는 Azure 서비스에서 이벤트를 생성한 시간입니다. |
 | resourceId |영향을 받는 리소스의 리소스 ID입니다. |
@@ -301,7 +301,7 @@ POST 작업에 포함된 JSON 페이로드는 페이로드 data.context.activity
 
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그에 대해 자세히 알아보세요](../essentials/platform-logs-overview.md).
-* [Azure 경고에서 azure automation 스크립트 (runbook)를 실행](https://go.microsoft.com/fwlink/?LinkId=627081)합니다.
-* [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
-* [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
-* [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+* [Azure 경고에 대한 Azure Automation 스크립트(Runbook)를 실행하세요](https://go.microsoft.com/fwlink/?LinkId=627081).
+* [논리 앱을 사용하여 Azure 경고에서 Twilio를 통해 SMS를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-text-message-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+* [논리 앱을 사용하여 Azure 경고에서 Slack 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-slack-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.
+* [논리 앱을 사용하여 Azure 경고에서 Azure Queue에 메시지를 보냅니다](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/alert-to-queue-with-logic-app). 이 예제는 메트릭 경고를 위한 것이지만 활동 로그 경고도 지원하도록 수정될 수 있습니다.

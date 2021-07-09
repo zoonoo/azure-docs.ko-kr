@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: f108062c04292c322d07980155fea9c8808beb0a
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 07fbe0cff104c25eca6db2750c2db692429ada65
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108326744"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110786517"
 ---
 # <a name="tutorial-migrate-web-service-from-bing-maps"></a>자습서: Bing Maps에서 웹 서비스 마이그레이션
 
@@ -44,7 +44,7 @@ Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스
 | SDS(Spatial Data Services)           | [검색](/rest/api/maps/search) + [경로](/rest/api/maps/route) + 기타 Azure 서비스 |
 | 표준 시간대                             | [표준 시간대](/rest/api/maps/timezone)  |
 | 교통 사고                     | [트래픽 인시던트 세부 정보](/rest/api/maps/traffic/gettrafficincidentdetail)                     |
-| 상승                             | [권한 상승(미리 보기)](/rest/api/maps/elevation)
+| 상승                             | [권한 상승](/rest/api/maps/elevation)
 
 다음 서비스 API는 현재 Azure Maps에서 사용할 수 없습니다.
 
@@ -53,7 +53,7 @@ Azure 및 Bing Maps 둘 다 REST 웹 서비스를 통해 공간 API에 액세스
 
 Azure Maps에는 다음과 같은 몇 가지 흥미로운 추가 REST 웹 서비스가 있습니다.
 
--   [Azure Maps Creator(미리 보기)](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 쌍을 만듭니다.
+-   [Azure Maps Creator](./creator-indoor-maps.md) – 건물과 공간의 사용자 지정 프라이빗 디지털 트윈을 만듭니다.
 -   [공간 작업](/rest/api/maps/spatial) - 복잡한 공간 계산과 작업(예: 지오펜싱)을 서비스로 오프로드합니다.
 -   [지도 타일](/rest/api/maps/render/getmaptile) – 래스터 및 벡터 타일로 Azure Maps의 도로 및 이미지 타일에 액세스합니다.
 -   [일괄 처리 라우팅](/rest/api/maps/route/postroutedirectionsbatchpreview) – 일정 기간 동안 단일 일괄 처리에서 최대 1,000개의 경로 요청을 만들 수 있습니다. 처리 속도를 높이기 위해 서버에서 경로가 병렬로 계산됩니다.

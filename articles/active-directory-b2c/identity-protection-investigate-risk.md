@@ -5,22 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 03/03/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: f15fd789264922865acb792bdb766b9624665d91
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 072278ab70484eb427bafafc3e644e39e47eb8a8
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654763"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111960492"
 ---
 # <a name="investigate-risk-with-identity-protection-in-azure-ad-b2c"></a>Azure AD B2C에서 ID 보호로 위험 조사
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ID 보호는 Azure AD B2C 테넌트에 대한 지속적인 위험 검색을 제공합니다. 이를 통해 조직은 ID 기반 위험을 검색, 조사 및 수정할 수 있습니다. ID 보호는 Azure AD B2C 테넌트의 ID 위험을 조사하는 데 사용할 수 있는 위험 보고서와 함께 제공됩니다. 이 문서에서는 위험을 조사하고 완화하는 방법을 알아봅니다.
 
@@ -83,7 +81,7 @@ ID 보호를 사용하는 경우 다음 사항을 고려하세요.
 - 사용자가 로그인하지 못하도록 차단
 - Azure ATP를 사용하여 자세히 조사
 
-관리자는 Azure Portal에서 또는 프로그래밍 방식으로 Microsoft Graph API [사용자 위험 해제](https://docs.microsoft.com/graph/api/riskyusers-dismiss?view=graph-rest-beta&preserve-view=true)를 통해 사용자의 위험을 해제하도록 선택할 수 있습니다. 사용자의 위험을 해제하려면 관리자 권한이 필요합니다. 위험 수정은 위험한 사용자 또는 사용자 대신 관리자가 수행할 수 있습니다(예: 암호 재설정을 통해).
+관리자는 Azure Portal에서 또는 프로그래밍 방식으로 Microsoft Graph API [사용자 위험 해제](/graph/api/riskyusers-dismiss?preserve-view=true&view=graph-rest-beta)를 통해 사용자의 위험을 해제하도록 선택할 수 있습니다. 사용자의 위험을 해제하려면 관리자 권한이 필요합니다. 위험 수정은 위험한 사용자 또는 사용자 대신 관리자가 수행할 수 있습니다(예: 암호 재설정을 통해).
 
 ### <a name="navigating-the-risky-users-report"></a>위험한 사용자 보고서 탐색
 
@@ -93,7 +91,7 @@ ID 보호를 사용하는 경우 다음 사항을 고려하세요.
 
 1. **Azure 서비스** 에서 **Azure AD B2C** 를 선택합니다. 또는 검색 상자를 사용하여 **Azure AD B2C** 를 찾고 선택합니다.
 
-1. **보안** 아래에서 **위험한 사용자(미리 보기)** 를 선택합니다.
+1. **보안** 에서 **위험한 사용자** 를 선택합니다.
 
    ![위험한 사용자](media/identity-protection-investigate-risk/risky-users.png)
 
@@ -117,7 +115,7 @@ ID 보호를 사용하는 경우 다음 사항을 고려하세요.
 ### <a name="navigating-the-risk-detections-report"></a>위험 검색 보고서 탐색
 
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
-1. **보안** 아래에서 **위험 검색(미리 보기)** 을 선택합니다.
+1. **보안** 에서 **위험 검색** 을 선택합니다.
 
    ![위험 탐지](media/identity-protection-investigate-risk/risk-detections.png)
 

@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: 15b67c969cb0464256caed58a2e7388eb7a76b9c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7c60addd80f7ed027870744d12975fd76983b2f5
+ms.sourcegitcommit: 0ce834cd348bb8b28a5f7f612c2807084cde8e8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608773"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109813833"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>자습서: Synapse Studio에서 Apache Spark 작업 정의 만들기
 
-이 자습서에서는 Azure Synapse Studio를 사용하여 Apache Spark 작업 정의를 만든 다음, 서버리스 Apache Spark 풀에 제출하는 방법을 보여 줍니다.
+이 자습서에서는 Synapse Studio를 사용하여 Apache Spark 작업 정의를 만든 다음, 서버리스 Apache Spark 풀에 제출하는 방법을 보여 줍니다.
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 > [!div class="checklist"]
@@ -45,7 +45,7 @@ ms.locfileid: "105608773"
 
 이 섹션에서는 PySpark(Python)에 대한 Apache Spark 작업 정의를 만듭니다.
 
-1. [Azure Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
+1. [Synapse Studio](https://web.azuresynapse.net/)를 엽니다.
 
 2. [Apache Spark 작업 정의를 만들기 위한 샘플 파일](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python)로 이동하여 **python.zip용 샘플 파일** 을 다운로드한 다음, 압축된 패키지의 압축을 풀고 **wordcount.py** 및 **shakespeare.txt** 파일을 추출할 수 있습니다. 
 

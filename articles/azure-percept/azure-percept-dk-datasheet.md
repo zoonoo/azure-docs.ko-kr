@@ -1,17 +1,17 @@
 ---
 title: Azure Percept DK 데이터시트
 description: 자세한 디바이스 사양에 대해서는 Azure Percept DK 데이터시트를 확인하세요.
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 0c9f848827db452710b4bca355aae0db99a2c95c
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 47a9c707dbe0bb4276512cdd364ef679c7c6aa3c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105027366"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110097195"
 ---
 # <a name="azure-percept-dk-datasheet"></a>Azure Percept DK 데이터시트
 
@@ -27,14 +27,14 @@ ms.locfileid: "105027366"
 |지원되는 소프트웨어 및 서비스 |Azure Device Update <br> [Azure IoT](https://azure.microsoft.com/overview/iot/) <br> [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Central](https://azure.microsoft.com/services/iot-central/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) 및 [Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1) <br> [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) <br> [연결을 지원하는 Azure Mariner OS](https://github.com/microsoft/CBL-Mariner) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [Tensorflow](https://www.tensorflow.org/) <br> [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) <br> IoT Plug and Play <br> [Azure 디바이스 프로비저닝 서비스(DPS)](../iot-dps/index.yml) <br> [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) <br> [Power BI](https://powerbi.microsoft.com/)      |
 |일반 프로세서               |NXP iMX8m(Azure Percept DK 캐리어 보드)        |
 |AI 가속                 |1x Intel Movidius Myriad X 통합 ISP(Azure Percept Vision) |
-|센서 및 시각적 표시기   |6P 렌즈를 사용하는 Sony IMX219 카메라 센서<br>해결: 30FPS의 8MP, 거리: 50cm - 무한대<br>FoV: 120도 대각선, 색: 와이드 동적 범위, 고정된 포커스 롤링 셔터|
+|센서 및 시각적 표시기   |6P 렌즈를 사용하는 Sony IMX219 카메라 센서<br>해결 방법: 30FPS에서 8MP, 거리: 50 cm - 무한대<br>FoV: 120도 대각선, 색: 와이드 동적 범위, 고정된 포커스 롤링 셔터|
 |보안                        |TPM 2.0 Nuvoton NCPT750 |
 |연결                    |Realtek RTL882CE 단일 칩 컨트롤러를 통한 Wi-Fi 및 Bluetooth     |
 |스토리지                         |16GB     |
 |메모리                          |4GB     |
 |포트                           |1x 이더넷 <br> 2x USB-A 3.0 <br> 1x USB-C     |
-|작동 온도           |0~35도 C     |
-|비 작동 온도       |-40~85도 C     |
+|작동 온도           |0도 ~ 35도     |
+|비 작동 온도       |-40 ~ 85도 C     |
 |상대 습도               |10%~95%    |
-|인증                   |FCC <br> IC <br> RoHS <br> 도달률 <br> UL   |
-|전원 공급 장치                    |3\.42A에서 19VDC(65W) |
+|인증                   |CE <br> ACMA <br> FCC <br> IC <br> NCC <br> VCCI + MIC <br> NRTL <br> CB   |
+|전원 공급 장치                    |3\.42A에서 19 VDC(65W) |

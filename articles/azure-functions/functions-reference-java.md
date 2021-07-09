@@ -4,26 +4,26 @@ description: Java로 함수를 개발하는 방법을 이해합니다.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1ffbd760ae75605d75652b29d379420d6946aa8f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 82e40fbe3be88754ce7196f61c971c7a002998ca
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96326457"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095107"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
-이 가이드에는 Java를 사용 하 Azure Functions를 개발 하는 데 도움이 되는 자세한 정보가 포함 되어 있습니다.
+이 가이드에는 Java를 사용하여 Azure Functions를 성공적으로 개발하는 데 도움이 되는 자세한 정보가 포함되어 있습니다.
 
-Java 개발자로 서 Azure Functions를 처음 접하는 경우 먼저 다음 문서 중 하나를 읽어 보세요.
+Java 개발자로서 Azure Functions를 처음 사용하는 경우 먼저 다음 문서 중 하나를 읽어보세요.
 
 | 시작 | 개념| 
 | -- | -- |  
-| <ul><li>[Visual Studio Code를 사용 하는 Java 함수](./create-first-function-vs-code-java.md)</li><li>[터미널/명령 프롬프트를 사용하는 Java/Maven 함수](./create-first-function-cli-java.md)</li><li>[Gradle를 사용 하는 Java 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용 하는 Java 함수](functions-create-maven-eclipse.md)</li><li>[IntelliJ 아이디어를 사용 하는 Java 함수](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능 &nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
+| <ul><li>[Visual Studio Code를 사용하는 Java 함수](./create-first-function-vs-code-java.md)</li><li>[터미널/명령 프롬프트를 사용하는 Java/Maven 함수](./create-first-function-cli-java.md)</li><li>[Gradle을 사용한 자바 함수](functions-create-first-java-gradle.md)</li><li>[Eclipse를 사용한 Java 기능](functions-create-maven-eclipse.md)</li><li>[IntelliJ IDEA를 사용하는 Java 기능](functions-create-maven-intellij.md)</li></ul> | <ul><li>[개발자 가이드](functions-reference.md)</li><li>[호스팅 옵션](functions-scale.md)</li><li>[성능&nbsp; 고려 사항](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Java 함수 기본 사항
 
-Java 함수는 주석 `@FunctionName`으로 데코레이트된 `public` 메서드입니다. 이 메서드는 Java 함수의 항목을 정의하며 특정 패키지에서 고유해야 합니다. 패키지에는 여러 public 메서드가로 주석 처리 된 여러 클래스가 있을 수 있습니다 `@FunctionName` . 단일 패키지가 Azure의 함수 앱에 배포 됩니다. Azure에서 실행 하는 경우 함수 앱은 개별 Java 함수에 대 한 배포, 실행 및 관리 컨텍스트를 제공 합니다.
+Java 함수는 주석 `@FunctionName`으로 데코레이트된 `public` 메서드입니다. 이 메서드는 Java 함수의 항목을 정의하며 특정 패키지에서 고유해야 합니다. 패키지에는 `@FunctionName`로 주석이 추가된 여러 공용 메소드가 있는 여러 클래스가 있을 수 있습니다. 단일 패키지는 Azure의 함수 앱에 배포됩니다. Azure에서 실행하는 경우 함수 앱은 개별 Java 함수에 대한 배포, 실행 및 관리 컨텍스트를 제공합니다.
 
 ## <a name="programming-model"></a>프로그래밍 모델 
 
@@ -146,31 +146,31 @@ public class Function {
 
 ## <a name="java-versions"></a>Java 버전
 
-Azure에서 함수가 실행 되는 함수 앱을 만들 때 사용 되는 Java 버전은 pom.xml 파일에 지정 되어 있습니다. Maven 원형는 현재 Java 8에 대 한 pom.xml를 생성 합니다 .이는 게시 하기 전에 변경할 수 있습니다. pom.xml의 Java 버전은 응용 프로그램을 로컬로 개발 하 고 테스트 한 버전과 일치 해야 합니다. 
+Azure에서 함수가 실행되는 함수 앱을 만들 때 사용되는 Java 버전은 pom.xml 파일에 지정됩니다. Maven 아키타입은 현재 Java 8용 pom.xml 생성하며, 게시하기 전에 변경할 수 있습니다. pom.xml Java 버전은 앱을 로컬로 개발하고 테스트한 버전과 일치해야 합니다. 
 
 ### <a name="supported-versions"></a>지원되는 버전
 
-다음 표에서는 운영 체제별로 함수 런타임의 각 주 버전에 대해 현재 지원 되는 Java 버전을 보여 줍니다.
+다음 표는 운영 체제별로 Functions 런타임의 각 주요 버전에 대해 현재 지원되는 Java 버전을 보여 줍니다.
 
-| Functions 버전 | Java 버전 (Windows) | Java 버전 (Linux) |
+| Functions 버전 | Java 버전(Windows) | Java 버전(Linux) |
 | ----- | ----- | --- |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | 해당 없음 |
 
-배포에 대 한 Java 버전을 지정 하지 않는 한 Maven 원형는 Azure에 배포 하는 동안 기본적으로 Java 8로 설정 됩니다.
+배포에 대해 Java 버전을 지정하지 않는한 Maven 아키타입은 Azure에 배포하는 동안 기본적으로 Java 8로 설정됩니다.
 
 ### <a name="specify-the-deployment-version"></a>배포 버전 지정
 
-매개 변수를 사용 하 여 Maven 원형가 대상으로 하는 Java 버전을 제어할 수 있습니다 `-DjavaVersion` . 이 매개 변수 값은 또는 중 하나일 수 있습니다 `8` `11` . 
+`-DjavaVersion` 매개 변수를 사용하여 Maven 아키 타입이 대상으로하는 Java 버전을 제어할 수 있습니다. 이 매개 변수의 값은 `8` 또는 `11`일 수 있습니다. 
 
-Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 합니다. pom.xml의 다음 요소는 사용할 Java 버전을 표시 합니다.
+Maven 아키타입은 지정된 Java 버전을 대상으로하는 pom.xml 생성합니다. pom.xml 다음 요소는 사용할 Java 버전을 나타냅니다.
 
-| 요소 |  Java 8 값 | Java 11 값 | 설명 |
+| 요소 |  Java 8 가치 | Java 11 가치 | 설명 |
 | ---- | ---- | ---- | --- |
-| **`Java.version`** | 1.8 | 11 | Maven-플러그 인에서 사용 하는 Java 버전입니다. |
-| **`JavaVersion`** | 8 | 11 | Azure의 함수 앱에서 호스트 하는 Java 버전입니다. |
+| **`Java.version`** | 1.8 | 11 | maven-compiler-plugin에서 사용하는 Java 버전입니다. |
+| **`JavaVersion`** | 8 | 11 | Azure의 함수 앱에서 호스트하는 Java 버전입니다. |
 
-다음 예에서는 pom.xml 파일의 관련 섹션에서 Java 8의 설정을 보여 줍니다.
+다음 예제에서는 pom.xml 파일의 관련 섹션에서 Java 8에 대한 설정을 보여 줍니다.
 
 #### `Java.version`
 :::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
@@ -179,23 +179,23 @@ Maven 원형는 지정 된 Java 버전을 대상으로 하는 pom.xml을 생성 
 :::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
 
 > [!IMPORTANT]
-> Maven를 사용 하 여 코드를 컴파일하는 동안 사용 되는 JDK 디렉터리로 JAVA_HOME 환경 변수를 올바르게 설정 해야 합니다. JDK의 버전이 최소 설정 보다 높아야 합니다 `Java.version` . 
+> Maven를 사용하여 코드를 컴파일하는 동안 사용되는 JDK 디렉터리로 JAVA_HOME 환경 변수를 올바르게 설정해야 합니다. JDK 버전이 최소한 `Java.version` 설정 이상인지 확인합니다. 
 
 ### <a name="specify-the-deployment-os"></a>배포 OS 지정
 
-또한 Maven를 사용 하면 함수 앱이 Azure에서 실행 되는 운영 체제를 지정할 수 있습니다. 요소를 사용 `os` 하 여 운영 체제를 선택 합니다. 
+또한 Maven를 사용하면 함수 앱이 Azure에서 실행되는 운영 체제를 지정할 수 있습니다. `os` 요소를 사용하여 운영 체제를 선택합니다. 
 
 | 요소 |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | Windows | 용 | docker |
+| **`os`** | Windows | linux | docker |
 
-다음 예에서는 `runtime` pom.xml 파일의 섹션에서 운영 체제 설정을 보여 줍니다.
+다음 예제는 pom.xml 파일의 `runtime` 섹션에있는 운영 체제 설정을 보여 줍니다.
 
 :::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
  
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 런타임 사용 가능성 및 지원 
 
-Java 함수 앱의 로컬 개발에 대 한 적절 한 [Azul 줄루어 Enterprise](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) 를 다운로드 하 여 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)에서 Azure Java jdks에 사용 합니다. Azure Functions는 함수 앱을 클라우드에 배포할 때 Azul Java JDK 런타임을 사용 합니다.
+Java 함수 앱을 로컬에서 개발하려면 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)의 적절한 Azul Zulu Enterprise for Azure Java 8 JDK를 다운로드하여 사용합니다. Azure Functions는 클라우드에 함수 앱을 배포할 때 Azul Java JDK 런타임을 사용합니다.
 
 JDK 및 함수 앱에 문제가 있는 경우 [정규화된 지원 플랜](https://azure.microsoft.com/support/plans/)을 통해 [Azure 지원](https://azure.microsoft.com/support/)을 사용할 수 있습니다.
 
@@ -464,7 +464,7 @@ public class Function {
 
 ## <a name="execution-context"></a>실행 컨텍스트
 
-`azure-functions-java-library`에 정의된 `ExecutionContext`에는 함수 런타임과 통신하는 도우미 메서드가 포함되어 있습니다. 자세한 내용은 [ExecutionContext 참조 문서](/java/api/com.microsoft.azure.functions.executioncontext)를 참조 하세요.
+`azure-functions-java-library`에 정의된 `ExecutionContext`에는 함수 런타임과 통신하는 도우미 메서드가 포함되어 있습니다. 자세한 내용은 [ExecutionContext 참조 문서](/java/api/com.microsoft.azure.functions.executioncontext)를 참조하세요.
 
 ### <a name="logger"></a>로거
 

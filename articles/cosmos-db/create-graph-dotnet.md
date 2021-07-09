@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: chrande
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 1953f4a21df6f550320592fbe009834a7b573887
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d8bf24a3fa23880d9656ae6ce525f7877a6599e4
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93360533"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111411974"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용한 .NET Framework 또는 Core 애플리케이션 빌드
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -73,11 +73,14 @@ Visual Studio 2019가 아직 설치되지 않은 경우 **평가판** [Visual St
 5. 프로젝트에서 NuGet 패키지를 복원합니다. Gremlin.Net 드라이버와 Newtonsoft.Json 패키지가 포함되어야 합니다.
 
 
-6. Nuget 패키지 관리자 또는 [nuget 명령줄 유틸리티](/nuget/install-nuget-client-tools)를 사용하여 Gremlin.Net 드라이버를 수동으로 설치할 수도 있습니다. 
+6. Nuget 패키지 관리자 또는 [nuget 명령줄 유틸리티](/nuget/install-nuget-client-tools)를 사용하여 Gremlin.Net@v3.4.6 드라이버를 수동으로 설치할 수도 있습니다. 
 
     ```bash
-    nuget install Gremlin.Net
+    nuget install Gremlin.NET -Version 3.4.6
     ```
+    
+> [!NOTE]
+> Gremlin API는 현재 [v3.4.6까지만 Gremlin.Net을 지원합니다](gremlin-support.md#compatible-client-libraries). 최신 버전을 설치하면 서비스를 사용할 때 오류가 발생합니다.
 
 ## <a name="review-the-code"></a>코드 검토
 

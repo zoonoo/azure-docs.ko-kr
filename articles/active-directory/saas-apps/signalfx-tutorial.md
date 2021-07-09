@@ -9,46 +9,42 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/24/2020
+ms.date: 05/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1fbc42864761360d252ed62cea1aef6f2937b599
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f3fbab143fd330e017e9e51c74a403d9bfb687ff
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92516072"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110455660"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>자습서: SignalFx와 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 SignalFx를 통합하는 방법에 대해 알아봅니다. Azure AD와 SignalFx를 통합하는 경우 다음을 수행할 수 있습니다.
 
 * Azure AD에서 SignalFx에 액세스할 수 있는 사용자를 제어합니다.
-* 사용자가 해당 Azure AD 계정으로 SignalFx에 자동으로 로그인되도록 설정합니다.
+* 사용자가 자신의 Azure AD 계정으로 SignalFx에 자동으로 로그인되도록 설정합니다.
 * 한 위치(Azure Portal)에서 계정을 관리합니다.
-
-Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 다음이 필요합니다.
+시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독
-    * 구독이 없는 경우 [여기서 체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* SignalFx SSO(Single Sign-On)를 사용하도록 설정된 구독
+* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* SignalFx SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
-* SignalFx는 **IDP** 시작 SSO를 지원합니다.
-* SignalFx는 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
-* SignalFx가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-any-app).
+* SignalFx에서 **IDP** 시작 SSO를 지원합니다.
+* SignalFx에서 **Just-In-Time** 사용자 프로비저닝을 지원합니다.
 
 ## <a name="step-1-add-the-signalfx-application-in-azure"></a>1단계: Azure에서 SignalFx 애플리케이션 추가
 
 다음 지침을 사용하여 SignalFx 애플리케이션을 관리형 SaaS 앱 목록에 추가합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 를 선택합니다.
 1. **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. **새 애플리케이션** 을 선택합니다.
@@ -76,13 +72,13 @@ Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Direc
 
 다음 지침을 사용하여 Azure Portal에서 Azure AD SSO를 사용하도록 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com/)로 돌아가서 **SignalFx** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
+1. Azure Portal로 돌아가서 **SignalFx** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 펜(편집) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **SAML로 Single Sign-On 설정** 페이지에서 다음 필드를 완성합니다. 
+1. **SAML로 Single Sign-On 설정** 페이지에서 다음 단계를 수행합니다. 
 
     a. **식별자** 에 `https://api.<realm>.signalfx.com/v1/saml/metadata` URL을 입력하고, `<realm>`을 SignalFx 영역으로 바꿉니다. 
 
@@ -110,33 +106,27 @@ Azure AD와 SaaS 앱의 통합에 대한 자세한 내용은 [Azure Active Direc
 
 ## <a name="step-4-create-an-azure-ad-test-user"></a>4단계: Azure AD 테스트 사용자 만들기
 
-다음 지침을 사용하여 Azure Portal에서 **B.Simon** 이라는 테스트 사용자를 만듭니다.
+이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
 
-1. Azure Portal의 왼쪽 탐색 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
-1. 페이지 위쪽에서 **새 사용자** 를 선택합니다.
-1. **사용자** 속성에서 다음을 수행합니다.
-   1. **사용자 이름** 에서 `username@companydomain.extension`을 입력합니다(예: `b.simon@contoso.com`).
-   1. **이름** 에 `B.Simon`를 입력합니다.
-   1. **암호 표시** 를 표시한 다음, 표시된 값을 **암호** 에 복사합니다. 이 정보는 이후 단계에서 이 통합을 테스트하는 데 필요합니다. 
+1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자** 를 차례로 선택합니다.
+1. 화면 위쪽에서 **새 사용자** 를 선택합니다.
+1. **사용자** 속성에서 다음 단계를 수행합니다.
+   1. **이름** 필드에 `B.Simon`을 입력합니다.  
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예들 들어 `B.Simon@contoso.com`입니다.
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기** 를 클릭합니다.
 
 ## <a name="step-5-assign-the-azure-ad-test-user"></a>5단계: Azure AD 테스트 사용자 할당
 
-다음 지침을 사용하여 테스트 사용자가 Azure Single Sign-On을 SignalFx에 사용하도록 설정합니다.
+이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 SignalFx에 대한 액세스 권한을 부여합니다.
 
-1. Azure Portal에서 **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
+1. Azure Portal에서 **엔터프라이즈 애플리케이션** 을 선택한 다음, **모든 애플리케이션** 을 선택합니다.
 1. 애플리케이션 목록에서 **SignalFx** 를 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾은 다음, **사용자 및 그룹** 을 선택합니다.
-
-   !["사용자 및 그룹" 링크](common/users-groups-blade.png)
-
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹** 을 선택합니다.
 1. **사용자 추가** 를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹** 을 선택합니다.
-
-    ![사용자 추가 링크](common/add-assign-user.png)
-
-1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **B.Simon** 을 선택한 다음, 페이지 아래쪽에서 **선택** 을 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 페이지 아래쪽에서 **선택** 을 클릭합니다.
-1. **할당 추가** 대화 상자에서 **할당** 을 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon** 을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
+1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 "기본 액세스" 역할이 선택된 것으로 표시됩니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="step-6-complete-the-signalfx-sso-configuration"></a>6단계: SignalFx SSO 구성 완료 
 
@@ -154,11 +144,11 @@ SSO 테스트 방법 및 SignalFx에 처음 로그인하는 데 필요한 항목
 
 * 로그인을 테스트하려면 프라이빗/incognito 창을 사용하거나 Azure Portal에서 로그아웃할 수 있습니다. 그렇지 않으면 애플리케이션을 구성한 사용자의 쿠키로 인해 테스트 사용자의 성공적인 로그인이 방해되거나 차단됩니다.
 
-* 새 테스트 사용자가 처음 로그인하면 Azure에서 암호 변경을 강제로 수행합니다. 이 경우 SSO 로그인 프로세스가 완료되지 않고 테스트 사용자가 Azure Portal로 이동합니다. 문제를 해결하려면 테스트 사용자가 암호를 변경하고 SignalFx 로그인 페이지 또는 액세스 패널로 이동하여 다시 시도해야 합니다.
-    * 액세스 패널에서 SignalFx 타일을 클릭하면 SignalFx에 자동으로 로그인됩니다. 
-        * 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
+* 새 테스트 사용자가 처음 로그인하면 Azure에서 암호 변경을 강제로 수행합니다. 이 경우 SSO 로그인 프로세스가 완료되지 않고 테스트 사용자가 Azure Portal로 이동합니다. 문제를 해결하려면 테스트 사용자가 암호를 변경하고 SignalFx 로그인 페이지 또는 내 앱으로 이동하여 다시 시도해야 합니다.
+    * 내 앱에서 SignalFx 타일을 클릭하면 SignalFx에 자동으로 로그인됩니다. 
+        * 내 앱에 대한 자세한 내용은 [내 앱 소개](../user-help/my-apps-portal-end-user-access.md)를 참조하세요.
 
-* SignalFx 애플리케이션은 액세스 패널 또는 조직에 할당된 사용자 지정 로그인 페이지를 통해 액세스할 수 있습니다. 테스트 사용자는 이러한 위치 중 하나에서 시작하여 통합을 테스트해야 합니다.
+* SignalFx 애플리케이션은 내 앱 또는 조직에 할당된 사용자 지정 로그인 페이지를 통해 액세스할 수 있습니다. 테스트 사용자는 이러한 위치 중 하나에서 시작하여 통합을 테스트해야 합니다.
     * 테스트 사용자는 이 프로세스에서 이전에 만든 자격 증명을 **b.simon\@contoso.com** 에 사용할 수 있습니다.
 
 ### <a name="first-time-logins"></a>처음 로그인
@@ -167,14 +157,6 @@ SSO 테스트 방법 및 SignalFx에 처음 로그인하는 데 필요한 항목
 
 * SignalFx는 **Just-In-Time** 사용자 만들기를 지원합니다. 즉, 사용자가 SignalFx에 없는 경우 처음 로그인할 때 사용자 계정이 만들어집니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](./tutorial-list.md)
-
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](../manage-apps/what-is-single-sign-on.md)
-
-- [Azure Active Directory의 조건부 액세스란?](../conditional-access/overview.md)
-
-- [Microsoft Cloud App Security의 세션 제어란?](/cloud-app-security/proxy-intro-aad)
-
-- [Azure AD를 사용하여 SignalFx 사용해 보기](https://aad.portal.azure.com/)
+SignalFx가 구성되면 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 반입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](/cloud-app-security/proxy-deployment-aad).

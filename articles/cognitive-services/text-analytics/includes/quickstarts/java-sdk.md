@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: d39f40d4059b43246f523b4d01ca92c0360bc574
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: bd2babf0ae88cce5d6162ddd797225a83ef9367b
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107765113"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083763"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-[참조 설명서](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.5) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
+[참조 설명서](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics) | [패키지](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -29,7 +29,7 @@ ms.locfileid: "107765113"
 
 ---
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 버전 8 이상
@@ -44,14 +44,14 @@ ms.locfileid: "107765113"
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-선호하는 IDE 또는 개발 환경에서 Maven 프로젝트를 만듭니다. 그런 다음, 프로젝트의 *pom.xml* 파일에 다음 종속성을 추가합니다. 온라인에서 [다른 빌드 도구용](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.5) 구현 구문을 찾을 수 있습니다.
+선호하는 IDE 또는 개발 환경에서 Maven 프로젝트를 만듭니다. 그런 다음, 프로젝트의 *pom.xml* 파일에 다음 종속성을 추가합니다. 온라인에서 [다른 빌드 도구용](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0-beta.7) 구현 구문을 찾을 수 있습니다.
 
 ```xml
 <dependencies>
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>5.1.0-beta.5</version>
+        <version>5.1.0-beta.7</version>
     </dependency>
 </dependencies>
 ```
@@ -207,7 +207,7 @@ Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0
 Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
 ```
 
-### <a name="opinion-mining"></a>의견 마이닝
+## <a name="opinion-mining"></a>의견 마이닝
 
 오피니언 마이닝을 사용하여 감정 분석을 수행하려면 이전에 만든 클라이언트를 사용하는 `sentimentAnalysisWithOpinionMiningExample()`이라는 새 함수를 만들고, 옵션 개체 `AnalyzeSentimentOptions`를 설정하여 해당 `analyzeSentiment()` 함수를 호출합니다. 반환된 `AnalyzeSentimentResult` 개체에는 성공하면 `documentSentiment` 및 `sentenceSentiments`가 포함되고 그렇지 않으면 `errorMessage`가 포함됩니다. 
 
@@ -365,66 +365,6 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8, offset: 24, length: 9.
 ```
 
-### <a name="entity-linking"></a>엔터티 연결
-
-앞에서 만든 클라이언트를 사용하고 해당 `recognizeLinkedEntities()` 함수를 호출하는 `recognizeLinkedEntitiesExample()`이라는 새 함수를 만듭니다. 반환된 `LinkedEntityCollection` 개체에는 성공하는 경우 `LinkedEntity` 목록이 포함되고, 그렇지 않은 경우 `errorMessage`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `LinkedEntity` 개체 아래에서 `LinkedEntityMatch` 개체 목록으로 그룹화됩니다.
-
-
-```java
-static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
-{
-    // The text that need be analyzed.
-    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-        "to develop and sell BASIC interpreters for the Altair 8800. " +
-        "During his career at Microsoft, Gates held the positions of chairman, " +
-        "chief executive officer, president and chief software architect, " +
-        "while also being the largest individual shareholder until May 2014.";
-
-    System.out.printf("Linked Entities:%n");
-    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
-        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-            linkedEntity.getName(),
-            linkedEntity.getDataSourceEntityId(),
-            linkedEntity.getUrl(),
-            linkedEntity.getDataSource());
-        System.out.printf("Matches:%n");
-        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
-            System.out.printf("Text: %s, Score: %.2f, Offset: %s, Length: %s%n",
-            linkedEntityMatch.getText(),
-            linkedEntityMatch.getConfidenceScore(),
-            linkedEntityMatch.getOffset(),
-            linkedEntityMatch.getLength());
-        }
-    }
-}
-```
-
-### <a name="output"></a>출력
-
-```console
-Linked Entities:
-Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
-Matches:
-Text: Microsoft, Score: 0.55, Offset: 9, Length: 0
-Text: Microsoft, Score: 0.55, Offset: 9, Length: 150
-Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
-Matches:
-Text: Bill Gates, Score: 0.63, Offset: 10, Length: 25
-Text: Gates, Score: 0.63, Offset: 5, Length: 161
-Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
-Matches:
-Text: Paul Allen, Score: 0.60, Offset: 10, Length: 40
-Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
-Matches:
-Text: April 4, Score: 0.32, Offset: 7, Length: 54
-Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
-Matches:
-Text: BASIC, Score: 0.33, Offset: 5, Length: 89
-Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
-Matches:
-Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
-```
-
 
 ### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
 
@@ -485,7 +425,71 @@ Recognized entity: Seattle, entity category: Location, entity sub-category: GPE,
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
-### <a name="entity-linking"></a>엔터티 연결
+---
+
+## <a name="entity-linking"></a>엔터티 연결
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+
+앞에서 만든 클라이언트를 사용하고 해당 `recognizeLinkedEntities()` 함수를 호출하는 `recognizeLinkedEntitiesExample()`이라는 새 함수를 만듭니다. 반환된 `LinkedEntityCollection` 개체에는 성공하는 경우 `LinkedEntity` 목록이 포함되고, 그렇지 않은 경우 `errorMessage`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `LinkedEntity` 개체 아래에서 `LinkedEntityMatch` 개체 목록으로 그룹화됩니다.
+
+
+```java
+static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
+
+    System.out.printf("Linked Entities:%n");
+    for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
+        System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
+        System.out.printf("Matches:%n");
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
+            System.out.printf("Text: %s, Score: %.2f, Offset: %s, Length: %s%n",
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore(),
+            linkedEntityMatch.getOffset(),
+            linkedEntityMatch.getLength());
+        }
+    }
+}
+```
+
+### <a name="output"></a>출력
+
+```console
+Linked Entities:
+Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
+Matches:
+Text: Microsoft, Score: 0.55, Offset: 9, Length: 0
+Text: Microsoft, Score: 0.55, Offset: 9, Length: 150
+Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
+Matches:
+Text: Bill Gates, Score: 0.63, Offset: 10, Length: 25
+Text: Gates, Score: 0.63, Offset: 5, Length: 161
+Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
+Matches:
+Text: Paul Allen, Score: 0.60, Offset: 10, Length: 40
+Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
+Matches:
+Text: April 4, Score: 0.32, Offset: 7, Length: 54
+Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
+Matches:
+Text: BASIC, Score: 0.33, Offset: 5, Length: 89
+Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
+Matches:
+Text: Altair 8800, Score: 0.88, Offset: 11, Length: 116
+```
+
+# <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 앞에서 만든 클라이언트를 사용하고 해당 `recognizeLinkedEntities()` 함수를 호출하는 `recognizeLinkedEntitiesExample()`이라는 새 함수를 만듭니다. 반환된 `LinkedEntityCollection` 개체에는 성공하는 경우 `LinkedEntity` 목록이 포함되고, 그렇지 않은 경우 `errorMessage`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `LinkedEntity` 개체 아래에서 `LinkedEntityMatch` 개체 목록으로 그룹화됩니다.
 
@@ -574,6 +578,8 @@ veterinarian
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample_AnalyzeActions.md)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+
 [!INCLUDE [Analyze Batch Action pricing](../analyze-operation-pricing-caution.md)]
 
 `beginAnalyzeBatchActions()` 함수를 호출하는 `analyzeBatchActionsExample()`이라는 새 함수를 만듭니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
@@ -586,16 +592,16 @@ static void analyzeBatchActionsExample(TextAnalyticsClient client)
                         );
 
         
-        SyncPoller<AnalyzeBatchActionsOperationDetail, PagedIterable<AnalyzeBatchActionsResult>> syncPoller =
-                client.beginAnalyzeBatchActions(documents,
+        SyncPoller<AnalyzeActionsOperationDetail, PagedIterable<AnalyzeActionsResult>> syncPoller =
+                client.beginAnalyzeActions(documents,
                         new TextAnalyticsActions().setDisplayName("Analyze Batch Actions Quickstart")
                                 .setRecognizeEntitiesOptions(new RecognizeEntitiesOptions()),
-                        new AnalyzeBatchActionsOptions().setIncludeStatistics(false),
+                        new AnalyzeActionsOptions().setIncludeStatistics(false),
                         Context.NONE);
 
         // Task operation statistics
         while (syncPoller.poll().getStatus() == LongRunningOperationStatus.IN_PROGRESS) {
-            final AnalyzeBatchActionsOperationDetail operationResult = syncPoller.poll().getValue();
+            final AnalyzeActionsOperationDetail operationResult = syncPoller.poll().getValue();
             System.out.printf("Action display name: %s, Successfully completed actions: %d, in-process actions: %d, failed actions: %d, total actions: %d%n",
                     operationResult.getDisplayName(), operationResult.getActionsSucceeded(),
                     operationResult.getActionsInProgress(), operationResult.getActionsFailed(),
@@ -604,13 +610,13 @@ static void analyzeBatchActionsExample(TextAnalyticsClient client)
 
         syncPoller.waitForCompletion();
 
-        Iterable<PagedResponse<AnalyzeBatchActionsResult>> pagedResults = syncPoller.getFinalResult().iterableByPage();
-        for (PagedResponse<AnalyzeBatchActionsResult> page : pagedResults) {
+        Iterable<PagedResponse<AnalyzeActionsResult>> pagedResults = syncPoller.getFinalResult().iterableByPage();
+        for (PagedResponse<AnalyzeActionsResult> page : pagedResults) {
             System.out.printf("Response code: %d, Continuation Token: %s.%n", page.getStatusCode(), page.getContinuationToken());
-            page.getElements().forEach(analyzeBatchActionsResult -> {
+            page.getElements().forEach(analyzeActionsResult -> {
                 System.out.println("Entities recognition action results:");
                 IterableStream<RecognizeEntitiesActionResult> recognizeEntitiesActionResults =
-                        analyzeBatchActionsResult.getRecognizeEntitiesActionResults();
+                        analyzeActionsResult.getRecognizeEntitiesActionResults();
                 if (recognizeEntitiesActionResults != null) {
                     recognizeEntitiesActionResults.forEach(actionResult -> {
                         if (!actionResult.isError()) {
@@ -660,7 +666,7 @@ Recognized entity: Bill Gates, entity category: Person, entity subcategory: null
 Recognized entity: Paul Allen, entity category: Person, entity subcategory: null, confidence score: 0.990000.
 ```
 
-Analyze(분석) 작업을 사용하여 PII를 검색하고, 연결된 엔터티 및 핵심 문구 추출을 인식할 수도 있습니다. GitHub의 [Analyze(분석) 샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro)을 참조하세요.
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색을 수행할 수도 있습니다. GitHub의 [Analyze(분석) 샘플](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/AnalyzeActionsAsync.java)을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 

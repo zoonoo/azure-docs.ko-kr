@@ -1,26 +1,26 @@
 ---
-title: 템플릿을 사용 하 여 VM에 태그를 만드는 방법
-description: 템플릿을 사용 하 여 가상 머신에 태그를 지정 하는 방법을 알아봅니다.
+title: 템플릿을 사용하여 VM에 태그를 만드는 방법
+description: 템플릿을 사용하여 가상 머신에 태그를 지정하는 방법을 알아봅니다.
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.author: cynthn
 author: cynthn
 ms.date: 10/26/2018
-ms.openlocfilehash: e7dd75a025b76773a0bf1e3b4f752b5a77db6786
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7a07c3b2c95367debb375785effc15b69dc8de0a
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98897377"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087583"
 ---
-# <a name="tagging-a-vm-using-a-template"></a>템플릿을 사용 하 여 VM 태그 지정
+# <a name="tagging-a-vm-using-a-template"></a>템플릿을 사용하여 VM 태그 지정
 
-이 문서에서는 리소스 관리자 템플릿을 사용 하 여 Azure에서 VM에 태그를 만드는 방법을 설명 합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50 개의 태그를 지원 합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다.
+이 문서에서는 리소스 관리자 템플릿을 사용하여 Azure에서 VM에 태그를 만드는 방법을 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다.
 
-[이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)은 Compute(Virtual Machine), Storage(Storage 계정) 및 네트워크(공용 IP 주소, Virtual Network 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
+[이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-tags)은 Compute(Virtual Machine), Storage(Storage 계정) 및 네트워크(공용 IP 주소, Virtual Network 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
 
-**템플릿 링크** 에서 [Azure에 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/) 로 이동합니다.
+**템플릿 링크** 에서 [Azure에 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-tags)단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/) 로 이동합니다.
 
 ![태그가 포함된 간단한 배포](./media/tag/deploy-to-azure-tags.png)
 
@@ -48,4 +48,4 @@ ms.locfileid: "98897377"
 ### <a name="next-steps"></a>다음 단계
 
 - Azure 리소스에 태그를 지정하는 방법에 대한 자세한 내용은 [Azure Resource Manager 개요](../azure-resource-manager/management/overview.md) 및 [태그를 사용하여 Azure 리소스 구성](../azure-resource-manager/management/tag-resources.md)을 참조하세요.
-- 태그를 사용 하 여 Azure 리소스의 사용을 관리 하는 방법을 알아보려면 [Azure 청구서 이해](../cost-management-billing/understand/review-individual-bill.md)를 참조 하세요.
+- 태그를 사용하여 Azure 리소스의 사용을 관리하는 방법을 알아보려면 [Azure 청구서 이해](../cost-management-billing/understand/review-individual-bill.md)를 참조하세요.

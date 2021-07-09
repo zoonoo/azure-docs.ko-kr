@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 36cdaa813e0eccb23563301052aee268ab61533a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 0a8dfdea8ad743d0355daa16cc10f60bef96c213
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94888507"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112081860"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
@@ -32,7 +32,7 @@ ms.locfileid: "94888507"
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 > [!NOTE] 
-> 범용 v2 표준 스토리지 계정을 만들어야 합니다. 정적 웹 사이트는 다른 유형의 스토리지 계정에서 사용할 수 없습니다.
+> 이제 범용 v2 Standard 스토리지 계정뿐만 아니라 계층적 네임스페이스가 활성화된 스토리지 계정에 정적 웹 사이트를 사용할 수 있습니다.
 
 이 자습서에서는 프로그래머를 위한 무료 도구인 [Visual Studio Code](https://code.visualstudio.com/download)를 사용하여 정적 웹 사이트를 빌드하고 Azure Storage 계정에 배포합니다.
 
