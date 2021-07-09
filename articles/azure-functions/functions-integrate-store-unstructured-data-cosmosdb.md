@@ -4,12 +4,12 @@ description: Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않�
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 5bc3895cb219338acde492b871dce806db70622b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 90a85cad60696ad692d39d19ad123ecfd6f7dc30
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91661162"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236574"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 
@@ -30,7 +30,7 @@ Azure Functions에서 입력 및 출력 바인딩은 함수에서 외부 서비�
 
 출력 바인딩을 만들기 전에 SQL API를 사용하는 Azure Cosmos DB 계정이 있어야 합니다.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-an-output-binding"></a>출력 바인딩 추가
 

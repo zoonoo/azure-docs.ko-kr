@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/02/2021
-ms.openlocfilehash: ed988baec46152d55cf63aec09fce7a298157212
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0560c7e1f8770dd27d8ad462d10a2668d69d5865
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99822450"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111559251"
 ---
 # <a name="tutorial-debug-a-skillset-using-debug-sessions"></a>자습서: 디버그 세션을 사용하여 기술 세트 디버그
 
@@ -107,7 +107,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 1. 쿼리 문자열: `$select=metadata_storage_path, organizations, locations&$count=true`를 입력하여 특정 문서에 대한 필드를 반환합니다(고유 `metadata_storage_path` 필드로 식별).
 1. **검색** 을 클릭하여 쿼리를 실행하고 19개 문서를 모두 반환하고 "organizations" 및 "locations"에 대해 빈 값을 표시합니다.
 
-이러한 필드는 Blob의 콘텐츠 내에서 조직과 위치를 찾는 데 사용되는 기술 세트의 [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)을 통해 채워져야 합니다. 다음 연습에서는 디버그 세션을 사용하여 무엇이 잘못되었는지 확인합니다.
+이러한 필드는 Blob의 콘텐츠 내에서 조직과 위치를 찾는 데 사용되는 기술 세트의 [엔터티 인식 기술](cognitive-search-skill-entity-recognition-v3.md)을 통해 채워져야 합니다. 다음 연습에서는 디버그 세션을 사용하여 무엇이 잘못되었는지 확인합니다.
 
 오류 및 경고를 조사하는 또 다른 방법은 Azure Portal을 통하는 것입니다.
 

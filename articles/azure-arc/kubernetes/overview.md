@@ -9,12 +9,12 @@ ms.author: mlearned
 description: 이 문서에서는 Azure Arc 지원 Kubernetes 개요를 제공합니다.
 keywords: Kubernetes, Arc, Azure, 컨테이너
 ms.custom: references_regions
-ms.openlocfilehash: 74db1dda9ffdf40ec7e6a571a63986d4ab75c193
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d2e71b61210baf93950cb9e8fb2270320f882404
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375357"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967154"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes"></a>Azure Arc 지원 Kubernetes란?
 
@@ -29,7 +29,7 @@ Kubernetes 클러스터를 Azure에 연결하려면 클러스터 관리자가 �
 * Azure Arc 로그 및 메트릭을 수집합니다.
 * 구성 요청을 감시합니다. 
 
-Azure Arc 지원 Kubernetes는 전송 중인 데이터를 보호하기 위해 업계 표준 SSL을 지원합니다. 또한, 데이터는 기밀 유지를 위해 Azure Cosmos DB 데이터베이스에 암호화된 상태로 유지됩니다.
+Azure Arc 지원 Kubernetes는 전송 중인 데이터를 보호하기 위해 업계 표준 SSL을 지원합니다. 또한 미사용 데이터는 데이터 기밀성을 보장하기 위해 Azure Cosmos DB 데이터베이스에 암호화된 상태로 저장됩니다.
 
 ## <a name="supported-kubernetes-distributions"></a>지원되는 Kubernetes 배포
 
@@ -49,7 +49,7 @@ Azure Arc 지원 Kubernetes는 다음과 같은 시나리오를 지원합니다.
 
 * Kubernetes에 대한 Azure Policy를 사용하여 정책을 적용합니다.
 
-* Azure Arc 지원 Data Services, [Azure Arc의 App Services](../../app-service/overview-arc-integration.md)(웹, 함수 및 논리 앱 포함), [Kubernetes의 Event Grid](/azure/event-grid/kubernetes/overview)를 배포하기 위한 대상 위치로 [사용자 지정 위치](./custom-locations.md)를 만듭니다.
+* Azure Arc 지원 Data Services, [Azure Arc의 App Services](../../app-service/overview-arc-integration.md)(웹, 함수 및 논리 앱 포함), [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md)를 배포하기 위한 대상 위치로 [사용자 지정 위치](./custom-locations.md)를 만듭니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
