@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0443dcb2bf3bd58f2474c507c9f9594fb6d8a7f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9f7a35faa75af5a6205609e7afd40225d960d132
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89469187"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964606"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>자습서: Azure 이벤트 허브로 Azure Active Directory 로그 스트리밍
 
@@ -77,7 +77,7 @@ ms.locfileid: "89469187"
 
 * **지원되는 SIEM 도구를 구성합니다**. 이벤트 허브에서 데이터를 읽기 위해 대부분의 도구는 이벤트 허브 연결 문자열과 Azure 구독을 읽을 수 있는 특정 권한을 요구합니다. Azure Monitor와 통합된 타사 도구도 포함되지만 이에 국한되지는 않습니다.
     
-    * **ArcSight**: Splunk와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure Active Directory 로그를 ArcSight와 통합](howto-integrate-activity-logs-with-arcsight.md)을 참조하세요.
+    * **ArcSight**: ArcSight와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Azure Active Directory 로그를 ArcSight와 통합](howto-integrate-activity-logs-with-arcsight.md)을 참조하세요.
     
     * **Splunk**: Splunk와 Azure AD 로그를 통합하는 방법에 대한 자세한 내용은 [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](./howto-integrate-activity-logs-with-splunk.md)을 참조하세요.
     
@@ -93,5 +93,5 @@ ms.locfileid: "89469187"
 * [Azure Monitor를 사용하여 ArcSight와 Azure Active Directory 로그 통합](howto-integrate-activity-logs-with-arcsight.md)
 * [Azure Monitor를 사용하여 Splunk와 Azure AD 로그 통합](./howto-integrate-activity-logs-with-splunk.md)
 * [Azure Monitor를 사용하여 SumoLogic과 Azure AD 로그 통합](howto-integrate-activity-logs-with-sumologic.md)
-* [Azure Monitor에서 감사 로그 스키마 해석](reference-azure-monitor-audit-log-schema.md)
+* [Azure Monitor에서 감사 로그 스키마 해석](./overview-reports.md)
 * [Azure Monitor에서 로그인 로그 스키마 해석](reference-azure-monitor-sign-ins-log-schema.md)

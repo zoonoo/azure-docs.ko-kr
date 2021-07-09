@@ -1,23 +1,24 @@
 ---
-title: Speech Services에서 프라이빗 엔드포인트를 사용하는 방법
+title: Speech Service에서 프라이빗 엔드포인트를 사용하는 방법
 titleSuffix: Azure Cognitive Services
-description: Azure Private Link에서 제공하는 프라이빗 엔드포인트에서 Speech Services를 사용하는 방법을 알아봅니다.
+description: Azure Private Link에서 제공하는 프라이빗 엔드포인트에서 Speech Service를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 04/07/2021
 ms.author: alexeyo
-ms.openlocfilehash: 6971c6f0959135c7de1f41bcd49adde514f87941
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d5de7ed4536ce7c83de4cc1e9a2d886015188e20
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105625486"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695345"
 ---
-# <a name="use-speech-services-through-a-private-endpoint"></a>프라이빗 엔드포인트를 통해 Speech Services 사용
+# <a name="use-speech-service-through-a-private-endpoint"></a>프라이빗 엔드포인트를 통해 Speech Service 사용
 
 [Azure Private Link](../../private-link/private-link-overview.md)를 사용하면 [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)를 사용하여 Azure의 서비스에 연결할 수 있습니다. 프라이빗 엔드포인트는 특정 [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 및 서브넷 내에서만 액세스할 수 있는 개인 IP 주소입니다.
 
@@ -29,14 +30,22 @@ ms.locfileid: "105625486"
 
 
 
+프라이빗 엔드포인트 시나리오에 대한 음성 리소스를 설정하려면 다음 작업을 수행해야 합니다.
+1. [사용자 지정 도메인 이름 만들기](#create-a-custom-domain-name)
+1. [프라이빗 엔드포인트 설정](#turn-on-private-endpoints)
+1. [기존 애플리케이션 및 솔루션 조정](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint)
+
+[!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints.md)]
+
+이 문서에서는 Speech Service에서 프라이빗 엔드포인트를 사용하는 방법을 설명합니다. VNet 서비스 엔드포인트의 사용법은 [여기](speech-service-vnet-service-endpoint.md)에 설명되어 있습니다.
+
+
 ## <a name="create-a-custom-domain-name"></a>사용자 지정 도메인 이름 만들기
 
 프라이빗 엔드포인트에는 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)이 필요합니다. 다음 지침에 따라 Speech 리소스에 대해 하나를 만듭니다.
 
 > [!WARNING]
-> 사용자 지정 도메인 이름을 사용하는 Speech 리소스는 다른 방식으로 Speech Services와 상호 작용합니다.
-> 프라이빗 엔드포인트를 사용하는 Speech 리소스를 사용하도록 또는 프라이빗 엔드포인트를 _사용하지 않는_ Speech 리소스를 사용하도록 애플리케이션 코드를 조정해야 할 수 있습니다.
-> 사용자 지정 도메인 이름으로의 전환은 취소할 수 _없으므로_ 두 시나리오가 모두 필요할 수 있습니다.
+> 사용자 지정 도메인 이름이 활성화된 음성 리소스는 다른 방법을 사용하여 Speech Service와 상호 작용합니다. [프라이빗 엔드포인트 사용](#adjust-an-application-to-use-a-speech-resource-with-a-private-endpoint) 및 [프라이빗 엔드포인트 *사용 안 함*](#adjust-an-application-to-use-a-speech-resource-without-private-endpoints)의 두 시나리오 모두에 대해 애플리케이션 코드를 조정해야 할 수 있습니다.
 >
 > 사용자 지정 도메인 이름을 설정하면 작업을 [되돌릴 수 없습니다](../cognitive-services-custom-subdomains.md#can-i-change-a-custom-domain-name). [지역 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)으로 되돌리는 유일한 방법은 새 음성 리소스를 만드는 것입니다.
 >
@@ -292,7 +301,7 @@ az cognitiveservices account update --name my-speech-resource-name --resource-gr
 
 이 섹션에서는 `my-private-link-speech.cognitiveservices.azure.com`을 샘플 Speech 리소스 DNS 이름(사용자 지정 도메인)으로 사용합니다.
 
-Speech Services에는 [Speech-to-text](rest-speech-to-text.md) 및 [Text-to-speech](rest-text-to-speech.md)용 REST API가 있습니다. private-endpoint-enabled 시나리오에 대해서는 다음 정보를 고려합니다.
+Speech Service에는 [Speech-to-text](rest-speech-to-text.md) 및 [Text-to-speech](rest-text-to-speech.md)용 REST API가 있습니다. private-endpoint-enabled 시나리오에 대해서는 다음 정보를 고려합니다.
 
 Speech-to-text에는 두 개의 REST API가 있습니다. 각 API는 서로 다른 용도로 사용되고 서로 다른 엔드포인트를 사용하므로 private-endpoint-enabled 시나리오에서 사용할 때 다른 접근 방식이 필요합니다.
 
@@ -388,7 +397,7 @@ DNS 이름의 예는 다음과 같습니다.
 
 `westeurope.stt.speech.microsoft.com`
 
-지역에 가능한 모든 값(DNS 이름의 첫 번째 요소)은 [Speech Service 지원 지역](regions.md)에 나열되어 있습니다. (Azure Government 및 Azure 중국 엔드포인트에 대해서는 [이 문서](sovereign-clouds.md)를 참조하세요.) 다음 표는 Speech Services 제공 사항에 대해 가능한 값을 보여 줍니다(DNS 이름의 두 번째 요소).
+지역에 가능한 모든 값(DNS 이름의 첫 번째 요소)은 [Speech Service 지원 지역](regions.md)에 나열되어 있습니다. (Azure Government 및 Azure 중국 엔드포인트에 대해서는 [이 문서](sovereign-clouds.md)를 참조하세요.) 다음 표는 Speech Service 제공 사항에 대해 가능한 값을 보여 줍니다(DNS 이름의 두 번째 요소).
 
 | DNS 이름 값 | Speech Service 제공 사항                                    |
 |----------------|-------------------------------------------------------------|
@@ -401,7 +410,7 @@ DNS 이름의 예는 다음과 같습니다.
 
 따라서 앞의 예(`westeurope.stt.speech.microsoft.com`)는 서유럽의 Speech-to-text 엔드포인트를 나타냅니다.
 
-private-endpoint-enabled 엔드포인트는 특수 프록시를 통해 Speech Services와 통신합니다. 따라서 *엔드포인트 연결 URL을 변경해야 합니다*. 
+private-endpoint-enabled 엔드포인트는 특수 프록시를 통해 Speech Service와 통신합니다. 따라서 *엔드포인트 연결 URL을 변경해야 합니다*. 
 
 "표준" 엔드포인트 URL은 다음과 같습니다. <p/>`{region}.{speech service offering}.speech.microsoft.com/{URL path}`
 
@@ -502,7 +511,7 @@ https://my-private-link-speech.cognitiveservices.azure.com/voice/cognitiveservic
 
 ## <a name="adjust-an-application-to-use-a-speech-resource-without-private-endpoints"></a>프라이빗 엔드포인트 없이 Speech 리소스를 사용하도록 애플리케이션 조정
 
-이 문서에서는 Speech 리소스에 대한 사용자 지정 도메인 사용 설정을 *되돌릴 수 없다* 는 점을 여러 번 지적했습니다. 이러한 리소스는 [지역 엔드포인트 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)을 사용하는 리소스와는 다른 방법으로 Speech Services와 통신합니다.
+이 문서에서는 Speech 리소스에 대한 사용자 지정 도메인 사용 설정을 *되돌릴 수 없다* 는 점을 여러 번 지적했습니다. 이러한 리소스는 [지역 엔드포인트 이름](../cognitive-services-custom-subdomains.md#is-there-a-list-of-regional-endpoints)을 사용하는 리소스와는 다른 방법으로 Speech Service와 통신합니다.
 
 이 섹션에서는 Speech Services REST API 및 [Speech SDK](speech-sdk.md)를 사용하여 사용자 지정 도메인 이름은 사용하고 프라이빗 엔드포인트는 *사용하지 않는* Speech 리소스를 사용하는 방법을 설명합니다. 이 리소스는 한 때 프라이빗 엔드포인트 시나리오에서 사용되었지만 해당 프라이빗 엔드포인트가 삭제된 리소스일 수 있습니다.
 
@@ -561,13 +570,17 @@ Speech-to-text REST API v3.0 사용은 [private-endpoint-enabled Speech 리소�
 var config = SpeechConfig.FromSubscription(subscriptionKey, azureRegion);
 ```
 
+[!INCLUDE [](includes/speech-vnet-service-enpoints-private-endpoints-simultaneously.md)]
+
 ## <a name="pricing"></a>가격 책정
 
 가격 책정에 대한 자세한 내용은 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link)을 참조하세요.
 
 ## <a name="learn-more"></a>자세한 정보
 
+* [Virtual Network 서비스 엔드포인트를 통해 Speech Service 사용](speech-service-vnet-service-endpoint.md)
 * [Azure Private Link](../../private-link/private-link-overview.md)
+* [Azure VNet 서비스 엔드포인트](../../virtual-network/virtual-network-service-endpoints-overview.md)
 * [Speech SDK](speech-sdk.md)
 * [Speech-to-Text REST API](rest-speech-to-text.md)
 * [Text-to-Speech REST API](rest-text-to-speech.md)

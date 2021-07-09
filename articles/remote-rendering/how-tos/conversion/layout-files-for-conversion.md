@@ -5,20 +5,23 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab01143fcab5ceb5468ef8fde233905b8d3e05d1
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91318078"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108124548"
 ---
 # <a name="laying-out-files-for-conversion"></a>변환용 파일 레이아웃
 
 자산을 올바르게 처리하기 위해 변환 서비스는 모든 입력 파일을 찾을 수 있어야 합니다.
 이러한 파일은 변환되는 주 자산 파일과 일반적으로 자산 파일 내의 경로에서 참조되는 일부 다른 파일로 구성됩니다.
-자산 변환에 대한 요청에는 변환 서비스가 이러한 파일을 찾는 방법을 결정하는 두 개의 매개 변수 `input.folderPath`(선택 사항)와 `input.inputAssetPath`가 제공됩니다.
+자산 변환에 대한 요청에는 변환 서비스가 이러한 파일을 찾는 방법을 결정하는 두 개의 매개 변수 `settings.inputLocation.blobPrefix`(선택 사항)와 `settings.inputLocation.relativeInputAssetPath`가 제공됩니다.
 [변환 REST API](conversion-rest-api.md) 페이지에 전체적으로 문서화되어 있습니다.
-파일을 배치하기 위해서는 `folderPath`가 자산을 처리할 때 변환 서비스에 사용할 수 있는 파일의 전체 집합을 결정한다는 점에 유의해야 합니다.
+파일을 배치하기 위해서는 `BlobPrefix`가 자산을 처리할 때 변환 서비스에 사용할 수 있는 파일의 전체 집합을 결정한다는 점에 유의해야 합니다.
+
+> [!Note]
+> 서비스는 input.BlobPrefix 아래의 모든 파일을 다운로드합니다. 서비스 문제를 방지하기 위해 파일 이름 및 경로가 [Windows 경로 길이 제한](/windows/win32/fileio/maximum-file-path-limitation)을 초과하지 않는지 확인합니다. 
 
 ## <a name="placing-files-so-they-can-be-found"></a>파일을 찾을 수 있도록 배치
 

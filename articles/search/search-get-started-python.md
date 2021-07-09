@@ -7,14 +7,14 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/12/2021
+ms.date: 06/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 8b9c4792fa6dbdc70f657ce3c5f1757473a22fda
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2bac4baea6421c0e4a1f6e3b956245202eef18e1
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225220"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112018283"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebook"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
 
@@ -356,7 +356,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단히 하기 위해 단축된 버전의 Hotels 인덱스를 사용합니다. 전체 버전을 만들어 더 흥미로운 쿼리를 사용해 볼 수 있습니다. 전체 버전과 50개 문서를 모두 가져오려면 **데이터 가져오기** 마법사를 실행하여 기본 제공 데이터 원본 샘플에서 *hotels-sample* 을 선택합니다.
+이 JavaScript 빠른 시작에서는 인덱스를 만들고, 이를 문서와 함께 로드하고, 쿼리를 실행하는 일련의 작업을 수행했습니다. 학습을 계속하려면 다음 자습서를 사용해 보세요.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: Azure Portal에서 인덱스 만들기](search-get-started-portal.md)
+> [자습서: 웹앱에 검색 추가](tutorial-python-overview.md)

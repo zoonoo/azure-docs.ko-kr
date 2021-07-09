@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 12/18/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5847fcb2cf553e1fcc744877e52dbbdf1f24d992
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: f6d467b2480ded274699e7274edcf745eaa4980a
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107751835"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748484"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -176,8 +176,8 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](overview.md)을 참조하세
 | **CertificateEnroll** |인증서 등록 |
 | **CertificateRenew** |인증서 갱신 |
 | **CertificatePendingGet** |보류 중인 인증서 검색 |
-| **CertificatePendingMerge** |인증서 병합 보류 중 |
-| **CertificatePendingUpdate** |인증서 업데이트 보류 중 |
+| **CertificatePendingMerge** | 인증서 병합이 보류 중입니다. |
+| **CertificatePendingUpdate** | 인증서 업데이트가 보류 중입니다. |
 | **CertificatePendingDelete** |보류 중인 인증서 삭제 |
 | **CertificateNearExpiryEventGridNotification** |인증서가 곧 만료되는 이벤트가 게시됨 |
 | **CertificateExpiredEventGridNotification** |인증서가 만료된 이벤트가 게시됨 |

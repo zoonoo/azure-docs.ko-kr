@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.openlocfilehash: 33435d2367b92f312d41f0e32fdbb3a93d59a9fd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c1a0fb15be92e25b576cd29e671eed3c6a5b948f
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95999929"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313269"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 기능 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "95999929"
 
     LUIS에 대한 충분한 값을 입력하면 제안이 표시됩니다. 제안된 값을 **+ 모두 추가** 하거나 개별 항목을 선택할 수 있습니다.
 
-1. 구문을 서로 교환해서 사용할 수 있는 경우 **서로 교환 가능한 값** 을 선택한 상태로 유지합니다.
+1. 구문을 서로 교환해서 사용할 수 있는 경우 **서로 교환 가능한 값** 을 선택한 상태로 유지합니다. 교환 가능한 구문 목록 기능은 학습용 동의어 목록으로 사용됩니다. 교환 불가능한 구문 목록은 학습을 위한 별도의 기능으로 사용됩니다(즉, 기능이 유사하지만 구문을 바꾸면 의도가 변경됨).
 
 1. 구문 목록은 **전역** 설정을 사용하여 전체 앱에 적용하거나 특정 모델(의도 도는 엔터티)에 적용할 수 있습니다. 의도 또는 엔터티의 _기능_ 으로 구문 목록을 만드는 경우 토글은 전역에 대해 설정되지 않습니다. 이 경우 토글의 의미는 해당 기능이 해당 모델에 대해서만 로컬이므로 애플리케이션에 대한 _전역이 아니라_ 는 것입니다.
 

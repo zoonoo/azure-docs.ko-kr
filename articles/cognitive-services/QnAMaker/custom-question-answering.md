@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.custom: references_regions
-ms.openlocfilehash: da6d19a20a31e4cc4c4fac5bb704cb193611dbbc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 6e8f9a26836be14d4952ba309933511635ff673a
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382652"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982649"
 ---
 # <a name="qna-maker-managed-is-now-renamed-to-custom-question-answering"></a>QnA Maker 관리형의 이름이 이제 사용자 지정 질문 답변으로 변경됨
 
@@ -41,7 +41,7 @@ Cognitive Services의 언어 제품을 통합하는 과정에서 QnA Maker 관�
 
 - 기존의 모든 QnA Maker 관리형(미리 보기) 리소스는 이전과 동일하게 계속 작동합니다. 현재 이러한 리소스에 대해 필요한 작업은 없습니다.
 - 사용자 지정 질문 답변(미리 보기)의 만들기 흐름이 주된 변경 내용입니다. 서비스, 포털, 엔드포인트, SDK 등은 이전과 동일하게 유지됩니다.
-- 사용자 지정 질문 답변(미리 보기)은 무료 공개 미리 보기로 계속 제공됩니다.
+- 사용자 지정 질문 답변(미리 보기)은 무료 공개 미리 보기로 계속 제공됩니다. 이 기능은 Text Analytics 표준 리소스의 일부로만 사용할 수 있습니다. Text Analytics 리소스에 대한 가격 책정 계층을 무료로 변경하지 마세요.
 - 사용자 지정 질문 답변(미리 보기)은 다음 지역에서 제공됩니다.
     - 미국 중남부
     - 북유럽
@@ -51,5 +51,4 @@ Cognitive Services의 언어 제품을 통합하는 과정에서 QnA Maker 관�
 
 * [QnA Maker 클라이언트 라이브러리 시작](./quickstarts/quickstart-sdk.md)
 * [QnA Maker 포털 시작](./quickstarts/create-publish-knowledge-base.md)
-
 

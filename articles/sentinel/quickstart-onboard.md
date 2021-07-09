@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: a5a7af768875efd4733070b85bacd1916f897f27
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: b30fee5d269a633173b8524ed6c902517063b2a2
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106063783"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985997"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>빠른 시작: Azure Sentinel 온보딩
 
@@ -43,9 +43,9 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
 
 - Azure Sentinel은 중국과 독일(소버린) 지역을 제외한 대부분의 [Log Analytics의 GA 지역](https://azure.microsoft.com/global-infrastructure/services/?products=monitor)의 작업 영역에서 실행할 수 있습니다. 경우에 따라 새 Log Analytics 지역은 Azure Sentinel 서비스를 등록하는 데 시간이 걸릴 수 있습니다. 
 
-- 인시던트, 책갈피 및 분석 규칙과 같이 Azure Sentinel에 의해 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 소싱된 일부 고객 데이터가 포함될 수 있습니다. 이 Azure Sentinel 생성 데이터는 작업 영역이 있는 지리에 따라 다음 표에 나열된 지리에 저장됩니다.
+- 인시던트, 책갈피 및 분석 규칙과 같이 Azure Sentinel에 의해 생성된 데이터에는 고객의 Log Analytics 작업 영역에서 소싱된 일부 고객 데이터가 포함될 수 있습니다. 이 Azure Sentinel 생성 데이터는 작업 영역이 있는 지리 또는 지역에 따라 다음 표에 나열된 지리 또는 지역에 저장됩니다.
 
-    | 작업 영역 지리 | Azure Sentinel 생성 데이터 지리 |
+    | 작업 영역 지리/지역 | Azure Sentinel 생성 데이터 지리/지역 |
     | --- | --- |
     | 미국<br>인도<br>브라질<br>아프리카<br>한국<br>아랍에미리트연합국 | 미국 |
     | 유럽<br>프랑스<br>스위스 | 유럽 |
@@ -53,7 +53,13 @@ Azure Sentinel을 온보딩하려면 먼저 Azure Sentinel을 사용하도록 �
     | United Kingdom | United Kingdom |
     | Canada | Canada |
     | 일본 | 일본 |
+    | 동남 아시아(싱가포르) | 동남 아시아(싱가포르)* |
     |
+    
+    \* 동남 아시아에는 쌍으로 연결된 지역이 없습니다.
+
+    > [!IMPORTANT]
+    > - ML(기계 학습) 엔진을 사용하는 특정 규칙을 사용하도록 설정하여 **Azure Sentinel 작업 영역 지리 외부에서 수집된 관련 데이터를 복사하는 권한을 Microsoft에 제공** 합니다. 이 권한은 기계 학습 엔진에서 이러한 규칙을 처리하는 데 필요할 수 있습니다.
 
 ## <a name="enable-azure-sentinel"></a>Azure Sentinel 사용<a name="enable"></a>
 

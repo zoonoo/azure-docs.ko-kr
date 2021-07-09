@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
 ms.date: 04/20/2021
 ms.author: victorh
-ms.openlocfilehash: a271de46a55722d59043fdfd2b1daf634091ff7c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 077de420397f3b8feab60a9f555fc26e66a5b5ff
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108147376"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110539776"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -65,7 +65,7 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |인바운드 연결의 SNAT|DNAT 외에도 방화벽 공용 IP 주소(인바운드)를 통한 연결은 방화벽 개인 IP 중 하나로 SNAT됩니다. 이 요구 사항은 현재(활성/활성 NVA의 경우에도) 대칭 라우팅을 보장합니다.|HTTP/S에 대한 원래 원본을 보존하려면 [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For) 헤더를 사용하는 것이 좋습니다. 예를 들어 방화벽 앞에 있는 [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-to-backend) 또는 [Azure Application Gateway](../application-gateway/rewrite-http-headers-url.md)와 같은 서비스를 사용합니다. Azure Front Door의 일부로 WAF를 추가하고 방화벽에 체인을 추가할 수도 있습니다.
 |프록시 모드(포트 1433)에서만 지원되는 SQL FQDN 필터링|Azure SQL Database, Azure Synapse Analytics 및 Azure SQL Managed Instance의 경우:<br><br>SQL FQDN 필터링은 프록시 모드에서만 지원됩니다(포트 1433).<br><br>Azure SQL IaaS의 경우:<br><br>비표준 포트를 사용하는 경우 애플리케이션 규칙에서 해당 포트를 지정할 수 있습니다.|리디렉션 모드의 SQL(Azure 내에서 연결하는 경우 기본값)의 경우 대신 SQL 서비스 태그를 Azure Firewall 네트워크 규칙의 일부로 사용하여 액세스를 필터링할 수 있습니다.
 |TCP 포트 25의 아웃바운드 트래픽은 허용되지 않음| TCP 포트 25를 사용하는 아웃바운드 SMTP 연결이 차단되었습니다. 포트 25는 주로 인증되지 않은 이메일 제공을 위해 사용됩니다. 이는 가상 머신의 기본 플랫폼 동작입니다. 자세한 내용은 [Azure에서 아웃바운드 SMTP 연결 문제 해결](../virtual-network/troubleshoot-outbound-smtp-connectivity.md)을 참조하세요. 그러나 가상 머신과 달리 현재는 Azure 방화벽에서 이 기능을 사용하도록 설정할 수 없습니다. 참고: 25개 이외의 포트를 통해 인증된 SMTP(포트 587) 또는 SMTP를 허용하려면 현재 SMTP 검사가 지원되지 않으므로 애플리케이션 규칙이 아닌 네트워크 규칙을 구성해야 합니다.|SMTP 문제 해결 문서에 설명된 것처럼 권장 방법에 따라 이메일을 보냅니다. 또는 기본 경로에서 방화벽으로의 아웃바운드 SMTP 액세스가 필요한 가상 머신을 제외합니다. 대신 인터넷에 대한 아웃바운드 액세스를 직접 구성합니다.
-|SNAT 포트 소모|Azure Firewall은 현재 백 엔드 가상 머신 확장 집합 인스턴스별로 공용 IP 주소당 포트 1024개를 지원합니다. 기본적으로 VMSS 인스턴스 두 개가 있습니다.|이는 SLB 제한이며 지속적으로 제한이 증가되도록 노력하고 있습니다. 그 동안에는 SNAT이 소모될 수 있는 배포에 대한 공용 IP 주소를 최소 5개 사용하여 Azure Firewall 배포를 구성하는 것이 좋습니다. 그러면 사용 가능한 SNAT 포트가 5배로 증가합니다. 다운스트림 권한이 간소화되도록 IP 주소 접두사에서 할당합니다.|
+|SNAT 포트 소모|Azure Firewall은 현재 백 엔드 가상 머신 확장 집합 인스턴스별로 공용 IP 주소당 포트 1024개를 지원합니다. 기본적으로 두 개의 가상 머신 확장 집합 인스턴스가 있습니다.|이는 SLB 제한이며 지속적으로 제한이 증가되도록 노력하고 있습니다. 그 동안에는 SNAT이 소모될 수 있는 배포에 대한 공용 IP 주소를 최소 5개 사용하여 Azure Firewall 배포를 구성하는 것이 좋습니다. 그러면 사용 가능한 SNAT 포트가 5배로 증가합니다. 다운스트림 권한이 간소화되도록 IP 주소 접두사에서 할당합니다.|
 |DNAT는 강제 터널링을 사용하는 경우 지원되지 않습니다.|강제 터널링을 사용하여 배포된 방화벽은 비대칭 라우팅으로 인해 인터넷에서 인바운드 액세스를 지원할 수 없습니다.|이는 비대칭 라우팅 때문에 의도된 것입니다. 인바운드 연결의 반환 경로는 온-프레미스 방화벽을 통해 전달되며 설정된 연결이 표시되지 않습니다.
 |아웃바운드 수동 FTP는 FTP 서버 구성에 따라 여러 공용 IP 주소가 있는 방화벽에서 작동하지 않을 수 있습니다.|수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. 공용 IP 주소가 여러 개인 방화벽이 데이터를 아웃바운드로 보내는 경우 원본 IP 주소에 대한 공용 IP 주소 중 하나를 임의로 선택합니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|명시적 SNAT 구성이 계획되어 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다([IIS의 예제](/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity) 참조). 또는 이 경우에 단일 IP 주소를 사용하는 것이 좋습니다.|
 |FTP 서버 구성에 따라 인바운드 수동 FTP가 작동하지 않을 수 있습니다. |수동 FTP는 제어 및 데이터 채널에 대해 서로 다른 연결을 설정합니다. Azure Firewall의 인바운드 연결은 대칭 라우팅을 보장하기 위해 방화벽 개인 IP 주소 중 하나에 SNAT됩니다. FTP 서버 구성에 따라 데이터 및 제어 채널에서 다른 원본 IP 주소를 사용하는 경우 FTP가 실패할 수 있습니다.|원래 원본 IP 주소를 유지하는 동안 조사하고 있습니다. 그 동안에는 FTP 서버를 구성하여 서로 다른 원본 IP 주소에서 데이터를 허용하고 채널을 제어할 수 있습니다.|
@@ -75,9 +75,10 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |Azure Firewall은 SNI TLS 헤더를 사용하여 HTTPS 및 MSSQL 트래픽을 필터링합니다.|브라우저 또는 서버 소프트웨어에서 SNI(서버 이름 표시기) 확장을 지원하지 않는 경우 Azure Firewall을 통해 연결할 수 없습니다.|브라우저 또는 서버 소프트웨어에서 SNI를 지원하지 않는 경우 애플리케이션 규칙 대신 네트워크 규칙을 사용하여 연결을 제어할 수 있습니다. SNI를 지원하는 소프트웨어는 [서버 이름 표시](https://wikipedia.org/wiki/Server_Name_Indication)를 참조하세요.|
 |사용자 지정 DNS는 강제 터널링에서 작동하지 않습니다.|강제 터널링이 활성화된 경우 사용자 지정 DNS가 작동하지 않습니다.|수정 사항을 조사하고 있습니다.|
 |강제 터널 모드로 구성된 방화벽에서 시작/중지가 작동하지 않습니다.|강제 터널 모드로 구성된 Azure 방화벽에서 시작/중지가 작동하지 않습니다. 강제 터널링이 구성된 Azure Firewall을 시작하려고 하면 다음 오류가 발생합니다.<br><br>*Set-AzFirewall: AzureFirewall FW-xx 관리 IP 구성은 기존 방화벽에 추가할 수 없습니다. 강제 터널링 지원을 사용하려면 관리 IP 구성으로 다시 배포합니다.<br>StatusCode: 400<br>ReasonPhrase: 잘못된 요청*|확인 중입니다.<br><br>해결 방법으로 기존 방화벽을 삭제하고 동일한 매개 변수를 사용하여 새 방화벽을 만들 수 있습니다.|
-|포털을 사용하여 방화벽 정책 태그를 추가할 수 없습니다.|Azure Firewall 정책에는 Azure Portal을 사용하여 태그를 추가할 수 없도록 하는 패치 지원 제한이 있습니다. 다음 오류가 생성됩니다. *리소스에 대한 태그를 저장할 수 없습니다*.|수정 사항을 조사하고 있습니다. 또는 Azure PowerShell cmdlet `Set-AzFirewallPolicy`를 사용하여 태그를 업데이트할 수 있습니다.|
-|IPv6는 아직 지원되지 않음|규칙에 IPv6 주소를 추가하면 방화벽이 실패합니다.|IPv4 주소만 사용합니다. IPv6 지원은 조사 중에 있습니다.|
-|여러 IP 그룹 업데이트가 충돌 오류로 인해 실패합니다.|동일한 방화벽에 연결된 IPGroup을 두 개 이상 업데이트하면 리소스 중 하나가 실패한 상태가 됩니다.|이는 알려진 문제/제한 사항입니다. <br><br>IPGroup을 업데이트하면 IPGroup이 연결된 모든 방화벽에 대한 업데이트가 트리거됩니다. 방화벽이 여전히 *업데이트* 상태에 있는 동안 두 번째 IPGroup에 대한 업데이트를 시작하면 IPGroup 업데이트가 실패합니다.<br><br>오류를 방지하려면 동일한 방화벽에 연결된 IPGroup을 한 번에 하나씩 업데이트해야 합니다. 업데이트 사이에 충분한 시간을 허용하여 방화벽이 *업데이트* 상태를 벗어날 수 있도록 합니다.| 
+|포털 또는 ARM(Azure Resource Manager) 템플릿을 사용하여 방화벽 정책 태그를 추가할 수 없음|Azure Firewall 정책에는 Azure Portal 또는 ARM 템플릿을 사용하여 태그를 추가할 수 없도록 하는 패치 지원 제한이 있습니다. 다음 오류가 생성됩니다. *리소스에 대한 태그를 저장할 수 없습니다*.|수정 사항을 조사하고 있습니다. 또는 Azure PowerShell cmdlet `Set-AzFirewallPolicy`를 사용하여 태그를 업데이트할 수 있습니다.|
+|IPv6은 현재 지원되지 않습니다.|규칙에 IPv6 주소를 추가하면 방화벽이 실패합니다.|IPv4 주소만 사용합니다. IPv6 지원은 조사 중에 있습니다.|
+|여러 IP 그룹 업데이트가 충돌 오류로 인해 실패합니다.|동일한 방화벽에 연결된 IP 그룹을 두 개 이상 업데이트하면 리소스 중 하나가 실패한 상태가 됩니다.|이는 알려진 문제/제한 사항입니다. <br><br>IP 그룹을 업데이트하면 IP 그룹이 연결된 모든 방화벽에 대한 업데이트가 트리거됩니다. 방화벽이 여전히 ‘업데이트 중’ 상태에 있는 동안 두 번째 IP 그룹에 대한 업데이트를 시작하면 IP 그룹 업데이트가 실패합니다.<br><br>오류를 방지하려면 동일한 방화벽에 연결된 IP 그룹을 한 번에 하나씩 업데이트해야 합니다. 업데이트 사이에 충분한 시간을 허용하여 방화벽이 *업데이트* 상태를 벗어날 수 있도록 합니다.|
+|ARM 템플릿을 사용한 RuleCollectionGroups 제거는 지원되지 않습니다.|ARM 템플릿을 사용한 RuleCollectionGroup 제거는 지원되지 않으며 실패합니다.|이 작업은 지원되지 않습니다.|
 
 
 ## <a name="next-steps"></a>다음 단계

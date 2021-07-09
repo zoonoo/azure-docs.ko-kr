@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db58b523f1280847815587a5037c2348335482b6
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101730510"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110616175"
 ---
 # <a name="secure-azure-digital-twins"></a>Azure Digital Twins 보호
 
-Azure Digital Twins는 보안을 위해 배포 과정에서 특정 데이터, 리소스 및 작업에 대한 정확한 액세스 제어를 가능하게 합니다. 이는 **Azure RBAC(Azure 역할 기반 액세스 제어)** 라는 세분화된 역할 및 권한 관리 전략을 통해 수행됩니다. Azure RBAC의 일반적인 원칙은 [여기](../role-based-access-control/overview.md)를 참조하세요.
+Azure Digital Twins는 보안을 위해 배포 과정에서 특정 데이터, 리소스 및 작업에 대한 정확한 액세스 제어를 가능하게 합니다. 이는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md) 라는 세분화된 역할 및 권한 관리 전략을 통해 수행됩니다.
 
 Azure Digital Twins는 미사용 데이터 암호화도 지원합니다.
 
@@ -37,7 +37,7 @@ Azure AD를 사용하는 경우, 액세스는 2단계 프로세스로 진행됩�
 
 권한 부여 단계를 수행하려면 Azure 역할을 보안 주체에 할당해야 합니다. 보안 주체에 할당된 역할에 따라 보안 주체가 가지는 권한이 결정됩니다. Azure Digital Twins는 Azure Digital Twins 리소스에 대한 권한 세트를 포함하는 Azure 역할을 제공합니다. 이러한 역할은 이 문서의 뒷부분에 설명되어 있습니다.
 
-Azure에서 지원되는 역할 및 역할 할당에 대한 자세한 내용은 Azure RBAC 설명서의 [*여러 역할 이해*](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
+Azure에서 지원되는 역할 및 역할 할당에 대한 자세한 내용은 Azure RBAC 설명서의 [여러 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
 #### <a name="authentication-with-managed-identities"></a>관리 ID를 사용하여 인증
 
@@ -47,20 +47,20 @@ Azure에서 지원되는 역할 및 역할 할당에 대한 자세한 내용은 
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>권한 부여: Azure Digital Twins에 대한 Azure 역할
 
-Azure는 Azure Digital Twins [데이터 평면 API](how-to-use-apis-sdks.md#overview-data-plane-apis)에 대한 액세스 권한을 부여하기 위해 **두 가지 Azure 기본 제공 역할** 을 제공합니다. 이름 또는 ID로 역할을 참조할 수 있습니다.
+Azure는 Azure Digital Twins [데이터 평면 API](concepts-apis-sdks.md#overview-data-plane-apis)에 대한 액세스 권한을 부여하기 위해 **두 가지 Azure 기본 제공 역할** 을 제공합니다. 이름 또는 ID로 역할을 참조할 수 있습니다.
 
-| 기본 제공 역할 | 설명 | ID | 
+| 기본 제공 역할 | Description | ID | 
 | --- | --- | --- |
 | Azure Digital Twins 데이터 소유자 | Azure Digital Twins 리소스에 대한 모든 권한을 제공합니다. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Azure Digital Twins 데이터 읽기 권한자 | Azure Digital Twins 리소스에 대한 읽기 액세스를 제공합니다. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 다음 두 가지 방법으로 역할을 할당할 수 있습니다.
-* Azure Portal에서 Azure Digital Twins의 액세스 제어(IAM) 창을 통해([*Azure Portal를 사용하여 Azure 역할 할당*](../role-based-access-control/role-assignments-portal.md) 참조)
+* Azure Portal에서 Azure Digital Twins의 액세스 제어(IAM) 창을 통해([Azure Portal를 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md) 참조)
 * 역할 추가 또는 제거하는 CLI 명령을 통해
 
-이를 수행하는 방법에 대한 자세한 단계는 Azure Digital Twins [*자습서: 엔드투엔드 솔루션 연결*](tutorial-end-to-end.md)을 시도해보세요.
+이를 수행하는 방법에 대한 자세한 단계는 Azure Digital Twins [자습서: 엔드투엔드 솔루션 연결](tutorial-end-to-end.md)을 시도해보세요.
 
-기본 제공 역할이 정의되는 방법에 대한 자세한 내용은 Azure RBAC 설명서의 [*역할 정의 이해*](../role-based-access-control/role-definitions.md)를 참조하세요. Azure 사용자 지정 역할 만들기에 대한 자세한 내용은 [*Azure 사용자 지정 역할*](../role-based-access-control/custom-roles.md)을 참조하세요.
+기본 제공 역할이 정의되는 방법에 대한 자세한 내용은 Azure RBAC 설명서의 [역할 정의 이해](../role-based-access-control/role-definitions.md)를 참조하세요. Azure 사용자 지정 역할 만들기에 대한 자세한 내용은 [Azure 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
 ##### <a name="automating-roles"></a>역할 자동화
 
@@ -82,17 +82,17 @@ Azure 역할을 보안 주체에 할당하기 전에 보안 주체에게 부여�
 
 ### <a name="troubleshooting-permissions"></a>권한 문제 해결
 
-사용자가 자신의 역할에서 허용하지 않는 작업을 수행하려고 하면 서비스 요청에서 `403 (Forbidden)` 읽기 오류가 수신될 수 있습니다. 자세한 정보 및 문제 해결 단계는 [*문제 해결: Azure Digital Twins 요청이 실패했습니다(상태: 403(사용할 수 없음))* ](troubleshoot-error-403.md)을 참조하세요.
+사용자가 자신의 역할에서 허용하지 않는 작업을 수행하려고 하면 서비스 요청에서 `403 (Forbidden)` 읽기 오류가 수신될 수 있습니다. 자세한 정보 및 문제 해결 단계는 [문제 해결: Azure Digital Twins 요청이 실패했습니다(상태: 403(사용할 수 없음))](troubleshoot-error-403.md) 을 참조하세요.
 
 ## <a name="managed-identity-for-accessing-other-resources-preview"></a>다른 리소스에 액세스하기 위한 관리 ID(미리 보기)
 
-Azure Digital Twins 인스턴스에 대한 [Azure Active Directory(Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **관리 ID** 를 설정하면 인스턴스가 [Azure Key Vault](../key-vault/general/overview.md)와 같은 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD의 관리 ID에 관한 자세한 내용은  [*Azure 리소스에 대한 관리 ID*](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. 
+Azure Digital Twins 인스턴스에 대한 [Azure Active Directory(Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **관리 ID** 를 설정하면 인스턴스가 [Azure Key Vault](../key-vault/general/overview.md)와 같은 다른 Azure AD 보호 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Azure AD의 관리 ID에 관한 자세한 내용은  [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요. 
 
 Azure는 시스템 할당과 사용자 할당의 두 가지 유형의 관리 ID를 지원합니다. 현재 Azure Digital Twins는 **시스템 할당 ID** 만 지원합니다. 
 
 Azure Digital Instance에 대해 시스템 할당 관리 ID를 사용하여 [사용자 정의 엔드포인트](concepts-route-events.md#create-an-endpoint)에 인증할 수 있습니다. Azure Digital Twines는 [Event Hub](../event-hubs/event-hubs-about.md) 및  [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 대상을 위한 엔드포인트에, 그리고 [배달 못한 편지 이벤트](concepts-route-events.md#dead-letter-events)를 위한 [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md) 엔드포인트에 대해 시스템 할당 ID 기반 인증을 지원합니다. [Event Grid](../event-grid/overview.md) 엔드포인트는 현재 관리 ID에 대해 지원되지 않습니다.
 
-Azure Digital Twins에 대해 시스템 관리 ID를 활성화하고 이를 사용하여 이벤트를 라우팅하는 방법에 대한 지침은 [*방법: 이벤트 라우팅에 관리 ID 사용(미리 보기)* ](./how-to-enable-managed-identities-portal.md)을 참조하세요.
+Azure Digital Twins에 대해 시스템 관리 ID를 활성화하고 이를 사용하여 이벤트를 라우팅하는 방법에 대한 지침은 [방법: 이벤트 라우팅에 관리 ID 사용(미리 보기)](./how-to-enable-managed-identities-portal.md) 을 참조하세요.
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Azure Private Link를 사용한 프라이빗 네트워크 액세스(미리 보기)
 
@@ -102,11 +102,11 @@ Azure Digital Twins에 대해 시스템 관리 ID를 활성화하고 이를 사�
 
 프라이빗 엔드포인트는 Azure VNet 주소 공간의 IP 주소를 사용합니다. 프라이빗 네트워크의 클라이언트와 Azure Digital Twins 인스턴스 간의 네트워크 트래픽은 VNet와 Microsoft 백본 네트워크의 Private Link를 통해 트래버스하여, 공용 인터넷에 노출되지 않습니다. 다음은 이 시스템을 시각적으로 표현한 것입니다.
 
-:::image type="content" source="media/concepts-security/private-link.png" alt-text="인터넷/퍼블릭 클라우드 액세스가 없는 보호된 VNET인 PowerGrid 회사의 네트워크를 보여주는 다이어그램으로, Private Link를 통해 CityOfTwins라는 Azure Digital Twins 인스턴스에 연결합니다.":::
+:::image type="content" source="media/concepts-security/private-link.png" alt-text="Private Link를 통해 Azure Digital Twins 인스턴스에 연결하는 퍼블릭 클라우드 액세스가 없는 보호된 VNET 네트워크를 보여주는 다이어그램.":::
 
 Azure Digital Twins 인스턴스에 대한 프라이빗 엔드포인트를 구성하면 Azure Digital Twins 인스턴스를 보호하고 공개적으로 노출되지 않도록 할 수 있을 뿐만 아니라 VNet에서 데이터가 반출되지 않도록 할 수 있습니다.
 
-Azure Digital Twins용 Private Link를 설정하는 방법에 대한 지침은 [*방법: Private Link로 프라이빗 액세스 사용(미리 보기)* ](./how-to-enable-private-link-portal.md)을 참조하세요.
+Azure Digital Twins용 Private Link를 설정하는 방법에 대한 지침은 [방법: Private Link로 프라이빗 액세스 사용(미리 보기)](./how-to-enable-private-link-portal.md) 을 참조하세요.
 
 ### <a name="design-considerations"></a>설계 고려 사항 
 
@@ -119,7 +119,7 @@ Private Link의 제한에 대한 자세한 내용은  [Azure Private Link 설�
 
 ## <a name="service-tags"></a>서비스 태그
 
-**서비스 태그** 는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대한 자세한 내용은  [*가상 네트워크 태그*](../virtual-network/service-tags-overview.md)를 참조하세요. 
+**서비스 태그** 는 지정된 Azure 서비스의 IP 주소 접두사 그룹을 나타냅니다. Microsoft는 서비스 태그에 포함되는 주소 접두사를 관리하고 주소가 변경되면 서비스 태그를 자동으로 업데이트하여 네트워크 보안 규칙을 자주 업데이트할 때 발생하는 복잡성을 최소화합니다. 서비스 태그에 대한 자세한 내용은  [가상 네트워크 태그](../virtual-network/service-tags-overview.md)를 참조하세요. 
 
 보안 규칙을 만들 때 특정 IP 주소 대신 서비스 태그를 사용하여  [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules)  또는  [Azure Firewall](../firewall/service-tags.md)에서 네트워크 액세스 제어를 정의할 수 있습니다. 규칙의 적절한  *원본*  또는  *대상*  필드에 서비스 태그 이름(이 경우  **AzureDigitalTwins**)을 지정하면 해당 서비스에 대한 트래픽을 허용하거나 거부할 수 있습니다. 
 
@@ -133,7 +133,7 @@ Private Link의 제한에 대한 자세한 내용은  [Azure Private Link 설�
 
 다음은 Azure Digital Twins에서 서비스 태그를 사용하여 [이벤트 경로](concepts-route-events.md) 엔드포인트에 액세스하는 단계입니다.
 
-1. 먼저 Azure IP 범위 및 서비스 태그를 보여주는 JSON 파일 참조인 [*Azure IP 범위 및 서비스 태그*](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드합니다. 
+1. 먼저 Azure IP 범위 및 서비스 태그를 보여주는 JSON 파일 참조인 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드합니다. 
 
 2. JSON 파일에서 "AzureDigitalTwins" IP 범위를 찾습니다.  
 
@@ -157,8 +157,8 @@ Azure Digital Twins는 현재 **CORS(원본 간 리소스 공유)** 를 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [*방법: 인스턴스 및 인증 설정*](how-to-set-up-instance-portal.md)에서 이러한 개념이 실제로 적용되는지 확인하세요.
+* [방법: 인스턴스 및 인증 설정](how-to-set-up-instance-portal.md)에서 이러한 개념이 실제로 적용되는지 확인하세요.
 
-* [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)에서 클라이언트 애플리케이션 코드의 이러한 개념과 상호 작용하는 방법을 참조하세요.
+* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)에서 클라이언트 애플리케이션 코드의 이러한 개념과 상호 작용하는 방법을 참조하세요.
 
 * [Azure RBAC](../role-based-access-control/overview.md)에 대해 자세히 알아보세요.

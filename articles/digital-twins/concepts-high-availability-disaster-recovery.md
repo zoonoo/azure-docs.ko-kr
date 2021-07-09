@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ee2bd4ab66b7a67be04c1a710caa12c57c705d19
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 05713c5a27a8b42ce9b6967212bf1414c841788c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108209970"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474580"
 ---
 # <a name="azure-digital-twins-high-availability-and-disaster-recovery"></a>Azure Digital Twins 고가용성 및 재해 복구
 
@@ -34,10 +34,15 @@ Azure Digital Twins는 서비스 내에서 중복을 구현하여 지역 내 HA�
 
 데이터 센터에서 정전 또는 기타 지역 이벤트로 인해 중단 시간이 늘어나는 경우도 드물지만 있을 수 있습니다. 이러한 이벤트는 드물며, 위에서 설명한 지역 내 HA 기능이 도움이 되지 못할 수도 있습니다. Azure Digital Twins는 Microsoft에서 시작한 장애 조치(failover)를 통해 이를 해결합니다.
 
-**Microsoft 시작 장애 조치(failover)** 는 해당 지역의 모든 Azure Digital Twins 인스턴스를 상응하는 지역 쌍 지역으로 장애 조치(failover)하는 드문 상황에서 Microsoft에 의해 실행됩니다. 이 프로세스는 기본 옵션(사용자가 옵트아웃할 수 없음)이며 사용자 개입이 필요하지 않습니다. Microsoft는 이 옵션을 실행할 시기를 판단할 권리를 보유합니다. 이 메커니즘에는 사용자의 인스턴스가 장애 조치(failover)되기 전 사용자 동의가 포함되지 않습니다.
+**Microsoft 시작 장애 조치(failover)** 는 해당 지역의 모든 Azure Digital Twins 인스턴스를 상응하는 [지역 쌍 지역](../best-practices-availability-paired-regions.md)으로 장애 조치(failover)하는 드문 상황에서 실행됩니다. 이 프로세스는 기본 옵션(사용자가 옵트아웃할 수 없음)이며 사용자 개입이 필요하지 않습니다. Microsoft는 이 옵션을 실행할 시기를 판단할 권리를 보유합니다. 이 메커니즘에는 사용자의 인스턴스가 장애 조치(failover)되기 전 사용자 동의가 포함되지 않습니다.
 
 >[!NOTE]
-> 또한 일부 Azure 서비스는 **고객이 시작한 장애 조치(failover)** 라는 추가 옵션을 제공하여 고객이 DR 드릴 실행과 같은 인스턴스에 대해서만 장애 조치(failover)를 시작할 수 있도록 합니다. 이 메커니즘은 현재 Azure Digital Twins에서 **지원되지 않습니다**. 
+> 일부 Azure 서비스는 **고객이 시작한 장애 조치(failover)** 라는 추가 옵션을 제공하여 고객이 DR 드릴 실행과 같은 인스턴스에 대해서만 장애 조치(failover)를 시작할 수 있도록 합니다. 이 메커니즘은 현재 Azure Digital Twins에서 **지원되지 않습니다**. 
+
+모든 데이터를 특정 지리적 영역 내에 유지하는 것이 중요한 경우 인스턴스를 만드는 지역의 [지역 쌍 지역](../best-practices-availability-paired-regions.md#azure-regional-pairs) 위치를 확인하여 데이터 상주 요구 사항을 충족하는지 확인하세요.
+
+>[!NOTE]
+> 일부 Azure 서비스는 사용자가 데이터 상주 요구 사항을 충족하는 방법으로 장애 조치(failover)를 위해 다른 지역을 구성할 수 있는 옵션을 제공합니다. 이 기능은 현재 Azure Digital Twins에서 **지원되지 않습니다**. 
 
 ## <a name="monitor-service-health"></a>서비스 상태 모니터링
 
@@ -50,14 +55,14 @@ Service Health 이벤트를 보려면...
 1. 왼쪽 메뉴를 사용하여 *상태 기록* 페이지로 전환합니다.
 1. **Azure Digital Twins** 로 시작하는 *문제 이름* 을 찾아 선택합니다.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="상태 기록 페이지를 표시하는 Azure Portal의 스크린샷. 지난 며칠 동안의 몇 가지 문제에 대한 목록이 있으며 ‘Azure Digital Twins - West Europe - Mitigated'라는 문제가 강조 표시되어 있습니다." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/navigate.png" alt-text="'상태 기록' 페이지를 보여주는 Azure Portal의 스크린샷. 'Azure Digital Twins - West Europe - Mitigated'라는 문제가 강조 표시되어 있습니다." lightbox="media/concepts-high-availability-disaster-recovery/navigate.png":::
 
 1. 작동 중단에 대한 일반 정보를 보려면 *요약* 탭을 확인합니다.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="상태 기록 페이지에서 요약 탭이 강조 표시됩니다. 이 탭에는 영향을 받는 리소스, 해당 지역 및 해당 구독과 같은 일반 정보가 표시됩니다." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/summary.png" alt-text="'요약' 탭이 강조 표시된 '상태 기록' 페이지를 보여주는 Azure Portal의 스크린샷. 탭에는 일반 정보가 표시됩니다." lightbox="media/concepts-high-availability-disaster-recovery/summary.png":::
 1. 시간에 따른 문제에 대한 자세한 내용 및 업데이트는 *문제 업데이트* 탭을 참조하세요.
 
-    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="상태 기록 페이지에서 문제 업데이트 탭이 강조 표시됩니다. 이 탭은 하루 전부터 현재 상태를 보여 주는 여러 항목을 표시합니다." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
+    :::image type="content" source="media/concepts-high-availability-disaster-recovery/issue-updates.png" alt-text="'문제 업데이트' 탭이 강조 표시된 '상태 기록' 페이지를 보여주는 Azure Portal 스크린샷. 탭에는 항목의 상태가 표시됩니다." lightbox="media/concepts-high-availability-disaster-recovery/issue-updates.png":::
 
 
 이 도구에 표시된 정보는 하나의 Azure 디지털 인스턴스에만 국한되지 않습니다. Service Health를 사용하여 특정 지역 또는 구독에서 Azure Digital Twins 서비스의 진행 상황을 이해한 후에는 [Resource Health 도구](troubleshoot-resource-health.md)를 사용하여 특정 인스턴스로 드릴다운하고 영향을 받는지 여부를 확인하여 단계를 추가로 모니터링할 수 있습니다.
@@ -73,4 +78,4 @@ HA/DR에 대한 모범 사례는 이 항목에 대한 다음 Azure 지침을 참
 Azure Digital Twins 솔루션 시작하기에 대해 자세히 알아봅니다.
  
 * [Azure Digital Twins란?](overview.md)
-* [빠른 시작 - 샘플 시나리오 살펴보기](quickstart-azure-digital-twins-explorer.md)
+* [빠른 시작: Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)

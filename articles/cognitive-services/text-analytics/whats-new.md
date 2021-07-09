@@ -8,20 +8,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 06/03/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 21f072747c9184fa15fd7e3477c0b4009cd885fc
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 63063ef205b456c368cec2d5c1a8ce1f456aaa59
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376241"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756476"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
 Text Analytics API는 지속적으로 업데이트됩니다. 최신 개발 정보를 항상 파악할 수 있게 이 문서에서는 새 릴리스 및 기능 관련 정보를 제공합니다.
 
+## <a name="june-2021"></a>2021년 6월
+
+### <a name="general-api-updates"></a>일반 API 업데이트
+
+* 핵심 구문 추출을 위한 새 모델-버전 `2021-06-01`로, 중국어 간체에 대한 지원을 추가합니다.
+* 다음을 제공하는 [명명된 엔터티 인식](how-tos/text-analytics-how-to-entity-linking.md) v3.x의 `2021-06-01` 모델 버전 
+  * *기술* 엔터티 범주에 대한 AI 품질 개선 및 언어 지원 확대. 
+  * *기술* 엔터티 범주에 대한 스페인어, 프랑스어, 독일어, 이탈리아어 및 포르투갈어 지원이 추가되었습니다.
+* 모든 지역에서 상태에 대한 비동기 작업 및 Text Analytics를 사용할 수 있습니다. 
+
+### <a name="text-analytics-for-health-updates"></a>Text Analytics for Health 업데이트
+
+* 상태에 대한 미리 보기 Text Analytics에 액세스를 더 이상 적용할 필요가 없습니다.
+* 다음을 제공하는 `/health` 엔드포인트 및 온-프레미스 컨테이너의 새 모델 버전 `2021-05-15`
+    * `ALLERGEN`, `CONDITION_SCALE`, `COURSE`, `EXPRESSION` 및 `MUTATION_TYPE`의 5가지 새 엔터티 형식
+    * 14개의 새 관계 유형
+    * 새 엔터티 형식에 대해 어설션 검색 확장 및
+    * ALLERGEN 엔터티 형식에 대한 연결 지원
+
+ 
 ## <a name="may-2021"></a>2021년 5월
 
 * 이제 Text Analytics 리소스를 사용하여 [사용자 지정 질문 답변](../qnamaker/custom-question-answering.md)(이전의 QnA maker)에 액세스할 수 있습니다. 

@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9bfb125a9906c89fb7c607ce241a9b7696b805bc
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101738143"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111537604"
 ---
-# <a name="language-and-region-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환을 위한 언어 및 지역 지원
+# <a name="language-support-for-text-and-speech-translation"></a>텍스트 및 음성 변환을 위한 언어 지원
 
 Translator를 사용하여 90개의 텍스트 번역 언어 및 방언을 변환합니다. NMT(Neural Machine Translation)는 고품질의 AI 지원 기계 번역을 위한 새로운 표준으로, 인공신경망 시스템을 사용할 수 있을 때 Translator의 V3를 통해 기본 방식으로 사용할 수 있습니다.
 
@@ -52,8 +52,8 @@ Translator는 텍스트 간 번역을 위해 다음 언어를 지원합니다.
 | 중국어 번체 | `zh-Hant` |
 | 크로아티아어 | `hr` |
 | 체코어 | `cs` |
-| 다리어 | `prs` |
 | 덴마크어 | `da` |
+| 다리어 | `prs` |
 | 네덜란드어 | `nl` |
 | 영어 | `en` |
 | 에스토니아어 | `et` |
@@ -129,6 +129,9 @@ Translator는 텍스트 간 번역을 위해 다음 언어를 지원합니다.
 
 > [!NOTE]
 > 언어 코드 `pt`는 기본적으로 `pt-br`, 포르투갈어(브라질)로 설정됩니다.
+
+> [!NOTE]
+> 현재 컨테이너에서는 사모아어, 타히티어, 클링온어, 클링온어(plqaD) 및 태국어는 사용할 수 없습니다.
 
 ### <a name="detect"></a>Detect
 
@@ -340,6 +343,7 @@ Translator는 변역 및 음역에 위해 다음 언어를 검색합니다.
 | 헝가리어      | `hu`          |
 | 아이슬란드어 | `is` |
 | 인도네시아어|   `id`    |
+| 이눅티투트어|    `iu`    |
 | 아일랜드어 | `ga`  |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |

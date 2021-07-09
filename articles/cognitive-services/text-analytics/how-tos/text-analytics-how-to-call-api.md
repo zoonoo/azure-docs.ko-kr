@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.custom: references_regions
-ms.openlocfilehash: 3c6fb1ca23bcc9c57e73bcaf960e0387611fcff3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b7ad200bba527d0b4b841483175b2672d94f162e
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599217"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962862"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -31,9 +30,17 @@ Text Analytics API를 사용하기 전에 애플리케이션에 대한 키 및 �
 
 1.  먼저 새 Text Analytics 리소스가 없는 경우 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)로 이동하여 새로 만듭니다. [가격 책정 계층](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)을 선택합니다.
 
-2.  엔드포인트에 사용할 지역을 선택합니다.  `/analyze` 및 `/health` 엔드포인트는 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽 및 서부 유럽 지역에서만 사용할 수 있습니다.
+2.  엔드포인트에 사용할 지역을 선택합니다.
 
-3.  Text Analytics 리소스를 만들고 페이지 왼쪽에 있는 "키 및 엔드포인트 블레이드"로 이동합니다. 나중에 API를 호출할 때 사용할 키를 복사합니다. 나중에 `Ocp-Apim-Subscription-Key` 헤더의 값으로 추가합니다.
+3.  Text Analytics 리소스를 만들고 페이지 왼쪽의 리소스 관리 아래에 있는 "키 및 엔드포인트" 섹션으로 이동합니다. 나중에 API를 호출할 때 사용할 키를 복사합니다. 나중에 `Ocp-Apim-Subscription-Key` 헤더의 값으로 추가합니다.
+
+4. Text Analytics 리소스를 사용하여 전송된 텍스트 레코드 수를 확인하려면 다음을 수행합니다.
+
+    1. Azure Portal에서 Text Analytics 리소스로 이동합니다. 
+    2. 왼쪽 탐색 메뉴의 **모니터링** 아래에 있는 **메트릭** 을 클릭합니다. 
+    3. **메트릭** 에 대한 드롭다운 상자에서 *처리된 텍스트 레코드* 를 선택합니다.
+    
+텍스트 레코드는 최대 1000자의 입력 텍스트 단위입니다.  예를 들어 입력 텍스트로 제출된 1500자는 2개 텍스트 레코드로 계산됩니다.
 
 ## <a name="change-your-pricing-tier"></a>가격 책정 계층 변경 
 
@@ -51,7 +58,7 @@ S0~S4 가격 책정 계층을 사용하는 기존 Text Analytics 리소스가 �
 
 ## <a name="using-the-api-asynchronously"></a>비동기식으로 API 사용
 
-v3.1-preview.3부터 Text Analytics API는 두 개의 비동기 엔드포인트를 제공합니다. 
+Text Analytics v3.1-preview.5 API는 두 개의 비동기 엔드포인트를 제공합니다. 
 
 * Text Analytics에 대한 `/analyze` 엔드포인트를 사용하면 하나의 API 호출에서 여러 텍스트 분석 기능이 있는 동일한 텍스트 문서 집합을 분석할 수 있습니다. 이전에는 여러 기능을 사용하려면 각 작업에 대해 별도의 API 호출을 수행해야 했습니다. 둘 이상의 Text Analytics 기능을 사용하여 많은 문서를 분석해야 하는 경우 이 기능을 사용해보세요.
 
@@ -62,8 +69,8 @@ v3.1-preview.3부터 Text Analytics API는 두 개의 비동기 엔드포인트�
 | 기능 | 동기 | 비동기 |
 |--|--|--|
 | 언어 검색 | ✔ |  |
-| 정서 분석 | ✔ |  |
-| 의견 마이닝 | ✔ |  |
+| 정서 분석 | ✔ | ✔* |
+| 의견 마이닝 | ✔ | ✔* |
 | 핵심 문구 추출 | ✔ | ✔* |
 | 명명된 엔터티 인식(PII 및 PHI 포함) | ✔ | ✔* |
 | 엔터티 연결 | ✔ | ✔* |
@@ -122,6 +129,8 @@ API 요청의 형식은 모든 동기 작업에서 동일합니다. 문서는 �
 * 핵심 문구 추출 
 * 명명된 엔터티 인식(PII 및 PHI 포함)
 * 엔터티 연결
+* 감정 분석
+* 오피니언 마이닝
 
 | 요소 | 유효한 값 | 필수 여부 | 사용량 |
 |---------|--------------|-----------|-------|
@@ -130,7 +139,7 @@ API 요청의 형식은 모든 동기 작업에서 동일합니다. 문서는 �
 |`documents` | 아래의 `id` 및 `text` 필드 포함 | 필수 | 전송되는 각 문서에 대한 정보와 문서의 원시 텍스트를 포함합니다. |
 |`id` | String | 필수 | 제공하는 ID는 출력을 구성하는 데 사용됩니다. |
 |`text` | 구조화되지 않은 원시 텍스트(최대 125,000자)입니다. | 필수 | 현재 지원되는 유일한 언어인 영어로 되어 있어야 합니다. |
-|`tasks` | `entityRecognitionTasks`, `entityLinkingTasks`, `keyPhraseExtractionTasks` 또는 `entityRecognitionPiiTasks` 등의 Text Analytics 기능이 포함됩니다. | 필수 | 사용하려는 하나 이상의 Text Analytics 기능입니다. `entityRecognitionPiiTasks`에는 `pii` 또는 `phi` 및 선택된 엔터티 형식 검색을 위해 `pii-categories`로 설정할 수 있는 선택적 `domain` 매개 변수가 있습니다. `domain` 매개 변수가 지정되지 않은 경우 시스템 기본값은 `pii`입니다. |
+|`tasks` | `entityRecognitionTasks`, `entityLinkingTasks`, `keyPhraseExtractionTasks`, `entityRecognitionPiiTasks` 또는 `sentimentAnalysisTasks` 등의 Text Analytics 기능이 포함됩니다. | 필수 | 사용하려는 하나 이상의 Text Analytics 기능입니다. `entityRecognitionPiiTasks`에는 `pii` 또는 `phi` 및 선택된 엔터티 형식 검색을 위해 `pii-categories`로 설정할 수 있는 선택적 `domain` 매개 변수가 있습니다. `domain` 매개 변수가 지정되지 않은 경우 시스템 기본값은 `pii`입니다. 마찬가지로 `sentimentAnalysisTasks`에는 감정 분석에 대한 출력에 오피니언 마이닝 결과를 포함하는 `opinionMining` 부울 매개 변수가 있습니다. |
 |`parameters` | 아래의 `model-version` 및 `stringIndexType` 필드 포함 | 필수 | 이 필드는 선택한 위의 기능 작업에 포함되어 있습니다. 여기에는 사용하려는 모델 버전 및 색인 유형에 대한 정보가 포함됩니다. |
 |`model-version` | String | 필수 | 호출 중인 모델의 사용하려는 버전을 지정합니다.  |
 |`stringIndexType` | String | 필수 | 프로그래밍 환경과 일치하는 텍스트 디코더를 지정합니다.  지원되는 유형은 `textElement_v8`(기본값), `unicodeCodePoint`, `utf16CodeUnit`입니다. 자세한 내용은 [텍스트 오프셋 문서](../concepts/text-offsets.md#offsets-in-api-version-31-preview)를 참조하세요.  |
@@ -147,7 +156,7 @@ API 요청의 형식은 모든 동기 작업에서 동일합니다. 문서는 �
             },
             {
                 "id": "doc2",
-                "text": "Pike place market is my favorite Seattle attraction."
+                "text": "Pike place market is my favorite Seattle attraction. The shops have very good food."
             }
         ]
     },
@@ -156,7 +165,19 @@ API 요청의 형식은 모든 동기 작업에서 동일합니다. 문서는 �
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "false"
+                }
+            }
+        ],
+        "entityRecognitionPiiTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "true",
+                    "domain": "phi",
+                    "piiCategories":["default"]
                 }
             }
         ],
@@ -164,23 +185,29 @@ API 요청의 형식은 모든 동기 작업에서 동일합니다. 문서는 �
             {
                 "parameters": {
                     "model-version": "latest",
-                    "stringIndexType": "TextElements_v8"
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "false"
                 }
             }
         ],
-        "keyPhraseExtractionTasks": [{
-            "parameters": {
-                "model-version": "latest"
+        "keyPhraseExtractionTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "loggingOptOut": "false"
+                }
             }
-        }],
-        "entityRecognitionPiiTasks": [{
-            "parameters": {
-                "model-version": "latest",
-                "stringIndexType": "TextElements_v8",
-                "domain": "phi",
-                "pii-categories":"default"
+        ],
+        "sentimentAnalysisTasks": [
+            {
+                "parameters": {
+                    "model-version": "latest",
+                    "stringIndexType": "TextElement_v8",
+                    "loggingOptOut": "false",
+                    "opinionMining": "true"
+                }
             }
-        }]
+        ]
     }
 }
 
@@ -231,12 +258,13 @@ Postman(또는 다른 웹 API 테스트 도구)에서 사용하려는 기능에 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
 | 언어 검색 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/languages` |
-| 정서 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
-| 오피니언 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment?opinionMining=true` |
+| 감정 분석 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/sentiment` |
+| 오피니언 마이닝 | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/sentiment?opinionMining=true` |
 | 핵심 문구 추출 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/keyPhrases` |
 | 명명된 엔터티 인식 - 일반 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/general` |
-| 명명된 엔터티 인식 - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii` |
-| 명명된 엔터티 인식 - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.0/entities/recognition/pii?domain=phi` |
+| 명명된 엔터티 인식 - PII | POST | `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii` |
+| 명명된 엔터티 인식 - PHI | POST |  `<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/recognition/pii?domain=phi` |
+| 엔터티 연결 | POST | `<your-text-analytics-resource>/text/analytics/v3.0/entities/linking` |
 
 #### <a name="asynchronous"></a>[비동기](#tab/asynchronous)
 
@@ -244,16 +272,16 @@ Postman(또는 다른 웹 API 테스트 도구)에서 사용하려는 기능에 
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
-| 분석 제출 작업 | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze` |
-| 분석 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>` |
+| 분석 제출 작업 | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze` |
+| 분석 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>` |
 
 ### <a name="endpoints-for-sending-asynchronous-requests-to-the-health-endpoint"></a>`/health` 엔드포인트에 비동기 요청을 보내기 위한 엔드포인트
 
 | 기능 | 요청 유형 | 리소스 엔드포인트 |
 |--|--|--|
-| 의료 분야 Text Analytics 제출 작업  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs` |
-| 작업 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
-| 작업 취소 | Delete | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.4/entities/health/jobs/<Operation-Location>` |
+| 의료 분야 Text Analytics 제출 작업  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs` |
+| 작업 상태 및 결과 가져오기 | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
+| 작업 취소 | Delete | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.5/entities/health/jobs/<Operation-Location>` |
 
 --- 
 
@@ -289,9 +317,9 @@ API 요청을 제출합니다. 동기식 엔드포인트를 호출한 경우 응
 비동기 `/analyze` 또는 `/health` 엔드포인트를 호출한 경우 202 응답 코드를 수신했는지 확인합니다. 결과를 보려면 응답을 수신해야 합니다.
 
 1. API 응답의 헤더에서 API로 보낸 작업을 식별하는 `Operation-Location`을 찾습니다. 
-2. 사용한 엔드포인트에 대한 GET 요청을 만듭니다. 엔드포인트 형식은 [위의 표](#set-up-a-request)를 참조하고 [API 참조 문서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/AnalyzeStatus)를 검토합니다. 예를 들면 다음과 같습니다.
+2. 사용한 엔드포인트에 대한 GET 요청을 만듭니다. 엔드포인트 형식은 [위의 표](#set-up-a-request)를 참조하고 [API 참조 문서](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/AnalyzeStatus)를 검토합니다. 예를 들면 다음과 같습니다.
 
-    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze/jobs/<Operation-Location>`
+    `https://my-resource.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/analyze/jobs/<Operation-Location>`
 
 3. 요청에 `Operation-Location`을 추가합니다.
 
@@ -319,6 +347,7 @@ API 요청을 제출합니다. 동기식 엔드포인트를 호출한 경우 응
 성공하면 `/analyze` 엔드포인트에 대한 GET 요청에서 지정된 작업을 포함하는 개체를 반환합니다. 예: `keyPhraseExtractionTasks`. 이러한 작업에는 적절한 Text Analytics 기능의 응답 개체가 포함됩니다. 자세한 내용은 다음 문서를 참조하세요.
 
 + [핵심 구 추출](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [감정 분석](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [엔터티 인식](text-analytics-how-to-entity-linking.md#view-results)
 + [의료 분야 Text Analytics](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 
@@ -327,6 +356,7 @@ API 요청을 제출합니다. 동기식 엔드포인트를 호출한 경우 응
 ## <a name="see-also"></a>참고 항목
 
 * [Text Analytics 개요](../overview.md)
+* [모델 버전](../concepts/model-versioning.md)
 * [FAQ(질문과 대답)](../text-analytics-resource-faq.md)</br>
 * [Text Analytics 제품 페이지](//go.microsoft.com/fwlink/?LinkID=759712)
 * [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)

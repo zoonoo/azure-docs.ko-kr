@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: cf143af4bba7b26aa1fec5ed6e18ab41fbc65dd5
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: fc005e8d94a0c6ddb7f21de05872f12bdb7f2177
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664837"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965139"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>빠른 시작: Azure Spring Cloud에 앱 빌드 및 배포
 
@@ -209,6 +209,13 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
 
 ## <a name="create-and-deploy-apps-on-azure-spring-cloud"></a>Azure Spring Cloud에서 앱 생성 및 배포
 
+1. 이전 빠른 시작에서 다음 명령을 실행하지 않은 경우 CLI 기본값을 설정합니다.
+
+    ```azurecli
+    az configure --defaults group=<resource group name> spring-cloud=<service name>  
+    az spring-cloud config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
+    ```
+
 1. PetClinic을 위한 2개의 코어 마이크로 서비스(API 게이트웨이 및 고객 서비스)를 만듭니다.
 
     ```azurecli
@@ -229,7 +236,7 @@ Azure CLI 또는 Maven을 사용하여 배포하기 전에 [Azure Spring Cloud�
     az spring-cloud app list -o table
     ```
 
-    ```txt
+    ```azurecli
         Name               Location    ResourceGroup    Production Deployment    Public Url                                           Provisioning Status    CPU    Memory    Running Instance    Registered Instance    Persistent Storage
     -----------------  ----------  ---------------  -----------------------  ---------------------------------------------------  ---------------------  -----  --------  ------------------  ---------------------  --------------------
     api-gateway        eastus      xxxxxx-sp         default                  https://<service name>-api-gateway.azuremicroservices.io   Succeeded              1      2         1/1                 1/1                    -     
@@ -275,7 +282,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
 1. 부모 POM을 포함하는 Pet Clinic의 루트 폴더에서 다음 명령을 실행하여 구성을 생성합니다. Azure CLI를 사용하여 이미 로그인한 경우 이 명령은 자격 증명을 자동으로 선택합니다. 그렇지 않으면 프롬프트 명령을 사용하여 로그인합니다. 자세한 내용은 [wiki 페이지](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)를 참조하세요.
 
     ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.5.0:config
     ```
     
     다음 중 선택하라는 메시지가 표시됩니다.
@@ -291,7 +298,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-spring-cloud-maven-plugin</artifactId>
-                <version>1.3.0</version>
+                <version>1.5.0</version>
                 <configuration>
                     <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                     <clusterName>v-spr-cld</clusterName>
@@ -310,7 +317,7 @@ az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-vis
     
 ## <a name="verify-the-services"></a>서비스 확인
 
-배포 명령이 성공하면 "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io" 형식의 URL이 반환됩니다.  이를 사용하여 실행 중인 서비스로 이동합니다.
+배포 명령이 성공하면 "https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io" 형식의 URL이 반환됩니다. 이를 사용하여 실행 중인 서비스로 이동합니다.
 
 ![Pet Clinic 액세스](media/build-and-deploy/access-customers-service.png)
 
@@ -342,7 +349,7 @@ PetClinic 앱이 관리 서버, 방문 및 수의사 같은 모든 기능과 함
     ![프로젝트 가져오기](media/spring-cloud-intellij-howto/import-project-1-pet-clinic.png)
 
 ### <a name="deploy-api-gateway-app-to-azure-spring-cloud"></a>Azure Spring Cloud에 api-gateway 앱 배포
-Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정으로 로그인하고 구독을 선택해야 합니다. 로그인 세부 정보는 [설치 및 로그인](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
+Azure에 배포하려면 Azure Toolkit for IntelliJ를 사용하여 Azure 계정으로 로그인하고 구독을 선택해야 합니다. 로그인 세부 정보는 [설치 및 로그인](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)을 참조하세요.
 
 1. IntelliJ 프로젝트 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure** -> **Azure Spring Cloud에 배포** 를 선택합니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: yluiu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 72fd005ce44d116f86d9a0b4c0d1932e2e4facfb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: da05251dab17aeb086be53a8583110dd5f12d7b3
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102425773"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111541630"
 ---
 # <a name="specify-a-face-detection-model"></a>얼굴 감지 모델 지정
 
@@ -102,8 +102,8 @@ await client.FaceList.AddFaceFromUrlAsync(faceListId, imageUrl, detectionModel: 
 |---------|---------|---|
 |모든 얼굴 감지 작업에 대한 기본값입니다. | 2019년 5월에 출시되었으며 필요에 따라 모든 얼굴 감지 작업에 사용할 수 있습니다. |  2021년 2월에 출시되었으며 필요에 따라 모든 얼굴 감지 작업에 사용할 수 있습니다.
 |작은 얼굴, 측면 얼굴 또는 흐린 얼굴에는 최적화되지 않았습니다.  | 작은 얼굴, 측면 얼굴, 흐린 얼굴에 대한 정확도가 향상되었습니다. | 더 작은 얼굴(64x64픽셀) 및 회전된 얼굴 방향을 포함하여 정확도가 더욱 향상되었습니다.
-|감지 호출에서 지정된 경우 주요 얼굴 특성(머리 자세, 나이, 감정 등)을 반환합니다. |  얼굴 특성을 반환하지 않습니다.     | 감지 호출에서 지정된 경우 "faceMask" 및 "noseAndMouthCovered" 특성을 반환합니다.
-|감지 호출에서 지정된 경우 얼굴 랜드마크를 반환합니다.   | 얼굴 랜드마크를 반환하지 않습니다.  | 얼굴 랜드마크를 반환하지 않습니다.
+|감지 호출에서 지정된 경우 주요 얼굴 특성(머리 자세, 나이, 감정 등)을 반환합니다. |  얼굴 특성을 반환하지 않습니다.     | 감지 호출에서 지정된 경우 마스크 및 머리 포즈 특성을 반환합니다.
+|감지 호출에서 지정된 경우 얼굴 랜드마크를 반환합니다.   | 얼굴 랜드마크를 반환하지 않습니다.  | 감지 호출에서 지정된 경우 얼굴 랜드마크를 반환합니다.
 
 감지 모델의 성능을 비교하는 가장 좋은 방법은 샘플 데이터 세트에서 사용하는 것입니다. 각 감지 모델을 사용하여 다양한 이미지, 특히 여러 얼굴 또는 표시하기 어려운 얼굴의 이미지에 대해 [Face - Detect] API를 호출하는 것이 좋습니다. 각 모델에서 반환하는 얼굴 수에 주의해야 합니다.
 

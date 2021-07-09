@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 8f84de2454baf0689f95422a95f9dda84a01b8b2
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 25a308f3a162e675b4d0ae3f7a706f6b85a5ce57
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552592"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110163860"
 ---
 Speech Service의 핵심 기능 중 하나는 사람의 음성을 인식하여 글로 바꾸는 기능입니다(종종 음성 텍스트 변환이라고도 함). 이 빠른 시작에서는 앱 및 제품에서 Speech SDK를 사용하여 고품질 음성을 텍스트로 변환하는 방법을 알아봅니다.
 
@@ -207,7 +207,11 @@ speech_config.speech_recognition_language="de-DE"
 단일 단어 또는 전체 구를 구 목록에 추가할 수 있습니다. 인식 중에 구 목록의 항목은 항목이 발화 중간에 나타나더라도 목록의 단어와 구문의 인식률을 높이는 데 사용됩니다. 
 
 > [!IMPORTANT]
-> 구 목록 기능은 en-US, de-DE, en-AU, en-CA, en-GB, es-ES, es-MX, fr-CA, fr-FR, it-IT, ja-JP, ko-KR, pt-BR, zh-CN의 언어로 제공됩니다.
+> 구문 목록 기능은 en-US, de-DE, en-AU, en-CA, en-GB, en-IN, es-ES, fr-FR, it-IT, ja-JP, pt-BR, zh-CN의 언어로 제공됩니다.
+>
+> 다른 로캘의 경우 및 구문이 많은 경우 [사용자 지정 모델을 학습](../../../custom-speech-overview.md)하는 것이 정확도를 개선하는 더 나은 선택일 수 있습니다.
+>
+> 사용자 지정 엔드포인트에는 구문 목록 기능을 사용하지 마세요. 대신 구를 포함하는 사용자 지정 모델을 학습하세요.
 
 구 목록을 사용하려면 [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) 개체를 만든 다음, [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar#addphrase-phrase--str-)를 사용하여 특정 단어와 구를 추가합니다.
 

@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 4/13/2021
-ms.openlocfilehash: e3fe3ad22098d796faa309ff3509c318a7e1df4d
-ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
+ms.openlocfilehash: bc635d742fb9edf53a6cd3244b7e8aa34c8d7148
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/17/2021
-ms.locfileid: "107590544"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205661"
 ---
 # <a name="service-request-failed-status-404-sub-domain-not-found"></a>서비스 요청이 404 Sub-Domain not found 상태로 인해 실패함
 
@@ -46,4 +46,4 @@ Azure Digital Twins를 사용하려면 모든 인증 사용자가 Azure Digital 
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins의 보안 및 사용 권한에 대해 자세히 알아보세요.
-* [*개념: Azure Digital Twins 솔루션 보안*](concepts-security.md)
+* [개념: Azure Digital Twins 솔루션 보안](concepts-security.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 05/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 86a055bade77f92912134a295f7576e545fe7124
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92442068"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467152"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Azure AD External Identities에 대한 청구 모델
 
@@ -38,8 +38,8 @@ MAU 청구 기능을 사용하려면 Azure AD 테넌트가 Azure 구독에 연�
 ## <a name="about-monthly-active-users-mau-billing"></a>MAU(월간 활성 사용자) 청구 정보
 
 Azure AD 테넌트에서 게스트 사용자 공동 작업 사용량은 한 달 내에 인증 활동이 있는 고유한 사용자 수를 기준으로 청구됩니다. 이 모델은 테넌트의 각 Azure AD Premium 라이선스에 대해 최대 5명의 게스트 사용자를 허용하는 1:5 비율 청구 모델을 대체합니다. 테넌트가 구독에 연결되어 있고 외부 ID 기능을 사용하여 게스트 사용자와 협업하는 경우 MAU 기반 청구 모델을 사용하여 자동으로 청구됩니다.
-  
-게스트 사용자에게 적용되는 가격 책정 계층은 Azure AD 테넌트에 할당된 가장 높은 가격 책정 계층을 기반으로 합니다. 예를 들어 테넌트에서 가장 높은 가격 책정 계층이 Azure AD Premium P1인 경우, Premium P1 가격 책정 계층도 게스트 사용자에게 적용됩니다. 가장 높은 가격이 Azure AD Free인 경우 게스트 사용자를 위한 프리미엄 기능을 사용할 때 프리미엄 가격 책정 계층으로 업그레이드하라는 메시지가 표시됩니다.
+
+게스트 사용자에게 적용되는 가격 책정 계층은 Azure AD 테넌트에 할당된 가장 높은 가격 책정 계층을 기반으로 합니다. 자세한 내용은 [Azure Active Directory 외부 ID 가격 책정](https://azure.microsoft.com/en-us/pricing/details/active-directory/external-identities/)을 참조하세요.
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>구독에 Azure AD 테넌트 연결
 
@@ -64,7 +64,9 @@ Azure AD 테넌트는 적절한 청구 및 기능 액세스를 위해 Azure 구�
 7. 구독 연결 창에서 **구독** 및 **리소스 그룹** 을 선택합니다. 그런 다음, **적용** 을 선택합니다.
 
    > [!NOTE]
-   > 구독이 나열되지 않은 경우 [구독을 테넌트에 연결](../fundamentals/active-directory-how-subscriptions-associated-directory.md)하면 됩니다. 또는 링크를 선택하여 새 구독을 추가할 수 있습니다. **아직 구독이 없는 경우 여기에서 만들 수 있습니다**.
+   >
+   > * 프리미엄 P1 및 프리미엄 P2 기능 모두에 대해 매월 처음 50,000개의 MAU가 무료입니다. MAU의 총 수를 확인하기 위해 동일한 구독에 연결된 모든 테넌트(Azure AD 및 Azure AD B2C)의 MAU를 결합합니다.
+    >* 구독이 나열되지 않은 경우 [구독을 테넌트에 연결](../fundamentals/active-directory-how-subscriptions-associated-directory.md)하면 됩니다. 또는 링크를 선택하여 새 구독을 추가할 수 있습니다. **아직 구독이 없는 경우 여기에서 만들 수 있습니다**.
 
     ![구독 및 리소스 그룹 선택](media/external-identities-pricing/link-subscription-resource.png)
 

@@ -6,14 +6,14 @@ services: cognitive-services
 author: erindormier
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/28/2020
+ms.date: 04/07/2021
 ms.author: egeaney
-ms.openlocfilehash: 88a723abc606a527232b7c1949f35c1fedfdba50
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7c7476a3ab885e9c127cbd571ad723864bf0d898
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101706846"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534561"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Cognitive Services용 Azure Key Vault를 사용하여 고객 관리형 키 구성
 
@@ -31,10 +31,15 @@ Cognitive Services용 Azure Key Vault에서 고객 관리형 키를 사용하도
 * [미사용 데이터의 QnA Maker 암호화](../QnAMaker/encrypt-data-at-rest.md)
 * [미사용 데이터의 Translator 암호화](../translator/encrypt-data-at-rest.md)
 
+## <a name="speech"></a>음성
+
+* [미사용 데이터의 음성 암호화](../speech-service/speech-encryption-of-data-at-rest.md)
+
 ## <a name="decision"></a>의사 결정
 
 * [미사용 데이터의 Content Moderator 암호화](../Content-Moderator/encrypt-data-at-rest.md)
 * [미사용 데이터의 Personalizer 암호화](../personalizer/encrypt-data-at-rest.md)
+* [미사용 데이터의 Metrics Advisor 암호화](../metrics-advisor/encryption.md)
 
 ## <a name="next-steps"></a>다음 단계
 

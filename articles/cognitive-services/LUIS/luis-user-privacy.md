@@ -8,13 +8,13 @@ ms.custom: seodec18, references_regions
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/10/2020
-ms.openlocfilehash: 0a2d0ce683261ca3460c7aeaa0d7a42152b81a1e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/08/2020
+ms.openlocfilehash: a7a7bbb8b911f86b81cdeafe3fe57e1fdf820681
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98680190"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107228285"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -85,7 +85,15 @@ LUIS 사용자는 포털에서 데이터를 보기 위한 모든 권한이 있�
 
 * 유럽 또는 오스트레일리아 작성 지역에서 지원하지 않는 Azure 지역
 
-이러한 Azure 지역에 배포하는 경우 앱 최종 사용자의 엔드포인트에서 받은 발화는 활성 학습을 위해 Azure의 미국 지역에 저장됩니다. 
+이러한 Azure 지역에 배포하는 경우 앱 최종 사용자의 엔드포인트에서 받은 발화는 활성 학습을 위해 Azure의 미국 지역에 저장됩니다.
+
+### <a name="switzerland-north"></a>스위스 북부
+
+스위스 북부 작성(프로그래매틱 API라고도 함) 리소스는 Azure의 스위스 지역에서 호스트되며 다음 Azure 지역에 대한 엔드포인트 배포를 지원합니다.
+
+* 스위스 
+
+이러한 Azure 지역에 배포하는 경우 앱 최종 사용자의 엔드포인트에서 받은 발화는 활성 학습을 위해 Azure의 스위스 지역에 저장됩니다.
 
 ## <a name="disable-active-learning"></a>활성 학습 사용 안 함
 

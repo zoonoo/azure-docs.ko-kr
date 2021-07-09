@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3e0bcef30d13403d8067c41568b7ee321fb46995
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3ba2dad93778e9d4482fa00c854a73dbc616d290
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110377195"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750410"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML(Speech Synthesis Markup Language)을 사용하여 합성 향상
 
@@ -106,77 +106,6 @@ SSML를 사용할 때 따옴표, 아포스트로피, 대괄호 등의 특수 문
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용되는 음성을 식별합니다. 지원되는 전체 음성 목록은 [언어 지원](language-support.md#text-to-speech)을 참조하세요. | 필수 |
 
-> [!IMPORTANT]
-> 여러 음성이 단어 경계 기능과 호환되지 않습니다. 여러 음성을 사용하려면 단어 경계 기능을 사용하지 않도록 설정해야 합니다.
-
-### <a name="disable-word-boundary"></a>단어 경계 사용 안 함
-
-Speech SDK 언어에 따라 `SpeechConfig` 개체의 인스턴스에서 `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` 속성을 `false`로 설정합니다.
-
-# <a name="c"></a>[C#](#tab/csharp)
-
-자세한 내용은 <a href="/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty" target="_blank"> `SetProperty` </a>를 참조하세요.
-
-```csharp
-speechConfig.SetProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="c"></a>[C++](#tab/cpp)
-
-자세한 내용은 <a href="/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` </a>를 참조하세요.
-
-```cpp
-speechConfig->SetProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="java"></a>[Java](#tab/java)
-
-자세한 내용은 <a href="/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` </a>를 참조하세요.
-
-```java
-speechConfig.setProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="python"></a>[Python](#tab/python)
-
-자세한 내용은 <a href="/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>을 참조하세요.
-
-```python
-speech_config.set_property_by_name(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
-
-자세한 내용은 <a href="/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#setproperty-string--string-" target="_blank"> `setProperty`</a>를 참조하세요.
-
-```javascript
-speechConfig.setProperty(
-    "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
-```
-
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
-
-자세한 내용은 <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>를 참조하세요.
-
-```objectivec
-[speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
-```
-
-# <a name="swift"></a>[Swift](#tab/swift)
-
-자세한 내용은 <a href="/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` </a>를 참조하세요.
-
-```swift
-speechConfig!.setPropertyTo(
-    "false", byName: "SpeechServiceResponse_Synthesis_WordBoundaryEnabled")
-```
-
----
-
 **예제**
 
 ```xml
@@ -202,10 +131,10 @@ speechConfig!.setPropertyTo(
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 * `zh-CN-YunyeNeural`
-* `zh-CN-YunxiNeural` 
-* `zh-CN-XiaohanNeural` 
-* `zh-CN-XiaomoNeural` 
-* `zh-CN-XiaoxuanNeural` 
+* `zh-CN-YunxiNeural`
+* `zh-CN-XiaohanNeural`
+* `zh-CN-XiaomoNeural`
+* `zh-CN-XiaoxuanNeural`
 * `zh-CN-XiaoruiNeural`
 
 사용 사례에 맞게 말하기 스타일의 강도를 추가로 변경할 수 있습니다. `styledegree`에서 더 강한 스타일 또는 더 부드러운 스타일을 지정하여 음성에 감정을 더 싣거나 더 차분하게 말할 수 있습니다. 현재 중국어(북경어, 간체) 인공신경망 음성에 대한 말하기 스타일 조정을 지원합니다.
@@ -228,7 +157,7 @@ speechConfig!.setPropertyTo(
 <mstts:express-as role="string" style="string"></mstts:express-as>
 ```
 > [!NOTE]
-> 현재 `styledegree`는 중국어(북경어, 간체) 인공신경망 음성만 지원합니다. `role`은 zh-CN-XiaomoNeural 및 zh-CN-XiaoxuanNeural만 지원합니다. 
+> 현재 `styledegree`는 중국어(북경어, 간체) 인공신경망 음성만 지원합니다. `role`은 zh-CN-XiaomoNeural 및 zh-CN-XiaoxuanNeural만 지원합니다.
 
 **특성**
 
@@ -375,10 +304,12 @@ speechConfig!.setPropertyTo(
 
 ## <a name="adjust-speaking-languages"></a>말하기 언어 조정
 
-> [!IMPORTANT]
->  인공신경망 음성에 대해 말하기 언어만 조정할 수 있습니다.
-> `<lang xml:lang>` 요소를 사용하여 한 가지 음성으로 다른 언어(예: 영어, 스페인어 및 중국어)를 유창하게 말할 수 있습니다. 이 요소는 Speech Service의 고유한 선택적 요소입니다. 이 요소가 없으면 음성이 주 언어를 사용합니다.
-> 현재 말하기 언어 조정을 지원하는 인공신경망 음성은 `en-US-JennyMultilingualNeural`입니다. 위의 변경 사항은 문장 수준 및 단어 수준에서 적용됩니다. 언어가 지원되지 않는 경우 서비스는 오디오 스트림을 반환하지 않습니다.
+인공신경망 음성에 대해 말하기 언어를 조정할 수 있습니다.
+`<lang xml:lang>` 요소를 사용하여 한 가지 음성으로 다른 언어(예: 영어, 스페인어 및 중국어)를 유창하게 말할 수 있습니다. 이 요소는 Speech Service의 고유한 선택적 요소입니다. 이 요소가 없으면 음성이 주 언어를 사용합니다.
+현재 말하기 언어 조정을 지원하는 인공신경망 음성은 `en-US-JennyMultilingualNeural`입니다. 위의 변경 사항은 문장 수준 및 단어 수준에서 적용됩니다. 언어가 지원되지 않는 경우 서비스는 오디오 스트림을 반환하지 않습니다.
+
+> [!NOTE]
+> 현재 `<lang xml:lang>` 요소는 `prosody` 및 `break` 요소와 호환되지 않으므로 이 요소의 피치, 윤곽선, 속도, 기간, 볼륨과 같은 일시 중지 및 프로소디를 조정할 수 없습니다.
 
 **구문**
 
@@ -396,20 +327,20 @@ speechConfig!.setPropertyTo(
 
 | 음성                            | 로캘 언어           | 설명                                                 |
 |----------------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-JennyMultilingualNeural`  | `lang="en-us"`            | en-us 로캘 말하기(이 음성의 주 로캘) |
-|                                  | `lang="en-ca"`            | en-CA 로캘 언어 말하기                                  |
-|                                  | `lang="en-au"`            | en-AU 로캘 언어 말하기                                  |
-|                                  | `lang="en-gb"`            | en-GB 로캘 언어 말하기                                  |
-|                                  | `lang="de-de"`            | de-DE 로캘 언어 말하기                                  |
-|                                  | `lang="fr-fr"`            | fr-FR 로캘 언어 말하기                                  |
-|                                  | `lang="fr-ca"`            | fr-CA 로캘 언어 말하기                                  |
-|                                  | `lang="es-es"`            | es-ES 로캘 언어 말하기                                  |
-|                                  | `lang="es-mx"`            | es-MX 로캘 언어 말하기                                  |
-|                                  | `lang="zh-cn"`            | zh-CN 로캘 언어 말하기                                  |
-|                                  | `lang="ko-kr"`            | ko-KR 로캘 언어 말하기                                  |
-|                                  | `lang="ja-jp"`            | ja-JP 로캘 언어 말하기                                  |
-|                                  | `lang="it-it"`            | it-IT 로캘 언어 말하기                                  |
-|                                  | `lang="pt-br"`            | pt-BR 로캘 언어 말하기                                  |
+| `en-US-JennyMultilingualNeural`  | `lang="en-US"`            | en-us 로캘 말하기(이 음성의 주 로캘) |
+|                                  | `lang="en-CA"`            | en-CA 로캘 언어 말하기                                  |
+|                                  | `lang="en-AU"`            | en-AU 로캘 언어 말하기                                  |
+|                                  | `lang="en-GB"`            | en-GB 로캘 언어 말하기                                  |
+|                                  | `lang="de-DE"`            | de-DE 로캘 언어 말하기                                  |
+|                                  | `lang="fr-FR"`            | fr-FR 로캘 언어 말하기                                  |
+|                                  | `lang="fr-CA"`            | fr-CA 로캘 언어 말하기                                  |
+|                                  | `lang="es-ES"`            | es-ES 로캘 언어 말하기                                  |
+|                                  | `lang="es-MX"`            | es-MX 로캘 언어 말하기                                  |
+|                                  | `lang="zh-CN"`            | zh-CN 로캘 언어 말하기                                  |
+|                                  | `lang="ko-KR"`            | ko-KR 로캘 언어 말하기                                  |
+|                                  | `lang="ja-JP"`            | ja-JP 로캘 언어 말하기                                  |
+|                                  | `lang="it-IT"`            | it-IT 로캘 언어 말하기                                  |
+|                                  | `lang="pt-BR"`            | pt-BR 로캘 언어 말하기                                  |
 
 **예제**
 
@@ -420,10 +351,10 @@ speechConfig!.setPropertyTo(
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
     <voice name="en-US-JennyMultilingualNeural">
         I am looking forward to the exciting things.
-        <lang xml:lang="es-mx">
+        <lang xml:lang="es-MX">
             Estoy deseando que lleguen las cosas emocionantes.
         </lang>
-        <lang xml:lang="de-de">
+        <lang xml:lang="de-DE">
             Ich freue mich auf die spannenden Dinge.
         </lang>
     </voice>
@@ -625,8 +556,8 @@ A good place to start is by trying out the slew of educational apps that are hel
     <phoneme> bɛˈniːnji</phoneme>
   </lexeme>
   <lexeme>
-    <grapheme>😀</grapheme> 
-    <alias>test emoji</alias> 
+    <grapheme>😀</grapheme>
+    <alias>test emoji</alias>
   </lexeme>
 </lexicon>
 ```

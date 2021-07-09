@@ -5,17 +5,17 @@ description: Metrics Advisor에 다른 데이터 피드 추가
 services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8ed4f3463a4061fffe480da7006e8660e95a5af6
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606150"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891179"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Metrics Advisor에 서로 다른 데이터 원본의 데이터 피드 추가
 
@@ -38,15 +38,15 @@ ms.locfileid: "105606150"
 | 데이터 원본 | 인증 유형 |
 |-------------| ---------------------|
 |[**Azure Application Insights**](#appinsights)|  Basic |
-|[**Azure Blob Storage(JSON)** ](#blob) | Basic<br>ManagedIdentity|
-|[**Azure Cosmos DB(SQL)** ](#cosmosdb) | Basic |
+|[**Azure Blob Storage(JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Cosmos DB(SQL)**](#cosmosdb) | Basic |
 |[**Azure Data Explorer(Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>서비스 사용자<br>키 자격 증명 모음의 서비스 주체<br> |
 |[**Azure SQL Database / SQL Server**](#sql) | Basic<br>ManagedIdentity<br>서비스 사용자<br>키 자격 증명 모음의 서비스 주체<br>AzureSQLConnectionString
 |[**Azure Table Storage**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**HTTP 요청**](#http) | Basic | 
-|[**InfluxDB(InfluxQL)** ](#influxdb) | Basic |
+|[**InfluxDB(InfluxQL)**](#influxdb) | Basic |
 |[**MongoDB**](#mongodb) | Basic |
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
@@ -216,7 +216,7 @@ The timestamp field must match one of these two formats:
 
 * **테이블 이름**: 쿼리할 테이블을 지정합니다. Azure Storage 계정 인스턴스에서 찾을 수 있습니다. **테이블 서비스** 섹션에서 **테이블** 을 클릭합니다.
 
-* **쿼리** 쿼리에서 `@StartTime`을 사용할 수 있습니다. `@StartTime`은 스크립트에서 yyyy-MM-ddTHH:mm:ss 형식의 문자열로 바뀝니다. 팁: Azure Storage Explorer를 사용하여 특정 시간 범위의 쿼리를 만들고 제대로 실행되는지 확인한 다음 바꿉니다.
+* **쿼리** 쿼리에서 `@StartTime`을 사용할 수 있습니다. `@StartTime`은 스크립트에서 yyyy-MM-ddTHH:mm:ss 형식의 문자열로 바뀝니다. 팁: Azure Storage Explorer를 사용하여 특정 시간 범위의 쿼리를 만들고 제대로 실행되는지 확인한 다음, 바꿉니다.
 
     ``` mssql
     date ge datetime'@StartTime' and date lt datetime'@EndTime'

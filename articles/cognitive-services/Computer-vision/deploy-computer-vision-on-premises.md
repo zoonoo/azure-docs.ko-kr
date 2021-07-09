@@ -1,7 +1,7 @@
 ---
-title: Kubernetes 및 투구와 Computer Vision 컨테이너 사용
+title: Kubernetes 및 Helm에서 Computer Vision 컨테이너 사용
 titleSuffix: Azure Cognitive Services
-description: Kubernetes 및 투구를 사용 하 여 Computer Vision 컨테이너를 배포 하는 방법을 알아봅니다.
+description: Kubernetes 및 Helm을 사용하여 Computer Vision 컨테이너를 배포하는 방법을 알아봅니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: aahi
-ms.openlocfilehash: 124145059c825dee1dd52298688a47a807058551
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 36091c62814cffd78c5f8132e01820070968af52
+ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102182097"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106284945"
 ---
-# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Kubernetes 및 투구와 Computer Vision 컨테이너 사용
+# <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Kubernetes 및 Helm에서 Computer Vision 컨테이너 사용
 
-온-프레미스 Computer Vision 컨테이너를 관리 하는 한 가지 옵션은 Kubernetes 및 투구를 사용 하는 것입니다. Kubernetes 및 투구를 사용 하 여 Computer Vision 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스를 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Computer Vision 컨테이너 설치 및 실행](computer-vision-how-to-install-containers.md)을 참조 하세요.
+Computer Vision 컨테이너 온-프레미스를 관리하는 한 가지 옵션은 Kubernetes 및 Helm을 사용하는 것입니다. Kubernetes 및 Helm을 사용하여 Computer Vision 컨테이너 이미지를 정의하면서 Kubernetes 패키지를 만듭니다. 이 패키지는 Kubernetes 클러스터 온-프레미스에 배포됩니다. 마지막으로 배포된 서비스를 테스트하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용하지 않고 Docker 컨테이너를 실행하는 방법에 대한 자세한 내용은 [Computer Vision 컨테이너 설치 및 실행](computer-vision-how-to-install-containers.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-온-프레미스 Computer Vision 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
+Computer Vision 컨테이너 온-프레미스를 사용하기 전에 다음 필수 조건을 충족해야 합니다.
 
-| 필수 | 용도 |
+| 필수 | 목적 |
 |----------|---------|
-| Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
-| Kubernetes CLI | [KUBERNETES CLI][kubernetes-cli] 는 컨테이너 레지스트리에서 공유 자격 증명을 관리 하는 데 필요 합니다. Kubernetes는 Kubernetes 패키지 관리자 인 투구 이전에도 필요 합니다. |
-| Helm CLI | 투구 차트 (컨테이너 패키지 정의)를 설치 하는 데 사용 되는 [투구 CLI][helm-install]를 설치 합니다. |
-| Computer Vision 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>Azure **Computer Vision** 리소스 및 연결 된 API 키 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다.<br><br>**{API_KEY}**: **키** 페이지에서 사용 가능한 두 리소스 키 중 하나<br><br>**{ENDPOINT_URI}**: **개요** 페이지에 제공 된 끝점입니다.|
+| Azure 계정 | Azure 구독이 아직 없는 경우, 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
+| Kubernetes CLI | [Kubernetes CLI][kubernetes-cli]는 컨테이너 레지스트리에서 공유 자격 증명을 관리하는 데 필요합니다. Kubernetes는 Kubernetes 패키지 관리자인 Helm 이전에도 필요합니다. |
+| Helm CLI | Helm 차트(컨테이너 패키지 정의)를 설치하는 데 사용되는 [Helm CLI][helm-install]를 설치합니다. |
+| Computer Vision 리소스 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>Azure **Computer Vision** 리소스 및 관련 API 키는 엔드포인트 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 제공되며 컨테이너를 시작하는 데 필요합니다.<br><br>**{API_KEY}** : **키** 페이지에 제공된 두 개의 리소스 키 중 하나<br><br>**{ENDPOINT_URI}** : **개요** 페이지에 제공된 엔드포인트|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -44,11 +44,11 @@ ms.locfileid: "102182097"
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Kubernetes 클러스터에 연결
 
-호스트 컴퓨터에 사용 가능한 Kubernetes 클러스터가 있어야 합니다. Kubernetes 클러스터를 호스트 컴퓨터에 배포 하는 방법에 대 한 개념을 이해 하려면 [Kubernetes 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md) 에 대 한이 자습서를 참조 하세요. 배포에 대 한 자세한 내용은 [Kubernetes 설명서](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)에서 확인할 수 있습니다.
+호스트 컴퓨터에 사용 가능한 Kubernetes 클러스터가 있어야 합니다. Kubernetes 클러스터를 호스트 컴퓨터에 배포하는 방법에 대한 개념을 이해하려면 [Kubernetes 클러스터 배포](../../aks/tutorial-kubernetes-deploy-cluster.md)에 대한 이 자습서를 참조하세요. [Kubernetes 설명서](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)에서 배포에 대한 자세한 내용을 확인할 수 있습니다.
 
-## <a name="configure-helm-chart-values-for-deployment"></a>배포에 대 한 투구 차트 값 구성
+## <a name="configure-helm-chart-values-for-deployment"></a>배포에 대한 Helm 차트 값 구성
 
-먼저 *read* 라는 폴더를 만듭니다. 그런 다음, 다음 YAML 콘텐츠를 라는 새 파일에 붙여넣습니다 `chart.yaml` .
+먼저 *read* 라는 폴더를 만듭니다. 그런 다음, `chart.yaml`이라는 새 파일에 다음 YAML 콘텐츠를 붙여 넣습니다.
 
 ```yaml
 apiVersion: v2
@@ -66,7 +66,7 @@ dependencies:
   repository: https://kubernetes-charts.storage.googleapis.com/
 ```
 
-투구 차트 기본값을 구성 하려면 다음 YAML를 복사 하 여 라는 파일에 붙여 넣습니다 `values.yaml` . `# {ENDPOINT_URI}`및 `# {API_KEY}` 주석을 사용자 고유의 값으로 바꿉니다. 필요한 경우 resultExpirationPeriod, Redis 및 RabbitMQ를 구성 합니다.
+Helm 차트 기본값을 구성하려면 다음 YAML을 복사하여 `values.yaml` 파일에 붙여 넣습니다. `# {ENDPOINT_URI}` 및 `# {API_KEY}` 주석을 원하는 값으로 바꿉니다. 필요한 경우 resultExpirationPeriod, Redis 및 RabbitMQ를 구성합니다.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -87,13 +87,13 @@ read:
       # resultExpirationPeriod=0, the system will clear the recognition result after result retrieval.
       resultExpirationPeriod: 1
       
-      # Redis storage, if configured, will be used by read container to store result records.
-      # A cache is required if multiple read containers are placed behind load balancer.
+      # Redis storage, if configured, will be used by read OCR container to store result records.
+      # A cache is required if multiple read OCR containers are placed behind load balancer.
       redis:
         enabled: false # {true/false}
         password: password
 
-      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read containers are
+      # RabbitMQ is used for dispatching tasks. This can be useful when multiple read OCR containers are
       # placed behind load balancer.
       rabbitmq:
         enabled: false # {true/false}
@@ -103,14 +103,14 @@ read:
 ```
 
 > [!IMPORTANT]
-> - `billing`및 값이 `apikey` 제공 되지 않은 경우 서비스는 15 분 후에 만료 됩니다. 마찬가지로, 서비스를 사용할 수 없기 때문에 확인에 실패 합니다.
+> - `billing` 및 `apikey` 값이 제공되지 않은 경우 서비스는 15분 후에 만료됩니다. 마찬가지로 서비스를 사용할 수 없기 때문에 확인에 실패합니다.
 > 
-> - 예를 들어 Docker Compose 또는 Kubernetes에서 부하 분산 장치 뒤에 여러 읽기 컨테이너를 배포 하는 경우 외부 캐시가 있어야 합니다. 처리 컨테이너와 GET 요청 컨테이너는 다를 수 있기 때문에 외부 캐시는 결과를 저장 하 고 컨테이너 간에 공유 합니다. 캐시 설정에 대 한 자세한 내용은 [Computer Vision Docker 컨테이너 구성](./computer-vision-resource-container-config.md)을 참조 하세요.
+> - 예를 들어 Docker Compose 또는 Kubernetes에서 부하 분산 장치 뒤에 여러 Read OCR 컨테이너를 배포하는 경우 외부 캐시가 있어야 합니다. 처리 컨테이너와 GET 요청 컨테이너는 다를 수 있기 때문에 외부 캐시는 결과를 저장하고 컨테이너 간에 결과를 공유합니다. 캐시 설정에 대한 자세한 내용은 [Computer Vision Docker 컨테이너 구성](./computer-vision-resource-container-config.md)을 참조하세요.
 >
 
-*읽기* 디렉터리 아래에 *템플릿* 폴더를 만듭니다. 다음 YAML을 복사 하 여 라는 파일에 붙여 넣습니다 `deployment.yaml` . `deployment.yaml`이 파일은 투구 템플릿 역할을 합니다.
+*read* 디렉터리 아래에 *templates* 폴더를 만듭니다. 다음 YAML을 복사하여 `deployment.yaml` 파일에 붙여넣습니다. `deployment.yaml` 파일은 Helm 템플릿 역할을 합니다.
 
-> 템플릿은 Kubernetes에서 이해할 수 있는 YAML 형식의 리소스 설명 인 매니페스트 파일을 생성 합니다. [-투구 차트 템플릿 가이드][chart-template-guide]
+> 템플릿은 Kubernetes에서 이해할 수 있는 YAML 형식의 리소스 설명인 매니페스트 파일을 생성합니다. [- Helm 차트 템플릿 가이드][chart-template-guide]
 
 ```yaml
 apiVersion: apps/v1
@@ -165,7 +165,7 @@ spec:
     app: read-app
 ```
 
-동일한 *템플릿* 폴더에서 다음 도우미 함수를 복사 하 여에 붙여넣습니다 `helpers.tpl` . `helpers.tpl` 투구 템플릿을 생성 하는 데 도움이 되는 유용한 함수를 정의 합니다.
+동일한 *templates* 폴더에서 다음 도우미 함수를 복사하여 `helpers.tpl`에 붙여 넣습니다. `helpers.tpl`은 Helm 템플릿을 생성하는 데 도움이 되는 유용한 함수를 정의합니다.
 
 > [!NOTE]
 > 이 문서에는 Microsoft에서 더 이상 사용하지 않는 용어인 종속 용어에 대한 참조가 포함되어 있습니다. 소프트웨어에서 용어가 제거되면 이 문서에서 해당 용어가 제거됩니다.
@@ -183,19 +183,19 @@ spec:
 {{- printf "%s,%s,%s,%s" $hostMain $hostReplica $passWord $connTail -}}
 {{- end -}}
 ```
-템플릿은 부하 분산 장치 서비스와 읽기를 위해 컨테이너/이미지 배포를 지정 합니다.
+템플릿은 부하 분산 장치 서비스와 읽기를 위한 컨테이너/이미지 배포를 지정합니다.
 
-### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 패키지 (투구 차트)
+### <a name="the-kubernetes-package-helm-chart"></a>Kubernetes 패키지(Helm 차트)
 
-*투구 차트* 에는 컨테이너 레지스트리에서 끌어올 docker 이미지의 구성이 포함 되어 있습니다 `mcr.microsoft.com` .
+*Helm 차트* 에는 `mcr.microsoft.com` 컨테이너 레지스트리에서 끌어올 Docker 이미지의 구성이 포함되어 있습니다.
 
-> [투구 차트][helm-charts] 는 관련 된 Kubernetes 리소스 집합을 설명 하는 파일의 컬렉션입니다. 단일 차트는 memcached pod 또는 HTTP 서버, 데이터베이스, 캐시 등의 전체 웹 앱 스택과 같이 복잡 한 항목을 배포 하는 데 사용할 수 있습니다.
+> [Helm 차트][helm-charts]는 Kubernetes 리소스의 관련 집합을 설명하는 파일 컬렉션입니다. 단일 차트를 사용하여 Memcached Pod와 같이 단순한 항목이나, HTTP 서버, 데이터베이스, 캐시 등이 포함된 전체 웹앱 스택과 같이 복잡한 항목을 배포할 수 있습니다.
 
-제공 된 *투구 차트* 는 Computer Vision 서비스의 docker 이미지와 컨테이너 레지스트리에서 해당 하는 서비스를 가져옵니다 `mcr.microsoft.com` .
+제공된 *Helm 차트* 는 Computer Vision 서비스의 Docker 이미지와 `mcr.microsoft.com` 컨테이너 레지스트리에서 해당하는 서비스를 끌어옵니다.
 
-## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Kubernetes 클러스터에 투구 차트 설치
+## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Kubernetes 클러스터에 Helm 차트 설치
 
-*투구 차트* 를 설치 하려면 명령을 실행 해야 [`helm install`][helm-install-cmd] 합니다. 폴더 위의 디렉터리에서 install 명령을 실행 해야 `read` 합니다.
+*Helm 차트* 를 설치하려면 [`helm install`][helm-install-cmd] 명령을 실행해야 합니다. `read` 폴더 위의 디렉터리에서 install 명령을 실행해야 합니다.
 
 ```console
 helm install read ./read
@@ -223,13 +223,13 @@ NAME    READY  UP-TO-DATE  AVAILABLE  AGE
 read    0/1    1           0          0s
 ```
 
-Kubernetes 배포를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. Pod와 서비스가 올바르게 배포 되 고 사용 가능한 지 확인 하려면 다음 명령을 실행 합니다.
+Kubernetes 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다. Pod와 서비스가 올바르게 배포되고 사용 가능한지 확인하려면 다음 명령을 실행합니다.
 
 ```console
 kubectl get all
 ```
 
-다음 출력과 유사한 내용이 표시 되어야 합니다.
+다음과 비슷하게 표시됩니다.
 
 ```console
 kubectl get all
@@ -251,16 +251,16 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 
 컨테이너의 v3부터 작업 및 페이지 수준 모두에서 컨테이너를 병렬로 사용할 수 있습니다.
 
-기본적으로 각 v3 컨테이너에는 디스패처 및 인식 worker가 있습니다. 디스패처는 다중 페이지 작업을 여러 단일 페이지 하위 작업으로 분할 하는 작업을 담당 합니다. 인식 작업자는 단일 페이지 문서를 인식 하는 데 최적화 되어 있습니다. 페이지 수준 병렬 처리를 구현 하려면 부하 분산 장치 뒤에 여러 v3 컨테이너를 배포 하 고 컨테이너에서 범용 저장소 및 큐를 공유 하도록 합니다. 
+의도적으로 각 v3 컨테이너에는 디스패처와 인식 작업자가 있습니다. 디스패처는 다중 페이지 작업을 여러 단일 페이지 하위 작업으로 분할하는 작업을 담당합니다. 인식 작업자는 단일 페이지 문서를 인식하는 데 최적화되어 있습니다. 페이지 수준 병렬화를 달성하려면 부하 분산 장치 뒤에 여러 v3 컨테이너를 배포하고 컨테이너가 범용 스토리지 및 큐를 공유하도록 합니다. 
 
 > [!NOTE] 
-> 현재 Azure Storage 및 Azure 큐만 지원 됩니다. 
+> 현재 Azure Storage 및 Azure Queue만 지원됩니다. 
 
-요청을 받는 컨테이너는 작업을 단일 페이지 하위 작업으로 분할 하 여 유니버설 큐에 추가할 수 있습니다. 사용량이 적은 컨테이너의 모든 인식 작업자는 큐에서 단일 페이지 하위 작업을 사용 하 고, 인식을 수행 하 고, 결과를 저장소에 업로드할 수 있습니다. `n`배포 된 컨테이너의 수에 따라 처리량이 최대 시간까지 향상 될 수 있습니다.
+요청을 수신하는 컨테이너는 작업을 단일 페이지 하위 작업으로 분할하고, 범용 큐에 추가할 수 있습니다. 사용량이 적은 컨테이너의 모든 인식 작업자는 큐의 단일 페이지 하위 작업을 사용하고, 인식을 수행하고, 결과를 스토리지에 업로드할 수 있습니다. 처리량은 배포된 컨테이너 수에 따라 최대 `n`배까지 향상될 수 있습니다.
 
-V3 컨테이너는 경로 아래에 선거의 프로브 API를 노출 합니다 `/ContainerLiveness` . 다음 배포 예제를 사용 하 여 Kubernetes에 대 한 선거의 프로브를 구성 합니다. 
+v3 컨테이너는 `/ContainerLiveness` 경로 아래에 활동성 프로브 API를 노출합니다. 다음 배포 예제를 사용하여 Kubernetes에 대한 활동성 프로브를 구성합니다. 
 
-다음 YAML을 복사 하 여 라는 파일에 붙여 넣습니다 `deployment.yaml` . `# {ENDPOINT_URI}`및 `# {API_KEY}` 주석을 사용자 고유의 값으로 바꿉니다. `# {AZURE_STORAGE_CONNECTION_STRING}`주석을 Azure Storage 연결 문자열로 바꿉니다. `replicas`다음 예에서로 설정 된 원하는 수로 구성 `3` 합니다.
+다음 YAML을 복사하여 `deployment.yaml` 파일에 붙여넣습니다. `# {ENDPOINT_URI}` 및 `# {API_KEY}` 주석을 원하는 값으로 바꿉니다. `# {AZURE_STORAGE_CONNECTION_STRING}` 주석을 Azure Storage 연결 문자열로 대체합니다. `replicas`를 원하는 수로 구성합니다. 이 번호는 다음 예제에서 `3`으로 설정됩니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -322,20 +322,20 @@ spec:
 kubectl apply -f deployment.yaml
 ```
 
-다음은 성공적인 배포 실행에서 볼 수 있는 출력의 예입니다.
+다음은 성공적인 배포 실행에서 볼 수 있는 예제 출력입니다.
 
 ```console
 deployment.apps/read created
 service/azure-cognitive-service-read created
 ```
 
-Kubernetes 배포를 완료 하는 데 몇 분 정도 걸릴 수 있습니다. Pod와 서비스가 올바르게 배포 되 고 사용 가능한 지 확인 하려면 다음 명령을 실행 합니다.
+Kubernetes 배포를 완료하는 데 몇 분 정도 걸릴 수 있습니다. Pod와 서비스가 올바르게 배포되고 사용 가능한지 확인하려면 다음 명령을 실행합니다.
 
 ```console
 kubectl get all
 ```
 
-다음과 유사한 콘솔 출력이 표시 됩니다.
+다음과 유사한 콘솔 출력이 표시됩니다.
 
 ```console
 kubectl get all
@@ -361,7 +361,7 @@ replicaset.apps/read-6cbbb6678   3         3         3       3s
 
 ## <a name="next-steps"></a>다음 단계
 
-AKS (Azure Kubernetes Service)에서 투구를 사용 하 여 응용 프로그램을 설치 하는 방법에 대 한 자세한 내용은 [여기를 참조][installing-helm-apps-in-aks]하세요.
+AKS(Azure Kubernetes Service)에서 Helm을 사용하여 애플리케이션을 설치하는 방법에 대한 자세한 내용은 [여기를 참조][installing-helm-apps-in-aks]하세요.
 
 > [!div class="nextstepaction"]
 > [Cognitive Services 컨테이너][cog-svcs-containers]

@@ -6,14 +6,14 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 3/22/2021
+ms.date: 06/04/2021
 ms.author: pafarley
-ms.openlocfilehash: 4c0d4dd1a834e42a75da5199b7aaed0e123f8e63
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: dc9b5b3fae714319e48bcdfe1b2ce8a684a03854
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104879565"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111593874"
 ---
 [참조 설명서](/java/api/com.microsoft.azure.management.cognitiveservices) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/mgmt-v2017_04_18/src/main/java/com/microsoft/azure/management/cognitiveservices/v2017_04_18) | [패키지(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-mgmt-cognitiveservices)
 
@@ -22,6 +22,7 @@ ms.locfileid: "104879565"
 * 유효한 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/).
 * [JDK(Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)의 현재 버전
 * [Gradle 빌드 도구](https://gradle.org/install/) 또는 다른 종속성 관리자
+* [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]
@@ -121,6 +122,8 @@ dependencies {
 다음 메서드는 지정된 리소스 그룹에서 지정된 리소스를 삭제합니다.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/azure_management_service/quickstart.java?name=snippet_delete)]
+
+삭제된 리소스를 복구해야 하는 경우 [삭제된 Cognitive Services 리소스 복구](../../manage-resources.md)를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
 

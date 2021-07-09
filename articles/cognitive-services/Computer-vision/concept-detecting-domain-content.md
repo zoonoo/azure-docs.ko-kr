@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 5cd872d66088e165bfc8356ab6d96a0a6135a0e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ff00d61c5f53d0c702e16d8223a330cb09ee619e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94538311"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465403"
 ---
 # <a name="detect-domain-specific-content"></a>도메인 특정 콘텐츠 검색
 
@@ -26,7 +26,7 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 
 ### <a name="scoped-analysis"></a>범위가 지정된 분석
 
-[Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API를 호출하면 선택한 특정 도메인 모델만 사용하여 이미지를 분석할 수 있습니다.
+[Models/\<model\>/Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API를 호출하면 선택한 특정 도메인 모델만 사용하여 이미지를 분석할 수 있습니다.
 
 다음은 지정된 이미지에 대해 **models/celebrities/analyze** API에서 반환된 샘플 JSON 응답입니다.
 
@@ -57,7 +57,7 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 
 ### <a name="enhanced-categorization-analysis"></a>향상된 분류 분석
 
-도메인 특정 모델을 사용하여 일반 이미지 분석을 보완할 수도 있습니다. [분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API 호출의 *details* 매개 변수에 도메인 특정 모델을 지정하여 [고급 분류](concept-categorizing-images.md)의 일부로 이 작업을 수행합니다.
+도메인 특정 모델을 사용하여 일반 이미지 분석을 보완할 수도 있습니다. [분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API 호출의 *details* 매개 변수에 도메인 특정 모델을 지정하여 [고급 분류](concept-categorizing-images.md)의 일부로 이 작업을 수행합니다.
 
 이 경우 86개 범주 분류의 분류자가 먼저 호출됩니다. 검색된 범주에 일치하는 도메인 특정 모델이 있는 경우 해당 모델을 통해 이미지가 전달되고 결과가 추가됩니다.
 
@@ -105,7 +105,7 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 | 유명인 | `people_` 범주에서 분류된 이미지에 대해 지원되는 유명인 인식 |
 | 랜드마크 | `outdoor_` 또는 `building_` 범주에서 분류된 이미지에 대해 지원되는 랜드마크 인식 |
 
-[Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20e) API를 호출하면 각 모델이 적용될 수 있는 범주와 함께 이 정보가 반환됩니다.
+[Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20e) API를 호출하면 각 모델이 적용될 수 있는 범주와 함께 이 정보가 반환됩니다.
 
 ```json
 {
@@ -137,6 +137,8 @@ Computer Vision은 태깅 및 고급 분류뿐 아니라 특수 데이터에 대
 }
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="use-the-api"></a>API 사용
 
-[이미지 분류](concept-categorizing-images.md)에 대한 개념을 알아봅니다.
+이 기능은 [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) API를 통해 사용할 수 있습니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. **details** 쿼리 매개 변수에 `Celebrities` 또는 `Landmarks`를 포함합니다. 그런 다음 전체 JSON 응답을 받으면 `"details"` 섹션의 내용에 대한 문자열을 구문 분석하기만 하면 됩니다.
+
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

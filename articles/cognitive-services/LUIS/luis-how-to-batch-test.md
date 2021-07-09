@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.openlocfilehash: 9fe4f21a5c9e9e26a2f94b8a60cba47916842fe3
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.date: 05/18/2021
+ms.openlocfilehash: b6d007d3020d3fa2b001178bd23d721ea6a6aa6b
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107501793"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067837"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -87,7 +87,19 @@ JSON 예제에는 테스트 파일의 모양을 설명하는 레이블이 지정
 
 5. 데이터 세트의 이름을 `pizza test`로 지정하고 **완료** 를 선택합니다.
 
-6. **실행** 단추를 선택합니다. 일괄 처리 테스트를 실행한 후 **결과 보기** 를 선택합니다. 
+6. **실행** 단추를 선택합니다. 
+
+7. 일괄 처리 테스트가 완료되면 다음 열을 볼 수 있습니다.
+
+    | 열 | Description |
+    | -------- | ------------- |
+    | 시스템 상태 | 테스트 상태입니다. **결과 보기** 는 테스트를 완료한 후에만 볼 수 있습니다. |
+    | 이름 | 테스트에 제공한 이름입니다. |
+    | 크기 | 이 일괄 처리 테스트 파일의 테스트 수입니다. |
+    | 마지막 실행 | 이 일괄 처리 테스트 파일을 마지막으로 실행한 날짜입니다. |
+    | 마지막 결과 | 테스트에서 성공한 예측 수입니다. |
+
+8. 테스트의 자세한 결과를 보려면 **결과 보기** 를 선택합니다. 
 
     > [!TIP]
     > * **다운로드** 를 선택하면 업로드한 것과 동일한 파일이 다운로드됩니다.

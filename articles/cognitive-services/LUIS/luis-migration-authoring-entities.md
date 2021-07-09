@@ -4,17 +4,17 @@ description: V3 작성은 기계 학습 엔터티 및 기타 엔터티 또는 �
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/08/2020
-ms.openlocfilehash: 667226770d25ef1687420b1c13bc71863f987e33
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 6808c5d84a1be6a2e9b262eab00010d4a962c259
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "91324691"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110701171"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>V3 제작 엔터티로 마이그레이션
 
-V3 작성은 기계 학습 엔터티 및 기타 엔터티 또는 애플리케이션의 기능에 관계를 추가하는 기능과 함께 새로운 엔터티 형식인 기계 학습 엔터티를 제공합니다.
+V3 작성은 기계 학습 엔터티 및 기타 엔터티 또는 애플리케이션의 기능에 관계를 추가하는 기능과 함께 새로운 엔터티 형식인 기계 학습 엔터티를 제공합니다. 현재 마이그레이션을 완료해야 하는 날짜는 없습니다.
 
 ## <a name="entities-are-decomposable-in-v3"></a>엔터티는 V3에서 분해 가능
 

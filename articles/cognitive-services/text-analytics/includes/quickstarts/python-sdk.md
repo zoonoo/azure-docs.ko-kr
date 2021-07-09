@@ -3,20 +3,20 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 04/19/2021
+ms.date: 06/11/2021
 ms.author: aahi
-ms.openlocfilehash: 42716c4e2c4aa2e76242034b493f4181632f0fe9
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: b94aaff50547830c796e3461a55126b3d54d905a
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110165109"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112083951"
 ---
 <a name="HOLTop"></a>
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
-[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
+[v3.1 참조 설명서](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?preserve-view=true&view=azure-python-preview) | [v3.1 라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics) | [v3.1 패키지(PiPy)](https://pypi.org/project/azure-ai-textanalytics/5.1.0b7/) | [v3.1 샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 
@@ -42,7 +42,7 @@ Python을 설치한 후, 다음을 사용하여 클라이언트 라이브러리�
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 ```console
-pip install azure-ai-textanalytics --pre
+pip install azure-ai-textanalytics==5.1.0b7
 ```
 
 > [!TIP]
@@ -229,7 +229,62 @@ Neutral=0.77
 Negative=0.02
 ```
 
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+클라이언트를 인수로 사용하는 `sentiment_analysis_example()`이라는 새 함수를 만든 다음, `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 전체 입력 문서의 감정 레이블과 점수뿐 아니라 각 문장의 감정 분석도 포함됩니다.
+
+
+```python
+def sentiment_analysis_example(client):
+
+    documents = ["I had the best day of my life. I wish you were there with me."]
+    response = client.analyze_sentiment(documents = documents)[0]
+    print("Document Sentiment: {}".format(response.sentiment))
+    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+        response.confidence_scores.positive,
+        response.confidence_scores.neutral,
+        response.confidence_scores.negative,
+    ))
+    for idx, sentence in enumerate(response.sentences):
+        print("Sentence: {}".format(sentence.text))
+        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
+        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
+            sentence.confidence_scores.positive,
+            sentence.confidence_scores.neutral,
+            sentence.confidence_scores.negative,
+        ))
+          
+sentiment_analysis_example(client)
+```
+
+### <a name="output"></a>출력
+
+```console
+Document Sentiment: positive
+Overall scores: positive=1.00; neutral=0.00; negative=0.00 
+
+Sentence: I had the best day of my life.
+Sentence 1 sentiment: positive
+Sentence score:
+Positive=1.00
+Neutral=0.00
+Negative=0.00
+
+Sentence: I wish you were there with me.
+Sentence 2 sentiment: neutral
+Sentence score:
+Positive=0.21
+Neutral=0.77
+Negative=0.02
+```
+
+---
+
 ## <a name="opinion-mining"></a>의견 마이닝
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
+
 
 오피니언 마이닝을 사용하여 감정 분석을 수행하려면 클라이언트를 인수로 사용하는 `sentiment_analysis_with_opinion_mining_example()`이라는 새 함수를 만든 다음, 옵션 플래그 `show_opinion_mining=True`를 사용하여 `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 각 문장의 감정 분석이 포함된 전체 입력 문서의 감정 레이블과 점수뿐 아니라 양상 및 의견 수준 감정 분석도 포함됩니다.
 
@@ -336,54 +391,9 @@ Press any key to continue . . .
 
 ```
 
-# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+# <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
-클라이언트를 인수로 사용하는 `sentiment_analysis_example()`이라는 새 함수를 만든 다음, `analyze_sentiment()` 함수를 호출합니다. 반환된 응답 개체에는 전체 입력 문서의 감정 레이블과 점수뿐 아니라 각 문장의 감정 분석도 포함됩니다.
-
-
-```python
-def sentiment_analysis_example(client):
-
-    documents = ["I had the best day of my life. I wish you were there with me."]
-    response = client.analyze_sentiment(documents = documents)[0]
-    print("Document Sentiment: {}".format(response.sentiment))
-    print("Overall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
-        response.confidence_scores.positive,
-        response.confidence_scores.neutral,
-        response.confidence_scores.negative,
-    ))
-    for idx, sentence in enumerate(response.sentences):
-        print("Sentence: {}".format(sentence.text))
-        print("Sentence {} sentiment: {}".format(idx+1, sentence.sentiment))
-        print("Sentence score:\nPositive={0:.2f}\nNeutral={1:.2f}\nNegative={2:.2f}\n".format(
-            sentence.confidence_scores.positive,
-            sentence.confidence_scores.neutral,
-            sentence.confidence_scores.negative,
-        ))
-          
-sentiment_analysis_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Document Sentiment: positive
-Overall scores: positive=1.00; neutral=0.00; negative=0.00 
-
-Sentence: I had the best day of my life.
-Sentence 1 sentiment: positive
-Sentence score:
-Positive=1.00
-Neutral=0.00
-Negative=0.00
-
-Sentence: I wish you were there with me.
-Sentence 2 sentiment: neutral
-Sentence score:
-Positive=0.21
-Neutral=0.77
-Negative=0.02
-```
+이 기능은 버전 3.0에서 사용할 수 없습니다.
 
 ---
 
@@ -486,7 +496,88 @@ Named Entities:
         Confidence Score:        0.8    Length:          9      Offset:          34
 ```
 
-### <a name="entity-linking"></a>엔터티 연결
+### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
+
+클라이언트를 인수로 사용하는 `pii_recognition_example`이라는 새 함수를 만든 다음, `recognize_pii_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
+
+```python
+def pii_recognition_example(client):
+    documents = [
+        "The employee's SSN is 859-98-0987.",
+        "The employee's phone number is 555-555-5555."
+    ]
+    response = client.recognize_pii_entities(documents, language="en")
+    result = [doc for doc in response if not doc.is_error]
+    for doc in result:
+        print("Redacted Text: {}".format(doc.redacted_text))
+        for entity in doc.entities:
+            print("Entity: {}".format(entity.text))
+            print("\tCategory: {}".format(entity.category))
+            print("\tConfidence Score: {}".format(entity.confidence_score))
+            print("\tOffset: {}".format(entity.offset))
+            print("\tLength: {}".format(entity.length))
+pii_recognition_example(client)
+```
+
+### <a name="output"></a>출력
+
+```console
+Redacted Text: The employee's SSN is ***********.
+Entity: 859-98-0987
+        Category: U.S. Social Security Number (SSN)
+        Confidence Score: 0.65
+        Offset: 22
+        Length: 11
+Redacted Text: The employee's phone number is ************.
+Entity: 555-555-5555
+        Category: Phone Number
+        Confidence Score: 0.8
+        Offset: 31
+        Length: 12
+```
+
+# <a name="version-30"></a>[버전 3.0](#tab/version-3)
+
+클라이언트를 인수로 사용하는 `entity_recognition_example`이라는 새 함수를 만든 다음, `recognize_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
+
+```python
+def entity_recognition_example(client):
+
+    try:
+        documents = ["I had a wonderful trip to Seattle last week."]
+        result = client.recognize_entities(documents = documents)[0]
+
+        print("Named Entities:\n")
+        for entity in result.entities:
+            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
+                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
+
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+entity_recognition_example(client)
+```
+
+### <a name="output"></a>출력
+
+```console
+Named Entities:
+
+        Text:    trip   Category:        Event  SubCategory:     None
+        Confidence Score:        0.61
+
+        Text:    Seattle        Category:        Location       SubCategory:     GPE
+        Confidence Score:        0.82
+
+        Text:    last week      Category:        DateTime       SubCategory:     DateRange
+        Confidence Score:        0.8
+```
+
+
+---
+
+## <a name="entity-linking"></a>엔터티 연결
+
+# <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
 클라이언트를 인수로 사용하는 `entity_linking_example()`이라는 새 함수를 만든 다음, `recognize_linked_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entities`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `entity` 개체 아래에서 `match` 개체 목록으로 그룹화됩니다.
 
@@ -574,87 +665,7 @@ Linked Entities:
                 Length: 11
 ```
 
-### <a name="personally-identifiable-information-recognition"></a>개인 식별 정보 인식
-
-클라이언트를 인수로 사용하는 `pii_recognition_example`이라는 새 함수를 만든 다음, `recognize_pii_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
-
-```python
-def pii_recognition_example(client):
-    documents = [
-        "The employee's SSN is 859-98-0987.",
-        "The employee's phone number is 555-555-5555."
-    ]
-    response = client.recognize_pii_entities(documents, language="en")
-    result = [doc for doc in response if not doc.is_error]
-    for doc in result:
-        print("Redacted Text: {}".format(doc.redacted_text))
-        for entity in doc.entities:
-            print("Entity: {}".format(entity.text))
-            print("\tCategory: {}".format(entity.category))
-            print("\tConfidence Score: {}".format(entity.confidence_score))
-            print("\tOffset: {}".format(entity.offset))
-            print("\tLength: {}".format(entity.length))
-pii_recognition_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Redacted Text: The employee's SSN is ***********.
-Entity: 859-98-0987
-        Category: U.S. Social Security Number (SSN)
-        Confidence Score: 0.65
-        Offset: 22
-        Length: 11
-Redacted Text: The employee's phone number is ************.
-Entity: 555-555-5555
-        Category: Phone Number
-        Confidence Score: 0.8
-        Offset: 31
-        Length: 12
-```
-
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
-
-> [!NOTE]
-> 버전 `3.0`에서 다음을 수행합니다. 
-> * 엔터티 연결은 NER과 별개의 요청입니다.
-
-클라이언트를 인수로 사용하는 `entity_recognition_example`이라는 새 함수를 만든 다음, `recognize_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entity`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 검색된 각 엔터티에 대해 해당 범주 및 하위 범주(있는 경우)를 인쇄합니다.
-
-```python
-def entity_recognition_example(client):
-
-    try:
-        documents = ["I had a wonderful trip to Seattle last week."]
-        result = client.recognize_entities(documents = documents)[0]
-
-        print("Named Entities:\n")
-        for entity in result.entities:
-            print("\tText: \t", entity.text, "\tCategory: \t", entity.category, "\tSubCategory: \t", entity.subcategory,
-                    "\n\tConfidence Score: \t", round(entity.confidence_score, 2), "\n")
-
-    except Exception as err:
-        print("Encountered exception. {}".format(err))
-entity_recognition_example(client)
-```
-
-### <a name="output"></a>출력
-
-```console
-Named Entities:
-
-        Text:    trip   Category:        Event  SubCategory:     None
-        Confidence Score:        0.61
-
-        Text:    Seattle        Category:        Location       SubCategory:     GPE
-        Confidence Score:        0.82
-
-        Text:    last week      Category:        DateTime       SubCategory:     DateRange
-        Confidence Score:        0.8
-```
-
-### <a name="entity-linking"></a>엔터티 연결
 
 클라이언트를 인수로 사용하는 `entity_linking_example()`이라는 새 함수를 만든 다음, `recognize_linked_entities()` 함수를 호출하여 결과를 반복합니다. 반환된 응답 개체에는 성공하면 `entities`에서 검색된 엔티티 목록이 포함되고, 그렇지 않으면 `error`가 포함됩니다. 연결된 엔터티가 고유하게 식별되므로 동일한 엔터티의 발생은 `entity` 개체 아래에서 `match` 개체 목록으로 그룹화됩니다.
 
@@ -726,7 +737,7 @@ Linked Entities:
 
 ---
 
-### <a name="key-phrase-extraction"></a>핵심 문구 추출
+## <a name="key-phrase-extraction"></a>핵심 문구 추출
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
@@ -799,13 +810,15 @@ key_phrase_extraction_example(client)
 
 ---
 
-## <a name="use-the-api-asynchronously-with-the-batch-analyze-operation"></a>일괄 처리 분석 작업을 통해 비동기적으로 API 사용
+## <a name="use-the-api-asynchronously-with-the-analyze-operation"></a>Analyze(분석) 작업을 통해 비동기적으로 API 사용
 
 # <a name="version-31-preview"></a>[버전 3.1 미리 보기](#tab/version-3-1)
 
+분석 작업을 사용하여 NER, 핵심 구 추출, 감정 분석 및 PII 검색에 대한 비동기 일괄 처리 요청을 수행할 수 있습니다. 아래 샘플에서는 하나의 작업에 대한 기본 예제를 보여줍니다. [GitHub](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py)에서 더 많은 고급 샘플을 찾을 수 있습니다.
+
 [!INCLUDE [Analyze operation pricing](../analyze-operation-pricing-caution.md)]
 
-클라이언트를 인수로 사용하는 `analyze_batch_example()`이라는 새 함수를 만든 다음, `begin_analyze_batch_actions()` 함수를 호출합니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
+클라이언트를 인수로 사용하는 `analyze_batch_example()`이라는 새 함수를 만든 다음, `begin_analyze_actions()` 함수를 호출합니다. 그러면 장기 실행 작업이 실행되고 결과가 폴링됩니다.
 
 ```python
 from azure.ai.textanalytics import (
@@ -817,7 +830,7 @@ def analyze_batch_example(client):
             "Microsoft was founded by Bill Gates and Paul Allen."
         ]
 
-        poller = client.begin_analyze_batch_actions(
+        poller = client.begin_analyze_actions(
             documents,
             display_name="Sample Text Analysis",
             actions=[RecognizeEntitiesAction()]
@@ -861,8 +874,6 @@ Entity: Paul Allen
 ...Offset: 40
 ------------------------------------------
 ```
-
-일괄 처리 분석 작업을 사용하여 PII를 검색하고 핵심 문구 추출을 수행할 수도 있습니다. GitHub의 [일괄 처리 분석 샘플](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/samples/sample_analyze_actions.py)을 참조하세요.
 
 # <a name="version-30"></a>[버전 3.0](#tab/version-3)
 

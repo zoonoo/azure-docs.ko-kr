@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
 ms.author: v-jansk
-ms.openlocfilehash: c17cd6cb97aaac3cd08342270e4eafa07eb5fd7d
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: e6ec2289b272ae4c9d7d0c8eaca84b05d718908c
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864886"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451144"
 ---
 # <a name="get-translation-status"></a>번역 상태 가져오기
 
@@ -25,7 +25,7 @@ ms.locfileid: "107864886"
 
 다음에 `GET` 요청을 보냅니다.
 ```HTTP
-GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0-preview.1/batches/{id}
+GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches/{id}
 ```
 
 [사용자 지정 도메인 이름](../get-started-with-document-translation.md#find-your-custom-domain-name)을 찾는 방법에 대해 알아봅니다.
@@ -70,11 +70,11 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 
 성공적인 응답에서 반환되는 정보는 다음과 같습니다.
 
-|Name|유형|Description|
+|Name|Type|Description|
 |--- |--- |--- |
 |id|문자열|작업의 ID입니다.|
-|createdDateTimeUtc|문자열|작업을 만든 날짜/시간입니다.|
-|lastActionDateTimeUtc|문자열|작업 상태가 업데이트된 날짜/시간입니다.|
+|createdDateTimeUtc|문자열|작업을 만든 날짜와 시간입니다.|
+|lastActionDateTimeUtc|문자열|작업 상태가 업데이트된 날짜와 시간입니다.|
 |상태|String|작업 또는 문서의 가능한 상태 목록: <ul><li>취소됨</li><li>Cancelling</li><li>실패</li><li>NotStarted</li><li>실행 중</li><li>성공</li><li>ValidationFailed</li></ul>|
 |요약|StatusSummary|세부 정보를 포함하는 요약은 아래와 같습니다.|
 |summary.total|integer|총 개수입니다.|
@@ -85,16 +85,17 @@ GET https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/
 |summary.cancelled|integer|취소된 개수입니다.|
 |summary.totalCharacterCharged|integer|API로 청구되는 총 문자 수입니다.|
 
-###<a name="error-response"></a>오류 응답
+### <a name="error-response"></a>오류 응답
 
-|Name|유형|설명|
+|이름|Type|설명|
 |--- |--- |--- |
-|code|문자열|상위 수준 오류 코드를 포함하는 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
-|message|문자열|상위 수준 오류 메시지를 가져옵니다.|
+|code|문자열|간략한 오류 코드가 포함된 열거형입니다. 가능한 값은 다음과 같습니다.<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>권한 없음</li></ul>|
+|message|문자열|간략한 오류 메시지를 가져옵니다.|
 |대상|문자열|오류의 출처입니다. 예를 들어 유효하지 않은 문서의 경우 "문서" 또는 "문서 ID"가 됩니다.|
-|innerError|InnerErrorV2|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩 가능)가 포함됩니다.|
+|innerError|InnerTranslationError|Cognitive Services API 지침을 준수하는 새로운 내부 오류 형식입니다. 여기에는 필수 속성 ErrorCode, 메시지 및 선택적 속성 대상, 세부 정보(키 값 쌍), 내부 오류(중첩될 수 있음)가 포함됩니다.|
 |innerError.code|문자열|코드 오류 문자열을 가져옵니다.|
-|innerError.message|문자열|상위 수준 오류 메시지를 가져옵니다.|
+|innerError.message|문자열|간략한 오류 메시지를 가져옵니다.|
+|innerError.target|문자열|오류 출처를 가져옵니다. 예를 들어 잘못된 문서의 경우 "documents" 또는 "document id"가 됩니다.|
 
 ## <a name="examples"></a>예제
 

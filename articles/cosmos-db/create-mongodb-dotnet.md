@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20c6b7286ca769de97e0b694a3b9bf37583678bc
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 387455f170d64c78ba4e1aab700a91a81bef2ed0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110070915"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235584"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>빠른 시작: Azure Cosmos DB의 MongoDB API를 사용하여 .NET 웹앱 빌드 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "110070915"
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Node.JS](create-mongodb-nodejs.md)
+> * [Node.js](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
@@ -43,7 +43,7 @@ Azure Cosmos DB는 모든 규모의 개방형 API를 포함하는 Microsoft의 �
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount-mongodb.md)]
 
 이 문서에 설명된 샘플은 MongoDB.Driver 버전 2.6.1과 호환됩니다.
 
@@ -158,11 +158,11 @@ Azure Portal에서 연결 문자열 정보를 복사합니다.
 -->
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

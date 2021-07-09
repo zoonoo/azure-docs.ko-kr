@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c0bd21f55fee4d8487826deae23093ede293c8c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d97ab241120ddc4c8e7434591b866312ea7708ae
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021816"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890117"
 ---
 # <a name="test-your-custom-commands-application"></a>사용자 지정 명령 애플리케이션 테스트
 
@@ -40,8 +40,17 @@ Windows 음성 도우미 클라이언트는 C#의 WPF(Windows Presentation Found
 > [!div class="mx-imgBorder"]
 > ![WVAC 프로필 만들기](media/custom-commands/conversation.png)
 
-## <a name="test-with-speech-sdk-enabled-client-applications"></a>Speech SDK 지원 클라이언트 애플리케이션을 사용하여 테스트 
-Speech SDK(소프트웨어 개발 키트)는 음성 지원 애플리케이션을 개발할 수 있도록 많은 Speech Service 기능을 제공합니다. Speech SDK는 많은 프로그래밍 언어 및 모든 플랫폼에서 사용할 수 있습니다.
+## <a name="test-programatically-with-the-cognitive-services-voice-assistant-test-tool"></a>Cognitive Services 음성 도우미 테스트 도구를 사용하여 프로그래밍 방식으로 테스트
+
+음성 도우미 테스트 도구는 Microsoft 음성 도우미의 엔드투엔드 기능 회귀 테스트를 위한 구성 가능한 .NET Core C# 콘솔 애플리케이션입니다. 
+
+이 도구는 콘솔 명령으로 수동으로 실행하거나 Azure DevOps CI/CD 파이프라인의 일부로 자동화하여 봇의 회귀를 방지할 수 있습니다.
+
+도구를 설정하는 방법을 알아보려면 [음성 도우미 테스트 도구](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/tree/main/clients/csharp-dotnet-core/voice-assistant-test)를 참조하세요.
+
+## <a name="test-with-speech-sdk-enabled-client-applications"></a>Speech SDK 지원 클라이언트 애플리케이션을 사용하여 테스트
+
+Speech SDK(소프트웨어 개발 키트)는 음성 지원 애플리케이션을 개발할 수 있도록 많은 Speech Service 기능을 제공합니다. 대부분의 플랫폼에서 다양한 프로그래밍 언어를 사용할 수 있습니다.
 
 Speech SDK를 사용하여 UWP(유니버설 Windows 플랫폼) 클라이언트 애플리케이션을 설정하고 사용자 지정 명령 애플리케이션과 통합하려면 다음을 수행합니다.  
 - [방법: Speech SDK를 사용하여 클라이언트 애플리케이션과 통합](./how-to-custom-commands-setup-speech-sdk.md)
@@ -55,4 +64,4 @@ Speech SDK를 사용하여 UWP(유니버설 Windows 플랫폼) 클라이언트 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [GitHub의 샘플 참조](https://aka.ms/speech/cc-samples)
+> [GitHub 샘플 참조](https://aka.ms/speech/cc-samples)

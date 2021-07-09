@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 3392cc5f3ee9daef1ae8397f6829f4ca7a42373a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b8dfe8711733efeb33561531c85925111799daba
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98871403"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479308"
 ---
 # <a name="limits-and-quotas"></a>한도 및 할당량
 
@@ -23,13 +23,13 @@ Custom Vision 서비스에 대해 2계층의 키가 있습니다. Azure Portal�
 
 프로젝트당 학습 이미지 수 및 프로젝트당 태그 수는 S0 프로젝트에서 시간이 지남에 따라 증가될 것으로 예상됩니다.
 
-|요인|**F0**|**S0**|
+|요인|**F0(무료)**|**S0(표준)**|
 |-----|-----|-----|
 |프로젝트|2|100|
 |프로젝트당 학습 이미지 |5,000|100,000|
 |예측 수/월|10000 |제한 없음|
 |태그/프로젝트|50|500|
-|반복 횟수 |10|10|
+|반복 횟수 |20|20|
 |태그당 레이블이 지정된 최소 이미지, 분류(50개 이상 권장) |5|5|
 |태그당 레이블이 지정된 최소 이미지, 개체 검색(50개 이상 권장)|15|15|
 |예측 이미지 저장 기간|30일|30일|

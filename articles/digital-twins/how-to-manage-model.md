@@ -7,30 +7,30 @@ ms.author: baanders
 ms.date: 4/07/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3c896e2aad7dae8d03b26e2a16ecb96224ab547b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: f306fd1a2cccb3733640f5da100718908c444c3a
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303783"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478147"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Azure Digital Twins 모델 관리
 
-[**DigitalTwinModels API**](/rest/api/digital-twins/dataplane/models), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용하여 Azure Digital Twins 인스턴스의 [모델](concepts-models.md)을 관리할 수 있습니다. 
-
-관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함됩니다. 
+이 문서에서는 Azure Digital Twins 인스턴스에서 [모델](concepts-models.md)을 관리하는 방법을 설명합니다. 관리 작업에는 모델 업로드, 유효성 검사, 검색 및 삭제가 포함됩니다. 
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-models"></a>모델을 관리하는 방법
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png" alt-text="샘플 모델 및 그래프를 보여주는 Azure Digital Twins Explorer의 스크린샷." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel.png":::
 
 ## <a name="create-models"></a>모델 만들기
 
-Azure Digital Twins에 대한 모델은 DTDL로 작성되고 *.json* 파일로 저장됩니다. DTDL 문서 작성을 용이하게 하는 구문 유효성 검사 및 기타 기능을 제공하는 [Visual Studio Code](https://code.visualstudio.com/)에 사용할 수 있는 [DTDL 확장명](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl)도 있습니다.
+Azure Digital Twins에 대한 모델은 DTDL로 작성되고 .json 파일로 저장됩니다. DTDL 문서 작성을 용이하게 하는 구문 유효성 검사 및 기타 기능을 제공하는 [Visual Studio Code](https://code.visualstudio.com/)에 사용할 수 있는 [DTDL 확장명](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl)도 있습니다.
 
 병원에서 병실을 디지털로 표현하는 예를 생각해 보세요. 각 병실에는 손 씻기를 모니터링하는 스마트 비누 디스펜서와 병실 트래픽을 모니터링하는 센서가 포함되어 있습니다.
 
@@ -41,7 +41,7 @@ Azure Digital Twins에 대한 모델은 DTDL로 작성되고 *.json* 파일로 �
 > [!NOTE]
 > 이는 모델을 정의하고 저장하는 .json 파일에 대한 샘플 본문으로, 클라이언트 프로젝트의 일부로 업로드됩니다. 반면에 REST API 호출은 위에 있는 것과 같은 모델 정의의 배열을 사용하며 이 배열은 .NET SDK의 `IEnumerable<string>`에 매핑됩니다. 따라서 REST API에서 이 모델을 직접 사용하려면 대괄호로 묶습니다.
 
-이 모델은 병실의 이름과 고유 ID를 정의하고 방문자 수 및 손 씻기 상태를 나타내는 속성을 정의합니다. 이러한 카운터는 동작 센서 및 스마트 비누 디스펜서에서 업데이트되며 *handwash percentage* 속성을 계산하는 데 함께 사용됩니다. 또한 모델은 *hasDevices* 관계를 정의하며 이는 *Room* 모델을 기반으로 모든 [디지털 트윈](concepts-twins-graph.md)을 실제 디바이스에 연결하는 데 사용됩니다.
+이 모델은 병실의 이름과 고유 ID를 정의하고 방문자 수 및 손 씻기 상태를 나타내는 속성을 정의합니다. 이러한 카운터는 동작 센서 및 스마트 비누 디스펜서에서 업데이트되며 *handwash percentage* 속성을 계산하는 데 함께 사용됩니다. 또한 모델은 *hasDevices* 관계를 정의하며 이는 Room 모델을 기반으로 모든 [디지털 트윈](concepts-twins-graph.md)을 실제 디바이스에 연결하는 데 사용됩니다.
 
 이 메서드에 따라 병원의 병동, 구역 또는 병원 자체에 대한 모델을 정의할 수 있습니다.
 
@@ -120,7 +120,7 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 
 즉, 새 버전의 모델을 업로드해도 기존 트윈에 자동으로 영향을 주지 않습니다. 기존 트윈은 단순히 이전 모델 버전의 인스턴스를 유지합니다.
 
-*방법: 디지털 트윈 관리* 의 [*디지털 트윈의 모델 업데이트*](how-to-manage-twin.md#update-a-digital-twins-model) 섹션에 설명된 대로 패치를 적용하여 기존 트윈을 새 모델 버전으로 업데이트할 수 있습니다. 동일한 패치 내에서 **모델 ID**(새 버전) 및 **새 모델에 맞게 변경해야 하는 트윈의 모든 필드** 를 둘 다 업데이트해야 합니다.
+방법: 디지털 트윈 관리의 *[디지털 트윈의 모델 업데이트](how-to-manage-twin.md#update-a-digital-twins-model)* 섹션에 설명된 대로 패치를 적용하여 기존 트윈을 새 모델 버전으로 업데이트할 수 있습니다. 동일한 패치 내에서 **모델 ID**(새 버전) 및 **새 모델에 맞게 변경해야 하는 트윈의 모든 필드** 를 둘 다 업데이트해야 합니다.
 
 ## <a name="remove-models"></a>모델 제거
 
@@ -142,7 +142,7 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 
 인스턴스의 모든 모델을 한 번에 삭제하거나 개별적으로 수행할 수 있습니다.
 
-모든 모델을 삭제하는 방법에 대한 예제를 보려면 [*자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기*](tutorial-command-line-app.md)에서 사용된 샘플 앱을 다운로드합니다. *CommandLoop.cs* 파일은 `CommandDeleteAllModels` 함수에서 이를 수행합니다.
+모든 모델을 삭제하는 방법에 대한 예제를 보려면 [자습서: 샘플 클라이언트 앱으로 기본 사항 살펴보기](tutorial-command-line-app.md)에서 사용된 샘플 앱을 다운로드합니다. *CommandLoop.cs* 파일은 `CommandDeleteAllModels` 함수에서 이를 수행합니다.
 
 이 섹션의 나머지 부분에서는 모델 삭제를 자세히 설명하고 개별 모델에 대해 이 작업을 수행하는 방법을 보여 줍니다.
 
@@ -150,7 +150,7 @@ Azure Digital Twins 인스턴스에 저장된 모델을 나열하고 검색할 �
 
 일반적으로 모델은 언제든지 삭제할 수 있습니다.
 
-다른 모델이 `extends` 관계 또는 구성 요소로 종속된 모델은 예외입니다. 예를 들어 *ConferenceRoom* 모델이 *Room* 모델을 확장하고 *ACUnit* 모델을 구성 요소로 포함하는 경우 *ConferenceRoom* 이 해당 참조를 제거할 때까지 *Room* 또는 *ACUnit* 을 삭제할 수 없습니다. 
+다른 모델이 `extends` 관계 또는 구성 요소로 종속된 모델은 예외입니다. 예를 들어 ConferenceRoom 모델이 Room 모델을 확장하고 ACUnit 모델을 구성 요소로 포함하는 경우 ConferenceRoom이 해당 참조를 제거할 때까지 Room 또는 ACUnit을 삭제할 수 없습니다. 
 
 종속 모델을 업데이트하여 종속성을 제거하거나 종속 모델을 완전히 삭제하여 이 작업을 수행할 수 있습니다.
 
@@ -198,4 +198,4 @@ Azure Digital Twins는 이 상태를 방지하지 않으므로 모델 정의 스
 ## <a name="next-steps"></a>다음 단계
 
 모델을 기반으로 디지털 트윈을 만들고 관리하는 방법을 참조하세요.
-* [*방법: 디지털 트윈 관리*](how-to-manage-twin.md)
+* [방법: 디지털 트윈 관리](how-to-manage-twin.md)

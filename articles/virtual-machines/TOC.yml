@@ -155,6 +155,8 @@
               href: sizes-compute.md
             - name: Fsv2 시리즈
               href: fsv2-series.md
+            - name: FX 시리즈
+              href: fx-series.md
         - name: 메모리에 최적화
           items:
             - name: 개요
@@ -206,6 +208,8 @@
               href: ncv3-series.md
             - name: NCasT4_v3 시리즈
               href: nct4-v3-series.md
+            - name: NDasrA100_v4-series
+              href: nda100-v4-series.md
             - name: ND 시리즈
               href: nd-series.md
             - name: NDv2 시리즈
@@ -790,13 +794,13 @@
         - name: Resource Manager 템플릿
           items:
             - name: Shared Image Gallery 만들기
-              href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+              href: 'https://azure.microsoft.com/resources/templates/sig-create/'
             - name: 공유 이미지 갤러리에서 이미지 정의 만들기
-              href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+              href: 'https://azure.microsoft.com/resources/templates/sig-image-definition-create/'
             - name: 공유 이미지 갤러리에서 이미지 버전 만들기
-              href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+              href: 'https://azure.microsoft.com/resources/templates/sig-image-version-create/'
             - name: 이미지 버전에서 VM 만들기
-              href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
+              href: 'https://azure.microsoft.com/resources/templates/vm-from-sig/'
         - name: Ansible
           href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
         - name: 공유 이미지 문제 해결
@@ -809,7 +813,7 @@
           href: managed-disk-from-image-version.md
         - name: 구매 계획 정보
           href: marketplace-images.md
-    - name: 이미지 작성기(미리 보기)
+    - name: 이미지 작성기
       items:
         - name: 개요
           displayName: 'Image builder, images, building'
@@ -965,6 +969,8 @@
       href: disks-shared-enable.md
     - name: 암호화
       items:
+        - name: 디스크 암호화 개요
+          href: disk-encryption-overview.md
         - name: 서버 쪽 암호화
           items:
             - name: 서버 쪽 암호화 개요
@@ -1039,7 +1045,9 @@
                 - name: 디스크 암호화 문제 해결
                   href: ./linux/disk-encryption-troubleshooting.md
                 - name: 디스크 암호화 FAQ
-                  href: ./linux/disk-encryption-faq.md
+                  href: ./linux/disk-encryption-faq.yml
+                - name: 이전 버전에서 현재 버전으로 업그레이드
+                  href: ./linux/disk-encryption-upgrade.md
                 - name: 디스크 암호화 - 이전 버전
                   items:
                     - name: 개요
@@ -1070,7 +1078,7 @@
                 - name: 디스크 암호화 문제 해결
                   href: ./windows/disk-encryption-troubleshooting.md
                 - name: 디스크 암호화 FAQ
-                  href: ./windows/disk-encryption-faq.md
+                  href: ./windows/disk-encryption-faq.yml
                 - name: 디스크 암호화 - 이전 버전
                   items:
                     - name: 개요
@@ -1258,7 +1266,7 @@
               displayName: Find unattached disks
               href: disks-find-unattached-portal.md
         - name: 디스크 FAQ
-          href: faq-for-disks.md
+          href: faq-for-disks.yml
     - name: 코드 샘플
       items:
         - name: CLI
@@ -1453,12 +1461,18 @@
           href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?context=/azure/virtual-machines/context/context
         - name: OS 이미지 업그레이드를 위한 유지 관리 제어
           items:
-            - name: 개요(미리 보기)
+            - name: 개요
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
               href: virtual-machine-scale-sets-maintenance-control.md
-            - name: PowerShell(미리 보기)
+            - name: PowerShell
               displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
               href: virtual-machine-scale-sets-maintenance-control-powershell.md
+            - name: CLI
+              displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
+              href: virtual-machine-scale-sets-maintenance-control-cli.md
+            - name: 포털
+              displayName: 'Maintenance control for OS image upgrade, OS, image, upgrade'
+              href: virtual-machine-scale-sets-maintenance-control-portal.md
     - name: 자동 VM 게스트 패치(미리 보기)
       items:
         - name: 개요
@@ -1827,6 +1841,6 @@
     - name: FAQ
       items:
         - name: Linux
-          href: ./linux/faq.md
+          href: ./linux/faq.yml
         - name: Windows
-          href: ./windows/faq.md
+          href: ./windows/faq.yml

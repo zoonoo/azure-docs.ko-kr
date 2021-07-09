@@ -5,17 +5,17 @@ description: Form Recognizer 미리 빌드된 ID API를 사용하여 ID 문서�
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9ab936f90fb890d50e6e476e216b327ed26fc4f5
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f829de878b512ae6a8c8f8747e7c61456027cd68
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374854"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890675"
 ---
 # <a name="form-recognizer-prebuilt-identification-id-document-model"></a>미리 빌드된 ID(ID) 문서 모델 Form Recognizer
 
@@ -54,16 +54,16 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| Type | Description | 값 |
+|속성| Type | Description | 값(표준화된 출력) |
 |:-----|:----|:----|:----|
-|  국가 | country | ISO 3166 표준을 준수하는 국가 번호 | "USA" |
+|  CountryRegion | countryRegion | ISO 3166 표준을 준수하는 국가 또는 지역 코드 | "USA" |
 |  DateOfBirth | date | YYYY-MM-DD 형식의 DOB | "1980-01-01" |
 |  DateOfExpiration | date | YYYY-MM-DD 형식의 만료 날짜 | "2019-05-05" |
 |  DocumentNumber | 문자열 | 관련 passport 번호, 운전 면허 번호 등 | "340020013" |
 |  FirstName | 문자열 | 지정된 이름 및 중간 이니셜(해당하는 경우)을 추출했습니다 | "JENNIFER" |
 |  LastName | 문자열 | 추출된 성 | "BROOKS" |
-|  Nationality | country | ISO 3166 표준을 준수하는 국가 번호 | "USA" |
-|  성별 | gender | 추출 가능한 값에는 "M", "F" 및 "X"가 포함됩니다 | "F" |
+|  Nationality | countryRegion | ISO 3166 표준을 준수하는 국가 또는 지역 코드 | "USA" |
+|  성별 | 문자열 | 추출 가능한 값에는 "M", "F" 및 "X"가 포함됩니다 | "F" |
 |  MachineReadableZone | 개체 | 두 줄의 44 문자를 포함하여 Passport MRZ을 추출했습니다 | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
 |  DocumentType | 문자열 | 문서 유형(예: 여권, 운전 면허증) | "passport" |
 |  주소 | 문자열 | 추출된 주소(운전 면허증에만 해당) | "123 주소에서 도시 WA 99999-1234"|
@@ -87,10 +87,6 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
 
 [!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
-## <a name="supported-locales"></a>지원되는 로캘
-
- **미리 빌드된 ID v2.1** 은 **en-us** 로케일의 ID 문서를 지원합니다.
-
 ## <a name="supported-identity-document-types"></a>지원되는 ID 문서 유형
 
 * **미리 빌드된 ID v2.1** 은 전 세계 Passport 및 미국 운전면허증에서 키 값을 추출합니다.
@@ -100,7 +96,7 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
   >
   > 현재 지원되는 ID 형식에는 전 세계 Passport 및 미국 운전면허증이 포함됩니다. ID 지원을 전 세계의 다른 ID 문서로 확장하기 위해 적극적으로 노력하고 있습니다.
 
-## <a name="post-analyze-id-document"></a>POST ID 문서 분석
+## <a name="the-analyze-id-document-operation"></a>ID 문서 분석 작업
 
 [ID 분석](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7daad1f2612c46f5822) 작업은 ID의 이미지 또는 PDF를 입력으로 사용하여 관심있는 값을 추출합니다. 호출은 `Operation-Location`이라는 응답 헤더 필드를 반환합니다. `Operation-Location` 값은 다음 단계에서 사용할 결과 ID를 포함하는 URL입니다.
 
@@ -108,13 +104,13 @@ Form Recognizer ID 서비스를 사용해보려면 다음과 같은 온라인 �
 |:-----|:----|
 |Operation-Location | `https://cognitiveservice/formrecognizer/v2.1/prebuilt/idDocument/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
-## <a name="get-analyze-id-document-result"></a>ID 문서 분석 결과 가져오기
+## <a name="the-get-analyze-id-document-result-operation"></a>분석 ID 문서 결과 가져오기 작업
 
 <!---
 Need to update this with updated APIM links when available
 -->
 
-두 번째 단계는 [**분석 idDocument 결과 가져오기**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) 작업을 호출하는 것입니다. 이 작업은 ID 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다. **succeeded** 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청 수) 속도를 초과하지 않도록 합니다.
+두 번째 단계는 [**ID 문서 분석 결과 가져오기**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707) 작업을 호출하는 것입니다. 이 작업은 ID 분석 작업으로 만들어진 결과 ID를 입력으로 사용합니다. 다음과 같은 가능한 값을 가진 **상태** 필드가 포함된 JSON 응답을 반환합니다. **succeeded** 값이 반환될 때까지 이 작업을 반복적으로 호출합니다. 3~5초의 간격을 사용하여 RPS(초당 요청 수) 속도를 초과하지 않도록 합니다.
 
 |필드| Type | 가능한 값 |
 |:-----|:----:|:----|
@@ -129,11 +125,11 @@ Need to update this with updated APIM links when available
 
 ### <a name="sample-json-output"></a>샘플 JSON 출력
 
-성공적인 JSON 응답의 다음 예를 참조하세요. `readResults` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `documentResults` 노드에는 모델이 검색한 ID 값이 포함됩니다. 이 노드는 또한 이름, 성, 문서 번호 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
+성공적인 JSON 응답의 다음 예를 참조하세요(단순성을 위해 출력이 단축됨). `readResults` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다. `documentResults` 노드에는 모델이 검색한 ID 값이 포함됩니다. 이 노드는 또한 이름, 성, 문서 번호 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
 
 ```json
 {
-   "status": "succeeded",
+  "status": "succeeded",
   "createdDateTime": "2021-03-04T22:29:33Z",
   "lastUpdatedDateTime": "2021-03-04T22:29:36Z",
   "analyzeResult": {
@@ -175,6 +171,8 @@ Need to update this with updated APIM links when available
               }
             ],
           ...
+          }
+        ]
       }
     ],
 
@@ -187,9 +185,9 @@ Need to update this with updated APIM links when available
           1
         ],
         "fields": {
-          "Country": {
-            "type": "country",
-            "valueCountry": "USA",
+          "CountryRegion": {
+            "type": "countryRegion",
+            "valueCountryRegion": "USA",
             "text": "USA"
           },
           "DateOfBirth": {
@@ -218,12 +216,12 @@ Need to update this with updated APIM links when available
             "text": "BROOKS"
           },
           "Nationality": {
-            "type": "country",
-            "valueCountry": "USA",
+            "type": "countryRegion",
+            "valueCountryRegion": "USA",
             "text": "USA"
           },
           "Sex": {
-            "type": "gender",
+            "type": "string",
             "valueGender": "F",
             "text": "F"
           },

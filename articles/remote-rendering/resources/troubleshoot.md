@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 4990f0d0a10709f2c1c5a17806020cd685f999fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f0fb9ab5c53c3fd1bfb32ac7b112a116301cba7
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99593336"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107575346"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -249,6 +249,39 @@ ARR에는 표면에서 z-fight할 수 있는지를 확인하는 기능([바둑�
 
 [**BlitRemoteFrame**](../concepts/graphics-bindings.md#render-remote-image)을 호출한 후 로컬 콘텐츠에 대해 다중 패스 스테레오 렌더링 모드를 사용하는 사용자 지정 네이티브 C++ 앱(왼쪽과 오른쪽 눈에 별도의 패스로 렌더링)이 드라이버 버그를 트리거할 수 있는 경우도 있습니다. 버그로 인해 비결정적 래스터화 결함이 발생하여 개별 삼각형 또는 로컬 콘텐츠의 삼각형 부분이 무작위로 사라지게 됩니다. 성능상의 이유로 최신 단일 패스 스테레오 렌더링 기법을 사용하여 로컬 콘텐츠를 렌더링하는 것이 좋습니다(예: **SV_RenderTargetArrayIndex** 사용).
 
+## <a name="conversion-file-download-errors"></a>변환 파일 다운로드 오류
+
+Windows 및 서비스에 의해 적용되는 경로 길이 제한으로 인해 변환 서비스에서 Blob 스토리지의 파일을 다운로드하는 동안 오류가 발생할 수 있습니다. Blob 스토리지의 파일 경로 및 파일 이름은 178자를 초과하면 안 됩니다. 예를 들어 13자인 `models/Assets`의 `blobPrefix`를 제공합니다.
+
+`models/Assets/<any file or folder path greater than 164 characters will fail the conversion>`
+
+변환 서비스는 변환에 사용되는 파일뿐만 아니라 `blobPrefix`에 지정된 모든 파일을 다운로드합니다. 이러한 경우에는 문제의 원인이 되는 파일/폴더가 명확하지 않을 수 있으므로 `blobPrefix`에서 스토리지 계정에 포함된 모든 항목을 확인하는 것이 중요합니다. 다운로드되는 항목은 아래의 예제 입력을 참조하세요.
+``` json
+{
+  "settings": {
+    "inputLocation": {
+      "storageContainerUri": "https://contosostorage01.blob.core.windows.net/arrInput",
+      "blobPrefix": "models/Assets",
+      "relativeInputAssetPath": "myAsset.fbx"
+    ...
+  }
+}
+```
+
+```
+models
+├───Assets
+│   │   myAsset.fbx                 <- Asset
+│   │
+│   └───Textures
+│   |       myTexture.png           <- Used in conversion
+│   |
+|   └───MyFiles
+|          myOtherFile.txt          <- File also downloaded under blobPrefix      
+|           
+└───OtherFiles
+        myReallyLongFileName.txt    <- Ignores files not under blobPrefix             
+```
 ## <a name="next-steps"></a>다음 단계
 
 * [시스템 요구 사항](../overview/system-requirements.md)

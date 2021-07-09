@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/08/2020
-ms.openlocfilehash: ea2b44d05d25756a16b6b84f0734966b1f579848
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/05/2021
+ms.openlocfilehash: 41c45b2887736847c2413c2193e57d35f49594e7
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97007605"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109518091"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 발화를 검토하여 LUIS 앱을 개선하는 방법
 
@@ -41,14 +41,16 @@ LUIS 포털을 사용하여 올바른 엔드포인트 쿼리를 생성합니다.
 
      이 작업은 `log=true` 쿼리 문자열 매개 변수를 추가하여 예제 URL을 변경합니다. 런타임 엔드포인트에 예측 쿼리를 만들 때 변경된 예제 쿼리 URL을 복사하여 사용합니다.
 
-## <a name="correct-intent-predictions-to-align-utterances"></a>발화를 맞추기 위한 올바른 의도 예측
+## <a name="correct-predictions-to-align-utterances"></a>발화를 맞게 예측 수정
 
-각 발화에는 **맞춤 의도** 열에 표시되는 제안된 의도가 포함됩니다.
+각 발화에는 **예측 의도** 열에 제안된 의도가 표시되고 점선 경계 상자에 제안된 엔터티가 있습니다.
 
 > [!div class="mx-imgBorder"]
 > [![LUIS가 알 수 없는 엔드포인트 발화 검토](./media/label-suggested-utterances/review-endpoint-utterances.png)](./media/label-suggested-utterances/review-endpoint-utterances.png#lightbox)
 
-해당 의도에 동의하는 경우 확인 표시를 선택합니다. 제안에 동의하지 않는 경우, 맞춤 의도 드롭다운 목록에서 올바른 의도를 선택한 다음, 맞춤 의도 오른쪽에 있는 확인 표시를 선택합니다. 확인 표시를 선택한 후 발화는 의도로 이동되고 **엔드포인트 발화 검토** 목록에서 제거됩니다.
+예측 의도 및 엔터티에 동의하는 경우 발화 옆에 있는 확인 표시를 선택합니다. 확인 표시를 사용하지 않도록 설정하면 확인할 내용이 없음을 의미합니다.  
+제안된 의도에 동의하지 않는 경우 예측 의도 드롭다운 목록에서 올바른 의도를 선택합니다. 제안된 엔터티에 동의하지 않는 경우 레이블을 지정합니다.
+완료되면 발화 옆에 있는 확인 표시를 선택하여 레이블이 지정된 항목을 확인합니다. **발화 저장** 을 선택하여 검토 목록에서 이동하고 해당 의도를 추가합니다.
 
 > [!TIP]
 > 의도 세부 정보 페이지로 이동하여 **엔드포인트 발화 검토** 목록에서 모든 예제 발화의 엔터티 예측을 검토하고 수정해야 합니다.
@@ -61,7 +63,8 @@ LUIS 포털을 사용하여 올바른 엔드포인트 쿼리를 생성합니다.
 
 ## <a name="disable-active-learning"></a>활성 학습 사용 안 함
 
-활성 학습을 사용하지 않도록 설정하려면 사용자 쿼리를 기록하지 않습니다. 이렇게 하려면 `log=false` 쿼리 문자열 매개 변수 및 값을 사용하여 [엔드포인트 쿼리](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint)를 설정하거나 기본값이 false이므로 쿼리 문자열 값을 사용하지 않습니다.
+활성 학습을 사용하지 않도록 설정하려면 사용자 쿼리를 기록하지 않습니다. 위와 같이 쿼리 매개 변수를 변경하거나 엔드포인트 쿼리에서 `log=false` 매개 변수를 설정하여 수행하거나, 기본값이 `false`이므로 `log` 매개 변수를 생략할 수 있습니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

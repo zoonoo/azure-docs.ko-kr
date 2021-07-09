@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7108ee956c18fbcc150b56cbcb8ae1c69841dda4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d44e73b7d4c2988fb26c947100faac2ebcbe8f8f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102198590"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474615"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Azure Digital Twins 인스턴스 및 인증 설정(CLI)
 
@@ -21,11 +21,10 @@ ms.locfileid: "102198590"
 이 문서에서는 인스턴스를 만들고 인증을 설정하는 등 **새 Azure Digital Twins 인스턴스를 설정** 하는 단계에 대해 설명합니다. 이 문서를 완료한 후에는 Azure Digital Twins 인스턴스에 대한 프로그래밍을 시작할 수 있습니다.
 
 이 문서의 버전은 CLI를 사용하여 이러한 단계를 하나씩 수동으로 진행합니다.
-* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 이 문서의 포털 버전 [*방법: 인스턴스 및 인증 설정(포털)* ](how-to-set-up-instance-portal.md)을 참조하세요.
-* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 이 문서의 스크립팅된 버전 [*방법: 인스턴스 및 인증 설정(스크립팅됨)* ](how-to-set-up-instance-scripted.md)을 참조하세요.
+* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 이 문서의 포털 버전 [방법: 인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md) 을 참조하세요.
+* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 이 문서의 스크립팅된 버전 [방법: 인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md) 을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -39,20 +38,20 @@ ms.locfileid: "102198590"
     ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
-* 배포 지역. Azure Digital Twins를 지원하는 지역을 확인하려면 [*지역별 사용 가능한 Azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
+* 배포 지역. Azure Digital Twins를 지원하는 지역을 확인하려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
 * 인스턴스의 이름. 이미 지정된 이름을 사용하고 있는 지역에 다른 Azure Digital Twins 인스턴스가 있는 구독의 경우 다른 이름을 선택하라는 메시지가 표시됩니다.
 
 다음 명령의 값을 사용하여 인스턴스를 만듭니다.
 
 ```azurecli-interactive
-az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
+az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
 ```
 
 ### <a name="verify-success-and-collect-important-values"></a>성공 확인 및 중요한 값 수집
 
 인스턴스가 성공적으로 만들어지면 Cloud Shell에 다음과 같이 결과가 표시되어 사용자가 만든 리소스에 대한 정보를 출력합니다.
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 명령 창":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Azure Portal 리소스 그룹 및 Azure Digital Twins 인스턴스를 성공적으로 만든 Cloud Shell 창의 스크린샷.":::
 
 출력에서 Azure Digital Twins 인스턴스의 **hostName**, **name** 및 **resourceGroup** 을 확인합니다. 이 값은 모두 Azure Digital Twins 인스턴스를 계속 사용하여 인증을 설정하고 관련 Azure 리소스를 설정하는 데 필요할 수 있는 중요한 값입니다. 다른 사용자가 인스턴스에 대한 프로그래밍을 수행하는 경우 다른 사용자와 이 값을 공유해야 합니다.
 
@@ -64,6 +63,14 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 ## <a name="set-up-user-access-permissions"></a>사용자 액세스 권한 설정
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+### <a name="prerequisites-permission-requirements"></a>필수 조건: 권한 요구 사항
+
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
+### <a name="assign-the-role"></a>역할 할당
+
+사용자에게 Azure Digital Twins 인스턴스를 관리할 수 있는 권한을 부여하려면 인스턴스 내에서 **Azure Digital Twins 데이터 소유자** 역할을 할당해야 합니다.
 
 다음 명령을 사용하여 역할을 할당합니다(Azure 구독에 [충분한 권한](#prerequisites-permission-requirements)이 있는 사용자가 실행해야 함). 이 명령을 사용하려면 역할을 할당해야 하는 사용자에 대한 Azure AD 계정의 *사용자 주체 이름* 을 전달해야 합니다. 대부분의 경우 이는 Azure AD 계정의 사용자 이메일과 일치합니다.
 
@@ -80,7 +87,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 >
 > [Azure Active Directory 사용자의 Azure Portal 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers)를 사용하여 사용자 계정을 선택하고 세부 정보를 엽니다. 사용자의 *ObjectID* 를 복사합니다.
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="'개체 ID' 필드에서 GUID를 강조 표시하는 Azure Portal의 사용자 페이지 보기" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="'개체 ID' 필드에서 GUID를 강조 표시하는 Azure Portal의 사용자 페이지 스크린샷." lightbox="media/includes/user-id.png":::
 >
 > 그런 다음. 위의 `assignee` 매개 변수에 대한 사용자의 *개체 ID* 를 사용하여 역할 할당 목록 명령을 반복합니다.
 
@@ -93,8 +100,8 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins CLI 명령을 사용하여 인스턴스에서 개별 REST API 호출을 테스트합니다. 
-* [az dt reference](/cli/azure/ext/azure-iot/dt)
-* [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [개념: Azure Digital Twins CLI 명령 집합](concepts-cli.md)
 
 또는 인증 코드를 사용하여 인스턴스에 클라이언트 애플리케이션을 연결하는 방법을 참조하세요.
-* [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)
+* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 05/19/2021
 ms.author: aahi
-ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e8ce559b180169468a5c53e5aa1d742dd4cdfc83
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104599173"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110450878"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>자습서: Text Analytics Cognitive Service와 Power BI 통합
 
@@ -219,20 +219,21 @@ Microsoft Azure에서 제공하는 Cognitive Services 중 하나인 Text Analyti
 
 이러한 두 API는 핵심 구 API와 비슷합니다. 즉, 이 자습서에서 만든 것과 거의 같은 사용자 지정 함수를 사용하여 두 API를 Power BI Desktop과 통합할 수 있습니다. 앞에서 했던 것처럼 빈 쿼리를 만들고 아래에서 적절한 코드를 [고급 편집기]에 붙여넣으면 됩니다. (액세스 키를 잊지 마세요!) 그런 다음, 앞에서 했던 것처럼 함수를 사용하여 테이블에 새 열을 추가합니다.
 
-아래의 감정 분석 함수는 텍스트에 표현된 감정이 얼마나 긍정적인지를 나타내는 점수를 반환합니다.
+아래의 감정 분석 함수는 텍스트에 표현된 감정이 얼마나 긍정적인지를 나타내는 레이블을 반환합니다.
 
 ```fsharp
-// Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
+// Returns the sentiment label of the text, for example, positive, negative or mixed.
 (text) => let
-    apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.0/sentiment",
-    jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
-    jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
-    bytesbody   = Text.ToBinary(jsonbody),
-    headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
-    bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
-    jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
+    apikey = "YOUR_API_KEY_HERE",
+    endpoint = "<your-custom-subdomain>.cognitiveservices.azure.com" & "/text/analytics/v3.1-preview.5/sentiment",
+    jsontext = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
+    jsonbody = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
+    bytesbody = Text.ToBinary(jsonbody),
+    headers = [#"Ocp-Apim-Subscription-Key" = apikey],
+    bytesresp = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
+    jsonresp = Json.Document(bytesresp),
+    sentiment   = jsonresp[documents]{0}[sentiment] 
+    in sentiment
 ```
 
 두 가지 버전의 언어 검색 함수가 있습니다. 첫 번째는 ISO 언어 코드(예: 영어를 나타내는 `en`)를 반환하고, 두 번째는 “친숙한” 이름(예: `English`)을 반환합니다. 두 버전에서 본문의 마지막 줄만 다른 것을 확인할 수 있습니다.

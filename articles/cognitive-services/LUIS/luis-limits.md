@@ -4,13 +4,13 @@ description: 이 문서에는 Azure Cognitive Services Language Understanding(LU
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 06/04/2020
-ms.openlocfilehash: 41423ce34a62dfdbd5b9a60f683a2366a94d1bfd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/26/2021
+ms.openlocfilehash: 00b218908242b27e7276a18a490250a0db34d57a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "97976795"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954194"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 제한
 LUIS에는 여러 제한 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 제한](#model-limits)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 제한 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-glossary.md#endpoint) API 간의 [세계 지역 매핑](luis-reference-regions.md)입니다.
@@ -30,7 +30,7 @@ LUIS에는 여러 제한 영역이 있습니다. 첫 번째는 LUIS에서 의도
 | 외부 엔터티 | 제한 없음. |
 | [의도][intents]|애플리케이션당 500개: 499개의 사용자 지정 의도와 필수 _None_ 의도.<br>[디스패치 기반](https://aka.ms/dispatch-tool) 애플리케이션에는 해당 디스패치 원본 500개가 있습니다.|
 | [엔터티 나열](./luis-concept-entity-types.md) | 부모: 50, 자식: 20,000개 항목 정식 이름은 *기본 문자 최댓값입니다. 동의어 값에는 길이 제한이 없습니다. |
-| [기계 학습 엔터티 + 역할](./luis-concept-entity-types.md):<br> 복합,<br>단순,<br>엔터티 역할|100개 부모 엔터티 또는 330개 엔터티의 제한, 사용자가 먼저 도달하는 제한. 역할은 이 제한의 목적에 대한 엔터티로 계산됩니다. 예를 들어 단순 엔터티가 포함된 복합 엔터티에 2개의 역할이 있는 경우는 복합 1 + 단순 1 + 역할 2 = 330개 엔터티 중 4개가 됩니다.<br>하위 엔터티는 수준당 최대 10개의 자식을 포함하여 최대 5개 수준까지 중첩될 수 있습니다.|
+| [기계 학습 엔터티 + 역할](./luis-concept-entity-types.md):<br> 복합,<br>단순,<br>엔터티 역할|100개 부모 엔터티 또는 330개 엔터티의 제한, 사용자가 먼저 도달하는 제한. 역할은 이 제한의 목적에 대한 엔터티로 계산됩니다. 예를 들어 단순 엔터티가 포함된 복합 엔터티에 2개의 역할이 있는 경우는 복합 1 + 단순 1 + 역할 2 = 330개 엔터티 중 4개가 됩니다.<br>하위 엔터티는 수준당 최대 20개의 자식을 포함하여 최대 5개 수준까지 중첩될 수 있습니다.|
 |기능으로서의 모델| 특정 모델의 기능으로 사용할 수 있는 최대 모델 수는 10개입니다. 특정 모델의 기능으로 사용되는 최대 구문 목록 수는 10개입니다.|
 | [미리 보기 - 동적 목록 엔터티](./luis-migration-api-v3.md)|쿼리 예측 엔드포인트 요청당 최대 1k의 두 목록|
 | [패턴](luis-concept-patterns.md)|애플리케이션당 500개 패턴.<br>패턴의 최대 길이는 400자입니다.<br>패턴당 3개의 Pattern.any 엔터티<br>패턴에 최대 2개의 선택적 중첩 텍스트|
@@ -80,7 +80,6 @@ Azure Portal에서 리소스를 필터링할 때 _종류_(`LUIS.Authoring`)를 �
 
 |작성 리소스|작성 TPS|
 |--|--|
-|Starter|100만/월, 5/초|
 |F0 - 무료 계층 |100만/월, 5/초|
 
 * TPS - 초당 트랜잭션 수
@@ -117,7 +116,7 @@ Azure Portal에서 리소스를 필터링할 때 _종류_(`LUIS`)를 사용합�
 로그인 액세스는 **60분** 동안 가능합니다. 이 기간이 지나면 이 오류가 표시됩니다. 다시 로그인해야 합니다.
 
 [luis-get-started-create-app]: ./luis-get-started-create-app.md
-[batch-testing]: ./luis-concept-test.md#batch-testing
+[batch-testing]: ./luis-interactive-test.md#batch-testing
 [intents]: ./luis-concept-intent.md
 [phrase-list]: ./luis-concept-feature.md
 [utterances]: ./luis-concept-utterance.md

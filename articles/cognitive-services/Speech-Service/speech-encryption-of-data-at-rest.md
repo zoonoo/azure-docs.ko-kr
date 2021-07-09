@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: aa0fe33dff0161767b74546aad49003d8fc70c16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 3e2f4cbdf7f84f7b6cbd749225a2e0f7ed60cdd5
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95015259"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202878"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>미사용 데이터의 Speech Service 암호화
 
@@ -34,6 +34,8 @@ Custom Speech 및 Custom Voice를 사용하는 경우 Speech Service는 클라�
 기본적으로 데이터는 Microsoft 스토리지에 저장되며 구독은 Microsoft에서 관리하는 암호화 키를 사용합니다. 스토리지 계정을 직접 준비할 수도 있습니다. 저장소에 대한 액세스는 관리 ID에 의해 관리되며 Speech Service는 음성 추적 데이터, 사용자 지정 학습 데이터 및 사용자 지정 모델과 같은 자체 데이터에 직접 액세스할 수 없습니다.
 
 관리 ID에 대한 자세한 내용은 [관리 ID란?](../../active-directory/managed-identities-azure-resources/overview.md)을 참조하세요.
+
+한편 사용자 지정 명령을 사용할 때는 사용자 고유의 암호화 키를 사용하여 구독을 관리할 수 있습니다. CMK(고객 관리 키)(BYOK(Bring Your Own Key)라고도 함)를 사용하여 훨씬 더 유연하게 액세스 제어를 만들고, 회전하고, 해제하고, 취소할 수 있습니다. 데이터를 보호하는 데 사용되는 암호화 키를 감사할 수도 있습니다. 사용자 지정 명령 및 CMK에 대한 자세한 내용은 [사용자 지정 명령 미사용 데이터 암호화](custom-commands-encryption-of-data-at-rest.md)를 참조하세요.
 
 ## <a name="bring-your-own-storage-byos-for-customization-and-logging"></a>사용자 지정 및 로깅을 위한 BYOS(Bring Your Own Storage)
 

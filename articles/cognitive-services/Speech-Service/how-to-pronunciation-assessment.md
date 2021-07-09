@@ -12,12 +12,12 @@ ms.date: 01/12/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 2d1b5e490b7c8212e6103e3d169c1b5491d01dde
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: f9f787af8cad8dffa728e29fd3a13defc8e160ca
+ms.sourcegitcommit: bb9a6c6e9e07e6011bb6c386003573db5c1a4810
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167433"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110494872"
 ---
 # <a name="pronunciation-assessment"></a>발음 평가
 
@@ -34,7 +34,7 @@ ms.locfileid: "106167433"
 
 아래 샘플에서 `PronunciationAssessmentConfig`를 만든 다음, `SpeechRecognizer`에 적용합니다.
 
-다음 코드 조각은 앱에서 자동 언어 검색을 사용하는 방법을 보여 줍니다.
+다음 코드 조각은 앱에서 언어 식별을 사용하는 방법을 보여줍니다.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -174,12 +174,12 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 이 표에서는 발음 평가에 대한 구성 매개 변수를 나열합니다.
 
-| 매개 변수 | 설명 | 필수 여부 |
+| 매개 변수 | Description | 필수 여부 |
 |-----------|-------------|---------------------|
 | ReferenceText | 발음이 평가되는 기준 텍스트입니다. | 필수 |
-| GradingSystem | 점수 보정을 위한 지점 시스템입니다. `FivePoint` 시스템은 0~5 부동 소수점 점수를 제공하고 `HundredMark`는 0~100 부동 소수점 점수를 제공합니다. 기본값: `FivePoint`. | Optional |
-| 세분성 | 평가 세분성입니다. 허용되는 값은 전체 텍스트, 단어, 음소 수준에 대한 점수를 표시하는 `Phoneme`, 전체 텍스트 및 단어 수준에 대한 점수를 표시하는 `Word`, 전체 텍스트 수준에 대한 점수만 표시하는 `FullText`입니다. 기본값: `Phoneme`. | Optional |
-| EnableMiscue | 오독(miscue) 계산을 사용합니다. 이를 사용하도록 설정하면 발음된 단어를 참조 텍스트와 비교하여, 비교를 바탕으로 생략/삽입으로 표시합니다. 허용되는 값은 `False` 및 `True`입니다. 기본값: `False`. | Optional |
+| GradingSystem | 점수 보정을 위한 지점 시스템입니다. `FivePoint` 시스템은 0~5 부동 소수점 점수를 제공하고 `HundredMark`는 0~100 부동 소수점 점수를 제공합니다. 기본값: `FivePoint`. | 선택 사항 |
+| 세분성 | 평가 세분성입니다. 허용되는 값은 전체 텍스트, 단어, 음소 수준에 대한 점수를 표시하는 `Phoneme`, 전체 텍스트 및 단어 수준에 대한 점수를 표시하는 `Word`, 전체 텍스트 수준에 대한 점수만 표시하는 `FullText`입니다. 기본값: `Phoneme`. | 선택 사항 |
+| EnableMiscue | 오독(miscue) 계산을 사용합니다. 이를 사용하도록 설정하면 발음된 단어를 참조 텍스트와 비교하여, 비교를 바탕으로 생략/삽입으로 표시합니다. 허용되는 값은 `False` 및 `True`입니다. 기본값: `False`. | 선택 사항 |
 | ScenarioId | 사용자 지정된 지점 시스템을 나타내는 GUID입니다. | Optional |
 
 ### <a name="pronunciation-assessment-result-parameters"></a>발음 평가 결과 매개 변수

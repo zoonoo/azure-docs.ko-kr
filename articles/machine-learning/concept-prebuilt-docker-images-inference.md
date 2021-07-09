@@ -11,12 +11,12 @@ ms.date: 05/25/2021
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
-ms.openlocfilehash: 29e117ef7eb763ddcb4bd903ede84a0c11967a67
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 3bc18e02345915c5446895a9acc5a33bd0b33431
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383010"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746810"
 ---
 # <a name="prebuilt-docker-images-for-inference-preview"></a>유추를 위해 미리 빌드된 Docker 이미지(미리 보기)
 
@@ -33,28 +33,26 @@ ms.locfileid: "110383010"
 * 이미지/컨테이너에 필요한 종속성 및 액세스 권한만 있어야 합니다. 
 * 배포의 유추 프로세스는 루트가 아닌 것으로 실행됩니다.
 
-## <a name="how-can-i-use-prebuilt-images"></a>미리 빌드된 이미지를 어떻게 사용할 수 있나요?
-
-샘플 Notebook을 참조하세요.
-
 ## <a name="list-of-prebuilt-docker-images-for-inference"></a>유추를 위해 미리 빌드된 Docker 이미지 목록 
 
-### <a name="tensorflow"></a>Tensorflow
+* 모든 docker 이미지는 루트가 아닌 사용자로 실행됩니다.
+
+### <a name="tensorflow"></a>TensorFlow
 
 프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
  --- | --- | --- | --- | --- |
  1.15 | CPU | pandas==0.25.1 </br> numpy=1.20.1 | `mcr.microsoft.com/azureml/tensorflow-1.15-ubuntu18.04-py37-cpu-inference:latest`  | AzureML-tensorflow-1.15-ubuntu18.04-py37-cpu-inference | 
-2.4 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/xgboost-0.9-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
+2.4 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cpu-inference |
 2.4 | GPU | numpy >= 1.16.0 </br> pandas~=1.1.x </br> CUDA==11.0.3 </br> CuDNN==8.0.5.39 | `mcr.microsoft.com/azureml/tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference:latest` | AzureML-tensorflow-2.4-ubuntu18.04-py37-cuda11.0.3-gpu-inference |
 
-### <a name="pytorch"></a>Pytorch
+### <a name="pytorch"></a>PyTorch
 
 프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
  --- | --- | --- | --- | --- |
  1.6 | CPU | numpy==1.20.1 </br> pandas==0.25.1 | `mcr.microsoft.com/azureml/pytorch-1.6-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.6-ubuntu18.04-py37-cpu-inference |
 1.7 | CPU | numpy>=1.16.0 </br> pandas~=1.1.x | `mcr.microsoft.com/azureml/pytorch-1.7-ubuntu18.04-py37-cpu-inference:latest` | AzureML-pytorch-1.7-ubuntu18.04-py37-cpu-inference |
 
-### <a name="scikit-learn"></a>Scikit-Learn
+### <a name="scikit-learn"></a>SciKit-Learn
 
 프레임워크 버전 | CPU/GPU | 미리 설치된 패키지 | MCR 경로 | 큐레이팅된 환경
  --- | --- | --- | --- | --- |

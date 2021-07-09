@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 70bf46de072a97eca810dda60a5331df14172ed6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a161df47047ffb92b1557b84e457363ee9d2507c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100555152"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110090085"
 ---
 # <a name="add-tags-to-digital-twins"></a>디지털 트윈에 태그 추가 
 
-태그 개념을 사용하여 디지털 트윈을 추가로 식별하고 분류할 수 있습니다. 특히 사용자는 해당 Azure Digital Twins 인스턴스 내에서 [Haystack Tags](https://project-haystack.org/doc/TagModel)와 같은 기존 시스템의 태그를 복제할 수 있습니다. 
+태그 개념을 사용하여 디지털 트윈을 추가로 식별하고 분류할 수 있습니다. 특히 사용자는 해당 Azure Digital Twins 인스턴스 내에서 [Haystack Tags](https://project-haystack.org/doc/appendix/tags)와 같은 기존 시스템의 태그를 복제할 수 있습니다. 
 
 이 문서에서는 디지털 트윈에서 태그를 구현하는 데 사용할 수 있는 패턴에 대해 설명합니다.
 
@@ -42,17 +42,21 @@ ms.locfileid: "100555152"
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesMarker":::
 
+다음은 [.NET SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)를 사용하여 트윈에 대한 마커 `tags`를 설정하는 방법에 대한 코드 예제입니다.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="TagPropertiesCsharp":::
+
 ### <a name="query-with-marker-tags"></a>표식 태그가 있는 쿼리
 
 태그가 디지털 트윈에 추가되면 태그를 사용하여 쿼리에서 트윈을 필터링할 수 있습니다. 
 
 다음은 "red"로 태그가 지정된 모든 트윈을 가져오는 쿼리입니다. 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 더 복잡한 쿼리에 대한 태그를 결합할 수도 있습니다. 다음은 red가 아니라 round인 모든 트윈을 가져오는 쿼리입니다. 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags2":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags2":::
 
 ## <a name="value-tags"></a>값 태그 
 
@@ -82,16 +86,16 @@ ms.locfileid: "100555152"
 
 위 예에서는 `red`가 표식 태그로 사용됩니다. 이는 "red"로 태그가 지정된 모든 트윈을 가져오는 쿼리입니다. 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerTags1":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerTags1":::
 
 다음은 red가 아니라 small(값 태그)인 모든 엔터티를 가져오는 쿼리입니다. 
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryMarkerValueTags":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="QueryMarkerValueTags":::
 
 ## <a name="next-steps"></a>다음 단계
 
 디지털 트윈 모델 디자인 및 관리에 대해 자세히 알아보기
-* [*방법: DTDL 모델 관리*](how-to-manage-model.md)
+* [방법: DTDL 모델 관리](how-to-manage-model.md)
 
 트윈 그래프 쿼리에 대해 자세히 알아보기
-* [*방법: 트윈 그래프 쿼리*](how-to-query-graph.md)
+* [방법: 트윈 그래프 쿼리](how-to-query-graph.md)
