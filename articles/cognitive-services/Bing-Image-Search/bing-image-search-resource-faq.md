@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: e8502b1d01e0f3fbf5d42e924511cc978690bce4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4e62aa434efade2cb1fa3d82265eb44d523dd869
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "96342195"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773362"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing Image Search API에 관한 FAQ(질문과 대답)
 
@@ -24,7 +24,7 @@ ms.locfileid: "96342195"
 > Cognitive Services를 사용하여 프로비저닝된 Bing Search API는 향후 3년 동안 또는 기업계약이 종료될 때까지(둘 중 먼저 도래할 때까지) 지원됩니다.
 > 마이그레이션 지침은 [Bing Search Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource)를 참조하세요.
 
-Azure에서 Microsoft Cognitive Services용 Bing Image Search API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
+Azure에서 Azure Cognitive Services용 Bing Image Search API와 관련된 개념, 코드 및 시나리오에 대한 일반적인 질문에 대한 대답을 찾습니다.
 
 ## <a name="response-headers-in-javascript"></a>JavaScript에서 응답 헤더
 
@@ -69,7 +69,7 @@ cors-proxy-server
 
 ## <a name="next-steps"></a>다음 단계
 
-없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://cognitive.uservoice.com/forums/555907-bing-search)에서 요청하거나 투표하세요.
+없는 기능 또는 특징에 대해 질문이 있으면 [피드백 도구](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)를 사용하여 요청하거나 투표하는 것이 좋습니다.
 
 ## <a name="see-also"></a>참고 항목
 

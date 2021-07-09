@@ -1,20 +1,20 @@
 ---
-title: Cosmos DB용 Azure Monitor를 사용하여 Azure Cosmos DB 모니터링 | Microsoft Docs
-description: 이 문서에서는 Cosmos DB 소유자가 CosmosDB 계정의 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Cosmos DB용 Azure Monitor 기능에 대해 설명합니다.
+title: Azure Monitor Cosmos DB 인사이트를 사용하여 Azure Cosmos DB 모니터링 | Microsoft Docs
+description: 이 문서에서는 Cosmos DB 소유자가 CosmosDB 계정의 성능 및 사용 문제를 신속하게 이해하도록 도와주는 Azure Monitor의 Cosmos DB 인사이트 기능에 대해 설명합니다.
 author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b6666e43e1dc3461bf7e0cc5849d26c1a8fef70e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101725803"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110095089"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 살펴보기
+# <a name="explore-azure-monitor-cosmos-db-insights"></a>Azure Monitor Cosmos DB 인사이트 살펴보기
 
-Azure Cosmos DB용 Azure Monitor는 통합 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여줍니다. 이 문서는 새로운 모니터링 환경의 이점과 조직의 고유한 요구 사항에 맞게 환경을 수정하고 조정 하는 방법을 이해하는 데 도움이 됩니다.   
+Cosmos DB 인사이트에서 모든 Azure Cosmos DB 리소스의 전체 성능, 실패, 용량 및 운영 상태를 보여 줍니다. 이 문서는 새로운 모니터링 환경의 이점과 조직의 고유한 요구 사항에 맞게 환경을 수정하고 조정 하는 방법을 이해하는 데 도움이 됩니다.   
 
 ## <a name="introduction"></a>소개
 
@@ -147,7 +147,7 @@ Azure Cosmos DB 리소스 중 하나의 옆에 있는 드롭다운 화살표를 
 
 ![통합 문서 확장 아이콘](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB용 Azure Monitor 사용자 지정
+## <a name="customize-cosmos-db-insights"></a>Cosmos DB 인사이트 사용자 지정
 
 이 환경은 Azure Monitor 통합 문서 템플릿을 기반으로 구축되었으므로 수정된 버전의 복사본을 **사용자 지정** > **편집** 및 사용자 지정 통합 문서에 **저장** 하는 기능을 제공합니다. 
 

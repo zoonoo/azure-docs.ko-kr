@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1fcf8c681f4fad65209c27663045d4974be633f7
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: bfd3429531f1473e099e3296ebfebd50c6d4d864
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107833253"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787916"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -314,7 +314,7 @@ ms.locfileid: "107833253"
 <details>
 <summary>HTTP 404(찾을 수 없음) 오류가 발생합니다.</summary>
 <ul>
-<li>구성된 사용자 지정 도메인에 A 레코드 또는 CNAME 레코드가 없습니다.</li>
+<li>구성된 사용자 지정 도메인에 A 레코드 또는 CNAME 레코드가 없습니다.  DNS 레코드가 <a href="https://www.nslookup.io/">온라인 DNS 조회</a> 도구를 사용하여 노출되는지 확인합니다.</li>
 <li>브라우저 클라이언트가 도메인의 이전 IP 주소를 캐시했습니다. 캐시 및 테스트 DNS 확인을 다시 지웁니다. Windows 컴퓨터에서 캐시를 <code>ipconfig /flushdns</code>로 지웁니다.</li>
 </ul>
 </details>

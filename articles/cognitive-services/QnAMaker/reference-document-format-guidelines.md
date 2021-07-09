@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
-ms.openlocfilehash: 40b9d9e665aacf3024e409ef6bf1b5596ad28ca9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 53baa580d2f2c68fa32f38bddb07b5d9e362d190
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372541"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110787752"
 ---
 # <a name="format-guidelines-for-imported-documents-and-urls"></a>가져오는 문서 및 URL에 대한 형식 지침
 
@@ -92,7 +92,7 @@ Answer2
 
 ### <a name="structured-txt-tsv-and-xls-files"></a>구조화된 *TXT*, *TSV* 및 *XLS* 파일
 
-또한 구조화된 *.txt*, *.tsv* 또는 *.xls* 파일 양식의 QnA를 QnA Maker에 업로드하여 기술 자료를 만들거나 보강할 수 있습니다.  이러한 자료는 일반 텍스트일 수도 있고, RTF 또는 HTML 콘텐츠를 가질 수도 있습니다.
+또한 구조화된 *.txt*, *.tsv* 또는 *.xls* 파일 양식의 QnA를 QnA Maker에 업로드하여 기술 자료를 만들거나 보강할 수 있습니다.  이러한 자료는 일반 텍스트일 수도 있고, RTF 또는 HTML 콘텐츠를 가질 수도 있습니다. [QnA 쌍](./How-To/edit-knowledge-base.md#question-and-answer-pairs)에는 QnA 쌍을 범주별로 그룹화하는 데 사용할 수 있는 선택적 메타데이터 필드가 있습니다.
 
 | 질문  | Answer  | 메타데이터(1개 키: 1개 값) |
 |-----------|---------|-------------------------|
@@ -122,7 +122,7 @@ Answer2
 
 ### <a name="structured-data-format-through-import"></a>가져오기를 통한 구조화된 데이터 형식
 
-기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다.
+기술 자료를 가져오면 기존 기술 자료의 콘텐츠가 바뀝니다. 가져오기에는 데이터 원본 정보를 포함하는 구조화된 .tsv 파일이 필요합니다. 이 정보는 QnA Maker가 질문-답변 쌍을 그룹화하고 특정 데이터 원본에 귀속하는 데 도움이 됩니다. [QnA 쌍](./How-To/edit-knowledge-base.md#question-and-answer-pairs)에는 QnA 쌍을 범주별로 그룹화하는 데 사용할 수 있는 선택적 메타데이터 필드가 있습니다.
 
 | 질문  | Answer  | 원본| 메타데이터(1개 키: 1개 값) |
 |-----------|---------|----|---------------------|

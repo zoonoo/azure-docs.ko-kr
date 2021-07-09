@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/22/2020
+ms.date: 06/09/2021
 ms.author: victorh
-ms.openlocfilehash: 0e3073c491b251a1dbb505d4656de9c6a1e0ac7f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7e0cc01d15e33e86f7e9446537fff6d43652256
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048496"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892857"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Front Door의 Azure 웹 애플리케이션 방화벽
 
@@ -71,11 +71,11 @@ WAF 정책은 두 가지 유형의 보안 규칙으로 구성될 수 있습니�
 
 - **HTTP 매개 변수 기반 액세스 제어:** HTTP/HTTPS 요청 매개 변수에서 문자열 일치를 기반으로 규칙을 만들 수 있습니다.  예:쿼리 문자열, POST 인수, 요청 URI, 요청 헤더 및 요청 본문.
 
-- **요청 메서드 기반 액세스 제어:** 요청의 HTTP 요청 메서드에 대한 규칙을 기반으로 합니다. 예: GET, PUT, 또는 HEAD.
+- **요청 메서드 기반 액세스 제어**: 요청의 HTTP 요청 메서드에 대한 규칙을 기반으로 합니다. 예: GET, PUT, 또는 HEAD.
 
 - **크기 제약 조건:** 쿼리 문자열, URI 또는 요청 본문과 같은 요청의 특정 부분 길이를 기반으로 규칙을 만들 수 있습니다.
 
-- **속도 제한 규칙:** 속도 제어 규칙은 모든 클라이언트 IP에서 오는 비정상적으로 높은 트래픽을 제한하는 것입니다. 1분 동안 클라이언트 IP에서 허용하는 웹 요청 수에 대한 임계값을 구성할 수 있습니다. 이 규칙은 클라이언트 IP의 모든 요청을 허용하거나 차단하는 IP 목록 기반 허용/차단 사용자 지정 규칙과는 다릅니다. 속도 제한은 세부적인 속도 제어를 위해 HTTP(S) 매개 변수 일치와 같은 추가 일치 조건과 결합할 수 있습니다.
+- **속도 제한 규칙**: 속도 제어 규칙은 모든 클라이언트 IP 주소에서 오는 비정상적으로 높은 트래픽을 제한합니다. 1분 동안 클라이언트 IP에서 허용하는 웹 요청 수에 대한 임계값을 구성할 수 있습니다. 이 규칙은 클라이언트 IP의 모든 요청을 허용하거나 차단하는 IP 목록 기반 허용/차단 사용자 지정 규칙과는 다릅니다. 속도 제한은 세부적인 속도 제어를 위해 HTTP(S) 매개 변수 일치와 같은 추가 일치 조건과 결합할 수 있습니다.
 
 ### <a name="azure-managed-rule-sets"></a>Azure 관리형 규칙 세트
 
@@ -91,14 +91,10 @@ Azure 관리형 규칙 세트는 일반적인 보안 위협에 대한 보호를 
 - SQL 삽입 공격 보호
 - 프로토콜 공격자
 
-새로운 공격 서명이 규칙 세트에 추가되면 기본 규칙 세트의 버전 번호가 증가합니다.
-기본 규칙 세트는 WAF 정책의 감지 모드에서 기본적으로 사용하도록 설정됩니다. 기본 규칙 세트 내에서 개별 규칙을 사용하지 않거나 사용하도록 설정하여 애플리케이션 요구 사항을 충족할 수 있습니다. 규칙별로 특정 작업(허용/차단/리디렉션/로그)을 설정할 수도 있습니다.
-
-경우에 따라 WAF 평가에서 특정 요청 특성을 생략해야 할 수도 있습니다. 일반적인 예제로는 인증에 사용되는 Active Directory 삽입 토큰이 있습니다. 관리되는 규칙, 규칙 그룹 또는 전체 규칙 세트에 대한 제외 목록을 구성할 수 있습니다.  
-
-기본 작업은 차단하는 것입니다. 또한 기본 규칙 세트에서 미리 구성된 규칙을 무시하려는 경우 동일한 WAF 정책에서 사용자 지정 규칙을 구성할 수 있습니다.
-
 사용자 지정 규칙은 항상 기본 규칙 세트의 규칙을 평가하기 전에 적용됩니다. 요청이 사용자 지정 규칙과 일치하면 해당 규칙 동작이 적용됩니다. 요청이 차단되거나 백 엔드로 전달됩니다. 다른 사용자 지정 규칙이나 기본 규칙 세트의 규칙은 처리되지 않습니다. WAF 정책에서 기본 규칙 세트를 제거할 수도 있습니다.
+
+자세한 내용은 [Web Application Firewall DRS 규칙 그룹 및 규칙](waf-front-door-drs.md)을 참조하세요.
+
 
 ### <a name="bot-protection-rule-set-preview"></a>봇 보호 규칙 세트(미리 보기)
 

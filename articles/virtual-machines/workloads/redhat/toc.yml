@@ -8,8 +8,16 @@
       href: redhat-imagelist.md
 - name: Red Hat Java 빠른 시작
   items:
-    - name: VM/VMSS의 JBoss EAP + RHEL
+    - name: VM의 JBoss EAP + RHEL
       href: jboss-eap-on-rhel.md
+    - name: JBoss EAP 마켓플레이스 이미지
+      href: jboss-eap-marketplace-image.md
+    - name: Azure의 JBoss EAP 모범 사례
+      href: jboss-eap-on-azure-best-practices.md
+    - name: JBoss EAP를 Azure VM으로 마이그레이션
+      href: jboss-eap-on-azure-migration.md
+    - name: JBoss EAP를 App Service로 마이그레이션
+      href: /azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service.md
     - name: VM의 WildFly + CentOS
       href: wildfly-on-centos.md
 - name: Azure의 Red Hat 업데이트 인프라

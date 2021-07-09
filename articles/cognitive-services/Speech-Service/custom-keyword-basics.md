@@ -12,12 +12,12 @@ ms.date: 11/03/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: keyword-quickstart
-ms.openlocfilehash: 49ac70b6881085f48c8bc3a12e31e4a1aa220c6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a1ec49ca9ee9d0adcbae97eae2e4093274a524c6
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "95021952"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110099643"
 ---
 # <a name="get-started-with-custom-keyword"></a>사용자 지정 키워드 시작
 
@@ -39,7 +39,7 @@ ms.locfileid: "95021952"
 
 1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 **새 프로젝트** 를 만듭니다. 
 
-1. **이름**, **설명**(선택 사항)을 입력하고 언어를 선택합니다. 언어당 하나의 프로젝트가 필요하며, 현재는 `en-US` 언어만 지원됩니다.
+1. **이름**, **설명**(선택 사항)을 입력하고 언어를 선택합니다. 언어당 하나의 프로젝트가 필요하며 현재는 영어(미국) 및 중국어(북경어, 간체)로 지원됩니다.
 
     ![키워드 프로젝트 설명](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -49,7 +49,7 @@ ms.locfileid: "95021952"
 
 1. 새 키워드 모델을 만들려면 **모델 학습** 을 클릭합니다.
 
-1. 모델 **이름**, **설명**(선택 사항) 및 선택한 **키워드** 를 입력하고 **다음** 을 클릭합니다. 효과적인 키워드 선택에 대한 [지침](./custom-keyword-overview.md#choose-an-effective-keyword)을 참조하세요.
+1. 모델 **이름**, **설명**(선택 사항) 및 선택한 **키워드** 를 입력하고 **다음** 을 클릭합니다. 효과적인 키워드 선택에 대한 [지침](keyword-recognition-guidelines.md#choosing-an-effective-keyword)을 참조하세요.
 
     ![키워드 입력](media/custom-keyword/custom-kws-portal-new-model.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "95021952"
 
 1. 다운로드한 파일은 `.zip` 압축 파일입니다. 압축 파일을 추출하면 확장명이 `.table`인 파일이 표시됩니다. 이 파일은 다음 섹션에서 SDK와 함께 사용되므로 해당 경로를 적어 둡니다. 파일 이름은 키워드 이름과 비슷합니다. 예를 들어 **Activate device** 라는 키워드의 파일 이름은 `Activate_device.table`입니다.
 
-## <a name="use-a-keyword-model-with-the-sdk"></a>SDK와 함께 키워드 모델 사용
+## <a name="use-a-keyword-model-with-the-speech-sdk"></a>Speech SDK와 함께 키워드 모델 사용
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# Basics include](includes/how-to/keyword-recognition/keyword-basics-csharp.md)]
@@ -79,4 +79,5 @@ ms.locfileid: "95021952"
 
 ## <a name="next-steps"></a>다음 단계
 
-[Speech Devices SDK 빠른 시작](./speech-devices-sdk-quickstart.md?pivots=platform-android)을 사용하여 사용자 지정 키워드를 테스트합니다.
+> [!div class="nextstepaction"]
+> [Speech SDK 가져오기](speech-sdk.md)

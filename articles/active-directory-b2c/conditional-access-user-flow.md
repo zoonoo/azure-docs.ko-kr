@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/06/2021
+ms.date: 05/13/2021
 ms.custom: project-no-code
 ms.author: mimart
 author: msmimart
 manager: celested
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 3214069f68233fb3cb4facc08a409f4b1e05222a
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 248aa55a05267f7cbabae0c0c4b7a69b6a3837b4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654871"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110060863"
 ---
 # <a name="add-conditional-access-to-user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 흐름에 조건부 액세스 추가
 
@@ -27,8 +27,6 @@ ms.locfileid: "109654871"
 ![조건부 액세스 흐름](media/conditional-access-user-flow/conditional-access-flow.png)
 
 정책 조건으로 위험 평가를 자동화하면 위험한 로그인을 즉시 식별하여 수정하거나 차단할 수 있습니다.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="service-overview"></a>서비스 개요
 
@@ -56,12 +54,12 @@ ID 보호 신호가 제대로 평가되도록 하기 위해 [로컬 및 소셜 �
 
 수정은 다른 채널을 통해 발생할 수도 있습니다. 예를 들어, 관리자 또는 사용자가 계정의 암호를 재설정하는 경우입니다. [위험한 사용자 보고서](identity-protection-investigate-risk.md#navigating-the-risky-users-report)에서 사용자 *위험 상태* 를 확인할 수 있습니다.
 
+::: zone pivot="b2c-custom-policy"
+
 > [!IMPORTANT]
 > 위험을 성공적으로 수정하려면 *평가* 기술 프로필이 실행된 후 *수정* 기술 프로필이 호출되는지 확인합니다. *수정* 없이 *평가* 가 호출되면 위험 상태가 *위험* 이 됩니다.
 
 *평가* 기술 프로필 권장 사항이 `Block`을 반환하면 *평가* 기술 프로필의 호출이 필요하지 않습니다. 위험 상태는 *위험* 으로 설정됩니다.
-
-::: zone pivot="b2c-custom-policy"
 
 다음 예에서는 식별된 위협을 수정하는 데 사용되는 조건부 액세스 기술 프로필을 보여 줍니다.
 
@@ -127,7 +125,7 @@ Azure AD 조건부 액세스를 사용하는 경우 다음 사항을 고려합�
 조건부 액세스 정책을 추가하려면:
 
 1. Azure Portal에서 **Azure AD B2C** 를 검색하고 선택합니다.
-1. **보안** 아래에서 **조건부 액세스(미리 보기)** 를 선택합니다. **조건부 액세스 정책** 페이지가 열립니다.
+1. **보안** 아래에서 **조건부 액세스** 를 선택합니다. **조건부 액세스 정책** 페이지가 열립니다.
 1. **+ 새 정책** 을 선택합니다.
 1. 정책 이름(예: *위험한 로그인 차단*)을 입력합니다.
 1. **할당** 아래에서 **사용자 및 그룹** 을 선택하고 다음 지원되는 구성 중 하나를 선택합니다.
@@ -237,11 +235,17 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
 
 ## <a name="enable-multi-factor-authentication-optional"></a>다단계 인증 사용(선택 사항)
 
-사용자 흐름에 조건부 액세스를 추가할 때 **MFA(다단계 인증)** 를 사용하는 것이 좋습니다. 사용자는 SMS 또는 음성을 통해 일회용 코드를 사용하거나, 다단계 인증을 위해 이메일을 통해 일회용 암호를 사용할 수 있습니다. MFA 설정은 조건부 액세스 설정과 독립적입니다. 다음 MFA 옵션 중에서 선택할 수 있습니다.
+사용자 흐름에 조건부 액세스를 추가할 때 **MFA(다단계 인증)** 를 사용하는 것이 좋습니다. 사용자는 SMS 또는 음성을 통해 일회용 코드를 사용하거나, 다단계 인증을 위해 이메일을 통해 일회용 암호를 사용할 수 있습니다. MFA 설정은 조건부 액세스 설정과 별도로 구성됩니다. 다음 MFA 옵션 중에서 선택할 수 있습니다.
 
-   - **꺼짐** -MFA는 로그인 중에 적용되지 않으며 등록 또는 로그인하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시되지 않습니다.
-   - **항상 설정됨** - 조건부 액세스 설정에 관계없이 MFA가 항상 필요합니다. 사용자가 아직 MFA에 등록하지 않은 경우 로그인하는 동안 등록하라는 메시지가 표시됩니다. 등록하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시됩니다.
-   - **조건부(미리 보기)** - 활성 조건부 액세스 정책이 필요한 경우에만 MFA가 필요합니다. 조건부 액세스 평가 결과가 위험 없는 MFA 챌린지이면 로그인 중에 MFA가 적용됩니다. 위험 *및* MFA에 등록하지 않은 사용자로 인해 결과가 MFA 챌린지이면 로그인이 차단됩니다. 등록하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시되지 않습니다.
+- **꺼짐** -MFA는 로그인 중에 적용되지 않으며 등록 또는 로그인하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시되지 않습니다.
+- **Always On** - 조건부 액세스 설정에 관계없이 MFA가 항상 필요합니다. 등록하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시됩니다. 로그인하는 동안 사용자가 아직 MFA에 등록하지 않은 경우 등록하라는 메시지가 표시됩니다.
+- **조건부** - 등록 및 로그인하는 동안 사용자에게 MFA에 등록하라는 메시지가 표시됩니다(새 사용자와 MFA에 등록되지 않은 기존 사용자 모두). 로그인하는 동안 MFA는 활성 조건부 액세스 정책 평가에 필요한 경우에만 적용됩니다.
+
+   - 결과가 위험이 없는 MFA 체인지인 경우 MFA가 적용됩니다. 사용자가 MFA에 아직 등록되지 않은 경우 등록하라는 메시지가 표시됩니다.
+   - 위험 *및* MFA에 등록하지 않은 사용자로 인해 결과가 MFA 챌린지이면 로그인이 차단됩니다.
+
+   > [!NOTE]
+   > Azure AD B2C에서 조건부 액세스가 일반 공급됨에 따라 이제 사용자에게 등록하는 동안 MFA 메서드에 등록하라는 메시지가 표시됩니다. 일반 공급 이전에 만든 등록 사용자 흐름은 이 새로운 동작을 자동으로 반영하지 않지만 새 사용자 흐름을 만들어 동작을 포함할 수 있습니다.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -259,9 +263,9 @@ Azure AD 조건부 액세스 정책을 추가한 후 사용자 흐름 또는 사
  
    ![속성에서 MFA 및 조건부 액세스 구성](media/conditional-access-user-flow/add-conditional-access.png)
 
-1. **다단계 인증** 섹션에서 원하는 **방법 유형** 을 선택한 다음, **MFA 적용** 에서 **조건부(미리 보기)** 를 선택합니다.
+1. **다단계 인증** 섹션에서 원하는 **방법 유형** 을 선택한 다음, **MFA 적용** 에서 **조건부** 를 선택합니다.
  
-1. **조건부 액세스(미리 보기)** 섹션에서 **조건부 액세스 정책 적용** 확인란을 선택합니다.
+1. **조건부 액세스** 섹션에서 **조건부 액세스 정책 적용** 확인란을 선택합니다.
 
 1. **저장** 을 선택합니다.
 

@@ -13,12 +13,12 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: cb4995c0c71d0bcebb3cdd8ec471a92b7820cb9d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9ef84b1ac1a1d7f1b1c9c629c4e6eb2606f2441c
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100535164"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854849"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>빠른 시작: 테넌트 설정
 
@@ -69,7 +69,7 @@ Azure AD 테넌트가 아직 없거나 개발을 위한 새 테넌트를 만들�
 새 테넌트를 만들려면 다음 정보를 제공합니다.
 
 - **조직 이름**
-- **초기 도메인** - 이 도메인은 *.onmicrosoft.com의 일부입니다. 나중에 도메인을 사용자 지정할 수 있습니다.
+- **초기 도메인** - 초기 도메인 `<domainname>.onmicrosoft.com`은 편집하거나 삭제할 수 없습니다. 나중에 사용자 지정 도메인 이름을 추가할 수 있습니다.
 - **국가 또는 지역**
 
 > [!NOTE]

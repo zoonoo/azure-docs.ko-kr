@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 04/09/2021
 ms.author: cshoe
-ms.openlocfilehash: 9494bcc9941491bbb82c6a948dce720cb9e51424
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 693a102c988d87dc4ed6ac9f0f4cb2176ec78ca5
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107502286"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112059997"
 ---
 # <a name="configure-azure-static-web-apps"></a>Azure Static Web Apps 구성
 
@@ -26,6 +26,9 @@ Azure Static Web Apps의 구성은 _staticwebapp.config.json_ 파일에 정의�
 - 글로벌 HTTP 헤더 정의
 - 사용자 지정 MIME 형식
 
+> [!NOTE]
+> 이전에 라우팅을 구성하는 데 사용된 [_routes.json_](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated))은 더 이상 사용되지 않습니다. 이 문서에 설명된 대로 _staticwebapp.config.json_ 을 사용하여 정적 웹앱에 대한 라우팅 및 기타 설정을 구성합니다.
+
 ## <a name="file-location"></a>파일 위치
 
 _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-actions-workflow.md)에서 `app_location`으로 설정된 폴더입니다. 하지만 애플리케이션 소스 코드 폴더 내부의 모든 위치에 파일을 배치할 수 있습니다.
@@ -33,7 +36,7 @@ _staticwebapp.config.json_ 의 권장 위치는 [워크플로 파일](./github-a
 자세한 내용은 [예제 구성](#example-configuration-file) 파일을 참조하세요.
 
 > [!IMPORTANT]
-> _staticwebapp.config.json_ 파일이 있는 경우 [ _routes.json_ 파일](./routes.md)은 무시됩니다.
+> _staticwebapp.config.json_ 이 있는 경우 더 이상 사용되지 않는 [_routes.json_ 파일](https://github.com/Azure/static-web-apps/wiki/routes.json-reference-(deprecated))은 무시됩니다.
 
 ## <a name="routes"></a>경로
 

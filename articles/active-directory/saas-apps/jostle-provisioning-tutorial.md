@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2021
 ms.author: Zhchia
-ms.openlocfilehash: 385a61b3bda6c75b6fb87a5655fadb45080b7f08
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: c302f7731c111c0718ac7c4d5889208020cc09a8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108124152"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110067594"
 ---
 # <a name="tutorial-configure-jostle-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Jostle 구성
 
@@ -96,6 +96,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 이 섹션에서는 Azure AD의 사용자 및 그룹 할당에 따라 Jostle 앱에서 사용자 및 그룹을 만들고, 업데이트하고, 사용 해제하도록 Azure AD 프로비저닝 서비스를 구성하는 단계를 안내합니다.
 
+> [!NOTE]
+> Jostle에 대한 자동 사용자 프로비저닝에 대한 자세한 내용은 [User-Provisioning-Azure-Integration](https://forum.jostle.us/hc/en-us/articles/360056368534-User-Provisioning-Azure-Integration)을 참조하세요.
+
 ### <a name="to-configure-automatic-user-provisioning-for-jostle-in-azure-ad"></a>Azure AD에서 Jostle에 대한 자동 사용자 프로비저닝을 구성하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 애플리케이션**, **모든 애플리케이션** 을 차례로 선택합니다.
@@ -106,7 +109,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![애플리케이션 목록의 Jostle 링크](common/all-applications.png)
 
-1. **프로비전** 탭을 선택합니다.
+1. **프로비저닝** 탭을 선택하고 **시작하기** 를 클릭합니다.
 
     ![프로비저닝 탭](common/provisioning.png)
 
@@ -118,13 +121,13 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![토큰](common/provisioning-testconnection-tenanturltoken.png)
 
-1. **알림 이메일** 필드에서 프로비저닝 오류 알림을 받을 사용자 또는 그룹의 이메일 주소를 입력합니다. **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+1. **알림 이메일** 필드에서 프로비저닝 오류 알림을 받을 사용자 또는 그룹의 이메일 주소를 입력합니다. **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다. 하지만 Jostle은 프로비저닝 실패 알림도 보내므로 선택 사항입니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
 1. **저장** 을 선택합니다.
 
-1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Jostle에 동기화** 를 선택합니다.
+1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Jostle에 프로비저닝** 을 선택합니다.
 
 1. **특성 매핑** 섹션에서 Azure AD에서 Jostle로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Jostle의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 Jostle API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. 변경 내용을 커밋하려면 **저장** 을 선택합니다.
 
@@ -147,7 +150,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-1. **설정** 의 **범위** 섹션에서 원하는 값을 선택하여 Jostle에 프로비저닝하려는 사용자 또는 그룹을 정의합니다.
+1. **설정** 섹션의 **범위** 에서 원하는 값을 선택하여 Jostle에 프로비저닝할 사용자 또는 그룹을 정의합니다. Jostle의 경우 **범위** 를 "할당된 사용자 및 그룹만 동기화"로 설정해야 합니다.
 
     ![프로비전 범위](common/provisioning-scope.png)
 

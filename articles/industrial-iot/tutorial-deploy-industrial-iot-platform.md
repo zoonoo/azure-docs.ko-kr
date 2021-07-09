@@ -6,12 +6,12 @@ ms.author: jemorina
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 3/22/2021
-ms.openlocfilehash: 87a7295c785c08fcf3faffc20d34ceef45144848
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 995ee04e913ad4e363045e0aacc295aaec25f3e6
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104787409"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110677929"
 ---
 # <a name="tutorial-deploy-the-azure-industrial-iot-platform"></a>자습서: Azure 산업용 IoT 플랫폼 배포
 
@@ -56,25 +56,27 @@ ms.locfileid: "104787409"
 
 2. 단계별 배포를 시작합니다. 그러면 스크립트에서 필요한 정보(예: Azure 계정, 구독, 대상 리소스 및 그룹/애플리케이션 이름)를 수집합니다.
 
-Windows에서:
-    ```
-    .\deploy
-    ```
+    Windows에서:
+        ```
+        .\deploy -version <version>
+        ```
 
-Linux 또는 Mac에서:
-    ```
-    ./deploy.sh
-    ```
+    Linux 또는 Mac에서:
+        ```
+        ./deploy.sh -version <version>
+        ```
+
+    \<version>을 배포할 버전으로 바꿉니다.
 
 3. 마이크로서비스와 UI는 인증이 필요한 웹 애플리케이션이며, 이를 위해 AAD에 세 개의 앱 등록이 필요합니다. 필요한 권한이 없는 경우 다음 두 가지 방법을 사용할 수 있습니다.
 
-- AAD 관리자에게 애플리케이션에 대한 테넌트 전체 관리자 동의를 요청합니다.
-- AAD 관리자가 AAD 애플리케이션을 만들 수 있습니다. deploy/scripts 폴더에는 배포와 별도로 AAD 등록을 수행하는 aad- register.ps1 스크립트가 포함되어 있습니다. 스크립트 출력은 배포의 일부로 사용할 관련 정보가 포함된 파일이며, - aadConfig 인수를 사용하여 동일한 폴더의 deploy.ps1 스크립트에 전달되어야 합니다.
-    ```bash
-    cd deploy/scripts
-    ./aad-register.ps1 -Name <application-name> -Output aad.json
-    ./deploy.ps1 -aadConfig aad.json
-    ```
+    - AAD 관리자에게 애플리케이션에 대한 테넌트 전체 관리자 동의를 요청합니다.
+    - AAD 관리자가 AAD 애플리케이션을 만들 수 있습니다. deploy/scripts 폴더에는 배포와 별도로 AAD 등록을 수행하는 aad- register.ps1 스크립트가 포함되어 있습니다. 스크립트 출력은 배포의 일부로 사용할 관련 정보가 포함된 파일이며, - aadConfig 인수를 사용하여 동일한 폴더의 deploy.ps1 스크립트에 전달되어야 합니다.
+        ```bash
+        cd deploy/scripts
+        ./aad-register.ps1 -Name <application-name> -Output aad.json
+        ./deploy.ps1 -aadConfig aad.json
+        ```
 
 준비, 롤백, 크기 조정 및 복원력이 필요한 프로덕션 배포의 경우 플랫폼을 [AKS(Azure Kubernetes Service)](https://github.com/Azure/Industrial-IoT/blob/master/docs/deploy/howto-deploy-aks.md)에 배포할 수 있습니다.
 

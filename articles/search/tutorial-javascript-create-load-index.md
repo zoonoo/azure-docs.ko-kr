@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 03/18/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-js
 ms.devlang: javascript
-ms.openlocfilehash: ef48074c5346374b12eb5a3a3aea50b2c753a082
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 5ce85cf6a238ce3291d7e296ba74e735970c5e64
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107950301"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469873"
 ---
 # <a name="2---create-and-load-search-index-with-javascript"></a>2 - JavaScript를 사용하여 검색 인덱스 만들기 및 로드
 
@@ -96,6 +96,14 @@ Visual Studio Code 확장을 사용하여 검색 리소스 관리자 키를 가�
 1. 인덱스, 문서, `good-books`를 차례로 펼친 다음, 문서를 선택하여 모든 문서 관련 데이터를 표시합니다.
  
     :::image type="content" source="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" lightbox="media/tutorial-javascript-create-load-index/visual-studio-code-search-extension-view-docs.png" alt-text="인덱스, 'good-books', 문서를 차례로 선택합니다.":::
+
+## <a name="rollback-bulk-import-file-changes"></a>대량 가져오기 파일 변경 내용 롤백
+
+`bulk-insert` 디렉터리에 있는 VS Code 통합 터미널에서 다음 git 명령을 사용하여 변경 내용을 롤백합니다. 이 자습서를 계속 진행하는 데 필요하지는 않으므로 이러한 비밀을 리포지토리로 저장하거나 푸시하지 않는 것이 좋습니다. 
+
+```git
+git checkout .
+```
 
 ## <a name="copy-your-search-resource-name"></a>검색 리소스 이름 복사
 

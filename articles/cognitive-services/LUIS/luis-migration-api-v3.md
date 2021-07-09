@@ -2,19 +2,22 @@
 title: V3 API의 예측 엔드포인트 변경 내용
 description: 쿼리 예측 엔드포인트 V3 API가 변경되었습니다. 이 가이드를 사용하여 버전 3 엔드포인트 API로 마이그레이션하는 방법을 이해할 수 있습니다.
 ms.service: cognitive-services
+author: aahill
+ms.manager: nitinme
+ms.author: aahi
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: 59dfa439f6428f2db972a8f848887e1a74bc2622
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/28/2021
+ms.openlocfilehash: 6eb5e54f2c1d8a4e7d05204fcfa111ddcb9f951a
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98624306"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110692679"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대한 예측 엔드포인트 변경
 
-쿼리 예측 엔드포인트 V3 API가 변경되었습니다. 이 가이드를 사용하여 버전 3 엔드포인트 API로 마이그레이션하는 방법을 이해할 수 있습니다.
+쿼리 예측 엔드포인트 V3 API가 변경되었습니다. 이 가이드를 사용하여 버전 3 엔드포인트 API로 마이그레이션하는 방법을 이해할 수 있습니다. 현재 마이그레이션을 완료해야 하는 날짜는 없습니다.
 
 **일반 공급 상태** - 이 V3 API에는 V2 API의 중요한 JSON 요청 및 응답 변경 내용이 포함되어 있습니다.
 
@@ -55,14 +58,12 @@ Bot Framework, Bing Spell Check V7을 사용하거나 LUIS 앱 작성만 마이�
 
 클라이언트 애플리케이션 또는 통합(Bot Framework 및 Bing Spell Check V7)이 영향을 받지 않고 LUIS 앱 작성과 예측 엔드포인트를 동시에 마이그레이션하는 것을 알고 있는 경우 V3 예측 엔드포인트 사용을 시작합니다. V2 예측 엔드포인트는 계속 사용할 수 있으며 좋은 대체 전략입니다.
 
+Bing Spell Check API 사용에 대한 자세한 내용은 [철자가 잘못된 단어를 수정하는 방법](luis-tutorial-bing-spellcheck.md)을 참조하세요.
+
 
 ## <a name="not-supported"></a>지원되지 않음
 
-### <a name="bing-spell-check"></a>Bing 맞춤법 검사
-
-이 API는 V3 예측 엔드포인트에서 지원되지 않습니다. 계속해서 V2 API 예측 엔드포인트를 사용하여 맞춤법을 수정하세요. V3 API를 사용하는 동안 맞춤법 수정이 필요한 경우 LUIS API로 텍스트를 보내기 전에 클라이언트 애플리케이션에서 [Bing Spell Check](../bing-spell-check/overview.md) API를 호출하고 텍스트를 올바른 철자로 변경합니다.
-
-## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework 및 Azure Bot Service 클라이언트 애플리케이션
+### <a name="bot-framework-and-azure-bot-service-client-applications"></a>Bot Framework 및 Azure Bot Service 클라이언트 애플리케이션
 
 Bot Framework V4.7이 릴리스될 때까지 V2 API 예측 엔드포인트를 계속 사용합니다.
 

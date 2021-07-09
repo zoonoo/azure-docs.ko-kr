@@ -9,18 +9,21 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: 1def60843df55a80e8b7d28d7eb61e262a560111
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3938f7f5dae00a3628e2c9e2fec21a364efac95d
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044157"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084703"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Custom Vision 프로젝트 복사 및 이동
 
 Custom Vision 프로젝트를 만들고 학습한 후에 프로젝트를 다른 리소스로 복사하고자 할 수 있습니다. 예를 들어 개발 환경에서 프로덕션 환경으로 프로젝트를 이동하거나 데이터 보안을 강화하기 위해 프로젝트를 다른 Azure 지역의 계정으로 백업하려고 할 수 있습니다.
 
 **[ExportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)** 및 **[ImportProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc7548b571998fddee3)** API는 한 Custom Vision 계정에서 다른 계정으로 프로젝트를 복사할 수 있도록 하여 이 시나리오를 가능하게 합니다. 이 가이드에서는 cURL로 이러한 REST API를 사용하는 방법을 보여 줍니다. Postman과 같은 HTTP 요청 서비스를 사용하여 요청을 발행할 수도 있습니다.
+
+> [!TIP]
+> Python 클라이언트 라이브러리를 사용하는 이 시나리오의 예는 GitHub에서 [Custom Vision 프로젝트 이동](https://github.com/Azure-Samples/custom-vision-move-project/tree/master/) 리포지토리를 참조하세요.
 
 ## <a name="business-scenarios"></a>비즈니스 시나리오
 

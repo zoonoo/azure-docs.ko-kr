@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c500c7b7afb36ffbe04fb63551c3a7d17c1347d9
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: acf038d6e1ead94bdfb2e00ffe225e566faa6c44
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029083"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854903"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Azure Defender for Kubernetes 소개
 
@@ -44,7 +44,7 @@ Azure Security Center 및 AKS는 [Security Center의 컨테이너 보안](contai
 
 Azure Defender for Kubernetes는 클러스터의 로그를 모니터링하여 **클러스터 수준 위협 보호** 를 제공합니다.
 
-Azure Defender for Kubernetes가 모니터링하는 보안 이벤트의 예로는 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기, 중요한 탑재 만들기 등이 있습니다. 클러스터 수준 경고의 전체 목록은 [경고 참조 표](alerts-reference.md#alerts-akscluster)에서 확인할 수 있습니다.
+Azure Defender for Kubernetes가 모니터링하는 보안 이벤트의 예로는 노출된 Kubernetes 대시보드, 높은 권한이 있는 역할 만들기, 중요한 탑재 만들기 등이 있습니다. 클러스터 수준 경고의 전체 목록은 [경고 참조 표](alerts-reference.md#alerts-k8scluster)에서 확인할 수 있습니다.
 
 > [!TIP]
 > [이 블로그 게시물](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270)의 지침에 따라 컨테이너 경고를 시뮬레이션할 수 있습니다.
@@ -57,7 +57,7 @@ Azure Defender for Kubernetes가 모니터링하는 보안 이벤트의 예로�
 
 
 
-## <a name="azure-defender-for-kubernetes---faq"></a>Azure Defender for Kubernetes - FAQ
+## <a name="faq---azure-defender-for-kubernetes"></a>FAQ - Azure Defender for Kubernetes
 
 ### <a name="can-i-still-get-cluster-protections-without-the-log-analytics-agent"></a>Log Analytics 에이전트 없이도 여전히 클러스터 보호를 받을 수 있나요?
 

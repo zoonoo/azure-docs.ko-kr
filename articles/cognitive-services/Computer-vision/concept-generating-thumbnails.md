@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bcfaf250aa5ebf29f51fae22f87c14c29416107e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "68945224"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110465334"
 ---
 # <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Computer Vision을 사용하여 스마트하게 자른 썸네일 생성
 
@@ -48,6 +48,8 @@ Computer Vision 썸네일 생성 알고리즘은 다음과 같이 작동합니�
 |![녹색 배경의 흰색 꽃](./Images/flower.png) | ![비전 분석 꽃 썸네일](./Images/flower_thumbnail.png) |
 |![아파트 건물 옥상 위의 여자](./Images/woman_roof.png) | ![아파트 건물 옥상 위 여자의 썸네일](./Images/woman_roof_thumbnail.png) |
 
-## <a name="next-steps"></a>다음 단계
+## <a name="use-the-api"></a>API 사용
 
-[이미지 태그 지정](concept-tagging-images.md) 및 [이미지 분류](concept-categorizing-images.md)에 대해 알아봅니다.
+썸네일 생성 기능은 [썸네일 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f20c) 및 [관심 영역 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/b156d0f5e11e492d9f64418d) API를 통해 사용할 수 있습니다. 이 API는 네이티브 SDK 또는 REST 호출을 통해 호출할 수 있습니다. 
+
+* [빠른 시작: Computer Vision REST API 또는 클라이언트 라이브러리](./quickstarts-sdk/image-analysis-client-library.md?pivots=programming-language-csharp)

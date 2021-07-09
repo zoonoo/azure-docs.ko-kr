@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 6465acc0d4ce760e0bf89c73dace7c8c66d37c49
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 857bcba07b281f58d7c7c044a56763b61b5d4456
+ms.sourcegitcommit: ce9178647b9668bd7e7a6b8d3aeffa827f854151
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104869942"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109810069"
 ---
-# <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 Consistent Snapshot 도구를 사용하는 팁과 요령(미리 보기)
+# <a name="tips-and-tricks-for-using-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅숏 도구 사용을 위한 팁과 요령
 
 이 문서에서는 AzAcSnap을 사용할 때 유용한 팁과 요령을 제공합니다.
 
@@ -31,7 +31,7 @@ AzAcSnap 서비스 주체의 범위를 제한해야 할 수도 있습니다.  Az
 
 다음은 AzAcSnap이 기능하는 데 필요한 최소한의 작업을 포함한 역할 정의 예시입니다.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -50,7 +50,7 @@ az role definition create --role-definition '{ \
 
 복원 옵션이 제대로 작동하려면 AzAcSnap 서비스 주체도 볼륨을 만들 수 있어야 합니다.  이 경우 역할 정의에 추가 작업이 필요하므로 전체 서비스 주체는 다음 예시와 같습니다.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -202,7 +202,7 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
 
     ```output
     {
-      "version": "5.0 Preview",
+      "version": "5.0",
       "logPath": "./logs",
       "securityPath": "./security",
       "comments": [
@@ -223,7 +223,7 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
                   {
                     "backupName": "shoasnap",
                     "ipAddress": "10.1.1.10",
-                    "volume&quot;: &quot;t210_sles_boot_azsollabbl20a31_vol"
+                    "volume": "t210_sles_boot_azsollabbl20a31_vol"
                   }
                 ]
               }
@@ -251,7 +251,7 @@ Azure Large Instance의 경우 서비스 요청을 시작해 Microsoft 작업 �
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 Preview (20200617.75879)", 200KB
+    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
     , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
     ```
 

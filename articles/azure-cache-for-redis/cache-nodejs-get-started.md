@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: e4c58d67668a67eee38a73d46a2a40ca29c1dfd8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 311b6a603d0c68699155510797f1dd75e3cf915a
+ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121255"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110655387"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
 
@@ -26,26 +26,31 @@ ms.locfileid: "102121255"
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
-- [node_redis](https://github.com/mranney/node_redis) - `npm install redis` 명령을 사용하여 설치할 수 있습니다. 
+- [node_redis](https://github.com/mranney/node_redis) - `npm install redis` 명령을 사용하여 설치할 수 있습니다.
 
 다른 Node.js 클라이언트를 사용한 예는 [Node.js Redis 클라이언트](https://redis.io/clients#nodejs)에 나열된 Node.js 클라이언트의 개별 설명서를 참조하세요.
 
 ## <a name="create-a-cache"></a>캐시 만들기
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-
 **호스트 이름** 및 **기본** 액세스 키에 대한 환경 변수를 추가합니다. 코드에 직접 중요한 정보를 포함하는 대신 사용자 코드에서 이러한 변수를 사용합니다.
 
+```powershell
+set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
+set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
+
+```powershell
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## <a name="connect-to-the-cache"></a>캐시에 연결
 
-[node_redis](https://github.com/mranney/node_redis)의 최신 빌드는 TLS를 사용하여 Azure Cache for Redis에 연결을 지원합니다. 다음 예제에서는 6380 TLS 엔드포인트를 사용하여 Azure Cache for Redis에 연결하는 방법을 보여 줍니다. 
+[node_redis](https://github.com/mranney/node_redis)의 최신 빌드는 TLS를 사용하여 Azure Cache for Redis에 연결을 지원합니다. 다음 예제에서는 6380 TLS 엔드포인트를 사용하여 Azure Cache for Redis에 연결하는 방법을 보여 줍니다.
 
 ```js
 var redis = require("redis");
@@ -55,7 +60,7 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-코드에서 각 작업에 대해 새 연결을 만들지 마세요. 대신 가능한 한 연결을 다시 사용합니다. 
+코드에서 각 작업에 대해 새 연결을 만들지 마세요. 대신 가능한 한 연결을 다시 사용합니다.
 
 ## <a name="create-a-new-nodejs-app"></a>새 Node.js 앱 만들기
 
@@ -105,7 +110,7 @@ testCache();
 
 Node.js를 사용하여 스크립트를 실행합니다.
 
-```
+```powershell
 node redistest.js
 ```
 
@@ -115,9 +120,9 @@ node redistest.js
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다시 사용할 수 있습니다.
+다음 자습서로 계속 진행하려면 이 빠른 시작에서 만든 리소스를 유지하여 다시 사용할 수 있습니다.
 
-그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
+그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.

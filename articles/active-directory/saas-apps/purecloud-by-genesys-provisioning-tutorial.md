@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: bbb9b47e42ce195a98801ee08d177efd409c597e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b4643efd197734ff7f12fb7806e474e0419843ed
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181665"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110078571"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>자습서: PureCloud by Genesys에 대한 자동 사용자 프로비저닝 구성
 
@@ -100,27 +100,36 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 9. **특성-매핑** 섹션에서는 Azure AD에서 PureCloud by Genesys로 동기화된 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 PureCloud by Genesys의 사용자 계정을 일치시키는 데 사용됩니다. [일치하는 대상 특성](../app-provisioning/customize-application-attributes.md)을 변경하는 경우 PureCloud by Genesys API에서 해당 특성에 따라 사용자 필터링을 지원하는지 확인해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-     |attribute|Type|
-     |---|---|
-     |userName|String|
+     |attribute|Type|필터링에 지원됨|
+     |---|---|---|
+     |userName|String|&check;|
      |활성|부울|
      |displayName|String|
      |emails[type eq "work"].value|String|
      |title|String|
      |phoneNumbers[type eq "mobile"].value|String|
      |phoneNumbers[type eq "work"].value|String|
+     |phoneNumbers[type eq "work2"].value|String|
+     |phoneNumberss[type eq "work3"].value|String|
+     |phoneNumbers[type eq "work4"].value|String|
+     |phoneNumbers[type eq "home"].value|String|
+     |phoneNumbers[type eq "microsoftteams"].value|String|
+     |역할|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|참조|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-     
+     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
+     |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘microsoftteams’].value|String|     
+     |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘ringcentral’].value|String|    
+     |urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘zoomphone].value|String|
 
 10. **매핑** 섹션에서 **Azure Active Directory 그룹을 PureCloud by Genesys에 동기화** 를 선택합니다.
 
 11. **특성-매핑** 섹션에서는 Azure AD에서 PureCloud by Genesys로 동기화된 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 PureCloud by Genesys의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다. PureCloud by Genesys는 그룹 만들기 또는 삭제를 지원하지 않으며 그룹 업데이트만 지원합니다.
 
-      |attribute|Type|
-      |---|---|
-      |displayName|String|
+      |attribute|Type|필터링에 지원됨|
+      |---|---|---|
+      |displayName|String|&check;|
       |externalId|String|
       |members|참조|
 
@@ -149,9 +158,10 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 ## <a name="change-log"></a>로그 변경
 
-09/10 - 엔터프라이즈 특성 "employeeNumber"에 대한 지원이 추가되었습니다.
+* 2020/09/10 - 확장 엔터프라이즈 특성 **employeeNumber** 에 대한 지원이 추가되었습니다.
+* 2021/05/18 - 핵심 특성 **phoneNumbers[type eq "work2"]** , **phoneNumbers[type eq "work3"]** , **phoneNumbers[type eq "work4"]** , **phoneNumbers[type eq "home"]** , **phoneNumbers[type eq "microsoftteams"]** 및 역할에 대한 지원이 추가되었습니다. 또한 사용자 지정 확장 특성에 **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘microsoftteams’]** , **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘zoomphone]** 및 **urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:externalIds[authority eq ‘ringcentral’]** 에 대한 지원도 추가되었습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="more-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

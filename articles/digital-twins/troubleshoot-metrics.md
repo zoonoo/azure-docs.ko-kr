@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ffae474f6de5de7715585f0606a9630b136a2c37
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ae3c214cb1e1d58098dddd29a31d6403aa2e42c6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110092137"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475624"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Azure Digital Twins 문제 해결: 메트릭
 
@@ -28,18 +28,18 @@ ms.locfileid: "110092137"
 
     인스턴스의 메뉴에서 **메트릭** 을 선택합니다.
    
-    :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Azure Digital Twins의 메트릭 페이지를 보여 주는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Azure Portal에 있는 Azure Digital Twins의 메트릭 페이지를 보여주는 스크린샷.":::
 
     이 페이지에는 Azure Digital Twins 인스턴스의 메트릭이 표시됩니다. 목록에서 보려는 메트릭을 선택하여 메트릭의 사용자 지정 보기를 만들 수도 있습니다.
     
 3. 메뉴에서 **진단 설정** 및 **진단 설정 추가** 를 차례로 선택하여 Event Hubs 엔드포인트 또는 Azure Storage 계정으로 메트릭 데이터를 보낼 수 있습니다.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="진단 설정 페이지 및 추가를 위한 단추를 표시하는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Azure Portal에 추가할 진단 설정 페이지 및 단추를 보여주는 스크린샷.":::
 
     이 프로세스에 대한 자세한 내용은 [문제 해결: 진단 설정](troubleshoot-diagnostics.md)을 참조하세요.
 
 4. 메뉴에서 **경고** 및 **+ 새 경고 규칙** 을 차례로 선택하여 메트릭 데이터에 대한 경고를 설정하도록 선택할 수 있습니다.
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="경고 페이지 및 추가를 위한 단추를 표시하는 스크린샷":::
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Azure Portal에 추가할 경고 페이지 및 단추를 보여주는 스크린샷.":::
 
     이 프로세스에 대한 자세한 내용은 [문제 해결: 경고 설정](troubleshoot-alerts.md)을 참조하세요.
 

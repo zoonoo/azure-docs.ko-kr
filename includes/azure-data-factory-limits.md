@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/16/2020
 ms.author: chez
 ms.custom: include file
-ms.openlocfilehash: 5efc74ec150dcd18181404d93dc2142552a2c792
-ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
+ms.openlocfilehash: 6c991188c266d2e169a7a1d50f4c2ea61f3a51f3
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108807481"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "111350973"
 ---
 Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보호되도록 하기 위해 다음과 같은 기본 제한이 적용되는 다중 테넌트 서비스입니다. 구독에 대한 최대 제한 값을 높이려면 고객 지원에 문의하세요.
 
@@ -21,11 +21,10 @@ Azure Data Factory는 고객 구독이 서로 다른 워크로드로부터 보�
 
 | 리소스 | 기본 제한 | 최대 제한 |
 | -------- | ------------- | ------------- |
-| 리소스 그룹당 데이터 팩터리 | 800 | 800 |
 | 데이터 팩터리 내 총 엔터티(예: 파이프라인, 데이터 세트, 트리거, 연결된 서비스, 프라이빗 엔드포인트 및 통합 런타임) 수 | 5,000 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 한 구독의 Azure-SSIS Integration Runtime에 대한 총 CPU 코어 수 | 256 | [고객 지원에 문의하세요](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | 팩터리의 모든 파이프라인에서 공유되는 데이터 팩터리당 동시 파이프라인 실행 수 | 10000  | 10000 |
-| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 외부 활동 실행 수<br><small>외부 활동은 통합 런타임에서 관리되지만, Databricks, 저장 프로시저, HDInsights, 웹 등을 포함한 연결된 서비스에서 실행됩니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 3,000 | 3,000 |
+| 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 외부 활동 실행 수<br><small>외부 활동은 통합 런타임에서 관리되지만 Databricks, 저장 프로시저, 웹 등을 포함한 연결된 서비스에서 실행됩니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 3,000 | 3,000 |
 | 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 파이프라인 활동 실행 수 <br><small>파이프라인 활동은 Lookup, GetMetadata 및 Delete를 포함한 통합 런타임에서 실행됩니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 1,000 | 1,000                                                        |
 | 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)별 동시 작성 작업 수<br><small>테스트 연결을 포함하여 폴더 목록과 테이블 목록을 찾아보고 데이터를 미리 봅니다. 자체 호스팅 IR에는 이 제한이 적용되지 않습니다.</small> | 200 | 200                                                          |
 | 구독당 [Azure Integration Runtime 지역](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)별 동시 데이터 통합 단위<sup>1</sup> 사용량| 지역 그룹 1<sup>2</sup>: 6,000<br>지역 그룹 2<sup>2</sup>: 3,000<br>지역 그룹 3<sup>2</sup>: 1,500 | 지역 그룹 1<sup>2</sup>: 6,000<br/>지역 그룹 2<sup>2</sup>: 3,000<br/>지역 그룹 3<sup>2</sup>: 1,500 |

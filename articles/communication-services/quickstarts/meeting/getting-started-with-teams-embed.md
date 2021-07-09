@@ -4,16 +4,16 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 Azure Communication Services를 사용하여 앱에 Teams 모임 조인 기능을 추가하는 방법을 알아봅니다.
 author: palatter
 ms.author: palatter
-ms.date: 01/25/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
-ms.openlocfilehash: b26c0631ed8a8982578d1c910d40689ff27dcc91
-ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
+ms.openlocfilehash: 573b86cd764de3c2cd6ef3ebd261e8e80fda322b
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107903171"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113218133"
 ---
 # <a name="quickstart-add-joining-a-teams-meeting-to-your-app"></a>빠른 시작: 앱에 Teams 모임 조인 추가
 

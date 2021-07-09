@@ -4,15 +4,15 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 문서에서는 Azure Communication Services UI 라이브러리 Teams 포함 기능을 사용하여 턴키 통화 환경을 빌드하는 방법을 알아봅니다.
 author: tophpalmer
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 11/16/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: c342d839cf794c490903a880bc7578d6cdbe50b1
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: 9f56fc5138ce4a632d203976c9255e83e94d3fe0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113112548"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110104986"
 ---
 # <a name="teams-embed"></a>Teams 포함
 

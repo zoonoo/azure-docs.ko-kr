@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d1a730a20ef2ab0fe5e455ef86a428aa1d83fc19
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: 55cd7c86ae4f0110618745459cea48abe5e144d0
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109683932"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110084577"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>자습서 - Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
@@ -115,14 +115,14 @@ ms.locfileid: "109683932"
 
 1. **스마트 빌딩 게이트웨이 디바이스** 템플릿에서 **클라우드 속성** 을 선택합니다.
 
-1.  다음 표의 정보를 사용하여 게이트웨이 디바이스 템플릿에 두 가지 클라우드 속성을 추가합니다.
+1. 다음 표의 정보를 사용하여 게이트웨이 디바이스 템플릿에 두 가지 클라우드 속성을 추가합니다.
 
     | 표시 이름      | 의미 체계 유형 | 스키마 |
     | ----------------- | ------------- | ------ |
     | 마지막 서비스 날짜 | None          | Date   |
     | 고객 이름     | None          | String |
 
-2. **저장** 을 선택합니다.
+1. **저장** 을 선택합니다.
 
 ### <a name="create-views"></a>뷰 만들기
 
@@ -151,7 +151,9 @@ ms.locfileid: "109683932"
 
 3. **디바이스 템플릿 게시** 대화 상자에서 **게시** 를 선택합니다.
 
-디바이스 템플릿이 게시되면 해당 템플릿이 **디바이스** 페이지 및 운영자에게 표시됩니다. 게시된 디바이스 템플릿에서 새 버전을 만들어야 디바이스 모델을 편집할 수 있습니다. 그러나 클라우드 속성, 사용자 지정 및 보기는 게시된 디바이스 템플릿에서 업데이트할 수 있습니다. 이러한 업데이트로 인해 새 버전을 만들지는 않습니다. 변경되면 **게시** 를 선택하여 해당 변경 내용을 운영자에게 푸시합니다.
+디바이스 템플릿이 게시되면 해당 템플릿이 **디바이스** 페이지 및 운영자에게 표시됩니다. 운영자는 템플릿을 사용하여 디바이스 인스턴스를 만들거나 규칙 및 모니터링을 설정할 수 있습니다. 게시된 템플릿을 편집하면 애플리케이션의 동작에 영향을 줄 수 있습니다.
+
+디바이스 템플릿을 게시한 후 수정하는 방법에 대해 자세히 알아보려면 [기존 디바이스 템플릿 편집](howto-edit-device-template.md)을 참조하세요.
 
 ## <a name="create-the-simulated-devices"></a>시뮬레이션된 디바이스 만들기
 

@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 024b238ef9a6330831ae6cf4dcd6bb72d72dcc74
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c52cd013d1a5d2cbde0ab88eac24d2fd3ef77d46
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98044274"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613530"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-powershell"></a>Azure Digital Twins 인스턴스 및 인증 설정(PowerShell)
 
@@ -23,11 +23,10 @@ ms.locfileid: "98044274"
 
 이 문서의 버전은 [Azure PowerShell](/powershell/azure/new-azureps-module-az)을 사용하여 이러한 단계를 하나씩 수동으로 진행합니다.
 
-* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 이 문서의 포털 버전 [*방법: 인스턴스 및 인증 설정(포털)* ](how-to-set-up-instance-portal.md)을 참조하세요.
-* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 이 문서의 스크립팅된 버전 [*방법: 인스턴스 및 인증 설정(스크립팅됨)* ](how-to-set-up-instance-scripted.md)을 참조하세요.
+* Azure Portal을 사용하여 이러한 단계를 수동으로 진행하려면 이 문서의 포털 버전 [방법: 인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md) 을 참조하세요.
+* 배포 스크립트 샘플을 사용하여 자동화된 설정을 실행하려면 이 문서의 스크립팅된 버전 [방법: 인스턴스 및 인증 설정(스크립팅됨)](how-to-set-up-instance-scripted.md) 을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -38,10 +37,10 @@ ms.locfileid: "98044274"
        1. [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 사용하여 Azure 계정에 로그인합니다.
     * Azure Cloud Shell을 사용하도록 선택하는 경우:
         1. Cloud Shell에 대한 자세한 내용은 [Azure Cloud Shell 개요](../cloud-shell/overview.md)를 참조하세요.
-        1. 브라우저에서 [이 링크](https://shell.azure.com)를 따라 Cloud Shell 창을 엽니다.
+        1. [브라우저에서 Cloud Shell 창을 엽니다](https://shell.azure.com).
         1. Cloud Shell 아이콘 모음에서 Cloud Shell이 PowerShell 버전을 실행하도록 설정되었는지 확인합니다.
     
-            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창":::
+            :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="PowerShell 버전 선택을 보여주는 Azure Portal의 Cloud Shell 창 스크린샷.":::
     
 1. 여러 Azure 구독이 있는 경우 리소스에 대한 요금이 청구되는 적절한 구독을 선택합니다. [Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet을 사용하여 특정 구독을 선택합니다.
 
@@ -74,7 +73,7 @@ ms.locfileid: "98044274"
   New-AzResourceGroup -Name <name-for-your-resource-group> -Location <region>
   ```
 
-* 배포 지역. Azure Digital Twins를 지원하는 지역을 확인하려면 [*지역별 사용 가능한 Azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
+* 배포 지역. Azure Digital Twins를 지원하는 지역을 확인하려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
 * 인스턴스의 이름. 새 인스턴스의 이름은 구독에 대한 지역 내에서 고유해야 합니다. 구독에 이미 지정된 이름을 사용하고 있는 지역에 다른 Azure Digital Twins 인스턴스가 있는 경우 다른 이름을 선택하라는 메시지가 표시됩니다.
 
 다음 명령의 값을 사용하여 인스턴스를 만듭니다.
@@ -103,13 +102,20 @@ Get-AzDigitalTwinsInstance -ResourceGroupName <your-resource-group> -ResourceNam
 > [!TIP]
 > 이 명령을 사용하여 언제든지 인스턴스의 모든 속성을 볼 수 있습니다.
 
-Azure Digital Twins 인스턴스의 **HostName**, **Name** 및 **ResourceGroup** 을 확인합니다. 이 값은 Azure Digital Twins 인스턴스를 계속 사용하여 인증을 설정하고 관련 Azure 리소스를 설정하는 데 필요할 수 있는 중요한 값입니다. 다른 사용자가 인스턴스에 대한 프로그래밍을 수행하는 경우 다른 사용자와 이 값을 공유해야 합니다.
+Azure Digital Twins 인스턴스의 **호스트 이름**, **이름** 및 **리소스 그룹** 을 확인합니다. 이 값은 Azure Digital Twins 인스턴스를 계속 사용하여 인증을 설정하고 관련 Azure 리소스를 설정하는 데 필요할 수 있는 중요한 값입니다. 다른 사용자가 인스턴스에 대한 프로그래밍을 수행하는 경우 다른 사용자와 이 값을 공유해야 합니다.
 
 이제 Azure Digital Twins 인스턴스를 사용할 준비가 되었습니다. 다음으로, 적절한 Azure 사용자에게 관리 권한을 부여합니다.
 
 ## <a name="set-up-user-access-permissions"></a>사용자 액세스 권한 설정
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+### <a name="prerequisites-permission-requirements"></a>필수 조건: 권한 요구 사항
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
+### <a name="assign-the-role"></a>역할 할당
+
+사용자에게 Azure Digital Twins 인스턴스를 관리할 수 있는 권한을 부여하려면 인스턴스 내에서 _**Azure Digital Twins 데이터 소유자**_ 역할을 할당해야 합니다.
 
 먼저 역할을 할당해야 하는 사용자의 Azure AD 계정에 대한 **ObjectId** 를 확인합니다. 이 값은 [Get-AzAdUser](/powershell/module/az.resources/get-azaduser) cmdlet을 사용하여 찾을 수 있습니다.이 cmdlet은 Azure AD 계정의 사용자 계정 이름을 전달하여 ObjectId(및 기타 사용자 정보)를 검색합니다. 대부분의 경우 사용자 계정 이름은 Azure AD 계정의 사용자 이메일과 일치합니다.
 
@@ -121,9 +127,9 @@ Get-AzADUser -UserPrincipalName <Azure-AD-user-principal-name-of-user-to-assign>
 
 ```azurepowershell-interactive
 $Params = @{
-  ObjectId = '<Azure-AD-user-object-id-of-user-to-assign>'
+  ObjectId = '<Azure-AD-user-object-ID-of-user-to-assign>'
   RoleDefinitionName = 'Azure Digital Twins Data Owner'
-  Scope = '/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
+  Scope = '/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<name-for-your-Azure-Digital-Twins-instance>'
 }
 New-AzRoleAssignment @Params
 ```
@@ -139,4 +145,4 @@ New-AzRoleAssignment @Params
 ## <a name="next-steps"></a>다음 단계
 
 인증 코드를 사용하여 인스턴스에 클라이언트 애플리케이션을 연결하는 방법을 참조하세요.
-* [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)
+* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)

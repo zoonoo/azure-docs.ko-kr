@@ -5,12 +5,12 @@ description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP �
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 6e03d69cbdf3837610e3b165c88c9680d7a1cc6a
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 13313c09427e23139d35951357158d69d98fa511
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006983"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110452331"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -29,7 +29,9 @@ ms.locfileid: "108006983"
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 AKS 빠른 시작 [Azure CLI 사용][aks-quickstart-cli] 또는 [Azure Portal 사용][aks-quickstart-portal]을 참조하세요.
 
-이 문서에서는 [Helm 3][helm]을 사용하여 NGINX 수신 컨트롤러와 cert-manager를 설치합니다. 최신 릴리스의 Helm을 사용하고 있고 *ingress-nginx* 와 *jetstack* Helm 리포지토리에 대한 액세스 권한이 있는지 확인합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요.
+이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. 최신 릴리스의 Helm을 사용하고 있고 *ingress-nginx* 와 *jetstack* Helm 리포지토리에 대한 액세스 권한이 있는지 확인합니다. 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
+
+Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요.
 
 또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -502,3 +504,4 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-static-ip]: static-ip.md
+[aks-supported versions]: supported-kubernetes-versions.md

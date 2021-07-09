@@ -1,7 +1,7 @@
 ---
-title: 컨테이너 구성-얼굴
+title: 컨테이너 구성 - Face
 titleSuffix: Azure Cognitive Services
-description: Face 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 필수 및 선택적 설정이 모두 있습니다.
+description: Face 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 필수 설정 및 선택적 설정이 모두 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2021
 ms.author: aahi
-ms.openlocfilehash: 2f608843e27b79d02697df8e2a7f2aba6695e10a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: dc9aa1636bf4594d1e0b51315b520c6e893ced88
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "80878428"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108288475"
 ---
-# <a name="configure-face-docker-containers"></a>Face Docker 컨테이너 구성
+# <a name="configure-face-docker-containers-retiring"></a>Face Docker 컨테이너 구성(사용 중지)
+
+> [!IMPORTANT]
+> Face 컨테이너 미리 보기는 더 이상 애플리케이션을 허용하지 않으며, 2021년 4월 29일부터 컨테이너는 사용이 중단되었습니다. Face 컨테이너는 2021년 7월 26일에 완전히 사용 중지됩니다.
 
 **Face** 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용하여 구성됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
@@ -27,15 +30,15 @@ ms.locfileid: "80878428"
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정이 함께 사용 되며, 그 중 세 가지 모두에 대해 유효한 값을 제공 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](face-how-to-install-containers.md#billing)를 참조하세요.
+> [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting) 및 [`Eula`](#eula-setting) 설정은 함께 사용됩니다. 이 세 가지 설정 모두에 대해 유효한 값을 제공해야 하며, 제공하지 않을 경우 컨테이너는 시작되지 않습니다. 이러한 구성 설정을 사용하여 컨테이너를 인스턴스화하는 방법에 대한 자세한 내용은 [청구](face-how-to-install-containers.md#billing)를 참조하세요.
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대 한 값을 지정 해야 하며 값은 구성 설정에 지정 된 _Cognitive Services_ 리소스에 대해 유효한 키 여야 합니다 [`Billing`](#billing-configuration-setting) .
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 이 값은 [`Billing`](#billing-configuration-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스에 대해 유효한 키여야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 리소스 관리, **키** 아래
+* Azure Portal: **키** 아래의 **Cognitive Services** 리소스 관리
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 
@@ -43,17 +46,17 @@ ms.locfileid: "80878428"
 
 ## <a name="billing-configuration-setting"></a>청구 구성 설정
 
-`Billing`설정은 Azure에서 컨테이너에 대 한 청구 정보를 측정 하는 데 사용 되는 _Cognitive Services_ 리소스의 끝점 URI를 지정 합니다. 이 구성 설정의 값을 지정 해야 하며,이 값은 Azure의 _Cognitive Services_ 리소스에 대 한 올바른 끝점 URI 여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
+`Billing` 설정은 컨테이너에 대한 청구 정보를 측정하는 데 사용되는 Azure의 _Cognitive Services_ 리소스 엔드포인트 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며, 이 값은 Azure의 _Cognitive Services_ 리소스에 대한 유효한 엔드포인트 URI여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 개요, 레이블 `Endpoint`
+* Azure Portal: `Endpoint` 레이블이 지정된 **Cognitive Services** 개요
 
-예제에 표시 된 것 처럼 끝점 URI에 _Face_ 라우팅을 추가 해야 합니다. 
+예제에 표시된 대로 엔드포인트 URI에 _Face_ 라우팅을 추가해야 합니다. 
 
-|필수| Name | 데이터 형식 | 설명 |
+|필수| Name | 데이터 형식 | Description |
 |--|------|-----------|-------------|
-|예| `Billing` | String | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](face-how-to-install-containers.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
+|예| `Billing` | String | 청구 엔드포인트 URI입니다. 청구 URI 가져오기에 대한 자세한 정보는 [필수 매개 변수 수집](face-how-to-install-containers.md#gathering-required-parameters)을 참조하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 <!-- specific to face only -->
 
@@ -67,7 +70,7 @@ ms.locfileid: "80878428"
 
 ### <a name="storage-scenario-settings"></a>스토리지 시나리오 설정
 
-Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이터 및 큐 데이터를 저장합니다. 예를 들어 대규모 사용자 그룹에 대한 학습 인덱스 및 결과는 Blob 데이터로 저장됩니다. Face 컨테이너에서 이러한 형식의 데이터와 상호 작용하고 저장할 때 제공하는 별도의 두 가지 스토리지 시나리오는 다음과 같습니다.
+Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이터 및 큐 데이터를 저장합니다. 예를 들어 **LargePersonGroup** 에 대한 학습 인덱스 및 결과는 Blob 데이터로 저장됩니다. Face 컨테이너에서 이러한 형식의 데이터와 상호 작용하고 저장할 때 제공하는 별도의 두 가지 스토리지 시나리오는 다음과 같습니다.
 
 * 메모리  
   네 가지 형식의 데이터는 모두 메모리에 저장됩니다. 이러한 데이터는 배포되지도 않고 유지되지도 않습니다. Face 컨테이너가 중지되거나 제거되면 해당 컨테이너에 대한 스토리지에 있는 모든 데이터가 삭제됩니다.  
@@ -120,7 +123,7 @@ Face 컨테이너는 저장되는 콘텐츠에 따라 Blob, 캐시, 메타데이
 
 Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
 
-호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용 하는 사용 권한 및 호스트 탑재 위치 권한에 따라 [호스트 컴퓨터](face-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스할 수 없습니다. 
+호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 Docker 서비스 계정에서 사용하는 권한과 호스트 탑재 위치 권한이 충돌하여 [호스트 컴퓨터](face-how-to-install-containers.md#the-host-computer)의 탑재 위치에 액세스하지 못할 수도 있습니다. 
 
 |선택 사항| Name | 데이터 형식 | Description |
 |-------|------|-----------|-------------|
@@ -131,21 +134,21 @@ Face 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](face-how-to-install-containers.md#stop-the-container)할 때까지 계속 실행됩니다.
 
-* **줄 연속 문자**: 다음 섹션의 Docker 명령은 백슬래시를 `\` 줄 연속 문자로 사용 합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
-* **인수 순서**: Docker 컨테이너에 대해 잘 알고 있지 않으면 인수의 순서를 변경 하지 마세요.
+* **줄 연속 문자**: 다음 섹션에서 Docker 명령은 줄 연속 문자로 백슬래시(`\`)를 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
+* **인수 순서**: Docker 컨테이너 사용법을 잘 아는 경우가 아니라면 인수 순서를 변경하지 마세요.
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
 | 자리 표시자 | 값 | 형식 또는 예 |
 |-------------|-------|---|
-| **{API_KEY}** | `Face`Azure 키 페이지에 있는 리소스의 끝점 키 `Face` 입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure 개요 페이지에서 사용할 수 있습니다 `Face` .| 명시적 예제에 대 한 [필수 매개 변수 수집](face-how-to-install-containers.md#gathering-required-parameters) 을 참조 하세요. |
+| **{API_KEY}** | Azure `Face` 키 페이지에 있는 `Face` 리소스의 엔드포인트 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 청구 엔드포인트 값은 Azure `Face` 개요 페이지에서 사용할 수 있습니다.| 명시적 예는 [필수 매개 변수 수집](face-how-to-install-containers.md#gathering-required-parameters)을 참조하세요. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](face-how-to-install-containers.md#billing)를 참조하세요.
-> ApiKey 값은 Azure 리소스 키 페이지의 **키** 입니다 `Cognitive Services` . 
+> ApiKey 값은 Azure `Cognitive Services` 리소스 키 페이지의 **키** 입니다. 
 
 ## <a name="face-container-docker-examples"></a>Face 컨테이너 Docker 예제
 

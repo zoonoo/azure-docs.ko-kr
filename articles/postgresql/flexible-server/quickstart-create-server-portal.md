@@ -6,13 +6,13 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/22/2020
-ms.openlocfilehash: 6d10298b016cbcf362af2d272f9fa822db6e569d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/02/2021
+ms.openlocfilehash: b4fed0e26043e645ece4f35af8b721d858426672
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105604756"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111406992"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---flexible-server-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 유연한 서버 만들기
 
@@ -51,7 +51,10 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
     ---|---|---
     Subscription|구독 이름|서버에 사용할 Azure 구독입니다. 구독이 여러 개인 경우 해당 리소스에 대해 요금이 청구되는 구독을 선택합니다.
     Resource group|*myresourcegroup*| 새 리소스 그룹 이름 또는 구독의 기존 이름입니다.
-    서버 이름 |*mydemoserver*|PostgreSQL 서버용 Azure Database를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 *postgres.database.azure.com* 도메인 이름이 추가됩니다. 서버는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자 이상이어야 합니다.
+    워크로드 유형|기본 SKU 선택|개발(버스트 가능 SKU), 프로덕션 소규모/중간 규모(범용 SKU) 또는 프로덕션 대규모(메모리 최적화 SKU) 중에서 선택할 수 있습니다. ‘서버 구성’ 링크를 클릭하여 SKU 및 스토리지를 추가로 사용자 지정할 수 있습니다.
+    가용성 영역|기본 설정 AZ|서버를 배포하려는 가용성 영역을 선택할 수 있습니다. 애플리케이션과 함께 배치하는 것이 유용합니다. ‘기본 설정 없음’을 선택하면 기본 AZ가 선택됩니다.
+    고가용성|영역 중복 배포 사용| 이 옵션을 선택하면 기본 서버와 동일한 구성의 대기 서버는 같은 지역의 다른 가용성 영역에서 자동으로 프로비저닝됩니다. 참고: 고가용성 게시 서버 만들기도 사용하거나 사용하지 않도록 설정할 수 있습니다.
+    서버 이름 |*mydemoserver-pg*|PostgreSQL 서버용 Azure Database를 식별하는 고유한 이름입니다. 사용자가 제공한 서버 이름에 *postgres.database.azure.com* 도메인 이름이 추가됩니다. 서버는 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자 이상이어야 합니다.
     관리자 사용자 이름 |*myadmin*| 서버에 연결할 경우 사용할 사용자 고유의 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** 또는 **public** 이 될 수 없습니다. **pg_** 로 시작할 수 없습니다.
     암호 |사용자 암호| 서버 관리자 계정의 새 암호입니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     위치|사용자와 가장 가까운 지역| 사용자에게 가장 가까운 위치입니다.
@@ -70,6 +73,7 @@ PostgreSQL 서버용 Azure Database를 만들려면 다음 단계를 따릅니�
 
     :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="현재 클라이언트 IP 주소 추가 선택":::
 
+    프라이빗 액세스를 선택하는 경우 
 6. **검토 + 만들기** 를 선택하여 선택 사항을 검토합니다. **만들기** 를 선택하여 서버를 프로비전합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
 
 7. 배포 프로세스를 모니터링하려면 도구 모음에서 **알림** 아이콘(벨)을 선택합니다. 배포가 완료되면 Azure Portal 대시보드에서 이 서버에 대한 타일을 서버의 **개요** 페이지에 대한 바로 가기로 만드는 **대시보드에 고정** 을 선택할 수 있습니다. **리소스로 이동** 옵션을 선택하면 서버의 **개요** 페이지가 열립니다.
@@ -103,7 +107,7 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
    예를 들어, 다음 명령은 액세스 자격 증명을 사용하여 **mydemoserver.postgres.database.azure.com** PostgreSQL 서버의 **postgres** 라는 기본 데이터베이스에 연결합니다. 암호를 묻는 메시지가 표시되면 선택한 `<server_admin_password>`를 입력합니다.
   
    ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
+   psql --host=mydemoserver-pg.postgres.database.azure.com --port=5432 --username=myadmin --dbname=postgres
    ```
 
    연결되면 psql 유틸리티에 sql 명령을 입력할 수 있는 postgres 프롬프트가 표시됩니다. 초기 연결 출력에서는 사용하는 psql이 Azure Database for PostgreSQL 서버와 다른 버전일 수 있으므로 경고가 표시될 수 있습니다.
@@ -111,13 +115,14 @@ Azure Database for PostgreSQL 서버 연결하기 위해 사용할 수 있는 �
    psql 출력의 예:
 
    ```bash
-   psql (11.3, server 12.1)
-   WARNING: psql major version 11, server major version 12.
-            Some psql features might not work.
-   SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+   psql (12.3 (Ubuntu 12.3-1.pgdg18.04+1), server 13.2)
+   WARNING: psql major version 12, server major version 13.
+         Some psql features might not work.
+   SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
    Type "help" for help.
 
    postgres=>
+
    ```
 
    > [!TIP]

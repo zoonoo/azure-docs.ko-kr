@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c654153340586004415b9d2fd8744fb539726960
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 0d9e3d4c9ec9eab75ce5917e9ea20011653ff133
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110369410"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110790197"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -60,15 +60,31 @@ URL 페이지에서 QnA 추출을 위해 크롤링할 수 있는 최대 딥 링�
 
 ## <a name="metadata-limits"></a>메타데이터 제한
 
-메타데이터는 `product:windows 10`과 같은 텍스트 기반 키:값 쌍으로 제공되며, 소문자로 저장되고 비교됩니다.
+메타데이터는 `product:windows 10`과 같은 텍스트 기반 키:값 쌍으로 제공되며, 소문자로 저장되고 비교됩니다. 최대 메타데이터 필드 수는 **[Azure Cognitive Search 계층 제한](../../search/search-limits-quotas-capacity.md)** 을 기반으로 합니다.
 
-### <a name="by-azure-cognitive-search-pricing-tier"></a>Azure Cognitive Search 가격 책정 계층으로
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/v1)
 
-기술 자료당 최대 메타데이터 필드 수는 **[Azure Cognitive Search 계층 제한](../../search/search-limits-quotas-capacity.md)** 을 기반으로 합니다.
+GA 버전의 경우 테스트 인덱스가 모든 KB에서 공유되므로 QnA Maker 서비스의 모든 KB에 제한이 적용됩니다.
 
 |**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
 |QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
+
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/v2)
+
+한 서비스에 여러 언어 KB를 포함하도록 선택하는 경우 KB당 전용 테스트 인덱스가 있습니다. 따라서 제한은 QnA Maker 서비스에서 KB당 적용됩니다.
+
+|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|QnA Maker 서비스별 최대 메타데이터 필드 수(KB별)|1,000|100*|1,000|1,000|1,000|1,000|
+
+KB를 여러 언어로 사용하는 옵션을 선택하지 않으면 QnA Maker 서비스의 모든 KB에 제한이 적용됩니다.
+
+|**Azure Cognitive Search 계층** | **Free** | **기본** |**S1** | **S2**| **S3** |**S3 HD**|
+|---|---|---|---|---|---|----|
+|QnA Maker 서비스별 최대 메타데이터 필드 수(모든 기술 자료에서)|1,000|100*|1,000|1,000|1,000|1,000|
+
+---
 
 ### <a name="by-name-and-value"></a>이름 및 값
 

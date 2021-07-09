@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74e01ffe3ed846ebc56a82d352894e8424bb3f7a
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "94365011"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748010"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Text Analytics Cognitive Service에 대한 외부 및 커뮤니티 콘텐츠
 
@@ -27,7 +27,7 @@ ms.locfileid: "94365011"
 
 + [PowerShell에서 Text Analytics 핵심 구 Cognitive Services API 사용(AutomationNext 블로그)](https://automationnext.wordpress.com/tag/text-analytics/)
 
-+ [R 간단 팁: Microsoft Cognitive Services의 Text Analytics API(R 블로거)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
++ [R 간단 팁: Azure Cognitive Services의 Text Analytics API(R 블로거)](https://www.r-bloggers.com/r-quick-tip-microsoft-cognitive-services-text-analytics-api/)
 
 + [SQL Server 데이터를 사용하여 논리 앱에서 감정 분석(TechNet 블로그)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
@@ -43,13 +43,13 @@ ms.locfileid: "94365011"
 
 + [텍스트에서 감정을 감지하고 핵심 구를 추출하는 논리 앱](https://www.youtube.com/watch?v=jVN9NObAzgk)
 
-+ [Power BI 및 Microsoft Cognitive Services를 사용한 감정 분석](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
++ [Power BI 및 Azure Cognitive Services를 사용한 감정 분석](https://www.youtube.com/watch?v=gJ1j3N7Y75k)
 
-+ [Text Analytics에서 Power BI 및 Microsoft Cognitive Services를 사용하여 핵심 구 추출](https://www.youtube.com/watch?v=R_-1TB2BF14)
++ [Text Analytics에서 Power BI 및 Azure Cognitive Services를 사용하여 핵심 구문 추출](https://www.youtube.com/watch?v=R_-1TB2BF14)
 
 ## <a name="next-steps"></a>다음 단계
 
-여기서 다루지 않은 기능 또는 사용 사례에 대한 정보를 원하나요? [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics)에서 요청하거나 투표하세요. 
+여기서 다루지 않은 기능 또는 사용 사례에 대한 정보를 원하나요? [피드백 도구](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)를 사용하여 요청하거나 투표하는 것이 좋습니다. 
 
 ## <a name="see-also"></a>참고 항목
 

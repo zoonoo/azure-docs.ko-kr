@@ -4,12 +4,12 @@ description: BYOK(Bring Your Own Key)를 통해 AKS OS 및 데이터 디스크�
 services: container-service
 ms.topic: article
 ms.date: 09/01/2020
-ms.openlocfilehash: c5c555d7eb5142f5f41f65b24f754c65450a2713
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: 6007294476321e1155219aae0664732ee4f921e0
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107776194"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476249"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크에 BYOK(Bring Your Own Key) 사용
 
@@ -17,7 +17,7 @@ Azure Storage는 미사용 스토리지 계정의 모든 데이터를 암호화�
 
 ## <a name="limitations"></a>제한 사항
 * 데이터 디스크 암호화 지원은 Kubernetes 버전 1.17 이상을 실행하는 AKS 클러스터로 제한됩니다.
-* AKS 클러스터를 만들 때만 고객 관리형 키를 사용하여 OS 및 데이터 디스크를 암호화할 수 있습니다.
+* AKS 클러스터를 만들 때만 고객 관리형 키를 사용하여 OS 디스크를 암호화할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 * Key Vault를 사용하여 관리 디스크를 암호화할 때 *Azure Key Vault* 에 일시 삭제 및 제거 방지를 사용하도록 설정해야 합니다.

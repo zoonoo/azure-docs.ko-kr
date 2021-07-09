@@ -8,20 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 06/07/2021
 ms.author: aahi
-ms.custom: references_regions
-ms.openlocfilehash: 80a943d235783852f57832363b5af8048f010575
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 37dd6eddc302062d756df79a03bd13cfc8c881e1
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104599438"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111757178"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>방법: 의료 분야 Text Analytics(미리 보기)
 
 > [!IMPORTANT] 
-> 의료 분야 Text Analytics는 "있는 그대로" 및 "모든 오류 포함"으로 제공되는 미리 보기 기능입니다. 따라서 **의료 분야 Text Analytics(미리 보기)는 프로덕션 환경에서 구현하거나 배포해서는 안 됩니다.** 의료 분야 Text Analytics는 질병 또는 기타 상태의 진단, 치료, 완화, 처치 또는 예방에 사용하기 위한 의료 기기, 임상 지원, 진단 도구 또는 기타 기술로 사용하도록 의도되거나 제공되지 않습니다. 또한 Microsoft는 이러한 목적으로 이 기능을 사용할 수 있는 라이선스나 권한을 부여하지 않습니다. 이 기능은 전문적인 의학적 조언이나 의료 의견, 진단, 치료 또는 의료 전문가의 임상적 판단을 대체하기 위해 구현되거나, 배포되도록 설계되거나, 의도된 것이 아니므로 그렇게 사용해서는 안 됩니다. 의료 분야 Text Analytics 사용의 책임은 전적으로 고객에게 있습니다. Microsoft는 의료 분야 Text Analytics 또는 그 기능과 관련하여 제공되는 자료가 의료 목적에 충분하거나 다른 사람의 건강 또는 의료 요구 사항을 충족한다고 보증하지 않습니다. 
+> 의료 분야 Text Analytics는 "있는 그대로" 및 "모든 오류 포함"으로 제공되는 미리 보기 기능입니다. 따라서 의료 분야 Text Analytics(미리 보기)는 프로덕션 환경에서 구현하거나 배포해서는 안 됩니다. 의료 분야 Text Analytics는 질병 또는 기타 상태의 진단, 치료, 완화, 처치 또는 예방에 사용하기 위한 의료 기기, 임상 지원, 진단 도구 또는 기타 기술로 사용하도록 의도되거나 제공되지 않습니다. 또한 Microsoft는 이러한 목적으로 이 기능을 사용할 수 있는 라이선스나 권한을 부여하지 않습니다. 이 기능은 전문적인 의학적 조언이나 의료 의견, 진단, 치료 또는 의료 전문가의 임상적 판단을 대체하기 위해 구현되거나, 배포되도록 설계되거나, 의도된 것이 아니므로 그렇게 사용해서는 안 됩니다. 의료 분야 Text Analytics 사용의 책임은 전적으로 고객에게 있습니다. 고객은 해당 [UMLS Metathesaurus 라이선스 계약 부록](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) 또는 향후 동등한 링크에 설정된 조건에 따라 사용하려는 모든 소스 어휘에 대해 별도로 라이선스를 취득해야 합니다. 고객은 지리적 또는 기타 적용 가능한 제한 사항을 포함하여 해당 사용 조건을 준수할 책임이 있습니다.
 
 
 의료 분야 Text Analytics는 의사의 메모, 퇴원 요약, 임상 문서 및 전자 의료 레코드 같은 구조화되지 않은 텍스트에서 관련 의료 정보를 추출하고 레이블을 지정하는 Text Analytics API 서비스 기능입니다.  이 서비스를 활용하는 방법에는 두 가지가 있습니다. 
@@ -74,22 +73,9 @@ ms.locfileid: "104599438"
 
 지원되는 엔터티의 전체 목록은 의료 분야 Text Analytics에서 반환하는 [엔터티 범주](../named-entity-types.md?tabs=health)를 참조하세요. 신뢰도 점수에 대한 자세한 내용은 [Text Analytics 투명도 메모](/legal/cognitive-services/text-analytics/transparency-note#general-guidelines-to-understand-and-improve-performance?context=/azure/cognitive-services/text-analytics/context/context)를 참조하세요. 
 
-### <a name="supported-languages-and-regions"></a>지원되는 언어 및 지역
+### <a name="supported-languages"></a>지원되는 언어
 
 의료 분야 Text Analytics는 영어 문서만 지원합니다. 
-
-의료 분야 Text Analytics 호스팅 웹 API는 현재 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽 및 서부 유럽 지역에서만 사용할 수 있습니다.
-
-## <a name="request-access-to-the-public-preview"></a>공개 미리 보기에 대한 액세스 요청
-
-의료 분야 Text Analytics 공개 미리 보기에 대한 액세스를 요청하려면 [Cognitive Services 요청 양식](https://aka.ms/csgate)을 작성하고 제출합니다. 의료 분야 Text Analytics 사용에 대한 비용은 청구되지 않습니다. 
-
-이 양식에서는 컨테이너를 사용할 사용자, 회사 및 사용자 시나리오에 대한 정보를 요청합니다. 양식을 제출하면 Azure Cognitive Services 팀이 양식을 검토하여 이메일로 결과를 보내 드립니다.
-
-> [!IMPORTANT]
-> * 양식에는 Azure 구독 ID와 연결된 이메일 주소를 사용해야 합니다.
-> * 사용하는 Azure 리소스는 승인된 Azure 구독 ID로 생성되어야 합니다. 
-> * Microsoft에서 애플리케이션의 상태에 대한 업데이트를 확인하려면 이메일(받은 편지함 및 스팸 메일함 모두)을 확인합니다.
 
 ## <a name="using-the-docker-container"></a>Docker 컨테이너 사용 
 
@@ -116,12 +102,9 @@ Text Analytics 클라이언트 라이브러리의 최신 시험판을 사용하�
 
 ### <a name="structure-the-api-request-for-the-hosted-asynchronous-web-api"></a>호스팅된 비동기 웹 API에 대한 API 요청 구성
 
-컨테이너와 호스팅된 웹 API 모두에 대해 POST 요청을 만들어야 합니다. [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/Health)에서 [Postman](text-analytics-how-to-call-api.md), cURL 명령 또는 **API 테스트 콘솔** 을 사용하여 원하는 지역의 호스팅된 웹 API에 POST 요청을 빠르게 구성하고 보낼 수 있습니다. 
+컨테이너와 호스팅된 웹 API 모두에 대해 POST 요청을 만들어야 합니다. [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/Health)에서 [Postman](text-analytics-how-to-call-api.md), cURL 명령 또는 **API 테스트 콘솔** 을 사용하여 원하는 지역의 호스팅된 웹 API에 POST 요청을 빠르게 구성하고 보낼 수 있습니다. API v3.1-preview.5 엔드포인트에서 `loggingOptOut` 부울 쿼리 매개 변수를 사용하여 문제 해결을 위해 로깅을 사용하도록 설정할 수 있습니다.  요청 쿼리에 지정하지 않으면 기본값은 TRUE입니다.
 
-> [!NOTE]
-> 비동기 `/analyze` 및 `/health` 엔드포인트는 모두 미국 서부 2, 미국 동부 2, 미국 중부, 북유럽 및 서부 유럽 지역에서만 사용 가능합니다.  이러한 엔드포인트에 성공적으로 요청하려면 리소스가 이러한 지역 중 하나에서 생성되었는지 확인합니다.
-
-다음은 의료 분야 Text Analytics 요청의 POST 본문에 첨부된 JSON 파일의 예입니다.
+아래 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs`에 POST 요청 전송은 상태 API 요청의 POST 본문에 첨부된 JSON 파일의 예입니다.
 
 ```json
 example.json
@@ -141,11 +124,11 @@ example.json
 
 이 POST 요청은 비동기 작업(operation)에 대한 작업(job)을 제출하는 데 사용되므로 응답 개체에 텍스트가 없습니다.  그러나 작업 및 출력의 상태를 확인하기 위해 GET 요청을 하려면 응답 헤더에 작업-위치 키 값이 필요합니다.  다음은 POST 요청의 응답 헤더에 있는 작업-위치 KEY 값의 예입니다.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/health/jobs/<jobID>`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/health/jobs/<jobID>`
 
 작업 상태를 확인하려면 POST 응답의 작업-위치 KEY 헤더 값에 있는 URL에 GET 요청을 수행합니다.  작업 상태를 반영하는 데는 `NotStarted`, `running`, `succeeded`, `failed`, `rejected`, `cancelling` 및 `cancelled` 등의 상태가 사용됩니다.  
 
-GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotStarted` 또는 `running` 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대한 자세한 내용은 [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/operations/CancelHealthJob)에서 확인할 수 있습니다.
+GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotStarted` 또는 `running` 상태의 작업을 취소할 수 있습니다.  DELETE 호출에 대한 자세한 내용은 [의료 분야 Text Analytics 호스팅 API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-5/operations/CancelHealthJob)에서 확인할 수 있습니다.
 
 다음은 GET 요청 응답의 예입니다.  출력은 `expirationDateTime`(작업이 생성된 시간부터 24시간)이 경과되어 출력이 제거될 때까지 검색에 사용할 수 있습니다.
 
@@ -302,7 +285,7 @@ GET 요청과 동일한 URL에 대한 DELETE HTTP 호출을 사용하여 `NotSta
 [Postman을 사용](text-analytics-how-to-call-api.md)하거나 아래의 cURL 요청 예를 사용하여 배포한 컨테이너에 쿼리를 제출하고 `serverURL` 변수를 적절한 값으로 바꿀 수 있습니다.  컨테이너의 URL에 있는 API 버전은 호스팅된 API와 다릅니다.
 
 ```bash
-curl -X POST 'http://<serverURL>:5000/text/analytics/v3.2-preview.1/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
+curl -X POST 'http://<serverURL>:5000/text/analytics/v3.1-preview.5/entities/health' --header 'Content-Type: application/json' --header 'accept: application/json' --data-binary @example.json
 
 ```
 
@@ -501,17 +484,17 @@ example.json
                         "category": "SymptomOrSign",
                         "confidenceScore": 0.98,
                         "assertion": {
-                            "certainty&quot;: &quot;negative"
+                            "certainty": "negative"
                         },
                         "name": "Dyspnea",
                         "links": [
                             {
                                 "dataSource": "UMLS",
-                                "id&quot;: &quot;C0013404"
+                                "id": "C0013404"
                             },
                             {
                                 "dataSource": "AOD",
-                                "id&quot;: &quot;0000005442"
+                                "id": "0000005442"
                             },
     ...
 ```
@@ -521,6 +504,18 @@ example.json
 의료 분야 Text Analytics는 특성과 엔터티 간의 관계(예: 신체 구조 방향, 약물 투여량) 및 엔터티 간의 관계(예: 약어 검색)를 포함하여 서로 다른 개념 간의 관계를 인식합니다.
 
 **ABBREVIATION**
+
+**BODY_SITE_OF_CONDITION**
+
+**BODY_SITE_OF_TREATMENT**
+
+**COURSE_OF_CONDITION**
+
+**COURSE_OF_EXAMINATION**
+
+**COURSE_OF_MEDICATION**
+
+**COURSE_OF_TREATMENT**
 
 **DIRECTION_OF_BODY_STRUCTURE**
 
@@ -532,17 +527,31 @@ example.json
 
 **DOSAGE_OF_MEDICATION**
 
+**EXAMINATION_FINDS_CONDITION**
+
+**EXPRESSION_OF_GENE**
+
+**EXPRESSION_OF_VARIANT**
+
 **FORM_OF_MEDICATION**
+
+**FREQUENCY_OF_CONDITION**
 
 **FREQUENCY_OF_MEDICATION**
 
 **FREQUENCY_OF_TREATMENT**
+
+**MUTATION_TYPE_OF_GENE**
+
+**MUTATION_TYPE_OF_VARIANT**
 
 **QUALIFIER_OF_CONDITION**
 
 **RELATION_OF_EXAMINATION**
 
 **ROUTE_OF_MEDICATION** 
+
+**SCALE_OF_CONDITION**
 
 **TIME_OF_CONDITION**
 
@@ -561,6 +570,8 @@ example.json
 **VALUE_OF_CONDITION**  
 
 **VALUE_OF_EXAMINATION**
+
+**VARIANT_OF_GENE**
 
 > [!NOTE]
 > * CONDITION을 참조하는 관계는 DIAGNOSIS 엔터티 유형 또는 SYMPTOM_OR_SIGN 엔터티 유형을 참조할 수 있습니다.

@@ -10,12 +10,12 @@ author: wenxwei
 ms.author: wenxwei
 ms.date: 05/25/2021
 ms.reviewer: peterlu
-ms.openlocfilehash: fadcb4c8b24e9c0dcc1cfe39529af4a1c75cc36c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 65b7446602c8b7202ba7ccf56115edfc5de333db
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110383028"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111750734"
 ---
 # <a name="train-models-with-rest-preview"></a>REST를 사용하여 모델 학습(미리 보기)
 
@@ -72,7 +72,7 @@ API_VERSION="2021-03-01-preview"
 기계 학습 작업을 실행하려면 컴퓨팅 리소스가 필요합니다. 작업 영역의 컴퓨팅 리소스를 나열할 수 있습니다.
 
 ```bash
-curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION \
+curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/computes?api-version=$API_VERSION" \
 --header "Authorization: Bearer $TOKEN"
 ```
 
@@ -91,7 +91,7 @@ LightGBM 예제는 LightGBM 환경에서 실행해야 합니다. PUT 요청을 �
 
 `Docker`를 사용하여 docker 이미지를 구성하고 `condaFile`을 사용하여 conda 종속성을 추가할 수 있습니다. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_environment":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_environment":::
 
 ### <a name="datastore"></a>데이터 저장소
 
@@ -113,7 +113,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 이제 데이터 저장소가 생겼으므로 데이터 세트를 만들 수 있습니다. 이 예제에서는 공통 데이터 세트 `iris.csv`를 사용하고 `path`에서 이 데이터 세트를 가리킵니다. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_data":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
 ### <a name="code"></a>코드
 
@@ -127,7 +127,7 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 코드를 업로드한 후에는 PUT 요청으로 코드를 지정하고 `datastoreId`를 사용하여 데이터 저장소를 참조할 수 있습니다. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_code":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
 ## <a name="submit-a-training-job"></a>학습 작업 제출
 
@@ -144,11 +144,11 @@ az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
 
 다음 명령을 사용하여 학습 작업을 제출합니다.
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_job":::
 
 ## <a name="submit-a-hyperparameter-sweep-job"></a>하이퍼 매개 변수 스윕 작업 제출
 
-Azure Machine Learning에서는 학습 하이퍼 매개 변수를 효율적으로 조정할 수도 있습니다. REST API를 사용하여 하이퍼 매개 변수를 쉽게 튜닝할 수 있습니다. Azure Machine Learning의 하이퍼 매개 변수 튜닝 옵션에 대한 자세한 내용은 [하이퍼 매개 변수 모델 튜닝](how-to-tune-hyperparameters.md)을 참조하세요. 하이퍼 매개 변수 튜닝 매개 변수를 지정하여 스윕을 구성합니다.
+Azure Machine Learning에서는 학습 하이퍼 매개 변수를 효율적으로 조정할 수도 있습니다. REST API를 사용하여 하이퍼 매개 변수 튜닝 제품군을 만들 수 있습니다. Azure Machine Learning의 하이퍼 매개 변수 튜닝 옵션에 대한 자세한 내용은 [하이퍼 매개 변수 모델 튜닝](how-to-tune-hyperparameters.md)을 참조하세요. 하이퍼 매개 변수 튜닝 매개 변수를 지정하여 스윕을 구성합니다.
 
 - **jobType**: 작업 유형입니다. 스윕 작업의 경우 `Sweep`입니다. 
 - **algorithm**: 샘플링 알고리즘입니다. "random"으로 시작하는 것이 좋은 경우가 자주 있습니다. 옵션의 열거형은 스윕 작업 [스키마](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json)를 참조하세요. 
@@ -161,7 +161,7 @@ Azure Machine Learning에서는 학습 하이퍼 매개 변수를 효율적으�
 
 동일한 LightGBM 예제를 사용하여 스윕 작업을 만들려면 다음 명령을 사용합니다. 
 
-:::code language="rest" source="~/azureml-examples-cli-preview/cli/how-to-train-rest.sh" id="create_a_sweep_job":::
+:::code language="rest" source="~/azureml-examples-main/cli/train-rest.sh" id="create_a_sweep_job":::
 
 ## <a name="next-steps"></a>다음 단계
 

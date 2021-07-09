@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.custom: contperf-fy21q1
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: deaab53feed4d5402ff0a5dcf9b2bd208e85bb18
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 3420013ffc316e37654fcf55434f5f419f7ff735
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106062695"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299216"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -33,7 +33,6 @@ HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스�
 | REST API |HDInsight의 Spark 클러스터에는 원격으로 작업을 제출하고 모니터링하는 REST API 기반 Spark 작업 서버인 [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. [Apache Spark REST API를 사용하여 HDInsight Spark 클러스터에 원격 작업 제출](apache-spark-livy-rest-interface.md)을 참조하세요.|
 | Azure Storage 지원 | HDInsight의 Spark 클러스터는 Azure Data Lake Storage Gen1/Gen2를 기본 스토리지 또는 추가 스토리지로 모두 사용할 수 있습니다. Data Lake Storage Gen1에 대한 자세한 내용은 [Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-overview.md)을 참조하세요. Data Lake Storage Gen2에 대한 자세한 내용은 [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)를 참조하세요.|
 | Azure 서비스와의 통합 |HDInsight에서 Spark 클러스터는 Azure Event Hubs에 대한 커넥터와 함께 제공됩니다. Event Hubs를 사용하여 스트리밍 애플리케이션을 빌드할 수 있습니다. 여기에는 Spark의 일부로 이미 제공되는 Apache Kafka가 포함됩니다. |
-| ML Server에 대한 지원 | HDInsight의 ML Server에 대한 지원은 **ML 서비스** 클러스터 형식으로 제공됩니다. Spark 클러스터와 약속된 속도로 분산된 R 계산을 실행하도록 ML 서비스 클러스터를 설정할 수 있습니다. 자세한 내용은 [Azure HDInsight의 ML Services란](../r-server/r-server-overview.md)을 참조하세요. |
 | 타사 IDE와의 통합 | HDInsight는 유용한 여러 IDE 플러그인을 제공하여 애플리케이션을 만들고 HDInsight Spark 클러스터에 제출합니다. 자세한 내용은 [Azure Toolkit for IntelliJ IDEA 사용](apache-spark-intellij-tool-plugin.md), [VSCode용 Spark & Hive Tools 사용](../hdinsight-for-vscode.md) 및 [Azure Toolkit for Eclipse 사용](apache-spark-eclipse-tool-plugin.md)을 참조하세요.|
 | 동시 쿼리 |HDInsight의 Spark 클러스터는 동시 쿼리를 지원합니다. 이 기능을 통해 한 사용자의 여러 개 쿼리 또는 여러 사용자 및 애플리케이션의 여러 개 쿼리에서 동일한 클러스터 리소스를 공유할 수 있습니다. |
 | SSD에서 캐시 |클러스터 노드에 연결된 메모리 또는 SSD에서 데이터를 캐시하도록 선택할 수 있습니다. 메모리에서 캐시하면 최고의 쿼리 성능을 제공하지만 리소스가 많이 들 수 있습니다. SSD에서 캐시하면 메모리에서 전체 데이터 세트에 맞게 필요한 크기의 클러스터를 만들 필요 없이 쿼리 성능 향상을 위한 훌륭한 옵션을 제공합니다. [Azure HDInsight IO 캐시를 사용하여 Apache Spark 워크로드의 성능 향상](apache-spark-improve-performance-iocache.md)을 참조하세요. |
