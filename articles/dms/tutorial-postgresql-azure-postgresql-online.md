@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 37f33a217467619240d3339363c6a2fcd8800a12
-ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
+ms.openlocfilehash: 6384962e0591c4bc3245d0f204f9ad0cec0d1177
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107505550"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069907"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>자습서: Azure CLI를 통해 DMS를 사용하여 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
 
@@ -114,46 +114,8 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
     ```
 
-4. 스키마에 외래 키가 있으면 마이그레이션의 초기 로드 및 지속적인 동기화가 실패합니다. PgAdmin 또는 psql에서 다음 스크립트를 실행하여 드롭 외래 키 스크립트를 추출하고 대상(Azure Database for PostgreSQL)에서 외래 키 스크립트를 추가합니다.
-  
-    ```
-    SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ',
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
-        (SELECT
-        tc.table_schema,
-        tc.constraint_name as foreignkey,
-        tc.table_name as tableName,
-        kcu.column_name,
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name
-    FROM
-        information_schema.table_constraints AS tc
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
-    ```
-
-    쿼리 결과에서 외래 키 삭제(두 번째 열)를 실행합니다.
-
-5. 데이터의 트리거(트리거 삽입 또는 업데이트)는 원본의 복제된 데이터보다 먼저 대상에 데이터 무결성을 적용합니다. 마이그레이션 중에 **대상** 의 모든 테이블에서 트리거를 사용하지 않도록 설정한 다음, 마이그레이션이 완료되면 트리거를 사용하도록 설정하는 것이 좋습니다.
-
-    대상 데이터베이스에서 트리거를 사용하지 않도록 설정하려면 다음 명령을 사용합니다.
-
-    ```
-    select concat ('alter table ', event_object_table, ' disable trigger ', trigger_name)
-    from information_schema.triggers;
-    ```
-
-6. 테이블에 ENUM 데이터 형식이 있으면 대상 테이블에서 'character varying' 데이터 형식으로 일시적으로 업데이트하는 것이 좋습니다. 데이터 복제가 완료되면 데이터 형식을 ENUM으로 되돌립니다.
+  > [!NOTE]
+   > 마이그레이션 서비스는 안정적이고 강력한 데이터 마이그레이션을 보장하기 위해 외래 키 및 트리거의 사용/사용 안 함 설정을 내부적으로 처리합니다. 따라서 대상 데이터베이스 스키마를 수정하는 것에 대해 걱정할 필요가 없습니다.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-azure-cli"></a>Azure CLI를 사용하여 DMS의 인스턴스 프로비저닝
 

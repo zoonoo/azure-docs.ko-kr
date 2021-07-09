@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: dee15977318eda7bcd0b1950286bb33f621221dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7f39e209cf2f01abaf836924fc25dc64275f5fcb
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98731587"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110089815"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Azure SignalR Service용 관리 ID
 
@@ -84,7 +84,7 @@ Azure Active Directory(Azure AD) 미들웨어에는 액세스 토큰의 유효�
 
 함수 앱에서 액세스 토큰 유효성 검사를 코드 작업 없이 쉽고 효율적으로 설정할 수 있습니다.
 
-1. **인증/권한 부여** 페이지에서 **App Service 인증** 을 **켜기** 로 전환합니다.
+1. **인증(클래식)** 페이지에서 **App Service 인증** 을 **켜기** 로 전환합니다.
 
 2. **요청이 인증되지 않은 경우 수행할 작업** 에서 **Azure Active Directory로 로그인** 을 선택합니다.
 
@@ -97,6 +97,10 @@ Azure Active Directory(Azure AD) 미들웨어에는 액세스 토큰의 유효�
 6. SignalR Service에서 **업스트림 설정** 으로 이동하여 **관리 ID 사용** 및 **기존 애플리케이션에서 선택** 을 선택합니다. 이전에 만든 애플리케이션을 선택합니다.
 
 이러한 설정이 끝나면 함수 앱은 헤더에 액세스 토큰이 없는 요청을 거부합니다.
+
+> [!Important] 
+> 인증을 통과하려면 *발급자 Url* 이 토큰의 *iss* 클레임과 일치해야 합니다. 현재는 v1 엔드포인트([v1.0 및 v2.0](../active-directory/develop/access-tokens.md#v10-and-v20) 참조)만 지원하므로 *발급자 Url* 은 `https://sts.windows.net/<tenant-id>/`와 같이 표시됩니다. Azure Function에 구성된 *발급자 Url* 을 확인합니다. **인증** 의 경우 *ID 공급자* -> *편집* -> *발급자 Url* 로 이동하고 **인증(클래식)** 인 경우 *Azure Active Directory* -> *고급* -> *발급자 Url* 로 이동합니다.
+
 
 ## <a name="use-a-managed-identity-for-key-vault-reference"></a>Key Vault 참조에 관리 ID 사용
 

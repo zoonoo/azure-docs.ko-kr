@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/04/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-ms.openlocfilehash: 70fc2edbf9ae342f91913f0345db3bb1ac0332a3
-ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
+ms.openlocfilehash: dc59905351da364ed23b5cbc59b972feb0497a9e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2021
-ms.locfileid: "111592637"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294934"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-hub"></a>빠른 시작: 디바이스에서 Azure IoT Hub로 원격 분석 데이터 보내기
 
@@ -85,9 +85,11 @@ ms.locfileid: "111592637"
 
 이 빠른 시작에서는 디바이스를 클라우드에 안전하게 연결하고 디바이스-클라우드 원격 분석을 보내는 데 사용할 수 있는 기본 Azure IoT 애플리케이션 워크플로를 알아보았습니다. Azure CLI를 사용하여 Azure IoT Hub 및 디바이스 인스턴스를 작성했습니다. 그런 다음 Azure IoT 디바이스 SDK를 사용하여 시뮬레이션된 디바이스를 만들고 허브에 연결하고 원격 분석을 전송했습니다. 또한 Azure Portal을 사용하여 원격 분석을 모니터링했습니다.
 
-다음 단계로, 다음 빠른 시작 시리즈를 통해 Azure IoT를 사용하여 디바이스 솔루션을 빌드하는 방법에 대해 자세히 알아봅니다.
+다음 단계로, 다음 문서를 통해 Azure IoT를 사용하여 디바이스 솔루션을 빌드하는 방법에 대해 자세히 알아봅니다. 
 
+> [!div class="nextstepaction"]
+> [IoT 허브에 연결된 디바이스 제어](../iot-hub/quickstart-control-device-dotnet.md)
 > [!div class="nextstepaction"]
 > [IoT Central로 원격 분석 전송](quickstart-send-telemetry-central.md)
 > [!div class="nextstepaction"]
-> [빠른 시작: MXCHIP AZ3166 DevKit를 IoT Central에 연결](quickstart-devkit-mxchip-az3166.md)
+> [IoT Central에 MXCHIP AZ3166 devkit 연결](quickstart-devkit-mxchip-az3166.md)

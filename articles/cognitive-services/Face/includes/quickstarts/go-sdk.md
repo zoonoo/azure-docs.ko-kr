@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ab3fdd24446448e9c21a1e4867c26c960f814c7a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 57c152546bfdbcdfbeba45536990c6c204106e7a
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105958042"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109858091"
 ---
 Go용 Face 클라이언트 라이브러리를 사용하여 얼굴 인식을 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Face 서비스는 이미지에서 사람의 얼굴을 감지하고 인식하기 위한 고급 알고리즘에 대한 액세스를 제공합니다.
 
@@ -272,10 +272,10 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Go용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로 라이브러리에 대해 자세히 알아보려면 참조 설명서를 살펴보세요.
+이 빠른 시작에서는 Go용 Face 클라이언트 라이브러리를 사용하여 기본 얼굴 인식 작업을 수행하는 방법을 알아보았습니다. 다음으로, 다양한 얼굴 감지 모델과 사용 사례에 적합한 모델을 지정하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Face API 참조(Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)
+> [얼굴 감지 모델 버전 지정](../../Face-API-How-to-Topics/specify-detection-model.md)
 
 * [Face 서비스란?](../../overview.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/Face/FaceQuickstart.go)에서 확인할 수 있습니다.

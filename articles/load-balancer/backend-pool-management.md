@@ -8,12 +8,13 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: 5aa15204d646278abfb669466a34f11543e338f2
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8a0294e205dd8a22f9847140511cbce634322c4a
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110091219"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112285232"
 ---
 # <a name="backend-pool-management"></a>백 엔드 풀 관리
 백 엔드 풀은 부하 분산 장치의 중요한 구성 요소입니다. 백 엔드 풀은 지정된 부하 분산 규칙에 대한 트래픽을 제공하는 리소스 그룹을 정의합니다.
@@ -160,7 +161,7 @@ az vm create \
 
 이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create/)에 따라 부하 분산 장치 및 가상 머신을 배포하고, 네트워크 인터페이스를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
-이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-load-balancer-ip-configured-backend-pool)에 따라 부하 분산 장치 및 가상 머신을 배포하고, IP 주소를 통해 가상 머신을 백 엔드 풀에 추가합니다.
+이 [빠른 시작 Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-ip-configured-backend-pool)에 따라 부하 분산 장치 및 가상 머신을 배포하고, IP 주소를 통해 가상 머신을 백 엔드 풀에 추가합니다.
 
 
 ## <a name="configure-backend-pool-by-ip-address-and-virtual-network"></a>IP 주소 및 가상 네트워크를 통해 백 엔드 풀 구성
@@ -314,10 +315,12 @@ IP 주소로 구성된 백 엔드 풀에는 다음과 같은 제한 사항이 �
   * 백 엔드 풀의 IP 주소 100개 제한
   * 백 엔드 리소스가 부하 분산 장치와 동일한 가상 네트워크에 있어야 함
   * IP 기반 백 엔드 풀이 있는 Load Balancer는 Private Link 서비스로 작동할 수 없습니다.
-  * 이 기능은 현재 Azure Portal에서 지원되지 않음
   * ACI 컨테이너는 현재 이 기능에서 지원되지 않습니다.
   * 부하 분산 장치 또는 Application Gateway와 같은 서비스를 부하 분산 장치의 백 엔드 풀에 배치할 수 없습니다.
   * 인바운드 NAT 규칙은 IP 주소로 지정할 수 없습니다.
+
+>[!Important]
+> IP 주소로 구성된 백 엔드 풀은 기본 아웃바운드가 사용되는 기본 부하 분산 장치처럼 동작합니다. 기본적으로 안전한 구성 및 아웃바운드 요구 사항이 까다로운 애플리케이션의 경우 NIC별로 백 엔드 풀을 구성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Load Balancer 백 엔드 풀 관리 및 IP 주소 및 가상 네트워크를 통해 백 엔드 풀을 구성하는 방법에 대해 알아보았습니다.

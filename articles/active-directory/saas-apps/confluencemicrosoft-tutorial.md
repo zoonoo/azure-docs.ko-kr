@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/25/2020
+ms.date: 05/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 34365a8bd7a15f502aa89a966adb14807e802cc4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77e98560ee483f55fc4a808a8c888f20af983a90
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821472"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478584"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -62,7 +62,7 @@ Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 �
 
 - Confluence: 5.0 ~ 5.10
 - Confluence: 6.0.1 ~ 6.15.9
-- Confluence: 7.0.1 ~ 7.9.3
+- Confluence: 7.0.1 ~ 7.10.0
 
 > [!NOTE]
 > Confluence 플러그 인도 Ubuntu 버전 16.04에서 작동한다는 점에 유의하세요.
@@ -109,11 +109,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그인 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
+    a. **식별자** 텍스트 상자에서 `https://<DOMAIN:PORT>/` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자** 텍스트 상자에서 `https://<domain:port>/` 패턴을 사용하는 URL을 입력합니다.
-
-    다. **회신 URL** 텍스트 상자에서 `https://<domain:port>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
+    b. **회신 URL** 텍스트 상자에서 `https://<DOMAIN:PORT>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
+    
+    다. **로그인 URL** 텍스트 상자에서 `https://<DOMAIN:PORT>/plugins/servlet/saml/auth` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 명명된 URL인 경우 포트는 선택 사항입니다. 이러한 값은 Confluence 플러그 인 구성 중에 수신되며 자습서의 뒷부분에 설명되어 있습니다.
@@ -152,11 +152,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 마우스로 선 위를 가리키고 **추가 기능** 을 클릭합니다.
 
-    ![선택된 "Cog" 아이콘과 드롭다운 메뉴에서 강조 표시된 "추가 기능"을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![선택된 "Cog" 아이콘과 드롭다운 메뉴에서 강조 표시된 "추가 기능"을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/add-on-1.png)
 
 1. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56503)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    !["추가 기능 업로드" 작업이 선택된 "추가 기능 관리" 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon12.png)
+    !["추가 기능 업로드" 작업이 선택된 "추가 기능 관리" 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/add-on-12.png)
 
 1. Confluence 역방향 프록시 시나리오 또는 부하 분산 장치 시나리오를 실행하려면 다음 단계를 수행합니다.
 
@@ -167,19 +167,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    !["커넥터" 포트에 특성이 추가된 "system.xml" 파일을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    !["커넥터" 포트에 특성이 추가된 "system.xml" 파일을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/reverse-proxy-1.png)
 
     b. 프록시/부하 분산 장치에 따라 **시스템 설정** 에서 **기준 URL** 을 변경합니다.
 
-    !["기본 URL"이 강조 표시된 "관리 - 설정" 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    !["기본 URL"이 강조 표시된 "관리 - 설정" 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/reverse-proxy-2.png)
 
 1. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성** 을 클릭하여 새 플러그 인을 구성합니다.
 
-    !["구성" 단추가 강조 표시된 "사용자 설치" 섹션을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon15.png)
+    !["구성" 단추가 강조 표시된 "사용자 설치" 섹션을 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/add-on-15.png)
 
 1. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 구성 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Single Sign-On 구성 페이지를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/add-on-53.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.
@@ -209,7 +209,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
        > [!Note]
        > Azure 강제 로그인을 활성화한 경우 로그인 페이지에서 관리자 로그인에 대한 기본 로그인 양식을 사용하려면 브라우저 URL에 쿼리 매개 변수를 추가합니다.
-       > `https://<domain:port>/login.action?force_azure_login=false`
+       > `https://<DOMAIN:PORT>/login.action?force_azure_login=false`
 
     1. **저장** 단추를 클릭하여 설정을 저장합니다.
 
@@ -226,11 +226,11 @@ Azure AD 사용자가 Confluence 온-프레미스 서버에 로그인할 수 있
 
 1. 마우스로 선 위를 가리키고 **사용자 관리** 를 클릭합니다.
 
-    ![직원 추가](./media/confluencemicrosoft-tutorial/user1.png)
+    ![직원 추가](./media/confluencemicrosoft-tutorial/user-1.png)
 
 1. [사용자] 섹션에서 **사용자 추가** 탭을 클릭합니다. **사용자 추가** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
-    !["사용자 추가" 탭이 선택되고 "사용자 추가" 정보가 입력된 "Confluence 관리"를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/user2.png)
+    !["사용자 추가" 탭이 선택되고 "사용자 추가" 정보가 입력된 "Confluence 관리"를 보여주는 스크린샷.](./media/confluencemicrosoft-tutorial/user-2.png)
 
     a. **사용자 이름** 텍스트 상자에 B.Simon과 같은 사용자의 메일을 입력합니다.
 

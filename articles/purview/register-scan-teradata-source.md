@@ -1,5 +1,5 @@
 ---
-title: Azure Purview에서 Teradata 원본 등록 및 검사 설정(미리 보기)
+title: Azure Purview에서 Teradata 원본 등록 및 검사 설정
 description: 이 문서에서는 Azure Purview에서 Teradata 원본을 등록하고 검사를 설정하는 방법을 설명합니다.
 author: chandrakavya
 ms.author: kchandra
@@ -7,14 +7,14 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ce5f1e9a7ab493bf7989a55fccb5ef696433d771
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048105"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110066973"
 ---
-# <a name="register-and-scan-teradata-source-preview"></a>Teradata 원본 등록 및 검사(미리 보기)
+# <a name="register-and-scan-teradata-source"></a>Teradata 원본 등록 및 검사
 
 이 문서에서는 Purview에서 Teradata 원본을 등록하고 검사를 설정하는 방법에 대해 설명합니다.
 

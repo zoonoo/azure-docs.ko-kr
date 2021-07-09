@@ -1,31 +1,33 @@
 ---
-title: 프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 온-프레미스 SQL Server 액세스
-description: 이 자습서에서는 Azure Portal을 사용하여 Private Link 서비스를 설치하고 프라이빗 엔드포인트를 사용하여 관리형 VNET에서 온-프레임 SQL Server에 액세스하는 단계를 제공합니다.
+title: 프라이빗 엔드포인트를 사용하여 Data Factory Managed VNet에서 온-프레미스 SQL Server에 액세스
+description: 이 자습서에서는 Azure Portal을 사용하여 Private Link Service를 설치하고 프라이빗 엔드포인트를 사용하여 Managed VNet에서 온-프레미스 SQL Server에 액세스하는 단계를 제공합니다.
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 05/06/2021
-ms.openlocfilehash: c389eab986fa317174db08a3e33d54d595c50c4c
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: bb29c7712bdbe629ff3aa8704c0c4654404f0da3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109657464"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111971843"
 ---
-# <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 온-프레미스 SQL Server에 액세스하는 방법
+# <a name="tutorial-how-to-access-on-premises-sql-server-from-data-factory-managed-vnet-using-private-endpoint"></a>자습서: 프라이빗 엔드포인트를 사용하여 Data Factory Managed VNet에서 온-프레미스 SQL Server에 액세스하는 방법
 
-이 자습서에서는 Azure Portal을 사용하여 Private Link 서비스를 설치하고 프라이빗 엔드포인트를 사용하여 관리형 VNET에서 온-프레임 SQL Server에 액세스하는 단계를 제공합니다.
+이 자습서에서는 Azure Portal을 사용하여 Private Link Service를 설치하고 프라이빗 엔드포인트를 사용하여 Managed VNet에서 온-프레미스 SQL Server에 액세스하는 단계를 제공합니다.
+
+> [!NOTE]
+> 이 문서에 나와 있는 솔루션은 SQL Server 연결에 대해 설명하지만 비슷한 방법을 사용하여 Azure Data Factory에서 지원되는 사용 가능한 다른 [온-프레미스 커넥터](connector-overview.md)를 연결하고 쿼리할 수 있습니다.
 
 :::image type="content" source="./media/tutorial-managed-virtual-network/sql-server-access-model.png" alt-text="SQL Server의 액세스 모델을 보여 주는 스크린샷" lightbox="./media/tutorial-managed-virtual-network/sql-server-access-model-expanded.png":::
-
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Virtual Network**. 가상 네트워크가 없는 경우 [가상 네트워크 만들기](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)를 따라서 가상 네트워크를 만듭니다.
-* **가상 네트워크를 온-프레미스 네트워크로**. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) 또는 [VPN을](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json)사용하여 가상 네트워크와 온-프레미스 네트워크 간에 연결을 만듭니다.
-* **관리형 VNET이 사용하도록 설정된 Data Factory**. Data Factory가 없거나 관리형 VNET을 사용하도록 설정하지 않은 경우 [관리형 VNET을 사용하여 Data Factory 만들기](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private)를 따라서 Data Factory를 만듭니다.
+* **Virtual Network**. 가상 네트워크가 없는 경우 [가상 네트워크 만들기](../virtual-network/quick-create-portal.md)를 따라서 가상 네트워크를 만듭니다.
+* **가상 네트워크를 온-프레미스 네트워크로**. [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=/azure/virtual-network/toc.json) 또는 [VPN을](../vpn-gateway/tutorial-site-to-site-portal.md?toc=/azure/virtual-network/toc.json)사용하여 가상 네트워크와 온-프레미스 네트워크 간에 연결을 만듭니다.
+* **Managed VNet이 사용하도록 설정된 Data Factory**. Data Factory가 없거나 Managed VNet을 사용하도록 설정하지 않은 경우 [Managed VNet을 사용하여 Data Factory 만들기](tutorial-copy-data-portal-private.md)에 따라 Data Factory를 만듭니다.
 
 ## <a name="create-subnets-for-resources"></a>리소스에 대한 서브넷 만들기
 
@@ -89,7 +91,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
     | 설정 | 값 |
     |:--- |:--- |
-    |이름|**myHealthProbe** 를 입력합니다.|
+    |속성|**myHealthProbe** 를 입력합니다.|
     |프로토콜|**TCP** 를 선택합니다.|
     |포트|22를 입력합니다.|
     |간격|프로브 시도 **간격**(초)으로 **15** 를 입력합니다.|
@@ -212,8 +214,10 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 2. 다음 옵션을 사용하여 스크립트를 실행합니다.<br/>
     **sudo ./ip_fwd.sh -i eth0 -f 1433 -a <FQDN/IP> -b 1433**<br/>
     <FQDN/IP>는 대상 SQL Server IP입니다.<br/>
-    >[!Note] 
-    >Azure DNS 영역에 레코드를 추가하지 않으면 온-프레미스 SQL Server에 대해 FQDN이 작동하지 않습니다.
+    
+    > [!Note] 
+    > Azure DNS 영역에 레코드를 추가하지 않으면 온-프레미스 SQL Server에 대해 FQDN이 작동하지 않습니다.
+    
 3. 아래 명령을 실행하고 백 엔드 서버 VM에서 iptable을 확인합니다. iptable에서 대상 IP를 통해 하나의 레코드를 볼 수 있습니다.<br/>
     **sudo iptables -t nat -v -L PREROUTING -n --line-number**
 
@@ -255,7 +259,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-2.png" alt-text="대화형 작성을 사용하도록 설정하는 방법을 보여 주는 스크린샷.":::
 
-5. 온-프레임 SQL Server의 **FQDN**, **사용자 이름** 및 **암호** 를 입력합니다.
+5. 온-프레미스 SQL Server의 **FQDN**, **사용자 이름** 및 **암호** 를 입력합니다.
 6. 다음으로 **연결 테스트** 를 클릭합니다.
 
     :::image type="content" source="./media/tutorial-managed-virtual-network/linked-service-3.png" alt-text="SQL Server가 연결된 서비스 만들기 페이지를 보여 주는 스크린샷.":::
@@ -266,7 +270,7 @@ VM 상태를 모니터링할 **myHealthProbe** 라는 상태 프로브를 만듭
 
 ## <a name="next-steps"></a>다음 단계
 
-프라이빗 엔드포인트를 사용하여 Data Factory 관리형 VNET에서 Microsoft Azure SQL Managed Instance로 액세스하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+프라이빗 엔드포인트를 사용하여 Data Factory Managed VNet에서 Microsoft Azure SQL Managed Instance로 액세스하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Data Factory 관리형 VNET에서 SQL Managed Instance 액세스](tutorial-managed-virtual-network-sql-managed-instance.md)
+> [Data Factory Managed VNet에서 SQL Managed Instance에 액세스](tutorial-managed-virtual-network-sql-managed-instance.md)

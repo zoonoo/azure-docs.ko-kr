@@ -6,16 +6,27 @@ ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 05/19/2021
 ms.reviewer: sngun
-ms.openlocfilehash: 2e9f3c877a5c4650d3e31fa414cac76837f4c9e8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac5e2f5474b786895ce90dbe682e98f08205c048
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101655754"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110476931"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-mongodb-native-tools"></a>자습서: MongoDB 네이티브 도구를 사용하여 MongoDB를 Azure Cosmos DB의 API for MongoDB로 오프라인 마이그레이션
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
+> [!IMPORTANT]  
+> 마이그레이션 단계를 수행하기 전에 이 전체 가이드를 읽어보세요.
+>
+
+이 MongoDB 마이그레이션 가이드는 MongoDB 마이그레이션에 대한 시리즈의 일부입니다. 중요한 MongoDB 마이그레이션 단계는 아래와 같이 [사전 마이그레이션](mongodb-pre-migration.md), 마이그레이션 및 [사후 마이그레이션](mongodb-post-migration.md)입니다.
+
+![마이그레이션 단계 다이어그램.](./media/mongodb-pre-migration/overall-migration-steps.png)
+
+## <a name="overview-of-data-migration-using-mongodb-native-tools"></a>MongoDB 네이티브 도구를 사용한 데이터 마이그레이션 개요
 
 MongoDB 네이티브 도구를 사용하여 데이터베이스를 MongoDB의 온-프레미스 또는 클라우드 인스턴스에서 Azure Cosmos DB의 API for MongoDB로 오프라인(1회) 마이그레이션을 수행할 수 있습니다.
 

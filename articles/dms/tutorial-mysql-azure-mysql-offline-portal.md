@@ -12,24 +12,24 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2021
-ms.openlocfilehash: d1a8cc9a615474685222d0339ec948401fb8cdff
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 45d9104c5669b3b0adef2c32757076097656ae87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128013"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111967891"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-offline-using-dms"></a>자습서: DMS를 사용하여 MySQL에서 Azure Database for MySQL로 오프라인 마이그레이션
 
 Azure Database Migration Service의 고속 데이터 마이그레이션 기능을 통해 온-프레미스 MySQL 인스턴스에서 [Azure Database for MySQL](../mysql/index.yml)로 한 번의 전체 데이터베이스 마이그레이션을 수행할 수 있습니다. 이 자습서에서는 Azure Database Migration Service에서 오프라인 마이그레이션 작업을 수행하여 샘플 데이터베이스를 MySQL 5.7의 온-프레미스 인스턴스에서 Azure Database for MySQL(v5.7)로 마이그레이션합니다. 이 문서에서는 원본이 MySQL 데이터베이스 인스턴스이고 대상이 Azure Database for MySQL인 것으로 가정하지만 원본 서버 이름과 자격 증명을 변경하기만 하면 같은 방법으로 서로 다른 Azure Database for MySQL 간에 마이그레이션할 수 있습니다. 또한 낮은 버전의 MySQL 서버(v5.6 이상)에서 더 높은 버전으로의 마이그레이션도 지원됩니다.
 
 > [!IMPORTANT]
-> 온라인 마이그레이션의 경우에는 [데이터 입력 복제](/azure/mysql/concepts-data-in-replication) 기능이 있는 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용합니다. 
+> 온라인 마이그레이션의 경우에는 [데이터 입력 복제](../mysql/concepts-data-in-replication.md) 기능이 있는 [MyDumper/MyLoader](https://centminmod.com/mydumper.html)와 같은 오픈 소스 도구를 사용합니다. 
 
 [!INCLUDE [preview features callout](../../includes/dms-boilerplate-preview.md)]
 
 > [!NOTE]
-> 이 마이그레이션 환경의 PowerShell 기반 스크립트 가능한 버전은 [Azure Database for MySQL로의 스크립트 가능한 오프라인 마이그레이션](https://docs.microsoft.com/azure/dms/migrate-mysql-to-azure-mysql-powershell)을 참조하세요.
+> 이 마이그레이션 환경의 PowerShell 기반 스크립트 가능한 버전은 [Azure Database for MySQL로의 스크립트 가능한 오프라인 마이그레이션](./migrate-mysql-to-azure-mysql-powershell.md)을 참조하세요.
 
 > [!NOTE]
 > MySQL용 Amazon RDS(Relational Database Service) 및 Amazon Aurora(MySQL 기반)도 마이그레이션 원본으로 지원됩니다.
@@ -50,6 +50,7 @@ Azure Database Migration Service의 고속 데이터 마이그레이션 기능�
 
 * 활성 구독이 포함된 Azure 계정이 있어야 합니다. [체험 계정을 만듭니다](https://azure.microsoft.com/free).
 * 5\.7 버전의 온-프레미스 MySQL 데이터베이스가 있어야 합니다. 없으면 [MySQL 커뮤니티 버전](https://dev.mysql.com/downloads/mysql/) 5.7을 다운로드하여 설치합니다.
+* MySQL 오프라인 마이그레이션은 프리미엄 DMS SKU에서만 지원됩니다.
 * [Azure Database for MySQL에 인스턴스를 만듭니다](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Workbench 애플리케이션을 사용하여 데이터베이스를 연결하고 만드는 방법에 대한 자세한 내용은 [MySQL Workbench를 사용하여 데이터 연결 및 쿼리](../mysql/connect-workbench.md) 문서를 참조하세요. Azure Database for MySQL 버전은 온-프레미스 MySQL 버전과 같거나 그 이상이어야 합니다. 예를 들어 MySQL 5.7은 Azure Database for MySQL 5.7로 마이그레이션하거나 8로 업그레이드할 수 있습니다. 
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service용 Microsoft Azure Virtual Network를 만듭니다. 그러면 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md)을 사용하여 온-프레미스 원본 서버에 대한 사이트 간 연결이 제공됩니다. 가상 네트워크를 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](../virtual-network/index.yml)를 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 
@@ -157,7 +158,7 @@ GROUP BY SchemaName
   
 3. **Migration Service 만들기** 화면에서 서비스, 구독, 신규 또는 기존 리소스 그룹의 이름을 지정합니다.
 
-4. 가격 책정 계층을 선택하고 네트워킹 화면으로 이동합니다. 오프라인 마이그레이션 기능은 표준 및 프리미엄 가격 책정 계층에서 모두 사용할 수 있습니다.
+4. 가격 책정 계층을 선택하고 네트워킹 화면으로 이동합니다. 오프라인 마이그레이션 기능은 프리미엄 가격 책정 계층에서만 사용할 수 있습니다.
 
     비용 및 가격 책정 계층에 대한 자세한 내용은 [가격 책정 페이지](https://aka.ms/dms-pricing)를 참조하세요.
 

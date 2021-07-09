@@ -6,14 +6,14 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 05/20/2021
 ms.author: banders
-ms.openlocfilehash: 4f7179a5ad35b4d3ca9a92119fb7b492e2aff779
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: b4a4bd73672b36e8301d33618701a5d6b43926a5
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106122529"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110474876"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>업데이트된 Azure 청구 계정 시작
 
@@ -115,7 +115,7 @@ ms.locfileid: "106122529"
 
 **마이그레이션 후 첫 달의 청구서**
 
-계정 업데이트 날짜를 기준으로 기존의 미청구 요금이 확정되며, 일반적으로 청구서를 받는 날에 이러한 요금에 대한 청구서를 받게 됩니다. 예를 들어 John은 청구 기간이 매월 5일부터 다음 달 4일까지인 Azure sub 01과 청구 기간이 매월 10일부터 다음 달 9일까지인 Azure sub 02, 두 개의 Azure 구독이 있습니다. John은 일반적으로 매월 5일에 두 가지 Azure 구독 모두에 대한 청구서를 받습니다. 이제 John의 계정이 4월 4일에 업데이트되면 3월 5일부터 4월 4일까지 Azure sub 01의 요금과 3월 10일부터 4월 4일까지 Azure sub 02의 요금이 확정됩니다. John은 4월 5일에 각 구독에 하나씩 두 개의 청구서를 받게 됩니다. 계정이 업데이트된 후 John의 청구 기간은 달력 월을 기준으로 하며 해당 월 1일부터 해당 월 말일까지 발생한 모든 요금을 포함합니다.  이전 달의 요금 청구서는 매월 9일에 제공됩니다. 따라서 위의 예에서 John은 5월 5일에 4월 5일부터 4월 30일까지의 청구 기간에 대한 또 다른 청구서를 받게 됩니다. 
+계정 업데이트 날짜를 기준으로 기존의 미청구 요금이 확정되며, 일반적으로 청구서를 받는 날에 이러한 요금에 대한 청구서를 받게 됩니다. 예를 들어 John은 청구 기간이 매월 5일부터 다음 달 4일까지인 Azure sub 01과 청구 기간이 매월 10일부터 다음 달 9일까지인 Azure sub 02, 두 개의 Azure 구독이 있습니다. John은 일반적으로 매월 5일에 두 가지 Azure 구독 모두에 대한 청구서를 받습니다. 이제 John의 계정이 4월 4일에 업데이트되면 3월 5일부터 4월 4일까지 Azure sub 01의 요금과 3월 10일부터 4월 4일까지 Azure sub 02의 요금이 확정됩니다. John은 4월 5일에 각 구독에 하나씩 두 개의 청구서를 받게 됩니다. 계정이 업데이트된 후 John의 청구 기간은 달력 월을 기준으로 하며 해당 월 1일부터 해당 월 말일까지 발생한 모든 요금을 포함합니다. 이전 달의 요금 청구서는 매월 초에 제공됩니다. 따라서 위의 예에서 John은 5월이 시작될 때 4월 5일부터 4월 30일까지의 청구 기간에 대한 또 다른 청구서를 받게 됩니다.
 
 
 **새로운 청구 및 비용 관리 API**

@@ -12,12 +12,12 @@ ms.date: 02/17/2021
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q3-portal
-ms.openlocfilehash: 2fd08e6534ce5500e3872afceb72c932d14d1ab4
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.openlocfilehash: 5734d7a1f889c6e7334d0a088fecdfdcd39936c5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108185365"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111964920"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -72,7 +72,7 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 #### <a name="recommendations-for-the-connector-server"></a>커넥터 서버에 대한 권장 사항
 
 1. 실제로 애플리케이션 서버에 가깝게 커넥터 서버를 배치하여 커넥터와 애플리케이션 간 성능을 최적화합니다. 자세한 내용은 [Azure Active Directory 애플리케이션 프록시를 사용하여 트래픽 흐름 최적화](application-proxy-network-topology.md)를 참조하세요.
-1. 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 동일한 도메인 또는 트러스팅 도메인에 서버를 배치하는 것은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한된 위임)에서 SSO(Single Sign-On)을 사용하기 위한 요구 사항입니다. 커넥터 서버 및 웹 애플리케이션 서버가 다른 Active Directory 도메인에 위치한 경우 Single Sign-On에 대해 리소스 기반 위임을 사용해야 합니다. 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 KCD](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
+1. 커넥터 서버와 웹 애플리케이션 서버는 동일한 Active Directory 도메인에 속하거나 트러스팅 도메인에 걸쳐 있어야 합니다. 동일한 도메인 또는 트러스팅 도메인에 서버를 배치하는 것은 IWA(Windows 통합 인증) 및 KCD(Kerberos 제한된 위임)에서 SSO(Single Sign-On)을 사용하기 위한 요구 사항입니다. 커넥터 서버 및 웹 애플리케이션 서버가 다른 Active Directory 도메인에 위치한 경우 Single Sign-On에 대해 리소스 기반 위임을 사용해야 합니다. 자세한 내용은 [애플리케이션 프록시를 사용하는 Single Sign-On용 KCD](./application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 
 > [!WARNING]
 > Azure AD Password Protection Proxy를 배포한 경우 동일한 머신에 Azure AD Application Proxy와 Azure AD Password Protection Proxy를 함께 설치하지 마세요. Azure AD Application Proxy 및 Azure AD Password Protection Proxy는 다른 버전의 Azure AD Connect Agent Updater 서비스를 설치합니다. 이러한 서로 다른 버전은 동일한 머신에 함께 설치하면 호환되지 않습니다.
@@ -134,6 +134,8 @@ TLS 1.2를 사용하도록 설정하려면:
 | ctldl.windowsupdate.com                                      | 80/HTTP   | 커넥터는 등록 프로세스 동안 이 URL을 사용합니다. |
 
 방화벽 또는 프록시에서 도메인 접미사에 따라 액세스 규칙을 구성할 수 있는 경우 &ast;.msappproxy.net, &ast;.servicebus.windows.net 및 위의 기타 URL에 대한 연결을 허용할 수 있습니다. 그렇지 않은 경우 [Azure IP 범위 및 서비스 태그 - 퍼블릭 클라우드](https://www.microsoft.com/download/details.aspx?id=56519)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+> [!IMPORTANT]
+> Azure AD 애플리케이션 프록시 커넥터와 Azure AD 애플리케이션 프록시 클라우드 서비스 간의 아웃바운드 TLS 통신에서 모든 형태의 인라인 검사 및 종료를 방지합니다.
 
 ### <a name="dns-name-resolution-for-azure-ad-application-proxy-endpoints"></a>Azure AD 애플리케이션 프록시 엔드포인트에 대한 DNS 이름 확인
 
@@ -162,13 +164,13 @@ Azure AD 애플리케이션 프록시 엔드포인트에 대한 공용 DNS 레�
 
 ### <a name="general-remarks"></a>일반적인 설명
 
-이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다. 이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시: 버전 릴리스 내역](../manage-apps/application-proxy-release-version-history.md)을 참조하세요.
+이전에 커넥터를 설치한 경우 최신 버전을 다시 설치합니다. 이전에 릴리스된 버전 및 변경 내용에 대한 정보를 보려면 [애플리케이션 프록시: 버전 릴리스 내역](./application-proxy-release-version-history.md)을 참조하세요.
 
-온-프레미스 애플리케이션에서 둘 이상의 Windows Server가 설치되도록 선택하려는 경우 각 서버에서 커넥터를 설치하고 등록해야 합니다. 커넥터를 커넥터 그룹으로 구성할 수 있습니다. 자세한 내용은 [커넥터 그룹](../manage-apps/application-proxy-connector-groups.md)을 참조하세요.
+온-프레미스 애플리케이션에서 둘 이상의 Windows Server가 설치되도록 선택하려는 경우 각 서버에서 커넥터를 설치하고 등록해야 합니다. 커넥터를 커넥터 그룹으로 구성할 수 있습니다. 자세한 내용은 [커넥터 그룹](./application-proxy-connector-groups.md)을 참조하세요.
 
 다른 지역에 커넥터를 설치한 경우 각 커넥터 그룹에서 사용할 가장 가까운 애플리케이션 프록시 클라우드 서비스 지역을 선택하여 트래픽을 최적화할 수 있습니다. [Azure Active Directory 애플리케이션 프록시를 사용하여 트래픽 흐름 최적화](application-proxy-network-topology.md)를 참조하세요.
 
-조직에서 프록시 서버를 사용하여 인터넷에 연결하는 경우에는 애플리케이션 프록시에 맞게 프록시 서버를 구성해야 합니다.  자세한 내용은 [기존 온-프레미스 프록시 서버로 작업](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)을 참조하세요. 
+조직에서 프록시 서버를 사용하여 인터넷에 연결하는 경우에는 애플리케이션 프록시에 맞게 프록시 서버를 구성해야 합니다.  자세한 내용은 [기존 온-프레미스 프록시 서버로 작업](./application-proxy-configure-connectors-with-proxy-servers.md)을 참조하세요. 
 
 커넥터, 용량 계획 및 최신 상태로 유지하는 방법에 대한 정보는 [Azure AD 애플리케이션 프록시 커넥터 이해](application-proxy-connectors.md)를 참조하세요.
 
@@ -186,7 +188,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 
     ![Azure AD 애플리케이션 프록시 커넥터](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
 
-커넥터를 설치하는 자세한 도움말은 [애플리케이션 프록시 커넥터 설치 문제](../manage-apps/application-proxy-connector-installation-problem.md)를 참조하세요.
+커넥터를 설치하는 자세한 도움말은 [애플리케이션 프록시 커넥터 설치 문제](./application-proxy-connector-installation-problem.md)를 참조하세요.
 
 ### <a name="verify-the-installation-through-your-windows-server"></a>Windows 서버를 통해 설치 확인
 
@@ -215,7 +217,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
     | :--------------------- | :----------------------------------------------------------- |
     | **이름** | 내 앱 및 Azure Portal에 표시될 애플리케이션의 이름입니다. |
     | **내부 URL** | 프라이빗 네트워크 내부에서 애플리케이션에 액세스하기 위한 URL입니다. 나머지 서버는 게시되지 않은 반면 게시할 백 앤드 서버에 특정 경로를 제공할 수 있습니다. 이렇게 하면 다른 앱과 동일한 서버에 여러 사이트를 게시하고 각 사이트에 고유한 이름과 액세스 규칙을 부여할 수 있습니다.<br><br>경로를 게시하는 경우 애플리케이션에 필요한 이미지, 스크립트 및 스타일 시트를 모두 포함하는지 확인합니다. 예를 들어 앱이 https:\//yourapp/app에 위치하고 https:\//yourapp/media에 있는 이미지를 사용하는 경우 https:\//yourapp/를 경로로 게시해야 합니다. 이 내부 URL은 사용자에게 표시되는 방문 페이지일 필요가 없습니다. 자세한 내용은 [게시된 앱에 대해 사용자 지정 홈페이지 설정](application-proxy-configure-custom-home-page.md)을 참조하세요. |
-    | **외부 URL** | 사용자가 네트워크 외부에서 앱에 액세스하기 위한 주소입니다. 기본 애플리케이션 프록시 도메인을 사용하지 않으려면 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](../manage-apps/application-proxy-configure-custom-domain.md)을 참조하세요. |
+    | **외부 URL** | 사용자가 네트워크 외부에서 앱에 액세스하기 위한 주소입니다. 기본 애플리케이션 프록시 도메인을 사용하지 않으려면 [Azure AD 애플리케이션 프록시에서 사용자 지정 도메인 작업](./application-proxy-configure-custom-domain.md)을 참조하세요. |
     | **사전 인증** | 애플리케이션 프록시가 사용자에게 애플리케이션에 대한 액세스 권한을 부여하기 전에 사용자를 확인하는 방법입니다.<br><br>**Azure Active Directory** - 애플리케이션 프록시는 Azure AD를 사용하여 로그인하도록 사용자를 리디렉션하여 디렉터리와 애플리케이션에 대한 사용 권한을 인증합니다. 조건부 액세스 및 Multi-Factor Authentication과 같은 Azure AD 보안 기능을 활용할 수 있도록 이 옵션을 기본값으로 유지하는 것이 좋습니다. **Azure Active Directory** 는 Microsoft 클라우드 애플리케이션 보안을 사용하여 애플리케이션을 모니터링하는 데 필요합니다.<br><br>**통과** - 사용자는 애플리케이션에 액세스하기 위해 Azure AD에 대해 인증할 필요가 없습니다. 백 엔드에 대한 인증 요구 사항은 여전히 설정할 수 있습니다. |
     | **커넥터 그룹** | 커넥터는 애플리케이션에 대한 원격 액세스를 처리하고, 커넥터 그룹은 지역, 네트워크 또는 용도별로 커넥터와 앱을 구성하는 데 도움을 줍니다. 아직 만든 커넥터 그룹이 없는 경우 앱이 **Default**(기본값)로 할당됩니다.<br><br>애플리케이션에서 연결에 Websocket을 사용하는 경우 그룹의 모든 커넥터는 버전 1.5.612.0 이상이어야 합니다. |
 
@@ -226,9 +228,9 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
     | **백 엔드 애플리케이션 시간 제한** | 애플리케이션의 인증 및 연결 속도가 느린 경우에만 이 값을 **Long** 으로 설정합니다. 기본적으로 백 엔드 애플리케이션 시간 제한의 길이는 85초입니다. 길게 설정하면 백 엔드 시간 제한이 180초로 증가합니다. |
     | **HTTP 전용 쿠키 사용** | Application Proxy 쿠키가 HTTP 응답 헤더에 HTTPOnly 플래그를 포함하도록 하려면 이 값을 **예** 로 설정합니다. 원격 데스크톱 서비스를 사용하는 경우 이 값을 **아니요** 로 설정합니다. |
     | **보안 쿠키 사용**| 이 값을 **예** 로 설정하여 암호화된 HTTPS 요청과 같이 보안 채널을 통해 쿠키를 전송합니다.
-    | **영구적 쿠키 사용**| **아니요** 로 설정된 이 값을 유지합니다. 이 설정은 프로세스 간에 쿠키를 공유할 수 없는 애플리케이션에만 사용합니다. 쿠키 설정에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](../manage-apps/application-proxy-configure-cookie-settings.md)을 참조하세요.
+    | **영구적 쿠키 사용**| **아니요** 로 설정된 이 값을 유지합니다. 이 설정은 프로세스 간에 쿠키를 공유할 수 없는 애플리케이션에만 사용합니다. 쿠키 설정에 대한 자세한 내용은 [Azure Active Directory에서 온-프레미스 애플리케이션에 액세스하기 위한 쿠키 설정](./application-proxy-configure-cookie-settings.md)을 참조하세요.
     | **헤더의 URL 변환** | 애플리케이션이 인증 요청에서 원래 호스트 헤더를 요구하지 않는 한 이 값을 **예** 로 유지합니다. |
-    | **애플리케이션 본문의 URL 변환** | 다른 온-프레미스 애플리케이션에 HTML 링크를 하드 코드하지 않고 사용자 지정 도메인을 사용하지 않는 한 이 값을 **아니요** 로 유지합니다. 자세한 내용은 [애플리케이션 프록시를 사용한 링크 변환](../manage-apps/application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.<br><br>MCAS(Microsoft Cloud App Security)를 사용하여 이 애플리케이션을 모니터링하려는 경우 이 값을 **예** 로 설정합니다. 자세한 내용은 [Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성](../manage-apps/application-proxy-integrate-with-microsoft-cloud-application-security.md)을 참조하세요. |
+    | **애플리케이션 본문의 URL 변환** | 다른 온-프레미스 애플리케이션에 HTML 링크를 하드 코드하지 않고 사용자 지정 도메인을 사용하지 않는 한 이 값을 **아니요** 로 유지합니다. 자세한 내용은 [애플리케이션 프록시를 사용한 링크 변환](./application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.<br><br>MCAS(Microsoft Cloud App Security)를 사용하여 이 애플리케이션을 모니터링하려는 경우 이 값을 **예** 로 설정합니다. 자세한 내용은 [Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성](./application-proxy-integrate-with-microsoft-cloud-application-security.md)을 참조하세요. |
 
 7. **추가** 를 선택합니다.
 
@@ -257,7 +259,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 2. 페이지 맨 위에서 **애플리케이션 테스트** 를 선택하여 애플리케이션에서 테스트를 실행하고 구성 문제가 있는지 확인합니다.
 3. 애플리케이션에 대한 로그인을 테스트하려면 먼저 애플리케이션을 시작한 다음, 진단 보고서를 다운로드하여 검색된 문제에 대한 해결 지침을 검토하세요.
 
-문제 해결은 [애플리케이션 프록시 문제 및 오류 메시지 문제 해결](../manage-apps/application-proxy-troubleshoot.md)을 참조하세요.
+문제 해결은 [애플리케이션 프록시 문제 및 오류 메시지 문제 해결](./application-proxy-troubleshoot.md)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

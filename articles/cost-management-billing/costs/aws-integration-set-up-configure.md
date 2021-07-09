@@ -3,17 +3,17 @@ title: Azure Cost Management와 AWS 통합 설정
 description: 이 문서에서는 Azure Cost Management와의 AWS 비용 및 사용 현황 보고서 통합을 설정하고 구성하는 과정을 안내합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/10/2021
+ms.date: 06/08/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: e1d332ba3ff2da50db9f59ce844844ac4c87cc0b
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 098766674e3bd665bb533fbf4d78fe1b0b1aebda
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109738449"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756044"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>AWS 비용 및 사용 현황 보고서 통합 설정 및 구성
 
@@ -27,7 +27,7 @@ AWS 보고서 통합을 설정하는 방법에 대한 자세한 내용은 [Cost 
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>AWS에서 비용 및 사용 현황 보고서 만들기
 
-비용 및 사용 현황 보고서 사용은 AWS 비용을 수집 및 처리하기 위해 AWS에서 권장하는 방법입니다. 자세한 내용은 [AWS 비용 및 사용 현황 보고서](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) 설명서를 참조하세요.
+비용 및 사용 현황 보고서 사용은 AWS 비용을 수집 및 처리하기 위해 AWS에서 권장하는 방법입니다. Cost Management 클라우드 간 커넥터는 관리(통합) 계정 수준에서 구성된 비용 및 사용 현황 보고서를 지원합니다. 자세한 내용은 [AWS 비용 및 사용 현황 보고서](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports-costusage.html) 설명서를 참조하세요.
 
 AWS에서 청구 및 Cost Management 콘솔의 **비용 및 사용 현황 보고서** 페이지에서는 다음 단계를 거쳐 비용 및 사용 현황 보고서를 만들 수 있습니다.
 
@@ -53,6 +53,9 @@ AWS에서 청구 및 Cost Management 콘솔의 **비용 및 사용 현황 보고
     보고서 이름을 적어둡니다. 이후 단계에서 사용합니다.
 
 AWS는 Amazon S3 버킷에 보고서 배달을 시작하는 데 최대 24시간이 걸릴 수 있습니다. 배달이 시작된 후 AWS는 AWS 비용 및 사용 현황 보고서 파일을 하루에 한 번 이상 업데이트합니다. 배달이 시작될 때까지 기다리지 않고 AWS 환경을 계속 구성할 수 있습니다.
+
+> [!NOTE]
+> 멤버(연결된) 계정 수준에서 구성된 비용 및 사용 현황 보고서는 현재 지원되지 않습니다.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>AWS에서 역할 및 정책 만들기
 
