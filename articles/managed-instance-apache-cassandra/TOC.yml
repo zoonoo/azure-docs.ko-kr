@@ -26,9 +26,21 @@
       href: compare-cosmosdb-managed-instance.md
 - name: 방법 가이드
   items:
+    - name: 마이그레이션
+      items:
+        - name: 실시간 마이그레이션
+          items:
+            - name: 이중 쓰기 프록시 사용
+              href: dual-write-proxy-migration.md
+        - name: 오프라인 마이그레이션
+          items:
+            - name: Apache Spark 사용
+              href: spark-migration.md
     - name: Azure CLI로 관리
       displayName: 'az managed-cassandra, cluster, datacenter'
       href: manage-resources-cli.md
+    - name: 필수 아웃바운드 네트워크 규칙
+      href: network-rules.md
     - name: Grafana를 사용하여 Prometheus에서 메트릭 시각화
       href: visualize-prometheus-grafana.md
 - name: 참조

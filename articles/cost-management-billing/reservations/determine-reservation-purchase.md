@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 05/25/2021
 ms.author: banders
-ms.openlocfilehash: d89f890d3e2bb8238a00b4a529b8804a8c38fa6f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 80c0627cdc2169ce3301ee56a449442387d8f6e1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684748"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110481105"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>구매할 예약 결정
 
@@ -33,8 +33,8 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 
 적합한 VM 사용량으로 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
 
-- **Virtual Machines**에 **MeterCategory** 필터를 적용합니다.
-- **AdditionalInfo**에서 **ServiceType** 정보를 가져옵니다. 이 정보는 올바른 VM 크기를 제안합니다. 예를 들면, 표준 E32입니다.
+- **Virtual Machines** 에 **MeterCategory** 필터를 적용합니다.
+- **AdditionalInfo** 에서 **ServiceType** 정보를 가져옵니다. 이 정보는 올바른 VM 크기를 제안합니다. 예를 들면, 표준 E32입니다.
 - **ResourceLocation** 필드를 사용하여 사용량 데이터 센터를 확인합니다.
 
 하루 사용량이 24시간 미만인 리소스를 무시합니다.
@@ -48,11 +48,11 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 적격 사용 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
 
 
-- **SQL Database**에 대해 **MeterCategory** 필터를 적용합니다.
-- **vCore**에 대해 **MeterName** 필터를 적용합니다.
-- 이름에 _Compute_가 있는 모든 사용량 레코드에 대해 **MeterSubCategory** 필터를 적용합니다.
+- **SQL Database** 에 대해 **MeterCategory** 필터를 적용합니다.
+- **vCore** 에 대해 **MeterName** 필터를 적용합니다.
+- 이름에 _Compute_ 가 있는 모든 사용량 레코드에 대해 **MeterSubCategory** 필터를 적용합니다.
 
-**AdditionalInfo**에서 **vCores** 값을 가져옵니다. 사용된 vCores의 수를 알려줍니다. 수량은 **vCores**에 데이터베이스가 사용된 시간을 곱한 값입니다.
+**AdditionalInfo** 에서 **vCores** 값을 가져옵니다. 사용된 vCores의 수를 알려줍니다. 수량은 **vCores** 에 데이터베이스가 사용된 시간을 곱한 값입니다.
 
 데이터는 다음에 대한 일관된 사용량에 대해 알려줍니다.
 
@@ -65,8 +65,8 @@ Azure Databricks를 제외한 모든 예약은 매시간 적용됩니다. 일관
 
 예약 용량은 Azure Synapse Analytics DWU 사용량에 적용되며 100 DWU 증분 단위로 구매됩니다. 적격 사용 범위를 좁히려면 사용량 데이터에 다음 필터를 적용합니다.
 
-- **100 DWUs**에 대해 **MeterName** 필터를 적용합니다.
-- **Compute Optimized Gen2**에 대해 **Meter Sub-Category** 필터를 적용합니다.
+- **100 DWUs** 에 대해 **MeterName** 필터를 적용합니다.
+- **Compute Optimized Gen2** 에 대해 **Meter Sub-Category** 필터를 적용합니다.
 
 **리소스 위치** 필드를 사용하여 지역의 Azure Synapse Analytics 사용량을 확인합니다.
 
@@ -97,7 +97,7 @@ Azure Portal의 예약으로 이동하여 100 DWU의 배수로 Azure Synapse Ana
 
 ## <a name="recommendations-in-the-cost-management-power-bi-app"></a>Cost Management Power BI 앱의 권장 사항
 
-기업계약 및 Microsoft 고객 계약 고객은 VM 및 구매 권장 사항에 대한 VM RI 적용 범위 보고서를 사용할 수 있습니다. 적용 범위 보고서에는 총 사용량과 예약된 인스턴스에 의해 적용되는 사용량이 표시 됩니다.
+기업계약 고객은 VM 및 구매 권장 사항에 대한 VM RI 적용 범위 보고서를 사용할 수 있습니다. 적용 범위 보고서에는 총 사용량과 예약된 인스턴스에 의해 적용되는 사용량이 표시 됩니다.
 
 1. [Cost Management](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp) 앱을 가져옵니다.
 2. 구매하고자 하는 범위에 따라 VM RI 적용 범위 보고서 – 공유 또는 단일 범위로 이동합니다.

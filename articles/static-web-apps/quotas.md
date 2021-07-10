@@ -1,37 +1,32 @@
 ---
-title: Azure Static Web Apps 미리 보기의 할당량
-description: Azure Static Web Apps 미리 보기와 관련된 할당량에 대해 알아보기
+title: Azure Static Web Apps의 할당량
+description: Azure Static Web Apps와 관련된 할당량에 대해 알아보기
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: e3538e90a6dea69c703f56871fde86a18557a022
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.openlocfilehash: 12666d69f6dcab043e909dbb2b49276644a70d76
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095172"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110069565"
 ---
-# <a name="quotas-in-azure-static-web-apps-preview"></a>Azure Static Web Apps 미리 보기의 할당량
+# <a name="quotas-in-azure-static-web-apps"></a>Azure Static Web Apps의 할당량
 
-Azure Static Web Apps 미리 보기에는 다음과 같은 할당량이 있습니다.
+Azure Static Web Apps에는 다음과 같은 할당량이 있습니다.
 
-> [!IMPORTANT]
-> Azure Static Web Apps는 공개 미리 보기로 제공되며 프로덕션 용도로는 사용할 수 없습니다.
-
-| 기능                     | 무료 요금제        |
-|-----------------------------|------------------|
-| 포함된 대역폭          | 매월 100GB |
-| 초과분 대역폭           | 사용할 수 없음      |
-| Azure 구독당 앱 | 10               |
-| 앱 크기                    | 250MB           |
-| 사전 프로덕션 환경 | 3                |
-| 사용자 지정 도메인              | 1                |
-| 권한 부여(사용자 지정 역할 및 라우팅 규칙 사용) | 사용자 지정 역할에 속할 수 있는 최대 25명의 최종 사용자 |
-| Azure 기능             | 사용 가능        |
-| SLA                         | None             |
+| 기능                     | 무료 요금제        | 표준 계획 |
+|-----------------------------|------------------|---------------|
+| 포함된 대역폭          | 구독당 월 100GB | 구독당 월 100GB |
+| 초과분 대역폭           | 사용할 수 없음      | GB당 $0.20 |
+| Azure 구독당 앱 | 10               | 제한 없음 |
+| 앱 크기                    | 250MB           | 500MB |
+| 사전 프로덕션 환경 | 3                | 10 |
+| 사용자 지정 도메인              | 앱당 2개        | 앱당 5개 |
+| 권한 부여(사용자 지정 역할 및 라우팅 규칙 사용) | 사용자 지정 역할에 속할 수 있는 최대 25명의 최종 사용자 | 사용자 지정 역할에 속할 수 있는 최대 25명의 최종 사용자 |
 
 ## <a name="github-storage"></a>GitHub 스토리지
 

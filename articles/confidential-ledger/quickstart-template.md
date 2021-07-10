@@ -8,30 +8,48 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
 ms.author: mbaldwin
 ms.date: 04/15/2021
-ms.openlocfilehash: 1110d1441c63f3af1f7c31b9ac090c9693b36be1
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: dd6dd17db52ea0ecbd2793f62bf319ce36321f98
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387653"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752105"
 ---
 # <a name="quickstart-create-an-microsoft-azure-confidential-ledger-with-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 Microsoft Azure Confidential Ledger 만들기
 
-[Microsoft Azure Confidential Ledger](overview.md)는 중요한 데이터 레코드를 관리하는 데 사용하는 매우 안전한 새로운 서비스입니다. 이 빠른 시작에서는 새 원장을 만들기 위해 ARM 템플릿(Azure Resource Manager 템플릿)을 배포하는 과정을 다룹니다.
+[Microsoft Azure Confidential Ledger](overview.md)는 중요한 데이터 레코드를 관리하는 데 사용하는 매우 안전한 새로운 서비스입니다. 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 새 원장을 만드는 방법을 설명합니다.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 환경이 필수 구성 요소를 충족하고 ARM 템플릿 사용에 익숙한 경우 **Azure에 배포** 단추를 선택합니다. 그러면 Azure Portal에서 템플릿이 열립니다.
 
-[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+[![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
+### <a name="azure-subscription"></a>Azure 구독
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+### <a name="register-the-resource-provider"></a>리소스 공급자 등록
+
+[!INCLUDE [Register the microsoft.ConfidentialLedger resource provider](../../includes/confidential-ledger-register-rp.md)]
+
+### <a name="obtain-your-principal-id"></a>보안 주체 ID 가져오기
+
+템플릿에는 보안 주체 ID가 필요합니다. `--show-mine` 플래그를 사용하여 Azure CLI [az ad sp list](/cli/azure/ad/sp#az_ad_sp_list) 명령을 실행하는 보안 주체 ID를 가져올 수 있습니다.
+
+```azurecli-interactive
+az ad sp list --show-mine -o table
+```
+
+보안 주체 ID는 "ObjectId" 열에 표시됩니다.
 
 ## <a name="review-the-template"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)에서 나온 것입니다.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates)에서 나온 것입니다.
+
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.confidentialledger/confidential-ledger-create/azuredeploy.json":::
 
 템플릿에 정의된 Azure 리소스:
 
@@ -41,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 다음 이미지를 선택하여 Azure에 로그인하고 템플릿을 엽니다.
 
-    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-confidential-ledger-create%2Fazuredeploy.json)
+    [![Azure에 배포](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.confidentialledger%2Fconfidential-ledger-create%2Fazuredeploy.json)
 
 1. 다음 값을 선택하거나 입력합니다.
 
@@ -49,6 +67,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     - **원장 이름**: 원장의 이름을 선택합니다. 원장 이름은 전역적으로 고유해야 합니다.
     - **위치**: 위치를 선택합니다. 예: **미국 동부**
+    - **PrincipalId**: 위의 [필수 구성 요소](#obtain-your-principal-id) 섹션에서 기록한 보안 주체 ID를 제공합니다.
 
 1. **구매** 를 선택합니다. Confidential Ledger 리소스가 성공적으로 배포되면 알림을 받게 됩니다.
 
@@ -86,5 +105,3 @@ Write-Host "Press [ENTER] to continue..."
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 ARM 템플릿을 사용하여 Confidential Ledger를 만들고 배포의 유효성을 검사했습니다. 서비스에 대해 자세히 알아보려면 [Microsoft Azure Confidential Ledger 개요](overview.md)를 참조하세요.
-
-

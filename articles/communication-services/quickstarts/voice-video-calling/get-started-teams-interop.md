@@ -7,13 +7,13 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 0e75d2b480a9cbfd2977d9d449c1ea12bdfe4920
-ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+zone_pivot_groups: acs-plat-web-ios-android-windows
+ms.openlocfilehash: 8f5ba479d96953bf5bc5f56b20eb719c18863ab3
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106095614"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111560615"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>빠른 시작: 통화 앱으로 Teams 미팅 참가
 
@@ -25,18 +25,22 @@ ms.locfileid: "106095614"
 JavaScript SDK를 사용하여 호출 솔루션을 Microsoft Teams에 연결하여 Azure Communication Services를 시작하세요.
 
 ::: zone pivot="platform-web"
-[!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
+[!INCLUDE [Calling with JavaScript](./includes/teams-interop/teams-interop-javascript.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Calling with Windows](./includes/teams-interop/teams-interop-windows.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Calling with Android](./includes/teams-interop-android.md)]
+[!INCLUDE [Calling with Android](./includes/teams-interop/teams-interop-android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Calling with iOS](./includes/teams-interop-ios.md)]
+[!INCLUDE [Calling with iOS](./includes/teams-interop/teams-interop-ios.md)]
 ::: zone-end
 
-이 문서에 설명된 기능은 Communication Services SDK의 일반 가용성 버전을 사용합니다. 팀 상호 운용성을 위해서는 Communication Services SDK의 베타 버전이 필요합니다. 베타 SDK는 [릴리스 정보 페이지](https://github.com/Azure/Communication/tree/master/releasenotes)에서 탐색할 수 있습니다.
+이 문서에 설명된 기능은 Communication Services SDK의 일반 공급 버전을 사용합니다. 팀 상호 운용성을 위해서는 Communication Services SDK의 베타 버전이 필요합니다. 베타 SDK는 [릴리스 정보 페이지](https://github.com/Azure/Communication/tree/master/releasenotes)에서 탐색할 수 있습니다.
 
 베타 SDK를 사용하여 "패키지 설치" 단계를 실행하는 경우 `communication-calling` 패키지 이름에 버전 `@1.0.0-beta.10`(이 문서를 작성하는 시점의 버전)을 지정하여 패키지 버전을 최신 베타 릴리스로 수정합니다. `communication-common` 패키지 명령을 수정할 필요가 없습니다. 예를 들면 다음과 같습니다.
 

@@ -8,16 +8,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
 ms.author: mbullwin
-ms.openlocfilehash: 50c22bdda667e8b5762f660fae673628323ee143
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f526038a37e6f4e4a5d03c516446653a95c08be4
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444664"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110162919"
 ---
-.NET용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
+C#용 Anomaly Detector 클라이언트 라이브러리를 시작합니다. 서비스에서 제공하는 알고리즘을 사용하여 패키지 시작을 설치하려면 다음 단계를 따르세요. Anomaly Detector 서비스를 사용하면 업계, 시나리오 또는 데이터 양에 관계없이 가장 적합한 모델을 자동으로 사용하여 시계열 데이터의 변칙을 찾을 수 있습니다.
 
-.NET용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
+C#용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
 * 일괄 요청으로 시계열 데이터 세트 전체에서 변칙 검색
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색

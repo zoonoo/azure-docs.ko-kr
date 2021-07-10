@@ -10,12 +10,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.subservice: common
 ms.date: 05/06/2021
-ms.openlocfilehash: 2099d190ca896a5c8124cdd6b605037256a5ab48
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: ce0fab219f49427892f5ffe47c595edb26fea010
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109489383"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110796015"
 ---
 # <a name="tutorial-add-a-role-assignment-condition-to-restrict-access-to-blobs-using-the-azure-portal-preview"></a>자습서: Azure Portal을 사용하여 BLOB에 대한 액세스를 제한하는 역할 할당 조건 추가(미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "109489383"
 > * 역할 할당에 조건 추가
 > * BLOB 인덱스 태그를 기반으로 BLOB에 대한 액세스 제한
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당 조건을 추가하거나 편집하기 위한 사전 요구 사항은 [조건 및 사전 요구 사항](../../role-based-access-control/conditions-prerequisites.md)을 참조하세요.
 
@@ -153,17 +153,15 @@ Chandra가 Project=Cascade 태그 없이 BLOB을 읽으려고 하면 액세스�
 
     식 섹션이 확장됩니다.
 
-1. 특성 원본 목록에서 **리소스** 를 선택합니다.
+1. 다음 식 설정을 지정합니다.
 
-1. 특성 목록에서 **BLOB 인덱스 태그[키 값]** 를 선택합니다.
-
-    이 특성을 선택하면 조건에서 확인해야 하는 태그 키를 지정할 수 있는 키 상자가 추가됩니다.
-
-1. 키 상자에 **Project** 를 입력합니다.
-
-1. 연산자 목록에서 **StringEqualsIgnoreCase** 를 선택합니다.
-
-1. 값 상자에 **Cascade** 를 입력합니다.
+    | 설정 | 값 |
+    | --- | --- |
+    | 특성 원본 | 리소스 |
+    | attribute | Blob 인덱스 태그 [키의 값] |
+    | Key | Project |
+    | 연산자 | StringEqualsIgnoreCase |
+    | 값 | 계단식 배열 |
 
     ![BLOB 인덱스 태그의 식 작성 섹션의 스크린샷](./media/storage-auth-abac-portal/condition-expressions.png)
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 24de9e4eabfbc03e942868cce7560b5df093e1ad
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5559f3bdd749ba7913db3f37d47d2d158700facb
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100365126"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746658"
 ---
 # <a name="quickstart-create-an-open-source-redis-cache"></a>빠른 시작: 오픈 소스 Redis 캐시 만들기
 
@@ -23,6 +23,7 @@ Azure Cache for Redis는 Azure 내에서 완전 관리형 [오픈 소스 Redis](
 시작하려면 Azure 구독이 필요합니다. 아직 없는 경우 먼저 [체험 계정](https://azure.microsoft.com/free/)을 만드세요.
 
 ## <a name="create-a-cache"></a>캐시 만들기
+
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
 ## <a name="next-steps"></a>다음 단계

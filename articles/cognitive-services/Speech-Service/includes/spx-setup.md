@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/28/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 3221712fcf74022f2899380b4573ab3a821dce4d
-ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
+ms.openlocfilehash: 32f28a6fa056819081804a3ccb919436c3f50bae
+ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109627232"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112039706"
 ---
 ## <a name="download-and-install"></a>다운로드 및 설치
 
@@ -55,6 +55,9 @@ x64 CPU에서 Linux에 Speech CLI를 설치하려면 다음 단계를 수행합�
 2. 다음 명령을 입력하여 NuGet을 통해 음성 CLI를 설치합니다.
 
     `dotnet tool install --global Microsoft.CognitiveServices.Speech.CLI`
+
+3. RHEL/CentOS Linux에서 [linux용 OpenSSL을 구성](../how-to-configure-openssl-linux.md)합니다.
+4. Ubunutu 20.04 Linux에서 [GStreamer를 설치](../how-to-use-codec-compressed-audio-input-streams.md)합니다.
 
 `spx`를 입력하여 Speech CLI에 대한 도움말을 표시합니다.
 

@@ -1,9 +1,9 @@
-- name: Form Recognizer 설명서
+- name: Azure Form Recognizer 설명서
   href: index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Form Recognizer란?
+    - name: Azure Form Recognizer란?
       href: overview.md
     - name: 언어 지원
       href: language-support.md
@@ -13,7 +13,7 @@
       href: whats-new.md
 - name: 빠른 시작
   items:
-    - name: Form Recognizer 시작
+    - name: Azure Form Recognizer 시작
       href: quickstarts/get-started-with-form-recognizer.md
     - name: 클라이언트 라이브러리 및 REST API
       href: quickstarts/client-library.md
@@ -31,7 +31,7 @@
   items:
     - name: 투명성 메모
       items:
-        - name: Form Recognizer 사용 사례
+        - name: Azure Form Recognizer 사용 사례
           href: /legal/cognitive-services/form-recognizer/fr-transparency-note?context=/azure/cognitive-services/form-recognizer/context/context
         - name: 특성 및 제한 사항
           href: /legal/cognitive-services/form-recognizer/fr-characteristics-and-limitations?context=/azure/cognitive-services/form-recognizer/context/context
@@ -83,28 +83,34 @@
       href: concept-identification-cards.md
 - name: 자습서
   items:
-    - name: Cognitive Search와 함께 Form Recognizer 사용
+    - name: Cognitive Search에서 Azure Form Recognizer 사용
       href: ../../search/cognitive-search-custom-skill-form.md
-    - name: AI Builder와 함께 Form Recognizer 사용
+    - name: AI Builder에서 Azure Form Recognizer 사용
       href: tutorial-ai-builder.md
-    - name: Azure Functions에서 Form Recognizer 사용
+    - name: Azure Functions에서 Azure Form Recognizer 사용
       href: tutorial-azure-function.md
 - name: 참조
   items:
-    - name: Form Recognizer API v2.1
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm'
-    - name: Form Recognizer API v2.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
-    - name: SDK
+    - name: Azure Form Recognizer REST API v2.1
       items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/ai.formrecognizer-readme
-        - name: Python
-          href: /python/api/azure-ai-formrecognizer/
-        - name: Java
-          href: /java/api/overview/azure/ai-formrecognizer-readme
-        - name: JavaScript
-          href: /javascript/api/overview/azure/ai-form-recognizer-readme
+        - name: REST API v2.1 참조
+          href: 'https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm'
+        - name: SDK v3.1.0
+          items:
+            - name: .NET
+              href: /dotnet/api/overview/azure/ai.formrecognizer-readme
+            - name: Python
+              href: /python/api/azure-ai-formrecognizer/
+            - name: Java
+              href: /java/api/overview/azure/ai-formrecognizer-readme
+            - name: JavaScript
+              href: /javascript/api/overview/azure/ai-form-recognizer-readme
+    - name: Azure Form Recognizer REST API v2.0
+      items:
+        - name: REST API v2.0 참조
+          href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
+        - name: SDK v3.0.0 가이드
+          href: api-v2-0/reference-sdk-api-v2-0.md
 - name: 리소스
   items:
     - name: 고객 주요 내용

@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 68127a7603db2d408ed1bbdb244f49de4eb21031
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 2c83ac769cc4a8aec6148e1a45ec6435f117d73a
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108208494"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111812053"
 ---
 # <a name="manage-digital-twins"></a>Digital Twins 관리
 
-사용자 환경의 엔터티는 [디지털 트윈](concepts-twins-graph.md)으로 표현됩니다. 디지털 트윈 관리에는 만들기, 수정 및 제거가 포함될 수 있습니다. 이러한 작업을 수행하기 위해 [DigitalTwins API](/rest/api/digital-twins/dataplane/twins), [.NET(C#) SDK](/dotnet/api/overview/azure/digitaltwins/client) 또는 [Azure Digital Twins CLI](how-to-use-cli.md)를 사용할 수 있습니다.
+사용자 환경의 엔터티는 [디지털 트윈](concepts-twins-graph.md)으로 표현됩니다. 디지털 트윈 관리에는 만들기, 수정 및 제거가 포함될 수 있습니다.
 
 이 문서에서는 디지털 트윈을 관리하는 방법을 중점적으로 설명합니다. 관계 및 [트윈 그래프](concepts-twins-graph.md) 전체를 사용하려면 [방법: 관계를 사용하여 트윈 그래프 관리](how-to-manage-graph.md)를 참조하세요.
 
@@ -27,9 +27,11 @@ ms.locfileid: "108208494"
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-## <a name="ways-to-manage-twins"></a>트윈을 관리하는 방법
+[!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
 
-[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
+[!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
+
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="샘플 모델 및 트윈을 보여주는 Azure Digital Twins Explorer의 스크린샷." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 ## <a name="create-a-digital-twin"></a>디지털 트윈 만들기
 
@@ -95,11 +97,11 @@ ms.locfileid: "108208494"
 
 단일 API 호출을 사용하여 여러 트윈을 검색하려면 [방법: 트윈 그래프 쿼리](how-to-query-graph.md)의 쿼리 API 예를 참조하세요.
 
-*문식 선문자* 를 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL))로 작성됨)을 고려합니다.
+Moon을 정의하는 다음 모델([DTDL(디지털 트윈 정의 언어](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL))로 작성됨)을 고려합니다.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
-*문식 선문자* 형식 트윈에 대한 `object result = await client.GetDigitalTwinAsync("my-moon");` 호출 결과는 다음과 같을 수 있습니다.
+문식 선문자 형식 트윈에 대한 `object result = await client.GetDigitalTwinAsync("my-moon");` 호출 결과는 다음과 같을 수 있습니다.
 
 ```json
 {
@@ -132,14 +134,14 @@ ms.locfileid: "108208494"
 * `$etag`: 웹 서버에서 할당한 표준 HTTP 필드입니다. 이 값은 트윈이 업데이트될 때마다 새 값으로 업데이트되므로 이전 검사 이후 서버에서 트윈의 데이터가 업데이트되었는지 여부를 확인하는 데 유용할 수 있습니다. `If-Match`를 사용하여 엔터티의 etag가 제공된 etag와 일치하는 경우에만 완료되는 업데이트 및 삭제를 수행할 수 있습니다. 이러한 작업에 대한 자세한 내용은 [DigitalTwins 업데이트](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) 및 [DigitalTwins 삭제](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete) 설명서를 참조하세요.
 * `$metadata`: 다음을 비롯한 다른 속성 집합
   - 디지털 트윈 모델의 DTMI입니다.
-  - 쓰기 가능한 각 속성의 동기화 상태입니다. 디바이스에 가장 유용합니다. 이 경우 서비스와 디바이스에 분기된 상태가 있을 수 있습니다(예: 디바이스가 오프라인 상태인 경우). 현재 이 속성은 IoT Hub에 연결된 물리적 디바이스에만 적용됩니다. 메타데이터 섹션의 데이터를 사용하여 마지막으로 수정한 타임스탬프뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대한 자세한 내용은 디바이스 상태 동기화에 대한 [이 IoT Hub 자습서](../iot-hub/tutorial-device-twins.md)를 참조하세요.
+  - 쓰기 가능한 각 속성의 동기화 상태입니다. 디바이스에 가장 유용합니다. 이 경우 서비스와 디바이스에 분기된 상태가 있을 수 있습니다(예: 디바이스가 오프라인 상태인 경우). 현재 이 속성은 IoT Hub에 연결된 물리적 디바이스에만 적용됩니다. 메타데이터 섹션의 데이터를 사용하여 마지막으로 수정한 타임스탬프뿐만 아니라 속성의 전체 상태를 이해할 수 있습니다. 동기화 상태에 대한 자세한 내용은 디바이스 상태 동기화에 대한 이 [IoT Hub 자습서](../iot-hub/tutorial-device-twins.md)를 참조하세요.
   - IoT Hub 또는 Azure Digital Twins와 같은 서비스별 메타데이터. 
 
-[방법: Azure Digital Twins API 및 SDK 사용](how-to-use-apis-sdks.md)에서 `BasicDigitalTwin`과 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
+[개념: Azure Digital Twins API 및 SDK](concepts-apis-sdks.md)에서 `BasicDigitalTwin`과 같은 serialization 도우미 클래스에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="view-all-digital-twins"></a>모든 디지털 트윈 보기
 
-인스턴스의 모든 디지털 트윈을 보려면 [쿼리](how-to-query-graph.md)를 사용합니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](how-to-use-cli.md)을 사용하여 쿼리를 실행할 수 있습니다.
+인스턴스의 모든 디지털 트윈을 보려면 [쿼리](how-to-query-graph.md)를 사용합니다. [쿼리 API](/rest/api/digital-twins/dataplane/query) 또는 [CLI 명령](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)을 사용하여 쿼리를 실행할 수 있습니다.
 
 다음은 인스턴스의 모든 디지털 트윈 목록을 반환하는 기본 쿼리의 본문입니다.
 
@@ -160,17 +162,58 @@ ms.locfileid: "108208494"
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument)를 사용하여 패치를 만들 수 있습니다. 다음은 예제입니다.
+Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)를 사용하여 패치를 만들 수 있습니다. 다음은 예제입니다.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
-### <a name="update-properties-in-digital-twin-components"></a>디지털 트윈 구성 요소의 속성 업데이트
+### <a name="update-sub-properties-in-digital-twin-components"></a>디지털 트윈 구성 요소의 하위 속성 업데이트
 
 모델에 구성 요소가 포함되어 있을 수 있으므로 다른 모델로 구성될 수 있습니다. 
 
 디지털 트윈의 구성 요소에서 속성을 패치하려면 JSON 패치에서 경로 구문을 사용할 수 있습니다.
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-component.json":::
+
+### <a name="update-sub-properties-in-object-type-properties"></a>개체 형식 속성의 하위 속성 업데이트
+
+모델에는 개체 형식의 속성이 포함될 수 있습니다. 이러한 개체에는 고유한 속성이 있을 수 있으며, 개체 형식 속성에 속하는 이러한 하위 속성 중 하나를 업데이트하는 것이 좋습니다. 이 프로세스는 [구성 요소의 하위 속성을 업데이트](#update-sub-properties-in-digital-twin-components)하는 프로세스와 유사하지만 몇 가지 추가 단계가 필요할 수 있습니다. 
+
+개체 형식 속성인 `ObjectProperty`를 사용하는 모델을 고려합니다. `ObjectProperty`에는 `StringSubProperty`라는 문자열 속성이 있습니다.
+
+이 모델을 사용하여 트윈을 만들 때는 `ObjectProperty`를 인스턴스화할 필요가 없습니다. 트윈을 만드는 동안 개체 속성이 인스턴스화되지 않은 경우에는 패치 작업을 위해 `ObjectProperty` 및 `StringSubProperty`에 액세스할 수 있는 기본 경로가 생성되지 않습니다. 해당 속성을 업데이트하기 전에 직접 `ObjectProperty`에 경로를 추가해야 합니다.
+
+다음과 같이 JSON 패치 `add` 작업을 수행할 수 있습니다.
+
+```json
+[
+  {
+    "op": "add", 
+    "path": "/ObjectProperty", 
+    "value": {"StringSubProperty":"<string-value>"}
+  }
+]
+```
+
+>[!NOTE]
+> `ObjectProperty`에 속성이 둘 이상 있는 경우 하나만 업데이트하는 경우에도 이 작업의 `value` 필드에 속성을 모두 포함해야 합니다.
+> ```json
+>... "value": {"StringSubProperty":"<string-value>", "Property2":"<property2-value>", ...}
+>```
+
+
+이 작업을 한 번 수행한 후에는 `StringSubProperty`에 대한 경로가 존재하며, 이제부터는 일반적인 `replace` 작업을 통해 직접 업데이트할 수 있습니다.
+
+```json
+[
+  {
+    "op": "replace",
+    "path": "/ObjectProperty/StringSubProperty",
+    "value": "<string-value>"
+  }
+]
+```
+
+트인이 생성될 때 `ObjectProperty`가 인스턴스화된 경우에는 첫 번째 단계가 필요하지 않지만, 개체 속성이 처음에 인스턴스화되었는지 여부를 항상 알 수는 없기 때문에 하위 속성을 처음 업데이트할 때마다 사용하는 것이 좋습니다.
 
 ### <a name="update-a-digital-twins-model"></a>디지털 트윈의 모델 업데이트
 
@@ -183,8 +226,8 @@ Azure .NET SDK의 [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument)를 �
 이 작업은 패치로 수정되는 디지털 트윈이 새 모델을 준수하는 경우에만 성공합니다. 
 
 다음 예제를 참조하세요.
-1. *foo_old* 모델을 사용하는 디지털 트윈을 생각해 보세요. *foo_old* 는 필요한 속성 *mass* 를 정의합니다.
-2. 새 모델 *foo_new* 는 속성 mass를 정의하고 새 필수 속성 *temperature* 를 추가합니다.
+1. foo_old 모델을 사용하는 디지털 트윈을 생각해 보세요. foo_old는 필요한 속성 *mass* 를 정의합니다.
+2. 새 모델 foo_new는 속성 mass를 정의하고 새 필수 속성 *temperature* 를 추가합니다.
 3. 패치 후에 디지털 트윈에는 mass 속성과 temperature 속성이 모두 있어야 합니다. 
 
 이 상황에 대한 패치는 모델과 트윈의 temperature 속성을 모두 업데이트해야 합니다. 예를 들면 다음과 같습니다.
@@ -198,11 +241,11 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리되도록 �
 이 동작은 트윈 단위로 발생합니다. 
 
 예를 들어 이러한 세 호출이 동시에 도착하는 시나리오를 가정해 보겠습니다. 
-*   *Twin1* 에 속성 A 쓰기
-*   *Twin1* 에 속성 B 쓰기
-*   *Twin2* 에 속성 A 쓰기
+*   Twin1에 속성 A 쓰기
+*   Twin1에 속성 B 쓰기
+*   Twin2에 속성 A 쓰기
 
-*Twin1* 을 수정하는 두 호출이 차례로 실행되며 각 변경 내용에 대한 변경 메시지가 생성됩니다. *Twin2* 를 수정하는 호출은 충돌 없이 동시에 실행될 수 있습니다(도착하는 즉시).
+Twin1을 수정하는 두 호출이 차례로 실행되며 각 변경 내용에 대한 변경 메시지가 생성됩니다. Twin2를 수정하는 호출은 충돌 없이 동시에 실행될 수 있습니다(도착하는 즉시).
 
 ## <a name="delete-a-digital-twin"></a>디지털 트윈 삭제
 
@@ -220,14 +263,22 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리되도록 �
 
 아래 실행 가능한 코드 샘플을 사용하여 트윈을 만들고, 해당 세부 정보를 업데이트하고, 트윈을 삭제할 수 있습니다. 
 
-### <a name="set-up-the-runnable-sample"></a>실행 가능한 샘플 설정
+### <a name="set-up-sample-project-files"></a>샘플 프로젝트 파일 설정
 
-이 코드 조각은 [자습서: 샘플 클라이언트 앱으로 Azure Digital Twins 살펴보기](tutorial-command-line-app.md)에서 [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) 모델 정의를 사용합니다. 이 링크를 사용하여 파일로 직접 이동하거나 전체 [엔드투엔드 샘플 프로젝트](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부로 다운로드할 수 있습니다.
+이 코드 조각은 샘플 모델 정의인 [Room.json](https://raw.githubusercontent.com/Azure-Samples/digital-twins-samples/master/AdtSampleApp/SampleClientApp/Models/Room.json)을 사용합니다. 코드에서 사용할 수 있도록 **모델 파일을 다운로드** 하려면 이 링크를 사용하여 GitHub의 파일로 직접 이동합니다. 그런 다음, 화면의 아무 곳이나 마우스 오른쪽 단추로 클릭하고 브라우저의 오른쪽 클릭 메뉴에서 **다른 이름으로 저장** 을 선택한 다음, 다른 이름으로 저장 창을 사용하여 파일을 **Room.json** 으로 저장합니다.
 
-샘플을 실행하려면 먼저 다음을 수행합니다.
-1. 모델 파일을 다운로드하고 프로젝트에 배치한 다음 아래 코드의 `<path-to>` 자리 표시자를 바꿔서 찾는 위치를 프로그램에 알립니다.
-2. 자리 표시자 `<your-instance-hostname>`을 Azure Digital Twins 인스턴스의 호스트 이름으로 바꿉니다.
-3. Azure Digital Twins와 함께 작동하는 데 필요한 두 개의 종속성을 프로젝트에 추가합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
+다음으로, Visual Studio 또는 원하는 편집기에서 **새 콘솔 앱 프로젝트** 를 만듭니다.
+
+그런 다음, 프로젝트에 실행 가능한 샘플의 **다음 코드를 복사합니다**.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+
+### <a name="configure-project"></a>프로젝트 구성
+
+다음으로, 다음 단계를 완료하여 프로젝트 코드를 구성합니다.
+1. 이전에 다운로드한 **Room.json** 파일을 프로젝트에 추가하고 코드의 `<path-to>` 자리 표시자를 대체하여 프로그램에서 찾을 위치를 알려줍니다.
+2. `<your-instance-hostname>` 자리 표시자를 Azure Digital Twins 인스턴스의 호스트 이름으로 바꿉니다.
+3. Azure Digital Twins와 함께 작동하는 데 필요한 두 개의 종속성을 프로젝트에 추가합니다. 첫 번째는 [.NET용 Azure Digital Twins SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)의 패키지이고, 두 번째는 Azure에 대한 인증을 지원하는 도구를 제공합니다.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -239,13 +290,11 @@ Azure Digital Twins는 들어오는 모든 요청이 차례로 처리되도록 �
 
 ### <a name="run-the-sample"></a>샘플 실행
 
-위의 단계를 완료한 후에는 다음 샘플 코드를 직접 실행할 수 있습니다.
-
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs":::
+이제 설치를 완료했으므로 샘플 코드 프로젝트를 실행할 수 있습니다.
 
 다음은 위의 프로그램에 대한 콘솔 출력입니다. 
 
-:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="트윈을 만들고, 업데이트하고, 삭제하는 것을 보여 주는 콘솔 출력" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="트윈을 만들고, 업데이트하고, 삭제하는 것을 보여주는 콘솔 출력의 스크린샷." lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="next-steps"></a>다음 단계
 

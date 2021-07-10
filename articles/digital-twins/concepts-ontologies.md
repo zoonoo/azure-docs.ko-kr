@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 70ef2d305279c9215012a74e6869ddd9aedebf11
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102034696"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475692"
 ---
 # <a name="what-is-an-ontology"></a>온톨로지란? 
 
@@ -20,7 +20,7 @@ Azure Digital Twins 솔루션의 어휘는 사용자 환경에 존재하는 엔�
 
 경우에 따라 솔루션이 특정 업계에 연결된 경우 사용자 고유의 모델 집합을 처음부터 작성하는 것보다 이미 존재하는 해당 업계에 대한 모델 집합으로 시작하는 것이 더 쉽고 효과적일 수 있습니다. 이러한 기존 모델 집합을 **온톨로지** 라고 합니다. 
 
-일반적으로 온톨로지는 건물 구조, IoT 시스템, 스마트 시티, 에너지 그리드, 웹 콘텐츠 등과 같은 지정된 도메인에 대한 모델 집합입니다. 온톨로지는 다음을 지원할 수 있으므로 지식 그래프의 스키마로 사용되기도 합니다.
+일반적으로 온톨로지는 건물 구조, IoT 시스템, 스마트 시티, 에너지 그리드, 웹 콘텐츠 등과 같은 지정된 도메인에 대한 모델 세트입니다. 온톨로지는 다음을 지원할 수 있으므로 트윈 그래프의 스키마로 사용되기도 합니다.
 * 소프트웨어 구성 요소, 설명서, 쿼리 라이브러리 등의 조화
 * 개념적 모델링 및 시스템 개발에 대한 투자 감소
 * 의미 체계 수준에서 보다 쉬운 데이터 상호 운용성
@@ -42,29 +42,30 @@ Azure Digital Twins의 모델은 [DTDL(디지털 트윈 정의 언어)](https://
 
 | 전략 | Description | 리소스 |
 | --- | --- | --- |
-| **채택** | 광범위하게 채택된 업계 표준을 기반으로 빌드된 오픈 소스 DTDL 온톨로지로 솔루션을 시작할 수 있습니다. 이러한 모델 집합을 기본으로 사용하거나 사용자 지정된 솔루션을 위해 자체적으로 추가하여 확장할 수 있습니다. | [*개념:&nbsp;업계&nbsp;표준&nbsp;온톨로지 채택*](concepts-ontologies-adopt.md)<br><br>[*개념:&nbsp;온톨로지&nbsp;확장*](concepts-ontologies-extend.md) |
-| **변환** | 이미 다른 표준 형식으로 표현된 기존 모델이 있는 경우 DTDL로 변환하여 Azure Digital Twins에서 사용할 수 있습니다. | [*개념:&nbsp;온톨로지&nbsp;변환*](concepts-ontologies-convert.md)<br><br>[*개념:&nbsp;온톨로지&nbsp;확장*](concepts-ontologies-extend.md) |
-| **작성자** | 적용 가능한 업계 표준을 영감으로 사용하여 언제든지 사용자 지정 DTDL 모델을 처음부터 개발할 수 있습니다. | [*개념: DTDL 모델*](concepts-models.md) |
+| **채택** | 광범위하게 채택된 업계 표준을 기반으로 빌드된 오픈 소스 DTDL 온톨로지로 솔루션을 시작할 수 있습니다. 이러한 모델 집합을 기본으로 사용하거나 사용자 지정된 솔루션을 위해 자체적으로 추가하여 확장할 수 있습니다. | [개념:&nbsp;업계&nbsp;표준&nbsp;온톨로지 채택](concepts-ontologies-adopt.md)<br><br>[개념:&nbsp;온톨로지&nbsp;확장](concepts-ontologies-extend.md) |
+| **변환** | 이미 다른 표준 형식으로 표현된 기존 모델이 있는 경우 DTDL로 변환하여 Azure Digital Twins에서 사용할 수 있습니다. | [개념:&nbsp;온톨로지&nbsp;변환](concepts-ontologies-convert.md)<br><br>[개념:&nbsp;온톨로지&nbsp;확장](concepts-ontologies-extend.md) |
+| **작성자** | 적용 가능한 업계 표준을 영감으로 사용하여 언제든지 사용자 지정 DTDL 모델을 처음부터 개발할 수 있습니다. | [개념: DTDL 모델](concepts-models.md) |
 
 ### <a name="using-ontology-strategies-in-a-model-development-path"></a>모델 개발 경로에서 온톨로지 전략 사용
 
 온톨로지를 Azure Digital Twins에 통합하기 위해 어떤 전략을 선택하든 관계없이, 아래의 전체 경로를 따라 온톨로지를 DTDL 모델로 만들고 업로드하는 과정을 안내할 수 있습니다.
 
 1. [Azure Digital Twins에서 DTDL 모델링](concepts-models.md)을 검토하고 이해하는 것부터 시작합니다.
-1. 위에서 선택한 온톨로지 통합 전략을 계속 진행합니다. 온톨로지를 기반으로 모델을 [**채택**](concepts-ontologies-adopt.md), [**변환**](concepts-ontologies-convert.md) 또는 [**제작**](concepts-models.md)합니다.
+1. 위에서 선택한 온톨로지 통합 전략을 계속 진행합니다. 온톨로지를 기반으로 모델을 [채택](concepts-ontologies-adopt.md), [변환](concepts-ontologies-convert.md) 또는 [제작](concepts-models.md)합니다.
     1. 필요한 경우 온톨로지를 [확장](concepts-ontologies-extend.md)하여 필요에 맞게 사용자 지정합니다.
 1. 모델의 [유효성을 검사](how-to-parse-models.md)하여 DTDL 문서가 작동하는지 확인합니다.
 1. [API](how-to-manage-model.md#upload-models) 또는 [Azure Digital Twins 모델 업로더](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader)와 같은 샘플을 사용하여 완성된 모델을 Azure Digital Twins에 업로드합니다.
 
 그 후에는 Azure Digital Twins 인스턴스에서 모델을 사용할 수 있습니다. 
 
-[Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) 또는 [Azure Digital Twins 모델 시각화 도우미](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)와 같은 샘플을 사용하여 시각화하거나 [디지털 트윈](concepts-twins-graph.md)을 만드는 데 사용할 수 있습니다.
+>[!TIP]
+> [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) 또는 [Azure Digital Twins 모델 시각화 도우미](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer)를 사용하여 온톨로지의 모델을 시각화할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 온톨로지 채택, 변환 및 작성 전략에 대해 자세히 알아보세요.
-* [*개념: 업계 표준 온톨로지 채택*](concepts-ontologies-adopt.md)
-* [*개념: 온톨로지 변환*](concepts-ontologies-convert.md)
-* [*방법: DTDL 모델 관리*](how-to-manage-model.md)
+* [개념: 업계 표준 온톨로지 채택](concepts-ontologies-adopt.md)
+* [개념: 온톨로지 변환](concepts-ontologies-convert.md)
+* [방법: DTDL 모델 관리](how-to-manage-model.md)
 
-모델을 사용하여 디지털 트윈을 만드는 방법에 대해 알아보세요. [*개념: 디지털 트윈 및 트윈 그래프*](concepts-twins-graph.md)
+모델을 사용하여 디지털 트윈을 만드는 방법에 대해 알아보세요. [개념: 디지털 트윈 및 트윈 그래프](concepts-twins-graph.md)

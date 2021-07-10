@@ -1,7 +1,7 @@
 ---
-title: 자동화된 ML 분류 모델 만들기
+title: '자습서: AutoML -코드 없는 분류 모델 학습'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 자동화된 기계 학습(자동화된 ML) 인터페이스를 사용하여 코드를 작성하지 않고 분류 모델을 학습 및 배포합니다.
+description: 스튜디오 UI에서 Azure Machine Learning 자동화된 ML을 사용하여 한 줄의 코드도 작성하지 않고 분류 모델을 학습합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
+ms.date: 06/11/2021
 ms.custom: automl
-ms.openlocfilehash: d0e236891e48a20adf1901d2f95a90ae25969c49
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: e088184cadea64b769faf75c6455b720f45d91cc
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210849"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028724"
 ---
-# <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기
+# <a name="tutorial-train-a-classification-model-with-no-code-automl-in-the-azure-machine-learning-studio"></a>자습서: Azure Machine Learning 스튜디오에서 코드가 없는 AutoML을 사용하여 분류 모델 학습
 
-Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용하여 한 줄의 코드도 작성하지 않고 [간단한 분류 모델](concept-automated-ml.md#classification)을 만드는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
+Azure Machine Learning 스튜디오에서 Azure Machine Learning 자동화된 ML을 사용하여 코드 없는 AutoML을 통해 분류 모델을 학습하는 방법에 대해 알아봅니다. 이 분류 모델은 클라이언트가 금융 기관의 정기 예금을 구독할지 예측합니다.
 
 자동화된 기계 학습을 사용하면 시간이 많이 걸리는 작업을 자동화할 수 있습니다. 자동화된 기계 학습은 사용자가 선택한 성공 메트릭을 기반으로 최상의 모델을 발견할 수 있도록 알고리즘과 하이퍼 매개 변수의 여러 조합을 빠르게 반복합니다.
 
@@ -35,9 +35,9 @@ Azure Machine Learning 스튜디오에서 자동화된 기계 학습을 사용�
 또한 다음과 같은 다른 모델 유형에 대해 자동화된 기계 학습을 시도해 보세요.
 
 * 코드 없는 예측 예제는 [자습서: 수요 예측 및 AutoML](tutorial-automated-ml-forecast.md)을 참조하세요.
-* 회귀 모델의 코드 첫 번째 예제는 [자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측](tutorial-auto-train-models.md)을 참조하세요.
+* 회귀 모델의 코드 첫번째 예는 [자습서: AutoML을 사용하는 회귀 모델](tutorial-auto-train-models.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
 

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 05/27/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1894f38a92fe839dcf44cc3265aa1ca25c05d6f6
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94427850"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111564681"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 **리소스, 서비스 및 문서 검색(G+/)** 에 **가상 네트워크 게이트웨이** 를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이** 를 찾아서 항목을 선택합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "94427850"
    * **지역**: 리소스를 만들려는 지역을 선택합니다. 게이트웨이에 대한 지역은 가상 네트워크와 동일해야 합니다.
    * **게이트웨이 유형**: **VPN** 을 선택합니다. VPN 게이트웨이는 가상 네트워크 게이트웨이 유형 **VPN** 을 사용합니다.
    * **VPN 유형**: 구성에 대해 지정된 VPN 유형을 선택합니다. 대부분의 구성에는 경로 기반 VPN 유형이 필요합니다.
-   * **SKU**: 드롭다운에서 게이트웨이 SKU를 선택합니다. 드롭다운에 나열되는 SKU는 선택하는 VPN 유형에 따라 달라집니다. 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
+   * **SKU**: 드롭다운에서 게이트웨이 SKU를 선택합니다. 드롭다운에 나열되는 SKU는 선택하는 VPN 유형에 따라 달라집니다. 사용하려는 기능을 지원하는 SKU를 선택해야 합니다. 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
    * **생성**: VPN Gateway 생성에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)를 참조하세요.
    * **가상 네트워크**: 드롭다운에서 이 게이트웨이를 추가하려는 가상 네트워크를 선택합니다.
    * **게이트웨이 서브넷 주소 범위**: 이 필드는 VNet에 게이트웨이 서브넷이 없는 경우에만 표시됩니다. 가능한 경우 범위(/26, /25 등)를 /27 이상으로 설정합니다. /28보다 작은 범위는 만들지 않는 것이 좋습니다. 게이트웨이 서브넷이 이미 있는 경우 가상 네트워크로 이동하여 GatewaySubnet 세부 정보를 볼 수 있습니다. **서브넷** 을 클릭하여 범위를 확인합니다. 범위를 변경하려면 GatewaySubnet을 삭제하고 다시 만들 수 있습니다.

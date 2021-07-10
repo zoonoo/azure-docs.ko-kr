@@ -3,17 +3,17 @@ title: 'ML Studio(클래식): Azure Machine Learning으로 마이그레이션'
 description: 현대화된 데이터 과학 플랫폼을 위해 Studio(클래식)에서 Azure Machine Learning으로 마이그레이션합니다.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
-ms.openlocfilehash: 7cdf016d7de66c33973ec7818fa92df28c4639dd
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7bb7c3a2d19b4dbb84d09829e2ed181a62ef7fbe
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105566962"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901298"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Azure Machine Learning으로 마이그레이션
 
@@ -134,7 +134,6 @@ Azure Machine Learning에서는 **데이터 세트** 가 작업 영역에 등록
 
 Studio(클래식)에서는 **실험** 에 작업에 대한 처리 논리가 포함되었습니다. 끌어서 놓기 모듈을 사용하여 실험을 만들었습니다.
 
-
 ![automobile-price-classic-experiment](./media/migrate-overview/studio-classic-experiment.png)
 
 Azure Machine Learning에서는 **파이프라인** 에 작업에 대한 처리 논리가 포함됩니다. 끌어서 놓기 모듈이나 코드 작성으로 파이프라인을 만들 수 있습니다.
@@ -143,14 +142,13 @@ Azure Machine Learning에서는 **파이프라인** 에 작업에 대한 처리 
 
 ### <a name="web-service-endpoint"></a>웹 서비스 엔드포인트
 
-Studio(클래식)에서 **요청/응답 API** 가 실시간 예측에 사용되었습니다. 일괄 처리 예측 또는 다시 학습에 **일괄 처리 실행 API** 가 사용되었습니다.
+Studio(클래식)는 실시간 예측에 **REQUEST/RESPOND API** 를 사용하고 일괄 처리 예측 또는 재학습에 **BATCH EXECUTION API** 를 사용했습니다.
 
 ![automobile-price-classic-webservice](./media/migrate-overview/studio-classic-web-service.png)
 
-Azure Machine Learning에서는 **실시간 엔드포인트** 가 실시간 예측에 사용됩니다. 일괄 처리 예측 또는 다시 학습에는 **파이프라인 엔드포인트** 가 사용됩니다.
+Azure Machine Learning은 실시간 예측에 실시간 **엔드포인트** 를 사용하고 일괄 처리 예측 또는 재학습에 **파이프라인 엔드포인트** 를 사용합니다.
 
 ![automobile-price-aml-endpoint](./media/migrate-overview/aml-endpoint.png)
-
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -158,7 +156,7 @@ Azure Machine Learning에서는 **실시간 엔드포인트** 가 실시간 예�
 
 1. **마이그레이션 개요**
 1. [마이그레이션 데이터세트](migrate-register-dataset.md)
-1. [Studio(클래식) 학습 파이프라인 다시 빌드](migrate-rebuild-experiment.md)
-1. [Studio(클래식) 웹 서비스 다시 빌드](migrate-rebuild-web-service.md)
-1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md)
-1. [R 스크립트 실행 마이그레이션](migrate-execute-r-script.md)
+1. [Studio(클래식) 학습 파이프라인을 다시 빌드](migrate-rebuild-experiment.md)합니다.
+1. [Studio(클래식) 웹 서비스를 다시 빌드](migrate-rebuild-web-service.md)합니다.
+1. [Azure Machine Learning 웹 서비스를 클라이언트 앱과 통합](migrate-rebuild-integrate-with-client-app.md)합니다.
+1. [R 스크립트 실행을 마이그레이션](migrate-execute-r-script.md)합니다.

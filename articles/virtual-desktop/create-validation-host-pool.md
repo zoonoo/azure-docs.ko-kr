@@ -1,38 +1,39 @@
 ---
-title: Windows Virtual Desktop 호스트 풀 서비스 업데이트 - Azure
+title: Azure Virtual Desktop 호스트 풀 서비스 업데이트 - Azure
 description: 프로덕션에 업데이트를 출시하기 전에 서비스 업데이트를 모니터링하는 유효성 검사 호스트 풀을 만드는 방법입니다.
 author: Heidilohr
 ms.topic: tutorial
 ms.date: 12/15/2020
 ms.author: helohr
+ms.custom: devx-track-azurepowershell
 manager: femila
-ms.openlocfilehash: 66279c2ea798a7edb21795f368011b00bdf6297e
-ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.openlocfilehash: 2c944d1068ae74a97c8a6315e98a1348f9378b8c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106447814"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749132"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
 >[!IMPORTANT]
->이 콘텐츠는 Azure Resource Manager Windows Virtual Desktop 개체를 통해 Windows Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Windows Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md)를 참조하세요.
+>이 콘텐츠는 Azure Resource Manager Azure Virtual Desktop 개체를 통해 Azure Virtual Desktop에 적용됩니다. Azure Resource Manager 개체 없이 Azure Virtual Desktop(클래식)을 사용하는 경우 [이 문서](./virtual-desktop-fall-2019/create-validation-host-pool-2019.md)를 참조하세요.
 
-호스트 풀은 Windows Virtual Desktop 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 서비스 업데이트가 먼저 적용되는 유효성 검사 호스트 풀을 만드는 것이 가장 좋습니다. 이렇게 하면 서비스에서 표준 또는 비유효성 검사 환경에 서비스 업데이트를 적용하기 전에 서비스 업데이트를 모니터링할 수 있습니다. 유효성 검사 호스트 풀이 없으면 오류를 유발하는 변경 내용을 감지하지 못하여 표준 환경의 사용자에게 가동 중지 시간이 발생할 수 있습니다.
+호스트 풀은 Azure Virtual Desktop 환경 내에서 하나 이상의 동일한 가상 머신 컬렉션입니다. 서비스 업데이트가 먼저 적용되는 유효성 검사 호스트 풀을 만드는 것이 가장 좋습니다. 이렇게 하면 서비스에서 표준 또는 비유효성 검사 환경에 서비스 업데이트를 적용하기 전에 서비스 업데이트를 모니터링할 수 있습니다. 유효성 검사 호스트 풀이 없으면 오류를 유발하는 변경 내용을 감지하지 못하여 표준 환경의 사용자에게 가동 중지 시간이 발생할 수 있습니다.
 
 앱에서 최신 업데이트가 문제 없이 작동되려면 유효성 검사 호스트 풀이 비유효성 검사 환경의 호스트 풀과 최대한 유사해야 합니다. 사용자는 표준 호스트 풀에 연결하는 것만큼 유효성 검사 호스트 풀에도 자주 연결해야 합니다. 호스트 풀에 대한 테스트를 자동화한 경우 유효성 검사 호스트 풀에 자동화된 테스트를 포함해야 합니다.
 
-[진단 기능](diagnostics-role-service.md) 또는 [Windows Virtual Desktop 문제 해결 문서](troubleshoot-set-up-overview.md) 중 하나를 사용하여 유효성 검사 호스트 풀의 문제를 디버그할 수 있습니다.
+[진단 기능](diagnostics-role-service.md) 또는 [Azure Virtual Desktop 문제 해결 문서](troubleshoot-set-up-overview.md) 중 하나를 사용하여 유효성 검사 호스트 풀의 문제를 디버그할 수 있습니다.
 
 >[!NOTE]
 > 모든 후속 업데이트를 테스트하기 위해 유효성 검사 호스트 풀을 그대로 두는 것이 좋습니다.
 
 >[!IMPORTANT]
->Azure Resource Management가 통합된 Windows Virtual Desktop에 현재 유효성 검사 환경을 설정하고 해제하는 데 문제가 있습니다. 문제가 해결되면 이 문서를 업데이트할 예정입니다.
+>Azure Resource Management가 통합된 Azure Virtual Desktop에 현재 유효성 검사 환경을 설정하고 해제하는 데 문제가 있습니다. 문제가 해결되면 이 문서를 업데이트할 예정입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 PowerShell 모듈을 설정하고 Azure에 로그인하려면 [Windows Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
+시작하기 전에 PowerShell 모듈을 설정하고 Azure에 로그인하려면 [Azure Virtual Desktop PowerShell 모듈 설정](powershell-module.md)의 지침을 따르세요.
 
 ## <a name="create-your-host-pool"></a>호스트 풀 만들기
 
@@ -74,8 +75,8 @@ Azure Portal을 사용하여 유효성 검사 환경을 활성화할 수도 있�
 Azure Portal을 사용하여 유효성 검사 호스트 풀을 구성하려면 다음을 수행합니다.
 
 1. [https://portal.azure.com](<https://portal.azure.com> ) 에서 Azure Portal에 로그인합니다.
-2. **Windows Virtual Desktop** 을 검색하여 선택합니다.
-3. Windows Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
+2. **Azure Virtual Desktop** 을 검색하여 선택합니다.
+3. Azure Virtual Desktop 페이지에서 **호스트 풀** 을 선택합니다.
 4. 편집하려는 풀의 이름을 선택합니다.
 5. **속성** 을 선택합니다.
 6. 유효성 검사 환경 필드에서 **예** 를 선택하여 유효성 검사 환경을 사용하도록 설정합니다.
@@ -89,7 +90,7 @@ Azure Portal을 사용하여 유효성 검사 호스트 풀을 구성하려면 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Windows Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다.
+이제 유효성 검사 호스트 풀을 만들었으므로 Azure Service Health를 사용하여 Azure Virtual Desktop 배포를 모니터링하는 방법을 배울 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [서비스 경고 설정](./set-up-service-alerts.md)

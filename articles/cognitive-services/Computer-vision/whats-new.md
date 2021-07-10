@@ -8,26 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/13/2021
+ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 2e0a04cef7952822931887f038410ff867cc2afe
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: ce04187cb513712998b6c4ba26d5210bb56ca5df
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108286729"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110453759"
 ---
 # <a name="whats-new-in-computer-vision"></a>Computer Vision의 새로운 기능
 
 서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 이 페이지에 책갈피를 설정하여 서비스를 최신 상태로 유지하세요.
+
+## <a name="may-2021"></a>2021년 5월
+
+### <a name="spatial-analysis-container-update"></a>공간 분석 컨테이너 업데이트
+
+새 기능 집합과 함께 새 버전의 [공간 분석 컨테이너](spatial-analysis-container.md)가 릴리스되었습니다. 이 Docker 컨테이너를 사용하면 실시간 스트리밍 비디오를 분석하여 사용자와 사용자의 물리적 환경 간 이동의 공간 관계를 이해할 수 있습니다. 
+
+* 이제 사람이 지향하는 방향을 감지하도록 [공간 분석 작업](spatial-analysis-operations.md)을 구성할 수 있습니다. 
+    * `enable_orientation` 매개 변수를 구성하여 `personcrossingline` 및 `personcrossingpolygon` 작업에 대해 방향 분류자를 활성화할 수 있습니다. 기본적으로 꺼짐으로 설정되어 있습니다.
+
+* [공간 분석 작업](spatial-analysis-operations.md)에서는 이제 작업/실행 중 사람의 속도를 감지하는 구성도 제공합니다.
+     * 기본적으로 꺼져 있는 `enable_speed` 분류자를 설정하여 `personcrossingline` 및 `personcrossingpolygon` 작업에 대한 속도를 감지할 수 있습니다. 출력은 `speed`, `avgSpeed` 및 `minSpeed` 출력에 반영됩니다.
+
 
 ## <a name="april-2021"></a>2021년 4월
 
 ### <a name="computer-vision-v32-ga"></a>Computer Vision v3.2 GA
 
 이제 Computer Vision API v3.2는 다음과 같은 업데이트를 통해 일반 공급됩니다.
-* 향상된 이미지 태깅 모델: 시각적 콘텐츠를 분석하고 이미지에 표시된 개체, 작업 및 콘텐츠에 따라 관련 태그를 생성합니다. 이는 [태그 이미지 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](./vision-api-how-to-topics/howtocallvisionapi.md) 및 [개요](./overview-image-analysis.md)를 참조하세요.
-* 업데이트된 콘텐츠 조정 모델: 성인 콘텐츠 유무를 검색하고 성인, 외설 및 유혈 콘텐츠가 포함된 이미지를 필터링하는 플래그를 제공합니다. 이는 [분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](./vision-api-how-to-topics/howtocallvisionapi.md) 및 [개요](./overview-image-analysis.md)를 참조하세요.
+* 향상된 이미지 태깅 모델: 시각적 콘텐츠를 분석하고 이미지에 표시된 개체, 작업 및 콘텐츠에 따라 관련 태그를 생성합니다. 이 모델은 [태그 이미지 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](./vision-api-how-to-topics/howtocallvisionapi.md) 및 [개요](./overview-image-analysis.md)를 참조하세요.
+* 업데이트된 콘텐츠 조정 모델: 성인 콘텐츠 유무를 검색하고 성인, 외설 및 유혈 콘텐츠가 포함된 이미지를 필터링하는 플래그를 제공합니다. 이 모델은 [분석 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b)를 통해 사용할 수 있습니다. 자세히 알아보려면 이미지 분석 [방법 가이드](./vision-api-how-to-topics/howtocallvisionapi.md) 및 [개요](./overview-image-analysis.md)를 참조하세요.
 * 중국어 간체 및 번체, 일본어, 한국어 및 라틴어를 포함한 [73개 언어에 사용할 수 있는 OCR(Read)](./language-support.md#optical-character-recognition-ocr).
 * [OCR(Read)](./overview-ocr.md)은 온-프레미스 배포를 위해 [Distroless 컨테이너](./computer-vision-how-to-install-containers.md?tabs=version-3-2)로도 사용할 수 있습니다.
 
@@ -135,7 +148,7 @@ Computer Vision API v3.0에서 Read API에 대한 업데이트와 함께 일반 
 * 정확도 개선
 * 새 출력 형식
 * 추출된 각 단어에 대한 신뢰도 점수
-* 추가 언어 매개 변수를 사용하여 스페인어 및 영어 모두 지원
+* 언어 매개 변수를 사용하여 스페인어 및 영어 모두 지원
 
 3\.0 API 사용을 시작하려면 [텍스트 추출 빠른 시작](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/REST/CSharp-hand-text.md?tabs=version-3)을 따르세요.
 

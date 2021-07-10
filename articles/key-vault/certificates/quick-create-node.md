@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 3f933a564e62bf3aae1ec05c6dde048100c22967
-ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
+ms.openlocfilehash: 069238a6feb4425aba1da48b89d26128d6d54775
+ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107815849"
+ms.lasthandoff: 05/13/2021
+ms.locfileid: "109846989"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-javascript-version-4"></a>빠른 시작: JavaScript용 Azure Key Vault 인증서 클라이언트 라이브러리(버전 4)
 
@@ -191,7 +191,7 @@ const retrievedCertificate = await client.getCertificate(certificateName);
 
 ### <a name="delete-a-certificate"></a>인증서 삭제
 
-마지막으로 [beginDeleteCertificate]https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) 및 [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) 메서드를 사용하여 키 자격 증명 모음에서 인증서를 삭제하고 제거하겠습니다.
+마지막으로 [beginDeleteCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#beginDeleteCertificate_string__BeginDeleteCertificateOptions_) 및 [purgeDeletedCertificate](https://docs.microsoft.com/javascript/api/@azure/keyvault-certificates/certificateclient?#purgeDeletedCertificate_string__PurgeDeletedCertificateOptions_) 메서드를 사용하여 키 자격 증명 모음에서 인증서를 삭제하고 제거하겠습니다.
 
 ```javascript
 const deletePoller = await client.beginDeleteCertificate(certificateName);
@@ -262,7 +262,7 @@ main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
 
 다음 명령을 실행하여 앱을 실행합니다.
 
-```azurecli
+```cmd
 npm install
 npm index.js
 ```

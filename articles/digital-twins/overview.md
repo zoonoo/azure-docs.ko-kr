@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 050512da539e08d029786983fbda46da0fea27ce
-ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.openlocfilehash: 8213bd8e819e3a6c4a84a95f7c996912ac28ec2b
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109789626"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111539424"
 ---
 # <a name="what-is-azure-digital-twins"></a>Azure Digital Twins란?
 
@@ -46,11 +46,9 @@ DTDL은 [IoT PnP(플러그 앤 플레이)](../iot-pnp/overview-iot-plug-and-play
 
 Azure Digital Twins의 디지털 모델은 실제 세계의 실시간, 최신 표현입니다. 사용자 지정 DTDL 모델에서 관계를 사용하 여 사용자 환경을 나타내는 **실시간 그래프** 에 쌍을 연결합니다.
 
-샘플 애플리케이션 [Azure Digital Twins 탐색기](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)의 도움을 통해 Azure Digital Twins 그래프의 시각화를 볼 수 있습니다.
+그래프와 상호 작용하는 다음 인터페이스를 제공하는 [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md)에서 Azure Digital Twins 그래프를 시각화할 수 있습니다.
 
-샘플 시각화의 모양은 다음과 같습니다.
-
-:::image type="content" source="media/includes/azure-digital-twins-explorer.png" alt-text="디지털 쌍을 나타내는 노드의 그래프를 보여주는 Azure Digital Twins 탐색기 샘플 애플리케이션의 스크린샷" lightbox="media/includes/azure-digital-twins-explorer.png":::
+:::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="디지털 트윈을 나타내는 노드의 그래프를 보여 주는 Azure Digital Twins Explorer의 스크린샷" lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 Azure Digital Twins는 그래프를 데이터 처리 및 비즈니스 논리와 함께 최신 상태로 유지 하기 위한 다양한 **이벤트 시스템** 을 제공합니다. [Azure Functions](../azure-functions/functions-overview.md)등의 외부 계산 리소스를 연결하여 이 데이터 처리를 유연하고 사용자 지정된 방식으로 처리할 수 있습니다.
 
@@ -64,16 +62,17 @@ Azure Digital Twins를 사용하여 이 목적을 위해 새 IoT Hub을 만들�
 
 REST API 또는 커넥터를 사용하여 다른 데이터 원본에서 Azure Digital Twins를 [Logic Apps](../logic-apps/logic-apps-overview.md)과 같은 다른 서비스에 연결할 수도 있습니다.
 
-### <a name="output-to-tsi-storage-and-analytics"></a>TSI, 스토리지 및 analytics로 출력
+### <a name="output-to-adx-tsi-storage-and-analytics"></a>ADX, TSI, 스토리지, 분석으로 출력
 
 추가 분석 또는 스토리지에 대해 Azure Digital Twins 모델의 데이터를 다운스트림 Azure 서비스로 라우팅할 수 있습니다. 이는 [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md)또는 [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)를 사용하여 원하는 데이터 흐름을 구동하는 **이벤트 경로** 를 통해 제공됩니다.
 
 이벤트 경로를 사용하여 수행할 수 있는 몇 가지 작업은 다음과 같습니다:
+* [ADX(Azure Data Explorer)용 Azure Digital Twins 쿼리 플러그 인](concepts-data-explorer-plugin.md)을 사용하여 쿼리할 디지털 트윈 데이터를 ADX에 전송
+* [TSI(Time Series Insights)에 Azure Digital Twins를 연결](how-to-integrate-time-series-insights.md)하여 각 트윈의 시계열 기록 추적
+* Time Series Insights의 시계열 모델을 Azure Digital Twins의 원본과 정렬
 * [Azure Data Lake](../storage/blobs/data-lake-storage-introduction.md)에 Azure Digital Twins 데이터 저장
 * [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 또는 기타 Microsoft 데이터 분석 도구를 사용하여 Azure Digital Twins 데이터 분석
 * Logic Apps과 크기가 큰 워크플로 통합
-* Time Series Insights에 Azure Digital Twins를 연결하여 각 쌍의 시계열 기록 추적
-* Time Series Insights의 시계열 모델을 Azure Digital Twins의 원본과 정렬
 
 이는 Azure Digital Twins를 더 큰 솔루션에 연결할 수 있는 또 다른 방법으로, 이러한 인사이트로 계속 작업하기 위해 사용자 지정 요구 사항을 지원합니다.
 
@@ -86,7 +85,7 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 * 모델을 구성하고 토폴로지를 만들고 쌍 그래프에서 인사이트를 추출하여 Azure Digital Twins 인스턴스를 구동하는 하나 이상의 클라이언트 앱입니다.
 * Azure Digital Twins에 의해 생성된 이벤트를 처리하는 하나 이상의 외부 계산 리소스 또는 장치와 같이 연결된 데이터 원본입니다. 계산 리소스를 제공하는 일반적인 방법 중 하나는 [Azure Functions](../azure-functions/functions-overview.md)을 통하는 것입니다.
 * IoT hub를 통해 장치 관리 및 IoT 데이터 스트림 기능을 제공합니다.
-* 워크플로 통합(예: [Logic Apps](../logic-apps/logic-apps-overview.md), 콜드 스토리지, 시계열 통합 또는 분석)과 같은 태스크를 처리하는 다운스트림 서비스입니다.
+* 워크플로 통합(예: [Logic Apps](../logic-apps/logic-apps-overview.md), 콜드 스토리지, Azure Data Explorer, 시계열 통합 또는 분석)과 같은 작업을 처리하는 다운스트림 서비스입니다.
 
 다음 다이어그램에서는 Azure Digital Twins 이 더 큰 Azure IoT 솔루션의 컨텍스트에서 발생하는 위치를 보여줍니다.
 
@@ -102,6 +101,6 @@ Azure Digital Twins를 사용하는 완전한 솔루션은 다음과 같은 부�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다음 빠른 시작을 사용하여 Azure Digital Twins 작업을 자세히 살펴보세요. [빠른 시작: 샘플 시나리오 살펴보기](quickstart-azure-digital-twins-explorer.md).
+* [빠른 시작: Azure Digital Twins Explorer 시작](quickstart-azure-digital-twins-explorer.md)에서 Azure Digital Twins 작업을 알아봅니다.
 
 * 또는 Azure Digital Twins 개념에 대해 [개념: 사용자 지정 모델](concepts-models.md)에서 자세히 알아보세요.

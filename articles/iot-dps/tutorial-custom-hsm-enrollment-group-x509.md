@@ -3,17 +3,17 @@ title: 자습서 - 사용자 지정 HSM(하드웨어 보안 모듈)을 사용하
 description: 이 자습서에서는 등록 그룹을 사용합니다. 이 자습서에서는 사용자 지정 HSM(하드웨어 보안 모듈) 및 Azure IoT Hub DPS용 C 디바이스 SDK를 사용하여 X.509 디바이스를 프로비저닝하는 방법을 알아봅니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 05/24/2021
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b178aa4a524cb7fcc85c7fc68ac5f772747787a3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8e7d024d4d5b1e058e7a0b895faae5d2e7425f44
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821702"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110472130"
 ---
 # <a name="tutorial-provision-multiple-x509-devices-using-enrollment-groups"></a>자습서: 등록 그룹을 사용하여 여러 X.509 디바이스 프로비저닝
 
@@ -121,6 +121,10 @@ Azure IoT Device Provisioning Service는 디바이스 프로비저닝에 대해 
 #### <a name="create-root-and-intermediate-certificates"></a>루트 및 중간 인증서 만들기
 
 인증서 체인의 루트 및 중간 부분을 만들려면 다음을 수행합니다.
+
+> [!IMPORTANT]
+> 이 문서에서는 Bash 셸 접근 방식만 사용합니다. PowerShell을 사용할 수는 있지만 이 문서에서는 다루지 않습니다.
+
 
 1. Git Bash 명령 프롬프트를 엽니다. [샘플 및 자습서에 사용되는 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md#managing-test-ca-certificates-for-samples-and-tutorials)에 있는 Bash 셸 지침에 따라 1단계와 2단계를 완료합니다.
 
@@ -233,7 +237,7 @@ Azure IoT Device Provisioning Service는 디바이스 프로비저닝에 대해 
     >
     > 그러나 디바이스는 디바이스 인증서의 프라이빗 키에 대한 액세스 권한도 필요합니다. 프로비저닝을 시도할 때 디바이스에서 런타임에 해당 키를 사용하여 확인을 수행해야 하기 때문에 이 액세스 권한이 필요합니다. 이 키는 매우 중요하기 때문에 실제 HSM에서는 프라이빗 키를 안전하게 보관할 수 있도록 하드웨어 기반 스토리지를 사용하는 것이 좋습니다.
 
-4. 디바이스 ID가 `custom-hsm-device-02`인 두 번째 디바이스에 대해 1~3단계를 반복합니다. 해당 디바이스에 대해 다음 값을 사용합니다.
+4. *./certs/new-device.cert.pem* 을 삭제하고 디바이스 ID가 `custom-hsm-device-02`인 두 번째 디바이스에 대해 1~3단계를 반복합니다. *./certs/new-device.cert.pem* 을 삭제해야 합니다. 그렇지 않으면 두 번째 디바이스에 대한 인증서 생성이 실패합니다. 이 문서에서는 전체 체인 인증서 파일만 사용됩니다. 두 번째 디바이스에 다음 값을 사용합니다.
 
     |   Description                 |  값  |
     | :---------------------------- | :--------- |
@@ -290,7 +294,7 @@ Windows 기반 디바이스에서 인증서 저장소에 서명 인증서를 추
     winpty openssl pkcs12 -inkey ../private/azure-iot-test-only.intermediate.key.pem -in ./azure-iot-test-only.intermediate.cert.pem -export -out ./intermediate.pfx
     ```
 
-2. Windows **시작** 단추를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **실행** 을 마우스 왼쪽 단추로 클릭합니다. *certmgr.mcs* 를 입력하고 **확인** 을 클릭하여 인증서 관리자 MMC 스냅인을 시작합니다.
+2. Windows **시작** 단추를 마우스 오른쪽 단추로 클릭합니다. 그런 다음, **실행** 을 마우스 왼쪽 단추로 클릭합니다. *certmgr.msc* 를 입력하고 **확인** 을 클릭하여 인증서 관리자 MMC 스냅인을 시작합니다.
 
 3. 인증서 관리자의 **인증서 - 현재 사용자** 에서 **신뢰할 수 있는 루트 인증 기관** 을 클릭합니다. 메뉴에서 **작업** > **모든 작업** > **가져오기** 를 클릭하고 `root.pfx`를 가져옵니다.
 

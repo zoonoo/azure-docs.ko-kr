@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: afa2811fe6e0dab3bc5c114febeec8aae25bd891
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: 67d8ef5bf6960ca03d8d2d36efbe4461e1124190
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108765578"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110695247"
 ---
 # <a name="understand-and-work-with-scopes"></a>범위 이해 및 작업
 
@@ -73,7 +73,7 @@ Cost Management는 아래의 각 범위에서 다음과 같은 기본 제공 역
 - **비용 데이터 내보내기 예약** Cost Management 기여자는 데이터를 스토리지 계정에 복사하는 내보내기를 예약할 수 있도록 스토리지 계정을 관리하기 위한 액세스 권한도 필요합니다. 비용 데이터를 내보내는 스토리지 계정을 포함하고 있는 리소스 그룹에 [스토리지 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)를 부여하는 방안을 고려해 보세요.
 - **비용 절감 추천 보기** – Cost Management 읽기 권한자 및 Cost Management 기여자는 기본적으로 비용 추천을 *볼 수 있습니다*. 그러나 비용 추천에 따라 조치를 취하려면 개별 리소스에 대한 액세스 권한이 필요합니다. 비용 기반 추천에 따라 조치를 취하려면 [서비스별 역할](../../role-based-access-control/built-in-roles.md#all)을 부여하는 방안을 고려해 보세요.
 
-관리 그룹은 EA(기업계약), PAYG(종량제) 또는 Microsoft 내부 구독을 포함하는 경우에만 지원됩니다. Microsoft 고객 계약 또는 Azure Active Directory 구독과 같은 다른 구독 유형을 사용하는 관리 그룹은 비용을 볼 수 없습니다. 서로 다른 구독을 사용하는 경우 지원되지 않는 구독을 관리 그룹 계층 구조의 별도의 arm으로 이동하여 지원되는 구독에 대한 Cost Management를 사용하도록 설정합니다. 예를 들어 루트 관리 그룹에 두 개의 관리 그룹을 만듭니다. **Azure AD** 및 **내 조직** Azure AD 구독을 **Azure AD** 관리 그룹으로 이동한 다음, **내 조직** 관리 그룹을 사용하여 비용을 확인하고 관리합니다.
+관리 그룹은 최대 3,000개의 EA(기업계약), PAYG(종량제) 또는 Microsoft 내부 구독을 포함하는 경우에만 지원됩니다. 구독 수가 3,000개를 초과하거나 Microsoft 고객 계약 또는 Azure Active Directory 구독과 같은 다른 제품 유형의 구독을 사용하는 관리 그룹은 비용을 볼 수 없습니다. 서로 다른 구독을 사용하는 경우 지원되지 않는 구독을 관리 그룹 계층 구조의 별도의 arm으로 이동하여 지원되는 구독에 대한 Cost Management를 사용하도록 설정합니다. 예를 들어 루트 관리 그룹에 두 개의 관리 그룹을 만듭니다. **Azure AD** 및 **내 조직** Azure AD 구독을 **Azure AD** 관리 그룹으로 이동한 다음, **내 조직** 관리 그룹을 사용하여 비용을 확인하고 관리합니다.
 
 ### <a name="feature-behavior-for-each-role"></a>각 역할에 대한 기능 동작
 
