@@ -2,13 +2,13 @@
 title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최댓값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
 ms.topic: conceptual
-ms.date: 04/07/2021
-ms.openlocfilehash: 3feb0c0ac40812ef628281d93d5848c2d60df6eb
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/09/2021
+ms.openlocfilehash: 1831b103dc037b5f92f9ca53be1c71ce1bb3f558
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110375847"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111889810"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -182,7 +182,9 @@ Azure Machine Learning 컴퓨팅 할당량의 최신 값은 [Azure Machine Learn
 
 [!INCLUDE [quantum-limits](../../../includes/azure-quantum-limits.md)]
 
-## <a name="azure-role-based-access-control-limits"></a>Azure 역할 기반 액세스 제어 제한
+## <a name="azure-rbac-limits"></a>Azure RBAC 제한
+
+[Azure RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)에는 다음 제한이 적용됩니다.
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control/limits.md)]
 

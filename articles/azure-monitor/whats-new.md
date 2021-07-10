@@ -3,12 +3,12 @@ title: 'Azure Monitor 문서: 2021년 5월의 새로운 소식'
 description: Azure Monitor 문서의 2021년 5월 새 소식입니다.
 ms.topic: conceptual
 ms.date: 06/03/2021
-ms.openlocfilehash: 543cfc80cac144b4ff729338442b5169e0f3a5e1
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: 26fe99f92656940616f09419674a02c046214dd0
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111747458"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112292288"
 ---
 # <a name="azure-monitor-docs-whats-new-for-may-2021"></a>Azure Monitor 문서: 2021년 5월의 새로운 소식
 
@@ -18,7 +18,7 @@ Azure Monitor 문서의 2021년 5월 새 소식입니다. 해당 기간 동안 �
 
 **업데이트된 문서**
 
-- [Azure Monitor 질문과 대답](faq.md)
+- [Azure Monitor 질문과 대답](faq.yml)
 - [Azure Monitor 파트너 통합](partners.md)
 
 ## <a name="alerts"></a>경고

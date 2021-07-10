@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/23/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4c7612188043be070ead92c88838b567b22787d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e927415e0a1d2ce7d52e602eddfffb0eae5387b5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98131273"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112076567"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>자습서: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Storage에 액세스 
 
@@ -76,21 +77,12 @@ ms.locfileid: "98131273"
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>VM에 Azure Storage 컨테이너에 대한 액세스 권한 부여 
 
-VM의 관리 ID를 사용하여 Azure Storage Blob에서 데이터를 검색할 수 있습니다.
+VM의 관리 ID를 사용하여 Azure Storage Blob에서 데이터를 검색할 수 있습니다. Azure 리소스에 대한 관리 ID는 Azure AD 인증을 지원하는 리소스를 인증하는 데 사용할 수 있습니다.  스토리지 계정이 포함된 리소스 그룹의 범위에서 관리 ID에 [storage-blob-data-reade](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) 역할을 할당하여 액세스 권한을 부여합니다.
+ 
+자세한 단계는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.”
 
 >[!NOTE]
 > 스토리지에 대한 권한을 부여하는 데 사용할 수 있는 다양한 역할에 대한 자세한 내용은 [Azure Active Directory를 사용하여 Blob 및 큐에 대한 액세스 권한 부여](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)를 검토하세요.
-
-1. 새로 만든 스토리지 계정으로 다시 이동합니다.  
-2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  
-3. 페이지의 위쪽에서 **+ 역할 할당 추가** 를 클릭하여 VM에 대한 새 역할 할당을 추가합니다.
-4. **역할** 의 드롭다운에서 **Storage Blob 데이터 판독기** 를 선택합니다. 
-5. 다음 드롭다운의 **다음에 대한 액세스 할당** 아래에서 **가상 머신** 을 선택합니다.  
-6. 다음으로 적절한 구독이 **구독** 드롭다운에 나열되는지 확인한 다음, **리소스 그룹** 을 **모든 리소스 그룹** 으로 설정합니다.  
-7. **선택** 아래에서 VM을 선택한 다음, **저장** 을 클릭합니다.
-
-    ![권한 할당](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
-
 ## <a name="get-an-access-token-and-use-it-to-call-azure-storage"></a>액세스 토큰 가져오기 및 액세스 토큰을 사용하여 Azure Storage 호출
 
 Azure Storage는 기본적으로 Azure AD 인증을 지원하므로 관리 ID를 사용하여 획득한 액세스 토큰을 직접 수락할 수 있습니다. 이 방법은 Azure Storage를 Azure AD와 통합하는 작업의 일부로, 연결 문자열에서 자격 증명을 제공하는 것과는 다릅니다.

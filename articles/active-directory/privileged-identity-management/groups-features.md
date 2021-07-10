@@ -16,12 +16,12 @@ ms.date: 12/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759781fd61cd42d05f2823d390e99d128dd2fcac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 83aa5f4527885fbb0a02c70857cdd8409f0fa554
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96512395"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892727"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>권한 있는 액세스 Azure AD 그룹의 관리 기능(미리 보기)
 
@@ -36,7 +36,7 @@ ms.locfileid: "96512395"
 
 ## <a name="activate-multiple-role-assignments-in-a-single-request"></a>단일 요청에서 여러 역할 할당 활성화
 
-권한 있는 액세스 그룹 미리 보기를 사용하면 단일 Just-In-Time 요청을 통해 워크로드별 관리자에게 여러 역할에 대한 신속한 액세스 권한을 제공할 수 있습니다. 예를 들어 계층 3 Office 관리자는 매일 인시던트를 철저히 조사하기 위해 Exchange 관리자, Office 앱 관리자, Teams 관리자 및 검색 관리자 역할에 대한 Just-In-Time 액세스가 필요할 수 있습니다. 이전에는 4회 연속 요청이 필요했으며, 이 프로세스에 다소 시간이 걸렸습니다. 이제는 "계층 3 Office 관리자"라는 역할 할당 가능 그룹을 만들고, 앞에서 설명한 네 가지 역할(또는 Azure AD 기본 제공 역할)에 할당하고, 그룹의 작업 섹션에서 권한 있는 액세스에 사용하도록 설정할 수 있습니다. 권한 있는 액세스에 사용하도록 설정하면 그룹의 멤버에 대한 Just-In-Time 설정을 구성하고 관리자 및 소유자를 적격 대상으로 할당할 수 있습니다. 관리자가 그룹으로 승격되면 네 가지 Azure AD 역할의 멤버가 됩니다.
+권한 있는 액세스 그룹 미리 보기를 사용하면 단일 Just-In-Time 요청을 통해 워크로드별 관리자에게 여러 역할에 대한 신속한 액세스 권한을 제공할 수 있습니다. 예를 들어, 계층 0 Office 관리자는 매일 인시던트를 철저히 조사하기 위해 Exchange 관리자, Office 앱 관리자, Teams 관리자 및 검색 관리자 역할에 대한 Just-In-Time 액세스가 필요할 수 있습니다. 이전에는 4회 연속 요청이 필요했으며, 이 프로세스에 다소 시간이 걸렸습니다. 이제는 “계층 0 Office 관리자”라는 역할 할당 가능 그룹을 만들고, 앞에서 설명한 네 가지 역할(또는 Azure AD 기본 제공 역할)에 할당하고, 그룹의 작업 섹션에서 권한 있는 액세스에 사용하도록 설정할 수 있습니다. 권한 있는 액세스에 사용하도록 설정하면 그룹의 멤버에 대한 Just-In-Time 설정을 구성하고 관리자 및 소유자를 적격 대상으로 할당할 수 있습니다. 관리자가 그룹으로 승격되면 네 가지 Azure AD 역할의 멤버가 됩니다.
 
 ## <a name="extend-and-renew-group-assignments"></a>그룹 할당 연장 및 갱신
 

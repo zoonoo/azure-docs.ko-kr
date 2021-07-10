@@ -5,17 +5,17 @@ description: Form Recognizer API 사용 및 제한으로 영수증 분석과 관
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9d37811c89cd42053333bfb8ddc17dfbb47b907c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: f6fccecca72e106f42ccd185a7c2cb3ba9fe4a53
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374706"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111887810"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Form Recognizer 미리 빌드된 영수증 모델
 
@@ -58,9 +58,9 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| Type | Description | 텍스트 | 값(표준화된 출력) |
+|속성| Type | Description | 텍스트 | 값(표준화된 출력) |
 |:-----|:----|:----|:----| :----|
-| ReceiptType | 문자열 | 판매 영수증의 유형 | 항목화 |  |
+| ReceiptType | 문자열 | 판매 영수증의 유형 |  | 항목화 |
 | MerchantName | 문자열 | 영수증을 발급한 판매자의 이름 | Contoso |  |
 | MerchantPhoneNumber | phoneNumber | 판매자 전화 번호 나열 | 987-654-3210 | +19876543210 |
 | MerchantAddress | 문자열 | 판매자의 주소 나열 | 123 Main St Redmond WA 98052 |  |
@@ -72,7 +72,7 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 | 팁 | number | 구매자에 의해 포함된 팁 | $1.00 | 1.00 |
 | Items | 개체의 배열 | 추출된 품목(이름, 수량, 단가 및 총 가격) | |
 | 이름 | string | 항목 이름 | Surface Pro 6 | |
-| 수량 | number | 각 항목의 수량 | 1 | |
+| 수량 | number | 각 항목의 수량 | 1 | 1 |
 | 가격 | number | 각 항목 단위의 개별 가격 | $999.00 | 999.00 |
 | 총 가격 | number | 품목에 대한 총 가격 | $999.00 | 999.00 |
 
@@ -91,17 +91,12 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 ## <a name="supported-locales"></a>지원되는 로캘
 
 * **미리 빌드된 영수증 v2.0** 은 **en-us** 로캘의 판매 영수증을 지원합니다.
-* **미리 빌드된 영수증 v2.1** 에는 다음 영어로 된 영수증 로캘에 대한 지원이 추가됩니다.
-
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+* **미리 빌드된 영수증 v2.1** 에는 **en-au**, **en-ca**, **en-gb**, **en-in** 처럼 영어로 된 영수증 로캘에 대한 지원이 추가됩니다.
 
   > [!NOTE]
   > 언어 입력
   >
-  > 미리 빌드된 영수증 v2.1에는 추가적인 영어권 시장에서 영수증 로캘을 지정하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아(en-au), 캐나다(en-ca), 영국(en-gb) 및 인도(en-in) 각국의 영어로 된 판매 영수증을 위해 로캘을 지정하여 향상된 결과를 얻을 수 있습니다. v2.1에 지정된 로캘이 없으면 모델은 기본적으로 en-us 모델로 지정됩니다.
+  > 미리 빌드된 영수증 v2.1에는 추가적인 영어권 시장에서 영수증 로캘을 지정하는 선택적 요청 매개 변수가 있습니다. 오스트레일리아(en-au), 캐나다(en-ca), 영국(en-gb) 및 인도(en-in) 각국의 영어로 된 판매 영수증을 위해 로캘을 지정하여 향상된 결과를 얻을 수 있습니다. v2.1에 지정된 로캘이 없으면 모델이 자동으로 로캘을 검색합니다.
 
 ## <a name="the-analyze-receipt-operation"></a>영수증 분석 작업
 
@@ -130,7 +125,7 @@ Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온�
 
 영수증 분석 결과 가져오기 작업에 대한 응답은 모든 정보가 추출된 영수증을 구조화된 방식으로 표현한 것입니다.  [샘플 영수증 파일](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) 및 해당 구조화된 출력 [샘플 영수증 출력](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)은 여기를 참조하세요.
 
-성공적인 JSON 응답의 다음 예를 참조하세요.
+성공적인 JSON 응답에 대한 다음 예제를 참조하세요(간단한 설명을 위해 출력이 단축됨).
 * `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다.
 * `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 이름, 성, 회사 이름 등과 같은 유용한 키/값 쌍을 찾을 수 있습니다.
 
