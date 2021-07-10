@@ -5,20 +5,20 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 05/25/2021
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 9f07a4f9c42923ac42735155fb0da21dee3a2353
-ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
+ms.openlocfilehash: 6811b899aa87a5b0c1987f2e86c07d8646a86ef4
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2021
-ms.locfileid: "109632370"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901280"
 ---
 # <a name="programmatically-create-azure-enterprise-agreement-subscriptions-with-the-latest-apis"></a>최신 API를 사용하여 프로그래밍 방식으로 Azure 기업계약 구독 만들기
 
-이 문서는 최신 API 버전을 사용하여 EA 청구 계정에 대한 Azure EA(기업계약) 구독을 프로그래밍 방식으로 만드는 데 도움이 됩니다. 이전 미리 보기 버전을 여전히 사용 중인 경우 [미리 보기 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기](programmatically-create-subscription-preview.md)를 참조하세요. 
+이 문서는 최신 API 버전을 사용하여 EA 청구 계정에 대한 Azure EA(기업계약) 구독을 프로그래밍 방식으로 만드는 데 도움이 됩니다. 이전 미리 보기 버전을 여전히 사용 중인 경우 [레거시 API를 사용하여 프로그래밍 방식으로 Azure 구독 만들기](programmatically-create-subscription-preview.md)를 참조하세요. 
 
 이 문서에서는 Azure Resource Manager를 사용하여 프로그래밍 방식으로 구독을 만드는 방법을 알아봅니다.
 
@@ -28,13 +28,16 @@ ms.locfileid: "109632370"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-구독을 만들려면 등록 계정에 대한 소유자 역할이 있어야 합니다. 역할을 얻는 방법은 두 가지입니다.
+사용자는 구독을 만들려면 등록 계정에 대한 소유자 역할이 있어야 합니다. 역할을 얻는 방법은 두 가지입니다.
 
 * 등록의 엔터프라이즈 관리자는 귀하를 [계정 소유자로 만들 수](https://ea.azure.com/helpdocs/addNewAccount) 있고(로그인 필요) 그러면 귀하가 등록 계정의 소유자가 됩니다.
-* 등록 계정의 기존 소유자가 [액세스 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)할 수 있습니다. 마찬가지로, EA 구독을 만들 서비스 주체를 사용하려면 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)해야 합니다.  
-    SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다. EA 역할 할당 API 요청에 대한 자세한 내용은 [Azure 기업계약 서비스 주체 이름에 역할 할당](assign-roles-azure-service-principals.md)을 참조하세요. 이 페이지에는 SPN에 할당할 수 있는 역할(및 역할 정의 ID) 목록이 포함되어 있습니다.
+* 등록 계정의 기존 소유자가 [액세스 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)할 수 있습니다. 
+
+SPN(서비스 주체)을 사용하여 EA 구독을 만들려면 등록 계정의 소유자가 [해당 서비스 주체에게 구독을 만들 수 있는 권한을 부여](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)해야 합니다. SPN을 사용하여 구독을 만드는 경우 [Azure Active Directory PowerShell](/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true ) 또는 [Azure CLI](/cli/azure/ad/sp?view=azure-cli-latest&preserve-view=true#az_ad_sp_list)를 사용하여 Azure AD 애플리케이션 등록의 ObjectId를 서비스 사용자 ObjectId로 사용합니다. EA 역할 할당 API 요청에 대한 자세한 내용은 [Azure 기업계약 서비스 주체 이름에 역할 할당](assign-roles-azure-service-principals.md)을 참조하세요. 이 문서에는 SPN에 할당할 수 있는 역할(및 역할 정의 ID) 목록이 포함되어 있습니다.
+
   > [!NOTE]
-  > 올바른 API 버전을 사용하여 등록 계정 소유자 권한을 부여했는지 확인합니다. 이 문서 및 여기에서 설명하는 API에는 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API를 사용합니다. 최신 API를 사용하도록 마이그레이션하는 경우 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put)를 사용하여 소유자 권한을 다시 부여해야 합니다. [2015-07-01 버전](grant-access-to-create-subscription.md)으로 만든 이전 구성은 최신 API에서 사용하도록 자동으로 변환되지 않습니다.
+  > - 올바른 API 버전을 사용하여 등록 계정 소유자 권한을 부여했는지 확인합니다. 이 문서 및 여기에서 설명하는 API에는 [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put) API를 사용합니다. 
+  > - 최신 API를 사용하기 위해 마이그레이션하는 경우 [2015-07-01 버전](grant-access-to-create-subscription.md)으로 만든 이전 구성은 최신 API에서 사용하도록 자동으로 변환되지 않습니다.
 
 ## <a name="find-accounts-you-have-access-to"></a>액세스할 수 있는 계정 찾기
 

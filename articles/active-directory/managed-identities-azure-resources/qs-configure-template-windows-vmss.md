@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e948b96022972dcf702ac5a4d8be85c9afe16e7
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 1adb0e96fd67a993f39be709a990ef6f5892e806
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365980"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112295402"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>템플릿을 사용하여 Azure 가상 머신 확장에서 Azure 리소스에 대한 관리 ID 구성
 
@@ -50,7 +50,7 @@ Azure 리소스용 관리 ID는 Azure Active Directory에서 자동으로 관리
 
 Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resource Manager](../../azure-resource-manager/management/overview.md) 템플릿에서도 Azure 리소스 그룹으로 정의된 새 리소스 또는 수정된 리소스를 배포하는 기능을 제공합니다. 다음을 비롯한 로컬 및 포털 기반 템플릿 편집 및 배포에 여러 가지 옵션이 제공됩니다.
 
-   - [Azure Marketplace의 사용자 지정 템플릿](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 처음부터 만들거나 기존의 공통 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)을 기반으로 템플릿을 만듭니다.
+   - [Azure Marketplace의 사용자 지정 템플릿](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)을 사용하여 템플릿을 처음부터 만들거나 기존의 공통 템플릿 또는 [빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 기반으로 템플릿을 만듭니다.
    - [원본 배포](../../azure-resource-manager/templates/export-template-portal.md) 또는 [배포의 현재 상태](../../azure-resource-manager/templates/export-template-portal.md)에서 템플릿을 내보내 기존 리소스 그룹에서 템플릿을 파생합니다.
    - 로컬 [JSON 편집기(예: VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
    - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)를 사용하여 템플릿을 만들고 배포합니다.  

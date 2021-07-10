@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 03/29/2021
 ms.author: aahi
-ms.openlocfilehash: fdf24fdc56d39d93fed0009e2fadbafd7f97db6c
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: e25851bc9d3cba6e71056a6fb6a24ff9a0cee6ce
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106280499"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968048"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>예: Text Analytics를 사용하여 핵심 구를 추출하는 방법
 
@@ -131,7 +131,7 @@ ID, 텍스, 언어 형식의 JSON 문서가 있어야 합니다.
 
 출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
-v3.1-preview.2 엔드포인트에서 핵심 구 추출에 대한 출력의 예는 다음과 같습니다.
+v3.1-preview 엔드포인트에서 핵심 구 추출에 대한 출력의 예는 다음과 같습니다.
 
 ### <a name="synchronous-result"></a>동기 결과
 
@@ -269,3 +269,4 @@ v3.1-preview.2 엔드포인트에서 핵심 구 추출에 대한 출력의 예�
 * [Text Analytics 개요](../overview.md)
 * [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)
+* [모델 버전](../concepts/model-versioning.md)

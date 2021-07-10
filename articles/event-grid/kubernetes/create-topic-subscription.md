@@ -6,12 +6,12 @@ ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 05/25/2021
 ms.topic: quickstart
-ms.openlocfilehash: c0e2a4422cea681a3bccee0739b8c26350803eb8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: d29583cecb1498c10320a844923067a48693480a
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386981"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112030308"
 ---
 # <a name="route-cloud-events-to-webhooks-with-azure-event-grid-on-kubernetes"></a>Kubernetes의 Azure Event Grid를 사용하여 클라우드 이벤트를 웹후크로 라우팅
 이 빠른 시작에서는 Kubernetes의 Event Grid에서 토픽을 만들고 토픽에 대한 구독을 만든 다음, 토픽에 샘플 이벤트를 보내 시나리오를 테스트합니다. 
@@ -99,11 +99,12 @@ CLI 명령에 대한 자세한 내용은 [`az eventgrid event-subscription creat
     ```azurecli
     az eventgrid topic key list --name <topic name> -g <resource group name> --query "key1" --output tsv
     ```
-3. 다음과 같은 내용으로 **evt.json** 이라는 파일을 만듭니다. 
+1. 다음 **Curl** 명령을 실행하여 이벤트를 게시합니다. 명령을 실행하기 전에 1단계와 2단계에서 엔드포인트 URL 및 키를 지정합니다. 
 
-    ```json
-    [{
-          "specVersion": "1.0",
+    ```bash
+    curl  -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY_FROM_STEP_2>" -g <ENDPOINT_URL_FROM_STEP_1> \
+    -d  '[{ 
+          "specversion": "1.0",
           "type" : "orderCreated",
           "source": "myCompanyName/us/webCommerceChannel/myOnlineCommerceSiteBrandName",
           "id" : "eventId-n",
@@ -115,13 +116,48 @@ CLI 명령에 대한 자세한 내용은 [`az eventgrid event-subscription creat
              "orderType" : "PO",
              "reference" : "https://www.myCompanyName.com/orders/123"
           }
-    }]
+    }]'
     ```
-4. 다음 **Curl** 명령을 실행하여 이벤트를 게시합니다. 명령을 실행하기 전에 1단계와 2단계에서 엔드포인트 URL 및 키를 지정합니다. 
+    
+    1단계의 토픽 엔드포인트 URL이 개인 IP 주소이면(예: Event Grid 브로커의 서비스 유형이 ClusterIP 인 경우) 클러스터의 다른 pod 내에서 **Curl** 을 실행하여 해당 IP 주소에 액세스할 수 있습니다. 예를 들어, 다음 단계를 수행해야 합니다.
 
-    ```
-    curl -k -X POST -H "Content-Type: application/cloudevents-batch+json" -H "aeg-sas-key: <KEY FROM STEP 2>" -g -d @evt.json <ENDPOINT URL from STEP 1>
-    ```
+    1. 다음 구성을 사용하여 매니페스트 파일을 만듭니다. 필요에 따라 ``dnsPolicy``를 조정할 수 있습니다. 자세한 내용은 [서비스 및 pod용 DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/)를 참조하세요.
+    
+        ```yml
+        apiVersion: v1
+        dnsPolicy: ClusterFirstWithHostNet
+        hostNetwork: true
+        kind: Pod
+        metadata: 
+          name: test-pod
+        spec: 
+          containers: 
+            - 
+              name: nginx
+          emptyDir: {}
+          image: nginx
+          volumeMounts: 
+            - 
+              mountPath: /usr/share/nginx/html
+              name: shared-data
+          volumes: 
+            - 
+              name: shared-data  
+        ```
+    1. pod를 만듭니다.
+        ```bash
+            kubectl apply -f <name_of_your_yaml_manifest_file>
+        ```
+    1. pod가 실행 중인지 확인합니다.
+        ```bash
+            kubectl get pod test-pod
+        ```
+    1. 컨테이너에서 셸 세션 시작
+        ```bash
+            kubectl exec --stdin --tty test-pod -- /bin/bash
+        ```
+
+    이제 클러스터의 실행 중인 컨테이너에 위의 이전 단계에 설명된 **Curl** 명령을 실행할 수 있는 셸 세션이 있습니다.
 
     > [!NOTE]
     > 프로그래밍 언어를 사용하여 클라우드 이벤트를 보내는 방법을 알아보려면 다음 샘플을 참조하세요. 

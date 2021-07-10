@@ -5,21 +5,40 @@ description: Form Recognizer API - 사용 및 제한으로 명함 분석과 관�
 services: cognitive-services
 author: laujan
 manager: nitinme
-ms.service: cognitive-services
+ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/30/2021
 ms.author: lajanuar
-ms.openlocfilehash: eea2ec77a22a430ac5202a2fda446bc70a69138c
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 92817318108370f1edf9ca2b38bf01226612b53a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110374924"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890783"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>양식 인식기로 미리 작성된 명함 모델
 
 Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함에서 연락처 정보를 분석하고 추출할 수 있습니다. 강력한 OCR(광학 문자 인식) 기능을 명함 이해 모델과 결합하여 영어로 된 명함의 주요 정보를 추출합니다. 개인 연락처 정보, 회사 이름, 직위 등을 추출합니다. 미리 작성된 비즈니스 카드 API는 Form Recognizer v2.1에서 공개적으로 사용할 수 있습니다.
+
+## <a name="customer-scenarios"></a>고객 시나리오
+
+비즈니스 카드 API를 사용하여 추출된 데이터를 사용하여 다양한 작업을 수행할 수 있습니다. 이 연락처 정보를 추출하면 클라이언트 관련 역할을 하는 사용자의 시간이 자동으로 절감됩니다. 다음은 고객이 비즈니스 카드 API를 통해 달성한 몇 가지 예입니다.
+
+* 명함에서 연락처 정보를 추출하고 신속하게 전화 연락처를 만듭니다.
+* CRM과 통합하여 명함 이미지를 사용해 연락처를 자동으로 만듭니다.
+* 판매 잠재 고객을 계속 추적합니다.
+* 기존 명함 이미지에서 연락처 정보를 대량으로 추출합니다.
+
+또한 비즈니스 카드 API는 [AI 빌더 명함 처리 기능](/ai-builder/prebuilt-business-card)을 강화합니다.
+
+
+## <a name="try-it-out"></a>사용해 보기
+
+Form Recognizer 영수증 서비스를 사용해보려면 다음과 같은 온라인 샘플 UI 도구로 이동합니다.
+
+> [!div class="nextstepaction"]
+> [미리 빌드된 모델 사용해보기](https://aka.ms/fott-2.1-ga)
 
 ## <a name="what-does-the-business-card-service-do"></a>비즈니스 카드 서비스란 무엇인가요?
 
@@ -29,21 +48,21 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
 
 ### <a name="fields-extracted"></a>추출된 필드
 
-|이름| Type | Description | 텍스트 |
-|:-----|:----|:----|:----|
-| ContactNames | 개체의 배열 | 명함에서 추출 된 연락처 이름 | [{ "FirstName": "John", "LastName": "Doe" }] |
-| FirstName | 문자열 | 연락처의 이름 | "John" |
-| LastName | 문자열 | 연락처의 성 |     "Doe" |
-| CompanyNames | 문자열 배열 | 명함에서 추출된 회사 이름 | ["Contoso"] |
-| Departments | 문자열 배열 | 연락처의 부서 또는 조직 | ["R&D"] |
-| JobTitles | 문자열 배열 | 연락처의 나열된 직함 | ["Software Engineer"] |
-| 전자 메일 | 문자열 배열 | 명함에서 추출된 연락처 이메일 | ["johndoe@contoso.com"] |
-| Websites | 문자열 배열 | 명함에서 추출된 웹사이트 | ["https://www.contoso.com"] |
-| 주소 | 문자열 배열 | 명함에서 추출된 주소 | ["123 Main Street, Redmond, WA 98052"] |
-| MobilePhones | 전화 번호 배열 | 명함에서 추출된 휴대폰 번호 | ["+19876543210"] |
-| Faxes | 전화 번호 배열 | 명함에서 추출된 팩스 번호 | ["+19876543211"] |
-| WorkPhones | 전화 번호 배열 | 명함에서 추출된 회사 전화 번호 | ["+19876543231"] |
-| OtherPhones     | 전화 번호 배열 | 명함에서 추출된 기타 전화 번호 | ["+19876543233"] |
+|이름| Type | Description | 텍스트 | 값(표준화된 출력) |
+|:-----|:----|:----|:----|:----|
+| ContactNames | 개체의 배열 | 명함에서 추출 된 연락처 이름 | [{ "FirstName": "Chris", "LastName": "Smith" }] | |
+| FirstName | 문자열 | 연락처의 이름 | "Chris" | "Chris" |
+| LastName | 문자열 | 연락처의 성 |     "Smith" | "Smith" |
+| CompanyNames | 문자열 배열 | 명함에서 추출된 회사 이름 | ["CONTOSO"] | CONTOSO |
+| Departments | 문자열 배열 | 연락처의 부서 또는 조직 | ["Cloud 및 Al Department"] | Cloud 및 Al Department |
+| JobTitles | 문자열 배열 | 연락처의 나열된 직함 | ["선임 연구원"] | 선임 연구원 |
+| 전자 메일 | 문자열 배열 | 명함에서 추출된 연락처 이메일 | ["chris.smith@contoso.com"] | chris.smith@contoso.com |
+| Websites | 문자열 배열 | 명함에서 추출된 웹사이트 | ["https://www.contoso.com"] | https://www.contoso.com |
+| 주소 | 문자열 배열 | 명함에서 추출된 주소 | ["4001 1st Ave NE Redmond, WA 98052"] | 4001 1st Ave NE Redmond, WA 98052 |
+| MobilePhones | 전화 번호 배열 | 명함에서 추출된 휴대폰 번호 | ["+1 (987) 123-4567"] | +19871234567 |
+| Faxes | 전화 번호 배열 | 명함에서 추출된 팩스 번호 | ["+1 (987) 312-6745"] | +19873126745 |
+| WorkPhones | 전화 번호 배열 | 명함에서 추출된 회사 전화 번호 | ["+1 (987) 213-5674"] | +19872135674 | 
+| OtherPhones     | 전화 번호 배열 | 명함에서 추출된 기타 전화 번호 | ["+1 (987) 213-5673"] | +19872135673 |
 
 
 비즈니스 카드 API는 명함에서 인식된 모든 텍스트를 반환할 수도 있습니다. 이 OCR 출력은 JSON 응답에 포함됩니다.
@@ -54,13 +73,7 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
 
 ## <a name="supported-locales"></a>지원되는 로캘
 
-**사전 제작된 명함 v2.1** 은 다음 로케일을 지원합니다.
-
-* **ko-kr**
-* **en-au**
-* **en-ca**
-* **en-gb**
-* **en-in**
+**미리 빌드된 명함 v2.1** 은 **en-us**, **en-au**, **en-ca**, **en-gb**, **en-in** 로캘을 지원합니다.
 
 ## <a name="the-analyze-business-card-operation"></a>명함 분석 작업
 
@@ -86,46 +99,64 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
 
 명함 분석 결과 가져오기 작업에 대한 응답은 모든 정보가 추출된 명함을 구조화된 방식으로 표현한 것입니다.  [명함 파일 샘플](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) 및 구조화된 출력 [명함 출력 샘플](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)은 여기를 참조하세요.
 
-성공적인 JSON 응답의 다음 예제를 참조하세요.
+성공적인 JSON 응답에 대한 다음 예제를 참조하세요(간단한 설명을 위해 출력이 단축됨).
 * `"readResults"` 노드에는 인식된 모든 텍스트가 포함됩니다. 텍스트는 페이지별로, 그 다음에는 줄별로, 그 다음에는 개별 단어별로 정리됩니다.
 * `"documentResults"` 노드에는 모델이 검색한 명함 특정 값이 포함됩니다. 여기서 이름, 성, 회사 이름 등과 같은 유용한 연락처 정보를 볼 수 있습니다.
 
 ```json
 {
     "status": "succeeded",
-    "createdDateTime": "2020-08-20T17:41:19Z",
-    "lastUpdatedDateTime": "2020-08-20T17:41:24Z",
+    "createdDateTime": "2021-05-27T02:18:35Z",
+    "lastUpdatedDateTime": "2021-05-27T02:18:37Z",
     "analyzeResult": {
         "version": "2.1.0",
         "readResults": [
             {
                 "page": 1,
-                "angle": -17.0956,
-                "width": 4032,
-                "height": 3024,
+                "angle": 0.0255,
+                "width": 2592,
+                "height": 4608,
                 "unit": "pixel",
-                   "lines":
-                             {
-                        "text": "Dr. Avery Smith",
+                "lines": [
+                    {
+                        "text": "CONTOSO",
                         "boundingBox": [
-                            419.3,
-                            1154.6,
-                            1589.6,
-                            877.9,
-                            1618.9,
-                            1001.7,
-                            448.6,
-                            1278.4
+                            533,
+                            1570,
+                            1334,
+                            1570,
+                            1333,
+                            1721,
+                            533,
+                            1720
                         ],
                         "words": [
                             {
-                                "text": "Dr.",
+                                "text": "CONTOSO",
                                 "boundingBox": [
-                                    419,
-                            ]
-
+                                    535,
+                                    1571,
+                                    1278,
+                                    1571,
+                                    1279,
+                                    1722,
+                                    534,
+                                    1719
+                                ],
+                                "confidence": 0.994
+                            }
+                        ],
+                        "appearance": {
+                            "style": {
+                                "name": "other",
+                                "confidence": 0.878
+                            }
+                        }
+                    },
+                    ...
+                ]
             }
-        ],
+        ],   
         "documentResults": [
             {
                 "docType": "prebuilt:businesscard",
@@ -134,6 +165,62 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
                     1
                 ],
                 "fields": {
+                    "Addresses": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "4001 1st Ave NE Redmond, WA 98052",
+                                "text": "4001 1st Ave NE Redmond, WA 98052",
+                                "boundingBox": [
+                                    400,
+                                    2789,
+                                    1514,
+                                    2789,
+                                    1514,
+                                    2857,
+                                    400,
+                                    2857
+                                ],
+                                "page": 1,
+                                "confidence": 0.986,
+                                "elements": [
+                                    "#/readResults/0/lines/9/words/0",
+                                    "#/readResults/0/lines/9/words/1",
+                                    "#/readResults/0/lines/9/words/2",
+                                    "#/readResults/0/lines/9/words/3",
+                                    "#/readResults/0/lines/9/words/4",
+                                    "#/readResults/0/lines/9/words/5",
+                                    "#/readResults/0/lines/9/words/6"
+                                ]
+                            }
+                        ]
+                    },
+                    "CompanyNames": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "CONTOSO",
+                                "text": "CONTOSO",
+                                "boundingBox": [
+                                    535,
+                                    1571,
+                                    1278,
+                                    1571,
+                                    1279,
+                                    1722,
+                                    534,
+                                    1719
+                                ],
+                                "page": 1,
+                                "confidence": 0.985,
+                                "elements": [
+                                    "#/readResults/0/lines/0/words/0"
+                                ]
+                            }
+                        ]
+                    },
                     "ContactNames": {
                         "type": "array",
                         "valueArray": [
@@ -142,71 +229,60 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
                                 "valueObject": {
                                     "FirstName": {
                                         "type": "string",
-                                        "valueString": "Avery",
-                                        "text": "Avery",
+                                        "valueString": "Chris",
+                                        "text": "Chris",
                                         "boundingBox": [
-                                            703,
-                                            1096,
-                                            1134,
-                                            989,
-                                            1165,
-                                            1109,
-                                            733,
-                                            1206
+                                            1556,
+                                            2018,
+                                            1915,
+                                            2021,
+                                            1915,
+                                            2156,
+                                            1558,
+                                            2154
                                         ],
-                                        "page": 1
+                                        "page": 1,
+                                        "elements": [
+                                            "#/readResults/0/lines/1/words/0"
+                                        ]
                                     },
                                     "LastName": {
                                         "type": "string",
                                         "valueString": "Smith",
                                         "text": "Smith",
                                         "boundingBox": [
-                                            1186,
-                                            976,
-                                            1585,
-                                            879,
-                                            1618,
-                                            998,
-                                            1218,
-                                            1096
+                                            1944,
+                                            2021,
+                                            2368,
+                                            2016,
+                                            2364,
+                                            2156,
+                                            1944,
+                                            2156
                                         ],
-                                        "page": 1
+                                        "page": 1,
+                                        "elements": [
+                                            "#/readResults/0/lines/1/words/1"
+                                        ]
                                     }
                                 },
-                                "text": "Dr. Avery Smith",
+                                "text": "Chris Smith",
                                 "boundingBox": [
-                                    419.3,
-                                    1154.6,
-                                    1589.6,
-                                    877.9,
-                                    1618.9,
-                                    1001.7,
-                                    448.6,
-                                    1278.4
-                                ],
-                                "confidence": 0.97
-                            }
-                        ]
-                    },
-                    "JobTitles": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "string",
-                                "valueString": "Senior Researcher",
-                                "text": "Senior Researcher",
-                                "boundingBox": [
-                                    451.8,
-                                    1301.9,
-                                    1313.5,
-                                    1099.9,
-                                    1333.8,
-                                    1186.7,
-                                    472.2,
-                                    1388.7
+                                    1556.1,
+                                    2010.3,
+                                    2368,
+                                    2016,
+                                    2367,
+                                    2159.6,
+                                    1555.1,
+                                    2154
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/1/words/0",
+                                    "#/readResults/0/lines/1/words/1"
+                                ]
                             }
                         ]
                     },
@@ -218,17 +294,23 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
                                 "valueString": "Cloud & Al Department",
                                 "text": "Cloud & Al Department",
                                 "boundingBox": [
-                                    480.1,
-                                    1403.3,
-                                    1590.5,
-                                    1129.6,
-                                    1612.6,
-                                    1219.6,
-                                    502.3,
-                                    1493.3
+                                    1578,
+                                    2288.8,
+                                    2277,
+                                    2295.1,
+                                    2276.3,
+                                    2367.8,
+                                    1577.3,
+                                    2361.5
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
+                                "confidence": 0.989,
+                                "elements": [
+                                    "#/readResults/0/lines/3/words/0",
+                                    "#/readResults/0/lines/3/words/1",
+                                    "#/readResults/0/lines/3/words/2",
+                                    "#/readResults/0/lines/3/words/3"
+                                ]
                             }
                         ]
                     },
@@ -237,20 +319,103 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
                         "valueArray": [
                             {
                                 "type": "string",
-                                "valueString": "avery.smith@contoso.com",
-                                "text": "avery.smith@contoso.com",
+                                "valueString": "chris.smith@contoso.com",
+                                "text": "chris.smith@contoso.com",
                                 "boundingBox": [
-                                    2107,
-                                    934,
-                                    2917,
-                                    696,
-                                    2935,
-                                    764,
-                                    2126,
-                                    995
+                                    1583,
+                                    2381,
+                                    2309,
+                                    2382,
+                                    2308,
+                                    2445,
+                                    1584,
+                                    2447
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/4/words/0"
+                                ]
+                            }
+                        ]
+                    },
+                    "Faxes": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19873126745",
+                                "text": "+1 (987) 312-6745",
+                                "boundingBox": [
+                                    740,
+                                    2703.8,
+                                    1273,
+                                    2702.1,
+                                    1273.2,
+                                    2774.1,
+                                    740.2,
+                                    2775.8
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/8/words/1",
+                                    "#/readResults/0/lines/8/words/2",
+                                    "#/readResults/0/lines/8/words/3"
+                                ]
+                            }
+                        ]
+                    },
+                    "JobTitles": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "string",
+                                "valueString": "Senior Researcher",
+                                "text": "Senior Researcher",
+                                "boundingBox": [
+                                    1578,
+                                    2206,
+                                    2117,
+                                    2207.6,
+                                    2116.8,
+                                    2272.6,
+                                    1577.8,
+                                    2271
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/2/words/0",
+                                    "#/readResults/0/lines/2/words/1"
+                                ]
+                            }
+                        ]
+                    },
+                    "MobilePhones": {
+                        "type": "array",
+                        "valueArray": [
+                            {
+                                "type": "phoneNumber",
+                                "valuePhoneNumber": "+19871234567",
+                                "text": "+1 (987) 123-4567",
+                                "boundingBox": [
+                                    744,
+                                    2529,
+                                    1281,
+                                    2529,
+                                    1281,
+                                    2603,
+                                    744,
+                                    2603
+                                ],
+                                "page": 1,
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/5/words/1",
+                                    "#/readResults/0/lines/5/words/2",
+                                    "#/readResults/0/lines/5/words/3"
+                                ]
                             }
                         ]
                     },
@@ -262,124 +427,47 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
                                 "valueString": "https://www.contoso.com/",
                                 "text": "https://www.contoso.com/",
                                 "boundingBox": [
-                                    2121,
-                                    1002,
-                                    2992,
-                                    755,
-                                    3014,
-                                    826,
-                                    2143,
-                                    1077
+                                    1576,
+                                    2462,
+                                    2383,
+                                    2462,
+                                    2380,
+                                    2535,
+                                    1576,
+                                    2535
                                 ],
                                 "page": 1,
-                                "confidence": 0.995
+                                "confidence": 0.99,
+                                "elements": [
+                                    "#/readResults/0/lines/6/words/0"
+                                ]
                             }
                         ]
                     },
-                    "MobilePhones": {
+                    "WorkPhones": {
                         "type": "array",
                         "valueArray": [
                             {
                                 "type": "phoneNumber",
-                                "text": "+44 (0) 7911 123456",
+                                "valuePhoneNumber": "+19872135674",
+                                "text": "+1 (987) 213-5674",
                                 "boundingBox": [
-                                    2434.9,
-                                    1033.3,
-                                    3072,
-                                    836,
-                                    3096.2,
-                                    914.3,
-                                    2459.1,
-                                    1111.6
+                                    736,
+                                    2617.6,
+                                    1267.1,
+                                    2618.5,
+                                    1267,
+                                    2687.5,
+                                    735.9,
+                                    2686.6
                                 ],
                                 "page": 1,
-                                "confidence": 0.99
-                            }
-                        ]
-                    },
-                    "OtherPhones": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "phoneNumber",
-                                "text": "+44 (0) 20 9876 5432",
-                                "boundingBox": [
-                                    2473.2,
-                                    1115.4,
-                                    3139.2,
-                                    907.7,
-                                    3163.2,
-                                    984.7,
-                                    2497.2,
-                                    1192.4
-                                ],
-                                "page": 1,
-                                "confidence": 0.99
-                            }
-                        ]
-                    },
-                    "Faxes": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "phoneNumber",
-                                "text": "+44 (0) 20 6789 2345",
-                                "boundingBox": [
-                                    2525,
-                                    1185.4,
-                                    3192.4,
-                                    977.9,
-                                    3217.9,
-                                    1060,
-                                    2550.5,
-                                    1267.5
-                                ],
-                                "page": 1,
-                                "confidence": 0.99
-                            }
-                        ]
-                    },
-                    "Addresses": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "string",
-                                "valueString": "2 Kingdom Street Paddington, London, W2 6BD",
-                                "text": "2 Kingdom Street Paddington, London, W2 6BD",
-                                "boundingBox": [
-                                    1230,
-                                    2138,
-                                    2535.2,
-                                    1678.6,
-                                    2614.2,
-                                    1903.1,
-                                    1309,
-                                    2362.5
-                                ],
-                                "page": 1,
-                                "confidence": 0.977
-                            }
-                        ]
-                    },
-                    "CompanyNames": {
-                        "type": "array",
-                        "valueArray": [
-                            {
-                                "type": "string",
-                                "valueString": "Contoso",
-                                "text": "Contoso",
-                                "boundingBox": [
-                                    1152,
-                                    1916,
-                                    2293,
-                                    1552,
-                                    2358,
-                                    1733,
-                                    1219,
-                                    2105
-                                ],
-                                "page": 1,
-                                "confidence": 0.97
+                                "confidence": 0.984,
+                                "elements": [
+                                    "#/readResults/0/lines/7/words/1",
+                                    "#/readResults/0/lines/7/words/2",
+                                    "#/readResults/0/lines/7/words/3"
+                                ]
                             }
                         ]
                     }
@@ -390,24 +478,7 @@ Azure Form Recognizer는 미리 작성된 명함 모델을 사용하여 명함�
 }
 ```
 
-[빠른 시작](./QuickStarts/client-library.md)에 따라 Python 및 REST API 사용하여 명함 데이터 추출을 구현합니다.
-
-## <a name="customer-scenarios"></a>고객 시나리오
-
-비즈니스 카드 API를 사용하여 추출된 데이터를 사용하여 다양한 작업을 수행할 수 있습니다. 이 연락처 정보를 추출하면 클라이언트 관련 역할을 하는 사용자의 시간이 자동으로 절감됩니다. 다음은 고객이 비즈니스 카드 API를 통해 달성한 몇 가지 예입니다.
-
-* 명함에서 연락처 정보를 추출하고 신속하게 전화 연락처를 만듭니다.
-* CRM과 통합하여 명함 이미지를 사용해 연락처를 자동으로 만듭니다.
-* 판매 잠재 고객을 계속 추적합니다.
-* 기존 명함 이미지에서 연락처 정보를 대량으로 추출합니다.
-
-또한 비즈니스 카드 API는 [AI 빌더 명함 처리 기능](/ai-builder/prebuilt-business-card)을 강화합니다.
-
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작](./quickstarts/client-library.md)에 따라 명함 인식을 시작합니다.
-
-## <a name="see-also"></a>참조
-
-* [Form Recognizer란?](./overview.md)
-* [REST API 참조 문서](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)
+* 사용자 고유의 명함과 샘플을 [Form Recognizer 샘플 UI](https://fott-preview.azurewebsites.net/)에서 사용해 보세요.
+* 사용자가 선택한 개발 언어로 Form Recognizer를 사용하여 명함 처리 앱 작성을 시작하려면 [Form Recognizer 빠른 시작](quickstarts/client-library.md)을 완료하세요.

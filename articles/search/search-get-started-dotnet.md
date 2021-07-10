@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/20/2020
+ms.date: 06/11/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f0d912d5b14932c43d109f8f955d5f16381cf773
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 11870ed112f4d342bf6df95185d1005004df3f67
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98180101"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112029282"
 ---
 # <a name="quickstart-create-a-search-index-using-the-azuresearchdocuments-client-library"></a>빠른 시작: Azure.Search.Documents 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 
@@ -507,12 +507,7 @@ F5 키를 눌러서 애플리케이션을 다시 빌드하고 프로그램 전�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 C# 빠른 시작에서는 인덱스를 만들고, 문서와 함께 로드하고, 쿼리를 실행하는 일단의 작업을 수행했습니다. 여러 단계에서, 가독성과 이해를 돕기 위해 손쉬운 방법을 사용하여 코드를 간소화했습니다. 기본 개념에 익숙한 경우, 지식의 깊이를 더할 수 있도록 대안적인 접근법과 개념을 알아볼 수 있는 다음 문서를 살펴보는 것이 좋습니다. 
+이 C# 빠른 시작에서는 인덱스를 만들고, 문서와 함께 로드하고, 쿼리를 실행하는 일단의 작업을 수행했습니다. 여러 단계에서, 가독성과 이해를 돕기 위해 손쉬운 방법을 사용하여 코드를 간소화했습니다. 이제 기본 개념에 익숙해졌으므로 다음 자습서를 통해 웹앱의 컨텍스트에서 Cognitive Search API를 호출해 보세요.
 
 > [!div class="nextstepaction"]
-> [.NET으로 개발하는 방법](search-howto-dotnet-sdk.md)
-
-클라우드 비용을 최적화하여 비용을 절감하고 싶습니까?
-
-> [!div class="nextstepaction"]
-> [Cost Management를 통한 비용 분석 시작](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [자습서: 웹앱에 검색 추가](tutorial-csharp-overview.md)

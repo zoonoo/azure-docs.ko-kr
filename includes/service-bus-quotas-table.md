@@ -5,23 +5,22 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 02/17/2021
+ms.date: 06/08/2021
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e160b21581bc7b5fa38b12309bd9deb90bfbbe51
-ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
+ms.openlocfilehash: dc0ea990b9bb41279e5670456c6a81d11a4753c2
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/09/2021
-ms.locfileid: "107251295"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761436"
 ---
 다음 표에는 Azure Service Bus 메시징에 특정한 할당량 정보가 나와 있습니다. Service Bus에 대한 가격 책정 및 기타 할당량에 대한 정보는 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 | 할당량 이름 | 범위 | 메모 | 값 |
 | --- | --- | --- | --- |
-| Azure 구독당 기본 또는 표준 네임스페이스 최대 수 |네임스페이스 |기본 또는 표준 추가 네임스페이스에 대한 후속 요청은 Azure Portal에서 거부됩니다. | 기본값은 100입니다. <br/> 최댓값은 1000입니다. <br/><br/> 한도를 늘리려면 Azure 지원에 문의하세요. |
-| Azure 구독당 프리미엄 네임스페이스 최대 수 |네임스페이스 |프리미엄 추가 네임스페이스에 대한 후속 요청은 포털에서 거부됩니다. | 기본값은 100입니다. <br/> 최댓값은 1000입니다. <br/><br/> 한도를 늘리려면 Azure 지원에 문의하세요. |
-| 큐 또는 토픽 크기 |엔터티 |큐 또는 토픽을 만들 때 정의됨 <br/><br/> 들어오는 후속 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |1, 2, 3, 4GB 또는 5GB<br /><br />프리미엄 SKU와 [분할](../articles/service-bus-messaging/service-bus-partitioning.md)을 사용하는 표준 SKU에서 최대 큐 또는 토픽 크기는 80GB입니다. |
+| Azure 구독당 최대 네임스페이스 수 |네임스페이스 | 추가 네임스페이스에 대한 후속 요청은 거부됩니다. | 1000(기본값 및 최대값) |
+| 큐 또는 토픽 크기 |엔터티 |큐 또는 토픽을 생성/업데이트할 때 정의됩니다. <br/><br/> 들어오는 후속 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |1, 2, 3, 4GB 또는 5GB<br /><br />프리미엄 SKU와 [분할](../articles/service-bus-messaging/service-bus-partitioning.md)을 사용하는 표준 SKU에서 최대 큐 또는 토픽 크기는 80GB입니다. |
 | 네임스페이스에 대한 동시 연결 수 |네임스페이스 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 작업은 동시 TCP 연결 계산에 포함되지 않습니다. |넷 메시징: 1,000.<br /><br />AMQP: 5,000. |
 | 큐, 토픽 또는 구독 엔터티의 동시 수신 요청 수 |엔터티 |후속 수신 요청이 거부되며 호출 코드에서 예외를 수신합니다. 이 할당량은 항목의 모든 구독 전반에 걸쳐 종합된 동시 수신 명령 수에 적용됩니다. |5,000 |
 | 네임스페이스당 토픽 또는 큐 수 |네임스페이스 |네임스페이스에 새 토픽 또는 큐를 만들기 위한 후속 요청이 거부됩니다. 따라서 [Azure Portal][Azure portal]을 통해 구성된 경우 오류 메시지가 생성됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |기본 또는 표준 계층의 경우 10,000입니다. 네임스페이스에서 토픽 및 큐의 총수는 10,000 이하이어야 합니다. <br/><br/>프리미엄 계층의 경우, MU(메시징 단위)당 1000입니다. |
@@ -30,8 +29,8 @@ ms.locfileid: "107251295"
 | 모든 메시징 엔터티 이름의 최대 크기: 네임스페이스, 구독 또는 구독 규칙 |엔터티 |- |50자 |
 | 메시지 ID의 최대 크기 | 엔터티 |- | 128 |
 | 메시지 세션 ID의 최대 크기 | 엔터티 |- | 128 |
-| 큐, 토픽 또는 구독 엔터티의 메시지 크기 |엔터티 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |최대 메시지 크기: [표준 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우 256KB, [프리미엄 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우1MB. <br /><br />시스템 오버헤드로 인해, 이 제한이 이러한 값보다 작습니다.<br /><br />최대 헤더 크기: 64KB.<br /><br />속성 모음에서 헤더 속성의 최대 수: **byte/int.MaxValue**.<br /><br />속성 모음의 최대 속성 크기: 명시적 제한은 없습니다. 최대 헤더 크기로 제한됩니다. |
-| 큐, 토픽 또는 구독 엔터티의 메시지 속성 크기 |엔터티 | `SerializationException` 예외가 생성됩니다. |각 속성에 대한 최대 메시지 속성 크기는 32,000입니다. 모든 속성의 누적 크기는 64,000을 초과할 수 없습니다. 이 제한은 사용자 속성과 시퀀스 번호, 레이블 및 메시지 ID와 같은 시스템 속성을 모두 가진 broker 저장 메시지의 전체 헤더에 적용됩니다. |
+| 큐, 토픽 또는 구독 엔터티의 메시지 크기 |엔터티 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |최대 메시지 크기: [표준 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우 256KB, [프리미엄 계층](../articles/service-bus-messaging/service-bus-premium-messaging.md)의 경우1MB. <br /><br />시스템 오버헤드로 인해, 이 제한이 이러한 값보다 작습니다.<br /><br />최대 헤더 크기: 64KB.<br /><br />속성 모음에서 헤더 속성의 최대 수: **byte/int.MaxValue**.<br /><br />속성 모음의 최대 속성 크기: 속성 이름과 값은 모두 32KB로 제한됩니다. |
+| 큐, 토픽 또는 구독 엔터티의 메시지 속성 크기 |엔터티 | `SerializationException` 예외가 생성됩니다. |각 속성에 대한 최대 메시지 속성 크기는 32KB입니다. 모든 속성의 누적 크기는 64KB를 초과할 수 없습니다. 이 제한은 사용자 속성과 시퀀스 번호, 레이블 및 메시지 ID와 같은 시스템 속성을 모두 가진 broker 저장 메시지의 전체 헤더에 적용됩니다. |
 | 토픽당 구독 수 |엔터티 |토픽에 추가 구독을 만들기 위한 후속 요청이 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |표준 등급 및 프리미엄 계층의 경우 토픽당 2,000. |
 | 토픽당 SQL 필터 수 |엔터티 |토픽에서 추가 필터를 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |2,000 |
 | 토픽당 상관 관계 필터 수 |엔터티 |토픽에서 추가 필터를 생성하기 위한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |100,000 |

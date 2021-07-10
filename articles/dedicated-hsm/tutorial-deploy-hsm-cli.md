@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: b845ecabe74040e154886476a8ba28efecc99325
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2ffb38d334aa5b0abefa3398a5c2a7608f448025
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107868864"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111965317"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 기존 가상 네트워크에 HSM 배포
 
@@ -34,7 +34,7 @@ Azure Dedicated HSM은 단일 고객이 사용할 수 있는 완전한 관리 �
 
 ![다중 지역 배포](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
-이 자습서에서는 기존의 가상 네트워크(위의 VNET 1 참조)로 통합되는 HSM과 필요한 ExpressRoute 게이트웨이(위의 Subnet 1 참조)의 쌍을 중점적으로 살펴봅니다.  다른 모든 리소스는 표준 Azure 리소스입니다. 위의 VNET 3에서 서브넷 4에 있는 HSM에 동일한 통합 프로세스를 사용할 수 있습니다.
+이 자습서에서는 기존의 가상 네트워크(위의 VNET 1 참조)로 통합되는 HSM과 필요한 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)(위의 Subnet 1 참조)의 쌍을 중점적으로 살펴봅니다.  다른 모든 리소스는 표준 Azure 리소스입니다. 위의 VNET 3에서 서브넷 4에 있는 HSM에 동일한 통합 프로세스를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -51,7 +51,7 @@ Azure Dedicated HSM을 현재 Azure Portal에서 사용할 수 없습니다. 서
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Dedicated HSM 프로비전
 
-HSM을 프로비전하고 ExpressRoute 게이트웨이를 통해 기존 가상 네트워크에 통합하면 ssh를 사용한 유효성 검사가 수행됩니다. 이 유효성 검사는 추가 구성 작업을 위해 HSM 디바이스의 연결 가능성과 기본 가용성을 보장하는 데 도움이 됩니다.
+HSM을 프로비저닝하고 [ExpressRoute 게이트웨이](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md)를 통해 기존 가상 네트워크에 통합하면 ssh를 사용한 유효성 검사가 수행됩니다. 이 유효성 검사는 추가 구성 작업을 위해 HSM 디바이스의 연결 가능성과 기본 가용성을 보장하는 데 도움이 됩니다.
 
 ### <a name="validating-feature-registration"></a>기능 등록 유효성 검사
 
