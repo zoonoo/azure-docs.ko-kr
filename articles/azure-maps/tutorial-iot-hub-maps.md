@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9ebc6e266c93e55bc250e8450356f8b695dd9080
-ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
+ms.openlocfilehash: 37aa8c954f847002ad69fa17ee1f025049ec9bb6
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2021
-ms.locfileid: "107714995"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110785785"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -24,7 +24,7 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 
 > [!div class="checklist"]
 > * 차량 추적 데이터를 기록하기 위해 Azure 스토리지 계정을 만듭니다.
-> * 데이터 업로드 API를 사용하여 Azure Maps 데이터 서비스(미리 보기)에 지오펜스를 업로드합니다.
+> * 데이터 업로드 API를 사용하여 Azure Maps Data Service에 지오펜스를 업로드합니다.
 > * Azure IoT Hub에 허브를 만들고 디바이스를 등록합니다.
 > * Azure Maps 공간 분석을 기반으로 하는 비즈니스 논리를 구현하는 Azure Functions에서 함수를 만듭니다.
 > * Azure Event Grid를 통해 Azure 함수에서 IoT 디바이스 원격 분석 이벤트를 구독합니다.
@@ -126,33 +126,28 @@ IoT 시나리오에서는 일반적으로 시간과 공간에서 발생하는 �
 3. 작성기 탭에서 **POST** HTTP 메서드를 선택하고, 다음 URL을 입력하여 데이터 업로드 API에 지오펜스를 업로드합니다. `{subscription-key}`를 기본 구독 키로 바꿔야 합니다.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     URL 경로에서 `dataFormat` 매개 변수에 대한 `geojson` 값은 업로드되는 데이터의 형식을 나타냅니다.
 
 4. 입력 형식으로 **본문** > **원시** 를 선택하고, 드롭다운 목록에서 **JSON** 을 선택합니다. [JSON 데이터 파일을 열고](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4) JSON을 본문 섹션에 복사합니다. **보내기** 를 선택합니다.
 
-5. **보내기** 를 선택하고 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **위치** 키의 값(`status URL`)을 복사합니다.
+5. **보내기** 를 선택하고 요청이 처리될 때까지 기다립니다. 요청이 완료되면 응답의 **헤더** 탭으로 이동합니다. **Operation-Location** 키의 값인 `status URL`을 복사합니다.
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
     ```
 
 6. API 호출의 상태를 확인하려면 `status URL`에 대한 **GET** HTTP 요청을 만듭니다. 인증을 위해 기본 구독 키를 URL에 추가해야 합니다. **GET** 요청은 다음 URL과 같습니다.
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={subscription-key}
+   https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={subscription-key}
    ```
-   
-7. **GET** HTTP 요청이 성공적으로 완료되면 `resourceLocation`이 반환됩니다. `resourceLocation`에는 업로드된 콘텐츠에 대한 고유한 `udid`가 포함되어 있습니다. 이 자습서에서 나중에 사용할 수 있도록 이 `udid`를 복사합니다.
 
-      ```json
-      {
-          "status": "Succeeded",
-          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
-      }
-      ```
+7. 요청이 성공적으로 완료되면 응답 창에서 **헤더** 탭을 선택합니다. **Resource-Location** 키의 값인 `resource location URL`을 복사합니다.  `resource location URL`에는 업로드된 데이터의 고유 식별자(`udid`)가 포함됩니다. 이 자습서에서 나중에 사용할 수 있도록 `udid`를 복사합니다.
+
+    :::image type="content" source="./media/tutorial-iot-hub-maps/resource-location-url.png" alt-text="리소스 위치 URL을 복사합니다.":::
 
 ## <a name="create-an-iot-hub"></a>IoT 허브 만들기
 

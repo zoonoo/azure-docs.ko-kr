@@ -5,13 +5,29 @@ ms.author: askaur
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 8efdb20b463e9021f298597cd94dabbdbf9e62c0
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.openlocfilehash: 2fb04acd75d607772b6582882b98f9ed222f070c
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109663913"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111430558"
 ---
+이 빠른 시작에서는 JavaScript용 Azure Communication Services 채팅 SDK를 사용하여 Teams 모임에서 채팅하는 방법을 알아봅니다.
+
+> [!NOTE]
+> [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/join-chat-to-teams-meeting)에서 이 빠른 시작에 대한 최종 코드 칮기
+
+## <a name="prerequisites"></a>사전 요구 사항 
+
+*  [Teams 배포](/deployoffice/teams-install). 
+* 작동하는 [채팅 앱](../get-started.md). 
+
+## <a name="enable-teams-interoperability"></a>Teams 상호 운용성 사용 
+
+게스트 사용자로 Teams 미팅에 조인하는 Communication Services 사용자는 Teams 미팅 호출에 조인한 경우에만 미팅 채팅에 액세스할 수 있습니다. Teams 미팅 호출에 Communication Services 사용자를 추가하는 방법을 알아보려면 [Teams interop](../../voice-video-calling/get-started-teams-interop.md) 설명서를 참조하세요.
+
+이 기능을 사용하려면 두 엔터티를 소유하는 조직의 구성원이어야 합니다.
+
 ## <a name="joining-the-meeting-chat"></a>모임 채팅 참가 
 
 Teams 상호 운용성을 사용하도록 설정하면 Communication Services 사용자가 Calling SDK를 사용하여 외부 사용자로 Teams 통화에 조인할 수 있습니다. 통화에 조인하면 채팅 통화에 참가자로 추가됩니다. 그러면 통화 중인 다른 사용자와 메시지를 주고받을 수 있습니다. 사용자는 통화에 조인하기 전에 전송된 채팅 메시지에 액세스할 수 없습니다. 모임에 참가하고 채팅을 시작하려면 다음 단계를 수행하면 됩니다.
@@ -62,7 +78,7 @@ npm install webpack@4.42.0 webpack-cli@3.3.11 webpack-dev-server@3.10.3 --save-d
 
 index.html의 코드를 다음 코드 조각으로 바꿉니다.
 페이지 맨 위에 있는 텍스트 상자는 Teams 모임 컨텍스트 및 모임 스레드 ID를 입력하는 데 사용됩니다. 'Teams 모임 참가' 단추는 지정된 모임에 참가하는 데 사용됩니다.
-페이지 아래쪽에 채팅 팝업이 표시됩니다. 이를 사용하여 모임 스레드에서 메시지를 보낼 수 있으며 ACS 사용자가 구성원인 동안 스레드에서 보낸 메시지를 실시간으로 표시합니다.
+페이지 아래쪽에 채팅 팝업이 표시됩니다. 이를 사용하여 모임 스레드에서 메시지를 보낼 수 있으며 Communication Services 사용자가 구성원인 동안 스레드에서 보낸 메시지를 실시간으로 표시합니다.
 
 ```html
 <!DOCTYPE html>
@@ -327,9 +343,9 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 브라우저를 열고 http://localhost:8080/로 이동합니다. 다음이 표시되어야 합니다.
 
-:::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
+:::image type="content" source="../join-teams-meeting-chat-quickstart.png" alt-text="완성된 JavaScript 애플리케이션의 스크린샷":::
 
-텍스트 상자에 Teams 모임 링크와 스레드 ID를 삽입합니다. Teams 모임에 참가하려면 *팀 모임 참가* 를 누릅니다. ACS 사용자가 모임에 입장한 후 Communication Services 애플리케이션에서 채팅할 수 있습니다. 페이지 맨 아래에 있는 상자로 이동하여 채팅을 시작합니다.
+텍스트 상자에 Teams 모임 링크와 스레드 ID를 삽입합니다. Teams 모임에 참가하려면 *팀 모임 참가* 를 누릅니다. Communication Services 사용자가 모임에 입장한 후 Communication Services 애플리케이션에서 채팅할 수 있습니다. 페이지 맨 아래에 있는 상자로 이동하여 채팅을 시작합니다.
 
 > [!NOTE] 
-> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지를 보내고 받고 편집할 수 있습니다. 입력 표시기 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.  
+> 현재는 Teams와의 상호 운용성 시나리오에 대해서만 메시지를 보내고 받고 편집할 수 있습니다. 입력 표시기 및 Communication Services 사용자와 같은 다른 기능에서는 아직 Teams 미팅에서 다른 사용자를 추가하거나 제거할 수 없습니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2021
 ms.author: jeedes
-ms.openlocfilehash: e5b28c70f19d651212cc7af54968ce60c6daeb38
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 09c46efab8eea797b10b2724c3c19c7b1b34c87f
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108125412"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110467707"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-logmein"></a>자습서: LogMeIn과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -80,6 +80,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. **로그온 URL** 텍스트 상자에 `https://authentication.logmeininc.com/login?service=https%3A%2F%2Fmyaccount.logmeininc.com` URL을 입력합니다.
 
+1. LogMeIn 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 **고유한 사용자 ID** 가 **user.userprincipalname** 과 매핑되는 기본 특성 목록을 보여 줍니다. LogMeIn 애플리케이션에서는 **고유한 사용자 ID** 가 **user.mail** 과 매핑되어야 하므로 **편집** 아이콘을 클릭하여 특성 매핑을 편집하고 특성 매핑을 변경해야 합니다.
+
+    ![이미지](common/default-attributes.png)
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL** 을 복사한 후 컴퓨터에 저장합니다.
 

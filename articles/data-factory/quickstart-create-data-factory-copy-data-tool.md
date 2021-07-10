@@ -5,13 +5,13 @@ author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
 ms.topic: quickstart
-ms.date: 11/09/2020
-ms.openlocfilehash: 034f90adc46b541377f62ac66ea721a30ed48637
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.date: 06/01/2021
+ms.openlocfilehash: a66af648abc0ae48c0a4fcc7eb33ab7c1351c41b
+ms.sourcegitcommit: eb20dcc97827ef255cb4ab2131a39b8cebe21258
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108742052"
+ms.lasthandoff: 06/03/2021
+ms.locfileid: "111371907"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>빠른 시작: 데이터 복사 도구를 사용하여 데이터 복사
 
@@ -57,48 +57,48 @@ ms.locfileid: "108742052"
 
 1. 만들기가 완료되면 **데이터 팩터리** 페이지가 표시됩니다. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 Azure Data Factory UI(사용자 인터페이스) 애플리케이션을 시작합니다.
    
-:::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
-
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="작성자 및 모니터링 타일이 있는 Azure Data Factory의 홈페이지.":::
+    
 ## <a name="start-the-copy-data-tool"></a>데이터 복사 도구 시작
 
-1. **시작하기** 페이지에서 **데이터 복사** 타일을 선택하여 데이터 복사 도구를 시작합니다. 
+1. **시작하기** 페이지에서 **데이터 복사** 타일을 선택하여 데이터 복사 도구를 시작합니다.
 
    !["데이터 복사" 타일](./media/doc-common-process/get-started-page.png)
 
-1. 데이터 복사 도구의 **속성** 페이지에서 파이프라인의 이름 및 해당 설명을 지정한 후 **다음** 을 선택합니다. 
+1. 데이터 복사 도구의 **속성** 페이지에 있는 **작업 유형** 아래에서 **기본 제공 복사 작업** 을 선택한 후 **다음** 을 선택합니다.
 
    !["속성" 페이지](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
+
 1. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
-    a. **+ 새 연결 만들기** 를 클릭하여 연결을 추가합니다.
+    1. **+ 새 연결 만들기** 를 클릭하여 연결을 추가합니다.
 
-    b. 원본 연결에 만들려는 연결된 서비스 유형을 선택합니다. 이 자습서에서는 **Azure Blob Storage** 를 사용합니다. 갤러리에서 선택한 다음, **계속** 을 선택합니다.
+    1. 원본 연결에 만들려는 연결된 서비스 유형을 선택합니다. 이 자습서에서는 **Azure Blob Storage** 를 사용합니다. 갤러리에서 선택한 다음, **계속** 을 선택합니다.
     
-    ![Blob 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
+       ![Blob 선택](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-    다. **새로 연결된 서비스(Azure Blob Storage)** 페이지에서 연결된 서비스의 이름을 지정합니다. **스토리지 계정 이름** 목록에서 스토리지 계정을 선택하고 연결을 테스트한 다음, **만들기** 를 선택합니다. 
+    1. **새 연결(Azure Blob Storage)** 페이지에서 연결의 이름을 지정합니다. **Azure 구독** 목록에서 Azure 구독을 선택하고, **스토리지 계정 이름** 목록에서 스토리지 계정을 선택하고, 연결을 테스트한 다음, **만들기** 를 선택합니다. 
 
-    ![Azure Blob Storage 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
+       ![Azure Blob Storage 계정 구성](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-    d. 새로 만든 연결된 서비스를 원본으로 선택한 다음, **다음** 을 클릭합니다.
+    1. **연결** 블록에서 새로 만든 연결을 선택합니다.
+    1. **파일 또는 폴더** 섹션에서 **찾아보기** 를 선택하여 **adftutorial/input** 폴더로 이동하고, **emp.txt** 파일을 선택한 다음, **확인** 을 클릭합니다.
+    1. 파일을 있는 그대로 복사하려면 **이진 복사** 확인란을 선택한 다음, **다음** 을 선택합니다.
 
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/source-data-store.png" alt-text="원본 데이터 저장소 페이지를 보여 주는 스크린샷":::
 
-1. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
+1. **대상 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
+    1. **연결** 블록에서 만든 **AzureBlobStorage** 연결을 선택합니다.
 
-   a. **찾아보기** 를 클릭하여 **adftutorial/input** 폴더로 이동하고, **emp.txt** 파일을 선택한 다음, **선택** 을 클릭합니다. 
+    1. **폴더 경로** 섹션에서 폴더 경로에 **adftutorial/output** 을 입력합니다.
 
-   d. 파일을 있는 그대로 복사하려면 **이진 복사** 확인란을 선택한 다음, **다음** 을 선택합니다. 
+       :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/destination-data-store.png" alt-text="대상 데이터 저장소 페이지를 보여 주는 스크린샷":::
 
-   !["입력 파일 또는 폴더 선택" 페이지](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
+    1. 다른 설정은 기본값으로 유지하고 **다음** 을 선택합니다.
 
+1. **설정** 페이지에서 파이프라인의 이름과 설명을 지정한 후 **다음** 을 선택하여 다른 기본 구성을 사용합니다. 
 
-1. **대상 데이터 저장소** 페이지에서 방금 만든 **Azure Blob Storage** 연결된 서비스를 선택한 다음, **다음** 을 선택합니다. 
-
-1. **출력 파일 또는 폴더 선택** 페이지에서 폴더 경로로 **adftutorial/output** 을 입력한 다음, **다음** 을 선택합니다. 
-
-   !["출력 파일 또는 폴더 선택" 페이지](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
-
-1. **설정** 페이지에서 **다음** 을 선택하여 기본 구성을 사용합니다. 
+    :::image type="content" source="./media/quickstart-create-data-factory-copy-data-tool/settings.png" alt-text="설정 페이지를 보여 주는 스크린샷":::
 
 1. **요약** 페이지에서 모든 설정을 검토하고 **다음** 을 선택합니다. 
 
@@ -106,13 +106,13 @@ ms.locfileid: "108742052"
 
     !["배포 완료" 페이지](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 
-1. 애플리케이션이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래 링크를 클릭하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
+1. 애플리케이션이 **모니터** 탭으로 전환됩니다. 이 탭에서 파이프라인의 상태가 표시됩니다. **새로 고침** 을 선택하여 목록을 새로 고칩니다. **파이프라인 이름** 아래에서 링크를 클릭하여 활동 실행 세부 정보를 보거나 파이프라인을 다시 실행합니다. 
    
     ![파이프라인 새로 고침](./media/quickstart-create-data-factory-copy-data-tool/refresh-pipeline.png)
 
-1. 복사 작업에 대한 자세한 내용은 활동 실행 페이지의 **작업 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
+1. 복사 작업에 관한 자세한 내용은 활동 실행 페이지의 **활동 이름** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. 속성에 대한 자세한 내용은 [복사 활동 개요](copy-activity-overview.md)를 참조하세요. 
 
-1. 파이프라인 실행 보기로 돌아가려면 이동 경로 탐색 메뉴의 **모든 파이프라인 실행** 링크를 선택합니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다. 
+1. 파이프라인 실행 보기로 돌아가려면 이동 경로 메뉴의 **모든 파이프라인 실행** 링크를 선택합니다. 보기를 새로 고치려면 **새로 고침** 을 선택합니다. 
 
 1. **emp.txt** 파일이 **adftutorial** 컨테이너의 **output** 폴더에 만들어졌는지 확인합니다. 출력 폴더가 없는 경우 Data Factory 서비스에서 자동으로 생성됩니다. 
 

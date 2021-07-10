@@ -4,12 +4,12 @@ description: Azure Container Instances 서비스는 가상 머신을 관리하�
 ms.topic: overview
 ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c445687db7a154b6fc86e962d2c2340ad6297431
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a93bb81fc2d9f3abc9994921ad3ec689737d4588
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799074"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214500"
 ---
 # <a name="what-is-azure-container-instances"></a>Azure Container Instances란?
 
@@ -21,7 +21,7 @@ Azure Container Instances는 간단한 애플리케이션, 작업 자동화 및 
 
 컨테이너는 VM(가상 머신)에 비해 상당한 시작 이점을 제공합니다. Azure Container Instances는 VM을 프로비전 및 관리할 필요 없이 Azure에서 몇 초 안에 컨테이너를 시작할 수 있습니다.
 
-Docker Hub, 프라이빗 [Azure 컨테이너 레지스트리](../container-registry/index.yml) 또는 다른 클라우드 기반 docker 레지스트리에서 Linux 또는 Windows 컨테이너 이미지를 가져옵니다. [FAQ](container-instances-faq.md)를 방문하여 ACI에서 지원되는 레지스트리를 알아보세요. Azure Container Instances는 여러 가지 일반적인 기본 OS 이미지를 캐시하여 사용자 지정 애플리케이션 이미지의 배포 속도를 향상합니다.
+Docker Hub, 프라이빗 [Azure 컨테이너 레지스트리](../container-registry/index.yml) 또는 다른 클라우드 기반 docker 레지스트리에서 Linux 또는 Windows 컨테이너 이미지를 가져옵니다. [FAQ](container-instances-faq.yml)를 방문하여 ACI에서 지원되는 레지스트리를 알아보세요. Azure Container Instances는 여러 가지 일반적인 기본 OS 이미지를 캐시하여 사용자 지정 애플리케이션 이미지의 배포 속도를 향상합니다.
 
 ## <a name="container-access"></a>컨테이너 액세스
 
@@ -64,7 +64,7 @@ Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 
 * [가상 네트워크 배포](container-instances-vnet.md)
 * [GPU 리소스](container-instances-gpu.md)(미리 보기)
 
-Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지를 사용합니다.
+Windows 컨테이너 배포의 경우 일반적인 [Windows 기본 이미지](/azure/container-instances/container-instances-faq#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지를 사용합니다.
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 
