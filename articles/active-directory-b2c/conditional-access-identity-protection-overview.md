@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/13/2021
+ms.date: 05/28/2021
 ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37118a84468743053e6f825bf982b3073c5545d3
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 739c20cb39db5fda3a182bc4c5379d0bc9c4d06e
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110060809"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110690333"
 ---
 # <a name="identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스
 
@@ -26,7 +26,7 @@ Azure AD의 [ID 보호](../active-directory/identity-protection/overview-identit
 ![B2C 테넌트의 조건부 액세스](media/conditional-access-identity-protection-overview/conditional-access-b2c.png)
 
 > [!NOTE]
-> 조건부 액세스를 사용하려면 Azure AD B2C Premium P2가 필요합니다.
+> 위험한 로그인 정책을 만들려면 Azure AD B2C **Premium P2** 가 필요합니다. **Premium P1** 테넌트는 위치, 애플리케이션, 사용자 기반 또는 그룹 기반 정책을 기반으로 하는 정책을 만들 수 있습니다. 자세한 내용은 [Azure AD B2C 가격 책정 계층 변경](billing.md#change-your-azure-ad-pricing-tier)을 참조하세요.
 
 ## <a name="benefits-of-identity-protection-and-conditional-access-for-azure-ad-b2c"></a>Azure AD B2C에 대한 ID 보호 및 조건부 액세스의 이점  
 

@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: fd4ad1443f466a78abfc569d5f52f6bdeff2d5be
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 92a9b79e4de60e7308224b435953ac7b3eefc8a1
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105048887"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951073"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>알림 및 백업을 위해 Azure Storage 통합
 
@@ -28,8 +28,8 @@ Custom Vision 프로젝트를 Azure Blob Storage 큐와 통합하여 프로젝�
 ## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure의 Custom Vision 리소스. 없는 경우 Azure Portal로 이동하여 [새 Custom Vision 리소스를 만듭니다](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). 이 기능은 현재 Cognitive Service 리소스를 지원하지 않습니다(올인원 키).
-- BLOB 컨테이너가 있는 Azure Storage 계정. 이 단계에 대한 도움이 필요한 경우 [Azure Storage 랩 연습 1](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1)을 따릅니다.
-* [PowerShell 버전 6.0 이상](/powershell/scripting/install/installing-powershell-core-on-windows) 또는 유사한 명령줄 애플리케이션.
+- BLOB 컨테이너가 있는 Azure Storage 계정. 이 단계에서 도움이 필요한 경우 [스토리지 빠른 시작](../../storage/blobs/storage-quickstart-blobs-portal.md)을 따르세요.
+- [PowerShell 버전 6.0 이상](/powershell/scripting/install/installing-powershell-core-on-windows) 또는 유사한 명령줄 애플리케이션.
 
 ## <a name="set-up-azure-storage-integration"></a>Azure Storage 통합 설정
 

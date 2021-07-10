@@ -7,14 +7,14 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 04/06/2021
+ms.date: 05/04/2021
 ms.topic: overview
-ms.openlocfilehash: 91bf9674bfc49458dd2e8b1824b521a37b446a0a
-ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
+ms.openlocfilehash: c5d09e98e25ccd91e1f9489ee161e88cb707c07e
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108289285"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408320"
 ---
 #  <a name="deploy-azure-arc-data-controller--direct-connect-mode"></a>Azure Arc 데이터 컨트롤러 배포 | 직접 연결 모드
 
@@ -66,7 +66,7 @@ $ENV:location="<Azure location>"
 #### <a name="linux"></a>Linux
 
 ```bash
-az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --version "1.0.015564" --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+az k8s-extension create -c ${resourceName} -g ${resourceGroup} --name ${ADSExtensionName} --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensionName} --cluster-type connectedclusters
 ```
@@ -75,10 +75,24 @@ az k8s-extension show -g ${resourceGroup} -c ${resourceName} --name ${ADSExtensi
 ```PowerShell
 $ENV:ADSExtensionName="ads-extension"
 
-az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --version "1.0.015564" --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
+az k8s-extension create -c "$ENV:resourceName" -g "$ENV:resourceGroup" --name "$ENV:ADSExtensionName" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --auto-upgrade false --scope cluster --release-namespace arc --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper
 
 az k8s-extension show -g "$ENV:resourceGroup" -c "$ENV:resourceName" --name "$ENV:ADSExtensionName" --cluster-type connectedclusters
 ```
+
+#### <a name="deploy-azure-arc-data-services-extension-using-private-container-registry-and-credentials"></a>프라이빗 컨테이너 레지스트리 및 자격 증명을 사용하여 Azure Arc Data Services 확장 배포
+
+프라이빗 리포지토리에서 배포하는 경우 아래 명령을 사용합니다.
+
+```
+az k8s-extension create -c "<connected cluster name>" -g "<resource group>" --name "<extension name>" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --scope cluster --release-namespace "<namespace>" --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config imageCredentials.registry=<registry info> --config imageCredentials.username=<username> --config systemDefaultValues.image=<registry/repo/arc-bootstrapper:<imagetag>> --config-protected imageCredentials.password=$ENV:DOCKER_PASSWORD --debug
+```
+
+ 예를 들면 다음과 같습니다.
+```
+az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name "arc-data-services" --cluster-type connectedClusters --extension-type microsoft.arcdataservices --scope cluster --release-namespace "arc" --config Microsoft.CustomLocation.ServiceAccount=sa-bootstrapper --config imageCredentials.registry=mcr.microsoft.com --config imageCredentials.username=arcuser --config systemDefaultValues.image=mcr.microsoft.com/arcdata/arc-bootstrapper:latest --config-protected imageCredentials.password=$ENV:DOCKER_PASSWORD --debug
+```
+
 
 > [!NOTE]
 > Arc 데이터 서비스 확장 설치를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -127,7 +141,7 @@ export extensionId=$(az k8s-extension show -g ${resourceGroup} -c ${resourceName
 
 az customlocation create -g ${resourceGroup} -n ${clName} --namespace ${clNamespace} \
   --host-resource-id ${hostClusterId} \
-  --cluster-extension-ids ${extensionId} --location eastus2euap
+  --cluster-extension-ids ${extensionId} --location eastus
 ```
 
 #### <a name="windows-powershell"></a>Windows PowerShell

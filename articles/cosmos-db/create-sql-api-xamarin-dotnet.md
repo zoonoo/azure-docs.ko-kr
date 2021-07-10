@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/07/2021
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a940f4bb519332e147577e4a9172406c401d152
-ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
+ms.openlocfilehash: 3dd89e461bdcb572db9544923b70cc8581e627c0
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107365742"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112235106"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Xamarin에서 todo 앱 빌드
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,23 +45,23 @@ Windows에서 개발하고 있고 Visual Studio 2019가 아직 설치되지 않�
 Mac을 사용하는 경우 [Mac용 Visual Studio](https://www.visualstudio.com/vs/mac/) **평가판** 을 다운로드할 수 있습니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](includes/cosmos-db-emulator-docdb-api.md)]
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](includes/cosmos-db-create-dbaccount.md)]
 
 ## <a name="add-a-container"></a>컨테이너 추가
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](includes/cosmos-db-create-collection.md)]
 
 ## <a name="add-sample-data"></a>샘플 데이터 추가
 
-[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>데이터 쿼리
 
-[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
+[!INCLUDE [cosmos-db-create-sql-api-query-data](includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -111,7 +111,7 @@ Azure Portal로 다시 이동하여 API 키 정보를 가져오고 앱에 복사
     public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure portal";
     ```
 
-[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
+[!INCLUDE [cosmos-db-auth-key-info](includes/cosmos-db-auth-key-info.md)]
 
 ## <a name="review-the-code"></a>코드 검토
 
@@ -207,11 +207,11 @@ ToDoItems 솔루션의 코드에는 다음 항목이 포함됩니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 71e98b735b4aa4631d73f8730a48c56a8c7585ab
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "101713068"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107497645"
 ---
 # <a name="get-face-detection-data"></a>얼굴 감지 데이터 가져오기
 
@@ -28,7 +28,7 @@ ms.locfileid: "101713068"
 - 이미지에서 눈동자, 코, 입 등 다양한 얼굴 랜드마크의 위치를 가져옵니다.
 - 감지된 얼굴의 성별, 연령, 감정 및 기타 특성을 추측합니다.
 
-## <a name="setup"></a>설치 프로그램
+## <a name="setup"></a>설정
 
 이 가이드에서는 얼굴 구독 키와 엔드포인트 URL을 사용하여 `faceClient`라는 [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) 개체를 이미 생성했다고 가정합니다. 여기서는 이 가이드에서 사용되는 [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) 또는 [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync)를 호출하여 얼굴 감지 기능을 사용할 수 있습니다. 이 기능을 설정하는 방법에 대한 지침은 빠른 시작 중 하나를 수행합니다.
 
@@ -78,9 +78,9 @@ ms.locfileid: "101713068"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 얼굴 감지의 다양한 기능을 사용하는 방법을 알아보았습니다. 다음으로, 심층 자습서에 따라 이러한 기능을 앱에 통합합니다.
+이 가이드에서는 얼굴 감지의 다양한 기능을 사용하는 방법을 알아보았습니다. 다음으로, 이러한 기능을 앱에 통합하여 사용자의 얼굴 데이터를 추가합니다.
 
-- [자습서: 이미지에서 얼굴 데이터를 표시하는 WPF 앱 만들기](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [자습서: Face 서비스에 사용자 추가](../enrollment-overview.md)
 
 ## <a name="related-topics"></a>관련 항목
 

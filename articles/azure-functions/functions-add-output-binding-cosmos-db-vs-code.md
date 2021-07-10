@@ -6,12 +6,12 @@ ms.date: 03/23/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.openlocfilehash: 0a0c63ee54699185bcd02104b1a3f4d0070ea808
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 884ed08dc6dc6587b4f464c18e8231a7f5342422
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023251"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234551"
 ---
 # <a name="connect-azure-functions-to-azure-cosmos-db-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Functions를 Azure Cosmos DB에 연결
 
@@ -39,11 +39,11 @@ ms.locfileid: "105023251"
 
 2. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB** 를 클릭합니다.
    
-    :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="Azure Portal 데이터베이스 창" border="true":::
+    :::image type="content" source="../cosmos-db/includes/media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png" alt-text="Azure Portal 데이터베이스 창" border="true":::
 
 3. **Azure Cosmos DB 계정 만들기** 페이지에서 새 Azure Cosmos DB 계정에 대한 설정을 입력합니다. 
  
-    설정|값|Description
+    설정|값|설명
     ---|---|---
     Subscription|*구독*|[이전 문서](./create-first-function-vs-code-csharp.md)에서 함수 앱을 만든 Azure 구독을 선택합니다.
     리소스 그룹|*리소스 그룹*|[이전 문서](./create-first-function-vs-code-csharp.md)에서 함수 앱을 만든 리소스 그룹을 선택합니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 691d35267c255c933a8098b99301fbb795a3cd0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 172ffe8b5028032c38f5c86a7289cef4250653a4
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96181070"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110614952"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 수행하도록 Atlassian Cloud 구성
 
@@ -104,7 +104,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 8. **매핑** 섹션 아래에서 **Azure Active Directory 사용자를 Atlassian Cloud에 동기화** 를 선택합니다.
 
-9. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Atlassian Cloud의 사용자 계정을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+9. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화되는 사용자 특성을 검토합니다.
+   이메일 특성은 Atlassian Cloud 계정을 Azure AD 계정과 일치시키는 데 사용됩니다.
+   **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
    |attribute|Type|
    |---|---|
@@ -116,7 +118,9 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
 10. **매핑** 섹션 아래에서 **Azure Active Directory 그룹을 Atlassian Cloud에 동기화** 를 선택합니다.
 
-11. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화되는 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 Atlassian Cloud의 그룹을 일치시키는 데 사용됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+11. **특성 매핑** 섹션에서 Azure AD에서 Atlassian Cloud로 동기화되는 그룹 특성을 검토합니다.
+    표시 이름 특성은 Atlassian Cloud 그룹을 Azure AD 그룹과 일치시키는 데 사용됩니다.
+    **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
       |attribute|Type|
       |---|---|
@@ -134,7 +138,7 @@ Azure AD 프로비저닝 서비스를 사용하면 애플리케이션에 대한 
 
     ![프로비전 범위](common/provisioning-scope.png)
 
-16. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
+15. 프로비전할 준비가 되면 **저장** 을 클릭합니다.
 
     ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 

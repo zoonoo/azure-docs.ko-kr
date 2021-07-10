@@ -8,24 +8,24 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 155566a125485fda326f9f5e02d4aead0ffe30e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 12916b06dd965d7eed717df2fe71f935b8319bc4
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "100560755"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108772714"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>DTDL 파서 라이브러리를 사용하여 모델 구문 분석 및 유효성 검사
 
 Azure Digital Twins의 [모델](concepts-models.md)은 JSON-LD 기반 DTDL(디지털 트윈 정의 언어)을 사용하여 정의됩니다. **Azure Digital Twins 인스턴스에 업로드하기 전에 오프라인으로 모델의 유효성을 검사하는 것이 좋습니다.**
 
-이 작업을 수행하는 데 도움이 되도록 .NET 클라이언트 측 DTDL 구문 분석 라이브러리가 NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/)에 제공됩니다. 
+이 작업을 수행하는 데 도움이 되도록 .NET 클라이언트 측 DTDL 구문 분석 라이브러리가 NuGet: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/)에 제공됩니다. 
 
-파서 라이브러리를 C# 코드에서 직접 사용하거나, 파서 라이브러리: [**DTDL 유효성 검사기 샘플**](/samples/azure-samples/dtdl-validator/dtdl-validator)에서 빌드된 언어 중립적 코드 샘플 프로젝트를 사용할 수 있습니다.
+파서 라이브러리를 C# 코드에서 직접 사용하거나, 파서 라이브러리: [DTDL 유효성 검사기 샘플](/samples/azure-samples/dtdl-validator/dtdl-validator)에서 빌드된 언어 중립적 코드 샘플 프로젝트를 사용할 수 있습니다.
 
 ## <a name="use-the-dtdl-validator-sample"></a>DTDL 유효성 검사기 샘플 사용
 
-[**DTDL 유효성 검사기**](/samples/azure-samples/dtdl-validator/dtdl-validator)는 DTDL이 유효한지 확인하도록 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. .NET 파서 라이브러리를 기반으로 하며 언어 중립적입니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용하여 가져올 수 있습니다.
+[DTDL 유효성 검사기](/samples/azure-samples/dtdl-validator/dtdl-validator)는 DTDL이 유효한지 확인하도록 모델 문서의 유효성을 검사할 수 있는 샘플 프로젝트입니다. .NET 파서 라이브러리를 기반으로 하며 언어 중립적입니다. 샘플 링크의 *ZIP 다운로드* 단추를 사용하여 가져올 수 있습니다.
 
 소스 코드는 파서 라이브러리를 사용하는 방법에 대한 예제를 보여줍니다. 유효성 검사기 샘플을 명령줄 유틸리티로 사용하여 DTDL 파일의 디렉터리 트리 유효성을 검사할 수 있습니다. 또한 대화형 모드를 제공합니다.
 
@@ -37,7 +37,7 @@ DTDL 유효성 검사기 샘플 폴더에서 *readme.md* 파일을 참조하여 
 DTDLValidator
 ```
 
-기본 옵션을 사용하여 샘플은 현재 디렉터리 및 모든 하위 디렉터리에서 `*.json` 파일을 검색합니다. 다음 옵션을 추가하여 샘플에서 *.dtdl* 파일 이름 확장명을 가진 파일을 표시된 디렉터리와 모든 하위 디렉터리에서 검색하도록 할 수 있습니다.
+기본 옵션을 사용하여 샘플은 현재 디렉터리 및 모든 하위 디렉터리에서 .json 파일을 검색합니다. 다음 옵션을 추가하여 샘플에서 .dtdl 파일 이름 확장명을 가진 파일을 표시된 디렉터리와 모든 하위 디렉터리에서 검색하도록 할 수 있습니다.
 
 ```cmd/sh
 DTDLValidator -d C:\Work\DTDL -e dtdl 
@@ -53,7 +53,7 @@ DTDLValidator -i
 
 ## <a name="use-the-net-parser-library"></a>.NET 파서 라이브러리 사용 
 
-[**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 라이브러리는 DTDL 정의에 대한 모델 액세스를 제공하며, 기본적으로 DTDL에 대한 C# 리플렉션과 동등한 역할을 합니다. 이 라이브러리는 특히 시각적 개체 또는 텍스트 편집기에서 DTDL 유효성 검사를 위해 [Azure Digital Twins SDK](how-to-use-apis-sdks.md)와 별개로 사용할 수 있습니다. 모델 정의 파일을 서비스에 업로드하기 전에 해당 파일이 유효한지 확인하는 데 유용합니다.
+[Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) 라이브러리는 DTDL 정의에 대한 모델 액세스를 제공하며, 기본적으로 DTDL에 대한 C# 리플렉션과 동등한 역할을 합니다. 이 라이브러리는 특히 시각적 개체 또는 텍스트 편집기에서 DTDL 유효성 검사를 위해 [Azure Digital Twins SDK](concepts-apis-sdks.md)와 별개로 사용할 수 있습니다. 모델 정의 파일을 서비스에 업로드하기 전에 해당 파일이 유효한지 확인하는 데 유용합니다.
 
 파서 라이브러리 사용을 위해 DTDL 문서 집합을 제공합니다. 일반적으로 서비스에서 이러한 모델 문서를 검색하지만 클라이언트에서 먼저 서비스에 업로드해야 하는 경우 로컬에서 검색이 가능하도록 할 수 있습니다. 
 
@@ -87,4 +87,4 @@ DTDLValidator -i
 ## <a name="next-steps"></a>다음 단계
 
 모델 작성을 완료한 후에는 DigitalTwinsModels API를 사용하여 모델을 업로드하는 방법(및 다른 관리 작업을 수행하는 방법)을 참조하세요.
-* [*방법: DTDL 모델 관리*](how-to-manage-model.md)
+* [방법: DTDL 모델 관리](how-to-manage-model.md)

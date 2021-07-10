@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/6/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 20afd0a696a2bbeda0e2fa8bb114ecb8b5b6a76b
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: f62e07bbc5b61ce07299f1d617b8aea1b331024e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108205542"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110475593"
 ---
 # <a name="troubleshooting-azure-digital-twins-resource-health"></a>Azure Digital Twins 문제 해결: 리소스 상태
 
@@ -30,7 +30,7 @@ Azure Resource Health를 사용하여 Azure Digital Twins 인스턴스가 실행
 
 2. 인스턴스의 메뉴에서 *지원 + 문제 해결* 아래에 있는 _**리소스 상태**_ 를 선택합니다. 그러면 리소스 상태 기록을 볼 수 있는 페이지로 연결됩니다. 
 
-    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="'리소스 상태' 페이지를 보여 주는 스크린샷. 지난 9일 동안의 일별 보고서를 표시하는 '상태 기록' 섹션이 있습니다. 매일 '사용 가능' 상태를 표시합니다.":::
+    :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="'리소스 상태' 페이지를 보여주는 스크린샷. 지난 9일 동안의 일별 보고서를 표시하는 '상태 기록' 섹션이 있습니다.":::
 
 위의 이미지에서 이 인스턴스는 *사용 가능* 으로 표시되며 지난 9일 동안의 상태였습니다. *사용 가능* 상태 및 표시될 수 있는 기타 상태 유형에 대한 자세한 내용은 [Azure Resource Health 개요](../service-health/resource-health-overview.md)를 참조하세요.
 

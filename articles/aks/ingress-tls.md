@@ -5,12 +5,12 @@ description: 자동 TLS 인증서 생성을 위해 Let's Encrypt를 사용하는
 services: container-service
 ms.topic: article
 ms.date: 04/23/2021
-ms.openlocfilehash: 74a44a4f3cb17084c0c2f433ad66a77928e037a6
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: 0e592e89e208d8a2ddf1b8fc1d30e53609ac7f41
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006803"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110454005"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -32,7 +32,9 @@ ms.locfileid: "108006803"
 
 또한 이 문서에서는 AKS 클러스터와 동일한 리소스 그룹에 [DNS 영역][dns-zone]을 포함하는 [사용자 지정 도메인][custom-domain]이 있다고 가정합니다.
 
-이 문서에서는 [Helm 3][helm]을 사용하여 NGINX 수신 컨트롤러와 cert-manager를 설치합니다. 최신 릴리스의 Helm을 사용하고 있고 *ingress-nginx* 와 *jetstack* Helm 리포지토리에 대한 액세스 권한이 있는지 확인합니다. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요. Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요.
+이 문서에서는 [Helm 3][helm]을 사용하여 [지원되는 Kubernetes 버전][aks-supported versions]에 NGINX 수신 컨트롤러를 설치합니다. 최신 릴리스의 Helm을 사용하고 있고 *ingress-nginx* 와 *jetstack* Helm 리포지토리에 대한 액세스 권한이 있는지 확인합니다. 이 문서에 설명된 단계는 이전 버전의 Helm 차트, NGINX 수신 컨트롤러 또는 Kubernetes와 호환되지 않을 수 있습니다.
+
+Helm을 구성하고 사용하는 방법에 대한 자세한 내용은 [Helm을 사용하여 AKS(Azure Kubernetes Service)에 애플리케이션 설치][use-helm]를 참조하세요. 업그레이드 지침은 [Helm 설치 문서][helm-install]를 참조하세요.
 
 또한 이 문서에서는 Azure CLI 버전 2.0.64 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -43,10 +45,10 @@ ms.locfileid: "108006803"
 수신 컨트롤러도 Linux 노드에서 예약해야 합니다. Windows Server 노드가 수신 컨트롤러를 실행해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용하여 노드 선택기를 지정하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행하도록 Kubernetes 스케줄러에 지시할 수 있습니다.
 
 > [!TIP]
-> 다음 예에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
+> 다음 예제에서는 *ingress-basic* 이라는 수신 리소스에 대한 Kubernetes 네임스페이스를 만듭니다. 필요에 따라 사용자 환경에 대한 네임스페이스를 지정합니다.
 
 > [!TIP]
-> 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm install 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지가 사용 설정된 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
+> 클러스터의 컨테이너에 대한 요청에 대해 [클라이언트 원본 IP 유지][client-source-ip]를 사용하도록 설정하려면 `--set controller.service.externalTrafficPolicy=Local`을 Helm 설치 명령에 추가합니다. 클라이언트 원본 IP가 *X-Forwarded-For* 아래의 요청 헤더에 저장됩니다. 클라이언트 원본 IP 유지가 활성화된 수신 컨트롤러를 사용하는 경우 TLS 통과는 작동하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -173,7 +175,7 @@ kubectl apply -f cluster-issuer.yaml
 
 수신 컨트롤러와 인증서 관리 솔루션이 구성되었습니다. 이제 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행하겠습니다. 이 예제에서는 Helm을 사용하여 간단한 *Hello world* 애플리케이션의 두 인스턴스를 배포합니다.
 
-작동 중인 수신 컨트롤러를 확인하려면 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행합니다. 이 예제에서는 `kubectl apply`를 사용하여 간단한 *Hello world* 애플리케이션의 두 인스턴스를 배포합니다.
+작동 중인 수신 컨트롤러를 확인하려면 AKS 클러스터에서 두 개의 데모 애플리케이션을 실행합니다. 이 예제에서는 `kubectl apply`을 사용하여 간단한 *Hello world* 애플리케이션의 두 인스턴스를 배포합니다.
 
 *aks-helloworld-one.yaml* 파일을 만들고 다음 예제 YAML에 복사합니다.
 
@@ -363,7 +365,7 @@ tls-secret   True    tls-secret   11m
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 Helm을 사용하여 수신 구성 요소, 인증서 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 이러한 리소스를 정리하려면 전체 샘플 네임스페이스 또는 개별 리소스를 삭제하면 됩니다.
+이 문서에서는 Helm을 사용하여 수신 구성 요소, 인증서 및 샘플 앱을 설치했습니다. Helm 차트를 배포하면 다수의 Kubernetes 리소스가 생성됩니다. 이 리소스에는 Pod, 배포 및 서비스가 포함됩니다. 해당 리소스를 정리하려면 전체 샘플 네임스페이스 또는 개별 리소스를 삭제하면 됩니다.
 
 ### <a name="delete-the-sample-namespace-and-all-resources"></a>샘플 네임스페이스 및 모든 리소스 삭제
 
@@ -373,7 +375,7 @@ tls-secret   True    tls-secret   11m
 kubectl delete namespace ingress-basic
 ```
 
-### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제
+### <a name="delete-resources-individually"></a>리소스를 개별적으로 삭제하거나
 
 또는 생성된 개별 리소스를 삭제하는 것이 보다 세분화된 접근 방식입니다. 먼저 클러스터 발급자 리소스를 제거합니다.
 
@@ -464,3 +466,4 @@ kubectl delete namespace ingress-basic
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [install-azure-cli]: /cli/azure/install-azure-cli
+[aks-supported versions]: supported-kubernetes-versions.md

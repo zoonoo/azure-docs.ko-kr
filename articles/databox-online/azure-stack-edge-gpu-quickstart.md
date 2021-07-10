@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
-ms.date: 04/07/2021
+ms.date: 06/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 43477f11effaafb0bcd6158be6843c79d19092ac
-ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
+ms.openlocfilehash: 0dd8b103f81ea911a079aee6590287a939819b52
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107210813"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982379"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>빠른 시작: GPU가 있는 Azure Stack Edge Pro 시작 
 
@@ -30,7 +30,7 @@ ms.locfileid: "107210813"
 1. 디바이스가 [나열된 URL 패턴 및 포트](azure-stack-edge-gpu-system-requirements.md#networking-port-requirements)에 도달할 수 있도록 네트워크를 구성합니다. 
 1. 구독에 대한 소유자 또는 기여자 액세스 권한이 있습니다.
 1. Azure Portal에서 **홈 > 구독 > 사용자의 구독 > 리소스 공급자** 로 차례로 이동합니다. `Microsoft.DataBoxEdge`를 검색하고 리소스 공급자를 등록합니다. 컴퓨팅 워크로드를 배포하는 IoT Hub 리소스를 만드는 경우 `Microsoft.Devices`를 등록하는 과정을 반복합니다.
-1. Kubernetes 노드에 대해 둘 이상의 사용 가능한 고정 연속 IP가 있고, IoT Edge 서비스에 대해 하나 이상의 고정 IP가 있어야 합니다. 배포하는 각 모듈 또는 외부 서비스에 대해 하나의 추가 IP가 필요합니다.
+1. Kubernetes 노드에 대해 둘 이상의 사용 가능한 고정 연속 IP가 있고, IoT Edge 서비스에 대해 하나 이상의 고정 IP가 있어야 합니다. 배포하는 각 모듈 또는 외부 서비스에 대해 1개 이상의 IP가 필요합니다.
 1. 디바이스 구성에 필요한 모든 항목을 가져오려면 [배포 검사 목록](azure-stack-edge-gpu-deploy-checklist.md)을 참조하세요. 
 
 
@@ -42,7 +42,7 @@ ms.locfileid: "107210813"
 
     디바이스를 배포하는 데 필요한 최소 케이블 구성은 다음과 같습니다.  ![케이블이 연결되는 디바이스의 후면](./media/azure-stack-edge-gpu-quickstart/backplane-min-cabling-1.png)
 
-2. **연결**: 고정 IP 주소(**192.168.100.5**) 및 서브넷(**255.255.255.0**)을 사용하여 컴퓨터의 이더넷 어댑터에서 IPv4 설정을 구성합니다. 브라우저를 열고, https://192.168.100.10 에서 디바이스의 로컬 웹 UI에 연결합니다. 몇 분이 걸릴 수 있습니다. 보안 인증서 경고가 표시되면 웹 페이지를 계속 진행합니다.
+2. **연결**: 고정 IP 주소(**192.168.100.5**) 및 서브넷(**255.255.255.0**)을 사용하여 컴퓨터의 이더넷 어댑터에서 IPv4 설정을 구성합니다. 브라우저를 열고 https://192.168.100.10 에서 디바이스의 로컬 웹 UI에 연결합니다. 몇 분이 걸릴 수 있습니다. 보안 인증서 경고가 표시되면 웹 페이지를 계속 진행합니다.
 
 3. **로그인**: 기본 암호(*Password1*)를 사용하여 디바이스에 로그인합니다. 디바이스 관리자 암호를 변경합니다. 암호는 8~16자여야 하며, 3자의 대문자, 소문자, 숫자 및 특수 문자를 포함해야 합니다.
 
@@ -72,11 +72,8 @@ ms.locfileid: "107210813"
 
 12. **컴퓨팅 구성**: Azure Portal에서 **개요 > 디바이스** 로 차례로 이동합니다. 디바이스가 **온라인** 인지 확인합니다. 왼쪽 창에서 **Edge 컴퓨팅 > 시작 > Edge 컴퓨팅 구성 > 컴퓨팅** 으로 차례로 이동합니다. 기존 또는 새 IoT Hub 서비스를 제공하고, 컴퓨팅이 구성될 때까지 약 20분 정도 기다립니다. 자세한 내용은 [자습서: Azure Stack Edge Pro GPU 디바이스에 컴퓨팅 구성](azure-stack-edge-gpu-deploy-configure-compute.md)을 참조하세요.
 
-[IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) 또는 [Azure Arc 지원 Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)를 통해 컴퓨팅 워크로드를 디바이스에 배포할 준비가 되었습니다. 설치하는 동안 문제가 발생하면 [디바이스 문제](), [주문 문제](azure-stack-edge-gpu-troubleshoot.md), [인증서 문제](azure-stack-edge-gpu-certificate-troubleshooting.md), 또는 Kubernetes 문제 해결로 이동합니다. 
+[IoT Edge](azure-stack-edge-gpu-deploy-sample-module-marketplace.md), [`kubectl`](azure-stack-edge-gpu-create-kubernetes-cluster.md) 또는 [Azure Arc 지원 Kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)를 통해 디바이스에 컴퓨팅 워크로드를 배포할 준비가 되었습니다. 설치하는 동안 문제가 발생하는 경우 [Azure Stack Edge Pro GPU 디바이스](azure-stack-edge-gpu-troubleshoot.md), [인증서 문제](azure-stack-edge-gpu-certificate-troubleshooting.md), [IoT Edge 문제](azure-stack-edge-gpu-troubleshoot-iot-edge.md)에 대한 문제 해결을 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure Stack Edge Pro GPU 설치](./azure-stack-edge-gpu-deploy-install.md)
-
-
-

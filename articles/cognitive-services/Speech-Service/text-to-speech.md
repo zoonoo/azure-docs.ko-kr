@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: 텍스트 음성 변환
-ms.openlocfilehash: 73e37fde4b3c2dd1aeb6ab171c3726f1b4353949
-ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
+ms.openlocfilehash: 53b4d7a3e8b0831856f2b43fac40962fe81065d1
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/08/2021
-ms.locfileid: "107106091"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110478091"
 ---
 # <a name="what-is-text-to-speech"></a>텍스트 음성 변환이란?
 
@@ -44,12 +44,9 @@ ms.locfileid: "107106091"
 
 * 신경망 음성 - 심층 신경망은 음성 언어의 강세 및 억양과 관련하여 기존 음성 합성의 한계를 극복하는 데 사용됩니다. 운율 예측 및 음성 합성은 동시에 수행되므로 더 부드럽고 자연스럽게 들리는 출력이 생성됩니다. 신경망 음성을 사용하여 챗봇 및 음성 도우미와의 상호 작용에 더 자연스럽게 참여하도록 만들고, eBook 같은 디지털 텍스트를 오디오북으로 변환하고, 자동차 내부 내비게이션 시스템을 향상시킬 수 있습니다. 인간과 유사한 자연스러운 운율 및 단어의 명확한 조음을 사용하면 AI 시스템과 상호 작용할 때 신경망 음성은 수신 피로도를 현저히 줄일 수 있습니다. 신경망 음성의 전체 목록은 [지원되는 언어](language-support.md#text-to-speech)를 참조하세요.
 
-* SSML을 사용하여 음성 스타일 조정 - SSML(Speech Synthesis Markup Language)은 음성 텍스트 변환 출력을 사용자 지정하는 데 사용되는 XML 기반 태그 언어입니다. SSML를 사용하면 음 높이를 조정하고, 중단을 추가하고, 발음을 개선하고, 음성 속도를 높이거나 낮추고, 볼륨을 높이거나 낮추고, 여러 음성을 단일 문서로 생성할 수 있습니다. 음성 스타일 조정에 관해서는 [방법](speech-synthesis-markup.md)을 참조하세요.
+* SSML을 사용하여 TTS 출력 미세 조정 - SSML(Speech Synthesis Markup Language)은 텍스트 음성 변환 출력을 사용자 지정하는 데 사용되는 XML 기반 태그 언어입니다. SSML을 사용하면 피치를 조정하고, 일시 중지를 추가하고, 발음을 개선하고, 말하기 속도를 변경하고, 볼륨을 조정하고, 여러 음성 특성을 단일 문서로 정의하고, 다른 말하기 스타일로 전환할 수 있습니다. 다국어 음성 기능을 사용하면 SSML을 통해 말하기 언어를 조정할 수도 있습니다. 시나리오의 음성 출력을 미세 조정하기 위해 [SSML을 사용하는 방법](speech-synthesis-markup.md)을 참조하세요. 
 
-* Viseme - [Viseme](how-to-speech-synthesis-viseme.md)는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치를 포함하여 관찰된 음성의 주요 포즈입니다. Viseme는 음성 및 음소와 강력한 상관 관계가 있습니다. Speech SDK에서 viseme 이벤트를 사용하면 입술을 읽는 커뮤니케이션, 교육, 엔터테인먼트 및 고객 서비스에서 얼굴에 애니메이션 효과를 주는 데 사용할 수 있는 얼굴 애니메이션 데이터를 생성할 수 있습니다.
-
-> [!NOTE]
-> Viseme 이벤트는 현재 `en-US-AriaNeural` 음성에만 지원됩니다.
+* Viseme - [Viseme](how-to-speech-synthesis-viseme.md)는 특정 음소를 생성할 때 입술, 턱 및 혀의 위치를 포함하여 관찰된 음성의 주요 포즈입니다. Viseme는 음성 및 음소와 강력한 상관 관계가 있습니다. Speech SDK에서 viseme 이벤트를 사용하면 입술을 읽는 커뮤니케이션, 교육, 엔터테인먼트 및 고객 서비스에서 얼굴에 애니메이션 효과를 주는 데 사용할 수 있는 얼굴 애니메이션 데이터를 생성할 수 있습니다. Viseme은 현재 `en-US` 영어(미국) [신경망 음성](language-support.md#text-to-speech)에만 지원됩니다.
 
 ## <a name="get-started"></a>시작
 
@@ -64,7 +61,7 @@ ms.locfileid: "107106091"
 
 ## <a name="customization"></a>사용자 지정
 
-신경망 음성 외에도 제품 또는 브랜드에 고유한 사용자 지정 음성을 만들고 미세 조정할 수 있습니다. 몇 가지 오디오 파일과 연결된 대화 내용 기록만 있으면 시작할 수 있습니다. 자세한 내용은 [사용자 지정 음성 시작](how-to-custom-voice.md)을 참조하세요.
+신경망 음성 외에도 제품 또는 브랜드에 고유한 사용자 지정 음성을 만들고 미세 조정할 수 있습니다. 몇 가지 오디오 파일과 연결된 대화 내용 기록만 있으면 시작할 수 있습니다. 자세한 내용은 [사용자 지정 신경망 음성 시작](how-to-custom-voice.md)을 참조하세요.
 
 ## <a name="pricing-note"></a>가격 책정 메모
 

@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 13f5db52917cd9659438c551ac2f01c477cc1c7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f56d1c305f5d18d82ae79781a7b60fd6b429357b
+ms.sourcegitcommit: 6323442dbe8effb3cbfc76ffdd6db417eab0cef7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102201297"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110613821"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Azure Digital Twins 인스턴스 및 인증 설정(스크립팅됨)
 
@@ -21,20 +21,22 @@ ms.locfileid: "102201297"
 
 이 문서에서는 인스턴스를 만들고 인증을 설정하는 등 **새 Azure Digital Twins 인스턴스를 설정** 하는 단계에 대해 설명합니다. 이 문서를 완료한 후에는 Azure Digital Twins 인스턴스에 대한 프로그래밍을 시작할 수 있습니다.
 
-이 버전의 이 문서에서는 프로세스를 간소화하는 [**자동화된 배포 스크립트** 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)을 실행하여 이러한 단계를 완료합니다. 
-* 백그라운드에서 스크립트를 실행하는 수동 CLI 단계를 보려면 이 문서의 CLI 버전: [*방법: 인스턴스 및 인증 설정(CLI)* ](how-to-set-up-instance-cli.md)을 참조하세요.
-* Azure Portal에 따라 수동 단계를 보려면 이 문서의 포털 버전: [*방법: 인스턴스 및 인증 설정(포털)* ](how-to-set-up-instance-portal.md)을 참조하세요.
+이 버전의 이 문서에서는 프로세스를 간소화하는 [자동화된 배포 스크립트 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)을 실행하여 이러한 단계를 완료합니다. 
+* 백그라운드에서 스크립트를 실행하는 수동 CLI 단계를 보려면 이 문서의 CLI 버전: [방법: 인스턴스 및 인증 설정(CLI)](how-to-set-up-instance-cli.md) 을 참조하세요.
+* Azure Portal에 따라 수동 단계를 보려면 이 문서의 포털 버전: [방법: 인스턴스 및 인증 설정(포털)](how-to-set-up-instance-portal.md) 을 참조하세요.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+
+## <a name="prerequisites-permission-requirements"></a>필수 조건: 권한 요구 사항
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="prerequisites-download-the-script"></a>필수 구성 요소: 스크립트 다운로드
 
-샘플 스크립트는 PowerShell로 작성됩니다. 이 샘플은 샘플 링크로 이동하고 제목 아래에 있는 *코드 찾아보기* 단추를 선택하여 머신에 다운로드할 수 있는 [**Azure Digital Twins 엔드투엔드 샘플**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)의 일부입니다. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 *.ZIP* 으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
+샘플 스크립트는 PowerShell로 작성됩니다. 이 샘플은 샘플 링크로 이동하고 제목 아래에 있는 코드 찾아보기 단추를 선택하여 머신에 다운로드할 수 있는 *[Azure Digital Twins 엔드투엔드 샘플](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)* 의 일부입니다. 그러면 *코드* 단추와 *ZIP 다운로드* 를 선택하여 .zip으로 다운로드할 수 있는 샘플용 GitHub 리포지토리로 이동합니다.
 
-:::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub의 디지털 트윈 샘플 리포지토리 보기입니다. 코드 단추가 선택되어 ZIP 다운로드 단추가 강조 표시된 작은 대화 상자를 생성합니다." lightbox="media/includes/download-repo-zip.png":::
+:::image type="content" source="media/includes/download-repo-zip.png" alt-text="GitHub에 대한 digital-twins-samples 리포지토리의 스크린샷은 zip으로 다운로드하는 단계를 강조 표시합니다." lightbox="media/includes/download-repo-zip.png":::
 
-그러면 *.ZIP* 폴더가 **digital-twins-samples-master.zip** 으로 머신에 다운로드됩니다. 머신의 폴더로 이동하고 파일의 압축을 풀어 파일을 추출합니다.
+그러면 .zip 폴더가 **digital-twins-samples-master.zip** 으로 머신에 다운로드됩니다. 머신의 폴더로 이동하고 파일의 압축을 풀어 파일을 추출합니다.
 
 압축을 푼 폴더에서 배포 스크립트는 _digital-twins-samples-master > scripts > **deploy.ps1**_ 에 위치합니다.
 
@@ -53,13 +55,13 @@ Cloud Shell에서 배포 스크립트를 실행하는 단계는 다음과 같습
  
 2. Cloud Shell 아이콘 모음에서 Cloud Shell이 PowerShell 버전을 실행하도록 설정되었는지 확인합니다.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="PowerShell 버전 선택을 보여 주는 Cloud Shell 창":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="PowerShell 버전 선택을 보여주는 Azure Portal의 Cloud Shell 창 스크린샷.":::
 
 1. "파일 업로드/다운로드" 아이콘을 선택하고, "업로드"를 선택합니다.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="업로드 아이콘 선택을 보여 주는 Cloud Shell 창":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="업로드 아이콘 선택을 보여주는 Azure Portal의 Cloud Shell 창 스크린샷.":::
 
-    머신에서 _**deploy.ps1**_ 파일로 이동하고(_digital-twins-samples-master > scripts > **deploy.ps1**_ 에서) "열기"를 누릅니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드됩니다.
+    머신에서 _**deploy.ps1**_ 파일로 이동하고(_digital-twins-samples-master > scripts > **deploy.ps1**_ 에서) "열기"를 선택합니다. 그러면 Cloud Shell 창에서 실행할 수 있도록 Cloud Shell에 파일이 업로드됩니다.
 
 4. Cloud Shell 창에서 `./deploy.ps1` 명령을 전송하여 스크립트를 실행합니다. 아래 명령을 복사할 수 있습니다.(Cloud Shell에 붙여 넣으려면 Windows 및 Linux에서는 **Ctrl+Shift+V** 를 사용하거나 macOS에서는 **Cmd+Shift+V** 를 사용할 수 있습니다. 오른쪽 클릭 메뉴를 사용할 수도 있습니다.)
 
@@ -71,25 +73,25 @@ Cloud Shell에서 배포 스크립트를 실행하는 단계는 다음과 같습
 
     스크립트가 자동화된 설치 단계를 실행하면 다음 값을 전달하라는 메시지가 표시됩니다.
     * 인스턴스의 경우: 사용할 Azure 구독의 *구독 ID*
-    * 인스턴스의 경우: 인스턴스를 배포하려는 *위치* Azure Digital Twins를 지원하는 지역을 확인하려면 [*지역별 사용 가능한 Azure 제품*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
+    * 인스턴스의 경우: 인스턴스를 배포할 *위치* 입니다. Azure Digital Twins를 지원하는 지역을 확인하려면 [지역별 사용 가능한 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)을 참조하세요.
     * 인스턴스의 경우: *리소스 그룹* 이름 기존 리소스 그룹을 사용하거나 새 이름을 입력하여 만들 수 있습니다.
     * 인스턴스의 경우: Azure Digital Twins 인스턴스의 *이름* 구독에 이미 지정된 이름을 사용하고 있는 지역에 다른 Azure Digital Twins 인스턴스가 있는 경우 다른 이름을 선택하라는 메시지가 표시됩니다.
 
 다음은 스크립트에서 출력 로그를 발췌한 것입니다.
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="배포 스크립트를 실행하여 입력 및 출력 로그를 표시하는 Cloud Shell 창" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="배포 스크립트를 실행하여 입력 및 출력 로그를 보여주는 Azure Portal의 Cloud Shell 창 스크린샷." lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 스크립트가 성공적으로 완료되면 최종 인쇄물은 `Deployment completed successfully`로 표시됩니다. 그렇지 않으면 오류 메시지를 해결하고, 스크립트를 다시 실행합니다. 이미 완료한 단계를 무시하고 종료된 지점에서 입력 요청을 다시 시작합니다.
 
 > [!NOTE]
-> 이 스크립트는 현재 Azure Digital Twins(*Azure Digital Twins 데이터 소유자*) 내에서 Cloud Shell의 스크립트를 실행하는 동일한 사용자에게 필요한 관리 역할을 할당합니다. 인스턴스를 관리하는 다른 사람에게 이 역할을 할당해야 하는 경우 Azure Portal([지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) 또는 CLI([지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions))를 통해 이 작업을 수행할 수 있습니다.
+> 이 스크립트는 현재 Azure Digital Twins(*Azure Digital Twins 데이터 소유자*) 내에서 Cloud Shell의 스크립트를 실행하는 동일한 사용자에게 필요한 관리 역할을 할당합니다. 인스턴스를 관리하는 다른 사람에게 이 역할을 할당해야 하는 경우 [Azure Portal 지침](how-to-set-up-instance-portal.md#set-up-user-access-permissions) 또는 [CLI 지침](how-to-set-up-instance-cli.md#set-up-user-access-permissions)을 통해 이 작업을 수행할 수 있습니다.
 
 >[!NOTE]
 >현재 스크립팅된 설치와 관련하여 **알려진 문제** 가 있습니다. 일부 사용자(특히 개인 [MSA(Microsoft 계정](https://account.microsoft.com/account))의 사용자)가 **_Azure Digital Twins 데이터 소유자_ 에 대한 역할 할당이 생성되지 않은 것** 을 찾을 수 있습니다.
 >
->이 문서의 뒷부분에 나오는 [*사용자 역할 할당 확인*](#verify-user-role-assignment) 섹션을 사용하여 역할 할당을 확인하고 필요한 경우 [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) 또는 [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)를 사용하여 역할 할당을 수동으로 설정할 수 있습니다.
+>이 문서의 뒷부분에 나오는 [사용자 역할 할당 확인](#verify-user-role-assignment) 섹션을 사용하여 역할 할당을 확인하고 필요한 경우 [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) 또는 [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions)를 사용하여 역할 할당을 수동으로 설정할 수 있습니다.
 >
->이 문제에 대한 자세한 내용은 [*문제 해결: Azure Digital Twins의 알려진 문제*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup)를 참조하세요.
+>이 문제에 대한 자세한 내용은 [문제 해결: Azure Digital Twins의 알려진 문제](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup)를 참조하세요.
 
 ## <a name="verify-success-and-collect-important-values"></a>성공 확인 및 중요한 값 수집
 
@@ -109,7 +111,7 @@ Cloud Shell에서 배포 스크립트를 실행하는 단계는 다음과 같습
 
 [Azure Digital Twins 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances)에서 인스턴스의 이름을 선택하여 인스턴스의 *개요* 페이지를 엽니다. 해당 *이름*, *리소스 그룹* 및 *호스트 이름* 을 확인합니다. 나중에 인스턴스를 식별하고 연결하는 데 필요할 수 있습니다.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="인스턴스의 개요 페이지에서 중요한 값 강조 표시":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Azure Digital Twins 인스턴스의 개요 페이지에서 중요한 값을 강조 표시하는 Azure Portal의 스크린샷.":::
 
 ### <a name="verify-user-role-assignment"></a>사용자 역할 할당 확인
 
@@ -123,8 +125,8 @@ Cloud Shell에서 배포 스크립트를 실행하는 단계는 다음과 같습
 ## <a name="next-steps"></a>다음 단계
 
 Azure Digital Twins CLI 명령을 사용하여 인스턴스에서 개별 REST API 호출을 테스트합니다. 
-* [az dt reference](/cli/azure/ext/azure-iot/dt)
-* [*방법: Azure Digital Twins CLI 사용*](how-to-use-cli.md)
+* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [개념: Azure Digital Twins CLI 명령 집합](concepts-cli.md)
 
 또는 인증 코드를 사용하여 인스턴스에 클라이언트 애플리케이션을 연결하는 방법을 참조하세요.
-* [*방법: 앱 인증 코드 작성*](how-to-authenticate-client.md)
+* [방법: 앱 인증 코드 작성](how-to-authenticate-client.md)

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 06/04/2021
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: a3c10ca35ee2f085d4ce41e862a895ff17ff63a0
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: include file, devx-track-azurepowershell
+ms.openlocfilehash: d41b443a076e303d96588a27285b671123593b57
+ms.sourcegitcommit: 832e92d3b81435c0aeb3d4edbe8f2c1f0aa8a46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "84317462"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111556445"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 엔드포인트를 몇 개까지 지정할 수 있습니까?
 
@@ -31,7 +31,7 @@ ms.locfileid: "84317462"
 * Windows Server 2016(64비트 전용)
 * Windows Server 2019(64비트 전용)
 * 윈도우 10
-* Mac OS X 버전 10.11 이상
+* macOS 버전 10.11 이상
 * Linux(StrongSwan)
 * iOS
 
@@ -65,7 +65,7 @@ Azure에서는 세 가지 형식의 지점 및 사이트 간 VPN 옵션을 지�
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크에 동시에 연결하도록 구성할 수 있습니까?
 
-예, 다른 Vnet와 피어링된 VNet에 배포된 Virtual Network 게이트웨이에 대한 지점 및 사이트 간 연결에는 피어링된 다른 Vnet에 대한 액세스 권한이 있을 수 있습니다.  피어링된 Vnet이 UseRemoteGateway/AllowGatewayTransit 기능을 사용하는 경우 지점 및 사이트 간 클라이언트는 피어링된 이 Vnet에 연결할 수 있습니다.  자세한 내용은 이 [문서](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md)를 참조하세요.
+예. 다른 Vnet과 피어링된 VNet에 배포된 가상 네트워크 게이트웨이에 대한 지점 및 사이트 간 클라이언트 연결에는 피어링된 다른 VNet에 대한 액세스 권한이 있을 수 있습니다. 피어링된 VNet이 UseRemoteGateway/AllowGatewayTransit 기능을 사용하는 경우 지점 및 사이트 간 클라이언트는 피어링된 VNet에 연결할 수 있습니다. 자세한 내용은 [지점 및 사이트 간 라우팅 정보](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md)를 참조하세요.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>사이트 간 연결 또는 지점 및 사이트 간 연결을 통해 어느 정도의 처리량을 제공할 수 있습니까?
 
@@ -73,7 +73,11 @@ VPN 터널의 정확한 처리량을 유지하는 것은 어렵습니다. IPsec�
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>SSTP 및/또는 IKEv2를 지원하는 지점 및 사이트 간 연결에 소프트웨어 VPN 클라이언트를 사용할 수 있나요?
 
-아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 그러나 모든 플랫폼의 OpenVPN 클라이언트를 사용하여 OpenVPN 프로토콜을 통해 연결할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
+아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 그러나 모든 플랫폼의 OpenVPN 클라이언트를 사용하여 OpenVPN 프로토콜을 통해 연결할 수 있습니다. [지원되는 클라이언트 운영 체제](#supportedclientos) 목록을 참조하세요.
+
+### <a name="can-i-change-the-authentication-type-for-a-point-to-site-connection"></a>지점 및 사이트 간 연결의 인증 유형을 변경하려면 어떻게 할까요?
+
+예. 포털에서 **VPN 게이트웨이 -> 지점 및 사이트 간 구성** 페이지로 이동합니다. **인증 유형** 에서 사용하려는 인증 유형을 선택합니다. 인증 유형을 변경한 후에는 새 VPN 클라이언트 구성 프로필이 생성, 다운로드되고 각 VPN 클라이언트에 적용될 때까지 현재 클라이언트에서 연결하지 못할 수 있습니다.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure는 Windows에서 IKEv2 VPN을 지원합니까?
 
@@ -102,7 +106,7 @@ Azure는 P2S VPN에 대해 Windows, Mac 및 Linux를 지원합니다.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>배포된 Azure VPN Gateway가 이미 있습니다. 여기에서 RADIUS 및/또는 IKEv2 VPN을 사용할 수 있습니까?
 
-예, 사용하는 게이트웨이 SKU에서 RADIUS 및/또는 IKEv2를 지원하는 경우 Powershell 또는 Azure Portal을 사용하여 이미 배포된 게이트웨이에서 이러한 새 기능을 사용할 수 있습니다. 예를 들어 VPN 게이트웨이 기본 SKU는 RADIUS 또는 IKEv2를 지원하지 않습니다.
+예. 사용 중인 게이트웨이 SKU에서 RADIUS 및/또는 IKEv2를 지원하는 경우 PowerShell 또는 Azure Portal을 사용하여 이미 배포한 게이트웨이에서 이 기능을 사용할 수 있습니다. 기본 SKU는 RADIUS 또는 IKEv2를 지원하지 않습니다.
 
 ### <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a><a name="removeconfig"></a>P2S 연결 구성을 제거하는 방법은 무엇인가요?
 

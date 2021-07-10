@@ -1,23 +1,23 @@
 ---
 title: Azure 등록 시 거부된 카드 문제 해결
-description: Azure Portal 또는 계정 센터에서 Azure 등록 시 거부된 신용 카드를 확인합니다.
+description: Azure Portal에서 Azure 등록 시 거부된 신용 카드를 확인합니다.
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 05/13/2021
 ms.author: banders
-ms.openlocfilehash: 5b53d1855abb3114be1ab31e19af3bb3a11d722f
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e2295a974baec9a841e79873568f3f3c7c835544
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132162"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110470852"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Azure 등록 시 거부된 카드 문제 해결
 
-Microsoft Azure Portal 또는 Azure 계정 센터에서 Azure 등록 시 신용 카드가 거부되는 문제 또는 오류가 발생할 수 있습니다.
+Microsoft Azure Portal에서 Azure 등록 시 신용 카드가 거부되는 문제 또는 오류가 발생할 수 있습니다.
 
 문제를 해결하려면 오류와 가장 유사한 아래 항목을 선택합니다.
 
@@ -42,9 +42,9 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 Azure 등록 시 신용 
 
 다른 등록 문제가 발생했을 수 있습니다.
 
-Azure 등록 문제를 해결하는 방법에 대한 자세한 내용은 다음 기술 자료 문서를 참조하세요.
+Azure 등록 문제를 해결하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-[Azure Portal 또는 Azure 계정 센터에서 Azure에 등록할 수 없습니다.](troubleshoot-azure-sign-up.md)
+[Azure Portal에서 Azure에 등록할 수 없음](troubleshoot-azure-sign-up.md)
 
 ## <a name="you-represent-a-business-that-doesnt-want-to-pay-by-card"></a>카드 이외의 방법으로 결제하려는 비즈니스를 표시합니다.
 

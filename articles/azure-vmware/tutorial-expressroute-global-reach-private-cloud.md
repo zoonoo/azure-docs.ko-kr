@@ -3,13 +3,13 @@ title: 온-프레미스 환경을 Azure VMware Solution에 피어링
 description: Azure VMware Solution의 프라이빗 클라우드에 대한 ExpressRoute Global Reach 피어링을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 04/27/2021
-ms.openlocfilehash: fb0d8bc8391c96449cdf260c543cfed1af1125f5
-ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.date: 05/14/2021
+ms.openlocfilehash: 2b2fdf739b8e690b3210e1ba975ef14125e51c11
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108176111"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110086863"
 ---
 # <a name="peer-on-premises-environments-to-azure-vmware-solution"></a>온-프레미스 환경을 Azure VMware Solution에 피어링
 
@@ -33,7 +33,7 @@ ExpressRoute Global Reach를 사용하여 두 ExpressRoute 회로 간에 연결�
 - ExpressRoute 공급자 서비스를 포함한 모든 게이트웨이가 4바이트 ASN(자율 시스템 번호)을 지원하는지 확인합니다. Azure VMware Solution은 경고를 알리는 데 4바이트 공용 ASN을 사용합니다.
 
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-expressroute-circuit"></a>온-프레미스 ExpressRoute 회로에서 ExpressRoute 권한 부여 키를 만듭니다.
+## <a name="create-an-expressroute-auth-key-in-the-on-premises-expressroute-circuit"></a>온-프레미스 ExpressRoute 회로에서 ExpressRoute 권한 키를 만듭니다.
 
 1. **ExpressRoute 회로** 블레이드의 설정에서 **권한 부여** 를 선택합니다.
 

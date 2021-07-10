@@ -7,16 +7,22 @@ ms.author: anvar
 ms.manager: bsiva
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 3f49c0acc99f82cc2986ca896d40b3998cf47c5c
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: dadde132effe24fa1cdffd8830139573de4ee5d4
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107835005"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439983"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
 [Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 릴리스와 기능이 요약되어 있습니다.
+
+## <a name="update-june-2021"></a>업데이트(2021년 6월)
+- Azure Migrate를 사용하면 복제하는 동안 SQL Server를 실행하는 서버를 SQL VM RP에 등록하여 SQL IaaS 에이전트 확장을 자동으로 설치할 수 있습니다. 이 기능은 에이전트 없는 VMware, 에이전트 없는 Hyper-V 및 에이전트 기반 마이그레이션에 사용할 수 있습니다.
+
+## <a name="update-may-2021"></a>업데이트(2021년 5월)
+- 이제 에이전트 기반 마이그레이션 방법을 사용하여 OS 디스크가 최대 4TB인 VM 및 물리적 서버의 마이그레이션이 지원됩니다.
 
 ## <a name="update-march-2021"></a>업데이트(2021년 3월)
 - Azure Migrate 어플라이언스에서 여러 서버 자격 증명을 제공하여 설치된 애플리케이션(소프트웨어 인벤토리), 에이전트 없는 종속성 분석을 검색하고 VMware 환경에서 SQL Server 인스턴스와 데이터베이스를 검색할 수 있도록 지원합니다. [자세한 정보](tutorial-discover-vmware.md#provide-server-credentials)
@@ -59,7 +65,7 @@ ms.locfileid: "107835005"
 
 ## <a name="update-april-2020"></a>업데이트(2020년 4월)
 
-Azure Migrate는 Azure Government에서의 배포를 지원합니다. 
+Azure Migrate는 Azure Government에서의 배포를 지원합니다.
 
 - VMware VM, Hyper-V VM 및 물리적 서버를 검색 및 평가할 수 있습니다.
 - VMware VM, Hyper-V VM 및 물리적 서버를 Azure로 마이그레이션할 수 있습니다.

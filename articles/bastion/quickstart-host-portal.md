@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Bastion을 구성하고 개인 IP 주소 및 브라우저를 통해 VM에 연결'
 titleSuffix: Azure Bastion
-description: 이 빠른 시작 문서에서는 가상 머신에서 Azure Bastion 호스트를 만들고 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결하는 방법을 알아봅니다.
+description: 가상 머신에서 Azure Bastion 호스트를 만들고 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결하는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 02/18/2021
 ms.author: cherylmc
-ms.openlocfilehash: 53f09eed89f9667611ed4d5e0268c889609d560a
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: e51d8633418a0a00afb8a6055c05f9c77d93f3cb
+ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553569"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110540456"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>빠른 시작: 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결
 

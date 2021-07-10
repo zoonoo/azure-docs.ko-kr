@@ -10,14 +10,14 @@ ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
 ms.date: 05/25/2021
-ms.openlocfilehash: 472af8cdb377ea5eb1be15ebcfadabb38311545a
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: bc1983a16ba2ec85dc943e10d7b2220b0de1dc88
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382664"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111408536"
 ---
-# <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란?
+# <a name="what-are-azure-machine-learning-endpoints-preview"></a>Azure Machine Learning 엔드포인트(미리 보기)란? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 

@@ -7,15 +7,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 04/23/2021
+ms.date: 05/21/2021
 ms.custom: devx-track-csharp
 ms.devlang: dotnet
-ms.openlocfilehash: b7bbf9f1ec572680f02e4b6d3adca6d807b45f83
-ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
+ms.openlocfilehash: 7822f86b52bf3b8fce9ee144797d8a9b83d90a9b
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/25/2021
-ms.locfileid: "107981980"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469855"
 ---
 # <a name="2---create-and-load-search-index-with-net"></a>2 - .NET을 사용하여 검색 인덱스 만들기 및 로드
 
@@ -103,6 +103,14 @@ Visual Studio Code 확장을 사용하여 검색 리소스 관리자 키를 가�
 
 > [!CAUTION]
 > Azure 함수에서 검색 관리자 키를 사용하려고 할 수 있지만, 이는 최소 권한 원칙을 준수하지 않습니다. Azure 함수는 최소 권한을 준수하기 위해 쿼리 키를 사용합니다. 
+
+## <a name="rollback-bulk-import-file-changes"></a>대량 가져오기 파일 변경 내용 롤백
+
+`bulk-insert` 디렉터리에 있는 VS Code 통합 터미널에서 다음 git 명령을 사용하여 변경 내용을 롤백합니다. 이 자습서를 계속 진행하는 데 필요하지는 않으므로 이러한 비밀을 리포지토리로 저장하거나 푸시하지 않는 것이 좋습니다. 
+
+```git
+git checkout .
+```
 
 ## <a name="next-steps"></a>다음 단계
 

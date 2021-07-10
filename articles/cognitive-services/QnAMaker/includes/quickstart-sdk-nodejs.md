@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Node.js용 QnA Maker 클라이언트 라
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d0522be53ec9b1008f18725308c91a19ee24156
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: c101458f9cee00fbc1f25f4c6679485439864eab
+ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609396"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110487183"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker 일반 공급(안정적인 릴리스)](#tab/version-1)
 
@@ -26,7 +26,7 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
 
 [참조 설명서](/javascript/api/@azure/cognitiveservices-qnamaker/) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-qnamaker) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 수행할 수 있습니다.
 
@@ -54,14 +54,12 @@ Node.js용 QnA Maker 클라이언트 라이브러리를 사용하여 다음을 �
     * 애플리케이션을 QnA Maker API에 연결하려면 만드는 리소스의 키와 리소스 이름이 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 리소스 이름을 붙여넣을 것입니다.
     * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/cognitive-services)
 * 현재 버전의 [Node.js](https://nodejs.org)
-* Azure 구독을 보유한 후에는 Azure Portal에서 [QnA Maker 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)를 만들어 제작 키와 엔드포인트를 가져옵니다.
-    * 참고: **관리** 확인란을 선택해야 합니다.
-    * QnA Maker 리소스를 배포한 후 **리소스로 이동** 을 선택합니다. 애플리케이션을 QnA Maker API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
-    * 평가판 가격 책정 계층(`F0`)을 통해 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드할 수 있습니다.
+* 사용자 지정 질문 및 답변에는 API 키 및 엔드포인트를 생성할 수 있는 사용자 지정 질문 답변 기능이 활성화된 [Text Analytics 리소스](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics)가 필요합니다.
+     * Text Analytics 리소스를 배포한 후 **리소스로 이동** 을 선택합니다. 애플리케이션을 QnA Maker API에 연결하려면 만든 리소스의 키와 엔드포인트가 필요합니다. 이 빠른 시작의 뒷부분에 나오는 코드에 키와 엔드포인트를 붙여넣습니다.
 
 ---
 
@@ -93,7 +91,7 @@ npm install @azure/cognitiveservices-qnamaker-runtime
 npm install @azure/ms-rest-js
 ```
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 다음 NPM 패키지를 설치합니다.
 
@@ -112,7 +110,7 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Dependencies)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Dependencies](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Dependencies)]
 
@@ -136,14 +134,15 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=Resourcevariables)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
-- 구독 키와 작성 키를 서로 바꿔 가며 사용합니다. 작성 키에 대한 자세한 내용은 [QnA Maker의 키](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker)를 참조하세요.
+- 구독 키와 작성 키를 서로 바꿔 가며 사용합니다. 작성 키에 대한 자세한 내용은 [키](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker)를 참조하세요.
 
-- QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. Azure Portal로 이동하여 필수 구성 요소에서 만든 QnA Maker 리소스를 찾습니다. **리소스 관리** 에서 **키 및 엔드포인트** 페이지를 클릭하여 작성(구독) 키 및 QnA Maker 엔드포인트를 찾습니다.
+- QNA_MAKER_ENDPOINT 값의 형식은 `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`입니다. Azure Portal로 이동하여 필수 구성 요소에서 만든 Text Analytics 리소스를 찾습니다. **리소스 관리** 에서 **키 및 엔드포인트** 페이지를 클릭하여 작성(구독) 키 및 엔드포인트를 찾습니다.
 
- ![QnA Maker 작성 엔드포인트](../media/keys-endpoint.png)
- 
+> [!div class="mx-imgBorder"]
+> ![사용자 지정 QnA 작성 엔드포인트](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+
 - 프로덕션의 경우 자격 증명을 안전하게 저장하고 액세스하는 방법을 사용하는 것이 좋습니다. 예를 들어 [Azure Key Vault](../../../key-vault/general/overview.md)는 보안 키 스토리지를 제공합니다.
 
 [!code-javascript[Set the resource key and resource name](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=Resourcevariables)]
@@ -158,7 +157,7 @@ index.js 파일을 만들고 다음 라이브러리를 가져옵니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하는 개체입니다.
 * **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** 은 GenerateAnswer API를 사용하여 기술 자료를 쿼리하고 Train API([활성 학습](../how-to/use-active-learning.md)의 일부로)를 사용하여 새로운 제안된 질문을 보내는 개체입니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [QnA Maker](/javascript/api/@azure/cognitiveservices-qnamaker/)는 다음 개체 모델을 사용합니다.
 * **[QnAMakerClient](#qnamakerclient-object-model)** 는 기술 자료를 만들고, 관리하고, 게시하고, 다운로드하고, 쿼리하는 개체입니다.
@@ -179,9 +178,9 @@ JSON 개체를 전송하여 기술 자료를 관리합니다. 즉각적인 작�
 
 예측 QnA Maker 클라이언트는 Microsoft.Rest.ServiceClientCredentials를 사용하여 Azure에 인증하는 QnAMakerRuntimeClient 개체입니다. 이 개체는 기술 자료가 게시된 후에 제작 클라이언트 호출([client.EndpointKeys.getKeys](/javascript/api/@azure/cognitiveservices-qnamaker/endpointkeys#getkeys-msrest-requestoptionsbase-))에서 반환된 예측 런타임 키를 포함합니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
-QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사용할 필요가 없습니다. 대신 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) 개체에서 직접 [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_)를 호출합니다.
+사용자 지정 질문 답변에는 QnAMakerRuntimeClient 개체를 사용할 필요가 없습니다. 대신 [QnAMakerClient](/javascript/api/@azure/cognitiveservices-qnamaker/qnamakerclient) 개체에서 직접 [generateAnswer](/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase#generateAnswer_string__QueryDTO__msRest_RequestOptionsBase_)를 호출합니다.
 
 ---
 
@@ -202,7 +201,7 @@ QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사
 * [쿼리 런타임 클라이언트 인증](#authenticate-the-runtime-for-generating-an-answer)
 * [기술 자료에서 답변 생성](#generate-an-answer-from-the-knowledge-base)
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 * [제작 클라이언트 인증](#authenticate-the-client-for-authoring-the-knowledge-base)
 * [기술 자료 만들기](#create-a-knowledge-base)
@@ -223,7 +222,7 @@ QnA Maker의 관리되는 리소스에서는 QnAMakerRuntimeClient 개체를 사
 
 [!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=AuthorizationAuthor)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Create QnAMakerClient object with key and endpoint](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=AuthorizationAuthor)]
 
@@ -251,7 +250,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 [!code-javascript[Create knowledgebase](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=CreateKBMethod)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Create knowledgebase](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=CreateKBMethod)]
 
@@ -267,7 +266,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 [!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=UpdateKBMethod)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Update a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=UpdateKBMethod)]
 
@@ -283,7 +282,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 [!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DownloadKB)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Download a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=DownloadKB)]
 
@@ -297,7 +296,7 @@ create 메서드가 반환되면 반환된 작업 ID를 [wait_for_operation](#ge
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=PublishKB)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Publish a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=PublishKB)]
 
@@ -331,7 +330,7 @@ RuntimeClient.runtime.generateAnswer 메서드를 사용하여 게시된 기술 
 
 [!code-javascript[Generate an answer from a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=GenerateAnswer)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 ### <a name="generate-an-answer-from-the-knowledge-base"></a>기술 자료에서 답변 생성
 
@@ -351,7 +350,7 @@ QnAMakerClient.knowledgebase.generateAnswer 메서드를 사용하여 게시된 
 
 [!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=DeleteKB)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Delete a knowledge base](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=DeleteKB)]
 
@@ -367,7 +366,7 @@ create 및 update와 같은 일부 메서드는 프로세스가 완료될 때까
 
 [!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/qnamaker_quickstart.js?name=MonitorOperation)]
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 [!code-javascript[Monitor an operation](~/cognitive-services-quickstart-code/javascript/QnAMaker/sdk/preview-sdk/quickstart.js?name=MonitorOperation)]
 
@@ -385,7 +384,7 @@ node index.js
 
 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/qnamaker_quickstart.js)에서 확인할 수 있습니다.
 
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker 관리형(미리 보기 릴리스)](#tab/version-2)
+# <a name="custom-question-answering-preview-release"></a>[사용자 지정 질문 답변(미리 보기 릴리스)](#tab/version-2)
 
 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/QnAMaker/sdk/preview-sdk/quickstart.js)에서 확인할 수 있습니다.
 

@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 05/12/2021
 ms.author: cynthn
-ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb207b5ece190a4398c7b9ef15472db409ac4d71
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104580388"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110087799"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 
@@ -71,7 +71,7 @@ sdb     1:0:1:0      14G
 sdc     3:0:0:0      50G
 ```
 
-여기서는 50G 용량인 디스크 `sdc`이 우리가 찾는 디스크입니다. 크기만으로 어떤 디스크인지 확신할 수 없다면 포털에서 VM 페이지로 이동하여 **디스크** 를 선택하고 **데이터 디스크** 에서 디스크의 LUN 번호를 확인할 수 있습니다. 
+여기서는 50G 용량인 디스크 `sdc`이 우리가 찾는 디스크입니다. 여러 디스크를 추가하고 크기만으로 어떤 디스크인지 확실하지 않은 경우 포털에서 VM 페이지로 이동하여 **디스크** 를 선택하고 **데이터 디스크** 에서 디스크의 LUN 번호를 확인할 수 있습니다. 포털의 LUN 번호를 LUN 인 출력의 **HTCL** 부분의 마지막 번호와 비교합니다.
 
 
 ### <a name="format-the-disk"></a>디스크 포맷하기
@@ -151,16 +151,18 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail  
 > Fstab을 수정하여 부팅 실패가 발생한 경우 Azure VM 직렬 콘솔을 사용하여 VM에 대한 콘솔 액세스를 사용할 수 있습니다. 기타 세부 정보는 [직렬 콘솔 설명서](/troubleshoot/azure/virtual-machines/serial-console-linux)를 참조하세요.
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure에서 Linux에 대한 TRIM/UNMAP 지원
+
 일부 Linux 커널은 디스크에서 사용되지 않은 블록을 버릴 수 있도록 TRIM/UNMAP 작업을 지원합니다. 이 기능은 삭제된 페이지가 더 이상 유효하지 않으며 폐기될 수 있음을 Azure에 알리기 위해 표준 스토리지에서 주로 유용하며, 큰 파일을 만들고 삭제하는 경우 비용을 절약할 수 있습니다.
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-* */etc/fstab* 에 `discard` 탑재 옵션을 사용합니다. 예:
+- */etc/fstab* 에 `discard` 탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
-* 경우에 따라 `discard` 옵션을 사용하면 성능이 저하될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
+
+- 경우에 따라 `discard` 옵션을 사용하면 성능이 저하될 수 있습니다. 또는 `fstrim` 명령을 명령줄에서 수동으로 실행하거나, 또는 정기적으로 실행하기 위해 crontab에 추가할 수 있습니다.
 
     **Ubuntu**
 

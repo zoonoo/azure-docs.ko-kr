@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
 ms.custom: mvc
-ms.openlocfilehash: 5a581652bfd084118b47b5693a2b2ca9e92feda9
-ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
+ms.openlocfilehash: 187808cacd40d2be0b122263e4c10672ef90fff3
+ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109751188"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111412460"
 ---
 # <a name="tutorial-discover-google-cloud-platform-gcp-instances-with-azure-migrate-discovery-and-assessment"></a>자습서: Azure Migrate 검색 및 평가를 사용하여 GCP(Google Cloud Platform) 인스턴스 검색
 
@@ -87,7 +87,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자
         * 성능 로그 사용자
 * **Linux 서버** 의 경우:
     * 검색하려는 Linux 서버의 루트 계정이 필요합니다. 루트 계정을 제공할 수 없는 경우 [지원 매트릭스](migrate-support-matrix-physical.md#physical-server-requirements)의 지침에서 대안을 찾아보세요.
-    * Azure Migrate는 AWS 인스턴스를 검색할 때 암호 인증을 사용합니다. AWS 인스턴스는 기본적으로 암호 인증을 지원하지 않습니다. 인스턴스를 검색하려면 먼저 암호 인증을 사용하도록 설정해야 합니다.
+    * Azure Migrate는 GCP 인스턴스를 검색할 때 암호 인증을 사용합니다. GCP 인스턴스는 기본적으로 암호 인증을 지원하지 않습니다. 인스턴스를 검색하려면 먼저 암호 인증을 사용하도록 설정해야 합니다.
         1. 각 Linux 머신에 로그인합니다.
         2. sshd_config file : vi /etc/ssh/sshd_config 열기
         3. 파일에서 **PasswordAuthentication** 줄을 찾아 값을 **예** 로 변경합니다.

@@ -6,16 +6,16 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 06/30/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.openlocfilehash: b24fbcafa917e4577dc0b13b83e83cf105174332
-ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
+ms.openlocfilehash: d852cc082640c676b06efc4799f9a3b7211dcf2e
+ms.sourcegitcommit: b11257b15f7f16ed01b9a78c471debb81c30f20c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113113181"
+ms.lasthandoff: 06/08/2021
+ms.locfileid: "111591515"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>빠른 시작: Communication Services 리소스 만들기 및 관리
 
@@ -23,7 +23,8 @@ ms.locfileid: "113113181"
 
 
 > [!WARNING]
-> Communication Services는 여러 지역에서 사용 가능하지만 전화 번호를 얻으려면 리소스의 데이터 위치가 ‘US’로 설정되어야 합니다. 또한 Azure Communication Services용 리소스와 리소스 그룹을 동시에 만들 수는 없습니다. 리소스를 만들 때 이미 만들어진 리소스 그룹을 사용해야 합니다.
+> Communication Services는 여러 지역에서 사용 가능하지만 전화 번호를 얻으려면 리소스의 데이터 위치가 ‘US’로 설정되어야 합니다. 또한 리소스 이동은 현재 지원되지 않지만 곧 제공될 예정입니다.
+> 또한 Azure Communication Services용 리소스와 리소스 그룹을 동시에 만들 수는 없습니다. 리소스를 만들 때 이미 만들어진 리소스 그룹을 사용해야 합니다.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92ab043d4fccbe0764e361eac6f71ef69a5963cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0bfdb7017a5042787e7e33e05e52bd90d67deb0e
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98939858"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110058875"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Windows에서 음성 도우미 구현
 
@@ -124,7 +124,7 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 잠금 화면 위 활성화는 잠금 화면 아래 활성화와 유사합니다. 애플리케이션의 활성 인스턴스가 없는 경우 새 인스턴스가 백그라운드에서 시작되고 App.xaml.cs의 `OnBackgroundActivated`가 호출됩니다. 애플리케이션의 인스턴스가 있는 경우 해당 인스턴스는 `ConversationalAgentSession.SignalDetected` 이벤트를 통해 알림을 받습니다.
 
-애플리케이션이 아직 잠금 화면 위에 표시되지 않는 경우 `ConversationalAgentSession.RequestForegroundActivationAsync`를 호출해야 합니다. 그러면 잠금 화면 위에 표시될 보기로 이동해야 하는 App.xaml.cs의 `OnLaunched` 메서드가 트리거됩니다.
+애플리케이션이 잠금 화면 위에 표시되지 않는 경우 `ConversationalAgentSession.RequestForegroundActivationAsync`를 호출해야 합니다. 그러면 잠금 화면 위에 표시될 보기로 이동해야 하는 App.xaml.cs의 `OnLaunched` 메서드가 트리거됩니다.
 
 ### <a name="detecting-lock-screen-transitions"></a>잠금 화면 전환 감지
 

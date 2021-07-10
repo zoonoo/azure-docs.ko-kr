@@ -10,28 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
-ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 92a41c3b18b96dc7d12fe7a0cfdae022fcb4d363
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102618409"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110079159"
 ---
 # <a name="long-audio-api"></a>긴 오디오 API
 
-긴 오디오 API는 긴 형식 텍스트를 음성으로 통합하는 데 적합합니다(예: 오디오 북, 뉴스 기사 및 설명서). 이 API는 합성된 오디오를 실시간으로 반환하지 않습니다. 대신 응답을 폴링하고 서비스에서 제공되는 출력을 사용할 것으로 예상됩니다. 음성 SDK에서 사용하는 텍스트-음성 API와는 달리, 긴 오디오 API는 10분 이상의 합성된 오디오를 만들 수 있으므로 게시자 및 오디오 콘텐츠 플랫폼에서 오디오 서적 같은 긴 오디오 콘텐츠를 일괄 처리로 만드는 데 적합합니다.
+긴 오디오 API는 긴 형식 텍스트 음성 변환의 비동기 합성을 제공합니다(예: 오디오 북, 뉴스 기사 및 설명서). 이 API는 합성된 오디오를 실시간으로 반환하지 않습니다. 대신 응답을 폴링하고 서비스를 사용할 수 있도록 하는 출력을 사용합니다. 음성 SDK에서 사용하는 텍스트 음성 변환 API와는 달리 긴 오디오 API는 10분보다 긴 합성된 오디오를 만들 수 있습니다. 따라서 게시자 및 오디오 콘텐츠 플랫폼에서 오디오 서적 같은 긴 오디오 콘텐츠를 일괄 처리로 만드는 데 적합합니다.
 
 긴 오디오 API의 추가 이점은 다음과 같습니다.
 
 * 서비스가 반환하는 합성된 음성은 최상의 인공신경망 음성을 사용합니다.
-* 실시간 일괄 처리가 아닌 모드에서 음성을 합성하므로 음성 엔드포인트를 배포할 필요가 없습니다.
+* 음성 엔드포인트를 배포할 필요가 없습니다.
 
 > [!NOTE]
-> 이제 긴 오디오 API는 [인공신경망 음성](./language-support.md#neural-voices) 및 [사용자 지정 인공신경망 음성](./how-to-custom-voice.md#custom-neural-voices)을 모두 지원합니다.
+> 긴 오디오 API는 [공용 신경망 음성](./language-support.md#neural-voices) 및 [사용자 지정 신경망 음성](./how-to-custom-voice.md)을 모두 지원합니다.
 
 ## <a name="workflow"></a>워크플로
 
-일반적으로 긴 오디오 API를 사용하는 경우 합성될 텍스트 파일을 제출하고, 상태를 폴링한 다음, 상태가 성공적인 경우 오디오 출력을 다운로드할 수 있습니다.
+긴 오디오 API를 사용하는 경우 일반적으로 합성될 텍스트 파일 또는 파일을 제출하고, 상태를 폴링하고, 상태가 성공을 나타내면 오디오 출력을 다운로드합니다.
 
 이 다이어그램에서는 워크플로의 개략적인 개요를 제공합니다.
 
@@ -44,11 +44,12 @@ ms.locfileid: "102618409"
 * 일반 텍스트(.txt) 또는 SSML 텍스트(.txt) 중 하나입니다.
 * [BOM(바이트 순서 표시)을 사용하는 UTF-8](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)로 인코딩됩니다.
 * zip이 아닌 단일 파일입니다.
-* 일반 텍스트의 경우 400자 또는 SSML 텍스트의 경우 400[청구 가능 문자](./text-to-speech.md#pricing-note) 초과 및 1만 단락 이하를 포함합니다.
-  * 일반 텍스트의 경우 각 단락은 **Enter/Return** 을 눌러 구분됩니다. - [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt) 보기
-  * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주됩니다. SSML 조각은 다른 단락으로 구분됩니다. - [SSML 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt) 보기
+* 일반 텍스트의 경우 400자 또는 SSML 텍스트의 경우 400 [청구 가능 문자](./text-to-speech.md#pricing-note) 초과 및 1만 단락 이하를 포함합니다.
+  * 일반 텍스트의 경우 각 단락은 **Enter/Return** 을 눌러 구분됩니다. [일반 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)를 참조하세요.
+  * SSML 텍스트의 경우 각 SSML 조각이 단락으로 간주됩니다. 다른 단락으로 SSML 부분을 구분합니다. [SSML 텍스트 입력 예제](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt)를 참조하세요.
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
+
 이 페이지의 나머지 부분에서는 Python에 집중하지만 긴 오디오 API에 대한 샘플 코드는 GitHub에서 다음과 같은 프로그래밍 언어에 대해 사용할 수 있습니다.
 
 * [샘플 코드: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
@@ -71,8 +72,8 @@ import requests
 
 지원되는 음성 목록을 가져오려면 `https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/voices`에 GET 요청을 보냅니다.
 
+이 코드는 특정 지역/엔드포인트에서 사용할 수 있는 전체 음성 목록을 가져옵니다.
 
-이 코드를 사용하면 사용할 수 있는 특정 지역/엔드포인트에 대한 전체 음성 목록을 가져올 수 있습니다.
 ```python
 def get_voices():
     region = '<region>'
@@ -95,7 +96,7 @@ get_voices()
 
 다음과 같은 출력이 표시됩니다.
 
-```console
+```json
 {
   "values": [
     {
@@ -130,8 +131,8 @@ get_voices()
 일반 텍스트 또는 SSML 텍스트에서 입력 텍스트 파일을 준비한 다음, 다음 코드를 `long_audio_synthesis_client.py`에 추가합니다.
 
 > [!NOTE]
-> `concatenateResult` 는 선택적 매개 변수입니다. 이 매개 변수를 설정하지 않으면 오디오 출력이 단락 단위로 생성됩니다. 매개 변수를 설정하여 오디오를 1개의 출력으로 연결할 수도 있습니다. 
-> `outputFormat`도 선택 사항입니다. 기본적으로 오디오 출력은 riff-16khz-16bit-mono-pcm으로 설정됩니다. 지원되는 오디오 출력 형식에 대한 자세한 내용은 [오디오 출력 형식](#audio-output-formats)을 참조하세요.
+> `concatenateResult` 는 선택적 매개 변수입니다. 이 매개 변수를 설정하지 않으면 오디오 출력이 단락 단위로 생성됩니다. 매개 변수를 포함하여 오디오를 1개의 출력으로 연결할 수도 있습니다. 
+> `outputFormat`도 선택 사항입니다. 기본적으로 오디오 출력은 `riff-16khz-16bit-mono-pcm`으로 설정됩니다. 지원되는 오디오 출력 형식에 대한 자세한 내용은 [오디오 출력 형식](#audio-output-formats)을 참조하세요.
 
 ```python
 def submit_synthesis():
@@ -198,15 +199,16 @@ https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/<guid>
 ```
 
 > [!NOTE]
-> 입력 파일이 2개 이상 있는 경우 여러 요청을 제출해야 합니다. 알아두어야 하는 제한 사항이 몇 가지 있습니다.
-> * 클라이언트는 각 Azure 구독 계정에 대해 초당 최대 **5** 개 요청을 서버에 제출할 수 있습니다. 이 제한이 초과되면 클라이언트는 429 오류 코드(너무 많은 요청)를 받습니다. 초당 요청 크기를 줄이십시오.
-> * 서버는 각 Azure 구독 계정에 대해 최대 **120** 개의 요청을 실행하고 큐에 추가할 수 있습니다. 제한이 초과되면 서버는 429 오류 코드(너무 많은 요청)를 받습니다. 잠시 기다렸다가 일부 요청이 완료될 때까지 새 요청을 제출하지 마세요.
+> 2개보다 많은 입력 파일이 있는 경우 여러 요청을 제출해야 하며, 고려해야 할 제한이 있습니다.
+> * 클라이언트는 각 Azure 구독 계정에 대해 초당 최대 **5개** 의 요청을 제출할 수 있습니다. 제한이 초과되면 **429 오류 코드(너무 많은 요청)** 가 반환됩니다. 이 제한을 방지하려면 제출 비율을 줄입니다.
+> * 서버는 각 Azure 구독 계정에 대해 최대 **120개** 의 요청을 큐에 추가할 수 있습니다. 큐가 이 제한을 초과하면 서버는 **429 오류 코드(너무 많은 요청)** 를 반환합니다. 추가 요청을 제출하기 전에 완료된 요청을 기다립니다.
 
-출력의 URL은 요청 상태를 가져오는 데 사용할 수 있습니다.
+출력에서 URL을 사용하여 요청 상태를 가져올 수 있습니다.
 
-### <a name="get-information-of-a-submitted-request"></a>제출된 요청에 대한 정보 가져오기
+### <a name="get-details-about-a-submitted-request"></a>제출된 요청에 대한 세부 정보 가져오기
 
-제출된 합성 요청의 상태를 가져오려면 이전 단계에서 반환된 URL에 GET 요청을 보내기만 하면 됩니다.
+제출된 합성 요청의 상태를 가져오려면 이전 단계에서 반환된 URL에 GET 요청을 보냅니다.
+
 ```Python
 
 def get_synthesis():
@@ -220,8 +222,10 @@ def get_synthesis():
 
 get_synthesis()
 ```
+
 출력은 다음과 같습니다.
-```console
+
+```json
 response.status_code: 200
 {
   "models": [
@@ -245,7 +249,7 @@ response.status_code: 200
 }
 ```
 
-`status` 속성에서 이 요청의 상태를 읽을 수 있습니다. 요청은 `NotStarted` 상태에서 시작된 다음, `Running`으로 변경되고, 마지막으로 `Succeeded` 또는 `Failed`가 됩니다. 상태가 `Succeeded`가 될 때까지 루프를 사용하여 이 API를 폴링할 수 있습니다.
+`status` 속성은 `NotStarted` 상태에서 `Running`으로 마지막으로 `Succeeded` 또는 `Failed`로 변경됩니다. 상태가 `Succeeded` 또는 `Failed`가 될 때까지 루프에서 이 API를 폴링할 수 있습니다.
 
 ### <a name="download-audio-result"></a>오디오 결과 다운로드
 
@@ -267,10 +271,12 @@ def get_files():
 
 get_files()
 ```
+
 `<request_id>`를 결과를 다운로드하려는 요청 ID로 바꿉니다. 이는 이전 단계의 응답에서 찾을 수 있습니다.
 
 출력은 다음과 같습니다.
-```console
+
+```json
 response.status_code: 200
 {
   "values": [
@@ -299,14 +305,15 @@ response.status_code: 200
   ]
 }
 ```
-출력에는 2개 파일의 정보가 포함됩니다. `"kind": "LongAudioSynthesisScript"`가 포함된 하나는 제출된 입력 스크립트입니다. `"kind": "LongAudioSynthesisResult"`가 포함된 다른 하나는 이 요청의 결과입니다.
+이 예제 출력에는 두 파일에 대한 정보가 포함되어 있습니다. `"kind": "LongAudioSynthesisScript"`가 포함된 하나는 제출된 입력 스크립트입니다. `"kind": "LongAudioSynthesisResult"`가 포함된 다른 하나는 이 요청의 결과입니다.
+
 결과는 입력 텍스트의 복사본과 함께 생성된 오디오 출력 파일을 포함하는 zip입니다.
 
 두 파일은 모두 `links.contentUrl` 속성의 URL에서 다운로드할 수 있습니다.
 
 ### <a name="get-all-synthesis-requests"></a>모든 합성 요청 가져오기
 
-다음 코드를 사용하여 제출된 모든 요청 목록을 가져올 수 있습니다.
+다음 코드는 제출된 모든 요청을 나열합니다.
 
 ```python
 def get_synthesis():
@@ -325,7 +332,8 @@ get_synthesis()
 ```
 
 출력은 다음과 같습니다.
-```console
+
+```json
 response.status_code: 200
 {
   "values": [
@@ -374,7 +382,7 @@ response.status_code: 200
 }
 ```
 
-`values` 속성에는 합성 요청의 목록이 포함됩니다. 최대 100페이지가 포함된 목록의 페이지가 매겨집니다. 요청이 100개가 넘을 경우 페이지가 매겨진 목록의 다음 페이지를 가져오도록 `"@nextLink"` 속성이 제공됩니다.
+`values` 속성은 합성 요청을 나열합니다. 최대 100페이지가 포함된 목록의 페이지가 매겨집니다. 요청이 100개가 넘을 경우 페이지가 매겨진 목록의 다음 페이지를 가져오도록 `"@nextLink"` 속성이 제공됩니다.
 
 ```console
   "@nextLink": "https://<endpoint>/api/texttospeech/v3.0/longaudiosynthesis/?top=100&skip=100"
@@ -384,9 +392,10 @@ URL 매개 변수에서 `skip` 및 `top`을 입력하여 페이지 크기를 사
 
 ### <a name="remove-previous-requests"></a>이전 요청 제거
 
-서비스는 각 Azure 구독 계정에 대해 최대 **2만** 개의 요청을 유지합니다. 요청 금액이 이 제한을 초과하는 경우 새 요청을 만들기 전에 이전 요청을 제거하세요. 기존 요청을 제거하지 않으면 오류 알림이 수신됩니다.
+서비스는 각 Azure 구독 계정에 대해 최대 **2만** 개의 요청을 유지합니다. 요청 금액이 이 제한을 초과하는 경우 새 요청을 만들기 전에 이전 요청을 제거합니다. 기존 요청을 제거하지 않으면 오류 알림이 수신됩니다.
 
 다음 코드는 특정 합성 요청을 제거하는 방법을 보여 줍니다.
+
 ```python
 def delete_synthesis():
     id = '<request_id>'
@@ -416,11 +425,11 @@ response.status_code: 204
 
 다음 표에 HTTP 응답 코드 및 REST API의 메시지가 자세히 설명되어 있습니다.
 
-| API | HTTP 상태 코드 | 설명 | 솔루션 |
+| API | HTTP 상태 코드 | Description | 솔루션 |
 |-----|------------------|-------------|----------|
 | 생성 | 400 | 이 지역에서는 음성 합성을 사용할 수 없습니다. | 지원되는 지역으로 음성 구독 키를 변경합니다. |
 |        | 400 | 이 영역에 대한 **표준** 음성 구독만 유효합니다. | 음성 구독 키를 “표준” 가격 책정 계층으로 변경합니다. |
-|        | 400 | Azure 계정에 대한 2만 개 요청 제한을 초과합니다. 새 요청을 제출하기 전에 일부 요청을 제거하세요. | 서버는 각 Azure 계정에 대해 최대 2만 개의 요청을 유지합니다. 새 요청을 제출하기 전에 일부 요청을 삭제합니다. |
+|        | 400 | Azure 계정에 대한 2만 개 요청 제한을 초과합니다. 새 요청을 제출하기 전에 일부 요청을 제거합니다. | 서버는 각 Azure 계정에 대해 최대 2만 개의 요청을 유지합니다. 새 요청을 제출하기 전에 일부 요청을 삭제합니다. |
 |        | 400 | {modelID} 모델은 음성 합성에서 사용할 수 없습니다. | {modelID}의 상태가 올바른지 확인합니다. |
 |        | 400 | 요청에 대한 지역이 {modelID} 모델에 대한 지역과 일치하지 않습니다. | {modelID}의 지역이 요청 지역과 일치하는지 확인합니다. |
 |        | 400 | 음성 합성은 바이트 순서 표시를 사용한 UTF-8 인코딩의 텍스트 파일만 지원합니다. | 입력 파일이 바이트 순서 표시를 사용한 UTF-8 인코딩인지 확인합니다. |
@@ -429,8 +438,8 @@ response.status_code: 204
 |        | 400 | 입력 파일의 단락 수는 1만 개 미만이어야 합니다. | 파일의 단락 수가 1만 개 미만인지 확인합니다. |
 |        | 400 | 입력 파일은 400자 이하여야 합니다. | 입력 파일이 400자를 초과하는지 확인합니다. |
 |        | 404 | 음성 합성 정의에 선언된 모델 {modelID}을(를) 찾을 수 없습니다. | {modelID}이(가) 올바른지 확인합니다. |
-|        | 429 | 활성 음성 합성 제한을 초과합니다. 일부 요청이 완료될 때까지 기다리세요. | 서버는 각 Azure 계정에 대해 최대 120개 요청을 실행하고 큐에 추가할 수 있습니다. 잠시 기다렸다가 일부 요청이 완료될 때까지 새 요청을 제출하지 마세요. |
-| 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5개 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄이십시오. |
+|        | 429 | 활성 음성 합성 제한을 초과합니다. 일부 요청이 완료될 때까지 기다립니다. | 서버는 각 Azure 계정에 대해 최대 120개 요청을 실행하고 큐에 추가할 수 있습니다. 잠시 기다렸다가 일부 요청이 완료될 때까지 새 요청을 제출하지 마십시오. |
+| 모두       | 429 | 요청이 너무 많습니다. | 클라이언트는 각 Azure 계정에 대해 초당 최대 5개 요청을 서버에 제출할 수 있습니다. 초당 요청 크기를 줄입니다. |
 | DELETE    | 400 | 음성 합성 작업을 계속 사용하고 있습니다. | **완료** 또는 **실패** 한 요청만 삭제할 수 있습니다. |
 | GetByID   | 404 | 지정한 엔터티를 찾을 수 없습니다. | 합성 ID가 올바른지 확인합니다. |
 
@@ -448,7 +457,7 @@ response.status_code: 204
 
 ## <a name="audio-output-formats"></a>오디오 출력 형식
 
-유연한 오디오 출력 형식을 지원합니다. 단락당 오디오 출력을 생성하거나 ‘concatenateResult’' 매개 변수를 설정하여 오디오 출력을 단일 출력에 연결할 수 있습니다. 긴 오디오 API에서 지원하는 오디오 출력 형식은 다음과 같습니다.
+유연한 오디오 출력 형식을 지원합니다. 단락당 오디오 출력을 생성하거나 `concatenateResult` 매개 변수를 설정하여 오디오 출력을 단일 출력에 연결할 수 있습니다. 긴 오디오 API에서 지원하는 오디오 출력 형식은 다음과 같습니다.
 
 > [!NOTE]
 > 기본 오디오 형식은 riff-16khz-16bit-mono-pcm입니다.

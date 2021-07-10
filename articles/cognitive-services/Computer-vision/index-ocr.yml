@@ -1,0 +1,66 @@
+### YamlMime:Landing
+title: 광학 인식 설명서
+summary: 클라우드 기반 OCR API를 통해 개발자는 이미지의 텍스트를 읽고 구조화된 콘텐츠를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 여러 언어로 인쇄 및 필기 텍스트를 추출하는 방법을 알아봅니다.
+metadata:
+  title: 광학 인식 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  description: 클라우드 기반 OCR API를 통해 개발자는 이미지의 텍스트를 읽고 구조화된 콘텐츠를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 여러 언어로 인쇄 및 필기 텍스트를 추출하는 방법을 알아봅니다.
+  services: cognitive-services
+  ms.service: cognitive-services
+  ms.subservice: computer-vision
+  ms.topic: landing-page
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 03/31/2021
+  ms.openlocfilehash: 4a2951933c60ef34404ccea49d4fb536d014d5a4
+  ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 04/13/2021
+  ms.locfileid: "107377554"
+landingContent:
+- title: 광학 인식 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: OCR 개요
+      url: overview-ocr.md
+  - linkListType: quickstart
+    links:
+    - text: OCR 빠른 시작
+      url: quickstarts-sdk/client-library.md
+- title: OCR로 개발
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 읽기 API 호출
+      url: Vision-API-How-to-Topics/call-read-api.md
+    - text: Read 2.x에서 Read 3.x로 업그레이드
+      url: upgrade-api-versions.md
+- title: 읽기 OCR 컨테이너 사용
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 컨테이너 설치 및 실행
+      url: computer-vision-how-to-install-containers.md
+  - linkListType: how-to-guide
+    links:
+    - text: 컨테이너 구성
+      url: computer-vision-resource-container-config.md
+    - text: Kubernetes 및 Helm 활용
+      url: deploy-computer-vision-on-premises.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 언어 지원
+      url: language-support.md
+    - text: OCR(읽기) v3.2
+      url: https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005
+    - text: OCR(읽기) v3.1
+      url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원 및 도움말 옵션
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context

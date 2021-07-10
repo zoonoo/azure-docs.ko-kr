@@ -11,15 +11,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/30/2019
+ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 9cde3940f09d3612ebe6411804fe4780e5bcfc18
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100588045"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110469201"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Monitor 통합 문서를 Azure Active Directory 보고서에 사용하는 방법
 
@@ -36,13 +36,13 @@ ms.locfileid: "100588045"
 
 - 테넌트에서 조건부 액세스 정책이 미치는 영향 알아보기
 
-- 로그인 로그 쿼리를 검토하는 기능 알아보기 - 통합 문서는 액세스 권한이 부여되거나 액세스가 거부된 사용자 수와 리소스에 액세스할 때 조건부 액세스 정책을 무시한 사용자 수를 보고합니다.
+- 로그인 로그 쿼리를 검토하는 기능 알아보기 - 액세스 권한이 부여되거나 액세스가 거부된 사용자 수와 리소스에 액세스할 때 조건부 액세스 정책을 무시한 사용자 수를 보고하는 통합 문서를 사용합니다.
 
-- 디바이스 플랫폼, 디바이스 상태, 클라이언트 앱, 로그인 위험, 위치 및 애플리케이션을 비롯한 조건에 따라 정책의 영향을 컨텍스트화할 수 있도록 조건에 따른 통합 문서 세부 정보를 자세히 이해
+- 디바이스 플랫폼, 디바이스 상태, 클라이언트 앱, 로그인 위험, 위치 및 애플리케이션을 비롯하여 조건에 따라 정책의 영향을 컨텍스트화할 수 있도록 조건에 따른 통합 문서 세부 정보를 사용하여 조건부 액세스에 대한 심층적인 이해를 개발하시겠어요?
 
-- 로그인 로그 쿼리에 대한 심층적 인사이트 획득 - 통합 문서는 액세스 권한이 부여되거나 액세스가 거부된 사용자 수와 리소스에 액세스할 때 조건부 액세스 정책을 우회한 사용자 수를 보고합니다.
+- 1년 이상의 과거 애플리케이션 역할 및 [액세스 패키지 할당 활동](../governance/entitlement-management-logs-and-reporting.md)에 대해 보관 및 보고할까요?
 
-- 이러한 질문을 해결할 수 있도록 Azure Active Directory는 모니터링을 위한 통합 문서를 제공합니다. [Azure Monitor 통합 문서](../../azure-monitor/visualize/workbooks-overview.md)는 텍스트, 분석 쿼리, 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합합니다.
+이러한 질문을 해결할 수 있도록 Azure Active Directory는 모니터링을 위한 통합 문서를 제공합니다. [Azure Monitor 통합 문서](../../azure-monitor/visualize/workbooks-overview.md)는 텍스트, 분석 쿼리, 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합합니다.
 
 
 
@@ -298,4 +298,5 @@ Monitor 통합 문서를 사용하려면 다음 항목이 필요합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Monitor 통합 문서를 사용하여 대화형 보고서를 작성합니다](../../azure-monitor/visualize/workbooks-overview.md).
+* [Monitor 통합 문서를 사용하여 대화형 보고서를 작성합니다](../../azure-monitor/visualize/workbooks-overview.md).
+* [Azure PowerShell을 이용해 사용자 지정 Azure Monitor 쿼리 만들기](../governance/entitlement-management-logs-and-reporting.md)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 94dab0124a1f5e0144aab2e271fbf89e02111d3a
-ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.openlocfilehash: 25342ef6f7a79d91e91c59b88639318bfbf824e8
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108206802"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110072931"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>빠른 시작: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
@@ -45,7 +45,7 @@ ms.locfileid: "108206802"
 
     :::image type="content" source="media/quick-configure-rules/condition.png" alt-text="규칙 조건을 보여주는 스크린샷":::
 
-1. 규칙이 트리거될 때 실행할 메일 작업을 추가하려면 **+메일** 을 선택합니다.
+1. 규칙이 트리거될 때 실행할 이메일 작업을 추가하려면 **Action** 섹션에서 **+ 이메일** 을 선택합니다.
 
 1. 다음 표의 정보를 사용하여 작업을 정의한 다음, **완료** 를 선택합니다.
 

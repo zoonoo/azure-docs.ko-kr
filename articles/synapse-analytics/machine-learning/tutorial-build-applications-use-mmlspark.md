@@ -9,12 +9,12 @@ ms.reviewer: ''
 ms.date: 03/08/2021
 author: ruixinxu
 ms.author: ruxu
-ms.openlocfilehash: aeb0e84400ae4a4d48bd070e9c9902c5b005ac9e
-ms.sourcegitcommit: 19dfdfa85e92c6a34933bdd54a7c94e8b00eacfd
+ms.openlocfilehash: 8a4c5892e5b7b542177376fcd0adae76527957a8
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109664873"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110578093"
 ---
 # <a name="tutorial-build-machine-learning-applications-using-microsoft-machine-learning-for-apache-spark-preview"></a>자습서: Microsoft Machine Learning for Apache Spark를 사용하여 기계 학습 애플리케이션 빌드(미리 보기)
 
@@ -36,10 +36,10 @@ Synapse Spark는 다음을 비롯한 기본 제공 MMLSpark 라이브러리를 �
 
 Azure 구독이 없는 경우 [시작하기 전에 체험 계정을 만듭니다](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 - [Azure Synapse Analytics 작업 영역](../get-started-create-workspace.md)(기본 스토리지로 구성된 Azure Data Lake Storage Gen2 스토리지 계정이 있음). 사용하는 Data Lake Storage Gen2 파일 시스템의 *Storage Blob 데이터 기여자* 여야 합니다.
-- Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../quickstart-create-sql-pool-studio.md)를 참조하세요.
+- Azure Synapse Analytics 작업 영역의 Spark 풀. 자세한 내용은 [Azure Synapse에서 Spark 풀 만들기](../get-started-analyze-spark.md)를 참조하세요.
 - [Azure Synaps에서 Cognitive Services 구성](./tutorial-configure-cognitive-services-synapse.md) 자습서에서 설명하는 사전 구성 단계
 
 
@@ -81,7 +81,7 @@ df_sentences = spark.createDataFrame([
 # Run the Text Analytics service with options
 sentiment = (TextSentiment()
     .setTextCol("text")
-    .setLocation("eastasia")
+    .setLocation("eastasia") # Set the location of your cognitive service
     .setSubscriptionKey(cognitive_service_key)
     .setOutputCol("sentiment")
     .setErrorCol("error")
@@ -114,7 +114,7 @@ df_images = spark.createDataFrame([
 
 # Run the Computer Vision service. Analyze Image extracts information from/about the images.
 analysis = (AnalyzeImage()
-    .setLocation("eastasia")
+    .setLocation("eastasia") # Set the location of your cognitive service
     .setSubscriptionKey(cognitive_service_key)
     .setVisualFeatures(["Categories","Color","Description","Faces","Objects","Tags"])
     .setOutputCol("analysis_results")
@@ -240,6 +240,39 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 |1973-01-01T00:00:00Z|881.0|false|
 |1973-02-01T00:00:00Z|837.0|false|
 |1973-03-01T00:00:00Z|9000.0|true|
+
+
+## <a name="speech-to-text-sample"></a>음성 텍스트 변환 샘플
+
+[음성 텍스트 변환](../../cognitive-services/speech-service/index-text-to-speech.yml) 서비스는 음성 오디오의 스트림 또는 파일을 텍스트로 변환합니다. 이 샘플에서는 오디오 파일 하나를 텍스트로 전사합니다. 
+
+```python
+# Create a dataframe with our audio URLs, tied to the column called "url"
+df = spark.createDataFrame([("https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav",)
+                           ], ["url"])
+
+# Run the Speech-to-text service to translate the audio into text
+speech_to_text = (SpeechToTextSDK()
+    .setSubscriptionKey(service_key)
+    .setLocation("northeurope") # Set the location of your cognitive service
+    .setOutputCol("text")
+    .setAudioDataCol("url")
+    .setLanguage("en-US")
+    .setProfanity("Masked"))
+
+# Show the results of the translation
+display(speech_to_text.transform(df).select("url", "text.DisplayText"))
+```
+### <a name="expected-results"></a>예상 결과
+
+|url | DisplayText |
+|--|--|
+| `https://mmlspark.blob.core.windows.net/datasets/Speech/audio2.wav` | Custom Speech는 오디오 데이터를 사용자 지정 음성 포털의 해당 인식 결과와 비교하여 모델의 인식 품질을 시각적으로 검사할 수 있는 도구를 제공합니다. 업로드된 오디오를 재생하여 제공된 인식 결과가 올바른지 확인할 수 있습니다. 이 도구를 사용하면 오디오 데이터를 전사하지 않고도 Microsoft의 기준 음성 텍스트 변환 모델 또는 학습된 사용자 지정 모델의 품질을 빠르게 검사할 수 있습니다.|
+
+## <a name="clean-up-resources"></a>리소스 정리
+Spark 인스턴스가 종료되도록 하려면 연결된 세션(Notebook)을 종료합니다. Apache Spark 풀에 지정된 **유휴 시간** 에 도달하면 풀이 종료됩니다. Notebook 오른쪽 상단에 있는 상태 표시줄에서 **세션 중지** 를 선택할 수도 있습니다.
+
+![screenshot-showing-stop-session](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
 
 ## <a name="next-steps"></a>다음 단계
 

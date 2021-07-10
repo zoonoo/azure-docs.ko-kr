@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 11/23/2020
+ms.date: 05/24/2021
 ms.author: pafarley
-ms.openlocfilehash: 57f3cf0cb15243d054da0111366f3a1dc0fb5349
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 78986eca3d1db65afb8ac4e0ca8ff76a0e3201eb
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95739760"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451965"
 ---
 # <a name="whats-new-in-custom-vision"></a>Custom Vision의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목은 릴리스 정보, 비디오, 블로그 게시물 및 기타 유형의 정보입니다. 서비스를 최신 상태로 유지하려면 이 페이지에 대한 책갈피를 지정하세요.
 
 
 ## <a name="october-2020"></a>2020년 10월 
@@ -34,7 +34,7 @@ ms.locfileid: "95739760"
 
 ### <a name="training-divergence-feedback"></a>학습 차이 피드백
 
-- Custom Vision Custom Vision 3.4 공개 미리 보기 API는 이제 **GetIteration** 호출에서 **TrainingErrorDetails** 를 반환합니다. 반복이 실패할 경우 이를 통해 실패의 원인이 학습 차이인지 알려주며, 보다 높은 품질의 학습 데이터를 더 많이 제공하면 이 문제를 해결할 수 있습니다.
+- Custom Vision 3.4 공개 미리 보기 API는 이제 **GetIteration** 호출에서 **TrainingErrorDetails** 를 반환합니다. 반복이 실패할 경우 이를 통해 실패의 원인이 학습 차이인지 알려주며, 보다 높은 품질의 학습 데이터를 더 많이 제공하면 이 문제를 해결할 수 있습니다.
 
 ## <a name="july-2020"></a>2020년 7월
 

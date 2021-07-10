@@ -20,6 +20,12 @@ items:
         href: manage-kafka-dotnet.md
   - name: 자습서
     items:
+      - name: 대규모 Azure 데이터 원본 온보딩
+        items:
+          - name: 대규모 Azure 데이터 원본 준비 상태 확인
+            href: tutorial-data-sources-readiness.md
+          - name: 대규모 Azure Purview MSI 구성
+            href: tutorial-msi-configuration.md
       - name: 시작 키트
         items:
           - name: 데이터 검사
@@ -196,6 +202,8 @@ items:
     items:
       - name: 지원되는 분류
         href: supported-classifications.md
+      - name: Azure Purview 제품 용어집
+        href: reference-purview-glossary.md
       - name: ABAP 함수 배포 가이드
         href: abap-functions-deployment-guide.md
   - name: 리소스

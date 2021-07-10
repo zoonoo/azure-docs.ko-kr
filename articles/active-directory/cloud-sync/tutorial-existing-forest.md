@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64536024af7e939de2bd8f98a9ce14bb4df3303f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c447bae82f4e8eb428942bdf807f6ebf23b4043c
+ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98612137"
+ms.lasthandoff: 05/19/2021
+ms.locfileid: "110070357"
 ---
 # <a name="integrate-an-existing-forest-and-a-new-forest-with-a-single-azure-ad-tenant"></a>기존 포리스트 및 새 포리스트를 단일 Azure AD 테넌트와 통합
 
@@ -68,6 +68,9 @@ ms.locfileid: "98612137"
 
 9. **구성 완료** 화면에서 **확인** 을 클릭합니다.  이 작업을 수행하면 에이전트가 등록되고 다시 시작됩니다.</br>
 !["구성 완료" 화면을 보여주는 스크린샷.](media/how-to-install/install-4a.png)</br>
+
+   > [!NOTE]
+   > 그룹 관리 서비스 계정(예: CONTOSO\provAgentgMSA$)은 호스트 서버가 조인된 동일한 Active Directory 도메인에 만들어집니다.
 
 10. 이 작업이 완료되면 **에이전트 구성을 확인했습니다** 라는 알림이 표시됩니다.  **끝내기** 를 클릭할 수 있습니다.</br>
 ![시작 화면](media/how-to-install/install-5.png)</br>

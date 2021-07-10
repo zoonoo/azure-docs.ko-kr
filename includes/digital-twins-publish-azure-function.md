@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: ddc56ab05a087c9e86d67a13aebcfb8e65fbd78f
-ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
+ms.openlocfilehash: 49f57f39ba59575417f3336d395b1cfa6cf97eb6
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107480751"
+ms.lasthandoff: 05/25/2021
+ms.locfileid: "110451110"
 ---
 Azure의 함수 앱에 프로젝트를 게시하려면 솔루션 탐색기에서 시작합니다. 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **게시** 를 선택합니다.
 
@@ -37,13 +37,13 @@ Azure의 함수 앱에 프로젝트를 게시하려면 솔루션 탐색기에서
 * 리소스 그룹의 **위치** 를 선택합니다.
 * **새로 만들기** 링크를 사용하여 새 **Azure Storage** 리소스를 만듭니다. 리소스 그룹에 맞게 위치를 설정하고, 다른 기본값을 사용한 다음, **확인** 을 선택합니다.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="Azure 함수 게시 대화 상자를 표시하는 Visual Studio의 스크린샷. 이름, 구독, 리소스 그룹, 계획 유형, 위치 및 Azure Storage를 포함하여 새 함수 앱의 세부 정보가 채워집니다.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-4.png" alt-text="새 함수 앱의 세부 정보가 채워지는 Azure 함수 게시 대화 상자 페이지를 보여주는 Visual Studio의 스크린샷.":::
 
 그런 다음 **만들기** 를 선택합니다.
 
 앱 서비스를 만들면 **함수 인스턴스** 탭이 열립니다. 새 함수 앱이 리소스 그룹 아래의 **함수 앱** 영역에 나타납니다. **마침** 을 선택합니다.
 
-:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Azure 함수 게시 대화 상자를 표시하는 Visual Studio의 스크린샷. 함수 인스턴스 탭이 선택됩니다. 새 함수 앱이 리소스 그룹 아래에 나타납니다.":::
+:::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-5.png" alt-text="Functions 인스턴스 탭이 선택된 Azure 함수 게시 대화 상자를 보여주는 Visual Studio의 스크린샷.":::
 
 주 Visual Studio 창에서 열린 **게시** 창의 모든 정보가 올바른지 확인합니다. 그런 다음, **게시** 를 선택합니다.
 
@@ -51,7 +51,7 @@ Azure의 함수 앱에 프로젝트를 게시하려면 솔루션 탐색기에서
 
 > [!NOTE]
 > 다음 예제와 같은 팝업 창이 표시되면 **Azure에서 자격 증명 검색 시도** 를 선택한 다음, **저장** 을 선택합니다.
-> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="자격 증명 게시라는 팝업 창을 표시하는 Visual Studio의 스크린샷. 여기에는 사용자 이름 및 암호 필드가 포함되었습니다. 또한 Azure에서 자격 증명 검색 시도 단추가 포함되어 있습니다." border="false":::
+> :::image type="content" source="../articles/digital-twins/media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="자격 증명 게시라는 팝업 창을 보여주는 Visual Studio의 스크린샷." border="false":::
 >
 > 다음 경고 중 하나가 표시되면 프롬프트에 따라 최신 Azure Functions 런타임 버전으로 업그레이드합니다.
 > * "Azure의 함수 버전을 업그레이드하세요."
