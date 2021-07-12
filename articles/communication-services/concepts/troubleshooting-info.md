@@ -5,15 +5,15 @@ author: manoskow
 manager: jken
 services: azure-communication-services
 ms.author: manoskow
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b1fcf708a7275c60e3f6e7fc15f2247fb088bc47
-ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.openlocfilehash: 06ba8675b0d393b85ef5748df6d0250257324808
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112077305"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108606"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Azure Communication Services의 문제 해결
 
@@ -171,7 +171,7 @@ Windows용으로 개발할 때 로그는 `.blog` 파일에 저장됩니다. 로�
 2. `cmd.exe` 입력
 3. `where /r %USERPROFILE%\AppData acs*.blog` 입력
 4. 애플리케이션의 앱 ID가 이전 명령에서 반환된 ID와 일치하는지 확인합니다.
-5. `start `를 입력한 다음 3단계에서 반환된 경로를 입력하여 로그가 포함된 폴더를 엽니다. `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+5. `start `를 입력한 다음 3단계에서 반환된 경로를 입력하여 로그가 포함된 폴더를 엽니다. 예: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. 모든 `*.blog` 및 `*.etl` 파일을 Azure 지원 요청에 첨부합니다.
 
 

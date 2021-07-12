@@ -4,16 +4,16 @@ titleSuffix: An Azure Communication Services quickstart
 description: 이 빠른 시작에서는 Azure Communication 채팅 SDK를 사용하여 Teams 미팅에 조인하는 방법을 알아봅니다.
 author: askaur
 ms.author: askaur
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-web-ios
-ms.openlocfilehash: 196c35d78b18241a808d4f941dd51d0f08a5b722
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: c49f2a51dda269c8addcd32c2c82564455bc9743
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110080266"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113100"
 ---
 # <a name="quickstart-join-your-chat-app-to-a-teams-meeting"></a>빠른 시작: 채팅 앱으로 Teams 미팅에 참가
 

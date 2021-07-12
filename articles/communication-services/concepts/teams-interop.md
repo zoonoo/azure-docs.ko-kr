@@ -6,15 +6,15 @@ author: chpalm
 manager: chpalm
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 3fd6aa705a2220483534761c185ca7cac01e148e
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 142b4635bed6361987c21173245bb4d4e7557f90
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093613"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108102"
 ---
 # <a name="teams-interoperability"></a>Teams 상호 운용성
 
@@ -43,13 +43,11 @@ Teams 상호 운용성을 통해 사용자를 Teams 모임에 연결하는 사�
 
 ![Teams interop 아키텍처](./media/call-flows/teams-interop.png)
 
-손 들기, 전체 보기 모드 및 소회의실과 같은 특정 Teams 모임 기능은 Teams 사용자에게만 제공되지만, 사용자 지정 애플리케이션은 모임의 핵심 오디오, 비디오, 채팅 및 화면 공유 기능에 액세스할 수 있습니다. 사용자 지정 애플리케이션 사용자가 통화 중인 동안 모임 채팅에 액세스할 수 있습니다. 통화에 참여하기 전이나 나간 후에는 메시지를 보내거나 받을 수 없습니다. 
+[모임 설정](/microsoftteams/meeting-settings-in-teams)에서 익명 참가를 사용하도록 설정되는 한 Communication Services 사용자는 예약된 Teams 모임에 참가할 수 있습니다. 
+
+손 들기, 전체 보기 모드 및 소회의실과 같은 특정 Teams 모임 기능은 Teams 사용자에게만 제공되지만, 사용자 지정 애플리케이션은 모임의 핵심 오디오, 비디오, 채팅 및 화면 공유 기능에 액세스할 수 있습니다. 사용자 지정 애플리케이션 사용자가 통화 중인 동안 모임 채팅에 액세스할 수 있습니다. 통화에 참여하기 전이나 나간 후에는 메시지를 보내거나 받을 수 없습니다. 모임이 채널에 대해 예약된 경우 Communication Services 사용자는 채팅에 참여하거나 메시지를 보내고 받을 수 없습니다.
 
 Communication Services 사용자가 Teams 모임에 참가하면 Calling SDK를 통해 제공되는 표시 이름이 Teams 사용자에게 표시됩니다. 그렇지 않으면 Communication Services 사용자가 Teams에서 익명 사용자로 간주됩니다.  사용자 지정 애플리케이션은 Teams 모임을 보호하기 위해 사용자 인증 및 기타 보안 조치를 고려해야 합니다. 익명 사용자가 모임에 참가하도록 설정하는 경우 보안에 미치는 영향을 고려하고, [Teams 보안 가이드](/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings)를 사용하여 익명 사용자가 사용할 수 있는 기능을 구성합니다.
-
-Communication Services Teams Interop은 현재 프라이빗 미리 보기로 제공됩니다. 일반적으로 사용할 수 있는 경우 Communication Services 사용자는 "외부 액세스 사용자"와 같이 처리됩니다. [Microsoft Teams의 조직 외부 사용자와 통화, 채팅 및 협업](/microsoftteams/communicate-with-users-from-other-organizations)에서 외부 액세스에 대해 자세히 알아보세요.
-
-[모임 설정](/microsoftteams/meeting-settings-in-teams)에서 익명 참가를 사용하도록 설정되는 한 Communication Services 사용자는 예약된 Teams 모임에 참가할 수 있습니다. 모임이 채널에 대해 예약된 경우 Communication Services 사용자는 채팅에 참여하거나 메시지를 보내고 받을 수 없습니다.
 
 ## <a name="teams-in-government-clouds-gcc"></a>정부 클라우드(GCC)의 팀
 Azure Communication Services 상호 운영성은 현재 [Microsoft 365 정부 클라우드(GCC)](/MicrosoftTeams/plan-for-government-gcc)를 사용하는 Teams 배포와 호환되지 않습니다. 
