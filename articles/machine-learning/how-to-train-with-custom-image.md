@@ -28,7 +28,7 @@ Azure Machine Learning은 기본 Docker 기본 이미지를 제공합니다. Azu
 이러한 환경 중 하나에서 코드를 실행합니다.
 
 * Azure Machine Learning 컴퓨팅 인스턴스(다운로드 또는 설치 필요 없음):
-  * [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md) 자습서를 완료하여 SDK 및 샘플 저장소가 미리 로드된 전용 Notebook 서버를 만듭니다.
+  * [빠른 시작: Azure Machine Learning 시작하기](quickstart-create-resources.md) 자습서를 완료하여 SDK 및 샘플 리포지토리가 미리 로드된 전용 Notebook 서버를 만듭니다.
   * Azure Machine Learning [예제 리포지토리](https://github.com/Azure/azureml-examples)에서 **notebooks** > **fastai** > **train-pets-resnet34.ipynb** 디렉터리로 이동하여 완료된 Notebook을 찾습니다. 
 * 사용자 고유의 Jupyter Notebook 서버:
   * [작업 영역 구성 파일](how-to-configure-environment.md#workspace)을 만듭니다.

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 0832b54e02cabecb0b1f0e7af600b8adc621a8b0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c15bac8417fdba5f87551dc13311b5272c0926ee
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "99584773"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108743852"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 SharePoint 데이터 원본 추가
 
@@ -20,7 +20,7 @@ ms.locfileid: "99584773"
 
 QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우에는 Active Directory 관리자와 통신하여 이 프로세스를 완료해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 클라우드 기반 SharePoint - QnA Maker는 권한에 대해 Microsoft Graph를 사용합니다. SharePoint가 온-프레미스인 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
 * URL 형식 - QnA Maker는 공유를 위해 생성되고 `https://\*.sharepoint.com` 형식인 SharePoint URL만 지원합니다.
@@ -50,9 +50,9 @@ SharePoint 사이트에서 지원되는 모든 QnA Maker [파일 형식](../inde
 
 대화형 테스트 패널에서 QnA 쌍을 테스트하면 QnA Maker 포털에서 Markdown 텍스트가 아닌 이미지가 표시됩니다. 이렇게 하면 클라이언트-애플리케이션에서 이미지를 공개적으로 검색할 수 있는지 유효성을 검사합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
-권한 부여는 SharePoint 서버의 보안 파일이 기술 자료에 추가된 경우에 발생합니다. SharePoint를 설정하는 방법 및 파일을 추가하는 사용자의 권한에 따라 다음과 같은 권한 부여 단계가 필요할 수 있습니다.
+권한 부여는 SharePoint를 실행하는 서버의 보안 파일이 기술 자료에 추가된 경우에 발생합니다. SharePoint를 설정하는 방법 및 파일을 추가하는 사용자의 권한에 따라 다음과 같은 권한 부여 단계가 필요할 수 있습니다.
 
 * 필요한 추가 단계가 없습니다. 파일을 추가하는 사용자에게 필요한 모든 권한이 있습니다.
 * [기술 자료 관리자](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal)와 [Active Directory 관리자](#active-directory-manager-grant-file-read-access-to-qna-maker) 모두에게 권한 부여 단계가 필요합니다.

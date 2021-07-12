@@ -113,7 +113,7 @@ Azure ABAC(Azure 특성 기반 액세스 제어) 미리 보기를 사용하여 P
 
     ![역할 할당 업데이트 또는 제거](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
 
-1. 조건을 추가하거나 업데이트하여 Azure 리소스 액세스를 구체화하려면 역할 할당의 **조건** 열에서 **추가** 또는 **보기/편집** 을 선택합니다. 현재 Privileged Identity Management의 Storage Blob 데이터 소유자, Storage Blob 데이터 판독기 및 Blob Storage Blob 데이터 기여자 역할은 [Azure 속성 기반 액세스 제어 공개 미리 보기](../../role-based-access-control/conditions-overview.md)의 일부로 지원되는 유일한 두가지 역할입니다.
+1. 조건을 추가하거나 업데이트하여 Azure 리소스 액세스를 구체화하려면 역할 할당의 **조건** 열에서 **추가** 또는 **보기/편집** 을 선택합니다. 현재 Privileged Identity Management의 Storage Blob 데이터 소유자, Storage Blob 데이터 판독기 및 Blob Storage Blob 데이터 기여자 역할은 [Azure 속성 기반 액세스 제어 공개 미리 보기](../../role-based-access-control/conditions-overview.md)의 일부로 지원되는 유일한 두 가지 역할입니다.
 
     ![액세스 제어에 대한 특성 업데이트 또는 제거](./media/pim-resource-roles-assign-roles/resources-abac-update-remove.png)
 

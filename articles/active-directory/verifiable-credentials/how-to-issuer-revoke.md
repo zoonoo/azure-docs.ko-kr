@@ -18,7 +18,7 @@ ms.locfileid: "110466132"
 ---
 # <a name="revoke-a-previously-issued-verifiable-credential-preview"></a>이전에 발급한 확인 가능한 자격 증명(미리 보기) 해지
 
-확인 가능한 자격 증명(VC)을 작업하는 프로세스의 일부로 자격 증명을 발급해야 할 뿐만 아니라 자격 증명을 해지해야 하는 경우도 있습니다. 이 문서에서는 VC 사양의 **Status** 속성 부분을 살펴보고 해지 프로세스, 자격 증명을 해지해야 하는 이유 및 일부 데이터 및 개인 정보 보호에 미치는 영향을 자세히 살펴봅니다.
+VC(확인 가능한 자격 증명)를 사용하는 프로세스의 일부로 자격 증명을 발급해야 할 뿐만 아니라 자격 증명을 해지해야 하는 경우도 있습니다. 이 문서에서는 VC 사양의 **Status** 속성 부분을 살펴보고 해지 프로세스, 자격 증명을 해지해야 하는 이유 및 일부 데이터 및 개인 정보 보호에 미치는 영향을 자세히 살펴봅니다.
 
 > [!IMPORTANT]
 > Azure Active Directory 확인 가능한 자격 증명은 현재 공개 미리 보기로 제공됩니다.
@@ -41,7 +41,7 @@ ms.locfileid: "110466132"
 
 ## <a name="how-does-the-status-property-work"></a>**status** 속성은 어떻게 작동하나요?
 
-모든 Microsoft에서 확인 가능한 자격 증명에는 credentialStatus라는 특성이 있습니다. 이 특성은 Microsoft가 사용자를 대신하여 관리하는 상태 API로 채워집니다. 다음은 그 모습의 예입니다.
+모든 Microsoft에서 확인 가능한 자격 증명에는 credentialStatus라는 특성이 있습니다. 이 특성은 Microsoft가 사용자를 대신하여 관리하는 상태 API로 채워집니다. 다음은 이에 대한 예입니다.
 
 ```json
     "credentialStatus": {
@@ -71,7 +71,7 @@ API를 호출하고 올바른 정보를 제공하면 API는 True 또는 False를
 
 인덱싱하고 싶은 확인 가능한 자격 증명의 특성을 Microsoft에 알려줄 수 있습니다. 인덱싱의 의미는 인덱싱된 값을 사용하여 해지할 VC에 대해 확인 가능한 자격 증명을 검색하는 것입니다.
 
-**예:** Alice는 Woodgrove 직원입니다. Woodgrove는 Contoso에서 근무하고 있습니다. Woodgrove의 IT 관리자인 Jane은 확인 가능한 자격 증명 해지 검색 쿼리에서 Alice의 이메일을 검색합니다. 이 예에서 Jane은 Woodgrove의 확인된 직원 자격 증명의 이메일 필드가 인덱싱됩니다. 
+**예:** Alice는 Woodgrove 직원입니다. Woodgrove는 Contoso에서 근무하고 있습니다. Woodgrove의 IT 관리자인 Jane은 확인 가능한 자격 증명 해지 검색 쿼리에서 Alice의 이메일을 검색합니다. 이 예에서 Jane은 Woodgrove에서 확인된 직원 자격 증명의 이메일 필드를 인덱싱했습니다. 
 
 인덱스를 포함하도록 규칙 파일을 수정하는 방법에 대한 예는 아래를 참조하세요.
 
@@ -122,7 +122,7 @@ API를 호출하고 올바른 정보를 제공하면 API는 True 또는 False를
 1. 해지가 성공하면 상태 업데이트가 표시되고 페이지 맨 위에 녹색 배너가 표시됩니다. 
    ![설정에서 이 도메인 확인](media/how-to-issuer-revoke/revoke-successful.png) 
 
-이제 신뢰 당사자가를 호출하여 이 특정 확인 가능한 자격 증명의 상태를 확인할 때마다 테넌트 대신 Microsoft의 상태 API가 'false' 응답을 반환합니다.
+이제 신뢰 당사자가 이 특정 확인 가능한 자격 증명의 상태를 확인하기 위해 호출할 때마다 테넌트를 대신하여 작동하는 Microsoft의 상태 API가 'false' 응답을 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
