@@ -6,21 +6,22 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: daveba
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/09/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4555baf658f720bc92e882e141b71f3b8050a1a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 66624f0304065c21ecde9de261bebad3300bbd26
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101093777"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112077991"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Windows VM 시스템 할당 관리 ID를 사용하여 Resource Manager에 액세스
 
@@ -42,17 +43,9 @@ ms.locfileid: "101093777"
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>VM에 Resource Manager의 리소스 그룹 액세스 권한 부여
 
-Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  Azure Resource Manager는 Azure AD 인증을 지원합니다.  먼저 이 VM의 시스템 할당 관리 ID에 Azure Resource Manager의 리소스(이 예제에서는 VM이 포함된 리소스 그룹)에 대한 액세스 권한을 부여해야 합니다.  
-
-1.  **리소스 그룹** 의 탭으로 이동합니다. 
-2.  **Windows VM** 용으로 만든 특정 **리소스 그룹** 을 선택합니다. 
-3.  왼쪽 패널의 **액세스 제어(IAM)** 로 이동합니다. 
-4.  다음으로, **역할 할당 추가** 에서 **Windows VM** 에 대한 새 역할 할당을 추가합니다.  **역할** 로 **독자** 를 선택합니다. 
-5.  다음 드롭다운에서 **Virtual Machine** 리소스에 대한 **액세스를 할당** 합니다. 
-6.  그런 다음 **구독** 드롭다운에 적절한 구독이 나열되어 있는지 확인합니다. 그리고 **리소스 그룹** 에서는 **모든 리소스 그룹** 을 선택합니다. 
-7.  마지막으로 **선택** 의 드롭다운에서 Windows VM을 선택하고 **저장** 을 클릭합니다.
-
-    ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+Azure 리소스에 대한 관리 ID를 사용하면 코드에서 액세스 토큰을 가져와 Azure AD 인증을 지원하는 리소스에 인증할 수 있으며 Azure Resource Manager는 Azure AD 인증을 지원합니다.  이 VM의 시스템이 할당한 관리 ID에 Resource Manager의 리소스(이 경우 VM을 만든 리소스 그룹)에 대한 액세스 권한을 부여해야 합니다. **Windows VM** 에 대해 만든 리소스 그룹의 범위에서 관리 ID에 [읽기 권한자](../../role-based-access-control/built-in-roles.md#reader) 역할을 할당합니다.
+ 
+세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>VM의 시스템 할당 관리 ID를 통해 액세스 토큰을 가져오고 Azure Resource Manager를 호출하는 데 사용합니다. 
 

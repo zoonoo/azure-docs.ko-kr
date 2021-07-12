@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/07/2021
-ms.openlocfilehash: f435ed599e39b2dd0c204ef8c2cdcbb23146bc08
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/04/2021
+ms.openlocfilehash: 3681164f1b7415679ed599a70faf6453ab0a5c87
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110367870"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111968005"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -20,13 +20,13 @@ ms.locfileid: "110367870"
 
 Azure Cosmos DB는 최신 앱 개발을 위한 완전 관리형 NoSQL 데이터베이스입니다. 한 자릿수 밀리초 응답 시간과 자동 및 즉시 확장성은 모든 규모에서 속도를 보장합니다. 비즈니스 연속성은 [SLA 지원](https://azure.microsoft.com/support/legal/sla/cosmos-db) 가용성 및 엔터프라이즈급 보안을 통해 보장됩니다. 전 세계 어디서나 턴키 다중 지역 데이터 배포, 인기 있는 언어를 위한 오픈 소스 API 및 SDK를 통해 더 빠르고 효율적으로 웹 개발이 이루어집니다. 완전 관리형 서비스인 Azure Cosmos DB는 자동 관리, 업데이트 및 패치를 통해 데이터베이스 관리를 직접 수행할 수 있습니다. 또한 용량과 비용을 일치시키기 위해 애플리케이션 요구 사항에 대응하는 비용 효율적인 서버리스 및 자동 확장 옵션으로 용량 관리를 처리합니다.
 
-> [!NOTE]
-> 사용자 학습에 참여하여 Azure Cosmos DB 문서를 개선할 수 있도록 하시겠습니까? 이 5분의 [심사 설문 조사](https://aka.ms/cosmosdb-documentation-screener-survey)를 작성하려면 몇 분 정도 걸립니다. 자격이 있는 경우 대화형 리서치 세션에 참여할 슬롯을 예약할 수 있는 스케줄러로 리디렉션됩니다. 개인 데이터는 [개인정보처리방침](https://go.microsoft.com/fwlink/?LinkId=521839)에 따라 이 프로세스 중에 수집되지 않습니다.
-
 Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://azure.microsoft.com/try/cosmosdb/)을 사용해 보거나, [Azure Cosmos DB 무료 계층](free-tier.md)을 사용하여 처음에 1000RU/s 및 25GB의 스토리지를 무료로 사용할 수 있는 계정을 얻을 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [무료로 Azure Cosmos DB 사용해 보기](https://azure.microsoft.com/try/cosmosdb/)
+
+> [!TIP]
+> Azure Cosmos DB에 대해 자세히 알아보려면 매주 목요일 오후 1시에 Azure Cosmos DB Live TV에 참여하세요. [예정된 세션 일정 및 지난 에피소드](https://gotcosmos.com/tv)를 참조하세요.
 
 :::image type="content" source="./media/introduction/azure-cosmos-db.png" alt-text="Azure Cosmos DB는 최신 앱 개발을 위한 완전 관리형 NoSQL 데이터베이스입니다." border="false":::
 
@@ -77,6 +77,7 @@ Azure 구독, 비용 및 약정 없이 [Azure Cosmos DB 무료 체험](https://a
 
 다음 요약 설명서를 통해 Azure Cosmos DB를 시작해 보세요.
 
+- Azure Cosmos DB에서 [API를 선택하는 방법](choose-api.md) 알아보기
 - [Azure Cosmos DB SQL API 시작](create-sql-api-dotnet.md)
 - [Azure Cosmos DB의 MongoDB API 시작](create-mongodb-nodejs.md)
 - [Azure Cosmos DB Cassandra API 시작](create-cassandra-dotnet.md)

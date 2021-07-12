@@ -6,13 +6,13 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 05/08/2021
-ms.openlocfilehash: 47cc0eeb052d980e5c33061dc4721e2f819b3b34
-ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
+ms.date: 06/08/2021
+ms.openlocfilehash: da265e1be47a7ee1a98f6e8169f2531110b5c772
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109654925"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111756602"
 ---
 # <a name="register-and-scan-an-azure-sql-database"></a>Azure SQL Database 등록 및 검사
 
@@ -28,7 +28,6 @@ Azure SQL Database 데이터 원본에서 지원하는 기능은 다음과 같�
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
-> * Azure Purview는 Azure SQL Database의 [보기](/sql/relational-databases/views/views?view=azuresqldb-current&preserve-view=true)에 대한 검사를 지원하지 않습니다.
 > * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
@@ -90,13 +89,13 @@ Purview에서 서비스 주체 또는 Purview의 **관리 ID** 를 사용하여 
 서비스 주체 또는 관리 ID에는 데이터베이스, 스키마 및 테이블에 대한 메타데이터를 가져올 수 있는 권한이 있어야 합니다. 또한 분류를 위해 샘플링할 테이블을 쿼리할 수 있어야 합니다.
 
 - [Azure SQL에서 Azure AD 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)
-- 관리 ID를 사용하는 경우 Purview 계정에는 생성할 때 기본적으로 Purview 이름인 자체 관리 ID가 있습니다. [Azure SQL Database에서 서비스 주체 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database)에 대한 자습서를 수행하여 정확한 Purview의 관리 ID 또는 자체 서비스 주체를 사용하여 Azure SQL Database에서 Azure AD 사용자를 만들어야 합니다. ID에 적절한 권한(예: `db_owner` 또는 `db_datareader`)을 할당해야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
+- 관리 ID를 사용하는 경우 Purview 계정에는 생성할 때 기본적으로 Purview 이름인 자체 관리 ID가 있습니다. [Azure SQL Database에서 서비스 주체 사용자 만들기](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database)에 대한 자습서를 수행하여 정확한 Purview의 관리 ID 또는 자체 서비스 주체를 사용하여 Azure SQL Database에서 Azure AD 사용자를 만들어야 합니다. ID에 적절한 권한(예: `db_datareader`)을 할당해야 합니다. 사용자를 만들고 권한을 부여하는 SQL 구문 예제:
 
     ```sql
     CREATE USER [Username] FROM EXTERNAL PROVIDER
     GO
     
-    EXEC sp_addrolemember 'db_owner', [Username]
+    EXEC sp_addrolemember 'db_datareader', [Username]
     GO
     ```
 

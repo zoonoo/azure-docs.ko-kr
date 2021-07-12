@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: tracych
 ms.author: tracych
 ms.reviewer: laobri
-ms.date: 5/20/2021
+ms.date: 5/25/2021
 ms.custom: how-to
-ms.openlocfilehash: b4484a22d8839e758f7ccbb0a43904b81b028909
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 53fa68fdffd27c1d48322104c541894c6f9c4dd8
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382783"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111751256"
 ---
 # <a name="use-batch-endpoints-preview-for-batch-scoring"></a>일괄 처리 채점에 일괄 처리 엔드포인트(미리 보기) 사용
 
@@ -61,14 +61,14 @@ az upgrade
 Azure ML 확장을 추가하고 구성합니다.
 
 ```azurecli
-az extension add  ml
+az extension add -n ml
 ```
 
 ML 확장 구성에 대한 자세한 내용은 [2.0 CLI 설치, 설정 및 사용(미리 보기)](how-to-configure-cli.md)을 참조하세요.
 
 * 예제 리포지토리
 
-[AzureML 예제 리포지토리](https://github.com/Azure/azureml-examples)를 복제합니다. 이 문서에서는 `/cli-preview/experiment/using-cli/assets/endpoints/batch`의 자산을 사용합니다.
+[AzureML 예제 리포지토리](https://github.com/Azure/azureml-examples)를 복제합니다. 이 문서에서는 `/cli/endpoints/batch`의 자산을 사용합니다.
 
 ## <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
@@ -90,7 +90,7 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 
 다음은 MLFlow 일괄 처리 엔드포인트를 정의하는 YAML 파일입니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/create-batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/create-batch-endpoint.yml":::
 
 | 키 | Description |
 | --- | ----------- |
@@ -99,7 +99,7 @@ az ml endpoint create --type batch --file cli/endpoints/batch/create-batch-endpo
 | 형식 | 엔드포인트의 형식입니다. 일괄 처리 엔드포인트에 `batch`를 사용합니다. |
 | auth_mode | Azure 토큰 기반 인증에 `aad_token`을 사용합니다. |
 | traffic | 이 배포로 라우팅되는 트래픽 비율입니다. 일괄 처리 엔드포인트의 경우 `traffic`에 대해 유효한 값은 `0` 또는 `100`뿐입니다. `100` 트래픽 값이 있는 배포가 활성화되어 있습니다. 호출되면 모든 데이터가 활성 배포로 전송됩니다. |
-| 배포 | 일괄 처리 엔드포인트에서 만들 배포의 목록입니다. 이 예제에는 `autolog_deployment`라는 이름의 배포 하나만 있습니다. |
+| 배포 | 일괄 처리 엔드포인트에서 만들 배포의 목록입니다. 이 예제에는 `autolog-deployment`라는 이름의 배포 하나만 있습니다. |
 
 배포 특성:
 
@@ -182,7 +182,7 @@ az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipeli
 
 * 다른 크기의 입력 데이터 사용되는 경우 `--mini-batch-size`를 사용하여 `mini_batch_size`를 덮어씁니다. 
 * 이 작업에 다른 컴퓨팅 리소스가 필요한 경우 `--instance-count`를 사용하여 `instance_count`를 덮어씁니다. 
-* `max_retries`, `timeout`, `error_threshold` 및 `logging_level`을 비롯한 다른 설정을 덮어쓰려면 `--set`를 사용합니다.
+* `max_retries`, `timeout` 및 `error_threshold`를 비롯한 다른 설정을 덮어쓰려면 `--set`을 사용합니다.
 
 ```azurecli
 az ml endpoint invoke --name mybatchedp --type batch --input-path https://pipelinedata.blob.core.windows.net/sampledata/nytaxi/taxi-tip-data.csv --set retry_settings.max_retries=1
@@ -240,7 +240,7 @@ az ml endpoint update --name mybatchedp --type batch --deployment-file cli/endpo
 
 이 샘플에서는 비 MLflow 모델을 사용합니다. 비 MLflow를 사용하는 경우 YAML 파일에서 환경 및 채점 스크립트를 지정해야 합니다.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/add-deployment.yml" :::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/add-deployment.yml" :::
 
 비 MLflow 모델에 대한 추가 배포 특성:
 
@@ -261,7 +261,7 @@ az ml endpoint show --name mybatchedp --type batch
 일괄 처리 유추의 경우 원하는 배포에 문의를 100% 보내야 합니다. 새로 만든 배포를 대상으로 설정하려면 다음을 사용합니다.
 
 ```azurecli
-az ml endpoint update --name mybatchedp --type batch --traffic mnist_deployment:100
+az ml endpoint update --name mybatchedp --type batch --traffic mnist-deployment:100
 ```
 
 배포 세부 정보를 다시 검사하면 변경 내용이 표시됩니다.
@@ -289,13 +289,13 @@ scoring_uri=$(az ml endpoint show --name mybatchedp --type batch --query scoring
 2. 액세스 토큰을 가져옵니다.
 
 ```azurecli
-auth_token=$(az account get-access-token --resource https://ml.azure.com --query accessToken -o tsv)
+auth_token=$(az account get-access-token --query accessToken -o tsv)
 ```
 
 3. `scoring_uri`, 액세스 토큰 및 JSON 데이터를 사용하여 요청을 게시하고 일괄 처리 채점 작업을 시작합니다.
 
 ```bash
-curl --location --request POST '$scoring_uri' --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
+curl --location --request POST "$scoring_uri" --header "Authorization: Bearer $auth_token" --header 'Content-Type: application/json' --data-raw '{
 "properties": {
   "dataset": {
     "dataInputType": "DataUrl",
