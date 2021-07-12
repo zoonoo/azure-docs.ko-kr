@@ -6,12 +6,12 @@ ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview
 ms.date: 03/11/2021
-ms.openlocfilehash: 41d60c8e565655793dd33393f41876438c7eab66
-ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
+ms.openlocfilehash: 573e0dc028391c2eea9d412bfe68c07a2e95aec3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108166957"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111963138"
 ---
 # <a name="quickstart-create-a-serverless-simple-chat-application-with-azure-functions-and-azure-web-pubsub-service"></a>빠른 시작: Azure Functions 및 Azure Web PubSub 서비스를 사용하여 간단한 서버리스 채팅 애플리케이션 만들기 
 
@@ -58,8 +58,8 @@ Azure Function 앱을 로컬로 실행하려면 [Azure Functions Core Tools](htt
   복제된 리포지토리에서 */samples/functions/js/simplechat* 폴더를 엽니다. *local.settings.json* 을 편집하여 서비스 연결 문자열을 추가합니다.
   *local.settings.json* 에서 이러한 변경을 수행한 후 파일을 저장해야 합니다.
     - 자리 표시자 *<connection-string>* 을 **Azure Portal** 에서 복사한 **`WebPubSubConnectionString`** 설정의 실제 값으로 바꿉니다. 
-    - **`AzureWebJobsStorage`** 설정의 경우 [Azure Functions를 사용하려면 Azure Storage 계정이 필요](https://docs.microsoft.com/azure/azure-functions/storage-considerations)하기 때문에 이 작업이 필요합니다.
-        - Azure Storage 에뮬레이터가 로컬에서 실행되는 경우 원래 설정 "UseDevelopmentStorage=true"를 유지합니다.
+    - **`AzureWebJobsStorage`** 설정의 경우 [Azure Functions를 사용하려면 Azure Storage 계정이 필요](../azure-functions/storage-considerations.md)하기 때문에 이 작업이 필요합니다.
+        - Azure Storage 에뮬레이터가 로컬에서 실행되는 경우 원래 설정 “UseDevelopmentStorage=true”를 유지합니다.
         - Azure Storage 연결 문자열이 있으면 값을 해당 문자열로 바꿉니다.
  
 - JavaScript 함수는 폴더로 구성됩니다. 각 폴더에는 두 개의 파일이 있습니다. `function.json`은 함수에서 사용되는 바인딩을 정의하고 `index.js`는 함수의 본문입니다. 이 함수 앱에는 여러 트리거 함수가 있습니다.

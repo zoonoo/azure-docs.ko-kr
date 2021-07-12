@@ -43,7 +43,7 @@ ms.locfileid: "109839368"
 7. **인스턴스 세부 정보** 에서 가상 머신 이름에 대한 이름을 입력하고 [신뢰할 수 있는 시작](trusted-launch.md#public-preview-limitations)을 지원하는 지역을 선택합니다.
 8. **이미지** 에서 Gen 2 [신뢰할 수 있는 실행을 지원하는 이미지](trusted-launch.md#public-preview-limitations)를 선택합니다. 다음 메시지가 표시되는지 확인합니다. **이 이미지는 신뢰할 수 있는 실행 미리 보기를 지원합니다. 고급 탭에서 구성합니다**.
    > [!TIP]
-   > 드롭 다운에 원하는 이미지의 Gen 2 버전이 표시되지 않으면 **모든 이미지보기** 를 선택한 다음 Gen 2 이미지만 표시하도록 **VM 세대** 필터를 변경합니다. 목록에서 이미지를 찾은 다음 **선택** 드롭 다운을 사용하여 Gen 2 버전을 선택합니다.
+   > 드롭다운에 원하는 이미지의 Gen 2 버전이 표시되지 않으면 **모든 이미지 보기** 를 선택한 다음 Gen 2 이미지만 표시하도록 **VM 세대** 필터를 변경합니다. 목록에서 이미지를 찾은 다음 **선택** 드롭다운을 사용하여 Gen 2 버전을 선택합니다.
 
     :::image type="content" source="media/trusted-launch/gen-2-image.png" alt-text="신뢰할 수 있는 시작을 지원하는 gen2 이미지임을 확인하는 메시지를 보여 주는 스크린샷":::
 
@@ -67,9 +67,9 @@ VM 배포에는 몇 분 정도 걸립니다.
 
 빠른 시작 템플릿을 사용하여 신뢰할 수 있는 시작 VM을 배포할 수 있습니다.
 
-**Linux**: [![ Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
+**Linux**: [![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-**Windows**: [![ Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
+**Windows**: [![Azure에 배포](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ## <a name="view-and-update"></a>보기 및 업데이트
 

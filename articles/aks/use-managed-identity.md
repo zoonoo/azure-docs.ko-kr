@@ -202,7 +202,7 @@ Kubelet ID를 사용하면 클러스터를 만들기 전에 기존 ID에 대한 
 
 ### <a name="limitations"></a>제한 사항
 
-- User-Assigned 관리 클러스터 에서만 작동합니다.
+- User-Assigned 관리 클러스터에서만 작동합니다.
 - Azure 중국 21Vianet은 현재 지원되지 않습니다.
 
 먼저 Kubelet ID에 대한 기능 플래그를 등록합니다.
@@ -225,7 +225,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ### <a name="create-or-obtain-managed-identities"></a>관리 ID 만들기 또는 가져오기
 
-아직 제어 평면에서 관리되는 ID가 없는 경우 계속 진행하여 새로 만들어야 합니다. 다음 예는 [az identity create][az-identity-create] 명령을 사용합니다.
+아직 컨트롤 플레인에서 관리되는 ID가 없는 경우 계속 진행하여 새로 만들어야 합니다. 다음 예는 [az identity create][az-identity-create] 명령을 사용합니다.
 
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
@@ -279,7 +279,7 @@ az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 
 ### <a name="create-a-cluster-using-kubelet-identity"></a>Kubelet ID를 사용하여 클러스터 만들기
 
-이제 다음 명령을 사용하여 기존 ID를 사용하여 클러스터를 만들 수 있습니다. `assign-identity`를 통해 제어 플레인 ID를 제공하고 `assign-kublet-identity`를 통해 kubelet 관리 ID를 제공합니다.
+이제 다음 명령을 사용하여 기존 ID를 사용하여 클러스터를 만들 수 있습니다. `assign-identity`를 통해 컨트롤 플레인 ID를 제공하고 `assign-kublet-identity`를 통해 kubelet 관리 ID를 제공합니다.
 
 ```azurecli-interactive
 az aks create \

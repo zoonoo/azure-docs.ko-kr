@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 04/14/2021
+ms.date: 06/10/2021
 ms.author: aahi
-ms.openlocfilehash: 59518b1117a566f9bc238a70a6bcaff6f1e05197
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: a8645552cba0bb687b5d9a9dc93bc917d7ee38af
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110085424"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111969333"
 ---
 # <a name="how-to-sentiment-analysis-and-opinion-mining"></a>방법: 감정 분석 및 오피니언 마이닝
 
@@ -304,3 +304,4 @@ API는 의견을 대상(명사 또는 동사) 및 평가(형용사)로 반환합
 * [Text Analytics 개요](../overview.md)
 * [Text Analytics 클라이언트 라이브러리 사용](../quickstarts/client-libraries-rest-api.md)
 * [새로운 기능](../whats-new.md)
+* [모델 버전](../concepts/model-versioning.md)

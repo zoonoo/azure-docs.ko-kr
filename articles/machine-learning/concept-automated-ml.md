@@ -27,9 +27,9 @@ ms.locfileid: "110094603"
 
 Azure Machine Learning은 자동화된 ML 작업을 위한 두 가지 환경을 제공합니다.
 
-* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  [자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측](tutorial-auto-train-models.md)을 시작합니다.
+* 코드 환경 고객의 경우 [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  [자습서: 자동화된 Machine Learning을 사용하여 택시 요금 예측](tutorial-auto-train-models.md)을 시작합니다.
 
-* 제한된 코드 환경 또는 코드리스 환경 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)의 Azure Machine Learning Studio.  자습서 시작:
+* 제한된 코드 환경 또는 코드리스 환경 고객의 경우 [https://ml.azure.com](https://ml.azure.com/)의 Azure Machine Learning 스튜디오.  자습서 시작:
     * [자습서: Azure Machine Learning에서 자동화된 ML을 사용하여 분류 모델 만들기](tutorial-first-experiment-automated-ml.md).
     *  [자습서: 자동화된 기계 학습으로 수요 예측](tutorial-automated-ml-forecast.md)
 

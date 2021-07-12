@@ -1,6 +1,6 @@
 ---
 title: Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이
-description: 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성을 제공하기 위해 Azure 가용성 영역에서 VPN 및 Express 경로 게이트웨이를 배포하는 방법에 대해 알아봅니다.
+description: 가상 네트워크 게이트웨이에 복원력, 확장성 및 고가용성을 제공하기 위해 Azure 가용성 영역에서 VPN 및 ExpressRoute 게이트웨이를 배포하는 방법에 대해 알아봅니다.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
@@ -39,7 +39,7 @@ ms.locfileid: "110067387"
 
 ## <a name="gateway-skus"></a><a name="gwskus"></a>게이트웨이 SKU
 
-영역 중복 및 영역 게이트웨이는 게이트웨이 Sku로 사용할 수 있습니다. Azure AZ 지역에 새 가상 네트워크 게이트웨이 SKU가 추가되었습니다. 이러한 SKU는 영역 중복 및 영역 게이트웨이 특정 SKU라는 점을 제외하고 ExpressRoute 및 VPN Gateway에 해당하는 기존 SKU와 비슷합니다. SKU 이름에서 “AZ”를 기준으로 이러한 SKU를 식별할 수 있습니다.
+영역 중복 및 영역 게이트웨이는 게이트웨이 SKU로 사용할 수 있습니다. Azure AZ 지역에 새 가상 네트워크 게이트웨이 SKU가 추가되었습니다. 이러한 SKU는 영역 중복 및 영역 게이트웨이 특정 SKU라는 점을 제외하고 ExpressRoute 및 VPN Gateway에 해당하는 기존 SKU와 비슷합니다. SKU 이름에서 “AZ”를 기준으로 이러한 SKU를 식별할 수 있습니다.
 
 게이트웨이 SKU에 대한 자세한 내용은 [VPN 게이트웨이 SKU](vpn-gateway-about-vpngateways.md#gwsku) 및 [ExpressRoute 게이트웨이 SKU](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku)를 참조하세요.
 
@@ -70,11 +70,11 @@ ms.locfileid: "110067387"
 
 ### <a name="can-i-use-the-azure-portal"></a>Azure Portal을 사용할 수 있나요?
 
-예, Azure Portal을 사용하여 이러한 SKU를 배포할 수 있습니다. 그러나 이러한 Sku는 Azure 가용성 영역 있는 Azure 지역에만 표시됩니다.
+예, Azure Portal을 사용하여 이러한 SKU를 배포할 수 있습니다. 그러나 이러한 SKU는 Azure 가용성 영역이 있는 Azure 지역에만 표시됩니다.
 
-### <a name="what-regions-are-available-for-me-to-use-these-skus"></a>이 Sku를 사용할 수 있는 지역은 어디인가요?
+### <a name="what-regions-are-available-for-me-to-use-these-skus"></a>이러한 SKU를 사용할 수 있는 지역은 어디인가요?
 
-이러한 SKU는 Azure 가용성 영역이 있는 Azure 지역에서 사용할 수 있습니다. 자세한 내용은 [가용 영역이 있는 Azure 지역](../availability-zones/az-region.md#azure-regions-with-availability-zones)을 참조하세요.
+이러한 SKU는 Azure 가용성 영역이 있는 Azure 지역에서 사용할 수 있습니다. 자세한 내용은 [가용성 영역이 있는 Azure 지역](../availability-zones/az-region.md#azure-regions-with-availability-zones)을 참조하세요.
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>내 기존 가상 네트워크 게이트웨이를 영역 중복 또는 영역 게이트웨이로 변경/마이그레이션/업그레이드할 수 있나요?
 

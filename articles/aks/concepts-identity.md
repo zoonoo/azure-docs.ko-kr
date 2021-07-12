@@ -100,11 +100,11 @@ Kubernetes RBAC를 사용하여 사용자에게 권한을 할당하기 전에 �
 
 #### <a name="clusterroles"></a>ClusterRoles
 
-ClusterRole는 특정 네임스페이스가 아니라 전체 클러스터에서 리소스에 권한을 부여하고 적용합니다.
+ClusterRole은 특정 네임스페이스가 아니라 전체 클러스터에서 리소스에 권한을 부여하고 적용합니다.
 
 ### <a name="rolebindings-and-clusterrolebindings"></a>RoleBindings 및 ClusterRoleBindings
 
-리소스에 권한을 부여하는 역할이 정의되면 *RoleBinding* 을 사용하여 해당 Kubernetes RBAC 권한을 할당합니다. AKS 클러스터가 [Azure Active Directory(Azure AD)를 통합](#azure-ad-integration)하는 경우 RoleBindings는 클러스터 내에서 작업을 수행할 수 있는 권한을 Azure AD 사용자에게 부여합니다. [Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory ID를 사용하여 클러스터 리소스에 대한 액세스 제어](azure-ad-rbac.md)에서 방법을 참조하세요.
+리소스에 권한을 부여하는 역할이 정의되면 *RoleBinding* 을 사용하여 해당 Kubernetes RBAC 권한을 할당합니다. AKS 클러스터가 [Azure AD(Azure Active Directory)를 통합](#azure-ad-integration)하는 경우 RoleBindings는 클러스터 내에서 작업을 수행할 수 있는 권한을 Azure AD 사용자에게 부여합니다. [Kubernetes 역할 기반 액세스 제어 및 Azure Active Directory ID를 사용하여 클러스터 리소스에 대한 액세스 제어](azure-ad-rbac.md)에서 방법을 참조하세요.
 
 #### <a name="rolebindings"></a>RoleBindings
 
@@ -189,7 +189,7 @@ AKS 클러스터를 완전히 운영하려면 다음과 같이 두 가지 수준
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC로 AKS 리소스에 대한 액세스 권한 부여
 
-Azure RBAC를 사용하면 하나 이상의 구독에서 AKS 리소스에 대한 세분화된 액세스 권한을 사용자에게 제공할 수 있습니다. 예를 들어 [Azure Kubernetes Service 기여자 역할](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)을 사용하여 클러스터를 확장하고 업그레이드할 수 있습니다. 한편 [Azure Kubernetes 서비스 클러스터 관리자 역할](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role)이 있는 다른 사용자에게는 관리자 `kubeconfig`를 가져올 수 있는 권한만 있습니다.
+Azure RBAC를 사용하면 하나 이상의 구독에서 AKS 리소스에 대한 세분화된 액세스 권한을 사용자에게 제공할 수 있습니다. 예를 들어 [Azure Kubernetes Service 기여자 역할](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)을 사용하여 클러스터를 확장하고 업그레이드할 수 있습니다. [Azure Kubernetes Service 클러스터 관리자 역할](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role)이 있는 다른 사용자에게는 관리자 `kubeconfig`를 가져올 수 있는 권한만 있습니다.
 
 또는 사용자에게 일반 [기여자](../role-based-access-control/built-in-roles.md#contributor) 역할을 부여할 수 있습니다. 일반 참가자 역할을 사용하여 사용자는 권한 관리를 제외하고 위의 사용 권한 및 AKS 리소스에서 가능한 모든 작업을 수행할 수 있습니다.
 
@@ -203,7 +203,7 @@ Azure RBAC 통합을 사용하면 AKS는 Kubernetes 권한 부여 webhook 서버
 
 위의 다이어그램에 표시된 대로 Azure RBAC 통합을 사용할 때 Kubernetes API에 대한 모든 요청은 [Azure Active Directory 통합 섹션](#azure-ad-integration)에 설명된 것과 동일한 인증 흐름을 따릅니다. 
 
-요청을 만드는 ID가 Azure AD에 있는 경우 Azure는 Kubernetes RBAC를 사용하여 요청에 권한을 부여합니다. ID가 Azure AD 외부(즉, Kubernetes 서비스 계정) 외부에 있는 경우 권한 부여는 정상적인 Kubernetes RBAC에 의해 발생합니다.
+요청을 만드는 ID가 Azure AD에 있는 경우 Azure는 Kubernetes RBAC를 사용하여 요청에 권한을 부여합니다. ID가 Azure AD 외부(즉, Kubernetes 서비스 계정)에 있는 경우 권한 부여는 정상적인 Kubernetes RBAC에 의해 발생합니다.
 
 이 시나리오에서는 Kubernetes 역할을 사용하는 것처럼 Azure RBAC 메커니즘과 API를 사용하여 사용자에게 기본 제공 역할을 할당하거나 사용자 지정 역할을 만듭니다. 
 
@@ -233,7 +233,7 @@ Azure AD 통합을 사용하는 경우 사용자가 Kubernetes에 인증할 수 
    * 첫 번째 명령은 다음 표에 설명된 대로 브라우저 기반 인증을 트리거하여 클러스터에 인증할 수 있습니다.
 
 Azure Portal에서 다음을 찾을 수 있습니다.
-* 두 번째 열에 언급된 *역할 부여*(Azure RBAC 역할 부여)는 **Access Control** 탭에 표시됩니다. 
+* 두 번째 열에 언급된 *역할 부여*(Azure RBAC 역할 부여)는 **액세스 제어** 탭에 표시됩니다. 
 * 클러스터 관리자 Azure AD 그룹은 **구성** 탭에 표시됩니다.
   * 또한 Azure CLI에서 매개 변수 이름 `--aad-admin-group-object-ids`가 있습니다.
 
@@ -243,7 +243,7 @@ Azure Portal에서 다음을 찾을 수 있습니다.
 | 클라이언트 인증서를 사용하는 레거시 관리자 로그인| **Azure Arc Kubernetes 관리자 역할**. 이 역할을 통해 `az aks get-credentials`을 `--admin` 플래그와 함께 사용할 수 있으며, [ 레거시(non-Azure AD) 클러스터 관리 인증서](control-kubeconfig-access.md)를 사용자의 `.kube/config`에 다운로드합니다. "Azure Kubernetes 관리자 역할"의 유일한 목적입니다.|해당 없음|클러스터에 대한 액세스 권한이 있는 유효한 Azure AD 그룹에 대한 액세스 권한이 없는 사용자가 영구적으로 차단되는 경우| 
 | 수동 (클러스터) RoleBindings를 사용하는 Azure AD| **Azure Kubernetes 클러스터 사용자 역할**. "User" 역할을 사용하면 `--admin`플래그 없이 `az aks get-credentials`을 사용할 수 있습니다. "Azure Kubernetes 사용자 역할"의 유일한 목적입니다.) Azure AD를 사용하는 클러스터에 대한 결과는 `.kube/config`에 [빈 항목](control-kubeconfig-access.md)을 다운로드하는 것으로,이 항목은 `kubectl`에서 처음 사용하는 경우 브라우저 기반 인증을 트리거합니다.| 사용자가 이러한 그룹에 없습니다. 사용자가 클러스터 관리자 그룹에 있지 않기 때문에 해당 권한은 클러스터 관리자가 설정한 RoleBindings 또는 ClusterRoleBindings에 의해 완전히 제어됩니다. (Cluster) RoleBindings는 [Azure AD 사용자 또는 Azure AD 그룹](azure-ad-rbac.md)을 `subjects`으로 추천합니다. 이러한 바인딩을 설정하지 않으면 사용자가 아무 `kubectl` 명령도 실행할 수 없습니다.|세부적인 액세스 제어를 원하는 경우 Kubernetes 권한 부여를 위해 Azure RBAC를 사용하지 않습니다. 참고로 바인딩을 설정하는 사용자는 이 표에 나열된 다른 방법 중 하나를 사용하여 로그인해야 합니다.|
 | 관리자 그룹의 구성원인 Azure AD| 위와 동일|사용자는 여기에 나열된 그룹 중 하나의 멤버입니다. AKS는 나열된 모든 그룹을 `cluster-admin`Kubernetes 역할에 바인딩하는 ClusterRoleBinding을 자동으로 생성합니다. 따라서 이러한 그룹의 사용자는 모든 `kubectl`명령을 `cluster-admin`로 실행할 수 있습니다.|편리하게 사용자에게 관리자 권한을 부여하고, Kubernetes 권한 부여를 위한 Azure RBAC를 사용하지 _않으려는_ 경우|
-| Kubernetes 권한 부여를 위한 Azure AD 및 Azure RBAC|두가지 역할: <br> 먼저, **Azure Kubernetes 사용자 역할**(위 참조). <br> 두 번째, 나열된 "Azure Kubernetes 서비스 **RBAC**..." 역할 중 하나, 또는 고유한 사용자 지정 대안입니다.|Kubernetes 권한 부여에 대한 Azure RBAC이 활성화된 경우 구성 탭의 관리자 역할 필드는 관련이 없습니다.|Kubernetes 권한 부여를 위한 Azure RBAC를 사용 중입니다. 이 방법은 RoleBindings 또는 ClusterRoleBindings를 설정하지 않고도 세분화된 제어를 제공합니다.|
+| Kubernetes 권한 부여를 위한 Azure AD 및 Azure RBAC|두 가지 역할: <br> 먼저, **Azure Kubernetes 사용자 역할**(위 참조). <br> 두 번째, 나열된 "Azure Kubernetes 서비스 **RBAC**..." 역할 중 하나, 또는 고유한 사용자 지정 대안입니다.|Kubernetes 권한 부여에 대한 Azure RBAC이 활성화된 경우 구성 탭의 관리자 역할 필드는 관련이 없습니다.|Kubernetes 권한 부여를 위한 Azure RBAC를 사용 중입니다. 이 방법은 RoleBindings 또는 ClusterRoleBindings를 설정하지 않고도 세분화된 제어를 제공합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

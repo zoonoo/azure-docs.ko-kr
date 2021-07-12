@@ -66,7 +66,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | [그룹 관리자](#groups-administrator) | 이 역할의 구성원은 그룹을 만들고/관리하고, 이름이나 만료 정책과 같은 그룹 설정을 만들고/관리하고, 그룹 작업 및 감사 보고서를 볼 수 있습니다. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [게스트 초대자](#guest-inviter) | '멤버가 게스트를 초대할 수 있음' 설정에 관계없이 게스트 사용자를 초대할 수 있습니다. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [기술 지원팀 관리자](#helpdesk-administrator) | 관리자가 아닌 사용자 및 기술 지원팀 관리자의 암호를 재설정할 수 있습니다. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [하이브리드 ID 관리자](#hybrid-identity-administrator) | AD에서 Azure AD로 클라우드 프로비저닝, Azure AD 연결 및 페더레이션 설정을 관리할 수 있습니다. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [하이브리드 ID 관리자](#hybrid-identity-administrator) | AD에서 Azure AD로 클라우드 프로비저닝, Azure AD Connect 및 페더레이션 설정을 관리할 수 있습니다. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Identity Governance 관리자](#identity-governance-administrator) | ID 거버넌스 시나리오에 Azure AD를 사용하여 액세스를 관리합니다. | 45d8d3c5-c802-45c6-b32a-1d70b5e1e86e |
 > | [Insights 관리자](#insights-administrator) | Microsoft 365 Insights 앱에서 관리 권한이 있습니다. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Insights 비즈니스 리더](#insights-business-leader) | M365 Insights 앱을 통해 대시보드 및 인사이트를 보고 공유할 수 있습니다. | 31e939ad-9672-4796-9c2e-873181342d2d |
@@ -883,7 +883,7 @@ Azure AD(Azure Active Directory)에서 다른 관리자 또는 관리자가 아�
 > | microsoft.office365.knowledge/contentUnderstanding/analytics/allProperties/read | Microsoft 365 관리 센터에서 콘텐츠 이해에 대한 분석 보고서 읽기 |
 > | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Microsoft 365 관리 센터에서 지식 네트워크의 모든 속성 읽기 및 업데이트 |
 > | microsoft.office365.knowledge/knowledgeNetwork/topicVisibility/allProperties/allTasks | Microsoft 365 관리 센터에서 지식 네트워크의 항목 표시 유형 관리 |
-> | microsoft.office365.knowledge/learningSources/allProperties/allTasks | Learning 앱에서 학습 원본 및 모든 속성을 관리합니다. |
+> | microsoft.office365.knowledge/learningSources/allProperties/allTasks | 학습 앱에서 학습 원본 및 모든 속성을 관리합니다. |
 > | microsoft.office365.lockbox/allEntities/allTasks | 고객 Lockbox의 모든 측면 관리 |
 > | microsoft.office365.messageCenter/messages/read | Microsoft 365 관리 센터의 메시지 센터에서 보안 메시지를 제외한 메시지 읽기 |
 > | microsoft.office365.messageCenter/securityMessages/read | Microsoft 365 관리 센터의 메시지 센터에서 보안 메시지 읽기 |
@@ -1186,7 +1186,7 @@ Microsoft Kaizala 서비스가 있는 경우 이 역할의 사용자에게는 �
 > | microsoft.directory/groups.security/owners/update | 역할 할당 가능 그룹을 제외한 보안 그룹의 소유자 업데이트 |
 > | microsoft.office365.knowledge/contentUnderstanding/allProperties/allTasks | Microsoft 365 관리 센터에서 콘텐츠 이해의 모든 속성 읽기 및 업데이트 |
 > | microsoft.office365.knowledge/knowledgeNetwork/allProperties/allTasks | Microsoft 365 관리 센터에서 지식 네트워크의 모든 속성 읽기 및 업데이트 |
-> | microsoft.office365.knowledge/learningSources/allProperties/allTasks | Learning 앱에서 학습 원본 및 모든 속성을 관리합니다. |
+> | microsoft.office365.knowledge/learningSources/allProperties/allTasks | 학습 앱에서 학습 원본 및 모든 속성을 관리합니다. |
 > | microsoft.office365.protectionCenter/sensitivityLabels/allProperties/read | 보안 및 규정 준수 센터에서 민감도 레이블의 모든 속성 읽기 |
 > | microsoft.office365.sharePoint/allEntities/allTasks | SharePoint에서 모든 리소스 만들기 및 삭제, 표준 속성 읽기 및 업데이트 |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Microsoft 365 서비스 요청 만들기 및 관리 |

@@ -1,5 +1,5 @@
 ---
-title: Dv4 및 Dsv4 시리즈-Azure Virtual Machines
+title: Dv4 및 Dsv4 시리즈 - Azure Virtual Machines
 description: Dv4 및 Dsv4 시리즈 VM 사양입니다.
 author: brbell
 ms.author: brbell
@@ -18,13 +18,13 @@ ms.locfileid: "110454038"
 ---
 # <a name="dv4-and-dsv4-series"></a>Dv4 및 Dsv4 시리즈
 
-Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성의 Intel &reg; Xeon &reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되므로 대부분의 범용 워크로드에 대해 더 나은 가치 제안을 제공합니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다. 
+Dv4 및 Dsv4 시리즈는 하이퍼 스레드 구성의 Intel &reg;Xeon&reg; Platinum 8272CL(Cascade Lake) 프로세서에서 실행되며 대부분의 범용 워크로드에 대해 더 나은 가치 제안을 제공합니다. 3\.4GHz의 모든 코어 터보 클록 속도를 제공합니다. 
 
 > [!NOTE]
 > 질문과 대답은  [로컬 임시 디스크가 없는 Azure VM 크기](azure-vms-no-temp-disk.md)를 참조하세요.
 ## <a name="dv4-series"></a>Dv4 시리즈
 
-Dv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실행됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크로드에 대해 vCPU, 메모리 및 원격 스토리지 옵션의 조합을 제공합니다. Dv4 시리즈 VM에는 [Intel &reg; 하이퍼 스레딩 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)이 있습니다.
+Dv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실행됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크로드에 대해 vCPU, 메모리 및 원격 스토리지 옵션의 조합을 제공합니다. Dv4 시리즈 VM은 [Intel&reg; 하이퍼 스레딩 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)을 특징으로 합니다.
 
 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 Dsv4 크기를 사용합니다. Dsv4 크기의 가격 및 요금 청구 기준은 Dv4 시리즈와 동일합니다.
 
@@ -50,7 +50,7 @@ Dv4 시리즈 크기는 Intel&reg; Xeon&reg; Platinum 8272CL(Cascade Lake)에서
 
 ## <a name="dsv4-series"></a>Dsv4 시리즈
 
-Dsv4 시리즈 크기는 Intel &reg; Xeon &reg; Platinum 8272CL(Cascade Lake)에서 실행됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크로드에 대해 vCPU, 메모리 및 원격 스토리지 옵션의 조합을 제공합니다. Dsv4 시리즈 VM에는 [Intel &reg; 하이퍼-스레딩 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)이 있습니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
+Dsv4 시리즈 크기는 Intel &reg;Xeon&reg; Platinum 8272CL(Cascade Lake)에서 실행됩니다. Dv4 시리즈 크기는 대부분의 프로덕션 워크로드에 대해 vCPU, 메모리 및 원격 스토리지 옵션의 조합을 제공합니다. Dsv4 시리즈 VM은 [Intel&reg; 하이퍼 스레딩 기술](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html)을 특징으로 합니다. 원격 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다.
 
 [ACU](acu.md): 195-210<br>
 [Premium Storage](premium-storage-performance.md): 지원됨<br>

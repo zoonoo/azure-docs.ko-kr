@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 78536867efa4894f1041a340b9d6347a4e030a69
-ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
+ms.openlocfilehash: d70a15456ecc688b6bc8137223d36164545c0123
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2021
-ms.locfileid: "109685660"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956226"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>자습서: 마이크로 처리 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -57,6 +57,8 @@ ms.locfileid: "109685660"
 
     ![Azure IoT Central의 새 애플리케이션 페이지에 대한 스크린샷](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc.png)
 
+    ![Azure IoT Central 청구 정보의 스크린샷](./media/tutorial-micro-fulfillment-center-app/iotc-retail-create-app-mfc-billing.png)
+
 ## <a name="walk-through-the-application"></a>애플리케이션 살펴보기 
 
 앱 템플릿이 성공적으로 배포되면 **Northwind Traders 마이크로 처리 센터 대시보드** 가 표시됩니다. Northwind Trader는 이 Azure IoT Central 애플리케이션에서 마이크로 처리 센터를 관리하는 가상의 소매업체입니다. 이 운영자 대시보드에는 수행할 수 있는 명령, 작업 및 동작 세트와 함께 이 템플릿의 디바이스에 대한 정보 및 원격 분석 데이터가 표시됩니다. 대시보드는 논리적으로 두 섹션으로 분할됩니다. 왼쪽에서는 처리 구조 내에서 환경 상태를 모니터링할 수 있고, 오른쪽에서는 시설 내 로봇 캐리어의 상태를 모니터링할 수 있습니다.  
@@ -66,11 +68,11 @@ ms.locfileid: "109685660"
    * 처리 구조 내에 있는 로봇 캐리어의 평면도와 위치를 봅니다.
    * 제어 시스템 다시 설정, 캐리어 펌웨어 업데이트 및 네트워크 재구성과 같은 명령을 트리거합니다.
 
-     ![Northwind Traders 마이크로 처리 센터 대시보드 상단 절반의 스크린샷.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Northwind Traders 마이크로 처리 센터 대시보드 상단 절반의 스크린샷.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-1.png)
    * 운영자가 처리 센터 내의 상태를 모니터링하는 데 사용할 수 있는 대시보드의 예를 참조합니다. 
    * 처리 센터 내의 게이트웨이 디바이스에서 실행되는 페이로드의 상태를 모니터링합니다.    
 
-     ![Northwind Traders 마이크로 처리 센터 대시보드 하단 절반의 스크린샷.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Northwind Traders 마이크로 처리 센터 대시보드 하단 절반의 스크린샷.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard-2.png)
 
 ## <a name="device-template"></a>디바이스 템플릿
 디바이스 템플릿 탭이 선택되면 템플릿에 포함된 다음 두 가지 유형의 디바이스가 표시됩니다. 

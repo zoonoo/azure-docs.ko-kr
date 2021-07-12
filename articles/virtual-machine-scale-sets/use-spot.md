@@ -217,7 +217,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 `Response Code: 204`는 시뮬레이션이 성공적으로 완료되었음을 의미합니다. 
 
-자세한 정보는 [시뮬레이트된 제거 알림 테스트](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction)를 참조하세요.
+자세한 내용은 [시뮬레이션된 제거 알림 테스트](../virtual-machines/windows/spot-powershell.md#simulate-an-eviction)를 참조하세요.
 
 ## <a name="faq"></a>FAQ
 

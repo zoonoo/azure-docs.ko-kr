@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 05/03/2021
+ms.date: 06/14/2021
 ms.author: memildin
-ms.openlocfilehash: 485140be1e28c645da056d9a0ee2d38aaa4659af
-ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.openlocfilehash: fff347c230b148548db94e97afd6a1ef3254f231
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2021
-ms.locfileid: "108755084"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062589"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Azure Security Center의 새로운 기능
 
@@ -26,12 +26,189 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 > 6개월 이상된 항목을 찾으려는 경우 [Azure Security Center의 새로운 기능 아카이브](release-notes-archive.md)에서 찾을 수 있습니다.
 
 
+## <a name="june-2021"></a>2021년 6월
+
+6월의 업데이트는 다음과 같습니다.
+
+- [Key Vault용 Azure Defender의 새 경고](#new-alert-for-azure-defender-for-key-vault)
+- [CMK(고객 관리형 키)를 사용한 암호화에 대한 권장 사항이 기본적으로 사용하지 않도록 설정됨](#recommendations-to-encrypt-with-customer-managed-keys-cmks-disabled-by-default)
+- [Kubernetes 경고의 접두사가 "AKS_"에서 "K8S_"로 변경됨](#prefix-for-kubernetes-alerts-changed-from-aks_-to-k8s_)
+- ["시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항이 더 이상 사용되지 않음](#deprecated-two-recommendations-from-apply-system-updates-security-control)
+
+
+### <a name="new-alert-for-azure-defender-for-key-vault"></a>Key Vault용 Azure Defender의 새 경고
+
+Key Vault용 Azure Defender에서 제공하는 위협 방지 기능을 확장하기 위해 다음과 같은 경고를 추가했습니다.
+
+| 경고(경고 유형)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE 전술 | 심각도 |
+|------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
+| 의심스러운 IP 주소에서 Key Vault에 액세스<br>(KV_SuspiciousIPAccess)  | Microsoft 위협 인텔리전스에서 의심스러운 IP 주소로 식별된 IP를 통해 Key Vault에 액세스했습니다. 이것은 인프라가 손상되었음을 나타낼 수 있습니다. 추가 조사가 권장됩니다. [Microsoft 위협 인텔리전스 기능](https://go.microsoft.com/fwlink/?linkid=2128684)에 대해 자세히 알아보세요. | 자격 증명 액세스                            | 중간   |
+|||
+
+자세한 내용은 다음을 참조하세요.
+- [Azure Defender for Key Vault 소개](defender-for-resource-manager-introduction.md)
+- [Key Vault용 Azure Defender 경고에 응답](defender-for-key-vault-usage.md)
+- [Key Vault용 Azure Defender에서 제공하는 경고 목록](alerts-reference.md#alerts-azurekv)
+
+
+### <a name="recommendations-to-encrypt-with-customer-managed-keys-cmks-disabled-by-default"></a>CMK(고객 관리형 키)를 사용한 암호화에 대한 권장 사항이 기본적으로 사용하지 않도록 설정됨
+
+Security Center는 고객 관리형 키를 사용하여 미사용 데이터를 암호화하기 위한 다음과 같은 여러 권장 사항을 포함합니다.
+
+- 컨테이너 레지스트리는 CMK(고객 관리형 키)로 암호화해야 함
+- Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+- Azure Machine Learning 작업 영역은 CMK(고객 관리형 키)를 사용하여 암호화해야 함
+
+Azure의 데이터는 플랫폼 관리형 키를 사용하여 자동으로 암호화되므로 고객 관리형 키는 조직에서 적용하도록 선택한 특정 정책을 준수하는 데 필요한 경우에만 사용해야 합니다.
+
+이와 같이 변경되면서 CMK를 사용하기 위한 권장 사항이 이제 **기본적으로 사용하지 않도록 설정** 됩니다. 조직과 관련된 경우 해당 보안 정책에 대한 *Effect* 매개 변수를 **AuditIfNotExists** 또는 **Enforce** 로 변경하여 사용하도록 설정할 수 있습니다. [보안 정책 사용](tutorial-security-policy.md#enable-a-security-policy)에서 자세히 알아보세요.
+
+이 변경 내용은 다음 예제와 같이 새 접두사 **[필요한 경우 사용]** 를 사용하여 권장 사항 이름에 반영됩니다.
+
+- [필요한 경우 사용] 스토리지 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+- [필요한 경우 사용] Container Registry를 CMK(고객 관리형 키)로 암호화해야 함
+- [필요한 경우 사용] Azure Cosmos DB 계정은 고객 관리형 키를 사용하여 미사용 데이터를 암호화해야 함
+
+:::image type="content" source="media/upcoming-changes/customer-managed-keys-disabled.png" alt-text="Security Center의 CMK 권장 사항은 기본적으로 사용하지 않도록 설정됩니다." lightbox="media/upcoming-changes/customer-managed-keys-disabled.png":::
+
+
+### <a name="prefix-for-kubernetes-alerts-changed-from-aks_-to-k8s_"></a>Kubernetes 경고의 접두사가 "AKS_"에서 "K8S_"로 변경됨
+
+Azure Defender for Kubernetes는 최근에 확장되어 온-프레미스 및 다중 클라우드 환경에서 호스트되는 Kubernetes 클러스터를 보호합니다. [Azure Defender for Kubernetes를 사용하여 하이브리드 및 다중 클라우드 Kubernetes 배포 보호(미리 보기)](release-notes.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)에서 자세히 알아봅니다.
+
+Azure Defender for Kubernetes에서 제공하는 보안 경고가 더 이상 Azure Kubernetes Service의 클러스터로 제한되지 않는 사실을 반영하기 위해 경고 유형의 접두사를 "AKS_"에서 "K8S_"로 변경했습니다. 필요한 경우 이름과 설명도 업데이트되었습니다. 예를 들면 다음과 같습니다.
+
+|경고(경고 유형)|Description|
+|----|----|
+|Kubernetes 침투 테스트 도구가 감지됨<br>(**AKS** _PenTestToolsKubeHunter)|Kubernetes 감사 로그를 분석한 결과, **AKS** 클러스터에서 Kubernetes 침투 테스트 도구의 사용이 감지되었습니다. 이 동작은 합법적일 수 있지만, 공격자가 이러한 공용 도구를 악의적인 목적으로 사용할 수 있습니다.
+|||
+
+이 내용이 다음으로 변경되었습니다.
+
+|경고(경고 유형)|Description|
+|----|----|
+|Kubernetes 침투 테스트 도구가 감지됨<br>(**K8S** _PenTestToolsKubeHunter)|Kubernetes 감사 로그를 분석한 결과, **Kubernetes** 클러스터에서 Kubernetes 침투 테스트 도구의 사용이 감지되었습니다. 이 동작은 합법적일 수 있지만, 공격자가 이러한 공용 도구를 악의적인 목적으로 사용할 수 있습니다.|
+|||
+
+"AKS_"로 시작하는 경고를 참조하는 모든 제거 규칙은 자동으로 변환되었습니다. SIEM 내보내기 또는 경고 유형별 Kubernetes 경고를 참조하는 사용자 지정 자동화 스크립트를 설정한 경우 새 경고 유형으로 업데이트해야 합니다.
+
+Kubernetes 경고의 전체 목록은 [Kubernetes 클러스터에 대한 경고](alerts-reference.md#alerts-k8scluster)를 참조하세요.
+
+### <a name="deprecated-two-recommendations-from-apply-system-updates-security-control"></a>"시스템 업데이트 적용" 보안 제어의 두 가지 권장 사항이 더 이상 사용되지 않음
+
+다음 두 가지 권장 사항은 더 이상 사용되지 않습니다.
+
+- **클라우드 서비스 역할에 대해 OS 버전을 업데이트해야 함** - 기본적으로 Azure는 Windows Server 2016과 같이 게스트 OS를 서비스 구성(.cscfg)에서 지정한 OS 제품군 내에서 지원되는 최신 이미지로 주기적으로 업데이트합니다.
+- **Kubernetes 서비스를 취약하지 않은 Kubernetes 버전으로 업그레이드해야 함** - 이 권장 사항의 평가는 원하는 만큼 광범위하지 않습니다. 권장 사항을 보안 요구 사항에 부합하는 향상된 버전으로 바꿀 예정입니다.
+
+
 ## <a name="may-2021"></a>2021년 5월
 
 5월의 업데이트는 다음과 같습니다.
 
+- [DNS 및 Resource Manager용 Azure Defender가 GA(일반 공급)용으로 출시됨](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
+- [오픈 소스 관계형 데이터베이스용 Azure Defender가 GA(일반 공급)용으로 출시됨](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
+- [Resource Manager용 Azure Defender의 새 경고](#new-alerts-for-azure-defender-for-resource-manager)
+- [GitHub 워크플로 및 Azure Defender를 사용한 컨테이너 이미지의 CI/CD 취약성 검색(미리 보기)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
+- [일부 권장 사항에 사용할 수 있는 추가 Resource Graph 쿼리](#more-resource-graph-queries-available-for-some-recommendations)
 - [SQL 데이터 분류 권장 사항 심각도가 변경됨](#sql-data-classification-recommendation-severity-changed)
+- [신뢰할 수 있는 시작 기능을 사용하도록 설정하는 새로운 권장 사항(미리 보기)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
+- [Kubernetes 클러스터 강화에 대한 새로운 권장 사항(미리 보기)](#new-recommendations-for-hardening-kubernetes-clusters-in-preview)
 - [평가 API가 두 개의 새 필드로 확장됨](#assessments-api-expanded-with-two-new-fields)
+- [자산 인벤토리가 클라우드 환경 필터를 가져옴](#asset-inventory-gets-a-cloud-environment-filter)
+
+
+### <a name="azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga"></a>DNS 및 Resource Manager용 Azure Defender가 GA(일반 공급)용으로 출시됨
+
+이러한 두 클라우드 네이티브 범위 위협 보호 플랜은 이제 GA입니다.
+
+이러한 새로운 보호 기능은 위협 행위자의 공격에 대한 복원력을 크게 향상시키고 Azure Defender로 보호되는 Azure 리소스의 수를 크게 늘립니다.
+
+- **Azure Defender for Resource Manager** - 조직에서 수행되는 모든 리소스 관리 작업을 자동으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
+    - [Azure Defender for Resource Manager 소개](defender-for-resource-manager-introduction.md)
+    - [Azure Defender for Resource Manager 경고에 대한 대응](defender-for-resource-manager-usage.md)
+    - [Azure Defender for Resource Manager에서 제공하는 경고 목록](alerts-reference.md#alerts-resourcemanager)
+
+- **Azure Defender for DNS** - Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
+    - [Azure Defender for DNS 소개](defender-for-dns-introduction.md)
+    - [Azure Defender for DNS 경고에 대한 대응](defender-for-dns-usage.md)
+    - [Azure Defender for DNS에서 제공하는 경고 목록](alerts-reference.md#alerts-dns)
+
+이러한 계획을 사용하도록 설정하는 프로세스를 간소화하려면 다음 권장 사항을 사용합니다.
+
+- **Azure Defender for Resource Manager를 사용하도록 설정해야 함**
+- **Azure Defender for DNS를 사용하도록 설정해야 함**
+
+> [!NOTE]
+> Azure Defender 계획을 사용하도록 설정하면 요금이 청구됩니다. Security Center의 가격 책정 페이지: https://aka.ms/pricing-security-center 에서 지역별 가격 정보에 대해 알아봅니다.
+
+
+### <a name="azure-defender-for-open-source-relational-databases-released-for-general-availability-ga"></a>오픈 소스 관계형 데이터베이스용 Azure Defender가 GA(일반 공급)용으로 출시됨
+
+Azure Security Center에서 오픈 소스 관계형 데이터베이스를 포괄하는 새 번들로 SQL 보호에 대한 제안을 확장합니다.
+
+- **Azure SQL 데이터베이스 서버용 Azure Defender** - Azure 네이티브 SQL Server 방어
+- **컴퓨터의 SQL 서버용 Azure Defender** - 동일한 보호를 하이브리드, 다중 클라우드 및 온-프레미스 환경의 SQL 서버로 확장
+- **오픈 소스 관계형 데이터베이스용 Azure Defender** - Azure Databases for MySQL, PostgreSQL 및 MariaDB 단일 서버를 방어합니다.
+
+오픈 소스 관계형 데이터베이스용 Azure Defender는 서버의 보안 위협을 지속적으로 모니터링하고 Azure Database for MySQL, PostgreSQL 및 MariaDB에 대한 잠재적 위협을 나타내는 비정상적인 데이터베이스 활동을 검색합니다. 몇 가지 예는 다음과 같습니다.
+
+- **무차별 암호 대입 공격 탐지** - 오픈 소스 관계형 데이터베이스용 Azure Defender는 성공적으로 시도된 무차별 암호 대입 공격에 대한 자세한 정보를 제공합니다. 이를 통해 사용자 환경에 대한 공격의 특성과 상태를 보다 완전하게 이해함으로써 추가적으로 조사하고 대응할 수 있습니다.
+- **동작 경고 검색** - 오픈 소스 관계형 데이터베이스용 Azure Defender는 데이터베이스에 대한 달라진 액세스 패턴 등, 서버의 의심스럽고 예기치 않은 동작을 경고합니다.
+- **위협 인텔리전스 기반 검색** - Azure Defender는 Microsoft의 위협 인텔리전스 및 방대한 기술 자료를 활용하여 위협 경고를 표면화함으로써 조치를 취할 수 있도록 합니다.
+
+[오픈 소스 관계형 데이터베이스용 Azure Defender 소개](defender-for-databases-introduction.md)에서 자세히 알아보세요.
+
+### <a name="new-alerts-for-azure-defender-for-resource-manager"></a>Resource Manager용 Azure Defender의 새 경고
+
+Resource Manager용 Azure Defender에서 제공하는 위협 방지 기능을 확장하기 위해 다음과 같은 경고를 추가했습니다.
+
+| 경고(경고 유형)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE 전술 | 심각도 |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
+|**Azure 환경에 대해 비정상적인 방식으로 RBAC 역할에 대해 사용 권한이 부여됨(미리 보기)**<br>(ARM_AnomalousRBACRoleAssignment)|Resource Manager용 Azure Defender가 할당 시간, 할당자 위치, 할당자, 인증 방법, 할당된 엔터티, 사용되는 클라이언트 소프트웨어, 할당 익스텐트 등의 변칙으로 인해 테넌트의 동일한 담당자에 대해 동일한 할당자가 수행한 다른 할당과 비교할 때 일반적이지 않은 RBAC 역할 할당을 감지했습니다. 조직의 합법적인 사용자가 이 작업을 수행했을 수 있습니다. 또는 조직의 계정이 위반되었으며 위협 행위자가 소유한 추가 사용자 계정에 사용 권한을 부여하려고 시도하고 있음을 나타낼 수 있습니다.|수평 이동, 방어 우회|중간|
+|**구독에 대해 권한 있는 사용자 지정 역할이 의심스러운 방식으로 생성됨(미리 보기)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Resource Manager용 Azure Defender가 구독에서 의심스러운 방식으로 생성된 권한 있는 사용자 지정 역할 정의를 감지했습니다. 조직의 합법적인 사용자가 이 작업을 수행했을 수 있습니다. 또는 조직의 계정이 위반되었으며 위협 행위자가 나중에 우회하는 데 사용할 권한 있는 역할을 만들려고 하는 것임을 나타낼 수 있습니다.|수평 이동, 방어 우회|낮음|
+|**의심스러운 IP 주소의 Azure Resource Manager 작업**<br>(ARM_OperationFromSuspiciousIP)|Resource Manager용 Azure Defender가 위협 인텔리전스 피드에서 의심스러운 것으로 표시된 IP 주소의 작업을 감지했습니다.|실행|중간|
+|**의심스러운 프록시 IP 주소의 Azure Resource Manager 작업(미리 보기)**<br>(ARM_OperationFromSuspiciousProxyIP)|Resource Manager용 Azure Defender가 TOR과 같은 프록시 서비스와 연결된 IP 주소의 리소스 관리 작업을 감지했습니다. 이 동작은 합법적일 수 있지만, 위협 행위자가 원본 IP를 숨기려고 하는 악의적인 활동에서 나타나는 경우가 많습니다.|방어 회피|중간|
+||||
+
+자세한 내용은 다음을 참조하세요.
+- [Azure Defender for Resource Manager 소개](defender-for-resource-manager-introduction.md)
+- [Azure Defender for Resource Manager 경고에 대한 대응](defender-for-resource-manager-usage.md)
+- [Azure Defender for Resource Manager에서 제공하는 경고 목록](alerts-reference.md#alerts-resourcemanager)
+
+
+### <a name="cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview"></a>GitHub 워크플로 및 Azure Defender를 사용한 컨테이너 이미지의 CI/CD 취약성 검색(미리 보기)
+
+이제 DevSecOps 팀은 컨테이너 레지스트리용 Azure Defender를 사용하여 GitHub Action 워크플로를 관찰할 수 있습니다.
+
+Trivy를 활용하는 컨테이너 이미지에 대한 새로운 취약성 검색 기능은 개발자가 컨테이너 레지스트리에 이미지를 푸시하기 *전에* 컨테이너 이미지의 일반적인 취약성을 검색할 수 있도록 합니다.
+
+컨테이너 검색 보고서는 Azure Security Center에 요약되어 보안 팀이 취약한 컨테이너 이미지의 원본과 해당 이미지가 시작된 워크플로 및 리포지토리를 보다 잘 이해하고 더 나은 인사이트를 얻을 수 있도록 합니다.
+
+[CI/CD 워크플로에서 취약한 컨테이너 이미지 식별](defender-for-container-registries-cicd.md)에서 자세히 알아보세요.
+
+### <a name="more-resource-graph-queries-available-for-some-recommendations"></a>일부 권장 사항에 사용할 수 있는 추가 Resource Graph 쿼리
+
+모든 Security Center 권장 사항에는 **쿼리 열기** 에서 Azure Resource Graph를 사용하여 영향을 받은 리소스의 상태에 대한 정보를 볼 수 있는 옵션이 있습니다. 이 강력한 기능에 대한 자세한 내용은 [ARG(Azure Resource Graph) Explorer에서 권장 사항 데이터 검토](security-center-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg)를 참조하세요.
+
+Security Center에는 VM, SQL Server 및 해당 호스트, 컨테이너 레지스트리에서 보안 취약성을 검사하는 기본 제공 취약성 검사기가 포함되어 있습니다. 결과는 각 리소스 종류에 대한 모든 개별 결과를 단일 보기로 제공하는 권장 사항으로 반환됩니다. 권장 사항은 다음과 같습니다.
+
+- Azure Container Registry 이미지의 취약성을 수정해야 함(Qualys 제공)
+- 가상 머신의 취약성을 수정해야 함
+- SQL 데이터베이스가 발견한 취약성을 해결해야 함
+- 컴퓨터의 SQL Server는 발견한 취약성을 해결해야 함
+
+이 변경으로 **쿼리 열기** 단추를 사용하여 보안 결과를 보여 주는 쿼리도 열 수 있습니다.
+
+:::image type="content" source="media/release-notes/open-query-menu-security-findings.png" alt-text="이제 쿼리 열기 단추는 취약성 검사기 관련 권장 사항에 대한 보안 결과를 보여 주는 심층 쿼리에 대한 옵션을 제공합니다.":::
+
+**쿼리 열기** 단추는 관련된 다른 권장 사항에 대한 추가 옵션도 제공합니다.
+
+Security Center 취약성 검사기에 대한 자세한 정보:
+
+- [Azure 및 하이브리드 머신을 위한 Azure Defender 통합 취약성 평가 검사기](deploy-vulnerability-assessment-vm.md)
+- [SQL Server용 Azure Defender 통합 취약성 평가 검사기](defender-for-sql-on-machines-vulnerability-assessment.md)
+- [컨테이너 레지스트리용 Azure Defender 통합 취약성 평가 검사기](defender-for-container-registries-usage.md)
 
 ### <a name="sql-data-classification-recommendation-severity-changed"></a>SQL 데이터 분류 권장 사항 심각도가 변경됨
 
@@ -40,9 +217,40 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 이는 [SQL 데이터 분류 권장 사항 향상](upcoming-changes.md#enhancements-to-sql-data-classification-recommendation)에서 발표된 이 권장 사항에 대한 지속적인 변경 내용의 일부입니다. 
 
 
+### <a name="new-recommendations-to-enable-trusted-launch-capabilities-in-preview"></a>신뢰할 수 있는 시작 기능을 사용하도록 설정하는 새로운 권장 사항(미리 보기)
+
+Azure는 [2세대](../virtual-machines/generation-2.md) VM의 보안을 향상시키기 위한 원활한 방법으로 신뢰할 수 있는 시작을 제공합니다. 신뢰할 수 있는 시작은 지속적인 고급 공격 기술로부터 보호합니다. 신뢰할 수 있는 시작은 독립적으로 사용하도록 설정할 수 있는 몇 가지 조정된 인프라 기술로 구성되어 있습니다. 각 기술은 정교한 위협에 대한 또 다른 방어 계층을 제공합니다. [Azure 가상 머신에 대한 신뢰할 수 있는 시작](../virtual-machines/trusted-launch.md)에서 자세히 알아봅니다.
+
+> [!IMPORTANT]
+> 신뢰할 수 있는 시작을 사용하려면 새 가상 머신을 만들어야 합니다. 처음 신뢰할 수 있는 시작을 사용하지 않고 만든 기존 가상 머신에서는 이를 사용할 수 없습니다.
+> 
+> 신뢰할 수 있는 시작은 현재 공개 미리 보기로 제공됩니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+
+Security Center 권장 사항인 **지원되는 가상 머신에서 vTPM을 사용하도록 설정해야 함** 은 Azure VM에서 vTPM을 사용하고 있는지 확인합니다. 이 가상화된 버전의 하드웨어 신뢰할 수 있는 플랫폼 모듈은 VM의 전체 부팅 체인(UEFI, OS, 시스템 및 드라이버)을 측정하여 증명을 사용하도록 설정합니다.
+
+vTPM을 사용하도록 설정하면 **게스트 증명 확장** 이 원격으로 보안 부팅의 유효성을 검사할 수 있습니다. 다음 권장 사항은 이 확장이 배포되었는지 확인합니다.
+
+- **지원되는 Windows 가상 머신에서 보안 부팅을 사용하도록 설정해야 함**
+- **지원되는 Windows 가상 머신에 게스트 증명 확장을 설치해야 함**
+- **지원되는 Windows 가상 머신 확장 집합에 게스트 증명 확장을 설치해야 함**
+- **지원되는 Linux 가상 머신에 게스트 증명 확장을 설치해야 함**
+- **지원되는 Windows 가상 머신 확장 집합에 게스트 증명 확장을 설치해야 함**
+
+[Azure 가상 머신에 대한 신뢰할 수 있는 시작](../virtual-machines/trusted-launch.md)에서 자세히 알아봅니다. 
+
+### <a name="new-recommendations-for-hardening-kubernetes-clusters-in-preview"></a>Kubernetes 클러스터 강화에 대한 새로운 권장 사항(미리 보기)
+
+다음 권장 사항을 통해 Kubernetes 클러스터를 보다 강화할 수 있습니다.
+
+- **Kubernetes 클러스터에서 기본 네임스페이스를 사용하지 않아야 함** - ConfigMap, Pod, Secret, Service 및 ServiceAccount 리소스 종류에 대한 무단 액세스를 방지하려면 Kubernetes 클러스터에서 기본 네임스페이스를 사용하지 않도록 합니다.
+- **Kubernetes 클러스터에서 자동 탑재 API 자격 증명을 사용하지 않도록 설정해야 함** - 잠재적으로 손상된 Pod 리소스가 Kubernetes 클러스터에 대해 API 명령을 실행하지 못하도록 하려면 API 자격 증명 자동 탑재를 사용하지 않도록 설정합니다.
+- **Kubernetes 클러스터는 CAPSYSADMIN 보안 기능을 부여하지 않아야 함**
+
+Security Center가 [Security Center의 컨테이너 보안](container-security.md)에서 컨테이너화된 환경을 보호하는 방법을 알아봅니다.
+
 ### <a name="assessments-api-expanded-with-two-new-fields"></a>평가 API가 두 개의 새 필드로 확장됨
 
-다음 두 필드를 [평가 REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments)에 추가했습니다.
+다음 두 필드를 [평가 REST API](/rest/api/securitycenter/assessments)에 추가했습니다.
 
 - **FirstEvaluationDate** - 권장 사항이 만들어지고 처음 평가된 시간입니다. ISO 8601 형식의 UTC 시간으로 반환됩니다.
 - **StatusChangeDate** - 권장 사항의 상태가 마지막으로 변경된 시간입니다. ISO 8601 형식의 UTC 시간으로 반환됩니다.
@@ -55,12 +263,26 @@ Security Center는 현재 개발 중이며 지속적으로 향상된 기능을 �
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | REST API 호출        | GET https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Security/assessments?api-version=2019-01-01-preview& $expand=statusEvaluationDates |
 | Azure Resource Graph | `securityresources`<br>`where type == "microsoft.security/assessments"`                                                                                                |
-| 워크플로 자동화  | 두 개의 전용 필드는 Log Analytics 작업 영역 데이터에 사용할 수 있습니다.                                                                                                       |
+| 연속 내보내기    | 두 개의 전용 필드는 Log Analytics 작업 영역 데이터에 사용할 수 있습니다.                                                                                            |
 | [CSV 내보내기](continuous-export.md#manual-one-time-export-of-alerts-and-recommendations) | 두 필드가 CSV 파일에 포함됩니다.                                                        |
 |                      |                                                                                                                                                                        |
 
 
-[평가 REST API](https://docs.microsoft.com/rest/api/securitycenter/assessments)에 대해 자세히 알아봅니다.
+[평가 REST API](/rest/api/securitycenter/assessments)에 대해 자세히 알아봅니다.
+
+
+### <a name="asset-inventory-gets-a-cloud-environment-filter"></a>자산 인벤토리가 클라우드 환경 필터를 가져옴
+
+Security Center의 자산 인벤토리 페이지에는 표시되는 리소스 목록을 신속하게 구체화할 수 있는 다양한 필터가 제공됩니다. [자산 인벤토리로 리소스 탐색 및 관리](asset-inventory.md)에서 자세히 알아보세요.
+
+새 필터는 Security Center의 다중 클라우드 기능에 연결한 클라우드 계정에 따라 목록을 구체화하는 옵션을 제공합니다.
+
+:::image type="content" source="media/asset-inventory/filter-environment.png" alt-text="인벤토리의 환경 필터":::
+
+다중 클라우드 기능에 대해 자세히 알아보세요.
+
+- [Azure Security Center에 AWS 계정 연결](quickstart-onboard-aws.md)
+- [Azure Security Center에 GCP 계정 연결](quickstart-onboard-gcp.md)
 
 
 ## <a name="april-2021"></a>2021년 4월
@@ -150,7 +372,7 @@ Windows 서버에서 서버용 Azure Defender를 사용하도록 설정하면 De
 - **Azure Defender for Resource Manager를 사용하도록 설정해야 함** - Defender for Resource Manager는 조직의 리소스 관리 작업을 자동으로 모니터링합니다. Azure Defender는 위협을 감지하고 의심스러운 활동에 대해 경고합니다.
 - **Azure Defender for DNS를 사용하도록 설정해야 함** - Defender for DNS는 Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링하여 클라우드 리소스에 대한 추가 보호 계층을 제공합니다. Azure Defender는 DNS 계층에서 의심스러운 활동에 대해 경고합니다.
 
-Azure Defender 계획을 사용하도록 설정하면 요금이 청구됩니다. Security Center의 가격 책정 페이지: https://aka.ms/pricing-security-center에서 지역별 가격 정보에 대해 알아봅니다.
+Azure Defender 계획을 사용하도록 설정하면 요금이 청구됩니다. Security Center의 가격 책정 페이지: https://aka.ms/pricing-security-center 에서 지역별 가격 정보에 대해 알아봅니다.
 
 > [!TIP]
 > 미리 보기 추천 사항은 리소스를 비정상으로 렌더링하지 않으며 보안 점수 계산에 포함되지 않습니다. 미리 보기 기간이 끝나면 점수에 기여할 수 있도록 가능한 경우 언제든지 수정합니다. [Azure Security Center의 추천 사항 수정](security-center-remediate-recommendations.md)에서 이러한 추천 사항에 대응하는 방법에 대해 자세히 알아보세요.
@@ -678,7 +900,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 ### <a name="csv-export-of-filtered-list-of-recommendations"></a>필터링된 권장 목록의 CSV 내보내기 
 
-2020년 11월에 권장 사항 페이지에 필터를 추가했습니다([이제 권장 목록에 필터가 포함됨](release-notes-archive.md#recommendations-list-now-includes-filters)). 12월에 이러한 필터를 확장했습니다([권장 사항 페이지에는 환경, 심각도 및 사용 가능한 응답에 대한 새 필터가 있음](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
+2020년 11월에 권장 사항 페이지에 필터를 추가했습니다([이제 권장 목록에 필터가 포함됨](release-notes-archive.md#recommendations-list-now-includes-filters)). 12월에 이러한 필터를 확장했습니다([권장 사항 페이지에는 환경, 심각도 및 사용 가능한 응답에 대한 새 필터가 있음](release-notes-archive.md#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)). 
 
 이 공지 사항에서는 **CSV로 다운로드** 단추의 동작을 변경하여 CSV 내보내기에 현재 필터링된 목록에 표시된 권장 사항만 포함되도록 합니다. 
 
@@ -704,177 +926,7 @@ Security Center의 메뉴에서 **다중 클라우드 커넥터** 를 선택하�
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="연속 내보내기의 빈도 선택":::
 
-- **스트리밍** – 리소스의 상태가 업데이트되면 평가를 실시간으로 보냅니다(업데이트되지 않으면 데이터를 보내지 않음).
+- **스트리밍** – 리소스의 상태가 업데이트되면 평가를 보냅니다(업데이트되지 않으면 데이터를 보내지 않음).
 - **스냅샷** – 모든 규정 준수 평가의 현재 상태에 대한 스냅샷이 매주 전송됩니다(이는 보안 점수 및 규정 준수 데이터의 주간 스냅샷에 대한 미리 보기 기능임).
 
 [Security Center 데이터 연속 내보내기](continuous-export.md)에서 이 기능의 전체 기능에 대해 자세히 알아보세요.
-
-## <a name="december-2020"></a>2020년 12월
-
-12월의 업데이트는 다음과 같습니다.
-
-- [머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.](#azure-defender-for-sql-servers-on-machines-is-generally-available)
-- [Azure Synapse Analytics 전용 SQL 풀에 대한 Azure Defender for SQL 지원이 일반적으로 제공됩니다.](#azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available)
-- [전역 관리자는 이제 자신에게 테넌트 수준 권한을 부여할 수 있습니다.](#global-administrators-can-now-grant-themselves-tenant-level-permissions)
-- [새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)](#two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview)
-- [Azure Portal의 새 보안 경고 페이지(미리 보기)](#new-security-alerts-page-in-the-azure-portal-preview)
-- [Azure SQL Database & SQL Managed Instance의 재활성화된 Security Center 환경](#revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance)
-- [자산 인벤토리 도구 및 필터 업데이트됨](#asset-inventory-tools-and-filters-updated)
-- [SSL 인증서를 요청하는 웹앱에 대한 권장 사항은 더 이상 보안 점수에 포함되지 않음](#recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score)
-- [권장 사항 페이지에는 환경, 심각도 및 사용 가능한 응답에 대한 새 필터가 있음](#recommendations-page-has-new-filters-for-environment-severity-and-available-responses)
-- [연속 내보내기는 새 데이터 형식 및 향상된 deployifnotexist 정책을 가져옴](#continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies)
-
-
-### <a name="azure-defender-for-sql-servers-on-machines-is-generally-available"></a>머신의 SQL 서버용 Azure Defender를 일반적으로 사용할 수 있습니다.
-
-Azure Security Center는 SQL Server에 대한 두 가지 Azure Defender 계획을 제공합니다.
-
-- **Azure SQL 데이터베이스 서버용 Azure Defender** - Azure 네이티브 SQL Server 방어 
-- **컴퓨터의 SQL 서버용 Azure Defender** - 동일한 보호를 하이브리드, 다중 클라우드 및 온-프레미스 환경의 SQL 서버로 확장
-
-이 공지를 통해 **Azure Defender for SQL** 은 이제 데이터베이스와 해당 데이터가 어디에 있든 보호합니다.
-
-Azure Defender for SQL에는 취약성 평가 기능이 포함되어 있습니다. 취약성 평가 도구에는 다음과 같은 고급 기능이 포함되어 있습니다.
-
-- **기본 구성**(신규!)을 통해 취약성 검색 결과를 실제 보안 문제를 나타낼 수 있는 결과로 지능적으로 구체화할 수 있습니다. 기본 보안 상태를 설정한 후 취약성 평가 도구는 해당 기준 상태의 편차만 보고합니다. 기준과 일치하는 결과는 후속 검색을 통과한 것으로 간주됩니다. 이를 통해 사용자와 분석가는 중요한 부분에 집중할 수 있습니다.
-- 검색된 결과 및 리소스와 관련된 이유를 *이해* 하는 데 도움이 되는 **자세한 벤치마크 정보**.
-- 식별된 위험을 완화하는 데 도움이 되는 **수정 스크립트**.
-
-[Azure Defender for SQL](defender-for-sql-introduction.md)에 대해 자세히 알아봅니다.
-
-
-### <a name="azure-defender-for-sql-support-for-azure-synapse-analytics-dedicated-sql-pool-is-generally-available"></a>Azure Synapse Analytics 전용 SQL 풀에 대한 Azure Defender for SQL 지원이 일반적으로 제공됩니다.
-
-Azure Synapse Analytics(이전의 SQL DW)는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 분석을 결합한 분석 서비스입니다. 전용 SQL 풀은 Azure Synapse의 엔터프라이즈 데이터 웨어하우징 기능입니다. [Azure Synapse Analytics(이전의 SQL DW)란?](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 자세히 알아봅니다.
-
-Azure Defender for SQL은 다음을 통해 전용 SQL 풀을 보호합니다.
-
-- 위협 및 공격을 감지하는 **지능형 위협 방지** 
-- 보안 오류를 식별하고 수정하기 위한 **취약성 평가 기능**
-
-Azure Synapse Analytics SQL 풀에 대한 Azure Defender for SQL의 지원은 Azure Security Center의 Azure SQL 데이터베이스 번들에 자동으로 추가됩니다. Azure Portal의 Synapse 작업 영역 페이지에 새로운 "Azure Defender for SQL" 탭을 찾을 수 있습니다.
-
-[Azure Defender for SQL](defender-for-sql-introduction.md)에 대해 자세히 알아봅니다.
-
-
-### <a name="global-administrators-can-now-grant-themselves-tenant-level-permissions"></a>전역 관리자는 이제 자신에게 테넌트 수준 권한을 부여할 수 있습니다.
-
-**전역 관리자** 의 Azure Active Directory 역할을 가진 사용자는 테넌트 전체의 책임이 있지만 Azure Security Center에서 해당 조직 전체 정보를 볼 수 있는 Azure 권한은 없습니다. 
-
-자신에게 테넌트 수준 사용 권한을 할당하려면 [자신에게 테넌트 전체 사용 권한 부여](tenant-wide-permissions-management.md#grant-tenant-wide-permissions-to-yourself)의 지침을 따르세요.
-
-
-### <a name="two-new-azure-defender-plans-azure-defender-for-dns-and-azure-defender-for-resource-manager-in-preview"></a>새로운 두 가지 Azure Defender 계획: Azure Defender for DNS 및 Azure Defender for Resource Manager(미리 보기)
-
-Azure 환경을 위한 새로운 두 가지 클라우드 네이티브 너비 위협 방지 기능이 추가되었습니다.
-
-이러한 새로운 보호 기능은 위협 행위자의 공격에 대한 복원력을 크게 향상시키고 Azure Defender로 보호되는 Azure 리소스의 수를 크게 늘립니다.
-
-- **Azure Defender for Resource Manager** - 조직에서 수행되는 모든 리소스 관리 작업을 자동으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
-    - [Azure Defender for Resource Manager 소개](defender-for-resource-manager-introduction.md)
-    - [Azure Defender for Resource Manager 경고에 대한 대응](defender-for-resource-manager-usage.md)
-    - [Azure Defender for Resource Manager에서 제공하는 경고 목록](alerts-reference.md#alerts-resourcemanager)
-
-- **Azure Defender for DNS** - Azure 리소스의 모든 DNS 쿼리를 지속적으로 모니터링합니다. 자세한 내용은 다음을 참조하세요.
-    - [Azure Defender for DNS 소개](defender-for-dns-introduction.md)
-    - [Azure Defender for DNS 경고에 대한 대응](defender-for-dns-usage.md)
-    - [Azure Defender for DNS에서 제공하는 경고 목록](alerts-reference.md#alerts-dns)
-
-
-### <a name="new-security-alerts-page-in-the-azure-portal-preview"></a>Azure Portal의 새 보안 경고 페이지(미리 보기)
-
-Azure Security Center의 보안 경고 페이지가 다음을 제공하도록 다시 디자인되었습니다.
-
-- **경고에 대한 향상된 심사 환경** - 경고 피로를 줄이고 가장 관련성이 높은 위협에 더 쉽게 집중하는 데 도움이 됩니다. 목록에는 사용자 지정 가능한 필터 및 그룹화 옵션이 포함되어 있습니다.
-- **경고 목록의 추가 정보** - 예: MITRE ATT&ACK 전술
-- **샘플 경고를 만드는 단추** - Azure Defender 기능을 평가하고 경고 구성(SIEM 통합, 이메일 알림 및 워크플로 자동화)을 테스트하기 위해 모든 Azure Defender 계획의 샘플 경고를 만들 수 있습니다.
-- **Azure Sentinel의 인시던트 환경에 맞춤** - 이제 두 제품을 사용하는 고객이 두 제품 간에 더 직관적으로 전환할 수 있는 환경이 제공되며, 두 제품을 손쉽게 알아볼 수 있습니다.
-- 대규모 경고 목록의 **성능 개선**
-- 경고 목록 **키보드 탐색**
-- **Azure Resource Graph의 경고** - 모든 리소스에 대한 Kusto 같은 API인 Azure Resource Graph에서 경고를 쿼리할 수 있습니다. 이는 자체 경고 대시보드를 빌드하는 경우에도 유용합니다. [Azure Resource Graph에 대한 자세한 정보](../governance/resource-graph/index.yml).
-
-새 환경에 액세스하려면 보안 경고 페이지 맨 위에 있는 배너에서 '지금 사용해 보기' 링크를 사용합니다.
-
-:::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="새 미리 보기 경고 환경에 대한 링크가 포함된 배너":::
-
-새 경고 환경에서 샘플 경고를 만들려면 [샘플 Azure Defender 경고 생성](security-center-alert-validation.md#generate-sample-azure-defender-alerts)을 참조하세요.
-
-
-### <a name="revitalized-security-center-experience-in-azure-sql-database--sql-managed-instance"></a>Azure SQL Database & SQL Managed Instance의 재활성화된 Security Center 환경 
-
-SQL 내의 Security Center 환경은 다음과 같은 Security Center 및 Azure Defender for SQL 기능에 대한 액세스를 제공합니다.
-
-- **보안 권장 사항** – Security Center는 연결된 모든 Azure 리소스의 보안 상태를 정기적으로 분석하여 잠재적인 보안 구성 오류를 식별합니다. 그런 다음, 이러한 취약성을 해결하고 조직의 보안 태세를 개선하는 방법에 대한 권장 사항을 제공합니다.
-- **보안 경고** - SQL 삽입, 무차별 암호 대입 공격 및 권한 남용 같은 위협에 대해 Azure SQL 활동을 지속적으로 모니터링하는 검색 서비스입니다. 이 서비스는 Security Center에서 세부적이고 작업 지향적인 보안 경고를 트리거하고 Microsoft의 Azure 네이티브 SIEM 솔루션인 Azure Sentinel을 사용하여 지속적으로 조사하기 위한 옵션을 제공합니다.
-- **검색 결과** – Azure SQL 구성을 지속적으로 모니터링하고 취약성을 해결하는 데 도움이 되는 취약성 평가 서비스입니다. 평가 검사는 자세한 보안 결과와 함께 Azure SQL 보안 상태의 개요를 제공합니다.     
-
-:::image type="content" source="media/release-notes/azure-security-center-experience-in-sql.png" alt-text="SQL에 대한 Azure Security Center의 보안 기능은 Azure SQL 내에서 사용할 수 있습니다.":::
-
-
-### <a name="asset-inventory-tools-and-filters-updated"></a>자산 인벤토리 도구 및 필터 업데이트됨
-
-Azure Security Center의 인벤토리 페이지가 다음과 같이 변경되었습니다.
-
-- 도구 모음에 **가이드 및 피드백** 추가. 관련 정보 및 도구에 대한 링크가 포함된 창이 열립니다. 
-- 리소스에 사용할 수 있는 기본 필터에 **구독 필터** 추가.
-- 현재 필터 옵션을 Azure Resource Graph 쿼리(이전에는 "리소스 그래프 탐색기에서 보기"라고 함)로 열기 위한 **쿼리 열기** 링크.
-- 각 필터에 대한 **운영자 옵션**. 이제 '=' 이외의 추가 논리 연산자에서 선택할 수 있습니다. 예를 들어, 'encrypt(암호화)' 문자열이 있는 제목을 가진 활성 권장 사항이 있는 모든 리소스를 찾을 수 있습니다. 
-
-    :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="자산 인벤토리 필터의 운영자 옵션에 대한 컨트롤":::
-
-[자산 인벤토리를 사용하여 리소스 검색 및 관리](asset-inventory.md)에서 인벤토리에 대해 자세히 알아보세요.
-
-
-### <a name="recommendation-about-web-apps-requesting-ssl-certificates-no-longer-part-of-secure-score"></a>SSL 인증서를 요청하는 웹앱에 대한 권장 사항은 더 이상 보안 점수에 포함되지 않음
-
-"웹앱에서 들어오는 모든 요청에 대해 SSL 인증서를 요청해야 합니다" 권장 사항이 보안 컨트롤 **액세스 및 권한 관리**(최대 4포인트 상당)에서 **보안 모범 사례 구현**(포인트 가치 없음)으로 이동되었습니다. 
-
-웹앱에서 인증서를 요청하도록 보장하면 더 안전하게 보호할 수 있습니다. 그러나 공용 웹앱의 경우에는 관련이 없습니다. HTTP를 통해 사이트에 액세스하고 HTTPS를 통해서는 액세스하지 않는 경우 클라이언트 인증서가 제공되지 않습니다. 따라서 애플리케이션에 클라이언트 인증서가 필요한 경우 HTTP를 통한 애플리케이션 요청을 허용해서는 안 됩니다. [Azure App Service에 대한 TLS 상호 인증 구성](../app-service/app-service-web-configure-tls-mutual-auth.md)에서 자세히 알아보세요.
-
-이러한 변경으로 권장 사항은 이제 점수에 영향을 주지 않는 권장 모범 사례가 됩니다. 
-
-[보안 컨트롤 및 해당 권장](secure-score-security-controls.md#security-controls-and-their-recommendations)에서 각 보안 제어에 어떤 권장 사항이 있는지 알아보세요.
-
-
-### <a name="recommendations-page-has-new-filters-for-environment-severity-and-available-responses"></a>권장 사항 페이지에는 환경, 심각도 및 사용 가능한 응답에 대한 새 필터가 있음
-
-Azure Security Center는 연결된 모든 리소스를 모니터링하고 보안 권장 사항을 생성합니다. 이러한 권장 사항을 사용하여 하이브리드 클라우드 상태를 강화하고 조직, 산업 및 국가와 관련된 정책 및 표준 준수 여부를 추적합니다.
-
-Security Center가 범위와 기능을 계속 확장함에 따라 보안 권장 사항 목록이 매월 증가하고 있습니다. 예를 들어, [Azure 보안 벤치마크의 적용 범위를 늘리기 위해 29개의 미리 보기 추천 사항이 추가됨](release-notes-archive.md#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)을 참조하세요.
-
-목록이 증가함에 따라 가장 관심 있는 권장 사항을 찾기 위해 해당 권장 사항을 필터링해야 합니다. 11월에는 권장 사항 페이지에 필터를 추가했습니다([이제 추천 목록에 필터가 포함됨](release-notes-archive.md#recommendations-list-now-includes-filters) 참조).
-
-이 달에 추가된 필터는 다음에 따라 추천 목록을 세분화하는 옵션을 제공합니다.
-
-- **환경** - AWS, GCP 또는 Azure 리소스(또는 모든 조합)에 대한 권장 사항 보기
-- **심각도** - Security Center에 의해 설정된 심각도 분류에 따른 권장 사항 보기
-- **대응 조치** - 수정, 거부 및 적용 등 사용 가능한 Security Center 응답 옵션에 따른 권장 사항 보기
-
-    > [!TIP]
-    > 대응 조치 필터는 **빠른 수정 사용 가능(예/아니요)** 필터를 대체합니다. 
-    > 
-    > 각각의 대응 옵션에 대해 자세히 알아보세요.
-    > - [수정 단추](security-center-remediate-recommendations.md#fix-button)
-    > - [적용/거부 권장 사항을 사용하여 구성 오류 방지](prevent-misconfigurations.md)
-
-:::image type="content" source="./media/release-notes/added-recommendations-filters.png" alt-text="보안 컨트롤별로 그룹화된 권장 사항" lightbox="./media/release-notes/added-recommendations-filters.png":::
-
-### <a name="continuous-export-gets-new-data-types-and-improved-deployifnotexist-policies"></a>연속 내보내기는 새 데이터 형식 및 향상된 deployifnotexist 정책을 가져옴
-
-Azure Security Center의 연속 내보내기 도구를 사용하여 환경의 다른 모니터링 도구와 함께 사용할 Security Center의 권장 사항 및 경고를 내보낼 수 있습니다.
-
-연속 내보내기를 사용하면 내보낼 대상과 위치를 자유롭게 사용자 지정할 수 있습니다. 자세한 내용은 [Security Center 데이터 연속 내보내기](continuous-export.md)를 참조하세요.
-
-이러한 도구는 다음과 같은 방법으로 향상되고 확장되었습니다.
-
-- **연속 내보내기의 deployifnotexist 정책이 향상되었습니다**. 현재 정책은
-
-    - **구성을 사용할 수 있는지 여부를 확인합니다.** 그렇지 않은 경우 정책은 비준수로 표시되고 준수 리소스를 생성합니다. [연속 내보내기 설정](continuous-export.md#set-up-a-continuous-export)의 "Azure Policy를 사용하여 대규모 배포 탭"에서 제공된 Azure Policy 템플릿에 대해 자세히 알아보세요.
-
-    - **보안 결과 내보내기를 지원합니다.** Azure Policy 템플릿을 사용하는 경우 검색 결과를 포함하도록 연속 내보내기를 구성할 수 있습니다. 이는 취약성 평가 스캐너의 검색 결과 또는 '상위' 권장 사항 "시스템 업데이트가 컴퓨터에 설치되어 있어야 합니다."에 대한 특정 시스템 업데이트와 같은 '하위' 권장 사항이 있는 권장 사항을 내보낼 때 관련됩니다.
-    
-    - **보안 점수 데이터 내보내기를 지원합니다.**
-
-- **규정 준수 평가 데이터(미리 보기 형식)가 추가되었습니다.** 이제 사용자 지정 이니셔티브를 포함하여 규정 준수 평가에 대한 업데이트를 Log Analytics 작업 영역 또는 Event Hub로 지속적으로 내보낼 수 있습니다. 국가/소버린 클라우드에서는 이 기능을 사용할 수 없습니다.
-
-    :::image type="content" source="media/release-notes/continuous-export-regulatory-compliance-option.png" alt-text="연속 내보내기 데이터와 함께 규정 준수 평가 정보를 포함하기 위한 옵션.":::
