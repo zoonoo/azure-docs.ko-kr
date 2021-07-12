@@ -1,6 +1,6 @@
 ---
 title: Ev3 시리즈 및 Esv3 시리즈
-description: Ev3 및 Esv3 시리즈 Vm에 대한 사양입니다.
+description: Ev3 및 Esv3 시리즈 VM에 대한 사양입니다.
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
@@ -20,7 +20,7 @@ Ev3 및 Esv3 시리즈는 하이퍼 스레드 구성에서 Intel® Xeon® Platin
 
 ## <a name="ev3-series"></a>Ev3 시리즈
 
-Ev3 시리즈 인스턴스는 Intel Xeon Platinum 8272CL(Cascade Lake), Intel Xeon 8171M 2.1GHz(Skylake) 또는 Intel Xeon E5-2673 v4 2.3GHz(Broadwell) 프로세서에서 실행되며 Intel Turbo Boost Technology 2.0이 특징입니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 애플리케이션에 적합합니다.
+Ev3 시리즈 인스턴스는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xeon® 8171M 2.1GHz(Skylake), or the Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 프로세서에서 실행되며 Intel Turbo Boost Technology 2.0을 특징으로 합니다. Ev3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 애플리케이션에 적합합니다.
 
 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium Storage 디스크를 사용하려면 ESv3 크기를 사용합니다. ESv3 크기의 가격 및 요금 청구 기준은 Ev3 시리즈와 동일합니다.
 
@@ -52,7 +52,7 @@ Ev3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
 ## <a name="esv3-series"></a>Esv3 시리즈
 
-Esv3 시리즈 인스턴스는 Intel Xeon Platinum 8272CL(Cascade Lake), Intel Xeon 8171M 2.1GHz(Skylake) 또는 Intel Xeon E5-2673 v4 2.3GHz(Broadwell) 프로세서에서 실행되며 Intel Turbo Boost Technology 2.0을 특징으로하며 프리미엄 스토리지를 사용합니다. Esv3 시리즈 인스턴스는 메모리를 많이 사용하는 엔터프라이즈 애플리케이션에 적합합니다.
+Esv3 시리즈 인스턴스는 Intel® Xeon® Platinum 8272CL(Cascade Lake), Intel® Xeon® 8171M 2.1GHz(Skylake), or the Intel® Xeon® E5-2673 v4 2.3GHz(Broadwell) 프로세서에서 실행되며 Intel Turbo Boost Technology 2.0을 특징으로 하며 Premium Storage를 사용합니다. Esv3 시리즈 인스턴스는 메모리 집약적 엔터프라이즈 애플리케이션에 적합합니다.
 
 Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
@@ -66,7 +66,7 @@ Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 [임시 OS 디스크](ephemeral-os-disks.md): 지원됨 <br>
 <br>
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 버스트 캐시 및 임시 스토리지 처리량: IOPS / MBps <sup>3</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  캐시되지 않은 디스크 처리량 버스트: IOPS / MBps <sup>3</sup>| 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 버스트 캐시된 임시 스토리지 처리량: IOPS/MBps<sup>3</sup> | 캐시되지 않은 최대 디스크 처리량: IOPS/MBps |  버스트 캐시되지 않은 디스크 처리량: IOPS/MBps<sup>3</sup>| 최대 NIC 수/예상 네트워크 대역폭(Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v3                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |
@@ -82,7 +82,7 @@ Esv3 시리즈 VM 기능 Intel® 하이퍼 스레딩 기술
 
 <sup>2</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
-<sup>3</sup> Esv3 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고한 번에 최대 30 분 동안 버스 팅 최대치를 얻을 수 있습니다.
+<sup>3</sup> Esv3 시리즈 VM은 디스크 성능을 [버스트](./disk-bursting.md)하고 한 번에 최대 30분 동안 최대 버스트를 얻을 수 있습니다.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

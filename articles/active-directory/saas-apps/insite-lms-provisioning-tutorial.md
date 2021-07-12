@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비저닝을 위한 Insite LMS 구성 | 마이크로 소프트 문서'
+title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비저닝을 위한 Insite LMS 구성 | Microsoft Docs'
 description: Azure AD에서 Insite LMS로 사용자 계정을 자동으로 프로비저닝 및 프로비저닝을 해제하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -53,9 +53,9 @@ ms.locfileid: "110104649"
 1. `https://portal.insitelms.net/<OrganizationName>`로 이동합니다.
 1. 데스크톱 클라이언트를 다운로드하여 설치합니다.
 1. 관리자 계정으로 로그인하고 **사용자** 모듈로 이동합니다.
-1. 사용자 `scim@insitelms.net`을 선택하고 **액세스 토큰 생성** 단추를 누릅니다. scim-User를 찾을 수 없는 경우 Support-Team에 문의하세요.
+1. 사용자 `scim@insitelms.net`을 선택하고 **액세스 토큰 생성** 단추를 누릅니다. scim-User를 찾을 수 없는 경우 지원 팀에 문의하세요.
     1.  **AzureAdScimProvisioning** 을 선택하고 **생성** 을 누릅니다. 
-    1.  **AccessToken** 복사
+    1.  **AccessToken** 을 복사합니다.
 1. **테넌트 URL** 은 `https://web.insitelms.net/<OrganizationName>/api/scim`입니다.
 
 ## <a name="step-3-add-insite-lms-from-the-azure-ad-application-gallery"></a>3단계: Azure AD 애플리케이션 갤러리에서 Insite LMS 추가

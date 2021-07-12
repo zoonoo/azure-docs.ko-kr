@@ -199,7 +199,7 @@ AKS 클러스터를 배포할 때 로컬 계정은 기본적으로 사용하도�
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-로컬 계정없이 AKS 클러스터를 사용하려면 구독에서 `DisableLocalAccountsPreview` 기능 플래그를 사용하도록 설정해야 합니다. 최신 버전의 Azure CLI 및 `aks-preview` 확장을 사용하는지 확인합니다.
+로컬 계정 없이 AKS 클러스터를 사용하려면 구독에서 `DisableLocalAccountsPreview` 기능 플래그를 사용하도록 설정해야 합니다. 최신 버전의 Azure CLI 및 `aks-preview` 확장을 사용하는지 확인합니다.
 
 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용하여 `DisableLocalAccountsPreview` 기능 플래그를 등록합니다.
 

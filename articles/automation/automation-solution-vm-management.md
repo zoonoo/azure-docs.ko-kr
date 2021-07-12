@@ -3,27 +3,29 @@ title: Azure Automation 작업 시간 외 VM 시작/중지 개요
 description: 이 문서에서는 일정에 따라 VM을 시작 또는 중지하고 Azure Monitor 로그에서 선제적으로 모니터링하는 작업 시간 외 VM 시작/중지 기능에 대해 설명합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/04/2020
+ms.date: 05/25/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b28367aa242d5fab71dc5046ff6188c634883f03
-ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.openlocfilehash: 0ac3a2dccecf50b53917d878535ce62e124f8f8e
+ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/21/2021
-ms.locfileid: "107834519"
+ms.lasthandoff: 05/26/2021
+ms.locfileid: "110479551"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>작업 시간 외 VM 시작/중지 개요
 
 작업 시간 외 VM 시작/중지 기능은 사용하도록 설정된 Azure VM을 시작하거나 중지합니다. 사용자 정의 일정에 따라 머신을 시작 또는 중지하고, Azure Monitor 로그를 통해 인사이트를 제공하고, [작업 그룹](../azure-monitor/alerts/action-groups.md)을 사용하여 선택적 메일을 전송합니다. 이 기능은 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM에서 사용하도록 설정할 수 있습니다.
 
+> [!NOTE]
+> 이 버전(v1)을 설치하기 전에 지금 미리 보기로 제공되는 [다음 버전](../azure-functions/start-stop-vms/overview.md)에 대해 알려 드리고자 합니다. 이 새로운 버전(v2)은 이 버전과 동일한 기능을 모두 제공하지만 Azure의 최신 기술을 활용하도록 설계되었습니다. 여기에는 단일 시작/중지 인스턴스의 다중 구독 지원 같이 고객이 일반적으로 요청하는 기능 중 일부가 추가되어 있습니다. 
+>
+> 작업 시간 외 VM 시작/중지(v1)는 2022년 5월 21일에 사용 중단됩니다. 
+
 이 기능은 [Start-AzVm](/powershell/module/az.compute/start-azvm) cmdlet을 사용하여 VM을 시작하고, [Stop-AzVM](/powershell/module/az.compute/stop-azvm)을 사용하여 VM을 중지합니다.
 
 > [!NOTE]
-> Runbook은 새 Azure Az 모듈 cmdlet을 사용하도록 업데이트되었지만, AzureRM 접두사 별칭을 사용합니다.
-
-> [!NOTE]
-> 작업 시간 외 VM 시작/중지는 사용 가능한 최신 버전의 Azure 모듈을 지원하도록 업데이트되었습니다. Microsoft는 AzureRM 모듈을 Az 모듈로 마이그레이션했기 때문에 Marketplace에서 받을 수 있는 이 기능의 업데이트된 버전에서는 AzureRM 모듈을 지원하지 않습니다.
+> 작업 시간 외 VM 시작/중지는 사용 가능한 최신 버전의 Azure 모듈을 지원하도록 업데이트되었습니다. Microsoft는 AzureRM 모듈을 Az 모듈로 마이그레이션했기 때문에 Marketplace에서 받을 수 있는 이 기능의 업데이트된 버전에서는 AzureRM 모듈을 지원하지 않습니다. Runbook은 새 Azure Az 모듈 cmdlet을 사용하도록 업데이트되었지만, AzureRM 접두사 별칭을 사용합니다.
 
 이 기능은 VM 비용을 최적화하려는 사용자들에게 분산된 저비용 자동화 옵션을 제공합니다. 이 기능을 사용하여 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -36,14 +38,11 @@ ms.locfileid: "107834519"
 - 모든 지역의 VM을 관리하지만 Azure Automation 계정과 동일한 구독에서만 사용할 수 있습니다.
 - Log Analytics 작업 영역, Azure Automation 계정 및 경고를 지원하는 Azure 및 Azure Government의 모든 지역에서 사용할 수 있습니다. Azure Government 지역에서는 현재 메일 기능을 지원하지 않습니다.
 
-> [!NOTE]
-> 이 버전을 설치하기 전에 지금 미리 보기로 제공되는 [다음 버전](https://github.com/microsoft/startstopv2-deployments)에 대해 알려 드리고자 합니다.  이 새로운 버전(V2)은 이 버전과 동일한 기능을 모두 제공하지만 Azure의 최신 기술을 활용하도록 설계되었습니다. 여기에는 단일 시작/중지 인스턴스의 다중 구독 지원 같이 고객이 일반적으로 요청하는 기능 중 일부가 추가되어 있습니다.
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 작업 시간 외 VM 시작/중지 기능의 Runbook은 [Azure 실행 계정](./automation-security-overview.md#run-as-accounts)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호되는 인증 방법입니다.
 
-- Runbook 작업 로그 및 작업 스트림을 저장하는 [Azure Monitor Log Analytics 작업 영역](../azure-monitor/logs/design-logs-deployment.md)은 쿼리 및 분석할 작업 영역을 만듭니다. Automation 계정은 신규 또는 기존 Log Analytics 작업 영역에 연결될 수 있으며, 두 리소스는 동일한 리소스 그룹에 있어야 합니다.
+- Runbook 작업 로그 및 작업 스트림을 저장하는 [Azure Monitor Log Analytics 작업 영역](../azure-monitor/logs/design-logs-deployment.md)은 쿼리 및 분석할 작업 영역을 만듭니다. Automation 계정 및 Log Analytics 작업 영역은 동일한 구독 및 지원이 되는 지역에 있어야 합니다. 작업 영역이 이미 있어야 합니다. 이 기능을 배포하는 동안 새 작업 영역을 만들 수 없습니다.
 
 작업 시간 외 VM 시작/중지 기능이 사용하도록 설정된 VM을 사용할 때는 별도의 Automation 자동화 계정을 사용하는 것이 좋습니다. Azure 모듈 버전은 자주 업그레이드되고 매개 변수가 변경될 수 있는데, 이 기능은 다른 주기로 업그레이드되므로 이 기능에서 사용하는 cmdlet의 최신 버전에서 작동하지 않을 수 있습니다. 업데이트된 모듈을 프로덕션 Automation 계정으로 가져오기 전에 먼저 테스트 Automation 계정으로 가져와 호환성 문제가 없는지 확인하는 것이 좋습니다.
 
@@ -80,7 +79,7 @@ VM에서 기존 Automation 계정 및 Log Analytics 작업 영역을 사용하�
 
 ### <a name="permissions-for-new-automation-account-and-new-log-analytics-workspace"></a>새 Automation 계정 및 새 Log Analytics 작업 영역에 대한 권한
 
-VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 앞 섹션에서 정의된 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
+VM에서 새 Automation 계정 및 Log Analytics 작업 영역을 사용하여 작업 시간 외 VM 시작/중지를 사용하도록 설정할 수 있습니다. 이 경우에는 이전 섹션에서 정의한 권한과 이 섹션에서 정의하는 권한이 모두 필요합니다. 다음과 같은 역할도 필요합니다.
 
 - 구독의 공동 관리자. 이 역할은 클래식 VM을 관리해야 하는 경우 클래식 실행 계정을 만드는 데 필요합니다. [클래식 실행 계정](automation-create-standalone-account.md#create-a-classic-run-as-account)은 더 이상 기본적으로 생성되지 않습니다.
 - [Azure AD](../active-directory/roles/permissions-reference.md) 애플리케이션 개발자 역할의 멤버 자격. 실행 계정을 구성하는 방법에 대한 자세한 내용은 [실행 계정 구성 권한](automation-security-overview.md#permissions)을 참조하세요.

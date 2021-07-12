@@ -2,14 +2,14 @@
 author: amitbapat
 ms.service: key-vault
 ms.topic: include
-ms.date: 03/09/2021
+ms.date: 05/28/2021
 ms.author: ambapat
-ms.openlocfilehash: 9ecfcff00e6f44f5c739513c063baaa3fa02a3db
-ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
+ms.openlocfilehash: 3539e222407fee63a829e80db986f2b0eed02e24
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753304"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111761485"
 ---
 Azure Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이라는 두 가지 리소스 유형을 지원합니다. 다음 두 섹션에서는 이들 각각에 대한 서비스 제한을 설명합니다.
 
@@ -62,6 +62,12 @@ Azure Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이�
 > [!NOTE]
 > 제한보다 높은 버전의 키, 비밀 또는 인증서 개체를 백업하려고 시도하면 오류가 발생합니다. 이전 버전의 키, 비밀 또는 인증서는 삭제할 수 없습니다. 
 
+### <a name="limits-on-count-of-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 수 제한:
+
+Key Vault는 자격 증명 모음에 저장할 수 있는 키, 비밀 또는 인증서의 수를 제한하지 않습니다. 작업이 제한되지 않도록 하려면 자격 증명 모음에 대한 트랜잭션 제한을 고려해야 합니다.
+
+Key Vault는 비밀, 키 또는 인증서의 버전 수를 제한하지 않지만 많은 수의 버전(500개 이상)을 저장하면 백업 작업의 성능에 영향을 줄 수 있습니다. [Azure Key Vault 백업](../articles/key-vault/general/backup.md)을 참조하세요.
+
 #### <a name="azure-private-link-integration"></a>Azure Private Link 통합
 
 > [!NOTE]
@@ -72,7 +78,7 @@ Azure Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이�
 | 키 자격 증명 모음당 프라이빗 엔드포인트 | 64 |
 | 구독당 프라이빗 엔드포인트가 포함된 키 자격 증명 모음 | 400 |
 
-### <a name="resource-type-managed-hsm-preview"></a>리소스 종류: 관리형 HSM(미리 보기)
+### <a name="resource-type-managed-hsm"></a>리소스 종류: 관리형 HSM
 
 이 섹션에서는 리소스 종류 `managed HSM`에 대한 서비스 제한에 대해 설명합니다.
 
@@ -80,7 +86,7 @@ Azure Key Vault 리소스 공급자는 자격 증명 모음과 관리형 HSM이�
 
 |항목|제한|
 |----|------:|
-지역별 구독당 HSM 인스턴스 수|1(미리 보기 중)
+지역별 구독당 HSM 인스턴스 수|1 
 HSM 풀당 키 수|5,000
 키당 버전 수|100
 HSM당 사용자 지정 역할 정의 수|50

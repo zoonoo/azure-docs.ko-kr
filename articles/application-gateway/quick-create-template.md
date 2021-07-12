@@ -5,20 +5,22 @@ description: 이 빠른 시작에서는 Resource Manager 템플릿을 사용하�
 services: application-gateway
 author: vhorne
 ms.author: victorh
-ms.date: 01/20/2021
+ms.date: 06/14/2021
 ms.topic: quickstart
 ms.service: application-gateway
 ms.custom: devx-track-azurepowershell - mvc - subject-armqs - mode-arm
-ms.openlocfilehash: ab9a586e657652c50f182fd1dcb7e085e2e8dac7
-ms.sourcegitcommit: 1ee13b62c094a550961498b7a52d0d9f0ae6d9c0
+ms.openlocfilehash: 1436a029185ed30b1c45ea11db484d5f53f3b2a2
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2021
-ms.locfileid: "109839170"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072196"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - ARM 템플릿
 
 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 Azure Application Gateway를 만듭니다. 그런 다음, 애플리케이션 게이트웨이를 테스트하여 제대로 작동하는지 확인합니다.
+
+:::image type="content" source="media/quick-create-portal/application-gateway-qs-resources.png" alt-text="애플리케이션 게이트웨이 리소스":::
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 

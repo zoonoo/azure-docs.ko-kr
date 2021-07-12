@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
-ms.date: 02/24/2021
-ms.openlocfilehash: 7124014821c79fa37aa04da8909e3b4ac3bcb4fb
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.date: 06/07/2021
+ms.openlocfilehash: 4f7900c4abc37df776c231ac9d70a09862f6d49f
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106492497"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748405"
 ---
 # <a name="quickstart-enable-azure-defender"></a>빠른 시작: Azure Defender 사용
 
@@ -32,7 +32,7 @@ Azure Defender를 사용하여 전체 Azure 구독을 보호할 수 있으며, �
 
 - **Azure Defender for Storage 계정** 은 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
 - **Azure Defender for SQL** 은 구독 수준 또는 리소스 수준에서 사용하도록 설정할 수 있습니다.
-- **Azure Database for MariaDB/MySQL/PostgreSQL** 에 대한 위협 방지는 리소스 수준에서만 사용하도록 설정할 수 있습니다.
+- 리소스 수준에서만 **오픈 소스 관계형 데이터베이스에 대해 Azure Defender** 를 사용하도록 설정할 수 있습니다.
 
 ### <a name="to-enable-azure-defender-on-your-subscriptions-and-workspaces"></a>구독 및 작업 영역에서 Azure Defender를 사용하도록 설정하려면 다음을 수행합니다.
 
@@ -64,6 +64,21 @@ Azure Defender를 사용하여 전체 Azure 구독을 보호할 수 있으며, �
         :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="시작 페이지에서 선택한 모든 작업 영역 및 구독 업그레이드":::
 
 
+## <a name="disable-azure-defender"></a>Azure Defender 사용 안 함
+
+구독에 대해 Azure Defender를 사용하지 않아야 하는 경우 절차는 동일하지만 **Azure Defender 끄기** 를 선택합니다.
+ 
+1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
+1. 관련 구독을 선택합니다.
+1. 구독에 Azure Defender가 포함된 경우 **Azure Defender 플랜** 을 열고 **Azure Defender 끄기** 를 선택합니다.
+
+    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Azure Defender 사용/사용 안 함":::
+
+1. **저장** 을 선택합니다.
+
+> [!NOTE]
+> 한 번에 단일 플랜 또는 모든 플랜을 사용하지 않도록 설정하는지 여부에 관계없이 Azure Defender를 사용하지 않도록 설정한 후 데이터 수집이 짧은 기간 동안 계속될 수 있습니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure Defender를 사용하도록 설정했으므로 [Azure Security Center의 자동 프로비저닝 에이전트 및 확장](security-center-enable-data-collection.md)에 설명된 필수 에이전트 및 확장에서 자동 데이터 수집을 사용하도록 설정합니다.
+이제 Azure Defender를 사용하도록 설정했으므로 [자동 프로비저닝 에이전트 및 확장](security-center-enable-data-collection.md)에 설명된 필수 에이전트 및 확장에서 자동 데이터 수집을 사용하도록 설정합니다.

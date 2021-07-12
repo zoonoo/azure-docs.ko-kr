@@ -11,12 +11,12 @@ author: rsethur
 ms.date: 05/25/2021
 ms.topic: tutorial
 ms.custom: tutorial
-ms.openlocfilehash: 6e8f176df9a87f10af89b71d35b1d5577a223424
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 731d9a64c9ef144e8e51e9bce319a031056958ae
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110382183"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112071554"
 ---
 # <a name="tutorial-access-azure-resources-with-a-managed-online-endpoint-and-system-managed-identity-preview"></a>자습서: 관리형 온라인 엔드포인트 및 시스템 관리 ID를 사용하여 Azure 리소스에 액세스(미리 보기)
 
@@ -45,6 +45,7 @@ ms.locfileid: "110382183"
 * Azure Machine Learning 작업 영역이 있어야 합니다. 위의 문서에 따라 ML 확장을 구성한 경우 이러한 작업 영역이 있을 것입니다.
 
 * 채점 및 배포에 사용할 수 있도록 학습된 기계 학습 모델
+
 
 ## <a name="set-the-defaults-for-azure-cli"></a>Azure CLI 기본값 설정
 
@@ -77,13 +78,13 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 작업 영역, 작업 영역 위치 및 만들려는 엔드포인트에 대한 변수 이름을 구성합니다. 다음 코드는 이러한 값을 엔드포인트의 환경 변수로 내보냅니다.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="set_variables" :::
 
 다음으로 Blob 스토리지 계정, Blob 컨테이너 및 파일의 이름을 지정합니다. 이러한 변수 이름은 여기서 정의하며, 다음 섹션의 `az storage account create` 및 `az storage container create` 명령에서 참조됩니다.
 
 다음 코드는 이러한 값을 환경 변수로 내보냅니다.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="configure_storage_names" :::
 
 
 이러한 변수를 내보낸 후에는 로컬로 텍스트 파일을 만듭니다. 엔드포인트가 배포되면 채점 스크립트는 엔드포인트를 만들 때 생성된 시스템 할당 관리 ID를 사용하여 이 텍스트 파일에 액세스합니다.
@@ -94,15 +95,15 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 먼저 스토리지 계정을 만듭니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_account" :::
 
 다음으로, 스토리지 계정에 Blob 컨테이너를 만듭니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_storage_container" :::
 
 그런 다음, 텍스트 파일을 Blob 컨테이너에 업로드합니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="upload_file_to_storage" :::
 
 ## <a name="create-a-managed-online-endpoint"></a>관리형 온라인 엔드포인트 만들기
 
@@ -113,11 +114,11 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 >[!IMPORTANT]
 > 시스템 할당 관리 ID는 변경이 불가능하며 생성된 후에는 변경할 수 없습니다.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="create_endpoint" :::
 
 다음을 사용하여 엔드포인트의 상태를 확인합니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
 
 ## <a name="give-storage-permission-to-system-assigned-managed-identity"></a>시스템 할당 관리 ID에 스토리지 권한 부여
@@ -126,11 +127,11 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 엔드포인트에 대해 생성된 시스템 할당 관리 ID를 검색합니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="get_system_identity" :::
 
 여기서 시스템 할당 관리 ID에 스토리지 액세스 권한을 부여할 수 있습니다.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="give_permission_to_user_storage_account" :::
 
 ## <a name="scoring-script-to-access-azure-resource"></a>Azure 리소스에 액세스하는 채점 스크립트
 
@@ -144,18 +145,18 @@ az configure --defaults workspace=<azureml workspace name> group=<resource group
 
 이 배포는 기본 환경/이미지가 처음으로 빌드되는지 여부에 따라 약 8-14분이 걸릴 수 있습니다. 동일한 환경을 사용하는 후속 배포는 더 빨라집니다.
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="deploy" :::
 
 배포 상태를 확인합니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deploy_Status" :::
 
 > [!NOTE]
 > 채점 스크립트의 init 메서드는 시스템 할당 관리 ID 토큰을 사용하여 스토리지 계정에서 파일을 읽습니다. 
 
 init 메서드 출력을 확인하려면 다음 코드를 사용하여 배포 로그를 살펴봅니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_deployment_log" :::
 
 이 명령이 완료되면 모델, 환경 및 엔드포인트가 Azure Machine Learning 작업 영역에 등록됩니다.
 
@@ -167,15 +168,15 @@ init 메서드 출력을 확인하려면 다음 코드를 사용하여 배포 �
 
 엔드포인트를 호출하려면 다음을 실행합니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="test_endpoint" :::
 
 
 ## <a name="delete-the-endpoint-and-storage-account"></a>엔드포인트 및 스토리지 계정 삭제
 
 배포된 엔드포인트 및 스토리지를 계속 사용할 계획이 없으면 삭제하여 비용을 절감합니다. 엔드포인트를 삭제하면 연결된 모든 배포도 삭제됩니다. 
 
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
-::: code language="azurecli" source="~/azureml-examples-main/cli/how-to-deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="delete_storage_account" :::
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -191,3 +192,4 @@ init 메서드 출력을 확인하려면 다음 코드를 사용하여 배포 �
 
 * CLI 사용에 대한 자세한 내용은 [Azure Machine Learning용 CLI 확장 사용](reference-azure-machine-learning-cli.md)을 참조하세요.
 * 특정 데이터만 반환하도록 JSON 쿼리를 구체화하려면 [Azure CLI 명령 출력 쿼리](/cli/azure/query-azure-cli)를 참조하세요.
+* YAML 스키마에 대한 자세한 내용은 [온라인 엔드포인트 YAML 참조](reference-online-endpoint-yaml.md) 문서를 참조하세요.

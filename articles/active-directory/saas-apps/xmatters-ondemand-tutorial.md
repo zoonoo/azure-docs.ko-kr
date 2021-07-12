@@ -9,30 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2020
+ms.date: 06/07/2021
 ms.author: jeedes
-ms.openlocfilehash: 762bd1c536df0ca307149ba7c201f08f5bdfded5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f6a1fe629d3a73245570dddba1b983b7c0d62612
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99821803"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111748898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>자습서: xMatters OnDemand와 Azure Active Directory 통합
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 xMatters OnDemand를 통합하는 방법에 대해 알아봅니다.
-xMatters OnDemand를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 xMatters OnDemand를 통합하는 방법에 대해 알아봅니다. Azure AD와 xMatters OnDemand를 통합하면 다음을 수행할 수 있습니다.
 
-* xMatters OnDemand에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-* 사용자가 자신의 Azure AD 계정으로 xMatters OnDemand에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
-* 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
+* xMatters OnDemand에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* 사용자가 자신의 Azure AD 계정으로 xMatters OnDemand에 자동으로 로그인되도록 설정합니다.
+* 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
 xMatters OnDemand와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 Azure AD 환경이 없으면 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* xMatters OnDemand Single Sign-On이 설정된 구독
+* xMatters OnDemand Single Sign-On이 설정된 구독.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -40,7 +39,7 @@ xMatters OnDemand와 Azure AD 통합을 구성하려면 다음 항목이 필요�
 
 * xMatters OnDemand에서 **IDP** 시작 SSO를 지원합니다.
 
-## <a name="adding-xmatters-ondemand-from-the-gallery"></a>갤러리에서 xMatters OnDemand 추가
+## <a name="add-xmatters-ondemand-from-the-gallery"></a>갤러리에서 xMatters OnDemand 추가
 
 xMatters OnDemand가 Azure AD에 통합되도록 구성하려면 갤러리에서 xMatters OnDemand를 관리되는 SaaS 앱 목록에 추가해야 합니다.
 
@@ -50,7 +49,6 @@ xMatters OnDemand가 Azure AD에 통합되도록 구성하려면 갤러리에서
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션** 을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **xMatters OnDemand** 를 입력합니다.
 1. 결과 패널에서 **xMatters OnDemand** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-sso-for-xmatters-ondemand"></a>xMatters OnDemand에 대한 Azure AD SSO 구성 및 테스트
 
@@ -65,36 +63,36 @@ xMatters OnDemand에서 Azure AD SSO를 구성하고 테스트하려면 다음 �
     1. **[xMatters OnDemand 테스트 사용자 만들기](#create-xmatters-ondemand-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 해당 사용자를 xMatters OnDemand에 만듭니다.
 3. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 **xMatters OnDemand** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On** 을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML** 을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성** 에 대한 연필 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+1. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
 
     a. **식별자** 텍스트 상자에 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
     | ID |
     | ---------- |
-    | `https://<companyname>.au1.xmatters.com.au/` |
-    | `https://<companyname>.cs1.xmatters.com/` |
-    | `https://<companyname>.xmatters.com/` |
+    | `https://<COMPANY_NAME>.au1.xmatters.com.au/` |
+    | `https://<COMPANY_NAME>.cs1.xmatters.com/` |
+    | `https://<COMPANY_NAME>.xmatters.com/` |
     | `https://www.xmatters.com` |
-    | `https://<companyname>.xmatters.com.au/` |
+    | `https://<COMPANY_NAME>.xmatters.com.au/` |
 
     b. **회신 URL** 텍스트 상자에서 다음 패턴 중 하나를 사용하여 URL을 입력합니다.
 
     | 회신 URL |
     | ---------- |
-    |  `https://<companyname>.au1.xmatters.com.au` |
-    | `https://<companyname>.xmatters.com/sp/<instancename>` |
-    | `https://<companyname>.cs1.xmatters.com/sp/<instancename>` |
-    | `https://<companyname>.au1.xmatters.com.au/<instancename>` |
+    | `https://<COMPANY_NAME>.au1.xmatters.com.au` |
+    | `https://<COMPANY_NAME>.xmatters.com/sp/<INSTANCE_NAME>` |
+    | `https://<COMPANY_NAME>.cs1.xmatters.com/sp/<INSTANCE_NAME>` |
+    | `https://<COMPANY_NAME>.au1.xmatters.com.au/<INSTANCE_NAME>` |
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [xMatters OnDemand 클라이언트 지원 팀](https://www.xmatters.com/company/contact-us/)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -134,18 +132,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 사용자에게 역할을 할당할 것으로 예상되는 경우 **역할 선택** 드롭다운에서 선택할 수 있습니다. 이 앱에 대한 역할이 설정되지 않은 경우 &quot;기본 액세스&quot; 역할이 선택된 것으로 표시됩니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
-
 ## <a name=&quot;configure-xmatters-ondemand-sso&quot;></a>xMatters OnDemand SSO 구성
 
-1. 다른 웹 브라우저 창에서 XMatters OnDemand 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 xMatters OnDemand 회사 사이트에 관리자로 로그인합니다.
 
 2. **관리자** 를 클릭한 다음, **회사 세부 정보** 를 클릭합니다.
 
-    ![관리자 페이지](./media/xmatters-ondemand-tutorial/admin.png &quot;관리자")
+    ![관리자 페이지](./media/xmatters-ondemand-tutorial/admin.png &quot;관리자 페이지")
 
 3. **SAML 구성** 페이지에서 다음 단계를 수행합니다.
 
-    ![SAML 구성 섹션](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML 구성")
+    ![SAML 구성 섹션](./media/xmatters-ondemand-tutorial/saml-configuration.png "SAML 구성 섹션")
 
     a. **SAML 사용** 을 선택합니다.
 
@@ -163,7 +160,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-xmatters-ondemand-test-user"></a>xMatters OnDemand 테스트 사용자 만들기
 
-1. **XMatters OnDemand** 테넌트에 로그인합니다.
+1. **xMatters OnDemand** 테넌트에 로그인합니다.
 
 2. **사용자 아이콘** > **사용자** 로 이동한 다음, **사용자 추가** 를 클릭합니다.
 
@@ -173,9 +170,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 추가](./media/xmatters-ondemand-tutorial/add-user-2.png "사용자 추가")
 
-
-
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 다음 옵션을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
