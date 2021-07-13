@@ -260,10 +260,10 @@ conceptualContent:
         text: 자세히 보기
     - title: 역할
       links:
-        - url: ./roles/groups-assign-role.md
+        - url: ./roles/concept-understand-roles.md
           itemType: concept
           text: Azure AD 역할 이해
-        - url: ./roles/concept-understand-roles.md
+        - url: ./roles/custom-create.md
           itemType: how-to-guide
           text: 사용자 지정 역할 만들기
         - url: ./roles/groups-view-assignments.md

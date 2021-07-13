@@ -149,7 +149,7 @@
           href: ../virtual-machines/sizes-hpc.md
           maintainContext: true
         - name: 임시 디스크가 없는 Azure VM
-          href: ../virtual-machines/azure-vms-no-temp-disk.md
+          href: ../virtual-machines/azure-vms-no-temp-disk.yml
           maintainContext: true
         - name: Azure VM 크기 명명 규칙
           href: ../virtual-machines/vm-naming-conventions.md

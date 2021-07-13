@@ -24,7 +24,7 @@
 - name: 리소스
   items:
     - name: 일반적인 질문
-      href: frequently-asked-questions-genomics.md
+      href: frequently-asked-questions-genomics.yml
     - name: 문제 해결 가이드
       href: troubleshooting-guide-genomics.md
     - name: 지원 요청 제출

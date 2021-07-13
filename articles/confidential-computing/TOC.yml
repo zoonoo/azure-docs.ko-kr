@@ -23,7 +23,7 @@
         - name: Azure CLI를 사용하는 기밀 노드
           href: confidential-nodes-aks-get-started.md
         - name: AKS FAQ의 기밀 노드
-          href: confidential-nodes-aks-faq.md
+          href: confidential-nodes-aks-faq.yml
 - name: 개념
   expanded: true
   items:
@@ -34,7 +34,7 @@
         - name: 가상 머신 솔루션
           href: virtual-machine-solutions.md
         - name: 기밀 컴퓨팅 VM FAQ
-          href: faq.md
+          href: faq.yml
     - name: 컨테이너 컴퓨팅
       expanded: true
       items:

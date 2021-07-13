@@ -10,7 +10,7 @@
     - name: 요구 사항 검토
       href: storage-import-export-requirements.md
     - name: FAQ
-      href: storage-import-export-service-faq.md
+      href: storage-import-export-service-faq.yml
 - name: 방법
   expanded: true
   items:

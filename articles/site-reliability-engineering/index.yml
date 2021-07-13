@@ -51,9 +51,9 @@ productDirectory:
           text: 서적
         - url: resources/events.md
           text: 이벤트
-        - url: articles/code.md
+        - url: articles/code.yml
           text: 'FAQ: SRE 및 코딩'
-        - url: articles/devops.md
+        - url: articles/devops.yml
           text: 'FAQ: SRE 및 DevOps'
         - url: resources/links.md
           text: 링크 및 다이제스트

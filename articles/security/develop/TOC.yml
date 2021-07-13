@@ -24,7 +24,7 @@
         - name: 구성
           href: security-code-analysis-customize.md
         - name: FAQ
-          href: security-code-analysis-faq.md
+          href: security-code-analysis-faq.yml
         - name: YAML 구성
           href: yaml-configuration.md
         - name: 릴리스 및 로드맵
