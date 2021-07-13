@@ -16,7 +16,7 @@
   items:
     - name: Azure Machine Learning의 데이터 세트
       href: how-to-create-azure-machine-learning-dataset-from-open-dataset.md
-- name: 데이터 세트
+- name: 데이터 세트 카탈로그
   items:
     - name: 데이터 세트 카탈로그
       href: dataset-catalog.md

@@ -50,7 +50,7 @@
     - name: DigiCert CA와 Key Vault 통합
       href: how-to-integrate-certificate-authority.md
     - name: 문제 해결 - 인증서 가져오기
-      href: import-cert-faqs.md
+      href: import-cert-faqs.yml
     - name: 키 자격 증명 모음에서 인증서 내보내기
       href: how-to-export-certificate.md
 - name: 참조

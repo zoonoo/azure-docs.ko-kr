@@ -13,7 +13,7 @@ items:
       - name: 새로운 기능
         href: whats-new.md
       - name: Computer Vision FAQ
-        href: FAQ.md
+        href: FAQ.yml
   - name: OCR(광학 문자 인식)
     items:
       - name: OCR 개요

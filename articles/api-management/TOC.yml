@@ -338,7 +338,7 @@
 - name: 리소스
   items:
     - name: FAQ
-      href: api-management-faq.md
+      href: api-management-faq.yml
     - name: 가격 책정
       href: 'https://aka.ms/apimpricing'
     - name: 제품 업데이트

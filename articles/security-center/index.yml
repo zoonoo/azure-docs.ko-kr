@@ -11,12 +11,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 05/12/2021
-  ms.openlocfilehash: 0320b1a6bb5b412e16995194e9e181ca0ac9e6dd
-  ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+  ms.openlocfilehash: 6559d16fc9314ff134eb92f540e4b6ff4acd1f96
+  ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/26/2021
-  ms.locfileid: "110469417"
+  ms.lasthandoff: 07/05/2021
+  ms.locfileid: "113297517"
 landingContent:
 - title: Security Center 정보
   linkLists:
@@ -67,7 +67,7 @@ landingContent:
     - text: 권장 사항에서 리소스 제외
       url: exempt-resource.md
     - text: 시간 경과에 따른 점수 추적
-      url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-report
+      url: custom-dashboards-azure-workbooks.md#use-the-secure-score-over-time-workbook
 - title: 위협 완화
   linkLists:
   - linkListType: how-to-guide

@@ -118,8 +118,6 @@
   items:
     - name: 개발
       items:
-        - name: IoT Hub에 MXChip IoT DevKit 연결
-          href: how-to-connect-mxchip-iot-devkit.md
         - name: 디바이스에서 추가 데이터를 보내는 방법
           href: how-to-send-additional-data.md
         - name: 사용자 지정 할당 정책을 사용하여 디바이스 프로비저닝

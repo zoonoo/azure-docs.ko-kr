@@ -4,6 +4,6 @@
   expanded: true
   items:
     - name: SRE 및 코딩
-      href: code.md
+      href: code.yml
     - name: SRE 및 DevOps
-      href: devops.md
+      href: devops.yml

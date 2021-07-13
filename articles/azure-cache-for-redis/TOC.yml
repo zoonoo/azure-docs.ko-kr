@@ -111,11 +111,11 @@
         - name: Azure Cache for Redis로 마이그레이션
           href: cache-migration-guide.md
         - name: 계획 FAQ
-          href: cache-planning-faq.md
+          href: cache-planning-faq.yml
     - name: 빌드
       items:
         - name: 개발 FAQ
-          href: cache-development-faq.md
+          href: cache-development-faq.yml
     - name: 자동화
       items:
         - name: Azure Powershell을 사용하여 배포 및 관리
@@ -145,7 +145,7 @@
         - name: TLS 1.0 및 1.1 제거
           href: cache-remove-tls-10-11.md
         - name: 관리 FAQ
-          href: cache-management-faq.md
+          href: cache-management-faq.yml
     - name: 모니터
       items:
         - name: Azure Portal에서 모니터링
@@ -153,7 +153,7 @@
         - name: 예외에 대한 경고 설정
           href: cache-how-to-monitor.md#operations-and-alerts
         - name: 모니터링 FAQ
-          href: cache-monitor-troubleshoot-faq.md
+          href: cache-monitor-troubleshoot-faq.yml
     - name: 확장
       items:
         - name: 다른 크기 및 계층으로 업데이트
@@ -171,7 +171,7 @@
         - name: 데이터 손실 문제 해결
           href: cache-troubleshoot-data-loss.md
         - name: 문제 해결 FAQ
-          href: cache-monitor-troubleshoot-faq.md
+          href: cache-monitor-troubleshoot-faq.yml
 - name: 참조
   items:
     - name: Azure Cache for Redis 샘플
@@ -198,7 +198,7 @@
 - name: 리소스
   items:
     - name: Azure Cache for Redis FAQ
-      href: cache-faq.md
+      href: cache-faq.yml
     - name: 동영상
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Microsoft Q&A 질문 페이지

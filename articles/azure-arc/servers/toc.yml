@@ -25,6 +25,8 @@
           href: security-controls-policy.md
         - name: 보안 개요
           href: security-overview.md
+        - name: Private Link 네트워킹
+          href: private-link-security.md
 - name: 방법 가이드
   items:
     - name: 배포
