@@ -101,6 +101,8 @@
           href: deploy-iot-edge-device.md
         - name: Windows에서 Linux용 IoT Edge에 배포
           href: deploy-iot-edge-linux-on-windows.md
+        - name: Azure Stack Edge에 배포
+          href: deploy-on-stack-edge.md
     - name: 재생
       items:
         - name: 녹음/녹화 재생
@@ -157,6 +159,8 @@
       href: 'https://azure.microsoft.com/updates/?category=media'
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/video-analyzer/'
+    - name: 사용 가능한 지역
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all'
     - name: FAQ
       href: faq-edge.md
     - name: 할당량 및 제한 사항

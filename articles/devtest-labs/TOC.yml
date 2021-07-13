@@ -319,4 +319,4 @@
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
     - name: 질문과 대답
-      href: devtest-lab-faq.md
+      href: devtest-lab-faq.yml
