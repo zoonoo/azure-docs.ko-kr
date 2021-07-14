@@ -47,12 +47,10 @@
       items:
         - name: Azure Database for MySQL로(오프라인)
           href: tutorial-mysql-azure-mysql-offline-portal.md
-        - name: Azure Database for MySQL로(온라인)
-          href: tutorial-mysql-azure-mysql-online.md
     - name: RDS MySQL 마이그레이션
       items:
         - name: Azure Database for MySQL로
-          href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
+          href: tutorial-mysql-azure-mysql-offline-portal.md
     - name: PostgreSQL 마이그레이션
       items:
         - name: Azure DB for PostgreSQL로(포털)
@@ -139,8 +137,6 @@
           items:
             - name: SQL Managed Instance
               href: known-issues-azure-sql-db-managed-instance-online.md
-            - name: MySQL용 Azure DB
-              href: known-issues-azure-mysql-online.md
             - name: PostgreSQL에서 Azure DB for PostgreSQL로
               href: known-issues-azure-postgresql-online.md
             - name: MongoDB에서 Azure Cosmos DB API for MongoDB로
@@ -160,6 +156,6 @@
         - name: 온라인 마이그레이션 모니터링 및 중단 수행
           href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
         - name: Oracle을 Azure SQL DB로 마이그레이션
-          href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
+          href: /azure/postgresql/howto-migrate-from-oracle
         - name: MongoDB를 Azure Cosmos DB로 마이그레이션
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'

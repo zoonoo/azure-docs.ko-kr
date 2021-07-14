@@ -12,12 +12,12 @@ metadata:
   ms.date: 10/19/2020
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: 8dd6ac6fef0dbc84c77ccacfd048b2af21771f6a
-  ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+  ms.openlocfilehash: 9a01fc386fcf1c100072d8cf813c27f2ba2f0ad1
+  ms.sourcegitcommit: cd8e78a9e64736e1a03fb1861d19b51c540444ad
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/02/2020
-  ms.locfileid: "96499206"
+  ms.lasthandoff: 06/25/2021
+  ms.locfileid: "112965927"
 landingContent:
 - title: Azure AD 역할 정보
   linkLists:
@@ -31,7 +31,7 @@ landingContent:
       url: concept-understand-roles.md
     - text: Azure AD의 관리 단위 이해
       url: administrative-units.md
-    - text: 클라우드 그룹을 사용하여 역할 할당 관리
+    - text: 그룹을 사용하여 역할 할당 관리
       url: groups-concept.md
 - title: 시작
   linkLists:
@@ -65,7 +65,7 @@ landingContent:
     links:
     - text: 역할 할당 가능 그룹 만들기
       url: groups-create-eligible.md
-    - text: 클라우드 그룹에 역할 할당
+    - text: 그룹에 역할 할당
       url: groups-assign-role.md
     - text: PIM에 적합한 그룹 만들기
       url: groups-pim-eligible.md

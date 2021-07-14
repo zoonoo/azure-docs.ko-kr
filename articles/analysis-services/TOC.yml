@@ -44,7 +44,7 @@
     - name: 지원되는 데이터 원본
       href: analysis-services-datasource.md
     - name: 네트워크 연결 FAQ
-      href: analysis-services-network-faq.md
+      href: analysis-services-network-faq.yml
 - name: 방법
   items:
     - name: 서버
@@ -103,7 +103,7 @@
   items:
     - name: PowerShell
       href: analysis-services-powershell.md
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/analysisservices
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.analysisservices/servers

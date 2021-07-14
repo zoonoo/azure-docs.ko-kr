@@ -401,7 +401,7 @@
         - name: CSP 릴리스 정보
           href: 'https://partner.microsoft.com/Support/whats-new'
         - name: 'CSP용 StorSimple: FAQ'
-          href: storsimple-partner-csp-faq.md
+          href: storsimple-partner-csp-faq.yml
 - name: 관련 항목
   items:
     - name: StorSimple 5000-7000 시리즈

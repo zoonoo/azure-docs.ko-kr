@@ -74,7 +74,7 @@
         - name: 루트 또는 정점 도메인 온보드
           href: onboard-apex-domain.md
         - name: 국가 또는 지역별 액세스 제한
-          href: cdn-restrict-access-by-country.md
+          href: cdn-restrict-access-by-country-region.md
         - name: 파일을 압축하여 성능 향상
           href: cdn-improve-performance.md
         - name: 엔드포인트 다중 원본

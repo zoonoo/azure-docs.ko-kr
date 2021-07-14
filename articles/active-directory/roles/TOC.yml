@@ -18,7 +18,7 @@
           href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Microsoft 365 역할
           href: m365-workload-docs.md
-    - name: 그룹 기반 역할 할당
+    - name: 그룹을 사용하여 역할 할당 관리
       href: groups-concept.md
     - name: 관리 단위
       href: administrative-units.md
@@ -87,9 +87,9 @@
     - name: 문제 해결
       items:
         - name: 그룹에 할당된 역할 문제 해결
-          href: groups-faq-troubleshooting.md
+          href: groups-faq-troubleshooting.yml
         - name: 관리 단위 문제 해결
-          href: admin-units-faq-troubleshoot.md
+          href: admin-units-faq-troubleshoot.yml
         - name: Azure AD에 대한 지원
           href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: 참조

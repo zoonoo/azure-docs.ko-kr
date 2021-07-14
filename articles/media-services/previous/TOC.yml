@@ -41,7 +41,7 @@
           href: media-services-dotnet-get-started.md
         - name: Java
           href: media-services-java-how-to-use.md
-        - name: REST
+        - name: REST (영문)
           href: media-services-rest-get-started.md
     - name: 라이브 스트리밍 수행
       items:
@@ -400,7 +400,7 @@
     - name: 문제 해결
       items:
         - name: 질문과 대답
-          href: media-services-frequently-asked-questions.md
+          href: media-services-frequently-asked-questions.yml
         - name: 라이브 스트리밍 문제 해결 가이드
           href: media-services-troubleshooting-live-streaming.md
         - name: 오류 코드
