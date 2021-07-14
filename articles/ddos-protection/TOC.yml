@@ -65,14 +65,14 @@
       href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtualnetwork/ddosprotectionplans
     - name: Azure Resource Manager
       href: ../azure-resource-manager/management/overview.md
 - name: 리소스
   items:
     - name: FAQ
-      href: ddos-faq.md
+      href: ddos-faq.yml
     - name: 가격 책정
       href: 'https://azure.microsoft.com/en-us/pricing/details/ddos-protection/'
     - name: 국가별 가용성

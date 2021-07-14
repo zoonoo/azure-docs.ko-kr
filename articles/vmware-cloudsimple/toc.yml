@@ -55,7 +55,7 @@
         - name: 사용할 수 없는 작업
           href: forbidden-actions.md
         - name: FAQ
-          href: cloudsimple-faq.md
+          href: cloudsimple-faq.yml
     - name: 자습서
       items:
         - name: CloudSimple 서비스 만들기

@@ -36,5 +36,25 @@
           href: 13-security.md
         - name: 요약
           href: 14-summary.md
-        - name: 부록
-          href: 15-appendix.md
+    - name: 샘플 애플리케이션
+      href: 15-appendix.md
+    - name: 리소스
+      items:
+        - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
+          href: ../../concepts-migrate-dump-restore.md
+          displayName: 'migrate, mysqldump'
+        - name: MySQL용 dbForge Studio를 사용하여 데이터 마이그레이션
+          href: ../../concepts-migrate-dbforge-studio-for-mysql.md
+          displayName: 'migrate, dbforge'
+        - name: MySQL Workbench를 사용하여 데이터 마이그레이션
+          href: ../../concepts-migrate-import-export.md
+          displayName: 'import , migrate, export'
+        - name: MySQL Workbench를 사용하여 RDS MySQL 데이터 마이그레이션
+          href: ../../how-to-migrate-rds-mysql-workbench.md
+          displayName: 'import , migrate, export'
+        - name: DMS를 사용한 최소 가동 중지 시간 마이그레이션
+          href: ../../howto-migrate-online.md
+          displayName: 'migrate, dms, database migration service'
+        - name: 일반 오류 문제 해결
+          href: ../../howto-troubleshoot-common-errors.md
+          displayName: 'SUPER privilege, DBA role, Access is denied'

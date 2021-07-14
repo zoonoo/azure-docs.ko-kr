@@ -128,7 +128,7 @@
     - name: 할당량 및 제한 사항
       href: quotas-limitations.md
     - name: FAQ
-      href: faq.md
+      href: faq.yml
     - name: 프로덕션 준비 및 모범 사례
       href: production-readiness.md
     - name: 투명성과 책임감 있는 AI 원칙

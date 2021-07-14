@@ -214,8 +214,6 @@
                   href: automation-dsc-config-from-server.md
                 - name: 구성을 복합 리소스로 변환
                   href: automation-dsc-create-composite.md
-                - name: 비준수 서버 수정
-                  href: automation-dsc-remediate.md
         - name: 변경 내용 추적 및 인벤토리
           items:
             - name: 개요
