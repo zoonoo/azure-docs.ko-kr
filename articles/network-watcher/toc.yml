@@ -30,6 +30,8 @@
   items:
     - name: 연결 모니터
       href: connection-monitor-overview.md
+    - name: 연결 모니터 스키마
+      href: connection-monitor-schema.md
     - name: VM 네트워크 트래픽 필터 문제 진단
       href: network-watcher-ip-flow-verify-overview.md
     - name: NSG 규칙 및 트래픽 필터링 진단
@@ -139,10 +141,13 @@
             - name: NSG 흐름 로그 읽기
               href: network-watcher-read-nsg-flow-logs.md
             - name: 트래픽 분석 사용
-              href: traffic-analytics.md
               items:
+                - name: 트래픽 분석 개요
+                  href: traffic-analytics.md
                 - name: 질문과 대답
                   href: traffic-analytics-faq.yml
+                - name: 기본 제공 정책
+                  href: traffic-analytics-policy-portal.md
                 - name: 스키마 및 데이터 집계
                   href: traffic-analytics-schema.md
                 - name: 스키마 업데이트(2019년 8월)

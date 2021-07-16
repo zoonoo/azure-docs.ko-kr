@@ -47,6 +47,8 @@ items:
         href: import-concepts.md
       - name: 가져오기 관련 스키마
         href: import-schema.md
+      - name: 디바이스 업데이트 제한
+        href: device-update-limits.md
   - name: 방법 가이드
     items:
       - name: 디바이스 업데이트 계정 만들기

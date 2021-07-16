@@ -1,0 +1,189 @@
+- name: 디바이스 빌더용 Azure Defender for IoT
+  items: null
+- name: 개요
+  displayName: 'IoT, OT, getting started'
+  href: overview.md
+  items:
+    - name: 새로운 기능
+      displayName: 'version, versions, servicing, information, timeline, support, support date, dates, versioning, policy'
+      href: release-notes.md
+    - name: 에이전트 기반 솔루션 아키텍처란
+      href: architecture-agent-based.md
+- name: 빠른 시작
+  expanded: false
+  items:
+    - name: IoT 에이전트 기반 솔루션을 위해 Defender에 온보드
+      displayName: 'IoT Hub, existing, enable'
+      href: quickstart-onboard-iot-hub.md
+    - name: IoT 마이크로 에이전트용 Defender 설치(미리 보기)
+      displayName: 'package, authentication, methods, certificate, authenticate, version'
+      href: quickstart-standalone-agent-binary-installation.md
+    - name: Defender IoT 마이크로 에이전트 모듈 쌍 생성(미리 보기)
+      href: quickstart-create-micro-agent-module-twin.md
+    - name: 소스 코드에서 IoT용 Defender 마이크로 에이전트 빌드(미리 보기)
+      displayName: 'baseline, configuration, customize, distribution'
+      href: quickstart-building-the-defender-micro-agent-from-source.md
+    - name: Azure RTOS용 Defender-IoT-micro-agent 구성
+      href: quickstart-azure-rtos-security-module.md
+    - name: IoT 솔루션에 Azure 리소스 추가
+      displayName: 'resources, monitored, resource'
+      href: quickstart-configure-your-solution.md
+    - name: 보안 권장 사항 조사
+      href: quickstart-investigate-security-recommendations.md
+    - name: 보안 경고 조사
+      href: quickstart-investigate-security-alerts.md
+    - name: Classic
+      items:
+        - name: 보안 에이전트 개요
+          displayName: 'platforms, C, C#, agent'
+          href: security-agent-architecture.md
+        - name: azureiotsecurity 모듈 쌍 만들기
+          displayName: 'module twin, security module'
+          href: quickstart-create-security-twin.md
+- name: 개념
+  items:
+    - name: 에이전트 포트폴리오 개요 및 OS 지원(미리 보기)
+      displayName: 'standalone agent, micro agent, RTOS'
+      href: concept-agent-portfolio-overview-os-support.md
+    - name: 독립 실행형 마이크로 에이전트 개요(미리 보기)
+      displayName: 'endpoint, posture, distribution, flexible, model'
+      href: concept-standalone-micro-agent-overview.md
+    - name: 보안 에이전트 인증(미리 보기)
+      displayName: 'connection string, certificate, authentication'
+      href: concept-security-agent-authentication.md
+    - name: 보안 상태 - CIS 벤치마크
+      href: concept-security-posture.md
+    - name: 마이크로 에이전트 이벤트 수집(미리 보기)
+      displayName: 'process events, network connection'
+      href: concept-event-aggregation.md
+    - name: IoT Hub에 대한 기본 제공 경고
+      displayName: 'binary command line, disable firewall, port forwarding detection, possible attempt to disable auditd logging detected, reverse shells, successful bruteforce attempt, successful local login, web shell, Behavior similar, Crypto coin, suspicious, Exposed Docker,'
+      href: concept-security-alerts.md
+    - name: IoT Hub에 대한 사용자 지정 보안 경고
+      href: concept-customizable-security-alerts.md
+    - name: IoT Hub에 대한 보안 추천 사항
+      href: concept-recommendations.md
+    - name: Classic
+      items:
+        - name: Defender-IoT-micro-agent
+          displayName: 'device twins, Defender-IoT-micro-agent twin'
+          href: concept-security-module.md
+        - name: Edge Defender-IoT-micro-agent
+          href: security-edge-architecture.md
+        - name: 보안 에이전트
+          href: overview-security-agents.md
+        - name: 보안 에이전트 인증
+          displayName: 'method, C, C#, module, device, installation, authentication'
+          href: concept-security-agent-authentication-methods.md
+        - name: 기초
+          displayName: 'custom, setting, properties'
+          href: concept-baseline.md
+        - name: Azure Defender for IoT용 Azure 보안 기준
+          displayName: 'identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance'
+          href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
+        - name: Defender-IoT-micro-agent 클래식 이벤트 집계
+          displayName: 'twin, default, configuration, alerts'
+          href: event-aggregation.md
+        - name: 에이전트 기반 보안 경고
+          href: agent-based-security-alerts.md
+        - name: 에이전트 기반 보안 사용자 지정 경고
+          href: agent-based-security-custom-alerts.md
+        - name: 에이전트 기반 권장 사항
+          href: agent-based-recommendations.md
+- name: 방법 가이드
+  items:
+    - name: Azure Sentinel에 연결
+      displayName: 'log analytics, service notes'
+      href: how-to-configure-with-sentinel.md
+    - name: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
+      displayName: 'data, collection, geolocation, log analytics, raw events'
+      href: how-to-configure-agent-based-solution.md
+    - name: CIS 벤치마크 권장 사항 조사
+      href: how-to-investigate-cis-benchmark.md
+    - name: 사용자 지정 경고 만들기
+      displayName: security group
+      href: quickstart-create-custom-alerts.md
+    - name: Azure RTOS용 Defender-IoT-micro-agent
+      href: iot-security-azure-rtos.md
+      items:
+        - name: Azure RTOS용 Defender-IoT-micro-agent 사용
+          href: how-to-azure-rtos-security-module.md
+        - name: Azure RTOS용 Defender-IoT-micro-agent 이해
+          href: concept-rtos-security-module.md
+        - name: Azure RTOS 경고 및 권장 사항에 대한 Defender-IoT-micro-agent
+          href: concept-rtos-security-alerts-recommendations.md
+    - name: Classic
+      items:
+        - name: 어떤 에이전트를 배포해야 하나요?
+          items:
+            - name: 배포할 에이전트 선택
+              href: how-to-deploy-agent.md
+            - name: C# 기반 보안 에이전트를 Windows 디바이스에 배포
+              href: how-to-deploy-windows-cs.md
+            - name: C# 기반 보안 에이전트를 Linux 디바이스에 배포
+              href: how-to-deploy-linux-cs.md
+            - name: C 기반 보안 에이전트를 Linux 디바이스에 배포
+              href: how-to-deploy-linux-c.md
+        - name: 보안 에이전트 문제 해결
+          items:
+            - name: Azure Defender for IoT Linux 보안 에이전트 문제 해결
+              href: troubleshoot-agent.md
+            - name: 로컬 구성 C
+              href: azure-iot-security-local-configuration-c.md
+            - name: 로컬 구성 C#
+              href: azure-iot-security-local-configuration-csharp.md
+        - name: Edge Defender-IoT-micro-agent 배포
+          href: how-to-deploy-edge.md
+        - name: 보안 에이전트 구성
+          displayName: property
+          href: how-to-agent-configuration.md
+        - name: 사용자 고유의 보안 메시지 보내기
+          href: how-to-send-security-messages.md
+        - name: 원시 보안 데이터 액세스
+          displayName: 'log analytics, alerts,'
+          href: how-to-security-data-access.md
+        - name: 디바이스 조사
+          displayName: 'access, data, kql, ports, logins, process'
+          href: how-to-investigate-device.md
+    - name: 문제 해결
+      items:
+        - name: Defender IoT 마이크로 에이전트 문제 해결(미리 보기)
+          displayName: 'service status, review logs'
+          href: troubleshoot-defender-micro-agent.md
+- name: 참조
+  items:
+    - name: Azure RTOS API용 Defender-IoT-micro-agent
+      displayNAme: 'prototype, disable'
+      href: azure-rtos-security-module-api.md
+    - name: 질문과 대답
+      displayName: 'FAQ, embedded, dependencies, data, quota, internet,'
+      href: resources-agent-frequently-asked-questions.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Defender for IoT 용어집
+      href: references-defender-for-iot-glossary.md
+    - name: 기능 지원 및 사용 중지
+      items:
+        - name: 기능 지원 및 사용 중지
+          displayName: 'C, C#, deprecation, support'
+          href: edge-security-module-deprecation.md
+- name: 리소스
+  items:
+    - name: Microsoft Learn을 통해 보안 기술 쌓기
+      href: /learn/browse/?term=securityS&terms=securityS
+    - name: Azure Security Center 설명서
+      href: ../../security-center/
+    - name: Azure 보안 설명서
+      href: ../../security/index.yml
+    - name: 'Azure IoT 보안, 개인 정보 보호 및 규정 준수 블로그'
+      href: 'https://techcommunity.microsoft.com/t5/iot-security/bd-p/IoTSecurity'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 가격 책정
+      href: 'https://azure.microsoft.com/pricing/details/azure-defender/'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=security-center&service=internet-of-things&page=1&sort=newest'
+    - name: 디바이스 빌더를 위한 에이전트 기반 솔루션
+      items: null
+    - name: Stack Overflow의 Azure RTOS Defender-IoT-micro-agent
+      href: 'https://stackoverflow.com/questions/tagged/azure-rtos+azure-iot-security-module'

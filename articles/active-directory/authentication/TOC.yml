@@ -82,6 +82,8 @@
           href: howto-sspr-windows.md
     - name: Azure AD Multi-Factor Authentication
       items:
+        - name: 계획 가이드
+          href: concept-mfa-plan.md
         - name: 배포 가이드
           href: howto-mfa-getstarted.md
         - name: 설정 구성
@@ -160,6 +162,8 @@
       href: howto-authentication-temporary-access-pass.md
     - name: SMS 기반 인증 사용
       href: howto-authentication-sms-signin.md
+    - name: SMS 기반 인증에 대해 지원되는 앱
+      href: how-to-authentication-sms-supported-apps.md
     - name: 양방향 SMS가 지원되지 않음
       href: how-to-authentication-two-way-sms-unsupported.md
     - name: 이메일 주소 로그인 사용
@@ -187,6 +191,14 @@
           href: howto-mfa-reporting-datacollection.md
     - name: MFA 서버
       items:
+        - name: MFA 서버를 Azure AD MFA로 마이그레이션
+          items:
+            - name: 개요
+              href: how-to-migrate-mfa-server-to-azure-mfa.md
+            - name: Azure MFA 및 사용자 인증으로 마이그레이션
+              href: how-to-migrate-mfa-server-to-azure-mfa-user-authentication.md
+            - name: 페더레이션을 사용하여 Azure MFA로 마이그레이션
+              href: how-to-migrate-mfa-server-to-azure-mfa-with-federation.md
         - name: 온-프레미스에서 MFA 배포
           href: howto-mfaserver-deploy.md
         - name: 사용자 포털 설치

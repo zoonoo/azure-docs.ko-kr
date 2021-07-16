@@ -1,91 +1,86 @@
 - name: Azure Sentinel 설명서
   href: index.yml
 - name: 개요
-  href: overview.md
-- name: Azure Sentinel의 새로운 기능
-  href: whats-new.md
-- name: 빠른 시작
   expanded: true
   items:
-    - name: Azure Sentinel 등록
+    - name: Azure Sentinel 정보
+      href: overview.md
+    - name: Azure Sentinel의 새로운 기능
+      href: whats-new.md
+- name: 빠른 시작
+  items:
+    - name: Azure Sentinel에 온보딩
       href: quickstart-onboard.md
-    - name: 경고 표시
-      href: quickstart-get-visibility.md
 - name: 자습서
   items:
-    - name: 기본 제공 분석을 사용하여 위협 탐지
-      href: tutorial-detect-threats-built-in.md
-    - name: 위협을 탐지하는 사용자 지정 규칙 만들기
-      href: tutorial-detect-threats-custom.md
-    - name: 데이터 모니터링
-      href: tutorial-monitor-your-data.md
     - name: 인시던트 조사
       href: tutorial-investigate-cases.md
     - name: 자동화를 사용하여 위협에 대응
       href: tutorial-respond-threats-playbook.md
-    - name: KQL 쿼리 만들기(모듈 학습)
+    - name: Microsoft 365 Defender와 통합
+      href: microsoft-365-defender-sentinel-integration.md
+    - name: Azure Sentinel에 대한 KQL 쿼리 만들기(학습 모듈)
       href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
     - name: Azure Sentinel에서 Power BI 보고서 만들기
       href: powerbi.md
 - name: 개념
   items:
-    - name: 비용 및 청구 이해 및 관리
-      href: azure-sentinel-billing.md
-    - name: 엔터티를 사용하여 데이터 분류
-      href: entities-in-azure-sentinel.md
-    - name: 액세스 관리
+    - name: Architecture
       items:
-        - name: Azure Sentinel의 권한
+        - name: 역할 및 권한
           href: roles.md
-        - name: 리소스에 따른 액세스 관리
-          href: resource-context-rbac.md
-        - name: MSSP 지적 재산 보호
-          href: mssp-protect-intellectual-property.md
-    - name: 고급 다단계 공격 탐지
-      href: fusion.md
-    - name: 자동화(SOAR)
+        - name: 비용 및 청구
+          href: azure-sentinel-billing.md
+        - name: 보안 기준
+          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json'
+    - name: 데이터 수집 및 분석
       items:
-        - name: Azure Sentinel의 SOAR
-          href: automation-in-azure-sentinel.md
-        - name: 인시던트 처리에 대한 자동화 규칙
-          href: automate-incident-handling-with-automation-rules.md
-        - name: 플레이 북을 사용한 고급 자동화
-          href: automate-responses-with-playbooks.md
-    - name: UEBA를 사용하여 지능형 위협 식별
-      href: identify-threats-with-entity-behavior-analytics.md
-    - name: SOC-ML 변칙 기능을 사용하여 위협 탐지
-      href: soc-ml-anomalies.md
-    - name: Azure Sentinel로 위협 인텔리전스 가져오기
-      href: import-threat-intelligence.md
-    - name: 위협 인텔리전스 통합
-      href: threat-intelligence-integration.md
-    - name: 사용자 고유의 기계 학습 플랫폼 가져오기
-      href: bring-your-own-ml.md
-    - name: Microsoft 365 Defender와 Azure Sentinel 통합
-      href: microsoft-365-defender-sentinel-integration.md
-    - name: 관심 목록과 함께 외부 데이터 사용
-      href: watchlists.md
-    - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
-      href: extend-sentinel-across-workspaces-tenants.md
+        - name: 정규화 및 ASIM(Azure Sentinel 정보 모델)
+          href: normalization.md
+        - name: 엔터티를 사용하여 데이터 분류
+          href: entities-in-azure-sentinel.md
     - name: Azure Sentinel 솔루션
       items:
         - name: Sentinel 솔루션 정보
           href: sentinel-solutions.md
         - name: 솔루션 카탈로그
           href: sentinel-solutions-catalog.md
-    - name: 테이블에서 데이터 정규화
-      href: normalization.md
-    - name: 장기 로그 보존을 위해 Azure Data Explorer 사용
-      href: store-logs-in-azure-data-explorer.md
-    - name: 보안
+    - name: 위협 인텔리전스
       items:
-        - name: 보안 기준
-          href: /security/benchmark/azure/baselines/sentinel-security-baseline?toc=/azure/sentinel/TOC.json
-- name: 방법 가이드
+        - name: Azure Sentinel로 위협 인텔리전스 가져오기
+          href: import-threat-intelligence.md
+        - name: 위협 인텔리전스 통합
+          href: threat-intelligence-integration.md
+    - name: 위협 탐지
+      items:
+        - name: UEBA(사용자 및 엔터티 동작 분석)
+          href: identify-threats-with-entity-behavior-analytics.md
+        - name: SOC-ML 변칙
+          href: soc-ml-anomalies.md
+        - name: 다단계 공격(Fusion)
+          href: fusion.md
+        - name: 관심 목록
+          href: watchlists.md
+    - name: 위협 헌팅
+      href: hunting.md
+    - name: SOAR
+      items:
+        - name: '오케스트레이션, 자동화 및 응답'
+          href: automation-in-azure-sentinel.md
+        - name: 자동화 규칙
+          href: automate-incident-handling-with-automation-rules.md
+        - name: 플레이북
+          href: automate-responses-with-playbooks.md
+        - name: 사용자 고유의 기계 학습 가져오기
+          href: bring-your-own-ml.md
+- name: 방법
   items:
-    - name: 데이터 원본 연결
-      href: connect-data-sources.md
+    - name: Azure Sentinel로 마이그레이션
+      href: migration.md
+    - name: 데이터 수집
       items:
+        - name: 데이터 원본 연결
+          href: connect-data-sources.md
         - name: 서비스 간 연결
           items:
             - name: AWS CloudTrail
@@ -140,7 +135,9 @@
               href: connect-windows-security-events.md
             - name: Windows Virtual Desktop
               href: connect-windows-virtual-desktop.md
-        - name: 외부 솔루션 연결
+        - name: 파트너 데이터 커넥터
+          href: partner-data-connectors.md
+        - name: 파트너 데이터 원본 연결
           items:
             - name: Agari 피싱 방어 및 브랜드 보호
               href: connect-agari-phishing-defense.md
@@ -274,63 +271,90 @@
                   href: connect-cef-verify.md
         - name: 사용자 지정 커넥터 만들기
           href: create-custom-connector.md
-        - name: 위협 인텔리전스 연결
-          href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
           href: connect-azure-stack.md
         - name: 데이터 커넥터 상태 모니터링
           href: monitor-data-connector-health.md
-    - name: Analytics 규칙
+        - name: Azure Data Explorer 통합
+          href: store-logs-in-azure-data-explorer.md
+    - name: 솔루션 검색 및 배포
+      href: sentinel-solutions-deploy.md
+    - name: 위협 인텔리전스 연결
+      href: connect-threat-intelligence.md
+    - name: 데이터 모니터링 및 시각화
       items:
-        - name: 경고 보강
+        - name: 수집된 데이터 시각화
+          href: quickstart-get-visibility.md
+        - name: Azure Monitor 통합 문서 사용
+          href: tutorial-monitor-your-data.md
+    - name: 위협 탐지 및 데이터 분석
+      items:
+        - name: 기본 제공 규칙 사용
+          href: tutorial-detect-threats-built-in.md
+        - name: 사용자 지정 규칙 만들기
           items:
+            - name: 규칙 만들기
+              href: tutorial-detect-threats-custom.md
             - name: 엔터티에 데이터 필드 매핑
               href: map-data-fields-to-entities.md
             - name: 경고의 사용자 지정 세부 정보 표시
               href: surface-custom-details-in-alerts.md
             - name: 경고 세부 정보 사용자 지정
               href: customize-alert-details.md
-        - name: 분석 규칙 내보내기 및 가져오기
-          href: import-export-analytics-rules.md
-        - name: 경고에서 인시던트 만들기
-          href: create-incidents-from-alerts.md
+            - name: 분석 규칙 내보내기 및 가져오기
+              href: import-export-analytics-rules.md
+            - name: SOC-ML 변칙 규칙 작업
+              href: work-with-anomaly-rules.md
+        - name: UEBA(사용자 및 엔터티 동작 분석) 사용
+          href: enable-entity-behavior-analytics.md
         - name: SOC-ML 변칙 규칙 작업
           href: work-with-anomaly-rules.md
-    - name: 솔루션 검색 및 배포
-      href: sentinel-solutions-deploy.md
-    - name: 사용자 지정 엔터티 활동 만들기
-      href: customize-entity-activities.md
-    - name: 사용자 및 엔터티 동작 분석 사용
+        - name: 가양성 처리
+          href: false-positives.md
+        - name: Microsoft 보안 경고에서 인시던트 생성
+          href: create-incidents-from-alerts.md
+    - name: 위협에 대한 헌팅
       items:
-        - name: UEBA 사용
-          href: enable-entity-behavior-analytics.md
-        - name: UEBA를 사용하여 조사
-          href: investigate-with-ueba.md
-    - name: 다중 테넌트 관리(MSSP)
-      href: multiple-tenants-service-providers.md
-    - name: 여러 작업 영역에서 인시던트 작업
-      href: multiple-workspace-view.md
-    - name: CMK(고객 관리형 키) 설정
-      href: customer-managed-keys.md
-    - name: Microsoft Teams에서 협업
-      href: collaborate-in-microsoft-teams.md
-    - name: 인시던트 메트릭을 사용하여 SOC를 효율적으로 관리
-      href: manage-soc-with-incident-metrics.md
-    - name: 가양성 처리
-      href: false-positives.md
-    - name: Azure Sentinel 쿼리 및 활동 감사
-      href: audit-sentinel-data.md
-    - name: 사냥
-      href: hunting.md
-      items:
-        - name: 사냥에 Notebook 사용
+        - name: Jupyter Notebook을 사용하여 헌팅
           href: notebooks.md
-        - name: 사냥에 책갈피 사용
+        - name: 책갈피를 사용하여 헌팅
           href: bookmarks.md
-        - name: Livestream을 사용하여 헌트
+        - name: 라이브 스트림을 사용하여 헌팅
           href: livestream.md
-    - name: Azure Sentinel 제거
-      href: offboard.md
+    - name: 조사 및 대응
+      items:
+        - name: 사용자 지정 엔터티 활동 만들기
+          href: customize-entity-activities.md
+        - name: 일반적인 UEBA 조사 방법
+          href: investigate-with-ueba.md
+        - name: Microsoft Teams에서 협업
+          href: collaborate-in-microsoft-teams.md
+        - name: Azure Sentinel로 플레이북 인증
+          href: authenticate-playbooks-to-sentinel.md
+        - name: 플레이북에서 트리거 및 작업 사용
+          href: playbook-triggers-actions.md
+    - name: Azure Sentinel 관리
+      items:
+        - name: 작업 영역 액세스 관리
+          href: resource-context-rbac.md
+        - name: 작업 영역 및 테넌트에 걸쳐 Azure Sentinel 확장
+          href: extend-sentinel-across-workspaces-tenants.md
+        - name: MSSP용 Azure Sentinel
+          items:
+            - name: 다중 테넌트 관리(MSSP)
+              href: multiple-tenants-service-providers.md
+            - name: 여러 작업 영역에서 인시던트 작업
+              href: multiple-workspace-view.md
+            - name: Azure Sentinel에서 지적 재산 관리
+              href: mssp-protect-intellectual-property.md
+        - name: 고객 관리형 키 설정
+          href: customer-managed-keys.md
+        - name: 인시던트 메트릭을 사용하여 SOC 관리
+          href: manage-soc-with-incident-metrics.md
+        - name: Azure 활동 로그를 사용하여 Azure Sentinel 감사
+          href: audit-sentinel-data.md
+        - name: 작업 영역에서 Azure Sentinel 제거
+          href: offboard.md
 - name: SAP와 Azure Sentinel 통합
   items:
     - name: SAP 연속 위협 모니터링 배포
@@ -345,48 +369,64 @@
       href: sap-solution-deploy-alternate.md
 - name: 참조
   items:
-    - name: 상위 Azure Sentinel 통합 문서
-      href: top-workbooks.md
-    - name: Azure CLI
-      href: /cli/azure/sentinel
-    - name: Azure Sentinel PowerShell
-      href: /powershell/module/az.securityinsights/
-    - name: Azure RBAC 역할
+    - name: Azure Sentinel REST-API
+      href: /rest/api/securityinsights/
+    - name: 관리 참조
       items:
-        - name: 모든 Azure 역할
-          href: ../role-based-access-control/built-in-roles.md#all
-        - name: Azure Sentinel 역할
-          href: ../role-based-access-control/built-in-roles.md#security
-    - name: REST API
+        - name: Azure Sentinel Logic Apps 커넥터
+          href: /connectors/azuresentinel/
+        - name: Azure CLI
+          href: /cli/azure/sentinel
+        - name: Azure Sentinel PowerShell
+          href: /powershell/module/az.securityinsights/
+        - name: Azure RBAC 역할
+          items:
+            - name: 모든 Azure 역할
+              href: ../role-based-access-control/built-in-roles.md#all
+            - name: Azure Sentinel 역할
+              href: ../role-based-access-control/built-in-roles.md#security
+    - name: 데이터 커넥터 참조
       items:
-        - name: Azure Sentinel REST-API
-          href: /rest/api/securityinsights/
-        - name: REST-API로 헌팅 쿼리 관리
-          href: hunting-with-rest-api.md
-        - name: REST API를 사용하여 관심 목록 관리
-          href: watchlist-with-rest-api.md
-    - name: Azure Sentinel Logic Apps 커넥터
-      href: /connectors/azuresentinel/
-    - name: 엔터티 참조
-      href: entities-reference.md
-    - name: 네트워크 정규화 스키마
-      href: normalization-schema.md
-    - name: 데이터 원본 스키마 참조
-      href: data-source-schema-reference.md
-    - name: Kusto 쿼리 언어
+        - name: 데이터 원본 스키마 참조
+          href: data-source-schema-reference.md
+        - name: CEF 로그 필드 매핑
+          href: cef-name-mapping.md
+        - name: 표준화
+          items:
+            - name: 인증 정규화 스키마
+              href: authentication-normalization-schema.md
+            - name: DNS 정규화 스키마
+              href: dns-normalization-schema.md
+            - name: 네트워크 정규화 스키마
+              href: normalization-schema.md
+            - name: 프로세스 이벤트 정규화 스키마
+              href: process-events-normalization-schema.md
+            - name: 레지스트리 이벤트 정규화 스키마
+              href: registry-event-normalization-schema.md
+    - name: 검색 및 분석 참조
       items:
-        - name: Kusto 쿼리 개요
-          href: /azure/data-explorer/kusto/query/
-        - name: Kusto 쿼리 언어 빠른 참조
-          href: /azure/data-explorer/kql-quick-reference
-        - name: Azure Monitor 로그 쿼리 최적화
-          href: ../azure-monitor/logs/query-optimization.md
-    - name: UEBA 보강
-      href: ueba-enrichments.md
-    - name: CEF 로그 필드 매핑
-      href: cef-name-mapping.md
-    - name: Microsoft 365 Defender에 온보딩되지 않은 MCAS 경고
-      href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
+        - name: 상위 Azure Sentinel 통합 문서
+          href: top-workbooks.md
+        - name: 엔터티 참조
+          href: entities-reference.md
+        - name: UEBA 보강
+          href: ueba-enrichments.md
+        - name: Kusto 쿼리 언어
+          items:
+            - name: Kusto 쿼리 개요
+              href: /azure/data-explorer/kusto/query/
+            - name: Kusto 쿼리 언어 빠른 참조
+              href: /azure/data-explorer/kql-quick-reference
+            - name: Azure Monitor 로그 쿼리 최적화
+              href: ../azure-monitor/logs/query-optimization.md
+        - name: REST API - 샘플
+          items:
+            - name: REST-API로 헌팅 쿼리 관리
+              href: hunting-with-rest-api.md
+            - name: REST API를 사용하여 관심 목록 관리
+              href: watchlist-with-rest-api.md
+        - name: Microsoft 365 Defender에 온보딩되지 않은 MCAS 경고
+          href: microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md
 - name: 리소스
   items:
     - name: 유용한 리소스

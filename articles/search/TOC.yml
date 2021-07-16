@@ -149,16 +149,16 @@
       items:
         - name: 보안 개요
           href: search-security-overview.md
+        - name: 외부 데이터에 대한 액세스 보안
+          href: search-indexer-securing-resources.md
         - name: Azure Policy의 보안 컨트롤
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
-        - name: 보호된 콘텐츠 액세스
-          href: search-indexer-securing-resources.md
         - name: 보안 기준
           href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: 방법 가이드
   items:
-    - name: 관리
+    - name: 서비스 관리
       items:
         - name: 계층 선택
           href: search-sku-tier.md
@@ -184,6 +184,38 @@
           href: search-howto-move-across-regions.md
         - name: 공유 Private Link 리소스 만들기와 관련된 문제 해결
           href: troubleshoot-shared-private-link-resources.md
+    - name: 보안
+      items:
+        - name: 데이터 암호화.
+          items:
+            - name: 고객 관리형 키
+              href: search-security-manage-encryption-keys.md
+            - name: 암호화 정보
+              href: search-security-get-encryption-keys.md
+        - name: 인바운드 보안
+          items:
+            - name: 키 기반 인증
+              href: search-security-api-keys.md
+            - name: 역할 기반 권한 부여
+              href: search-security-rbac.md
+            - name: IP 방화벽 구성
+              href: service-configure-firewall.md
+            - name: 프라이빗 엔드포인트 만들기
+              href: service-create-private-endpoint.md
+        - name: 아웃바운드 보안(인덱서)
+          items:
+            - name: IP 범위를 통한 데이터 액세스
+              href: search-indexer-howto-access-ip-restricted.md
+            - name: 시스템 ID를 사용하여 데이터 액세스
+              href: search-indexer-howto-access-trusted-service-exception.md
+            - name: 프라이빗 엔드포인트를 통한 데이터 액세스
+              href: search-indexer-howto-access-private.md
+        - name: 문서 수준 보안
+          items:
+            - name: 보안 필터
+              href: search-security-trimming-for-azure-search.md
+            - name: 사용자 ID 필터링
+              href: search-security-trimming-for-azure-search-with-aad.md
     - name: 개발
       items:
         - name: API 버전
@@ -240,7 +272,7 @@
           href: index-add-language-analyzers.md
         - name: 사용자 지정 분석기 추가
           href: index-add-custom-analyzers.md
-    - name: 데이터
+    - name: 데이터 가져오기
       items:
         - name: 데이터 가져오기 개요
           href: search-what-is-data-import.md
@@ -274,10 +306,14 @@
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
-        - name: 파워 쿼리 데이터 원본
-          href: search-how-to-index-power-query-data-sources.md
-        - name: SharePoint Online
-          href: search-howto-index-sharepoint-online.md
+        - name: 문제 해결 지침
+          href: search-indexer-troubleshooting.md
+        - name: 인덱서 오류 및 경고 문제 해결
+          href: cognitive-search-common-errors-warnings.md
+    - name: 데이터 원본(인덱서)
+      items:
+        - name: 데이터 원본 갤러리
+          href: search-data-sources-gallery.md
         - name: Azure Blob
           items:
             - name: Blob 검색
@@ -308,35 +344,35 @@
               href: search-howto-index-cosmosdb-gremlin.md
         - name: Azure Data Lake Storage Gen2
           href: search-howto-index-azure-data-lake-storage.md
-        - name: Azure SQL Databases
-          href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-        - name: Azure SQL Managed Instance
-          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
-        - name: Azure SQL Server VM
-          href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: Azure MySQL
           href: search-howto-index-mysql.md
-        - name: 인덱서 문제 해결
-          href: search-indexer-troubleshooting.md
-        - name: 인덱서 오류 및 경고 문제 해결
-          href: cognitive-search-common-errors-warnings.md
-    - name: 기술 세트
+        - name: Azure SQL
+          items:
+            - name: Azure SQL Databases
+              href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+            - name: Azure SQL Managed Instance
+              href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
+            - name: Azure SQL Server VM
+              href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: 파워 쿼리 데이터 원본
+          href: search-how-to-index-power-query-data-sources.md
+        - name: SharePoint Online
+          href: search-howto-index-sharepoint-online.md
+    - name: 기술 세트(인덱서)
       items:
         - name: Cognitive Services 리소스 연결
           href: cognitive-search-attach-cognitive-services.md
-        - name: 기술 세트
-          items:
-            - name: 기술 집합 정의
-              href: cognitive-search-defining-skillset.md
-            - name: 주석 참조
-              href: cognitive-search-concept-annotations-syntax.md
-            - name: 인덱스 필드에 매핑
-              href: cognitive-search-output-field-mapping.md
-            - name: 이미지 파일 처리
-              href: cognitive-search-concept-image-scenarios.md
-            - name: 캐시(증분) 보강
-              href: search-howto-incremental-index.md
-        - name: 사용자 지정 기술
+        - name: 기술 집합 정의
+          href: cognitive-search-defining-skillset.md
+        - name: 주석 참조
+          href: cognitive-search-concept-annotations-syntax.md
+        - name: 인덱스 필드에 매핑
+          href: cognitive-search-output-field-mapping.md
+        - name: 이미지 파일 처리
+          href: cognitive-search-concept-image-scenarios.md
+        - name: 캐시(증분) 보강
+          href: search-howto-incremental-index.md
+        - name: 사용자 지정 기술 사용
           items:
             - name: 사용자 지정 기술 통합
               href: cognitive-search-custom-skill-interface.md
@@ -442,38 +478,6 @@
           href: search-howto-monitor-indexers.md
         - name: 클라이언트 쪽 상호 작용 모니터링
           href: search-traffic-analytics.md
-    - name: 보안
-      items:
-        - name: 역할 할당
-          href: search-security-rbac.md
-        - name: 데이터 암호화
-          items:
-            - name: 고객 관리형 키
-              href: search-security-manage-encryption-keys.md
-            - name: 키 정보 가져오기
-              href: search-security-get-encryption-keys.md
-        - name: 인바운드 보안
-          items:
-            - name: API 키 인증
-              href: search-security-api-keys.md
-            - name: IP 방화벽 구성
-              href: service-configure-firewall.md
-            - name: 프라이빗 엔드포인트 만들기
-              href: service-create-private-endpoint.md
-        - name: 아웃바운드 보안(인덱서)
-          items:
-            - name: IP 범위에 대한 액세스
-              href: search-indexer-howto-access-ip-restricted.md
-            - name: 신뢰할 수 있는 서비스 예외를 통해 액세스
-              href: search-indexer-howto-access-trusted-service-exception.md
-            - name: 프라이빗 엔드포인트를 통한 액세스
-              href: search-indexer-howto-access-private.md
-        - name: 문서 수준 보안
-          items:
-            - name: 보안 필터
-              href: search-security-trimming-for-azure-search.md
-            - name: 사용자 ID 필터링
-              href: search-security-trimming-for-azure-search-with-aad.md
 - name: 참조
   items:
     - name: Azure CLI
@@ -484,14 +488,10 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: REST (영문)
       items:
-        - name: 검색 API(안정화)
+        - name: 검색 API
           href: /rest/api/searchservice
-        - name: 검색 API(미리 보기)
-          href: /rest/api/searchservice/index-preview
-        - name: 관리 API(안정화)
+        - name: 관리 API
           href: /rest/api/searchmanagement
-        - name: 관리 API(미리 보기)
-          href: /rest/api/searchmanagement/index-preview
     - name: .NET
       items:
         - name: 검색 API
@@ -602,13 +602,15 @@
       href: 'https://azure.microsoft.com/support/community/?product=search'
     - name: 파트너 스포트라이트
       href: resource-partners-knowledge-mining.md
+    - name: 파트너 데이터 원본(사용 약관)
+      href: search-data-sources-terms-of-use.md
     - name: Azure 업데이트
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: 피드백 포럼(UserVoice)
       href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: 규정 준수 및 인증
       href: 'https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/'
-    - name: 설명서 링크(정보 마이닝)
+    - name: 설명서 링크(AI 보강)
       href: cognitive-search-resources-documentation.md
     - name: 데모 사이트
       items:
@@ -627,7 +629,7 @@
         - name: 개발자 과정(Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
     - name: FAQ
-      href: search-faq-frequently-asked-questions.md
+      href: search-faq-frequently-asked-questions.yml
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: 동영상

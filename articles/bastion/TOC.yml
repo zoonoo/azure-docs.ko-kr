@@ -7,11 +7,11 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: VM 설정을 사용하여 호스트 만들기
+    - name: VM 설정에서 Bastion 구성
       href: quickstart-host-portal.md
 - name: 자습서
   items:
-    - name: 호스트를 만들어 Windows VM에 연결
+    - name: Bastion 및 연결 구성
       href: tutorial-create-host-portal.md
 - name: 개념
   items:
@@ -29,7 +29,7 @@
           href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: 방법 가이드
   items:
-    - name: 호스트 만들기
+    - name: Bastion 구성
       items:
         - name: Azure portal
           href: tutorial-create-host-portal.md
@@ -55,12 +55,14 @@
           href: bastion-vm-full-screen.md
     - name: NSG 사용
       href: bastion-nsg.md
-    - name: 진단 로그 구성 및 액세스
-      href: diagnostic-logs.md
-    - name: 세션 모니터링 및 관리
-      href: session-monitoring.md
-    - name: '메트릭, 모니터링 및 경고'
-      href: howto-metrics-monitor-alert.md
+    - name: 상태 모니터링
+      items:
+        - name: Azure Bastion 모니터링
+          href: howto-metrics-monitor-alert.md
+        - name: 진단 로그 구성 및 액세스
+          href: diagnostic-logs.md
+        - name: 세션 모니터링 및 관리
+          href: session-monitoring.md
     - name: 문제 해결
       href: troubleshoot.md
 - name: 참조

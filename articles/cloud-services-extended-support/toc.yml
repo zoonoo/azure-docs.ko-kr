@@ -63,6 +63,8 @@
           href: in-place-migration-portal.md
         - name: Powershell을 사용하여 마이그레이션
           href: in-place-migration-powershell.md
+        - name: 마이그레이션 후 변경 내용
+          href: post-migration-changes.md
         - name: 일반적인 오류 및 알려진 문제
           href: in-place-migration-common-errors.md
     - name: 확장 적용

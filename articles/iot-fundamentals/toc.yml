@@ -12,6 +12,10 @@
       href: iot-support-help.md
     - name: IoT 용어집
       href: iot-glossary.md
+- name: 방법 가이드
+  items:
+    - name: 스마트폰 디바이스 앱 사용
+      href: iot-phone-app-how-to.md
 - name: 보안
   items:
     - name: 권장 사항
