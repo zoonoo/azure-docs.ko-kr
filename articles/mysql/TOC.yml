@@ -1,4 +1,4 @@
-- name: MySQL용 Azure 데이터베이스 설명서
+- name: Azure Database for MySQL 설명서
   href: index.yml
 - name: 개요
   expanded: true
@@ -7,6 +7,10 @@
       href: overview.md
     - name: 어떤 MySQL 옵션을 선택해야 하나요?
       href: select-right-deployment-type.md
+    - name: 단일 서버의 새로운 기능은 무엇인가요?
+      href: single-server-whats-new.md
+    - name: 유연한 서버의 새로운 기능은 무엇인가요?
+      href: flexible-server/whats-new.md
     - name: 버전 지원 정책
       href: concepts-version-policy.md
       displayName: version policy
@@ -21,8 +25,6 @@
           href: single-server-overview.md
         - name: 지원되는 버전
           href: concepts-supported-versions.md
-        - name: 단일 서버의 새로운 기능은 무엇인가요?
-          href: single-server-whats-new.md
         - name: 가격 책정 계층
           items:
             - name: 가격 책정 계층
@@ -99,7 +101,7 @@
               displayName: firewall
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -144,10 +146,8 @@
               items:
                 - name: SSL 구성
                   href: concepts-ssl-connection-security.md
-            - name: Advanced Threat Protection
-              items:
-                - name: Azure Defender를 사용하여 위협 보호
-                  href: ../security-center/defender-for-databases-introduction.md
+            - name: Azure Defender를 사용하여 위협 보호
+              href: ../security-center/defender-for-databases-usage.md?toc=/azure/mysql/toc.json&bc=/azure/mysql/breadcrumb/toc.json
             - name: 휴지 상태의 암호화
               items:
                 - name: 데이터 암호화
@@ -428,7 +428,7 @@
           href: flexible-server/how-to-connect-tls-ssl.md
         - name: 서버 매개 변수 구성
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: flexible-server/how-to-configure-server-parameters-portal.md
               displayName: server parameters
             - name: Azure CLI
@@ -509,7 +509,7 @@
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
             - name: 서버 다시 시작
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restart-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restart-stop-start-server-cli.md
@@ -568,7 +568,7 @@
           items:
             - name: 서버 복원
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: flexible-server/how-to-restore-server-portal.md
                 - name: Azure CLI
                   href: flexible-server/how-to-restore-server-cli.md
@@ -583,6 +583,9 @@
     - name: mysqldump 또는 phpmyadmin을 사용하여 데이터 마이그레이션
       href: concepts-migrate-dump-restore.md
       displayName: 'migrate, mysqldump'
+    - name: mydumper/myloader를 사용하여 큰 데이터베이스를 Azure Database for MySQL로 마이그레이션
+      href: concepts-migrate-mydumper-myloader.md
+      displayName: 'migrate, mydumper/myloader'
     - name: MySQL용 dbForge Studio를 사용하여 데이터 마이그레이션
       href: concepts-migrate-dbforge-studio-for-mysql.md
       displayName: 'migrate, dbforge'
@@ -592,6 +595,9 @@
     - name: MySQL Workbench를 사용하여 RDS MySQL 데이터 마이그레이션
       href: how-to-migrate-rds-mysql-workbench.md
       displayName: 'import , migrate, export'
+    - name: Azure DB for MySQL – 단일 서버를 Azure DB for MySQL - 유연한 서버로 마이그레이션
+      href: howto-migrate-single-flexible-minimum-downtime.md
+      displayName: 'migrate, Single to Flexible'
     - name: DMS를 사용한 최소 가동 중지 시간 마이그레이션
       href: howto-migrate-online.md
       displayName: 'migrate, dms, database migration service'

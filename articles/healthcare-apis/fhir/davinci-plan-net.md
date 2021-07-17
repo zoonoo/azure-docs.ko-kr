@@ -1,6 +1,6 @@
 ---
 title: 자습서-Da 다빈치 요금제 Net-Azure API for FHIR
-description: 이 자습서에서는 Da 다빈치 지불자 데이터 교환 구현 가이드에 대 한 Touchstone 테스트를 전달 하도록 FHIR 용 Azure API를 설정 하는 과정을 안내 합니다.
+description: 이 자습서에서는 fhir 용 Azure API를 설정 하 여 Da 다빈치 지불자 데이터 Exchange 구현 가이드에 대 한 Touchstone 테스트를 전달 하는 과정을 안내 합니다.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,14 +9,14 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
 ms.date: 06/25/2021
-ms.openlocfilehash: b91fc4d01a9279d6f2ce58b15fc8b8c00790ea57
-ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+ms.openlocfilehash: bb7b7e3813a317aa1b1a9f97ab4f80650eb2fd1e
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2021
-ms.locfileid: "113012944"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114285910"
 ---
-# <a name="da-vinci-plan-net"></a>Da 다빈치 계획 순
+# <a name="da-vinci-plan-net"></a>Da Vinci Plan Net
 
 이 자습서에서는 Da 다빈치 PDEX 지불자 Network ( [Touchstone](https://touchstone.aegis.net/touchstone/) ) 구현 가이드에 대 한 Azure API를 설정 하는 과정을 안내 합니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "113012944"
 
 ## <a name="define-search-parameters"></a>검색 매개 변수 정의
 
-Da 다빈치 Plan-Net의 일부로 의료 서비스, 보험 계획, 전문가 역할, 조직 및 조직 소속 리소스에 대해 6 개의 [새 검색 매개 변수](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-do-custom-search) 를 정의 해야 합니다. 이 중 6 개는 모두 기능 문에서 테스트 됩니다.
+Da 다빈치 Plan-Net의 일부로 의료 서비스, 보험 계획, 전문가 역할, 조직 및 조직 소속 리소스에 대해 6 개의 [새 검색 매개 변수](./how-to-do-custom-search.md) 를 정의 해야 합니다. 이 중 6 개는 모두 기능 문에서 테스트 됩니다.
 
 * [의료 서비스 적용 영역](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-healthcareservice-coverage-area.html)
 * [보험 계획 검사 영역](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/SearchParameter-insuranceplan-coverage-area.html)
@@ -42,7 +42,7 @@ Da 다빈치 Plan-Net IG에 필요한 나머지 검색 매개 변수는 기본 �
 
 ## <a name="store-profiles"></a>저장소 프로필
 
-검색 매개 변수를 정의 하는 것 외에이 테스트를 통과 하기 위해 [필요한 프로필 및 확장](https://docs.microsoft.com/azure/healthcare-apis/fhir/validation-against-profiles#storing-profiles) 을 로드 해야 합니다. Da 다빈치 Plan-Net의 일부로 사용 되는 9 개의 프로필이 있습니다.
+검색 매개 변수를 정의 하는 것 외에이 테스트를 통과 하기 위해 [필요한 프로필 및 확장](./validation-against-profiles.md#storing-profiles) 을 로드 해야 합니다. Da 다빈치 Plan-Net의 일부로 사용 되는 9 개의 프로필이 있습니다.
 
 * [계획-네트워크 끝점](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 * [요금제-Net 의료 서비스](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
@@ -75,7 +75,7 @@ Da 다빈치 Plan-Net IG에 필요한 나머지 검색 매개 변수는 기본 �
 > [!NOTE]
 > 제공 된 샘플 리소스를 사용 하 여 쿼리 테스트의 98% 성공률을 예측 해야 합니다.
 
-> * 이러한 테스트 중 하나가 실패 하 게 하는 FHIR 서버에 대 한 미해결 GitHub 문제가 있습니다. [기본 조건과 _include 조건을 모두 충족 하는 경우 리소스가 여러 번 반환 됩니다. 문제 #2037 · microsoft/fgithub.com (r)-서버 ()](https://github.com/microsoft/fhir-server/issues/2037)
+> * 이러한 테스트 중 하나가 실패 하 게 하는 fhir 서버에 대 한 개방형 GitHub 문제가 있습니다. [기본 조건과 _include 조건을 모두 충족 하는 경우 리소스가 여러 번 반환 됩니다. 문제 #2037 · microsoft/fgithub.com (r)-서버 ()](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## <a name="next-steps"></a>다음 단계
 

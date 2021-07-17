@@ -58,6 +58,8 @@
   items:
     - name: Event Hubs 데이터 스트림에서 잘못된 데이터 시각화
       href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Stream Analytics를 사용하여 사기 전화 분석
+      href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
     - name: Azure Synapse Analytics에 캡처된 데이터 저장
       href: store-captured-data-data-warehouse.md
     - name: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리

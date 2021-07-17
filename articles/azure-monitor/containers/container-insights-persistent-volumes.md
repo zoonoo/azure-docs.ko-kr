@@ -44,7 +44,7 @@ ms.locfileid: "110065659"
 
 ### <a name="persistent-volume-details-workbook"></a>영구 볼륨 세부 정보 통합 문서
 
-왼쪽 창에서 통합 문서를 선택하여 AKS 클러스터에서 직접 **영구 볼륨 세부 정보** 통합 문서에서 영구 볼륨 인벤토리의 개요를 찾을 수 있습니다. 통계 창의 **통합 문서보기** 드롭 다운 목록 또는 통계 창의 **보고서** 탭에서이 통합 문서를 열 수도 있습니다.
+왼쪽 창에서 통합 문서를 선택하여 AKS 클러스터의 직접 **영구 볼륨 세부 정보** 통합 문서에서 영구 볼륨 인벤토리의 개요를 찾을 수 있습니다. 인사이트 창의 **통합 문서 보기** 드롭다운 목록 또는 인사이트 창의 **보고서** 탭에서 이 통합 문서를 열 수도 있습니다.
 
 
 :::image type="content" source="./media/container-insights-persistent-volumes/pv-details-workbook-example.PNG" alt-text="Azure Monitor PV 세부 정보 통합 문서 예제":::

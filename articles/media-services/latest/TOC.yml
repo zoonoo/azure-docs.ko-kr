@@ -97,6 +97,8 @@
       items:
         - name: Python 기본 인코딩
           href: encode-basic-encoding-python-quickstart.md
+        - name: 이벤트 기반 얼굴 편집
+          href: face-redaction-event-based-python-quickstart.md
     - name: Azure portal
       items:
         - name: 고객 관리형 키 또는 BYOK 자습서
@@ -226,6 +228,8 @@
           href: stream-streaming-policy-concept.md
         - name: 콘텐츠 키 정책
           href: drm-content-key-policy-concept.md
+        - name: 키 배달 IP 허용 목록
+          href: drm-content-protection-key-delivery-ip-allow.md
     - name: 모니터링
       items:
         - name: Azure Monitor로 모니터링
@@ -452,6 +456,9 @@
           href: asset-publish-cli-how-to.md
     - name: 보안
       items:
+        - name: 보안 기준
+          href: 'https://docs.microsoft.com/security/benchmark/azure/baselines/media-services-security-baseline'
+          displayName: 'security, baseline'
         - name: Azure RBAC
           href: security-rbac-concept.md
         - name: 스토리지 액세스 키 롤
@@ -470,6 +477,9 @@
           href: security-access-storage-managed-identity-cli-tutorial.md
         - name: Media Services 계정에 함수 앱 액세스 권한 부여
           href: security-function-app-managed-identity-cli-tutorial.md
+        - name: 프라이빗 링크를 사용하여 Media Services 및 Storage 계정 만들기
+          href: security-private-link-how-to.md
+          displayName: 'security, private link, links, firewall'
     - name: 미디어 플레이어 사용
       items:
         - name: Azure Media Player 전체 설정
