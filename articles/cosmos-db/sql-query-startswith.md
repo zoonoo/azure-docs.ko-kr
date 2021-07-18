@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 04/01/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7217a8416354de260f958bfb5b980a8fdc391618
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3408d64b241e1c22f757f2a076f08693ed8a124
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93334925"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162098"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,7 +62,7 @@ SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2,
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
+이 [문자열 시스템 함수에서 인덱스를 사용하는 방법](sql-query-string-functions.md)을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

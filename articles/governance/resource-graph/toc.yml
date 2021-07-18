@@ -54,12 +54,18 @@
       href: ./tutorials/create-share-query.md
 - name: 샘플
   items:
-    - name: 시작 쿼리
-      displayName: 'query language, data explorer, count, list, show'
-      href: ./samples/starter.md
-    - name: 고급 쿼리
-      displayName: 'query language, data explorer, list, regex'
-      href: ./samples/advanced.md
+    - name: 언어 예제
+      items:
+        - name: 시작 쿼리
+          displayName: 'query language, data explorer, count, list, show'
+          href: ./samples/starter.md
+        - name: 고급 쿼리
+          displayName: 'query language, data explorer, list, regex'
+          href: ./samples/advanced.md
+    - name: 범주별 인덱스
+      href: ./samples/samples-by-category.md
+    - name: 테이블별 인덱스
+      href: ./samples/samples-by-table.md
 - name: 개념
   items:
     - name: 쿼리 언어 이해

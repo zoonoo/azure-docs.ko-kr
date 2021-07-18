@@ -47,6 +47,8 @@
       items:
         - name: 모바일로 모델 내보내기
           href: export-your-model.md
+        - name: 프로그래밍 방식으로 모델 내보내기
+          href: export-programmatically.md
         - name: Windows ML를 사용한 ONNX 모델 사용
           href: custom-vision-onnx-windows-ml.md
         - name: Python에서 TensorFlow 모델 실행

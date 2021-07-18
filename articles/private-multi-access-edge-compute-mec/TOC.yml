@@ -1,0 +1,46 @@
+- name: Azure 전용 다중 액세스 에지 컴퓨팅 설명서
+  href: index.yml
+  items:
+    - name: 개요
+      expanded: true
+      items:
+        - name: Azure 프라이빗 MEC란?
+          href: overview.md
+        - name: Azure 프라이빗 MEC 파트너 솔루션
+          href: partner-programs.md
+    - name: Metaswitch 5G Fusion Core를 사용한 에지 연결
+      items:
+        - name: 개요
+          items:
+            - name: Fusion Core란?
+              href: metaswitch-fusion-core-overview.md
+        - name: 방법 가이드
+          items:
+            - name: Azure Stack Edge의 Fusion Core 배포
+              href: deploy-metaswitch-fusion-core-solution.md
+    - name: 확정된 개인 네트워크 서비스를 사용하는 개인 네트워크
+      items:
+        - name: 개요
+          items:
+            - name: Azure의 확정된 개인 네트워크 서비스란?
+              href: affirmed-private-network-service-overview.md
+        - name: 방법 가이드
+          items:
+            - name: Azure의 확정된 개인 네트워크 서비스 배포
+              href: deploy-affirmed-private-network-service-solution.md
+    - name: 관련 항목
+      items:
+        - name: Azure 네트워크 기능 관리자
+          href: ../network-function-manager/index.yml
+    - name: 리소스
+      items:
+        - name: Azure 프라이빗 MEC 제품 페이지
+          href: 'https://go.microsoft.com/fwlink/?linkid=2165610'
+        - name: 네트워크 기능 관리자 제품 페이지
+          href: 'https://go.microsoft.com/fwlink/?linkid=2166098'
+        - name: Azure Marketplace
+          href: 'https://azuremarketplace.microsoft.com/marketplace/'
+        - name: Azure 로드맵
+          href: 'https://azure.microsoft.com/roadmap/?category=networking'
+        - name: 블로그
+          href: 'https://azure.microsoft.com/blog/topics/networking'

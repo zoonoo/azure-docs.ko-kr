@@ -22,8 +22,8 @@
           href: tutorial-deploy-industrial-iot-platform.md
         - name: IIoT 구성 요소 구성
           href: tutorial-configure-industrial-iot-components.md
-        - name: ADX로 IIoT 데이터 끌어오기
-          href: tutorial-industrial-iot-azure-data-explorer.md
+        - name: 산업용 IoT를 사용하여 Azure Data Explorer로 데이터 가져오기
+          href: tutorial-data-explorer-import.md
         - name: Time Series Insights를 사용하여 데이터 시각화 및 분석
           href: tutorial-visualize-data-time-series-insights.md
 - name: 참조

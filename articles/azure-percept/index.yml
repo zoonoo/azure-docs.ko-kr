@@ -10,12 +10,12 @@ metadata:
   author: mimcco
   ms.author: mimcco
   ms.date: 03/25/2021
-  ms.openlocfilehash: 1a18b819a96f8f84fb7d8e96b61f0b2d9f33709a
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 193f3a17263ff0c3f164d04fe6a6a766208dd5bc
+  ms.sourcegitcommit: b044915306a6275c2211f143aa2daf9299d0c574
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110098869"
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113031484"
 landingContent:
 - title: Azure Percept란?
   linkLists:
@@ -117,6 +117,8 @@ landingContent:
       url: overview-update-experience.md
   - linkListType: how-to-guide
     links:
+    - text: 업데이트 패키지 선택
+      url: how-to-select-update-package.md
     - text: OTA(무선) 업데이트 설정
       url: how-to-set-up-over-the-air-updates.md
     - text: OTA(무선)로 디바이스 업데이트

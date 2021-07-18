@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 47d899534de535b5cd6a7c3fb2df78cdadbe11f2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e8e24474cea4607281baf9c79ad20a465b3dfaef
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93338053"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165014"
 ---
 # <a name="stringequals-azure-cosmos-db"></a>STRINGEQUALS(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -62,7 +62,7 @@ SELECT STRINGEQUALS("abc", "abc", false) AS c1, STRINGEQUALS("abc", "ABC", false
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 [범위 인덱스](index-policy.md#includeexclude-strategy)의 이점을 받습니다.
+이 [문자열 시스템 함수에서 인덱스를 사용하는 방법](sql-query-string-functions.md)을 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

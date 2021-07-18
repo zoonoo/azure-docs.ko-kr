@@ -1,14 +1,14 @@
 ---
 title: Azure Portal에서 VM 확장 사용
 description: 해당 문서에서는 Azure Portal에서 하이브리드 클라우드 환경에서 실행되는 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 01/22/2020
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b5b4ff79d68ec9ff0cc61b9dbb7d3c5d7fe93598
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587657"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107388281"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Azure Portal에서 Azure VM 확장을 사용하도록 설정
 
@@ -16,6 +16,9 @@ ms.locfileid: "100587657"
 
 > [!NOTE]
 > Key Vault VM 확장(미리 보기)은 Azure Portal로부터의 배포를 지원하지 않으며 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿만 사용합니다.
+
+> [!NOTE]
+> Azure Arc 지원 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VMs에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
 
 ## <a name="enable-extensions-from-the-portal"></a>포털에서 확장 사용
 

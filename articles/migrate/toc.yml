@@ -79,7 +79,11 @@
         - name: ASP.NET 앱 컨테이너화 및 AKS로 마이그레이션
           href: tutorial-app-containerization-aspnet-kubernetes.md
         - name: Java 웹앱 컨테이너화 및 AKS로 마이그레이션
-          href: tutorial-containerize-java-kubernetes.md
+          href: tutorial-app-containerization-java-kubernetes.md
+        - name: ASP.NET 앱 컨테이너화 및 App Service로 마이그레이션
+          href: tutorial-app-containerization-aspnet-app-service.md
+        - name: Java 웹앱 컨테이너화 및 App Service로 마이그레이션
+          href: tutorial-app-containerization-java-app-service.md
 - name: 개념
   items:
     - name: 일반
@@ -128,6 +132,9 @@
           href: migrate-replication-appliance.md
         - name: VMware 에이전트 없는 마이그레이션 아키텍처
           href: concepts-vmware-agentless-migration.md
+          items:
+            - name: VMware 에이전트 없는 마이그레이션에 대한 준비
+              href: prepare-for-agentless-migration.md
         - name: Hyper-V 마이그레이션 아키텍처
           href: hyper-v-migration-architecture.md
         - name: VMware 에이전트 기반 마이그레이션 아키텍처
@@ -235,11 +242,15 @@
           href: troubleshoot-project.md
     - name: 검색
       items:
-        - name: Azure Migrate 어플라이언스/검색 문제 해결
-          href: troubleshoot-appliance-discovery.md
+        - name: Azure Migrate 어플라이언스 문제 해결
+          href: troubleshoot-appliance.md
+        - name: 검색 문제 해결
+          href: troubleshoot-discovery.md
+        - name: 종속성 시각화 문제 해결
+          href: troubleshoot-dependencies.md
     - name: 평가
       items:
-        - name: 평가/종속성 시각화 문제 해결
+        - name: 평가 문제 해결
           href: troubleshoot-assessment.md
     - name: Migrate
       items:

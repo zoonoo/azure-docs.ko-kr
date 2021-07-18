@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be3947e3de18f8ccaf47382c4035e187521ac710
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96571507"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 사용자 대량 복원
@@ -68,7 +68,7 @@ CSV 템플릿을 다운로드하고 작성하여 Azure AD 사용자를 대량 �
 
 **대량 작업 결과** 페이지에서 보류 중인 모든 대량 요청의 상태를 볼 수 있습니다.
 
-[![대량 작업 결과 페이지에서 상태를 확인 합니다.](./media/users-bulk-restore/bulk-center.png)](./media/users-bulk-restore/bulk-center.png#lightbox)
+[![대량 작업 결과 페이지에서 상태를 확인합니다.](./media/users-bulk-restore/bulk-center.png)](./media/users-bulk-restore/bulk-center.png#lightbox)
 
 다음으로, Azure Portal 또는 PowerShell을 사용하여 Azure AD 조직에서 복원한 사용자가 있는지 확인할 수 있습니다.
 

@@ -113,7 +113,7 @@
           href: how-to-query-graph.md
     - name: 클라이언트 앱 개발
       items:
-        - name: Postman으로 요청하기
+        - name: Postman으로 API 요청 만들기
           href: how-to-use-postman.md
         - name: Azure SignalR 서비스와 통합
           href: how-to-integrate-azure-signalr.md
@@ -135,12 +135,8 @@
               href: how-to-manage-routes-portal.md
             - name: API 및 CLI
               href: how-to-manage-routes-apis-cli.md
-        - name: 라우팅 이벤트에 관리 ID 사용
-          items:
-            - name: 포털
-              href: how-to-enable-managed-identities-portal.md
-            - name: CLI
-              href: how-to-enable-managed-identities-cli.md
+        - name: 관리 ID를 사용하여 이벤트 라우팅
+          href: how-to-route-with-managed-identity.md
         - name: Azure Maps와 통합
           href: how-to-integrate-maps.md
         - name: Azure Time Series Insights와 통합

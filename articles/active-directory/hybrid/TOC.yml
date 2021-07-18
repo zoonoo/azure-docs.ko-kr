@@ -217,7 +217,7 @@
         - name: 통과 인증 시작
           href: how-to-connect-pta-quick-start.md
         - name: 통과 인증 FAQ
-          href: how-to-connect-pta-faq.md
+          href: how-to-connect-pta-faq.yml
         - name: Azure AD Connect "구성 안 함"을 사용하여 PTA를 사용하지 않도록 설정
           href: how-to-connect-pta-disable-do-not-configure.md
     - name: 페더레이션 서비스 관리
@@ -244,12 +244,14 @@
           href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
         - name: AD FS 인증서의 긴급 회전
           href: how-to-connect-emergency-ad-fs-certificate-rotation.md
+        - name: 페더레이션 구성에 대한 변경 내용 모니터링
+          href: how-to-connect-monitor-federation-changes.md
     - name: Single Sign-On 관리
       items:
         - name: Single Sign-On 시작
           href: how-to-connect-sso-quick-start.md
         - name: Single Sign-On FAQ
-          href: how-to-connect-sso-faq.md
+          href: how-to-connect-sso-faq.yml
     - name: Azure AD Connect Health 관리
       items:
         - name: Azure AD Connect Health 작업
@@ -357,9 +359,9 @@
     - name: 계정 및 사용 권한
       href: reference-connect-accounts-permissions.md
     - name: Azure AD Connect FAQ
-      href: reference-connect-faq.md
+      href: reference-connect-faq.yml
     - name: Azure AD Connect Health FAQ
-      href: reference-connect-health-faq.md
+      href: reference-connect-health-faq.yml
     - name: Azure Government에 대한 하이브리드 ID 고려 사항
       href: reference-connect-government-cloud.md
     - name: Azure AD Connect 사용자 개인 정보
@@ -378,6 +380,8 @@
       href: how-to-connect-fed-compatibility.md
     - name: TLS 1.2 적용
       href: reference-connect-tls-enforcement.md
+    - name: ADSync 참조
+      href: reference-connect-adsync.md
     - name: ADSyncConfig 참조
       href: reference-connect-adsyncconfig.md
     - name: ADSyncTools 참조

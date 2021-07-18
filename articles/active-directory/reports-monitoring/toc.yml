@@ -45,6 +45,8 @@
       href: concept-activity-logs-azure-monitor.md
     - name: 보고 및 모니터링 배포 계획
       href: plan-monitoring-and-reporting.md
+    - name: 로그인 진단 시나리오
+      href: concept-sign-in-diagnostics-scenarios.md
 - name: 방법 가이드
   expanded: true
   items:

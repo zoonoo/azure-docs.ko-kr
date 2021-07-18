@@ -152,6 +152,8 @@
       href: howto-backup-config-store.md
     - name: 관리 ID를 사용하여 App Configuration 액세스
       href: howto-integrate-azure-managed-service-identity.md
+    - name: 새 Spring Boot 라이브러리로 업데이트
+      href: howto-convert-to-the-new-spring-boot.md
 - name: 참조
   items:
     - name: 클라이언트 라이브러리

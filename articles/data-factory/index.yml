@@ -10,13 +10,14 @@ metadata:
   ms.collection: collection
   author: jonburchel
   ms.author: jburchel
-  ms.date: 10/02/2019
-  ms.openlocfilehash: 754cdd8b8f2029814f69b12166d93adf03576911
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.date: 06/14/2021
+  ms.custom: contperf-fy21q4
+  ms.openlocfilehash: 2cf3843234051d51b681ca8ccb4f0ce88613bd9f
+  ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111957178"
+  ms.lasthandoff: 06/16/2021
+  ms.locfileid: "112239610"
 landingContent:
 - title: Azure Data Factory 정보
   linkLists:
@@ -40,6 +41,10 @@ landingContent:
       url: https://feedback.azure.com/forums/270578-azure-data-factory
 - title: 시작하기
   linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure Data Factory의 파이프라인 및 작업
+      url: ./concepts-pipelines-activities.md
   - linkListType: quickstart
     links:
     - text: Azure Data Factory UI
@@ -56,22 +61,26 @@ landingContent:
       url: ./quickstart-create-data-factory-rest-api.md
     - text: 리소스 관리자 템플릿
       url: ./quickstart-create-data-factory-resource-manager-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Data Factory의 식과 함수
+      url: ./control-flow-expression-language-functions.md
   - linkListType: learn
     links:
     - text: Azure Data Factory 소개
       url: /learn/modules/intro-to-azure-data-factory/
 - title: 데이터 이동
   linkLists:
+  - linkListType: overview
+    links:
+    - text: 데이터 레이크 및 데이터 웨어하우스 마이그레이션
+      url: ./data-migration-guidance-overview.md
   - linkListType: concept
     links:
     - text: 복사 작업 개요
       url: ./copy-activity-overview.md
     - text: 복사 성능 튜닝
       url: ./copy-activity-performance.md
-  - linkListType: overview
-    links:
-    - text: 데이터 레이크 및 데이터 웨어하우스 마이그레이션
-      url: ./data-migration-guidance-overview.md
   - linkListType: tutorial
     links:
     - text: 클라우드에서 데이터 복사
@@ -90,10 +99,6 @@ landingContent:
       url: ./load-sap-bw-data.md
 - title: 데이터 변환
   linkLists:
-  - linkListType: concept
-    links:
-    - text: 데이터 흐름 매핑이란?
-      url: ./concepts-data-flow-overview.md
   - linkListType: tutorial
     links:
     - text: 데이터 흐름 만들기
@@ -108,12 +113,22 @@ landingContent:
       url: ./concepts-data-flow-monitoring.md
     - text: 데이터 흐름 성능
       url: ./concepts-data-flow-performance.md
+  - linkListType: concept
+    links:
+    - text: 데이터 흐름 매핑이란?
+      url: ./concepts-data-flow-overview.md
+    - text: 매핑 데이터 흐름의 데이터 변환 식
+      url: ./data-flow-expression-functions.md
 - title: SSIS 패키지 리프트 앤 시프트
   linkLists:
   - linkListType: overview
     links:
     - text: SSIS 패키지를 Azure SQL Managed Instance로 마이그레이션
       url: ./scenario-ssis-migration-ssisdb-mi.md
+  - linkListType: concept
+    links:
+    - text: Azure Data Factory의 통합 런타임
+      url: ./concepts-integration-runtime.md
   - linkListType: tutorial
     links:
     - text: Azure에서 SSIS 패키지 실행
@@ -126,51 +141,19 @@ landingContent:
       url: ./join-azure-ssis-integration-runtime-virtual-network.md
     - text: SSIS 패키지 실행 작업으로 SSIS 패키지 실행
       url: ./how-to-invoke-ssis-package-ssis-activity.md
-    - text: SSIS 통합 런타임 예약
-      url: ./how-to-schedule-azure-ssis-integration-runtime.md
-    - text: SSIS IR을 위한 설치 사용자 지정
-      url: ./how-to-configure-azure-ssis-ir-custom-setup.md
-    - text: SSIS IR에 대한 라이선스가 있는 구성 요소 설치
-      url: ./how-to-develop-azure-ssis-ir-licensed-components.md
-- title: 보안
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: 데이터 이동 보안 고려 사항
-      url: ./data-movement-security-considerations.md
-    - text: 데이터 팩터리에 대한 관리 ID
-      url: ./data-factory-service-identity.md
-    - text: Azure Key Vault에 자격 증명 저장
-      url: ./store-credentials-in-key-vault.md
+    - text: 자체 호스팅 통합 런타임 만들기 및 구성
+      url: ./create-self-hosted-integration-runtime.md
 - title: 작성자, 모니터 및 관리
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
       url: ./author-visually.md
+    - text: Azure Data Factory 커넥터 문제 해결
+      url: ./connector-troubleshoot-guide.md
     - text: 소스 제어
       url: ./source-control.md
     - text: 지속적인 통합 및 업데이트
       url: ./continuous-integration-deployment.md
-    - text: 반복 개발 및 디버깅
-      url: ./iterative-development-debugging.md
-    - text: 시각적으로 모니터링
-      url: ./monitor-visually.md
     - text: Azure Monitor로 모니터링
       url: ./monitor-using-azure-monitor.md
-    - text: SDK로 모니터링
-      url: ./monitor-programmatically.md
-- title: 언어
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Azure PowerShell
-      url: /powershell/module/az.datafactory/
-    - text: .NET
-      url: /dotnet/api/microsoft.azure.management.datafactory/
-    - text: Python
-      url: /python/api/overview/azure/datafactory
-    - text: REST (영문)
-      url: /rest/api/datafactory/
-    - text: Resource Manager 템플릿
-      url: /azure/templates/microsoft.datafactory/allversions

@@ -88,10 +88,16 @@
               href: entitlement-management-access-package-approval-policy.md
             - name: 수명 주기 설정 변경
               href: entitlement-management-access-package-lifecycle-policy.md
+            - name: 의무 분리 구성
+              href: entitlement-management-access-package-incompatible.md
             - name: 요청 보기
               href: entitlement-management-access-package-requests.md
+            - name: 요청 재처리
+              href: entitlement-management-reprocess-access-package-requests.md
             - name: '할당 보기, 추가 및 제거'
               href: entitlement-management-access-package-assignments.md
+            - name: 할당 다시 처리
+              href: entitlement-management-reprocess-access-package-assignments.md
             - name: 숨기기 또는 삭제
               href: entitlement-management-access-package-edit.md
         - name: 승인자

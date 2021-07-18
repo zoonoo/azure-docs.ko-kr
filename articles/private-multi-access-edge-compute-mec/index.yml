@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Azure 전용 다중 액세스 에지 컴퓨팅 설명서
+summary: Azure 프라이빗 MEC(다중 액세스 에지 컴퓨팅) 솔루션을 사용하면 운영자 및 시스템 통합자가 엔터프라이즈 에지에서 고성능, 짧은 대기 시간 연결 및 IoT 애플리케이션을 제공할 수 있습니다.
+metadata:
+  title: Azure 전용 다중 액세스 에지 컴퓨팅 설명서
+  description: Azure 프라이빗 MEC(다중 액세스 에지 컴퓨팅) 솔루션을 사용하면 운영자 및 시스템 통합자가 엔터프라이즈 에지에서 고성능, 짧은 대기 시간 연결 및 IoT 애플리케이션을 제공할 수 있습니다.
+  ms.service: private-multi-access-edge-compute-mec
+  ms.topic: landing-page
+  author: kumud
+  ms.author: KumudD
+  ms.date: 06/15/2021
+  ms.openlocfilehash: 57bd78341606ee1b15afbd3a37363fa6d84f95a0
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112458365"
+landingContent:
+- title: Azure 프라이빗 MEC 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 프라이빗 MEC란?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: 파트너 솔루션
+      url: partner-programs.md
+- title: Metaswitch 솔루션을 사용한 에지 연결
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Fusion Core란?
+      url: metaswitch-fusion-core-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Stack Edge 디바이스의 Fusion Core 배포
+      url: deploy-metaswitch-fusion-core-solution.md
+- title: Azure의 확정된 개인 네트워크 서비스 정보
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure의 확정된 개인 네트워크 서비스란?
+      url: affirmed-private-network-service-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Azure의 확정된 개인 네트워크 서비스 배포
+      url: deploy-affirmed-private-network-service-solution.md
+- title: Azure 네트워크 기능 관리자 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 네트워크 기능 관리자란?
+      url: ../network-function-manager/overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 네트워크 기능 배포
+      url: ../network-function-manager/deploy-functions.md

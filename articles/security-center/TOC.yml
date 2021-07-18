@@ -174,8 +174,11 @@
           href: defender-for-sql-usage.md
           displayName: 'hybrid, arc, Azure Defender'
         - name: 오픈 소스 관계형 데이터베이스용 Azure Defender 개요
-          displayName: 'PG, PostgreSQL, MySQL, MariaDB'
+          displayName: 'PG, PostgreSQL, MySQL, MariaDB, Azure Defender, OS RDBs, OSRDB'
           href: defender-for-databases-introduction.md
+        - name: OS RDB용 Defender를 사용하도록 설정하고 경고에 응답
+          displayName: 'PG, PostgreSQL, MySQL, MariaDB, open-source relational databases, Azure Defender, OS RDBs, OSRDB'
+          href: defender-for-databases-usage.md
         - name: SQL 리소스에서 취약성 검색
           href: defender-for-sql-on-machines-vulnerability-assessment.md
           displayName: 'hybrid, arc, Azure Defender, VA, registry, vulnerabilities'

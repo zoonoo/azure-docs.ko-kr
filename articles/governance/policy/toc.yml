@@ -66,6 +66,8 @@
       href: ./samples/built-in-policies.md
     - name: 기본 제공 이니셔티브
       href: ./samples/built-in-initiatives.md
+    - name: Azure Resource Graph 쿼리
+      href: ./samples/resource-graph-samples.md
     - name: 사용 패턴
       items:
         - name: 논리 연산자

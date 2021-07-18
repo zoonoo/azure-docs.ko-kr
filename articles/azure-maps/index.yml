@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 60124b557513cdab7ea588fe731ff839becf36f2
-  ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+  ms.openlocfilehash: 0f2f5ff726fb723e6481d03e5d8019be45fb9100
+  ms.sourcegitcommit: 025a2bacab2b41b6d211ea421262a4160ee1c760
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112030398"
+  ms.lasthandoff: 07/06/2021
+  ms.locfileid: "113303961"
 landingContent:
 - title: Azure Maps 정보
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
     links:
     - text: Azure Maps 소개
       url: https://sec.ch9.ms/ch9/d498/3d435d2c-ac85-421b-b3a7-5e0c7630d498/IoT_AzureMaps_high.mp4
-- title: 시작
+- title: 시작하기
   linkLists:
   - linkListType: quickstart
     links:
@@ -150,14 +150,12 @@ landingContent:
       url: android-map-add-line-layer.md
     - text: 다각형 레이어 추가
       url: how-to-add-shapes-to-android-map.md
+    - text: 열 지도 계층 추가
+      url: map-add-heat-map-layer-android.md
+    - text: 클러스터 지점 데이터
+      url: clustering-point-data-android-sdk.md
     - text: 데이터 기반 스타일 식 사용
       url: data-driven-style-expressions-android-sdk.md
-    - text: 맵에 타일 레이어 추가
-      url: how-to-add-tile-layer-android-map.md
-    - text: 맵에 도형 추가
-      url: how-to-add-shapes-to-android-map.md
-    - text: 트래픽 데이터 표시
-      url: how-to-show-traffic-android.md
 - title: 위치 기반 서비스로 개발
   linkLists:
   - linkListType: concept
@@ -226,6 +224,12 @@ landingContent:
       url: power-bi-visual-understanding-layers.md
     - text: 액세스 관리
       url: power-bi-visual-manage-access.md
+- title: Power Apps의 Azure Maps
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 대화형 맵 구성 요소
+      url: /powerapps/maker/canvas-apps/geospatial-component-map
 - title: Mobility Service로 개발
   linkLists:
   - linkListType: concept
@@ -249,7 +253,7 @@ landingContent:
     - text: Weather Service 개념
       url: weather-services-concepts.md
     - text: Weather Services FAQ
-      url: weather-services-faq.md
+      url: weather-services-faq.yml
   - linkListType: tutorial
     links:
     - text: Azure Notebooks(Python)를 사용한 날씨 데이터 분석

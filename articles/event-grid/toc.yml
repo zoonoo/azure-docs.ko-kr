@@ -128,6 +128,8 @@
               href: event-schema-container-registry.md
             - name: Azure Event Hubs
               href: event-schema-event-hubs.md
+            - name: Azure FarmBeats
+              href: event-schema-farmbeats.md
             - name: Azure IoT Hub
               href: event-schema-iot-hub.md
             - name: Azure Key Vault
@@ -270,8 +272,6 @@
           href: move-custom-topics-across-regions.md
         - name: 지역 간에 도메인 이동
           href: move-domains-across-regions.md
-        - name: 지역 간에 파트너 네임스페이스 이동
-          href: move-partner-namespaces-across-regions.md
     - name: 보안
       items:
         - name: 프라이빗 링크를 통해 안전하게 이벤트 게시
@@ -286,6 +286,8 @@
               href: add-identity-roles.md
             - name: 관리 ID를 사용하는 이벤트 구독 만들기
               href: managed-service-identity.md
+        - name: 사용자 지정 Azure 정책을 사용하여 보안 제어 적용
+          href: custom-azure-policies-for-security-control.md
         - name: 프라이빗 링크를 통해 안전하게 이벤트 제공
           href: consume-private-endpoints.md
         - name: IP 방화벽 구성
