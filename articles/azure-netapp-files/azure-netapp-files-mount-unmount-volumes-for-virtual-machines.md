@@ -1,6 +1,6 @@
 ---
 title: 가상 컴퓨터에 대한 Azure NetApp Files 볼륨 탑재
-description: Azure에서 Windows 가상 머신 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 분리하는 방법에 대해 알아봅니다.
+description: Azure에서 Windows 가상 머신 또는 Linux 가상 머신에 대한 볼륨을 탑재 또는 탑재 해제하는 방법에 대해 알아봅니다.
 author: b-juche
 ms.author: b-juche
 ms.service: azure-netapp-files

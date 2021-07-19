@@ -16,12 +16,12 @@ ms.date: 12/14/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f69cf492ec3e28d7f4aa86971dc6c91b34bdf5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a275b1c43f8a7c5526209f943e48a1d943eca149
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101644183"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713687"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지의 리소스 역할 변경
 
@@ -35,7 +35,7 @@ ms.locfileid: "101644183"
 
 액세스 패키지에 리소스를 추가해야 하는 경우 카탈로그에서 필요한 리소스를 사용할 수 있는지 확인해야 합니다. 액세스 패키지 관리자인 경우 리소스를 소유하고 있더라도 카탈로그에 추가할 수 없습니다. 카탈로그에서 사용 가능한 리소스만 사용하도록 제한됩니다.
 
-**필수 역할:** 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+**필수 역할:** 전역 관리자, Identity Governance 관리자, 사용자 관리자, 카탈로그 소유자, 액세스 패키지 관리자
 
 1. Azure Portal에서 **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
@@ -180,7 +180,7 @@ ms.locfileid: "101644183"
 
 권한 관리에서 Azure AD는 액세스 패키지의 할당 및 리소스에 대한 대량 변경을 하루에 여러 번 처리합니다. 따라서 할당을 하거나 액세스 패키지의 리소스 역할을 변경하는 경우 Azure AD에서 해당 변경을 수행하는 데 최대 24시간이 걸릴 수 있으며, 여기에 이러한 변경 내용을 다른 Microsoft Online Services 또는 연결된 SaaS 애플리케이션에 전파하는 시간이 추가됩니다. 변경이 몇 가지 개체에만 영향을 주는 경우 Azure AD에서 변경 내용이 적용되는 데는 몇 분밖에 걸리지 않으며, 그 후 다른 Azure AD 구성 요소에서 해당 변경 내용을 검색하고 SaaS 애플리케이션을 업데이트합니다. 변경이 수천 개의 개체에 영향을 주는 경우에는 변경 내용이 적용되려면 더 오랜 시간이 걸립니다. 예를 들어 2개의 애플리케이션과 100명의 사용자 할당이 있는 액세스 패키지가 있고 이 액세스 패키지에 SharePoint 사이트 역할을 추가하기로 결정하는 경우 모든 사용자가 이 SharePoint 사이트 역할에 포함될 때까지 지연이 있을 수 있습니다. Azure AD 감사 로그, Azure AD 프로비전 로그, SharePoint 사이트 감사 로그를 통해 진행률을 모니터링할 수 있습니다.
 
-팀의 멤버를 제거하면 Microsoft 365 그룹에서도 제거됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](/microsoftteams/office-365-groups#group-membership)을 참조하세요.
+팀 구성원을 제거하면 Microsoft 365 그룹에서도 제거됩니다. 팀 채팅 기능을 제거하면 작업이 지연될 수 있습니다. 자세한 내용은 [그룹 멤버 자격](/microsoftteams/office-365-groups#group-membership)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,14 +1,15 @@
 ---
 title: Azure Resource Manager 템플릿을 사용하여 VM 확장 사용하기
 description: 본 문서에서는 Azure Resource Manager 템플릿을 통하여 하이브리드 클라우드 환경에서 실행 중인 Azure Arc 지원 서버에 가상 머신 확장을 배포하는 방법을 설명합니다.
-ms.date: 03/01/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 88296cd4f410defcaf7db15507ddac42e80cba2d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 8ad2cd02393404b419bc7028e54571d2db285982
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101688266"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108802453"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>ARM 템플릿을 사용하여 Azure VM 확장 사용하기
 
@@ -18,6 +19,9 @@ Azure Resource Manager 템플릿에 VM 확장을 추가하고 템플릿 배포�
 
 >[!NOTE]
 >여러 확장을 함께 일괄 처리하고 프로세스할 수 있지만, 설치는 순차적으로 진행됩니다. 첫 번째 확장 설치가 완료되면 다음 확장을 설치하려고 시도합니다.
+
+> [!NOTE]
+> Azure Arc 지원 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VMs에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
 
 ## <a name="deploy-the-log-analytics-vm-extension"></a>Log Analytics VM 확장 배포하기
 
@@ -323,7 +327,6 @@ Azure Monitor 종속성 에이전트 확장을 사용하기 위하여 Windows와
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentLinux",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -361,7 +364,6 @@ Azure Monitor 종속성 에이전트 확장을 사용하기 위하여 Windows와
       "properties": {
         "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
         "type": "DependencyAgentWindows",
-        "typeHandlerVersion": "9.5",
         "autoUpgradeMinorVersion": true
       }
     }
@@ -427,7 +429,6 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -497,7 +498,6 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForWindows",
-      "typeHandlerVersion": "1.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
