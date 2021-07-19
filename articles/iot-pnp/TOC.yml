@@ -55,10 +55,10 @@
   items:
     - name: IoT 탐색기 설치 및 사용
       href: howto-use-iot-explorer.md
-    - name: DTDL 제작 도구 설치 및 사용
-      href: howto-use-dtdl-authoring-tools.md
     - name: Digital Twins 관리
       href: howto-manage-digital-twin.md
+    - name: 디바이스를 IoT 플러그 앤 플레이로 변환
+      href: howto-convert-to-pnp.md
     - name: IoT 플러그 앤 플레이 브리지 샘플 연결 방법
       href: howto-use-iot-pnp-bridge.md
     - name: IoT 플러그 앤 플레이 브리지 빌드 및 배포

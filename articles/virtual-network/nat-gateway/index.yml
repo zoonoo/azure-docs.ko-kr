@@ -1,0 +1,43 @@
+### YamlMime:Landing
+title: Virtual Network NAT 설명서
+summary: Azure Virtual Network NAT를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서, 샘플 등에서는 NAT 게이트웨이를 배포하는 방법을 보여 줍니다.
+metadata:
+  title: Azure Virtual Network NAT 설명서 - 자습서, 빠른 시작, API 참조
+  description: Azure Virtual Network NAT를 사용하는 방법에 대해 알아봅니다. 빠른 시작, 자습서, 샘플 등에서는 NAT 게이트웨이를 배포하는 방법을 보여 줍니다.
+  services: virtual-network
+  ms.service: virtual-network
+  ms.subservice: nat
+  ms.topic: landing-page
+  ms.collection: collection
+  author: asudbring
+  ms.author: allensu
+  ms.date: 04/05/2021
+  ms.openlocfilehash: cb818fd91d9777a8579a6dd31189511b4ff472b2
+  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113438718"
+landingContent:
+- title: Virtual Network NAT 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Virtual Network NAT란?
+      url: nat-overview.md
+  - linkListType: concept
+    links:
+    - text: NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계
+      url: nat-gateway-resource.md
+- title: 시작
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: NAT 게이트웨이 만들기 및 유효성 검사
+      url: tutorial-create-nat-gateway-portal.md
+  - linkListType: tutorial
+    links:
+    - text: NAT 게이트웨이를 공용 부하 분산 장치와 통합
+      url: tutorial-nat-gateway-load-balancer-public-portal.md
+    - text: NAT 게이트웨이를 내부 부하 분산 장치와 통합
+      url: tutorial-nat-gateway-load-balancer-internal-portal.md

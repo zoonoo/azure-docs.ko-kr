@@ -48,6 +48,8 @@
           href: configure-azure-ad-ui.md
         - name: ARO 클러스터에 대한 끌어오기 비밀 업데이트
           href: howto-add-update-pull-secret.md
+        - name: ARO(Azure Red Hat OpenShift) 클러스터에 대한 서비스 주체 자격 증명 회전
+          href: howto-service-principal-credential-rotation.md
     - name: 백업 및 복원
       items:
         - name: Velero를 사용하여 클러스터 애플리케이션의 백업 만들기
@@ -120,7 +122,7 @@
 - name: 리소스
   items:
     - name: 자주 묻는 질문
-      href: openshift-faq.md
+      href: openshift-faq.yml
     - name: 문제 해결
       href: troubleshoot.md
     - name: ARO 4에 대한 지원 정책

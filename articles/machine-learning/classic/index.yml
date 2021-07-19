@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure Machine Learning Studio(클래식) 설명서
+title: Machine Learning Studio(클래식) 설명서
 summary: Machine Learning Studio(클래식)는 예측 분석 솔루션을 빌드, 테스트 및 배포하는 데 사용할 수 있는 끌어서 놓기 도구입니다.
 metadata:
   title: Machine Learning Studio(클래식) 설명서 - Azure
@@ -12,12 +12,12 @@ metadata:
   ms.author: peterlu
   author: peterclu
   ms.date: 03/05/2020
-  ms.openlocfilehash: 27be00a986b27f4203e2cbfce568603aa7880802
-  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.openlocfilehash: 34cebaa3b352d64ba5ebeadbc1fc84c5e53bfefe
+  ms.sourcegitcommit: 54d8b979b7de84aa979327bdf251daf9a3b72964
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100520343"
+  ms.lasthandoff: 06/24/2021
+  ms.locfileid: "112581253"
 landingContent:
 - title: Studio(클래식) 시작
   linkLists:

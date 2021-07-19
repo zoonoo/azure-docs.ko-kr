@@ -13,39 +13,43 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/12/2021
   ms.author: mbullwin
-  ms.openlocfilehash: 5424c2af354bbecd124e39c7566c23d964563cac
-  ms.sourcegitcommit: 190658142b592db528c631a672fdde4692872fd8
+  ms.openlocfilehash: 4360e47ff4028e5102f851b4ca4ea905e3067a4b
+  ms.sourcegitcommit: 6ea4d4d1cfc913aef3927bef9e10b8443450e663
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/11/2021
-  ms.locfileid: "112005504"
+  ms.lasthandoff: 07/05/2021
+  ms.locfileid: "113296508"
 landingContent:
 - title: Anomaly Detector API 정보
   linkLists:
   - linkListType: overview
     links:
-    - text: Anomaly Detector 일변량이란?
+    - text: Anomaly Detector(일변량)란?
       url: overview.md
-    - text: Anomaly Detector 다변량이란?
+    - text: Anomaly Detector(다변량)란?
       url: overview-multivariate.md
+    - text: Anomaly Detector의 새로운 기능
+      url: whats-new.md
   - linkListType: get-started
     links:
-    - text: Anomaly Detector 데모
+    - text: 데모 웹 애플리케이션(일변량)
       url: https://aka.ms/adDemo
   - linkListType: video
     links:
-    - text: Anomaly Detector API 소개
+    - text: Anomaly Detector API 소개(일변량)
       url: https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner
-    - text: Anomaly Detection API에서 사용하는 알고리즘
-      url: https://www.youtube.com/embed/ERTaAnwCarM
+    - text: 새 다변량 기능 소개
+      url: https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities
+    - text: 추가 비디오 ...
+      url: whats-new.md#videos
   - linkListType: reference
     links:
-    - text: Azure Anomaly Detector API 소개
+    - text: Azure Anomaly Detector API 소개(일변량)
       url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
-    - text: SR-CNN 알고리즘 개요
-      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
-    - text: 변칙 검색에 사용되는 알고리즘(KDD 문서)
-      url: https://arxiv.org/abs/1906.03821
+    - text: 다변량 변칙 검색 소개
+      url: https://techcommunity.microsoft.com/t5/azure-ai/introducing-multivariate-anomaly-detection/ba-p/2260679
+    - text: 추가 기술 문서 ...
+      url: whats-new.md#technical-articles
 - title: 데이터에서 변칙 검색
   linkLists:
   - linkListType: quickstart
@@ -56,6 +60,8 @@ landingContent:
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-javascript
     - text: Python 사용(일변량)
       url: ../anomaly-detector/quickstarts/client-libraries.md?pivots=programming-language-python
+  - linkListType: quickstart
+    links:
     - text: C# 사용(다변량)
       url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-csharp
     - text: JavaScript 사용(다변량)
@@ -66,39 +72,39 @@ landingContent:
       url: ../anomaly-detector/quickstarts/client-libraries-multivariate.md?pivots=programming-language-java
   - linkListType: tutorial
     links:
-    - text: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
+    - text: 1시간 내에 다변량 변칙 검색에 대해 알아보기
+      url: tutorials/learn-multivariate-anomaly-detection.md
+    - text: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화(일변량)
       url: tutorials/batch-anomaly-detection-powerbi.md
-  - linkListType: video
-    links:
-    - text: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색
-      url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks
 - title: 검색 결과 최적화
   linkLists:
   - linkListType: concept
     links:
-    - text: 데이터의 변칙 검색 모드 및 매개 변수를 조정합니다.
+    - text: 데이터의 변칙 검색 모드 및 매개 변수 조정(일변량)
       url: how-to/identify-anomalies.md
-    - text: 모범 사례를 사용하여 변칙 검색 결과를 최적화합니다.
+    - text: 모범 사례를 사용하여 변칙 검색 결과 최적화(일변량)
       url: concepts/anomaly-detection-best-practices.md
+    - text: 모범 사례를 사용하여 변칙 검색 결과 최적화(다변량)
+      url: concepts/best-practices-multivariate.md
   - linkListType: video
     links:
-    - text: Anomaly Detector 모범 사례
+    - text: Anomaly Detector 모범 사례(일변량)
       url: https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices
 - title: Docker 컨테이너 사용
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Anomaly Detector 컨테이너 설치 및 실행
+    - text: Anomaly Detector 컨테이너 설치 및 실행(일변량)
       url: anomaly-detector-container-howto.md
-    - text: Anomaly Detector 컨테이너 구성
+    - text: Anomaly Detector 컨테이너 구성(일변량)
       url: anomaly-detector-container-configuration.md
-    - text: Azure에 컨테이너 인스턴스 배포
+    - text: Azure에 컨테이너 인스턴스 배포(일변량)
       url: how-to/deploy-anomaly-detection-on-container-instances.md
-    - text: IoT Edge에 배포
+    - text: IoT Edge에 배포(일변량)
       url: how-to/deploy-anomaly-detection-on-iot-edge.md
   - linkListType: video
     links:
-    - text: 컨테이너 지원을 통해 온-프레미스에서 Anomaly Detector 가져오기
+    - text: 컨테이너 지원을 통해 온-프레미스에서 Anomaly Detector 가져오기(일변량)
       url: https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support
 - title: 도움말 및 피드백
   linkLists:
@@ -106,11 +112,9 @@ landingContent:
     links:
     - text: Microsoft Teams Anomaly Detector Advisors 그룹에 참여
       url: https://aka.ms/adadvisorsjoin
-    - text: 추천 사용자 생성 콘텐츠
-      url: user-generated-content.md
   - linkListType: reference
     links:
-    - text: 다변량 문제 해결
+    - text: 오류 코드(다변량)
       url: concepts/troubleshoot.md
     - text: 지원 및 도움말 옵션
       url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
@@ -118,29 +122,29 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: 단변량 REST API
+    - text: REST API(일변량)
       url: https://aka.ms/anomaly-detector-rest-api-ref
-    - text: .NET SDK
+    - text: .NET SDK(일변량)
       url: https://aka.ms/anomaly-detector-dotnet-ref
-    - text: .Python SDK
+    - text: .Python SDK(일변량)
       url: https://go.microsoft.com/fwlink/?linkid=2090370
-    - text: Go SDK
+    - text: Go SDK(일변량)
       url: https://go.microsoft.com/fwlink/?linkid=2089915
-    - text: Node.js SDK
+    - text: Node.js SDK(일변량)
       url: https://go.microsoft.com/fwlink/?linkid=2090788
-    - text: Azure PowerShell
+    - text: Azure PowerShell(일변량)
       url: /powershell/module/az.cognitiveservices/#cognitive_services
-    - text: Azure CLI
+    - text: Azure CLI(일변량)
       url: /cli/azure/cognitiveservices#az_cognitiveservices_list
   - linkListType: reference
     links:
-    - text: 다변량 REST API
+    - text: REST API(다변량)
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector-v1-1-preview/operations/DetectAnomaly
-    - text: .NET SDK
+    - text: .NET SDK(다변량)
       url: https://go.microsoft.com/fwlink/?linkid=2165601&clcid=0x409
-    - text: Python SDK
+    - text: Python SDK(다변량)
       url: https://go.microsoft.com/fwlink/?linkid=2165298&clcid=0x409
-    - text: Java SDK
+    - text: Java SDK(다변량)
       url: https://go.microsoft.com/fwlink/?linkid=2165600&clcid=0x409
-    - text: Node.js SDK
+    - text: Node.js SDK(다변량)
       url: https://go.microsoft.com/fwlink/?linkid=2165523&clcid=0x409

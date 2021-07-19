@@ -251,7 +251,7 @@
         - name: Load Balancer - 공용
           href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: NAT 게이트웨이
-          href: ../../virtual-network/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+          href: ../../virtual-network/nat-gateway/quickstart-create-nat-gateway-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Private Endpoint
           href: ../../private-link/create-private-endpoint-template.md?toc=/azure/azure-resource-manager/templates/toc.json
         - name: Private Link 서비스
@@ -293,7 +293,7 @@
     - name: 데이터 형식
       href: data-types.md
     - name: 질문과 대답
-      href: frequently-asked-questions.md
+      href: frequently-asked-questions.yml
     - name: 클라우드 일관성을 위한 템플릿
       href: template-cloud-consistency.md
     - name: 배포 모드
@@ -346,16 +346,16 @@
         - name: 여러 인스턴스 만들기
           items:
             - name: 리소스
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-resources.md
             - name: 속성
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-properties.md
             - name: variables
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-variables.md
             - name: outputs
-              displayName: 'iteration,copy,multiple'
+              displayName: 'iteration,copy'
               href: copy-outputs.md
     - name: 템플릿 배포
       items:
@@ -413,6 +413,8 @@
           href: test-toolkit.md
         - name: 테스트 사례
           href: test-cases.md
+        - name: CreateUiDefinition 테스트 사례
+          href: createuidefinition-test-cases.md
     - name: 템플릿 사양
       items:
         - name: 템플릿 사양 만들기 및 배포

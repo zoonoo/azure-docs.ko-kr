@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 4bff929346a1f452ecd574eccccd1ba8c95788db
-ms.sourcegitcommit: 49bd8e68bd1aff789766c24b91f957f6b4bf5a9b
+ms.openlocfilehash: 063924dccb7d7b95b962b24ecc1af1870a855194
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108226321"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "102617134"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -526,7 +526,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) 문서를 참조하세요.
+자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) 문서를 참조하세요.
 
 ### <a name="configuration-for-other-bindings"></a>다른 바인딩의 구성
 

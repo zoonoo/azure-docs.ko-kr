@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: 디바이스 빌더용 Azure Defender for IoT 설명서
+summary: Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
+metadata:
+  title: 디바이스 빌더용 Azure Defender for IoT 설명서
+  description: Azure Defender for IoT는 완전한 온-프레미스, 클라우드 연결 또는 하이브리드를 포함한 여러 배포 옵션을 통해 IoT/OT 환경에 대한 포괄적인 위협 탐지를 제공합니다.
+  services: service
+  ms.service: defender-for-iot
+  ms.topic: landing-page
+  ms.collection: M365-security-compliance
+  author: elazark
+  ms.author: v-ekrieg
+  manager: raynew
+  ms.date: 06/17/2021
+  ms.openlocfilehash: c4853f4ca1017510c24a97fd4c974972667e26df
+  ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113013960"
+landingContent:
+- title: 디바이스 빌더용 Azure Defender for IoT 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 디바이스 빌더용 Azure Defender for IoT란 무엇인가요?
+      url: overview.md
+    - text: 디바이스 빌더를 위한 에이전트 기반 솔루션 아키텍처
+      url: architecture-agent-based.md
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 에이전트 기반 솔루션에 대한 Defender for IoT 등록
+      url: quickstart-onboard-iot-hub.md
+    - text: Azure Defender for IoT 솔루션 구성
+      url: quickstart-configure-your-solution.md
+- title: 보안
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 권장 사항
+      url: concept-recommendations.md
+    - text: 이벤트 집계
+      url: concept-event-aggregation.md
+- title: 방법
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 에이전트 기반 솔루션용 Azure Defender for IoT 구성
+      url: how-to-configure-agent-based-solution.md
+    - text: OS 기준 조사
+      url: how-to-investigate-cis-benchmark.md
+    - text: 사용자 지정 경고 만들기
+      url: quickstart-create-custom-alerts.md
+    - text: Azure RTOS용 Defender-IoT-micro-agent 구성 및 사용자 지정(미리 보기)
+      url: how-to-azure-rtos-security-module.md
+- title: 문서에서 새로 만들기
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 디바이스 빌더의 새로운 점은 무엇인가요?
+      url: release-notes.md

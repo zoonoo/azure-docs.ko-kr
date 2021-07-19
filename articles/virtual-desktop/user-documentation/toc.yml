@@ -1,0 +1,18 @@
+- name: Windows Virtual Desktop에 액세스
+  href: index.yml
+- name: 방법
+  items:
+    - name: Windows Desktop 클라이언트와 연결
+      href: connect-windows-7-10.md
+    - name: 웹 클라이언트를 사용하여 연결
+      href: connect-web.md
+    - name: Android 클라이언트와 연결
+      href: connect-android.md
+    - name: macOS 클라이언트와 연결
+      href: connect-macos.md
+    - name: iOS 클라이언트와 연결
+      href: connect-ios.md
+    - name: Microsoft Store 클라이언트와 연결
+      href: connect-microsoft-store.md
+    - name: 씬 클라이언트와 연결
+      href: linux-overview.md

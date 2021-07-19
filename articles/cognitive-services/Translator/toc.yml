@@ -90,14 +90,20 @@
   items:
     - name: 문서 번역이란?
       href: document-translation/overview.md
+    - name: 클라이언트 라이브러리 및 SDK
+      href: document-translation/client-sdks.md
     - name: 빠른 시작
       href: document-translation/get-started-with-document-translation.md
     - name: 방법 가이드
       items:
         - name: 문서 번역을 위한 SAS 토큰 생성
           href: document-translation/create-sas-tokens.md
+        - name: 관리 ID 만들기 및 사용
+          href: document-translation/managed-identity.md
     - name: 참조
       items:
+        - name: REST API 참조 가이드
+          href: document-translation/reference/rest-api-guide.md
         - name: 지원되는 문서 형식 가져오기
           href: document-translation/reference/get-supported-document-formats.md
         - name: 지원되는 용어집 형식 가져오기

@@ -4,10 +4,10 @@ description: Azure Lab Services에서 클래스룸 랩 템플릿을 만들고 �
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: be84a05fd8b278f5176cd768191d10a20fc719e6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96434280"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 템플릿 만들기 및 관리
@@ -67,4 +67,4 @@ ms.locfileid: "96434280"
 - [관리자 권한으로 랩 계정 만들기 및 관리](how-to-manage-lab-accounts.md)
 - [랩 소유자 권한으로 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
 - [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
-- [랩 사용자로 서 액세스 랩](how-to-use-classroom-lab.md)
+- [랩 사용자 권한으로 랩에 액세스](how-to-use-classroom-lab.md)

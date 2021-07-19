@@ -46,9 +46,9 @@
     - name: NAT 게이트웨이
       items:
         - name: NAT 게이트웨이 공용 부하 분산 장치 통합
-          href: ../virtual-network/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+          href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-public-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
         - name: NAT 게이트웨이 내부 부하 분산 장치 통합
-          href: ../virtual-network/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
+          href: ../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md?toc=%2fazure%2fload-balancer%2ftoc.json
     - name: IP 기반 백 엔드
       items:
         - name: IP 기반 백 엔드로 공용 부하 분산 장치 만들기 - 포털
@@ -75,14 +75,16 @@
       href: skus.md
     - name: 상태 모니터링
       items:
+        - name: 부하 분산 장치 모니터링
+          href: monitor-load-balancer.md
+        - name: 데이터 참조 모니터링
+          href: monitor-load-balancer-reference.md
         - name: 상태 프로브
           href: load-balancer-custom-probe-overview.md
         - name: Load Balancer용 Azure Monitor Insights
           href: load-balancer-insights.md
         - name: 표준 부하 분산 장치 메트릭 및 진단
           href: load-balancer-standard-diagnostics.md
-        - name: Load Balancer용 Azure Monitor 로그
-          href: load-balancer-monitor-log.md
         - name: REST를 사용하여 부하 분산 장치 메트릭 가져오기
           href: load-balancer-query-metrics-rest-api.md
     - name: 고가용성 포트
@@ -196,7 +198,7 @@
       href: 'https://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2020_03_01/LoadBalancers'
     - name: Python
       href: /python/api/azure-mgmt-network/azure.mgmt.network.v2019_02_01.operations.loadbalancersoperations
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/load-balancer/loadbalancers
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/loadbalancers
@@ -220,4 +222,4 @@
     - name: 제품 업데이트
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'
     - name: FAQ
-      href: load-balancer-faqs.md
+      href: load-balancer-faqs.yml
