@@ -238,6 +238,12 @@
               href: backup-managed-disks-ps.md
             - name: 복원
               href: restore-managed-disks-ps.md
+        - name: CLI 사용
+          items:
+            - name: Backup
+              href: backup-managed-disks-cli.md
+            - name: 복원
+              href: restore-managed-disks-cli.md
     - name: Azure Blob 백업
       items:
         - name: 개요
@@ -254,6 +260,20 @@
               href: backup-blobs-storage-account-ps.md
             - name: 복원
               href: restore-blobs-storage-account-ps.md
+        - name: CLI 사용
+          items:
+            - name: Backup
+              href: backup-blobs-storage-account-cli.md
+            - name: 복원
+              href: restore-blobs-storage-account-cli.md
+        - name: REST API 사용
+          items:
+            - name: Blob 정책
+              href: backup-azure-dataprotection-use-rest-api-create-update-blob-policy.md
+            - name: Backup
+              href: backup-azure-dataprotection-use-rest-api-backup-blobs.md
+            - name: 복원
+              href: backup-azure-dataprotection-use-rest-api-restore-blobs.md
     - name: Azure 파일 공유 백업
       items:
         - name: 개요
@@ -334,6 +354,8 @@
               href: backup-azure-sql-mabs.md
             - name: 시스템 상태 및 완전 복구 보호
               href: backup-mabs-system-state-and-bmr.md
+            - name: 백업 전 및 백업 후 스크립트 사용
+              href: pre-backup-post-backup-scripts.md
         - name: Azure Backup Server에서 데이터 복구
           href: backup-azure-alternate-dpm-server.md
         - name: Azure Backup Server를 사용하여 VMware VM 복원
@@ -440,6 +462,8 @@
               href: backup-azure-arm-userestapi-restoreazurevms.md
             - name: Azure Backup 작업 관리
               href: backup-azure-arm-userestapi-managejobs.md
+        - name: Azure Data Protection REST API 사용
+          href: backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md
         - name: ARG를 사용하여 백업 정보 쿼리
           href: query-backups-using-azure-resource-graph.md
         - name: 리소스 관리자 템플릿
