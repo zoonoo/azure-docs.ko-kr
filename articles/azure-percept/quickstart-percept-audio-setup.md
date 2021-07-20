@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
-ms.openlocfilehash: ae2720c321e701d14e91f8aee7a6dfbfc5f15739
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 03cab112681536708496c35e4440e463d1522406
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110071347"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113108192"
 ---
 # <a name="azure-percept-audio-setup"></a>Azure Percept Audio 설정
 
@@ -31,7 +31,7 @@ Azure Percept Audio는 Azure Percept DK에서 기본 제공됩니다. 특별한 
 
 1. (선택 사항) "라인 출력"이라고 표시된 오디오 잭을 통해 스피커 또는 헤드폰을 Azure Percept Audio 디바이스에 연결합니다. 그러면 오디오 응답을 들을 수 있습니다.
 
-1. devkit의 전원을 켭니다. LED L02가 흰색으로 깜박입니다. 이는 디바이스의 전원이 켜져 있고 인증 중임을 나타냅니다.
+1. 개발 키트를 전원 어댑터에 연결하여 전원을 켭니다. LED L02가 흰색으로 깜박입니다. 이는 디바이스의 전원이 켜져 있고 인증 중임을 나타냅니다.
 
 1. 인증 프로세스가 완료될 때까지 기다립니다. 최대 5분 정도 걸릴 수 있습니다.
 

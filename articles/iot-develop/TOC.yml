@@ -31,7 +31,7 @@
           href: quickstart-devkit-renesas-rx65n-2mb.md
         - name: Renesas RX65N Cloud Kit
           href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-        - name: ST Microelectronics B-L475E/L4S5I-IOT01A
+        - name: STMicroelectronics B-L475E/L4S5I-IOT01A
           href: quickstart-devkit-stm-b-l475e.md
 - name: 자습서
   items:
@@ -43,6 +43,12 @@
       href: concepts-overview-connection-options.md
     - name: 디바이스 유형 개요
       href: concepts-iot-device-types.md
+- name: 방법
+  items:
+    - name: 문제 해결
+      items:
+        - name: 포함된 문제 해결 빠른 시작
+          href: troubleshoot-embedded-device-quickstarts.md
 - name: 참조
   items:
     - name: Azure CLI

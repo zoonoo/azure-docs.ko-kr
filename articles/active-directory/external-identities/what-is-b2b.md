@@ -5,26 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 05/27/2021
+ms.date: 07/01/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6382f7ab801b649982d289a34e083a7897fc40e6
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 9ddda3abea3eab3e959494475ebdef4270ea9a98
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110584984"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113213762"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
 Azure AD(Azure Active Directory) B2B(Business-to-Business) 협업은 게스트 사용자를 초대하여 조직과 협업할 수 있는 외부 ID 내의 기능입니다. B2B 협업을 통해 회사의 애플리케이션과 서비스를 다른 조직의 게스트 사용자와 안전하게 공유하면서 자체 회사 데이터에 대한 제어를 유지할 수 있습니다. Azure AD 또는 IT 부서가 없는 경우에도 크든 작든, 외부 파트너와 안전하게 작업하세요. 간단한 초대 및 사용 프로세스를 통해 파트너는 자체 자격 증명을 사용하여 회사 리소스에 액세스할 수 있습니다. 개발자는 Azure AD B2B API를 사용하여 초대 프로세스를 사용자 지정하거나 셀프 서비스 등록 포털과 같은 애플리케이션을 작성할 수 있습니다. 게스트 사용자와 관련된 라이선스 및 가격 책정 정보는 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.  
 
 > [!IMPORTANT]
-> - **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **2021년 9월 30부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
 > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>ID를 사용하여 파트너와 공동 작업

@@ -9,14 +9,14 @@ metadata:
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
-  ms.date: 01/15/2020
+  ms.date: 06/29/2021
   ms.custom: e2e-hybrid
-  ms.openlocfilehash: 8a5db17d58a96f3669d824d78ba11061cf758e75
-  ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+  ms.openlocfilehash: 8f6766607d498e86ed12b67d8b118e67e6f69800
+  ms.sourcegitcommit: beff1803eeb28b60482560eee8967122653bc19c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/19/2021
-  ms.locfileid: "110080599"
+  ms.lasthandoff: 07/07/2021
+  ms.locfileid: "113431909"
 landingContent:
 - title: 가상 WAN 정보
   linkLists:
@@ -32,6 +32,10 @@ landingContent:
       url: virtual-wan-locations-partners.md
     - text: FAQ
       url: virtual-wan-faq.md
+  - linkListType: learn
+    links:
+    - text: Azure Virtual WAN 소개
+      url: /learn/modules/introduction-azure-virtual-wan/
   - linkListType: video
     links:
     - text: Azure Virtual WAN을 사용하여 원격 사용자 연결
@@ -96,13 +100,11 @@ landingContent:
       url: how-to-virtual-hub-routing.md
 - title: 모니터링
   linkLists:
-  - linkListType: concept
-    links:
-    - text: Azure Monitor Insights를 사용한 모니터링
-      url: azure-monitor-insights.md
   - linkListType: how-to-guide
     links:
-    - text: Azure Monitor 로그 및 메트릭 구성
+    - text: Azure Monitor를 사용하여 Virtual WAN 모니터링
+      url: monitor-virtual-wan.md
+    - text: Azure Monitor Insights를 사용한 모니터링
       url: azure-monitor-insights.md
 - title: 참조
   linkLists:

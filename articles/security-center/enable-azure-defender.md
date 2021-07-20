@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
-ms.openlocfilehash: 4f7900c4abc37df776c231ac9d70a09862f6d49f
-ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.openlocfilehash: bc8449950134ba8c247c57df06b7495a48558def
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111748405"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238592"
 ---
 # <a name="quickstart-enable-azure-defender"></a>빠른 시작: Azure Defender 사용
 
@@ -54,14 +54,14 @@ Azure Defender를 사용하여 전체 Azure 구독을 보호할 수 있으며, �
 
         **업그레이드** 탭에는 온보딩에 적합한 구독 및 작업 영역이 나열되어 있습니다.
 
-        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="시작 페이지의 업그레이드 탭"::: 
+        :::image type="content" source="./media/enable-azure-defender/get-started-upgrade-tab.png" alt-text="시작 페이지의 업그레이드 탭."::: 
 
     1. **구독 및 작업 영역을 선택하여 Azure Defender를 사용하도록 설정** 목록에서 업그레이드할 구독 및 작업 영역을 선택하고 **업그레이드** 를 선택하여 Azure Defender를 사용하도록 설정합니다.
 
        - 평가판에 적합하지 않은 구독 및 작업 영역을 선택하면 다음 단계에서 해당 구독 및 작업 영역을 업그레이드하고 요금이 부과되기 시작합니다.
        - 평가판에 적합한 작업 영역을 선택하면 다음 단계에서 평가판이 시작됩니다.
 
-        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="시작 페이지에서 선택한 모든 작업 영역 및 구독 업그레이드":::
+        :::image type="content" source="./media/enable-azure-defender/upgrade-selected-workspaces-and-subscriptions.png" alt-text="시작 페이지에서 선택한 모든 작업 영역 및 구독을 업그레이드합니다.":::
 
 
 ## <a name="disable-azure-defender"></a>Azure Defender 사용 안 함
@@ -72,7 +72,7 @@ Azure Defender를 사용하여 전체 Azure 구독을 보호할 수 있으며, �
 1. 관련 구독을 선택합니다.
 1. 구독에 Azure Defender가 포함된 경우 **Azure Defender 플랜** 을 열고 **Azure Defender 끄기** 를 선택합니다.
 
-    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Azure Defender 사용/사용 안 함":::
+    :::image type="content" source="./media/enable-azure-defender/disable-plans.png" alt-text="Azure Defender를 사용하거나 사용하지 않도록 설정합니다.":::
 
 1. **저장** 을 선택합니다.
 

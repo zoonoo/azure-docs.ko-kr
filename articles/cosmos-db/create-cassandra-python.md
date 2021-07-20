@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ea5a443caba25b7b5e6d843408c12e61a55b9e10
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 129d66f762966f55567793d6a39589585f194b35
+ms.sourcegitcommit: f4e04fe2dfc869b2553f557709afaf057dcccb0b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105047442"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113223581"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>빠른 시작: Python SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "105047442"
 
 문서 데이터베이스를 만들려면 Azure Cosmos DB로 Cassandra 계정을 만들어야 합니다.
 
-[!INCLUDE [cosmos-db-create-dbaccount-cassandra](../../includes/cosmos-db-create-dbaccount-cassandra.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-cassandra](includes/cosmos-db-create-dbaccount-cassandra.md)]
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
@@ -142,11 +142,14 @@ ms.locfileid: "105047442"
 2. 다음 명령을 실행하여 필요한 모듈을 설치합니다.
 
     ```python
-    python -m pip install cassandra-driver
+    python -m pip install cassandra-driver==3.20.2
     python -m pip install prettytable
     python -m pip install requests
     python -m pip install pyopenssl
     ```
+
+    > [!NOTE]
+    > Cassandra API와 함께 사용하려면 Python 드라이버 버전 **3.20.2** 를 사용하는 것이 좋습니다. 상위 버전에서는 오류가 발생할 수 있습니다.
 
 2. 다음 명령을 실행하여 Python 애플리케이션을 시작합니다.
 
@@ -166,11 +169,11 @@ ms.locfileid: "105047442"
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
-[!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
+[!INCLUDE [cosmosdb-tutorial-review-slas](includes/cosmos-db-tutorial-review-slas.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+[!INCLUDE [cosmosdb-delete-resource-group](includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

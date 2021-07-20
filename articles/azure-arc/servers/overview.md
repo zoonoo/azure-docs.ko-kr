@@ -4,12 +4,12 @@ description: Azure Arc 지원 서버를 사용하여 Azure 리소스처럼 Azure
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
 ms.date: 05/26/2021
 ms.topic: overview
-ms.openlocfilehash: 307d09f23c5c1e74e2e4c81d77a3521652598fa4
-ms.sourcegitcommit: e832f58baf0b3a69c2e2781bd8e32d4f1ae932c6
+ms.openlocfilehash: 2cf70cbf20d024d92a3a2025ca6b659ffdd8bffa
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110585497"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294682"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Azure Arc 지원 서버란?
 
@@ -23,7 +23,6 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
 Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리 및 모니터링 작업을 수행할 수 있습니다.
-
 - Azure 가상 머신의 정책 할당과 동일한 환경을 사용하여 [Azure Policy 게스트 구성](../../governance/policy/concepts/guest-configuration.md)을 할당합니다. 오늘날 대부분의 게스트 구성 정책은 구성을 적용하지 않고 머신 내의 설정만 감사합니다. Arc 사용 서버에서 Azure Policy 게스트 구성 정책을 사용하는 비용을 파악하려면 Azure Policy [가격 책정 가이드](https://azure.microsoft.com/pricing/details/azure-policy/)를 참조하세요.
 
 - [서버용 Azure Defender](../../security-center/defender-for-servers-introduction.md)를 사용하도록 설정한 서버의 경우, Azure Automation [변경 내용 추적 및 인벤토리](../../automation/change-tracking/overview.md) 및 [Azure Security Center 파일 무결성 모니터링](../../security-center/security-center-file-integrity-monitoring.md)을 사용하여 모니터링되는 서버에 설치된 소프트웨어, Microsoft 서비스, Windows 레지스트리 및 파일, Linux 디먼에 대한 구성 변경을 보고합니다.
@@ -37,7 +36,9 @@ Azure Arc 지원 서버에 머신을 연결하면 다음과 같은 구성 관리
     > [!NOTE]
     > 지금은 Arc 지원 서버에서 직접 업데이트 관리를 사용하도록 설정할 수 없습니다. 요구 사항과 서버를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Automation 계정에서 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md)을 참조하세요.
 
-- 위협 탐지를 위한 비 Azure 서버를 포함하고 [Azure Security Center](../../security-center/security-center-introduction.md)를 사용하여 잠재적인 보안 위협을 사전에 모니터링합니다.
+- 지능형 위협 탐지를 위한 비 Azure 서버를 포함하고 [Azure Security Center](../../security-center/security-center-introduction.md) 또는 [Azure Defender](../../security-center/azure-defender.md)를 사용하여 잠재적인 보안 위협을 사전에 모니터링합니다.
+
+- 위협 탐지, 취약성 관리 및 잠재적 보안 위협을 사전에 모니터링하는 [Azure Defender](../../security-center/azure-defender.md)를 통해 포함된 [엔드포인트용 Microsoft Defender](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint)를 사용하여 비 Azure 서버를 보호합니다.
 
 하이브리드 머신에서 Log Analytics 작업 영역에 수집되어 저정된 로그 데이터에는 이제 리소스 ID와 같은 머신 관련 속성이 포함되어 있습니다. [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) 로그 액세스를 지원하는 데 사용할 수 있습니다.
 

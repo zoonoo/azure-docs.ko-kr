@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: ce5f1e9a7ab493bf7989a55fccb5ef696433d771
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: 7dae716944426ce21cb81bdbb36992238e4bb227
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110066973"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112298442"
 ---
 # <a name="register-and-scan-teradata-source"></a>Teradata 원본 등록 및 검사
 
@@ -72,11 +72,11 @@ Teradata 원본에 대해 유일하게 지원되는 인증은 **기본 인증** 
 
 1.  관리 센터에서 **통합 런타임** 을 클릭합니다. 자체 호스팅 통합 런타임이 설정되어 있는지 확인합니다. 설정되지 않은 경우 [여기](./manage-integration-runtimes.md)에 언급된 단계를 사용하여 자체 호스팅 통합 런타임을 설정할 수 있습니다.
 
-2.  **소스** 로 이동
+2.  Purview Studio의 왼쪽 창에서 **데이터 맵** 탭을 선택합니다.
 
 3.  등록된 Teradata 원본을 선택합니다.
 
-4.  **+ 새 검사** 선택
+4.  **새 검사** 를 선택합니다.
 
 5.  아래 세부 정보를 제공합니다.
 

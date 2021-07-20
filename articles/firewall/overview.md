@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 04/20/2021
+ms.date: 07/01/2021
 ms.author: victorh
-ms.openlocfilehash: 077de420397f3b8feab60a9f555fc26e66a5b5ff
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: e87953217fe44fedc8d693a40a1f3ae942a06a39
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110539776"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216372"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -52,7 +52,7 @@ Azure Firewall의 새로운 기능을 알아보려면 [Azure 업데이트](https
 
 Azure Firewall의 알려진 문제는 다음과 같습니다.
 
-|문제  |Description  |완화 방법  |
+|문제  |설명  |완화 방법  |
 |---------|---------|---------|
 |TCP/UDP 프로토콜이 아닌 프로토콜(예: ICMP)에 대한 네트워크 필터링 규칙은 인터넷 바운드 트래픽에 작동하지 않습니다.|TCP/UDP 프로토콜이 아닌 프로토콜에 대한 네트워크 필터링 규칙은 공용 IP 주소에 대한 SNAT에 작동하지 않습니다. TCP/UDP 프로토콜이 아닌 프로토콜은 스포크 서브넷과 VNet 간에 지원됩니다.|Azure Firewall은 표준 Load Balancer를 사용하기 때문에 [현재 IP 프로토콜을 위한 SNAT를 지원하지 않습니다](../load-balancer/load-balancer-overview.md). 향후 릴리스에서 이 시나리오를 지원할 수 있는 옵션을 모색하고 있습니다.|
 |ICMP에 대한 PowerShell 및 CLI 지원 누락|Azure PowerShell 및 CLI는 네트워크 규칙에 유효한 프로토콜로 ICMP를 지원하지 않습니다.|여전히 포털 및 REST API를 통해 ICMP를 프로토콜로 사용할 수 있습니다. PowerShell 및 CLI에 ICMP를 조만간 추가하기 위해 노력 중입니다.|
@@ -79,6 +79,8 @@ Azure Firewall의 알려진 문제는 다음과 같습니다.
 |IPv6은 현재 지원되지 않습니다.|규칙에 IPv6 주소를 추가하면 방화벽이 실패합니다.|IPv4 주소만 사용합니다. IPv6 지원은 조사 중에 있습니다.|
 |여러 IP 그룹 업데이트가 충돌 오류로 인해 실패합니다.|동일한 방화벽에 연결된 IP 그룹을 두 개 이상 업데이트하면 리소스 중 하나가 실패한 상태가 됩니다.|이는 알려진 문제/제한 사항입니다. <br><br>IP 그룹을 업데이트하면 IP 그룹이 연결된 모든 방화벽에 대한 업데이트가 트리거됩니다. 방화벽이 여전히 ‘업데이트 중’ 상태에 있는 동안 두 번째 IP 그룹에 대한 업데이트를 시작하면 IP 그룹 업데이트가 실패합니다.<br><br>오류를 방지하려면 동일한 방화벽에 연결된 IP 그룹을 한 번에 하나씩 업데이트해야 합니다. 업데이트 사이에 충분한 시간을 허용하여 방화벽이 *업데이트* 상태를 벗어날 수 있도록 합니다.|
 |ARM 템플릿을 사용한 RuleCollectionGroups 제거는 지원되지 않습니다.|ARM 템플릿을 사용한 RuleCollectionGroup 제거는 지원되지 않으며 실패합니다.|이 작업은 지원되지 않습니다.|
+|*임의*(*) 허용에 대한 DNAT 규칙은 SNAT트래픽을 발생시킵니다.|DNAT 규칙이 원본 IP 주소로 *임의*(*)를 허용하는 경우 암시적 네트워크 규칙은 VNet-VNet 트래픽과 일치하고 항상 SNAT 트래픽을 발생시킵니다.|이 문제가 현재 제한 사항입니다.|
+|보안 공급자가 있는 보안 가상 허브에 DNAT 규칙을 추가하는 것은 지원되지 않습니다.|이로 인해 보안 공급자로 이동하는 DNAT 트래픽을 반환하는 비동기 경로가 생성됩니다.|지원 안 됨|
 
 
 ## <a name="next-steps"></a>다음 단계

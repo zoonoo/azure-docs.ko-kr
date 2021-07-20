@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: stefanazaric
 ms.reviewer: jrasnick
-ms.openlocfilehash: ab08832927aeb969175968b8330b4ab54fc887bf
-ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
+ms.openlocfilehash: 848f5f13218fde513bf48575c2f9bb298521d3ad
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2021
-ms.locfileid: "112071302"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113214752"
 ---
 # <a name="self-help-for-serverless-sql-pool"></a>서버리스 SQL 풀에 대한 자가 진단
 
@@ -41,7 +41,7 @@ Synapse Studio가 서버리스 SQL 풀에 대한 연결을 설정할 수 없는 
 
 ### <a name="query-fails-because-file-cannot-be-opened"></a>파일을 열 수 없어 쿼리가 실패
 
-'파일이 없거나 다른 프로세스에서 사용되고 있어서 파일을 열 수 없습니다.'라는 내용의 오류 메시지와 함께 쿼리가 실패하고, 두 파일이 모두 존재하며 다른 프로세스에서 사용되고 있지 않다는 것이 확실한 경우에는 서버리스 SQL 풀이 파일에 액세스할 수 없다는 의미입니다. 이 문제는 일반적으로 Azure Active Directory ID가 파일에 액세스할 수 있는 권한이 없기 때문에 발생합니다. 기본적으로 서버리스 SQL 풀은 Azure Active Directory ID를 사용하여 파일에 액세스하려고 시도합니다. 이 이슈를 해결하려면 파일에 액세스할 수 있는 적절한 권한이 있어야 합니다. 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
+'파일이 없거나 다른 프로세스에서 사용되고 있어서 파일을 열 수 없습니다.'라는 내용의 오류 메시지와 함께 쿼리가 실패하고, 두 파일이 모두 존재하며 다른 프로세스에서 사용되고 있지 않다는 것이 확실한 경우에는 서버리스 SQL 풀이 파일에 액세스할 수 없다는 의미입니다. 이 문제는 일반적으로 Azure Active Directory ID에 파일에 대한 액세스 권한이 없거나 방화벽이 파일에 대한 액세스를 차단하고 있기 때문에 발생합니다. 기본적으로 서버리스 SQL 풀은 Azure Active Directory ID를 사용하여 파일에 액세스하려고 시도합니다. 이 이슈를 해결하려면 파일에 액세스할 수 있는 적절한 권한이 있어야 합니다. 가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
 - [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/common/storage-auth-aad-rbac-portal.md). 
 - [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
 
@@ -438,7 +438,7 @@ CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat]
 WITH ( FORMAT_TYPE = PARQUET)
 ```
 
-### <a name="operation-operation-name-is-not-allowed-for-a-replicated-database"></a>[[작업 이름]] 작업은 복제된 데이터베이스에 대해 허용되지 않습니다.
+### <a name="operation-is-not-allowed-for-a-replicated-database"></a>복제된 데이터베이스에는 작업이 허용되지 않습니다.
    
 데이터베이스에서 SQL 개체, 사용자 또는 변경 권한을 만들려는 경우 'CREATE USER 작업은 복제된 데이터베이스에 대해 허용되지 않습니다.'와 같은 오류가 발생할 수 있습니다. 이 오류는 [Spark 풀과 공유](../metadata/database.md)되는 데이터베이스에서 개체를 만들려고 하면 반환됩니다. Apache Spark 풀에서 복제되는 데이터베이스는 읽기 전용입니다. T-SQL을 사용하여 복제된 데이터베이스에 새 개체를 만들 수는 없습니다.
 
@@ -464,6 +464,14 @@ Synapse SQL 다음과 같은 경우 트랜잭션 저장소에 표시되는 값 �
 
 `WITH` 절에 지정된 값이 분석 스토리지의 기본 Cosmos DB 형식과 일치하지 않아 암시적으로 변환할 수 없습니다. 스키마에서 `VARCHAR` 형식을 사용합니다.
 
+### <a name="performance-issues"></a>성능 문제
+
+예기치 않은 성능 문제가 발생하는 경우 다음과 같은 모범 사례를 적용했는지 확인합니다.
+- 클라이언트 애플리케이션, 서버리스 풀 및 Cosmos DB 분석 스토리지를 [동일한 지역](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool)에 배치했는지 확인합니다.
+- [최적 데이터 형식](best-practices-serverless-sql-pool.md#use-appropriate-data-types)으로 `WITH` 절을 사용하고 있는지 확인합니다.
+- 문자열 조건자를 사용하여 데이터를 필터링할 때 [Latin1_General_100_BIN2_UTF8](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) 데이터 정렬을 사용하고 있는지 확인합니다.
+- 캐시될 수 있는 반복 쿼리가 있는 경우 [Azure Data Lake Storage에 쿼리 결과를 저장하는 CETAS](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins)를 사용해 보세요.
+
 ## <a name="delta-lake"></a>Delta Lake
 
 Delta Lake 지원은 현재 서버리스 SQL 풀에서 퍼블릭 미리 보기로 제공됩니다. 미리 보기 중에 나타날 수 있는 몇 가지 알려진 문제가 있습니다.
@@ -471,10 +479,9 @@ Delta Lake 지원은 현재 서버리스 SQL 풀에서 퍼블릭 미리 보기�
   - 루트 폴더에는 `_delta_log`라는 하위 폴더가 있어야 합니다. `_delta_log` 폴더가 없으면 쿼리가 실패합니다. 해당 폴더가 표시되지 않으면 Apache Spark 풀을 사용하여 [Delta Lake로 변환](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta)해야 하는 일반 Parquet 파일을 참조하는 것입니다.
   - 파티션 스키마를 설명하는 와일드카드를 지정하지 마세요. Delta Lake 쿼리는 Delta Lake 파티션을 자동으로 식별합니다. 
 - Apache Spark 풀에서 만든 Delta Lake 테이블은 서버리스 SQL 풀에서 동기화되지 않습니다. T-SQL 언어를 사용하여 Apache Spark 풀에서 Delta Lake 테이블을 쿼리할 수 없습니다.
-- 외부 테이블은 분할을 지원하지 않습니다. Delta Lake 폴더에서 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)를 사용하여 파티션 제거를 활용합니다.
-  - Delta Lake의 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)에는 `OPENROWSET` 절이 있는 `WITH` 함수가 없어야 합니다. 미리 보기의 알려진 문제로 인해 스키마 유추를 사용하고 `WITH` 절을 제거해야 합니다.
-- 서버리스 SQL 풀은 시간 이동 쿼리 또는 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)하거나 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
-- 서버리스 SQL 풀은 `null` 또는 빈 값을 포함하는 파티션이 있는 Delta Lake 데이터 세트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 읽어야 하는 경우 데이터 세트에서 `null` 또는 빈 값을 업데이트합니다.
+- 외부 테이블은 분할을 지원하지 않습니다. Delta Lake 폴더에서 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)를 사용하여 파티션 제거를 활용합니다. 아래에서 알려진 문제 및 해결 방법을 참조하세요.
+- 서버리스 SQL 풀은 시간 이동 쿼리를 지원하지 않습니다. [Azure 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake)에서 이 기능에 대해 투표할 수 있습니다.
+- 서버리스 SQL 풀은 Delta Lake 파일 업데이트를 지원하지 않습니다. 서버리스 SQL 풀을 사용하여 최신 버전의 Delta Lake를 쿼리할 수 있습니다. Azure Synapse Analytics에서 Apache Spark 풀을 사용하여 [Delta Lake를 업데이트](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data)하거나 [기록 데이터를 읽습니다](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Delta Lake 지원은 전용 SQL 풀에서 사용할 수 없습니다. 서버리스 풀을 사용하여 Delta Lake 파일을 쿼리하고 있는지 확인합니다.
 
 [Azure Synapse 피드백 사이트](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048)에서 아이디어와 향상된 기능을 제안할 수 있습니다.
@@ -488,7 +495,28 @@ Msg 13807, Level 16, State 1, Line 6
 Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
 ```
 
-`_delta_log` 폴더가 있는지 확인합니다(Delta Lake 형식으로 변환되지 않은 일반 Parquet 파일을 쿼리하고 있을 수 있음). `_delta_log` 폴더가 있는 경우 기본 Delta Lake 폴더에 대한 읽기 및 나열 권한이 둘 다 있는지 확인합니다.
+`_delta_log` 폴더가 있는지 확인합니다(Delta Lake 형식으로 변환되지 않은 일반 Parquet 파일을 쿼리하고 있을 수 있음).
+
+`_delta_log` 폴더가 있는 경우 기본 Delta Lake 폴더에 대한 읽기 및 나열 권한이 둘 다 있는지 확인합니다.
+FORMAT='CSV'를 사용하여 직접 \*.json 파일을 읽어 보세요(BULK 매개 변수에 URI 배치).
+
+```sql
+select top 10 * 
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
+FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
+```
+
+이 쿼리가 실패하면 호출자는 기본 스토리지 파일을 읽을 수 있는 권한이 없습니다. 
+
+가장 쉬운 방법은 쿼리하려는 스토리지 계정에 대한 'Storage Blob 데이터 기여자' 역할을 자신에게 부여하는 것입니다. 
+- [자세한 내용은 스토리지에 대한 Azure Active Directory 액세스 제어 전체 가이드를 참조하세요](../../storage/common/storage-auth-aad-rbac-portal.md). 
+- [Azure Synapse Analytics에서 서버리스 SQL 풀에 대한 스토리지 계정 액세스 제어 방문](develop-storage-files-storage-access-control.md)
+
+### <a name="partitioning-column-returns-null-values"></a>분할 열이 NULL 값을 반환합니다.
+
+분할된 Delta Lake 폴더를 읽는 `OPENROWSET` 함수에 대한 보기를 사용하는 경우 분할 열에 대한 실제 열 값 대신 `NULL` 값을 가져올 수 있습니다. 알려진 문제로 인해 `WITH` 절이 있는 `OPENROWSET` 함수는 분할 열을 읽을 수 없습니다. Delta Lake의 [분할된 뷰](create-use-views.md#delta-lake-partitioned-views)에는 `OPENROWSET` 절이 있는 `WITH` 함수가 없어야 합니다. 명시적으로 지정된 스키마가 없는 `OPENROWSET` 함수를 사용해야 합니다.
+
+**해결 방법:** 보기에 사용되는 `OPENROWSET` 함수에서 `WITH` 절을 제거합니다.
 
 ### <a name="query-failed-because-of-a-topology-change-or-compute-container-failure"></a>토폴로지 변경 또는 컴퓨팅 컨테이너 오류로 인해 쿼리 실패
 
@@ -499,19 +527,42 @@ CREATE DATABASE mydb
     COLLATE Latin1_General_100_BIN2_UTF8;
 ```
 
+master 데이터베이스를 통해 실행되는 쿼리는 이 문제의 영향을 받습니다.
+
+**해결 방법:** `Latin1_General_100_BIN2_UTF8` 데이터베이스 데이터 정렬을 통해 사용자 지정 데이터베이스에서 쿼리를 실행합니다.
+
 ### <a name="column-of-type-varchar-is-not-compatible-with-external-data-type-parquet-column-is-of-nested-type"></a>'VARCHAR' 형식의 열은 외부 데이터 형식과 호환되지 않음 'Parquet 열이 중첩 형식임'
 
-WITH 절을 지정하지 않고 일부 중첩 형식 열이 포함된 Delta Lake 파일을 읽으려고 합니다(자동 스키마 유추 사용). 자동 스키마 유추는 Delta Lake의 중첩 열에서 작동하지 않습니다. `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다.
+WITH 절을 지정하지 않고 일부 중첩 형식 열이 포함된 Delta Lake 파일을 읽으려고 합니다(자동 스키마 유추 사용). 자동 스키마 유추는 Delta Lake의 중첩 열에서 작동하지 않습니다.
+
+**해결 방법:** `WITH` 절을 사용하고 `VARCHAR` 형식을 중첩 열에 명시적으로 할당합니다.
 
 ### <a name="cannot-find-value-of-partitioning-column-in-file"></a>파일에서 분할 열 값을 찾을 수 없음 
 
-Delta Lake 데이터 세트는 분할 열에 `NULL` 값이 있을 수 있습니다. 이것은 현재 서버리스 SQL 풀에서 지원되지 않습니다. 이 경우 다음과 같은 오류가 발생합니다.
+Delta Lake 데이터 세트는 분할 열에 `NULL` 값이 있을 수 있습니다. 이러한 파티션은 `HIVE_DEFAULT_PARTITION` 폴더에 저장됩니다. 이것은 현재 서버리스 SQL 풀에서 지원되지 않습니다. 이 경우 다음과 같은 오류가 발생합니다.
 
 ```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error: Cannot find value of partitioning column '<column name>' in file 'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
+Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
+Cannot find value of partitioning column '<column name>' in file 
+'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
 ```
 
-Apache Spark 풀을 사용하여 Delta Lake 데이터 세트를 업데이트하고 분할 열에 `null` 대신 일부 값(빈 문자열 또는 `"null"`)을 사용합니다.
+**해결 방법:** Apache Spark 풀을 사용하여 Delta Lake 데이터 세트를 업데이트하고 분할 열에 `null` 대신 일부 값(빈 문자열 또는 `"null"`)을 사용합니다.
+
+## <a name="constraints"></a>제약 조건
+
+워크로드에 영향을 줄 수 있는 몇 가지 일반적인 시스템 제약 조건이 있습니다.
+
+| 속성 | 제한 사항 |
+|---|---|
+| 구독당 Synapse 작업 영역의 최대 수 | 20 |
+| 서버리스 풀당 최대 데이터베이스 수 | 20(Apache Spark 풀에서 동기화된 데이터베이스 제외) |
+| Apache Spark 풀에서 동기화된 최대 데이터베이스 수 | 제한 없음 |
+| 데이터베이스당 최대 데이터베이스 개체 수 | 데이터베이스에 있는 모든 개체 수의 합계는 2,147,483,647을 초과할 수 없습니다([SQL Server 데이터베이스 엔진의 제한 사항](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) 참조). |
+| 최대 식별자 길이(문자 수) | 128([SQL Server 데이터베이스 엔진의 제한 사항](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) 참조)|
+| 최대 쿼리 기간 | 30분 |
+| 결과 집합의 최대 크기 | 80GB(현재 실행 중인 모든 동시 쿼리 간에 공유) |
+| 최대 동시성 | 제한되지 않으며 쿼리 복잡성 및 검색된 데이터의 양에 따라 달라집니다. 하나의 서버리스 SQL 풀은 간단한 쿼리를 실행하는 1000개의 활성 세션을 동시에 처리할 수 있지만 쿼리가 더 복잡하거나 더 많은 양의 데이터를 검색하면 숫자가 줄어듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: e357fff89758f7a57e839e7dcfb94854a2e51676
-  ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+  ms.openlocfilehash: 882385ee68f987cf1ddfc5bb80ce2b6fc21fe6e1
+  ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/09/2021
-  ms.locfileid: "102509458"
+  ms.lasthandoff: 06/29/2021
+  ms.locfileid: "113005855"
 landingContent:
 - title: Custom Vision 정보
   linkLists:
@@ -76,6 +76,8 @@ landingContent:
     links:
     - text: 모바일로 모델 내보내기
       url: export-your-model.md
+    - text: 프로그래밍 방식으로 모델 내보내기
+      url: export-programmatically.md
     - text: Windows ML를 사용한 ONNX 모델 사용
       url: custom-vision-onnx-windows-ml.md
     - text: Python에서 TensorFlow 모델 실행

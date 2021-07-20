@@ -1,6 +1,6 @@
 ---
 title: .NET을 사용한 Application Insights 로깅
-description: .NET에서 ILogger 인터페이스와 함께 Application Insights 사용하는 방법을 알아봅니다.
+description: .NET에서 ILogger 인터페이스와 함께 Application Insights를 사용하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 05/20/2021
 ms.reviewer: mbullwin
@@ -13,7 +13,7 @@ ms.locfileid: "110461520"
 ---
 # <a name="application-insights-logging-with-net"></a>.NET을 사용한 Application Insights 로깅
 
-이 문서에서는 여러 NuGet 패키지를 사용하여.NET 앱에서 Application Insights 사용하여 로그를 캡처하는 방법을 알아봅니다.
+이 문서에서는 여러 NuGet 패키지를 사용하여 .NET 앱에서 Application Insights를 사용하여 로그를 캡처하는 방법을 알아봅니다.
 
 - **코어 패키지:**
   - [`Microsoft.Extensions.Logging.ApplicationInsights`][nuget-ai]
@@ -27,15 +27,15 @@ ms.locfileid: "110461520"
 [nuget-ai-ws-tc]: https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel
 
 > [!TIP]
-> [`Microsoft.ApplicationInsights.WorkerService`][nuget-ai-ws] NuGet 패키지는이 문서의 범위를 벗어납니다. 백그라운드 서비스에 대해 Application Insights 사용하도록 설정하는 데 사용할 수 있습니다. 자세한 내용은 [작업자 서비스 앱에 대한 Application Insights](./worker-service.md)를 참조하세요.
+> [`Microsoft.ApplicationInsights.WorkerService`][nuget-ai-ws] NuGet 패키지는 이 문서의 범위를 벗어납니다. 이를 통해 Application Insights를 백그라운드 서비스에 대해 사용하도록 설정할 수 있습니다. 자세한 내용은 [작업자 서비스 앱에 대한 Application Insights](./worker-service.md)를 참조하세요.
 
-사용하는 Application Insights 로깅 패키지에 따라 `ApplicationInsightsLoggerProvider`를 등록 하는 다양한 방법이 있습니다. `ApplicationInsightsLoggerProvider`은 <xref:Microsoft.Extensions.Logging.ILogger> 및 <xref:Microsoft.Extensions.Logging.ILogger%601> 구현을 제공하는 <xref:Microsoft.Extensions.Logging.ILoggerProvider>의 구현입니다.
+사용하는 Application Insights 로깅 패키지에 따라 `ApplicationInsightsLoggerProvider`를 등록하는 다양한 방법이 있습니다. `ApplicationInsightsLoggerProvider`는 <xref:Microsoft.Extensions.Logging.ILogger> 및 <xref:Microsoft.Extensions.Logging.ILogger%601> 구현 제공을 담당하는 <xref:Microsoft.Extensions.Logging.ILoggerProvider>의 구현입니다.
 
 ## <a name="aspnet-core-applications"></a>ASP.NET Core 애플리케이션
 
-Application Insights 원격 분석을 ASP.NET Core 애플리케이션에 추가하려면 `Microsoft.ApplicationInsights.AspNetCore` NuGet 패키지를 사용합니다. 이는 [Visual Studio as a Connected service](/visualstudio/azure/azure-app-insights-add-connected-service)에서 구성하거나 수동으로 구성할 수 있습니다.
+Application Insights 원격 분석을 ASP.NET Core 애플리케이션에 추가하려면 `Microsoft.ApplicationInsights.AspNetCore` NuGet 패키지를 사용합니다. 이는 [연결된 서비스로서의 Visual Studio](/visualstudio/azure/azure-app-insights-add-connected-service)로 구성하거나 수동으로 구성할 수 있습니다.
 
-기본적으로 ASP.NET Core 애플리케이션에는 [코드](./asp-net-core.md) 또는 [코드없는](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) 접근 방식을 사용하여 구성할 때 등록된 Application Insights 로깅 공급자가 있습니다. 등록된 제공자는 심각도가 <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> 이상인 로그 이벤트를 자동으로 캡처하도록 구성됩니다. 심각도 및 범주를 사용자 지정할 수 있습니다. 자세한 내용은 [로깅 수준 제어](#control-logging-level)를 참조하세요.
+기본적으로 ASP.NET Core 애플리케이션은 [코드](./asp-net-core.md) 방식 또는 [코드 없는](./azure-web-apps.md?tabs=netcore#enable-agent-based-monitoring) 방식을 사용하여 구성할 때 Application Insights 로깅 공급자를 등록합니다. 등록된 공급자는 심각도가 <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> 이상인 로그 이벤트를 자동으로 캡처하도록 구성됩니다. 심각도 및 범주를 사용자 지정할 수 있습니다. 자세한 내용은 [로깅 수준 제어](#control-logging-level)를 참조하세요.
 
 1. NuGet 패키지가 설치되었는지 확인합니다.
 
@@ -45,7 +45,7 @@ Application Insights 원격 분석을 ASP.NET Core 애플리케이션에 추가�
     </ItemGroup>
    ```
 
-1. `Startup.ConfigureServices` 메소드가 `services.AddApplicationInsightsTelemetry`를 호출하는지 확인합니다.
+1. `Startup.ConfigureServices` 메서드가 `services.AddApplicationInsightsTelemetry`를 호출하는지 확인합니다.
 
     ```csharp
     using Microsoft.AspNetCore.Builder;
@@ -83,7 +83,7 @@ Application Insights 원격 분석을 ASP.NET Core 애플리케이션에 추가�
     }
     ```
 
-NuGet 패키지가 설치되고 공급자가 종속성 주입에 등록되면 앱을 기록 할 준비가 된 것입니다. 생성자 주입을 사용하려면 <xref:Microsoft.Extensions.Logging.ILogger> 또는 일반 유형 대체 <xref:Microsoft.Extensions.Logging.ILogger%601>가 필요합니다. 이러한 구현이 해결되면 `ApplicationInsightsLoggerProvider`에서이를 제공합니다. 기록된 메시지 또는 예외는 Application Insights 전송됩니다. 다음 컨트롤러 예를 고려해 보겠습니다.
+NuGet 패키지가 설치되고 공급자가 종속성 주입에 등록되면 앱이 기록할 준비가 된 것입니다. 생성자 주입을 사용하려면 <xref:Microsoft.Extensions.Logging.ILogger> 또는 일반 유형 대체 <xref:Microsoft.Extensions.Logging.ILogger%601>가 필요합니다. 이러한 구현이 해결되면 `ApplicationInsightsLoggerProvider`에서 이를 제공합니다. 로깅된 메시지 또는 예외는 Application Insights로 전송됩니다. 다음 컨트롤러 예를 고려해 보겠습니다.
 
 ```csharp
 public class ValuesController : ControllerBase
@@ -110,15 +110,15 @@ public class ValuesController : ControllerBase
 
 ### <a name="capture-logs-within-aspnet-core-startup-code"></a>ASP.NET Core 시작 코드 내에서 로그 캡처
 
-일부 시나리오에서는 요청-응답 파이프라인이 요청을 받을 준비가 되기 전에 앱 시작 루틴의 일부로 로그를 캡처해야 합니다. 그러나 *Program.cs* 및 *Startup.cs* 의 종속성 주입에서 `ILogger` 구현을 쉽게 사용할 수 없습니다. 자세한 내용은 [.NET 로그인: `Main`](/dotnet/core/extensions/logging?tabs=command-line#create-logs-in-main)에서 로그 만들기를 참조하세요.
+일부 시나리오에서는 요청-응답 파이프라인이 요청을 받을 준비가 되기 전에 앱 시작 루틴의 일부로 로그를 캡처해야 합니다. 그러나 *Program.cs* 및 *Startup.cs* 의 종속성 주입에서 `ILogger` 구현을 쉽게 사용할 수 없습니다. 자세한 내용은 [.NET 로그인: `Main`에서 로그 만들기](/dotnet/core/extensions/logging?tabs=command-line#create-logs-in-main)를 참조하세요.
 
-*Program.cs* 및 *Startup.cs* 에서 로깅할 때 적용 가능한 몇가지 제한 사항은 다음과 같습니다.
+*Program.cs* 및 *Startup.cs* 에서 로깅할 때 적용 가능한 몇 가지 제한 사항은 다음과 같습니다.
 
-* Telemetry는 [InMemoryChannel](./telemetry-channels.md) 원격 분석 채널을 사용하여 전송됩니다.
+* 원격 분석은 [InMemoryChannel](./telemetry-channels.md) 원격 분석 채널을 사용하여 전송됩니다.
 * 원격 분석에는 [샘플링](./sampling.md)이 적용되지 않습니다.
-* 표준 [텔레 메 트리 이니셜 라이저 또는 프로세서](./api-filtering-sampling.md)를 사용할 수 없습니다.
+* 표준 [원격 분석 이니셜라이저 또는 프로세서](./api-filtering-sampling.md)를 사용할 수 없습니다.
 
-다음 예는 *Program.cs* 및 *Startup.cs* 를 명시 적으로 인스턴스화하고 구성하여이를 보여 줍니다.
+다음 예에서는 *Program.cs* 및 *Startup.cs* 를 명시적으로 인스턴스화하고 구성하여 이를 보여 줍니다.
 
 #### <a name="example-programcs"></a>예제 Program.cs
 
@@ -170,7 +170,7 @@ namespace WebApplication
 }
 ```
 
-앞의 코드에서 `ApplicationInsightsLoggerProvider`는 `"APPINSIGHTS_CONNECTIONSTRING"` 연결 문자열로 구성되고 로그 수준을 <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>로 설정하는 필터가 적용됩니다.
+앞의 코드에서 `ApplicationInsightsLoggerProvider`는 `"APPINSIGHTS_CONNECTIONSTRING"` 연결 문자열로 구성되고 로그 수준을 <xref:Microsoft.Extensions.Logging.LogLevel.Trace?displayProperty=nameWithType>으로 설정하는 필터가 적용됩니다.
 
 > [!IMPORTANT]
 > 계측 키보다 [연결 문자열](./sdk-connection-string.md?tabs=net)이 권장됩니다. 새 Azure 지역에서는 계측 키 대신 연결 문자열을 **사용해야 합니다**. 연결 문자열은 원격 분석 데이터를 연결할 리소스를 식별합니다. 또한 리소스가 원격 분석의 대상으로 사용할 엔드포인트를 수정할 수 있습니다. 연결 문자열을 복사하여 애플리케이션의 코드 또는 환경 변수에 추가해야 합니다.
@@ -287,7 +287,7 @@ namespace ConsoleApp
 
 ```
 
-앞의 예에서는 `Microsoft.Extensions.Logging.ApplicationInsights` 패키지가 사용됩니다. 기본적으로 이 구성은 Application Insights에 데이터를 전송하기 위해 "최저" `TelemetryConfiguration`을 사용합니다. Bare minimum은 `InMemoryChannel`이 사용되는 채널임을 의미합니다. 샘플링도없고 표준 `TelemetryInitializer`도 없습니다. 아래 예제와 같이 콘솔 애플리케이션의 경우 이 동작을 재정의할 수 있습니다.
+앞의 예에서는 `Microsoft.Extensions.Logging.ApplicationInsights` 패키지가 사용됩니다. 기본적으로 이 구성은 Application Insights에 데이터를 전송하기 위해 "최소 기본 사항(bare minimum)" `TelemetryConfiguration`을 사용합니다. 최소 기본 사항은 `InMemoryChannel`이 사용되는 채널임을 의미합니다. 샘플링도 없고 표준 `TelemetryInitializer`도 없습니다. 아래 예제와 같이 콘솔 애플리케이션의 경우 이 동작을 재정의할 수 있습니다.
 
 다음 추가 패키지를 설치합니다.
 
@@ -295,7 +295,7 @@ namespace ConsoleApp
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.17.0" />
 ```
 
-다음 섹션에서는 <xref:Microsoft.Extensions.Options.ConfigureOptions%601.Configure(%600)> 메소드를 사용하여 기본값 `TelemetryConfiguration`을 대체하는 방법을 보여 줍니다. 이 예제에서는 `ServerTelemetryChannel`과 샘플링을 설정합니다. 그리고, 사용자 지정 ITelemetryInitializer를 TelemetryConfiguration에 추가합니다.
+다음 섹션에서는 <xref:Microsoft.Extensions.Options.ConfigureOptions%601.Configure(%600)> 메서드를 사용하여 기본값 `TelemetryConfiguration`을 재정의하는 방법을 보여 줍니다. 이 예제에서는 `ServerTelemetryChannel`과 샘플링을 설정합니다. 그리고, 사용자 지정 ITelemetryInitializer를 TelemetryConfiguration에 추가합니다.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;
@@ -361,7 +361,7 @@ namespace ConsoleApp
 
 ### <a name="create-filter-rules-in-configuration-with-appsettingsjson"></a>appsettings.json을 사용하여 구성에서 필터 규칙 만들기
 
-`ApplicationInsightsLoggerProvider`의 별칭은 "ApplicationInsights"입니다. *appsettings.json* 의 다음 섹션은 Application Insights의 기본 <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> 로그 수준을 재정 의하여 수준 <xref:Microsoft.Extensions.Logging.LogLevel.Error?displayProperty=nameWithType> 이상에서 "Microsoft"로 시작하는 범주를 기록 합니다.
+`ApplicationInsightsLoggerProvider`의 별칭이 "ApplicationInsights"로 지정됩니다. *appsettings.json* 의 다음 섹션은 Application Insights의 기본 <xref:Microsoft.Extensions.Logging.LogLevel.Warning?displayProperty=nameWithType> 로그 수준을 재정의하여 수준 <xref:Microsoft.Extensions.Logging.LogLevel.Error?displayProperty=nameWithType> 이상에서 "Microsoft"로 시작하는 범주를 로깅합니다.
 
 ```json
 {
@@ -396,7 +396,7 @@ Host.CreateDefaultBuilder(args)
 
 ## <a name="logging-scopes"></a>로깅 범위
 
-`ApplicationInsightsLoggingProvider`는 [로그 범위](/dotnet/core/extensions/logging#log-scopes)를 지원하고, 범위는 기본적으로 사용하도록 설정되어 있습니다. 범위가 `IReadOnlyCollection<KeyValuePair<string,object>>` 형식이면 컬렉션의 각 키-값 쌍이 애플리케이션 인사이트 원격 분석에 사용자 지정 속성으로 추가됩니다. 아래 예에서는 로그가 `TraceTelemetry`로 캡처되고 로그의 속성에 `("MyKey", "MyValue")`가 포함됩니다.
+`ApplicationInsightsLoggingProvider`는 [로그 범위](/dotnet/core/extensions/logging#log-scopes)를 지원하고, 범위는 기본적으로 사용하도록 설정되어 있습니다. 범위가 `IReadOnlyCollection<KeyValuePair<string,object>>` 형식이면 컬렉션의 각 키-값 쌍이 Application Insights 원격 분석에 사용자 지정 속성으로 추가됩니다. 아래 예에서는 로그가 `TraceTelemetry`로 캡처되고 로그의 속성에 `("MyKey", "MyValue")`가 포함됩니다.
 
 ```csharp
 using (_logger.BeginScope(new Dictionary<string, object> { ["MyKey"] = "MyValue" }))
@@ -498,13 +498,13 @@ public class MyController : ApiController
 ```
 
 > [!NOTE]
-> `Microsoft.ApplicationInsights.AspNetCore` 패키지를 사용하여 Application Insights를 사용하는 경우 생성자에서 직접 `TelemetryClient`을 가져오도록이 코드를 수정합니다. 예제는 [이 FAQ](./asp-net-core.md#frequently-asked-questions)를 참조하세요.
+> `Microsoft.ApplicationInsights.AspNetCore` 패키지를 사용하여 Application Insights를 사용하도록 설정하는 경우 생성자에서 직접 `TelemetryClient`를 가져오도록 이 코드를 수정합니다. 예제는 [이 FAQ](./asp-net-core.md#frequently-asked-questions)를 참조하세요.
 
 ### <a name="what-application-insights-telemetry-type-is-produced-from-ilogger-logs-or-where-can-i-see-ilogger-logs-in-application-insights"></a>ILogger 로그에서는 어떤 Application Insights 원격 분석 유형을 생성하나요? 또는 Application Insights의 어디에서 ILogger 로그를 볼 수 있나요?
 
 ApplicationInsightsLoggerProvider는 ILogger 로그를 캡처하여 해당 로그에서 TraceTelemetry를 만듭니다. 예외 개체가 `ILogger`의 `Log` 메서드에 전달되는 경우 TraceTelemetry 대신 *ExceptionTelemetry* 가 생성됩니다. 이러한 원격 분석 항목은 포털, 분석 또는 Visual Studio 로컬 디버거를 비롯하여 Application Insights의 다른 TraceTelemetry 또는 ExceptionTelemetry와 동일한 위치에서 찾을 수 있습니다.
 
-항상 `TraceTelemetry`을 보내려면 다음 스 니펫을 사용하세요.
+항상 `TraceTelemetry`를 보내려면 다음 코드 조각을 사용합니다.
 
 ```csharp
 builder.AddApplicationInsights(

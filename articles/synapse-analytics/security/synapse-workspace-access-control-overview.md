@@ -1,5 +1,5 @@
 ---
-title: Synapse 작업 영역 액세스 제어 개요
+title: Azure Synapse 작업 영역 액세스 제어 개요
 description: 이 문서에서는 Synapse 작업 영역에 대한 액세스를 제어하는 데 사용되는 메커니즘과 그 안에 포함된 리소스 및 코드 아티팩트에 대해 설명합니다.
 services: synapse-analytics
 author: RonyMSFT
@@ -9,26 +9,26 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 20614b1c397bdf24e807d48d3de33f0033da14bc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 574211bc426d97c5bd734dcf348b66ecce1b3ff8
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100105116"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217812"
 ---
-# <a name="synapse-access-control"></a>Synapse 액세스 제어 
+# <a name="azure-synapse-access-control"></a>Azure Synapse 액세스 제어 
 
-이 문서에서는 Synapse 컴퓨팅 리소스 및 데이터에 대한 액세스를 제어하는 데 사용할 수 있는 메커니즘의 개요를 제공합니다.  
+이 문서에서는 Azure Synapse 컴퓨팅 리소스 및 데이터에 대한 액세스를 제어하는 데 사용할 수 있는 메커니즘의 개요를 제공합니다.  
 
 ## <a name="overview"></a>개요
 
-Synapse는 다음을 통합하는 포괄적이고 세분화된 액세스 제어 시스템을 제공합니다. 
+Azure Synapse는 다음을 통합하는 포괄적이고 세분화된 액세스 제어 시스템을 제공합니다. 
 - **Azure 역할** - 리소스 관리 및 스토리지의 데이터 액세스에 사용 
 - **Synapse 역할** - 코드 및 실행에 대한 라이브 액세스 관리 
 - **SQL 역할** - SQL 풀의 데이터에 대한 데이터 평면 액세스 
 - **Git 권한** - 연속 통합 및 배포 지원을 포함한 원본 코드 제어  
 
-Synapse 역할은 여러 범위에서 적용할 수 있는 권한 세트를 제공합니다. 이처럼 세밀한 적용이 가능하므로 관리자, 개발자, 보안 담당자 및 운영자에게 리소스와 데이터를 컴퓨팅하는 데 꼭 필요한 액세스 권한을 간편하게 부여할 수 있습니다.
+Azure Synapse 역할은 여러 범위에서 적용할 수 있는 권한 세트를 제공합니다. 이처럼 세밀한 적용이 가능하므로 관리자, 개발자, 보안 담당자 및 운영자에게 리소스와 데이터를 컴퓨팅하는 데 꼭 필요한 액세스 권한을 간편하게 부여할 수 있습니다.
 
 사용자의 작업 역할에 맞는 보안 그룹을 사용하면 액세스 제어를 단순화할 수 있습니다. 적절한 보안 그룹의 사용자를 추가하고 제거하는 간단한 방법으로 액세스를 관리할 수 있습니다.
 

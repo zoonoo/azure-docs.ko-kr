@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41d7d45fd11f2dc26fc50182a7649b23cd21196
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 203ea5bb372c3afc77eb62508d1c95dc5f00bb4b
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103008759"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108315726"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>셀프 서비스 등록에 사용자 지정 승인 워크플로 추가
 
@@ -28,7 +28,7 @@ ms.locfileid: "103008759"
 - 수동 검토를 트리거합니다. 요청이 승인되면 승인 시스템은 Microsoft Graph를 사용하여 사용자 계정을 프로비전합니다. 승인 시스템은 사용자에게 계정이 생성되었음을 알릴 수도 있습니다.
 
 > [!IMPORTANT]
->**2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
+> **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>승인 시스템용 애플리케이션 등록
 
@@ -319,13 +319,13 @@ Content-type: application/json
 
 | 매개 변수                                           | 필수 | Description                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | 예      | API에 전송된 `email` 클레임을 사용하여 생성하고, `@` 문자를 `_`로 바꾸고 `#EXT@<tenant-name>.onmicrosoft.com`으로 미리 보류할 수 있습니다. |
-| accountEnabled                                      | 예      | `true`로 설정해야 합니다.                                                                                                                                                 |
-| mail                                                | 예      | API로 전송된 `email` 클레임에 해당합니다.                                                                                                               |
+| userPrincipalName                                   | Yes      | API에 전송된 `email` 클레임을 사용하여 생성하고, `@` 문자를 `_`로 바꾸고 `#EXT@<tenant-name>.onmicrosoft.com`으로 미리 보류할 수 있습니다. |
+| accountEnabled                                      | Yes      | `true`로 설정해야 합니다.                                                                                                                                                 |
+| mail                                                | Yes      | API로 전송된 `email` 클레임에 해당합니다.                                                                                                               |
 | userType                                            | 예      | `Guest`이어야 합니다. 이 사용자를 게스트 사용자로 지정합니다.                                                                                                                 |
-| ID                                          | 예      | 페더레이션된 ID 정보입니다.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | 예       | `displayName`, `city` 및 기타와 같은 기타 기본 제공 특성 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | 예       | 사용자에 대한 사용자 지정 특성입니다. 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                                                            |
+| ID                                          | Yes      | 페더레이션된 ID 정보입니다.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | 아니요       | `displayName`, `city` 및 기타와 같은 기타 기본 제공 특성 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | 아니요       | 사용자에 대한 사용자 지정 특성입니다. 매개 변수 이름은 API 커넥터에서 보낸 매개 변수와 같습니다.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>페더레이션된 Azure Active Directory 사용자 또는 Microsoft 계정 사용자
 

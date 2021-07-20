@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9ccc192bb5cf4c5e183e21add8e73d9e096d281c
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: bb40c4bdcdc61cfa3d82ea5313a1c6b084bb1514
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108136016"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113110677"
 ---
 # <a name="region-availability-and-data-residency"></a>지역 가용성 및 데이터 상주
 
@@ -21,7 +21,7 @@ Azure Communication Services는 개인 정보 및 개인 데이터 요구 사항
 
 ## <a name="data-residency"></a>데이터 상주
 
-Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 데이터는 다른 지역에서 전송되거나 처리될 수 있습니다. 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
+Communication Services 리소스를 만들 때 **지역**(Azure 데이터 센터가 아님)을 지정합니다. Communication Services에서 저장한 휴지 상태의 모든 채팅 메시지 및 리소스 데이터는 Communication Services에서 내부적으로 선택한 데이터 센터의 해당 지역에 보존됩니다. 데이터는 다른 지역에서 전송되거나 처리될 수 있습니다. 이러한 글로벌 엔드포인트는 위치에 관계없이 최종 사용자에게 대기 시간이 짧은 고성능 환경을 제공하는 데 필요합니다.
 
 ## <a name="data-residency-and-events"></a>데이터 보존 및 이벤트
 

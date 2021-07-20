@@ -10,12 +10,12 @@ ms.subservice: automanage
 ms.workload: infrastructure
 ms.custom:
 - mode-portal
-ms.openlocfilehash: 7121d83f9401fe985966324afe6a61cf8396b2bb
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: d0c319fa9579f68c7f429283327f43869c4ab2b1
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107534064"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113006053"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신용 Azure Automanage 사용
 
@@ -37,7 +37,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
 [Azure Portal](https://aka.ms/AutomanagePortal-Ignite21)에 로그인합니다.
 
-## <a name="enable-automanage-for-a-single-vm"></a>단일 VM에 대한 Automanage 사용
+## <a name="enable-automanage-for-a-single-machine"></a>단일 머신에 대해 Automanage 사용
 
 1. 사용할 Virtual Machine을 찾습니다.
 
@@ -51,7 +51,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="단일 VM에서 사용합니다.":::
 
-## <a name="enable-automanage-for-multiple-vms"></a>여러 VM에 대해 Automanage 사용
+## <a name="enable-automanage-for-multiple-machines"></a>여러 머신에 대해 Automanage 사용
 
 1. 검색 창에서 **Automanage – Azure 가상 머신 모범 사례** 를 검색하고 선택합니다.
 
@@ -60,13 +60,15 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="기존 VM에서 사용":::
 
 3. **머신 선택** 블레이드에서 다음을 수행합니다.
-    1. **구독** 및 **리소스 그룹** 을 기준으로 VM 목록을 필터링합니다.
+    1. **구독** 및 **리소스 그룹** 을 기준으로 머신 목록을 필터링합니다.
     1. 온보딩하려는 각 가상 머신의 확인란을 선택합니다.
     1. **선택** 단추를 클릭합니다.
+    > [!NOTE]
+    > Azure VM과 Arc 지원 서버를 모두 선택할 수 있습니다.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="사용 가능한 VM 목록에서 기존 VM 선택":::
 
-4. **환경** 에서 **개발/테스트** 또는 **프로덕션** 환경 유형을 선택합니다. 
+4. **환경** 에서 **개발/테스트** 또는 **프로덕션** 환경 유형을 선택합니다.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="환경을 선택합니다.":::
 
@@ -76,7 +78,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="프로덕션 환경을 찾아봅니다.":::
 
-5. 기본적으로 구성 기본 설정에 대해 **Azure 모범 사례** 기본 설정이 선택됩니다. 이를 변경하려면 새 기본 설정을 만들거나 기존 기본 설정을 선택합니다. 
+5. 기본적으로 구성 기본 설정에 대해 **Azure 모범 사례** 기본 설정이 선택됩니다. 이를 변경하려면 새 기본 설정을 만들거나 기존 기본 설정을 선택합니다.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="기본 설정을 만듭니다.":::
 

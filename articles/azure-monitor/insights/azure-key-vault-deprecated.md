@@ -16,7 +16,7 @@ ms.locfileid: "110095161"
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
 > [!NOTE]
-> 이 옵션은 사용되지 않습니다. [이제 Key Vault Insights를 사용하는 것이 좋습니다](./key-vault-insights-overview.md).
+> 이 옵션은 사용되지 않습니다. [이제 Key Vault 인사이트를 사용하는 것이 좋습니다](./key-vault-insights-overview.md).
 
 ![Key Vault 기호](media/azure-key-vault/key-vault-analytics-symbol.png)
 

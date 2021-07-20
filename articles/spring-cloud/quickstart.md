@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: aa4a5ec19f9747014bf1a00c35778af6bfc396c3
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 292b0a16b208fa5234c374127fd9eec24f27b14e
+ms.sourcegitcommit: 1c12bbaba1842214c6578d914fa758f521d7d485
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108134666"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112988340"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>빠른 시작: 첫 번째 Azure Spring Cloud 애플리케이션 배포
 
@@ -212,9 +212,9 @@ Visual Studio에서 API 프로젝트 템플릿을 사용하여 "hello-world"라�
 
    ![ASC 아이콘 시작](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-1. Azure Spring Cloud 페이지에서 **+ 추가** 를 선택합니다.
+1. Azure Spring Cloud 페이지에서 **+ 만들기** 를 선택합니다.
 
-   ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+   ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-create.png)
 
 1. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
 
@@ -226,6 +226,8 @@ Visual Studio에서 API 프로젝트 템플릿을 사용하여 "hello-world"라�
    ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
 6. **검토 및 만들기** 를 선택합니다.
+
+7. **만들기** 를 선택합니다.
 
 ## <a name="build-and-deploy-the-app"></a>앱 빌드 및 배포
 
@@ -345,9 +347,9 @@ info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
 
 ## <a name="generate-a-spring-cloud-project"></a>Spring Cloud 프로젝트 생성
 
-[Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.10.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)를 시작하여 Azure Spring Cloud의 권장 종속성이 있는 샘플 프로젝트를 생성합니다. 다음 그림은 이 샘플 프로젝트에 대해 설정된 Initializr를 보여 줍니다.
+[Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client)를 시작하여 Azure Spring Cloud의 권장 종속성이 있는 샘플 프로젝트를 생성합니다. 다음 그림은 이 샘플 프로젝트에 대해 설정된 Initializr를 보여 줍니다.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.10.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.12.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 이 예제에서는 Java 버전 8을 사용합니다.  Java 버전 11을 사용하려면 **프로젝트 메타데이터** 에서 옵션을 변경합니다.
 
@@ -383,7 +385,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.1
 
     ![ASC 아이콘 시작](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-4. Azure Spring Cloud 페이지에서 **+ 추가** 를 클릭합니다.
+4. Azure Spring Cloud 페이지에서 **+ 만들기** 를 클릭합니다.
 
     ![ASC 아이콘 추가](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
@@ -414,7 +416,7 @@ https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.1
     az extension add --name spring-cloud
     ```
     
-1. 퍼블릭 엔드포인트가 할당된 앱을 만듭니다. Java 11을 사용하는 경우 `--runtime-version=Java_11` 스위치를 포함합니다.
+1. 퍼블릭 엔드포인트가 할당된 앱을 만듭니다. Spring Cloud 프로젝트를 생성할 때 Java 버전 11을 선택한 경우 --runtime-version=Java_11 스위치를 포함합니다.
 
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --assign-endpoint true

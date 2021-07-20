@@ -3,16 +3,16 @@ title: '빠른 시작: App Service에서 사용자 지정 컨테이너 실행'
 description: 첫 번째 사용자 지정 컨테이너를 배포하여 Azure App Service에서 컨테이너를 시작하세요.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 10/21/2019
+ms.date: 06/30/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 360da015f012822593dbb6390cb7df0017ba85b1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d4e22c58fd45edc4beb58b4b1b9ae7c835e8fa9
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96745080"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113215456"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Azure에서 사용자 지정 컨테이너 실행
 
@@ -91,17 +91,17 @@ ms.locfileid: "96745080"
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 선택합니다.
 
-1. Azure Marketplace 리소스의 목록 위에 있는 검색 상자에서 **Web App for Containers** 를 검색하고, **만들기** 를 선택합니다.
+1. **인기 있는 서비스** 에서 **웹앱** 아래에 있는 **만들기** 를 선택합니다.
 
 1. **웹앱 만들기** 에서 구독 및 **리소스 그룹** 을 선택합니다. 필요한 경우 새 리소스 그룹을 만들 수 있습니다.
 
-1. *win-container-demo* 와 같은 앱 이름을 제공하고, **운영 체제** 에 대해 **Windows** 를 선택합니다. 완료되면 **다음: Docker** 를 선택하여 계속합니다.
+1. *win-container-demo* 와 같은 앱 이름을 입력합니다. **게시** 에 **Docker 컨테이너** 를, **운영 체제** 에 **Windows** 를 선택합니다. 완료되면 **다음: Docker** 를 선택하여 계속합니다.
 
-   ![Web App for Containers 만들기](media/quickstart-custom-container/create-web-app-continer.png)
+   ![Web App for Containers 만들기](media/quickstart-custom-container/create-web-app-container.png)
 
 1. **이미지 원본** 에 대해 **Docker Hub** 를 선택하고, **이미지 및 태그** 에 대해 [Docker Hub에 게시](#publish-to-docker-hub)에서 복사한 리포지토리 이름을 입력합니다.
 
-   ![Web App for Containers 구성](media/quickstart-custom-container/configure-web-app-continer.png)
+   ![Web App for Containers 구성](media/quickstart-custom-container/configure-web-app-container.png)
 
     웹 애플리케이션에 대한 사용자 지정 이미지가 [Azure Container Registry](../container-registry/index.yml) 또는 다른 프라이빗 리포지토리와 같이 다른 곳에 있는 경우 여기에서 구성할 수 있습니다.
 
@@ -192,24 +192,29 @@ App Service on Linux는 .NET, PHP, Node.js 등의 언어 지원을 통해 Linux�
 * [VS Code용 Azure App Service 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). 이 확장을 사용하여 Azure PaaS(Platform as a Service)에서 Linux Web Apps를 만들고, 관리하고, 배포할 수 있습니다.
 * [VS Code용 Docker 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). 이 확장을 사용하여 로컬 Docker 이미지 및 명령 관리를 간소화하고 빌드된 앱 이미지를 Azure에 배포할 수 있습니다.
 
-## <a name="create-an-image"></a>이미지 만들기
+## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 
-이 빠른 시작을 완료하려면 적합한 웹앱 이미지가 [Azure Container Registry](../container-registry/index.yml)에 저장되어 있어야 합니다. [빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-portal.md)의 명령을 따르되, `hello-world` 이미지 대신 `mcr.microsoft.com/azuredocs/go` 이미지를 사용합니다. 참고로 [샘플 Dockerfile은 Azure 샘플 리포지토리에 있습니다](https://github.com/Azure-Samples/go-docs-hello-world).
+이 빠른 시작에서는 Azure Container Registry를 선택한 레지스트리로 사용합니다. 다른 레지스트리도 자유롭게 사용할 수 있지만 단계는 약간 다를 수 있습니다.
+
+[빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-portal.md)의 지침에 따라 컨테이너 레지스트리를 만듭니다.
 
 > [!IMPORTANT]
-> 컨테이너 레지스트리를 만들 때 **관리 사용자** 옵션을 **사용** 으로 설정해야 합니다. Azure Portal 레지스트리 페이지의 **액세스 키** 섹션에서 설정할 수도 있습니다. 이 설정은 App Service 액세스에 필요합니다.
+> Azure 컨테이너 레지스트리를 만들 때 **관리 사용자** 옵션을 **사용** 으로 설정해야 합니다. Azure Portal 레지스트리 페이지의 **액세스 키** 섹션에서 설정할 수도 있습니다. 이 설정은 App Service 액세스에 필요합니다.
 
 ## <a name="sign-in"></a>로그인
 
-VS Code를 시작하고, App Service 확장을 사용하여 Azure 계정에 로그인합니다. 이렇게 하려면 작업 막대에서 Azure 로고를 선택하고 **APP SERVICE** 탐색기로 이동한 다음, **Azure에 로그인** 을 선택하고 지침을 따릅니다.
+1. Visual Studio Code를 시작합니다. 
+1. [작업 표시줄](https://code.visualstudio.com/docs/getstarted/userinterface)에서 **Azure** 로고를 선택하고 **APP SERVICE** 탐색기로 이동한 다음, **Azure에 로그인** 을 선택하고 지침을 따릅니다.
 
-![Azure에 로그인](./media/quickstart-docker/sign-in.png)
+    ![Azure에 로그인](./media/quickstart-docker/sign-in.png)
+
+1. 아래쪽의 [상태 표시줄](https://code.visualstudio.com/docs/getstarted/userinterface)에서 Azure 계정 이메일 주소를 확인합니다. **APP SERVICE** 탐색기에 사용자의 구독이 표시되어야 합니다.
+
+1. 작업 표시줄에서 **Docker** 로고를 선택합니다. **REGISTRIES** 탐색기에서 만든 컨테이너 레지스트리가 나타나는지 확인합니다.
+
+    ![확장된 Azure가 표시된 레지스트리 값을 보여 주는 스크린샷.](./media/quickstart-docker/registries.png)
 
 ## <a name="check-prerequisites"></a>필수 구성 요소 확인
-
-이제 모든 필수 조건이 올바르게 설치 및 구성되었는지 확인할 수 있습니다.
-
-VS Code에서 상태 표시줄에는 Azure 메일 주소가 표시되고, **APP SERVICE** 탐색기에는 구독이 표시되어야 합니다.
 
 Docker가 설치되어 실행 중인지 확인합니다. 다음 명령은 실행 중인 경우 Docker 버전을 표시합니다.
 
@@ -217,19 +222,94 @@ Docker가 설치되어 실행 중인지 확인합니다. 다음 명령은 실행
 docker --version
 ```
 
-마지막으로, Azure Container Registry가 연결되어 있는지 확인합니다. 이렇게 하려면 작업 막대에서 Docker 로고를 선택하고 **레지스트리** 로 이동합니다.
+## <a name="create-and-build-image"></a>이미지 만들기 및 빌드
 
-![스크린샷은 Azure가 확장된 레지스트리 값과 점 io 파일 이름 확장명이 있는 파일을 보여줍니다.](./media/quickstart-docker/registries.png)
+1. Visual Studio Code에서 빈 폴더를 열고 `Dockerfile`이라는 파일을 추가합니다. Dockerfile에서 원하는 언어 프레임워크를 기준으로 콘텐츠를 붙여넣습니다.
 
-## <a name="deploy-the-image-to-azure-app-service"></a>Azure App Service에 이미지 배포
+# <a name="net"></a>[.NET](#tab/dotnet)
 
-이제 모든 요소가 구성되었으므로, Docker 확장 탐색기에서 직접 [Azure App Service](https://azure.microsoft.com/services/app-service/)에 이미지를 배포할 수 있습니다.
+<!-- https://mcr.microsoft.com/v2/appsvc%2Fdotnetcore/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/appsvc/dotnetcore:lts
 
-**DOCKER** 탐색기의 **레지스트리** 노드 아래에서 이미지를 찾은 다음, 펼쳐서 해당 태그를 표시합니다. 태그를 마우스 오른쪽 단추로 클릭하고 **Azure App Service에 이미지 배포** 를 선택합니다.
+ENV PORT 8080
+EXPOSE 8080
 
-여기서 프롬프트에 따라 구독, 전역적으로 고유한 앱 이름, 리소스 그룹 및 App Service 계획을 선택합니다. 가격 책정 계층으로 **B1 기본** 을 선택하고 지역을 선택합니다.
+ENV ASPNETCORE_URLS "http://*:${PORT}"
 
-배포 후에는 `http://<app name>.azurewebsites.net`에서 앱을 사용할 수 있습니다.
+ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
+```
+
+이 Dockerfile에서 부모 이미지는 App Service의 기본 제공 .NET 컨테이너 중 하나입니다. 이에 대한 원본 파일은 [GenerateDockerFiles/dotnetcore 아래에 있는 Azure-App-Service/ImageBuilder GitHub 리포지토리에서](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/dotnetcore) 찾을 수 있습니다. 해당 [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/dotnetcore/debian-9/Dockerfile)은 간단한 .NET 앱을 `/defaulthome/hostingstart`로 복사합니다. Dockerfile은 간단히 해당 앱을 시작합니다.
+
+# <a name="nodejs"></a>[Node.js](#tab/node)
+
+<!-- https://mcr.microsoft.com/v2/appsvc%2Fnode/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/appsvc/node:10-lts
+
+ENV HOST 0.0.0.0
+ENV PORT 8080
+EXPOSE 8080
+
+ENTRYPOINT ["pm2", "start", "--no-daemon", "/opt/startup/default-static-site.js"]
+```
+
+이 Dockerfile에서 부모 이미지는 App Service의 기본 제공 Node.js 컨테이너 중 하나입니다. 이에 대한 원본 파일은 [GenerateDockerFiles/node/node-template 아래에 있는 Azure-App-Service/ImageBuilder GitHub 리포지토리에서](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/node/node-template) 찾을 수 있습니다. 해당 [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/node/node-template/Dockerfile)은 간단한 Node.js 앱을 `/opt/startup`으로 복사합니다. Dockerfile은 부모 이미지에 이미 설치되어 있는 PM2를 사용하여 간단히 해당 앱을 시작합니다.
+
+# <a name="python"></a>[Python](#tab/python)
+
+<!-- https://mcr.microsoft.com/v2/appsvc%2Fpython/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/appsvc/python:latest
+
+ENV PORT 8080
+EXPOSE 8080
+
+ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
+```
+
+이 Dockerfile에서 부모 이미지는 App Service의 기본 제공 Python 컨테이너 중 하나입니다. 이에 대한 원본 파일은 [GenerateDockerFiles/python/template-3.9 아래에 있는 Azure-App-Service/ImageBuilder GitHub 리포지토리에서](https://github.com/Azure-App-Service/ImageBuilder/tree/master/GenerateDockerFiles/python/template-3.9) 찾을 수 있습니다. 해당 [Dockerfile](https://github.com/Azure-App-Service/ImageBuilder/blob/master/GenerateDockerFiles/python/template-3.9/Dockerfile)은 간단한 Python 앱을 `/opt/defaultsite`로 복사합니다. Dockerfile은 부모 이미지에 이미 설치되어 있는 Gunicorn을 사용하여 간단히 해당 앱을 시작합니다.
+
+# <a name="java"></a>[Java](#tab/java)
+
+<!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
+```dockerfile
+FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
+
+ENV PORT 80
+EXPOSE 80
+
+ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
+```
+
+이 Dockerfile에서 부모 이미지는 App Service의 기본 제공 Java 컨테이너 중 하나입니다. 이에 대한 소스 파일은 [java/tree/dev/java11-alpine의 Azure-App-Service/java GitHub 리포지토리에서](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine) 찾을 수 있습니다. 해당 [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile)은 간단한 Java 앱을 `/tmp/appservice`로 복사합니다. Dockerfile은 간단히 해당 앱을 시작합니다.
+
+-----
+
+2. [명령 팔레트를 열고](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) **Docker Images: Build Image** 를 입력합니다. **Enter** 를 입력하여 명령을 실행합니다.
+
+3. 이미지 태그 상자에서 원하는 태그를 `<acr-name>.azurecr.io/<image-name>/<tag>` 형식으로 지정합니다. 여기서 `<acr-name>`은 사용자가 만든 컨테이너 레지스트리의 이름입니다. **Enter** 키를 누릅니다.
+
+4. 이미지 빌드가 완료되면 **IMAGES** 탐색기 위쪽에서 **새로 고침** 을 클릭하여 이미지가 성공적으로 빌드되었는지 확인합니다.
+
+    ![태그가 있는 빌드된 이미지를 보여 주는 스크린샷.](./media/quickstart-docker/built-image.png)
+
+## <a name="deploy-to-container-registry"></a>컨테이너 레지스트리에 배포
+
+1. 작업 표시줄에서 **Docker** 아이콘을 클릭합니다. **IMAGES** 탐색기에서 방금 빌드한 이미지를 찾습니다.
+1. 이미지를 확장하고, 원하는 태그를 마우스 오른쪽 단추로 클릭한 후, **푸시** 를 클릭합니다.
+1. 이미지 태그가 `<acr-name>.azurecr.io`로 시작하는지 확인하고 **Enter** 키를 누릅니다.
+1. Visual Studio Code가 컨테이너 레지스트리에 이미지를 푸시하는 작업을 완료하면 **REGISTRIES** 탐색기의 맨 위에 있는 **새로 고침** 을 클릭하여 이미지가 성공적으로 푸시되었는지 확인합니다.
+
+    ![Azure Container Registry에 배포된 이미지를 보여 주는 스크린샷.](./media/quickstart-docker/image-in-registry.png)
+
+## <a name="deploy-to-app-service"></a>App Service에 배포
+
+1. **REGISTRIES** 탐색기에서 이미지를 확장하고 태그를 마우스 오른쪽 단추로 클릭한 후, **Azure App Service에 이미지 배포** 를 클릭합니다.
+1. 표시되는 메시지에 따라 구독, 전역적으로 고유한 앱 이름, 리소스 그룹 및 App Service 요금제를 선택합니다. 가격 책정 계층으로 **B1 기본** 을 선택하고 가까운 지역을 선택합니다.
+
+배포 후에는 `http://<app-name>.azurewebsites.net`에서 앱을 사용할 수 있습니다.
 
 **리소스 그룹** 은 Azure에 있는 모든 애플리케이션 리소스의 명명된 컬렉션입니다. 예를 들어 리소스 그룹에는 웹 사이트, 데이터베이스 및 Azure 함수에 대한 참조가 포함될 수 있습니다.
 
@@ -237,27 +317,32 @@ docker --version
 
 ## <a name="browse-the-website"></a>웹 사이트 찾아보기
 
-배포 중에 **출력** 패널이 열려 작업 상태를 표시합니다. 작업이 완료되면, **APP SERVICE** 탐색기에서 만든 앱을 찾아 마우스 오른쪽 단추로 클릭한 다음, **웹 사이트** 를 선택하여 브라우저에서 사이트를 엽니다.
+**출력** 패널에 배포 작업의 상태가 표시됩니다. 작업이 완료되면 팝업 알림에 있는 **사이트 열기** 를 클릭하여 브라우저로 사이트를 엽니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/PWZWZ52?tutorial=quickstart-docker&step=deploy-app)
 
 ## <a name="next-steps"></a>다음 단계
 
-축하합니다! 이 빠른 시작을 성공적으로 완료했습니다!
+축하합니다. 이 빠른 시작을 성공적으로 완료하셨습니다.
 
-다음으로, 다른 Azure 확장을 확인합니다.
+App Service 앱은 시작할 때마다 컨테이너 레지스트리에서 이미지를 가져옵니다. 이미지를 다시 빌드하는 경우 컨테이너 레지스트리에 푸시하기만 하면 앱이 다시 시작될 때 업데이트된 이미지를 가져옵니다. 업데이트된 이미지를 즉시 가져오도록 앱에 지시하려면 다시 시작합니다.
+
+> [!div class="nextstepaction"]
+> [사용자 지정 컨테이너 구성](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [컨테이너 사용자 지정 자습서](tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [다중 컨테이너 앱 자습서](tutorial-multi-container-app.md)
+
+다른 Azure 확장:
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 * [Azure CLI 도구](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-
-또는 [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 확장 팩을 설치하여 모두 가져옵니다.
-
-다른 리소스를 확인합니다.
-
-> [!div class="nextstepaction"]
-> [사용자 지정 컨테이너 구성](configure-custom-container.md)
+* [Azure 도구](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) 확장 팩에는 위의 확장이 모두 포함되어 있습니다.
 
 ::: zone-end

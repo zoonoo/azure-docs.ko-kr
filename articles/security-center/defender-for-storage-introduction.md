@@ -7,12 +7,12 @@ ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 42aa07ccf8d886dc7eb7109bc405c730331b2c3b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 3d14a4a569d59b8bc9cac1334da1486960288412
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095632"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003535"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Azure Defender for Storage 소개
 
@@ -27,7 +27,7 @@ ms.locfileid: "102095632"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Storage** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
 |보호된 스토리지 형식:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure 파일](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) Azure 중국|
 |||
 
 
@@ -39,7 +39,7 @@ Azure Defender for Storage는 다음을 제공합니다.
 - **다양한 검색 제품군** - Microsoft Threat Intelligence로 구동되는 Defender for Storage의 검색은 익명 액세스, 손상된 자격 증명, 사회 공학, 권한 남용 및 악의적인 콘텐츠 등의 주요 스토리지 위협을 다룹니다.
 - **대규모 응답** - Security Center의 자동화 도구를 사용하면 식별된 위협을 더 쉽게 예방하고 대응할 수 있습니다. [Security Center 트리거에 대한 응답 자동화](workflow-automation.md)에서 자세히 알아보세요.
 
-:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Azure Defender for Storage의 기능에 대한 개략적인 개요":::
+:::image type="content" source="media/defender-for-storage-introduction/defender-for-storage-high-level-overview.png" alt-text="Azure Defender for Storage의 기능에 대한 개략적인 개요.":::
 
 
 ## <a name="what-kind-of-alerts-does-azure-defender-for-storage-provide"></a>Azure Defender for Storage는 어떤 종류의 경고를 제공하나요?
@@ -74,7 +74,7 @@ Azure Defender for Storage는 다음을 제공합니다.
 1. Azure Defender for Storage를 사용하도록 설정한 상태에서 스토리지 계정을 엽니다.
 1. 사이드바에서 "컨테이너"를 선택하고 기존 컨테이너를 열거나 새 컨테이너를 만듭니다.
 
-    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Azure Storage 계정에서 Blob 컨테이너 열기" lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
+    :::image type="content" source="media/defender-for-storage-introduction/opening-storage-container.png" alt-text="Azure Storage 계정에서 Blob 컨테이너 열기." lightbox="media/defender-for-storage-introduction/opening-storage-container.png":::
 
 1. 해당 컨테이너에 파일을 업로드합니다.
 
@@ -83,7 +83,7 @@ Azure Defender for Storage는 다음을 제공합니다.
 
 1. 업로드된 파일에서 상황에 맞는 메뉴를 사용하여 "SAS 생성"을 선택합니다.
 
-    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Blob 컨테이너의 파일에 대한 SAS 생성 옵션":::
+    :::image type="content" source="media/defender-for-storage-introduction/generate-sas.png" alt-text="Blob 컨테이너의 파일에 대한 SAS 생성 옵션.":::
 
 1. 기본 옵션을 그대로 두고 **SAS 토큰 및 URL 생성** 을 선택합니다.
 
@@ -100,7 +100,7 @@ Azure Defender for Storage는 다음을 제공합니다.
 
     2시간 내에 Security Center에서 다음과 같은 보안 경고를 받게 됩니다.
 
-    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Tor 출구 노드에서의 액세스와 관련된 보안 경고":::
+    :::image type="content" source="media/defender-for-storage-introduction/tor-access-alert-storage.png" alt-text="Tor 출구 노드에서의 액세스와 관련된 보안 경고.":::
 
 ## <a name="next-steps"></a>다음 단계
 

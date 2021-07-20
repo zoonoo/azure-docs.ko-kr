@@ -7,12 +7,12 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 06/10/2021
-ms.openlocfilehash: 13f5bb8245ecc57c01d4236dfea7c9e4a2f7ae75
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: 52ecc8a66dfa13747daf2b4b7fd227ef7ab5a3b2
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111986321"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237168"
 ---
 # <a name="azure-security-center-free-vs-azure-defender-enabled"></a>Azure Security Center 무료 및 Azure Defender 사용 비교
 Azure Defender는 처음 30일 동안 무료입니다. 30일 종료 시 서비스를 계속 사용하기로 선택하는 경우 사용량에 대한 요금이 자동으로 부과되기 시작합니다.
@@ -54,11 +54,11 @@ Security Center는 두 모드로 제공됩니다.
 ### <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-security-center"></a>Security Center에서 Azure Defender를 변경하도록 설정한 내 조직의 사용자를 추적하려면 어떻게 해야 하나요?
 Azure 구독에는 가격 책정 설정을 변경할 수 있는 권한이 있는 여러 관리자가 있을 수 있습니다. 변경한 사용자를 확인하려면 Azure 활동 로그를 사용합니다.
 
-:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="가격 책정 변경 이벤트를 보여 주는 Azure 활동 로그":::
+:::image type="content" source="media/security-center-pricing/logged-change-to-pricing.png" alt-text="가격 책정 변경 이벤트를 보여주는 Azure 활동 로그.":::
 
 사용자 정보가 **이벤트를 시작한 사람** 열에 나열되지 않는 경우 관련 세부 정보를 보려면 이벤트의 JSON을 살펴봅니다.
 
-:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure 활동 로그 JSON 탐색기":::
+:::image type="content" source="media/security-center-pricing/tracking-pricing-changes-in-activity-log.png" alt-text="Azure 활동 로그 JSON 탐색기.":::
 
 
 ### <a name="what-are-the-plans-offered-by-security-center"></a>Security Center에서 제공하는 요금제는 무엇인가요? 
@@ -103,7 +103,7 @@ Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 A
 | 할당 취소 중 | 전환 상태입니다. 작업이 완료되면 VM은 할당 취소됨.                                                                             | 청구되지 않음            |
 | 할당 취소됨  | VM이 성공적으로 중지되고 호스트에서 제거됩니다.                                                                                  | 청구되지 않음            |
 
-:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="할당 취소된 머신을 보여주는 Azure Virtual Machines":::
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="할당 취소된 머신을 보여주는 Azure Virtual Machines.":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Log Analytics 에이전트가 설치되지 않은 컴퓨터에 대해 요금이 청구되나요?
 예. [Azure Defender](defender-for-servers-introduction.md)를 구독의 서버에 사용하도록 설정하면 Log Analytics 에이전트를 설치하지 않은 경우에도 해당 구독의 컴퓨터는 다양한 보호를 받습니다.

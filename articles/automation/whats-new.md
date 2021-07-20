@@ -6,12 +6,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 06/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6eae4a65412ad922724d4c35b7628b15698ba841
-ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
+ms.openlocfilehash: bd2bd39839645aa0511a00cc7a6c87c711e33e2b
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111982937"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112294754"
 ---
 # <a name="whats-new-in-azure-automation"></a>Azure Automation의 새로운 기능
 
@@ -24,6 +24,14 @@ Azure Automation은 지속적으로 향상되고 있습니다. 최신 개발 정
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
 
 ## <a name="june-2021"></a>2021년 6월
+
+### <a name="security-update-for-log-analytics-contributor-role"></a>Log Analytics 기여자 역할에 대한 보안 업데이트
+
+**유형:** 변경 계획
+
+Microsoft는 Log Analytics 기여자 역할에서 Automation 계정 권한을 제거하려고 합니다. 현재 기본 제공 [Log Analytics 기여자](./automation-role-based-access-control.md#log-analytics-contributor) 역할은 구독 [기여자](./../role-based-access-control/built-in-roles.md#contributor) 역할로 권한을 에스컬레이션할 수 있습니다. Automation 계정 실행 계정은 처음에 구독에 대한 기여자 권한으로 구성되므로 공격자가 새 Runbook을 만들고 구독에 대한 기여자로서 코드를 실행하는 데 사용할 수 있습니다.
+
+이러한 보안 위험으로 인해 Automation 작업을 실행하는 데 Log Analytics 기여자 역할을 사용하지 않는 것이 좋습니다. 대신 Azure Automation 기여자 사용자 지정 역할을 만들고 Automation 계정과 관련된 작업에 사용합니다. 구현 단계는 [사용자 지정 Azure Automation 기여자 역할](./automation-role-based-access-control.md#custom-azure-automation-contributor-role)을 참조하세요.
 
 ### <a name="support-for-automation-and-state-configuration-available-in-west-us-3"></a>미국 서부 3에서 사용할 수 있는 Automation 및 State Configuration 지원
 

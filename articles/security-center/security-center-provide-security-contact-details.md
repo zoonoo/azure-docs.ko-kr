@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 04/07/2021
 ms.author: memildin
-ms.openlocfilehash: 96a389a581a9ecaddfc418824b3ebe9c780e6bd1
-ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
+ms.openlocfilehash: c3d856797de466b1af28893d0ffbea918e92066e
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107011590"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002291"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>보안 경고에 대한 이메일 알림 구성 
 
@@ -38,7 +38,7 @@ ms.locfileid: "107011590"
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|Free|
 |필요한 역할 및 권한:|**보안 관리자**<br>**구독 소유자** |
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 국가/소버린(US Gov, Azure 중국)|
 |||
 
 

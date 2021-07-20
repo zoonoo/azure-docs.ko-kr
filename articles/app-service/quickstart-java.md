@@ -14,12 +14,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
-ms.openlocfilehash: 24a564d836405bf51aacf73af359e987e8c957e1
-ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.openlocfilehash: 7393a8085a2ac597f3fdbcc365608d32956f39b7
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2021
-ms.locfileid: "109737135"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111667"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>빠른 시작: Azure App Service에서 Java 앱 만들기
 
@@ -42,13 +42,13 @@ ms.locfileid: "109737135"
 
 [Spring Boot 시작하기](https://github.com/spring-guides/gs-spring-boot) 샘플 프로젝트를 복제합니다.
 
-```bash
+```azurecli-interactive
 git clone https://github.com/spring-guides/gs-spring-boot
 ```
 
 디렉터리를 완료된 프로젝트로 변경합니다.
 
-```bash
+```azurecli-interactive
 cd gs-spring-boot/complete
 ```
 
@@ -56,15 +56,38 @@ cd gs-spring-boot/complete
 
 Cloud Shell 프롬프트에서 다음 Maven 명령을 실행하여 `helloworld`라는 새 앱을 만듭니다.
 
-```bash
+```azurecli-interactive
 mvn archetype:generate "-DgroupId=example.demo" "-DartifactId=helloworld" "-DarchetypeArtifactId=maven-archetype-webapp" "-Dversion=1.0-SNAPSHOT"
 ```
 
 그런 다음, 작업 디렉터리를 프로젝트 폴더로 변경합니다.
 
-```bash
+```azurecli-interactive
 cd helloworld
 ```
+
+# <a name="jboss-eap"></a>[JBoss EAP](#tab/jbosseap)
+
+::: zone pivot="platform-windows"
+
+JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. 이 문서의 맨 위에 있는 **Linux** 단추를 선택하여 JBoss EAP에 대한 빠른 시작 지침을 확인하세요.
+
+::: zone-end
+::: zone pivot="platform-linux"
+
+애완 동물 스토어 데모 애플리케이션을 복제합니다.
+
+```azurecli-interactive
+git clone https://github.com/agoncal/agoncal-application-petstore-ee7.git
+```
+
+디렉터리를 복제된 프로젝트로 변경합니다.
+
+```azurecli-interactive
+cd agoncal-application-petstore-ee7
+```
+
+::: zone-end
 
 ---
 
@@ -74,20 +97,20 @@ Azure App Service에 대한 배포 프로세스는 Azure CLI의 Azure 자격 증
 
 아래의 maven 명령을 실행하여 배포를 구성합니다. 이 명령은 App Service 운영 체제, Java 버전 및 Tomcat 버전을 설정하는 데 도움이 됩니다.
 
-```bash
-mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
+```azurecli-interactive
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.0.0:config
 ```
 
 ::: zone pivot="platform-windows"
 
 # <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
-1. **OS** 옵션을 사용하라는 메시지가 표시되면 `3`를 입력하여 **Windows** 를 선택합니다.
-1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
-1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
-1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+2. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
+3. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **Windows** 를 선택합니다.
+4. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
+5. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `7`을 입력하여 **P1v2** 를 선택합니다.
+6. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
 
@@ -114,13 +137,13 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
 
 # <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
-1. **OS** 옵션을 사용하라는 메시지가 표시되면 `3`를 입력하여 **Windows** 를 선택합니다.
-1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
-1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
-1. Enter를 눌러 기본 웹 컨테이너인 **Tomcat 8.5** 를 사용합니다.
-1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+2. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
+3. **OS** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **Windows** 를 선택합니다.
+4. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
+5. **webContainer** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **Tomcat 8.5** 를 선택합니다.
+6. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `7`을 입력하여 **P1v2** 를 선택합니다.
+7. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     요약 출력은 아래에 표시된 코드 조각과 유사하게 표시됩니다.
 
@@ -145,19 +168,23 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
+# <a name="jboss-eap"></a>[JBoss EAP](#tab/jbosseap)
+
+JBoss EAP는 Linux 버전의 App Service에서만 사용할 수 있습니다. 이 문서의 맨 위에 있는 **Linux** 단추를 선택하여 JBoss EAP에 대한 빠른 시작 지침을 확인하세요.
+
 ---
 
 ::: zone-end
 ::: zone pivot="platform-linux"
 
-### <a name="java-se"></a>[Java SE](#tab/javase)
+# <a name="java-se"></a>[Java SE](#tab/javase)
 
-1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
-1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
-1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
-1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
+2. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
+3. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `6`을 입력하여 **P1v2** 를 선택합니다.
+4. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
     Please confirm webapp properties
@@ -179,14 +206,14 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
-### <a name="tomcat"></a>[Tomcat](#tab/tomcat)
+# <a name="tomcat"></a>[Tomcat](#tab/tomcat)
 
-1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄 번호를 입력하여 적절한 `Subscription`을 선택합니다.
-1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 수락하거나 기존 앱을 선택합니다.
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **Web App** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 기본 옵션 `<create>`를 선택합니다.
 1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
-1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **B2** 를 선택합니다.
-1. Enter를 눌러 기본 Java 버전인 **Java 8** 을 사용합니다.
-1. Enter를 눌러 기본 웹 컨테이너인 **Tomcat 8.5** 를 사용합니다.
+1. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
+1. **runtimeStack** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **Tomcat 8.5** 를 선택합니다.
+1. **가격 책정 계층** 옵션을 사용하라는 메시지가 표시되면 `6`을 입력하여 **P1v2** 를 선택합니다.
 1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
 
     ```
@@ -209,24 +236,55 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
     [INFO] ------------------------------------------------------------------------
     ```
 
+# <a name="jboss-eap"></a>[JBoss EAP](#tab/jbosseap)
+
+1. **Subscription** 옵션을 사용하라는 메시지가 표시되면 줄 시작에 인쇄된 번호를 입력하여 적절한 `Subscription`을 선택합니다.
+1. **웹 앱** 옵션을 선택하라는 메시지가 표시되면 enter 키를 눌러 기본 옵션`<create>`을 적용합니다.
+1. **OS** 옵션을 사용하라는 메시지가 표시되면 Enter를 눌러 **Linux** 를 선택합니다.
+1. **javaVersion** 옵션을 사용하라는 메시지가 표시되면 `1`을 입력하여 **Java 8** 을 선택합니다.
+1. **runtimeStack** 옵션을 사용하라는 메시지가 표시되면 `2`를 입력하여 **Jbosseap 7** 을 선택합니다.
+1. **pricingTier** 옵션을 사용하라는 메시지가 표시되면 `3`을 입력하여 **P1v3** 를 선택합니다.
+1. 마지막으로, 마지막 프롬프트에서 Enter를 눌러 선택 내용을 확인합니다.
+
+    ```
+    Please confirm webapp properties
+    Subscription Id : ********-****-****-****-************
+    AppName : petstoreee7-1623451825408
+    ResourceGroup : petstoreee7-1623451825408-rg
+    Region : westeurope
+    PricingTier : P1v3
+    OS : Linux
+    Java : Java 8
+    Web server stack: Jbosseap 7.2
+    Deploy to slot : false
+    Confirm (Y/N) [Y]: y
+    [INFO] Saving configuration to pom.
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time: 01:01 min
+    [INFO] Finished at: 2021-06-11T15:52:25-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
 ---
 
 ::: zone-end
 
 필요한 경우 `pom.xml`에서 직접 App Service에 대한 구성을 수정할 수 있습니다. 몇 가지 일반적인 사항은 다음과 같습니다.
 
-속성 | 필수 | Description | 버전
+속성 | 필수 | 설명 | 버전
 ---|---|---|---
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<subscriptionId>` | false | 구독 ID를 지정합니다. | 0.1.0+
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
 `<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
 `<region>` | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope**). [지원되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
-`<pricingTier>` | false | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1V2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
+`<pricingTier>` | true | 웹앱에 대한 가격 책정 계층입니다. 기본값은 프로덕션 작업의 경우 **P1V2** 이고, **B2** 는 Java 개발/테스트에 권장되는 최솟값입니다. [자세히 알아보기](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | true | 런타임 환경 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 `<deployment>` | true | 배포 구성이며, [여기](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 
-`<appName>` 및 `<resourceGroup>`값을 잘 보어야 합니다(이 데모에서는 `helloworld-1590394316693` 및 `helloworld-1590394316693-rg`). 나중에 사용됩니다.
+`<appName>` 및 `<resourceGroup>` 값(이 데모에서는 `helloworld-1590394316693` 및 `helloworld-1590394316693-rg`에 따라 다름)에 유의해야 합니다. 나중에 사용됩니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=quickstart-java&step=config)
@@ -235,15 +293,22 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.14.0:config
 
 Maven 플러그 인은 Azure CLI의 계정 자격 증명을 사용하여 App Services에 배포합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli)합니다.
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
 그런 후, 다음 명령을 사용하여 Java 앱을 Azure에 배포할 수 있습니다.
 
-```bash
+```azurecli-interactive
 mvn package azure-webapp:deploy
 ```
+
+::: zone pivot="platform-linux"
+
+> [!NOTE]
+> JBoss EAP의 경우 Wildfly를 로컬로 설치해야 하므로 `mvn package azure-webapp:deploy -DskipTests`를 실행하여 테스트를 사용하지 않도록 설정합니다. 
+
+::: zone-end
 
 배포가 완료되면 애플리케이션이 `http://<appName>.azurewebsites.net/`(이 데모에서는 `http://helloworld-1590394316693.azurewebsites.net`)에 준비됩니다. 로컬 웹 브라우저에서 url을 열면 다음이 표시됩니다.
 

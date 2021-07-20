@@ -1,5 +1,7 @@
 - name: 기본 사항 설명서
   href: index.yml
+- name: 시스템 ID 손상으로부터 복구
+  href: recover-from-identity-compromise.md
 - name: 개요
   items:
     - name: Azure 보안 소개

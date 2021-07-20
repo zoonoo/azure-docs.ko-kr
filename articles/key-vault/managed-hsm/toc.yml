@@ -21,6 +21,8 @@
       href: role-management.md
     - name: 관리형 HSM에 대한 보안 액세스
       href: secure-your-managed-hsm.md
+    - name: 프라이빗 엔드포인트 사용
+      href: private-link.md
     - name: 관리형 HSM에 대한 로깅 설정
       href: logging.md
     - name: 재해 복구
@@ -64,14 +66,16 @@
       displayName: ARM
 - name: 리소스
   items:
+    - name: 타사 솔루션
+      href: third-party-solutions.md
     - name: Microsoft Learn을 통해 기술 쌓기
       href: /learn/browse/?products=azure-key-vault
     - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 지역 가용성
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all'
     - name: SLA(서비스 수준 계약)
-      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault-managed-hsm/v1_0/'
     - name: 서비스 제한
       href: ../general/service-limits.md
     - name: 서비스 상태

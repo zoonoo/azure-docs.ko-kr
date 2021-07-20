@@ -193,6 +193,8 @@
                   href: database/authentication-aad-directory-readers-role-tutorial.md
                 - name: Azure AD 전용 인증 사용
                   href: database/authentication-azure-ad-only-authentication-tutorial.md
+                - name: Azure AD 전용 인증을 사용하는 서버 만들기
+                  href: database/authentication-azure-ad-only-authentication-create-server.md
             - name: BYOK를 사용하여 TDE 구성
               href: database/transparent-data-encryption-byok-configure.md
             - name: Always Encrypted
@@ -291,6 +293,10 @@
               href: database/service-tier-hyperscale.md
             - name: 하이퍼스케일 FAQ
               href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+            - name: 하이퍼스케일 복제본
+              href: database/service-tier-hyperscale-replicas.md
+            - name: 하이퍼스케일 복제본 FAQ
+              href: database/service-tier-hyperscale-named-replicas-faq.yml
             - name: vCore
               href: database/service-tiers-sql-database-vcore.md
         - name: 비용 계획 및 관리
@@ -300,7 +306,7 @@
       items:
         - name: 데이터베이스 만들기
           items:
-            - name: Azure portal
+            - name: 'Azure Portal, PowerShell, Az CLI'
               href: database/single-database-create-quickstart.md
             - name: ARM 템플릿
               displayName: Resource Manager
@@ -354,6 +360,10 @@
               href: database/sql-data-sync-sql-server-configure.md
             - name: 서버리스로 SQLite 마이그레이션
               href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
+        - name: 확장
+          items:
+            - name: 명명된 복제본에 대한 보안 구성
+              href: database/hyperscale-named-replica-security-configure.md
     - name: 마이그레이션 가이드
       items:
         - name: Access에서
@@ -486,7 +496,7 @@
             - name: 분할된 데이터 이동
               href: database/elastic-scale-overview-split-and-merge.md
             - name: 탄력적 도구 FAQ
-              href: database/elastic-scale-faq.md
+              href: database/elastic-scale-faq.yml
     - name: 방법
       href: database/how-to-content-reference-guide.md
       items:
@@ -757,7 +767,7 @@
             - name: Azure portal
               href: managed-instance/instance-create-quickstart.md
             - name: PowerShell
-              href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+              href: managed-instance/create-configure-managed-instance-powershell-quickstart.md
             - name: ARM 템플릿
               displayName: Resource Manager
               href: managed-instance/create-template-quickstart.md
@@ -1133,10 +1143,10 @@
                 - name: HADR 구성
                   href: virtual-machines/windows/hadr-cluster-best-practices.md
                   displayName: 'failover cluster instance, fci, availability group, ag, always on'
-                - name: 기준 수집
-                  href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
                 - name: 애플리케이션 패턴
                   href: virtual-machines/windows/application-patterns-development-strategies.md
+                - name: 기준 수집
+                  href: virtual-machines/windows/performance-guidelines-best-practices-collect-baseline.md
             - name: 관리
               items:
                 - name: SQL IaaS 에이전트 확장
@@ -1175,8 +1185,6 @@
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: 스토리지를 UltraSSD로 마이그레이션
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: SQL 취약성 평가 사용
-                  href: ../security-center/defender-for-sql-on-machines-vulnerability-assessment.md
                 - name: SQL IaaS 에이전트 확장 설치
                   displayName: 'resource provider, registration, sql vm rp'
                   items:
@@ -1261,7 +1269,7 @@
             - name: Azure PowerShell
               href: /powershell/azure/
             - name: Azure CLI
-              href: /cli/azure/
+              href: /cli/azure/azure-cli-reference-for-sql
             - name: T-SQL
               href: /sql/t-sql/language-reference
             - name: SQL Server 드라이버
@@ -1344,7 +1352,7 @@
     - name: T-SQL 언어 참조
       href: /sql/t-sql/language-reference
     - name: Azure CLI
-      href: /cli/azure/sql
+      href: /cli/azure/azure-cli-reference-for-sql
     - name: Azure PowerShell
       href: /powershell/module/az.sql
     - name: .NET

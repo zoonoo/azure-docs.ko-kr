@@ -4,17 +4,19 @@ description: 빠른 시작에서 RStudio Server를 사용하여 Azure HDInsight�
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/19/2019
-ms.custom: mvc
-ms.openlocfilehash: 8abd485bff885868d7865cf273cb161974106013
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7c50088b1e54c289107a040141a62cd312cb942e
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104862836"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112299432"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-rstudio-server"></a>빠른 시작: RStudio Server를 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 
-Azure HDInsight에서 ML Services를 사용하면 R 스크립트에서 Apache Spark 및 Apache Hadoop MapReduce를 사용하여 분산 컴퓨팅을 실행할 수 있습니다. ML Services는 컴퓨팅 컨텍스트를 설정하여 호출 실행 방법을 제어합니다. 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 RevoScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
+[!INCLUDE [retirement banner](../includes/ml-services-retirement.md)]
+
+Azure HDInsight에서 ML Services를 사용하면 R 스크립트에서 Apache Spark 및 Apache Hadoop MapReduce를 사용하여 분산 컴퓨팅을 실행할 수 있습니다. ML Services는 컴퓨팅 컨텍스트를 설정하여 호출 실행 방법을 제어합니다. 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 RevoScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. RevoScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드에서 함수를 실행할 수도 있습니다.
 
 이 빠른 시작에서는 분산 R 컴퓨팅을 위해 Spark를 사용하여 보여 주는 RStudio Server로 R 스크립트를 실행하는 방법을 알아봅니다. 컴퓨팅 컨텍스트를 정의하여 에지 노드에서 로컬로 컴퓨팅을 수행하고 HDInsight 클러스터의 노드 간에 다시 분산됩니다.
 
@@ -141,7 +143,7 @@ https://CLUSTERNAME.azurehdinsight.net/rstudio/
     
       ---
     
-      Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+      Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     
       Condition number of final variance-covariance matrix: 11904202
       Number of iterations: 7

@@ -9,12 +9,13 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 0f593d801bdcc477d6084a395630211393ffa9c7
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104600159"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113217290"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>빠른 시작: Synapse 작업 영역 만들기
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Synapse 작업 영역을 만드는 단계를 설명합니다.
@@ -48,9 +49,17 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 
 1. [Azure Portal](https://portal.azure.com)을 엽니다.
 1. 기존 ADLSGEN2 스토리지 계정으로 이동
-1. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다. 그런 다음, 다음 역할을 할당하거나 이미 할당되어 있는지 확인합니다.
-    * 사용자를 **소유자** 역할에 할당합니다.
-    * 사용자를 **Storage Blob 데이터 소유자** 역할에 할당합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | 소유자 및 Storage Blob 데이터 소유자 |
+    | 다음에 대한 액세스 할당 | [USER |
+    | 멤버 | 사용자 이름 |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. 왼쪽 창에서 **컨테이너** 를 선택하여 컨테이너를 만듭니다.
 1. 임의의 컨테이너 이름을 지정할 수 있습니다. 이 문서에서는 컨테이너 이름을 **users** 로 지정합니다.
 1. **공용 액세스 수준** 기본 설정을 적용한 다음, **만들기** 를 선택합니다.
@@ -60,11 +69,20 @@ Azure Synapse 작업 영역이 만들어지면 다음 두 가지 방법으로 Sy
 Azure Synapse 작업 영역의 관리 ID는 이미 스토리지 계정에 액세스할 수 있습니다. 다음 단계에 따라 확인합니다.
 
 1. [Azure Portal](https://portal.azure.com) 및 작업 영역에 대해 선택한 기본 스토리지 계정을 엽니다.
-1. 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
-1. 다음 역할을 할당하거나 이미 할당되어 있는지 확인합니다. 작업 영역 ID와 작업 영역 이름에 동일한 이름을 사용합니다.
-    * 스토리지 계정에 대한 **Storage Blob 데이터 기여자** 역할의 경우 **myworkspace** 를 작업 영역 ID로 할당합니다.
-    * **myworkspace** 를 작업 영역 이름으로 할당합니다.
+1. **액세스 제어(IAM)** 를 선택합니다.
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | Storage Blob 데이터 기여자 |
+    | 다음에 대한 액세스 할당 | MANAGEDIDENTITY |
+    | 멤버 | myworkspace  |
 
+    > [!NOTE]
+    > 관리 ID 이름은 작업 영역 이름이기도 합니다.
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 1. **저장** 을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

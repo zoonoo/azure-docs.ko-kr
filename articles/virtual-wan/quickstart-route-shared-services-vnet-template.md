@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: ARM 템플릿을 사용하여 공유 서비스로 라우팅'
 titleSuffix: Azure Virtual WAN
-description: 이 빠른 시작에서는 ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 모든 VNet 및 Branch가 액세스할 수 있는 워크로드로 공유 서비스 VNet에 액세스하도록 경로를 설정하는 방법을 보여줍니다.
+description: ARM 템플릿(Azure Resource Manager 템플릿)을 사용하여 모든 VNet 및 Branch에서 액세스할 워크로드를 통해 공유 서비스 VNet에 액세스하도록 경로를 설정하는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/05/2021
 ms.author: cherylmc
 ms.custom: subject-armqs
-ms.openlocfilehash: c954db5c75f1cf32833ec5ecb270ef3c4b57c10b
-ms.sourcegitcommit: 17345cc21e7b14e3e31cbf920f191875bf3c5914
+ms.openlocfilehash: ff23bf626fe252547d3449cfe318c073e9cc9b6c
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110093181"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112026312"
 ---
 # <a name="quickstart-route-to-shared-services-vnets-using-an-arm-template"></a>빠른 시작: ARM 템플릿을 사용하여 공유 서비스 VNet으로 라우팅
 
@@ -33,7 +33,7 @@ ms.locfileid: "110093181"
 
 ## <a name="review-the-template"></a><a name="review"></a>템플릿 검토
 
-이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templatesvirtual-wan-with-route-tables)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json)을 참조하세요.
+이 빠른 시작에서 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/virtual-wan-with-route-tables)에서 나온 것입니다. 이 문서의 템플릿이 너무 길어서 여기에 표시할 수 없습니다. 템플릿을 보려면 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/virtual-wan-with-route-tables/azuredeploy.json)을 참조하세요.
 
 이 빠른 시작에서는 모든 게이트웨이 및 VNet 연결을 포함하여 Azure Virtual WAN 다중 허브 배포를 만듭니다. 입력 매개 변수 목록은 의도적으로 최소한으로 유지되었습니다. IP 주소 지정 체계는 템플릿 내의 변수를 수정하여 변경할 수 있습니다. 시나리오는 [시나리오: 공유 서비스 VNet](scenario-shared-services-vnet.md) 문서에 자세히 설명되어 있습니다.
 

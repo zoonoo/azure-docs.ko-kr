@@ -6,18 +6,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
-ms.date: 02/18/2021
+ms.date: 06/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: e51d8633418a0a00afb8a6055c05f9c77d93f3cb
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: 67211215b3dac9ad8774dc4e3c67a869bd031646
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110540456"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113111270"
 ---
 # <a name="quickstart-connect-to-a-vm-securely-through-a-browser-via-private-ip-address"></a>빠른 시작: 브라우저와 개인 IP 주소를 통해 안전하게 VM에 연결
 
-Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 머신)에 연결할 수 있습니다. 이 빠른 시작 문서에서는 VM 설정에 따라 Azure Bastion을 구성한 다음, 포털을 통해 VM에 연결하는 방법을 보여줍니다. VM에는 공용 IP 주소, 클라이언트 소프트웨어, 에이전트 또는 특별한 구성이 필요 없습니다. 서비스가 프로비저닝되면 동일한 가상 네트워크의 모든 가상 머신에서 RDP/SSH 환경을 사용할 수 있습니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
+Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 머신)에 연결할 수 있습니다. 이 빠른 시작 문서에서는 VM 설정에 따라 Azure Bastion을 구성하는 방법을 보여줍니다. 서비스가 프로비저닝되면 동일한 가상 네트워크의 모든 가상 머신에서 RDP/SSH 환경을 사용할 수 있습니다. VM에는 공용 IP 주소, 클라이언트 소프트웨어, 에이전트 또는 특별한 구성이 필요 없습니다. 다른 용도로 VM의 공용 IP 주소가 필요하지 않은 경우 제거할 수 있습니다. 그런 다음, 개인 IP 주소를 사용하여 포털을 통해 VM에 연결합니다. Azure Bastion에 대한 자세한 내용은 [Azure Bastion이란?](bastion-overview.md)을 참조하세요.
 
 ## <a name="prerequisites"></a><a name="prereq"></a>필수 조건
 
@@ -104,14 +104,21 @@ Azure Portal 및 Azure Bastion을 사용하여 브라우저를 통해 VM(가상 
    :::image type="content" source="./media/quickstart-host-portal/create-bastion.png" alt-text="3단계의 스크린샷.":::
 1. 값을 완료한 후에는 **기본값을 사용하여 Azure Bastion 만들기** 를 선택합니다. Azure에서 설정의 유효성을 검사한 다음, 호스트를 만듭니다. 호스트와 해당 리소스를 만들고 및 배포하는 데 약 5분 정도 걸립니다.
 
-## <a name="connect"></a><a name="connect"></a>연결
+## <a name="remove-vm-public-ip-address"></a><a name="remove"></a> VM 공용 IP 주소 제거
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
+
+## <a name="connect-to-a-vm"></a><a name="connect"></a>VM에 연결
 
 Bastion이 가상 네트워크에 배포되면 화면이 연결 페이지로 바뀝니다.
 
 1. 가상 머신의 사용자 이름과 암호를 입력합니다. 그런 다음, **연결** 을 선택합니다.
 
    :::image type="content" source="./media/quickstart-host-portal/connect.png" alt-text="Azure Bastion을 사용하여 연결 대화 상자를 보여 주는 스크린샷":::
-1. 이 가상 머신에 대한 RDP 연결은 HTML5를 통해 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다.
+1. 이 가상 머신에 대한 RDP 연결은 포트 443 및 Bastion 서비스를 사용하여 Azure Portal에서 직접 열립니다(HTML5를 통해). 
+
+   * 연결할 때 VM의 바탕 화면이 예제 스크린샷과 다르게 보일 수 있습니다. 
+   * VM에 연결된 상태에서 바로 가기 키를 사용하면 로컬 컴퓨터의 바로 가기 키와 동일한 동작이 수행되지 않을 수 있습니다. 예를 들어 Windows 클라이언트에서 Windows VM에 연결된 경우 CTRL+ALT+END는 로컬 컴퓨터에서 CTRL+ALT+Delete의 바로 가기 키입니다. Windows VM에 연결된 동안 Mac에서 이 작업을 수행하려면 바로 가기 키는 Fn+CTRL+ALT+Backspace입니다.
 
    :::image type="content" source="./media/quickstart-host-portal/connected.png" alt-text="RDP 연결":::
 

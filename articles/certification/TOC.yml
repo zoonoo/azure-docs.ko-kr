@@ -21,7 +21,7 @@
   items:
     - name: Azure Certified Device
       href: program-requirements-azure-certified-device.md
-    - name: IoT 플러그 앤 플레이
+    - name: IoT Plug and Play
       href: program-requirements-pnp.md
     - name: Edge Managed
       href: program-requirements-edge-managed.md
@@ -33,6 +33,8 @@
       href: concepts-legacy.md
     - name: 마케팅 개념
       href: concepts-marketing.md
+    - name: 소프트웨어 수준
+      href: how-to-software-levels.md
 - name: 방법 가이드
   items:
     - name: 게시된 디바이스를 편집하는 방법

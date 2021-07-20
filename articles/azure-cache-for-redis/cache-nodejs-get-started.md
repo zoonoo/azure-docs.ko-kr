@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 311b6a603d0c68699155510797f1dd75e3cf915a
-ms.sourcegitcommit: 1b698fb8ceb46e75c2ef9ef8fece697852c0356c
+ms.openlocfilehash: 1c18b31e8eb77c6dea2d3cf3a3e99c09d4a7e8b6
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2021
-ms.locfileid: "110655387"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112236052"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>빠른 시작: Node.js에서 Azure Cache for Redis 사용
 
@@ -125,7 +125,7 @@ node redistest.js
 그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
+> 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내서에 이 샘플을 호스팅하는 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 완쪽에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 >
 
 [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹** 을 선택합니다.

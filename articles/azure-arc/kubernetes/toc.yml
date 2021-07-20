@@ -34,6 +34,8 @@
       href: faq.md
     - name: GitOps를 사용하는 CI/CD 워크플로
       href: conceptual-gitops-ci-cd.md
+    - name: 내부 루프 개발자 환경
+      href: conceptual-inner-loop-gitops.md
 - name: 방법 가이드
   items:
     - name: 서비스 주체를 사용하여 클러스터 연결
@@ -64,6 +66,8 @@
           href: custom-locations.md
         - name: IoT 워크로드 배포
           href: deploy-azure-iot-edge-workloads.md
+        - name: Arc 지원 Machine Learning
+          href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: 문제 해결
       href: Troubleshooting.md
 - name: 참조

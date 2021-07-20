@@ -57,6 +57,8 @@
       href: point-to-site-about.md
     - name: 지점 및 사이트 간 VPN 라우팅 정보
       href: vpn-gateway-about-point-to-site-routing.md
+    - name: NAT 및 VPN Gateway 정보
+      href: nat-overview.md
     - name: 가용성 영역의 영역 중복 게이트웨이 정보
       href: about-zone-redundant-vnet-gateways.md
     - name: 보안
@@ -225,6 +227,8 @@
               href: vpn-gateway-about-forced-tunneling.md
         - name: VNet 피어링을 위한 게이트웨이 전송 구성
           href: vpn-gateway-peering-gateway-transit.md
+    - name: VPN Gateway용 NAT 구성
+      href: nat-howto.md
     - name: 로컬 네트워크 게이트웨이 수정
       items:
         - name: Azure portal
@@ -241,10 +245,10 @@
           href: vpn-gateway-download-vpndevicescript.md
         - name: '샘플: Cisco ASA 디바이스(IKEv2/BGP 아님)'
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
-    - name: 모니터링 및 경고
+    - name: 상태 모니터링
       items:
-        - name: VPN Gateway 메트릭 보기
-          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
+        - name: VPN Gateway 모니터링
+          href: monitor-vpn-gateway.md
         - name: 메트릭 기반의 경고 설정
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: 리소스 로그 기반의 경고 설정

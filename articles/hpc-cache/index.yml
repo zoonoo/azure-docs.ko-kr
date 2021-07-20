@@ -10,12 +10,12 @@ metadata:
   author: ekpgh
   ms.author: v-erkel
   ms.date: 11/07/2019
-  ms.openlocfilehash: a31fb7a2878766e960e602e5167df4f92a978f25
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d2101ad354a67e79356d6f2fb5a41eecea2f5936
+  ms.sourcegitcommit: b5508e1b38758472cecdd876a2118aedf8089fec
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "87061295"
+  ms.lasthandoff: 07/09/2021
+  ms.locfileid: "113587592"
 landingContent:
 - title: Azure HPC Cache 정보
   linkLists:
@@ -35,8 +35,10 @@ landingContent:
       url: hpc-cache-add-storage.md
     - text: 클라이언트 탑재
       url: hpc-cache-mount.md
-    - text: 캐시 관리 및 모니터링
+    - text: 캐시 관리
       url: hpc-cache-manage.md
+    - text: 캐시 메트릭 보기
+      url: metrics.md
   - linkListType: concept
     links:
     - text: 집계형 네임스페이스 계획
@@ -51,6 +53,8 @@ landingContent:
       url: hpc-cache-support-ticket.md
     - text: 스토리지 대상 편집
       url: hpc-cache-edit-storage.md
+    - text: 스토리지 대상 관리
+      url: manage-storage-targets.md
     - text: 방화벽 설정을 해결하여 Blob 스토리지 대상 생성
       url: hpc-cache-blob-firewall-fix.md
     - text: NFS 스토리지 대상 생성 문제 해결

@@ -7,12 +7,12 @@ ms.date: 04/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 282777a692b7b0fe54415ef09c2cf1879868dd3b
-ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
+ms.openlocfilehash: f11a9391b0a4f467cba41724b1d15493f1393201
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111854435"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112992138"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>컨테이너 레지스트리용 Azure Defender 소개
 
@@ -53,14 +53,14 @@ Security Center는 문제가 있을 경우에만 알리는 방식으로 원치 �
  
 검사는 일반적으로 2분 이내에 완료되지만 최대 15분이 걸릴 수 있습니다. 검사 결과는 다음과 같은 Security Center 권장 사항으로 제공됩니다.
 
-[![ACR(Azure Container Registry) 호스트 이미지에서 발견된 취약성에 대한 샘플 Azure Security Center 권장 사항](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![ACR(Azure Container Registry) 호스트 이미지에서 발견된 취약성에 대한 샘플 Azure Security Center 권장 사항.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 
 ## <a name="how-does-security-center-work-with-azure-container-registry"></a>Azure Container Registry에서 Security Center가 작동하는 방법
 
 다음은 Security Center를 사용하여 레지스트리를 보호하는 경우의 구성 요소 및 이점에 대한 개략적인 다이어그램입니다.
 
-![Azure Security Center 및 ACR(Azure Container Registry)의 대략적인 개요](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![Azure Security Center 및 ACR(Azure Container Registry)의 대략적인 개요.](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 
 
@@ -88,8 +88,6 @@ Security Center는 검사기의 검사 결과를 필터링하고 분류합니다
 ### <a name="why-is-security-center-alerting-me-to-vulnerabilities-about-an-image-that-isnt-in-my-registry"></a>Security Center에서 레지스트리에 없는 이미지에 대한 취약성을 경고하는 이유는 무엇인가요?
 Security Center는 레지스트리에서 푸시하거나 끌어온 모든 이미지에 대한 취약성 평가를 제공합니다. 일부 이미지는 이미 스캔된 이미지에서 태그를 재사용할 수 있습니다. 예를 들어 다이제스트에 이미지를 추가할 때마다 “최신” 태그를 다시 할당할 수 있습니다. 이러한 경우 ‘이전’ 이미지는 여전히 레지스트리에 존재하며 해당 다이제스트에 의해 계속 끌어올 수 있습니다. 이미지에 보안 결과가 있고 끌어온 경우 보안 취약성이 노출됩니다.
 
-### <a name="what-should-i-do-if-the-scan-results-for-my-image-arent-shown"></a>내 이미지에 대한 검사 결과가 표시되지 않으면 어떻게 해야 하나요?
-몇 분 정도 기다렸다가 결과가 표시되지 않으면 이미지를 다시 푸시하여 새 검사를 트리거해 보세요. 여전히 표시되지 않으면 지원 팀에 문의하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

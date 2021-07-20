@@ -11,7 +11,7 @@ items:
       - name: 용어
         href: overview-terminology.md
       - name: FAQ
-        href: overview-faq.md
+        href: overview-faq.yml
   - name: 빠른 시작
     expanded: true
     items:
@@ -214,8 +214,6 @@ items:
           - name: 전용 SQL 풀
             href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             displayname: overview
-          - name: Architecture
-            href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
           - name: 기능 개요
             href: sql/overview-features.md
           - name: 리소스 사용 모델
@@ -1018,11 +1016,11 @@ items:
                 href: ../data-factory/control-flow-azure-function-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: 사용자 지정 작업
                 href: ../data-factory/transform-data-using-dotnet-custom-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: Databricks Jar 작업
+              - name: Databricks Jar 활동
                 href: ../data-factory/transform-data-databricks-jar.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Databricks Notebook 활동
                 href: ../data-factory/transform-data-databricks-notebook.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: Databricks Python 작업
+              - name: Databricks Python 활동
                 href: ../data-factory/transform-data-databricks-python.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Data Explorer 명령 작업
                 href: /azure/data-explorer/data-factory-command-activity?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1050,21 +1048,21 @@ items:
                 href: ../data-factory/compute-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
           - name: 제어 흐름
             items:
-              - name: 변수 작업 추가
+              - name: 변수 추가 작업
                 href: ../data-factory/control-flow-append-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: 파이프라인 작업 실행
+              - name: 파이프라인 실행 작업
                 href: ../data-factory/control-flow-execute-pipeline-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: 활동 필터링
+              - name: Filter 작업
                 href: ../data-factory/control-flow-filter-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: ForEach 작업
                 href: ../data-factory/control-flow-for-each-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: 메타데이터 작업 가져오기
+              - name: 메타데이터 가져오기 작업
                 href: ../data-factory/control-flow-get-metadata-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: If 조건 작업
                 href: ../data-factory/control-flow-if-condition-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: 조회 작업
                 href: ../data-factory/control-flow-lookup-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: 변수 작업 설정
+              - name: 변수 설정 작업
                 href: ../data-factory/control-flow-set-variable-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Until 작업
                 href: ../data-factory/control-flow-until-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1072,7 +1070,7 @@ items:
                 href: ../data-factory/control-flow-validation-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: Wait 작업
                 href: ../data-factory/control-flow-wait-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-              - name: 웹 작업
+              - name: 웹 활동
                 href: ../data-factory/control-flow-web-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
               - name: 웹후크 작업
                 href: ../data-factory/control-flow-webhook-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -1168,6 +1166,8 @@ items:
         items:
           - name: Azure Synapse의 기계 학습이란?
             href: machine-learning/what-is-machine-learning.md
+          - name: Azure Synapse Analytics의 Cognitive Services
+            href: machine-learning/overview-cognitive-services.md
       - name: 빠른 시작
         items:
           - name: 갤러리에서 샘플 Notebook 사용

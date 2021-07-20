@@ -25,12 +25,6 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: 가상 네트워크 연결
       href: tutorial-connect-virtual-networks-portal.md
-    - name: NAT 게이트웨이 만들기 및 유효성 검사
-      href: tutorial-create-nat-gateway-portal.md
-    - name: NAT 게이트웨이 공용 부하 분산 장치 통합
-      href: tutorial-nat-gateway-load-balancer-public-portal.md
-    - name: NAT 게이트웨이 내부 부하 분산 장치 통합
-      href: tutorial-nat-gateway-load-balancer-internal-portal.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -47,16 +41,6 @@
       href: virtual-network-disaster-recovery-guidance.md
     - name: 연결
       items:
-        - name: NAT
-          items:
-            - name: 개요
-              href: nat-overview.md
-            - name: 리소스
-              href: nat-gateway-resource.md
-            - name: 메트릭 및 경고
-              href: nat-metrics.md
-            - name: 문제 해결
-              href: troubleshoot-nat.md
         - name: 라우팅
           href: virtual-networks-udr-overview.md
         - name: 백 엔드 연결 상호 운용성
@@ -95,10 +79,12 @@
           href: private-ip-addresses.md
         - name: 공용 IP 접두사
           href: public-ip-address-prefix.md
+        - name: 공용 IP 주소 관리
+          href: virtual-network-public-ip-address.md
+        - name: 공용 IP 접두사 관리
+          href: manage-public-ip-address-prefix.md
         - name: Azure VNET의 IPv6
           href: ipv6-overview.md
-        - name: 공용 IPv6 주소 접두사
-          href: ipv6-public-ip-address-prefix.md
         - name: 라우팅 기본 설정
           href: routing-preference-overview.md
         - name: 라우팅 기본 설정 무제한
@@ -214,37 +200,23 @@
           href: deploy-container-networking.md
     - name: IP 서비스
       items:
-        - name: VNet용 IPv6
+        - name: 리소스 관리
           items:
-            - name: IPv4 애플리케이션에 IPv6 추가
-              items:
-                - name: Azure PowerShell
-                  href: ipv6-add-to-existing-vnet-powershell.md
-                - name: Azure CLI
-                  href: ipv6-add-to-existing-vnet-cli.md
-            - name: 기본 공용 Load Balancer
-              items:
-                - name: Azure PowerShell
-                  href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-                - name: Azure CLI
-                  href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-                - name: Resource Manager 템플릿
-                  href: ipv6-configure-template-json.md
-            - name: 표준 공용 Load Balancer
-              items:
-                - name: Azure PowerShell
-                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-                - name: Azure CLI
-                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-                - name: Resource Manager 템플릿
-                  href: ipv6-configure-standard-load-balancer-template-json.md
-            - name: 표준 내부 Load Balancer
-              href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
-            - name: IPv6을 사용하는 가상 머신 확장 집합
-              href: ipv6-virtual-machine-scale-set.md
-            - name: 공용 IPv6 주소 접두사
-              href: ipv6-reserve-public-ip-address-prefix.md
-        - name: IP 주소
+            - name: 부하 분산 장치
+              href: configure-public-ip-load-balancer.md
+            - name: NAT 게이트웨이
+              href: configure-public-ip-nat-gateway.md
+            - name: 방화벽
+              href: configure-public-ip-firewall.md
+            - name: VPN 게이트웨이
+              href: configure-public-ip-vpn-gateway.md
+            - name: 프런트 엔드
+              href: configure-public-ip-application-gateway.md
+            - name: 가상 머신
+              href: configure-public-ip-vm.md
+            - name: Bastion
+              href: configure-public-ip-bastion.md
+        - name: 공용 IP 주소 만들기
           items:
             - name: 공용 IP 주소 만들기 - 포털
               href: create-public-ip-portal.md
@@ -252,36 +224,66 @@
               href: create-public-ip-powershell.md
             - name: 공용 IP 주소 만들기 - Azure CLI
               href: create-public-ip-cli.md
-            - name: 공용 IP 주소 관리
-              href: virtual-network-public-ip-address.md
-            - name: 공용 IP 접두사 관리
-              href: manage-public-ip-address-prefix.md
-            - name: 공용 IP 주소 업그레이드
-              href: virtual-network-public-ip-address-upgrade.md
-            - name: NIC에서 IP 주소 추가 또는 제거
-              href: virtual-network-network-interface-addresses.md
-            - name: 라우팅 기본 설정
+            - name: 공용 IP 주소 만들기 - ARM 템플릿
+              href: create-public-ip-template.md
+        - name: 공용 IP 접두사 만들기
+          items:
+            - name: 공용 IP 접두사 만들기 - 포털
+              href: create-public-ip-prefix-portal.md
+            - name: 공용 IPv6 접두사 만들기
+              href: ipv6-reserve-public-ip-address-prefix.md
+        - name: 공용 IP 주소 업그레이드
+          items:
+            - name: 공용 IP 주소 업그레이드 - 포털
+              href: public-ip-upgrade-portal.md
+            - name: 공용 IP 주소 업그레이드 - PowerShell
+              href: public-ip-upgrade-powershell.md
+            - name: 공용 IP 주소 업그레이드 - Azure CLI
+              href: public-ip-upgrade-cli.md
+            - name: 예약된 클래식 IP 마이그레이션
+              href: public-ip-upgrade-classic.md
+        - name: 부하 분산 장치
+          items:
+            - name: 표준 공용
               items:
-                - name: 공용 IP 주소 만들기
-                  items:
-                    - name: Azure portal
-                      href: routing-preference-portal.md
-                    - name: Azure PowerShell
-                      href: routing-preference-powershell.md
-                    - name: Azure CLI
-                      href: routing-preference-cli.md
-                - name: 인터넷 라우팅 기본 설정을 사용하여 VM 구성
-                  items:
-                    - name: Azure portal
-                      href: tutorial-routing-preference-virtual-machine-portal.md
-                    - name: Azure PowerShell
-                      href: configure-routing-preference-virtual-machine-powershell.md
-                    - name: Azure CLI
-                      href: configure-routing-preference-virtual-machine-cli.md
-                - name: VM에 대한 혼합 라우팅 기본 설정 구성
-                  href: routing-preference-mixed-network-adapter-portal.md
-                - name: AKS 클러스터에 대한 라우팅 기본 설정 구성
-                  href: routing-preference-azure-kubernetes-service-cli.md
+                - name: IPv6를 사용하는 표준 공용 Load Balancer - PowerShell
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+                - name: IPv6를 사용하는 표준 공용 Load Balancer - Azure CLI
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+                - name: IPv6를 사용하는 표준 공용 Load Balancer - ARM 템플릿
+                  href: ipv6-configure-standard-load-balancer-template-json.md
+            - name: 표준 내부
+              items:
+                - name: IPv6를 사용하는 표준 내부 Load Balancer - PowerShell
+                  href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
+            - name: 기본 공용
+              items:
+                - name: IPv6를 사용하는 기본 공용 Load Balancer - PowerShell
+                  href: ipv6-add-to-existing-vnet-powershell.md
+                - name: IPv6를 사용하는 기본 공용 Load Balancer - Azure CLI
+                  href: ipv6-add-to-existing-vnet-cli.md
+        - name: 라우팅 기본 설정
+          items:
+            - name: 공용 IP 주소 만들기
+              items:
+                - name: Azure portal
+                  href: routing-preference-portal.md
+                - name: Azure PowerShell
+                  href: routing-preference-powershell.md
+                - name: Azure CLI
+                  href: routing-preference-cli.md
+            - name: 인터넷 라우팅 기본 설정을 사용하여 VM 구성
+              items:
+                - name: Azure portal
+                  href: tutorial-routing-preference-virtual-machine-portal.md
+                - name: Azure PowerShell
+                  href: configure-routing-preference-virtual-machine-powershell.md
+                - name: Azure CLI
+                  href: configure-routing-preference-virtual-machine-cli.md
+            - name: VM에 대한 혼합 라우팅 기본 설정 구성
+              href: routing-preference-mixed-network-adapter-portal.md
+            - name: AKS 클러스터에 대한 라우팅 기본 설정 구성
+              href: routing-preference-azure-kubernetes-service-cli.md
     - name: 보안
       items:
         - name: 네트워크 트래픽 필터링
@@ -387,6 +389,8 @@
           href: virtual-network-tcpip-performance-tuning.md
         - name: 가상 컴퓨터 네트워크 처리량
           href: virtual-machine-network-throughput.md
+        - name: IPv6을 사용하는 가상 머신 확장 집합
+          href: ipv6-virtual-machine-scale-set.md
     - name: 지역 간 이동
       items:
         - name: NSG(네트워크 보안 그룹)
@@ -411,15 +415,6 @@
               href: move-across-regions-publicip-portal.md
             - name: 공용 IP - PowerShell
               href: move-across-regions-publicip-powershell.md
-    - name: NAT
-      items:
-        - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell
-          href: tutorial-create-nat-gateway-powershell.md
-        - name: NAT 게이트웨이 만들기 및 유효성 검사 - CLI
-          href: tutorial-create-nat-gateway-cli.md
-        - name: NAT 게이트웨이 만들기 - ARM 템플릿
-          displayname: Resource Manager
-          href: quickstart-create-nat-gateway-template.md
     - name: 문제 해결
       items:
         - name: 가상 네트워크 피어링 문제 해결
@@ -448,10 +443,14 @@
           href: what-is-ip-address-168-63-129-16.md
         - name: Azure VM 연결 문제 해결
           href: troubleshoot-vm-connectivity.md
+    - name: 가상 네트워크 모니터링
+      href: monitor-virtual-network.md
     - name: 클래식 배포
       href: /previous-versions/azure/virtual-network/create-virtual-network-classic
 - name: 참조
   items:
+    - name: 데이터 참조 모니터링
+      href: monitor-virtual-network-reference.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-network
     - name: Azure PowerShell
@@ -464,7 +463,7 @@
       href: /javascript/azure#azure-sdk
     - name: Python
       href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
+    - name: REST (영문)
       href: /rest/api/virtual-network
     - name: Resource Manager 템플릿
       href: /azure/templates/microsoft.network/allversions

@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: cfa4239fb6a3c78d861885478c1c643151ee6e13
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: 0a490811250d4665531119733ab959ed2780e741
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108128562"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112280984"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>빠른 시작: 웹 API에 액세스하도록 클라이언트 애플리케이션 구성
 
@@ -128,7 +128,7 @@ Microsoft Graph의 *Files.Read.All* 권한과 같은 일부 권한에는 관리�
 
 ### <a name="other-permissions-granted"></a>부여된 기타 권한
 
-**API 권한** 창에서 **{사용자의 테넌트}에 대해 부여된 기타 권한** 이 표시될 수도 있습니다. **{사용자의 테넌트}에 대해 부여된 기타 권한** 테이블에는 애플리케이션 개체에 명시적으로 구성되지 않은 테넌트에 부여된 권한이 표시됩니다. 이러한 권한은 동적으로 요청되고 동의되었습니다. 적용되는 권한이 하나 이상 있는 경우에만 이 섹션이 표시됩니다.
+**API 권한** 창에서 **{사용자의 테넌트}에 대해 부여된 기타 권한** 이 표시될 수도 있습니다. **{사용자의 테넌트}에 대해 부여된 기타 권한** 테이블에는 애플리케이션 개체에 명시적으로 구성되지 않은 테넌트 전체에 부여된 권한이 표시됩니다. 이러한 권한은 모든 사용자를 대신하여 관리자가 동적으로 요청하고 동의했습니다. 적용되는 권한이 하나 이상 있는 경우에만 이 섹션이 표시됩니다.
 
 이 테이블에 표시되는 API 권한 또는 개별 권한의 전체 세트를 **구성된 권한** 테이블에 추가할 수 있습니다. 관리자는 이 섹션에서 API 또는 개별 권한에 대한 관리자 동의를 철회할 수 있습니다.
 

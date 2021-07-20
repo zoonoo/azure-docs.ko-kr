@@ -18,40 +18,40 @@
       href: tutorial-deploy-vmware-hcx.md
 - name: 자습서
   items:
-    - name: 1- 네트워크 계획 검사 목록
-      href: tutorial-network-checklist.md
-    - name: 2 - 프라이빗 클라우드 만들기
-      href: tutorial-create-private-cloud.md
-    - name: 3 - 프라이빗 클라우드에 액세스
+    - name: 프라이빗 클라우드에 액세스
       href: tutorial-access-private-cloud.md
-    - name: 4 - 네트워킹 구성
+    - name: 네트워킹 구성
       href: tutorial-configure-networking.md
-    - name: 5 - NSX-T 네트워크 세그먼트 만들기
+    - name: 프라이빗 클라우드 만들기
+      href: tutorial-create-private-cloud.md
+    - name: NSX-T 네트워크 세그먼트 만들기
       href: tutorial-nsx-t-network-segment.md
-    - name: 6 - 온-프레미스에서 프라이빗 클라우드로 피어링
-      href: tutorial-expressroute-global-reach-private-cloud.md
-    - name: 7 - VMware HCX 배포 및 구성
-      href: tutorial-deploy-vmware-hcx.md
-    - name: 8 - 프라이빗 클라우드의 클러스터 확장 또는 축소
-      href: tutorial-scale-private-cloud.md
-    - name: 9 - 프라이빗 클라우드 삭제
+    - name: 프라이빗 클라우드 삭제
       href: tutorial-delete-private-cloud.md
+    - name: VMware HCX 배포 및 구성
+      href: tutorial-deploy-vmware-hcx.md
+    - name: 프라이빗 클라우드에서 클러스터 확장 또는 축소
+      href: tutorial-scale-private-cloud.md
+    - name: 네트워크 계획 검사 목록
+      href: tutorial-network-checklist.md
+    - name: 온-프레미스에서 프라이빗 클라우드로 피어링
+      href: tutorial-expressroute-global-reach-private-cloud.md
 - name: 개념
   items:
-    - name: 프라이빗 클라우드 및 클러스터
-      href: concepts-private-clouds-clusters.md
-    - name: 네트워킹 및 상호 연결
-      href: concepts-networking.md
-    - name: 스토리지
-      href: concepts-storage.md
     - name: 액세스 및 ID
       href: concepts-identity.md
-    - name: 모니터 및 보호
-      href: concepts-monitor-protection.md
     - name: API Management
       href: concepts-api-management.md
     - name: 허브 및 스포크
       href: concepts-hub-and-spoke.md
+    - name: 모니터 및 보호
+      href: concepts-monitor-protection.md
+    - name: 네트워킹 및 상호 연결
+      href: concepts-networking.md
+    - name: 프라이빗 클라우드 및 클러스터
+      href: concepts-private-clouds-clusters.md
+    - name: 스토리지
+      href: concepts-storage.md
 - name: 방법 가이드
   items:
     - name: Azure VMware Solution 평가 만들기
@@ -60,33 +60,53 @@
       href: request-host-quota-azure-vmware-solution.md
     - name: 예약 인스턴스로 비용 절감
       href: reserved-instance.md
+    - name: 네트워킹 구성
+      items:
+        - name: DHCP 구성
+          href: configure-dhcp-azure-vmware-solution.md
+        - name: L2 확장 VMware HCX 네트워크에서 DHCP 구성
+          href: configure-l2-stretched-vmware-hcx-networks.md
+        - name: Azure를 사용하여 NSX 구성 요소 구성
+          href: configure-nsx-network-components-azure-portal.md
+        - name: GitHub Enterprise 서버 구성
+          href: ./configure-github-enterprise-server.md
+        - name: 공용 인터넷 액세스 사용
+          href: enable-public-internet-access.md
+        - name: vWAN에서 사이트 간 VPN 구성
+          href: configure-site-to-site-vpn-gateway.md
+    - name: Windows Server 장애 조치(Failover) 클러스터 구성
+      href: configure-windows-server-failover-cluster.md
+    - name: cloudadmin 자격 증명 회전
+      href: rotate-cloudadmin-credentials.md
+    - name: 동일한 지역에 여러 프라이빗 클라우드 연결
+      href: connect-multiple-private-clouds-same-region.md
     - name: 리소스 이동
       items:
         - name: Azure VMware solution 구독 이동
           href: move-ea-csp-subscriptions.md
         - name: 지역간 Azure VMware Solution 리소스 이동
           href: move-azure-vmware-solution-across-regions.md
-    - name: DHCP 구성
-      href: configure-dhcp-azure-vmware-solution.md
-    - name: L2 확장 VMware HCX 네트워크에서 DHCP 구성
-      href: configure-l2-stretched-vmware-hcx-networks.md
-    - name: Azure를 사용하여 NSX 구성 요소 구성
-      href: configure-nsx-network-components-azure-portal.md
-    - name: GitHub Enterprise 서버 구성
-      href: ./configure-github-enterprise-server.md
-    - name: 공용 인터넷 액세스 사용
-      href: enable-public-internet-access.md
-    - name: vWAN에서 사이트 간 VPN 구성
-      href: configure-site-to-site-vpn-gateway.md
-    - name: Windows Server 장애 조치(Failover) 클러스터 구성
-      href: configure-windows-server-failover-cluster.md
-    - name: cloudadmin 자격 증명 회전
-      href: rotate-cloudadmin-credentials.md
-    - name: 재해 복구
+    - name: Azure 네이티브 통합
       items:
-        - name: VMware HCX를 사용하여 재해 복구 배포
-          href: deploy-disaster-recovery-using-vmware-hcx.md
-        - name: Azure Site Recovery에 대한 재해 복구
+        - name: 'VM 보호, 모니터링 및 관리'
+          href: integrate-azure-native-services.md
+        - name: Azure Security Center 통합
+          href: azure-security-integration.md
+        - name: Azure NetApp Files 통합
+          href: netapp-files-with-azure-vmware-solution.md
+        - name: Azure Application Gateway로 웹앱 보호
+          href: protect-azure-vmware-solution-with-application-gateway.md
+        - name: 워크로드를 분산하는 Traffic Manager 배포
+          href: deploy-traffic-manager-balance-workloads.md
+        - name: 경고 구성 및 메트릭 작업
+          href: configure-alerts-for-azure-vmware-solution.md
+        - name: Azure Backup Server를 사용하여 백업
+          items:
+            - name: Backup 서버 설정
+              href: set-up-backup-server-for-azure-vmware-solution.md
+            - name: Backup 서버를 사용하여 프라이빗 클라우드 VM 백업
+              href: backup-azure-vmware-solution-virtual-machines.md
+        - name: Azure Site Recovery를 사용하여 재해 복구
           items:
             - name: Azure 준비
               href: ../site-recovery/avs-tutorial-prepare-azure.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
@@ -102,20 +122,6 @@
               href: ../site-recovery/avs-tutorial-reprotect.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
             - name: Azure에서 장애 복구
               href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
-    - name: Azure 네이티브 통합
-      items:
-        - name: 'VM 보호, 모니터링 및 관리'
-          href: integrate-azure-native-services.md
-        - name: Azure Security Center 통합
-          href: azure-security-integration.md
-        - name: Azure NetApp Files 통합
-          href: netapp-files-with-azure-vmware-solution.md
-        - name: Azure Application Gateway로 웹앱 보호
-          href: protect-azure-vmware-solution-with-application-gateway.md
-        - name: 워크로드를 분산하는 Traffic Manager 배포
-          href: deploy-traffic-manager-balance-workloads.md
-        - name: 경고 구성 및 메트릭 작업
-          href: configure-alerts-for-azure-vmware-solution.md
     - name: VMware 솔루션
       items:
         - name: vRealize 작업 구성
@@ -124,6 +130,10 @@
           href: azure-vmware-solution-horizon.md
         - name: 콘텐츠 라이브러리에서 VM 배포
           href: deploy-vm-content-library.md
+        - name: VMware HCX를 사용하여 재해 복구 배포
+          href: deploy-disaster-recovery-using-vmware-hcx.md
+        - name: VMware HCX 어플라이언스 업그레이드
+          href: 'https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html'
     - name: VMware 에코시스템
       items:
         - name: VM용 백업 솔루션
@@ -132,6 +142,10 @@
           href: ecosystem-migration-vms.md
 - name: 리소스
   items:
+    - name: 학습 경로
+      items:
+        - name: Azure VMware 솔루션에서 VMware 워크로드 실행
+          href: /learn/paths/run-vmware-workloads-azure-vmware-solution/
     - name: 문제 해결
       items:
         - name: 배포 실패에 대한 지원 요청 열기
@@ -141,27 +155,29 @@
     - name: FAQ
       items:
         - name: 일반
-          href: faq.yml
+          href: ./faq.yml
         - name: 고객 커뮤니케이션
-          href: /azure/azure-vmware/faq.yml#customer-communication
+          href: /azure/azure-vmware/faq#customer-communication
         - name: 구성 및 설정
-          href: /azure/azure-vmware/faq.yml#configuration-and-setup
+          href: /azure/azure-vmware/faq#configuration-and-setup
         - name: VMware 소프트웨어
-          href: /azure/azure-vmware/faq.yml#vmware-software
+          href: /azure/azure-vmware/faq#vmware-software
         - name: 타사 백업 솔루션
-          href: /azure/azure-vmware/faq.yml#third-party-backup-and-recovery
+          href: /azure/azure-vmware/faq#third-party-backup-and-recovery
         - name: 컴퓨팅
-          href: /azure/azure-vmware/faq.yml#compute
+          href: /azure/azure-vmware/faq#compute
         - name: 네트워킹 및 상호 연결
-          href: /azure/azure-vmware/faq.yml#networking-and-interconnectivity
+          href: /azure/azure-vmware/faq#networking-and-interconnectivity
         - name: 스토리지
-          href: /azure/azure-vmware/faq.yml#storage
+          href: /azure/azure-vmware/faq#storage
         - name: '호스트, 클러스터 및 프라이빗 클라우드'
-          href: '/azure/azure-vmware/faq.yml#hosts,-clusters,-and-private-clouds'
+          href: '/azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds'
         - name: ID 관리
-          href: /azure/azure-vmware/faq.yml#identity-management
+          href: /azure/azure-vmware/faq#identity-management
+        - name: CSP 및 다중 테넌트
+          href: /azure/azure-vmware/faq#csp-and-multi-tenancy
         - name: 청구 및 지원
-          href: /azure/azure-vmware/faq.yml#billing-and-support
+          href: /azure/azure-vmware/faq#billing-and-support
     - name: 동영상
       items:
         - name: 재생 목록

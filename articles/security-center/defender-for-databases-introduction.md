@@ -7,12 +7,12 @@ ms.date: 05/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: eb460fc214cd9dfb65e1ef500cfc3c152452030e
-ms.sourcegitcommit: 80d311abffb2d9a457333bcca898dfae830ea1b4
+ms.openlocfilehash: eddab19cb46d27d0d48d1f2376cd9507b28cefc8
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/26/2021
-ms.locfileid: "110483209"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003623"
 ---
 # <a name="introduction-to-azure-defender-for-open-source-relational-databases"></a>오픈 소스 관계형 데이터베이스용 Azure Defender 소개
 
@@ -33,7 +33,7 @@ Azure Defender는 데이터베이스에 액세스하거나 악용하려는 비�
 | PostgreSQL의 보호 버전:  | 단일 서버 - 범용 및 메모리 최적화. 자세한 내용은 [PostgreSQL 가격 책정 계층](../postgresql/concepts-pricing-tiers.md)을 참조하세요.   |
 | MySQL의 보호 버전:       | 단일 서버 - 범용 및 메모리 최적화. 자세한 내용은 [MySQL 가격 책정 계층](../mysql/concepts-pricing-tiers.md)을 참조하세요.                        |
 | MariaDB의 보호 버전:     | 범용 및 메모리 최적화. 자세한 내용은 [MariaDB 가격 책정 계층](../mariadb/concepts-pricing-tiers.md)을 참조하세요.                      |
-| 클라우드:                            | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부) |
+| 클라우드:                            | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(US Gov, Azure 중국) |
 |                                    |                                                                                                                                            |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-open-source-relational-databases"></a>오픈 소스 관계형 데이터베이스용 Azure Defender의 이점은 무엇인가요?

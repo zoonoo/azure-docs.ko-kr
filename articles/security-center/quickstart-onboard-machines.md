@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 68fcf8a8feb046fca2c26041d92264dd8b3a638e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8ca3f7c9104fa655536762ac38f50c78cb96ad3a
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465500"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112237941"
 ---
 # <a name="connect-your-non-azure-machines-to-security-center"></a>비 Azure 컴퓨터를 Security Center에 연결
 
@@ -55,14 +55,14 @@ Azure Arc 사용 서버가 있는 컴퓨터는 Azure 리소스가 되며 Securit
 1. Security Center의 메뉴에서 **시작** 페이지를 엽니다.
 1. **시작하기** 탭을 선택합니다.
 
-    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="[시작] 페이지의 [시작] 탭" lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
+    :::image type="content" source="./media/security-center-onboarding/onboarding-get-started-tab.png" alt-text="[시작] 페이지의 [시작] 탭." lightbox="./media/security-center-onboarding/onboarding-get-started-tab.png":::
 
 1. **비Azure 서버 추가** 에서 **구성** 을 선택합니다.
 
     > [!TIP]
     > **인벤토리** 페이지의 **비 Azure 서버 추가** 단추에서 [컴퓨터 추가]를 열 수도 있습니다.
     > 
-    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="자산 인벤토리 페이지에서 비 Azure 머신 추가":::
+    > :::image type="content" source="./media/security-center-onboarding/onboard-inventory.png" alt-text="자산 인벤토리 페이지에서 비 Azure 머신 추가.":::
 
     Log Analytics 작업 영역 목록이 표시됩니다. 이 목록에는 자동 프로비저닝을 사용하는 경우 Security Center에서 자동으로 생성되는 기본 작업 영역이 포함됩니다(해당하는 경우). 이 작업 영역이나 사용할 다른 작업 영역을 선택합니다.
 
@@ -129,11 +129,11 @@ Windows 컴퓨터를 추가하려면 **에이전트 관리** 페이지의 정보
 
 축하합니다! 이제 Azure 및 비 Azure 컴퓨터를 한 장소에서 모두 볼 수 있습니다. [자산 인벤토리 페이지](asset-inventory.md)를 열고 관련 리소스 종류로 필터링합니다. 이러한 아이콘은 다음과 같은 종류를 구분합니다.
 
-  ![비 Azure 머신에 대한 ASC 아이콘](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
+  ![비 Azure 머신에 대한 ASC 아이콘.](./media/quick-onboard-linux-computer/security-center-monitoring-icon1.png) 비 Azure 컴퓨터
 
-  ![Azure 머신에 대한 ASC 아이콘](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
+  ![Azure 머신에 대한 ASC 아이콘.](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) Azure VM
 
-  ![Azure Arc 서버에 대한 ASC 아이콘](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc 사용 서버
+  ![Azure Arc 서버에 대한 ASC 아이콘.](./media/quick-onboard-linux-computer/arc-enabled-machine-icon.png) Azure Arc 사용 서버
 
 ## <a name="next-steps"></a>다음 단계
 

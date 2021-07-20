@@ -3,12 +3,12 @@ title: Azure Arc 개요
 description: Azure Arc란 무엇이며 고객이 다른 Azure 서비스 및 기능을 사용하여 하이브리드 리소스의 관리 및 거버넌스를 활성화하는 데 어떤 도움이 되는지 알아봅니다.
 ms.date: 05/25/2021
 ms.topic: overview
-ms.openlocfilehash: b9e3cac865a92023d0079a5face9fbc8a3734c6e
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: b67c01f666916508946b49b0ad45d7151ed179ef
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111967080"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112287302"
 ---
 # <a name="azure-arc-overview"></a>Azure Arc 개요
 
@@ -29,7 +29,8 @@ Azure Arc는 일관적인 다중 클라우드 및 온-프레미스 관리 플랫
 
 * 서버 - Windows 또는 Linux를 실행하는 물리적 머신 및 가상 머신
 * Kubernetes 클러스터 - 여러 Kubernetes 배포 지원
-* Azure 데이터 서비스 - Azure SQL Database 및 PostgreSQL 하이퍼스케일 서비스
+* Azure 데이터 서비스 - Azure SQL Managed Instance 및 PostgreSQL 하이퍼스케일 서비스
+* SQL Server - 모든 위치에서 인스턴스를 등록합니다.
 
 ## <a name="what-does-azure-arc-deliver"></a>Azure Arc는 어떤 기능을 제공하나요?
 

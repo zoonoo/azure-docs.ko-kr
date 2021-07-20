@@ -6,6 +6,8 @@
       href: overview.md
     - name: 새로운 기능
       href: whats-new.md
+    - name: Azure Monitor의 새로운 기능
+      href: whats-new-azure-monitor.md
     - name: Azure Virtual Desktop(클래식) 설명서
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: 자습서
@@ -25,19 +27,19 @@
     - name: Azure Virtual Desktop 리소스에 연결
       items:
         - name: Windows Desktop 클라이언트와 연결
-          href: connect-windows-7-10.md
+          href: ./user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: 웹 클라이언트를 사용하여 연결
-          href: connect-web.md
+          href: ./user-documentation/connect-web.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Android 클라이언트와 연결
-          href: connect-android.md
+          href: ./user-documentation/connect-android.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: macOS 클라이언트와 연결
-          href: connect-macos.md
+          href: ./user-documentation/connect-macos.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: iOS 클라이언트와 연결
-          href: connect-ios.md
+          href: ./user-documentation/connect-ios.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: Microsoft Store 클라이언트와 연결
-          href: connect-microsoft-store.md
+          href: ./user-documentation/connect-microsoft-store.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
         - name: 씬 클라이언트와 연결
-          href: linux-overview.md
+          href: ./user-documentation/linux-overview.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: 디바이스 리디렉션 구성
       href: configure-device-redirections.md
     - name: PowerShell 모듈 설정
@@ -138,6 +140,8 @@
       href: drain-mode.md
 - name: 개념
   items:
+    - name: 관리 권장 사항
+      href: management.md
     - name: 기본 제공 역할
       href: rbac.md
     - name: 인증
@@ -212,12 +216,12 @@
       href: remotefx-graphics-performance-counters.md
     - name: Azure Monitor
       href: troubleshoot-azure-monitor.md
+    - name: 관리 문제
+      href: troubleshoot-management-issues.md
 - name: 참조
   items:
     - name: 보안 모범 사례
       href: security-guide.md
-    - name: Linux 지원
-      href: linux-overview.md
     - name: Azure CLI
       href: /cli/azure/desktopvirtualization
     - name: Azure Monitor 비용 예측

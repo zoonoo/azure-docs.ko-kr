@@ -7,12 +7,12 @@ ms.date: 05/12/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7292d08d2505b63e97c76ca3f40ad573690c173
-ms.sourcegitcommit: 42ac9d148cc3e9a1c0d771bc5eea632d8c70b92a
+ms.openlocfilehash: 7d564d3d3a27d4ddba50ab05644d612e9bb63645
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2021
-ms.locfileid: "109846417"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113002579"
 ---
 # <a name="introduction-to-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager 소개
 
@@ -28,7 +28,7 @@ Azure Defender for Resource Manager는 Azure Portal, Azure REST API, Azure CLI �
 |----|:----|
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|**Azure Defender for Resource Manager** 는 [Security Center 가격 책정](https://azure.microsoft.com/pricing/details/security-center/)에 표시된 대로 요금이 청구됩니다.|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) 미국 정부, 기타 정부<br>![아니요](./media/icons/no-icon.png) Azure 중국|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-resource-manager"></a>Azure Defender for Resource Manager의 이점은?
@@ -39,7 +39,7 @@ Azure Defender for Resource Manager는 다음을 비롯한 문제를 방지합�
 - Microburst 또는 PowerZure와 같은 **악용 도구 키트 사용**
 - Azure 관리 계층에서 Azure 리소스 데이터 평면으로의 **측면 이동**
 
-:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager 개요 다이어그램":::
+:::image type="content" source="media/defender-for-resource-manager-introduction/consistent-management-layer-with-defender.png" alt-text="Azure Resource Manager 개요 다이어그램.":::
 
 Azure Defender for Resource Manager에서 제공하는 경고의 전체 목록은 [경고 참조 페이지](alerts-reference.md#alerts-resourcemanager)에 있습니다.
 
@@ -54,7 +54,7 @@ Azure Defender for Resource Manager에서 경고를 조사하려면 다음을 �
 
 1. Azure 활동 로그를 엽니다.
 
-    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="Azure 활동 로그를 여는 방법":::
+    :::image type="content" source="media/defender-for-resource-manager-introduction/opening-azure-activity-log.png" alt-text="Azure 활동 로그를 여는 방법.":::
 
 1. 다음과 같이 이벤트를 필터링합니다.
     - 경고에 언급된 구독

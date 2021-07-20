@@ -5,27 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 06/15/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperf-fy21q1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e274d35fde6a3d55c05bcb5a9f22e75a37aa3c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 77305f9f2216adba8fb46cf2d4ee6b0da8c10e5f
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97955402"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113105996"
 ---
 # <a name="what-is-identity-protection"></a>Identity Protection이란?
 
 Identity Protection은 조직에서 다음과 같은 세 가지 주요 작업을 수행할 수 있는 도구입니다.
 
-- ID 기반 위험의 감지 및 수정 자동화
-- 포털에서 데이터를 사용하는 위험 조사
-- 심도있는 조사를 위해 타사 유틸리티로 위험 감지 데이터 내보내기
+- [ID 기반 위험의 감지 및 수정을 자동화](howto-identity-protection-configure-risk-policies.md)합니다.
+- 포털에서 데이터를 사용하여 [위험을 조사](howto-identity-protection-investigate-risk.md)합니다.
+- [SIEM으로 위험 검색 데이터를 내보냅니다](../../sentinel/connect-azure-ad-identity-protection.md).
 
 Identity Protection은 사용자 보호를 위해 Microsoft가 Azure AD를 사용하는 조직, Microsoft 계정의 소비자 공간 및 Xbox를 이용한 게임 등에서 사용자 위치로부터 습득한 학습을 사용합니다. Microsoft는 하루 6조 5000억 개의 신호를 분석하여 고객을 위협으로부터 보호합니다.
 
@@ -45,22 +45,17 @@ Microsoft의 ID 보안 및 보호 팀을 이끄는 Alex Weinert는 [자신의 20
 
 ## <a name="risk-detection-and-remediation"></a>위험 감지 및 수정
 
-Identity Protection은 다음과 같은 분류로 위험을 식별합니다.
+ID 보호는 다음을 포함한 다양한 유형의 위험을 식별합니다.
 
-| 위험 탐지 유형 | Description |
-| --- | --- |
-| 익명 IP 주소 | 익명 IP 주소에서 로그인(예: Tor 브라우저, 익명성 도구 VPN) |
-| 비정상적 이동 | 사용자의 최근 로그인을 기준으로 비정상적인 위치에서 로그인합니다. |
-| 맬웨어 연결 IP 주소 | 맬웨어 연결 IP 주소에서 로그인합니다. |
-| 일반적이지 않은 로그인 속성 | 지정된 사용자에게 최근 확인되지 않은 속성으로 로그인합니다. |
-| 유출된 자격 증명 | 사용자의 유효한 자격 증명이 유출되었음을 나타냅니다. |
-| 암호 스프레이 | 여러 사용자 이름이 통합된 무차별 암호 대입 공격 방식으로 공통 암호를 사용하여 공격 받고 있음을 나타냅니다. |
-| Azure AD 위협 인텔리전스 | Microsoft의 내부 및 외부 위협 인텔리전스 소스가 알려진 공격 패턴을 식별했습니다. |
-| 새 국가 | 이 검색은 [MCAS(Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#activity-from-infrequent-country)에서 검색됩니다. |
-| 익명 IP 주소에서의 활동 | 이 검색은 [MCAS(Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#activity-from-anonymous-ip-addresses)에서 검색됩니다. |
-| 의심스러운 받은 편지함 전달 | 이 검색은 [MCAS(Microsoft Cloud App Security)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-forwarding)에서 검색됩니다. |
+- 익명 IP 주소 사용
+- 비정상적 이동
+- 맬웨어 연결 IP 주소
+- 일반적이지 않은 로그인 속성
+- 유출된 자격 증명
+- 암호 스프레이
+- 추가...
 
-이러한 위험에 대한 더 자세한 내용 및 계산되는 방법/시기는 [위험이란?](concept-identity-protection-risks.md) 문서에서 확인할 수 있습니다.
+계산 방법 또는 시기를 포함하여 이러한 위험 및 기타 위험에 대한 자세한 내용은 [위험이란?](concept-identity-protection-risks.md) 문서에서 확인할 수 있습니다.
 
 위험 신호는 사용자에게 Azure AD Multi-Factor Authentication 수행, 셀프 서비스 암호 재설정을 사용하여 암호 다시 설정, 관리자가 조치를 취할 때까지 차단 등의 수정 작업을 트리거할 수 있습니다.
 
@@ -107,15 +102,15 @@ Identity Protection을 사용하려면 사용자가 보안 읽기 권한자, 보
 
 | 기능 | 세부 정보  | Azure AD Free / Microsoft 365 앱 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 예 |예 | 
-| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  예 |예 |
-| 보안 보고서 | 개요 |  아니요 | 예 |예 |
+| 위험 정책 | 사용자 위험 정책(ID 보호를 통해)  | 아니요 | 아니요 |예 | 
+| 위험 정책 | 로그인 위험 정책(ID 보호 또는 조건부 액세스를 통해)  | 아니요 |  아니요 |예 |
+| 보안 보고서 | 개요 |  아니요 | 아니요 |예 |
 | 보안 보고서 | 위험한 사용자  | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 제한된 정보. 중간 및 높은 위험 수준의 사용자만 표시됩니다. 세부 정보 서랍 또는 위험 기록이 없습니다. | 모든 권한|
 | 보안 보고서 | 위험한 로그인  | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 제한된 정보. 위험 정보 또는 위험 수준이 표시되지 않습니다. | 모든 권한|
 | 보안 보고서 | 위험 탐지   | 예 | 제한된 정보. 세부 정보 서랍이 없습니다.| 모든 권한|
-| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 예 |예 |
-| 공지 | 주 단위 요약| 아니요 | 예 | 예 | 
-| | MFA 등록 정책 | 아니요 | 예 | 예 |
+| 공지 | 위험에 처한 사용자가 알림을 감지함  | 아니요 | 아니요 |예 |
+| 공지 | 주 단위 요약| 아니요 | 아니요 | 예 | 
+| | MFA 등록 정책 | 아니요 | 아니요 | 예 |
 
 이러한 풍부한 보고서에 대한 자세한 내용은 [방법: 위험 조사](howto-identity-protection-investigate-risk.md#navigating-the-reports) 문서를 참조하세요.
 

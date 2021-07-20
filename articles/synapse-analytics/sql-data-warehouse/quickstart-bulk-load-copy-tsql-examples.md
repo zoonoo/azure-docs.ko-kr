@@ -9,12 +9,13 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 510f2556fba42176817b782fe48d01d76eaa3fd7
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.custom: subject-rbac-steps
+ms.openlocfilehash: 3873ae1dd4ab230e5e0c3424341722e76aeb48fb
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568457"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113216228"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Synapse SQL을 사용하여 안전하게 데이터 로드
 
@@ -72,7 +73,7 @@ WITH (
 
 스토리지 계정이 VNet에 연결되었을 때는 관리 ID 인증이 필요합니다. 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 1. [이 가이드](/powershell/azure/install-az-ps?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 Azure PowerShell을 설치합니다.
 2. 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 사용하여 범용 v2로 업그레이드해야 합니다.
@@ -105,7 +106,20 @@ WITH (
    > - 범용 v1 또는 Blob Storage 계정이 있는 경우 먼저 이 [가이드](../../storage/common/storage-account-upgrade.md)를 사용하여 **v2로 업그레이드** 해야 합니다.
    > - Azure Data Lake Storage Gen2의 알려진 문제에 대해서는 이 [가이드](../../storage/blobs/data-lake-storage-known-issues.md)를 참조하세요.
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. AAD(Azure Active Directory)에 등록한 전용 SQL 풀을 호스팅하는 서버 또는 작업 영역에 **Storage Blob 데이터 기여자** Azure 역할을 할당합니다.
+1. 스토리지 계정에서 **액세스 제어(IAM)** 를 선택합니다.
+
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | Storage Blob 데이터 기여자 |
+    | 다음에 대한 액세스 할당 | SERVICEPRINCIPAL |
+    | 멤버 | AAD(Azure Active Directory)에 등록한 전용 SQL 풀을 호스팅하는 서버 또는 작업 영역  |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+
 
    > [!NOTE]
    > 소유자 권한이 있는 멤버만 이 단계를 수행할 수 있습니다. Azure 기본 제공 역할에 대한 자세한 내용은 이 [가이드](../../role-based-access-control/built-in-roles.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)를 참조하세요.
@@ -129,16 +143,28 @@ WITH (
 ## <a name="d-azure-active-directory-authentication"></a>D. Azure Active Directory 인증
 #### <a name="steps"></a>단계
 
-1. 스토리지 계정 아래의 **액세스 제어(IAM)** 로 이동하고 **역할 할당 추가** 를 선택합니다. **Storage Blob 데이터 소유자, 기여자 또는 리더** Azure 역할을 Azure AD 사용자에게 할당합니다. 
+1. 스토리지 계정에서 **액세스 제어(IAM)** 를 선택합니다.
+
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
+
+1. 다음 역할을 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | Storage Blob 데이터 소유자, 기여자 또는 리더 |
+    | 다음에 대한 액세스 할당 | USER |
+    | 멤버 | Azure AD 사용자 |
+
+    ![Azure Portal에서 역할 할당 페이지를 추가합니다.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
     > [!IMPORTANT]
     > **Storage** **Blob 데이터** 소유자, 기여자 또는 읽기 권한자 Azure 역할을 지정합니다. 이러한 역할은 소유자, 기여자 및 읽기 권한자로 구성되는 Azure 기본 제공 역할과 다릅니다.
 
     ![로드할 수 있는 Azure RBAC 권한 부여](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
-2. 다음 [문서](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)에 따라 Azure AD 인증을 구성합니다. 
+1. 다음 [문서](../../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell)에 따라 Azure AD 인증을 구성합니다. 
 
-3. Active Directory를 사용하여 SQL 풀에 연결합니다. 이제 자격 증명을 지정하지 않고 COPY 문을 실행할 수 있습니다.
+1. Active Directory를 사용하여 SQL 풀에 연결합니다. 이제 자격 증명을 지정하지 않고 COPY 문을 실행할 수 있습니다.
 
     ```sql
     COPY INTO dbo.target_table

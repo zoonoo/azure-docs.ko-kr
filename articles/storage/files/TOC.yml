@@ -25,8 +25,10 @@
   items:
     - name: Azure Files 배포에 대한 계획
       href: storage-files-planning.md
-    - name: 사용 가능한 파일 공유 프로토콜
-      href: storage-files-compare-protocols.md
+    - name: SMB 파일 공유
+      href: files-smb-protocol.md
+    - name: NFS 파일 공유
+      href: files-nfs-protocol.md
     - name: ID 기반 인증 및 권한 부여
       href: storage-files-active-directory-overview.md
     - name: 직접 액세스를 위한 네트워킹 고려 사항
@@ -35,26 +37,6 @@
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Azure 파일 공유 스냅샷
       href: storage-snapshots-files.md
-    - name: 개발
-      items:
-        - name: 공유 키 인증
-          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-        - name: SAS(공유 액세스 서명)
-          href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: 모니터링 및 문제 해결
-      items:
-        - name: 클래식 메트릭에서 전환
-          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 모니터링(클래식)
-          items:
-            - name: 스토리지 분석
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: 메트릭
-              href: ../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: 로그
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: '모니터링, 진단 및 문제 해결'
-              href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: 성능 및 크기 조정
       items:
         - name: SMB 다중 채널 성능
@@ -83,10 +65,10 @@
       items:
         - name: SMB 파일 공유 만들기
           href: storage-how-to-create-file-share.md
+        - name: NFS 파일 공유 만들기
+          href: storage-files-how-to-create-nfs-shares.md
         - name: Azure Files에서 DFS-N 사용
           href: files-manage-namespaces.md
-        - name: NFS 공유 만들기
-          href: storage-files-how-to-create-nfs-shares.md
         - name: 프리미엄 파일 공유 기능이 있는 FCI SQL Server
           href: ../../azure-sql/virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 스토리지 예약 구매
@@ -141,8 +123,6 @@
       items:
         - name: 일시 삭제 사용
           href: storage-files-enable-soft-delete.md
-        - name: 데이터 복제 방법 변경
-          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 데이터 중복성 관리
           items:
             - name: 데이터 복제 방법 변경
@@ -217,8 +197,6 @@
       items:
         - name: SMB 다중 채널 사용
           href: storage-files-enable-smb-multichannel.md
-        - name: 대량 파일 공유 사용
-          href: storage-files-how-to-create-large-file-share.md
     - name: 개발
       items:
         - name: 연결 문자열 구성
@@ -251,6 +229,10 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: 보안 전송 필요
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Windows SMB 클라이언트에서 SMB 1을 사용하지 않도록 설정
+          href: /windows-server/storage/file-server/troubleshoot/detect-enable-and-disable-smbv1-v2-v3?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Linux SMB 클라이언트에서 SMB를 사용하지 않도록 설정
+          href: files-remove-smb1-linux.md
         - name: TLS(전송 계층 보안) 관리
           items:
             - name: 들어오는 요청에 대한 최소 TLS 버전 적용
@@ -275,8 +257,6 @@
           href: storage-troubleshooting-files-performance.md
         - name: Linux에서 Azure Files 문제 해결(NFS)
           href: storage-troubleshooting-files-nfs.md
-        - name: Azure 파일 공유 삭제 문제 해결
-          href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
         - name: 파일 공유 백업 문제 해결
           href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: 참조
@@ -306,6 +286,8 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Azure Files 및 Azure NetApp Files 비교
       href: storage-files-netapp-comparison.md
+    - name: 'NFS와의 액세스를 Azure Files, Blob Storage 및 NetApp 파일과 비교'
+      href: ../common/nfs-comparison.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: NuGet 패키지(.NET)
       items:
         - name: Microsoft.Azure.Storage.Common(버전 11.x)

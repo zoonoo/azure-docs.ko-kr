@@ -13,12 +13,12 @@ ms.custom:
 - seo-python-october2019
 - devx-track-azurecli
 - contperf-fy21q1
-ms.openlocfilehash: 8adfd1a6e26a3381653ca9a794b124e201b9d481
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.openlocfilehash: 9814037b9a4ace0a5f39d6ab0b01d1d940fb00fa
+ms.sourcegitcommit: 0beea0b1d8475672456da0b3a4485d133283c5ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106106724"
+ms.lasthandoff: 06/28/2021
+ms.locfileid: "112991985"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Kubernetes Service 클러스터 배포
 
@@ -38,6 +38,7 @@ Windows Server 노드 풀을 만드는 방법에 대한 자세한 내용은 [Win
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - 이 문서에는 Azure CLI 버전 2.0.64 이상이 필요합니다. Azure Cloud Shell을 사용하는 경우 최신 버전이 이미 설치되어 있습니다.
+- 클러스터를 만드는 데 사용하는 ID에는 적절한 최소 권한이 있습니다. AKS의 액세스 및 ID에 대한 자세한 내용은 [AKS(Azure Kubernetes Service)에 대한 액세스 및 ID 옵션](concepts-identity.md)을 참조하세요.
 
 > [!NOTE]
 > 이 빠른 시작의 명령을 Azure Cloud Shell 대신 로컬로 실행하려는 경우 관리자 권한으로 명령을 실행합니다.

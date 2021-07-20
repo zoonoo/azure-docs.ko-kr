@@ -7,12 +7,12 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 5e32c5f02191e4bd60ad4334884df34ce0bc0537
-ms.sourcegitcommit: 9ad20581c9fe2c35339acc34d74d0d9cb38eb9aa
+ms.openlocfilehash: c4a49b3db5fe87f006a1bcd6d13a81b47c8d6abb
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2021
-ms.locfileid: "110537456"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113006233"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Azure Security Center에 GCP 계정 연결
 
@@ -39,7 +39,7 @@ GCP 계정을 Security Center에 온보딩하면 GCP Security Command Center와 
 |릴리스 상태:|GA(일반 공급)|
 |가격 책정:|[서버용 Azure Defender](defender-for-servers-introduction.md) 필요|
 |필요한 역할 및 권한:|관련 Azure 구독에 대한 **소유자** 또는 **기여자**|
-|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(미국 정부, 중국 정부, 기타 정부)|
+|클라우드:|![예](./media/icons/yes-icon.png) 상용 클라우드<br>![아니요](./media/icons/no-icon.png) 국가/소버린(US Gov, Azure 중국)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>GCP 계정 연결
@@ -95,7 +95,7 @@ GCP 계정을 특정 Azure 구독에 연결하는 경우 [Google Cloud 리소스
     1. **ADD** 를 선택합니다.
     1. **새 구성원** 필드에 이전에 복사한 **이메일** 값을 붙여넣습니다.
     1. 역할을 **Security Center 관리 뷰어** 로 지정한 다음, **저장** 을 선택합니다.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="관련 GCP 권한 설정":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="관련 GCP 권한 설정.":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>4단계. 전용 서비스 계정에 대한 프라이빗 키 만들기

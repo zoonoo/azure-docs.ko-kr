@@ -1,6 +1,6 @@
 ---
-title: Key Vault Insights로 Key Vault 모니터링 | 마이크로 소프트 문서
-description: 이 문서에서는 Key Vault 정보에 대해 설명합니다.
+title: Key Vault 인사이트를 사용한 Key Vault 모니터링 | Microsoft Docs
+description: 이 문서에서는 Key Vault 인사이트에 대해 설명합니다.
 services: azure-monitor
 ms.topic: conceptual
 author: lgayhardt
@@ -17,7 +17,7 @@ ms.locfileid: "110095125"
 Key Vault 인사이트는 Key Vault 요청, 성능, 실패 및 대기 시간에 대한 통합 보기를 제공하여 키 자격 증명 모음의 종합적인 모니터링을 제공합니다.
 이 문서는 Key Vault 인사이트 환경을 온보딩하고 사용자 지정하는 방법을 이해하는 데 도움이 됩니다.
 
-## <a name="introduction-to-key-vault-insights"></a>Key Vault Insights 소개
+## <a name="introduction-to-key-vault-insights"></a>Key Vault 인사이트 소개
 
 이 환경을 살펴보기 전에, 이 환경에서 어떤 방식으로 정보가 제공되고 시각화되는지 이해해야 합니다.
 -    **규모의 관점에서** 요청, 오류 분석, 작업 및 대기 시간의 개요를 기반으로 성능에 대한 스냅샷 보기를 표시합니다.
@@ -105,7 +105,7 @@ Azure Monitor 수준 통합 문서에서 키 자격 증명 모음의 리소스 �
 
 ![고정 아이콘이 선택된 스크린샷](./media/key-vaults-insights-overview/pin.png)
 
-## <a name="customize-key-vault-insights"></a>Key Vault insights 사용자 지정
+## <a name="customize-key-vault-insights"></a>Key Vault 인사이트 사용자 지정
 
 이 섹션에서는 데이터 분석 요구 사항을 지원하도록 사용자 지정하기 위해 통합 문서를 편집하는 일반적인 시나리오를 중점적으로 설명합니다.
 *  항상 특정 구독 또는 키 자격 증명 모음을 선택하도록 통합 문서 범위를 지정합니다.

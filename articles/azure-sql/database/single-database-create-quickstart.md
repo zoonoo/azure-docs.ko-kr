@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: ''
 ms.date: 01/27/2021
-ms.openlocfilehash: 51c7f4fe8a82e1960e51312d8d806cbff5ba0a0c
-ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.openlocfilehash: 98d692c304c4d25412dcaf26fd0779b1b446e252
+ms.sourcegitcommit: 6bd31ec35ac44d79debfe98a3ef32fb3522e3934
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2021
-ms.locfileid: "110693069"
+ms.lasthandoff: 07/02/2021
+ms.locfileid: "113218064"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>빠른 시작: Azure SQL Database 단일 데이터베이스 만들기
 
@@ -27,6 +27,7 @@ ms.locfileid: "110693069"
 ## <a name="prerequisite"></a>필수 요소
 
 - 활성화된 Azure 구독. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+- 선택한 생성 방법에 따라 최신 버전의 [Azure PowerShell](/powershell/azure/install-az-ps) 또는 [Azure CLI](/cli/azure/install-azure-cli-windows)가 필요할 수도 있습니다. 
 
 ## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
 

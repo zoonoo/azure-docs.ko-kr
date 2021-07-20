@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: memildin
-ms.openlocfilehash: 01036343e2585adf7c09ad3f0d236948a537fc29
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ea5522cfd8f407ffd7259335706cc69555ce2329
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103016562"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112238243"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>관리 그룹의 모든 구독에서 Security Center 사용
 
@@ -22,18 +22,18 @@ Azure Policy를 사용하여 동일한 MG(관리 그룹) 내의 모든 Azure 구
 
 1. **보안 관리자** 권한이 있는 사용자가 Azure Policy를 열고, **구독에서 Azure Security Center 사용** 정의를 검색합니다.
 
-    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="'구독에서 Azure Security Center 사용' Azure Policy 정의":::
+    :::image type="content" source="./media/security-center-get-started/enable-security-center-policy.png" alt-text="'구독에서 Azure Security Center 사용' Azure Policy 정의.":::
 
 1. **할당** 을 선택하고, 범위를 MG 수준으로 설정했는지 확인합니다.
 
-    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="'구독에서 Azure Security Center 사용' 정의 할당":::
+    :::image type="content" source="./media/security-center-get-started/assign-policy.png" alt-text="'구독에서 Azure Security Center 사용' 정의 할당.":::
 
     > [!TIP]
     > 범위 외에는 필수 매개 변수가 없습니다.
 
 1. **수정 작업 만들기** 를 선택하여 Security Center를 사용하도록 설정되지 않은 모든 기존 구독이 온보딩되도록 합니다.
 
-    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="'구독에서 Azure Security Center 사용' Azure Policy 정의에 대한 수정 작업 만들기":::
+    :::image type="content" source="./media/security-center-get-started/remediation-task.png" alt-text="'구독에서 Azure Security Center 사용' Azure Policy 정의에 대한 수정 작업 만들기.":::
 
 1. 정의가 할당되면 다음이 수행됩니다.
 

@@ -6,14 +6,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2021
+ms.date: 06/24/2021
 ms.custom: references_regions
-ms.openlocfilehash: 57776654087e6e07b8515d76c955cb82ce1e07bf
-ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
+ms.openlocfilehash: 945a11fb8d8aef3eef2d3c43a68b8c092741436e
+ms.sourcegitcommit: a038863c0a99dfda16133bcb08b172b6b4c86db8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/02/2021
-ms.locfileid: "110787769"
+ms.lasthandoff: 06/29/2021
+ms.locfileid: "113003785"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -33,16 +33,16 @@ ms.locfileid: "110787769"
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
 |------------------------------|---------------|---------------|
-| [Gremlin API 지원](search-howto-index-cosmosdb-gremlin.md) | 인덱서 기반 인덱싱의 경우 이제 Gremlin API를 통해 액세스한 Cosmos DB에서 콘텐츠를 검색하는 데이터 원본을 만들 수 있습니다. | api-version=2020-06-30-Preview를 사용하는 공개 미리 보기([요청에 따라](https://aka.ms/azure-cognitive-search/indexer-preview)). |
+| [Gremlin API 지원(미리 보기)](search-howto-index-cosmosdb-gremlin.md) | 인덱서 기반 인덱싱의 경우 이제 Gremlin API를 통해 액세스한 Cosmos DB에서 콘텐츠를 검색하는 데이터 원본을 만들 수 있습니다. | api-version=2020-06-30-Preview를 사용하는 공개 미리 보기([요청에 따라](https://aka.ms/azure-cognitive-search/indexer-preview)). |
 
 ## <a name="march-2021"></a>2021년 3월
 
 |기능&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | 가용성  |
 |------------------------------|---------------|---------------|
-| [의미 체계 검색](semantic-search-overview.md) | 쿼리 요청에 대한 최소한의 조정을 통해 검색 결과의 관련성을 크게 향상하는 쿼리 관련 기능 모음입니다. </br></br>[의미 체계 순위](semantic-ranking.md)는 단어 및 내용 뒤에 있는 의미 체계를 사용하여 관련성 점수를 계산합니다. </br></br>[의미 체계 캡션](semantic-how-to-query-request.md)은 문서를 가장 잘 요약하는 문서의 관련 구절을 반환하며, 가장 중요한 용어 또는 구에 대한 강조 표시입니다. </br></br>[의미 체계 대답](semantic-answers.md)은 검색 문서에서 추출된 핵심 구절을 반환하며, 이는 질문처럼 보이는 쿼리에 대한 직접 답변으로 작성됩니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 또는 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
-| [맞춤법 검사 쿼리 용어](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 맞춤법 오류를 검사하도록 할 수 있습니다. `speller` 옵션은 모든 쿼리 유형(단순, 전체 또는 의미 체계)에서 작동합니다. |  공개 미리 보기, REST 전용, api-version=2020-06-30-Preview|
-| [SharePoint Online 인덱서](search-howto-index-sharepoint-online.md) | 이 인덱서는 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있도록 SharePoint Online 사이트에 연결합니다. | 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
-| [Normalizers](search-normalizers.md) | Normalizers는 전체 텍스트 분석 체인을 호출하지 않고 일관된 대/소문자 구분, 악센트 제거 및 ASCII 접기 등의 간단한 텍스트 전처리를 제공합니다.| 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
+| [의미 체계 검색(미리 보기)](semantic-search-overview.md) | 쿼리 요청에 대한 최소한의 조정을 통해 검색 결과의 관련성을 크게 향상하는 쿼리 관련 기능 모음입니다. </br></br>[의미 체계 순위](semantic-ranking.md)는 단어 및 내용 뒤에 있는 의미 체계를 사용하여 관련성 점수를 계산합니다. </br></br>[의미 체계 캡션](semantic-how-to-query-request.md)은 문서를 가장 잘 요약하는 문서의 관련 구절을 반환하며, 가장 중요한 용어 또는 구에 대한 강조 표시입니다. </br></br>[의미 체계 대답](semantic-answers.md)은 검색 문서에서 추출된 핵심 구절을 반환하며, 이는 질문처럼 보이는 쿼리에 대한 직접 답변으로 작성됩니다. | 공개 미리 보기([요청별](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Azure Portal에서 [문서 검색(REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview 또는 [검색 탐색기](search-explorer.md)를 사용합니다. </br></br>지역 및 계층 제한이 적용됩니다. |
+| [맞춤법 검사 쿼리 용어(미리 보기)](speller-how-to-add.md) | 쿼리 용어가 검색 엔진에 도달하기 전에 맞춤법 오류를 검사하도록 할 수 있습니다. `speller` 옵션은 모든 쿼리 유형(단순, 전체 또는 의미 체계)에서 작동합니다. |  공개 미리 보기, REST 전용, api-version=2020-06-30-Preview|
+| [SharePoint Online 인덱서(미리 보기)](search-howto-index-sharepoint-online.md) | 이 인덱서는 문서 라이브러리에서 콘텐츠를 인덱싱할 수 있도록 SharePoint Online 사이트에 연결합니다. | 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
+| [Normalizer(미리 보기)](search-normalizers.md) | Normalizers는 전체 텍스트 분석 체인을 호출하지 않고 일관된 대/소문자 구분, 악센트 제거 및 ASCII 접기 등의 간단한 텍스트 전처리를 제공합니다.| 공개 미리 보기, REST 전용, api-version=2020-06-30-Preview |
 | [사용자 지정 엔터티 조회 기술](cognitive-search-skill-custom-entity-lookup.md ) |  사용자 지정된 단어 및 구의 사용자 정의 목록에서 텍스트를 찾는 인지 기술입니다. 이 목록을 사용하면 일치하는 엔터티가 있는 모든 문서에 레이블이 지정됩니다. 또한 이 기술은 비슷하지만 정확하지 않는 일치 항목을 찾는 데 적용할 수 있는 유사 항목 일치 수준을 지원합니다. | 일반 공급. |
 
 ## <a name="february-2021"></a>2021년 2월
@@ -91,14 +91,14 @@ ms.locfileid: "110787769"
 |February | [PII 검색 기술(미리 보기)](cognitive-search-skill-pii-detection.md)  | 개인 정보를 추출하고 마스크하는 인식 기술입니다. |
 |February | [사용자 지정 엔터티 조회 기술(미리 보기)](cognitive-search-skill-custom-entity-lookup.md) | 목록에서 단어와 구를 찾고, 일치하는 엔터티가 있는 모든 문서에 레이블을 지정하는 인식 기술입니다.  |
 |January | [고객 관리형 키 암호화](search-security-manage-encryption-keys.md) | 일반 공급  |
-|January | [인바운드 방화벽 지원에 대한 IP 규칙(미리 보기)](service-configure-firewall.md) | [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service)의 새 **IpRule** 및 **NetworkRuleSet** 속성입니다.  |
+|January | [인바운드 방화벽 지원에 대한 IP 규칙(미리 보기)](service-configure-firewall.md) | [CreateOrUpdate API](/rest/api/searchmanagement/2020-08-01/services/create-or-update)의 새 **IpRule** 및 **NetworkRuleSet** 속성입니다.  |
 |January | [프라이빗 엔드포인트 만들기(미리 보기)](service-create-private-endpoint.md) | 검색 서비스에 대한 보안 연결을 위한 Private Link를 설정합니다. 이 미리 보기 기능에는 솔루션의 일부로 [Azure Private Link](../private-link/private-link-overview.md) 및 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) 종속성이 있습니다. |
 
 ## <a name="2019-archive"></a>2019 보관
 
 | 월 | 기능 | 설명 |
 |-------|---------|-------------|
-|12월 | [데모 앱 만들기(미리 보기)](search-create-app-portal.md) | 인덱스에 대한 쿼리(읽기 전용) 액세스 권한이 있는 다운로드 가능한 HTML 파일을 생성하는 마법사이며, 전체 클라이언트 앱에 대한 바로 가기가 아니라 유효성 검사 및 테스트 도구로 사용됩니다.|
+|12월 | [데모 앱 만들기](search-create-app-portal.md) | 인덱스에 대한 쿼리(읽기 전용) 액세스 권한이 있는 다운로드 가능한 HTML 파일을 생성하는 마법사이며, 전체 클라이언트 앱에 대한 바로 가기가 아니라 유효성 검사 및 테스트 도구로 사용됩니다.|
 |11월 | [증분 보강(미리 보기)](cognitive-search-incremental-indexing-conceptual.md) | 나중에 다시 사용할 수 있도록 기술 세트 처리를 캐시합니다.  |
 |11월 | [문서 추출 기술(미리 보기)](cognitive-search-skill-document-extraction.md) | 기술 세트 내에서 파일의 콘텐츠를 추출하는 인식 기술입니다.|
 |11월 | [텍스트 번역 기술](cognitive-search-skill-text-translation.md) | 인덱싱 중에 사용되어 텍스트를 평가하고 번역하는 인식 기술입니다. 일반 공급.|

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: contperf-fy21q1
 ms.date: 08/21/2020
-ms.openlocfilehash: cbaa84c73a5e332dca60286bc35200761e546dd3
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 144e9eb84b6add1c10103148b374aeeeca0e6c6d
+ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104864230"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112293422"
 ---
 # <a name="what-is-azure-hdinsight"></a>Azure HDInsight란?
 
@@ -32,7 +32,7 @@ HDInsight에서 사용할 수 있는 Hadoop 기술 스택 구성 요소를 보�
 
 |기능  |Description  |
 |---------|---------|
-|네이티브 클라우드     |     Azure HDInsight를 사용하면 Azure에서 Hadoop, Spark,  [대화형 쿼리(LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase 및 ML Services에 최적화된 클러스터를 만들 수 있습니다. 또한 HDInsight에서는 모든 프로덕션 워크로드에 엔드투엔드 SLA를 제공합니다.  |
+|네이티브 클라우드     |     Azure HDInsight를 사용하면 Azure에서 Hadoop, Spark,  [대화형 쿼리(LLAP)](./interactive-query/apache-interactive-query-get-started.md), Kafka, Storm, HBase에 최적화된 클러스터를 만들 수 있습니다. 또한 HDInsight에서는 모든 프로덕션 워크로드에 엔드투엔드 SLA를 제공합니다.  |
 |저렴한 비용 및 확장성     | HDInsight를 사용하면 워크로드의 크기를 조정할 수 있습니다. 주문형 클러스터를 만들어 사용한 양만큼만 요금을 지불하여 비용을 절감할 수 있습니다. 또한 작업을 운영하는 데이터 파이프라인을 작성할 수 있습니다. 분리된 컴퓨팅 및 스토리지로 인해 성능 및 유연성이 향상됩니다. |
 |보안 및 규정 준수    | HDInsight를 사용하면 Azure Virtual Network, 암호화 및 Azure Active Directory와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. HDInsight는 가장 널리 사용되는 업계 및 정부 규격 표준을 충족합니다.        |
 |모니터링    | Azure HDInsight는 Azure Monitor 로그와 통합하여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공합니다.        |
@@ -81,7 +81,6 @@ HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 �
 |[Apache Hadoop](./hadoop/apache-hadoop-introduction.md)|프레임워크는 병렬로 일괄 처리 데이터를 처리하고 분석하기 위해 HDFS, YARN 리소스 관리 및 간단한 MapReduce 프로그래밍 모델을 사용합니다.|
 |[Apache Spark](./spark/apache-spark-overview.md)|메모리 내 처리를 지원하여 빅데이터 분석 애플리케이션의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. [HDInsight의 Apache Spark란?](./spark/apache-spark-overview.md)을 참조하세요.|
 |[Apache HBase](./hbase/apache-hbase-overview.md)|구조화되지 않은/반구조화된 대량 데이터(잠재적으로 수십억 개의 행과 수십억 개의 열로 구성됨)에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 NoSQL 데이터베이스입니다. [HDInsight의 HBase란?](./hbase/apache-hbase-overview.md)을 참조하세요.|
-|[ML Services](./r-server/r-server-overview.md)|병렬 분산된 R 프로세스를 호스트하고 관리하기 위한 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 ML 서비스 개요](./r-server/r-server-overview.md)를 참조하세요.|
 |[Apache Storm](./storm/apache-storm-overview.md)|대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](./storm/apache-storm-overview.md)을 참조하세요.|
 |[Apache 대화형 쿼리](./interactive-query/apache-interactive-query-get-started.md)|대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱입니다. [HDInsight에서 대화형 쿼리 사용](./interactive-query/apache-interactive-query-get-started.md)을 참조하세요.|
 |[Apache Kafka](./kafka/apache-kafka-introduction.md)|스트리밍 데이터 파이프라인 및 애플리케이션을 빌드하는 데 사용되는 오픈 소스 플랫폼입니다. 또한 Kafka는 데이터 스트림을 게시하고 구독할 수 있는 메시지 큐 기능을 제공합니다. [HDInsight에서 Apache Kafka에 대한 소개](./kafka/apache-kafka-introduction.md)를 참조하세요.|

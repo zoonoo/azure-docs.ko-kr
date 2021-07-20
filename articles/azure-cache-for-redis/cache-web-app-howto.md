@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 19c54ad62e45ecf6e31b46d0291f61dca8e8d9b3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: a5090835089ec32c03b35e195f5a18129d7319c8
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722466"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112234594"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
 
@@ -467,7 +467,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
 또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다. 
 
 > [!IMPORTANT]
-> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹을 삭제하는 경우 그 안의 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.
+> 리소스 그룹을 삭제하면 다시 되돌릴 수 없습니다. 리소스 그룹을 삭제하는 경우 그 안의 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내서에 이 샘플을 호스팅하는 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 완쪽에서 각 리소스를 개별적으로 삭제할 수 있습니다.
 
 ### <a name="to-delete-a-resource-group"></a>리소스 그룹을 삭제하려면
 

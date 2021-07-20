@@ -5,24 +5,32 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6dae6e7ef5a442392972a39f75bbea8046b4beff
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: da099fe09b44a8c7aeecdfd7118e936ce3f0ff91
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108324728"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113113070"
 ---
 # <a name="what-is-azure-communication-services"></a>Azure Communication Services란?
 
-Azure Communication Services를 사용하면 실시간 음성, 영상 및 전화 통신 기능을 애플리케이션에 쉽게 추가할 수 있습니다. 또한 Communication Services SDK를 사용하면 SMS 기능을 통신 솔루션에 추가할 수 있습니다. Azure Communication Services는 ID와 관련이 없으며, 개발자는 최종 사용자를 식별하고 인증하는 방법을 완벽하게 제어할 수 있습니다. 통신 데이터 평면 또는 서비스(봇)에 사용자를 연결할 수 있습니다.
+Azure Communication Services는 애플리케이션에 통신을 통합하는 데 도움이 되는 REST API 및 클라이언트 라이브러리 SDK가 포함된 클라우드 기반 서비스입니다. 미디어 인코딩 및 실시간 네트워킹과 같은 통신 기술 전문가가 아니어도 애플리케이션에 통신 기능을 추가할 수 있습니다. Azure Communication Services는 다양한 통신 형식을 지원합니다.
 
-적용 분야는 다음과 같습니다.
+1. 음성 및 비디오 통화
+1. 서식 있는 텍스트 채팅
+1. sms
 
-- **B2C(Business to Consumer).** 기업의 직원과 서비스는 사용자 지정 브라우저 또는 모바일 애플리케이션에서 음성, 영상 및 서식 있는 텍스트 채팅을 사용하여 소비자와 상호 작용할 수 있습니다. 조직은 SMS 메시지를 보내거나 받을 수 있으며, Azure를 통해 획득한 전화 번호를 사용하여 IVR(대화형 음성 응답 시스템)을 운영할 수 있습니다. [Microsoft Teams와 통합](./quickstarts/voice-video-calling/get-started-teams-interop.md)하면 소비자가 직원들이 주최하는 Teams 모임에 참여할 수 있습니다. 이는 원격 의료, 뱅킹 및 제품 지원 시나리오에 적합하며, 직원들은 이미 Teams에 익숙할 수 있습니다.
-- **C2C(Consumer to Consumer).** 음성, 영상 및 서식 있는 텍스트 채팅을 통해 소비자와 소비자 간의 상호 작용을 위한 유용한 소셜 공간을 빌드하세요. Azure Communication Services SDK를 사용하여 모든 유형의 사용자 인터페이스를 빌드할 수 있지만, 빠르게 시작하는 데 도움이 되는 완전한 애플리케이션 샘플 및 UI 자산이 제공됩니다.
+음성 및 영상 통화 애플리케이션은 공개적으로 전환된 PSTN(전화 통신 네트워크)과 상호 작용할 수 있습니다. Azure Communication Services REST API, SDK 또는 Azure Portal을 통해 직접 전화 번호를 얻을 수 있습니다. Azure Communication Services 직접 라우팅을 사용하면 SIP 및 세션 테두리 컨트롤러를 사용하여 사용자 고유의 PSTN 통신 사업자를 연결하고 사용자 고유의 전화 번호를 가져올 수 있습니다.
+
+[Azure Communication Services 클라이언트 라이브러리](./concepts/sdk-options.md)는 REST API 외에도 웹 브라우저(JavaScript), iOS(Swift), Java(Android), Windows(.NET)를 비롯한 다양한 플랫폼 및 언어에 사용할 수 있습니다. Azure Communication Services는 ID와 관련이 없으며, 최종 사용자를 식별하고 인증하는 방법을 제어합니다.
+
+Azure Communication Services 시나리오는 다음과 같습니다.
+
+- **B2C(Business to Consumer).** 기업의 직원과 서비스는 사용자 지정 브라우저 또는 모바일 애플리케이션에서 음성, 영상 및 서식 있는 텍스트 채팅을 사용하여 소비자와 상호 작용합니다. 조직은 SMS 메시지를 보내거나 받을 수 있으며, Azure를 통해 획득한 전화 번호를 사용하여 [IVR(대화형 음성 응답 시스템)을 운영](https://github.com/microsoft/botframework-telephony/blob/main/EnableTelephony.md)할 수 있습니다. [Microsoft Teams와의 통합](./quickstarts/voice-video-calling/get-started-teams-interop.md)을 통해 소비자가 직원들이 주최하는 Teams 모임에 연결할 수 있습니다. 이는 원격 의료, 뱅킹 및 제품 지원 시나리오에 적합하며, 직원들은 이미 Teams에 익숙할 수 있습니다.
+- **C2C(Consumer to Consumer).** 음성, 영상 및 서식 있는 텍스트 채팅을 통해 소비자와 소비자 간의 상호 작용을 위한 유용한 소셜 공간을 빌드하세요. 모든 유형의 사용자 인터페이스는 Azure Communication Services SDK를 기반으로 빌드하거나 전체 애플리케이션 샘플 및 오픈 소스 UI 도구 키트를 사용하여 빠르게 시작할 수 있습니다.
 
 자세히 알아보려면 [Microsoft Mechanics 영상](https://www.youtube.com/watch?v=apBX7ASurgM) 또는 아래 링크에 연결된 리소스를 확인하세요.
 
@@ -33,18 +41,20 @@ Azure Communication Services를 사용하면 실시간 음성, 영상 및 전화
 | 리소스                               |설명                           |
 |---                                    |---                                   |
 |**[Communication Services 리소스 만들기](./quickstarts/create-communication-resource.md)**|Azure Portal 또는 Communication Services SDK를 통해 첫 번째 Communication Services 리소스를 프로비저닝하여 Azure Communication Services 사용을 시작합니다. Communication Services 리소스 연결 문자열이 있으면 첫 번째 사용자 액세스 토큰을 프로비저닝할 수 있습니다.|
-|**[전화 번호 가져오기](./quickstarts/telephony-sms/get-phone-number.md)**|Azure Communication Services를 사용하여 전화 번호를 프로비저닝하고 해제할 수 있습니다. 이러한 전화 번호는 전화 통화를 시작하거나 받고 SMS 솔루션을 구축하는 데 사용할 수 있습니다.|
-|**[앱에서 SMS 보내기](./quickstarts/telephony-sms/send.md)**|Azure Communication Services SMS SDK를 사용하면 서비스 애플리케이션에서 SMS 메시지를 보내고 받을 수 있습니다.|
+|**[전화 번호 가져오기](./quickstarts/telephony-sms/get-phone-number.md)**|Azure Communication Services를 사용하여 전화 번호를 프로비전하고 해제합니다. 이러한 전화 번호는 전화 통화를 시작하거나 받고 SMS 솔루션을 구축하는 데 사용할 수 있습니다.|
+|**[앱에서 SMS 보내기](./quickstarts/telephony-sms/send.md)**| Azure Communication Services SMS REST API 및 SDK를 사용하면 서비스 애플리케이션에서 SMS 메시지를 보내고 받을 수 있습니다.|
 
 Communication Services 리소스를 만든 후 음성 및 화상 통화 또는 텍스트 채팅 등의 클라이언트 시나리오 빌드를 시작할 수 있습니다.
 
 | 리소스                               |설명                           |
 |---                                    |---                                   |
-|**[첫 번째 사용자 액세스 토큰 만들기](./quickstarts/access-tokens.md)**|사용자 액세스 토큰은 Azure Communication Services 리소스에 대해 클라이언트를 인증하는 데 사용됩니다. 이러한 토큰은 Communication Services SDK를 사용하여 프로비저닝되고 다시 발급됩니다.|
+|**[첫 번째 사용자 액세스 토큰 만들기](./quickstarts/access-tokens.md)**|사용자 액세스 토큰은 Azure Communication Services 리소스에 대해 클라이언트를 인증합니다. 이러한 토큰은 Communication Services ID API 및 SDK를 사용하여 프로비전되고 다시 발급됩니다.|
 |**[음성 및 화상 통화 시작](./quickstarts/voice-video-calling/getting-started-with-calling.md)**| Azure Communication Services를 사용하면 Calling SDK를 사용하여 음성 및 화상 통화를 브라우저 또는 네이티브 앱에 추가할 수 있습니다. |
 |**[앱에 전화 통화 추가](./quickstarts/voice-video-calling/pstn-call.md)**|Azure Communication Services를 사용하면 애플리케이션에 전화 통신 기능을 추가할 수 있습니다.|
 |**[통화 앱으로 Teams 미팅 참가](./quickstarts/voice-video-calling/get-started-teams-interop.md)**|Azure Communication Services는 Microsoft Teams와 상호 작용하는 사용자 지정 모임 환경을 구축하는 데 사용할 수 있습니다. Communication Services 솔루션의 사용자는 음성, 비디오, 채팅 및 화면 공유를 통해 Teams 참가자와 상호 작용할 수 있습니다.|
 |**[채팅 시작](./quickstarts/chat/get-started.md)**|Azure Communication Services 채팅 SDK를 사용하여 서식 있는 실시간 텍스트 채팅을 애플리케이션에 추가할 수 있습니다.|
+|**[Microsoft Bot을 전화 번호에 연결](https://github.com/microsoft/botframework-telephony)**|전화 통신 채널은 봇이 전화를 통해 사용자와 상호 작용할 수 있도록 하는 Microsoft Bot Framework의 채널입니다. Azure Communication Services 및 Azure Speech Services와 결합된 Microsoft Bot Framework의 강력한 성능을 활용합니다.  |
+
 
 ## <a name="samples"></a>샘플
 

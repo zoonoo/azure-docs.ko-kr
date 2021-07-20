@@ -7,27 +7,27 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 06/21/2021
 ms.author: ambapat
-ms.openlocfilehash: 0b29a292dae570d368f54f65773ce72a54de2e2d
-ms.sourcegitcommit: c385af80989f6555ef3dadc17117a78764f83963
+ms.openlocfilehash: cbde53687c08208dc8fed3b69a6a98ed732cf57c
+ms.sourcegitcommit: 351279883100285f935d3ca9562e9a99d3744cbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111413990"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112380377"
 ---
 # <a name="quickstart-provision-and-activate-a-managed-hsm-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화
 
 Azure Key Vault 관리형 HSM은 **FIPS 140-2 수준 3** 유효성이 검사된 HSM을 사용하여 클라우드 애플리케이션용 암호화 키를 보호할 수 있는 완전 관리형 고가용 단일 테넌트 표준 규격 클라우드 서비스입니다. 관리형 HSM에 대한 자세한 내용을 보려면 [개요](overview.md)를 살펴보세요. 
 
-이 빠른 시작에서는 Azure CLI를 사용하여 관리형 HSM을 만들고 활성화합니다. 이 작업을 완료하면 비밀을 저장할 수 있습니다.
+이 빠른 시작에서는 Azure CLI를 사용하여 관리형 HSM을 만들고 활성화합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 문서의 단계를 완료하려면 다음 항목이 있어야 합니다.
 
 * Microsoft Azure에 대한 구독. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/pricing/free-trial)에 등록할 수 있습니다.
-* Azure CLI 버전 2.12.0 이상. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* Azure CLI 버전 2.25.0 이상 `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 * 구독의 관리형 HSM. [빠른 시작: Azure CLI를 사용하여 관리형 HSM 프로비저닝 및 활성화](quick-create-cli.md)를 참조하여 관리형 HSM을 프로비저닝하고 활성화합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -127,4 +127,5 @@ az group delete --name ContosoResourceGroup
 
 - [관리형 HSM 개요](overview.md) 읽기
 - [관리형 HSM에서 키 관리](key-management.md)에 대해 알아보기
+- [관리되는 HSM의 역할 관리](role-management.md)에 대해 알아보기
 - [관리형 HSM 모범 사례](best-practices.md) 검토

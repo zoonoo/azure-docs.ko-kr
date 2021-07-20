@@ -13,16 +13,14 @@ items:
     items:
       - name: Communication Services 리소스 만들기
         href: quickstarts/create-communication-resource.md
-      - name: 액세스 토큰 만들기 및 관리
-        href: quickstarts/access-tokens.md
-      - name: 관리 ID 사용
-        href: quickstarts/managed-identity.md
-      - name: CLI에서 관리 ID 설정
+      - name: ID 및 액세스
+        items:
+          - name: 액세스 토큰 만들기 및 관리
+            href: quickstarts/access-tokens.md
+          - name: 관리 ID 사용
+            href: quickstarts/managed-identity.md
+          - name: CLI에서 관리 ID 설정
         href: quickstarts/managed-identity-from-cli.md
-      - name: Application Insights로 SDK 원격 분석 데이터 내보내기
-        href: quickstarts/telemetry-application-insights.md
-      - name: 릴레이 토큰 가져오기
-        href: quickstarts/relay-token.md
       - name: 채팅
         items:
           - name: 앱에 채팅 추가
@@ -45,14 +43,18 @@ items:
             href: quickstarts/telephony-sms/logic-app.md
       - name: 음성 및 비디오 통화
         items:
-          - name: 앱에 음성 통화 추가
+          - name: 클라이언트 앱에 음성 통화 추가
             href: quickstarts/voice-video-calling/getting-started-with-calling.md
-          - name: 앱에 화상 통화 추가
+          - name: 클라이언트 앱에 영상 통화 추가
             href: quickstarts/voice-video-calling/get-started-with-video-calling.md
           - name: 통화 SDK 사용
             href: quickstarts/voice-video-calling/calling-client-samples.md
-          - name: 통화 앱으로 Teams 미팅 참가
+          - name: 통화 클라이언트 앱으로 Teams 미팅 참가
             href: quickstarts/voice-video-calling/get-started-teams-interop.md
+          - name: 통화에 서비스 조인
+            href: quickstarts/voice-video-calling/call-automation-api-sample.md
+          - name: 통화 녹음
+            href: quickstarts/voice-video-calling/call-recording-sample.md
       - name: UI 라이브러리
         items:
           - name: 구성 요소 시작
@@ -61,15 +63,19 @@ items:
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page'
           - name: UI 구성 요소 시작
             href: 'https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page'
+      - name: TURN 릴레이 액세스
+        href: quickstarts/relay-token.md
   - name: 자습서
     expanded: false
     items:
       - name: Azure Functions를 사용하여 신뢰할 수 있는 인증 서비스 빌드
         href: tutorials/trusted-service-tutorial.md
-      - name: C#을 사용하여 HMAC 서명으로 HTTP 요청에 서명
-        href: tutorials/hmac-header-tutorial.md
+      - name: Application Insights로 SDK 원격 분석 데이터 내보내기
+        href: quickstarts/telemetry-application-insights.md
       - name: 통신 서비스용 웹앱 준비(Node.js)
         href: tutorials/building-app-start.md
+      - name: C#을 사용하여 HMAC 서명으로 HTTP 요청에 서명
+        href: tutorials/hmac-header-tutorial.md
       - name: Postman을 사용하여 ACS의 SMS API에 서명 및 요청 만들기
         href: tutorials/postman-tutorial.md
   - name: 개념
@@ -93,6 +99,10 @@ items:
             href: concepts/telephony-sms/plan-solution.md
           - name: Azure 직접 라우팅 인프라 요구 사항
             href: concepts/telephony-sms/sip-interface-infrastructure.md
+          - name: Azure 직접 라우팅 인증 세션 테두리 컨트롤러
+            href: concepts/telephony-sms/certified-session-border-controllers.md
+          - name: 세션 테두리 컨트롤러 페어링 및 음성 라우팅 구성
+            href: concepts/telephony-sms/direct-routing-provisioning.md
           - name: SMS FAQ
             href: concepts/telephony-sms/sms-faq.md
           - name: 메시징 정책
@@ -101,14 +111,20 @@ items:
         items:
           - name: 통화 SDK 개요
             href: concepts/voice-video-calling/calling-sdk-features.md
-          - name: 음성 및 비디오 개념
+          - name: 음성 및 영상 용어
             href: concepts/voice-video-calling/about-call-types.md
-          - name: 네트워크 요구 사항
+          - name: 통화 자동화
+            href: concepts/voice-video-calling/call-automation-apis.md
+          - name: 통화 기록
+            href: concepts/voice-video-calling/call-recording.md
+          - name: 네트워크 권장 사항
             href: concepts/voice-video-calling/network-requirements.md
           - name: 호출 흐름
             href: concepts/call-flows.md
           - name: 호출 흐름 토폴로지
             href: concepts/detailed-call-flows.md
+          - name: 웹 모범 사례
+            href: concepts/best-practices.md
           - name: 알려진 문제
             href: concepts/known-issues.md
       - name: UI 라이브러리

@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 04/06/2021
 ms.author: memildin
-ms.openlocfilehash: 9fddb27ee6a1139fa8b07c6c19dd4fdf1a20096e
-ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.openlocfilehash: 17a590be2038acc56656d91cf11230b0782e1c81
+ms.sourcegitcommit: f3b930eeacdaebe5a5f25471bc10014a36e52e5e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "107029144"
+ms.lasthandoff: 06/16/2021
+ms.locfileid: "112239023"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -22,9 +22,9 @@ Security Center는 다음과 같은 컨테이너 리소스 종류를 보호할 �
 
 | 리소스 종류 | Security Center에서 제공하는 보호 |
 |:--------------------:|-----------|
-| ![Kubernetes 서비스](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Kubernetes 클러스터** | 클러스터를 지속적으로 평가하여 잘못된 구성에 대한 가시성과 식별된 위협을 완화할 수 있는 지침을 제공합니다. [보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.<br><br>클러스터 및 Linux 노드에 대한 위협 방지. 의심스러운 활동에 대한 경고는 [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)에서 제공합니다. 이 Azure Defender 계획은 AKS(Azure Kubernetes Service), 온-프레미스 또는 다른 클라우드 공급자에서 호스팅되는 Kubernetes 클러스터를 보호합니다. 클러스터. <br>[Kubernetes 노드 및 클러스터의 런타임 보호](#run-time-protection-for-kubernetes-nodes-and-clusters)에 대해 자세히 알아보세요.|
-| ![컨테이너 호스트](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**컨테이너 호스트**<br>(Docker를 실행하는 VM) | Docker 환경을 지속적으로 평가하여 잘못된 구성에 대한 가시성과 선택 사항인 [서버용 Azure Defender](defender-for-servers-introduction.md)를 통해 식별된 위협을 완화하는 데 도움이 되는 지침을 제공합니다.<br>[보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.|
-| ![컨테이너 레지스트리](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**ACR(Azure Container Registry) 레지스트리** | 선택 사항인 [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)를 통해 Azure Resource Manager 기반 ACR 레지스트리에 포함된 이미지의 취약성을 평가하고 관리하는 도구입니다.<br>[컨테이너 이미지의 취약성 검사](#vulnerability-management---scanning-container-images)에 대해 자세히 알아보세요. |
+| ![Kubernetes 서비스.](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Kubernetes 클러스터** | 클러스터를 지속적으로 평가하여 잘못된 구성에 대한 가시성과 식별된 위협을 완화할 수 있는 지침을 제공합니다. [보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.<br><br>클러스터 및 Linux 노드에 대한 위협 방지. 의심스러운 활동에 대한 경고는 [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)에서 제공합니다. 이 Azure Defender 계획은 AKS(Azure Kubernetes Service), 온-프레미스 또는 다른 클라우드 공급자에서 호스팅되는 Kubernetes 클러스터를 보호합니다. 클러스터. <br>[Kubernetes 노드 및 클러스터의 런타임 보호](#run-time-protection-for-kubernetes-nodes-and-clusters)에 대해 자세히 알아보세요.|
+| ![컨테이너 호스트.](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**컨테이너 호스트**<br>(Docker를 실행하는 VM) | Docker 환경을 지속적으로 평가하여 잘못된 구성에 대한 가시성과 선택 사항인 [서버용 Azure Defender](defender-for-servers-introduction.md)를 통해 식별된 위협을 완화하는 데 도움이 되는 지침을 제공합니다.<br>[보안 권장 사항을 통한 환경 강화](#environment-hardening)에 대해 자세히 알아보세요.|
+| ![컨테이너 레지스트리.](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**ACR(Azure Container Registry) 레지스트리** | 선택 사항인 [컨테이너 레지스트리용 Azure Defender](defender-for-container-registries-introduction.md)를 통해 Azure Resource Manager 기반 ACR 레지스트리에 포함된 이미지의 취약성을 평가하고 관리하는 도구입니다.<br>[컨테이너 이미지의 취약성 검사](#vulnerability-management---scanning-container-images)에 대해 자세히 알아보세요. |
 |||
 
 이 문서에서는 컨테이너 레지스트리, 서버 및 Kubernetes에 사용되는 선택적 Azure Defender 플랜과 함께 Security Center를 사용하여 컨테이너 및 컨테이너에 포함된 앱의 보안을 개선하고 모니터링하고 유지 관리하는 방법을 설명합니다.

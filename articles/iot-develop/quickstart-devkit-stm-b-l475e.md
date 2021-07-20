@@ -1,27 +1,27 @@
 ---
-title: ST Microelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A를 Azure IoT Central에 연결 빠른 시작
-description: Azure RTOS 임베디드 소프트웨어를 사용하여 ST Microelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 디바이스를 Azure IoT에 연결하고 원격 분석을 보냅니다.
+title: STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A를 Azure IoT Central에 연결 빠른 시작
+description: Azure RTOS 임베디드 소프트웨어를 사용하여 STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 디바이스를 Azure IoT에 연결하고 원격 분석을 보냅니다.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
-ms.openlocfilehash: 9fee4c2642178bfc288396d3e783940e41a0502e
-ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
+ms.openlocfilehash: dd8a214e060f9f4ace9f310fec3ebca33d4619c0
+ms.sourcegitcommit: 98308c4b775a049a4a035ccf60c8b163f86f04ca
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111903980"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113109236"
 ---
-# <a name="quickstart-connect-an-st-microelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>빠른 시작: ST Microelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A Discovery kit를 IoT Central에 연결
+# <a name="quickstart-connect-an-stmicroelectronics-b-l475e-iot01a-or-b-l4s5i-iot01a-discovery-kit-to-iot-central"></a>빠른 시작: STMicroelectronics B-L475E-IOT01A 또는 B-L4S5I-IOT01A 검색 키트를 IoT Central에 연결
 
 **적용 대상**: [임베디드 디바이스 개발](about-iot-develop.md#embedded-device-development)<br>
 **총 완료 시간**: 30분
 
 [![코드 찾아보기](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/STM32L4_L4+)
 
-이 빠른 시작에서는 Azure RTOS를 사용하여 ST Microelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) 또는 [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) Discovery kit(STM DevKit)를 Azure IoT에 연결합니다.
+이 빠른 시작에서는 Azure RTOS를 사용하여 STMicroelectronics [B-L475E-IOT01A](https://www.st.com/en/evaluation-tools/b-l475e-iot01a.html) 또는 [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) 검색 키트(STM DevKit)를 Azure IoT에 연결합니다.
 
 다음 작업을 완료합니다.
 
@@ -145,7 +145,7 @@ STM DevKit를 Azure에 연결하려면 Wi-Fi 및 Azure IoT 설정에 대한 구�
 
 1. **Termite** 를 시작합니다.
     > [!TIP]
-    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+    > Termite를 DevKit에 연결할 수 없는 경우 [ST-LINK 드라이버](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip)를 설치하고 다시 시도합니다. 추가 단계는 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 1. **설정** 을 선택합니다.
 1. **직렬 포트 설정** 대화 상자에서 다음 설정을 확인하고, 필요한 경우 업데이트합니다.
     * **전송 속도**: 115,200
@@ -248,7 +248,7 @@ IoT Central에서 디바이스 정보를 볼 수 있습니다.
 
 ## <a name="troubleshoot-and-debug"></a>문제 해결 및 디버그
 
-디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md)을 참조하세요.
+디바이스 코드 빌드, 디바이스 플래시 또는 연결에 문제가 발생하는 경우 [문제 해결](troubleshoot-embedded-device-quickstarts.md)을 참조하세요.
 
 애플리케이션 디버깅에 대한 자세한 내용은 [Visual Studio Code를 사용하여 디버깅](https://github.com/azure-rtos/getting-started/blob/master/docs/debugging.md)을 참조하세요.
 

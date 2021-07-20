@@ -7,24 +7,10 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 원격 분석 전송
-      items:
-        - name: 시작하기
-          href: quickstart-send-telemetry-cli.md
-        - name: C
-          href: quickstart-send-telemetry-c.md
-        - name: Node.js
-          href: quickstart-send-telemetry-node.md
-        - name: .NET
-          href: quickstart-send-telemetry-dotnet.md
-        - name: Java
-          href: quickstart-send-telemetry-java.md
-        - name: Python
-          href: quickstart-send-telemetry-python.md
-        - name: Android
-          href: quickstart-send-telemetry-android.md
-        - name: iOS
-          href: quickstart-send-telemetry-ios.md
+    - name: CLI를 사용하여 코드리스 빠른 시작
+      href: quickstart-send-telemetry-cli.md
+    - name: SDK를 사용하여 원격 분석 보내기
+      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: 디바이스 제어
       items:
         - name: Node.js
@@ -173,8 +159,6 @@
           items:
             - name: SDK 개요
               href: iot-hub-devguide-sdks.md
-            - name: SDK 플랫폼 지원
-              href: iot-hub-device-sdk-platform-support.md
             - name: SDK 없이 개발
               href: iot-hub-devguide-no-sdk.md
             - name: 연결 및 신뢰할 수 있는 메시징 관리
@@ -373,18 +357,6 @@
               href: iot-hub-raspberry-pi-kit-node-get-started.md
             - name: C를 사용하는 Raspberry Pi
               href: iot-hub-raspberry-pi-kit-c-get-started.md
-            - name: Arduino를 사용하는 MXChip IoT DevKit
-              href: iot-hub-arduino-iot-devkit-az3166-get-started.md
-        - name: MXChip IoT DevKit 사용
-          items:
-            - name: Azure Cognitive Services를 사용하여 음성 메시지 변환
-              href: iot-hub-arduino-iot-devkit-az3166-translator.md
-            - name: Azure Functions를 사용하여 Twitter 메시지 검색
-              href: iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md
-            - name: Eclipse Paho API를 사용하여 MQTT 서버로 메시지 보내기
-              href: iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md
-            - name: Azure Functions로 자기 센서 모니터링 및 이메일 알림 보내기
-              href: iot-hub-arduino-iot-devkit-az3166-door-monitor.md
     - name: 확장된 IoT 시나리오
       items:
         - name: VS Code용 Azure IoT Tools로 클라우드 디바이스 메시징 관리
