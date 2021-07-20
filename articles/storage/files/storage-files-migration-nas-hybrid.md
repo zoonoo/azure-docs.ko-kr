@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 86e79302716fa502d8562dd563b0a5c5fb220a67
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01289345ee6bebc0ab1a4608eb83cb8a2827e924
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547557"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "108745364"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Azure 파일 동기화를 사용하여 NAS(Network Attached Storage)에서 하이브리드 클라우드 배포로 마이그레이션
 
@@ -54,7 +54,7 @@ Azure Files [마이그레이션 개요 문서](storage-files-migration-overview.
 * 가상 머신 또는 물리적 서버로 Windows Server 2019(최소 2012R2 이상)를 만듭니다. Windows Server 장애 조치(failover) 클러스터도 지원됩니다.
 * DAS(Direct Attached Storage, 지원되지 않는 NAS와 비교)를 프로비저닝하거나 추가합니다.
 
-    프로비저닝하는 스토리지 크기는 NAS 어플라이언스에서 현재 사용 중인 것보다 작을 수 있습니다. 이 구성을 선택하려면 Azure 파일 동기화 [클라우드 계층화](storage-sync-cloud-tiering-overview.md) 기능을 사용해야 합니다.
+    프로비저닝하는 스토리지 크기는 NAS 어플라이언스에서 현재 사용 중인 것보다 작을 수 있습니다. 이 구성을 선택하려면 Azure 파일 동기화 [클라우드 계층화](../file-sync/file-sync-cloud-tiering-overview.md) 기능을 사용해야 합니다.
     그러나 이후 단계에서 더 큰 NAS 공간에서 더 작은 Windows Server 볼륨으로 파일을 복사하는 경우에는 일괄 처리로 작업해야 합니다.
 
     1. 디스크에 맞는 파일 세트 이동
@@ -65,7 +65,7 @@ Azure Files [마이그레이션 개요 문서](storage-files-migration-overview.
 
 배포하는 Windows Server의 리소스 구성(컴퓨팅 및 RAM)은 대부분 동기화할 항목(파일 및 폴더)의 수에 따라 달라집니다. 문제가 있는 경우 더 상향된 성능 구성을 사용하는 것이 좋습니다.
 
-[동기화해야 하는 항목(파일 및 폴더)의 수를 기준으로 Windows Server 크기를 조정하는 방법에 대해 알아봅니다.](storage-sync-files-planning.md#recommended-system-resources)
+[동기화해야 하는 항목(파일 및 폴더)의 수를 기준으로 Windows Server 크기를 조정하는 방법에 대해 알아봅니다.](../file-sync/file-sync-planning.md#recommended-system-resources)
 
 > [!NOTE]
 > 이전 연결 문서는 서버 메모리(RAM) 범위를 포함하는 테이블을 제공합니다. 서버에 대해 더 작은 수를 지정할 수 있지만 초기 동기화에 더 많은 시간이 걸릴 수 있습니다.
@@ -114,7 +114,7 @@ Windows Server 대상 폴더로 첫 번째 로컬 복사본을 실행합니다.
 
 다음 RoboCopy 명령은 NAS 스토리지의 파일을 Windows Server 대상 폴더로 복사합니다. Windows Server가 이를 Azure 파일 공유로 동기화합니다. 
 
-Windows Server에서 파일이 NAS 어플라이언스에 차지하는 것보다 적은 스토리지 용량을 프로비저닝했다면 클라우드 계층화를 구성한 것입니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](storage-sync-cloud-tiering-overview.md)가 시작되고 이미 동기화된 파일을 계층화합니다. 클라우드 계층화는 NAS 어플라이언스에서 계속 복사할 수 있도록 충분한 공간을 생성합니다. 클라우드 계층화는 한 시간에 한 번씩 동기화 내용 및 99%의 볼륨 여유 공간에 도달할 수 있도록 디스크 공간 확보를 확인합니다.
+Windows Server에서 파일이 NAS 어플라이언스에 차지하는 것보다 적은 스토리지 용량을 프로비저닝했다면 클라우드 계층화를 구성한 것입니다. 로컬 Windows Server 볼륨이 가득 차면 [클라우드 계층화](../file-sync/file-sync-cloud-tiering-overview.md)가 시작되고 이미 동기화된 파일을 계층화합니다. 클라우드 계층화는 NAS 어플라이언스에서 계속 복사할 수 있도록 충분한 공간을 생성합니다. 클라우드 계층화는 한 시간에 한 번씩 동기화 내용 및 99%의 볼륨 여유 공간에 도달할 수 있도록 디스크 공간 확보를 확인합니다.
 RoboCopy는 파일을 로컬에서 동기화하고 계층화하는 것보다 더 빠르게 파일을 이동 시켜 로컬 디스크 공간이 부족할 수 있습니다. RoboCopy가 실패합니다. 이를 방지하는 시퀀스대로 공유를 처리하는 것이 좋습니다. 모든 공유에 대해 RoboCopy 작업을 동시에 시작하지 않거나 Windows Server에서 현재 사용 가능한 공간의 크기에 맞는 공유만 이동하는 것을 예로 들 수 있습니다.
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
@@ -166,6 +166,6 @@ Azure 파일 동기화 문제를 해결하려면 다음 섹션의 링크를 확�
 
 Azure 파일 공유 및 Azure 파일 동기화에 대해 자세히 알아볼 수 있습니다. 다음 문서는 고급 옵션, 모범 사례 및 문제 해결 도움말을 이해하는 데 도움이 됩니다. 해당 문서는 필요에 따라 [Azure 파일 공유 설명서](storage-files-introduction.md)로 연결됩니다.
 
-* [AFS 개요](./storage-sync-files-planning.md)
-* [AFS 배포 가이드](./storage-how-to-create-file-share.md)
-* [AFS 문제 해결](storage-sync-files-troubleshoot.md)
+* [Azure 파일 동기화 개요](../file-sync/file-sync-planning.md)
+* [Azure 파일 동기화 배포](../file-sync/file-sync-deployment-guide.md)
+* [Azure 파일 동기화 문제 해결](../file-sync/file-sync-troubleshoot.md)

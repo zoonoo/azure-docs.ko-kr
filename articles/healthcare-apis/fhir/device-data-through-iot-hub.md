@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 11/13/2020
 ms.author: rabhaiya
-ms.openlocfilehash: f17223fbada3dabbf0126f6f841e36ace6d0215c
-ms.sourcegitcommit: 91fdedcb190c0753180be8dc7db4b1d6da9854a1
+ms.openlocfilehash: 7f6fb6abdf2e73985b8c15e63af588b20feb4f45
+ms.sourcegitcommit: 8b7d16fefcf3d024a72119b233733cb3e962d6d9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2021
-ms.locfileid: "112283864"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114297989"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>자습서: Azure IoT Hub를 통해 디바이스 데이터 수신
 
@@ -23,7 +23,7 @@ Azure IoT Connector for FHIR(전자 의료 기록 교환)*은 데이터를 IoMT(
 
 - 활성 Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 하나 이상의 Azure IoT Connector for FHIR이 있는 Azure API for FHIR 리소스 - [Azure Portal을 사용하여 Azure IoT Connector for FHIR(미리 보기) 배포](iot-fhir-portal-quickstart.md)
-- 실제 또는 시뮬레이션된 디바이스와 연결된 Azure IoT Hub 리소스 - [Azure Portal을 사용하여 IoT 허브 만들기](../../iot-hub/quickstart-send-telemetry-dotnet.md)
+- 실제 또는 시뮬레이션된 디바이스와 연결된 Azure IoT Hub 리소스 - [Azure Portal을 사용하여 IoT 허브 만들기](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
 
 > [!TIP]
 > Azure IoT Hub 시뮬레이션된 디바이스 애플리케이션을 사용하는 경우 지원되는 다양한 언어 및 시스템 중에서 원하는 애플리케이션을 자유롭게 선택할 수 있습니다.
