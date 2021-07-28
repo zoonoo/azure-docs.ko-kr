@@ -2,22 +2,22 @@
 title: 테넌트 제한을 사용하여 SaaS 앱에 대한 액세스 관리 - Azure AD
 description: 테넌트 제한을 사용하여 Azure AD 테넌트를 기준으로 앱에 액세스할 수 있는 사용자를 관리하는 방법입니다.
 services: active-directory
-author: iantheninja
+author: mtillman
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/6/2021
-ms.author: iangithinji
+ms.date: 6/2/2021
+ms.author: mtillman
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda21b70d7e65915b1ecd92de8a3ebcf2ac52059
-ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
+ms.openlocfilehash: c443f3084c465e1a8f2358c1b8db365e576b04f5
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/26/2021
-ms.locfileid: "108006947"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112082238"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>테넌트 제한을 사용하여 SaaS 클라우드 애플리케이션에 대한 액세스 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "108006947"
 
 이 문서에서는 Microsoft 365의 테넌트 제한 사항에 중점을 두고 있지만, 이 기능은 Single Sign-On을 위해 Azure AD로 사용자를 전송하는 모든 앱을 보호합니다. Microsoft 365에서 사용하는 테넌트와는 다른 Azure AD 테넌트에서 SaaS 앱을 사용하는 경우 필요한 모든 테넌트가 허용되는지 확인합니다(예: B2B 협업 시나리오). 클라우드 SaaS 앱에 대한 자세한 내용은 [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps)를 참조하세요.
 
-또한 테넌트 제한 기능은 OneDrive, Hotmail 및 Xbox.com 같은 [모든 MSA 앱의 사용 차단](#blocking-consumer-applications-public-preview)(Microsoft 소비자 애플리케이션)을 지원합니다.  `login.live.com` 엔드포인트에 별도의 헤더를 사용하며, 이에 관한 내용은 문서 끝에 자세히 나옵니다.
+또한 테넌트 제한 기능은 OneDrive, Hotmail 및 Xbox.com 같은 [모든 MSA 앱의 사용 차단](#blocking-consumer-applications)(Microsoft 소비자 애플리케이션)을 지원합니다.  `login.live.com` 엔드포인트에 별도의 헤더를 사용하며, 이에 관한 내용은 문서 끝에 자세히 나옵니다.
 
 ## <a name="how-it-works"></a>작동 방법
 
@@ -41,7 +41,7 @@ ms.locfileid: "108006947"
 
 3. **클라이언트 소프트웨어**: 테넌트 제한을 지원하기 위해 클라이언트 소프트웨어는 Azure AD에서 직접 토큰을 요청해야 하므로 프록시 인프라에서 트래픽을 가로챌 수 있습니다. 최신 인증(예: OAuth 2.0)을 사용하는 Office 클라이언트와 마찬가지로 브라우저 기반 Microsoft 365 애플리케이션도 현재 테넌트 제한을 지원합니다.
 
-4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. Microsoft 365 클라우드 서비스는 기본적으로 최신 인증 프로토콜을 사용하도록 구성해야 합니다. 최신 인증에 대한 Microsoft 365 지원과 관련된 최신 정보는 [업데이트된 Office 365 최신 인증](https://docs.microsoft.com/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016?view=o365-worldwide)을 참조하세요.
+4. **최신 인증**: 클라우드 서비스는 테넌트 제한을 사용하고 허용되지 않는 모든 테넌트로의 액세스를 차단하기 위해 최신 인증을 사용해야 합니다. Microsoft 365 클라우드 서비스는 기본적으로 최신 인증 프로토콜을 사용하도록 구성해야 합니다. 최신 인증에 대한 Microsoft 365 지원과 관련된 최신 정보는 [업데이트된 Office 365 최신 인증](/microsoft-365/enterprise/modern-auth-for-office-2013-and-2016)을 참조하세요.
 
 다음 다이어그램은 고급 트래픽 흐름을 보여 줍니다. 테넌트 제한에서는 Microsoft 365 클라우드 서비스에 대한 트래픽이 아닌 Azure AD에 대한 트래픽에만 TLS 검사가 필요합니다. Azure AD에서 인증을 받으려는 트래픽 볼륨이 일반적으로 Exchange Online 및 SharePoint Online과 같은 SaaS 애플리케이션에 대한 트래픽 볼륨보다 훨씬 작기 때문에 이러한 구분이 필요합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "108006947"
 
 ### <a name="proxy-configuration-and-requirements"></a>프록시 구성 및 요구 사항
 
-프록시 인프라를 통해 테넌트 제한을 적용하려면 다음과 같은 구성이 필요합니다. 이 지침은 일반적인 것이므로 보다 구체적인 구현 단계는 프록시 공급업체의 설명서를 참조차세요.
+프록시 인프라를 통해 테넌트 제한을 적용하려면 다음과 같은 구성이 필요합니다. 이 지침은 일반적인 지침이므로 구체적인 구현 단계는 프록시 공급업체의 설명서를 참조하세요.
 
 #### <a name="prerequisites"></a>사전 요구 사항
 
@@ -197,7 +197,7 @@ Fiddler를 구성한 후 **파일** 메뉴로 이동하고 **트래픽 캡처** 
 
 특정 세부 정보에 대해서는 프록시 서버 설명서를 참조하세요.
 
-## <a name="blocking-consumer-applications-public-preview"></a>소비자 애플리케이션 차단(공개 미리보기)
+## <a name="blocking-consumer-applications"></a>소비자 애플리케이션 차단
 
 [OneDrive](https://onedrive.live.com/) 또는 [Microsoft Learn](/learn/) 같은 소비자 계정 및 조직 계정을 모두 지원하는 Microsfot 애플리케이션은 동일 URL에 호스팅할 수 있는 경우가 있습니다.  즉, 업무용으로 해당 URL에 액세스해야 하는 사용자는 개인 용도로도 액세스할 수 있습니다. 이는 사용자의 운영 지침에 따라 허용되지 않을 수 있습니다.
 

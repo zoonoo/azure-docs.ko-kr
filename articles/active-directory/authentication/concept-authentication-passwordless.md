@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 06/11/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d939207af195abf117645e17f4ff189b163244f
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: 34fdc2ba8880a0da3324fce07eb1fc3763424cee
+ms.sourcegitcommit: 942a1c6df387438acbeb6d8ca50a831847ecc6dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107305534"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112017724"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory의 암호 없는 인증 옵션
 
@@ -26,7 +26,7 @@ MFA(다단계 인증) 같은 기능은 조직을 보호하는 좋은 방법이�
 | --- | --- | --- |
 | 암호 없음 | Windows 10 디바이스, 휴대폰 또는 보안 키 | 생체 인식 또는 PIN |
 
-조직마다 인증 요구 수단은 다릅니다. Microsoft는 Azure Active Directory(Azure AD)와 통합되는 세 가지 암호 없는 인증 옵션을 다음과 같이 제공합니다.
+조직마다 인증 요구 수단은 다릅니다. Microsoft 글로벌 Azure 및 Azure Government는 Azure Active Directory(Azure AD)와 통합되는 세 가지 암호 없는 인증 옵션을 다음과 같이 제공합니다.
 
 - 비즈니스용 Windows Hello
 - Microsoft Authenticator 앱
@@ -110,42 +110,55 @@ FIDO2 보안 키를 사용하여 Azure AD 또는 하이브리드 Azure AD에 가
 
 FIDO Alliance에서 인증하는 FIDO2 키가 많지만 Microsoft는 최대 보안과 최상의 환경을 보장하기 위해 업체에서 시행하는 FIDO2 CTAP(Client-to-Authenticator Protocol) 사양의 일부 선택적 확장을 요구합니다.
 
-보안 키는 FIDO2 CTAP 프로토콜에서 다음 기능 및 확장을 Microsoft 호환으로 구현 **해야 합니다**.
+보안 키는 FIDO2 CTAP 프로토콜에서 다음 기능 및 확장을 Microsoft 호환으로 구현 **해야 합니다**. Authenticator 공급업체는 FIDO_2_0 및 FIDO_2_1 버전의 사양을 모두 구현해야 합니다. 자세한 내용은 [Authenticator 프로토콜에 대한 클라이언트](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html)를 참조하세요.
 
 | # | 기능/확장 신뢰 | 이 기능 또는 확장이 필요한 이유는 무엇인가요? |
 | --- | --- | --- |
-| 1 | 상주 키 | 이 기능을 사용하여 보안 키를 이식할 수 있으며, 이 경우 자격 증명이 보안 키에 저장됩니다. |
-| 2 | 클라이언트 pin | 이 기능을 사용하면 두 번째 인증 단계로 자격 증명을 보호할 수 있으며, 사용자 인터페이스가 없는 보안 키에 적용할 수 있습니다. |
+| 1 | 상주/검색 가능 키 | 이 기능을 사용하면 보안 키를 이동할 수 있습니다. 여기서 자격 증명이 보안 키에 저장되고 검색 가능하므로 사용자 이름 없는 흐름이 가능합니다. |
+| 2 | 클라이언트 pin | 이 기능을 사용하면 두 번째 인증 단계로 자격 증명을 보호할 수 있으며, 사용자 인터페이스가 없는 보안 키에 적용할 수 있습니다.<br>[PIN 프로토콜 1](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto1) 및 [PIN 프로토콜 2](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#pinProto2)를 모두 **구현해야** 합니다. |
 | 3 | hmac-secret | 이 확장을 통해 오프라인에서 또는 비행기 모드에서 디바이스에 로그인할 수 있습니다. |
 | 4 | RP당 여러 계정 | 이 기능을 사용하면 Microsoft 계정 및 Azure Active Directory 같은 여러 서비스에서 동일한 보안 키를 사용할 수 있습니다. |
+| 5 | 자격 증명 관리    | 이 기능을 통해 사용자는 플랫폼의 보안 키에 대한 자격 증명을 관리하고 이 기능이 기본 제공되지 않는 보안 키에 적용할 수 있습니다.  |
+| 6 | 바이오 등록           | 이 기능을 통해 사용자는 자신의 인증자에 생체 인식을 등록하고 이 기능이 기본 제공되지 않는 보안 키에 적용할 수 있습니다.<br> Authenticator는 이 기능에 대해 [authenicatorBioEnrollment](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#authenticatorBioEnrollment) 명령을 **구현해야** 합니다. Authenticator 공급업체가 [userVerificationMgmtPreview](https://fidoalliance.org/specs/fido-v2.1-rd-20210309/fido-client-to-authenticator-protocol-v2.1-rd-20210309.html#prototypeAuthenticatorBioEnrollment) 명령을 구현하여 사용자가 모든 이전 OS 버전에서 바이오 템플릿을 등록할 수 있도록 적극 권장합니다. |
+| 7 | pinUvAuthToken           | 이 기능을 통해 플랫폼에서 PIN 또는 BIO 일치를 사용하여 인증 토큰을 가질 수 있습니다. 그러면 인증자에 여러 자격 증명이 있는 경우 사용자 환경을 개선하는 데 도움이 됩니다.  |
+| 8 | forcePinChange           | 이 기능을 통해 엔터프라이즈에서 원격 배포에서 사용자에게 PIN을 변경하도록 요청할 수 있습니다.  |
+| 9 | setMinPINLength          | 이 기능을 통해 엔터프라이즈에서 사용자에 대해 사용자 지정 최소 PIN 길이를 사용할 수 있습니다. Authenticator는 minPinLength 확장도 구현해야 합니다.  |
+| 10 | alwaysUV                | 이 기능을 통해 엔터프라이즈 또는 사용자가 이 보안 키를 사용하기 위해 항상 사용자 확인을 요구할 수 있습니다. Authenticator는 toggleAlwaysUv 하위 명령을 구현해야 합니다.  |
+| 11 | credBlob                | 이 확장을 사용하면 웹 사이트에서 보안 키와 함께 작은 정보를 저장할 수 있습니다.  |
 
 ### <a name="fido2-security-key-providers"></a>FIDO2 보안 키 공급자
 
 다음 공급자는 암호 없는 환경과 호환되는 것으로 확인된 다양한 폼 팩터의 FIDO2 보안 키를 제공합니다. FIDO Alliance뿐만 아니라 공급업체에 문의하여 이러한 키의 보안 속성을 평가하는 것이 좋습니다.
 
-| 공급자 | 연락처 |
-| --- | --- |
-| Yubico | [https://www.yubico.com/solutions/passwordless/](https://www.yubico.com/solutions/passwordless/) |
-| Feitian | [https://ftsafe.us/pages/microsoft](https://ftsafe.us/pages/microsoft) |
-| HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| TrustKey Solutions | [https://www.trustkeysolutions.com/security-keys/](https://www.trustkeysolutions.com/security-keys/) |
-| AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
-| Gemalto(Thales Group) | [https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/](https://safenet.gemalto.com/multi-factor-authentication/authenticators/passwordless-authentication/) |
-| OneSpan Inc. | [https://www.onespan.com/products/fido](https://www.onespan.com/products/fido) |
-| IDmelon Technologies Inc. | [https://www.idmelon.com/#idmelon](https://www.idmelon.com/#idmelon) |
-| Hypersecu | [https://www.hypersecu.com/hyperfido](https://www.hypersecu.com/hyperfido) |
-| VinCSS | [https://passwordless.vincss.net](https://passwordless.vincss.net) |
-| KONA I | [https://konai.com/business/security/fido](https://konai.com/business/security/fido) |
-| Excelsecu | [https://www.excelsecu.com/productdetail/esecufido2secu.html](https://www.excelsecu.com/productdetail/esecufido2secu.html) |
-| Token2 Switzerland | [https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key](https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key) |
-| GoTrustID Inc. | [https://www.gotrustid.com/idem-key](https://www.gotrustid.com/idem-key) |
-| Kensington | [https://www.kensington.com/solutions/product-category/why-biometrics/](https://www.kensington.com/solutions/product-category/why-biometrics/) |
+| 공급자                  |     생체 인식     | USB | NFC | BLE | FIPS 인증 | 연락처                                                                                             |
+|---------------------------|:-----------------:|:---:|:---:|:---:|:--------------:|-----------------------------------------------------------------------------------------------------|
+| AuthenTrend               | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://authentrend.com/about-us/#pg-35-3                                                           |
+| Ensurity                  | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.ensurity.com/contact                                                                    |
+| Excelsecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.excelsecu.com/productdetail/esecufido2secu.html                                         |
+| Feitian                   | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://shop.ftsafe.us/pages/microsoft                                                                   |
+| Gemalto(Thales Group)    | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://safenet.gemalto.com/access-management/authenticators/fido-devices                           |
+| GoTrustID Inc.            | ![n]              | ![y]| ![y]| ![y]| ![n]           | https://www.gotrustid.com/idem-key                                                                  |
+| HID                       | ![n]              | ![y]| ![y]| ![n]| ![n]           | https://www.hidglobal.com/contact-us                                                                |
+| Hypersecu                 | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://www.hypersecu.com/hyperfido                                                                 |
+| IDmelon Technologies Inc. | ![y]              | ![y]| ![y]| ![y]| ![n]           | https://www.idmelon.com/#idmelon                                                                    |
+| Kensington                | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.kensington.com/solutions/product-category/why-biometrics/                               |
+| KONA I                    | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://konai.com/business/security/fido                                                            |
+| Nymi                      | ![y]              | ![n]| ![y]| ![y]| ![n]           | https://www.nymi.com/product                                                                        | 
+| OneSpan Inc.              | ![y]              | ![n]| ![n]| ![y]| ![n]           | https://www.onespan.com/products/fido                                                               |
+| Token2 Switzerland        | ![y]              | ![y]| ![y]| ![n]| ![n]           | https://www.token2.swiss/shop/product/token2-t2f2-alu-fido2-u2f-and-totp-security-key               |
+| TrustKey Solutions        | ![y]              | ![y]| ![n]| ![n]| ![n]           | https://www.trustkeysolutions.com/security-keys/                                                    |
+| VinCSS                    | ![n]              | ![y]| ![n]| ![n]| ![n]           | https://passwordless.vincss.net                                                                     |
+| Yubico                    | ![n]              | ![y]| ![y]| ![n]| ![y]           | https://www.yubico.com/solutions/passwordless/                                                      |
+
+
+<!--Image references-->
+[y]: ./media/fido2-compatibility/yes.png
+[n]: ./media/fido2-compatibility/no.png
 
 > [!NOTE]
 > NVC 기반 보안 키를 구매하여 사용할 경우에는 보안 키에 지원되는 NFC 판독기 필요합니다. NFC 판독기는 Azure 요구 사항이나 제한 사항이 아닙니다. 지원되는 NFC 리더 목록은 NFC 기반 보안 키 공급업체에 문의하세요.
 
-사용자가 공급업체이고 이 지원되는 디바이스 목록을 보고 디바이스를 구입할 경우에는 [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)으로 문의하세요.
+공급업체이고 지원되는 디바이스 목록에 디바이스를 추가하려는 경우 [Microsoft 호환 FIDO2 보안 키 공급업체가 되는 방법](/security/zero-trust/isv/fido2-hardware-vendor)에 대한 안내를 확인하세요.
 
 FIDO2 보안 키를 시작하려면 다음 방법을 완료하세요.
 
@@ -157,11 +170,19 @@ FIDO2 보안 키를 시작하려면 다음 방법을 완료하세요.
 고려 사항은 다음과 같습니다.
 
 - 관리자는 테넌트에 암호 없는 인증 방법을 사용하도록 설정할 수 있습니다.
+
 - 관리자는 모든 사용자를 대상으로 지정하거나 테넌트 내에서 각 방법의 사용자/그룹을 선택할 수 있습니다.
-- 최종 사용자는 자신의 계정 포털에서 이러한 암호 없는 인증 방법을 등록하고 관리할 수 있습니다.
-- 최종 사용자는 다음과 같은 암호 없는 인증 방법으로 로그인할 수 있습니다.
+
+- 사용자는 자신의 계정 포털에서 이러한 암호 없는 인증 방법을 등록하고 관리할 수 있습니다.
+
+- 사용자는 다음과 같은 암호 없는 인증 방법으로 로그인할 수 있습니다.
    - Microsoft Authenticator 앱: 모든 브라우저에서, Windows 10을 설치할 때, 운영체제에 통합 모바일 앱이 있는 경우를 포함해 Azure AD 인증이 사용되는 시나리오에서 작동합니다.
    - 보안 키: Microsoft Edge(레거시 및 새 Edge 모두)와 같이 지원되는 브라우저에서 Windows 10 및 웹의 잠금 화면에서 작동합니다.
+
+- 사용자는 암호 없는 자격 증명을 사용하여 게스트인 테넌트에서 리소스에 액세스할 수 있지만 해당 리소스 테넌트에서 MFA를 수행해야 할 수도 있습니다. 자세한 내용은 [가능한 이중 다단계 인증](../external-identities/current-limitations.md#possible-double-multi-factor-authentication)을 참조하세요.  
+
+- 사용자는 게스트인 테넌트 내에서 암호 없는 자격 증명을 등록할 수 없습니다. 해당 테넌트에서 관리되는 암호가 없는 것과 같습니다.  
+
 
 ## <a name="choose-a-passwordless-method"></a>암호 없는 방법 선택
 

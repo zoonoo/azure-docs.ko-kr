@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27353e6086085aadae622e007a38f97e15cbcb7f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d657f1df14b083631227cb7c19f64b65be8801d0
+ms.sourcegitcommit: 6ed3928efe4734513bad388737dd6d27c4c602fd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587868"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107010468"
 ---
 # <a name="introduction-to-securing-azure-service-accounts"></a>Azure 서비스 계정 보안 소개
 
@@ -26,13 +26,13 @@ Azure Active Directory에 기본으로 사용되는 서비스 계정에는 관�
 
 ## <a name="types-of-azure-active-directory-service-accounts"></a>Azure Active Directory 서비스 계정의 형식
 
-Azure에서 호스트되는 서비스의 경우 가능한 경우 관리 ID를 사용하고 그렇지 않은 경우 서비스 주체를 사용하는 것이 좋습니다. 관리 ID는 Azure 외부에서 호스팅되는 서비스에 사용할 수 없습니다. 이 경우 서비스 주체를 권장합니다. 관리 ID 또는 서비스 주체를 사용할 수 있는 경우 이 작업을 수행합니다. Azure Active Directory 사용자 계정을 서비스 주체로 사용하지 않는 것이 좋습니다. 자세한 내용은 다음 표를 참조하세요.
+Azure에서 호스트되는 서비스의 경우 가능한 경우 관리 ID를 사용하고 그렇지 않은 경우 서비스 주체를 사용하는 것이 좋습니다. 관리 ID는 Azure 외부에서 호스팅되는 서비스에 사용할 수 없습니다. 이 경우 서비스 주체를 권장합니다. 관리 ID 또는 서비스 주체를 사용할 수 있는 경우 이 작업을 수행합니다. Azure Active Directory 사용자 계정을 서비스 계정으로 사용하지 않는 것이 좋습니다. 자세한 내용은 다음 표를 참조하세요.
  
 
 | 서비스 호스팅| 관리 ID| 서비스 사용자| Azure 사용자 계정 |
 | - | - | - | - |
-|서비스는 Azure에서 호스팅됩니다.| 예. <br>서비스의 경우 권장 <br>관리 ID 지원.| 예.| 이 옵션은 사용하지 않는 것이 좋습니다. |
-| 서비스는 Azure에서 호스팅되지 않습니다.| 아니요| 예. 권장됩니다.| 이 옵션은 사용하지 않는 것이 좋습니다. |
+|서비스는 Azure에서 호스팅됩니다.| 예. <br>서비스의 경우 권장 <br>관리 ID 지원.| 예.| 권장되지 않습니다. |
+| 서비스는 Azure에서 호스팅되지 않습니다.| 아니요| 예. 권장됩니다.| 권장되지 않습니다. |
 | 서비스가 다중 테넌트입니다.| 아니요| 예. 권장됩니다.| 아니요. |
 
 
@@ -54,7 +54,7 @@ Azure에서 호스트되는 서비스의 경우 가능한 경우 관리 ID를 �
 
 서비스 주체를 사용하는 인증에는 클라이언트 인증서와 클라이언트 암호라는 두 가지 메커니즘이 있습니다. 인증서가 더 안전합니다: 가능한 경우 클라이언트 인증서를 사용하십시오. 클라이언트 암호와 달리 클라이언트 인증서는 우연히 코드에 포함될 수 없습니다.
 
-서비스 주체 보안에 대한 자세한 내용은 서비스 주체 보안을 참조하세요.
+서비스 주체 보안에 대한 자세한 내용은 [서비스 주체 보안](service-accounts-principal.md)을 참조하세요.
 
  
 ## <a name="next-steps"></a>다음 단계

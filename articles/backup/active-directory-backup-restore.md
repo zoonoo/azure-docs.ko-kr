@@ -3,12 +3,12 @@ title: Active Directory 백업 및 복원
 description: Active Directory 도메인 컨트롤러를 백업하고 복원하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 8db2dab605e90e4748b11a632d6651c23d631b6c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8bc6458895965d4c37667e0cff3051a4e4e8288e
+ms.sourcegitcommit: 19dcad80aa7df4d288d40dc28cb0a5157b401ac4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98733556"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107898210"
 ---
 # <a name="back-up-and-restore-active-directory-domain-controllers"></a>Active Directory 도메인 컨트롤러 백업 및 복원
 
@@ -23,7 +23,13 @@ Active Directory를 백업하고 손상, 손상 또는 재해 발생 시 성공�
 
 - 도메인 컨트롤러를 하나 이상 백업했는지 확인합니다. 둘 이상의 도메인 컨트롤러를 백업하는 경우 [FSMO(신축 단일 마스터 작업) 역할](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement)을 포함하는 모든 컨트롤러가 백업되었는지 확인해야 합니다.
 
-- Active Directory를 자주 백업합니다. 삭제 표식 수명보다 오래된 개체는 ‘삭제 표시’되고 더 이상 유효한 것으로 간주되지 않으므로 백업은 항상 삭제 표식 수명(기본값 60일)보다 작아야 합니다.
+- Active Directory를 자주 백업합니다. TSL(삭제 표시 수명)보다 오래된 개체는 “삭제 표시”되고 더 이상 유효한 것으로 간주되지 않으므로 백업 수명은 항상 TSL보다 작아야 합니다.
+  - Windows Server 2003 SP2 이상에서 빌드된 도메인의 기본 TSL은 180일입니다.
+  - 다음 PowerShell 스크립트를 사용하여 구성된 TSL을 확인할 수 있습니다.
+
+    ```powershell
+    (Get-ADObject $('CN=Directory Service,CN=Windows NT,CN=Services,{0}' -f (Get-ADRootDSE).configurationNamingContext) -Properties tombstoneLifetime).tombstoneLifetime
+    ```
 
 - 도메인 컨트롤러를 복원하는 방법에 대한 지침이 포함된 명확한 재해 복구 계획을 수립합니다. Active Directory 포리스트 복원을 준비하려면 [Active Directory 포리스트 복구 가이드](/windows-server/identity/ad-ds/manage/ad-forest-recovery-guide)를 참조하세요.
 

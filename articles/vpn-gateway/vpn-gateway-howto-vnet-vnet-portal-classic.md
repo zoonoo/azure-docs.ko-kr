@@ -1,6 +1,6 @@
 ---
 title: 'VNet 간 연결 만들기: 클래식: Azure Portal'
-description: PowerShell 및 Azure Portal을 사용하여 Azure 가상 네트워크를 함께 연결합니다.
+description: PowerShell 및 Azure Portal을 사용하여 클래식 Azure 가상 네트워크를 함께 연결하는 방법을 알아봅니다.
 services: vpn-gateway
 titleSuffix: Azure VPN Gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aee40b4d642a43f0d4261bae7c42f92049daa4de
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92103223"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108289519"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>VNet-VNet 연결(클래식) 구성
 
@@ -58,7 +58,7 @@ VPN 게이트웨이를 사용하여 클래식 배포 모델에서 가상 네트�
 
 VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 간 고려 사항](#faq)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 대부분의 단계에서 포털을 사용하지만 PowerShell을 사용하여 VNet 간의 연결을 만들어야 합니다. 포털에서 공유 키를 지정할 수 없기 때문에 Azure Portal을 사용하여 연결을 만들 수는 없습니다. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -99,7 +99,7 @@ VNet 간 연결에 대한 자세한 내용은 이 문서의 끝에 있는 [VNet 
 
 **예제**
 
-| Virtual Network | 주소 공간 | Location | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | 위치 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |SiteVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |SiteVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -136,7 +136,7 @@ Azure는 각 로컬 네트워크 사이트에 지정된 설정을 사용하여 V
 
 각 VNet의 로컬 사이트는 다른 VNet입니다.
 
-| Virtual Network | 주소 공간 | Location | 로컬 네트워크 사이트에 연결 |
+| Virtual Network | 주소 공간 | 위치 | 로컬 네트워크 사이트에 연결 |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |미국 동부 |SiteVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |미국 서부 |SiteVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

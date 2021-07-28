@@ -4,20 +4,20 @@ description: Azure IoT Edge 디먼 및 런타임을 실행할 수 있는 운영 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/11/2021
+ms.date: 06/09/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f59e2ca06f4ec435522cd06815b22d706a2d894c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e2701a04c1e8ea631bdbf37470608cf66b8d242e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772419"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111985367"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 지원 시스템
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 이 문서에서는 공식적으로 또는 미리 보기에서 IoT Edge가 지원하는 시스템 및 구성 요소에 대한 세부 정보를 제공합니다.
 
@@ -52,18 +52,39 @@ Azure IoT Edge는 컨테이너를 실행할 수 있는 대부분의 운영 체�
   * Microsoft에서는 해당 플랫폼에 대한 비공식적 테스트를 완료하고 해당 플랫폼에서 성공적으로 Azure IoT Edge를 실행하는 파트너를 인식하고 있습니다.
   * 다른 플랫폼에 대한 설치 패키지는 다음 플랫폼에서 작동할 수 있습니다.
 
-호스트 OS 제품군은 항상 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 즉, Linux에서는 Linux 컨테이너만 사용하고 Windows에서는 Windows 컨테이너만 사용할 수 있습니다. Windows를 사용하는 경우 프로세스 격리 컨테이너만 지원되고 Hyper-V 격리 컨테이너는 지원되지 않습니다.  
+호스트 OS 제품군은 항상 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+즉, Linux에서는 Linux 컨테이너만 사용하고 Windows에서는 Windows 컨테이너만 사용할 수 있습니다. Windows 컨테이너를 사용하는 경우 프로세스 격리 컨테이너만 지원되고 Hyper-V 격리 컨테이너는 지원되지 않습니다.  
 
 IoT Edge for Linux on Windows는 Windows 호스트에서 실행되는 Linux 가상 머신의 IoT Edge를 사용합니다. 이러한 방식으로 Windows 디바이스에서 Linux 모듈을 실행할 수 있습니다.
+:::moniker-end
+<!-- end 1.1 -->
 
 ### <a name="tier-1"></a>계층 1
 
 다음 표에 나열된 시스템은 일반 공급되거나 퍼블릭 미리 보기 방식으로 Microsoft에서 지원되며 각 새 릴리스로 테스트되었습니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Azure IoT Edge는 Linux 또는 Windows 컨테이너로 빌드된 모듈을 지원합니다. Linux 컨테이너는 Linux 디바이스에 배포하거나 IoT Edge for Linux on Windows를 사용하여 Windows 디바이스에 배포할 수 있습니다. Windows 컨테이너는 Windows 디바이스에만 배포할 수 있습니다.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Azure IoT Edge 버전 1.2는 Linux 컨테이너로 빌드된 모듈만 지원합니다.
+
+현재 Windows 디바이스에서 IoT Edge 버전 1.2를 실행하기 위해 지원되는 방법은 없습니다. [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md)는 Windows 디바이스에서 IoT Edge를 실행하는 권장 방법이지만 현재는 IoT Edge 1.1만 실행합니다. 자세한 내용은 이 문서의 [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) 버전을 참조하세요.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 #### <a name="linux-containers"></a>Linux 컨테이너
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Linux 컨테이너로 빌드된 모듈은 Linux 또는 Windows 디바이스에 배포할 수 있습니다. Linux 디바이스의 경우 IoT Edge 런타임은 호스트 디바이스에 직접 설치됩니다. Windows 디바이스의 경우 IoT Edge 런타임으로 미리 빌드된 Linux 가상 머신이 호스트 디바이스에서 실행됩니다.
 
 [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md)는 현재 퍼블릭 미리 보기로 제공되지만, Windows 디바이스에서 IoT Edge를 실행하는 권장 방법입니다.
@@ -78,12 +99,27 @@ Linux 컨테이너로 빌드된 모듈은 Linux 또는 Windows 디바이스에 �
 | Windows Server 2019 | 퍼블릭 미리 보기 |  |  |
 
 모든 Windows 운영 체제는 버전 1809(빌드 17763) 이상이어야 합니다.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+| 운영 체제 | AMD64 | ARM32v7 | ARM64 |
+| ---------------- | ----- | ------- | ----- |
+| Raspberry Pi OS Stretch |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
+| Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | 퍼블릭 미리 보기 |
+
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >Ubuntu Server 16.04 지원은 IoT Edge 버전 1.1 릴리스에서 종료되었습니다.
 
 #### <a name="windows-containers"></a>Windows 컨테이너
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 >[!IMPORTANT]
 >IoT Edge 1.1 LTS는 Windows 컨테이너를 지원하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너가 지원되지 않습니다. Windows 디바이스에서 IoT Edge를 실행하려면 [Windows에서 Linux용 IoT Edge](iot-edge-for-linux-on-windows.md)를 사용하거나 이동하는 것이 좋습니다.
 
@@ -99,6 +135,17 @@ Windows 컨테이너로 빌드된 모듈은 Windows 디바이스에만 배포할
 
 >[!NOTE]
 >Windows 10 IoT Core 지원은 IoT Edge 버전 1.1 릴리스에 종료되었습니다.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+IoT Edge 1.1 LTS는 Windows 컨테이너를 지원하는 마지막 릴리스 채널입니다. 버전 1.2부터 Windows 컨테이너가 지원되지 않습니다.
+
+Windows 컨테이너의 지원되는 운영 체제에 관한 자세한 내용은 이 문서의 [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true) 버전을 참조하세요.
+
+:::moniker-end
+<!-- end 1.2 -->
 
 ### <a name="tier-2"></a>계층 2
 
@@ -106,13 +153,13 @@ Windows 컨테이너로 빌드된 모듈은 Windows 디바이스에만 배포할
 
 | 운영 체제 | AMD64 | ARM32v7 | ARM64 |
 | ---------------- | ----- | ------- | ----- |
-| [CentOS 7.5](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1804) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
+| [CentOS-7](https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7) | ![CentOS + AMD64](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![CentOS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Ubuntu 20.04 <sup>1</sup>](https://wiki.ubuntu.com/FocalFossa/ReleaseNotes) | ![Ubuntu 20.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 20.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 9](https://www.debian.org/releases/stretch/) | ![Debian 9 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 9 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Debian 10](https://www.debian.org/releases/buster/) | ![Debian 10 + AMD64](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Debian 10 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/tutorial-c-module/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/tutorial-c-module/green-check.png) |
-| [RHEL 7.5](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.5_release_notes/index) | ![RHEL 7.5 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7.5 + ARM64](./media/tutorial-c-module/green-check.png) |
+| [RHEL 7](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7) | ![RHEL 7 + AMD64](./media/tutorial-c-module/green-check.png) | ![RHEL 7 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![RHEL 7 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Ubuntu 18.04](https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes) | ![Ubuntu 18.04 + AMD64](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Ubuntu 18.04 + ARM64](./media/tutorial-c-module/green-check.png) |
 | [Wind River 8](https://docs.windriver.com/category/os-wind_river_linux) | ![Wind River 8 + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 | [Yocto](https://www.yoctoproject.org/) | ![Yocto + AMD64](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM32v7](./media/tutorial-c-module/green-check.png) | ![Yocto + ARM64](./media/tutorial-c-module/green-check.png) |
@@ -124,11 +171,17 @@ Windows 컨테이너로 빌드된 모듈은 Windows 디바이스에만 배포할
 
 IoT Edge 릴리스 자산과 릴리스 정보는 [azure-iotedge 릴리스](https://github.com/Azure/azure-iotedge/releases) 페이지에서 사용할 수 있습니다. 이 섹션에서는 각 버전의 구성 요소를 보다 쉽게 시각화하는 데 유용한 릴리스 정보에 대한 정보를 반영합니다.
 
-IoT Edge 구성 요소는 개별적으로 설치 또는 업데이트할 수 있으며 이전 버전의 구성 요소와 호환됩니다. 다음 표에서는 각 릴리스에 포함된 구성 요소를 보여 줍니다.
+다음 표에서는 1.2.0부터 각 릴리스에 포함된 구성 요소를 나열합니다. 이 표에 나열된 구성 요소는 개별적으로 설치하거나 업데이트할 수 있으며 이전 버전과 호환됩니다.
 
-| 해제 | 보안 디먼 | 에지 허브<br>에지 에이전트 | Libiothsm | Moby |
+| Release | aziot-edge | edgeHub<br>edgeAgent | aziot-identity-service |
+| ------- | ---------- | -------------------- | ---------------------- |
+| **1.2** | 1.2.0<br>1.2.1 | 1.2.0<br>1.2.1   | 1.2.0<br><br> |
+
+다음 표에서는 1.1 LTS 릴리스까지 각 릴리스에 포함된 구성 요소를 나열합니다. 이 표에 나열된 구성 요소는 개별적으로 설치하거나 업데이트할 수 있으며 이전 버전과 호환됩니다.
+
+| Release | iotedge | edgeHub<br>edgeAgent | libiothsm | moby |
 |--|--|--|--|--|
-| **1.1 LTS**<sup>1</sup> | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 | 1.1.0<br>1.1.1 |   |
+| **1.1 LTS**<sup>1</sup> | 1.1.0<br>1.1.1<br><br>1.1.3 | 1.1.0<br>1.1.1<br>1.1.2<br>1.1.3 | 1.1.0<br>1.1.1<br><br>1.1.3 |   |
 | **1.0.10** | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br>1.0.10.3<br>1.0.10.4 | 1.0.10<br>1.0.10.1<br>1.0.10.2<br><br>1.0.10.4 |  |
 | **1.0.9** | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 | 1.0.9<br>1.0.9.1<br>1.0.9.2<br>1.0.9.3<br>1.0.9.4<br>1.0.9.5 |  |
 | **1.0.8** | 1.0.8 | 1.0.8<br>1.0.8.1<br>1.0.8.2<br>1.0.8.3<br>1.0.8.4<br>1.0.8.5 | 1.0.8 | 3.0.6 |
@@ -145,7 +198,8 @@ IoT Edge는 Microsoft.Azure.Devices.Client SDK를 사용합니다. 자세한 내
 
 | IoT Edge 버전 | Microsoft.Azure.Devices.Client SDK 버전 |
 |------------------|--------------------------------------------|
-| 1.1(LTS)      | 1.28.0                                     |
+| 1.2.0            | 1.33.4-NestedEdge
+| 1.1(LTS)        | 1.28.0                                     |
 | 1.0.10           | 1.28.0                                     |
 | 1.0.9            | 1.21.1                                     |
 | 1.0.8            | 1.20.3                                     |
@@ -158,10 +212,28 @@ IoT Edge는 Microsoft.Azure.Devices.Client SDK를 사용합니다. 자세한 내
 가상 머신에서 Azure IoT Edge를 실행할 수 있습니다. 일반적으로 고객이 에지 인텔리전스를 사용하여 기존 인프라를 보강하려는 경우 가상 머신을 IoT Edge 디바이스로 사용하는 것이 일반적입니다. 호스트 VM OS 제품군은 모듈의 컨테이너 내부에서 사용되는 게스트 OS 제품군과 일치해야 합니다. 이 요구 사항은 Azure IoT Edge가 디바이스에서 직접 실행될 때와 동일합니다. Azure IoT Edge는 기본 가상화 기술에 중립적이며, Hyper-V 및 vSphere와 같은 플랫폼을 통해 구동되는 VM에서 작동합니다.
 
 <br>
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
+<center>
+
+![VM의 Azure IoT Edge](./media/support/edge-on-vm-with-windows.png)
+
+</center>
+
+::: moniker-end
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
 <center>
 
 ![VM의 Azure IoT Edge](./media/support/edge-on-vm.png)
+
 </center>
+
+:::moniker-end
 
 ## <a name="minimum-system-requirements"></a>최소 시스템 요구 사항
 

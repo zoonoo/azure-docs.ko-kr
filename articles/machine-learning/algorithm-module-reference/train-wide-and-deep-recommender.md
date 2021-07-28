@@ -8,18 +8,20 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/12/2020
-ms.openlocfilehash: d7dd7105ddb0d6503faefb996b84c0e53a62ce49
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/19/2021
+ms.openlocfilehash: 76b6079b389f1b5817c328cf92939ae956034936
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104655379"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111956930"
 ---
 # <a name="train-wide--deep-recommender"></a>Wide & Deep Recommender 학습
 이 문서에서는 **Azure Machine Learning 디자이너에서 Wide & Deep Recommender 학습 모듈을 사용하는 방법** 을 설명합니다. 이 모듈은 Google이 제안한 와이드 러닝 및 딥 러닝에 기반합니다.
 
 **Wide & Deep Recommender 학습** 모듈은 사용자-항목-등급의 삼중 쌍으로 구성된 데이터 세트를 읽으며 필요에 따라 일부 사용자 및 항목 특징도 읽습니다. 이는 학습된 Wide & Deep Recommender 추천을 반환합니다.  그런 다음 학습된 모델을 사용하여 [Wide & Deep Recommender 점수](score-wide-and-deep-recommender.md) 모듈을 사용하여 등급 예측 또는 권장 사항을 생성할 수 있습니다.  
+
+<!-- Currently, **Train Wide & Deep Recommender** module supports both single node and distributed training. -->
 
 ## <a name="more-about-recommendation-models-and-the-wide--deep-recommender"></a>추천 모델 및 Wide & Deep Recommender에 대한 자세한 내용  
 
@@ -43,7 +45,7 @@ Wide & Deep 추천 및 기본 확률 알고리즘에 대한 자세한 내용은 
 
 ### <a name="prepare-data"></a>데이터 준비
 
-모듈을 사용하려 하기 전에 데이터를 권장 모델에 필요한 형식으로 지정해야 합니다. **사용자-항목-등급 삼중 쌍** 의 학습 데이터 세트는 필수이지만 별도의 데이터 세트에 사용자 특징 및 항목 특징(사용 가능한 경우)을 포함할 수도 있습니다.
+모듈을 사용하기 전에 데이터가 권장 사항 모델에 대해 예상되는 형식인지 확인합니다. **사용자-항목-등급 삼중 쌍** 의 학습 데이터 세트는 필수이지만 별도의 데이터 세트에 사용자 특징 및 항목 특징(사용 가능한 경우)을 포함할 수도 있습니다.
 
 #### <a name="required-dataset-of-user-item-ratings"></a>사용자-항목-등급 데이터 세트 필요
 
@@ -97,27 +99,27 @@ Wide & Deep 추천 및 기본 확률 알고리즘에 대한 자세한 내용은 
 
 4. **일괄 처리 크기**: 한 학습 단계에서 사용한 학습 예의 수를 입력합니다. 
 
-     이 하이퍼 매개 변수는 학습 속도에 영향을 줄 수 있습니다. 일괄 처리 크기가 높으면 epoch에 드는 시간 비용을 줄일 수 있지만 수렴 시간은 늘어날 수 있습니다. 일괄 처리가 너무 커서 GPU/CPU에 맞지 않는 경우 메모리 오류가 발생할 수 있습니다.
+     이 하이퍼 매개 변수는 학습 속도에 영향을 줄 수 있습니다. 일괄 처리 크기가 높으면 epoch에 드는 시간 비용을 줄일 수 있지만 수렴 시간은 늘어날 수 있습니다. 일괄 처리 용량이 너무 커서 GPU/CPU에 맞지 않는 경우 메모리 오류가 발생할 수 있습니다.
 
 5.  **범위 부분 최적화 프로그램**: 모델의 범위 부분에 경사를 적용할 최적화 프로그램 하나를 선택합니다.
 
 6.  **범위 최적화 프로그램 학습 속도**: 범위 부분 최적화 프로그램의 학습 속도를 정의하는 0.0에서 2.0사이의 숫자를 입력합니다.
 
-    이 하이퍼 매개 변수는 최소 손실 함수를 향해 이동하는 동안 각 학습 단계의 단계 크기를 결정합니다. 학습 속도가 너무 크면 학습이 최소로 이동할 수 있지만 학습 속도가 너무 작으면 수렴 문제가 생길 수 있습니다.
+    이 하이퍼 매개 변수는 최소 손실 함수를 향해 이동하는 동안 각 학습 단계의 단계 크기를 결정합니다. 학습률이 크면 최소값을 넘는 학습 점프가 발생할 수 있으며, 학습률이 너무 작으면 수렴 문제가 발생할 수 있습니다.
 
-7.  **교차 특징 차원**: 원하는 사용자 식별자 및 항목 식별자 특징을 입력하여 차원을 입력합니다. 
+7.  **교차 특징 차원**: 원하는 사용자 ID 및 항목 ID 특징을 입력하여 차원을 입력합니다. 
 
-    Wide & Deep Recommender는 기본적으로 사용자 식별자 및 항목 식별자 특징에 대한 제품 간 변환을 수행합니다. 이 숫자에 따라 교차 결과가 해시되어 차원이 확인됩니다.
+    Wide & Deep Recommender는 기본적으로 사용자 ID 및 항목 ID 특징에 대한 제품 간 변환을 수행합니다. 이 숫자에 따라 교차 결과가 해시되어 차원이 확인됩니다.
 
 8.  **깊이 부분 최적화 프로그램**: 모델의 깊이 부분에 경사를 적용할 최적화 프로그램 하나를 선택합니다.
 
 9.  **깊이 최적화 프로그램 학습 속도**: 깊이 부분 최적화 프로그램의 학습 속도를 정의하는 0.0에서 2.0사이의 숫자를 입력합니다.
 
-10.  **사용자 포함 차원**: 사용자 식별자 포함의 차원을 지정하는 정수를 입력합니다.
+10.  **사용자 포함 차원**: 사용자 ID 포함의 차원을 지정하는 정수를 입력합니다.
 
-     Wide & Deep Recommender는 범위 부분과 깊이 부분에 대한 공유 사용자 식별자 포함 및 항목 식별자 포함을 만듭니다.
+     Wide & Deep Recommender는 범위 부분과 깊이 부분에 대한 공유 사용자 ID 포함 및 항목 ID 포함을 만듭니다.
 
-11.  **항목 포함 차원**: 항목 식별자 포함의 차원을 지정하는 정수를 입력합니다.
+11.  **항목 포함 차원**: 항목 ID 포함의 차원을 지정하는 정수를 입력합니다.
 
 12.  **범주 특징 포함 차원**: 범주 특징 포함의 차원을 지정하는 정수를 입력합니다.
 
@@ -137,17 +139,58 @@ Wide & Deep 추천 및 기본 확률 알고리즘에 대한 자세한 내용은 
 
 17.  파이프라인을 실행합니다.
 
-## <a name="results"></a>결과
 
-파이프라인 실행이 완료된 후 점수 매기기 모델을 사용하려면 [Wide & Deep Recommender 학습](train-wide-and-deep-recommender.md)을 [Wide & Deep Recommender 점수](score-wide-and-deep-recommender.md)에 연결하여 새 입력 예제에 대한 값을 예측합니다.
+<!-- ## Distributed training
+
+In distributed training the workload to train a model is split up and shared among multiple mini processors, called worker nodes. These worker nodes work in parallel to speed up model training. Currently the designer support distributed training for **Train Wide & Deep Recommender** module.
+
+### How to enable distributed training
+
+To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
+
+1. Select the module and open the right panel. Expand the **Run settings** section.
+
+    [![Screenshot showing how to set distributed training in run setting](./media/module/distributed-training-run-setting.png)](./media/module/distributed-training-run-setting.png#lightbox)
+
+1. Make sure you have select AML compute for the compute target.
+
+1. In **Resource layout** section, you need to set the following values:
+
+    - **Node count**: Number of nodes in the compute target used for training. It should be **less than or equal to** the **Maximum number of nodes** your compute cluster. By default it is 1, which means single node job.
+
+    - **Process count per node**: Number of processes triggered per node. It should be **less than or equal to** the **Processing Unit** of your compute. By default it is 1, which means single node job.
+
+    You can check the **Maximum number of nodes** and **Processing Unit** of your compute by clicking the compute name into the compute detail page.
+
+    [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
+
+You can learn more about distributed training in Azure Machine Learning [here](../concept-distributed-training.md).
+
+
+### Troubleshooting for distributed training
+
+If you enable distributed training for this module, there will be driver logs for each process. `70_driver_log_0` is for master process. You can check driver logs for error details of each process under **Outputs+logs** tab in the right pane.
+
+[![Screenshot showing driver log](./media/module/distributed-training-error-driver-log.png)](./media/module/distributed-training-error-driver-log.png#lightbox) 
+
+If the module enabled distributed training fails without any `70_driver` logs, you can check `70_mpi_log` for error details.
+
+The following example shows a common error that is **Process count per node** is larger than **Processing Unit** of the compute.
+
+[![Screenshot showing mpi log](./media/module/distributed-training-error-mpi-log.png)](./media/module/distributed-training-error-mpi-log.png#lightbox)
+
+## Results
+
+After pipeline run is completed, to use the model for scoring, connect the [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) to [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md), to predict values for new input examples.
+ -->
 
 ##  <a name="technical-notes"></a>기술 정보
 
-Wide & Deep은 공통적으로 선형 모델 및 심층 신경망을 학습하여 기억 및 일반화의 장점을 결합합니다. 범위 구성 요소는 원시 특징 집합을 사용하고 특징 상호 작용을 기억하기 위한 변환을 제공합니다. 깊이 구성 요소는 더 적은 기능 엔지니어링을 사용하여 낮은 차원의 조밀한 특징 포함을 통해 보이지 않는 특징 조합으로 일반화되었습니다. 
+Wide & Deep은 공통적으로 선형 모델 및 심층 신경망을 학습하여 기억 및 일반화의 장점을 결합합니다. 범위 구성 요소는 원시 특징 집합을 사용하고 특징 상호 작용을 기억하기 위한 변환을 제공합니다. 더 적은 기능 엔지니어링을 사용하여 심층 구성 요소는 낮은 차원의 밀도 높은 기능 포함을 통해 보이지 않는 기능 조합을 일반화합니다. 
 
-Wide & Deep Recommender 구현에서 모듈은 기본 모델 구조를 사용합니다. 범위 구성 요소는 사용자 포함, 항목 포함, 사용자 식별자와 항목 식별자의 제품 간 변환을 입력으로 사용합니다. 모델의 깊이 부분에서 포함 벡터는 각 범주 특징에 대해 학습됩니다. 이러한 벡터는 다른 숫자 특징 벡터와 함께 전체 피드-전달 신경망에 제공됩니다. 최종 출력 로그의 합계를 예측으로 합산하여 범위 부분과 깊이 부분을 결합해 최종적으로 공동 학습을 위한 하나의 일반적인 손실 함수로 이동합니다.
+Wide & Deep Recommender 구현에서 모듈은 기본 모델 구조를 사용합니다. 범위 구성 요소는 사용자 포함, 항목 포함, 사용자 ID와 항목 ID의 제품 간 변환을 입력으로 사용합니다. 모델의 세부적인 부분에서 포함 벡터는 각 범주 기능에 대해 학습됩니다. 이러한 벡터는 다른 숫자 특징 벡터와 함께 전체 피드-전달 신경망에 제공됩니다. 최종 출력 로그의 합계를 예측으로 합산하여 범위 부분과 깊이 부분을 결합해 최종적으로 공동 학습을 위한 하나의 일반적인 손실 함수로 이동합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning에서 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요. 
+Azure Machine Learning의 [사용 가능한 모듈 세트](module-reference.md)를 참조하세요.

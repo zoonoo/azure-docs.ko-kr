@@ -14,23 +14,23 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8481c562ecbab1f26e877e55a5a9454695ddf4c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 260362d047a85953a55a9ea5cae1a201447e5f21
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92370834"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483644"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대한 감사 기록 보기
 
-Azure Privileged Identity Management(PIM) 감사 기록을 사용하여 권한 있는 모든 역할에 대한 지난 30일의 모든 역할 할당 및 활성화를 볼 수 있습니다. 관리자, 최종 사용자 및 동기화 작업을 포함하여 Azure Active Directory(Azure AD) 조직에서 활동의 전체 감사 기록을 보려면 [Azure Active Directory 보안 및 작업 보고서](../reports-monitoring/overview-reports.md)를 사용할 수 있습니다.
+Azure Privileged Identity Management(PIM) 감사 기록을 사용하여 권한 있는 모든 역할에 대한 지난 30일의 모든 역할 할당 및 활성화를 볼 수 있습니다. 감사 데이터를 기본 보존 기간보다 오래 보존하려는 경우 Azure Monitor를 사용하여 Azure 스토리지 계정으로 라우팅할 수 있습니다. 자세한 내용은 [Azure 스토리지 계정에 Azure AD 로그 보관](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)을 참조하세요. 관리자, 최종 사용자 및 동기화 작업을 포함하여 Azure Active Directory(Azure AD) 조직에서 활동의 전체 감사 기록을 보려면 [Azure Active Directory 보안 및 작업 보고서](../reports-monitoring/overview-reports.md)를 사용할 수 있습니다.
 
 ## <a name="determine-your-version-of-pim"></a>PIM 버전 확인
 
 2019년 11월부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치하는 새 버전으로 업데이트됩니다. 그러면 [기존 API에 대한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성됩니다. 새 버전이 롤아웃되는 동안 이 문서에서 수행하는 절차는 현재 보유하고 있는 Privileged Identity Management 버전에 따라 달라집니다. 이 섹션의 단계에 따라 사용 중인 Privileged Identity Management 버전을 확인합니다. Privileged Identity Management 버전을 확인한 후에는 이 문서에서 해당 버전과 일치하는 절차를 선택할 수 있습니다.
 
 1. [권한 있는 역할 관리자](../roles/permissions-reference.md#privileged-role-administrator) 역할인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. **Azure AD Privileged Identity Management** 를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우 이 문서의 **새 버전** 탭에 있는 지침을 따릅니다. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
+1. **Azure AD Privileged Identity Management** 를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우 이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
     [!["Azure AD 역할-디렉터리 역할 감사 기록" 페이지를 보여 주는 스크린샷.](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "버전에 대한 탭을 선택합니다.")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 

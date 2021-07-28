@@ -1,6 +1,6 @@
 ---
 title: SharePoint용 StorSimple 어댑터 설치 | Microsoft Docs
-description: SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 설치 및 구성하거나 제거하는 방법을 설명합니다.
+description: SharePoint Server 팜에서 SharePoint용 StorSimple 어댑터를 설치 및 구성하거나 제거하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: alkohli
-ms.openlocfilehash: 639efab3a9eaef400b3fbe3d0b134d02f458b865
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b0c8ff4e360fa0641c3e50420c2ce7085cd5f68
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94966295"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108746916"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치 및 구성
 ## <a name="overview"></a>개요
-SharePoint용 StorSimple 어댑터는 Microsoft Azure StorSimple 유연한 스토리지 및 데이터 보호를 SharePoint 서버 팜에 제공할 수 있도록 하는 구성 요소입니다. 어댑터를 사용하여 SQL Server 콘텐츠 데이터베이스에서 Microsoft Azure StorSimple 하이브리드 클라우드 스토리지 디바이스에 BLOB(Binary Large Object) 콘텐츠를 이동할 수 있습니다.
+SharePoint용 StorSimple 어댑터는 Microsoft Azure StorSimple 유연한 스토리지 및 데이터 보호를 SharePoint Server 팜에 제공할 수 있도록 하는 구성 요소입니다. 어댑터를 사용하여 SQL Server 콘텐츠 데이터베이스에서 Microsoft Azure StorSimple 하이브리드 클라우드 스토리지 디바이스에 BLOB(Binary Large Object) 콘텐츠를 이동할 수 있습니다.
 
 SharePoint용 StorSimple 어댑터는 RBS(Remote BLOB Storage) 공급자로서 기능하며 SQL Server 원격 BLOB 스토리지 기능을 사용하여 StorSimple 디바이스에서 지원하는 파일 서버에 구조화되지 않은 SharePoint 콘텐츠(Blob 형식)를 저장합니다.
 
@@ -37,7 +37,7 @@ SharePoint용 StorSimple 어댑터는 RBS(Remote BLOB Storage) 공급자로서 �
 이 개요의 나머지 부분은 어댑터를 설치하고 구성하기 전에 알고 있어야 하는 SharePoint용 StorSimple 어댑터 및 SharePoint 용량 및 성능 제한의 역할을 간략하게 설명합니다. 이 정보를 검토한 후에 [SharePoint 설치용 StorSimple 어댑터](#storsimple-adapter-for-sharepoint-installation)로 이동하여 어댑터를 설정하기 시작합니다.
 
 ### <a name="storsimple-adapter-for-sharepoint-benefits"></a>SharePoint용 StorSimple 어댑터의 이점
-SharePoint 사이트에서 콘텐츠는 하나 이상의 콘텐츠 데이터베이스에 구조화되지 않은 BLOB 데이터로 저장됩니다. 기본적으로 이러한 데이터베이스는 SQL Server를 실행하고 SharePoint 서버 팜에 있는 컴퓨터에서 호스팅됩니다. BLOB는 신속하게 크기가 증가할 수 있으며 이는 많은 온-프레미스 스토리지를 소비합니다. 이러한 이유로 다른 더 저렴한 스토리지 솔루션을 찾으려 할 수 있습니다. SQL Server는 SQL Server 데이터베이스 외부의 파일 시스템에 BLOB 콘텐츠를 저장할 수 있는 RBS(Remote BLOB Storage)라고 하는 기술을 제공합니다. RBS를 사용하면 BLOB를 SQL Server를 실행하는 컴퓨터의 파일 시스템에 두거나 다른 서버 컴퓨터의 파일 시스템에 저장할 수 있습니다.
+SharePoint 사이트에서 콘텐츠는 하나 이상의 콘텐츠 데이터베이스에 구조화되지 않은 BLOB 데이터로 저장됩니다. 기본적으로 이러한 데이터베이스는 SQL Server를 실행하고 SharePoint Server 팜에 있는 컴퓨터에서 호스팅됩니다. BLOB는 신속하게 크기가 증가할 수 있으며 이는 많은 온-프레미스 스토리지를 소비합니다. 이러한 이유로 다른 더 저렴한 스토리지 솔루션을 찾으려 할 수 있습니다. SQL Server는 SQL Server 데이터베이스 외부의 파일 시스템에 BLOB 콘텐츠를 저장할 수 있는 RBS(Remote BLOB Storage)라고 하는 기술을 제공합니다. RBS를 사용하면 BLOB를 SQL Server를 실행하는 컴퓨터의 파일 시스템에 두거나 다른 서버 컴퓨터의 파일 시스템에 저장할 수 있습니다.
 
 RBS는 SharePoint용 StorSimple 어댑터와 같은 RBS 공급자를 사용하여 SharePoint에서 RBS를 활성화해야 합니다. SharePoint용 StorSimple 어댑터는 RBS를 사용하여 작동하며 이는 Microsoft Azure StorSimple 시스템에서 백업 서버로 BLOB를 이동시킵니다. Microsoft Azure StorSimple은 사용량에 따라 BLOB 데이터를 로컬 또는 클라우드에 저장합니다. 매우 활발한(일반적으로 계층1 또는 핫 데이터라고 함) BLOB은 로컬에 상주합니다. 덜 활성화된 데이터 및 아카이브 데이터는 클라우드에 상주합니다. 콘텐츠 데이터베이스에서 RBS를 사용하도록 설정한 후에 SharePoint에서 만든 새 BLOB 콘텐츠를 콘텐츠 데이터베이스가 아닌 StorSimple 디바이스에 저장합니다.
 
@@ -50,7 +50,7 @@ RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합
 * BLOB 데이터의 StorSimple 스냅샷으로 Kroll Ontrack PowerControls와 같은 데이터 복구 소프트웨어를 사용하여 SharePoint 콘텐츠의 항목 수준 복구를 수행합니다. (이 데이터 복구 소프트웨어는 별도 구매입니다.)
 * SharePoint 용 StorSimple 어댑터를 SharePoint 중앙 관리 포털에 연결하면 전체 SharePoint 솔루션을 중앙 위치에서 관리할 수 있습니다.
 
-파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절감 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 스토리지에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint 서버 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 스토리지 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하세요.
+파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절감 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 스토리지에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint Server 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 스토리지 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하세요.
 
 ### <a name="capacity-and-performance-limits"></a>용량 및 성능 제한
 SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 [소프트웨어 경계 및 SharePoint 2013에 대한 한계](/SharePoint/install/software-boundaries-and-limits-0)를 참조하세요.
@@ -87,10 +87,10 @@ RBS를 구성하기 전에 다음을 검토합니다.
 > RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 디바이스로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
 
 ## <a name="storsimple-adapter-for-sharepoint-installation"></a>SharePoint 설치용 StorSimple 어댑터
-SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 디바이스를 구성해야 하고 SharePoint 서버 팜 및 SQL Server 인스턴스화가 필수 구성 요소를 충족하는지 확인합니다. 이 자습서에서는 SharePoint용 StorSimple 어댑터 설치 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.
+SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 디바이스를 구성해야 하고 SharePoint Server 팜 및 SQL Server 인스턴스화가 필수 구성 요소를 충족하는지 확인합니다. 이 자습서에서는 SharePoint용 StorSimple 어댑터 설치 및 업그레이드에 대한 절차와 더불어 구성 요구 사항도 설명합니다.
 
 ## <a name="configure-prerequisites"></a>필수 조건 구성
-SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 디바이스, SharePoint 서버 팜 및 SQL Server 인스턴스화가 다음 필수 구성 요소를 충족하는지 확인합니다.
+SharePoint용 StorSimple 어댑터를 설치하기 전에 StorSimple 디바이스, SharePoint Server 팜 및 SQL Server 인스턴스화가 다음 필수 구성 요소를 충족하는지 확인합니다.
 
 ### <a name="system-requirements"></a>시스템 요구 사항
 SharePoint용 StorSimple 어댑터는 다음 하드웨어 및 소프트웨어와 함께 작동합니다.
@@ -114,7 +114,7 @@ StorSimple 디바이스를 제대로 구성하고 SharePoint 배포를 지원하
 
 * 볼륨은 64KB 할당 단위 크기로 포맷되어야 합니다.
 * WFE(웹 프런트 엔드) 및 애플리케이션 서버는 UNC(범용 명명 규칙) 경로를 통해 이 볼륨에 액세스할 수 있어야 합니다.
-* SharePoint 서버 팜을 구성하여 볼륨에 써야 합니다.
+* SharePoint Server 팜을 구성하여 볼륨에 써야 합니다.
 
 > [!NOTE]
 > 어댑터를 설치하고 구성한 후에 모든 BLOB 표면화는 StorSimple 디바이스를 통해 이동해야 합니다.(디바이스는 볼륨을 SQL Server에 표시하고 스토리지 계층을 관리합니다.) BLOB 표면화에 다른 대상을 사용할 수 없습니다.
@@ -127,9 +127,9 @@ StorSimple 스냅샷 관리자를 사용하여 BLOB 및 데이터베이스 데�
 
 
 ## <a name="sharepoint-farm-configuration-prerequisites"></a>SharePoint 팜 필수 구성 요소
-SharePoint 서버 팜이 올바르게 구성되어있는지 다음과 같이 확인합니다.
+SharePoint Server 팜이 올바르게 구성되어 있는지 다음과 같이 확인합니다.
 
-* SharePoint 서버 팜이 정상 상태인지 확인하고 다음을 확인합니다.
+* SharePoint Server 팜이 정상 상태인지 확인하고 다음을 확인합니다.
 * 팜에 등록된 모든 SharePoint WFE와 애플리케이션 서버는 실행 중이며 SharePoint용 StorSimple 어댑터를 설치하는 서버에서 ping을 실행할 수 있습니다.
 * SharePoint 타이머 서비스(SPTimerV3 또는 SPTimerV4)는 각 WFE 서버 및 애플리케이션 서버에서 실행됩니다.
 * SharePoint 중앙 관리 사이트가 실행 중인 SharePoint 타이머 서비스 및 IIS 애플리케이션 풀은 관리 권한을 가집니다.
@@ -154,7 +154,7 @@ BLOB는 SQL Server에 StorSimple 디바이스를 나타내는 볼륨에서만 �
 모든 필수 구성 요소 구성 단계를 완료한 경우 [SharePoint용 StorSimple 어댑터 설치](#install-the-storsimple-adapter-for-sharepoint)로 이동합니다.
 
 ## <a name="install-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 설치
-SharePoint용 StorSimple 어댑터를 설치하려면 다음 단계를 따르세요. 소프트웨어를 다시 설치하는 경우 [SharePoint용 StorSimple 어댑터 업그레이드 또는 다시 설치](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint)를 참조하세요. 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
+SharePoint용 StorSimple 어댑터를 설치하려면 다음 단계를 따르세요. 소프트웨어를 다시 설치하는 경우 [SharePoint용 StorSimple 어댑터 업그레이드 또는 다시 설치](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint)를 참조하세요. 설치에 필요한 시간은 SharePoint Server 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
 
 [!INCLUDE [storsimple-install-sharepoint-adapter](../../includes/storsimple-install-sharepoint-adapter.md)]
 
@@ -188,13 +188,13 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 [!INCLUDE [storsimple-sharepoint-adapter-garbage-collection](../../includes/storsimple-sharepoint-adapter-garbage-collection.md)]
 
 ## <a name="upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint"></a>SharePoint용 StorSimple 어댑터 업그레이드 또는 다시 설치
-다음 절차를 사용하여 SharePoint 서버를 업그레이드한 다음 SharePoint용 StorSimple 어댑터를 다시 설치하거나 기존 SharePoint 서버 팜에서 어댑터를 업그레이드하거나 다시 설치합니다.
+다음 절차를 사용하여 SharePoint Server를 업그레이드한 다음, SharePoint용 StorSimple 어댑터를 다시 설치하거나 기존 SharePoint Server 팜에서 어댑터를 업그레이드하거나 다시 설치합니다.
 
 > [!IMPORTANT]
 > SharePoint 소프트웨어를 업그레이드 및/또는 SharePoint용 StorSimple 어댑터를 업그레이드하거나 다시 설치하기 전에 다음 정보를 검토합니다.
 > 
 > * 다시 설치가 완료되고 RBS 기능을 다시 사용하도록 설정할 때까지 이전에 RBS를 통해 외부 스토리지에 이동된 모든 파일은 사용할 수 없습니다. 사용자 영향을 제한하려면 계획된 유지 관리 기간 동안 업그레이드 또는 다시 설치를 수행합니다.
-> * 업그레이드/다시 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
+> * 업그레이드/다시 설치에 필요한 시간은 SharePoint Server 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
 > * 업그레이드/다시 설치가 완료되면 콘텐츠 데이터베이스에 RBS를 사용하도록 설정해야 합니다. 자세한 내용은 [RBS 구성](#configure-rbs)을 참조하세요.
 > * 매우 많은(200개 초과) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우, **SharePoint 중앙 관리 페이지** 가 시간을 초과할 수 있습니다. 이 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
 

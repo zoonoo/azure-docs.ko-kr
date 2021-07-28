@@ -7,12 +7,12 @@ author: StefArroyo
 ms.author: esarroyo
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperf-fy21q1
-ms.openlocfilehash: 3c8e2559d1dc8fce27815d498578d352fa9fe498
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 777eeb615596d353770b7abcbe10191707e6fbfe
+ms.sourcegitcommit: 8651d19fca8c5f709cbb22bfcbe2fd4a1c8e429f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110372828"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112072742"
 ---
 # <a name="install-and-use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 설치 및 사용
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -97,8 +97,7 @@ Azure Cosmos DB 에뮬레이터는 기본적으로 `C:\Program Files\Azure Cosmo
 
 ## <a name="use-the-emulator-on-linux-or-macos"></a><a id="run-on-linux-macos"></a>Linux 또는 macOS에서 에뮬레이터 사용
 
-현재 Azure Cosmos DB 에뮬레이터는 Windows에서만 실행할 수 있습니다. Linux 또는 macOS를 사용 중인 경우 Parallels 또는 VirtualBox 등 하이퍼바이저가 호스트된 Windows 가상 머신에서 에뮬레이터를 실행할 수 있습니다.
-
+현재 Azure Cosmos DB 에뮬레이터는 Windows에서만 실행할 수 있습니다. Linux 또는 macOS를 사용하는 경우 [Linux 에뮬레이터(미리 보기)](linux-emulator.md)를 사용하거나 Parallels 또는 VirtualBox와 같은 하이퍼바이저에서 호스팅되는 Windows 가상 머신에서 에뮬레이터를 실행하는 것이 좋습니다.
 > [!NOTE]
 > 하이퍼바이저에서 호스트되는 Windows 가상 머신을 다시 시작할 때마다 가상 머신의 IP 주소가 변경되기 때문에 인증서를 다시 가져와야 합니다. IP 주소를 유지하도록 가상 머신을 구성한 경우에는 인증서를 가져올 필요가 없습니다.
 

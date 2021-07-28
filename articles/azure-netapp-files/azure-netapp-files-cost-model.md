@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/30/2021
 ms.author: b-juche
-ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2df332450c996c1a7b1b9b5e35b06d4fb226ed93
+ms.sourcegitcommit: 89c4843ec85d1baea248e81724781d55bed86417
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91325609"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108794469"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Azure NetApp Files 비용 모델 
 
@@ -31,70 +31,34 @@ Azure NetApp Files의 비용 모델을 이해하면 서비스 비용을 관리�
 
 Azure NetApp Files는 프로비저닝된 스토리지 용량에 대해 요금이 청구됩니다.  프로비저닝된 용량은 용량 풀을 만들어 할당됩니다.  용량 풀은 시간당 증분 단위로 월 $/provisioned-GiB/의 요금이 청구됩니다. 단일 용량 풀의 최소 크기는 4TiB이며 나중에 1TiB 증분으로 용량 풀을 확장할 수 있습니다. 볼륨은 용량 풀 안에 생성됩니다.  각 볼륨에 할당된 할당량만큼 풀에 프로비저닝된 용량에서 차감됩니다. 볼륨에 할당할 수 있는 할당량은 최소 100GiB에서 최대 100TiB 사이입니다.  
 
-활성 볼륨의 경우 할당량 대비 사용량은 논리적(유효) 용량을 기준으로 합니다.
+활성 볼륨의 경우 할당량에 대한 용량 소비는 활성 파일 시스템 또는 스냅샷 데이터의 논리적(유효) 용량을 기반으로 합니다. 볼륨에는 설정된 크기(할당량)만큼의 데이터만 포함될 수 있습니다.
 
-볼륨의 실제 사용량아 스토리지 할당량을 초과할 경우 볼륨을 계속 늘릴 수 있습니다. 실제 볼륨 크기가 시스템 한도(100TiB)보다 작기만 하면 쓰기는 계속 허용됩니다.  
+프로비전된 용량 대비 용량 풀에서 사용된 총 용량은 풀 내 모든 볼륨의 실제 사용량 합계입니다. 
 
-프로비저닝된 용량 대비 용량 풀에서 사용된 총 용량은 풀 내 모든 볼륨의 할당된 할당량 또는 실제 사용량 중에서 더 큰 값의 합계입니다. 
-
-   ![총 사용량 계산](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
-
-아래 다이어그램은 관련 개념을 설명합니다.  
-* 프로비저닝된 용량이 4TiB인 용량 풀이 있습니다.  풀에는 세 개의 볼륨이 포함되어 있습니다.  
-    * 볼륨 1에는 2TiB 할당량이 할당되었으며 사용량은 800GiB입니다.  
-    * 볼륨 2에는 1TiB 할당량이 할당되었으며 사용량은 100GiB입니다.  
-    * 볼륨 3에는 500GiB 할당량이 할당되었지만 사용량은 800GiB(초과분)입니다.  
-* 용량 풀은 4TiB 용량(프로비저닝된 용량)으로 요금이 청구됩니다.  
-    3.8TiB 용량이 사용되었습니다(볼륨 1과 2의 할당량 2TiB 및 1TiB, 볼륨 3의 실제 사용량 800GiB). 그리고 200GiB 용량이 남아 있습니다.
-
-   ![3개의 볼륨이 있는 용량 풀](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
-
-## <a name="overage-in-capacity-consumption"></a>사용량 초과분  
-
-풀의 총 사용량이 프로비저닝된 용량을 초과해도 데이터 쓰기는 계속 허용됩니다.  유예 기간(1시간) 후에 풀의 사용량이 여전히 프로비저닝된 용량을 초과하면 프로비저닝된 용량이 총 사용량보다 커질 때까지 풀 크기가 1TiB 증분으로 자동으로 증가합니다.  예를 들어 위 그림에서 볼륨 3이 계속 증가하고 실제 사용량이 1.2TiB에 도달하면 유예 기간 후에 풀 크기가 5TiB로 자동으로 조정됩니다.  결과적으로 프로비저닝된 풀 용량(5TiB)이 사용량(4.2TiB)을 초과하게 됩니다.  
-
-용량 풀 크기는 볼륨 수요를 충족하기 위해 자동으로 증가하지만 볼륨 크기가 감소한 경우에는 자동으로 줄어들지 않습니다. 볼륨 크기가 감소한 후(예: 볼륨의 데이터 정리 후) 용량 풀의 크기를 줄이려면 용량 풀 크기를 ‘수동으로’ 줄여야 합니다.
-
-## <a name="manual-changes-of-the-pool-size"></a>풀 크기 수동 변경  
-
-필요한 경우 풀 크기를 수동으로 늘리거나 줄일 수 있습니다. 그러나 다음과 같은 제약 조건이 적용됩니다.
-* 서비스 최소 및 최대 한도  
-    [리소스 한도](azure-netapp-files-resource-limits.md)에 대한 문서를 참조하세요.
-* 초기 4TiB 최소 구매 후 1TiB 증분
-* 1시간 최소 청구 증분
-* 프로비저닝된 풀 크기를 풀의 총 사용량보다 작게 줄일 수는 없습니다.
-* 수동 QoS가 있는 용량 풀의 경우 크기 및 서비스 수준이 모든 볼륨의 실제 할당된 처리량보다 많은 처리량을 제공하는 경우에만 풀 크기를 줄일 수 있습니다.
-
-## <a name="behavior-of-maximum-size-pool-overage"></a>최대 크기 풀 초과분 동작   
-
-만들거나 크기를 조정할 수 있는 용량 풀의 최대 크기는 500TiB입니다.  용량 풀의 총 사용량이 500TiB를 초과하면 다음 상황이 발생합니다.
-* 볼륨이 시스템 최대값인 100TiB 미만인 경우 데이터 쓰기가 계속 허용됩니다.
-* 1시간 유예 기간 후 풀에서 프로비저닝된 용량이 총 사용량을 초과할 때까지 풀 크기가 1TiB 증분으로 자동으로 조정됩니다.
-* 500TiB를 초과하여 추가로 프로비저닝되고 청구된 풀 용량은 볼륨 할당량을 할당하는 데 사용할 수 없습니다. 또한 성능 QoS 한도를 확장하는 데 사용할 수도 없습니다.  
-    성능 한도 및 QoS 크기 조정에 대한 자세한 내용은 [서비스 수준](azure-netapp-files-service-levels.md)을 참조하세요.
-
-아래 다이어그램은 관련 개념을 설명합니다.
-* Premium Storage 계층과 500TiB 용량을 사용하는 용량 풀이 있습니다. 풀에는 9개 볼륨이 포함되어 있습니다.
-    * 볼륨 1~8에는 각각 60TiB 할당량이 할당되었습니다.  총 사용량은 480TiB입니다.  
-        각 볼륨의 QoS 한도는 처리량 (60TiB * 64MiB/초)의 3.75GiB/초입니다.  
-    * 볼륨 9에는 20TiB 할당량이 할당되었습니다.  
-        볼륨 9의 QoS 한도는 처리량 (20TiB * 64MiB/초)의 1.25GiB/초입니다.
-* 볼륨 9는 초과분 시나리오입니다. 실제 사용량은 25TiB입니다.  
-    * 1시간 유예 기간 후 용량 풀의 크기가 505TiB로 조정됩니다.  
-        즉, 볼륨 1~8의 총 사용량은 8 * 60TiB이고 볼륨 9의 실제 사용량은 25TiB입니다.
-    * 청구된 용량은 505TiB입니다.
-    * 볼륨 9의 볼륨 할당량은 늘릴 수 없습니다(풀에 할당된 총 할당량은 500TiB를 초과할 수 없음).
-    * 풀의 총 QoS는 여전히 500TiB를 기반으로 하기 때문에 추가 QoS 처리량을 할당할 수 없습니다.
-
-   ![9개 볼륨이 있는 용량 풀](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-nine-vols.png)
+   ![사용되는 전체 용량 계산을 나타내는 식입니다.](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
 ## <a name="capacity-consumption-of-snapshots"></a>스냅샷의 사용량 
 
-Azure NetApp Files의 스냅샷 사용량은 부모 볼륨의 할당량 대비 요금이 청구됩니다.  따라서 볼륨이 속한 용량 풀과 동일한 청구 요금을 공유합니다.  그러나 활성 볼륨과 달리 스냅샷 사용량은 증분 사용량을 기준으로 측정됩니다.  Azure NetApp Files 스냅샷은 특성상 차등 스냅샷입니다. 데이터 변경률에 따라 스냅샷은 활성 볼륨의 논리적 용량보다 훨씬 적은 용량을 사용하는 경우가 많습니다. 예를 들어 500GiB 볼륨 스냅샷에 10GiB 차등 데이터만 포함되어 있다고 가정합니다. 해당 스냅샷의 볼륨 할당량 대비 요금이 청구되는 용량은 500GiB가 아닌 10GiB입니다. 
+Azure NetApp Files의 스냅샷 사용량은 부모 볼륨의 할당량 대비 요금이 청구됩니다.  따라서 볼륨이 속한 용량 풀과 동일한 청구 요금을 공유합니다.  그러나 활성 볼륨과 달리 스냅샷 사용량은 증분 사용량을 기준으로 측정됩니다.  Azure NetApp Files 스냅샷은 특성상 차등 스냅샷입니다. 데이터 변경률에 따라 스냅샷은 활성 볼륨의 논리적 용량보다 훨씬 적은 용량을 사용하는 경우가 많습니다. 예를 들어 500GiB 볼륨 스냅샷에 10GiB 차등 데이터만 포함되어 있다고 가정합니다. 활성 파일 시스템 및 스냅샷의 볼륨 할당량에 계산되는 용량 사용량은 1000GiB가 아닌 510GiB입니다. 일반적으로 스냅샷 빈도, 애플리케이션 일일 블록 수준 변경 비율에 따라, 용량의 20%가 한 주 분량의 스냅샷 데이터를 유지한다고 가정하는 것을 추천합니다. 
+
+다음 다이어그램은 이 개념을 보여 줍니다. 
+
+* 프로비저닝된 용량이 40TiB인 용량 풀이 있다고 가정합니다. 이 풀에는 세 볼륨이 포함되어 있습니다.    
+    * 볼륨 1의 할당량은 20TiB이고 사용량은 13TiB(12TiB 활성, 1TiB 스냅샷)입니다.
+    * 볼륨 2의 할당량은 1TiB이고 사용량은 450GiB입니다.
+    * 볼륨 3의 할당량은 14TiB이나 사용량은 8.8TiB(8TiB 활성, 800GiB 스냅샷)입니다.   
+* 용량 풀은 40TiB 용량(프로비전 용량)으로 요금이 청구됩니다. 22.25TiB의 용량이 소비됩니다(볼륨 1, 2 및 3에서 13TiB, 450GiB 및 8.8TiB 할당량). 용량 풀에는 17.75TiB의 용량이 남아 있습니다.   
+
+![3개의 볼륨이 있는 용량 풀을 보여 주는 다이어그램](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Azure NetApp Files에 대한 서비스 수준](azure-netapp-files-service-levels.md)
 * [Azure NetApp Files에 대한 리소스 제한](azure-netapp-files-resource-limits.md)
-* [지역 간 복제의 비용 모델](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)
+* [지역 간 복제에 대한 비용 모델](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)
+* [볼륨 할당량 이해](volume-quota-introduction.md)
+* [볼륨 용량 모니터링](monitor-volume-capacity.md)
+* [용량 풀 또는 볼륨 크기 조정](azure-netapp-files-resize-capacity-pools-or-volumes.md)
+* [태그를 사용하여 청구 관리](manage-billing-tags.md)
+* [용량 관리 FAQ](azure-netapp-files-faqs.md#capacity-management-faqs)

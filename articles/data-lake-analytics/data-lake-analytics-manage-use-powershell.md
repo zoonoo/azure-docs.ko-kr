@@ -5,12 +5,13 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
-ms.openlocfilehash: f1d5d732433a78b8e3e7ff94bd6aaa2eea8f4a87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ad1b972062a7eb06c69d1bd5a0b814c0978a2976
+ms.sourcegitcommit: 20acb9ad4700559ca0d98c7c622770a0499dd7ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102051789"
+ms.lasthandoff: 05/29/2021
+ms.locfileid: "110688145"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 데이터 레이크 분석 관리
 
@@ -18,7 +19,7 @@ ms.locfileid: "102051789"
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -336,7 +337,7 @@ New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $obj
 
 ## <a name="manage-files"></a>파일 관리
 
-### <a name="check-for-the-existence-of-a-file"></a>파일이 있는지 확인
+### <a name="check-for-the-existence-of-a-file"></a>파일의 존재 여부를 확인합니다.
 
 ```powershell
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
@@ -548,5 +549,5 @@ foreach ($sub in $subs)
 
 ## <a name="next-steps"></a>다음 단계
 * [Microsoft Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
-* [Azure Portal](data-lake-analytics-get-started-portal.md)Azure PowerShell를 사용 하 여 Data Lake Analytics 시작 하기  |  [](data-lake-analytics-get-started-powershell.md)  |  [Azure CLI](data-lake-analytics-get-started-cli.md)
-* [Azure Portal](data-lake-analytics-manage-use-portal.md)  |  [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)  |  [CLI](data-lake-analytics-manage-use-cli.md) 를 사용 하 여 Azure Data Lake Analytics 관리
+* [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)를 사용하여 Data Lake Analytics 시작
+* [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md)를 사용하여 Azure Data Lake Analytics 관리

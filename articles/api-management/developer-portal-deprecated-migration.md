@@ -5,20 +5,16 @@ description: 레거시 개발자 포털에서 API Management의 새 개발자 �
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/15/2020
+ms.date: 04/15/2021
 ms.author: apimpm
-ms.openlocfilehash: f5105c685de4b3ccdffe69eec8ee8eeb32976c1f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e4f9f3822b58886f7d453d52402b078d8401133f
+ms.sourcegitcommit: 425420fe14cf5265d3e7ff31d596be62542837fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92326024"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107738885"
 ---
 # <a name="migrate-to-the-new-developer-portal"></a>새 개발자 포털로 마이그레이션
 
@@ -33,19 +29,19 @@ ms.locfileid: "92326024"
 
 ## <a name="improvements-in-new-developer-portal"></a>새 개발자 포털의 향상된 기능
 
-새 개발자 포털은 더 이상 사용되지 않는 포털의 많은 제한 사항을 해결합니다. 새 포털은 [콘텐츠 편집을 위한 시각적 끌어서 놓기 편집기](api-management-howto-developer-portal-customize.md)와 디자이너가 웹 사이트에 스타일을 적용할 수 있는 전용 패널이 특징입니다. 페이지, 사용자 지정, 구성은 API Management 서비스에 Azure Resource Manager 리소스로 저장되므로 [포털 배포를 자동화할](api-management-howto-developer-portal.md#automate)수 있습니다. 마지막으로, 포털의 코드베이스가 오픈 소스이므로 [사용자 지정 기능을 사용하여 확장할 수](api-management-howto-developer-portal.md#managed-vs-self-hosted) 있습니다.
+새 개발자 포털은 더 이상 사용되지 않는 포털의 많은 제한 사항을 해결합니다. 새 포털은 [콘텐츠 편집을 위한 시각적 끌어서 놓기 편집기](api-management-howto-developer-portal-customize.md)와 디자이너가 웹 사이트에 스타일을 적용할 수 있는 전용 패널이 특징입니다. 페이지, 사용자 지정, 구성은 API Management 서비스에 Azure Resource Manager 리소스로 저장되므로 [포털 배포를 자동화할](automate-portal-deployments.md)수 있습니다. 마지막으로, 포털의 코드베이스가 오픈 소스이므로 [사용자 지정 기능을 사용하여 확장할 수](api-management-howto-developer-portal.md#managed-vs-self-hosted) 있습니다.
 
 ## <a name="how-to-migrate-to-new-developer-portal"></a>새 개발자 포털로 마이그레이션하는 방법
 
 새 개발자 포털은 더 이상 사용되지 않는 포털과 호환되지 않으며 자동으로 마이그레이션되지 않습니다. 콘텐츠(페이지, 텍스트, 미디어 파일)를 수동으로 다시 만들고 새 포털의 모양을 사용자 지정해야 합니다. 정확한 단계는 포털의 사용자 지정 및 복잡성에 따라 달라집니다. 지침은 [개발자 포털 자습서](api-management-howto-developer-portal-customize.md)를 참조하세요. API, 제품, 사용자, ID 공급자의 목록과 같은 나머지 구성은 두 포털에서 자동으로 공유됩니다.
 
 > [!IMPORTANT]
-> 이전에 새 개발자 포털을 실행했지만 아무 것도 변경하지 않은 경우 [기본 콘텐츠를 다시 설정](api-management-howto-developer-portal.md#preview-to-ga)하여 최신 버전으로 업데이트합니다.
+> 이전에 새 개발자 포털을 실행했지만 아무 것도 변경하지 않은 경우 기본 콘텐츠를 다시 설정하여 최신 버전으로 업데이트합니다.
 
 사용되지 않는 포털에서 마이그레이션하는 경우 다음 변경 사항을 염두에 두어야 합니다.
 
 - 사용자 지정 도메인을 통해 개발자 포털을 노출하는 경우 새 개발자 포털에 [도메인을 할당](configure-custom-domain.md)합니다. Azure Portal의 드롭다운에서 **개발자 포털** 옵션을 사용합니다.
-- API에 [CORS 정책을 적용](api-management-howto-developer-portal.md#cors)하여 대화형 테스트 콘솔을 사용하도록 설정합니다.
+- API에 [CORS 정책을 적용](developer-portal-faq.md#cors)하여 대화형 테스트 콘솔을 사용하도록 설정합니다.
 - 사용자 지정 CSS를 삽입하여 포털의 스타일을 지정하는 경우 [기본 제공 디자인 패널을 사용하여 스타일을 복제](api-management-howto-developer-portal-customize.md)해야 합니다. 새 포털에서는 CSS 삽입이 허용되지 않습니다.
 - 사용자 지정 JavaScript는 [새 포털의 자체 호스트 버전](api-management-howto-developer-portal.md#managed-vs-self-hosted)에서만 삽입할 수 있습니다.
 - API Management 가상 네트워크에 있고 Application Gateway를 통해 인터넷에 노출되는 경우 정확한 구성 단계는 [이 설명서 문서를 참조](api-management-howto-integrate-internal-vnet-appgateway.md). 그러려면 다음 작업을 수행해야 합니다.

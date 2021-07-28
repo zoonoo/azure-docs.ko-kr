@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: 4e88ad58c7baba1c66c30df3f4effdbf11371c18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2703e5f92ad0756ece8088c4948170ea13fa0e06
+ms.sourcegitcommit: b35c7f3e7f0e30d337db382abb7c11a69723997e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045334"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109683446"
 ---
 # <a name="how-to-connect-devices-through-an-iot-edge-transparent-gateway"></a>IoT Edge 투명 게이트웨이를 통해 디바이스를 연결하는 방법
 
@@ -25,11 +25,11 @@ IoT Edge는 [*투명* 및 *변환* 게이트웨이 패턴](../../iot-edge/iot-ed
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
+이 문서의 단계를 완료하려면 다음이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- 활성화된 Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작을 완료하여 **사용자 지정 앱 > 사용자 지정 애플리케이션** 템플릿을 사용하여 IoT Central 애플리케이션을 만듭니다.
+- **사용자 지정 애플리케이션** 템플릿에서 [생성된 IoT Central 애플리케이션](howto-create-iot-central-application.md). 자세한 내용은 [IoT Central 애플리케이션 만들기](howto-create-iot-central-application.md)를 참조하세요.
 
 이 문서의 단계를 수행하려면 다음 파일을 컴퓨터에 다운로드합니다.
 

@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: c21ed461280dfa617c852fe6c18c30e5d697b704
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a59d2e1931b07e035d85632cf84803989de14871
+ms.sourcegitcommit: 52491b361b1cd51c4785c91e6f4acb2f3c76f0d5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031279"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108320730"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 커넥터 관리 솔루션(사용되지 않음)
 
@@ -48,7 +49,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | [SCOM 관리 그룹](../agents/om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure Storage 계정](../essentials/resource-logs.md#send-to-log-analytics-workspace) | 아니요 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Application Insights 커넥터 정보에 액세스하려면 Azure 구독이 있어야 합니다.
 - 구성된 Application Insights 리소스가 하나 이상 있어야 합니다.
@@ -82,9 +83,9 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 
 **Application Insights** 타일을 클릭하여 **Application Insights** 대시보드를 열고 다음 블레이드를 표시합니다.
 
-![응용 프로그램, 데이터 볼륨 및 가용성에 대 한 블레이드를 보여 주는 Application Insights 대시보드의 스크린샷](./media/app-insights-connector/app-insights-dash01.png)
+![애플리케이션, 데이터 볼륨 및 가용성에 대한 블레이드를 보여주는 Application Insights 대시보드의 스크린샷.](./media/app-insights-connector/app-insights-dash01.png)
 
-![서버 요청, 오류 및 예외에 대 한 블레이드를 보여 주는 Application Insights 대시보드의 스크린샷](./media/app-insights-connector/app-insights-dash02.png)
+![서버 요청, 오류 및 예외에 대한 블레이드를 보여주는 Application Insights 대시보드의 스크린샷.](./media/app-insights-connector/app-insights-dash02.png)
 
 표에 표시된 블레이드가 대시보드에 포함되어 있습니다. 각 블레이드에는 지정된 범위 및 시간 범위에 대한 해당 블레이드의 기준과 일치하는 항목이 최대 10개까지 나열됩니다. 블레이드 맨 아래에서 **모두 보기** 를 클릭하거나 블레이드 헤더를 클릭하면 모든 레코드를 반환하는 로그 검색을 실행할 수 있습니다.
 
@@ -173,9 +174,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="generic-fields"></a>일반 필드
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -184,10 +185,10 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | DeviceType | 클라이언트 디바이스 |
 | ScreenResolution |   |
 | Continent | 요청이 시작된 대륙 |
-| 국가 | 요청이 시작 된 국가/지역 |
+| 국가 | 요청이 시작된 국가/지역 |
 | Province | 요청이 시작된 시/도 또는 로캘 |
-| City | 요청이 시작된 구/군/시 또는 동/면 |
-| isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. True = 자동화 된 방법 또는 false = 사용자 생성 |
+| 구/군/시 | 요청이 시작된 구/군/시 또는 동/면 |
+| isSynthetic | 요청이 사용자에 의해 만들어졌는지 자동화된 방법을 통해 만들어졌는지 나타냅니다. True =자동화된 방법 또는 false = 사용자가 생성함 |
 | SamplingRate | 포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | SampledCount | 100/(SamplingRate)입니다. 예를 들어 4 =&gt; 25%입니다. |
 | IsAuthenticated | True 또는 False |
@@ -199,7 +200,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="availability-specific-fields"></a>가용성 관련 필드
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TelemetryType | 가용성 |
 | AvailabilityTestName | 웹 테스트의 이름 |
@@ -224,7 +225,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>예외 관련 필드
 
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 예외 |
 | ExceptionType | 예외 형식 |
@@ -241,9 +242,9 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="request-specific-fields"></a>요청 관련 필드
 
-| 속성 | 설명 |
+| 속성 | Description |
 | --- | --- |
-| Type | ApplicationInsights |
+| 형식 | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |

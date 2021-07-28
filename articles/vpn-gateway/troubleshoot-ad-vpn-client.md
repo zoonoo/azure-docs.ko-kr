@@ -1,18 +1,19 @@
 ---
-title: 'VPN Gateway: VPN 클라이언트 문제 해결 - Azure AD 인증'
-description: VPN Gateway P2S Azure AD 인증 클라이언트 문제 해결
+title: 지점 및 사이트 간 VPN 클라이언트 문제 해결 - Azure AD 인증
+titleSuffix: Azure VPN Gateway
+description: Azure AD 인증을 사용하는 VPN Gateway 지점 및 사이트 간 클라이언트 문제를 해결하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 04/29/2021
 ms.author: cherylmc
-ms.openlocfilehash: 56a8514fc2531ba0b18925427814e5bfef7d64bf
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d307524fffd9b129044cd0f4e4b20d833db5ba83
+ms.sourcegitcommit: fc9fd6e72297de6e87c9cf0d58edd632a8fb2552
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84988105"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108292201"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Azure AD 인증 VPN 클라이언트 문제 해결
 

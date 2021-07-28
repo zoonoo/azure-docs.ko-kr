@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f5c0e8ae52d2af25c41550df1c59680d47360477
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92532648"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107987851"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버의 백업 및 복원
 
@@ -69,9 +69,9 @@ Azure Portal에서 [사용되는 백업 스토리지](../concepts-monitoring.md)
 
 특정 시점 복원은 여러 시나리오에서 유용합니다. 예를 들어 사용자가 실수로 데이터를 삭제하거나 중요한 테이블 또는 데이터베이스를 삭제하는 경우, 또는 애플리케이션의 결함으로 인해 우연히 적절한 데이터를 잘못된 데이터로 덮어쓰는 경우가 있습니다. 트랜잭션 로그의 연속 백업으로 인해 마지막 트랜잭션으로 복원할 수 있습니다.
 
-가장 빠른 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있습니다.
+최신 복원 지점과 사용자 지정 복원 지점 중에서 선택할 수 있습니다.
 
--   **가장 빠른 복원 지점**: 보존 기간에 따라 복원할 수 있는 가장 이른 시간입니다. 가장 오래된 백업 시간이 자동으로 선택되어 포털에 표시됩니다. 이는 특정 시점을 시작하는 일부 테스트를 조사하거나 수행하려는 경우에 유용합니다.
+-   **최신 복원 지점(현재)** : 서버를 최신 시점으로 복원할 수 있도록 하는 기본 옵션입니다. 
 
 -   **사용자 지정 복원 지점**:이 옵션을 사용하면 유연한 서버에 대해 정의된 보존 기간 내의 시점을 선택할 수 있습니다. 기본적으로 UTC의 최근 시간이 자동으로 선택되며, 이는 테스트 목적으로 마지막으로 커밋된 트랜잭션으로 복원하려는 경우에 유용합니다. 필요에 따라 다른 날짜와 시간을 선택할 수 있습니다. 
 

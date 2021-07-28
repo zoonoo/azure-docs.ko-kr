@@ -1,24 +1,25 @@
 ---
-title: Azure VPN Gateway에 대해 OpenVPN을 구성하는 방법
-description: 지점 및 사이트 간 환경에 대해 Azure VPN Gateway에서 OpenVPN 프로토콜을 사용하도록 설정하는 방법에 대해 알아봅니다.
+title: P2S VPN 게이트웨이용 OpenVPN을 사용하도록 설정하는 방법
+titleSuffix: Azure VPN Gateway
+description: 지점 및 사이트 간 구성을 위해 VPN 게이트웨이에서 OpenVPN 프로토콜을 사용하도록 설정하는 방법에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: cherylmc
-ms.openlocfilehash: 137e4e1372ef1af3319c0b9af7ba965fffcb9e34
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 056e9a44009f90be23d66c5da005902ccc8ebebf
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104584043"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108205434"
 ---
 # <a name="configure-openvpn-for-point-to-site-vpn-gateways"></a>지점 및 사이트 간 VPN 게이트웨이를 위한 OpenVPN 구성
 
 이 문서는 Azure VPN 게이트웨이에서 **OpenVPN® 프로토콜** 을 설정하는 데 도움이 됩니다. 포털 또는 PowerShell 지침을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 문서에서는 작동하는 지점-사이트 간 환경이 이미 있다고 가정합니다. 없는 경우 다음 방법 중 하나를 사용하여 환경을 만듭니다.
 

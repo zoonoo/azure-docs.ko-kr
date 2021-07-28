@@ -1,24 +1,25 @@
 ---
-title: 클라우드 서비스 (클래식) 모델 및 패키지 정의 | Microsoft Docs
+title: Cloud Service(클래식) 모델 및 패키지 정의 | Microsoft Docs
 description: Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다.
 ms.topic: article
 ms.service: cloud-services
+ms.subservice: deployment-files
 ms.date: 10/14/2020
 ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: 1cf8e966b80e005a0cb2cf7ea46f355e38cb0011
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 09db85172b3b4e0c848c9763d1e37f32243aefef
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98741539"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108771616"
 ---
-# <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>클라우드 서비스 (클래식) 모델 이란 무엇 이며 패키지를 어떻게 패키지 하나요?
+# <a name="what-is-the-cloud-service-classic-model-and-how-do-i-package-it"></a>Cloud Service(클래식) 모델 정의 및 패키지 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(확장 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품에 대한 새로운 Azure Resource Manager 기반 배포 모델입니다.해당 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 바뀌고 모든 새로운 배포는 [Cloud Services(확장된 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg** 는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg** 와 **ServiceConfig.cscfg** 에서 모두 클라우드 서비스를 만듭니다.
 
@@ -88,7 +89,7 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 </ServiceDefinition>
 ```
 
-여기에 사용 된 XML 스키마를 더 잘 이해 하기 위해 [서비스 정의 스키마](/previous-versions/azure/reference/ee758711(v=azure.100)) 를 참조할 수 있지만, 다음은 몇 가지 요소에 대 한 간략 한 설명입니다.
+여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 정의 스키마](/previous-versions/azure/reference/ee758711(v=azure.100))를 참조하면 됩니다. 그러나 여기서 간략하게 몇 가지 요소를 설명합니다.
 
 **사이트**  
 IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한 정의를 포함합니다.
@@ -108,7 +109,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **LocalResources**  
  로컬 스토리지 리소스에 대한 정의를 포함합니다. 로컬 스토리지 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
 
-**가져오도록**  
+**Imports**  
  가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
 
 **Startup 클래스**  

@@ -3,12 +3,12 @@ title: Azure Stack에서 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure Stack에 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: 1e237e63b92468fafff4f8f8f525d1388840d162
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: efaeb1c206130778463de47ed806d9b10ea7da62
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "89378324"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108767350"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
 
@@ -32,7 +32,7 @@ SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니
 
 * MABS는 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 구성 요소
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 Azure Backup 서버 등록 등이 포함됩니다.
 
@@ -82,7 +82,7 @@ SharePoint 팜을 백업하려면 ConfigureSharePoint.exe를 사용하여 ShareP
 
 1. **그룹 멤버 선택** 에서 WFE 역할을 보유하는 서버를 확장합니다. WFE 서버가 두 개 이상 있는 경우 ConfigureSharePoint.exe를 설치한 서버를 선택합니다.
 
-    SharePoint 서버 MABS 쿼리 VSS를 확장하여 MABS에서 보호할 수 있는 데이터를 확인합니다.  SharePoint 데이터베이스가 원격이면 MABS가 해당 데이터베이스에 연결합니다. SharePoint 데이터 원본이 표시되지 않는 경우에는 SharePoint 서버 및 원격 SQL Server에서 VSS 기록기가 실행되고 있는지 확인하고, MABS 에이전트가 SharePoint 서버와 원격 SQL Server 모두에 설치되어 있는지 확인합니다. 또한 SharePoint 데이터베이스가 SQL Server 데이터베이스처럼 다른 위치에서 보호되고 있지 않은지 확인합니다.
+   SharePoint를 실행하는 컴퓨터를 확장하면 MABS는 VSS를 쿼리하여 MABS에서 보호할 수 있는 데이터를 확인합니다. SharePoint 데이터베이스가 원격이면 MABS가 해당 데이터베이스에 연결합니다. SharePoint 데이터 원본이 표시되지 않으면 SharePoint를 실행하는 컴퓨터 및 SQL Server 원격 인스턴스에서 VSS 기록기가 실행 중인지 확인합니다. 그런 다음, SharePoint를 실행하는 컴퓨터와 SQL Server의 원격 인스턴스 모두에 MABS 에이전트가 설치되어 있는지 확인합니다. 또한 SharePoint 데이터베이스가 SQL Server 데이터베이스처럼 다른 위치에서 보호되고 있지 않은지 확인합니다.
 
 1. **데이터 보호 방법 선택** 에서 단기 및 장기\- 백업을 처리하는 방법을 지정합니다. 단기 백업은 항상 디스크에 먼저 기록되고 Azure Backup을 사용하여 디스크에서 Azure 클라우드로 백업하는 옵션\(단기 또는 장기\)이 있습니다.
 

@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2020
+ms.date: 04/06/2021
 ms.author: rolyon
-ms.openlocfilehash: 93821979e0c14a879b805049a4f662e9ef6d5b15
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: a12f3ca25df2d4473361e0a1ef596384813dc6a8
+ms.sourcegitcommit: 67cdbe905eb67e969d7d0e211d87bc174b9b8dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075681"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111854741"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>다른 Azure AD 디렉터리로 Azure 구독 양도
 
@@ -74,15 +74,15 @@ ms.locfileid: "106075681"
 | 시스템 할당 관리 ID | 예 | 예 | [관리 ID 나열](#list-role-assignments-for-managed-identities) | 관리 ID를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | 사용자 할당 관리 ID | 예 | 예 | [관리 ID 나열](#list-role-assignments-for-managed-identities) | 관리 ID를 삭제하고 다시 만든 다음 적절한 리소스에 연결해야 합니다. 역할 할당을 다시 만들어야 합니다. |
 | Azure Key Vault | 예 | 예 | [Key Vault 액세스 정책 나열](#list-key-vaults) | 키 자격 증명 모음과 연결된 테넌트 ID를 업데이트해야 합니다. 새 액세스 정책을 제거하고 추가해야 합니다. |
-| Azure AD 인증 통합을 사용하도록 설정된 Azure SQL 데이터베이스 | 예 | 예 | [Azure AD 인증을 사용하여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) |  | 
+| Azure AD 인증 통합을 사용하도록 설정된 Azure SQL 데이터베이스 | 예 | 예 | [Azure AD 인증을 사용하여 Azure SQL 데이터베이스 확인](#list-azure-sql-databases-with-azure-ad-authentication) | Azure AD 인증이 사용하도록 설정된 Azure SQL Database는 다른 디렉터리로 전송할 수 없습니다. 자세한 내용은 [Azure Active Directory 인증 사용](../azure-sql/database/authentication-aad-overview.md)을 참조하세요. | 
 | Azure Storage 및 Azure Data Lake Storage Gen2 | 예 | 예 |  | ACL을 다시 만들어야 합니다. |
 | Azure Data Lake Storage Gen1 | 예 | 예 |  | ACL을 다시 만들어야 합니다. |
 | Azure 파일 | 예 | 예 |  | ACL을 다시 만들어야 합니다. |
-| Azure 파일 동기화 | 예 | 예 |  |  |
+| Azure 파일 동기화 | 예 | 예 |  | 저장소 동기화 서비스 및/또는 저장소 계정은 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 자세한 내용은 [Azure Files FAQ(질문과 대답)](../storage/files/storage-files-faq.md#azure-file-sync)를 참조하세요. |
 | Azure Managed Disks | 예 | 예 |  |  디스크 암호화 집합을 사용하여 고객 관리형 키로 Managed Disks를 암호화하는 경우, 디스크 암호화 집합과 연결된 시스템 할당 ID를 사용하지 않도록 설정하고 다시 사용하도록 설정해야 합니다. 그리고 역할 할당을 다시 만들어야 합니다. 즉, Key Vault에서 디스크 암호화 집합에 필요한 사용 권한을 다시 부여합니다. |
-| Azure Kubernetes Service | 예 | 예 |  |  |
+| Azure Kubernetes Service | 예 | 아니요 |  | AKS 클러스터 및 연결된 해당 리소스는 다른 디렉터리로 전송할 수 없습니다. 자세한 내용은 [AKS(Azure Kubernetes Service)에 대한 질문과 대답](../aks/faq.md)을 참조하세요. |
 | Azure Policy | 예 | 예 | 사용자 지정 정의, 할당, 예외 및 규정 준수 데이터를 비롯한 모든 Azure Policy 개체입니다. | 정의를 [내보내고](../governance/policy/how-to/export-resources.md), 가져오고, 다시 할당해야 합니다. 그런 다음 새 정책 할당과 필요한 [정책 예외](../governance/policy/concepts/exemption-structure.md)를 만듭니다. |
-| Azure Active Directory Domain Services | 예 | 예 |  |  |
+| Azure Active Directory Domain Services | 예 | 아니요 |  | Azure AD Domain Services 관리되는 도메인은 다른 디렉터리로 전송할 수 없습니다. 자세한 내용은 [Azure AD(Active Directory) Domain Services에 대한 FAQ(자주 묻는 질문)](../active-directory-domain-services/faqs.yml)를 참조하세요. |
 | 앱 등록 | 예 | 예 |  |  |
 
 > [!WARNING]
@@ -94,7 +94,7 @@ ms.locfileid: "106075681"
 
 - [Azure Cloud Shell의 Bash](../cloud-shell/overview.md) 또는 [Azure CLI](/cli/azure)
 - 소스 디렉터리에서 전송하려는 구독의 계정 관리자
-- 대상 디렉터리의 [소유자](built-in-roles.md#owner) 역할
+- 디렉터리를 변경하는 사용자의 원본 및 대상 디렉터리 모두에 있는 사용자 계정
 
 ## <a name="step-1-prepare-for-the-transfer"></a>1단계: 양도 준비
 
@@ -116,7 +116,7 @@ ms.locfileid: "106075681"
 
 ### <a name="install-the-azure-resource-graph-extension"></a>Azure Resource Graph 확장을 설치합니다.
 
- [Azure Resource Graph](../governance/resource-graph/index.yml)의 Azure CLI 확장인 *resource-graph* 를 사용하면 [az graph](/cli/azure/ext/resource-graph/graph) 명령을 사용하여 Azure Resource Manager에서 관리하는 리소스를 쿼리할 수 있습니다. 이후 단계에서 이 명령을 사용합니다.
+ [Azure Resource Graph](../governance/resource-graph/index.yml)의 Azure CLI 확장인 *resource-graph* 를 사용하면 [az graph](/cli/azure/graph) 명령을 사용하여 Azure Resource Manager에서 관리하는 리소스를 쿼리할 수 있습니다. 이후 단계에서 이 명령을 사용합니다.
 
 1. [az extension list](/cli/azure/extension#az_extension_list)를 사용하여 *resource-graph* 확장이 설치되어 있는지 확인합니다.
 
@@ -233,7 +233,7 @@ ms.locfileid: "106075681"
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Azure AD 인증을 사용하여 Azure SQL 데이터베이스 나열
 
-- [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) 및 [az graph](/cli/azure/ext/resource-graph/graph) 확장을 사용하여 Azure AD 인증 통합을 사용하도록 설정된 Azure SQL 데이터베이스를 사용하고 있는지 확인합니다. 자세한 내용은 [SQL을 사용하여 Azure Active Directory 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)를 참조하세요.
+- [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az_sql_server_ad_admin_list) 및 [az graph](/cli/azure/graph) 확장을 사용하여 Azure AD 인증 통합을 사용하도록 설정된 Azure SQL 데이터베이스를 사용하고 있는지 확인합니다. 자세한 내용은 [SQL을 사용하여 Azure Active Directory 인증 구성 및 관리](../azure-sql/database/authentication-aad-configure.md)를 참조하세요.
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -252,10 +252,10 @@ ms.locfileid: "106075681"
 1. [az account show](/cli/azure/account#az_account_show)를 사용하여 구독 ID를 가져옵니다.
 
     ```azurecli
-    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"$//')
+    subscriptionId=$(az account show --query id | sed -e 's/^"//' -e 's/"//')
     ```
 
-1. [az graph](/cli/azure/ext/resource-graph/graph) 확장을 사용하여 알려진 Azure AD 디렉터리 종속성이 있는 다른 Azure 리소스를 나열합니다.
+1. [az graph](/cli/azure/graph) 확장을 사용하여 알려진 Azure AD 디렉터리 종속성이 있는 다른 Azure 리소스를 나열합니다.
 
     ```azurecli
     az graph query -q \

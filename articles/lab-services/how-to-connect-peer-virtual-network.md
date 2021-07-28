@@ -3,12 +3,12 @@ title: Azure Lab Services에서 피어 네트워크에 연결 | Microsoft Docs
 description: 랩 네트워크를 다른 네트워크와 피어로 연결하는 방법에 대해 알아봅니다. 예를 들어 Azure에서 랩의 가상 네트워크와 온-프레미스 조직/대학 네트워크를 연결합니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 99ea72f11c8f389a15171a1fe3b376646494903a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 645e99681f5615c3082d784e4e540a6200f618b8
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96434246"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108755138"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Azure Lab Services에서 랩의 네트워크를 피어 가상 네트워크에 연결
 
@@ -26,7 +26,10 @@ ms.locfileid: "96434246"
 특정 온-프레미스 네트워크는 [ExpressRoute](../expressroute/expressroute-introduction.md) 또는 [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 Azure Virtual Network에 연결됩니다. 이러한 서비스는 Azure Lab Services 외부에서 설정해야 합니다. ExpressRoute를 사용하여 온-프레미스 네트워크를 Azure에 연결하는 방법에 대한 자세한 정보는 [ExpressRoute 개요](../expressroute/expressroute-introduction.md)를 참조하세요. Virtual Network Gateway를 사용하는 온-프레미스 연결의 경우 게이트웨이, 지정된 가상 네트워크 및 랩 계정이 모두 동일한 지역에 있어야 합니다.
 
 > [!NOTE]
-> 랩 계정으로 피어 링 되는 Azure Virtual Network를 만들 때 가상 네트워크의 지역이 랩에서 생성 되는 위치에 미치는 영향을 이해 하는 것이 중요 합니다.  자세한 내용은 [지역\위치](./administrator-guide.md#regionslocations)에서 관리자 가이드의 섹션을 참조하세요.
+> 랩 계정과 피어링할 Azure Virtual Network를 만들 때는 가상 네트워크의 지역이 랩을 만들 때 영향을 주는 방식을 이해하는 것이 중요합니다.  자세한 내용은 [지역\위치](./administrator-guide.md#regionslocations)에서 관리자 가이드의 섹션을 참조하세요.
+
+> [!NOTE]
+> 학교에서 [CIPA(Children's Internet Protection Act)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act) 준수와 같은 콘텐츠 필터링을 수행해야 하는 경우 타사 소프트웨어를 사용해야 합니다.  자세한 내용은 [Lab Services를 통해 콘텐츠 필터링](./administrator-guide.md#content-filtering)에 대한 지침을 참조하세요.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
 

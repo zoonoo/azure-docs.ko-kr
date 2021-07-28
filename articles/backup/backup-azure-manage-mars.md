@@ -3,13 +3,13 @@ title: MARS 에이전트 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용하여 MARS(Microsoft Azure Recovery Services) 에이전트 백업을 관리하고 모니터링하는 방법에 대해 알아봅니다.
 ms.reviewer: srinathv
 ms.topic: conceptual
-ms.date: 10/07/2019
-ms.openlocfilehash: 4306f01d608542f7453b32b32a1a6894c2379159
-ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
+ms.date: 06/08/2021
+ms.openlocfilehash: c7a696c4059ebc7cc28a34a299060039ac1c0c62
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107515025"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111902933"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용하여 MARS(Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -94,9 +94,8 @@ ms.locfileid: "107515025"
   - 만료되지 않은 복구 지점의 백업 데이터를 복원할 수 있습니다.
   - 보호를 계속하기로 결정한 경우 *백업 일정 다시 사용* 옵션을 사용할 수 있습니다. 그 후에는 데이터가 새 보존 정책에 따라 보존됩니다.
 - **보호를 중지하고 백업 데이터 삭제**.
-  - 이 옵션은 미래의 모든 백업 작업에서 데이터를 보호하고 모든 복구 지점이 삭제되지 않도록 합니다.
-  - *이 백업 항목에 대한 데이터가 삭제되었습니다. 이 데이터는 14일 동안 일시적으로 사용할 수 있으며 이후에는 영구적으로 삭제됩니다.* 라는 메시지와 *데이터를 복구하려면 14일 이내에 백업 항목을 다시 보호하세요.* 권장 작업을 포함하는 백업 데이터 삭제 경고 이메일을 받게 됩니다.
-  - 보호를 다시 시작하려면 삭제 작업으로부터 14일 이내에 다시 보호합니다.
+  - 이 옵션은 데이터를 보호하는 이후의 모든 백업 작업을 중지합니다. 자격 증명 모음 보안 기능을 사용하도록 설정하지 않으면 모든 복구 지점이 즉시 삭제됩니다.<br>보안 기능이 활성화된 경우 삭제가 14일 지연되고 *이 백업 항목에 대한 데이터가 삭제되었습니다. 이 데이터는 14일 동안 일시적으로 사용할 수 있으며 이후에는 영구적으로 삭제됩니다.* 라는 메시지와 *데이터를 복구하려면 14일 이내에 백업 항목을 다시 보호하세요.* 권장 작업을 포함하는 백업 경고 이메일을 받게 됩니다.<br>이 상태에서 보존 정책은 계속 적용되며 백업 데이터는 청구 가능 상태로 유지됩니다. 자격 증명 모음 보안 기능을 사용하는 방법에 대해 [자세히 알아봅니다](backup-azure-security-feature.md#enable-security-features).
+  - 보호를 재개하려면 삭제 작업 후 14일 이내에 서버를 다시 보호합니다. 이 기간 동안 대체 서버로 데이터를 복원할 수도 있습니다.
 
 ### <a name="stop-protection-and-retain-backup-data"></a>보호 중지 및 백업 데이터 보존
 
@@ -117,16 +116,16 @@ ms.locfileid: "107515025"
 ### <a name="stop-protection-and-delete-backup-data"></a>보호 중지 및 백업 데이터 삭제
 
 1. MARS 관리 콘솔을 열고 **작업** 창으로 이동한 다음 **백업 예약** 을 선택합니다.
-2. **예약된 백업 수정 또는 중지** 페이지에서 **이 백업 일정 사용 중지 및 저장된 모든 백업 삭제** 를 선택합니다. 그다음에 **다음** 을 선택합니다.
+2. **예약된 백업 수정 또는 중지** 페이지에서 **이 백업 일정 사용을 중지하고 저장된 백업 모두 삭제** 를 선택합니다. 그다음에 **다음** 을 선택합니다.
 
-    ![예약된 백업 수정 또는 중지](./media/backup-azure-delete-vault/modify-schedule-backup.png)
+    ![예약된 백업을 수정 또는 중지합니다.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
 3. **예약된 백업 중지** 페이지에서 **마침** 을 선택합니다.
 
     ![예약된 백업을 중지하고 마침을 선택합니다.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-4. 수동으로 생성해야 하는 보안 PIN(개인 식별 번호)을 입력하라는 메시지가 표시됩니다. 이렇게 하려면 먼저 Azure Portal에 로그인합니다.
+4. 수동으로 생성해야 하는 보안 PIN(개인 식별 번호)을 입력하라는 메시지가 표시됩니다. 시작하려면 먼저 Azure Portal에 로그인합니다.
 5. **Recovery Services 자격 증명 모음** > **설정** > **속성** 으로 이동합니다.
-6. **보안 PIN** 에서 **생성** 을 선택합니다. 이 PIN을 복사합니다. PIN은 5분 동안만 유효합니다.
+6. **보안 PIN** 에서 **생성** 을 선택합니다. 이 PIN을 복사합니다. PIN은 5 분 동안만 유효합니다.
 7. 관리 콘솔에서 PIN을 붙여넣은 다음 **확인** 을 선택합니다.
 
     ![보안 PIN을 생성합니다.](./media/backup-azure-delete-vault/security-pin.png)
@@ -202,6 +201,34 @@ MARS 에이전트 작업과의 충돌을 방지하기 위해 바이러스 백신
 
 >[!NOTE]
 >이러한 경로를 제외하면 대부분의 바이러스 백신 소프트웨어가 충분하지만 일부 경우에도 MARS 에이전트 작업에 방해가 될 수 있습니다. 예기치 않은 오류가 표시되면 바이러스 백신 소프트웨어를 일시적으로 제거하고 모니터링하여 문제가 발생하지 않도록 합니다. 문제가 해결되면 바이러스 백신 소프트웨어 공급업체에 적절한 제품 구성에 대한 지원을 문의하세요.
+
+## <a name="monitor-using-backup-reports"></a>백업 보고서를 사용하여 모니터링
+
+Azure Backup은 Azure Monitor 로그 및 Azure 통합 문서를 사용하는 보고 솔루션을 제공합니다. 시작하려면 자격 증명 모음에 대해 [Backup 보고서를 구성](configure-reports.md)해야 합니다. 구성되면 데이터는 작업 영역으로 전달되기 시작하고 백업 보고서를 사용하여 쿼리할 수 있습니다.
+
+백업 데이터 사용량 및 일일 변동을 모니터링하려면 다음 단계를 수행합니다.
+
+1. 자격 증명 모음의 **개요** 창으로 이동하고 **Backup 보고서** 를 클릭합니다.
+
+1. **Backup 보고서** 블레이드의 **개요** 섹션에서 구성된 로그 분석 작업 영역을 선택합니다. 
+
+1. MARS 에이전트 백업만 보려면 보고서 필터 **백업 솔루션** 을 **Azure Backup 에이전트** 로 설정합니다. 
+
+   해당하는 경우 **구독 이름**, **자격 증명 모음 위치** 및 **자격 증명 모음 이름** 을 설정합니다.
+ 
+    ![보고서 필터 백업 솔루션을 설정합니다.](./media/backup-azure-manage-mars/set-report-filter-backup-solution.png)
+
+1. 청구 항목별 사용량을 보려면 **사용량** 탭으로 이동합니다. 
+
+   청구되는 총 보호된 인스턴스 및 스토리지 사용 데이터가 표시됩니다. 추세 정보를 볼 수도 있습니다.
+ 
+    ![청구된 엔터티의 사용량을 확인합니다.](./media/backup-azure-manage-mars/view-usage-by-billed-entity.png)
+
+1. 보호된 서버의 각 볼륨에 대한 백업 작업으로 추가된 평균 백업 데이터를 보려면 **작업** 탭으로 이동합니다. 
+ 
+    ![평균 백업 데이터를 봅니다.](./media/backup-azure-manage-mars/view-average-backup-data.png)
+
+[다른 보고서 탭](configure-reports.md) 및 [이메일을 통해 해당 보고서 수신 방법](backup-reports-email.md)에 대해 자세히 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

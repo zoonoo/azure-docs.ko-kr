@@ -1,16 +1,16 @@
 ---
 title: 센서 파트너 통합
 description: 이 문서에서는 센서 파트너 통합에 대해 설명합니다.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-ummehabiba
-ms.openlocfilehash: 8d1b8203fa50609daf59431c2cfecba68eba52b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.author: riyazp
+ms.openlocfilehash: 6bce47e07d2f9c2a9a8ac2043488739d2d2421c6
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102179751"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108773830"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
 
@@ -101,7 +101,7 @@ FarmBeats Datahub에 대한 API 호출을 수행할 때 지정해야 하는 가�
 
 **API 요청**
 
-REST API 요청을 수행하려면 HTTP(GET, POST 또는 PUT) 메서드, API 서비스에 대한 URL, 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다. API 서비스에 대한 URL은 사용자가 제공하는 API 엔드포인트입니다. 샘플은 다음과 같습니다. https:// \<yourdatahub-website-name> . azurewebsites.net
+REST API 요청을 수행하려면 HTTP(GET, POST 또는 PUT) 메서드, API 서비스에 대한 URL, 쿼리, 데이터 전송, 업데이트 또는 삭제할 리소스에 대한 URI(Uniform Resource Identifier) 및 하나 이상의 HTTP 요청 헤더를 결합합니다. API 서비스에 대한 URL은 사용자가 제공하는 API 엔드포인트입니다. 샘플은 다음과 같습니다. https://\<yourdatahub-website-name>.azurewebsites.net
 
 필요에 따라 GET 호출에 쿼리 매개 변수를 포함하여 응답에서 데이터를 필터링하고, 크기를 제한하고, 정렬할 수 있습니다.
 
@@ -131,7 +131,7 @@ FarmBeats Datahub에는 디바이스 파트너가 디바이스 또는 센서 메
 - /**SensorModel**: SensorModel은 제조업체, 센서 유형(아날로그 또는 디지털), 센서 측정값(예: 주변 온도 및 압력)과 같은 센서의 메타데이터에 해당합니다.
 - /**Sensor**: Sensor는 값을 기록하는 실제 센서에 해당합니다. 센서는 일반적으로 디바이스 ID를 갖는 디바이스에 연결됩니다.
 
-  DeviceModel | 설명 |
+  DeviceModel | Description |
   --- | ---
   Type(node, gateway)  | 디바이스의 유형(노드 또는 게이트웨이)입니다. |
   제조업체  | 제조업체의 이름입니다. |

@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 author: StefArroyo
 ms.author: esarroyo
-ms.date: 05/25/2021
-ms.openlocfilehash: fe14c28d817d9c0a2e832d331af9130c935affb8
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 06/04/2021
+ms.openlocfilehash: 6e3fd0c2dafd9d174b79206cb5482450fee74f8e
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110386437"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111984051"
 ---
 # <a name="run-the-emulator-on-docker-for-linux-preview"></a>Linux용 Docker에서 에뮬레이터 실행(미리 보기)
 
@@ -67,27 +67,13 @@ Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실
     ```bash
     curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
     ```
-    또는 자체 서명된 에뮬레이터 인증서를 다운로드하는 위 엔드포인트를 에뮬레이터 엔드포인트가 다른 애플리케이션의 요청을 받을 수 있는 시기를 알리는 데 사용할 수도 있습니다.
 
-1. Linux 배포에서 사용자 지정 인증서가 포함된 폴더에 CRT 파일을 복사합니다. 일반적으로 Debian 배포판에서는 `/usr/local/share/ca-certificates/`에 있습니다.
-
-   ```bash
-   cp YourCTR.crt /usr/local/share/ca-certificates/
-   ```
-
-1. TLS/SSL 인증서를 업데이트합니다. 그러면 `/etc/ssl/certs/` 폴더가 업데이트됩니다.
-
-   ```bash
-   update-ca-certificates
-   ```
-
-Java 기반 애플리케이션의 경우 [Java 신뢰 저장소](local-emulator-export-ssl-certificates.md)에 인증서를 가져와야 합니다.
 
 ## <a name="consume-the-endpoint-via-ui"></a><a id="consume-endpoint-ui"></a>UI를 통해 엔드포인트 사용
 
 에뮬레이터는 자체 서명된 인증서를 사용하여 엔드포인트에 대한 연결을 보호하고 수동으로 신뢰받아야 합니다. 원하는 웹 브라우저를 사용해 UI를 통해 엔드포인트를 사용하려면 다음 단계를 수행합니다.
 
-1. 에뮬레이터 자체 서명된 인증서를 다운로드해야 합니다.
+1. 에뮬레이터 자체 서명 인증서를 다운로드했는지 확인합니다.
 
    ```bash
    curl -k https://$ipaddr:8081/_explorer/emulator.pem > emulatorcert.crt
@@ -99,7 +85,9 @@ Java 기반 애플리케이션의 경우 [Java 신뢰 저장소](local-emulator-
 
 1. *emulatorcert.crt* 가 키체인에 로드되면 **localhost** 이름을 두 번 클릭하고 신뢰 설정을 **항상 신뢰** 로 변경합니다.
 
-1. 이제 `https://localhost:8081/_explorer/index.html` 또는 `https://{your_local_ip}:8081/_explorer/index.html`을 탐색하고 에뮬레이터의 연결 문자열을 검색할 수 있습니다.
+1. 이제 `https://localhost:8081/_explorer/index.html` 또는 `https://{your_local_ip}:8081/_explorer/index.html`을 찾아보고 에뮬레이터에 대한 연결 문자열을 검색할 수 있습니다.
+
+필요에 따라 애플리케이션에서 SSL 유효성 검사를 사용하지 않도록 설정할 수 있습니다. 이는 개발 목적으로만 권장되며 프로덕션 환경에서 실행하는 경우에는 수행할 수 없습니다.
 
 ## <a name="run-the-linux-emulator-on-linux-os"></a><a id="run-on-linux"></a>Linux OS에서 Linux 에뮬레이터 실행
 
@@ -189,9 +177,35 @@ sudo apt-get install net-tools
 
 - 에뮬레이터 자체 서명된 인증서가 [키체인](#consume-endpoint-ui)에 올바르게 추가되었는지 확인합니다.
 
-- 에뮬레이터 자체 서명된 인증서를 예상 위치로 올바르게 가져왔는지 확인합니다.
-  - .NET: [인증서 섹션](#run-on-linux)을 참조하세요.
-  - Java: [Java 인증서 저장소 섹션](#run-on-linux)을 참조하세요.
+- Java 애플리케이션의 경우 인증서를 [Java 인증서 저장소 섹션](#run-on-linux)으로 가져왔는지 확인합니다.
+
+- .NET 애플리케이션의 경우 SSL 유효성 검사를 사용하지 않도록 설정할 수 있습니다.
+
+# <a name="net-standard-21"></a>[.NET Standard 2.1+](#tab/ssl-netstd21)
+
+.NET Standard 2.1 이상과 호환되는 프레임워크에서 실행되는 애플리케이션의 경우 `CosmosClientOptions.HttpClientFactory`를 활용할 수 있습니다.
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard21)]
+
+# <a name="net-standard-20"></a>[.NET Standard 2.0](#tab/ssl-netstd20)
+
+.NET Standard 2.0과 호환되는 프레임워크에서 실행되는 애플리케이션의 경우 `CosmosClientOptions.HttpClientFactory`를 활용할 수 있습니다.
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/HttpClientFactory/Program.cs?name=DisableSSLNETStandard20)]
+
+---
+
+#### <a name="my-nodejs-app-is-reporting-a-self-signed-certificate-error"></a>내 Node.js 앱에서 자체 서명된 인증서 오류를 보고하고 있습니다.
+
+컨테이너 IP 주소와 같이 `localhost` 이외의 주소를 통해 에뮬레이터에 연결하려고 하면 Node.js는 인증서가 설치되어 있어도 자체 서명된 인증서에 대한 오류를 발생시킵니다.
+
+환경 변수 `NODE_TLS_REJECT_UNAUTHORIZED`를 `0`으로 설정하여 TLS 확인을 사용하지 않도록 설정할 수 있습니다.
+
+```bash
+NODE_TLS_REJECT_UNAUTHORIZED=0
+```
+
+이 플래그는 Node.js TLS를 사용하지 않도록 설정하기 때문에 로컬 개발에만 사용하는 것이 좋습니다. 자세한 내용은 [Node.js 문서](https://nodejs.org/api/cli.html#cli_node_tls_reject_unauthorized_value) 및 [Cosmos DB 에뮬레이터 인증서 문서](local-emulator-export-ssl-certificates.md#how-to-use-the-certificate-in-nodejs)에서 찾을 수 있습니다.
 
 #### <a name="the-docker-container-failed-to-start"></a>Docker 컨테이너 시작 실패
 

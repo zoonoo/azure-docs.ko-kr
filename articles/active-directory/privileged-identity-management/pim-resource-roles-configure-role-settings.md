@@ -15,12 +15,12 @@ ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40779e4517b610e52e41caacc46fc613b72023e5
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 10242d867c5d9676b4f6833151863b820b2f11d1
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105567138"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481808"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -40,15 +40,15 @@ Azure 리소스 역할 설정을 구성할 때 Azure AD(Azure Active Directory) 
 
     ![관리할 수 있는 리소스를 나열하는 Azure 리소스 페이지](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. **역할 설정** 을 선택합니다.
+1. **설정** 을 선택합니다.
 
     ![Azure 리소스 역할을 나열하는 역할 설정 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. 설정을 구성하려는 역할을 선택합니다.
 
-    ![몇 가지 할당/활성화 설정을 나열하는 역할 설정 세부 정보 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![몇 가지 할당 및 활성화 설정을 나열하는 역할 설정 세부 정보 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. **편집** 을 선택하여 **역할 설정** 창을 엽니다. 첫 번째 탭에서는 Privileged Identity Management에서 역할 활성화에 대한 구성을 업데이트할 수 있습니다.
+1. **편집** 을 선택하여 **역할 설정 편집** 창을 엽니다. 첫 번째 탭에서는 Privileged Identity Management에서 역할 활성화에 대한 구성을 업데이트할 수 있습니다.
 
     ![활성화 탭이 열려 있는 역할 설정 편집 페이지](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
@@ -68,7 +68,7 @@ Azure 리소스 역할 설정을 구성할 때 Azure AD(Azure Active Directory) 
 
     - **기본 수신자와 추가 수신자에게 모두 이메일 보내기**<br>기본 수신자 확인란을 선택하고 추가 수신자의 이메일 주소를 추가하여 기본 수신자와 추가 수신자에게 모두 이메일을 보낼 수 있습니다.
 
-    - **중요 이메일만**<br>각 이메일 형식의 확인란을 선택하여 중요 이메일을 받을 수 있습니다. 즉, 이메일에 즉각적인 조치가 필요한 경우에만 Privileged Identity Management가 구성된 수신자에게 이메일을 계속 보냅니다. 예를 들어 사용자에게 역할 할당을 확장해 달라고 요청하는 이메일은 트리거되지 않지만, 관리자가 확장 요청을 승인해야 하는 이메일은 트리거됩니다.
+    - **중요 이메일만**<br>각 이메일 형식의 확인란을 선택하여 중요 이메일을 받을 수 있습니다. 즉, 이메일에 즉각적인 조치가 필요한 경우에만 Privileged Identity Management가 구성된 수신자에게 이메일을 계속 보냅니다. 예를 들어 사용자에게 역할 할당을 확장해 달라고 요청하는 이메일은 트리거되지 않지만 관리자가 확장 요청을 승인해야 하는 이메일은 트리거됩니다.
 
 1. **업데이트** 단추를 선택하여 언제든지 역할 설정을 업데이트합니다.
 
@@ -80,14 +80,14 @@ Azure 리소스 역할 설정을 구성할 때 Azure AD(Azure Active Directory) 
 
 | | Description |
 | --- | --- |
-| **영구 적격 할당 허용** | 리소스 관리자는 영구 적격 할당 자격을 할당할 수 있습니다. |
+| **영구 적격 할당 허용** | 리소스 관리자는 영구 적격 할당을 할당할 수 있습니다. |
 | **적격 할당 만료 기준 시간** | 리소스 관리자는 모든 적격 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |
 
 또한 다음 **활성** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
 | | Description |
 | --- | --- |
-| **영구 활성 할당 허용** | 리소스 관리자는 영구 활성 할당 자격을 할당할 수 있습니다. |
+| **영구 활성 할당 허용** | 리소스 관리자는 영구 활성 할당을 할당할 수 있습니다. |
 | **활성 할당 만료 기준 시간** | 리소스 관리자는 모든 활성 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |
 
 > [!NOTE]
@@ -99,25 +99,25 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 ### <a name="require-multi-factor-authentication-on-active-assignment"></a>활성 할당에 대한 Multi-Factor Authentication 필요
 
-사용자 또는 그룹을 단기간(예: 하루) 동안 역할에 할당하려는 경우가 있을 수 있습니다. 이 경우 할당된 사용자가 활성화를 요청할 필요가 없습니다. 이 시나리오에서는 사용자가 할당된 순간부터 역할에서 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
+사용자 또는 그룹을 단기간(예: 하루) 동안 역할에 할당하려는 경우가 있을 수 있습니다. 이 경우 할당된 사용자가 활성화를 요청할 필요가 없습니다. 이 시나리오에서는 사용자가 할당된 순간부터 역할에 대해 이미 활성 상태이므로 해당 사용자가 자신의 역할 할당을 사용할 때 Privileged Identity Management에서 다단계 인증을 적용할 수 없습니다.
 
-할당을 수행하는 리소스 관리자가 자신이 말하는 본인이 맞는지 확인하기 위해 **활성 할당에 대한 MFA(Multi-Factor Authentication) 필요** 확인란을 선택하여 활성 할당에 다단계 인증을 적용할 수 있습니다.
+할당을 수행하는 리소스 관리자가 자신이 말하는 본인이 맞는지 확인하기 위해 **활성 할당에 대한 Multi-Factor Authentication 필요** 확인란을 선택하여 활성 할당에 다단계 인증을 적용할 수 있습니다.
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
 
-역할을 수행할 자격이 있는 사용자가 활성화하기 전에 Azure AD MFA(Multi-Factor Authentication)를 사용하여 본인 인증을 하도록 요구할 수 있습니다. MFA(Multi-Factor Authentication)를 통해 사용자가 확실하게 본인 인증을 받을 수 있습니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
+역할을 수행할 자격이 있는 사용자가 활성화하기 전에 Azure AD Multi-Factor Authentication을 사용하여 본인 인증을 하도록 요구할 수 있습니다. Multi-Factor Authentication을 통해 사용자가 확실하게 본인 인증을 받을 수 있습니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
 
-활성화하기 전에 다단계 인증을 요구하려면 **활성화 시 MFA(Multi-Factor Authentication) 필요** 확인란을 선택합니다.
+활성화하기 전에 다단계 인증을 요구하려면 **활성화 시 Multi-Factor Authentication 필요** 확인란을 선택합니다.
 
 자세한 내용은 [Multi-Factor Authentication 및 Privileged Identity Management](pim-how-to-require-mfa.md)를 참조하세요.
 
 ## <a name="activation-maximum-duration"></a>최대 활성화 기간
 
-**최대 활성화 기간** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간을 설정합니다. 이 값은 1시간에서 24시간까지 가능합니다.
+**최대 활성화 기간** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간을 설정합니다. 이 값은 1~24시간일 수 있습니다.
 
 ## <a name="require-justification"></a>근거 필요
 
-사용자는 활성화 시 비즈니스 타당성을 입력해 달라고 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
+사용자 활성화 시 비즈니스 타당성을 입력하도록 요구할 수 있습니다. 근거를 요구하려면 **활성 할당에 대한 근거 필요** 확인란 또는 **활성화에 대한 근거 필요** 확인란을 선택합니다.
 
 ## <a name="require-approval-to-activate"></a>활성화할 승인 필요
 

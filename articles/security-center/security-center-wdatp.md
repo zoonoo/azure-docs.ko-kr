@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 06/10/2021
 ms.author: memildin
-ms.openlocfilehash: 88d0a3dcd89ea678d77bc558fc680630bc0f2309
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: df7d3d880161895b6cc883a15f7adf2def839a53
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106168181"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112062265"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Security Center의 통합 EDR 솔루션인 엔드포인트용 Microsoft Defender로 엔드포인트 보호
 
@@ -38,7 +38,7 @@ Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 
 | 릴리스 상태:                  | GA(일반 공급)                                                                                                                                                                                                                                                                                      |
 | 가격 책정:                        | [서버용 Azure Defender](defender-for-servers-introduction.md) 필요                                                                                                                                                                                                                                             |
 | 지원되는 플랫폼:            |  • Windows를 실행하는 Azure 머신<br> • Windows를 실행하는 Azure Arc 머신|
-| 지원되는 Windows 버전:  |  • **GA(일반 공급) -** Windows Server 2016, 2012 R2, 2008 R2 SP1에서 검색<br> • **미리 보기 -** Windows Server 2019, [WVD(Windows Virtual Desktop)](../virtual-desktop/overview.md), [Windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.yml)(이전 EVD(Enterprise for Virtual Desktops))|
+| 검색을 위해 지원되는 Windows 버전:  |  • Windows Server 2019, 2016, 2012 R2 및 2008 R2 SP1<br> • [WVD(Windows Virtual Desktop)](../virtual-desktop/overview.md)<br> • [Windows 10 Enterprise 다중 세션](../virtual-desktop/windows-10-multisession-faq.yml)(이전의 EVD(Enterprise for Virtual Desktops))|
 | 지원되지 않는 운영 체제:  |  • Windows 10(EVD 또는 WVD 이외)<br> • Linux|
 | 필요한 역할 및 권한: | 통합을 사용하거나 사용하지 않도록 설정하려는 경우: **보안 관리자** 또는 **소유자**<br>Security Center에서 MDATP 경고를 보려는 경우: **보안 읽기 권한자**, **읽기 권한자**, **리소스 그룹 기여자**, **리소스 그룹 소유자**, **보안 관리자**, **구독 소유자** 또는 **구독 기여자**|
 | 클라우드:                         | ![예](./media/icons/yes-icon.png) 상용 클라우드<br>![예](./media/icons/yes-icon.png) US Gov<br>![아니요](./media/icons/no-icon.png) 중국 정부, 기타 정부                                                        |
@@ -62,28 +62,34 @@ Microsoft Defender for Endpoint는 클라우드에서 제공하는 전체적인 
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="엔드포인트용 Microsoft Defender의 Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
-## <a name="microsoft-defender-for-endpoint-tenant-location"></a>엔드포인트용 Microsoft Defender 테넌트 위치
+## <a name="what-are-the-requirements-for-the-microsoft-defender-for-endpoint-tenant"></a>엔드포인트 테넌트용 Microsoft Defender에 대한 요구 사항은 무엇인가요?
 
-Azure Security Center를 사용하여 서버를 모니터링하는 경우 엔드포인트용 Microsoft Defender가 자동으로 만들어집니다. 엔드포인트용 Defender에서 수집한 데이터는 프로비저닝 중 식별되는 대로 테넌트의 지리적 위치에 저장됩니다. 고객 데이터 - 가명 양식 - 미국에 있는 중앙 스토리지 및 처리 저장소 및 처리 시스템에도 저장될 수 있습니다. 
+Azure Security Center를 사용하여 서버를 모니터링하는 경우 엔드포인트용 Microsoft Defender가 자동으로 만들어집니다. 
 
-위치를 구성한 후에는 변경할 수 없습니다. 엔드포인트용 Microsoft Defender에 대한 라이선스가 있고 다른 위치로 데이터를 이동해야 하는 경우 Microsoft 지원에 문의하여 테넌트를 다시 설정합니다.
+- **위치:** 엔드포인트용 Defender에서 수집한 데이터는 프로비저닝 중 식별되는 대로 테넌트의 지리적 위치에 저장됩니다. 고객 데이터 - 가명 양식 - 미국에 있는 중앙 스토리지 및 처리 저장소 및 처리 시스템에도 저장될 수 있습니다. 위치를 구성한 후에는 변경할 수 없습니다. 엔드포인트용 Microsoft Defender에 대한 라이선스가 있고 다른 위치로 데이터를 이동해야 하는 경우 Microsoft 지원에 문의하여 테넌트를 다시 설정합니다.
+- **구독 이동:** Azure 테넌트 간에 Azure 구독을 이동한 경우 보안 센터에서 엔드포인트용 Defender를 배포하기 전에 몇 가지 수동 준비 단계가 필요합니다. 자세한 내용은 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
 
 
-## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>엔드포인트용 Microsoft Defender 통합 사용 설정
+## <a name="enable-the-microsoft-defender-for-endpoint-integration"></a>엔드포인트용 Microsoft Defender 통합 사용 설정
 
-1. 머신이 엔드포인트용 Defender에 필요한 요구 사항을 충족하는지 확인합니다.
+### <a name="prerequisites"></a>필수 구성 요소
 
-    - **모든 버전의 Windows의 경우**:
-        - [디바이스 프록시 및 인터넷 연결 설정 구성](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)에 설명된 네트워크 설정을 구성합니다.
-        - Defender to Endpoint를 온-프레미스 머신에 배포하는 경우 [Azure Arc 사용 설정 서버와 하이브리드 머신 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)에 설명된 대로 Azure Arc에 연결합니다.
-    - 또한 **Windows Server 2019 머신** 의 경우 유효한 에이전트를 실행하고 MicrosoftMonitoringAgent 확장이 있는지 확인합니다.
+머신이 엔드포인트용 Defender에 필요한 요구 사항을 충족하는지 확인합니다.
 
+1. 필요에 따라 컴퓨터가 Azure에 연결되어 있는지 확인합니다.
+
+    - **Windows** 서버의 경우, [디바이스 프록시 및 인터넷 연결 설정 구성](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)에 설명된 네트워크 설정을 구성합니다.
+    - **온-프레미스** 머신의 경우, connect it to Azure Arc as explained in [Azure Arc 지원 서버와 하이브리드 머신 연결](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)에 설명된 대로 Azure Arc에 연결합니다.
+    - **Windows Server 2019** 및 [WVD(Windows Virtual Desktop)](../virtual-desktop/overview.md) 컴퓨터의 경우, 컴퓨터에 MicrosoftMonitoringAgent 확장이 있는지 확인하세요.
+    
 1. **서버용 Azure Defender** 를 사용하도록 설정합니다. [빠른 시작: Azure Defender 사용](enable-azure-defender.md)을 참조하세요.
-
 1. 서버에 엔드포인트용 Microsoft Defender 라이선스가 있고 배포한 경우 [Windows 서버 오프보딩](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers)에 설명된 절차를 사용하여 제거합니다.
-1. Security Center 메뉴에서 **가격 책정 및 설정** 을 선택합니다.
-1. 변경하려는 구독을 선택합니다.
-1. **위협 탐지** 를 선택합니다.
+1. Azure 테넌트 간에 구독을 이동한 경우 몇 가지 수동 준비 단계도 필요합니다. 자세한 내용은 [Microsoft 지원에 문의](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)하세요.
+
+
+### <a name="enable-the-integration"></a>통합 사용
+1. Security Center의 메뉴에서 **가격 책정 및 설정** 을 선택하고 변경할 구독을 선택합니다.
+1. **통합** 을 선택합니다.
 1. **엔드포인트용 Microsoft Defender에서 데이터에 액세스하도록 허용** 을 선택하고 **저장** 을 선택합니다.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Azure Security Center와 Microsoft의 EDR 솔루션, 엔드포인트용 Microsoft Defender 간 통합 사용":::
@@ -120,11 +126,25 @@ Azure Security Center를 사용하여 서버를 모니터링하는 경우 엔드
     > [!TIP]
     > 경고는 **정보** 심각도로 트리거됩니다.
 
-## <a name="faq-for-security-centers-integrated-microsoft-defender-for-endpoint"></a>Security Center의 통합된 엔드포인트용 Microsoft Defender에 대한 FAQ
+## <a name="faq---security-centers-integration-with-microsoft-defender-for-endpoint"></a>FAQ - Security Center와 엔드포인트용 Microsoft Defender의 통합
 
+- [내 컴퓨터에서 실행 중인 이 "MDE.Windows" 확장은 무엇인가요?](#whats-this-mdewindows-extension-running-on-my-machine)
 - [엔드포인트용 Microsoft Defender에 대한 라이선스 요구 사항은 무엇인가요?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
 - [Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
 - [타사 EDR 도구에서 전환하려면 어떻게 할까요?](#how-do-i-switch-from-a-third-party-edr-tool)
+
+### <a name="whats-this-mdewindows-extension-running-on-my-machine"></a>내 컴퓨터에서 실행 중인 이 "MDE.Windows" 확장은 무엇인가요?
+
+이전에는 엔드포인트용 Microsoft Defender가 Log Analytics 에이전트에서 프로비전되었습니다. [Windows Server 2019를 포함하도록 지원을 확장](release-notes.md#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-released-for-general-availability-ga)할 때 자동 온보딩을 수행할 확장도 추가했습니다. 
+
+Security Center는 다음을 실행하는 컴퓨터에 MDE.Windows 확장을 자동으로 배포합니다.
+
+- Windows Server 2019 
+- WVD(Windows 10 Virtual Desktop)
+- Security Center가 OS 버전을 인식하지 못하는 경우(예: 사용자 지정 VM 이미지가 사용되는 경우) 다른 버전의 Windows Server 이 경우에는 Log Analytics 에이전트가 엔드포인트용 Microsoft Defender를 계속 프로 비전합니다.
+
+> [!TIP]
+> MDE.Windows 확장을 삭제하면 엔드포인트용 Microsoft Defender가 제거되지 않습니다. '오프보딩'에 대한 내용은 [Windows 서버 오프보딩](/microsoft-365/security/defender-endpoint/configure-server-endpoints?view=o365-worldwide)을 참조하세요.
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>엔드포인트용 Microsoft Defender에 대한 라이선스 요구 사항은 무엇인가요?
 엔드포인트용 Defender는 추가 비용 없이 **서버용 Azure Defender** 에 포함되어 있습니다. 또는 50대 이상의 머신에 대해 개별적으로 구매할 수 있습니다.
@@ -132,7 +152,9 @@ Azure Security Center를 사용하여 서버를 모니터링하는 경우 엔드
 ### <a name="if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender"></a>Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 할인을 받을 수 있나요?
 Microsoft Defender for Endpoint에 대한 라이선스가 이미 있는 경우 Azure Defender 라이선스의 해당 부분에 대해 비용을 지불할 필요가 없습니다.
 
-할인을 확인하려면 Security Center 지원 팀에 문의하고 관련 작업 영역 ID, 지역 및 각 관련 라이선스에 대한 라이선스 정보를 제공하세요.
+할인을 요청하려면 Security Center 지원 팀에 문의하고 지정된 작업 영역의 머신에 적용된 엔드포인트용 Microsoft Defender 라이선스의 관련 작업 영역 ID, 지역 및 개수를 제공합니다.
+
+할인은 승인 날짜부터 적용되며 소급해서 적용되지 않습니다.
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>타사 EDR 도구에서 전환하려면 어떻게 할까요?
 비 Microsoft 엔드포인트 솔루션에서 전환하는 방법에 대한 자세한 지침은 엔드포인트용 Microsoft Defender 설명서인 [마이그레이션 개요](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration)에서 제공됩니다.

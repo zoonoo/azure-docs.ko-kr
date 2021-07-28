@@ -3,12 +3,12 @@ title: MABS 서버 백업
 description: MABS(Microsoft Azure Backup Server)를 백업하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fbd3d1f2d7cb24c21962dbe5c88acebf73652a04
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92172114"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107519122"
 ---
 # <a name="back-up-the-mabs-server"></a>MABS 서버 백업
 
@@ -22,7 +22,7 @@ MABS 백업 전략의 일환으로 MABS 데이터베이스를 백업해야 합�
 |--------------------------|--------------|-----------------|
 |[Azure에 백업](#back-up-to-azure)|<li>MABS에서 간편하게 구성 및 모니터링합니다.<li>백업 데이터베이스 파일의 여러 위치.<li>클라우드 스토리지가 재해 복구를 위한 강력한 솔루션을 제공합니다.<li>데이터베이스를 위한 매우 안전한 스토리지입니다.<li>120개의 온라인 복구 지점을 지원합니다.|<li>Azure 계정 및 추가 MABS 구성이 필요합니다. Azure 스토리지에 대한 일부 비용이 발생합니다.<li> Azure 백업 자격 증명 모음에 저장된 MABS 백업에 대한 액세스 권한을 얻으려면 Azure 에이전트가 있는 Windows Server 기반 시스템의 지원되는 버전이 필요합니다. 다른 MABS 서버를 사용할 수는 없습니다.<li>데이터베이스가 로컬로 호스팅되고 보조 보호를 사용하도록 설정하려는 경우 옵션이 아닙니다. <li>추가 준비 및 복구 시간이 발생합니다.|
 |[MABS 스토리지 풀을 백업하여 데이터베이스 백업](#back-up-the-database-by-backing-up-the-mabs-storage-pool)|<li>간단하게 구성하고 모니터링할 수 있습니다.<li>백업은 MABS 스토리지 풀 디스크에 보관되며 로컬로 쉽게 액세스할 수 있습니다.<li>MABS 예약 백업은 512개의 고속 전체 백업을 지원합니다. 매 시간 백업하는 경우 21일의 전체 보호가 가능하게 됩니다.|<li>재해 복구에는 적합한 옵션이 아닙니다. 온라인 상태일 때 복구는 MABS 서버 또는 스토리지 풀 디스크에 오류가 발생하는 경우 예상대로 작동하지 않을 수 있습니다.<li>데이터베이스가 로컬로 호스팅되고 보조 보호를 사용하도록 설정하려는 경우 옵션이 아닙니다. <li>MABS 서비스 또는 콘솔이 실행되거나 작동되지 않는 경우 복구 지점에 대한 액세스를 얻기 위해서는 일부 준비 및 특별 단계가 필요합니다.|
-|[원시 SQL Server 백업을 사용하여 로컬 디스크에 백업](#back-up-with-native-sql-server-backup-to-a-local-disk)|<li>SQL Server에서 기본 제공됩니다.<li>백업은 쉽게 액세스할 수 있는 로컬 디스크에 보관됩니다.<li>원하는 만큼 실행되도록 예약할 수 있습니다.<li>MABS에 대해 완전히 독립적입니다.<li>백업 파일 정리를 예약할 수 있습니다.|<li>백업을 원격 위치에 복사하지 않는 한 좋은 재해 복구 옵션은 아닙니다.<li>백업의 보존 및 빈도를 제한할 수 있도록 로컬 스토리지가 필요합니다.|
+|[네이티브 SQL Server 백업을 사용하여 로컬 디스크에 백업](#back-up-with-native-sql-server-backup-to-a-local-disk)|<li>SQL Server에서 기본 제공됩니다.<li>백업은 쉽게 액세스할 수 있는 로컬 디스크에 보관됩니다.<li>원하는 만큼 실행되도록 예약할 수 있습니다.<li>MABS에 대해 완전히 독립적입니다.<li>백업 파일 정리를 예약할 수 있습니다.|<li>백업을 원격 위치에 복사하지 않는 한 좋은 재해 복구 옵션은 아닙니다.<li>백업의 보존 및 빈도를 제한할 수 있도록 로컬 스토리지가 필요합니다.|
 |[원시 SQL 백업 및 MABS 보호를 사용하여 MABS가 보호하는 공유에 백업](#back-up-to-a-share-protected-by-mabs)|<li>MABS에서 쉽게 모니터링됩니다.<li>백업 데이터베이스 파일의 여러 위치.<li>네트워크의 모든 Windows 컴퓨터에서 쉽게 액세스할 수 있습니다.<li>잠재적으로 가장 빠른 복구 방법입니다.|<li>64개의 복구 지점만 지원합니다.<li>사이트 재해 복구에는 적합한 옵션이 아닙니다. MABS 서버 또는 MABS 스토리지 풀 디스크 오류로 복구 성능이 저하될 수 있습니다.<li>MABS DB가 로컬로 호스팅되고 보조 보호를 사용하도록 설정하려는 경우 옵션이 아닙니다. <li>구성 및 테스트에는 일부 추가적인 준비가 필요합니다.<li>MABS 서버 자체를 중단해야 하지만 MABS 스토리지 풀 디스크는 괜찮은 경우 일부 추가 준비 및 복구 시간이 필요합니다.|
 
 - MABS 보호 그룹을 사용하여 백업하는 경우 데이터베이스에 대한 고유 보호 그룹을 사용하는 것이 좋습니다.
@@ -60,7 +60,7 @@ MABS 백업 전략의 일환으로 MABS 데이터베이스를 백업해야 합�
 
     Azure 복구 서비스 에이전트가 설치되고 MABS 서버가 Azure 백업 자격 증명 모음에 등록되었을 때 지정된 암호가 있는지 확인합니다. 백업을 복원하려면 이 암호가 있어야 합니다.
 
-2. Azure Backup 자격 증명 모음을 만들고 Azure Backup 에이전트 설치 파일 및 자격 증명 모음을 다운로드합니다. 설치 파일을 실행하여 MABS 서버에 에이전트를 설치하고 자격 증명 모음을 사용하여 자격 증명 모음에 MABS 서버를 등록합니다. [자세히 알아보기](backup-azure-microsoft-azure-backup.md).
+2. Azure Backup 자격 증명 모음을 만들고 Azure Backup 에이전트 설치 파일 및 자격 증명 모음을 다운로드합니다. 설치 파일을 실행하여 MABS 서버에 에이전트를 설치하고 자격 증명 모음을 사용하여 자격 증명 모음에 MABS 서버를 등록합니다. [자세한 정보를 알아보세요](backup-azure-microsoft-azure-backup.md).
 
 3. 자격 증명 모음이 구성된 후 MABS 데이터베이스를 포함하는 MABS 보호 그룹을 설정합니다. 디스크 및 Azure에 백업하려면 선택합니다.
 
@@ -106,7 +106,7 @@ and AG.ServerName like N'%<dpmsqlservername>%' -- <dpmsqlservername> is a placeh
 
 동일한 DB로 MABS를 다시 구성하려면 먼저 MABS 데이터베이스를 복구하고 새로 설치된 MABS와 동기화해야 합니다.
 
-#### <a name="use-the-following-steps"></a>다음 단계 수행
+#### <a name="use-the-following-steps"></a>다음 단계 사용
 
 1. 관리 명령 프롬프트를 열고 `psexec.exe -s powershell.exe`를 실행하여 시스템 컨텍스트에서 PowerShell 창을 시작합니다.
 2. 데이터베이스를 복구할 위치를 결정합니다.
@@ -115,13 +115,13 @@ and AG.ServerName like N'%<dpmsqlservername>%' -- <dpmsqlservername> is a placeh
 
 1. 복제본 VHD 경로 `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PhysicalReplicaId\>` 로 이동
 2. `mount-vhd disk0.vhdx` 명령을 사용하여 해당 디스크에 있는 **disk0.vhdx** 를 탑재합니다.
-3. 복제본 VHD가 탑재되면 `mountvol.exe`를 사용하여 SQL 스크립트 출력에서 실제 복제본 ID를 통해 복제 볼륨에 드라이브 문자를 할당합니다. 예: `mountvol X: \?\Volume{}\`
+3. 복제본 VHD가 탑재되면 `mountvol.exe`를 사용하여 SQL 스크립트 출력에서 실제 복제본 ID를 통해 복제 볼륨에 드라이브 문자를 할당합니다. `mountvol X: \?\Volume{}\`
 
 #### <a name="to-copy-the-database-from-a-previous-recovery-point"></a>이전 복구 지점에서 데이터베이스를 복사하려면
 
 1. DPMDB 컨테이너 디렉터리 `\<MABSServer FQDN\>\<PhysicalReplicaId\>`로 이동합니다. MABS DB에 대해 사용된 해당 복구 지점 아래에 몇 가지 고유한 GUID 식별자가 있는 여러 디렉터리가 표시됩니다. 다른 디렉터리는 PIT/복구 지점을 나타냅니다.
 2. PIT vhd 경로(예: `\<MABSServer FQDN\>\<PhysicalReplicaId\>\<PITId\>`)로 이동하고 `mount-vhd disk0.vhdx` 명령을 사용하여 그 안에 있는 **disk0.vhdx** 를 탑재합니다.
-3. 복제본 VHD가 탑재되면 `mountvol.exe`를 사용하여 SQL 스크립트 출력에서 실제 복제본 ID를 통해 복제 볼륨에 드라이브 문자를 할당합니다. 예: `mountvol X: \?\Volume{}\`
+3. 복제본 VHD가 탑재되면 `mountvol.exe`를 사용하여 SQL 스크립트 출력에서 실제 복제본 ID를 통해 복제 볼륨에 드라이브 문자를 할당합니다. `mountvol X: \?\Volume{}\`
 
    위 단계에서 꺾쇠 괄호로 표시되는 모든 용어는 자리 표시자입니다. 다음과 같이 적절한 값으로 바꿉니다.
    - **ReFSVolume** - SQL 스크립트 출력의 액세스 경로
@@ -168,7 +168,7 @@ MABS 서버가 계속 작동하고 스토리지 풀이 손상되지 않은 경�
 
 1. 데이터베이스를 복구하려는 시간을 결정합니다.
 
-    - MABS 복제본 볼륨에서 직접 가져온 마지막 백업에서 데이터베이스를 복사하려는 경우 SQL 스크립트 출력의 GUID를 사용하여 복제본 볼륨에 드라이브 문자를 할당하려면 **mountvol.exe** 를 사용합니다. 예: `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
+    - MABS 복제본 볼륨에서 직접 가져온 마지막 백업에서 데이터베이스를 복사하려는 경우 SQL 스크립트 출력의 GUID를 사용하여 복제본 볼륨에 드라이브 문자를 할당하려면 **mountvol.exe** 를 사용합니다. `C:\Mountvol X: \\?\Volume{d7a4fd76\-a0a8\-11e2\-8fd3\-001c23cb7375}\`
 
     - 이전 복구 지점(섀도 복사)에서 데이터베이스를 복사하려는 경우 SQL 스크립트 출력의 볼륨 GUID를 사용하여 복제본에 대한 모든 섀도 복사본을 나열해야 합니다. 이 명령은 해당 볼륨에 대한 섀도 복사본을 나열합니다(`C:\>Vssadmin list shadows /for\=\\?\Volume{d7a4fd76-a0a8-11e2-8fd3-001c23cb7375}\`). 만든 시간 및 복구하려는 섀도 복사본 ID를 확인합니다.
 
@@ -180,7 +180,7 @@ MABS 서버가 계속 작동하고 스토리지 풀이 손상되지 않은 경�
 
 5. 이제 **DPMSYNC\-RESTOREDB** 를 실행하거나 SQL Management Studio를 사용하여 데이터베이스 파일을 복원할 수 있습니다.
 
-## <a name="back-up-with-native-sql-server-backup-to-a-local-disk"></a>원시 SQL Server 백업을 사용하여 로컬 디스크에 백업
+## <a name="back-up-with-native-sql-server-backup-to-a-local-disk"></a>네이티브 SQL Server 백업을 사용하여 로컬 디스크에 백업
 
 MABS에 관계 없이 원시 SQL Server 백업을 사용하여 로컬 디스크에 MABS 데이터베이스를 백업할 수 있습니다.
 
@@ -194,7 +194,7 @@ MABS에 관계 없이 원시 SQL Server 백업을 사용하여 로컬 디스크�
 
 ### <a name="before-you-start"></a>시작하기 전에
 
-1. SQL Server에서 백업의 단일 복사본을 저장할 공간이 충분한 드라이브에 폴더를 만듭니다. 예: `C:\MABSBACKUP`.
+1. SQL Server에서 백업의 단일 복사본을 저장할 공간이 충분한 드라이브에 폴더를 만듭니다. 예를 들면 `C:\MABSBACKUP`와 같습니다.
 
 1. 폴더를 공유합니다. 예를 들어 `C:\MABSBACKUP` 폴더를 *DPMBACKUP* 으로 공유합니다.
 
@@ -290,8 +290,8 @@ SQL Server 원시 백업을 사용하는 다른 SQL Server 데이터베이스와
 | **-Sync**                            | 복원된 데이터베이스를 동기화합니다. 데이터베이스를 복원한 후에는 **DpmSync –Sync** 를 실행해야 합니다. **DpmSync –Sync** 를 실행한 후에는 일부 복제본이 아직 누락된 것으로 표시될 수 있습니다. |
 | **-DbLoc** *location*                | MABS 데이터베이스의 백업 위치를 식별합니다.|
 | **-InstanceName** <br/>*server\instance*     | DPMDB를 복원해야 하는 인스턴스입니다.|
-| **-ReallocateReplica**         | 누락된 복제 볼륨을 동기화하지 않고 모두 재할당합니다. |
-| **-DataCopied**                      | 새로 할당된 복제 볼륨에 데이터 로드를 완료했음을 나타냅니다. 이는 클라이언트 컴퓨터에만 해당됩니다. |
+| **-ReallocateReplica**         | 누락된 복제본 볼륨을 동기화하지 않고 모두 재할당합니다. |
+| **-DataCopied**                      | 새로 할당된 복제본 볼륨에 데이터 로드를 완료했음을 나타냅니다. 이는 클라이언트 컴퓨터에만 해당됩니다. |
 
 **예 1:** MABS 서버의 로컬 백업 미디어에서 MABS 데이터베이스를 복원하려면 다음 명령을 실행합니다.
 
@@ -332,4 +332,4 @@ DpmSync -ReallocateReplica
 ## <a name="next-steps"></a>다음 단계
 
 - [MABS 지원 매트릭스](backup-support-matrix-mabs-dpm.md)
-- [MABS FAQ](backup-azure-dpm-azure-server-faq.md)
+- [MABS FAQ](backup-azure-dpm-azure-server-faq.yml)

@@ -8,20 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 04/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 41336d59d51685d5daf78a1809ce6c0df2cd6124
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 834afe8d0f0c5c53c2cb300d666dbcccbee46ec0
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104781316"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111962427"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph로 Azure AD B2C 관리
 
 Microsoft Graph를 사용하여 Azure AD B2C 디렉터리에서 리소스를 관리할 수 있습니다. Microsoft Graph API 작업은 사용자, ID 공급자, 사용자 흐름, 사용자 지정 정책 및 정책 키를 포함한 Azure AD B2C 리소스의 관리를 지원합니다. 다음 섹션의 각 링크는 해당 작업에 대한 Microsoft Graph API 참조 내의 해당 페이지를 대상으로 합니다. 
+
+> [!NOTE]
+> Azure 구독에 연결된 해당 Azure 리소스와 함께 Azure AD B2C 디렉터리 자체를 프로그래밍 방식으로 만들 수도 있습니다. 이 기능은 Microsoft Graph API를 통해서가 아니라 Azure REST API를 통해 제공됩니다. 자세한 내용은 [B2C 테넌트 - 만들기](/rest/api/activedirectory/b2ctenants/create)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -37,7 +40,7 @@ MS Graph API를 사용하고 Azure AD B2C 테넌트의 리소스와 상호 작�
 
 ## <a name="user-phone-number-management-beta"></a>사용자 전화 번호 관리(베타)
 
-사용자가 [SMS 또는 음성 통화](identity-provider-local.md#phone-sign-in-preview)를 또는 [다단계 인증](multi-factor-authentication.md)을 사용하여 로그인하는 데 사용할 수 있는 전화 번호입니다. 자세한 내용은 [Azure AD 인증 방법 API](/graph/api/resources/phoneauthenticationmethod)를 참조하세요.
+사용자가 [SMS 또는 음성 통화](identity-provider-local.md#phone-sign-in)를 또는 [다단계 인증](multi-factor-authentication.md)을 사용하여 로그인하는 데 사용할 수 있는 전화 번호입니다. 자세한 내용은 [Azure AD 인증 방법 API](/graph/api/resources/phoneauthenticationmethod)를 참조하세요.
 
 - [추가](/graph/api/authentication-post-phonemethods)
 - [목록](/graph/api/authentication-list-phonemethods)
@@ -48,6 +51,9 @@ MS Graph API를 사용하고 Azure AD B2C 테넌트의 리소스와 상호 작�
 [목록](/graph/api/authentication-list-phonemethods) 작업은 사용하도록 설정된 전화 번호만 반환함을 참고하여 주십시오. 목록 작업과 함께 사용하려면 다음 전화 번호를 사용하도록 설정해야 합니다. 
 
 ![휴대폰 로그인 활성화](./media/microsoft-graph-operations/enable-phone-sign-in.png)
+
+> [!NOTE]
+> 현재 베타 버전에서 이 API는 전화번호가 국가 코드와 전화번호 사이에 공백으로 저장된 경우에만 작동합니다. Azure AD B2C 서비스는 현재 이 공간을 기본적으로 추가하지 않습니다.
 
 ## <a name="self-service-password-reset-email-address-beta"></a>셀프 서비스 암호 재설정 이메일 주소(베타)
 
@@ -140,7 +146,7 @@ Azure AD B2C 감사 로그에 액세스하는 방법에 대한 자세한 내용�
 
 ## <a name="conditional-access"></a>조건부 액세스
 
-- [모든 조건부 액세스 정책을 나열합니다](/graph/api/conditionalaccessroot-list-policies?view=graph-rest-beta&tabs=http)
+- [모든 조건부 액세스 정책을 나열합니다](/graph/api/conditionalaccessroot-list-policies?tabs=http)
 - [조건부 액세스 정책의 속성 및 관계 읽기](/graph/api/conditionalaccesspolicy-get)
 - [새 조건부 액세스 정책 만들기](/graph/api/resources/application)
 - [조건부 액세스 정책 업데이트](/graph/api/conditionalaccesspolicy-update)

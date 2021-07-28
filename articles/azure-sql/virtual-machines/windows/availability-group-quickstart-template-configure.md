@@ -14,13 +14,13 @@ ms.workload: iaas-sql-server
 ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d7dfe010a3f4a1559454c49545af81eb14797bf1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.custom: seo-lt-2019, devx-track-azurepowershell
+ms.openlocfilehash: ab57e66ff37fb31a91a1949896a4e7736669d6c6
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97359917"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112078926"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Azure 빠른 시작 템플릿을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹 구성
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,14 +35,17 @@ ms.locfileid: "97359917"
 
 가용성 그룹 만들기 및 내부 Load Balancer 만들기와 같은 가용성 그룹 구성의 기타 부분은 수동으로 수행해야 합니다. 이 문서에서는 자동 및 수동 단계의 시퀀스를 제공합니다.
 
-이 문서에서는 Azure 빠른 시작 템플릿을 사용 하 여 가용성 그룹 환경을 구성 하는 동안 [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md)도 사용 하거나 [수동으로](availability-group-manually-configure-tutorial.md) 수행할 수 있습니다. 
+이 문서에서는 Azure 빠른 시작 템플릿을 사용하여 가용성 그룹 환경을 구성하지만, [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md)를 사용하거나 [수동으로](availability-group-manually-configure-tutorial.md)도 구성할 수 있습니다. 
+
+> [!NOTE]
+> 이제 Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 가용성 그룹 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [가용성 그룹 마이그레이션](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md)을 참조하세요. 
  
 
 ## <a name="prerequisites"></a>필수 구성 요소 
 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹의 설정을 자동화하려면 다음과 같은 필수 조건을 충족해야 합니다. 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
-- 동일한 가용성 집합 또는 가용성 영역에 있고 [SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)된 [SQL Server 2016 이상 Enterprise edition을 실행 하는 Azure의](./create-sql-vm-portal.md) 도메인에 가입 된 하나 이상의 vm입니다.  
+- [SQL IaaS 에이전트 확장에 등록](sql-agent-extension-manually-register-single-vm.md)되었으며, 동일한 가용성 집합 또는 가용성 영역에서 [SQL Server 2016 이상의 Enterprise Edition을 실행하는 Azure의 도메인 가입 VM](./create-sql-vm-portal.md)이 하나 이상  
 - 사용 가능한 두 개의 IP 주소(사용하는 엔터티 없음): 내부 부하 분산 장치에 대한 IP 주소 및 가용성 그룹과 동일한 서브넷 내 가용성 그룹 수신기에 대한 IP 주소입니다. 기존 부하 분산 장치를 사용하는 경우 사용 가능한 IP 주소가 하나만 필요합니다.  
 
 ## <a name="permissions"></a>사용 권한
@@ -53,7 +56,7 @@ Azure 빠른 시작 템플릿을 사용하여 Always On 가용성 그룹을 구�
 
 
 ## <a name="create-cluster"></a>클러스터 만들기
-SQL Server Vm을 SQL IaaS 에이전트 확장에 등록 한 후에는 SQL Server Vm을 *Sqlvirtualmachinegroups* 에 조인할 수 있습니다. 이 리소스는 Windows 장애 조치(failover) 클러스터의 메타데이터를 정의합니다. 메타데이터에는 버전, 에디션, 정규화된 도메인 이름, 클러스터와 SQL Server를 관리하는 Active Directory 계정 및 스토리지 계정(클라우드 감시)이 포함됩니다. 
+SQL Server VM이 SQL IaaS 에이전트 확장에 등록된 후 SQL Server VM을 *SqlVirtualMachineGroups* 에 연결할 수 있습니다. 이 리소스는 Windows 장애 조치(failover) 클러스터의 메타데이터를 정의합니다. 메타데이터에는 버전, 에디션, 정규화된 도메인 이름, 클러스터와 SQL Server를 관리하는 Active Directory 계정 및 스토리지 계정(클라우드 감시)이 포함됩니다. 
 
 *SqlVirtualMachineGroups* 리소스 그룹에 SQL Server VM을 추가하면 Windows 장애 조치(failover) 클러스터 서비스가 클러스터를 만들도록 부트스트랩된 다음, 해당 SQL Server VM이 클러스터에 연결됩니다. 이 단계는 **101-sql-vm-ag-setup** 빠른 시작 템플릿을 사용하여 자동화됩니다. 다음 단계를 사용하여 구현할 수 있습니다.
 
@@ -85,13 +88,17 @@ SQL Server Vm을 SQL IaaS 에이전트 확장에 등록 한 후에는 SQL Server
 >[!NOTE]
 > 템플릿 배포 중에 제공한 자격 증명은 배포 기간에만 저장됩니다. 배포가 완료되면 해당 암호가 제거됩니다. 클러스터에 SQL Server VM을 더 추가하는 경우 다시 입력하라는 메시지가 표시됩니다. 
 
+## <a name="configure-quorum"></a>쿼럼 구성
 
+디스크 감시는 가장 탄력적으로 수행되는 쿼럼 옵션이지만 가용성 그룹에 몇 가지 제한을 적용하는 Azure 공유 디스크가 필요합니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 가용성 그룹을 호스팅하는 클러스터에 권장되는 쿼럼 솔루션입니다. 
+
+클러스터에 짝수 투표가 있는 경우 비즈니스 요구에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
 
 ## <a name="validate-cluster"></a>클러스터 유효성 검사 
 
-Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러스터 유효성 검사를 통과 해야 합니다. 원격 데스크톱 프로토콜 (RDP)와 같은 선호 하는 방법을 사용 하 여 VM에 연결 하 고 클러스터에서 유효성 검사를 통과 했는지 확인 한 다음 계속 진행 합니다. 이렇게 하지 않으면 클러스터가 지원 되지 않는 상태가 됩니다. 
+Microsoft에서 지원하는 장애 조치(failover) 클러스터를 사용하려면 클러스터 유효성 검사를 통과해야 합니다. RDP(원격 데스크톱 프로토콜)와 같은 선호하는 방법을 사용하여 VM에 연결하고 클러스터가 유효성 검사를 통과했는지 확인한 다음 계속 진행합니다. 이렇게 하지 않으면 클러스터가 지원되지 않는 상태가 됩니다. 
 
-장애 조치(Failover) 클러스터 관리자 (FCM)를 사용 하거나 다음 PowerShell 명령을 사용 하 여 클러스터의 유효성을 검사할 수 있습니다.
+FCM(장애 조치(Failover) 클러스터 관리자)를 사용하거나 다음 PowerShell 명령을 사용하여 클러스터 유효성을 검사할 수 있습니다.
 
    ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
@@ -99,7 +106,7 @@ Microsoft에서 장애 조치 (failover) 클러스터를 지원 하려면 클러
 
 
 ## <a name="create-availability-group"></a>가용성 그룹 만들기 
-[SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) 또는 [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql)을 사용하여 일반적인 방법으로 가용성 그룹을 수동으로 만듭니다. 
+[SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) 또는 [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql)을 사용하여 일반적인 방법으로 가용성 그룹을 직접 만듭니다. 
 
 >[!IMPORTANT]
 > 지금 수신기를 만들지 *마세요*. 이 작업은 4단계의 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 통해 자동으로 수행됩니다. 
@@ -142,7 +149,7 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
 
 ## <a name="create-listener"></a>수신기 만들기 
 
-가용성 그룹 수신기를 만들고 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 사용하여 내부 부하 분산 장치를 자동으로 구성합니다. 템플릿은 Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener 리소스를 프로비저닝합니다. SQL IaaS 에이전트 확장을 통해  **101-sql-vm-aglistener-설치** 빠른 시작 템플릿을 통해 다음 작업을 수행 합니다.
+가용성 그룹 수신기를 만들고 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 사용하여 내부 부하 분산 장치를 자동으로 구성합니다. 템플릿은 Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener 리소스를 프로비저닝합니다. SQL IaaS 에이전트 확장을 통해 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿은 다음 작업을 수행합니다.
 
 - 배포 중에 제공한 IP 주소 값을 기준으로, 수신기에 대한 새 프런트 엔드 IP 리소스를 만듭니다. 
 - 클러스터 및 내부 부하 분산 장치에 대한 네트워크 설정을 구성합니다. 
@@ -180,9 +187,9 @@ Always On 가용성 그룹 수신기를 사용하려면 Azure Load Balancer의 �
 >배포에 실패하는 경우 **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 PowerShell을 사용하여 [새로 만든 수신기를 수동으로 제거](#remove-listener)해야 합니다. 
 
 ## <a name="remove-listener"></a>수신기 제거
-나중에 템플릿에서 구성 된 가용성 그룹 수신기를 제거 해야 하는 경우 SQL IaaS 에이전트 확장을 통해 이동 해야 합니다. 수신기는 SQL IaaS 에이전트 확장을 통해 등록 되기 때문에 SQL Server Management Studio를 통해 삭제 하는 것 만으로는 충분 하지 않습니다. 
+템플릿을 통해 구성된 가용성 그룹 수신기를 나중에 제거해야 하는 경우 SQL IaaS 에이전트 확장을 이용해야 합니다. 수신기가 SQL IaaS 에이전트 확장을 통해 등록되었으므로 SQL Server Management Studio를 통해 수신기를 삭제하는 것만으로는 충분하지 않습니다. 
 
-가장 좋은 방법은 PowerShell에서 다음 코드 조각을 사용 하 여 SQL IaaS 에이전트 확장을 통해 삭제 하는 것입니다. 이렇게 하면 SQL IaaS 에이전트 확장에서 가용성 그룹 수신기 메타 데이터가 제거 됩니다. 또한 가용성 그룹에서 수신기를 물리적으로 삭제합니다. 
+가장 좋은 방법은 Azure PowerShell에서 다음 코드 조각을 사용하여 SQL IaaS 에이전트 확장을 통해 삭제하는 것입니다. 이렇게 하면 SQL IaaS 에이전트 확장에서 가용성 그룹 수신기 메타데이터가 제거됩니다. 또한 가용성 그룹에서 수신기가 물리적으로 삭제됩니다. 
 
 ```PowerShell
 # Remove the availability group listener
@@ -193,15 +200,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>일반 오류
 이 섹션에서는 몇 가지 알려진 문제와 가능한 해결 방법을 설명합니다. 
 
-가용성 그룹 **' '에 대 한 가용성 그룹 수신기 \<AG-Name> 가 이미 존재** 합니다. 가용성 그룹 수신기에 대 한 Azure 빠른 시작 템플릿에 사용 된 선택한 가용성 그룹에 이미 수신기가 포함 되어 있습니다. 실제로 가용성 그룹 내에 있거나 해당 메타 데이터가 SQL IaaS 에이전트 확장 내에 유지 됩니다. **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 [PowerShell](#remove-listener)을 사용하여 수신기를 제거합니다. 
+**가용성 그룹 '\<AG-Name>'에 대한 가용성 그룹 수신기가 이미 있음** 가용성 그룹 수신기의 Azure 빠른 시작 템플릿에서 사용된 선택한 가용성 그룹에 이미 수신기가 포함되어 있습니다. 실제로 가용성 그룹 내에 있거나 해당 메타데이터가 SQL IaaS 에이전트 확장 내에 유지됩니다. **101-sql-vm-aglistener-setup** 빠른 시작 템플릿을 다시 배포하기 전에 [PowerShell](#remove-listener)을 사용하여 수신기를 제거합니다. 
 
-**연결은 주 복제본 에서만 작동** 합니다. 이 동작은 내부 부하 분산 장치의 구성을 일관 되지 않은 상태로 유지 하는 실패 한 **101-v m-v m** i-i-i-i-i-i-i-i-a 수신기-설치 템플릿 배포에서 백 엔드 풀에 가용성 집합이 나열되는지, 상태 프로브 및 부하 분산 규칙에 대한 규칙이 있는지 확인합니다. 누락된 항목이 있으면 내부 부하 분산 장치의 구성이 일관되지 않은 상태입니다. 
+**연결은 기본 복제본에서만 작동함** 이 동작은 내부 부하 분산 장치의 구성이 일관되지 않은 상태로 유지된 실패한 **101-sql-vm-aglistener-setup** 템플릿 배포로 인한 것일 수 있습니다. 백 엔드 풀에 가용성 집합이 나열되는지, 상태 프로브 및 부하 분산 규칙에 대한 규칙이 있는지 확인합니다. 누락된 항목이 있으면 내부 부하 분산 장치의 구성이 일관되지 않은 상태입니다. 
 
 이 동작을 해결하려면 [PowerShell](#remove-listener)을 사용하여 수신기를 제거하고 Azure Portal을 통해 내부 Load Balancer를 삭제한 다음, 3단계에서 다시 시작합니다. 
 
-**Badrequest-SQL 가상 머신 목록만 업데이트할 수 있습니다** . 이 오류는 SQL Server Management Studio (SSMS)를 통해 수신기를 삭제 했지만 SQL IaaS 에이전트 확장에서 삭제 하지 않은 경우 **101---v m a m-i-v 수신기-설치** 템플릿을 배포 하는 경우에 발생할 수 있습니다. SSMS를 통해 수신기를 삭제 해도 SQL IaaS 에이전트 확장에서 수신기의 메타 데이터는 제거 되지 않습니다. 수신기는 [PowerShell](#remove-listener)을 통해 리소스 공급자에서 삭제해야 합니다. 
+**BadRequest - SQL 가상 머신 목록만 업데이트 가능** 이 오류는 수신기가 SSMS(SQL Server Management Studio)를 통해 삭제되었지만 SQL IaaS 에이전트 확장에서 삭제되지 않은 경우 **101-sql-vm-aglistener-setup** 템플릿을 배포할 때 발생할 수 있습니다. SSMS를 통해 수신기를 삭제해도 SQL IaaS 에이전트 확장에서 수신기의 메타데이터는 제거되지 않습니다. 수신기는 [PowerShell](#remove-listener)을 통해 리소스 공급자에서 삭제해야 합니다. 
 
-**도메인 계정이** 없습니다. 이 오류에는 두 가지 원인이 있을 수 있습니다. 지정된 도메인 계정이 없거나 데이터 [UPN(사용자 계정 이름)](/windows/desktop/ad/naming-properties#userprincipalname)이 없기 때문입니다. **101-sql-vm-ag-setup** 템플릿에는 UPN 형태(즉, user@domain.com)의 도메인 계정이 필요한데, 일부 도메인 계정에서 이 데이터가 누락되었을 수 있습니다. 일반적으로 서버가 도메인 컨트롤러로 승격될 때 로컬 사용자가 첫 번째 도메인 관리자 계정으로 마이그레이션되었거나 사용자가 PowerShell을 통해 생성된 경우에 이러한 상황이 발생합니다. 
+**도메인 계정이 없음** 이 오류는 두 가지 원인이 있을 수 있습니다. 지정된 도메인 계정이 없거나 데이터 [UPN(사용자 계정 이름)](/windows/desktop/ad/naming-properties#userprincipalname)이 없기 때문입니다. **101-sql-vm-ag-setup** 템플릿에는 UPN 형태(즉, user@domain.com)의 도메인 계정이 필요한데, 일부 도메인 계정에서 이 데이터가 누락되었을 수 있습니다. 일반적으로 서버가 도메인 컨트롤러로 승격될 때 로컬 사용자가 첫 번째 도메인 관리자 계정으로 마이그레이션되었거나 사용자가 PowerShell을 통해 생성된 경우에 이러한 상황이 발생합니다. 
 
 계정이 있는지 확인합니다. 계정이 있는 경우 두 번째 상황일 수 있습니다. 이 문제를 해결하려면 다음을 수행합니다.
 
@@ -220,10 +227,10 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 문서를 참조하세요. 
+자세한 내용은 다음을 참조하세요.
 
 * [SQL Server VM 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [SQL Server VM에 대한 FAQ](frequently-asked-questions-faq.md)
+* [SQL Server VM에 대한 FAQ](frequently-asked-questions-faq.yml)
 * [SQL Server VM에 대한 가격 책정 지침](pricing-guidance.md)
 * [SQL Server VM 릴리스 정보](../../database/doc-changes-updates-release-notes.md)
 * [SQL Server VM에 대한 라이선스 모델 전환](licensing-model-azure-hybrid-benefit-ahb-change.md)

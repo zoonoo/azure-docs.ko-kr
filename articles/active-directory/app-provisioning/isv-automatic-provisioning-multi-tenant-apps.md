@@ -1,24 +1,24 @@
 ---
-title: 다중 테넌트 애플리케이션에 대해 자동 사용자 프로비저닝 사용 - Azure AD
-description: 독립 소프트웨어 공급업체를 위한 자동화된 프로비저닝 사용 가이드
+title: Azure Active Directory의 다중 테넌트 애플리케이션에 대해 자동 사용자 프로비저닝 사용
+description: Azure Active Directory에서 자동화된 프로비저닝을 활성화하기 위한 독립 소프트웨어 공급 업체용 가이드
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 07/23/2019
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: zhchia
-ms.openlocfilehash: 7bd0fc634109beb6cc674d89f56666e7035d33ef
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: zhchia, arvinh
+ms.openlocfilehash: 03f2f06e29f3641d44be9c4f5bd6e8c58671653f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255698"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782850"
 ---
-# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테넌트 애플리케이션에 대해 자동 사용자 프로비저닝 사용
+# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application-in-azure-active-directory"></a>Azure Active Directory의 다중 테넌트 애플리케이션에 대해 자동 사용자 프로비저닝 사용
 
 자동 사용자 프로비저닝은 SaaS(Software as a Service) 애플리케이션과 같은 대상 시스템에서 사용자 ID의 생성, 유지 관리 및 제거를 자동화하는 프로세스입니다.
 

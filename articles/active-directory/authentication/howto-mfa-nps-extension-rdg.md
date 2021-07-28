@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b0150c18f2c007ed104d34daacd49ab03131a7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f50792ec45570f7e90893a97150ea26b63ebf9c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743380"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829839"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -59,7 +59,7 @@ Azure용 NPS 확장을 NPS 및 원격 데스크톱 게이트웨이와 통합한 
 1. 확장이 설치된 NPS 서버에서 RD CAP 정책에 대한 RADIUS 액세스 허용 메시지를 원격 데스크톱 게이트웨이 서버로 보냅니다.
 1. 사용자에게 RD 게이트웨이를 통해 요청된 네트워크 리소스에 대한 액세스 권한이 부여됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 섹션에서는 Azure AD MFA와 원격 데스크톱 게이트웨이를 통합하기 전에 필요한 전제 조건에 대해 자세히 설명합니다. 이 문서를 시작하기 전에 다음과 같은 필수 구성 요소가 있어야 합니다.  
 
@@ -114,7 +114,9 @@ Azure AD 사용자가 MFA를 사용하도록 설정하려면 [클라우드에서
 > [!IMPORTANT]
 > 원격 데스크톱 게이트웨이에 대한 로그인 동작은 Azure AD 다단계 인증을 사용하여 확인 코드를 입력하는 옵션을 제공하지 않습니다. 휴대폰 확인 또는 푸시 알림이 있는 Microsoft Authenticator 앱에 대해 사용자 계정을 구성해야 합니다.
 >
-> 이러한 두 인증 방법 중 하나가 사용자에 대해 구성되지 않은 경우 Azure AD 다단계 인증 챌린지를 완료하고 원격 데스크톱 게이트웨이에 로그인할 수 없습니다.
+> 사용자에 대해 푸시 알림을 사용하는 전화 확인 또는 Microsoft Authenticator 앱이 구성되어 있지 않으면 사용자는 Azure AD Multi-Factor Authentication 챌린지를 완료하고 원격 데스크톱 게이트웨이에 로그인할 수 없습니다.
+>
+> SMS 텍스트 메서드는 확인 코드를 입력하는 옵션을 제공하지 않으므로 원격 데스크톱 게이트웨이에서 작동하지 않습니다.
 
 ## <a name="install-and-configure-nps-extension"></a>NPS 확장 설치 및 구성
 

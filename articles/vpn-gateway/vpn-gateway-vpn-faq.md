@@ -1,18 +1,18 @@
 ---
 title: Azure VPN Gateway FAQ
-description: VPN Gateway FAQ. Microsoft Azure Virtual Network 프레미스 간 연결, 하이브리드 구성 연결 및 VPN Gateway에 대한 FAQ입니다.
+description: VPN Gateway 프레미스 간 연결, 하이브리드 구성 연결 및 가상 네트워크 게이트웨이와 관련하여 자주 묻는 질문에 대해 알아보세요. 이 FAQ에는 지점 및 사이트 간, 사이트 간 및 VNet 간 구성 설정에 대한 포괄적인 정보가 포함되어 있습니다.
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/29/2021
+ms.date: 06/07/2021
 ms.author: yushwang
-ms.openlocfilehash: 3d29e99f3b539fdbea2a19df7ffc25d4e41a5376
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 56f10ec6178281deaa529e5c94f1cd4b565a381c
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731261"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746612"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -57,6 +57,12 @@ VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gatewa
 **지점 및 사이트 간**(SSTP를 통한 VPN) 구성을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 머신 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
 게이트웨이에 경로 기반 VPN 유형을 사용하여 사이트 간 연결을 만들기만 하면 사이트 간 연결과 지점 및 사이트 간 연결을 동시에 사용하도록 가상 네트워크를 구성할 수 있습니다. 경로 기반 VPN 유형은 클래식 배포 모델에서 동적 게이트웨이라고 합니다.
+
+## <a name="privacy"></a><a name="privacy"></a>개인 정보
+
+### <a name="does-the-vpn-service-store-customer-data"></a>VPN 서비스에서 고객 데이터를 저장하나요?
+
+아니요.
 
 ## <a name="virtual-network-gateways"></a><a name="gateways"></a>가상 네트워크 게이트웨이
 
@@ -176,17 +182,13 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
-## <a name="how-do-i-change-the-authentication-type-for-my-point-to-site-connections"></a>내 지점 및 사이트 간 연결의 인증 형식을 변경하려면 어떻게 할까요??
-
-VPN 게이트웨이의 **지점 및 사이트 간 구성** 섹션으로 이동하고 원하는 라디오 단추를 선택하여 지점 및 사이트 간 연결의 인증 방법을 변경할 수 있습니다. 현재 옵션은 **Azure 인증서, RADIUS 인증 및 Azure Active Directory** 입니다. 현재 클라이언트는 변경 후 새 프로필이 클라이언트에 다운로드되어 구성될 때까지 **연결하지 못할 수 있습니다**.
-
-## <a name="point-to-site-using-native-azure-certificate-authentication"></a><a name="P2S"></a>네이티브 Azure 인증서 인증을 사용하는 지점 및 사이트 간 연결
+## <a name="point-to-site---certificate-authentication"></a><a name="P2S"></a>지점 및 사이트 간 - 인증서 인증
 
 이 섹션은 Resource Manager 배포 모델에 적용됩니다.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="point-to-site-using-radius-authentication"></a><a name="P2SRADIUS"></a>RADIUS 인증을 사용하는 지점 및 사이트 간 연결
+## <a name="point-to-site---radius-authentication"></a><a name="P2SRADIUS"></a>지점 및 사이트 간 - RADIUS 인증
 
 이 섹션은 Resource Manager 배포 모델에 적용됩니다.
 
@@ -219,6 +221,10 @@ ExpressRoute에 연결된 분기와 사이트 간 VPN 연결에 연결된 분기
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>다중 사이트 VPN을 사용하여 내 가상 네트워크와 온-프레미스 사이트 간에 여러 터널을 구성할 수 있습니까?
 
 예, 하지만 두 터널의 BGP를 동일한 위치로 구성해야 합니다.
+
+### <a name="does-azure-vpn-gateway-honor-as-path-prepending-to-influence-routing-decisions-between-multiple-connections-to-my-on-premises-sites"></a>Azure VPN Gateway는 내 온-프레미스 사이트에 대한 여러 연결 간의 라우팅 결정에 도움이 되도록 추가된 AS 경로를 적용하나요?
+
+예. Azure VPN 게이트웨이는 BGP를 사용할 때 라우팅 결정을 내리는 데 도움이 되도록 AS 경로 추가를 적용합니다. BGP 경로 선택에서는 더 짧은 AS 경로가 우선 적용됩니다.
 
 ### <a name="can-i-use-point-to-site-vpns-with-my-virtual-network-with-multiple-vpn-tunnels"></a>여러 VPN 터널을 포함하는 내 가상 네트워크에서 지점 및 사이트 간 VPN을 사용할 수 있습니까?
 
@@ -258,7 +264,7 @@ ExpressRoute에 연결된 분기와 사이트 간 VPN 연결에 연결된 분기
 
 ## <a name="virtual-network-faq"></a><a name="faq"></a>Virtual Network FAQ
 
-[Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)에서 추가적인 가상 네트워크 정보를 제공합니다.
+[Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)에서 추가적인 가상 네트워크 정보를 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

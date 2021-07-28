@@ -3,12 +3,12 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용한 VMware VM 및 물리적 서버와 Azure 간 재해 복구 지원이 요약되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c7f2d6ecd01959e239a1ab048018452b2ae5fc20
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 30c214e4268f12bad59755ffe92e22686e16e115
+ms.sourcegitcommit: 7f59e3b79a12395d37d569c250285a15df7a1077
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103495218"
+ms.lasthandoff: 06/02/2021
+ms.locfileid: "110784801"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -18,7 +18,7 @@ ms.locfileid: "103495218"
 - 재해 복구를 시도하려면 [자습서](tutorial-prepare-azure.md)를 따르세요.
 
 > [!NOTE]
-> Site Recovery는 원본 머신에 대한 재해 복구가 설정된 대상 지역에서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 원하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만, 실제 고객 데이터는 없습니다.
+> Site Recovery는 원본 머신에 대한 재해 복구가 설정된 대상 지역에서 고객 데이터를 이동하거나 저장하지 않습니다. 고객이 선택하는 경우 다른 지역에서 Recovery Services 자격 증명 모음을 선택할 수 있습니다. Recovery Services 자격 증명 모음에는 메타데이터가 포함되지만, 실제 고객 데이터는 없습니다.
 
 ## <a name="deployment-scenarios"></a>배포 시나리오
 
@@ -29,7 +29,7 @@ VMware VM의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**서버** | **Requirements** | **세부 정보**
+**서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 7.0 및 해당 버전의 후속 업데이트, 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용하는 것이 좋습니다.
 vSphere 호스트 | 버전 7.0 및 해당 버전의 후속 업데이트, 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행됩니다. [자세히 알아봅니다](vmware-physical-azure-config-process-server-overview.md).
@@ -93,7 +93,7 @@ Linux: CentOS | 5.2~5.11</b><br/> 6.1~6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3, 7.
 Ubuntu | Ubuntu 14.04* LTS 서버[(지원되는 커널 버전 검토)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS 서버[(지원되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS 서버[(지원되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS 서버[(지원되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> (*14.04.* x *, 16.04.* x *, 18.04.* x *, 20.04.* x* 버전 모두에 대한 지원 포함)
 Debian | Debian 7/Debian 8(7. *x*, 8. *x* 버전 모두에 대한 지원 포함), Debian 9(9.1~9.13에 대한 지원 포함, Debian 9.0 미지원), Debian 10[(지원되는 커널 버전 검토)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(지원되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1[(지원되는 커널 버전 검토)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [구성 서버에서 최신 모바일 에이전트 설치 관리자를 다운로드해야 합니다](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **참고**: 복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409/)  <br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행<br/><br/>8.1<br/>모든 UEK 커널 및 3.10.0-1062.* 이하 버전의 RedHat 커널에서의 실행은 [9.35](https://support.microsoft.com/help/4573888/)에서 지원되며 나머지 RedHat 커널은 [9.36](https://support.microsoft.com/help/4578241/)에서 지원됩니다.
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  <br/> Red Hat 호환 커널 또는 UEK(Unbreakable Enterprise Kernel Release) 3, 4 및 5를 실행<br/><br/>8.1<br/>모든 UEK 커널 및 3.10.0-1062.* 이하 버전의 RedHat 커널에서의 실행은 [9.35](https://support.microsoft.com/help/4573888/)에서 지원되며 나머지 RedHat 커널은 [9.36](https://support.microsoft.com/help/4578241/)에서 지원됩니다.
 
 > [!Note]
 >- 각 Windows 버전에 대해 Azure Site Recovery는 [LTSC(장기 서비스 채널)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) 빌드만 지원합니다.  현재는 [반기 채널](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) 릴리스가 지원되지 않습니다.
@@ -105,39 +105,40 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 --- | --- | --- |
 14.04 LTS | [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a), [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 3.13.0-24-generic에서 3.13.0-170-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-148-generic<br/>4.15.0-1023-azure에서 4.15.0-1045-azure |
 |||
+16.04 LTS | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.4.0-21-generic ~ 4.4.0-206-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic ~ 4.15.0-140-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure ~ 4.15.0-1111-azure|
 16.04 LTS | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.4.0-21-generic에서 4.4.0-201-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-133-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1106-azure|
 16.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.4.0-21-generic에서 4.4.0-197-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-128-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1102-azure |
 16.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.4.0-21-generic에서 4.4.0-194-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-123-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1098-azure|
 16.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.4.0-21-generic에서 4.4.0-190-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-118-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1096-azure|
-16.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.4.0-21-generic에서 4.4.0-189-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic에서 4.15.0-115-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0-1093-azure |
 |||
+18.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.15.0-20-generic ~ 4.15.0-140-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic에서 5.0.0-65-generic </br> 5.3.0-19-generic ~ 5.3.0-72-generic </br> 5.4.0-37-generic ~ 5.4.0-70-generic </br> 4.15.0-1009-azure ~ 4.15.0-1111-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0-1035-azure </br> 5.4.0-1020-azure ~ 5.4.0-1043-azure|
 18.04 LTS | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.15.0-20-generic에서 4.15.0-135-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic에서 5.0.0-65-generic </br> 5.3.0-19-generic에서 5.3.0-70-generic </br> 5.4.0-37-generic에서 5.4.0-59-generic</br> 5.4.0-60-generic에서 5.4.0-65-generic </br> 4.15.0-1009-azure에서 4.15.0-1106-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0-1035-azure </br> 5.4.0-1020-azure에서 5.4.0-1039-azure|
 18.04 LTS | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.15.0-20-generic에서 4.15.0-129-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic에서 5.0.0-63-generic </br> 5.3.0-19-generic에서 5.3.0-69-generic </br> 5.4.0-37-generic에서 5.4.0-59-generic</br> 4.15.0-1009-azure에서 4.15.0-1103-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0-1035-azure </br> 5.4.0-1020-azure에서 5.4.0-1035-azure|
 18.04 LTS | [9.39](https://support.microsoft.com/help/4597409/) | 4.15.0-20-generic에서 4.15.0-123-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic에서 5.0.0-63-generic </br> 5.3.0-19-generic에서 5.3.0-69-generic </br> 5.4.0-37-generic에서 5.4.0-53-generic</br> 4.15.0-1009-azure에서 4.15.0-1099-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0-1035-azure </br> 5.4.0-1020-azure에서 5.4.0-1031-azure|
 18.04 LTS | [9.38](https://support.microsoft.com/help/4590304/) | 4.15.0-20-generic에서 4.15.0-118-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic에서 5.0.0-61-generic </br> 5.3.0-19-generic에서 5.3.0-67-generic </br> 5.4.0-37-generic에서 5.4.0-48-generic</br> 4.15.0-1009-azure에서 4.15.0-1096-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0-1035-azure </br> 5.4.0-1020-azure에서 5.4.0-1026-azure|
-18.04 LTS | [9.37](https://support.microsoft.com/help/4582666/) | 4.15.0-20-generic에서 4.15.0-115-generic </br> 4.18.0-13-generic에서 4.18.0-25-generic </br> 5.0.0-15-generic에서 5.0.0-60-generic </br> 5.3.0-19-generic에서 5.3.0-66-generic </br> 5.4.0-37-generic에서 5.4.0-45-generic</br> 4.15.0-1009-azure에서 4.15.0-1093-azure </br> 4.18.0-1006-azure에서 4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0-1036-azure </br> 5.3.0-1007-azure에서 5.3.0-1035-azure </br> 5.4.0-1020-azure에서 5.4.0-1023-azure|
 |||
+20.04 LTS |[9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)| 5.4.0-26-generic ~ 5.4.0-60-generic </br> -generic 5.4.0-1010-azure ~ 5.4.0-1043-azure </br> 5.8.0-29-generic ~ 5.8.0-48-generic|
 20.04 LTS |[9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)| 5.4.0-26-generic에서 5.4.0-65 </br> -generic 5.4.0-1010-azure에서 5.4.0-1039-azure </br> 5.8.0-29-generic에서 5.8.0-43-generic </br>
 20.04 LTS |[9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)| 5.4.0-26-generic에서 5.4.0-59 </br> -generic 5.4.0-1010-azure에서 5.4.0-1035-azure </br> 5.8.0-29-generic에서 5.8.0-34-generic|
 20.04 LTS |[9.39](https://support.microsoft.com/help/4597409/) | 5.4.0-26-generic에서 5.4.0-53 </br> -generic 5.4.0-1010-azure에서 5.4.0-1031-azure
 20.04 LTS |[9.38](https://support.microsoft.com/help/4590304/) | 5.4.0-26-generic에서 5.4.0-48 </br> -generic 5.4.0-1010-azure에서 5.4.0-1026-azure
-20.04 LTS |[9.37](https://support.microsoft.com/help/4582666/) | 5.4.0-26-generic에서 5.4.0-45 </br> -generic 5.4.0-1010-azure에서 5.4.0-1023-azure
 
 ### <a name="debian-kernel-versions"></a>Debian 커널 버전
 
 
 **지원되는 릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-Debian 7 | [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a), [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a), [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533), [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | [9.37](https://support.microsoft.com/help/4582666/), [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a), [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 3.16.0-4-amd64에서 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.11-amd64 |
+Debian 8 | [9.38](https://support.microsoft.com/help/4590304/), [9.39](https://support.microsoft.com/help/4597409/), [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a), [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533), [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 3.16.0-4-amd64에서 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.11-amd64 |
 |||
+Debian 9.1 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.9.0-1-amd64 ~ 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 ~ 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 ~ 4.19.0-0.bpo.16-cloud-amd64
 Debian 9.1 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.9.0-1-amd64에서 4.9.0-14-amd64 </br> 4.19.0-0.bpo.1-amd64에서 4.19.0-0.bpo.14-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64에서 4.19.0-0.bpo.14-cloud-amd64
 Debian 9.1 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.9.0-1-amd64에서 4.9.0-14-amd64 </br> 4.19.0-0.bpo.1-amd64에서 4.19.0-0.bpo.13-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64에서 4.19.0-0.bpo.13-cloud-amd64 </br>
 Debian 9.1 | [9.39](https://support.microsoft.com/help/4597409/) | 4.9.0-1-amd64에서 4.9.0-14-amd64 </br> 4.19.0-0.bpo.1-amd64에서 4.19.0-0.bpo.12-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64에서 4.19.0-0.bpo.12-cloud-amd64 </br> 
 Debian 9.1 | [9.38](https://support.microsoft.com/help/4590304/) | 4.9.0-1-amd64에서 4.9.0-13-amd64 </br> 4.19.0-0.bpo.1-amd64에서 4.19.0-0.bpo.11-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64에서 4.19.0-0.bpo.11-cloud-amd64 </br> 
-Debian 9.1 | [9.37](https://support.microsoft.com/help/4582666/) | 4.9.0-3-amd64에서 4.9.0-13-amd64, 4.19.0-0.bpo.6-amd64에서 4.19.0-0.bpo.10-amd64, 4.19.0-0.bpo.6-cloud-amd64에서 4.19.0-0.bpo.10-cloud-amd64
 |||
+Debian 10 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 4.19.0-5-amd64 ~ 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 ~ 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
 Debian 10 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 4.19.0-5-amd64에서 4.19.0-14-amd64 </br> 4.19.0-6-cloud-amd64에서 4.19.0-14-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
 Debian 10 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 4.19.0-5-amd64에서 4.19.0-13-amd64 </br> 4.19.0-6-cloud-amd64에서 4.19.0-13-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
 
@@ -145,21 +146,21 @@ Debian 10 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-fo
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12(SP1,SP2,SP3,SP4, SP5) | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8) | 모든 [스톡 SUSE 12 SP1,SP2,SP3,SP4, SP5 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.43-azure </br> 4.12.14-16.7-azure ~ 4.12.14-16.47-azure |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3,SP4, SP5) | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533) | 모든 [스톡 SUSE 12 SP1,SP2,SP3,SP4, SP5 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.43-azure </br> 4.12.14-16.7-azure에서 4.12.14-16.44-azure |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3,SP4, SP5) | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a) | 모든 [스톡 SUSE 12 SP1,SP2,SP3,SP4, SP5 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.43-azure </br> 4.12.14-16.7-azure에서 4.12.14-16.38-azure|
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3,SP4, SP5) | [9.39](https://support.microsoft.com/help/4597409/) | 모든 [스톡 SUSE 12 SP1,SP2,SP3,SP4, SP5 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.43-azure </br> 4.12.14-16.7-azure에서 4.12.14-16.34-azure |
 SUSE Linux Enterprise Server 12(SP1,SP2,SP3,SP4, SP5) | [9.38](https://support.microsoft.com/help/4590304/) | 모든 [스톡 SUSE 12 SP1,SP2,SP3,SP4, SP5 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.43-azure </br> 4.12.14-16.7-azure에서 4.12.14-16.28-azure |
-SUSE Linux Enterprise Server 12(SP1,SP2,SP3,SP4, SP5) | [9.37](https://support.microsoft.com/help/4582666/),  | 모든 [스톡 SUSE 12 SP1,SP2,SP3,SP4, SP5 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.4.138-4.7-azure에서 4.4.180-4.31-azure</br>4.12.14-6.3-azure에서 4.12.14-6.43-azure </br> 4.12.14-16.7-azure에서 4.12.14-16.22-azure  |
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 지원 커널 버전
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 15, SP1, SP2 | [9.42](https://support.microsoft.com/en-us/topic/update-rollup-55-for-azure-site-recovery-kb5003408-b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8)  | 기본적으로 모든 [스톡 SUSE 15, SP1, SP2 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure에서 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure ~ 5.3.18-18.38-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.41](https://support.microsoft.com/en-us/topic/update-rollup-54-for-azure-site-recovery-50873c7c-272c-4a7a-b9bb-8cd59c230533)  | 기본적으로 모든 [스톡 SUSE 15, SP1, SP2 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure에서 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure에서 5.3.18-18.35-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.40](https://support.microsoft.com/en-us/topic/update-rollup-53-for-azure-site-recovery-060268ef-5835-bb49-7cbc-e8c1e6c6e12a)  | 기본적으로 모든 [스톡 SUSE 15, SP1, SP2 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure에서 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure에서 5.3.18-18.29-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.39](https://support.microsoft.com/help/4597409/)  | 기본적으로 모든 [스톡 SUSE 15, SP1, SP2 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure에서 4.12.14-8.47-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure에서 5.3.18-18.21-azure
 SUSE Linux Enterprise Server 15, SP1, SP2 | [9.38](https://support.microsoft.com/help/4590304/)  | 기본적으로 모든 [스톡 SUSE 15, SP1, SP2 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure에서 4.12.14-8.44-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure에서 5.3.18-18.18-azure
-SUSE Linux Enterprise Server 15 및 15 SP1 | [9.37](https://support.microsoft.com/help/4582666/)  | 기본적으로 모든 [스톡 SUSE 15, SP1, SP2 커널](https://www.suse.com/support/kb/doc/?id=000019587)이 지원됩니다.</br></br> 4.12.14-5.5-azure에서 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure에서 4.12.14-8.38-azure
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 스토리지
 
@@ -233,6 +234,7 @@ Docker 디스크 구성 | 예
 게스트/서버 VMDK | 예
 게스트/서버 공유 클러스터 디스크 | 예
 게스트/서버 암호화된 디스크 | 예
+FIPS 암호화 | 예
 게스트/서버 NFS | 예
 게스트/서버 iSCSI | 마이그레이션의 경우 - 예<br/>재해 복구의 경우 - 아니요, iSCSI는 VM에 연결된 디스크로 장애 복구(failback)합니다.
 게스트/서버 SMB 3.0 | 예
@@ -292,7 +294,7 @@ HUB | 예
 
 Azure로 복제된 온-프레미스 VM은 이 표에 요약된 Azure VM 요구 사항을 충족해야 합니다. Site Recovery에서 복제에 대한 필수 구성 요소 검사를 실행할 때 일부 요구 사항이 충족되지 않으면 실패합니다.
 
-**구성 요소** | **Requirements** | **세부 정보**
+**구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
 게스트 운영 체제 | 복제된 컴퓨터에 대해 [지원되는 운영 체제](#replicated-machines)를 확인합니다. | 지원되지 않는 경우 확인이 실패합니다.
 게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.
@@ -301,9 +303,9 @@ Azure로 복제된 온-프레미스 VM은 이 표에 요약된 Azure VM 요구 �
 데이터 디스크 수 | 64개 이하. | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 크기 | 관리 디스크(9.41 버전 이상)에 복제하는 경우 최대 32,767GB<br> 스토리지 계정으로 복제하는 경우 최대 4,095GB </br> 최소 디스크 크기 요구 사항 - 1,024MB 이상| 지원되지 않는 경우 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
-공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
-FC 디스크 | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.
-BitLocker | 지원되지 않습니다. | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다. |
+공유 VHD | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
+FC 디스크 | 지원 안 됨 | 지원되지 않는 경우 확인이 실패합니다.
+BitLocker | 지원 안 됨 | 컴퓨터의 복제를 사용하도록 설정하기 전에 Bitlocker를 사용하지 않도록 설정해야 합니다. |
 VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으로 제한됩니다.<br/><br/> 컴퓨터 이름은 문자 또는 숫자로 시작하고 끝나야 합니다. |  Site Recovery에서 컴퓨터 속성의 값을 업데이트합니다.
 
 ## <a name="resource-group-limits"></a>리소스 그룹 제한

@@ -1,14 +1,15 @@
 ---
 title: Connected Machine 에이전트 개요
 description: 이 문서에서는 하이브리드 환경에서 호스트되는 가상 머신의 모니터링을 지원하는 Azure Arc 지원 서버 에이전트에 대한 자세한 개요를 제공합니다.
-ms.date: 03/25/2021
+ms.date: 06/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3d5c3640147a9c23fb05c0156edf012815466189
+ms.sourcegitcommit: bd65925eb409d0c516c48494c5b97960949aee05
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105609237"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111538219"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Azure Arc 지원 서버 에이전트 개요
 
@@ -16,6 +17,9 @@ Azure Arc 지원 서버의 연결된 머신 에이전트를 사용하면 Azure �
 
 >[!NOTE]
 >2020년 9월에 제공된 Azure Arc 지원 서버의 일반 출시 이후로 Azure Connected Machine 에이전트의 모든 사전 릴리스 버전(1.0 미만 에이전트 버전)은 **2021년 2월 2일** 부터 **더 이상 사용되지 않습니다**.  이 시간 프레임을 사용하면 미리 릴리스된 에이전트에서 Azure Arc 지원 서버 서비스와 더 이상 통신할 수 없으므로 버전 1.0 이상으로 업그레이드할 수 있습니다.
+
+>[!NOTE]
+> 현재 미리 보기로 제공되는 [AMA(Azure Monitor 에이전트)](../../azure-monitor/agents/azure-monitor-agent-overview.md)는 연결된 머신 에이전트를 대체하지 않습니다. Azure Monitor 에이전트는 Windows 및 Linux 머신 모두에 대한 Log Analytics 에이전트, 진단 확장 및 Telegraf 에이전트를 대체합니다. 자세한 내용은 새 에이전트에 대한 Azure Monitor 설명서를 검토하세요.
 
 ## <a name="agent-component-details"></a>에이전트 구성 요소 세부 정보
 
@@ -39,16 +43,19 @@ Azure Connected Machine 에이전트 패키지에는 여러 개의 논리적 구
 
 Connected Machine에 대한 메타데이터 정보는 Connected Machine 에이전트에서 Arc 지원 서버를 등록한 후에 수집됩니다. 특히:
 
-* 운영 체제 이름, 유형 및 버전
+* 운영 체제 이름, 형식 및 버전
 * 컴퓨터 이름
+* 컴퓨터 제조업체 및 모델
 * 컴퓨터 FQDN(정규화된 도메인 이름)
 * Connected Machine 에이전트 버전
 * Active Directory 및 DNS FQDN(정규화된 도메인 이름)
 * UUID(BIOS ID)
 * Connected Machine 에이전트 하트비트
 * Connected Machine 에이전트 버전
-* 관리 ID에 대한 퍼블릭 키
-* 정책 준수 상태 및 세부 정보(Azure Policy 게스트 구성 정책을 사용하는 경우)
+* 관리 ID에 대한 공개 키
+* 정책 규정 준수 상태 및 세부 정보(Azure Policy 게스트 구성 정책을 사용하는 경우)
+* SQL Server 설치(부울 값)
+* 클러스터 리소스 ID(Azure Stack HCI 노드의 경우) 
 
 다음 메타데이터 정보는 Azure의 에이전트에서 요청합니다.
 
@@ -79,16 +86,27 @@ Arc 지원 서버는 Azure *외부* 에서 호스트되는 모든 물리적 서�
 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다.
 
-- Windows Server 2008 R2, Windows Server 2012 R2 이상(Server Core 포함)
-- Ubuntu 16.04 및 18.04 LTS(x64)
-- CentOS Linux 7(x64)
-- SLES(SUSE Linux Enterprise Server) 15(x64)
-- RHEL(Red Hat Enterprise Linux) 7(x64)
+- Windows Server 2008 R2 SP1, Windows Server 2012 R2 이상(Server Core 포함)
+- Ubuntu 16.04, 18.04 및 20.04 LTS(x64)
+- CentOS Linux 7 및 8(x64)
+- SLES(SUSE Linux Enterprise Server) 12 및 15(x64)
+- RHEL(Red Hat Enterprise Linux) 7 및 8(x64)
 - Amazon Linux 2(x64)
 - Oracle Linux 7
 
 > [!WARNING]
 > Linux 호스트 이름 또는 Windows 컴퓨터 이름은 이름에 예약된 단어나 상표 중 하나를 사용할 수 없습니다. 그렇지 않으면 Azure에 연결된 컴퓨터를 등록하려고 하면 실패합니다. 예약된 단어 목록은 [예약된 리소스 이름 오류 해결](../../azure-resource-manager/templates/error-reserved-resource-name.md)을 참조하세요.
+
+> [!NOTE]
+> Arc 지원 서버는 Amazon Linux를 지원하지만 다음에서는 이 배포를 지원하지 않습니다.
+> * Azure Monitor가 사용하는 에이전트(즉, Log Analytics 및 종속성 에이전트)
+> * Azure Automation 업데이트 관리
+> * VM 인사이트
+
+### <a name="software-requirements"></a>소프트웨어 요구 사항
+
+* NET Framework 4.6 이상이 필요합니다. [.NET Framework를 다운로드](/dotnet/framework/install/guide-for-developers)합니다.
+* Windows PowerShell 5.1이 필요합니다. [Windows Management Framework 5.1을 다운로드](https://www.microsoft.com/download/details.aspx?id=54616)합니다.
 
 ### <a name="required-permissions"></a>필요한 사용 권한
 
@@ -129,6 +147,7 @@ Linux 및 Windows용 Connected Machine 에이전트는 TCP 포트 443을 통해 
 * AzureTrafficManager
 * AzureResourceManager
 * AzureArcInfrastructure
+* 스토리지
 
 URL:
 
@@ -140,7 +159,7 @@ URL:
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |게스트 구성|
 |`*.his.arc.azure.com`|하이브리드 ID 서비스|
-|`www.office.com`|Office 365|
+|`*.blob.core.windows.net`|Arc 지원 서버 확장에 대한 원본 다운로드|
 
 Preview 에이전트(버전 0.11 이하)에서도 다음 URL에 액세스할 수 있어야 합니다.
 
@@ -275,7 +294,7 @@ Linux용 Connected Machine 에이전트를 설치하면 다음과 같은 시스�
     |서비스 이름 |표시 이름 |프로세스 이름 |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Azure Connected Machine 에이전트 서비스 |himds |이 서비스는 Azure 인스턴스 메타데이터 서비스(IMDS)를 구현하여 Azure 및 연결된 머신의 Azure ID에 대한 연결을 관리합니다.|
-    |gcad.servce |GC Arc 서비스 |gc_linux_service |컴퓨터의 필요한 상태 구성을 모니터링합니다. |
+    |gcad.service |GC Arc 서비스 |gc_linux_service |컴퓨터의 필요한 상태 구성을 모니터링합니다. |
     |extd.service |확장 서비스 |gc_linux_service | 머신을 대상으로 하는 필수 확장을 설치합니다.|
 
 * 문제 해결에 사용할 수 있는 로그 파일이 여러 개 있습니다. 이 내용은 다음 표에 설명되어 있습니다.

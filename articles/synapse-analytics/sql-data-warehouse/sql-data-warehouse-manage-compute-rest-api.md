@@ -11,16 +11,19 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: c04f61aaef5f5072ce0fb39ff111ba07ee151700
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: aab2897b4042657492d04494b589fbaa2605cc6d
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100375904"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886787"
 ---
 # <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)을 위한 REST API
 
 Azure Synapse Analytics의 전용 SQL 풀(이전의 SQL DW)에 대한 컴퓨팅 관리를 위한 REST API
+
+> [!NOTE]
+> 이 문서에 설명된 REST API는 Azure Synapse Analytics 작업 영역에서 만든 전용 SQL 풀에 적용할 수 없습니다. Azure Synapse Analytics 작업 영역에 특별히 사용할 REST API에 대한 자세한 내용은 [Azure Synapse analytics 작업 영역 REST API](/rest/api/synapse/)를 참조하세요.
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
 

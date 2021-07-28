@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/04/2020
+ms.date: 05/06/2021
 ms.author: victorh
-ms.openlocfilehash: 52c6ef9edfc42bf1ad3b3279e0fa4e19b4cf502c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4c3b33400340fc4dd13e74437aa9fddf6921e710
+ms.sourcegitcommit: 2cb7772f60599e065fff13fdecd795cce6500630
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98788267"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108804505"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭 모니터링
 
@@ -39,13 +39,12 @@ ms.locfileid: "98788267"
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
-   * AzureFirewallThreatIntelLog
    * AzureFirewallDnsProxy
 
 
 3. **진단 설정 추가** 를 선택합니다. **진단 설정** 페이지에서는 진단 로그에 대한 설정을 제공합니다.
 5. 이 예제에서 Azure Monitor 로그가 로그를 저장하므로 이름에 **방화벽 로그 분석** 을 입력합니다.
-6. **로그** 에서 **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog** 및 **AzureFirewallDnsProxy** 를 선택하여 로그를 수집합니다.
+6. **로그** 에서 **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule** 및 **AzureFirewallDnsProxy** 를 선택하여 로그를 수집합니다.
 7. **로그 분석에 보내기** 를 선택하여 작업 영역을 구성합니다.
 8. 구독을 선택합니다.
 9. **저장** 을 선택합니다.
@@ -60,19 +59,19 @@ PowerShell을 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 
    구독의 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 로깅을 사용할 방화벽의 리소스 ID를 적어 둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
+2. 방화벽의 리소스 ID를 적어둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
 
    포털을 사용하여 이 정보를 찾을 수 있습니다.
 
 3. 다음 PowerShell cmdlet을 사용하여 모든 로그 및 메트릭에 대해 진단 로깅을 사용하도록 설정합니다.
 
-   ```powershell
-   $diagSettings = @{
+   ```azurepowershell
+      $diagSettings = @{
       Name = 'toLogAnalytics'
       ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
       Enabled = $true
-   }
+      }
    Set-AzDiagnosticSetting  @diagSettings 
    ```
 
@@ -86,14 +85,14 @@ Azure CLI를 사용하여 진단 로깅을 사용하도록 설정하려면 다�
 
    구독의 모든 작업 영역을 사용할 수 있습니다. Azure Portal을 사용하여 이 정보를 찾을 수 있습니다. 정보는 리소스 **속성** 페이지에 있습니다.
 
-2. 로깅을 사용할 방화벽의 리소스 ID를 적어 둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
+2. 방화벽의 리소스 ID를 적어둡니다. 이 값의 형식은 `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`입니다.
 
    포털을 사용하여 이 정보를 찾을 수 있습니다.
 
 3. 다음 Azure CLI 명령을 사용하여 모든 로그 및 메트릭에 대해 진단 로깅을 사용하도록 설정합니다.
 
-   ```azurecli-interactive
-   az monitor diagnostic-settings create -n 'toLogAnalytics'
+   ```azurecli
+      az monitor diagnostic-settings create -n 'toLogAnalytics'
       --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
       --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
       --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
@@ -122,12 +121,12 @@ Azure Firewall 로그 분석 샘플 쿼리는 [Azure Firewall 로그 분석 샘�
 > Visual Studio를 익숙하게 사용할 수 있고 C#에서 상수 및 변수에 대한 값 변경에 대한 기본 개념이 있는 경우 GitHub에서 제공하는 [로그 변환기 도구](https://github.com/Azure-Samples/networking-dotnet-log-converter)를 사용할 수 있습니다.
 
 ## <a name="view-metrics"></a>메트릭 보기
-Azure Firewall로 이동하여 **모니터링** 에서 **메트릭** 을 선택합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
+Azure Firewall로 이동합니다. **모니터링** 아래에서 **메트릭** 을 선택합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 로그를 수집하도록 방화벽을 구성했으므로 Azure Monitor 로그를 살펴보고 데이터를 볼 수 있습니다.
 
-[Azure Firewall 통합 문서를 사용하여 로그 모니터링](firewall-workbook.md)
+- [Azure Firewall 통합 문서를 사용하여 로그 모니터링](firewall-workbook.md)
 
-[Azure Monitor 로그의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)
+- [Azure Monitor 로그의 네트워킹 모니터링 솔루션](../azure-monitor/insights/azure-networking-analytics.md)

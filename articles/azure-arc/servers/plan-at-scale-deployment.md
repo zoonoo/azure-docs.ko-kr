@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 지원 서버를 계획하고 배포하는 방법
 description: Azure Arc 지원 서버에서 많은 수의 머신을 사용하도록 설정하여 Azure에서 필수적인 보안, 관리, 모니터링 기능의 구성을 간소화하는 방법을 알아봅니다.
-ms.date: 03/18/2021
+ms.date: 04/21/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5aa7022dba943fa3de247404522408f4660e80e3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3f8fe410da56f627ceab5f17c980f2daa1a262c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105023285"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831981"
 ---
 # <a name="plan-and-deploy-arc-enabled-servers"></a>Arc 지원 서버 계획 및 배포
 
@@ -19,7 +19,7 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 * 역할 및 책임
 * 네트워크 및 시스템 요구 사항을 충족하는지 확인하기 위한 물리적 서버 또는 가상 머신의 인벤토리
 * 성공적인 배포 및 지속적인 관리를 가능하게 하기 위해 필요한 기술 집합 및 교육
-* 수용 기준 및 성공을 추적하는 방법
+* 수용 기준 및 성공 추적 방법
 * 배포를 자동화하는 데 사용할 도구 또는 방법
 * 지연, 중단 등을 방지하기 위한 위험 식별 및 완화 계획
 * 배포 시에 중단을 방지하는 방법
@@ -83,7 +83,7 @@ IT 인프라 서비스나 비즈니스 애플리케이션을 배포하는 것은
 |-----|-------|---------|
 |Resource Health 경고 만들기 |서버에서 Azure로의 하트비트 전송을 15분 이상 중지하는 경우에는 오프라인 상태이거나, 네트워크 연결이 차단되었거나, 에이전트가 실행 중이지 않을 수 있습니다. 해당 인시던트에 응답하고 인시던트를 조사하는 방법에 대한 계획을 수립하고 [Resource Health 경고](../..//service-health/resource-health-alert-monitor-guide.md)를 사용하여 시작 시 알림을 받을 수 있습니다.<br><br> 경고를 구성할 때 다음을 지정합니다.<br> **리소스 종류** = **Azure Arc 지원 서버**<br> **현재 리소스 상태** = **사용할 수 없음**<br> **이전 리소스 상태** = **사용 가능함** | 1시간 |
 |Azure Advisor 경고 만들기 | 최상의 경험과 최신 보안 및 버그 수정을 위해 Azure Arc 지원 서버 에이전트를 최신 상태로 유지하는 것이 좋습니다. 만료된 에이전트는 [Azure Advisor 경고](../../advisor/advisor-alerts-portal.md)로 식별됩니다.<br><br> 경고를 구성할 때 다음을 지정합니다.<br> **권장 형식** = **최신 버전 Azure Connected Machine Agent로 업그레이드** | 1시간 |
-|구독 또는 리소스 그룹 범위에 [Azure 정책 할당](../../governance/policy/assign-policy-portal.md) |구독 또는 리소스 그룹 범위에 **VM용 Azure Monitor 사용 설정** [정책](../../azure-monitor/vm/vminsights-enable-policy.md)(및 요구를 충족하는 다른 항목)을 할당합니다. Azure Policy를 사용하면 환경에서 VM용 Azure Monitor에 필요한 에이전트를 설치하는 정책 정의를 할당할 수 있습니다.| 상황에 따라 다름 |
+|구독 또는 리소스 그룹 범위에 [Azure 정책 할당](../../governance/policy/assign-policy-portal.md) |구독 또는 리소스 그룹 범위에 **VM용 Azure Monitor 사용 설정** [정책](../../azure-monitor/vm/vminsights-enable-policy.md)(및 요구를 충족하는 다른 항목)을 할당합니다. Azure Policy를 사용하면 환경 전반에 걸쳐 VM 인사이트에 필요한 에이전트를 설치하는 정책 정의를 할당할 수 있습니다.| 상황에 따라 다름 |
 |[Arc 지원 서버에 대한 업데이트 관리 사용](../../automation/update-management/enable-from-automation-account.md) |Azure Automation의 업데이트 관리를 구성하여 Azure 지원 서버로 등록된 Windows 및 Linux 가상 머신의 운영 체제 업데이트를 관리합니다. | 15분 |
 
 ## <a name="next-steps"></a>다음 단계

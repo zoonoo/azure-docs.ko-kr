@@ -1,38 +1,39 @@
 ---
-title: Azure PowerShell를 사용 하 여 일반화 된 이미지에서 확장 집합 만들기
-description: PowerShell을 사용 하 여 공유 이미지 갤러리에서 일반화 된 이미지를 사용 하 여 확장 집합을 만듭니다.
+title: Azure PowerShell을 사용하여 일반화 이미지에서 확장 집합 만들기
+description: PowerShell을 사용하여 Shared Image Gallery에서 일반화 이미지를 사용하는 확장 집합을 만듭니다.
 author: cynthn
 ms.service: virtual-machine-scale-sets
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.reviewer: akjosh
-ms.openlocfilehash: 9edade1aa54d6f4f8160a107f84e6da2e6cf316e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.reviewer: mimckitt
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c202b8b2d4535afd96ffad1806460c3cf43e34b6
+ms.sourcegitcommit: c05e595b9f2dbe78e657fed2eb75c8fe511610e7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98878022"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112028040"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>PowerShell을 사용 하 여 일반화 된 이미지에서 확장 집합 만들기 
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>PowerShell을 사용하여 일반화 이미지에서 확장 집합 만들기 
 
-[공유 이미지 갤러리](../virtual-machines/shared-image-galleries.md)에 저장 된 일반화 된 이미지 버전에서 VM을 만듭니다. 특수 이미지를 사용 하 여 확장 집합을 만들려면 [특수화 된 이미지에서 확장 집합 인스턴스 만들기](instance-specialized-image-version-powershell.md)를 참조 하세요.
+[Shared Image Gallery](../virtual-machines/shared-image-galleries.md)에 저장된 일반화 이미지 버전에서 VM을 만듭니다. 특수화 이미지를 사용하여 확장 집합을 만들려면 [특수화 이미지에서 확장 집합 인스턴스 만들기](instance-specialized-image-version-powershell.md)를 참조하세요.
 
-일반화 된 이미지를 사용 하는 경우 [AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet을 사용 하 여 가상 머신 확장 집합을 만들 수 있습니다. 
+일반화 이미지를 사용하는 경우 [New-AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet을 사용하여 가상 머신 확장 집합을 만들 수 있습니다. 
 
-이 예제에서는 이미지 정의 ID를 사용 하 여 새 VM에서 최신 버전의 이미지를 사용 하는지 확인 합니다. 의 이미지 버전 ID를 사용 하 여 특정 버전을 사용할 수도 있습니다 `-ImageReferenceId` . 예를 들어 이미지 버전 *1.0.0* 을 사용 하려면을 입력 `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"` 합니다. 
+이 예에서는 이미지 정의 ID를 사용하여 새 VM에서 최신 버전의 이미지를 사용할 수 있도록 합니다. `-ImageReferenceId`에 대한 이미지 버전 ID를 사용하여 특정 버전을 사용할 수도 있습니다. 예를 들어 이미지 버전 *1.0.0* 형식을 사용하려면 `-ImageReferenceId "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`을 입력합니다. 
 
-특정 이미지 버전을 사용 하면 특정 이미지 버전이 지역에서 삭제 되거나 제거 되어 해당 이미지 버전이 제공 되지 않는 경우 자동화가 실패할 수 있음을 의미 합니다. 특정 이미지 버전이 필요 하지 않는 한 새 VM을 만들기 위해 이미지 정의 ID를 사용 하는 것이 좋습니다.
-
-
-다음 예제에서는 *Myvmssrg* 리소스 그룹의 *SouthCentralUS* 위치에 *myScaleSet* 이라는 확장 집합을 만듭니다. 확장 집합은 *Myimagedefinition* 이미지에서 *myGalleryRG* 리소스 그룹의 *mygallery* 이미지 갤러리에 생성 됩니다. 메시지가 표시 되 면 확장 집합의 VM 인스턴스에 대해 고유한 관리 자격 증명을 설정 합니다.
+특정 이미지 버전이 지역에서 삭제되거나 제거되어 사용할 수 없는 경우, 해당 이미지 버전을 사용하면 자동화가 실패할 수 있습니다. 특정 이미지 버전이 필요하지 않은 경우 이미지 정의 ID를 사용하여 새 VM을 만드는 것이 좋습니다.
 
 
-## <a name="simplified-parameter-set"></a>단순화 된 매개 변수 집합
+다음 예제에서는 *SouthCentralUS* 위치의 *myVMSSRG* 리소스 그룹에서 *myScaleSet* 이라는 확장 집합을 만듭니다. 확장 집합은 *myGalleryRG* 리소스 그룹의 *myGallery* 이미지 갤러리에 있는 *myImageDefinition* 이미지에서 생성됩니다. 메시지가 표시되면 확장 집합에서 VM 인스턴스에 대해 사용자 고유의 관리 자격 증명을 설정합니다.
 
-최소 정보를 제공 하는 동시에 확장 집합을 신속 하 게 만들려면 간소화 된 매개 변수 집합을 사용 하 여 공유 이미지 갤러리 이미지에서 확장 집합을 만듭니다.
+
+## <a name="simplified-parameter-set"></a>간소화된 매개 변수 세트
+
+최소 정보를 제공하면서 확장 집합을 빠르게 만들려면 간소화된 매개 변수 세트를 사용하여 Shared Image Gallery 이미지에서 확장 집합을 만듭니다.
 
 ```azurepowershell-interactive
 $imageDefinition = Get-AzGalleryImageDefinition `
@@ -57,9 +58,9 @@ New-AzVmss `
 
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
-## <a name="extended-parameter-set"></a>확장 매개 변수 집합
+## <a name="extended-parameter-set"></a>확장된 매개 변수 세트
 
-이름 지정을 포함 하 여 모든 리소스에 대 한 모든 권한을 사용 하려면 전체 매개 변수 집합을 사용 하 여 공유 이미지 갤러리 이미지를 사용 하 여 확장 집합을 만듭니다. 
+이름 지정을 포함하여 모든 리소스를 완전히 제어하려면 전체 매개 변수 세트를 사용하여 Shared Image Gallery 이미지를 통해 확장 집합을 만듭니다. 
 
 ```azurepowershell-interactive
 # Get the image definition
@@ -173,12 +174,12 @@ New-AzVmss `
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 이미지 작성기 (미리 보기)](../virtual-machines/image-builder-overview.md) 는 이미지 버전 생성을 자동화 하는 데 도움이 될 수 있으며, [기존 이미지 버전에서 새 이미지 버전](../virtual-machines/linux/image-builder-gallery-update-image-version.md)을 업데이트 하 고 만드는 데에도 사용할 수 있습니다. 
+[Azure Image Builder(미리 보기)](../virtual-machines/image-builder-overview.md)는 이미지 버전 생성을 자동화하는 데 도움이 되며, [기존 이미지 버전에서 새 이미지를 생성](../virtual-machines/linux/image-builder-gallery-update-image-version.md)하고 업데이트하는 데도 사용할 수 있습니다. 
 
 또한 템플릿을 사용하여 공유 이미지 갤러리 리소스를 만들 수도 있습니다. 다음의 몇 가지 Azure 빠른 시작 템플릿을 사용할 수 있습니다. 
 
-- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
+- [공유 이미지 갤러리 만들기](https://azure.microsoft.com/resources/templates/sig-create/)
+- [공유 이미지 갤러리에서 이미지 정의 만들기](https://azure.microsoft.com/resources/templates/sig-image-definition-create/)
+- [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/sig-image-version-create/)
 
 공유 이미지 갤러리에 대한 자세한 내용은 [개요](../virtual-machines/shared-image-galleries.md)를 참조하세요. 문제 발생 시에는 [공유 이미지 갤러리 문제 해결](../virtual-machines/troubleshooting-shared-images.md)을 참조하세요.

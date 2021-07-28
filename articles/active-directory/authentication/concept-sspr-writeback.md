@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f416a23dbb47660097c41ada09c8c135434bcb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5b8f1404e95ed2ccceb8400fdabeff2d60b6706
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96743652"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108766118"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Azure Active Directory에서 셀프 서비스 암호 재설정 쓰기 저장의 작동 방식
 
@@ -140,7 +140,7 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
    * 모든 관리자 셀프 서비스 강제 암호 변경 작업(예: 암호 만료)
    * [암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 시작되는 모든 관리자 셀프 서비스 암호 재설정
    * [Azure Portal](https://portal.azure.com)에서 관리자 시작 최종 사용자 암호 재설정
-   * [Microsoft Graph API 베타](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta)에서 관리자 시작 최종 사용자 암호 재설정
+   * [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http)에서 관리자 시작 최종 사용자 암호를 재설정합니다.
 
 ## <a name="unsupported-writeback-operations"></a>지원되지 않는 쓰기 저장 작업
 
@@ -149,7 +149,7 @@ SSPR 쓰기 저장을 시작하려면 다음 자습서를 완료하세요.
 * **지원되지 않는 최종 사용자 작업**
    * PowerShell 버전 1, 버전 2 또는 Microsoft Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
-   * PowerShell 버전 1, 버전 2 또는 Microsoft Graph API에서 관리자 시작 최종 사용자 암호 재설정([Microsoft Graph API 베타](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http&view=graph-rest-beta) 지원됨)
+   * PowerShell 버전 1 또는 버전 2에서 관리자 시작 최종 사용자 암호를 재설정합니다.
    * [Microsoft 365 관리 센터](https://admin.microsoft.com)에서 관리자 시작 최종 사용자 암호 재설정
    * 모든 관리자는 암호 재설정 도구를 사용하여 암호 쓰기 저장에 대한 암호를 재설정할 수 없음
 

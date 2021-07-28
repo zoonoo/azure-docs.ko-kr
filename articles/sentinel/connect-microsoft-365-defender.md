@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
-ms.openlocfilehash: 6500805a4dc7e26f5e1bc601df9ea78279ae17e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 16cf1b89c2660d2505685fa931cc8b97ccb42a9b
+ms.sourcegitcommit: 18cd3c1c8cc47258c6a1a04e0e03d6248c52ef24
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101709345"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107992293"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Microsoft 365 Defender의 데이터를 Azure Sentinel에 연결
 
@@ -35,7 +35,7 @@ ms.locfileid: "101709345"
 
 인시던트 통합을 포함한 Azure Sentinel의 [M365D(Microsoft 365 Defender)](/microsoft-365/security/mtp/microsoft-threat-protection) 커넥터를 사용하면 모든 M365D 인시던트 및 경고를 Azure Sentinel로 스트리밍하고 두 포털 간에 인시던트를 동기화된 상태로 유지할 수 있습니다. M365D 인시던트는 모든 경고, 엔터티 및 기타 관련 정보를 포함하며, M365D 구성 요소 서비스 **Microsoft defender For Endpoint**, **Microsoft Defender for Identity**, **Office 365용 Microsoft Defender** 및 **Microsoft Cloud App Security** 에서 경고로 보강되고 그룹화됩니다.
 
-또한 커넥터를 통해 Microsoft Defender for Endpoint에서 Azure Sentinel로 **고급 헌팅** 이벤트를 스트리밍할 수 있으므로 MDE 고급 헌팅 쿼리를 Azure Sentinel로 복사하고 MDE 원시 이벤트 데이터를 사용하여 Sentinel 경고를 보강하여 추가 인사이트를 제공하고 더 늘어난 재방문 주기로 Log Analytics에 로그를 저장할 수 있습니다.
+또한 커넥터를 통해 Microsoft Defender for Endpoint에서 Azure Sentinel로 **고급 헌팅** 이벤트를 스트리밍할 수 있으므로 Defender for Endpoint 고급 헌팅 쿼리를 Azure Sentinel로 복사하고, Defender for Endpoint 원시 이벤트 데이터를 사용하여 Sentinel 경고를 보강하여 추가 인사이트를 제공하고, 더 늘어난 재방문 주기로 Log Analytics에 로그를 저장할 수 있습니다.
 
 인시던트 통합 및 고급 헌팅 이벤트 컬렉션에 대한 자세한 내용은 [Microsoft 365 Defender와 Azure Sentinel 통합](microsoft-365-defender-sentinel-integration.md)을 참조하세요.
 
@@ -43,7 +43,7 @@ ms.locfileid: "101709345"
 >
 > Microsoft 365 Defender connector는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Microsoft 365 defender 사전 요구 사항](/microsoft-365/security/mtp/prerequisites)에 설명된 대로 Microsoft 365 defender에 대한 유효한 라이선스가 있어야 합니다. 
 
@@ -60,7 +60,7 @@ ms.locfileid: "101709345"
     > [!NOTE]
     > Microsoft 365 Defender 커넥터를 사용하도록 설정하면 모든 M365D 구성 요소 커넥터(이 문서의 시작 부분에서 언급된 커넥터)가 백그라운드에서 자동으로 연결됩니다. 구성 요소 커넥터 중 하나의 연결을 끊으려면 먼저 Microsoft 365 Defender 커넥터와의 연결을 끊어야 합니다.
 
-1. M365 Defender 인시던트 데이터를 쿼리하려면 쿼리 창에서 다음 문을 사용합니다.
+1. Microsoft 365 Defender 인시던트 데이터를 쿼리하려면 쿼리 창에서 다음 명령문을 사용합니다.
     ```kusto
     SecurityIncident
     | where ProviderName == "Microsoft 365 Defender"
@@ -92,7 +92,7 @@ ms.locfileid: "101709345"
 
 커넥터 페이지의 데이터 그래프는 현재 데이터를 수집하고 있음을 나타냅니다. 인시던트, 경고 및 이벤트마다 한 줄씩 표시되며, 이벤트 줄은 사용하도록 설정된 모든 테이블에 있는 이벤트 볼륨의 집계입니다. 커넥터를 사용하도록 설정했으면 다음 KQL 쿼리를 사용하여 보다 구체적인 그래프를 생성할 수 있습니다.
 
-수신되는 M365 Defender 인시던트의 그래프에 대해 다음 KQL 쿼리를 사용합니다.
+수신되는 Microsoft 365 Defender 인시던트의 그래프에 대해 다음 KQL 쿼리를 사용합니다.
 
 ```kusto
 let Now = now(); 

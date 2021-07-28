@@ -1,14 +1,14 @@
 ---
 title: Service Bus 비동기 메시징 | Microsoft Docs
-description: 큐, 토픽 및 구독과 함께 저장소 및 전달 메커니즘을 통해 비동기를 지 원하는 Azure Service Bus 방법에 대해 알아봅니다.
+description: Azure Service Bus가 큐, 토픽 및 구독이 포함된 저장소 및 전달 메커니즘을 통해 비동기를 지원하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: e37c18b95bca7ef1e6e8f0d74976bb73b214624a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.date: 04/23/2021
+ms.openlocfilehash: 32fbbe997819de42eb63b4efd40024cce6087b96
+ms.sourcegitcommit: aba63ab15a1a10f6456c16cd382952df4fd7c3ff
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102500634"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107988823"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 
@@ -41,7 +41,7 @@ ms.locfileid: "102500634"
 Service Bus는 이런 문제에 대한 다양한 완화 방법을 포함합니다. 다음 섹션에서는 각 문제 및 해당 완화 방법을 설명합니다.
 
 ### <a name="throttling"></a>제한
-Service Bus로 제한을 사용하면 공동으로 메시지 속도를 관리할 수 있습니다. 각 개별 Service Bus 노드가 여러 엔터티가 있습니다. 이러한 각 엔터티는 CPU, 메모리, 스토리지 및 기타 측면에서 시스템에 요청을 만듭니다. 패싯이 정의된 임계값을 초과하는 사용을 감지하면 Service Bus는 지정된 요청을 거부할 수 있습니다. 호출자는 [ServerBusyException][ServerBusyException]를 수신하고 10 초 후에 다시 시도합니다.
+Service Bus로 제한을 사용하면 공동으로 메시지 속도를 관리할 수 있습니다. 각 개별 Service Bus 노드가 여러 엔터티가 있습니다. 이러한 각 엔터티는 CPU, 메모리, 스토리지 및 기타 측면에서 시스템에 요청을 만듭니다. 패싯이 정의된 임계값을 초과하는 사용을 감지하면 Service Bus는 지정된 요청을 거부할 수 있습니다. 호출자는 서버 사용 중 예외를 수신하고 10초 후에 다시 시도합니다.
 
 완화 방법으로 코드는 오류를 읽고 적어도 10초 동안 메시지의 다시 시도를 중단해야 합니다. 오류는 고객 애플리케이션의 조각에 발생할 수 있으므로 각 조각이 재시도 논리를 독립적으로 실행한다고 예상됩니다. 코드는 큐 또는 토픽에서 분할을 사용하여 제한될 가능성을 줄일 수 있습니다.
 
@@ -51,27 +51,10 @@ Azure 내의 다른 구성 요소에는 서비스 문제가 있는 경우도 있
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>단일 하위 시스템에서 Service Bus 오류
 애플리케이션의 경우 Service Bus의 내부 구성 요소가 일치하지 않는 상황이 발생할 수 있습니다. Service Bus가 이를 감지하는 경우 애플리케이션에서 데이터를 수집하여 상황을 진단하기 위해 지원합니다. 데이터가 수집되면 애플리케이션은 일관 된 상태로 반환하기 위해 다시 시작됩니다. 이 프로세스는 매우 신속하게 발생하고 엔터티가 최대 몇 분 동안 사용 불가 상태로 나타날 수 있지만 일반적인 가동 중지 시간은 훨씬 짧습니다.
 
-이러한 경우 클라이언트 애플리케이션은 [System.TimeoutException][System.TimeoutException] 또는 [MessagingException][MessagingException] 예외를 생성합니다. Service Bus는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [중단 및 재해 처리][handling outages and disasters]에 대한 문서에 언급된 다른 기능을 사용하여 검색할 수 있습니다.
+이러한 경우 클라이언트 애플리케이션은 시간 초과 예외 또는 메시징 예외를 생성합니다. Service Bus는 자동화된 클라이언트 다시 시도 논리의 형태로 이 문제에 대한 완화 방법을 포함합니다. 다시 시도 기간이 끝나고 메시지가 전달되지 않으면 [중단 및 재해 처리][handling outages and disasters]에 대한 문서에 언급된 다른 기능을 사용하여 검색할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 Service Bus에서 비동기 메시징의 기본 사항을 알아보았으므로 [중단 및 재해 처리][handling outages and disasters]에 대한 자세한 내용을 읽습니다.
 
-[ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
-[System.TimeoutException]: /dotnet/api/system.timeoutexception
-[MessagingException]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
 [Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
-[Microsoft.ServiceBus.Messaging.MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[MessageReceiver]: /dotnet/api/microsoft.servicebus.messaging.messagereceiver
-[QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
-[TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
-[Microsoft.ServiceBus.Messaging.PairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.pairednamespaceoptions
-[MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[NamespaceManager]: /dotnet/api/microsoft.servicebus.namespacemanager
-[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
-[EnableSyphon]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
-[System.TimeSpan.Zero]: /dotnet/api/system.timespan.zero
-[IsTransient]: /dotnet/api/microsoft.servicebus.messaging.messagingexception
-[UnauthorizedAccessException]: /dotnet/api/system.unauthorizedaccessexception
-[BacklogQueueCount]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [handling outages and disasters]: service-bus-outages-disasters.md

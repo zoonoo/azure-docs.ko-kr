@@ -3,19 +3,24 @@ title: AKS(Azure Kubernetes Service)에 대한 모범 사례
 description: 클러스터 운영자 및 개발자가 AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 모범 사례에 대한 모음입니다.
 services: container-service
 ms.topic: article
-ms.date: 12/07/2018
-ms.openlocfilehash: e8f9c1946567ac3c3ea1045a216d6b0486fd959a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/09/2021
+ms.openlocfilehash: f4bd109ce6827de26b1649380b6f6a2ba7c10e17
+ms.sourcegitcommit: 5f482220a6d994c33c7920f4e4d67d2a450f7f08
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94686262"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107105904"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션을 구축 및 관리하는 클러스터 운영자 및 개발자의 모범 사례
 
-AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 구축하고 실행하기 위해 이해하고 구현해야 할 몇 가지 주요 고려 사항이 있습니다. 이러한 영역에는 다중 테넌트 및 스케줄러 기능, 클러스터 및 Pod 보안, 비즈니스 연속성 및 재해 복구가 포함됩니다. 클러스터 운영자와 개발자가 각 영역에 대한 고려사항을 이해하고 적절한 기능을 구현하는 데 도움이 되도록 모범 사례는 다음과 같이 분류됩니다.
+AKS(Azure Kubernetes Service)에서 애플리케이션을 성공적으로 빌드 및 실행하려면 다음을 비롯한 몇 가지 주요 고려 사항을 이해하고 구현해야 합니다.
+* 다중 테넌트 및 스케줄러 기능.
+* 클러스터 및 Pod 보안.
+* 비즈니스 연속성 및 재해 복구. 
 
-이러한 모범 사례와 개념 문서는 AKS 제품 그룹, 엔지니어링 팀 및 GBB(글로벌 블랙 벨트)를 포함한 현장 팀과 협력하여 작성되었습니다.
+
+AKS 제품 그룹, 엔지니어링 팀 및 현장 팀([GBB](글로벌 블랙 벨트) 포함)은 다음과 같은 모범 사례와 개념 문서에 기여하고, 작성 및 그룹화했습니다. 이러한 목표는 클러스터 운영자 및 개발자가 위의 고려 사항을 이해하고 적절한 기능을 구현하도록 돕는 것입니다.
+
 
 ## <a name="cluster-operator-best-practices"></a>클러스터 운영자 모범 사례
 

@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: cshoe
 ms.custom: devx-track-js
-ms.openlocfilehash: 8a45d490d060febc18d77c8487c9f562fd2a914a
-ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.openlocfilehash: feb6462fef89a73a8e7a1d0df6808f0c58817b35
+ms.sourcegitcommit: e39ad7e8db27c97c8fb0d6afa322d4d135fd2066
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106275519"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111982163"
 ---
-# <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Azure Static Web Apps에 대한 로컬 개발 설정 미리 보기
+# <a name="set-up-local-development-for-azure-static-web-apps"></a>Azure Static Web Apps에 대한 로컬 개발 설정
 
 Azure Static Web Apps 사이트에는 클라우드에 게시될 때 동일한 애플리케이션처럼 함께 작동하는 서비스가 많습니다. 이러한 서비스에는 다음이 포함됩니다.
 
@@ -36,6 +36,9 @@ Azure에서 제공하는 것과 유사한 환경을 제공하기 위해 [Azure S
 - 모의 인증 및 권한 부여 서비스
 - 로컬 경로 및 구성 설정 적용
 
+> [!NOTE]
+> 일반적으로 프런트 엔드 프레임워크를 사용하여 빌드된 사이트에서는 `api` 경로에서 요청을 올바르게 처리하려면 프록시 구성 설정이 필요합니다. Azure Static Web Apps CLI를 사용하는 경우 프록시 위치 값은 `/api`이고 CLI를 사용하지 않는 경우 값은 `http://localhost:7071/api`입니다.
+
 ## <a name="how-it-works"></a>작동 방식
 
 다음 차트에서는 요청을 로컬로 처리하는 방법을 보여 줍니다.
@@ -43,7 +46,7 @@ Azure에서 제공하는 것과 유사한 환경을 제공하기 위해 [Azure S
 :::image type="content" source="media/local-development/cli-conceptual.png" alt-text="Azure Static Web App CLI 요청 및 응답 흐름":::
 
 > [!IMPORTANT]
-> [http://localhost:4280](http://localhost:4280)으로 이동하여 CLI에서 제공하는 애플리케이션에 액세스합니다.
+> `http://localhost:4280`으로 이동하여 CLI에서 제공하는 애플리케이션에 액세스합니다.
 
 - 포트 `4280`으로 전송되는 **요청** 은 요청 형식에 따라 적합한 서버로 전달됩니다.
 
@@ -79,7 +82,7 @@ Azure에서 제공하는 것과 유사한 환경을 제공하기 위해 [Azure S
 
     `swa start`
 
-1. [http://localhost:4280](http://localhost:4280)으로 이동하여 브라우저에서 앱을 봅니다.
+1. `http://localhost:4280`으로 이동하여 브라우저에서 앱을 봅니다.
 
 ### <a name="other-ways-to-start-the-cli"></a>CLI를 시작하는 다른 방법
 
@@ -103,7 +106,7 @@ Static Web Apps CLI는 Azure에 구현된 [보안 흐름](./authentication-autho
 
 에뮬레이터는 다음과 같은 [클라이언트 보안 주체](./user-information.md#client-principal-data) 값을 제공할 수 있는 페이지를 제공합니다.
 
-| 값 | 설명 |
+| 값 | Description |
 | --- | --- |
 | **사용자 이름** | 보안 공급자와 연결된 계정 이름입니다. 이 값은 클라이언트 보안 주체의 `userDetails` 속성으로 나타나며 값을 제공하지 않으면 자동으로 생성됩니다. |
 | **사용자 ID** | CLI에서 자동으로 생성되는 값입니다.  |
@@ -113,7 +116,7 @@ Static Web Apps CLI는 Azure에 구현된 [보안 흐름](./authentication-autho
 
 - `/.auth/me` 엔드포인트 또는 함수 엔드포인트를 사용하여 사용자의 [클라이언트 보안 주체](./user-information.md)를 검색할 수 있습니다.
 
-- `./auth/logout`로 이동하면 클라이언트 보안 주체가 지워지고 모의 사용자가 로그아웃됩니다.
+- `/.auth/logout`로 이동하면 클라이언트 보안 주체가 지워지고 모의 사용자가 로그아웃됩니다.
 
 ## <a name="debugging"></a>디버깅
 

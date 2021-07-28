@@ -1,0 +1,100 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure 프라이빗 DNS FAQ
+  description: 이 문서에서는 Azure 프라이빗 DNS 대한 질문과 대답을 알아봅니다.
+  services: dns
+  author: rohinkoul
+  ms.service: dns
+  ms.topic: article
+  ms.date: 01/15/2021
+  ms.author: rohink
+  ms.openlocfilehash: 7a700fad0c7f8a15d183e1ff27dcb7f7738cda25
+  ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 05/06/2021
+  ms.locfileid: "111907525"
+title: Azure 프라이빗 DNS FAQ
+summary: 다음은 Azure 프라이빗 DNS에 대한 질문과 대답입니다.
+sections:
+- name: 무시됨
+  questions:
+  - question: >
+      Azure DNS에서는 프라이빗 도메인을 지원하나요?
+    answer: >
+      프라이빗 도메인은 Azure 프라이빗 DNS 영역 기능을 사용하여 지원됩니다. 프라이빗 DNS 영역은 지정된 가상 네트워크 내에서만 확인할 수 있습니다. 자세한 내용은 [개요](private-dns-overview.md)를 참조하세요.
+
+
+      Azure의 다른 내부 DNS 옵션에 대한 자세한 내용은 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
+  - question: >
+      Azure 프라이빗 DNS 영역은 Azure 지역에서 작동하나요?
+    answer: >
+      예. 프라이빗 영역에서는 Azure 지역의 가상 네트워크 간 DNS 확인이 지원됩니다. 프라이빗 영역은 가상 네트워크를 명시적으로 피어링하지 않아도 작동합니다. 모든 가상 네트워크는 프라이빗 DNS 영역에 연결되어야 합니다.
+  - question: >
+      프라이빗 영역을 위해 가상 네트워크에서 인터넷에 연결되어야 하나요?
+    answer: >
+      아니요. 프라이빗 영역은 가상 네트워크에서 작동합니다. 이러한 영역을 사용하여 가상 머신 또는 가상 네트워크 내부 및 여러 가상 네트워크 간의 다른 리소스에 대한 도메인을 관리합니다. 이름 확인을 위해 인터넷 연결이 필요하지는 않습니다.
+  - question: >
+      확인을 위해 여러 가상 네트워크에서 동일한 프라이빗 영역을 사용할 수 있나요?
+    answer: >
+      예. 수천 명의 가상 네트워크와 프라이빗 DNS 영역을 연결할 수 있습니다. 자세한 내용은 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)을 참조하세요.
+  - question: >
+      다른 구독에 속한 가상 네트워크를 프라이빗 영역에 연결할 수 있나요?
+    answer: >
+      예. 가상 네트워크와 프라이빗 DNS 영역에 대해 쓰기 작업 권한이 있어야 합니다. 쓰기 권한은 여러 Azure 역할에 부여할 수 있습니다. 예를 들어 클래식 네트워크 기여자 Azure 역할에는 가상 네트워크에 대한 쓰기 권한이 있고 프라이빗 DNS 영역 기여자 역할에는 프라이빗 DNS 영역에 대한 쓰기 권한이 있습니다. Azure 역할에 대한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 참조하세요.
+  - question: >
+      가상 머신을 삭제하는 경우, 프라이빗 영역에서 자동으로 등록된 가상 머신 DNS 레코드도 자동으로 삭제되나요?
+    answer: >
+      예. 자동 등록을 사용하도록 설정된 연결된 가상 네트워크 내에서 가상 머신을 삭제하면 등록된 레코드가 자동으로 삭제됩니다.
+  - question: >
+      새 호스트 이름 또는 고정 IP 주소를 갖도록 가상 머신에서 OS를 다시 구성했습니다. 프라이빗 영역에 해당 변경이 반영되지 않는 이유는 무엇인가요?
+    answer: >
+      프라이빗 영역의 레코드는 Azure DHCP 서비스에 의해 채워집니다. 클라이언트 등록 메시지는 무시됩니다. 고정 IP 주소를 구성하여 VM에서 DHCP 클라이언트 지원을 사용하지 않도록 설정하면 VM의 호스트 이름 또는 고정 IP에 대한 변경 내용이 영역에 반영되지 않습니다.
+  - question: >
+      Windows 가상 머신에서 기본 설정 DNS 접미사를 구성했습니다. 내 레코드가 가상 네트워크에 연결된 영역에 여전히 등록된 이유는 무엇인가요?
+    answer: >
+      Azure DHCP 서비스는 프라이빗 DNS 영역을 등록할 때 DNS 접미사를 무시합니다. 예를 들어 가상 머신이 기본 DNS 접미사로 `contoso.com`에 대해 구성되었지만 가상 네트워크가 `fabrikam.com` 프라이빗 DNS 영역에 연결되어있는 경우 가상 머신의 등록이 `fabrikam.com` 프라이빗 DNS 영역에 나타납니다.
+  - question: >
+      등록 가상 네트워크에서 프라이빗 영역에 자동으로 연결된 가상 머신 레코드를 수동으로 삭제할 수 있나요?
+    answer: >
+      예. 이러한 자동으로 등록된 DNS 레코드를 영역에서 수동으로 만든 DNS 레코드로 덮어쓸 수 있습니다. 다음 질문과 대답이 이 항목에 대한 것입니다.
+  - question: >
+      등록 가상 네트워크에서 자동으로 연결된 기존 가상 머신과 동일한 호스트가 있는 프라이빗 영역으로 새 DNS 레코드를 수동으로 만들려고 하면 어떻게 되나요?
+    answer: >
+      연결된 가상 네트워크에서 자동으로 등록된 기존 가상 머신과 동일한 호스트가 있는 프라이빗 영역으로 새 DNS 레코드를 수동으로 만들려고 합니다. 이렇게 하면 새 DNS 레코드가 자동으로 등록된 가상 머신 레코드를 덮어씁니다. 이 영역에서 다시 수동으로 만든 이 DNS 레코드를 삭제하려고 하면 삭제가 성공합니다. 가상 머신이 여전히 존재하고 프라이빗 IP가 연결되어 있기만 하면 자동 등록이 다시 수행됩니다. DNS 레코드는 영역에서 자동으로 다시 생성됩니다.
+  - question: >
+      프라이빗 영역에서 연결된 가상 네트워크의 연결을 해제하면 어떻게 되나요? 가상 네트워크의 자동으로 등록된 가상 머신 레코드가 해당 영역에서도 제거되나요?
+    answer: >
+      예. 프라이빗 영역에서 연결된 가상 네트워크의 연결을 끊으려면 연결된 가상 네트워크 링크를 제거하도록 DNS 영역을 업데이트합니다. 이 프로세스에서 자동으로 등록된 가상 머신 레코드는 영역에서 제거됩니다.
+  - question: >
+      프라이빗 영역에 연결된 가상 네트워크를 삭제하면 어떻게 되나요? 영역에서 연결된 가상 네트워크로 연결된 가상 네트워크를 가상 네트워크의 연결을 해제하기 위해 프라이빗 영역을 수동으로 업데이트해야 하나요?
+    answer: >
+      아니요. 먼저 프라이빗 영역에서 연결 해제하지 않고 연결된 가상 네트워크를 삭제하면 삭제 작업이 성공하고 DNS 영역에 대한 연결이 자동으로 지워지게 됩니다.
+  - question: >
+      기본 FQDN(internal.cloudapp.net)을 사용하는 DNS 확인은 프라이빗 영역(예: private.contoso.com)이 가상 네트워크에 연결되어 있어도 제대로 작동하나요?
+    answer: >
+      예. 프라이빗 영역은 Azure에서 제공하는 기본 internal.cloudapp.net 영역을 대체하지 않습니다. Azure에서 제공한 internal.cloudapp.net을 신뢰하는지 또는 사용자 고유의 프라이빗 영역을 신뢰하는지에 관계없이 확인하려는 영역의 FQDN을 사용하도록 합니다.
+  - question: >
+      연결된 가상 네트워크 내의 가상 머신에 사용되는 DNS 접미사가 프라이빗 영역의 DNS 접두사로 변경되나요?
+    answer: >
+      아니요. , 연결된 가상 네트워크의 가상 머신에 사용된 DNS 접미사는 기본 Azure 제공 접미사("*. internal.cloudapp.net")로 유지됩니다. 가상 머신의 이 DNS 접미사를 프라이빗 영역의 DNS 접미사로 수동으로 변경할 수 있습니다.
+
+      이 접미사를 변경하는 방법에 대한 지침은 [동적 DNS를 사용하여 자체 DNS 서버에 호스트 이름 등록](../virtual-network/virtual-networks-name-resolution-ddns.md#windows-clients)을 참조하세요.
+  - question: >
+      Azure DNS 프라이빗 영역에 대한 사용 제한은 얼마나 되나요?
+    answer: >
+      Azure DNS 프라이빗 영역의 사용 제한에 대한 자세한 내용은 [Azure DNS 제한](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits)을 참조하세요.
+  - question: >
+      내 기존 프라이빗 DNS 영역이 새 포털 환경에 표시되지 않는 이유는 무엇인가요?
+    answer: >
+      미리 보기 API를 사용하여 기존 프라이빗 DNS 영역을 만든 경우 이러한 영역을 새 리소스 모델로 마이그레이션해야 합니다. 미리 보기 API를 사용하여 만든 프라이빗 DNS 영역은 새 포털 환경에서 표시되지 않습니다. 새 리소스 모델로 마이그레이션하는 방법에 대한 지침은 아래를 참조하세요.
+  - question: >
+      기존 프라이빗 DNS 영역을 새 모델로 마이그레이션하려면 어떻게 해야 하나요?
+    answer: >
+      가능한 한 빨리 새 리소스 모델로 마이그레이션하는 것이 좋습니다. 레거시 리소스 모델은 지원되지만 이 모델 위에는 추가 기능이 개발되지 않습니다. 향후에는 새 리소스 모델을 위해 사용 중단할 예정입니다. 기존 프라이빗 DNS 영역을 새 리소스 모델로 마이그레이션하는 방법에 대한 지침은 [Azure DNS 프라이빗 영역 마이그레이션 가이드](private-dns-migration-guide.md)를 참조하세요.
+
+
+      ### <a name="does-azure-dns-private-zones-store-any-customer-content"></a>Azure DNS 프라이빗 영역에서 고객 콘텐츠를 저장하나요?
+
+      아니요, Azure DNS 프라이빗 영역은 고객 콘텐츠를 저장하지 않습니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n  - [Azure Private DNS에 대해 자세히 알아보기](private-dns-overview.md)"

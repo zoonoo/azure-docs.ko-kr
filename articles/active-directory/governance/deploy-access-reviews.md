@@ -3,7 +3,7 @@ title: Azure Active Directory 액세스 검토 배포 계획
 description: 성공적인 액세스 검토 배포에 대한 계획 가이드
 services: active-directory
 documentationCenter: ''
-author: BarbaraSelden
+author: ajburnle
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/23/2020
-ms.author: barclayn
+ms.date: 04/16/2021
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4122e645b76751e8944704a6405cf5dee09129f1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: db1878c2760cfcaa157d0ef233bb1931a5f310b3
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97932438"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111970910"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Azure Active Directory 액세스 검토 배포 계획
 
@@ -71,9 +71,12 @@ ms.locfileid: "97932438"
 
 * [Azure AD에서 액세스 검토를 만드는 방법](https://youtu.be/6KB3TZ8Wi40)
 
+* [Azure AD에서 Microsoft 365 그룹에 대한 액세스 권한이 있는 모든 게스트 사용자에 대한 자동 액세스 검토를 만드는 방법](https://www.youtube.com/watch?v=3D2_YW2DwQ8)
+
 * [Azure AD에서 액세스 검토를 사용하도록 설정하는 방법](https://youtu.be/X1SL2uubx9M)
 
 * [내 액세스를 사용하여 액세스를 검토하는 방법](https://youtu.be/tIKdQhdHLXU)
+
 
 ### <a name="licenses"></a>라이선스
 
@@ -136,17 +139,13 @@ ms.locfileid: "97932438"
 
 #### <a name="customize-email-communication"></a>이메일 통신 사용자 지정
 
-검토를 예약할 때 이 검토를 수행하는 사용자를 지명합니다. 그러면 해당 검토자는 할당된 검토가 만료되기 전에 새 검토에 대한 미리 알림에 더해 메일 알림도 받습니다.
-
-관리자는 검토 만료가 반 정도 남았을 때 또는 만료되기 하루 전에 이 알림을 보내도록 선택할 수 있습니다. 
+검토를 예약할 때 이 검토를 수행하는 사용자를 지명합니다. 그러면 해당 검토자는 할당된 검토가 만료되기 전에 새 검토에 대한 미리 알림에 더해 메일 알림도 받습니다. 
 
 검토자에게 보내는 메일은 검토자가 검토 작업을 수행하도록 독려하는 간단한 메시지를 포함하는 방식으로 사용자 지정할 수 있습니다. 추가 텍스트를 사용하여 다음을 수행하는 것이 좋습니다.
 
 * 검토자에게 보내는 개인 메시지를 포함하여 메시지가 규정 준수 또는 IT 부서에서 전송되었다는 사실을 알릴 수 있습니다.
 
-* 검토 기대 사항과 관련된 내부 정보에 대한 하이퍼링크나 참조 자료, 추가 참조자료 또는 교육 자료를 포함합니다.
-
-* [액세스의 자체 검토를 수행하는 방법](review-your-access.md)에 대한 지침을 제공하는 링크를 포함합니다. 
+* 검토 기대 사항과 관련된 내부 정보에 대한 참조 자료, 추가 참조자료 또는 교육 자료를 포함합니다.
 
   ![검토자 이메일](./media/deploy-access-review/2-plan-reviewer-email.png)
 
@@ -197,7 +196,6 @@ ms.locfileid: "97932438"
 | Azure의 권한 있는 역할(리소스)| 전역 관리자<p>사용자 관리자<p>리소스 소유자| 작성자 |
 | 액세스 패키지| 전역 관리자<p>액세스 패키지 작성자| 전역 관리자 한정 |
 
-
 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../roles/permissions-reference.md)을 참조하세요.
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>리소스에 대한 액세스를 검토하는 사람은 누구인가요?
@@ -209,6 +207,8 @@ ms.locfileid: "97932438"
 * 액세스 검토 관리자가 선택하는 대로 개별적으로 선택된 대리인 세트입니다.
 
 * 최종 사용자는 각 사용자에게 지속적으로 액세스하는 데 필요한 사항을 자체적으로 증명합니다.
+
+* 관리자는 리소스에 대한 직접 보고서의 액세스를 검토합니다. 
 
 액세스 검토를 작성할 때 관리자는 하나 이상의 검토자를 선택할 수 있습니다. 모든 검토자는 사용자를 선택하여 리소스에 대한 액세스를 계속하거나 제거하기 위한 검토를 시작하고 수행할 수 있습니다. 
 
@@ -238,7 +238,6 @@ ms.locfileid: "97932438"
 
 * 수행된 작업에 따라 어떤 통신이 전송되나요?
 
-
 **액세스 검토 계획 예제**
 
 | 구성 요소| 값 |
@@ -246,14 +245,10 @@ ms.locfileid: "97932438"
 | **검토할 리소스**| Microsoft Dynamics에 대한 액세스 |
 | **검토 주기**| 매월 |
 | **검토를 수행하는 사람**| Dynamics 비즈니스 그룹 프로그램 관리자 |
-| **알림**| Dynamics-Pms라는 별칭으로 검토하기 24시간 전에 메일 전송<p>사용자 지정 메시지를 포함하여 검토자에게 자신의 구매를 보호하게 하세요. |
+| **알림**| 검토를 시작할 때 별칭 Dynamics-Pms로 보낸 이메일<p>사용자 지정 메시지를 포함하여 검토자에게 자신의 구매를 보호하게 하세요. |
 | **타임라인**| 알림으로부터 48시간 |
 |**자동 작업**| 보안 그룹 dynamics-access에서 사용자를 제거하여 90일 이내에 대화형 로그인이 없는 모든 계정에서 액세스 권한을 제거합니다. <p>*타임라인 내에서 검토되지 않은 경우 작업을 수행합니다.* |
 | **수동 작업**| 검토자는 원하는 경우 자동화된 작업 전에 제거 승인을 수행할 수 있습니다. |
-| **통신**| 제거된 내부(구성원) 사용자에게 당사자가 제거되었다는 사실과 액세스 권한을 다시 얻는 방법을 설명하는 메일을 보냅니다. |
-
-
- 
 
 ### <a name="automate-actions-based-on-access-reviews"></a>액세스 검토를 기반으로 작업 자동화
 
@@ -318,6 +313,8 @@ ms.locfileid: "97932438"
 
 * 자체 증명 그룹의 구성원
 
+* 관리자는 직접 보고서의 액세스를 검토합니다. 
+
 ### <a name="group-ownership"></a>그룹 소유권
 
 그룹 소유자는 액세스해야 하는 사용자를 파악하기 가장 적절한 위치에 있으므로 그룹 소유자가 멤버 자격을 검토하는 것을 추천합니다. 그룹의 소유권은 그룹의 유형과 다릅니다.
@@ -335,19 +332,11 @@ Azure AD 포털에서 수동으로 만들어지거나 Microsoft Graph에서의 �
 
 ### <a name="review-membership-of-exclusion-groups-in-conditional-access-policies"></a>조건부 액세스 정책에서 제외 그룹의 멤버 자격 검토 
 
-네트워크 보안을 유지하도록 설계된 조건부 액세스 정책이 모든 사용자에게 적용되는 것은 아닙니다. 예를 들어 회사 네트워크에서 사용자만 로그인할 수 있도록 허용하는 조건부 액세스 정책은 광범위하게 이동하는 영업 팀에 적용되지 않을 수 있습니다. 이 경우 영업 팀 구성원은 그룹에 추가되고 해당 그룹은 조건부 액세스 정책에서 제외합니다. 
+제외 그룹의 구성원을 검토하는 방법을 알아보려면 [Azure AD 액세스 검토를 사용하여 조건부 액세스 정책에서 제외된 사용자 관리](conditional-access-exclusion.md)로 이동하세요.
 
-잘못된 구성원이 요구 사항에서 제외되는 경우 제외는 잠재적 위험을 나타내므로 그룹 멤버 자격을 정기적으로 확인합니다.
+### <a name="review-guest-users-group-memberships"></a>게스트 사용자의 그룹 멤버 자격 검토
 
-[Azure AD 액세스 검토를 사용하여 조건부 액세스 정책에서 제외된 사용자를 관리](conditional-access-exclusion.md)할 수 있습니다.
-
-### <a name="review-external-users-group-memberships"></a>외부 사용자의 그룹 멤버 자격 검토
-
-수작업과 관련 잠재적 오류를 최소화하려면 [동적 그룹](../enterprise-users/groups-create-rule.md)을 사용하여 사용자의 특성에 따라 그룹 멤버 자격을 할당하는 것을 고려하세요. 외부 사용자에 대해 하나 이상의 동적 그룹을 만드는 것이 좋습니다. 내부 스폰서는 그룹의 멤버 자격에 대한 검토자 역할을 할 수 있습니다. 
-
-참고: 액세스 검토의 결과로 그룹에서 제거된 외부 사용자라 하더라도 테넌트에서는 삭제되지 않습니다. 
-
-수동으로 제거하거나 스크립트를 통해 테넌트에서 삭제할 수 있습니다.
+그룹 멤버 자격에 대한 게스트 사용자의 액세스를 검토하는 방법을 알아보려면 [Azure AD 액세스 검토로 게스트 액세스 관리](./manage-guest-access-with-access-reviews.md)로 이동하세요.
 
 ### <a name="review-access-to-on-premises-groups"></a>온-프레미스 그룹에 대한 액세스 검토
 
@@ -405,7 +394,7 @@ Azure AD 포털에서 수동으로 만들어지거나 Microsoft Graph에서의 �
 
 * 모든 Microsoft 365 및 Dynamics 서비스 관리 역할
 
-여기에서 선택하는 역할에는 영구 역할 및 적격 역할이 포함됩니다. 
+검토되는 역할에는 영구적이고 적격 할당이 포함됩니다. 
 
 검토자 섹션에서 모든 사용자를 검토할 한 명 이상의 사용자를 선택합니다. 또는 구성원이 자신의 액세스 권한을 검토하도록 할 수도 있습니다.
 
@@ -425,7 +414,6 @@ Azure AD와 통합된 리소스에 대한 액세스를 검토하는 전략 및 �
 | [액세스 검토 수행](entitlement-management-access-reviews-review-access.md)| 액세스 패키지에 할당된 다른 사용자에 대한 액세스 검토를 수행합니다. |
 | [액세스 패키지에 할당된 자체 검토](entitlement-management-access-reviews-self-review.md)| 할당된 액세스 패키지의 자체 검토 |
 
-
 > [!NOTE]
 > 자체 검토하고 더 이상 액세스하지 않아도 된다는 최종 사용자는 액세스 패키지에서 즉시 제거되지 않고, 검토가 종료되거나 관리자가 검토를 중지한 경우 액세스 패키지에서 제거됩니다.
 
@@ -440,7 +428,6 @@ Azure AD와 통합된 리소스에 대한 액세스를 검토하는 전략 및 �
 | [액세스 권한 자체 검토](review-your-access.md)| 멤버는 그룹 또는 애플리케이션에 대한 자신의 액세스 권한을 검토합니다. |
 | [액세스 검토 완료](complete-access-review.md)| 액세스 검토 보기 및 결과 적용 |
 | [온-프레미스 그룹에 대한 작업 수행](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| 온-프레미스 그룹에 대한 액세스 검토를 수행하는 샘플 PowerShell 스크립트입니다. |
-
 
 ### <a name="review-azure-ad-roles"></a>Azure AD 역할 검토
 
@@ -474,7 +461,7 @@ Azure AD와 통합된 리소스에 대한 액세스를 검토하는 전략 및 �
 
 ## <a name="use-the-access-reviews-api"></a>액세스 검토 API 사용
 
-검토할 수 있는 리소스와 상호 작용하고 이를 관리하려면 [그래프 API 메서드](/graph/api/resources/accessreviews-root?view=graph-rest-beta) 및 [역할 및 애플리케이션 권한 부여 검사](/graph/api/resources/accessreviews-root?view=graph-rest-beta)를 참조하세요. Microsoft Graph API의 액세스 검토 방법은 애플리케이션 및 사용자 컨텍스트 모두에 사용할 수 있습니다. 애플리케이션 컨텍스트에서 스크립트를 실행하는 경우 API(서비스 원칙)를 실행하는 데 사용되는 계정에 “AccessReview.Read.All”의 사용 권한을 부여해 액세스 검토 정보를 쿼리하게 합니다.
+검토할 수 있는 리소스와 상호 작용하고 이를 관리하려면 [그래프 API 메서드](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) 및 [역할 및 애플리케이션 권한 부여 검사](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true)를 참조하세요. Microsoft Graph API의 액세스 검토 방법은 애플리케이션 및 사용자 컨텍스트 모두에 사용할 수 있습니다. 애플리케이션 컨텍스트에서 스크립트를 실행하는 경우 API(서비스 원칙)를 실행하는 데 사용되는 계정에 “AccessReview.Read.All”의 사용 권한을 부여해 액세스 검토 정보를 쿼리하게 합니다.
 
 액세스 검토를 위해 Graph API를 사용하여 자동화하는 인기 액세스 검토 작업은 다음과 같습니다.
 

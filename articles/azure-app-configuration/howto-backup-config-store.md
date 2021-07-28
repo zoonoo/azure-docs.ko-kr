@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b3e0bcad7beccc31e1772fbb24ffad7f502b8140
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4b72de537f573d03f37a9b1de4341a14830479e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102454246"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108748442"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>App Configuration 저장소 자동 백업
 
@@ -127,7 +127,7 @@ az eventgrid event-subscription create \
 - Azure Functions 런타임 버전 3.x
 - 10분마다 타이머로 트리거되는 함수
 
-데이터 백업을 더 쉽게 시작할 수 있도록 코드를 변경하지 않고도 사용할 수 있는 [함수가 테스트 및 게시](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup)되었습니다. 프로젝트 파일을 다운로드하고 [Visual Studio에서 사용자 고유의 Azure 함수 앱에 게시](../azure-functions/functions-develop-vs.md#publish-to-azure)합니다.
+데이터 백업을 더 쉽게 시작할 수 있도록 코드를 변경하지 않고도 사용할 수 있는 [함수가 테스트 및 게시](https://github.com/Azure/AppConfiguration/tree/master/examples/ConfigurationStoreBackup)되었습니다. 프로젝트 파일을 다운로드하고 [Visual Studio에서 사용자 고유의 함수 앱에 게시](../azure-functions/functions-develop-vs.md#publish-to-azure)합니다.
 
 > [!IMPORTANT]
 > 다운로드한 코드의 환경 변수는 변경하지 마세요. 다음 섹션에서 필요한 앱 설정을 만듭니다.

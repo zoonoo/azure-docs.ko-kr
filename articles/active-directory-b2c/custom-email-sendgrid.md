@@ -8,29 +8,41 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 04/21/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: a56f8339535c64c6eeac1b06c04aa7c89cd38356
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105031310"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107886391"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>SendGrid를 사용한 사용자 지정 이메일 확인
 
-Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 이메일을 사용하여 애플리케이션을 사용하기 위해 등록하는 사용자에게 사용자 지정 이메일을 보냅니다. [DisplayControls](display-controls.md)(현재 미리 보기 상태) 및 타사 이메일 공급자 SendGrid를 사용하면 사용자 고유의 이메일 템플릿과 ‘보낸 사람:’ 주소 및 제목을 사용하고 지역화 및 사용자 지정 OTP(일회성 암호) 설정을 지원할 수 있습니다.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+Azure Active Directory B2C(Azure AD B2C)에서 사용자 지정 메일을 사용하여 애플리케이션을 사용하기 위해 등록하는 사용자에게 사용자 지정 메일을 보냅니다. 타사 이메일 공급자 SendGrid를 사용하여 사용자 고유의 이메일 템플릿과 *보낸 사람:* 주소 및 제목을 사용하고 현지화 및 사용자 지정 OTP(일회용 암호) 설정을 지원할 수 있습니다.
+
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
 
 사용자 지정 이메일 확인을 위해서는 [SendGrid](https://sendgrid.com), [Mailjet](https://Mailjet.com) 또는 [SparkPost](https://sparkpost.com)와 같은 타사 이메일 공급자, 사용자 지정 REST API 또는 HTTP 기반 이메일 공급자(자체 공급자 포함)를 사용해야 합니다. 이 문서에서는 SendGrid를 사용하는 솔루션 설정 방법을 설명합니다.
-
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid 계정 만들기
 
 아직 없는 경우 먼저 SendGrid 계정을 설정합니다(Azure 고객은 매달 25,000통의 무료 메일을 잠금 해제할 수 있음). 설정 지침은 [Azure에서 SendGrid를 사용하여 이메일을 보내는 방법](../sendgrid-dotnet-how-to-send-email.md)의 [SendGrid 계정 만들기](../sendgrid-dotnet-how-to-send-email.md#create-a-sendgrid-account) 섹션을 참조하세요.
 
 [SendGrid API 키 만들기](../sendgrid-dotnet-how-to-send-email.md#to-find-your-sendgrid-api-key) 섹션을 완료해야 합니다. 이후 단계에서 사용할 API 키를 기록합니다.
+
+> [!IMPORTANT]
+> SendGrid는 고객에게 공유 IP 및 [전용 IP 주소](https://sendgrid.com/docs/ui/account-and-settings/dedicated-ip-addresses/)에서 이메일을 보낼 수 있는 기능을 제공합니다. 전용 IP 주소를 사용하는 경우 IP 주소 워밍업으로 자신의 평판을 제대로 구축해야 합니다. 자세한 내용은 [IP 주소 워밍업](https://sendgrid.com/docs/ui/sending-email/warming-up-an-ip-address/)을 참조하세요.
 
 ## <a name="create-azure-ad-b2c-policy-key"></a>Azure AD B2C 정책 키 만들기
 
@@ -290,6 +302,9 @@ JSON 개체의 구조는 InputParameters의 점 표기법의 ID와 InputClaims�
 ## <a name="add-otp-technical-profiles"></a>OTP 기술 프로필 추가
 
 `GenerateOtp` 기술 프로필은 이메일 주소의 코드를 생성합니다. `VerifyOtp` 기술 프로필은 이메일 주소와 연결된 코드를 확인합니다. 일회성 암호의 형식 구성과 만료를 변경할 수 있습니다. OTP 기술 프로필에 대한 자세한 내용은 [일회성 암호 기술 프로필 정의](one-time-password-technical-profile.md)를 참조하세요.
+
+> [!NOTE]
+> Web.TPEngine.Providers.OneTimePasswordProtocolProvider 프로토콜에 의해 생성된 OTP 코드는 브라우저 세션에 연결됩니다. 즉, 사용자는 각각 해당 세션에 유효한 서로 다른 브라우저 세션에서 고유한 OTP 코드를 생성할 수 있습니다. 반면, 기본 제공 이메일 공급자가 생성한 OTP 코드는 브라우저 세션과 독립적이므로 사용자가 새 브라우저 세션에서 새 OTP 코드를 생성하는 경우 이전 OTP 코드를 대체합니다.
 
 다음 기술 프로필을 `<ClaimsProviders>` 요소에 추가합니다.
 
@@ -556,3 +571,5 @@ GitHub에서 사용자 지정 이메일 확인 정책의 예제를 확인할 수
 
 - [사용자 지정 이메일 확인 - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
 - 사용자 지정 REST API 또는 HTTP 기반 SMTP 이메일 공급자를 사용하는 방법에 대한 자세한 내용은 [Azure AD B2C 사용자 지정 정책의 RESTful 기술 프로필 정의](restful-technical-profile.md)를 참조하세요.
+
+::: zone-end

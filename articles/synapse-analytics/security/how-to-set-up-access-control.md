@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 97f9d0e0037090a8c058eb6e2393451d975e79c6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 91eaf655a3259cff31767353fb2c2b7fcd787d63
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103472265"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108122964"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Synapse 작업 영역에 대한 액세스 제어를 설정하는 방법 
 
@@ -128,7 +128,7 @@ SQL 풀, Apache Spark 풀 및 통합 런타임을 만들려면 사용자의 작�
 
 - Azure 포털 열기
 - 작업 영역, `workspace1` 찾기
-- `workspace1`에서 **Azure 참가자** 역할을 `workspace1_SynapseAdministrators`에 할당합니다. 
+- `workspace1`에서 Azure **기여자** 역할을 `workspace1_SynapseAdministrators`에 할당합니다. 
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>6단계: SQL Active Directory 관리자 역할 할당
 

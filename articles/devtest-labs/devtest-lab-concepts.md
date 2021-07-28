@@ -2,13 +2,13 @@
 title: DevTest Labs 개념 | Microsoft 문서
 description: DevTest Lab의 기본 개념과 Azure 가상 머신을 쉽게 만들고 관리하고 모니터링할 수 있는 방법 알아보기
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: e505ecb8ce4dc070b4ed79cd55514c4ef8ba0ead
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92327861"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111954096"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Lab 개념
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ Azure Claimable VM은 권한이 있는 랩 사용자면 누구나 사용할 수 
 클레임할 수 있는 VM은 초기에 특정 사용자에게 할당되지 않지만 모든 사용자의 목록에 있는 "클레임할 수 있는 가상 머신"에 표시됩니다. VM이 사용자에 의해 클레임되면 해당 사용자의 “내 가상 머신” 영역으로 이동되며 더 이상 다른 사용자가 클레임할 수 없습니다.
 
 ## <a name="environment"></a>환경
-DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 블로그 게시물](./devtest-lab-faq.md#blog-post)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
+DevTest 랩에서 환경은 랩에 있는 Azure 리소스 컬렉션을 나타냅니다. [이 문서](./devtest-lab-create-environment-from-arm.md)에서는 Azure Resource Manager 템플릿에서 다중 VM 환경을 만드는 방법을 설명합니다.
 
 ## <a name="base-images"></a>기본 이미지
 기본 이미지는 VM을 빠르게 만들기 위해 미리 설치되고 구성된 모든 도구와 설정이 포함된 VM 이미지입니다. 기존 기본 항목을 선택하고 테스트 에이전트를 설치하기 위한 아티팩트를 추가하여 VM을 프로비전할 수 있습니다. 그런 다음 프로비전된 VM을 기본으로 설정하면 프로비전된 각각의 VM에 대한 테스트 에이전트를 다시 설치하지 않고도 기본을 사용할 수 있습니다.
@@ -74,7 +74,7 @@ DevTest Lab에서 사용자 지정 역할을 만드는 방법을 보려면 [특�
 ## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 이 문서에 설명된 모든 개념은 Azure Resource Manager 템플릿을 사용하여 구성할 수 있습니다. 이러한 템플릿에서는 Azure 솔루션의 인프라/구성을 정의하고 반복적으로 일관된 상태로 배포할 수 있습니다.
 
-[Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/template-syntax.md#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.
+[Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/templates/syntax.md#template-format)에서는 Azure Resource Manager 템플릿의 구조 및 템플릿의 여러 섹션에서 사용 가능한 속성을 설명합니다.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

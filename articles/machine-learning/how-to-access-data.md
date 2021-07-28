@@ -5,18 +5,18 @@ description: Azure Machine Learning으로 학습하는 동안 데이터 저장�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.topic: how-to
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
-ms.openlocfilehash: 78b7bab204a08b474ea3c5cf5c2f7735c019a9c3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
+ms.openlocfilehash: f0fb8ee681bfb3056547eed712d0197100b8ec08
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102519931"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785244"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Azure에서 스토리지 서비스에 연결
 
@@ -31,7 +31,7 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 >[!TIP]
 > 이 문서에서는 서비스 주체 또는 SAS(공유 액세스 서명) 토큰과 같은 자격 증명 기반 인증 자격 증명을 사용하여 스토리지 서비스에 연결하려는 경우를 가정합니다. 자격 증명이 데이터 저장소에 등록된 경우 작업 영역 *읽기 권한자* 역할을 가진 모든 사용자는 이러한 자격 증명을 검색할 수 있습니다. [작업 영역 *읽기 권한자* 역할에 대해 자세히 알아보세요.](how-to-assign-roles.md#default-roles) <br><br>이 부분이 걱정된다면 [ID 기반 액세스를 사용하여 스토리지 서비스에 연결](how-to-identity-based-data-access.md)하는 방법을 알아봅니다. <br><br>이 기능은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든지 변경할 수 있습니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -91,24 +91,27 @@ Azure Machine Learning의 데이터 액세스 워크플로 전체에서 데이�
 
 Azure Storage 서비스에 안전하게 연결하려면 Azure Machine Learning에서 해당하는 데이터 스토리지 컨테이너에 액세스할 권한이 있어야 합니다. 이 액세스 권한은 데이터 저장소를 등록하는 데 사용되는 인증 자격 증명에 따라 다릅니다. 
 
-### <a name="virtual-network"></a>가상 네트워크 
-
-기본적으로 Azure Machine Learning은 방화벽 뒤에 있거나 가상 네트워크 내에 있는 스토리지 계정과 통신할 수 없습니다. 데이터 스토리지 계정이 **가상 네트워크** 에 있는 경우, Azure Machine Learning에 데이터에 대한 액세스 권한이 있는지 확인하는 추가 구성 단계가 필요합니다. 
-
 > [!NOTE]
 > 이 참고 자료는 [ID 기반 데이터 액세스 권한으로 생성된 데이터 저장소(미리 보기)](how-to-identity-based-data-access.md)에도 적용됩니다. 
 
-**Python SDK 사용자의 경우** 컴퓨팅 대상의 학습 스크립트를 통해 데이터에 액세스하려면 컴퓨팅 대상이 스토리지의 동일한 가상 네트워크 및 서브넷 내부에 있어야 합니다.  
+### <a name="virtual-network"></a>가상 네트워크 
 
-**Azure Machine Learning 스튜디오 사용자의 경우** 몇 가지 기능이 데이터 세트 미리 보기, 프로필 및 자동화된 Machine Learning 등 데이터 세트에서 데이터를 읽는 기능에 의존합니다. 이러한 기능이 가상 네트워크 뒤에 있는 스토리지에서 작동하도록 하려면 [스튜디오에서 작업 영역 관리 ID](how-to-enable-studio-virtual-network.md)를 사용하여 Azure Machine Learning이 가상 네트워크 외부에서 스토리지 계정에 액세스하도록 허용합니다. 
+Azure Machine Learning은 방화벽 뒤 또는 가상 네트워크 내에 있는 스토리지 계정과 통신하기 위한 추가 구성 단계가 필요합니다. 스토리지 계정이 방화벽 뒤에 있는 경우 [Azure Portal을 통해 IP 주소 나열을 허용](../storage/common/storage-network-security.md#managing-ip-network-rules)할 수 있습니다.
 
 Azure Machine Learning은 가상 네트워크 외부의 클라이언트에서 요청을 받을 수 있습니다. 서비스의 데이터를 요청하는 엔터티가 안전한지 확인하려면 [작업 영역에 대한 Azure Private Link를 설정](how-to-configure-private-link.md)합니다.
 
+**Python SDK 사용자의 경우** 컴퓨팅 대상의 학습 스크립트를 통해 데이터에 액세스하려면 컴퓨팅 대상이 스토리지의 동일한 가상 네트워크 및 서브넷 내부에 있어야 합니다. 
+
+**Azure Machine Learning 스튜디오 사용자의 경우** 몇 가지 기능이 데이터 세트 미리 보기, 프로필 및 자동화된 Machine Learning 등 데이터 세트에서 데이터를 읽는 기능에 의존합니다. 이러한 기능이 가상 네트워크 뒤에 있는 스토리지에서 작동하도록 하려면 [스튜디오에서 작업 영역 관리 ID](how-to-enable-studio-virtual-network.md)를 사용하여 Azure Machine Learning이 가상 네트워크 외부에서 스토리지 계정에 액세스하도록 허용합니다. 
+
+> [!NOTE]
+> 데이터 스토리지가 가상 네트워크 뒤에 있는 Azure SQL Database인 경우 [Azure Portal](https://ms.portal.azure.com/)을 통해 *공용 액세스 거부* 를 **아니요** 로 설정하여 Azure Machine Learning에서 스토리지 계정에 액세스할 수 있도록 해야 합니다.
+
 ### <a name="access-validation"></a>액세스 유효성 검사
 
-**초기 데이터 저장소 생성 및 등록 프로세스에서** Azure Machine Learning은 기본 스토리지 서비스가 있는지, 사용자가 제공한 보안 주체(사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정된 스토리지에 액세스할 수 있는지 자동으로 확인합니다.
+**초기 데이터 저장소 생성 및 등록 프로세스에서** Azure Machine Learning은 기본 스토리지 서비스가 있고 사용자가 제공한 보안 주체(사용자 이름, 서비스 주체 또는 SAS 토큰)가 지정된 스토리지에 대한 액세스 권한이 있는지 자동으로 유효성을 검사합니다.
 
-**데이터 저장소가 생성된 후에는** 기본 스토리지 컨테이너에 액세스해야 하는 메서드에 대해서만 이 유효성 검사가 수행되고, 데이터 저장소 개체가 검색될 때마다 수행되지는 **않습니다**. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
+**데이터 저장소가 생성된 후** 이 유효성 검사는 기본 스토리지 컨테이너에 액세스해야 하는 메서드에 대해서만 수행되고, 데이터 저장소 개체가 검색될 때마다 **수행되지는 않습니다**. 예를 들어 데이터 저장소에서 파일을 다운로드하려는 경우에는 유효성 검사가 수행되지만, 기본 데이터 저장소만 변경하려는 경우에는 유효성 검사가 수행되지 않습니다.
 
 기본 스토리지 서비스에 대한 액세스를 인증하려면 만들려는 데이터 저장소 유형의 해당 `register_azure_*()` 메서드에 계정 키, SAS(공유 액세스 서명) 토큰 또는 서비스 주체를 제공하면 됩니다. [스토리지 유형 행렬](#matrix)에는 각 데이터 저장소 유형에 해당하는 지원되는 인증 유형이 나열됩니다.
 
@@ -123,11 +126,11 @@ Azure Machine Learning은 가상 네트워크 외부의 클라이언트에서 �
     * 해당하는 **개요** 페이지에는 테넌트 ID, 클라이언트 ID 등의 필수 정보가 포함되어 있습니다.
 
 > [!IMPORTANT]
-> * Azure Storage 계정(계정 키 또는 SAS 토큰)의 액세스 키를 변경해야 하는 경우, 새 자격 증명을 사용 중인 작업 영역과 해당 작업 영역에 연결된 데이터 저장소와 동기화해야 합니다. [업데이트된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
+> * Azure Storage 계정(계정 키 또는 SAS 토큰)의 액세스 키를 변경해야 하는 경우 새 자격 증명을 작업 영역 및 이 작업 영역에 연결된 데이터 저장소와 동기화해야 합니다. [업데이트된 자격 증명을 동기화](how-to-change-storage-access-key.md)하는 방법을 알아봅니다. 
 ### <a name="permissions"></a>사용 권한
 
-Azure Blob 컨테이너 및 Azure Data Lake Gen 2 스토리지의 경우, 인증 자격 증명에 **스토리지 Blob 데이터 읽기 권한자** 액세스 권한이 있는지 확인합니다. [스토리지 Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰의 기본값은 사용 권한 없음입니다. 
-* 데이터 **읽기 액세스** 의 경우, 인증 자격 증명에 최소한 컨테이너와 개체에 대한 나열 및 읽기 권한이 있어야 합니다. 
+Azure Blob 컨테이너 및 Azure Data Lake Gen 2 스토리지의 경우, 인증 자격 증명에 **스토리지 Blob 데이터 읽기 권한자** 액세스 권한이 있는지 확인합니다. [스토리지 Blob 데이터 읽기 권한자](../role-based-access-control/built-in-roles.md#storage-blob-data-reader)에 대해 자세히 알아보세요. 계정 SAS 토큰은 기본적으로 권한 없음으로 설정됩니다. 
+* 데이터 **읽기 액세스** 의 경우 인증 자격 증명에는 컨테이너 및 개체에 대한 최소한의 나열 및 읽기 권한이 있어야 합니다. 
 
 * 데이터 **쓰기 액세스** 의 경우, 쓰기 및 추가 권한도 필요합니다.
 
@@ -147,7 +150,8 @@ Azure 스토리지 솔루션을 데이터 저장소로 등록하면 해당 데�
 
 하위 코드 환경을 선호하는 경우 [Azure Machine Learning 스튜디오를 사용하여 데이터에 연결](how-to-connect-data-ui.md)을 참조하세요.
 >[!IMPORTANT]
-> 데이터 저장소의 등록을 취소하고 같은 이름으로 다시 등록할 때 실패하는 경우 작업 영역의 Azure Key Vault에 일시 삭제가 설정되지 않은 것일 수 있습니다. 기본적으로 일시 삭제는 작업 영역에서 만든 주요 자격 증명 모음 인스턴스에 대해 사용하도록 설정되지만, 기존 키 자격 증명 모음을 사용하거나 2020년 10월 이전에 생성된 작업 영역을 사용하는 경우에는 사용하도록 설정되지 않을 수 있습니다. 일시 삭제를 사용하도록 설정하는 방법에 대한 자세한 내용은 [기존 키 자격 증명 모음에 대한 일시 삭제 사용]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)을 참조하세요.
+> 데이터 저장소의 등록을 취소하고 같은 이름으로 다시 등록할 때 실패하는 경우 작업 영역의 Azure Key Vault에 일시 삭제가 설정되지 않은 것일 수 있습니다. 일시 삭제는 작업 영역에서 만든 키 자격 증명 모음 인스턴스에 대해 기본적으로 사용되지만, 기존 키 자격 증명 모음을 사용하거나 2020년 10월 이전에 작업 영역을 만든 경우에는 일시 삭제가 사용되지 않을 수 있습니다. 일시 삭제를 사용하도록 설정하는 방법에 관한 자세한 내용은 [기존 키 자격 증명 모음에 대해 일시 삭제 설정](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault)을 참조하세요.
+
 
 > [!NOTE]
 > 데이터 저장소 이름은 소문자, 숫자, 밑줄만으로 구성되어야 합니다. 
@@ -228,7 +232,7 @@ Python SDK 및 스튜디오를 사용하여 데이터 저장소를 만드는 것
 
 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/)에는 데이터 저장소를 만드는 데 사용할 수 있는 여러 가지 템플릿이 있습니다.
 
-해당 템플릿 사용에 관한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning용 작업 영역 만들기](how-to-create-workspace-template.md)를 참조하세요.
+해당 템플릿 사용에 관한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 Azure Machine Learning용 작업 영역 만들기 ](how-to-create-workspace-template.md)를 참조하세요.
 
 ### <a name="vs-code-extension"></a>VS Code 확장
 

@@ -3,12 +3,12 @@ title: Microsoft.Resources에 있는 리소스의 지역 이동
 description: Microsoft.Resources 네임스페이스에 있는 리소스를 새 지역으로 이동하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 098e5c36969da12966d793b6e1eddd4f79701ead
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 898e5efef22f76dc07395fcfcad413ef4582dafd
+ms.sourcegitcommit: 6f1aa680588f5db41ed7fc78c934452d468ddb84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "88951055"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107725875"
 ---
 # <a name="move-microsoftresources-resources-to-new-region"></a>Microsoft.Resources 리소스를 새 지역으로 이동
 
@@ -93,4 +93,4 @@ ms.locfileid: "88951055"
 ## <a name="next-steps"></a>다음 단계
 
 * 리소스를 새 리소스 그룹이나 구독으로 이동하는 방법에 대한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](move-resource-group-and-subscription.md)을 참조하세요.
-* 리소스를 새 지역으로 이동하는 방법에 대한 자세한 내용은 [지역 간에 Azure 리소스 이동](move-region.md)을 참조하세요.
+* 리소스를 새 지역으로 이동하는 방법에 대한 자세한 내용은 [지역 간 리소스 이동](move-resources-overview.md#move-resources-across-regions)을 참조하세요.

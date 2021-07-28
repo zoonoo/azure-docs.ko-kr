@@ -3,14 +3,14 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 05/28/2021
 ms.author: dukek
-ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 2f5244fd8ef414a1bed6781c702014e805f47a76
+ms.sourcegitcommit: 23040f695dd0785409ab964613fabca1645cef90
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772351"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112060321"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 
@@ -148,8 +148,19 @@ Azure 모바일 앱을 구성할 때 계정 ID로 사용하는 메일 주소를 
 
 작업 그룹에서 이메일 작업의 수가 제한될 수 있습니다. [속도 제한 정보](./alerts-rate-limiting.md) 문서를 참조하세요.
 
+*이메일 ARM 역할* 을 설정하는 동안 다음 세 가지 조건이 충족되는지 확인해야 합니다.
+
+1. 역할에 할당되는 엔터티의 유형은 **“사용자”** 여야 합니다.
+2. 할당은 **구독** 수준에서 수행해야 합니다.
+3. 사용자는 **AAD 프로필** 에 구성된 이메일이 있어야 합니다. 
+
+> [!NOTE]
+> 고객이 구독에 새 ARM 역할을 추가한 후 알림을 받기 시작하는 데 최대 **24시간** 이 걸릴 수 있습니다.
+
 ### <a name="function"></a>함수
 [Azure Functions](../../azure-functions/functions-get-started.md)에서 기존 HTTP 트리거 엔드포인트를 호출합니다. 요청을 처리하려면 엔드포인트가 HTTP POST 동사를 처리해야 합니다.
+
+함수 작업을 정의하는 경우 함수의 httptrigger 엔드포인트 및 액세스 키가 작업 정의에 저장됩니다. 예: https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key. 함수에 대한 액세스 키를 변경하는 경우 작업 그룹에서 함수 동작을 제거하고 다시 만들어야 합니다.
 
 작업 그룹에서 함수 작업의 수가 제한될 수 있습니다.
 
@@ -162,12 +173,10 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](./itsmc-overview
 작업 그룹에서 논리 앱 작업의 수가 제한될 수 있습니다.
 
 ### <a name="secure-webhook"></a>보안 웹후크
+작업 그룹 보안 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../../active-directory/develop/v2-overview.md)를 참조하세요.
 
 > [!NOTE]
 > webhook 작업을 사용하기 위해 대상 webhook 엔드포인트에서 경고에 대한 세부 정보가 성공적으로 작동할 필요는 없으며, POST 작업의 일부로 제공된 경고 컨텍스트 정보를 구문 분석할 수 있어야 합니다. webhook 엔드포인트에서 경고 컨텍스트 정보를 자체적으로 처리할 수 없는 경우에는 [논리 앱 작업](./action-groups-logic-app.md)과 같은 솔루션을 사용하여 webhook의 예상 데이터 형식과 일치하도록 경고 컨텍스트 정보를 사용자 지정할 수 있습니다.
-> 보안이 위반되지 않도록 사용자는 webhook 서비스 주체의 **소유자** 여야 합니다. 모든 Azure 고객은 소유자를 확인하지 않고 포털을 통해 모든 개체 ID에 액세스할 수 있으므로 보안을 위반하는 Azure Monitor 경고 알림에 대한 보안 webhook를 자신의 작업 그룹에 추가할 수 있습니다.
-
-작업 그룹 웹후크 작업을 사용하면 Azure Active Directory를 활용하여 작업 그룹과 보호된 웹 API(웹후크 엔드포인트) 간의 연결을 보호할 수 있습니다. 이 기능을 활용하기 위한 전체 워크플로는 아래에 설명되어 있습니다. Azure AD 애플리케이션 및 서비스 주체에 대한 개요는 [Microsoft ID 플랫폼(v2.0) 개요](../../active-directory/develop/v2-overview.md)를 참조하세요.
 
 1. 보호된 웹 API에 대한 Azure AD 애플리케이션을 만듭니다. [보호된 웹 API: 앱 등록](../../active-directory/develop/scenario-protected-web-api-app-registration.md)을 참조하세요.
     - [디먼 앱에서 호출](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)하도록 보호된 API를 구성합니다.
@@ -297,12 +306,14 @@ Write-Host $myApp.AppRoles
 | 351 | 포르투갈 |
 | 1 | 푸에르토리코 |
 | 40 | 루마니아 |
+| 7  | 러시아  |
 | 65 | 싱가포르 |
 | 27 | 남아프리카 공화국 |
 | 82 | 대한민국 |
 | 34 | 스페인 |
 | 41 | 스위스 |
 | 886 | 대만 |
+| 971 | 아랍에미리트    |
 | 44 | 영국 |
 | 1 | 미국 |
 

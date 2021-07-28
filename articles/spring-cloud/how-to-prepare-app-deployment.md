@@ -8,19 +8,19 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a90d4c2a8649e270365af9b11fa408b865945f92
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 5afdc2e46e4c234204a27261ae87061a3631071c
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878471"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134756"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에 배포할 애플리케이션 준비
 
 ::: zone pivot="programming-language-csharp"
 Azure Spring Cloud는 Steeltoe 앱을 호스팅, 모니터링, 크기 조정, 업데이트하기 위한 강력한 서비스를 제공합니다. 이 아티클에서는 Azure Spring Cloud에 배포하기 위해 기존 Steeltoe 애플리케이션을 준비하는 방법을 보여줍니다. 
 
-이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure Spring Cloud에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)를 참조하세요.
+이 문서에서는 Azure Spring Cloud에서 .NET Core Steeltoe 앱을 실행하는 데 필요한 종속성, 구성 및 코드를 설명합니다. Azure Spring Cloud에 애플리케이션을 배포하는 방법에 대한 자세한 내용은 [첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)를 참조하세요.
 
 >[!Note]
 > Azure Spring Cloud에 대한 Steeltoe 지원은 현재 공개 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 참조하거나 [지원 요청](../azure-portal/supportability/how-to-create-azure-support-request.md)을 제출하세요.
@@ -124,11 +124,11 @@ using (var client = new HttpClient(discoveryHandler, false))
 ::: zone pivot="programming-language-java"
 이 항목에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
 
-이 예제를 실행하기 전에 [기본 빠른 시작](spring-cloud-quickstart.md)을 시도해 볼 수 있습니다.
+이 예제를 실행하기 전에 [기본 빠른 시작](./quickstart.md)을 시도해 볼 수 있습니다.
 
 다른 예제에서는 POM 파일이 구성된 경우 Azure Spring Cloud에 애플리케이션을 배포하는 방법을 설명합니다. 
-* [첫 번째 앱 시작](spring-cloud-quickstart.md)
-* [마이크로서비스 빌드 및 실행](spring-cloud-quickstart-sample-app-introduction.md)
+* [첫 번째 앱 시작](./quickstart.md)
+* [마이크로서비스 빌드 및 실행](./quickstart-sample-app-introduction.md)
 
 이 문서에서는 필요한 종속성과 이것을 POM 파일에 추가하는 방법을 설명합니다.
 
@@ -142,7 +142,7 @@ Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 �
 
 Azure Spring Cloud에 배포할 기존 Spring Boot 애플리케이션을 준비하려면 다음 섹션에 표시된 대로 애플리케이션 POM 파일에 Spring Boot 및 Spring Cloud 종속성을 포함합니다.
 
-Azure Spring Cloud는 Spring Boot 버전 2.1 또는 버전 2.2의 Spring Boot 앱만 지원합니다. 아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
+Azure Spring Cloud는 Spring Boot 버전 2.2, 2.3, 2.4를 지원합니다. 아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
 
 Spring Boot 버전 | Spring Cloud 버전
 ---|---
@@ -151,7 +151,7 @@ Spring Boot 버전 | Spring Cloud 버전
 2.4.1+ | 2020.0.0
 
 > [!NOTE]
-> 앱과 Eureka 간의 TLS 인증에 대한 스프링 부팅 2.4.0 문제가 확인되었습니다. 2.4.1이상을 사용하십시오. 2\.4.0을 계속 사용하고자 하는 경우 해결 방법에 대한 [FAQ](./spring-cloud-faq.md?pivots=programming-language-java#development)를 참조하세요.
+> 앱과 Eureka 간의 TLS 인증에 대한 스프링 부팅 2.4.0 문제가 확인되었습니다. 2.4.1이상을 사용하십시오. 2\.4.0을 계속 사용하고자 하는 경우 해결 방법에 대한 [FAQ](./faq.md?pivots=programming-language-java#development)를 참조하세요.
 
 ### <a name="dependencies-for-spring-boot-version-2223"></a>Spring Boot 버전 2.2/2.3에 대한 종속성
 
@@ -284,7 +284,7 @@ public class GatewayApplication {
 
 ### <a name="distributed-tracing"></a>분산 추적
 
-또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [분산 추적에 대한 설명서](spring-cloud-tutorial-distributed-tracing.md)를 참조하세요.
+또한, Azure Application Insights 인스턴스가 Azure Spring Cloud 서비스 인스턴스와 작동하도록 설정해야 합니다. Azure Spring Cloud에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [분산 추적에 대한 설명서](./how-to-distributed-tracing.md)를 참조하세요.
 
 #### <a name="spring-boot-2223"></a>Spring Boot 2.2/2.3
 pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `spring-cloud-starter-zipkin` 종속성을 포함합니다.
@@ -312,14 +312,14 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-sleuth-zipkin` 종속
 
 ## <a name="see-also"></a>참고 항목
 * [애플리케이션 로그 및 메트릭 분석](./diagnostic-services.md)
-* [구성 서버 설정](spring-cloud-tutorial-config-server.md)
-* [Azure Spring Cloud에서 분산 추적 사용](spring-cloud-tutorial-distributed-tracing.md)
+* [구성 서버 설정](./how-to-config-server.md)
+* [Azure Spring Cloud에서 분산 추적 사용](./how-to-distributed-tracing.md)
 * [Spring 빠른 시작 가이드](https://spring.io/quickstart)
 * [Spring Boot 설명서](https://spring.io/projects/spring-boot)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 항목에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정하는 방법을 알아보려면 [구성 서버 인스턴스 설정](spring-cloud-tutorial-config-server.md)을 참조하세요.
+이 항목에서는 Azure Spring Cloud에 배포하기 위해 Java Spring 애플리케이션을 구성하는 방법을 알아보았습니다. 구성 서버 인스턴스를 설정하는 방법을 알아보려면 [구성 서버 인스턴스 설정](./how-to-config-server.md)을 참조하세요.
 
 GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
 ::: zone-end

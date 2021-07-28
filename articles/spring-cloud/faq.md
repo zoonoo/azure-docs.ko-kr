@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: cee71557e60be9fdd94099453d9b8617c4b3b5ba
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a60634175ff06780372331bef6b28de2edbfea33
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878568"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108144640"
 ---
 # <a name="azure-spring-cloud-faq"></a>Azure Spring Cloud FAQ
 
@@ -37,7 +37,7 @@ Azure Spring Cloud는 Azure Monitor, Application Insights 및 로그 분석을 �
 
 ### <a name="in-which-regions-is-azure-spring-cloud-available"></a>Azure Spring Cloud는 어떤 지역에서 사용할 수 있나요?
 
-미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 서부, 미국 서부 2, 서유럽, 북유럽, 영국 남부, 동남아시아, 오스트레일리아 동부, 캐나다 중부, 아랍에미리트 북부, 인도 중부, 한국 중부, 동아시아 및 중국 동부 2(Mooncake). [자세한 내용](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+미국 동부, 미국 동부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 서부, 미국 서부 2, 서유럽, 북유럽, 영국 남부, 동남아시아, 오스트레일리아 동부, 캐나다 중부, 아랍에미리트 북부, 인도 중부, 한국 중부, 동아시아, 일본 동부, 남아프리카 공화국 북부 및 중국 동부 2(Mooncake). [자세한 내용](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### <a name="is-any-customer-data-stored-outside-of-the-specified-region"></a>지정된 지역 외부에 저장된 고객 데이터가 있나요?
 
@@ -63,7 +63,7 @@ Azure Spring Cloud에 문제가 발생하면 [Azure 지원 요청](../azure-port
 
 ### <a name="i-am-a-spring-cloud-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-an-azure-spring-cloud-application"></a>저는 Azure를 처음 접하는 Spring Cloud 개발자입니다. Azure Spring Cloud 애플리케이션을 개발하는 방법을 배우는 가장 빠른 방법은 무엇인가요?
 
-Azure Spring Cloud를 시작하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)의 지침을 따르세요.
+Azure Spring Cloud를 시작하는 가장 빠른 방법은 [빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작](./quickstart.md)의 지침을 따르세요.
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Azure Spring Cloud에서 지원하는 Java 런타임은 어떻게 되나요?
@@ -96,7 +96,7 @@ Azure Spring Cloud는 Spring Cloud 애플리케이션 로그 및 메트릭을 Az
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud는 분산 추적을 지원하나요?
 
-예. 자세한 내용은 [자습서: Azure Spring Cloud에서 분산 추적 사용](spring-cloud-howto-distributed-tracing.md)을 참조하세요.
+예. 자세한 내용은 [자습서: Azure Spring Cloud에서 분산 추적 사용](./how-to-distributed-tracing.md)을 참조하세요.
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>서비스 바인딩에서 지원하는 리소스 종류는 무엇인가요?
@@ -186,7 +186,7 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 ## <a name="deployment"></a>배포
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>Azure Spring Cloud에서 파란색-녹색 배포를 지원하나요?
-예. 자세한 정보는 [스테이징 환경 설정](spring-cloud-howto-staging-environment.md)을 참조하세요.
+예. 자세한 정보는 [스테이징 환경 설정](./how-to-staging-environment.md)을 참조하세요.
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>내 애플리케이션 컨테이너를 조작하기 위해 Kubernetes에 액세스할 수 있나요?
 
@@ -194,11 +194,11 @@ Azure Spring Cloud에 적용 가능한 중요 보안 패치(CVE 점수> = 9)는 
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>Azure Spring Cloud는 원본에서 컨테이너를 빌드할 수 있도록 지원하나요?
 
-예. 자세한 내용은 [소스 코드에서 Spring Cloud 애플리케이션 시작](spring-cloud-quickstart.md)을 참조하세요.
+예. 자세한 내용은 [소스 코드에서 Spring Cloud 애플리케이션 시작](./quickstart.md)을 참조하세요.
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>Azure Spring Cloud에서 앱 인스턴스의 자동 크기 조정을 지원하나요?
 
-예.  자세한 내용은 [자동 크기 조정 설정](spring-cloud-tutorial-setup-autoscale.md)을 참조하세요.
+예.  자세한 내용은 [자동 크기 조정 설정](./how-to-setup-autoscale.md)을 참조하세요.
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>기존 Spring Cloud 마이크로서비스를 Azure Spring Cloud로 마이그레이션하기 위한 모범 사례는 무엇인가요?
@@ -243,4 +243,4 @@ RetryableEurekaHttpClient: Request execution failure with status code 401; retry
 
 ## <a name="next-steps"></a>다음 단계
 
-추가 질문이 있는 경우 [Azure Spring Cloud 문제 해결 가이드](spring-cloud-troubleshoot.md)를 참조하세요.
+추가 질문이 있는 경우 [Azure Spring Cloud 문제 해결 가이드](./troubleshoot.md)를 참조하세요.
