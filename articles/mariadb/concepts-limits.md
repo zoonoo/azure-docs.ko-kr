@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/2/2020
 ms.openlocfilehash: d4546732f067988c9d7dd2d11c718a15fbe32d23
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664302"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 제한 사항
@@ -19,13 +19,13 @@ ms.locfileid: "98664302"
 ## <a name="server-parameters"></a>서버 매개 변수
 
 > [!NOTE]
-> 및와 같은 서버 매개 변수에 대 한 최소/최대 값을 찾고 있는 경우 `max_connections` `innodb_buffer_pool_size` 이 정보는 **[서버 매개 변수](./concepts-server-parameters.md)** 문서로 이동 되었습니다.
+> 만약 `max_connections` 및 `innodb_buffer_pool_size`와 같은 서버 매개 변수에 대한 최솟값/최댓값을 찾고 있는 경우 이 정보는 **[서버 매개 변수](./concepts-server-parameters.md)** 문서로 이동되었습니다.
 
-Azure Database for MariaDB 서버 매개 변수 값의 튜닝을 지원 합니다. 일부 매개 변수의 min 및 max 값 (예: `max_connections`, `join_buffer_size` , `query_cache_size` )는 서버의 가격 책정 계층 및 vcores에 의해 결정 됩니다. 이러한 제한에 대 한 자세한 내용은 [서버 매개 변수](./concepts-server-parameters.md) 를 참조 하세요.
+Azure Database for MariaDB는서버 매개 변수 값 조정을 지원합니다. 일부 매개 변수의 최솟값과 최댓값(예: `max_connections`, `join_buffer_size`, `query_cache_size`)은 서버의 가격 책정 계층 및 vCore에 의해 결정됩니다. 이러한 제한에 대한 자세한 내용은 [서버 매개 변수를](./concepts-server-parameters.md) 참조하세요.
 
-초기 배포 시 Azure for MariaDB 서버는 표준 시간대 정보에 대 한 시스템 테이블을 포함 하지만 이러한 테이블은 채워지지 않습니다. MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하여 표준 시간대 테이블을 채울 수 있습니다. 저장 프로시저를 호출하고 글로벌 또는 세션 수준 표준 시간대를 설정하는 방법은 [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) 문서를 참조하세요.
+초기 배포 시 Azure for MariaDB 서버는 표준 시간대 정보에 대한 시스템 테이블을 포함하지만 이 테이블은 채워지지 않습니다. MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `mysql.az_load_timezone` 저장 프로시저를 호출하여 표준 시간대 테이블을 채울 수 있습니다. 저장 프로시저를 호출하고 글로벌 또는 세션 수준 표준 시간대를 설정하는 방법은 [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) 또는 [Azure CLI](howto-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) 문서를 참조하세요.
 
-"Validate_password" 및 "caching_sha2_password"와 같은 암호 플러그 인은 서비스에서 지원 되지 않습니다.
+"validate_password" 및 "caching_sha2_password" 같은 암호 플러그인은 본 서비스에서 지원되지 않습니다.
 
 ## <a name="storage-engine-support"></a>스토리지 엔진 지원
 
@@ -38,22 +38,22 @@ Azure Database for MariaDB 서버 매개 변수 값의 튜닝을 지원 합니�
 - [BLACKHOLE](https://mariadb.com/kb/en/library/blackhole/)
 - [ARCHIVE](https://mariadb.com/kb/en/library/archive/)
 
-## <a name="privileges--data-manipulation-support"></a>데이터 조작 지원 & 권한
+## <a name="privileges--data-manipulation-support"></a>권한 및 데이터 조작 지원
 
-많은 서버 매개 변수 및 설정으로 인해 실수로 서버 성능이 저하 되거나 MariaDB 서버의 ACID 속성이 무효화 될 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지 하기 위해이 서비스는 여러 역할을 노출 하지 않습니다. 
+서버 매개 변수 및 설정이 많으면 의도치 않게 서버 성능이 저하되거나 MariaDB 서버의 ACID 속성이 무효화될 수 있습니다. 제품 수준에서 서비스 무결성 및 SLA를 유지하기 위해 이 서비스는 여러 역할을 노출하지 않습니다. 
 
-MariaDB 서비스는 기본 파일 시스템에 대 한 직접 액세스를 허용 하지 않습니다. 일부 데이터 조작 명령은 지원 되지 않습니다. 
+MariaDB 서비스는 기본 파일 시스템에 직접 액세스를 허용하지 않습니다. 일부 데이터 조작 명령은 지원되지 않습니다. 
 
 ## <a name="privilege-support"></a>권한 지원
 
 ### <a name="unsupported"></a>지원되지 않음
 
-지원 되지 않는 기능은 다음과 같습니다.
-- DBA 역할: 제한 됨 또는 새 서버를 만드는 동안 만들어진 관리자 사용자를 사용 하 여 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
-- SUPER 권한: 마찬가지로 [슈퍼 권한도](https://mariadb.com/kb/en/library/grant/#global-privileges) 제한 됩니다.
+다음은 지원되지 않습니다.
+- DBA 역할: 제한됨. 또는 관리자 사용자(새 서버를 만드는 동안 만들어짐)를 사용하면 대부분의 DDL 및 DML 문을 수행할 수 있습니다. 
+- SUPER 권한: 마찬가지로 [SUPER 권한](https://mariadb.com/kb/en/library/grant/#global-privileges) 도 제한됩니다.
 - DEFINER: 생성하려면 SUPER 권한이 필요하며, 제한됩니다. 백업을 사용하여 데이터를 가져올 경우 mysqldump를 수행할 때 수동으로 또는 `--skip-definer` 명령을 사용하여 `CREATE DEFINER` 명령을 제거하세요.
-- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://mariadb.com/kb/en/the-mysql-database-tables/) 는 읽기 전용 이며 다양 한 PaaS 기능을 지 원하는 데 사용 됩니다. 시스템 데이터베이스를 변경할 수 없습니다 `mysql` .
-- `SELECT ... INTO OUTFILE`: 서비스에서 지원 되지 않습니다.
+- 시스템 데이터베이스: [mysql 시스템 데이터베이스](https://mariadb.com/kb/en/the-mysql-database-tables/) 는 읽기 전용이며 다양한 PaaS 기능을 지원하는 데 사용됩니다. 이는 `mysql` 시스템 데이터베이스로 변경할 수 없습니다.
+- `SELECT ... INTO OUTFILE`: 서비스에서 지원되지 않습니다.
 
 ### <a name="supported"></a>지원됨
 - `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure Storage)로 전달해야 합니다.

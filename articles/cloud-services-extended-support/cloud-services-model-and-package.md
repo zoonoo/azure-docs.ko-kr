@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Service (확장 지원) 모델 및 패키지 정의
-description: Azure의 클라우드 서비스 (확장 지원) 모델 (.csdef, .cscfg) 및 패키지 (.cspkg)에 대해 설명 합니다.
+title: Azure Cloud Service(추가 지원) 모델 및 패키지는 무엇인가
+description: Azure의 클라우드 서비스(추가 지원) 모델(.csdef, .cscfg) 및 패키지(.cspkg)에 대해 설명합니다
 ms.topic: article
 ms.service: cloud-services-extended-support
 author: gachandw
@@ -9,13 +9,13 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 3baea92d78cf15c35d2fb36692dab1edfd950699
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98744520"
 ---
-# <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>Azure 클라우드 서비스 모델 이란 무엇 이며 패키지를 어떻게 패키지 하나요?
+# <a name="what-is-the-azure-cloud-service-model-and-how-do-i-package-it"></a>Azure 클라우드 서비스 모델 이란 무엇이며 어떻게 패키징하나요?
 
 클라우드 서비스는 서비스 정의 *(.csdef)*, 서비스 구성 *(.cscfg)*, 서비스 패키지 *(.cspkg)* 의 세 구성 요소에서 생성됩니다. **ServiceDefinition.csdef** 및 **ServiceConfig.cscfg** 파일은 둘 다 XML 기반으로, 클라우드 서비스의 구조 및 구성 방법(합쳐서 모델이라고 함)을 설명합니다. **ServicePackage.cspkg** 는 **ServiceDefinition.csdef** 및 다른 구성 요소에서 생성되는 zip 파일로, 필수 이진 기반 종속성을 모두 포함합니다. Azure는 **ServicePackage.cspkg** 와 **ServiceConfig.cscfg** 에서 모두 클라우드 서비스를 만듭니다.
 
@@ -26,10 +26,10 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 * 이미 내용을 알고 있으므로 무엇을 구성할 수 있는지에 대한 [몇 가지 예](#next-steps) 를 보여 주세요.
 * [ServicePackage.cspkg](#cspkg)를 만들려고 합니다.
 * Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
-  * [클라우드 서비스 만들기] [vs_create]
-  * [기존 클라우드 서비스 다시 구성] [vs_reconfigure]
-  * [클라우드 서비스 프로젝트 배포] [vs_deploy]
-  * [원격 데스크톱을 클라우드 서비스 인스턴스로] [remotedesktop]
+  * [클라우드 서비스 만들기][vs_create]
+  * [기존 클라우드 서비스 재구성][vs_reconfigure]
+  * [클라우드 서비스 프로젝트 배포][vs_deploy]
+  * [원격 데스크톱에서 클라우드 서비스 인스턴스에 연결][remotedesktop]
 
 <a name="csdef"></a>
 
@@ -85,7 +85,7 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 </ServiceDefinition>
 ```
 
-여기에 사용 된 XML 스키마를 더 잘 이해할 수 있도록 [서비스 정의 스키마](schema-csdef-file.md)를 참조할 수 있습니다. 그러나 다음은 몇 가지 요소에 대 한 간략 한 설명입니다.
+여기에 사용되는 XML 스키마를 더 잘 이해하려면 [서비스 정의 스키마](schema-csdef-file.md)를 참조하면 됩니다. 그러나 여기서 간략하게 몇 가지 요소를 설명합니다.
 
 **사이트**  
 IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한 정의를 포함합니다.
@@ -105,7 +105,7 @@ IIS7에서 호스트되는 웹 사이트 또는 웹 애플리케이션에 대한
 **LocalResources**  
  로컬 스토리지 리소스에 대한 정의를 포함합니다. 로컬 스토리지 리소스는 역할의 인스턴스가 실행 중인 가상 머신의 파일 시스템에 예약된 디렉터리입니다.
 
-**가져오도록**  
+**Imports**  
  가져온 모듈에 대한 정의를 포함합니다. 앞의 코드 예제에서는 원격 데스크톱 연결 및 Azure Connect에 대한 모듈을 보여 줍니다.
 
 **Startup 클래스**  
@@ -218,7 +218,7 @@ Azure 런타임 라이브러리는 Microsoft.WindowsAzure.ServiceRuntime 네임�
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
 > [!NOTE]
-> 배포할 수 있는 최대 패키지 크기는 600MB입니다.
+> 배포할 수 있는 최대 패키지 크기는 600MB입니다
 
 애플리케이션을 Azure에서 클라우드 서비스로 배포하려면 먼저 적절한 형식으로 애플리케이션을 패키지해야 합니다. **CSPack** 명령줄 도구( [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치됨)를 사용하여 Visual Studio 대신 패키지 파일을 만들 수 있습니다.
 
@@ -275,7 +275,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 | \[RoleAssemblyName\] |역할에 대한 이진 파일의 이름입니다. |
 
 ## <a name="next-steps"></a>다음 단계 
-- Cloud Services (확장 지원)에 대 한 [배포 필수 구성 요소](deploy-prerequisite.md) 를 검토 합니다.
+- Cloud Services(추가 지원)에 대한 [배포 필수 구성 요소](deploy-prerequisite.md)를 검토합니다.
 - [Azure Portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [템플릿](deploy-template.md) 또는 [Visual Studio](deploy-visual-studio.md)를 사용하여 Cloud Service(추가 지원)를 배포합니다.
 - Cloud Services(추가 지원)에 대한 [질문과 대답](faq.md)을 검토합니다.
 

@@ -1,0 +1,67 @@
+### YamlMime:FAQ
+metadata:
+  title: Windows의 음성 도우미 - FAQ
+  titleSuffix: Azure Cognitive Services
+  description: Windows 음성 에이전트 개발 중에 자주 나오는 일반적인 질문입니다.
+  services: cognitive-services
+  author: cfogg6
+  manager: trrwilson
+  ms.service: cognitive-services
+  ms.subservice: speech-service
+  ms.topic: conceptual
+  ms.date: 04/15/2020
+  ms.author: travisw
+  ms.openlocfilehash: a8693ff12e13903e6d31bb875c34c031c07f0f02
+  ms.sourcegitcommit: d2738669a74cda866fd8647cb9c0735602642939
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/13/2021
+  ms.locfileid: "113652765"
+title: 샘플 및 FAQ
+summary: >
+  ## <a name="the-uwp-voice-assistant-sample"></a>UWP 음성 도우미 샘플
+
+
+  UWP 음성 도우미 샘플은 Windows에서 다음 기능을 수행하는 음성 도우미입니다.
+
+
+  - Windows ConversationalAgent API 사용 방법 시연
+
+  - Windows에서 음성 에이전트에 대한 모범 사례 표시
+
+  - MVP 에이전트 애플리케이션에 적응형 앱 및 재사용 가능한 구성 요소 제공
+
+  - 엔드투엔드 음성 에이전트 환경을 위해 Windows ConversationalAgent API와 함께 Direct Line Speech(Bot Framework 또는 사용자 지정 명령 포함)를 사용하는 방법 설명
+
+
+  이 설명서는 샘플 앱과 함께 제공되며 시작 전제 조건에서 적절한 정리에 이르기까지 음성 활성화 및 에이전트 관리의 코드 경로를 안내합니다.
+
+
+  > [!div class="nextstepaction"]
+
+  > [GitHub 리포지토리를 방문하여 UWP 샘플 얻기](https://aka.ms/MVA/sample)
+sections:
+- name: 무시됨
+  questions:
+  - question: >
+      제한된 액세스 기능 토큰 및 키워드 모델 파일과 같은 리소스에 대해 Microsoft에 문의하려면 어떻게 해야 하나요?
+    answer: >
+      이러한 리소스를 요청하려면 winvoiceassistants@microsoft.com에 문의합니다.
+  - question: >
+      음성으로 활성화하면 내 앱이 작은 창에 표시됩니다. 간단히 보기에서 전체 애플리케이션 창으로 전환하려면 어떻게 해야 하나요?
+    answer: >
+      음성으로 애플리케이션을 처음 활성화하면 간단히 보기에서 시작됩니다. Windows의 음성 도우미에 대한 다양한 보기 및 전환에 대한 지침을 보려면 [음성 활성화 미리 보기를 위한 디자인 지침](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview)을 읽어보세요.
+
+
+      간단히 보기에서 전체 앱 보기로 전환하려면 appView API `TryEnterViewModeAsync`를 사용합니다.
+
+
+      `var appView = ApplicationView.GetForCurrentView();
+       await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);`
+  - question: >
+      Windows의 음성 도우미 기능이 UWP 애플리케이션에만 사용되는 이유는 무엇인가요?
+    answer: >
+      음성 활성화 등의 기능과 관련된 개인 정보 위험을 고려할 때 UWP 플랫폼의 기능은 Windows의 음성 도우미 기능을 충분히 보호하기 위해 필요합니다.
+  - question: >
+      UWP 음성 도우미 샘플은 Direct Line Speech를 사용합니다. Windows의 음성 도우미에 Direct Line Speech를 사용해야 하나요?
+    answer: UWP 샘플 애플리케이션은 Windows Conversion Agent 기능으로 대화 서비스를 사용하는 방법을 시연하기 위해 Direct Line Speech 및 Speech Services SDK를 사용하여 개발되었습니다. 그러나 로컬 및 클라우드 키워드 확인, 음성 텍스트 변환, 봇 대화 및 텍스트 음성 변환에 모든 서비스를 사용할 수 있습니다.

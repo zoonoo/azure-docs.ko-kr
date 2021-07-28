@@ -1,5 +1,5 @@
 ---
-title: 클라우드 서비스를 업데이트 하는 방법 (클래식) | Microsoft Docs
+title: 클라우드 서비스(클래식)를 업데이트하는 방법 | Microsoft Docs
 description: Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.service: cloud-services
@@ -9,23 +9,23 @@ author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: 5d85003ca7b4307c308914484502ae03269f66ac
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98741114"
 ---
-# <a name="how-to-update-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스를 업데이트 하는 방법 (클래식)
+# <a name="how-to-update-an-azure-cloud-service-classic"></a>Azure 클라우드 서비스(클래식)를 업데이트하는 방법
 
 > [!IMPORTANT]
-> Azure [Cloud Services (확장 지원)](../cloud-services-extended-support/overview.md) 는 azure Cloud Services 제품에 대 한 새로운 Azure Resource Manager 기반 배포 모델입니다.이러한 변경으로 Azure Service Manager 기반 배포 모델에서 실행 되는 Azure Cloud Services는 Cloud Services (클래식)으로 이름이 바뀌고 모든 새 배포는 [Cloud Services (확장 된 지원)](../cloud-services-extended-support/overview.md)를 사용 해야 합니다.
+> [Azure Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)는 Azure Cloud Services 제품을 위한 새로운 Azure Resource Manager 기반 배포 모델입니다.이 변경으로 Azure Service Manager 기반 배포 모델에서 실행되는 Azure Cloud Services는 Cloud Services(클래식)로 이름이 변경되었으며, 모든 새로운 배포는 [Cloud Services(추가 지원)](../cloud-services-extended-support/overview.md)를 사용해야 합니다.
 
 해당 역할 및 게스트 OS를 포함한 클라우드 서비스 업데이트는 3단계 프로세스입니다. 먼저 새 클라우드 서비스 또는 OS 버전에 대한 이진 및 구성 파일을 업로드해야 합니다. 다음으로 Azure는 새 클라우드 서비스 버전의 요구 사항에 따라 클라우드 서비스에 대한 컴퓨팅 및 네트워크 리소스를 예약합니다. 마지막으로 Azure는 가용성을 유지하면서 새 버전 또는 게스트 OS로 테넌트를 증분 방식으로 업데이트하도록 롤링 업그레이드를 수행합니다. 이 문서에서는 롤링 업그레이드 마지막 단계에 대한 세부 정보를 설명합니다.
 
 ## <a name="update-an-azure-service"></a>Azure 서비스 업데이트
 Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 인스턴스를 구성합니다. 업그레이드 도메인(UD)은 그룹으로 업데이트되는 역할 인스턴스의 논리적 집합입니다.  Azure는 클라우드 서비스를 한 번에 하나의 UD로 업데이트하며 이는 다른 UD의 인스턴스를 계속해서 트래픽을 제공하도록 합니다.
 
-업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. UpgradeDomainCount 특성에 대 한 자세한 내용은 [Azure Cloud Services 정의 스키마 (.Csdef 파일)](./schema-csdef-file.md)를 참조 하세요.
+업그레이드 도메인의 기본값은 5입니다. 서비스 정의 파일(.csdef)의 upgradeDomainCount 특성을 포함하여 다른 수의 업그레이드 도메인을 지정할 수 있습니다. upgradeDomainCount 특성에 대한 자세한 내용은 [Azure Cloud Services 정의 스키마(.csdef 파일)](./schema-csdef-file.md)를 참조하세요.
 
 서비스에서 하나 이상의 역할에 대한 전체 업데이트를 수행하면 Azure는 자신이 속한 업그레이드 도메인에 따라 역할 인스턴스의 집합을 업데이트합니다. Azure는 주어진 업그레이드 도메인 - 중지, 업데이트, 다시 온라인으로 전환 - 으로 모든 인스턴스를 업데이트하고 다음 도메인으로 이동합니다. 현재 업그레이드 도메인에서 실행 중인 인스턴스만 중지하여 Azure는 실행 중인 서비스에 가능한 한 최소한의 영향으로 업데이트를 발생하도록 합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [업데이트 진행 방법](#howanupgradeproceeds) 을 참조하세요.
 
@@ -111,7 +111,7 @@ Azure는 업그레이드 도메인(UD)이라는 논리적 그룹으로 역할 �
 |전체 업그레이드|유지됨|유지됨|제거됨|
 |노드 마이그레이션:|제거됨|제거됨|제거됨|
 
-위 목록에서 E: 드라이브는 역할의 루트 드라이브를 나타내며 하드 코드되면 안됩니다. 대신 **% RoleRoot%** 환경 변수를 사용 하 여 드라이브를 표시 합니다.
+위 목록에서 E: 드라이브는 역할의 루트 드라이브를 나타내며 하드 코드되면 안됩니다. 대신 **%RoleRoot%** 환경 변수를 사용하여 드라이브를 표시합니다.
 
 단일 인스턴스 서비스를 업그레이드할 때 가동 중지 시간을 최소화하려면 스테이징 서버에 새로운 다중 인스턴스 서비스를 배포하고 VIP 교환을 수행합니다.
 
@@ -184,6 +184,6 @@ Azure는 서비스 정의(.csdef) 파일의 일부로 구성될 수 있는 업�
 >
 
 ## <a name="next-steps"></a>다음 단계
-[Cloud Services를 관리 하는 방법](cloud-services-how-to-manage-portal.md)  
+[Cloud Services를 관리하는 방법](cloud-services-how-to-manage-portal.md)  
 [Cloud Services를 모니터링하는 방법](cloud-services-how-to-monitor.md)  
 [Cloud Services를 구성하는 방법](cloud-services-how-to-configure-portal.md)

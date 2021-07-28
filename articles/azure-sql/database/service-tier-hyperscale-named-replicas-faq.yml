@@ -1,0 +1,77 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure SQL Database 하이퍼스케일 명명된 복제본 FAQ
+  description: 고객이 하이퍼스케일 서비스 계층 명명된 복제본의 SQL Database에 있는 데이터베이스에 대해 묻는 일반적인 질문에 대한 대답입니다.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: 
+  ms.custom: 
+  ms.devlang: 
+  ms.topic: conceptual
+  author: yorek
+  ms.author: damauri
+  ms.reviewer: 
+  ms.date: 06/09/2021
+  ms.openlocfilehash: 53dd0035a9ee973b68b7a1f795e500775e226e3f
+  ms.sourcegitcommit: 285d5c48a03fcda7c27828236edb079f39aaaebf
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/02/2021
+  ms.locfileid: "113233445"
+title: Azure SQL Database 하이퍼스케일 명명된 복제본 FAQ
+summary: "[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]\n\n이 문서에서는 이 FAQ의 나머지 부분에서 간단히 하이퍼스케일이라고 하는 Azure SQL Database 하이퍼스케일 서비스 계층의 데이터베이스를 고려하는 고객을 위해 질문과 대답을 제공합니다. 이 문서에서는 하이퍼스케일에서 지원하는 시나리오와 하이퍼스케일과 호환되는 기능에 대해 설명합니다.\n\n- 이 FAQ는 하이퍼스케일 서비스 계층 명명된 복제본에 대해 간략히 이해하고 있고 특정 질문 및 문제에 대한 대답을 원하는 독자를 대상으로 합니다.\n- 하이퍼스케일 명명된 복제본에 대한 자세한 내용은 [하이퍼스케일 복제본 명명된 복제본](service-tier-hyperscale-replicas.md#named-replica-in-preview)을 참조하세요. \n"
+sections:
+- name: 일반적인 질문
+  questions:
+  - question: >
+      명명된 복제본을 장애 조치(failover) 대상으로 사용할 수 있나요?
+    answer: >
+      아니요, 명명된 복제본은 장애 조치(failover) 대상으로 사용할 수 없습니다. 이러한 용도에는 HA 복제본을 사용합니다.
+  - question: >
+      읽기 전용 워크로드를 명명된 복제본 간에 분산하려면 어떻게 해야 하나요?
+    answer: >
+      명명된 복제본마다 서비스 수준 목표가 다를 수 있고 이에 따라 서로 다른 사용 사례에 사용될 수 있으므로 주 복제본에 보낸 읽기 전용 트래픽을 관련 명명된 복제본으로 전달하는 기본 제공 방법이 없습니다. 예를 들어 8개의 명명된 복제본이 있을 수 있고, OLTP 워크로드를 1~4의 명명된 복제본으로만 전달하려고 할 수 있습니다. 한편 모든 Power BI 분석 워크로드에서 5 및 6의 명명된 복제본을 사용하고, 데이터 과학 워크로드에서 7 및 8의 복제본을 사용합니다. 사용하는 도구 또는 프로그래밍 언어에 따라 이러한 워크로드를 분산하는 전략이 달라질 수 있습니다. REST 백 엔드에서 스케일 아웃할 수 있도록 워크로드 라우팅 솔루션을 만드는 한 가지 예는 [OLTP 스케일 아웃 샘플](https://github.com/Azure-Samples/azure-sql-db-named-replica-oltp-scaleout)입니다.
+  - question: >
+      명명된 복제본이 주 복제본의 지역과 다른 지역에 있을 수 있나요?
+    answer: >
+      아니요, 명명된 복제본은 주 복제본의 동일한 페이지 서버를 사용하므로 동일한 지역에 있어야 합니다.
+  - question: >
+      명명된 복제본에서 주 복제본의 가용성 또는 성능에 영향을 줄 수 있나요?
+    answer: >
+      명명된 복제본은 주 복제본의 가용성에 영향을 줄 수 없습니다. 명명된 복제본은 정상적인 상황에서 주 복제본의 성능에 영향을 줄 가능성이 거의 없지만, 리소스를 많이 사용하는 워크로드가 실행되는 경우에는 영향을 줄 수 있습니다. HA 복제본과 마찬가지로 명명된 복제본은 트랜잭션 로그 서비스를 통해 주 복제본과 동기화된 상태로 유지됩니다. 어떤 이유로든 명명된 복제본에서 트랜잭션 로그를 충분히 빠르게 사용할 수 없는 경우 주 복제본에서 로그 생성 속도를 늦추도록(제한) 요청하기 시작합니다. 그러면 주 복제본에서 캐치업할 수 있습니다. 이 동작은 주 복제본의 가용성에 영향을 주지 않지만 성능에는 영향을 줍니다. 이러한 상황을 방지하려면 트랜잭션 로그를 지연 없이 처리할 수 있도록 사용 가능한 리소스(주로 CPU)가 명명된 복제본에 충분히 있는지 확인합니다. 예를 들어 주 복제본에서 많은 데이터 변경 내용을 처리하는 경우 복제본의 CPU 병목 상태를 방지하고 이에 따라 주 복제본이 느려지지 않도록 적어도 서비스 수준 목표가 주 복제본과 동일한 명명된 복제본을 사용하는 것이 좋습니다.
+  - question: >
+      예를 들어 계획된 유지 관리로 인해 주 복제본을 사용할 수 없는 경우 명명된 복제본은 어떻게 되나요?
+    answer: >
+      명명된 복제본은 평소와 같이 읽기 전용 액세스에 계속 사용할 수 있습니다.
+  - question: >
+      SSMS(SQL Server Management Studio) 또는 다른 클라이언트 도구를 사용하여 보조 컴퓨팅 복제본에 성공적으로 연결했는지 확인하려면 어떻게 할까요?
+    answer: >
+      다음 T-SQL 쿼리를 실행할 수 있습니다.
+
+
+      ```sql
+
+      SELECT @@SERVERNAME, DB_NAME(), DATABASEPROPERTYEX(DB_NAME(), 'Updateability');
+
+      ```
+
+
+      결과는 읽기 전용 보조 복제본에 연결된 경우 `READ_ONLY`이고, 주 복제본에 연결된 경우 `READ_WRITE`입니다. 데이터베이스 컨텍스트는 `master` 데이터베이스가 아니라 하이퍼스케일 데이터베이스의 이름으로 설정해야 합니다.
+  - question: >
+      내 보조 컴퓨팅 복제본에서 개체 또는 인덱스를 만들 수 있나요?
+    answer: >
+      아니요. 하이퍼스케일 데이터베이스에는 공유 스토리지가 있습니다. 즉, 모든 컴퓨팅 복제본에서 동일한 테이블, 인덱스, 보기를 볼 수 있습니다. 보조 복제본에 대한 읽기에 최적화된 추가 인덱스를 원하는 경우 주 복제본에서 해당 인덱스를 추가해야 합니다.
+
+
+      여전히 임시 테이블을 만들고 사용하여 임시 데이터를 저장할 수 있습니다.
+  - question: >
+      주 및 보조 컴퓨팅 복제본 사이의 대기 시간은 얼마인가요?
+    answer: >
+      트랜잭션이 주 복제본에서 커밋된 시간부터 보조 복제본에서 읽을 수 있는 시간까지의 데이터 대기 시간은 현재 로그 생성 속도, 트랜잭션 크기, 복제본의 로드 및 기타 요인에 따라 달라집니다. 소규모 트랜잭션의 일반적인 데이터 대기 시간은 수십 밀리초이지만, 데이터 대기 시간의 상한이 없습니다. 지정된 보조 복제본의 데이터는 항상 트랜잭션 일관성을 유지합니다. 그러나 특정 시점에서 데이터 대기 시간은 보조 복제본마다 다를 수 있습니다. 커밋된 데이터를 즉시 읽어야 하는 워크로드는 주 복제본에서 실행해야 합니다.
+  - question: >
+      명명된 복제본의 가용성을 향상시키려면 어떻게 해야 하나요?
+    answer: >
+      기본적으로 명명된 복제본에는 HA 복제본이 없습니다. 그러나 일반(읽기 전용) Azure SQL 데이터베이스처럼 작동하므로 HA 복제본에서 제공하는 [더 높은 수준의 SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/)를 활용할 수 있습니다. HA 복제본 수를 설정하려면 [AZ CLI](/cli/azure/sql/db/replica?view=azure-cli-latest#az_sql_db_replica_create)에서 `--ha-replicas` 매개 변수를 사용하거나, [PowerShell](/powershell/module/az.sql/set-azsqldatabase)에서 `--HighAvailabilityReplicaCount` 매개 변수를 사용하거나, [REST API](/rest/api/sql/2021-02-01-preview/databases/create-or-update)에서 `highAvailabilityReplicaCount` 속성을 통해 사용할 수 있습니다.
+
+      HA 복제본 수는 명명된 복제본을 만드는 동안 설정할 수 있으며, 명명된 복제본이 만들어지면 언제든지 AZ CLI, PowerShell 또는 REST API를 통해서만 변경할 수 있습니다. 명명된 복제본에 대한 HA 복제본의 가격 책정은 일반 데이터베이스에 대한 HA 복제본과 동일합니다.
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n하이퍼스케일 서비스 계층에 대한 자세한 내용은 [하이퍼스케일 서비스 계층](service-tier-hyperscale.md)을 참조하세요.\n하이퍼스케일 복제본에 대한 자세한 내용은 [하이퍼스케일 복제본](service-tier-hyperscale-replicas.md)을 참조하세요."

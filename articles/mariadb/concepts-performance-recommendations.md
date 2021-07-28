@@ -1,16 +1,16 @@
 ---
-title: 성능 권장 사항-Azure Database for MariaDB
-description: 이 문서에서는의 성능 권장 사항 기능에 대해 설명 Azure Database for MariaDB
+title: 성능 권장 사항 - Azure Database for MariaDB
+description: 이 문서에서는 Azure Database for MariaDB의 성능 권장 사항을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/3/2020
 ms.openlocfilehash: a20b8a43c8955e1afea7a7157e3e73425fb0d806
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98664319"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 성능 권장 사항
@@ -27,7 +27,7 @@ ms.locfileid: "98664319"
 
 [성능 권장 사항](concepts-performance-recommendations.md) 기능은 서버 전체의 워크로드를 분석하여 성능 향상 가능성이 있는 인덱스를 식별합니다.
 
-MariaDB 서버에 대 한 Azure Portal 페이지에 있는 메뉴 모음의 **지능형 성능** 섹션에서 **성능 권장 사항을** 엽니다.
+**성능 권장 사항** 을 MariaDB 서버에 대한 Azure Portal 페이지의 메뉴 표시줄에 있는 **지능형 성능** 섹션에서 엽니다.
 
 :::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="성능 권장 사항 방문 페이지":::
 
@@ -47,7 +47,7 @@ MariaDB 서버에 대 한 Azure Portal 페이지에 있는 메뉴 모음의 **�
 
 ### <a name="query-recommendations"></a>쿼리 권장 사항
 
-쿼리 권장 사항은 작업에서 쿼리에 대 한 최적화 및 재작성을 제안 합니다. MariaDB 쿼리 방지 패턴을 식별 하 고 구문적으로 수정 하 여 시간이 많이 걸리는 쿼리의 성능을 향상 시킬 수 있습니다. 이 권장 사항 유형을 사용하려면 쿼리 저장소를 사용하도록 설정해야 합니다. 쿼리 저장소는 쿼리 정보를 수집하고 분석에서 권장 사항을 적용하는 데 사용하는 자세한 쿼리 런타임 및 빈도 통계를 제공합니다.
+쿼리 권장 사항은 워크로드에서 쿼리에 대한 최적화 및 재작성을 제안합니다. MariaDB 쿼리 방지 패턴을 식별하고 구문적으로 수정하여 시간이 많이 걸리는 쿼리의 성능을 향상 시킬 수 있습니다. 이 권장 사항 유형을 사용하려면 쿼리 저장소를 사용하도록 설정해야 합니다. 쿼리 저장소는 쿼리 정보를 수집하고 분석에서 권장 사항을 적용하는 데 사용하는 자세한 쿼리 런타임 및 빈도 통계를 제공합니다.
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Database for MariaDB [모니터링 및 튜닝](concepts-monitoring.md) 에 대해 자세히 알아보세요.
