@@ -8,37 +8,42 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/11/2021
 ms.author: ranku
-ms.openlocfilehash: 2d42cf0a59c3ff20078930559870f346efd7b6d9
-ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.openlocfilehash: 123916aebd743e0a5d0f40415f3d5eea956c2c3a
+ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111970245"
+ms.lasthandoff: 07/23/2021
+ms.locfileid: "114605942"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>데이터를 FHIR로 변환하는 방법(미리 보기)
 
 > [!IMPORTANT]
-> 이 기능은 공개 미리 보기 상태 이며 서비스 수준 계약 없이 제공 됩니다. 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 기능은 공개 미리 보기로 제공되며 서비스 수준 계약 없이 제공됩니다. 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure API for FHIR의 $convert-data 사용자 지정 엔드포인트는 다른 형식에서 FHIR로 데이터 변환을 위한 것입니다. Liquid 템플릿 엔진과 [FHIR 변환기](https://github.com/microsoft/FHIR-Converter) 프로젝트의 템플릿을 기본 템플릿으로 사용합니다. 필요에 따라 이러한 변환 템플릿을 사용자 지정할 수 있습니다. 현재 HL7v2에서 FHIR로의 변환을 지원합니다.
+FHIR 서비스의 $convert 데이터 사용자 지정 엔드포인트는 다른 데이터 형식에서 FHIR로 데이터를 변환하기 위한 것입니다. Liquid 템플릿 엔진과 [FHIR 변환기](https://github.com/microsoft/FHIR-Converter) 프로젝트의 템플릿을 기본 템플릿으로 사용합니다. 필요에 따라 이러한 변환 템플릿을 사용자 지정할 수 있습니다. 현재 **C-CDA에서 FHIR로,** **HL7v2에서 FHIR로의** 두 가지 변환 유형을 지원합니다.
 
 ## <a name="use-the-convert-data-endpoint"></a>$convert-data 엔드포인트 사용
 
+`$convert-data`작업은 서비스의 일부로 실행하기 위해 FHIR 서비스에 통합됩니다. `$convert-data`FHIR 서버의 설정을 "true"로 설정하여 FHIR 서버를 배포하는 동안 를 사용하도록 설정해야 `FhirServer__Operations__ConvertData__Enabled` 합니다. 또한 이 문서의 후반부에 설명된 대로 관리 ID를 사용하도록 설정했는지 확인해야 합니다. 그런 다음 서버에 대한 API 호출을 수행하여 데이터를 FHIR로 변환할 수 있습니다.
+
 `https://<<FHIR service base URL>>/$convert-data`
 
-$convert-data는 아래에 설명된 것처럼 요청 본문에서 [매개 변수](http://hl7.org/fhir/parameters.html) 리소스를 사용합니다.
+### <a name="parameter-resource"></a>매개 변수 리소스
 
-**매개 변수 리소스:**
+$convert-data는 아래 표에 설명된 대로 요청 본문에서 [매개 변수](http://hl7.org/fhir/parameters.html) 리소스를 받습니다. API 호출 요청 본문에 다음 매개 변수를 포함합니다.
 
 | 매개 변수 이름      | 설명 | 허용되는 값 |
 | ----------- | ----------- | ----------- |
-| inputData      | 변환할 데이터입니다. | JSON 문자열 데이터 유형의 유효한 값|
-| inputDataType   | 입력 데이터 형식입니다. | ```HL7v2``` |
-| templateCollectionReference | 템플릿 컬렉션에 대한 참조입니다. **기본 템플릿** 또는 FHIR 용 Azure API에 등록 된 사용자 지정 템플릿 이미지에 대 한 참조일 수 있습니다. 템플릿을 사용자 지정하고, ACR에서 호스팅하고, Azure API for FHIR에 등록하는 방법에 대한 자세한 내용은 아래를 참조하세요.  | ```microsofthealth/fhirconverter:default```, \<RegistryServer\>/\<imageName\>@\<imageDigest\> |
-| rootTemplate | 데이터를 변환하는 동안 사용할 루트 템플릿입니다. | ```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04``` |  
+| inputData      | 변환할 데이터입니다. | 유효한 JSON 문자열|
+| inputDataType   | 입력 데이터 형식입니다. | ```HL7v2```, ``Ccda`` |
+| templateCollectionReference | [ACR(Azure Container Registry)의](https://azure.microsoft.com/en-us/services/container-registry/) [OCI 이미지](https://github.com/opencontainers/image-spec) 템플릿 컬렉션에 대한 참조입니다. 변환에 사용할 Liquid 템플릿이 포함된 이미지입니다. 기본 템플릿 또는 FHIR 서비스 내에 등록된 사용자 지정 템플릿 이미지에 대한 참조일 수 있습니다. 템플릿을 사용자 지정하고, ACR에서 호스팅하고, FHIR 서비스에 등록하는 방법에 대한 자세한 내용은 아래를 참조하세요. | **HL7v2** 기본 템플릿의 경우: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br><br>**C-CDA** 기본 템플릿의 경우:``microsofthealth/ccdatemplates:default`` <br>\<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
+| rootTemplate | 데이터를 변환하는 동안 사용할 루트 템플릿입니다. | **HL7v2의** 경우:<br>```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04```<br><br> **C-CDA의** 경우:<br>```CCD```, `ConsultationNote`, `DischargeSummary`, `HistoryandPhysical`, `OperativeNote`, `ProcedureNote`, `ProgressNote`, `ReferralNote`, `TransferSummary` |
 
 > [!WARNING]
-> 기본 템플릿을 사용하면 빠르게 시작할 수 있습니다. 그러나 Azure API for FHIR을 업그레이드할 때 업데이트될 수 있습니다. Azure API for FHIR의 여러 버전에서 데이터 변환 동작을 일관되게 유지하려면 Azure Container Registry에서 고유한 템플릿 복사본을 호스팅하고 이를 Azure API for FHIR에 등록하고 나중에 설명한 대로 API 호출에 사용해야 합니다.
+> 기본 템플릿은 MIT 라이선스에서 릴리스되며 Microsoft 지원 **지원되지 않습니다.**
+>
+> 기본 템플릿은 빠르게 시작하는 데 도움이 되는 경우에만 제공됩니다. Azure API for FHIR 버전을 업데이트할 때 업데이트할 수 있습니다. 따라서 변환 동작을 확인하고 Azure Container Registry **템플릿의 고유한 복사본을 호스트하고,** Azure API for FHIR 등록하고, 여러 버전의 Azure API for FHIR 간에 일관된 데이터 변환 동작을 갖기 위해 API 호출에서 를 사용해야 합니다.
+
 
 **샘플 요청:**
 
@@ -91,17 +96,17 @@ $convert-data는 아래에 설명된 것처럼 요청 본문에서 [매개 변�
 
 ## <a name="customize-templates"></a>템플릿 사용자 지정
 
-Visual Studio Code용 [FHIR Converter 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter)을 사용하여 필요에 따라 템플릿을 사용자 지정할 수 있습니다. 이 확장은 대화형 편집 환경을 제공하며 Microsoft에서 게시한 템플릿 및 샘플 데이터를 쉽게 다운로드할 수 있게 해줍니다. 자세한 내용은 확장의 설명서를 참조 하세요.
+Visual Studio Code용 [FHIR Converter 확장](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter)을 사용하여 필요에 따라 템플릿을 사용자 지정할 수 있습니다. 이 확장은 대화형 편집 환경을 제공하며 Microsoft에서 게시한 템플릿 및 샘플 데이터를 쉽게 다운로드할 수 있게 해줍니다. 자세한 내용은 확장의 설명서를 참조하세요.
 
 ## <a name="host-and-use-templates"></a>템플릿 호스트 및 사용
 
-ACR에서 고유한 템플릿 복사본을 호스트 하는 것이 좋습니다. 사용자 고유의 템플릿 복사본을 호스트 하 고 $convert 데이터 작업에서 사용 하는 네 가지 단계가 있습니다.
+ACR에서 고유한 템플릿 복사본을 호스트하는 것이 좋습니다. 템플릿의 고유한 복사본을 호스팅하고 $convert-data 작업에서 템플릿을 사용하는 데는 네 가지 단계가 있습니다.
 
 1. Azure Container Registry로 템플릿을 푸시합니다.
 1. Azure API for FHIR 인스턴스에서 관리 ID를 사용합니다.
 1. Azure API for FHIR 관리 ID에 ACR 액세스를 제공합니다.
 1. Azure API for FHIR에서 ACR 서버 등록
-1. 필요에 따라 보안 액세스를 위해 ACR 방화벽을 구성 합니다.
+1. 필요에 따라 보안 액세스를 위해 ACR 방화벽을 구성합니다.
 
 ### <a name="push-templates-to-azure-container-registry"></a>Azure Container Registry로 템플릿 푸시
 
@@ -109,34 +114,34 @@ ACR 인스턴스를 만든 후에 _FHIR 변환기: 템플릿 푸시_([FHIR 변�
 
 ### <a name="enable-managed-identity-on-azure-api-for-fhir"></a>Azure API for FHIR에서 관리 ID 사용
 
-Azure Portal에서 Azure API for FHIR 서비스의 인스턴스로 이동한 다음 **id** 블레이드를 선택 합니다.
+Azure Portal Azure API for FHIR 서비스 인스턴스로 이동한 다음 **ID** 블레이드를 선택합니다.
 Azure API for FHIR에서 관리 ID를 사용하려면 상태를 **켜기** 로 변경합니다.
 
 ![관리 ID 사용](media/convert-data/fhir-mi-enabled.png)
 
 ### <a name="provide-access-of-the-acr-to-azure-api-for-fhir"></a>Azure API for FHIR에 ACR 액세스 제공
 
-1. **액세스 제어 (IAM)** 블레이드로 이동 합니다.
+1. **액세스 제어(IAM) 블레이드로** 찾습니다.
 
-1. **추가** 를 선택한 다음 **역할 할당 추가** 를 선택 하 여 역할 할당 추가 페이지를 엽니다.
+1. **추가를** 선택한 **다음, 역할 할당 추가를** 선택하여 역할 할당 추가 페이지를 엽니다.
 
-1. [Acrpull](../../role-based-access-control/built-in-roles.md#acrpull) 역할을 할당 합니다. 
+1. [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) 역할을 할당합니다. 
 
    ![역할 할당 추가 페이지](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
-Azure Portal에서 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure 기본 제공 역할](../../role-based-access-control/role-assignments-portal.md)을 참조 하세요.
+Azure Portal 역할을 할당하는 자세한 내용은 Azure 기본 제공 역할 를 [참조하세요.](../../role-based-access-control/role-assignments-portal.md)
 
 ### <a name="register-the-acr-servers-in-azure-api-for-fhir"></a>Azure API for FHIR에서 ACR 서버 등록
 
-Azure Portal를 사용 하거나 CLI를 사용 하 여 ACR 서버를 등록할 수 있습니다.
+Azure Portal 또는 CLI를 사용하여 ACR 서버를 등록할 수 있습니다.
 
-#### <a name="registering-the-acr-server-using-azure-portal"></a>Azure Portal를 사용 하 여 ACR 서버 등록
-FHIR 인스턴스의 Azure API에서 **데이터 변환** 아래에 있는 **아티팩트** 블레이드로 이동 합니다. 현재 등록 된 ACR 서버 목록이 표시 됩니다. **추가** 를 선택한 다음 드롭다운 메뉴에서 레지스트리 서버를 선택 합니다. 등록을 적용 하려면 **저장** 을 선택 해야 합니다. 변경 내용을 적용 하 고 인스턴스를 다시 시작 하는 데 몇 분 정도 걸릴 수 있습니다.
+#### <a name="registering-the-acr-server-using-azure-portal"></a>Azure Portal 사용하여 ACR 서버 등록
+**Azure API for FHIR** 인스턴스의 **데이터 변환에서** Artifacts 블레이드로 찾습니다. 현재 등록된 ACR 서버 목록이 표시됩니다. **추가를** 선택한 다음, 드롭다운 메뉴에서 레지스트리 서버를 선택합니다. 등록을 적용하려면 **저장을** 선택해야 합니다. 변경 작업을 적용하고 인스턴스를 다시 시작하는 데 몇 분 정도 걸릴 수 있습니다.
 
-#### <a name="registering-the-acr-server-using-cli"></a>CLI를 사용 하 여 ACR 서버 등록
-FHIR 용 Azure API에서 최대 20 개의 ACR 서버를 등록할 수 있습니다.
+#### <a name="registering-the-acr-server-using-cli"></a>CLI를 사용하여 ACR 서버 등록
+Azure API for FHIR 최대 20명의 ACR 서버를 등록할 수 있습니다.
 
-필요한 경우 Azure PowerShell에서 의료 Api CLI를 설치 합니다.
+필요한 경우 Azure PowerShell Healthcare API CLI를 설치합니다.
 
 ```powershell
 az extension add -n healthcareapis
@@ -157,16 +162,16 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 ```
 ### <a name="configure-acr-firewall"></a>ACR 방화벽 구성
 
-포털에서 Azure storage 계정의 **네트워킹** 을 선택 합니다.
+포털에서 Azure Storage 계정의 **네트워킹을** 선택합니다.
 
    :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="컨테이너 레지스트리.":::
 
 
 **선택한 네트워크** 를 선택합니다. 
 
-**방화벽** 섹션 아래의 **주소 범위** 상자에 IP 주소를 지정 합니다. 인터넷 또는 온-프레미스 네트워크에서의 액세스를 허용 하는 IP 범위를 추가 합니다. 
+**방화벽** 섹션 아래의 **주소 범위** 상자에서 IP 주소를 지정합니다. IP 범위를 추가하여 인터넷 또는 온-프레미스 네트워크에서의 액세스를 허용합니다. 
 
-아래 표에서 FHIR 서비스에 대 한 Azure API가 프로 비전 되는 Azure 지역에 대 한 IP 주소를 찾을 수 있습니다.
+아래 표에서 Azure API for FHIR 서비스가 프로비전되는 Azure 지역의 IP 주소를 찾을 수 있습니다.
 
 |**Azure 지역**         |**공용 IP 주소** |
 |:----------------------|:-------------------|
@@ -184,7 +189,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 | 북유럽         | 52.146.131.52     |
 | 남아프리카 북부   | 102.133.220.197   |
 | 미국 중남부     | 13.73.254.220     |
-| 동남아시아       | 23.98.108.42      |
+| 동남 아시아       | 23.98.108.42      |
 | 스위스 북부    | 51.107.60.95      |
 | 영국 남부             | 51.104.30.170     |
 | 영국 서부              | 51.137.164.94     |
@@ -194,7 +199,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 
 
 > [!NOTE]
-> 위의 단계는 FHIR 데이터를 내보내는 방법 문서에 설명된 구성 단계와 비슷합니다. 자세한 내용은 [보안 내보내기를 참조하세요Azure Storage](./export-data.md#secure-export-to-azure-storage)
+> 위의 단계는 FHIR 데이터를 내보내는 방법 문서에 설명 된 구성 단계와 유사 합니다. 자세한 내용은 [Azure Storage로 보안 내보내기](./export-data.md#secure-export-to-azure-storage) 를 참조 하세요.
 
 ### <a name="verify"></a>확인
 
