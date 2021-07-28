@@ -1,22 +1,22 @@
 ---
-title: Cosmos DB & Apache Kafka Apache Spark-Azure HDInsight
-description: Apache Spark 구조적 스트림을 사용하여 Apache Kafka에서 데이터를 읽고 Azure Cosmos DB로 저장하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook를 사용 하 여 데이터를 스트리밍합니다.
+title: CosMos DB를 사용해 Apache Spark 및 Apache Kafka 스트리밍 - Azure HDInsight
+description: Apache Spark 구조적 스트림을 사용하여 Apache Kafka에서 데이터를 읽고 Azure Cosmos DB로 저장하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 11/18/2019
 ms.openlocfilehash: d78b629e90903c58b98de86f425f0c1225d90997
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
-ms.translationtype: MT
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "104867052"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
 [Apache Spark](https://spark.apache.org/) [정형 스트리밍](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)을 사용하여 Azure HDInsight의 [Apache Kafka](https://kafka.apache.org/)에서 데이터를 읽은 다음, Azure Cosmos DB로 저장하는 방법을 알아봅니다.
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 는 전역적으로 분산 된 다중 모델 데이터베이스입니다. 이 예제에서는 SQL API 데이터베이스 모델을 사용합니다. 자세한 내용은 [Azure Cosmos DB 시작](../cosmos-db/introduction.md) 문서를 참조하세요.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)는 전 세계에 배포된 다중 모델 데이터베이스입니다. 이 예제에서는 SQL API 데이터베이스 모델을 사용합니다. 자세한 내용은 [Azure Cosmos DB 시작](../cosmos-db/introduction.md) 문서를 참조하세요.
 
 Spark 구조적 스트림은 Spark SQL에서 작성된 스트림 처리 엔진입니다. 정적 데이터에 대한 일괄 처리 계산과 동일하게 스트리밍 계산을 표현할 수 있습니다. 구조적 스트림에 대한 자세한 내용은 Apache.org에서 [구조적 스트림 프로그래밍 가이드](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html)를 참조하세요.
 
@@ -44,7 +44,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
     <img src="./media/apache-kafka-spark-structured-streaming-cosmosdb/resource-manager-deploy.png" alt="Deploy to Azure"/>
     </a>
 
-    Azure Resource Manager 템플릿은이 프로젝트에 대 한 GitHub 리포지토리 ()에 있습니다 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) .
+    Azure Resource Manager 템플릿은 이 프로젝트에 대한 GitHub 리포지토리에 위치합니다([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)).
 
     이 템플릿은 다음과 같은 리소스를 만듭니다.
 
@@ -66,7 +66,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
     |Subscription|Azure 구독을 선택합니다.|
     |Resource group|그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.|
     |Cosmos DB 계정 이름|이 값은 Cosmos DB 계정의 이름으로 사용됩니다. 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3~31자여야 합니다.|
-    |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **myhdi** 를 입력하면 __spark-myhdi__ 라는 Spark 클러스터와 **kafka-myhdi** 라는 Kafka 클러스터가 만들어집니다.|
+    |베이스 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **myhdi** 를 입력하면 __spark-myhdi__ 라는 Spark 클러스터와 **kafka-myhdi** 라는 Kafka 클러스터가 만들어집니다.|
     |클러스터 버전|HDInsight 클러스터 버전입니다. 이 예제는 HDInsight 3.6을 사용하여 테스트되고 다른 클러스터 형식에서 작동하지 않을 수 있습니다.|
     |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|
     |클러스터 로그인 암호|Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.|
@@ -125,13 +125,13 @@ az cosmosdb keys list --name $name --resource-group $resourceGroupName --type ke
 
 ## <a name="get-the-notebooks"></a>Notebooks 가져오기
 
-이 문서에서 설명 하는 예제에 대 한 코드는에서 사용할 수 있습니다 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb) .
+이 문서에 설명된 예제에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)에서 지원됩니다.
 
 ## <a name="upload-the-notebooks"></a>Notebooks 업로드
 
 프로젝트에서 HDInsight 클러스터의 Spark로 Notebooks을 업로드하려면 다음 단계를 사용합니다.
 
-1. 웹 브라우저에서 Spark 클러스터의 Jupyter Notebook에 연결 합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
+1. 웹 브라우저의 Spark 클러스터에 있는 Jupyter Notebook에 연결합니다. 다음 URL에서 `CLUSTERNAME`을 __Spark__ 클러스터의 이름으로 바꿉니다.
 
     ```http
     https://CLUSTERNAME.azurehdinsight.net/jupyter
@@ -155,7 +155,7 @@ az cosmosdb keys list --name $name --resource-group $resourceGroupName --type ke
 
 ## <a name="next-steps"></a>다음 단계
 
-Apache Spark 구조적 스트리밍을 사용 하는 방법을 배웠으므로 이제 다음 문서를 참조 하 여 Apache Spark, Apache Kafka 및 Azure Cosmos DB를 사용 하는 방법에 대해 자세히 알아보세요.
+이제 Apache Spark 정형 스트리밍을 사용하는 방법을 알아보았으므로 Apache Spark, Apache Kafka 및 Azure Cosmos DB에서 작업하는 방법에 대한 자세한 내용을 보려면 다음 문서를 참조하세요.
 
 * [Apache Kafka에서 Apache Spark 스트리밍(DStream)을 사용하는 방법](hdinsight-apache-spark-with-kafka.md)
 * [Jupyter Notebook 및 HDInsight의 Apache Spark 시작](spark/apache-spark-jupyter-spark-sql.md)
