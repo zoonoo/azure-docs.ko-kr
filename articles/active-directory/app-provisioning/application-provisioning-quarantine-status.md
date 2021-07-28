@@ -1,22 +1,22 @@
 ---
-title: 격리의 애플리케이션 프로비저닝 상태 | Microsoft Docs
+title: Azure Active Directory 애플리케이션 프로비저닝의 격리 상태
 description: 자동 사용자 프로비저닝을 위해 애플리케이션을 구성한 경우 격리의 프로비저닝 상태의 의미와 이러한 상태를 지우는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 03/18/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 49590c46588ad0d0f1c1b7b095679a3c3fce96eb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c3cdf8ab99506afd644d59fa8e74ed59fa1af853
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579504"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109783174"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 애플리케이션 프로비저닝
 

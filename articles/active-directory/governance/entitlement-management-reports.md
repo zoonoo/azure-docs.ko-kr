@@ -3,7 +3,7 @@ title: 권한 관리에서 보고서 및 로그 보기 - Azure AD
 description: Azure Active Directory 권한 관리에서 사용자 할당 보고서 및 감사 로그를 보는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/23/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb44c1efd683b6febe9a355ef72c80cc6f2e40d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ab1cd0da0e44f9b0dd496b72c3dff7630eb9d641
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97746629"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786270"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 보고서 및 로그 보기
 
@@ -35,7 +35,7 @@ Azure AD 권한 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 이 보고서를 사용하면 사용자가 요청할 수 있는 모든 액세스 패키지와 현재 사용자에게 할당된 액세스 패키지를 나열할 수 있습니다.
 
-**필수 역할:** 전역 관리자 또는 사용자 관리자
+**필수 역할:** 전역 관리자, Identity Governance 관리자 또는 사용자 관리자
 
 1. **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 
@@ -59,7 +59,7 @@ Azure AD 권한 관리 보고서 및 Azure AD 감사 로그는 사용자가 액�
 
 이 보고서를 사용하도록 설정하면 권한 관리에서 사용자에게 현재 할당된 리소스를 나열할 수 있습니다. 이 보고서는 권한 관리를 사용하여 관리되는 리소스에 대한 것입니다. 사용자는 권한 관리 외부의 디렉터리에 있는 다른 리소스에 액세스할 수 있습니다.
 
-**필수 역할:** 전역 관리자 또는 사용자 관리자
+**필수 역할:** 전역 관리자, Identity Governance 관리자 또는 사용자 관리자
 
 1. **Azure Active Directory** 를 클릭한 다음, **Identity Governance** 를 클릭합니다.
 

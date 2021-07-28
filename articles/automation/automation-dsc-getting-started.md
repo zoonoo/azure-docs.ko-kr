@@ -5,24 +5,24 @@ services: automation
 ms.subservice: dsc
 ms.date: 04/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 95072970004ae53663f130a78af36a84a6fab685
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 8ff365200828b786b4cf770508e5a811983abd58
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99051501"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109732743"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Azure Automation State Configuration 시작하기
 
 이 문서에서는 Azure Automation State Configuration으로 만들기, 가져오기 및 구성 컴파일링, 관리할 머신 사용 설정 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 단계별 가이드를 제공합니다. State Configuration의 개요는 [State Configuration 개요](automation-dsc-overview.md)를 참조하세요. DSC(필요한 상태 구성) 설명서는 [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
 
-이 문서에 설명된 단계를 따르지 않고 이미 설정된 샘플 환경을 원하는 경우 [Azure Automation 관리형 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration)을 사용할 수 있습니다. 이 템플릿은 State Configuration(DSC)에 의해 관리되는 Azure VM을 비롯한 완전한 State Configuration(DSC) 환경을 설정합니다.
+이 문서에 설명된 단계를 따르지 않고 이미 설정된 샘플 환경을 원하는 경우 [Azure Automation 관리형 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.automation/automation-configuration)을 사용할 수 있습니다. 이 템플릿은 State Configuration(DSC)에 의해 관리되는 Azure VM을 비롯한 완전한 State Configuration(DSC) 환경을 설정합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 예제를 완료하려면 다음이 필요합니다.
 
-- Azure Automation 계정. Automation 계정 및 해당 요구 사항에 대 한 자세한 내용은 [Automation 계정 인증 개요](./automation-security-overview.md)를 참조 하세요.
+- Azure Automation 계정. Automation 계정 및 해당 요구 사항에 대한 자세한 내용은 [Automation 계정 인증 개요](./automation-security-overview.md)를 참조하세요.
 - [지원되는 운영 체제](automation-dsc-overview.md#operating-system-requirements)를 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="create-a-dsc-configuration"></a>DSC 구성 만들기
@@ -216,16 +216,7 @@ State Configuration이 관리형 노드에 대한 일관성 검사를 수행할 
 
 ## <a name="unregister-a-node"></a>노드 등록 취소
 
-State Configuration에서 노드를 더 이상 관리하지 않으려는 경우 등록 취소할 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. 왼쪽에서 **모든 리소스** 를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
-1. Automation 계정 페이지의 **구성 관리** 에서 **State Configuration(DSC)** 을 클릭합니다.
-1. State Configuration(DSC) 페이지에서 **노드** 탭을 클릭합니다.
-1. **노드** 탭에서 등록 취소하려는 노드의 이름을 클릭합니다.
-1. 해당 노드에 대한 창에서 **등록 취소** 를 클릭합니다.
-
-    ![등록 취소 단추를 강조 표시하는 노드 세부 정보 페이지의 스크린샷](./media/automation-dsc-getting-started/UnregisterNode.png)
+State Configuration에서 노드를 더 이상 관리하지 않으려는 경우 등록 취소할 수 있습니다. [Automation State Configuration에서 구성과 노드를 제거하는 방법](./state-configuration/remove-node-and-configuration-package.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

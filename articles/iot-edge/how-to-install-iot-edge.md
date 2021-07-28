@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: kgremban
-ms.openlocfilehash: a98eed61904b580988fe34302999f3ec6a24ac9e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 39e165d862d6e174f763cd58529727fd26b8bd46
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640928"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311076"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Linux용 Azure IoT Edge 설치 또는 제거
 
@@ -125,10 +125,10 @@ IoT Edge 보안 디먼은 IoT Edge 디바이스에서 보안 표준을 제공하
    sudo apt-get install iotedge
    ```
 
-또는 특정 버전의 보안 디먼을 설치하려는 경우 apt 목록 출력에 있는 버전을 지정합니다. 또한 **libiothsm-std** 패키지에 동일한 버전을 지정합니다. 그렇지 않으면 최신 버전이 설치됩니다. 예를 들어 다음 명령은 1.0.10 릴리스의 최신 버전을 설치합니다.
+또는 특정 버전의 보안 디먼을 설치하려는 경우 apt 목록 출력에 있는 버전을 지정합니다. 또한 **libiothsm-std** 패키지에 동일한 버전을 지정합니다. 그렇지 않으면 최신 버전이 설치됩니다. 예를 들어 다음 명령은 1.1 릴리스의 최신 버전을 설치합니다.
 
    ```bash
-   sudo apt-get install iotedge=1.0.10* libiothsm-std=1.0.10*
+   sudo apt-get install iotedge=1.1* libiothsm-std=1.1*
    ```
 
 설치하려는 버전이 나열되지 않은 경우 이 문서 뒷부분의 [오프라인 또는 특정 버전 설치](#offline-or-specific-version-installation-optional) 단계를 따르세요. 해당 섹션에서는 이전 버전의 IoT Edge 보안 디먼 또는 릴리스 후보 버전을 대상으로 지정하는 방법을 보여 줍니다.
@@ -146,7 +146,7 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
 이 섹션의 단계는 인터넷에 연결된 디바이스에 최신 버전을 설치하는 일반적인 프로세스를 보여 줍니다. 시험판 버전과 같은 특정 버전을 설치해야 하거나 오프라인 상태에서 설치해야 하는 경우 이 문서 뒷부분의 [오프라인 또는 특정 버전 설치](#offline-or-specific-version-installation-optional) 단계를 따르세요.
 
 >[!NOTE]
->이 섹션의 단계에서는 현재 공개 미리 보기로 제공되는 IoT Edge 버전 1.2를 설치하는 방법을 보여 줍니다. 일반적으로 사용 가능한 IoT Edge 최신 버전을 설치하는 단계를 찾고 있다면 이 문서의 [1.1(LTS)](?view=iotedge-2018-06&preserve-view=true) 버전을 확인하세요.
+>이 섹션의 단계에서는 IoT Edge 버전 1.2를 설치하는 방법을 보여줍니다.
 >
 >이전 버전을 실행하는 IoT Edge 디바이스가 이미 있고 1.2로 업그레이드하려는 경우 [IoT Edge 보안 디먼 및 런타임 업데이트](how-to-update-iot-edge.md)의 단계를 사용합니다. 버전 1.2는 업그레이드에 특정 단계가 필요한 이전 버전의 IoT Edge와 충분히 다릅니다.
 
@@ -168,15 +168,11 @@ IoT ID 서비스는 IoT Edge 버전 1.2와 함께 도입되었습니다. 이 서
    sudo apt-get install aziot-edge
    ```
 
-<!-- commenting out for public preview. reintroduce at GA
-
-Or, if you want to install a specific version of IoT Edge and the identity service, specify the versions from the apt list output. Specify the same versions for both services.. For example, the following command installs the most recent version of the 1.2 release:
+또는 특정 버전의 IoT Edge 및 ID 서비스를 설치하려는 경우 apt 목록 출력에서 버전을 지정합니다. 두 서비스에 동일한 버전을 지정합니다. 예를 들어 다음 명령은 1.2 릴리스의 최신 버전을 설치합니다.
 
    ```bash
    sudo apt-get install aziot-edge=1.2* aziot-identity-service=1.2*
    ```
-
--->
 
 <!-- end 1.2 -->
 ::: moniker-end
@@ -303,10 +299,10 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트합니다.
 
-* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
+* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
 * **device_id**: 디바이스를 등록할 때 제공한 ID입니다.
-* **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다. 예: `file:///path/identity_certificate.pem`.
-* **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다. 예: `file:///path/identity_key.pem`.
+* **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다. 예들 들어 `file:///path/identity_certificate.pem`입니다.
+* **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다. 예들 들어 `file:///path/identity_key.pem`입니다.
 
 파일을 저장하고 닫습니다.
 
@@ -355,7 +351,7 @@ IoT Edge 디바이스에서 구성 파일을 엽니다.
 
 다음 필드를 업데이트합니다.
 
-* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예: `{IoT hub name}.azure-devices.net`.
+* **iothub_hostname**: 디바이스가 연결될 IoT 허브의 호스트 이름입니다. 예들 들어 `{IoT hub name}.azure-devices.net`입니다.
 * **device_id**: 디바이스를 등록할 때 제공한 ID입니다.
 * **identity_cert**: 디바이스의 ID 인증서에 대한 URI입니다(예: `file:///path/identity_certificate.pem`). 또는 EST나 로컬 인증 기관을 사용하여 동적으로 인증서를 발급합니다.
 * **identity_pk**: 제공된 ID 인증서의 프라이빗 키 파일에 대한 URI입니다(예: )`file:///path/identity_key.pem`. 또는 PKCS#11 URI를 제공한 다음 나중에 **PKCS#11** 섹션에 있는 구성 정보를 구성 파일에 제공합니다.
@@ -462,7 +458,7 @@ curl 명령을 사용하면 IoT Edge GitHub 리포지토리에서 직접 구성 
    2. 다음 명령의 복사된 링크를 사용하여 해당 버전의 hsmlib를 설치합니다.
 
       ```bash
-      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
+      curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo apt-get install ./libiothsm-std.deb
       ```
 
    3. IoT Edge 디바이스의 아키텍처와 일치하는 **iotedge** 파일을 찾습니다. 파일 링크를 마우스 오른쪽 단추로 클릭하고 링크 주소를 복사합니다.
@@ -470,7 +466,7 @@ curl 명령을 사용하면 IoT Edge GitHub 리포지토리에서 직접 구성 
    4. 다음 명령의 복사된 링크를 사용하여 해당 버전의 IoT Edge 보안 디먼을 설치합니다.
 
       ```bash
-      curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
+      curl -L <iotedge link> -o iotedge.deb && sudo apt-get install ./iotedge.deb
       ```
 
 <!-- end 1.1 -->

@@ -1,18 +1,18 @@
 ---
 title: 서비스 공급자 작업 보기
-description: 고객은 Azure 위임된 리소스 관리를 통해 로그된 작업을 보고 서비스 공급자가 수행한 작업을 확인할 수 있습니다.
-ms.date: 12/11/2020
+description: 고객은 Azure Lighthouse를 통해 로그된 작업을 보고 서비스 공급자가 수행한 작업을 확인할 수 있습니다.
+ms.date: 05/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 40deca310eea2fc9618cfc83d34caadcf2b2b14d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ef9f8e76c9b6c2ab23c4075b81874816ff784f67
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100571745"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785963"
 ---
 # <a name="view-service-provider-activity"></a>서비스 공급자 작업 보기
 
-[Azure Lighthouse](../overview.md) 구독을 위임받은 고객은 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md) 데이터를 보고 수행된 모든 작업을 확인할 수 있습니다. 이렇게 하면 고객은 고객 소유의 Azure AD(Azure Active Directory) 테넌트 내에서 사용자가 수행하는 작업과 함께, 서비스 공급자가 [Azure 위임된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 수행하는 작업을 완벽하게 파악할 수 있습니다.
+[Azure Lighthouse](../overview.md) 구독을 위임받은 고객은 [Azure 활동 로그](../../azure-monitor/essentials/platform-logs-overview.md) 데이터를 보고 수행된 모든 작업을 확인할 수 있습니다. 이렇게 하면 고객은 고객 소유의 Azure AD(Azure Active Directory) 테넌트 내에서 사용자가 수행하는 작업과 함께, 서비스 공급자가 [Azure 위임된 리소스 관리](../concepts/architecture.md)를 통해 수행하는 작업을 완벽하게 파악할 수 있습니다.
 
 > [!TIP]
 > 또한 Azure Policy 기본 제공 정책 정의를 제공하여 [특정 관리 테넌트로 위임을 제한](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json)하고 [관리 테넌트로의 범위 위임을 감사](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json)합니다. 자세한 내용은 [사용자 환경에서 위임 감사](view-manage-service-providers.md#audit-delegations-in-your-environment)를 참조하세요.

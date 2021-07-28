@@ -1,19 +1,19 @@
 ---
 title: cloud-init를 사용하여 Linux VM에서 스왑 파티션 구성
 description: Azure CLI를 사용하여 만드는 동안 cloud-init를 사용하여 Linux VM에 스왑 파일을 구성하는 방법
-author: rickstercdn
-manager: gwallace
+author: mimckitt
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
-ms.author: rclaus
-ms.openlocfilehash: b9f4adc4e1e980db2af4fcc20b3a4492309c89f3
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: mimckitt
+ms.subservice: cloud-init
+ms.openlocfilehash: bc55bf12b766002fff7fda45af0d802164a2b503
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102559378"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784128"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>cloud-init를 사용하여 Linux VM에서 스왑 파티션 구성
 이 문서에서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 다양한 Linux 배포판에서 스왑 파티션을 구성하는 방법을 보여 줍니다. 스왑 파티션은 일반적으로 해당 파티션이 필요한 배포에 따라 Linux 에이전트(WALA)에 의해 구성되었습니다.  이 문서에서는 cloud-init를 사용하여 프로비저닝 시간 동안 요청 시 스왑 파티션을 빌드하는 프로세스에 대해 간략하게 설명합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -39,8 +39,10 @@ fs_setup:
     filesystem: swap
 mounts:
   - ["ephemeral0.1", "/mnt"]
-  - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
+  - ["ephemeral0.2", "none", "swap", "sw,nofail,x-systemd.requires=cloud-init.service", "0", "0"]
 ```
+
+탑재가 성공적으로 완료되지 않은 경우에도 부팅이 계속되도록 하는 `nofail` 옵션을 사용하여 탑재가 만들어집니다.
 
 이 이미지를 배포하기 전에 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만들어야 합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup* 이라는 리소스 그룹을 만듭니다.
 

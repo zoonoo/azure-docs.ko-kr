@@ -6,12 +6,12 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 03/18/2021
-ms.openlocfilehash: c78778f9152fd4c07fb9e550e562cfef858333c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: dfa96948b7e582457a9f09eed89d5cbe3bbc762d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786739"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750396"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>스크립트를 사용하여 어플라이언스 설정
 
@@ -34,7 +34,7 @@ ms.locfileid: "104786739"
 VMware | Windows Server 2016, 메모리 32GB, vCPU 8개, 디스크 스토리지 80GB
 Hyper-V | Windows Server 2016, 메모리 16GB, vCPU 8개, 디스크 스토리지 80GB
 
-- 서버에는 외부 가상 스위치도 필요합니다. 고정적 또는 동적 IP 주소 및 인터넷 액세스가 필요합니다.
+- 서버에는 외부 가상 스위치도 필요합니다. 고정 또는 동적 IP 주소가 필요합니다. 
 - 어플라이언스를 배포하기 전에 [VMware](migrate-appliance.md#appliance---vmware), [Hyper-V](migrate-appliance.md#appliance---hyper-v)에 있는 서버에 대한 자세한 어플라이언스 요구 사항을 검토합니다.
 - 기존 Azure Migrate 어플라이언스에서 스크립트를 실행하지 않아야 합니다.
 
@@ -62,7 +62,7 @@ VMware용 어플라이언스를 설정하려면 포털 또는 [여기](https://g
 
 - 에이전트 및 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS, PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정을 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**: %ProgramData%\Microsoft Azure\Config
@@ -109,7 +109,7 @@ Hyper-V용 어플라이언스를 설정하려면 포털 또는 [여기](https://
 
 - 에이전트 및 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS, PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다.
 - Azure Migrate에 대한 영구적인 설정을 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 다음과 같이 로그 및 구성 파일을 만듭니다.
     - **구성 파일**: %ProgramData%\Microsoft Azure\Config

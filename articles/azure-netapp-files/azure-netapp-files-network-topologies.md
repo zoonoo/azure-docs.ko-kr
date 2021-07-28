@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/09/2021
 ms.author: ramakk
-ms.openlocfilehash: 96d8ba058a33d408ec2ee2a1adfba9011f393da9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d002932bca51300fa6a031ce7ab0d69186afe9c3
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96184487"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107311688"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -46,7 +46,7 @@ Azure NetApp Files 네트워크를 계획하는 경우 몇 가지 고려 사항�
 
 Azure NetApp Files에는 다음과 같은 네트워크 제한이 적용됩니다.
 
-* Azure NetApp Files(피어링된 VNet 포함)와 함께 VNet에 사용 중인 IP 수는 1000을 초과할 수 없습니다. 고객 규모의 수요를 충족하기 위해 이 한도를 늘리고자 노력하고 있습니다. 
+* Azure NetApp Files(*즉시* 피어링된 VNet 포함)와 함께 VNet에 사용 중인 IP 수는 1000개를 초과할 수 없습니다. 고객 규모의 수요를 충족하기 위해 이 한도를 늘리고자 노력하고 있습니다. 
 * 각 Azure Virtual Network(VNet)에서 하나의 서브넷만 Azure NetApp Files에 위임할 수 있습니다.
 
 

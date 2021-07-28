@@ -1,24 +1,24 @@
 ---
 title: Azure Active Directory에 대한 자동 사용자 프로비저닝 배포 계획
-description: 자동 사용자 프로비저닝 계획 및 실행을 위한 지침
+description: Azure Active Directory에서 자동 사용자 프로비저닝 계획 및 실행을 위한 지침
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/31/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvindha, celested
-ms.openlocfilehash: f29bf3fc347fa453dd2d7ebd1f10b3f0e07fac10
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.reviewer: arvinh
+ms.openlocfilehash: a8b2378949e0ead4d05651fc28919aceecd4c542
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106059295"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785028"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
+# <a name="plan-an-automatic-user-provisioning-deployment-in-azure-active-directory"></a>Azure Active Directory에서 자동 사용자 프로비저닝 배포 계획
 
 많은 조직이 최종 사용자 생산성을 위해 ServiceNow, Zscaler 및 Slack과 같은 SaaS(Software as a Service) 애플리케이션에 의존합니다. 지금까지 IT 직원은 각 SaaS 애플리케이션에서 사용자 ID를 안전하게 관리하기 위해 CSV 파일 업로드 또는 사용자 지정 스크립트 사용과 같은 수동 프로비저닝 방법에 의존해왔습니다. 이러한 프로세스는 오류가 발생하기 쉽고, 안전하지 않으며, 관리하기가 어렵습니다.
 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory) 자동 사용자 프로비저닝은 비즈니�
 
 * **비용 절감**. 자동 사용자 프로비저닝은 수동 프로비저닝과 관련된 비효율성 및 인적 오류를 방지하여 비용을 절감합니다. 맞춤형으로 개발된 사용자 프로비저닝 솔루션, 스크립트 및 감사 로그의 필요성을 줄여줍니다.
 
-### <a name="licensing"></a>라이선싱
+### <a name="licensing"></a>라이선스
 
 Azure AD는 애플리케이션 갤러리 메뉴에 제공된 템플릿을 사용하여 모든 애플리케이션의 셀프 서비스 통합을 제공합니다. 라이선스 요구 사항의 전체 목록은 [Azure AD 라이선스 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
@@ -312,9 +312,9 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로비�
 
 * [Azure AD 동기화 API 개요](/graph/api/resources/synchronization-overview)
 
-* [범위를 벗어난 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
+* [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 
-* [Azure AD Connect 프로비저닝 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)
+* [Azure AD Connect 프로비전 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)
 
 #### <a name="resources"></a>리소스
 

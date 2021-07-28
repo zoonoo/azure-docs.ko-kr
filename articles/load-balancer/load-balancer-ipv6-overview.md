@@ -1,6 +1,6 @@
 ---
-title: IPv6 Azure Load Balancer 개요
-description: 이 학습 경로를 사용 하 여 Azure Load Balancer 및 부하가 분산 된 Vm에 대 한 IPv6 지원을 시작 하세요.
+title: IPv6의 개요 - Azure Load Balancer
+description: 이 학습 경로를 사용하여 Azure Load Balancer 및 부하가 분산된 VM에 대한 IPv6 지원을 시작하세요.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,22 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
 ms.openlocfilehash: 4061a3dbf4dc92d6d412528115d46edc36d20d5e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94700692"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
 
 >[!NOTE] 
->이 콘텐츠는 [Azure VNet 개요에 대해 IPv6](../virtual-network/ipv6-overview.md)로 대체 되었습니다. Azure는 새로운 IPv6 배포에 새 IPv6 가상 네트워크 기능을 사용 하는 것을 권장 합니다.
+>이 콘텐츠는 [Azure VNet용 IPv6의 개요](../virtual-network/ipv6-overview.md)로 대체되었습니다. Azure는 새 IPv6 배포에 Azure Virtual Network 기능을 위한 새 IPv6를 사용하는 것을 권장합니다.
 
 >[!NOTE]
 >Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](./load-balancer-overview.md)를 참조하세요.
 
-기본 SKU 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용 하 여 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
+기본 SKU 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용하여 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
 * 부하 분산 장치를 통한 공용 인터넷 클라이언트와 Azure Virtual Machines(VM) 사이의 네이티브 엔드투엔드 IPv6 연결.
 * VM과 공용 인터넷 IPv6 사용 가능 클라이언트 사이의 네이티브 엔드투엔드 IPv6 아웃바운드 연결.
@@ -40,12 +40,12 @@ ms.locfileid: "94700692"
 
 배포된 후 IPv4 또는 IPv6 사용 가능 인터넷 클라이언트는 Azure 인터넷 연결 Load Balancer의 공용 IPv4 또는 IPv6 주소(또는 호스트 이름)와 통신할 수 있습니다. 부하 분산 장치는 NAT(네트워크 주소 변환)를 사용하여 VM의 프라이빗 IPv6 주소로 IPv6 패킷을 라우팅합니다. IPv6 인터넷 클라이언트는 VM의 IPv6 주소와 직접 통신할 수 없습니다.
 
-## <a name="features"></a>기능
+## <a name="features&quot;></a>기능
 
 Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원은 다음을 제공합니다.
 
 1. 인터넷에서 IPv6 클라이언트에 대해 부하 분산된 IPv6 서비스
-2. VM의 네이티브 IPv6 및 IPv4 엔드포인트("이중 스택됨")
+2. VM의 네이티브 IPv6 및 IPv4 엔드포인트(&quot;이중 스택됨")
 3. 인바운드 및 아웃바운드 시작 네이티브 IPv6 연결
 4. TCP, UDP, HTTP(S)와 같은 지원되는 프로토콜은 서비스 아키텍처의 전체 범위를 사용하도록 설정합니다.
 
@@ -79,9 +79,9 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * VM의 IPv6 엔드포인트는 인터넷에 직접 노출되지 않습니다. 부하 분산 장치 뒤에.있습니다. 부하 분산 장치 규칙에 지정된 포트만 IPv6를 통해 액세스할 수 있습니다.
 * IPv6에 대한 IdleTimeout 매개 변수 변경은 **현재 지원되지 않습니다**. 기본 값은 4분입니다.
 * IPv6에 대한 loadDistributionMethod 매개 변수 변경은 **현재 지원되지 않습니다**.
-* 기본 Load Balancer에 대 한 i p v 6은 **동적** SKU로 잠깁니다.  표준 Load Balancer에 대 한 i p v 6은 **정적** SKU로 잠깁니다.
+* 기본 부하 분산 장치용 IPv6는 **동적** SKU로 잠깁니다.  표준 부하 분산 장치용 IPv6는 **정적** SKU로 잠깁니다.
 * NAT64(IPv4로의 IPv6 변환)가 지원되지 않습니다.
-* IPv6 서브넷을 참조 하는 보조 NIC를 백 엔드 풀에 연결 하는 것은 **현재 지원 되지 않습니다**.
+* IPv6 서브넷을 참조하는 보조 NIC를 백 엔드 풀에 연결하는 기능은 **현재 지원되지 않습니다**.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/14/2020
-ms.openlocfilehash: 26852ec77194714c8236856b7cb496170bf0d777
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4a6567f8576e2507704956233bc593b203b48239
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81606333"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107588737"
 ---
 # <a name="sort-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 정렬 변환
 
@@ -22,7 +22,7 @@ ms.locfileid: "81606333"
 정렬 변환을 사용하면 현재 데이터 스트림의 들어오는 행을 정렬할 수 있습니다. 개별 열을 선택하고 오름차순이나 내림차순으로 정렬할 수 있습니다.
 
 > [!NOTE]
-> 데이터 흐름 매핑은 여러 노드 및 파티션에 데이터를 분산하는 Spark 클러스터에서 실행됩니다. 후속 변환에서 데이터를 다시 분할하는 경우 데이터가 다시 섞여 정렬이 흐트러질 수 있습니다.
+> 데이터 흐름 매핑은 여러 노드 및 파티션에 데이터를 분산하는 Spark 클러스터에서 실행됩니다. 후속 변환에서 데이터를 다시 분할하는 경우 데이터가 다시 섞여 정렬이 흐트러질 수 있습니다. 데이터 흐름에서 정렬 순서를 유지하는 가장 좋은 방법은 변환의 최적화 탭에서 단일 파티션을 설정하고 가능한 한 싱크에 가깝게 정렬 변환을 유지하는 것입니다.
 
 ## <a name="configuration"></a>구성
 

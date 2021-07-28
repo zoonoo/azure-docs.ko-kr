@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 2164b8ac6e62b8826d5879da07384769c503bfb5
-ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
+ms.openlocfilehash: e912cabd27bac52792ffb2d71027170f4e53f310
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2021
-ms.locfileid: "107598604"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784524"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>자체 ML(기계 학습)을 Azure Sentinel로 가져오기
 
 ML(기계 학습)은 Azure Sentinel의 주요 토대 중 하나이며 이를 차별화하는 주요 특성 중 하나입니다. Azure Sentinel은 여러 환경에서 ML을 제공합니다. [Fusion](fusion.md) 상관 관계 엔진 및 Jupyter Notebook에서 기본으로 제공되며 BYO-ML(Build-Your-Own ML) 플랫폼에서도 사용할 수 있습니다. 
 
-ML 검색 모델은 개별 환경과 사용자 동작 변경에 맞게 조정하여 가양성을 줄이고 기존 접근 방식으로는 발견할 수 없는 위협을 식별할 수 있습니다. 많은 보안 조직에서 보안을 위한 ML의 가치를 이해하고 있지만 보안과 ML 모두에 대한 전문 지식을 갖춘 전문가는 많지 않습니다. 여기에 제시된 프레임워크는 보안 조직 및 전문가가 ML 여정에서 우리와 함께 성장할 수 있도록 설계되었습니다. ML을 처음 접하거나 필요한 전문 지식이 없는 조직은 Azure Sentinel의 기본 제공 ML 기능이 상당히 유용할 수 있습니다.
+ML 검색 모델은 개별 환경과 사용자 동작 변경에 맞게 조정하여 [가양성](false-positives.md)을 줄이고 기존 접근 방식으로는 발견할 수 없는 위협을 식별할 수 있습니다. 많은 보안 조직에서 보안을 위한 ML의 가치를 이해하고 있지만 보안과 ML 모두에 대한 전문 지식을 갖춘 전문가는 많지 않습니다. 여기에 제시된 프레임워크는 보안 조직 및 전문가가 ML 여정에서 우리와 함께 성장할 수 있도록 설계되었습니다. ML을 처음 접하거나 필요한 전문 지식이 없는 조직은 Azure Sentinel의 기본 제공 ML 기능이 상당히 유용할 수 있습니다.
 
 :::image type="content" source="./media/bring-your-own-ml/machine-learning-framework.png" alt-text="기계 학습 프레임워크":::
 

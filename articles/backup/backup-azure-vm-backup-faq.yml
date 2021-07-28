@@ -4,12 +4,12 @@ metadata:
   description: 이 문서에서는 Azure Backup 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
   ms.topic: conceptual
   ms.date: 06/02/2021
-  ms.openlocfilehash: fc7d9ff7770cdd60ac1a30ccbcb2758b67ec2a35
-  ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+  ms.openlocfilehash: b829855ad97e702f4a005375a1e70bd0869289ad
+  ms.sourcegitcommit: 30e3eaaa8852a2fe9c454c0dd1967d824e5d6f81
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/10/2021
-  ms.locfileid: "111968658"
+  ms.lasthandoff: 06/22/2021
+  ms.locfileid: "112467336"
 title: 질문과 대답 - Azure VM 백업
 summary: >
   이 문서에서는 [Azure Backup](./backup-overview.md) 서비스를 통해 Azure VM을 백업하는 방법에 대한 일반적인 질문과 답변을 제공합니다.
@@ -215,7 +215,7 @@ sections:
     answer: Azure VM Backup은 [전송 중 암호화에 HTTPS 통신](guidance-best-practices.md#encryption-of-data-in-transit-and-at-rest)을 사용합니다. 데이터 전송은 VM 백업에 인터넷 액세스가 필요하지 않은 Azure 패브릭(퍼블릭 엔드포인트가 아님)을 사용합니다.
   - question: 파일 복구 옵션을 사용하지 않도록 설정하려면 어떻게 해야 하나요?
     answer: >-
-      [이 API](/rest/api/backup/itemlevelrecoveryconnections/provision)는 Azure Backup에서 파일 복구를 위해 **iSCSI 연결** 을 호출하기 위한 스크립트를 프로비전합니다.
+      [이 API](/rest/api/backup/2021-02-10/item-level-recovery-connections/provision)는 Azure Backup에서 파일 복구를 위해 **iSCSI 연결** 을 호출하기 위한 스크립트를 프로비전합니다.
 
       - API 작업을 제외하여 **사용자 지정 역할 정의** 를 사용하여 이 옵션을 사용하지 않도록 설정할 수 있습니다.
 

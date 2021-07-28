@@ -4,20 +4,16 @@ description: Azure API Management 서비스의 IP 주소를 검색하는 방법 
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
-manager: cfowler
-editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 04/13/2021
 ms.author: apimpm
-ms.openlocfilehash: 45501fee9ae6ff47643a1ed197a07c4ba598e981
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5939292b6e810634723fada17521bb227764b989
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "80047740"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107534030"
 ---
 # <a name="ip-addresses-of-azure-api-management"></a>Azure API Management의 IP 주소
 
@@ -106,4 +102,4 @@ API Management의 개발자, 기본, 표준 및 프리미엄 계층에서 VIP(�
 * Azure Virtual Network는 서비스에서 추가되거나 제거됩니다.
 * API Management 서비스가 외부 및 내부 VNet 배포 모드 사이에서 전환됩니다.
 
-[다중 지역 배포](api-management-howto-deploy-multi-region.md)에서는 지역이 비워진 후 복구되는 경우 지역 IP 주소가 변경됩니다.
+[다중 지역 배포](api-management-howto-deploy-multi-region.md)에서는 지역이 비워진 후 복구되는 경우 지역 IP 주소가 변경됩니다. [가용성 영역](zone-redundancy.md)을 활성화, 추가 또는 제거하면 지역 IP 주소도 변경됩니다.

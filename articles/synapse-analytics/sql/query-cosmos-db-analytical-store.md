@@ -10,12 +10,12 @@ ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 10262b168b91370956c9559ba688c72213ba7618
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 64a112fd29ee9e3fbb82d9b54322415569b3ff85
+ms.sourcegitcommit: c3739cb161a6f39a9c3d1666ba5ee946e62a7ac3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870996"
+ms.lasthandoff: 04/08/2021
+ms.locfileid: "107209539"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Azure Synapse Link에서 서버리스 SQL 풀을 사용하여 Azure Cosmos DB 데이터를 쿼리
 
@@ -33,22 +33,31 @@ Azure Cosmos DB 쿼리를 위해 전체 [SELECT](/sql/t-sql/queries/select-trans
 
 ### <a name="openrowset-with-key"></a>[키를 사용하는 OPENROWSET](#tab/openrowset-key)
 
-서버리스 SQL 풀은 Azure Cosmos DB 분석 저장소에서 데이터 쿼리 및 분석을 지원하기 위해 다음 `OPENROWSET` 구문을 사용합니다.
+Azure Cosmos DB 분석 저장소에서 데이터 쿼리 및 분석을 지원하기 위해 서버리스 SQL 풀이 사용됩니다. 서버리스 SQL 풀은 `OPENROWSET` SQL 구문을 사용하므로 먼저 Azure Cosmos DB 연결 문자열을 다음 형식으로 변환해야 합니다.
 
 ```sql
 OPENROWSET( 
        'CosmosDB',
-       '<Azure Cosmos DB connection string>',
+       '<SQL connection string for Azure Cosmos DB>',
        <Container name>
     )  [ < with clause > ] AS alias
 ```
 
-Azure Cosmos DB 연결 문자열에는 Azure Cosmos DB 계정 이름, 데이터베이스 이름, 데이터베이스 계정 마스터 키, `OPENROWSET` 함수에 대한 선택적 지역 이름이 지정됩니다.
+Azure Cosmos DB에 대한 SQL 연결 문자열에는 Azure Cosmos DB 계정 이름, 데이터베이스 이름, 데이터베이스 계정 마스터 키, `OPENROWSET` 함수에 대한 선택적 지역 이름이 지정됩니다. 이 정보 중 일부는 표준 Azure Cosmos DB 연결 문자열에서 가져올 수 있습니다.
 
-연결 문자열은 다음과 같은 형식입니다.
+표준 Azure Cosmos DB 연결 문자열 형식에서 변환:
+
+```
+AccountEndpoint=https://<database account name>.documents.azure.com:443/;AccountKey=<database account master key>;
+```
+
+SQL 연결 문자열은 다음과 같은 형식입니다.
+
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
+
+지역은 선택 사항입니다. 생략한 경우 컨테이너의 주 지역이 사용됩니다.
 
 `OPENROWSET` 구문에서 따옴표 없이 Azure Cosmos DB 컨테이너 이름을 지정합니다. 컨테이너 이름에 특수 문자(예: 대시(-))가 있는 경우 이 이름은 `OPENROWSET` 구문에서 대괄호(`[]`) 안에 래핑됩니다.
 
@@ -59,13 +68,14 @@ Azure Cosmos DB 연결 문자열에는 Azure Cosmos DB 계정 이름, 데이터�
 ```sql
 OPENROWSET( 
        PROVIDER = 'CosmosDB',
-       CONNECTION = '<Azure Cosmos DB connection string without account key>',
+       CONNECTION = '<SQL connection string for Azure Cosmos DB without account key>',
        OBJECT = '<Container name>',
        [ CREDENTIAL | SERVER_CREDENTIAL ] = '<credential name>'
     )  [ < with clause > ] AS alias
 ```
 
-이 경우 Azure Cosmos DB 연결 문자열에는 키가 포함되지 않습니다. 연결 문자열은 다음과 같은 형식입니다.
+이 경우 Azure Cosmos DB에 대한 SQL 연결 문자열에는 키가 포함되지 않습니다. 연결 문자열은 다음과 같은 형식입니다.
+
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>'
 ```
@@ -165,6 +175,7 @@ FROM OPENROWSET(
 Azure Cosmos DB의 이러한 플랫 JSON 문서는 Synapse SQL의 행 및 열 집합으로 표시할 수 있습니다. `OPENROWSET` 함수를 사용하면 `WITH` 절에서 읽을 속성의 하위 집합 및 정확한 열 형식을 지정할 수 있습니다.
 
 ### <a name="openrowset-with-key"></a>[키를 사용하는 OPENROWSET](#tab/openrowset-key)
+
 ```sql
 SELECT TOP 10 *
 FROM OPENROWSET(
@@ -173,7 +184,9 @@ FROM OPENROWSET(
        Ecdc
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
 ```
+
 ### <a name="openrowset-with-credential"></a>[자격 증명을 사용하는 OPENROWSET](#tab/openrowset-credential)
+
 ```sql
 /*  Setup - create server-level or database scoped credential with Azure Cosmos DB account key:
     CREATE CREDENTIAL MyCosmosDbAccountCredential
@@ -186,7 +199,9 @@ FROM OPENROWSET(
       OBJECT = 'Ecdc',
       SERVER_CREDENTIAL = 'MyCosmosDbAccountCredential'
     ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+   
 ```
+
 ---
 이 쿼리의 결과는 다음 표와 같습니다.
 
@@ -256,7 +271,7 @@ WITH (  paper_id    varchar(8000),
 이 쿼리의 결과는 다음 표와 같습니다.
 
 | paper_id | title | metadata | authors |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | bb11206963e831f… | eco-epidemi에 대한 보충 정보… | `{"title":"Supplementary Informati…` | `[{"first":"Julien","last":"Mélade","suffix":"","af…`| 
 | bb1206963e831f1… | Immune-E에서 Convalescent Sera의 사용… | `{"title":"The Use of Convalescent…` | `[{"first":"Antonio","last":"Lavazza","suffix":"", …` |
 | bb378eca9aac649… | Tylosema esculentum(Marama) Tuber 및 B… | `{"title":"Tylosema esculentum (Ma…` | `[{"first":"Walter","last":"Chingwaru","suffix":"",…` | 
@@ -417,7 +432,7 @@ GROUP BY geo_id
 
 가능한 오류 및 문제 해결 작업은 다음 표에 나와 있습니다.
 
-| Error | 근본 원인 |
+| 오류 | 근본 원인 |
 | --- | --- |
 | 구문 오류:<br/> - `Openrowset` 근처의 구문이 잘못되었습니다.<br/> - `...`가 인식할 수 있는 `BULK OPENROWSET` 공급자 옵션이 아닙니다.<br/> - `...` 근처의 구문이 잘못되었습니다. | 가능한 근본 원인:<br/> - 첫 번째 매개 변수로 CosmosDB를 사용하지 않음.<br/> - 세 번째 매개 변수에서 식별자 대신 문자열 리터럴을 사용함.<br/> - 세 번째 매개 변수(컨테이너 이름)를 지정하지 않음. |
 | CosmosDB 연결 문자열에 오류가 발생했습니다. | - 계정, 데이터베이스 또는 키가 지정되지 않음. <br/> - 인식되지 않는 연결 문자열에는 몇 가지 옵션이 있음.<br/> - 세미콜론(`;`)은 연결 문자열의 끝에 배치됩니다. |

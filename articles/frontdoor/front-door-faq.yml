@@ -1,0 +1,198 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Front Door - 질문과 대답
+  description: 이 페이지에서는 Azure Front Door에 대한 자주 묻는 질문에 대한 답을 제공합니다.
+  services: frontdoor
+  documentationcenter: ''
+  author: duongau
+  ms.service: frontdoor
+  ms.devlang: na
+  ms.topic: article
+  ms.tgt_pltfrm: na
+  ms.workload: infrastructure-services
+  ms.date: 06/10/2021
+  ms.author: duau
+  ms.openlocfilehash: 790f1d8d69fb70556bb083e95e50039e4fbd4c1a
+  ms.sourcegitcommit: f0168d80eb396ce27032aa02fe9da5a0c10b5af3
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/23/2021
+  ms.locfileid: "112553798"
+title: Azure Front Door에 대한 자주 묻는 질문
+summary: >
+  이 문서에서는 Azure Front Door의 특징 및 기능에 대한 일반적인 질문에 답변합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
+
+
+  1. 이 문서의 의견 섹션입니다.
+
+  2. [Azure Front Door UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
+
+  3. **Microsoft 지원:** 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청** 을 선택합니다.
+sections:
+- name: 일반
+  questions:
+  - question: >
+      Azure Front Door란?
+    answer: >
+      Azure Front Door는 서비스 형태의 ADN(애플리케이션 배달 네트워크)이며 애플리케이션에 대한 다양한 계층 7 부하 분산 기능을 제공합니다. 근 실시간 장애 조치(failover)를 통해 전역 부하 분산과 함께 DSA(동적 사이트 가속)를 제공합니다. Azure에서 완전히 관리하는 고가용성 및 확장 가능한 서비스입니다.
+  - question: >
+      Azure Front Door가 지원하는 기능은 무엇인가요?
+    answer: >
+      Azure Front Door는 DSA(동적 사이트 가속), TLS/SSL 오프로딩 및 엔드투엔드 TLS, Web Application Firewall, 쿠키 기반 세션 선호도, url 경로 기반 라우팅, 무료 인증서, 다중 도메인 관리 등을 지원합니다. 지원되는 기능의 전체 목록은 [Azure Front Door 개요](front-door-overview.md)를 참조하세요.
+  - question: >
+      Azure Front Door와 Azure Application Gateway의 차이점은 무엇인가요?
+    answer: >
+      Front Door와 Application Gateway는 모두 계층 7(HTTP/HTTPS) 부하 분산 장치이지만 주된 차이점은 Front Door는 전역 서비스인데 반해 Application Gateway는 지역 서비스입니다. Front Door를 사용하면 여러 지역에 걸쳐 다양한 배율 단위/클러스터/스탬프 단위 간에 부하를 분산할 수 있지만, Application Gateway을 사용하면 사용자의 VM, 컨테이너 등 간에 부하를 분산할 수 있습니다.
+  - question: >
+      Front Door 뒤에 Application Gateway를 배포해야 하는 경우는 언제인가요?
+    answer: "Front Door 뒤에 Application Gateway를 사용해야 하는 주요 시나리오는 다음과 같습니다.\n\n- Front Door는 전역 수준에서만 경로 기반 부하 분산을 수행할 수 있지만 VNET(가상 네트워크) 내에서 트래픽 부하를 더 많이 분산하려는 경우에는 Application Gateway를 사용해야 합니다.\n- Front Door는 VM/컨테이너 수준에서 작동하지 않으므로 연결 드레이닝을 수행할 수 없습니다. 그러나 Application Gateway를 사용하면 연결 드레이닝을 수행할 수 있습니다. \n- Front Door 뒤에 Application Gateway를 사용하면 100% TLS/SSL 오프로드를 수행하고 VNET(가상 네트워크) 내에서 HTTP 요청만 라우팅할 수 있습니다.\n- Front Door 및 Application Gateway는 모두 세션 선호도를 지원합니다. Front Door는 사용자 세션의 후속 트래픽을 지정된 지역의 동일한 클러스터 또는 백 엔드로 전달할 수 있지만, Application Gateway는 선호도 설정을 통해 트래픽을 바로 클러스터 내의 동일한 서버로 전달할 수 있습니다.  \n"
+  - question: >
+      Front Door 뒤에 Azure Load Balancer를 배포할 수 있나요?
+    answer: >
+      Azure Front Door에는 트래픽을 라우팅할 공용 VIP 또는 공개적으로 사용할 수 있는 DNS 이름이 필요합니다. Front Door 뒤에 Azure Load Balancer를 배포하는 것은 일반적인 사용 사례입니다.
+  - question: >
+      Azure Front Door가 지원하는 프로토콜은 무엇인가요?
+    answer: >
+      Azure Front Door는 HTTP, HTTPS, HTTP/2를 지원합니다.
+  - question: >
+      Azure Front Door는 HTTP/2를 어떻게 지원하나요?
+    answer: >
+      HTTP/2 프로토콜 지원은 Azure Front Door에 연결하는 클라이언트에만 사용할 수 있습니다. 백 엔드 풀의 백 엔드에 대한 통신은 HTTP/1.1을 통해 이루어집니다. HTTP/2 지원은 기본적으로 활성화되어 있습니다.
+  - question: >
+      현재 백 엔드 풀의 일부로 어떤 리소스가 지원되나요?
+    answer: >
+      백 엔드 풀은 스토리지, 웹앱, Kubernetes 인스턴스 또는 퍼블릭 연결이 있는 기타 사용자 지정 호스트 이름으로 구성될 수 있습니다. Azure Front Door를 사용하려면 공용 IP 또는 공개적으로 사용할 수 있는 DNS 호스트 이름을 통해 백 엔드를 정의해야 합니다. 백 엔드 풀의 멤버는 퍼블릭 연결이 있는 한 영역, 지역 또는 Azure 외부에 있을 수 있습니다.
+  - question: >
+      어떤 지역에서 서비스를 사용할 수 있습니까?
+    answer: "Azure Front Door는 전역 서비스이며 특정 Azure 지역에 국한되지 않습니다. Front Door를 만들 때 지정해야 하는 유일한 위치는 리소스 그룹 위치입니다. 이는 기본적으로 리소스 그룹의 메타데이터가 저장되는 위치를 지정하는 것입니다. Front Door 리소스 자체는 전체 리소스로 만들어지고, 구성은 모든 에지 위치에 전체적으로 배포됩니다. \n"
+  - question: >
+      Azure Front Door 에지 위치는 어디인가요?
+    answer: >
+      Azure Front Door 에지 위치에 대한 전체 목록은 [Azure Front Door 에지 위치](edge-locations-by-region.md)를 참조하세요.
+  - question: >
+      Azure Front Door는 내 애플리케이션에 대한 전용 배포인가요? 아니면 고객 간에 공유되나요?
+    answer: >
+      Azure Front Door는 전역적으로 분산된 다중 테넌트 서비스입니다. 따라서 Front Door용 인프라는 모든 고객 간에 공유됩니다. 단, Front Door 프로필을 만들어 애플리케이션에 필요한 특정 구성을 정의하더라도 다른 Front Door 구성에 영향을 주는 Front Door는 변경되지 않습니다.
+  - question: >
+      HTTP->HTTPS 리디렉션이 지원되나요?
+    answer: "예. 실제로 Azure Front Door는 호스트, 경로, 쿼리 문자열 리디렉션과 URL 리디렉션의 일부를 지원합니다. [URL 리디렉션](front-door-url-redirect.md)에 대해 자세히 알아보세요. \n"
+  - question: >
+      회람 규칙은 어떤 순서로 처리되나요?
+    answer: >
+      Front Door의 경로는 순서가 지정되지 않으며, 가장 적합한 특정 경로가 선택됩니다. [Front Door에서 회람 규칙에 요청을 일치시키는 방법](front-door-route-matching.md)에 대해 자세히 알아보세요.
+  - question: >
+      내 백 엔드에 Azure Front Door만 액세스하도록 잠그려면 어떻게 해야 할까요?
+    answer: "> [!NOTE]\n> 새 SKU Front Door Premium은 프라이빗 엔드포인트를 통해 애플리케이션을 잠그는 보다 바람직한 방법을 제공합니다. [프라이빗 엔드포인트에 대해 자세히 알아보세요](./standard-premium/concept-private-link.md).\n\n애플리케이션을 잠가 특정 Front Door의 트래픽만 허용하려면 백 엔드에 IP ACL을 설정하고 백 엔드의 트래픽을 Front Door가 보낸 헤더의 특정 값, ‘X-Azure-FDID’로 제한해야 합니다. 이러한 단계는 아래에 자세히 설명되어 있습니다.\n\n- 백 엔드에 IP ACL을 구성하여 Azure Front Door의 백 엔드 IP 주소 공간 및 Azure 인프라 서비스의 트래픽만 허용합니다. 백 엔드에 ACL을 설정하려면 아래 IP 세부 정보를 참조합니다.\n \n    - Front Door의 IPv4 백 엔드 IP 주소 범위에 대한 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)의 *AzureFrontDoor.Backend* 섹션을 참조하거나 [네트워크 보안 그룹](../virtual-network/network-security-groups-overview.md#security-rules)에서 *AzureFrontDoor.Backend* 서비스 태그를 사용할 수도 있습니다.\n    - 가상화된 호스트 IP 주소(`168.63.129.16` 및 `169.254.169.254`)를 통한 Azure의 [기본 인프라 서비스](../virtual-network/network-security-groups-overview.md#azure-platform-considerations)\n\n    > [!WARNING]\n    > Front Door의 백 엔드 IP 공간은 나중에 변경될 수 있지만, 여기서는 그러기 전에 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)와 통합합니다. 변경 또는 업데이트에 대한 [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519)를 구독하는 것이 좋습니다.\n\n- Front Door 포털 페이지의 개요 섹션에서 `Front Door ID` 값을 찾습니다. 그런 다음 해당 값을 사용하여 Front Door에서 백 엔드로 보낸 들어오는 헤더인 ‘**X-Azure-FDID**’를 필터링하여 고유한 특정 Front Door 인스턴스만 허용할 수 있습니다(위의 IP 범위는 다른 고객의 다른 Front Door 인스턴스와 공유됨).\n\n- 백 엔드 웹 서버에 규칙 필터링을 적용하여 결과 ‘X-Azure-FDID’ 헤더 값을 기준으로 트래픽을 제한합니다. Azure App Service와 같은 일부 서비스를 사용하면 애플리케이션 또는 호스트를 변경할 필요 없이 이 [헤더 기준 필터링](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) 기능을 이용할 수 있습니다.\n\n  [Microsoft IIS(인터넷 정보 서비스)](https://www.iis.net/)에 대한 예제는 다음과 같습니다.\n\n    ``` xml\n    <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n    <configuration>\n        <system.webServer>\n            <rewrite>\n                <rules>\n                    <rule name=\"Filter_X-Azure-FDID\" patternSyntax=\"Wildcard\" stopProcessing=\"true\">\n                        <match url=\"*\" />\n                        <conditions>\n                            <add input=\"{HTTP_X_AZURE_FDID}\" pattern=\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\" negate=\"true\" />\n                        </conditions>\n                        <action type=\"AbortRequest\" />\n                    </rule>\n                </rules>\n            </rewrite>\n        </system.webServer>\n    </configuration>\n    ```\n"
+  - question: >
+      Front Door의 수명 동안 애니캐스트 IP가 변경될 수 있나요?
+    answer: >
+      Front Door의 프런트 엔드 애니캐스트 IP는 Front Door 수명 동안 일반적으로 변경되지 않으며 고정적인 상태로 유지될 수 있습니다. 그러나 IP가 유지된다는 **보장은 없습니다**. IIP에 대한 직접 종속성을 구성하지 마세요.
+  - question: >
+      Azure Front Door는 고정적인 IP 또는 전용 IP를 지원하나요?
+    answer: "아니요, Azure Front Door는 현재 고정적 또는 전용 프런트 엔드 애니캐스트 IP를 지원하지 않습니다. \n"
+  - question: >
+      Azure Front Door는 X-Forwarded-For 헤더를 지원하나요?
+    answer: "예, Azure Front Door는 X-Forwarded-For, X-Forwarded-Host, X-Forwarded-Proto 헤더를 지원합니다. X-Forwarded-For 헤더가 이미 있는 경우에는 Front Door가 클라이언트 소켓 IP를 해당 헤더에 추가합니다. 없는 경우에는 클라이언트 소켓 IP를 포함한 헤더를 값으로 추가합니다. X-Forwarded-Host 및 X-Forwarded-Proto의 경우 값이 재정의됩니다.\n\n[Front Door 지원 HTTP 헤더](front-door-http-headers-protocol.md)에 대해 자세히 알아보세요.  \n"
+  - question: >
+      Azure Front Door를 배포하는 데 얼마나 걸리나요? Front Door는 업데이트 중에도 작동하나요?
+    answer: "대부분의 새 Front Door 만들기 및 업데이트는 모든 에지 위치에 전체적으로 배포되는 데 약 3~20분이 걸립니다. \n\n> [!Note]  \n> 대부분의 사용자 지정 TLS/SSL 인증서 업데이트는 전체적으로 배포되는 데 약 30분이 걸립니다.\n\n경로 또는 백 엔드 풀 등에 대한 모든 업데이트는 가동 중지 시간 없이 원활하게 이루어집니다(새 구성이 올바른 경우). ‘AFD 관리형’에서 ‘자신의 인증서 사용’으로 전환하거나 그 반대로 전환하지 않는 한, 인증서 업데이트도 원자성이며 중단을 일으키지 않습니다.\n"
+- name: 구성
+  questions:
+  - question: >
+      Azure Front Door는 가상 네트워크 내에서 트래픽 부하를 분산하거나 라우팅할 수 있나요?
+    answer: >
+      AFD(Azure Front Door)에는 트래픽을 라우팅하는 공용 IP 또는 공개적으로 확인할 수 있는 DNS 이름이 필요합니다. 따라서 질문에 대한 대답은 ‘아니요’입니다. AFD는 가상 네트워크 내에서 직접 라우팅할 수 없지만, 중간에 Application Gateway를 사용하거나 Azure Load Balancer를 사용하면 이 시나리오를 해결할 수 있습니다.
+  - question: >
+      Azure Front Door에 대한 여러 시간 제한 및 제한 사항이 어떻게 되나요?
+    answer: >
+      [Azure Front Door에 대한 시간 제한 및 제한 사항](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits) 관련 문서를 통해 확인해 보세요.
+  - question: >
+      규칙이 Front Door 규칙 엔진에 추가된 후 적용되기까지 얼마나 걸리나요?
+    answer: "대부분의 규칙 엔진 구성 업데이트는 20 분 이내에 완료 됩니다. 업데이트가 완료되는 즉시 규칙이 적용된다고 볼 수 있습니다. \n"
+  - question: >
+      내 Front Door 프로필 뒤에 Azure CDN을 구성할 수 있나요? 혹은 그 반대의 경우도 가능한가요?
+    answer: "두 서비스 모두 요청에 응답할 때 동일한 Azure 에지 사이트를 활용하기 때문에 Azure Front Door와 Azure CDN을 함께 구성할 수 없습니다. \n"
+- name: 성능
+  questions:
+  - question: >
+      Azure Front Door는 고가용성 및 확장성을 어떻게 지원하나요?
+    answer: >
+      Azure Front Door는 애플리케이션의 확장성 요구를 충족할 수 있도록 대용량을 지원하는 전역적으로 분산된 다중 테넌트 플랫폼입니다. Microsoft의 글로벌 네트워크 에지에서 제공되는 Front Door는 전체 애플리케이션을 장애 조치(failover)하거나 지역 또는 다른 클라우드에서 개별 마이크로 서비스를 장애 조치할 수 있도록 지원하는 전역 부하 분산 기능을 제공합니다.
+- name: TLS 구성
+  questions:
+  - question: >
+      Azure Front Door가 지원하는 TLS 버전은 무엇인가요?
+    answer: >
+      2019년 9월 이후에 만들어진 모든 Front Door 프로필은 기본적으로 TLS 1.2 이상을 사용합니다.
+
+
+      Front Door는 TLS 버전 1.0, 1.1 및 1.2를 지원합니다. TLS 1.3은 아직 지원되지 않습니다.
+  - question: >
+      Azure Front Door에서 지원되는 인증서는 무엇인가요?
+    answer: >
+      Front Door 사용자 지정 도메인에 콘텐츠를 안전하게 제공하기 위해 HTTPS 프로토콜을 사용하도록 설정하려면 Azure Front Door에서 관리되는 인증서를 사용하거나 사용자 고유의 인증서를 사용하도록 선택할 수 있습니다.
+
+      Front Door 관리형 옵션은 Digicert를 통해 표준 TLS/SSL 인증서를 프로비저닝하고 Front Door의 키 자격 증명 모음에 저장합니다. 사용자 고유의 인증서를 사용하도록 선택하는 경우 지원되는 CA에서 인증서를 온보딩할 수 있으며, 여기에 표준 TLS, 확장된 유효성 검사 인증서 또는 와일드카드 인증서를 사용할 수 있습니다. 자체 서명된 인증서는 지원되지 않습니다. [사용자 지정 도메인에 HTTPS를 사용하는 방법](./front-door-custom-domain-https.md)을 알아보세요.
+  - question: >
+      Front Door는 인증서의 자동 순환을 지원하나요?
+    answer: >
+      Front Door 관리형 인증서 옵션의 경우 인증서는 Front Door에 의해 자동 순환됩니다. Front Door 관리 인증서를 사용 중이며 인증서 만료 날짜까지 60일 미만이 남아 있는 경우 지원 티켓을 제출합니다.
+
+      </br>사용자 지정 TLS/SSL 인증서의 경우 자동 순환은 지원되지 않습니다. 지정된 사용자 지정 도메인에 처음으로 설정한 방식과 마찬가지로, Front Door에 키 자격 증명 모음의 올바른 인증서 버전을 지정하고, Front Door의 서비스 사용자가 계속해서 키 자격 증명 모음에 액세스할 수 있도록 해야 합니다. Front Door에 의해 업데이트된 이 인증서 배포 작업은 원자성이며, 인증서의 주체 이름 또는 SAN이 변경되지 않는 한 프로덕션에 영향을 미치지 않습니다.
+  - question: >
+      Azure Front Door에서 지원되는 현재 암호 그룹은 무엇인가요?
+    answer: "TLS 1.2의 경우 지원되는 암호 그룹은 다음과 같습니다. \n\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n\n> [!NOTE]  \n> Windows 10 이상 버전의 경우 보안을 강화하기 위해 두 ECDHE 암호 그룹 중 하나 또는 둘 다를 사용하도록 설정하는 것이 좋습니다. Windows 8.1, 8 및 7은 이러한 ECDHE 암호 그룹과 호환되지 않습니다. DHE 암호 그룹은 이러한 운영 체제와의 호환성을 위해 제공되었습니다.\n\nTLS 1.0/1.1을 사용하는 사용자 지정 도메인을 사용하는 경우 다음 암호 그룹이 지원됩니다.\n\n- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA\n- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA\n- TLS_RSA_WITH_AES_256_GCM_SHA384\n- TLS_RSA_WITH_AES_128_GCM_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA256\n- TLS_RSA_WITH_AES_128_CBC_SHA256\n- TLS_RSA_WITH_AES_256_CBC_SHA\n- TLS_RSA_WITH_AES_128_CBC_SHA\n- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256\n- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384\n"
+  - question: >
+      TLS 프로토콜 버전을 제어하는 TLS 정책을 구성할 수 있나요?
+    answer: >
+      Azure Portal 또는 [Azure REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion)를 통해 사용자 지정 도메인 HTTPS 설정에서 Azure Front Door의 최소 TLS 버전을 구성할 수 있습니다. 현재는 1.0과 1.2 중에서 선택할 수 있습니다.
+  - question: >
+      특정 암호 모음만 지원하도록 Front Door를 구성할 수 있나요?
+    answer: "아니요, 특정 암호 그룹에 대한 Front Door 구성은 지원되지 않습니다. 그러나 인증 기관(예: Verisign, Entrust 또는 Digicert)에서 사용자 고유의 사용자 지정 TLS/SSL 인증서를 가져올 수 있으며, 인증서를 생성하는 경우에는 인증서에 특정 암호 그룹을 지정할 수 있습니다. \n"
+  - question: >
+      Front Door가 OCSP 스테이플링을 지원하나요?
+    answer: >
+      예, OCSP 스테이플링은 기본적으로 Front Door에 의해 지원되며 구성이 필요하지 않습니다.
+  - question: >
+      Azure Front Door에서 백 엔드에 대해 트래픽의 재암호화를 지원하나요?
+    answer: >
+      예, Azure Front Door는 TSL/SSL 오프로드와 백 엔드에 대한 트래픽을 다시 암호화하는 엔드투엔드 TLS를 지원합니다. 실제로 백 엔드에 대한 연결이 공용 IP를 통해 이루어지므로 전달 프로토콜로 HTTPS를 사용하도록 Front Door를 구성하는 것이 좋습니다.
+  - question: >
+      Front Door는 HTTPS 연결 시 백 엔드에서 자체 서명된 인증서를 지원하나요?
+    answer: >
+      아니요, 자체 서명된 인증서는 Front Door에서 지원되지 않으며 이 제한은 다음 두 가지 모두에 적용됩니다.
+
+
+      - **백 엔드**: HTTPS 또는 HTTPS 상태 프로브 형태로 트래픽을 전달하거나 캐싱을 사용하도록 설정된 회람 규칙의 원본에 캐시를 채우는 경우 자체 서명된 인증서를 사용할 수 없습니다.
+
+      - **프런트 엔드**: 사용자 지정 도메인에서 HTTPS를 사용하도록 설정하기 위해 고유한 사용자 지정 TLS/SSL 인증서를 사용하는 경우 자체 서명된 인증서를 사용할 수 없습니다.
+  - question: >
+      백 엔드에 대한 HTTPS 트래픽이 실패하는 이유는 무엇인가요?
+    answer: "상태 프로브 또는 전달 요청을 사용해 백 엔드에 대한 HTTPS 연결에 성공했지만 HTTPS 트래픽이 실패하는 경우에는 두 가지 이유가 있을 수 있습니다.\n\n- **인증서 주체 이름 불일치**: HTTPS 연결의 경우 Front Door는 백 엔드 호스트 이름과 일치하는 주체 이름을 가진 유효한 CA에서 인증서를 제공할 것을 요구합니다. 예를 들어 백 엔드 호스트 이름이 `myapp-centralus.contosonews.net`로 설정되고, TLS 핸드셰이크 중에 백 엔드에서 제공하는 인증서의 주체 이름이 `myapp-centralus.contosonews.net`이나 `*myapp-centralus*.contosonews.net`가 아니면 Front Door는 연결을 거부하고 오류를 생성합니다. \n    - **해결 방법**: 규정 준수 관점에서는 권장되지 않지만, Front Door에서 인증서 주체 이름 검사를 사용하지 않도록 설정하여 이 오류를 해결할 수 있습니다. 해당 설정은 Azure Portal의 설정 및 API의 BackendPoolsSettings 아래에 있습니다.\n- **잘못된 CA의 백 엔드 호스팅 인증서**: [유효한 인증 기관](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 인증서만 Front Door가 있는 백 엔드에서 사용할 수 있습니다. 내부 CA 또는 자체 서명된 인증서의 인증서는 허용되지 않습니다. 인증서에는 리프 및 중간 인증서가 있는 완전한 인증서 체인이 있어야 하며 루트 CA는 [Microsoft 신뢰할 수 있는 CA 목록](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)의 일부여야 합니다. \n"
+  - question: >
+      Azure Front Door에 클라이언트/상호 인증을 사용할 수 있나요?
+    answer: >
+      아니요. Azure Front Door는 [RFC 5246](https://tools.ietf.org/html/rfc5246)의 클라이언트/상호 인증을 도입한 TLS 1.2를 지원하지만, 현재까지는 Azure Front Door에서 클라이언트/상호 인증을 지원하지 않습니다.
+- name: 결제
+  questions:
+  - question: >
+      사용하지 않도록 설정된 Azure Front Door 리소스에 대한 요금이 청구되나요?
+    answer: >
+      Front Door 프로필, 회람 규칙과 같이 사용하지 않도록 설정된 Azure Front Door 리소스에 대한 요금은 청구되지 않습니다. WAF 정책 및 규칙은 사용하지 않도록 설정된 경우에도 요금이 청구됩니다.
+- name: 진단 및 로깅
+  questions:
+  - question: >
+      Azure Front Door에 어떤 유형의 메트릭 및 로그를 사용할 수 있나요?
+    answer: >
+      로그 및 기타 진단 기능에 대한 자세한 내용은 [Front Door에 대한 메트릭 및 로그 모니터링](front-door-diagnostics.md)을 참조하세요.
+  - question: >
+      진단 로그에서 보존 정책은 무엇인가요?
+    answer: >
+      진단 로그는 고객 스토리지 계정으로 전달되고 고객은 기본 설정에 따라 보존 정책을 설정할 수 있습니다. 진단 로그를 이벤트 허브 또는 Azure Monitor 로그에도 전송할 수 있습니다. 자세한 내용은 [Azure Front Door 진단](front-door-diagnostics.md)을 참조하세요.
+  - question: >
+      Azure Front Door에 감사 로그를 사용하려면 어떻게 해야 할까요?
+    answer: "Azure Front Door에 감사 로그를 사용할 수 있습니다. 포털에서 감사 로그에 액세스하려면 Front Door의 메뉴 블레이드에서 **활동 로그** 를 클릭합니다. \n"
+  - question: >
+      Azure Front Door에 경고를 설정할 수 있나요?
+    answer: "예, Azure Front Door는 경고를 지원합니다. 경고는 메트릭에 대해 구성됩니다. \n"
+additionalContent: "\n## <a name=\"next-steps\"></a>다음 단계\n\n- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.\n- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다."

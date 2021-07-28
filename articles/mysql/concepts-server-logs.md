@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e3342b38f782b718cefd63295ef4d4d26b525058
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595947"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259050"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 느린 쿼리 로그
 Azure Database for MySQL에서는 사용자에게 느린 쿼리 로그를 제공합니다. 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 느린 쿼리 로그를 사용하여 문제 해결을 위한 성능 병목을 파악할 수 있습니다.
@@ -29,7 +29,7 @@ MySQL 느린 쿼리 로그에 대한 자세한 내용은 MySQL 참조 설명서�
 - **log_slow_admin_statements**: ON에 slow_query_log에 쓰여진 문에서 ALTER_TABLE 및 ANALYZE_TABLE 등과 같은 관리 문이 포함된 경우
 - **log_queries_not_using_indexes**: 인덱스를 사용하지 않는 쿼리가 slow_query_log에 기록되는지 여부를 결정합니다.
 - **log_throttle_queries_not_using_indexes**:이 매개 변수는 느린 쿼리 로그에 쓸 수 있는 비 인덱스 쿼리의 수 한도를 결정합니다. 이 매개 변수는 log_queries_not_using_indexes가 ON으로 설정된 경우 적용됩니다.
-- **log_output**: “File”이면 느린 쿼리 로그가 로컬 서버 스토리지와 Azure Monitor 진단 로그에 모두 기록됩니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
+- **log_output**: ‘File’이면 느린 쿼리 로그가 로컬 서버 스토리지와 Azure Monitor 진단 로그에 모두 기록됩니다. "None"이면 느린 쿼리 로그가 Azure Monitor 진단 로그에만 기록됩니다. 
 
 > [!IMPORTANT]
 > 테이블이 인덱싱되지 않은 경우, 이러한 인덱싱되지 않은 테이블에 대해 실행되는 모든 쿼리가 느린 쿼리 로그에 기록되기 때문에 `log_queries_not_using_indexes`과 `log_throttle_queries_not_using_indexes` 매개 변수를 ON으로 설정하면 MySQL 성능에 영향을 줄 수 있습니다.<br><br>
@@ -45,7 +45,7 @@ Azure Database for MySQL에서 느린 쿼리 로그에 액세스하는 두 가�
 Azure Monitor 진단 로그를 사용하면 느린 쿼리 로그를 Azure Monitor 로그(Log Analytics), Azure Storage 또는 Event Hubs로 파이프할 수 있습니다. 자세한 내용은 [아래](concepts-server-logs.md#diagnostic-logs)를 참조하세요.
 
 ## <a name="local-server-storage-log-retention"></a>로컬 서버 스토리지 로그 보존
-서버의 로컬 스토리지에 로깅할 때 만들어진 날로부터 7일까지 로그를 사용할 수 있습니다. 사용 가능한 로그의 전체 크기가 7GB를 초과하면 여유 공간이 생길 때까지 가장 오래된 파일이 삭제됩니다.
+서버의 로컬 스토리지에 로그할 경우, 로그는 생성일로부터 7일 간 유효합니다. 사용 가능한 로그의 총 크기가 7GB를 초과하면 사용 가능한 공간이 확보될 때까지 가장 오래된 파일이 삭제됩니다. 서버 로그에 대한 7GB 스토리지 제한은 무료로 사용할 수 있으며 확장할 수 없습니다. 
 
 즉, 24시간이 지나거나 전체 크기가 7GB를 초과할 때마다(먼저 해당되는 쪽) 로그가 가장 오래된 파일부터 삭제됩니다.
 

@@ -4,14 +4,14 @@ description: 업데이트 1.3을 실행하는 StorSimple 가상 배열에 대한
 ms.service: storsimple
 author: v-dalc
 ms.topic: article
-ms.date: 03/17/2021
+ms.date: 04/13/2021
 ms.author: alkohli
-ms.openlocfilehash: b2c2af4267140370c2aa9421a67cb3a6f413165f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 498e3d11d8188850a918c67a9a88643d15c134c5
+ms.sourcegitcommit: aa00fecfa3ad1c26ab6f5502163a3246cfb99ec3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104657555"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107389522"
 ---
 # <a name="storsimple-virtual-array-update-13-release-notes"></a>StorSimple Virtual Array Update 1.3 릴리스 정보
 
@@ -45,12 +45,12 @@ ms.locfileid: "104657555"
 
 ## <a name="download-update-13"></a>업데이트 다운로드 1.3
 
-이 업데이트를 다운로드하려면 [Microsoft 업데이트 카탈로그](https://www.catalog.update.microsoft.com/Home.aspx) 서버로 이동하여 KB4575898 패키지를 다운로드합니다. 이 패키지에는 다음 패키지들이 포함됩니다.
+이 업데이트를 다운로드하려면 [Microsoft 업데이트 카탈로그](https://www.catalog.update.microsoft.com/Home.aspx) 서버로 이동하여 KB4575898 패키지를 다운로드합니다. 이 패키지에는 다음 패키지가 포함되어 있습니다. 다음 순서에 따라 패키지를 설치합니다.
 
-- 2020년 3월까지 2012 R2용 누적 Windows 업데이트를 포함하는 **KB4540725**. 이 롤업에 포함된 내용에 대한 자세한 내용은 [3월 월간 보안 롤업](https://support.microsoft.com/help/4540725)으로 이동하세요.
-- 2020년 7월까지 2012 R2에 대한 누적 Windows Update를 포함하는 **KB4565541**. 이 롤업에 포함된 내용에 대한 자세한 내용은 [2월 월간 보안 롤업](https://support.microsoft.com/help/4565541)으로 이동하세요.
-- 2020년 7월까지 2012 R2에 대한 누적 NET Framework Update를 포함하는 **KB4565622**. 이 롤업에 포함된 내용에 대한 자세한 내용은 [2월 월간 보안 롤업](https://support.microsoft.com/help/4565622)으로 이동하세요.
-- 디바이스 소프트웨어 업데이트를 포함하는 **KB3011067**.
+1. 2020년 3월까지 2012 R2용 누적 Windows 업데이트를 포함하는 **KB4540725**. 이 롤업에 포함된 내용에 대한 자세한 내용은 [3월 월간 보안 롤업](https://support.microsoft.com/help/4540725)으로 이동하세요.
+1. 2020년 7월까지 2012 R2에 대한 누적 Windows Update를 포함하는 **KB4565541**. 이 롤업에 포함된 내용에 대한 자세한 내용은 [7월 월간 보안 롤업](https://support.microsoft.com/help/4565541)으로 이동하세요.
+1. 2020년 7월까지 2012 R2에 대한 누적 NET Framework Update를 포함하는 **KB4565622**. 이 롤업에 포함된 내용에 대한 자세한 내용은 [KB4565622](https://support.microsoft.com/help/4565622)로 이동하세요.<!--The Help link opens the KB. I can't find a monthly rollup. I updated the link text to accurately describe what opens.-->
+1. 디바이스 소프트웨어 업데이트를 포함하는 **KB3011067**.
 
 KB4575898를 다운로드하고, 다음 지침에 따라 [로컬 웹 UI를 통해 업데이트를 적용](./storsimple-virtual-array-install-update-11.md#use-the-local-web-ui)합니다.
 

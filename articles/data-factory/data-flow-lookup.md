@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/19/2021
-ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 129b8460d22de6f03a136dcb30b8f686738a9bdd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739371"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734201"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 조회 변환
 
@@ -27,7 +27,7 @@ ms.locfileid: "101739371"
 
 ## <a name="configuration"></a>구성
 
-![스크린샷에는 다음 텍스트에 설명 된 레이블이 있는 조회 설정 탭이 표시 됩니다.](media/data-flow/lookup1.png "조회")
+![스크린샷은 다음 텍스트에 설명된 레이블이 있는 조회 설정 탭을 보여줍니다.](media/data-flow/lookup1.png "조회")
 
 **기본 스트림:** 들어오는 데이터 스트림입니다. 이 스트림은 조인의 왼쪽에 해당합니다.
 
@@ -69,7 +69,7 @@ ms.locfileid: "101739371"
 
 ## <a name="cached-lookup"></a>캐시된 조회
 
-동일한 원본에서 여러 개의 더 작은 조회를 수행 하는 경우 캐시 된 싱크와 조회는 조회 변환 보다 더 나은 사용 사례가 될 수도 있습니다. 캐시 싱크가 데이터 저장소에서 max 값을 조회 하 고 오류 코드를 오류 메시지 데이터베이스와 일치 시킬 수 있는 일반적인 예입니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink) 및 [캐시 된 조회](concepts-data-flow-expression-builder.md#cached-lookup)에 대해 알아봅니다.
+동일한 원본에서 여러 개의 작은 조회를 수행하는 경우 캐시된 싱크 및 조회가 조회 변환보다 더 나은 사용 사례일 수 있습니다. 캐시 싱크가 더 나은 일반적인 예로는 데이터 저장소에서 최댓값을 조회하고 오류 코드를 오류 메시지 데이터베이스와 일치시키는 것입니다. 자세한 내용은 [캐시 싱크](data-flow-sink.md#cache-sink) 및 [캐시된 조회](concepts-data-flow-expression-builder.md#cached-lookup)에 대해 알아봅니다.
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
 
@@ -87,7 +87,7 @@ ms.locfileid: "101739371"
 ```
 ### <a name="example"></a>예제
 
-![스크린샷에는 다음 코드에 대 한 조회 설정 탭이 표시 됩니다.](media/data-flow/lookup-dsl-example.png "조회")
+![스크린샷은 다음 코드에 대한 조회 설정 탭을 보여줍니다.](media/data-flow/lookup-dsl-example.png "조회")
 
 위의 조회 구성에 대한 데이터 흐름 스크립트는 아래 코드 조각에 나와 있습니다.
 
@@ -98,8 +98,8 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
     asc(ProductKey, true),
     broadcast: 'auto')~> LookupKeys
 ```
-## 
-다음 단계
+
+## <a name="next-steps"></a>다음 단계
 
 * [조인](data-flow-join.md) 및 [있음](data-flow-exists.md) 변환 모두 다중 스트림 입력을 사용합니다.
 * ```isMatch()```에서 [조건부 분할 변환](data-flow-conditional-split.md)을 사용하여 일치하는 값과 일치하지 않는 값에 대한 행 분할

@@ -3,15 +3,15 @@ title: Azure IoT Hub에 대한 Device Update 보안 | Microsoft Docs
 description: IoT Hub에 대한 Device Update가 어떻게 디바이스를 안전하게 업데이트하는지 이해합니다.
 author: lichris
 ms.author: lichris
-ms.date: 2/11/2021
+ms.date: 4/15/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b10049e03e26cfe8da2bd57cc9f69dd933af706b
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102489432"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567301"
 ---
 # <a name="device-update-security-model"></a>Device Update 보안 모델
 
@@ -23,9 +23,11 @@ Device Update 워크플로의 각 단계는 파이프라인의 모든 단계에�
 
 솔루션 운영자가 업데이트를 Device Update 인스턴스로 가져오면, 서비스에서는 업데이트 이진 파일을 업로드하고 검사하여 악의적인 사용자가 파일을 수정하거나 교환하지 않았는지 확인합니다. 확인이 완료되면 Device Update 서비스는 가져오기 매니페스트 및 기타 메타데이터의 파일 해시를 사용하여 내부 [업데이트 매니페스트](./update-manifest.md)를 생성합니다. 그러면 Device Update 서비스가 해당 업데이트 매니페스트에 서명합니다.
 
+서비스에 수집되고 Azure에 저장되면 업데이트 이진 파일 및 관련 고객 메타데이터가 Azure 스토리지 서비스에 의해 미사용 시 자동으로 암호화됩니다. Device Update 서비스는 추가 암호화를 자동으로 제공하지 않지만 콘텐츠가 Device Update 서비스에 도달하기 전에 개발자가 콘텐츠를 직접 암호화할 수 있습니다.
+
 솔루션 운영자가 Device Update를 요청하면 서명된 메시지가 보호되는 IoT Hub 채널을 통해 디바이스로 전송됩니다. 해당 디바이스의 Device Update 에이전트가 요청 서명의 유효성을 검사합니다. 
 
-그 결과 발생하는 모든 이진 다운로드는 업데이트 매니페스트 서명에 대한 유효성 검사를 통해 보안이 유지됩니다. 업데이트 매니페스트에는 이진 파일 해시가 포함되어 있으므로, 매니페스트를 신뢰할 수 있는 경우 Device Update 에이전트는 해시 또한 신뢰하여 이진 파일과 일치시킵니다. 업데이트 이진 파일의 다운로드와 확인이 완료되면 디바이스의 설치 관리자에 전달됩니다.
+그 결과 발생하는 모든 이진 다운로드는 업데이트 매니페스트 서명에 대한 유효성 검사를 통해 보안이 유지됩니다. 업데이트 매니페스트에는 이진 파일 해시가 포함되어 있으므로, 매니페스트를 신뢰할 수 있는 경우 Device Update 에이전트는 해시 또한 신뢰하여 이진 파일과 일치시킵니다. 업데이트 이진 파일의 다운로드와 확인이 완료되면 디바이스의 설치 관리자에 안전하게 전달됩니다.
 
 ## <a name="for-device-builders"></a>디바이스 빌더의 경우
 

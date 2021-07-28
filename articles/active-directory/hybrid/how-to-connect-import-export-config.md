@@ -11,12 +11,12 @@ ms.date: 07/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67460c654c854c5a855560dde1d67732fa818c7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0e2bdaa2c7a7648124fbe0be60e5a0af2f83238f
+ms.sourcegitcommit: b28e9f4d34abcb6f5ccbf112206926d5434bd0da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98681958"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107226564"
 ---
 # <a name="import-and-export-azure-ad-connect-configuration-settings"></a>Azure AD Connect 구성 설정 가져오기 및 내보내기 
 
@@ -42,7 +42,7 @@ Azure AD Connect 마법사에서 구성이 변경될 때마다 새 시간 스탬
 1. **동기화 설정 가져오기** 를 선택합니다. 이전에 내보낸 JSON 설정 파일을 찾습니다.
 1. **설치** 를 선택합니다.
 
-   ![필수 구성 요소 설치 화면을 보여주는 스크린샷](media/how-to-connect-import-export-config/import1.png)
+   ![필수 구성 요소 설치 화면을 보여주는 스크린샷](media/how-to-connect-import-export-config/import-1.png)
 
 > [!NOTE]
 > LocalDB 대신 SQL Server를 사용하거나 기본 VSA 대신 기존 서비스 계정을 사용하는 것과 같이 이 페이지의 설정을 재정의합니다. 이러한 설정은 구성 설정 파일에서 가져오지 않습니다. 정보 및 비교 목적으로 제공됩니다.
@@ -57,7 +57,7 @@ Azure AD Connect 마법사에서 구성이 변경될 때마다 새 시간 스탬
 - **온-프레미스 디렉터리 자격 증명**: 동기화 설정에 포함된 각 온-프레미스 디렉터리에 대해 동기화 계정을 만들거나 미리 만든 사용자 지정 동기화 계정을 공급하기 위한 자격 증명을 제공해야 합니다. 이 프로시저는 디렉터리를 추가하거나 제거할 수 없다는 예외를 제외하면 새로 설치 경험과 동일합니다.
 - **구성 옵션**: 새로 설치하는 경우와 마찬가지로 자동 동기화를 시작할지 아니면 준비 모드를 사용할지에 대한 초기 설정을 구성하도록 선택할 수 있습니다. 주요 차이점은 기본적으로 준비 모드는 의도적으로 사용하도록 설정되어 결과를 Azure에 적극적으로 내보내기 전에 구성과 동기화 결과를 비교할 수 있다는 점입니다.
 
-![디렉터리 연결 화면을 보여주는 스크린샷](media/how-to-connect-import-export-config/import2.png)
+![디렉터리 연결 화면을 보여주는 스크린샷](media/how-to-connect-import-export-config/import-2.png)
 
 > [!NOTE]
 > 하나의 동기화 서버만 주 역할에 있을 수 있으며 구성 변경 내용을 Azure에 적극적으로 내보낼 수 있습니다. 다른 모든 서버는 준비 모드에 배치해야 합니다.
@@ -71,21 +71,27 @@ Azure AD Connect 마법사에서 구성이 변경될 때마다 새 시간 스탬
 ### <a name="migration-process"></a>마이그레이션 프로세스 
 설정 마이그레이션하기:
 
-1. 새 준비 서버에서 **AzureADConnect.msi** 를 시작하고 Azure AD Connect의 **시작** 페이지에서 중지합니다.
+ 1. 새 준비 서버에서 **AzureADConnect.msi** 를 시작하고 Azure AD Connect의 **시작** 페이지에서 중지합니다.
 
-1. Microsoft Azure AD Connect\Tools 디렉터리에서 기존 서버 위치로 **MigrateSettings.ps1** 을 복사합니다. 예를 들어, C:\setup이 있습니다. 여기서 setup은 기존 서버에서 만든 디렉터리입니다.
+ 2. Microsoft Azure AD Connect\Tools 디렉터리에서 기존 서버 위치로 **MigrateSettings.ps1** 을 복사합니다. 예를 들어, C:\setup이 있습니다. 여기서 setup은 기존 서버에서 만든 디렉터리입니다.</br>
+     ![Azure AD Connect 디렉터리를 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate-1.png)
 
-   ![Azure AD Connect 디렉터리를 보여주는 스크린샷](media/how-to-connect-import-export-config/migrate1.png)
+     >[!NOTE]
+     > 다음과 같이 **"True** 인수를 허용하는 위치 매개 변수를 찾을 수 없습니다."라는 메시지가 표시되는 경우:
+     >
+     >
+     >![오류 스크린샷](media/how-to-connect-import-export-config/migrate-5.png) 그런 다음, MigrateSettings.ps1 파일을 편집하고, **$true** 를 제거하고 스크립트를 실행합니다. ![구성을 편집하는 스크린샷](media/how-to-connect-import-export-config/migrate-6.png)
+ 
 
-1. 여기에 표시된 대로 스크립트를 실행하고 하위 수준 서버 구성 디렉터리 전체를 저장합니다. 이 디렉터리를 새 준비 서버에 복사합니다. **Exported-ServerConfiguration-** * 폴더 전체를 새 서버에 복사해야 합니다.
 
-   ![Windows PowerShell의 스크립트를 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate2.png)
-   ![Exported-ServerConfiguration-* 폴더 복사를 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate3.png)
 
-1. 바탕 화면에서 아이콘을 두 번 클릭하여 **Azure AD Connect** 를 시작합니다. Microsoft 소프트웨어 사용 조건에 동의하고 다음 페이지에서 **사용자 지정** 을 선택합니다.
-1. **동기화 설정 가져오기** 확인란을 선택합니다. **찾아보기** 를 선택하여 복사된 Exported-ServerConfiguration-* 폴더를 찾아봅니다. MigratedPolicy.json을 선택하여 마이그레이션된 설정을 가져옵니다.
+ 3. 여기에 표시된 대로 스크립트를 실행하고 하위 수준 서버 구성 디렉터리 전체를 저장합니다. 이 디렉터리를 새 준비 서버에 복사합니다. **Exported-ServerConfiguration-** * 폴더 전체를 새 서버에 복사해야 합니다.
+     ![Windows PowerShell의 스크립트를 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate-2.png)![Exported-ServerConfiguration-* 폴더 복사를 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate-3.png)
 
-   ![동기화 설정 가져오기 옵션을 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate4.png)
+ 4. 바탕 화면에서 아이콘을 두 번 클릭하여 **Azure AD Connect** 를 시작합니다. Microsoft 소프트웨어 사용 조건에 동의하고 다음 페이지에서 **사용자 지정** 을 선택합니다.
+ 5. **동기화 설정 가져오기** 확인란을 선택합니다. **찾아보기** 를 선택하여 복사된 Exported-ServerConfiguration-* 폴더를 찾아봅니다. MigratedPolicy.json을 선택하여 마이그레이션된 설정을 가져옵니다.
+
+     ![동기화 설정 가져오기 옵션을 보여주는 스크린샷.](media/how-to-connect-import-export-config/migrate-4.png)
 
 ## <a name="post-installation-verification"></a>설치 후 확인 
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 03/16/2021
-ms.openlocfilehash: 7799266bf9cece1ed789d6fab64ec970a09fbfcb
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 178604335968c3664bde51c144759c1c040c359d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104588476"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564916"
 ---
 # <a name="search-the-azure-purview-data-catalog"></a>Azure Purview Data Catalog 검색
 
@@ -55,8 +55,8 @@ Azure Purview에서 검색 창은 Purview studio UX 상단에 위치합니다.
 | NOT | 자산이 NOT 절 오른쪽의 키워드를 포함할 수 없도록 지정합니다. | 쿼리 `hive NOT database`는 'hive'를 포함하지만 'database'는 포함되지 않은 자산을 반환합니다. |
 | () | 키워드 및 연산자 집합을 그룹화합니다. 여러 연산자를 결합할 때 괄호는 연산 순서를 지정합니다. | 쿼리 `hive AND (database OR warehouse)`는 'hive'와 'database' 또는 'warehouse' 중 하나 또는 둘 모두를 포함한 자산을 반환합니다. |
 | "" | 쿼리에서 일치해야 하는 구의 정확한 내용을 지정합니다. | 쿼리 `"hive database"`는 속성에 "hive database" 구가 포함된 자산을 반환합니다. |
-| * | 한 문자에서 여러 문자에 일치하는 와일드카드입니다. 키워드에서 첫 번째 문자로 사용할 수 없습니다. | 쿼리 `hiv\`*는 'hive'나 'hive-table'과 같이 'hiv'로 시작되는 속성이 있는 자산을 반환합니다. |
-| ? | 단일 문자와 일치하는 와일드카드입니다. 키워드에서 첫 번째 문자로 사용할 수 없음 | 쿼리 `hiv?`는 'hive'나 'hiva'와 같이 'hiv'로 시작하고 문자가 네 개인 속성이 있는 자산을 반환합니다. |
+| * | 한 문자에서 여러 문자에 일치하는 와일드카드입니다. 키워드에서 첫 번째 문자로 사용할 수 없습니다. | 쿼리 `dat*`는 'data' 또는 'database'와 같이 'dat'로 시작되는 속성이 있는 자산을 반환합니다. |
+| ? | 단일 문자와 일치하는 와일드카드입니다. 키워드에서 첫 번째 문자로 사용할 수 없음 | 쿼리 `dat?`는 'date' 또는'data'와 같이 'dat'로 시작하고 문자가 네 개인 속성이 있는 자산을 반환합니다. |
 
 > [!Note]
 > 항상 부울 연산자(**AND**, **OR**, **NOT**)는 모두 대문자로 지정합니다. 그러지 않으면 대/소문자와 추가 공백이 무시됩니다.

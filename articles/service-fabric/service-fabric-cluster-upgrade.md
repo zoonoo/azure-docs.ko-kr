@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 업그레이드
 description: Azure Service Fabric 클러스터를 업데이트하는 옵션에 관해 알아보기
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.openlocfilehash: 636d4cb11f7cc6780d560d3d0043a89c69840a4f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9af6a9b4d515fcede5bc0444a93ae8118077e7dd
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105731118"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738755"
 ---
 # <a name="upgrading-and-updating-azure-service-fabric-clusters"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
 
@@ -116,7 +116,7 @@ Service Fabric은 클러스터 노드 간 통신을 보호하도록 클러스터
 
 ### <a name="upgrading-os-images-for-cluster-nodes"></a>클러스터 노드의 OS 이미지 업그레이드
 
-Service Fabric 클러스터 노드에 자동 OS 이미지 업그레이드를 사용하는 것이 가장 좋습니다. 이 작업을 수행하려면 몇 가지 클러스터 요구 사항과 단계를 수행해야 합니다. 다른 옵션은 POA(패치 오케스트레이션 애플리케이션)는 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Service Fabric 애플리케이션을 사용하는 것입니다. 이 옵션에 관해 자세히 알아보려면 [Service Fabric 클러스터에서 Windows 운영 체제 패치](service-fabric-patch-orchestration-application.md)를 참조하세요.
+Service Fabric 클러스터 노드에 자동 OS 이미지 업그레이드를 사용하는 것이 가장 좋습니다. 이 작업을 수행하려면 몇 가지 클러스터 요구 사항과 단계를 수행해야 합니다. 다른 옵션은 POA(패치 오케스트레이션 애플리케이션)가 Service Fabric 클러스터에서 가동 중지 시간 없이 운영 체제 패치를 자동화하는 Service Fabric 애플리케이션을 사용하는 것입니다. 이 옵션에 관해 자세히 알아보려면 [Service Fabric 클러스터에서 Windows 운영 체제 패치](how-to-patch-cluster-nodes-windows.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

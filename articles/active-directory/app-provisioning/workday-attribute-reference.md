@@ -1,24 +1,24 @@
 ---
-title: Workday 특성 참조
-description: XPATH 쿼리를 사용하여 Workday에서 가져올 수 있는 특성에 대해 알아봅니다.
+title: Azure Active Directory에 대한 Workday 특성 참조
+description: Azure Active Directory의 XPATH 쿼리를 사용하여 Workday에서 가져올 수 있는 특성에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/25/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: celested
-ms.openlocfilehash: 0ff9b3d4cc3bee28c8e5e95d8854f64eaa546b0c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.reviewer: arvinh
+ms.openlocfilehash: beb15748086db6d2fb813a4ff636650d38472e36
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99255477"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784686"
 ---
-# <a name="workday-attribute-reference"></a>Workday 특성 참조
+# <a name="workday-attribute-reference-for-azure-active-directory"></a>Azure Active Directory에 대한 Workday 특성 참조
 
 이 섹션에서는 XPATH 쿼리를 사용하여 Workday에서 가져올 수 있는 특성의 목록을 제공합니다. 사용하려는 Workday 웹 서비스 API 버전에 맞는 섹션을 참조하세요. 
 

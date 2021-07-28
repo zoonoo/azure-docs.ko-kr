@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d098af394906dc120a252bdcda65fb3af31e28c8
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d7e2bd2987e7eaf7798093f3918f72b7e09a3cb0
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104865794"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107313487"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Visual Studio Code용 Spark & Hive Tools 사용
 
@@ -265,7 +265,7 @@ PySpark 대화형 명령을 사용하여 쿼리를 제출하려면 다음 단계
 
 > [!NOTE]
 >
-> [“Ms-python >=2020.5.78807 버전은 이 확장에서 지원되지 않습니다”](#issues-changed)가 확인되었습니다. 지금 **ms-python** 을 **최신 버전** 으로 업데이트하세요.
+> [ms-toolsai.jupyter >2021.3.684299474 버전이 이 확장에서 지원되지 않는](#known-issues) 것은 알려진 문제입니다. Microsoft Jupyter 2021.3.684299474에 대한 자세한 내용은 Synapse 커널을 사용하세요.
 
 ## <a name="submit-pyspark-batch-job"></a>PySpark 일괄 작업 제출
 
@@ -485,9 +485,19 @@ Data Lake Storage Gen2를 사용하여 HDInsight 클러스터에 작업을 제�
 
 메뉴 모음에서 **보기** > **명령 팔레트** 로 이동한 다음, **Azure: Sign Out** 을 입력합니다.
 
-## <a name="issues-changed"></a>변경된 문제
+## <a name="known-issues"></a>알려진 문제 
 
-“ms-python >=2020.5.78807 버전이 이 확장에서 지원되지 않습니다”라는 문제가 확인되면 이제 **ms-python** 을 **최신 버전** 으로 업데이트하세요.
+ ms-toolsai.jupyter >2021.3.684299474 버전은 이 확장에서 지원되지 않습니다. Microsoft Jupyter 2021.3.684299474에 대한 자세한 내용은 Synapse 커널을 사용하세요.
+
+ 1. 확장 자동 업데이트를 비활성화합니다.
+
+      ![확장 자동 업데이트 비활성화](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
+
+2. 선택한 버전의 Microsoft Jupyter를 설치합니다.
+
+      ![선택한 Microsoft Jupyter 버전](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
+
+3. Microsoft Jupyter 버전 2021.3.684299474 설치
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,6 +1,6 @@
 ---
 title: IBM DB2 리소스 액세스 및 관리
-description: Azure Logic Apps를 사용 하 여 자동화 된 워크플로를 빌드하여 IBM DB2 리소스를 읽고, 편집 하 고, 업데이트 하 고, 관리 합니다.
+description: Azure Logic Apps를 사용하여 자동화된 워크플로를 빌드하고 IBM DB2 리소스 읽기, 편집, 업데이트, 관리
 services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 tags: connectors
 ms.openlocfilehash: 765bb66b572f0c046222cfb617fe4caa80925256
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94967405"
 ---
-# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 IBM DB2 리소스 액세스 및 관리
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 IBM DB2 리소스 액세스 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [IBM db2 커넥터](/connectors/db2/)를 사용 하 여 DB2 데이터베이스에 저장 된 리소스에 따라 자동화 된 작업 및 워크플로를 만들 수 있습니다. 사용자의 워크플로는 데이터베이스의 리소스에 연결하고, 데이터베이스 테이블을 읽고 나열하며, 행을 추가, 변경 및 삭제하는 등의 작업을 수행할 수 있습니다. 논리 앱에 작업을 포함시켜 데이터베이스에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [IBM DB2 커넥터](/connectors/db2/)를 사용하여 DB2 데이터베이스에 저장된 리소스에 따라 자동화된 작업 및 워크플로를 만들 수 있습니다. 사용자의 워크플로는 데이터베이스의 리소스에 연결하고, 데이터베이스 테이블을 읽고 나열하며, 행을 추가, 변경 및 삭제하는 등의 작업을 수행할 수 있습니다. 논리 앱에 작업을 포함시켜 데이터베이스에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다.
 
 이 문서에서는 다양한 데이터베이스 작업을 수행하는 논리 앱을 만드는 방법을 보여 줍니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 ## <a name="supported-platforms-and-versions"></a>지원되는 플랫폼 및 버전
 
-DB2 커넥터는 TCP/IP 네트워크를 통해 원격 DB2 서버와 통신하는 Microsoft 클라이언트를 포함합니다. 이 커넥터를 사용 하 여 Azure 가상화에서 실행 되는 Windows 용 IBM DB2와 같은 클라우드 데이터베이스에 액세스할 수 있습니다. [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-connection.md)한 후 온-프레미스 DB2 데이터베이스에 액세스할 수도 있습니다.
+DB2 커넥터는 TCP/IP 네트워크를 통해 원격 DB2 서버와 통신하는 Microsoft 클라이언트를 포함합니다. 이 커넥터를 사용하여 Azure 가상화에서 실행되는 Windows용 IBM DB2와 같은 클라우드 데이터베이스에 액세스할 수 있습니다. [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-connection.md)한 후 온-프레미스 DB2 데이터베이스에 액세스할 수도 있습니다.
 
-IBM DB2 커넥터는 DRDA (분산 관계형 데이터베이스 아키텍처) SQLAM (SQL Access Manager) 버전 10 및 11을 지 원하는 IBM DB2 호환 제품과 함께 이러한 IBM DB2 플랫폼 및 버전을 지원 합니다.
+DRDA(분산 관계형 데이터베이스 아키텍처) SQLAM(SQL Access Manager) 버전 10 및 11을 지원하는 IBM DB2 호환 제품과 함께 IBM DB2 커넥터에서 지원하는 IBM DB2 플랫폼과 버전은 다음과 같습니다.
 
 | 플랫폼 | 버전 | 
 |----------|---------|
@@ -47,7 +47,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 | DELETE를 사용하여 단일 행 삭제 | 행 삭제 |
 |||
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -82,7 +82,7 @@ IBM DB2 커넥터는 커넥터에서 해당 작업에 매핑되는 이러한 데
 
 | 속성 | 필수 | 설명 |
 |----------|----------|-------------|
-| **온-프레미스 게이트웨이를 통해 연결** | 아니요 | 온-프레미스 연결에만 적용됩니다. |
+| **온-프레미스 게이트웨이를 통해 연결** | 예 | 온-프레미스 연결에만 적용됩니다. |
 | **연결 이름** | 예 | 연결 이름(예: “MyLogicApp-DB2-connection”) |
 | **서버** | 예 | DB2 서버에 대한 주소 또는 별칭 콜론 포트 번호(예: “myDB2server.cloudapp.net:50000”) <p><p>**참고**: 이 값은 콜론과 TCP/IP 포트 번호가 뒤에 붙는 IPv4 또는 IPv6 형식 중 하나로 구성되어 TCP/IP 주소 또는 별칭을 나타내는 문자열입니다. |
 | **데이터베이스** | 예 | 데이터베이스의 이름 <p><p>**참고**: 이 값은 DRDA 관계형 데이터베이스 이름(RDBNAM)을 나타내는 문자열입니다. <p>- “z/OS용 IBM DB2” 위치로 인식되는 데이터베이스인 z/OS용 DB2에는 16바이트 문자열이 허용됩니다. <br>- “i용 IBM DB2” 관계형 데이터베이스로 인식되는 데이터베이스인 i용 DB2에는 18바이트 문자열이 허용됩니다. <br>- LUW용 DB2에는 8바이트 문자열이 허용됩니다. |
@@ -157,7 +157,7 @@ DB2 데이터베이스 테이블에서 한 개의 레코드를 페치하려면 �
    | **영역 ID** | 예 | 원하는 레코드의 ID(이 예제에서는 “99999”) |
    ||||
 
-   ![열린 "테이블 이름" 목록과 "영역" 값이 선택 된 "행 가져오기 (미리 보기)" 작업을 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+   ![열린 “테이블 이름” 목록과 “영역” 값이 선택된 “행 가져오기(미리 보기)” 작업을 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
@@ -192,7 +192,7 @@ DB2 데이터베이스 테이블에서 모든 레코드를 페치하려면 논�
 
 1. **테이블 이름** 목록을 연 다음, 원하는 테이블을 선택합니다(이 예제에서는 “AREA”).
 
-   !["테이블 이름" 목록에서 "영역" 값을 선택 하 여 "행 가져오기 (미리 보기)" 동작을 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+   ![“테이블 이름” 목록에서 “영역” 값이 선택된 “행 가져오기(미리 보기)” 작업을 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
 
 1. 결과에 대한 필터 또는 쿼리를 지정하려면 **고급 옵션 표시** 를 선택합니다.
 
@@ -241,7 +241,7 @@ DB2 데이터베이스 테이블에 단일 레코드를 추가하려면 논리 �
 
    예를 들면 다음과 같습니다.
 
-   !["행 삽입 (미리 보기)" 작업과 예제 속성 값을 사용 하 여 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+   ![“행 삽입(미리 보기)” 작업 및 예제 속성 값이 있는 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
@@ -289,7 +289,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 업데이트하려면
 
    예를 들면 다음과 같습니다.
 
-   ![테이블을 선택 하는 "행 업데이트 (미리 보기)" 작업을 사용 하 여 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+   ![테이블을 선택하는 “행 업데이트(미리 보기)” 작업이 있는 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
@@ -334,7 +334,7 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 
    예를 들면 다음과 같습니다.
 
-   ![삭제할 테이블을 선택 하는 "행 삭제 (미리 보기)" 작업을 사용 하 여 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+   ![삭제할 테이블을 선택하는 “행 삭제(미리 보기)” 작업이 있는 Logic Apps 디자이너를 보여 주는 스크린샷](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
 
 1. 완료되면 디자이너 도구 모음에서 **저장** 을 선택합니다.
 
@@ -359,10 +359,10 @@ DB2 데이터베이스 테이블에서 단일 레코드를 삭제하려면 논�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/db2/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명된 트리거, 작업, 제한 등 이 커넥터에 대한 자세한 기술 정보는 [커넥터의 참조 페이지](/connectors/db2/)에서 확인할 수 있습니다.
 
 > [!NOTE]
-> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+> [ISE(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에서는 이 커넥터의 ISE 레이블 지정 버전이 [ISE 메시지 한도](../logic-apps/logic-apps-limits-and-config.md#message-size-limits)를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

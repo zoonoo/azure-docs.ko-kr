@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 23ba50a6eca1e398b9d459153b84719909f2ecac
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4121d4b9ac73ed18da7dce0e397fe919589ac6f0
+ms.sourcegitcommit: afb79a35e687a91270973990ff111ef90634f142
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99583742"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107478763"
 ---
 # <a name="using-web-browsers-msalnet"></a>웹 브라우저 사용(MSAL.NET)
 
@@ -63,11 +63,11 @@ MSAL.NET은 다중 프레임워크 라이브러리이며 UI 컨트롤에서 브�
 
 시스템 브라우저를 사용하면 브로커(회사 포털/인증자) 없이 다른 애플리케이션 및 웹 애플리케이션과 SSO 상태를 공유할 수 있는 큰 장점이 있습니다. 기본적으로 시스템 브라우저가 MSAL.NET에서 Xamarin iOS 및 Xamarin Android 플랫폼에 사용되었습니다. 이와 같은 플랫폼에서는 시스템 웹 브라우저가 전체 화면을 차지하고 사용자 환경이 개선되기 때문입니다. 시스템 웹 보기는 대화 상자와 구별되지 않습니다. 그러나 iOS에서는 사용자가 브라우저에서 애플리케이션을 다시 호출하도록 동의해야 할 수 있어서 성가실 수 있습니다.
 
-## <a name="system-browser-experience-on-net-core"></a>.NET Core의 시스템 브라우저 환경
+## <a name="system-browser-experience-on-net"></a>.NET의 시스템 브라우저 환경 
 
 MSAL.NET은 .NET Core에서 시스템 브라우저를 별도의 프로세스로 시작합니다. MSAL.NET은 이 브라우저를 제어할 수 없지만 사용자가 인증을 완료하면 MSAL.NET에서 URI를 가로챌 수 있는 방식으로 웹 페이지가 리디렉션됩니다.
 
-다음을 지정하여 .NET 클래식용으로 작성된 앱에서 이 브라우저를 사용하도록 구성할 수도 있습니다.
+다음을 지정하여 이 브라우저를 사용하도록 .NET 클래식 또는 .NET 5용으로 작성된 앱을 구성할 수도 있습니다.
 
 ```csharp
 await pca.AcquireTokenInteractive(s_scopes)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 74724357dea9cd6c8c89a11a9eeb3d1b2933b790
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92490325"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107564952"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Azure Logic Apps으로 IoT Hub와 사서함을 연결하여 IoT 원격 모니터링 및 알림
 
@@ -24,11 +24,7 @@ ms.locfileid: "92490325"
 
 [Azure Logic Apps](../logic-apps/index.yml)는 온-프레미스 서비스, 클라우드 서비스, 하나 이상의 기업과 여러 프로토콜 간에 워크플로를 오케스트레이션하도록 지원합니다. 논리 앱은 트리거로 시작하고, 그 뒤에 조건 및 반복기 등과 같은 기본 제공 컨트롤을 사용하여 순차화할 수 있는 하나 이상의 작업이 이어집니다. 이와 같은 유연성 덕분에 Logic Apps는 IoT 모니터링 시나리오를 위한 이상적인 IoT 솔루션입니다. 예를 들어, 디바이스의 원격 분석 데이터가 IoT Hub 엔드포인트에 도착하면 논리 앱 워크플로를 시작하여 Azure Storage Blob에서 데이터를 웨어하우징하고, 데이터 이상을 경고하는 메일 경고를 보내고, 디바이스에서 오류를 보고하는 경우 기술자 방문을 예약하는 등의 작업을 수행할 수 있습니다.
 
-## <a name="what-you-learn"></a>학습 내용
-
-IoT Hub와 사서함을 연결하여 온도를 모니터링하고 알림을 보내는 논리 앱을 만드는 방법을 배웁니다.
-
-디바이스에서 실행되는 클라이언트 코드는 IoT 허브에 보내는 모든 원격 분석 메시지에서 애플리케이션 속성 `temperatureAlert`를 설정합니다. 클라이언트 코드가 30C를 초과하는 온도를 검색하는 경우 이 속성을 `true`로 설정하고, 그러지 않는 경우 이 속성을 `false`로 설정합니다.
+이 문서에서는 IoT 허브와 사서함을 연결하여 온도를 모니터링하고 알림을 보내는 논리 앱을 만드는 방법을 알아봅니다. 디바이스에서 실행되는 클라이언트 코드는 IoT 허브에 보내는 모든 원격 분석 메시지에서 애플리케이션 속성 `temperatureAlert`를 설정합니다. 클라이언트 코드가 30C를 초과하는 온도를 검색하는 경우 이 속성을 `true`로 설정하고, 그러지 않는 경우 이 속성을 `false`로 설정합니다.
 
 IoT 허브에 도착하는 메시지는 다음과 유사하여, 본문에 원격 분석 데이터가 포함되어 있고 `temperatureAlert` 속성은 애플리케이션 속성에 포함되어 있습니다(시스템 속성은 표시되지 않음).
 
@@ -50,15 +46,9 @@ IoT 허브 메시지 형식에 대한 자세한 내용은 [IoT 허브 메시지 
 
 이 항목에서는 `temperatureAlert` 속성이 `true`로 설정된 경우 Service Bus 엔드포인트로 메시지를 보내도록 IoT 허브에서 라우팅을 설정합니다. 그런 다음 Service Bus 엔드포인트에 도착하는 메시지에 따라 트리거하여 나에게 메일 알림을 보내는 논리 앱을 설정합니다.
 
-## <a name="what-you-do"></a>수행할 작업
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Service Bus 네임스페이스를 만들고 여기에 Service Bus 큐를 추가합니다.
-* 온도 경고가 포함된 메시지를 Service Bus 큐로 라우팅하도록 IoT 허브에 사용자 지정 엔드포인트 및 라우팅 규칙을 추가합니다.
-* Service Bus 큐의 메시지를 사용하고 원하는 수신자에게 알림 메일을 보내는 논리 앱을 만들고, 구성하고, 테스트합니다.
-
-## <a name="what-you-need"></a>필요한 항목
-
-* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서(예: [Node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)) 중 하나를 완료합니다. 이러한 자습서는 다음 요구 사항을 충족합니다.
+* [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 디바이스 자습서 중 하나를 완료합니다. 예를 들어 [node.js를 사용하는 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)로 이동하거나 [원격 분석 전송](quickstart-send-telemetry-dotnet.md) 빠른 시작 중 하나로 이동할 수 있습니다. 이러한 문서는 다음 요구 사항을 다룹니다.
 
   * 활성화된 Azure 구독.
   * 구독 중인 Azure IoT Hub

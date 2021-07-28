@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.openlocfilehash: 659f6527d43e1b45a11fddf774050ca6d42bfe12
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/16/2021
+ms.openlocfilehash: 5985db37e6b88dc39ce1ac166c4aaf9ba368240d
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98896666"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737707"
 ---
 # <a name="transformation-functions-in-power-query-for-data-wrangling"></a>데이터 랭글링에 대한 파워 쿼리의 변환 함수
 
@@ -63,8 +63,8 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 * 행 필터를 논리적 열로
 * 숫자, 텍스트, 논리, 날짜 및 날짜/시간 상수
 
-<a name="mergingjoining-tables"></a>테이블 병합/조인
-----------------------
+## <a name="mergingjoining-tables"></a>테이블 병합/조인
+
 * 파워 쿼리는 중첩된 조인을 생성합니다(Table.NestedJoin, 사용자는 수동으로 [Table.AddJoinColumn](/powerquery-m/table-addjoincolumn)을 쓸 수 있음).
     그러면 사용자가 중첩된 조인 열을 중첩되지 않은 조인으로 확장해야 합니다(Table.ExpandTableColumn, 다른 컨텍스트에서는 지원되지 않음).
 * M 함수 [Table.Join](/powerquery-m/table-join)은 직접 쓸 수 있으므로 추가 확장 단계가 필요하지 않지만, 사용자는 조인된 테이블 간에 중복된 열 이름이 없는지 확인해야 합니다.
@@ -99,6 +99,23 @@ M 함수 [Table.AddColumn](/powerquery-m/table-addcolumn), [Table.TransformColum
 | 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원되지 않습니다. 예를 들어, 열에서 숫자가 아닌 값을 필터링하려면 한 가지 방법은 텍스트 열을 숫자로 변환하는 것입니다. 변환에 실패하는 모든 셀은 오류 상태가 되며 필터링해야 합니다. 이 시나리오는 스케일 아웃 M에서 가능하지 않습니다. |
 | Table.Transpose | 지원되지 않음 |
 | Table.Pivot | 지원되지 않음 |
+| Table.SplitColumn | 부분적으로 지원됨 |
+
+## <a name="m-script-workarounds"></a>M 스크립트 해결 방법
+
+### <a name="for-splitcolumn-there-is-an-alternate-for-split-by-length-and-by-position"></a>```SplitColumn```의 경우 길이 및 위치별 분할에 대한 대체 방법이 있습니다.
+
+* Table.AddColumn(소스, "첫 번째 문자", 각 Text.Start([Email], 7), 텍스트 입력)
+* Table.AddColumn(#"첫 번째 문자 삽입", "텍스트 범위", 각 Text.Middle([Email], 4, 9), 텍스트 입력)
+
+이 옵션은 리본의 추출 옵션에서 액세스할 수 있습니다.
+
+![Power Query 열 추가](media/wrangling-data-flow/pq-split.png)
+
+### <a name="for-tablecombinecolumns"></a>```Table.CombineColumns```의 경우
+
+* Table.AddColumn(RemoveEmailColumn, "이름", 각 [FirstName] & " " & [LastName])
+
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,22 +1,22 @@
 ---
-title: 특정 사용자가 앱에 액세스할 수 있는 시점 파악
-description: 매우 중요한 사용자가 Azure AD를 사용하여 사용자를 프로비저닝하도록 구성한 애플리케이션에 액세스할 수 있는 시기를 찾는 방법
+title: 특정 사용자가 Azure Active Directory Application Provisioning에서 앱에 액세스할 수 있는 시점 파악
+description: 매우 중요한 사용자가 Azure Active Directory를 사용하여 사용자 프로비저닝을 위해 구성한 애플리케이션에 액세스할 수 있는 시기를 확인하는 방법
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/03/2019
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9835ba2b6db2d71d0ff5825f2eb1996133e75537
-ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
+ms.openlocfilehash: f972028b407ca5704fed5000142072231d65410b
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107530823"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782904"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>사용자 프로비전 상태 확인
 

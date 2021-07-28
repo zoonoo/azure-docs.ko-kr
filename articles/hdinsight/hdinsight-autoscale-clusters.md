@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperf-fy21q1, contperf-fy21q2
 ms.date: 12/14/2020
-ms.openlocfilehash: 5dabae76308f32da7968d8cfa89b95f1eb19c142
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7a31fde34a65d69ca862a6dd8bd4fb638b15cb3a
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104863771"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751422"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
@@ -70,12 +70,12 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 
 | 버전 | Spark | Hive | 대화형 쿼리 | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6(ESP 제외) | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
-| HDInsight 4.0(ESP 제외) | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
-| HDInsight 3.6(ESP 포함) | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
-| HDInsight 4.0(ESP 포함) | 예 | 예 | 예 | 예* | 예 | 예 | 예 |
+| HDInsight 3.6(ESP 제외) | 예 | 예 | 예* | 예* | 예 | 예 | 예 |
+| HDInsight 4.0(ESP 제외) | 예 | 예 | 예* | 예* | 예 | 예 | 예 |
+| HDInsight 3.6(ESP 포함) | 예 | 예 | 예* | 예* | 예 | 예 | 예 |
+| HDInsight 4.0(ESP 포함) | 예 | 예 | 예* | 예* | 예 | 예 | 예 |
 
-\* HBase 클러스터는 부하를 기반으로 하지 않는 일정 기반 크기 조정에 대해서만 구성할 수 있습니다.
+\* HBase 및 Interactive Query 클러스터는 부하를 기반으로 하지 않는 일정 기반 크기 조정에 대해서만 구성할 수 있습니다.
 
 ## <a name="get-started"></a>시작
 
@@ -85,7 +85,7 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 
 1. **구성 + 가격 책정** 탭에서 **자동 크기 조정 사용** 확인란을 선택합니다.
 1. **자동 크기 조정 유형** 아래에서 **부하 기반** 을 선택합니다.
-1. 다음 속성에 대해 원하는 값을 입력합니다.  
+1. 다음 속성에 대해 원하는 값을 입력합니다.
 
     * **작업자 노드에** 대 한 초기 **노드 수**.
     * 최소 작업자 노드의 **수**.
@@ -120,16 +120,16 @@ Azure HDInsight의 무료 자동 크기 조정 기능은 이전에 설정한 조
 
 구독에는 각 Azure 지역에 대한 용량 할당량이 있습니다. 헤드 노드의 코어와 최대 작업자 노드의 총 수는 용량 할당량을 초과하면 안됩니다. 그러나 이 할당량은 소프트 제한이며, 언제든지 지원 티켓을 만들어서 간편하게 할당량을 늘릴 수 있습니다.
 
-> [!Note]  
+> [!Note]
 > 총 코어 할당량 제한을 초과하면, '최대 노드 수가 이 지역에서 사용 가능한 코어 수를 초과했습니다. 다른 지역을 선택하거나 고객 지원팀에 문의하여 할당량을 늘리세요'라는 내용의 오류 메시지를 받게 됩니다.
 
-Azure Portal을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.  
+Azure Portal을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클러스터 만들기
 
 #### <a name="load-based-autoscaling"></a>부하 기반 자동 크기 조정
 
-아래 json 코드 조각에 표시된 대로 `minInstanceCount` 및 `maxInstanceCount` 속성을 사용하여 `computeProfile` > `workernode` 섹션에 `autoscale` 노드를 추가하는 방법으로, Azure Resource Manager 템플릿의 부하 기반 자동 크기 조정을 사용하여 HDInsight 클러스터를 만들 수 있습니다. 전체 Resource Manager 템플릿에 대한 정보는 [빠른 시작 템플릿: 부하 기반 자동 크기 조정을 사용하는 Spark Cluster 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-loadbased)를 참조하세요.
+아래 json 코드 조각에 표시된 대로 `minInstanceCount` 및 `maxInstanceCount` 속성을 사용하여 `computeProfile` > `workernode` 섹션에 `autoscale` 노드를 추가하는 방법으로, Azure Resource Manager 템플릿의 부하 기반 자동 크기 조정을 사용하여 HDInsight 클러스터를 만들 수 있습니다. 전체 Resource Manager 템플릿에 대한 정보는 [빠른 시작 템플릿: 부하 기반 자동 크기 조정을 사용하는 Spark Cluster 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-loadbased)를 참조하세요.
 
 ```json
 {
@@ -157,7 +157,7 @@ Azure Portal을 사용하여 HDInsight 클러스터를 만드는 방법에 대�
 
 #### <a name="schedule-based-autoscaling"></a>일정 기반 자동 크기 조정
 
-`computeProfile` > `workernode`섹션에 `autoscale` 노드를 추가하여, Azure Resource Manager 템플릿의 일정 기반 자동 크기 조정을 사용하여 HDInsight 클러스터를 만들 수 있습니다. `autoscale` 노드에는 변경이 발생하는 시기를 설명하는 `timezone`및 `schedule`가 있는 `recurrence`가 포함됩니다. 전체 리소스 관리자 템플릿은 [일정 기반 자동 크기 조정을 사용하는 Spark Cluster 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-autoscale-schedulebased)를 참조하세요.
+`computeProfile` > `workernode`섹션에 `autoscale` 노드를 추가하여, Azure Resource Manager 템플릿의 일정 기반 자동 크기 조정을 사용하여 HDInsight 클러스터를 만들 수 있습니다. `autoscale` 노드에는 변경이 발생하는 시기를 설명하는 `timezone`및 `schedule`가 있는 `recurrence`가 포함됩니다. 전체 리소스 관리자 템플릿은 [일정 기반 자동 크기 조정을 사용하는 Spark Cluster 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-autoscale-schedulebased)를 참조하세요.
 
 ```json
 {
@@ -251,25 +251,37 @@ Azure Portal에 나열된 클러스터 상태를 통해 자동 크기 조정 작
 
 실행 중인 작업이 계속됩니다. 보류 중인 작업은 사용 가능한 작업자 노드 수가 더 적은 일정을 대기합니다.
 
+### <a name="configure-schedule-based-autoscale-based-on-usage-pattern"></a>사용 패턴에 따라 일정 기반 자동 크기 조정 구성
+
+일정 기반 자동 크기 조정을 구성할 때 클러스터 사용 패턴을 이해해야 합니다. [Grafana 대시보드](./interactive-query/hdinsight-grafana.md)는 쿼리 로드 및 실행 슬롯을 이해하는 데 도움이 될 수 있습니다. 이 대시보드에서 사용 가능한 실행기 슬롯과 총 실행기 슬롯을 가져올 수 있습니다.
+
+필요한 작업자 노드 수를 예측할 수 있는 방법은 다음과 같습니다. 워크로드의 변형을 처리하려면 10%의 추가 버퍼를 제공하는 것이 좋습니다.
+
+실제로 사용된 실행기 슬롯 수 = 총 실행기 슬롯 – 사용 가능한 총 실행기 슬롯.
+
+필요한 작업자 노드 수 = 실제로 사용된 실행기 슬롯 수 / (hive.llap.daemon.num.executors + hive.llap.daemon.task.scheduler.wait.queue.size)
+
+*hive.llap.daemon.num.executors는 구성 가능하며 기본값은 4입니다.
+
+*hive.llap.daemon.task.scheduler.wait.queue.size는 구성 가능하며 기본값은 10입니다.
+
+
 ### <a name="be-aware-of-the-minimum-cluster-size"></a>최소 클러스터 크기를 알고 있어야 합니다.
 
 클러스터를 3개 미만의 노드로 축소하지 마십시오. 클러스터를 3개 미만의 노드로 크기 조정하면 파일 복제가 충분하지 않기 때문에 안전 모드에서 중단될 수 있습니다. 자세한 내용은 [안전 모드에서 중단](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)을 참조하세요.
 
 ### <a name="increase-the-number-of-mappers-and-reducers"></a>매퍼 및 Reducer의 수를 늘립니다.
 
-Hadoop 클러스터에 대한 자동 크기 조정은 HDFS 사용량도 모니터링합니다. HDFS가 사용 중인 경우, 클러스터에 여전히 현재 리소스가 필요 하다 고 가정합니다. 쿼리에 많은 데이터가 포함되어 있으면, 매퍼 및 Reducer 수를 늘려 병렬 처리를 늘리고 HDFS 작업을 가속화할 수 있습니다. 이러한 방식으로 추가 리소스가 있으면 적절한 축소가 트리거됩니다. 
+Hadoop 클러스터에 대한 자동 크기 조정은 HDFS 사용량도 모니터링합니다. HDFS가 사용 중인 경우, 클러스터에 여전히 현재 리소스가 필요 하다 고 가정합니다. 쿼리에 많은 데이터가 포함되어 있으면, 매퍼 및 Reducer 수를 늘려 병렬 처리를 늘리고 HDFS 작업을 가속화할 수 있습니다. 이러한 방식으로 추가 리소스가 있으면 적절한 축소가 트리거됩니다.
 
 ### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>최대 사용량 시나리오에 대한 Hive 구성 최대 총 동시 쿼리 수 설정
 
 자동 크기 조정 이벤트는 Ambari에서 Hive 구성의 *최대 총 동시 쿼리* 를 변경하지 않습니다. 즉, Hive Server 2 Interactive Service는 부하 및 일정에 따라 Interactive Query 디먼 수가 확대 및 축소되는 경우에도 언제든지 지정된 수의 동시 쿼리를 처리할 수 있습니다. 일반적인 권장 사항은 수동 작업을 방지하기 위해 최고 사용량 시나리오에 대해 이 구성을 설정하는 것입니다.
 
-그러나 적은 수의 작업자 노드만 있고 최대 총 동시 쿼리 수 값이 너무 높게 구성된 경우, Hive Server 2 재시작 실패가 발생할 수 있습니다. 최소한 지정된 수의 Tez Ams(최대 총 동시 쿼리 구성과 동일)를 수용할 수 있는 최소 작업자 노드 수와 동일해야 합니다. 
+그러나 적은 수의 작업자 노드만 있고 최대 총 동시 쿼리 수 값이 너무 높게 구성된 경우, Hive Server 2 재시작 실패가 발생할 수 있습니다. 최소한 지정된 수의 Tez Ams(최대 총 동시 쿼리 구성과 동일)를 수용할 수 있는 최소 작업자 노드 수와 동일해야 합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-### <a name="node-label-file-missing"></a>노드 레이블 파일 없음
-
-HDInsight 자동 크기 조정에서는 노드 레이블 파일을 사용하여 노드가 작업을 실행할 준비가 되었는지 여부를 결정합니다. 노드 레이블 파일은 3 개의 복제본이 있는 HDFS에 저장됩니다. 클러스터 크기가 크게 축소되고 임시 데이터가 많은 경우, 세 개의 복제본을 모두 삭제할 수 있는 가능성은 낮습니다. 이 경우 클러스터는 오류 상태를 입력합니다.
 
 ### <a name="interactive-query-daemons-count"></a>Interactive Query 디먼 수
 

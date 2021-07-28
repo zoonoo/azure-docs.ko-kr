@@ -1,14 +1,14 @@
 ---
 title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
-ms.date: 03/12/2021
+ms.date: 05/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b44f71750bdb533e889546f370a9b36ea5d3b4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 139c7be2c1736841e81e70aa562ab9841fd76337
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103419357"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788718"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -20,7 +20,7 @@ ms.locfileid: "103419357"
 
 일부 조직에서는 여러 Azure AD 테넌트를 사용해야 할 수도 있습니다. 이는 구입이 진행된 후 장기 테넌트 통합 전략이 아직 정의되지 않은 경우와 같이 일시적인 상황일 수 있습니다. 그 외의 경우, 조직에서 완전히 독립적인 자회사, 지리적 또는 법적 요구 사항 또는 기타 고려 사항으로 인해 지속적으로 여러 테넌트를 유지해야 할 수도 있습니다.
 
-다중 테넌트 아키텍처가 필요한 경우, Azure Lighthouse를 사용하여 관리 작업을 중앙 집중화하고 간소화할 수 있습니다. [Azure 위임된 리소스 관리](azure-delegated-resource-management.md)를 사용하여 단일 관리 테넌트 내 사용자는 중앙 집중화되고 스케일링 가능한 방식으로 [테넌트 간 관리 기능](cross-tenant-management-experience.md)을 수행할 수 있습니다.
+다중 테넌트 아키텍처가 필요한 경우, Azure Lighthouse를 사용하여 관리 작업을 중앙 집중화하고 간소화할 수 있습니다. [Azure 위임된 리소스 관리](architecture.md)를 사용하여 단일 관리 테넌트 내 사용자는 중앙 집중화되고 스케일링 가능한 방식으로 [테넌트 간 관리 기능](cross-tenant-management-experience.md)을 수행할 수 있습니다.
 
 ## <a name="tenant-management-architecture"></a>테넌트 관리 아키텍처
 
@@ -61,4 +61,4 @@ Azure Lighthouse는 물리적으로 데이터 또는 리소스를 이동하는 �
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](cross-tenant-management-experience.md)에 대해 알아봅니다.
-- [Azure 위임 리소스 관리](azure-delegated-resource-management.md)에 대해 알아봅니다.
+- [Azure Lighthouse 작동 방법](architecture.md)에 대해 자세히 알아봅니다.

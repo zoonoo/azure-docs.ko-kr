@@ -5,19 +5,19 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/08/2021
-ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: 7a01d2d17a4c98656588530f5b288c6a69b8a206
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101710195"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109734168"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 구문 분석 변환
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-구문 분석 변환을 사용하여 문서 형식으로 된 데이터의 열을 구문 분석합니다. 구문 분석할 수 있는 현재 지원되는 포함 문서 형식은 JSON 및 구분 기호로 분리된 텍스트입니다.
+구문 분석 변환을 사용하여 문서 형식으로 된 데이터의 열을 구문 분석합니다. 구문 분석할 수 있는 현재 지원되는 포함 문서 형식은 JSON, XML 및 구분 기호로 분리된 텍스트입니다.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
@@ -29,11 +29,22 @@ ms.locfileid: "101710195"
 
 ### <a name="column"></a>열
 
-파생 열 및 집계와 마찬가지로 여기에서 종료되는 열을 드롭다운 선택기에서 선택하여 수정할 수 있습니다. 또는 여기에 새 열의 이름을 입력할 수 있습니다. ADF는 구문 분석된 원본 데이터를 이 열에 저장합니다.
+파생 열 및 집계와 마찬가지로 여기에서 종료되는 열을 드롭다운 선택기에서 선택하여 수정할 수 있습니다. 또는 여기에 새 열의 이름을 입력할 수 있습니다. ADF는 구문 분석된 원본 데이터를 이 열에 저장합니다. 대부분의 경우 들어오는 포함 문서 필드를 구문 분석하는 새 열을 정의하려고 합니다.
 
 ### <a name="expression"></a>식
 
 식 작성기를 사용하여 구문 분석에 사용할 원본을 설정합니다. 이는 구문 분석하려는 자체 포함 데이터가 있는 원본 열을 선택하는 것만큼 간단할 수도 있고, 구문 분석할 복잡한 식을 만들 수도 있습니다.
+
+#### <a name="example-expressions"></a>예제 식
+
+* 원본 문자열 데이터: ```chrome|steel|plastic```
+  * 식: ```(desc1 as string, desc2 as string, desc3 as string)```
+
+* 원본 JSON 데이터: ```{"ts":1409318650332,"userId":"309","sessionId":1879,"page":"NextSong","auth":"Logged In","method":"PUT","status":200,"level":"free","itemInSession":2,"registration":1384448}```
+  * 식: ```(level as string, registration as long)```
+
+* 원본 XML 데이터: ```<Customers><Customer>122</Customer><CompanyName>Great Lakes Food Market</CompanyName></Customers>```
+  * 식: ```(Customers as (Customer as integer, CompanyName as string))```
 
 ### <a name="output-column-type"></a>출력 열 형식
 
@@ -47,7 +58,7 @@ ms.locfileid: "101710195"
 
 검사 탭 및 데이터 미리 보기를 참조하여 출력이 올바르게 매핑되었는지 확인합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예제
 
 ```
 source(output(
@@ -100,12 +111,12 @@ ParseCsv select(mapColumn(
 
 ### <a name="syntax"></a>구문
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예제
 
 ```
 parse(json = jsonString ? (trade as boolean,
                                 customers as string[]),
-                format: 'json',
+                format: 'json|XML|delimited',
                 documentForm: 'singleDocument') ~> ParseJson
 
 parse(csv = csvString ? (id as integer,

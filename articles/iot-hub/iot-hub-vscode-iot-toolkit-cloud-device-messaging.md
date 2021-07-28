@@ -10,32 +10,24 @@ ms.date: 01/18/2019
 ms.author: junhan
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: b9d8f0c2a573ba1749b414a389cd7181ddd5f95a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1c4a840233e576c528e9c58d57eca0b3d524bf4d
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87321686"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107566931"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
 ![엔드투엔드 다이어그램](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
+이 문서에서는 디바이스-클라우드 메시지를 모니터링하고 클라우드-디바이스 메시지를 보내기 위해 Azure IoT Tools for Visual Studio Code를 사용하는 방법을 알아봅니다. 디바이스-클라우드 메시지는 디바이스에서 수집한 다음 IoT Hub로 보내는 센서 데이터일 수 있습니다. 클라우드-디바이스 메시지는 IoT Hub에서 디바이스로 보내 사용자 디바이스에 연결된 LED를 깜박이는 명령일 수 있습니다.
+
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)는 IoT Hub 관리 및 IoT 애플리케이션 개발을 더욱 용이하게 해주는 유용한 Visual Studio Code 확장입니다. 이 문서에서는 Azure IoT Tools for Visual Studio Code를 사용하여 디바이스와 IoT Hub 간에 메시지를 보내고 받는 방법에 중점을 둡니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-## <a name="what-you-will-learn"></a>알아볼 내용
-
-디바이스-클라우드 메시지를 모니터링하고 클라우드-디바이스 메시지를 보내기 위해 Azure IoT Tools for Visual Studio Code를 사용하는 방법을 알아봅니다. 디바이스-클라우드 메시지는 디바이스에서 수집한 다음 IoT Hub로 보내는 센서 데이터일 수 있습니다. 클라우드-디바이스 메시지는 IoT Hub에서 디바이스로 보내 사용자 디바이스에 연결된 LED를 깜박이는 명령일 수 있습니다.
-
-## <a name="what-you-will-do"></a>수행할 사항
-
-* Azure IoT Tools for Visual Studio Code를 사용하여 디바이스-클라우드 메시지를 모니터링합니다.
-
-* Azure IoT Tools for Visual Studio Code를 사용하여 클라우드-디바이스 메시지를 전송합니다.
-
-## <a name="what-you-need"></a>필요한 작업
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성화된 Azure 구독.
 

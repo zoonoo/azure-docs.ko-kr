@@ -4,12 +4,12 @@ description: Azure에서 리소스 웹앱, 클라우드 서비스, 가상 머신
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: f229b3087bd616dfb55cbec4b0f6c3fcc4ec9fe1
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105641547"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737531"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Azure에서 자동 크기 조정 시작
 이 문서에서는 Microsoft Azure Portal에서 리소스에 대한 자동 크기 조정을 설정하는 방법에 대해 설명합니다.
@@ -115,7 +115,7 @@ CPU 기준 크기 조정 외에도 특정 날짜에 대한 크기 조정을 다�
 
 ### <a name="cool-down-period-effects"></a>휴지 기간 효과
 
-자동 스케일링은 휴지 기간을 사용하여 인스턴스의 신속하고 반복적인 스케일 업과 스케일 다운인 ‘플래핑’을 방지합니다.  자세한 내용은 [자동 스케일링 평가 단계](autoscale-understanding-settings.md#autoscale-evaluation)를 참조하세요.  플래핑 및 자동 스케일링 엔진 모니터링 방법에 관한 기타 중요한 정보는 각각 [자동 스케일링 모범 사례](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) 및 [자동 스케일링 문제 해결](autoscale-troubleshoot.md)에서 찾을 수 있습니다. 
+자동 크기 조정은 휴지 기간을 사용하여 인스턴스의 신속하고 반복적인 스케일 업과 스케일 다운인 ‘플래핑’을 방지합니다.  자세한 내용은 [자동 스케일링 평가 단계](autoscale-understanding-settings.md#autoscale-evaluation)를 참조하세요.  플래핑 및 자동 스케일링 엔진 모니터링 방법에 관한 기타 중요한 정보는 각각 [자동 스케일링 모범 사례](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) 및 [자동 스케일링 문제 해결](autoscale-troubleshoot.md)에서 찾을 수 있습니다.
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>정상적인 인스턴스로 트래픽 라우팅(App Service)
 
@@ -132,14 +132,14 @@ Azure 웹앱이 여러 인스턴스로 스케일 아웃될 때 App Service는 �
 ### <a name="move"></a>이동
 [REST API](/rest/api/monitor/autoscalesettings/createorupdate)를 사용하여 새 환경에서 자동 스케일링 설정을 만듭니다. 대상 지역에 생성되는 자동 스케일링 설정은 원본 지역의 자동 스케일링 설정의 복사본입니다.
 
-원본 지역의 자동 스케일링 설정과 연결하여 만든 [진단 설정](../essentials/diagnostic-settings.md)은 이동할 수 없습니다. 자동 스케일링 설정 만들기가 완료된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다. 
+원본 지역의 자동 스케일링 설정과 연결하여 만든 [진단 설정](../essentials/diagnostic-settings.md)은 이동할 수 없습니다. 자동 스케일링 설정 만들기가 완료된 후 대상 지역에서 진단 설정을 다시 만들어야 합니다.
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Azure 지역 간 리소스 이동에 관한 자세한 내용
 지역 간에 리소스를 이동하는 방법과 Azure의 재해 복구에 관한 자세한 내용은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고를 만듭니다.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 
 <!--Reference-->

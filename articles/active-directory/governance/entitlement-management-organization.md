@@ -3,7 +3,7 @@ title: Azure AD 권한 관리에서 연결된 조직 추가 - Azure Active Direc
 description: 조직 외부 사용자가 프로젝트에 대한 협업을 수행할 수 있도록 액세스 패키지 요청을 허용하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
-author: barclayn
+author: ajburnle
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 12/11/2020
-ms.author: barclayn
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6a1ead2fe3c1ec4e2206d1ffbaea4e5ec57433
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 7371bd090581d2295e3e0e53ae27136e37c89191
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222524"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109786378"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 연결된 조직 추가
 
@@ -60,7 +60,7 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증하는 방법은 �
 
 외부 Azure AD 디렉터리 또는 도메인을 연결된 조직으로 추가하려면 이 섹션의 지침을 따르세요.
 
-**필수 역할**: *전역 관리자* 또는 *사용자 관리자*
+**필수 역할:** *전역 관리자*, *Identity Governance 관리자* 또는 *사용자 관리자*
 
 1. Azure Portal에서 **Azure Active Directory** 를 선택한 다음, **ID 거버넌스** 를 선택합니다.
 
@@ -140,7 +140,7 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증하는 방법은 �
 
 ## <a name="managing-a-connected-organization-programmatically"></a>프로그래밍 방식으로 연결된 조직 관리
 
-또한 Microsoft Graph를 사용하여 연결된 조직을 만들고, 나열하고, 업데이트하고, 삭제할 수 있습니다. 위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 API를 호출하여 [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) 개체를 관리하고 스폰서를 설정할 수 있습니다.
+또한 Microsoft Graph를 사용하여 연결된 조직을 만들고, 나열하고, 업데이트하고, 삭제할 수 있습니다. 위임된 `EntitlementManagement.ReadWrite.All` 권한이 있는 애플리케이션을 사용하는 적절한 역할의 사용자는 API를 호출하여 [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta&preserve-view=true) 개체를 관리하고 스폰서를 설정할 수 있습니다.
 
 ## <a name="state-properties-of-connected-organizations"></a>연결된 조직의 상태 속성
 

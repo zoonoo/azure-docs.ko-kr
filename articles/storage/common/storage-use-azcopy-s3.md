@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 01c3296569d03a7fcc13c004d42d64a86a48a0bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ac73d0e57377a8922691ea06c8de3df5ef577680
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728796"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502439"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>AzCopy를 사용하여 Amazon S3에서 Azure Storage로 데이터 복사
 
@@ -34,7 +34,7 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 >
 > SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다.
 >
-> 예: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`
+> 예를 들면 `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`와 같습니다.
 
 ### <a name="authorize-with-aws-s3"></a>AWS S3로 권한 부여
 
@@ -59,11 +59,15 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
-| **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+**구문**
+
+`azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'
+```
 
 > [!NOTE]
 > 이 문서의 예제에서는 AWS S3 버킷의 경로-스타일 URL(예: `http://s3.amazonaws.com/<bucket-name>`)을 사용합니다. 
@@ -76,11 +80,15 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true
+```
 
 > [!NOTE]
 > 이 예제에서는 `--recursive` 플래그를 추가하여 모든 하위 디렉터리의 파일을 복사합니다.
@@ -89,41 +97,57 @@ AzCopy는 [URL에서 블록 배치](/rest/api/storageservices/put-block-from-url
 
 와일드카드 기호(*)를 사용하여 포함하는 디렉터리 자체를 복사하지 않고 디렉터리의 콘텐츠를 복사할 수 있습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
-| **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true
+```
 
 ### <a name="copy-a-bucket"></a>버킷 복사
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
-| **예제** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true
+```
 
 ### <a name="copy-all-buckets-in-all-regions"></a>모든 지역에서 모든 버킷 복사
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **예제** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
 ### <a name="copy-all-buckets-in-a-specific-s3-region"></a>특정 S3 지역의 모든 버킷 복사
 
 계층 구조 네임스페이스가 있는 계정에 같은 URL 구문(`blob.core.windows.net`)을 사용합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
-| **예제** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
-| **예제**(계층 구조 네임스페이스)| `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+**구문**
+
+`azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true`
+
+**예제**
+
+```azcopy
+azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true
+```
 
 ## <a name="handle-differences-in-object-naming-rules"></a>개체 명명 규칙의 차이점 처리
 
@@ -139,7 +163,7 @@ AWS S3 및 Azure에서는 개체 키 이름에 다른 문자 세트를 사용할
 
 AzCopy `copy` 명령의 일부로 파일의 메타데이터에 호환되지 않는 키 이름이 포함된 파일을 처리하는 방법을 지정하는 `s2s-handle-invalid-metadata` 플래그 옵션의 값을 제공할 수 있습니다. 다음 표에서는 각 플래그 값을 설명합니다.
 
-| 플래그 값 | 설명  |
+| 플래그 값 | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (기본 옵션) 메타데이터는 전송된 개체에 포함되지 않습니다. AzCopy에서 경고를 로그합니다. |
 | **FailIfInvalid** | 개체는 복사되지 않습니다. AzCopy는 오류를 로그하고 전송 요약에 표시되는 실패 횟수에 해당 오류를 포함합니다.  |
@@ -165,8 +189,16 @@ AzCopy는 다음 단계를 수행합니다.
 
 다음 문서에서 더 많은 예제를 찾아보세요.
 
-- [AzCopy 시작](storage-use-azcopy-v10.md)
+- [예제: 업로드](storage-use-azcopy-blobs-upload.md)
+- [예제: 다운로드](storage-use-azcopy-blobs-download.md)
+- [예제: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
+- [예제: 동기화](storage-use-azcopy-blobs-synchronize.md)
+- [예: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
+- [예: Azure Files](storage-use-azcopy-files.md)
+- [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
 
-- [데이터 전송](storage-use-azcopy-v10.md#transfer-data)
+이러한 문서를 참조하여 설정을 구성하고, 성능을 최적화하고, 문제를 해결하세요.
 
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+- [AzCopy 구성 설정](storage-ref-azcopy-configuration-settings.md)
+- [AzCopy의 성능 최적화](storage-use-azcopy-optimize.md)
+- [로그 파일을 사용하여 Azure Storage의 AzCopy V10 문제 해결](storage-use-azcopy-configure.md)

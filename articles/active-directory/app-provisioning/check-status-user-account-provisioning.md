@@ -1,22 +1,22 @@
 ---
-title: SaaS 애플리케이션에 자동 사용자 계정 프로비저닝 보고
+title: Azure Active Directory에서 SaaS(Software as a Service) 애플리케이션으로 자동 사용자 계정 프로비저닝 보고
 description: 자동 사용자 계정 프로비전 작업의 상태를 확인하는 방법과 개별 사용자의 프로비전 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2018
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5d93cec201feeb43700fe849f2fddc8eaf22488a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5f252a6b9ad9e4054ce377459df5c8754c2df7ce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104579487"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109782994"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -61,7 +61,7 @@ Azure AD(Azure Active Directory)에는 엔드투엔드 ID 수명 주기 관리�
 
 ## <a name="provisioning-logs-preview"></a>프로비저닝 로그(미리 보기)
 
-프로비저닝 서비스에서 실행하는 모든 작업은 Azure AD [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)에 기록됩니다. **작업** 섹션에서 **Azure Active Directory** &gt; **엔터프라이즈 앱** &gt; **프로비저닝 로그(미리 보기)** 를 선택하여 Azure Portal에서 프로비저닝 로그에 액세스할 수 있습니다. 원본 시스템이나 대상 시스템에서 사용자의 이름 또는 식별자를 기준으로 프로비저닝 데이터를 검색할 수 있습니다. 자세한 내용은 [프로비저닝 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 기록되는 활동 이벤트 유형은 다음과 같습니다.
+프로비저닝 서비스에서 실행하는 모든 작업은 Azure AD [프로비저닝 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)에 기록됩니다. **작업** 섹션에서 **Azure Active Directory** &gt; **엔터프라이즈 앱** &gt; **프로비저닝 로그(미리 보기)** 를 선택하여 Azure Portal에서 프로비저닝 로그에 액세스할 수 있습니다. 원본 시스템이나 대상 시스템에서 사용자의 이름 또는 식별자를 기준으로 프로비전 데이터를 검색할 수 있습니다. 자세한 내용은 [프로비저닝 로그(미리 보기)](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조하세요. 기록되는 활동 이벤트 유형은 다음과 같습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

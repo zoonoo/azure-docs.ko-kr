@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2021
-ms.openlocfilehash: ab1b7028ce5f1afef861e696c98f25b56e78ef36
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/07/2021
+ms.openlocfilehash: 099c65143f29f4fdf341b52e5d80731f1bdb0808
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772470"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031004"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Azure Cosmos DB의 분할 및 수평적 크기 조정
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -26,9 +26,9 @@ Azure Cosmos DB에서는 애플리케이션의 성능 요구 사항을 충족하
 
 ## <a name="logical-partitions"></a>논리 파티션
 
-논리 파티션은 파티션 키가 동일한 항목 세트로 구성됩니다. 예를 들어 식품 영양에 대한 데이터가 포함된 컨테이너의 모든 항목에는 `foodGroup` 속성이 포함됩니다. `foodGroup`을 컨테이너에 대한 파티션 키로 사용할 수 있습니다. `foodGroup`에 대해 `Beef Products`, `Baked Products` 및 `Sausages and Luncheon Meats` 등의 특정 값을 갖는 항목 그룹은 고유한 논리 파티션을 형성합니다. 기본 데이터를 삭제하는 경우 논리 파티션 삭제에 대해 걱정할 필요는 없습니다.
+논리 파티션은 파티션 키가 동일한 항목 세트로 구성됩니다. 예를 들어 식품 영양에 대한 데이터가 포함된 컨테이너의 모든 항목에는 `foodGroup` 속성이 포함됩니다. `foodGroup`을 컨테이너에 대한 파티션 키로 사용할 수 있습니다. `foodGroup`에 대해 `Beef Products`, `Baked Products` 및 `Sausages and Luncheon Meats` 등의 특정 값을 갖는 항목 그룹은 고유한 논리 파티션을 형성합니다.
 
-또한 논리 파티션은 데이터베이스 트랜잭션의 범위를 정의합니다. [스냅샷 격리가 있는 트랜잭션](database-transactions-optimistic-concurrency.md)을 사용하여 논리 파티션 내의 항목을 업데이트할 수 있습니다. 컨테이너에 새 항목이 추가되면 시스템에서 새 논리 파티션이 투명하게 만들어집니다.
+또한 논리 파티션은 데이터베이스 트랜잭션의 범위를 정의합니다. [스냅샷 격리가 있는 트랜잭션](database-transactions-optimistic-concurrency.md)을 사용하여 논리 파티션 내의 항목을 업데이트할 수 있습니다. 컨테이너에 새 항목이 추가되면 시스템에서 새 논리 파티션이 투명하게 만들어집니다. 기본 데이터를 삭제하는 경우 논리 파티션 삭제에 대해 걱정할 필요는 없습니다.
 
 컨테이너의 논리 파티션 수에는 제한이 없습니다. 각 논리 파티션은 최대 20GB의 데이터를 저장할 수 있습니다. 양호한 파티션 키 선택 항목에는 다양한 값을 사용할 수 있습니다. 예를 들어 모든 항목에 `foodGroup` 속성이 포함된 컨테이너에서 `Beef Products` 논리 파티션 내의 데이터는 최대 20GB까지 증가할 수 있습니다. 다양한 값을 사용할 수 있는 [파티션 키를 선택](#choose-partitionkey)하면 컨테이너 크기를 조정할 수 있습니다.
 
@@ -38,7 +38,8 @@ Azure Cosmos DB에서는 애플리케이션의 성능 요구 사항을 충족하
 
 컨테이너의 실제 파티션 수는 다음에 따라 달라집니다.
 
-* 프로비전된 처리량의 수(각 개별 실제 파티션은 초당 최대 10,000개의 요청 단위의 처리량을 제공할 수 있습니다.)
+* 프로비전된 처리량의 수(각 개별 실제 파티션은 초당 최대 10,000개의 요청 단위의 처리량을 제공할 수 있습니다.) 실제 파티션에 대한 10,000RU/s 제한은 각 논리 파티션이 하나의 실제 파티션에만 매핑되므로 논리 파티션에도 10,000RU/s 제한이 있음을 의미합니다.
+
 * 총 데이터 스토리지(각 개별 실제 파티션은 최대 50GB의 데이터를 저장할 수 있습니다.)
 
 > [!NOTE]
