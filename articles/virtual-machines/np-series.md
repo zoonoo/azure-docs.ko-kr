@@ -7,12 +7,12 @@ ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: vikancha
-ms.openlocfilehash: aa67a858d0396badc25a625b23dc2f2fdf1bdff9
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 0592af3d5f73476b1dd479fde2651be07ba8aa33
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106551376"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949801"
 ---
 # <a name="np-series"></a>NP 시리즈 
 NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스코딩 및 데이터베이스 검색 & 분석을 비롯한 워크로드를 가속화하기 위해 [Xilinx U250 ](https://www.xilinx.com/products/boards-and-kits/alveo/u250.html) FPGA를 통해 구동됩니다. NP 시리즈 VM은 Intel Xeon 8171M(Skylake) CPU에서 구동되며 모든 코어 turbo 클록 속도는 3.2GHz입니다.
@@ -23,7 +23,7 @@ NP 시리즈 가상 머신은 기계 학습 유추, 비디오 트랜스코딩 �
 [메모리 보존 업데이트](maintenance-and-updates.md): 지원되지 않음<br>
 VM 생성 지원: 1세대<br>
 [가속화된 네트워킹](../virtual-network/create-vm-accelerated-networking-cli.md): 지원됨<br>
-[임시 OS 디스크](ephemeral-os-disks.md): 지원되지 않음 <br>
+[임시 OS 디스크](ephemeral-os-disks.md): 지원됨([미리 보기](ephemeral-os-disks.md#preview---ephemeral-os-disks-can-now-be-stored-on-temp-disks))<br>
 <br>
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | FPGA | FPGA 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수/예상 네트워크 대역폭(MBps) | 
@@ -39,14 +39,25 @@ VM 생성 지원: 1세대<br>
 
 ##  <a name="frequently-asked-questions"></a>질문과 대답
 
+**Q:** NP VM에 대한 할당량을 요청하려면 어떻게 해야 하나요?
+
+**A:** 이 페이지 [VM 시리즈별 제한 늘리기](../azure-portal/supportability/per-vm-quota-requests.md)를 따르세요. NP VM은 미국 동부, 미국 서부 2, 서유럽 및 동남 아시아에서 사용할 수 있습니다.
+
 **Q:** 어떤 버전의 Vitis를 사용해야 하나요? 
 
-**A:** Xilinx는 [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)를 권장합니다.
-
+**A:** Xilinx는 [Vitis 2020.2](https://www.xilinx.com/products/design-tools/vitis/vitis-platform.html)를 권장하며, 개발 VM 마켓플레이스 옵션(Ubuntu 18.04 및 Centos 7.8의 경우 Vitis 2020.2 개발 VM)을 사용할 수도 있습니다.
 
 **Q:** NP VM을 사용하여 솔루션을 개발해야 하나요? 
 
-**A:** 아니요, 온-프레미스를 개발하고 클라우드에 배포할 수 있습니다. 이 증명 설명서를 따라 NP VM에 배포해야 합니다. 
+**A:** 아니요, 온-프레미스를 개발하고 클라우드에 배포할 수 있습니다. [증명 설명서](./field-programmable-gate-arrays-attestation.md)에 따라 NP VM에 배포해야 합니다. 
+
+**Q:** NP VM에서 내 FPGA를 프로그래밍할 때 사용해야 하는 증명에서 반환된 파일은 무엇인가요?
+
+**A:** 증명은 두 개의 xclbin인 **design.bit.xclbin** 및 **design.azure.xclbin** 을 반환합니다. **design.azure.xclbin** 을 사용하세요.
+
+**Q:** 모든 XRT/플랫폼 파일은 어디에서 가져와야 하나요?
+
+**A:** 모든 파일을 보려면 Xilinx의 [Microsoft-Azure](https://www.xilinx.com/microsoft-azure.html) 사이트를 방문하세요.
 
 **Q:** 어떤 버전의 XRT를 사용해야 하나요?
 
@@ -111,11 +122,22 @@ VM 생성 지원: 1세대<br>
 
 **A:** 무시해도 됩니다. 
 
-**Q:** XRT와 관련된 OnPrem 및 NP VM 간의 차이점은 무엇인가요? 
+**Q:** OnPrem 및 NP VM 간 차이점은 무엇인가요?
 
-**A:** Azure에서 XDMA 2.1 플랫폼은 Host_Mem(SB) 및 DDR 데이터 보존 기능만 지원합니다. 
+**A:**  
+<br>
+<b>- XOCL/XCLMGMT 관련: </b>
+<br>
+Azure NP VM에는 XOCL 드라이버를 사용하는 역할 엔드포인트(디바이스 ID 5005)만 있습니다.
 
-Host_Mem(SB)(1Gb RAM)을 사용하도록 설정하려면: sudo xbutil host_mem --enable --size 1g 
+OnPrem FPGA에는 각각 XCLMGMT 및 XOCL 드라이버를 사용하는 관리 엔드포인트(디바이스 ID 5004) 및 역할 엔드포인트(디바이스 ID 5005)가 둘 다 있습니다.
+
+<br>
+<b>- XRT 관련: </b>
+<br>
+Azure NP VM에서 XDMA 2.1 플랫폼은 Host_Mem(SB) 및 DDR 데이터 보존 기능만 지원합니다. 
+<br>
+Host_Mem(SB)(최대 1Gb RAM)을 사용하도록 설정하려면: sudo xbutil host_mem --enable --size 1g 
 
 Host_Mem(SB)를 사용하지 않도록 설정하려면: sudo xbutil host_mem --disable 
 
@@ -135,6 +157,8 @@ Host_Mem(SB)를 사용하지 않도록 설정하려면: sudo xbutil host_mem --d
 **Q:** PLP 정보를 쿼리하려면 어떻게 해야 하나요? 
 
 **A:** xbutil 쿼리를 실행하고 하위 부분을 확인해야 합니다. 
+
+
 
 ## <a name="other-sizes"></a>기타 크기
 

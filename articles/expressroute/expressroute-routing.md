@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: c65825a6d8d2d7f9059e91a1f248367fa1788e1a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9d87f2641fb53a2372afcae27ebd7e92e8885e66
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799499"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903995"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -43,7 +43,7 @@ ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면
     * 라우팅에 사용되는 서브넷은 개인 IP 주소 또는 공용 IP 주소 모두 가능합니다.
     * 서브넷은 Microsoft 클라우드에서 사용하기 위해 고객이 예약한 범위와 충돌하지 않아야 합니다.
     * /125 서브넷을 사용한 경우 두 개의 /126 서브넷으로 분할됩니다. 
-      * 첫 번째 /126 서브넷은 기본 링크에 사용되고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
+      * 첫 번째 /126 서브넷은 기본 링크에 사용되고 두 번째 /126 서브넷은 보조 링크에 사용됩니다.
       * 각 /126 서브넷의 경우 라우터에서 /126 서브넷의 첫 번째 IP 주소를 사용해야 합니다. Microsoft는 /126 서브넷의 두 번째 IP 주소를 사용하여 BGP 세션을 설치합니다.
       * [가용성 SLA](https://azure.microsoft.com/support/legal/sla/) 이 유효하기 위해 BGP 세션을 모두 설치해야 합니다.
 
@@ -235,7 +235,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 | CRM Online\*\*\*\* |12076:5040 |
 | Azure 글로벌 서비스\* | 12076:5050 |
 | Azure Active Directory |12076분 5060초 |
-| Azure 리소스 관리자 |12076분 5070초 |
+| Azure Resource Manager |12076분 5070초 |
 | 기타 Office 365 온라인 서비스** | 12076분 5100초 |
 
 \* 현재 Azure Global Services에는 Azure DevOps만 포함됩니다.

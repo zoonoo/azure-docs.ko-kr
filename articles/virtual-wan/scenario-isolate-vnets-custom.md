@@ -1,23 +1,23 @@
 ---
 title: '시나리오: VNet에 대한 사용자 지정 격리'
 titleSuffix: Azure Virtual WAN
-description: 라우팅 시나리오 - 선택한 VNet이 서로 연결할 수 없도록 방지
+description: 특정 VNet 세트가 다른 특정 VNet 세트에 연결할 수 없도록 하는 Virtual WAN 라우팅 사용자 지정 격리 시나리오에 대해 알아봅니다. 그러나 VNet는 모든 분기에 연결하는 데 필요합니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 56a0fe561d026f1b01f27cf3015c31820e8110bb
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92461824"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108162044"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>시나리오: VNet에 대한 사용자 지정 격리
 
-Virtual WAN 가상 허브 라우팅 작업 시 몇 가지 시나리오를 사용할 수 있습니다. VNet에 대한 사용자 지정 격리 시나리오에서 목표는 특정 VNet 집합이 다른 특정 VNet 집합에 연결할 수 없도록 방지하는 것입니다. 그러나 VNet은 모든 분기(VPN/ER/사용자 VPN)에 연결하는 데 필요합니다. 가상 허브 라우팅에 대한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조하세요.
+Virtual WAN 가상 허브 라우팅 작업 시 사용할 수 있는 시나리오가 상당히 많습니다. VNet에 대한 사용자 지정 격리 시나리오에서 목표는 특정 VNet 세트가 다른 특정 VNet 세트에 연결할 수 없도록 방지하는 것입니다. 그러나 VNet은 모든 분기(VPN/ER/사용자 VPN)에 연결하는 데 필요합니다. 가상 허브 라우팅에 대한 자세한 내용은 [가상 허브 라우팅 정보](about-virtual-hub-routing.md)를 참조하세요.
 
 ## <a name="design"></a><a name="design"></a>디자인
 
@@ -42,7 +42,7 @@ Virtual WAN 가상 허브 라우팅 작업 시 몇 가지 시나리오를 사용
   * 연결된 경로 테이블: **RT_RED**
   * 경로 테이블로 전파: **RT_RED** 및 **Default**
 * 분기:
-  * 연결된 경로 테이블: **Default**
+  * 연결된 경로 테이블: **기본**
   * 경로 테이블로 전파: **RT_BLUE**, **RT_RED**, **Default**
 
 > [!NOTE]

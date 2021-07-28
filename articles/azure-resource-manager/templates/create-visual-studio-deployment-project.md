@@ -2,13 +2,13 @@
 title: Visual Studio 리소스 그룹 프로젝트 만들기 및 배포
 description: Visual Studio를 사용하여 Azure 리소스 그룹 프로젝트를 만들고 Azure에 리소스를 배포합니다.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: f1a06a3e89c5fd2ea8906ff9a438c170f135d6ec
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/12/2021
+ms.openlocfilehash: 71474578853523245b4859680b739254702afde6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98704417"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958117"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio를 통해 Azure 리소스 그룹 만들기 및 배포
 
@@ -45,13 +45,13 @@ Visual Studio를 사용하여 Azure로 인프라 및 코드를 배포하는 프�
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |PowerShell 명령을 실행하여 Azure Resource Manager를 배포하는 PowerShell 스크립트입니다. Visual Studio는 이 PowerShell 스크립트를 사용하여 템플릿을 배포합니다. |
    | WebSite.json |Azure에 배포하려는 인프라를 정의하는 Resource Manager 템플릿 및 배포하는 동안 제공할 수 있는 매개 변수입니다. 또한 Resource Manager가 리소스를 올바른 순서로 배포하도록 리소스 간의 종속성을 정의합니다. |
-   | WebSite.parameters.json |템플릿에 필요한 값을 포함하고 있는 매개 변수 파일입니다. 각 배포를 사용자 지정하는 값을 전달합니다. |
+   | WebSite.parameters.json |템플릿에 필요한 값을 포함하고 있는 매개 변수 파일입니다. 각 배포를 사용자 지정하는 값을 전달합니다. **빌드 작업** 은 **콘텐츠** 로 설정됩니다. 매개 변수 파일을 더 추가하는 경우 빌드 작업이 **콘텐츠** 로 설정되어 있는지 확인합니다. |
 
-    모든 리소스 그룹 배포 프로젝트에는 이러한 기본 파일이 있습니다. 다른 프로젝트는 다른 기능을 지원하는 추가 파일을 포함할 수 있습니다.
+    모든 리소스 그룹 배포 프로젝트에는 이러한 기본 파일이 있습니다. 다른 프로젝트는 다른 기능을 지원하는 더 많은 파일을 포함할 수 있습니다.
 
 ## <a name="customize-resource-manager-template"></a>Resource Manager 템플릿 사용자 지정
 
-배포하려는 리소스를 설명하는 Resource Manager 템플릿을 수정하여 배포 프로젝트를 사용자 지정할 수 있습니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](template-syntax.md)을 참조하세요.
+배포하려는 리소스를 설명하는 Resource Manager 템플릿을 수정하여 배포 프로젝트를 사용자 지정할 수 있습니다. 리소스 관리자 템플릿의 요소에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](./syntax.md)을 참조하세요.
 
 1. 템플릿에서 작업하려면 **WebSite.json** 을 엽니다.
 
@@ -245,7 +245,7 @@ Az 모듈 스크립트를 사용하는 경우 템플릿에 변경해야 할 사�
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-앞의 예제에서 **parameters('_artifactsLocation')** 와 **parameters('ExampleAppPackageFolder')** 사이에 `'/',`가 없다는 점에 유의하세요.
+앞의 예제에서 **parameters(‘_artifactsLocation’)** 와 **parameters(‘ExampleAppPackageFolder’)** 사이에 `'/',`가 없다는 점에 유의하세요.
 
 프로젝트를 다시 빌드합니다. 프로젝트를 빌드하면 배포해야 하는 파일이 준비 폴더에 추가되었는지 확인합니다.
 

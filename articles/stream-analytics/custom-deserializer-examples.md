@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 1/28/2020
+ms.date: 5/12/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 140a836882ad3abe048047120e4fe1ebc0a3067c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 17dd8ec7a7fcd14d9f72a016a2208e7e37be2f36
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98018159"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950004"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 역직렬 변환기를 사용하여 모든 형식의 입력 읽기
 
@@ -223,7 +223,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="region-support"></a>지역 지원
 
-이 기능은 다음 지역에서 제공됩니다.
+이 기능은 표준 SKU를 사용하는 경우 다음 지역에서 사용할 수 있습니다.
 
 * 미국 중서부
 * 북유럽
@@ -232,7 +232,7 @@ namespace ExampleCustomCode.Serialization
 * 미국 동부 2
 * 서유럽
 
-추가 지역에 대해 [지원 요청](https://aka.ms/ccodereqregion)할 수 있습니다.
+추가 지역에 대해 [지원 요청](https://aka.ms/ccodereqregion)할 수 있습니다. 그러나 [Stream Analytics 클러스터](./cluster-overview.md)를 사용하는 경우에는 관련 지역 제한이 없습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 

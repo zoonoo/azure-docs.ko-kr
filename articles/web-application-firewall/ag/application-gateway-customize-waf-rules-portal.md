@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Portal을 통해 Application Gateway에�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 04/21/2021
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0ab122d178e5390a53e5a3a39f1b7763b298dc6d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "74048372"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878329"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 Web Application Firewall 규칙 사용자 지정
 
@@ -21,7 +21,7 @@ Azure Application Gateway WAF(Web Application Firewall)는 웹 애플리케이�
 >[!NOTE]
 > Application Gateway에서 WAF 계층을 사용하지 않는 경우 Application Gateway를 WAF 계층으로 업그레이드하는 옵션이 오른쪽 창에 표시됩니다. 
 
-![WAF 사용][fig1]
+:::image type="content" source="../media/application-gateway-customize-waf-rules-portal/1.png" alt-text="WAF 사용"::: 
 
 ## <a name="view-rule-groups-and-rules"></a>규칙 그룹 및 규칙 보기
 
@@ -37,16 +37,13 @@ Azure Application Gateway WAF(Web Application Firewall)는 웹 애플리케이�
 > [!IMPORTANT]
 > 규칙 그룹 또는 규칙을 사용하지 않도록 설정할 때 주의해야 합니다. 이렇게 하면 보안 위험을 증가시킬 수 있습니다.
 
-규칙을 사용하지 않도록 설정할 때 규칙 그룹 전체를 사용하지 않도록 설정하거나 하나 이상의 규칙 그룹에서 특정 규칙만 사용하지 않도록 설정할 수 있습니다. 
-
 **규칙 그룹 또는 특정 규칙을 사용하지 않도록 설정하려면**
 
    1. 사용하지 않도록 설정할 규칙 또는 규칙 그룹을 검색합니다.
    2. 사용하지 않도록 설정하려는 규칙에 대한 확인란을 선택합니다. 
    3. 선택한 규칙에 대해 페이지 상단에서 작업(사용/사용 안 함)을 선택합니다.
-   2. **저장** 을 선택합니다. 
-
-![변경 내용 저장][3]
+   2. **저장** 을 선택합니다.
+    :::image type="content" source="../media/application-gateway-customize-waf-rules-portal/figure3.png" alt-text="비활성화된 규칙 저장"::: 
 
 ## <a name="mandatory-rules"></a>필수 규칙
 
@@ -66,6 +63,3 @@ CR 3.x 특정:
 ## <a name="next-steps"></a>다음 단계
 
 사용하지 않는 규칙을 구성한 후에 WAF 로그를 보는 방법을 알아볼 수 있습니다. 자세한 내용은 [Application Gateway 진단](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging)을 참조하세요.
-
-[fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

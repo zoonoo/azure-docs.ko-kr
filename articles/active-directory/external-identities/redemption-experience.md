@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 05/27/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cd0febe5ffbc1b17718043d5fc97b804f87cc46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 80de2d30055d5a78f4a0105d33f01b4fabfbcd47
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199733"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111955090"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -24,8 +24,8 @@ ms.locfileid: "103199733"
 게스트 사용자를 디렉터리에 추가하면 게스트 사용자 계정의 동의 상태가 처음에는 **PendingAcceptance** 로 설정됩니다(PowerShell에서 볼 수 있음). 이 설정은 게스트가 초대를 수락하고 개인정보처리방침 및 사용 약관에 동의할 때까지 유지됩니다. 그 후에는 동의 상태가 **동의함** 으로 바뀌고, 동의 페이지가 더 이상 게스트에게 표시되지 않습니다.
 
    > [!IMPORTANT]
-   > - **2021년 1월 4일부터** Google은 [WebView 로그인 지원을 중단](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html)합니다. Gmail에서 Google 페더레이션 또는 셀프 서비스 등록을 사용하는 경우 [기간 업무 네이티브 애플리케이션의 호환성을 테스트](google-federation.md#deprecation-of-webview-sign-in-support)해야 합니다.
-   > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비가 되면 고객이 [이메일 일회성 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다. 이 공개 미리 보기 기능에 대한 사용자 의견을 환영하며 협업을 위해 훨씬 더 많은 방법을 만들어 냈습니다.
+   > - **2021년 하반기부터** Google은 [웹 보기 로그인 지원을 중단](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html)합니다. B2B 초대 또는 [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md)에 Google 페더레이션을 사용하거나 Gmail에서 셀프 서비스 등록을 사용하는 경우, 앱에서 포함된 웹 보기를 사용하여 사용자를 인증하면 Google Gmail 사용자는 로그인할 수 없습니다. [자세한 정보를 알아보세요](google-federation.md#deprecation-of-web-view-sign-in-support).
+   > - **2021년 10월부터** Microsoft는 B2B 협업 시나리오에 대해 관리되지 않는 Azure AD 계정과 테넌트를 만들어 더 이상 초대 상환을 지원하지 않습니다. 준비 단계로, 고객은 현재 일반 공급 중인 [메일 일회용 암호 인증](one-time-passcode.md)을 옵트인하는 것이 좋습니다.
 
 ## <a name="redemption-and-sign-in-through-a-common-endpoint"></a>공통 엔드포인트를 통한 상환 및 로그인
 
@@ -59,6 +59,20 @@ ms.locfileid: "103199733"
 2. 게스트가 이메일에서 **초대 수락** 을 선택합니다.
 3. 게스트가 자신의 자격 증명을 사용하여 여러분의 디렉터리에 로그인합니다. 게스트가 디렉터리에 페더레이션할 수 있는 계정을 갖고 있지 않으며 [이메일 OTP(일회용 암호)](./one-time-passcode.md) 기능이 설정되어 있지 않으면 [MSA](https://support.microsoft.com/help/4026324/microsoft-account-how-to-create) 또는 [Azure AD 셀프 서비스 계정](../enterprise-users/directory-self-service-signup.md)을 만들라는 메시지가 게스트에게 표시됩니다. 자세한 내용은 [초대 사용 흐름](#invitation-redemption-flow)을 참조하세요.
 4. 게스트는 아래에 설명된 [동의 환경](#consent-experience-for-the-guest)을 거칩니다.
+
+## <a name="redemption-limitation-with-conflicting-contact-object"></a>충돌하는 연락처 개체에 대한 사용 제한
+초대된 외부 게스트 사용자의 메일이 기존 [연락처 개체](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)와 충돌하여 proxyAddress 없이 게스트 사용자가 생성되는 경우가 발생할 수 있습니다. 이는 게스트 사용자가 다음을 수행할 수 없도록 하는 알려진 제한 사항입니다. 
+- [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation), [Microsoft 계정](/azure/active-directory/external-identities/microsoft-account), [Google 페더레이션](/azure/active-directory/external-identities/google-federation) 또는 [메일 일회용 암호](/azure/active-directory/external-identities/one-time-passcode) 계정을 사용하여 직접 링크를 통해 초대를 사용합니다. 
+- [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) 및 [메일 일회용 암호](/azure/active-directory/external-identities/one-time-passcode) 계정을 사용하여 초대 메일 사용 링크를 통해 초대를 사용합니다.
+- [SAML/WS-Fed IdP](/azure/active-directory/external-identities/direct-federation) 및 [Google 페더레이션](/azure/active-directory/external-identities/google-federation) 계정을 사용한 후 애플리케이션에 다시 로그인합니다.
+
+충돌하는 [연락처 개체](/graph/api/resources/contact?view=graph-rest-1.0&preserve-view=true)로 인해 초대를 사용할 수 없는 사용자를 차단 해제하려면 다음 단계를 따릅니다.
+1. 충돌하는 연락처 개체를 삭제합니다.
+2. Azure Portal에서 게스트 사용자를 삭제합니다(사용자의 "초대 수락" 속성은 보류 상태여야 함).
+3. 게스트 사용자를 다시 초대합니다.
+4. 사용자가 초대를 사용할 때까지 기다립니다.
+5. 사용자의 연락처 메일을 Exchange에 다시 추가하고 다음에 포함되어야 하는 DL을 추가합니다.
+
 ## <a name="invitation-redemption-flow"></a>초대 사용 흐름
 
 사용자가 [초대 이메일](invitation-email-elements.md)에서 **초대 수락** 링크를 클릭하면 Azure AD는 아래의 사용 흐름에 따라 자동으로 초대를 사용합니다.
@@ -69,7 +83,7 @@ ms.locfileid: "103199733"
 
 1. Azure AD가 사용자 기반 검색을 수행하여 [기존 Azure AD 테넌트](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal)에 사용자가 있는지 확인합니다.
 
-2. 관리자가 [직접 페더레이션](./direct-federation.md)을 사용하도록 설정했으면 Azure AD는 사용자의 도메인 접미사가 구성된 SAML/WS-Fed ID 공급자의 도메인과 일치하는지 확인한 후 사용자를 미리 구성된 ID 공급자로 리디렉션합니다.
+2. 관리자가 [페더레이션](./direct-federation.md)을 사용하도록 설정했으면 Azure AD는 사용자의 도메인 접미사가 구성된 SAML/WS-Fed ID 공급자의 도메인과 일치하는지 확인한 후 사용자를 미리 구성된 ID 공급자로 리디렉션합니다.
 
 3. 관리자가 [Google 페더레이션](./google-federation.md)을 사용하도록 설정했으면 Azure AD는 사용자의 도메인 접미사가 gmail.com인지 아니면 googlemail.com인지 확인한 후 사용자를 Google로 리디렉션합니다.
 

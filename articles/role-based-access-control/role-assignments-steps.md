@@ -7,14 +7,14 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 02/15/2021
+ms.date: 04/14/2021
 ms.author: rolyon
-ms.openlocfilehash: 081335779ffc4b3a6ddf09e56b773c6d34b210be
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f0fc0611e48f25c8faec415b8702a420402280c5
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556036"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483842"
 ---
 # <a name="steps-to-assign-an-azure-role"></a>Azure 역할 할당 단계
 
@@ -68,7 +68,7 @@ ms.locfileid: "100556036"
 - 구독 범위에서 그룹에 [Billing Reader](built-in-roles.md#billing-reader) 역할을 할당하면 해당 그룹의 구성원들이 구독의 모든 리소스 그룹 및 리소스에 대한 청구 데이터를 읽을 수 있습니다.
 - 리소스 그룹 범위에서 애플리케이션에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 애플리케이션은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
 
- 자세한 내용은 [범위의 이해](scope-overview.md)를 참조하세요.
+[!INCLUDE [Scope for Azure RBAC least privilege](../../includes/role-based-access-control/scope-least.md)] 자세한 내용은 [범위의 이해](scope-overview.md)를 참조하세요.
 
 ## <a name="step-4-check-your-prerequisites"></a>4단계. 사전 요구 사항 확인
 
@@ -78,6 +78,8 @@ ms.locfileid: "100556036"
 - `Microsoft.Authorization/roleAssignments/delete`
 
 사용자 계정에 구독 내에서 역할을 할당할 수 있는 권한이 없으면 계정에 "'Microsoft.Authorization/roleAssignments/write' 작업을 수행할 수 있는 권한이 없습니다"라는 오류 메시지가 표시됩니다. 이 경우 개발자 대신 권한을 할당할 수 있는 구독 관리자에게 문의하세요.
+
+서비스 주체를 사용하여 역할을 할당하는 경우 ‘작업을 완료하는 데 필요한 권한이 없습니다’라는 오류가 발생할 수 있습니다. 이 오류는 Azure가 Azure AD(Azure Active Directory)에서 담당자 ID를 조회하려고 시도하고 서비스 주체가 기본적으로 Azure AD를 읽을 수 없기 때문에 발생할 수 있습니다. 이 경우 디렉터리의 데이터를 읽을 수 있는 권한을 서비스 주체에 부여해야 합니다. 또는 Azure CLI를 사용하는 경우 담당자 개체 ID를 사용하여 역할 할당을 만들어 Azure AD 조회를 건너뛸 수 있습니다. 자세한 내용은 [Azure RBAC 문제 해결](troubleshooting.md)을 참조하세요.
 
 ## <a name="step-5-assign-role"></a>5단계. 역할 할당
 

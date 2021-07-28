@@ -1,15 +1,15 @@
 ---
-title: 스마트 계약 통합 패턴-Azure 블록 체인 워크 벤치
-description: Azure Blockchain 워크 벤치 미리 보기의 스마트 계약 통합 패턴 개요.
+title: 스마트 계약 통합 패턴 - Azure Blockchain Workbench
+description: Azure Blockchain Workbench 미리 보기의 스마트 계약 통합 패턴 개요입니다.
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 90f5f4d55519f912b6cbd586190576bfd88fa295
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96015505"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737765"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -31,7 +31,7 @@ Azure Blockchain Workbench에서 생성된 웹 애플리케이션의 기능은 R
 
 REST API는 주로 웹, 모바일 및 봇 애플리케이션과 같은 대화형 클라이언트에 사용됩니다.
 
-이 섹션에서는 분산 원장에 트랜잭션을 보내는 REST API의 측면에 초점을 맞춘 패턴을 살펴보고 Azure Blockchain 워크 벤치의 *오프 체인* 데이터베이스에서 트랜잭션에 대 한 데이터를 쿼리 하는 패턴을 살펴봅니다.
+이 섹션에서는 분산 원장으로 트랜잭션을 전송하는 REST API의 측면을 중심으로 한 패턴과 Azure Blockchain Workbench의 *오프 체인* 데이터베이스에서 트랜잭션 관련 데이터를 쿼리하는 패턴에 대해 설명합니다.
 
 ### <a name="sending-transactions-to-a-distributed-ledger-from-an-external-system"></a>외부 시스템에서 분산 원장으로 트랜잭션 전송
 
@@ -134,7 +134,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 -   상태 변화는 다운스트림 소비자에게 이벤트로 나타납니다.
 -   다운스트림 소비자는 이벤트를 수신하고 외부 코드 실행을 트리거합니다.
 
-![이 다이어그램에서는 이벤트를 분산 원장으로 이동 시키는 계약 내 상태 변경을 보여 줍니다. 블록 체인 워크 벤치는 이벤트를 선택 하 고 게시 합니다.](./media/integration-patterns/transition-external-process.png)
+![이 다이어그램은 이벤트가 분산 원장으로 이동하도록 하는 계약 내의 상태 변경을 보여 줍니다. 그런 다음, Blockchain Workbench는 이벤트를 선택하고 게시합니다.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>스마트 계약에서 제어 반환
 
@@ -142,7 +142,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Azure Blockchain Workbench에서 예상되는 형식으로 직접 전달
 
-![다이어그램은 Service Bus를 통해 Blockchain 워크 벤치에 의해 선택 되는 외부 시스템의 A P 메시지를 보여 줍니다. 블록 체인 워크 벤치는 에이전트를 대신해 서 분산 원장에 메시지를 트랜잭션으로 보냅니다. 상태를 변경 하는 계약에 전달 됩니다.](./media/integration-patterns/direct-delivery.png)
+![이 다이어그램은 Service Bus를 통해 Blockchain Workbench에서 픽업하는 외부 시스템의 API 메시지를 보여 줍니다. 그런 다음, Blockchain Workbench는 에이전트를 대신하여 분산 원장에 트랜잭션으로 메시지를 보냅니다. 이 메시지가 계약에 전달되며 상태 변경이 발생합니다.](./media/integration-patterns/direct-delivery.png)
 
 이 모델에서는 위의 프로세스가 진행된 다음 계약에 대한 통신과 후속 상태 변경이 다음과 같이 진행됩니다.
 
@@ -153,8 +153,6 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 -   메시지의 콘텐츠는 패키지되어 스마트 계약의 특정 함수로 전송됩니다. 이 전송은 외부 시스템과 연결된 사용자를 대신하여 수행됩니다.
 
 -   함수가 실행되고 일반적으로 상태가 수정됩니다. 상태 변경은 스마트 계약에 반영된 비즈니스 워크플로를 진행시켜 다른 함수가 적절하게 실행되도록 합니다.
-
-### 
 
 ### <a name="delivery-of-a-message-in-a-format-unknown-to-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 알 수 없는 형식으로 메시지 전달
 
@@ -174,7 +172,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 일반적인 통합 시나리오는 스마트 계약의 센서에서 검색된 원격 분석 데이터를 포함합니다. 센서에 의해 전달된 데이터를 기반으로 하여 스마트 계약은 정보에 입각한 작업을 수행하고 계약 상태를 변경할 수 있습니다.
 
-예를 들어 약품을 운반하는 트럭의 온도가 110도까지 상승하면 약품의 효능에 영향을 미칠 수 있으며 공급망에서 감지되고 제거되지 않으면 공공 안전 문제가 발생할 수 있습니다. 드라이버가 자동차를 시간당 100 마일으로 가속화 하는 경우 결과 센서 정보는 보험 공급자가 보험을 취소 하는 것을 트리거할 수 있습니다. 자동차가 렌트카인 경우 GPS 데이터는 운전자가 임대 계약서의 적용을 받는 지역을 벗어날 때를 나타내고 벌금을 부과할 수 있습니다.
+예를 들어 약품을 운반하는 트럭의 온도가 110도까지 상승하면 약품의 효능에 영향을 미칠 수 있으며 공급망에서 감지되고 제거되지 않으면 공공 안전 문제가 발생할 수 있습니다. 운전자가 시간당 161km(100마일)로 자동차 속도를 높이면 센서 정보에 따라 보험 회사가 보험을 취소할 수 있습니다. 자동차가 렌트카인 경우 GPS 데이터는 운전자가 임대 계약서의 적용을 받는 지역을 벗어날 때를 나타내고 벌금을 부과할 수 있습니다.
 
 문제는 이러한 센서가 정기적으로 데이터를 전달할 수 있기 때문에 모든 데이터를 스마트 계약으로 보내는 것이 적절하지 않다는 것입니다. 일반적인 접근 방법은 모든 메시지를 보조 저장소로 전달하는 반면 블록체인으로 전송되는 메시지의 수를 제한하는 것입니다. 예를 들어 정해진 간격으로만 수신되는 메시지를 전달하거나 포함된 값이 스마트 계약에 대해 합의된 범위를 벗어날 때 메시지를 전달합니다. 허용 오차를 벗어나는 값을 확인하면 계약 비즈니스 논리와 관련된 데이터가 수신되고 실행됩니다. 간격을 띄워서 값을 확인하면 센서가 계속 보고 중인지 확인할 수 있습니다. 보다 광범위한 보고, 분석 및 기계 학습을 위해 모든 데이터가 보조 보고 저장소로 전송됩니다. 예를 들어 스마트 계약의 경우 1분마다 GPS에 대한 센서 판독 값을 가져올 필요가 없지만 보고서 또는 매핑 경로에 사용할 흥미로운 데이터를 제공할 수 있습니다.
 
@@ -204,7 +202,7 @@ Azure Blockchain Workbench는 REST 및 메시지 기반 API 외에도 분산 원
 
 -   Azure Blockchain Workbench는 애플리케이션, 워크플로, 계약 및 트랜잭션에 대한 메타데이터를 정상 작동 동작의 일부로 저장합니다.
 -   외부 시스템 또는 도구는 하나 이상의 대화 상자를 제공하여 데이터베이스 서버 이름, 데이터베이스 이름, 인증 유형, 로그인 자격 증명 및 활용할 데이터베이스 뷰와 같은 데이터베이스 관련 정보 수집을 용이하게 합니다.
--   쿼리는 외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에의 한 다운스트림 소비를 용이 하 게 하기 위해 데이터베이스 뷰에 대해 작성 됩니다.
+-   외부 시스템, 서비스, 보고, 개발자 도구 및 엔터프라이즈 생산성 도구에 의한 다운스트림 사용을 용이하게 하기 위해 데이터베이스 뷰에 대해 쿼리가 작성됩니다.
 
 ## <a name="storage-integration"></a>스토리지 통합
 

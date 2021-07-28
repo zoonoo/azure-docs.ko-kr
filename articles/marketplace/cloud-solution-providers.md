@@ -1,5 +1,5 @@
 ---
-title: 클라우드 솔루션 공급자 - Microsoft 상업용 마켓플레이스
+title: 클라우드 솔루션 공급자 - Microsoft 상업용 Marketplace - Azure
 description: 상업용 마켓 플레이스에서 Microsoft CSP(클라우드 솔루션 공급자) 프로그램 파트너 채널을 통해 제품을 판매하는 방법에 대해 알아봅니다.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 64ad2c4311ade34314edde6e841e747745378e8c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "93131176"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109716261"
 ---
 # <a name="cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램
 
@@ -34,7 +34,7 @@ ms.locfileid: "93131176"
 
 ## <a name="how-to-configure-an-offer"></a>제품 구성 방법
 
-파트너 센터에서 제품을 만들 때 CSP 프로그램 옵트인 설정을 구성합니다. [게시자 환경 변경에 대해 자세히 알아봅니다.](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293)
+파트너 센터에서 제품을 만들 때 CSP 프로그램 옵트인 설정을 구성합니다.
 
 ### <a name="partner-center-opt-in"></a>파트너 센터 옵트인
 

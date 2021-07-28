@@ -2,13 +2,13 @@
 title: 템플릿 함수 - 개체
 description: 개체 작업을 위해 ARM 템플릿(Azure Resource Manager 템플릿)에서 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: 5e13177db1a7cf2f19a822363cb3884474566add
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/13/2021
+ms.openlocfilehash: aa52cee2236ac3eab5090b1caad27b6cbf516c7a
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96920452"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959624"
 ---
 # <a name="object-functions-for-arm-templates"></a>ARM 템플릿의 개체 함수
 
@@ -23,8 +23,6 @@ ms.locfileid: "96920452"
 * [null](#null)
 * [union](#union)
 
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
-
 ## <a name="contains"></a>포함
 
 `contains(container, itemToFind)`
@@ -33,7 +31,7 @@ ms.locfileid: "96920452"
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -45,8 +43,6 @@ ms.locfileid: "96920452"
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -101,34 +97,9 @@ ms.locfileid: "96920452"
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param stringToTest string = 'OneTwoThree'
-param objectToTest object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-
-output stringTrue bool = contains(stringToTest, 'e')
-output stringFalse bool = contains(stringToTest, 'z')
-output objectTrue bool = contains(objectToTest, 'one')
-output objectFalse bool = contains(objectToTest, 'a')
-output arrayTrue bool = contains(arrayToTest, 'three')
-output arrayFalse bool = contains(arrayToTest, 'four')
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
 | stringFalse | Bool | False |
@@ -141,7 +112,9 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 `createObject(key1, value1, key2, value2, ...)`
 
-키와 값에서 개체를 만듭니다. Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용하여 개체를 생성합니다.
+키와 값에서 개체를 만듭니다.
+
+Bicep에서 `createObject` 함수는 지원되지 않습니다.  `{}`를 사용하여 개체를 생성합니다. [개체](../bicep/data-types.md#objects)를 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -162,8 +135,6 @@ output arrayFalse bool = contains(arrayToTest, 'four')
 
 다음 예에서는 다양한 값 형식에서 개체를 만듭니다.
 
-# <a name="json"></a>[JSON](#tab/json)
-
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -178,26 +149,6 @@ output arrayFalse bool = contains(arrayToTest, 'four')
   }
 }
 ```
-
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output newObject object = {
-  'intProp': 1
-  'stringProp': 'abc'
-  'boolProp': true
-  'arrayProp': [
-    'a'
-    'b'
-    'c'
-  ]
-  'objectProp': {
-    'key1': 'value1'
-  }
-}
-```
-
----
 
 기본값을 사용하는 이전 예제의 출력은 다음과 같은 값을 가진 `newObject`라는 개체입니다.
 
@@ -219,7 +170,7 @@ output newObject object = {
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -230,8 +181,6 @@ output newObject object = {
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -270,23 +219,9 @@ output newObject object = {
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param testArray array = []
-param testObject object = {}
-param testString string = ''
-
-output arrayEmpty bool = empty(testArray)
-output objectEmpty bool = empty(testObject)
-output stringEmpty bool = empty(testString)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -300,7 +235,7 @@ output stringEmpty bool = empty(testString)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |공통 요소를 찾는 데 사용할 두 번째 값입니다. |
@@ -313,8 +248,6 @@ output stringEmpty bool = empty(testString)
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json)에서는 배열 및 개체에 교집합을 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -361,38 +294,9 @@ output stringEmpty bool = empty(testString)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c'
-}
-param secondObject object = {
-  'one': 'a'
-  'two': 'z'
-  'three': 'c'
-}
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-param secondArray array = [
-  'two'
-  'three'
-]
-
-output objectOutput object = intersection(firstObject, secondObject)
-output arrayOutput array = intersection(firstArray, secondArray)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
@@ -407,7 +311,7 @@ output arrayOutput array = intersection(firstArray, secondArray)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 |JSON으로 변환할 값입니다. 문자열은 올바른 형식의 JSON 문자열이어야 합니다. |
 
@@ -424,8 +328,6 @@ JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [con
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)에서는 json 함수를 사용하는 방법을 보여줍니다. 빈 개체에 대해 **null** 을 전달할 수 있습니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -496,31 +398,9 @@ JSON 개체에 매개 변수 값이나 변수를 포함해야 하는 경우 [con
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param jsonEmptyObject string = 'null'
-param jsonObject string = '{\'a\': \'b\'}'
-param jsonString string = '\'test\''
-param jsonBoolean string = 'true'
-param jsonInt string = '3'
-param jsonArray string = '[[1,2,3]]'
-param concatValue string = 'demo value'
-
-output emptyObjectOutput bool = empty(json(jsonEmptyObject))
-output objectOutput object = json(jsonObject)
-output stringOutput string =json(jsonString)
-output booleanOutput bool = json(jsonBoolean)
-output intOutput int = json(jsonInt)
-output arrayOutput array = json(jsonArray)
-output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | emptyObjectOutput | 부울 | True |
 | objectOutput | Object | {"a": "b"} |
@@ -538,7 +418,7 @@ output concatObjectOutput object = json(concat('{"a": "', concatValue, '"}'))
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열, 문자열 또는 개체 |요소의 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준의 속성 수를 가져오려는 데 사용할 개체입니다. |
 
@@ -549,8 +429,6 @@ int입니다.
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -600,35 +478,9 @@ int입니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param arrayToTest array = [
-  'one'
-  'two'
-  'three'
-]
-param stringToTest string = 'One Two Three'
-param objectToTest object = {
-  'propA': 'one'
-  'propB': 'two'
-  'propC': 'three'
-  'propD': {
-      'propD-1': 'sub'
-      'propD-2': 'sub'
-  }
-}
-
-output arrayLength int = length(arrayToTest)
-output stringLength int = length(stringToTest)
-output objectLength int = length(objectToTest)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
@@ -638,7 +490,9 @@ output objectLength int = length(objectToTest)
 
 `null()`
 
-null을 반환합니다. `null` 함수는 Bicep에서 사용할 수 없습니다. 대신 `null` 키워드를 사용합니다.
+null을 반환합니다.
+
+`null` 함수는 Bicep에서 사용할 수 없습니다. 대신 `null` 키워드를 사용합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -651,8 +505,6 @@ Null 함수는 매개 변수를 허용하지 않습니다.
 ### <a name="example"></a>예제
 
 다음 예제에서는 Null 함수를 사용합니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -668,17 +520,9 @@ Null 함수는 매개 변수를 허용하지 않습니다.
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-output emptyOutput bool = empty(null)
-```
-
----
-
 위 예제의 출력은 다음과 같습니다.
 
-| 이름 | 유형 | 값 |
+| 이름 | Type | 값 |
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
@@ -690,7 +534,7 @@ output emptyOutput bool = empty(null)
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수 | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 첫 번째 값입니다. |
 | arg2 |예 |배열 또는 개체 |요소를 조인하는 데 사용할 두 번째 값입니다. |
@@ -703,8 +547,6 @@ output emptyOutput bool = empty(null)
 ### <a name="example"></a>예제
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json)에서는 배열 및 개체에 union을 사용하는 방법을 보여줍니다.
-
-# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -751,45 +593,13 @@ output emptyOutput bool = empty(null)
 }
 ```
 
-# <a name="bicep"></a>[Bicep](#tab/bicep)
-
-```bicep
-param firstObject object = {
-  'one': 'a'
-  'two': 'b'
-  'three': 'c1'
-}
-
-param secondObject object = {
-  'three': 'c2'
-  'four': 'd'
-  'five': 'e'
-}
-
-param firstArray array = [
-  'one'
-  'two'
-  'three'
-]
-
-param secondArray array = [
-  'three'
-  'four'
-]
-
-output objectOutput object = union(firstObject, secondObject)
-output arrayOutput array = union(firstArray, secondArray)
-```
-
----
-
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 속성 | 유형 | 값 |
+| 속성 | Type | 값 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
 ## <a name="next-steps"></a>다음 단계
 
-* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](template-syntax.md)를 참조하세요.
+* ARM 템플릿의 섹션에 대한 설명은 [ARM 템플릿의 구조 및 구문 이해](./syntax.md)를 참조하십시오.

@@ -8,15 +8,14 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 953b987e908736df703c354067ee27fc27d56073
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 0a95d95842d0b361a1a276566b01b7ea735c4670
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106220711"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107952083"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>작업 영역에서 Jupyter Notebook 실행
 
@@ -288,8 +287,10 @@ Jupyter Notebook과 마찬가지로 Azure Machine Learning Studio Notebook에는
 ## <a name="troubleshooting"></a>문제 해결
 
 * Notebook에 연결할 수 없으면 WebSocket 통신이 사용하지 않도록 설정되지 **않았는지** 확인합니다. 컴퓨팅 인스턴스 Jupyter 기능이 작동하기 위해서는 WebSocket 통신이 사용하도록 설정되어 있어야 합니다. 네트워크에서 *.instances.azureml.net 및 *.instances.azureml.ms에 대한 WebSocket 연결이 허용되는지 확인합니다. 
+
 * 컴퓨팅 인스턴스가 프라이빗 링크 작업 영역에 배포된 경우 [가상 네트워크 내에서만 액세스](./how-to-secure-training-vnet.md#compute-instance)될 수 있습니다. 사용자 지정 DNS 또는 호스트 파일을 사용하는 경우 작업 영역 프라이빗 엔드포인트의 개인 IP 주소로 < instance-name >.< region >.instances.azureml.ms에 대해 항목을 추가합니다. 자세한 내용은 [사용자 지정 DNS](./how-to-custom-dns.md?tabs=azure-cli) 문서를 참조하세요.
 
+* 커널이 충돌하여 다시 시작된 경우 다음 명령을 실행하여 jupyter 로그를 확인하고 자세한 정보를 확인할 수 있습니다. `sudo journalctl -u jupyter`. 커널 문제가 지속되면 더 많은 메모리가 있는 컴퓨팅 인스턴스를 사용하는 것이 좋습니다.
     
 ## <a name="next-steps"></a>다음 단계
 

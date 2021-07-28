@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 84b2d75c03644e346dfad84ae01be31d8589f4ec
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91534423"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109481934"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Privileged Identity Management에서 권한 있는 액세스 그룹(미리 보기)의 자격 할당
 
@@ -56,7 +56,10 @@ Azure AD(Azure Active Directory) PIM(Privileged Identity Management)은 Azure AD
 
 1. **할당 유형** 목록에서 **적격** 또는 **활성** 을 선택합니다. 권한 있는 액세스 그룹은 다음 두 가지 고유한 할당 유형을 제공합니다.
 
-    - **적격** 할당에는 역할을 사용하는 작업을 수행하기 위해 역할의 구성원이 필요합니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다.
+    - **적격** 할당에는 역할을 사용하는 작업을 수행하기 위해 역할의 구성원이 필요합니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다. 
+
+      > [!Important]
+      > Azure AD 역할로 승격하는 데 사용되는 권한 있는 액세스 그룹의 경우 Microsoft는 적격 멤버 할당에 대한 승인 프로세스를 요구할 것을 권장합니다. 승인 없이 활성화할 수 있는 할당은 적격 사용자의 암호를 재설정할 수 있는 권한이 있는 다른 관리자의 보안 위험에 취약해질 수 있습니다.
 
     - **활성** 할당에는 역할을 사용하는 작업을 수행하기 위해 멤버가 필요하지 않습니다. 활성으로 할당된 멤버에게는 항상 역할에 할당된 권한이 있습니다.
 

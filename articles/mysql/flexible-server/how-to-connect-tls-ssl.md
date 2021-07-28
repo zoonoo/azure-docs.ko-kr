@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 399cf8087d39f78184cfdae4b9f0e34efecaea66
-ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
+ms.openlocfilehash: 133b77653abea93ef87b58ff223b7cbb267921c5
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106491609"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001685"
 ---
 # <a name="connect-to-azure-database-for-mysql---flexible-server-with-encrypted-connections"></a>암호화된 연결을 사용하여 Azure Database for MySQL - 유연한 서버에 연결
 
@@ -26,8 +26,8 @@ Azure Database for MySQL 유연한 서버는 기본적으로 전송 계층 보�
 
 | 시나리오   | 서버 매개 변수 설정      | Description                                    |
 |------------|--------------------------------|------------------------------------------------|
-|SSL 사용 안 함(암호화된 연결) | require_secure_transport = OFF |레거시 애플리케이션이 MySQL 서버에 대한 암호화된 연결을 지원하지 않는 경우 require_secure_transport=OFF를 설정하여 유연한 서버에 암호화된 연결 적용을 사용하지 않도록 설정할 수 있습니다.|
-|TLS 버전 < 1.2로 SSL 적용 | require_secure_transport = ON 및 tls_version = TLSV1 또는 TLSV1.1| 레거시 애플리케이션에서 암호화된 연결을 지원하지만 TLS 버전 < 1.2가 필요한 경우 암호화된 연결을 사용하도록 설정할 수 있지만 애플리케이션에서 지원하는 tls 버전(v1.0 또는 v1.1)과의 연결을 허용하도록 유연한 서버를 구성할 수 있습니다.|
+|SSL 적용 사용 안 함 | require_secure_transport = OFF |레거시 애플리케이션이 MySQL 서버에 대한 암호화된 연결을 지원하지 않는 경우 require_secure_transport=OFF를 설정하여 유연한 서버에 암호화된 연결 적용을 사용하지 않도록 설정할 수 있습니다.|
+|TLS 버전 1.2 미만으로 SSL 적용 | require_secure_transport = ON 및 tls_version = TLSV1 또는 TLSV1.1| 레거시 애플리케이션에서 암호화된 연결을 지원하지만 TLS 버전 1.2 미만이 필요한 경우 암호화된 연결을 사용하도록 설정할 수 있지만 애플리케이션에서 지원하는 tls 버전(v1.0 또는 v1.1)과의 연결을 허용하도록 유연한 서버를 구성할 수 있습니다.|
 |TLS 버전 = 1.2를 사용하여 SSL 적용(기본 구성)|require_secure_transport = ON 및 tls_version = TLSV1.2| 이는 유연한 서버에 권장되는 기본 구성입니다.|
 |TLS 버전 = 1.3으로 SSL 적용(MySQL v8.0 이상에서 지원됨)| require_secure_transport = ON 및 tls_version = TLSV1.3| 이는 새 애플리케이션 개발에 유용하며 권장됩니다.|
 
@@ -44,7 +44,7 @@ Azure Database for MySQL 유연한 서버는 기본적으로 전송 계층 보�
 * 연결에 대한 암호화 상태 확인
 * 다양한 애플리케이션 프레임워크를 사용하여 암호화된 연결로 유연한 서버에 연결
 
-## <a name="disable-ssl-on-your-flexible-server"></a>유연한 서버에서 SSL을 사용하지 않도록 설정
+## <a name="disable-ssl-enforcement-on-your-flexible-server"></a>유연한 서버에서 SSL 적용 사용 안 함
 클라이언트 애플리케이션이 암호화된 연결을 지원하지 않는 경우 유연한 서버에서 암호화된 연결 적용을 사용하지 않도록 설정해야 합니다. 암호화된 연결 적용을 사용하지 않도록 설정하려면 스크린샷에 표시된 대로 require_secure_transport 서버 매개 변수를 OFF로 설정하고 서버 매개 변수 구성을 저장하여 적용해야 합니다. require_secure_transport는 즉시 적용되며 서버를 다시 시작하지 않아도 되는 **동적 서버 매개 변수** 입니다.
 
 > :::image type="content" source="./media/how-to-connect-tls-ssl/disable-ssl.png" alt-text="Azure Database for MySQL 유연한 서버에서 SSL을 사용하지 않도록 설정하는 방법을 보여 주는 스크린샷":::
@@ -308,6 +308,27 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 {
     connection.Open();
 }
+```
+
+### <a name="nodejs"></a>Node.js
+```node
+var fs = require('fs');
+var mysql = require('mysql');
+const serverCa = [fs.readFileSync("/var/www/html/DigiCertGlobalRootCA.crt.pem", "utf8")];
+var conn=mysql.createConnection({
+    host:"mydemoserver.mysql.database.azure.com",
+    user:"myadmin",
+    password:"yourpassword",
+    database:"quickstartdb",
+    port:3306,
+    ssl: {
+        rejectUnauthorized: true,
+        ca: serverCa
+    }
+});
+conn.connect(function(err) {
+  if (err) throw err;
+});
 ```
 
 ## <a name="next-steps"></a>다음 단계

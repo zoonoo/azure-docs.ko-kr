@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: d85e0e967dd802a77ccbc11b884d7a9f2891524d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b48def283ea27fdd0eaa3230a2eb9a8327461ff1
+ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "81688093"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107567016"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Visual Studio Code용 Azure IoT Tools를 사용한 Azure IoT Hub 디바이스 관리
 
 ![엔드투엔드 다이어그램](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 IoT Hub 관리 및 IoT 애플리케이션 개발을 더욱 용이하게 해주는 유용한 Visual Studio Code 확장입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
+이 문서에서는 개발 머신에서 다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools를 사용하는 방법에 대해 알아봅니다. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 IoT Hub 관리 및 IoT 애플리케이션 개발을 더욱 용이하게 해주는 유용한 Visual Studio Code 확장입니다. 다양한 작업을 수행하는 데 사용할 수 있는 관리 옵션이 제공됩니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -35,15 +35,7 @@ ms.locfileid: "81688093"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="what-you-learn"></a>학습 내용
-
-배포 머신에서 다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools를 사용하는 방법에 대해 알아봅니다.
-
-## <a name="what-you-do"></a>수행할 작업
-
-다양한 관리 옵션으로 Visual Studio Code용 Azure IoT Tools를 실행합니다.
-
-## <a name="what-you-need"></a>필요한 작업
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 활성화된 Azure 구독.
 * 구독 중인 Azure IoT Hub

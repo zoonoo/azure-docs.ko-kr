@@ -5,18 +5,18 @@ description: Azure SQL Database 및 Azure SQL Managed Instance는 몇 분마다 
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
-ms.reviewer: mathoma, stevestein, danil
+ms.reviewer: mathoma, danil
 ms.date: 03/10/2021
-ms.openlocfilehash: 5879c9107a0ab5a2ef150d119e8b5ac8e16ac01d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 5aa0f079ed22d101e17e55d9880aaab7ae1715ff
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102609926"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901370"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>자동화된 백업 - Azure SQL Database 및 SQL Managed Instance
 
@@ -50,7 +50,7 @@ SQL Database의 경우 데이터베이스를 만들 때 백업 스토리지 중�
 > 영역 중복 스토리지는 현재 [특정 지역](../../storage/common/storage-redundancy.md#zone-redundant-storage)에서만 사용할 수 있습니다. 
 
 > [!NOTE]
-> Azure SQL Database에 대해 구성 가능한 백업 스토리지 중복성은 현재 동남 아시아 Azure 지역에서만 일반 공급되고, 브라질 남부에서는 공개 미리 보기로 이용할 수 있습니다. 이 기능은 아직 하이퍼스케일 계층에 사용할 수 없습니다. 
+> Azure SQL Database에 대해 구성 가능한 백업 스토리지 중복성은 현재 동남 아시아 Azure 지역에서만 일반 공급되고, 모든 Azure 지역에서는 공개 미리 보기로 이용할 수 있습니다. 이 기능은 아직 하이퍼스케일 계층에 사용할 수 없습니다. 
 
 ### <a name="backup-usage"></a>백업 사용
 
@@ -372,7 +372,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 ## <a name="configure-backup-storage-redundancy"></a>백업 스토리지 중복성 구성
 
 > [!NOTE]
-> SQL Managed Instance 백업에 대해 구성 가능한 스토리지 중복성은 관리형 인스턴스를 만드는 프로세스 중에만 지정할 수 있습니다. 리소스가 프로비전된 후에는 백업 스토리지 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우 이 기능의 공개 미리 보기가 현재 브라질 남부에 제공되고, 동남 아시아 Azure 지역에는 이 기능이 일반 공급됩니다. 
+> SQL Managed Instance 백업에 대해 구성 가능한 스토리지 중복성은 관리형 인스턴스를 만드는 프로세스 중에만 지정할 수 있습니다. 리소스가 프로비전된 후에는 백업 스토리지 중복성 옵션을 변경할 수 없습니다. SQL Database의 경우 이 기능의 공개 미리 보기가 현재 모든 Azure 지역에 제공되고, 동남 아시아 Azure 지역에는 이 기능이 일반 공급됩니다. 
 
 관리형 인스턴스의 백업 스토리지 중복성은 인스턴스를 만드는 동안에만 설정할 수 있습니다. SQL Database의 경우 데이터베이스를 만들 때 중복성을 설정하거나 기존 데이터베이스의 중복성을 업데이트할 수 있습니다. 기본값은 지역 중복 스토리지입니다. 로컬 중복, 영역 중복 및 지역 중복 백업 스토리지 간의 가격 차이를 보려면 [관리형 인스턴스 가격 책정 페이지](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/)를 방문하세요.
 

@@ -4,14 +4,14 @@ description: Azure HPC Cache를 사용하여 Azure NetApp Files를 통해 저장
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 05/05/2021
 ms.author: v-erkel
-ms.openlocfilehash: e955ddc14bb2b0a7abc0dc815c6955247568876b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8dca61a9debad2c743c66b15d6f721edc7538178
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "86497015"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109737297"
 ---
 # <a name="use-azure-hpc-cache-with-azure-netapp-files"></a>Azure NetApp Files와 함께 Azure HPC Cache 사용
 
@@ -50,13 +50,13 @@ Azure HPC Cache와 함께 사용할 Azure NetApp Files 시스템을 만드는 �
 
 네트워크 마스크 /28을 통해 지정되는 최소 크기는 16개의 IP 주소를 제공합니다. 실제 Azure NetApp Files에서는 사용 가능한 IP 주소 중 세 개만 볼륨 액세스에 사용합니다. 즉, 모든 볼륨을 처리하는 데 세 개의 스토리지 대상만 Azure HPC Cache에 만들면 됩니다.
 
-위임된 서브넷이 너무 크면 단일 Azure HPC Cache 인스턴스가 처리할 수 있는 것보다 더 많은 IP 주소를 Azure NetApp Files 볼륨에서 사용할 수 있습니다. 단일 캐시에는 최대 10개의 스토리지 대상이 포함될 수 있습니다.
+위임된 서브넷이 너무 크면 단일 Azure HPC Cache 인스턴스가 처리할 수 있는 것보다 더 많은 IP 주소를 Azure NetApp Files 볼륨에서 사용할 수 있습니다. 단일 캐시는 대부분의 캐시 처리량/스토리지 크기 조합에 대해 [10개의 스토리지 대상으로 제한](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets)되거나 가장 큰 구성의 경우 20개의 스토리지 대상으로 제한됩니다.
 
 Azure NetApp Files 설명서의 빠른 시작 예제에서는 위임된 서브넷에 10.7.0.0/16을 사용하여 너무 많은 서브넷을 제공합니다.
 
 ### <a name="capacity-pool-service-level"></a>용량 풀 서비스 수준
 
-용량 풀의 서비스 수준을 선택하는 경우 워크플로를 고려합니다. 자주 Azure NetApp Files 볼륨에 데이터를 쓰기 저장하는 경우 쓰기 저장 시간이 오래 걸리면 캐시 성능이 제한될 수 있습니다. 쓰기를 자주 수행하는 볼륨에는 높은 서비스 수준을 선택하세요.
+용량 풀의 [서비스 수준](../azure-netapp-files/azure-netapp-files-service-levels.md)을 선택하는 경우 워크플로를 고려합니다. 자주 Azure NetApp Files 볼륨에 데이터를 쓰기 저장하는 경우 쓰기 저장 시간이 오래 걸리면 캐시 성능이 제한될 수 있습니다. 쓰기를 자주 수행하는 볼륨에는 높은 서비스 수준을 선택하세요.
 
 서비스 수준이 낮은 볼륨도 캐시에서 콘텐츠를 미리 채우는 동안에는 작업 시작 시 약간의 지연이 나타날 수 있습니다. 정상적으로 작동하는 파일 세트를 사용하여 캐시가 실행된 후에는 시간 지연이 나타나지 않아야 합니다.
 

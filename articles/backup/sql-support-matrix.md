@@ -2,14 +2,14 @@
 title: Azure VM의 SQL Server 백업에 대한 Azure Backup 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM에서 SQL Server를 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 04/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 78436981c515b95ccda763d8ac916738b4364953
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 354f64eb86cd545860c47562fba7ff43babe72ca
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97734796"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714149"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server Backup에 대한 지원 매트릭스
 
@@ -30,11 +30,10 @@ Azure Backup을 사용하여 Microsoft Azure 클라우드 플랫폼에서 호스
 |설정  |최대 제한 |
 |---------|---------|
 |서버 및 자격 증명 모음에서 보호할 수 있는 데이터베이스 수    |   2000      |
-|지원되는 데이터베이스 크기(이 크기를 넘을 경우 성능 문제가 발생할 수 있음)   |   2TB      |
+|지원되는 데이터베이스 크기(이 크기를 넘을 경우 성능 문제가 발생할 수 있음)   |   6TB*      |
 |데이터베이스에서 지원되는 파일 수    |   1000      |
 
->[!NOTE]
-> [자세한 Resource Planner를 다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)하여 VM 리소스, 대역폭 및 백업 정책에 따라 서버별로 권장되는 보호된 데이터베이스의 대략적인 수를 계산합니다.
+_* 데이터베이스 크기 제한은 지원되는 데이터 전송 속도와 백업 시간 제한 구성에 따라 달라지며, 고정된 한도가 아닙니다. [백업 처리량 성능](#backup-throughput-performance)에 대해 자세히 알아보세요._
 
 * SQL Server 백업은 Azure Portal 또는 **PowerShell** 에서 구성할 수 있습니다. CLI는 지원되지 않습니다.
 * 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](../azure-resource-manager/management/deployment-models.md)에서 모두 지원됩니다.
@@ -93,6 +92,17 @@ AG(가용성 그룹)의 한 노드에서만 백업을 구성하는 것이 좋습
 차등 | 기본
 로그 |  보조
 복사 전용 전체 |  보조
+
+## <a name="backup-throughput-performance"></a>백업 처리량 성능
+
+Azure Backup은 대형 SQL 데이터베이스(500GB)의 전체 및 차등 백업에 대해 일률적 데이터 전송 속도인 200Mbps를 지원합니다. 최적의 성능을 활용하려면 다음을 확인하세요.
+
+- 기본 VM(데이터베이스를 호스트하는 SQL Server 인스턴스 포함)은 필수 네트워크 처리량으로 구성됩니다. VM의 최대 처리량이 200Mbps 미만인 경우 Azure Backup는 최적의 속도로 데이터를 전송할 수 없습니다.<br>또한 데이터베이스 파일이 포함된 디스크에는 충분한 처리량이 프로비전되어야 합니다. Azure VM의 디스크 처리량 및 성능에 대해 [자세히 알아보세요](../virtual-machines/disks-performance.md). 
+- VM에서 실행되는 프로세스는 VM 대역폭을 소비하지 않습니다. 
+- 백업 일정은 데이터베이스 하위 집합 전체에 분산됩니다. VM에서 동시에 실행되는 여러 백업은 백업 간에 네트워크 소비량을 공유합니다. 동시 백업 수를 제어하는 방법에 대해 [자세히 알아보세요](faq-backup-sql-server.yml#can-i-control-how-many-concurrent-backups-run-on-the-sql-server-).
+
+>[!NOTE]
+> [자세한 Resource Planner를 다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)하여 VM 리소스, 대역폭 및 백업 정책에 따라 서버별로 권장되는 보호된 데이터베이스의 대략적인 수를 계산합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

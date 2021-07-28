@@ -3,15 +3,15 @@ title: 데이터에 대한 작업 수행
 description: Azure Logic Apps에서 데이터 출력 및 형식을 변환, 관리 및 조작합니다.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 09/20/2019
-ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.openlocfilehash: cc4952acd8d5949485b9bd1fe5fac91296839493
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84710374"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753654"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -22,33 +22,6 @@ ms.locfileid: "84710374"
 * JSON(JavaScript Object Notation) 개체 속성에서 사용자에게 친숙한 토큰을 만들어 워크플로에서 이러한 속성을 쉽게 사용할 수 있습니다.
 
 여기서 원하는 작업을 찾을 수 없으면 Azure Logic Apps에서 제공하는 다양한 [데이터 조작 함수](../logic-apps/workflow-definition-language-functions-reference.md)를 찾아보세요.
-
-다음 표에는 사용할 수 있는 작업이 요약되어 원본 데이터 형식에 따라 구성되어 있지만, 각 설명은 사전순으로 표시됩니다.
-
-**배열 작업** 
-
-배열의 데이터를 사용할 수 있는 작업은 다음과 같습니다.
-
-| 작업 | Description |
-|--------|-------------|
-| [**CSV 테이블 만들기**](#create-csv-table-action) | 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. |
-| [**HTML 테이블 만들기**](#create-html-table-action) | 배열에서 HTML 테이블을 만듭니다. |
-| [**배열 필터링**](#filter-array-action) | 지정된 필터 또는 조건에 따라 배열에서 배열 하위 집합을 만듭니다. |
-| [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 각 항목을 지정된 문자로 구분합니다. |
-| [**Select**](#select-action) | 다른 배열의 모든 항목에 대해 지정된 속성에서 배열을 만듭니다. |
-||| 
-
-**JSON 작업**
-
-JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 작업은 다음과 같습니다.
-
-| 작업 | Description |
-|--------|-------------|
-| [**Docker Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
-| [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
-|||
-
-더 복잡한 JSON 변환을 만들려면 [Liquid 템플릿을 사용하여 고급 JSON 변환 수행](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -61,6 +34,35 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 * 논리 앱의 첫 번째 단계인 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
   데이터 작업은 작업으로만 사용할 수 있으므로, 이러한 작업을 사용하려면 먼저 트리거로 논리 앱을 시작하고 원하는 출력을 만드는 데 필요한 다른 작업을 포함합니다.
+
+## <a name="data-operation-actions"></a>데이터 작업 동작
+
+다음 표에는 사용할 수 있는 작업이 요약되어 원본 데이터 형식에 따라 구성되어 있지만, 각 설명은 사전순으로 표시됩니다.
+
+### <a name="array-actions"></a>배열 작업
+
+배열의 데이터를 사용할 수 있는 작업은 다음과 같습니다.
+
+| 작업 | Description |
+|--------|-------------|
+| [**CSV 테이블 만들기**](#create-csv-table-action) | 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. |
+| [**HTML 테이블 만들기**](#create-html-table-action) | 배열에서 HTML 테이블을 만듭니다. |
+| [**배열 필터링**](#filter-array-action) | 지정된 필터 또는 조건에 따라 배열에서 배열 하위 집합을 만듭니다. |
+| [**Join**](#join-action) | 배열의 모든 항목에서 문자열을 만들고, 각 항목을 지정된 문자로 구분합니다. |
+| [**선택**](#select-action) | 다른 배열의 모든 항목에 대해 지정된 속성에서 배열을 만듭니다. |
+||| 
+
+### <a name="json-actions"></a>JSON 작업
+
+JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 작업은 다음과 같습니다.
+
+| 작업 | Description |
+|--------|-------------|
+| [**Docker Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
+| [**Parse JSON**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
+|||
+
+더 복잡한 JSON 변환을 만들려면 [Liquid 템플릿을 사용하여 고급 JSON 변환 수행](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)을 참조하세요.
 
 <a name="compose-action"></a>
 
@@ -200,7 +202,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -232,7 +234,7 @@ Oranges,2
    }
    ```
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    ```json
    "Create_CSV_table": {
@@ -272,6 +274,9 @@ Oranges,2
    이 예제에서는 Office 365 Outlook **메일 보내기** 작업을 사용하고 메일의 본문에 **출력** 필드가 포함됩니다.
 
    ![“CSV 테이블 만들기” 작업에 대한 “출력” 필드](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+
+   > [!NOTE]
+    > 테이블이 잘못된 형식으로 반환되는 경우 [테이블 데이터 형식을 확인하는 방법](#format-table-data)을 참조하세요.
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행** 을 선택합니다.
 
@@ -351,7 +356,7 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
@@ -383,7 +388,7 @@ Oranges,2
    }
    ```
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    ```json
    "Create_HTML_table": {
@@ -426,6 +431,9 @@ Oranges,2
 
    > [!NOTE]
    > 이메일 작업에 HTML 테이블 출력이 포함되는 경우 이메일 작업의 고급 옵션에서 **HTML임** 속성을 **예** 로 설정해야 합니다. 이렇게 하면 이메일 작업에서 HTML 테이블의 형식을 올바르게 지정합니다.
+
+   > [!NOTE]
+   > 테이블이 잘못된 형식으로 반환되는 경우 [테이블 데이터 형식을 확인하는 방법](#format-table-data)을 참조하세요.
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행** 을 선택합니다.
 
@@ -707,6 +715,51 @@ JSON(JavaScript Object Notation) 콘텐츠의 속성을 참조하거나 액세�
 
    !["선택" 작업 결과가 포함된 이메일](./media/logic-apps-perform-data-operations/select-email-results.png)
 
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="format-table-data"></a>테이블 데이터 형식 지정
+
+[CSV 테이블](#create-csv-table-action) 또는 [HTML 테이블](#create-html-table-action)이 잘못된 서식으로 반환되는 경우 입력 데이터의 행 사이에 줄 바꿈이 있는지 확인합니다. 
+
+잘못된 서식 지정:
+
+```text
+Fruit,Number Apples,1 Oranges,2
+```
+
+올바른 서식 지정:
+
+```text
+Fruit,Number
+Apples,1
+Oranges,2
+```
+
+행 사이에 줄 바꿈을 추가하려면 테이블에 다음 식 중 하나를 추가합니다.
+
+```text
+replace(body('Create_CSV_table'),'','<br/>')
+```
+
+```text
+replace(body('Create_HTML_table'),'','<br/>')
+```
+
+다음은 그 예입니다. 
+
+```json
+{
+    "Send_an_email_": {
+        "inputs": {
+            "body": {
+                "Body": "<p>Results from Create CSV table action:<br/>\n<br/>\n<br/>\n@{replace(body('Create_CSV_table'),'\r\n','<br/>')}</p>",
+                "Subject": "Create CSV table results",
+                "To": "sophia.owen@fabrikam.com"
+            }
+        }
+    }
+}
+```
 ## <a name="next-steps"></a>다음 단계
 
 * [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

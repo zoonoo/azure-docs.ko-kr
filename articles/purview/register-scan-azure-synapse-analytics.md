@@ -1,22 +1,25 @@
 ---
-title: Azure Synapse Analytics 검사 방법
-description: 이 방법 가이드에서는 Azure Synapse Analytics를 검사하는 방법에 관해 자세히 설명합니다.
+title: 전용 SQL 풀을 검사하는 방법
+description: 이 방법 가이드에서는 전용 SQL 풀을 검사하는 방법에 대해 자세히 설명합니다.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 10/22/2020
-ms.openlocfilehash: d287f5dc239339f79d2d8237e7739de7793920c4
-ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
+ms.date: 05/08/2021
+ms.openlocfilehash: f2797af01dad10c04c8a56cf52a584ea0f04af31
+ms.sourcegitcommit: 3de22db010c5efa9e11cffd44a3715723c36696a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106108611"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109656754"
 ---
-# <a name="register-and-scan-azure-synapse-analytics"></a>Azure Synapse Analytics 등록 및 검사 방법
+# <a name="register-and-scan-dedicated-sql-pools-formerly-sql-dw"></a>전용 SQL 풀(이전의 SQL DW) 등록 및 검사
 
-이 문서에서는 Purview에서 Azure Synapse Analytics(이전의 SQL DW)의 인스턴스를 등록하고 검색하는 방법을 설명합니다.
+> [!NOTE]
+> Synapse 작업 영역 내에서 전용 SQL 데이터베이스를 등록하고 검사하려는 경우 [여기](register-scan-synapse-workspace.md)에 나와 있는 지침을 따라야 합니다.
+
+이 문서에서는 Purview에서 전용 SQL 풀(이전의 SQL DW)의 인스턴스를 등록하고 검사하는 방법을 설명합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -24,9 +27,10 @@ Azure Synapse Analytics(이전의 SQL DW)는 메타데이터 및 스키마를 �
 
 ### <a name="known-limitations"></a>알려진 제한 사항
 
-Azure Purview는 Azure Synapse Analytics에서 [보기](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true)를 위한 검사를 지원하지 않습니다.
+> * Azure Purview는 Azure Synapse Analytics에서 [보기](/sql/relational-databases/views/views?view=azure-sqldw-latest&preserve-view=true)를 위한 검사를 지원하지 않습니다.
+> * Azure Purview는 스키마 탭에서 300개를 초과하는 열을 지원하지 않으며 "Additional-Columns-Truncated"를 표시합니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - 데이터 원본을 등록하기 전에 Azure Purview 계정을 만듭니다. Purview 계정을 만드는 방법에 관한 자세한 내용은 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.
 - Azure Purview 데이터 원본 관리자여야 합니다.
@@ -114,23 +118,23 @@ Azure Synapse Analytics(이전의 SQL DW)를 위한 로그인이 없는 경우 [
 1. 키 자격 증명 모음이 아직 Purview에 연결되지 않은 경우 [새 키 자격 증명 모음 연결을 생성](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)해야 합니다.
 1. 마지막으로 키를 사용하여 검사를 설정하기 위한 [새 자격 증명](manage-credentials.md#create-a-new-credential)을 만듭니다.
 
-## <a name="register-an-azure-synapse-analytics-instance-formerly-sql-dw"></a>Azure Synapse Analytics(이전의 SQL DW) 인스턴스 등록
+## <a name="register-a-sql-dedicated-pool-formerly-sql-dw"></a>SQL 전용 풀(이전의 SQL DW) 등록
 
 Data Catalog에서 새 Azure Synapse Analytics 서버를 등록하려면 다음을 수행합니다.
 
 1. Purview 계정으로 이동합니다.
 1. 왼쪽 탐색 영역에서 **원본** 을 선택합니다.
 1. **등록** 을 선택합니다.
-1. **소스 등록** 에서 **Azure Synapse Analytics(이전의 SQL DW)** 를 선택합니다.
+1. **원본 등록** 에서 **SQL 전용 풀(이전의 SQL DW)** 을 선택합니다.
 1. **계속** 을 선택합니다.
 
 **원본 등록(Azure Synapse Analytics)** 화면에서 다음을 수행합니다.
 
 1. 카탈로그에서 나열되는 데이터 원본의 **이름** 을 입력합니다.
-1. 원하는 논리 SQL Server를 가리키는 방법을 선택합니다.
-   1. **Azure 구독에서** 를 선택하고, **Azure 구독** 드롭다운 상자에서 적절한 구독을 선택하고, **서버 이름** 드롭다운 상자에서 적절한 서버를 선택합니다.
-   1. 또는 **수동으로 입력** 을 선택하고 **서버 이름** 을 입력할 수 있습니다.
-1. **마침** 을 선택하여 데이터 원본을 등록합니다.
+2. Azure Synapse 작업 영역을 필터링하려면 Azure 구독을 선택합니다.
+3. Azure Synapse 작업 영역을 선택합니다.
+4. 컬렉션을 선택하거나 새로 만듭니다(선택 사항).
+5. **등록** 을 선택하여 데이터 원본을 등록합니다.
 
 :::image type="content" source="media/register-scan-azure-synapse-analytics/register-sources.png" alt-text="원본 등록 옵션" border="true":::
 

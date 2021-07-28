@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 03/18/2021
 ms.author: v-erkel
-ms.openlocfilehash: 10d68ce679fe42f5deeaae364bc46adb23436a27
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45a7169330b11e98a8618b08205217212414ca5d
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104587154"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107258931"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Blob 스토리지 계정 방화벽 설정 해결
 
 스토리지 계정 방화벽에 사용되는 특정 설정으로 인해 Blob 스토리지 대상을 생성하지 못할 수 있습니다. Azure HPC Cache 팀은 해당 문제에 대해 소프트웨어 픽스 작업을 진행 중이지만, 이 문서의 지침에 따라 문제를 해결할 수 있습니다.
 
-“선택한 네트워크”에서만 액세스할 수 있도록 방화벽을 설정하면 캐시가 Blob 스토리지 대상을 생성하거나 수정하는 것을 방지할 수 있습니다. 해당 구성은 스토리지 계정의 **방화벽 및 가상 네트워크** 설정 페이지에 있습니다.
+“선택한 네트워크”에서만 액세스할 수 있도록 방화벽을 설정하면 캐시가 Blob 스토리지 대상을 생성하거나 수정하는 것을 방지할 수 있습니다. 해당 구성은 스토리지 계정의 **방화벽 및 가상 네트워크** 설정 페이지에 있습니다. (이 문제는 ADLS-NFS 스토리지 대상에 적용되지 않습니다.)
 
 문제는 캐시 서비스가 고객 환경과 분리된 숨겨진 서비스 가상 네트워크를 사용한다는 것입니다. 해당 네트워크가 내 스토리지 계정에 액세스하도록 명시적으로 권한을 부여할 수 없습니다.
 

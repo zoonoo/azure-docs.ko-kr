@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
 ms.openlocfilehash: 6008ca1549629bcbb582f38de2ab1b453cd73a99
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94843760"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 Android Things 플랫폼 개발
@@ -20,7 +20,7 @@ ms.locfileid: "94843760"
 
 이 자습서에서는 Azure IoT Java SDK를 사용하여 Android Things에서 디바이스 쪽 애플리케이션을 빌드하는 단계를 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Android Things는 Android Things OS를 실행하는 하드웨어를 지원합니다.  Android Things OS를 플래시하는 방법은 [Android Things 설명서](https://developer.android.com/things/get-started/kits#flash-at)를 참조하세요.  키보드, 디스플레이 및 마우스 등과 같은 필수 주변 장치가 연결된 상태에서 Android Things 디바이스가 인터넷에 연결되었는지 확인합니다.  이 자습서에서는 Raspberry Pi 3을 사용합니다.
 
@@ -42,14 +42,14 @@ ms.locfileid: "94843760"
 
    **YourIoTHubName**: 이 자리 표시자를 IoT 허브용으로 선택한 이름으로 바꿉니다.
 
-   **MyAndroidThingsDevice** : 등록 된 장치에 대해 지정 된 이름입니다. MyAndroidThingsDevice를 표시된 것처럼 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
+   **MyAndroidThingsDevice**: 등록된 디바이스에 지정된 이름입니다. MyAndroidThingsDevice를 표시된 것처럼 사용합니다. 다른 디바이스 이름을 선택하는 경우 이 문서 전체에서 해당 이름을 사용해야 하고, 샘플 애플리케이션에서 디바이스 이름을 업데이트한 후 실행해야 합니다.
 
     ```azurecli-interactive
     az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
-2. Azure Cloud Shell에서 다음 명령을 실행 하 여 방금 등록 한 장치에 대 한 *장치 연결 문자열* 을 가져옵니다. `YourIoTHubName`아래를 IoT hub에 대해 선택한 이름으로 바꿉니다.
+2. Azure Cloud Shell에서 다음 명령을 실행하여 방금 등록한 디바이스의 ‘디바이스 연결 문자열’을 가져옵니다. 아래 `YourIoTHubName`을 IoT 허브에 대해 선택한 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
@@ -65,7 +65,7 @@ ms.locfileid: "94843760"
 
 1. Android Things 애플리케이션을 빌드하는 첫 번째 단계는 Android Things 디바이스에 연결하는 것입니다. Android Things 디바이스를 디스플레이에 연결하고 인터넷에 연결합니다. Android Things는 WiFi에 연결하는 방법에 관한 [설명서](https://developer.android.com/things/get-started/kits)를 제공합니다. 인터넷에 연결한 후 네트워크 아래에 나열된 IP 주소를 기록해 둡니다.
 
-2. [adb](https://developer.android.com/studio/command-line/adb) 도구를 사용하여 위에서 기록한 IP 주소로 Android Things 디바이스에 연결합니다. 터미널에서 이 명령을 사용하여 연결을 다시 한 번 확인합니다. 장치가 "연결 됨"으로 표시 되어야 합니다.
+2. [adb](https://developer.android.com/studio/command-line/adb) 도구를 사용하여 위에서 기록한 IP 주소로 Android Things 디바이스에 연결합니다. 터미널에서 이 명령을 사용하여 연결을 다시 한 번 확인합니다. “연결됨”으로 나열된 디바이스가 나타납니다.
 
    ```
    adb devices

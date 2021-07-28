@@ -1,17 +1,17 @@
 ---
 title: Azure Synapse Analytics에서 데이터 복사 및 변환
 description: Data Factory를 사용하여 Azure Synapse Analytics로/에서 데이터를 복사하고 Azure Synapse Analytics에서 데이터를 변환하는 방법을 알아봅니다.
-ms.author: jingwang
-author: linda33wj
+ms.author: jianleishen
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 9c843ededd1fa863cc5eb4dc0db3a6da3478466d
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/10/2021
+ms.openlocfilehash: b4c90f8fa7efb002e9bcc243a55ba903002855c8
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104597524"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109736973"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Synapse Analytics에서 데이터 복사 및 변환
 
@@ -48,7 +48,7 @@ ms.locfileid: "104597524"
 > [!TIP]
 > 최상의 성능을 얻으려면 PolyBase 또는 COPY 문을 사용하여 Azure Synapse Analytics에 데이터를 로드합니다. [PolyBase를 사용하여 Azure Synapse Analytics에 데이터 로드](#use-polybase-to-load-data-into-azure-synapse-analytics) 및 [COPY 문을 사용하여 Azure Synapse Analytics에 데이터 로드](#use-copy-statement) 섹션에 자세한 내용이 있습니다. 사용 사례가 있는 연습은 [Azure Data Factory를 통해 Azure Synapse Analytics에 15분 이내 1TB 로드](load-azure-sql-data-warehouse.md)를 참조하세요.
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Azure Synapse Analytics 커넥터와 관련된 Data Factory 엔터티를 정의하는 속성에 대해 자세히 설명합니다.
 
@@ -56,14 +56,14 @@ ms.locfileid: "104597524"
 
 Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성            | Description                                                  | 필수                                                     |
+| 속성            | 설명                                                  | 필수                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | type 속성은 **AzureSqlDW** 로 설정해야 합니다.             | 예                                                          |
 | connectionString    | **connectionString** 속성에 대해 Azure Synapse Analytics 인스턴스에 연결하는 데 필요한 정보를 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예                                                          |
 | servicePrincipalId  | 애플리케이션의 클라이언트 ID를 지정합니다.                         | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 `AzurePublic`, `AzureChina`, `AzureUsGovernment` 및 `AzureGermany`입니다. 기본적으로 Data Factory의 클라우드 환경이 사용됩니다. | 예 |
+| azureCloudType | 서비스 주체 인증의 경우 Azure AD 애플리케이션이 등록된 Azure 클라우드 환경의 유형을 지정합니다. <br/> 허용되는 값은 `AzurePublic`, `AzureChina`, `AzureUsGovernment` 및 `AzureGermany`입니다. 기본적으로 데이터 팩터리의 클라우드 환경이 사용됩니다. | 예 |
 | connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 예                                                           |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
@@ -220,7 +220,7 @@ Azure Synapse Analytics 연결된 서비스에 대해 지원되는 속성은 다
 
 Azure Synapse Analytics 데이터 세트에 대해 지원되는 속성은 다음과 같습니다.
 
-| 속성  | Description                                                  | 필수                    |
+| 속성  | 설명                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 **type** 속성을 **AzureSqlDWTable** 로 설정해야 합니다. | 예                         |
 | 스키마 | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
@@ -259,7 +259,7 @@ Azure Synapse Analytics 데이터 세트에 대해 지원되는 속성은 다음
 
 Azure Synapse Analytics에서 데이터를 복사하려면 복사 작업 원본의 **type** 속성을 **SqlDWSource** 로 설정합니다. 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성                     | Description                                                  | 필수 |
+| 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 **type** 속성을 **SqlDWSource** 로 설정해야 합니다. | 예      |
 | SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 예       |
@@ -378,7 +378,7 @@ Azure Data Factory는 Azure Synapse Analytics에 데이터를 로드하는 세 �
 
 데이터를 Azure Synapse Analytics에 복사하려면 복사 작업의 싱크 유형을 **SqlDWSink** 로 설정합니다. 복사 작업 **sink** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink** 로 설정해야 합니다. | 예                                           |
 | allowPolyBase     | PolyBase를 사용하여 Azure Synapse Analytics에 데이터를 로드할지 여부를 나타냅니다. `allowCopyCommand` 및 `allowPolyBase` 모두 true일 수 없습니다. <br/><br/>제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure Synapse Analytics로 데이터 로드](#use-polybase-to-load-data-into-azure-synapse-analytics) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요.<br/>PolyBase를 사용하는 경우 적용합니다.     |
@@ -390,7 +390,7 @@ Azure Data Factory는 Azure Synapse Analytics에 데이터를 로드하는 세 �
 | preCopyScript     | 각 실행에서 Azure Synapse Analytics에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 예                                            |
 | tableOption | 원본 스키마에 따라 존재하지 않는 경우 [싱크 테이블을 자동으로 만들지](copy-activity-overview.md#auto-create-sink-tables) 여부를 지정합니다. 허용되는 값은 `none`(기본값) 또는 `autoCreate`입니다. |예 |
 | disableMetricsCollection | Data Factory는 복사 성능 최적화 및 권장 사항을 위해 Azure Synapse Analytics DWU와 같은 메트릭을 수집하여 추가 마스터 DB 액세스를 도입합니다. 이 동작에 관심이 있는 경우 `true`를 지정하여 해제합니다. | 아니요(기본값: `false`) |
-| maxConcurrentConnections |작업을 실행하는 동안 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결 수를 제한하려는 경우에만 값을 지정합니다.| 예 |
+| maxConcurrentConnections |활동 실행 중 데이터 저장소에 설정된 동시 연결의 상한입니다. 동시 연결을 제한하려는 경우에만 값을 지정합니다.| 예 |
 
 #### <a name="azure-synapse-analytics-sink-example"></a>Azure Synapse Analytics 싱크 예
 
@@ -420,9 +420,9 @@ Azure Data Factory는 Azure Synapse Analytics에 데이터를 로드하는 세 �
 
 | 시나리오                                                     | 제안된 설정                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 실제 파티션을 사용하여 초대형 테이블에서 전체 로드        | **파티션 옵션**: 테이블의 물리적 파티션. <br><br/>실행 중에 Data Factory는 물리적 파티션을 자동으로 검색하여 파티션별로 데이터를 복사합니다. <br><br/>테이블에 물리적 파티션이 있는지 확인하려면 [이 쿼리](#sample-query-to-check-physical-partition)를 참조하세요. |
+| 물리적 파티션을 사용하여 대형 테이블에서 전체 로드합니다.        | **파티션 옵션**: 테이블의 물리적 파티션입니다. <br><br/>실행 중에 Data Factory는 물리적 파티션을 자동으로 검색하여 파티션별로 데이터를 복사합니다. <br><br/>테이블에 물리적 파티션이 있는지 확인하려면 [이 쿼리](#sample-query-to-check-physical-partition)를 참조하세요. |
 | 데이터 분할을 위해 실제 파티션을 사용하지 않지만 정수 또는 날짜/시간 열을 사용하여 대규모 테이블에서 전체 로드합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**파티션 열**(선택 사항): 데이터를 분할하는 데 사용되는 열을 지정합니다. 지정하지 않으면 인덱스 또는 기본 키 열이 사용됩니다.<br/>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블의 행을 필터링하려는 것이 아니라 테이블의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>예를 들어 파티션 열 "ID"의 값 범위가 1에서 100이고 하한을 20으로 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션(ID 범위: <=20, [21, 50], [51, 80] 및 >=81)으로 데이터를 검색합니다. |
-| 실제 파티션이 없는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블에서 행을 필터링하려는 것이 아니라 쿼리 결과의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>실행하는 동안 Data Factory는 `?AdfRangePartitionColumnName`을 각 파티션의 실제 열 이름과 값 범위로 바꾸고 Azure Synapse Analytics로 보냅니다. <br>예를 들어 파티션 열 "ID"의 값 범위가 1에서 100이고 하한을 20으로 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션(ID 범위: <=20, [21, 50], [51, 80] 및 >=81)으로 데이터를 검색합니다. <br><br>여기 다양한 시나리오에 대한 많은 샘플 쿼리가 있습니다.<br> 1. 전체 테이블 쿼리: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. 열을 선택하고 where 절 필터를 추가하여 테이블 쿼리: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. 하위 쿼리를 사용하여 쿼리: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. 하위 쿼리에 파티션을 사용하여 쿼리: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
+| 실제 파티션이 없는 사용자 지정 쿼리를 사용하여 많은 양의 데이터를 로드하는 동시에 데이터 분할을 위한 정수 또는 날짜/시간 열을 사용합니다. | **파티션 옵션**: 동적 범위 파티션입니다.<br>**쿼리**:`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**파티션 열**: 데이터를 분할하는 데 사용되는 열을 지정합니다.<br>**파티션 상한** 및 **파티션 하한**(선택 사항): 파티션 stride를 결정하려는지를 지정합니다. 테이블에서 행을 필터링하려는 것이 아니라 쿼리 결과의 모든 행을 분할 및 복사합니다. 지정하지 않으면 복사 작업에서 값을 자동으로 검색합니다.<br><br>실행하는 동안 Data Factory는 `?AdfRangePartitionColumnName`을 각 파티션의 실제 열 이름과 값 범위로 바꾸고 Azure Synapse Analytics로 보냅니다. <br>예를 들어 파티션 열 "ID"의 값 범위가 1에서 100이고 하한을 20으로 상한을 80으로 설정하고 병렬 복사를 4로 설정하면 Data Factory는 4개의 파티션(ID 범위: <=20, [21, 50], [51, 80] 및 >=81)으로 데이터를 검색합니다. <br><br>다양한 시나리오에 대한 추가적인 샘플 쿼리는 다음과 같습니다.<br> 1. 전체 테이블 쿼리: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. 열을 선택하고 where 절 필터를 추가하여 테이블 쿼리: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. 하위 쿼리를 사용하여 쿼리: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. 하위 쿼리에 파티션을 사용하여 쿼리: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`
 |
 
 파티션 옵션을 사용하여 데이터를 로드하는 모범 사례:
@@ -485,7 +485,7 @@ WHERE s.name='[your schema]' AND t.name = '[your table name]'
 
 복사 작업의 `polyBaseSettings`에서 다음 PolyBase 설정이 지원됩니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](/sql/t-sql/statements/create-external-table-transact-sql)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 예                                            |
 | rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage** 입니다. | 예                                            |
@@ -511,7 +511,7 @@ Azure Synapse Analytics PolyBase는 Azure Blob, Azure Data Lake Storage Gen1 및
 
     >[!IMPORTANT]
     >- 스토리지에 연결된 서비스에 관리 ID 인증을 사용하는 경우 각각 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity)에 필요한 구성을 알아봅니다.
-    >- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 "신뢰할 수 있는 Microsoft 서비스 허용"이 사용하도록 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
+    >- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 '신뢰할 수 있는 Microsoft 서비스 허용'이 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
 
 2. **원본 데이터 형식** 은 다음 구성과 함께 **Parquet**, **ORC** 또는 **구분된 텍스트** 입니다.
 
@@ -706,7 +706,7 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 
     >[!IMPORTANT]
     >- 스토리지에 연결된 서비스에 관리 ID 인증을 사용하는 경우 각각 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity)에 필요한 구성을 알아봅니다.
-    >- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 "신뢰할 수 있는 Microsoft 서비스 허용"이 사용하도록 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
+    >- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 '신뢰할 수 있는 Microsoft 서비스 허용'이 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
 
 2. 형식 설정에는 다음이 포함됩니다.
 
@@ -726,7 +726,7 @@ COPY 문을 사용하면 다음 구성이 지원됩니다.
 
 복사 작업의 `allowCopyCommand`에서 다음 COPY 문 설정이 지원됩니다.
 
-| 속성          | Description                                                  | 필수                                      |
+| 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | defaultValues | Azure Synapse Analytics의 각 대상 열에 대한 기본값을 지정합니다.  속성의 기본값은 데이터 웨어하우스의 기본 제약 조건 집합을 덮어쓰고 ID 열에는 기본값을 사용할 수 없습니다. | 예 |
 | additionalOptions | [COPY 문](/sql/t-sql/statements/copy-into-transact-sql)의 "With" 절에서 직접 Azure Synapse Analytics COPY 문에 전달되는 추가 옵션입니다. COPY 문 요구 사항에 맞게 조정하는 데 필요한 값을 따옴표로 묶습니다. | 예 |
@@ -791,7 +791,7 @@ Azure Synapse Analytics에 특정한 설정은 원본 변환의 **원본 옵션*
 **스테이징 사용** Azure Synapse Analytics 원본이 있는 프로덕션 워크로드에서 이 옵션을 사용하는 것이 좋습니다. 파이프라인에서 Azure Synapse Analytics 원본을 사용하여 [데이터 흐름 작업](control-flow-execute-data-flow-activity.md)을 실행하면 ADF는 스테이징 위치 스토리지 계정을 입력하라는 메시지를 표시하고 이를 스테이징된 데이터 로드에 사용합니다. Azure Synapse Analytics에서 데이터를 로드하는 가장 빠른 메커니즘입니다.
 
 - 스토리지에 연결된 서비스에 관리 ID 인증을 사용하는 경우 각각 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity)에 필요한 구성을 알아봅니다.
-- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 "신뢰할 수 있는 Microsoft 서비스 허용"이 사용하도록 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
+- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 '신뢰할 수 있는 Microsoft 서비스 허용'이 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
 - Azure Synapse **서버리스** SQL 풀을 원본으로 사용하는 경우 스테이징 사용이 지원되지 않습니다.
 
 **쿼리**: 입력 필드에서 쿼리를 선택하는 경우에는 원본에 대한 SQL 쿼리를 입력합니다. 이렇게 설정하면 데이터 세트에서 선택한 모든 테이블이 재정의됩니다. **Order By** 절은 여기서 지원되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * from udfGetData()** 는 테이블을 반환하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성합니다. 쿼리를 사용하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법이기도 합니다.
@@ -825,13 +825,31 @@ Azure Synapse Analytics에 특정한 설정은 싱크 변환의 **설정** 탭�
 **스테이징 사용:** 이렇게 하면 복사 명령을 사용하여 Azure Synapse Analytics SQL 풀에 로드할 수 있으며 대부분의 Synpase 싱크에 권장됩니다. 스테이징 스토리지는 [데이터 흐름 실행 작업](control-flow-execute-data-flow-activity.md)에서 구성됩니다. 
 
 - 스토리지에 연결된 서비스에 관리 ID 인증을 사용하는 경우 각각 [Azure Blob](connector-azure-blob-storage.md#managed-identity) 및 [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity)에 필요한 구성을 알아봅니다.
-- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 "신뢰할 수 있는 Microsoft 서비스 허용"이 사용하도록 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
+- Azure Storage가 VNet 서비스 엔드포인트로 구성된 경우 스토리지 계정에 '신뢰할 수 있는 Microsoft 서비스 허용'이 설정된 관리 ID 인증을 사용해야 합니다. [Azure Storage에서 VNet 서비스 엔드포인트 사용의 영향](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-virtual-network-service-endpoints-with-azure-storage)을 참조하세요.
 
 **일괄 처리 크기**: 각 버킷에 작성되는 행 수를 제어합니다. 일괄 처리 크기가 클수록 압축 및 메모리 최적화가 향상되지만 데이터를 캐시할 때 메모리 부족 예외가 발생할 위험이 있습니다.
 
 **사전 및 사후 SQL 스크립트**: 데이터를 싱크 데이터베이스에 기록하기 전(사전 처리)과 후(사후 처리)에 실행할 여러 줄 SQL 스크립트를 입력합니다.
 
 ![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
+
+### <a name="error-row-handling"></a>오류 행 처리
+
+Azure Synapse Analytics에 쓸 때 대상에서 설정된 제약 조건으로 인해 특정 데이터 행이 실패할 수 있습니다. 일반적인 오류는 다음과 같습니다.
+
+*    테이블에서 문자열이나 이진 데이터는 잘립니다.
+*    열에 NULL 값을 삽입할 수 없습니다.
+*    값을 데이터 형식으로 변환하지 못했습니다.
+
+기본적으로 발생하는 첫 번째 오류에서 데이터 흐름 실행이 실패합니다. 개별 행에 오류가 있는 경우에도 데이터 흐름이 완료될 수 있도록 **오류 발생 시 계속** 을 선택할 수 있습니다. Azure Data Factory는 이러한 오류 행을 처리하는 다양한 옵션을 제공합니다.
+
+**트랜잭션 커밋:** 데이터를 단일 트랜잭션으로 쓸지 또는 일괄로 쓸지를 선택합니다. 단일 트랜잭션은 더 나은 성능을 제공하며 트랜잭션이 완료될 때까지 기록된 데이터가 다른 사용자에게 표시되지 않습니다. 일괄 처리 트랜잭션은 성능이 저하되지만 큰 데이터 세트에 대해 작동할 수 있습니다.
+
+**거부된 데이터 출력:** 사용하도록 설정된 경우 선택한 Azure Blob Storage 또는 선택한 Azure Data Lake Storage Gen2 계정의 csv 파일에 오류 행을 출력할 수 있습니다. 이렇게 하면 세 개의 추가 열, 즉 INSERT 또는 UPDATE와 같은 SQL 작업, 데이터 흐름 오류 코드 및 오류 메시지를 포함하는 오류 행이 기록됩니다.
+
+**오류 발생 시 성공 보고:** 사용하도록 설정된 경우 오류 행이 있는 경우에도 데이터 흐름이 성공으로 표시됩니다. 
+
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="오류 행 처리를 보여주는 스크린샷" border="false":::
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2bcaf85f61a4d8cf4d23c9c5be7f46d765d77dbb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a5e0e5544c5e66f43b56de49beaa3ef3932d33f9
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551045"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107776882"
 ---
-# <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>CLI를 사용하여 일반화된 이미지 버전에서 VM 만들기
+# <a name="create-a-vm-from-a-generalized-image-version-using-the-azure-cli"></a>Azure CLI를 사용하여 일반화된 이미지 버전에서 VM 만들기
 
 Shared Image Gallery에 저장된 [일반화된 이미지 버전](./shared-image-galleries.md#generalized-and-specialized-images)에서 VM을 만듭니다. 전문화된 이미지로 VM을 만들려면 [전문화된 이미지에서 VM 만들기](vm-specialized-image-version-powershell.md)를 참조하세요. 
 
 
 ## <a name="get-the-image-id"></a>이미지 ID 가져오기
 
-[az sig image-definition 목록](/cli/azure/sig/image-definition#az-sig-image-definition-list)으로 갤러리의 이미지 정의를 나열하여 정의의 이름과 ID를 확인합니다.
+[az sig image-definition 목록](/cli/azure/sig/image-definition#az_sig_image_definition_list)으로 갤러리의 이미지 정의를 나열하여 정의의 이름과 ID를 확인합니다.
 
 ```azurecli-interactive 
 resourceGroup=myGalleryRG
@@ -33,7 +33,7 @@ az sig image-definition list --resource-group $resourceGroup --gallery-name $gal
 
 ## <a name="create-the-vm"></a>VM 만들기
 
-[az vm create](/cli/azure/vm#az-vm-create)를 사용하여 VM을 만듭니다. 최신 버전의 이미지를 사용하려면 `--image`를 이미지 정의의 ID로 설정합니다. 
+[az vm create](/cli/azure/vm#az_vm_create)를 사용하여 VM을 만듭니다. 최신 버전의 이미지를 사용하려면 `--image`를 이미지 정의의 ID로 설정합니다. 
 
 이 예제에서 필요에 따라 리소스 이름을 바꿉니다. 
 

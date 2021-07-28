@@ -7,12 +7,12 @@ ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Azure Arc 지원 Kubernetes 확장의 수명 주기 배포 및 관리
-ms.openlocfilehash: 34e8f39450b6ac87ccb0e377526e2b2172e21ed7
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: cd2d0915b173f3621502f22a2d47e25271f87400
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373336"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951683"
 ---
 # <a name="deploy-and-manage-azure-arc-enabled-kubernetes-cluster-extensions"></a>Azure Arc 지원 Kubernetes 클러스터 확장 배포 및 관리
 
@@ -59,10 +59,11 @@ Kubernetes 확장 기능을 사용하면 Azure Arc 지원 Kubernetes 클러스�
 | --------- | ----------- |
 | [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Kubernetes 클러스터에 배포된 워크로드의 성능에 대한 가시성을 제공합니다. 컨트롤러, 노드, 컨테이너에서 메모리 및 CPU 사용률 메트릭을 수집합니다. |
 | [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Kubernetes 클러스터에서 감사 로그 데이터와 같은 보안 관련 정보를 수집합니다. 수집된 데이터를 기반으로 권장 사항 및 위협 경고를 제공합니다. |
+| [Arc 지원 Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | 클러스터에 Open Service Mesh를 배포하고 mTLS 보안, 세분화된 액세스 제어, 트래픽 이동, Azure Monitor 또는 Prometheus 및 Grafana의 오픈 소스 추가 기능을 사용한 모니터링, Jaeger를 사용한 추적, 외부 인증 관리 솔루션과의 통합과 같은 기능을 사용할 수 있습니다. |
 | [Azure Arc 지원 Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Kubernetes 및 선택한 인프라를 사용하여 온-프레미스, 에지 및 퍼블릭 클라우드에서 Azure 데이터 서비스를 실행할 수 있습니다. |
 | [Azure Arc의 Azure App Service](../../app-service/overview-arc-integration.md) | Azure Arc 지원 Kubernetes 클러스터를 기반으로 App Service Kubernetes 환경을 프로비전할 수 있습니다. |
-| [Kubernetes의 Event Grid](/azure/event-grid/kubernetes/overview) | Azure Arc 지원 Kubernetes 클러스터를 기반으로 토픽 및 이벤트 구독과 같은 Event Grid 리소스를 만들고 관리합니다. |
-| [Azure Arc의 Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-arc) | Azure Arc 지원 Kubernetes 클러스터에서 API Management 게이트웨이를 배포하고 관리합니다. |
+| [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md) | Azure Arc 지원 Kubernetes 클러스터를 기반으로 토픽 및 이벤트 구독과 같은 Event Grid 리소스를 만들고 관리합니다. |
+| [Azure Arc의 Azure API Management](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Azure Arc 지원 Kubernetes 클러스터에서 API Management 게이트웨이를 배포하고 관리합니다. |
 
 ## <a name="usage-of-cluster-extensions"></a>클러스터 확장 사용
 
@@ -264,6 +265,8 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Azure Arc 사용 Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
 > 
 > [!div class="nextstepaction"]
 > [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
@@ -272,7 +275,7 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 > [Azure Arc의 Azure App Service](../../app-service/overview-arc-integration.md)
 > 
 > [!div class="nextstepaction"]
-> [Kubernetes의 Event Grid](/azure/event-grid/kubernetes/overview)
+> [Kubernetes의 Event Grid](../../event-grid/kubernetes/overview.md)
 > 
 > [!div class="nextstepaction"]
-> [Azure Arc의 Azure API Management](/azure/api-management/how-to-deploy-self-hosted-gateway-azure-arc)
+> [Azure Arc의 Azure API Management](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)

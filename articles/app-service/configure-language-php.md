@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 94cbe0fa6669546cee8e989a6db2fcbb428cb9d0
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90055302"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107829443"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Azure App Service용 PHP 앱 구성
 
@@ -28,6 +28,9 @@ ms.locfileid: "90055302"
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query phpVersion
 ```
 
+> [!NOTE]
+> 개발 슬롯의 주소를 지정하려면 매개 변수 `--slot` 뒤에 슬롯 이름을 포함합니다.
+
 지원되는 PHP 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
@@ -44,6 +47,9 @@ az webapp list-runtimes | grep php
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
+> [!NOTE]
+> 개발 슬롯의 주소를 지정하려면 매개 변수 `--slot` 뒤에 슬롯 이름을 포함합니다.
+
 지원되는 PHP 버전을 모두 표시하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
@@ -59,7 +65,7 @@ az webapp list-runtimes --linux | grep PHP
 PHP 버전을 7.4로 설정하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
 ```
 
 ::: zone-end
@@ -69,7 +75,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 PHP 버전을 7.2로 설정하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
 ```
 
 ::: zone-end
@@ -243,7 +249,7 @@ getenv("DB_HOST")
 
 원하는 웹 프레임워크에서 하위 디렉터리를 사이트 루트로 사용할 수 있습니다. 예를 들어 [Laravel](https://laravel.com/)은 *public/* 하위 디렉터리를 사이트 루트로 사용합니다.
 
-사이트 루트를 사용자 지정하려면 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 앱의 가상 애플리케이션 경로를 설정합니다. 다음 예제에서는 사이트 루트를 리포지토리의 *public/* 하위 디렉터리로 설정합니다. 
+사이트 루트를 사용자 지정하려면 [`az resource update`](/cli/azure/resource#az_resource_update) 명령을 사용하여 앱의 가상 애플리케이션 경로를 설정합니다. 다음 예제에서는 사이트 루트를 리포지토리의 *public/* 하위 디렉터리로 설정합니다. 
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> --namespace Microsoft.Web --resource-type config --parent sites/<app-name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
@@ -492,4 +498,3 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 > [App Service Linux FAQ](faq-app-service-linux.md)
 
 ::: zone-end
-

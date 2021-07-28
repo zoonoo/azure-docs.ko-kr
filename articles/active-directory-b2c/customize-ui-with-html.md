@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 04/19/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e694a5f6144cee65be074d05ce0015d31bfdf65e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8f9f6dc1abd08c5e53f3d44a8f6ec1b3e20786ed
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104675828"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107717444"
 ---
 # <a name="customize-the-user-interface-with-html-templates-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 HTML 템플릿을 사용하여 사용자 인터페이스 사용자 지정
 
@@ -116,7 +116,7 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 1. 웹앱에 대한 CORS(원본 간 리소스 공유) 설정
 1. 정책에서 사용자 지정 정책 콘텐츠 URI를 가리킵니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
@@ -261,12 +261,12 @@ Blob 스토리지에 퍼블릭 컨테이너를 만들려면 다음 단계를 수
 
 UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 요소를 기본 파일에서 확장 파일로 복사합니다.
 
-1. 정책의 기본 파일을 엽니다(예: 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>입니다. 해당 기본 파일은 사용자 지정 정책 시작 팩에 포함된 정책 파일 중 하나로, 필수 구성 요소인 [사용자 지정 정책 시작](./custom-policy-get-started.md)에서 가져와야 합니다.
+1. 정책의 기본 파일을 엽니다(예: 예를 들어 <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>입니다. 해당 기본 파일은 사용자 지정 정책 시작 팩에 포함된 정책 파일 중 하나로, 필수 구성 요소인 [사용자 지정 정책 시작](./tutorial-create-user-flows.md?pivots=b2c-custom-policy)에서 가져와야 합니다.
 1. **ContentDefinitions** 요소의 전체 내용을 검색한 후 복사합니다.
 1. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 복사한 **ContentDefinitions** 의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다.
 1. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예들 들어 `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`입니다.
+1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     사용자 지정 정책은 다음 코드 조각과 비슷해야 합니다.
 
@@ -390,7 +390,7 @@ git clone https://github.com/azure-ad-b2c/html-templates
     
 1. `\*.html` 파일을 저장하고 Blob 스토리지에 업로드합니다.
 1. 이제 앞에서 언급한 대로 HTML 파일을 가리키는 정책을 수정합니다.
-1. 글꼴, 이미지 또는 CSS가 누락되었다면 확장 정책 및 \*.html 파일의 참조를 확인합니다.
+1. 글꼴, 이미지 또는 CSS가 누락되었다면 확장 정책 및 `\*.html` 파일의 참조를 확인합니다.
 
 ## <a name="use-company-branding-assets-in-custom-html"></a>사용자 지정 HTML에서 회사 브랜딩 자산 사용
 

@@ -1,24 +1,27 @@
 ---
 title: Azure Cosmos DB, Azure Analysis Services 및 Power BI를 사용하여 실시간 대시보드 만들기
 description: Azure Cosmos DB 및 Azure Analysis Services를 사용하여 Power BI에서 라이브 날씨 대시보드를 만드는 방법을 알아봅니다.
-author: SnehaGunda
-ms.author: sngun
+author: Rodrigossz
+ms.author: rosouz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 73251fcbe9f149979d3fd62d14bbca86d77027f2
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 07da25320cded38a037e6e557ff55ebfaeb3a2df
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640140"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111959169"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Azure Cosmos DB 및 Power BI를 사용하여 실시간 대시보드 만들기
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-이 문서에서는 Azure Cosmos DB 및 Azure Analysis Services를 사용하여 Power BI에서 라이브 날씨 대시보드를 만드는 데 필요한 단계를 설명합니다. Power BI 대시보드는 지역의 온도 및 강우량에 대한 실시간 정보를 보여 주는 차트를 표시합니다.
+이 문서에서는 Azure Cosmos DB OLTP 커넥터 및 Azure Analysis Services를 사용하여 Power BI에서 라이브 날씨 대시보드를 만드는 데 필요한 단계를 설명합니다. Power BI 대시보드는 지역의 온도 및 강우량에 대한 거의 실시간 정보를 보여 주는 차트를 표시합니다.
+
+또 다른 옵션은 [Azure Cosmos DB용 Azure Synapse Link](synapse-link.md)를 사용하여 거의 실시간 보고서를 만드는 것입니다. Azure Synapse Link를 사용하여 트랜잭션 워크로드에 대한 성능 또는 비용에 영향을 주지 않고 ETL 파이프라인 없이 Power BI에 연결하여 Azure Cosmos DB 데이터를 분석할 수 있습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 자세한 내용은 [여기](synapse-link-power-bi.md)를 클릭하세요.
+
 
 ## <a name="reporting-scenarios"></a>보고 시나리오
 
@@ -27,14 +30,14 @@ Azure Cosmos DB에 저장된 데이터에 대한 보고 대시보드를 설정�
 
 |시나리오 |설치 프로그램 |
 |---------|---------|
-|1. 임시 보고서 생성(새로 고침 안 함)    |  [가져오기 모드를 사용하는 Power BI Azure Cosmos DB 커넥터](powerbi-visualize.md)       |
-|2. 정기적 새로 고침을 사용하여 임시 보고서 생성   |  [가져오기 모드를 사용하는 Power BI Azure Cosmos DB 커넥터(예약된 정기적 새로 고침)](powerbi-visualize.md)       |
-|3. 대량 데이터 세트에 대한 보고(10GB 미만)     |  증분 새로 고침을 사용하는 Power BI Azure Cosmos DB 커넥터       |
-|4. 대량 데이터 세트에 대한 실시간 보고    |  직접 쿼리+Azure Analysis Services를 사용하는 Power BI Azure Analysis Services 커넥터(Azure Cosmos DB 커넥터)       |
-|5. 집계를 사용하여 라이브 데이터 보고     |  [직접 쿼리+Azure Databricks+Cosmos DB Spark 커넥터를 사용하는 Power BI Spark 커넥터](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)       |
-|6. 대량 데이터 세트에 대해 집계를 사용하는 라이브 데이터 보고   |  직접 쿼리+Azure Analysis Services+Azure Databricks+Cosmos DB Spark 커넥터를 사용하는 Power BI Azure Analysis Services 커넥터.       |
+|1. 집계를 사용하여 대규모 데이터 세트에 대한 실시간 보고서 생성     | **옵션 1:** [Power BI 및 Azure Synapse Link(DirectQuery 포함)](./synapse-link-power-bi.md)<br />  **옵션 2:** [Power BI 및 Spark 커넥터(DirectQuery 포함) + Azure Databricks + Azure Cosmos DB Spark 커넥터.](https://github.com/Azure/azure-cosmosdb-spark/wiki/Connecting-Cosmos-DB-with-PowerBI-using-spark-and-databricks-premium)<br />  **옵션 3:** Power BI 및 Azure Analysis Services Connector(DirectQuery 포함) + Azure Analysis Services + Azure Databricks + Cosmos DB Spark 커넥터.     |
+|2. 대용량 데이터 세트에 대한 실시간 보고서 생성(10GB 이상)    |  **옵션 1:** [Power BI 및 Azure Synapse Link(DirectQuery 포함)](./synapse-link-power-bi.md)<br />  **옵션 2:** [Power BI 및 Azure Analysis Services Connector( DirectQuery 포함) + Azure Analysis Services](create-real-time-weather-dashboard-powerbi.md)       |
+|3. 대용량 데이터 세트(10GB 미만)에 대한 임시 보고서 생성     |  [가져오기 모드 및 증분 새로 고침을 사용하는 Power BI Azure Cosmos DB 커넥터](create-real-time-weather-dashboard-powerbi.md)       |
+|4. 정기적 새로 고침을 사용하여 임시 보고서 생성   |  [가져오기 모드를 사용하는 Power BI Azure Cosmos DB 커넥터(예약된 정기적 새로 고침)](powerbi-visualize.md)       |
+|5. 임시 보고서 생성(새로 고침 안 함)    |  [가져오기 모드를 사용하는 Power BI Azure Cosmos DB 커넥터](powerbi-visualize.md)       |
 
-시나리오 1과 2는 Azure Cosmos DB Power BI 커넥터를 사용하여 쉽게 설정할 수 있습니다. 이 문서에서는 시나리오 3 및 4 관련 설정에 대해 설명합니다.
+
+시나리오 4와 5는 [Azure Cosmos DB Power BI 커넥터를 사용](powerbi-visualize.md)하여 쉽게 설정할 수 있습니다. 이 문서에서는 시나리오 2(옵션 2) 및 3의 설정에 대해 설명합니다.
 
 ### <a name="power-bi-with-incremental-refresh"></a>증분 새로 고침을 사용하는 Power BI
 

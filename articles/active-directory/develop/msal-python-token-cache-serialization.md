@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 토큰 캐시 serialization (MSAL Python) | Microsoft
+title: 사용자 지정 토큰 캐시 serialization(MSAL Python) | Azure
 titleSuffix: Microsoft identity platform
-description: Python 용 MSAL에 대 한 토큰 캐시를 직렬화 하는 방법 알아보기
+description: Python용 MSAL에 대한 토큰 캐시를 직렬화하는 방법 알아보기
 services: active-directory
 author: rayluo
 manager: CelesteDG
@@ -14,28 +14,28 @@ ms.author: rayluo
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 7aaf59377949101ba8dd5c9454b89229e925e859
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87846193"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-python"></a>Python 용 MSAL의 사용자 지정 토큰 캐시 serialization
+# <a name="custom-token-cache-serialization-in-msal-for-python"></a>Python용 MSAL의 사용자 지정 토큰 캐시 serialization
 
-MSAL Python에서는 [Clientapplication](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)인스턴스를 만들 때 앱 세션 기간 동안 지속 되는 메모리 내 토큰 캐시가 기본적으로 제공 됩니다.
+MSAL Python에서는 [ClientApplication](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication) 인스턴스를 만들 때 앱 세션 기간 동안 지속되는 메모리 내 토큰 캐시가 기본적으로 제공됩니다.
 
-응용 프로그램의 다른 세션에서 액세스할 수 있도록 토큰 캐시를 직렬화 하는 것은 "기본적으로" 제공 되지 않습니다. 이는 MSAL Python은 웹 앱과 같은 파일 시스템에 대 한 액세스 권한이 없는 앱 유형에 서 사용할 수 있기 때문입니다. MSAL Python 앱에 영구 토큰 캐시를 포함 하려면 사용자 지정 토큰 캐시 직렬화를 제공 해야 합니다.
+앱의 다른 세션이 액세스할 수 있도록 토큰 캐시의 serialization은 “기본 제공”되지 않습니다. MSAL Python은 웹앱과 같이 파일 시스템에 액세스할 수 없는 앱 유형에서 사용할 수 있기 때문입니다. MSAL Python 앱에 영구 토큰 캐시를 포함하려면 사용자 지정 토큰 캐시 serialization을 제공해야 합니다.
 
-토큰 캐시를 직렬화 하는 전략은 공용 클라이언트 응용 프로그램 (데스크톱)을 작성 하는지 아니면 기밀 클라이언트 응용 프로그램 (웹 앱, web API 또는 디먼 앱)을 작성 하는지에 따라 달라 집니다.
+토큰 캐시를 직렬화하는 전략은 퍼블릭 클라이언트 애플리케이션(데스크톱)을 작성하는지 아니면 기밀 클라이언트 애플리케이션(웹앱, 웹 API 또는 디먼 앱)을 작성하는지에 따라 달라집니다.
 
-## <a name="token-cache-for-a-public-client-application"></a>공용 클라이언트 응용 프로그램에 대 한 토큰 캐시
+## <a name="token-cache-for-a-public-client-application"></a>퍼블릭 클라이언트 애플리케이션의 토큰 캐시
 
-공용 클라이언트 응용 프로그램은 사용자의 장치에서 실행 되 고 단일 사용자에 대 한 토큰을 관리 합니다. 이 경우 전체 캐시를 파일로 직렬화 할 수 있습니다. 앱 또는 다른 앱이 캐시에 동시에 액세스할 수 있는 경우 파일 잠금을 제공 해야 합니다. 잠금 없이 파일에 토큰 캐시를 serialize 하는 방법에 대 한 간단한 예는 [SerializableTokenCache](https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache) 클래스 참조 설명서의 예제를 참조 하세요.
+퍼블릭 클라이언트 애플리케이션은 사용자의 디바이스에서 실행되고 단일 사용자의 토큰을 관리합니다. 이 경우 전체 캐시를 파일로 직렬화할 수 있습니다. 사용 중인 앱 또는 다른 앱이 캐시에 동시에 액세스할 수 있는 경우 파일 잠금을 제공해야 합니다. 잠금 없이 파일에 토큰 캐시를 직렬화하는 방법의 간단한 예제는 [SerializableTokenCache](https://msal-python.readthedocs.io/en/latest/#msal.SerializableTokenCache) 클래스 참조 설명서의 예제를 참조하세요.
 
-## <a name="token-cache-for-a-web-app-confidential-client-application"></a>웹 앱에 대 한 토큰 캐시 (기밀 클라이언트 응용 프로그램)
+## <a name="token-cache-for-a-web-app-confidential-client-application"></a>웹앱의 토큰 캐시(기밀 클라이언트 애플리케이션)
 
-웹 앱 또는 웹 Api의 경우 세션 또는 Redis 캐시를 사용 하거나, 데이터베이스를 사용 하 여 토큰 캐시를 저장할 수 있습니다. 사용자 마다 토큰 캐시가 하나씩 있어야 합니다. 따라서 계정 마다 토큰 캐시를 직렬화 해야 합니다.
+웹앱 또는 웹 API의 경우 세션, Redis 캐시 또는 데이터베이스를 사용하여 토큰 캐시를 저장할 수 있습니다. 사용자별로 하나의 토큰 캐시가 있어야 하므로 계정별로 토큰 캐시를 직렬화해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Windows 또는 Linux 웹 앱 또는 web API에 대 한 토큰 캐시를 사용 하는 방법에 대 한 예제는 [webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72) 를 참조 하세요. 예제는 Microsoft Graph API를 호출 하는 웹 앱에 대 한 것입니다.
+Windows 또는 Linux 웹앱 또는 웹 API에 대해 토큰 캐시를 사용하는 방법의 예제는 [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/app.py#L64-L72)을 참조하세요. 예제는 Microsoft Graph API를 호출하는 웹앱에 관련됩니다.

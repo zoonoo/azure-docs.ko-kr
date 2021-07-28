@@ -2,13 +2,14 @@
 title: 테넌트에 리소스 배포
 description: Azure Resource Manager 템플릿의 테넌트 범위에서 리소스를 배포하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 01/13/2021
-ms.openlocfilehash: fd5a9ae60c578a3be7f70d82baae0a15e406b9db
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/27/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: dfcdd4c9fdf758b0e07c2566c50b45f534133c3c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99491489"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751494"
 ---
 # <a name="tenant-deployments-with-arm-templates"></a>ARM 템플릿을 사용하여 테넌트 배포
 
@@ -17,12 +18,6 @@ ms.locfileid: "99491489"
 ## <a name="supported-resources"></a>지원되는 리소스
 
 모든 리소스 종류를 테넌트 수준에 배포할 수 있는 것은 아닙니다. 이 섹션에서는 지원되는 리소스 종류를 나열합니다.
-
-Azure 정책의 경우 다음을 사용합니다.
-
-* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
-* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
-* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
 Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합니다.
 
@@ -49,6 +44,8 @@ Azure RBAC(Azure 역할 기반 액세스 제어)의 경우 다음을 사용합�
 포털을 구성하려면 다음을 사용합니다.
 
 * [tenantConfigurations](/azure/templates/microsoft.portal/tenantconfigurations)
+
+기본 제공 정책 정의는 테넌트 수준 리소스이지만 테넌트에서 사용자 지정 정책 정의를 배포할 수는 없습니다. 리소스에 기본 제공 정책 정의를 할당하는 예제는 [tenantResourceId 예제](./template-functions-resource.md#tenantresourceid-example)를 참조하세요.
 
 ## <a name="schema"></a>스키마
 
@@ -98,7 +95,7 @@ Azure Active Directory의 전역 관리자에게 역할을 할당할 수 있는 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI의 경우 [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)를 사용합니다.
+Azure CLI의 경우 [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create)를 사용합니다.
 
 ```azurecli-interactive
 az deployment tenant create \

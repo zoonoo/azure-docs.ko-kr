@@ -8,12 +8,13 @@ ms.reviwer: mimckitt
 ms.topic: how-to
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: eea49a41e81e7e580becce815ff91aff6aa430d6
-ms.sourcegitcommit: b8995b7dafe6ee4b8c3c2b0c759b874dff74d96f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d813cc32d3b635e6da767e3f04386c0e35ea503c
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106286799"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111949369"
 ---
 # <a name="migrate-to-azure-cloud-services-extended-support-using-powershell"></a>PowerShell을 사용하여 Cloud Services(확장 지원)로 마이그레이션
 
@@ -28,7 +29,7 @@ ms.locfileid: "106286799"
 ## <a name="2-install-the-latest-version-of-powershell"></a>2) 최신 버전의 PowerShell 설치
 Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/) 또는 [WebPI(웹 플랫폼 설치 관리자)](https://aka.ms/webpi-azps)가 있습니다. WebPI는 매월 업데이트를 수신합니다. PowerShell 갤러리는 지속적으로 업데이트를 수신합니다. 이 문서는 Azure PowerShell 버전 2.1.0을 기반으로 합니다.
 
-설치 지침은 [Azure PowerShell 설치 및 구성 방법](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0&preserve-view=true)을 참조하세요.
+설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/servicemanagement/install-azure-ps?preserve-view=true&view=azuresmps-4.0.0)을 참조하세요.
 
 ## <a name="3-ensure-admin-permissions"></a>3) 관리자 권한 확인
 이 마이그레이션을 수행하려면, 해당 구독에 대해 [Azure Portal](https://portal.azure.com)에 공동 관리자로 추가되어야 합니다.
@@ -86,7 +87,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
 다음을 사용하여 등록 상태를 확인합니다.  
 ```powershell
-Get-AzProviderFeature -FeatureName CloudServices
+Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
 ```
 
 계속 진행하기 전에 둘 모두에 대한 RegistrationState가 `Registered`인지 확인합니다.
@@ -119,6 +120,8 @@ Select-AzureSubscription –SubscriptionName "My Azure Subscription"
 
 
 ## <a name="5-migrate-your-cloud-services"></a>5) Cloud Services 마이그레이션 
+마이그레이션을 시작하기 전에 [이전 단계](./in-place-migration-overview.md#migration-steps)의 작동 방식과 각 단계의 기능을 이해합니다. 
+
 * [가상 네트워크에 없는 클라우드 서비스 마이그레이션](#51-option-1---migrate-a-cloud-service-not-in-a-virtual-network)
 * [가상 네트워크의 클라우드 서비스 마이그레이션](#51-option-2---migrate-a-cloud-service-in-a-virtual-network)
 
@@ -141,17 +144,27 @@ $deployment = Get-AzureDeployment -ServiceName $serviceName
 $deploymentName = $deployment.DeploymentName
 ```
 
-먼저, 다음 명령을 사용하여 클라우드 서비스를 마이그레이션할 수 있는지 유효성을 검사합니다.
+먼저, 다음 명령을 사용하여 해당 클라우드 서비스를 마이그레이션할 수 있는지 유효성을 검사합니다. 이 명령은 마이그레이션을 차단하는 모든 오류를 표시합니다. 
 
 ```powershell
 $validate = Move-AzureService -Validate -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 $validate.ValidationMessages
  ```
 
-다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사가 성공하면 준비 단계로 넘어갈 수 있습니다.
+유효성 검사에 성공하거나 경고만 있는 경우 준비 단계로 이동할 수 있습니다. 
 
 ```powershell
 Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
+
+Azure PowerShell 또는 Azure Portal을 사용하여 준비된 클라우드 서비스(확장된 지원)에 대한 구성을 확인합니다. 마이그레이션 준비가 되어 있지 않아 이전 상태로 되돌아가려면 마이그레이션을 중단합니다.
+```powershell
+Move-AzureService -Abort -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
+```
+마이그레이션을 완료할 준비가 되었으면 마이그레이션을 커밋합니다.
+
+```powershell
+Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName -CreateNewVirtualNetwork
 ```
 
 ### <a name="51-option-2---migrate-a-cloud-service-in-a-virtual-network"></a>5.1) 옵션 2 - 가상 네트워크의 클라우드 서비스 마이그레이션
@@ -179,7 +192,7 @@ Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
 ```
 
-Azure PowerShell 또는 Azure Portal을 사용하여 준비된 클라우드 서비스에 대한 구성을 확인합니다. 마이그레이션 준비가 되어 있지 않아 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
+Azure PowerShell 또는 Azure Portal을 사용하여 준비된 클라우드 서비스(확장된 지원)에 대한 구성을 확인합니다. 마이그레이션 준비가 되어 있지 않아 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
 
 ```powershell
 Move-AzureVirtualNetwork -Abort -VirtualNetworkName $vnetName
@@ -193,4 +206,4 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 
 ## <a name="next-steps"></a>다음 단계
-[마이그레이션 후 변경 내용](in-place-migration-overview.md#post-migration-changes) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다. 
+[마이그레이션 후 변경 내용](in-place-migration-overview.md#post-migration-changes) 섹션을 검토하여 배포 파일의 변경 내용, 자동화 및 새 Cloud Services(확장 지원) 배포의 기타 특성을 확인합니다.

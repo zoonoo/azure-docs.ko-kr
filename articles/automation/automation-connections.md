@@ -5,13 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.custom: has-adal-ref
-ms.openlocfilehash: 5f6494eb72084c683ddbb8b27a49acdb1fbc2bfc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: has-adal-ref, devx-track-azurepowershell
+ms.openlocfilehash: 4b5983d6ea4ea9065d1292a2c5ee0c094cea093b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99054266"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834897"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Azure Automation에서 연결 관리
 
@@ -59,9 +59,9 @@ Azure Automation은 다음과 같은 기본 제공 연결 형식을 제공합니
 >[!NOTE]
 >변수를 `Get-AutomationConnection`의 `Name` 매개 변수와 함께 사용하면 안 됩니다. 변수를 이렇게 사용하면 디자인 타임에 Runbook 또는 DSC 구성과 연결 자산 간의 종속성 검색이 복잡해질 수 있습니다.
 
-## <a name="python-functions-to-access-connections"></a>연결에 액세스 하는 Python 함수
+## <a name="python-functions-to-access-connections"></a>연결에 액세스하는 데 사용되는 Python 함수
 
-다음 표의 함수는 Python 2 및 3 runbook의 연결에 액세스 하는 데 사용 됩니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
+다음 표에 나와 있는 함수는 Python 2 및 3 Runbook의 연결에 액세스하는 데 사용됩니다. Python 3 Runbook은 현재 미리 보기로 제공됩니다.
 
 | 함수 | Description |
 |:---|:---|
@@ -137,7 +137,7 @@ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.
 
 # <a name="python"></a>[Python](#tab/python2)
 
-다음 예제에서는 Python 2 및 3 runbook에서 실행 연결을 사용 하 여 인증 하는 방법을 보여 줍니다.
+다음 예제에서는 Python 2 및 3 Runbook에서 실행 연결을 사용하여 인증하는 방법을 보여 줍니다.
 
 ```python
 """ Tutorial to show how to authenticate against Azure resource manager resources """

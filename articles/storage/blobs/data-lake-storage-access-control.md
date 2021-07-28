@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 50c6b4f309eb78acee0cfa59d1b540adba65cab2
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 142c8b1439447da4d535dd97e191a0ada503fe94
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104774816"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632604"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 ACL(액세스 제어 목록)
 
@@ -34,15 +34,16 @@ Azure Data Lake Storage Gen2는 Azure RBAC(Azure 역할 기반 액세스 제어)
 
 파일 및 디렉터리 수준 권한을 설정하려면 다음 문서 중 하나를 참조하세요.
 
-| 환경 | 아티클 |
+| Environment | 아티클 |
 |--------|-----------|
-|Azure Storage Explorer |[Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-explorer-acl.md)|
-|.NET |[.NET을 사용하여 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-acl-dotnet.md)|
-|Java|[Java를 사용해 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-acl-java.md)|
-|Python|[Python을 사용해 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-acl-python.md)|
-|JavaScript(Node.js)|[Node.js에서 JavaScript SDK를 사용하여 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-directory-file-acl-javascript.md)|
-|PowerShell|[PowerShell을 사용하여 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-acl-powershell.md)|
-|Azure CLI|[Azure CLI를 사용하여 Azure Data Lake Storage Gen2에서 ACL 설정](data-lake-storage-acl-cli.md)|
+|Azure Storage Explorer |[Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-explorer-acl.md)|
+|Azure portal |[Azure Portal을 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-acl-azure-portal.md)|
+|.NET |[.NET을 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-acl-dotnet.md)|
+|Java|[Java를 사용해 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-acl-java.md)|
+|Python|[Python을 사용한 Azure Data Lake Storage Gen2의 ACL 관리](data-lake-storage-acl-python.md)|
+|JavaScript(Node.js)|[Node.js에서 JavaScript SDK를 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-directory-file-acl-javascript.md)|
+|PowerShell|[PowerShell을 사용하여 Azure Data Lake Storage Gen2에서 ACL 관리](data-lake-storage-acl-powershell.md)|
+|Azure CLI|[Azure CLI를 사용한 Azure Data Lake Storage Gen2의 ACL 관리](data-lake-storage-acl-cli.md)|
 |REST API |[경로 - 업데이트](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -347,6 +348,6 @@ Azure Storage REST API에는 [Set Container ACL](/rest/api/storageservices/set-c
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
 - [Azure Data Lake Storage Gen2의 액세스 제어 모델](data-lake-storage-access-control-model.md)

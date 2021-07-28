@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 982c33c5c55e32ce48131a4b2f0911e4f23dd408
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 6358f5589e785cfadf243ee2017434aad5dd94a9
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98877291"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176039"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -36,13 +36,16 @@ ms.locfileid: "98877291"
    1. **완료** 를 선택합니다.
 1. **클라우드 앱 또는 작업** 에서 **모든 클라우드 앱** 을 선택합니다.
    1. **완료** 를 선택합니다.
-1. **조건**  >  **클라이언트 앱** 에서 **구성** 을 **예** 로 설정 합니다.
-   1. **Exchange ActiveSync 클라이언트** 및 **다른 클라이언트만** 확인란을 선택 합니다.
+1. **조건 > ** **클라이언트 앱** 에서 **구성** 을 **예** 로 설정합니다.
+   1. **Exchange ActiveSync 클라이언트** 및 **다른 클라이언트** 확인란만 선택합니다.
    1. **완료** 를 선택합니다.
 1. **액세스 제어** > **권한 부여** 에서 **액세스 차단** 을 선택합니다.
    1. **선택** 을 선택합니다.
 1. 설정을 확인하고 **정책 사용** 을 **보고 전용** 으로 설정합니다.
 1. **만들기** 를 선택하여 정책을 사용하도록 만듭니다.
+
+> [!NOTE]
+> 조건부 액세스 정책은 1단계 인증이 완료된 후에 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격과 같은 시나리오에 대한 조직의 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 사용하여 액세스를 결정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -52,4 +55,4 @@ ms.locfileid: "98877291"
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
-[Microsoft 365를 사용 하 여 전자 메일을 보내도록 다기능 장치 또는 응용 프로그램을 설정 하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+[Microsoft 365를 사용하여 이메일을 보내도록 다기능 디바이스 또는 애플리케이션을 설정하는 방법](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)

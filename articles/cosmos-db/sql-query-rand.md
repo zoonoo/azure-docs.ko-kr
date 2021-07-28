@@ -9,16 +9,16 @@ ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: fb3e310970fcc2146ee0d4b790a9744dcd566bad
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341657"
 ---
-# <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
+# <a name="rand-azure-cosmos-db"></a>RAND(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
- [0, 1)에서 임의로 생성 된 숫자 값을 반환 합니다.
+ [0, 1)에서 임의로 생성된 숫자 값을 반환합니다.
  
 ## <a name="syntax"></a>구문
   
@@ -32,12 +32,12 @@ RAND ()
 
 ## <a name="remarks"></a>설명
 
-  `RAND`는 비결정 함수입니다. 의 반복적인 호출은 `RAND` 동일한 결과를 반환 하지 않습니다. 이 시스템 함수는 인덱스를 활용 하지 않습니다.
+  `RAND`는 비결정 함수입니다. `RAND` 호출을 반복하는 경우 동일한 결과가 반환되지 않습니다. 이 시스템 함수는 인덱스를 활용하지 않습니다.
 
 
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예에서는 임의로 생성 된 숫자 값을 반환 합니다.
+  다음 예제에서는 임의로 생성된 숫자 값을 반환합니다.
   
 ```sql
 SELECT RAND() AS rand 
@@ -51,6 +51,6 @@ SELECT RAND() AS rand
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [수학 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)

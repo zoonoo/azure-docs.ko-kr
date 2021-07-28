@@ -1,26 +1,26 @@
 ---
-title: Azure Cosmos DB에서 라이브 시간 구성 및 관리
-description: 컨테이너와 항목에 대해 ttl (time to live)을 구성 하 고 관리 하는 방법에 대해 알아봅니다 Azure Cosmos DB
+title: Azure Cosmos DB에서 TTL(Time to Live) 구성 및 관리
+description: Azure Cosmos DB에서 컨테이너 및 항목에 대한 TTL(Time to Live)을 구성하고 관리하는 방법 알아보기
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 79b7dfe84628b2f883614ed37fe7688c852add1d
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93341011"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108069924"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Azure Cosmos DB에서 TTL(Time to Live) 구성
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성하도록 선택하거나 컨테이너를 설정한 후 항목 수준에서 재정의할 수 있습니다. Azure Portal 또는 언어별 SDK를 사용하여 컨테이너에 대해 TTL을 구성할 수 있습니다. SDK를 사용하여 항목 수준 TTL 재정의를 구성할 수 있습니다.
 
-> 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse 링크](./synapse-link.md)를 통해 NOETL HTAP 시나리오를 사용 하도록 설정 하는 ANALITYCAL 저장소 TTL을 찾고 있는 경우 [여기](./analytical-store-introduction.md#analytical-ttl)를 클릭 하세요.
+> 이 콘텐츠는 Azure Cosmos DB 트랜잭션 저장소 TTL과 관련이 있습니다. [Azure Synapse Link](./synapse-link.md)를 통해 NoETL HTAP 시나리오를 사용하도록 설정하는 분석 저장소 TTL을 찾고 있다면 [여기](./analytical-store-introduction.md#analytical-ttl)를 클릭하세요.
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Azure Portal을 사용하여 컨테이너에서 TTL(Time to Live)을 사용하도록 설정
 
@@ -45,12 +45,12 @@ Azure Cosmos DB에서는 컨테이너 수준에서 TTL(Time to Live)을 구성�
 * DefaultTimeToLive가 -1인 경우 TTL(Time to Live) 설정이 켜짐(기본값 없음)
 * DefaultTimeToLive가 다른 Int 값(0 제외)을 가진 경우 TTL(Time to Live) 설정이 켜짐
 
-## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell을 사용 하 여 컨테이너에 대해 ttl (time to live) 사용
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Azure CLI 또는 PowerShell을 사용하여 컨테이너에서 TTL(Time to Live) 사용
 
-컨테이너에서 TTL을 만들거나 사용 하도록 설정 하려면을 참조 하세요.
+컨테이너에서 TTL을 만들거나 사용하도록 설정하려면 다음을 참조하세요.
 
-* [Azure CLI를 사용 하 여 TTL이 있는 컨테이너 만들기](manage-with-cli.md#create-a-container-with-ttl)
-* [PowerShell을 사용 하 여 TTL이 있는 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl)
+* [Azure CLI를 사용하여 TTL이 설정된 컨테이너 만들기](manage-with-cli.md#create-a-container-with-ttl)
+* [PowerShell을 사용하여 TTL이 설정된 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>SDK를 사용하여 컨테이너에서 TTL(Time to Live)을 사용하도록 설정
 
@@ -74,7 +74,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-.NET SDK V3 (Cosmos)
+.NET SDK V3(Microsoft.Azure.Cosmos)
 
 ```csharp
 // Create a new container with TTL enabled and without any expiration value
@@ -104,7 +104,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 # <a name="java-sdk-v3"></a>[Java SDK V3](#tab/javav3)
 
-Java SDK V3 (Maven:: azure-cosmos)
+Java SDK V3(Maven com.microsoft.azure::azure-cosmos)
 
 ```java
 CosmosContainer container;
@@ -118,7 +118,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## <a name="set-time-to-live-on-a-container-using-sdk"></a>SDK를 사용하여 컨테이너에 대한 TTL(Time to Live) 설정
 
-컨테이너에 대한 TTL(Time to Live)을 설정하려면 기간을 초 단위로 나타내는 0이 아닌 양수 값을 입력해야 합니다. 구성된 TTL 값에 따라, 컨테이너에 있는 모든 항목은 항목 `_ts`의 마지막으로 수정된 타임스탬프 후에 삭제됩니다. 필요에 `TimeToLivePropertyPath` 따라 시스템 생성 속성 대신 다른 속성을 사용 하 여 `_ts` TTL에 따라 삭제할 항목을 결정 하는를 설정할 수 있습니다.
+컨테이너에 대한 TTL(Time to Live)을 설정하려면 기간을 초 단위로 나타내는 0이 아닌 양수 값을 입력해야 합니다. 구성된 TTL 값에 따라, 컨테이너에 있는 모든 항목은 항목 `_ts`의 마지막으로 수정된 타임스탬프 후에 삭제됩니다. 필요에 따라 `TimeToLivePropertyPath`를 설정할 수 있습니다. 그러면 시스템에서 생성한 `_ts` 속성 대신 다른 속성을 사용하여 TTL을 기반으로 삭제할 항목을 결정할 수 있습니다.
 
 ### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> .NET SDK
 
@@ -140,7 +140,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-.NET SDK V3 (Cosmos)
+.NET SDK V3(Microsoft.Azure.Cosmos)
 
 ```csharp
 // Create a new container with TTL enabled and a 90 day expiration
@@ -170,7 +170,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 # <a name="java-sdk-v3"></a>[Java SDK V3](#tab/javav3)
 
-Java SDK V3 (Maven:: azure-cosmos)
+Java SDK V3(Maven com.microsoft.azure::azure-cosmos)
 
 ```java
 CosmosContainer container;
@@ -220,7 +220,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
 
    * **배율 및 설정** 창을 엽니다.
    * **설정** 아래에서 **TTL(Time to Live)** 을 찾습니다.
-   * **켜기 (기본값 없음)** 를 선택 하거나 TTL 값을 **선택 하 고** 설정 합니다. 
+   * **설정(기본값 없음)** 를 선택하거나 **켜기** 를 선택하고 TTL 값을 설정합니다. 
    * **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 5. 다음으로, TTL(Time to Live)을 설정하려는 항목으로 이동한 후 `ttl` 속성을 추가하고 **업데이트** 를 선택합니다. 
@@ -237,7 +237,7 @@ async function createcontainerWithTTL(db: Database, containerDefinition: Contain
    }
    ```
 
-### <a name="net-sdk-any"></a><a id="dotnet-set-ttl-item"></a>.NET SDK (any)
+### <a name="net-sdk-any"></a><a id="dotnet-set-ttl-item"></a>.NET SDK(모두)
 
 ```csharp
 // Include a property that serializes to "ttl" in JSON
@@ -314,7 +314,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 # <a name="java-sdk-v3"></a>[Java SDK V3](#tab/javav3)
 
-Java SDK V3 (Maven:: azure-cosmos)
+Java SDK V3(Maven com.microsoft.azure::azure-cosmos)
 
 ```java
 // Include a property that serializes to "ttl" in JSON
@@ -374,7 +374,7 @@ response = await client.ReplaceDocumentAsync(readDocument);
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-.NET SDK V3 (Cosmos)
+.NET SDK V3(Microsoft.Azure.Cosmos)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -405,7 +405,7 @@ CosmosAsyncItemResponse<SalesOrder> itemResponse = container.readItem("SO05", ne
 
 # <a name="java-sdk-v3"></a>[Java SDK V3](#tab/javav3)
 
-SDK V3 (Maven:: azure-cosmos)
+SDK V3(Maven com.microsoft.azure::azure-cosmos)
 
 ```java
 // This examples leverages the Sales Order class above.
@@ -449,7 +449,7 @@ response = await client.ReplaceDocumentAsync(readDocument);
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-.NET SDK V3 (Cosmos)
+.NET SDK V3(Microsoft.Azure.Cosmos)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -480,7 +480,7 @@ CosmosAsyncItemResponse<SalesOrder> itemResponse = container.readItem("SO05", ne
 
 # <a name="java-sdk-v3"></a>[Java SDK V3](#tab/javav3)
 
-Java SDK V3 (Maven:: azure-cosmos)
+Java SDK V3(Maven com.microsoft.azure::azure-cosmos)
 
 ```java
 // This examples leverages the Sales Order class above.
@@ -519,7 +519,7 @@ await client.ReplaceDocumentCollectionAsync(collection);
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-.NET SDK V3 (Cosmos)
+.NET SDK V3(Microsoft.Azure.Cosmos)
 
 ```csharp
 // Get the container, update DefaultTimeToLive to null
@@ -546,7 +546,7 @@ container.replace(containerProperties).block();
 
 # <a name="java-sdk-v3"></a>[Java SDK V3](#tab/javav3)
 
-Java SDK V3 (Maven:: azure-cosmos)
+Java SDK V3(Maven com.microsoft.azure::azure-cosmos)
 
 ```java
 CosmosContainer container;

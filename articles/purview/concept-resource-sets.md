@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: cbf070dce056795ad8e4a5f3e4d609e7d36d631e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 330a6e54ee88781f71c4a861051aab94f8eef81f
+ms.sourcegitcommit: 272351402a140422205ff50b59f80d3c6758f6f6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200825"
+ms.lasthandoff: 04/17/2021
+ms.locfileid: "107587904"
 ---
 # <a name="understanding-resource-sets"></a>리소스 집합 이해
 
@@ -84,7 +84,7 @@ Azure Purview는 다음과 같은 리소스 집합 패턴을 지원합니다. �
 
 Azure Purview는 자산 그룹을 리소스 집합으로 일치시킬 때 카탈로그에서 표시 이름으로 사용하기에 가장 유용한 정보를 추출하려고 시도합니다. 적용되는 기본 명명 규칙의 몇 가지 예는 다음과 같습니다. 
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 
 정규화된 이름: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
@@ -102,14 +102,15 @@ Azure Purview는 자산 그룹을 리소스 집합으로 일치시킬 때 카탈
 
 표시 이름: "data"
 
-## <a name="known-issues-with-resource-sets"></a>리소스 집합의 알려진 문제
+## <a name="customizing-resource-set-grouping-using-pattern-rules"></a>패턴 규칙을 사용하여 리소스 집합 그룹화 사용자 지정
 
-대부분의 경우 리소스 집합이 잘 작동하지만 Azure Purview에서 다음과 같은 문제가 발생할 수 있습니다.
+스토리지 계정을 스캔하는 경우 Azure Purview는 정의된 패턴 세트를 사용하여 자산 그룹이 리소스 집합인지 여부를 확인합니다. 경우에 따라 Azure Purview의 리소스 집합 그룹화에서 데이터 자산을 정확하게 반영하지 못할 수도 있습니다. 이러한 문제에는 다음이 포함될 수 있습니다.
 
-- 자산을 리소스 집합으로 잘못 표시합니다.
-- 잘못된 리소스 집합에 자산을 넣습니다.
-- 자산을 리소스 집합이 아닌 것으로 잘못 표시합니다.
+- 자산을 리소스 집합으로 잘못 표시
+- 잘못된 리소스 집합에 자산 배치
+- 자산을 리소스 집합이 아닌 것으로 잘못 표시
 
+Azure Purview에서 리소스 집합으로 그룹화된 자산을 검색하는 방법과 카탈로그 내에 표시되는 방법을 사용자 지정하거나 재정의하려면 관리 센터에서 패턴 규칙을 정의할 수 있습니다. 단계별 지침 및 구문은 [리소스 집합 패턴 규칙](how-to-resource-set-pattern-rules.md)을 참조하세요.
 ## <a name="next-steps"></a>다음 단계
 
 Azure Purview를 시작하려면 [빠른 시작: Azure Purview 계정 만들기](create-catalog-portal.md)를 참조하세요.

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sukishen
-ms.openlocfilehash: ea9ddd05fe6fc745a3eefc29ab4f1d6aababc936
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: eb6ae05b0e3c296a1ca56d3ea6085b8cd4586c23
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "94564704"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108165698"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Azure Virtual WAN을 사용한 SD-WAN 연결 아키텍처
 
@@ -32,9 +32,9 @@ Azure 가상 WAN 자체는 SD-WAN(Software Defined WAN)이지만 프레미스 �
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct.png" alt-text="직접 상호 연결 모델":::
 
-이 아키텍처 모델에서 SD-WAN 분기 CPE(고객-프레미스 장비)는 IPsec 연결을 통해 가상 WAN 허브에 직접 연결됩니다. 또한 분기 CPE는 프라이빗 SD-WAN을 통해 다른 분기에 연결하거나 분기 연결을 위해 가상 WAN을 활용할 수 있습니다. Azure에서 워크로드에 액세스해야 하는 분기는 가상 WAN 허브에서 종료되는 IPsec 터널을 통해 Azure에 직접 안전하게 액세스할 수 있습니다.
+이 아키텍처 모델에서 SD-WAN 분기 CPE(고객-프레미스 장비)는 IPsec 연결을 통해 가상 WAN 허브에 직접 연결됩니다. 또한 분기 CPE는 프라이빗 SD-WAN을 통해 다른 분기에 연결하거나 분기 연결을 위해 Virtual WAN을 사용할 수 있습니다. Azure에서 워크로드에 액세스해야 하는 분기는 가상 WAN 허브에서 종료되는 IPsec 터널을 통해 Azure에 직접 안전하게 액세스할 수 있습니다.
 
-SD-WAN CPE 파트너는 자동화가 가능하여 각 CPE 장치에서 일반적으로 번거롭고 오류가 발생하기 쉬운 IPsec 연결을 자동화할 수 있습니다. 자동화를 통해 SD-WAN 컨트롤러는 가상 WAN API를 통해 Azure와 통신하여 가상 WAN 사이트를 구성하고 필요한 IPsec 터널 구성을 해당 지점에 푸시할 수 있습니다. 다양한 SD-WAN 파트너의 가상 WAN 상호 관계 자동화에 대한 설명은 [자동화 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.
+SD-WAN CPE 파트너는 자동화가 가능하여 각 CPE 장치에서 일반적으로 번거롭고 오류가 발생하기 쉬운 IPsec 연결을 자동화할 수 있습니다. 자동화를 통해 SD-WAN 컨트롤러는 Virtual WAN API를 통해 Azure와 통신하여 Virtual WAN 사이트를 구성하고 필요한 IPsec 터널 구성을 해당 분기 CPE에 푸시할 수 있습니다. 다양한 SD-WAN 파트너의 가상 WAN 상호 관계 자동화에 대한 설명은 [자동화 지침](virtual-wan-configure-automation-providers.md)을 참조하세요.
 
 SD-WAN CPE는 트래픽 최적화 및 경로 선택이 구현되고 적용되는 위치를 유지합니다. 
 

@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/12/2019
+ms.date: 04/28/2021
 ms.author: duau
-ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: be671ec7a1f2e8fb11c49b8d17290c88f5db254a
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92206291"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108203382"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>공용 피어링을 Microsoft 피어링으로 이동
 
@@ -33,7 +33,8 @@ Microsoft 피어링에 연결하려면 NAT를 설정하고 관리해야 합니�
 
 Microsoft 피어링을 구성하기 전에 [여러 네트워크 경로를 사용하는 비대칭 라우팅](./expressroute-asymmetric-routing.md)에서 비대칭 라우팅의 주의 사항을 확인하세요.
 
-* 공용 피어링을 사용하고 있고 현재 [Azure Storage](../storage/common/storage-network-security.md)나 [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md)에 액세스하는 데 사용되는 공용 IP 주소에 대한 IP 네트워크 규칙이 있는 경우, Microsoft 피어링으로 구성된 NAT IP 풀이 Azure 스토리지 계정 또는 Azure SQL 계정의 공용 IP 주소 목록에 포함되어 있는지 확인해야 합니다.<br>
+* 공용 피어링을 사용하고 있고 현재 [Azure Storage](../storage/common/storage-network-security.md)나 [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md)에 액세스하는 데 사용되는 공용 IP 주소에 대한 IP 네트워크 규칙이 있는 경우, Microsoft 피어링으로 구성된 NAT IP 풀이 Azure 스토리지 계정 또는 Azure SQL 계정의 공용 IP 주소 목록에 포함되어 있는지 확인해야 합니다.
+* 레거시 공용 피어링은 Microsoft 등록 공용 IP에 대한 SNAT(원본 네트워크 주소 변환)를 사용하지만 Microsoft 피어링은 사용하지 않습니다.
 * 가동 중지 없이 Microsoft 피어링으로 이동하려면 이 문서의 단계를 제시된 순서대로 사용하십시오.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Microsoft 피어링 만들기

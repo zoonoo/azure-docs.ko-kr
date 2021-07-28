@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: chalton
-ms.openlocfilehash: 144e8058e640f98dc6b0ef60534405525532b00e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 681900e2d2175e3e52a906072ae0b31a835cd1c8
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102547869"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109483662"
 ---
 # <a name="document-extraction-cognitive-skill"></a>문서 추출 인식 기술
 
@@ -26,6 +26,12 @@ ms.locfileid: "102547869"
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
+
+## <a name="supported-document-formats"></a>지원되는 문서 형식
+
+DocumentExtractionSkill은 다음과 같은 문서 형식에서 텍스트를 추출할 수 있습니다.
+
+[!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## <a name="skill-parameters"></a>기술 매개 변수
 
@@ -60,13 +66,23 @@ Microsoft.Skills.Util.DocumentExtractionSkill
 }
 ```
 
+or
+
+```json
+{
+  "$type": "file",
+  "url": "URL to download file",
+  "sasToken": "OPTIONAL: SAS token for authentication if the URL provided is for a file in blob storage"
+}
+```
+
 이 파일 참조 개체는 다음 세 가지 방법 중 하나로 생성될 수 있습니다.
 
  - 인덱서 정의에서 `allowSkillsetToReadFileData` 매개 변수를 "true"로 설정합니다.  그러면 Blob 데이터 원본에서 다운로드한 원본 파일 데이터를 나타내는 개체인 `/document/file_data` 경로가 생성됩니다. 이 매개 변수는 Blob Storage의 데이터에만 적용됩니다.
 
  - 인덱서 정의의 `imageAction` 매개 변수를 `none` 이외의 값으로 설정합니다.  이렇게 하면 개별적으로 전달되는 경우 이 기술에 대한 입력에 필요한 규칙을 따르는 이미지 배열이 생성됩니다(즉, `/document/normalized_images/*`).
 
- - 사용자 지정 기술이 정확히 위와 같이 정의된 json 개체를 반환합니다.  `$type` 매개 변수는 정확하게 `file`로 설정해야 하며 `data` 매개 변수는 파일 콘텐츠의 기본 64 인코딩 바이트 배열 데이터여야 합니다.
+ - 사용자 지정 기술이 정확히 위와 같이 정의된 json 개체를 반환합니다.  `$type` 매개 변수는 정확히 `file`로 설정되어야 하고 `data` 매개 변수는 파일 콘텐츠의 base 64로 인코딩된 바이트 배열 데이터여야 합니다. 또는 `url` 매개 변수는 해당 위치에서 파일을 다운로드할 수 있는 액세스 권한이 있는 올바른 형식의 URL이어야 합니다.
 
 ## <a name="skill-outputs"></a>기술 출력
 

@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
-ms.date: 11/25/2020
-ms.openlocfilehash: b917e3fc93c59de85c5236c18e31d7bbc9d891f0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 03/25/2021
+ms.openlocfilehash: 1df93a987348ed54303f2d9118337dbc710bc3bc
+ms.sourcegitcommit: 12f15775e64e7a10a5daebcc52154370f3e6fa0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98065476"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108001427"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>디자이너의 예외 및 오류 코드
 
@@ -1236,7 +1236,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
  다음 조건이 충족되는 경우 Azure Machine Learning에서 이 오류가 발생합니다. (a) 입력 데이터 세트에 하나 이상의 스파스 열이 있고 (b) 요청된 차원의 최종 개수가 입력 차원의 수와 동일한 경우.  
 
-**해결 방법:** 출력의 차원 수를 입력의 차원 수보다 적게 줄이는 것이 좋습니다. 이는 PCA 애플리케이션에서 일반적입니다.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
+**해결 방법:** 출력의 차원 수를 입력의 차원 수보다 적게 줄이는 것이 좋습니다. PCA 애플리케이션에서는 일반적입니다.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
 
 |예외 메시지|
 |------------------------|
@@ -1252,7 +1252,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
 |예외 메시지|
 |------------------------|
-|모델을 역직렬화할 수 없습니다. 모델이 이전 버전 serialization 형식으로 직렬화되었을 수 있습니다. 모델을 재학습시킨 뒤 다시 저장하세요.|
+|모델을 역직렬화할 수 없습니다. 모델이 이전 버전 serialization 형식으로 직렬화되었을 수 있습니다. 모델을 재학습시킨 뒤 다시 저장합니다.|
 
 
 ## <a name="error-0083"></a>오류 0083  
@@ -1307,7 +1307,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 |------------------------|
 |Hive 테이블을 만들 수 없습니다. HDInsight 클러스터의 경우, 클러스터와 연결된 Azure Storage 계정 이름이 모듈 매개 변수를 통해 전달되는 것과 동일한지 확인하세요.|
 |Hive 테이블 "{table_name}"을(를) 만들 수 없습니다. HDInsight 클러스터의 경우, 클러스터와 연결된 Azure Storage 계정 이름이 모듈 매개 변수를 통해 전달되는 것과 동일한지 확인하세요.|
-|Hive 테이블 "{table_name}"을(를) 만들 수 없습니다. HDInsight 클러스터의 경우, 클러스터와 연결된 Azure Storage 계정 이름이 "{cluster_name}"인지 확인하세요.|
+|Hive 테이블 "{table_name}"을(를) 만들 수 없습니다. HDInsight 클러스터의 경우 클러스터와 연결된 Azure Storage 계정 이름이 "{cluster_name}"인지 확인합니다.|
 
 
 ## <a name="error-0102"></a>오류 0102  
@@ -1436,7 +1436,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 
   <!--If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](summarize-data.md). You can also use the [Apply SQL Transformation](apply-sql-transformation.md) to check for the number of unique values in each column.  
 
- Sometimes transient loads can lead to this error. Machine support also changes over time. 
+ Sometimes transient loads can lead to such error. Machine support also changes over time. 
 
  Try using [Principal Component Analysis](principal-component-analysis.md) or one of the provided feature selection methods to reduce your dataset to a smaller set of more feature-rich columns: [Feature Selection](feature-selection-modules.md)  -->
 
@@ -1505,7 +1505,7 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 |예외 메시지|
 |------------------------------------------------------------|
 |지정된 TransformationDirectory가 잘못되었습니다.|
-|TransformationDirectory "{arg_name}"이(가) 잘못되었습니다. 이유: {reason}. 변환 파일을 생성하는 학습 실험을 다시 실행하세요. 학습 실험이 삭제된 경우, 변환 파일을 다시 만들고 저장하세요.|
+|TransformationDirectory "{arg_name}"이(가) 잘못되었습니다. 이유: {reason}. 변환 파일을 생성하는 학습 실험을 다시 실행합니다. 학습 실험이 삭제된 경우, 변환 파일을 다시 만들고 저장하세요.|
 |TransformationDirectory "{arg_name}"이(가) 잘못되었습니다. 이유: {reason}. {troubleshoot_hint}|
 
 
@@ -1537,3 +1537,23 @@ Azure Machine Learning에서 이 오류는 지원되지 않는 메서드를 사�
 ## <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
 **Python 스크립트 실행 모듈** **70_driver_logs** 의 **in azureml_main** 을 검색하여 오류가 발생한 줄을 찾을 수 있습니다. 예를 들어 "File "/tmp/tmp01_ID/user_script.py", line 17, in azureml_main"은 Python 스크립트의 17번째 줄에서 오류가 발생했음을 나타냅니다.
+
+## <a name="distributed-training"></a>분산 학습
+
+현재 디자이너는 분산 학습 및 [PyTorch 모델 학습](train-pytorch-model.md) 모듈을 지원합니다.
+
+<!-- [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md) module  -->
+
+`70_driver` 로그 없이 모듈 사용 분산 학습이 실패하면 `70_mpi_log`에서 오류 세부 정보를 확인할 수 있습니다.
+
+  다음 예제에서는 실행 설정의 **노드 수** 가 컴퓨팅 클러스터의 사용 가능한 노드 수보다 크다는 것을 보여줍니다.
+  
+  [![노드 수 오류를 보여주는 스크린샷](./media/module/distributed-training-node-count-error.png)](./media/module/distributed-training-node-count-error.png#lightbox)
+
+  다음 예제에서는 **노드당 프로세스 수** 가 컴퓨팅의 **처리 단위** 보다 크다는 것을 보여줍니다.
+
+  [ ![mpi 로그를 보여주는 스크린샷](./media/module/distributed-training-error-mpi-log.png) ](./media/module/distributed-training-error-mpi-log.png#lightbox)
+
+그렇지 않으면 각 프로세스별로 `70_driver_log`를 확인할 수 있습니다. `70_driver_log_0`은 마스터 프로세스용입니다.
+
+  [![드라이버 로그를 보여주는 스크린샷](./media/module/distributed-training-error-driver-log.png) ](./media/module/distributed-training-error-driver-log.png#lightbox)

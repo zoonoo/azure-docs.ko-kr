@@ -2,13 +2,14 @@
 title: 새 구독 또는 리소스 그룹으로 Azure VM 이동
 description: Azure Resource Manager를 사용하여 Virtual Machines를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/23/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: f57b09900a955a3988c27f8f6990ff18db41c97c
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104912"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109751746"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Virtual Machines 이동 지침
 
@@ -56,7 +57,7 @@ Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
 
 ## <a name="virtual-machines-with-azure-backup"></a>Azure Backup을 사용하는 Virtual Machines
 
-Azure Backup를 사용하여 구성된 Virtual Machines를 이동하려면 자격 증명 모음에서 복원 지점을 삭제해야 합니다.
+Azure Backup으로 구성된 가상 머신을 이동하려면 자격 증명 모음에서 복원 지점 컬렉션(스냅샷)을 삭제해야 합니다. 자격 증명 모음에 이미 복사된 복원 지점을 유지하고 이동할 수 있습니다.
 
 가상 머신에 대해 [일시 삭제](../../../backup/soft-delete-virtual-machines.md)가 사용하도록 설정된 경우 해당 복원 지점이 유지되는 동안에는 가상 머신을 이동할 수 없습니다. [일시 삭제를 사용하지 않도록 설정](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete)하거나 복원 지점이 삭제된 후 14일간 기다립니다.
 
@@ -73,7 +74,7 @@ Azure Backup를 사용하여 구성된 Virtual Machines를 이동하려면 자�
    6. 삭제 작업을 완료한 후 가상 머신을 이동할 수 있습니다.
 
 3. VM을 대상 리소스 그룹으로 이동합니다.
-4. 백업을 다시 시작합니다.
+4. 백업을 다시 구성합니다.
 
 ### <a name="powershell"></a>PowerShell
 

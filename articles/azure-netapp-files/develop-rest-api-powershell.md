@@ -1,6 +1,6 @@
 ---
-title: PowerShell을 사용 하 여 REST API를 사용 하 여 Azure NetApp Files 개발 | Microsoft Docs
-description: PowerShell을 사용 하 여 Azure NetApp Files REST API를 시작 하는 방법을 설명 합니다.
+title: PowerShell을 사용하여 REST API로 Azure NetApp Files 개발 | Microsoft Docs
+description: PowerShell을 통해 Azure NetApp Files REST API 사용하기 시작하는 방법을 설명합니다.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: b-juche
-ms.openlocfilehash: 2e169bb4f7be8b52657d2caf8f05643875a8348c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: b481c021a1bb90b9839c5ee014bc9caf54bd7911
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180380"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109785658"
 ---
-# <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>PowerShell을 사용 하 여 REST API를 사용 하 여 Azure NetApp Files 개발
+# <a name="develop-for-azure-netapp-files-with-rest-api-using-powershell"></a>PowerShell을 사용하여 REST API로 Azure NetApp Files 개발
 
-Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 및 스냅샷과 같은 리소스에 대한 HTTP 작업을 정의합니다. 이 문서는 PowerShell을 사용 하 여 Azure NetApp Files REST API 사용을 시작 하는 데 도움이 됩니다.
+Azure NetApp Files 서비스용 REST API는 NetApp 계정, 용량 풀, 볼륨 및 스냅샷과 같은 리소스에 대한 HTTP 작업을 정의합니다. 이 문서는 PowerShell을 통해 Azure NetApp Files REST API 사용을 시작하는 데 도움이 됩니다.
 
 ## <a name="azure-netapp-files-rest-api-specification"></a>Azure NetApp Files REST API 사양
 
-Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)를 통해 게시 됩니다.
+Azure NetApp Files용 REST API 사양은 [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager)를 통해 게시됩니다.
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 
@@ -40,11 +40,11 @@ Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azu
 
    2. Azure CLI에서 다음 명령을 입력합니다.  
 
-      ```azurepowershell
+      ```azurecli
       $RBAC_SP = az ad sp create-for-rbac --name <YOURSPNAMEGOESHERE> | ConvertFrom-Json         
       ```
 
-      서비스 사용자 정보를 표시 하려면를 입력 하 `$RBAC_SP` 고 enter 키를 누릅니다.
+      서비스 사용자 정보를 표시하려면 `$RBAC_SP`를 입력하고 Enter를 누릅니다.
 
       ```output
       appId       : appID displays here
@@ -54,25 +54,25 @@ Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azu
       tenant      : your tenant shows here
       ```
         
-      출력은 변수 개체에 저장 됩니다 `$RBAC_SP` . 여기서는 `$RBAC_SP.appId` , `$RBAC_SP.password` 및 값을 사용 `$RBAC_SP.tenant` 합니다.
+      출력은 변수 개체 `$RBAC_SP`에 저장됩니다. 여기서는 `$RBAC_SP.appId` , `$RBAC_SP.password` 및 `$RBAC_SP.tenant` 값을 사용합니다.
 
 3. OAuth 액세스 토큰을 요청합니다.
 
-    이 문서의 예제에서는 PowerShell을 사용 합니다. [Postman](https://www.getpostman.com/), [Insomnia](https://insomnia.rest/) 및 [Paw](https://paw.cloud/)와 같은 다양한 API 도구를 사용할 수도 있습니다.  
+    이 문서의 예제에서는 PowerShell을 사용합니다. [Postman](https://www.getpostman.com/), [Insomnia](https://insomnia.rest/) 및 [Paw](https://paw.cloud/)와 같은 다양한 API 도구를 사용할 수도 있습니다.  
 
-    이제 변수를 사용 하 여 `$RBAC_SP` 전달자 토큰을 가져옵니다. 
+    이제 `$RBAC_SP` 변수를 사용하여 전달자 토큰을 가져옵니다. 
     
     ```azurepowershell
     $body = "grant_type=client_credentials&client_id=$($RBAC_SP.appId)&client_secret=$($RBAC_SP.password)&resource=https://management.azure.com/"
     $BearerToken = Invoke-RestMethod -Method Post -body $body -Uri https://login.microsoftonline.com/$($RBAC_SP.tenant)/oauth2/token
     ```
-    출력은 전달자 토큰 개체를 제공 합니다. 을 입력 하 여 액세스 토큰을 볼 수 있습니다 `$BearerToken.access_token` . 다음 예제와 같이 표시됩니다.
+    출력은 전달자 토큰 개체를 제공합니다. `$BearerToken.access_token`을 입력하여 액세스 토큰을 볼 수 있습니다. 다음 예제와 같이 표시됩니다.
 
     ```output
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSIsImtpZCI6Im5iQ3dXMTF3M1hrQi14VWFYd0tSU0xqTUhHUSJ9
     ```
 
-    표시된 토큰은 3600초간 유효합니다. 그 후에는 새 토큰을 요청해야 합니다. 토큰은 변수에 저장 되 고 다음 단계에서 사용 됩니다.
+    표시된 토큰은 3600초간 유효합니다. 그 후에는 새 토큰을 요청해야 합니다. 토큰이 변수에 저장되며, 다음 단계에서 사용됩니다.
 
 4. `headers` 개체를 만듭니다.
 
@@ -95,8 +95,8 @@ Azure NetApp Files에 대 한 REST API 사양은 [GitHub](https://github.com/Azu
 
 `https://management.azure.com/subscriptions/$SUBID/resourceGroups/$RESOURCEGROUP/providers/Microsoft.NetApp/netAppAccounts?api-version=2019-11-01`
 
-사용자 고유의 값을 사용 하 여 다음 예제를 실행 하기 전에 변수 값을 할당 해야 합니다. PowerShell 변수는를 입력 하 여 액세스 `$variablename` 합니다.
-PowerShell 변수는를 사용 하 여 할당 됩니다 `$variablename = “value”` .
+다음 예제를 실행하기 전에 변수 값에 사용자 고유 값을 할당해야 합니다. PowerShell 변수는 `$variablename`을 입력하여 액세스합니다.
+PowerShell 변수는 `$variablename = “value”`을 사용하여 할당합니다.
 
 ```azurepowershell
 $Region = “westus2" 
@@ -117,7 +117,7 @@ $ANFSnapshot = “ANFTestSnapshot"
 
 ### <a name="put-request-examples"></a>PUT 요청 예제
 
-다음 예제와 같이 PUT 요청을 사용하여 Azure NetApp Files에 새 개체를 만듭니다. PUT 요청의 본문에는 변경 내용에 대 한 JSON 형식의 데이터가 포함 됩니다. PowerShell 명령에 텍스트로 포함 되거나 파일로 참조 되어야 합니다. 파일의 본문을 참조 하려면 json 예제를 파일에 저장 하 고 `-body (Get-Content @<filename>)` PowerShell 명령에를 추가 합니다.
+다음 예제와 같이 PUT 요청을 사용하여 Azure NetApp Files에 새 개체를 만듭니다. PUT 요청의 본문에는 변경 내용에 대한 JSON 형식의 데이터가 포함됩니다. PowerShell 명령에 텍스트로 포함되거나 파일로 참조되어야 합니다. 파일의 본문을 참조하려면 json 예제를 파일에 저장하고 PowerShell 명령에 `-body (Get-Content @<filename>)`을 추가합니다.
 
 ```azurepowershell
     #create a NetApp account  
@@ -210,7 +210,7 @@ $ANFSnapshot = “ANFTestSnapshot"
     }
 ```
 
-다음 예에서는 새 볼륨을 만드는 방법을 보여 줍니다. 볼륨의 기본 프로토콜은 NFSV3입니다. 
+다음 예제에서는 새 볼륨을 만드는 방법을 보여 줍니다. 볼륨의 기본 프로토콜은 NFSV3입니다. 
 
 ```json
     {
@@ -246,7 +246,7 @@ $ANFSnapshot = “ANFTestSnapshot"
 
 ### <a name="get-request-examples"></a>GET 요청 예제
 
-리소스가 없는 경우 오류가 발생 합니다. 다음 예제와 같이 GET 요청을 사용하여 구독에서 Azure NetApp Files의 개체를 쿼리합니다.
+리소스가 없으면 오류가 발생합니다. 다음 예제와 같이 GET 요청을 사용하여 구독에서 Azure NetApp Files의 개체를 쿼리합니다.
 
 ```azurepowershell
 #get NetApp accounts 
@@ -269,7 +269,7 @@ Invoke-RestMethod -Method Get -Headers $headers -Uri https://management.azure.co
 ```
 
 ### <a name="complete-powershell-scripts"></a>전체 PowerShell 스크립트
-이 섹션에는 PowerShell에 대 한 샘플 스크립트가 나와 있습니다.
+이 섹션에는 PowerShell의 샘플 스크립트가 나와 있습니다.
 
 ```azurepowershell
     <#

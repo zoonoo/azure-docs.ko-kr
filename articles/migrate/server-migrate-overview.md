@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 22a0629d50ee8181ffcbfe7dad32ab76fb3e68fd
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101715125"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714167"
 ---
 # <a name="select-a-vmware-migration-option"></a>VMware 마이그레이션 옵션 선택
 
@@ -33,8 +33,9 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **Site Recovery 호환성** | 호환 가능합니다. | Site Recovery를 사용하여 머신 복제를 설정한 경우 Azure Migrate 서버 마이그레이션으로 복제할 수 없습니다.
 **대상 디스크** | 관리 디스크 | 관리 디스크
 **디스크 제한** | OS 디스크: 2TB<br/><br/> 데이터 디스크: 32TB<br/><br/> 최대 디스크: 60 | OS 디스크: 2TB<br/><br/> 데이터 디스크: 32TB<br/><br/> 최대 디스크: 63
-**통과 디스크** | 지원되지 않음 | 지원됨
-**UEFI 부팅** | 지원됨. | 지원됨.
+**통과 디스크** | 지원되지 않음 | 지원 여부
+**UEFI 부팅** | 지원됨. | 지원됨. 
+**연결** | 공용 인터넷 <br/> Microsoft 피어링을 사용하는 ExpressRoute <br/> <br/> ExpressRoute 개인 피어링 또는 S2S VPN 연결을 통한 복제에 프라이빗 엔드포인트를 사용하는 [방법을 알아봅니다](./replicate-using-expressroute.md). |공용 인터넷 <br/> 개인 피어링을 사용하는 ExpressRoute <br/> Microsoft 피어링을 사용하는 ExpressRoute <br/> 사이트 간 VPN
 
 ## <a name="compare-deployment-steps"></a>배포 단계 비교
 
@@ -48,7 +49,7 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 **마이그레이션을 위해 VMware 준비** | VMware 서버 및 VM에 대한 설정을 구성합니다. | 필수 | 필수
 **VM에 Mobility Service 설치** | Mobility Service는 복제하려는 각 VM에서 실행됩니다. | 필요 없음 | 필수
 **복제 어플라이언스 배포** | [복제 어플라이언스](migrate-replication-appliance.md)는 에이전트 기반 마이그레이션에 사용되며 VM에서 실행되는 Mobility Service와 서버 마이그레이션을 연결합니다. | 필요 없음 | 필수
-**VM 복제**. VM 복제를 사용하도록 설정. | 복제 설정을 구성하고 복제할 VM을 선택 | 필수 | 필수
+**VM 복제**. VM 복제를 활성화합니다. | 복제 설정을 구성하고 복제할 VM을 선택 | 필수 | 필수
 **테스트 마이그레이션 실행** | 테스트 마이그레이션을 실행하여 모든 것이 예상대로 작동하는지 확인합니다. | 필수 | 필수
 **전체 마이그레이션 실행** | VM 마이그레이션. | 필수 | 필수
 

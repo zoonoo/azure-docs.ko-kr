@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 02/23/2021
-ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/20/2021
+ms.openlocfilehash: 59c1ca67c9e93b62890512cda647ffcdf7712f9a
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644655"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107819271"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Azure Blob Storage 및 Azure Data Lake Storage에서 데이터 공유 및 수신
 
@@ -19,7 +19,7 @@ ms.locfileid: "105644655"
 
 Azure Data Share는 스토리지 계정에서의 스냅샷 기반 공유를 지원합니다. 이 문서에서는 Azure Blob Storage, Azure Data Lake Storage Gen1 및 Azure Data Lake Storage Gen2에서 데이터를 공유하고 받는 방법을 설명합니다.
 
-Azure Data Share는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 파일, 폴더 및 파일 시스템을 공유하도록 지원합니다. 또한 Azure Blob Storage에서 blob, 폴더 및 컨테이너를 공유할 수 있도록 지원합니다. 현재 블록 blob만 지원됩니다. 이 원본에서 공유하는 데이터는 Azure Data Lake Gen2 또는 Azure Blob Storage에서 받을 수 있습니다.
+Azure Data Share는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 파일, 폴더 및 파일 시스템을 공유하도록 지원합니다. 또한 Azure Blob Storage에서 blob, 폴더 및 컨테이너를 공유할 수 있도록 지원합니다. 블록, 추가 또는 페이지 Blob을 공유할 수 있으며 블록 Blob으로 수신됩니다. 이 원본에서 공유하는 데이터는 Azure Data Lake Gen2 또는 Azure Blob Storage에서 받을 수 있습니다.
 
 스냅샷 기반 공유에서 파일 시스템, 컨테이너 또는 폴더가 공유되는 경우 데이터 소비자는 공유 데이터의 전체 복사본을 만들도록 선택할 수 있습니다. 또는 증분 스냅샷 기능을 사용하여 새 파일이나 업데이트된 파일만 복사할 수 있습니다. 증분 스냅샷 기능은 파일의 마지막 수정 시간을 기반으로 합니다. 
 
@@ -30,7 +30,7 @@ Azure Data Share는 Azure Data Lake Gen1 및 Azure Data Lake Gen2에서 파일, 
 Azure Data Share를 사용하여 데이터를 공유하려면 다음 섹션의 정보를 사용하세요. 
 ### <a name="prerequisites-to-share-data"></a>데이터 공유를 위한 필수 구성 요소
 
-* Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 수신자의 Azure 로그인 메일 주소를 찾습니다. 수신자의 메일 별칭은 사용자의 목적에 맞지 않습니다.
 * 원본 Azure 데이터 저장소가 Data Share 리소스를 만드는 데 사용하는 것과 다른 Azure 구독에 있는 경우 Azure 데이터 저장소가 있는 구독에 [Microsoft.DataShare 리소스 공급자](concepts-roles-permissions.md#resource-provider-registration)를 등록합니다. 
 
@@ -110,7 +110,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. **계속** 을 선택합니다.
 
-1. **검토 + 만들기** 탭에서 패키지 콘텐츠, 설정, 수신자 및 동기화 설정을 검토합니다. 그런 다음 **생성** 를 선택합니다.
+1. **검토 + 만들기** 탭에서 패키지 콘텐츠, 설정, 수신자 및 동기화 설정을 검토합니다. 그런 다음 **만들기** 를 선택합니다.
 
 이제 Azure 데이터 공유를 만들었습니다. 데이터 공유의 수신자는 초대를 수락할 수 있습니다. 
 
@@ -201,7 +201,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 * 원본과 대상 데이터 저장소에 대한 동시 액세스.  
 * 원본과 대상 데이터 저장소의 위치. 
-* 증분 스냅샷의 경우 공유 데이터 세트의 파일 수는 마지막으로 성공한 스냅샷 이후 마지막으로 수정된 시간을 사용하여 파일 목록을 찾는 데 걸리는 시간에 영향을 줄 수 있습니다. 
+* 증분 스냅샷의 경우 공유 데이터 세트의 파일 수는 마지막으로 성공한 스냅샷 이후 마지막으로 수정된 시간을 통해 파일 목록을 찾는 데 걸리는 시간에 영향을 줄 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

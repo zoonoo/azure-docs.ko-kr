@@ -1,24 +1,24 @@
 ---
 title: Azure Active Directory에서 앱에 사용자 프로비전하기 위한 SCIM 엔드포인트 빌드
-description: SCIM 엔드포인트를 개발하고, SCIM API를 Azure AD와 통합하고, Azure Active Directory를 사용하여 사용자 및 그룹을 클라우드 애플리케이션에 자동으로 프로비전하는 방법을 알아봅니다.
+description: SCIM 엔드포인트를 개발하고, SCIM API를 Azure Active Directory와 통합하고, 사용자 및 그룹을 클라우드 애플리케이션에 자동으로 프로비전하는 방법을 알아봅니다.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 05/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ac876ff4370c20ca0b4db59575a3d8ab49b7b0a3
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101689337"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784848"
 ---
-# <a name="tutorial-develop-a-sample-scim-endpoint"></a>자습서: 샘플 SCIM 엔드포인트 개발
+# <a name="tutorial-develop-a-sample-scim-endpoint-in-azure-active-directory"></a>자습서: Azure Active Directory에서 샘플 SCIM 엔드포인트 개발
 
 새 엔드포인트를 처음부터 빌드하지 않도록 [SCIM(System for Cross-domain Identity Management)](https://aka.ms/scimoverview)으로 시작할 수 있는 몇 가지 [참조 코드](https://aka.ms/scimreferencecode)를 만들었습니다. 5분 내에 코드 없이 SCIM 엔드포인트를 실행할 수 있습니다.
 

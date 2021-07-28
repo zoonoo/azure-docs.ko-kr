@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7a66b53cbcc8a072dce6b4f5f2f1f0cf1dc6322f
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100577841"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109714335"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리의 위임 및 역할
 
@@ -65,7 +65,7 @@ Hana가 마케팅, 재무 및 법무 부서에 액세스 거버넌스를 위임�
 
 | 사용자 | 직무 | Azure AD 역할 | 권한 관리 역할 |
 | --- | --- | --- | --- |
-| Hana | IT 관리자 | 전역 관리자 또는 사용자 관리자 |  |
+| Hana | IT 관리자 | 전역 관리자, Identity Governance 관리자 또는 사용자 관리자 |  |
 | Mamta | 마케팅 관리자 | 사용자 | 카탈로그 작성자 및 카탈로그 소유자 |
 | Bob | 마케팅 잠재 고객 | 사용자 | 카탈로그 소유자 |
 | Jessica | 마케팅 프로젝트 관리자 | 사용자 | 액세스 패키지 관리자 |
@@ -74,7 +74,7 @@ Hana가 마케팅, 재무 및 법무 부서에 액세스 거버넌스를 위임�
 
 권한 관리에는 권한 관리와 관련된 다음과 같은 역할이 있습니다.
 
-| 권한 관리 역할 | 설명 |
+| 권한 관리 역할 | Description |
 | --- | --- |
 | 카탈로그 작성자 | 카탈로그를 만들고 관리합니다. 일반적으로 전역 관리자가 아닌 IT 관리자 또는 리소스 컬렉션에 대한 리소스 소유자입니다. 카탈로그를 만드는 사람은 자동으로 카탈로그의 첫 번째 카탈로그 소유자가 되며 카탈로그 소유자를 더 추가할 수 있습니다. 카탈로그 작성자는 소유하지 않은 카탈로그를 관리하거나 볼 수 없으며 소유하지 않은 리소스를 카탈로그에 추가할 수 없습니다. 카탈로그 작성자가 다른 카탈로그를 관리하거나 소유하지 않은 리소스를 추가해야 하는 경우 해당 카탈로그 또는 리소스의 공동 소유자가 되도록 요청할 수 있습니다. |
 | 카탈로그 소유자 | 기존 카탈로그를 편집하고 관리합니다. 일반적으로 IT 관리자 또는 리소스 소유자이거나 카탈로그 소유자가 선택한 사용자입니다. |
@@ -83,7 +83,7 @@ Hana가 마케팅, 재무 및 법무 부서에 액세스 거버넌스를 위임�
 
 또한 선택된 승인자와 액세스 패키지의 요청자는 역할이 아니라 권한이 있습니다.
 
-| 오른쪽 | 설명 |
+| 오른쪽 | Description |
 | --- | --- |
 | 승인자 | 액세스 패키지에 대한 요청을 승인하거나 거부하기 위해 정책에서 권한을 부여합니다. 단, 액세스 패키지 정의는 변경할 수 없습니다. |
 | Requestor | 액세스 패키지를 요청하는 액세스 패키지의 정책에 의해 권한이 부여됩니다. |

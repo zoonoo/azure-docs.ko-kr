@@ -5,25 +5,25 @@ description: 자동화된 Machine Learning 모델이 기능 중요도를 결정�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, automl, responsible-ml
+ms.topic: how-to
+ms.custom: automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 535ff489060c8099ba3c695f2b615f3c38309698
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: 716ed2920b1e731a8515b7f099e77853955d9943
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106167943"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107884807"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>해석력: 자동화된 Machine Learning의 모델 설명(미리 보기)
 
 
-
-이 문서에서는 Azure Machine Learning에서 AutoML(자동화된 Machine Learning)에 대한 설명을 가져오는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 생성된 모델의 기능 중요도를 이해하는데 도움이 됩니다. 
+이 글에서는 Python SDK를 사용하여 Azure Machine Learning에서 자동화된 Machine Learning(자동화된 ML)에 대한 설명을 가져오는 방법에 대해 알아봅니다. 자동화된 ML은 생성된 모델의 기능 중요도를 이해하는 데 도움이 됩니다. 
 
 1\.0.85 이후의 모든 SDK 버전은 기본적으로 `model_explainability=True`로 설정됩니다. SDK 버전 1.0.85 및 이전 버전에서 사용자는 모델 해석력을 사용하기 위해 `AutoMLConfig` 개체에 `model_explainability=True`을 설정해야 합니다. 
+
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "106167943"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 해석력 기능입니다. `pip install azureml-interpret`을 실행하여 필요한 패키지를 가져옵니다.
-- 자동화된 Machine Learning 실험 빌드에 대한 지식입니다. Azure Machine Learning SDK 사용 방법에 대한 자세한 내용은 이 [회귀 모델 자습서](tutorial-auto-train-models.md)를 완료하거나 [자동화된 Machine Learning 실험 구성 방법](how-to-configure-auto-train.md)을 참조하세요.
+- 자동화된 ML 실험 빌드에 대한 지식입니다. Azure Machine Learning SDK 사용 방법에 대한 자세한 내용은 이 [회귀 모델 자습서](tutorial-auto-train-models.md)를 완료하거나 [자동화된 ML 실험 구성 방법](how-to-configure-auto-train.md)을 참조하세요.
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>최적 모델에 대한 학습 중의 해석력
 
@@ -105,11 +105,11 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 
 ### <a name="initialize-the-mimic-explainer-for-feature-importance"></a>기능 중요도에 대한 모방 설명자 초기화
 
-자동화된 Machine Learning 모델에 대한 설명을 생성하려면 `MimicWrapper` 클래스를 사용합니다. 다음 매개 변수를 사용하여 MimicWrapper를 초기화할 수 있습니다:
+자동화된 ML 모델에 대한 설명을 생성하려면 `MimicWrapper` 클래스를 사용합니다. 다음 매개 변수를 사용하여 MimicWrapper를 초기화할 수 있습니다:
 
 - 설명자 설정 개체
 - 작업 영역
-- 자동화된 Machine Learning 모델 `fitted_model`을 설명하는 서로게이트 모델
+- 자동화된 ML 모델 `fitted_model`을 설명하는 서로게이트 모델
 
 MimicWrapper는 엔지니어링된 설명이 업로드 될 `automl_run` 개체도 가져옵니다.
 
@@ -128,7 +128,7 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
 
 ### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>모방 설명자를 사용하여 엔지니어링된 기능 중요도를 계산 및 시각화
 
-변환된 테스트 샘플을 사용하여 MimicWrapper에서 `explain()` 메서드를 호출하여 만들어진 엔지니어링된 기능에 대한 기능 중요도를 가져올 수 있습니다. 또한 [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인하여 자동화된 Machine Learning 기능화기에서 만들어진 엔지니어링된 기능의 기능 중요도 값에 대한 대시보드 시각화를 확인할 수 있습니다.
+변환된 테스트 샘플을 사용하여 MimicWrapper에서 `explain()` 메서드를 호출하여 만들어진 엔지니어링된 기능에 대한 기능 중요도를 가져올 수 있습니다. 또한 [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인하여 자동화된 ML 기능화를 통해 생성한 엔지니어링된 기능의 기능 중요도 값에 대한 설명 대시보드 시각화를 확인할 수 있습니다.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
@@ -184,7 +184,7 @@ print(raw_explanations.get_feature_importance_dict())
 
 ## <a name="interpretability-during-inference"></a>유추 중의 해석력
 
-이 섹션에서는 이전 섹션의 설명을 계산하는 데 사용된 설명자로 자동화된 Machine Learning 모델을 운영하는 방법을 알아봅니다.
+이 섹션에서는 이전 섹션의 설명을 계산하는 데 사용된 설명자로 자동화된 ML 모델을 운영하는 방법을 알아봅니다.
 
 ### <a name="register-the-model-and-the-scoring-explainer"></a>모델 및 채점 설명자 등록
 
@@ -321,9 +321,9 @@ if service.state == 'Healthy':
     print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
-### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>학습 시간에 데이터 및 설명의 패턴을 발견하도록 시각화
+## <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>학습 시간에 데이터 및 설명의 패턴을 발견하도록 시각화
 
-[Machine Learning Studio](https://ml.azure.com)의 작업 영역에서 기능 중요도 차트를 시각화 할 수 있습니다. 자동화된 Machine Learning 실행이 완료되면 **모델 세부 정보 보기** 를 선택하여 특정 실행을 확인할 수 있습니다. 설명 시각화 대시보드를 보려면 **설명** 탭을 선택합니다.
+[Azure Machine LearningStudio](https://ml.azure.com)의 작업 영역에서 기능 중요도 차트를 시각화 할 수 있습니다. 자동화된 Machine Learning 실행이 완료되면 **모델 세부 정보 보기** 를 선택하여 특정 실행을 확인할 수 있습니다. 설명 대시보드에서 시각화를 보려면 **설명** 탭을 선택합니다.
 
 [![Machine Learning 해석력 아키텍처](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

@@ -1,17 +1,17 @@
 ---
 title: 복사 활동의 스키마 및 데이터 형식 매핑
 description: Azure Data Factory의 복사 작업이 어떻게 원본 데이터의 스키마와 데이터 형식을 싱크 데이터에 매핑하는지 알아봅니다.
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.author: jingwang
-ms.openlocfilehash: 0aee6030e5608b5413864d6a32dc8442dd346f42
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.author: jianleishen
+ms.openlocfilehash: 2bd616ddec207d2aad47608c6f0200c7b629471e
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100392785"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109482528"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>복사 활동의 스키마 및 데이터 형식 매핑
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "100392785"
 
 ### <a name="default-mapping"></a>기본 매핑
 
-기본적으로 복사 작업은 원본 데이터를 대/소문자 구분 방식으로 **열 이름에 따라** 싱크에 매핑합니다. 예를 들어 파일에 쓰는 경우와 같이 싱크가 없으면 원본 필드 이름이 싱크 이름으로 유지됩니다. 이러한 기본 매핑은 원본에서 싱크로, 실행에서 실행으로의 유연한 스키마 및 스키마 드리프트를 지원합니다. 원본 데이터 저장소에서 반환된 모든 데이터는 싱크로 복사할 수 있습니다.
+기본적으로 복사 작업은 원본 데이터를 대/소문자 구분 방식으로 **열 이름에 따라** 싱크에 매핑합니다. 예를 들어 파일에 쓰는 경우와 같이 싱크가 없으면 원본 필드 이름이 싱크 이름으로 유지됩니다. 싱크가 이미 있는 경우 원본에서 복사되는 모든 열이 포함되어야 합니다. 이러한 기본 매핑은 원본에서 싱크로, 실행에서 실행으로의 유연한 스키마 및 스키마 드리프트를 지원합니다. 원본 데이터 저장소에서 반환된 모든 데이터는 싱크로 복사할 수 있습니다.
 
 소스가 헤더 줄이 없는 텍스트 파일인 경우 원본에 열 이름이 포함되지 않으므로 [명시적 매핑](#explicit-mapping)이 필요합니다.
 

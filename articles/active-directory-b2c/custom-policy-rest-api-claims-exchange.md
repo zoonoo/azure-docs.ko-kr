@@ -7,30 +7,39 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 04/28/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84053df34ffda0d4686ad80a9e5f3af00ac53d72
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+zone_pivot_groups: b2c-policy-type
+ms.openlocfilehash: d790048b87beaf10bc19755ba2c8d631e57b6c33
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94949499"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108174599"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>연습: Azure Active Directory B2C에서 REST API 클레임 교환을 사용자 지정 정책에 추가하기
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C(Azure AD B2C)를 사용하면 ID 개발자가 사용자 경험에서 RESTful API와 상호 작용을 통합할 수 있습니다. 이 연습의 끝부분에서는 [RESTful 서비스](custom-policy-rest-api-intro.md)와 상호 작용하는 Azure AD B2C 사용자 경험을 만들 수 있습니다.
+::: zone pivot="b2c-user-flow"
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-limited-to-custom-policy.md)]
+
+::: zone-end
+
+::: zone pivot="b2c-custom-policy"
+
+Azure Active Directory B2C(Azure AD B2C)를 사용하면 ID 개발자가 사용자 경험에서 RESTful API와 상호 작용을 통합할 수 있습니다. 이 연습의 끝부분에서는 [RESTful 서비스](api-connectors-overview.md)와 상호 작용하는 Azure AD B2C 사용자 경험을 만들 수 있습니다.
 
 이 시나리오에서는 회사 LOB(기간 업무) 워크플로와 통합하여 사용자의 토큰 데이터를 보강합니다. 로컬 또는 페더레이션된 계정으로 가입 또는 로그인하는 동안 Azure AD B2C는 REST API를 호출하여 원격 데이터 원본에서 사용자의 확장된 프로필 데이터를 가져옵니다. 이 샘플에서는 Azure AD B2C는 사용자의 고유 식별자인 objectId를 보냅니다. 그런 다음, REST API는 사용자 계정의 잔액(난수)을 반환합니다. 이 샘플을 시작 지점으로 사용하여 자체 CRM 시스템, 마케팅 데이터베이스 또는 LOB(기간 업무) 워크플로와 통합할 수 있습니다.
 
-또한 상호 작용은 유효성 기술 프로필로 설계할 수 있습니다. 이는 REST API가 화면에서 데이터의 유효성을 검사하고 클레임을 반환하는 경우에 적합합니다. 자세한 내용은 [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](custom-policy-rest-api-claims-validation.md)을 참조하세요.
+또한 상호 작용은 유효성 기술 프로필로 설계할 수 있습니다. 이는 REST API가 화면에서 데이터의 유효성을 검사하고 클레임을 반환하는 경우에 적합합니다. 자세한 내용은 [연습: 등록 사용자 흐름에 API 커넥터 추가](add-api-connector.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
-- [Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환을 통합](custom-policy-rest-api-intro.md)하는 방법에 대해 알아봅니다.
+- [사용자 지정 정책 시작](tutorial-create-user-flows.md?pivots=b2c-custom-policy)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
+- [Azure AD B2C 사용자 지정 정책에서 REST API 클레임 교환을 통합](api-connectors-overview.md)하는 방법에 대해 알아봅니다.
 
 ## <a name="prepare-a-rest-api-endpoint"></a>REST API 엔드포인트 준비
 
@@ -114,14 +123,14 @@ REST API 엔드포인트의 설정은 이 문서에서 다루지 않습니다. [
 
 ### <a name="configure-the-restful-api-technical-profile"></a>RESTful API 기술 프로필 구성 
 
-REST API 배포한 후 다음을 포함 하 여 `REST-ValidateProfile` 고유한 REST API를 반영 하도록 기술 프로필의 메타 데이터를 설정 합니다.
+REST API를 배포한 후에는 다음을 포함하여 고유한 REST API를 반영하도록 `REST-ValidateProfile` 기술 프로필 메타데이터를 설정하세요.
 
-- **Serviceurl**. REST API 끝점의 URL을 설정 합니다.
-- **Sendclaimsin**. RESTful 클레임 공급자로 입력 클레임을 보내는 방법을 지정 합니다.
-- **AuthenticationType**. RESTful 클레임 공급자에서 수행 하는 인증의 유형을 설정 합니다. 
-- **Allowinsecureauthinproduction**. 프로덕션 환경에서이 메타 데이터를로 설정 해야 합니다. `true`
+- **ServiceUrl**. REST API 엔드포인트 URL을 설정합니다.
+- **SendClaimsIn**. 입력 클레임이 RESTful 클레임 공급자로 전송되는 방법을 지정합니다.
+- **AuthenticationType**. RESTful 클레임 공급자가 수행하는 인증 유형을 설정합니다. 
+- **AllowInsecureAuthInProduction**. 프로덕션 환경에서 이 메타데이터가 `true`로 설정되었는지 확인합니다.
     
-자세한 구성은 [RESTful 기술 프로필 메타 데이터](restful-technical-profile.md#metadata) 를 참조 하세요.
+자세한 구성은 [RESTful 기술 프로필 메타데이터](restful-technical-profile.md#metadata)를 참조하세요.
 
 위의 `AuthenticationType` 및 `AllowInsecureAuthInProduction` 설명은 프로덕션 환경으로 이동할 때 수행해야 하는 변경 내용을 지정합니다. 프로덕션을 위해 RESTful Api를 보호하는 방법을 알아보려면 [Secure RESTful API](secure-rest-api.md)를 참조하세요.
 
@@ -229,3 +238,5 @@ API를 보호하는 방법을 알아보려면 다음 문서를 참조하세요.
 - [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 오케스트레이션 단계로 통합](custom-policy-rest-api-claims-exchange.md)
 - [RESTful API 보안](secure-rest-api.md)
 - [참조: RESTful 기술 프로필](restful-technical-profile.md)
+
+::: zone-end

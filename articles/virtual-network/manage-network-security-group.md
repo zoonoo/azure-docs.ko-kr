@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 82f23c1fea29e2a88dd2a67ec9c89c7bf05bfff7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101694260"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107783506"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -67,7 +67,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) |
+| Azure CLI | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) |
 | PowerShell | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) |
 
 ### <a name="view-all-network-security-groups"></a>모든 네트워크 보안 그룹 보기
@@ -78,7 +78,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list) |
+| Azure CLI | [az network nsg list](/cli/azure/network/nsg#az_network_nsg_list) |
 | PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="view-details-of-a-network-security-group"></a>네트워크 보안 그룹 세부 정보 보기
@@ -103,7 +103,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg show](/cli/azure/network/nsg#az-network-nsg-show) |
+| Azure CLI | [az network nsg show](/cli/azure/network/nsg#az_network_nsg_show) |
 | PowerShell | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) |
 
 ### <a name="change-a-network-security-group"></a>네트워크 보안 그룹 변경
@@ -118,7 +118,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg update](/cli/azure/network/nsg#az-network-nsg-update) |
+| Azure CLI | [az network nsg update](/cli/azure/network/nsg#az_network_nsg_update) |
 | PowerShell | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) |
 
 ### <a name="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface"></a>네트워크 인터페이스 또는 서브넷에서 네트워크 보안 그룹 연결 또는 분리
@@ -139,7 +139,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete) |
+| Azure CLI | [az network nsg delete](/cli/azure/network/nsg#az_network_nsg_delete) |
 | PowerShell | [Remove-AzNetworkSecurityGroup](/powershell/module/az.network/remove-aznetworksecuritygroup) |
 
 ## <a name="work-with-security-rules"></a>보안 규칙으로 작업
@@ -173,7 +173,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     | **대상 애플리케이션 보안 그룹** | 기존 애플리케이션 보안 그룹 | 이 설정은 **대상** 을 **애플리케이션 보안 그룹** 으로 설정하는 경우 표시됩니다. 네트워크 인터페이스와 동일한 지역에 있는 애플리케이션 보안 그룹을 선택합니다. [애플리케이션 보안 그룹을 만드는](#create-an-application-security-group) 방법을 알아봅니다. |
     | **대상 포트 범위** | 다음 중 하나:<ul><li>단일 포트(예: `80`)</li><li>포트의 범위(예: `1024-65535`)</li><li>단일 포트 및/또는 포트 범위의 쉼표로 구분된 목록(예: `80, 1024-65535`)</li><li>모든 포트에 트래픽을 허용하려면 별표(`*`)</li></ul> | **원본 포트 범위** 와 마찬가지로 단일 또는 여러 포트와 범위를 지정할 수 있습니다. 지정할 수 있는 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. |
     | **프로토콜** | **모든**, **TCP**, **UDP** 또는 **ICMP** | 규칙을 TCP(Transmission Control Protocol), UDP(User Datagram Protocol) 또는 ICMP(Internet Control Message Protocol)로 제한할 수 있습니다. 기본값은 규칙이 모든 프로토콜에 적용되는 것입니다. |
-    | **작업** | **허용** 또는 **거부** | 이 설정은 이 규칙이 제공된 원본 및 대상 구성에 대한 액세스를 허용하거나 거부하는지 여부를 지정합니다. |
+    | **동작** | **허용** 또는 **거부** | 이 설정은 이 규칙이 제공된 원본 및 대상 구성에 대한 액세스를 허용하거나 거부하는지 여부를 지정합니다. |
     | **우선 순위** | 네트워크 보안 그룹 내의 모든 보안 규칙에 대해 100-4096 사이의 고유한 값 | Azure는 보안 규칙을 우선 순위에 따라 처리합니다. 번호가 낮을수록 우선 순위가 높습니다. 규칙을 만들 때 100, 200 및 300 같이 우선 순위 번호 사이의 간격을 두는 것이 좋습니다. 간격을 두면 향후 기존 규칙보다 우선 순위가 더 높거나 더 낮게 만들 필요가 있는 규칙을 추가하기가 더 쉬워집니다. |
     | **이름** | 네트워크 보안 그룹 내에서 규칙에 대한 고유한 이름 | 이름은 최대 80자까지 가능합니다. 문자나 숫자로 시작하고 문자, 숫자 또는 밑줄로 끝나야 합니다. 이름은 문자, 숫자, 밑줄, 마침표 또는 하이픈만 포함할 수 있습니다. |
     | **설명** | 텍스트 설명 | 보안 규칙에 대한 텍스트 설명을 선택적으로 지정할 수 있습니다. 설명은 140자를 초과할 수 없습니다. |
@@ -182,7 +182,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) |
+| Azure CLI | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) |
 | PowerShell | [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) |
 
 ### <a name="view-all-security-rules"></a>모든 보안 규칙 보기
@@ -201,7 +201,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule list](/cli/azure/network/nsg/rule#az-network-nsg-rule-list) |
+| Azure CLI | [az network nsg rule list](/cli/azure/network/nsg/rule#az_network_nsg_rule_list) |
 | PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="view-details-of-a-security-rule"></a>보안 규칙의 세부 정보 보기
@@ -221,7 +221,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule show](/cli/azure/network/nsg/rule#az-network-nsg-rule-show) |
+| Azure CLI | [az network nsg rule show](/cli/azure/network/nsg/rule#az_network_nsg_rule_show) |
 | PowerShell | [Get-AzNetworkSecurityRuleConfig](/powershell/module/az.network/get-aznetworksecurityruleconfig) |
 
 ### <a name="change-a-security-rule"></a>보안 규칙 변경
@@ -237,7 +237,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update) |
+| Azure CLI | [az network nsg rule update](/cli/azure/network/nsg/rule#az_network_nsg_rule_update) |
 | PowerShell | [Set-AzNetworkSecurityRuleConfig](/powershell/module/az.network/set-aznetworksecurityruleconfig) |
 
 ### <a name="delete-a-security-rule"></a>보안 규칙 삭제
@@ -253,7 +253,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete) |
+| Azure CLI | [az network nsg rule delete](/cli/azure/network/nsg/rule#az_network_nsg_rule_delete) |
 | PowerShell | [Remove-AzNetworkSecurityRuleConfig](/powershell/module/az.network/remove-aznetworksecurityruleconfig) |
 
 ## <a name="work-with-application-security-groups"></a>애플리케이션 보안 그룹으로 작업
@@ -285,7 +285,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network asg create](/cli/azure/network/asg#az-network-asg-create) |
+| Azure CLI | [az network asg create](/cli/azure/network/asg#az_network_asg_create) |
 | PowerShell | [New-AzApplicationSecurityGroup](/powershell/module/az.network/new-azapplicationsecuritygroup) |
 
 ### <a name="view-all-application-security-groups"></a>모든 애플리케이션 보안 그룹 보기
@@ -296,7 +296,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network asg list](/cli/azure/network/asg#az-network-asg-list) |
+| Azure CLI | [az network asg list](/cli/azure/network/asg#az_network_asg_list) |
 | PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="view-details-of-a-specific-application-security-group"></a>특정 애플리케이션 보안 그룹의 세부 정보 보기
@@ -309,7 +309,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network asg show](/cli/azure/network/asg#az-network-asg-show) |
+| Azure CLI | [az network asg show](/cli/azure/network/asg#az_network_asg_show) |
 | PowerShell | [Get-AzApplicationSecurityGroup](/powershell/module/az.network/get-azapplicationsecuritygroup) |
 
 ### <a name="change-an-application-security-group"></a>애플리케이션 보안 그룹 변경
@@ -329,7 +329,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network asg update](/cli/azure/network/asg#az-network-asg-update) |
+| Azure CLI | [az network asg update](/cli/azure/network/asg#az_network_asg_update) |
 | PowerShell | PowerShell cmdlet 없음 |
 
 ### <a name="delete-an-application-security-group"></a>애플리케이션 보안 그룹 삭제
@@ -346,7 +346,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 | 도구 | 명령 |
 | ---- | ------- |
-| Azure CLI | [az network asg delete](/cli/azure/network/asg#az-network-asg-delete) |
+| Azure CLI | [az network asg delete](/cli/azure/network/asg#az_network_asg_delete) |
 | PowerShell | [Remove-AzApplicationSecurityGroup](/powershell/module/az.network/remove-azapplicationsecuritygroup) |
 
 ## <a name="permissions"></a>사용 권한
@@ -355,7 +355,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="network-security-group"></a>네트워크 보안 그룹
 
-| 작업                                                        |   이름                                                                |
+| 작업                                                        |   속성                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   네트워크 보안 그룹 가져오기                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   네트워크 보안 그룹 만들기 또는 업데이트                             |
@@ -369,7 +369,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="network-security-group-rule"></a>네트워크 보안 그룹 규칙
 
-| 작업                                                        |   이름                                                                |
+| 작업                                                        |   속성                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   규칙 가져오기                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   규칙 만들기 또는 업데이트                                               |
@@ -377,7 +377,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
 
 ### <a name="application-security-group"></a>애플리케이션 보안 그룹
 
-| 작업                                                                     | 이름                                                     |
+| 작업                                                                     | 속성                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | IP 구성을 애플리케이션 보안 그룹에 조인|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | 보안 규칙을 애플리케이션 보안 그룹에 조인    |

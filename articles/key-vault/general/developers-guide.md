@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 4f9523594c07209d530a143713061be6d0467af8
-ms.sourcegitcommit: 6686a3d8d8b7c8a582d6c40b60232a33798067be
+ms.openlocfilehash: 08ac1ae09741b63648aec2b51b6a774a46b9af7c
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107753383"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107818443"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure Key Vault 개발자 가이드
 
@@ -45,7 +45,7 @@ Azure Key Vault에 대한 일반적인 내용은 [Key Vault란?](overview.md)을
 
 설치 패키지 및 소스 코드는 [클라이언트 라이브러리](client-libraries.md)를 참조하세요.
 
-Key Vault 관리 평면에 대한 자세한 내용은 [Key Vault Management Plane](security-overview.md)(Key Vault 관리 평면)을 참조하세요.
+Key Vault 관리 평면에 대한 자세한 내용은 [Azure Key Vault 보안 기능](security-features.md)을 참조하세요.
 
 ## <a name="authenticate-to-key-vault-in-code"></a>코드에서 Key Vault에 인증
 
@@ -105,7 +105,7 @@ Azure ID 클라이언트 라이브러리에 대한 자세한 내용은 다음을
 
 설치 패키지 및 소스 코드는 [클라이언트 라이브러리](client-libraries.md)를 참조하세요.
 
-Key Vault 데이터 평면 보안에 대한 자세한 내용은 [Key Vault Security overview](security-overview.md)(Key Vault 보안 개요)를 참조하세요.
+Key Vault 데이터 평면 보안에 대한 자세한 내용은 [Azure Key Vault 보안 기능](security-features.md)을 참조하세요.
 
 ### <a name="code-examples"></a>코드 예제
 

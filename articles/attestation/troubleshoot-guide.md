@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: reference
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ae3e12c11f194b3efcc149382dc952bd74d38b5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 9d3e34bee3d0f1420b379638389e6fad0a2fed60
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97704319"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107831567"
 ---
 # <a name="microsoft-azure-attestation-troubleshooting-guide"></a>Microsoft Azure Attestation 문제 해결 가이드
 
@@ -30,7 +31,6 @@ Azure 증명의 오류 처리는 [Microsoft REST API 지침](https://github.com/
 **오류 코드** 권한 없음
 
 **시나리오 예제**
-  - 사용자가 증명 판독기 역할로 할당되지 않은 경우 증명 실패
   - 사용자가 적절한 역할로 할당되지 않았으므로 증명 정책을 관리할 수 없음
   - 사용자가 적절한 역할로 할당되지 않았으므로 증명 정책 서명자를 관리할 수 없음
 
@@ -47,55 +47,25 @@ At line:1 char:1
 
 **문제 해결 단계**
 
-증명 정책/정책 서명자를 보려면 Azure AD 사용자에게 "작업"에 대한 권한이 필요합니다.
+정책을 관리하려면 Azure AD 사용자에게 "작업"에 대한 다음 권한이 필요합니다.
 - Microsoft.Attestation/attestationProviders/attestation/read
-
-  이 권한은 “소유자”(와일드카드 권한) 또는 “판독기”(와일드카드 권한) 또는 "증명 판독기"(Azure Attestation에 대한 특정           권한만 해당)와 같은 역할을 통해 AD 사용자에게 할당할 수 있습니다.
-
-정책 서명자를 추가/삭제하거나 정책을 구성하려면 Azure AD 사용자에게 "작업"에 대한 다음 권한이 필요합니다.
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-  이러한 권한은 "소유자"(와일드카드 권한), "기여자"(와일드카드 권한) 또는 "증명 기여자"        (Azure Attestation의 특정 권한만 해당)와 같은 역할을 통해 AD 사용자에게 할당할 수 있습니다.
+  이러한 작업을 수행하려면 Azure AD 사용자에게 증명 공급자에 대한 "증명 기여자" 역할이 있어야 합니다. 이러한 권한은 구독/리소스 그룹에 대한 "소유자"(와일드카드 권한), "기여자"(와일드카드 권한)와 같은 역할로 상속될 수도 있습니다.  
 
-고객은 기본 공급자를 증명에 사용하거나 사용자 지정 정책을 사용하여 자체 공급자를 만들 수 있습니다. 사용자 지정 증명 공급자에게 증명 요청을 보내려면 사용자에게 "Owner"(와일드카드 권한) 또는 "판독기"(와일드카드 권한) 또는 "증명 판독기" 역할이 필요합니다. 기본값 공급자는 모든 Azure AD 사용자가 액세스할 수 있습니다.
+정책을 읽으려면 Azure AD 사용자에게 "작업"에 대한 다음 권한이 필요합니다.
+- Microsoft.Attestation/attestationProviders/attestation/read
 
-PowerShell에서 역할을 확인하려면 다음을 실행합니다.
+  이 작업을 수행하려면 Azure AD 사용자에게 증명 공급자에 대한 "증명 리더" 역할이 있어야 합니다. 읽기 권한은 구독/리소스 그룹에 대한 "리더"(와일드카드 권한)와 같은 역할로 상속될 수도 있습니다.  
+
+PowerShell에서 역할을 확인하려면 아래 단계를 실행합니다.
 
 a. PowerShell을 시작하여 “AzAccount” cmdlet을 통해 Azure에 로그인
 
-b. Azure 역할 할당 설정 확인
+b. 증명 공급자에 대한 Azure 역할 할당을 확인하려면 [여기](../role-based-access-control/role-assignments-list-powershell.md)의 지침을 참조하세요.
 
-
-  ```powershell
-  $c = Get-AzContext
-  Get-AzRoleAssignment -ResourceGroupName $attestationResourceGroup -ResourceName $attestationProvider -ResourceType Microsoft.Attestation/attestationProviders -SignInName $c.Account.Id
-  ```
-
-  다음과 비슷한 결과가 표시됩니다.
-
-  ```
-  RoleAssignmentId   :/subscriptions/subscriptionId/providers/Microsoft.Authorization/roleAssignments/roleAssignmentId
-  
-  Scope              : /subscriptions/subscriptionId
-  
-  DisplayName        : displayName
-  
-  SignInName         : signInName
-  
-  RoleDefinitionName : Reader
-  
-  RoleDefinitionId   : roleDefinitionId
-  
-  ObjectId           : objectid
-  
-  ObjectType         : User
-  
-  CanDelegate        : False
- 
-  ```
-
-다. 목록에서 적절한 역할 할당을 찾지 못한 경우 [여기](../role-based-access-control/role-assignments-powershell.md)에 있는 지침을 따르세요.
+다. 적절한 역할 할당을 찾지 못한 경우 [여기](../role-based-access-control/role-assignments-powershell.md)의 지침을 따르세요.
 
 ## <a name="2-http--400-errors"></a>2. HTTP-400 오류
 
@@ -261,7 +231,7 @@ PowerShell에서 PolicyFormat을 JWT로 지정하여 정책을 JWT 형식으로 
 
 PowerShell에서 Az 또는 Az. 증명 모듈을 설치할 수 없습니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 경고: 패키지 원본 'https://www.powershellgallery.com/api/v2 ' PackageManagement\Install-Package를 확인할 수 없습니다. 지정된 검색 조건 및 모듈 이름과 일치하는 항목이 없습니다.
 
@@ -279,7 +249,7 @@ PowerShell 갤러리와 계속 상호 작용하려면 Install-Module 명령을 �
 
 사용자에게 적절한 역할이 할당되었습니다. 그러나 PowerShell을 통해 증명 정책을 관리하는 동안 권한 부여 문제가 발생했습니다.
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 개체 ID &lt;개체 ID&gt;가 있는 클라이언트에게 Microsoft.Authorization/roleassignments/write over scope ‘subcriptions/&lt;subscriptionId&gt;resourcegroups/secure_enclave_poc/providers/Microsoft.Authorization/roleassignments/&lt;role assignmentId&gt;’ 작업을 수행할 권한이 없거나 범위가 잘못되었습니다. 액세스 권한이 최근에 부여된 경우 자격 증명을 새로 고치세요.
 
 ### <a name="troubleshooting-steps"></a>문제 해결 단계

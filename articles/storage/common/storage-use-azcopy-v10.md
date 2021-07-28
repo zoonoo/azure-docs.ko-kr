@@ -4,16 +4,16 @@ description: AzCopy는 스토리지 계정으로, 스토리지 계정에서 또�
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 826effb152d3f069e0a7c5b8e169f7083117ed22
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 34d3bd45d2c0bf0260a4f8524cff6f8ac03b746c
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103494498"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107501722"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -40,25 +40,13 @@ AzCopy는 스토리지 계정에서 또는 스토리지 계정으로 Blob 또는
 > [!NOTE]
 > [Azure Table Storage](../tables/table-storage-overview.md) 서비스로 또는 서비스에서 데이터를 복사하려면 [AzCopy 버전 7.3](https://aka.ms/downloadazcopynet)을 설치합니다.
 
-
 ## <a name="run-azcopy"></a>AzCopy 실행
 
 편의상, AzCopy 실행 파일의 디렉터리 위치를 시스템 경로에 추가하여 사용하기 쉽도록 하는 것이 좋습니다. 이렇게 하면 시스템의 어느 디렉터리에서나 `azcopy`를 입력할 수 있습니다.
 
 AzCopy 디렉터리를 경로에 추가하지 않도록 선택하는 경우 디렉터리를 AzCopy 실행 파일의 위치로 변경하고 Windows PowerShell 명령 프롬프트에서 `azcopy` 또는 `.\azcopy`를 입력해야 합니다.
 
-명령 목록을 보려면 `azcopy -h`를 입력한 다음 Enter 키를 누릅니다.
-
-특정 명령에 대한 자세한 내용을 보려면 명령의 이름만 포함하면 됩니다(예: `azcopy list -h`).
-
-> [!div class="mx-imgBorder"]
-> ![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
-
-
-각 명령 및 명령 매개 변수에 대한 자세한 참조 설명서를 찾으려면 [azcopy](storage-ref-azcopy.md)를 참조하세요.
-
-> [!NOTE] 
-> Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. AzCopy를 사용하여 의미 있는 작업을 수행할 수 있으려면 먼저 스토리지 서비스에 권한 부여 자격 증명을 제공하는 방법을 결정해야 합니다. 
+Azure Storage 계정 소유자인 경우 자동으로 데이터에 액세스할 수 있는 권한이 할당되지 않습니다. AzCopy를 사용하여 의미 있는 작업을 수행할 수 있으려면 먼저 스토리지 서비스에 권한 부여 자격 증명을 제공하는 방법을 결정해야 합니다. 
 
 <a id="choose-how-youll-provide-authorization-credentials"></a>
 
@@ -70,7 +58,7 @@ AD(Azure Active Directory) 또는 SAS(공유 액세스 서명) 토큰을 사용�
 
 | 스토리지 유형 | 현재 지원되는 권한 부여 방법 |
 |--|--|
-|**Blob Storage** | Azure AD 및 SAS |
+|**Azure BLOB Storage** | Azure AD 및 SAS |
 |**Blob Storage(계층 구조 네임스페이스)** | Azure AD 및 SAS |
 |**File Storage** | SAS 전용 |
 
@@ -95,24 +83,61 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 SAS 토큰 및 SAS 토큰을 얻는 방법에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](./storage-sas-overview.md)을 참조하세요.
 
+> [!NOTE]
+> 스토리지 계정의 [보안 전송 필요](storage-require-secure-transfer.md) 설정에 따라 스토리지 계정에 대한 연결이 TLS(전송 계층 보안)로 보호되는지 여부가 결정 됩니다. 이 설정은 기본적으로 사용하도록 설정되어 있습니다.   
+
 <a id="transfer-data"></a>
 
 ## <a name="transfer-data"></a>데이터 전송
 
 자신의 ID에 권한을 부여하거나 SAS 토큰을 얻은 후에는 데이터 전송을 시작할 수 있습니다.
 
-> [!NOTE]
-> 스토리지 계정의 [보안 전송 필요](storage-require-secure-transfer.md) 설정에 따라 스토리지 계정에 대한 연결이 TLS(전송 계층 보안)로 보호되는지 여부가 결정 됩니다. 이 설정은 기본적으로 사용하도록 설정되어 있습니다.   
-
 예제 명령을 찾으려면 다음 문서 중 하나를 참조하세요.
 
 | 서비스 | 아티클 |
 |--------|-----------|
-|Azure Blob Storage |[Azure Blob Storage에 파일 업로드](storage-use-azcopy-blobs-upload.md)<br><br>[Azure Blob Storage에서 Blob 다운로드](storage-use-azcopy-blobs-download.md)<br><br>Azure 스토리지 계정 간에 [Blob 복사](storage-use-azcopy-blobs-copy.md)<br><br>[Azure Blob Storage 시작](storage-use-azcopy-blobs-synchronize.md)|
+|Azure Blob Storage|[Azure Blob Storage에 파일 업로드](storage-use-azcopy-blobs-upload.md) |
+|Azure Blob Storage|[Azure Blob Storage에서 Blob 다운로드](storage-use-azcopy-blobs-download.md)|
+|Azure Blob Storage|Azure 스토리지 계정 간에 [Blob 복사](storage-use-azcopy-blobs-copy.md)|
+|Azure Blob Storage|[Azure Blob Storage 시작](storage-use-azcopy-blobs-synchronize.md)|
 |Azure 파일 |[AzCopy 및 File Storage를 사용하여 데이터 전송](storage-use-azcopy-files.md)|
 |Amazon S3|[Amazon S3에서 Azure Storage로 데이터 복사](storage-use-azcopy-s3.md)|
 |Google Cloud Storage|[Google Cloud Storage에서 Azure Storage로 데이터 복사(미리 보기)](storage-use-azcopy-google-cloud.md)|
 |Azure Stack 스토리지|[AzCopy 및 Azure Stack 스토리지를 사용하여 데이터 전송](/azure-stack/user/azure-stack-storage-transfer#azcopy)|
+
+## <a name="get-command-help"></a>명령 도움말 가져오기
+
+명령 목록을 보려면 `azcopy -h`를 입력한 다음 Enter 키를 누릅니다.
+
+특정 명령에 대한 자세한 내용을 보려면 명령의 이름만 포함하면 됩니다(예: `azcopy list -h`).
+
+> [!div class="mx-imgBorder"]
+> ![인라인 도움말](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+### <a name="list-of-commands"></a>명령 목록
+
+다음 표에는 모든 AzCopy v10 명령이 나열되어 있습니다. 각 명령은 참조 문서에 연결됩니다. 
+
+|명령|Description|
+|---|---|
+|[azcopy bench](storage-ref-azcopy-bench.md?toc=/azure/storage/blobs/toc.json)|지정된 위치로 또는 지정된 위치에서 데이터를 업로드하거나 다운로드하여 성능 벤치마크를 실행합니다.|
+|[azcopy copy](storage-ref-azcopy-copy.md?toc=/azure/storage/blobs/toc.json)|원본 데이터를 대상 위치에 복사|
+|[azcopy doc](storage-ref-azcopy-doc.md?toc=/azure/storage/blobs/toc.json)|Markdown 형식으로 도구에 대한 문서를 생성합니다.|
+|[azcopy env](storage-ref-azcopy-env.md?toc=/azure/storage/blobs/toc.json)|AzCopy의 동작을 구성할 수 있는 환경 변수를 표시합니다.|
+|[azcopy jobs](storage-ref-azcopy-jobs.md?toc=/azure/storage/blobs/toc.json)|작업 관리와 관련된 하위 명령입니다.|
+|[azcopy jobs clean](storage-ref-azcopy-jobs-clean.md?toc=/azure/storage/blobs/toc.json)|모든 작업의 모든 로그 및 계획 파일을 제거합니다.|
+|[azcopy jobs list](storage-ref-azcopy-jobs-list.md?toc=/azure/storage/blobs/toc.json)|모든 작업에 대한 정보를 표시합니다.|
+|[azcopy jobs remove](storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json)|지정된 작업 ID와 연결된 파일을 모두 제거합니다.|
+|[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|지정된 작업 ID를 사용하여 기존 작업을 다시 시작합니다.|
+|[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|지정된 작업 ID에 대한 상세 정보를 표시합니다.|
+|[azcopy load](storage-ref-azcopy-load.md)|특정 형식의 데이터 전송과 관련된 하위 명령입니다.|
+|[azcopy load clfs](storage-ref-azcopy-load-avere-cloud-file-system.md?toc=/azure/storage/blobs/toc.json)|로컬 데이터를 컨테이너로 전송하고 Microsoft Avere CLFS(Cloud FileSystem) 형식으로 저장합니다.|
+|[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|지정된 리소스의 엔터티를 나열합니다.|
+|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Azure Active Directory에 로그인하여 Azure Storage 리소스에 액세스합니다.|
+|[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|사용자를 로그아웃시키고 Azure Storage 리소스에 대한 액세스를 종료합니다.|
+|[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|컨테이너 또는 파일 공유를 만듭니다.|
+|[azcopy remove](storage-ref-azcopy-remove.md?toc=/azure/storage/blobs/toc.json)|Azure Storage 계정에서 Blob 또는 파일을 삭제합니다.|
+|[azcopy sync](storage-ref-azcopy-sync.md?toc=/azure/storage/blobs/toc.json)|원본 위치를 대상 위치로 복제합니다.|
 
 ## <a name="use-in-a-script"></a>스크립트에서 사용
 
@@ -161,7 +186,13 @@ Storage Explorer는 계정 키를 사용하여 작업을 수행하므로 Storage
 
 ## <a name="configure-optimize-and-fix"></a>구성, 최적화 및 수정
 
-[AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md) 참조
+다음 리소스 중 하나를 참조하세요.
+
+- [AzCopy 구성 설정](storage-ref-azcopy-configuration-settings.md)
+
+- [AzCopy의 성능 최적화](storage-use-azcopy-optimize.md)
+
+- [로그 파일을 사용하여 Azure Storage의 AzCopy V10 문제 해결](storage-use-azcopy-configure.md)
 
 ## <a name="use-a-previous-version"></a>이전 버전 사용
 

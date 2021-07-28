@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/02/2021
+ms.date: 04/09/2021
 ms.author: tisande
-ms.openlocfilehash: d5d5bc0a108cd08283ea29ce3bdc2de49310c5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ad43d83782a2c7e9eb5cc20128be89a45f0213d1
+ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102499563"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107312181"
 ---
 # <a name="getting-started-with-sql-queries"></a>SQL 쿼리 시작
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Azure Cosmos DB에 대한 대부분의 대량 읽기 워크로드는 point reads
 
 ## <a name="upload-sample-data"></a>샘플 데이터 업로드
 
-SQL API Cosmos DB 계정에서 [데이터 탐색기](./data-explorer.md)를 열어 `Families` 컨테이너를 만듭니다. 만든 후에는 데이터 구조 브라우저를 사용하여 이를 검색하고 엽니다. `Families` 컨테이너에서, 컨테이너 이름 바로 아래에 `Items` 옵션이 표시됩니다. 이 옵션을 열면 화면 가운데의 메뉴 모음에서 ‘새 항목’을 만들 수 있는 단추가 표시됩니다. 이 기능을 사용하여 아래 JSON 항목을 만듭니다.
+SQL API Cosmos DB 계정에서 [데이터 탐색기](./data-explorer.md)를 열어 `Families` 컨테이너를 만듭니다. 컨테이너를 만든 후에는 데이터 구조 브라우저를 사용하여 컨테이너를 찾아 엽니다. `Families` 컨테이너에서, 컨테이너 이름 바로 아래에 `Items` 옵션이 표시됩니다. 이 옵션을 열면 화면 가운데의 메뉴 모음에서 ‘새 항목’을 만들 수 있는 단추가 표시됩니다. 이 기능을 사용하여 아래 JSON 항목을 만듭니다.
 
 ### <a name="create-json-items"></a>JSON 항목 만들기
 

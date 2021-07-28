@@ -1,19 +1,19 @@
 ---
 title: Synapse 작업 영역에 대한 연속 통합 및 배달
 description: 연속 통합 및 배달을 사용하여 환경(개발, 테스트, 프로덕션) 간에 작업 영역의 변경 내용을 배포하는 방법을 알아봅니다.
-services: synapse-analytics
-author: liud
+author: liudan66
 ms.service: synapse-analytics
+ms.subservice: cicd
 ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: de3738573bb9bb6f045a45d290c74ba9e6902a5e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2d49deef4cc7f646032219ff9e8f541cc9c1afd6
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103561960"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108131190"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Azure Synapse 작업 영역에 대한 연속 통합 및 배달
 
@@ -21,16 +21,61 @@ ms.locfileid: "103561960"
 
 CI(연속 통합)는 팀 멤버가 커밋할 때마다 코드 작성 및 테스트를 자동화하는 프로세스가 버전 제어로 변경됩니다. CD(지속적인 배포)는 다중 테스트 또는 스테이징 환경에서 프로덕션 환경으로 빌드, 테스트, 구성 및 배포하는 프로세스입니다.
 
-Azure Synapse 작업 영역의 경우 CI/CD(연속 통합 및 배달)는 모든 엔터티를 환경(개발, 테스트, 프로덕션) 간에 이동합니다. 작업 영역을 다른 작업 영역으로 승격하려면 두 부분으로 구성됩니다. [Azure Resource Manager 템플릿](../../azure-resource-manager/templates/overview.md)을 사용하여 작업 영역 리소스(풀 및 작업 영역)를 만들거나 업데이트하고, Azure DevOps의 Synapse CI/CD 도구를 사용하여 아티팩트(SQL 스크립트, Notebook, Spark 작업 정의, 파이프라인, 데이터 세트, 데이터 흐름 등)를 마이그레이션합니다. 
+Azure Synapse Analytics 작업 영역에서 CI/CD(연속 통합 및 배달)는 모든 엔터티를 환경(개발, 테스트, 프로덕션) 간에 이동합니다. 작업 영역을 다른 작업 영역으로 승격하기 위한 두 부분이 있습니다. 먼저 [ARM 템플릿(Azure Resource Manager 템플릿)](../../azure-resource-manager/templates/overview.md)을 사용하여 작업 영역 리소스(풀 및 작업 영역)를 만들거나 업데이트합니다. 그런 다음, Azure DevOps의 Azure Synapse Analytics CI/CD 도구를 사용하여 아티팩트(SQL 스크립트, Notebook, Spark 작업 정의, 파이프라인, 데이터 세트, 데이터 흐름 등)를 마이그레이션합니다. 
 
-이 문서에서는 Azure 릴리스 파이프라인을 사용하여 여러 환경에 Synapse 작업 영역의 배포를 자동화하는 방법을 간략하게 설명합니다.
+이 문서에서는 Azure DevOps 릴리스 파이프라인을 사용하여 Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화하는 방법을 간략하게 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
--   개발에 사용되는 작업 영역이 스튜디오에서 Git 리포지토리로 구성되었습니다. [Synapse Studio의 원본 제어](source-control.md)를 참조하세요.
--   Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
+Azure Synapse 작업 영역을 여러 환경에 배포하는 작업을 자동화하려면 이러한 필수 구성 요소 및 구성이 준비되어 있어야 합니다.
 
-## <a name="set-up-a-release-pipelines"></a>릴리스 파이프라인 설정
+### <a name="azure-devops"></a>Azure DevOps
+
+- Azure DevOps 프로젝트가 릴리스 파이프라인을 실행할 준비가 되었습니다.
+- [코드를 체크 인할 모든 사용자에게 조직 수준에서 "기본" 액세스 권한을 부여](/azure/devops/organizations/accounts/add-organization-users?view=azure-devops&tabs=preview-page&preserve-view=true)하여 리포지토리를 볼 수 있도록 합니다.
+- Azure Synapse 리포지토리에 소유자 권한을 부여합니다.
+- 자체 호스팅 Azure DevOps VM 에이전트를 만들었는지 또는 Azure DevOps 호스트된 에이전트를 사용했는지 확인합니다.
+- [리소스 그룹에 대한 Azure Resource Manager 서비스 연결을 만들 수 있는](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml&preserve-view=true) 권한
+- Azure AD(Azure Active Directory) 관리자는 [Azure DevOps 조직에 Azure DevOps Synapse 작업 영역 Deployment Agent 확장을 설치](/azure/devops/marketplace/install-extension)해야 합니다.
+- 파이프라인을 실행할 기존 서비스 계정을 만들거나 지정합니다. 서비스 계정 대신 개인 액세스 토큰을 사용할 수 있지만 사용자 계정이 삭제된 후에는 파이프라인이 작동하지 않습니다.
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+- Azure AD에서 배포에 사용할 서비스 주체를 만듭니다. Synapse 작업 영역 배포 작업은 버전 1* 이하에서 관리 ID 사용을 지원하지 않습니다.
+- 이 작업을 수행하려면 Azure AD 관리자 권한이 필요 합니다.
+
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+
+> [!NOTE]
+> 이러한 필수 구성 요소는 동일한 파이프라인, ARM 템플릿 또는 Azure CLI를 사용하여 자동화하고 배포할 수 있지만 이 문서에는 프로세스가 설명되어 있지 않습니다.
+
+- 개발에 사용되는 "원본" 작업 영역은 Synapse Studio에서 Git 리포지토리로 구성되어야 합니다. 자세한 내용은 [Synapse Studio의 소스 제어](source-control.md#configuration-method-2-manage-hub)를 참조하세요.
+
+- 배포할 빈 작업 영역. 빈 작업 영역을 설정하려면:
+
+  1. 새 Azure Synapse Analytics 작업 영역을 만듭니다.
+  1. 새 작업 영역이 호스트되는 리소스 그룹에 VM 에이전트 및 서비스 주체 기여자 권한을 부여합니다.
+  1. 새 작업 영역에서 Git 리포지토리 연결을 구성하지 마십시오.
+  1. Azure Portal에서 새 Azure Synapse Analytics 작업 영역을 찾고 자신 및 Azure DevOps 파이프라인을 실행할 사람에게 Azure Synapse Analytics 작업 영역 소유자 권한을 부여합니다. 
+  1. Azure DevOps VM 에이전트 및 서비스 주체를 작업 영역의 기여자 역할에 추가합니다. (이 역할은 상속되지만 상속되었는지 확인해야 합니다.)
+  1. Azure Synapse Analytics 작업 영역에서 **Studio** > **관리** > **IAM** 으로 이동합니다. Azure DevOps VM 에이전트 및 서비스 주체를 작업 영역 관리자 그룹에 추가합니다.
+  1. 작업 영역에 사용되는 스토리지 계정을 엽니다. IAM에서 VM 에이전트 및 서비스 주체를 Storage Blob 데이터 기여자 선택 역할에 추가합니다.
+  1. 지원 구독에서 키 자격 증명 모음을 만들고 기존 작업 영역과 새 작업 영역 모두에, 자격 증명 모음에 대해 최소한 GET 및 LIST 권한이 있는지 확인합니다.
+  1. 자동화된 배포가 작동하려면 연결된 서비스에 지정된 연결 문자열이 주요 자격 증명 모음에 있는지 확인합니다.
+
+### <a name="additional-prerequisites"></a>추가 필수 조건
+ 
+ - Spark 풀 및 자체 호스팅 통합 런타임은 파이프라인에서 생성되지 않습니다. 자체 호스팅 통합 런타임을 사용하는 연결된 서비스가 있는 경우 새 작업 영역에서 수동으로 만듭니다.
+ - Notebook을 개발하면서 Spark 풀에 연결한 경우에는 작업 영역에서 Spark 풀을 다시 만듭니다.
+ - 환경에 존재하지 않는 Spark 풀에 연결된 Notebook은 배포되지 않습니다.
+ - Spark 풀 이름은 두 작업 영역에서 동일해야 합니다.
+ - 모든 데이터베이스, SQL 풀 및 기타 리소스의 이름을 두 작업 영역에서 동일하게 지정합니다.
+ - 배포를 시도할 때 프로비전된 SQL 풀이 일시 중지되면 배포가 실패할 수 있습니다.
+
+자세한 내용은 [Azure Synapse Analytics의 CI CD 4부 - 릴리스 파이프라인](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)를 참조 하세요. 
+
+
+## <a name="set-up-a-release-pipeline"></a>릴리스 파이프라인 설정
 
 1.  [Azure DevOps](https://dev.azure.com/)에서 릴리스에 대해 만든 프로젝트를 엽니다.
 
@@ -58,9 +103,9 @@ Azure Synapse 작업 영역의 경우 CI/CD(연속 통합 및 배달)는 모든 
 
     ![아티팩트 추가](media/release-creation-publish-branch.png)
 
-## <a name="set-up-a-stage-task-for-arm-resource-create-and-update"></a>ARM 리소스 만들기 및 업데이트에 대한 스테이지 작업 설정 
+## <a name="set-up-a-stage-task-for-an-arm-template-to-create-and-update-resource"></a>리소스 생성 및 업데이트를 위한 ARM 템플릿의 스테이지 작업 설정 
 
-작업 영역 및 풀을 포함하여 리소스를 만들거나 업데이트하는 Azure Resource Manager 배포 작업을 추가합니다.
+Azure Synapse 작업 영역, Spark 및 SQL 풀 또는 키 자격 증명 모음과 같은 리소스를 배포하기 위한 ARM 템플릿이 있는 경우 해당 리소스를 만들거나 업데이트하는 Azure Resource Manager 배포 작업을 추가합니다.
 
 1. 단계 보기에서 **단계 작업 보기** 를 선택합니다.
 
@@ -89,7 +134,7 @@ Azure Synapse 작업 영역의 경우 CI/CD(연속 통합 및 배달)는 모든 
  > [!WARNING]
 > 전체 배포 모드에서는 리소스 그룹에 있지만 새 Resource Manager 템플릿에 지정되지 않은 리소스가 **삭제** 됩니다. 자세한 내용은 [Azure Resource Manager 배포 모드](../../azure-resource-manager/templates/deployment-modes.md)를 참조하세요.
 
-## <a name="set-up-a-stage-task-for-artifacts-deployment"></a>아티팩트 배포에 대한 스테이지 작업 설정 
+## <a name="set-up-a-stage-task-for-synapse-artifacts-deployment"></a>Synapse 아티팩트 배포에 대한 스테이지 작업 설정 
 
 [Synapse 작업 영역 배포](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) 확장을 사용하여 데이터 세트, SQL 스크립트, Notebook, spark 작업 정의, 데이터 흐름, 파이프라인, 연결된 서비스, 자격 증명 및 IR(Integration Runtime)과 같은 Synapse 작업 영역에 다른 항목을 배포합니다.  
 
@@ -113,7 +158,7 @@ Azure Synapse 작업 영역의 경우 CI/CD(연속 통합 및 배달)는 모든 
 
 1. 연결, 리소스 그룹 및 대상 작업 영역의 이름을 선택합니다. 
 
-1. **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수 재정의** 상자 옆에서 대상 작업 영역에 대해 원하는 매개 변수 값을 입력합니다. 
+1. **템플릿 매개 변수 재정의** 상자 옆에 있는 **…** 를 선택하고 연결된 서비스에서 사용되는 연결 문자열 및 계정 키를 포함하여 대상 작업 영역에 대해 원하는 매개 변수 값을 입력합니다. [자세한 내용을 보려면 여기를 클릭하세요.](https://techcommunity.microsoft.com/t5/data-architecture-blog/ci-cd-in-azure-synapse-analytics-part-4-the-release-pipeline/ba-p/2034434)
 
     ![Synapse 작업 영역 배포](media/create-release-artifacts-deployment.png)
 
@@ -225,6 +270,7 @@ Azure Synapse 작업 영역의 경우 CI/CD(연속 통합 및 배달)는 모든 
     }
 }
 ```
+
 다음은 리소스 종류별로 분할된 이전 템플릿의 구성 방법에 대한 설명입니다.
 
 #### <a name="notebooks"></a>Notebooks 
@@ -262,19 +308,19 @@ Azure Synapse 작업 영역의 경우 CI/CD(연속 통합 및 배달)는 모든 
 
 ## <a name="best-practices-for-cicd"></a>CI/CD에 대한 모범 사례
 
-Synapse 작업 영역을 통해 Git 통합을 사용하고 개발에서 테스트, 프로덕션 순서로 변경 내용을 이동하는 CI/CD 파이프라인이 있는 경우 다음 모범 사례를 적용하는 것이 좋습니다.
+Azure Synapse 작업 영역을 통해 Git 통합을 사용하고 개발에서 테스트, 프로덕션 순서로 변경 내용을 이동하는 CI/CD 파이프라인이 있는 경우 다음 모범 사례를 적용하는 것이 좋습니다.
 
--   **Git 통합**. Git 통합으로 개발 Synapse 작업 영역을 구성합니다. 테스트 및 프로덕션 작업 영역에 대한 변경 내용은 CI/CD를 통해 배포되므로 Git 통합이 필요하지 않습니다.
+-   **Git 통합**. Git 통합으로 개발 Azure Synapse 작업 영역만 구성합니다. 테스트 및 프로덕션 작업 영역에 대한 변경 내용은 CI/CD를 통해 배포되므로 Git 통합이 필요하지 않습니다.
 -   **아티팩트 마이그레이션 전에 풀을 준비합니다**. 개발 작업 영역의 풀에 연결된 SQL 스크립트 또는 Notebook이 있는 경우 다른 환경에서 동일한 풀 이름이 필요합니다. 
 -   **IaC(코드 제공 인프라)** 기술 모델에서 인프라 관리(네트워크, 가상 머신, 부하 분산 장치 및 연결 토폴로지)는 DevOps 팀이 소스 코드에 사용하는 것과 동일한 버전 관리를 사용합니다. 
 -   **기타** [ADF 아티팩트의 모범 사례](../../data-factory/continuous-integration-deployment.md#best-practices-for-cicd) 참조
 
 ## <a name="troubleshooting-artifacts-deployment"></a>아티팩트 배포 문제 해결 
 
-### <a name="use-the-synapse-workspace-deployment-task"></a>Synapse 작업 영역 배포 작업 사용
+### <a name="use-the-azure-synapse-analytics-workspace-deployment-task"></a>Azure Synapse Analytics 작업 영역 배포 작업 사용
 
-Synapse에는 ARM 리소스가 아닌 여러 아티팩트가 있습니다. 이는 Azure Data Factory와 다릅니다. ARM 템플릿 배포 작업이 Synapse 아티팩트를 배포하는 데 제대로 작동하지 않습니다.
+Azure Synapse Analytics에는 ARM 리소스가 아닌 여러 아티팩트가 있습니다. 이는 Azure Data Factory와 다릅니다. ARM 템플릿 배포 작업은 Azure Synapse Analytics 아티팩트를 배포하는 데 제대로 작동하지 않습니다.
  
 ### <a name="unexpected-token-error-in-release"></a>릴리스의 예기치 않은 토큰 오류
 
-매개 변수 파일에 이스케이프되지 않은 매개 변수 값이 있는 경우 릴리스 파이프라인이 파일 구문 분석에 실패하고 "예기치 않은 토큰" 오류가 생성됩니다. 매개 변수를 재정의하거나 Azure KeyVault를 사용하여 매개 변수 값을 검색하는 것이 좋습니다. 또한 이중 이스케이프 문자를 해결 방법으로 사용할 수 있습니다.
+매개 변수 파일에 이스케이프되지 않은 매개 변수 값이 있는 경우 릴리스 파이프라인이 파일 구문 분석에 실패하고 "예기치 않은 토큰" 오류가 생성됩니다. 매개 변수를 재정의하거나 Azure Key Vault를 사용하여 매개 변수 값을 검색하는 것이 좋습니다. 또한 이중 이스케이프 문자를 해결 방법으로 사용할 수 있습니다.

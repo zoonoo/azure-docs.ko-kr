@@ -2,13 +2,13 @@
 title: App Service, 함수, 논리 앱용으로 Azure Arc 설정
 description: Azure Arc 지원 Kubernetes 클러스터에서 App Service 앱, 함수 앱 및 논리 앱을 사용하도록 설정하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 05/03/2021
-ms.openlocfilehash: 35c58b05a1c5835028e36d8cd1afa878c803612e
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.date: 05/26/2021
+ms.openlocfilehash: e5e1b1ec8dd9a7e7ddf006222d2990bb6c354cd8
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110387101"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111890135"
 ---
 # <a name="set-up-an-azure-arc-enabled-kubernetes-cluster-to-run-app-service-functions-and-logic-apps-preview"></a>Azure Arc 지원 Kubernetes 클러스터를 설정하여 App Service, Functions 및 Logic Apps 실행(미리 보기)
 
@@ -23,7 +23,7 @@ Azure 계정이 없다면 무료 계정에 [지금 바로 가입](https://azure.
 <!-- ## Prerequisites
 
 - Create a Kubernetes cluster in a supported Kubernetes distribution and connect it to Azure Arc in a supported region. See [Public preview limitations](overview-arc-integration.md#public-preview-limitations).
-- [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+- [Install Azure CLI](/cli/azure/install-azure-cli), or use the [Azure Cloud Shell](../cloud-shell/overview.md).
 - [Install kubectl](https://kubernetes.io/docs/tasks/tools/). It's also preinstalled in the Azure Cloud Shell.
 
 ## Obtain cluster information
@@ -51,6 +51,8 @@ az extension add --upgrade --yes --name connectedk8s
 az extension add --upgrade --yes --name k8s-extension
 az extension add --upgrade --yes --name customlocation
 az provider register --namespace Microsoft.ExtendedLocation --wait
+az provider register --namespace Microsoft.Web --wait
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az extension remove --name appservice-kube
 az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py2.py3-none-any.whl"
 ```
@@ -58,11 +60,7 @@ az extension add --yes --source "https://aka.ms/appsvc/appservice_kube-latest-py
 ## <a name="create-a-connected-cluster"></a>연결된 클러스터 만들기
 
 > [!NOTE]
-> App Service Kubernetes 환경에서 더 많은 Kubernetes 배포의 유효성이 검사되면 [빠른 시작: 기존 Kubernetes 클러스터를 Azure Arc에 연결](../azure-arc/kubernetes/quickstart-connect-cluster.md)을 참조하여 Azure Arc 지원 Kubernetes 클러스터 생성에 관한 일반 지침을 참조하세요.
-
-<!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
-
-Arc에서의 App Service는 현재 [Azure Kubernetes Service](/azure/aks/)에서만 유효성이 검사되므로 Azure Kubernetes Service에서 Azure Arc 지원 클러스터를 만들어야 합니다. 
+> 이 자습서에서는 [AKS(Azure Kubernetes Service)](../aks/index.yml)를 사용하여 처음부터 환경을 설정하기 위한 구체적인 지침을 제공합니다. 그러나 프로덕션 워크로드의 경우 Azure에서 이미 관리되는 Azure Arc를 AKS 클러스터에서 사용하도록 설정하지 않는 것이 좋습니다. 아래 단계는 서비스를 이해하는 데 도움이 되지만 프로덕션 배포의 경우 조치가 아닌 설명으로 간주되어야 합니다. Azure Arc 사용 Kubernetes 클러스터 생성에 대한 일반적인 지침은 [빠른 시작: 기존 Kubernetes 클러스터를 Azure Arc에 연결](../azure-arc/kubernetes/quickstart-connect-cluster.md)을 참조하세요.
 
 1. 공용 IP 주소를 사용하여 Azure Kubernetes Service에서 클러스터를 만듭니다. `<group-name>`을 원하는 리소스 그룹 이름으로 바꿉니다.
 
@@ -162,7 +160,7 @@ Arc에서의 App Service는 현재 [Azure Kubernetes Service](/azure/aks/)에서
         --release-train stable \
         --auto-upgrade-minor-version true \
         --scope cluster \
-        --release-namespace '${namespace}' \
+        --release-namespace $namespace \
         --configuration-settings "Microsoft.CustomLocation.ServiceAccount=default" \
         --configuration-settings "appsNamespace=${namespace}" \
         --configuration-settings "clusterName=${kubeEnvironmentName}" \
@@ -220,7 +218,7 @@ Arc에서의 App Service는 현재 [Azure Kubernetes Service](/azure/aks/)에서
 `kubectl`을 사용하면 Kubernetes 클러스터에서 만든 Pod를 볼 수 있습니다.
 
 ```bash
-kubectl get pods -n ${namespace}
+kubectl get pods -n $namespace
 ```
 
 [App Service 확장에서 만든 Pod](overview-arc-integration.md#pods-created-by-the-app-service-extension)에서 이러한 Pod와 관련 역할을 자세히 확인할 수 있습니다.
@@ -246,7 +244,7 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
         --resource-group $groupName \
         --name $customLocationName \
         --host-resource-id $connectedClusterId \
-        --namespace ${namespace} \
+        --namespace $namespace \
         --cluster-extension-ids $extensionId
     ```
     
@@ -281,7 +279,7 @@ Azure에서 [사용자 지정 위치](../azure-arc/kubernetes/custom-locations.m
         --resource-group $groupName \
         --name $kubeEnvironmentName \
         --custom-location $customLocationId \
-        --static-ip "$staticIp"
+        --static-ip $staticIp
     ```
     
 2. 다음 명령을 사용하여 App Service Kubernetes 환경이 성공적으로 생성되었는지 확인합니다. 출력에서 `provisioningState` 속성이 `Succeeded`로 표시되어야 합니다. 그렇지 않은 경우 1분 후에 다시 실행합니다.

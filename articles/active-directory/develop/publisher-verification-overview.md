@@ -1,6 +1,6 @@
 ---
 title: 게시자 확인 개요 - Microsoft ID 플랫폼 | Azure
-description: Microsoft id 플랫폼에 대 한 게시자 확인 프로그램의 개요를 제공 합니다. 이점, 프로그램 요구 사항 및 질문과 대답을 나열합니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 Microsoft 파트너 네트워크 계정을 사용하여 확인 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다.
+description: Microsoft ID 플랫폼의 게시자 확인 프로그램에 대한 개요를 제공합니다. 이점, 프로그램 요구 사항 및 질문과 대답을 나열합니다. 애플리케이션이 게시자 확인으로 표시되어 있으면 게시자가 Microsoft 파트너 네트워크 계정을 사용하여 확인 프로세스를 완료했으며 애플리케이션 등록과 연결된 MPN 계정과 연결된 ID를 확인하고 있는 것입니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 06/01/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: d02b8cae22349412a83b35624479ef19de4697f6
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93308784"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111951740"
 ---
 # <a name="publisher-verification"></a>게시자 확인
 
-게시자 확인은 관리자와 최종 사용자가 Microsoft id 플랫폼과 통합 되는 응용 프로그램 개발자의 신뢰성을 이해 하는 데 도움이 됩니다. 
+Microsoft ID 플랫폼과 통합하는 애플리케이션 개발자의 신뢰성을 관리자와 최종 사용자가 알 수 있도록 도와주는 것이 게시자 확인입니다. 
 
 > [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
 
@@ -37,27 +37,27 @@ ms.locfileid: "93308784"
 
 - **브랜드 이미지 향상** - Azure AD [동의 확인 프롬프트](application-consent-experience.md), 엔터프라이즈 앱 페이지, 최종 사용자 및 관리자가 사용하는 추가 UX 화면에 "확인" 배지가 표시됩니다. 
 
-- 보다 **원활한 엔터프라이즈 도입**-관리자는 기본 정책 조건 중 하나로 게시자 확인 상태를 사용 하 여 [사용자 동의 정책을](../manage-apps/configure-user-consent.md)구성할 수 있습니다.
+- **보다 원활한 엔터프라이즈 채택** - 관리자는 [사용자 동의 정책](../manage-apps/configure-user-consent.md)을 구성할 수 있으며, 게시자 확인 상태는 기본 정책 조건 중 하나입니다.
 
 > [!NOTE]
-> 11 월 2020부터 최종 사용자는 확인 된 게시자 없이는 새로 등록 된 다중 테 넌 트 앱에 더 이상 동의를 부여할 수 없습니다. 이는 2020 년 11 월 8 일 이후에 등록 된 앱에 적용 되 고, OAuth 2.0을 사용 하 여 기본 로그인 및 읽기 사용자 프로필 이상의 권한을 요청 하 고, 앱이 등록 된 것과 다른 테 넌 트의 사용자 동의를 요청 합니다. 승인 화면에 표시 되는 경고는 사용자에 게 이러한 앱이 위험 하 고 확인 되지 않은 게시자의 것인지를 알려 줍니다.    
+> 2020년 11월부터 최종 사용자는 [위험 기반 단계별 동의](../manage-apps/configure-user-consent.md#risk-based-step-up-consent) 가 사용되는 경우 확인된 게시자 없이 새로 등록된 대부분의 다중 테넌트 앱에 더 이상 동의할 수 없습니다. 이는 2020년 11월 8일 이후에 등록된 앱에 적용되며, OAuth2.0을 사용하여 기본 로그인 이상의 권한을 요청하고 사용자 프로필을 읽고, 앱이 등록된 테넌트와 다른 테넌트의 사용자에게 동의를 요청합니다. 이러한 앱이 위험하며 확인되지 않은 게시자의 앱임을 사용자에게 알리는 경고가 동의 화면에 표시됩니다.    
 
 ## <a name="requirements"></a>요구 사항
 게시자 확인을 사용하려면 몇 가지 필수 구성 요소가 필요하며, 그 중 일부는 이미 여러 Microsoft 파트너가 완료했습니다. 다음은 필수 구성 요소입니다. 
 
 -  [확인](/partner-center/verification-responses) 프로세스를 완료한 유효한 [Microsoft 파트너 네트워크 계정](https://partner.microsoft.com/membership)의 MPN ID. MPN 계정은 조직의 [PGA(파트너 글로벌 계정)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga)여야 합니다. 
 
--  [게시자 도메인](howto-configure-publisher-domain.md) 을 구성 하 여 Azure AD 테 넌 트에 등록 된 앱입니다.
+-  [게시자 도메인](howto-configure-publisher-domain.md)이 구성된 Azure AD 테넌트에서 등록된 앱입니다.
 
--  MPN 계정 확인 중에 사용 되는 전자 메일 주소의 도메인은 앱 또는 Azure AD 테 넌 트에 추가 된 DNS 확인 [사용자 지정 도메인](../fundamentals/add-custom-domain.md) 에 구성 된 게시자 도메인과 일치 해야 합니다. 
+-  MPN 계정 확인 중에 사용되는 메일 주소의 도메인은 앱에 구성된 게시자 도메인 또는 Azure AD 테넌트에서 추가된 DNS 확인 [사용자 지정 도메인](../fundamentals/add-custom-domain.md)과 일치해야 합니다. 
 
 -  확인을 수행하는 사용자는 Azure AD의 앱 등록과 파트너 센터의 MPN 계정을 변경할 수 있는 권한이 있어야 합니다. 
 
-    -  Azure AD에서이 사용자는 응용 프로그램 관리, 클라우드 응용 프로그램 관리자 또는 전역 관리자 [역할](../roles/permissions-reference.md)중 하나의 구성원 이어야 합니다. 
+    -  Azure AD에서 이 사용자는 애플리케이션 관리자, 클라우드 애플리케이션 관리자 또는 전역 관리자와 같은 [역할](../roles/permissions-reference.md) 중 하나의 구성원이어야 합니다. 
 
     -  파트너 센터에서 이 사용자는 [역할](/partner-center/permissions-overview)로 MPN 관리자, 계정 관리자 또는 글로벌 관리자(Azure AD의 공유 역할) 중 하나가 할당되어야 합니다.
     
--  확인을 수행 하는 사용자는 [multi-factor authentication](../authentication/howto-mfa-getstarted.md)을 사용 하 여 로그인 해야 합니다.
+-  확인을 수행하는 사용자는 [다단계 인증](../authentication/howto-mfa-getstarted.md)을 사용하여 로그인해야 합니다.
 
 -  게시자가 [개발자용 Microsoft ID 플랫폼 사용 약관](/legal/microsoft-identity-platform/terms-of-use)에 동의해야 합니다.
 

@@ -5,18 +5,18 @@ description: Azure Machine Learning Python SDK를 사용하여 학습 및 추론
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, responsible-ml
+ms.topic: how-to
+ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 02/25/2021
-ms.openlocfilehash: 44ccf6b6d2459b87040fcac7d9cdcd336cc7b82f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2adbeb66229f180963eb7d2e235db5e7bebb3ef9
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102522039"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889019"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Azure Machine Learning의 모델 해석력(미리 보기)
 
@@ -58,7 +58,7 @@ SDK에서 클래스 및 메서드를 사용하여 다음을 수행할 수 있습
 
  `azureml-interpret`은 해석 가능한 모델을 학습하고 블랙 박스 AI 시스템을 설명하는 데 도움을 주는 오픈 소스 Python 패키지인 [Interpret-Community](https://github.com/interpretml/interpret-community/)에서 개발한 해석력 기술을 사용합니다. [Interpret-Community](https://github.com/interpretml/interpret-community/)는 해당 SDK를 지원하는 설명자에 대한 호스트 역할을 하며 현재 다음 해석력 기술을 지원하고 있습니다.
 
-|해석력 기술|Description|Type|
+|해석력 기술|Description|형식|
 |--|--|--------------------|
 |SHAP 트리 설명자| [SHAP](https://github.com/slundberg/shap)의 트리 설명자는 **트리 및 트리 결합체** 에 특정되는 다항식 시간 고속 SHAP 값 예측 알고리즘에 중점을 둡니다.|모델별|
 |SHAP 심층 설명자| SHAP의 설명을 기반으로 하는 심층 설명자는 “[SHAP NIPS 문서](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions)에 설명된 DeepLIFT와의 연결을 기반으로 하는 딥 러닝 모델의 SHAP 값에 대한 고속 근사값 알고리즘입니다. TensorFlow 백엔드를 사용하는 **TensorFlow** 모델 및 **keras** 모델이 지원됩니다(PyTorch도 예비 단계로 지원됩니다).”|모델별|
@@ -104,5 +104,6 @@ Azure Machine Learning 컴퓨팅에 대한 설명을 원격으로 실행하고 �
 ## <a name="next-steps"></a>다음 단계
 
 - 로컬 및 Azure Machine Learning 원격 컴퓨터 리소스 모두에서 진행하는 모델 학습에 대해 해석력을 사용 설정하려면 [방법 가이드](how-to-machine-learning-interpretability-aml.md)를 참조하세요. 
+- [자동화된 기계 학습 모델에 대한 해석성](how-to-machine-learning-interpretability-automl.md)을 사용하도록 설정하는 방법을 알아봅니다.
 - 추가 시나리오는 [샘플 Notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)를 참조하세요. 
 - 텍스트 해석력 시나리오에 관심이 있는 경우 [Interpret-Community](https://github.com/interpretml/interpret-community/)와 관련된 오픈 소스 리포지토리인 [Interpret-text](https://github.com/interpretml/interpret-text)를 참조하여 NLP에 대한 해석력 기술에 대한 정보를 확인하세요. `azureml.interpret` 패키지는 현재 해당 기술을 지원하지 않지만 [텍스트 분류에 대한 예제 Notebook](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb)을 사용하여 시작할 수 있습니다.

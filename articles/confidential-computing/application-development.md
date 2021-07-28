@@ -8,12 +8,12 @@ ms.subservice: confidential-computing
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 0ba6ee92111da66a2118ba4c490b94e5bc9449e0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 571c1a4ce545976db09f46a07d963d5344c02c29
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102551388"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107791016"
 ---
 # <a name="application-development-on-intel-sgx"></a>Intel SGX에서 애플리케이션 개발 
 
@@ -23,6 +23,7 @@ ms.locfileid: "102551388"
 enclave 및 격리된 환경의 성능을 활용하려면 기밀 컴퓨팅을 지원하는 도구를 사용해야 합니다. enclave 애플리케이션 개발을 지원하는 다양한 도구가 있습니다. 예를 들어 다음과 같은 오픈 소스 프레임워크를 사용할 수 있습니다. 
 
 - [OE SDK(Open Enclave 소프트웨어 개발 키트)](#oe-sdk)
+- [EGo 소프트웨어 개발 키트](#ego)
 - [CCF(기밀 컨소시엄 프레임워크)](#ccf)
 
 ## <a name="overview"></a>개요
@@ -48,6 +49,10 @@ enclave를 사용하여 빌드된 애플리케이션은 다음 두 가지 방법
 enclave에서 실행되는 코드를 작성하려면 공급자를 통해 지원되는 라이브러리 또는 프레임워크를 사용합니다. [OE SDK(Open Enclave SDK)](https://github.com/openenclave/openenclave)는 다양한 다른 기밀 컴퓨팅 사용 하드웨어를 추상화할 수 있는 오픈 소스 SDK입니다. 
 
 OE SDK는 모든 CSP의 모든 하드웨어에서 단일 추상화 계층으로 빌드됩니다. OE SDK는 Azure 기밀 컴퓨팅 가상 머신에서 사용되어 enclave를 기반으로 하는 애플리케이션을 만들고 실행할 수 있습니다.
+
+## <a name="ego-software-development-kit"></a>EGo 소프트웨어 개발 키트<a id="ego"></a>
+
+[EGo](https://ego.dev/)는 enclave 내에서 Go 프로그래밍 언어로 작성된 애플리케이션을 실행할 수 있게 해주는 오픈 소스 SDK입니다. EGo는 OE SDK를 기반으로 하며 증명 및 봉인을 위한 enclave 내 Go 라이브러리와 함께 제공됩니다. 많은 기존 Go 애플리케이션은 수정 없이 EGo에서 실행됩니다.  
 
 ## <a name="confidential-consortium-framework-ccf"></a>CCF(기밀 컨소시엄 프레임워크) <a id="ccf"></a>
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 04/08/2021
-ms.openlocfilehash: 904074759d2b8f197a0df0377071e95203fabba9
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 7825942ce692e83f2305e4c9f9b1a31cdadaea71
+ms.sourcegitcommit: f9e368733d7fca2877d9013ae73a8a63911cb88f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110373178"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111901610"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기 및 연결
 
@@ -44,7 +44,7 @@ Azure Machine Learning은 학습된 기계 학습 모델을 Azure Kubernetes Ser
 
     권한 있는 IP 범위는 표준 Load Balancer에서만 작동합니다.
 
-- AKS 클러스터를 **연결** 하는 경우 Azure Machine Learning 작업 영역과 동일한 Azure 구독에 있어야 합니다.
+- > __다른 Azure 구독__ 에서 AKS 클러스터를 연결하려면 사용자(Azure AD 계정)에게 AKS 클러스터에 대한 **기여자** 역할이 부여되어야 합니다. [Azure Portal](https://ms.portal.azure.com/)에서 액세스를 확인합니다.
 
 - 프라이빗 AKS 클러스터를 사용하려면(Azure Private Link 사용) 먼저 클러스터를 만든 다음, 작업 영역에 **연결** 해야 합니다. 자세한 내용은 [프라이빗 Azure Kubernetes Service 클러스터 만들기](../aks/private-clusters.md)를 참조하세요.
 

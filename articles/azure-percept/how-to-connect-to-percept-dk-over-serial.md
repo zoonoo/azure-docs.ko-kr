@@ -1,18 +1,18 @@
 ---
 title: Azure Percept DK에 직렬 연결
-description: PuTTY를 사용해 Azure Percept DK에 직렬로 연결하고 USB를 TTL 직렬 케이블에 연결하는 설정 방법을 알아봅니다.
-author: elqu20
-ms.author: v-elqu
+description: USB-TTL 직렬 케이블을 사용하여 Azure Percept DK에 직렬 연결을 설정하는 방법
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 93b8ab0ce53202402e86b059abe3c600590d549e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b1cb975c65f2234892cfef919220c68ebf5b2dca
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101662922"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109488270"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-serial"></a>Azure Percept DK에 직렬 연결
 
@@ -30,7 +30,7 @@ ms.locfileid: "101662922"
 
     :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/usb-serial-cable.png" alt-text="USB-TTL 직렬 케이블.":::
 
-## <a name="initiate-the-serial-connection"></a>직렬 연결 시작
+## <a name="start-the-serial-connection"></a>직렬 연결 시작
 
 1. 캐리어 보드가 80/20 레일에 연결되어 있는 경우 devkit 시작 카드에 포함된 6각형 키를 사용해 레일에서 분리합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "101662922"
     > [!TIP]
     > 분리하기 전에 점퍼 보드의 방향을 메모하세요. 예를 들어 참조용으로 점퍼 보드에서 회로를 향하는 쪽에 화살표를 그려놓거나 스티커를 붙여놓습니다. 점퍼 보드에는 키가 없어서 캐리어 보드 재조립 시에 잘못해서 뒤집힌 채로 연결될 수도 있습니다.
 
-1. 아래와 같이 [USB-TTL 직렬 케이블](https://www.adafruit.com/product/954)을 마더보드의 GPIO 핀에 연결합니다. 빨간색 선은 연결되지 않는다는 점에 유의합니다.
+1. 아래와 같이 [USB-TTL 직렬 케이블](https://www.adafruit.com/product/954)을 마더보드의 GPIO 핀에 연결합니다.
 
     - 검정색 케이블(GND)을 6번 핀에 연결합니다.
     - 흰색 케이블(RX)을 8번 핀에 연결합니다.
@@ -56,22 +56,16 @@ ms.locfileid: "101662922"
 
 1. Devkit을 켜고 직렬 케이블의 USB쪽 면을 PC에 연결합니다.
 
-1. Windows에서 **시작** -> **Windows 업데이트 설정** -> **옵션 업데이트 보기** -> **드라이버 업데이트** 로 이동합니다. 목록에서 직렬-USB 업데이트를 찾아 옆에 있는 확인란을 선택한 다음 **다운로드 및 설치** 를 클릭합니다.  
+1. Windows에서 **시작** -> **Windows 업데이트 설정** -> **옵션 업데이트 보기** -> **드라이버 업데이트** 로 이동합니다. 목록에서 직렬-USB 업데이트를 찾아 옆에 있는 확인란을 선택하고 **다운로드 및 설치** 를 선택합니다.  
 
-1. 이어서, Windows 디바이스 관리자(**시작** -> **디바이스 관리자**)를 엽니다. **포트** 로 이동한 다음 **USB에서 UART** 를 클릭하여 **속성** 을 엽니다. 디바이스가 연결되어 있는 COM 포트를 확인합니다.
+1. 이어서, Windows 디바이스 관리자(**시작** -> **디바이스 관리자**)를 엽니다. **포트** 로 이동하고 **USB에서 UART** 를 선택하여 **속성** 을 엽니다. 디바이스가 연결되어 있는 COM 포트를 확인합니다.
 
-1. **포트 설정** 탭을 클릭합니다. **비트/초** 가 115,200으로 설정되어 있는지 확인합니다.
+1. **포트 설정** 탭을 선택합니다. **초당 비트 수** 가 115200으로 설정되어 있는지 확인합니다.
 
-1. PuTTY를 엽니다. 다음 내용을 입력하고 **열기** 를 클릭해 직렬로 devkit을 연결합니다.
+1. PuTTY를 엽니다. 다음 내용을 입력하고 **열기** 를 선택해 직렬로 devkit을 연결합니다.
 
     1. 직렬 회선: COM[포트 번호]
     1. 속도: 115200
     1. 연결 형식: 직렬
 
     :::image type="content" source="./media/how-to-connect-to-percept-dk-over-serial/putty-serial-session.png" alt-text="직렬 매개 변수가 선택된 PuTTY 세션 창.":::
-
-## <a name="next-steps"></a>다음 단계
-
-부팅할 수 없는 디바이스를 [USB-TTL 직렬 케이블](https://www.adafruit.com/product/954)로 직렬 연결하여 업데이트하려면 비표준 상황에 대한 USB 업데이트 가이드를 참조하세요.
-
-[comment]: # (가능한 경우 USB 업데이트 가이드에 대한 링크를 추가합니다.)

@@ -4,12 +4,12 @@ description: Azure Functions에 코드를 배포할 수 있는 다양한 방법�
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 4a65a00c28a20c9381d3dcc6fd7545137528d5c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ca81067fa60836d77c4d8af121ebf415c772a1d7
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98943632"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107789216"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -106,7 +106,7 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 
 외부 패키지 URL을 사용하여 함수 앱이 포함된 원격 패키지(.zip) 파일을 참조할 수 있습니다. 파일이 제공된 URL에서 다운로드되고 앱이 [패키지에서 실행](run-functions-from-deployment-package.md) 모드에서 실행됩니다.
 
->__사용 방법:__ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)를 애플리케이션 설정에 추가합니다. 이 설정의 값은 URL(실행하려는 특정 패키지 파일의 위치)이어야 합니다. [Portal에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용하여](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 설정을 추가할 수 있습니다.
+>__사용 방법:__ [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package)를 애플리케이션 설정에 추가합니다. 이 설정의 값은 URL(실행하려는 특정 패키지 파일의 위치)이어야 합니다. [Portal에서](functions-how-to-use-azure-function-app-settings.md#settings) 또는 [Azure CLI를 사용하여](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 설정을 추가할 수 있습니다.
 >
 >Azure Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)에서 프라이빗 컨테이너를 사용하여 Functions에 패키지에 대한 액세스 권한을 부여합니다. 애플리케이션이 다시 시작될 때마다 콘텐츠의 복사본을 가져옵니다. 참조는 애플리케이션의 수명 동안 유효해야 합니다.
 
@@ -118,7 +118,7 @@ Zip 배포를 사용하여 함수 앱을 포함하는 .zip 파일을 Azure에 �
 
 >__사용 방법:__ [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) 중에서 즐겨 사용하는 클라이언트 도구를 사용하여 배포하거나 [Azure Functions Core Tools](functions-run-local.md#project-file-deployment)를 사용하여 명령줄에서 배포합니다. 기본적으로 이러한 도구는 zip 배포를 사용하고 [패키지에서 실행](run-functions-from-deployment-package.md)합니다. Core Tools와 Visual Studio Code 확장은 모두 Linux에 배포할 때 [원격 빌드](#remote-build)를 사용하도록 설정합니다. .zip 파일을 함수 앱에 수동으로 배포하려면 [.zip 파일이나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
 
->zip 배포를 사용하여 배포하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package 애플리케이션 설정 값을 `1`로 설정합니다. zip 배포를 권장합니다. 이 방식을 사용하면 애플리케이션에 대한 로드 시간이 빨라지며, 이것이 VS Code, Visual Studio 및 Azure CLI에 대한 기본값입니다.
+>zip 배포를 사용하여 배포하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행하려면 [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) 애플리케이션 설정 값을 `1`로 설정합니다. zip 배포를 권장합니다. 이 방식을 사용하면 애플리케이션에 대한 로드 시간이 빨라지며, 이것이 VS Code, Visual Studio 및 Azure CLI에 대한 기본값입니다.
 
 >__사용 시기:__ zip 배포는 Azure Functions에 권장되는 배포 기술입니다.
 

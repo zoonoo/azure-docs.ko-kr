@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 5171cefdb82b958ae8148ff63f1daef5f67916c6
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 45489d25256d049467dd946922d30606c53f9bed
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105044960"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109750954"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Linux 머신에 Log Analytics 에이전트 설치
 이 문서는 다음 방법을 사용하여 Linux 컴퓨터에 Log Analytics 에이전트를 설치하는 방법을 자세히 설명합니다.
@@ -50,13 +50,13 @@ Log Analytics 에이전트에서 지원하는 Linux 배포 목록은 [Azure Moni
 
 에이전트 버전 1.13.27부터 Linux 에이전트는 Python 2와 3을 모두 지원합니다. 항상 최신 에이전트를 사용하는 것이 좋습니다. 
 
-이전 버전의 에이전트를 사용하는 경우 가상 머신에서 기본적으로 Python 2를 사용해야 합니다. 가상 머신이 기본적으로 Python 2가 포함되지 않은 배포판을 사용하는 경우 이를 설치해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치합니다.
+이전 버전의 에이전트를 사용하는 경우 가상 머신에서 기본적으로 Python 2를 사용해야 합니다. 가상 머신이 기본적으로 Python 2를 포함하지 않는 배포판을 사용하는 경우 이를 설치해야 합니다. 다음 샘플 명령은 다른 배포판에 Python 2를 설치합니다.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-Python2 실행 파일은 *python* 을 별칭으로 지정해야 합니다. 다음은 이 별칭을 설정하는 데 사용할 수 있는 한 가지 방법입니다.
+다시 말하지만, 이전 버전의 에이전트를 사용하는 경우에만 python2 실행 파일의 별칭을 *python* 으로 지정해야 합니다. 다음은 이 별칭을 설정하는 데 사용할 수 있는 한 가지 방법입니다.
 
 1. 다음 명령을 실행하여 기존 별칭을 제거합니다.
  
@@ -71,16 +71,16 @@ Python2 실행 파일은 *python* 을 별칭으로 지정해야 합니다. 다�
     ```
 
 ## <a name="supported-linux-hardening"></a>지원되는 Linux 강화
-OMS 에이전트는 Linux에 대해 제한된 사용자 지정 지원을 제공합니다. 
+OMS 에이전트는 Linux에 대한 제한된 사용자 지정 및 강화 지원을 제공합니다.
 
 현재 지원되는 사항은 다음과 같습니다. 
 - FIP
 
-다음 사항을 고려 중이며 아직 지원되지는 않습니다.
+지원되지 않는 옵션은 다음과 같습니다.
 - CIS
 - SELINUX
 
-기타 강화 및 사용자 지정 방법은 지원되지 않으며 OMS 에이전트에 대해 계획되지도 않습니다.  
+CIS 및 SELINUX 강화 지원은 [Azure Monitoring Agent](./azure-monitor-agent-overview.md)에 대해 계획되어 있습니다. 추가 강화 및 사용자 지정 방법은 지원되지 않으며 OMS 에이전트에 대해 계획되지도 않습니다.  
 
 ## <a name="agent-prerequisites"></a>에이전트 필수 구성 요소
 
@@ -105,7 +105,7 @@ Linux 에이전트에 대한 네트워크 요구 사항은 [Log Analytics 에이
 
 Linux용 Log Analytics 에이전트는 여러 패키지로 구성됩니다. 릴리스 파일은 다음 패키지를 포함하며, `--extract` 매개 변수와 함께 셸 번들을 실행하면 사용할 수 있습니다.
 
-**패키지** | **Version** | **설명**
+**패키지** | **버전** | **설명**
 ----------- | ----------- | --------------
 omsagent | 1.13.9 | Linux용 Log Analytics 에이전트
 omsconfig | 1.1.1 | Log Analytics 에이전트에 대한 구성 에이전트
@@ -189,7 +189,7 @@ Linux용 Log Analytics 에이전트는 자동으로 압축이 풀리는 설치 �
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정해야 합니다. 예를 들면 다음과 같습니다. 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정해야 합니다. 다음은 그 예입니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

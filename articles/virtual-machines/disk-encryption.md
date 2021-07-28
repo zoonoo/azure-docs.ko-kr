@@ -2,18 +2,18 @@
 title: Azure Managed Disks의 서버 쪽 암호화
 description: Azure Storage는 미사용 데이터를 암호화한 후 저장소 클러스터에 보관하여 데이터를 보호합니다. 고객 관리형 키를 사용하여 사용자 고유의 키로 암호화를 관리하거나 Microsoft 관리형 키를 사용하여 관리 디스크를 암호화할 수 있습니다.
 author: roygara
-ms.date: 03/11/2021
+ms.date: 04/15/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 09ec15eb45029c42fd5bc02288a0c45e167e7092
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104721854"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146296"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Azure Disk Storage의 서버 쪽 암호화
 
@@ -21,7 +21,7 @@ ms.locfileid: "104721854"
 
 Azure Managed Disks의 데이터는 사용 가능한 가장 강력한 암호 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용하여 투명하게 암호화되며 FIPS 140-2 규격입니다. 암호화 모듈의 기본 Azure Managed Disks에 대한 자세한 정보는 [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)을 참조하세요.
 
-Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으며 추가 비용은 없습니다. Azure Storage 암호화에 대한 자세한 내용은 [Azure Storage 암호화](/azure/storage/common/storage-service-encryption)를 참조하세요.
+Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으며 추가 비용은 없습니다. Azure Storage 암호화에 대한 자세한 내용은 [Azure Storage 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.
 
 > [!NOTE]
 > 호스트에서 암호화를 사용하도록 설정하지 않는 한 임시 디스크는 관리 디스크가 아니고 SSE로 암호화되지 않습니다.
@@ -81,6 +81,8 @@ Azure Storage 암호화는 관리 디스크의 성능에 영향을 주지 않으
 #### <a name="supported-vm-sizes"></a>지원되는 VM 크기
 
 [!INCLUDE [virtual-machines-disks-encryption-at-host-suported-sizes](../../includes/virtual-machines-disks-encryption-at-host-suported-sizes.md)]
+
+VM 크기를 프로그래밍 방식으로 찾을 수도 있습니다. 프로그래밍 방식으로 검색하는 방법을 알아보려면 [Azure PowerShell 모듈](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) 또는 [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes) 문서의 지원되는 VM 크기 찾기 섹션을 참조하세요.
 
 호스트에서의 암호화를 사용하여 엔드투엔드 암호화를 사용 설정하려면 [Azure PowerShell 모듈](windows/disks-enable-host-based-encryption-powershell.md), [Azure CLI](linux/disks-enable-host-based-encryption-cli.md) 또는 [Azure Portal](disks-enable-host-based-encryption-portal.md) 중 하나를 통해 사용 설정하는 방법에 대한 문서를 참조하세요.
 

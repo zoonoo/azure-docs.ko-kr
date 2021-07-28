@@ -4,13 +4,14 @@ description: 이 문서에서는 Azure Automation State Configuration을 사용�
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.openlocfilehash: f16db3f55ebd0f09e4d7b75750fa319daf03977e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.date: 04/15/2021
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: d29c8ec4e0b992f38eec9e203ad6ad302f71308b
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99053570"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018496"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>원하는 상태로 머신 구성
 
@@ -27,7 +28,7 @@ Azure Automation 상태 구성을 사용하면 서버 구성을 지정하고 시
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure Automation 계정. Automation 계정 및 해당 요구 사항에 대 한 자세한 내용은 [Automation 계정 인증 개요](./automation-security-overview.md)를 참조 하세요.
+- Azure Automation 계정. Automation 계정 및 해당 요구 사항에 대한 자세한 내용은 [Automation 계정 인증 개요](./automation-security-overview.md)를 참조하세요.
 - Windows Server 2008 R2 이상을 실행하는 Azure Resource Manager VM(클래식 아님). VM 만들기에 대한 지침은 [Azure Portal에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md)를 참조하세요.
 - Azure PowerShell 모듈 버전 3.6 이상 - `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/azurerm/install-azurerm-ps)를 참조하세요.
 - DSC(필요한 상태 구성)와 익숙함. DSC에 대한 자세한 내용은 [Windows PowerShell Desired State Configuration 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
@@ -136,27 +137,6 @@ $reports = Get-AzAutomationDscNodeReport -ResourceGroupName 'MyResourceGroup' -A
 # Display the most recent report
 $reports[0]
 ```
-
-## <a name="remove-nodes-from-service"></a>서비스에서 노드 제거
-
-Azure Automation State Configuration에 노드를 추가하는 경우 로컬 구성 관리자의 설정은 서비스에 등록되고 구성 및 필요한 모듈을 가져와 머신을 구성하도록 설정됩니다.
-서비스에서 노드를 제거하려면 Azure Portal 또는 Az cmdlet 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
-
-> [!NOTE]
-> 서비스에서 노드를 등록 취소하면 로컬 구성 관리자 설정을 노드가 서비스에 더 이상 연결하지 않도록만 설정합니다.
-> 현재 노드에 적용되는 구성에는 영향을 주지 않습니다.
-> 현재 구성을 제거하려면 [PowerShell](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument)을 사용하거나 로컬 구성 파일을 삭제합니다 (Linux 노드에서는 유일한 옵션).
-
-### <a name="azure-portal"></a>Azure portal
-
-Azure Automation에서 목차의 **상태 구성(DSC)** 을 클릭합니다.
-다음으로 **노드** 를 클릭하여 서비스에 등록된 노드 목록을 봅니다.
-제거하려는 노드의 이름을 클릭합니다.
-열리는 노드 보기에서 **등록 취소** 를 클릭합니다.
-
-### <a name="powershell"></a>PowerShell
-
-PowerShell을 사용하여 Azure Automation State Configuration 서비스에서 노드를 등록 취소하려면 [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode) cmdlet 설명서를 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 

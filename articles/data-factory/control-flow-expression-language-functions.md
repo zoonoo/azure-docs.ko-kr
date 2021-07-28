@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory의 식과 함수
 description: 이 문서에서는 Data Factory 엔터티 만들기에 사용할 수 있는 식과 함수에 대한 정보를 제공합니다.
-author: dcstwh
-ms.author: weetok
+author: minhe-msft
+ms.author: hemin
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: e89cb847bcd5d0137354c07fe97148bcbeca2714
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 04/28/2021
+ms.openlocfilehash: 275c77107faf8fd639d714b92828ab8efe623f26
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786297"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108164906"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 
@@ -69,7 +69,7 @@ ms.locfileid: "104786297"
 
 ### <a name="dynamic-content-editor"></a>동적 콘텐츠 편집기
 
-편집을 마치면 동적 콘텐츠 편집기가 자동으로 콘텐츠에서 문자를 이스케이프합니다. 예를 들어 콘텐츠 편집기의 다음 콘텐츠는 두 개의 식 함수를 사용하는 문자열 보간입니다. 
+편집을 마치면 동적 콘텐츠 편집기가 콘텐츠에서 문자를 자동으로 이스케이프합니다. 예를 들어 콘텐츠 편집기의 다음 콘텐츠는 두 개의 식 함수를 사용하는 문자열 보간입니다. 
 
 ```json
 { 
@@ -78,7 +78,7 @@ ms.locfileid: "104786297"
 }
 ```
 
-동적 콘텐츠 편집기는 위의 콘텐츠를 `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"` 식으로 변환합니다. 이 식의 결과는 아래에 표시된 JSON 형식 문자열입니다.
+동적 콘텐츠 편집기는 `"{ \n  \"type\": \"@{if(equals(1, 2), 'Blob', 'Table' )}\",\n  \"name\": \"@{toUpper('myData')}\"\n}"` 식으로 위의 콘텐츠를 변환합니다. 이 식의 결과는 아래에 표시된 JSON 형식 문자열입니다.
 
 ```json
 {
@@ -161,6 +161,30 @@ ms.locfileid: "104786297"
     }
 }
 ```
+
+### <a name="replacing-special-characters"></a>특수 문자 바꾸기
+
+편집을 마치면 동적 콘텐츠 편집기가 큰 따옴표 같은 문자를 자동으로 이스케이프합니다. 이 때문에 replace() 함수에서 **\n**, **\t** 를 사용하여 줄 바꾸기나 탭을 바꿀 때 문제가 발생합니다. 코드 보기에서 동적 콘텐츠를 편집하여 식에서 추가 \를 제거하거나, 아래의 단계에 따라 식 언어를 사용하여 특수 문자를 바꿀 수 있습니다.
+
+1. 원래 문자열 값에 대한 URL 인코딩
+1. URL로 인코딩된 문자열을 바꿉니다(예: 줄 바꿈(%0A), 캐리지 리턴(%0D), 가로 탭(%09)).
+1. URL 디코딩
+
+예를 들어 *companyName* 변수 값에 줄 바꿈 문자가 있다면 `@uriComponentToString(replace(uriComponent(variables('companyName')), '%0A', ''))` 식으로 줄 바꿈 문자를 제거할 수 있습니다. 
+
+```json
+Contoso-
+Corporation
+```
+
+### <a name="escaping-single-quote-character"></a>작은 따옴표 문자 이스케이프
+
+식 함수는 문자열 값 매개 변수에 작은 따옴표를 사용합니다. 두 개의 작은 따옴표를 사용하여 문자열 함수에서 ' 문자를 이스케이프합니다. 예를 들어 `@concat('Baba', '''s ', 'book store')` 식은 아래 결과를 반환합니다.
+
+```
+Baba's book store
+```
+
 ### <a name="tutorial"></a>자습서
 이 [자습서](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)에서는 매개 변수를 작업 간에 전달하는 방법뿐만 아니라 파이프라인과 작업 간에 전달하는 방법을 안내합니다.
 

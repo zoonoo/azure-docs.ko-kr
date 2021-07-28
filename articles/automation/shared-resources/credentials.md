@@ -5,12 +5,13 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9b9e42d55a982aeb55d7c9e26f7b1a6cbca32e0a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 6220a44e952aa4d9856ac5fc2077d254103d4a2c
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99052807"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107834285"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Azure Automation에서 자격 증명 관리
 
@@ -51,9 +52,9 @@ Import-Module Orchestrator.AssetManagement.Cmdlets -ErrorAction SilentlyContinue
 > [!NOTE]
 > `Get-AutomationPSCredential`의 `Name` 매개 변수에는 변수를 사용하면 안 됩니다. 변수를 사용하면 디자인 타임에 Runbook 또는 DSC 구성과 자격 증명 자산 간의 종속성 검색이 복잡해질 수 있습니다.
 
-## <a name="python-functions-that-access-credentials"></a>자격 증명에 액세스 하는 Python 함수
+## <a name="python-functions-that-access-credentials"></a>자격 증명에 액세스하는 Python 함수
 
-다음 표의 함수는 Python 2 및 3 runbook의 자격 증명에 액세스 하는 데 사용 됩니다. Python 3 runbook은 현재 미리 보기로 제공 됩니다.
+다음 표의 함수는 Python 2 및 3 Runbook의 자격 증명에 액세스하는 데 사용됩니다. Python 3 Runbook은 현재 미리 보기로 제공됩니다.
 
 | 함수 | Description |
 |:---|:---|
@@ -68,8 +69,8 @@ Microsoft Azure Portal 또는 Windows PowerShell을 사용하여 새 자격 증�
 
 ### <a name="create-a-new-credential-asset-with-the-azure-portal"></a>Microsoft Azure Portal을 사용하여 새 자격 증명 자산 만들기
 
-1. Automation 계정의 왼쪽 창에 있는 **공유 리소스** 에서 **자격 증명** 을 선택 합니다.
-2. **자격 증명** 페이지에서 **자격 증명 추가** 를 선택 합니다.
+1. Automation 계정의 왼쪽 창에서 **공유 리소스** 아래에 있는 **자격 증명** 을 선택합니다.
+2. **자격 증명** 페이지에서 **자격 증명 추가** 를 선택합니다.
 3. 새 자격 증명 창에서 이름 지정 표준에 따라 적절한 자격 증명 이름을 입력합니다.
 4. **사용자 이름** 필드에 액세스 ID를 입력합니다.
 5. 두 암호 필드 모두에 비밀 액세스 키를 입력합니다.
@@ -144,7 +145,7 @@ print cred["password"]
 
 # <a name="python-3"></a>[Python 3](#tab/python3)
 
-다음 예제에서는 Python 3 runbook (미리 보기)에서 자격 증명에 액세스 하는 예를 보여 줍니다.
+다음 예제에서는 Python 3 Runbook(미리 보기)의 자격 증명에 액세스하는 예를 보여줍니다.
 
 ```python
 import automationassets
@@ -162,11 +163,11 @@ print (cred["password"])
 
 그래픽 편집기의 라이브러리 창에서 자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가** 를 선택하여 내부 `Get-AutomationPSCredential` cmdlet에 대한 활동을 그래픽 Runbook에 추가할 수 있습니다.
 
-![Canvas에 credential cmdlet 추가](../media/credentials/credential-add-canvas.png)
+![캔버스에 자격 증명 cmdlet 추가](../media/credentials/credential-add-canvas.png)
 
 다음 그림에서는 그래픽 Runbook에서 자격 증명을 사용하는 예제를 보여 줍니다. 이 경우 자격 증명은 [Azure Automation에서 Microsoft Azure Active Directory를 사용하여 Azure에 인증](../automation-use-azure-ad.md)에 설명된 대로 Runbook에 대한 인증을 Azure 리소스에 제공합니다. 첫 번째 활동에서는 Azure 구독에 액세스할 수 있는 자격 증명을 검색합니다. 그런 다음, 계정 연결 활동에서 이 자격 증명을 사용하여 이후의 모든 활동에 대한 인증을 제공합니다. `Get-AutomationPSCredential`에는 단일 개체가 필요하기 때문에 [파이프라인 링크](../automation-graphical-authoring-intro.md#use-links-for-workflow)가 여기에 사용됩니다.  
 
-![파이프라인 링크를 사용 하는 자격 증명 워크플로 예제](../media/credentials/get-credential.png)
+![파이프라인 링크를 사용하는 자격 증명 워크플로 예제](../media/credentials/get-credential.png)
 
 ## <a name="use-credentials-in-a-dsc-configuration"></a>DSC 구성에서 자격 증명 사용
 

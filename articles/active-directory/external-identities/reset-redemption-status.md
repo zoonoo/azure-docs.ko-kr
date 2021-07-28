@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0396698fe63cb62fc1cfaf5d930b8a97a7b1bbc
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: f5bfce7ef2621cbe3bbbfdd95bf9a75e427c8cbd
+ms.sourcegitcommit: 49b2069d9bcee4ee7dd77b9f1791588fe2a23937
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106552260"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107531882"
 ---
 # <a name="reset-redemption-status-for-a-guest-user-preview"></a>게스트 사용자에 대한 상환 상태 다시 설정(미리 보기)
 
@@ -37,7 +37,9 @@ ms.locfileid: "106552260"
 3. 아래 방법 중 하나를 사용하여 사용자의 상환 상태를 다시 설정합니다.
 
 > [!NOTE]
->공개 미리 보기 중에 사용자의 이메일 주소를 다시 설정하는 경우 `mail` 속성을 새 이메일 주소로 설정하는 것이 좋습니다. 이렇게 하면 사용자는 초대에 있는 상환 링크를 사용하는 것 외에도 디렉터리에 로그인하여 초대를 상환할 수 있습니다.
+>공개 미리 보기 중에는 두 가지 권장 사항이 있습니다.
+>- 사용자의 이메일 주소를 새 주소로 다시 설정하는 경우 `mail` 속성을 설정하는 것이 좋습니다. 이렇게 하면 사용자는 초대에 있는 상환 링크를 사용하는 것 외에도 디렉터리에 로그인하여 초대를 상환할 수 있습니다.
+>- B2B 게스트 사용자의 상태를 다시 설정하는 경우 사용자 컨텍스트에서 이 작업을 수행해야 합니다. 앱 전용 호출은 현재 지원되지 않습니다.
 >
 ## <a name="use-powershell-to-reset-redemption-status"></a>PowerShell을 사용하여 상환 상태 다시 설정
 
@@ -54,7 +56,7 @@ New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitat
 
 ## <a name="use-microsoft-graph-api-to-reset-redemption-status"></a>Microsoft Graph API를 사용하여 상환 상태 다시 설정
 
-[Microsoft Graph 초대 API](/graph/api/resources/invitation?view=graph-rest-1.0)를 사용하여 `resetRedemption` 속성을 `true`로 설정하고 `invitedUserEmailAddress` 속성에 새 이메일 주소를 지정합니다.
+[Microsoft Graph 초대 API](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true)를 사용하여 `resetRedemption` 속성을 `true`로 설정하고 `invitedUserEmailAddress` 속성에 새 이메일 주소를 지정합니다.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b88923ff6447785a4ef5a7c80e1ff44d1a2b9cb
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101727433"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107777386"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
@@ -26,17 +26,18 @@ ms.locfileid: "101727433"
 
 이 문서에서는 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)의 시뮬레이트된 디바이스 샘플을 사용하여 여러 지역의 다중 테넌트 시나리오에서 디바이스를 프로비전하는 방법을 보여 줍니다. 이 문서에서는 다음 단계를 수행합니다.
 
-* Azure CLI를 사용하여 두 개의 지역별 IoT Hub(**미국 서부** 및 **미국 동부**)를 만듭니다.
-* 다중 테넌트 등록 만들기
-* Azure CLI를 사용하여 같은 지역의 디바이스로 작동할 두 개의 지역별 Linux VM을 만듭니다(**미국 서부** 및 **미국 동부**).
-* 두 Linux VM에서 Azure IoT C SDK에 대한 개발 환경 준비
-* 디바이스를 시뮬레이트하여 가장 가까운 지역의 동일한 테넌트에 대해 프로비전되는지 확인합니다.
+> [!div class="checklist"]
+> * Azure CLI를 사용하여 두 개의 지역별 IoT Hub(**미국 서부** 및 **미국 동부**)를 만듭니다.
+> * 다중 테넌트 등록 만들기
+> * Azure CLI를 사용하여 같은 지역의 디바이스로 작동할 두 개의 지역별 Linux VM을 만듭니다(**미국 서부** 및 **미국 동부**).
+> * 두 Linux VM에서 Azure IoT C SDK에 대한 개발 환경 준비
+> * 디바이스를 시뮬레이트하여 가장 가까운 지역의 동일한 테넌트에 대해 프로비전되는지 확인합니다.
 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
 - [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
@@ -46,7 +47,7 @@ ms.locfileid: "101727433"
 이 섹션에서는 Azure Cloud Shell을 사용하여 테넌트의 **미국 서부** 및 **미국 동부** 지역에 두 개의 지역별 IoT Hub를 새로 만듭니다.
 
 
-1. Azure Cloud Shell을 사용하여 [az group create](/cli/azure/group#az-group-create) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+1. Azure Cloud Shell을 사용하여 [az group create](/cli/azure/group#az_group_create) 명령으로 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
     다음 예제에서는 *eastus* 지역에 *contoso-us-resource-group* 이라는 리소스 그룹을 만듭니다. 이 문서에 만든 모든 리소스에 이 그룹을 사용하는 것이 좋습니다. 이렇게 하면 작업을 완료한 후 정리가 더 쉬워집니다.
 
@@ -54,7 +55,7 @@ ms.locfileid: "101727433"
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Azure Cloud Shell에서 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 **eastus** 지역에 IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group* 에 추가됩니다.
+2. Azure Cloud Shell에서 [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령을 사용하여 **eastus** 지역에 IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group* 에 추가됩니다.
 
     다음 예제에서는 *eastus* 위치에 *contoso-east-hub* 라는 IoT Hub를 만듭니다. **contoso-east-hub** 대신 고유한 허브 이름을 사용해야 합니다.
 
@@ -64,7 +65,7 @@ ms.locfileid: "101727433"
     
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-3. Azure Cloud Shell에서 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 **westus** 지역에 IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group* 에 추가됩니다.
+3. Azure Cloud Shell에서 [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) 명령을 사용하여 **westus** 지역에 IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group* 에 추가됩니다.
 
     다음 예제에서는 *eastus* 위치에 *contoso-west-hub* 라는 IoT Hub를 만듭니다. **contoso-west-hub** 대신 고유한 허브 이름을 사용해야 합니다.
 
@@ -417,8 +418,11 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> 재프로비저닝에 대한 자세한 내용은 [IoT Hub 디바이스 재프로비저닝 개념](concepts-device-reprovision.md)을 참조하세요.
+* 재프로비저닝에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
-> 프로비전 해제에 대한 자세한 내용은 [이전에 자동 프로비저닝된 디바이스의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)을 참조하세요.
+> [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)
+
+* 프로비전 해제에 대한 자세한 내용은 다음을 참조하세요.
+> [!div class="nextstepaction"]
+> [이전에 자동으로 프로비전된 디바이스의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)

@@ -2,21 +2,21 @@
 title: 테이블 인덱싱
 description: 전용 SQL 풀의 테이블 인덱싱에 대한 권장 사항 및 예제입니다.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 03/18/2019
+ms.date: 04/16/2021
+author: XiaoyuMSFT
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: fabbdf330d43737ffa85379f9cc4d5ac59c4a734
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 58f3eed8b16ff3ed02c6dfac6dc7d72ebb4ca374
+ms.sourcegitcommit: 950e98d5b3e9984b884673e59e0d2c9aaeabb5bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98673521"
+ms.lasthandoff: 04/18/2021
+ms.locfileid: "107599981"
 ---
 # <a name="indexing-dedicated-sql-pool-tables-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 전용 SQL 풀 테이블 인덱싱
 
@@ -30,7 +30,7 @@ ms.locfileid: "98673521"
 
 ## <a name="clustered-columnstore-indexes"></a>클러스터형 columnstore 인덱스
 
-기본적으로 전용 SQL 풀은 테이블에 대해 인덱스 옵션이 지정되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축 뿐만 아니라 전반적으로 최적의 쿼리 성능을 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
+기본적으로 전용 SQL 풀은 테이블에 대해 인덱스 옵션이 지정되지 않은 경우 클러스터형 columnstore 인덱스를 만듭니다. 클러스터형 columnstore 테이블은 가장 높은 수준의 데이터 압축과 최적의 전반적인 쿼리 성능을 모두 제공합니다.  클러스터형 columnstore 테이블은 일반적으로 클러스터형 인덱스 또는 힙 테이블보다 나은 성능을 제공하며 대형 테이블에 적합합니다.  이러한 이유로, 클러스터형 columnstore는 테이블 인덱싱 방법을 잘 모를 경우에 시작하기 가장 좋습니다.  
 
 클러스터형 columnstore 테이블을 만들려면 WITH 절에 CLUSTERED COLUMNSTORE INDEX를 지정하거나 WITH 절을 제외합니다.
 
@@ -46,7 +46,7 @@ WITH ( CLUSTERED COLUMNSTORE INDEX );
 
 다음과 같은 일부 시나리오에서는 클러스터형 columnstore를 사용하는 것이 적합하지 않을 수 있습니다.
 
-- Columnstore 테이블이 varchar(max), nvarchar(max) 및 varbinary(max)를 지원하지 않습니다. 대신 힙 또는 클러스터형 인덱스를 고려합니다.
+- Columnstore 테이블은 varchar(max), nvarchar(max) 및 varbinary(max)를 지원하지 않습니다. 대신 힙 또는 클러스터형 인덱스를 고려합니다.
 - Columnstore 테이블이 임시 데이터에 대해 덜 효율적일 수 있습니다. 힙 및 임시 테이블을 고려합니다.
 - 6천만 개 미만의 행이 있는 작은 테이블. 힙 테이블을 고려합니다.
 
@@ -70,7 +70,7 @@ WITH ( HEAP );
 
 ## <a name="clustered-and-nonclustered-indexes"></a>클러스터형 및 비클러스터형 인덱스
 
-클러스터형 인덱스는 단일 행을 빠르게 검색해야 하는 경우 클러스터형 columnstore 테이블보다 더 나은 성능을 제공할 수 있습니다. 하나 또는 매우 적은 수의 행을 아주 빠른 속도로 조회해야 하는 쿼리의 경우 클러스터 인덱스 또는 비클러스터형 보조 인덱스를 고려합니다. 클러스터형 인덱스를 사용할 때의 단점은 클러스터형 인덱스 열에 고도의 선택 필터를 사용하는 쿼리에만 도움이 된다는 것입니다. 다른 열에 대한 필터를 향상시키기 위해 비클러스터형 인덱스를 다른 열에 추가할 수 있습니다. 그러나 테이블에 각 인덱스가 추가될 때마다 차지하는 공간이 늘어나고 로드 처리 시간도 늘어납니다.
+클러스터형 인덱스는 단일 행을 빠르게 검색해야 하는 경우 클러스터형 columnstore 테이블보다 더 나은 성능을 제공할 수 있습니다. 하나 또는 극소수의 행을 아주 빠른 속도로 조회해야 하는 쿼리의 경우 클러스터형 인덱스 또는 비클러스터형 보조 인덱스를 고려합니다. 클러스터형 인덱스를 사용할 때의 단점은 클러스터형 인덱스 열에 고도의 선택 필터를 사용하는 쿼리에만 도움이 된다는 것입니다. 다른 열에 대한 필터를 향상시키기 위해 비클러스터형 인덱스를 다른 열에 추가할 수 있습니다. 그러나 테이블에 각 인덱스가 추가될 때마다 차지하는 공간이 늘어나고 로드 처리 시간도 늘어납니다.
 
 클러스터형 인덱스 테이블을 만들려는 경우 WITH 절에서 CLUSTERED INDEX를 지정하면 됩니다.
 
@@ -177,6 +177,16 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 | [CLOSED_rowgroup_rows_AVG] |위와 동일합니다. |
 | [Rebuild_Index_SQL] |테이블에 대해 columnstore 인덱스를 다시 작성하기 위한 SQL |
 
+## <a name="impact-of-index-maintenance"></a>인덱스 유지 관리의 영향
+
+`vColumnstoreDensity` 뷰의 `Rebuild_Index_SQL` 열에 인덱스를 다시 빌드하는 데 사용할 수 있는 `ALTER INDEX REBUILD` 문이 포함되어 있습니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다. 이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 [리소스 클래스](resource-classes-for-workload-management.md)를 권장되는 최소 수로 늘립니다. 예제는 이 문서의 뒷부분에 나오는 [인덱스를 다시 빌드하여 세그먼트 품질 향상](#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
+
+순서가 지정된 클러스터형 columnstore 인덱스가 포함된 테이블의 경우 `ALTER INDEX REBUILD`가 tempdb를 사용하여 데이터를 다시 정렬합니다. 다시 빌드 작업 중에 tempdb를 모니터합니다. tempdb 공간이 더 필요하면 데이터 풀을 통해 스케일 업할 수 있습니다. 인덱스 다시 빌드가 완료되면 다시 크기를 줄입니다.
+
+순서가 지정된 클러스터형 columnstore 인덱스가 있는 테이블의 경우 `ALTER INDEX REORGANIZE`에서 데이터가 다시 정렬되지 않습니다. 데이터를 다시 정렬하려면 `ALTER INDEX REBUILD`를 사용합니다.
+
+순서가 지정된 클러스터형 columnstore 인덱스에 대한 자세한 내용은 [순서가 지정된 클러스터형 columnstore 인덱스를 사용한 성능 조정](performance-tuning-ordered-cci.md)을 참조하세요.
+
 ## <a name="causes-of-poor-columnstore-index-quality"></a>columnstore 인덱스 품질 저하의 원인
 
 세그먼트 품질이 저하된 테이블을 식별한 경우 근본 원인을 확인할 수 있습니다.  다음은 세그먼트 품질 저하의 일반적인 몇 가지 원인입니다.
@@ -194,7 +204,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="high-volume-of-dml-operations"></a>많은 양의 DML 작업
 
-행을 업데이트 또는 삭제하는 많은 고용량 DML 작업은 columnstore에 비효율적일 수 있습니다. 특히 행 그룹 내 대부분의 행이 수정될 때 더욱 그렇습니다.
+행을 업데이트 또는 삭제하는 많은 고용량 DML 작업은 columnstore에 비효율적일 수 있습니다. 특히 행 그룹 내 대부분의 행이 수정될 때 그렇습니다.
 
 - 압축 행 그룹에서 하나의 행을 삭제하는 것은 논리적으로 행을 삭제된 것으로 표시하는 것입니다. 이 행은 파티션 또는 테이블이 다시 빌드될 때까지 압축 행 그룹에 남아 있습니다.
 - 행 삽입은 행을 델타 행 그룹이라 불리는 내부 rowstore 테이블에 추가합니다. 삽입된 행은 델타 행 그룹이 꽉 차서 닫힌 것으로 표시될 때까지 columnstore로 변환되지 않습니다. 행 그룹은 최대 용량인 1,048,576개 행에 도달하면 닫힙니다.
@@ -218,38 +228,38 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>1단계: 적합한 리소스 클래스를 사용하는 사용자 식별 또는 만들기
 
-세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다.  이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.
+세그먼트 품질을 즉시 개선하는 한 가지 빠른 방법은 인덱스를 다시 작성하는 것입니다.  위의 보기에서 반환된 SQL은 인덱스를 다시 작성하는 데 사용할 수 있는 ALTER INDEX REBUILD 문을 반환합니다. 인덱스를 다시 작성하는 경우 인덱스를 다시 작성할 세션에 충분한 메모리를 할당해야 합니다. 이렇게 하려면 이 테이블의 인덱스를 다시 작성하기 위한 권한이 있는 사용자의 리소스 클래스를 권장되는 최소 수로 늘립니다.
 
 다음은 사용자의 리소스 클래스를 늘려 사용자에게 더 많은 메모리를 할당하는 방법의 예입니다. 리소스 클래스를 사용하려면 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요.
 
 ```sql
-EXEC sp_addrolemember 'xlargerc', 'LoadUser'
+EXEC sp_addrolemember 'xlargerc', 'LoadUser';
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>2단계: 더 높은 리소스 클래스 사용자를 사용하여 클러스터형 columnstore 인덱스 다시 작성
 
-이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(예: LoadUser)로 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
+이제 더 높은 리소스 클래스를 사용 중인 1단계의 사용자(LoadUser)로 로그인하고 ALTER INDEX 문을 실행합니다. 이 사용자가 인덱스를 다시 작성하려는 테이블에 대한 ALTER 권한이 있는지 확인합니다. 이 예제에서는 전체 columnstore 인덱스 또는 단일 파티션을 다시 빌드하는 방법을 보여 줍니다. 대형 테이블에서는 한 번에 파티션 하나에 대해 인덱스를 다시 빌드하는 것이 실용적입니다.
 
 또는 인덱스를 다시 빌드하는 대신 [CTAS](sql-data-warehouse-develop-ctas.md)를 사용하여 테이블을 새 테이블에 복사할 수 있습니다. 어떤 방식이 적합할까요? 데이터 양이 많은 경우 일반적으로 CTAS가 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)보다 빠릅니다. 더 작은 볼륨의 데이터에서는 ALTER INDEX를 사용하기가 더 쉬우며 테이블도 스왑할 필요가 없습니다.
 
 ```sql
 -- Rebuild the entire clustered index
-ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD
+ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ```sql
 -- Rebuild a single partition
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5;
 ```
 
 ```sql
 -- Rebuild a single partition with archival compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE_ARCHIVE);
 ```
 
 ```sql
 -- Rebuild a single partition with columnstore compression
-ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
+ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE);
 ```
 
 전용 SQL 풀에서 인덱스를 다시 빌드하는 작업은 오프라인 작업입니다.  인덱스를 다시 빌드하는 방법에 대한 자세한 내용은 [Columnstore 인덱스 조각 모음](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) 및 [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)의 ALTER INDEX REBUILD 섹션을 참조하세요.
@@ -283,7 +293,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-CTAS를 사용하여 파티션을 다시 만드는 방법에 대한 자세한 내용은 [전용 SQL 풀에서 파티션 사용](sql-data-warehouse-tables-partition.md)을 참조하세요.
+CTAS를 사용하여 파티션을 다시 만드는 것에 대한 자세한 정보는 [전용 SQL 풀에서 파티션 사용](sql-data-warehouse-tables-partition.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

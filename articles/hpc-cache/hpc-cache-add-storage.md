@@ -4,22 +4,23 @@ description: Azure HPC Cache가 장기 파일 스토리지에 대해 온-프레�
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 05/05/2021
+ms.custom: subject-rbac-steps
 ms.author: v-erkel
-ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: aae7d29abbb9ef18846e85e9a54ff0fb97f09181
+ms.sourcegitcommit: eda26a142f1d3b5a9253176e16b5cbaefe3e31b3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104772725"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109738521"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
 '스토리지 대상'은 Azure HPC Cache를 통해 액세스되는 파일에 대한 백 엔드 스토리지입니다. NFS 스토리지(예: 온-프레미스 하드웨어 시스템)를 추가하거나 Azure Blob에 데이터를 저장할 수 있습니다.
 
-하나의 캐시에 최대 20개의 스토리지 대상을 정의할 수 있습니다. 캐시는 하나의 집계형 네임스페이스에서 모든 스토리지 대상을 제공합니다.
+모든 캐시에 대해 10개의 다른 스토리지 대상을 정의할 수 있으며, 더 큰 캐시는 [최대 20개의 스토리지 대상을 지원할](#size-your-cache-correctly-to-support-your-storage-targets)수 있습니다.
 
-스토리지 대상을 추가하면 네임스페이스 경로가 별도로 구성됩니다. 일반적으로 NFS 스토리지 대상은 최대 10개의 네임스페이스 경로를 포함할 수 있으며 일부 대용량 구성에서는 더 늘어납니다. 자세한 내용은 [NFS 네임스페이스 경로](add-namespace-paths.md#nfs-namespace-paths)를 참조하세요.
+캐시는 하나의 집계형 네임스페이스에서 모든 스토리지 대상을 제공합니다. 스토리지 대상을 추가하면 네임스페이스 경로가 별도로 구성됩니다.
 
 스토리지 내보내기는 캐시의 가상 네트워크에서 액세스할 수 있어야 합니다. 온-프레미스 하드웨어 스토리지의 경우 NFS 스토리지 액세스를 위한 호스트 이름을 확인할 수 있는 DNS 서버를 설정해야 할 수 있습니다. 자세한 내용은 [DNS 액세스](hpc-cache-prerequisites.md#dns-access)를 참조하세요.
 
@@ -34,6 +35,15 @@ ms.locfileid: "104772725"
 아래 이미지를 클릭하여 Azure Portal에서 캐시를 만들고 스토리지 대상을 추가하는 [동영상 데모](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)를 시청하세요.
 
 [![동영상 썸네일: Azure HPC Cache: 설정(동영상 페이지를 방문하려면 클릭)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+
+## <a name="size-your-cache-correctly-to-support-your-storage-targets"></a>스토리지 대상을 지원하도록 캐시 크기를 올바르게 조정
+
+지원되는 스토리지 대상 수는 캐시를 만들 때 설정되는 캐시 크기에 따라 달라집니다. 크기는 처리량 용량(GB/s)과 스토리지 용량(TB)의 조합입니다.
+
+* 최대 10개의 스토리지 대상 - 선택한 처리량 값에 대해 가장 작거나 중간 크기의 캐시 스토리지 크기를 선택하는 경우 캐시에는 최대 10개의 스토리지 대상이 있을 수 있습니다.
+* 최대 20개의 스토리지 대상 - 10개 넘는 스토리지 대상을 사용하려는 경우 선택한 처리량 값에 사용할 수 있는 가장 높은 캐시 크기를 선택합니다. Azure CLI 사용하는 경우 캐시 SKU에 가장 높은 유효한 캐시 크기를 선택합니다.
+
+처리량 및 캐시 크기 설정에 대한 자세한 내용은 [캐시 용량 설정](hpc-cache-create.md#set-cache-capacity)을 읽어보세요.
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>새 Azure Blob Storage 대상 추가
 
@@ -83,26 +93,43 @@ Azure HPC Cache는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-ba
 
 미리 이 작업을 수행할 수도 있고 Blob Storage 대상을 추가하는 페이지에서 링크를 클릭할 수도 있습니다. 역할 설정이 Azure 환경을 통해 전파되는 데 최대 5분이 걸릴 수 있으므로 스토리지 대상을 만들려면 역할을 추가한 후 몇 분 정도 기다려야 합니다.
 
-Azure 역할을 추가하는 단계:
+1. 스토리지 계정에 대한 **액세스 제어(IAM)** 를 엽니다.
 
-1. 스토리지 계정에 대한 **액세스 제어(IAM)** 페이지를 엽니다. (**스토리지 대상 추가** 페이지의 링크를 선택하면 선택한 계정에 대해 이 페이지가 자동으로 열립니다.)
+1. **추가** > **역할 할당 추가** 를 선택하여 역할 할당 추가 페이지를 엽니다.
 
-1. 페이지 맨 위에서 **+** 를 클릭하고 **역할 할당 추가** 를 선택합니다.
+1. 다음 역할을 한 번에 하나씩 할당합니다. 세부 단계에 대해서는 [Azure Portal을 사용하여 Azure 역할 할당](../role-based-access-control/role-assignments-portal.md)을 참조하세요.
+    
+    | 설정 | 값 |
+    | --- | --- |
+    | 역할 | [Storage 계정 기여자](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob 데이터 기여자](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
+    | 다음에 대한 액세스 할당 | HPC Cache 리소스 공급자 |
 
-1. 목록에서 '스토리지 계정 참가자' 역할을 선택합니다.
-
-1. **액세스 할당** 필드에서 기본값('Azure AD 사용자, 그룹 또는 서비스 주체')을 그대로 둡니다.  
-
-1. **선택** 필드에서 'hpc'를 검색합니다.  이 문자열은 'HPC Cache 리소스 공급자'라는 서비스 주체와 일치해야 합니다. 해당 보안 주체를 클릭하여 선택합니다.
+    ![역할 할당 추가 페이지](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
    > [!NOTE]
-   > 'hpc' 검색이 실패하면 'storagecache' 문자열을 대신 사용해 보세요. 미리 보기(GA 이전)에 참여한 사용자는 서비스 주체의 이전 이름을 사용해야 할 수 있습니다.
+   > HPC Cache 리소스 공급자를 찾을 수 없는 경우 “storagecache” 문자열을 대신 검색해 보세요. HPC Cache 미리 보기(GA 이전)에 참여한 사용자는 서비스 주체의 이전 이름을 사용해야 할 수 있습니다.
 
-1. 아래쪽에 있는 **저장** 단추를 클릭합니다.
+<!-- 
+Steps to add the Azure roles:
 
-1. 이 프로세스를 반복하여 'Storage Blob 데이터 참여자' 역할을 할당합니다.  
+1. Open the **Access control (IAM)** page for the storage account. (The link in the **Add storage target** page automatically opens this page for the selected account.)
 
-![역할 할당 추가 GUI의 스크린샷](media/hpc-cache-add-role.png)
+1. Click the **+** at the top of the page and choose **Add a role assignment**.
+
+1. Select the role "Storage Account Contributor&quot; from the list.
+
+1. In the **Assign access to** field, leave the default value selected (&quot;Azure AD user, group, or service principal").  
+
+1. In the **Select** field, search for "hpc".  This string should match one service principal, named "HPC Cache Resource Provider". Click that principal to select it.
+
+   > [!NOTE]
+   > If a search for "hpc" doesn't work, try using the string "storagecache" instead. Users who participated in previews (before GA) might need to use the older name for the service principal.
+
+1. Click the **Save** button at the bottom.
+
+1. Repeat this process to assign the role "Storage Blob Data Contributor".  
+
+![screenshot of add role assignment GUI](media/hpc-cache-add-role.png) -->
 
 ### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -126,7 +153,7 @@ Azure HPC Cache는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-ba
 
 ### <a name="add-a-blob-storage-target-with-azure-cli"></a>Azure CLI를 사용하여 Blob Storage 대상 추가
 
-[az hpc-cache blob-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/blob-storage-target#ext-hpc-cache-az-hpc-cache-blob-storage-target-add) 인터페이스를 사용하여 Azure Blob Storage 대상을 정의합니다.
+[az hpc-cache blob-storage-target add](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_add) 인터페이스를 사용하여 Azure Blob Storage 대상을 정의합니다.
 
 > [!NOTE]
 > 현재 Azure CLI 명령은 스토리지 대상을 추가할 때 네임스페이스 경로를 만들어야 합니다. 이는 Azure Portal 인터페이스에 사용되는 프로세스와 다릅니다.
@@ -229,7 +256,7 @@ NFS 지원 스토리지 대상에 대한 다음 정보를 제공합니다.
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md)
 
-Azure CLI 명령 [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/hpc-cache/nfs-storage-target#ext-hpc-cache-az-hpc-cache-nfs-storage-target-add)를 사용하여 스토리지 대상을 만듭니다.
+Azure CLI 명령 [az hpc-cache nfs-storage-target add](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_add)를 사용하여 스토리지 대상을 만듭니다.
 
 > [!NOTE]
 > 현재 Azure CLI 명령은 스토리지 대상을 추가할 때 네임스페이스 경로를 만들어야 합니다. 이는 Azure Portal 인터페이스에 사용되는 프로세스와 다릅니다.
@@ -240,7 +267,7 @@ Azure CLI 명령 [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/
 * ``--nfs3-target`` - NFS 스토리지 시스템의 IP 주소입니다. (캐시에서 이름을 확인할 수 있는 DNS 서버에 액세스할 수 있는 경우 여기에 정규화된 도메인 이름을 사용할 수 있습니다.)
 * ``--nfs3-usage-model`` -위의 [사용 모델 선택](#choose-a-usage-model)에 설명된 데이터 캐싱 프로필 중 하나입니다.
 
-  [az hpc-cache usage-model list](/cli/azure/ext/hpc-cache/hpc-cache/usage-model#ext-hpc-cache-az-hpc-cache-usage-model-list) 명령을 사용하여 사용 모델의 이름을 확인합니다.
+  [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage_model_list) 명령을 사용하여 사용 모델의 이름을 확인합니다.
 
 * ``--junction`` - 연결 매개 변수는 클라이언트 연결 가상 파일 경로를 스토리지 시스템의 내보내기 경로에 연결합니다.
 
@@ -250,9 +277,9 @@ Azure CLI 명령 [az hpc-cache nfs-storage-target add](/cli/azure/ext/hpc-cache/
 
   ``--junction`` 매개 변수는 다음 값을 사용합니다.
 
-  * ``namespace-path`` -클라이언트 연결 가상 파일 경로
-  * ``nfs-export`` -클라이언트 연결 경로와 연결할 스토리지 시스템 내보내기
-  * ``target-path``(선택 사항) -필요한 경우 내보내기의 하위 디렉터리
+  * ``namespace-path`` - 클라이언트 연결 가상 파일 경로
+  * ``nfs-export`` - 클라이언트 연결 경로와 연결할 스토리지 시스템 내보내기
+  * ``target-path``(선택 사항) - 필요한 경우 내보내기의 하위 디렉터리
 
   예: ``--junction namespace-path="/nas-1" nfs-export="/datadisk1" target-path="/test"``
 
@@ -310,9 +337,11 @@ ADLS-NFS 스토리지 대상은 Blob Storage 대상 및 NFS 스토리지 대상�
 
 * Blob Storage 대상과 마찬가지로 Azure HPC Cache 에 [스토리지 계정에 액세스](#add-the-access-control-roles-to-your-account)할 수 있는 권한을 제공해야 합니다.
 * NFS 스토리지 대상과 마찬가지로 캐시 [사용 모델](#choose-a-usage-model)을 설정해야 합니다.
-* NFS 사용 Blob 컨테이너에는 NFS 호환 계층 구조가 있기 때문에 데이터를 수집하기 위해 캐시를 사용할 필요가 없으며 컨테이너는 다른 NFS 시스템에서 읽을 수 있습니다. 데이터를 ADLS-NFS 컨테이너에 미리 로드한 다음 HPC 캐시에 스토리지 대상으로 추가하고 나중에 HPC 캐시 외부에서 데이터에 액세스할 수 있습니다. 표준 Blob 컨테이너를 HPC 캐시 스토리지 대상으로 사용하는 경우 데이터는 전용 형식으로 작성되며 다른 Azure HPC Cache 호환 제품에서만 액세스할 수 있습니다.
+* NFS 사용 Blob 컨테이너에는 NFS 호환 계층 구조가 있기 때문에 데이터를 수집하기 위해 캐시를 사용할 필요가 없으며 컨테이너는 다른 NFS 시스템에서 읽을 수 있습니다. 데이터를 ADLS-NFS 컨테이너에 미리 로드한 다음 HPC Cache에 스토리지 대상으로 추가하고 나중에 HPC Cache 외부에서 데이터에 액세스할 수 있습니다. 표준 Blob 컨테이너를 HPC Cache 스토리지 대상으로 사용하는 경우 데이터는 전용 형식으로 작성되며 다른 Azure HPC Cache 호환 제품에서만 액세스할 수 있습니다.
 
 ADLS NFS 스토리지 대상을 만들려면 먼저 NFS 사용 스토리지 계정을 만들어야 합니다. [Azure HPC Cache의 필수 구성 요소](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements-preview)의 팁과 [NFS를 사용하여 Blob Storage 탑재](../storage/blobs/network-file-system-protocol-support-how-to.md)의 지침을 따르세요. 스토리지 계정을 설정한 후 스토리지 대상을 만들 때 새 컨테이너를 만들 수 있습니다.
+
+이 구성에 대한 자세한 내용은 [Azure HPC Cache에서 탑재 Blob Storage 사용](nfs-blob-considerations.md)을 참조하세요.
 
 ADLS-NFS 스토리지 대상을 만들려면 Azure Portal에서 **스토리지 대상 추가** 페이지를 엽니다. (추가 메서드는 개발 중입니다.)
 
@@ -332,8 +361,6 @@ ADLS-NFS 스토리지 대상을 만들려면 Azure Portal에서 **스토리지 �
 
 완료되면 **확인** 을 클릭하여 스토리지 대상을 추가합니다.
 
-<!-- **** -->
-
 ## <a name="view-storage-targets"></a>스토리지 대상 보기
 
 Azure Portal 또는 Azure CLI를 사용하여 캐시에 대해 이미 정의된 스토리지 대상을 표시할 수 있습니다.
@@ -350,13 +377,13 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 사이드바의 설정 �
 
 [Azure HPC Cache용 Azure CLI 설치](./az-cli-prerequisites.md)
 
-[az hpc-cache storage-target list](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list) 옵션을 사용하여 캐시에 대한 기존 스토리지 대상을 표시할 수 있습니다. 캐시 이름 및 리소스 그룹을 제공합니다(전역으로 설정하지 않은 경우).
+[az hpc-cache storage-target list](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list) 옵션을 사용하여 캐시에 대한 기존 스토리지 대상을 표시할 수 있습니다. 캐시 이름 및 리소스 그룹을 제공합니다(전역으로 설정하지 않은 경우).
 
 ```azurecli
 az hpc-cache storage-target list --resource-group "scgroup" --cache-name "sc1"
 ```
 
-[az hpc-cache storage-target show](/cli/azure/ext/hpc-cache/hpc-cache/storage-target#ext-hpc-cache-az-hpc-cache-storage-target-list)를 사용하여 특정 스토리지 대상의 세부 정보를 볼 수 있습니다. (이름으로 스토리지 대상을 지정합니다.)
+[az hpc-cache storage-target show](/cli/azure/hpc-cache/storage-target#az_hpc_cache_storage-target-list)를 사용하여 특정 스토리지 대상의 세부 정보를 볼 수 있습니다. (이름으로 스토리지 대상을 지정합니다.)
 
 예제:
 

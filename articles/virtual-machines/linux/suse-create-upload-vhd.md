@@ -9,19 +9,19 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 12/01/2020
 ms.author: danis
-ms.openlocfilehash: 276f5f4542ecea42c665764b8c4e5f66f2531126
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 7788d7e7a8aa92d4c06b0895c5bea000e13e2d85
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102552714"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713129"
 ---
-# <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE 가상 머신 준비
+# <a name="prepare-a-sles-or-opensuse-leap-virtual-machine-for-azure"></a>Azure용 SLES 또는 openSUSE Leap 가상 머신 준비
 
 
-이 문서에서는 가상 하드 디스크에 SUSE 또는 openSUSE Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
+이 문서에서는 가상 하드 디스크에 SUSE 또는 openSUSE Leap Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11))을 참조하십시오.
 
-## <a name="sles--opensuse-installation-notes"></a>SLES/openSUSE 설치 참고 사항
+## <a name="sles--opensuse-leap-installation-notes"></a>SLES / openSUSE Leap 설치 참고 사항
 * Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
 * VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD** 만 지원됩니다.  Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 * Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 [LVM](/previous-versions/azure/virtual-machines/linux/configure-lvm) 또는 [RAID](/previous-versions/azure/virtual-machines/linux/configure-raid)를 사용할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "102552714"
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
 
 ## <a name="use-suse-studio"></a>SUSE Studio 사용
-[SUSE Studio](https://studioexpress.opensuse.org/) 에서는 Azure와 Hyper-V용 SLES 및 openSUSE 이미지를 쉽게 만들고 관리할 수 있습니다. 고유한 SLES 및 openSUSE 이미지를 사용자 지정할 때는 이 방식을 사용하는 것이 좋습니다.
+[SUSE Studio](https://studioexpress.opensuse.org/)에서는 Azure와 Hyper-V용 SLES 및 openSUSE Leap 이미지를 쉽게 만들고 관리할 수 있습니다. 고유한 SLES 및 openSUSE Leap 이미지를 사용자 지정할 때는 이 방식을 사용하는 것이 좋습니다.
 
 또한 SUSE는 [VM Depot](https://www.microsoft.com/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf)에 SLES용 BYOS(Bring Your Own Subscription) 이미지도 게시하므로 VHD를 직접 작성하는 대신 이 이미지를 사용할 수 있습니다.
 
@@ -157,23 +157,23 @@ ms.locfileid: "102552714"
 16. Hyper-V 관리자에서 **작업 -> 종료** 를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ---
-## <a name="prepare-opensuse-131"></a>openSUSE 13.1+ 준비
+## <a name="prepare-opensuse-152"></a>openSUSE 15.2+ 준비
 1. Hyper-V 관리자의 가운데 창에서 가상 머신을 선택합니다.
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 셸에서 '`zypper lr`' 명령을 실행합니다. 이 명령에서 다음과 유사한 출력이 반환되는 경우 리포지토리가 예상대로 구성된 것입니다. 이 경우 아무 것도 조정할 필요가 없습니다(버전 번호는 다를 수 있음).
 
    | # | Alias                 | 이름                  | 사용 | 새로 고침
    | - | :-------------------- | :-------------------- | :------ | :------
-   | 1 | Cloud:Tools_13.1      | Cloud:Tools_13.1      | 예     | 예
-   | 2 | openSUSE_13.1_OSS     | openSUSE_13.1_OSS     | 예     | 예
-   | 3 | openSUSE_13.1_Updates | openSUSE_13.1_Updates | 예     | 예
+   | 1 | Cloud:Tools_15.2      | Cloud:Tools_15.2      | 예     | 예
+   | 2 | openSUSE_15.2_OSS     | openSUSE_15.2_OSS     | 예     | 예
+   | 3 | openSUSE_15.2_Updates | openSUSE_15.2_Updates | 예     | 예
 
     명령이 "정의된 리포지토리가 없습니다..."를 반환하면 다음 명령을 사용하여 해당 리포지토리를 추가합니다.
 
     ```console
-    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_13.1 Cloud:Tools_13.1
-    # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
-    # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
+    # sudo zypper ar -f http://download.opensuse.org/repositories/Cloud:Tools/openSUSE_15.2 Cloud:Tools_15.2
+    # sudo zypper ar -f https://download.opensuse.org/distribution/15.2/repo/oss openSUSE_15.2_OSS
+    # sudo zypper ar -f http://download.opensuse.org/update/15.2 openSUSE_15.2_Updates
     ```
 
     그런 다음 '`zypper lr`' 명령을 다시 실행하여 리포지토리가 추가되었는지 확인할 수 있습니다. 관련된 업데이트 리포지토리 중 하나가 사용되도록 설정되어 있지 않은 경우 다음 명령을 사용하여 사용하도록 설정합니다.

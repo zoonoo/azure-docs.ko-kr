@@ -4,14 +4,14 @@ description: MTU, 사용자 지정 NTP 및 DNS 구성과 같은 캐시에 대한
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 04/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0b3996df3c75ff31d0825be1d332dbd055305963
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773235"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259764"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>추가 Azure HPC Cache 설정 구성
 
@@ -47,24 +47,26 @@ Azure Portal의 **네트워킹** 페이지에는 여러 설정을 사용자 지�
 
 ## <a name="customize-ntp"></a>NTP 사용자 지정
 
-캐시는 기본적으로 Azure 기반 시간 서버 time.microsoft.com을 사용합니다. 캐시에서 다른 NTP 서버를 사용하려면 **NTP 구성** 섹션에서 지정합니다. 정규화된 도메인 이름 또는 IP 주소를 사용합니다.
+캐시는 기본적으로 Azure 기반 시간 서버 time.windows.com을 사용합니다. 캐시에서 다른 NTP 서버를 사용하려면 **NTP 구성** 섹션에서 지정합니다. 정규화된 도메인 이름 또는 IP 주소를 사용합니다.
 
 ## <a name="set-a-custom-dns-configuration"></a>사용자 지정 DNS 구성 설정
 
 > [!CAUTION]
-> 필요하지 않은 경우 캐시 DNS 구성을 변경하지 마세요. 구성 실수는 심각한 결과를 초래할 수 있습니다. 구성에서 Azure 서비스 이름을 확인할 수 없는 경우 HPC 캐시 인스턴스는 영구적으로 액세스할 수 없게 됩니다.
+> 필요하지 않은 경우 캐시 DNS 구성을 변경하지 마세요. 구성 실수는 심각한 결과를 초래할 수 있습니다. 구성에서 Azure 서비스 이름을 확인할 수 없는 경우 HPC Cache 인스턴스는 영구적으로 액세스할 수 없게 됩니다.
+>
+> 사용자 지정 DNS 구성을 설정하기 전에 Azure 담당자에게 문의하세요.
 
 Azure HPC Cache는 안전하고 편리한 Azure DNS 시스템을 사용하도록 자동으로 구성됩니다. 그러나 일부 비정상적인 구성의 경우 캐시에서 Azure 시스템 대신 별도의 온-프레미스 DNS 시스템을 사용해야 합니다. **네트워킹** 페이지의 **DNS 구성** 섹션을 사용하여 이러한 종류의 시스템을 지정합니다.
 
 Azure 담당자에게 문의하거나 Microsoft 서비스 및 지원에 문의하여 사용자 지정 캐시 DNS 구성을 사용해야 하는지 여부를 확인합니다.
 
-Azure HPC Cache가 사용할 수 있도록 온-프레미스 DNS 시스템을 구성하는 경우 구성에서 Azure 서비스에 대한 Azure 엔드포인트 이름을 확인할 수 있는지 확인해야 합니다. 필요에 따라 Azure DNS 또는 다른 서버로 특정 이름 확인 요청을 전달하도록 사용자 지정 DNS 환경을 구성해야 합니다.
+Azure HPC Cache에서 사용할 자체 온-프레미스 DNS 시스템을 구성하는 경우 로컬 DNS 서버에서 Azure 서비스 엔드포인트 이름을 직접 확인할 수 있는지 확인해야 합니다. DNS 서버가 공개 이름 확인에서 제한된 경우 HPC Cache가 작동하지 않습니다.
 
 Azure HPC Cache에 사용하기 전에 DNS 구성이 이러한 항목을 성공적으로 확인할 수 있는지 확인합니다.
 
 * ``*.core.windows.net``
 * CRL(인증서 해지 목록) 다운로드 및 OCSP(온라인 인증서 상태 프로토콜) 확인 서비스 이 [Azure TLS 문서](../security/fundamentals/tls-certificate-changes.md)의 끝에 있는 [방화벽 규칙 항목](../security/fundamentals/tls-certificate-changes.md#will-this-change-affect-me)에는 일부 목록이 제공되지만 Microsoft 기술 담당자에게 문의하여 모든 요구 사항을 이해해야 합니다.
-* NTP 서버의 정규화된 도메인 이름(time.microsoft.com 또는 사용자 지정 서버)
+* NTP 서버의 정규화된 도메인 이름(time.windows.com 또는 사용자 지정 서버)
 
 캐시에 대해 사용자 지정 DNS 서버를 설정해야 하는 경우 제공된 필드를 사용합니다.
 

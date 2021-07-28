@@ -2,13 +2,13 @@
 title: Service Bus를 통해 Azure 리소스에 관리 ID 사용
 description: 이 문서에서는 관리 ID를 사용하여 Azure Service Bus 엔터티(큐, 토픽 및 구독)에 액세스하는 방법을 설명합니다.
 ms.topic: article
-ms.date: 01/21/2021
-ms.openlocfilehash: 0558e00ac7e8ce67d2e5194b02d2de06f2d38ff1
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 04/23/2021
+ms.openlocfilehash: 3efe513d5e19ca13567b05e8f8d0aafb402ae879
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107785436"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108161126"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Azure Active Directory로 관리 ID를 인증하여 Azure Service Bus 리소스 액세스
 [Azure 리소스용 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)는 애플리케이션 코드가 실행되는 배포와 관련된 보안 ID를 만들 수 있도록 하는 Azure 간 기능입니다. 그런 다음 애플리케이션에 필요한 특정 Azure 리소스에 액세스하기 위한 사용자 지정 권한을 부여하는 액세스 제어 역할에 해당 ID를 연결할 수 있습니다.
@@ -31,7 +31,7 @@ Service Bus에 요청하는 네이티브 애플리케이션 및 웹 애플리케
 ## <a name="assigning-azure-roles-for-access-rights"></a>액세스 권한에 대한 Azure 역할 할당
 Azure AD(Azure Active Directory)는 [Azure RBAC(Azure 역할 기반 액세스 제어)](../role-based-access-control/overview.md)를 통해 보안 리소스에 대한 액세스 권한을 부여합니다. Azure Service Bus는 Service Bus 엔터티에 액세스하는 데 사용되는 일반 권한 집합이 포함된 Azure 기본 제공 역할 집합을 정의하며 데이터에 액세스하기 위한 사용자 지정 역할도 정의할 수 있습니다.
 
-Azure AD 보안 주체에 Azure 역할을 할당하면 Azure는 해당 보안 주체에 대한 리소스에 액세스 권한을 부여합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임스페이스 수준에서 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 주체 또는 Azure 리소스의 관리 ID일 수 있습니다.
+Azure AD 보안 주체에 Azure 역할을 할당하면 Azure는 해당 보안 주체에 대한 리소스에 액세스 권한을 부여합니다. 액세스 범위는 구독, 리소스 그룹 또는 Service Bus 네임스페이스 수준에서 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 애플리케이션 서비스 주체, 또는 Azure 리소스의 관리 ID일 수 있습니다.
 
 ## <a name="azure-built-in-roles-for-azure-service-bus"></a>Azure Service Bus에 대한 Azure 기본 제공 역할
 Azure Service Bus의 경우 Azure Portal 및 Azure 리소스 관리 API를 통한 네임스페이스 및 관련된 모든 리소스의 관리는 이미 Azure RBAC 모델을 사용하여 보호되고 있습니다. Azure는 Service Bus 네임스페이스에 대한 액세스 권한을 부여하기 위해 아래와 같은 Azure 기본 제공 역할을 제공합니다.
@@ -91,13 +91,8 @@ Service Bus에서 관리 ID를 사용하려면 ID에 역할 및 적절한 범위
 
 이 설정을 사용하도록 설정하면 새 서비스 ID가 Azure AD(Azure Active Directory)에서 생성되고 App Service 호스트로 구성됩니다.
 
-> [!NOTE]
-> 관리 ID를 사용하는 경우 연결 문자열은 `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=ManagedIdentity` 형식이어야 합니다.
-
-이제 이 서비스 ID를 Service Bus 리소스의 필수 범위에 있는 역할에 할당합니다.
-
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할을 할당하려면
-Service Bus 네임스페이스에 역할을 할당하려면 Azure Portal의 네임스페이스로 이동합니다. 리소스에 대한 Access Control(IAM) 설정을 표시하고 다음 지침에 따라 역할 할당을 관리합니다.
+이제 서비스 ID를 Service Bus 리소스의 필수 범위에 있는 역할에 할당합니다. Service Bus 네임스페이스에 역할을 할당하려면 Azure Portal의 네임스페이스로 이동합니다. 리소스에 대한 Access Control(IAM) 설정을 표시하고 다음 지침에 따라 역할 할당을 관리합니다.
 
 > [!NOTE]
 > 다음 단계에서는 Service Bus 네임스페이스에 서비스 ID 역할을 할당합니다. 동일한 단계에 따라 지원되는 다른 범위(리소스 그룹 및 구독)에서 역할을 할당할 수 있습니다. 
@@ -127,7 +122,7 @@ Service Bus 네임스페이스에 역할을 할당하려면 Azure Portal의 네�
 
 Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs 파일에서 찾을 수 있습니다. 그 결과 몇 가지 입력 필드와 메시지를 보내거나 받기 위해 Service Bus에 연결되는 **전송** 및 **수신** 단추가 있는 최소 웹 애플리케이션이 생성됩니다.
 
-[MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) 개체가 어떻게 초기화되는지에 유의합니다. 이 코드는 SAS(공유 액세스 토큰) 토큰 공급자를 사용하는 대신 `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` 호출을 사용하여 관리 ID용 토큰 공급자를 만듭니다. 이와 같이 유지하고 사용하는 데 특별한 비결은 없습니다. Service Bus 및 권한 부여 핸드셰이크에 대한 관리 ID 컨텍스트의 흐름은 토큰 공급자가 자동으로 처리합니다. 이 모델은 SAS를 사용하는 방식보다 단순합니다.
+TokenCredential을 사용하는 생성자를 사용하여 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) 개체가 초기화되는 방법을 참고합니다. DefaultAzureCredential은 TokenCredential에서 파생되며 여기에서 전달할 수 있습니다. 이와 같이 유지하고 사용하는 데 특별한 비결은 없습니다. Service Bus 및 권한 부여 핸드셰이크에 대한 관리 ID 컨텍스트의 흐름은 토큰 자격 증명에 의해 자동으로 처리합니다. 이 모델은 SAS를 사용하는 방식보다 단순합니다.
 
 이와 같이 변경한 후에는 애플리케이션을 게시하고 실행합니다. Visual Studio에서 게시 프로필을 다운로드한 다음 가져오면 올바른 게시 데이터를 쉽게 가져올 수 있습니다.
 

@@ -7,24 +7,24 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: c262ba87698c04da69728f7a370040c0679ec44e
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: a84ed0efe7cf5f8fe140cb3d47b7ad19d4b8b817
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878437"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108134684"
 ---
-# <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Azure Spring Cloud의 자체 진단 및 문제 해결 방법
+# <a name="self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Azure Spring Cloud의 자체 진단 및 문제 해결
 
 **이 문서는 다음에 적용됩니다.** ✔️ Java ✔️ C#
 
 Azure Spring Cloud 진단은 구성 없이 앱 문제를 해결하는 대화형 환경입니다. 문제를 발견하면 Azure Spring Cloud 진단에서 문제를 식별하고 해결하는 데 도움이 되는 정보로 안내합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
-이 자습서를 완료하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>사전 요구 사항
+이 연습을 완료하려면 다음이 필요합니다.
 
 * Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](spring-cloud-quickstart.md)을 수행하여 시작하세요.
+* 배포된 Azure Spring Cloud 서비스 인스턴스 [Azure CLI를 통한 앱 배포를 위한 빠른 시작](./quickstart.md)을 수행하여 시작하세요.
 * 해당 서비스 인스턴스에서 이미 하나 이상의 애플리케이션이 생성되었습니다.
 
 ## <a name="navigate-to-the-diagnostics-page"></a>진단 페이지로 이동
@@ -56,5 +56,5 @@ Azure Spring Cloud 진단은 구성 없이 앱 문제를 해결하는 대화형 
  ![관련 세부 정보](media/spring-cloud-diagnose/related-details.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링](spring-cloud-tutorial-alerts-action-groups.md)
-* [Azure Spring Cloud Service의 보안 컨트롤](spring-cloud-concept-security-controls.md)
+* [경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링](./tutorial-alerts-action-groups.md)
+* [Azure Spring Cloud Service의 보안 컨트롤](./concept-security-controls.md)

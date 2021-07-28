@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/25/2020
-ms.openlocfilehash: 84a672f76de4b11558f2b39bf417a3eda2e31a36
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 0d935cac68fc1b9e8d97a875c4b6e48078324fb8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104786535"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108143614"
 ---
 # <a name="set-up-dependency-visualization"></a>종속성 시각화 설정
 
@@ -54,6 +54,8 @@ ms.locfileid: "104786535"
 
     ![새 작업 영역 추가](./media/how-to-create-group-machine-dependencies/workspace.png)
 
+> [!Note]
+> 프라이빗 엔드포인트 연결을 위해 OMS 작업 영역을 구성하는 [방법을 알아보세요](../azure-monitor/logs/private-link-security.md).  
 
 ## <a name="download-and-install-the-vm-agents"></a>VM 에이전트 다운로드 및 설치
 

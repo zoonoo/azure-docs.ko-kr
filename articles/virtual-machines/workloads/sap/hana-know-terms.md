@@ -10,15 +10,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2020
+ms.date: 4/16/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92ef2e59dab1921eae8e7d88249e75116601c597
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: a243b348c01e6d1297a6a1fe016e3b6bc8d98d47
+ms.sourcegitcommit: 79c9c95e8a267abc677c8f3272cb9d7f9673a3d7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101670860"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107719082"
 ---
 # <a name="know-the-terms"></a>용어 알아보기
 
@@ -42,11 +42,10 @@ ms.locfileid: "101670860"
     - **유형 II 클래스**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm 및 S960m
 - **스탬프**: HANA 대규모 인스턴스의 Microsoft 내부 배포 크기를 정의합니다. HANA 대규모 인스턴스 단위를 배포하기 전에, 데이터 센터 위치에 컴퓨팅, 네트워크, 스토리지 랙으로 구성된 HANA 대규모 인스턴스 스탬프를 배포해야 합니다. 이러한 배포를 HANA 대규모 인스턴스 스탬프라고 하거나, 수정 버전 4(아래 참조)에서는 **대규모 인스턴스 행** 의 대체 용어를 사용합니다.
 - **수정 버전**: HANA 대규모 인스턴스 스탬프의 스탬프 수정 버전은 두 가지가 있습니다. 해당 버전은 아키텍처와 Azure 가상 머신 호스트에 대한 근접성이 다릅니다.
-    - “수정 버전 3”(Rev 3): 2016년 중반에 배포한 원본 디자인입니다.
-    - “수정 버전 4”(Rev 4): Azure 가상 머신 호스트에 대한 근접성을 높여 Azure VM과 HANA 대규모 인스턴스 단위 간 네트워크 대기 시간을 줄인 새로운 디자인입니다. 
-    - “수정 버전 4.2”(Rev 4.2): 기존의 수정 버전 4 DCs에서 리소스를 BareMetal 인프라에 맞춰 다시 브랜드했습니다.  고객이 Azure Portal에서 자신들의 리소스를 BareMetal 인스턴스로 액세스할 수 있습니다. 
+    - "수정 버전 3"(Rev 3)은 2016년 중반부터 배포된 원본 디자인입니다.
+    - "수정 버전 4.2"(Rev 4.2)는 Azure 가상 머신 호스트에 더 가까운 근접성을 제공하는 새로운 디자인입니다. Rev 4.2는 Azure VM과 HANA Large Instance단위 간에 매우 낮은 네트워크 대기 시간을 제공합니다. Azure Portal의 리소스를 BareMetal Infrastructure라고 합니다. 고객이 Azure Portal에서 자신들의 리소스를 BareMetal 인스턴스로 액세스할 수 있습니다. 
 
 클라우드에서 SAP 워크로드를 배포하는 방법에 대해 다양한 추가 리소스를 사용할 수 있습니다. Azure에서 SAP HANA 배포를 실행하려는 경우, Azure IaaS의 원칙 및 Azure IaaS에 대한 SAP 워크로드 배포를 경험하고 숙지해야 합니다. 계속하기 전에 먼저 [Azure 가상 머신에서 SAP 솔루션 사용](get-started.md)을 참조하세요. 
 
-**다음 단계**
-- [HLI 인증](hana-certification.md) 참조
+## <a name="next-steps"></a>다음 단계
+- [HLI 인증](hana-certification.md)을 참조하세요.

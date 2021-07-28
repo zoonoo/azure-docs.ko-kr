@@ -1,28 +1,28 @@
 ---
-title: Spring Cloud Resilience4J 회로 차단기 메트릭 수집
-description: Spring Cloud Resilience4J 회로 차단기 메트릭 수집 방법.
+title: Micrometer로 Spring Cloud Resilience4J 회로 차단기 메트릭 수집
+description: Azure Spring Cloud에서 Micrometer를 사용하여 Spring Cloud Resilience4J 회로 차단기 메트릭을 수집하는 방법입니다.
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 9fc8ccc5ba21f02885b2002d5040051baac92068
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: be67e2fb1bafaecd538f6fc671c006ac013cc849
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878366"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135278"
 ---
-# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-preview"></a>Spring Cloud Resilience4J 회로 차단기 메트릭 수집(미리 보기)
+# <a name="collect-spring-cloud-resilience4j-circuit-breaker-metrics-with-micrometer-preview"></a>Micrometer로 Spring Cloud Resilience4J 회로 차단기 메트릭 수집(미리 보기)
 
-이 문서에서는 Application Insights Java In Process 에이전트로 Spring Cloud Resilience4j 회로 차단기 메트릭을 수집하는 방법에 대해 설명합니다.  이 기능을 사용하면 Application Insights에서 Resilience4j 회로 차단기의 메트릭을 모니터링할 수 있습니다.
+이 문서에서는 Application Insights Java In Process 에이전트로 Spring Cloud Resilience4j 회로 차단기 메트릭을 수집하는 방법에 대해 설명합니다. 이 기능을 사용하면 Micrometer를 통해 Application Insights에서 resilience4j 회로 차단기의 메트릭을 모니터링할 수 있습니다.
 
 [spring-cloud-circuit-breaker-demo](https://github.com/spring-cloud-samples/spring-cloud-circuitbreaker-demo)를 사용하여 작동 방식을 보여드리겠습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [Application Insights 가이드용 Java In Process 에이전트](./spring-cloud-howto-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 Java In Process 에이전트를 사용합니다. 
+* [Application Insights 가이드용 Java In Process 에이전트](./how-to-application-insights.md#enable-java-in-process-agent-for-application-insights)에서 Java In Process 에이전트를 사용합니다. 
 
 * [Application Insights 가이드](../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation)에서 Resilience4j 메트릭용 차원 수집을 사용합니다.
 
@@ -123,8 +123,8 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
    [ ![resilience4J 5](media/spring-cloud-resilience4j/resilience4j-5.png)](media/spring-cloud-resilience4j/resilience4j-5.PNG)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>추가 정보
 
-* [애플리케이션 인사이트](spring-cloud-howto-application-insights.md)
-* [분산된 추적](spring-cloud-howto-distributed-tracing.md)
-* [회로 차단기 대시보드](spring-cloud-tutorial-circuit-breaker.md)
+* [애플리케이션 인사이트](./how-to-application-insights.md)
+* [분산된 추적](./how-to-distributed-tracing.md)
+* [회로 차단기 대시보드](./tutorial-circuit-breaker.md)

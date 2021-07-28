@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: e2b27934f58402ecfb7dabf5560dc43e45f3f7dd
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e216d42ff1f279d87e657126514fcfb50960f806
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101679546"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107811907"
 ---
 # <a name="understand-support-for-disconnected-device-updates"></a>연결이 끊긴 디바이스 업데이트에 대한 지원 이해하기
 
@@ -20,7 +20,7 @@ ms.locfileid: "101679546"
 
 ## <a name="how-does-microsoft-connected-cache-preview-for-device-update-for-azure-iot-hub-work"></a>Azure IoT Hub용 디바이스 업데이트에 대한 Microsoft 연결된 캐시 미리 보기의 작동 방식은 무엇인가요?
 
-Microsoft 연결된 캐시는 Azure IoT 허브 콘텐츠용 디바이스 업데이트에 대하여 게시되는 콘텐츠를 위한 지능형 투명 캐시로, 패키지 리포지토리 같은 기타 원본으로부터의 캐시 콘텐츠에 대하여서도 사용자 지정이 가능합니다. Microsoft 연결된 캐시는 콜드 캐시로 배달 최적화 클라이언트가 요청하는 정확한 파일 범위에 대한 클라이언트 요청으로 인하여 준비되며 콘텐츠를 미리 시드하지 않습니다. 다음의 다이어그램 및 단계별 설명에서는 Microsoft 연결된 캐시가 Azure IoT 허브 인프라용 디바이스 업데이트에서 작동하는 방식을 설명합니다.
+Microsoft 연결된 캐시 미리 보기는 Azure IoT Hub 콘텐츠에 대한 디바이스 업데이트용으로 게시되는 콘텐츠를 위한 지능형 투명 캐시로, 패키지 리포지토리 같은 기타 원본의 캐시 콘텐츠에 대해서도 사용자 지정할 수 있습니다. Microsoft 연결된 캐시는 콜드 캐시로 배달 최적화 클라이언트가 요청하는 정확한 파일 범위에 대한 클라이언트 요청으로 인하여 준비되며 콘텐츠를 미리 시드하지 않습니다. 다음의 다이어그램 및 단계별 설명에서는 Microsoft 연결된 캐시가 Azure IoT 허브 인프라용 디바이스 업데이트에서 작동하는 방식을 설명합니다.
 
 >[!Note]
 >이러한 흐름을 정의하는 데 있어 IoT Edge 게이트웨이가 인터넷에 연결되어 있는 것으로 먼저 가정합니다. 다운스트림 IoT Edge 게이트웨이(중첩된 에지) 시나리오에서 CDN(Content Delivery Network)은 부모 IoT Edge 게이트웨이에서 호스트된 MCC라고 간주할 수 있습니다.

@@ -5,19 +5,18 @@ description: 기계 학습 실험 실행용으로 데이터에 액세스하기 �
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q1, data4ml
-ms.author: sihhu
-author: MayMSFT
-manager: cgronlun
+ms.topic: how-to
+ms.custom: contperf-fy21q1, data4ml
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 81779d942b31f940d579de623ecb39c35d3a8b14
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 9bfe0ad6e94ea40ad5edc97e8b3259bb817df03f
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105642140"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109788340"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 세트 만들기
 
@@ -75,7 +74,7 @@ Azure Machine Learning 데이터 세트를 사용하면 다음을 수행할 수 
 [Python SDK](#create-a-filedataset) 또는 [Azure Machine Learning 스튜디오](how-to-connect-data-ui.md#create-datasets)를 사용하여 FileDataset를 만듭니다.
 ### <a name="tabulardataset"></a>TabularDataset
 
-[TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset)는 제공된 파일 또는 파일 목록을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다. 그러면 데이터를 Pandas 또는 Spark DataFrame으로 구체화할 수 있기 때문에 Notebook에서 계속 익숙한 데이터 준비 및 학습 라이브러리를 사용하여 작업할 수 있습니다. .csv, .tsv, .parquet, .jsonl 파일 및 [SQL 쿼리 결과](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)에서 `TabularDataset` 개체를 만들 수 있습니다.
+[TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset)는 제공된 파일 또는 파일 목록을 구문 분석하여 데이터를 테이블 형식으로 나타냅니다. 그러면 데이터를 Pandas 또는 Spark DataFrame으로 구체화할 수 있기 때문에 Notebook에서 계속 익숙한 데이터 준비 및 학습 라이브러리를 사용하여 작업할 수 있습니다. csv, .tsv, [.parquet](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-), [.jsonl 파일](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none--invalid-lines--error---encoding--utf8--) 및 [SQL 쿼리 결과](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)에서 `TabularDataset` 개체를 만들 수 있습니다.
 
 TabularDatasets를 사용하면 데이터의 열 또는 경로 패턴 데이터가 저장된 위치에서 타임스탬프를 지정하여 시계열 특성을 사용으로 설정할 수 있습니다. 이 사양에서는 시간을 기준으로 쉽고 효율적인 필터링을 수행할 수 있습니다. 예를 들어 [NOAA 날씨 데이터를 사용하는 테이블 형식 시계열 관련 API 데모](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb)를 참조하세요.
 
@@ -133,7 +132,9 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
-`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) 메서드를 사용하여 .csv 또는 .tsv 형식으로 파일을 읽고 등록되지 않은 TabularDataset을 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표시로 집계됩니다. 
+`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory) 메서드를 사용하여 .csv 또는 .tsv 형식으로 파일을 읽고 등록되지 않은 TabularDataset을 만듭니다. .parquet 형식에서 파일에 읽어 오려면 [`from_parquet_files()`](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 메서드를 사용합니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표시로 집계됩니다. 
+
+지원되는 파일 형식과 구문 및 디자인 패턴에 대한 자세한 내용은 [TabularDatasetFactory 참조 설명서](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory)를 참조하세요. 
 
 스토리지가 가상 네트워크 또는 방화벽 뒤에 있으면 `from_delimited_files()` 메서드에서 `validate=False` 매개 변수를 설정합니다. 이렇게 하면 초기 유효성 검사 단계를 무시하고 해당 보안 파일에서 데이터 세트를 만들 수 있습니다. [가상 네트워크에서 데이터 저장소 및 데이터 세트를 사용](how-to-secure-workspace-vnet.md#secure-datastores-and-datasets)하는 방법에 관해 자세히 알아봅니다.
 
@@ -188,9 +189,10 @@ titanic_ds.take(3).to_pandas_dataframe()
 데이터 랭글링이나 검색을 수행할 필요가 없으면 [데이터 세트를 사용한 학습](how-to-train-with-datasets.md)에서 ML 실험을 제출하기 위해 학습 스크립트에서 데이터 세트를 사용하는 방법을 참조하세요.
 
 ### <a name="filter-datasets-preview"></a>데이터 세트 필터링(미리 보기)
+
 필터링 기능은 보유하고 있는 데이터 세트의 형식에 따라 달라집니다. 
 > [!IMPORTANT]
-> 퍼블릭 미리 보기 메서드인 [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)로 데이터 세트를 필터링하는 것은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며, 언제든 변경될 수 있습니다. 
+> 미리 보기 메서드인 [`filter()`](/python/api/azureml-core/azureml.data.tabulardataset#filter-expression-)로 데이터 세트를 필터링하는 것은 [실험적인](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능이며, 언제든 변경될 수 있습니다. 
 > 
 **TabularDatasets의 경우**, [keep_columns()](/python/api/azureml-core/azureml.data.tabulardataset#keep-columns-columns--validate-false-) 및 [drop_columns()](/python/api/azureml-core/azureml.data.tabulardataset#drop-columns-columns-) 메서드로 열을 유지하거나 제거할 수 있습니다.
 
@@ -228,9 +230,62 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
+### <a name="partition-data-preview"></a>데이터 분할(미리 보기)
+
+TabularDataset 또는 FileDataset를 만들 때 `partitions_format` 매개 변수를 포함하여 데이터 세트를 분할할 수 있습니다. 
+
+> [!IMPORTANT]
+> 데이터 세트 분할은 [실험적](/python/api/overview/azure/ml/#stable-vs-experimental) 미리 보기 기능으로, 언제든 변경될 수 있습니다. 
+
+데이터 세트를 분할하면 각 파일 경로의 파티션 정보가 지정된 형식에 따라 열로 추출됩니다. 형식은 첫 번째 파티션 키의 위치에서 시작하여 파일 경로의 끝까지입니다. 
+
+예를 들어 부서 이름과 시간별 파티션인 `../Accounts/2019/01/01/data.jsonl` 경로라고 하면 `partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.jsonl'`은 값이 'Accounts’인 'Department' 문자열 열과, 값이 `2019-01-01`인 'PartitionDate' 날짜/시간 열을 만듭니다.
+
+데이터에 기존 파티션이 있고 그 형식을 유지하려는 경우 [`from_files()`](/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory#from-files-path--validate-true--partition-format-none-) 메서드에 `partitioned_format` 매개 변수를 포함하여 FileDataset를 만듭니다. 
+
+기존 파티션을 유지하는 TabularDataset를 만들려면 [from_parquet_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 또는 [from_delimited_files()](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none--support-multi-line-false--empty-as-string-false--encoding--utf8--) 메서드에 `partitioned_format` 매개 변수를 포함합니다.
+
+다음 예제에서는
+* 분할된 파일에서 FileDataset를 만듭니다.
+* 파티션 키 가져오기
+* 인덱싱된 새 FileDataset를 만드는 방법
+ 
+```Python
+
+file_dataset = Dataset.File.from_files(data_paths, partition_format = '{userid}/*.wav')
+ds.register(name='speech_dataset')
+
+# access partition_keys
+indexes = file_dataset.partition_keys # ['userid']
+
+# get all partition key value pairs should return [{'userid': 'user1'}, {'userid': 'user2'}]
+partitions = file_dataset.get_partition_key_values()
+
+
+partitions = file_dataset.get_partition_key_values(['userid'])
+# return [{'userid': 'user1'}, {'userid': 'user2'}]
+
+# filter API, this will only download data from user1/ folder
+new_file_dataset = file_dataset.filter(ds['userid'] == 'user1').download()
+```
+
+[Partitions_by()](/python/api/azureml-core/azureml.data.tabulardataset#partition-by-partition-keys--target--name-none--show-progress-true--partition-as-file-dataset-false-) 메서드를 사용하여 TabularDataset에 대해 새 파티션 구조를 만들 수도 있습니다.
+
+```Python
+
+ dataset = Dataset.get_by_name('test') # indexed by country, state, partition_date
+
+# call partition_by locally
+new_dataset = ds.partition_by(name="repartitioned_ds", partition_keys=['country'], target=DataPath(datastore, "repartition"))
+partition_keys = new_dataset.partition_keys # ['country']
+```
+
+>[!IMPORTANT]
+> TabularDataset 파티션은 많은 모델 애플리케이션에서 ParallelRunStep에 대한 입력으로 Azure Machine Learning 파이프라인에서 적용될 수도 있습니다. [여러 모델 가속기 설명서](https://github.com/microsoft/solution-accelerator-many-models/blob/master/01_Data_Preparation.ipynb)의 예제를 참조하세요.
+
 ## <a name="explore-data"></a>데이터 살펴보기
 
-데이터 랭글링을 완료하고 나면 데이터 세트를 [등록](#register-datasets)한 다음 모델 학습 전에 데이터 검색을 위해 Notebook에 로드할 수 있습니다.
+데이터 랭글링을 완료하고 나면 데이터 세트를 [등록](#register-datasets)한 다음, 모델 학습 전에 데이터 검색을 위해 Notebook에 로드할 수 있습니다.
 
 FileDatasets의 경우 데이터 세트를 **탑재** 하거나 **다운로드** 하고 데이터 검색에 일반적으로 사용하는 Python 라이브러리를 적용할 수 있습니다. [탑재와 다운로드 비교에 관해 자세히 알아봅니다](how-to-train-with-datasets.md#mount-vs-download).
 

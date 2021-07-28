@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 12/16/2020
-ms.openlocfilehash: 852c44f5edc5c0b0f5f655f63ab040927bd9bc7b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 04/20/2021
+ms.openlocfilehash: def73d137f3cc2c79ae8417995ec6bdf6c519b7d
+ms.sourcegitcommit: 260a2541e5e0e7327a445e1ee1be3ad20122b37e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97963682"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107812627"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Azure Data Share에서 지원되는 데이터 저장소
 
@@ -50,7 +50,7 @@ Azure Data Share를 통해 데이터 소비자는 데이터를 허용할 데이�
 | 데이터 탐색기 ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>스토리지 계정에서 공유
-Azure Data Share는 Azure Data Lake Gen1과 Azure Data Lake Gen2에서 파일, 폴더 및 파일 시스템을 공유하도록 지원합니다. 또한 Azure Blob Storage에서 blob, 폴더 및 컨테이너를 공유할 수 있도록 지원도 합니다. 현재 블록 blob만 지원됩니다. 
+Azure Data Share는 Azure Data Lake Gen1과 Azure Data Lake Gen2에서 파일, 폴더 및 파일 시스템을 공유하도록 지원합니다. 또한 Azure Blob Storage에서 blob, 폴더 및 컨테이너를 공유할 수 있도록 지원도 합니다. 블록, 추가 또는 페이지 Blob을 공유할 수 있으며 블록 Blob으로 수신됩니다.
 
 스냅샷 기반 공유에서 파일 시스템, 컨테이너 또는 폴더가 공유되는 경우 데이터 소비자는 공유 데이터의 전체 복사본을 만들도록 선택할 수 있습니다. 또는 증분 스냅샷 기능을 사용하여 새 파일이나 업데이트된 파일만 복사할 수 있습니다. 
 

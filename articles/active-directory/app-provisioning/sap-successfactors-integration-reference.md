@@ -1,21 +1,22 @@
 ---
 title: Azure Active Directory 및 SAP SuccessFactors 통합 참조
-description: SAP SuccessFactors-HR 기반 프로비저닝에 대한 기술 심층 분석
+description: Azure Active Directory용 SAP SuccessFactors-HR 기반 프로비저닝에 대한 기술 심층 분석입니다.
 services: active-directory
-author: cmmdesai
-manager: daveba
+author: kenwith
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 01/19/2021
-ms.author: chmutali
-ms.openlocfilehash: ed97600ca1802629f81f93f4f51c92ad4b1c9bd1
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 05/11/2021
+ms.author: kenwith
+ms.reviewer: chmutali
+ms.openlocfilehash: 7c7ba58383481e2b776b27015f98080b35f3084d
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99256224"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109784938"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Azure Active Directory 프로비저닝이 SAP SuccessFactors와 통합되는 방법 
 
@@ -33,7 +34,7 @@ Azure AD 프로비저닝 서비스는 기본 인증을 사용하여 Employee Cen
 Azure AD 프로비저닝 서비스와 SuccessFactors 간의 연결을 더욱 안전하게 보호하기 위해 아래에 설명된 단계를 사용하여 SuccessFactors IP 허용 목록에 Azure AD IP 범위를 추가할 수 있습니다.
 
 1. Azure 퍼블릭 클라우드의 [최신 IP 범위](https://www.microsoft.com/download/details.aspx?id=56519)를 다운로드합니다. 
-1. 파일을 열고 **AzureActiveDirectory** 태그를 검색합니다. 
+1. 파일을 열고 **AzureActiveDirectory** 태그 검색 
 
    >[!div class="mx-imgBorder"] 
    >![Azure AD IP 범위](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)

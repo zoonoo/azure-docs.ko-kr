@@ -1,23 +1,22 @@
 ---
-title: Dynamics에서 데이터 복사(Common Data Service)
-description: Data Factory 파이프라인의 복사 작업을 사용하여 Microsoft Dynamics CRM 또는 Microsoft Dynamics 365(Common Data Service/Microsoft Dataverse)에서 지원되는 싱크 데이터 저장소로, 혹은 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다.
+title: Dynamics에서 데이터 복사(Microsoft Dataverse)
+description: Data Factory 파이프라인의 복사 작업을 사용하여 Microsoft Dynamics CRM 또는 Microsoft Dynamics 365(Microsoft Dataverse)에서 지원되는 싱크 데이터 저장소로, 또는 지원되는 원본 데이터 저장소에서 Dynamics CRM 또는 Dynamics 365로 데이터를 복사하는 방법에 대해 알아봅니다.
 ms.service: data-factory
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: seo-lt-2019
 ms.date: 03/17/2021
-ms.openlocfilehash: c949ed8d0ecb35df0a2c31bb90514c18cf3a3755
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 5b09872ccdf28a6343fdbaa2f7e9e6fbafbd9410
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109484328"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111950834"
 ---
-# <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service/Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
+# <a name="copy-data-from-and-to-dynamics-365-microsoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM 간에 데이터 복사
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
-
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Microsoft Dynamics 365 및 Microsoft Dynamics CRM 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
@@ -27,30 +26,32 @@ ms.locfileid: "109484328"
 - [지원되는 원본 및 싱크 매트릭스](copy-activity-overview.md)를 사용하는 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
-Dynamics 365(Common Data Service/Microsoft Dataverse) 또는 Dynamics CRM에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원되는 모든 원본 데이터 저장소의 데이터를 Dynamics 365(Common Data Service) 또는 Dynamics CRM에 복사할 수도 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 지원되는 모든 원본 데이터 저장소의 데이터를 Dynamics 365(Microsoft Dataverse) 또는 Dynamics CRM에 복사할 수도 있습니다. 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+
+>[!NOTE]
+>2020년 11월부터 Common Data Service는 [Microsoft Dataverse](/powerapps/maker/data-platform/data-platform-intro)로 이름이 변경되었습니다. 이 문서는 최신 용어를 반영하도록 업데이트되었습니다. 
 
 이 Dynamics 커넥터는 온라인/온-프레미스에서 모두 Dynamics 버전 7~9를 지원합니다. 더 구체적으로 살펴보면 다음과 같습니다.
-
 - 버전 7은 Dynamics CRM 2015에 매핑됩니다.
 - 버전 8은 Dynamics CRM 2016 및 초기 버전의 Dynamics 365에 매핑됩니다.
 - 버전 9는 최신 버전의 Dynamics 365에 매핑됩니다.
+
 
 Dynamics 버전 및 제품에 지원되는 인증 유형 및 구성에 대한 다음 표를 참조하세요.
 
 | Dynamics 버전 | 인증 형식 | 연결된 서비스 샘플 |
 |:--- |:--- |:--- |
-| Common Data Service <br/><br/> Dynamics 365 온라인 <br/><br/> Dynamics CRM 온라인 | Azure AD(Azure Active Directory) 서비스 사용자 <br/><br/> Office 365 | [Dynamics 온라인 및 Azure AD 서비스 사용자 또는 Office 365 인증](#dynamics-365-and-dynamics-crm-online) |
+| Dataverse <br/><br/> Dynamics 365 온라인 <br/><br/> Dynamics CRM 온라인 | Azure AD(Azure Active Directory) 서비스 사용자 <br/><br/> Office 365 | [Dynamics 온라인 및 Azure AD 서비스 사용자 또는 Office 365 인증](#dynamics-365-and-dynamics-crm-online) |
 | IFD(인터넷 연결 배포)를 사용하는 Dynamics 365 온-프레미스 <br/><br/> IFD로 Dynamics CRM 2016 온-프레미스 <br/><br/> IFD로 Dynamics CRM 2015 온-프레미스 | IFD | [IFD 및 IFD 인증을 사용하는 Dynamics 온-프레미스](#dynamics-365-and-dynamics-crm-on-premises-with-ifd) |
+> [!IMPORTANT]
+>테넌트 및 사용자가 [조건부 액세스](../active-directory/conditional-access/overview.md) 및/또는 Multi-Factor Authentication을 위해 Azure Active Directory에 구성되어 있는 경우 Office 365 인증 유형을 사용할 수 없습니다. 이러한 상황에서는 Azure AD(Azure Active Directory) 서비스 주체 인증을 사용해야 합니다.
 
 구체적으로 Dynamics 365에 대해 다음 애플리케이션 유형이 지원됩니다.
-
 - Dynamics 365 for Sales
 - Dynamics 365 for Customer Service
 - Dynamics 365 for Field Service
 - Dynamics 365 for Project Service Automation
-- Dynamics 365 for Marketing
-
-이 커넥터는 재무, 운영, 인재 같은 다른 애플리케이션 유형을 지원하지 않습니다.
+- Dynamics 365 for Marketing 이 커넥터는 재무, 운영, 인재 같은 다른 애플리케이션 유형을 지원하지 않습니다.
 
 >[!TIP]
 >Dynamics 365 Finance and Operations에서 데이터를 복사하려면 [Dynamics AX 커넥터](connector-dynamics-ax.md)를 사용하면 됩니다.
@@ -58,8 +59,8 @@ Dynamics 버전 및 제품에 지원되는 인증 유형 및 구성에 대한 �
 이 Dynamics 커넥터는 [Dynamics XRM 도구](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)를 기반으로 빌드됩니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
+Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 Dataverse 또는 Dynamics에서 S2S(서버 간) 인증을 설정해야 합니다. 먼저 Azure Active Directory에 애플리케이션 사용자(서비스 사용자)를 등록합니다. 이 작업을 수행하는 방법은 [여기](../active-directory/develop/howto-create-service-principal-portal.md)에서 찾을 수 있습니다. 애플리케이션을 등록하는 동안 Dataverse 또는 Dynamics에서 해당 사용자를 만들고 권한을 부여해야 합니다. 이러한 권한은 Dataverse 또는 Dynamics에서 사용 권한이 부여된 팀에 애플리케이션 사용자를 추가하여 직접 또는 간접적으로 부여할 수 있습니다. 애플리케이션 사용자를 설정하여 Dataverse로 인증하는 방법에 대한 자세한 내용은 [여기](/powerapps/developer/data-platform/use-single-tenant-server-server-authentication)에서 찾을 수 있습니다. 
 
-Azure AD 서비스 사용자 인증을 통해 이 커넥터를 사용하려면 Common Data Service 또는 Dynamics에서 S2S(서버 간) 인증을 설정해야 합니다. 자세한 단계는 [이 문서](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication)를 참조하세요.
 
 ## <a name="get-started"></a>시작
 
@@ -111,6 +112,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
     }  
 }  
 ```
+
 #### <a name="example-dynamics-online-using-azure-ad-service-principal-and-certificate-authentication"></a>예: Azure AD 서비스 사용자 및 인증서 인증을 사용하는 Dynamics 온라인
 
 ```json
@@ -140,7 +142,6 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
     } 
 } 
 ```
-
 #### <a name="example-dynamics-online-using-office-365-authentication"></a>예: Office365 인증을 사용하는 Dynamics 온라인
 
 ```json
@@ -457,4 +458,5 @@ Dynamics에서 데이터를 복사하는 경우, 다음 표에서 Dynamics 데�
 속성에 대한 자세한 내용을 알아보려면 [조회 작업](control-flow-lookup-activity.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 Data Factory의 복사 작업에서 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

@@ -4,18 +4,18 @@ description: 이 문서에는 Azure Blob Storage에 파일을 업로드하는 �
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 7cdc10720b6fa93cf1893d2040fd1c1f3e9e1f02
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 352497f0f4d23250abe9f84121f358589664002b
+ms.sourcegitcommit: 3b5cb7fb84a427aee5b15fb96b89ec213a6536c2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105728865"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107502915"
 ---
-# <a name="upload-files-to-azure-blob-storage-by-using-azcopy-v10"></a>AzCopy v10을 사용하여 Azure Blob Storage에 파일 업로드
+# <a name="upload-files-to-azure-blob-storage-by-using-azcopy"></a>AzCopy를 사용하여 Azure Blob Storage에 파일 업로드
 
 AzCopy v10 명령줄 유틸리티를 사용하여 파일과 디렉터리를 Blob Storage에 업로드할 수 있습니다. 
 
@@ -28,7 +28,7 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!NOTE] 
 > 이 문서의 예제에서는 Azure AD(Azure Active Directory)를 사용하여 권한 부여 자격 증명을 제공했다고 가정합니다.
 >
-> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`
+> SAS 토큰을 사용하여 blob 데이터에 대한 액세스 권한을 부여하려면 각 AzCopy 명령에서 해당 토큰을 리소스 URL에 추가할 수 있습니다. 예를 들면 `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`와 같습니다.
 
 ## <a name="create-a-container"></a>컨테이너 만들기
 
@@ -37,11 +37,23 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제 | 코드 |
-|--------|-----------|
-| **구문** | `azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'` |
-| **예제** | `azcopy make 'https://mystorageaccount.blob.core.windows.net/mycontainer'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy make 'https://mystorageaccount.dfs.core.windows.net/mycontainer'` |
+다음은 테이블 예제입니다.
+
+**구문**
+
+`azcopy make 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>'`
+
+**예제**
+
+```azcopy
+https://mystorageaccount.blob.core.windows.net/mycontainer
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+https://mystorageaccount.dfs.core.windows.net/mycontainer
+```
 
 자세한 참조 문서는 [azcopy make](storage-ref-azcopy-make.md)를 참조하세요.
 
@@ -52,11 +64,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'` |
-| **예제** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
+**구문**
+
+`azcopy copy '<local-file-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-name>'`
+
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'
+```
 
 파일 경로 또는 파일 이름의 어디서든 와일드카드 기호(*)를 사용하여 파일을 업로드할 수도 있습니다. 예: `'C:\myDirectory\*.txt'` 또는 `C:\my*\*.txt`.
 
@@ -69,18 +91,35 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive` |
-| **예제** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive` |
+**구문**
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --recursive`
+
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --recursive
+```
 
 컨테이너 내의 디렉터리로 복사하려면 명령 문자열에서 해당 디렉터리의 이름을 지정하기만 하면 됩니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **예제** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive` |
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --recursive
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory' --recursive
+```
 
 컨테이너에 존재하지 않는 디렉터리의 이름을 지정하면 AzCopy는 해당 이름으로 새 디렉터리를 만듭니다.
 
@@ -91,12 +130,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` |
-| **예제** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'` |
+**구문**
 
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<directory-path>'` 
+
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myBlobDirectory'
+```
 
 모든 하위 디렉터리에 파일을 업로드하려면 `--recursive` 플래그를 추가합니다.
 
@@ -111,11 +159,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 `--include-path` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 세미콜론(`;`)을 사용하여 개별 파일 이름을 구분합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` |
-| **예제** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive` |
+**구문** 
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolon-separated-file-list>` 
+
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'photos;documents\myFile.txt' --recursive'
+```
 
 이 예에서 AzCopy는 `C:\myDirectory\photos` 디렉터리와 `C:\myDirectory\documents\myFile.txt` 파일을 전송합니다. `C:\myDirectory\photos` 디렉터리의 모든 파일을 전송하려면 `--recursive` 옵션을 포함합니다.
 
@@ -125,11 +183,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 `--include-pattern` 옵션과 함께 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용합니다. 와일드카드 문자를 포함하는 부분 이름을 지정합니다. 세미콜론(`;`)을 사용하여 이름을 구분합니다. 
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` |
-| **예제** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'` |
+**구문**
+
+`azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-pattern <semicolon-separated-file-list-with-wildcard-characters>` 
+
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-pattern 'myFile*.txt;*.pdf*'
+```
 
 `--exclude-pattern` 옵션을 사용하여 파일을 제외할 수도 있습니다. 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 확인하세요.
 
@@ -141,11 +209,21 @@ AzCopy를 다운로드하고 스토리지 서비스에 인증 자격 증명을 �
 
 다음 예에서는 지정한 날짜 또는 그 이후에 수정된 파일을 업로드합니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **구문** | `azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` |
-| **예제** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'` |
-| **예제**(계층 구조 네임스페이스) | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'` |
+**구문**
+
+`azcopy copy '<local-directory-path>\*' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>'  --include-after <Date-Time-in-ISO-8601-format>` 
+
+**예제**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory'  --include-after '2020-08-19T15:04:00Z'
+```
+
+**예제(계층 구조 네임스페이스)**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory'   --include-after '2020-08-19T15:04:00Z'
+```
 
 자세한 참조는 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 확인하세요.
 
@@ -164,11 +242,23 @@ Azure AD 권한 부여를 사용하는 경우 보안 주체에 [Storage Blob 데
 > [!TIP]
 > 이 예에서는 경로 인수를 작은따옴표(‘’)로 묶습니다. Windows 명령 셸(cmd.exe)을 제외하고 모든 명령 셸에서 작은따옴표를 사용합니다. Windows 명령 셸(cmd.exe)을 사용하는 경우 작은따옴표(‘’) 대신 큰따옴표(“”)로 경로 인수를 묶습니다.
 
-| 구문 / 예제  |  코드 |
-|--------|-----------|
-| **파일 업로드** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
-| **디렉터리 업로드** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'`|
-| **디렉터리 콘텐츠 업로드** | `azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'` |
+**파일 업로드**
+
+```azcopy
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
+
+**디렉터리 업로드**
+
+```azcopy
+azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
+
+**디렉터리 콘텐츠 업로드**
+
+```azcopy
+azcopy copy 'C:\myDirectory\*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory' --blob-tags='my%20tag=my%20tag%20value&my%20second%20tag=my%20second%20tag%20value'
+```
 
 > [!NOTE]
 > 원본의 디렉터리를 지정하는 경우 대상에 복사되는 모든 Blob에는 명령에서 지정한 것과 같은 태그가 있습니다.
@@ -192,6 +282,12 @@ Azure AD 권한 부여를 사용하는 경우 보안 주체에 [Storage Blob 데
 - [예제: 계정 간 복사](storage-use-azcopy-blobs-copy.md)
 - [예제: 동기화](storage-use-azcopy-blobs-synchronize.md)
 - [예제: Amazon S3 버킷](storage-use-azcopy-s3.md)
+- [예: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [예: Azure Files](storage-use-azcopy-files.md)
 - [자습서: AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션](storage-use-azcopy-migrate-on-premises-data.md)
-- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+
+이러한 문서를 참조하여 설정을 구성하고, 성능을 최적화하고, 문제를 해결하세요.
+
+- [AzCopy 구성 설정](storage-ref-azcopy-configuration-settings.md)
+- [AzCopy의 성능 최적화](storage-use-azcopy-optimize.md)
+- [로그 파일을 사용하여 Azure Storage의 AzCopy V10 문제 해결](storage-use-azcopy-configure.md)

@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 85f17897c0e3089a2d2bc5b172e98fa24e8085ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: fda56d987bd4866d5124973329a5db7c74872b3f
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94920443"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123414"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -37,11 +37,11 @@ ms.locfileid: "94920443"
 
 **1단계** - CA(인증 기관) 공급자  
 -   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
-    다음 Ca는 Key Vault 있는 현재 파트너 관계 공급자입니다. [여기](./create-certificate.md#partnered-ca-providers)에서 자세히 알아보세요.   
-    -   DigiCert-Key Vault는 DigiCert와 OV-ES TLS/SSL 인증서를 제공 합니다.  
-    -   GlobalSign Key Vault는 GlobalSign을 사용 하 여 OV-ES TLS/SSL 인증서를 제공 합니다.  
+    다음 CA는 Key Vault와 현재 협력하는 공급자입니다. [여기](./create-certificate.md#partnered-ca-providers)에서 자세히 알아보세요.   
+    -   DigiCert - Key Vault는 DigiCert를 통해 OV TLS/SSL 인증서를 제공합니다.  
+    -   GlobalSign - Key Vault는 GlobalSign을 통해 OV TLS/SSL 인증서를 제공합니다.  
 
-**2 단계** -CA 공급자의 계정 관리자는 Key Vault에서 Key Vault를 통해 TLS/SSL 인증서를 등록 하 고 갱신 하 고 사용 하는 데 사용할 자격 증명을 만듭니다.
+**2단계** - CA 공급자에 대한 계정 관리자는 Key Vault를 통해 TLS/SSL 인증서를 등록, 갱신 및 사용하도록 Key Vault에서 사용할 자격 증명을 만듭니다.
 
 **3단계** - CA에 따라 인증서를 소유하는 Contoso 직원(Key Vault 사용자)과 함께 Contoso 관리자는 관리자로부터 또는 CA로 계정에서 직접 인증서를 가져올 수 있습니다.  
 
@@ -62,9 +62,9 @@ ms.locfileid: "94920443"
 
 **4단계** - 다음 설명은 위의 다이어그램에서 녹색 숫자로 된 단계에 해당합니다.  
   (1) - 위의 다이어그램에서 애플리케이션은 내부적으로 키 자격 증명 모음에서 키를 만드는 작업으로 시작하는 인증서를 만듭니다.  
-  (2)-Key Vault는 CA에 TLS/SSL 인증서 요청을 보냅니다.  
+  (2) - Key Vault에서 TLS/SSL 인증서 요청을 CA에 보냅니다.  
   (3) - 애플리케이션이 인증서 완료를 위해 Key Vault에 대해 반복 및 대기 프로세스에서 폴링합니다. Key Vault가 x509 인증서로 CA의 응답을 받으면 인증서 작성이 완료된 것입니다.  
-  (4)-CA는 X509 TLS/SSL 인증서를 사용 하 여 Key Vault의 TLS/SSL 인증서 요청에 응답 합니다.  
+  (4) - CA가 X509 TLS/SSL 인증서를 사용하여 Key Vault의 TLS/SSL 인증서 요청에 응답합니다.  
   (5) - 새 인증서 만들기는 CA에 대한 X509 인증서를 병합하여 완료합니다.  
 
   Key Vault 사용자 - 정책을 지정하여 인증서를 만듭니다.
@@ -81,8 +81,8 @@ ms.locfileid: "94920443"
       -   상태: 완료, 오류 정보와 함께 실패 또는 취소  
       -   만들기에 대한 지연으로 인해 취소 작업을 시작할 수 있습니다. 취소가 적용되거나 적용되지 않을 수 있습니다.  
 
-### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>통합 CA와 연결 된 네트워크 보안 및 액세스 정책
-Key Vault 서비스는 CA (아웃 바운드 트래픽)에 요청을 보냅니다. 따라서 방화벽을 사용 하는 키 자격 증명 모음과 완벽 하 게 호환 됩니다. Key Vault는 CA와 액세스 정책을 공유 하지 않습니다. CA는 개별적으로 서명 요청을 수락 하도록 구성 되어야 합니다. [신뢰할 수 있는 CA 통합 가이드](./how-to-integrate-certificate-authority.md)
+### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>통합 CA와 연결된 네트워크 보안 및 액세스 정책
+Key Vault 서비스는 CA에 요청을 보냅니다(아웃바운드 트래픽). 따라서 방화벽 사용 키 자격 증명 모음과 완벽하게 호환됩니다. Key Vault는 CA와 액세스 정책을 공유하지 않습니다. CA는 독립적으로 서명 요청을 수락하도록 구성되어야 합니다. [신뢰할 수 있는 CA 통합 가이드](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>인증서 가져오기  
  또는 - Key Vault로 인증서를 가져올 수 있습니다(PFX 또는 PEM).  
@@ -98,20 +98,24 @@ Key Vault 서비스는 CA (아웃 바운드 트래픽)에 요청을 보냅니다
 
 -   또한 사용자는 가져오기 시 사용할 수 있지만 가져오기 시 정보가 지정되지 않은 기본값을 포함하는 정책을 편집할 수 있습니다. 예: 발급자 정보 없음  
 
-### <a name="formats-of-import-we-support"></a>지원 되는 가져오기의 형식
-Azure Key Vault는 인증서를 Key Vault로 가져오기 위한 pem 및 .pfx 인증서 파일을 지원 합니다.
-PEM 파일 형식에 대해 다음과 같은 가져오기 유형을 지원 합니다. 다음을 포함 하는 PKCS # 8로 인코딩된 암호화 되지 않은 키와 함께 단일 PEM 인코딩 인증서
+### <a name="formats-of-import-we-support"></a>지원되는 가져오기 형식
+Azure Key Vault는 Key Vault로 인증서를 가져오기 위한 .pem 및 .pfx 인증서 파일을 지원합니다.
+PEM 파일 형식에 대해 다음 유형의 가져오기를 지원합니다. 다음을 포함하는, PKCS#8로 인코딩되고 암호화되지 않은 키와 함께 단일 PEM으로 인코딩된 인증서를 지원합니다.
 
-인증서----------끝 인증서를 시작----------
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
------시작 개인 키----------최종 개인 키-----
+-----BEGIN PRIVATE KEY----- -----END PRIVATE KEY-----
 
-인증서를 가져올 때 키가 파일 자체에 포함 되어 있는지 확인 해야 합니다. 개인 키가 다른 형식에 별도로 있는 경우 해당 키를 인증서와 결합 해야 합니다. 일부 인증 기관은 인증서를 다른 형식으로 제공 하므로 인증서를 가져오기 전에 해당 인증서가 pem 또는 .pfx 형식 인지 확인 해야 합니다. 
+인증서를 가져올 때 키가 파일 자체에 포함되어 있는지 확인해야 합니다. 프라이빗 키를 다른 형식으로 별도 저장한 경우에는 인증서와 키를 결합해야 합니다. 일부 인증 기관은 인증서를 다른 형식으로 제공하므로 인증서를 가져오기 전에 해당 인증서가 .pem 또는 .pfx 형식인지 확인해야 합니다. 
 
-### <a name="formats-of-merge-csr-we-support"></a>지원 되는 병합 CSR의 형식
-AKV는 2 개의 PEM 기반 형식을 지원 합니다. 단일 PKCS # 8로 인코딩된 인증서 또는 b a s e 64로 인코딩된 P7B (CA에서 서명한 인증서 체인)을 병합할 수 있습니다. 
 
-인증서----------끝 인증서를 시작----------
+>[!Note]
+>인증서 파일에 다른 메타 데이터가 없고 프라이빗 키가 암호화된 것으로 표시되지 않는지 확인합니다.
+
+### <a name="formats-of-merge-csr-we-support"></a>지원되는 병합 CSR의 형식
+AKV는 2개의 PEM 기반 형식을 지원합니다. 단일 PKCS#8로 인코딩된 인증서 또는 base64로 인코딩된 P7B(CA에서 서명한 인증서 체인)를 병합할 수 있습니다. 
+
+-----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
 
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Key Vault와 협력하지 않는 CA를 통해 인증서 만들기  

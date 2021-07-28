@@ -9,19 +9,19 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 21bab82044e3c661ccd797030b43987a60c0cdce
+ms.sourcegitcommit: 32ee8da1440a2d81c49ff25c5922f786e85109b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100556182"
+ms.lasthandoff: 05/12/2021
+ms.locfileid: "109787566"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure 역할 할당을 나열합니다.
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control/definition-list.md)] 이 문서에서는 Azure Portal로 역할 할당을 나열하는 방법에 관해 설명합니다.
 
 > [!NOTE]
-> 조직에서 [Azure 위임된 리소스 관리](../lighthouse/concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자에 대해 아웃소싱된 관리 기능을 사용하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시되지 않습니다.
+> 조직에서 [Azure Lighthouse](../lighthouse/overview.md)를 사용하는 서비스 공급자에 대해 아웃소싱된 관리 기능을 사용하는 경우 해당 서비스 공급자가 승인한 역할 할당은 여기에 표시되지 않습니다.
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>사용자 또는 그룹에 대한 역할 할당 목록
 
@@ -101,7 +101,7 @@ ms.locfileid: "100556182"
 
     ![할당 창](./media/shared/rg-check-access-assignments-user.png)
 
-## <a name="list-role-assignments-for-a-managed-identity"></a>관리 ID의 역할 할당 나열
+## <a name="list-role-assignments-for-a-managed-identity"></a>관리 ID에 대한 역할 할당 나열
 
 앞에서 설명한 것처럼 **액세스 제어(IAM)** 블레이드를 사용하여 특정 범위에서 시스템 할당 및 사용자 할당 관리 ID에 대한 역할 할당을 나열할 수 있습니다. 이 섹션에서는 관리 ID에 대해서만 역할 할당을 나열하는 방법을 설명합니다.
 

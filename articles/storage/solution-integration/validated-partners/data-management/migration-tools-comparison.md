@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2021
 ms.service: storage
 ms.subservice: partner
-ms.openlocfilehash: 15daeb0e6bf320a0727d8e6ea502063a30e67ad0
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: a1772179313a2465200fc1d6a2cccef836067dde
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106231014"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108146602"
 ---
 # <a name="comparison-matrix"></a>비교 행렬
 
@@ -22,77 +22,77 @@ ms.locfileid: "106231014"
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **솔루션 이름**  | [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+|  **솔루션 이름**  | [Azure 파일 동기화](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **Azure Files 지원(모든 계층)** | 예                          | 예                      | 예            | 예                            |
-| **Azure NetApp Files 지원**      | 예                           | 예                      | 예            | 예                            |
-| **Azure Blob 핫/쿨 지원**   | 예                           | 예(NFS 미리 보기를 통해)    | 예            | 예                            |
-| **Azure Blob 보관 계층 지원** | 예                           | 예                       | 예             | 예(마이그레이션 대상으로) |
-| **Azure Data Lake Storage 지원** | 예                           | 예                       | 예             | 예                             |
+| **Azure NetApp Files 지원**      | 아니요                           | 예                      | 예            | 예                            |
+| **Azure Blob 핫/쿨 지원**   | No                           | 예(NFS 미리 보기를 통해)    | 예            | 예                            |
+| **Azure Blob 보관 계층 지원** | 아니요                           | 아니요                       | 아니요             | 예(마이그레이션 대상으로) |
+| **Azure Data Lake Storage 지원** | 아니요                           | 아니요                       | 아니요             | 아니요                             |
 | **지원되는 원본**      | Windows Server 2012 R2 이상 | NAS 및 클라우드 파일 시스템 | 모든 NAS 및 S3 | NAS, Blob, S3                  |
 
 ## <a name="supported-protocols-source--destination"></a>지원되는 프로토콜(원본/대상)
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-| **솔루션 이름**   | [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **솔루션 이름**   | [Azure 파일 동기화](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **SMB 2.1**       | 예 | 예 | 예 | 예 |
 | **SMB 3.0**       | 예 | 예 | 예 | 예 |
 | **SMB 3.1**       | 예 | 예 | 예 | 예 |
-| **NFS v3**        | 예  | 예 | 예 | 예 |
-| **NFS v4.1**      | 예  | 예 | 예  | 예 |
-| **Blob REST API** | 예  | 예  | 예 | 예 |
-| **S3**            | 예  | 예 | 예 | 예 |
+| **NFS v3**        | 아니요  | 예 | 예 | 예 |
+| **NFS v4.1**      | 아니요  | 예 | 아니요  | 예 |
+| **Blob REST API** | 아니요  | 아니요  | 예 | 예 |
+| **S3**            | 아니요  | 예 | 예 | 예 |
 
 ## <a name="extended-features"></a>확장된 기능
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **솔루션 이름**  | [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **UID/SID 다시 매핑**                   | 예  | 예                        | 예 | 예                             |
-| **프로토콜 ACL 다시 매핑**                | 예  | 예                         | 예  | 예                             |
+|  **솔루션 이름**  | [Azure 파일 동기화](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **UID/SID 다시 매핑**                   | 아니요  | 예                        | 예 | 아니요                             |
+| **프로토콜 ACL 다시 매핑**                | 아니요  | 아니요                         | 아니요  | 아니요                             |
 | **DFS 지원**                           | 예 | 예                        | 예 | 예                            |
 | **제한 지원**                    | 예 | 예                        | 예 | 예                            |
-| **파일 패턴 제외**               | 예  | 예                        | 예 | 예(복사 기능 사용) |
+| **파일 패턴 제외**               | 아니요  | 예                        | 예 | 예(복사 기능 사용) |
 | **선택적 파일 특성에 대한 지원** | 예 | 예                        | 예 | 예(확장된 특성의 경우)  |
 | **전파 삭제**                   | 예 | 예                        | 예 | 예                            |
-| **NTFS 분기 동기화 팔로우**                 | 예  | 예                        | 예  | 예                            |
-| **SMB 소유자 및 그룹 소유자 재정의**    | 예 | 예                        | 예 | 예                             |
-| **관리 연속성 보고**            | 예  | 예                        | 예  | 예                            |
-| **대체 데이터 스트림 지원**    | 예  | 예                        | 예 | 예                             |
-| **마이그레이션 예약**              | 예  | 예                        | 예 | 예                            |
-| **ACL 유지**                        | 예  | 예                        | 예 | 예                            |
+| **NTFS 분기 동기화 팔로우**                 | 아니요  | 예                        | 아니요  | 예                            |
+| **SMB 소유자 및 그룹 소유자 재정의**    | 예 | 예                        | 예 | 아니요                             |
+| **관리 연속성 보고**            | 아니요  | 예                        | 아니요  | 예                            |
+| **대체 데이터 스트림 지원**    | 아니요  | 예                        | 예 | 아니요                             |
+| **마이그레이션 예약**              | 아니요  | 예                        | 예 | 예                            |
+| **ACL 유지**                        | 아니요  | 예                        | 예 | 예                            |
 | **DACL 지원**                          | 예 | 예                        | 예 | 예                            |
-| **SACL 지원**                          | 예 | 예                        | 예 | 예                             |
+| **SACL 지원**                          | 예 | 예                        | 예 | 아니요                             |
 | **액세스 시간 유지**                | 예 | 예                        | 예 | 예                            |
 | **수정된 시간 유지**              | 예 | 예                        | 예 | 예                            |
-| **만든 시간 유지**              | 예  | 예                        | 예 | 예                            |
-| **Azure Data Box 지원**       | 예 | 예                        | 예  | 예                             |
-| **스냅샷의 마이그레이션**                | 예  | 설명서                     | 예 | 예                             |
-| **바로 가기 링크 지원**                 | 예  | 예                        | 예  | 예                            |
-| **하드 링크 지원**                     | 예  | 별도 파일로 마이그레이션 | 예 | 예                            |
+| **만든 시간 유지**              | 아니요  | 예                        | 예 | 예                            |
+| **Azure Data Box 지원**       | 예 | 예                        | 아니요  | 아니요                             |
+| **스냅샷의 마이그레이션**                | 예  | 설명서                     | 예 | 아니요                             |
+| **바로 가기 링크 지원**                 | 아니요  | 예                        | 아니요  | 예                            |
+| **하드 링크 지원**                     | No  | 별도 파일로 마이그레이션 | 예 | 예                            |
 | **열기/잠금 파일 지원**       | 예 | 예                        | 예 | 예                            |
 | **증분 마이그레이션**                 | 예 | 예                        | 예 | 예                            |
-| **전환 지원**                    | 예  | 예                        | 예 | 아니요(수동 전용)               |
-| **[기타 기능](#other-features)**         | [링크](#azure-file-sync)| [링크](#dobimigrate) | [링크](#data-mobility-and-migration) | [링크](#intelligent-data-management)                |
+| **전환 지원**                    | 아니요  | 예                        | 예 | 아니요(수동 전용)               |
+| **[기타 기능](#other-features)**         | [링크](#azure-file-sync)| [링크](#datadobi-dobimigrate) | [링크](#data-dynamics-data-mobility-and-migration) | [링크](#komprise-intelligent-data-management)                |
 
 ## <a name="assessment-and-reporting"></a>평가 및 보고
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-| **솔루션 이름**   | [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
-| **용량**                        | 예      | 예 | 예 | 예            |
-| **파일/폴더의 #**            | 예      | 예 | 예 | 예            |
-| **시간에 따른 연령 분포**      | 예      | 예 | 예 | 예            |
-| **액세스 시간**                     | 예      | 예 | 예 | 예            |
-| **수정된 시간**                   | 예      | 예 | 예 | 예            |
-| **만든 시간**                   | 예      | 예 | 예 | 예(SMB 전용) |
-| **파일/개체 보고서 상태별** | Partial | 예 | 예 | 예            |
+| **솔루션 이름**   | [Azure 파일 동기화](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **용량**                        | 아니요      | 예 | 예 | 예            |
+| **파일/폴더의 #**            | 아니요      | 예 | 예 | 예            |
+| **시간에 따른 연령 분포**      | 아니요      | 예 | 예 | 예            |
+| **액세스 시간**                     | 아니요      | 예 | 예 | 예            |
+| **수정된 시간**                   | 아니요      | 예 | 예 | 예            |
+| **만든 시간**                   | 아니요      | 예 | 예 | 예            |
+| **파일/개체 보고서 상태별** | 부분 | 예 | 예 | 예            |
 
 ## <a name="licensing"></a>라이선싱
 
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-| **솔루션 이름**   | [Azure 파일 동기화](/azure/storage/files/storage-sync-files-deployment-guide) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
+| **솔루션 이름**   | [Azure 파일 동기화](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview )              | [데이터 이동성 및 마이그레이션](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [인텔리전트 데이터 관리](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview)    |
 | **BYOL**             | 해당 없음 | 예 | 예 | 예 |
 | **Azure 약정** | 예   | 예 | 예 | 예 |
 
@@ -102,7 +102,7 @@ ms.locfileid: "106231014"
 
 - 내부 해시 유효성 검사
 
-### <a name="dobimigrate"></a>DobiMigrate
+### <a name="datadobi-dobimigrate"></a>Datadobi DobiMigrate
 
 - 마이그레이션 사전 검사
 - 마이그레이션 계획
@@ -122,12 +122,13 @@ ms.locfileid: "106231014"
 - NFSv3 권한을 재정의하고 대상에 새 모드 비트를 쓰는 기능
 - NFSv3 POSIX 초안 ACL을 NFSv4 ACL로 변환하는 기능
 - SMB 1(CIFS)
+- 지원 24 x 7 x 365
 
-### <a name="data-mobility-and-migration"></a>데이터 이동성 및 마이그레이션
+### <a name="data-dynamics-data-mobility-and-migration"></a>데이터 Dynamics Data 이동성 및 마이그레이션
 
 - 해시 유효성 검사
 
-### <a name="intelligent-data-management"></a>인텔리전트 데이터 관리
+### <a name="komprise-intelligent-data-management"></a>Komprise 인텔리전트 데이터 관리
 
 - 프로젝트/디렉터리 기반 마이그레이션
 - 실패 시 자동 다시 시도
@@ -141,11 +142,11 @@ ms.locfileid: "106231014"
 
 *목록은 2021년 3월 31일에 마지막으로 확인되었습니다.*
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>추가 정보
 
 - [스토리지 마이그레이션 개요](../../../common/storage-migration-overview.md)
-- [데이터 전송에 사용할 Azure 솔루션 선택](/azure/storage/common/storage-choose-data-transfer-solution?toc=/azure/storage/blobs/toc.json)
-- [Azure 파일 공유로 마이그레이션](/azure/storage/files/storage-files-migration-overview)
-- [Azure용 WANdisco LiveData 플랫폼을 사용하여 Data Lake Storage로 마이그레이션](/azure/storage/blobs/migrate-gen2-wandisco-live-data-platform)
-- [AzCopy를 사용하여 Azure Storage로 데이터 복사 또는 이동](https://aka.ms/azcopy)
+- [데이터 전송에 사용할 Azure 솔루션 선택](../../../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Azure 파일 공유로 마이그레이션](../../../files/storage-files-migration-overview.md)
+- [Azure용 WANdisco LiveData 플랫폼을 사용하여 Data Lake Storage로 마이그레이션](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
+- [AzCopy를 사용하여 Azure Storage로 데이터 복사 또는 이동](../../../common/storage-use-azcopy-v10.md)
 - [AzReplicate를 사용하여 Azure Blob Storage로 대량 데이터 세트 마이그레이션(샘플 애플리케이션)](https://github.com/Azure/AzReplicate/tree/master/)

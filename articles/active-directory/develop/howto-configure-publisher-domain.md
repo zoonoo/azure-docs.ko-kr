@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: d17bd46d8036ff2535b0dede9ab95121ad3bf7a8
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100104181"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713435"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 애플리케이션의 게시자 도메인 구성
 
@@ -86,14 +86,16 @@ ms.locfileid: "100104181"
 
 1. **도메인 확인 및 저장** 단추를 클릭합니다.
 
+도메인이 확인된 후에는 확인에 사용되는 리소스를 유지 관리하지 않아도 됩니다. 확인이 완료되면 호스트된 파일을 제거할 수 있습니다.
+
 ### <a name="to-select-a-verified-domain"></a>확인된 도메인 선택
 
-- 테넌트가 도메인을 확인한 경우 **확인된 도메인 선택** 드롭다운에 있는 도메인 중 하나를 선택합니다.
+테넌트가 도메인을 확인한 경우 **확인된 도메인 선택** 드롭다운에 있는 도메인 중 하나를 선택합니다.
 
->[!Note]
-> 반환되어야 하는 'Content-Type' 헤더는 `application/json`입니다. `application/json; charset=utf-8`과 같은 다른 항목을 사용하는 경우 다음과 같은 오류가 발생할 수 있습니다. 
+> [!NOTE]
+> 반환되어야 하는 예상 `Content-Type` 헤더는 `application/json`입니다. `application/json; charset=utf-8`과 같은 다른 항목을 사용하는 경우 다음과 같은 오류가 발생할 수 있습니다.
 > 
->``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+> `Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value.`
 >
 
 ## <a name="implications-on-the-app-consent-prompt"></a>앱 동의 프롬프트에 대한 영향

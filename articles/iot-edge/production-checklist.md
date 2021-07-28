@@ -1,6 +1,6 @@
 ---
-title: 프로덕션에서 솔루션 배포 준비-Azure IoT Edge
-description: 적절 한 인증서를 사용 하 여 장치를 설정 하 고 향후 코드 업데이트를 위한 배포 계획을 포함 하 여 Azure IoT Edge 솔루션을 개발에서 프로덕션으로 가져오는 방법을 알아봅니다.
+title: 프로덕션 단계에서 솔루션 배포 준비 - Azure IoT Edge
+description: 적절한 인증서를 사용하여 디바이스 설정, 향후 코드 업데이트를 위한 배포 계획 수립 등 Azure IoT Edge 솔루션을 개발에서 프로덕션으로 전환하는 방법을 알아봅니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
-ms.translationtype: MT
+ms.openlocfilehash: 711b4f6577b17e84a5d30774fa7be4c9033d4340
+ms.sourcegitcommit: d40ffda6ef9463bb75835754cabe84e3da24aab5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722772"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "107031137"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -24,11 +24,11 @@ ms.locfileid: "104722772"
 
 IoT Edge 솔루션을 개발에서 프로덕션으로 전환할 준비가 되었으면 지속적인 성능 유지가 가능하도록 구성되었는지 확인합니다.
 
-이 문서에 제공 된 정보는 모두 동일 하지는 않습니다. 우선 순위를 정하는 데 도움이 되도록 각 섹션의 시작 부분에 작업이 두 가지 범주로 구분되어 나열되어 있습니다. **중요** 에 해당하는 작업은 프로덕션으로 전환하기 전에 완료해야 하며, **유용함** 에 해당하는 작업은 참조용으로 알아두면 좋습니다.
+이 문서에서 다루는 정보의 중요도가 모두 같지는 않습니다. 우선 순위를 정하는 데 도움이 되도록 각 섹션의 시작 부분에 작업이 두 가지 범주로 구분되어 나열되어 있습니다. **중요** 에 해당하는 작업은 프로덕션으로 전환하기 전에 완료해야 하며, **유용함** 에 해당하는 작업은 참조용으로 알아두면 좋습니다.
 
 ## <a name="device-configuration"></a>디바이스 구성
 
-IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는 가상 머신에 이르기까지 모든 것을 망라할 수 있습니다. 물리적으로 또는 가상 연결을 통해 디바이스에 액세스할 수 있는 경우도 있고, 디바이스가 오랜 기간 동안 격리되었을 수도 있습니다. 어떤 방법을 사용 하 든, 적절 하 게 작동 하도록 구성 되었는지 확인 하는 것이 좋습니다.
+IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는 가상 머신에 이르기까지 모든 것을 망라할 수 있습니다. 물리적으로 또는 가상 연결을 통해 디바이스에 액세스할 수 있는 경우도 있고, 디바이스가 오랜 기간 동안 격리되었을 수도 있습니다. 어느 쪽이든 간에, 제대로 작동하도록 구성되었는지 확인하는 것이 좋습니다.
 
 * **중요**
   * 프로덕션 인증서 설치
@@ -40,19 +40,19 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 ### <a name="install-production-certificates"></a>프로덕션 인증서 설치
 
-프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 그런 다음 해당 CA 인증서가 구성 파일의 IoT Edge 런타임으로 선언 됩니다. 개발 및 테스트 시나리오의 경우 구성 파일에 인증서가 선언 되지 않은 경우 IoT Edge 런타임에서 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다. 프로덕션 시나리오의 경우 자체 서명 된 인증 기관에서 나 상용 인증 기관에서 구매한 장치 CA 인증서를 제공 해야 합니다.
+프로덕션 단계의 모든 IoT Edge 디바이스에 디바이스 CA(인증 기관) 인증서가 설치되어 있어야 합니다. 설치된 CA 인증서는 구성 파일에서 IoT Edge 런타임으로 선언됩니다. 개발 및 테스트 시나리오의 경우, 구성 파일에서 선언된 인증서가 없는 경우 IoT Edge 런타임에서 임시 인증서를 만듭니다. 그러나 이러한 임시 인증서는 3개월 후에 만료되어 프로덕션 시나리오가 원활하게 진행될 수 없습니다. 프로덕션 시나리오의 경우 자체 서명된 인증 기관에서 또는 상용 인증 기관에서 구매한 사용자 고유의 디바이스 CA 인증서를 제공해야 합니다.
 
 <!--1.1-->
 :::moniker range="iotedge-2018-06"
 
 > [!NOTE]
-> 현재 libiothsm의 제한으로 인해 2038 년 1 월 1 일 이후에 만료 되는 인증서를 사용할 수 없습니다.
+> 현재 libiothsm의 제한으로 인해 2038년 1월 1일 이후에 만료되는 인증서는 사용할 수 없습니다.
 
 :::moniker-end
 
 디바이스 CA 인증서의 역할을 이해하려면 [Azure IoT Edge에서 인증서를 사용하는 방법](iot-edge-certs.md)을 참조하세요.
 
-IoT Edge 장치에 인증서를 설치 하 고 구성 파일에서 인증서를 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에서 인증서 관리](how-to-manage-device-certificates.md)를 참조 하세요.
+IoT Edge 디바이스에 인증서를 설치하고 구성 파일에서 해당 인증서를 참조하는 방법에 대한 자세한 내용은 [IoT Edge 디바이스에서 인증서 관리](how-to-manage-device-certificates.md)를 참조하세요.
 
 ### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 준비
 
@@ -64,15 +64,15 @@ IoT Edge 장치에 인증서를 설치 하 고 구성 파일에서 인증서를 
 * IoT Edge
 * CA 인증서
 
-자세한 내용은 [IoT Edge 런타임 업데이트](how-to-update-iot-edge.md)를 참조 하세요. IoT Edge를 업데이트 하는 현재 방법에는 IoT Edge 장치에 대 한 물리적 또는 SSH 액세스 권한이 필요 합니다. 업데이트할 장치가 많은 경우 업데이트 단계를 스크립트에 추가 하거나 Ansible와 같은 자동화 도구를 사용 하는 것이 좋습니다.
+자세한 내용은 [IoT Edge 런타임 업데이트](how-to-update-iot-edge.md)를 참조하세요. 현재는 IoT Edge 디바이스에 물리적으로 또는 SSH를 통해 액세스해야만 IoT Edge를 업데이트할 수 있습니다. 업데이트할 디바이스가 많을 경우 업데이트 단계를 스크립트에 추가하거나 Ansible 등의 자동화 도구를 사용하는 것이 좋습니다.
 
 ### <a name="use-moby-as-the-container-engine"></a>Moby를 컨테이너 엔진으로 사용
 
-컨테이너 엔진은 모든 IoT Edge 장치에 대 한 필수 구성 요소입니다. 프로덕션 단계에서는 Moby 엔진만 지원됩니다. Docker 등 IoT Edge와 호환되는 다른 컨테이너 엔진은 개발 단계에서 사용할 수 있습니다. Moby 엔진은 Azure IoT Edge와 함께 사용할 때 재배포할 수 있으며, Microsoft에서 이 엔진에 대한 서비스를 제공합니다.
+컨테이너 엔진은 모든 IoT Edge 디바이스의 사전 요구 사항입니다. 프로덕션 단계에서는 Moby 엔진만 지원됩니다. Docker 등 IoT Edge와 호환되는 다른 컨테이너 엔진은 개발 단계에서 사용할 수 있습니다. Moby 엔진은 Azure IoT Edge와 함께 사용할 때 재배포할 수 있으며, Microsoft에서 이 엔진에 대한 서비스를 제공합니다.
 
 ### <a name="choose-upstream-protocol"></a>업스트림 프로토콜 선택
 
-업스트림 통신에서 IoT Edge 에이전트와 IoT Edge 허브 모두에 대 한 IoT Hub 하는 데 사용 되는 포트를 결정 하는 프로토콜을 구성할 수 있습니다. 기본 프로토콜은 AMQP이지만 네트워크 설정에 따라 변경할 수 있습니다.
+IoT Edge 에이전트 및 IoT Edge 허브 모두에 대해 IoT Hub 업스트림 통신에 사용되는 포트를 결정하는 프로토콜을 구성할 수 있습니다. 기본 프로토콜은 AMQP이지만 네트워크 설정에 따라 변경할 수 있습니다.
 
 두 개의 런타임 모듈에 모두 **UpstreamProtocol** 환경 변수가 있습니다. 변수에 유효한 값은 다음과 같습니다.
 
@@ -81,7 +81,7 @@ IoT Edge 장치에 인증서를 설치 하 고 구성 파일에서 인증서를 
 * MQTTWS
 * AMQPWS
 
-장치 자체의 구성 파일에서 IoT Edge 에이전트에 대 한 UpstreamProtocol 변수를 구성 합니다. 예를 들어 IoT Edge 장치가 AMQP 포트를 차단 하는 프록시 서버 뒤에 있는 경우 WebSocket을 통한 AMQP (AMQPWS)를 사용 하 여 IoT Hub에 대 한 초기 연결을 설정 하도록 IoT Edge 에이전트를 구성 해야 할 수 있습니다.
+디바이스 자체의 구성 파일에서 IoT Edge 에이전트에 대한 UpstreamProtocol 변수를 구성합니다. 예를 들어 IoT Edge 디바이스가 AMQP 포트를 차단하는 프록시 서버 뒤에 있는 경우 AMQPWS(WebSocket을 통한 AMQP)를 사용하여 IoT Hub에 대한 초기 연결을 설정하도록 IoT Edge 에이전트를 구성해야 할 수 있습니다.
 
 IoT Edge 디바이스가 연결된 다음, 향후 배포에서 두 런타임 모듈에 대한 UpstreamProtocol 변수를 계속 구성해야 합니다. 이 프로세스의 예제는 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)에 나와 있습니다.
 
@@ -89,41 +89,41 @@ IoT Edge 디바이스가 연결된 다음, 향후 배포에서 두 런타임 모
 
 * **유용함**
   * 업스트림 프로토콜의 일관성 유지
-  * 시스템 모듈의 호스트 저장소 설정
-  * IoT Edge 허브에 사용 되는 메모리 공간 줄이기
+  * 시스템 모듈의 호스트 스토리지 설정
+  * IoT Edge 허브에서 사용하는 메모리 공간 축소
   * 모듈 이미지의 디버그 버전 사용 안 함
 
 ### <a name="be-consistent-with-upstream-protocol"></a>업스트림 프로토콜의 일관성 유지
 
-IoT Edge 장치에서 기본 AMQP와 다른 프로토콜을 사용 하도록 IoT Edge 에이전트를 구성한 경우 이후의 모든 배포에서 동일한 프로토콜을 선언 해야 합니다. 예를 들어 IoT Edge 디바이스가 AMQP 포트를 차단하는 프록시 서버 뒤에 있는 경우 AMQPWS(WebSocket을 통한 AMQP)를 통해 연결하도록 디바이스를 구성했을 수 있습니다. 장치에 모듈을 배포 하는 경우 IoT Edge 에이전트 및 IoT Edge 허브에 대해 동일한 AMQPWS 프로토콜을 구성 합니다. 그렇지 않으면 기본 AMQP가 설정을 재정의 하 고 다시 연결 하지 않도록 합니다.
+IoT Edge 디바이스에서 기본 AMQP가 아닌 다른 프로토콜을 사용하도록 IoT Edge 에이전트를 구성한 경우 모든 후속 배포에서 동일한 프로토콜을 선언해야 합니다. 예를 들어 IoT Edge 디바이스가 AMQP 포트를 차단하는 프록시 서버 뒤에 있는 경우 AMQPWS(WebSocket을 통한 AMQP)를 통해 연결하도록 디바이스를 구성했을 수 있습니다. 디바이스에 모듈을 배포할 때 IoT Edge 에이전트 및 IoT Edge 허브에 대해 동일한 APQPWS 프로토콜을 구성하지 않으면 기본 AMQP가 설정을 재정의하여 다시 연결할 수 없게 됩니다.
 
-IoT Edge 에이전트 및 IoT Edge 허브 모듈에 대해 UpstreamProtocol 환경 변수만 구성 하면 됩니다. 모든 추가 모듈은 런타임 모듈에 설정된 프로토콜을 채택합니다.
+IoT Edge 에이전트 및 IoT Edge 허브 모듈에 대한 UpstreamProtocol 환경 변수만 구성하면 됩니다. 모든 추가 모듈은 런타임 모듈에 설정된 프로토콜을 채택합니다.
 
 이 프로세스의 예제는 [프록시 서버를 통해 통신하도록 IoT Edge 디바이스 구성](how-to-configure-proxy-support.md)에 나와 있습니다.
 
-### <a name="set-up-host-storage-for-system-modules"></a>시스템 모듈의 호스트 저장소 설정
+### <a name="set-up-host-storage-for-system-modules"></a>시스템 모듈의 호스트 스토리지 설정
 
-IoT Edge 허브 및 에이전트 모듈은 로컬 저장소를 사용 하 여 상태를 유지 관리 하 고 모듈, 장치 및 클라우드 간의 메시징을 사용 하도록 설정 합니다. 안정성과 성능을 향상 시키려면 호스트 파일 시스템의 저장소를 사용 하도록 시스템 모듈을 구성 합니다.
+IoT Edge 허브 및 에이전트 모듈은 로컬 스토리지를 사용하여 상태를 유지하고 모듈, 디바이스 및 클라우드 간에 메시징을 사용하도록 설정합니다. 안정성과 성능을 향상하려면 호스트 파일 시스템의 스토리지를 사용하도록 시스템 모듈을 구성합니다.
 
-자세한 내용은 [시스템 모듈의 호스트 저장소](how-to-access-host-storage-from-module.md)를 참조 하세요.
+자세한 내용은 [시스템 모듈의 호스트 스토리지](how-to-access-host-storage-from-module.md)를 참조하세요.
 
-### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>IoT Edge 허브에 사용 되는 메모리 공간 줄이기
+### <a name="reduce-memory-space-used-by-iot-edge-hub"></a>IoT Edge 허브에서 사용하는 메모리 공간 축소
 
-제한 된 메모리를 사용할 수 있는 제한 된 장치를 배포 하는 경우 더 효율적인 용량으로 실행 되도록 IoT Edge 허브를 구성 하 고 디스크 공간을 더 줄일 수 있습니다. 그러나 이러한 구성은 IoT Edge 허브의 성능을 제한 하므로 솔루션에 적합 한 적절 한 균형을 찾아야 합니다.
+사용 가능한 메모리가 제한된 디바이스를 배포하는 경우, 실행되는 메모리 사용량을 줄이고 디스크 공간을 덜 사용하도록 IoT Edge 허브를 구성할 수 있습니다. 그러나 이러한 구성은 IoT Edge 허브의 성능을 제한하므로, 사용자 솔루션에 적합하게 균형을 맞추세요.
 
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>리소스가 제한된 디바이스에서 성능에 최적화하지 않음
 
-IoT Edge 허브는 기본적으로 성능에 맞게 최적화 되었으므로 대량의 메모리를 할당 하려고 합니다. 이 구성으로 인해 Raspberry Pi와 같은 작은 디바이스에서 안정성 문제가 발생할 수 있습니다. 제한 된 리소스를 사용 하 여 장치를 배포 하는 경우 IoT Edge 허브에서 **OptimizeForPerformance** 환경 변수를 **false** 로 설정 하는 것이 좋습니다.
+IoT Edge 허브는 기본적으로 성능에 최적화되어 있으므로 큰 메모리 청크를 할당하려고 합니다. 이 구성으로 인해 Raspberry Pi와 같은 작은 디바이스에서 안정성 문제가 발생할 수 있습니다. 리소스가 제한된 디바이스를 배포하는 경우 IoT Edge 허브에서 **OptimizeForPerformance** 환경 변수를 **false** 로 설정하는 것이 좋습니다.
 
-**OptimizeForPerformance** 가 **true** 로 설정 되 면 mqtt 프로토콜 헤드는 더 나은 성능을 갖지만 더 많은 메모리를 할당 하는 PooledByteBufferAllocator를 사용 합니다. 할당자는 32 비트 운영 체제 또는 메모리가 부족 한 장치에서 제대로 작동 하지 않습니다. 또한 성능을 최적화 하는 경우 RocksDb는 해당 역할에 대해 로컬 저장소 공급자로 더 많은 메모리를 할당 합니다.
+**OptimizeForPerformance** 가 **true** 로 설정되면 MQTT 프로토콜 헤드는 더 나은 성능을 갖지만 더 많은 메모리를 할당하는 PooledByteBufferAllocator를 사용합니다. 할당자는 32비트 운영 체제 또는 메모리가 부족한 디바이스에서 제대로 작동하지 않습니다. 또한 성능을 최적화하는 경우 RocksDb는 해당 역할에 대해 로컬 스토리지 공급자로 더 많은 메모리를 할당합니다.
 
-자세한 내용은 [더 작은 장치에서 안정성 문제](troubleshoot-common-errors.md#stability-issues-on-smaller-devices)를 참조 하세요.
+자세한 내용은 [더 작은 디바이스의 안정성 문제](troubleshoot-common-errors.md#stability-issues-on-smaller-devices)를 참조하세요.
 
 #### <a name="disable-unused-protocols"></a>사용하지 않는 프로토콜 비활성화
 
-IoT Edge 허브의 성능을 최적화 하 고 메모리 사용량을 줄이는 또 다른 방법은 솔루션에서 사용 하지 않는 프로토콜에 대 한 프로토콜 헤드를 해제 하는 것입니다.
+IoT Edge 허브의 성능을 최적화하고 메모리 사용량을 줄이는 또 다른 방법은 솔루션에서 사용하지 않는 프로토콜의 헤드를 끄는 것입니다.
 
-프로토콜 헤드는 배포 매니페스트의 IoT Edge hub 모듈에 대 한 부울 환경 변수를 설정 하 여 구성 됩니다. 세 가지 변수는 다음과 같습니다.
+프로토콜 헤드는 배포 매니페스트에서 IoT Edge 허브 모듈에 대한 부울 환경 변수를 설정하여 구성합니다. 세 가지 변수는 다음과 같습니다.
 
 * **amqpSettings__enabled**
 * **mqttSettings__enabled**
@@ -133,13 +133,13 @@ IoT Edge 허브의 성능을 최적화 하 고 메모리 사용량을 줄이는 
 
 #### <a name="reduce-storage-time-for-messages"></a>메시지의 스토리지 시간 축소
 
-IoT Edge 허브 모듈은 어떤 이유로 든 IoT Hub 배달할 수 없는 경우 일시적으로 메시지를 저장 합니다. IoT Edge 허브가 만료 되기 전에 배달 되지 않은 메시지에 저장 되는 기간을 구성할 수 있습니다. 장치에 메모리 문제가 있는 경우 IoT Edge 허브 모듈 쌍에서 **timeToLiveSecs** 값을 낮출 수 있습니다.
+IoT Edge 허브 모듈은 어떤 이유로든 IoT Hub에 배달할 수 없는 메시지를 임시로 저장합니다. IoT Edge 허브가 만료되도록 허용하기 전에 배달하지 못한 메시지를 유지하는 기간을 구성할 수 있습니다. 디바이스에 메모리 관련 문제가 있는 경우 IoT Edge 허브 모듈 쌍에서 **timeToLiveSecs** 값을 낮출 수 있습니다.
 
 timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 ### <a name="do-not-use-debug-versions-of-module-images"></a>모듈 이미지의 디버그 버전 사용 안 함
 
-테스트 시나리오에서 프로덕션 시나리오로 전환하는 경우 배포 매니페스트에서 디버그 구성을 제거해야 합니다. 배포 매니페스트에 있는 모든 모듈 이미지가 **\. 디버그** 접미사를 포함 하지 않는지 확인 합니다. 디버깅을 위해 모듈의 포트를 노출하는 만들기 옵션을 추가한 경우 해당 만들기 옵션도 제거합니다.
+테스트 시나리오에서 프로덕션 시나리오로 전환하는 경우 배포 매니페스트에서 디버그 구성을 제거해야 합니다. 배포 매니페스트에 **\.debug** 접미사가 있는 모듈 이미지가 없는지 확인합니다. 디버깅을 위해 모듈의 포트를 노출하는 만들기 옵션을 추가한 경우 해당 만들기 옵션도 제거합니다.
 
 ## <a name="container-management"></a>컨테이너 관리
 
@@ -147,7 +147,7 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
   * 컨테이너 레지스트리에 대한 액세스 관리
   * 태그를 사용하여 버전 관리
 * **유용함**
-  * 개인 레지스트리에 런타임 컨테이너 저장
+  * 프라이빗 레지스트리에 런타임 컨테이너 저장
 
 ### <a name="manage-access-to-your-container-registry"></a>컨테이너 레지스트리에 대한 액세스 관리
 
@@ -155,55 +155,55 @@ timeToLiveSecs 매개 변수의 기본값은 7200초로, 2시간입니다.
 
 자습서 및 기타 설명서에서는 개발 머신에서 사용한 것과 동일한 컨테이너 레지스트리 자격 증명을 IoT Edge 디바이스에서 사용하도록 안내합니다. 이러한 지침은 테스트 및 개발 환경을 보다 쉽게 설정하도록 돕기 위한 것이며, 프로덕션 시나리오에서 따르면 안 됩니다.
 
-레지스트리에 보다 안전 하 게 액세스할 수 있도록 [인증 옵션](../container-registry/container-registry-authentication.md)을 선택할 수 있습니다. 널리 사용 되는 인증은 응용 프로그램이 나 서비스에 적합 한 Active Directory 서비스 주체를 사용 하는 것입니다 .이는 IoT Edge 장치가 수행 하는 것 처럼 자동 또는 기타 무인 (헤드리스) 방식으로 컨테이너 이미지를 끌어오는 것입니다.
+레지스트리에 보다 안전하게 액세스할 수 있도록 [인증 옵션](../container-registry/container-registry-authentication.md)을 선택할 수 있습니다. 널리 사용되고 권장되는 인증은 애플리케이션이나 서비스에 적합한 Active Directory 서비스 주체를 사용하는 것이며, 이는 IoT Edge 디바이스가 수행하는 것처럼 자동 또는 기타 무인(헤드리스) 방식으로 컨테이너 이미지를 끌어오는 것입니다.
 
-서비스 주체를 만들려면 [서비스 주체 만들기](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal)에 설명 된 대로 두 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 합니다.
+서비스 주체를 만들려면 [서비스 주체 만들기](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal)에 설명된 대로 두 스크립트를 실행합니다. 이러한 스크립트는 다음 작업을 수행합니다.
 
-* 첫 번째 스크립트는 서비스 사용자를 만듭니다. 서비스 사용자 ID와 서비스 주체 암호를 출력 합니다. 이러한 값을 레코드에 안전 하 게 저장 합니다.
+* 첫 번째 스크립트는 서비스 사용자를 만듭니다. 서비스 주체 ID 및 서비스 주체 암호를 출력합니다. 이러한 값을 레코드에 안전하게 저장합니다.
 
-* 두 번째 스크립트는 필요한 경우 나중에 실행할 수 있는 서비스 주체에 게 부여할 역할 할당을 만듭니다. 매개 변수에 대 한 **Acrpull** 사용자 역할을 적용 하는 것이 좋습니다 `role` . 역할 목록은 [Azure Container Registry 역할 및 사용 권한](../container-registry/container-registry-roles.md)을 참조 하세요.
+* 두 번째 스크립트는 필요한 경우 나중에 실행할 수 있는 서비스 주체에게 부여할 역할 할당을 만듭니다. `role` 매개 변수에 대한 **acrPull** 사용자 역할을 적용하는 것이 좋습니다. 역할 목록은 [Azure Container Registry 역할 및 권한](../container-registry/container-registry-roles.md)을 참조하세요.
 
-서비스 주체를 사용 하 여 인증 하려면 첫 번째 스크립트에서 가져온 서비스 사용자 ID와 암호를 제공 합니다. 배포 매니페스트에서 이러한 자격 증명을 지정 합니다.
+서비스 주체를 사용하여 인증하려면 첫 번째 스크립트에서 얻은 서비스 주체 ID와 암호를 제공합니다. 배포 매니페스트에서 이러한 자격 증명을 지정합니다.
 
-* 사용자 이름 또는 클라이언트 ID에 대해 서비스 주체 ID를 지정 합니다.
+* 사용자 이름 또는 클라이언트 ID에 대해 서비스 주체 ID를 지정합니다.
 
-* 암호 또는 클라이언트 암호의 경우 서비스 주체 암호를 지정 합니다.
+* 암호 또는 클라이언트 암호의 경우 서비스 주체 암호를 지정합니다.
 
 > [!NOTE]
-> 보안 강화 인증을 구현한 후에는 **관리자 사용자** 설정을 사용 하지 않도록 설정 하 여 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 합니다. 컨테이너 레지스트리의 Azure Portal에 있는 왼쪽 창 메뉴의 **설정** 아래에서 **액세스 키** 를 선택 합니다.
+> 향상된 보안 인증을 구현한 후 기본 사용자 이름/암호 액세스를 더 이상 사용할 수 없도록 **관리 사용자** 설정을 사용하지 않도록 설정합니다. Azure Portal 컨테이너 레지스트리의 왼쪽 창 메뉴의 **설정** 에서 **액세스 키** 를 선택합니다.
 
 ### <a name="use-tags-to-manage-versions"></a>태그를 사용하여 버전 관리
 
-태그는 docker 컨테이너의 버전을 구분 하는 데 사용할 수 있는 docker 개념입니다. 태그는 컨테이너 리포지토리의 끝에 추가되는 **1.0** 등의 접미사입니다. 예를 들어 **mcr.microsoft.com/azureiotedge-agent:1.0** 입니다. 태그는 변경 가능하며, 언제든지 다른 컨테이너를 가리키도록 변경할 수 있으므로 앞으로 모듈 이미지를 업데이트할 때 따를 규칙에 대해 팀이 합의해야 합니다.
+태그는 Docker 컨테이너의 버전을 구별하는 데 사용할 수 있는 Docker 개념입니다. 태그는 컨테이너 리포지토리의 끝에 추가되는 **1.1** 등의 접미사입니다. 예를 들어 **mcr.microsoft.com/azureiotedge-agent:1.1** 입니다. 태그는 변경 가능하며, 언제든지 다른 컨테이너를 가리키도록 변경할 수 있으므로 앞으로 모듈 이미지를 업데이트할 때 따를 규칙에 대해 팀이 합의해야 합니다.
 
 또한 태그는 IoT Edge 디바이스에 업데이트를 적용하는 데 도움이 됩니다. 모듈의 업데이트된 버전을 컨테이너 레지스트리에 푸시할 때 태그를 증분합니다. 그런 다음, 태그가 증분된 새 배포를 디바이스에 푸시합니다. 컨테이너 엔진이 증분된 태그를 새 버전으로 인식하고 최신 모듈 버전을 디바이스로 끌어옵니다.
 
-#### <a name="tags-for-the-iot-edge-runtime"></a>IoT Edge 런타임에 대 한 태그
+#### <a name="tags-for-the-iot-edge-runtime"></a>IoT Edge 런타임에 대한 태그
 
 IoT Edge 에이전트 및 IoT Edge 허브 이미지에는 연결된 IoT Edge 버전으로 태그가 지정됩니다. 런타임 이미지에 태그를 사용하는 방법에는 다음 두 가지가 있습니다.
 
-* **롤링 태그** - 버전 번호의 처음 두 개 값만 사용하여 해당 숫자와 일치하는 최신 이미지를 가져옵니다. 예를 들어 최신 1.1. x 버전을 가리키는 새 릴리스가 있을 때마다 1.1이 업데이트 됩니다. IoT Edge 디바이스의 컨테이너 런타임이 이미지를 다시 끌어오면 런타임 모듈은 최신 버전으로 업데이트됩니다. Azure Portal에서 배포할 때는 기본적으로 롤링 태그가 사용됩니다. *이 접근 방법은 개발 목적으로 제안됩니다.*
+* **롤링 태그** - 버전 번호의 처음 두 개 값만 사용하여 해당 숫자와 일치하는 최신 이미지를 가져옵니다. 예를 들어, 최신 1.1.x 버전을 가리키는 새 릴리스가 있을 때마다 1.1이 업데이트됩니다. IoT Edge 디바이스의 컨테이너 런타임이 이미지를 다시 끌어오면 런타임 모듈은 최신 버전으로 업데이트됩니다. Azure Portal에서 배포할 때는 기본적으로 롤링 태그가 사용됩니다. *이 접근 방법은 개발 목적으로 제안됩니다.*
 
-* **특정 태그** - 버전 번호의 세 값을 모두 사용하여 이미지 버전을 명시적으로 설정합니다. 예를 들어 1.1.0는 초기 릴리스 후에 변경 되지 않습니다. 업데이트할 준비가 되면 배포 매니페스트에서 새 버전 번호를 선언할 수 있습니다. *이 접근 방법은 프로덕션 목적으로 제안됩니다.*
+* **특정 태그** - 버전 번호의 세 값을 모두 사용하여 이미지 버전을 명시적으로 설정합니다. 예를 들어, 1.1.0은 초기 릴리스 이후에 변경되지 않습니다. 업데이트할 준비가 되면 배포 매니페스트에서 새 버전 번호를 선언할 수 있습니다. *이 접근 방법은 프로덕션 목적으로 제안됩니다.*
 
-### <a name="store-runtime-containers-in-your-private-registry"></a>개인 레지스트리에 런타임 컨테이너 저장
+### <a name="store-runtime-containers-in-your-private-registry"></a>프라이빗 레지스트리에 런타임 컨테이너 저장
 
-개인 Azure 레지스트리에 사용자 지정 코드 모듈의 컨테이너 이미지를 저장 하는 방법을 알고 있지만,이를 사용 하 여 edgeAgent 및 Ed홍보 Ub 런타임 모듈 등의 공용 컨테이너 이미지를 저장할 수도 있습니다. 이러한 런타임 컨테이너가 Microsoft Container Registry (MCR)에 저장 되므로 방화벽 제한이 매우 많은 경우에는이 작업을 수행 해야 할 수 있습니다.
+프라이빗 Azure 레지스트리에 사용자 지정 코드 모듈에 대한 컨테이너 이미지를 저장하는 방법을 알고 있지만, 이를 사용하여 edgeAgent 및 edgHub 런타임 모듈과 같은 퍼블릭 컨테이너 이미지를 저장할 수도 있습니다. 이러한 런타임 컨테이너가 MCR(Microsoft Container Registry)에 저장되므로 매우 엄격한 방화벽 제한이 있는 경우 이 작업을 수행해야 할 수 있습니다.
 
-Docker pull 명령이 포함 된 이미지를 가져와 개인 레지스트리에 저장 합니다. IoT Edge 런타임의 새 릴리스로 이미지를 업데이트 해야 합니다.
+Docker pull 명령을 사용하여 프라이빗 레지스트리에 배치할 이미지를 가져옵니다. IoT Edge 런타임의 각 새 릴리스로 이미지를 업데이트해야 합니다.
 
 | IoT Edge 런타임 컨테이너 | Docker pull 명령 |
 | --- | --- |
 | [Azure IoT Edge 에이전트](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
 | [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
 
-그런 다음 edgeAgent 및 edgeHub 시스템 모듈에 대 한 deployment.template.js파일에서 이미지 참조를 업데이트 해야 합니다. 을 `mcr.microsoft.com` 두 모듈의 레지스트리 이름 및 서버로 바꿉니다.
+다음으로, edgeAgent 및 edgeHub 시스템 모듈에 대한 파일의 deployment.template.js 이미지 참조를 업데이트해야 합니다. `mcr.microsoft.com`을 두 모듈의 레지스트리 이름 및 서버로 대체합니다.
 
-* EdgeAgent
+* edgeAgent:
 
     `"image": "<registry name and server>/azureiotedge-agent:1.1",`
 
-* EdgeHub
+* edgeHub:
 
     `"image": "<registry name and server>/azureiotedge-hub:1.1",`
 
@@ -211,20 +211,20 @@ Docker pull 명령이 포함 된 이미지를 가져와 개인 레지스트리�
 
 * **유용함**
   * 아웃바운드/인바운드 구성 검토
-  * IoT Edge 장치에서 연결 허용
+  * IoT Edge 디바이스의 연결 허용
   * 프록시를 통한 통신 구성
 
 ### <a name="review-outboundinbound-configuration"></a>아웃바운드/인바운드 구성 검토
 
-Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구성됩니다. 대부분의 IoT Edge 시나리오에서는 세 개의 연결만 있으면 됩니다. 컨테이너 엔진은 모듈 이미지를 포함하는 컨테이너 레지스트리(한 개 또는 여러 개)에 연결해야 합니다. IoT Edge 런타임은 디바이스 구성 정보를 검색하고 메시지 및 원격 분석을 보내기 위해 IoT Hub에 연결해야 합니다. 자동 프로비저닝을 사용 하는 경우 IoT Edge 장치 프로 비전 서비스에 연결 해야 합니다. 자세한 내용은 [방화벽 및 포트 구성 규칙](troubleshoot.md#check-your-firewall-and-port-configuration-rules)을 참조하세요.
+Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구성됩니다. 대부분의 IoT Edge 시나리오에서는 세 개의 연결만 있으면 됩니다. 컨테이너 엔진은 모듈 이미지를 포함하는 컨테이너 레지스트리(한 개 또는 여러 개)에 연결해야 합니다. IoT Edge 런타임은 디바이스 구성 정보를 검색하고 메시지 및 원격 분석을 보내기 위해 IoT Hub에 연결해야 합니다. 또한 자동 프로비전을 사용하는 경우, IoT Edge는 DPS에 연결해야 합니다. 자세한 내용은 [방화벽 및 포트 구성 규칙](troubleshoot.md#check-your-firewall-and-port-configuration-rules)을 참조하세요.
 
-### <a name="allow-connections-from-iot-edge-devices"></a>IoT Edge 장치에서 연결 허용
+### <a name="allow-connections-from-iot-edge-devices"></a>IoT Edge 디바이스의 연결 허용
 
-네트워킹 설정에서 IoT Edge 장치에서 연결을 명시적으로 허용 해야 하는 경우 다음 IoT Edge 구성 요소 목록을 검토 하세요.
+네트워킹 설정에 따라 IoT Edge 디바이스의 연결을 명시적으로 허용해야 하는 경우 다음 IoT Edge 구성 요소 목록을 검토합니다.
 
 * **IoT Edge 에이전트** 는 WebSockets 등을 통해 IoT Hub에 대한 영구적 AMQP/MQTT 연결을 엽니다.
 * **IoT Edge 허브** 는 WebSockets 등을 통해 IoT Hub에 대한 단일 영구적 AMQP 연결이나 여러 MQTT 연결을 엽니다.
-* **IoT Edge 서비스** 는 IoT Hub에 대 한 간헐적인 HTTPS 호출을 수행 합니다.
+* **IoT Edge 서비스** 는 IoT Hub에 대한 HTTPS 호출을 간헐적으로 수행합니다.
 
 세 가지 경우 모두, DNS 이름이 \*.azure-devices.net 패턴과 일치합니다.
 
@@ -237,17 +237,17 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
    | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
    | \*.azurecr.io | 443 | 개인 및 타사 컨테이너 레지스트리 |
-   | \*.blob.core.windows.net | 443 | Blob 저장소에서 Azure Container Registry 이미지 델타 다운로드 |
+   | \*.blob.core.windows.net | 443 | Blob Storage에서 Azure Container Registry 이미지 델타 다운로드 |
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub 액세스 |
-   | \*.docker.io  | 443 | Docker 허브 액세스 (옵션) |
+   | \*.docker.io  | 443 | Docker Hub 액세스(선택 사항) |
 
-이러한 방화벽 규칙 중 일부는 Azure Container Registry에서 상속 됩니다. 자세한 내용은 [방화벽 뒤에 있는 Azure container registry에 액세스 하는 규칙 구성](../container-registry/container-registry-firewall-access-rules.md)을 참조 하세요.
+이러한 방화벽 규칙 중 일부는 Azure Container Registry에서 상속됩니다. 자세한 내용은 [방화벽 뒤에서 Azure Container Registry에 액세스하기 위한 규칙 구성](../container-registry/container-registry-firewall-access-rules.md)을 참조하세요.
 
 > [!NOTE]
-> **2020 년 6 월 15** 일부 터 REST 및 데이터 끝점 사이에 일관 된 FQDN을 제공 하기 위해 Microsoft Container Registry 데이터 끝점은에서로 변경 됩니다. `*.cdn.mscr.io``*.data.mcr.microsoft.com`  
-> 자세한 내용은 [Microsoft Container Registry 클라이언트 방화벽 규칙 구성](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md) 을 참조 하세요.
+> REST와 데이터 엔드포인트 간에 일관된 FQDN을 제공하기 위해 **2020년 6월 15일부터** Microsoft Container Registry 데이터 엔드포인트가 `*.cdn.mscr.io`에서 `*.data.mcr.microsoft.com`으로 변경됩니다.  
+> 자세한 내용은 [Microsoft Container Registry 클라이언트 방화벽 규칙 구성](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)을 참조하세요.
 
-공용 컨테이너 레지스트리에 대 한 액세스를 허용 하도록 방화벽을 구성 하지 않으려는 경우 [개인 레지스트리의 런타임 컨테이너 저장](#store-runtime-containers-in-your-private-registry)에 설명 된 대로 개인 컨테이너 레지스트리에 이미지를 저장할 수 있습니다.
+퍼블릭 컨테이너 레지스트리에 대한 액세스를 허용하도록 방화벽을 구성하지 않으려는 경우 [프라이빗 레지스트리에 런타임 컨테이너 저장](#store-runtime-containers-in-your-private-registry)에 설명된 대로 프라이빗 컨테이너 레지스트리에 이미지를 저장할 수 있습니다.
 
 ### <a name="configure-communication-through-a-proxy"></a>프록시를 통한 통신 구성
 
@@ -261,12 +261,23 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 ### <a name="set-up-logs-and-diagnostics"></a>로그 및 진단 설정
 
-Linux에서 IoT Edge 디먼은 기본 로깅 드라이버로 저널을 사용 합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다.
+Linux에서 IoT Edge 디먼은 업무 일지를 기본 로깅 드라이버로 사용합니다. 명령줄 도구 `journalctl`을 사용하여 디먼 로그를 쿼리할 수 있습니다.
+
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-IoTEdgeLog`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅에 JSON 드라이버를 사용하며, 이것이 기본값입니다.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
+
+:::moniker-end
+<!-- end 1.1 -->
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
 
-버전 1.2부터 IoT Edge는 여러 디먼에 의존 합니다. 각 디먼의 로그는를 사용 하 여 개별적으로 쿼리할 수 있지만 `journalctl` 이 `iotedge system` 명령은 결합 된 로그를 쿼리 하는 편리한 방법을 제공 합니다.
+버전 1.2부터 IoT Edge는 여러 디먼에 의존합니다. 각 디먼의 로그는 `journalctl`를 사용하여 개별적으로 쿼리할 수 있지만 `iotedge system` 명령은 결합된 로그를 쿼리하는 편리한 방법을 제공합니다.
 
 * 통합 `iotedge` 명령:
 
@@ -274,7 +285,7 @@ Linux에서 IoT Edge 디먼은 기본 로깅 드라이버로 저널을 사용 �
   sudo iotedge system logs
   ```
 
-* 동일한 `journalctl` 명령:
+* 해당 `journalctl` 명령:
 
   ```bash
   journalctl -u aziot-edge -u aziot-identityd -u aziot-keyd -u aziot-certd -u aziot-tpmd
@@ -282,21 +293,15 @@ Linux에서 IoT Edge 디먼은 기본 로깅 드라이버로 저널을 사용 �
 
 :::moniker-end
 
-Windows에서 IoT Edge 디먼은 PowerShell 진단을 사용합니다. `Get-IoTEdgeLog`를 사용하여 디먼 로그를 쿼리합니다. IoT Edge 모듈은 로깅할 JSON 드라이버 (기본값)를 사용 합니다.  
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
-```
-
 IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에 액세스하여 로그를 검색하고 문제를 해결할 수 있습니다. 배포 시나리오에서는 해당 옵션이 없을 수 있습니다. 프로덕션에서 사용자 디바이스에 대한 정보를 수집하는 방법을 고려해 보세요. 한 가지 옵션은 다른 모듈에서 정보를 수집하여 클라우드로 보내는 로깅 모듈을 사용하는 것입니다. 로깅 모듈의 한 가지 예는 [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics)이며, 사용자가 직접 로깅 모듈을 설계할 수도 있습니다.
 
-### <a name="place-limits-on-log-size"></a>로그 크기에 대 한 제한
+### <a name="place-limits-on-log-size"></a>로그 크기에 대한 제한
 
-기본적으로 Moby 컨테이너 엔진은 컨테이너 로그 크기 제한을 설정 하지 않습니다. 시간이 지남에 따라 로그를 채우고 디스크 공간이 부족 해질 수 있습니다. 이를 방지 하려면 다음 옵션을 고려 하십시오.
+기본적으로 Moby 컨테이너 엔진은 컨테이너 로그 크기 제한을 설정하지 않습니다. 시간이 지남에 따라 로그를 채우고 디스크 공간이 부족해질 수 있습니다. 이를 방지하려면 다음 옵션을 고려하세요.
 
-#### <a name="option-set-global-limits-that-apply-to-all-container-modules"></a>옵션: 모든 컨테이너 모듈에 적용 되는 전역 제한 설정
+#### <a name="option-set-global-limits-that-apply-to-all-container-modules"></a>옵션: 모든 컨테이너 모듈에 적용되는 전체 제한 설정
 
-컨테이너 엔진 로그 옵션에서 모든 컨테이너 로그의 크기를 제한할 수 있습니다. 다음 예에서는 `json-file` 파일의 크기 및 수에 대 한 제한으로 로그 드라이버를 (권장)로 설정 합니다.
+컨테이너 엔진 로그 옵션에서 모든 컨테이너 logfiles의 크기를 제한할 수 있습니다. 다음 예에서는 파일의 크기 및 수에 대한 제한으로 로그 드라이버를 `json-file`(권장)로 설정합니다.
 
 ```JSON
 {
@@ -308,18 +313,30 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 }
 ```
 
-이 정보를 이라는 파일에 추가 (또는 추가) 하 `daemon.json` 고 장치 플랫폼의 올바른 위치에 배치 합니다.
+이 정보를 `daemon.json`이라는 파일에 추가(또는 첨부)하고 다음 위치에 배치합니다.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | 플랫폼 | 위치 |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
+:::moniker-end
+<!-- end 1.1 -->
 
-변경 내용을 적용 하려면 컨테이너 엔진을 다시 시작 해야 합니다.
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+
+* `/etc/docker/`
+
+:::moniker-end
+<!-- end 1.2 -->
+
+변경 내용을 적용하려면 컨테이너 엔진을 다시 시작해야 합니다.
 
 #### <a name="option-adjust-log-settings-for-each-container-module"></a>옵션: 각 컨테이너 모듈에 대해 로그 설정 조정
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
+각 모듈의 **createOptions** 에서 이 작업을 수행할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```yml
 "createOptions": {
@@ -335,11 +352,11 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 }
 ```
 
-#### <a name="additional-options-on-linux-systems"></a>Linux 시스템에 대 한 추가 옵션
+#### <a name="additional-options-on-linux-systems"></a>Linux 시스템에 대한 추가 옵션
 
-* `systemd`기본 로깅 드라이버로를 설정 하 여 [저널](https://docs.docker.com/config/containers/logging/journald/) 에 로그를 보내도록 컨테이너 엔진을 구성 `journald` 합니다.
+* `journald`를 기본 로깅 드라이버로 설정하여 `systemd` [업무 일지](https://docs.docker.com/config/containers/logging/journald/)에 로그를 보내도록 컨테이너 엔진을 구성합니다.
 
-* Logrotate 도구를 설치 하 여 장치에서 오래 된 로그를 주기적으로 제거 합니다. 다음 파일 사양을 사용합니다.
+* logrotate 도구를 설치하여 사용자 디바이스에서 이전 로그를 정기적으로 제거합니다. 다음 파일 사양을 사용합니다.
 
    ```txt
    /var/lib/docker/containers/*/*-json.log{

@@ -1,5 +1,5 @@
 ---
-title: Azure File Storage와 함께 Storage Explorer 사용 | Microsoft Docs
+title: Azure Files와 함께 Storage Explorer 사용 | Microsoft Docs
 description: Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 services: storage
 documentationcenter: na
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 84f6473c25a5be11eeda7cd2b311d93a7226a78c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: b0387aaecd45a2f09acc8d9ad7af230a62da6ed1
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96488394"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109628503"
 ---
-# <a name="using-storage-explorer-with-azure-file-storage"></a>Azure File Storage와 함께 Storage Explorer 사용
+# <a name="using-storage-explorer-with-azure-files"></a>Azure Files와 함께 Storage Explorer 사용
 
-Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
+Azure Files는 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 클라우드에서 파일 공유를 제공하는 서비스입니다. SMB 2.1과 SMB 3.0 모두를 지원합니다. Azure Files를 사용하여 파일 공유에 의존하는 레거시 애플리케이션을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 애플리케이션 데이터를 비공개적으로 저장할 수 있습니다. 이 문서에서는 Storage Explorer를 사용하여 파일 공유 및 파일을 작업하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 요건
 
 이 문서의 단계를 완료하려면 다음과 같이 하는 것이 필요합니다.
 
 - [Storage Explorer 다운로드 및 설치](https://www.storageexplorer.com/)
 
-- [Azure storage 계정 또는 서비스에 연결](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
+- [Azure Storage 계정 또는 서비스에 연결](./vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>파일 공유 만들기
 
@@ -73,7 +73,7 @@ Azure File Storage는 표준 SMB(서버 메시지 블록) 프로토콜을 사용
 
 1. 기본 창에 파일 공유 내용이 표시됩니다.
     
-    ![공유의 내용을 보여 주는 Storage 탐색기의 파일 공유에 대 한 기본 창 스크린샷](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![공유 콘텐츠를 보여주는 Storage Explorer의 파일 공유에 대한 기본 창의 스크린샷](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>파일 공유 삭제
 
@@ -117,7 +117,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
 ## <a name="get-the-sas-for-a-file-share"></a>파일 공유에 대한 SAS 가져오기
 
-[SAS (공유 액세스 서명)](./storage/common/storage-sas-overview.md) 는 저장소 계정의 리소스에 대 한 위임 된 액세스를 제공 합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
+[SAS(공유 액세스 서명)](./storage/common/storage-sas-overview.md)는 스토리지 계정의 리소스에 대한 위임된 권한을 제공합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 스토리지 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다.
 
 다음 단계에서는 파일 공유에 대한 SAS를 만드는 방법을 보여 줍니다.
 
@@ -145,7 +145,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
 ## <a name="manage-access-policies-for-a-file-share"></a>파일 공유에 대한 액세스 정책 관리
 
-다음 단계에서는 파일 공유에 대한 액세스 정책을 관리(추가 및 제거)하는 방법을 보여 줍니다. 액세스 정책은 사람들이 정의된 기간 동안 스토리지 파일 리소스에 액세스하는 데 사용할 수 있는 SAS URL을 만드는 데 사용됩니다.
+다음 단계에서는 파일 공유에 대한 액세스 정책을 관리(추가 및 제거)하는 방법을 보여 줍니다. 액세스 정책은 사람들이 정의된 기간 동안 Azure Files 리소스에 액세스하는 데 사용할 수 있는 SAS URL을 만드는 데 사용됩니다.
 
 1. Storage Explorer를 엽니다.
 
@@ -165,7 +165,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
     
     - **새 액세스 정책 추가** - **추가** 를 선택합니다. 생성되었다면 **액세스 정책** 대화 상자는 (기본 설정을 사용하여) 새로 추가된 액세스 정책을 표시합니다.
 
-    - **액세스 정책 편집** -원하는 편집을 수행 하 고 **저장** 을 선택 합니다.
+    - **액세스 정책 편집** - 원하는 편집을 모두 마치고, **저장** 을 선택합니다.
 
     - **액세스 정책 제거** - 제거하려는 액세스 정책 옆에 있는 **제거** 를 선택합니다.
 
@@ -191,7 +191,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
 1.  기본 창에 파일 공유 내용이 표시됩니다.
 
-    ![첫 번째 폴더가 선택 된 공유의 내용을 보여 주는 Storage 탐색기의 myazurefileshare 공유 파일 공유에 대 한 기본 창의 스크린샷](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![첫 번째 폴더가 선택된 공유 콘텐츠를 보여주는 Storage Explorer의 파일 공유 myazurefileshare에 대한 기본 창의 스크린샷](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  기본 창에 파일 공유 내용이 표시됩니다.
 
@@ -199,7 +199,7 @@ Storage Explorer를 사용하여 파일 공유를 클립보드에 복사한 다�
 
     - **파일 공유에 파일 업로드**
 
-        a.  기본 창의 도구 모음에서 **업로드** 를 선택 하 고 드롭다운 메뉴에서 **파일 업로드** 를 선택 합니다.
+        a.  기본 창 도구 모음에서 **업로드** 를 선택하고, 드롭 다운 메뉴에서 **파일 업로드** 를 합니다.
 
         ![파일 업로드](media/vs-azure-tools-storage-explorer-files/image18.png)
         

@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 14a235337a1b3bf26874cffe8893f0c21f2ed9f7
+ms.sourcegitcommit: 38d81c4afd3fec0c56cc9c032ae5169e500f345d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92547710"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109517877"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -58,8 +58,9 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 | contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
 | contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
 | iothub-connection-device-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
+| iothub-connection-module-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 에지 모듈의 ID를 식별합니다. 쿼리하려면 `$connectionModuleId`을 사용합니다. |
 | iothub-enqueuedtime | 문자열 | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
-| dt-dataschema | 문자열 |  이 값은 디바이스-클라우드 메시지의 IoT Hub에 의해 설정됩니다. 디바이스 연결에 설정된 디바이스 모델 ID를 포함합니다. 쿼리하려면 `$dt-dataschema`을 사용합니다. |
+| dt-dataschema | 문자열 |  이 값은 디바이스-클라우드 메시지의 IoT 허브에 의해 설정됩니다. 디바이스 연결에 설정된 디바이스 모델 ID 세트를 포함합니다. 쿼리하려면 `$dt-dataschema`을 사용합니다. |
 | dt-subject | 문자열 | 디바이스-클라우드 메시지를 전송하는 구성 요소의 이름입니다. 쿼리하려면 `$dt-subject`을 사용합니다. |
 
 [IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. 위의 표에 나와 있는 위의 속성 외에도 **connectionDeviceId**, **connectionModuleId** 를 쿼리할 수 있습니다.
@@ -168,6 +169,13 @@ length($body.Weather.Location.State) = 2
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
+
+> [!NOTE] 
+> 쿼리 및 함수는 본문 참조의 속성에 대해서만 실행할 수 있습니다. 전체 본문 참조에서 쿼리 또는 함수를 실행할 수 없습니다. 예를 들어 다음 쿼리는 *지원되지* 않으며 `undefined`를 반환합니다.
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>디바이스 쌍에 따른 메시지 라우팅 쿼리 
 

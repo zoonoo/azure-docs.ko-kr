@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/29/2021
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 1b6e600fcaf32a115af14be2444144fee099d635
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: a362e99e9da7cf4c41f042364792a05a27b1aa6a
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106075341"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111892691"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Azure App Service 및 Azure Functions의 인증 및 권한 부여
 
@@ -138,7 +138,7 @@ App Service의 신뢰할 수 있는 브라우저 앱에서 App Service의 또 �
 
 자세한 내용은 [사용자 클레임 액세스](app-service-authentication-how-to.md#access-user-claims)를 참조하세요.
 
-지금은 ASP.NET Core가 현재 사용자를 인증/권한 부여 기능으로 채우는 기능을 지원하지 않습니다. 그러나 이러한 차이를 해결하기 위해 일부 [타사 구성 요소 및 오픈 소스 미들웨어 구성 요소](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)가 존재합니다.
+.NET Core의 경우 [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/)은 인증/승인 기능으로 현재 사용자 채우기를 지원합니다. 자세한 내용은 [Microsoft.Identity.Web wiki](https://github.com/AzureAD/microsoft-identity-web/wiki/1.2.0#integration-with-azure-app-services-authentication-of-web-apps-running-with-microsoftidentityweb)를 참조하거나 [Microsoft Graph에 액세스하는 웹앱에 대해 이 자습서](./scenario-secure-app-access-microsoft-graph-as-user.md?tabs=command-line#install-client-library-packages)에서 시연된 내용을 참조하세요.
 
 #### <a name="token-store"></a>토큰 저장소
 

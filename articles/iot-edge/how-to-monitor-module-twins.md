@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6a0d8bcce8e036cf7fc0efc1fe3956006f276f9e
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103201593"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109633900"
 ---
 # <a name="monitor-module-twins"></a>모듈 쌍 모니터링
 
@@ -215,11 +215,24 @@ Azure IoT Hub, Visual Studio Code 및 Azure CLI를 사용하여 모듈 쌍에 �
 
 IoT Edge가 실행 중인지 확인하려면 [az iot hub invoke-module-method](how-to-edgeagent-direct-method.md#ping)를 사용하여 IoT Edge 에이전트에 ping을 수행합니다.
 
-[az iot hub module-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) 구조는 다음 명령을 제공합니다.
+[az iot hub module-twin](/cli/azure/iot/hub/module-twin) 구조는 다음 명령을 제공합니다.
 
 * **az iot hub module-twin show** - 모듈 쌍 정의를 표시합니다.
 * **az iot hub module-twin update** - 모듈 쌍 정의를 업데이트합니다.
 * **az iot hub module-twin replace** - 모듈 쌍 정의를 대상 JSON으로 바꿉니다.
+
+>[!TIP]
+>CLI 명령을 사용하여 런타임 모듈을 대상으로 지정하려면 모듈 ID의 `$` 문자를 이스케이프해야 할 수 있습니다. 예를 들어:
+>
+>```azurecli
+>az iot hub module-twin show -m '$edgeAgent' -n <hub name> -d <device name>
+>```
+>
+>또는
+>
+>```azurecli
+>az iot hub module-twin show -m \$edgeAgent -n <hub name> -d <device name>
+>```
 
 ## <a name="next-steps"></a>다음 단계
 

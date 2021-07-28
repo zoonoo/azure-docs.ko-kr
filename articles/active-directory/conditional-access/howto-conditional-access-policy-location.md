@@ -11,16 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e257ab39257b23c52aaadbe32f0325e8d71a8409
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: bddcb622a1baccb2d0e975e0d9a96f043f00aa82
+ms.sourcegitcommit: 516eb79d62b8dbb2c324dff2048d01ea50715aa1
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98597978"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108176021"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
 
 조건부 액세스에서 위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어할 수 있습니다. 위치 조건은 조직에서 트래픽이 들어오지 않아야 한다고 알고 있는 국가/지역의 액세스를 차단하는 데 주로 사용됩니다.
+
+> [!NOTE]
+> 조건부 액세스 정책은 1단계 인증이 완료된 후에 적용됩니다. 조건부 액세스는 DoS(서비스 거부) 공격과 같은 시나리오에 대한 조직의 최전방 방어선으로 사용하기 위해 개발된 것은 아니지만, 이러한 이벤트의 신호를 사용하여 액세스를 결정할 수 있습니다.
 
 ## <a name="define-locations"></a>위치 정의
 
@@ -45,15 +48,15 @@ ms.locfileid: "98597978"
    1. **포함** 에서 **모든 사용자** 를 선택합니다.
    1. **제외** 에서 **사용자 및 그룹** 을 선택하고 조직의 응급 액세스 또는 비상 계정을 선택합니다. 
    1. **완료** 를 선택합니다.
-1. **클라우드 앱 또는 작업** 아래  >  에를 **포함** 하 고 **모든 클라우드 앱** 을 선택 합니다.
+1. **클라우드 앱 또는 작업** > **포함** 에서 **모든 클라우드 앱** 을 선택합니다.
 1. **조건** > **위치** 에서 다음을 수행합니다.
    1. **구성** 을 **예** 로 설정합니다.
-   1. **포함** 아래에서 **선택한 위치** 를 선택 합니다.
+   1. **포함** 에서 **선택한 위치** 를 선택합니다.
    1. 조직에 대해 만든 차단된 위치를 선택합니다.
    1. **선택** 을 클릭합니다.
-1. **액세스 제어** 에서 **액세스 차단**> 선택 하 고 **선택** 을 선택 합니다.
+1. **액세스 제어** > **액세스 차단** 을 선택하고 **선택** 을 선택합니다.
 1. 설정을 확인하고 **정책 사용** 을 **켜기** 로 설정합니다.
-1. **만들기** 를 선택 하 여 조건부 액세스 정책을 만듭니다.
+1. **생성** 를 선택하여 조건부 액세스 정책을 생성합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/06/2020
 ms.author: atulmal
 ms.custom: github-actions-azure
-ms.openlocfilehash: 3a8e91f74fe3c862a814d7660e64748df9553f1d
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.openlocfilehash: a4fc4c6919cc1cf2ecdfd16a35fb43401ac4928f
+ms.sourcegitcommit: 34feb2a5bdba1351d9fc375c46e62aa40bbd5a1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107779762"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111891251"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>Kubernetes 서비스에 배포하기 위한 GitHub Actions
 
@@ -98,14 +98,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    # Connect to Azure Container registry (ACR)
+    # Connect to Azure Container Registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    # Container build and push to a Azure Container registry (ACR)
+    # Container build and push to a Azure Container Registry (ACR)
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -124,6 +124,8 @@ AKS에 컨테이너 이미지를 배포하려면 `Azure/k8s-deploy@v1` 작업을
 | **imagepullsecrets** | (선택 사항) 클러스터 내에 이미 설정된 docker-registry 비밀의 이름입니다. 이러한 각 비밀 이름은 입력 매니페스트 파일에 있는 워크로드에 대한 imagePullSecrets 필드 아래에 추가됩니다. |
 | **kubectl-version** | (선택 사항) 특정 버전의 kubectl 이진을 설치합니다. |
 
+> [!NOTE]
+> 매니페스트 파일은 수동으로 직접 만들어야 합니다. 현재 이러한 파일을 자동화된 방식으로 생성하는 도구는 없습니다. 자세한 내용은 [매니페스트 파일 예가 있는 이 샘플 리포지토리](https://github.com/MicrosoftDocs/mslearn-aks-deploy-container-app/tree/master/kubernetes)를 참조하세요.
 
 AKS에 배포하려면 먼저 대상 Kubernetes 네임스페이스를 설정하고 이미지 풀(pull)하기 비밀을 만들어야 합니다. 이미지 풀의 작동 방식에 대해 자세히 알아보려면 [Azure 컨테이너 레지스트리에서 Kubernetes 클러스터로 이미지 풀(pull)하기](../container-registry/container-registry-auth-kubernetes.md)를 참조하세요. 
 
@@ -140,7 +142,7 @@ AKS에 배포하려면 먼저 대상 Kubernetes 네임스페이스를 설정하�
       container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
       secret-name: ${{ env.SECRET }}
       namespace: ${{ env.NAMESPACE }}
-      force: true
+      arguments: --force true
 ```
 
 
@@ -165,14 +167,14 @@ jobs:
     steps:
     - uses: actions/checkout@main
     
-    # Connect to Azure Container registry (ACR)
+    # Connect to Azure Container Registry (ACR)
     - uses: azure/docker-login@v1
       with:
         login-server: ${{ env.REGISTRY_NAME }}.azurecr.io
         username: ${{ secrets.REGISTRY_USERNAME }} 
         password: ${{ secrets.REGISTRY_PASSWORD }}
     
-    # Container build and push to a Azure Container registry (ACR)
+    # Container build and push to a Azure Container Registry (ACR)
     - run: |
         docker build . -t ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
         docker push ${{ env.REGISTRY_NAME }}.azurecr.io/${{ env.APP_NAME }}:${{ github.sha }}
@@ -219,6 +221,9 @@ Kubernetes 클러스터, 컨테이너 레지스트리, 리포지토리가 더 �
 
 > [!div class="nextstepaction"]
 > [Azure Kubernetes Service에 대해 알아보기](/azure/architecture/reference-architectures/containers/aks-start-here)
+
+> [!div class="nextstepaction"]
+> [AKS를 사용하여 GitHub Actions에서 여러 파이프라인을 만드는 방법 알아보기](/learn/modules/aks-deployment-pipeline-github-actions)
 
 ### <a name="more-kubernetes-github-actions"></a>추가 Kubernetes GitHub Actions
 

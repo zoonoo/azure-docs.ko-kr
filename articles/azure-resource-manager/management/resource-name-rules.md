@@ -2,21 +2,24 @@
 title: 리소스 명명 제한
 description: Azure 리소스의 이름을 지정할 때 적용되는 규칙 및 제한 사항을 보여 줍니다.
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 40e17e518baec40d31918d24ab5b61da741f540a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.date: 04/08/2021
+ms.openlocfilehash: a7d0d934549d1dd06099bc02105cf2dcfdaa0109
+ms.sourcegitcommit: a5dd9799fa93c175b4644c9fe1509e9f97506cc6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700476"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108202860"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Azure 리소스에 대한 명명 규칙 및 제한 사항
 
 이 문서에서는 Azure 리소스의 명명 규칙 및 제한 사항을 요약해서 설명합니다. 리소스의 이름을 지정하는 방법에 대한 권장 사항은 [권장 명명 및 태그 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.
 
-이 문서에서는 리소스 공급자 네임 스페이스 별로 리소스를 나열 합니다. 리소스 공급자가 Azure 서비스와 일치 하는 방법에 대 한 목록은 [azure 서비스에 대 한 리소스 공급자](azure-services-resource-providers.md)를 참조 하세요.
+이 문서에서는 리소스 공급자 네임스페이스별로 리소스를 나열합니다. Azure 서비스와 일치하는 리소스 공급자의 목록은 [Azure 서비스용 리소스 공급자](azure-services-resource-providers.md)를 참조하세요.
 
-리소스 이름은 유효 문자 열에 명시된 경우를 제외하고 대/소문자를 구분하지 않습니다.
+리소스 이름은 유효한 문자 열에 명시된 경우를 제외하고 대/소문자를 구분하지 않습니다.
+
+> [!NOTE]
+> 다양한 API를 사용하여 리소스 이름을 검색할 때 반환되는 값은 유효한 문자 테이블에 나열된 것과 다른 대/소문자 값을 표시할 수 있습니다.
 
 다음 표에서 용어 영숫자는 다음을 나타냅니다.
 
@@ -36,7 +39,7 @@ ms.locfileid: "101700476"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | 서비스 | 글로벌 | 1-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | 서비스 | 글로벌 | 1-50 | 영숫자 및 하이픈.<br><br>문자로 시작하고 영숫자로 끝납니다. |
 > | service / apis | 서비스 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
 > | service / apis / issues | api | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
 > | service / apis / issues / attachments | 이슈 | 1-256 | 다음을 사용할 수 없습니다.<br> `*#&+:<>?` |
@@ -83,16 +86,16 @@ ms.locfileid: "101700476"
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
 > | locks | 할당 범위 | 1-90 | 영숫자, 마침표, 밑줄, 하이픈, 괄호<br><br>마침표로 끝날 수 없습니다. |
-> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위에서 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
+> | policyAssignments | 할당 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
 > | policyDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다. |
-> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위에서 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다.  |
+> | policySetDefinitions | 정의의 범위 | 1-128 표시 이름<br><br>1-64 리소스 이름<br><br>1-24 관리 그룹 범위의 리소스 이름 | 표시 이름에는 모든 문자를 사용할 수 있습니다.<br><br>리소스 이름은 `%`를 포함할 수 없고 마침표 또는 공백으로 끝날 수 없습니다.  |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | automationAccounts | 리소스 그룹 & 지역 <br>(아래 참고 참조) | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
+> | automationAccounts | 리소스 그룹 및 지역 <br>(아래 참고 사항 참조) | 6-50 | 영숫자 및 하이픈<br><br>문자로 시작하고 영숫자로 끝납니다. |
 > | automationAccounts / certificates | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다.  |
 > | automationAccounts / connections | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
 > | automationAccounts / credentials | Automation 계정 | 1-128 | 다음을 사용할 수 없습니다.<br> `<>*%&:\?.+/` <br><br>공백으로 끝날 수 없습니다. |
@@ -169,19 +172,26 @@ ms.locfileid: "101700476"
 > | --- | --- | --- | --- |
 > | availabilitySets | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | diskEncryptionSets | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
-> | disks | 리소스 그룹 | 1-80 | 영숫자 및 밑줄 |
+> | disks | 리소스 그룹 | 1-80 | 영숫자, 밑줄 및 하이픈 |
 > | galleries | 리소스 그룹 | 1-80 | 영숫자 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications | gallery | 1-80 | 영숫자, 하이픈 및 마침표<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / applications/versions | 애플리케이션 | 32비트 정수 | 숫자 및 마침표 |
-> | galleries / images | gallery | 1-80 | 영숫자, 밑줄, 하이픈 및 마침표입니다.<br><br>영숫자로 시작하고 끝납니다. |
+> | galleries / images | gallery | 1-80 | 영숫자, 밑줄, 하이픈 및 마침표.<br><br>영숫자로 시작하고 끝납니다. |
 > | galleries / images / versions | 이미지 | 32비트 정수 | 숫자 및 마침표 |
 > | images | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
 > | 스냅샷 | 리소스 그룹 | 1-80 | 영숫자, 밑줄, 마침표 및 하이픈<br><br>영숫자로 시작합니다. 영숫자 또는 밑줄로 끝납니다. |
-> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&_`<br><br>Windows Vm에는 마침표를 포함 하거나 하이픈으로 끝날 수 없습니다.<br><br>Linux Vm은 마침표 또는 하이픈으로 종료할 수 없습니다. |
-> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `\/"'[]:|<>+=;,?*@&`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachines | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Windows VM은 마침표를 포함하거나 하이픈으로 끝날 수 없습니다.<br><br>Linux VM은 마침표 또는 하이픈으로 끝날 수 없습니다. |
+> | virtualMachineScaleSets | 리소스 그룹 | 1-15(Windows)<br>1-64(Linux)<br><br>아래 참고 사항을 참조하세요. | 공백 또는 다음 문자를 사용할 수 없습니다.<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>밑줄로 시작할 수 없습니다. 마침표 또는 하이픈으로 끝날 수 없습니다. |
 
 > [!NOTE]
 > Azure Virtual Machines에는 리소스 이름과 호스트 이름이라는 두 가지 고유한 이름이 있습니다. 포털에서 가상 머신을 만들 때 두 이름에 동일한 값이 사용됩니다. 위의 표에 나와 있는 제한은 호스트 이름에 대한 것입니다. 실제 리소스 이름은 최대 64자까지 가능합니다.
+
+## <a name="microsoftcommunication"></a>Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
+> | --- | --- | --- | --- |
+> | communicationServices | 글로벌 | 1-63 | 영숫자, 하이픈 및 밑줄 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
@@ -639,7 +649,7 @@ ms.locfileid: "101700476"
 > [!div class="mx-tableFixed"]
 > | 엔터티 | 범위 | 길이 | 사용할 수 있는 문자 |
 > | --- | --- | --- | --- |
-> | managedInstances | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. <br><br> 에는와 같은 특수 문자를 사용할 수 없습니다 `@` . |
+> | managedInstances | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. <br><br> `@`와 같은 특수 문자를 사용할 수 없습니다. |
 > | servers | 글로벌 | 1-63 | 소문자, 숫자 및 하이픈<br><br>하이픈으로 시작하거나 끝날 수 없습니다. |
 > | servers / administrators | 서버 |  | `ActiveDirectory`이어야 합니다. |
 > | servers / databases | 서버 | 1-128 | 다음을 사용할 수 없습니다.<br>`<>*%&:\/?`<br><br>마침표 또는 공백으로 끝날 수 없습니다. |
@@ -706,10 +716,12 @@ ms.locfileid: "101700476"
 > | --- | --- | --- | --- |
 > | certificates | 리소스 그룹 | 1-260 | 다음을 사용할 수 없습니다.<br>`/` <br><br>공백 또는 마침표로 끝날 수 없습니다.  | 
 > | serverfarms | 리소스 그룹 | 1-40 | 영숫자 및 하이픈 |
-> | sites | 글로벌 | 2-60 | 영숫자 및 하이픈을 포함합니다.<br><br>하이픈으로 시작하거나 끝날 수 없습니다. |
+> | sites | 글로벌 또는 도메인당 아래 참고 사항을 참조하세요. | 2-60 | 영숫자 및 하이픈을 포함합니다.<br><br>하이픈으로 시작하거나 끝날 수 없습니다. |
 > | sites / slots | site | 2-59 | 영숫자 및 하이픈 |
 
 > [!NOTE]
+> 웹 사이트에는 전역적으로 고유한 URL이 있어야 합니다. 호스팅 계획을 사용하는 웹 사이트를 만드는 경우 URL은 `http://<app-name>.azurewebsites.net`입니다. 앱 이름은 전역적으로 고유해야 합니다. App Service Environment를 사용하는 웹 사이트를 만들 때 앱 이름은 [App Service Environment용 도메인](../../app-service/environment/using-an-ase.md#app-access)내에서 고유해야 합니다. 두 경우 모두 사이트의 URL은 전역적으로 고유합니다.
+>
 > Azure Functions에는 Microsoft.Web/sites와 동일한 명명 규칙 및 제한 사항이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: 0a4bf648551be723007b0d8856fe0857896aad94
-ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
+ms.date: 05/25/2021
+ms.openlocfilehash: f00a1c8f8901d16a0aefa376f145fd2a4cbf2cf5
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107778394"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111952413"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 유연한 서버에 대한 가상 네트워크 만들기 및 관리
 
@@ -43,7 +43,7 @@ CLI를 로컬로 설치하고 사용하려면 이 빠른 시작에서 Azure CLI 
 az login
 ```
 
-[az account set](/cli/azure/account#az_account_set) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수에 대한 값으로 사용할 **az login** 출력의 **ID** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az_account_list)를 사용합니다.
+[az account set](/cli/azure/account#az_account_set) 명령을 사용하여 계정에 속한 특정 구독을 선택합니다. 명령에서 **subscription** 인수 값으로 사용할 **az login** 출력의 **ID** 값을 적어 둡니다. 구독이 여러 개인 경우 리소스가 과금되어야 할 적절한 구독을 선택합니다. 모든 구독을 가져오려면 [az account list](/cli/azure/account#az_account_list)를 사용합니다.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -72,11 +72,17 @@ Azure CLI 참조 문서를 참조하세요. <!--FIXME --> 구성 가능한 CLI �
     > [!Note]
     > 가상 네트워크 및 서브넷은 유연한 서버와 동일한 지역 및 구독에 있어야 합니다.
 
+    > [!IMPORTANT]
+    > `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet` 및 `GatewaySubnet`을 포함한 이름은 Azure 내에서 예약된 이름입니다. 해당 이름을 서브넷 이름으로 사용하지 마세요.
+
 - 새 가상 네트워크, 기본 주소가 아닌 접두사가 있는 서브넷을 사용하여 유연한 서버 만들기
     ```azurecli-interactive
     az postgres flexible-server create --vnet myVnet --address-prefixes 10.0.0.0/24 --subnet mySubnet --subnet-prefixes 10.0.0.0/24
     ```
 구성 가능한 CLI 매개 변수의 전체 목록은 Azure CLI [참조 설명서](/cli/azure/postgres/flexible-server)를 참조하세요.
+
+>[!Important]
+> `The parameter PrivateDnsZoneArguments is required, and must be provided by customer` 오류가 발생하면 이전 버전의 Azure CLI를 실행 중일 수 있습니다. [Azure CLI를 업그레이드](/cli/azure/update-azure-cli)하고 작업을 다시 시도하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL - 유연한 서버의 네트워킹](./concepts-networking.md)에 대해 자세히 알아봅니다.

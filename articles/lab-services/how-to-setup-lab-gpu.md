@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 8293ed1bfb53895b9631d9730fb75a2364457180
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1ddc3d35817211d7396defa7460a2505b86c700c
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96452369"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713241"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>GPU 가상 머신을 사용하여 랩 설정
 
@@ -47,16 +47,19 @@ ms.locfileid: "96452369"
 
 ![“GPU 드라이버 설치” 옵션을 보여주는 “새 랩”의 스크린샷](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
-위의 그림에 표시된 것처럼 이 옵션은 기본값으로 사용하도록 설정되어 있으며, 이 옵션은 선택한 GPU 및 이미지 유형에 대해 *최신* 드라이버가 설치되어 있는지 확인합니다.
-- *컴퓨팅* GPU 크기를 선택하는 경우 랩 VM은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU로 구동됩니다.  이 경우 고성능 컴퓨팅을 가능하게 하는 최신 [CUDA(컴퓨팅 통합 디바이스 아키텍처)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) 드라이버가 설치되어 있습니다.
-- *시각화* GPU 크기를 선택하는 경우 랩 VM은 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 [GRID 기술](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf)로 구동됩니다.  이 경우 그래픽을 많이 사용하는 애플리케이션도 사용할 수 있게 해주는 최신 GRID 드라이버가 설치됩니다.
+위의 그림에 표시된 것처럼 이 옵션은 기본값으로 사용하도록 설정되어 있으며, 이 옵션은 선택한 GPU 및 이미지 유형에 대해 최근에 릴리스된 드라이버가 설치되어 있는지 확인합니다.
+- *컴퓨팅* GPU 크기를 선택하는 경우 랩 VM은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU로 구동됩니다.  이 경우 고성능 컴퓨팅을 가능하게 하는 최근의 [CUDA(컴퓨팅 통합 디바이스 아키텍처)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) 드라이버가 설치되어 있습니다.
+- *시각화* GPU 크기를 선택하는 경우 랩 VM은 [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU 및 [GRID 기술](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf)로 구동됩니다.  이 경우 그래픽을 많이 사용하는 애플리케이션도 사용할 수 있게 해주는 최근 GRID 드라이버가 설치됩니다.
+
+> [!IMPORTANT]
+> **GPU 드라이버 설치** 옵션은 랩의 이미지에 없는 드라이버만 설치합니다.  예를 들어 GPU 드라이버는 Azure Marketplace의 [데이터 과학 이미지](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm)에 이미 설치되어 있습니다.  데이터 과학 이미지를 사용하여 랩을 만들고 **GPU 드라이버 설치** 를 선택하면 드라이버가 최신 버전으로 업데이트되지 않습니다.  드라이버를 업데이트하려면 다음 섹션에 설명된 대로 드라이버를 수동으로 설치해야 합니다.  
 
 ### <a name="install-the-drivers-manually"></a>수동으로 드라이버 설치
-최신이 아닌 드라이버 버전을 설치해야 할 수 있습니다.  이 섹션에서는 *컴퓨팅* GPU를 사용하는지 *시각화* GPU를 사용하는지에 따라 적절한 드라이버를 수동으로 설치하는 방법을 보여줍니다.
+Azure Lab Services가 자동으로 설치하는 버전과 다른 버전의 드라이버를 설치해야 할 수도 있습니다.  이 섹션에서는 *컴퓨팅* GPU를 사용하는지 *시각화* GPU를 사용하는지에 따라 적절한 드라이버를 수동으로 설치하는 방법을 보여줍니다.
 
 #### <a name="install-the-compute-gpu-drivers"></a>컴퓨팅 GPU 드라이버 설치
 
-컴퓨팅 GPU 크기에 대한 드라이버를 수동으로 설치하려면 다음을 수행합니다.
+*컴퓨팅* GPU 크기에 대한 드라이버를 수동으로 설치하려면 다음을 수행합니다.
 
 1. 랩 만들기 마법사에서 [랩을 만들](./how-to-manage-classroom-labs.md) 때 **GPU 드라이버 설치** 설정을 사용하지 않도록 설정합니다.
 
@@ -80,7 +83,7 @@ ms.locfileid: "96452369"
 
 #### <a name="install-the-visualization-gpu-drivers"></a>시각화 GPU 드라이버 설치
 
-시각화 GPU 크기에 대한 드라이버를 수동으로 설치하려면 다음을 수행합니다.
+*시각화* GPU 크기에 대한 드라이버를 수동으로 설치하려면 다음을 수행합니다.
 
 1. 랩 만들기 마법사에서 [랩을 만들](./how-to-manage-classroom-labs.md) 때 **GPU 드라이버 설치** 설정을 사용하지 않도록 설정합니다.
 1. 랩을 만든 후 템플릿 VM에 연결하여 적절한 드라이버를 설치합니다.
@@ -108,6 +111,8 @@ ms.locfileid: "96452369"
 
       > [!IMPORTANT]
       > NVIDIA 제어판 설정은 *시각화* GPU에만 액세스할 수 있습니다.  컴퓨팅 GPU에 대한 NVIDIA 제어판을 열려고 하면 다음과 같은 오류 메시지가 표시됩니다. “NVIDIA 표시 설정을 사용할 수 없습니다.  현재 NVIDIA GPU에 연결된 디스플레이를 사용하고 있지 않습니다.”  마찬가지로, 작업 관리자의 GPU 성능 정보는 시각화 GPU에 대해서만 제공됩니다.
+
+ 시나리오에 따라 GPU가 제대로 구성되었는지 확인하기 위해 추가 유효성 검사를 수행해야 할 수도 있습니다.  특정 버전의 드라이버가 필요한 예제를 설명하는 [Python 및 Jupyter Notebook](./class-type-jupyter-notebook.md#template-virtual-machine)에 대한 클래스 형식을 읽어 보세요.
 
 #### <a name="linux-images"></a>Linux 이미지
 [Linux를 실행하는 N 시리즈 VM에 NVIDIA GPU 드라이버 설치](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation)의 “드라이버 설치 확인” 섹션의 지침을 따릅니다.

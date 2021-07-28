@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/31/2021
 ms.author: jlian
-ms.openlocfilehash: 6a02b97957cc0599e2960cba551b536e83d1a902
-ms.sourcegitcommit: 3f684a803cd0ccd6f0fb1b87744644a45ace750d
+ms.openlocfilehash: 834ccc850a3099857dc1b88e45b0c0c3ee3a186c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/02/2021
-ms.locfileid: "106222558"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109486452"
 ---
 # <a name="transport-layer-security-tls-support-in-iot-hub"></a>IoT Hub에서 TLS(전송 계층 보안) 지원
 
@@ -30,7 +30,7 @@ IoT Hub 서버 측 인증서를 갱신하는 동안 `Server Hello`가 4KB 크기
 
 ### <a name="elliptic-curve-cryptography-ecc-server-tls-certificate-preview"></a>ECC(타원 곡성 암호화) 서버 TLS 인증서(미리 보기)
 
-IoT Hub ECC 서버 TLS 인증서는 공개 미리 보기로 제공됩니다. RSA 인증서에 유사한 보안을 제공하면서 ECC 인증서 유효성 검사(ECC 전용 암호 그룹 사용)는 최대 40% 절감된 컴퓨팅, 메모리 및 대역폭을 사용합니다. 이러한 절감은 작은 프로필 및 메모리로 인해 IoT 디바이스에서 중요하며, 네트워크 대역폭이 제한된 환경에서 사용 사례를 지원합니다. 
+IoT Hub ECC 서버 TLS 인증서는 공개 미리 보기로 제공됩니다. RSA 인증서에 유사한 보안을 제공하면서 ECC 인증서 유효성 검사(ECC 전용 암호 그룹 사용)는 최대 40% 절감된 컴퓨팅, 메모리 및 대역폭을 사용합니다. 이러한 절감은 작은 프로필 및 메모리로 인해 IoT 디바이스에서 중요하며, 네트워크 대역폭이 제한된 환경에서 사용 사례를 지원합니다. ECC 서버 인증서의 루트는 DigiCert Global Root G3입니다.
 
 IoT Hub의 ECC 서버 인증서를 미리 보려면 다음을 수행합니다.
 
@@ -133,7 +133,7 @@ IoT Edge 디바이스는 IoT Hub와 통신할 때 TLS 1.2를 사용하도록 구
 
 ## <a name="device-authentication"></a>디바이스 인증
 
-TLS 핸드셰이크에 성공한 이후 IoT Hub는 대칭 키 또는 X.509 인증서를 사용하여 디바이스를 인증할 수 있습니다. 인증서 기반 인증의 경우 ECC를 포함한 모든 X.509 인증서를 사용할 수 있습니다. IoT Hub는 제공하는 지문 또는 CA(인증 기관)에 대해 인증서의 유효성을 검사합니다. 자세한 내용은 [지원되는 X.509 인증서](iot-hub-devguide-security.md#supported-x509-certificates)를 참조하세요.
+TLS 핸드셰이크에 성공한 이후 IoT Hub는 대칭 키 또는 X.509 인증서를 사용하여 디바이스를 인증할 수 있습니다. 인증서 기반 인증의 경우 ECC를 포함한 모든 X.509 인증서를 사용할 수 있습니다. IoT Hub는 제공하는 지문 또는 CA(인증 기관)에 대해 인증서의 유효성을 검사합니다. 자세한 내용은 [지원되는 X.509 인증서](iot-hub-dev-guide-sas.md#supported-x509-certificates)를 참조하세요.
 
 ## <a name="tls-maximum-fragment-length-negotiation-preview"></a>TLS 최대 조각 길이 협상(미리 보기)
 

@@ -3,12 +3,12 @@ title: Azure Service Bus 엔터티에 액세스하는 애플리케이션 인증
 description: 이 문서에서는 Azure Service Bus 엔터티(큐, 토픽 등)에 액세스하기 위해 Azure Active Directory를 사용한 애플리케이션 인증에 대한 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c4e19c0ab26d491ba0b95159e274383431aefaee
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fc009c5a84c577c5904b3e0fc834295aa355e802
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92518231"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108123108"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Azure Service Bus 엔터티에 액세스하기 위해 Azure Active Directory를 사용하여 애플리케이션 인증 및 권한 부여
 Azure Service Bus에서는 Azure AD(Azure Active Directory)를 사용하여 Service Bus 엔터티(큐, 주제, 구독 또는 필터)에 대한 요청에 권한을 부여할 수 있습니다. Azure AD를 사용하면 Azure RBAC(Azure 역할 기반 액세스 제어)를 사용하여 사용자, 그룹 또는 애플리케이션 서비스 주체일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대한 자세한 내용은 [다양한 역할 이해](../role-based-access-control/overview.md)를 참조하세요.
@@ -125,29 +125,22 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 ### <a name="permissions-for-the-service-bus-api"></a>Service Bus API에 대한 사용 권한
 사용 중인 애플리케이션은 콘솔 애플리케이션이므로 네이티브 애플리케이션을 등록하고 **Microsoft.ServiceBus** 에 대한 API 사용 권한을 **필요한 권한** 집합에 추가해야 합니다. 네이티브 애플리케이션은 ID 역할을 하는 Azure AD의 **리디렉션 URI** 가 필요합니다. URI가 네트워크 대상일 필요는 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `https://servicebus.microsoft.com`을 사용합니다.
 
-### <a name="client-libraries-for-token-acquisition"></a>토큰 획득을 위한 클라이언트 라이브러리  
-애플리케이션을 등록하고 이 애플리케이션에 Azure Service Bus에서 데이터를 보내고 받을 수 있는 권한을 부여하면 보안 주체를 인증하고 OAuth 2.0 토큰을 획득하는 코드를 애플리케이션에 추가할 수 있습니다. 토큰을 인증하고 얻으려면 [Microsoft ID 플랫폼 인증 라이브러리](../active-directory/develop/reference-v2-libraries.md)나 OpenID 또는 Connect 1.0을 지원하는 다른 오픈 소스 라이브러리 중 하나를 사용할 수 있습니다. 그러면 애플리케이션에서는 액세스 토큰을 사용하여 Azure Service Bus에 대한 요청에 권한을 부여할 수 있습니다.
+### <a name="authenticating-the-service-bus-client"></a>Service Bus 클라이언트 인증   
+애플리케이션을 등록하고 Azure Service Bus에서 데이터를 보내고 받을 수 있는 권한을 부여한 후에는 클라이언트 암호 자격 증명을 사용하여 클라이언트를 인증할 수 있습니다. 그러면 Azure Service Bus에 대한 요청을 수행할 수 있습니다.
 
 토큰 획득이 지원되는 시나리오 목록은 [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub 리포지토리의 [시나리오](https://aka.ms/msal-net-scenarios) 섹션을 참조하세요.
 
-## <a name="sample-on-github"></a>GitHub의 샘플
-GitHub에서 다음 샘플, [Service Bus를 위한 Azure 역할 기반 액세스 제어](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)를 참조하세요. 
+# <a name="net"></a>[.NET](#tab/dotnet)
+최신 [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) 라이브러리를 사용하여 [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) 라이브러리에 정의된 [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential)을 통해 [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient)를 인증할 수 있습니다.
+```cs
+TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
+var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
+```
 
-**대화형 사용자 로그인** 옵션이 아닌 **클라이언트 암호 로그인** 옵션을 사용합니다. 클라이언트 암호 옵션을 사용하면 팝업 창이 표시되지 않습니다. 애플리케이션은 인증을 위해 테넌트 ID 및 앱 ID를 활용합니다. 
-
-### <a name="run-the-sample"></a>샘플 실행
-
-샘플을 실행하려면 먼저 시나리오에 따라 **app.config** 파일을 편집하고 다음 값을 설정합니다.
-
-- `tenantId`: **TenantId** 값으로 설정합니다.
-- `clientId`: **ApplicationId** 값으로 설정합니다.
-- `clientSecret`: 클라이언트 암호를 사용하여 로그인하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
-- `serviceBusNamespaceFQDN`: 새로 만든 Service Bus 네임스페이스의 전체 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
-- `queueName`: 만든 큐의 이름으로 설정합니다.
-- 이전 단계에서 앱에 지정된 리디렉션 URI입니다.
-
-콘솔 애플리케이션을 실행하면 시나리오를 선택하라는 메시지가 표시됩니다. 시나리오 번호를 입력하고 ENTER 키를 눌러 **대화형 사용자 로그인** 을 선택합니다. 애플리케이션에서는 로그인 창이 표시되고, Service Bus에 액세스할지 묻는 메시지가 표시된 다음, 서비스를 사용하여 로그인 ID를 통해 보내기/받기 시나리오를 실행합니다.
-
+이전 .NET 패키지를 사용하는 경우 아래 샘플을 참조하세요.
+- [Microsoft.Azure.ServiceBus의 RoleBasedAccessControl](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
+- [WindowsAzure.ServiceBus의 RoleBasedAccessControl](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
+---
 
 ## <a name="next-steps"></a>다음 단계
 - Azure RBAC에 대한 자세한 내용은 [Azure RBAC(Azure 역할 기반 액세스 제어)란?](../role-based-access-control/overview.md)을 참조하세요.

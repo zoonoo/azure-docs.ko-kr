@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/20/2021
+ms.date: 04/21/2021
 ms.author: yelevin
-ms.openlocfilehash: f8931fedb380cf81d72b7b5280a5795498daaa57
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: cc499e54ebc700f87edbc904165000155211ca1b
+ms.sourcegitcommit: aaba99b8b1c545ad5d19f400bcc2d30d59c63f39
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99251984"
+ms.lasthandoff: 04/26/2021
+ms.locfileid: "108007127"
 ---
 # <a name="connect-azure-active-directory-azure-ad-data-to-azure-sentinel"></a>Azure Sentinel에 Azure AD(Azure Active Directory) 데이터 연결
 
 Azure Sentinel의 기본 제공 커넥터를 사용하여 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)에서 데이터를 수집하고 Azure Sentinel로 스트리밍할 수 있습니다. 커넥터를 사용하면 다음 로그 유형을 스트리밍할 수 있습니다.
 
-- [**로그인 로그**](../active-directory/reports-monitoring/concept-all-sign-ins.md): 사용자가 인증 요소를 제공하는 [대화형 사용자 로그인](../active-directory/reports-monitoring/concept-all-sign-ins.md#user-sign-ins)에 대한 정보를 포함합니다.
+- [**로그인 로그**](../active-directory/reports-monitoring/concept-all-sign-ins.md): 사용자가 인증 요소를 제공하는 대화형 사용자 로그인에 대한 정보를 포함합니다.
 
     이제 Azure AD 커넥터에는 현재 모두 **미리 보기** 로 제공되는 다음과 같은 세 가지 추가 범주의 로그인 로그가 포함되어 있습니다.
     
@@ -42,9 +42,9 @@ Azure Sentinel의 기본 제공 커넥터를 사용하여 [Azure Active Director
 
 > [!IMPORTANT]
 > 위에서 표시된 대로 사용 가능한 로그 유형 중 일부는 현재 **미리 보기** 로 제공됩니다. 베타 또는 미리 보기로 제공되거나 아직 일반 공급으로 릴리스되지 않은 Azure 기능에 적용되는 추가 약관은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
-- 모든 Azure AD 라이선스(Free/O365/P1/P2)는 Azure Sentinel로 로그인 로그를 수집하기에 충분합니다. Azure Monitor(Log Analytics)와 Azure Sentinel에 대해 기가바이트 당 요금이 추가 적용될 수 있습니다.
+- 로그인 로그를 Azure Sentinel에 수집하려면 Azure Active Directory P1 또는 P2 라이선스가 필요합니다. 모든 Azure AD 라이선스(Free/O365/P1/P2)는 다른 로그 유형을 수집하기에 충분합니다. Azure Monitor(Log Analytics)와 Azure Sentinel에 대해 기가바이트 당 요금이 추가 적용될 수 있습니다.
 
 - 작업 영역에서 사용자에게 Azure Sentinel 참가자 역할을 할당해야 합니다.
 
@@ -75,5 +75,5 @@ Azure AD 로그를 쿼리하려면 쿼리 창의 맨 위에 관련 테이블 이
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure Active Directory를 Azure Sentinel에 연결하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터에 대한 가시성을 얻고 잠재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [데이터 및 잠재적 위협에 대한 가시성을 확보](quickstart-get-visibility.md)하는 방법을 알아봅니다.
 - [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.

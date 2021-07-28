@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 554fa394179e7cfc5b86a2b50eb754547d137a44
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ad91260eac0f638d339baf64071cad6475ac19a7
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104870394"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929816"
 ---
-# <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool-preview"></a>Azure 애플리케이션 일치 스냅샷 도구를 사용하여 재해 복구(미리 보기)
+# <a name="disaster-recovery-using-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구를 사용하여 재해 복구
 
 이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure 애플리케이션 일치 스냅샷 도구를 사용하는 경우 재해 복구를 수행하는 방법을 설명합니다.
 

@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 04/21/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62bfc528886767bc09159ca2a2696c8c9264b307
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: adea0e63c9e285a751a1a0508e84c5b83a10e994
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96349942"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108074694"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS 커넥터 계정 권한 구성 
 
@@ -52,7 +52,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ![구성](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->이미 AD DS용 RSAT가 설치된 도메인 컨트롤러에 **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** 파일을 복사하고, 여기에서 이 PowerShell 모듈을 사용할 수도 있습니다.
+>이미 AD DS용 RSAT가 설치된 도메인 컨트롤러에 **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** 파일을 복사하고, 여기에서 이 PowerShell 모듈을 사용할 수도 있습니다.  일부 cmdlet은 Azure AD Connect를 호스팅하는 컴퓨터에서만 실행할 수 있습니다.
 
 ADSyncConfig 사용을 시작하려면 Windows PowerShell 창에서 모듈을 로드해야 합니다. 
 
@@ -149,7 +149,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>MS-DS-Consistency-Guid 권한 구성 
-M s s-일관성 Guid 특성을 원본 앵커로 사용 하는 경우 AD DS 커넥터 계정에 대 한 권한을 설정 하려면 ("나에 게 원본 앵커를 사용 하 여 Azure로 설정" 옵션)를 실행 합니다. 
+ms-Ds-Consistency-Guid 특성을 원본 앵커로 사용하는 경우 AD DS 커넥터 계정에 대한 권한을 설정하려면(즉, "Azure가 내 원본 앵커를 관리하도록 합니다." 옵션) 다음을 실행합니다. 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

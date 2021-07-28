@@ -10,14 +10,14 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/16/2021
+ms.date: 04/12/2021
 ms.author: radeltch
-ms.openlocfilehash: 42a4c4a41f6c8bdf9d4a8e78f634893722c8f389
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e34ca9c3164713e62ae28581055644933d8c791d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104576403"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127198"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server의 Azure VM에 있는 SAP HANA의 고가용성
 
@@ -135,7 +135,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 데이터 디스크를 추가합니다.
 
 > [!IMPORTANT]
-> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure Load Balancer 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.   
+> 부동 IP는 부하 분산 시나리오의 NIC 보조 IP 구성에서 지원되지 않습니다. 자세한 내용은 [Azure 부하 분산 장치 제한 사항](../../../load-balancer/load-balancer-multivip-overview.md#limitations)을 참조하세요. VM에 대한 추가 IP 주소가 필요한 경우 두 번째 NIC를 배포합니다.   
 
 > [!Note]
 > 공용 IP 주소가 없는 VM이 내부(공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치되는 경우 퍼블릭 엔드포인트로 라우팅을 허용하기 위해 추가 구성을 수행하지 않는 한 아웃바운드 인터넷 연결이 없습니다. 아웃바운드 연결을 설정하는 방법에 대한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용하는 Virtual Machines에 대한 퍼블릭 엔드포인트 연결](./high-availability-guide-standard-load-balancer-outbound-connections.md)을 참조하세요.  
@@ -172,7 +172,6 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
       1. 새 부하 분산 장치 규칙의 이름을 입력합니다(예: **hana-lb**).
       1. 이전에 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브를 선택합니다(예: **hana-frontend**, **hana-backend** 및 **hana-hp**).
       1. **HA 포트** 를 선택합니다.
-      1. **유휴 상태 시간 제한** 을 30분으로 증가시킵니다.
       1. **부동 IP를 사용하도록 설정** 했는지 확인합니다.
       1. **확인** 을 선택합니다.
 
@@ -499,6 +498,71 @@ SAP HANA 시스템 복제를 설치하려면 [SAP HANA SR 성능 최적화 시�
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
    </code></pre>
 
+## <a name="implement-the-python-system-replication-hook-saphanasr"></a>Python 시스템 복제 후크 SAPHanaSR 구현
+
+이는 클러스터와의 통합을 최적화하고 클러스터 장애 조치(failover)가 필요할 때 검색 기능을 향상시키는 중요한 단계입니다. SAPHanaSR python 후크를 구성하는 것이 좋습니다.    
+
+1. **[A]** HANA "시스템 복제 후크"를 설치합니다. 후크는 두 개의 HANA DB 노드에 모두 설치해야 합니다.           
+
+   > [!TIP]
+   > SAPHanaSR Python 후크 기능을 사용하려면 패키지 SAPHanaSR의 버전이 0.153 이상인지 확인합니다.       
+   > Python 후크는 HANA 2.0에서만 구현할 수 있습니다.        
+
+   1. 후크를 `root`로 준비합니다.  
+
+    ```bash
+     mkdir -p /hana/shared/myHooks
+     cp /usr/share/SAPHanaSR/SAPHanaSR.py /hana/shared/myHooks
+     chown -R hn1adm:sapsys /hana/shared/myHooks
+    ```
+
+   2. 두 노드에서 HANA를 중지합니다. <sid\>adm으로 실행합니다.  
+   
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+   3. 각 클러스터 노드에서 `global.ini`를 조정합니다.  
+ 
+    ```bash
+    # add to global.ini
+    [ha_dr_provider_SAPHanaSR]
+    provider = SAPHanaSR
+    path = /hana/shared/myHooks
+    execution_order = 1
+    
+    [trace]
+    ha_dr_saphanasr = info
+    ```
+
+2. **[A]** 클러스터에서 <sid\>adm용 각 클러스터 노드에 sudoers 구성을 요구합니다. 이 예에서는 새 파일을 만들어 수행합니다. 명령을 `root`로 실행합니다.    
+    ```bash
+    cat << EOF > /etc/sudoers.d/20-saphana
+    # Needed for SAPHanaSR python hook
+    hn1adm ALL=(ALL) NOPASSWD: /usr/sbin/crm_attribute -n hana_hn1_site_srHook_*
+    EOF
+    ```
+SAP HANA 시스템 복제 후크 구현에 대한 자세한 내용은 [HANA HA/DR 공급자 설정](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12/index.html#_set_up_sap_hana_hadr_providers)을 참조하세요.  
+
+3. **[A]** 두 노드에서 SAP HANA를 시작합니다. <sid\>adm으로 실행합니다.  
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+4. **[1]** 후크 설치를 확인합니다. 활성 HANA 시스템 복제 사이트에서 <sid\>adm으로 실행합니다.   
+
+    ```bash
+     cdtrace
+     awk '/ha_dr_SAPHanaSR.*crm_attribute/ \
+     { printf "%s %s %s %s\n",$2,$3,$5,$16 }' nameserver_*
+     # Example output
+     # 2021-04-08 22:18:15.877583 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:18:46.531564 ha_dr_SAPHanaSR SFAIL
+     # 2021-04-08 22:21:26.816573 ha_dr_SAPHanaSR SOK
+
+    ```
+
 ## <a name="create-sap-hana-cluster-resources"></a>SAP HANA 클러스터 리소스 만들기
 
 먼저 HANA 토폴로지를 만듭니다. Pacemaker 클러스터 노드 중 하나에서 다음 명령을 실행합니다.
@@ -604,7 +668,7 @@ SAP HANA 2.0 SPS 01부터 SAP에서 SAP HANA 시스템 복제에 활성/읽기 �
 
 ### <a name="additional-setup-in-azure-load-balancer-for-activeread-enabled-setup"></a>활성/읽기 사용 설정을 위한 Azure Load Balancer 추가 설정
 
-두 번째 가상 IP를 프로비저닝하는 추가 단계를 진행하려면 [수동 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#manual-deployment) 섹션에 설명된 대로 Azure Load Balancer를 구성했는지 확인합니다.
+두 번째 가상 IP를 프로비저닝하는 추가 단계를 진행하려면 [수동 배포](#manual-deployment) 섹션에 설명된 대로 Azure Load Balancer를 구성했는지 확인합니다.
 
 1. **표준** 부하 분산 장치의 경우 이전 섹션에서 만든 것과 동일한 부하 분산 장치에서 아래 추가 단계를 수행합니다.
 
@@ -635,7 +699,7 @@ SAP HANA 2.0 SPS 01부터 SAP에서 SAP HANA 시스템 복제에 활성/읽기 �
 
 ### <a name="configure-hana-activeread-enabled-system-replication"></a>HANA 활성/읽기 사용 시스템 복제 구성
 
-HANA 시스템 복제를 구성하는 단계는 [SAP HANA 2.0 시스템 복제 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability#configure-sap-hana-20-system-replication) 섹션에 설명되어 있습니다. 읽기 사용 보조 시나리오를 배포하는 경우 두 번째 노드에서 시스템 복제를 구성하는 동안 **hanasid** adm으로 다음 명령을 실행합니다.
+HANA 시스템 복제를 구성하는 단계는 [SAP HANA 2.0 시스템 복제 구성](#configure-sap-hana-20-system-replication) 섹션에 설명되어 있습니다. 읽기 사용 보조 시나리오를 배포하는 경우 두 번째 노드에서 시스템 복제를 구성하는 동안 **hanasid** adm으로 다음 명령을 실행합니다.
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -711,6 +775,9 @@ sudo crm_mon -r
 테스트를 시작하기 전에 Pacemaker에 실패한 작업이 없으며(crm_mon -r을 통해), 예기치 않은 위치 제약 조건이 없고(예: 마이그레이션 테스트의 결과), SAPHanaSR-showAttr을 사용하는 것처럼 해당 HANA가 동기화 상태에 있는지 확인합니다.
 
 <pre><code>hn1-db-0:~ # SAPHanaSR-showAttr
+Sites    srHook
+----------------
+SITE2    SOK
 
 Global cib-time
 --------------------------------
@@ -724,7 +791,7 @@ hn1-db-1 DEMOTED     30          online     logreplay nws-hana-vm-0 4:S:master1:
 
 다음 명령을 실행하여 SAP HANA 마스터 노드를 마이그레이션할 수 있습니다.
 
-<pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
+<pre><code>crm resource move msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b> force
 </code></pre>
 
 `AUTOMATED_REGISTER="false"`를 설정하면 이 명령 시퀀스가 SAP HANA 마스터 노드와 가상 IP 주소를 포함하는 그룹을 hn1-db-1로 마이그레이션해야 합니다.
@@ -763,7 +830,7 @@ hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> hdbnsutil -sr_register --remoteHost=<b>hn1-d
 
 <pre><code># Switch back to root and clean up the failed state
 exit
-hn1-db-0:~ # crm resource unmigrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+hn1-db-0:~ # crm resource clear msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 </code></pre>
 
 보조 노드 리소스의 상태도 정리해야 합니다.

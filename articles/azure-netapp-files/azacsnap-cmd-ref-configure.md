@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 04/21/2021
 ms.author: phjensen
-ms.openlocfilehash: 0875aae8bb9049fc96377c1c98efa7391211d08f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f12e9ab2ab0faf77520805e3be645a14dbd38885
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97632979"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107929996"
 ---
-# <a name="configure-azure-application-consistent-snapshot-tool-preview"></a>Azure Application Consistent Snapshot 도구 구성(미리 보기)
+# <a name="configure-azure-application-consistent-snapshot-tool"></a>Azure 애플리케이션 일치 스냅샷 도구 구성
 
 이 문서에서는 Azure NetApp Files에서 사용할 수 있는 Azure Application Consistent Snapshot 도구의 구성 명령을 실행하는 방법에 대한 지침을 제공합니다.
 
@@ -129,7 +129,7 @@ cat azacsnap.json
 
 ```output
 {
-  "version": "5.0 Preview",
+  "version": "5.0",
   "logPath": "./logs",
   "securityPath": "./security",
   "comments": [],

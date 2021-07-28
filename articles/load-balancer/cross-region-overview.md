@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0a08dfd1771ab0a8f866ffad1faa2c7d867b3072
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103225628"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075504"
 ---
 # <a name="cross-region-load-balancer-preview"></a>지역 간 부하 분산 장치(미리 보기)
 
@@ -100,7 +100,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 동부 2
 * 미국 서부
 * 서유럽
-* 동남아시아
+* 동남 아시아
 * 미국 중부
 * 북유럽
 * 동아시아
@@ -124,7 +124,7 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 * 미국 중남부 
 * 미국 서부 2 
 * 영국 남부 
-* 동남아시아 
+* 동남 아시아 
 * 미국 중북부 
 * 일본 동부 
 * 동아시아 
@@ -152,5 +152,5 @@ Azure 지역 간 부하 분산 장치는 라우팅 의사 결정을 위해 지�
 ## <a name="next-steps"></a>다음 단계
 
 - 지역 간 부하 분산 장치를 만드는 방법은 [자습서: Azure Portal을 사용하여 지역 간 부하 분산 장치 만들기](tutorial-cross-region-portal.md)를 참조하세요.
-- 표준 지역 부하 분산 장치를 만드는 방법은 [퍼블릭 표준 부하 분산 장치 만들기](quickstart-load-balancer-standard-public-portal.md)를 참조하세요.
+- [지역 간 부하 분산 장치](https://www.youtube.com/watch?v=3awUwUIv950)에 대해 자세히 알아보세요.
 - [Azure Load Balancer에 대해 자세히 알아보세요](load-balancer-overview.md).

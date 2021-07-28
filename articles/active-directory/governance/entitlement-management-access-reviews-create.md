@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012eefe9140703a62d7bb1074ab763191a0976cb
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: bf34223e44ddfb59a72f98d31f0df5d9a882e0eb
+ms.sourcegitcommit: 5da0bf89a039290326033f2aff26249bcac1fe17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "87798514"
+ms.lasthandoff: 05/10/2021
+ms.locfileid: "109713597"
 ---
 # <a name="create-an-access-review-of-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 권한 관리에서 액세스 패키지에 대한 액세스 검토 만들기
 
@@ -31,7 +31,7 @@ ms.locfileid: "87798514"
 
 액세스 패키지에 대한 검토를 사용하도록 설정하려면 액세스 패키지 만들기에 대한 필수 조건을 충족해야 합니다.
 - Azure AD Premium P2
-- 글로벌 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+- 전역 관리자, Identity Governance 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
 자세한 내용은 [라이선스 요구 사항](entitlement-management-overview.md#license-requirements)을 참조하세요.
 

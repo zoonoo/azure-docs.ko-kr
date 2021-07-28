@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93341844"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>사용자 등록 및 제품 구독을 위임하는 방법
@@ -68,12 +68,12 @@ ms.locfileid: "93341844"
 5. 사용자가 등록하고 있는 경우 API Management에서 사용자의 해당 계정을 만들어야 합니다. API Management REST API를 사용하여 [사용자를 만듭니다]. 이 작업을 수행하는 경우 사용자 ID를 사용자 저장소에 있는 것과 동일한 값 또는 추적할 수 있는 사용자 ID로 설정해야 합니다.
 6. 사용자가 인증되면
    
-   * API Management REST API를 통해 [공유 액세스 토큰을 요청] 합니다.
-   * 위의 API 호출에서 받은 SSO URL에 returnUrl 쿼리 매개 변수를 추가 합니다.
+   * API Management REST API를 통해 [공유 액세스 토큰을 요청]합니다.
+   * 위의 API 호출에서 받은 SSO URL에 returnUrl 쿼리 매개 변수를 추가합니다.
      
      > 예: `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
      
-   * 사용자를 위의 생성 된 URL로 리디렉션
+   * 사용자를 위에서 생성한 URL로 리디렉션합니다.
 
 **SignIn** 작업 외에도, 이전 단계를 수행하고 다음 작업 중 하나를 사용하여 계정 관리를 수행할 수 있습니다.
 
@@ -112,9 +112,9 @@ ms.locfileid: "93341844"
      * "Subscribe": 사용자가 제공된 ID를 사용하여 지정된 제품을 구독하도록 하는 요청입니다(아래 참조).
      * "Unsubscribe": 제품에 대한 사용자 구독을 취소하는 요청입니다.
      * "Renew": 구독을 갱신하는 요청입니다(예: 만료일이 다가오는 경우).
-   * **productId**: *구독* -사용자가 구독을 요청한 제품의 ID입니다.
+   * **productId**: ‘구독’에서 사용자가 구독을 요청한 제품의 ID입니다.
    * **subscriptionId**: *구독 취소* 및 *갱신* 에서 - 제품 구독의 ID입니다.
-   * **userId**: *구독* 시-요청을 만든 사용자의 ID입니다.
+   * **userId**: ‘구독’에서 요청이 수행된 사용자의 ID입니다.
    * **salt**: 보안 해시를 계산하는 데 사용되는 특수 salt 문자열입니다.
    * **sig**: 자신의 계산된 해시와 비교하는 데 사용되는 계산된 보안 해시입니다.
 
@@ -184,7 +184,7 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[공유 액세스 토큰 요청]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
+[공유 액세스 토큰을 요청]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [사용자를 만듭니다]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [구독에 대한 REST API 호출]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

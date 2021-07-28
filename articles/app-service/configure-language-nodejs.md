@@ -4,14 +4,14 @@ description: Azure App Service에서 네이티브 Windows 인스턴스 또는 �
 ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 6a6f782768db12c2ce75f5cf1e66100222f24446
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 97db865f2c590a9d7700ee53a0380604885a8155
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101095208"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108076656"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Azure App Service용 Node.js 앱 구성
 
@@ -147,38 +147,12 @@ App Service를 실행하고 Linux에서 Node.js 앱을 빌드하는 방법에 �
 
 Node.js 컨테이너는 프로덕션 프로세스 관리자인 [PM2](https://pm2.keymetrics.io/)와 함께 제공됩니다. PM2, NPM 또는 사용자 지정 명령을 사용하여 시작하도록 앱을 구성할 수 있습니다.
 
-- [사용자 지정 명령 실행](#run-custom-command)
-- [npm start 실행](#run-npm-start)
-- [PM2를 사용하여 실행](#run-with-pm2)
+|도구|목적|
+|--|--|
+|[PM2를 사용하여 실행](#run-with-pm2)|**권장** - 프로덕션 또는 스테이징 사용. PM2는 전체 서비스 앱 관리 플랫폼을 제공합니다.|
+|[npm start 실행](#run-npm-start)|개발 용도로만 사용합니다.|
+|[사용자 지정 명령 실행](#run-custom-command)|개발 또는 스테이징 중 하나.|
 
-### <a name="run-custom-command"></a>사용자 지정 명령 실행
-
-App Service는 사용자 지정 명령(예: *run.sh* 와 같은 실행 파일)을 사용하여 앱을 시작할 수 있습니다. 예를 들어 `npm run start:prod`를 실행하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
-```
-
-### <a name="run-npm-start"></a>npm start 실행
-
-`npm start`를 사용하여 앱을 시작하려면 `start` 스크립트가 *package.json* 파일에 있어야 합니다. 예를 들면 다음과 같습니다.
-
-```json
-{
-  ...
-  "scripts": {
-    "start": "gulp",
-    ...
-  },
-  ...
-}
-```
-
-프로젝트에서 사용자 지정 *package.json* 을 사용하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
-```
 
 ### <a name="run-with-pm2"></a>PM2를 사용하여 실행
 
@@ -202,6 +176,36 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filname-with-extension>"
 ```
 
+### <a name="run-custom-command"></a>사용자 지정 명령 실행
+
+App Service는 사용자 지정 명령(예: *run.sh* 와 같은 실행 파일)을 사용하여 앱을 시작할 수 있습니다. 예를 들어 `npm run start:prod`를 실행하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
+```
+
+### <a name="run-npm-start"></a>npm start 실행
+
+`npm start`를 사용하여 앱을 시작하려면 `start` 스크립트가 *package.json* 파일에 있어야 합니다. 예를 들어:
+
+```json
+{
+  ...
+  "scripts": {
+    "start": "gulp",
+    ...
+  },
+  ...
+}
+```
+
+프로젝트에서 사용자 지정 *package.json* 을 사용하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행합니다.
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
+```
+
+
 ## <a name="debug-remotely"></a>원격 디버깅
 
 > [!NOTE]
@@ -209,7 +213,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 [PM2를 사용하여 실행](#run-with-pm2)하도록 구성하는 경우 *.config.js, *.yml 또는 *.yaml* 을 사용하여 실행하는 경우를 제외하고 [Visual Studio Code](https://code.visualstudio.com/)에서 원격으로 Node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우 앱에 대한 추가 구성이 필요하지 않습니다. 앱이 *process.json* 파일(기본 또는 사용자 지정)을 사용하여 실행되는 경우 JSON 루트에 `script` 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
+대부분의 경우 앱에 대한 추가 구성이 필요하지 않습니다. 앱이 *process.json* 파일(기본 또는 사용자 지정)을 사용하여 실행되는 경우 JSON 루트에 `script` 속성이 있어야 합니다. 예를 들어:
 
 ```json
 {
@@ -239,7 +243,7 @@ process.env.NODE_ENV
 
 기본적으로 App Service 빌드 자동화는 Node.js 앱이 Git 또는 Zip 배포를 통해 배포되고 빌드 자동화가 사용하도록 설정된 것을 인식하면 `npm install --production`을 실행합니다. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우 이를 실행하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공하여 실행해야 합니다.
 
-리포지토리가 해당 도구를 실행할 수 있게 하려면 *package.json* 의 종속성에 도구를 추가해야 합니다. 예를 들면 다음과 같습니다.
+리포지토리가 해당 도구를 실행할 수 있게 하려면 *package.json* 의 종속성에 도구를 추가해야 합니다. 예를 들어:
 
 ```json
 "dependencies": {

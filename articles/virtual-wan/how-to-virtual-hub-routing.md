@@ -1,19 +1,19 @@
 ---
 title: 가상 허브 라우팅을 구성하는 방법
 titleSuffix: Azure Virtual WAN
-description: 이 문서에서는 가상 허브 라우팅을 구성하는 방법을 설명합니다.
+description: Virtual WAN 가상 허브 라우팅을 구성하는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 04/27/2021
 ms.author: cherylmc
-ms.openlocfilehash: cae74a5f4859d208765c9a7e5cde05ff3c0c3096
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1211f7adf9555014316dd8160c9493b5541e4a9f
+ms.sourcegitcommit: 62e800ec1306c45e2d8310c40da5873f7945c657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "91313691"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108163412"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>가상 허브 라우팅을 구성하는 방법
 

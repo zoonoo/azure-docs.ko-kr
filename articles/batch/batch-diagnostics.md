@@ -2,14 +2,14 @@
 title: 메트릭, 경고 및 진단 로그
 description: 풀, 작업 등과 같은 Azure Batch 계정 리소스에 대해 진단 로그 이벤트를 기록 및 분석합니다.
 ms.topic: how-to
-ms.date: 03/25/2021
+ms.date: 04/13/2021
 ms.custom: seodec18
-ms.openlocfilehash: 22fdf00b6e144e022f955aed6fd24b7a6bcb7300
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 3bbaf01b71a2256416112f5e365f70d563a9f36d
+ms.sourcegitcommit: 1b19b8d303b3abe4d4d08bfde0fee441159771e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105606031"
+ms.lasthandoff: 05/11/2021
+ms.locfileid: "109753947"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -67,7 +67,7 @@ Azure Monitor API를 사용하여 프로그래밍 방식으로 메트릭을 검�
 
 메트릭 경고를 만드는 방법에 대한 자세한 내용은 [Azure Monitor에서 메트릭 경고의 작동 방식 이해](../azure-monitor/alerts/alerts-metric-overview.md) 및 [Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리](../azure-monitor/alerts/alerts-metric.md)를 참조하세요.
 
-또한 [Azure Monitor REST API](/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [Microsoft Azure의 경고 개요](../azure-monitor/alerts/alerts-overview.md)를 참조하세요. 경고에 작업, 태스크 또는 풀 관련 정보를 포함하려면 [Azure Monitor 경고로 이벤트에 응답](../azure-monitor/alerts/tutorial-response.md)을 참조하세요.
+또한 [Azure Monitor REST API](/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [Microsoft Azure의 경고 개요](../azure-monitor/alerts/alerts-overview.md)를 참조하세요. 경고에 작업, 태스크 또는 풀 관련 정보를 포함하려면 [Azure Monitor 로그 경고](../azure-monitor/alerts/alerts-log.md)를 참조하세요.
 
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
@@ -116,7 +116,7 @@ m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```json
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/
@@ -140,21 +140,32 @@ Azure Batch 서비스 로그는 풀이나 작업 같은 개별 일괄 처리 리
 
 ```json
 {
-    "poolId": "myPool1",
+    "id": "myPool1",
     "displayName": "Production Pool",
-    "vmSize": "Small",
+    "vmSize": "Standard_F1s",
+    "imageType": "VirtualMachineConfiguration",
     "cloudServiceConfiguration": {
-        "osFamily": "5",
+        "osFamily": "3",
         "targetOsVersion": "*"
     },
     "networkConfiguration": {
         "subnetId": " "
     },
+    "virtualMachineConfiguration": {
+          "imageReference": {
+            "publisher": " ",
+            "offer": " ",
+            "sku": " ",
+            "version": " "
+          },
+          "nodeAgentId": " "
+        },
     "resizeTimeout": "300000",
-    "targetDedicatedComputeNodes": 2,
+    "targetDedicatedNodes": 2,
+    "targetLowPriorityNodes": 2,
     "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
-    "enableAutoscale": false,
+    "enableAutoScale": false,
     "enableInterNodeCommunication": false,
     "isAutoPool": false
 }
@@ -167,7 +178,7 @@ Batch 서비스에서 내보내는 서비스 로그 이벤트는 다음과 같�
 - [풀 삭제 완료](batch-pool-delete-complete-event.md)
 - [풀 크기 조정 시작](batch-pool-resize-start-event.md)
 - [풀 크기 조정 완료](batch-pool-resize-complete-event.md)
-- [풀 자동 스케일링](batch-pool-autoscale-event.md)
+- [풀 자동 크기 조정](batch-pool-autoscale-event.md)
 - [작업 시작](batch-task-start-event.md)
 - [작업 완료](batch-task-complete-event.md)
 - [작업 실패](batch-task-fail-event.md)

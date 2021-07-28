@@ -7,17 +7,19 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: rosouz
 ms.custom: synapse-cosmos-db
-ms.openlocfilehash: d84508a7629481a7138f1080c86f4a203d35894d
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: ae03907ce75d6df999949ebf418fb8135520008d
+ms.sourcegitcommit: c072eefdba1fc1f582005cdd549218863d1e149e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105626251"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111958898"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link"></a>Power BI 및 서버리스 Synapse SQL 풀을 사용하여 Synapse Link를 통해 Azure Cosmos DB 데이터 분석 
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 이 문서에서는 Azure Cosmos DB의 Synapse Link를 통해 서버리스 SQL 풀 데이터베이스와 보기를 빌드하는 방법에 대해 알아봅니다. Azure Cosmos DB 컨테이너를 쿼리한 다음 해당 쿼리를 반영하기 위해 관련 보기를 통해 Power BI를 사용하여 모델을 작성합니다.
+
+Azure Synapse Link를 사용하여 Azure Cosmos DB 데이터를 분석하기 위해 거의 실시간으로 Power BI 대시보드를 빌드할 수 있습니다. 트랜잭션 워크로드에 대한 성능 또는 비용 영향은 없으며 ETL 파이프라인 관리의 복잡성도 없습니다. [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) 또는 [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) 모드를 사용할 수 있습니다. 
 
 이 시나리오에서는 파트너 소매점의 Surface 제품 판매에 대한 더미 데이터를 사용합니다. 대규모 가구 수에 대한 근접성 및 특정 주의 광고 영향을 기준으로 매장 당 수익을 분석합니다. 이 문서에서는 **RetailSales** 와 **StoreDemographics** 라는 두 개의 보기와 그 둘 사이의 쿼리를 만듭니다. 이 [GitHub](https://github.com/Azure-Samples/Synapse/tree/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) 리포지토리에서 샘플 제품 데이터를 가져올 수 있습니다.
 

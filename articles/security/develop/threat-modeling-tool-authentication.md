@@ -1,6 +1,6 @@
 ---
 title: 인증 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
-description: Threat Modeling Tool의 인증 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조 하십시오.
+description: Threat Modeling Tool의 인증 완화에 대해 알아봅니다. 완화 정보 및 코드 예제 보기를 참조하십시오.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,29 +16,29 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: has-adal-ref, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ee4dd70faab9ed44b1aa6ca8ca0ec517c7746f66
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 717142f5e97d68b844bc15a2f335390d1951ec0c
+ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94832533"
+ms.lasthandoff: 05/07/2021
+ms.locfileid: "109487514"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화
 
 | 제품/서비스 | 아티클 |
 | --------------- | ------- |
-| **웹 애플리케이션**    | <ul><li>[표준 인증 메커니즘을 사용 하 여 웹 응용 프로그램 인증 고려](#standard-authn-web-app)</li><li>[애플리케이션에서 실패한 인증 시나리오를 안전하게 처리해야 함](#handle-failed-authn)</li><li>[버전 업그레이드 또는 적응 인증을 사용하도록 설정](#step-up-adaptive-authn)</li><li>[관리 인터페이스가 적절하게 잠겨 있는지 확인](#admin-interface-lockdown)</li><li>[암호 찾기 기능을 안전 하 게 구현](#forgot-pword-fxn)</li><li>[암호 및 계정 정책이 구현 되었는지 확인](#pword-account-policy)</li><li>[사용자 이름 열거를 방지하기 위한 컨트롤 구현](#controls-username-enum)</li></ul> |
-| **데이터베이스** | <ul><li>[가능 하면 Windows 인증을 사용 하 여 SQL Server에 연결 합니다.](#win-authn-sql)</li><li>[가능 하면 Azure Active Directory 인증을 사용 하 여 SQL Database에 연결 합니다.](#aad-authn-sql)</li><li>[SQL 인증 모드가 사용되는 경우 계정 및 암호 정책이 SQL Server에 적용되어야 함](#authn-account-pword)</li><li>[포함 된 데이터베이스에서 SQL 인증 사용 안 함](#autn-contained-db)</li></ul> |
+| **웹 애플리케이션**    | <ul><li>[표준 인증 메커니즘을 사용하여 웹 애플리케이션 인증 고려](#standard-authn-web-app)</li><li>[애플리케이션에서 실패한 인증 시나리오를 안전하게 처리해야 함](#handle-failed-authn)</li><li>[버전 업그레이드 또는 적응 인증을 사용하도록 설정](#step-up-adaptive-authn)</li><li>[관리 인터페이스가 적절하게 잠겨 있는지 확인](#admin-interface-lockdown)</li><li>[암호 찾기 기능을 안전하게 구현](#forgot-pword-fxn)</li><li>[암호 및 계정 정책이 구현되었는지 확인](#pword-account-policy)</li><li>[사용자 이름 열거를 방지하기 위한 컨트롤 구현](#controls-username-enum)</li></ul> |
+| **Database** | <ul><li>[가능한 경우 SQL Server에 연결하는 데 Windows 인증 사용](#win-authn-sql)</li><li>[가능한 경우 SQL Database에 연결하는 데 Azure Active Directory 인증 사용](#aad-authn-sql)</li><li>[SQL 인증 모드가 사용되는 경우 계정 및 암호 정책이 SQL Server에 적용되어야 함](#authn-account-pword)</li><li>[포함된 데이터베이스에 SQL 인증을 사용하지 마세요](#autn-contained-db)</li></ul> |
 | **Azure 이벤트 허브** | <ul><li>[SaS 토큰을 사용하여 디바이스당 인증 자격 증명 사용](#authn-sas-tokens)</li></ul> |
-| **Azure 신뢰 경계** | <ul><li>[Azure 관리자에 Azure AD Multi-Factor Authentication 사용](#multi-factor-azure-admin)</li></ul> |
-| **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 클러스터에 익명 액세스 제한](#anon-access-cluster)</li><li>[Service Fabric 클라이언트-노드 인증서가 노드-노드 인증서와 다른 지 확인 합니다.](#fabric-cn-nn)</li><li>[AAD를 사용 하 여 service fabric 클러스터에 대 한 클라이언트 인증](#aad-client-fabric)</li><li>[Service Fabric 인증서가 승인된 인증 기관(CA)에서 가져온 것인지 확인](#fabric-cert-ca)</li></ul> |
-| **ID 서버** | <ul><li>[Id 서버에서 지 원하는 표준 인증 시나리오 사용](#standard-authn-id)</li><li>[기본 Id 서버 토큰 캐시를 확장 가능한 대체 항목으로 재정의](#override-token)</li></ul> |
+| **Azure 신뢰 경계** | <ul><li>[Azure 관리자에 Azure AD Multi-Factor Authentication을 사용하도록 설정](#multi-factor-azure-admin)</li></ul> |
+| **Service Fabric 신뢰 경계** | <ul><li>[Service Fabric 클러스터에 익명 액세스 제한](#anon-access-cluster)</li><li>[Service Fabric 클라이언트-노드 인증서가 노드-노드 인증서와 다른지 확인](#fabric-cn-nn)</li><li>[AAD를 사용하여 Service Fabric 클러스터에 대해 클라이언트 인증](#aad-client-fabric)</li><li>[Service Fabric 인증서가 승인된 인증 기관(CA)에서 가져온 것인지 확인](#fabric-cert-ca)</li></ul> |
+| **ID 서버** | <ul><li>[Identity Server에서 지원하는 표준 인증 시나리오 사용](#standard-authn-id)</li><li>[기본 Identity Server 토큰 캐시를 확장성 있는 대안으로 재정의](#override-token)</li></ul> |
 | **컴퓨터 신뢰 경계** | <ul><li>[배포된 애플리케이션의 이진 파일이 디지털로 서명되었는지 확인](#binaries-signed)</li></ul> |
-| **WCF** | <ul><li>[WCF에서 MSMQ 큐에 연결할 때 인증을 사용 하도록 설정](#msmq-queues)</li><li>[WCF-Message clientCredentialType을 none으로 설정하지 마세요](#message-none)</li><li>[WCF-Transport clientCredentialType을 none으로 설정 하지 마십시오.](#transport-none)</li></ul> |
+| **WCF** | <ul><li>[WCF에서 MSMQ 큐에 연결할 때 인증을 사용하도록 설정](#msmq-queues)</li><li>[WCF-Message clientCredentialType을 none으로 설정하지 마세요](#message-none)</li><li>[WCF-Transport clientCredentialType을 none으로 설정하지 마세요](#transport-none)</li></ul> |
 | **앱 API** | <ul><li>[Web API를 보호하는 데 표준 인증 기술이 사용되는지 확인](#authn-secure-api)</li></ul> |
-| **Azure AD** | <ul><li>[Azure Active Directory에서 지원하는 표준 인증 시나리오 사용](#authn-aad)</li><li>[기본 ADAL 토큰 캐시를 확장 가능한 대체 항목으로 재정의](#adal-scalable)</li><li>[ADAL 인증 토큰의 재생을 방지하는 데 TokenReplayCache가 사용되는지 확인](#tokenreplaycache-adal)</li><li>[ADAL 라이브러리를 사용하여 OAuth2 클라이언트에서 AAD(또는 온-프레미스 AD)로 토큰 요청 관리](#adal-oauth2)</li></ul> |
+| **Azure AD** | <ul><li>[Azure Active Directory에서 지원하는 표준 인증 시나리오 사용](#authn-aad)</li><li>[기본 ADAL 토큰 캐시를 확장성 있는 대안으로 재정의](#adal-scalable)</li><li>[ADAL 인증 토큰의 재생을 방지하는 데 TokenReplayCache가 사용되는지 확인](#tokenreplaycache-adal)</li><li>[ADAL 라이브러리를 사용하여 OAuth2 클라이언트에서 AAD(또는 온-프레미스 AD)로 토큰 요청 관리](#adal-oauth2)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[필드 게이트웨이에 연결되는 디바이스 인증](#authn-devices-field)</li></ul> |
-| **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에 연결 되는 장치가 인증 되는지 확인](#authn-devices-cloud)</li><li>[장치 단위 인증 자격 증명 사용](#authn-cred)</li></ul> |
+| **IoT 클라우드 게이트웨이** | <ul><li>[클라우드 게이트웨이에 연결되는 디바이스가 인증되는지 확인](#authn-devices-cloud)</li><li>[디바이스당 인증 자격 증명 사용](#authn-cred)</li></ul> |
 | **Azure Storage** | <ul><li>[필요한 컨테이너 및 Blob에만 익명 읽기 권한이 지정되었는지 확인](#req-containers-anon)</li><li>[SAS 또는 SAP를 사용하여 Azure Storage에서 개체에 대한 제한된 액세스 부여](#limited-access-sas)</li></ul> |
 
 ## <a name="consider-using-a-standard-authentication-mechanism-to-authenticate-to-web-application"></a><a id="standard-authn-web-app"></a>표준 인증 메커니즘을 사용하여 웹 애플리케이션 인증 고려
@@ -105,7 +105,7 @@ ms.locfileid: "94832533"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | 해당 없음  |
-| 세부 정보 | <p>조직의 정책 및 모범 사례에 따라 암호 및 계정 정책이 구현되어야 합니다.</p><p>무차별 암호 대입 및 사전 기반 추측을 방지하려면 강력한 암호 정책을 구현하여 사용자가 복잡한 암호를 구현하도록 해야 합니다(예: 최소 12자, 영숫자 및 특수 문자).</p><p>다음과 같이 계정 잠금 정책을 구현할 수 있습니다.</p><ul><li>**소프트 잠금:** 무차별 암호 대입 공격에 대해 사용자를 보호하는 데 적합한 옵션일 수 있습니다. 예를 들어 사용자가 잘못 된 암호를 세 번 입력할 때마다 응용 프로그램에서 1 분 동안 계정을 잠가 암호를 사용 하 여 암호를 변경 하는 프로세스의 속도를 저하 시킬 수 있습니다. 이 예에 대 한 하드 잠금 대책을 구현 하는 경우 계정을 영구적으로 잠가 "DoS"를 달성할 수 있습니다. 또는 애플리케이션에서 OTP(일회성 암호)를 생성하고 대역외(전자 메일, sms 등을 통해) 사용자에게 보냅니다. 다른 방법은 실패한 시도 횟수 임계값에 도달한 후 CAPTCHA를 구현하는 것입니다.</li><li>**하드 잠금:** 이 유형의 잠금은 응용 프로그램을 공격 하는 사용자를 검색 하 고 응답 팀이 법적 작업을 수행할 시간이 생길 때까지 해당 계정을 영구적으로 잠그는 방법으로 해당 사용자에 게 카운터를 표시 하는 경우에 적용 됩니다. 이 프로세스가 완료 되 면 사용자에 게 계정을 다시 제공 하거나 그에 대 한 추가 법적 조치를 취할 수 있습니다. 이러한 접근 방식은 공격자가 애플리케이션 및 인프라를 더 이상 통과하지 못하도록 합니다.</li></ul><p>기본 및 예측 가능한 계정에 대한 공격을 방어하려면 모든 키 및 암호를 대체할 수 있는, 설치 시간 후 생성 또는 대체되는지 확인합니다.</p><p>애플리케이션에서 암호를 자동으로 생성해야 하는 경우 생성된 암호가 임의적이며 높은 엔트로피를 포함하는지 확인합니다.</p>|
+| 세부 정보 | <p>조직의 정책 및 모범 사례에 따라 암호 및 계정 정책이 구현되어야 합니다.</p><p>무차별 암호 대입 및 사전 기반 추측을 방지하려면 강력한 암호 정책을 구현하여 사용자가 복잡한 암호를 구현하도록 해야 합니다(예: 최소 12자, 영숫자 및 특수 문자).</p><p>다음과 같이 계정 잠금 정책을 구현할 수 있습니다.</p><ul><li>**소프트 잠금:** 무차별 암호 대입 공격에 대해 사용자를 보호하는 데 적합한 옵션일 수 있습니다. 예를 들어 사용자가 잘못된 암호를 세 번 입력할 때마다 애플리케이션은 1분 동안 계정을 잠그고 무차별 암호 대입 과정의 속도를 저하시켜 공격자의 진행을 방해할 수 있습니다. 이 예제의 경우 하드 잠금 대응 방법을 구현했다면 계정을 영구적으로 잠금으로써 "DoS"를 달성합니다. 또는 애플리케이션에서 OTP(일회성 암호)를 생성하고 대역외(전자 메일, sms 등을 통해) 사용자에게 보냅니다. 다른 방법은 실패한 시도 횟수 임계값에 도달한 후 CAPTCHA를 구현하는 것입니다.</li><li>**하드 잠금:** 이 유형의 잠금은 애플리케이션을 공격하는 사용자를 감지할 때마다 적용해야 하며 대응 팀이 과학 수사를 수행할 시간을 확보할 때까지 계정을 영구적으로 잠그는 방법으로 대응합니다. 이 과정을 거친 후 사용자에게 계정을 다시 제공하거나 추가 법적 조치를 취하도록 결정할 수 있습니다. 이러한 접근 방식은 공격자가 애플리케이션 및 인프라를 더 이상 통과하지 못하도록 합니다.</li></ul><p>기본 및 예측 가능한 계정에 대한 공격을 방어하려면 모든 키 및 암호를 대체할 수 있는, 설치 시간 후 생성 또는 대체되는지 확인합니다.</p><p>애플리케이션에서 암호를 자동으로 생성해야 하는 경우 생성된 암호가 임의적이며 높은 엔트로피를 포함하는지 확인합니다.</p>|
 
 ## <a name="implement-controls-to-prevent-username-enumeration"></a><a id="controls-username-enum"></a>사용자 이름 열거를 방지하기 위한 컨트롤 구현
 
@@ -173,7 +173,7 @@ ms.locfileid: "94832533"
 | **참조**              | [Event Hubs 인증 및 보안 모델 개요](../../event-hubs/authenticate-shared-access-signature.md) |
 | **단계** | <p>Event Hubs 보안 모델은 공유 액세스 서명(SAS) 토큰 및 이벤트 게시자의 조합을 기반으로 합니다. 게시자 이름은 토큰을 받는 DeviceID를 나타냅니다. 해당 디바이스를 사용하여 생성된 토큰을 연결하는 데 도움이 됩니다.</p><p>모든 메시지에는 서비스 쪽 송신자로 태그가 지정되어 페이로드 내 원본 스푸핑 시도를 검색할 수 있습니다. 디바이스를 인증할 경우 고유 게시자로 범위가 지정된 디바이스당 SaS 토큰을 생성합니다.</p>|
 
-## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Azure 관리자에 Azure AD Multi-Factor Authentication 사용
+## <a name="enable-azure-ad-multi-factor-authentication-for-azure-administrators"></a><a id="multi-factor-azure-admin"></a>Azure 관리자에 Azure AD Multi-Factor Authentication을 사용하도록 설정
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
@@ -436,7 +436,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
 | **참조**              | [ADAL](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) |
-| **단계** | <p>ADAL(Azure AD 인증 라이브러리)은 클라이언트 애플리케이션 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 쉽게 사용자를 인증하고 API 호출 보안을 위한 액세스 토큰을 가져올 수 있게 합니다.</p><p>ADAL에는 비동기 지원, 액세스 토큰 및 새로고침 토큰을 저장하는 구성 가능한 토큰 캐시, 액세스 토큰이 만료되고 새로고침 토큰을 사용할 수 있을 때 자동 토큰 새로고침 등, 개발자들의 인증을 쉽게 지원하는 많은 기능이 있습니다.</p><p>대부분의 복잡성을 처리함으로써 ADAL은 개발자가 애플리케이션의 비즈니스 논리에 초점을 맞추고 보안 전문가가 아니더라도 리소스를 쉽게 보호할 수 있게 도와줍니다. .NET, JavaScript (클라이언트 및 Node.js), Python, iOS, Android 및 Java에 대 한 별도의 라이브러리를 사용할 수 있습니다.</p>|
+| **단계** | <p>ADAL(Azure AD 인증 라이브러리)은 클라이언트 애플리케이션 개발자들이 클라우드 또는 온-프레미스 AD(Active Directory)에 쉽게 사용자를 인증하고 API 호출 보안을 위한 액세스 토큰을 가져올 수 있게 합니다.</p><p>ADAL에는 비동기 지원, 액세스 토큰 및 새로고침 토큰을 저장하는 구성 가능한 토큰 캐시, 액세스 토큰이 만료되고 새로고침 토큰을 사용할 수 있을 때 자동 토큰 새로고침 등, 개발자들의 인증을 쉽게 지원하는 많은 기능이 있습니다.</p><p>대부분의 복잡성을 처리함으로써 ADAL은 개발자가 애플리케이션의 비즈니스 논리에 초점을 맞추고 보안 전문가가 아니더라도 리소스를 쉽게 보호할 수 있게 도와줍니다. .NET, JavaScript(클라이언트 및 Node.js), Python, iOS, Android 및 Java에 대해 별도의 라이브러리를 사용할 수 있습니다.</p>|
 
 ## <a name="authenticate-devices-connecting-to-the-field-gateway"></a><a id="authn-devices-field"></a>필드 게이트웨이에 연결되는 디바이스 인증
 
@@ -457,7 +457,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반, C#, Node.JS,  |
 | **특성**              | 해당 없음, 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | N/A, [.net이 포함 된 Azure iot hub](../../iot-hub/quickstart-send-telemetry-dotnet.md), [Iot HUB 및 Node JS 시작](../../iot-hub/quickstart-send-telemetry-node.md), [SAS 및 인증서를 사용 하 여 iot 보안](../../iot-hub/iot-hub-devguide-security.md), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/) |
+| **참조**              | 해당 없음, [Azure IoT 허브 및 .NET](../../iot-hub/quickstart-send-telemetry-dotnet.md), [IoT 허브 및 Node JS 시작](../../iot-hub/quickstart-send-telemetry-node.md), [SAS 및 인증서로 IoT 보호](../../iot-hub/iot-hub-dev-guide-sas.md), [Git 리포지토리](https://github.com/Azure/azure-iot-sdks/) |
 | **단계** | <ul><li>**일반:** TLS(전송 계층 보안) 또는 IPSec을 사용하여 디바이스를 인증합니다. 전체 비대칭 암호화를 처리할 수 없는 PSK(미리 공유한 키)를 해당 디바이스에서 사용할 수 있도록 인프라가 지원해야 합니다. Azure AD, Oauth를 활용하세요.</li><li>**C#:** DeviceClient 인스턴스를 만들 때, 기본적으로 Create 메서드는 AMQP 프로토콜을 사용하여 IoT Hub와 통신하는 DeviceClient 인스턴스를 만듭니다. HTTPS 프로토콜을 사용하려면 프로토콜을 지정할 수 있도록 해주는 Create 메서드의 재정의를 사용합니다. HTTPS 프로토콜을 사용하려면 `Microsoft.AspNet.WebApi.Client` NuGet 패키지를 프로젝트에 추가하여 `System.Net.Http.Formatting` 네임스페이스를 포함해야 합니다.</li></ul>|
 
 ### <a name="example"></a>예제
@@ -478,7 +478,7 @@ await deviceClient.SendEventAsync(message);
 ### <a name="example"></a>예제
 **Node.JS: 인증**
 #### <a name="symmetric-key"></a>대칭 키
-* Azure에서 IoT hub 만들기
+* Azure에서 IoT 허브 만들기
 * 디바이스 ID 레지스트리에서 항목 만들기
     ```javascript
     var device = new iothub.Device(null);
@@ -557,7 +557,7 @@ await deviceClient.SendEventAsync(message);
 | **SDL 단계**               | 빌드 |
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | [Azure IoT Hub 보안 토큰](../../iot-hub/iot-hub-devguide-security.md) |
+| **참조**              | [Azure IoT Hub 보안 토큰](../../iot-hub/iot-hub-dev-guide-sas.md) |
 | **단계** | IoT Hub 수준 공유 액세스 정책 대신, 디바이스 키 또는 클라이언트 인증서를 기반으로 SaS 토큰을 사용하여 디바이스당 인증 자격 증명을 사용합니다. 이렇게 하면 디바이스 또는 필드 게이트웨이의 인증 토큰을 재사용하는 것을 방지합니다. |
 
 ## <a name="ensure-that-only-the-required-containers-and-blobs-are-given-anonymous-read-access"></a><a id="req-containers-anon"></a>필요한 컨테이너 및 Blob에만 익명 읽기 권한이 지정되었는지 확인

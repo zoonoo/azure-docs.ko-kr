@@ -8,14 +8,13 @@ ms.date: 04/21/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
-ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: f4f2f8522f6d3d1039673803d946323deb485db9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1b06ea5e541634a3b6738272c7b6540ff17006df
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103200259"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108073632"
 ---
 # <a name="monitor-iot-edge-deployments"></a>IoT Edge 배포 모니터링
 
@@ -69,7 +68,7 @@ IoT Hub 서비스를 사용하면 이 데이터를 Azure Portal 및 Azure CLI에
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Azure CLI를 사용하여 배포 모니터링
 
-[az IoT Edge deployment show](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) 명령을 사용하여 단일 배포에 대한 세부 정보를 표시합니다.
+[az iot edge deployment show](/cli/azure/iot/edge/deployment) 명령을 사용하여 단일 배포에 대한 세부 정보를 표시합니다.
 
 ```azurecli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -87,7 +86,7 @@ deployment show 명령은 다음 매개 변수를 사용합니다.
 * **reportedSuccessfulCount** - IoT Edge 클라이언트 런타임의 성공을 보고하는 배포에서 IoT Edge 디바이스의 수를 지정하는 디바이스 메트릭입니다.
 * **reportedFailedCount** - IoT Edge 클라이언트 런타임의 오류를 보고하는 배포에서 IoT Edge 디바이스의 수를 지정하는 디바이스 메트릭입니다.
 
-[az IoT Edge deployment show-metric](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric) 명령을 사용하여 각 메트릭에 대한 디바이스 ID 또는 개체 목록을 표시할 수 있습니다.
+[az iot edge deployment show-metric](/cli/azure/iot/edge/deployment) 명령을 사용하여 각 메트릭에 대한 디바이스 ID 또는 개체 목록을 표시할 수 있습니다.
 
 ```azurecli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]

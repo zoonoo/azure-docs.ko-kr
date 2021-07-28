@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 75650d7ff0ac647aeb6dace76c270680b1b89347
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ae9b749f62dc74a6cb0dfea3701fd4ebac11c188
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98954965"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107931579"
 ---
 ## <a name="enable-logging"></a>로깅 사용
 
@@ -48,3 +48,7 @@ ms.locfileid: "98954965"
 ## <a name="validate-your-integration"></a>통합 유효성 검사
 
 [Microsoft ID 플랫폼 통합 검사 목록](../articles/active-directory/develop/identity-platform-integration-checklist.md)에 따라 통합을 테스트합니다.
+
+## <a name="build-for-resilience"></a>복원력을 위해 빌드
+
+앱에서 복원력을 높이는 방법에 대해 알아봅니다. 자세한 내용은 [개발하는 인증 및 권한 부여 애플리케이션의 복원력 향상](../articles/active-directory/fundamentals/resilience-app-development-overview.md)을 참조하세요.

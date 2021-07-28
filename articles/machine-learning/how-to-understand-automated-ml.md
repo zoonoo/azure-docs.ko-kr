@@ -9,14 +9,14 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 12/09/2020
-ms.topic: conceptual
-ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.topic: how-to
+ms.custom: contperf-fy21q2, automl
+ms.openlocfilehash: d104ad879919b11152d56a2c9b6b6fd8652c3ddc
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104773116"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107903797"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>자동화된 Machine Learning 실험 결과 평가
 
@@ -74,7 +74,7 @@ ms.locfileid: "104773116"
 
 |메트릭|Description|계산|
 |--|--|---|
-|AUC | AUC는 [수신자 조작 특성 곡선](#roc-curve) 아래 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`AUC_macro`, 각 클래스에 대한 AUC의 산술 평균입니다.<li> `AUC_micro`, 각 클래스의 진양성과 가양성을 결합하여 계산됩니다. <li> `AUC_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 점수의 산술 평균입니다.   |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
+|AUC | AUC는 [수신자 조작 특성 곡선](#roc-curve) 아래 면적입니다.<br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다. <li>`AUC_macro`, 각 클래스에 대한 AUC의 산술 평균입니다.<li> `AUC_micro`, 각 클래스의 진양성과 가양성을 결합하여 계산됩니다. <li> `AUC_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스에 대한 점수의 산술 평균입니다.<br><br>참고: 클래스 두 개만 있는 경우 자동화된 ML에서 보고한 AUC 값은 ROC 차트와 일치하지 않을 수 있습니다. 이진 분류의 경우 AUC의 기본 Scikit-learn 구현은 실제로 매크로/마이크로/가중 평균을 적용하지 않습니다. 대신, 가장 가능성이 높은 양성 클래스의 AUC가 반환됩니다. ROC 차트는 다중 클래스의 경우와 마찬가지로 이진 분류에 대한 클래스 평균을 계속 적용합니다.  |[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| Accuracy(정확도)는 실제 클래스 레이블과 정확히 일치하는 예측 비율입니다. <br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
 |average_precision|Average precision(평균 정밀도)은 정밀도-재현율 곡선을 이전 임계값에서의 재현율 증가를 가중치로 사용하여 계산한 각 임계값에서 도달된 정밀도의 가중 평균으로 요약합니다. <br><br> **목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]<br> <br>지원되는 메트릭 이름에는 다음이 포함됩니다.<li>`average_precision_score_macro`, 각 클래스의 평균 정밀도 점수의 산술 평균입니다.<li> `average_precision_score_micro`, 각 컷오프의 진양성과 가양성을 결합하여 계산됩니다.<li>`average_precision_score_weighted`, 각 클래스의 실제 인스턴스 수를 가중치로 적용하여 계산된 각 클래스의 평균 정밀도 점수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|
 balanced_accuracy|Balanced accuracy(균형 정확도)는 각 클래스 재현율의 산술 평균입니다.<br> <br>**목표:** 1에 가까울수록 좋음 <br> **범위:** [0, 1]|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|
@@ -117,6 +117,7 @@ AUC(곡선 아래 면적)는 올바르게 분류된 샘플의 비율로 해석�
 차트의 왼쪽 상단 모서리에 근접하는 곡선은 최상의 가능 모델인 100% TPR 및 0% FPR에 근접하고 있는 것입니다. 임의 모델은 왼쪽 아래 모서리에서 오른쪽 상단으로 `y = x` 선을 따라 ROC 곡선을 생성합니다. 임의 모델보다 나쁜 모델은 `y = x` 선 아래로 떨어지는 ROC 곡선을 갖습니다.
 > [!TIP]
 > 분류 실험의 경우 자동화된 ML 모델에 대해 생성된 각각의 꺾은선형 차트를 이용하여 클래스별로 모델을 평가하거나 모든 클래스에 대해 평균화할 수 있습니다. 차트의 오른쪽에 있는 범례에서 클래스 레이블을 클릭하여 이러한 여러 보기 간에 전환이 가능합니다.
+
 ### <a name="roc-curve-for-a-good-model"></a>좋은 모델의 ROC 곡선
 ![좋은 모델의 ROC 곡선](./media/how-to-understand-automated-ml/chart-roc-curve-good.png)
 
@@ -234,21 +235,20 @@ spearman_correlation| Spearman correlation(Spearman 상관 관계)은 두 데이
 
 ## <a name="model-explanations-and-feature-importances"></a>모델 설명 및 기능 중요도
 
-모델의 일반적인 품질을 측정하는 데에는 모델 평가 메트릭과 차트로도 충분하지만, 책임을 져야 하는 AI를 실습할 때는 모델이 예측에 사용한 데이터 세트 기능을 검사하는 것이 중요 합니다. 이것이 자동화된 ML이 데이터 세트 기능의 상대적 기여도를 측정하고 보고하는 모델 해석력 대시보드를 제공하는 이유입니다.
+모델의 일반적인 품질을 측정하는 데에는 모델 평가 메트릭과 차트로도 충분하지만, 책임을 져야 하는 AI를 실습할 때는 모델이 예측에 사용한 데이터 세트 기능을 검사하는 것이 중요 합니다. 이것이 자동화된 ML이 데이터 세트 기능의 상대적 기여도를 측정하고 보고하는 모델 설명 대시보드를 제공하는 이유입니다. [Azure Machine Learning 스튜디오에서 설명 대시보드를 보는](how-to-use-automated-ml-for-ml-models.md#model-explanations-preview) 방법을 참조하세요.
 
-스튜디오에서 해석력 대시보드를 보려면:
-1. [스튜디오에 로그인](https://ml.azure.com/)하고 작업 영역으로 이동합니다.
-2. 왼쪽 메뉴에서 **실험** 을 선택합니다.
-3. 실험 목록에서 해당 실험을 선택합니다.
-4. 페이지 아래쪽의 테이블에서 AutoML 실행을 선택합니다.
-5. **모델** 탭에서 설명하려는 모델의 **알고리즘 이름** 을 선택합니다.
-6. **설명** 탭에서 모델이 가장 적합한 경우 설명이 이미 생성된 것을 확인할 수 있습니다.
-7. 새 설명을 만들려면 **모델 설명** 을 선택하고 설명을 컴퓨팅할 원격 컴퓨팅을 선택합니다.
-
-[자동화된 ML의 모델 설명에 대해 자세히 알아봅니다](how-to-machine-learning-interpretability-automl.md).
+Code First를 사용하는 경우 [Azure Machine Learning Python SDK를 사용하여 자동화된 ML 실험에 대한 모델 설명을](how-to-machine-learning-interpretability-automl.md) 설정하는 방법을 참조하세요.
 
 > [!NOTE]
-> ForecastTCN 모델은 현재 자동화된 ML 설명에서 지원되지 않으며 다른 예측 모델은 해석력 도구에 대한 액세스가 제한될 수 있습니다.
+> 다음 알고리즘을 최적의 모델 또는 앙상블로 권장하는 자동화된 ML 예측 실험에는 해석력 및 최적의 모델 설명을 사용할 수 없습니다. 
+> * TCNForecaster
+> * AutoArima
+> * ExponentialSmoothing
+> * Prophet
+> * 평균 
+> * Naive
+> * Seasonal Average 
+> * Seasonal Naive
 
 ## <a name="next-steps"></a>다음 단계
 * [자동화된 Machine Learning 모델 설명 샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)을 사용해 봅니다.

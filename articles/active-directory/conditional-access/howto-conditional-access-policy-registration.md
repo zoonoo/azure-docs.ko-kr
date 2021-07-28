@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/29/2021
+ms.date: 04/20/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38ddd825321a3cb7947eb76c4f5f6cdbc6cb3414
-ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.openlocfilehash: 05aca853e2eba98d224131c98751b4e2f4200024
+ms.sourcegitcommit: 4b0e424f5aa8a11daf0eec32456854542a2f5df0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106055708"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107765650"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>조건부 액세스: 보안 정보 등록 보호
 
@@ -50,7 +50,7 @@ ms.locfileid: "106055708"
    1. **다단계 인증 필요** 를 선택합니다.
    1. **선택** 을 클릭합니다.
 1. **정책 사용** 을 **켜기** 로 설정합니다.
-1. 그런 다음 **생성** 를 선택합니다.
+1. 그런 다음 **만들기** 를 선택합니다.
 
 이제 관리자는 등록을 위한 다단계 인증 요구 사항을 충족할 수 있도록 새 사용자에게 임시 액세스 패스 자격 증명을 발급해야 합니다. 이 작업을 수행하기 위한 단계는 [Azure AD Portal에서 임시 액세스 패스 만들기](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass) 섹션에서 확인할 수 있습니다.
 
@@ -85,3 +85,5 @@ ms.locfileid: "106055708"
 [조건부 액세스 보고 전용 모드를 사용하여 영향 확인](howto-conditional-access-insights-reporting.md)
 
 [조건부 액세스 What If 도구를 사용하여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
+
+[사용자가 인증 정보를 재확인하도록 요구](../authentication/concept-sspr-howitworks.md#reconfirm-authentication-information)

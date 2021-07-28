@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: 51df72e31acaadc83f4c094b99fa938377e5f023
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8b332b1871c92d36821e8f797ceac5b6697e5dc1
+ms.sourcegitcommit: ba8f0365b192f6f708eb8ce7aadb134ef8eda326
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102500005"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109632190"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure에서 가상 머신 유지 관리
 
@@ -48,6 +48,9 @@ VM 내에서 [Linux](./linux/scheduled-events.md)용 또는 [Windows용 Schedule
 
 실시간 마이그레이션은 다시 부팅이 필요하지 않으며 VM에 대한 메모리를 보존하는 작업입니다. 일시 중지 또는 중지가 일반적으로 5초 이하로 발생합니다. G, M, N, H 시리즈를 제외하고 모든 IaaS(infrastructure as a service) VM은 실시간 마이그레이션에 적합합니다 적합한 VM은 Azure 집합에 배포된 IaaS VM의 90%를 초과합니다. 
 
+> [!NOTE]
+> 다시 부팅할 필요가 없는 실시간 마이그레이션 작업에 대한 알림은 Azure Portal에서 수신되지 않습니다. 다시 부팅할 필요가 없는 실시간 마이그레이션 목록을 보려면 [예약된 이벤트를 쿼리](./windows/scheduled-events.md#query-for-events)합니다.
+
 Azure 플랫폼은 다음과 같은 시나리오에서 실시간 마이그레이션을 시작합니다.
 - 계획된 유지 보수
 - 하드웨어 오류
@@ -56,6 +59,8 @@ Azure 플랫폼은 다음과 같은 시나리오에서 실시간 마이그레이
 일부 계획된 유지 관리 시나리오는 실시간 마이그레이션을 사용하며, 실시간 마이그레이션 작업이 시작되는 시기는 Scheduled Events를 사용하여 미리 알 수 있습니다.
 
 Azure Machine Learning 알고리즘이 임박한 하드웨어 오류를 예측하거나 VM 할당을 최적화하려는 경우 실시간 마이그레이션을 사용하여 VM을 이동할 수도 있습니다. 성능이 저하된 하드웨어 인스턴스를 감지하는 예측 모델링에 대한 자세한 내용은 [예측 기계 학습 및 실시간 마이그레이션을 사용하여 Azure VM 복원력 향상](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure)을 참조하세요. 실시간 마이그레이션 알림은 Azure Portal에서 모니터 및 Service Health 로그 및 Scheduled Events에 나타납니다(해당 서비스를 사용하는 경우).
+
+
 
 ## <a name="maintenance-that-requires-a-reboot"></a>재부팅이 필요한 유지 관리
 

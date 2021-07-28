@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeede88bfbe024a66e40270240d32488e581dd77
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 42c73e2fa0439b247267f8d1021c0a779b6ca2ba
+ms.sourcegitcommit: c1b0d0b61ef7635d008954a0d247a2c94c1a876f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102517704"
+ms.lasthandoff: 05/08/2021
+ms.locfileid: "109627909"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -66,23 +66,25 @@ PRT를 통한 SSO는 디바이스가 회사 계정을 추가하거나 학교 계
 - 무료 기능이며 이 기능을 사용하는 데는 Azure AD 유료 버전이 필요하지 않습니다.
 - Kerberos 인증이 가능한 플랫폼 및 브라우저에서 [최신 인증](/office365/enterprise/modern-auth-for-office-2013-and-2016)을 지원하는 웹 브라우저 기반 클라이언트 및 Office 클라이언트에서 지원됩니다.
 
-| OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
+| OS\Browser |Internet Explorer|Microsoft Edge\*\*\*\*|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |윈도우 10|예\*|예|예|예\*\*\*|해당 없음
 |Windows 8.1|예\*|예*\*\*\*|예|예\*\*\*|해당 없음
 |Windows 8|예\*|해당 없음|예|예\*\*\*|해당 없음
-|Windows 7|예\*|해당 없음|예|예\*\*\*|해당 없음
 |Windows Server 2012 R2 이상|예\*\*|해당 없음|예|예\*\*\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
 
+ > [!NOTE]
+ >Microsoft Edge 레거시는 더 이상 지원되지 않습니다.
 
-\*Internet Explorer 버전 10 이상이 필요합니다.
 
-\*\*Internet Explorer 버전 10 이상이 필요합니다. 향상된 보호 모드를 사용하지 않도록 설정합니다.
+\*Internet Explorer 버전 11 이상이 필요합니다. ([2021년 8월 17일부터 Microsoft 365 앱 및 서비스는 IE 11을 지원하지 않습니다](https://techcommunity.microsoft.com/t5/microsoft-365-blog/microsoft-365-apps-say-farewell-to-internet-explorer-11-and/ba-p/1591666).)
+
+\*\*Internet Explorer 버전 11 이상이 필요합니다. 향상된 보호 모드를 사용하지 않도록 설정합니다.
 
 \*\*\*[추가 구성](how-to-connect-sso-quick-start.md#browser-considerations)이 필요합니다.
 
-\*\*\*\*Microsoft Edge 버전 77 이상이 필요합니다.
+\*\*\*\*Chromium 기반의 Microosft Edge
 
 ## <a name="next-steps"></a>다음 단계
 

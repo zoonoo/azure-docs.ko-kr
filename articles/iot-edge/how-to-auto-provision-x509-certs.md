@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 44ea6546eb2099165071fd493ec8f890820c0688
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 180226741d77defb0a9f0d00165cf858cb65ecbb
+ms.sourcegitcommit: b4032c9266effb0bf7eb87379f011c36d7340c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "103199826"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107906515"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>X.509 인증서를 사용하여 IoT Edge 디바이스 만들기 및 프로비저닝
 
@@ -90,7 +90,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태** 를 선언할 
 Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이스 등록을 관리하는 방법](../iot-dps/how-to-manage-enrollments.md) 항목을 참조하세요.
 
    > [!TIP]
-   > Azure CLI에서 [등록](/cli/azure/ext/azure-iot/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/ext/azure-iot/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
+   > Azure CLI에서 [등록](/cli/azure/iot/dps/enrollment) 또는 [등록 그룹](/cli/azure/iot/dps/enrollment-group)을 만들고, **edge-enabled** 플래그를 사용하여 디바이스 또는 디바이스 그룹이 IoT Edge 디바이스임을 지정할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동합니다.
 
@@ -110,7 +110,7 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 
    * **이 디바이스를 할당할 수 있는 IoT 허브 선택**: 디바이스를 연결하려는 연결된 IoT 허브를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
 
-   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들면 다음과 같습니다.
+   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
 
       ```json
       {
@@ -195,7 +195,7 @@ Device Provisioning Service의 등록에 대한 자세한 내용은 [디바이�
 
    * **이 디바이스를 할당할 수 있는 IoT 허브 선택**: 디바이스를 연결하려는 연결된 IoT 허브를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 허브 중 하나에 디바이스가 할당됩니다.
 
-   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들면 다음과 같습니다.
+   * **초기 디바이스 쌍 상태**: 원하는 경우 디바이스 쌍에 태그 값을 추가합니다. 태그를 사용하여 자동 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어:
 
       ```json
       {
@@ -229,7 +229,6 @@ DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서�
 * DPS **ID 범위** 값. Azure Portal에 있는 DPS 인스턴스의 개요 페이지에서 이 값을 검색할 수 있습니다.
 * 디바이스에 있는 디바이스 ID 인증서 체인 파일.
 * 디바이스에 있는 디바이스 ID 키 파일.
-* 등록 ID(선택 사항). 제공하지 않는 경우 디바이스 ID 인증서의 일반 이름에서 ID를 가져옵니다.
 
 ### <a name="linux-device"></a>Linux 디바이스
 
@@ -263,14 +262,14 @@ DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서�
 
 1. `scope_id`, `identity_cert` 및 `identity_pk`의 값을 DPS 및 디바이스 정보로 업데이트합니다.
 
-   X.509 인증서 및 키 정보를 config.yaml 파일에 추가하는 경우 경로를 파일 URI로 제공해야 합니다. 예를 들면 다음과 같습니다.
+   X.509 인증서 및 키 정보를 config.yaml 파일에 추가하는 경우 경로를 파일 URI로 제공해야 합니다. 예를 들어:
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
 
-1. 디바이스에 대한 `registration_id`를 제공합니다(선택 사항). 제공하지 않는 경우 해당 줄이 주석으로 처리되도록 놓아두어 ID 인증서의 CN 이름으로 디바이스를 등록합니다.
+1. 필요에 따라 ID 인증서의 CN(일반 이름)과 일치해야 하는 디바이스에 대한 `registration_id`를 제공합니다. 해당 줄을 주석 처리하지 않으면 CN이 자동으로 적용됩니다.
 
-1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 시작 시 디바이스가 다시 프로비저닝되도록 설정되어 있는 경우 항상 먼저 DPS를 사용하여 프로비저닝을 시도하며, 실패하는 경우 프로비저닝 백업으로 대체합니다. 디바이스가 동적으로 다시 프로비저닝하도록 설정된 경우 다시 프로비저닝하는 이벤트가 감지되면 IoT Edge가 다시 시작되며 다시 프로비저닝됩니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
+1. 필요에 따라 `always_reprovision_on_startup` 또는 `dynamic_reprovisioning` 줄을 사용하여 디바이스의 다시 프로비저닝 동작을 구성합니다. 시작 시 디바이스가 다시 프로비저닝되도록 설정되어 있는 경우 항상 먼저 DPS를 사용하여 프로비저닝을 시도한 다음, 실패하는 경우 프로비저닝 백업으로 대체합니다. 디바이스가 동적으로 다시 프로비저닝되도록 설정된 경우 다시 프로비저닝 이벤트가 감지되면 IoT Edge가 다시 시작되고 다시 프로비저닝됩니다. 자세한 내용은 [IoT Hub 디바이스 다시 프로비저닝 개념](../iot-dps/concepts-device-reprovision.md)을 참조하세요.
 
 1. config.yaml 파일을 저장한 후 닫습니다.
 
@@ -309,22 +308,24 @@ DPS로 X.509를 프로비저닝하는 것은 IoT Edge 버전 1.0.9 이상에서�
    
    [provisioning.attestation]
    method = "x509"
-   # registration_id = "<OPTIONAL REGISTRATION ID. LEAVE COMMENTED OUT TO REGISTER WITH CN OF identity_cert>"
+   registration_id = "<REGISTRATION ID>"
 
-   identity_cert = "<REQUIRED URI TO DEVICE IDENTITY CERTIFICATE>"
+   identity_cert = "<DEVICE IDENTITY CERTIFICATE>"
 
-   identity_pk = "<REQUIRED URI TO DEVICE IDENTITY PRIVATE KEY>"
+   identity_pk = "<DEVICE IDENTITY PRIVATE KEY>"
    ```
 
-1. `id_scope`, `identity_cert` 및 `identity_pk`의 값을 DPS 및 디바이스 정보로 업데이트합니다.
+1. `id_scope` 값을 DPS 인스턴스에서 복사한 범위 ID로 업데이트합니다.
+
+1. 디바이스가 IoT Hub에서 갖게 될 ID인 디바이스에 대한 `registration_id`를 제공합니다. 등록 ID는 ID 인증서의 CN(일반 이름)과 일치해야 합니다.
+
+1. 인증서와 키 정보로 `identity_cert` 및 `identity_pk` 값을 업데이트합니다.
 
    ID 인증서 값을 파일 URI로 제공하거나 EST 또는 로컬 인증 기관을 사용하여 동적으로 발급할 수 있습니다. 사용하도록 선택한 형식에 따라 한 줄의 주석 처리만을 제거합니다.
 
    ID 프라이빗 키 값은 파일 URI 또는 PKCS#11 URI로 제공될 수 있습니다. 사용하도록 선택한 형식에 따라 한 줄의 주석 처리만을 제거합니다.
 
    PKCS#11 URI를 사용하는 경우 구성 파일에서 **PKCS#11** 섹션을 찾고 PKCS#11 구성에 대한 정보를 제공합니다.
-
-1. 디바이스에 대한 `registration_id`를 제공합니다(선택 사항). 제공하지 않는 경우 해당 줄이 주석으로 처리되도록 놓아두어 ID 인증서의 일반 이름으로 디바이스를 등록합니다.
 
 1. 파일을 저장하고 닫습니다.
 

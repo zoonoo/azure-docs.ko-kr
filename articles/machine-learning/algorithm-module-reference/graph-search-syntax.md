@@ -6,28 +6,31 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 8/24/2020
-ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+author: likebupt
+ms.author: keli19
+ms.date: 03/24/2021
+ms.openlocfilehash: 74cf0b897529e8bb198b6f82a57e187662a4a285
+ms.sourcegitcommit: 20f8bf22d621a34df5374ddf0cd324d3a762d46d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "93420770"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107259230"
 ---
 # <a name="graph-search-query-syntax"></a>그래프 검색 쿼리 구문
 
-이 문서에서는 Azure Machine Learning의 그래프 검색 쿼리 구문에 대해 알아봅니다. 그래프 검색 기능을 사용하면 이름 및 속성으로 노드를 검색할 수 있습니다. 
+이 문서에서는 Azure Machine Learning의 그래프 검색 기능에 대해 알아봅니다. 
 
- ![예제 그래프 검색 환경을 보여 주는 애니메이션 스크린샷](media/search/graph-search.gif)
+그래프 검색을 사용하면 파이프라인을 디버깅하거나 빌드할 때 노드를 신속하게 탐색할 수 있습니다. 툴바의 입력 상자에 키워드 또는 쿼리를 입력하거나 왼쪽 패널의 검색 탭에서 검색을 트리거할 수 있습니다. 일치하는 모든 결과가 캔버스에 노란색으로 강조 표시되고, 왼쪽 패널에서 결과를 선택하면 캔버스의 노드가 빨간색으로 강조 표시됩니다.
+
+![예제 그래프 검색 환경을 보여 주는 스크린샷](media/search/graph-search-0322.png)
 
 그래프 검색은 노드 이름 및 설명에 대한 전체 텍스트 키워드 검색을 지원합니다. RunStatus, duration, computeTarget 등의 노드 속성을 기준으로 필터링할 수도 있습니다. 키워드 검색은 Lucene 쿼리를 기반으로 합니다. 전체 검색 쿼리는 다음과 같습니다.  
 
-**[lucene 쿼리 | [필터 쿼리]** 
+**[[lucene 쿼리] | [filter 쿼리]]** 
 
 Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용하려면 **|** 구분 기호를 사용합니다. 필터 쿼리의 구문은 Lucene 쿼리보다 엄격합니다. 따라서 고객 입력을 둘 다로 구문 분석할 수 있으면, 필터 쿼리가 적용됩니다.
 
+예를 들어 `data OR model | compute in {cpucluster}`의 경우 이름이나 주석에 `data` 또는 `model`이 포함된 노드를 검색하기 위한 것이며, compute는 cpucluster입니다.
  
 
 ## <a name="lucene-query"></a>Lucene 쿼리
@@ -68,6 +71,8 @@ Lucene 쿼리 또는 필터 쿼리를 사용할 수 있습니다. 둘 다 사용
 - compute
 - duration
 - reuse
+- 게시
+- tags
 
 그리고 다음 연산자를 사용할 수 있습니다.
 

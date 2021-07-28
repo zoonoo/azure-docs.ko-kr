@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: dfc8fe0f1b4bc043feecd5c76340d48bc5421854
-ms.sourcegitcommit: 590f14d35e831a2dbb803fc12ebbd3ed2046abff
+ms.openlocfilehash: dbd4e9c6e8a58738ac0a8db6c64133301d1aebe5
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2021
-ms.locfileid: "107568542"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107950589"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -137,11 +137,20 @@ Storage Explorer가 자체 서명된 인증서나 신뢰할 수 없는 인증서
 
 계정에 대해 충족해야 하는 조건부 액세스 정책이 있는 경우 **로그인에 사용할 계정** 설정에 **기본 웹 브라우저** 값을 사용하고 있는지 확인합니다. 해당 설정에 대한 자세한 내용은 [로그인이 발생하는 위치 변경](./storage-explorer-sign-in.md#changing-where-sign-in-happens)을 참조하세요.
 
+### <a name="browser-complains-about-http-redirect-during-sign-in"></a>로그인하는 동안 브라우저에서 HTTP 리디렉션에 대해 불만을 제기함
+
+Storage Explorer가 웹 브라우저에서 로그인을 수행하면 로그인 프로세스가 끝날 때 `localhost`로 리디렉션됩니다. 브라우저에서 리디렉션이 HTTPS 대신 HTTP를 통해 수행되고 있다는 경고 또는 오류를 표시하는 경우가 있습니다. 일부 브라우저에서는 HTTPS를 사용하여 리디렉션을 강제로 수행하려고 할 수도 있습니다. 이 중 하나가 발생하는 경우 브라우저에 따라 다음과 같은 다양한 옵션이 있습니다.
+- 경고를 무시합니다.
+- `localhost`에 대한 예외를 추가합니다.
+- 전역적으로 또는 `localhost`에 대해서만 HTTPS 강제 적용을 사용하지 않도록 설정합니다.
+
+이러한 옵션을 수행할 수 없는 경우 [로그인이 발생하는 위치를 변경](./storage-explorer-sign-in.md#changing-where-sign-in-happens)할 수도 있습니다.
+
 ### <a name="unable-to-acquire-token-tenant-is-filtered-out"></a>테넌트가 필터링되어 토큰을 가져올 수 없음
 
 테넌트가 필터링되어 토큰을 가져올 수 없다는 오류 메시지가 표시되면 필터링된 테넌트에 있는 리소스에 액세스하려고 한다는 의미입니다. 테넌트의 필터링을 해제하려면 **계정 패널** 로 이동하여 오류에 지정된 테넌트의 확인란이 선택되어 있는지 확인합니다. Storage Explorer에서의 테넌트 필터링에 대한 자세한 내용은 [계정 관리](./storage-explorer-sign-in.md#managing-accounts)를 참조하세요.
 
-## <a name="authentication-library-failed-to-start-properly"></a>인증 라이브러리가 제대로 시작되지 않음
+### <a name="authentication-library-failed-to-start-properly"></a>인증 라이브러리가 제대로 시작되지 않음
 
 시작 시 Storage Explorer의 인증 라이브러리가 제대로 시작되지 않았다는 오류 메시지가 표시되면 설치 환경이 모든 [필수 조건](../../vs-azure-tools-storage-manage-with-storage-explorer.md#prerequisites)을 충족하는지 확인합니다. 필수 조건을 충족하지 못하는 것이 이 오류 메시지의 가장 큰 원인입니다.
 
@@ -486,12 +495,12 @@ Storage Explorer는 버전 1.16.0부터 자체 애플리케이션 로그에 다�
 
 일반적으로 다음 단계에 따라 로그를 수집할 수 있습니다.
 
-1. 설정 > 로그인으로 이동하여 자세한 정보 인증 로깅을 선택합니다. 인증 라이브러리 문제로 인해 Storage Explorer가 실행되지 않는 경우 이 작업이 수행됩니다.
+1. **설정(왼쪽의 기어 아이콘)**  >  **애플리케이션**  >  **로그인** 으로 이동하여 **자세한 인증 로깅** 을 선택합니다. 인증 라이브러리 문제로 인해 Storage Explorer가 실행되지 않는 경우 이 작업이 수행됩니다.
 2. Storage Explorer를 닫습니다.
 1. 선택 사항/권장 사항: `logs` 폴더에서 기존 로그를 지웁니다. 이렇게 하면 당사에 보내야 하는 정보의 양이 줄어듭니다.
 4. Storage Explorer를 열고 문제를 재현합니다.
 5. Storage Explorer 닫기
-6. `log` 폴더의 콘텐츠를 압축합니다.
+6. `logs` 폴더의 콘텐츠를 압축합니다.
 
 ### <a name="azcopy-logs"></a>AzCopy 로그
 

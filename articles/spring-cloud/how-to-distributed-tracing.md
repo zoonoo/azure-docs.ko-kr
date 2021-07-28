@@ -8,12 +8,12 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: f55a82eeddc8d4515b0f1333b615244976975097
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 48f80d82c003677f2cacfdef2a57ae1aaa68d59d
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104878246"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108135116"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Azure Spring Cloud에서 분산 추적
 
@@ -22,7 +22,7 @@ Azure Spring Cloud의 분산 추적 도구를 사용하면 복잡한 문제를 �
 ::: zone pivot="programming-language-csharp"
 이 문서에서는 .NET Core Steeltoe 앱에서 분산 추적을 사용하도록 설정하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 절차를 따르려면 사전에 [Azure Spring Cloud에 배포하기 위해 준비한](how-to-prepare-app-deployment.md) Steeltoe 앱이 필요합니다.
 
@@ -82,7 +82,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
 2. Eureka 서버, 구성 서버 및 사용자 앱 간에 전송된 추적 범위를 보려면 `management.tracing.egressIgnorePattern`을 "/api/v2/spans|/v2/apps/. */permissions|/eureka/.* |/oauth/.*"로 설정합니다.
 
 예를 들어 *appsettings.json* 에는 다음과 같은 속성이 포함됩니다.
- 
+
 ```json
 "management": {
     "tracing": {
@@ -105,7 +105,7 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
-다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [첫 번째 Azure Spring Cloud 애플리케이션 배포](spring-cloud-quickstart.md)를 완료하여 Azure Spring Cloud 서비스를 프로비전하고 실행합니다.
+다음 절차를 수행하려면 이미 프로비저닝되어 실행 중인 Azure Spring Cloud 서비스가 필요합니다. [첫 번째 Azure Spring Cloud 애플리케이션 배포](./quickstart.md)를 완료하여 Azure Spring Cloud 서비스를 프로비전하고 실행합니다.
 
 ## <a name="add-dependencies"></a>종속성 추가
 
@@ -119,25 +119,58 @@ Steeltoe 3.0.0의 경우 다음 NuGet 패키지를 추가합니다.
 
 1. [Azure Spring Cloud 애플리케이션 준비에 대한 가이드](how-to-prepare-app-deployment.md)를 수행한 경우, 이 단계를 건너뛸 수 있습니다. 그렇지 않으면 로컬 개발 환경으로 이동하고, 다음 Spring Cloud Sleuth 종속성을 포함하도록 pom.xml 파일을 편집합니다.
 
-    ```xml
-    <dependencyManagement>
-        <dependencies>
+    * Spring Boot 버전 2.4.x 미만
+
+      ```xml
+      <dependencyManagement>
+          <dependencies>
+              <dependency>
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-sleuth</artifactId>
+                  <version>${spring-cloud-sleuth.version}</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>
+          </dependencies>
+      </dependencyManagement>
+      <dependencies>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-sleuth</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-zipkin</artifactId>
+          </dependency>
+      </dependencies>
+      ```
+
+    * Spring Boot 버전 2.4.x 이상
+
+      ```xml
+      <dependencyManagement>
+          <dependencies>
             <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-sleuth</artifactId>
-                <version>${spring-cloud-sleuth.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-sleuth</artifactId>
-        </dependency>
-    </dependencies>
-    ```
+                  <groupId>org.springframework.cloud</groupId>
+                  <artifactId>spring-cloud-sleuth</artifactId>
+                  <version>${spring-cloud-sleuth.version}</version>
+                  <type>pom</type>
+                  <scope>import</scope>
+              </dependency>
+          </dependencies>
+      </dependencyManagement>
+      <dependencies>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-starter-sleuth</artifactId>
+          </dependency>
+          <dependency>
+              <groupId>org.springframework.cloud</groupId>
+              <artifactId>spring-cloud-sleuth-zipkin</artifactId>
+           </dependency>
+      </dependencies>
+      ```
+
 
 1. Azure Spring Cloud 서비스에서 이러한 변경 내용을 반영하도록 다시 빌드하고 배포합니다.
 
@@ -181,4 +214,4 @@ Application Insights는 애플리케이션 맵과 검색 기능 외에도 모니
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Spring Cloud에서 분산 추적을 사용하도록 설정하고 이해하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩](spring-cloud-howto-bind-cosmos.md)을 참조하세요.
+이 문서에서는 Azure Spring Cloud에서 분산 추적을 사용하도록 설정하고 이해하는 방법을 알아보았습니다. 서비스를 애플리케이션에 바인딩하는 방법에 대한 자세한 내용은 [Azure Cosmos DB 데이터베이스를 Azure Spring Cloud 애플리케이션에 바인딩](./how-to-bind-cosmos.md)을 참조하세요.

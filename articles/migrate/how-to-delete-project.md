@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 8c94bb23f5d514fef5cdacb855657efdf5219631
+ms.sourcegitcommit: 3ed0f0b1b66a741399dc59df2285546c66d1df38
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100595145"
+ms.lasthandoff: 04/19/2021
+ms.locfileid: "107714743"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Azure Migrate 프로젝트 삭제
 
@@ -49,9 +49,11 @@ ms.locfileid: "100595145"
 > [!NOTE]
 > 키 자격 증명 모음을 삭제할 때는 보안 키가 포함되어 있을 수 있으므로 주의해야 합니다.
 
-### <a name="vmwarephysical-server"></a>VMware/물리적 서버
+### <a name="projects-with-public-endpoint-connectivity"></a>퍼블릭 엔드포인트 연결을 사용하는 프로젝트
 
-**리소스** | **유형**
+#### <a name="vmwarephysical-server"></a>VMware/물리적 서버
+
+**리소스** | **형식**
 --- | ---
 "Appliancename"kv | 주요 자격 증명 모음
 "Appliancename"site | Microsoft.OffAzure/VMwareSites
@@ -63,17 +65,61 @@ migrateappligwsa* | 스토리지 계정
 migrateapplilsa* | 스토리지 계정
 migrateapplicsa* | 스토리지 계정
 migrateapplikv* | 주요 자격 증명 모음
-migrateapplisbns16041 | Service Bus 네임스페이스
+migrateapplisbns* | Service Bus 네임스페이스
 
-### <a name="hyper-v-vm"></a>Hyper-V VM 
+#### <a name="hyper-v-vm"></a>Hyper-V VM
 
-**리소스** | **유형**
+**리소스** | **형식**
 --- | ---
 "ProjectName" | Microsoft.Migrate/migrateprojects
 "ProjectName"project | Microsoft.Migrate/assessmentProjects
 HyperV*kv | 주요 자격 증명 모음
 HyperV*Site | Microsoft.OffAzure/HyperVSites
 "ProjectName"-MigrateVault-* | Recovery Services 자격 증명 모음
+
+<br/>
+다음 표에는 [Azure 프라이빗 링크](./how-to-use-azure-migrate-with-private-endpoints.md)를 사용하여 프라이빗 네트워크를 통해 서버를 검색, 평가 및 마이그레이션하는 Azure Migrate에 의해 생성된 리소스가 요약되어 있습니다.
+
+### <a name="projects-with-private-endpoint-connectivity"></a>프라이빗 엔드포인트 연결을 사용하는 프로젝트
+
+#### <a name="vmware-vms---agentless-migrations"></a>VMware VM - 에이전트 없는 마이그레이션
+
+**형식** | **리소스** | **프라이빗 엔드포인트 <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+검색 사이트(마스터 사이트) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+주요 자격 증명 모음 | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/VMwareSites | "ApplianceName"*site | 해당 없음
+Recovery Services 자격 증명 모음 | "ApplianceName"*vault | 해당 없음
+스토리지 계정 | "ApplianceName"*usa | "ApplianceName"\*usa\*pe
+Recovery Services 자격 증명 모음 | "ProjectName"-MigrateVault-* | 해당 없음
+스토리지 계정 | migrateappligwsa* | 해당 없음
+스토리지 계정 | migrateapplilsa* | 해당 없음
+주요 자격 증명 모음 | migrateapplikv* | 해당 없음
+Service Bus 네임스페이스 | migrateapplisbns* | 해당 없음
+
+#### <a name="hyper-v-vms"></a>Hyper-V VM 
+
+**형식** | **리소스** | **프라이빗 엔드포인트 <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+검색 사이트(마스터 사이트) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+주요 자격 증명 모음 | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/HyperVSites | "ApplianceName"*site | 해당 없음
+Recovery Services 자격 증명 모음 | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
+
+#### <a name="physical-servers--aws-vms--gcp-vms"></a>물리적 서버 / AWS VM / GCP VM 
+
+**형식** | **리소스** | **프라이빗 엔드포인트 <br/>** |
+--- | --- | ---
+Microsoft.Migrate/migrateprojects | "ProjectName" | "ProjectName"\*pe 
+검색 사이트(마스터 사이트) | "ProjectName"*mastersite | "ProjectName"\*mastersite\*pe 
+Microsoft.Migrate/assessmentProjects | "ApplianceName"*project | "ApplianceName"\*project\*pe 
+주요 자격 증명 모음 | "ProjectName"*kv | "ProjectName"\*kv\*pe
+Microsoft.OffAzure/serversites | "ApplianceName"*site | 해당 없음
+Recovery Services 자격 증명 모음 | "ProjectName"-MigrateVault-* | "ProjectName"-MigrateVault-*pe
 
 
 ## <a name="next-steps"></a>다음 단계

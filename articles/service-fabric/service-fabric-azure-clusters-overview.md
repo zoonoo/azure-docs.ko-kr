@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: bbfdc0a30aa673e8602ec9233fde4236c99ef5aa
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 4aed4ab38db9f8d8b95647b6662245c93778afed
+ms.sourcegitcommit: db925ea0af071d2c81b7f0ae89464214f8167505
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97882214"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107520159"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Azure의 Service Fabric 클러스터 개요
 Service Fabric 클러스터는 마이크로 서비스가 배포되고 관리되는 네트워크로 연결된 가상 또는 실제 머신 집합입니다. 클러스터의 일부인 컴퓨터나 VM을 클러스터 노드라고 합니다. 클러스터의 규모를 수천 개의 노드로 확장할 수 있습니다. 새 노드를 클러스터에 추가하면 Service Fabric이 증가된 수의 노드에서 서비스 파티션 복제본 및 인스턴스의 균형을 조정합니다. 전반적인 애플리케이션 성능이 향상되고 메모리 액세스에 대한 경합이 감소합니다. 클러스터의 노드가 효율적으로 사용되지 않는 경우 클러스터의 노드 수를 줄일 수 있습니다. Service Fabric은 각 노드의 하드웨어를 보다 효율적으로 사용할 수 있도록 감소된 노드 수에 맞게 파티션 복제본 및 인스턴스의 균형을 다시 조정합니다.
@@ -92,25 +92,7 @@ Azure 서비스 패브릭 클러스터는 개인이 소유하지만 Microsoft에
 자세한 내용은 [클러스터 업그레이드](service-fabric-cluster-upgrade.md)를 참조하세요.
 
 ## <a name="supported-operating-systems"></a>지원되는 운영 체제
-다음 운영 체제를 실행하는 가상 머신에서 클러스터를 만들 수 있습니다.
-
-| 운영 체제 | 가장 먼저 지원되는 Service Fabric 버전 | 마지막으로 지원되는 Service Fabric 버전 |
-| --- | --- | --- | 
-| Windows Server 2019 | 6.4.654.9590 | 해당 없음 |
-| Windows Server 2016 | 모든 버전 | 해당 없음 |
-| Windows Server 20H2 | 7.2.445.9590 | 해당 없음 |
-| Windows Server 1809 | 6.4.654.9590 | 7.2.445.9590 |
-| Windows Server 1803 | 6.4 | 7.2.445.9590 |
-| Windows Server 1709 | 6.0 | 7.2.445.9590 |
-| Windows Server 2012 | 모든 버전 | 해당 없음 | 
-| Linux Ubuntu 16.04 | 6.0 | 해당 없음 |
-| Linux Ubuntu 18.04 | 7.1 | 해당 없음 |
-
-자세한 내용은 [Azure에서 지원되는 클러스터 버전](./service-fabric-versions.md#supported-operating-systems)을 참조하세요.
-
-> [!NOTE]
-> Windows Server 1709에 Service Fabric을 배포하기로 결정한 경우 (1) 장기 서비스 분기가 아니므로 나중에 버전을 이동해야 할 수 있으며 (2) 컨테이너를 배포하는 경우 Windows Server 2016에 빌드한 컨테이너는 Windows Server 1709에서 작동하지 않으며 그 반대의 경우도 마찬가지라는(배포하려면 다시 빌드가 필요함) 점에 유의해야 합니다.
->
+추가 정보는 [Azure에서 지원되는 버전](./service-fabric-versions.md)을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

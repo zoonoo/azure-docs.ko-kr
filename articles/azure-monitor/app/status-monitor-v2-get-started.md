@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 21184e1623fd47e8367d4c5dfbc2c85debe93124
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 543beb95fd5f207ae7e9a9076feceef42cc854b4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100587396"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108130074"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대한 Azure Monitor Application Insights 에이전트 시작하기
 
@@ -21,11 +21,13 @@ ms.locfileid: "100587396"
 
 이러한 명령에 대한 설명, 사용자 지정 지침, 문제 해결 관련 정보는 [자세한 지침](status-monitor-v2-detailed-instructions.md)을 참조하세요.
 
-Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="download-and-install-via-powershell-gallery"></a>PowerShell 갤러리를 통해 다운로드 및 설치
 
 ### <a name="install-prerequisites"></a>필수 구성 요소 설치
+
+- 모니터링을 사용하도록 설정하려면 연결 문자열이 필요합니다. 연결 문자열이 Application Insights 리소스의 개요 블레이드에 표시됩니다. 자세한 내용은 [연결 문자열](./sdk-connection-string.md?tabs=net#finding-my-connection-string) 페이지를 참조하세요.
 
 > [!NOTE]
 > 2020년 4월 기준으로 PowerShell 갤러리는 TLS 1.1 및 1.0을 사용하지 않습니다.
@@ -50,9 +52,10 @@ Install-Module -Name Az.ApplicationMonitor -AllowPrerelease -AcceptLicense
 ``` 
 
 ### <a name="enable-monitoring"></a>모니터링 사용
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
-Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
     
         
@@ -69,9 +72,11 @@ $pathInstalledModule = "$Env:ProgramFiles\WindowsPowerShell\Modules\Az.Applicati
 Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```
 ### <a name="enable-monitoring"></a>모니터링 사용
+
 ```powershell
-Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Enable-ApplicationInsightsMonitoring -ConnectionString 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 ```
+
 
 
 
@@ -80,18 +85,17 @@ Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-x
  원격 분석 보기:
 
 - [메트릭을 탐색하여](../essentials/metrics-charts.md) 성능 및 사용량을 모니터링합니다.
-- [이벤트 및 로그를 검색하여](./diagnostic-search.md) 문제를 진단합니다.
+- [이벤트 및 로그를 검색](./diagnostic-search.md)하여 문제를 진단합니다.
 - [분석을 통해](../logs/log-query-overview.md) 고급 쿼리를 수행합니다.
 - [대시보드를 만듭니다](./overview-dashboard.md).
 
  원격 분석 더 추가:
 
 - [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지되고 있는지 확인합니다.
-- [웹 클라이언트 원격 분석을 추가하여](./javascript.md) 웹 페이지 코드에서 예외를 확인하고 추적 호출을 활성화합니다.
-- [Application Insights SDK를 코드에 추가하여](./asp-net.md) 추적 및 로그 호출을 삽입할 수 있도록 합니다.
+- [웹 클라이언트 원격 분석을 추가](./javascript.md)하여 웹 페이지 코드에서 예외를 확인하고 추적 호출을 활성화합니다.
+- [Application Insights SDK를 코드에 추가](./asp-net.md)하여 추적 및 로그 호출을 삽입할 수 있도록 합니다.
 
 Application Insights Agent에서 지원하는 더 많은 작업:
 
 - [구체적인 지침](status-monitor-v2-detailed-instructions.md)을 검토하여 여기에 있는 명령의 설명을 확인하세요.
 - 가이드를 참조하여 Application Insights Agent [문제를 해결](status-monitor-v2-troubleshoot.md)할 수 있습니다.
-

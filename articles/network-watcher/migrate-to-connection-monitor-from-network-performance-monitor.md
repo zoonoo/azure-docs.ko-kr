@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 18d0a24de6f0775fdb35799512f9796a323d353a
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: be12a9054fd67b243530ff671c10fa53acafc308
+ms.sourcegitcommit: dddd1596fa368f68861856849fbbbb9ea55cb4c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105045487"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107366354"
 ---
 # <a name="migrate-to-connection-monitor-from-network-performance-monitor"></a>네트워크 성능 모니터에서 연결 모니터로 마이그레이션
 
@@ -43,7 +43,7 @@ ms.locfileid: "105045487"
     
 ## <a name="prerequisites"></a>필수 구성 요소
 
-* 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용하도록 설정했는지 확인합니다. 
+* 구독 및 Log Analytics 작업 영역의 지역에서 Network Watcher를 사용하도록 설정했는지 확인합니다. 그렇지 않으면 “마이그레이션을 시도하기 전에 선택 구독 및 선택된 LA 작업 영역 위치에서 Network Watcher 확장을 사용하도록 설정하세요"라는 오류가 표시됩니다.
 * Log Analytics 작업 영역의 지역/구독이 아닌 다른 지역/구독에 속한 Azure VM이 엔드포인트로 사용되는 경우 해당 구독 및 지역에서 Network Watcher를 사용하도록 설정해야 합니다.   
 * Log Analytics 에이전트가 설치된 Azure 가상 머신은 Network Watcher 확장과 함께 사용하도록 설정해야 합니다.
 
@@ -57,6 +57,10 @@ ms.locfileid: "105045487"
     
 1. 드롭다운 목록에서 구독 및 작업 영역을 선택한 다음 마이그레이션할 NPM 기능을 선택합니다. 
 1. **가져오기** 를 선택하여 테스트를 마이그레이션합니다.
+* 작업 영역에서 NPM를 사용하도록 설정하지 않은 경우 "올바른 NPM 구성을 찾을 수 없습니다."라는 오류가 표시됩니다. 
+* 2 단계에서 선택한 기능에 테스트가 없으면 "선택한 작업 영역에 <feature> 구성이 없습니다.”라는 오류가 표시됩니다.
+* 유효한 테스트가 없으면 "선택한 작업 영역에 유효한 테스트가 없습니다."라는 오류가 표시됩니다.
+* 테스트에 더 이상 활성 상태가 아니나 과거에 활성 상태였던 에이전트가 포함될 수 있습니다. "일부 테스트에 더 이상 활성 상태가 아닌 에이전트가 포함되어 있습니다. 비활성 에이전트 목록- {0}. 이러한 에이전트는 이전에 실행되었을 수 있지만 종료되었거나 더 이상 실행되지 않습니다. 에이전트를 사용하도록 설정하고 연결 모니터로 마이그레이션합니다. 활성 상태가 아닌 에이전트 없이 테스트를 마이그레이션하려면 계속을 클릭하십시오.”라는 오류 메시지가 표시될 수 있습니다.
 
 마이그레이션이 시작된 후에는 다음 변경 내용이 적용됩니다. 
 * 새 연결 모니터 리소스가 생성됩니다.

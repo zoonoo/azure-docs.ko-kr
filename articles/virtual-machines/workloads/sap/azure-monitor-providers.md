@@ -6,12 +6,12 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 1282d1916d669f1026707e15cc8d5437d885087f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: fe8ac81a8b04aa88ce91a978c2bc9b979a065370
+ms.sourcegitcommit: d3bcd46f71f578ca2fd8ed94c3cdabe1c1e0302d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101669001"
+ms.lasthandoff: 04/16/2021
+ms.locfileid: "107576162"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>SAP 솔루션을 위한 Azure Monitor 공급자(미리 보기)
 
@@ -22,20 +22,35 @@ SAP 솔루션을 위한 Azure Monitor라는 컨텍스트에서, *공급자 유�
 고객은 자신의 SAP 환경에서 대응하는 구성 요소로부터 데이터를 수집할 수 있도록 다양한 공급자 유형을 구성하게 선택할 수 있습니다. 예를 들어, 고객은 하나의 공급자를 SAP HANA 공급자 유형을 위해 구성하고 다른 하나를 고가용성 클러스터 공급자 유형을 위해 구성하는 등으로 구성할 수 있습니다.  
 
 뿐만 아니라 고객은 특정 공급자 유형의 공급자를 여럿 구성하도록 하여 동일한 SAP 모니터 리소스와 관련된 관리형 그룹을 재사용할 수도 있습니다. 관리되는 리소스 그룹에 대해 자세히 알아봅니다. 퍼블릭 미리 보기의 경우 다음 공급자 유형이 지원됩니다.   
+- SAP NetWeaver
 - SAP HANA
-- 고가용성 클러스터
 - Microsoft SQL Server
+- 고가용성 클러스터
+- 운영 체제
 
-![SAP 솔루션을 위한 Azure Monitor 공급자](./media/azure-monitor-sap/azure-monitor-providers.png)
+![SAP 솔루션을 위한 Azure Monitor 공급자](https://user-images.githubusercontent.com/75772258/115047655-5a5b2c00-9ef6-11eb-9e0c-073e5e1fcd0e.png)
 
 고객은 SAP 모니터 리소스 배포 시 사용할 수 있는 공급자 유형에서 적어도 하나의 공급자를 구성하는 것이 좋습니다. 공급자 구성을 통해 고객은 공급자를 구성할 해당 구성 요소에서 데이터를 수집하기 시작합니다.   
 
 고객이 SAP 모니터 리소스 배포 시 공급자를 구성하지 않은 경우, SAP 모니터 리소스가 성공적으로 배포되더라도 원격 분석 데이터가 수집되지 않습니다. 고객은 Azure Portal 내의 SAP 모니터 리소스를 통해 배포 후에 공급자를 추가할 수 있는 옵션을 이용할 수 있습니다. 고객은 언제라도 SAP 모니터 리소스에서 공급자를 추가하거나 삭제할 수 있습니다.
 
-> [!Tip]
-> Microsoft이 특정 공급자를 구현하도록 하려면 본 문서 마지막의 링크나 계정 팀을 통해 피드백을 남겨 주세요.  
+## <a name="provider-type-sap-netweaver"></a>공급자 유형: SAP NetWeaver
 
-## <a name="provider-type-sap-hana"></a>SAP HANA 공급자 유형
+고객은 하나 이상의 공급자를 SAP NetWeaver 공급자 유형으로 구성하여 SAP NetWeaver 계층에서 데이터를 수집하도록 설정할 수 있습니다. AMS NetWeaver 공급자는 기존 [SAPControl 웹 서비스](https://www.sap.com/documents/2016/09/0a40e60d-8b7c-0010-82c7-eda71af511fa.html) 인터페이스를 활용하여 적절한 원격 분석 정보를 검색합니다.
+
+현재 릴리스의 경우 AMS에서 호출하는 표준 기본 SOAP 웹 메서드는 다음과 같습니다.
+
+![image1](https://user-images.githubusercontent.com/75772258/114600036-820d8280-9cb1-11eb-9f25-d886ab1d5414.png)
+
+공개 미리 보기에서 고객은 SAP NetWeaver 공급자를 통해 다음 데이터를 확인할 수 있습니다. 
+- 시스템 및 인스턴스 가용성
+- 작업 프로세스 사용률
+- 큐 사용률
+- 큐에 넣은 잠금 통계.
+
+![이미지](https://user-images.githubusercontent.com/75772258/114581825-a9f2eb00-9c9d-11eb-8e6f-79cee7c5093f.png)
+
+## <a name="provider-type-sap-hana"></a>공급자 유형: SAP HANA
 
 고객은 하나 이상의 공급자를 *SAP HANA* 공급자 유형으로 구성하여 SAP HANA 데이터베이스로부터 데이터를 수집하도록 설정할 수 있습니다. SAP HANA 공급자는 SQL 포트를 통해 SAP HANA 데이터베이스와 연결되며 해당 데이터베이스에서 원격 분석 데이터를 가져와 고객 구독의 Log Analytics 작업 영역으로 보냅니다. SAP HANA 공급자는 SAP HANA 데이터베이스에서 1분마다 데이터를 수집합니다.  
 
@@ -43,7 +58,17 @@ SAP 솔루션을 위한 Azure Monitor라는 컨텍스트에서, *공급자 유�
 
 ![SAP 솔루션을 위한 Azure Monitor 공급자 - SAP HANA](./media/azure-monitor-sap/azure-monitor-providers-hana.png)
 
-## <a name="provider-type-high-availability-cluster"></a>고가용성 클러스터 공급자 유형
+## <a name="provider-type-microsoft-sql-server"></a>공급자 유형: Microsoft SQL Server
+
+고객은 하나 이상의 공급자를 *Microsoft SQL Server* 공급자 유형으로 구성하여 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)로부터 데이터를 수집하도록 설정할 수 있습니다. SQL Server 공급자는 SQL 포트를 통해 Microsoft SQL Server와 연결하며, 데이터베이스에서 가져온 원격 분석 데이터를 고객 구독의 Log Analytics 작업 영역에 보냅니다. SQL Server는 SAP DB를 해당 공급자용 기본 데이터베이스로 하여 만든 상태로 SQL 인증 및 SQL Server 로그인에 맞게 구성되어야 합니다. SQL Server 공급자는 SQL Server에서 60초~1시간마다 데이터를 수집합니다.  
+
+퍼블릭 미리 보기에서 고객은 SQL Server 공급자의 기본 인프라 사용률, 상위 SQL 문, 최대 테이블, SQL Server 오류 로그에 기록된 문제들, 차단 프로세스 등을 확인할 수 있을 것으로 기대합니다.  
+
+Microsoft SQL Server 공급자 구성에는 SAP 시스템 ID, 호스트 IP 주소, SQL Server 포트 번호, SQL Server 로그인 이름 및 암호가 필요합니다.
+
+![SAP 솔루션을 위한 Azure Monitor 공급자 - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
+
+## <a name="provider-type-high-availability-cluster"></a>공급자 유형: 고가용성 클러스터
 고객은 하나 이상의 공급자를 *고가용성 클러스터* 공급자 유형으로 구성하여 SAP 환경의 Pacemaker 클러스터에서 데이터를 수집하도록 설정할 수 있습니다. 고가용성 클러스터 공급자는 [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) 엔드포인트를 통해 Pacemaker와 연결되며 해당 데이터베이스에서 원격 분석 데이터를 가져와 고객 구독의 Log Analytics 작업 영역으로 보냅니다. 고가용성 클러스터 공급자는 Pacemaker에서 60초마다 데이터를 수집합니다.  
 
 퍼블릭 미리 보기에서 고객은 고가용성 클러스터 공급자의 다음 데이터를 확인할 수 있을 것으로 기대합니다.   
@@ -71,8 +96,7 @@ SAP 솔루션을 위한 Azure Monitor라는 컨텍스트에서, *공급자 유�
    - **클러스터 이름**. 클러스터를 만들 때 사용되는 클러스터 이름입니다. 클러스터 이름은 클러스터 속성 `cluster-name`에서 찾을 수 있습니다.
    - **호스트 이름**. VM의 Linux 호스트 이름입니다.  
 
-
-## <a name="provider-type-os-linux"></a>OS(Linux) 공급자 유형
+## <a name="provider-type-os-linux"></a>공급자 유형: OS(Linux)
 고객은 하나 이상의 공급자를 OS(Linux) 공급자 유형으로 구성하여 BareMetal 또는 VM 노드로부터 데이터를 수집하도록 설정할 수 있습니다. OS(Linux) 공급자는  [Node_Exporter](https://github.com/prometheus/node_exporter) 엔드포인트를 통해 BareMetal 또는 VM 노드에 연결되며, 해당 노드에서 원격 분석 데이터를 가져와 고객 구독의 Log Analytics 작업 영역으로 보냅니다. OS(Linux) 클러스터 공급자는 노드에서 60초마다 메트릭의 대부분에 대한 데이터를 수집합니다. 
 
 퍼블릭 미리 보기에서 고객은 OS(Linux) 공급자의 다음 데이터를 확인할 수 있을 것으로 기대합니다. 
@@ -98,18 +122,7 @@ OS(Linux) 공급자를 구성하는 데에는 다음 두 가지의 기본 단계
 > [!Warning]
 > 노드 재부팅 후에는 Node Exporter가 실행 중인지 확인합니다. 
 
-
-## <a name="provider-type-microsoft-sql-server"></a>Microsoft SQL Server 공급자 유형
-
-고객은 하나 이상의 공급자를 *Microsoft SQL Server* 공급자 유형으로 구성하여 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)로부터 데이터를 수집하도록 설정할 수 있습니다. SQL Server 공급자는 SQL 포트를 통해 Microsoft SQL Server와 연결하며, 데이터베이스에서 가져온 원격 분석 데이터를 고객 구독의 Log Analytics 작업 영역에 보냅니다. SQL Server는 SAP DB를 해당 공급자용 기본 데이터베이스로 하여 만든 상태로 SQL 인증 및 SQL Server 로그인에 맞게 구성되어야 합니다. SQL Server 공급자는 SQL Server에서 60초~1시간마다 데이터를 수집합니다.  
-
-퍼블릭 미리 보기에서 고객은 SQL Server 공급자의 기본 인프라 사용률, 상위 SQL 문, 최대 테이블, SQL Server 오류 로그에 기록된 문제들, 차단 프로세스 등을 확인할 수 있을 것으로 기대합니다.  
-
-Microsoft SQL Server 공급자 구성에는 SAP 시스템 ID, 호스트 IP 주소, SQL Server 포트 번호, SQL Server 로그인 이름 및 암호가 필요합니다.
-
-![SAP 솔루션을 위한 Azure Monitor 공급자 - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
-
 ## <a name="next-steps"></a>다음 단계
 
-- SAP 솔루션을 위한 첫 번째 Azure Monitor 리소스를 만듭니다.
+- [온보딩 단계](./azure-monitor-sap-quickstart.md)를 참조하여 SAP 솔루션을 위한 첫 번째 Azure Monitor 리소스를 만듭니다.
 - SAP 솔루션을 위한 Azure Monitor에 대해 질문이 있나요? [FAQ](./azure-monitor-faq.md) 섹션을 확인하세요.

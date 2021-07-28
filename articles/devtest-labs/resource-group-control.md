@@ -3,12 +3,12 @@ title: Azure DevTest Labs에서 VM에 대한 리소스 그룹 지정 | Microsoft
 description: Azure DevTest Labs의 랩에서 VM에 대한 리소스 그룹을 지정하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7b72048405d3025ca21b324b6ad3168dd0c9ac95
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: c6f576a20fc8fada9dd515e8ba2a266761a3e586
+ms.sourcegitcommit: 2654d8d7490720a05e5304bc9a7c2b41eb4ae007
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "85483366"
+ms.lasthandoff: 04/13/2021
+ms.locfileid: "107377491"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 가상 머신에 대한 리소스 그룹 지정
 
@@ -76,7 +76,7 @@ Azure Resource Manager 템플릿을 사용하여 랩을 만드는 경우 다음 
         {
             "type": "microsoft.devtestlab/labs",
             "name": "[parameters('lab_name')]",
-            "apiVersion": "2018_10_15_preview",
+            "apiVersion": "2018-10-15-preview",
             "location": "eastus",
             "tags": {},
             "scale": null,
@@ -103,7 +103,7 @@ Azure Resource Manager 템플릿을 사용하여 랩을 만드는 경우 다음 
 이 설정은 랩에 생성된 새 가상 머신에 적용됩니다. 자체 리소스 그룹에 생성된 랩의 이전 VM은 영향을 받지 않고 유지됩니다. 랩에 생성된 환경은 자체 리소스 그룹에 계속 유지됩니다.
 
 이 API를 사용하는 방법:
-- API 버전 **2018_10_15_preview** 를 사용합니다.
+- API 버전 **2018-10-15-preview** 를 사용합니다.
 - 새 리소스 그룹을 지정하는 경우 구독의 **리소스 그룹에 대한 쓰기 권한** 이 있는지 확인하세요. 쓰기 권한이 없는 경우 지정된 리소스 그룹에 새 가상 머신을 만들면 오류가 발생합니다.
 - 이 API를 사용하는 동안 **전체 리소스 그룹 ID** 를 전달합니다. 예: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>` 리소스 그룹이 랩과 동일한 구독에 있는지 확인합니다. 
 
