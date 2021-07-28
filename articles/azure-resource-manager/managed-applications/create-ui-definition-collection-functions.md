@@ -1,15 +1,15 @@
 ---
 title: UI 정의 컬렉션 함수 만들기
-description: 배열 및 개체와 같은 컬렉션으로 작업할 때 사용할 함수에 대해 설명 합니다.
+description: 배열 및 개체와 같은 컬렉션으로 작업할 때 사용할 함수를 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: tomfitz
 ms.openlocfilehash: 2a075c5c99f457681cd49e75014487bf9cca263c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87098199"
 ---
 # <a name="createuidefinition-collection-functions"></a>CreateUiDefinition 컬렉션 함수
@@ -20,7 +20,7 @@ ms.locfileid: "87098199"
 
 문자열에 지정된 부분 문자열이 포함되어 있거나, 배열에 지정된 값이 포함되어 있거나, 개체에 지정된 키가 포함되어 있으면 `true`를 반환합니다.
 
-### <a name="example-string-contains"></a>예: 문자열 포함
+### <a name="example-string-contains"></a>예: string contains
 
 다음 예제는 `true`을 반환합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "87098199"
 "[contains('webapp', 'web')]"
 ```
 
-### <a name="example-array-contains"></a>예: 배열 contains
+### <a name="example-array-contains"></a>예: array contains
 
 `element1`이 `[1, 2, 3]`을 반환한다고 가정합니다. 다음 예제는 `false`을 반환합니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "87098199"
 "[contains(steps('demoStep').element1, 4)]"
 ```
 
-### <a name="example-object-contains"></a>예: 개체 contains
+### <a name="example-object-contains"></a>예: object contains
 
 `element1`이 다음을 반환한다고 가정합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "87098199"
 
 문자열, 배열 또는 개체가 null이거나 비어 있으면 `true`를 반환합니다.
 
-### <a name="example-string-empty"></a>예: 문자열이 비어 있음
+### <a name="example-string-empty"></a>예: string empty
 
 다음 예제는 `true`을 반환합니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "87098199"
 "[empty('')]"
 ```
 
-### <a name="example-array-empty"></a>예: 배열이 비어 있습니다.
+### <a name="example-array-empty"></a>예: array empty
 
 `element1`이 `[1, 2, 3]`을 반환한다고 가정합니다. 다음 예제는 `false`을 반환합니다.
 
@@ -100,9 +100,9 @@ ms.locfileid: "87098199"
 
 ## <a name="filter"></a>filter
 
-람다 함수로 제공 된 필터링 논리를 적용 한 후 새 배열을 반환 합니다. 첫 번째 매개 변수는 필터링에 사용할 배열입니다. 두 번째 매개 변수는 필터링 논리를 지정 하는 람다 함수입니다.
+람다 함수로 제공된 필터링 논리를 적용한 후 새 배열을 반환합니다. 첫 번째 매개 변수는 필터링에 사용할 배열입니다. 두 번째 매개 변수는 필터링 논리를 지정하는 람다 함수입니다.
 
-다음 샘플에서는 배열을 반환 합니다 `[ { "name": "abc" } ]` .
+다음 샘플에서는 배열 `[ { "name": "abc" } ]`를 반환합니다.
 
 ```json
 "[filter(parse('[{\"name\":\"abc\"},{\"name\":\"xyz\"}]'), (item) => contains(item.name, 'abc'))]"
@@ -149,7 +149,7 @@ ms.locfileid: "87098199"
 
 지정된 문자열의 마지막 문자, 지정된 배열의 마지막 값 또는 지정된 개체의 마지막 키와 값을 반환합니다.
 
-### <a name="example-string-last"></a>예: last 문자열
+### <a name="example-string-last"></a>예: string last
 
 다음 예제는 `"o"`을 반환합니다.
 
@@ -157,7 +157,7 @@ ms.locfileid: "87098199"
 "[last('contoso')]"
 ```
 
-### <a name="example-array-last"></a>예: 마지막 배열
+### <a name="example-array-last"></a>예: array last
 
 `element1`이 `[1, 2, 3]`을 반환한다고 가정합니다. 다음 예제는 `3`을 반환합니다.
 
@@ -165,7 +165,7 @@ ms.locfileid: "87098199"
 "[last(steps('demoStep').element1)]"
 ```
 
-### <a name="example-object-last"></a>예: last 개체
+### <a name="example-object-last"></a>예: object last
 
 `element1`이 다음을 반환한다고 가정합니다.
 
@@ -186,7 +186,7 @@ ms.locfileid: "87098199"
 
 문자열의 문자 수, 배열의 값 수 또는 개체의 키 수를 반환합니다.
 
-### <a name="example-string-length"></a>예: 문자열 길이
+### <a name="example-string-length"></a>예: string length
 
 다음 예제는 `7`을 반환합니다.
 
@@ -194,7 +194,7 @@ ms.locfileid: "87098199"
 "[length('Contoso')]"
 ```
 
-### <a name="example-array-length"></a>예: 배열 길이
+### <a name="example-array-length"></a>예: array length
 
 `element1`이 `[1, 2, 3]`을 반환한다고 가정합니다. 다음 예제는 `3`을 반환합니다.
 
@@ -202,7 +202,7 @@ ms.locfileid: "87098199"
 "[length(steps('demoStep').element1)]"
 ```
 
-### <a name="example-object-length"></a>예: 개체 길이
+### <a name="example-object-length"></a>예: object length
 
 `element1`이 다음을 반환한다고 가정합니다.
 
@@ -221,15 +221,15 @@ ms.locfileid: "87098199"
 
 ## <a name="map"></a>map
 
-제공 된 배열에서 람다 함수를 호출한 후 새 배열을 반환 합니다. 첫 번째 매개 변수는 람다 함수에 사용할 배열입니다. 두 번째 매개 변수는 람다 함수입니다.
+제공된 배열에서 람다 함수를 호출한 후 새 배열을 반환합니다. 첫 번째 매개 변수는 람다 함수에 사용할 배열입니다. 두 번째 매개 변수는 람다 함수입니다.
 
-다음 샘플에서는 모든 값이 배가 되는 새 배열을 반환 합니다. 결과는 `[2, 4, 6]`입니다.
+다음 샘플에서는 모든 값이 두 배가 되는 새 배열을 반환합니다. 결과는 `[2, 4, 6]`입니다.
 
 ```json
 "[map(parse('[1, 2, 3]'), (item) => mul(2, item))]"
 ```
 
-다음 샘플에서는 새 배열을 반환 합니다 `["abc", "xyz"]` .
+다음 샘플에서는 새 배열 `["abc", "xyz"]`를 반환합니다.
 
 ```json
 "[map(parse('[{\"name\":\"abc\"},{\"name\":\"xyz\"}]'), (item) => item.name)]"
@@ -239,7 +239,7 @@ ms.locfileid: "87098199"
 
 컬렉션에서 지정된 개수의 요소를 건너뛴 다음 나머지 요소를 반환합니다.
 
-### <a name="example-string-skip"></a>예: 문자열 skip
+### <a name="example-string-skip"></a>예: string skip
 
 다음 예제는 `"app"`을 반환합니다.
 
@@ -247,7 +247,7 @@ ms.locfileid: "87098199"
 "[skip('webapp', 3)]"
 ```
 
-### <a name="example-array-skip"></a>예: 배열 건너뛰기
+### <a name="example-array-skip"></a>예: array skip
 
 `element1`이 `[1, 2, 3]`을 반환한다고 가정합니다. 다음 예제는 `[3]`을 반환합니다.
 
@@ -273,9 +273,9 @@ ms.locfileid: "87098199"
 
 ## <a name="split"></a>분할
 
-구분 기호로 구분 된 입력의 부분 문자열을 포함 하는 문자열 배열을 반환 합니다.
+구분 기호로 구분되는 입력의 substring을 포함하는 문자열의 배열을 반환합니다.
 
-다음 샘플에서는 배열을 반환 합니다 `[ "555", "867", "5309" ]` .
+다음 샘플에서는 배열 `[ "555", "867", "5309" ]`를 반환합니다.
 
 ```json
 "[split('555-867-5309', '-')]"
@@ -285,7 +285,7 @@ ms.locfileid: "87098199"
 
 문자열의 시작 부분부터 지정된 개수의 연속 문자, 배열의 시작 부분부터 지정된 개수의 연속 값 또는 개체의 시작 부분부터 지정된 개수의 연속 키와 값을 반환합니다.
 
-### <a name="example-string-take"></a>예: 문자열 take
+### <a name="example-string-take"></a>예: string take
 
 다음 예제는 `"web"`을 반환합니다.
 
@@ -301,7 +301,7 @@ ms.locfileid: "87098199"
 "[take(steps('demoStep').element1, 2)]"
 ```
 
-### <a name="example-object-take"></a>예: 개체 take
+### <a name="example-object-take"></a>예: object take
 
 `element1`이 다음을 반환한다고 가정합니다.
 

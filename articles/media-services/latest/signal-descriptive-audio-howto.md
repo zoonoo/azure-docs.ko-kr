@@ -1,6 +1,6 @@
 ---
-title: Media Services v3로 설명 오디오 트랙 신호 보내기
-description: 이 자습서의 단계에 따라 파일을 업로드 하 고, 비디오를 인코딩하고, 설명 오디오 트랙을 추가 하 고, Media Services v3로 콘텐츠를 스트리밍합니다.
+title: Media Services v3를 통해 설명 오디오 트랙 신호 알림
+description: 이 자습서의 단계에 따라 Media Services v3로 파일을 업로드하고, 비디오를 인코딩하고, 설명 오디오 트랙을 추가하고, 콘텐츠를 스트림합니다.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,79 +12,79 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: 00a3fa397bf88520fa4923b6fbe7495c0aa0b8a2
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596725"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106277405"
 ---
-# <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호
+# <a name="signal-descriptive-audio-tracks"></a>설명 오디오 트랙 신호 알림
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-비디오에 내레이션 트랙을 추가 하 여 시각적으로 장애가 있는 클라이언트가 내레이션을 수신 하 여 비디오 녹화를 따르도록 할 수 있습니다. Media Services v3에서 매니페스트 파일의 오디오 트랙에 주석을 달고 설명 오디오 트랙에 신호를 보낼 수 있습니다.
+비디오에 내레이션 트랙을 추가하면 시각 장애가 있는 클라이언트가 내레이션을 듣고 비디오 녹화를 수행할 수 있습니다. Media Services v3에서는 매니페스트 파일의 오디오 트랙에 주석을 추가하여 설명 오디오 트랙에 관한 신호 알림을 보냅니다.
 
-이 문서에서는 비디오를 인코딩하고, 설명 오디오를 포함 하는 오디오 전용 MP4 파일 (AAC 코덱)을 출력 자산에 업로드 하 고, 설명 오디오를 포함 하도록 ism 파일을 편집 하는 방법을 보여 줍니다.
+이 문서에서는 비디오를 인코딩하고, 설명 오디오가 포함된 오디오 전용 MP4 파일(AAC 코덱)을 출력 자산에 업로드하고, 설명 오디오를 포함하도록 .ism 파일을 편집하는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- [Media Services 계정 만들기](./create-account-howto.md)
+- [Media Services 계정 만들기](./account-create-how-to.md)
 - [Azure CLI를 사용하여 Azure Media Services API 액세스](./access-api-howto.md)의 단계를 수행하고 자격 증명을 저장합니다. API에 액세스할 때 필요합니다.
-- [동적 패키징](dynamic-packaging-overview.md)을 검토 합니다.
-- [비디오 업로드, 인코딩 및 스트리밍](stream-files-tutorial-with-api.md) 자습서를 검토 합니다.
+- [동적 패키징](encode-dynamic-packaging-concept.md)을 검토합니다.
+- [비디오 업로드, 인코딩 및 스트림](stream-files-tutorial-with-api.md) 자습서를 검토합니다.
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>입력 자산을 만들고 여기에 로컬 파일 업로드 
 
-**CreateInputAsset** 함수는 새로운 입력 [Asset](/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 **자산은** 인코딩 작업에 대 한 입력으로 사용 됩니다. Media Services v 3에서 **작업** 에 대 한 입력은 **자산** 이거나 HTTPS url을 통해 Media Services 계정에 제공 되는 콘텐츠 일 수 있습니다. 
+**CreateInputAsset** 함수는 새로운 입력 [Asset](/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 **자산** 은 인코딩 작업에 대한 입력으로 사용됩니다. Media Services v3에서 **작업** 에 대한 입력은 **자산** 이거나 HTTPS URL을 통해 Media Services 계정에서 사용할 수 있는 콘텐츠일 수도 있습니다. 
 
-HTTPS URL에서 인코딩하는 방법에 대 한 자세한 내용은 [이 문서](job-input-from-http-how-to.md) 를 참조 하세요.  
+HTTPS URL에서 인코딩하는 방법을 알아보려면 [이 문서](job-input-from-http-how-to.md)를 참조하세요.  
 
 Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드합니다. 다음 .NET 코드 조각에서 방법을 참조하세요.
 
 다음 함수는 아래와 같은 작업을 수행합니다.
 
-* **자산** 을 만듭니다. 
-* [저장소에서 자산의 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) 에 쓸 수 있는 [SAS URL](../../storage/common/storage-sas-overview.md) 을 가져옵니다.
+* **자산** 만들기 
+* [스토리지의 자산 컨테이너](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container)에 쓰기가 가능한 [SAS URL](../../storage/common/storage-sas-overview.md) 가져오기
 * SAS URL을 사용하여 스토리지의 컨테이너에 파일 업로드
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-만든 입력 자산의 이름을 다른 메서드에 전달 해야 하는 경우에서 반환 된 자산 개체의 속성을 사용 해야 `Name` `CreateInputAssetAsync` 합니다 (예: inputAsset.Name). 
+생성된 입력 자산의 이름을 다른 메서드에 전달해야 하는 경우 `CreateInputAssetAsync`에서 반환된 자산 개체의 `Name` 속성(예: inputAsset.Name)을 사용해야 합니다. 
 
-## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>인코딩 작업의 결과를 저장할 출력 자산 만들기
+## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>인코딩 작업 결과를 저장할 출력 자산 만들기
 
 출력 [Asset](/rest/api/media/assets)은 인코딩 작업의 결과를 저장합니다. 다음 함수는 출력 자산을 만드는 방법을 보여 줍니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
-만든 출력 자산의 이름을 다른 메서드에 전달 해야 하는 경우에서 반환 된 자산 개체의 속성을 사용 해야 `Name` `CreateIOutputAssetAsync` 합니다 (예: outputAsset.Name). 
+생성된 출력 자산의 이름을 다른 메서드에 전달해야 하는 경우 `CreateIOutputAssetAsync`에서 반환된 자산 개체의 `Name` 속성(예: outputAsset.Name)을 사용해야 합니다. 
 
-이 문서의 경우 `outputAsset.Name` 값을 `SubmitJobAsync` 및 함수에 전달 `UploadAudioIntoOutputAsset` 합니다.
+이 문서의 경우 `outputAsset.Name` 값을 `SubmitJobAsync` 및 `UploadAudioIntoOutputAsset` 함수에 전달합니다.
 
-## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>업로드 된 파일을 인코딩하는 변환 및 작업 만들기
+## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>업로드된 파일을 인코딩하는 변환 및 작업 만들기
 
-Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job** 을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform** 이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transforms-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
+Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설정을 레시피로 설정하는 것이 일반적인 패턴입니다. 그런 다음, 이 레시피가 비디오에 적용되도록 **Job** 을 제출합니다. 새 비디오에 대한 새 작업을 제출하면 라이브러리의 모든 비디오에 레시피가 적용됩니다. Media Services의 레시피를 **Transform** 이라고 합니다. 자세한 내용은 [Transform 및 Jobs](./transform-jobs-concept.md)를 참조하세요. 이 자습서에서 설명하는 샘플은 다양한 iOS 및 Android 디바이스로 스트리밍하기 위해 비디오를 인코딩하는 레시피를 정의합니다. 
 
-다음 예에서는 변환을 만듭니다 (없는 경우).
+다음 예제에서는 변환을 만듭니다(없는 경우).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
-다음 함수는 작업을 제출 합니다.
+다음 함수는 작업을 제출합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ## <a name="wait-for-the-job-to-complete"></a>작업이 완료될 때까지 대기
 
-작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. Event Grid를 사용 하 여 작업이 완료 될 때까지 대기 하는 것이 좋습니다.
+작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. Event Grid를 사용하여 작업이 완료되기를 기다리는 것이 좋습니다.
 
-작업은 일반적으로 **예약** 됨, **대기** **중, 처리 중**, **완료** 됨 상태 (최종 상태)로 이동 합니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고 완료되면 **취소됨** 이 표시됩니다.
+작업은 일반적으로 **예약됨**, **큐에 대기됨**, **처리 중**, **마침**(최종 상태) 상태를 거칩니다. 작업에서 오류가 발생하면 **오류** 상태가 표시됩니다. 작업을 취소 중인 경우 **취소 중** 이 표시되고 완료되면 **취소됨** 이 표시됩니다.
 
-자세한 내용은 [Event Grid 이벤트 처리](monitoring/reacting-to-media-services-events.md)를 참조 하세요.
+자세한 내용은 [Event Grid 이벤트 처리](monitoring/reacting-to-media-services-events.md)를 참조하세요.
 
 ## <a name="upload-the-audio-only-mp4-file"></a>오디오 전용 MP4 파일 업로드
 
-설명 오디오가 포함 된 추가 오디오 전용 MP4 파일 (AAC 코덱)을 출력 자산에 업로드 합니다.  
+설명 오디오가 포함된 추가 오디오 전용 MP4 파일(AAC 코덱)을 출력 자산에 업로드합니다.  
 
 ```csharp
 private static async Task UpoadAudioIntoOutputAsset(
@@ -129,22 +129,22 @@ private static async Task UpoadAudioIntoOutputAsset(
 }
 ```
 
-다음은 함수 호출의 예입니다 `UpoadAudioIntoOutputAsset` .
+다음은 `UpoadAudioIntoOutputAsset` 함수 호출의 예제입니다.
 
 ```csharp
 await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName, outputAsset.Name, "audio_description.m4a");
 ```
 
-## <a name="edit-the-ism-file"></a>Ism 파일 편집
+## <a name="edit-the-ism-file"></a>.ism 파일 편집
 
-인코딩 작업이 완료 되 면 출력 자산에 인코딩 작업에 의해 생성 된 파일이 포함 됩니다. 
+인코딩 작업이 완료되면 인코딩 작업에서 생성된 파일이 출력 자산에 포함됩니다. 
 
-1. Azure Portal에서 Media Services 계정과 연결 된 저장소 계정으로 이동 합니다. 
-1. 출력 자산의 이름이 있는 컨테이너를 찾습니다. 
-1. 컨테이너에서 ism 파일을 찾고 오른쪽 창에서 **Blob 편집** 을 클릭 합니다. 
-1. 설명 오디오를 포함 하는 업로드 된 오디오 전용 MP4 파일 (AAC 코덱)에 대 한 정보를 추가 하 여 ism 파일을 편집 하 고 완료 되 면 **저장** 을 누릅니다.
+1. Azure Portal에서 Media Services 계정과 연결된 스토리지 계정으로 이동합니다. 
+1. 출력 자산의 이름을 사용하는 컨테이너를 찾습니다. 
+1. 컨테이너에서 .ism 파일을 찾고 오른쪽 창에서 **Blob 편집** 을 클릭합니다. 
+1. 설명 오디오를 포함하는 업로드된 오디오 전용 MP4 파일(AAC 코덱)에 관한 정보를 추가하여 .ism 파일을 편집하고 완료되면 **저장** 을 누릅니다.
 
-    설명 오디오 트랙에 신호를 보내려면 "accessibility" 및 "role" 매개 변수를 ism 파일에 추가 해야 합니다. 오디오 트랙을 오디오 설명으로 알리기 위해 이러한 매개 변수를 올바르게 설정하는 것은 사용자의 책임입니다. 예를 들어 `<param name="accessibility" value="description" />` `<param name="role" value="alternate" />` 다음 예제와 같이 특정 오디오 트랙에 대 한 및을. a .의 ism 파일에 추가 합니다.
+    설명 오디오 트랙에 관한 신호 알림을 보내려면 .ism 파일에 “accessibility” 및 “role” 매개 변수를 추가해야 합니다. 오디오 트랙을 오디오 설명으로 알리기 위해 이러한 매개 변수를 올바르게 설정하는 것은 사용자의 책임입니다. 예를 들어, 다음 예제와 같이 특정 오디오 트랙에 대해 `<param name="accessibility" value="description" />` 및 `<param name="role" value="alternate" />`를 .ism 파일에 추가합니다.
  
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -206,9 +206,9 @@ await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName
 
 인코딩이 완료되면 다음 단계는 출력 자산의 비디오를 클라이언트가 재생할 수 있도록 만드는 것입니다. 이 작업은 두 단계로 수행할 수 있습니다. 첫째, [스트리밍 로케이터](/rest/api/media/streaminglocators)를 만들고 둘째, 클라이언트가 사용할 수 있는 스트리밍 URL을 작성합니다. 
 
-**스트리밍 로케이터** 를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터** 는 선택적 시작 및 종료 시간을 구성 하지 않는 한 API 호출을 수행한 직후에 유효 하며 삭제 될 때까지 지속 됩니다. 
+**스트리밍 로케이터** 를 만드는 과정을 게시라고 합니다. 기본적으로 **스트리밍 로케이터** 는 API 호출을 수행한 직후부터 유효하며, 선택적인 시작 및 종료 시간을 구성하지 않는 한 삭제될 때까지 지속됩니다. 
 
-[StreamingLocator](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName** 을 지정해야 합니다. 이 예제에서는 미리 정의 된 암호화 되지 않은 스트리밍 정책 (**PredefinedStreamingPolicy**)이 사용 되도록 명확 하 게 (또는 암호화 되지 않은 콘텐츠) 스트리밍할 예정입니다.
+[StreamingLocator](/rest/api/media/streaminglocators)를 만들 때 원하는 **StreamingPolicyName** 을 지정해야 합니다. 이 예제에서는 미리 정의된 암호화되지 않은 스트리밍 정책(**PredefinedStreamingPolicy.ClearStreamingOnly**)을 사용하도록 암호화되지 않은(in-the-clear 또는 non-encrypted) 콘텐츠를 스트림합니다.
 
 > [!IMPORTANT]
 > 사용자 지정 [스트리밍 정책](/rest/api/media/streamingpolicies)을 사용하는 경우 Media Service 계정에 대해 이러한 정책을 제한적으로 설계하고 동일한 암호화 옵션 및 프로토콜이 필요할 때마다 StreamingLocator에 다시 사용해야 합니다. Media Service 계정에는 Streaming Policy 항목의 수에 대한 할당량이 있습니다. 각 스트리밍 로케이터에 대해 새 스트리밍 정책을 만들지 않아야 합니다.
@@ -236,7 +236,7 @@ await UpoadAudioIntoOutputAsset(client, config.ResourceGroup, config.AccountName
 > 플레이어가 https 사이트에 호스트 될 경우 URL을 "https"로 업데이트해야 합니다.
 
 1. 웹 브라우저를 열고 [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)로 이동합니다.
-2. **URL:** 상자에 응용 프로그램에서 가져온 스트리밍 URL 값 중 하나를 붙여넣습니다. 
+2. **URL:** 상자에 애플리케이션에서 가져온 URL 값 중 하나를 붙여넣습니다. 
  
      URL을 HLS, Dash 또는 부드러운 스트리밍 형식으로 붙여넣을 수 있으며, Azure Media Player는 디바이스에서 재생하기 위한 적절한 스트리밍 프로토콜로 자동으로 전환합니다.
 3. **플레이어 업데이트** 를 누릅니다.
@@ -245,4 +245,4 @@ Azure Media Player는 테스트용으로 사용할 수 있지만 프로덕션 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[비디오 분석](analyze-videos-tutorial-with-api.md)
+[비디오 분석](analyze-videos-tutorial.md)

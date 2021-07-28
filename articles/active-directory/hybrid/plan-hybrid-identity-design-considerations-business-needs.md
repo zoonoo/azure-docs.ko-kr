@@ -18,18 +18,18 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 074c203a0a5688855d4f7607a877b25ce6ee6ad7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89660562"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
 하이브리드 ID 솔루션을 설계하는 첫 번째 단계는 이 솔루션을 활용하는 비즈니스 조직에 대한 요구 사항을 결정하는 것입니다.  하이브리드 ID는 지원 역할(인증을 제공하여 다른 모든 클라우드 솔루션을 지원)로 시작하고 사용자에 대한 새 워크로드의 잠금을 해제하는 새롭고 흥미로운 기능을 계속하여 제공합니다.  사용자에 대해 채택하려는 이러한 워크로드 또는 서비스는 하이브리드 ID 설계에 대한 요구 사항을 결정합니다.  이러한 서비스와 워크로드는 온-프레미스 및 클라우드에서 하이브리드 ID를 활용해야 합니다.  
 
-현재의 요구 사항 및 미래 회사 계획이 무엇인지 이해하려면 비즈니스의 이러한 주요 측면을 검토해야 합니다. 하이브리드 ID 설계에 대한 장기적인 전략을 표시하지 않는다면 비즈니스가 성장하고 변화해야 할 때 솔루션은 확장이 불가능합니다. 아래 다이어그램은 사용자를 위해 잠금이 해제 되는 하이브리드 id 아키텍처 및 워크 로드의 예를 보여 줍니다. 잠금을 해제하고 견고한 하이브리드 ID 전략을 제공할 수 있는 새로운 가능성의 예입니다. 
+현재의 요구 사항 및 미래 회사 계획이 무엇인지 이해하려면 비즈니스의 이러한 주요 측면을 검토해야 합니다. 하이브리드 ID 설계에 대한 장기적인 전략을 표시하지 않는다면 비즈니스가 성장하고 변화해야 할 때 솔루션은 확장이 불가능합니다. 아래 다이어그램은 사용자에 대해 잠금 해제되는 하이브리드 ID 아키텍처 및 워크로드의 예를 보여 줍니다. 잠금을 해제하고 견고한 하이브리드 ID 전략을 제공할 수 있는 새로운 가능성의 예입니다. 
 
-하이브리드 id 아키텍처 ![ 하이브리드 id 아키텍처의 일부인 일부 구성 요소](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
+하이브리드 ID 아키텍처에 포함되는 일부 구성 요소 ![하이브리드 ID 아키텍처](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 
 ## <a name="determine-business-needs"></a>비즈니스 요구 사항 결정
 이러한 회사가 같은 업계의 일부이더라도 실제 비즈니스 요구 사항이 다르기 때문에 각 회사는 서로 다른 요구 사항을 갖습니다. 업계에서 모범 사례를 활용할 수 있지만 궁극적으로 하이브리드 ID 설계에 대한 요구 사항을 정의하도록 하는 것은 회사의 비즈니스 요구 사항입니다. 
@@ -72,10 +72,10 @@ ms.locfileid: "89660562"
   * 회사에는 SAML 또는 유사한 페더레이션 기능을 사용하는 온-프레미스 애플리케이션이 있습니다(기본 제공 또는 타사 제공 중 하나).
   * 스마트 카드를 통한 MFA. RSA SecurID 등.
   * 아래 질문을 해결하는 클라이언트 액세스 규칙:
-    1. 클라이언트의 IP 주소에 기반 하 여 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있나요?
-    2. Exchange ActiveSync를 제외 하 고 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있나요?
-    3. 브라우저 기반 앱 (OWA, SPO)을 제외 하 고 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있나요?
-    4. 지정 된 AD 그룹의 구성원에 대 한 Microsoft 365에 대 한 모든 외부 액세스를 차단할 수 있습니까?
+    1. 클라이언트의 IP 주소를 기준으로 Microsoft 365에 대한 모든 외부 액세스를 차단할 수 있나요?
+    2. Exchange ActiveSync를 제외하고 Microsoft 365에 대한 모든 외부 액세스를 차단할 수 있나요?
+    3. 브라우저 기반 앱(OWA, SPO)을 제외하고 Microsoft 365에 모든 외부 액세스를 차단할 수 있나요?
+    4. 지정된 AD 그룹의 멤버용 Microsoft 365에 대한 모든 외부 액세스를 차단할 수 있나요?
 * 보안/감사 문제
 * 페더레이션된 인증에서 기존 투자
 * 회사는 클라우드의 도메인에 어떤 이름을 사용합니까?

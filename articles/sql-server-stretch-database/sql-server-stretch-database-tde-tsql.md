@@ -1,5 +1,5 @@
 ---
-title: Stretch Database에 대해 투명한 데이터 암호화 사용 (T-sql)
+title: Stretch Database에 대해 투명한 데이터 암호화를 사용하도록 설정(T-SQL)
 description: Azure TSQL에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 772341d046186e46b79ad7b11170e1bad23a3a6f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95024197"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)

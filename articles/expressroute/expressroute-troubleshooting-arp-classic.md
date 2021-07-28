@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: ARP 테이블-문제 해결: 클래식'
+title: 'Azure ExpressRoute: ARP 테이블 - 문제 해결: 클래식'
 description: 이 페이지에서는 ExpressRoute 회로 - 클래식 배포 모델의 ARP 테이블을 가져오기 위한 지침을 제공합니다.
 services: expressroute
 author: duongau
@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: duau
 ms.openlocfilehash: 7c83b6d25936e184c70d4bf0a51636a3986bf4b2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89394842"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>클래식 배포 모델에서 ARP 테이블 가져오기
@@ -55,7 +55,7 @@ Age InterfaceProperty IpAddress  MacAddress
 계속하기 전에 다음이 있는지 확인합니다.
 
 * 1개 이상 피어링으로 구성된 유효한 ExpressRoute 회로 연결 공급자가 완벽히 구성한 회로여야 합니다. 사용자(또는 연결 공급자)는 이 회로에서 하나 이상의 피어링을 구성했어야 합니다(Azure 프라이빗, Azure 공용 또는 Microsoft).
-* 피어링(Azure 프라이빗, Azure 공용 및 Microsoft) 구성에 사용한 IP 주소 범위. [Express 경로 라우팅 요구 사항 페이지](expressroute-routing.md) 에서 ip 주소 할당 예제를 검토 하 여 ip 주소가 사용자 측 및 express 경로 측의 인터페이스에 매핑되는 방식을 이해 합니다. [ExpressRoute 피어링 구성 페이지](expressroute-howto-routing-classic.md)를 검토하면 피어링 구성에 관한 정보를 얻을 수 있습니다.
+* 피어링(Azure 프라이빗, Azure 공용 및 Microsoft) 구성에 사용한 IP 주소 범위. [ExpressRoute 라우팅 요구 사항 페이지](expressroute-routing.md)에서 IP 주소 할당 예제를 검토하여 사용자 쪽과 ExpressRoute 쪽에서 IP 주소가 인터페이스에 매핑되는 방식을 파악합니다. [ExpressRoute 피어링 구성 페이지](expressroute-howto-routing-classic.md)를 검토하면 피어링 구성에 관한 정보를 얻을 수 있습니다.
 * 해당 IP 주소와 함께 사용되는 인터페이스의 MAC 주소에 대한 네트워킹 팀 또는 연결 공급자가 제공한 정보
 * Azure용 최신 Windows PowerShell 모듈(1.50 이상)
 

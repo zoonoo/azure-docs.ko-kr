@@ -1,34 +1,34 @@
 ---
 title: KeyVaultCertificateSelector UI 요소
-description: Azure Portal에 대 한 KeyVaultCertificateSelector UI 요소에 대해 설명 합니다.
+description: Azure Portal의 Microsoft.KeyVault.KeyVaultCertificateSelector UI 요소에 대해 설명합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: tomfitz
 ms.openlocfilehash: 1ac6fd5a3f1e581fc9a676fe7f8f27b9742e1581
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93101224"
 ---
-# <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>KeyVaultCertificateSelector UI 요소
+# <a name="microsoftkeyvaultkeyvaultcertificateselector-ui-element"></a>Microsoft.KeyVault.KeyVaultCertificateSelector UI 요소
 
-키 자격 증명 모음 인증서를 선택 하는 컨트롤입니다.
+키 자격 증명 모음 인증서를 선택하기 위한 컨트롤입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
 
-사용자에 게 사용 가능한 인증서를 선택할 수 있는 옵션이 제공 됩니다.
+사용자에게 사용 가능한 인증서를 선택하는 옵션이 제공됩니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-select.png" alt-text="KeyVaultCertificateSelector":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-select.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector":::
 
-**인증서 선택** 을 선택 하면 사용자가 키 자격 증명 모음에서 키 자격 증명 모음 및 인증서를 지정할 수 있습니다.
+사용자는 **인증서 선택** 을 선택한 후 키 자격 증명 모음과 키 자격 증명 모음의 인증서를 지정할 수 있습니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="KeyVaultCertificateSelector 인증서 선택":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-certificate.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector 인증서 선택":::
 
-선택한 키 자격 증명 모음 및 인증서 이름을 표시 하도록 컨트롤이 업데이트 됩니다.
+선택한 키 자격 증명 모음 및 인증서 이름을 표시하도록 컨트롤이 업데이트됩니다.
 
-:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="KeyVaultCertificateSelector 선택한 인증서를 표시 합니다.":::
+:::image type="content" source="./media/managed-application-elements/microsoft-keyvault-keyvaultcertificateselector-result.png" alt-text="Microsoft.KeyVault.KeyVaultCertificateSelector 선택한 인증서 표시":::
 
 ## <a name="schema"></a>스키마
 

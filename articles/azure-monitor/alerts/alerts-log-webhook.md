@@ -1,60 +1,60 @@
 ---
-title: Azure alerts의 로그 경고에 대 한 웹 후크 작업
-description: Webhook 작업 및 사용 가능한 사용자 지정을 사용 하 여 로그 경고 푸시를 구성 하는 방법을 설명 합니다.
+title: Azure Alerts의 로그 경고에 대한 웹후크 작업
+description: 웹후크 작업 및 사용 가능한 사용자 지정을 사용하여 로그 경고 푸시를 구성하는 방법을 설명합니다.
 author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 228193066c45421c4dddee1802aba1feed59e9c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: 8c35ea5ac34160554f5a9100595a00ded4ce397c
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042677"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018676"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 
-[로그 경고](alerts-log.md) 는 [webhook 작업 그룹 구성을](./action-groups.md#webhook)지원 합니다. 이 문서에서는 사용할 수 있는 속성 및 사용자 지정 JSON webhook를 구성 하는 방법을 설명 합니다.
+[로그 경고](alerts-log.md)는 [웹후크 작업 그룹 구성](./action-groups.md#webhook)을 지원합니다. 이 문서에서는 사용할 수 있는 속성과 사용자 지정 JSON 웹후크를 구성하는 방법을 설명합니다.
 
 > [!NOTE]
-> 사용자 지정 JSON 기반 webhook는 현재 API 버전에서 지원 되지 않습니다. `2020-05-01-preview`
+> 사용자 지정 JSON 기반 웹후크는 현재 API 버전 `2020-05-01-preview`에서 지원되지 않습니다.
 
 > [!NOTE]
-> 웹 후크 통합에 [일반적인 경고 스키마](../alerts/alerts-common-schema.md) 를 사용 하는 것이 좋습니다. 일반적인 경고 스키마는 Azure Monitor의 모든 경고 서비스에서 단일 확장 가능 하 고 통합 된 경고 페이로드를 포함 하는 이점을 제공 합니다. 사용자 지정 JSON 페이로드가 정의 된 로그 경고 규칙의 경우 공통 스키마를 사용 하도록 설정 하면 페이로드 스키마가 [여기](../alerts/alerts-common-schema-definitions.md#log-alerts)에 설명 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 더 큰 경고에는 검색 결과가 포함 되지 않습니다. 검색 결과가 포함 되지 않은 경우 또는를 사용 하 여 `LinkToFilteredSearchResultsAPI` `LinkToSearchResultsAPI` Log Analytics API를 통해 쿼리 결과에 액세스 해야 합니다.
+> 웹후크 통합에 [일반 경고 스키마](../alerts/alerts-common-schema.md)를 사용하는 것이 좋습니다. 일반 경고 스키마는 Azure Monitor의 모든 경고 서비스에서 확장 가능하고 통합된 단일 경고 페이로드를 사용하는 이점을 제공합니다. 사용자 지정 JSON 페이로드가 정의된 로그 경고 규칙의 경우 일반 경고 스키마를 사용하도록 설정하면 페이로드 스키마가 [여기](../alerts/alerts-common-schema-definitions.md#log-alerts)에 설명된 스키마로 되돌아갑니다. 즉, 사용자 지정 JSON 페이로드를 정의하려면 웹후크에서 일반 경고 스키마를 사용할 수 없습니다. 일반 스키마가 사용하도록 설정된 경고의 크기 상한은 경고당 256KB이며 더 큰 경고에는 검색 결과가 포함되지 않습니다. 검색 결과가 포함되지 않은 경우 `LinkToFilteredSearchResultsAPI` 또는 `LinkToSearchResultsAPI`를 사용하여 Log Analytics API를 통해 쿼리 결과에 액세스해야 합니다.
 
-## <a name="webhook-payload-properties"></a>Webhook 페이로드 속성
+## <a name="webhook-payload-properties"></a>웹후크 페이로드 속성
 
-웹 후크 작업을 통해 단일 HTTP POST 요청을 호출할 수 있습니다. 호출 되는 서비스는 웹 후크를 지원 하 고 수신 하는 페이로드를 사용 하는 방법을 알고 있어야 합니다.
+웹후크 작업을 사용하면 단일 HTTP POST 요청을 호출할 수 있습니다. 호출되는 서비스는 웹후크를 지원하고 수신하는 페이로드를 사용하는 방법을 알고 있어야 합니다.
 
-기본 webhook 작업 속성 및 해당 사용자 지정 JSON 매개 변수 이름:
+기본 웹후크 작업 속성 및 사용자 지정 JSON 매개 변수 이름:
 
-| 매개 변수 | 변수 | 설명 |
+| 매개 변수 | 변수 | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *심각도* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
 | *AlertThresholdOperator* |#thresholdoperator |경고 규칙에 대한 임계값 연산자입니다. |
 | *AlertThresholdValue* |#thresholdvalue |경고 규칙에 대한 임계값입니다. |
-| *LinkToSearchResults* |#linktosearchresults |경고를 만든 쿼리에서 레코드를 반환 하는 분석 포털에 대 한 링크입니다. |
-| *LinkToSearchResultsAPI* |#linktosearchresultsapi |경고를 만든 쿼리에서 레코드를 반환 하는 분석 API에 대 한 링크입니다. |
-| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |경고를 만든 차원 값 조합 별로 필터링 된 쿼리에서 레코드를 반환 하는 분석 포털에 대 한 링크입니다. |
-| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |경고를 만든 차원 값 조합 별로 필터링 된 쿼리에서 레코드를 반환 하는 분석 API에 대 한 링크입니다. |
+| *LinkToSearchResults* |#linktosearchresults |경고를 만든 쿼리에서 레코드를 반환하는 Analytics 포털에 대한 링크입니다. |
+| *LinkToSearchResultsAPI* |#linktosearchresultsapi |경고를 만든 쿼리에서 레코드를 반환하는 Analytics API에 대한 링크입니다. |
+| *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |경고를 만든 차원 값 조합으로 필터링된 쿼리에서 레코드를 반환하는 Analytics 포털에 대한 링크입니다. |
+| *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |경고를 만든 차원 값 조합으로 필터링된 쿼리에서 레코드를 반환하는 Analytics API에 대한 링크입니다. |
 | *ResultCount* |#searchresultcount |검색 결과의 레코드 수입니다. |
-| *검색 간격 종료 시간* |#searchintervalendtimeutc |UTC 형식의 쿼리에 대 한 종료 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. |
-| *검색 간격* |#searchinterval |경고 규칙에 대 한 시간 창에 HH: mm: ss 형식을 사용 합니다. |
-| *검색 간격 시작 시간* |#searchintervalstarttimeutc |UTC 형식의 쿼리 시작 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. 
+| *검색 간격 종료 시간* |#searchintervalendtimeutc |UTC 형식의 쿼리 종료 시간(mm/dd/yyyy HH:mm:ss AM/PM 형식)입니다. |
+| *검색 간격* |#searchinterval |경고 규칙의 시간으로, HH:mm:ss 형식입니다. |
+| *검색 간격 시작 시간* |#searchintervalstarttimeutc |UTC 형식의 쿼리 시작 시간(mm/dd/yyyy HH:mm: ss AM/PM 형식)입니다. 
 | *SearchQuery* |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
-| *SearchResults* |"IncludeSearchResults": true|처음 1000 레코드로 제한 되는 JSON 테이블로 쿼리를 통해 반환 된 레코드입니다. "IncludeSearchResults": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
-| *차원* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 됩니다. |
-| *경고 유형*| #alerttype | [메트릭 측정 또는 결과 수](./alerts-unified-log.md#measure)로 구성 된 로그 경고 규칙의 유형입니다.|
+| *SearchResults* |"IncludeSearchResults": true|쿼리를 통해 JSON 테이블로 반환된 레코드입니다(처음 1000개 레코드로 제한). "IncludeSearchResults": true는 사용자 지정 JSON 웹후크 정의에 최상위 속성으로 추가됩니다. |
+| *차원* |"IncludeDimensions": true|JSON 섹션으로 해당 경고를 트리거한 차원 값 조합입니다. "IncludeDimensions": true는 사용자 지정 JSON 웹후크 정의에 최상위 속성으로 추가됩니다. |
+| *경고 유형*| #alerttype | [메트릭 측정 또는 결과 수](./alerts-unified-log.md#measure)로 구성된 로그 경고 규칙 유형입니다.|
 | *WorkspaceID* |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
 | *애플리케이션 ID* |#applicationid |Application Insights 앱의 ID입니다. |
-| *구독 ID* |#subscriptionid |사용 되는 Azure 구독의 ID입니다. |
+| *구독 ID* |#subscriptionid |사용되는 Azure 구독의 ID입니다. |
 
-## <a name="custom-webhook-payload-definition"></a>사용자 지정 webhook 페이로드 정의
+## <a name="custom-webhook-payload-definition"></a>사용자 지정 웹후크 페이로드 정의
 
-위의 매개 변수를 사용 하 여 사용자 지정 JSON 페이로드를 가져오기 위해 **webhook에 대 한 사용자 지정 json 페이로드 포함** 을 사용할 수 있습니다. 추가 속성을 생성할 수도 있습니다.
-예를 들어 *text* 라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 webhook가 호출 하는 서비스에는 다음 매개 변수가 필요 합니다.
+**웹후크용 사용자 지정 JSON 페이로드 포함** 을 사용하여 위의 매개 변수로 사용자 지정 JSON 페이로드를 가져올 수 있습니다. 추가 속성을 생성할 수도 있습니다.
+예를 들어 *text* 라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다. 이 웹후크가 호출하는 서비스에는 다음 매개 변수가 필요합니다.
 
 ```json
 
@@ -62,28 +62,28 @@ ms.locfileid: "102042677"
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
 ```
-이 예제 페이로드는 webhook로 전송 될 때 다음과 같은 것으로 확인 됩니다.
+이 예제 페이로드는 웹후크에 보낼 때 다음과 같은 내용으로 확인될 수 있습니다.
 
 ```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
-사용자 지정 webhook의 변수는 JSON 인클로저 내에서 지정 해야 합니다. 예를 들어 위의 webhook 예제에서 "#searchresultcount"을 참조 하면 경고 결과에 따라 출력 됩니다.
+사용자 지정 웹후크의 변수는 JSON 인클로저 내에서 지정해야 합니다. 예를 들어 위의 웹후크 예제에서 "#searchresultcount"를 참조하면 경고 결과를 기반으로 출력됩니다.
 
-검색 결과를 포함 하려면 사용자 지정 JSON에서 **Includesearchresults** 를 최상위 속성으로 추가 합니다. 검색 결과는 JSON 구조로 포함 되므로 사용자 지정 정의 된 필드에서 결과를 참조할 수 없습니다. 
+검색 결과를 포함하려면 사용자 지정 JSON에서 최상위 속성으로 **IncludeSearchResults** 를 추가합니다. 검색 결과는 JSON 구조로 포함되므로 사용자 지정 정의된 필드에서 결과를 참조할 수 없습니다. 
 
 > [!NOTE]
-> **Webhook에 대 한 사용자 지정 JSON 페이로드 포함** 옵션 옆에 있는 **webhook 보기** 단추는 제공 된 항목의 미리 보기를 표시 합니다. 실제 데이터는 포함 되지 않지만 사용 될 JSON 스키마를 나타냅니다. 
+> **웹후크용 사용자 지정 JSON 페이로드 포함** 옵션 옆에 있는 **웹후크 보기** 단추는 제공된 항목의 미리 보기를 표시합니다. 실제 데이터는 포함되지 않지만 사용될 JSON 스키마를 나타냅니다. 
 
 ## <a name="sample-payloads"></a>샘플 페이로드
-이 섹션에서는 로그 경고에 대 한 웹 후크에 대 한 샘플 페이로드를 보여 줍니다. 샘플 페이로드에는 페이로드가 표준 이며 사용자 지정 인 경우 예제가 포함 됩니다.
+이 섹션에서는 로그 경고의 웹후크에 대한 샘플 페이로드를 보여 줍니다. 샘플 페이로드에는 페이로드가 표준이며 사용자 지정인 경우의 예제가 포함됩니다.
 
-### <a name="log-alert-for-log-analytics"></a>Log Analytics에 대 한 로그 경고
-다음 샘플 페이로드는 Log Analytics 기반으로 하는 경고에 사용 되는 표준 웹 후크 작업에 대 한 것입니다.
+### <a name="log-alert-for-log-analytics"></a>Log Analytics에 대한 로그 경고
+다음 샘플 페이로드는 Log Analytics를 기반으로 하는 경고에 사용되는 표준 웹후크 작업에 대한 것입니다.
 
 > [!NOTE]
-> [레거시 Log Analytics 경고 api](./api-alerts.md)에서 [현재 scheduledQueryRules api로 전환한](../alerts/alerts-log-api-switch.md) 경우 "심각도" 필드 값이 변경 됩니다.
+> “심각도” 필드 값은 [레거시 Log Analytics 경고 API](./api-alerts.md)에서 [현재 scheduledQueryRules API로 전환](../alerts/alerts-log-api-switch.md)한 경우 변경됩니다.
 
 ```json
 {
@@ -149,8 +149,8 @@ ms.locfileid: "102042677"
 }
 ```
 
-### <a name="log-alert-for-application-insights"></a>Application Insights에 대 한 로그 경고
-다음 샘플 페이로드는 Application Insights 리소스를 기반으로 하는 로그 경고에 사용 되는 표준 웹 후크에 대 한 것입니다.
+### <a name="log-alert-for-application-insights"></a>Application Insights에 대한 로그 경고
+다음 샘플 페이로드는 Application Insights 리소스를 기반으로 하는 로그 경고에 사용되는 표준 웹후크에 대한 것입니다.
     
 ```json
 {
@@ -216,12 +216,12 @@ ms.locfileid: "102042677"
 }
 ```
 
-### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>다른 리소스 로그 (API 버전에서)에 대 한 경고 로그 `2020-05-01-preview`
+### <a name="log-alert-for-other-resources-logs-from-api-version-2020-05-01-preview"></a>다른 리소스 로그에 대한 로그 경고(API 버전 `2020-05-01-preview`)
 
 > [!NOTE]
-> 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대 한 추가 요금은 없습니다.  미리 보기에 있는 기능의 가격은 추후 발표 되며 청구를 시작 하기 전에 제공 되는 공지가 제공 됩니다. 알림 기간이 끝난 후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용 하도록 선택 하는 경우 해당 요금에 대 한 요금이 청구 됩니다.
+> 현재 API 버전 `2020-05-01-preview` 및 리소스 중심 로그 경고에 대한 추가 요금은 없습니다.  미리 보기 단계인 기능에 대한 가격 책정은 나중에 발표될 예정이며 청구를 시작하기 전에 공지합니다. 경고 기간 이후 새 API 버전 및 리소스 중심 로그 경고를 계속 사용하는 경우 해당 요금이 청구됩니다.
 
-다음 샘플 페이로드는 다른 리소스 로그 (작업 영역 및 Application Insights 제외)를 기반으로 하는 로그 경고에 사용 되는 경우 표준 webhook 용입니다.
+다음 샘플 페이로드는 다른 리소스 로그(작업 영역 및 Application Insights 제외)를 기반으로 하는 로그 경고에 사용되는 표준 웹후크에 대한 것입니다.
 
 ```json
 {
@@ -281,8 +281,8 @@ ms.locfileid: "102042677"
 }
 ```
 
-### <a name="log-alert-with-a-custom-json-payload"></a>사용자 지정 JSON 페이로드를 사용 하는 로그 경고
-예를 들어 경고 이름과 검색 결과만 포함 하는 사용자 지정 페이로드를 만들려면 다음 구성을 사용 합니다. 
+### <a name="log-alert-with-a-custom-json-payload"></a>사용자 지정 JSON 페이로드가 있는 로그 경고
+예를 들어 경고 이름과 검색 결과만 포함하는 사용자 지정 페이로드를 만들려면 다음 구성을 사용합니다. 
 
 ```json
     {
@@ -291,7 +291,7 @@ ms.locfileid: "102042677"
     }
 ```
 
-다음 샘플 페이로드는 모든 로그 경고에 대 한 사용자 지정 webhook 작업을 위한 것입니다.
+다음은 로그 경고에 대한 사용자 지정 웹후크 작업의 샘플 페이로드입니다.
     
 ```json
     {
@@ -317,8 +317,8 @@ ms.locfileid: "102042677"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure alerts의 로그 경고](./alerts-unified-log.md)에 대해 알아봅니다.
-- [Azure에서 로그 경고를 관리](alerts-log.md)하는 방법을 이해 합니다.
-- [Azure에서 작업 그룹](./action-groups.md)을 만들고 관리 합니다.
+- [Azure Alerts의 로그 경고](./alerts-unified-log.md)에 대해 알아보기
+- [Azure에서 로그 경고를 관리](alerts-log.md)하는 방법을 이해합니다.
+- [Azure에서 작업 그룹](./action-groups.md) 만들기 및 관리
 - [Application Insights](../logs/log-query-overview.md)에 대해 자세히 알아봅니다.
-- [로그 쿼리에](../logs/log-query-overview.md)대해 자세히 알아보세요.
+- [로그 쿼리](../logs/log-query-overview.md)에 대해 자세히 알아봅니다.

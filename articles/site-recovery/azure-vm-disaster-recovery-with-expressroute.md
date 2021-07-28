@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Azure Express 경로 Azure VM 재해 복구 통합
+title: Azure Site Recovery와 Azure ExpressRoute의 Azure VM 재해 복구 통합
 description: Azure Site Recovery 및 Azure ExpressRoute를 사용하여 Azure VM을 위한 재해 복구를 설정하는 방법 설명
 services: site-recovery
 author: mayurigupta13
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
 ms.openlocfilehash: 0e1f670f2ba5ad31f29d56b2de40acd6e2bf18a9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88654381"
 ---
-# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure Vm에 대 한 재해 복구와 Express 경로 통합
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM용 재해 복구와 ExpressRoute 통합
 
 
 이 문서에서는 Azure VM을 위한 재해 복구를 보조 Azure 하위 지역으로 설정할 때 Azure ExpressRoute를 [Azure Site Recovery](site-recovery-overview.md)와 통합하는 방법을 설명합니다.
@@ -36,9 +36,9 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 
 시작하기 전에 다음 개념을 이해해야 합니다.
 
-- Express 경로 [회로](../expressroute/expressroute-circuit-peerings.md)
-- Express [경로 라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#routingdomains)
-- Express 경로 [위치](../expressroute/expressroute-locations.md).
+- ExpressRoute [회로](../expressroute/expressroute-circuit-peerings.md)
+- ExpressRoute [라우팅 도메인](../expressroute/expressroute-circuit-peerings.md#routingdomains)
+- ExpressRoute [위치](../expressroute/expressroute-locations.md).
 - Azure VM [복제 아키텍처](azure-to-azure-architecture.md)
 - Azure VM을 위한 [복제를 설정](azure-to-azure-tutorial-enable-replication.md)하는 방법.
 - Azure VM을 [장애 조치](azure-to-azure-tutorial-failover-failback.md)하는 방법.
@@ -86,7 +86,7 @@ ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연�
 ![장애 조치 전에 ExpressRoute를 포함한 Azure에 온-프레미스](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
 - **지역**. 앱은 Azure 동아시아 지역에 배포 됩니다.
-- **스포크 vnet**. 앱은 두 개의 스포크 vNet에 배포됩니다.
+- **스포크 VNet**. 앱은 두 개의 스포크 vNet에 배포됩니다.
     - **원본 vNet1**: 10.1.0.0/24.
     - **원본 vNet2**: 10.2.0.0/24.
     - 각 스포크 가상 네트워크는 **허브 vNet** 에 연결됩니다.

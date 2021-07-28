@@ -1,6 +1,6 @@
 ---
 title: Azure Analysis Services 관리 | Microsoft Docs
-description: 이 문서에서는 Azure Analysis Services 서버에 대 한 관리 및 관리 작업을 관리 하는 데 사용 되는 도구에 대해 설명 합니다.
+description: 이 문서에서는 Azure Analysis Services 서버의 관리 작업을 관리하는 데 사용되는 도구에 대해 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,10 +8,10 @@ ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93078903"
 ---
 # <a name="manage-analysis-services"></a>Analysis Services 관리
@@ -20,7 +20,7 @@ Azure에 Analysis Services 서버를 만들었으면 즉시 또는 조만간에 
 ## <a name="azure-portal"></a>Azure portal
 [Azure Portal](https://portal.azure.com/)은 서버를 생성 및 삭제하고, 서버 리소스를 모니터링하고, 크기를 변경하고, 서버에 액세스할 수 있는 사용자를 관리할 수 있는 포털입니다.  몇 가지 문제가 발생하면 지원 요청을 제출할 수도 있습니다.
 
-![서버를 만들고 삭제 하 고, 서버 리소스를 모니터링 하 고, 크기를 변경 하 고, 서버에 액세스할 수 있는 사용자를 관리할 수 있는 Azure Portal을 보여 주는 스크린샷](./media/analysis-services-manage/aas-manage-portal.png)
+![서버를 생성 및 삭제하고, 서버 리소스를 모니터링하고, 크기를 변경하고, 서버에 액세스할 수 있는 사용자를 관리할 수 있는 Azure Portal 스크린샷](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 연결하는 것과 같습니다. SSMS에서는 데이터 처리와 같이 동일한 작업을 많이 수행하거나 처리 스크립트를 만들고 역할을 관리하고 PowerShell을 사용할 수 있습니다.
@@ -30,7 +30,7 @@ Azure에서 서버를 연결하는 것은 조직에서 서버 인스턴스를 �
 ### <a name="download-and-install-ssms"></a>SSMS 다운로드 및 설치
 모든 최신 기능과 Azure Analysis Services 서버에 연결할 때 가장 원활한 환경을 얻으려면 최신 버전의 SSMS를 사용하고 있어야 합니다. 
 
-[SQL Server Management Studio를 다운로드](/sql/ssms/download-sql-server-management-studio-ssms)합니다.
+[SQL Server Management Studio를 다운로드합니다](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>SSMS로 연결
@@ -60,7 +60,7 @@ Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리�
 
 
 ## <a name="troubleshooting-connection-problems"></a>연결 문제 해결
-SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐시를 지워야 할 수 있습니다. 디스크에 캐시 된 내용이 없습니다. 캐시를 지우려면 연결 프로세스를 닫고 다시 시작 합니다. 
+SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐시를 지워야 할 수 있습니다. 디스크에 아무것도 캐시되지 않습니다. 캐시를 지우려면 연결 프로세스를 닫고 다시 시작합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 새 서버에 테이블 형식 모델을 아직 배포하지 않았으면 지금이야말로 좋은 기회입니다. 자세한 내용은 [Azure Analysis Services에 배포](analysis-services-deploy.md)를 참조하세요.

@@ -11,10 +11,10 @@ ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 60b7bb33dfbf29b7e448887ce992d03009133b2e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94953494"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용하여 Azure API Management API 보호
@@ -42,7 +42,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-1. **앱 등록** 를 선택 하 고 소유 하는 **응용 프로그램** 탭을 선택 합니다.
+1. **앱 등록** 과 **소유한 애플리케이션** 탭을 차례로 선택합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션(클라이언트) ID** 열의 값을 적어 둡니다.
 
 #### <a name="applications-legacy"></a>[애플리케이션(레거시)](#tab/applications-legacy/)
@@ -50,7 +50,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하려면 새로운 통합
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
 1. 왼쪽 메뉴에서 **Azure AD B2C** 를 선택합니다. 또는 **모든 서비스** 를 선택하고 **Azure AD B2C** 를 검색하여 선택합니다.
-1. **관리** 에서 **응용 프로그램 (레거시)** 을 선택 합니다.
+1. **관리** 아래에서 **애플리케이션(레거시)** 를 선택합니다.
 1. *webapp1* 또는 이전에 만든 다른 애플리케이션에 대한 **애플리케이션 ID** 열의 값을 적어 둡니다.
 
 * * *

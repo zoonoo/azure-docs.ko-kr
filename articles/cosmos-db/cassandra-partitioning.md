@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB Cassandra API 분할
-description: Azure Cosmos DB 분할에 대해 알아봅니다 Cassandra API
+title: Azure Cosmos DB Cassandra API의 분할
+description: Azure Cosmos DB Cassandra API의 분할에 대해 알아봅니다.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -8,42 +8,42 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: ba615d3e41393afe007238a0fe1e694732ad123e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93087641"
 ---
-# <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 분할
+# <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API의 분할
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
-이 문서에서는 Azure Cosmos DB Cassandra API에서 분할이 작동 하는 방식을 설명 합니다. 
+이 문서에서는 Azure Cosmos DB Cassandra API에서 분할이 작동하는 방식을 설명합니다. 
 
-Cassandra API는 분할을 사용 하 여 응용 프로그램의 성능 요구에 맞게 keyspace의 개별 테이블 크기를 조정 합니다. 파티션은 테이블의 각 레코드와 연결 된 파티션 키의 값에 따라 형성 됩니다. 파티션의 모든 레코드는 동일한 파티션 키 값을 갖습니다. Azure Cosmos DB는 테이블의 확장성 및 성능 요구를 효율적으로 충족 하기 위해 물리적 리소스에서 파티션 배치를 투명 하 고 자동으로 관리 합니다. 응용 프로그램의 처리량 및 저장소 요구 사항이 증가 하면 더 많은 수의 물리적 컴퓨터에서 데이터를 이동 하 고 분산 Azure Cosmos DB.
+Cassandra API는 애플리케이션의 성능 요구 사항을 충족하기 위해 분할을 사용하여 키스페이스의 개별 테이블을 스케일링합니다. 테이블의 각 레코드와 연결된 파티션 키 값에 따라 파티션이 구성됩니다. 파티션의 모든 레코드에는 동일한 파티션 키 값이 있습니다. Azure Cosmos DB는 테이블의 스케일링 수준 및 성능 요구 사항을 효율적으로 충족하기 위해 물리적 리소스에 파티션을 배치하는 작업을 투명하게 자동으로 관리합니다. 애플리케이션의 처리량 및 스토리지 요구 사항이 증가함에 따라 Azure Cosmos DB는 더 많은 물리적 머신 간에 데이터를 이동하고 균형을 조정합니다.
 
-개발자 관점에서 분할은 네이티브 [Apache Cassandra](https://cassandra.apache.org/)와 동일한 방식으로 Cassandra API Azure Cosmos DB와 동일한 방식으로 작동 합니다. 그러나 내부적으로는 약간의 차이가 있습니다. 
+개발자 관점에서 분할은 네이티브 [Apache Cassandra](https://cassandra.apache.org/)에서와 동일한 방식으로 Azure Cosmos DB Cassandra API에서 작동합니다. 그러나 이면에는 몇 가지 차이점이 있습니다. 
 
 
-## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Apache Cassandra와 Azure Cosmos DB 간의 차이점
+## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Apache Cassandra 및 Azure Cosmos DB 간 차이점
 
-Azure Cosmos DB에서 파티션이 저장 되는 각 컴퓨터는 [실제 파티션이](partitioning-overview.md#physical-partitions)라고도 합니다. 실제 파티션은 가상 머신과 유사 합니다. 전용 계산 단위 또는 물리적 리소스 집합입니다. 이 계산 단위에 저장 된 각 파티션은 Azure Cosmos DB [논리 파티션](partitioning-overview.md#logical-partitions) 이라고 합니다. Apache Cassandra에 대해 잘 알고 있는 경우 Cassandra의 일반 파티션과 동일한 방식으로 논리 파티션을 생각해 볼 수 있습니다. 
+Azure Cosmos DB에서는 파티션이 저장되는 각 머신 자체를 [물리적 파티션](partitioning-overview.md#physical-partitions)이라고 합니다. 물리적 파티션은 가상 머신과 유사한, 전용 컴퓨팅 단위 또는 물리적 리소스 세트입니다. Azure Cosmos DB에서는 이 컴퓨팅 단위에 저장된 각 파티션을 [논리 파티션](partitioning-overview.md#logical-partitions)이라고 합니다. Apache Cassandra에 이미 익숙한 경우 Cassandra의 일반 파티션과 동일한 방식으로 논리 파티션을 간주할 수 있습니다. 
 
-Apache Cassandra은 파티션에 저장할 수 있는 데이터 크기에 대해 100의 제한을 권장 합니다. Azure Cosmos DB에 대 한 Cassandra API는 논리적 파티션당 최대 20gb, 실제 파티션당 최대 30GB의 데이터를 허용 합니다. Azure Cosmos DB Apache Cassandra와 달리 실제 파티션에서 사용 가능한 계산 용량은 [요청 단위](request-units.md)라는 단일 메트릭을 사용 하 여 표현 됩니다 .이 메트릭을 사용 하면 코어, 메모리 또는 IOPS가 아닌 초당 요청 (읽기 또는 쓰기)의 측면에서 워크 로드를 고려할 수 있습니다. 이렇게 하면 각 요청에 대 한 비용을 이해 하 고 나면 용량을 보다 효율적으로 계획할 수 있습니다. 각 실제 파티션에는 사용할 수 있는 계산의 최대 1만 RUs가 있을 수 있습니다. 확장성 옵션에 대 한 자세한 내용은 Cassandra API에서 [탄력적 확장](manage-scale-cassandra.md) 에 대 한 문서를 참조 하세요. 
+Apache Cassandra에서는 파티션에 저장할 수 있는 데이터 크기를 100MB로 제한하는 것이 좋습니다. Azure Cosmos DB용 Cassandra API는 논리 파티션당 최대 20GB, 물리적 파티션당 최대 30GB의 데이터를 허용합니다. Apache Cassandra와 달리 Azure Cosmos DB에서는 물리적 파티션에서 사용할 수 있는 컴퓨팅 용량이 [요청 단위](request-units.md)라는 단일 메트릭을 사용하여 표시되므로 코어, 메모리 또는 IOPS가 아닌 초당 요청(읽기 또는 쓰기) 수 측면에서 워크로드를 측정할 수 있습니다. 따라서 각 요청의 비용을 파악한 후 보다 간단하게 용량 계획을 세울 수 있습니다. 각 물리적 파티션에서 최대 10,000RU의 컴퓨팅을 사용할 수 있습니다. 스케일링 수준 옵션에 대한 자세한 내용은 Cassandra API의 [탄력적 스케일링](manage-scale-cassandra.md)에 대한 문서를 참조하세요. 
 
-Azure Cosmos DB에서 각 실제 파티션은 복제본 집합이 라고도 하는 복제본 집합으로 구성 되며 파티션 당 복제본이 4 개 이상 포함 됩니다. 이는 복제 인수를 1로 설정 하는 것이 가능한 Apache Cassandra와는 대조적입니다. 그러나 데이터가 있는 유일한 노드가 중단 되 면 가용성이 낮아집니다. Cassandra API의 복제 인수는 항상 4 (쿼럼을 3)입니다. Azure Cosmos DB는 자동으로 복제본 집합을 관리 하지만 Apache Cassandra의 다양 한 도구를 사용 하 여 유지 해야 합니다. 
+Azure Cosmos DB에서 각 물리적 파티션은 복제본 세트라고도 하는 복제본 집합으로 구성되며, 파티션당 4개 이상의 복제본을 포함합니다. 반면에, Apache Cassandra에서는 복제 계수를 1로 설정할 수 있습니다. 그러나 이 경우, 데이터를 포함하는 유일한 노드가 중단되면 가용성이 낮아집니다. Cassandra API에는 항상 복제 계수 4(쿼럼 3)가 있습니다. Azure Cosmos DB는 복제본 세트를 자동으로 관리하는 반면, Apache Cassandra에서는 다양한 도구를 사용하여 유지 관리해야 합니다. 
 
-Apache Cassandra에는 파티션 키의 해시로 토큰 개념이 있습니다. 토큰은 murmur3 64 바이트 해시를 기반으로 하며, 값은-2 ^ 63에서-2 ^ 63-1 사이입니다. 이 범위는 일반적으로 Apache Cassandra에서 "토큰 링" 이라고 합니다. 토큰 링은 토큰 범위에 배포 되 고 이러한 범위는 네이티브 Apache Cassandra 클러스터에 있는 노드 간에 분할 됩니다. Azure Cosmos DB에 대 한 분할은 다른 해시 알고리즘을 사용 하 고 내부 토큰 링이 더 크다는 점을 제외 하 고 비슷한 방식으로 구현 됩니다. 그러나 외부에서는 Apache Cassandra와 같은 토큰 범위 (예:-2 ^ 63 ~-2 ^ 63-1)를 제공 합니다.
+Apache Cassandra에는 파티션 키의 해시인 토큰 개념이 있습니다. 토큰은 murmur3 64바이트 해시를 기반으로 하고, 값은 -2^63에서 -2^63 - 1 사이입니다. Apache Cassandra에서는 이 범위를 일반적으로 “토큰 링”이라고 합니다. 토큰 링은 토큰 범위에 배포되고, 네이티브 Apache Cassandra 클러스터에 있는 노드 간에 범위가 나뉩니다. Azure Cosmos DB의 분할도 유사한 방식으로 구현됩니다. 단, 다른 해시 알고리즘이 사용되고 내부 토큰 링이 더 큽니다. 그러나 외부적으로는 Apache Cassandra와 동일한 토큰 범위(즉, -2^63에서 -2^63 - 1 사이)가 노출됩니다.
 
 
 ## <a name="primary-key"></a>기본 키
 
-Cassandra API의 모든 테이블에는가 정의 되어 있어야 합니다 `primary key` . 기본 키에 대 한 구문은 다음과 같습니다.
+Cassandra API의 모든 테이블에는 `primary key`가 정의되어 있어야 합니다. 기본 키의 구문은 다음과 같습니다.
 
 ```shell
 column_name cql_type_definition PRIMARY KEY
 ```
 
-여러 사용자에 대 한 메시지를 저장 하는 사용자 테이블을 만들려고 한다고 가정 합니다.
+여러 사용자의 메시지를 저장하는 사용자 테이블을 만든다고 가정합니다.
 
 ```shell
 CREATE TABLE uprofile.user ( 
@@ -52,20 +52,20 @@ CREATE TABLE uprofile.user (
    message text);
 ```
 
-이 디자인에서는 `id` 필드를 기본 키로 정의 했습니다. 기본 키는 테이블의 레코드에 대 한 식별자로 함수를 사용 하며 Azure Cosmos DB에서 파티션 키로도 사용 됩니다. 기본 키가 앞에서 설명한 방식으로 정의 된 경우 각 파티션에는 단일 레코드만 있습니다. 이렇게 하면 데이터베이스에 데이터를 쓸 때 완벽 하 게 수평이 고 확장 가능한 배포가 발생 하며 키-값 조회 사용 사례에 적합 합니다. 읽기 성능을 최대화 하기 위해 테이블에서 데이터를 읽을 때마다 응용 프로그램에서 기본 키를 제공 해야 합니다. 
+이 디자인에서는 `id` 필드를 기본 키로 정의했습니다. 기본 키는 테이블 레코드의 식별자 역할을 하며, Azure Cosmos DB에서 파티션 키로도 사용됩니다. 기본 키가 앞에서 설명한 방식으로 정의된 경우 각 파티션에는 단일 레코드만 있습니다. 따라서 데이터베이스에 데이터를 쓸 때 완벽하게 수평을 이루고 스케일링 가능한 배포가 가능하며, 키-값 조회 사용 사례에 적합합니다. 애플리케이션은 읽기 성능을 최대화하기 위해 테이블에서 데이터를 읽을 때마다 기본 키를 제공해야 합니다. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="영역" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning.png" alt-text="파티션" border="false":::
 
 
 ## <a name="compound-primary-key"></a>복합 기본 키
 
-Apache Cassandra의 개념도  `compound keys` 있습니다. 복합은 `primary key` 두 개 이상의 열로 구성 되며, 첫 번째 열은이 `partition key` 고, 추가 열은 `clustering keys` 입니다. 에 대 한 구문은 `compound primary key` 다음과 같습니다.
+Apache Cassandra에는 `compound keys` 개념도 있습니다. 복합 `primary key`는 둘 이상의 열로 구성됩니다. 첫 번째 열은 `partition key`이고, 추가 열은 `clustering keys`입니다. `compound primary key`의 구문은 다음과 같습니다.
 
 ```shell
 PRIMARY KEY (partition_key_column_name, clustering_column_name [, ...])
 ```
 
-위의 디자인을 변경 하 고 지정 된 사용자에 대 한 메시지를 효율적으로 검색할 수 있도록 하려는 경우를 가정해 보겠습니다.
+위의 디자인을 변경하여 지정된 사용자의 메시지를 효율적으로 검색할 수 있도록 한다고 가정합니다.
 
 ```shell
 CREATE TABLE uprofile.user (
@@ -75,32 +75,32 @@ CREATE TABLE uprofile.user (
    PRIMARY KEY (user, id));
 ```
 
-이 디자인에서는 이제를 `user` 파티션 키로,를 클러스터링 키로 정의 `id` 합니다. 원하는 수의 클러스터링 키를 정의할 수 있지만 클러스터링 키에 대 한 각 값 (또는 값의 조합)은 같은 파티션에 여러 레코드를 추가 하기 위해 고유 해야 합니다. 예를 들면 다음과 같습니다.
+이 디자인에서는 이제 `user`를 파티션 키로, `id`를 클러스터링 키로 정의합니다. 클러스터링 키를 원하는 개수만큼 정의할 수 있지만, 동일한 파티션에 여러 레코드가 추가되도록 하려면 클러스터링 키의 각 값(또는 값 조합)이 고유해야 합니다. 예를 들면 다음과 같습니다.
 
 ```shell
 insert into uprofile.user (user, id, message) values ('theo', 1, 'hello');
 insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 ```
 
-반환 된 데이터는 Apache Cassandra에서 예상 대로 클러스터링 키를 기준으로 정렬 됩니다.
+반환 시 데이터가 Apache Cassandra에서 예상한 대로 클러스터링 키로 정렬됩니다.
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="클러스터링 키를 기준으로 정렬 된 반환 된 데이터를 보여 주는 스크린샷":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="클러스터링 키로 정렬된 반환 데이터 스크린샷":::
 
-이러한 방식으로 모델링 된 데이터를 사용 하면 각 파티션에 여러 레코드를 할당 하 고 사용자별로 그룹화 할 수 있습니다. 따라서 `partition key` `user` 지정 된 사용자에 대 한 모든 메시지를 가져오기 위해 (이 경우)에서 효율적으로 라우팅되는 쿼리를 실행할 수 있습니다. 
+데이터가 이런 방식으로 모델링된 경우 여러 레코드를 사용자별로 그룹화하여 각 파티션에 할당할 수 있습니다. 따라서 `partition key`(예제에서는 `user`)를 통해 효율적으로 라우팅되는 쿼리를 실행하여 지정된 사용자의 모든 메시지를 가져올 수 있습니다. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="사용자별로 그룹화 된 각 파티션에 여러 레코드를 할당할 수 있는 방법을 보여 주는 다이어그램입니다." border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="여러 레코드를 사용자별로 그룹화하여 각 파티션에 할당할 수 있는 방법을 보여 주는 다이어그램" border="false":::
 
 
 ## <a name="composite-partition-key"></a>복합 파티션 키
 
-복합 파티션 키는 복합 파티션 키로 여러 열을 지정할 수 있다는 점을 제외 하 고 기본적으로 복합 키와 동일한 방식으로 작동 합니다. 복합 파티션 키 구문은 다음과 같습니다.
+복합 파티션 키는 기본적으로 복합 키와 동일한 방식으로 작동합니다. 단, 여러 열을 복합 파티션 키로 지정할 수 있습니다. 복합 파티션 키의 구문은 다음과 같습니다.
 
 ```shell
 PRIMARY KEY (
    (partition_key_column_name[, ...]), 
     clustering_column_name [, ...]);
 ```
-예를 들어 및의 고유 조합이 `firstname` `lastname` 파티션 키를 형성 하 고가 클러스터링 키인 다음을 사용할 수 있습니다 `id` .
+예를 들어 `firstname` 및 `lastname`의 고유 조합이 파티션 키를 구성하고 `id`가 클러스터링 키인 다음 구문을 사용할 수 있습니다.
 
 ```shell
 CREATE TABLE uprofile.user ( 
@@ -113,6 +113,6 @@ CREATE TABLE uprofile.user (
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB의 분할 및 수평 확장](partitioning-overview.md)에 대해 알아봅니다.
-* [Azure Cosmos DB에서 프로 비전 된 처리량](request-units.md)에 대해 알아봅니다.
-* [Azure Cosmos DB의 글로벌 배포](distribute-data-globally.md)에 대해 알아봅니다.
+* [Azure Cosmos DB의 분할 및 수평적 스케일링](partitioning-overview.md)에 대해 알아봅니다.
+* [Azure Cosmos DB에서 프로비전된 처리량](request-units.md)에 대한 자세한 정보
+* [Azure Cosmos DB에서 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보

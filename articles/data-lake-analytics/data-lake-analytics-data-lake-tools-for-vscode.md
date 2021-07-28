@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: 40e3ce17e036312e7c3fdee95fcb42d06f5845e9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: e1d74795fd25019e205f4b7b1d2bac1b67107e2d
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96751362"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107878581"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools for Visual Studio Code 사용
 
@@ -18,7 +18,7 @@ ms.locfileid: "96751362"
 
 [![비디오 플레이어: Azure Data Lake tools for VS Code](media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png)](https://channel9.msdn.com/Series/AzureDataLake/Azure-Data-Lake-Tools-for-VSCode?term=ADL%20Tools%20for%20VSCode")
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Data Lake Tools for VS Code는 Windows, Linux 및 macOS를 지원합니다. U-SQL 로컬 실행 및 로컬 디버그가 Windows에서만 작동합니다.
 
@@ -26,7 +26,7 @@ Azure Data Lake Tools for VS Code는 Windows, Linux 및 macOS를 지원합니다
 
 macOS 및 Linux:
 
-- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core)
+- [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
 - [Mono 5.2.x](https://www.mono-project.com/download/)
 
 ## <a name="install-azure-data-lake-tools"></a>Azure Data Lake 도구 설치

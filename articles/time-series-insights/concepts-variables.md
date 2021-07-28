@@ -6,12 +6,12 @@ ms.author: shresha
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
-ms.openlocfilehash: fd08dc98fa47617bbc7c8d1fff895377837a7327
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 01184a4eb2aac81bbcabcebf89ef10afeabddbe8
+ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98736737"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107872968"
 ---
 # <a name="time-series-model-variables"></a>시계열 모델 변수
 
@@ -32,7 +32,7 @@ ms.locfileid: "98736737"
 | 변수 속성 | Description |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려되는 행 수를 제한하는 선택적 조건 절입니다. |
-| 변수 값 | 계산에 사용되는 원격 분석 값은 디바이스 또는 센서에서 발생하거나 시계열 식을 사용하여 변환됩니다. 숫자 종류 변수는 *Double* 형식이어야 합니다.|
+| 변수 값 | 계산에 사용되는 원격 분석 값은 디바이스 또는 센서에서 발생하거나 시계열 식을 사용하여 변환됩니다. 숫자 종류 변수는 수신 데이터의 데이터 형식과 일치하도록 `Double` 또는 `Long`이어야 합니다.|
 | 변수 보간 | 보간은 기존 데이터를 사용하여 신호를 다시 생성하는 방법을 지정합니다. 숫자 변수에는 *단계* 및 *선형* 보간 옵션을 사용할 수 있습니다. |
 | 변수 집계 | [숫자 변수 종류에 대해 지원되는 집계 함수](/rest/api/time-series-insights/reference-time-series-expression-syntax#numeric-variable-kind)를 통해 계산을 수행합니다. |
 
@@ -62,7 +62,7 @@ ms.locfileid: "98736737"
 | 변수 속성 | Description |
 | --- | ---|
 | 변수 필터 | 필터는 계산에 고려되는 행 수를 제한하는 선택적 조건 절입니다. |
-| 변수 값 | 디바이스 또는 센서에서 들어오는 계산에 사용되는 원격 분석 값입니다. 범주 종류 변수는 *Long* 또는 *String* 이어야 합니다. |
+| 변수 값 | 디바이스 또는 센서에서 들어오는 계산에 사용되는 원격 분석 값입니다. 범주형 변수는 수신 데이터의 데이터 형식과 일치하도록 `Long` 또는 `String`이어야 합니다. |
 | 변수 보간 | 보간은 기존 데이터를 사용하여 신호를 다시 생성하는 방법을 지정합니다. *단계* 보간 옵션은 범주 변수에 사용할 수 있습니다. |
 | 변수 범주 | 범주는 디바이스 또는 센서에서 가져온 값 간의 매핑을 레이블로 만듭니다. |
 | 변수 기본 범주 | 기본 범주는 "범주" 속성에서 매핑되지 않는 모든 값에 대한 것입니다. |

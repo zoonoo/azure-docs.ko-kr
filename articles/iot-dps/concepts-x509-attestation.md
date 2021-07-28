@@ -1,27 +1,27 @@
 ---
-title: Azure IoT Hub 장치 프로 비전 서비스-x.509 인증서 증명
-description: X.509 인증서 증명을 DPS (장치 프로 비전 서비스)와 함께 사용 하는 것과 관련 된 개념을 설명 하 고 IoT Hub
+title: Azure IoT Hub Device Provisioning Service - X.509 인증서 증명
+description: DPS(Device Provisioning Service) 및 IoT Hub에서 X.509 인증서 증명 사용과 관련된 개념을 설명합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 9eee315aac28847710662b463add7d6e68d8d505
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: d3847ec5ce253d2d5f2ad18ce9a0cc912335e2f4
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94967298"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108142000"
 ---
 # <a name="x509-certificate-attestation"></a>X.509 인증서 증명
 
-이 문서에서는 x.509 인증서 증명을 사용 하 여 장치를 프로 비전 할 때 관련 된 DPS (장치 프로 비전 서비스) 개념에 대 한 개요를 제공 합니다. 이 문서는 배포를 위한 디바이스 준비에 관련된 모든 사람에게 적합합니다.
+이 문서에서는 X.509 인증서 증명을 사용하여 디바이스를 프로비저닝할 때 관련된 DPS(Device Provisioning Service) 개념에 대한 개요를 제공합니다. 이 문서는 배포를 위한 디바이스 준비에 관련된 모든 사람에게 적합합니다.
 
-X.509 인증서를 하드웨어 보안 모듈 HSM에 저장할 수 있습니다.
+X.509 인증서는 하드웨어 보안 모듈 HSM에 저장할 수 있습니다.
 
 > [!TIP]
-> 프로덕션 환경에서 장치에 x.509 인증서와 같은 암호를 안전 하 게 저장 하는 장치에 HSM을 사용 하는 것이 좋습니다.
+> 프로덕션의 디바이스에 X.509 인증서와 같은 비밀을 안전하게 저장하려면 디바이스에서 HSM을 사용하는 것이 좋습니다.
 
 
 ## <a name="x509-certificates"></a>X.509 인증서
@@ -38,64 +38,64 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 ### <a name="root-certificate"></a>루트 인증서
 
-루트 인증서는 CA(인증 기관)를 나타내는 자체 서명된 X.509 인증서입니다. 인증서 체인의 종점 또는 트러스트 앵커입니다. 루트 인증서는 조직에서 자체적으로 발급하거나 루트 인증 기관에서 구입할 수 있습니다. 자세한 내용은 [X.509 CA 인증서 얻기](../iot-hub/iot-hub-security-x509-get-started.md#get-x509-ca-certificates)를 참조하세요. 또한 루트 인증서는 루트 CA 인증서라고도 합니다.
+루트 인증서는 CA(인증 기관)를 나타내는 자체 서명된 X.509 인증서입니다. 인증서 체인의 종점 또는 트러스트 앵커입니다. 루트 인증서는 조직에서 자체적으로 발급하거나 루트 인증 기관에서 구입할 수 있습니다. 자세한 내용은 [X.509 CA 인증서 얻기](../iot-hub/tutorial-x509-scripts.md)를 참조하세요. 또한 루트 인증서는 루트 CA 인증서라고도 합니다.
 
 ### <a name="intermediate-certificate"></a>중간 인증서
 
 중간 인증서는 루트 인증서(또는 해당 체인에 루트 인증서가 있는 다른 중간 인증서)에서 서명한 X.509 인증서입니다. 체인의 마지막 중간 인증서는 리프 인증서에 서명하는 데 사용됩니다. 또한 중간 인증서는 중간 CA 인증서라고도 합니다.
 
-##### <a name="why-are-intermediate-certs-useful"></a>중간 인증서가 유용한 이유는 무엇 인가요?
-중간 인증서는 다양 한 방법으로 사용 됩니다. 예를 들어 중간 인증서를 사용 하 여 제품 라인, 장치 구매, 회사 부문 또는 공장을 기준으로 장치를 그룹화 할 수 있습니다. 
+##### <a name="why-are-intermediate-certs-useful"></a>중간 인증서가 유용한 이유는 무엇인가요?
+중간 인증서는 다양한 방법으로 사용됩니다. 예를 들어 중간 인증서를 사용하여 제품 라인, 디바이스를 구매하는 고객, 회사 부서 또는 공장별로 디바이스를 그룹화할 수 있습니다. 
 
-Contoso가 *ContosoRootCert* 이라는 루트 인증서를 사용 하 여 자체 PKI (공개 키 인프라)를 갖춘 대기업 이라고 가정 합니다. Contoso의 각 자회사에는 *ContosoRootCert* 로 서명 된 자체 중간 인증서가 있습니다. 각 자회사는 중간 인증서를 사용 하 여 각 장치에 대 한 리프 인증서에 서명 합니다. 이 시나리오에서 Contoso는 [소유 증명](./how-to-verify-certificates.md)으로 *ContosoRootCert* 가 확인 된 단일 DPS 인스턴스를 사용할 수 있습니다. 각 자회사에 대 한 등록 그룹을 가질 수 있습니다. 이러한 방식으로 개별 자회사는 인증서를 확인 하는 데 걱정 하지 않아도 됩니다.
+Contoso가 *ContosoRootCert* 라는 루트 인증서를 사용하는 자체 PKI(공개 키 인프라)를 보유한 대기업이라고 가정해 보겠습니다. Contoso의 각 자회사에는 *ContosoRootCert* 에서 서명한 자체 중간 인증서가 있습니다. 그러면 각 자회사에서 중간 인증서를 사용하여 각 디바이스에 대한 리프 인증서에 서명합니다. 이 시나리오에서 Contoso는 *ContosoRootCert* 가 [소유 증명](./how-to-verify-certificates.md)으로 확인된 단일 DPS 인스턴스를 사용할 수 있습니다. 각 자회사에 대한 등록 그룹을 가질 수 있습니다. 이렇게 하면 각 개별 자회사가 인증서 확인에 대해 걱정할 필요가 없습니다.
 
 
 ### <a name="end-entity-leaf-certificate"></a>최종 엔터티 “리프” 인증서
 
 리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 프라이빗 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다.
 
-[개별 등록](./concepts-service.md#individual-enrollment) 항목에 사용 되는 리프 인증서에는 **주체 이름을** 개별 등록 항목의 등록 ID로 설정 해야 한다는 요구 사항이 있습니다. 등록 [그룹](./concepts-service.md#enrollment-group) 항목에 사용 되는 리프 인증서의 **주체 이름은** 등록 그룹의 인증 된 장치에 대 한 **등록 레코드** 에 표시 되는 원하는 장치 ID로 설정 되어야 합니다.
+[개별 등록](./concepts-service.md#individual-enrollment) 항목과 함께 사용되는 리프 인증서에는 **주체 이름** 을 개별 등록 항목의 등록 ID로 설정해야 한다는 요구 사항이 있습니다. [등록 그룹](./concepts-service.md#enrollment-group) 항목과 함께 사용되는 리프 인증서에는 **주체 이름** 이 등록 그룹의 인증된 디바이스에 대한 **등록 레코드** 에 표시될 원하는 디바이스 ID로 설정되어 있어야 합니다.
 
 자세한 내용은 [X.509 CA 인증서로 서명된 디바이스 인증](../iot-hub/iot-hub-x509ca-overview.md#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>X.509 인증서를 사용하여 프로비전 서비스에 대한 디바이스 액세스 제어
 
-프로 비전 서비스는 x.509 증명 메커니즘을 사용 하 여 장치 액세스를 제어 하는 데 사용할 수 있는 두 가지 등록 유형을 노출 합니다.  
+프로비저닝 서비스는 X.509 증명 메커니즘으로 디바이스 액세스를 제어하는 데 사용할 수 있는 두 가지 등록 유형을 공개합니다.  
 
 - [개별 등록](./concepts-service.md#individual-enrollment) 항목은 특정 디바이스와 연결된 디바이스 인증서로 구성됩니다. 이러한 항목은 특정 디바이스에 대한 등록을 제어합니다.
 - [등록 그룹](./concepts-service.md#enrollment-group) 항목은 특정 중간 또는 루트 CA 인증서와 연결됩니다. 이러한 항목은 인증서 체인에 해당 중간 또는 루트 인증서가 있는 모든 디바이스에 대한 등록을 제어합니다. 
 
-#### <a name="dps-device-chain-requirements"></a>DPS 장치 체인 요구 사항
+#### <a name="dps-device-chain-requirements"></a>DPS 디바이스 체인 요구 사항
 
-장치에서 등록 그룹을 사용 하 여 DPS를 통해 등록을 시도 하는 경우 장치는 [소유 증명](how-to-verify-certificates.md)을 사용 하 여 확인 된 인증서로 리프 인증서의 인증서 체인을 전송 해야 합니다. 그렇지 않으면 인증에 실패 합니다.
+디바이스에서 등록 그룹을 사용하여 DPS를 통해 등록을 시도하는 경우 디바이스는 리프 인증서에서 [소유 증명](how-to-verify-certificates.md)으로 확인된 인증서로 인증서 체인을 보내야 합니다. 그렇지 않으면 인증이 실패합니다.
 
-예를 들어 루트 인증서만 확인 하 고 중간 인증서를 등록 그룹에 업로드 하면 장치는 확인 된 루트 인증서로 리프 인증서의 인증서 체인을 표시 해야 합니다. 이 인증서 체인에는 중간 인증서가 포함 됩니다. DPS가 인증서 체인을 확인 된 인증서로 트래버스할 수 없는 경우 인증이 실패 합니다.
+예를 들어 루트 인증서만 확인하고 중간 인증서를 등록 그룹에 업로드하면 디바이스는 리프 인증서에서 확인된 루트 인증서까지 인증서 체인을 제시해야 합니다. 이 인증서 체인에는 중간 인증서가 포함됩니다. DPS가 인증서 체인을 확인된 인증서로 트래버스할 수 없는 경우 인증이 실패합니다.
 
-예를 들어, 장치에 대 한 다음 장치 체인을 사용 하는 회사를 생각해 보세요.
+예를 들어, 디바이스에 다음 디바이스 체인을 사용하는 회사를 생각해 보세요.
 
-![장치 인증서 체인의 예](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+![디바이스 인증서 체인 예](./media/concepts-x509-attestation/example-device-cert-chain.png) 
 
-루트 인증서만 확인 되 고 *intermediate2* 인증서가 등록 그룹에 업로드 됩니다.
+루트 인증서만 확인되고 *intermediate2* 인증서가 등록 그룹에 업로드됩니다.
 
-![확인 된 루트 예](./media/concepts-x509-attestation/example-root-verified.png) 
+![확인된 루트 예](./media/concepts-x509-attestation/example-root-verified.png) 
 
-프로 비전 하는 동안 장치에서 다음 장치 체인만 전송 하면 인증에 실패 합니다. DPS가 *intermediate1* 인증서의 유효성을 가정 하 여 인증을 시도할 수 없기 때문입니다.
+프로비저닝하는 동안 디바이스에서 다음 디바이스 체인만 전송하면 인증에 실패합니다. DPS는 *intermediate1* 인증서의 유효성을 가정하여 인증을 시도할 수 없기 때문입니다.
 
 ![인증서 체인 실패 예](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
 
-프로 비전 하는 동안 장치에서 전체 장치 체인을 전송 하는 경우 DPS는 장치 인증을 시도할 수 있습니다.
+프로비저닝하는 동안 디바이스에서 다음과 같이 전체 디바이스 체인을 전송하는 경우 DPS는 디바이스 인증을 시도할 수 있습니다.
 
-![장치 인증서 체인의 예](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+![디바이스 인증서 체인 예](./media/concepts-x509-attestation/example-device-cert-chain.png) 
 
 
 
 
 > [!NOTE]
-> 중간 인증서는 [소유 증명](how-to-verify-certificates.md)을 사용 하 여 확인할 수도 있습니다.
+> 중간 인증서는 [소유 증명](how-to-verify-certificates.md)으로도 확인할 수 있습니다.
 
 
-#### <a name="dps-order-of-operations-with-certificates"></a>인증서를 사용 하는 DPS 작업 순서
-디바이스가 프로비전 서비스에 연결되면 이 서비스에서 덜 구체적인 등록 항목보다 높은 우선 순위를 더 구체적인 등록 항목에 지정합니다. 즉 디바이스에 대한 개별 등록이 있으면 프로비전 서비스에서 해당 항목을 적용합니다. 장치에 대 한 개별 등록이 없고 장치의 인증서 체인에 있는 첫 번째 중간 인증서에 대 한 등록 그룹이 있는 경우 서비스는 해당 항목을 적용 하 고 해당 항목을 루트에 연결 합니다. 이 서비스는 적용 가능한 첫 번째 항목을 다음과 같이 적용합니다.
+#### <a name="dps-order-of-operations-with-certificates"></a>인증서를 사용하는 DPS 작업 순서
+디바이스가 프로비전 서비스에 연결되면 이 서비스에서 덜 구체적인 등록 항목보다 높은 우선 순위를 더 구체적인 등록 항목에 지정합니다. 즉 디바이스에 대한 개별 등록이 있으면 프로비전 서비스에서 해당 항목을 적용합니다. 디바이스에 대한 개별 등록이 없고 디바이스의 인증서 체인에 있는 첫 번째 중간 인증서에 대한 등록 그룹이 있으면, 서비스에서 체인의 해당 항목, 그 다음 우선 순위의 항목 등등으로 적용하면서 체인을 따라 루트까지 적용합니다. 이 서비스는 적용 가능한 첫 번째 항목을 다음과 같이 적용합니다.
 
 - 발견된 첫 번째 등록 항목을 사용할 수 있으면 서비스에서 해당 디바이스를 프로비전합니다.
 - 발견된 첫 번째 등록 항목을 사용할 수 없으면 서비스에서 해당 디바이스를 프로비전하지 않습니다.  

@@ -1,6 +1,6 @@
 ---
 title: Azure Linux VM의 DPDK | Microsoft Docs
-description: DPDK (데이터 평면 개발 키트)의 이점 및 Linux 가상 머신에서 DPDK를 설정 하는 방법에 대해 알아봅니다.
+description: DPDK(데이터 평면 개발 키트)의 이점과 Linux 가상 머신에서 DPDK를 설정하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: 3b4d66525ec52ef2382dfbe97bc09278e35b31fb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: f2771284925e35cea975febdabe2ca377a192df8
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124672"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108127122"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Linux 가상 머신에서 DPDK 설정
 
@@ -36,17 +36,18 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 **더 많은 초당 패킷 수(PPS)** : 커널을 무시하고 사용자 공간에서 패킷을 제어하면 컨텍스트 스위치를 제거하여 주기 횟수를 줄입니다. 또한 Azure Linux 가상 머신에서 초당 처리 패킷 속도를 향상시킵니다.
 
 
-## <a name="supported-operating-systems"></a>지원되는 운영 체제
+## <a name="supported-operating-systems-minimum-versions"></a>지원되는 운영 체제 최소 버전
 
 다음 배포는 Azure Marketplace에서 지원됩니다.
 
 | Linux OS     | 커널 버전               | 
 |--------------|---------------------------   |
-| Ubuntu 16.04 | 4.15.0-1014-azure+           | 
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
-| SLES 15 SP1  | 4.12.14-8.19-azure +          | 
+| SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
+
+명시된 버전은 최소 요구 사항입니다. 최신 버전도 지원됩니다.
 
 **사용자 지정 커널 지원**
 
@@ -58,24 +59,28 @@ DPDK는 여러 운영 체제 배포를 지원하는 Azure Virtual Machines에서
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-가속 네트워킹을 사용하면 Linux 가상 머신을 사용하도록 설정해야 합니다. 가상 머신에는 관리를 위한 하나의 인터페이스가 포함된 적어도 두 개 이상의 네트워크 인터페이스가 있어야 합니다. 관리 인터페이스에서 가속 네트워킹을 사용 하지 않는 것이 좋습니다. [가속 네트워킹을 사용하는 Linux 가상 머신을 만드는](create-vm-accelerated-networking-cli.md) 방법에 대해 알아봅니다.
+가속 네트워킹을 사용하면 Linux 가상 머신을 사용하도록 설정해야 합니다. 가상 머신에는 관리를 위한 하나의 인터페이스가 포함된 적어도 두 개 이상의 네트워크 인터페이스가 있어야 합니다. 관리 인터페이스에서 가속화된 네트워킹을 사용하도록 설정하는 것은 권장되지 않습니다. [가속 네트워킹을 사용하는 Linux 가상 머신을 만드는](create-vm-accelerated-networking-cli.md) 방법에 대해 알아봅니다.
 
-## <a name="install-dpdk-dependencies"></a>DPDK 종속성 설치
-
-### <a name="ubuntu-1604"></a>Ubuntu 16.04
-
-```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
-sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
-```
+## <a name="install-dpdk"></a>DPDK 설치
 
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
-sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
+sudo add-apt-repository ppa:canonical-server/server-backports -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
+sudo apt-get install -y dpdk
+```
+
+### <a name="ubuntu-2004-and-newer"></a>Ubuntu 20.04 이상
+
+```bash
+sudo apt-get install -y dpdk
+```
+
+### <a name="debian-10-and-newer"></a>Debian 10 이상
+
+```bash
+sudo apt-get install -y dpdk
 ```
 
 ### <a name="rhel75centos-75"></a>RHEL7.5/CentOS 7.5
@@ -255,3 +260,4 @@ Failsafe PMD 통해 DPDK 애플리케이션을 실행하는 경우 애플리케�
 
 * [EAL 옵션](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Testpmd 명령](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)
+* [패킷 덤프 명령](https://doc.dpdk.org/guides/tools/pdump.html#pdump-tool)

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB 쿼리 언어의 밑면
-description: 지정 된 숫자 식 보다 작거나 같은 최대 정수를 반환 하 Azure Cosmos DB의 FLOOR SQL 시스템 함수에 대해 알아봅니다.
+title: Azure Cosmos DB 쿼리 언어의 FLOOR
+description: 지정된 숫자 식보다 작거나 같은 최대 정수를 반환하는 Azure Cosmos DB의 SQL 시스템 함수 FLOOR에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,13 +9,13 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 4696b90531b63a01fd4bd9260b24b9af5c6bbd93
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93335621"
 ---
-# <a name="floor-azure-cosmos-db"></a>바닥 (Azure Cosmos DB)
+# <a name="floor-azure-cosmos-db"></a>FLOOR(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  지정된 숫자 식보다 작거나 같은 최대 정수를 반환합니다.  
@@ -35,9 +35,9 @@ FLOOR (<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예에서는 함수를 사용 하 여 양수, 음수 및 0 값을 보여 줍니다 `FLOOR` .  
+  다음 예제에서는 `FLOOR` 함수를 사용하여 양수, 음수, 0 값을 표시합니다.  
   
 ```sql
 SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
@@ -55,6 +55,6 @@ SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3
 
 ## <a name="next-steps"></a>다음 단계
 
-- [수치 연산 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
+- [수학 함수 Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [시스템 함수 Azure Cosmos DB](sql-query-system-functions.md)
 - [Azure Cosmos DB 소개](introduction.md)

@@ -1,5 +1,5 @@
 ---
-title: 최종 사용자 인증-Data Lake Storage Gen1를 사용 하는 Java-Azure
+title: 최종 사용자 인증 - Java 및 Data Lake Storage Gen1 - Azure
 description: Azure Active Directory와 Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증을 수행하는 방법을 알아봅니다.
 author: twooley
 ms.service: data-lake-store
@@ -8,10 +8,10 @@ ms.date: 05/29/2018
 ms.custom: devx-track-java
 ms.author: twooley
 ms.openlocfilehash: ece996f7edb8d37cea47756c5b7e635e02409b35
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87318864"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Java를 사용하여 Azure Data Lake Storage Gen1로 최종 사용자 인증
@@ -37,7 +37,7 @@ ms.locfileid: "87318864"
 ## <a name="end-user-authentication"></a>최종 사용자 인증
 1. 명령줄에서 [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)을 사용하거나 IDE에서 Maven 프로젝트를 만듭니다. IntelliJ를 사용하여 Java 프로젝트를 만드는 방법에 대한 자세한 내용은 [여기](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html)를 참조하세요. Eclipse를 사용하여 프로젝트를 만드는 방법에 대한 자세한 내용은 [여기](https://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm)를 참조하세요.
 
-2. Maven **pom.xml** 파일에 다음 종속성을 추가합니다. 태그 앞에 다음 코드 조각을 추가 합니다 **\</project>** .
+2. Maven **pom.xml** 파일에 다음 종속성을 추가합니다. **\</project>** 태그 앞에 다음 코드 조각을 추가합니다.
    
     ```xml
     <dependencies>
@@ -54,7 +54,7 @@ ms.locfileid: "87318864"
     </dependencies>
     ```
    
-    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 Log4j, Java 로깅, Logback 등의 많은 인기 있는 로깅 프레임 워크 또는 로깅 없음 중에서 선택할 수 있는 [SLF4J](https://www.slf4j.org/) 로깅 외관을 사용 합니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](https://www.slf4j.org/manual.html#projectDep)를 참조하세요.
+    첫 번째 종속성은 Maven 리포지토리에서 Data Lake Storage Gen1 SDK(`azure-data-lake-store-sdk`)를 사용하는 것입니다. 두 번째 종속성은 이 애플리케이션에 사용하는 로깅 프레임워크(`slf4j-nop`)를 지정하는 것입니다. Data Lake Storage Gen1 SDK는 [SLF4J](https://www.slf4j.org/) 로깅 외관을 사용하며, 여기에서 Log4j, Java 로깅, Logback 등의 널리 사용되는 여러 로깅 프레임워크 중에서 선택하거나 로깅 없음을 선택할 수 있습니다. 이 예제에서 로깅을 비활성화하므로 **slf4j-nop** 바인딩을 사용합니다. 앱에서 다른 로깅 옵션을 사용하려면 [여기](https://www.slf4j.org/manual.html#projectDep)를 참조하세요.
 
 3. 애플리케이션에 다음 import 문을 추가합니다.
 

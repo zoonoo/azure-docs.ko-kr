@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
 ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "89657457"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 실행하는 switch 문 만들기
@@ -27,7 +27,7 @@ ms.locfileid: "89657457"
 
 * Azure 구독 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 이 문서의 예제를 따르려면 Outlook.com 계정 또는 회사 또는 학교 계정을 사용 하 여 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md) .
+* 이 문서의 예제를 수행하려면 Outlook.com 계정이나 회사 또는 학교 계정을 사용하여 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
   1. 이메일을 보내는 작업을 추가할 때 대신 다음 작업을 찾아서 선택합니다. **승인 이메일 보내기**
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos 컨테이너의 고유 키 정의
-description: Azure Portal, PowerShell, .NET, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
+description: Azure Portal, PowerShell, .NET, Java, 기타 다양한 SDK를 사용하여 Azure Cosmos 컨테이너의 고유 키를 정의하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,10 +9,10 @@ ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93336625"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
@@ -40,7 +40,7 @@ ms.locfileid: "93336625"
 
 ## <a name="use-powershell"></a>PowerShell 사용
 
-고유한 키를 사용 하 여 컨테이너를 만들려면 [고유한 키와 TTL을 사용 하 여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl) 를 참조 하세요.
+고유한 키를 사용하여 컨테이너를 만들려면 [고유한 키와 TTL을 사용하여 Azure Cosmos 컨테이너 만들기](manage-with-powershell.md#create-container-unique-key-ttl)를 참조하세요.
 
 ## <a name="use-the-net-sdk"></a>.NET SDK 사용
 
@@ -66,7 +66,7 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 
 # <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
-[.NET sdk v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)을 사용 하 여 새 컨테이너를 만들 때 SDK의 흐름 API를 사용 하 여 간결 하 고 읽기 쉬운 방식으로 고유한 키를 선언 합니다.
+[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)을 사용하여 새 컨테이너를 만드는 경우 SDK의 흐름 API를 사용하여 간결하고 읽기 쉬운 방식으로 고유한 키를 선언합니다.
 
 ```csharp
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
@@ -153,5 +153,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [분할](partitioning-overview.md) 에 대 한 자세한 정보
+- [분할](partitioning-overview.md)에 대해 자세히 알아보기
 - [인덱싱 작동 원리](index-overview.md) 알아보기

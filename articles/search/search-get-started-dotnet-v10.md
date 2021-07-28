@@ -1,7 +1,7 @@
 ---
-title: '레거시 c # 빠른 시작'
+title: 레거시 C# 빠른 시작
 titleSuffix: Azure Cognitive Search
-description: '이 c # 빠른 시작은 버전 10 클라이언트 라이브러리 (Microsoft. Azure. Search)를 사용 하 여 검색 인덱스를 만들고 로드 하 고 쿼리 합니다.'
+description: C# 빠른 시작은 버전 10 클라이언트 라이브러리(Microsoft.Azure.Search)를 사용하여 검색 인덱스를 만들고 로드하고 쿼리합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -11,27 +11,27 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8dc2eb898c12e374bc503c5a05f00eb20667443b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94701843"
 ---
-# <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>빠른 시작: 레거시 v10 클라이언트 라이브러리를 사용 하 여 검색 인덱스 만들기
+# <a name="quickstart-create-a-search-index-using-the-legacy-microsoftazuresearch-v10-client-library"></a>빠른 시작: 레거시 Microsoft.Azure.Search v10 클라이언트 라이브러리를 사용하여 검색 인덱스 만들기
 
-이 문서는 uments (버전 11) 클라이언트 라이브러리에 [**Azure.Search.Doc**](/dotnet/api/overview/azure/search.documents-readme) 의해 대체 된 레거시 [**Microsoft. Azure 검색**](/dotnet/api/overview/azure/search/client10) (버전 10) 클라이언트 라이브러리에 대 한 c # 빠른 시작입니다.
-
-> [!NOTE]
-> 기존 또는 처리 중인 개발 프로젝트가 있는 경우 버전 10을 계속 사용할 수 있습니다. 그러나 새 프로젝트의 경우 또는 새 기능을 사용 하려면 [새 라이브러리로](/dotnet/api/overview/azure/search.documents-readme)전환 해야 합니다.
-
-## <a name="about-this-quickstart"></a>이 빠른 시작 정보
-
-Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotnet/api/overview/azure/search/client10)를 사용 하 여 azure Cognitive Search 인덱스를 만들고 로드 하 고 쿼리 하는 .net Core 콘솔 응용 프로그램을 c #으로 만듭니다. 
-
-이 문서에서는 응용 프로그램을 만드는 방법을 설명 합니다. [전체 응용 프로그램을 다운로드 하 고 실행할](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10)수도 있습니다.
+이 문서는 현재 [**Azure.Search.Documents**](/dotnet/api/overview/azure/search.documents-readme)(버전 11) 클라이언트 라이브러리로 대체된 레거시 [**Microsoft.Azure.Search**](/dotnet/api/overview/azure/search/client10)(버전 10) 클라이언트 라이브러리에 대한 C# 빠른 시작입니다.
 
 > [!NOTE]
-> 이 문서의 데모 코드는 편의를 위해 Azure Cognitive Search 버전 10 .NET SDK의 동기 메서드를 사용 합니다. 하지만 프로덕션 시나리오에서는 확장성과 응답성을 유지하기 위해 자체 애플리케이션에 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, `Create` 및 `Delete` 대신`CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
+> 기존 또는 진행 중인 개발 프로젝트가 있는 경우 계속해서 버전 10을 사용할 수 있습니다. 그러나 새 프로젝트인 경우 또는 새 기능을 사용하려면 [새 라이브러리](/dotnet/api/overview/azure/search.documents-readme)로 전환해야 합니다.
+
+## <a name="about-this-quickstart"></a>빠른 시작 정보
+
+Visual Studio와 [Microsoft.Azure.Search 클라이언트 라이브러리](/dotnet/api/overview/azure/search/client10)를 사용하여 Azure Cognitive Search 인덱스를 만들고 로드하고 쿼리하는 C#의 .NET Core 콘솔 애플리케이션을 만듭니다. 
+
+이 문서에서는 애플리케이션을 만드는 방법에 관해 설명합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10)할 수도 있습니다.
+
+> [!NOTE]
+> 이 문서의 데모 코드는 간단히 하기 위해 Azure Cognitive Search 버전 10 .NET SDK의 동기 메서드를 사용합니다. 하지만 프로덕션 시나리오에서는 확장성과 응답성을 유지하기 위해 자체 애플리케이션에 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, `Create` 및 `Delete` 대신`CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 
@@ -65,15 +65,15 @@ Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotn
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-[Microsoft. Azure 검색 패키지](https://www.nuget.org/packages/Microsoft.Azure.Search/) 는 NuGet 패키지로 배포 되는 몇 가지 클라이언트 라이브러리로 구성 됩니다.
+[Microsoft.Azure.Search 패키지](https://www.nuget.org/packages/Microsoft.Azure.Search/)는 NuGet 패키지로 배포되는 몇 가지 클라이언트 라이브러리로 구성됩니다.
 
-이 프로젝트에는 `Microsoft.Azure.Search` nuget 패키지 및 최신 nuget 패키지의 버전 10을 사용 `Microsoft.Extensions.Configuration.Json` 합니다.
+이 프로젝트의 경우 `Microsoft.Azure.Search` NuGet 패키지 버전 10과 최신 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 사용합니다.
 
 1. **도구** > **NuGet 패키지 관리자** 에서 **솔루션의 NuGet 패키지 관리...** 를 선택합니다. 
 
 1. **찾아보기** 를 클릭합니다.
 
-1. `Microsoft.Azure.Search`버전 10을 검색 하 고 선택 합니다.
+1. `Microsoft.Azure.Search`를 검색하고 버전 10을 선택합니다.
 
 1. 오른쪽에서 **설치** 를 클릭하여 프로젝트 및 솔루션에 어셈블리를 추가합니다.
 
@@ -100,7 +100,7 @@ Visual Studio 및 [Microsoft Azure Search 클라이언트 라이브러리](/dotn
     }
     ```
 
-1. 검색 서비스 이름(YOUR-SEARCH-SERVICE-NAME)과 관리자 API 키(YOUR-ADMIN-API-KEY)를 유효한 값으로 바꿉니다. 서비스 끝점이 인 경우 `https://mydemo.search.windows.net` 서비스 이름은 " `mydemo` "입니다.
+1. 검색 서비스 이름(YOUR-SEARCH-SERVICE-NAME)과 관리자 API 키(YOUR-ADMIN-API-KEY)를 유효한 값으로 바꿉니다. 서비스 엔드포인트가 `https://mydemo.search.windows.net`이면 서비스 이름은 “`mydemo`”가 됩니다.
 
 ### <a name="add-class-method-files-to-your-project"></a>프로젝트에 클래스 ".Method" 파일 추가
 

@@ -1,34 +1,44 @@
 ---
-title: 대칭 키를 사용 하 여 장치 프로 비전-Azure IoT Hub 장치 프로 비전 서비스
-description: 장치 프로 비전 서비스 (DPS) 인스턴스로 대칭 키를 사용 하 여 장치를 프로 비전 하는 방법
+title: 대칭 키를 사용한 디바이스 프로비전 - Azure IoT Hub Device Provisioning Service
+description: 대칭 키를 사용하여 DPS(Device Provisioning Service) 인스턴스로 디바이스를 프로비전하는 방법
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/28/2021
+ms.date: 04/23/2021
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.openlocfilehash: a4c16347d1883e1522fda18c2382f2d67b8ace80
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 754db21fa8e14045696f1af2bcfe375fb1161d94
+ms.sourcegitcommit: bd1a4e4df613ff24e954eb3876aebff533b317ae
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99051112"
+ms.lasthandoff: 04/23/2021
+ms.locfileid: "107930572"
 ---
-# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>대칭 키 등록 그룹을 사용 하 여 장치를 프로 비전 하는 방법
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>대칭 키 등록 그룹을 사용하여 디바이스를 프로비전하는 방법
 
-이 문서에서는 등록 그룹을 사용 하 여 여러 대칭 키 장치를 단일 IoT Hub에 안전 하 게 프로 비전 하는 방법을 보여 줍니다.
+이 문서에서는 등록 그룹을 사용하여 여러 대칭 키 디바이스를 단일 IoT Hub에 안전하게 프로비전하는 방법을 보여줍니다.
 
-일부 장치에는 장치를 안전 하 게 식별 하는 데 사용할 수 있는 인증서, TPM 또는 기타 보안 기능이 없을 수 있습니다. 장치 프로 비전 서비스에는 [대칭 키 증명이](concepts-symmetric-key-attestation.md)포함 됩니다. 대칭 키 증명을 사용 하 여 MAC 주소 또는 일련 번호와 같은 고유한 정보를 기반으로 장치를 식별할 수 있습니다.
+일부 디바이스에는 디바이스를 안전하게 식별하는 데 사용할 수 있는 인증서, TPM 또는 다른 보안 기능이 없을 수 있습니다. 디바이스 프로비저닝 서비스는 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 포함합니다. MAC 주소 또는 일련 번호와 같은 고유 정보 기반 디바이스를 식별하는 데 대칭 키 증명을 사용할 수 있습니다.
 
-[HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module) 및 인증서를 쉽게 설치할 수 있는 경우 디바이스를 식별하고 프로비전하는 더 나은 방법이 될 수 있습니다. HSM을 사용 하면 모든 장치에 배포 된 코드의 업데이트를 무시할 수 있으며 장치 이미지에 비밀 키가 포함 되어 있지 않습니다. 이 문서에서는 HSM 또는 인증서가 모두 실행 가능한 옵션이 아니라고 가정합니다. 그러나 이러한 디바이스를 프로비전하는 디바이스 프로비저닝 서비스를 사용하기 위해 디바이스 코드를 업데이트하는 몇 가지 방법이 있다고 가정합니다. 
+[HSM(하드웨어 보안 모듈)](concepts-service.md#hardware-security-module) 및 인증서를 쉽게 설치할 수 있는 경우 디바이스를 식별하고 프로비전하는 더 나은 방법이 될 수 있습니다. HSM을 사용하면 모든 디바이스에 배포되는 코드를 업데이트하지 않아도 되며, 디바이스 이미지에 포함되는 비밀 키가 없습니다. 이 문서에서는 HSM 또는 인증서가 모두 실행 가능한 옵션이 아니라고 가정합니다. 그러나 이러한 디바이스를 프로비전하는 디바이스 프로비저닝 서비스를 사용하기 위해 디바이스 코드를 업데이트하는 몇 가지 방법이 있다고 가정합니다. 
 
 이 문서는 또한 마스터 그룹 키 또는 파생된 디바이스 키에 대한 무단 액세스를 방지하기 위해 보안 환경에서 디바이스 업데이트가 수행된다고 가정합니다.
 
 이 문서는 Windows 기반 워크스테이션에 적용됩니다. 그러나 Linux에서 절차를 수행할 수 있습니다. Linux 예제는 [다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법](how-to-provision-multitenant.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서에 사용 된 샘플은 C로 작성 되었습니다. [C # 장치 프로 비전 대칭 키 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) 도 있습니다. 이 샘플을 사용 하려면 [azure-iot-csharp-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드 하거나 복제 하 고 샘플 코드의 인라인 지침을 따르세요. 이 문서의 지침에 따라 포털을 사용 하 여 대칭 키 등록 그룹을 만들고이 샘플을 실행 하는 데 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 샘플을 사용 하 여 개별 등록를 만들 수도 있습니다.
+> 이 문서에서 사용되는 샘플은 C 언어로 작성됩니다. 또한 [C# 디바이스 프로비저닝 대칭 키 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample)을 사용할 수도 있습니다. 이 샘플을 사용하려면 [azure-iot-samples-csharp](https://github.com/Azure-Samples/azure-iot-samples-csharp) 리포지토리를 다운로드하거나 복제하고 샘플 코드의 인라인 지침을 따르세요. 이 문서의 지침을 따라 포털을 사용하여 대칭 키 등록 그룹을 만들고 샘플 실행에 필요한 ID 범위 및 등록 그룹 기본 및 보조 키를 찾을 수 있습니다. 또한 샘플을 사용하여 개별 등록을 만들 수도 있습니다.
+
+## <a name="prerequisites"></a>필수 조건
+
+* [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
+
+다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
+
+* ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
+
+* 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 ## <a name="overview"></a>개요
 
@@ -40,16 +50,6 @@ ms.locfileid: "99051112"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>필수 구성 요소
-
-* [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
-
-다음 필수 구성 요소는 Windows 개발 환경을 위한 것입니다. Linux 또는 macOS의 경우 SDK 설명서에서 [개발 환경 준비](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)의 해당 섹션을 참조하세요.
-
-* ['C++를 사용한 데스크톱 개발'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) 워크로드를 사용하도록 설정된 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019. Visual Studio 2015와 Visual Studio 2017도 지원됩니다.
-
-* 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Azure IoT C SDK 개발 환경 준비
 
@@ -73,7 +73,7 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 
     이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
-4. `cmake`Git 리포지토리의 루트 디렉터리에 하위 디렉터리를 만들고 해당 폴더로 이동 합니다. `azure-iot-sdk-c` 디렉터리에서 다음 명령을 실행합니다.
+4. Git 리포지토리의 루트 디렉터리에서 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다. `azure-iot-sdk-c` 디렉터리에서 다음 명령을 실행합니다.
 
     ```cmd/sh
     mkdir cmake
@@ -140,17 +140,33 @@ SDK에는 시뮬레이트된 디바이스의 샘플 코드가 포함되어 있�
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-각 장치에 대해 고유한 등록 Id를 만듭니다. 유효한 문자는 소문자 영숫자 및 대시('-')입니다.
+각 디바이스에 대해 고유한 등록 ID를 만듭니다. 유효한 문자는 소문자 영숫자 및 대시('-')입니다.
 
 
 ## <a name="derive-a-device-key"></a>디바이스 키 파생 
 
-장치 키를 생성 하려면 등록 그룹 마스터 키를 사용 하 여 각 장치에 대 한 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) 을 계산 합니다. 그러면 결과는 각 장치에 대해 Base64 형식으로 변환 됩니다.
+디바이스 키를 생성하려면 등록 그룹 마스터 키를 사용하여 각 디바이스에 대해 등록 ID의 [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)을 계산합니다. 그러면 결과는 각 디바이스에 대해 Base64 형식으로 변환됩니다.
 
 > [!WARNING]
-> 각 장치에 대 한 장치 코드는 해당 장치에 해당 하는 파생 된 장치 키만 포함 해야 합니다. 디바이스 코드에 그룹 마스터 키는 포함하지 않습니다. 손상 된 마스터 키로 인해 인증 되는 모든 장치의 보안이 손상 될 수 있습니다.
+> 각 디바이스의 디바이스 코드는 그 디바이스에 해당하는 파생된 디바이스 키만 포함해야 합니다. 디바이스 코드에 그룹 마스터 키는 포함하지 않습니다. 손상된 마스터 키는 해당 키로 인증되는 모든 디바이스의 보안을 손상할 가능성이 있습니다.
 
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
+Azure CLI에 대한 IoT 확장에서는 파생된 디바이스 키를 생성할 수 있는 [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) 명령을 제공합니다. 이 명령은 Windows 기반 시스템이나 Linux 시스템의 PowerShell 또는 Bash 셸에서 사용할 수 있습니다.
+
+`--key` 인수 값을 등록 그룹의 **기본 키** 로 바꿉니다.
+
+`--registration-id` 인수의 값을 등록 ID로 바꿉니다.
+
+```azurecli
+az iot dps compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+```
+
+결과 예제:
+
+```azurecli
+"Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc="
+```
 # <a name="windows"></a>[Windows](#tab/windows)
 
 Windows 기반 워크스테이션을 사용하는 경우 PowerShell을 사용하여 다음 예제에 표시된 대로 파생된 디바이스 키를 생성할 수 있습니다.
@@ -196,7 +212,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 ---
 
-각 장치는 프로 비전 하는 동안 해당 파생 된 장치 키 및 고유 등록 ID를 사용 하 여 등록 그룹으로 대칭 키 증명을 수행 합니다.
+각 디바이스는 파생된 디바이스 키와 고유한 등록 ID를 사용하여 프로비전하는 동안 등록 그룹과의 대칭 키 증명을 수행합니다.
 
 
 
@@ -204,7 +220,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 이 섹션에서는 이전에 설정한 Azure IoT C SDK에 있는 **prov\_dev\_client\_sample** 이라는 프로비저닝 샘플을 업데이트합니다. 
 
-이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 등록 그룹에서 구성한 IoT 허브에 할당됩니다. 이는 등록 그룹을 사용 하 여 프로 비전 되는 각 장치에 대해 완료 됩니다.
+이 샘플 코드는 프로비저닝 요청을 Device Provisioning Service 인스턴스에 보내는 디바이스 부팅 시퀀스를 시뮬레이트합니다. 부팅 시퀀스를 통해 디바이스가 인식되고 등록 그룹에서 구성한 IoT 허브에 할당됩니다. 이는 등록 그룹을 사용하여 프로비전되는 각 디바이스에 대해 완료됩니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 기록해 둡니다.
 
@@ -270,19 +286,28 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-9. 포털에서 시뮬레이션 된 장치가 할당 된 IoT hub로 이동 하 고 **Iot 장치** 탭을 클릭 합니다. 허브에 시뮬레이션 된를 성공적으로 프로 비전 하면 장치 ID가 **IoT 장치** 블레이드에 표시 되 고 *상태가* **사용** 으로 표시 됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
+9. 포털에서 시뮬레이션된 디바이스가 할당된 IoT 허브로 이동하고, **IoT 디바이스** 탭을 클릭합니다. 시뮬레이션된 디바이스가 허브에 성공적으로 프로비전되면 *상태* 가 **사용** 인 디바이스 ID가 **IoT 디바이스** 블레이드에 표시됩니다. 위쪽에서 **새로 고침** 단추를 클릭해야 할 수 있습니다. 
 
-    ![디바이스가 IoT 허브에 등록됨](./media/how-to-legacy-device-symm-key/hub-registration.png) 
+    ![디바이스가 IoT Hub에 등록됨](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
 
 
 ## <a name="security-concerns"></a>보안에 대한 우려
 
-이는 파생 된 장치 키를 각 장치에 대 한 이미지의 일부로 포함 하 고 있으므로 권장 되는 보안 모범 사례가 아닙니다. 이것은 보안과 사용 편의성이 대체로 절충 하는 한 가지 이유입니다. 사용자의 요구 사항에 따라 장치의 보안을 완벽 하 게 검토 해야 합니다.
+이 경우 파생된 디바이스 키가 각 디바이스의 이미지에 포함된 채로 있으므로 권장되는 보안 모범 사례가 아닙니다. 이러한 이유로 보안과 사용 편의성은 종종 상충합니다. 사용자는 본인의 요구 사항에 따라 디바이스의 보안을 철저히 검토해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-* 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
-* [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
-* 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법
+* 재프로비전에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [IoT Hub 디바이스 다시 프로비전 개념](concepts-device-reprovision.md)
+
+> [!div class="nextstepaction"]
+> [빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전](quick-create-simulated-device-symm-key.md)
+
+* 프로비전 해제에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+> [이전에 자동으로 프로비전된 디바이스의 프로비전을 해제하는 방법](how-to-unprovision-devices.md)

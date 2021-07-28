@@ -8,10 +8,10 @@ author: trkeya
 ms.author: trkeya
 ms.date: 05/01/2020
 ms.openlocfilehash: bd2f3d40b1aea1c0133f95e069ebfd527d30bd59
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94491106"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Azure Blob Storage를 사용하여 상업용 Marketplace 잠재 고객 관리
@@ -37,7 +37,7 @@ ms.locfileid: "94491106"
 
     ![Azure Storage 계정을 만드는 단계](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
-    저장소 계정에 대 한 자세한 내용은이 [빠른](../../storage/blobs/storage-quickstart-blobs-portal.md)시작을 참조 하세요.  스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+    스토리지 계정에 대한 자세한 내용은 이 [빠른 시작](../../storage/blobs/storage-quickstart-blobs-portal.md)을 참조하세요.  스토리지 가격에 대한 자세한 내용은 [스토리지 가격](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 4. 스토리지 계정이 프로비전될 때까지 기다립니다. 이 프로세스는 일반적으로 몇 분 정도 걸립니다.  그런 다음 Azure Portal의 **홈** 페이지에서 **모든 리소스 보기** 를 선택하거나 왼쪽 탐색 모음에서 **모든 리소스** 를 선택하여 스토리지 계정에 액세스합니다.
 
@@ -45,17 +45,17 @@ ms.locfileid: "94491106"
 
 5. 스토리지 계정 창에서 **액세스 키** 를 선택하고 키의 연결 문자열 값을 복사합니다. 이 값을 마켓플레이스 제품에 대한 잠재 고객을 받기 위해 게시 포털에서 제공해야 하는 스토리지 계정 연결 문자열 값으로 저장합니다.
 
-     연결 문자열의 예는 다음과 같습니다.
+     연결 문자열의 예:
 
      ```sql
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    !["연결 문자열" 입력란이 강조 표시 된 "액세스 키" 페이지를 보여 주는 스크린샷](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![“연결 문자열” 텍스트 상자가 강조 표시된 “액세스 키” 페이지를 보여 주는 스크린샷](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
 6. 스토리지 계정 페이지에서 **Blob** 을 선택합니다.
 
-   ![Blob이 선택 된 Azure storage 계정 페이지의 스크린샷](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![BLOB이 선택된 Azure 스토리지 계정 페이지의 스크린샷](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Blob 페이지에서 **+ 컨테이너** 단추를 선택합니다.
 

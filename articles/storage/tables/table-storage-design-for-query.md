@@ -1,6 +1,6 @@
 ---
-title: 쿼리를 위한 Azure Table storage 디자인 | Microsoft Docs
-description: Azure 테이블 저장소의 쿼리에 대 한 테이블을 디자인 합니다. 적절 한 파티션 키를 선택 하 고, 쿼리를 최적화 하 고, Table service에 대 한 데이터를 정렬 합니다.
+title: 쿼리용 Azure Table Storage 디자인 | Microsoft Docs
+description: Azure Table Storage에서 쿼리용 테이블을 디자인합니다. 적절한 파티션 키를 선택하고, 쿼리를 최적화하고, Table service를 위해 데이터를 정렬합니다.
 services: storage
 author: tamram
 ms.author: tamram
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.subservice: tables
 ms.openlocfilehash: 43ae21d97bc9d8292270ae62006e649f4bcf540b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93316161"
 ---
 # <a name="design-for-querying"></a>쿼리를 위한 디자인
@@ -38,7 +38,7 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 | *열 이름* | *데이터 형식* |
 | --- | --- |
 | **PartitionKey** (부서 이름) |String |
-| **Rowkey** (직원 ID) |String |
+| **RowKey**(직원 ID) |String |
 | **FirstName** |String |
 | **LastName** |String |
 | **Age** |정수 |
@@ -46,10 +46,10 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 
 [Azure Table Storage 개요](table-storage-overview.md) 아티클에서는 쿼리를 디자인하는 데 직접적인 영향을 주는 Azure Table service의 주요 기능 중 일부에 대해 설명합니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](/rest/api/storageservices/Query-Entities)참조).  
 
-* ***Point Query** _은 가장 효율적으로 사용할 수 있는 조회로, 고용량 조회 또는 가장 짧은 대기 시간을 요구 하는 조회에 사용 하는 것이 좋습니다. 이러한 쿼리는 _ *PartitionKey** 및 **rowkey** 값을 모두 지정 하 여 인덱스를 사용 하 여 개별 엔터티를 매우 효율적으로 찾을 수 있습니다. 예: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
-* 두 번째 최상의 방법은 _ *PartitionKey**를 사용 하는 ***range Query** _와 **rowkey** 값 범위에 대 한 필터를 사용 하 여 둘 이상의 엔터티를 반환 하는 것입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
-* 세 번째 가장 좋은 방법은 _ *PartitionKey**를 사용 하 고 다른 키가 아닌 속성에서 필터를 사용 하 여 둘 이상의 엔터티를 반환할 수 있는 ***Partition Scan** _입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
-* ***Table Scan** _은 _ *PartitionKey**를 포함 하지 않으며 테이블을 구성 하는 모든 파티션을 검색 하 여 일치 하는 모든 엔터티에 대해 수행 하므로 매우 비효율적입니다. 필터에서 **RowKey** 를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: $filter=LastName eq 'Jones'  
+* ***지점 쿼리** _는 가장 효율적인 조회 방법이며, 대용량 조회 또는 최저 대기 시간이 필요한 조회에 사용하는 것이 좋습니다. 해당 쿼리는 인덱스를 통해 _ *PartitionKey** 및 **RowKey** 값을 둘 다 지정하여 개별 엔터티를 매우 효율적으로 찾을 수 있습니다. 예: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
+* 두 번째로 좋은 방법은 _ *PartitionKey**를 사용하고 **RowKey** 값의 범위를 필터링하여 둘 이상의 엔터티를 반환하는 ***범위 쿼리** _입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
+* 세 번째로 좋은 방법은 _ *PartitionKey**를 사용하고 키가 아닌 다른 속성을 필터링하며 둘 이상의 엔터티를 반환할 수 있는 ***파티션 검색** _입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
+* ***테이블 검색** _은 _ *PartitionKey**를 포함하지 않으며, 테이블을 구성하는 모든 파티션에서 일치하는 모든 엔터티를 검색하기 때문에 매우 비효율적입니다. 필터에서 **RowKey** 를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: $filter=LastName eq 'Jones'  
 * 여러 엔터티를 반환하는 쿼리는 **PartitionKey** 와 **RowKey** 순으로 정렬된 엔터티를 반환합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 **RowKey** 를 선택합니다.  
 
 "**or**"를 사용하여 **RowKey** 값을 기반으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 다음과 같은 필터를 사용하는 쿼리는 피해야 합니다. $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
@@ -88,7 +88,7 @@ Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowK
 * [인덱스 엔터티 패턴](table-storage-design-patterns.md#index-entities-pattern) - 인덱스 엔터티를 유지 관리하여 엔터티 목록을 반환하는 효율적인 검색을 지원합니다.  
 
 ## <a name="sorting-data-in-the-table-service"></a>Table service에서 데이터 정렬
-Table service는 **PartitionKey** 를 기준으로 한 다음 **RowKey** 를 기준으로 하여 오름차순으로 정렬된 엔터티를 반환합니다. 이러한 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **Rowkey** 로 사용 하는 직원 id 값이 정수 값 이면 직원 id **123** 을 **00000123** 로 변환 해야 합니다.  
+Table service는 **PartitionKey** 를 기준으로 한 다음 **RowKey** 를 기준으로 하여 오름차순으로 정렬된 엔터티를 반환합니다. 이러한 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **RowKey** 로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123** 에서 **00000123** 으로 변환해야 합니다.  
 
 많은 애플리케이션에서 서로 다른 순서로 정렬(예: 이름 또는 입사 날짜별로 직원 정렬)된 데이터를 사용할 수 있도록 요구하고 있습니다. 다음과 같은 패턴으로 엔터티에 대한 정렬 순서를 대체하는 방법을 해결합니다.  
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 03ef2110af2d9e642019c2b07b53fae3e32b1ea6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b12b3db9266284509e88cef85a33a1a43b500907
+ms.sourcegitcommit: 2e123f00b9bbfebe1a3f6e42196f328b50233fc5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104950181"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108075486"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -108,9 +108,9 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-애플리케이션 코드에서 일반적인 로깅 기능을 사용해 애플리케이션 로그에 로그 메시지를 보냅니다. 예를 들면 다음과 같습니다.
+애플리케이션 코드에서 일반적인 로깅 기능을 사용해 애플리케이션 로그에 로그 메시지를 보냅니다. 다음은 그 예입니다.
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 다음은 그 예입니다.
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -141,7 +141,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-HTTP와 같은 특정 로그 유형을 필터링하려면 **--Provider** 매개 변수를 사용합니다. 예를 들면 다음과 같습니다.
+HTTP와 같은 특정 로그 유형을 필터링하려면 **--Provider** 매개 변수를 사용합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --provider http
@@ -183,19 +183,21 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원되는 로그 유형 및 그 설명을 표시합니다. 
 
-| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | Description |
+| 로그 형식 | Windows | Windows 컨테이너 | Linux | Linux 컨테이너 | 설명 |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | 예 | 예 | 예 | 표준 출력 및 표준 오류 |
 | AppServiceHTTPLogs | 예 | 예 | 예 | 예 | 웹 서버 로그 |
 | AppServiceEnvironmentPlatformLogs | 예 | 해당 없음 | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
 | AppServiceAuditLogs | 예 | 예 | 예 | 예 | FTP 및 Kudu를 통한 로그인 작업 |
 | AppServiceFileAuditLogs | 예 | 예 | TBA | TBA | 사이트 콘텐츠 대상의 파일 변경 내용(**프리미엄 계층 이상에서만 사용 가능**) |
-| AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Blessed Images<sup>1</sup> | Java SE & Tomcat Blessed Images<sup>1</sup> | 애플리케이션 로그 전송 사용 |
+| AppServiceAppLogs | ASP .NET & Tomcat <sup>1</sup> | ASP .NET & Tomcat <sup>1</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | Java SE & Tomcat Blessed Images<sup>2</sup> | 애플리케이션 로그 전송 사용 |
 | AppServiceIPSecAuditLogs  | 예 | 예 | 예 | 예 | IP 규칙에서 보낸 요청 |
 | AppServicePlatformLogs  | TBA | 예 | 예 | 예 | 컨테이너 작업 로그 |
 | AppServiceAntivirusScanAuditLogs | 예 | 예 | 예 | 예 | Microsoft Defender를 사용한 [바이러스 백신 검사 로그](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html)(**프리미엄 계층만 사용 가능**) | 
 
-<sup>1</sup>Java SE 앱의 경우 앱 설정에 “$WEBSITE _AZMON_PREVIEW_ENABLED”를 추가하고 1 또는 true로 설정합니다.
+<sup>1</sup> Tomcat 앱의 경우 앱 설정에 "TOMCAT_USE_STARTUP_BAT"를 추가하고 false 또는 0으로 설정합니다. *최신* Tomcat 버전에 있어야 하며 *java.util.logging* 을 사용해야 합니다.
+
+<sup>2</sup> Java SE 앱의 경우 앱 설정에 "$WEBSITE_AZMON_PREVIEW_ENABLED"를 추가하고 true 또는 1로 설정합니다.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> 다음 단계
 * [Azure Monitor를 사용하여 로그 쿼리](../azure-monitor/logs/log-query-overview.md)

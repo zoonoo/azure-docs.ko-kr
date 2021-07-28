@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB의 SQL 상수
-description: Azure Cosmos DB의 SQL 쿼리 상수가 특정 데이터 값을 나타내는 데 사용 되는 방법에 대해 알아봅니다.
+description: Azure Cosmos DB의 SQL 쿼리 상수를 사용하여 특정 데이터 값을 나타내는 방법을 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
 ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93339208"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 쿼리 상수  

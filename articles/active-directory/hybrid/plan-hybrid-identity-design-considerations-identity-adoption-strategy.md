@@ -1,6 +1,6 @@
 ---
 title: Azure의 하이브리드 ID 디자인 - 채택 전략 | Microsoft Docs
-description: 조건부 액세스 제어를 통해 Azure AD는 사용자를 인증할 때 및 응용 프로그램에 대 한 액세스를 허용 하기 전에 선택한 특정 조건을 확인 합니다.
+description: 조건부 액세스 제어를 통해 Azure AD는 사용자를 인증할 때 및 애플리케이션에 대한 액세스를 허용하기 전에 선택한 특정 조건을 확인합니다.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f52e46ff9cab7d3d150af9fd7b4f1c432bec74b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94836192"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
@@ -32,7 +32,7 @@ ms.locfileid: "94836192"
 * [Multi-Factor Authentication 요구 사항 결정](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>비즈니스 요구 사항 전략 정의
-첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  간단한 디자인 또는 매우 복잡 한 디자인 인지에 관계 없이, Azure Active Directory Microsoft 365, Microsoft Online Services 및 클라우드 인식 응용 프로그램을 지 원하는 Microsoft Id 플랫폼입니다.
+첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  단순한 디자인이든 복잡한 디자인이든 관계없이 Azure Active Directory는 Microsoft 365, Microsoft Online Services, 클라우드 인식 애플리케이션을 지원하는 Microsoft ID 플랫폼입니다.
 
 ## <a name="define-an-integration-strategy"></a>통합 전략 정의
 Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3개의 주요 통합 시나리오가 있습니다.  이러한 통합 전략 중 하나를 채택하도록 계획해야 합니다.  어떤 사용자 환경을 제공할 것인지, 기존 인프라가 있는지, 가장 비용 효과적인 방법은 무엇인지에 따라 선택하는 전략이 달라질 수 있습니다.  
@@ -55,7 +55,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 전략 | 장점 | 단점 |
 | --- | --- | --- |
 | **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br>  암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
-| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 정책에 따라 디렉터리를 클라우드로 동기화 하는 것을 꺼려할 수 있습니다. |
+| **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다 <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다 <br> 동기화에 대한 Microsoft의 기본 메서드 <br>  관리가 쉬워집니다 |일부 고객은 특정 회사의 정책으로 인해 클라우드를 사용하여 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
 | **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다 <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
 
 ### <a name="client-experience"></a>클라이언트 환경
@@ -111,7 +111,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 ### <a name="supported-topologies"></a>지원되는 토폴로지
 동기화 전략을 정의할 때 사용되는 토폴로지를 결정해야 합니다. 2단계에서 확인된 정보에 따라 어떤 토폴로지를 사용하는 것이 적절한지를 결정할 수 있습니다. 단일 포리스트, 단일 Azure AD 토폴로지는 가장 일반적이고 단일 Active Directory 포리스트 및 Azure AD의 단일 인스턴스를 구성합니다.  이 시나리오 대부분에서 사용되며 아래 그림에 표시된 대로 Azure AD Connect Express 설치를 사용하는 경우 예상되는 토폴로지입니다.
 
-![지원 되 ](./media/plan-hybrid-identity-design-considerations/single-forest.png) 는 토폴로지 단일 포리스트 시나리오 그림 5에 표시 된 것 처럼 규모가 크고 작은 조직에서 여러 포리스트를 포함 하는 것이 일반적입니다.
+![지원되는 토폴로지](./media/plan-hybrid-identity-design-considerations/single-forest.png) 단일 포리스트 시나리오에서는 그림 5에 표시된 것처럼 규모가 큰 조직뿐 아니라 작은 조직에서도 일반적으로 여러 포리스트를 포함합니다.
 
 > [!NOTE]
 > Azure AD connect 동기화를 사용하여 다른 온-프레미스 및 Azure AD 토폴로지에 대한 자세한 정보는 [Azure AD Connect에 대한 토폴로지](plan-connect-topologies.md)문서를 읽습니다.
@@ -140,7 +140,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 위의 조건이 충족되지 않고 둘 이상의 활성 계정 또는 둘 이상의 사서함이 있으면 Azure AD Connect는 하나를 선택하고 다른 하나는 무시합니다.  다른 계정이 없고 연결된 사서함만 있는 경우 이러한 계정은 Azure AD로 내보내지 않고 해당 사용자는 그룹의 멤버가 되지 않습니다.  DirSync를 사용과 관련하여 과거와 이러한 점이 다르며 이러한 다중 포리스트 시나리오를 더 지원하려고 합니다. 다중 포리스트 시나리오는 아래 그림에 표시됩니다.
 
-![여러 Azure AD 테 넌 트](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![여러 Azure AD 테넌트](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **다중 포리스트 여러 Azure AD 시나리오**
 
@@ -171,12 +171,12 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 * Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간에 일반적이고 통합된 GAL을 구축하기 위한 시도로 다른 Azure AD Directory에서 데이터를 읽도록 Azure AD Connect Sync의 구성을 변경하는 것은 지원되지 않습니다. 또한 Azure AD Connect Sync를 사용하여 사용자를 온-프레미스 AD에 연락처로 내보내는 것도 지원되지 않습니다.
 
 > [!NOTE]
-> 조직에서 네트워크의 컴퓨터가 인터넷에 연결 되지 않도록 제한 하는 경우이 문서에서는 클라이언트 컴퓨터의 아웃 바운드 허용 목록 및 Internet Explorer의 신뢰할 수 있는 사이트 영역에 포함 해야 하는 끝점 (Fqdn, IPv4 및 IPv6 주소 범위)을 나열 하 여 컴퓨터에서 Microsoft 365를 성공적으로 사용할 수 있도록 합니다. 자세한 내용은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)를 읽습니다.
+> 조직이 네트워크의 컴퓨터를 인터넷에 연결할 수 없도록 제한하는 경우 이 문서는 클라이언트 컴퓨터의 아웃바운드 허용 목록 및 Internet Explorer 신뢰할 수 있는 사이트 영역에 포함해야 하는 엔드포인트(FQDN, IPv4, IPv6 주소 범위)를 나열하여 컴퓨터에서 Microsoft 365를 성공적으로 사용할 수 있도록 합니다. 자세한 내용은 [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US)를 읽습니다.
 > 
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Multi-Factor Authentication 전략 정의
-이 작업에서 사용할 Multi-Factor Authentication 전략을 정의합니다.  Azure AD Multi-Factor Authentication는 두 가지 다른 버전으로 제공 됩니다.  하나는 클라우드 기반이고 다른 하나는  Azure MFA 서버를 사용하는 온-프레미스 기반입니다.  위에서 수행한 평가 결과에 따라 어떤 솔루션이 전략에 가장 적합한지 결정할 수 있습니다.  아래 테이블을 사용하여 어떤 설계 옵션이 회사의 보안 요구 사항을 가장 충족하는지 결정합니다.
+이 작업에서 사용할 Multi-Factor Authentication 전략을 정의합니다.  Azure AD Multi-Factor Authentication은 두 가지 다른 버전으로 제공됩니다.  하나는 클라우드 기반이고 다른 하나는  Azure MFA 서버를 사용하는 온-프레미스 기반입니다.  위에서 수행한 평가 결과에 따라 어떤 솔루션이 전략에 가장 적합한지 결정할 수 있습니다.  아래 테이블을 사용하여 어떤 설계 옵션이 회사의 보안 요구 사항을 가장 충족하는지 결정합니다.
 
 Multi-Factor 설계 옵션:
 
@@ -185,8 +185,8 @@ Multi-Factor 설계 옵션:
 | Microsoft 앱 |예 |예 |
 | 앱 갤러리의 SaaS 앱 |예 |예 |
 | Azure AD 앱 프록시를 통해 IIS 애플리케이션 게시됨 |예 |예 |
-| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |no |예 |
-| VPN 및 RDG와 같은 원격 액세스 |no |예 |
+| Azure AD 애플리케이션 프록시를 통해 IIS 애플리케이션이 게시되지 않음 |아니요 |예 |
+| VPN 및 RDG와 같은 원격 액세스 |아니요 |예 |
 
 전략에 대한 솔루션에 적응했더라도 여전히 사용자가 있는 위치의 위쪽에서 평가를 사용해야 합니다.  솔루션을 변경할 수 있습니다.  아래 테이블을 사용하여 다음을 결정하는 데 도움이 됩니다.
 

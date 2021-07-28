@@ -5,13 +5,13 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: 5fda7ebb5a72dd9bbfab0ba72511540cf141563f
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.date: 06/23/2021
+ms.openlocfilehash: 7f779d3856187cb6ce5db55b3a974fdd3818d8dc
+ms.sourcegitcommit: 5be51a11c63f21e8d9a4d70663303104253ef19a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105608853"
+ms.lasthandoff: 06/25/2021
+ms.locfileid: "112894944"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL - 유연한 서버에서 지원되는 PostgreSQL 주 버전
 
@@ -20,13 +20,17 @@ ms.locfileid: "105608853"
 
 Azure Database for PostgreSQL - 유연한 서버는 현재 다음 주 버전을 지원합니다.
 
+## <a name="postgresql-version-13"></a>PostgreSQL 버전 13
+
+현재 부 릴리스는 **13.3** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/13/static/release-13-3.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 
+
 ## <a name="postgresql-version-12"></a>PostgreSQL 버전 12
 
-현재 부 릴리스는 12.5입니다. 이 부 릴리스의 향상된 기능 및 수정 내용에 대한 자세한 정보는 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-4.html)를 참조하세요.
+현재 부 릴리스는 **12.7** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/12/static/release-12-7.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 추후 예약된 유지 관리 기간에는 기존 서버가 지원하는 최신 부 버전으로 자동 업그레이드됩니다.
 
 ## <a name="postgresql-version-11"></a>PostgreSQL 버전 11
 
-현재 부 릴리스는 11.10입니다. 이 부 릴리스의 향상된 기능 및 수정 내용에 대한 자세한 정보는 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-9.html)를 참조하세요.
+현재 부 릴리스는 **11.12** 입니다. 이 부 릴리스의 향상된 기능 및 수정 사항에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/11/static/release-11-12.html)를 참조하세요. 이 부 버전을 사용하여 새 서버를 만듭니다. 추후 예약된 유지 관리 기간에는 기존 서버가 지원하는 최신 부 버전으로 자동 업그레이드됩니다.
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL 버전 10 이상
 

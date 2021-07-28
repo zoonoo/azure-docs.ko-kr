@@ -5,12 +5,12 @@ description: Azure Kubernetes Service(AKS)에 대한 서비스 주체 또는 ADD
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: 91d40a5a738737098b0941bf3e41e4edd515e6df
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 08a52f68ffdaa3305fbbeefffeeac78a59f3903b
+ms.sourcegitcommit: ad921e1cde8fb973f39c31d0b3f7f3c77495600f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105640482"
+ms.lasthandoff: 04/25/2021
+ms.locfileid: "107949149"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에 대한 자격 증명 업데이트 및 순환
 
@@ -32,7 +32,7 @@ AKS 클러스터의 자격 증명을 업데이트하려는 경우 다음을 선�
 * 새 서비스 주체를 만들고 이 새 자격 증명을 사용하도록 클러스터를 업데이트합니다. 
 
 > [!WARNING]
-> *새* 서비스 주체를 만들도록 선택하는 경우 이러한 자격 증명을 사용하기 위해 large AKS 클러스터를 업데이트하는 데 시간이 오래 걸릴 수 있습니다.
+> *새* 서비스 주체를 만들기로 선택한 경우 서비스 주체 권한이 모든 지역에 전파될 때까지 약 30분 정도 기다립니다. 이러한 자격 증명을 사용하도록 큰 AKS 클러스터를 업데이트하려면 완료하는 데 시간이 오래 걸릴 수 있습니다.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>서비스 주체의 만료 날짜를 확인합니다
 
@@ -133,12 +133,12 @@ az aks update-credentials \
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
-[az-aks-show]: /cli/azure/aks#az-aks-show
-[az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
+[az-aks-show]: /cli/azure/aks#az_aks_show
+[az-aks-update-credentials]: /cli/azure/aks#az_aks_update_credentials
 [best-practices-identity]: operator-best-practices-identity.md
 [aad-integration]: ./azure-ad-integration-cli.md
 [create-aad-app]: ./azure-ad-integration-cli.md#create-azure-ad-server-component
-[az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md

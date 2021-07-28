@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics SQL 풀에서 트랜잭션 사용
-description: 이 문서에는 Synapse SQL 풀에서 트랜잭션을 구현 하 고 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
+description: 이 문서에는 Synapse SQL 풀에서 트랜잭션을 구현하고 솔루션을 개발하기 위한 팁이 포함되어 있습니다.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,24 +11,24 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.custom: azure-synapse
 ms.reviewer: igorstan
-ms.openlocfilehash: 8144c588d4b6794cadc0577bf63dabc2cc3e0efd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 3b661931d13fb179401fff2559579a155bd31dfb
+ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98677289"
+ms.lasthandoff: 04/28/2021
+ms.locfileid: "108139942"
 ---
 # <a name="use-transactions-in-a-sql-pool-in-azure-synapse"></a>Azure Synapse에서 SQL 풀의 트랜잭션 사용 
 
-이 문서에는 트랜잭션을 구현 하 고 SQL 풀에서 솔루션을 개발 하기 위한 팁이 포함 되어 있습니다.
+이 문서에는 트랜잭션을 구현하고 SQL 풀에서 솔루션을 개발하기 위한 팁이 포함되어 있습니다.
 
 ## <a name="what-to-expect"></a>예상 프로그램
 
-예상한 것처럼 SQL 풀은 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL 풀이 대규모로 유지 되도록 하기 위해 SQL Server에 비해 일부 기능이 제한 됩니다. 이 문서에서는 차이점을 강조 합니다.
+예상한 것처럼 SQL 풀은 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL 풀을 대규모로 유지하기 위해 일부 기능은 SQL Server에 비해 제한됩니다. 이 문서에서는 차이점을 강조 표시합니다.
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
 
-SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  Master 데이터베이스에 연결 된 경우 사용자 SQL 풀에 대해 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 설정 하 여 커밋된 스냅숏 격리를 읽도록 변경할 수 있습니다.  
+SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 기본적으로 READ UNCOMMITTED로 설정되어 있습니다.  master 데이터베이스에 연결할 때 사용자 SQL 풀에 대한 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 사용하면 READ COMMITTED SNAPSHOT ISOLATION으로 변경할 수 있습니다.  
 
 활성화되면 이 데이터베이스의 모든 트랜잭션이 READ COMMITTED SNAPSHOT ISOLATION으로 실행되고 세션 수준의 READ UNCOMMITTED 설정은 적용되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션(Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)을 참조하세요.
 
@@ -38,7 +38,7 @@ SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 �
 
 트랜잭션에 포함된 대략적인 최대 행 수를 구하려면 배포 용량을 각 행의 전체 크기로 나눕니다. 가변 길이 열의 경우에는 최대 크기를 사용하는 대신, 평균 열 길이를 사용하는 것을 고려합니다.
 
-다음 표에서는 두 가지 가정을 만들었습니다.
+다음 표에는 두 가지 가정이 있습니다.
 
 * 균일한 데이터 분포가 발생했습니다.
 * 평균 행 길이는 250바이트입니다.
@@ -94,13 +94,13 @@ SQL 풀은 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 �
 SQL 풀은 XACT_STATE() 함수를 사용하여 값 -2를 사용하는 실패한 트랜잭션을 보고합니다. 이 값은 트랜잭션이 실패하고 롤백만 표시함을 의미합니다.
 
 > [!NOTE]
-> XACT_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 `SELECT 1/0` 은 오류를 발생 시킬 수 있지만 트랜잭션을 커밋할 수 없는 상태로 강제 적용 하지는 않습니다.
+> XACT_STATE 함수에서-2 사용은 실패한 트랜잭션이 SQL Server와 다른 동작을 표시함을 나타냅니다. SQL Server는 값 -1를 사용하여 커밋할 수 없는 트랜잭션을 나타냅니다. SQL Server는 커밋할 수 없음으로 표시하지 않고 트랜잭션 내 일부 오류를 허용할 수 있습니다. 예를 들어 `SELECT 1/0`은 오류를 발생시키지만 커밋할 수 없는 상태로 트랜잭션을 강제 적용하지 않습니다.
 
-또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 SQL 풀은 이를 허용하지 않습니다. SQL 풀 트랜잭션 내에서 오류가 발생 하는 경우-2 상태가 자동으로 시작 되며 문이 롤백될 때까지 추가 select 문을 수행할 수 없습니다.
+또한 SQL Server는 커밋할 수 없는 트랜잭션에서 읽기를 허용합니다. 그러나 SQL 풀은 이를 허용하지 않습니다. SQL 풀의 트랜잭션 내부에서 오류가 발생하는 경우 자동으로 -2 상태가 되며, 해당 명령문이 롤백될 때까지 추가 select 문을 실행할 수 없습니다.
 
-따라서 코드를 수정 해야 할 수 있으므로 응용 프로그램 코드에서 XACT_STATE ()를 사용 하는지 확인 하는 것이 중요 합니다.
+따라서 코드를 수정해야 할 수 있기 때문에 애플리케이션 코드가 XACT_STATE()를 사용하는지 확인하는 것이 중요합니다.
 
-예를 들어 SQL Server에서 다음과 같은 트랜잭션이 표시 될 수 있습니다.
+예를 들어 SQL Server에서 다음과 같은 트랜잭션이 나타날 수 있습니다.
 
 ```sql
 SET NOCOUNT ON;
@@ -140,7 +140,7 @@ SELECT @xact_state AS TransactionState;
 
 위의 코드는 다음과 같은 오류 메시지를 제공합니다.
 
-Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 이 문제의 원인은 rollback 전용 상태의 트랜잭션이 DDL, DML 또는 SELECT 문 이전에 명시적으로 롤백되지 않는 것입니다.
+Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 이 문제의 원인은 롤백 전용 상태의 트랜잭션이 DDL, DML 또는 SELECT 문 앞에 명시적으로 롤백되지 않기 때문에 발생합니다.
 
 또한 ERROR_* 함수의 출력도 제공되지 않습니다.
 
@@ -214,4 +214,4 @@ SQL 풀에는 트랜잭션과 관련된 몇 가지 기타 제한 사항이 있�
 
 ## <a name="next-steps"></a>다음 단계
 
-트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](sql-data-warehouse-develop-best-practices-transactions.md)를 참조하세요. 다른 SQL 풀 모범 사례에 대 한 자세한 내용은 [sql 풀 모범 사례](sql-data-warehouse-best-practices.md)를 참조 하세요.
+트랜잭션을 최적화하는 방법에 대한 자세한 내용은 [트랜잭션 모범 사례](sql-data-warehouse-develop-best-practices-transactions.md)를 참조하세요. 다른 SQL 풀 모범 사례에 대해 알아보려면 [SQL 풀 모범 사례](../sql/best-practices-dedicated-sql-pool.md)를 참조하세요.

@@ -1,7 +1,7 @@
 ---
-title: MSAL4j (사용자 지정 토큰 캐시 serialization)
+title: 사용자 지정 토큰 캐시 serialization(MSAL4j)
 titleSuffix: Microsoft identity platform
-description: Java 용 MSAL에 대 한 토큰 캐시를 직렬화 하는 방법 알아보기
+description: Java용 MSAL에 대한 토큰 캐시를 직렬화하는 방법 알아보기
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -14,21 +14,21 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev, devx-track-java
 ms.openlocfilehash: e85cfb8c03111b889a9f95509f337d415c517163
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87312370"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Java 용 MSAL의 사용자 지정 토큰 캐시 serialization
+# <a name="custom-token-cache-serialization-in-msal-for-java"></a>Java용 MSAL의 사용자 지정 토큰 캐시 serialization
 
-응용 프로그램 인스턴스 간에 토큰 캐시를 유지 하려면 serialization을 사용자 지정 해야 합니다. 토큰 캐시 serialization과 관련 된 Java 클래스 및 인터페이스는 다음과 같습니다.
+애플리케이션 인스턴스 간에 토큰 캐시를 유지하려면 serialization을 사용자 지정해야 합니다. 토큰 캐시 serialization에 사용되는 Java 클래스와 인터페이스는 다음과 같습니다.
 
 - [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html): 보안 토큰 캐시를 나타내는 인터페이스입니다.
-- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): 액세스 전후에 코드를 실행 하는 작업을 나타내는 인터페이스입니다. @Override캐시 직렬화 및 역직렬화를 담당 하는 논리를 사용 하 여 *BeforeCacheAccess* 및 *aftercacheaccess* 를 실행 합니다.
-- [Itokencachecontext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): 토큰 캐시가 액세스 되는 컨텍스트를 나타내는 인터페이스입니다. 
+- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html): 액세스 전후에 코드를 실행하는 작업을 나타내는 인터페이스입니다. 캐시 직렬화와 역직렬화를 처리하는 논리를 사용하여 *beforeCacheAccess* 및 *afterCacheAccess* 를 @Override합니다.
+- [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html): 토큰 캐시에 액세스하는 컨텍스트를 나타내는 인터페이스입니다. 
 
-다음은 토큰 캐시 serialization/deserialization의 사용자 지정 serialization의 naive 구현입니다. 이를 복사 하 여 프로덕션 환경에 붙여넣지 마십시오.
+토큰 캐시 serialization/deserialization의 사용자 지정 serialization에 대한 단순한 구현은 다음과 같습니다. 이 구현을 복사하여 프로덕션 환경에 붙여넣지 마세요.
 
 ```Java
 static class TokenPersistence implements ITokenCacheAccessAspect {
@@ -62,4 +62,4 @@ PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persis
 
 ## <a name="learn-more"></a>자세한 정보
 
-[Java 용 MSAL을 사용 하 여 토큰 캐시에서 계정을 가져오고 제거 하는](msal-java-get-remove-accounts-token-cache.md)방법에 대해 알아봅니다.
+[Java용 MSAL을 사용하여 토큰 캐시에서 계정 가져오기 및 제거](msal-java-get-remove-accounts-token-cache.md)에 관해 알아봅니다.

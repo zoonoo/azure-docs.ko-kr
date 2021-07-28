@@ -8,23 +8,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/05/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dc52414fa0d2eeffe0381a68bd66eadafe4862ea
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
-ms.translationtype: MT
+ms.openlocfilehash: 8469e05b82a651760829761ca57af3bdb1b256a9
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781282"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443409"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
-페이지 레이아웃 패키지는 주기적으로 업데이트 되어 페이지 요소에 수정 및 향상 된 기능이 포함 됩니다. 다음 변경 로그는 각 버전에 도입 된 변경 내용을 지정 합니다.
+페이지 레이아웃 패키지는 페이지 요소의 수정 및 개선 사항을 포함하도록 주기적으로 업데이트됩니다. 다음 변경 로그는 각 버전에 도입된 변경 내용을 지정합니다.
 
 ## <a name="jquery-version"></a>jQuery 버전
 
-Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리](https://jquery.com/)를 사용 합니다.
+Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리](https://jquery.com/)를 사용합니다.
 
 |페이지 레이아웃 버전에서  |jQuery 버전  |
 |---------|---------|
@@ -32,165 +32,197 @@ Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리]
 |1.2.0 | 3.4.1 |
 |1.1.0 | 1.10.2 |
 
-## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지 (selfasserted)
+## <a name="self-asserted-page-selfasserted"></a>자체 어설션 페이지(selfasserted)
+
+**2.1.4**
+- jQuery 버전을 3.5.1로 업데이트했습니다.
+- HandlebarJS 버전을 4.7.6으로 업데이트했습니다.
+
+**2.1.3**
+- 보안 수정 사항입니다.
 
 **2.1.2**
-- 스페인어, 프랑스어 등의 언어에 대 한 지역화 인코딩 문제를 수정 했습니다.
+- 스페인어 및 프랑스어와 같은 언어의 지역화 인코딩 문제를 해결했습니다.
 
 **2.1.1**
 
-- `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.
-- ICloud 키 집합에 암호를 저장 하기 위한 지원이 추가 되었습니다.
-- 정책 또는 QueryString 매개 변수를 사용 하 여 `pageFlavor` 레이아웃 (클래식, oceanBlue 또는 slateGray)을 선택 하는 기능이 추가 되었습니다.
-- 자체 어설션된 페이지에 대 한 부인 추가
-- 이제 페이지가 로드 될 때 첫 번째 편집 가능한 필드에 포커스가 배치 됩니다.
-- 이제 여러 필드에 오류가 있을 때 첫 번째 오류 필드에 포커스가 배치 됩니다.
-- 이제 전자 메일 확인 코드를 확인 한 후 포커스가 ' 변경 ' 단추에 배치 됩니다.
+- `intro` 이외에 페이지에 제목으로 표시할 UXString `heading`을 추가했습니다. 이 항목은 기본적으로 숨겨집니다.
+- iCloud 키체인에 암호를 저장하기 위한 지원을 추가했습니다.
+- 레이아웃(classic, oceanBlue 또는 slateGray)을 선택하기 위해 정책 또는 QueryString 매개 변수 `pageFlavor`페이지에 제목으로 표시하는 지원을 추가했습니다.
+- 자체 어설션 페이지에 고지 사항을 추가했습니다.
+- 이제 페이지가 로드될 때 편집 가능한 첫 번째 필드에 포커스가 배치됩니다.
+- 이제 여러 필드에 오류가 있는 경우 첫 번째 오류 필드에 포커스가 배치됩니다.
+- 이제 메일 확인 코드가 확인된 후 ‘변경’ 단추에 포커스가 배치됩니다.
 
 **2.1.0**
 
-- 지역화 및 내게 필요한 옵션 수정.
+- 지역화 및 접근성 수정 사항입니다.
 
 **2.0.0**
 
-- 사용자 지정 정책의 [표시 컨트롤](display-controls.md) 에 대 한 지원이 추가 되었습니다.
+- 사용자 지정 정책의 [표시 컨트롤](display-controls.md)에 대한 지원을 추가했습니다.
 
 **1.2.0**
 
-- 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
-- 사용자 환경을 개선 하기 위해 구성 가능한 사용자 입력 유효성 검사 지연을 추가 했습니다.
+- 이제 사용자 이름/메일과 암호 필드에 `form` HTML 요소를 사용하면 Edge 및 IE(Internet Explorer)가 이 정보를 제대로 저장할 수 있습니다.
+- 사용자 환경을 개선하기 위해 구성 가능한 사용자 입력 유효성 검사 지연을 추가했습니다.
 -  접근성 수정
-- 이제 내레이터가 오류 메시지를 읽을 수 있도록 접근성 문제를 수정 했습니다. 
-- 이제 전자 메일을 확인 한 후에 포커스가 암호 필드에 배치 됩니다.
-- `autofocus`Checkbox 컨트롤에서 제거 되었습니다. 
-- 전화 번호 확인을 위한 표시 컨트롤에 대 한 지원이 추가 되었습니다.
-- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가할 수 있습니다.
-  - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
-  - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안을 제공 합니다.
-- Chrome 변환을 지원 합니다.
-- 사용자 흐름 페이지에서 회사 브랜딩에 대 한 지원이 추가 되었습니다.
+- 이제 내레이터가 오류 메시지를 읽도록 접근성 문제를 수정했습니다. 
+- 이제 메일이 확인된 후 암호 필드에 포커스가 배치됩니다.
+- 확인란 컨트롤에서 `autofocus`를 제거했습니다. 
+- 전화 번호 확인을 위해 표시 컨트롤에 대한 지원을 추가했습니다.
+- 이제 [HTML 태그](customize-ui-with-html.md#guidelines-for-using-custom-page-content)에 `data-preload="true"` 특성을 추가할 수 있습니다.
+  - 연결된 CSS 파일을 HTML 템플릿과 동시에 로드하므로 파일 로드 사이에 ‘깜박임’이 발생하지 않습니다.
+  - 페이지가 로드되기 전에 `script` 태그를 가져오고 실행하는 순서를 제어합니다.
+- 이제 메일 필드는 `type=email`이며 모바일 키보드는 올바른 제안을 제공합니다.
+- Chrome 번역에 대한 지원입니다.
+- 사용자 흐름 페이지에서 회사 브랜딩에 대한 지원을 추가했습니다.
 
 **1.1.0**
 
-- 제거 경고 취소
-- 오류 요소에 대 한 CSS 클래스
-- 향상 된 오류 논리 표시/숨기기
-- 기본 CSS 제거 됨
+- 경고 취소를 제거했습니다.
+- 오류 요소에 대한 CSS 클래스
+- 오류 논리 표시/숨기기가 향상되었습니다.
+- 기본 CSS를 제거했습니다.
 
 **1.0.0**
 
 - 초기 릴리스
 
-## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>암호 재설정 링크를 사용 하는 통합 로그인 등록 페이지 (unifiedssp)
+## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>암호 재설정 링크를 사용하는 통합 로그인 등록 페이지(unifiedssp)
 
 > [!TIP]
-> 여러 로캘 또는 사용자 흐름의 언어를 지원 하도록 페이지를 지역화 하는 경우 [지역화 id](localization-string-ids.md) 문서에서는 선택한 페이지 버전에 대해 사용할 수 있는 지역화 id의 목록을 제공 합니다.
+> 사용자 흐름에서 여러 로캘 또는 언어를 지원하기 위해 페이지를 지역화하는 경우입니다. [지역화 ID](localization-string-ids.md) 문서에서는 선택한 페이지 버전에 대해 사용할 수 있는 지역화 ID 목록을 제공합니다.
+
+**2.1.4**
+- jQuery 버전을 3.5.1로 업데이트했습니다.
+- HandlebarJS 버전을 4.7.6으로 업데이트했습니다.
+
+**2.1.3**
+- 보안 수정 사항입니다.
+- 사소한 버그가 수정되었습니다.
 
 **2.1.2**
-- 스페인어, 프랑스어 등의 언어에 대 한 지역화 인코딩 문제를 수정 했습니다.
-- "암호 찾기" 링크를 클레임 교환으로 사용 하도록 허용 합니다. 자세한 내용은 [셀프 서비스 암호 재설정](add-password-reset-policy.md#self-service-password-reset-recommended)을 참조 하세요.
+- 스페인어 및 프랑스어와 같은 언어의 지역화 인코딩 문제를 해결했습니다.
+- “암호 찾기” 링크를 클레임 교환으로 사용할 수 있습니다. 자세한 내용은 [셀프 서비스 암호 재설정](add-password-reset-policy.md#self-service-password-reset-recommended)을 참조하세요.
 
 **2.1.1**
-- `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.
-- 정책 또는 QueryString 매개 변수를 사용 하 여 `pageFlavor` 레이아웃 (클래식, oceanBlue 또는 slateGray)을 선택 하는 기능이 추가 되었습니다.
-- ICloud 키 집합에 암호를 저장 하기 위한 지원이 추가 되었습니다.
-- 이제 여러 필드에 오류가 있을 때 첫 번째 오류 필드에 포커스가 배치 됩니다.
-- 이제 페이지가 로드 될 때 첫 번째 편집 가능한 필드에 포커스가 배치 됩니다.
-- 클레임 공급자 선택 링크에 대 한 새 위치를 추가 했습니다 `bottomUnderFormClaimsProviderSelections` .
-- 더 이상 사용 되지 않는 UXStrings을 제거 했습니다.
+- `intro` 이외에 페이지에 제목으로 표시할 UXString `heading`을 추가했습니다. 이 항목은 기본적으로 숨겨집니다.
+- 레이아웃(classic, oceanBlue 또는 slateGray)을 선택하기 위해 정책 또는 QueryString 매개 변수 `pageFlavor`페이지에 제목으로 표시하는 지원을 추가했습니다.
+- iCloud 키체인에 암호를 저장하기 위한 지원을 추가했습니다.
+- 이제 여러 필드에 오류가 있는 경우 첫 번째 오류 필드에 포커스가 배치됩니다.
+- 이제 페이지가 로드될 때 편집 가능한 첫 번째 필드에 포커스가 배치됩니다.
+- 클레임 공급자 선택 링크 `bottomUnderFormClaimsProviderSelections`의 새 위치를 추가했습니다.
+- 더 이상 사용되지 않는 UXString을 제거했습니다.
 
 **2.1.0**
 
-- 여러 등록 링크에 대 한 지원이 추가 되었습니다.
-- 정책에 정의 된 조건자 규칙에 따라 사용자 입력 유효성 검사에 대 한 지원이 추가 되었습니다.
+- 여러 등록 링크에 대한 지원을 추가했습니다.
+- 정책에 정의된 조건자 규칙에 따라 사용자 입력 유효성 검사에 대한 지원을 추가했습니다.
 
 **1.2.0**
 
-- 이제 사용자 이름/전자 메일 및 암호 필드에 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
+- 이제 사용자 이름/메일과 암호 필드에 `form` HTML 요소를 사용하면 Edge 및 IE(Internet Explorer)가 이 정보를 제대로 저장할 수 있습니다.
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
-  - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
-  - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안을 제공 합니다.
-- Chrome 변환을 지원 합니다.
-- 사용자 흐름 페이지에서 테 넌 트 브랜딩에 대 한 지원이 추가 되었습니다.
+- 이제 [HTML 태그](customize-ui-with-html.md#guidelines-for-using-custom-page-content)에 `data-preload="true"` 특성을 추가하여 CSS 및 JavaScript의 로드 순서를 제어할 수 있습니다.
+  - 연결된 CSS 파일을 HTML 템플릿과 동시에 로드하므로 파일 로드 사이에 ‘깜박임’이 발생하지 않습니다.
+  - 페이지가 로드되기 전에 `script` 태그를 가져오고 실행하는 순서를 제어합니다.
+- 이제 메일 필드는 `type=email`이며 모바일 키보드는 올바른 제안을 제공합니다.
+- Chrome 번역에 대한 지원입니다.
+- 사용자 흐름 페이지에서 테넌트 브랜딩에 대한 지원을 추가했습니다.
 
 **1.1.0**
 
-- KMSI (로그인 유지) 컨트롤이 추가 됨
+- KMSI(로그인 유지) 컨트롤을 추가했습니다.
 
 **1.0.0**
 
 - 초기 릴리스
 
-## <a name="mfa-page-multifactor"></a>MFA 페이지 (다단계)
+## <a name="mfa-page-multifactor"></a>MFA 페이지(다단계)
+
+**1.2.4**
+- jQuery 버전을 3.5.1로 업데이트했습니다.
+- HandlebarJS 버전을 4.7.6으로 업데이트했습니다.
+
+**1.2.3**
+- 언어 지역화를 통해 도구 설명 문자열을 재정의할 수 있습니다.
+- 보안 수정 사항입니다.
+- 사소한 버그가 수정되었습니다.
 
 **1.2.2**
-- IOS를 사용할 때 확인 코드 자동 채우기 문제를 수정 했습니다.
-- Android 웹 보기에서 신뢰 당사자에 게 토큰을 리디렉션하는 문제를 해결 했습니다. 
-- `heading` `intro` 페이지에 제목으로 표시 하는 외에도 UXString가 추가 되었습니다. 이는 기본적으로 숨겨져 있습니다.  
-- 정책 또는 QueryString 매개 변수를 사용 하 여 `pageFlavor` 레이아웃 (클래식, oceanBlue 또는 slateGray)을 선택 하는 기능이 추가 되었습니다.
+- iOS를 사용하는 경우 확인 코드 자동 채우기 관련 문제를 해결했습니다.
+- Android 웹 보기에서 신뢰 당사자로 토큰을 리디렉션하는 문제를 해결했습니다. 
+- `intro` 이외에 페이지에 제목으로 표시할 UXString `heading`을 추가했습니다. 이 항목은 기본적으로 숨겨집니다.  
+- 레이아웃(classic, oceanBlue 또는 slateGray)을 선택하기 위해 정책 또는 QueryString 매개 변수 `pageFlavor`페이지에 제목으로 표시하는 지원을 추가했습니다.
 
 **1.2.1**
 
-- 기본 템플릿에 대 한 내게 필요한 옵션 수정
+- 기본 템플릿의 접근성 수정 사항
 
 **1.2.0**
 
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
-  - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
-  - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
-- Chrome 변환을 지원 합니다.
-- 사용자 흐름 페이지에서 테 넌 트 브랜딩에 대 한 지원이 추가 되었습니다.
+- 이제 [HTML 태그](customize-ui-with-html.md#guidelines-for-using-custom-page-content)에 `data-preload="true"` 특성을 추가하여 CSS 및 JavaScript의 로드 순서를 제어할 수 있습니다.
+  - 연결된 CSS 파일을 HTML 템플릿과 동시에 로드하므로 파일 로드 사이에 ‘깜박임’이 발생하지 않습니다.
+  - 페이지가 로드되기 전에 `script` 태그를 가져오고 실행하는 순서를 제어합니다.
+- 이제 메일 필드는 `type=email`이며 모바일 키보드는 올바른 제안을 제공합니다.
+- Chrome 번역에 대한 지원입니다.
+- 사용자 흐름 페이지에서 테넌트 브랜딩에 대한 지원을 추가했습니다.
 
 **1.1.0**
 
-- ' 코드 확인 ' 단추 제거 됨
-- 이제 코드에 대 한 입력 필드에 최대 6 자까지 입력을 사용 합니다.
-- 페이지는 단추를 클릭 하지 않고 6 자리 코드를 입력할 때 입력 한 코드를 자동으로 확인 하려고 시도 합니다.
-- 코드가 잘못 된 경우 입력 필드가 자동으로 지워집니다.
-- 잘못 된 코드를 사용 하 여 3 번 시도 하면 B2C는 신뢰 당사자에 게 오류를 다시 보냅니다.
+- ‘코드 확인’ 단추가 제거되었습니다.
+- 이제 코드의 입력 필드는 최대 6자의 입력만 사용합니다.
+- 페이지는 단추를 클릭하지 않고도 6자리 숫자 코드가 입력될 때 입력된 코드를 자동으로 확인하려고 시도합니다.
+- 코드가 잘못된 경우 입력 필드가 자동으로 지워집니다.
+- 잘못된 코드로 3회 시도한 후 B2C는 신뢰 당사자에게 오류를 다시 보냅니다.
 -  접근성 수정
-- 기본 CSS 제거 됨
+- 기본 CSS를 제거했습니다.
 
 **1.0.0**
 
 - 초기 릴리스
 
-## <a name="exception-page-globalexception"></a>예외 페이지 (globalexception)
+## <a name="exception-page-globalexception"></a>예외 페이지(globalexception)
+
+**1.2.1**
+- jQuery 버전을 3.5.1로 업데이트했습니다.
+- HandlebarJS 버전을 4.7.6으로 업데이트했습니다.
 
 **1.2.0**
 
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
-  - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
-  - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
-- Chrome 변환 지원
+- 이제 [HTML 태그](customize-ui-with-html.md#guidelines-for-using-custom-page-content)에 `data-preload="true"` 특성을 추가하여 CSS 및 JavaScript의 로드 순서를 제어할 수 있습니다.
+  - 연결된 CSS 파일을 HTML 템플릿과 동시에 로드하므로 파일 로드 사이에 ‘깜박임’이 발생하지 않습니다.
+  - 페이지가 로드되기 전에 `script` 태그를 가져오고 실행하는 순서를 제어합니다.
+- 이제 메일 필드는 `type=email`이며 모바일 키보드는 올바른 제안을 제공합니다.
+- Chrome 번역에 대한 지원
 
 **1.1.0**
 
-- 내게 필요한 옵션 수정
-- 정책의 연락처가 없을 때 기본 메시지가 제거 됨
-- 기본 CSS 제거 됨
+- 접근성 수정
+- 정책에서 연락처가 없는 경우 기본 메시지를 제거했습니다.
+- 기본 CSS를 제거했습니다.
 
 **1.0.0**
 
 - 초기 릴리스
 
-## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>기타 페이지 (ProviderSelection, ClaimsConsent, UnifiedSSD)
+## <a name="other-pages-providerselection-claimsconsent-unifiedssd"></a>기타 페이지(ProviderSelection, ClaimsConsent, UnifiedSSD)
+
+**1.2.1**
+- jQuery 버전을 3.5.1로 업데이트했습니다.
+- HandlebarJS 버전을 4.7.6으로 업데이트했습니다.
 
 **1.2.0**
 
 -  접근성 수정
-- 이제 `data-preload="true"` [HTML 태그에](customize-ui-with-html.md#guidelines-for-using-custom-page-content) 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
-  - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
-  - `script`페이지를 로드 하기 전에 태그를 가져오고 실행 하는 순서를 제어 합니다.
-- 전자 메일 필드는 지금 이며 `type=email` 모바일 키보드는 올바른 제안 사항을 제공 합니다.
-- Chrome 변환 지원
+- 이제 [HTML 태그](customize-ui-with-html.md#guidelines-for-using-custom-page-content)에 `data-preload="true"` 특성을 추가하여 CSS 및 JavaScript의 로드 순서를 제어할 수 있습니다.
+  - 연결된 CSS 파일을 HTML 템플릿과 동시에 로드하므로 파일 로드 사이에 ‘깜박임’이 발생하지 않습니다.
+  - 페이지가 로드되기 전에 `script` 태그를 가져오고 실행하는 순서를 제어합니다.
+- 이제 메일 필드는 `type=email`이며 모바일 키보드는 올바른 제안을 제공합니다.
+- Chrome 번역에 대한 지원
 
 **1.0.0**
 
@@ -198,4 +230,4 @@ Azure AD B2C 페이지 레이아웃은 다음 버전의 [jQuery 라이브러리]
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 정책에서 응용 프로그램의 사용자 인터페이스를 사용자 지정 하는 방법에 대 한 자세한 내용은 [사용자 지정 정책을 사용 하 여 응용 프로그램의 사용자 인터페이스](customize-ui-with-html.md)사용자 지정을 참조 하세요.
+사용자 지정 정책에서 애플리케이션의 사용자 인터페이스를 사용자 지정하는 방법에 관한 자세한 내용은 [사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](customize-ui-with-html.md)을 참조하세요.

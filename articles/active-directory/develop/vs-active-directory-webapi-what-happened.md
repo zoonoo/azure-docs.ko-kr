@@ -1,6 +1,6 @@
 ---
-title: Azure AD에 연결할 때 WebAPI 프로젝트에 대 한 변경 내용
-description: Visual Studio를 사용 하 여 Azure AD에 연결할 때 WebAPI 프로젝트의 상황을 설명 합니다.
+title: Azure AD에 연결하는 경우 WebAPI 프로젝트의 변경 내용
+description: Visual Studio를 사용하여 Azure AD에 연결하는 경우 WebAPI 프로젝트가 어떻게 되는지를 설명합니다.
 author: ghogen
 manager: jillfra
 ms.workload: azure-vs
@@ -11,10 +11,10 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: devx-track-csharp, aaddev, vs-azure
 ms.openlocfilehash: a070bee7a9fa836eeac7c739cf2757295533ad7f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88165365"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>내 WebAPI 프로젝트(Visual Studio Azure Active Directory 연결 서비스)의 변경 내용

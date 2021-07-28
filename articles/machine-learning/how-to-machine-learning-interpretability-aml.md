@@ -9,18 +9,16 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: fda1bc2ef0a112a8a32ba7c4caebf29028c8cdd7
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.topic: how-to
+ms.custom: devx-track-python, responsible-ml
+ms.openlocfilehash: 6afe193cb29b313f45335e46aa9fcaec2e8bf240
+ms.sourcegitcommit: 5ce88326f2b02fda54dad05df94cf0b440da284b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "98222754"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107889055"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>해석력 패키지를 사용하여 Python의 ML 모델 및 예측 설명(미리 보기)
-
-
 
 이 방법 가이드에서는 Azure Machine Learning Python SDK의 해석력 패키지를 사용하여 다음 작업을 수행하는 방법을 알아봅니다.
 
@@ -36,8 +34,9 @@ ms.locfileid: "98222754"
 * 모델에 점수 매기기 설명자를 배포하여 추론 중에 설명을 관찰합니다.
 
 
-
 지원되는 해석력 기술 및 기계 학습 모델에 대한 자세한 내용은 [Azure Machine Learning의 모델 해석력](how-to-machine-learning-interpretability.md) 및 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)을 참조하세요.
+
+자동화된 기계 학습으로 학습된 모델에 대한 해석력을 사용하도록 설정하는 방법에 대한 지침은 [해석력: 자동화된 기계 학습 모델에 대한 모델 설명(미리 보기)](how-to-machine-learning-interpretability-automl.md)을 참조하세요. 
 
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>개인용 컴퓨터에서 기능 중요도 값 생성 
 다음 예제에서는 Azure 서비스에 연결하지 않고 개인 컴퓨터에서 해석력 패키지를 사용하는 방법을 보여 줍니다.
@@ -296,7 +295,7 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
 
 ## <a name="visualizations"></a>시각화
 
-로컬 Jupyter Notebook에서 설명을 다운로드한 후 시각화 대시보드를 사용하여 모델을 이해하고 해석할 수 있습니다. Jupyter Notebook에서 시각화 대시보드 위젯을 로드하려면 다음 코드를 사용합니다.
+로컬 Jupyter Notebook에서 설명을 다운로드한 후 설명 대시보드의 시각화를 사용하여 모델을 이해하고 해석할 수 있습니다. Jupyter Notebook에서 설명 대시보드 위젯을 로드하려면 다음 코드를 사용합니다.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
@@ -340,7 +339,7 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 
 설명 탭의 네 번째 탭에서는 개별 데이터 요소 및 개별 기능 중요도를 자세히 살펴볼 수 있습니다. 주 산점도의 개별 데이터 요소를 클릭하거나 오른쪽의 패널 마법사에서 특정 데이터 요소를 선택하여 모든 데이터 요소에 대한 개별 기능 중요도 플롯을 로드할 수 있습니다.
 
-|그림|설명|
+|그림|Description|
 |----|-----------|
 |개별 기능 중요도|개별 예측에 대한 상위 K개의 중요 기능을 보여 줍니다. 특정 데이터 요소에 대한 기본 모델의 로컬 동작을 설명하는 데 도움이 됩니다.|
 |가상 분석|선택한 실제 데이터 요소의 기능 값에 대한 변경 내용을 허용하고 새 기능 값을 사용하는 가상 데이터 요소를 생성하여 예측 값의 변경 결과를 관찰할 수 있습니다.|
@@ -353,11 +352,11 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 시각화
 
-[원격 해석력](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) 단계를 완료한 경우(Azure Machine Learning 실행 기록에 생성된 설명 업로드) [Azure Machine Learning 스튜디오](https://ml.azure.com)에서 시각화 대시보드를 볼 수 있습니다. 이 대시보드는 위에서 설명한 시각화 대시보드의 더 간단한 버전입니다. Azure Machine Learning 스튜디오에는 실시간 계산을 수행할 수 있는 활성 컴퓨팅이 없으므로 가상 데이터 요소 생성 및 ICE 플롯은 사용하지 않도록 설정됩니다.
+[원격 해석력](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) 단계(Azure Machine Learning 실행 기록에 생성된 설명 업로드)를 완료하면 [Azure Machine Learning 스튜디오](https://ml.azure.com)의 설명 대시보드에서 시각화를 볼 수 있습니다. 이 대시보드는 Jupyter Notebook 내에서 생성되는 더 간단한 버전의 대시보드 위젯입니다. Azure Machine Learning 스튜디오에는 실시간 계산을 수행할 수 있는 활성 컴퓨팅이 없으므로 가상 데이터 요소 생성 및 ICE 플롯은 사용하지 않도록 설정됩니다.
 
 데이터 세트, 전체 및 로컬 설명을 사용할 수 있는 경우 데이터는 모든 탭을 채웁니다. 전체 설명만 사용할 수 있는 경우에는 개별 기능 중요도 탭을 사용할 수 없습니다.
 
-다음 경로 중 하나를 따라 Azure Machine Learning 스튜디오의 시각화 대시보드에 액세스합니다.
+다음 경로 중 하나를 따라 Azure Machine Learning 스튜디오의 설명 대시보드에 액세스합니다.
 
 * **실험** 창(미리 보기)
   1. 왼쪽 창에서 **실험** 을 선택하여 Azure Machine Learning에서 실행한 실험 목록을 확인합니다.
@@ -368,7 +367,7 @@ X, Y 및 색 축을 따라 다른 필터를 선택함으로써 데이터 세트 
 
 * **모델** 창
   1. [Azure Machine Learning을 사용하여 모델 배포](./how-to-deploy-and-where.md)의 단계를 수행하여 원래 모델을 등록한 경우 왼쪽 창에서 **모델** 을 선택하여 볼 수 있습니다.
-  1. 모델을 선택한 다음 **설명** 탭을 선택하여 설명 시각화 대시보드를 봅니다.
+  1. 모델을 선택한 다음 **설명** 탭을 선택하여 설명 대시보드를 봅니다.
 
 ## <a name="interpretability-at-inference-time"></a>유추 시 해석력
 

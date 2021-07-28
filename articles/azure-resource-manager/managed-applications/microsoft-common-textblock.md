@@ -1,15 +1,15 @@
 ---
 title: TextBlock UI 요소
-description: Azure Portal의 Microsoft.Common.TextBlock UI 요소에 대해 설명합니다. 를 사용 하 여 인터페이스에 텍스트를 추가 합니다.
+description: Azure Portal의 Microsoft.Common.TextBlock UI 요소에 대해 설명합니다. 인터페이스에 텍스트를 추가하는 데 사용합니다.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: ba2c4d410891910c29ee1fda1065f8230ab171bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "87063864"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI 요소

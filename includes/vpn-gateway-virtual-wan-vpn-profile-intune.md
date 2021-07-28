@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/01/2021
+ms.date: 04/26/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c9568c51fe3a59dba83a66fc35c8d9112ade167f
-ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.openlocfilehash: ffe433e632e2afed32f2a135d87d927686e9a004
+ms.sourcegitcommit: 2f322df43fb3854d07a69bcdf56c6b1f7e6f3333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106178490"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108018291"
 ---
 Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한 프로필을 배포할 수 있습니다. 이 문서는 사용자 지정 설정을 사용하여 Intune 프로필을 만드는 데 도움을 줍니다.
 
@@ -21,7 +21,7 @@ Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한
 >* 이 문서는 인증용으로만 Azure Active Directory를 사용하는 프로필 배포에 적용됩니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 디바이스가 이미 Intune MDM에 등록되어 있습니다.
 * Windows 10용 Azure VPN 클라이언트는 클라이언트 컴퓨터에 이미 배포되어 있습니다.
@@ -66,9 +66,7 @@ Microsoft Intune을 사용하여 Azure VPN 클라이언트(Windows 10)에 대한
 이 섹션에서는 사용자 지정 설정으로 Microsoft Intune 프로필을 만듭니다.
 
 1. Intune에 로그인하고 **디바이스 -> 구성 프로필** 로 이동합니다. **+ 프로필 만들기** 를 선택합니다.
-
-   :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/configuration-profile.png" alt-text="구성 프로필":::
-1. **플랫폼** 에 대해 **Windows 10 이상** 을 선택합니다. **프로필** 에 대해 **사용자 지정** 을 선택합니다. 그런 다음 **만들기** 를 선택합니다.
+1. **플랫폼** 에 대해 **Windows 10 이상** 을 선택합니다. **프로필 유형** 에 대해 **템플릿** 및 **사용자 지정** 을 선택합니다. 그런 다음 **만들기** 를 선택합니다.
 1. 프로필에 이름 및 설명을 지정한 후, **다음** 을 선택합니다.
 1. **구성 설정** 탭에서 **추가** 를 선택합니다.
 

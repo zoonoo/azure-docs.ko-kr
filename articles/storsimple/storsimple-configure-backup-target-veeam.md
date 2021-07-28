@@ -1,6 +1,6 @@
 ---
 title: Veeam에서 백업 대상으로 StorSimple 8000 시리즈 구성 | Microsoft Docs
-description: 두 솔루션을 통합 하는 데 대 한 Veeam 및 모범 사례를 사용 하는 StorSimple 백업 대상 구성에 대해 알아봅니다.
+description: Veeam을 사용한 StorSimple 백업 대상 구성과 두 솔루션을 통합하기 위한 모범 사례에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
 author: harshakirank
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: matd
 ms.openlocfilehash: bf28265de2b297dade545695c9369b8074eeb72c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94962555"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Veeam에서 백업 대상으로 StorSimple 구성
@@ -56,8 +56,8 @@ StorSimple이 백업 대상으로 적합한 이유는 다음과 같습니다.
 
 StorSimple은 잘 정의된 데이터(핫 데이터)의 작업 집합에서 작동하는 애플리케이션에 대한 스토리지를 제공하도록 설계되었습니다. 이 모델에서 데이터의 작업 집합은 로컬 계층에 저장되고 데이터의 나머지 비작업/콜드/보관 집합은 클라우드에서 계층화됩니다. 다음 그림에서 이 모델을 나타냅니다. 평평한 녹색선은 StorSimple 디바이스의 로컬 계층에 저장된 데이터를 나타냅니다. 빨간색 선은 모든 계층에서 StorSimple 솔루션에 저장된 총 데이터 양을 나타냅니다. 평편한 녹색선과 빨강색 지수 곡선 사이의 간격은 클라우드에 저장된 데이터의 총량을 나타냅니다.
 
-**StorSimple 계층화** 
- ![ StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
+**StorSimple 계층화**
+![StorSimple 계층화 다이어그램](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
 이 아키텍처를 염두에 두면 StorSimple이 백업 대상으로 작동하는 데 적합하다는 점을 알 수 있습니다. StorSimple을 사용하면 다음 작업을 수행할 수 있습니다.
 
@@ -274,7 +274,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
 1.  Veeam Backup 및 복제 콘솔의 **리포지토리 도구** 에서 **Backup 인프라** 로 이동합니다. **Backup 리포지토리** 를 마우스 오른쪽 단추로 클릭한 다음 **Backup 리포지토리 추가** 를 선택합니다.
 
-    ![Veeam 관리 콘솔을 표시 하 고 Backup 리포지토리 추가 옵션을 강조 표시 하는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
+    ![Veeam 관리 콘솔을 표시하고 백업 리포지토리 추가 옵션을 강조 표시하는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 2.  **새 Backup 리포지토리** 대화 상자에서 리포지토리의 이름과 설명을 입력합니다. **다음** 을 선택합니다.
 
@@ -335,11 +335,11 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
 2.  **새 Backup 작업** 대화 상자에서 매일 백업 작업의 이름과 설명을 입력합니다.
 
-    ![이름 및 설명을 추가 하는 Veeam 관리 콘솔의 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
+    ![이름 및 설명을 추가하는 Veeam 관리 콘솔의 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
 3.  백업할 가상 머신을 선택합니다.
 
-    ![가상 머신을 선택 하는 Veeam 관리 콘솔을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
+    ![가상 머신을 선택하는 Veeam 관리 콘솔을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
 4.  **프록시 Backup** 및 **Backup 리포지토리** 에 대해 원하는 값을 선택합니다. 로컬로 연결된 스토리지의 환경에 대한 RPO 및 RTO 정의에 따라 **디스크에 유지할 복원 지점** 의 값을 선택합니다. **고급** 을 선택합니다.
 
@@ -347,7 +347,7 @@ Veeam 설치 모범 사례는 [Veeam Backup 및 복제 모범 사례](https://bp
 
 5. **고급 설정** 대화 상자의 **Backup** 탭에서 **증분** 을 선택합니다. **정기적으로 전체 가상 백업 만들기** 확인란이 선택 취소되어 있는지 확인합니다. **정기적으로 전체 활성 백업 만들기** 확인란을 선택합니다. **전체 활성 백업** 에서 **매주 선택한 요일에** 확인란을 토요일로 선택합니다.
 
-    ![Veeam 관리 콘솔, 특히 새 백업 작업 고급 설정 페이지를 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+    ![Veeam 관리 콘솔(특히 새 백업 작업 고급 설정 페이지)을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 6. **스토리지** 탭에서 **인라인 데이터 중복 제거 사용** 확인란이 선택 취소되어 있는지 확인합니다. **스왑 파일 블록 제외** 및 **삭제된 파일 블록 제외** 확인란을 선택합니다. **압축 수준** 을 **없음** 으로 설정합니다. 안정된 성능 및 중복 제거를 위해 **스토리지 최적화** 를 **LAN 대상** 으로 설정합니다. **확인** 을 선택합니다.
 
@@ -408,11 +408,11 @@ GFS 회전 매주, 매월 및 매년 일정
 
 1.  Veeam Backup 및 복제 콘솔에서 **Backup 및 복제** 를 선택합니다. **Backup** 을 마우스 오른쪽 단추로 클릭한 다음 환경에 따라 **VMware** 또는 **Hyper-V** 를 선택합니다.
 
-    ![선택할 수 있는 VMware 및 Hyper-v 옵션을 사용 하 여 Veeam 관리 콘솔을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
+    ![선택할 수 있는 VMware 및 Hyper-V 옵션이 포함된 Veeam 관리 콘솔을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
 2.  **새 Backup 복사 작업** 대화 상자에서 작업의 이름과 설명을 입력합니다.
 
-    ![작업의 이름 및 설명을 입력 하는 Veeam 관리 콘솔을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
+    ![작업의 이름 및 설명을 입력하는 Veeam 관리 콘솔을 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
 3.  처리할 VM을 선택합니다. [백업에서]를 선택하고 이전에 만든 매일 백업을 선택합니다.
 
@@ -422,7 +422,7 @@ GFS 회전 매주, 매월 및 매년 일정
 
 5.  백업 저장소를 선택하고 **유지할 복원 지점** 의 값을 설정합니다. **보관 목적으로 다음 복원 지점 유지** 확인란을 선택해야 합니다. 백업 빈도를 정의한 다음 **고급** 을 선택합니다.
 
-    ![백업 빈도를 정의할 위치를 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
+    ![백업 빈도를 정의하는 위치를 보여 주는 스크린샷](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
 6.  다음 고급 설정을 지정합니다.
 
@@ -488,8 +488,8 @@ Veeam을 사용하면 Veeam 콘솔에 있는 기본 제공 탐색기 보기에�
 
 - [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)용
 - [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)용
-- [SQL Server](https://www.veeam.com/microsoft-sql-server-explorer.html)
-- [SharePoint](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html) 용
+- [SQL Server](https://www.veeam.com/microsoft-sql-server-explorer.html)용
+- [SharePoint](https://www.veeam.com/microsoft-sharepoint-recovery-explorer.html)용
 - [Oracle](https://www.veeam.com/oracle-backup-recovery-explorer.html)용
 
 

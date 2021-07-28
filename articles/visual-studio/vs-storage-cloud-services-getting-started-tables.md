@@ -1,5 +1,5 @@
 ---
-title: Visual Studio를 사용 하 여 테이블 저장소 시작 (클라우드 서비스)
+title: Visual Studio를 사용하여 Table Storage 시작하기(클라우드 서비스)
 description: Visual Studio 연결 서비스를 사용하여 스토리지 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Table Storage 사용을 시작하는 방법입니다.
 services: storage
 author: ghogen
@@ -14,10 +14,10 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: e5e687b172b49fec5f77615e332d0a2204162c43
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "95545793"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Table Storage 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
@@ -28,7 +28,7 @@ ms.locfileid: "95545793"
 
 Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.
 
-시작하려면 먼저 스토리지 계정에서 테이블을 만들어야 합니다. 코드에서 Azure 테이블을 만드는 방법과 기본 테이블 및 테이블 엔터티 추가, 수정, 읽기와 같은 엔터티 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C \# 코드로 작성 되었으며 [.net 용 Microsoft Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100))를 사용 합니다.
+시작하려면 먼저 스토리지 계정에서 테이블을 만들어야 합니다. 코드에서 Azure 테이블을 만드는 방법과 기본 테이블 및 테이블 엔터티 추가, 수정, 읽기와 같은 엔터티 작업을 수행하는 방법을 살펴보겠습니다. 샘플은 C\# 코드로 작성되었으며, [.NET용 Microsoft Azure Storage 클라이언트 라이브러리](/previous-versions/azure/dn261237(v=azure.100))를 사용합니다.
 
 **참고:** Azure Storage에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](/previous-versions/hh191443(v=vs.140)) 을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
@@ -169,7 +169,7 @@ return View();
 
 
 ## <a name="get-a-single-entity"></a>단일 엔터티 가져오기
-단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation** 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환 하며 **TableResult** 에서 반환 되는 값은 **customerentity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정 하는 것이 **테이블** 서비스에서 단일 엔터티를 검색 하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation** 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 엔터티 하나만 반환하며, **TableResult.Result** 에서 반환되는 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 **테이블** 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
 ```csharp
 // Create a retrieve operation that takes a customer entity.

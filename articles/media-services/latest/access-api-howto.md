@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 03/31/2021
 ms.author: inhenkel
-ms.openlocfilehash: 6b59276cc340f133c0f270e8ab95051b3c392e1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.openlocfilehash: e45a0eefff3a6a7f7dd37bde3ee3bffaedd93dcd
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581289"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106166618"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Media Services API에 액세스할 수 있는 자격 증명 가져오기
 
@@ -38,7 +38,7 @@ Azure AD 인증을 사용하여 Azure Media Services API에 액세스할 때 두
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 계정. 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작하세요.
-- Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](create-account-howto.md)를 참조하세요.
+- Media Services 계정. 자세한 내용은 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](account-create-how-to.md)를 참조하세요.
 
 ## <a name="portal"></a>[포털](#tab/portal/)
 
@@ -47,7 +47,7 @@ Azure AD 인증을 사용하여 Azure Media Services API에 액세스할 때 두
 **API 액세스** 페이지에서 API에 연결하는 데 사용할 인증 방법을 선택할 수 있습니다. 또한 이 페이지는 API에 연결하는 데 필요한 값을 제공합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
-2. 왼쪽 탐색 모음에서 **API 액세스** 블레이드를 선택 합니다.
+2. 왼쪽 탐색 모음에서 **API 액세스** 블레이드를 선택합니다.
 3. **Media Services API에 연결** 에서 연결하려는 Media Services API 버전(V3이 서비스의 최신 버전)을 선택합니다.
 
 ### <a name="service-principal-authentication--recommended"></a>서비스 주체 인증(권장)

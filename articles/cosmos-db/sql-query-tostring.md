@@ -9,13 +9,13 @@ ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 85406a1c4a8d5780354d4161581550b02262f36b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93340756"
 ---
-# <a name="tostring-azure-cosmos-db"></a>ToString (Azure Cosmos DB)
+# <a name="tostring-azure-cosmos-db"></a>ToString(Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  스칼라 식의 문자열 표현을 반환합니다. 
@@ -35,9 +35,9 @@ ToString(<expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예제
+## <a name="examples"></a>예
   
-  다음 예제에서는가 `ToString` 서로 다른 형식에서 동작 하는 방법을 보여 줍니다.   
+  다음 예제에서는 `ToString`이 여러 형식에서 작동하는 방식을 보여 줍니다.   
   
 ```sql
 SELECT 
@@ -60,7 +60,7 @@ SELECT
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- 다음 예에서는 `ToString` 와 같은 다른 문자열 함수에서를 사용 하는 방법을 보여 줍니다 `CONCAT` .   
+ 다음 예제에서는 `CONCAT` 등의 다른 문자열 함수에서 `ToString`을 사용하는 방법을 보여 줍니다.   
  
 ```sql
 SELECT 
@@ -81,7 +81,7 @@ FROM p in c.Products
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-다음 예에서는 `ToString` 와 같은 다른 문자열 함수에서를 사용 하는 방법을 보여 줍니다 `REPLACE` .   
+다음 예제에서는 `REPLACE` 등의 다른 문자열 함수에서 `ToString`을 사용하는 방법을 보여 줍니다.   
 ```sql
 SELECT 
     n.id AS nutrientID,
@@ -100,7 +100,7 @@ JOIN n IN food.nutrients
 
 ## <a name="remarks"></a>설명
 
-이 시스템 함수는 인덱스를 활용 하지 않습니다.
+이 시스템 함수는 인덱스를 활용하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

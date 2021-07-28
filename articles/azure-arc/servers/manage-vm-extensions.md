@@ -1,14 +1,14 @@
 ---
 title: Azure Arc 사용 서버로 VM 확장 관리
 description: Azure Arc 사용 서버에서는 Azure가 아닌 VM을 사용하여 배포 후 구성 및 자동화 작업을 제공하는 가상 머신 확장 배포 기능을 관리할 수 있습니다.
-ms.date: 03/22/2021
+ms.date: 04/13/2021
 ms.topic: conceptual
-ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: e28cd7753fc85f2e40385c65392fea73502aa05b
+ms.sourcegitcommit: 3c460886f53a84ae104d8a09d94acb3444a23cdc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "104799584"
+ms.lasthandoff: 04/21/2021
+ms.locfileid: "107832845"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Virtual machine extension management with Azure Arc enabled servers(Azure Arc 지원 서버로 가상 머신 확장 관리)
 
@@ -21,13 +21,16 @@ Azure Arc 사용 서버를 사용하면 Azure VM 확장을 비Azure Windows 및 
 - [Azure PowerShell](manage-vm-extensions-powershell.md)
 - Azure [Resource Manager 템플릿](manage-vm-extensions-template.md)
 
+> [!NOTE]
+> Azure Arc 지원 서버는 Azure 가상 머신에 대한 VM 확장의 배포 및 관리를 지원하지 않습니다. Azure VM에 관해서는 다음 [VM 확장 개요](../../virtual-machines/extensions/overview.md) 문서를 참조하세요.
+
 ## <a name="key-benefits"></a>주요 이점
 
 Azure Arc 사용 서버 VM 확장 지원에서 제공하는 주오 이점은 다음과 같습니다.
 
 - Log Analytics 에이전트 VM 확장을 사용하도록 설정하여 [Azure Monitor의 로그](../../azure-monitor/logs/data-platform-logs.md)로 분석할 로그 데이터를 수집합니다. 이는 다양한 종류의 원본에서 데이터에 대해 복잡한 분석을 수행하는 경우에 유용합니다.
 
-- [VM용 Azure Monitor](../../azure-monitor/vm/vminsights-overview.md)를 사용하여 Windows 및 Linux VM의 성능을 분석하고, 각각의 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 이는 Log Analytics 에이전트와 Dependency Agent VM 확장을 모두 사용 하도록 설정하여 수행됩니다.
+- [VM 인사이트](../../azure-monitor/vm/vminsights-overview.md)를 사용하여 Windows 및 Linux VM의 성능을 분석하고, 프로세스와 다른 리소스 및 외부 프로세스에 대한 종속성을 모니터링합니다. 이는 Log Analytics 에이전트와 Dependency Agent VM 확장을 모두 사용 하도록 설정하여 수행됩니다.
 
 - 사용자 지정 스크립트 확장을 이용해 하이브리드 연결 컴퓨터에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성 또는 관리 작업에 유용합니다.
 
@@ -48,7 +51,7 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 
 ### <a name="windows-extensions"></a>Windows 확장
 
-|내선 번호 |게시자 |유형 |추가 정보 |
+|확장명 |Publisher |형식 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |WindowsAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft.Compute | CustomScriptExtension |[Windows 사용자 지정 스크립트 확장](../../virtual-machines/extensions/custom-script-windows.md)|
@@ -59,7 +62,7 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 
 ### <a name="linux-extensions"></a>Linux 확장
 
-|내선 번호 |게시자 |유형 |추가 정보 |
+|확장명 |Publisher |형식 |추가 정보 |
 |----------|----------|-----|-----------------------|
 |Azure Defender 통합 취약성 스캐너 |Qualys |LinuxAgent.AzureSecurityCenter |[Azure 및 하이브리드 컴퓨터용 Azure Defender의 통합 취약성 평가 솔루션](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |사용자 지정 스크립트 확장 |Microsoft.Azure.Extensions |CustomScript |[Linux 사용자 지정 스크립트 확장 버전 2](../../virtual-machines/extensions/custom-script-linux.md) |
@@ -68,7 +71,7 @@ Azure Connected Machine 에이전트 패키지 및 확장 에이전트 구성 �
 |Azure Key Vault 인증서 동기화 | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Linux용 Key Vault 가상 머신 확장](../../virtual-machines/extensions/key-vault-linux.md) |
 |Azure Monitor 에이전트 |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Azure Monitor 에이전트 설치(미리 보기)](../../azure-monitor/agents/azure-monitor-agent-install.md) |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 구독의 다음 Azure 리소스 공급자에 따라 달라집니다.
 

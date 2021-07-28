@@ -1,14 +1,14 @@
 ---
-title: Azure Relay 하이브리드 연결-.NET의 HTTP 요청
+title: Azure Relay 하이브리드 연결 - .NET의 HTTP 요청
 description: .NET에서 Azure Relay 하이브리드 연결 HTTP 요청에 대한 C# 콘솔 애플리케이션을 작성합니다.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
 ms.openlocfilehash: 7a11abb984da3601a4d6aa921224e01f94d0871c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "88922585"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET에서 Relay 하이브리드 연결 HTTP 요청 시작
@@ -57,7 +57,7 @@ Visual Studio에서 메시지를 릴레이로 보낼 C# 콘솔 애플리케이�
 1. 클라이언트 애플리케이션을 실행합니다. 클라이언트 창에서 `hello!`가 표시됩니다. 클라이언트는 HTTP 요청을 서버에 보냈고, 서버는 `hello!`로 응답했습니다. 
 3. 이제 콘솔 창을 닫으려면 콘솔 창에서 **ENTER** 키를 누릅니다. 
 
-축 하 합니다. 전체 하이브리드 연결 응용 프로그램을 만들었습니다.
+축하합니다. 전체 하이브리드 연결 애플리케이션을 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

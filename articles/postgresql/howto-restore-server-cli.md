@@ -1,6 +1,6 @@
 ---
-title: 백업 및 복원-Azure CLI-Azure Database for PostgreSQL-단일 서버
-description: Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 백업 구성을 설정 하 고 서버를 복원 하는 방법을 알아봅니다.
+title: 백업 및 복원 - Azure CLI - Azure Database for PostgreSQL - 단일 서버
+description: Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 백업 구성을 설정하고 서버를 복원하는 방법을 알아봅니다.
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
@@ -9,20 +9,20 @@ ms.topic: how-to
 ms.date: 10/25/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: ef397eb67c1f60c14fb36bf455236d84b730f611
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "94659576"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 서버를 백업 및 복원 하는 방법
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 서버를 백업하고 복원하는 방법
 
 Azure Database for PostgreSQL 서버는 정기적으로 백업되어 복원 기능을 사용하도록 설정할 수 있습니다. 이 기능을 사용하면 서버 및 모든 데이터베이스를 이전 특정 시점으로 새 서버에 복원할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>사전 요구 사항
 이 방법 가이드를 완료하려면 다음이 필요합니다.
 
-- [Azure Database for PostgreSQL 서버와 데이터베이스가](quickstart-create-server-database-azure-cli.md)필요 합니다.
+- [Azure Database for PostgreSQL 서버와 데이터베이스](quickstart-create-server-database-azure-cli.md)가 필요합니다.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -78,7 +78,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 
 복원된 서버에 대한 위치 및 가격 책정 계층 값은 원본 서버와 같게 유지됩니다. 
 
-복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작 된 시점에 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 방화벽 규칙 또는 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다.
 
@@ -117,11 +117,11 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 지역 복원으로 새 서버를 만들 때 원본 서버와 동일한 스토리지 크기 및 가격 책정 계층을 상속합니다. 만드는 동안 이러한 값을 변경할 수 없습니다. 새 서버를 만든 후에 스토리지 크기를 확장할 수 있습니다.
 
-복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작 된 시점에 기존 서버에 유효한 동일한 서버 관리자 로그인 이름과 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
+복원 프로세스가 완료된 후 새 서버를 찾아 데이터가 예상대로 복원되었는지 확인합니다. 새 서버에는 복원이 시작된 당시의 기존 서버에 유효한 동일한 서버 관리자 로그인 이름 및 암호가 있습니다. 암호는 새 서버의 **개요** 페이지에서 변경할 수 있습니다.
 
 복원 중에 만든 새 서버에는 원래 서버에 존재했던 방화벽 규칙 또는 VNet 서비스 엔드포인트가 없습니다. 이러한 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- 서비스의 [백업](concepts-backup.md) 에 대 한 자세한 정보
-- [복제본](concepts-read-replicas.md) 에 대해 알아보기
-- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대 한 자세한 정보
+- 서비스의 [백업](concepts-backup.md)에 대한 자세한 정보
+- [복제본](concepts-read-replicas.md)에 대해 알아보기
+- [비즈니스 연속성](concepts-business-continuity.md) 옵션에 대한 자세한 정보

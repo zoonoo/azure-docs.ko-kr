@@ -1,6 +1,6 @@
 ---
-title: 방화벽 규칙 관리-Azure CLI-Azure Database for PostgreSQL-단일 서버
-description: 이 문서에서는 Azure CLI 명령줄을 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 방화벽 규칙을 만들고 관리 하는 방법을 설명 합니다.
+title: 방화벽 규칙 관리 - Azure CLI - Azure Database for PostgreSQL - 단일 서버
+description: 이 문서에서는 Azure CLI 명령줄을 사용하여 Azure Database for PostgreSQL 방화벽 규칙을 만들고 관리하는 방법을 설명합니다.
 author: niklarin
 ms.author: nlarin
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 3a559b8c65ab57b0144b807a3b4cc1faa912d430
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "93422742"
 ---
-# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버에서 방화벽 규칙 만들기 및 관리
-서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for PostgreSQL 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database for PostgreSQL 방화벽 규칙에 대 한 개요는 [Azure Database for PostgreSQL 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조 하세요.
+# <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버에 대한 방화벽 규칙을 만들고 관리합니다.
+서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for PostgreSQL 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. PostgreSQL용 Azure Database 방화벽 규칙에 대한 개요는 [Azure Database for PostgreSQL Server 방화벽 규칙](concepts-firewall-rules.md)을 참조하세요.
 
-VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-using-cli.md)방법에 대해 자세히 알아보세요.
+VNet(가상 네트워크) 규칙을 사용하여 서버에 대한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트 및 규칙 만들기 및 관리](howto-manage-vnet-using-cli.md)에 관한 자세한 정보를 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 구성 요소
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
@@ -41,7 +41,7 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server-
 서버에 새 방화벽 규칙을 만들려면 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule) 명령을 실행합니다. 
 
 
-단일 IP 주소에 대 한 액세스를 허용 하려면이 예제와 같이 및에 동일한 주소를 제공 합니다 `--start-ip-address` `--end-ip-address` . 여기서는 여기에 표시 된 ip를 특정 ip로 바꿉니다.
+단일 IP 주소에 액세스를 허용하려면 이 예제와 같이 `--start-ip-address` 및 `--end-ip-address`에서 동일한 주소를 입력하여 여기에 표시된 IP를 특정 IP로 발급합니다.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```
@@ -82,5 +82,5 @@ az postgres server firewall-rule delete --resource-group myresourcegroup --serve
 ## <a name="next-steps"></a>다음 단계
 - 마찬가지로 웹 브라우저를 통해 [Azure Portal을 사용한 PostgreSQL용 Azure Database 방화벽 규칙 만들기 및 관리](howto-manage-firewall-using-portal.md)를 확인할 수 있습니다.
 - [PostgreSQL용 Azure Database 서버 방화벽 규칙](concepts-firewall-rules.md)에 대해 자세히 알아보세요.
-- [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리](howto-manage-vnet-using-cli.md)하 여 서버에 대 한 액세스를 강화 합니다.
+- [Azure CLI를 사용하여 가상 네트워크 서비스 엔드포인트 및 규칙을 만들고 관리](howto-manage-vnet-using-cli.md)하여 서버에 대한 액세스를 추가로 보호합니다.
 - PostgreSQL용 Azure Database 서버 연결에 대한 도움말은 [PostgreSQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)를 참조하세요.

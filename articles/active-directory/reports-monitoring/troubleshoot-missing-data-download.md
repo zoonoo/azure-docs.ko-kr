@@ -1,5 +1,5 @@
 ---
-title: '문제 해결: 다운로드 한 활동 로그에 누락 된 데이터가 있습니다. | Microsoft Docs'
+title: '문제 해결: 다운로드한 활동 로그의 누락된 데이터 | Microsoft Docs'
 description: 다운로드한 Azure Active Directory 활동 로그에서 누락된 데이터에 대한 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
@@ -18,23 +18,23 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5003d7b644a0c75401a17ed6a37f31acd8180aa9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85608078"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>다운로드한 Azure Active Directory 활동 로그에서 데이터를 찾을 수 없습니다.
 
 ## <a name="symptoms"></a>증상
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 이유 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 
 
  ![보고](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>원인
 
-Azure Portal에서 활동 로그를 다운로드 하는 경우 가장 최근의 가장 먼저 정렬 된 25만 레코드로 크기를 제한 합니다. 
+Azure Portal에서 활동 로그를 다운로드할 때 규모를 가장 최근 처음 기준 250,000개의 레코드로 제한합니다. 
 
 ## <a name="resolution"></a>해결 방법
 
