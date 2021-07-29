@@ -8,23 +8,23 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 05/11/2021
 ms.author: ranku
-ms.openlocfilehash: 123916aebd743e0a5d0f40415f3d5eea956c2c3a
-ms.sourcegitcommit: 3941df51ce4fca760797fa4e09216fcfb5d2d8f0
+ms.openlocfilehash: 7d972139888d45e7e0967f076fd5ed5d8a86e513
+ms.sourcegitcommit: d9a2b122a6fb7c406e19e2af30a47643122c04da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114605942"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114667102"
 ---
 # <a name="how-to-convert-data-to-fhir-preview"></a>데이터를 FHIR로 변환하는 방법(미리 보기)
 
 > [!IMPORTANT]
 > 이 기능은 공개 미리 보기로 제공되며 서비스 수준 계약 없이 제공됩니다. 프로덕션 워크로드에는 권장되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-FHIR 서비스의 $convert 데이터 사용자 지정 엔드포인트는 다른 데이터 형식에서 FHIR로 데이터를 변환하기 위한 것입니다. Liquid 템플릿 엔진과 [FHIR 변환기](https://github.com/microsoft/FHIR-Converter) 프로젝트의 템플릿을 기본 템플릿으로 사용합니다. 필요에 따라 이러한 변환 템플릿을 사용자 지정할 수 있습니다. 현재 **C-CDA에서 FHIR로,** **HL7v2에서 FHIR로의** 두 가지 변환 유형을 지원합니다.
+FHIR 서비스의 $convert 데이터 사용자 지정 엔드포인트는 다양한 데이터 형식에서 FHIR로 데이터를 변환하기 위한 것입니다. Liquid 템플릿 엔진과 [FHIR 변환기](https://github.com/microsoft/FHIR-Converter) 프로젝트의 템플릿을 기본 템플릿으로 사용합니다. 필요에 따라 이러한 변환 템플릿을 사용자 지정할 수 있습니다. 현재 **C-CDA에서 FHIR로,** **HL7v2에서 FHIR로의** 두 가지 변환 유형을 지원합니다.
 
 ## <a name="use-the-convert-data-endpoint"></a>$convert-data 엔드포인트 사용
 
-`$convert-data`작업은 서비스의 일부로 실행하기 위해 FHIR 서비스에 통합됩니다. `$convert-data`FHIR 서버의 설정을 "true"로 설정하여 FHIR 서버를 배포하는 동안 를 사용하도록 설정해야 `FhirServer__Operations__ConvertData__Enabled` 합니다. 또한 이 문서의 후반부에 설명된 대로 관리 ID를 사용하도록 설정했는지 확인해야 합니다. 그런 다음 서버에 대한 API 호출을 수행하여 데이터를 FHIR로 변환할 수 있습니다.
+`$convert-data`작업은 서비스의 일부로 실행하기 위해 FHIR 서비스에 통합됩니다. 서버에 대한 API 호출을 수행하여 데이터를 FHIR로 변환할 수 있습니다.
 
 `https://<<FHIR service base URL>>/$convert-data`
 
@@ -40,7 +40,7 @@ $convert-data는 아래 표에 설명된 대로 요청 본문에서 [매개 변�
 | rootTemplate | 데이터를 변환하는 동안 사용할 루트 템플릿입니다. | **HL7v2의** 경우:<br>```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04```<br><br> **C-CDA의** 경우:<br>```CCD```, `ConsultationNote`, `DischargeSummary`, `HistoryandPhysical`, `OperativeNote`, `ProcedureNote`, `ProgressNote`, `ReferralNote`, `TransferSummary` |
 
 > [!WARNING]
-> 기본 템플릿은 MIT 라이선스에서 릴리스되며 Microsoft 지원 **지원되지 않습니다.**
+> 기본 템플릿은 MIT 라이선스에 따라 릴리스되며 Microsoft 지원 **지원되지 않습니다.**
 >
 > 기본 템플릿은 빠르게 시작하는 데 도움이 되는 경우에만 제공됩니다. Azure API for FHIR 버전을 업데이트할 때 업데이트할 수 있습니다. 따라서 변환 동작을 확인하고 Azure Container Registry **템플릿의 고유한 복사본을 호스트하고,** Azure API for FHIR 등록하고, 여러 버전의 Azure API for FHIR 간에 일관된 데이터 변환 동작을 갖기 위해 API 호출에서 를 사용해야 합니다.
 
@@ -199,7 +199,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 
 
 > [!NOTE]
-> 위의 단계는 FHIR 데이터를 내보내는 방법 문서에 설명 된 구성 단계와 유사 합니다. 자세한 내용은 [Azure Storage로 보안 내보내기](./export-data.md#secure-export-to-azure-storage) 를 참조 하세요.
+> 위의 단계는 FHIR 데이터를 내보내는 방법 문서에 설명된 구성 단계와 비슷합니다. 자세한 내용은 [보안 내보내기를 참조하세요Azure Storage](./export-data.md#secure-export-to-azure-storage)
 
 ### <a name="verify"></a>확인
 
