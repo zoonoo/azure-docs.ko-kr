@@ -8,6 +8,7 @@ editor: ''
 tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
+ms.subservice: performance
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -15,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/25/2021
 ms.author: dpless
 ms.reviewer: jroth
-ms.openlocfilehash: 001a9a15c259d0b0d73eec9c9a39ad7c27f26721
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: d3a4a8bb54c5bafa9eb50ed4441cd6eebe2acc6c
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105572522"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079916"
 ---
 # <a name="storage-performance-best-practices-for-sql-server-on-azure-vms"></a>스토리지: Azure VM의 SQL Server에 대한 성능 모범 사례
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +30,7 @@ ms.locfileid: "105572522"
 
 일반적으로 비용에 대한 최적화와 성능에 대한 최적화 간의 절충이 있습니다. 이 성능 모범 사례 시리즈는 Azure Virtual Machines에서 SQL Server에 대한 *최상의* 성능을 얻는 데 중점을 두었습니다. 워크로드가 적은 경우 모든 권장 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항, 비용 및 작업 패턴을 고려하세요.
 
-자세히 알아보려면, 이 시리즈의 다른 문서([성능 검사 목록](performance-guidelines-best-practices-checklist.md), [VM 크기](performance-guidelines-best-practices-vm-size.md)및 [기준 수집](performance-guidelines-best-practices-collect-baseline.md))를 참조하세요. 
+자세한 내용은 이 시리즈의 다른 문서([검사 목록](performance-guidelines-best-practices-checklist.md), [VM 크기](performance-guidelines-best-practices-vm-size.md), [보안](security-considerations-best-practices.md), [HADR 구성](hadr-cluster-best-practices.md) 및 [기준 수집](performance-guidelines-best-practices-collect-baseline.md))를 참조하세요. 
 
 ## <a name="checklist"></a>검사 목록
 
@@ -51,9 +52,7 @@ ms.locfileid: "105572522"
     - 디스크의 캐시 설정을 변경하기 전에 항상 SQL Server 서비스를 중지합니다.
 - 개발 및 테스트 워크로드와 장기 백업 보관에는 표준 스토리지를 사용하는 것이 좋습니다. 프로덕션 워크로드에는 표준 HDD/SDD를 사용하지 않는 것이 좋습니다.
 - [크레딧 기반 디스크 버스팅](../../../virtual-machines/disk-bursting.md#credit-based-bursting)(P1-P20)은 소규모 개발/테스트 워크로드 및 부서 시스템인 경우에만 고려해야 합니다.
-- SQL Server VM과 동일한 지역에 스토리지 계정을 프로비저닝합니다. 
-- Azure 지역 중복 스토리지(지역에서 복제)를 사용하지 않도록 설정하고 스토리지 계정에서 LRS(로컬 중복 스토리지)를 사용합니다.
-- 임시 `D:\` 드라이브(기본값은 4KB)가 아닌 드라이브에 배치된 모든 데이터 파일에 대해 64KB 할당 단위 크기를 사용하도록 데이터 디스크의 형식을 지정합니다. Azure Marketplace를 통해 배포된 SQL Server VMs는 할당 단위 크기로 형식이 지정된 데이터 디스크와 함께 제공되고 64KB로 설정된 스토리지 풀에 인터리빙됩니다. 
+- 임시 `D:\` 드라이브(기본값은 4KB)가 아닌 드라이브에 배치된 모든 데이터 파일에 대해 64KB 블록 크기(할당 단위 크기)를 사용하도록 데이터 디스크의 형식을 지정합니다. Azure Marketplace를 통해 배포된 SQL Server VM은 블록 크기로 형식이 지정된 데이터 디스크와 함께 제공되고 64KB로 설정된 스토리지 풀에 인터리빙됩니다. 
 
 스토리지 검사 목록을 다른 목록과 비교하려면 포괄적인 [성능 모범 사례 검사 목록](performance-guidelines-best-practices-checklist.md)을 참조하세요. 
 
@@ -163,7 +162,7 @@ VM에 사용할 수 있는 캐시되지 않은 IOPS 및 처리량의 양은 가�
 
 마찬가지로 Standard_M32ts에서 2만의 캐시되지 않은 디스크 IOPS 및 500MBps의 캐시되지 않은 디스크 처리량을 지원하는지 확인할 수 있습니다. 이 제한은 기본 프리미엄 디스크 스토리지에 관계 없이 가상 머신 수준에서 관리됩니다.
 
-자세한 내용은, [캐시되지 않은 한도 및 캐시된 한도](../../../virtual-machines/linux/disk-performance-linux.md#virtual-machine-uncached-vs-cached-limits)를 참조하세요.
+자세한 내용은, [캐시되지 않은 한도 및 캐시된 한도](../../../virtual-machines/disks-performance.md#virtual-machine-uncached-vs-cached-limits)를 참조하세요.
 
 
 ### <a name="cached-and-temp-storage-throughput"></a>캐시된 스토리지 및 임시 스토리지 처리량
@@ -231,7 +230,7 @@ VM에 사용할 수 있는 캐시되지 않은 IOPS 및 처리량의 양은 가�
 
 ## <a name="write-acceleration"></a>쓰기 가속화
 
-쓰기 가속화는 [M 시리즈](https://docs.microsoft.com/azure/virtual-machines/m-series) VM(가상 머신)에서만 사용할 수 있는 디스크 기능입니다. 쓰기 가속화의 목적은 대용량 중요 업무용 OLTP 워크로드 또는 데이터 웨어하우스 환경으로 인해 한 자릿수 I/O 대기 시간이 필요할 때 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 개선하는 것입니다. 
+쓰기 가속화는 [M 시리즈](../../../virtual-machines/m-series.md) VM(가상 머신)에서만 사용할 수 있는 디스크 기능입니다. 쓰기 가속화의 목적은 대용량 중요 업무용 OLTP 워크로드 또는 데이터 웨어하우스 환경으로 인해 한 자릿수 I/O 대기 시간이 필요할 때 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 개선하는 것입니다. 
 
 쓰기 가속화를 사용하여 로그 파일을 호스트하는 드라이브에 대한 쓰기 대기 시간을 향상시킵니다. SQL Server 데이터 파일에 쓰기 가속화를 사용하지 마세요. 
 
@@ -279,10 +278,12 @@ I/O 단위 크기는 IOPS 및 처리량 기능에 영향을 주므로 I/O 크기
 성능 모범 사례에 대해 자세히 알아보려면 다음 시리즈의 다른 문서를 참조하세요.
 - [빠른 검사 목록](performance-guidelines-best-practices-checklist.md)
 - [VM 크기](performance-guidelines-best-practices-vm-size.md)
+- [보안](security-considerations-best-practices.md)
+- [HADR 설정](hadr-cluster-best-practices.md)
 - [기준 수집](performance-guidelines-best-practices-collect-baseline.md)
 
 보안 모범 사례는 [Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항](security-considerations-best-practices.md)을 참조하세요.
 
 TPC-E 및 TPC_C 벤치마크를 사용하여 Azure VM에서 SQL Server 성능을 자세히 테스트하려면 블로그 [OLTP 성능 최적화](https://techcommunity.microsoft.com/t5/sql-server/optimize-oltp-performance-with-sql-server-on-azure-vm/ba-p/916794)를 참조하세요.
 
-[Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.md)을 참조하세요.
+[Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)에서 다른 SQL Server 가상 머신 문서를 검토하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.

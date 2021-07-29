@@ -4,14 +4,14 @@ description: Azure Data Factory의 복사 작업에 대해 알아봅니다. 지�
 author: jianleishen
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 6/1/2021
 ms.author: jianleishen
-ms.openlocfilehash: df26bdcc76b894991393019a12da71df2f893b6b
-ms.sourcegitcommit: 1fbd591a67e6422edb6de8fc901ac7063172f49e
+ms.openlocfilehash: 944e5fb05298c91e4405088c1179e0720173dde0
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2021
-ms.locfileid: "109488666"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111746174"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -151,7 +151,7 @@ Data Factory를 사용하면 원본 데이터 저장소에서 싱크 데이터 �
 
 ## <a name="resume-from-last-failed-run"></a>마지막으로 실패한 실행에서 다시 시작
 
-복사 작업은 파일 기반 저장소 간에 이진 형식을 사용하는 대용량 파일을 있는 그대로 복사하고, 예를 들어 Amazon S3에서 Azure Data Lake Storage Gen2로 데이터를 마이그레이션하기 위해 원본에서 싱크로 폴더/파일 계층 구조를 유지하도록 선택하는 경우 마지막으로 실패한 실행에서 다시 시작을 지원합니다. 이 문서는 다음과 같은 파일 기반 커넥터에 적용됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [SFTP](connector-sftp.md).
+복사 작업은 파일 기반 저장소 간에 이진 형식을 사용하는 대용량 파일을 있는 그대로 복사하고, 예를 들어 Amazon S3에서 Azure Data Lake Storage Gen2로 데이터를 마이그레이션하기 위해 원본에서 싱크로 폴더/파일 계층 구조를 유지하도록 선택하는 경우 마지막으로 실패한 실행에서 다시 시작을 지원합니다. [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md) [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) 및 [SFTP](connector-sftp.md)와 같은 파일 기반 커넥터에 적용됩니다.
 
 다음 두 가지 방법으로 복사 작업 다시 시작을 활용할 수 있습니다.
 

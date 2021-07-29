@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 31d22be5ee5480878633b9742837e3f5d6119043
-ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.openlocfilehash: f42cb2f3f00c75dea262b7151bef5efad4e9aa92
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/31/2021
-ms.locfileid: "106078947"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569601"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server를 위한 비즈니스 연속성 및 HADR
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,6 +38,10 @@ VM이 온라인 상태이고 정상인 경우에도 SQL Server 인스턴스에 �
 
 Azure의 GRS(지역 중복 스토리지)는 지역에서 복제 기능을 사용하여 구현됩니다. GRS는 데이터베이스에 적합한 재해 복구 솔루션이 아닐 수 있습니다. 지역 복제는 데이터를 비동기 방식으로 전송하기 때문에, 재해 발생 시 최근 업데이트 내용이 손실될 수 있습니다. 지역 복제 제한 사항에 관한 자세한 내용은 [지역에서 복제 지원](#geo-replication-support) 섹션에서 다룹니다.
 
+> [!NOTE]
+> 이제 Azure Migrate를 사용하여 [장애 조치(failover) 클러스터 인스턴스](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) 및 [가용성 그룹](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) 솔루션을 모두 Azure VM의 SQL Server로 리프트 앤 시프트할 수 있습니다. 
+
+
 ## <a name="deployment-architectures"></a>배포 아키텍처
 Azure는 비즈니스 연속성을 위해 다음과 같은 SQL Server 기술을 지원합니다.
 
@@ -46,6 +50,7 @@ Azure는 비즈니스 연속성을 위해 다음과 같은 SQL Server 기술을 
 * [로그 전달](/sql/database-engine/log-shipping/about-log-shipping-sql-server)
 * [Azure Blob 스토리지를 사용하여 SQL Server 백업 및 복원](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
 * [데이터베이스 미러링](/sql/database-engine/database-mirroring/database-mirroring-sql-server) - SQL Server 2016에서 사용되지 않음
+* [Azure Site Recovery](../../../site-recovery/site-recovery-sql.md)
 
 기술을 조합하여 고가용성과 재해 복구 기능을 갖춘 SQL Server 솔루션을 구현하는 것도 가능합니다. 사용하는 기술에 따라, 하이브리드 배포에는 Azure 가상 네트워크와 함께 VPN 터널이 필요할 수도 있습니다. 다음 섹션에서 몇 가지 배포 아키텍처의 예를 소개합니다.
 
@@ -113,52 +118,10 @@ Azure의 가용성 집합을 사용하면 고가용성 노드를 별도의 오�
 
 고가용성을 구성하려면 참여하는 SQL Server 가상 머신을 해당 지역에서 사용 가능한 가용성 영역에 분산시킵니다. 가용성 영역 사이에서 네트워크 간 전송에 추가 요금이 부과됩니다. 자세한 내용은 [가용성 영역](../../../availability-zones/az-overview.md)을 참조하세요. 
 
-
-### <a name="failover-cluster-behavior-in-azure-networking"></a>Azure 네트워킹에서 장애 조치 클러스터의 동작
-Azure에서 RFC를 준수하지 않는 DHCP 서비스를 사용할 경우 특정 장애 조치 클러스터 구성을 만들 수 없게 됩니다. 이 오류는 클러스터 네트워크 이름에 중복 IP 주소(예: 클러스터 노드 중 하나와 IP 주소가 같음)가 할당되기 때문에 발생합니다. Windows 장애 조치 클러스터 기능에 따라 달라지는 가용성 그룹을 사용하는 경우 해당 문제가 발생합니다.
-
-노드가 2개인 클러스터를 만들고 온라인 상태로 만드는 상황을 고려해 보십시오.
-
-1. 클러스터가 온라인 상태가 되면 다음 NODE1은 클러스터 네트워크 이름으로 동적 할당된 IP 주소를 요청합니다.
-2. DHCP 서비스는 요청이 NODE1 자체에서 나온다는 것을 인식하기 때문에 DHCP 서비스는 NODE1의 자체 IP 주소 이외에는 IP 주소를 제공하지 않습니다.
-3. Windows는 NODE1과 장애 조치 클러스터 네트워크 이름에 중복된 주소가 할당된 것으로 감지하므로, 기본 클러스터 그룹이 온라인 상태가 될 수 없습니다.
-4. 기본 클러스터 그룹은 NODE2로 이동합니다. NODE2는 NODE1의 IP 주소를 클러스터 IP 주소로 취급하여 기본 클러스터 그룹이 온라인 상태가 됩니다.
-5. NODE2가 NODE1에 연결을 시도하면 NODE1로 보내지는 패킷이 NODE1의 IP 주소 자체로 향하게 되므로 NODE2에서 출발 자체를 할 수 없습니다. 따라서 NODE2는 NODE1에 연결할 수 없고 쿼럼을 잃고 클러스터를 닫게 됩니다.
-6. NODE1은 NODE2로 패킷을 보낼 수 있지만, NODE2는 응답할 수 없습니다. NODE1도 쿼럼을 잃고 클러스터를 닫습니다.
-
-사용되지 않는 고정 IP 주소를 클러스터 네트워크 이름으로 할당하여 클러스터 네트워크 이름을 온라인 상태로 만들면 이런 상황을 방지할 수 있습니다. 예를 들어 169.254.1.1과 같은 링크-로컬 IP 주소를 사용할 수 있습니다. 이 절차를 간단히 수행하려면 [Azure에서 가용성 그룹에 Windows 장애 조치 클러스터 구성](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx)을 참조하세요.
-
-자세한 내용은 [Azure에서 가용성 그룹 구성(GUI)](./availability-group-quickstart-template-configure.md)을 참조하세요.
-
-### <a name="support-for-availability-group-listeners"></a>가용성 그룹 수신기에 대한 지원
-가용성 그룹 수신기는 Windows Server 2012 이상을 실행하는 Azure VM에서 지원됩니다. 가용성 그룹 노드인 Azure VM에서 부하 분산된 엔드포인트를 사용하도록 설정하면 이러한 지원이 가능해집니다. 수신기가 작동하게 하려면 Azure에서 실행되는 클라이언트 애플리케이션과 온-프레미스 실행되는 클라이언트 애플리케이션 모두에 대해 특별한 구성 단계를 따라야 합니다.
-
-수신기를 설정하는 두 가지 주요 옵션(외부(공용) 및 내부)이 있습니다. 외부(퍼블릭) 수신기는 인터넷 연결 부하 분산 장치를 사용하며 인터넷을 통해 액세스할 수 있는 공용 가상 IP에 연결됩니다. 내부 수신기는 내부 부하 분산 장치를 사용하며 동일한 가상 네트워크 내에 있는 클라이언트만 지원합니다. 각 부하 분산 장치 유형에 대해 Direct Server Return (DSR)을 설정해야 합니다. 
-
-가용성 그룹이 여러 Azure 서브넷에 있는 경우(여러 Azure 지역에 배포한 경우와 같이) 클라이언트 연결 문자열에는 `MultisubnetFailover=True`가 포함되어야 합니다. 이렇게 하면 다른 서브넷에 있는 복제본에 대해 병렬 연결을 시도하게 됩니다. 수신기를 설정하는 방법에 대한 지침은 [Azure에서 가용성 그룹에 대한 ILB 수신기 구성](availability-group-listener-powershell-configure.md)을 참조하세요.
-
-
-서비스 인스턴스에 직접 연결하면 각 가용성 복제본에 개별적으로 연결할 수 있습니다. 또한, 가용성 그룹은 데이터베이스 미러링 클라이언트와 역방향 호환이 가능하므로 복제본이 데이터베이스 미러링과 유사하게 구성된 이상 데이터베이스 미러링 파트너와 같이 가용성 복제본에 연결할 수 있습니다.
-
-* 하나의 주 복제본과 하나의 보조 복제본이 있습니다.
-* 보조 복제본은 읽을 수 없도록 구성(**읽기 가능한 보조** 옵션을 **아니요** 로 설정)됩니다.
-
-ADO.NET 또는 SQL Server Native Client를 사용하여 데이터베이스 미러링과 유사한 이 구성에 연결하는 클라이언트 연결 문자열의 예는 다음과 같습니다.
-
-```console
-Data Source=ReplicaServer1;Failover Partner=ReplicaServer2;Initial Catalog=AvailabilityDatabase;
-```
-
-클라이언트 연결에 대한 자세한 내용은 다음을 참조하세요.
-
-* [SQL Server Native Client에서 연결 문자열 키워드 사용](/sql/relational-databases/native-client/applications/using-connection-string-keywords-with-sql-server-native-client)
-* [데이터베이스 미러링 세션(SQL Server)에 클라이언트 연결](/sql/database-engine/database-mirroring/connect-clients-to-a-database-mirroring-session-sql-server)
-* [하이브리드 IT 환경에서 가용성 그룹 수신기에 연결](/archive/blogs/sqlalwayson/connecting-to-availability-group-listener-in-hybrid-it)
-* [가용성 그룹 수신기, 클라이언트 연결 및 애플리케이션 장애 조치(failover)(SQL Server)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-* [가용성 그룹과 데이터베이스 미러링 연결 문자열 사용](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover)
-
 ### <a name="network-latency-in-hybrid-it"></a>하이브리드 IT 환경의 네트워크 대기 시간
 온-프레미스 네트워크와 Azure 간에 긴 네트워크 대기 시간이 있을 수 있다는 가정을 하고 HADR 솔루션을 배포합니다. 복제본을 Azure에 배포할 때, 동기화 모드로 동기 커밋 대신 비동기 커밋을 사용하세요. 온-프레미스와 Azure 모두에 데이터베이스 미러링 서버를 배포할 때는 안전 우선 모드 대신 성능 우선 모드를 사용합니다.
+
+클라우드 환경을 수용하는 데 도움이 될 수 있는 클러스터 및 HADR 설정은 [HADR 구성 모범 사례](hadr-cluster-best-practices.md)를 참조하세요. 
 
 ### <a name="geo-replication-support"></a>지역에서 복제 지원
 Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파일과 데이터 파일을 별도의 디스크로 저장하는 것을 지원하지 않습니다. GRS는 변경 내용을 독립적이고 비동기적으로 각 디스크에 복제합니다. 이 메커니즘은 지리적으로 복제된 복사본에서 쓰기 순서가 지켜지도록 보장하지만 여러 디스크에 지역 복제된 복사본에서는 보장하지 않습니다. 데이터 파일과 로그 파일을 별도의 디스크에 저장하도록 데이터베이스를 구성하는 경우, 재해 발생 후 복구된 디스크에는 로그 파일보다 최신인 데이터 파일 복사본이 포함되어 있을 수 있어 SQL Server의 미리 쓰기 로그와 트랜잭션의 ACID 속성(원자성, 일관성, 격리, 내구성)을 위반하게 됩니다. 

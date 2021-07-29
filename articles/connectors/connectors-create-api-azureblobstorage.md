@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: cd23ff0f5ad9912440d38903a344011b069aaf16
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 1703e206bb13aa6f239346f7a724004a00ddfeca
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92677718"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111568921"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Azure Blob Storage에서 Blob 만들기 및 관리
 
@@ -121,7 +121,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결을 만들지 묻는 메시지가 표시되면 다음 정보를 입력합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **연결 이름** | 예 | <*connection-name*> | 연결에 만들 이름 |
    | **Storage 계정** | 예 | <*storage-account*> | 목록에서 스토리지 계정을 선택합니다. |
@@ -180,6 +180,9 @@ Logic Apps는 둘 다 동일한 지역에 있는 경우 방화벽 뒤에 있는 
 ### <a name="access-storage-accounts-as-a-trusted-service-with-managed-identities"></a>관리 ID를 사용하여 신뢰할 수 있는 서비스로 스토리지 계정에 액세스
 
 Microsoft 신뢰할 수 있는 서비스에 방화벽을 통해 스토리지 계정에 액세스할 수 있는 권한을 부여하기 위해 해당 서비스의 스토리지 계정에 예외를 설정할 수 있습니다. 이 솔루션은 [인증을 위한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 지원하는 Azure 서비스가 방화벽 뒤에 있는 스토리지 계정에 신뢰할 수 있는 서비스로 액세스하도록 허용합니다. 특히 전역 다중 테넌트 Azure의 논리 앱에서 이러한 스토리지 계정에 액세스하려면 먼저 논리 앱에서 [관리 ID 지원을 사용하도록 설정](../logic-apps/create-managed-service-identity.md)합니다. 그런 다음 논리 앱에서 HTTP 작업 또는 트리거를 사용하고 [논리 앱의 관리 ID를 사용하도록 해당 인증 유형을 설정](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity)합니다. 이 시나리오에서는 HTTP 작업 또는 트리거 *만* 사용할 수 있습니다.
+
+> [!NOTE]
+> 스토리지 계정에 대한 액세스를 인증하는 데 관리 ID 기능을 사용하는 경우 기본 제공 Azure Blob Storage 작업을 사용할 수 없습니다. 스토리지 계정 연결을 인증하기 위해 관리 ID가 설정된 HTTP 트리거 또는 작업을 사용해야 합니다. 필요한 스토리지 작업을 실행하려면 Azure Blob Storage에 해당하는 REST API를 호출해야 합니다. 자세한 내용은 [Blob 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)를 검토하세요.
 
 예외 및 관리 ID 지원을 설정하려면 다음과 같은 일반적인 단계를 수행합니다.
 

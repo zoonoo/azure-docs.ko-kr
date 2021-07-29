@@ -1,20 +1,20 @@
 ---
 title: '시나리오: 보편적 연결(Any-to-Any)'
 titleSuffix: Azure Virtual WAN
-description: 라우팅 시나리오 - 보편적 연결(Any-to-Any)
+description: 스포크에서 다른 스포크에 연결할 수 있는 Virtual WAN Any-to-Any 라우팅 시나리오에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3b5002873160490dfb7b8d3ad9790f9c6f1e8ae6
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: b27d1327eac8e108c462fd3c0f19a257a5385428
+ms.sourcegitcommit: e1d5abd7b8ded7ff649a7e9a2c1a7b70fdc72440
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "99525791"
+ms.lasthandoff: 05/27/2021
+ms.locfileid: "110575993"
 ---
 # <a name="scenario-any-to-any"></a>시나리오: 보편적 연결(Any-to-Any)
 
@@ -24,7 +24,7 @@ Virtual WAN 가상 허브 라우팅으로 작업할 때 몇 가지 시나리오�
 
 Virtual WAN 시나리오에서 필요한 경로 테이블 수를 파악하기 위해 연결 매트릭스를 작성할 수 있습니다. 여기서 각 셀은 원본(행)이 대상(열)과 통신할 수 있는지 여부를 나타냅니다.
 
-| 시작 |   대상 |  *VNets* | *분기* |
+| 시작 |   대상 |  *VNet* | *분기* |
 | -------------- | -------- | ---------- | ---|
 | VNet     | &#8594;| 직접 | 직접 |
 | 분기   | &#8594;| 직접  | 직접 |

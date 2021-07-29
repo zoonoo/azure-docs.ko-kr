@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 14760b4244d42e57aaed7f7d96f487a66147a554
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: ece52b707418ba9a0c92bffc39f5a8b17b720336
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "97359509"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111572491"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Azure Portal을 사용하여 Azure VM에서 SQL Server에 대한 가용성 그룹(미리 보기) 구성 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,6 +31,9 @@ Azure Portal를 사용하여 새 클러스터를 만들거나 기존 클러스�
 이 기능은 현재 미리 보기로 제공됩니다. 
 
 이 문서에서는 Azure Portal을 사용하여 가용성 그룹 환경을 구성하지만, [PowerShell 또는 Azure CLI](availability-group-az-commandline-configure.md), [Azure 빠른 시작 템플릿](availability-group-quickstart-template-configure.md)을 사용하거나 [수동으로](availability-group-manually-configure-tutorial.md)도 구성할 수 있습니다. 
+
+> [!NOTE]
+> 이제 Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 가용성 그룹 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [가용성 그룹 마이그레이션](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md)을 참조하세요. 
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -173,6 +176,12 @@ SQL Server Management Studio를 사용하여 가용성 그룹에 데이터베이
 
 위쪽 탐색 모음의 종 모양 아이콘에서 액세스할 수 있는 **활동 로그** 에서 배포 상태를 확인할 수 있습니다. 
 
+## <a name="configure-quorum"></a>쿼럼 구성
+
+디스크 감시는 가장 탄력적으로 수행되는 쿼럼 옵션이지만 가용성 그룹에 몇 가지 제한을 적용하는 Azure 공유 디스크가 필요합니다. 따라서 클라우드 감시는 Azure VM의 SQL Server에 대한 가용성 그룹을 호스트하는 클러스터에 권장되는 쿼럼 솔루션입니다. 
+
+클러스터에 짝수의 투표가 있는 경우 비즈니스 요구 사항에 가장 적합한 [쿼럼 솔루션](hadr-cluster-quorum-configure-how-to.md)을 구성합니다. 자세한 내용은 [SQL Server VM에 대한 쿼럼](hadr-windows-server-failover-cluster-overview.md#quorum)을 참조하세요. 
+
 
 ## <a name="modify-availability-group"></a>가용성 그룹 수정 
 
@@ -269,17 +278,11 @@ Remove-AzSqlVMGroup -ResourceGroupName "<resource group name>" -Name "<cluster n
 
 ## <a name="next-steps"></a>다음 단계
 
+가용성 그룹이 배포되면 [Azure VM에서 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)을 최적화하는 것이 좋습니다. 
 
-가용성 그룹에 대한 자세한 내용은 다음을 참조하십시오.
 
-- [가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
-* [가용성 그룹 관리](/sql/database-engine/availability-groups/windows/administration-of-an-availability-group-sql-server)   
-* [가용성 그룹 모니터링&#40;SQL Server&#41;](/sql/database-engine/availability-groups/windows/monitoring-of-availability-groups-sql-server)
-* [가용성 그룹 Transact-SQL 문 ](/sql/database-engine/availability-groups/windows/transact-sql-statements-for-always-on-availability-groups)   
-* [가용성 그룹 PowerShell 명령](/sql/database-engine/availability-groups/windows/overview-of-powershell-cmdlets-for-always-on-availability-groups-sql-server)  
+자세한 내용은 다음을 참조하세요.
 
-SQL Server VM에 대한 자세한 내용은 다음을 참조하십시오. 
-
-* [SQL Server VM 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [SQL Server VM 릴리스 정보](../../database/doc-changes-updates-release-notes.md)
-* [SQL Server VM에 대한 FAQ](frequently-asked-questions-faq.md)
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 Always On 가용성 그룹](availability-group-overview.md)
+- [Always On 가용성 그룹 개요](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)

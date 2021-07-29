@@ -3,12 +3,12 @@ title: Azure Service Bus 구독 규칙 SQL 작업 구문 | Microsoft Docs
 description: 이 문서에서는 SQL 규칙 작업 구문에 대한 참조를 제공합니다. 작업은 메시지에 대해 수행되는 SQL 언어 기반 구문으로 작성됩니다.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 75ff437bace59d7f4de07342277f0760480a5b0f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 7aceb1992aafbbf92718a6bf558a72060f3275df
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100652839"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770086"
 ---
 # <a name="subscription-rule-sql-action-syntax"></a>구독 규칙 SQL 작업 구문
 
@@ -53,7 +53,10 @@ ms.locfileid: "100652839"
   
 ## <a name="arguments"></a>인수  
   
--   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. `sys` 값은 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 공용 속성 이름인 시스템 범위를 나타냅니다. `user`는 `<property_name>`이 [BrokeredMessage 클래스](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 사전의 키인 사용자 범위를 나타냅니다. `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
+-   `<scope>`는 `<property_name>`의 범위를 나타내는 선택적 문자열입니다. 유효한 값은 `sys` 또는 `user`입니다. 
+    - `sys` 값은 시스템 범위를 나타냅니다. 여기서 `<property_name>`은 [메시지, 페이로드 및 직렬화](service-bus-messages-payloads.md)에 설명된 대로 Service Bus 메시지의 속성 중 하나입니다.
+    - `user` 값은 사용자 범위를 나타냅니다. 여기서 `<property_name>`은 Service Bus로 보낼 때 메시지에 대해 설정할 수 있는 사용자 지정 속성의 키입니다.
+    - `<scope>`가 지정되지 않은 경우 `user` 범위가 기본 범위입니다.  
   
 ### <a name="remarks"></a>설명  
 
@@ -200,7 +203,7 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
 `property(name)` 함수는 `name`으로 참조되는 속성 값을 반환합니다. `name` 값은 문자열 값을 반환하는 유효한 식일 수 있습니다.  
 
 ## <a name="examples"></a>예
-예제는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조하세요.
+예시는 [Service Bus 필터 예](service-bus-filter-examples.md)를 참조하세요.
   
 ## <a name="considerations"></a>고려 사항
 
