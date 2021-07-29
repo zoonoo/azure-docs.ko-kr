@@ -3,20 +3,20 @@ title: SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 description: 이 문서에서는 Azure SQL Managed Instance와 SQL Server 간의 T-SQL(Transact-SQL) 차이점을 설명합니다.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.devlang: ''
 ms.topic: reference
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, bonova, danil
+author: danimir
+ms.author: danil
+ms.reviewer: mathoma, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: 8c3ab997aeb179754e4c365dc41b795cf5c3bdc7
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105644921"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111528561"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>SQL Server와 Azure SQL Managed Instance 간의 T-SQL 차이점
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -354,9 +354,9 @@ SQL Server에서 사용하도록 설정되었지만 문서화되지 않은 DBCC 
 
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
-[분산 트랜잭션](../database/elastic-transactions-overview.md)에 대한 부분 지원은 현재 공개 미리 보기로 제공됩니다. 지원되는 시나리오는 다음과 같습니다.
-* 참가자가 [서버 신뢰 그룹](./server-trust-group-overview.md)에 속하는 Azure SQL Managed Instance인 트랜잭션
-* .NET(TransactionScope 클래스) 및 Transact-SQL에서 시작된 트랜잭션
+[분산 트랜잭션](../database/elastic-transactions-overview.md)에 대한 부분 지원은 현재 공개 미리 보기로 제공됩니다. 분산 트랜잭션은 다음 조건에서 지원됩니다(모두 충족되어야 함).
+* 모든 트랜잭션 참가자는 [서버 신뢰 그룹](./server-trust-group-overview.md)에 속한 Azure SQL Managed Instance입니다.
+* 트랜잭션이 .NET(TransactionScope 클래스) 또는 Transact-SQL에서 시작됩니다.
 
 Azure SQL Managed Instance는 현재 MSDTC 온-프레미스 또는 Azure Virtual Machines에서 정기적으로 지원하는 다른 시나리오를 지원하지 않습니다.
 
@@ -406,10 +406,12 @@ SQL Managed Instance의 연결된 서버는 제한된 수의 대상을 지원합
 - `OPENDATASOURCE` 함수는 SQL Server 인스턴스에서만 쿼리를 실행하는 데 사용할 수 있습니다. 관리되는 컴퓨터, 온-프레미스 컴퓨터 또는 가상 머신 중 하나일 수 있습니다. `SQLNCLI`, `SQLNCLI11` 및 `SQLOLEDB` 값만 공급자로 지원됩니다. 예제는 `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`입니다. [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql)를 참조하세요.
 - 연결된 서버를 네트워크 공유에서 파일(Excel, CSV)을 읽는 데 사용할 수 없습니다. Azure Blob Storage에서 CSV 파일을 읽는 [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file), [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file)을 사용하거나 [Synapse Analytics에서 서버리스 SQL 풀을 참조하는 연결된 서버](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/)를 사용해 보세요. [SQL Managed Instance 피드백 항목](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|에서 이 요청 추적
 
+Azure SQL Managed Instance의 연결된 서버는 SQL 인증만 지원합니다. AAD 인증이 아직 지원되지 않습니다.
+
 ### <a name="polybase"></a>PolyBase
 
-사용 가능한 유일한 외부 원본 유형은 Azure SQL database, Azure SQL Managed Instance 및 Azure Synapse 풀에 대한 RDBMS(공개 미리 보기)입니다. Azure Storage에서 직접 읽는 Polybase 외부 테이블에 대한 해결 방법으로 [ Synapse Analytics에서 서버리스 SQL 풀을 참조하는 외부 테이블](https://devblogs.microsoft.com/azure-sql/read-azure-storage-files-using-synapse-sql-external-tables/)을 사용할 수 있습니다. Azure SQL managed instance에서는 연결된 서버를 사용하여 [Synapse Analytics의 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 또는 SQL Server를 사용하여 Azure 스토리지 데이터를 읽을 수 있습니다.
-PolyBase에 대한 자세한 내용은 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
+SQL Managed Instance에서 Polybase 지원을 사용하도록 설정하는 작업이 [진행 중](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35698078-enable-polybase-on-sql-managed-instance)입니다. 그동안, 해결 방법으로 [Synapse Analytics의 서버리스 SQL 풀](https://devblogs.microsoft.com/azure-sql/linked-server-to-synapse-sql-to-implement-polybase-like-scenarios-in-managed-instance/) 또는 SQL Server에 연결된 서버를 사용하여 Azure Data Lake 또는 Azure Storage에 저장된 파일에서 데이터를 쿼리할 수 있습니다.   
+PolyBase에 대한 일반 정보는 [PolyBase](/sql/relational-databases/polybase/polybase-guide)를 참조하세요.
 
 ### <a name="replication"></a>복제
 

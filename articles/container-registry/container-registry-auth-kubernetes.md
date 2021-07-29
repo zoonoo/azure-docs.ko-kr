@@ -1,24 +1,28 @@
 ---
-title: Kubernetes 클러스터에서 인증
+title: Kubernetes 끌어오기 비밀을 사용하여 Azure Container Registry로 인증
 description: 서비스 주체를 사용하여 끌어오기 비밀을 만들어 Azure Container Registry의 이미지에 대한 액세스 권한을 Kubernetes 클러스터에 제공하는 방법 알아보기
 ms.topic: article
 author: karolz-ms
 ms.author: karolz
 ms.reviewer: danlep
-ms.date: 05/28/2020
-ms.openlocfilehash: fbf5dfd68b823b600b11cad3643e5d4004b85ff5
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.date: 06/02/2021
+ms.openlocfilehash: 149035de0fc84c75cdcaa73c91d6cd5379c53498
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "84309818"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111439623"
 ---
-# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster"></a>Azure Container Registry에서 Kubernetes 클러스터로 이미지 끌어오기
+# <a name="pull-images-from-an-azure-container-registry-to-a-kubernetes-cluster-using-a-pull-secret"></a>끌어오기 비밀을 사용하여 Azure Container Registry에서 Kubernetes 클러스터로 이미지 끌어오기
 
-[minikube](https://minikube.sigs.k8s.io/) 및 [kind](https://kind.sigs.k8s.io/)와 같은 ‘로컬’ Kubernetes 클러스터를 포함하여 모든 Kubernetes 클러스터에서 컨테이너 이미지의 원본으로 Azure Container Registry를 사용할 수 있습니다. 이 문서에서는 Azure Active Directory 서비스 주체를 기반으로 Kubernetes 끌어오기 비밀을 만드는 방법을 보여 줍니다. 그런 다음, 비밀을 사용하여 Kubernetes 배포의 Azure Container Registry에서 이미지를 끌어올 수 있습니다.
+[minikube](https://minikube.sigs.k8s.io/) 및 [kind](https://kind.sigs.k8s.io/)와 같은 ‘로컬’ Kubernetes 클러스터를 포함하여 모든 Kubernetes 클러스터에서 컨테이너 이미지의 원본으로 Azure Container Registry를 사용할 수 있습니다. 이 문서에서는 Azure Container Registry에 대한 자격 증명을 사용하여 Kubernetes 끌어오기 비밀을 만드는 방법을 보여 줍니다. 그런 다음, 비밀을 사용하여 Pod 배포의 Azure Container Registry에서 이미지를 끌어올 수 있습니다.
 
-> [!TIP]
-> 관리되는 [Azure Kubernetes Service](../aks/intro-kubernetes.md)를 사용하는 경우 이미지 끌어오기를 위한 대상 Azure Container Registry와 [클러스터를 통합](../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json)할 수도 있습니다. 
+이 예에서는 Azure Active Directory [서비스 주체 자격 증명](container-registry-auth-service-principal.md)을 사용하여 끌어오기 비밀을 만듭니다. [리포지토리 범위 액세스 토큰](container-registry-repository-scoped-permissions.md)과 같은 다른 Azure Container Registry 자격 증명을 사용하여 끌어오기 비밀을 구성할 수도 있습니다.
+
+> [!NOTE]
+> 끌어오기 비밀은 일반적으로 사용되지만 추가 관리 오버헤드가 발생합니다. [Azure Kubernetes Service](../aks/intro-kubernetes.md)를 사용하는 경우 클러스터의 관리 ID 또는 서비스 주체를 사용하는 것과 같은 [다른 옵션](authenticate-kubernetes-options.md)을 사용하여 각 Pod에서 추가 `imagePullSecrets` 설정 없이 이미지를 안전하게 끌어오는 것이 좋습니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 프라이빗 Azure Container Registry를 이미 만들었다고 가정합니다. 또한 `kubectl` 명령줄 도구를 통해 Kubernetes 클러스터를 실행하고 액세스할 수 있어야 합니다.
 
@@ -90,4 +94,4 @@ spec:
 [acr-scripts-psh]: https://github.com/Azure/azure-docs-powershell-samples/tree/master/container-registry
 
 <!-- LINKS - Internal -->
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset

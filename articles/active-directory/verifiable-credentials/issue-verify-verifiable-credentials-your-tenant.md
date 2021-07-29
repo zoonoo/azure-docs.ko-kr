@@ -4,18 +4,18 @@ description: Azure 테넌트에서 작동하도록 확인 가능한 자격 증�
 documentationCenter: ''
 author: barclayn
 manager: daveba
-ms.service: identity
+ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 ms.reviewer: ''
-ms.openlocfilehash: e4772b6701065a44416d849faa9a501bd7895f27
-ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
+ms.openlocfilehash: 987ab6346788f78316b0682631b7cefde12cad29
+ms.sourcegitcommit: 070122ad3aba7c602bf004fbcf1c70419b48f29e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106553382"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111437726"
 ---
 # <a name="tutorial---issue-and-verify-verifiable-credentials-using-your-tenant-preview"></a>자습서 - 테넌트를 사용하여 확인 가능한 자격 증명 발급 및 확인(미리 보기)
 
@@ -66,36 +66,6 @@ Azure AD에 'VC Wallet 앱'이라는 애플리케이션을 등록하고 클라�
 
    ![발급자 엔드포인트](media/issue-verify-verifable-credentials-your-tenant/application-endpoints.png)
 
-## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Azure Key Vault에 대한 액세스 권한으로 노드 앱 설정
-
-사용자의 자격 증명 발급 요청을 인증하기 위해 발급자 웹 사이트는 Azure Key Vault의 암호화 키를 사용합니다. Azure Key Vault에 액세스하려면 웹 사이트에 Azure Key Vault를 인증하는 데 사용할 수 있는 클라이언트 ID와 클라이언트 암호가 필요합니다.
-
-1. VC Wallet 앱 개요 페이지를 보는 동안 **인증서 및 비밀** 을 선택합니다.
-    ![인증서 및 비밀](media/issue-verify-verifable-credentials-your-tenant/vc-wallet-app-certs-secrets.png)
-1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
-    1. "노드 VC 클라이언트 암호"와 같은 설명을 추가합니다.
-    1. 만료: 1년 후
-  ![1년 후에 만료되는 애플리케이션 암호](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
-1. 비밀을 복사합니다. 샘플 노드 앱을 업데이트하려면 이 정보가 필요합니다.
-
->[!WARNING]
-> 비밀을 복사할 수 있는 기회는 한 번입니다. 이후에는 비밀이 해시됩니다. ID를 복사하지 마세요. 
-
-Azure AD에서 애플리케이션 및 클라이언트 암호를 만든 후에는 Key Vault에서 작업을 수행하는 데 필요한 권한을 애플리케이션에 부여해야 합니다. 웹 사이트에서 저장된 프라이빗 키에 액세스하고 사용할 수 있도록 하려면 이러한 권한을 변경해야 합니다.
-
-1. Key Vault로 이동합니다.
-2. 이러한 자습서에 사용 중인 키 자격 증명 모음을 선택합니다.
-3. 왼쪽 탐색 창에서 **액세스 정책** 을 선택합니다.
-4. **+액세스 정책 추가** 를 선택합니다.
-5. **키 권한** 섹션에서 **가져오기** 와 **서명** 을 선택합니다.
-6. **보안 주체** 를 선택하고 애플리케이션 ID를 사용하여 이전에 등록한 애플리케이션을 검색합니다. 이 폴더를 선택합니다.
-7. **추가** 를 선택합니다.
-8. **저장** 을 선택합니다.
-
-Key Vault 권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault RBAC 가이드](../../key-vault/general/rbac-guide.md)를 참조하세요.
-
-![Key Vault 권한 할당](media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png)
-## <a name="make-changes-to-match-your-environment"></a>사용자 환경에 맞게 변경
 
 지금까지 샘플 앱으로 작업했습니다. 앱에서는 [Azure Active Directory B2C](../../active-directory-b2c/overview.md)를 사용하며, 이제 Azure AD를 사용하도록 전환 중이므로 환경에 맞추고 이전에 사용되지 않은 추가 클레임을 지원하기 위해 몇 가지 변경 작업을 수행해야 합니다.
 
@@ -160,7 +130,54 @@ Key Vault 권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault R
 1. 확인 가능한 자격 증명 페이지에서 이전 표시 파일과 새 규칙 파일(**modified-credentialExpert.json**)을 사용하여 **modifiedCredentialExpert** 라는 새 자격 증명을 만듭니다.
 1. **개요** 페이지에서 자격 증명 만들기 프로세스가 완료되면 **자격 증명 발급 URL** 을 복사하고 다음 섹션에서 필요하므로 저장합니다.
 
-## <a name="before-we-continue"></a>계속 진행하기 전에
+## <a name="set-up-your-node-app-with-access-to-azure-key-vault"></a>Azure Key Vault에 대한 액세스 권한으로 노드 앱 설정
+
+사용자의 자격 증명 발급 요청을 인증하기 위해 발급자 웹 사이트는 Azure Key Vault의 암호화 키를 사용합니다. Azure Key Vault에 액세스하려면 웹 사이트에 Azure Key Vault를 인증하는 데 사용할 수 있는 클라이언트 ID와 클라이언트 암호가 필요합니다.
+
+먼저 다른 애플리케이션을 등록해야 합니다. 이 등록은 웹 사이트에 대한 것입니다. 이전의 전자지갑 앱에 대한 등록은 사용자가 전자지갑 앱을 사용하여 디렉터리에 로그인할 수 있도록 하는 것입니다. 이 경우 동일한 디렉터리에 있지만 다른 디렉터리에서도 전자지갑 앱 등록이 수행되었을 수 있습니다. 애플리케이션의 책임이 다른 경우 앱 등록을 분리하는 것이 좋습니다. 이 경우 웹 사이트에서 Key Vault에 액세스할 수 있어야 합니다.
+
+1. [Azure AD](../develop/quickstart-register-app.md)에 애플리케이션 등록 지침을 따릅니다. 등록할 때 아래 값을 사용합니다.
+
+   - 이름: "VC 웹 사이트"
+   - 지원되는 계정 유형: 이 조직 디렉터리의 계정만
+
+   :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-registration.png" alt-text="애플리케이션 등록 방법을 보여 주는 스크린샷":::
+
+1. 애플리케이션을 등록한 후 애플리케이션(클라이언트) ID를 기록해 둡니다. 이 값은 나중에 필요합니다.
+
+   :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-app-details.png" alt-text="애플리케이션 클라이언트 ID를 보여 주는 스크린샷":::
+
+1. VC 웹 사이트 앱 개요 페이지를 보는 동안 **인증서 및 비밀** 을 선택합니다.
+
+    :::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/vc-website-app-certificates-secrets.png" alt-text="인증서 및 비밀 창을 보여 주는 스크린샷":::
+
+1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호** 를 선택합니다.
+    1. "노드 VC 클라이언트 암호"와 같은 설명을 추가합니다.
+    1. 만료: 1년 후
+
+    ![1년 후에 만료되는 애플리케이션 암호](media/issue-verify-verifable-credentials-your-tenant/add-client-secret.png)
+
+1. 비밀을 복사합니다. 샘플 노드 앱을 업데이트하려면 이 정보가 필요합니다.
+
+>[!WARNING]
+> 비밀을 복사할 수 있는 기회는 한 번입니다. 이후에는 비밀이 해시됩니다. ID를 복사하지 마세요. 
+
+Azure AD에서 애플리케이션 및 클라이언트 암호를 만든 후에는 Key Vault에서 작업을 수행하는 데 필요한 권한을 애플리케이션에 부여해야 합니다. 웹 사이트에서 저장된 프라이빗 키에 액세스하고 사용할 수 있도록 하려면 이러한 권한을 변경해야 합니다.
+
+1. Key Vault로 이동합니다.
+2. 이러한 자습서에 사용 중인 키 자격 증명 모음을 선택합니다.
+3. 왼쪽 탐색 창에서 **액세스 정책** 을 선택합니다.
+4. **+액세스 정책 추가** 를 선택합니다.
+5. **키 권한** 섹션에서 **가져오기** 와 **서명** 을 선택합니다.
+6. **보안 주체** 를 선택하고 애플리케이션 ID를 사용하여 이전에 등록한 애플리케이션을 검색합니다. 이 폴더를 선택합니다.
+7. **추가** 를 선택합니다.
+8. **저장** 을 선택합니다.
+
+:::image type="content" source="media/issue-verify-verifable-credentials-your-tenant/key-vault-permissions.png" alt-text="액세스 정책 추가를 보여 주는 스크린샷":::
+
+Key Vault 권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault RBAC 가이드](../../key-vault/general/rbac-guide.md)를 참조하세요.
+
+## <a name="make-changes-to-the-sample-app"></a>샘플 앱 변경
 
 필요한 코드를 변경하기 전에 몇 가지 값을 함께 입력해야 합니다. 다음 섹션에서 이러한 값을 사용하여 샘플 코드에서 자격 증명 모음에 저장된 고유 키를 사용하도록 합니다. 다음 값이 준비되어 있어야 합니다.
 
@@ -190,7 +207,7 @@ Key Vault 권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault R
 2. 검색 창에 DID를 붙여 넣습니다.
 
 4. 형식이 지정된 응답에서 **verificationMethod** 라는 섹션을 찾습니다.
-5. "verificationMethod"에서 ID를 복사하고 kvSigningKeyId로 레이블을 지정합니다.
+5. "verificationMethod"에서 `id`를 복사하고 kvSigningKeyId로 레이블을 지정합니다.
     
     ```json=
     "verificationMethod": [
@@ -271,14 +288,14 @@ Key Vault 권한 및 액세스 제어에 대한 자세한 내용은 [Key Vault R
 
   ![인증 후 자격 증명 추가 화면](media/enable-your-tenant-verifiable-credentials/add-credential-not-verified-authenticated.png)
 
-이제 인증에 B2C 테넌트를 계속 사용하면서 테넌트를 사용하여 확인 가능한 자격 증명을 발급하여 vc를 생성했습니다.
+이제 인증을 위해 원래 B2C 테넌트를 사용하면서 vc를 생성하기 위해 테넌트를 사용하여 확인 가능한 자격 증명을 발급했습니다.
 
   ![Azure AD에서 발급되고 Azure B2C 인스턴스에서 인증된 VC](media/enable-your-tenant-verifiable-credentials/my-vc-b2c.png)
 
 
 ## <a name="test-verifying-the-vc-using-the-sample-app"></a>샘플 앱을 사용하여 VC 확인 테스트
 
-이제 Azure AD의 클레임을 사용하여 자체 테넌트에서 확인 가능한 자격 증명을 발행했으므로 샘플 앱을 사용하여 확인해보겠습니다.
+이제 Azure AD의 클레임을 사용하여 자체 테넌트에서 확인 가능한 자격 증명을 발급했으므로 샘플 앱을 사용하여 확인해 보겠습니다.
 
 1. 발급자 ngrok 서비스 실행을 중지합니다.
 
