@@ -1,21 +1,19 @@
 ---
-title: 자체 호스팅 게이트웨이 개요 | Microsoft Docs
+title: 자체 호스팅 게이트웨이 개요 | Azure API Management
 description: 조직이 Azure API Management의 자체 호스팅 게이트웨이 기능을 통해 하이브리드 및 다중 클라우드 환경에서 API를 관리하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
-manager: gwallace
-editor: ''
 ms.service: api-management
 ms.topic: article
 ms.date: 05/25/2021
 ms.author: apimpm
-ms.openlocfilehash: 946a2707e68e2f3ce6f78df997d102eeb0c7c450
-ms.sourcegitcommit: 58e5d3f4a6cb44607e946f6b931345b6fe237e0e
+ms.openlocfilehash: 2c8688660540f965f25038298c996511901405cb
+ms.sourcegitcommit: a434cfeee5f4ed01d6df897d01e569e213ad1e6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/25/2021
-ms.locfileid: "110376973"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111810130"
 ---
 # <a name="self-hosted-gateway-overview"></a>자체 호스팅 게이트웨이 개요
 
@@ -49,7 +47,7 @@ ms.locfileid: "110376973"
 
 - Azure Monitor 로그
 - 업스트림(백 엔드 쪽) TLS 버전 및 암호화 관리
-- API Management 서비스에 업로드된 [CA 루트 인증서](api-management-howto-ca-certificates.md)를 사용하여 서버 및 클라이언트 인증서의 유효성 검사. 자세한 내용은 [자체 호스팅 게이트웨이의 인증서 유효성 검사](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway)를 참조하세요.
+- API Management 서비스에 업로드된 [CA 루트 인증서](api-management-howto-ca-certificates.md)를 사용하여 서버 및 클라이언트 인증서의 유효성 검사. 자체 호스팅 게이트웨이에 대한 [사용자 지정 인증 기관](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) 및 [클라이언트 인증서 유효성 검사](api-management-access-restriction-policies.md#validate-client-certificate) 정책을 구성하여 적용할 수 있습니다.
 - [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)과 통합
 - TLS 세션 재개
 - 클라이언트 인증서 재협상. 이는 [클라이언트 인증서 인증](api-management-howto-mutual-certificates-for-clients.md)이 작동하려면 API 소비자가 초기 TLS 핸드셰이크의 일부로 인증서를 제공해야 함을 의미합니다. 이렇게 하려면 자체 호스팅 게이트웨이 사용자 지정 호스트 이름을 구성할 때 클라이언트 인증서 협상 설정을 사용하도록 설정합니다.

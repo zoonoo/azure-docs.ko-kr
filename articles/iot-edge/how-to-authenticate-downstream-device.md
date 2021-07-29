@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 59b2e3d5ccefaa9740359891815d83ddd14ad09d
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: f8e3541fc3d9ae6fe49af4445402af17a3d3d3e7
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108140808"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770860"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -125,7 +125,7 @@ X.509 자체 서명 인증(지문 인증이라고도 함)의 경우 다운스트
 
 5. 선호하는 언어에 따라 IoT 애플리케이션에서 X.509 인증서를 참조할 수 있는 방법에 대한 샘플을 검토합니다.
 
-   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)
+   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-test-certificate.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
@@ -143,19 +143,19 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 X.509 CA(인증 기관) 서명 인증의 경우 IoT Hub에 등록된 루트 CA 인증서를 사용하여 다운스트림 디바이스에 대한 인증서에 서명해야 합니다. 루트 CA 인증서 또는 해당 중간 인증서에 의해 발급된 인증서를 사용하는 모든 디바이스는 인증이 허용됩니다.
 
-이 섹션은 IoT Hub 문서 [Azure IoT Hub에서 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)에 설명된 지침을 기반으로 합니다.
+이 섹션은 IoT Hub X.509 인증서 자습서 시리즈를 기반으로 합니다. 이 시리즈의 소개는 [공개 키 암호화 및 X.509 공개 키 인프라 이해](../iot-hub/tutorial-x509-introduction.md)를 참조하세요.
 
 1. CA 인증서를 사용하여 다운스트림 디바이스에 대해 두 개의 디바이스 인증서(기본 및 보조)를 만듭니다.
 
    X.509 인증서를 만들 인증 기관이 없는 경우 IoT Edge 데모 인증서 스크립트를 사용하여 [다운스트림 디바이스 인증서 만들기](how-to-create-test-certificates.md#create-downstream-device-certificates)가 가능합니다. CA 서명 인증서를 만들기 위해 다음 단계를 수행합니다. 게이트웨이 디바이스에 대한 인증서를 생성한 것과 같은 루트 CA 인증서를 사용합니다.
 
-2. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브에 X.509 CA 인증서 등록](../iot-hub/tutorial-x509-scripts.md) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
+2. *Azure IoT 허브에서 X.509 보안 설정* 의 [소유 증명 입증](../iot-hub/tutorial-x509-openssl.md#step-7---demonstrate-proof-of-possession) 섹션에 있는 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
 
    1. 루트 CA 인증서를 업로드합니다. 데모 인증서를 사용하는 경우 루트 CA는 **\<path>/certs/azure-iot-test-only.root.ca.cert.pem** 입니다.
 
    2. 해당 루트 CA 인증서를 소유하고 있는지 확인합니다.
 
-3. Azure IoT Hub에서 X.509 보안 설정의 [IoT 허브용 X.509 디바이스 만들기](../iot-hub/tutorial-x509-scripts.md) 섹션에 설명된 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
+3. *Azure IoT 허브에서 X.509 보안 설정* 의 [IoT Hub에서 디바이스 만들기](../iot-hub/tutorial-x509-openssl.md#step-8---create-a-device-in-your-iot-hub) 섹션에 있는 지침을 따릅니다. 이 섹션에서는 다음 단계를 수행합니다.
 
    1. 새 디바이스를 추가합니다. **디바이스 ID** 에 소문자 이름을 입력하고 인증 유형 **X.509 CA 서명** 을 선택합니다.
 
@@ -169,7 +169,7 @@ X.509 CA(인증 기관) 서명 인증의 경우 IoT Hub에 등록된 루트 CA �
 
 6. 선호하는 언어에 따라 IoT 애플리케이션에서 X.509 인증서를 참조할 수 있는 방법에 대한 샘플을 검토합니다.
 
-   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-scripts.md)
+   * C#: [Azure IoT Hub의 X.509 보안 설정](../iot-hub/tutorial-x509-test-certificate.md)
    * C: [iotedge_downstream_device_sample.c](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iotedge_downstream_device_sample)
    * Node.js: [simple_sample_device_x509](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device_x509.js)
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)

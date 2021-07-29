@@ -1,20 +1,20 @@
 ---
 title: Azure Portal을 사용하여 영역 VM 만들기
-description: Azure Portal을 사용하여 가용성 영역에서 Windows VM 만들기
+description: Azure Portal을 사용하여 가용성 영역에서 VM 만들기
 documentationcenter: virtual-machines
 author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 3/8/2021
+ms.date: 5/10/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 7c7f135d4033a31f855342c172d73f51478931ab
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: f1c37751e8f633c6d7dfab88b9dbe524626483a8
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "102501688"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079178"
 ---
 # <a name="create-a-virtual-machine-in-an-availability-zone-using-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 가상 머신 만들기
 
@@ -24,29 +24,25 @@ ms.locfileid: "102501688"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
-## <a name="create-virtual-machine"></a>가상 머신 만들기
+1. **리소스 만들기** > **컴퓨팅** > **가상 머신** 을 클릭합니다. 
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 를 클릭합니다.
+3. 가상 머신 정보를 입력합니다. 사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.yml#what-are-the-password-requirements-when-creating-a-vm-)을 충족해야 합니다. 
 
-2. **Compute** 를 선택한 다음, **Windows Server 2016 Datacenter** 를 선택합니다. 
+4. 가용성 영역을 지원하는 지역(예: 미국 동부 2)을 선택합니다. 
 
-3. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료한 경우 **확인** 을 클릭합니다.
+5. **가용성 옵션** 에서 **가용성 영역** 드롭다운을 선택합니다. 
 
-    ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
-
+1. **가용성 영역** 아래 드롭다운 목록에서 영역을 선택합니다.
+        
 4. VM의 크기를 선택합니다. 권장된 크기를 선택하거나 기능을 기반으로 필터링합니다. 사용하려는 영역에서 크기를 사용할 수 있는지 확인합니다.
 
-    ![VM 크기 선택](./media/create-portal-availability-zone/create-windows-vm-portal-sizes.png)  
+6. VM에 관한 정보 입력을 완료합니다. 완료되면 **검토 + 만들기** 를 선택합니다.
 
-5. **설정** > **고가용성** 아래의 **가용성 영역** 드롭다운에서 번호가 매겨진 영역 중 하나를 선택하고 나머지 기본값을 유지하고 **확인** 을 클릭합니다.
+7. 정보를 확인한 후 **만들기** 를 선택합니다.
 
-    ![가용성 영역 선택](./media/create-portal-availability-zone/create-windows-vm-portal-availability-zone.png)
-
-6. 요약 페이지에서 **만들기** 를 클릭하여 가상 머신 배포를 시작합니다.
-
-7. Azure Portal 대시보드에 VM을 고정합니다. 배포가 완료되면 VM 요약이 자동으로 열립니다.
+1. VM을 만든 후 VM 페이지에서 **Essentials 섹션** 에 나열된 가용성 영역을 볼 수 있습니다.
 
 ## <a name="confirm-zone-for-managed-disk-and-ip-address"></a>관리 디스크 및 IP 주소에 대한 영역 확인
 
@@ -54,18 +50,11 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 포털에서 이러한 리소스에 대한 영역 설정을 확인할 수 있습니다.  
 
-1. **리소스 그룹** 을 클릭한 다음, *myResourceGroup* 과 같은 VM에 대한 리소스 그룹의 이름을 클릭합니다.
+1. 왼쪽 메뉴에서 **디스크** 를 선택한 다음, OS 디스크를 선택합니다. 디스크 페이지에는 리소스의 위치와 가용성 영역에 관한 세부 정보가 포함됩니다.
 
-2. 디스크 리소스의 이름을 클릭합니다. **개요** 페이지는 리소스의 위치와 가용성 영역에 대한 세부 정보를 포함합니다.
+1. VM 페이지로 돌아가서 공용 IP 주소를 선택합니다. 왼쪽 메뉴에서 **속성** 을 선택합니다. 속성 페이지에는 공용 IP 주소의 위치와 가용성 영역에 관한 세부 정보가 포함됩니다.
 
-    ![관리 디스크에 대한 가용성 영역](./media/create-portal-availability-zone/create-windows-vm-portal-disk.png)
-
-3. 공용 IP 주소 리소스의 이름을 클릭합니다. **개요** 페이지는 리소스의 위치와 가용성 영역에 대한 세부 정보를 포함합니다.
-
-    ![IP 주소에 대한 가용성 영역](./media/create-portal-availability-zone/create-windows-vm-portal-ip.png)
-
-
-
+    
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 가용성 영역에서 VM을 만드는 방법을 배웠습니다. Azure VM의 [가용성](../availability.md)에 대해 자세히 알아보세요.

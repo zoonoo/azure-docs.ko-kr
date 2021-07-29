@@ -8,12 +8,13 @@ ms.author: amjads
 author: amjads1
 ms.collection: windows
 ms.date: 08/31/2020
-ms.openlocfilehash: 13b4c4ef50ea37cabe30474d339acb19176cef97
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: c359df185ea21df52f678ca4f4656e0b4eca1a19
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "102553904"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110663194"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -74,7 +75,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 
 사용자 지정 스크립트 확장 구성은 스크립트 위치 및 실행할 명령 등을 지정합니다. 이 구성을 구성 파일에 저장하거나, 명령줄에 지정하거나, Azure Resource Manager 템플릿에 지정할 수 있습니다.
 
-중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
+중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 보호되어야 하는 암호 또는 SAS(공유 액세스 서명) 파일 참조와 같은 비밀이 포함되어 있는 경우에 유용합니다.
 
 이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다.
 
@@ -97,16 +98,16 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
         "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
-            "fileUris": [
-                "script location"
-            ],
             "timestamp":123456789
         },
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
             "storageAccountKey": "myStorageAccountKey",
-            "managedIdentity" : {}
+            "managedIdentity" : {},
+            "fileUris": [
+                "script location"
+            ]
         }
     }
 }
@@ -123,7 +124,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | 문자열 |
@@ -142,7 +143,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 #### <a name="property-value-details"></a>속성 값 세부 정보
 
 * `commandToExecute`: (**필수**, 문자열) 실행할 진입점 스크립트입니다. 명령에 암호와 같은 비밀이 포함되어 있거나 fileUris가 중요한 경우 이 필드를 대신 사용합니다.
-* `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
+* `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다. URL이 중요한 경우(예: 키가 포함된 URL) 이 필드는 protectedSettings에 지정되어야 합니다.
 * `timestamp`(옵션, 32비트 정수)는 이 필드의 값을 변경하여 스크립트의 다시 실행을 트리거하는 데만 이 필드를 사용합니다.  모든 정수 값을 사용할 수 있습니다. 단, 이전 값과 달라야 합니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
 * `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
@@ -153,6 +154,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드�
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.
 
 * `commandToExecute`
+* `fileUris`
 
 공용 설정을 사용하는 것이 디버깅에 유용할 수 있지만 보호 설정을 사용하는 것이 좋습니다.
 

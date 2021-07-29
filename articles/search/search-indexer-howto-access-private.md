@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 0b30cb1767e733861d8418ea29e564bc90a5bc70
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 0de817d2d18105b3f1a27ccd938f85bc62504867
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101676508"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108770410"
 ---
 # <a name="make-indexer-connections-through-a-private-endpoint"></a>프라이빗 엔드포인트를 통한 인덱서 연결 만들기
 
@@ -47,7 +47,7 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
 
 [지원되는 API 목록](/rest/api/searchmanagement/privatelinkresources/listsupported)을 사용하여 아웃바운드 프라이빗 엔드포인트 연결이 지원되는 Azure 리소스를 쿼리할 수도 있습니다.
 
-이 문서의 나머지 부분에서는 REST API 호출을 보여주기 위해 [Azure CLI](/cli/azure/)(또는 원하는 경우 [ARMClient](https://github.com/projectkudu/ARMClient))와 [Postman](https://www.postman.com/)(또는 원하는 경우 [curl](https://curl.se/) 등의 다른 HTTP 클라이언트)을 혼합하여 사용합니다.
+이 문서의 나머지 부분에서는 REST API 호출을 설명하기 위해 Azure Portal(또는 원하는 경우 [Azure CLI](/cli/azure/)) 및 [Postman](https://www.postman.com/)(또는 원하는 경우 [curl](https://curl.se/) 등의 다른 HTTP 클라이언트)을 혼합하여 사용합니다.
 
 > [!NOTE]
 > 이 문서의 예는 다음과 같은 가정을 기반으로 합니다.
@@ -63,19 +63,31 @@ Azure Cognitive Search는 관리 REST API를 통해 Azure Cognitive Search 인�
    ![선택한 네트워크에 대한 액세스를 허용하는 옵션을 보여주는 "방화벽 및 가상 네트워크" 창의 스크린샷 ](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 > [!NOTE]
-> [신뢰할 수 있는 Microsoft 서비스 접근 방식](../storage/common/storage-network-security.md#trusted-microsoft-services)을 사용하여 스토리지 계정에 대한 가상 네트워크 또는 IP 제한을 우회할 수 있습니다. 검색 서비스를 사용하여 스토리지 계정의 데이터에 액세스할 수도 있습니다. 이렇게 하려면 [신뢰할 수 있는 서비스 예외를 사용하여 Azure Storage에 대한 인덱서 액세스](search-indexer-howto-access-trusted-service-exception.md)를 참조하세요. 
+> [신뢰할 수 있는 Microsoft 서비스 접근 방식](../storage/common/storage-network-security.md#trusted-microsoft-services)을 사용하여 스토리지 계정에 대한 가상 네트워크 또는 IP 제한을 우회할 수 있습니다. 검색 서비스를 사용하여 스토리지 계정의 데이터에 액세스할 수도 있습니다. 이렇게 하려면 [신뢰할 수 있는 서비스 예외를 사용하여 Azure Storage에 대한 인덱서 액세스](search-indexer-howto-access-trusted-service-exception.md)를 참조하세요.
 >
 > 그러나 이 접근 방식을 사용하면 보안 Microsoft 백본 네트워크와 스토리지 계정의 공용 IP 주소를 통해 Azure Cognitive Search와 스토리지 계정 간 통신이 수행됩니다.
 
+Azure Cognitive Search 서비스에 대한 공유 프라이빗 링크 리소스는 Azure Portal을 통해 관리될 수 있습니다. 포털을 통해 이러한 리소스를 관리하려면 검색 서비스 -> 네트워킹 -> 공유 프라이빗 액세스로 이동합니다.
+
+   ![공유 프라이빗 링크 관리 블레이드를 보여 주는 “네트워킹” 창의 스크린샷. ](media\search-indexer-howto-secure-access\shared-private-link-portal-blade.png)
+
 ### <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>1단계: 스토리지 계정에 대한 공유 프라이빗 링크 리소스 만들기
 
-스토리지 계정에 대한 아웃바운드 프라이빗 엔드포인트 연결을 만들도록 Azure Cognitive Search에 요청하려면 [Azure CLI](/cli/azure/) 등을 사용하여 다음과 같은 API 호출을 수행합니다. 
+스토리지 계정에 대한 아웃바운드 프라이빗 엔드포인트 연결을 만들기 위한 Azure Cognitive Search를 요청하려면 공유 프라이빗 액세스 블레이드를 통해 “공유 프라이빗 액세스 추가”를 클릭합니다. 오른쪽에 열리는 대화 상자에서 “내 디렉터리에서 Azure 리소스에 연결” 또는 “리소스 ID 또는 별칭으로 Azure 리소스에 연결”을 선택할 수 있습니다.
 
-`az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json`
+첫 번째 옵션(권장)을 사용하는 경우 대화 상자 창은 적절한 스토리지 계정을 선택하는 데 도움이 되며, 리소스의 그룹 ID 및 리소스 유형과 같은 다른 속성을 채우는 데도 유용합니다.
 
-또는 [ARMClient](https://github.com/projectkudu/ARMClient) 사용을 선호하는 경우
+   ![공유 프라이빗 링크 리소스를 만들기 위한 안내 환경을 보여 주는 “공유 프라이빗 액세스 추가” 창의 스크린샷. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
 
-`armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
+두 번째 옵션을 사용하는 경우 대상 스토리지 계정의 Azure 리소스 ID를 수동으로 입력하고 적절한 그룹 ID(이 경우 “Blob”)를 선택할 수 있습니다.
+
+![공유 프라이빗 링크 리소스를 만들기 위한 수동 환경을 보여 주는 “공유 프라이빗 액세스 추가” 창의 스크린샷. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
+
+또는 [Azure CLI](/cli/azure/)를 통해 다음 API 호출을 수행할 수 있습니다.
+
+```dotnetcli
+az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 --body @create-pe.json
+```
 
 API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 다음과 같습니다.
 
@@ -92,9 +104,9 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 
 성공 시 `202 Accepted` 응답이 반환됩니다. 아웃바운드 프라이빗 엔드포인트를 만드는 프로세스는 장기 실행(비동기) 작업입니다. 여기에는 다음 리소스 배포가 포함됩니다.
 
-* `"Pending"` 상태의 개인 IP 주소로 할당된 프라이빗 엔드포인트입니다. 개인 IP 주소는 검색 서비스별 프라이빗 인덱서에 대한 실행 환경의 가상 네트워크에 할당된 주소 공간에서 가져옵니다. 프라이빗 엔드포인트 승인 시 Azure Cognitive Search에서 스토리지 계정으로의 통신은 개인 IP 주소와 보안 프라이빗 링크 채널에서 시작됩니다.
++ `"Pending"` 상태의 개인 IP 주소로 할당된 프라이빗 엔드포인트입니다. 개인 IP 주소는 검색 서비스별 프라이빗 인덱서에 대한 실행 환경의 가상 네트워크에 할당된 주소 공간에서 가져옵니다. 프라이빗 엔드포인트 승인 시 Azure Cognitive Search에서 스토리지 계정으로의 통신은 개인 IP 주소와 보안 프라이빗 링크 채널에서 시작됩니다.
 
-* `groupId`를 기반으로 하는 리소스 유형에 대한 프라이빗 DNS 영역입니다. 이 리소스를 배포하여 프라이빗 리소스에 대한 DNS 조회가 프라이빗 엔드포인트와 연결된 IP 주소를 활용하는지 확인합니다.
++ `groupId`를 기반으로 하는 리소스 유형에 대한 프라이빗 DNS 영역입니다. 이 리소스를 배포하여 프라이빗 리소스에 대한 DNS 조회가 프라이빗 엔드포인트와 연결된 IP 주소를 활용하는지 확인합니다.
 
 프라이빗 엔드포인트를 만들 리소스의 유형에 대해 올바른 `groupId`를 지정해야 합니다. 불일치가 발생하면 성공하지 못한 응답 메시지가 반환됩니다.
 
@@ -102,19 +114,23 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 
 `"Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
 
-이 URI를 주기적으로 폴링하여 작업 상태를 가져올 수 있습니다. 계속하기 전에 공유 프라이빗 링크 리소스 작업의 상태가 터미널 상태에 도달할 때(즉, 작업 상태가 *성공* 임)까지 기다리는 것이 좋습니다.
+이 URI를 주기적으로 폴링하여 작업 상태를 가져올 수 있습니다.
 
-`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01`
+Azure Portal을 활용하여 공유 프라이빗 링크 리소스를 만드는 경우 이 폴링은 포털에서 자동으로 수행됩니다(리소스 프로비저닝 상태가 “업데이트 중”으로 표시됨).
 
-또는 ARMClient 사용:
+![진행 중인 리소스 생성을 보여 주는 “공유 프라이빗 액세스 추가” 창의 스크린샷. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
-`armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01"`
+리소스가 성공적으로 만들어지면 포털 알림을 받게 되며 리소스의 프로비저닝 상태가 “Succeeded”로 변경됩니다.
 
-```json
-{
-    "status": "running" | "succeeded" | "failed"
-}
+![리소스 생성이 완료되었음을 보여 주는 “공유 프라이빗 액세스 추가” 창의 스크린샷. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-success.png)
+
+CLI를 사용하는 경우 `Azure-AsyncOperationHeader` 값을 수동으로 쿼리하면 상태를 폴링할 수 있습니다.
+
+```dotnetcli
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe/operationStatuses/08586060559526078782?api-version=2020-08-01
 ```
+
+다음 단계로 진행하기 전에 리소스의 프로비저닝 상태가 “Succeeded”로 변경될 때까지 기다립니다.
 
 ### <a name="step-2a-approve-the-private-endpoint-connection-for-the-storage-account"></a>2a단계: 스토리지 계정에 대한 프라이빗 엔드포인트 연결 승인
 
@@ -123,11 +139,11 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 >
 > Azure Cosmos DB 또는 Azure SQL Server 등의 다른 공급자는 프라이빗 엔드포인트 연결 관리를 위한 유사한 스토리지 리소스 공급자 API를 제공합니다.
 
-1. Azure Portal에서 스토리지 계정의 **프라이빗 엔드포인트 연결** 탭을 선택합니다. 비동기 작업이 성공한 후에는 이전 API 호출의 요청 메시지와 함께 프라이빗 엔드포인트 연결에 대한 요청이 있어야 합니다.
+1. Azure Portal에서 스토리지 계정의 **네트워킹** 탭을 선택하고 **프라이빗 엔드포인트 연결** 로 이동합니다. 비동기 작업이 성공한 후에는 이전 API 호출의 요청 메시지와 함께 프라이빗 엔드포인트 연결에 대한 요청이 있어야 합니다.
 
    !["프라이빗 엔드포인트 연결" 창이 표시된 Azure Portal의 스크린샷입니다.](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
-1. Azure Cognitive Search에서 만든 프라이빗 엔드포인트를 선택합니다. **프라이빗 엔드포인트** 열에서 이전 API에 지정된 이름으로 프라이빗 엔드포인트 연결을 식별하고 **승인** 을 선택한 다음, 적절한 메시지를 입력합니다. 메시지 내용은 중요하지 않습니다. 
+1. Azure Cognitive Search에서 만든 프라이빗 엔드포인트를 선택합니다. **프라이빗 엔드포인트** 열에서 이전 API에 지정된 이름으로 프라이빗 엔드포인트 연결을 식별하고 **승인** 을 선택한 다음, 적절한 메시지를 입력합니다. 메시지 내용은 중요하지 않습니다.
 
    다음 스크린샷과 같이 프라이빗 엔드포인트 연결이 표시되는지 확인합니다. 포털에서 상태를 업데이트하는 데 1~2분 정도 걸릴 수 있습니다.
 
@@ -137,15 +153,17 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 
 ### <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>2b단계: 공유 프라이빗 링크 리소스의 상태 쿼리
 
-승인 후 공유 프라이빗 링크 리소스가 업데이트되었는지 확인하려면 [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용하여 해당 리소스의 상태를 가져옵니다.
+승인 후 공유 프라이빗 링크 리소스가 업데이트되었는지 확인하려면 Azure Portal에서 검색 서비스의 “공유 프라이빗 액세스” 블레이드를 다시 방문하고 “연결 상태”를 확인합니다.
 
-`az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+   ![“Approved” 공유 프라이빗 링크 리소스를 보여 주는 Azure Portal 스크린샷.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-approved.png)
 
-또는 ARMClient 사용:
+또는 [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용하여 “연결 상태”를 가져올 수도 있습니다.
 
-`armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
+```dotnetcli
+az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01
+```
 
-리소스의 `properties.provisioningState`가 `Succeeded`이고 `properties.status`가 `Approved`이면 공유 프라이빗 링크 리소스가 작동하고 프라이빗 엔드포인트를 통해 통신하도록 인덱서를 구성할 수 있음을 의미합니다.
+그러면 연결 상태가 “속성” 섹션 아래에 “상태”로 표시되는 JSON이 반환됩니다.
 
 ```json
 {
@@ -161,6 +179,8 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 }
 
 ```
+
+리소스의 “프로비저닝 상태”(`properties.provisioningState`)가 `Succeeded`이고 “연결 상태”(`properties.status`)가 `Approved`이면 공유 프라이빗 링크 리소스가 작동하고 프라이빗 엔드포인트를 통해 통신하도록 인덱서를 구성할 수 있음을 의미합니다.
 
 ### <a name="step-3-configure-the-indexer-to-run-in-the-private-environment"></a>3단계: 프라이빗 환경에서 실행되도록 인덱서 구성
 
@@ -184,14 +204,16 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-- "데이터 원본 자격 증명이 잘못되었습니다."와 같은 오류 메시지와 함께 인덱서 작성에 실패하면 프라이빗 엔드포인트 연결의 상태가 아직 *승인됨* 이 아니거나 연결이 작동하지 않는 것입니다. 문제를 해결하려면 다음을 수행합니다. 
-  * [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용하여 공유 프라이빗 링크 리소스의 상태를 가져옵니다. 상태가 *승인됨* 인 경우 리소스의 `properties.provisioningState`를 확인합니다. 여기에서 상태가 `Incomplete`이면 리소스에 대한 기본 종속성 중 일부를 설정하지 못한 것입니다. 공유 프라이빗 링크 리소스를 다시 생성하기 위한 `PUT` 요청을 다시 실행하려면 문제를 해결해야 합니다. 재승인이 필요할 수 있습니다. 리소스 상태를 다시 점검하여 문제가 해결되었는지 확인합니다.
++ "데이터 원본 자격 증명이 잘못되었습니다."와 같은 오류 메시지와 함께 인덱서 작성에 실패하면 프라이빗 엔드포인트 연결의 상태가 아직 *승인됨* 이 아니거나 연결이 작동하지 않는 것입니다. 문제를 해결하려면 다음을 수행합니다. 
+  + [GET API](/rest/api/searchmanagement/sharedprivatelinkresources/get)를 사용하여 공유 프라이빗 링크 리소스의 상태를 가져옵니다. 상태가 *승인됨* 인 경우 리소스의 `properties.provisioningState`를 확인합니다. 여기에서 상태가 `Incomplete`이면 리소스에 대한 기본 종속성 중 일부를 설정하지 못한 것입니다. 공유 프라이빗 링크 리소스를 다시 생성하기 위한 `PUT` 요청을 다시 실행하려면 문제를 해결해야 합니다. 재승인이 필요할 수 있습니다. 리소스 상태를 다시 점검하여 문제가 해결되었는지 확인합니다.
 
-- `executionEnvironment` 속성을 설정하지 않고 인덱서를 생성하는 경우 생성에 성공할 수 있지만 실행 기록에 인덱서 실행이 실패한 것으로 표시됩니다. 문제를 해결하려면 다음을 수행합니다.
-   * [인덱서를 업데이트](/rest/api/searchservice/update-indexer)하여 실행 환경을 지정합니다.
++ `executionEnvironment` 속성을 설정하지 않고 인덱서를 생성하는 경우 생성에 성공할 수 있지만 실행 기록에 인덱서 실행이 실패한 것으로 표시됩니다. 문제를 해결하려면 다음을 수행합니다.
+  + [인덱서를 업데이트](/rest/api/searchservice/update-indexer)하여 실행 환경을 지정합니다.
 
-- `executionEnvironment` 속성을 설정하지 않고 인덱서를 생성한 경우 성공적으로 실행되면 Azure Cognitive Search에서 해당 실행 환경이 검색 서비스별 *프라이빗* 환경이라고 결정한 것입니다. 이는 인덱서에서 사용하는 리소스, 검색 서비스의 로드 및 기타 요인에 따라 바꿀 수 있으며 나중에 실패할 수 있습니다. 문제를 해결하려면 다음을 수행합니다.
-  * 나중에 실패하지 않도록 `executionEnvironment` 속성을 `private`으로 설정하는 것이 좋습니다.
++ `executionEnvironment` 속성을 설정하지 않고 인덱서를 생성한 경우 성공적으로 실행되면 Azure Cognitive Search에서 해당 실행 환경이 검색 서비스별 *프라이빗* 환경이라고 결정한 것입니다. 이는 인덱서에서 사용하는 리소스, 검색 서비스의 로드 및 기타 요인에 따라 바꿀 수 있으며 나중에 실패할 수 있습니다. 문제를 해결하려면 다음을 수행합니다.
+  + 나중에 실패하지 않도록 `executionEnvironment` 속성을 `private`으로 설정하는 것이 좋습니다.
+
++ Azure Portal의 데이터 원본의 네트워킹 페이지를 보고 Azure Cognitive Search 서비스에서 이 데이터 원본에 액세스하기 위해 만든 프라이빗 엔드포인트를 선택하면 *액세스 권한 없음* 오류가 발생할 수 있습니다. 예상된 동작입니다. 대상 서비스의 포털 페이지를 통해 연결 요청의 상태를 변경할 수 있지만 공유 프라이빗 링크 리소스를 추가로 관리하려면 Azure Portal에서 검색 서비스의 네트워크 페이지에서 공유 프라이빗 링크 리소스를 확인해야 합니다.
 
 [할당량 및 한도](search-limits-quotas-capacity.md)는 생성할 수 있는 공유 프라이빗 링크 리소스 수를 결정하며 검색 서비스의 SKU에 따라 달라집니다.
 
@@ -199,5 +221,6 @@ API에 대한 요청 본문을 나타내는 *create-pe.js* 파일의 내용은 �
 
 프라이빗 엔드포인트에 대해 자세히 알아보세요.
 
-- [프라이빗 엔드포인트란 무엇인가요?](../private-link/private-endpoint-overview.md)
-- [프라이빗 엔드포인트에 필요한 DNS 구성](../private-link/private-endpoint-dns.md)
++ [공유 프라이빗 링크 리소스와 관련된 문제 해결](troubleshoot-shared-private-link-resources.md)
++ [프라이빗 엔드포인트란 무엇인가요?](../private-link/private-endpoint-overview.md)
++ [프라이빗 엔드포인트에 필요한 DNS 구성](../private-link/private-endpoint-dns.md)

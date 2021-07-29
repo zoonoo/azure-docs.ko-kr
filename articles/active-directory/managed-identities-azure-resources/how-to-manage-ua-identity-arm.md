@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager를 사용 하 여 사용자 할당 관리 id 만들기 & 삭제
-description: Azure Resource Manager를 사용 하 여 사용자 할당 관리 id를 만들고 삭제 하는 방법에 대 한 단계별 지침입니다.
+title: Azure Resource Manager를 사용하여 사용자 할당 관리 ID 만들기 및 삭제
+description: Azure Resource Manager를 사용하여 사용자 할당 관리 ID를 만들고 삭제하는 방법에 대한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -15,17 +15,18 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acbeb8e0fc638955995cc5aaf00f58d40adc69a8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: b20955a4830d76d5eb499968afe1823d96dafff6
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98184880"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111749780"
 ---
-# <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 사용자 할당 관리 id 만들기, 나열 및 삭제
+# <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 사용자 할당 관리 ID 생성, 나열 및 삭제
 
 
-Azure 리소스에 대 한 관리 id는 Azure Active Directory에서 관리 id를 사용 하 여 Azure 서비스를 제공 합니다. 이 ID를 사용하면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
+Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 코드에 자격 증명을 포함할 필요 없이 Azure AD 인증을 지원하는 서비스에 인증할 수 있습니다. 
 
 이 문서에서는 Azure Resource Manager를 사용하여 사용자 할당 관리 ID를 만듭니다.
 
@@ -33,9 +34,9 @@ Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 �
 
 - [사용자 할당 관리 ID 나열](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [사용자 할당 관리 ID 삭제](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-  ## <a name="prerequisites"></a>필수 구성 요소
+  ## <a name="prerequisites"></a>필수 조건
 
-- Azure 리소스에 대 한 관리 id에 익숙하지 않은 경우 [개요 섹션](overview.md)을 확인 하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
+- Azure 리소스의 관리 ID에 익숙하지 않은 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#managed-identity-types)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
 ## <a name="template-creation-and-editing"></a>템플릿 만들기 및 편집

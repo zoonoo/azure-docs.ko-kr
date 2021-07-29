@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 정책 정의 만들기, 다양한 SDK 및 Kubernetes에 대한 추가 항목에서 발생하는 문제를 해결하는 방법을 알아봅니다.
-ms.date: 01/26/2021
+ms.date: 04/19/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 6f369b16755c09468dbdae2076cc7828a53c8a17
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100592615"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108752168"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Azure Policy를 사용한 오류 해결
 
@@ -67,7 +67,7 @@ Resource Manager 속성에 대한 별칭이 존재하지 않으면 지원 티켓
 
 정책 정의 문제를 해결하려면 다음을 수행합니다.
 
-1. 먼저 평가가 끝나고 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 될 때까지 적정 시간을 기다립니다. 
+1. 먼저 평가가 끝나고 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 될 때까지 적정 시간을 기다립니다.
 
 1. Azure PowerShell 또는 REST API를 사용하여 새 평가 검사를 시작하려면 [온디맨드형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조하세요.
 1. 할당 매개 변수와 할당 범위가 올바르게 설정되어 있는지 확인하세요.
@@ -98,7 +98,7 @@ _사용 안 함_ 의 [**enforcementMode**](../concepts/assignment-structure.md#e
 
 다음을 수행하여 정책 할당 적용 문제를 해결합니다.
 
-1. 먼저 평가가 끝나고 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 될 때까지 적정 시간을 기다립니다. 
+1. 먼저 평가가 끝나고 Azure Portal 또는 SDK에서 준수 결과를 사용할 수 있게 될 때까지 적정 시간을 기다립니다.
 
 1. Azure PowerShell 또는 REST API를 사용하여 새 평가 검사를 시작하려면 [온디맨드형 평가 검사](../how-to/get-compliance-data.md#on-demand-evaluation-scan)를 참조하세요.
 1. 할당 매개 변수 및 할당 범위를 올바르게 설정하고 **enforcementMode** 를 _사용_ 하도록 설정했는지 확인하세요.
@@ -124,6 +124,24 @@ _사용 안 함_ 의 [**enforcementMode**](../concepts/assignment-structure.md#e
 #### <a name="resolution"></a>해결 방법
 
 거부 정책 할당의 오류 메시지에는 정책 정의 및 정책 할당 ID가 포함됩니다. 메시지의 오류 정보가 누락된 경우에도 [활동 로그](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log)에서 해당 정보를 사용할 수 있습니다. 해당 정보를 사용하여 리소스 제한을 이해하고 요청에서 리소스 속성을 허용되는 값과 일치하도록 조정하는 방법에 대한 세부 정보를 확인하세요.
+
+### <a name="scenario-definition-targets-multiple-resource-types"></a>시나리오: 정의는 여러 리소스 종류를 대상으로 함
+
+#### <a name="issue"></a>문제
+
+여러 리소스 종류를 포함하는 정책 정의는 생성 또는 업데이트 중에 다음 오류로 인해 유효성 검사에 실패합니다.
+
+```error
+The policy definition '{0}' targets multiple resource types, but the policy rule is authored in a way that makes the policy not applicable to the target resource types '{1}'.
+```
+
+#### <a name="cause"></a>원인
+
+정책 정의 규칙에 대상 리소스 종류에 의해 평가되지 않는 하나 이상의 조건이 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+별칭을 사용하는 경우 그 앞에 형식 조건을 추가하여 별칭이 속한 리소스 종류에 대해서만 별칭이 평가되는지 확인합니다. 대안은 정책 정의를 여러 정의로 분할하여 여러 리소스 종류를 대상으로 지정하지 않도록 하는 것입니다.
 
 ## <a name="template-errors"></a>템플릿 오류
 
@@ -220,7 +238,7 @@ Azure Policy는 정책 정의에서만 사용할 수 있는 여러 ARM 템플릿
 
 추가 기능이 Azure Policy 서비스 엔드포인트에 도달할 수 없으며 다음 오류 중 하나가 반환됩니다.
 
-- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
+- `azure.BearerAuthorizer#WithAuthorization: Failed to refresh the Token for request to https://gov-prod-policy-data.trafficmanager.net/checkDataPolicyCompliance?api-version=2019-01-01-preview: StatusCode=404`
 - `adal: Refresh request failed. Status Code = '404'. Response body: getting assigned identities for pod kube-system/azure-policy-8c785548f-r882p in CREATED state failed after 16 attempts, retry duration [5]s, error: <nil>`
 
 #### <a name="cause"></a>원인

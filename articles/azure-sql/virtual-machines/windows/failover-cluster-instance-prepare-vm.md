@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 10f01fd5943928eda1f1e4518f30c8e3ccf56b46
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 437b6621687597e56c63b9afb146c67657650e71
+ms.sourcegitcommit: ff1aa951f5d81381811246ac2380bcddc7e0c2b0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "98737798"
+ms.lasthandoff: 06/07/2021
+ms.locfileid: "111569281"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>FCI용 가상 머신 준비(Azure VM의 SQL Server)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -26,6 +26,9 @@ ms.locfileid: "98737798"
 이 문서에서는 SQL Server FCI(장애 조치(failover) 클러스터 인스턴스)와 함께 사용하도록 Azure VM(가상 머신)을 준비하는 방법을 설명합니다. 구성 설정은 FCI 스토리지 솔루션에 따라 다르므로 환경과 비즈니스에 적합한 올바른 구성을 선택하고 있는지 확인합니다. 
 
 자세한 내용은 [Azure VM에서 SQL Server를 사용하는 FCI](failover-cluster-instance-overview.md) 및 [클러스터 모범 사례](hadr-cluster-best-practices.md)의 개요를 참조하세요. 
+
+> [!NOTE]
+> Azure Migrate를 사용하여 Azure VM의 SQL Server에 대한 장애 조치(failover) 클러스터 인스턴스 솔루션을 리프트 앤 시프트할 수 있습니다. 자세한 내용은 [장애 조치(failover) 클러스터 인스턴스 마이그레이션](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)을 참조하세요. 
 
 ## <a name="prerequisites"></a>사전 요구 사항 
 
@@ -135,8 +138,10 @@ Azure Marketplace에서 만든 가상 머신은 연결된 스토리지와 함께
 - [프리미엄 파일 공유로 FCI 구성](failover-cluster-instance-premium-file-share-manually-configure.md)
 - [스토리지 공간 다이렉트로 FCI 구성](failover-cluster-instance-storage-spaces-direct-manually-configure.md)
 
-자세한 내용은 [Azure VM에서 SQL Server를 사용하는 FCI](failover-cluster-instance-overview.md) 및 [지원되는 HADR 구성](hadr-cluster-best-practices.md)의 개요를 참조하세요. 
 
-자세한 내용은 다음을 참조하세요. 
-- [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server 장애 조치(failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+자세한 내용은 다음을 참조하세요.
+
+- [Azure VM에서 SQL Server를 사용하는 Windows Server 장애 조치(failover) 클러스터](hadr-windows-server-failover-cluster-overview.md)
+- [Azure VM에서 SQL Server를 사용하는 장애 조치(failover) 클러스터 인스턴스](failover-cluster-instance-overview.md)
+- [장애 조치(failover) 클러스터 인스턴스 개요](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Azure VM의 SQL Server에 대한 HADR 설정](hadr-cluster-best-practices.md)

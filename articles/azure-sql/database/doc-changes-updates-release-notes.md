@@ -3,20 +3,20 @@ title: 새로운 기능은 무엇입니까?
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Azure SQL Database 및 SQL Managed Instance의 새로운 기능 및 설명서 개선 사항에 대해 알아봅니다.
 services: sql-database
-author: stevestein
+author: MashaMSFT
+ms.author: mathoma
 ms.service: sql-db-mi
-ms.subservice: service
-ms.custom: sqldbrb=2
+ms.subservice: service-overview
+ms.custom: sqldbrb=2, references_regions
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/17/2021
-ms.author: sstein
-ms.openlocfilehash: 7746b8aa84bea9ec8c18b4c4af0851ca3e5e3957
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.date: 06/03/2021
+ms.openlocfilehash: 3a971b88e2152d79f0c11cc58092d6faf1e3f900
+ms.sourcegitcommit: 8bca2d622fdce67b07746a2fb5a40c0c644100c6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108132020"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111752678"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Azure SQL Database 및 SQL Managed Instance의 새로운 기능은 무엇인가요?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -136,9 +136,9 @@ Azure SQL Database 및 Azure SQL Managed Instance에 대한 설명서는 별도�
 
 ### <a name="procedure-sp_send_dbmail-may-transiently-fail-when-query-parameter-is-used"></a>@query 매개 변수를 사용하면 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있음
 
-`@query` 매개 변수를 사용하면 sp_send_dbmail 프로시저가 일시적으로 실패할 수 있음 이 문제가 발생하면 sp_send_dbmail 프로시저의 두 번째 실행이 `Msg 22050, Level 16, State 1` 오류 및 `Failed to initialize sqlcmd library with error number -2147467259` 메시지와 함께 실패합니다. 이 오류를 제대로 확인하려면 `@exclude_query_output` 매개 변수에 대해 기본값 0으로 프로시저를 호출해야 합니다. 그러지 않으면 오류가 전파되지 않습니다.
-이 문제는 sp_send_dbmail이 가장 및 연결 풀링을 사용하는 방법과 관련된 알려진 버그로 인해 발생합니다.
-이 문제를 해결하려면 출력 매개 변수 `@mailitem_id`에 의존하는 다시 시도 논리로 이메일을 보내기 위한 랩 코드를 사용합니다. 실행이 실패하면 매개 변수 값이 NULL이 되어 이메일을 성공적으로 전송하기 위해 sp_send_dbmail을 한 번 더 호출해야 함을 나타냅니다. 다음은 이 다시 시도 논리의 예입니다.
+`@query` 매개 변수를 사용하면 `sp_send_dbmail` 프로시저가 일시적으로 실패할 수 있음 이 문제가 발생하면 sp_send_dbmail 프로시저의 두 번째 실행이 `Msg 22050, Level 16, State 1` 오류 및 `Failed to initialize sqlcmd library with error number -2147467259` 메시지와 함께 실패합니다. 이 오류를 제대로 확인하려면 `@exclude_query_output` 매개 변수에 대해 기본값 0으로 프로시저를 호출해야 합니다. 그러지 않으면 오류가 전파되지 않습니다.
+이 문제는 `sp_send_dbmail`이 가장 및 연결 풀링을 사용하는 방법과 관련된 알려진 버그로 인해 발생합니다.
+이 문제를 해결하려면 출력 매개 변수 `@mailitem_id`에 의존하는 다시 시도 논리로 이메일을 보내기 위한 랩 코드를 사용합니다. 실행이 실패하면 매개 변수 값이 NULL이 되어 이메일을 성공적으로 전송하기 위해 `sp_send_dbmail`을 한 번 더 호출해야 함을 나타냅니다. 다음은 이 다시 시도 논리의 예입니다.
 ```sql
 CREATE PROCEDURE send_dbmail_with_retry AS
 BEGIN
@@ -165,26 +165,27 @@ END
 
 서비스 계층 또는 vCore 수 변경을 포함하는 관리되는 인스턴스 확장 작업은 백 엔드에서 서버 신뢰 그룹 설정을 다시 설정하고 [분산 트랜잭션](./elastic-transactions-overview.md) 실행을 사용하지 않도록 설정합니다. 해결 방법으로 Azure Portal에서 새 [서버 신뢰 그룹](../managed-instance/server-trust-group-overview.md)을 삭제하고 만듭니다.
 
-### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 관리 ID를 사용하여 Azure 스토리지에 액세스할 수 없습니다.
+### <a name="bulk-insert-and-backuprestore-statements-should-use-sas-key-to-access-azure-storage"></a>BULK INSERT 및 BACKUP/RESTORE 문은 SAS 키를 사용하여 Azure Storage에 액세스해야 합니다.
 
-대량 삽입, BACKUP 및 RESTORE 문과 OPENROWSET 함수는 관리 ID와 함께 `DATABASE SCOPED CREDENTIAL`을 사용하여 Azure 스토리지에 인증할 수 없습니다. 이 문제를 해결하려면 공유 액세스 서명 인증으로 전환합니다. 다음 예는 Azure SQL(Database 및 Managed Instance)에서 작동하지 않습니다.
+현재 관리 ID와 함께 `DATABASE SCOPED CREDENTIAL` 구문을 사용하여 Azure Storage에 인증할 수 없습니다. 대량 삽입, `BACKUP` 및 `RESTORE` 문 또는 `OPENROWSET` 함수를 위해Azure Storage에 액세스할 때 [데이터베이스 범위 자격 증명](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token)에 [공유 액세스 서명](../../storage/common/storage-sas-overview.md)을 사용하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 ```sql
-CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+CREATE DATABASE SCOPED CREDENTIAL sas_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+ SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=2016-12-29T16:55:34Z***************';
 GO
 CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
-  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= sas_cred );
 GO
 BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
 ```
 
-**해결 방법**: [공유 액세스 서명을 사용하여 스토리지에 인증](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)합니다.
+SAS 키와 함께 `BULK INSERT`를 사용하는 또 다른 예는 [스토리지 인증을 위한 공유 액세스 서명](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage)을 참조하세요. 
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>서비스 주체는 Azure AD 및 AKV에 액세스할 수 없습니다.
 
-경우에 따라 Azure AD 및 AKV(Azure Key Vault) 서비스에 액세스하는 데 사용되는 서비스 주체에 문제가 있을 수 있습니다. 따라서 이 문제는 SQL Managed Instance를 사용하여 Azure AD 인증 및 TDE(투명한 데이터베이스 암호화) 사용에 영향을 줍니다. 이는 일시적인 연결 문제 또는 다음과 같은 문을 실행할 수 없는 경우 발생할 수 있습니다. CREATE LOGIN/USER FROM EXTERNAL PROVIDER or EXECUTE AS LOGIN/USER. 새 Azure SQL Managed Instance에서 고객 관리형 키로 TDE를 설정하는 것도 일부 상황에서 작동하지 않을 수 있습니다.
+경우에 따라 Azure AD 및 AKV(Azure Key Vault) 서비스에 액세스하는 데 사용되는 서비스 주체에 문제가 있을 수 있습니다. 따라서 이 문제는 SQL Managed Instance를 사용하여 Azure AD 인증 및 TDE(투명한 데이터베이스 암호화) 사용에 영향을 줍니다. 이는 일시적인 연결 문제 또는 다음과 같은 문을 실행할 수 없는 경우 발생할 수 있습니다. `CREATE LOGIN/USER FROM EXTERNAL PROVIDER` 또는 `EXECUTE AS LOGIN/USER`. 새 Azure SQL Managed Instance에서 고객 관리형 키로 TDE를 설정하는 것도 일부 상황에서 작동하지 않을 수 있습니다.
 
-**해결 방법**: 업데이트 명령을 실행하기 전에 SQL Managed Instance에서 이 문제가 발생하지 않도록 하거나 업데이트 명령 후에 이미 이 문제가 발생한 경우 Azure Portal로 이동하여 SQL Managed Instance [Active Directory 관리 블레이드](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal)에 액세스합니다. 다음 오류 메시지가 표시되는지 확인합니다. "Azure Active Directory에 액세스하려면 관리되는 인스턴스에 서비스 주체가 필요합니다. 서비스 주체를 만들려면 여기를 클릭하세요." 이 오류 메시지가 발생한 경우 해당 메시지를 클릭하고 이 오류가 해결될 때까지 제공된 단계별 지침을 따르세요.
+**해결 방법**: 업데이트 명령을 실행하기 전에 SQL Managed Instance에서 이 문제가 발생하지 않도록 하거나 업데이트 명령 후에 이미 이 문제가 발생한 경우 Azure Portal로 이동하여 SQL Managed Instance [Active Directory 관리 페이지](./authentication-aad-configure.md?tabs=azure-powershell#azure-portal)에 액세스합니다. 다음 오류 메시지가 표시되는지 확인합니다. "Azure Active Directory에 액세스하려면 관리되는 인스턴스에 서비스 주체가 필요합니다. 서비스 주체를 만들려면 여기를 클릭하세요." 이 오류 메시지가 발생한 경우 해당 메시지를 클릭하고 이 오류가 해결될 때까지 제공된 단계별 지침을 따르세요.
 
 ### <a name="restoring-manual-backup-without-checksum-might-fail"></a>CHECKSUM 없는 수동 백업 복원이 실패할 수 있음
 
@@ -210,18 +211,18 @@ SQL Managed Instance 기여자 Azure 역할이 RG(리소스 그룹)에 적용되
 
 ### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>SQL 에이전트 역할에는 non-sysadmin 로그인에 대한 명시적 EXECUTE 권한이 필요함
 
-비 sysadmin 로그인이 [SQL 에이전트 고정 데이터베이스 역할](/sql/ssms/agent/sql-server-agent-fixed-database-roles)에 추가되어 있는 경우 해당 로그인이 작동하려면 마스터 저장 프로시저에 명시적인 EXECUTE 권한을 부여해야 하는 문제가 있습니다. 이런 문제가 발생하면 "개체 <object_name>에 대한 EXECUTE 권한이 거부되었습니다(Microsoft SQL Server, 오류: 229)" 오류 메시지가 표시됩니다.
+비 sysadmin 로그인이 [SQL 에이전트 고정 데이터베이스 역할](/sql/ssms/agent/sql-server-agent-fixed-database-roles)에 추가되어 있는 경우 해당 로그인이 작동하려면 master 데이터베이스의 세 개 저장 프로시저에 명시적인 EXECUTE 권한을 부여해야 하는 문제가 있습니다. 이런 문제가 발생하면 "개체 <object_name>에 대한 EXECUTE 권한이 거부되었습니다(Microsoft SQL Server, 오류: 229)" 오류 메시지가 표시됩니다.
 
 **해결 방법**: SQL 에이전트 고정 데이터베이스 역할인 SQLAgentUserRole, SQLAgentReaderRole 또는 SQLAgentOperatorRole에 로그인을 추가하면 이러한 역할에 추가된 각 로그인에 대해 아래 T-SQL 스크립트를 실행하여 나열된 저장 프로시저에 EXECUTE 권한을 명시적으로 부여합니다.
 
 ```tsql
 USE [master]
 GO
-CREATE USER [login_name] FOR LOGIN [login_name]
+CREATE USER [login_name] FOR LOGIN [login_name];
 GO
-GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
-GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name];
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name];
 ```
 
 ### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>에이전트 프로세스를 다시 시작하면 SQL 에이전트 작업이 중단될 수 있음
@@ -313,12 +314,12 @@ SQL Server Data Tools는 Azure AD 로그인 및 사용자를 완전히 지원하
 
 몇 가지 시스템 뷰, 성능 카운터, 오류 메시지, XEvent 및 오류 로그 항목에는 실제 데이터베이스 이름 대신 GUID 데이터베이스 식별자가 표시됩니다. 이러한 GUID 식별자는 나중에 실제 데이터베이스 이름으로 대체되기 때문에 사용하지 마세요.
 
-**해결 방법**: sys.databases 뷰를 사용하여 실제 데이터베이스 이름에서 GUID 데이터베이스 식별자 형식으로 지정된 실제 데이터베이스 이름을 확인합니다.
+**해결 방법**: `sys.databases` 뷰를 사용하여 실제 데이터베이스 이름에서 GUID 데이터베이스 식별자 형식으로 지정된 실제 데이터베이스 이름을 확인합니다.
 
 ```tsql
 SELECT name as ActualDatabaseName, physical_database_name as GUIDDatabaseIdentifier 
 FROM sys.databases
-WHERE database_id > 4
+WHERE database_id > 4;
 ```
 
 ### <a name="error-logs-arent-persisted"></a>오류 로그가 지속되지 않음

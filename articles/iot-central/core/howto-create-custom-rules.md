@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: a65d9dbaed4d197c2e0843e73ff3f45b8678017e
-ms.sourcegitcommit: 2aeb2c41fd22a02552ff871479124b567fa4463c
+ms.openlocfilehash: 2eb776add1e4a53edc6f4f57983074af31d8f52d
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107864220"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108750044"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용하여 사용자 지정 규칙으로 Azure IoT Central 확장
 
-이 방법 가이드에서는 솔루션 개발자로서 사용자 지정 규칙 및 알림을 사용하여 IoT Central 애플리케이션을 확장하는 방법을 보여 줍니다. 이 예에서는 디바이스가 원격 분석 전송을 중지할 때 운영자에게 알림을 보내는 방법을 보여 줍니다. 솔루션은 [Azure Stream Analytics](../../stream-analytics/index.yml) 쿼리를 사용하여 디바이스에서 원격 분석 보내기가 중지된 시기를 검색합니다. Stream Analytics 작업은 [Azure Functions](../../azure-functions/index.yml)를 사용하여 [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)로 이메일 알림을 보냅니다.
+이 방법 가이드에서는 사용자 지정 규칙 및 알림을 사용하여 IoT Central 애플리케이션을 확장하는 방법을 보여줍니다. 이 예에서는 디바이스가 원격 분석 전송을 중지할 때 운영자에게 알림을 보내는 방법을 보여 줍니다. 솔루션은 [Azure Stream Analytics](../../stream-analytics/index.yml) 쿼리를 사용하여 디바이스에서 원격 분석 보내기가 중지된 시기를 검색합니다. Stream Analytics 작업은 [Azure Functions](../../azure-functions/index.yml)를 사용하여 [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)로 이메일 알림을 보냅니다.
 
 이 방법 가이드에서는 기본 제공 규칙 및 작업으로 이미 수행할 수 있는 작업 이상으로 IoT Central 확장하는 방법을 보여 줍니다.
 
@@ -28,11 +28,11 @@ ms.locfileid: "107864220"
 * 디바이스가 데이터 전송을 중지한 경우를 검색하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용하여 이메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 애플리케이션 템플릿에는 원격 분석을 보내는 시뮬레이션된 자동 온도 조절 디바이스 두 개가 포함되어 있습니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource group
 
 만들어진 기타 리소스를 포함하는 **DetectStoppedDevices** 라는 [리소스 그룹을 만드는 데 Azure Portal을 사용](https://portal.azure.com/#create/Microsoft.ResourceGroup)합니다. IoT Central 애플리케이션과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -110,7 +110,7 @@ Sendgrid 계정이 없는 경우 시작하기 전에 [체험 계정](https://app
 
 그런 다음 API 키가 제공됩니다. 이 이름은 나중에 사용되므로 저장합니다.
 
-## <a name="create-an-event-hub"></a>이벤트 허브 생성
+## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
 IoT Central 애플리케이션을 구성하여 원격 분석을 이벤트 허브로 내보낼 수 있습니다. 이 섹션에서는 IoT Central 애플리케이션에서 원격 분석을 수신하는 이벤트 허브를 만듭니다. 이벤트 허브는 프로세스를 위해 원격 분석을 Stream Analytics 작업에 전달합니다.
 

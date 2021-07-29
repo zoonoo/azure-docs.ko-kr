@@ -3,12 +3,12 @@ title: 매개 변수를 사용하여 동적 청사진 만들기
 description: 정적 및 동적 매개 변수와 이러한 매개 변수를 사용하여 보안 및 동적 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 05/01/2021
 ms.topic: conceptual
-ms.openlocfilehash: 324763d6518acf0b57e4f9048f2773027e71ca23
-ms.sourcegitcommit: f6b76df4c22f1c605682418f3f2385131512508d
+ms.openlocfilehash: 6db29a058bd8022c2f1224a8a8bf6e4fb85a398f
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108323900"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108761348"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 
@@ -63,7 +63,7 @@ Azure Key Vault에 대한 자세한 내용은 [Key Vault 개요](../../../key-va
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="청사진 정의 및 ‘X/Y 매개 변수 채워짐’이 강조 표시된 스크린샷." border="false":::
 
-1. **아티팩트 편집** 페이지에는 선택한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수** 로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 아래 예제에서는 _위치_ 가 선택 취소되고 _리소스 그룹 이름_ 이 선택되었기 때문에 위치만이 **정적 매개 변수** 입니다.
+1. **아티팩트 편집** 페이지에는 선택한 아티팩트에 적절한 값 옵션이 표시됩니다. 아티팩트의 각 매개 변수에는 제목, 값 상자 및 확인란이 있습니다. **정적 매개 변수** 로 만들려면 확인란을 선택 취소하도록 상자를 설정합니다. 다음 예제에서는 _위치_ 가 선택 취소되고 _리소스 그룹 이름_ 이 선택되었기 때문에 이 위치만 **정적 매개 변수** 입니다.
 
    :::image type="content" source="../media/parameters/static-parameter.png" alt-text="청사진 아티팩트에 대한 정적 매개 변수의 스크린샷." border="false":::
 
@@ -174,7 +174,7 @@ REST API를 통해 청사진을 만들 때 [청사진 매개 변수](#blueprint-
 
 1. 할당하려는 청사진을 마우스 오른쪽 단추로 클릭하고 **청사진 할당** 을 선택하거나 할당하려는 청사진을 선택한 다음 **청사진 할당** 단추를 사용합니다.
 
-1. **청사진 할당** 페이지에서 **아티팩트 매개 변수** 섹션을 찾습니다. **동적 매개 변수** 가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 아래 예제에서 _이름_ 은 청사진을 완료하려면 정의해야 하는 **동적 매개 변수** 입니다.
+1. **청사진 할당** 페이지에서 **아티팩트 매개 변수** 섹션을 찾습니다. **동적 매개 변수** 가 하나 이상 있는 아티팩트는 아티팩트 및 구성 옵션을 표시합니다. 매개 변수에 필요한 값을 제공한 후 청사진을 할당합니다. 다음 예제에서 _이름_ 은 청사진 할당을 완료하기 위해 정의해야 하는 **동적 매개 변수** 입니다.
 
    :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="청사진 할당 중 동적 매개 변수 설정의 스크린샷." border="false":::
 

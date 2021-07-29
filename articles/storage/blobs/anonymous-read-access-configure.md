@@ -6,16 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/03/2020
+ms.date: 04/29/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: feac7b890c973b1541c5362f860432687082953f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ba46c98a97b1ef7576cd54ab6227a18bb9cb059f
+ms.sourcegitcommit: df574710c692ba21b0467e3efeff9415d336a7e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "96533879"
+ms.lasthandoff: 05/28/2021
+ms.locfileid: "110664934"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 퍼블릭 읽기 권한 구성
 
@@ -69,7 +70,7 @@ Azure Portal에서 스토리지 계정에 대한 퍼블릭 액세스를 허용�
 
 PowerShell을 사용하여 스토리지 계정에 대한 퍼블릭 액세스를 허용하거나 허용하지 않으려면 [Azure PowerShell 버전 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) 이상을 설치합니다. 다음으로, 새 또는 기존 스토리지 계정에 대한 **AllowBlobPublicAccess** 속성을 구성합니다.
 
-다음 예제에서는 스토리지 계정을 만들고 **AllowBlobPublicAccess** 속성을 명시적으로 **true** 로 설정합니다. 그런 다음, 스토리지 계정을 업데이트하여 **AllowBlobPublicAccess** 속성을 **false** 로 설정합니다. 또한 이 예제는 각 사례에서 속성 값을 검색합니다. 대괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+다음 예제에서는 스토리지 계정을 만들고 **AllowBlobPublicAccess** 속성을 명시적으로 **true** 로 설정합니다. 그런 다음, 스토리지 계정을 업데이트하여 **AllowBlobPublicAccess** 속성을 **false** 로 설정합니다. 또한 이 예제는 각 사례에서 속성 값을 검색합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 $rgName = "<resource-group>"
@@ -99,7 +100,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 Azure CLI를 사용하여 스토리지 계정에 대한 퍼블릭 액세스를 허용하거나 허용하지 않으려면 Azure CLI 버전 2.9.0 이상을 설치합니다. 자세한 내용은 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 다음으로, 새 또는 기존 스토리지 계정에 대한 **AllowBlobPublicAccess** 속성을 구성합니다.
 
-다음 예제에서는 스토리지 계정을 만들고 **allowBlobPublicAccess** 속성을 명시적으로 **true** 로 설정합니다. 그런 다음, 스토리지 계정을 업데이트하여 **allowBlobPublicAccess** 속성을 **false** 로 설정합니다. 또한 이 예제는 각 사례에서 속성 값을 검색합니다. 대괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
+다음 예제에서는 스토리지 계정을 만들고 **allowBlobPublicAccess** 속성을 명시적으로 **true** 로 설정합니다. 그런 다음, 스토리지 계정을 업데이트하여 **allowBlobPublicAccess** 속성을 **false** 로 설정합니다. 또한 이 예제는 각 사례에서 속성 값을 검색합니다. 대괄호의 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account create \
@@ -195,13 +196,13 @@ Blob 퍼블릭 액세스를 허용하거나 허용하지 않으려면 Azure Stor
 Azure Portal에서 하나 이상의 기존 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 다음 단계를 수행합니다.
 
 1. Azure Portal의 스토리지 계정 개요로 이동합니다.
-1. 메뉴 블레이드의 **Blob service** 에서 **컨테이너** 를 선택합니다.
+1. 메뉴 블레이드의 **데이터 저장소** 에서 **Blob 컨테이너** 를 선택합니다.
 1. 퍼블릭 액세스 수준을 설정하려는 컨테이너를 선택합니다.
 1. **액세스 수준 변경** 단추를 사용하여 퍼블릭 액세스 설정을 표시합니다.
 1. **퍼블릭 액세스 수준** 드롭다운에서 원하는 퍼블릭 액세스 수준을 선택하고 확인 단추를 클릭하여 선택한 컨테이너에 변경 내용을 적용합니다.
 
-    ![포털에서 공용 액세스 수준을 설정하는 방법을 보여 주는 스크린샷](./media/anonymous-read-access-configure/configure-public-access-container.png)
-
+    :::image type="content" source="media/anonymous-read-access-configure/configure-public-access-container.png" alt-text="포털에서 공용 액세스 수준을 설정하는 방법을 보여주는 스크린샷" lightbox="media/anonymous-read-access-configure/configure-public-access-container.png":::
+    
 스토리지 계정에 대한 퍼블릭 액세스가 허용되지 않는 경우 컨테이너의 퍼블릭 액세스 수준을 설정할 수 없습니다. 컨테이너의 퍼블릭 액세스 수준을 설정하려고 하면 계정에 대한 퍼블릭 액세스가 허용되지 않기 때문에 설정이 사용하지 않는 것으로 설정된 것을 볼 수 있습니다.
 
 :::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="퍼블릭 액세스를 허용하지 않을 때 컨테이너 퍼블릭 액세스 수준 설정이 차단됨을 보여 주는 스크린샷":::
@@ -239,7 +240,7 @@ Get-AzStorageContainerAcl -Container $containerName -Context $ctx
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI를 사용하여 하나 이상의 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 [az storage container set permission](/cli/azure/storage/container#az-storage-container-set-permission) 명령을 호출합니다. 계정 키, 연결 문자열 또는 SAS(공유 액세스 서명)를 전달하여 이 작업에 권한을 부여합니다. 컨테이너의 퍼블릭 액세스 수준을 설정하는 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl) 작업은 Azure AD에 대한 권한 부여를 지원하지 않습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출에 대한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요.
+Azure CLI를 사용하여 하나 이상의 컨테이너에 대한 퍼블릭 액세스 수준을 업데이트하려면 [az storage container set permission](/cli/azure/storage/container#az_storage_container_set_permission) 명령을 호출합니다. 계정 키, 연결 문자열 또는 SAS(공유 액세스 서명)를 전달하여 이 작업에 권한을 부여합니다. 컨테이너의 퍼블릭 액세스 수준을 설정하는 [컨테이너 ACL 설정](/rest/api/storageservices/set-container-acl) 작업은 Azure AD에 대한 권한 부여를 지원하지 않습니다. 자세한 내용은 [Blob 및 큐 데이터 작업 호출에 대한 권한](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)을 참조하세요.
 
 다음 예제에서는 퍼블릭 액세스를 사용할 수 없는 컨테이너를 만든 다음 컨테이너의 퍼블릭 액세스 설정을 업데이트하여 컨테이너 및 해당 Blob에 대한 익명 액세스를 허용합니다. 대괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 

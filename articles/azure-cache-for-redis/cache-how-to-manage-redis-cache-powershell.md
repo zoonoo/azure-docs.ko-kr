@@ -6,14 +6,16 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: a2d3ee3df3d83307bed781cd8625dab8c07a5cfe
+ms.sourcegitcommit: 70ce9237435df04b03dd0f739f23d34930059fef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "92536762"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111526923"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cache for Redis 관리
+
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure CLI](cache-manage-cli.md)
@@ -22,13 +24,14 @@ ms.locfileid: "92536762"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 항목에서는 Azure Cache for Redis 인스턴스 만들기, 업데이트 및 크기 조정과 같은 일반적인 작업을 수행하고 액세스 키를 다시 생성하며 캐시에 대한 정보를 보는 방법을 보여줍니다. Azure Cache for Redis PowerShell cmdlet의 전체 목록은 [Azure Cache for Redis cmdlet](/powershell/module/az.rediscache)을 참조하세요.
+이 문서에서는 Azure Cache for Redis 인스턴스 만들기, 업데이트 및 크기 조정과 같은 일반적인 작업을 수행하는 방법을 보여줍니다. 이 문서에서는 액세스 키를 재생성하는 방법과 캐시에 대한 정보를 보는 방법도 보여줍니다. Azure Cache for Redis PowerShell cmdlet의 전체 목록은 [Azure Cache for Redis cmdlet](/powershell/module/az.rediscache)을 참조하세요.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 클래식 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해](../azure-resource-manager/management/deployment-models.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
+
 Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상이 있어야 합니다. Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
 ```azurepowershell
@@ -41,7 +44,7 @@ Azure PowerShell을 이미 설치한 경우 Azure PowerShell 버전 1.0.0 이상
     Connect-AzAccount
 ```
 
-Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주소 및 해당 암호를 지정합니다.
+Microsoft Azure 로그인 대화 상자에서 Azure 계정의 메일 주소 및 암호를 지정합니다.
 
 다음으로, 여러 Azure 구독이 있는 경우 Azure 구독을 설정해야 합니다. 현재 구독 목록을 보려면 다음 명령을 실행합니다.
 
@@ -55,7 +58,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
     Select-AzSubscription -SubscriptionName ContosoSubscription
 ```
 
-Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 필요합니다.
+Azure Resource Manager에서 Windows PowerShell을 사용하려면 먼저 다음 설정을 확인해야 합니다.
 
 * Windows PowerShell, 버전 3.0 또는 4.0. Windows PowerShell 버전을 확인하려면 `$PSVersionTable`을 입력하고 `PSVersion` 값이 3.0 또는 4.0인지를 확인합니다. 호환 버전을 설치하려면 [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595)을 참조하세요.
 
@@ -72,11 +75,13 @@ Azure 리소스 관리자에서 Windows PowerShell을 사용하려면 다음이 
 ```
 
 ### <a name="how-to-connect-to-other-clouds"></a>다른 클라우드에 연결하는 방법
+
 기본적으로 Azure 환경은 글로벌 Azure 클라우드 인스턴스를 나타내는 `AzureCloud`입니다. 다른 인스턴스에 연결하려면 원하는 환경 또는 환경 이름을 사용하여 `-Environment` 또는 -`EnvironmentName` 명령줄 스위치와 함께 `Connect-AzAccount` 명령을 사용합니다.
 
 사용 가능한 환경 목록을 보려면 `Get-AzEnvironment` cmdlet을 실행합니다.
 
 ### <a name="to-connect-to-the-azure-government-cloud"></a>Azure Government 클라우드를 연결하려면
+
 Azure Government 클라우드를 연결하려면 다음 명령 중 하나를 사용합니다.
 
 ```azurepowershell
@@ -96,8 +101,9 @@ Azure Government 클라우드 내에 캐시를 만들려면 다음 위치 중 �
 
 Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](../azure-government/documentation-government-developer-guide.md)를 참조하세요.
 
-### <a name="to-connect-to-the-azure-china-cloud"></a>Azure 중국 클라우드에 연결하려면
-Azure 중국 클라우드에 연결하려면 다음 명령 중 하나를 사용합니다.
+### <a name="to-connect-to-the-azure-21vianet-china-cloud"></a>Azure 21Vianet 중국 클라우드에 연결하려면
+
+Azure 중국 21Vianet 클라우드에 연결하려면 다음 명령 중 하나를 사용합니다.
 
 ```azurepowershell
     Connect-AzAccount -EnvironmentName AzureChinaCloud
@@ -117,6 +123,7 @@ Azure 중국 클라우드에서 캐시를 만들려면 다음 위치 중 하나�
 Azure 중국 클라우드에 대한 자세한 내용은 [중국 21Vianet에서 운영하는 Azure용 AzureChinaCloud](https://www.windowsazure.cn/)를 참조하세요.
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Microsoft Azure Germany에 연결하려면
+
 Microsoft Azure Germany에 연결하려면 다음 명령 중 하나를 사용합니다.
 
 ```azurepowershell
@@ -137,9 +144,10 @@ Microsoft Azure Germany에서 캐시를 만들려면 다음 위치 중 하나를
 Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)를 참조하세요.
 
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Azure Cache for Redis PowerShell에 사용되는 속성
-다음 표에서는 Azure PowerShell을 사용하여 Azure Cache for Redis 인스턴스를 만들고 관리할 때 자주 사용되는 매개 변수에 대한 속성 및 설명을 포함합니다.
 
-| 매개 변수 | 설명 | 기본값 |
+다음 표에는 Azure Cache for Redis 인스턴스를 만들고 관리할 때 공통 매개 변수에 대한 Azure PowerShell 속성 및 설명이 포함되어 있습니다.
+
+| 매개 변수 | Description | 기본값 |
 | --- | --- | --- |
 | 속성 |캐시의 이름 | |
 | 위치 |캐시의 위치 | |
@@ -156,6 +164,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | KeyType |액세스 키를 갱신할 때 다시 생성할 액세스 키를 지정합니다. 유효한 값은 다음과 같습니다. Primary, Secondary | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration 속성
+
 | 속성 | Description | 가격 책정 계층 |
 | --- | --- | --- |
 | rdb-backup-enabled |[Redis 데이터 지속성](cache-how-to-premium-persistence.md) 사용 여부 |프리미엄 전용 |
@@ -172,6 +181,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 | 데이터베이스 |데이터베이스 수를 구성합니다. 이 속성은 캐시 만들기에서만 구성할 수 있습니다. |표준 및 프리미엄 |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Azure Cache for Redis를 만들려면
+
 [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) cmdlet을 사용하여 새 Azure Cache for Redis 인스턴스를 만듭니다.
 
 > [!IMPORTANT]
@@ -263,7 +273,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
 ```
 
-`ResourceGroupName`, `Name` 및 `Location`은 필수 매개 변수이지만 나머지는 선택 사항이며 기본값을 포함합니다. 이전 명령을 실행하면 지정된 이름, 위치 및 리소스 그룹으로 크기 1GB의 표준 SKU Azure Cache for Redis 인스턴스가 비 SSL 포트가 비활성화된 상태로 만들어집니다.
+`ResourceGroupName`, `Name` 및 `Location`은 필수 매개 변수이지만 나머지는 선택 사항이며 기본값을 포함합니다. 이전 명령을 실행하면 지정된 이름, 위치 및 리소스 그룹으로 표준 SKU Azure Cache for Redis 인스턴스가 만들어집니다. 인스턴스 크기는 1GB이며 비 SSL 포트는 사용하지 않도록 설정되어 있습니다.
 
 프리미엄 캐시를 만들려면 P1(6GB - 60GB), P2(13GB - 130GB), P3(26GB - 260GB) 또는 P4(53GB - 530GB) 크기를 지정합니다. 클러스터링을 사용하려면 `ShardCount` 매개 변수를 사용하여 분할된 데이터베이스 수를 지정합니다. 다음 예제에서는 3개의 분할된 데이터베이스가 있는 P1 프리미엄 캐시를 만듭니다. P1 프리미엄 캐시는 6GB 크기이고 3개의 분할된 데이터베이스를 지정했으므로 총 크기는 18GB(3 x 6GB)입니다.
 
@@ -271,7 +281,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 ```
 
-`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 정책을 사용하고 `KEA`의 keyspace 알림이 구성된 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [메모리 정책](cache-configure.md#memory-policies)을 참조하세요.
+`RedisConfiguration` 매개 변수에 대한 값을 지정하려면 `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`처럼 키/값 쌍으로 값을 `{}`로 묶습니다. 다음 예제에서는 `allkeys-random` 최대 메모리 정책 및 `KEA`로 구성된 키스페이스 알림을 사용하여 표준 1GB 캐시를 만듭니다. 자세한 내용은 [Keyspace 알림(고급 설정)](cache-configure.md#keyspace-notifications-advanced-settings) 및 [메모리 정책](cache-configure.md#memory-policies)을 참조하세요.
 
 ```azurepowershell
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
@@ -280,6 +290,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 <a name="databases"></a>
 
 ## <a name="to-configure-the-databases-setting-during-cache-creation"></a>캐시를 만드는 동안 데이터베이스 설정을 구성하려면
+
 `databases` 설정은 캐시를 만드는 동안에만 구성할 수 있습니다. 다음 예제에서는 [New-AzRedisCache](/powershell/module/az.rediscache/New-azRedisCache) cmdlet를 사용하여 48 데이터베이스로 프리미엄 P3(26GB) 캐시를 만듭니다.
 
 ```azurepowershell
@@ -289,6 +300,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 `databases` 속성에 대한 자세한 내용은 [기본 Azure Cache for Redis 서버 구성](cache-configure.md#default-redis-server-configuration)을 참조하세요. [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) cmdlet를 사용하여 캐시를 만드는 방법에 대한 자세한 내용은 이전의 Azure Cache for Redis를 만들려면 섹션을 참조하세요.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Azure Cache for Redis를 업데이트하려면
+
 [Set-AzRedisCache](/powershell/module/az.rediscache/Set-azRedisCache) cmdlet을 사용하여 Azure Cache for Redis 인스턴스를 업데이트합니다.
 
 `Set-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
@@ -358,6 +370,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 <a name="scale"></a>
 
 ## <a name="to-scale-an-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하려면
+
 `Size`, `Sku` 또는 `ShardCount` 속성이 수정될 때 Azure Cache for Redis 인스턴스 크기를 조정하는 데 `Set-AzRedisCache`를 사용할 수 있습니다. 
 
 > [!NOTE]
@@ -374,13 +387,13 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 > 
 > 
 
-다음 예제에서는 `myCache` 라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 이 명령은 기본 또는 표준 캐시 둘 다에 적용할 수 있습니다.
+다음 예제에서는 `myCache`라는 캐시를 2.5GB 캐시로 크기를 조정하는 방법을 보여 줍니다. 이 명령은 기본 또는 표준 캐시 둘 다에 적용할 수 있습니다.
 
 ```azurepowershell
     Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 ```
 
-이 명령을 실행하면 캐시 상태가 반환됩니다( `Get-AzRedisCache`호출과 유사). 여기서 `ProvisioningState`는 `Scaling`입니다.
+이 명령을 실행하면 캐시 상태가 반환됩니다( `Get-AzRedisCache`호출과 유사). `ProvisioningState`는 `Scaling`로 설정됩니다.
 
 ```azurepowershell
     PS C:\> Set-AzRedisCache -Name myCache -ResourceGroupName myGroup -Size 2.5GB
@@ -411,13 +424,14 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
     ShardCount         :
 ```
 
-크기 조정 작업이 완료되면 `ProvisioningState`는 `Succeeded`로 바뀝니다. 기본에서 표준으로 변경 후 크기 변경과 같은 후속 크기 조정 작업을 수행해야 하는 경우 이전 작업이 완료될 때까지 대기해야 하며 그렇지 않은 경우 다음과 같은 오류가 발생합니다.
+크기 조정 작업이 완료되면 `ProvisioningState`는 `Succeeded`로 바뀝니다. 예를 들어 기본에서 표준으로 변경한 후 크기를 변경하는 것과 같이 다른 크기 조정 작업을 수행해야 하는 경우, 이전 작업이 완료될 때까지 기다려야 합니다. 기다리지 않으면 다음과 유사한 오류가 표시됩니다.
 
 ```azurepowershell
     Set-AzRedisCache : Conflict: The resource '...' is not in a stable state, and is currently unable to accept the update request.
 ```
 
 ## <a name="to-get-information-about-an-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 정보를 가져오려면
+
 [Get-AzRedisCache](/powershell/module/az.rediscache/get-azrediscache) cmdlet을 사용하여 캐시에 대한 정보를 검색할 수 있습니다.
 
 `Get-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
@@ -502,6 +516,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-retrieve-the-access-keys-for-an-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 액세스 키를 검색하려면
+
 캐시에 대한 액세스 키를 검색하려면 [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-azRedisCacheKey) cmdlet을 사용할 수 있습니다.
 
 `Get-AzRedisCacheKey`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
@@ -546,6 +561,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-regenerate-access-keys-for-your-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 액세스 키를 다시 생성하려면
+
 캐시에 대한 액세스 키를 다시 생성하려면 [Get-AzRedisCacheKey](/powershell/module/az.rediscache/New-azRedisCacheKey) cmdlet을 사용할 수 있습니다.
 
 `New-AzRedisCacheKey`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
@@ -600,6 +616,7 @@ Microsoft Azure Germany에 대한 자세한 내용은 [Microsoft Azure Germany](
 ```
 
 ## <a name="to-delete-an-azure-cache-for-redis"></a>Azure Cache for Redis를 삭제하려면
+
 Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/module/az.rediscache/remove-azrediscache) cmdlet을 사용합니다.
 
 `Remove-AzRedisCache`에 대해 사용 가능한 매개 변수 및 해당 설명에 대한 목록을 보려면 다음 명령을 실행합니다.
@@ -652,6 +669,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
 
 
 ## <a name="to-import-an-azure-cache-for-redis"></a>Azure Cache for Redis를 가져오려면
+
 `Import-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스에 데이터를 가져올 수 있습니다.
 
 > [!IMPORTANT]
@@ -716,6 +734,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
 ```
 
 ## <a name="to-export-an-azure-cache-for-redis"></a>Azure Cache for Redis를 내보내려면
+
 `Export-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스에서 데이터를 내보낼 수 있습니다.
 
 > [!IMPORTANT]
@@ -781,6 +800,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
 ```
 
 ## <a name="to-reboot-an-azure-cache-for-redis"></a>Azure Cache for Redis를 다시 부팅하려면
+
 `Reset-AzRedisCache` cmdlet을 사용하여 Azure Cache for Redis 인스턴스를 재부팅할 수 있습니다.
 
 > [!IMPORTANT]
@@ -846,6 +866,7 @@ Azure Cache for Redis를 삭제하려면 [Remove-AzRedisCache](/powershell/modul
 
 
 ## <a name="next-steps"></a>다음 단계
+
 Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
 
 * [MSDN에 있는 Azure Cache for Redis cmdlet 설명서](/powershell/module/az.rediscache)

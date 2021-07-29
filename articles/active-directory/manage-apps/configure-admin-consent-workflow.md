@@ -2,26 +2,26 @@
 title: 관리 동의 워크플로 구성 - Azure Active Directory | Microsoft Docs
 description: 최종 사용자가 관리자 동의가 필요한 애플리케이션에 대한 액세스를 요청하는 방법을 구성하는 방법을 알아봅니다.
 services: active-directory
-author: kenwith
-manager: daveba
+author: mtillman
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/29/2019
-ms.author: kenwith
+ms.author: mtillman
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d89ea0cbc7d1e0379a9cbfce40f11d4f8ac93f
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 633505f0a0419bc595ecafc706d41aa6600c63c1
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101643765"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112080672"
 ---
-# <a name="configure-the-admin-consent-workflow-preview"></a>관리자 동의 워크플로 구성(미리 보기)
+# <a name="configure-the-admin-consent-workflow"></a>관리자 동의 워크플로 구성
 
-이 문서에서는 최종 사용자에게 관리자 동의가 필요한 애플리케이션에 대한 액세스를 요청하는 방법을 제공하는 관리자 동의 워크플로(미리 보기) 기능을 사용하도록 설정하는 방법을 설명합니다.
+이 문서에서는 최종 사용자에게 관리자 동의가 필요한 애플리케이션에 대한 액세스를 요청하는 방법을 제공하는 관리 동의 워크플로 기능을 사용하도록 설정하는 방법을 설명합니다.
 
 관리자 동의 워크플로가 없으면 사용자 동의가 사용하지 않도록 설정된 테넌트의 사용자가 조직 데이터에 액세스하기 위한 권한이 필요한 앱에 액세스하려고 하면 차단됩니다. 사용자에게 앱에 액세스할 수 있는 권한이 없으며 관리자에게 도움을 요청해야 한다는 일반 오류 메시지가 표시됩니다. 그러나 사용자가 누구에게 연락해야 하는지 몰라 포기하거나 애플리케이션에서 새 로컬 계정을 만듭니다. 관리자에게 알림이 제공되는 경우에도 관리자가 액세스 권한을 부여하고 사용자에게 알릴 수 있도록 간소화된 프로세스가 항상 있는 것은 아닙니다.
  
@@ -38,7 +38,7 @@ ms.locfileid: "101643765"
 3. 필터 검색 상자에 '**Azure Active Directory**'를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다. 
 5. **관리** 에서 **사용자 설정** 을 선택합니다.
-6. **관리자 동의 요청(미리 보기)** 아래에서 **사용자는 동의할 수 없는 앱의 관리자 동의를 요청할 수 있습니다.** 를 **예** 로 설정합니다.
+6. **관리자 동의 요청** 에서 **사용자는 동의할 수 없는 앱에 대한 관리자 동의를 요청할 수 있음** 을 **예** 로 설정합니다.
 
    ![관리자 동의 워크플로 설정 구성](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
@@ -78,7 +78,7 @@ ms.locfileid: "101643765"
 2. 왼쪽 탐색 메뉴의 맨 위에 있는 **모든 서비스** 를 선택합니다. **Azure Active Directory 확장** 이 열립니다.
 3. 필터 검색 상자에 '**Azure Active Directory**'를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 4. 탐색 메뉴에서 **엔터프라이즈 애플리케이션** 을 클릭합니다.
-5. **작업** 에서 **관리자 동의 요청(미리 보기)** 을 선택합니다.
+5. **활동** 에서 **관리자 동의 요청** 을 선택합니다.
 
    > [!NOTE]
    > 검토자는 검토자로 지정된 후에 생성된 관리자 요청만 볼 수 있습니다.
@@ -112,11 +112,7 @@ ms.locfileid: "101643765"
  
 ## <a name="audit-logs"></a>감사 로그 
  
-아래 표에서는 관리자 동의 워크플로에 사용할 수 있는 시나리오 및 감사 값을 간략하게 설명합니다. 
-
-> [!NOTE]
-> 감사 행위자의 사용자 컨텍스트는 현재 모든 시나리오에서 누락되었습니다. 이는 미리 보기 버전의 알려진 제한 사항입니다.
-
+아래 표에서는 관리자 동의 워크플로에 사용할 수 있는 시나리오 및 감사 값을 간략하게 설명합니다.
 
 |시나리오  |감사 서비스  |감사 범주  |감사 활동  |감사 행위자  |감사 로그 제한 사항  |
 |---------|---------|---------|---------|---------|---------|

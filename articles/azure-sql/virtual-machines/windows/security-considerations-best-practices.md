@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ab51a22abd5dac99a1a1bd3be5324e5d57c8e12e
-ms.sourcegitcommit: 4a54c268400b4158b78bb1d37235b79409cb5816
+ms.openlocfilehash: a0eca49f600855e3fa092ed45e2ee314284ec474
+ms.sourcegitcommit: 3bb9f8cee51e3b9c711679b460ab7b7363a62e6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108145612"
+ms.lasthandoff: 06/14/2021
+ms.locfileid: "112079772"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "108145612"
 
 Azure는 가상 머신에서 실행되는 SQL Server로 호환되는 솔루션을 제작할 수 있도록 하는 몇 가지 산업 규정 및 표준을 준수합니다. Azure 규정 준수에 대한 자세한 내용은 [Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요.
 
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+자세한 내용은 이 시리즈의 다른 문서([검사 목록](performance-guidelines-best-practices-checklist.md), [VM 크기](performance-guidelines-best-practices-vm-size.md), [스토리지](performance-guidelines-best-practices-storage.md), [HADR 구성](hadr-cluster-best-practices.md), [기준 수집](performance-guidelines-best-practices-collect-baseline.md))를 참조하세요. 
 
 ## <a name="control-access-to-the-sql-virtual-machine"></a>SQL 가상 머신에 대한 액세스 제어
 
@@ -109,6 +109,14 @@ SQL Server가 기본 포트가 아닌 포트에서 수신 대기하는 경우 �
 
 ## <a name="next-steps"></a>다음 단계
 
-성능에 대한 모범 사례에도 관심이 있으면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](./performance-guidelines-best-practices-checklist.md)를 참조하세요.
+자세히 알아보려면 다음 시리즈의 다른 문서를 참조하세요.
 
-Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.md)을 참조하세요.
+- [빠른 검사 목록](performance-guidelines-best-practices-checklist.md)
+- [VM 크기](performance-guidelines-best-practices-vm-size.md)
+- [스토리지](performance-guidelines-best-practices-storage.md)
+- [보안](security-considerations-best-practices.md)
+- [HADR 설정](hadr-cluster-best-practices.md)
+- [기준 수집](performance-guidelines-best-practices-collect-baseline.md)
+
+Azure VM에서 SQL Server 실행과 관련된 다른 항목은 [Azure Virtual Machines의 SQL Server 개요](sql-server-on-azure-vm-iaas-what-is-overview.md)를 참조하세요. SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](frequently-asked-questions-faq.yml)을 참조하세요.
+

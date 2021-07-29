@@ -3,12 +3,12 @@ title: 리소스 계층 구조를 보호하는 방법 - Azure 거버넌스
 description: 기본 관리 그룹 설정을 포함하는 계층 설정으로 리소스 계층 구조를 보호하는 방법에 대해 알아봅니다.
 ms.date: 04/09/2021
 ms.topic: conceptual
-ms.openlocfilehash: 11c20ccf5aff74d810533cd56e0a7b116f2dc64b
-ms.sourcegitcommit: b4fbb7a6a0aa93656e8dd29979786069eca567dc
+ms.openlocfilehash: c87603510d036efded1331a5c08a7aae17326d09
+ms.sourcegitcommit: 02d443532c4d2e9e449025908a05fb9c84eba039
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2021
-ms.locfileid: "107303647"
+ms.lasthandoff: 05/06/2021
+ms.locfileid: "108765164"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>리소스 계층 구조를 보호하는 방법
 
@@ -113,7 +113,7 @@ REST API를 사용하여 이 설정을 구성하기 위해 [계층 구조 설정
 
 ## <a name="powershell-sample"></a>PowerShell 샘플
 
-PowerShell에는 기본 관리 그룹을 설정하거나 권한 부여가 필요한 집합을 설정하는 'Az' 명령이 없지만 해결 방법으로 아래 PowerShell 샘플과 함께 REST API를 활용할 수 있습니다.
+PowerShell에는 기본 관리 그룹을 설정하거나 권한 부여가 필요한 집합을 설정하는 'Az' 명령이 없지만 해결 방법으로 아래 PowerShell 샘플과 함께 REST API를 사용할 수 있습니다.
 
 ```powershell
 $root_management_group_id = "Enter the ID of root management group"
